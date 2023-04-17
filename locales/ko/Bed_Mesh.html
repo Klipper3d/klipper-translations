@@ -1378,7 +1378,7 @@
 
 
 <h1 id="_1">베드 메쉬<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>베드 메쉬 모듈은 베드 표면의 불균일함을 보상하기 위해 사용됩니다. 이 기능을 사용하면 전체 베드면에서의 첫레이어 안착을 더 좋게 할 수 있습니다. 소프트웨어 기반의 수정은 완벽한 결과를 얻을 수 없습니다. 오직 대략적인 베드 형태만을 취할 수 있을 뿐입니다. 또한 베드 메쉬는 기계적이거나 전기적인 문제에 대한 보정을 할 수 없습니다. 만일 축이 틀어져 있거나 레벨링센서의 정확도가 떨어진다면 베드 메쉬 모듈은 레벨링 측정만으로는 정확한 결과를 얻지 못할 것입니다.</p>
+<p>The Bed Mesh module may be used to compensate for bed surface irregularities to achieve a better first layer across the entire bed. It should be noted that software based correction will not achieve perfect results, it can only approximate the shape of the bed. Bed Mesh also cannot compensate for mechanical and electrical issues. If an axis is skewed or a probe is not accurate then the bed_mesh module will not receive accurate results from the probing process.</p>
 <p>Prior to Mesh Calibration you will need to be sure that your Probe's Z-Offset is calibrated. If using an endstop for Z homing it will need to be calibrated as well. See <a href="Probe_Calibrate.html">Probe Calibrate</a> and Z_ENDSTOP_CALIBRATE in <a href="Manual_Level.html">Manual Level</a> for more information.</p>
 <h2 id="_2">기본 설정<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <h3 id="_3">사각 베드<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
@@ -1395,7 +1395,7 @@ probe_count: 5, 3
 <li><code>speed: 120</code> <em>Default 값: 50</em> 포인트 사이를 이동하는 속도.</li>
 <li><code>horizontal_move_z: 5</code> <em>Default 값: 5</em> 포인트 사이를 이동하기 전에 Z 축 방향으로 올라가는 높이.</li>
 <li><code>mesh_min: 35, 6</code> <em>Required</em> The first probed coordinate, nearest to the origin. This coordinate is relative to the probe's location.</li>
-<li><code>mesh_max: 240, 198</code> <em>Required</em> The probed coordinate farthest farthest from the origin. This is not necessarily the last point probed, as the probing process occurs in a zig-zag fashion. As with <code>mesh_min</code>, this coordiante is relative to the probe's location.</li>
+<li><code>mesh_max: 240, 198</code> <em>Required</em> The probed coordinate farthest farthest from the origin. This is not necessarily the last point probed, as the probing process occurs in a zig-zag fashion. As with <code>mesh_min</code>, this coordinate is relative to the probe's location.</li>
 <li><code>probe_count: 5, 3</code> <em>Default Value: 3, 3</em> The number of points to probe on each axis, specified as X, Y integer values. In this example 5 points will be probed along the X axis, with 3 points along the Y axis, for a total of 15 probed points. Note that if you wanted a square grid, for example 3x3, this could be specified as a single integer value that is used for both axes, ie <code>probe_count: 3</code>. Note that a mesh requires a minimum probe_count of 3 along each axis.</li>
 </ul>
 <p>아래 그림은 <code>mesh_min</code>, <code>mesh_max</code>, and <code>probe_count</code> 옵션이 어떻게 측정위치를 생성하시지를 나타낸 것이다. 화살표는 <code>mesh_min</code> 으로 부터 시작한 레벨측정 순서를 나타낸다. 참고로, 프로브가 <code>mesh_min</code> 위치일 때 노즐은 (11,1) 위치에 있게 되고, 프로브가 <code>mesh_max</code> 위치일 때 노즐은 (206,193)에 위치한다.</p>
@@ -1415,12 +1415,12 @@ round_probe_count: 5
 <li><code>mesh_origin: 0, 0</code> <em>Default Value: 0, 0</em> The center point of the mesh. This coordinate is relative to the probe's location. While the default is 0, 0, it may be useful to adjust the origin in an effort to probe a larger portion of the bed. See the illustration below.</li>
 <li><code>round_probe_count: 5</code> <em>Default 값: 5</em> 이 값은 X, Y 축에 따라 레벨링 측정을 할 최대 포인트수를 정수값으로 나타낸다. "최대"값이라 함은 메쉬 원점을 따라 측정하는 포인트수를 뜻한다. 메쉬의 중심을 측정할 수 있도록 하기 위해 이 값은 홀수여야 한다.</li>
 </ul>
-<p>아래 도안은 얼마나 많은 측정포인트가 만들어졌는지를 나타내고 있다. 보다시피 <code>mesh_origin</code> 을 (-10, 0) 로 설정하게 되면 측정하는 영역의 반지름이 85mm 이 된다.</p>
+<p>The illustration below shows how the probed points are generated. As you can see, setting the <code>mesh_origin</code> to (-10, 0) allows us to specify a larger mesh radius of 85.</p>
 <p><img alt="bedmesh_round_basic" src="img/bedmesh_round_basic.svg" /></p>
 <h2 id="_5">고급설정<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>보다 고급설정을 위한 자세한 옵션에 대한 설명을 아래에 이어가도록 한다. 각 예제는 위에 언급했던 직사각형 베드를 가진 프린터를 기준으로 하겠다. 각 고급옵션들은 원형베드에서도 동일한 방법으로 적용될 수 있다.</p>
 <h3 id="_6">메쉬 인터폴레이션<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
-<p>측정된 포인트사이 지점의 Z값을 결정하는데 있어 간단한 bilinear 보간법을 이용해 측정매트릭스를 샘플링하는 것도 가능하지만, 메쉬밀도를 높이기 위해 보다 고급 보간알고리즘을 사용하는게 유용할 수 있다. 이 알고리즘은 메쉬에 굴곡을 추가한다. 이것은 베드의 물질특성치에 대한 시뮬레이션을 시도한다. 이것이 가능케 하기 위해 베드 메쉬는 라그랑지에와 바이큐빅 인터폴레이션을 제공한다.</p>
+<p>While its possible to sample the probed matrix directly using simple bi-linear interpolation to determine the Z-Values between probed points, it is often useful to interpolate extra points using more advanced interpolation algorithms to increase mesh density. These algorithms add curvature to the mesh, attempting to simulate the material properties of the bed. Bed Mesh offers lagrange and bicubic interpolation to accomplish this.</p>
 <div class="highlight"><pre><span></span><code>[bed_mesh]
 speed: 120
 horizontal_move_z: 5
@@ -1455,7 +1455,7 @@ split_delta_z: .025
 <li><code>move_check_distance: 5</code> <em>Default 값: 5</em> 이동분할을 하기 전 Z 방향의 필요변화를 체크하기 위한 최소한의 거리 예를 들어, 5mm 이상의 이동은 알고리즘에 의해 이동하게 될 것이다. 5mm 마다 메쉬에 대한 Z lookup 이 발생하고, 이전 이동에서의 Z 값과 비교할 것이다. 만약 델타 프린터가 <code>split_delta_z</code>에 의해 쓰레시홀드를 직면하게 되면, 이동은 분할되고 이어질 것이다. 이 과정은 이동의 끝에 이르기까지 계속반복될 것이다. 그리고 그 끝점에서 마지막 값이 적용될 것이다. <code>move_check_distance</code> 보다 짧은 이동은 분할없이 이전이동의 최종 Z 값이 곧바로 적용되어 이동하게 된다.</li>
 <li><code>split_delta_z: .025</code> <em>Default 값: .025</em> 위에 언급된바와 같이 이것은 이동 분할 여부를 판단할 때 요구되는 최소한의 편차값이다. 이 예제에서는, +/- 0.025mm 의 편차를 가지는 Z 값은 분할이 될 것이다.</li>
 </ul>
-<p>일반적으로 이 옵션들에 대한 기본 값들을 적용하면 충분하다. 사실 <code>move_check_distance</code> 값으로 5mm 는 너무 과할 수도 있다. 하지만 고급사용자들은 최적화된 첫레이어를 형성하기 위해 이 옵션을 이용해 다양한 실험을 하려할지 모른다.</p>
+<p>Generally the default values for these options are sufficient, in fact the default value of 5mm for the <code>move_check_distance</code> may be overkill. However an advanced user may wish to experiment with these options in an effort to squeeze out the optimal first layer.</p>
 <h3 id="_8">메쉬 페이드<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
 <p>"fade" 가 실행되면 Z 보정은 설정에서 정해놓은 거리 이상으로 올라가면 서서히 사라지게 된다. 이는 베드 모양에 따라 증가 혹은 감소하면서 레이어 높이가 올라가며 작은 보정이 적용된다. 페이드가 끝마치면, Z 보정은 더이상 진행되지 않는다. 그리고 프린팅의 최종 Top면은 베드의 모양보다 훨씬 더 평평하게 될 것이다. 페이드는 좀 별로인 특징도 가지고 있다. 만약 너무 빨리 페이드하게 되면 프린팅에 눈에 띄는 불량이 형성될 수 있다. 또한, 베드가 심각하게 휘어 있는 상태였다면 페이드는 출력물의 Z 높이를 줄이거나 늘리게 할 수도 있다. 그런 이유로 페이드는 꺼져 있는게 기본설정이다.</p>
 <div class="highlight"><pre><span></span><code>[bed_mesh]
@@ -1472,10 +1472,10 @@ fade_target: 0
 <ul>
 <li><code>fade_start: 1</code> <em>Default 값: 1</em> 보정 효과가 서서히 없어지는 시작높이. 서너개의 레이어를 출력하고 페이드 과정을 시작하는 것이 좋다.</li>
 <li><code>fade_end: 10</code> <em>Default 값: 0</em> 페이드 효과를 마치는 높이. 만약 이 값이 <code>fade_start</code>보다 작다면 페이드는 꺼지게 된다. 이 값은 프린터 베드표면이 얼마나 휘어있느냐에 따라 값을 정해주면 된다. 아주 심각하게 휘어 있는 베드라면 좀더 두껍게 페이드 아웃을 진행해줘야 한다. 거의 평면에 가까운 베드라면 보다 빨리 보정이 완료되도록 이 값을 줄이면 되겠다. 만약 <code>fade_start</code>로 1을 지정했다면 10mm 값은 적당한 값이라 하겠다.</li>
-<li><code>fade_target: 0</code> <em>Default 값: 메쉬의 평균 Z 값</em> <code>fade_target</code> 은 페이드가 끝났을때 전체 베드에 적용되는 추가 Z 오프셋으로 이해될 수 있다. 일반적으로 말해 우리는 이값을 0으로 하고 싶었다. 하지만, 0일 수 없는 상황이 발생하기도 한다. 예를 들어, 호밍 위치가 베드의 평균 레벨측정 높이보다 0.2mm 가 낮았다고 가정해보자. 만일 <code>fade_target</code>이 0 이라면, 페이드는 출력물을 베드 전체적으로 평균 0.2mm 만큼의 두께가 줄어들게 만들 것이다. <code>fade_target</code> 을 0.2로 셋팅을 하면 호밍 영역은 0.2mm 늘어날 것이다. 하지만, 베드의 나머지는 정확한 사이즈를 갖게 될 것이다. 일반적으로는 <code>fade_target</code>을 설정에서는 다루지 않고 메쉬의 평균높이를 사용하는 것이 더 좋다. 하지만, 베드의 특정 위치에서 프린트를 정확히 하고자 한다면 fade target 을 수동으로 최적화시키는 게 더 좋을 수도 있다.</li>
+<li><code>fade_target: 0</code> <em>Default Value: The average Z value of the mesh</em> The <code>fade_target</code> can be thought of as an additional Z offset applied to the entire bed after fade completes. Generally speaking we would like this value to be 0, however there are circumstances where it should not be. For example, lets assume your homing position on the bed is an outlier, its .2 mm lower than the average probed height of the bed. If the <code>fade_target</code> is 0, fade will shrink the print by an average of .2 mm across the bed. By setting the <code>fade_target</code> to .2, the homed area will expand by .2 mm, however, the rest of the bed will be accurately sized. Generally its a good idea to leave <code>fade_target</code> out of the configuration so the average height of the mesh is used, however it may be desirable to manually adjust the fade target if one wants to print on a specific portion of the bed.</li>
 </ul>
 <h3 id="_9">상대적 참조 인덱스<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
-<p>대다수의 프로브는 주변상황에 쉽게 영향을 받는다. 예를 들면 열이나 충돌등에 의해 발생하는 부정확함이 발생할 수 있다. 이런 현상은 Probe Z-offset 을 결정하는걸 어렵게 만들 수 있다. 특히, 베드온도가 달라짐에 따라 레벨링이 틀어진다거나. 그런 이유로, 몇몇 프린터들은 Z 호밍을 위해선 Endstop을, 메쉬 캘리브레이션을 위해선 프로브를 사용한다. 이 프린터들은 상대적 참조 인덱스 설정을 해두면 득을 볼 수 있다.</p>
+<p>Most probes are susceptible to drift, ie: inaccuracies in probing introduced by heat or interference. This can make calculating the probe's z-offset challenging, particularly at different bed temperatures. As such, some printers use an endstop for homing the Z axis, and a probe for calibrating the mesh. These printers can benefit from configuring the relative reference index.</p>
 <div class="highlight"><pre><span></span><code>[bed_mesh]
 speed: 120
 horizontal_move_z: 5
@@ -1543,7 +1543,7 @@ faulty_region_4_max: 45.0, 210.0
 <p><code>BED_MESH_PROFILE SAVE=&lt;name&gt; LOAD=&lt;name&gt; REMOVE=&lt;name&gt;</code></p>
 <p>After a BED_MESH_CALIBRATE has been performed, it is possible to save the current mesh state into a named profile. This makes it possible to load a mesh without re-probing the bed. After a profile has been saved using <code>BED_MESH_PROFILE SAVE=&lt;name&gt;</code> the <code>SAVE_CONFIG</code> gcode may be executed to write the profile to printer.cfg.</p>
 <p>Profiles can be loaded by executing <code>BED_MESH_PROFILE LOAD=&lt;name&gt;</code>.</p>
-<p>BED_MESH_CALIBRATE가 발생할 때마다 현재 상태가 <em>default</em>프로필에 자동으로 저장됩니다. 만일 이 프로필이 존재한다면 클리퍼가 시작될때 자동으로 불러와진다. 만일 이렇게 자동불러와지는것을 원치 않는다면 <em>default</em>프로필은 아래와 같은 방법으로 삭제할 수 있다:</p>
+<p>It should be noted that each time a BED_MESH_CALIBRATE occurs, the current state is automatically saved to the <em>default</em> profile. The <em>default</em> profile can be removed as follows:</p>
 <p><code>BED_MESH_PROFILE REMOVE=default</code></p>
 <p>어떤 다른 저장된 프로필도 같은 방식으로 삭제될 수 있다. 그저 제거하기 원하는 프로필 이름을 <em>default</em> 대신에 써넣으면 된다.</p>
 <h4 id="loading-the-default-profile">Loading the default profile<a class="headerlink" href="#loading-the-default-profile" title="Permanent link">&para;</a></h4>

@@ -1253,6 +1253,26 @@
     ADXL345
   </a>
   
+    <nav class="md-nav" aria-label="ADXL345">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#direct-to-raspberry-pi" class="md-nav__link">
+    Direct to Raspberry Pi
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#using-raspberry-pi-pico" class="md-nav__link">
+    Using Raspberry Pi Pico
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
 </li>
         
       </ul>
@@ -1304,6 +1324,33 @@
   <a href="#configure-adxl345-with-rpi" class="md-nav__link">
     Configure ADXL345 With RPi
   </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-adxl345-with-pi-pico" class="md-nav__link">
+    Configure ADXL345 With Pi Pico
+  </a>
+  
+    <nav class="md-nav" aria-label="Configure ADXL345 With Pi Pico">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#flash-the-pico-firmware" class="md-nav__link">
+    Flash the Pico Firmware
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#configure-the-connection" class="md-nav__link">
+    Configure the Connection
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
         
@@ -1435,7 +1482,7 @@
 <p>When sourcing ADXL345, be aware that there is a variety of different PCB board designs and different clones of them. Make sure that the board supports SPI mode (small number of boards appear to be hard-configured for I2C by pulling SDO to GND), and, if it is going to be connected to a 5V printer MCU, that it has a voltage regulator and a level shifter.</p>
 <h2 id="_2">설치 방법<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <h3 id="_3">배선<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
-<p>An ethernet cable with shielded twisted pairs (cat5e or better) is recommended for signal integrety over a long distance. If you still experience signal integrity issues (SPI/I2C errors), shorten the cable.</p>
+<p>An ethernet cable with shielded twisted pairs (cat5e or better) is recommended for signal integrity over a long distance. If you still experience signal integrity issues (SPI/I2C errors), shorten the cable.</p>
 <p>Connect ethernet cable shielding to the controller board/RPI ground.</p>
 <p><strong><em>Double-check your wiring before powering up to prevent damaging your MCU/Raspberry Pi or the accelerometer.</em></strong></p>
 <h4 id="spi-accelerometers">SPI Accelerometers<a class="headerlink" href="#spi-accelerometers" title="Permanent link">&para;</a></h4>
@@ -1446,7 +1493,8 @@ SCLK+CS
 </code></pre></div>
 
 <h5 id="adxl345">ADXL345<a class="headerlink" href="#adxl345" title="Permanent link">&para;</a></h5>
-<p><strong>Note: Many MCUs will work with an ADXL345 in SPI mode(eg Pi Pico), wiring and configuration will vary according to your specific board and avaliable pins.</strong></p>
+<h6 id="direct-to-raspberry-pi">Direct to Raspberry Pi<a class="headerlink" href="#direct-to-raspberry-pi" title="Permanent link">&para;</a></h6>
+<p><strong>Note: Many MCUs will work with an ADXL345 in SPI mode(eg Pi Pico), wiring and configuration will vary according to your specific board and available pins.</strong></p>
 <p>SPI 를 통해 ADXL345 를 Raspberry Pi에 연결해야 합니다. ADXL345 문서에서 제안하는 I2C 연결은 처리량이 너무 낮아 <strong>작동하지 않습니다</strong>. 권장 연결 방식:</p>
 <table>
 <thead>
@@ -1460,7 +1508,7 @@ SCLK+CS
 <tr>
 <td align="center">3V3 (또는 VCC)</td>
 <td align="center">01</td>
-<td align="center">3.3v 직류 전원</td>
+<td align="center">3.3V DC power</td>
 </tr>
 <tr>
 <td align="center">GND</td>
@@ -1491,6 +1539,52 @@ SCLK+CS
 </table>
 <p>ADXL345 보드에 대한 Fritzing 배선 다이어그램:</p>
 <p><img alt="ADXL345-Rpi" src="img/adxl345-fritzing.png" /></p>
+<h6 id="using-raspberry-pi-pico">Using Raspberry Pi Pico<a class="headerlink" href="#using-raspberry-pi-pico" title="Permanent link">&para;</a></h6>
+<p>You may connect the ADXL345 to your Raspberry Pi Pico and then connect the Pico to your Raspberry Pi via USB. This makes it easy to reuse the accelerometer on other Klipper devices, as you can connect via USB instead of GPIO. The Pico does not have much processing power, so make sure it is only running the accelerometer and not performing any other duties.</p>
+<p>In order to avoid damage to your RPi make sure to connect the ADXL345 to 3.3V only. Depending on the board's layout, a level shifter may be present, which makes 5V dangerous for your RPi.</p>
+<table>
+<thead>
+<tr>
+<th align="center">ADXL345 핀</th>
+<th align="center">Pico pin</th>
+<th align="center">Pico pin name</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">3V3 (또는 VCC)</td>
+<td align="center">36</td>
+<td align="center">3.3V DC power</td>
+</tr>
+<tr>
+<td align="center">GND</td>
+<td align="center">38</td>
+<td align="center">Ground</td>
+</tr>
+<tr>
+<td align="center">CS</td>
+<td align="center">2</td>
+<td align="center">GP1 (SPI0_CSn)</td>
+</tr>
+<tr>
+<td align="center">SDO</td>
+<td align="center">1</td>
+<td align="center">GP0 (SPI0_RX)</td>
+</tr>
+<tr>
+<td align="center">SDA</td>
+<td align="center">5</td>
+<td align="center">GP3 (SPI0_TX)</td>
+</tr>
+<tr>
+<td align="center">SCL</td>
+<td align="center">4</td>
+<td align="center">GP2 (SPI0_SCK)</td>
+</tr>
+</tbody>
+</table>
+<p>Wiring diagrams for some of the ADXL345 boards:</p>
+<p><img alt="ADXL345-Pico" src="img/adxl345-pico.png" /></p>
 <h4 id="i2c-accelerometers">I2C Accelerometers<a class="headerlink" href="#i2c-accelerometers" title="Permanent link">&para;</a></h4>
 <p>Suggested twisted pair order:</p>
 <div class="highlight"><pre><span></span><code>3.3V+SDA
@@ -1599,6 +1693,47 @@ probe_points:
 </code></pre></div>
 
 <p>프린터 BED 중간, 약간 위에서 프로브 포인트 1개로 시작하는 것이 좋습니다.</p>
+<h4 id="configure-adxl345-with-pi-pico">Configure ADXL345 With Pi Pico<a class="headerlink" href="#configure-adxl345-with-pi-pico" title="Permanent link">&para;</a></h4>
+<h5 id="flash-the-pico-firmware">Flash the Pico Firmware<a class="headerlink" href="#flash-the-pico-firmware" title="Permanent link">&para;</a></h5>
+<p>On your Raspberry Pi, compile the firmware for the Pico.</p>
+<div class="highlight"><pre><span></span><code>cd ~/klipper
+make clean
+make menuconfig
+</code></pre></div>
+
+<p><img alt="Pico menuconfig" src="img/klipper_pico_menuconfig.png" /></p>
+<p>Now, while holding down the <code>BOOTSEL</code> button on the Pico, connect the Pico to the Raspberry Pi via USB. Compile and flash the firmware.</p>
+<div class="highlight"><pre><span></span><code>make flash FLASH_DEVICE=first
+</code></pre></div>
+
+<p>If that fails, you will be told which <code>FLASH_DEVICE</code> to use. In this example, that's <code>make flash FLASH_DEVICE=2e8a:0003</code>. <img alt="Determine flash device" src="img/flash_rp2040_FLASH_DEVICE.png" /></p>
+<h5 id="configure-the-connection">Configure the Connection<a class="headerlink" href="#configure-the-connection" title="Permanent link">&para;</a></h5>
+<p>The Pico will now reboot with the new firmware and should show up as a serial device. Find the pico serial device with <code>ls /dev/serial/by-id/*</code>. You can now add an <code>adxl.cfg</code> file with the following settings:</p>
+<div class="highlight"><pre><span></span><code>[mcu adxl]
+# Change &lt;mySerial&gt; to whatever you found above. For example,
+# usb-Klipper_rp2040_E661640843545B2E-if00
+serial: /dev/serial/by-id/usb-Klipper_rp2040_&lt;mySerial&gt;
+
+[adxl345]
+cs_pin: adxl:gpio1
+spi_bus: spi0a
+axes_map: x,z,y
+
+[resonance_tester]
+accel_chip: adxl345
+probe_points:
+    # Somewhere slightly above the middle of your print bed
+    147,154, 20
+
+[output_pin power_mode] # Improve power stability
+pin: adxl:gpio23
+</code></pre></div>
+
+<p>If setting up the ADXL345 configuration in a separate file, as shown above, you'll also want to modify your <code>printer.cfg</code> file to include this:</p>
+<div class="highlight"><pre><span></span><code>[include adxl.cfg] # Comment this out when you disconnect the accelerometer
+</code></pre></div>
+
+<p><code>RESTART</code> 명령을 통해 Klipper를 다시 시작하십시오.</p>
 <h4 id="configure-mpu-60009000-series-with-rpi">Configure MPU-6000/9000 series With RPi<a class="headerlink" href="#configure-mpu-60009000-series-with-rpi" title="Permanent link">&para;</a></h4>
 <p>Make sure the Linux I2C driver is enabled and the baud rate is set to 400000 (see <a href="RPi_microcontroller.html#optional-enabling-i2c">Enabling I2C</a> section for more details). Then, add the following to the printer.cfg:</p>
 <div class="highlight"><pre><span></span><code>[mcu rpi]
@@ -1621,7 +1756,7 @@ serial: /dev/serial/by-id/&lt;your PICO&#39;s serial ID&gt;
 
 [mpu9250]
 i2c_mcu: pico
-i2c_bus: i2c1a
+i2c_bus: i2c0a
 
 [resonance_tester]
 accel_chip: mpu9250
@@ -1644,7 +1779,7 @@ pin: pico:gpio23
 <div class="highlight"><pre><span></span><code>Recv: // adxl345 values (x, y, z): 470.719200, 941.438400, 9728.196800
 </code></pre></div>
 
-<p><code>Invalid adxl345 id (got xx vs e5)</code> 와 같은 오류가 발생하면 (여기서 'xx'는 다른 ID임) ADXL345의 연결 문제 또는 센서 결함을 나타냅니다. 전원, 배선(회로도와 일치하는지, 와이어가 끊어지거나 느슨하지 않은지 등) 및 납땜 품질을 다시 확인하십시오.</p>
+<p>If you get an error like <code>Invalid adxl345 id (got xx vs e5)</code>, where <code>xx</code> is some other ID, immediately try again. There's an issue with SPI initialization. If you still get an error, it is indicative of the connection problem with ADXL345, or the faulty sensor. Double-check the power, the wiring (that it matches the schematics, no wire is broken or loose, etc.), and soldering quality.</p>
 <p><strong>If you are using MPU-6000/9000 series accelerometer and it show up as <code>mpu-unknown</code>, use with caution! They are probably refurbished chips!</strong></p>
 <p>다음으로 Octoprint에서 <code>MEASURE_AXES_NOISE</code>를 실행해 보십시오. 축의 가속도계 노이즈에 대한 기준 수치를 얻어야 합니다 (~1-100 범위 어딘가에 있어야 함). 너무 높은 축 노이즈(예: 1000개 이상)는 센서 문제, 전원 문제 또는 3D 프린터의 너무 시끄러운 팬이 원인일 수 있습니다.</p>
 <h3 id="_8">공진 측정<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
@@ -1696,7 +1831,7 @@ max_accel: 3000  # should not exceed the estimated max_accel for X and Y axes
 </code></pre></div>
 
 <p>또는 생성된 차트를 기반으로 다른 구성을 직접 선택할 수 있습니다. 차트의 전력 스펙트럼 밀도 피크는 프린터의 공진 주파수에 해당합니다.</p>
-<p>Klipper에서 <a href="#input-shaper-auto-calibration">directly</a> 입력 셰이퍼 자동 보정을 실행하는게 편리할 수 있습니다, 예를 들어 입력 셰이퍼의 경우 <a href="#input-shaper-re-calibration">re-calibration</a> 을 사용합니다.</p>
+<p>Note that alternatively you can run the input shaper auto-calibration from Klipper <a href="#input-shaper-auto-calibration">directly</a>, which can be convenient, for example, for the input shaper <a href="#input-shaper-re-calibration">re-calibration</a>.</p>
 <h3 id="bed-slinger">Bed-slinger 프린터<a class="headerlink" href="#bed-slinger" title="Permanent link">&para;</a></h3>
 <p>프린터가 bed slinger 프린터인 경우 X축과 Y축 측정 사이에 가속도계의 위치를 변경해야 합니다. 툴 헤드에 부착된 가속도계로 X축의 공명과 Y축의 공진을 측정합니다. BED (일반적인 bed slinger 설정).</p>
 <p>그러나 두 개의 가속도계를 동시에 연결할 수도 있지만 서로 다른 보드(예: RPi 및 프린터 MCU 보드)에 연결하거나 동일한 보드에 있는 두 개의 서로 다른 물리적 SPI 인터페이스(드물게 사용 가능)에 연결해야 합니다. 그런 다음 다음과 같은 방식으로 구성할 수 있습니다:</p>
@@ -1823,7 +1958,7 @@ Recommended shaper_type_y = mzv, shaper_freq_y = 36.8 Hz
 <div class="highlight"><pre><span></span><code>SHAPER_CALIBRATE AXIS=X
 </code></pre></div>
 
-<p><strong>경고!</strong> 셰이퍼 자동 보정을 매우 자주 실행하지 않는 것이 좋습니다 (예: 인쇄할 때마다 또는 매일). 공진 주파수를 결정하기 위해 자동 보정은 각 축에 집중적인 진동을 생성합니다. 일반적으로 3D 프린터는 공진 주파수 근처의 진동에 장기간 노출되는 것을 견디도록 설계되지 않았습니다. 그렇게 하면 프린터 구성 요소의 마모가 증가하고 수명이 단축될 수 있습니다. 또한 일부 부품이 풀리거나 느슨해질 위험이 증가합니다. 각 자동 조정 후에 프린터의 모든 부품 (일반적으로 움직이지 않는 부품 포함) 이 제자리에 단단히 고정되어 있는지 항상 확인하십시오.</p>
+<p><strong>Warning!</strong> It is not advisable to run the shaper auto-calibration very frequently (e.g. before every print, or every day). In order to determine resonance frequencies, auto-calibration creates intensive vibrations on each of the axes. Generally, 3D printers are not designed to withstand a prolonged exposure to vibrations near the resonance frequencies. Doing so may increase wear of the printer components and reduce their lifespan. There is also an increased risk of some parts unscrewing or becoming loose. Always check that all parts of the printer (including the ones that may normally not move) are securely fixed in place after each auto-tuning.</p>
 <p>또한 측정의 일부 노이즈로 인해 조정 결과가 교정 실행마다 약간 다를 수 있습니다. 그러나 노이즈가 인쇄 품질에 너무 많은 영향을 줄 것으로 예상되지는 않습니다. 그러나 여전히 제안된 매개변수를 다시 확인하고 테스트 인쇄물을 인쇄하여 사용하기 전에 양호한지 확인하는 것이 좋습니다.</p>
 <h2 id="_11">가속도계 데이터의 오프라인 처리<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
 <p>예를 들어 공진을 찾기 위해 원시 가속도계 데이터를 생성하고 오프라인으로(예: 호스트 머신에서) 처리할 수 있습니다. 그렇게 하려면 Octoprint 터미널을 통해 다음 명령을 실행하십시오:</p>

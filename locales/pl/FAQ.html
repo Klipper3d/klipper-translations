@@ -1239,22 +1239,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#wheres-my-serial-port" class="md-nav__link">
-    Where's my serial port?
+  <a href="#gdzie-jest-moj-port-szeregowy" class="md-nav__link">
+    Gdzie jest mój port szeregowy?
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#when-the-micro-controller-restarts-the-device-changes-to-devttyusb1" class="md-nav__link">
-    When the micro-controller restarts the device changes to /dev/ttyUSB1
+  <a href="#kiedy-mikrokontroler-restartuje-urzadzenie-zmienia-sie-na-devttyusb1" class="md-nav__link">
+    Kiedy mikrokontroler restartuje urządzenie zmienia się na /dev/ttyUSB1
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#the-make-flash-command-doesnt-work" class="md-nav__link">
-    The "make flash" command doesn't work
+  <a href="#polecenie-make-flash-nie-dziaa" class="md-nav__link">
+    Polecenie "make flash" nie działa
   </a>
   
 </li>
@@ -1414,29 +1414,29 @@
 <p>Thank you for your support. See the <a href="Sponsors.html">Sponsors page</a> for information.</p>
 <h2 id="how-do-i-calculate-the-rotation_distance-config-parameter">How do I calculate the rotation_distance config parameter?<a class="headerlink" href="#how-do-i-calculate-the-rotation_distance-config-parameter" title="Permanent link">&para;</a></h2>
 <p>See the <a href="Rotation_Distance.html">rotation distance document</a>.</p>
-<h2 id="wheres-my-serial-port">Where's my serial port?<a class="headerlink" href="#wheres-my-serial-port" title="Permanent link">&para;</a></h2>
-<p>The general way to find a USB serial port is to run <code>ls /dev/serial/by-id/*</code> from an ssh terminal on the host machine. It will likely produce output similar to the following:</p>
+<h2 id="gdzie-jest-moj-port-szeregowy">Gdzie jest mój port szeregowy?<a class="headerlink" href="#gdzie-jest-moj-port-szeregowy" title="Permanent link">&para;</a></h2>
+<p>Ogólny sposób na znalezienie portu szeregowego USB to uruchomienie polecenia ls /dev/serial/by-id/* z terminala SSH na maszynie hosta. Prawdopodobnie spowoduje to wyświetlenie wyniku podobnego do następującego:</p>
 <div class="highlight"><pre><span></span><code>/dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 </code></pre></div>
 
-<p>The name found in the above command is stable and it is possible to use it in the config file and while flashing the micro-controller code. For example, a flash command might look similar to:</p>
+<p>Nazwa znaleziona w powyższym poleceniu jest stabilna i można jej używać w pliku konfiguracyjnym oraz podczas flashowania kodu mikrokontrolera. Na przykład polecenie flash może wyglądać podobnie do:</p>
 <div class="highlight"><pre><span></span><code>sudo service klipper stop
 make flash FLASH_DEVICE=/dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 sudo service klipper start
 </code></pre></div>
 
-<p>and the updated config might look like:</p>
+<p>a zaktualizowana konfiguracja może wyglądać tak:</p>
 <div class="highlight"><pre><span></span><code>[mcu]
 serial: /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 </code></pre></div>
 
-<p>Be sure to copy-and-paste the name from the "ls" command that you ran above as the name will be different for each printer.</p>
-<p>If you are using multiple micro-controllers and they do not have unique ids (common on boards with a CH340 USB chip) then follow the directions above using the command <code>ls /dev/serial/by-path/*</code> instead.</p>
-<h2 id="when-the-micro-controller-restarts-the-device-changes-to-devttyusb1">When the micro-controller restarts the device changes to /dev/ttyUSB1<a class="headerlink" href="#when-the-micro-controller-restarts-the-device-changes-to-devttyusb1" title="Permanent link">&para;</a></h2>
-<p>Follow the directions in the "<a href="#wheres-my-serial-port">Where's my serial port?</a>" section to prevent this from occurring.</p>
-<h2 id="the-make-flash-command-doesnt-work">The "make flash" command doesn't work<a class="headerlink" href="#the-make-flash-command-doesnt-work" title="Permanent link">&para;</a></h2>
-<p>The code attempts to flash the device using the most common method for each platform. Unfortunately, there is a lot of variance in flashing methods, so the "make flash" command may not work on all boards.</p>
-<p>If you're having an intermittent failure or you do have a standard setup, then double check that Klipper isn't running when flashing (sudo service klipper stop), make sure OctoPrint isn't trying to connect directly to the device (open the Connection tab in the web page and click Disconnect if the Serial Port is set to the device), and make sure FLASH_DEVICE is set correctly for your board (see the <a href="#wheres-my-serial-port">question above</a>).</p>
+<p>Pamiętaj, aby skopiować i wkleić nazwę z polecenia „ls”, które uruchomiłeś powyżej, ponieważ nazwa będzie inna dla każdej drukarki.</p>
+<p>Jeśli używasz wielu mikrokontrolerów i nie mają one unikalnych identyfikatorów (typowych na płytach z układem USB CH340), postępuj zgodnie z powyższymi wskazówkami, używając polecenia <code>ls /dev/serial/by-path/*</code>.</p>
+<h2 id="kiedy-mikrokontroler-restartuje-urzadzenie-zmienia-sie-na-devttyusb1">Kiedy mikrokontroler restartuje urządzenie zmienia się na /dev/ttyUSB1<a class="headerlink" href="#kiedy-mikrokontroler-restartuje-urzadzenie-zmienia-sie-na-devttyusb1" title="Permanent link">&para;</a></h2>
+<p>Postępuj zgodnie ze wskazówkami w sekcji „<a href="#gdzie jest mój-serial-port">Gdzie jest mój port szeregowy?</a>”, aby temu zapobiec.</p>
+<h2 id="polecenie-make-flash-nie-dziaa">Polecenie "make flash" nie działa<a class="headerlink" href="#polecenie-make-flash-nie-dziaa" title="Permanent link">&para;</a></h2>
+<p>Kod próbuje flashować urządzenie za pomocą najbardziej popularnej metody dla każdej platformy. Niestety, istnieje wiele różnic w metodach flashowania, więc polecenie "make flash" może nie działać na wszystkich płytach.</p>
+<p>Jeśli masz sporadyczną awarię lub masz standardową konfigurację, sprawdź dwukrotnie, czy Klipper nie działa podczas flashowania (sudo service klipper stop), upewnij się, że OctoPrint nie próbuje połączyć się bezpośrednio z urządzeniem (otwórz Karta Połączenie na stronie internetowej i kliknij Rozłącz, jeśli port szeregowy jest ustawiony na urządzeniu) i upewnij się, że FLASH_DEVICE jest ustawione prawidłowo dla twojej płyty głównej (patrz <a href="#wheres-my-serial-port">pytanie powyżej</a>).</p>
 <p>However, if "make flash" just doesn't work for your board, then you will need to manually flash. See if there is a config file in the <a href="https://github.com/Klipper3d/klipper/blob/master/config">config directory</a> with specific instructions for flashing the device. Also, check the board manufacturer's documentation to see if it describes how to flash the device. Finally, it may be possible to manually flash the device using tools such as "avrdude" or "bossac" - see the <a href="Bootloaders.html">bootloader document</a> for additional information.</p>
 <h2 id="how-do-i-change-the-serial-baud-rate">How do I change the serial baud rate?<a class="headerlink" href="#how-do-i-change-the-serial-baud-rate" title="Permanent link">&para;</a></h2>
 <p>The recommended baud rate for Klipper is 250000. This baud rate works well on all micro-controller boards that Klipper supports. If you've found an online guide recommending a different baud rate, then ignore that part of the guide and continue with the default value of 250000.</p>

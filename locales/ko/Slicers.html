@@ -1273,6 +1273,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#start_print-macros" class="md-nav__link">
+    START_PRINT macros
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1313,6 +1320,21 @@
 <p>일부 슬라이서는 "고급 압출기 압력" 기능을 광고합니다. Klipper를 사용할 때는 이러한 옵션을 사용하지 않는 것이 좋습니다. 인쇄 품질이 떨어질 수 있기 때문입니다. 대신 Klipper의 <a href="Pressure_Advance.html">pressure advance</a> 사용을 고려하십시오.</p>
 <p>특히, 이러한 슬라이서 설정은 펌웨어가 이러한 요청에 근접하고 프린터가 대략적으로 원하는 압출기 압력을 얻을 것이라는 희망으로 extrusion rate를 크게 변경하도록 펌웨어에 지시할 수 있습니다. 그러나 Klipper는 정확한 운동학적 계산과 타이밍을 활용합니다. Klipper가 extrusion rate를 크게 변경하라는 명령을 받으면 속도, 가속도 및 압출기 움직임에 대한 해당 변경을 계획합니다. 이는 슬라이서의 의도가 아닙니다. 슬라이서는 Klipper의 최대 압출 단면 검사를 트리거하는 지점까지 과도한 extrusion rate를 명령할 수도 있습니다.</p>
 <p>대조적으로, 슬라이서의 "retract" 설정, "wipe" 설정 및/또는 "retract 시 wipe" 설정을 사용하는 것이 좋습니다(그리고 종종 도움이 됩니다).</p>
+<h2 id="start_print-macros">START_PRINT macros<a class="headerlink" href="#start_print-macros" title="Permanent link">&para;</a></h2>
+<p>When using a START_PRINT macro or similar, it is useful to sometimes pass through parameters from the slicer variables to the macro.</p>
+<p>In Cura, to pass through temperatures, the following start gcode would be used:</p>
+<div class="highlight"><pre><span></span><code>START_PRINT BED_TEMP={material_bed_temperature_layer_0} EXTRUDER_TEMP={material_print_temperature_layer_0}
+</code></pre></div>
+
+<p>In slic3r derivatives such as PrusaSlicer and SuperSlicer, the following would be used:</p>
+<p>START_PRINT EXTRUDER_TEMP=[first_layer_temperature] BED_TEMP=[first_layer_bed_temperature]</p>
+<p>Also note that these slicers will insert their own heating codes when certain conditions are not met. In Cura, the existence of the <code>{material_bed_temperature_layer_0}</code> and <code>{material_print_temperature_layer_0}</code> variables is enough to mitigate this. In slic3r derivatives, you would use:</p>
+<div class="highlight"><pre><span></span><code>M140 S0
+M104 S0
+</code></pre></div>
+
+<p>before the macro call. Also note that SuperSlicer has a "custom gcode only" button option, which achieves the same outcome.</p>
+<p>An example of a START_PRINT macro using these paramaters can be found in config/sample-macros.cfg</p>
 
               
             </article>

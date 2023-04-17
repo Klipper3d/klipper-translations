@@ -1273,6 +1273,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#start_print-macros" class="md-nav__link">
+    START_PRINT macros
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1313,6 +1320,21 @@
 <p>Some slicers advertise an "advanced extruder pressure" capability. It is recommended to keep these options disabled when using Klipper as they are likely to result in poor quality prints. Consider using Klipper's <a href="Pressure_Advance.html">pressure advance</a> instead.</p>
 <p>Specifically, these slicer settings can instruct the firmware to make wild changes to the extrusion rate in the hope that the firmware will approximate those requests and the printer will roughly obtain a desirable extruder pressure. Klipper, however, utilizes precise kinematic calculations and timing. When Klipper is commanded to make significant changes to the extrusion rate it will plan out the corresponding changes to velocity, acceleration, and extruder movement - which is not the slicer's intent. The slicer may even command excessive extrusion rates to the point that it triggers Klipper's maximum extrusion cross-section check.</p>
 <p>In contrast, it is okay (and often helpful) to use a slicer's "retract" setting, "wipe" setting, and/or "wipe on retract" setting.</p>
+<h2 id="start_print-macros">START_PRINT macros<a class="headerlink" href="#start_print-macros" title="Permanent link">&para;</a></h2>
+<p>When using a START_PRINT macro or similar, it is useful to sometimes pass through parameters from the slicer variables to the macro.</p>
+<p>In Cura, to pass through temperatures, the following start gcode would be used:</p>
+<div class="highlight"><pre><span></span><code>START_PRINT BED_TEMP={material_bed_temperature_layer_0} EXTRUDER_TEMP={material_print_temperature_layer_0}
+</code></pre></div>
+
+<p>In slic3r derivatives such as PrusaSlicer and SuperSlicer, the following would be used:</p>
+<p>START_PRINT EXTRUDER_TEMP=[first_layer_temperature] BED_TEMP=[first_layer_bed_temperature]</p>
+<p>Also note that these slicers will insert their own heating codes when certain conditions are not met. In Cura, the existence of the <code>{material_bed_temperature_layer_0}</code> and <code>{material_print_temperature_layer_0}</code> variables is enough to mitigate this. In slic3r derivatives, you would use:</p>
+<div class="highlight"><pre><span></span><code>M140 S0
+M104 S0
+</code></pre></div>
+
+<p>before the macro call. Also note that SuperSlicer has a "custom gcode only" button option, which achieves the same outcome.</p>
+<p>An example of a START_PRINT macro using these paramaters can be found in config/sample-macros.cfg</p>
 
               
             </article>
