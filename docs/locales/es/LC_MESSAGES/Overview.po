@@ -6,11 +6,12 @@
 # L Garcia <unsaid.sorrels.0y@icloud.com>, 2024, 2025.
 # Francisco Serrador <fserrador@gmail.com>, 2024.
 # Alberto <alberto.robles.gomez@aruzeta.com>, 2025.
+# Juan Benites <benitesjn@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:22+0000\n"
-"Last-Translator: paco avendaño <pacoavendano13@gmail.com>\n"
+"Last-Translator: Juan Benites <benitesjn@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/overview/"
 "es/>\n"
 "Language: es\n"
@@ -313,8 +314,8 @@ msgid ""
 "[Exclude Object](Exclude_Object.md): The guide to the Exclude Objects "
 "implementation."
 msgstr ""
-"[Exclude Object](Exclude_Object.md): La guía para la implementación de Excluir"
-" objetos."
+"[Exclude Object](Exclude_Object.md): La guía para la implementación de "
+"Excluir objetos."
 
 #: docs/Overview.md:block 6 (unordered list)
 msgid ""
