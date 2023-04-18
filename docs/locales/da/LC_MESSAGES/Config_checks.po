@@ -1,10 +1,10 @@
-# srbjessen <srbjessen@gmail.com>, 2023.
+# srbjessen <srbjessen@gmail.com>, 2023, 2025.
 # Sebastian <sebastiankiwidk@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:42+0000\n"
-"Last-Translator: Sebastian <sebastiankiwidk@gmail.com>\n"
+"Last-Translator: srbjessen <srbjessen@gmail.com>\n"
 "Language-Team: Danish <https://hosted.weblate.org/projects/klipper/"
 "config_checks/da/>\n"
 "Language: da\n"
@@ -20,8 +20,8 @@ msgid ""
 msgstr ""
 "Dette dokument giver en række trin der kan hjælpe med at bekræfte korrekt "
 "opsætning af pins i Klippers printer.cfg fil. Det er en god idé at gennemgå "
-"alle trin, efter at have fulgt trinene i "
-"[installationsdokumentet](Installation.md)."
+"alle trin, efter at have fulgt trinene i [installationsdokumentet]"
+"(Installation.md)."
 
 msgid ""
 "During this guide, it may be necessary to make changes to the Klipper config "
