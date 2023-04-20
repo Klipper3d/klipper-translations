@@ -1,30 +1,30 @@
 # Configuration checks
 
-Dette dokument giver en række trin der kan hjælpe med at bekræfte korrekt opsætning af pins i Klippers printer.cfg fil. Det er en god idé at gennemgå alle trin, efter at have fulgt trinene i [installationsdokumentet](Installation.md).
+Aquest document conté una llista amb els passos per configurar el pin del fitxer Klipper printer.cfg. Es recomana executar-los un cop acabats els passos a [instal·lació documents](installation.md).
 
-During this guide, it may be necessary to make changes to the Klipper config file. Be sure to issue a RESTART command after every change to the config file to ensure that the change takes effect (type "restart" in the Octoprint terminal tab and then click "Send"). It's also a good idea to issue a STATUS command after every RESTART to verify that the config file is successfully loaded.
+Al llarg d'aquesta guia pot ser necessari fer canvis al fitxer config Klipper. És important executar l'ordre RESTART després de cada canvi a l'arxiu esmentat per assegurar que els canvis han tingut efecte (escriviu "restart" a la pestanya del terminal Octoprint i premeu "Send"). Es recomana també utilitzar l'ordre STATUS després de cada RESTART per verificar que aquest fitxer s'ha carregat correctament.
 
-## Verify temperature
+## Verificar la temperatura
 
-Start by verifying that temperatures are being properly reported. Navigate to the Octoprint temperature tab.
+Comença verificant que la temperatura s'ha desat correctament. Navega a la pestanya de temperatura Octoprint.
 
-![octoprint-temperature](img/octoprint-temperature.png)
+![temperatura-octoprint](img/octoprint-temperature.png)
 
-Verify that the temperature of the nozzle and bed (if applicable) are present and not increasing. If it is increasing, remove power from the printer. If the temperatures are not accurate, review the "sensor_type" and "sensor_pin" settings for the nozzle and/or bed.
+Verificar que la temperatura del fusor i el llit (si és aplicable ) són presents i no estan augmentant. Si augmenten, desconnecteu la impressora. Si la temperatura no és exacta, reviseu els ajustaments del "sensor_type" i del "sensor_pin" per al fusor i/o llit.
 
-## Verify M112
+## Verificar M112
 
-Navigate to the Octoprint terminal tab and issue an M112 command in the terminal box. This command requests Klipper to go into a "shutdown" state. It will cause Octoprint to disconnect from Klipper - navigate to the Connection area and click on "Connect" to cause Octoprint to reconnect. Then navigate to the Octoprint temperature tab and verify that temperatures continue to update and the temperatures are not increasing. If temperatures are increasing, remove power from the printer.
+Navegar a la pestanya terminal de l’Octoprint i executar l'ordre M112 al camp de la terminal. Aquesta ordre fa que Klipper s’apagui i que l’Octoprint es desconnecti - navegar a l'àrea de connexió i fer clic a "Connect" per tal que Octoprint es connecti de nou. Després d'això, navegar de nou a la pestanya de temperatura d'Octoprint i comprovar que la temperatura segueix actualitzant-se i no augmenta. Si la temperatura augmenta, desconnecteu la impressora.
 
-The M112 command causes Klipper to go into a "shutdown" state. To clear this state, issue a FIRMWARE_RESTART command in the Octoprint terminal tab.
+L’ordre M112 provoca que Klipper entri en un estat d’apagada. Per arreglar-ho, escriu l’ordre FIRMWARE_RESTART al la pestanya de terminal d’Octoprint
 
-## Verify heaters
+## Verificar els calentadors
 
-Navigate to the Octoprint temperature tab and type in 50 followed by enter in the "Tool" temperature box. The extruder temperature in the graph should start to increase (within about 30 seconds or so). Then go to the "Tool" temperature drop-down box and select "Off". After several minutes the temperature should start to return to its initial room temperature value. If the temperature does not increase then verify the "heater_pin" setting in the config.
+Navegar fins la pestanya de temperatura de l’Octoprint i al camp corresponent a l’eina posar 50 seguit de la tecla de retorn. La gràfica de temperatura del fusor ha de començar a incrementar (en uns 30 segons aproximadament). Després, de la llista desplegable corresponent a l’eina, seleccionar l’opció “OFF”. Passats uns minuts, la temperatura ha de començar a tornar a la temperatura ambient. En cas que la temperatura no incrementi, verificar el valor de “heater_pin” al fitxer de configuració
 
-If the printer has a heated bed then perform the above test again with the bed.
+Si la impressora disposa de llit calent, executa l’anterior comprovació amb el llit calent tambè.
 
-## Verify stepper motor enable pin
+## Verificar el pin ENABLE del motor pas a pas
 
 Verify that all of the printer axes can manually move freely (the stepper motors are disabled). If not, issue an M84 command to disable the motors. If any of the axes still can not move freely, then verify the stepper "enable_pin" configuration for the given axis. On most commodity stepper motor drivers, the motor enable pin is "active low" and therefore the enable pin should have a "!" before the pin (for example, "enable_pin: !ar38").
 
