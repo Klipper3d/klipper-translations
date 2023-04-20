@@ -92,7 +92,7 @@
 
 - `pressure_advance`：当前的[压力提前](Pressure_Advance.md)值。
 - `smooth_time`：当前压力提前平滑时间。
-- `motion_queue`: The name of the extruder that this extruder stepper is currently synchronized to. This is reported as `None` if the extruder stepper is not currently associated with an extruder.
+- `motion_queue`：当前与该挤出机步进电机同步的挤出机名称。如果该挤出机步进电机目前未与任何挤出机相关联，则报告为`None`。
 
 ## fan
 
@@ -235,7 +235,7 @@
 
 [probe](Config_Reference.md#probe) 对象中提供了以下信息（如果定义了 [bltouch](Config_Reference.md#bltouch) 配置分段，则此对象也可用）：
 
-- `name`: Returns the name of the probe in use.
+- `name`：返回正在使用的探针的名称。
 - `last_query`：如果探针在上一个 QUERY_PROBE 命令期间报告为"已触发"，则返回 True。请注意，如果在宏中使用它，根据模板展开的顺序，必须在包含此引用的宏之前运行 QUERY_PROBE 命令。
 - `last_z_result`：返回上一次 PROBE 命令的结果 Z 值。请注意，由于模板展开的顺序，在宏中使用时必须在包含此引用的宏之前运行 PROBE（或类似）命令。
 
@@ -256,11 +256,11 @@
 以下信息可在`screws_tilt_adjust`对象中获取：
 
 - `error`: 如果最近的 `SCREWS_TILT_CALCULATE` 命令包含了 `MAX_DEVIATION` 参数，并且任何一个已探测的螺丝坐标超过了指定的 `MAX_DEVIATION`，则返回 True。
-- `results["<screw>"]`: A dictionary containing the following keys:
+- `results["<螺丝>"]`：包含以下键的字典：
    - `z`: 螺丝坐标测量的 Z 高度。
-   - `sign`: A string specifying the direction to turn to screw for the necessary adjustment. Either "CW" for clockwise or "CCW" for counterclockwise.
-   - `adjust`: 调整螺丝的圈数，格式为 "HH:MM"，其中 "HH" 表示完整螺丝圈数，"MM" 表示代表部分螺丝圈数的 "时钟面的分钟数"。例如，“01:15”表示旋转螺丝一圈和四分之一圈。
-   - `is_base`: Returns True if this is the base screw.
+   - `sign`：一个字符串，指定进行必要的调整时旋转螺丝的方向。“CW”表示顺时针，“CCW”表示逆时针。
+   - `adjust`: 调整螺丝的圈数，格式为 "HH:MM"，其中 "HH" 表示完整螺丝圈数，"MM" 表示代表部分螺丝圈数的 "时钟面的分钟数"。（例如，“01:15”表示旋转螺丝一圈和四分之一圈。）
+   - `is_base` ：如果这是基准螺丝，则返回True。
 
 ## servo
 
@@ -270,9 +270,9 @@
 
 ## stepper_enable
 
-The following information is available in the `stepper_enable` object (this object is available if any stepper is defined):
+以下信息可在`stepper_enable` 对象中获得（这个对象在定义了任何步进电机后可用）：
 
-- `steppers["<stepper>"]`: Returns True if the given stepper is enabled.
+- `steppers["<步进器>"]` ：如果给定的步进器被启用，返回True。
 
 ## system_stats
 

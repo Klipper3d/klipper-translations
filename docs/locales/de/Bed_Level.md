@@ -50,21 +50,21 @@ Recv: // Finish with ACCEPT or ABORT command.
 Recv: // Z position: ?????? --> 5.000 <-- ??????
 ```
 
-The current height of the nozzle (as the printer currently understands it) is shown between the "--> <--". The number to the right is the height of the last probe attempt just greater than the current height, and to the left is the last probe attempt less than the current height (or ?????? if no attempt has been made).
+Die aktuelle Höhe der Düse (so wie sie der Drucker derzeit versteht) wird zwischen den Zeichen "--> <--" angezeigt. Die Zahl rechts ist die Höhe des letzten Antastversuchs, der gerade größer als die aktuelle Höhe war, und links ist der letzte Antastversuch, der kleiner als die aktuelle Höhe war (oder ??????, wenn kein Versuch gemacht wurde).
 
-Place the paper between the nozzle and bed. It can be useful to fold a corner of the paper so that it is easier to grab. (Try not to push down on the bed when moving the paper back and forth.)
+Legen Sie das Papier zwischen Düse und Bett. Es kann hilfreich sein, eine Ecke des Papiers zu falten, damit es leichter zu greifen ist. (Versuchen Sie, beim Hin- und Herbewegen des Papiers nicht auf das Bett zu drücken.)
 
 ![paper-test](img/paper-test.jpg)
 
-Use the TESTZ command to request the nozzle to move closer to the paper. For example:
+Verwenden Sie den Befehl TESTZ, um die Düse aufzufordern, sich dem Papier zu nähern. Zum Beispiel:
 
 ```
 TESTZ Z=-.1
 ```
 
-The TESTZ command will move the nozzle a relative distance from the nozzle's current position. (So, `Z=-.1` requests the nozzle to move closer to the bed by .1mm.) After the nozzle stops moving, push the paper back and forth to check if the nozzle is in contact with the paper and to feel the amount of friction. Continue issuing TESTZ commands until one feels a small amount of friction when testing with the paper.
+Der Befehl TESTZ verschiebt die Düse um eine relative Entfernung von der aktuellen Position der Düse. (Mit `Z=-.1` wird die Düse also aufgefordert, sich um 0,1 mm näher an das Bett heranzubewegen.) Nachdem die Düse die Bewegung gestoppt hat, schieben Sie das Papier hin und her, um zu prüfen, ob die Düse mit dem Papier in Kontakt ist und um die Reibung zu spüren. Führen Sie die TESTZ-Befehle so lange aus, bis Sie beim Testen mit dem Papier eine geringe Reibung spüren.
 
-If too much friction is found then one can use a positive Z value to move the nozzle up. It is also possible to use `TESTZ Z=+` or `TESTZ Z=-` to "bisect" the last position - that is to move to a position half way between two positions. For example, if one received the following prompt from a TESTZ command:
+Wenn zu viel Reibung festgestellt wird, kann man einen positiven Z-Wert verwenden, um die Düse nach oben zu bewegen. Es ist auch möglich, `TESTZ Z=+` oder `TESTZ Z=-` zu verwenden, um die letzte Position zu "halbieren" - d.h. eine Position auf halbem Weg zwischen zwei Positionen anzufahren. Zum Beispiel, wenn man die folgende Aufforderung von einem TESTZ-Befehl erhält:
 
 ```
 Recv: // Z position: 0.130 --> 0.230 <-- 0.280

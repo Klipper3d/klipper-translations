@@ -34,7 +34,7 @@ Bienvenido a la documentación de Klipper. Si eres nuevo con Klipper, comienza p
 - [Rebanadores](Slicers.md): Configuración del software de "rebanadores" para Klipper.
 - [Corrección de sesgos](Skew_Correction.md): Ajustes para los ejes que no estén perfectamente cuadrados.
 - [Herramientas PWM](Using_PWM_Tools.md): Guía de uso de herramientas controladas mediante PWM como son los láseres y ejes.
-- [Exclude Object](Exclude_Object.md): The guide to the Exclude Objects implementation.
+- [Exclude Object](Exclude_Object.md): La guía para la implementación de Excluir objetos.
 
 ## Documentación para desarrolladores
 
