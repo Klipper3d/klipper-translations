@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-04-07 22:49+0000\n"
+"PO-Revision-Date: 2023-04-19 19:52+0000\n"
 "Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "klipper/status_reference/zh_Hans/>\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.17-dev\n"
+"X-Generator: Weblate 4.18-dev\n"
 
 msgid ""
 "This document is a reference of printer status information available in "
@@ -1125,46 +1125,49 @@ msgid ""
 msgstr ""
 "`adjust`: 调整螺丝的圈数，格式为 \"HH:MM\"，其中 \"HH\" 表示完整螺丝圈数，"
 "\"MM\" 表示代表部分螺丝圈数的 \"时钟面的分钟数\""
-"。例如，“01:15”表示旋转螺丝一圈和四分之一圈。"
+"。（例如，“01:15”表示旋转螺丝一圈和四分之一圈。）"
 
 #: docs/Status_Reference.md:block 29 (unordered list)
 msgid ""
 "`motion_queue`: The name of the extruder that this extruder stepper is "
 "currently synchronized to. This is reported as `None` if the extruder "
 "stepper is not currently associated with an extruder."
-msgstr ""
+msgstr "`motion_queue`：当前与该挤出机步进电机同步的挤出机名称。如果该挤出机步进电机"
+"目前未与任何挤出机相关联，则报告为`None`。"
 
 #: docs/Status_Reference.md:block 86 (unordered list)
 msgid "`name`: Returns the name of the probe in use."
-msgstr ""
+msgstr "`name`：返回正在使用的探针的名称。"
 
 #: docs/Status_Reference.md:block 95 (unordered list)
 msgid "`results[\"<screw>\"]`: A dictionary containing the following keys:"
-msgstr ""
+msgstr "`results[\"<螺丝>\"]`：包含以下键的字典："
 
 #: docs/Status_Reference.md:block 95 (unordered list)
 msgid ""
 "`sign`: A string specifying the direction to turn to screw for the necessary"
 " adjustment. Either \"CW\" for clockwise or \"CCW\" for counterclockwise."
-msgstr ""
+msgstr "`sign`：一个字符串，指定进行必要的调整时旋转螺丝的方向。“CW”表示顺时针，“CCW”"
+"表示逆时针。"
 
 #: docs/Status_Reference.md:block 95 (unordered list)
 msgid "`is_base`: Returns True if this is the base screw."
-msgstr ""
+msgstr "`is_base` ：如果这是基准螺丝，则返回True。"
 
 #: docs/Status_Reference.md:block 99 (header)
 msgid "stepper_enable"
-msgstr ""
+msgstr "stepper_enable"
 
 #: docs/Status_Reference.md:block 100 (paragraph)
 msgid ""
 "The following information is available in the `stepper_enable` object (this "
 "object is available if any stepper is defined):"
-msgstr ""
+msgstr "以下信息可在`stepper_enable` "
+"对象中获得（这个对象在定义了任何步进电机后可用）："
 
 #: docs/Status_Reference.md:block 101 (unordered list)
 msgid "`steppers[\"<stepper>\"]`: Returns True if the given stepper is enabled."
-msgstr ""
+msgstr "`steppers[\"<步进器>\"]` ：如果给定的步进器被启用，返回True。"
 
 #~ msgid ""
 #~ "`results`: A list of the probed screw locations. Each entry in the list will"
