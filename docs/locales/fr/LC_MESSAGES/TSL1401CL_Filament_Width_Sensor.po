@@ -1,12 +1,12 @@
 # wilmouths <wilmouthsteven@gmail.com>, 2021, 2025.
 # Wivik <seb+weblate@zedas.fr>, 2021, 2025.
 # Francis Poulizac <francis@poulizac.fr>, 2022, 2023, 2025.
-# jean-luc MATTEI <jlucm@free.fr>, 2023.
+# jean-luc MATTEI <jlucm@free.fr>, 2023, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:24+0000\n"
-"Last-Translator: Francis Poulizac <francis@poulizac.fr>\n"
+"Last-Translator: jean-luc MATTEI <jlucm@free.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/klipper/"
 "tsl1401cl_filament_width_sensor/fr/>\n"
 "Language: fr\n"
@@ -53,9 +53,9 @@ msgstr ""
 "Ce document décrit le module hôte du capteur de largeur de filament. Le "
 "matériel utilisé pour développer ce module hôte est basé sur le réseau de "
 "capteurs linéaires TSL1401CL, mais il peut fonctionner avec n'importe quel "
-"autre réseau de capteurs ayant une sortie analogique. Vous pouvez trouver des "
-"réalisations sur "
-"[Thingiverse](https://www.thingiverse.com/search?q=filament%20width%20sensor)."
+"autre réseau de capteurs ayant une sortie analogique. Vous pouvez trouver "
+"des réalisations sur [Thingiverse](https://www.thingiverse.com/"
+"search?q=filament%20width%20sensor)."
 
 #: docs/TSL1401CL_Filament_Width_Sensor.md:block 6 (header)
 msgid "Note:"
