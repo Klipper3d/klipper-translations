@@ -1,11 +1,11 @@
 # Nathan <bonnemainsnathan@gmail.com>, 2021, 2025.
-# jean-luc MATTEI <jlucm@free.fr>, 2022, 2023.
+# jean-luc MATTEI <jlucm@free.fr>, 2022, 2023, 2025.
 # Francis Poulizac <francis@poulizac.fr>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:24+0000\n"
-"Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
+"Last-Translator: jean-luc MATTEI <jlucm@free.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/klipper/"
 "sdcard_updates/fr/>\n"
 "Language: fr\n"
@@ -65,8 +65,8 @@ msgid ""
 "If you do not see your board listed it may be necessary to add a new board "
 "definition as [described below](#board-definitions)."
 msgstr ""
-"Si votre carte ne figure pas dans la liste, il peut être nécessaire d'ajouter "
-"une nouvelle définition de carte comme [décrit ci-dessous](#board-"
+"Si votre carte ne figure pas dans la liste, il peut être nécessaire "
+"d'ajouter une nouvelle définition de carte comme [décrit ci-dessous](#board-"
 "definitions)."
 
 msgid "Advanced Usage"
