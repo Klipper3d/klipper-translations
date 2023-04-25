@@ -1,18 +1,19 @@
 # wilmouths <wilmouthsteven@gmail.com>, 2021.
 # Tl <rflma99@pm.me>, 2022.
 # NicolasBFR <nicolas.boganski@epita.fr>, 2022.
-# jean-luc MATTEI <jlucm@free.fr>, 2022.
+# jean-luc MATTEI <jlucm@free.fr>, 2022, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-12-07 05:47+0000\n"
+"PO-Revision-Date: 2023-04-25 05:51+0000\n"
 "Last-Translator: jean-luc MATTEI <jlucm@free.fr>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/klipper/packaging/fr/>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/klipper/packaging/"
+"fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.15-dev\n"
+"X-Generator: Weblate 4.18-dev\n"
 
 msgid ""
 "Klipper is somewhat of a packaging anomaly among python programs, as it "
@@ -80,6 +81,9 @@ msgid ""
 "Repository](https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper-"
 "git)."
 msgstr ""
+"klipper-git est packagé pour Arch Linux et possède un PKGBUILD (script de "
+"construction de paquet) disponible sur [Arch User Repository](https://aur."
+"archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper- git)."
 
 #~ msgid ""
 #~ "klipper-git is packaged for Arch Linux, and has a PKGBUILD (package build "
