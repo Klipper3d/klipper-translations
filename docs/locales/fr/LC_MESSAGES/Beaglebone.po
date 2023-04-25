@@ -1,11 +1,11 @@
 # Francis Poulizac <fpoulizac@vivaldi.net>, 2021.
-# jean-luc MATTEI <jlucm@free.fr>, 2023.
+# jean-luc MATTEI <jlucm@free.fr>, 2023, 2025.
 # Francis Poulizac <francis@poulizac.fr>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:28+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: jean-luc MATTEI <jlucm@free.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/klipper/"
 "beaglebone/fr/>\n"
 "Language: fr\n"
