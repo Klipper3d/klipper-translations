@@ -1,11 +1,11 @@
 # Nathan <bonnemainsnathan@gmail.com>, 2021, 2025.
 # Francis Poulizac <francis@poulizac.fr>, 2023.
-# jean-luc MATTEI <jlucm@free.fr>, 2023.
+# jean-luc MATTEI <jlucm@free.fr>, 2023, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:24+0000\n"
-"Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
+"Last-Translator: jean-luc MATTEI <jlucm@free.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/klipper/index/fr/>"
 "\n"
 "Language: fr\n"
@@ -50,9 +50,8 @@ msgid ""
 "the generous support from our [sponsors](Sponsors.md)."
 msgstr ""
 "Klipper est un logiciel libre. Lisez la [documentation](Overview.md) ou "
-"consultez [le code de Klipper sur "
-"github](https://github.com/Klipper3d/klipper). Nous dépendons du soutien "
-"généreux de nos [sponsors](Sponsors.md)."
+"consultez [le code de Klipper sur github](https://github.com/Klipper3d/"
+"klipper). Nous dépendons du soutien généreux de nos [sponsors](Sponsors.md)."
 
 #~ msgid ""
 #~ "Klipper is Free Software. Read the [documentation](Overview.md) or view [the "
