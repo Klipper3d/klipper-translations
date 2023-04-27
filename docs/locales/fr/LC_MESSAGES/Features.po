@@ -2,17 +2,19 @@
 # Wivik <seb+weblate@zedas.fr>, 2021.
 # Maxime Leroy <lisacintosh@gmail.com>, 2022.
 # Francis Poulizac <francis@poulizac.fr>, 2022.
+# jean-luc MATTEI <jlucm@free.fr>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-12-30 18:51+0000\n"
-"Last-Translator: Francis Poulizac <francis@poulizac.fr>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/klipper/features/fr/>\n"
+"PO-Revision-Date: 2023-04-26 06:51+0000\n"
+"Last-Translator: jean-luc MATTEI <jlucm@free.fr>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/klipper/features/"
+"fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.15.1-dev\n"
+"X-Generator: Weblate 4.18-dev\n"
 
 msgid "Klipper has several compelling features:"
 msgstr "Klipper propose plusieurs caractéristiques intéressantes :"
@@ -624,18 +626,26 @@ msgid ""
 "higher print velocities. The stepper event timing remains precise even at "
 "high speeds which improves overall stability."
 msgstr ""
+"Meilleur dans sa catégorie. Klipper est capable d'atteindre des taux de pas "
+"élevés sur les nouveaux et anciens microcontrôleurs. Même les anciens "
+"microcontrôleurs 8 bits peuvent obtenir des vitesses supérieures à 175 000 "
+"pas par seconde. Sur des microcontrôleurs plus récents, plusieurs millions "
+"de pas par seconde sont possibles. Des vitesses pas à pas plus élevées "
+"permettent des vitesses d'impression plus élevées. La synchronisation des "
+"événements pas à pas reste précise même à des vitesses élevées, ce qui "
+"améliore la stabilité globale."
 
 #: docs/Features.md:block 10 (table)
 msgid "AR100"
-msgstr ""
+msgstr "AR100"
 
 #: docs/Features.md:block 10 (table)
 msgid "3529K"
-msgstr ""
+msgstr "3529K"
 
 #: docs/Features.md:block 10 (table)
 msgid "2507K"
-msgstr ""
+msgstr "2507K"
 
 #~ msgid ""
 #~ "Best in class performance. Klipper is able to achieve high stepping rates on"
