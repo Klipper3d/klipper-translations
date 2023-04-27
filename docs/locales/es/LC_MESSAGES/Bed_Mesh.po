@@ -1,16 +1,18 @@
 # Alberto <aru_hackZ.official@zohomail.eu>, 2022.
 # Isaias Carrillo <icarrillo1304@gmail.com>, 2023.
+# Gael Caraballo <gcaraballo@alvic.net>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-02-07 03:26+0000\n"
-"Last-Translator: Isaias Carrillo <icarrillo1304@gmail.com>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/bed_mesh/es/>\n"
+"PO-Revision-Date: 2023-04-27 15:49+0000\n"
+"Last-Translator: Gael Caraballo <gcaraballo@alvic.net>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/bed_mesh/"
+"es/>\n"
 "Language: es\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.16-dev\n"
+"X-Generator: Weblate 4.18-dev\n"
 
 msgid "Basic Configuration"
 msgstr "Configuración básica"
@@ -60,9 +62,8 @@ msgstr ""
 msgid "![bedmesh_rect_basic](img/bedmesh_rect_basic.svg)"
 msgstr ""
 
-#, fuzzy
 msgid "Round beds"
-msgstr "Camas redondeadas"
+msgstr "Camas redondas"
 
 msgid ""
 "This example assumes a printer equipped with a round bed radius of 100mm. We"
@@ -89,7 +90,7 @@ msgid "![bedmesh_round_basic](img/bedmesh_round_basic.svg)"
 msgstr ""
 
 msgid "Advanced Configuration"
-msgstr ""
+msgstr "Configuración Avanzada"
 
 msgid ""
 "Below the more advanced configuration options are explained in detail. Each "
