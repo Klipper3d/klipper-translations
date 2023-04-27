@@ -1,17 +1,19 @@
 # wilmouths <wilmouthsteven@gmail.com>, 2021.
 # Wivik <seb+weblate@zedas.fr>, 2021.
 # Francis Poulizac <francis@poulizac.fr>, 2022, 2023.
+# jean-luc MATTEI <jlucm@free.fr>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-01-24 13:48+0000\n"
-"Last-Translator: Francis Poulizac <francis@poulizac.fr>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/klipper/tsl1401cl_filament_width_sensor/fr/>\n"
+"PO-Revision-Date: 2023-04-26 06:51+0000\n"
+"Last-Translator: jean-luc MATTEI <jlucm@free.fr>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/klipper/"
+"tsl1401cl_filament_width_sensor/fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.16-dev\n"
+"X-Generator: Weblate 4.18-dev\n"
 
 msgid "How does it work?"
 msgstr "Comment cela fonctionne-t-il ?"
@@ -50,10 +52,10 @@ msgid ""
 msgstr ""
 "Ce document décrit le module hôte du capteur de largeur de filament. Le "
 "matériel utilisé pour développer ce module hôte est basé sur le réseau de "
-"capteurs linéaires TSL1401CL, mais il peut fonctionner avec tout réseau de "
-"capteurs ayant une sortie analogique. Vous pouvez trouver les conceptions "
-"sur "
-"[Thingiverse](https://www.thingiverse.com/search?q=filament%20width%20sensor)."
+"capteurs linéaires TSL1401CL, mais il peut fonctionner avec n'importe quel "
+"autre réseau de capteurs ayant une sortie analogique. Vous pouvez trouver "
+"des réalisations sur [Thingiverse](https://www.thingiverse.com/"
+"search?q=filament%20width%20sensor)."
 
 #: docs/TSL1401CL_Filament_Width_Sensor.md:block 6 (header)
 msgid "Note:"
