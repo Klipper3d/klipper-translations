@@ -2,20 +2,22 @@
 # Sebastian Fiedler <See1807@hotmail.de>, 2022.
 # Sven van Beckum <kontakt@partner-3d.de>, 2022.
 # Yifei Ding <dingyifeiair@gmail.com>, 2022.
+# Alexander Weiss <alexweiss@alexweiss.net>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:33+0200\n"
-"PO-Revision-Date: 2022-07-11 18:57+0000\n"
-"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/klipper/config_reference/de/>\n"
+"PO-Revision-Date: 2023-04-26 06:51+0000\n"
+"Last-Translator: Alexander Weiss <alexweiss@alexweiss.net>\n"
+"Language-Team: German <https://hosted.weblate.org/projects/klipper/"
+"config_reference/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14-dev\n"
+"X-Generator: Weblate 4.18-dev\n"
 
 msgid ""
 "This document is a reference for options available in the Klipper config "
@@ -83,7 +85,7 @@ msgid ""
 msgstr ""
 
 msgid "Common kinematic settings"
-msgstr ""
+msgstr "Gebräuchliche Kinematik Einstellungen"
 
 msgid "[printer]"
 msgstr ""
@@ -251,7 +253,7 @@ msgid ""
 msgstr ""
 
 msgid "Bed level support"
-msgstr ""
+msgstr "Bett Nivelierung Unterstützung"
 
 msgid "[bed_mesh]"
 msgstr ""
@@ -376,6 +378,10 @@ msgid ""
 " files stored in a directory on the host using standard sdcard G-Code "
 "commands (eg, M24)."
 msgstr ""
+"Eine virtuelle SD Karte kann dann hilfreich sein, wenn der Host Computer  "
+"nicht schnell genug ist Octoprint flüssig auszuführen. Es erlaubt  der "
+"Klipper Software  direkt  Gcode aus einem Verzeichnis auf dem Host zu "
+"drucken bei Benutzung von Standard G-Code Kommandos (z.b. M24)"
 
 msgid "[sdcard_loop]"
 msgstr ""
@@ -438,7 +444,7 @@ msgid ""
 msgstr ""
 
 msgid "Bed probing hardware"
-msgstr ""
+msgstr "Bett Nivelierung Sensor"
 
 msgid "[probe]"
 msgstr ""
@@ -466,7 +472,7 @@ msgid ""
 msgstr ""
 
 msgid "Additional stepper motors and extruders"
-msgstr ""
+msgstr "Zusätzliche Steppermotoren und Extruder"
 
 msgid "[stepper_z1]"
 msgstr ""
@@ -585,7 +591,7 @@ msgid "Temperature sensors"
 msgstr ""
 
 msgid "Common thermistors"
-msgstr ""
+msgstr "Gebräuchlicher Thermo-Widerstand"
 
 msgid ""
 "Common thermistors. The following parameters are available in heater "
@@ -593,12 +599,14 @@ msgid ""
 msgstr ""
 
 msgid "Common temperature amplifiers"
-msgstr ""
+msgstr "Gebräuchliche Temperatur Verstärker"
 
 msgid ""
 "Common temperature amplifiers. The following parameters are available in "
 "heater sections that use one of these sensors."
 msgstr ""
+"Gebräuchliche Temperatur Verstärker. Die folgenden Parameter sind in der "
+"Heizer Sektion  verfügbar, die einen der Sensoren benutzt."
 
 msgid "Directly connected PT1000 sensor"
 msgstr ""
@@ -1057,7 +1065,7 @@ msgid "Common bus parameters"
 msgstr ""
 
 msgid "Common SPI settings"
-msgstr ""
+msgstr "Gebräuchliche SPI Einstellungen"
 
 msgid ""
 "The following parameters are generally available for devices using an SPI "
@@ -1065,7 +1073,7 @@ msgid ""
 msgstr ""
 
 msgid "Common I2C settings"
-msgstr ""
+msgstr "Gebräuchliche I2C Einstellungen"
 
 msgid ""
 "The following parameters are generally available for devices using an I2C "
@@ -2058,7 +2066,7 @@ msgid ""
 "#   its highest resistance, and then the 'channel_x' parameters can be\n"
 "#   specified using the desired amperage value for the stepper. The\n"
 "#   default is to not scale the 'channel_x' parameters.\n"
-msgstr ""
+msgstr "gebräuchliche Spi Einstellungen\n"
 
 msgid ""
 "[mcp4451 my_digipot]\n"
@@ -3393,7 +3401,7 @@ msgid ""
 "#   not recommended to change this rate from the default 3200, and\n"
 "#   rates below 800 will considerably affect the quality of resonance\n"
 "#   measurements.\n"
-msgstr ""
+msgstr "Gängige SPI Einstellungen\n"
 
 #: docs/Config_Reference.md:block 391 (code)
 msgid ""
@@ -4025,7 +4033,7 @@ msgstr ""
 
 #: docs/Config_Reference.md:block 283 (header)
 msgid "Additional servos, buttons, and other pins"
-msgstr ""
+msgstr "Zusätzliche Servo, Knöpfe und andere Pins"
 
 #: docs/Config_Reference.md:block 356 (paragraph)
 msgid ""
@@ -4105,7 +4113,7 @@ msgid ""
 "#spi_software_miso_pin:\n"
 "#   See the \"common SPI settings\" section for a description of the\n"
 "#   above parameters.\n"
-msgstr ""
+msgstr "gängige SPI Einstellungen\n"
 
 #: docs/Config_Reference.md:block 161 (code)
 msgid ""

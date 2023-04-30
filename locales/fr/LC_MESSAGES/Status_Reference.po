@@ -4,14 +4,15 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-01-03 16:49+0000\n"
+"PO-Revision-Date: 2023-04-26 06:51+0000\n"
 "Last-Translator: jean-luc MATTEI <jlucm@free.fr>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/klipper/status_reference/fr/>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/klipper/"
+"status_reference/fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.15.1-dev\n"
+"X-Generator: Weblate 4.18-dev\n"
 
 msgid ""
 "This document is a reference of printer status information available in "
@@ -41,7 +42,7 @@ msgid ""
 "[bed_mesh](Config_Reference.md#bed_mesh) object:"
 msgstr ""
 "Les informations suivantes sont disponibles dans l'objet [cartographie du "
-"lit](Config_Reference.md#bed_mesh) :"
+"lit (bed mash)](Config_Reference.md#bed_mesh) :"
 
 msgid ""
 "`profile_name`, `mesh_min`, `mesh_max`, `probed_matrix`, `mesh_matrix`: "
@@ -67,8 +68,8 @@ msgid ""
 msgstr ""
 "`settings.<section>.<option>` : Renvoie les paramétrages du fichier de "
 "configuration (ou la valeur par défaut) lors du dernier démarrage ou "
-"redémarrage du logiciel. (Tout paramètre modifié au moment de l'exécution ne"
-" sera pas reflété ici.)"
+"redémarrage du logiciel. (Tout paramètre modifié pendant l'exécution ne sera "
+"pas reflété ici.)"
 
 msgid ""
 "`config.<section>.<option>`: Returns the given raw config file setting as "
@@ -1390,38 +1391,46 @@ msgid ""
 "currently synchronized to. This is reported as `None` if the extruder "
 "stepper is not currently associated with an extruder."
 msgstr ""
+"`motion_queue` : Le nom de l'extrudeur avec lequel ce stepper d'extrudeur "
+"est actuellement synchronisé. Ceci est signalé comme `Aucun` si le moteur "
+"pas à pas de l'extrudeuse n'est pas associé à un extrudeur."
 
 #: docs/Status_Reference.md:block 86 (unordered list)
 msgid "`name`: Returns the name of the probe in use."
-msgstr ""
+msgstr "`name` : Renvoie le nom de la sonde en cours d'utilisation."
 
 #: docs/Status_Reference.md:block 95 (unordered list)
 msgid "`results[\"<screw>\"]`: A dictionary containing the following keys:"
-msgstr ""
+msgstr "`results[\"<screw>\"]` : Un dictionnaire contenant les clés suivantes :"
 
 #: docs/Status_Reference.md:block 95 (unordered list)
 msgid ""
 "`sign`: A string specifying the direction to turn to screw for the necessary"
 " adjustment. Either \"CW\" for clockwise or \"CCW\" for counterclockwise."
 msgstr ""
+"`sign` : Une chaîne spécifiant le sens de rotation des vis pour le réglage. "
+"Soit \"CW\" pour le sens horaire ou \"CCW\" pour le sens antihoraire."
 
 #: docs/Status_Reference.md:block 95 (unordered list)
 msgid "`is_base`: Returns True if this is the base screw."
-msgstr ""
+msgstr "`is_base` : renvoie True s'il s'agit de la vis de base."
 
 #: docs/Status_Reference.md:block 99 (header)
 msgid "stepper_enable"
-msgstr ""
+msgstr "stepper_enable"
 
 #: docs/Status_Reference.md:block 100 (paragraph)
 msgid ""
 "The following information is available in the `stepper_enable` object (this "
 "object is available if any stepper is defined):"
 msgstr ""
+"Les informations suivantes sont disponibles dans l'objet `stepper_enable` ("
+"cet objet est disponible si un stepper est défini) :"
 
 #: docs/Status_Reference.md:block 101 (unordered list)
 msgid "`steppers[\"<stepper>\"]`: Returns True if the given stepper is enabled."
 msgstr ""
+"`steppers[\"<stepper>\"]` : renvoie True si le stepper donné est activé."
 
 #~ msgid ""
 #~ "`results`: A list of the probed screw locations. Each entry in the list will"

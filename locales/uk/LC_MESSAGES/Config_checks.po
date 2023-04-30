@@ -1,16 +1,19 @@
 # Andrii Shylenko <shylenkoa@gmail.com>, 2022.
 # Petro S. <911us@duck.com>, 2023.
+# Artem Filkovskyi <avfilkovsky@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-01-25 17:51+0000\n"
-"Last-Translator: Petro S. <911us@duck.com>\n"
-"Language-Team: Ukrainian <https://hosted.weblate.org/projects/klipper/config_checks/uk/>\n"
+"PO-Revision-Date: 2023-04-27 15:49+0000\n"
+"Last-Translator: Artem Filkovskyi <avfilkovsky@gmail.com>\n"
+"Language-Team: Ukrainian <https://hosted.weblate.org/projects/klipper/"
+"config_checks/uk/>\n"
 "Language: uk\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.16-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.18-dev\n"
 
 msgid ""
 "This document provides a list of steps to help confirm the pin settings in "
@@ -76,7 +79,7 @@ msgid ""
 msgstr ""
 
 msgid "Verify heaters"
-msgstr ""
+msgstr "Перевірка нагрівальних елементів"
 
 msgid ""
 "Navigate to the Octoprint temperature tab and type in 50 followed by enter "
