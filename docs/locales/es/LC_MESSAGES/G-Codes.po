@@ -1,6 +1,6 @@
 # Francisco Serrador <fserrador@gmail.com>, 2022, 2025.
 # Alberto <aru_hackZ.official@zohomail.eu>, 2022.
-# Sergio Fernández <sergiofernandezair@gmail.com>, 2023.
+# Sergio Fernández <sergiofernandezair@gmail.com>, 2023, 2025.
 # Francisco Javier Hoyos Arango <cofhal@gmail.com>, 2023.
 # eddit3d <eddit1193@gmail.com>, 2024.
 # ItsMeRecSevenTeen <rickagent478554@gmail.com>, 2024.
@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:22+0000\n"
-"Last-Translator: Ramiro Luna boca <lunabocaramiro@gmail.com>\n"
+"Last-Translator: Sergio Fernández <sergiofernandezair@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/g-codes/"
 "es/>\n"
 "Language: es\n"
@@ -1362,8 +1362,8 @@ msgid ""
 "The pid_calibrate module is automatically loaded if a heater is defined in the"
 " config file."
 msgstr ""
-"EL módulo pid_calibrate es cargado automáticamente si un heater está definido "
-"en el archivo de configuración"
+"EL módulo pid_calibrate es cargado automáticamente si un heater está "
+"definido en el archivo de configuración"
 
 #: docs/G-Codes.md:block 219 (header)
 msgid "PID_CALIBRATE"
