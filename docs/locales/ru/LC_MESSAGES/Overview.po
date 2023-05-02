@@ -3,17 +3,20 @@
 # Vik <xasertop@gmail.com>, 2022.
 # Mari Japaridze <mari.mari.japaridze@mail.ru>, 2022.
 # Evgeniy Khramov <thejenjagamertjg@gmail.com>, 2022.
+# Kirill Plotnikov <ponfertato@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-12-07 05:47+0000\n"
-"Last-Translator: Evgeniy Khramov <thejenjagamertjg@gmail.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/overview/ru/>\n"
+"PO-Revision-Date: 2023-04-30 13:52+0000\n"
+"Last-Translator: Kirill Plotnikov <ponfertato@gmail.com>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/overview/"
+"ru/>\n"
 "Language: ru\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.15-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 4.18-dev\n"
 
 msgid ""
 "Welcome to the Klipper documentation. If new to Klipper, start with the "
@@ -297,6 +300,8 @@ msgid ""
 "[Exclude Object](Exclude_Object.md): The guide to the Exclude Objects "
 "implementation."
 msgstr ""
+"[Exclude Object](Exclude_Object.md): Руководство по реализации исключаемых "
+"объектов."
 
 #~ msgid ""
 #~ "[Exclude Object](Exclude_Object.md): The guide to the Exclude Objecs "
