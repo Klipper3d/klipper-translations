@@ -286,65 +286,62 @@ Seuls les paramètres spécifiques aux imprimantes deltesiennes sont décrits ic
 [printer]
 kinematics: deltesian
 max_z_velocity:
-#   For deltesian printers, this limits the maximum velocity (in mm/s) of
-#   moves with z axis movement. This setting can be used to reduce the
-#   maximum speed of up/down moves (which require a higher step rate
-#   than other moves on a deltesian printer). The default is to use
-#   max_velocity for max_z_velocity.
+# Pour les imprimantes deltésiennes, cela limite la vitesse maximale (en mm/s) de
+# déplacement avec le mouvement de l'axe z. Ce réglage peut être utilisé pour réduire la
+# vitesse maximale des mouvements vers le haut/vers le bas (qui nécessitent un taux de pas plus élevé
+# que les autres mouvements sur une imprimante deltésienne). La valeur par défaut est d'utiliser
+# max_velocity pour max_z_velocity.
 #max_z_accel:
-#   This sets the maximum acceleration (in mm/s^2) of movement along
-#   the z axis. Setting this may be useful if the printer can reach higher
-#   acceleration on XY moves than Z moves (eg, when using input shaper).
-#   The default is to use max_accel for max_z_accel.
+# Ceci définit l'accélération maximale (en mm/s²) du mouvement le long
+# l'axe z. Ce paramètre peut être utile si l'imprimante peut atteindre des
+# accélération sur les mouvements XY par rapport aux mouvements Z (par exemple, lors de l'utilisation du shaper d'entrée).
+# La valeur par défaut est d'utiliser max_accel pour max_z_accel.
 #minimum_z_position: 0
-#   The minimum Z position that the user may command the head to move
-#   to. The default is 0.
+# La position Z minimale que l'utilisateur peut commander à la tête de se déplacer
+# pour. La valeur par défaut est 0.
 #min_angle: 5
-#   This represents the minimum angle (in degrees) relative to horizontal
-#   that the deltesian arms are allowed to achieve. This parameter is
-#   intended to restrict the arms from becoming completely horizontal,
-#   which would risk accidental inversion of the XZ axis. The default is 5.
+# Ceci représente l'angle minimum (en degrés) par rapport à l'horizontale
+# que les bras deltésiens sont autorisés à atteindre. Ce paramètre est
+# destiné à empêcher les bras de devenir complètement horizontaux,
+# qui risquerait d'inverser accidentellement l'axe XZ. La valeur par défaut est 5.
 #print_width:
-#   The distance (in mm) of valid toolhead X coordinates. One may use
-#   this setting to customize the range checking of toolhead moves. If
-#   a large value is specified here then it may be possible to command
-#   the toolhead into a collision with a tower. This setting usually
-#   corresponds to bed width (in mm).
+# La distance (en mm) des coordonnées X valides de la tête d'outil. On peut utiliser
+# ce paramètre pour personnaliser la vérification de la plage des mouvements de la tête d'outil. Si
+# une grande valeur est spécifiée ici alors il peut être possible de commander
+# la tête d'outil en collision avec une tour. Ce paramètre généralement
+# correspond à la largeur du lit (en mm).
 #slow_ratio: 3
-#   The ratio used to limit velocity and acceleration on moves near the
-#   extremes of the X axis. If vertical distance divided by horizontal
-#   distance exceeds the value of slow_ratio, then velocity and
-#   acceleration are limited to half their nominal values. If vertical
-#   distance divided by horizontal distance exceeds twice the value of
-#   the slow_ratio, then velocity and acceleration are limited to one
-#   quarter of their nominal values. The default is 3.
+# Le rapport utilisé pour limiter la vitesse et l'accélération lors des mouvements près de la
+# extrêmes de l'axe X. Si distance verticale divisée par horizontale
+# la distance dépasse la valeur de slow_ratio, puis la vitesse et
+# les accélérations sont limitées à la moitié de leurs valeurs nominales. Si vertical
+# la distance divisée par la distance horizontale dépasse le double de la valeur de
+# le slow_ratio, puis la vitesse et l'accélération sont limitées à un
+# quart de leurs valeurs nominales. La valeur par défaut est 3.
 
-# The stepper_left section is used to describe the stepper controlling
-# the left tower. This section also controls the homing parameters
-# (homing_speed, homing_retract_dist) for all towers.
+# La section stepper_left est utilisée pour décrire le stepper contrôlant
+# la tour de gauche. Cette section contrôle également les paramètres de prise d'origine
+# (homing_speed, homing_retract_dist) pour toutes les tours.
 [stepper_left]
 position_endstop:
-#   Distance (in mm) between the nozzle and the bed when the nozzle is
-#   in the center of the build area and the endstops are triggered. This
-#   parameter must be provided for stepper_left; for stepper_right this
-#   parameter defaults to the value specified for stepper_left.
+# Distance (en mm) entre la buse et le lit lorsque la buse est
+# au centre de la zone de construction et les butées sont déclenchées. Ce
+# le paramètre doit être fourni pour stepper_left; stepper_right prend la valeur de stepper_left par défaut.
 arm_length:
-#   Length (in mm) of the diagonal rod that connects the tower carriage to
-#   the print head. This parameter must be provided for stepper_left; for
-#   stepper_right, this parameter defaults to the value specified for
-#   stepper_left.
+# Longueur (en mm) de la tige diagonale qui relie le chariot de la tour au
+# la tête d'impression. Ce paramètre doit être fourni pour stepper_left; pour
+# stepper_right, ce paramètre prend par défaut la valeur spécifiée pour
+# stepper_left.
 arm_x_length:
-#   Horizontal distance between the print head and the tower when the
-#   printers is homed. This parameter must be provided for stepper_left;
-#   for stepper_right, this parameter defaults to the value specified for
-#   stepper_left.
+# Distance horizontale entre la tête d'impression et la tour lorsque l'imprimante est mise à l'origine. Ce paramètre doit être fourni pour stepper_left ;
+# pour stepper_right, ce paramètre prend par défaut la valeur spécifiée pour stepper_left.
 
-# The stepper_right section is used to describe the stepper controlling the
-# right tower.
+# La section stepper_right est utilisée pour décrire le stepper contrôlant le
+# tour de droite.
 [stepper_right]
 
-# The stepper_y section is used to describe the stepper controlling
-# the Y axis in a deltesian robot.
+# La section stepper_y est utilisée pour décrire le stepper contrôlant
+# l'axe Y dans un robot deltésien.
 [stepper_y]
 ```
 
@@ -967,33 +964,32 @@ Voir le [guide de nivelage](Manual_Level.md#adjusting-bed-leveling-screws-using-
 ```
 [screws_tilt_adjust]
 #screw1:
-#   The (X, Y) coordinate of the first bed leveling screw. This is a
-#   position to command the nozzle to so that the probe is directly
-#   above the bed screw (or as close as possible while still being
-#   above the bed). This is the base screw used in calculations. This
-#   parameter must be provided.
+# La coordonnée (X, Y) de la première vis de nivellement du lit. pour que la sonde soit directement
+# au-dessus de la vis du lit (ou le plus près possible tout en étant
+# au-dessus du lit). C'est la vis de base utilisée dans les calculs. Ce
+# paramètre doit être fourni.
 #screw1_name:
-#   An arbitrary name for the given screw. This name is displayed when
-#   the helper script runs. The default is to use a name based upon
-#   the screw XY location.
+# Un nom arbitraire pour la vis donnée. Ce nom s'affiche lorsque
+# le script d'assistance s'exécute. La valeur par défaut est d'utiliser un nom basé sur
+# l'emplacement XY de la vis.
 #screw2:
-#screw2_name:
+#nom_vis2:
 #...
-#   Additional bed leveling screws. At least two screws must be
-#   defined.
+# Vis supplémentaires de mise à niveau du lit. Au moins deux vis doivent être
+# définies.
 #speed: 50
-#   The speed (in mm/s) of non-probing moves during the calibration.
-#   The default is 50.
+# La vitesse (en mm/s) des mouvements sans palpage pendant l'étalonnage.
+# La valeur par défaut est 50.
 #horizontal_move_z: 5
-#   The height (in mm) that the head should be commanded to move to
-#   just prior to starting a probe operation. The default is 5.
+# La hauteur (en mm) à laquelle la tête doit se déplacer
+# juste avant de lancer une opération de détection. La valeur par défaut est 5.
 #screw_thread: CW-M3
-#   The type of screw used for bed leveling, M3, M4, or M5, and the
-#   rotation direction of the knob that is used to level the bed.
-#   Accepted values: CW-M3, CCW-M3, CW-M4, CCW-M4, CW-M5, CCW-M5.
-#   Default value is CW-M3 which most printers use. A clockwise
-#   rotation of the knob decreases the gap between the nozzle and the
-#   bed. Conversely, a counter-clockwise rotation increases the gap.
+# Le type de vis utilisé pour le nivellement du lit, M3, M4 ou M5, et la
+# sens de rotation du bouton qui sert à niveler le lit.
+# Valeurs acceptées: CW-M3, CCW-M3, CW-M4, CCW-M4, CW-M5, CCW-M5.
+# La valeur par défaut est CW-M3 que la plupart des imprimantes utilisent. A dans le sens des aiguilles d'une montre
+# la rotation du bouton diminue l'écart entre la buse et le
+# lit. A l'inverse, une rotation dans le sens inverse des aiguilles d'une montre augmente l'écart.
 ```
 
 ### [z_tilt]
@@ -2959,46 +2955,46 @@ run_current:
 
 ### [tmc2240]
 
-Configure a TMC2240 stepper motor driver via SPI bus. To use this feature, define a config section with a "tmc2240" prefix followed by the name of the corresponding stepper config section (for example, "[tmc2240 stepper_x]").
+Configuration d'un pilote de moteur pas à pas TMC2240 via le bus SPI. Pour utiliser cette fonctionnalité, définissez une section de configuration avec un préfixe "tmc2240" suivi du nom de la section de configuration pas à pas correspondante (par exemple, "[tmc2240 stepper_x]").
 
 ```
 [tmc2240 stepper_x]
 cs_pin:
-#   The pin corresponding to the TMC2240 chip select line. This pin
-#   will be set to low at the start of SPI messages and raised to high
-#   after the message completes. This parameter must be provided.
+# La broche correspondant à la ligne de sélection de puce TMC2240. Cette broche
+# sera réglé sur bas au début des messages SPI et élevé sur haut
+# après la fin du message. Ce paramètre doit être fourni.
 #spi_speed:
 #spi_bus:
 #spi_software_sclk_pin:
 #spi_software_mosi_pin:
 #spi_software_miso_pin:
-#   See the "common SPI settings" section for a description of the
-#   above parameters.
+# Voir la section "Paramètres SPI communs" pour une description des
+# paramètres ci-dessus.
 #chain_position:
 #chain_length:
-#   These parameters configure an SPI daisy chain. The two parameters
-#   define the stepper position in the chain and the total chain length.
-#   Position 1 corresponds to the stepper that connects to the MOSI signal.
-#   The default is to not use an SPI daisy chain.
+# Ces paramètres configurent une connexion en guirlande SPI. Les deux paramètres
+# définir la position du stepper dans la chaîne et la longueur totale de la chaîne.
+# La position 1 correspond au stepper qui se connecte au signal MOSI.
+# La valeur par défaut est de ne pas utiliser de connexion en guirlande SPI.
 #interpolate: True
-#   If true, enable step interpolation (the driver will internally
-#   step at a rate of 256 micro-steps). The default is True.
+# Si vrai, active l'interpolation pas à pas (le pilote
+# pas à raison de 256 micro-pas). La valeur par défaut est Vrai.
 run_current:
-#   The amount of current (in amps RMS) to configure the driver to use
-#   during stepper movement. This parameter must be provided.
+# La quantité de courant (en ampères RMS) pour configurer le pilote à utiliser
+# pendant le mouvement pas à pas. Ce paramètre doit être fourni.
 #hold_current:
-#   The amount of current (in amps RMS) to configure the driver to use
-#   when the stepper is not moving. Setting a hold_current is not
-#   recommended (see TMC_Drivers.md for details). The default is to
-#   not reduce the current.
+# La quantité de courant (en ampères RMS) pour configurer le pilote à utiliser
+# lorsque le stepper ne bouge pas. Définir un hold_current n'est pas
+# recommandé (voir TMC_Drivers.md pour plus de détails). La valeur par défaut est de
+# ne pas réduire le courant.
 #rref: 12000
-#   The resistance (in ohms) of the resistor between IREF and GND. The
-#   default is 12000.
+# La résistance (en ohms) de la résistance entre IREF et GND. Le
+# la valeur par défaut est 12000.
 #stealthchop_threshold: 0
-#   The velocity (in mm/s) to set the "stealthChop" threshold to. When
-#   set, "stealthChop" mode will be enabled if the stepper motor
-#   velocity is below this value. The default is 0, which disables
-#   "stealthChop" mode.
+# La vélocité (en mm/s) à laquelle régler le seuil "stealthChop". Quand
+# set, le mode "stealthChop" sera activé si le moteur pas à pas
+# la vélocité est inférieure à cette valeur. La valeur par défaut est 0, ce qui désactive
+# Mode "stealthChop".
 #driver_MSLUT0: 2863314260
 #driver_MSLUT1: 1251300522
 #driver_MSLUT2: 608774441
@@ -3017,17 +3013,16 @@ run_current:
 #driver_START_SIN: 0
 #driver_START_SIN90: 247
 #driver_OFFSET_SIN90: 0
-#   These fields control the Microstep Table registers directly. The optimal
-#   wave table is specific to each motor and might vary with current. An
-#   optimal configuration will have minimal print artifacts caused by
-#   non-linear stepper movement. The values specified above are the default
-#   values used by the driver. The value must be specified as a decimal integer
-#   (hex form is not supported). In order to compute the wave table fields,
-#   see the tmc2130 "Calculation Sheet" from the Trinamic website.
-#   Additionally, this driver also has the OFFSET_SIN90 field which can be used
-#   to tune a motor with unbalanced coils. See the `Sine Wave Lookup Table`
-#   section in the datasheet for information about this field and how to tune
-#   it.
+# Ces champs contrôlent directement les registres de la table Microstep. L'optimum
+# la table d'onde est spécifique à chaque moteur et peut varier avec le courant. Un
+# la configuration optimale aura un minimum d'artefacts d'impression causés par
+# mouvement pas à pas non linéaire. Les valeurs spécifiées ci-dessus sont les valeurs par défaut
+# valeurs utilisées par le pilote. La valeur doit être spécifiée sous forme d'entier décimal
+# (la forme hexadécimale n'est pas prise en charge). Pour calculer les champs de la table d'ondes,
+# voir la "feuille de calcul" tmc2130 sur le site Web de Trinamic.
+# De plus, ce pilote possède également le champ OFFSET_SIN90 qui peut être utilisé
+# pour régler un moteur avec des bobines déséquilibrées. Voir le `Tableau de recherche d'onde sinusoïdale`
+# section dans la fiche technique pour plus d'informations sur ce champ et comment le régler.
 #driver_IHOLDDELAY: 6
 #driver_IRUNDELAY: 4
 #driver_TPOWERDOWN: 10
@@ -3058,20 +3053,20 @@ run_current:
 #driver_SEIMIN: 0
 #driver_SFILT: 0
 #driver_SG4_ANGLE_OFFSET: 1
-#   Set the given register during the configuration of the TMC2240
-#   chip. This may be used to set custom motor parameters. The
-#   defaults for each parameter are next to the parameter name in the
-#   above list.
+# Définissez le registre donné lors de la configuration du TMC2240
+#Cela peut être utilisé pour définir des paramètres de moteur personnalisés. Le
+# les valeurs par défaut pour chaque paramètre sont à côté du nom du paramètre dans le
+# au-dessus de la liste.
 #diag0_pin:
 #diag1_pin:
-#   The micro-controller pin attached to one of the DIAG lines of the
-#   TMC2240 chip. Only a single diag pin should be specified. The pin
-#   is "active low" and is thus normally prefaced with "^!". Setting
-#   this creates a "tmc2240_stepper_x:virtual_endstop" virtual pin
-#   which may be used as the stepper's endstop_pin. Doing this enables
-#   "sensorless homing". (Be sure to also set driver_SGT to an
-#   appropriate sensitivity value.) The default is to not enable
-#   sensorless homing.
+# La broche du microcontrôleur attachée à l'une des lignes DIAG du
+# Puce TMC2240. Une seule broche diag doit être spécifiée. L'épingle
+# est "actif bas" et est donc normalement précédé de "^!". Paramètre
+# cela crée une broche virtuelle "tmc2240_stepper_x:virtual_endstop"
+# qui peut être utilisé comme endstop_pin du stepper. Faire cela permet
+# "prise d'origine sans capteur". (Assurez-vous également de définir driver_SGT sur un
+# valeur de sensibilité appropriée.) La valeur par défaut est de ne pas activer
+# prise d'origine sans capteur.
 ```
 
 ### [tmc5160]
@@ -3976,17 +3971,17 @@ Si vous utilisez Octoprint et que vous diffusez du gcode sur le port série au l
 ```
 [palette2]
 serial:
-#   The serial port to connect to the Palette 2.
+# Le port série à connecter à la Palette 2.
 #baud: 115200
-#   The baud rate to use. The default is 115200.
+# Le débit en bauds à utiliser. La valeur par défaut est 115200.
 #feedrate_splice: 0.8
-#   The feedrate to use when splicing, default is 0.8
+# La vitesse d'avance à utiliser lors de l'épissage, la valeur par défaut est 0,8
 #feedrate_normal: 1.0
-#   The feedrate to use after splicing, default is 1.0
+# La vitesse d'avance à utiliser après le raccordement, la valeur par défaut est 1.0
 #auto_load_speed: 2
-#   Extrude feedrate when autoloading, default is 2 (mm/s)
+# Vitesse d'avance d'extrusion lors du chargement automatique, la valeur par défaut est 2 (mm/s)
 #auto_cancel_variation: 0.1
-#   Auto cancel print when ping variation is above this threshold
+# Annulation automatique de l'impression lorsque la variation du ping est supérieure à ce seuil
 ```
 
 ### [angle]
@@ -4044,24 +4039,24 @@ Les paramètres suivants sont généralement disponibles pour les dispositifs ut
 
 Les paramètres suivants sont généralement disponibles pour les dispositifs utilisant un bus I2C.
 
-Note that Klipper's current micro-controller support for I2C is generally not tolerant to line noise. Unexpected errors on the I2C wires may result in Klipper raising a run-time error. Klipper's support for error recovery varies between each micro-controller type. It is generally recommended to only use I2C devices that are on the same printed circuit board as the micro-controller.
+La prise en charge actuelle du microcontrôleur de Klipper pour I2C n'est généralement pas tolérante au bruit de ligne. Des erreurs inattendues sur les fils I2C peuvent amener Klipper à générer une erreur d'exécution. La prise en charge de Klipper pour la récupération d'erreur varie selon chaque type de microcontrôleur. Il est généralement recommandé de n'utiliser que des appareils I2C qui se trouvent sur la même carte de circuit imprimé que le microcontrôleur.
 
-Most Klipper micro-controller implementations only support an `i2c_speed` of 100000 (*standard mode*, 100kbit/s). The Klipper "Linux" micro-controller supports a 400000 speed (*fast mode*, 400kbit/s), but it must be [set in the operating system](RPi_microcontroller.md#optional-enabling-i2c) and the `i2c_speed` parameter is otherwise ignored. The Klipper "RP2040" micro-controller and ATmega AVR family support a rate of 400000 via the `i2c_speed` parameter. All other Klipper micro-controllers use a 100000 rate and ignore the `i2c_speed` parameter.
+La plupart des implémentations de microcontrôleurs Klipper ne prennent en charge qu'une `i2c_speed` de 100000 (*mode standard*, 100kbit/s). Le micro-contrôleur Klipper "Linux" supporte une vitesse de 400000 (*fast mode*, 400kbit/s), mais il doit être [défini dans le système d'exploitation](RPi_microcontroller.md#optional-enabling-i2c) sinon le paramètre `i2c_speed` sera ignoré. Le microcontrôleur Klipper "RP2040" et la famille ATmega AVR supportent un taux de 400000 via le paramètre `i2c_speed`. Tous les autres microcontrôleurs Klipper utilisent un taux de 100000 et ignorent le paramètre `i2c_speed`.
 
 ```
 #i2c_address:
-#   The i2c address of the device. This must specified as a decimal
-#   number (not in hex). The default depends on the type of device.
+# L'adresse i2c de l'appareil. Ceci doit être spécifié sous forme décimale
+# nombre (pas en hexadécimal). La valeur par défaut dépend du type d'appareil.
 #i2c_mcu:
-#   The name of the micro-controller that the chip is connected to.
-#   The default is "mcu".
+# Le nom du microcontrôleur auquel la puce est connectée.
+# La valeur par défaut est "mcu".
 #i2c_bus:
-#   If the micro-controller supports multiple I2C busses then one may
-#   specify the micro-controller bus name here. The default depends on
-#   the type of micro-controller.
+# Si le microcontrôleur prend en charge plusieurs bus I2C, on peut
+# spécifiez ici le nom du bus du microcontrôleur. La valeur par défaut dépend de
+# le type de microcontrôleur.
 #i2c_speed:
-#   The I2C speed (in Hz) to use when communicating with the device.
-#   The Klipper implementation on most micro-controllers is hard-coded
-#   to 100000 and changing this value has no effect. The default is
-#   100000. Linux, RP2040 and ATmega support 400000.
+# La vitesse I2C (en Hz) à utiliser lors de la communication avec l'appareil.
+# L'implémentation de Klipper sur la plupart des microcontrôleurs est codée en dur
+# à 100000 et la modification de cette valeur n'a aucun effet. La valeur par défaut est
+# 100000. Linux, RP2040 et ATmega prennent en charge 400000.
 ```

@@ -2,9 +2,9 @@
 
 This document covers recent software changes to the config file that are not backwards compatible. It is a good idea to review this document when upgrading the Klipper software.
 
-All dates in this document are approximate.
+Todas las fechas en este archivo son aproximadas.
 
-## Changes
+## Cambios
 
 20230304: The `SET_TMC_CURRENT` command now properly adjusts the globalscaler register for drivers that have it. This removes a limitation where on tmc5160, the currents could not be raised higher with `SET_TMC_CURRENT` than the `run_current` value set in the config file. However, this has a side effect: After running `SET_TMC_CURRENT`, the stepper must be held at standstill for >130ms in case StealthChop2 is used so that the AT#1 calibration gets executed by the driver.
 
@@ -62,26 +62,26 @@ All dates in this document are approximate.
 
 20210703: A `samd_sercom` config section must now specify the sercom bus it is configuring via the `sercom` option.
 
-20210612: The `pid_integral_max` config option in heater and temperature_fan sections is deprecated. The option will be removed in the near future.
+20210612: El parámetro de configuración `pid_integral_max` en las secciones (heater) y (temperature_fan) están en desuso. Este parámetro será eliminado próximamente.
 
 20210503: The gcode_macro `default_parameter_<name>` config option is deprecated. Use the `params` pseudo-variable to access macro parameters. Other methods for accessing macro parameters will be removed in the near future. Most users can replace a `default_parameter_NAME: VALUE` config option with a line like the following in the start of the macro: ` {% set NAME = params.NAME|default(VALUE)|float %}`. See the [Command Templates
 document](Command_Templates.md#macro-parameters) for examples.
 
-20210430: The SET_VELOCITY_LIMIT (and M204) command may now set a velocity, acceleration, and square_corner_velocity larger than the specified values in the config file.
+20210430: El comando SET_VELOCITY_LIMIT (y M204) puede que no establezcan una velocidad, aceleración y square_corner_velocity más grande que la especificada en los valores del archivo de configuración.
 
-20210325: Support for the `pin_map` config option is deprecated. Use the [sample-aliases.cfg](../config/sample-aliases.cfg) file to translate to the actual micro-controller pin names. The `pin_map` config option will be removed in the near future.
+20210325: El parámetro de configuración `pin_map`está en desuso. Use el archivo [sample-aliases.cfg](../config/sample-aliases.cfg) para traducir a los nombres actuales de los pines del microcontrolador. El parámetro de configuración `pin_map` será eliminado próximamente.
 
-20210313: Klipper's support for micro-controllers that communicate with CAN bus has changed. If using CAN bus then all micro-controllers must be reflashed and the [Klipper configuration must be updated](CANBUS.md).
+20210313: El soporte de Klipper para microcontroladores que se comunican con un bus CAN ha cambiado. Si se usa el bus CAN, todos los microcontroladores deben ser reprogramados y la [configuración de Klipper debe ser actualizada](CANBUS.md).
 
-20210310: The TMC2660 default for driver_SFILT has been changed from 1 to 0.
+20210310: La configuración por defecto de TMC2660 para el controlador driver_SFILT ha sido cambiada de 1 a 0.
 
-20210227: TMC stepper motor drivers in UART or SPI mode are now queried once per second whenever they are enabled - if the driver can not be contacted or if the driver reports an error, then Klipper will transition to a shutdown state.
+20210227: Los controladores del motor paso a paso TMC en modos UART o SPI ahora son añadidos a la cola una vez por segundo cuando son activados · si no se puede establecer comunicación con el controlador o si éste reporta un error, Klipper cambiará a un estado de apagado.
 
-20210219: The `rpi_temperature` module has been renamed to `temperature_host`. Replace any occurrences of `sensor_type: rpi_temperature` with `sensor_type: temperature_host`. The path to the temperature file may be specified in the `sensor_path` config variable. The `rpi_temperature` name is deprecated and will be removed in the near future.
+20210219: El módulo `rpi_temperature` ha sido renombrado como `temperature_host`. Sustituya cualquier definición declarada como `sensor_type: rpi_temperature` por `sensor_type: temperature_host`. La ruta al archivo de configuración de temperatura puede ser especificada en la variable de configuración `sensor_path`. El nombre del módulo `rpi_temperature` está en desuso y será eliminado próximamente.
 
-20210201: The `TEST_RESONANCES` command will now disable input shaping if it was previously enabled (and re-enable it after the test). In order to override this behavior and keep the input shaping enabled, one can pass an additional parameter `INPUT_SHAPING=1` to the command.
+20210201: El comando `TEST_RESONANCES` ahora deshabilitará la configuración de entrada si ha sido previamente habilitada (y reestablézcala despues de la prueba). Para sobreescribir el método y mantener la configuración de entrada activada, puede añadir un parámetro adicional declarado como `INPUT_SHAPING=1` al comando.
 
-20210201: The `ACCELEROMETER_MEASURE` command will now append the name of the accelerometer chip to the output file name if the chip was given a name in the corresponding adxl345 section of the printer.cfg.
+20210201: El comando `ACCELEROMETER_MEASURE` ahora añadira el nombre del chip del acelerómetro al nombre del archivo de salida si el chip fue nombrado en la sección correspondiente del archivo printer.cfg adxl345.
 
 20201222: The `step_distance` setting in the stepper config sections is deprecated. It is advised to update the config to use the [`rotation_distance`](Rotation_Distance.md) setting. Support for `step_distance` will be removed in the near future.
 

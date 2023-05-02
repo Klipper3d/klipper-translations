@@ -1,6 +1,6 @@
 # Compensation de la résonance
 
-Klipper prend en charge l'input shaper, une technique utilisée pour réduire l'effet de la résonance (également connu sous le nom d'écho, d'image fantôme - "ghosting" - ou d'ondulation - "ringing") dans les impressions. La résonance est un défaut d'impression de la surface lorsque des éléments tels que des bords se répètent sous la forme d'un léger "écho" :
+Klipper prend en charge l'"input shaping", une technique utilisée pour réduire l'effet de résonance (également connu sous le nom d'écho, d'image fantôme - "ghosting" - ou d'ondulation - "ringing") dans les impressions. La résonance est un défaut d'impression de surface lorsque des éléments tels que des bords se répètent sous la forme d'un léger "écho" :
 
 |![Test de résonance](img/ringing-test.jpg)|![3D Benchy](img/ringing-3dbenchy.jpg)|
 
@@ -16,7 +16,7 @@ Tranchez le modèle de test de résonance, qui se trouve dans [docs/prints/ringi
 
 * La hauteur de couche recommandée est de 0,2 ou 0,25 mm.
 * Le remplissage et le nombre de couches supérieures peuvent être réglés sur 0.
-* Utilisez 1 ou 2 parois, ou mieux encore le mode vase avec 1 ou 2 mm de base.
+* Utilisez 1 ou 2 parois, ou mieux encore le mode vase avec une base de 1 ou 2 mm.
 * Utilisez une vitesse suffisamment élevée, entre 80 et 100 mm/s, pour les parois **externes**.
 * Veillez à ce que le temps minimum par couche soit **au maximum** de 3 secondes.
 * Assurez-vous que toutes les options de "contrôle d'accélération" soient bien désactivées dans le trancheur.

@@ -1,22 +1,22 @@
 # Rotation distance
 
-Stepper motor drivers on Klipper require a `rotation_distance` parameter in each [stepper config section](Config_Reference.md#stepper). The `rotation_distance` is the amount of distance that the axis moves with one full revolution of the stepper motor. This document describes how one can configure this value.
+Els controladors de motor pas a pas a Klipper requereixen el paràmetre `rotation_distance` (distància de rotació) a cada [Secció de configuració del motor](Config_Reference.md#stepper). La `rotation_distance` és la quantitat de distància que l'eix es mou amb una revolució completa del motor pas a pas. Aquest document descriu com s'ha de configurar aquest valor.
 
-## Obtaining rotation_distance from steps_per_mm (or step_distance)
+## Obtenint rotation_distance a partir del passos per mm (o passos per distància)
 
-The designers of your 3d printer originally calculated `steps_per_mm` from a rotation distance. If you know the steps_per_mm then it is possible to use this general formula to obtain that original rotation distance:
+Els dissenyadors de la impressora originalment calculen els `passos per mil·límetre` a partir de la distància d'una rotació sencera.Si es coneixen els passos per mm (steps_per_mm) es possible emprar aquesta fórmula general per obtenir la distància de rotació:
 
 ```
 rotation_distance = <full_steps_per_rotation> * <microsteps> / <steps_per_mm>
 ```
 
-Or, if you have an older Klipper configuration and know the `step_distance` parameter you can use this formula:
+D'altre banda, si es disposa d'una configuració antiga de Klipper i es coneix el valor del paràmetre `step_distance`, es pot emprar aquesta fórmula:
 
 ```
 rotation_distance = <full_steps_per_rotation> * <microsteps> * <step_distance>
 ```
 
-The `<full_steps_per_rotation>` setting is determined from the type of stepper motor. Most stepper motors are "1.8 degree steppers" and therefore have 200 full steps per rotation (360 divided by 1.8 is 200). Some stepper motors are "0.9 degree steppers" and thus have 400 full steps per rotation. Other stepper motors are rare. If unsure, do not set full_steps_per_rotation in the config file and use 200 in the formula above.
+El valor `<full_steps_per_rotation>`(pasos sencers per revolució) es determinat pel tipus de motor pas a pas. La majoria dels motors són del tipus "1.8 graus" i per tant necessiten 200 passos sencers per fer una revolució sencera (360 dividit entre 1.8 són 200 passos). Hi ha motors que son de "0.9 graus" i necessiten 400 passos per revolució. Altres opcions són menys freqüents. Si hi ha dubtes, no emprar cap valor per a full_steps_per_rotation en el fitxer de configuració i emprar 200 en la fómula donada.
 
 The `<microsteps>` setting is determined by the stepper motor driver. Most drivers use 16 microsteps. If unsure, set `microsteps: 16` in the config and use 16 in the formula above.
 

@@ -10,15 +10,15 @@ queue_step oid=7 interval=7458 count=10 add=331
 queue_step oid=7 interval=11717 count=4 add=1281
 ```
 
-Consultez le document [commandes mcu](MCU_Commands.md) pour plus d'informations sur les commandes disponibles. Voir le document [deboguage](Debugging.md) pour plus d'informations sur la façon de traduire un fichier G-Code en commandes de microcontrôleur lisibles.
+Voir le document [commandes mcu](MCU_Commands.md) pour plus d'informations sur les commandes disponibles. Voir le document [deboguage](Debugging.md) pour plus d'informations sur la façon de traduire un fichier G-Code en commandes de microcontrôleur lisibles (par l'homme).
 
-Cette page fournit une description de haut niveau du protocole de communication de Klipper lui-même. Il décrit comment les messages sont déclarés, codés au format binaire (le schéma de "compression") et transmis.
+Cette page fournit une description de haut niveau du protocole de communication de Klipper. Elle décrit comment les messages sont déclarés, encodés au format binaire (le format de "compression") et transmis.
 
-L'objectif du protocole est de permettre un canal de communication sans erreur entre l'hôte et le microcontrôleur qui soit à faible latence, à faible bande passante et à faible complexité pour le microcontrôleur.
+L'objectif du protocole est de permettre un canal de communication sans erreur entre l'hôte et le microcontrôleur avec une faible latence, une faible bande passante et une faible complexité pour le microcontrôleur.
 
 ## Interface du micro-contrôleur
 
-Le protocole de transmission Klipper peut être considéré comme un mécanisme [Appel de procédure à distance](https://en.wikipedia.org/wiki/Remote_procedure_call) entre le micro-contrôleur et l'hôte. Le logiciel du microcontrôleur déclare les commandes que l'hôte peut invoquer ainsi que les messages de réponse qu'il peut générer. L'hôte utilise ces informations pour ordonner au microcontrôleur d'effectuer des actions et d'interpréter les résultats.
+Le protocole de transmission Klipper peut être considéré comme un mécanisme d' [Appel de procédure à distance](https://en.wikipedia.org/wiki/Remote_procedure_call) entre le microcontrôleur et l'hôte. Le logiciel du microcontrôleur déclare les commandes que l'hôte peut invoquer ainsi que les messages de réponse qu'il peut générer. L'hôte utilise ces informations pour ordonner au microcontrôleur d'effectuer des actions et d'interpréter les résultats.
 
 ### Déclaration des commandes
 
@@ -30,9 +30,9 @@ DECL_COMMAND(command_update_digital_out, "update_digital_out oid=%c value=%c");
 
 Ce qui précède déclare une commande nommée "update_digital_out". Cela permet à l'hôte "d'appeler" cette commande qui entraînerait l'exécution de la fonction C command_update_digital_out() dans le microcontrôleur. Ce qui précède indique également que la commande prend deux paramètres entiers. Lorsque le code C command_update_digital_out() est exécuté, un tableau contenant ces deux entiers lui sera transmis - le premier correspondant à 'oid' et le second correspondant à 'value'.
 
-En général, les paramètres sont décrits avec une syntaxe de style printf() (par exemple, "%u"). Le formatage correspond directement à une vue "lisible" des commandes (par exemple, "update_digital_out oid=7 value=1"). Dans l'exemple ci-dessus, "value=" est un nom de paramètre et "%c" indique que le paramètre est un entier. En interne, le nom du paramètre n'est utilisé que comme documentation. Dans cet exemple, le "%c" est également utilisé comme documentation pour indiquer que l'entier attendu a une taille de 1 octet (la taille de l'entier déclaré n'a pas d'impact sur l'analyse ou l'encodage).
+En général, les paramètres sont décrits avec une syntaxe de style printf() (par exemple, "%u"). Le formatage correspond directement à une vue "lisible" (par un Humain) des commandes (par exemple, "update_digital_out oid=7 value=1"). Dans l'exemple ci-dessus, "value=" est un nom de paramètre et "%c" indique que le paramètre est un entier. En interne, le nom du paramètre n'est utilisé que comme documentation. Dans cet exemple, le "%c" est également utilisé comme documentation pour indiquer que l'entier attendu a une taille de 1 octet (la taille déclarée de l'entier n'a pas d'impact sur l'analyse ou l'encodage).
 
-La construction du micrologiciel du microcontrôleur collectera toutes les commandes déclarées avec DECL_COMMAND(), déterminera leurs paramètres et s'arrangera pour qu'elles soient appelables.
+La compilation du micrologiciel du microcontrôleur collectera toutes les commandes déclarées avec DECL_COMMAND(), déterminera leurs paramètres et s'arrangera pour qu'elles soient appelables.
 
 ### Déclaration des réponses
 

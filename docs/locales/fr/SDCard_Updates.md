@@ -25,7 +25,7 @@ Les cartes supportées peuvent être listées avec la commande suivante :
 ./scripts/flash-sdcard.sh -l
 ```
 
-Si vous ne voyez pas votre carte dans la liste, il peut être nécessaire d'ajouter une nouvelle définition de carte comme [décrit ci-dessous](#board-definitions).
+Si votre carte ne figure pas dans la liste, il peut être nécessaire d'ajouter une nouvelle définition de carte comme [décrit ci-dessous](#board-definitions).
 
 ## Utilisation avancée
 
@@ -50,7 +50,7 @@ optional arguments:
   -f <firmware>   path to klipper.bin
 ```
 
-Si votre carte est flashée avec un firmware qui se connecte à un taux de baud personnalisé, il est possible de mettre à jour en spécifiant l'option `-b` :
+Si votre carte est flashée avec un micro logiciel qui se connecte à une vitesse (baud rate) personnalisée, il est possible de mettre à jour en spécifiant l'option `-b` :
 
 ```
 ./scripts/flash-sdcard.sh -b 115200 /dev/ttyAMA0 btt-skr-v1.3
@@ -62,7 +62,7 @@ Si vous souhaitez flasher une version de Klipper située ailleurs que dans l'emp
 ./scripts/flash-sdcard.sh -f ~/downloads/klipper.bin /dev/ttyAMA0 btt-skr-v1.3
 ```
 
-Notez que lors de la mise à jour d'un MKS Robin E3, il n'est pas nécessaire d'exécuter manuellement `update_mks_robin.py` et de fournir le binaire résultant à `flash-sdcard.sh`. Cette procédure est automatisée pendant le processus de téléchargement.
+Notez que lors de la mise à jour d'un MKS Robin E3, il n'est pas nécessaire d'exécuter manuellement `update_mks_robin.py` et de fournir le binaire résultant à `flash-sdcard.sh`. Cette procédure est automatisée pendant le processus de téléversement.
 
 L'option `-c` est utilisée pour effectuer une opération de contrôle ou de vérification uniquement pour tester si la carte exécute correctement le firmware spécifié. Cette option est principalement destinée aux cas où un cycle d'alimentation manuel est nécessaire pour compléter la procédure de flashage, comme avec des chargeurs de démarrage utilisant le mode SDIO au lieu de SPI pour accéder à leurs cartes SD. (Voir Caveats ci-dessous) Mais, elle peut également être utilisée à tout moment pour vérifier si le code flashé dans la carte correspond à la version dans votre dossier de construction sur toute carte supportée.
 
@@ -89,9 +89,9 @@ BOARD_DEFS = {
 
 Les champs suivants peuvent être précisés :
 
-- `mcu`: The mcu type. This can be retrieved after configuring the build via `make menuconfig` by running `cat .config | grep CONFIG_MCU`. This field is required.
-- `spi_bus`: The SPI bus connected to the SD Card. This should be retrieved from the board's schematic. This field is required.
-- `cs_pin`: The Chip Select Pin connected to the SD Card. This should be retrieved from the board schematic. This field is required.
+- `mcu` : le type de mcu. Il peut être récupéré après avoir configuré la construction via `make menuconfig` en exécutant `cat .config | grepCONFIG_MCU`. Ce champ est obligatoire.
+- `spi_bus` : Le bus SPI connecté à la carte SD. Cette information doit être récupérée à partir du schéma de la carte. Ce champ est obligatoire.
+- `cs_pin` : La broche de sélection de puce connectée à la carte SD. Cette information doit être récupérée à partir du schéma de la carte. Ce champ est obligatoire.
 - `firmware_path` : Le chemin sur la carte SD où le firmware doit être transféré. La valeur par défaut est `firmware.bin`.
 - `current_firmware_path` : Le chemin sur la carte SD où le fichier du firmware renommé est situé après un flash réussi. La valeur par défaut est `firmware.cur`.
 - `skip_verify` : définit une valeur booléenne indiquant aux scripts d'ignorer l'étape de vérification du firmware pendant le processus de flashage. La valeur par défaut est `False`. Peut être défini à `True` pour les cartes nécessitant un cycle d'alimentation manuel pour terminer le flashage. Pour vérifier le firmware par la suite, exécutez à nouveau le script avec l'option `-c` pour effectuer l'étape de vérification. [Voir les avertissements avec les cartes SDIO](#caveats)

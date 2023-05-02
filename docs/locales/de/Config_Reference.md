@@ -58,7 +58,7 @@ Additional micro-controllers (one may define any number of sections with an "mcu
 # See the "mcu" section for configuration parameters.
 ```
 
-## Common kinematic settings
+## Gebräuchliche Kinematik Einstellungen
 
 ### [printer]
 
@@ -792,7 +792,7 @@ max_temp:
 #   See the "extruder" section for a description of the above parameters.
 ```
 
-## Bed level support
+## Bett Nivelierung Unterstützung
 
 ### [bed_mesh]
 
@@ -1318,7 +1318,7 @@ Idle timeout. An idle timeout is automatically enabled - add an explicit idle_ti
 
 ### [virtual_sdcard]
 
-A virtual sdcard may be useful if the host machine is not fast enough to run OctoPrint well. It allows the Klipper host software to directly print gcode files stored in a directory on the host using standard sdcard G-Code commands (eg, M24).
+Eine virtuelle SD Karte kann dann hilfreich sein, wenn der Host Computer  nicht schnell genug ist Octoprint flüssig auszuführen. Es erlaubt  der Klipper Software  direkt  Gcode aus einem Verzeichnis auf dem Host zu drucken bei Benutzung von Standard G-Code Kommandos (z.b. M24)
 
 ```
 [virtual_sdcard]
@@ -1468,31 +1468,7 @@ Enables [resonance compensation](Resonance_Compensation.md). Also see the [comma
 Support for ADXL345 accelerometers. This support allows one to query accelerometer measurements from the sensor. This enables an ACCELEROMETER_MEASURE command (see [G-Codes](G-Codes.md#adxl345) for more information). The default chip name is "default", but one may specify an explicit name (eg, [adxl345 my_chip_name]).
 
 ```
-[adxl345]
-cs_pin:
-#   The SPI enable pin for the sensor. This parameter must be provided.
-#spi_speed: 5000000
-#   The SPI speed (in hz) to use when communicating with the chip.
-#   The default is 5000000.
-#spi_bus:
-#spi_software_sclk_pin:
-#spi_software_mosi_pin:
-#spi_software_miso_pin:
-#   See the "common SPI settings" section for a description of the
-#   above parameters.
-#axes_map: x, y, z
-#   The accelerometer axis for each of the printer's X, Y, and Z axes.
-#   This may be useful if the accelerometer is mounted in an
-#   orientation that does not match the printer orientation. For
-#   example, one could set this to "y, x, z" to swap the X and Y axes.
-#   It is also possible to negate an axis if the accelerometer
-#   direction is reversed (eg, "x, z, -y"). The default is "x, y, z".
-#rate: 3200
-#   Output data rate for ADXL345. ADXL345 supports the following data
-#   rates: 3200, 1600, 800, 400, 200, 100, 50, and 25. Note that it is
-#   not recommended to change this rate from the default 3200, and
-#   rates below 800 will considerably affect the quality of resonance
-#   measurements.
+Gängige SPI Einstellungen
 ```
 
 ### [mpu9250]
@@ -1604,7 +1580,7 @@ pins:
 #   provided.
 ```
 
-## Bed probing hardware
+## Bett Nivelierung Sensor
 
 ### [probe]
 
@@ -1773,7 +1749,7 @@ z_offset:
 #   See the "probe" section for more information on the parameters above.
 ```
 
-## Additional stepper motors and extruders
+## Zusätzliche Steppermotoren und Extruder
 
 ### [stepper_z1]
 
@@ -2035,7 +2011,7 @@ Generic temperature sensors. One can define any number of additional temperature
 
 Klipper includes definitions for many types of temperature sensors. These sensors may be used in any config section that requires a temperature sensor (such as an `[extruder]` or `[heater_bed]` section).
 
-### Common thermistors
+### Gebräuchlicher Thermo-Widerstand
 
 Common thermistors. The following parameters are available in heater sections that use one of these sensors.
 
@@ -2057,9 +2033,9 @@ sensor_pin:
 #   The default is 0 ohms.
 ```
 
-### Common temperature amplifiers
+### Gebräuchliche Temperatur Verstärker
 
-Common temperature amplifiers. The following parameters are available in heater sections that use one of these sensors.
+Gebräuchliche Temperatur Verstärker. Die folgenden Parameter sind in der Heizer Sektion  verfügbar, die einen der Sensoren benutzt.
 
 ```
 sensor_type:
@@ -2599,7 +2575,7 @@ PCA9632 LED support. The PCA9632 is used on the FlashForge Dreamer.
 #   See the "led" section for information on these parameters.
 ```
 
-## Additional servos, buttons, and other pins
+## Zusätzliche Servo, Knöpfe und andere Pins
 
 ### [servo]
 
@@ -3238,38 +3214,7 @@ run_current:
 Statically configured AD5206 digipots connected via SPI bus (one may define any number of sections with an "ad5206" prefix).
 
 ```
-[ad5206 my_digipot]
-enable_pin:
-#   The pin corresponding to the AD5206 chip select line. This pin
-#   will be set to low at the start of SPI messages and raised to high
-#   after the message completes. This parameter must be provided.
-#spi_speed:
-#spi_bus:
-#spi_software_sclk_pin:
-#spi_software_mosi_pin:
-#spi_software_miso_pin:
-#   See the "common SPI settings" section for a description of the
-#   above parameters.
-#channel_1:
-#channel_2:
-#channel_3:
-#channel_4:
-#channel_5:
-#channel_6:
-#   The value to statically set the given AD5206 channel to. This is
-#   typically set to a number between 0.0 and 1.0 with 1.0 being the
-#   highest resistance and 0.0 being the lowest resistance. However,
-#   the range may be changed with the 'scale' parameter (see below).
-#   If a channel is not specified then it is left unconfigured.
-#scale:
-#   This parameter can be used to alter how the 'channel_x' parameters
-#   are interpreted. If provided, then the 'channel_x' parameters
-#   should be between 0.0 and 'scale'. This may be useful when the
-#   AD5206 is used to set stepper voltage references. The 'scale' can
-#   be set to the equivalent stepper amperage if the AD5206 were at
-#   its highest resistance, and then the 'channel_x' parameters can be
-#   specified using the desired amperage value for the stepper. The
-#   default is to not scale the 'channel_x' parameters.
+gebräuchliche Spi Einstellungen
 ```
 
 ### [mcp4451]
@@ -4068,34 +4013,12 @@ serial:
 Magnetic hall angle sensor support for reading stepper motor angle shaft measurements using a1333, as5047d, or tle5012b SPI chips. The measurements are available via the [API Server](API_Server.md) and [motion analysis tool](Debugging.md#motion-analysis-and-data-logging). See the [G-Code reference](G-Codes.md#angle) for available commands.
 
 ```
-[angle my_angle_sensor]
-sensor_type:
-#   The type of the magnetic hall sensor chip. Available choices are
-#   "a1333", "as5047d", and "tle5012b". This parameter must be
-#   specified.
-#sample_period: 0.000400
-#   The query period (in seconds) to use during measurements. The
-#   default is 0.000400 (which is 2500 samples per second).
-#stepper:
-#   The name of the stepper that the angle sensor is attached to (eg,
-#   "stepper_x"). Setting this value enables an angle calibration
-#   tool. To use this feature, the Python "numpy" package must be
-#   installed. The default is to not enable angle calibration for the
-#   angle sensor.
-cs_pin:
-#   The SPI enable pin for the sensor. This parameter must be provided.
-#spi_speed:
-#spi_bus:
-#spi_software_sclk_pin:
-#spi_software_mosi_pin:
-#spi_software_miso_pin:
-#   See the "common SPI settings" section for a description of the
-#   above parameters.
+gängige SPI Einstellungen
 ```
 
 ## Common bus parameters
 
-### Common SPI settings
+### Gebräuchliche SPI Einstellungen
 
 The following parameters are generally available for devices using an SPI bus.
 
@@ -4116,7 +4039,7 @@ The following parameters are generally available for devices using an SPI bus.
 #   "software spi".
 ```
 
-### Common I2C settings
+### Gebräuchliche I2C Einstellungen
 
 The following parameters are generally available for devices using an I2C bus.
 

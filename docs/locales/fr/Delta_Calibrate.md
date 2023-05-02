@@ -2,7 +2,7 @@
 
 Ce document décrit le système de calibration automatique de Klipper pour les imprimantes de type "delta".
 
-L'étalonnage Delta consiste à trouver les positions pour les butées de tour, les angles de tour, le rayon Delta et les longueurs de bras Delta. Ces paramètres contrôlent le mouvement de l'imprimante sur une imprimante Delta. Chacun de ces paramètres a un impact non linéaire et il est difficile de les calibrer manuellement. En revanche, le code d'étalonnage logiciel peut fournir d'excellents résultats en quelques minutes seulement. Aucun matériel spécial n'est nécessaire.
+L'étalonnage Delta consiste à trouver les positions pour les butées de tours, les angles des tours, le rayon et les longueurs de bras. Ces paramètres contrôlent le mouvement d'une imprimante Delta. Chacun de ces paramètres a un impact non trivial et non linéaire et il est difficile de les calibrer manuellement. En revanche, le code d'étalonnage logiciel peut fournir d'excellents résultats en quelques minutes seulement. Aucun matériel de mesure n'est nécessaire.
 
 L'étalonnage Delta dépend de la précision des interrupteurs de fin de course de chaque tour. Si l'on utilise des pilotes de moteur pas à pas Trinamic, envisagez d'activer la détection de [phase d'arrêt](Endstop_Phase.md) pour améliorer la précision de ces commutateurs.
 
@@ -10,19 +10,19 @@ L'étalonnage Delta dépend de la précision des interrupteurs de fin de course 
 
 Klipper prend en charge l'étalonnage des paramètres delta via une méthode de sondage manuelle ou via une sonde Z automatique.
 
-Un certain nombre de kits d'imprimantes delta sont livrés avec des sondes Z automatiques qui ne sont pas suffisamment précises (en particulier, de petites différences de longueur de bras peuvent provoquer une inclinaison de l'effecteur qui peut fausser une sonde automatique). Si vous utilisez une sonde automatique, [étalonnez d'abord la sonde](Probe_Calibrate.md), puis recherchez un [le biais d'emplacement de la sonde](Probe_Calibrate.md#location-bias-check). Si la sonde automatique a un biais de plus de 25 microns (0,025 mm), utilisez plutôt une sonde manuelle. Le sondage manuel ne prend que quelques minutes et élimine les erreurs introduites par la sonde.
+Un certain nombre de kits d'imprimantes delta sont livrés avec des sondes Z automatiques qui ne sont pas suffisamment précises (en particulier, de petites différences sur la longueur des bras peuvent provoquer une inclinaison de la sonde qui peut fausser les mesures). Si vous utilisez une sonde automatique, [étalonnez d'abord la sonde](Probe_Calibrate.md), puis recherchez [le biais d'emplacement de la sonde](Probe_Calibrate.md#location-bias-check). Si la sonde automatique a un biais de plus de 25 microns (0,025 mm), utilisez plutôt le palpage manuel. Le palpage manuel ne prend que quelques minutes et élimine les erreurs introduites par la sonde.
 
-Si vous utilisez une sonde montée sur le côté de l'extrémité chaude (c'est-à-dire qu'elle a un décalage X ou Y), notez que l'exécution de l'étalonnage delta invalidera les résultats de l'étalonnage de la sonde. Ces types de sondes sont rarement adaptés à une utilisation sur une delta (car une inclinaison mineure de l'effecteur entraînera un biais de localisation de la sonde). Si vous utilisez quand même la sonde, assurez-vous de relancer l'étalonnage de la sonde après tout étalonnage delta.
+Si vous utilisez une sonde montée sur le côté de la tête (c'est-à-dire qu'elle a un décalage X ou Y par rapport à l'axe de la buse), notez que l'étalonnage delta invalidera les résultats de l'étalonnage de la sonde. Ces types de sondes sont rarement adaptés à une utilisation sur une delta (car une inclinaison mineure de l'effecteur entraînera un biais de localisation de la sonde). Si vous utilisez quand même la sonde, assurez-vous de relancer l'étalonnage de la sonde après tout étalonnage delta.
 
 ## Étalonnage Delta de base
 
 Klipper a une commande DELTA_CALIBRATE qui peut effectuer un étalonnage Delta de base. Cette commande sonde sept points différents sur le lit et calcule de nouvelles valeurs pour les angles de la tour, les butées de la tour et le rayon delta.
 
-Afin d'effectuer cet étalonnage, les paramètres delta initiaux (longueurs de bras, rayon et positions de butée) doivent être fournis et ils doivent avoir une précision de quelques millimètres. La plupart des kits d'imprimante delta fournissent ces paramètres - configurez l'imprimante avec ces valeurs par défaut, puis exécutez la commande DELTA_CALIBRATE comme décrit ci-dessous. Si aucune valeur par défaut n'est disponible, recherchez en ligne un guide d'étalonnage delta qui peut fournir un point de départ de base.
+Afin d'effectuer cet étalonnage, les paramètres delta initiaux (longueurs de bras, rayon et positions des fin de course) doivent être fournis et ils doivent avoir une précision de quelques millimètres. La plupart des kits d'imprimante delta fournissent ces paramètres - configurez l'imprimante avec ces valeurs par défaut, puis exécutez la commande DELTA_CALIBRATE comme décrit ci-dessous. Si aucune valeur par défaut n'est disponible, recherchez en ligne un guide d'étalonnage delta qui pourra vous fournir un point de départ de base.
 
 Au cours du processus d'étalonnage Delta, il peut être nécessaire que l'imprimante sonde 'en dessous' de ce qui serait autrement considéré comme le plan du lit. Il est courant d'autoriser cela lors de l'étalonnage en mettant à jour la configuration de sorte que la position `minimum_z_position=-5` de l'imprimante. (Une fois l'étalonnage terminé, on peut supprimer ce paramètre de la configuration.)
 
-Il existe deux façons d'effectuer le sondage : le sondage manuel (`DELTA_CALIBRATE METHOD=manual`) et le sondage automatique (`DELTA_CALIBRATE`). La méthode de sondage manuel déplacera la tête près du lit, puis attendra que l'utilisateur suive les étapes décrites dans ["the paper test"](Bed_Level.md#the-paper-test) pour déterminer la distance réelle entre la buse et lit à l'endroit indiqué.
+Il existe deux façons d'effectuer le sondage : le sondage manuel (`DELTA_CALIBRATE METHOD=manual`) et le sondage automatique (`DELTA_CALIBRATE`). La méthode de sondage manuel déplacera la tête près du lit, puis attendra que l'utilisateur suive les étapes décrites dans ["le test du papier"](Bed_Level.md#the-paper-test) pour déterminer la distance réelle entre la buse et lit à l'endroit indiqué.
 
 Pour effectuer le sondage initial, assurez-vous que la configuration a une section [delta_calibrate] définie, puis exécutez l'outil :
 

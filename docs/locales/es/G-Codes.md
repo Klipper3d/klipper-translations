@@ -524,7 +524,7 @@ Las siguientes instrucciones adicionales también están disponibles.
 
 ### [pid_calibrate]
 
-The pid_calibrate module is automatically loaded if a heater is defined in the config file.
+EL módulo pid_calibrate es cargado automáticamente si un heater está definido en el archivo de configuración
 
 #### PID_CALIBRATE
 
@@ -572,7 +572,7 @@ The following commands are available when a [probe config section](Config_Refere
 
 #### PROBE_ACCURACY
 
-`PROBE_ACCURACY [PROBE_SPEED=<mm/s>] [SAMPLES=<count>] [SAMPLE_RETRACT_DIST=<mm>]`: Calculate the maximum, minimum, average, median, and standard deviation of multiple probe samples. By default, 10 SAMPLES are taken. Otherwise the optional parameters default to their equivalent setting in the probe config section.
+`PROBE_ACCURACY [PROBE_SPEED=<mm/s>] [SAMPLES=<count>] [SAMPLE_RETRACT_DIST=<mm>]`: Calcula la desviación estándar máxima, mínima, media y mediana de múltiples muestras de la sonda. Por defecto, se toman 10 MUESTRAS. Por el contrario, los parámetros opcionales son configurados igual que en la sección de configuración por defecto de la sonda.
 
 #### PROBE_CALIBRATE
 

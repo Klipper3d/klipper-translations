@@ -29,7 +29,7 @@ La ilustración debajo muestra como las son usadas las opciones  `mesh_min`, `me
 
 ![bedmesh_rect_basic](img/bedmesh_rect_basic.svg)
 
-### Camas redondeadas
+### Camas redondas
 
 This example assumes a printer equipped with a round bed radius of 100mm. We will use the same probe offsets as the rectangular example, 24 mm on X and 5 mm on Y.
 
@@ -50,7 +50,7 @@ The illustration below shows how the probed points are generated. As you can see
 
 ![bedmesh_round_basic](img/bedmesh_round_basic.svg)
 
-## Advanced Configuration
+## Configuración Avanzada
 
 Below the more advanced configuration options are explained in detail. Each example will build upon the basic rectangular bed configuration shown above. Each of the advanced options apply to round beds in the same manner.
 

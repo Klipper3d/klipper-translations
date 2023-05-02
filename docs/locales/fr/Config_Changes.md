@@ -6,9 +6,9 @@ Toutes les dates de ce document sont approximatives.
 
 ## Changements
 
-20230304: The `SET_TMC_CURRENT` command now properly adjusts the globalscaler register for drivers that have it. This removes a limitation where on tmc5160, the currents could not be raised higher with `SET_TMC_CURRENT` than the `run_current` value set in the config file. However, this has a side effect: After running `SET_TMC_CURRENT`, the stepper must be held at standstill for >130ms in case StealthChop2 is used so that the AT#1 calibration gets executed by the driver.
+20230304 : La commande `SET_TMC_CURRENT` ajuste désormais correctement le registre globalscaler pour les pilotes qui l'ont. Cela supprime une limitation où sur tmc5160, les courants ne pouvaient pas être augmentés plus haut avec `SET_TMC_CURRENT` que la valeur `run_current` définie dans le fichier de configuration. Cependant, cela a un effet secondaire : après avoir exécuté `SET_TMC_CURRENT`, le moteur pas à pas doit être maintenu à l'arrêt pendant plus de 130 ms dans le cas où StealthChop2 est utilisé afin que l'étalonnage AT#1 soit exécuté par le pilote.
 
-20230202: The format of the `printer.screws_tilt_adjust` status information has changed. The information is now stored as a dictionary of screws with the resulting measurements. See the [status reference](Status_Reference.md#screws_tilt_adjust) for details.
+20230202 : Le format des informations d'état `printer.screws_tilt_adjust` a changé. Les informations sont maintenant stockées sous forme de dictionnaire de vis avec les mesures résultantes. Voir la [référence d'état](Status_Reference.md#screws_tilt_adjust) pour plus de détails.
 
 20230201 : Le module `[bed_mesh]` ne charge plus le profil `default` au démarrage. Il est recommandé aux utilisateurs qui utilisent le profil `default` d'ajouter `BED_MESH_PROFILE LOAD=default` à leur macro `START_PRINT` (ou à la configuration "Start G-Code" de leur trancheur si applicable).
 

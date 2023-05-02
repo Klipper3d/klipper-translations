@@ -34,7 +34,7 @@ Bienvenue dans la documentation de Klipper. Si vous débutez avec Klipper, comme
 - [Trancheurs](Slicers.md) : Configuration d'un logiciel de "tranchage" pour Klipper.
 - [Correction d'obliquité](Skew_Correction.md) : Ajustements des axes qui ne sont pas parfaitement d'équerre.
 - [Outils PWM](Using_PWM_Tools.md) : Guide sur l'utilisation des outils contrôlés par PWM tels que les lasers ou les broches.
-- [Exclude Object](Exclude_Object.md): The guide to the Exclude Objects implementation.
+- [Exclude Object](Exclude_Object.md) : Le guide de l'implémentation d'Exclude Objects.
 
 ## Documentation pour les développeurs
 
