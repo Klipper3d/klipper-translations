@@ -1,4 +1,4 @@
-# Configuration checks
+# Verificació de la configuració
 
 Aquest document conté una llista amb els passos per configurar el pin del fitxer Klipper printer.cfg. Es recomana executar-los un cop acabats els passos a [instal·lació documents](installation.md).
 
@@ -8,7 +8,7 @@ Al llarg d'aquesta guia pot ser necessari fer canvis al fitxer config Klipper. �
 
 Comença verificant que la temperatura s'ha desat correctament. Navega a la pestanya de temperatura Octoprint.
 
-![temperatura-octoprint](img/octoprint-temperature.png)
+![octoprint-temperature](img/octoprint-temperature.png)
 
 Verificar que la temperatura del fusor i el llit (si és aplicable ) són presents i no estan augmentant. Si augmenten, desconnecteu la impressora. Si la temperatura no és exacta, reviseu els ajustaments del "sensor_type" i del "sensor_pin" per al fusor i/o llit.
 
@@ -26,44 +26,44 @@ Si la impressora disposa de llit calent, executa l’anterior comprovació amb e
 
 ## Verificar el pin ENABLE del motor pas a pas
 
-Verify that all of the printer axes can manually move freely (the stepper motors are disabled). If not, issue an M84 command to disable the motors. If any of the axes still can not move freely, then verify the stepper "enable_pin" configuration for the given axis. On most commodity stepper motor drivers, the motor enable pin is "active low" and therefore the enable pin should have a "!" before the pin (for example, "enable_pin: !ar38").
+Verificar que tots els eixos de la impressora es poden bellugar lliurement a mà (els motors pas a pas estan desactivats). Si no és així, enviar el comandament M84 per desactivar-los. Si algun dels eixos encara no es pot bellugar lliurement, verificar la configuració del pin ENABLE per a aquest eix. A la majoria de controladors de motors pas a pas, el pin ENABLE s’ha de configurar com a “active low” i a la definició del pin hi ha d’anar el símbol “!” precedínt al pin (per exemple, “enable_pin: !ar38”).
 
-## Verify endstops
+## Verificar els finals de carrera
 
-Manually move all the printer axes so that none of them are in contact with an endstop. Send a QUERY_ENDSTOPS command via the Octoprint terminal tab. It should respond with the current state of all of the configured endstops and they should all report a state of "open". For each of the endstops, rerun the QUERY_ENDSTOPS command while manually triggering the endstop. The QUERY_ENDSTOPS command should report the endstop as "TRIGGERED".
+Belluga manualment tots els eixos de tal forma que no es premi cap dels sensors de final de carrera. Envia l’ordre QUERY_ENDSTOPS a la pestanya de la terminal d’Octoprint. La resposta a aquest comandament hauria de ser que tots els sensors estan “OBERT” (open). Envia de nou el comandament QUERY_ENDSTOPS mentre manualment actives el sensor. El comandament hauria de mostrar el sensor activat com a “TANCAT/ACTIVAT”(triggered).
 
-If the endstop appears inverted (it reports "open" when triggered and vice-versa) then add a "!" to the pin definition (for example, "endstop_pin: ^!ar3"), or remove the "!" if there is already one present.
+Si el sensor es mostra invertit i es detecta “obert” quan s’activa i viceversa, afegir “!” davant del nom del pin al fitxer de configuració (per exemple “endstop_pin: ^!ar3") o bé treure’l si ja hi és present.
 
-If the endstop does not change at all then it generally indicates that the endstop is connected to a different pin. However, it may also require a change to the pullup setting of the pin (the '^' at the start of the endstop_pin name - most printers will use a pullup resistor and the '^' should be present).
+Si l’estat del sensor no canvia mai, normalment indica que el sensor donat s’ha connectat a un altre pin. Tant mateix , cal tenir present que moltes impressores fan servir una resistència “pullup” que implica que el valor de endstop_pin ha d’estar precedit pel caràcter ‘^' per canviar el valor d’aquest paràmetre.
 
-## Verify stepper motors
+## Verificar els motors pas a pas
 
-Use the STEPPER_BUZZ command to verify the connectivity of each stepper motor. Start by manually positioning the given axis to a midway point and then run `STEPPER_BUZZ STEPPER=stepper_x`. The STEPPER_BUZZ command will cause the given stepper to move one millimeter in a positive direction and then it will return to its starting position. (If the endstop is defined at position_endstop=0 then at the start of each movement the stepper will move away from the endstop.) It will perform this oscillation ten times.
+Emprar el comandament STEPPER_BUZZ per verificar la connectivitat de cada motor pas a pas. Per començar, situar l’eix a verificar a la meitat de recorregut i enviar el comandament `STEPPER_BUZZ STEPPER=stepper_x`. El comandament farà moure el motor un mil·límetre en el sentit positiu de l’eix i retornarà a la posició inicial (si el sensor de final de carrera es defineix a position_endstop=0 aleshores el moviment es farà allunyant-se del sensor). Això es durà a terme 10 vegades.
 
-If the stepper does not move at all, then verify the "enable_pin" and "step_pin" settings for the stepper. If the stepper motor moves but does not return to its original position then verify the "dir_pin" setting. If the stepper motor oscillates in an incorrect direction, then it generally indicates that the "dir_pin" for the axis needs to be inverted. This is done by adding a '!' to the "dir_pin" in the printer config file (or removing it if one is already there). If the motor moves significantly more or significantly less than one millimeter then verify the "rotation_distance" setting.
+Si el motor no es belluga res, verificar els valors de "enable_pin" i "step_pin" per a aquest motor. Si el motor es belluga però no retorna a la posició inicial, verificar el calor de "dir_pin". Si el motor oscil·la en una direcció incorrecta, generalment indicarà que el valor de "dir_pin" per a aquest axis està invertit. Per a això afegir "!" al valor de "dir_pin" o remoure'l en cas que hi sigui.
 
-Run the above test for each stepper motor defined in the config file. (Set the STEPPER parameter of the STEPPER_BUZZ command to the name of the config section that is to be tested.) If there is no filament in the extruder then one can use STEPPER_BUZZ to verify the extruder motor connectivity (use STEPPER=extruder). Otherwise, it's best to test the extruder motor separately (see the next section).
+Si el motor no mostra cap activitat, verificar que la configuració de “enable_pin” i “step_pin” siguin els correctes per al motor. En cas que el motor es mogui però no retorni s la seva posició inicial, verificar la configuració del paràmetre “dir_pin”. Si el motor oscil·la en direccions incorrectes, indicarà que s’ha de canviar el valor de “dir_pin” per invertir el sentit de l’eix. Per això s’ha d’afegir, o suprimir en cas que hi sigui, el modificador “!” a l’inici del valor del pin. En el cas que el motor es mogui més d’1mm o menys mogui per excés o per defecte d’una forma significant, s’haurà de revisar el valor del paràmetre “rotation_distance”.
 
-After verifying all endstops and verifying all stepper motors the homing mechanism should be tested. Issue a G28 command to home all axes. Remove power from the printer if it does not home properly. Rerun the endstop and stepper motor verification steps if necessary.
+Despeés d’haver verificat el bon funcionament dels sensors de final de carrera i dels motors s’ha de verificar el mecanisme d’anada a l’inici (homing). Per això, enviar el comandament G28 per inicialitzar tots els eixos. En cas que la seqüència no s’inicïi correctament, desendollar el corrent de la impressora. Tornar a verificar els sensors de final de carrera i el moviment dels motors si és necessari.
 
-## Verify extruder motor
+## Verificar el motor de l’extrussor
 
-To test the extruder motor it will be necessary to heat the extruder to a printing temperature. Navigate to the Octoprint temperature tab and select a target temperature from the temperature drop-down box (or manually enter an appropriate temperature). Wait for the printer to reach the desired temperature. Then navigate to the Octoprint control tab and click the "Extrude" button. Verify that the extruder motor turns in the correct direction. If it does not, see the troubleshooting tips in the previous section to confirm the "enable_pin", "step_pin", and "dir_pin" settings for the extruder.
+Per poder. Edificat el motor de l’extrussor, el fusor s’ha de posar en temperatura d’impressió. Seleccionar una temperatura de la llista desplegable de temperatures o entrar el valor numèric directament a la pestanya temperatures d’Octoprint. Esperar a que la temperatura seleccionada s’estabilitzi i prémer el botó “Extrude” del panell se control de l’Octoprint. Edificat que el motor fira en el sentit correcte. Si no ho fa, consulta la secció de localització i reparació d’errors de la secció anterior per confirmar que els valors de “enable_pin", "step_pin", i "dir_pin" estan ben configurats per a l’extrussor.
 
-## Calibrate PID settings
+## Calibrar les configuracions del PID
 
-Klipper supports [PID control](https://en.wikipedia.org/wiki/PID_controller) for the extruder and bed heaters. In order to use this control mechanism, it is necessary to calibrate the PID settings on each printer (PID settings found in other firmwares or in the example configuration files often work poorly).
+Klipper suporta [controladores PID](https://ca.wikipedia.org/wiki/Proporcional_integral_derivatiu) per al fusor i el llit calent. Per tal de poder fer servir aquest algoritme és necessari calibrar els valors PID de cada impressora (valors PID trobats a altres firmware o a les configuracions d'exemple solen donar resultats molt pobres).
 
-To calibrate the extruder, navigate to the OctoPrint terminal tab and run the PID_CALIBRATE command. For example: `PID_CALIBRATE HEATER=extruder TARGET=170`
+Per calibrar el PID de l’extrussor s’ha d’enviar el comandament PID_CALIBRATE a la pestanya Terminal de l’Octoprint. Per exemple: `PID_CALIBRATE HEATER=extruder TARGET=170`
 
-At the completion of the tuning test run `SAVE_CONFIG` to update the printer.cfg file the new PID settings.
+En acabar el procés de calibració envia el comandament `SAVE_CONFIG` per actualitzar el fitxer printer.cfg amb els nous valors de PID.
 
-If the printer has a heated bed and it supports being driven by PWM (Pulse Width Modulation) then it is recommended to use PID control for the bed. (When the bed heater is controlled using the PID algorithm it may turn on and off ten times a second, which may not be suitable for heaters using a mechanical switch.) A typical bed PID calibration command is: `PID_CALIBRATE HEATER=heater_bed TARGET=60`
+Si la impressora disposa de llit calent i permet ser governat mitjançant PWM (Modulació d'amplada de pulsos) aleshores es recomana fer servir el control PID per al llit calent. (Quan el llit calent s'acciona mitjançant l'algoritme PID pot ser que s'activi i desactivi el corrent 10 cops per segon, cosa. la qual no pot ser suportada per escalfadors connectats a un relé mecànic.) Un comandament típic per a fer el calibratge del llit calent sol ser: `PID_CALIBRATE HEATER=heater_bed TARGET=60`
 
-## Next steps
+## Següents passos
 
-This guide is intended to help with basic verification of pin settings in the Klipper configuration file. Be sure to read the [bed leveling](Bed_Level.md) guide. Also see the [Slicers](Slicers.md) document for information on configuring a slicer with Klipper.
+La intenció d'aquesta guia és ajudar a verificar que la assignació de pins al fitxer de configuració del Klipper és correcte. S'ha de llegir també la guia [Nivellar el llit](Bed_Level.md). Llegir també la guia [Slicers](Slicers.md) per entendre com configurar el programa de llescat amb el Klipper.
 
-After one has verified that basic printing works, it is a good idea to consider calibrating [pressure advance](Pressure_Advance.md).
+Després de verificar que la impressió bàsica funciona correctament, és una bona idea el fet de considerar de calibrar [Previsió de pressió](Pressure_Advance.md).
 
-It may be necessary to perform other types of detailed printer calibration - a number of guides are available online to help with this (for example, do a web search for "3d printer calibration"). As an example, if you experience the effect called ringing, you may try following [resonance compensation](Resonance_Compensation.md) tuning guide.
+Pot ser necessari haver de fer altres tipus de ajustaments més detallats - hi ha disponibles en línia una serie de guies per abordar aquests aspectes (com a exemple, cercar "calibrar impressora 3d"). Per exemple, si es presenta l'efecte 'ringing' (repetició) a les peces impreses, pots triar de seguir la guia [Compensació de ressonància](Resonance_Compensation.md) per ajustar els paràmetres necessaris.

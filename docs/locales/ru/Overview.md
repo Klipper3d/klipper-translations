@@ -34,7 +34,7 @@
 - [Slicers](Slicers.md): Настройка программного обеспечения "слайсера" для Klipper.
 - [Коррекция перекоса](Skew_Correction.md): Корректировка для осей, не являющихся идеально квадратными.
 - [PWM tools](Using_PWM_Tools.md): Руководство по использованию инструментов с ШИМ-управлением, таких как лазеры или шпиндели.
-- [Exclude Object](Exclude_Object.md): The guide to the Exclude Objects implementation.
+- [Exclude Object](Exclude_Object.md): Руководство по реализации исключаемых объектов.
 
 ## Документация для разработчиков
 

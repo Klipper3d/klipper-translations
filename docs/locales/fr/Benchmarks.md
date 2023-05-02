@@ -8,9 +8,9 @@ Cette section décrit le mécanisme utilisé pour générer les bancs d'essais (
 
 L'objectif principal des bancs d'essais est de fournir un mécanisme cohérent pour mesurer l'impact des changements de codage dans le logiciel. Un objectif secondaire est de fournir des mesures de haut niveau pour comparer les performances entre puces et entre plateformes logicielles.
 
-Le test de vitesse des moteurs pas à pas est conçu pour trouver la fréquence de pas maximale que le matériel et le logiciel peuvent atteindre. Ce taux de pas de référence n'est pas réalisable dans une utilisation normale de Klipper car il doit effectuer d'autres tâches (par exemple, la communication mcu/hôte, la lecture de la température, la vérification des fin de course).
+Le test de vitesse des moteurs pas à pas est conçu pour trouver la fréquence de pas maximale que le matériel et le logiciel peuvent atteindre. Ce taux de pas de référence n'est pas réalisable dans une utilisation "réelle" de Klipper car il doit effectuer d'autres tâches (par exemple, la communication microcontrôleur(s)/hôte, la lecture de la température, la vérification des fin de course).
 
-En général, les broches pour les tests sont choisies pour faire clignoter des LED ou d'autres actions inoffensives. **Vérifiez toujours qu'il est sûr de commander les broches configurées avant d'exécuter un test.** Il n'est pas recommandé de piloter un moteur pas à pas lors d'un benchmark.
+En général, les broches pour les tests sont choisies pour faire clignoter des LED ou d'autres actions inoffensives. **Vérifiez toujours qu'il est sûr de commander les broches configurées avant d'exécuter un test.** Il n'est pas recommandé de piloter un moteur pas à pas lors d'un test.
 
 ### Test du taux de pas
 
@@ -39,7 +39,7 @@ set_next_step_dir oid=2 dir=1
 queue_step oid=2 interval=3000 count=1 add=0
 ```
 
-Ces tests simule le déplacement de trois moteurs pas à pas simultanément. Si son exécution entraîne une erreur "Rescheduled timer in the past" or "Stepper too far in past", cela indique que le paramètre `ticks` est trop faible (il en résulte une vitesse de pas trop rapide) . L'objectif est de trouver le réglage le plus bas du paramètre ticks qui aboutit de manière fiable à la réussite du test. Il devrait être possible de rechercher par dichotomie le paramètre ticks jusqu'à ce qu'une valeur stable soit trouvée.
+Ces tests simulent le déplacement de trois moteurs pas à pas simultanément. Si son exécution entraîne une erreur "Rescheduled timer in the past" or "Stepper too far in past", cela indique que le paramètre `ticks` est trop faible (il en résulte une vitesse de pas trop rapide) . L'objectif est de trouver le réglage le plus bas du paramètre ticks qui aboutit de manière fiable à la réussite du test. Il devrait être possible de rechercher par dichotomie le paramètre ticks jusqu'à ce qu'une valeur stable soit trouvée.
 
 En cas d'échec, on peut copier-coller ce qui suit pour effacer l'erreur en vue du prochain test :
 
@@ -316,9 +316,9 @@ Le test a été exécuté pour la dernière fois sur le commit `59314d99` avec l
 | 1 moteur pas à pas (200Mhz) | 39 |
 | 3 moteurs pas à pas (200Mhz) | 181 |
 
-### AR100 step rate benchmark
+### Test du taux de pas de l'AR100
 
-The following configuration sequence is used on AR100 CPU (Allwinner A64):
+La séquence de configuration suivante est utilisée sur le processeur AR100 (Allwinner A64) :
 
 ```
 allocate_oids count=3
@@ -328,7 +328,7 @@ config_stepper oid=2 step_pin=PL12 dir_pin=PE16 invert_step=-1 step_pulse_ticks=
 finalize_config crc=0
 ```
 
-The test was last run on commit `08d037c6` with gcc version `or1k-linux-musl-gcc (GCC) 9.2.0` on an Allwinner A64-H micro-controller.
+Le test a été exécuté pour la dernière fois sur le commit `08d037c6` avec la version de gcc `or1k-linux-musl-gcc (GCC) 9.2.0` sur un microcontrôleur Allwinner A64-H.
 
 | AR100 R_PIO | ticks |
 | --- | --- |
@@ -393,7 +393,7 @@ Notez que ce test peut saturer la capacité USB/CPU d'un Raspberry Pi. En cas d'
 | atmega2560 (serial) | 23K | b161a69e | avr-gcc (GCC) 4.8.1 |
 | sam3x8e (serial) | 23K | b161a69e | arm-none-eabi-gcc (Fedora 7.1.0-5.fc27) 7.1.0 |
 | at90usb1286 (USB) | 75K | 01d2183f | avr-gcc (GCC) 5.4.0 |
-| ar100 (serial) | 138K | 08d037c6 | or1k-linux-musl-gcc 9.3.0 |
+| ar100 (série) | 138K | 08d037c6 | or1k-linux-musl-gcc 9.3.0 |
 | samd21 (USB) | 223K | 01d2183f | arm-none-eabi-gcc (Fedora 7.4.0-1.fc30) 7.4.0 |
 | pru (mémoire partagée) | 260K | c5968a08 | pru-gcc (GCC) 8.0.0 20170530 (expérimental) |
 | stm32f103 (USB) | 355K | 01d2183f | arm-none-eabi-gcc (Fedora 7.4.0-1.fc30) 7.4.0 |

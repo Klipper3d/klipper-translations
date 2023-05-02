@@ -12,4 +12,4 @@ Klipper est un microprogramme pour imprimante 3D. Il combine la puissance d'un o
 
 Pour commencer à utiliser Klipper, commencez par effectuer l'[installation](Installation.md).
 
-Klipper est un logiciel libre. Lisez sa [documentation](Overview.md) ou consultez [le code de Klipper sur github](https://github.com/Klipper3d/klipper). Nous dépendons du soutien généreux de nos [sponsors](Sponsors.md).
+Klipper est un logiciel libre. Lisez la [documentation](Overview.md) ou consultez [le code de Klipper sur github](https://github.com/Klipper3d/klipper). Nous dépendons du soutien généreux de nos [sponsors](Sponsors.md).

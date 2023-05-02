@@ -43,24 +43,24 @@ Sigue las indicaciones en la sección "[¿Dónde está mi puerto serial?](#where
 
 El código intenta «flashear» el dispositivo utilizando el método más común para cada plataforma. Desafortunadamente, hay un bastante disparidad entre métodos, así que el comando "make flash" puedo no funcionar en todas las placas.
 
-If you're having an intermittent failure or you do have a standard setup, then double check that Klipper isn't running when flashing (sudo service klipper stop), make sure OctoPrint isn't trying to connect directly to the device (open the Connection tab in the web page and click Disconnect if the Serial Port is set to the device), and make sure FLASH_DEVICE is set correctly for your board (see the [question above](#wheres-my-serial-port)).
+Si está experimentando un fallo intermitente o tiene una configuración estándar, debe asegurarse de comprobar que Klipper no esté ejecutándose cuando se actualice(sudo service klipper stop), asegúrese de que OctoPrint no esté intentando conectarse directamente al dispositivo ( abra la pestaña de Conexión en la página web y haga click en Desconectar si el puerto serie está configurado en el dispositivo), y asegúrese de que FLASH_DEVICE esté correctamente configurado para su placa(vea [pregunta anterior](#wheres·my·serial·port)).
 
-However, if "make flash" just doesn't work for your board, then you will need to manually flash. See if there is a config file in the [config directory](../config) with specific instructions for flashing the device. Also, check the board manufacturer's documentation to see if it describes how to flash the device. Finally, it may be possible to manually flash the device using tools such as "avrdude" or "bossac" - see the [bootloader document](Bootloaders.md) for additional information.
+Sin embargo, si "make flash" no funciona para su placa, necesitará flashearla manualmente. Mire si existe un archivo de configuración en el [directorio de configuracion](../config) con instrucciones específicas para flashear el dispositivo. Compruebe también la documentación del fabricante de la placa para ver si describe como flashear el dispositivo. Por último, puede intentar flashear manualmente el dispositivo utilizando herramientas como "avrdude" o "bossac" · revise el [documento del bootloader](Bootloaders.md) para obtener información adicional.
 
-## How do I change the serial baud rate?
+## ¿Cómo cambio la tasa de baudios del puerto de serie?
 
-The recommended baud rate for Klipper is 250000. This baud rate works well on all micro-controller boards that Klipper supports. If you've found an online guide recommending a different baud rate, then ignore that part of the guide and continue with the default value of 250000.
+La tasa de baudios recomendada para Klipper es 250000. Ésta tasa funciona bien con todas las placas con microcontroladores que Klipper soporta. Si ha encontrado una guía online que recomienda una tasa de baudios diferente, entonces ignore esta parte the la guía y continúe con la tasa por defecto de 250000.
 
-If you want to change the baud rate anyway, then the new rate will need to be configured in the micro-controller (during **make menuconfig**) and that updated code will need to be compiled and flashed to the micro-controller. The Klipper printer.cfg file will also need to be updated to match that baud rate (see the [config reference](Config_Reference.md#mcu) for details). For example:
+Si desea cambiar la velocidad en baudios de todos modos, entonces la nueva velocidad tendrá que ser configurada en el micro-controlador (durante **make menuconfig**) y ese código actualizado tendrá que ser compilado y flasheado al microcontrolador. El archivo Klipper printer.cfg también necesitará ser actualizado para que coincida con esa tasa de baudios (ver la [referencia de configuración](Config_Reference.md#mcu) para más detalles). Por ejemplo:
 
 ```
 [mcu]
 baud: 250000
 ```
 
-The baud rate shown on the OctoPrint web page has no impact on the internal Klipper micro-controller baud rate. Always set the OctoPrint baud rate to 250000 when using Klipper.
+La tasa de baudios mostrada en la página web de OctoPrint no tiene ningún impacto en la tasa de baudios interna del microcontrolador Klipper. Ajuste siempre la velocidad en baudios de OctoPrint a 250000 cuando utilice Klipper.
 
-The Klipper micro-controller baud rate is not related to the baud rate of the micro-controller's bootloader. See the [bootloader document](Bootloaders.md) for additional information on bootloaders.
+La tasa de baudios del micro-controlador Klipper no está relacionada con la tasa de baudios del gestor de arranque del microcontrolador. Consulte el [documento del gestor de arranque](Bootloaders.md) para obtener información adicional sobre los gestores de arranque.
 
 ## ¿Puedo ejecutar Klipper en algo distinto a una Raspberry Pi 3?
 
@@ -72,35 +72,35 @@ For running on the Beaglebone, see the [Beaglebone specific installation instruc
 
 Klipper has been run on other machines. The Klipper host software only requires Python running on a Linux (or similar) computer. However, if you wish to run it on a different machine you will need Linux admin knowledge to install the system prerequisites for that particular machine. See the [install-octopi.sh](../scripts/install-octopi.sh) script for further information on the necessary Linux admin steps.
 
-If you are looking to run the Klipper host software on a low-end chip, then be aware that, at a minimum, a machine with "double precision floating point" hardware is required.
+Si desea ejecutar el software anfitrión Klipper en un chip de gama baja, tenga en cuenta que, como mínimo, se requiere una máquina con hardware de "coma flotante de doble precisión".
 
-If you are looking to run the Klipper host software on a shared general-purpose desktop or server class machine, then note that Klipper has some real-time scheduling requirements. If, during a print, the host computer also performs an intensive general-purpose computing task (such as defragmenting a hard drive, 3d rendering, heavy swapping, etc.), then it may cause Klipper to report print errors.
+Si desea ejecutar Klipper en un ordenador de sobremesa o servidor compartido, tenga en cuenta que Klipper tiene algunos requisitos de programación en tiempo real. Si, durante una impresión, el ordenador anfitrión también realiza una tarea intensiva de computación de propósito general (como desfragmentar un disco duro, renderizado 3D, intercambio pesado, etc.), entonces puede causar que Klipper reporte errores de impresión.
 
-Note: If you are not using an OctoPi image, be aware that several Linux distributions enable a "ModemManager" (or similar) package that can disrupt serial communication. (Which can cause Klipper to report seemingly random "Lost communication with MCU" errors.) If you install Klipper on one of these distributions you may need to disable that package.
+Nota: Si no está usando una imagen OctoPi, tenga en cuenta que varias distribuciones de Linux habilitan un paquete "ModemManager" (o similar) que puede interrumpir la comunicación serie. (Lo que puede causar que Klipper reporte errores aparentemente aleatorios "Lost communication with MCU"). Si instala Klipper en una de estas distribuciones puede que necesite deshabilitar ese paquete.
 
 ## ¿Puedo ejecutar múltiples instancias de Klipper en la misma máquina?
 
-It is possible to run multiple instances of the Klipper host software, but doing so requires Linux admin knowledge. The Klipper installation scripts ultimately cause the following Unix command to be run:
+Es posible ejecutar varias instancias del software anfitrión Klipper, pero para ello se requieren conocimientos de administración de Linux. Los scripts de instalación de Klipper hacen que se ejecute el siguiente comando Unix:
 
 ```
 ~/klippy-env/bin/python ~/klipper/klippy/klippy.py ~/printer.cfg -l /tmp/klippy.log
 ```
 
-One can run multiple instances of the above command as long as each instance has its own printer config file, its own log file, and its own pseudo-tty. For example:
+Se pueden ejecutar varias instancias del comando anterior siempre que cada instancia tenga su propio archivo de configuración de impresora, su propio archivo de registro y su propio pseudotty. Por ejemplo:
 
 ```
 ~/klippy-env/bin/python ~/klipper/klippy/klippy.py ~/printer2.cfg -l /tmp/klippy2.log -I /tmp/printer2
 ```
 
-If you choose to do this, you will need to implement the necessary start, stop, and installation scripts (if any). The [install-octopi.sh](../scripts/install-octopi.sh) script and the [klipper-start.sh](../scripts/klipper-start.sh) script may be useful as examples.
+Si elige hacer esto, necesitará implementar los scripts de inicio, parada e instalación necesarios (si los hay). El script [install-octopi.sh](../scripts/install-octopi.sh) y el script [klipper-start.sh](../scripts/klipper-start.sh) pueden ser útiles como ejemplos.
 
 ## ¿Tengo que utilizar OctoPrint?
 
-The Klipper software is not dependent on OctoPrint. It is possible to use alternative software to send commands to Klipper, but doing so requires Linux admin knowledge.
+El software Klipper no depende de OctoPrint. Es posible utilizar software alternativo para enviar comandos a Klipper, pero hacerlo requiere conocimientos de administración de Linux.
 
-Klipper creates a "virtual serial port" via the "/tmp/printer" file, and it emulates a classic 3d-printer serial interface via that file. In general, alternative software may work with Klipper as long as it can be configured to use "/tmp/printer" for the printer serial port.
+Klipper crea un "puerto serie virtual" a través del archivo "/tmp/printer", y emula una interfaz serie clásica de impresora 3d a través de ese archivo. En general, los programas alternativos pueden funcionar con Klipper siempre que puedan configurarse para utilizar "/tmp/printer" para el puerto serie de la impresora.
 
-## Why can't I move the stepper before homing the printer?
+## ¿Por qué no puedo mover el stepper antes de localizar la impresora?
 
 The code does this to reduce the chance of accidentally commanding the head into the bed or a wall. Once the printer is homed the software attempts to verify each move is within the position_min/max defined in the config file. If the motors are disabled (via an M84 or M18 command) then the motors will need to be homed again prior to movement.
 

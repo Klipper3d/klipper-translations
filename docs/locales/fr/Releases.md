@@ -39,7 +39,7 @@ Disponible le 29/09/2021. Changements majeurs dans cette version :
 
 Disponible le 20/10/2020. Changements majeurs dans cette version :
 
-* Prise en charge de "Input Shaping" - un mécanisme pour contrer la résonance de l'imprimante. Il peut réduire ou éliminer les "ondulations" dans les impressions.
+* Prise en charge de l'"Input Shaping" - un mécanisme permettant de contrer la résonance de l'imprimante. Il peut réduire ou éliminer les "ondulations" dans les impressions.
 * Nouveau système "Smooth Pressure Advance". Cela implémente "Pressure Advance" sans introduire de changements de vitesse instantanés. Il est désormais possible de régler l'avance de pression à l'aide d'une méthode "Tour de réglage".
 * Nouveau serveur API "webhooks". Fournit une interface JSON programmable à Klipper.
 * L'écran LCD et le menu sont désormais configurables à l'aide du langage Jinja2.

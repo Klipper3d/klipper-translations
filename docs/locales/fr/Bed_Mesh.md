@@ -1,6 +1,6 @@
 # Maillage du Bed
 
-The Bed Mesh module may be used to compensate for bed surface irregularities to achieve a better first layer across the entire bed. It should be noted that software based correction will not achieve perfect results, it can only approximate the shape of the bed. Bed Mesh also cannot compensate for mechanical and electrical issues. If an axis is skewed or a probe is not accurate then the bed_mesh module will not receive accurate results from the probing process.
+Le module Bed Mesh peut être utilisé pour compenser les irrégularités de la surface du lit afin d'obtenir une meilleure première couche sur l'ensemble du lit. Il convient de noter que la correction basée sur un logiciel n'atteindra pas des résultats parfaits, elle ne peut qu'approximer la forme du lit. Bed Mesh ne peut pas non plus compenser les problèmes mécaniques et électriques. Si un axe est faussé ou si une sonde n'est pas précise, le module bed_mesh ne recevra pas de résultats précis du processus de sonde.
 
 Avant de procéder à l'étalonnage du maillage, vous devez vous assurer que l'offset Z de votre sonde est réglé. Si vous utilisez une butée de fin de course pour la mise à l'origine en Z, elle doit également être réglée. Voir [Calibration de la sonde](Probe_Calibrate.md) et Z_ENDSTOP_CALIBRATE dans [Nivelage manuel](Manual_Level.md) pour plus d'informations.
 
@@ -22,7 +22,7 @@ probe_count: 5, 3
 - `speed : 120` *Valeur par défaut : 50* La vitesse à laquelle l'outil se déplace entre les points palpés.
 - `horizontal_move_z : 5` *Valeur par défaut : 5* La coordonnée Z à laquelle la sonde s'élève avant de se déplacer entre les points.
 - `mesh_min : 35, 6` *Requis* La première coordonnée palpée, la plus proche de l'origine. Cette coordonnée est relative à l'emplacement de la sonde.
-- `mesh_max: 240, 198` *Required* The probed coordinate farthest farthest from the origin. This is not necessarily the last point probed, as the probing process occurs in a zig-zag fashion. As with `mesh_min`, this coordinate is relative to the probe's location.
+- `mesh_max : 240, 198` *Obligatoire* La coordonnée sondée la plus éloignée de l'origine. Ce n'est pas nécessairement le dernier point sondé, car le processus de sondage se déroule en zigzag. Comme avec `mesh_min`, cette coordonnée est relative à l'emplacement de la sonde.
 - `probe_count : 5, 3` *Valeur par défaut : 3, 3* Le nombre de points à palper sur chaque axe, spécifié sous forme de valeurs entières X, Y. Dans cet exemple, 5 points seront palpés le long de l'axe X, avec 3 points le long de l'axe Y, pour un total de 15 points palpés. Notez que si vous voulez une grille carrée, par exemple 3x3, il est possible de n'utiliser qu'une seule valeur entière pour les deux axes, par exemple `probe_count : 3`. Notez qu'un maillage nécessite un nombre minimum de 3 points de sondage sur chaque axe.
 
 L'illustration ci-dessous montre comment les options `mesh_min`, `mesh_max`, et `probe_count` sont utilisées pour générer des points de palpage. Les flèches indiquent la direction de la procédure de palpage, commençant en `mesh_min`. Pour référence, lorsque la sonde est à `mesh_min`, la buse sera à (11, 1), et lorsque la sonde est à `mesh_max`, la buse sera à (206, 193).
@@ -46,7 +46,7 @@ round_probe_count: 5
 - `mesh_origin : 0, 0` *Valeur par défaut : 0, 0* Le point central du maillage. Cette coordonnée est relative à l'emplacement de la sonde. Bien que la valeur par défaut soit 0, 0, il peut être utile d'ajuster l'origine dans le but de sonder une plus grande partie du lit. Voir l'illustration ci-dessous.
 - `round_probe_count : 5` *Valeur par défaut : 5* C'est une valeur entière définissant le nombre maximum de points palpés le long des axes X et Y. Par "maximum", nous entendons le nombre de points palpés le long de l'origine du maillage. Cette valeur doit être un nombre impair, car il est nécessaire que le centre du maillage soit palpé.
 
-The illustration below shows how the probed points are generated. As you can see, setting the `mesh_origin` to (-10, 0) allows us to specify a larger mesh radius of 85.
+L'illustration ci-dessous montre comment les points palpés sont générés. Comme vous pouvez le voir, définir `mesh_origin` sur (-10, 0) nous permet de spécifier un rayon de maillage plus grand de 85.
 
 ![bedmesh_round_basic](img/bedmesh_round_basic.svg)
 
@@ -56,7 +56,7 @@ Les options de configuration plus avancées sont expliquées en détail ci-desso
 
 ### Interpolation du maillage
 
-While its possible to sample the probed matrix directly using simple bi-linear interpolation to determine the Z-Values between probed points, it is often useful to interpolate extra points using more advanced interpolation algorithms to increase mesh density. These algorithms add curvature to the mesh, attempting to simulate the material properties of the bed. Bed Mesh offers lagrange and bicubic interpolation to accomplish this.
+Bien qu'il soit possible d'échantillonner directement la matrice sondée à l'aide d'une simple interpolation bilinéaire pour déterminer les valeurs Z entre les points sondés, il est souvent utile d'interpoler des points supplémentaires à l'aide d'algorithmes d'interpolation plus avancés pour augmenter la densité du maillage. Ces algorithmes ajoutent une courbure au maillage, tentant de simuler les propriétés matérielles du lit. Bed Mesh offre une interpolation lagrange et bicubique pour y parvenir.
 
 ```
 [bed_mesh]
@@ -96,7 +96,7 @@ split_delta_z: .025
 - `move_check_distance : 5` *Valeur par défaut : 5* La distance minimale de vérification de changement de Z souhaité avant d'effectuer un fractionnemeny. Dans cet exemple, un mouvement de plus de 5mm sera traversé par l'algorithme. Tous les 5 mm, une recherche de maille Z sera effectuée, en la comparant à la valeur Z du mouvement précédent. Si le delta atteint le seuil fixé par `split_delta_z`, le mouvement sera divisé et la traversée continuera. Ce processus se répète jusqu'à ce que la fin du déplacement soit atteinte, où un ajustement final sera appliqué. Les déplacements plus courts que la `move_check_distance` ont l'ajustement Z correct appliqué directement au déplacement sans traversée ou division.
 - `split_delta_z : .025` *Valeur par défaut : .025* Comme mentionné ci-dessus, il s'agit de l'écart minimum requis pour déclencher un fractionnement du mouvement. Dans cet exemple, toute valeur Z avec un écart de +/- 0,025 mm déclenchera un fractionnement.
 
-Generally the default values for these options are sufficient, in fact the default value of 5mm for the `move_check_distance` may be overkill. However an advanced user may wish to experiment with these options in an effort to squeeze out the optimal first layer.
+Généralement, les valeurs par défaut de ces options sont suffisantes, en fait la valeur par défaut de 5 mm pour la `move_check_distance` peut être exagérée. Cependant, un utilisateur avancé peut souhaiter expérimenter ces options afin d'obtenir une première couche optimale.
 
 ### Atténuation du maillage
 
@@ -116,11 +116,11 @@ fade_target: 0
 
 - `fade_start: 1` *Valeur par défaut : 1* La hauteur Z à laquelle il faut commencer l'atténuation progressive de l'ajustement. C'est une bonne idée d'avoir quelques couches déjà déposées avant de commencer le processus de fondu.
 - `fade_end : 10` *Valeur par défaut : 0* La hauteur Z à laquelle le fondu doit s'arrêter. Si cette valeur est inférieure à `fade_start`, le fondu est désactivé. Cette valeur peut être ajustée en fonction de la déformation de la surface d'impression. Une surface fortement déformée devrait s'estomper sur une plus grande distance. Une surface presque plate peut être capable de réduire cette valeur pour s'estomper plus rapidement. 10mm est une valeur raisonnable pour commencer si vous utilisez la valeur par défaut de 1 pour `fade_start`.
-- `fade_target: 0` *Default Value: The average Z value of the mesh* The `fade_target` can be thought of as an additional Z offset applied to the entire bed after fade completes. Generally speaking we would like this value to be 0, however there are circumstances where it should not be. For example, lets assume your homing position on the bed is an outlier, its .2 mm lower than the average probed height of the bed. If the `fade_target` is 0, fade will shrink the print by an average of .2 mm across the bed. By setting the `fade_target` to .2, the homed area will expand by .2 mm, however, the rest of the bed will be accurately sized. Generally its a good idea to leave `fade_target` out of the configuration so the average height of the mesh is used, however it may be desirable to manually adjust the fade target if one wants to print on a specific portion of the bed.
+- `fade_target : 0` *Valeur par défaut : la valeur Z moyenne du maillage* Le `fade_target` peut être considéré comme un décalage Z supplémentaire appliqué à l'ensemble du lit une fois l'interpolation terminée . L'idéal serait d'avoir cette valeur à 0, mais il y a des circonstances où elle ne peut pas l'être. Par exemple, supposons que votre position de référence sur le lit est une valeur aberrante, 0,2 mm inférieure à la hauteur moyenne sondée du lit. Si le `fade_target` est 0, le fondu réduira l'impression de 0,2 mm en moyenne sur le lit. En réglant `fade_target` sur 0,2, la zone référencée s'agrandira de 0,2 mm, cependant, le reste du lit sera dimensionné avec précision. Généralement, c'est une bonne idée de laisser `fade_target` hors de la configuration afin que la hauteur moyenne du maillage soit utilisée, cependant il peut être souhaitable d'ajuster manuellement cette valeur si l'on veut imprimer sur une partie spécifique du lit.
 
 ### L'indice de référence relatif
 
-Most probes are susceptible to drift, ie: inaccuracies in probing introduced by heat or interference. This can make calculating the probe's z-offset challenging, particularly at different bed temperatures. As such, some printers use an endstop for homing the Z axis, and a probe for calibrating the mesh. These printers can benefit from configuring the relative reference index.
+La plupart des sondes sont sensibles à la dérive, c'est-à-dire aux imprécisions de sonde introduites par la chaleur ou les interférences. Cela peut compliquer le calcul du décalage z de la sonde, en particulier à différentes températures de lit. Ainsi, certaines imprimantes utilisent une butée pour la prise d'origine de l'axe Z et une sonde pour calibrer le maillage. Ces imprimantes peuvent bénéficier de la configuration de l'index de référence relatif.
 
 ```
 [bed_mesh]
@@ -199,7 +199,7 @@ Après avoir réalisé un BED_MESH_CALIBRATE, il est possible de sauvegarder l'�
 
 Les profils peuvent être chargés en exécutant `BED_MESH_PROFILE LOAD=<name>`.
 
-It should be noted that each time a BED_MESH_CALIBRATE occurs, the current state is automatically saved to the *default* profile. The *default* profile can be removed as follows:
+Il convient de noter qu'à chaque fois qu'un BED_MESH_CALIBRATE se produit, l'état actuel est automatiquement enregistré dans le profil *default*. Le profil *default* peut être supprimé comme suit :
 
 `BED_MESH_PROFILE REMOVE=default`
 
