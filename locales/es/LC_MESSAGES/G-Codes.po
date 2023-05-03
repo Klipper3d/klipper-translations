@@ -1,16 +1,18 @@
 # Francisco Serrador <fserrador@gmail.com>, 2022.
 # Alberto <aru_hackZ.official@zohomail.eu>, 2022.
+# Sergio Fernández <sergiofernandezair@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-06-15 00:56+0000\n"
-"Last-Translator: Alberto <aru_hackZ.official@zohomail.eu>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/g-codes/es/>\n"
+"PO-Revision-Date: 2023-05-02 04:53+0000\n"
+"Last-Translator: Sergio Fernández <sergiofernandezair@gmail.com>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/g-codes/"
+"es/>\n"
 "Language: es\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13-dev\n"
+"X-Generator: Weblate 4.18-dev\n"
 
 msgid ""
 "This document describes the commands that Klipper supports. These are "
@@ -371,6 +373,11 @@ msgid ""
 "SAMPLES are taken. Otherwise the optional parameters default to their "
 "equivalent setting in the probe config section."
 msgstr ""
+"`PROBE_ACCURACY [PROBE_SPEED=<mm/s>] [SAMPLES=<count>] "
+"[SAMPLE_RETRACT_DIST=<mm>]`: Calcula la desviación estándar máxima, mínima, "
+"media y mediana de múltiples muestras de la sonda. Por defecto, se toman 10 "
+"MUESTRAS. Por el contrario, los parámetros opcionales son configurados igual "
+"que en la sección de configuración por defecto de la sonda."
 
 msgid ""
 "`PROBE_CALIBRATE [SPEED=<speed>] [<probe_parameter>=<value>]`: Run a helper "
@@ -1400,6 +1407,8 @@ msgid ""
 "The pid_calibrate module is automatically loaded if a heater is defined in "
 "the config file."
 msgstr ""
+"EL módulo pid_calibrate es cargado automáticamente si un heater está "
+"definido en el archivo de configuración"
 
 #: docs/G-Codes.md:block 219 (header)
 msgid "PID_CALIBRATE"
