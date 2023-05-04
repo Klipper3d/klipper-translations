@@ -1240,8 +1240,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#camas-redondeadas" class="md-nav__link">
-    Camas redondeadas
+  <a href="#camas-redondas" class="md-nav__link">
+    Camas redondas
   </a>
   
 </li>
@@ -1252,11 +1252,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#advanced-configuration" class="md-nav__link">
-    Advanced Configuration
+  <a href="#configuracion-avanzada" class="md-nav__link">
+    Configuración Avanzada
   </a>
   
-    <nav class="md-nav" aria-label="Advanced Configuration">
+    <nav class="md-nav" aria-label="Configuración Avanzada">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1400,7 +1400,7 @@ probe_count: 5, 3
 </ul>
 <p>La ilustración debajo muestra como las son usadas las opciones  <code>mesh_min</code>, <code>mesh_max</code>, y <code>probe_count</code> para generar puntos de sondeo. Las flechas indican la dirección del procedimiento de sondeo, empezando por <code>mesh_min</code>. Como referencia, cuando la sonda está en <code>mesh_min</code>, la boquilla estará en (11,1) y cuando la sonda esté en <code>mesh_max</code>, la boquilla estará en (206,193).</p>
 <p><img alt="bedmesh_rect_basic" src="img/bedmesh_rect_basic.svg" /></p>
-<h3 id="camas-redondeadas">Camas redondeadas<a class="headerlink" href="#camas-redondeadas" title="Permanent link">&para;</a></h3>
+<h3 id="camas-redondas">Camas redondas<a class="headerlink" href="#camas-redondas" title="Permanent link">&para;</a></h3>
 <p>This example assumes a printer equipped with a round bed radius of 100mm. We will use the same probe offsets as the rectangular example, 24 mm on X and 5 mm on Y.</p>
 <div class="highlight"><pre><span></span><code>[bed_mesh]
 speed: 120
@@ -1417,7 +1417,7 @@ round_probe_count: 5
 </ul>
 <p>The illustration below shows how the probed points are generated. As you can see, setting the <code>mesh_origin</code> to (-10, 0) allows us to specify a larger mesh radius of 85.</p>
 <p><img alt="bedmesh_round_basic" src="img/bedmesh_round_basic.svg" /></p>
-<h2 id="advanced-configuration">Advanced Configuration<a class="headerlink" href="#advanced-configuration" title="Permanent link">&para;</a></h2>
+<h2 id="configuracion-avanzada">Configuración Avanzada<a class="headerlink" href="#configuracion-avanzada" title="Permanent link">&para;</a></h2>
 <p>Below the more advanced configuration options are explained in detail. Each example will build upon the basic rectangular bed configuration shown above. Each of the advanced options apply to round beds in the same manner.</p>
 <h3 id="mesh-interpolation">Mesh Interpolation<a class="headerlink" href="#mesh-interpolation" title="Permanent link">&para;</a></h3>
 <p>While its possible to sample the probed matrix directly using simple bi-linear interpolation to determine the Z-Values between probed points, it is often useful to interpolate extra points using more advanced interpolation algorithms to increase mesh density. These algorithms add curvature to the mesh, attempting to simulate the material properties of the bed. Bed Mesh offers lagrange and bicubic interpolation to accomplish this.</p>

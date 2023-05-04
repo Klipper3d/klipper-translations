@@ -3083,7 +3083,7 @@
 <h4 id="palette_smart_load">PALETTE_SMART_LOAD<a class="headerlink" href="#palette_smart_load" title="Permanent link">&para;</a></h4>
 <p><code>PALETTE_SMART_LOAD</code>: This command start the smart load sequence on the Palette 2. Filament is loaded automatically by extruding it the distance calibrated on the device for the printer, and instructs the Palette 2 once the loading has been completed. This command is the same as pressing <strong>Smart Load</strong> directly on the Palette 2 screen after the filament load is complete.</p>
 <h3 id="pid_calibrate">[pid_calibrate]<a class="headerlink" href="#pid_calibrate" title="Permanent link">&para;</a></h3>
-<p>The pid_calibrate module is automatically loaded if a heater is defined in the config file.</p>
+<p>EL módulo pid_calibrate es cargado automáticamente si un heater está definido en el archivo de configuración</p>
 <h4 id="pid_calibrate_1">PID_CALIBRATE<a class="headerlink" href="#pid_calibrate_1" title="Permanent link">&para;</a></h4>
 <p><code>PID_CALIBRATE HEATER=&lt;config_name&gt; TARGET=&lt;temperature&gt; [WRITE_FILE=1]</code>: Perform a PID calibration test. The specified heater will be enabled until the specified target temperature is reached, and then the heater will be turned off and on for several cycles. If the WRITE_FILE parameter is enabled, then the file /tmp/heattest.txt will be created with a log of all temperature samples taken during the test.</p>
 <h3 id="pause_resume">[pause_resume]<a class="headerlink" href="#pause_resume" title="Permanent link">&para;</a></h3>
@@ -3107,7 +3107,7 @@
 <h4 id="query_probe">QUERY_PROBE<a class="headerlink" href="#query_probe" title="Permanent link">&para;</a></h4>
 <p><code>QUERY_PROBE</code>: Report the current status of the probe ("triggered" or "open").</p>
 <h4 id="probe_accuracy">PROBE_ACCURACY<a class="headerlink" href="#probe_accuracy" title="Permanent link">&para;</a></h4>
-<p><code>PROBE_ACCURACY [PROBE_SPEED=&lt;mm/s&gt;] [SAMPLES=&lt;count&gt;] [SAMPLE_RETRACT_DIST=&lt;mm&gt;]</code>: Calculate the maximum, minimum, average, median, and standard deviation of multiple probe samples. By default, 10 SAMPLES are taken. Otherwise the optional parameters default to their equivalent setting in the probe config section.</p>
+<p><code>PROBE_ACCURACY [PROBE_SPEED=&lt;mm/s&gt;] [SAMPLES=&lt;count&gt;] [SAMPLE_RETRACT_DIST=&lt;mm&gt;]</code>: Calcula la desviación estándar máxima, mínima, media y mediana de múltiples muestras de la sonda. Por defecto, se toman 10 MUESTRAS. Por el contrario, los parámetros opcionales son configurados igual que en la sección de configuración por defecto de la sonda.</p>
 <h4 id="probe_calibrate">PROBE_CALIBRATE<a class="headerlink" href="#probe_calibrate" title="Permanent link">&para;</a></h4>
 <p><code>PROBE_CALIBRATE [SPEED=&lt;speed&gt;] [&lt;probe_parameter&gt;=&lt;value&gt;]</code>: Run a helper script useful for calibrating the probe's z_offset. See the PROBE command for details on the optional probe parameters. See the MANUAL_PROBE command for details on the SPEED parameter and the additional commands available while the tool is active. Please note, the PROBE_CALIBRATE command uses the speed variable to move in XY direction as well as Z.</p>
 <h4 id="z_offset_apply_probe">Z_OFFSET_APPLY_PROBE<a class="headerlink" href="#z_offset_apply_probe" title="Permanent link">&para;</a></h4>

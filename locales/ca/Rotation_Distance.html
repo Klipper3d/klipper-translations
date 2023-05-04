@@ -1225,8 +1225,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#obtaining-rotation_distance-from-steps_per_mm-or-step_distance" class="md-nav__link">
-    Obtaining rotation_distance from steps_per_mm (or step_distance)
+  <a href="#obtenint-rotation_distance-a-partir-del-passos-per-mm-o-passos-per-distancia" class="md-nav__link">
+    Obtenint rotation_distance a partir del passos per mm (o passos per distància)
   </a>
   
 </li>
@@ -1297,17 +1297,17 @@
 
 
 <h1 id="rotation-distance">Rotation distance<a class="headerlink" href="#rotation-distance" title="Permanent link">&para;</a></h1>
-<p>Stepper motor drivers on Klipper require a <code>rotation_distance</code> parameter in each <a href="Config_Reference.html#stepper">stepper config section</a>. The <code>rotation_distance</code> is the amount of distance that the axis moves with one full revolution of the stepper motor. This document describes how one can configure this value.</p>
-<h2 id="obtaining-rotation_distance-from-steps_per_mm-or-step_distance">Obtaining rotation_distance from steps_per_mm (or step_distance)<a class="headerlink" href="#obtaining-rotation_distance-from-steps_per_mm-or-step_distance" title="Permanent link">&para;</a></h2>
-<p>The designers of your 3d printer originally calculated <code>steps_per_mm</code> from a rotation distance. If you know the steps_per_mm then it is possible to use this general formula to obtain that original rotation distance:</p>
+<p>Els controladors de motor pas a pas a Klipper requereixen el paràmetre <code>rotation_distance</code> (distància de rotació) a cada <a href="Config_Reference.html#stepper">Secció de configuració del motor</a>. La <code>rotation_distance</code> és la quantitat de distància que l'eix es mou amb una revolució completa del motor pas a pas. Aquest document descriu com s'ha de configurar aquest valor.</p>
+<h2 id="obtenint-rotation_distance-a-partir-del-passos-per-mm-o-passos-per-distancia">Obtenint rotation_distance a partir del passos per mm (o passos per distància)<a class="headerlink" href="#obtenint-rotation_distance-a-partir-del-passos-per-mm-o-passos-per-distancia" title="Permanent link">&para;</a></h2>
+<p>Els dissenyadors de la impressora originalment calculen els <code>passos per mil·límetre</code> a partir de la distància d'una rotació sencera.Si es coneixen els passos per mm (steps_per_mm) es possible emprar aquesta fórmula general per obtenir la distància de rotació:</p>
 <div class="highlight"><pre><span></span><code>rotation_distance = &lt;full_steps_per_rotation&gt; * &lt;microsteps&gt; / &lt;steps_per_mm&gt;
 </code></pre></div>
 
-<p>Or, if you have an older Klipper configuration and know the <code>step_distance</code> parameter you can use this formula:</p>
+<p>D'altre banda, si es disposa d'una configuració antiga de Klipper i es coneix el valor del paràmetre <code>step_distance</code>, es pot emprar aquesta fórmula:</p>
 <div class="highlight"><pre><span></span><code>rotation_distance = &lt;full_steps_per_rotation&gt; * &lt;microsteps&gt; * &lt;step_distance&gt;
 </code></pre></div>
 
-<p>The <code>&lt;full_steps_per_rotation&gt;</code> setting is determined from the type of stepper motor. Most stepper motors are "1.8 degree steppers" and therefore have 200 full steps per rotation (360 divided by 1.8 is 200). Some stepper motors are "0.9 degree steppers" and thus have 400 full steps per rotation. Other stepper motors are rare. If unsure, do not set full_steps_per_rotation in the config file and use 200 in the formula above.</p>
+<p>El valor <code>&lt;full_steps_per_rotation&gt;</code>(pasos sencers per revolució) es determinat pel tipus de motor pas a pas. La majoria dels motors són del tipus "1.8 graus" i per tant necessiten 200 passos sencers per fer una revolució sencera (360 dividit entre 1.8 són 200 passos). Hi ha motors que son de "0.9 graus" i necessiten 400 passos per revolució. Altres opcions són menys freqüents. Si hi ha dubtes, no emprar cap valor per a full_steps_per_rotation en el fitxer de configuració i emprar 200 en la fómula donada.</p>
 <p>The <code>&lt;microsteps&gt;</code> setting is determined by the stepper motor driver. Most drivers use 16 microsteps. If unsure, set <code>microsteps: 16</code> in the config and use 16 in the formula above.</p>
 <p>Almost all printers should have a whole number for <code>rotation_distance</code> on X, Y, and Z type axes. If the above formula results in a rotation_distance that is within .01 of a whole number then round the final value to that whole_number.</p>
 <h2 id="calibrating-rotation_distance-on-extruders">Calibrating rotation_distance on extruders<a class="headerlink" href="#calibrating-rotation_distance-on-extruders" title="Permanent link">&para;</a></h2>

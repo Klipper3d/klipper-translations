@@ -1239,8 +1239,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#verify-heaters" class="md-nav__link">
-    Verify heaters
+  <a href="#_2" class="md-nav__link">
+    Перевірка нагрівальних елементів
   </a>
   
 </li>
@@ -1314,7 +1314,7 @@
 <h2 id="verify-m112">Verify M112<a class="headerlink" href="#verify-m112" title="Permanent link">&para;</a></h2>
 <p>Navigate to the Octoprint terminal tab and issue an M112 command in the terminal box. This command requests Klipper to go into a "shutdown" state. It will cause Octoprint to disconnect from Klipper - navigate to the Connection area and click on "Connect" to cause Octoprint to reconnect. Then navigate to the Octoprint temperature tab and verify that temperatures continue to update and the temperatures are not increasing. If temperatures are increasing, remove power from the printer.</p>
 <p>The M112 command causes Klipper to go into a "shutdown" state. To clear this state, issue a FIRMWARE_RESTART command in the Octoprint terminal tab.</p>
-<h2 id="verify-heaters">Verify heaters<a class="headerlink" href="#verify-heaters" title="Permanent link">&para;</a></h2>
+<h2 id="_2">Перевірка нагрівальних елементів<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>Navigate to the Octoprint temperature tab and type in 50 followed by enter in the "Tool" temperature box. The extruder temperature in the graph should start to increase (within about 30 seconds or so). Then go to the "Tool" temperature drop-down box and select "Off". After several minutes the temperature should start to return to its initial room temperature value. If the temperature does not increase then verify the "heater_pin" setting in the config.</p>
 <p>If the printer has a heated bed then perform the above test again with the bed.</p>
 <h2 id="verify-stepper-motor-enable-pin">Verify stepper motor enable pin<a class="headerlink" href="#verify-stepper-motor-enable-pin" title="Permanent link">&para;</a></h2>
