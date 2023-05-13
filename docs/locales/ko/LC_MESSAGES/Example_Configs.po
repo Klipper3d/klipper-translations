@@ -1,9 +1,9 @@
-# 2O_OS <ajs15010120@gmail.com>, 2023.
+# 2O_OS <ajs15010120@gmail.com>, 2023, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:25+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: 2O_OS <ajs15010120@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/klipper/"
 "example_configs/ko/>\n"
 "Language: ko\n"
