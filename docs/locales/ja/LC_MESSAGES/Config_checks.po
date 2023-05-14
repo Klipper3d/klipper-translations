@@ -1,5 +1,5 @@
 # 京都タラレバ息子 <japan100@gmail.com>, 2023.
-# Lol A-girl-with-tea <f300f300f300@gmail.com>, 2023.
+# Lol A-girl-with-tea <f300f300f300@gmail.com>, 2023, 2025.
 # ktyubeshi <kt.yubeshi@gmail.com>, 2023.
 # umesaburo sagawa <atowa-notonare-yamatonare427@pm.me>, 2024, 2025.
 # immeteor2 <ryumeteor175@gmail.com>, 2024.
@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:40+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Lol A-girl-with-tea <f300f300f300@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/klipper/"
 "config_checks/ja/>\n"
 "Language: ja\n"
@@ -34,10 +34,13 @@ msgid ""
 " command after every RESTART to verify that the config file is successfully "
 "loaded."
 msgstr ""
-"このガイドの間、Klipper のコンフィグファイルの変更が必要になることがあります。コンフィグファイルを変更するたびに RESTART "
-"コマンドを発行し、変更が有効になるようにしてください（Octoprint のターミナルタブで \"restart\" と入力し、\"send\" "
-"をクリックしてください）。また、コンフィグファイルが正常に読み込まれたことを確認するために、RESTART のたびに STATUS "
-"コマンドを発行するのもよい方法です。"
+"このガイドの間、Klipper "
+"のコンフィグファイルの変更が必要になることがあります。"
+"コンフィグファイルを変更するたびに RESTART "
+"コマンドを発行し、変更が有効になるようにしてください（Octoprint "
+"のターミナルタブで \"restart\" と入力し、\"send\" "
+"をクリックしてください）。また、コンフィグファイルが正常に読み込まれたことを"
+"確認するために、RESTART のたびに STATUS コマンドを発行するのもよい方法です。"
 
 #, fuzzy
 msgid "Verify temperature"
