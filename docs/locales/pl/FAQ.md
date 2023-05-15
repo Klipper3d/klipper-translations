@@ -4,13 +4,13 @@
 
 Thank you for your support. See the [Sponsors page](Sponsors.md) for information.
 
-## How do I calculate the rotation_distance config parameter?
+## jak obliczyć rotation_distance?
 
-See the [rotation distance document](Rotation_Distance.md).
+Zapoznaj się z [rotation distance document](Rotation_Distance.md).
 
 ## Gdzie jest mój port szeregowy?
 
-Ogólny sposób na znalezienie portu szeregowego USB to uruchomienie polecenia ls /dev/serial/by-id/* z terminala SSH na maszynie hosta. Prawdopodobnie spowoduje to wyświetlenie wyniku podobnego do następującego:
+Aby odnaleźć USB serial port wpisz w terminalu SSH 'ls /dev/serial/by-id/*' Powinieneś zobaczyć :
 
 ```
 /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
@@ -47,7 +47,7 @@ Jeśli masz sporadyczną awarię lub masz standardową konfigurację, sprawdź d
 
 However, if "make flash" just doesn't work for your board, then you will need to manually flash. See if there is a config file in the [config directory](../config) with specific instructions for flashing the device. Also, check the board manufacturer's documentation to see if it describes how to flash the device. Finally, it may be possible to manually flash the device using tools such as "avrdude" or "bossac" - see the [bootloader document](Bootloaders.md) for additional information.
 
-## How do I change the serial baud rate?
+## Jak mogę zmienić serial baud rate?
 
 The recommended baud rate for Klipper is 250000. This baud rate works well on all micro-controller boards that Klipper supports. If you've found an online guide recommending a different baud rate, then ignore that part of the guide and continue with the default value of 250000.
 
