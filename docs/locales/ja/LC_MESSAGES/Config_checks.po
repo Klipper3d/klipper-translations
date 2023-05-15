@@ -1,16 +1,29 @@
 # 京都タラレバ息子 <japan100@gmail.com>, 2023.
+# Lol A-girl-with-tea <f300f300f300@gmail.com>, 2023.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2023-05-15 07:52+0000\n"
+"Last-Translator: Lol A-girl-with-tea <f300f300f300@gmail.com>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/klipper/"
+"config_checks/ja/>\n"
 "Language: ja\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 4.18-dev\n"
 
+#, fuzzy
 msgid ""
 "This document provides a list of steps to help confirm the pin settings in "
 "the Klipper printer.cfg file. It is a good idea to run through these steps "
 "after following the steps in the [installation document](Installation.md)."
 msgstr ""
+"このドキュメントでは、Klipper printer.cfg ファイルのピン設定を確認するのに役"
+"立つステップのリストを提供します。インストールドキュメント](Installation."
+"md)の手順を踏んだ後に、これらの手順を実行するのがよいでしょう。"
 
+#, fuzzy
 msgid ""
 "During this guide, it may be necessary to make changes to the Klipper config"
 " file. Be sure to issue a RESTART command after every change to the config "
@@ -19,14 +32,24 @@ msgid ""
 "issue a STATUS command after every RESTART to verify that the config file is"
 " successfully loaded."
 msgstr ""
+"このガイドの間、Klipper "
+"のコンフィグファイルの変更が必要になることがあります。"
+"コンフィグファイルを変更するたびに RESTART "
+"コマンドを発行し、変更が有効になるようにしてください（Octoprint "
+"のターミナルタブで \"restart\" と入力し、\"send\" をクリックしてください）。"
+"また、コンフィグファイルが正常に読み込まれたことを確認するために、RESTART "
+"のたびに STATUS コマンドを発行するのもよい方法です。"
 
+#, fuzzy
 msgid "Verify temperature"
-msgstr ""
+msgstr "温度を確認する"
 
+#, fuzzy
 msgid ""
 "Start by verifying that temperatures are being properly reported. Navigate "
 "to the Octoprint temperature tab."
-msgstr ""
+msgstr "まず、温度が正しく報告されていることを確認することから始めます。Octoprintの温"
+"度タブに移動します。"
 
 msgid "![octoprint-temperature](img/octoprint-temperature.png)"
 msgstr ""
