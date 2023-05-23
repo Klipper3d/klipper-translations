@@ -16,4 +16,4 @@ Ha a Klipper csomagot git-ből építed, a szokásos gyakorlat szerint nem szál
 
 ## Minta csomagolási szkript
 
-klipper-git is packaged for Arch Linux, and has a PKGBUILD (package build script) available at [Arch User Repository](https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper-git).
+A klipper-git az Arch Linuxhoz van csomagolva, és a PKGBUILD (csomagkészítő szkript) elérhető az [Arch Felhasználói Adattár](https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper-git) oldalon.

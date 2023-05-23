@@ -278,71 +278,60 @@ radius:
 
 See [example-deltesian.cfg](../config/example-deltesian.cfg) for an example deltesian kinematics config file.
 
-Only parameters specific to deltesian printers are described here - see [common kinematic settings](#common-kinematic-settings) for available parameters.
+这里只描述了特定于deltesian打印机的参数 - 有关可用参数，请参见[常见运动学设置](#common-kinematic-settings)。
 
 ```
 [printer]
 kinematics: deltesian
 max_z_velocity:
-#   For deltesian printers, this limits the maximum velocity (in mm/s) of
-#   moves with z axis movement. This setting can be used to reduce the
-#   maximum speed of up/down moves (which require a higher step rate
-#   than other moves on a deltesian printer). The default is to use
-#   max_velocity for max_z_velocity.
+#   对于deltesian打印机，这限制了带有z轴移动的运动的最大速度（
+#   以mm/s为单位）。此设置可以用于减小上下移动的最大速度（这
+#   需要比deltesian打印机上的其他移动更高的步进率）。
+#   默认情况下，max_z_velocity使用max_velocity的值。
 #max_z_accel:
-#   This sets the maximum acceleration (in mm/s^2) of movement along
-#   the z axis. Setting this may be useful if the printer can reach higher
-#   acceleration on XY moves than Z moves (eg, when using input shaper).
-#   The default is to use max_accel for max_z_accel.
+#   这设置了沿z轴移动的最大加速度（以mm/s^2为单位）。如果打印
+#   机在XY移动上可以达到比Z轴移动更高的加速度（例如，当使用输入
+#   整形器时），那么设置这个可能会很有用。
+#   默认情况下，max_z_accel使用max_accel的值。
 #minimum_z_position: 0
-#   The minimum Z position that the user may command the head to move
-#   to. The default is 0.
+#   用户可以命令头部移动到的最小Z位置。
+#   默认值为0。
 #min_angle: 5
-#   This represents the minimum angle (in degrees) relative to horizontal
-#   that the deltesian arms are allowed to achieve. This parameter is
-#   intended to restrict the arms from becoming completely horizontal,
-#   which would risk accidental inversion of the XZ axis. The default is 5.
+#   这代表deltesian手臂相对于水平线所能达到的最小角度（以度为单位）。
+#   此参数旨在限制手臂变得完全水平，这可能会导致XZ轴意外翻转。
+#   默认值为5。
 #print_width:
-#   The distance (in mm) of valid toolhead X coordinates. One may use
-#   this setting to customize the range checking of toolhead moves. If
-#   a large value is specified here then it may be possible to command
-#   the toolhead into a collision with a tower. This setting usually
-#   corresponds to bed width (in mm).
+#   有效工具头X坐标的距离（以mm为单位）。人们可以使用此设置来自
+#   定义工具头移动的范围检查。如果在此处指定了一个大值，那么可能会
+#   命令工具头与塔发生碰撞。
+#   此设置通常对应于床宽（以mm为单位）。
 #slow_ratio: 3
-#   The ratio used to limit velocity and acceleration on moves near the
-#   extremes of the X axis. If vertical distance divided by horizontal
-#   distance exceeds the value of slow_ratio, then velocity and
-#   acceleration are limited to half their nominal values. If vertical
-#   distance divided by horizontal distance exceeds twice the value of
-#   the slow_ratio, then velocity and acceleration are limited to one
-#   quarter of their nominal values. The default is 3.
+#   用于在X轴极限附近限制移动速度和加速度的比率。如果垂直距离除以
+#   水平距离超过slow_ratio的值，那么速度和加速度就限制为其标称值的
+#   一半。如果垂直距离除以水平距离超过slow_ratio值的两倍，那么速度
+#   和加速度就限制为其标称值的四分之一。
+#   默认值为3。
 
-# The stepper_left section is used to describe the stepper controlling
-# the left tower. This section also controls the homing parameters
-# (homing_speed, homing_retract_dist) for all towers.
+#   stepper_left部分用于描述控制左塔的步进马达。此部分还控制所有塔
+#   的归零参数（homing_speed, homing_retract_dist）。
 [stepper_left]
 position_endstop:
-#   Distance (in mm) between the nozzle and the bed when the nozzle is
-#   in the center of the build area and the endstops are triggered. This
-#   parameter must be provided for stepper_left; for stepper_right this
-#   parameter defaults to the value specified for stepper_left.
+#   当喷嘴在构建区域的中心并且终点开关被触发时，喷嘴与床之间的距
+#   离（以mm为单位）。此参数必须为stepper_left提供；对于stepper_right，
+#   此参数默认为为stepper_left指定的值。
 arm_length:
-#   Length (in mm) of the diagonal rod that connects the tower carriage to
-#   the print head. This parameter must be provided for stepper_left; for
-#   stepper_right, this parameter defaults to the value specified for
-#   stepper_left.
+#   连接塔运输车与打印头的对角杆的长度（以mm为单位）。
+#   此参数必须为stepper_left提供；
+#   对于stepper_right，此参数默认为为stepper_left指定的值。
 arm_x_length:
-#   Horizontal distance between the print head and the tower when the
-#   printers is homed. This parameter must be provided for stepper_left;
-#   for stepper_right, this parameter defaults to the value specified for
-#   stepper_left.
+#   打印机归位时，打印头与塔之间的水平距离。此参数必须
+#   为stepper_left提供；
+#   对于stepper_right，此参数默认为为stepper_left指定的值。
 
-# The stepper_right section is used to describe the stepper controlling the
-# right tower.
+#   stepper_right部分用于描述控制右塔的步进马达。
 [stepper_right]
 
-# The stepper_y section is used to describe the stepper controlling
-# the Y axis in a deltesian robot.
+#   stepper_y部分用于描述控制deltesian机器人的Y轴的步进马达。
 [stepper_y]
 ```
 
@@ -500,81 +489,48 @@ Rotary Delta运动学配置文件参考[example-rotary-delta.cfg](../config/exam
 ROTARY DELTA运动学正在进行的修复工作。归位动作可能会超时并且一些边界检查也没有实现。
 
 ```
-[printer]
+[打印机]
 kinematics: rotary_delta
 max_z_velocity:
-#   For delta printers this limits the maximum velocity (in mm/s) of
-#   moves with z axis movement. This setting can be used to reduce the
-#   maximum speed of up/down moves (which require a higher step rate
-#   than other moves on a delta printer). The default is to use
-#   max_velocity for max_z_velocity.
+# 对于delta打印机，此设置限制了带有z轴移动的移动的最大速度（以mm/s为单位）。可以使用此设置来降低上下移动的最大速度（在delta打印机上，这些移动需要比其他移动更高的步进速率）。默认情况下，max_z_velocity使用max_velocity。
 #minimum_z_position: 0
-#   The minimum Z position that the user may command the head to move
-#   to.  The default is 0.
+# 用户可以命令头部移动到的最小Z位置。默认为0。
 shoulder_radius:
-#   Radius (in mm) of the horizontal circle formed by the three
-#   shoulder joints, minus the radius of the circle formed by the
-#   effector joints. This parameter may also be calculated as:
+# 三个肩部关节形成的水平圆的半径（以毫米为单位），减去效应器关节形成的圆的半径。此参数也可以计算为：
 #     shoulder_radius = (delta_f - delta_e) / sqrt(12)
-#   This parameter must be provided.
+# 必须提供此参数。
 shoulder_height:
-#   Distance (in mm) of the shoulder joints from the bed, minus the
-#   effector toolhead height. This parameter must be provided.
+# 肩部关节与床之间的距离（以毫米为单位），减去效应器工具头高度。必须提供此参数。
 
-# The stepper_a section describes the stepper controlling the rear
-# right arm (at 30 degrees). This section also controls the homing
-# parameters (homing_speed, homing_retract_dist) for all arms.
+# stepper_a部分描述了控制后右臂（在30度）的步进电机。此部分还控制所有臂的归位参数（homing_speed，homing_retract_dist）。
 [stepper_a]
 gear_ratio:
-#   A gear_ratio must be specified and rotation_distance may not be
-#   specified. For example, if the arm has an 80 toothed pulley driven
-#   by a pulley with 16 teeth, which is in turn connected to a 60
-#   toothed pulley driven by a stepper with a 16 toothed pulley, then
-#   one would specify a gear ratio of "80:16, 60:16". This parameter
-#   must be provided.
+# 必须指定一个gear_ratio，且可能不指定rotation_distance。例如，如果臂上有一个80齿的滑轮，由16齿的滑轮驱动，该滑轮又连接到一个由16齿的步进电机驱动的60齿滑轮，则应指定gear_ratio为"80:16, 60:16"。必须提供此参数。
 position_endstop:
-#   Distance (in mm) between the nozzle and the bed when the nozzle is
-#   in the center of the build area and the endstop triggers. This
-#   parameter must be provided for stepper_a; for stepper_b and
-#   stepper_c this parameter defaults to the value specified for
-#   stepper_a.
+# 喷嘴在构建区域中心并触发终点开关时，喷嘴与床之间的距离（以毫米为单位）。必须为stepper_a提供此参数；对于stepper_b和stepper_c，此参数默认为stepper_a指定的值。
 upper_arm_length:
-#   Length (in mm) of the arm connecting the "shoulder joint" to the
-#   "elbow joint". This parameter must be provided for stepper_a; for
-#   stepper_b and stepper_c this parameter defaults to the value
-#   specified for stepper_a.
+# 连接"肩部关节"和"肘部关节"的手臂的长度（以毫米为单位）。必须为stepper_a提供此参数；对于stepper_b和stepper_c，此参数默认为stepper_a指定的值。
 lower_arm_length:
-#   Length (in mm) of the arm connecting the "elbow joint" to the
-#   "effector joint". This parameter must be provided for stepper_a;
-#   for stepper_b and stepper_c this parameter defaults to the value
-#   specified for stepper_a.
+# 连接"肩部关节"和"效应器关节"的手臂的长度（以毫米为单位）。必须为stepper_a提供此参数；对于stepper_b和stepper_c，此参数默认为stepper_a指定的值。
 #angle:
-#   This option specifies the angle (in degrees) that the arm is at.
-#   The default is 30 for stepper_a, 150 for stepper_b, and 270 for
-#   stepper_c.
+# 此选项指定手臂的角度（以度为单位）。默认情况下，stepper_a为30度，stepper_b为150度，stepper_c为270度。
 
-# The stepper_b section describes the stepper controlling the rear
-# left arm (at 150 degrees).
+# stepper_b部分描述了控制后左臂（在150度）的步进电机。
 [stepper_b]
 
-# The stepper_c section describes the stepper controlling the front
-# arm (at 270 degrees).
+# stepper_c部分描述了控制前臂（在270
+
+度）的步进电机。
 [stepper_c]
 
-# The delta_calibrate section enables a DELTA_CALIBRATE extended
-# g-code command that can calibrate the shoulder endstop positions.
+# delta_calibrate部分启用了一个DELTA_CALIBRATE扩展g-code命令，可以校准肩部终点位置。
 [delta_calibrate]
 radius:
-#   Radius (in mm) of the area that may be probed. This is the radius
-#   of nozzle coordinates to be probed; if using an automatic probe
-#   with an XY offset then choose a radius small enough so that the
-#   probe always fits over the bed. This parameter must be provided.
+# 可以探测的区域的半径（以毫米为单位）。这是要探测的喷嘴坐标的半径；如果使用带有XY偏移的自动探针，则选择一个半径足够小，以便探针总是适合在床上。必须提供此参数。
 #speed: 50
-#   The speed (in mm/s) of non-probing moves during the calibration.
-#   The default is 50.
+# 校准期间非探测移动的速度（以毫米/秒为单位）。默认为50。
 #horizontal_move_z: 5
-#   The height (in mm) that the head should be commanded to move to
-#   just prior to starting a probe operation. The default is 5.
+# 开始探测操作之前，头部应被命令移动到的高度（以毫米为单位）。默认为5。
 ```
 
 ### 缆绳绞盘运动学
@@ -1443,14 +1399,14 @@ Support for MPU-9250, MPU-9255, MPU-6515, MPU-6050, and MPU-6500 accelerometers 
 ```
 [mpu9250 my_accelerometer]
 #i2c_address:
-#   Default is 104 (0x68). If AD0 is high, it would be 0x69 instead.
+#   默认为104（0x68）。如果AD0为高，那么它将是0x69。
 #i2c_mcu:
 #i2c_bus:
 #i2c_speed: 400000
-#   See the "common I2C settings" section for a description of the
-#   above parameters. The default "i2c_speed" is 400000.
+#   有关上述参数的描述，请参见“常见I2C设置”部分。
+#   默认的"i2c_speed"是400000。
 #axes_map: x, y, z
-#   See the "adxl345" section for information on this parameter.
+#   有关此参数的信息，请参阅"adxl345"部分。
 ```
 
 ### [resonance_tester]
@@ -2169,68 +2125,58 @@ serial_no:
 ```
 [fan]
 pin:
-#   Output pin controlling the fan. This parameter must be provided.
+#   控制风扇的输出引脚。必须提供此参数。
 #max_power: 1.0
-#   The maximum power (expressed as a value from 0.0 to 1.0) that the
-#   pin may be set to. The value 1.0 allows the pin to be set fully
-#   enabled for extended periods, while a value of 0.5 would allow the
-#   pin to be enabled for no more than half the time. This setting may
-#   be used to limit the total power output (over extended periods) to
-#   the fan. If this value is less than 1.0 then fan speed requests
-#   will be scaled between zero and max_power (for example, if
-#   max_power is .9 and a fan speed of 80% is requested then the fan
-#   power will be set to 72%). The default is 1.0.
+#   引脚可以设置的最大功率（以0.0到1.0的值表示）。1.0的值允许引脚完全
+#   启用，而0.5的值则最多只能启用一半的时间。此设置可用于限制风扇的总
+#   功率输出（在延长时间内）。如果此值小于1.0，则风扇速度请求将在零和
+#   最大功率之间进行缩放（例如，如果最大功率为.9且请求的风扇速度为80%，
+#   则风扇功率将被设置为72%）。
+#   默认值为1.0。
 #shutdown_speed: 0
-#   The desired fan speed (expressed as a value from 0.0 to 1.0) if
-#   the micro-controller software enters an error state. The default
-#   is 0.
+#   微控制器软件进入错误状态时的风扇速度（以0.0到1.0的值表示）。
+#   默认值为0。
 #cycle_time: 0.010
-#   The amount of time (in seconds) for each PWM power cycle to the
-#   fan. It is recommended this be 10 milliseconds or greater when
-#   using software based PWM. The default is 0.010 seconds.
+#   每个PWM电源周期到风扇的时间（以秒为单位）。当使用基于软件
+#   的PWM时，建议此值为10毫秒或更大。
+#   默认值为0.010秒。
 #hardware_pwm: False
-#   Enable this to use hardware PWM instead of software PWM. Most fans
-#   do not work well with hardware PWM, so it is not recommended to
-#   enable this unless there is an electrical requirement to switch at
-#   very high speeds. When using hardware PWM the actual cycle time is
-#   constrained by the implementation and may be significantly
-#   different than the requested cycle_time. The default is False.
+#   启用此选项以使用硬件PWM而非软件PWM。大多数风扇不适合使用
+#   硬件PWM，因此除非有电气需求以非常高的速度切换，否则不建议
+#   启用此功能。当使用硬件PWM时，实际的周期时间受到实现的限制，
+#   可能与请求的周期时间有很大的不同。
+#   默认值为False。
 #kick_start_time: 0.100
-#   Time (in seconds) to run the fan at full speed when either first
-#   enabling or increasing it by more than 50% (helps get the fan
-#   spinning). The default is 0.100 seconds.
+#   风扇全速运行的时间（以秒为单位），当首次启用或增加超过50%时
+#   （有助于使风扇开始旋转）。
+#   默认值为0.100秒。
 #off_below: 0.0
-#   The minimum input speed which will power the fan (expressed as a
-#   value from 0.0 to 1.0). When a speed lower than off_below is
-#   requested the fan will instead be turned off. This setting may be
-#   used to prevent fan stalls and to ensure kick starts are
-#   effective. The default is 0.0.
+#   将供电给风扇的最小输入速度（以0.0到1.0的值表示）。当请求低于
+#   off_below的速度时，风扇将被关闭。此设置可以用于防止风扇停滞，
+#   并确保起动开始有效。
+#   默认值为0.0。
 #
-#   This setting should be recalibrated whenever max_power is adjusted.
-#   To calibrate this setting, start with off_below set to 0.0 and the
-#   fan spinning. Gradually lower the fan speed to determine the lowest
-#   input speed which reliably drives the fan without stalls. Set
-#   off_below to the duty cycle corresponding to this value (for
-#   example, 12% -> 0.12) or slightly higher.
+#   每次调整max_power时，都应重新校准此设置。为校准此设置，以
+#   off_below设置为0.0和风扇旋转开始。逐渐降低风扇速度，确定
+#   可可靠驱动风扇且不停滞的最低输入速度。将off_below设置为对应
+#   于此值的占空比（例如，12% -> 0.12）或稍高。
 #tachometer_pin:
-#   Tachometer input pin for monitoring fan speed. A pullup is generally
-#   required. This parameter is optional.
+#   用于监控风扇速度的转速计输入引脚。通常需要上拉。此参数是可
+#   选的。
 #tachometer_ppr: 2
-#   When tachometer_pin is specified, this is the number of pulses per
-#   revolution of the tachometer signal. For a BLDC fan this is
-#   normally half the number of poles. The default is 2.
+#   当指定了转速计引脚时，这是转速计信号每转一圈的脉冲数。对于
+#   BLDC风扇，这通常是极数的一半。
+#   默认值是2。
 #tachometer_poll_interval: 0.0015
-#   When tachometer_pin is specified, this is the polling period of the
-#   tachometer pin, in seconds. The default is 0.0015, which is fast
-#   enough for fans below 10000 RPM at 2 PPR. This must be smaller than
-#   30/(tachometer_ppr*rpm), with some margin, where rpm is the
-#   maximum speed (in RPM) of the fan.
+#   当指定了转速计引脚时，这是转速计引脚的轮询周期，以秒为单位。
+#   默认值是0.0015，对于2PPR以下的10000转/分钟的风扇来说已经足够
+#   快了。这个值必须小于30/(转速计_ppr*rpm)，并且有一些余量，其中
+#   rpm是风扇的最大速度（以RPM为单位）。
 #enable_pin:
-#   Optional pin to enable power to the fan. This can be useful for fans
-#   with dedicated PWM inputs. Some of these fans stay on even at 0% PWM
-#   input. In such a case, the PWM pin can be used normally, and e.g. a
-#   ground-switched FET(standard fan pin) can be used to control power to
-#   the fan.
+#   可选引脚，用于使风扇供电。对于具有专用PWM输入的风扇，这可以
+#   很有用。这些风扇即使在0% PWM输入下也会保持开启。在这种情况下，
+#   PWM引脚可以使用，例如，可以使用接地开关的FET（标准风扇引脚）
+#   来控制风扇的电源。
 ```
 
 ### [heater_fan]
@@ -2250,19 +2196,15 @@ pin:
 #tachometer_ppr:
 #tachometer_poll_interval:
 #enable_pin:
-#   See the "fan" section for a description of the above parameters.
+#   请参阅“fan”分段，了解上述参数的描述。
 #heater: extruder
-#   Name of the config section defining the heater that this fan is
-#   associated with. If a comma separated list of heater names is
-#   provided here, then the fan will be enabled when any of the given
-#   heaters are enabled. The default is "extruder".
+#   此风扇所关联的加热器的配置部分的名称。如果在此处提供了加热器名称的逗号分隔列表，
+#   则在给定的任何加热器启用时，风扇将被启用。默认为“extruder”。
 #heater_temp: 50.0
-#   A temperature (in Celsius) that the heater must drop below before
-#   the fan is disabled. The default is 50 Celsius.
+#   加热器必须降至此温度（摄氏度）以下，风扇才会被禁用。默认为 50 摄氏度。
 #fan_speed: 1.0
-#   The fan speed (expressed as a value from 0.0 to 1.0) that the fan
-#   will be set to when its associated heater is enabled. The default
-#   is 1.0
+#   当关联的加热器启用时，风扇将设置的风扇速度（表示为从 0.0 到 1.0 的值）。
+#   默认值为 1.0
 ```
 
 ### [controller_fan]
@@ -2562,52 +2504,43 @@ pin:
 运行时可配置的输出引脚（可以定义任意数量的带有 "output_pin "前缀的分段）。在这里配置的引脚将被设置为输出引脚，可以在运行时使用 "SET_PIN PIN=my_pin VALUE=.1 "类型的扩展[G代码命令](G-Code.md#output_pin)对其进行修改。
 
 ```
-[output_pin 我的引脚]
+[output_pin my_pin]
 pin:
-#   被设置为输出的引脚。
-#   必须提供此参数。
+#   需要配置为输出的引脚。此参数必须提供。
 #pwm: False
-#   Set if the output pin should be capable of pulse-width-modulation.
-#   If this is true, the value fields should be between 0 and 1; if it
-#   is false the value fields should be either 0 or 1. The default is
-#   False.
+#   设置输出引脚是否应能够进行脉冲宽度调制。如果为真，值字段应在
+#   0和1之间；如果为假，值字段应为0或1。
+#   默认为False。
 #static_value:
-#   If this is set, then the pin is assigned to this value at startup
-#   and the pin can not be changed during runtime. A static pin uses
-#   slightly less ram in the micro-controller. The default is to use
-#   runtime configuration of pins.
+#   如果设置了此项，则引脚在启动时被分配此值，并且引脚在运行时无
+#   法更改。静态引脚在微控制器中使用的RAM略少。
+#   默认情况下，使用引脚的运行时配置。
 #value:
-#   The value to initially set the pin to during MCU configuration.
-#   The default is 0 (for low voltage).
+#   在MCU配置期间最初设置引脚的值。
+#   默认为0（低电压）。
 #shutdown_value:
-#   The value to set the pin to on an MCU shutdown event. The default
-#   is 0 (for low voltage).
+#   在MCU关闭事件中设置引脚的值。
+#   默认为0（低电压）。
 #maximum_mcu_duration:
-#   The maximum duration a non-shutdown value may be driven by the MCU
-#   without an acknowledge from the host.
-#   If host can not keep up with an update, the MCU will shutdown
-#   and set all pins to their respective shutdown values.
-#   Default: 0 (disabled)
-#   Usual values are around 5 seconds.
+#   MCU可以在未从主机获取确认的情况下驱动非关闭值的最大持续时间。
+#   如果主机无法跟上更新，MCU将关闭并将所有引脚设置为各自的关闭值。
+#   默认值：0（禁用）
+#   通常的值约为5秒。
 #cycle_time: 0.100
-#   The amount of time (in seconds) per PWM cycle. It is recommended
-#   this be 10 milliseconds or greater when using software based PWM.
-#   The default is 0.100 seconds for pwm pins.
+#   每个PWM周期的时间（以秒为单位）。建议在使用基于软件的PWM时，
+#   这个值应大于或等于10毫秒。
+#   对于pwm引脚，默认值为0.100秒。
 #hardware_pwm: False
-#   Enable this to use hardware PWM instead of software PWM. When
-#   using hardware PWM the actual cycle time is constrained by the
-#   implementation and may be significantly different than the
-#   requested cycle_time. The default is False.
+#   启用此项以使用硬件PWM而不是软件PWM。在使用硬件PWM时，实际的
+#   周期时间受到实现的限制，可能与请求的cycle_time显著不同。
+#   默认值为False。
 #scale:
-#   This parameter can be used to alter how the 'value' and
-#   'shutdown_value' parameters are interpreted for pwm pins. If
-#   provided, then the 'value' parameter should be between 0.0 and
-#   'scale'. This may be useful when configuring a PWM pin that
-#   controls a stepper voltage reference. The 'scale' can be set to
-#   the equivalent stepper amperage if the PWM were fully enabled, and
-#   then the 'value' parameter can be specified using the desired
-#   amperage for the stepper. The default is to not scale the 'value'
-#   parameter.
+#   此参数可以用来改变如何解释'value'和'shutdown_value'参数对于pwm
+#   引脚。如果提供了此参数，那么'value'参数应在0.0和'scale'之间。当配
+#   置一个控制步进电机电压参考的PWM引脚时，这可能会很有用。'scale'
+#   可以设置为PWM全开时相当于步进电机的电流，然后可以使用步进电机
+#   的期望电流来指定'value'参数。
+#   默认情况下，不对'value'参数进行缩放。
 ```
 
 ### [static_digital_output]
@@ -3172,30 +3105,27 @@ Statically configured MCP4451 digipot connected via I2C bus (one may define any 
 ```
 [mcp4451 my_digipot]
 i2c_address:
-#   芯片在I2C总线上的地址。
+#   芯片在i2c总线上使用的i2c地址。
 #   必须提供此参数。
 #i2c_mcu:
 #i2c_bus:
 #i2c_speed:
-#   以上参数请见“常见的I2C设置”章节。
+#   参见"常见I2C设置"部分以获取上述参数的描述。
 #wiper_0:
 #wiper_1:
 #wiper_2:
 #wiper_3:
-#   The value to statically set the given MCP4451 "wiper" to. This is
-#   typically set to a number between 0.0 and 1.0 with 1.0 being the
-#   highest resistance and 0.0 being the lowest resistance. However,
-#   the range may be changed with the 'scale' parameter (see below).
-#   If a wiper is not specified then it is left unconfigured.
+#   静态设置给定MCP4451 "wiper"的值。这通常设置为0.0到1.0之间的
+#   数字，其中1.0是最高阻值，0.0是最低阻值。然而，可以用'scale'参
+#   数（见下文）改变范围。
+#   如果没有指定wiper，则不对其进行配置。
 #scale:
-#   This parameter can be used to alter how the 'wiper_x' parameters
-#   are interpreted. If provided, then the 'wiper_x' parameters should
-#   be between 0.0 and 'scale'. This may be useful when the MCP4451 is
-#   used to set stepper voltage references. The 'scale' can be set to
-#   the equivalent stepper amperage if the MCP4451 were at its highest
-#   resistance, and then the 'wiper_x' parameters can be specified
-#   using the desired amperage value for the stepper. The default is
-#   to not scale the 'wiper_x' parameters.
+#   此参数可用于改变对'wiper_x'参数的解释。如果提供了此参数，
+#   那么'wiper_x'参数应在0.0和'scale'之间。当MCP4451用于设置步进电
+#   压引用时，这可能很有用。'scale'可以设置为当MCP4451处于最高阻
+#   值时的等效步进电流，然后可以使用步进电机所需的电流值来指定
+#   'wiper_x'参数。
+#   默认不对'wiper_x'参数进行缩放。
 ```
 
 ### [mcp4728]
@@ -3236,26 +3166,23 @@ Statically configured MCP4018 digipot connected via two gpio "bit banging" pins 
 ```
 [mcp4018 my_digipot]
 scl_pin:
-#   SCL “时钟”引脚。
+#   SCL "时钟"引脚。
 #   必须提供此参数。
 sda_pin:
-#   SDA “数据”引脚
-#   必须提供此参数
+#   SDA "数据"引脚。
+#   必须提供此参数。
 wiper:
-#   The value to statically set the given MCP4018 "wiper" to. This is
-#   typically set to a number between 0.0 and 1.0 with 1.0 being the
-#   highest resistance and 0.0 being the lowest resistance. However,
-#   the range may be changed with the 'scale' parameter (see below).
-#   This parameter must be provided.
+#   静态设置给定MCP4018 "wiper"的值。这通常设置为0.0到1.0之间
+#   的数字，其中1.0是最高阻值，0.0是最低阻值。然而，可以用
+#   'scale'参数（见下文）改变范围。
+#   必须提供此参数。
 #scale:
-#   This parameter can be used to alter how the 'wiper' parameter is
-#   interpreted. If provided, then the 'wiper' parameter should be
-#   between 0.0 and 'scale'. This may be useful when the MCP4018 is
-#   used to set stepper voltage references. The 'scale' can be set to
-#   the equivalent stepper amperage if the MCP4018 is at its highest
-#   resistance, and then the 'wiper' parameter can be specified using
-#   the desired amperage value for the stepper. The default is to not
-#   scale the 'wiper' parameter.
+#   此参数可用于改变对'wiper'参数的解释。如果提供了此参数，
+#   那么'wiper'参数应在0.0和'scale'之间。当MCP4018用于设置步进
+#   电压引用时，这可能很有用。'scale'可以设置为当MCP4018处于
+#   最高阻值时的等效步进电流，然后可以使用步进电机所需的电
+#   流值来指定'wiper'参数。
+#   默认不对'wiper'参数进行缩放。
 ```
 
 ## 显示屏支持
@@ -3912,17 +3839,21 @@ Palette 2 多材料支持 - 提供更紧密的集成，支持处于连接模式�
 ```
 [palette2]
 serial:
-#   The serial port to connect to the Palette 2.
+#   与 Palette 2 连接的串口。
 #baud: 115200
-#   The baud rate to use. The default is 115200.
+#   使用的波特率。
+#   默认是 115200。
 #feedrate_splice: 0.8
-#   The feedrate to use when splicing, default is 0.8
+#   拼接时使用的进给速度，
+#   默认是 0.8
 #feedrate_normal: 1.0
-#   The feedrate to use after splicing, default is 1.0
+#   拼接后使用的进给速度，
+#   默认是 1.0
 #auto_load_speed: 2
-#   Extrude feedrate when autoloading, default is 2 (mm/s)
+#   自动装载时的挤出进给速度，
+#   默认是 2 (mm/s)
 #auto_cancel_variation: 0.1
-#   Auto cancel print when ping variation is above this threshold
+#   当 ping 变化超过此阈值时，自动取消打印
 ```
 
 ### [angle]
@@ -3980,24 +3911,24 @@ cs_pin:
 
 以下参数一般适用于使用I2C总线的设备。
 
-Note that Klipper's current micro-controller support for I2C is generally not tolerant to line noise. Unexpected errors on the I2C wires may result in Klipper raising a run-time error. Klipper's support for error recovery varies between each micro-controller type. It is generally recommended to only use I2C devices that are on the same printed circuit board as the micro-controller.
+请注意，Klipper当前的微控制器对I2C的支持通常不能容忍线路噪声。I2C线路上的意外错误可能会导致Klipper产生运行时错误。Klipper 对错误恢复的支持在每种微控制器类型之间有所不同。通常建议只使用与微控制器位于同一印刷电路板上的I2C设备。
 
-Most Klipper micro-controller implementations only support an `i2c_speed` of 100000 (*standard mode*, 100kbit/s). The Klipper "Linux" micro-controller supports a 400000 speed (*fast mode*, 400kbit/s), but it must be [set in the operating system](RPi_microcontroller.md#optional-enabling-i2c) and the `i2c_speed` parameter is otherwise ignored. The Klipper "RP2040" micro-controller and ATmega AVR family support a rate of 400000 via the `i2c_speed` parameter. All other Klipper micro-controllers use a 100000 rate and ignore the `i2c_speed` parameter.
+大多数Klipper微控制器实现只支持100000的`i2c_speed`（*标准模式*，100kbit/s）。Klipper的"Linux"微控制器支持400000的速度（*快速模式*，400kbit/s），但它必须[在操作系统中设置](RPi_microcontroller.md#optional-enabling-i2c)，否则会忽略`i2c_speed`参数。Klipper的"RP2040"微控制器和ATmega AVR系列通过`i2c_speed`参数支持400000的速率。所有其他Klipper微控制器使用100000的速率并忽略`i2c_speed`参数。
 
 ```
 #i2c_address:
-#   The i2c address of the device. This must specified as a decimal
-#   number (not in hex). The default depends on the type of device.
+#   设备的i2c地址。必须以十进制数指定（不是十六进制）。
+#   默认取决于设备的类型。
 #i2c_mcu:
-#   The name of the micro-controller that the chip is connected to.
-#   The default is "mcu".
+#   芯片连接的微控制器的名称。
+#   默认为"mcu"。
 #i2c_bus:
-#   If the micro-controller supports multiple I2C busses then one may
-#   specify the micro-controller bus name here. The default depends on
-#   the type of micro-controller.
+#   如果微控制器支持多个I2C总线，则可以在此处指定微控制
+#   器总线名称。
+#   默认取决于微控制器的类型。
 #i2c_speed:
-#   The I2C speed (in Hz) to use when communicating with the device.
-#   The Klipper implementation on most micro-controllers is hard-coded
-#   to 100000 and changing this value has no effect. The default is
-#   100000. Linux, RP2040 and ATmega support 400000.
+#   与设备通信时使用的I2C速度（以Hz为单位）。Klipper在大
+#   多数微控制器上的实现都是硬编码为100000，改变这个值
+#   没有效果。
+#   默认值是100000。Linux，RP2040和ATmega支持400000。
 ```

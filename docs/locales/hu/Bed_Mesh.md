@@ -1,6 +1,6 @@
 # Tárgyasztal háló
 
-The Bed Mesh module may be used to compensate for bed surface irregularities to achieve a better first layer across the entire bed. It should be noted that software based correction will not achieve perfect results, it can only approximate the shape of the bed. Bed Mesh also cannot compensate for mechanical and electrical issues. If an axis is skewed or a probe is not accurate then the bed_mesh module will not receive accurate results from the probing process.
+Az ágy háló modul használható az ágyfelület egyenetlenségeinek kiegyenlítésére, hogy jobb első réteget érjen el az egész ágyon. Meg kell jegyezni, hogy a szoftveralapú korrekció nem fog tökéletes eredményt elérni, csak megközelítőleg tudja az ágy alakját. A Bed Mesh szintén nem tudja kompenzálni a mechanikai és elektromos problémákat. Ha egy tengely ferde vagy egy szonda nem pontos, akkor a bed_mesh modul nem fog pontos eredményeket kapni a szondázásból.
 
 A hálókalibrálás előtt meg kell győződnöd arról, hogy a szonda Z-eltolása kalibrálva van. Ha végállást használsz a Z-kezdőponthoz, akkor azt is kalibrálni kell. További információkért lásd a [Szonda Kalibrálás](Probe_Calibrate.md) és a Z_ENDSTOP_CALIBRATE című fejezetben a [Kézi Szintezést](Manual_Level.md).
 
@@ -22,7 +22,7 @@ probe_count: 5, 3
 - `speed: 120` * Alapértelmezett érték: 50* A sebesség, amellyel a fej a pontok között mozog.
 - `horizontal_move_z: 5` *Alapértelmezett érték: 5* A Z koordináta, amelyre a szonda a mérőpontok közötti utazás előtt emelkedik.
 - `mesh_min: 35, 6` *Ajánlott* Az első, az origóhoz legközelebbi koordináta. Ez a koordináta a szonda helyéhez képest relatív.
-- `mesh_max: 240, 198` *Required* The probed coordinate farthest farthest from the origin. This is not necessarily the last point probed, as the probing process occurs in a zig-zag fashion. As with `mesh_min`, this coordinate is relative to the probe's location.
+- `mesh_max: 240, 198` *Kötelező* Az origótól legtávolabb eső szondázott koordináta. Ez nem feltétlenül az utolsó szondázott pont, mivel a szondázás cikcakkos módon történik. A `mesh_min` koordinátához hasonlóan ez a koordináta is a szonda helyéhez képest relatív.
 - `probe_count: 5, 3` *Alapértelmezett érték: 3,3* Az egyes tengelyeken mérendő pontok száma, X, Y egész értékben megadva. Ebben a példában az X tengely mentén 5 pont lesz mérve, az Y tengely mentén 3 pont, összesen 15 mért pont. Vedd figyelembe, hogy ha négyzetrácsot szeretnél, például 3x3, akkor ezt egyetlen egész számértékként is megadhatod, amelyet mindkét tengelyre használsz, azaz `probe_count: 3`. Vedd figyelembe, hogy egy hálóhoz mindkét tengely mentén legalább 3 darab mérési számra van szükség.
 
 Az alábbi ábra azt mutatja, hogy a `mesh_min`, `mesh_max` és `probe_count` opciók hogyan használhatók a mérőpontok létrehozására. A nyilak jelzik a mérési eljárás irányát, kezdve a `mesh_min` ponttól. Hivatkozásképpen, amikor a szonda a `mesh_min` pontnál van, a fúvóka a (11, 1) pontnál lesz, és amikor a szonda a `mesh_max` pontnál van, a fúvóka a (206, 193) pontnál lesz.
@@ -46,7 +46,7 @@ round_probe_count: 5
 - `mesh_origin: 0, 0` *Alapértelmezett érték: 0, 0* A háló középpontja. Ez a koordináta a szonda helyéhez képest relatív. Bár az alapértelmezett érték 0, 0 hasznos lehet az origó beállítása, ha a tárgyasztal nagyobb részét szeretnéd megmérni. Lásd az alábbi ábrát.
 - `round_probe_count: 5` *Alapértelmezett érték: 5* Ez egy egész szám, amely meghatározza az X és Y tengely mentén mért pontok maximális számát. A "maximális" alatt a háló origója mentén mért pontok számát értjük. Ennek az értéknek páratlan számnak kell lennie, mivel a háló középpontját kell megvizsgálni.
 
-The illustration below shows how the probed points are generated. As you can see, setting the `mesh_origin` to (-10, 0) allows us to specify a larger mesh radius of 85.
+Az alábbi ábra mutatja, hogyan generálódnak a szondázott pontok. Amint látható, a `mesh_origin` (-10, 0) értékre állítása lehetővé teszi, hogy nagyobb, 85-ös hálósugarat adjunk meg.
 
 ![bedmesh_round_basic](img/bedmesh_round_basic.svg)
 
@@ -56,7 +56,7 @@ Az alábbiakban részletesen ismertetjük a fejlettebb konfigurációs lehetős�
 
 ### Háló interpoláció
 
-While its possible to sample the probed matrix directly using simple bi-linear interpolation to determine the Z-Values between probed points, it is often useful to interpolate extra points using more advanced interpolation algorithms to increase mesh density. These algorithms add curvature to the mesh, attempting to simulate the material properties of the bed. Bed Mesh offers lagrange and bicubic interpolation to accomplish this.
+Míg a szondázott mátrixot közvetlenül egyszerű bilineáris interpolációval lehet mintavételezni a szondázott pontok közötti Z-értékek meghatározásához, a háló sűrűségének növelése érdekében gyakran hasznos további pontokat interpolálni fejlettebb interpolációs algoritmusokkal. Ezek az algoritmusok görbületet adnak a hálóhoz, megkísérelve szimulálni a meder anyagi tulajdonságait. A Bed Mesh ehhez Lagrange- és bikubikus interpolációt kínál.
 
 ```
 [bed_mesh]
@@ -96,7 +96,7 @@ split_delta_z: .025
 - `move_check_distance: 5` *Alapértelmezett érték: 5* A minimális távolság, amellyel a kívánt Z-változást ellenőrizni kell a felosztás végrehajtása előtt. Ebben a példában az 5 mm-nél hosszabb mozgást fog az algoritmus végigjárni. Minden 5 mm-enként egy háló Z mérés történik, összehasonlítva azt az előző lépés Z értékével. Ha a delta eléri a `split_delta_z` által beállított küszöbértéket, akkor a mozgás felosztásra kerül, és a bejárás folytatódik. Ez a folyamat addig ismétlődik, amíg a lépés végére nem érünk, ahol egy végső kiigazítás történik. A `move_check_distance` értéknél rövidebb mozgásoknál a helyes Z kiigazítást közvetlenül a mozgásra alkalmazzák, áthaladás vagy felosztás nélkül.
 - `split_delta_z: .025` *Alapértelmezett érték: .025* Mint fentebb említettük, ez a minimális eltérés szükséges a mozgás felosztásának elindításához. Ebben a példában bármely Z-érték +/- .025 mm eltérés kiváltja a felosztást.
 
-Generally the default values for these options are sufficient, in fact the default value of 5mm for the `move_check_distance` may be overkill. However an advanced user may wish to experiment with these options in an effort to squeeze out the optimal first layer.
+Általában az alapértelmezett értékek elegendőek ezekhez az opciókhoz, sőt, a `move_check_distance` alapértelmezett 5 mm-es értéke túlzás lehet. Egy haladó felhasználó azonban kísérletezhet ezekkel az opciókkal, hogy megpróbálja kiszorítani az optimális első réteget.
 
 ### Háló elhalványulás
 
