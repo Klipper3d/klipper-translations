@@ -89,9 +89,9 @@ BOARD_DEFS = {
 
 A következő mezők adhatók meg:
 
-- `mcu`: The mcu type. This can be retrieved after configuring the build via `make menuconfig` by running `cat .config | grep CONFIG_MCU`. This field is required.
-- `spi_bus`: The SPI bus connected to the SD Card. This should be retrieved from the board's schematic. This field is required.
-- `cs_pin`: The Chip Select Pin connected to the SD Card. This should be retrieved from the board schematic. This field is required.
+- `mcu`: Az mcu típusa. Ez a build konfigurálása után a `make menuconfig` ` cat .config | grep CONFIG_MCU`. Ez a mező kötelezően kitöltendő.
+- `spi_bus`: Az SD-kártyához csatlakoztatott SPI-busz. Ezt a kártya kapcsolási rajzából kell lekérdezni. Ennek megadása kötelező.
+- `cs_pin`: Az SD-kártyához csatlakoztatott chipkiválasztó tű. Ezt a kártya kapcsolási rajzából kell lekérdezni. Ennek megadása kötelező.
 - `firmware_path`: Az SD-kártyán lévő elérési útvonal, ahová a firmware-t át kell vinni. Az alapértelmezett `firmware.bin`.
 - `current_firmware_path`: Az SD-kártyán lévő elérési útvonal, ahol az átnevezett firmware fájl található a sikeres égetés után. Az alapértelmezett név: `firmware.cur`.
 - `skip_verify`: Ez egy logikai értéket határoz meg, amely a szkripteknek azt mondja meg, hogy hagyja ki a firmware ellenőrzésének lépését az égetési folyamat során. Az alapértelmezett érték `False`. Ez az érték `True` értékre állítható olyan kártyák esetében, amelyeknél az égetés befejezéséhez kézi bekapcsolás szükséges. A firmware utólagos ellenőrzéséhez futtasd újra a szkriptet a `-c` opcióval, hogy elvégezd az ellenőrzési lépést. [Lásd az SDIO kártyákkal kapcsolatos figyelmeztetéseket](#caveats)

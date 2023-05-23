@@ -1,6 +1,6 @@
 # Hall nyomtatószál szélesség érzékelő
 
-This document describes Filament Width Sensor host module. Hardware used for developing this host module is based on two Hall linear sensors (ss49e for example). Sensors in the body are located on opposite sides. Principle of operation: two hall sensors work in differential mode, temperature drift same for sensor. Special temperature compensation not needed.
+Ez a dokumentum a szálszélesség-érzékelő gazdamodult ismerteti. A gazdamodul fejlesztéséhez használt hardver két Hall lineáris érzékelőn alapul (például ss49e). A testben lévő érzékelők ellentétes oldalakon helyezkednek el. Működési elv: a két Hall-érzékelő differenciális üzemmódban működik, a hőmérséklet-drift azonos az érzékelőnél. Speciális hőmérséklet-kompenzációra nincs szükség.
 
 Terveket a [Thingiverse] oldalon találod (https://www.thingiverse.com/thing:4138933), az összeszerelési videó a [Youtube]-on is elérhető (https://www.youtube.com/watch?v=TDO9tME8vp4 )
 
@@ -8,7 +8,7 @@ A Hall nyomtatószál szélesség érzékelő használatához olvasd el a [Konfi
 
 ## Hogyan működik?
 
-Sensor generates two analog output based on calculated filament width. Sum of output voltage always equals to detected filament width. Host module monitors voltage changes and adjusts extrusion multiplier. I use the aux2 connector on a ramps-like board with the analog11 and analog12 pins. You can use different pins and different boards.
+Az érzékelő két analóg kimenetet generál a számított szálszélesség alapján. A kimeneti feszültség összege mindig megegyezik az érzékelt nyomtatószál szélességgel. A gazdamodul figyeli a feszültségváltozásokat és beállítja az extrudálási szorzót. Az aux2 csatlakozót egy RAMPS lapon használom az analóg11 és analóg12 tűkkel. Használhatsz más tűket és más lapokat is.
 
 ## Menüváltozók sablonja
 
