@@ -1,4 +1,4 @@
-# Luciano Moda <desenvolvimento@gtmax.com.br>, 2023.
+# Luciano Moda <desenvolvimento@gtmax.com.br>, 2023, 2025.
 # Milton Miranda Neto <voidmmn@gmail.com>, 2023.
 # Ducarmel Hilaire <dl-admin@users.noreply.hosted.weblate.org>, 2024.
 # ssantos <ssantos@web.de>, 2024, 2025.
@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:29+0000\n"
-"Last-Translator: ssantos <ssantos@web.de>\n"
+"Last-Translator: Luciano Moda <desenvolvimento@gtmax.com.br>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/klipper/"
 "config_reference/pt/>\n"
 "Language: pt\n"
@@ -78,12 +78,12 @@ msgid ""
 "alias name on the given mcu)."
 msgstr ""
 "Microcontroladores adicionais (pode-se definir qualquer número de seções com "
-"um prefixo \"mcu\"). Microcontroladores adicionais introduzem pinos adicionais"
-" que podem ser configurados como aquecedores, motores de passo, ventiladores, "
-"etc. Por exemplo, se uma seção \"[mcu extra_mcu]\" for introduzida, então "
-"pinos como \"extra_mcu:ar9\" podem ser usados em outros lugares na "
-"configuração (onde \"ar9\" é um nome de pino de hardware ou nome de alias no "
-"mcu dado)."
+"um prefixo \"mcu\"). Microcontroladores adicionais introduzem pinos "
+"adicionais que podem ser configurados como aquecedores, motores de passo, "
+"ventiladores, etc. Por exemplo, se uma seção \"[mcu extra_mcu]\" for "
+"introduzida, então pinos como \"extra_mcu:ar9\" podem ser usados em outros "
+"lugares na configuração (onde \"ar9\" é um nome de pino de hardware ou nome "
+"de alias no mcu dado)."
 
 msgid "Common kinematic settings"
 msgstr "Configurações cinemáticas comuns"
@@ -1195,10 +1195,10 @@ msgid ""
 "kinematics. In order to home the printer, manually send movement commands "
 "until the toolhead is at 0, 0, 0 and then issue a `G28` command."
 msgstr ""
-"CABLE WINCH SUPPORT IS EXPERIMENTAL. A referência de origem (homing) não está "
-"implementada na cinemática do cable winch kinematics. Para referenciar a "
-"origem da impressora, envie comandos de movimento manualmente até que a cabeça"
-" de impressão esteja em 0, 0, 0 e então emita um comando G28."
+"CABLE WINCH SUPPORT IS EXPERIMENTAL. A referência de origem (homing) não "
+"está implementada na cinemática do cable winch kinematics. Para referenciar "
+"a origem da impressora, envie comandos de movimento manualmente até que a "
+"cabeça de impressão esteja em 0, 0, 0 e então emita um comando G28."
 
 #: docs/Config_Reference.md:block 100 (paragraph)
 msgid "Where x is the 0, 0 point on the bed"
