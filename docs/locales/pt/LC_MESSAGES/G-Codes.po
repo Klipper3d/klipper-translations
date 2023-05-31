@@ -1,9 +1,16 @@
-#
+# Luciano Moda <desenvolvimento@gtmax.com.br>, 2023.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2023-05-31 20:52+0000\n"
+"Last-Translator: Luciano Moda <desenvolvimento@gtmax.com.br>\n"
+"Language-Team: Portuguese <https://hosted.weblate.org/projects/klipper/"
+"g-codes/pt/>\n"
 "Language: pt\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 4.18-dev\n"
 
 msgid ""
 "This document describes the commands that Klipper supports. These are "
@@ -726,7 +733,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 12 (header)
 msgid "[adxl345]"
-msgstr ""
+msgstr "[adxl345]"
 
 #: docs/G-Codes.md:block 13 (paragraph)
 msgid ""
@@ -767,7 +774,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 22 (header)
 msgid "[bed_mesh]"
-msgstr ""
+msgstr "[bed_mesh]"
 
 #: docs/G-Codes.md:block 23 (paragraph)
 msgid ""
@@ -1805,7 +1812,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 22 (header)
 msgid "[angle]"
-msgstr ""
+msgstr "[angle]"
 
 #: docs/G-Codes.md:block 23 (paragraph)
 msgid ""
