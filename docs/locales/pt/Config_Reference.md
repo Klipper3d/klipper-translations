@@ -51,14 +51,14 @@ serial:
 
 ### [mcu my_extra_mcu]
 
-Additional micro-controllers (one may define any number of sections with an "mcu" prefix). Additional micro-controllers introduce additional pins that may be configured as heaters, steppers, fans, etc.. For example, if an "[mcu extra_mcu]" section is introduced, then pins such as "extra_mcu:ar9" may then be used elsewhere in the config (where "ar9" is a hardware pin name or alias name on the given mcu).
+Microcontroladores adicionais (pode-se definir qualquer número de seções com um prefixo "mcu"). Microcontroladores adicionais introduzem pinos adicionais que podem ser configurados como aquecedores, motores de passo, ventiladores, etc. Por exemplo, se uma seção "[mcu extra_mcu]" for introduzida, então pinos como "extra_mcu:ar9" podem ser usados em outros lugares na configuração (onde "ar9" é um nome de pino de hardware ou nome de alias no mcu dado).
 
 ```
 [mcu my_extra_mcu]
 # See the "mcu" section for configuration parameters.
 ```
 
-## Common kinematic settings
+## Configurações cinemáticas comuns
 
 ### [printer]
 
@@ -613,7 +613,7 @@ See the [example-winch.cfg](../config/example-winch.cfg) for an example cable wi
 
 Only parameters specific to cable winch printers are described here - see [common kinematic settings](#common-kinematic-settings) for available parameters.
 
-CABLE WINCH SUPPORT IS EXPERIMENTAL. Homing is not implemented on cable winch kinematics. In order to home the printer, manually send movement commands until the toolhead is at 0, 0, 0 and then issue a `G28` command.
+CABLE WINCH SUPPORT IS EXPERIMENTAL. A referência de origem (homing) não está implementada na cinemática do cable winch kinematics. Para referenciar a origem da impressora, envie comandos de movimento manualmente até que a cabeça de impressão esteja em 0, 0, 0 e então emita um comando G28.
 
 ```
 [printer]
@@ -647,7 +647,7 @@ max_accel: 1
 #   values are not used for "none" kinematics.
 ```
 
-## Common extruder and heated bed support
+## Suporte comum para extrusora e cama aquecida
 
 ### [extruder]
 
@@ -1318,7 +1318,7 @@ Idle timeout. An idle timeout is automatically enabled - add an explicit idle_ti
 
 ### [virtual_sdcard]
 
-A virtual sdcard may be useful if the host machine is not fast enough to run OctoPrint well. It allows the Klipper host software to directly print gcode files stored in a directory on the host using standard sdcard G-Code commands (eg, M24).
+Um cartão SD virtual pode ser útil se a máquina hospedeira não for rápida o suficiente para rodar o OctoPrint de maneira eficiente. Ele permite que o software host do Klipper imprima diretamente arquivos gcode armazenados em um diretório no host usando comandos padrão de G-Code do cartão SD (por exemplo, M24).
 
 ```
 [virtual_sdcard]
@@ -1470,29 +1470,29 @@ Support for ADXL345 accelerometers. This support allows one to query acceleromet
 ```
 [adxl345]
 cs_pin:
-#   The SPI enable pin for the sensor. This parameter must be provided.
+#   O pino SPI de habilitação para o sensor. Este parâmetro deve ser fornecido.
 #spi_speed: 5000000
-#   The SPI speed (in hz) to use when communicating with the chip.
-#   The default is 5000000.
+#   A velocidade SPI (em hz) para usar na comunicação com o chip.
+#   O padrão é 5000000.
 #spi_bus:
 #spi_software_sclk_pin:
 #spi_software_mosi_pin:
 #spi_software_miso_pin:
 #   See the "common SPI settings" section for a description of the
-#   above parameters.
+#   parâmetros acima.
 #axes_map: x, y, z
-#   The accelerometer axis for each of the printer's X, Y, and Z axes.
-#   This may be useful if the accelerometer is mounted in an
-#   orientation that does not match the printer orientation. For
-#   example, one could set this to "y, x, z" to swap the X and Y axes.
-#   It is also possible to negate an axis if the accelerometer
-#   direction is reversed (eg, "x, z, -y"). The default is "x, y, z".
+#   O eixo do acelerômetro para cada um dos eixos X, Y e Z da impressora.
+#   Isso pode ser útil se o acelerômetro estiver montado em uma
+#   orientação que não corresponda à orientação da impressora. Por
+#   exemplo, você poderia definir isso como "y, x, z" para trocar os eixos X e Y.
+#   Também é possível negar um eixo se a direção do acelerômetro
+#   estiver invertida (por exemplo, "x, z, -y"). O padrão é "x, y, z".
 #rate: 3200
-#   Output data rate for ADXL345. ADXL345 supports the following data
-#   rates: 3200, 1600, 800, 400, 200, 100, 50, and 25. Note that it is
-#   not recommended to change this rate from the default 3200, and
-#   rates below 800 will considerably affect the quality of resonance
-#   measurements.
+#   Taxa de dados de saída para ADXL345. ADXL345 suporta as seguintes taxas de dados:
+#   3200, 1600, 800, 400, 200, 100, 50 e 25. Note que não é
+#   recomendado alterar esta taxa do padrão 3200, e
+#   taxas abaixo de 800 afetarão consideravelmente a qualidade das
+#   medições de ressonância.
 ```
 
 ### [mpu9250]
@@ -1773,7 +1773,7 @@ z_offset:
 #   See the "probe" section for more information on the parameters above.
 ```
 
-## Additional stepper motors and extruders
+## Motores de passo e extrusoras adicionais
 
 ### [stepper_z1]
 
@@ -1971,22 +1971,22 @@ Custom ADC temperature sensors (one may define any number of sections with an "a
 #temperature2:
 #voltage2:
 #...
-#   A set of temperatures (in Celsius) and voltages (in Volts) to use
-#   as reference when converting a temperature. A heater section using
-#   this sensor may also specify adc_voltage and voltage_offset
-#   parameters to define the ADC voltage (see "Common temperature
-#   amplifiers" section for details). At least two measurements must
-#   be provided.
+#   Um conjunto de temperaturas (em Celsius) e tensões (em Volts) para usar
+#   como referência ao converter uma temperatura. Uma seção de aquecedor que utiliza
+#   este sensor também pode especificar parâmetros adc_voltage e voltage_offset
+#   para definir a tensão ADC (veja a seção "Amplificadores comuns de temperatura"
+#   para detalhes). Pelo menos duas medições devem ser
+#   fornecidas.
 #temperature1:
 #resistance1:
 #temperature2:
 #resistance2:
 #...
-#   Alternatively one may specify a set of temperatures (in Celsius)
-#   and resistance (in Ohms) to use as reference when converting a
-#   temperature. A heater section using this sensor may also specify a
-#   pullup_resistor parameter (see "extruder" section for details). At
-#   least two measurements must be provided.
+#   Alternativamente, pode-se especificar um conjunto de temperaturas (em Celsius)
+#   e resistência (em Ohms) para usar como referência ao converter uma
+#   temperatura. Uma seção de aquecedor que utiliza este sensor também pode especificar um
+#   parâmetro pullup_resistor (veja a seção "extruder" para detalhes). Pelo
+#   menos duas medições devem ser fornecidas.
 ```
 
 ### [heater_generic]
@@ -2599,7 +2599,7 @@ PCA9632 LED support. The PCA9632 is used on the FlashForge Dreamer.
 #   See the "led" section for information on these parameters.
 ```
 
-## Additional servos, buttons, and other pins
+## Servos, botões e outros pinos adicionais
 
 ### [servo]
 
@@ -3240,36 +3240,36 @@ Statically configured AD5206 digipots connected via SPI bus (one may define any 
 ```
 [ad5206 my_digipot]
 enable_pin:
-#   The pin corresponding to the AD5206 chip select line. This pin
-#   will be set to low at the start of SPI messages and raised to high
-#   after the message completes. This parameter must be provided.
+#   O pino correspondente à linha de seleção do chip AD5206. Este pino
+#   será configurado para baixo no início das mensagens SPI e aumentado para alto
+#   após a conclusão da mensagem. Este parâmetro deve ser fornecido.
 #spi_speed:
 #spi_bus:
 #spi_software_sclk_pin:
 #spi_software_mosi_pin:
 #spi_software_miso_pin:
-#   See the "common SPI settings" section for a description of the
-#   above parameters.
+#   Veja a seção "configurações comuns de SPI" para uma descrição dos
+#   parâmetros acima.
 #channel_1:
 #channel_2:
 #channel_3:
 #channel_4:
 #channel_5:
 #channel_6:
-#   The value to statically set the given AD5206 channel to. This is
-#   typically set to a number between 0.0 and 1.0 with 1.0 being the
-#   highest resistance and 0.0 being the lowest resistance. However,
-#   the range may be changed with the 'scale' parameter (see below).
-#   If a channel is not specified then it is left unconfigured.
+#   O valor para definir estaticamente o dado canal do AD5206. Isso é
+#   normalmente definido com um número entre 0.0 e 1.0, sendo 1.0 a
+#   maior resistência e 0.0 a menor resistência. No entanto,
+#   o intervalo pode ser alterado com o parâmetro 'scale' (veja abaixo).
+#   Se um canal não for especificado, ele é deixado sem configuração.
 #scale:
-#   This parameter can be used to alter how the 'channel_x' parameters
-#   are interpreted. If provided, then the 'channel_x' parameters
-#   should be between 0.0 and 'scale'. This may be useful when the
-#   AD5206 is used to set stepper voltage references. The 'scale' can
-#   be set to the equivalent stepper amperage if the AD5206 were at
-#   its highest resistance, and then the 'channel_x' parameters can be
-#   specified using the desired amperage value for the stepper. The
-#   default is to not scale the 'channel_x' parameters.
+#   Este parâmetro pode ser usado para alterar como os parâmetros 'channel_x'
+#   são interpretados. Se fornecido, então os parâmetros 'channel_x'
+#   devem estar entre 0.0 e 'escala'. Isso pode ser útil quando o
+#   AD5206 é usado para definir referências de tensão de passo. A 'escala' pode
+#   ser definida para a amperagem equivalente do passo se o AD5206 estiver em
+#   sua maior resistência, e então os parâmetros 'channel_x' podem ser
+#   especificados usando o valor de amperagem desejado para o passo. O
+#   padrão é não escalar os parâmetros 'channel_x'.
 ```
 
 ### [mcp4451]
@@ -3618,7 +3618,7 @@ lcd_type:
 
 Support for displaying custom data on an lcd screen. One may create any number of display groups and any number of data items under those groups. The display will show all the data items for a given group if the display_group option in the [display] section is set to the given group name.
 
-A [default set of display groups](../klippy/extras/display/display.cfg) are automatically created. One can replace or extend these display_data items by overriding the defaults in the main printer.cfg config file.
+Um [default set of display groups](../klippy/extras/display/display.cfg) é criado automaticamente. Pode-se substituir ou estender esses itens de display_data substituindo os padrões no arquivo de configuração principal printer.cfg.
 
 ```
 [display_data my_group_name my_data_name]
@@ -3696,7 +3696,7 @@ If a primary [display] section has been defined in printer.cfg as shown above it
 
 Customizable lcd display menus.
 
-A [default set of menus](../klippy/extras/display/menu.cfg) are automatically created. One can replace or extend the menu by overriding the defaults in the main printer.cfg config file.
+Um [default set of menus](../klippy/extras/display/menu.cfg) é criado automaticamente. Você pode substituir ou estender o menu substituindo os padrões no arquivo de configuração principal printer.cfg.
 
 See the [command template document](Command_Templates.md#menu-templates) for information on menu attributes available during template rendering.
 
@@ -3960,15 +3960,15 @@ See the [generic-duet2-maestro.cfg](../config/generic-duet2-maestro.cfg) file fo
 ```
 [adc_scaled my_name]
 vref_pin:
-#   The ADC pin to use for VREF monitoring. This parameter must be
-#   provided.
+#   O pino ADC a ser usado para monitoramento de VREF. Este parâmetro deve ser
+#   fornecido.
 vssa_pin:
-#   The ADC pin to use for VSSA monitoring. This parameter must be
-#   provided.
+#   O pino ADC a ser usado para monitoramento de VSSA. Este parâmetro deve ser
+#   fornecido.
 #smooth_time: 2.0
-#   A time value (in seconds) over which the vref and vssa
-#   measurements will be smoothed to reduce the impact of measurement
-#   noise. The default is 2 seconds.
+#   Um valor de tempo (em segundos) durante o qual as medições de vref e vssa
+#   serão suavizadas para reduzir o impacto do ruído de medição
+#   O padrão é 2 segundos.
 ```
 
 ### [replicape]
@@ -4070,30 +4070,30 @@ Magnetic hall angle sensor support for reading stepper motor angle shaft measure
 ```
 [angle my_angle_sensor]
 sensor_type:
-#   The type of the magnetic hall sensor chip. Available choices are
-#   "a1333", "as5047d", and "tle5012b". This parameter must be
-#   specified.
+#   O tipo do chip do sensor magnético hall. As opções disponíveis são
+#   "a1333", "as5047d" e "tle5012b". Este parâmetro deve ser
+#   especificado.
 #sample_period: 0.000400
-#   The query period (in seconds) to use during measurements. The
-#   default is 0.000400 (which is 2500 samples per second).
+#   O período de consulta (em segundos) a ser usado durante as medições. O
+#   padrão é 0.000400 (que são 2500 amostras por segundo)..
 #stepper:
-#   The name of the stepper that the angle sensor is attached to (eg,
-#   "stepper_x"). Setting this value enables an angle calibration
-#   tool. To use this feature, the Python "numpy" package must be
-#   installed. The default is to not enable angle calibration for the
-#   angle sensor.
+#   O nome do motor de passo ao qual o sensor de ângulo está conectado (por exemplo,
+#   "stepper_x"). Definir este valor habilita uma ferramenta de calibração
+#   de ângulo. Para usar este recurso, o pacote Python "numpy" deve ser
+#   instalado. O padrão é não habilitar a calibração de ângulo para o
+#   sensor de ângulo.
 cs_pin:
-#   The SPI enable pin for the sensor. This parameter must be provided.
+#   O pino SPI de habilitação para o sensor. Este parâmetro deve ser fornecido.
 #spi_speed:
 #spi_bus:
 #spi_software_sclk_pin:
 #spi_software_mosi_pin:
 #spi_software_miso_pin:
-#   See the "common SPI settings" section for a description of the
-#   above parameters.
+#   Consulte a seção "configurações SPI comuns" para uma descrição dos
+#   parâmetros acima.
 ```
 
-## Common bus parameters
+## Parâmetros comuns do barramento
 
 ### Common SPI settings
 
@@ -4116,7 +4116,7 @@ The following parameters are generally available for devices using an SPI bus.
 #   "software spi".
 ```
 
-### Common I2C settings
+### Configurações comuns de I2C
 
 The following parameters are generally available for devices using an I2C bus.
 
