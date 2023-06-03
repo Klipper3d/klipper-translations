@@ -66,31 +66,27 @@ serial:
 ```
 [printer]
 kinematics:
-#   The type of printer in use. This option may be one of: cartesian,
-#   corexy, corexz, hybrid_corexy, hybrid_corexz, rotary_delta, delta,
-#   deltesian, polar, winch, or none. This parameter must be specified.
+#   使用的打印机类型。此选项可以是以下之一：cartesian，
+#   corexy, corexz, hybrid_corexy, hybrid_corexz, rotary_delta, delta，
+#   deltesian, polar, winch, 或 none。必须指定此参数。
 max_velocity:
-#   Maximum velocity (in mm/s) of the toolhead (relative to the
-#   print). This parameter must be specified.
+#   工具头的最大速度（以mm/s计）。相对于打印件。
+#   必须指定此参数。
 max_accel:
-#   Maximum acceleration (in mm/s^2) of the toolhead (relative to the
-#   print). This parameter must be specified.
+#   工具头的最大加速度（以mm/s^2计）。相对于打印件。
+#   必须指定此参数。
 #max_accel_to_decel:
-#   A pseudo acceleration (in mm/s^2) controlling how fast the
-#   toolhead may go from acceleration to deceleration. It is used to
-#   reduce the top speed of short zig-zag moves (and thus reduce
-#   printer vibration from these moves). The default is half of
-#   max_accel.
+#   一种伪加速度（以mm/s^2计），控制工具头从加速到减速的速度。
+#   它用于降低短距离锯齿形移动的最高速度（从而减少这些移动造成
+#   的打印机振动）。
+#   默认值是max_accel的一半。
 #square_corner_velocity: 5.0
-#   The maximum velocity (in mm/s) that the toolhead may travel a 90
-#   degree corner at. A non-zero value can reduce changes in extruder
-#   flow rates by enabling instantaneous velocity changes of the
-#   toolhead during cornering. This value configures the internal
-#   centripetal velocity cornering algorithm; corners with angles
-#   larger than 90 degrees will have a higher cornering velocity while
-#   corners with angles less than 90 degrees will have a lower
-#   cornering velocity. If this is set to zero then the toolhead will
-#   decelerate to zero at each corner. The default is 5mm/s.
+#   工具头可能以90度角度转角的最大速度（以mm/s计）。一个非零值
+#   可以通过在转角时使工具头的速度瞬时改变，来减少挤出机流速的
+#   变化。此值配置内部向心速度转角算法；大于90度的角度会有更高的
+#   转角速度，而小于90度的角度会有较低的转角速度。如果此值设置为零，
+#   则工具头在每个角落都将减速到零。
+#   默认值是5mm/s。
 ```
 
 ### [stepper]
@@ -276,7 +272,7 @@ radius:
 
 ### Delta 运动学
 
-See [example-deltesian.cfg](../config/example-deltesian.cfg) for an example deltesian kinematics config file.
+参见[example-deltesian.cfg](.../config/example-deltesian.cfg)，以了解三角洲运动学配置文件实例。
 
 这里只描述了特定于deltesian打印机的参数 - 有关可用参数，请参见[常见运动学设置](#common-kinematic-settings)。
 
@@ -393,7 +389,7 @@ max_z_accel:
 
 hybrid corexy运动学配置文件参考[example-hybrid-corexy.cfg](../config/example-hybrid-corexy.cfg)
 
-This kinematic is also known as Markforged kinematic.
+该运动学也称为 Markforged 运动学。
 
 此处仅描述了线性三角洲打印机的特定参数—有关全部可用参数，请参阅 [常用的运动学设置](#common-kinematic-settings)。
 
@@ -421,7 +417,7 @@ max_z_accel:
 
 hybrid corexz 运动学配置文件参考 [example-hybrid-corexz.cfg](../config/example-hybrid-corexz.cfg)
 
-This kinematic is also known as Markforged kinematic.
+该运动学也称为 Markforged 运动学。
 
 此处仅描述了线性三角洲打印机的特定参数—有关全部可用参数，请参阅 [常用的运动学设置](#common-kinematic-settings)。
 
@@ -492,45 +488,67 @@ ROTARY DELTA运动学正在进行的修复工作。归位动作可能会超时�
 [打印机]
 kinematics: rotary_delta
 max_z_velocity:
-# 对于delta打印机，此设置限制了带有z轴移动的移动的最大速度（以mm/s为单位）。可以使用此设置来降低上下移动的最大速度（在delta打印机上，这些移动需要比其他移动更高的步进速率）。默认情况下，max_z_velocity使用max_velocity。
+#   对于delta打印机，此设置限制了带有z轴移动的移动的最大速度（以
+#   mm/s为单位）。可以使用此设置来降低上下移动的最大速度（在
+#   delta打印机上，这些移动需要比其他移动更高的步进速率）。
+#   默认max_z_velocity使用max_velocity。
 #minimum_z_position: 0
-# 用户可以命令头部移动到的最小Z位置。默认为0。
+#   用户可以命令头部移动到的最小Z位置。
+#   默认为0。
 shoulder_radius:
-# 三个肩部关节形成的水平圆的半径（以毫米为单位），减去效应器关节形成的圆的半径。此参数也可以计算为：
-#     shoulder_radius = (delta_f - delta_e) / sqrt(12)
-# 必须提供此参数。
+#   三个肩部关节形成的水平圆的半径（以毫米为单位），减去效应器
+#   关节形成的圆的半径。此参数也可以计算为：
+#   shoulder_radius = (delta_f - delta_e) / sqrt(12)
+#   必须提供此参数。
 shoulder_height:
-# 肩部关节与床之间的距离（以毫米为单位），减去效应器工具头高度。必须提供此参数。
+#   肩部关节与床之间的距离（以毫米为单位），减去效应器工具头高度。
+#   必须提供此参数。
 
-# stepper_a部分描述了控制后右臂（在30度）的步进电机。此部分还控制所有臂的归位参数（homing_speed，homing_retract_dist）。
+#   stepper_a分段描述了控制后右臂（30度方位）的步进电机。此部分还控制
+#   所有臂的归位参数（homing_speed，homing_retract_dist）。
 [stepper_a]
 gear_ratio:
-# 必须指定一个gear_ratio，且可能不指定rotation_distance。例如，如果臂上有一个80齿的滑轮，由16齿的滑轮驱动，该滑轮又连接到一个由16齿的步进电机驱动的60齿滑轮，则应指定gear_ratio为"80:16, 60:16"。必须提供此参数。
+#   必须指定一个gear_ratio，且可能不指定rotation_distance。例如，如果臂上
+#   有一个80齿的滑轮，由16齿的滑轮驱动，该滑轮又连接到一个由16齿的步
+#   进电机驱动的60齿滑轮，则应指定gear_ratio为"80:16, 60:16"。
+#   必须提供此参数。
 position_endstop:
-# 喷嘴在构建区域中心并触发终点开关时，喷嘴与床之间的距离（以毫米为单位）。必须为stepper_a提供此参数；对于stepper_b和stepper_c，此参数默认为stepper_a指定的值。
+#   喷嘴在构建区域中心并触发终点开关时，喷嘴与床之间的距离（以毫米为
+#   单位）。
+#   必须为stepper_a提供此参数；对于stepper_b和stepper_c，此参数默认为
+#   stepper_a指定的值。
 upper_arm_length:
-# 连接"肩部关节"和"肘部关节"的手臂的长度（以毫米为单位）。必须为stepper_a提供此参数；对于stepper_b和stepper_c，此参数默认为stepper_a指定的值。
+#   连接"肩部关节"和"肘部关节"的手臂的长度（以毫米为单位）。
+#   必须为stepper_a提供此参数；对于stepper_b和stepper_c，此参数默认为
+#   stepper_a指定的值。
 lower_arm_length:
-# 连接"肩部关节"和"效应器关节"的手臂的长度（以毫米为单位）。必须为stepper_a提供此参数；对于stepper_b和stepper_c，此参数默认为stepper_a指定的值。
+#   连接"肩部关节"和"效应器关节"的手臂的长度（以毫米为单位）。
+#   必须为stepper_a提供此参数；对于stepper_b和stepper_c，此参数默认为
+#   stepper_a指定的值。
 #angle:
-# 此选项指定手臂的角度（以度为单位）。默认情况下，stepper_a为30度，stepper_b为150度，stepper_c为270度。
+#   此选项指定手臂的角度（以度为单位）。
+#   默认情况下，stepper_a为30度，stepper_b为150度，stepper_c为270度。
 
-# stepper_b部分描述了控制后左臂（在150度）的步进电机。
+#    stepper_b分段描述了控制后左臂（150度方位）的步进电机。
 [stepper_b]
 
-# stepper_c部分描述了控制前臂（在270
-
-度）的步进电机。
+#   stepper_c分段描述了控制前臂（270度方位）的步进电机。
 [stepper_c]
 
-# delta_calibrate部分启用了一个DELTA_CALIBRATE扩展g-code命令，可以校准肩部终点位置。
+#   delta_calibrate分段启用了一个DELTA_CALIBRATE扩展G代码命令，可以
+#   校准肩部终点位置。
 [delta_calibrate]
 radius:
-# 可以探测的区域的半径（以毫米为单位）。这是要探测的喷嘴坐标的半径；如果使用带有XY偏移的自动探针，则选择一个半径足够小，以便探针总是适合在床上。必须提供此参数。
+#   可以探测的区域的半径（以毫米为单位）。这是要探测的喷嘴坐标的半径；
+#   如果使用带有XY偏移的自动探针，则选择一个半径足够小，以便探针总是
+#   适合在床上。
+#   必须提供此参数。
 #speed: 50
-# 校准期间非探测移动的速度（以毫米/秒为单位）。默认为50。
+#   校准期间非探测移动的速度（以毫米/秒为单位）。
+#   默认为50。
 #horizontal_move_z: 5
-# 开始探测操作之前，头部应被命令移动到的高度（以毫米为单位）。默认为5。
+#   开始探测操作之前，头部应被命令移动到的高度（以毫米为单位）。
+#   默认为5。
 ```
 
 ### 缆绳绞盘运动学
@@ -904,33 +922,28 @@ Tool to help adjust bed screws tilt using Z probe. One may define a screws_tilt_
 ```
 [screws_tilt_adjust]
 #screw1:
-#   The (X, Y) coordinate of the first bed leveling screw. This is a
-#   position to command the nozzle to so that the probe is directly
-#   above the bed screw (or as close as possible while still being
-#   above the bed). This is the base screw used in calculations. This
-#   parameter must be provided.
+#   第一个调平螺丝的（X，Y）坐标。这是一个命令喷嘴的位置，使得
+#   探针直接位于床螺丝的正上方（或者尽可能靠近并且仍在床上）。
+#   这是用于计算的基础螺丝。
+#   必须提供此参数。
 #screw1_name:
-#   An arbitrary name for the given screw. This name is displayed when
-#   the helper script runs. The default is to use a name based upon
-#   the screw XY location.
+#   给定螺丝的任意名称。当助手脚本运行时，将显示此名称。
+#   默认情况下，使用基于螺丝 XY 位置的名称。
 #screw2:
 #screw2_name:
 #...
-#   Additional bed leveling screws. At least two screws must be
-#   defined.
+#   额外的床调平螺丝。至少必须定义两个螺丝。
 #speed: 50
-#   The speed (in mm/s) of non-probing moves during the calibration.
-#   The default is 50.
+#   在校准期间非探测移动的速度（以mm / s为单位）。
+#   默认值为50。
 #horizontal_move_z: 5
-#   The height (in mm) that the head should be commanded to move to
-#   just prior to starting a probe operation. The default is 5.
+#   头部应该在开始探测操作之前移动到的高度（以mm为单位）。
+#   默认值为5。
 #screw_thread: CW-M3
-#   The type of screw used for bed leveling, M3, M4, or M5, and the
-#   rotation direction of the knob that is used to level the bed.
-#   Accepted values: CW-M3, CCW-M3, CW-M4, CCW-M4, CW-M5, CCW-M5.
-#   Default value is CW-M3 which most printers use. A clockwise
-#   rotation of the knob decreases the gap between the nozzle and the
-#   bed. Conversely, a counter-clockwise rotation increases the gap.
+#   用于床平整的螺丝类型，M3，M4或M5，以及用于调平床的旋钮的旋转方向。
+#   接受的值：CW-M3，CCW-M3，CW-M4，CCW-M4，CW-M5，CCW-M5。
+#   默认值是大多数打印机使用的CW-M3。旋钮的顺时针旋转减小了喷嘴和床之
+#   间的间隙。相反，逆时针旋转增加了间隙。
 ```
 
 ### [z_tilt]
@@ -991,30 +1004,27 @@ Where x is the 0, 0 point on the bed
 ```
 [quad_gantry_level]
 #gantry_corners:
-#   A newline separated list of X, Y coordinates describing the two
-#   opposing corners of the gantry. The first entry corresponds to Z,
-#   the second to Z2. This parameter must be provided.
+#   描述龙门两个对立角的X，Y坐标的换行分隔列表。第一行对应Z，
+#   第二行对应Z2。
+#   必须提供此参数。
 #points:
-#   A newline separated list of four X, Y points that should be probed
-#   during a QUAD_GANTRY_LEVEL command. Order of the locations is
-#   important, and should correspond to Z, Z1, Z2, and Z3 location in
-#   order. This parameter must be provided. For maximum accuracy,
-#   ensure your probe offsets are configured.
+#   应在QUAD_GANTRY_LEVEL命令期间探测的四个X，Y点的换行分隔列表。
+#   位置的顺序很重要，应该按照Z，Z1，Z2和Z3的位置顺序。
+#   必须提供此参数。
+#   为了最大的准确性，请确保配置了你的探针偏移。
 #speed: 50
-#   The speed (in mm/s) of non-probing moves during the calibration.
-#   The default is 50.
+#   校准期间非探测移动的速度（以mm/s为单位）。
+#   默认值是50。
 #horizontal_move_z: 5
-#   The height (in mm) that the head should be commanded to move to
-#   just prior to starting a probe operation. The default is 5.
+#   头部应被命令移动到的高度（以mm为单位），在开始探针操作之前。
+#   默认值是5。
 #max_adjust: 4
-#   Safety limit if an adjustment greater than this value is requested
-#   quad_gantry_level will abort.
+#   如果请求的调整大于此值，则quad_gantry_level将中止。
 #retries: 0
-#   Number of times to retry if the probed points aren't within
-#   tolerance.
+#   如果探测的点不在容忍范围内，重试的次数。
 #retry_tolerance: 0
-#   If retries are enabled then retry if largest and smallest probed
-#   points differ more than retry_tolerance.
+#   如果启用了重试，则在最大和最小的探测点差异超过
+#   retry_tolerance时重试。
 ```
 
 ### [skew_correction]
@@ -1029,7 +1039,7 @@ Where x is the 0, 0 point on the bed
 
 Temperature-dependant toolhead Z position adjustment. Compensate for vertical toolhead movement caused by thermal expansion of the printer's frame in real-time using a temperature sensor (typically coupled to a vertical section of frame).
 
-See also: [extended g-code commands](G-Codes.md#z_thermal_adjust).
+另请参阅：[扩展G代码命令](G-Codes.md#z_thermal_adjust)。
 
 ```
 [z_thermal_adjust]
@@ -1236,7 +1246,7 @@ path:
 
 ### [sdcard_loop]
 
-Some printers with stage-clearing features, such as a part ejector or a belt printer, can find use in looping sections of the sdcard file. (For example, to print the same part over and over, or repeat the a section of a part for a chain or other repeated pattern).
+一些具有阶段清空功能的打印机，如打印件移除器或带式打印机，可以找到并使用sdcard文件中循环部分。(例如，重复打印同一个零件，或者重复一个零件的某一节，以形成连锁或其他重复模式）。
 
 有关支持的命令请参阅[命令参考](G-Codes.md#sdcard_loop)。兼容Marlin M808 的G代码宏可以在[sample-macros.cfg](../config/sample-macros.cfg)中找到。
 
@@ -1498,60 +1508,58 @@ Z height probe. One may define this section to enable Z height probing hardware.
 ```
 [probe]
 pin:
-#   Probe detection pin. If the pin is on a different microcontroller
-#   than the Z steppers then it enables "multi-mcu homing". This
-#   parameter must be provided.
+#   探针检测引脚。如果引脚在与Z轴步进电机不同的微控制器上，
+#   则启用“多MCU归位”。
+#   必须提供此参数。
 #deactivate_on_each_sample: True
-#   This determines if Klipper should execute deactivation gcode
-#   between each probe attempt when performing a multiple probe
-#   sequence. The default is True.
+#   这决定了在执行多次探测尝试时，Klipper是否应在每次尝试之间
+#   执行取消激活(deactivate)G代码。
+#   默认为True。
 #x_offset: 0.0
-#   The distance (in mm) between the probe and the nozzle along the
-#   x-axis. The default is 0.
+#   探针和喷嘴在x轴上的距离（以mm为单位）。
+#   默认为0。
 #y_offset: 0.0
-#   The distance (in mm) between the probe and the nozzle along the
-#   y-axis. The default is 0.
+#   探针和喷嘴在y轴上的距离（以mm为单位）。
+#   默认为0。
 z_offset:
-#   The distance (in mm) between the bed and the nozzle when the probe
-#   triggers. This parameter must be provided.
+#   当探针触发时，床和喷嘴之间的距离（以mm为单位）。
+#   必须提供此参数。
 #speed: 5.0
-#   Speed (in mm/s) of the Z axis when probing. The default is 5mm/s.
+#   探测时Z轴的速度（以mm/s为单位）。
+#   默认为5mm/s。
 #samples: 1
-#   The number of times to probe each point. The probed z-values will
-#   be averaged. The default is to probe 1 time.
+#   探测每个点的次数。探测的z值将被平均。
+#   默认是探测1次。
 #sample_retract_dist: 2.0
-#   The distance (in mm) to lift the toolhead between each sample (if
-#   sampling more than once). The default is 2mm.
+#   在每个样本之间提升打印头的距离（以mm为单位）（如果采样超
+#   过一次）。
+#   默认为2mm。
 #lift_speed:
-#   Speed (in mm/s) of the Z axis when lifting the probe between
-#   samples. The default is to use the same value as the 'speed'
-#   parameter.
+#   在样本之间提升探针时Z轴的速度（以mm/s为单位）。
+#   默认使用与'speed'参数相同的值。
 #samples_result: average
-#   The calculation method when sampling more than once - either
-#   "median" or "average". The default is average.
+#   采样超过一次时的计算方法 - median(中位数) 或average（平均值）。
+#   默认为 average。
 #samples_tolerance: 0.100
-#   The maximum Z distance (in mm) that a sample may differ from other
-#   samples. If this tolerance is exceeded then either an error is
-#   reported or the attempt is restarted (see
-#   samples_tolerance_retries). The default is 0.100mm.
+#   样本可能与其他样本的最大Z距离（以mm为单位）差异。
+#   如果超出此公差，则报告错误或重新开始尝试（参见
+#   samples_tolerance_retries）。
+#   默认为0.100mm。
 #samples_tolerance_retries: 0
-#   The number of times to retry if a sample is found that exceeds
-#   samples_tolerance. On a retry, all current samples are discarded
-#   and the probe attempt is restarted. If a valid set of samples are
-#   not obtained in the given number of retries then an error is
-#   reported. The default is zero which causes an error to be reported
-#   on the first sample that exceeds samples_tolerance.
+#   如果发现超过samples_tolerance的样本，重试的次数。
+#   在重试时，丢弃所有当前的样本并重新开始探针尝试。
+#   如果在给定的重试次数内未获得有效的样本集，则报告错误。
+#   默认值为0，这导致在第一个超过samples_tolerance的样本上报告错误。
 #activate_gcode:
-#   A list of G-Code commands to execute prior to each probe attempt.
-#   See docs/Command_Templates.md for G-Code format. This may be
-#   useful if the probe needs to be activated in some way. Do not
-#   issue any commands here that move the toolhead (eg, G1). The
-#   default is to not run any special G-Code commands on activation.
+#   在每次探针尝试之前执行的G-Code命令列表。有关G-Code格式，请参见
+#   docs/Command_Templates.md。如果需要以某种方式激活探针，
+#   这可能会很有用。不要在此处发送任何移动打印头的命令（例如，G1）。
+#   默认情况下，激活时不运行任何特殊的G-Code命令。
 #deactivate_gcode:
-#   A list of G-Code commands to execute after each probe attempt
-#   completes. See docs/Command_Templates.md for G-Code format. Do not
-#   issue any commands here that move the toolhead. The default is to
-#   not run any special G-Code commands on deactivation.
+#   在每次探针尝试完成后执行的G-Code命令列表。有关G-Code格式，
+#   请参见docs/Command_Templates.md。不要在此处发送任何移动
+#   工具头的命令。
+#   默认情况下，取消激活时不运行任何特殊的G-Code命令。
 ```
 
 ### [bltouch]
@@ -1610,43 +1618,38 @@ control_pin:
 
 ### [smart_effector]
 
-The "Smart Effector" from Duet3d implements a Z probe using a force sensor. One may define this section instead of `[probe]` to enable the Smart Effector specific features. This also enables [runtime commands](G-Codes.md#smart_effector) to adjust the parameters of the Smart Effector at run time.
+Duet3d的 "Smart Effector"使用一个力传感器实现了一个Z探针。可以定义这个分段，而不是`[probe]` ，以启用智能效应器的具体功能。这也使[运行时命令](G-Code.md#smart_effector)能够在运行时调整Smart Effector 的参数。
 
 ```
 [smart_effector]
 pin:
-#   Pin connected to the Smart Effector Z Probe output pin (pin 5). Note that
-#   pullup resistor on the board is generally not required. However, if the
-#   output pin is connected to the board pin with a pullup resistor, that
-#   resistor must be high value (e.g. 10K Ohm or more). Some boards have a low
-#   value pullup resistor on the Z probe input, which will likely result in an
-#   always-triggered probe state. In this case, connect the Smart Effector to
-#   a different pin on the board. This parameter is required.
+#   连接到Smart Effector Z探针输出引脚（引脚5）的引脚。注意，板上通
+#   常不需要拉升电阻。然而，如果输出引脚连接到带有拉升电阻的板引脚，那么
+#   电阻必须是高值（例如，10K欧姆或更多）。有些板上有低值拉升电阻在Z探
+#   针输入上，这可能导致始终触发的探针状态。在这种情况下，将Smart Effector
+#   连接到板上的不同引脚。
+#   必须提供此参数。
 #control_pin:
-#   Pin connected to the Smart Effector control input pin (pin 7). If provided,
-#   Smart Effector sensitivity programming commands become available.
+#   连接到Smart Effector控制输入引脚（引脚7）的引脚。如果提供，Smart Effector
+#   敏感度的编程命令将会变得可用。
 #probe_accel:
-#   If set, limits the acceleration of the probing moves (in mm/sec^2).
-#   A sudden large acceleration at the beginning of the probing move may
-#   cause spurious probe triggering, especially if the hotend is heavy.
-#   To prevent that, it may be necessary to reduce the acceleration of
-#   the probing moves via this parameter.
+#   如果设置，限制探针移动的加速度（以毫米/秒^2为单位）。探针移动开始时
+#   的突然大加速度可能会导致探针错误触发，特别是如果热端很重。为了防止这
+#   种情况，可能需要通过此参数降低探针移动的加速度。
 #recovery_time: 0.4
-#   A delay between the travel moves and the probing moves in seconds. A fast
-#   travel move prior to probing may result in a spurious probe triggering.
-#   This may cause 'Probe triggered prior to movement' errors if no delay
-#   is set. Value 0 disables the recovery delay.
-#   Default value is 0.4.
+#   旅行移动与探测移动之间的延迟，以秒为单位。快速探测前的移动可能导致探
+#   针错误触发。 如果没有设置延迟，这可能会导致“探针在移动前触发”的错误。
+#   默认值是0.4。
 #x_offset:
 #y_offset:
-#   Should be left unset (or set to 0).
+#   应保持未设置（或设置为0）。
 z_offset:
-#   Trigger height of the probe. Start with -0.1 (mm), and adjust later using
-#   `PROBE_CALIBRATE` command. This parameter must be provided.
+#   探针的触发高度。从-0.1（毫米）开始，然后使用`PROBE_CALIBRATE`命令进
+#   行调整。
+#   必须提供此参数。
 #speed:
-#   Speed (in mm/s) of the Z axis when probing. It is recommended to start
-#   with the probing speed of 20 mm/s and adjust it as necessary to improve
-#   the accuracy and repeatability of the probe triggering.
+#   探针时Z轴的速度（以毫米/秒为单位）。建议从20毫米/秒的探针速度开始，
+#   并根据需要调整以提高探针触发的准确性和重复性。
 #samples:
 #sample_retract_dist:
 #samples_result:
@@ -1655,7 +1658,7 @@ z_offset:
 #activate_gcode:
 #deactivate_gcode:
 #deactivate_on_each_sample:
-#   See the "probe" section for more information on the parameters above.
+#   有关以上参数的更多信息，请参阅"probe"分段。
 ```
 
 ## 额外的步进电机和挤出机
@@ -1909,20 +1912,22 @@ Klipper内置了许多类型的温度传感器的定义。这些传感器可用�
 
 ```
 sensor_type:
-#   One of "EPCOS 100K B57560G104F", "ATC Semitec 104GT-2",
+#   "EPCOS 100K B57560G104F", "ATC Semitec 104GT-2",
 #   "ATC Semitec 104NT-4-R025H42G", "Generic 3950",
 #   "Honeywell 100K 135-104LAG-J01", "NTC 100K MGB18-104F39050L32",
-#   "SliceEngineering 450", or "TDK NTCG104LH104JT1"
+#   "SliceEngineering 450", 或者 "TDK NTCG104LH104JT1" 中的一个
 sensor_pin:
-#   Analog input pin connected to the thermistor. This parameter must
-#   be provided.
+#   连接到热敏电阻的模拟输入引脚。
+#   必须提供此参数。
+
 #pullup_resistor: 4700
-#   The resistance (in ohms) of the pullup attached to the thermistor.
-#   The default is 4700 ohms.
+#   连接到热敏电阻的上拉电阻（以欧姆为单位）。
+#   默认值为4700欧姆。
+
 #inline_resistor: 0
-#   The resistance (in ohms) of an extra (not heat varying) resistor
-#   that is placed inline with the thermistor. It is rare to set this.
-#   The default is 0 ohms.
+#   与热敏电阻并联的额外电阻（不随热量变化）的电阻（以欧姆为单位）。
+#   设置这个参数的情况比较罕见。
+#   默认值为0欧姆。
 ```
 
 ### 常见温度放大器
@@ -1931,15 +1936,17 @@ sensor_pin:
 
 ```
 sensor_type:
-#   One of "PT100 INA826", "AD595", "AD597", "AD8494", "AD8495",
-#   "AD8496", or "AD8497".
+#   "PT100 INA826", "AD595", "AD597", "AD8494", "AD8495",
+#   "AD8496", 或 "AD8497"中的一种。
 sensor_pin:
-#   Analog input pin connected to the sensor. This parameter must be
-#   provided.
+#   连接到传感器的模拟输入引脚。
+#   必须提供此参数。
 #adc_voltage: 5.0
-#   The ADC comparison voltage (in Volts). The default is 5 volts.
+#   ADC比较电压（以伏特为单位）。
+#   默认为5伏特。
 #voltage_offset: 0
-#   The ADC voltage offset (in Volts). The default is 0.
+#   ADC电压偏移（以伏特为单位）。
+#   默认为0。
 ```
 
 ### 直接连接PT1000 传感器
@@ -1962,32 +1969,29 @@ MAXxxxxx 串行外设接口（SPI）温度传感器。以下参数在使用该�
 
 ```
 sensor_type:
-#   One of "MAX6675", "MAX31855", "MAX31856", or "MAX31865".
+#   "MAX6675", "MAX31855", "MAX31856", 或者 "MAX31865" 中的一种。
 sensor_pin:
-#   The chip select line for the sensor chip. This parameter must be
-#   provided.
+#   传感器芯片的芯片选择线(cs)。
+#   必须提供此参数。
 #spi_speed: 4000000
-#   The SPI speed (in hz) to use when communicating with the chip.
-#   The default is 4000000.
+#   与芯片通讯时使用的SPI速度（以hz为单位）。
+#   默认值为4000000。
 #spi_bus:
 #spi_software_sclk_pin:
 #spi_software_mosi_pin:
 #spi_software_miso_pin:
-#   See the "common SPI settings" section for a description of the
-#   above parameters.
+#   以上参数的描述，请参阅“常见SPI设置”章节。
 #tc_type: K
 #tc_use_50Hz_filter: False
 #tc_averaging_count: 1
-#   The above parameters control the sensor parameters of MAX31856
-#   chips. The defaults for each parameter are next to the parameter
-#   name in the above list.
+#   以上参数控制MAX31856芯片的传感器参数。
+#   每个参数的默认值在上述列表的参数名称旁边。
 #rtd_nominal_r: 100
 #rtd_reference_r: 430
 #rtd_num_of_wires: 2
 #rtd_use_50Hz_filter: False
-#   The above parameters control the sensor parameters of MAX31865
-#   chips. The defaults for each parameter are next to the parameter
-#   name in the above list.
+#   以上参数控制MAX31865芯片的传感器参数。
+#   每个参数的默认值在上述列表的参数名称旁边。
 ```
 
 ### BMP280/BME280/BME680 温度传感器
@@ -2060,29 +2064,26 @@ atsam、atsamd和stm32微控制器包含一个内部温度传感器。可以使�
 ```
 sensor_type: temperature_mcu
 #sensor_mcu: mcu
-#   The micro-controller to read from. The default is "mcu".
+#   要读取的微控制器。
+#   默认为"mcu"。
 #sensor_temperature1:
 #sensor_adc1:
-#   Specify the above two parameters (a temperature in Celsius and an
-#   ADC value as a float between 0.0 and 1.0) to calibrate the
-#   micro-controller temperature. This may improve the reported
-#   temperature accuracy on some chips. A typical way to obtain this
-#   calibration information is to completely remove power from the
-#   printer for a few hours (to ensure it is at the ambient
-#   temperature), then power it up and use the QUERY_ADC command to
-#   obtain an ADC measurement. Use some other temperature sensor on
-#   the printer to find the corresponding ambient temperature. The
-#   default is to use the factory calibration data on the
-#   micro-controller (if applicable) or the nominal values from the
-#   micro-controller specification.
+#   指定以上两个参数（以摄氏度为单位的温度和一个在0.0到1.0之间的
+#   浮点ADC值）来校准微控制器的温度。这可能会提高某些芯片上报告
+#   的温度准确性。获取此校准信息的一种典型方法是几小时内完全断开
+#   打印机的电源（以确保它处于环境温度），然后开机并使用
+#   QUERY_ADC命令获取一个ADC测量值。使用打印机上的其他温度传感
+#   器来找出相应的环境温度。
+#   默认情况下是使用微控制器上的工厂校准数据（如果适用）或微控制
+#   器规格书中的公称值。
+#   必须提供此参数。
 #sensor_temperature2:
 #sensor_adc2:
-#   If sensor_temperature1/sensor_adc1 is specified then one may also
-#   specify sensor_temperature2/sensor_adc2 calibration data. Doing so
-#   may provide calibrated "temperature slope" information. The
-#   default is to use the factory calibration data on the
-#   micro-controller (if applicable) or the nominal values from the
-#   micro-controller specification.
+#   如果指定了sensor_temperature1/sensor_adc1，那么也可以指定
+#   sensor_temperature2/sensor_adc2的校准数据。这样做可能会提供校
+#   准的"温度斜率"信息。
+#   默认情况下是使用微控制器上的工厂校准数据（如果适用）或微控
+#   制器规格书中的公称值。
 ```
 
 ### 主机温度传感器
@@ -2092,9 +2093,9 @@ sensor_type: temperature_mcu
 ```
 sensor_type: temperature_host
 #sensor_path:
-#   The path to temperature system file. The default is
-#   "/sys/class/thermal/thermal_zone0/temp" which is the temperature
-#   system file on a Raspberry Pi computer.
+#   此路径指向温度系统文件。默认为
+#   "/sys/class/thermal/thermal_zone0/temp"，这是 Raspberry Pi
+#   计算机上的温度系统文件。
 ```
 
 ### DS18B20 温度传感器
@@ -2455,25 +2456,23 @@ PCA9632 LED支持。PCA9632在FlashForge Dreamer上使用。
 ```
 [servo my_servo]
 pin:
-#   PWM output pin controlling the servo. This parameter must be
-#   provided.
+#   控制伺服的PWM输出引脚。
+#   必须提供此参数。
 #maximum_servo_angle: 180
-#   The maximum angle (in degrees) that this servo can be set to. The
-#   default is 180 degrees.
+#   这个伺服可以设定的最大角度（以度为单位）。
+#   默认是180度。
 #minimum_pulse_width: 0.001
-#   The minimum pulse width time (in seconds). This should correspond
-#   with an angle of 0 degrees. The default is 0.001 seconds.
+#   最小脉宽时间（以秒为单位）。这应该对应于0度的角度。
+#   默认是0.001秒。
 #maximum_pulse_width: 0.002
-#   The maximum pulse width time (in seconds). This should correspond
-#   with an angle of maximum_servo_angle. The default is 0.002
-#   seconds.
+#   最大脉宽时间（以秒为单位）。这应该对应于maximum_servo_angle的角度。
+#   默认是0.002秒。
 #initial_angle:
-#   Initial angle (in degrees) to set the servo to. The default is to
-#   not send any signal at startup.
+#   初始设定的伺服角度（以度为单位）。
+#   默认启动时不发送任何信号。
 #initial_pulse_width:
-#   Initial pulse width time (in seconds) to set the servo to. (This
-#   is only valid if initial_angle is not set.) The default is to not
-#   send any signal at startup.
+#   初始设定的脉宽时间（以秒为单位）。（只有在未设定initial_angle时才有效）。
+#   默认启动时不发送任何信号。
 ```
 
 ### [gcode_button]
@@ -2545,7 +2544,7 @@ pin:
 
 ### [static_digital_output]
 
-Statically configured digital output pins (one may define any number of sections with a "static_digital_output" prefix). Pins configured here will be setup as a GPIO output during MCU configuration. They can not be changed at run-time.
+静态配置的数字输出引脚（可以定义任意数量的带有 "static_digital_output "前缀的分段）。在这里配置的引脚将在MCU配置期间被设置为GPIO输出。它们在运行时不能被改变。
 
 ```
 [static_digital_output my_output_pins]
@@ -2577,43 +2576,38 @@ pins:
 ```
 [tmc2130 stepper_x]
 cs_pin:
-#   The pin corresponding to the TMC2130 chip select line. This pin
-#   will be set to low at the start of SPI messages and raised to high
-#   after the message completes. This parameter must be provided.
+#   对应TMC2130芯片选择线的引脚。此引脚将在SPI消息开始时设置为
+#   低电平，并在消息完成后提升为高电平。
+#   必须提供此参数。
 #spi_speed:
 #spi_bus:
 #spi_software_sclk_pin:
 #spi_software_mosi_pin:
 #spi_software_miso_pin:
-#   See the "common SPI settings" section for a description of the
-#   above parameters.
+#   有关上述参数的描述，请参阅“常见SPI设置”分段。
 #chain_position:
 #chain_length:
-#   These parameters configure an SPI daisy chain. The two parameters
-#   define the stepper position in the chain and the total chain length.
-#   Position 1 corresponds to the stepper that connects to the MOSI signal.
-#   The default is to not use an SPI daisy chain.
+#   这些参数配置SPI串行连接。这两个参数定义了链中的步进位置和总
+#   链长。位置1对应连接到MOSI信号的步进器。
+#   默认情况下不使用SPI串行连接。
 #interpolate: True
-#   If true, enable step interpolation (the driver will internally
-#   step at a rate of 256 micro-steps). This interpolation does
-#   introduce a small systemic positional deviation - see
-#   TMC_Drivers.md for details. The default is True.
+#   如果为真，则启用步进插值（驱动器将内部以256微步的速度步进）。
+#   这种插值确实引入了一个小的系统位置偏差 - 详情请参见TMC_Drivers.md。
+#   默认为True。
 run_current:
-#   The amount of current (in amps RMS) to configure the driver to use
-#   during stepper movement. This parameter must be provided.
+#   配置驱动器在步进电机移动期间使用的电流（以安培RMS为单位）。
+#   必须提供此参数。
 #hold_current:
-#   The amount of current (in amps RMS) to configure the driver to use
-#   when the stepper is not moving. Setting a hold_current is not
-#   recommended (see TMC_Drivers.md for details). The default is to
-#   not reduce the current.
+#   配置驱动器在步进电机不移动时使用的电流（以安培RMS为单位）。
+#   不推荐设置hold_current（详见TMC_Drivers.md）。
+#   默认情况下不降低电流。
 #sense_resistor: 0.110
-#   The resistance (in ohms) of the motor sense resistor. The default
-#   is 0.110 ohms.
+#   电机感应电阻的电阻值（以欧姆为单位）。
+#   默认值为0.110欧姆。
 #stealthchop_threshold: 0
-#   The velocity (in mm/s) to set the "stealthChop" threshold to. When
-#   set, "stealthChop" mode will be enabled if the stepper motor
-#   velocity is below this value. The default is 0, which disables
-#   "stealthChop" mode.
+#   设定“StealthChop”阈值的速度（以毫米/秒为单位）。当设定时，如果步进
+#   电机的速度低于此值，“StealthChop”模式将被启用。
+#   默认值为0，此值会禁用“StealthChop”模式。
 #driver_MSLUT0: 2863314260
 #driver_MSLUT1: 1251300522
 #driver_MSLUT2: 608774441
@@ -2631,13 +2625,11 @@ run_current:
 #driver_X3: 255
 #driver_START_SIN: 0
 #driver_START_SIN90: 247
-#   These fields control the Microstep Table registers directly. The optimal
-#   wave table is specific to each motor and might vary with current. An
-#   optimal configuration will have minimal print artifacts caused by
-#   non-linear stepper movement. The values specified above are the default
-#   values used by the driver. The value must be specified as a decimal integer
-#   (hex form is not supported). In order to compute the wave table fields,
-#   see the tmc2130 "Calculation Sheet" from the Trinamic website.
+#   这些字段直接控制Microstep Table寄存器。最佳波形表是特定于每个电机
+#   的，并可能随电流变化。最优的配置将最小化由非线性步进运动引起的
+#   打印件的瑕疵。上述指定的值是驱动器默认使用的值。值必须以十进制
+#   整数形式指定（不支持十六进制形式）。要计算波形表字段，请参见
+#   Trinamic网站上的tmc2130 "Calculation Sheet"。
 #driver_IHOLDDELAY: 8
 #driver_TPOWERDOWN: 0
 #driver_TBL: 1
@@ -2649,20 +2641,17 @@ run_current:
 #driver_PWM_GRAD: 4
 #driver_PWM_AMPL: 128
 #driver_SGT: 0
-#   Set the given register during the configuration of the TMC2130
-#   chip. This may be used to set custom motor parameters. The
-#   defaults for each parameter are next to the parameter name in the
-#   above list.
+#   在配置TMC2130芯片期间设置给定的寄存器。这可以用于设置自定义电
+#   机参数。
+#   上述列表中每个参数的默认值都在参数名旁边。
 #diag0_pin:
 #diag1_pin:
-#   The micro-controller pin attached to one of the DIAG lines of the
-#   TMC2130 chip. Only a single diag pin should be specified. The pin
-#   is "active low" and is thus normally prefaced with "^!". Setting
-#   this creates a "tmc2130_stepper_x:virtual_endstop" virtual pin
-#   which may be used as the stepper's endstop_pin. Doing this enables
-#   "sensorless homing". (Be sure to also set driver_SGT to an
-#   appropriate sensitivity value.) The default is to not enable
-#   sensorless homing.
+#   连接到TMC2130芯片的DIAG线之一的微控制器引脚。只应指定一个diag引
+#   脚。引脚是"低电平有效"，因此通常以"^!"为前缀。设置这会创建一个
+#   "tmc2130_stepper_x:virtual_endstop"虚拟引脚，可以作为步进器的endstop_pin
+#   使用。这样做可以启用"无感应归位"。（确保也将driver_SGT设置为适当的敏感
+#   度值。）
+#   默认情况下不启用无感应归位。
 ```
 
 ### [tmc2208]
@@ -2773,40 +2762,34 @@ run_current:
 ```
 [tmc2660 stepper_x]
 cs_pin:
-#   The pin corresponding to the TMC2660 chip select line. This pin
-#   will be set to low at the start of SPI messages and set to high
-#   after the message transfer completes. This parameter must be
-#   provided.
+#   对应于TMC2660芯片选择线的引脚。此引脚在SPI消息开始时将设置
+#   为低，消息传输完成后将设置为高。
+#   必须提供此参数。
 #spi_speed: 4000000
-#   SPI bus frequency used to communicate with the TMC2660 stepper
-#   driver. The default is 4000000.
+#   用于与TMC2660步进驱动器通信的SPI总线频率。
+#   默认为4000000。
 #spi_bus:
 #spi_software_sclk_pin:
 #spi_software_mosi_pin:
 #spi_software_miso_pin:
-#   See the "common SPI settings" section for a description of the
-#   above parameters.
+#   有关上述参数的描述，请参见“常见SPI设置”章节。
 #interpolate: True
-#   If true, enable step interpolation (the driver will internally
-#   step at a rate of 256 micro-steps). This only works if microsteps
-#   is set to 16. Interpolation does introduce a small systemic
-#   positional deviation - see TMC_Drivers.md for details. The default
-#   is True.
+#   如果为真，则启用步进插值（驱动器将以256微步的速度内部步进）。
+#   只有当microsteps设置为16时，这才有效。插值会引入了极小的系统性位置
+#   偏差 - 有关详细信息，请参见TMC_Drivers.md。
+#   默认为True。
 run_current:
-#   The amount of current (in amps RMS) used by the driver during
-#   stepper movement. This parameter must be provided.
+#   驱动器在步进运动期间使用的电流量（以安培RMS为单位）。
+#   必须提供此参数。
 #sense_resistor:
-#   The resistance (in ohms) of the motor sense resistor. This
-#   parameter must be provided.
+#   电机感应电阻的阻值（以欧姆为单位）。
+#   必须提供此参数。
 #idle_current_percent: 100
-#   The percentage of the run_current the stepper driver will be
-#   lowered to when the idle timeout expires (you need to set up the
-#   timeout using a [idle_timeout] config section). The current will
-#   be raised again once the stepper has to move again. Make sure to
-#   set this to a high enough value such that the steppers do not lose
-#   their position. There is also small delay until the current is
-#   raised again, so take this into account when commanding fast moves
-#   while the stepper is idling. The default is 100 (no reduction).
+#   当空闲超时到期时，步进驱动器将降低至run_current的百分比（您需要使用
+#   [idle_timeout]配置部分设置超时）。一旦步进器需要再次移动，电流将再次
+#   增加。确保将其设置为足够高的值，以便步进器不会丢失位置。在电流再次
+#   增加之前也会有小的延迟，因此在步进器空闲时指令快速移动时请考虑此因素。
+#   默认为100（不减少）。
 #driver_TBL: 2
 #driver_RNDTF: 0
 #driver_HDEC: 0
@@ -2825,14 +2808,10 @@ run_current:
 #driver_SLPL: 0
 #driver_DISS2G: 0
 #driver_TS2G: 3
-#   Set the given parameter during the configuration of the TMC2660
-#   chip. This may be used to set custom driver parameters. The
-#   defaults for each parameter are next to the parameter name in the
-#   list above. See the TMC2660 datasheet about what each parameter
-#   does and what the restrictions on parameter combinations are. Be
-#   especially aware of the CHOPCONF register, where setting CHM to
-#   either zero or one will lead to layout changes (the first bit of
-#   HDEC) is interpreted as the MSB of HSTRT in this case).
+#   在配置TMC2660芯片时设置给定参数。这可以用于设置自定义驱动器参数。每个参
+#   数的默认值都在参数名称旁边的上面的列表中。请参阅TMC2660数据表了解每个参
+#   数的作用以及参数组合的限制。特别注意CHOPCONF寄存器，将CHM设置为0或1
+#   将导致布局更改（在这种情况下，HDEC的第一位被解释为HSTRT的MSB）。
 ```
 
 ### [tmc2240]
@@ -2842,41 +2821,37 @@ run_current:
 ```
 [tmc2240 stepper_x]
 cs_pin:
-#   The pin corresponding to the TMC2240 chip select line. This pin
-#   will be set to low at the start of SPI messages and raised to high
-#   after the message completes. This parameter must be provided.
+#   对应于TMC2240芯片选择线的引脚。此引脚在SPI消息开始时设为低电平，
+#   并在消息完成后设为高电平。
+#   必须提供此参数。
 #spi_speed:
 #spi_bus:
 #spi_software_sclk_pin:
 #spi_software_mosi_pin:
 #spi_software_miso_pin:
-#   See the "common SPI settings" section for a description of the
-#   above parameters.
+#   有关上述参数的描述，请参见“常见SPI设置”部分。
 #chain_position:
 #chain_length:
-#   These parameters configure an SPI daisy chain. The two parameters
-#   define the stepper position in the chain and the total chain length.
-#   Position 1 corresponds to the stepper that connects to the MOSI signal.
-#   The default is to not use an SPI daisy chain.
+#   这些参数配置一个SPI菊链。这两个参数定义了菊花链中的步进器
+#   位置和总链长度。位置1对应连接到MOSI信号的步进器。
+#   默认不使用SPI菊链。
 #interpolate: True
-#   If true, enable step interpolation (the driver will internally
-#   step at a rate of 256 micro-steps). The default is True.
+#   如果为真，启用步进插补（驱动器将内部以256微步的速率步进）。
+#   默认为True。
 run_current:
-#   The amount of current (in amps RMS) to configure the driver to use
-#   during stepper movement. This parameter must be provided.
+#   在步进电机移动期间，配置驱动器使用的电流（以安培RMS为单位）
+#   量。必须提供此参数。
 #hold_current:
-#   The amount of current (in amps RMS) to configure the driver to use
-#   when the stepper is not moving. Setting a hold_current is not
-#   recommended (see TMC_Drivers.md for details). The default is to
-#   not reduce the current.
+#   当步进电机不移动时，配置驱动器使用的电流（以安培RMS为单位）
+#   量。不建议设置hold_current（详见TMC_Drivers.md）。
+#   默认不降低电流。
 #rref: 12000
-#   The resistance (in ohms) of the resistor between IREF and GND. The
-#   default is 12000.
+#   IREF和GND之间的电阻器的电阻（以欧姆为单位）。
+#   默认为12000。
 #stealthchop_threshold: 0
-#   The velocity (in mm/s) to set the "stealthChop" threshold to. When
-#   set, "stealthChop" mode will be enabled if the stepper motor
-#   velocity is below this value. The default is 0, which disables
-#   "stealthChop" mode.
+#   将“stealthChop”阈值设为的速度（以mm/s为单位）。设定后，
+#   如果步进电机的速度低于此值，将启用“stealthChop”模式。
+#   默认为0，这将禁用“stealthChop”模式。
 #driver_MSLUT0: 2863314260
 #driver_MSLUT1: 1251300522
 #driver_MSLUT2: 608774441
@@ -2895,17 +2870,14 @@ run_current:
 #driver_START_SIN: 0
 #driver_START_SIN90: 247
 #driver_OFFSET_SIN90: 0
-#   These fields control the Microstep Table registers directly. The optimal
-#   wave table is specific to each motor and might vary with current. An
-#   optimal configuration will have minimal print artifacts caused by
-#   non-linear stepper movement. The values specified above are the default
-#   values used by the driver. The value must be specified as a decimal integer
-#   (hex form is not supported). In order to compute the wave table fields,
-#   see the tmc2130 "Calculation Sheet" from the Trinamic website.
-#   Additionally, this driver also has the OFFSET_SIN90 field which can be used
-#   to tune a motor with unbalanced coils. See the `Sine Wave Lookup Table`
-#   section in the datasheet for information about this field and how to tune
-#   it.
+#   这些字段直接控制Microstep Table寄存器。每个电机的最优波表
+#   特定，并可能随电流变化。最优配置会将由非线性步进器运动引
+#   起的打印件制造缺陷降至最低。上述指定的值是驱动器默认使用的值。
+#   该值必须以十进制整数形式指定（不支持十六进制形式）。为了计算
+#   波表字段，请参见Trinamic网站上的tmc2130“计算表”。
+#   此外，这款驱动器还有OFFSET_SIN90字段，可以用来调整一个具有不平
+#   衡线圈的电机。有关此字段以及如何调整它的信息，请参见数据表中的
+#   `正弦波查找表`部分。
 #driver_IHOLDDELAY: 6
 #driver_IRUNDELAY: 4
 #driver_TPOWERDOWN: 10
@@ -2936,20 +2908,17 @@ run_current:
 #driver_SEIMIN: 0
 #driver_SFILT: 0
 #driver_SG4_ANGLE_OFFSET: 1
-#   Set the given register during the configuration of the TMC2240
-#   chip. This may be used to set custom motor parameters. The
-#   defaults for each parameter are next to the parameter name in the
-#   above list.
+#   在配置TMC2240芯片期间设置给定的寄存器这可以用于设置自定义电机
+#   参数。
+#   每个参数的默认值在参数名称旁边的上面的列表中。
 #diag0_pin:
 #diag1_pin:
-#   The micro-controller pin attached to one of the DIAG lines of the
-#   TMC2240 chip. Only a single diag pin should be specified. The pin
-#   is "active low" and is thus normally prefaced with "^!". Setting
-#   this creates a "tmc2240_stepper_x:virtual_endstop" virtual pin
-#   which may be used as the stepper's endstop_pin. Doing this enables
-#   "sensorless homing". (Be sure to also set driver_SGT to an
-#   appropriate sensitivity value.) The default is to not enable
-#   sensorless homing.
+#   连接到TMC2240芯片的DIAG线的微控制器引脚。应只指定一个diag引脚。
+#   该引脚为“活动低”，因此通常加上"^!"前缀。设置
+#   这个会创建一个“tmc2240_stepper_x:virtual_endstop”虚拟引脚
+#   可以用作步进器的endstop_pin。这样做可以启用“无传感器归位”。
+#   （确保也将driver_SGT设置为适当的灵敏度值。）
+#   默认不启用无传感器归位。
 ```
 
 ### [tmc5160]
@@ -3066,7 +3035,7 @@ run_current:
 
 ### [ad5206]
 
-Statically configured AD5206 digipots connected via SPI bus (one may define any number of sections with an "ad5206" prefix).
+通过SPI总线连接的静态配置的AD5206 digipot（可以定义任何数量的带有 "ad5206 "前缀的分段）。
 
 ```
 [ad5206 my_digipot]
@@ -3437,9 +3406,9 @@ text:
 
 显示数据文本"macros"（可以定义任意数量的带有display_template前缀的部分）。有关模板评估的信息，请参阅[命令模板](Command_Templates.md)文件。
 
-This feature allows one to reduce repetitive definitions in display_data sections. One may use the builtin `render()` function in display_data sections to evaluate a template. For example, if one were to define `[display_template my_template]` then one could use `{ render('my_template') }` in a display_data section.
+这个功能允许在display_data 分段减少重复的定义。可以在 display_data 分段使用内置的`render()` 函数来评估一个模板。例如，如果我们定义了`[display_template my_template]` ，那么我们可以在display_data 分段使用`{ render('my_template') }` 。
 
-This feature can also be used for continuous LED updates using the [SET_LED_TEMPLATE](G-Codes.md#set_led_template) command.
+这个功能也可以使用[SET_LED_TEMPLATE](G-Code.md#set_led_template)命令来连续更新LED。
 
 ```
 [显示模板我的模板名称]
@@ -3765,63 +3734,59 @@ vssa_pin:
 Replicape支持 - 参考[beaglebone guide](Beaglebone.md)和[generic-replicape.cfg](./config/generic-replicape.cfg)
 
 ```
-# The "replicape" config section adds "replicape:stepper_x_enable"
-# virtual stepper enable pins (for steppers X, Y, Z, E, and H) and
-# "replicape:power_x" PWM output pins (for hotbed, e, h, fan0, fan1,
-# fan2, and fan3) that may then be used elsewhere in the config file.
+#   "replicape"配置分段添加了"replicape:stepper_x_enable"虚拟步进使能
+#   引脚（适用于X、Y、Z、E和H的步进电机）以及"replicape:power_x"
+#   PWM输出引脚（适用于热床、E、H、风扇0、风扇1，风扇2和风扇3）
+#   ，然后可以在配置文件的其他地方使用。
 [replicape]
 revision:
-#   The replicape hardware revision. Currently only revision "B3" is
-#   supported. This parameter must be provided.
+#   Replicape硬件修订版本。目前只支持"B3"版本。
+#   必须提供此参数。
 #enable_pin: !gpio0_20
-#   The replicape global enable pin. The default is !gpio0_20 (aka
-#   P9_41).
+#   Replicape全局使能引脚。
+#   默认值为!gpio0_20（即P9_41）。
 host_mcu:
-#   The name of the mcu config section that communicates with the
-#   Klipper "linux process" mcu instance. This parameter must be
-#   provided.
+#   与Klipper "linux process" mcu实例通信的mcu配置部分的名称。
+#   必须提供此参数。
 #standstill_power_down: False
-#   This parameter controls the CFG6_ENN line on all stepper
-#   motors. True sets the enable lines to "open". The default is
-#   False.
+#   此参数控制所有步进电机的CFG6_ENN线。True将使能线设置为"打开"。
+#   默认值为False。
 #stepper_x_microstep_mode:
 #stepper_y_microstep_mode:
 #stepper_z_microstep_mode:
 #stepper_e_microstep_mode:
 #stepper_h_microstep_mode:
-#   This parameter controls the CFG1 and CFG2 pins of the given
-#   stepper motor driver. Available options are: disable, 1, 2,
-#   spread2, 4, 16, spread4, spread16, stealth4, and stealth16. The
-#   default is disable.
+#   此参数控制给定步进电机驱动器的CFG1和CFG2引脚。可用选项包括：禁用，1，2，
+#   spread2, 4, 16, spread4, spread16, stealth4和stealth16。
+#   默认为禁用。
 #stepper_x_current:
 #stepper_y_current:
 #stepper_z_current:
 #stepper_e_current:
 #stepper_h_current:
-#   The configured maximum current (in Amps) of the stepper motor
-#   driver. This parameter must be provided if the stepper is not in a
-#   disable mode.
+#   步进电机驱动器的最大电流（以Amp为单位）的配置。
+#   如果步进器不处于禁用模式，必须提供此参数。
 #stepper_x_chopper_off_time_high:
 #stepper_y_chopper_off_time_high:
 #stepper_z_chopper_off_time_high:
 #stepper_e_chopper_off_time_high:
 #stepper_h_chopper_off_time_high:
-#   This parameter controls the CFG0 pin of the stepper motor driver
-#   (True sets CFG0 high, False sets it low). The default is False.
+#   此参数控制步进电机驱动器的CFG0引脚（True设置CFG0高，False设置它低）。
+#   默认为False。
 #stepper_x_chopper_hysteresis_high:
 #stepper_y_chopper_hysteresis_high:
 #stepper_z_chopper_hysteresis_high:
 #stepper_e_chopper_hysteresis_high:
 #stepper_h_chopper_hysteresis_high:
-#   This parameter controls the CFG4 pin of the stepper motor driver
-#   (True sets CFG4 high, False sets it low). The default is False.
+#   此参数控制步进电机驱动器的CFG4引脚（True设置CFG4高，False设置它低）。
+#   默认为False。
 #stepper_x_chopper_blank_time_high:
 #stepper_y_chopper_blank_time_high:
 #stepper_z_chopper_blank_time_high:
 #stepper_e_chopper_blank_time_high:
 #stepper_h_chopper_blank_time_high:
-#   This parameter controls the CFG5 pin of the stepper motor driver
-#   (True sets CFG5 high, False sets it low). The default is True.
+#   此参数控制步进电机驱动器的CFG5引脚（True设置CFG5高，False设置它低）。
+#   默认为True。
 ```
 
 ## 其他自定义模块
@@ -3892,19 +3857,17 @@ cs_pin:
 
 ```
 #spi_speed:
-#   The SPI speed (in hz) to use when communicating with the device.
-#   The default depends on the type of device.
+#   必须提供此参数。设备通信时使用的SPI速度（以hz为单位）。
+#   默认取决于设备类型。
 #spi_bus:
-#   If the micro-controller supports multiple SPI busses then one may
-#   specify the micro-controller bus name here. The default depends on
-#   the type of micro-controller.
+#   如果微控制器支持多个SPI总线，则可以在此处指定微控制器总线名称。
+#   默认取决于微控制器的类型。
 #spi_software_sclk_pin:
 #spi_software_mosi_pin:
 #spi_software_miso_pin:
-#   Specify the above parameters to use "software based SPI". This
-#   mode does not require micro-controller hardware support (typically
-#   any general purpose pins may be used). The default is to not use
-#   "software spi".
+#   指定上述参数以使用"基于软件的SPI"。这种模式不需要微控制器硬件支持
+#   （通常可以使用任何通用目的引脚）。
+#   默认情况下不使用"软件spi"。
 ```
 
 ### 常见的I2C设置

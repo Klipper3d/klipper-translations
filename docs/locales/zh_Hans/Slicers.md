@@ -46,25 +46,25 @@
 
 ## START_PRINT宏
 
-When using a START_PRINT macro or similar, it is useful to sometimes pass through parameters from the slicer variables to the macro.
+当使用START_PRINT宏或类似的宏时，也可以将切片变量的参数传递给宏。
 
-In Cura, to pass through temperatures, the following start gcode would be used:
+在 Cura 中，要传递温度参数，使用以下开始G代码：
 
 ```
 START_PRINT BED_TEMP={material_bed_temperature_layer_0} EXTRUDER_TEMP={material_print_temperature_layer_0}
 ```
 
-In slic3r derivatives such as PrusaSlicer and SuperSlicer, the following would be used:
+在PrusaSlicer和SuperSlicer等sli3er衍生版本中，使用以下G代码：
 
 START_PRINT EXTRUDER_TEMP=[first_layer_temperature] BED_TEMP=[first_layer_bed_temperature]
 
-Also note that these slicers will insert their own heating codes when certain conditions are not met. In Cura, the existence of the `{material_bed_temperature_layer_0}` and `{material_print_temperature_layer_0}` variables is enough to mitigate this. In slic3r derivatives, you would use:
+还要注意，当某些条件不满足时，这些切片软件会插入自己的加热代码。在Cura中，存在`{material_bed_temperature_layer_0}`和`{material_print_temperature_layer_0}`这两个变量就足够了。在slic3r衍生品中，你需要使用：
 
 ```
 M140 S0
 M104 S0
 ```
 
-before the macro call. Also note that SuperSlicer has a "custom gcode only" button option, which achieves the same outcome.
+在宏调用之前。还要注意的是，SuperSlicer有一个 "仅包含定制G代码"的按钮选项，可以达到同样的效果。
 
-An example of a START_PRINT macro using these paramaters can be found in config/sample-macros.cfg
+在config/sample-macros.cfg中可以找到一个使用这些参数的START_PRINT宏的例子
