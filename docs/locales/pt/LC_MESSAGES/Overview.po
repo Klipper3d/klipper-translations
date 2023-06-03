@@ -1,18 +1,19 @@
 # Adrian Medeiros <lima.adrian13@gmail.com>, 2023.
-# João Alves <joao.2003.couto@gmail.com>, 2023.
+# João Alves <joao.2003.couto@gmail.com>, 2023, 2025.
 # Milton Miranda Neto <voidmmn@gmail.com>, 2023.
 # Andre Costa <andrecaeu@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-03-03 16:45+0000\n"
-"Last-Translator: Andre Costa <andrecaeu@gmail.com>\n"
-"Language-Team: Portuguese <https://hosted.weblate.org/projects/klipper/overview/pt/>\n"
+"PO-Revision-Date: 2025-05-03 07:30+0000\n"
+"Last-Translator: João Alves <joao.2003.couto@gmail.com>\n"
+"Language-Team: Portuguese <https://hosted.weblate.org/projects/klipper/"
+"overview/pt/>\n"
 "Language: pt\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 msgid ""
 "Welcome to the Klipper documentation. If new to Klipper, start with the "
@@ -26,8 +27,8 @@ msgstr "Visão geral"
 
 msgid "[Features](Features.md): A high-level list of features in Klipper."
 msgstr ""
-"[Funcionalidades](Features.md) Uma lista de alto nível das funcionalidades do "
-"Klipper."
+"[Funcionalidades](Features.md) Uma lista de alto nível das funcionalidades "
+"do Klipper."
 
 msgid "[FAQ](FAQ.md): Frequently asked questions."
 msgstr "[FAQ](FAQ.md): Questões frequentes perguntadas."
@@ -47,8 +48,8 @@ msgid ""
 "[Contact](Contact.md): Information on bug reporting and general communication "
 "with the Klipper developers."
 msgstr ""
-"[Contactos](Contact.md): Informação sobre denúncia de bugs e comunicação geral"
-" com os desenvolvedores do Klipper."
+"[Contactos](Contact.md): Informação sobre denúncia de bugs e comunicação "
+"geral com os desenvolvedores do Klipper."
 
 msgid "[Installation](Installation.md): Guide to installing Klipper."
 msgstr "[Instalação](Installation.md): Guia de instalação do Klipper."
@@ -56,8 +57,8 @@ msgstr "[Instalação](Installation.md): Guia de instalação do Klipper."
 msgid ""
 "[Config Reference](Config_Reference.md): Description of config parameters."
 msgstr ""
-"[Referência de configuração](Config_Reference.md): Descrição de parâmetros de "
-"configuração."
+"[Referência de configuração](Config_Reference.md): Descrição de parâmetros "
+"de configuração."
 
 msgid ""
 "[Rotation Distance](Rotation_Distance.md): Calculating the rotation_distance "
