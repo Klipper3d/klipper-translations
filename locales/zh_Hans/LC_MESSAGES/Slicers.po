@@ -4,7 +4,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-06-25 03:39+0200\n"
-"PO-Revision-Date: 2023-04-10 20:28+0000\n"
+"PO-Revision-Date: 2023-06-02 05:49+0000\n"
 "Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "klipper/slicers/zh_Hans/>\n"
@@ -13,7 +13,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.17-dev\n"
+"X-Generator: Weblate 4.18-dev\n"
 
 msgid ""
 "This document provides some tips for configuring a \"slicer\" application "
@@ -171,31 +171,35 @@ msgstr "START_PRINT宏"
 msgid ""
 "When using a START_PRINT macro or similar, it is useful to sometimes pass "
 "through parameters from the slicer variables to the macro."
-msgstr ""
+msgstr "当使用START_PRINT宏或类似的宏时，也可以将切片变量的参数传递给宏。"
 
 #: docs/Slicers.md:block 26 (paragraph)
 msgid ""
 "In Cura, to pass through temperatures, the following start gcode would be "
 "used:"
-msgstr ""
+msgstr "在 Cura 中，要传递温度参数，使用以下开始G代码："
 
 #: docs/Slicers.md:block 27 (code)
 msgid ""
 "START_PRINT BED_TEMP={material_bed_temperature_layer_0} "
 "EXTRUDER_TEMP={material_print_temperature_layer_0}\n"
 msgstr ""
+"START_PRINT BED_TEMP={material_bed_temperature_layer_0} "
+"EXTRUDER_TEMP={material_print_temperature_layer_0}\n"
 
 #: docs/Slicers.md:block 28 (paragraph)
 msgid ""
 "In slic3r derivatives such as PrusaSlicer and SuperSlicer, the following "
 "would be used:"
-msgstr ""
+msgstr "在PrusaSlicer和SuperSlicer等sli3er衍生版本中，使用以下G代码："
 
 #: docs/Slicers.md:block 29 (paragraph)
 msgid ""
 "START_PRINT EXTRUDER_TEMP=[first_layer_temperature] "
 "BED_TEMP=[first_layer_bed_temperature]"
 msgstr ""
+"START_PRINT EXTRUDER_TEMP=[first_layer_temperature] "
+"BED_TEMP=[first_layer_bed_temperature]"
 
 #: docs/Slicers.md:block 30 (paragraph)
 msgid ""
@@ -205,21 +209,27 @@ msgid ""
 "`{material_print_temperature_layer_0}` variables is enough to mitigate this."
 " In slic3r derivatives, you would use:"
 msgstr ""
+"还要注意，当某些条件不满足时，这些切片软件会插入自己的加热代码。在Cura中，存"
+"在`{material_bed_temperature_layer_0}`和`{material_print_temperature_layer_0}"
+"`这两个变量就足够了。在slic3r衍生品中，你需要使用："
 
 #: docs/Slicers.md:block 31 (code)
 msgid ""
 "M140 S0\n"
 "M104 S0\n"
 msgstr ""
+"M140 S0\n"
+"M104 S0\n"
 
 #: docs/Slicers.md:block 32 (paragraph)
 msgid ""
 "before the macro call. Also note that SuperSlicer has a \"custom gcode "
 "only\" button option, which achieves the same outcome."
-msgstr ""
+msgstr "在宏调用之前。还要注意的是，SuperSlicer有一个 \"仅包含定制G代码\"的按钮选项"
+"，可以达到同样的效果。"
 
 #: docs/Slicers.md:block 33 (paragraph)
 msgid ""
 "An example of a START_PRINT macro using these paramaters can be found in "
 "config/sample-macros.cfg"
-msgstr ""
+msgstr "在config/sample-macros.cfg中可以找到一个使用这些参数的START_PRINT宏的例子"

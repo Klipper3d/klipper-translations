@@ -1259,11 +1259,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#common-kinematic-settings" class="md-nav__link">
-    Common kinematic settings
+  <a href="#configuracoes-cinematicas-comuns" class="md-nav__link">
+    Configurações cinemáticas comuns
   </a>
   
-    <nav class="md-nav" aria-label="Common kinematic settings">
+    <nav class="md-nav" aria-label="Configurações cinemáticas comuns">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1363,11 +1363,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#common-extruder-and-heated-bed-support" class="md-nav__link">
-    Common extruder and heated bed support
+  <a href="#suporte-comum-para-extrusora-e-cama-aquecida" class="md-nav__link">
+    Suporte comum para extrusora e cama aquecida
   </a>
   
-    <nav class="md-nav" aria-label="Common extruder and heated bed support">
+    <nav class="md-nav" aria-label="Suporte comum para extrusora e cama aquecida">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1712,11 +1712,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#additional-stepper-motors-and-extruders" class="md-nav__link">
-    Additional stepper motors and extruders
+  <a href="#motores-de-passo-e-extrusoras-adicionais" class="md-nav__link">
+    Motores de passo e extrusoras adicionais
   </a>
   
-    <nav class="md-nav" aria-label="Additional stepper motors and extruders">
+    <nav class="md-nav" aria-label="Motores de passo e extrusoras adicionais">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1994,11 +1994,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#additional-servos-buttons-and-other-pins" class="md-nav__link">
-    Additional servos, buttons, and other pins
+  <a href="#servos-botoes-e-outros-pinos-adicionais" class="md-nav__link">
+    Servos, botões e outros pinos adicionais
   </a>
   
-    <nav class="md-nav" aria-label="Additional servos, buttons, and other pins">
+    <nav class="md-nav" aria-label="Servos, botões e outros pinos adicionais">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2350,11 +2350,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#common-bus-parameters" class="md-nav__link">
-    Common bus parameters
+  <a href="#parametros-comuns-do-barramento" class="md-nav__link">
+    Parâmetros comuns do barramento
   </a>
   
-    <nav class="md-nav" aria-label="Common bus parameters">
+    <nav class="md-nav" aria-label="Parâmetros comuns do barramento">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2365,8 +2365,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#common-i2c-settings" class="md-nav__link">
-    Common I2C settings
+  <a href="#configuracoes-comuns-de-i2c" class="md-nav__link">
+    Configurações comuns de I2C
   </a>
   
 </li>
@@ -2433,12 +2433,12 @@ serial:
 </code></pre></div>
 
 <h3 id="mcu-my_extra_mcu">[mcu my_extra_mcu]<a class="headerlink" href="#mcu-my_extra_mcu" title="Permanent link">&para;</a></h3>
-<p>Additional micro-controllers (one may define any number of sections with an "mcu" prefix). Additional micro-controllers introduce additional pins that may be configured as heaters, steppers, fans, etc.. For example, if an "[mcu extra_mcu]" section is introduced, then pins such as "extra_mcu:ar9" may then be used elsewhere in the config (where "ar9" is a hardware pin name or alias name on the given mcu).</p>
+<p>Microcontroladores adicionais (pode-se definir qualquer número de seções com um prefixo "mcu"). Microcontroladores adicionais introduzem pinos adicionais que podem ser configurados como aquecedores, motores de passo, ventiladores, etc. Por exemplo, se uma seção "[mcu extra_mcu]" for introduzida, então pinos como "extra_mcu:ar9" podem ser usados em outros lugares na configuração (onde "ar9" é um nome de pino de hardware ou nome de alias no mcu dado).</p>
 <div class="highlight"><pre><span></span><code>[mcu my_extra_mcu]
 # See the &quot;mcu&quot; section for configuration parameters.
 </code></pre></div>
 
-<h2 id="common-kinematic-settings">Common kinematic settings<a class="headerlink" href="#common-kinematic-settings" title="Permanent link">&para;</a></h2>
+<h2 id="configuracoes-cinematicas-comuns">Configurações cinemáticas comuns<a class="headerlink" href="#configuracoes-cinematicas-comuns" title="Permanent link">&para;</a></h2>
 <h3 id="printer">[printer]<a class="headerlink" href="#printer" title="Permanent link">&para;</a></h3>
 <p>The printer section controls high level printer settings.</p>
 <div class="highlight"><pre><span></span><code>[printer]
@@ -2942,7 +2942,7 @@ radius:
 <h3 id="cable-winch-kinematics">Cable winch Kinematics<a class="headerlink" href="#cable-winch-kinematics" title="Permanent link">&para;</a></h3>
 <p>See the <a href="https://github.com/Klipper3d/klipper/blob/master/config/example-winch.cfg">example-winch.cfg</a> for an example cable winch kinematics config file.</p>
 <p>Only parameters specific to cable winch printers are described here - see <a href="#common-kinematic-settings">common kinematic settings</a> for available parameters.</p>
-<p>CABLE WINCH SUPPORT IS EXPERIMENTAL. Homing is not implemented on cable winch kinematics. In order to home the printer, manually send movement commands until the toolhead is at 0, 0, 0 and then issue a <code>G28</code> command.</p>
+<p>CABLE WINCH SUPPORT IS EXPERIMENTAL. A referência de origem (homing) não está implementada na cinemática do cable winch kinematics. Para referenciar a origem da impressora, envie comandos de movimento manualmente até que a cabeça de impressão esteja em 0, 0, 0 e então emita um comando G28.</p>
 <div class="highlight"><pre><span></span><code>[printer]
 kinematics: winch
 
@@ -2971,7 +2971,7 @@ max_accel: 1
 #   values are not used for &quot;none&quot; kinematics.
 </code></pre></div>
 
-<h2 id="common-extruder-and-heated-bed-support">Common extruder and heated bed support<a class="headerlink" href="#common-extruder-and-heated-bed-support" title="Permanent link">&para;</a></h2>
+<h2 id="suporte-comum-para-extrusora-e-cama-aquecida">Suporte comum para extrusora e cama aquecida<a class="headerlink" href="#suporte-comum-para-extrusora-e-cama-aquecida" title="Permanent link">&para;</a></h2>
 <h3 id="extruder">[extruder]<a class="headerlink" href="#extruder" title="Permanent link">&para;</a></h3>
 <p>The extruder section is used to describe the heater parameters for the nozzle hotend along with the stepper controlling the extruder. See the <a href="G-Codes.html#extruder">command reference</a> for additional information. See the <a href="Pressure_Advance.html">pressure advance guide</a> for information on tuning pressure advance.</p>
 <div class="highlight"><pre><span></span><code>[extruder]
@@ -3575,7 +3575,7 @@ filename:
 
 <h2 id="optional-g-code-features">Optional G-Code features<a class="headerlink" href="#optional-g-code-features" title="Permanent link">&para;</a></h2>
 <h3 id="virtual_sdcard">[virtual_sdcard]<a class="headerlink" href="#virtual_sdcard" title="Permanent link">&para;</a></h3>
-<p>A virtual sdcard may be useful if the host machine is not fast enough to run OctoPrint well. It allows the Klipper host software to directly print gcode files stored in a directory on the host using standard sdcard G-Code commands (eg, M24).</p>
+<p>Um cartão SD virtual pode ser útil se a máquina hospedeira não for rápida o suficiente para rodar o OctoPrint de maneira eficiente. Ele permite que o software host do Klipper imprima diretamente arquivos gcode armazenados em um diretório no host usando comandos padrão de G-Code do cartão SD (por exemplo, M24).</p>
 <div class="highlight"><pre><span></span><code>[virtual_sdcard]
 path:
 #   The path of the local directory on the host machine to look for
@@ -3695,29 +3695,29 @@ path:
 <p>Support for ADXL345 accelerometers. This support allows one to query accelerometer measurements from the sensor. This enables an ACCELEROMETER_MEASURE command (see <a href="G-Codes.html#adxl345">G-Codes</a> for more information). The default chip name is "default", but one may specify an explicit name (eg, [adxl345 my_chip_name]).</p>
 <div class="highlight"><pre><span></span><code>[adxl345]
 cs_pin:
-#   The SPI enable pin for the sensor. This parameter must be provided.
+#   O pino SPI de habilitação para o sensor. Este parâmetro deve ser fornecido.
 #spi_speed: 5000000
-#   The SPI speed (in hz) to use when communicating with the chip.
-#   The default is 5000000.
+#   A velocidade SPI (em hz) para usar na comunicação com o chip.
+#   O padrão é 5000000.
 #spi_bus:
 #spi_software_sclk_pin:
 #spi_software_mosi_pin:
 #spi_software_miso_pin:
 #   See the &quot;common SPI settings&quot; section for a description of the
-#   above parameters.
+#   parâmetros acima.
 #axes_map: x, y, z
-#   The accelerometer axis for each of the printer&#39;s X, Y, and Z axes.
-#   This may be useful if the accelerometer is mounted in an
-#   orientation that does not match the printer orientation. For
-#   example, one could set this to &quot;y, x, z&quot; to swap the X and Y axes.
-#   It is also possible to negate an axis if the accelerometer
-#   direction is reversed (eg, &quot;x, z, -y&quot;). The default is &quot;x, y, z&quot;.
+#   O eixo do acelerômetro para cada um dos eixos X, Y e Z da impressora.
+#   Isso pode ser útil se o acelerômetro estiver montado em uma
+#   orientação que não corresponda à orientação da impressora. Por
+#   exemplo, você poderia definir isso como &quot;y, x, z&quot; para trocar os eixos X e Y.
+#   Também é possível negar um eixo se a direção do acelerômetro
+#   estiver invertida (por exemplo, &quot;x, z, -y&quot;). O padrão é &quot;x, y, z&quot;.
 #rate: 3200
-#   Output data rate for ADXL345. ADXL345 supports the following data
-#   rates: 3200, 1600, 800, 400, 200, 100, 50, and 25. Note that it is
-#   not recommended to change this rate from the default 3200, and
-#   rates below 800 will considerably affect the quality of resonance
-#   measurements.
+#   Taxa de dados de saída para ADXL345. ADXL345 suporta as seguintes taxas de dados:
+#   3200, 1600, 800, 400, 200, 100, 50 e 25. Note que não é
+#   recomendado alterar esta taxa do padrão 3200, e
+#   taxas abaixo de 800 afetarão consideravelmente a qualidade das
+#   medições de ressonância.
 </code></pre></div>
 
 <h3 id="mpu9250">[mpu9250]<a class="headerlink" href="#mpu9250" title="Permanent link">&para;</a></h3>
@@ -3972,7 +3972,7 @@ z_offset:
 #   See the &quot;probe&quot; section for more information on the parameters above.
 </code></pre></div>
 
-<h2 id="additional-stepper-motors-and-extruders">Additional stepper motors and extruders<a class="headerlink" href="#additional-stepper-motors-and-extruders" title="Permanent link">&para;</a></h2>
+<h2 id="motores-de-passo-e-extrusoras-adicionais">Motores de passo e extrusoras adicionais<a class="headerlink" href="#motores-de-passo-e-extrusoras-adicionais" title="Permanent link">&para;</a></h2>
 <h3 id="stepper_z1">[stepper_z1]<a class="headerlink" href="#stepper_z1" title="Permanent link">&para;</a></h3>
 <p>Multi-stepper axes. On a cartesian style printer, the stepper controlling a given axis may have additional config blocks defining steppers that should be stepped in concert with the primary stepper. One may define any number of sections with a numeric suffix starting at 1 (for example, "stepper_z1", "stepper_z2", etc.).</p>
 <div class="highlight"><pre><span></span><code>[stepper_z1]
@@ -4138,22 +4138,22 @@ extruder:
 #temperature2:
 #voltage2:
 #...
-#   A set of temperatures (in Celsius) and voltages (in Volts) to use
-#   as reference when converting a temperature. A heater section using
-#   this sensor may also specify adc_voltage and voltage_offset
-#   parameters to define the ADC voltage (see &quot;Common temperature
-#   amplifiers&quot; section for details). At least two measurements must
-#   be provided.
+#   Um conjunto de temperaturas (em Celsius) e tensões (em Volts) para usar
+#   como referência ao converter uma temperatura. Uma seção de aquecedor que utiliza
+#   este sensor também pode especificar parâmetros adc_voltage e voltage_offset
+#   para definir a tensão ADC (veja a seção &quot;Amplificadores comuns de temperatura&quot;
+#   para detalhes). Pelo menos duas medições devem ser
+#   fornecidas.
 #temperature1:
 #resistance1:
 #temperature2:
 #resistance2:
 #...
-#   Alternatively one may specify a set of temperatures (in Celsius)
-#   and resistance (in Ohms) to use as reference when converting a
-#   temperature. A heater section using this sensor may also specify a
-#   pullup_resistor parameter (see &quot;extruder&quot; section for details). At
-#   least two measurements must be provided.
+#   Alternativamente, pode-se especificar um conjunto de temperaturas (em Celsius)
+#   e resistência (em Ohms) para usar como referência ao converter uma
+#   temperatura. Uma seção de aquecedor que utiliza este sensor também pode especificar um
+#   parâmetro pullup_resistor (veja a seção &quot;extruder&quot; para detalhes). Pelo
+#   menos duas medições devem ser fornecidas.
 </code></pre></div>
 
 <h3 id="heater_generic">[heater_generic]<a class="headerlink" href="#heater_generic" title="Permanent link">&para;</a></h3>
@@ -4694,7 +4694,7 @@ clock_pin:
 #   See the &quot;led&quot; section for information on these parameters.
 </code></pre></div>
 
-<h2 id="additional-servos-buttons-and-other-pins">Additional servos, buttons, and other pins<a class="headerlink" href="#additional-servos-buttons-and-other-pins" title="Permanent link">&para;</a></h2>
+<h2 id="servos-botoes-e-outros-pinos-adicionais">Servos, botões e outros pinos adicionais<a class="headerlink" href="#servos-botoes-e-outros-pinos-adicionais" title="Permanent link">&para;</a></h2>
 <h3 id="servo">[servo]<a class="headerlink" href="#servo" title="Permanent link">&para;</a></h3>
 <p>Servos (one may define any number of sections with a "servo" prefix). The servos may be controlled using the SET_SERVO <a href="G-Codes.html#servo">g-code command</a>. For example: SET_SERVO SERVO=my_servo ANGLE=180</p>
 <div class="highlight"><pre><span></span><code>[servo my_servo]
@@ -5295,36 +5295,36 @@ run_current:
 <p>Statically configured AD5206 digipots connected via SPI bus (one may define any number of sections with an "ad5206" prefix).</p>
 <div class="highlight"><pre><span></span><code>[ad5206 my_digipot]
 enable_pin:
-#   The pin corresponding to the AD5206 chip select line. This pin
-#   will be set to low at the start of SPI messages and raised to high
-#   after the message completes. This parameter must be provided.
+#   O pino correspondente à linha de seleção do chip AD5206. Este pino
+#   será configurado para baixo no início das mensagens SPI e aumentado para alto
+#   após a conclusão da mensagem. Este parâmetro deve ser fornecido.
 #spi_speed:
 #spi_bus:
 #spi_software_sclk_pin:
 #spi_software_mosi_pin:
 #spi_software_miso_pin:
-#   See the &quot;common SPI settings&quot; section for a description of the
-#   above parameters.
+#   Veja a seção &quot;configurações comuns de SPI&quot; para uma descrição dos
+#   parâmetros acima.
 #channel_1:
 #channel_2:
 #channel_3:
 #channel_4:
 #channel_5:
 #channel_6:
-#   The value to statically set the given AD5206 channel to. This is
-#   typically set to a number between 0.0 and 1.0 with 1.0 being the
-#   highest resistance and 0.0 being the lowest resistance. However,
-#   the range may be changed with the &#39;scale&#39; parameter (see below).
-#   If a channel is not specified then it is left unconfigured.
+#   O valor para definir estaticamente o dado canal do AD5206. Isso é
+#   normalmente definido com um número entre 0.0 e 1.0, sendo 1.0 a
+#   maior resistência e 0.0 a menor resistência. No entanto,
+#   o intervalo pode ser alterado com o parâmetro &#39;scale&#39; (veja abaixo).
+#   Se um canal não for especificado, ele é deixado sem configuração.
 #scale:
-#   This parameter can be used to alter how the &#39;channel_x&#39; parameters
-#   are interpreted. If provided, then the &#39;channel_x&#39; parameters
-#   should be between 0.0 and &#39;scale&#39;. This may be useful when the
-#   AD5206 is used to set stepper voltage references. The &#39;scale&#39; can
-#   be set to the equivalent stepper amperage if the AD5206 were at
-#   its highest resistance, and then the &#39;channel_x&#39; parameters can be
-#   specified using the desired amperage value for the stepper. The
-#   default is to not scale the &#39;channel_x&#39; parameters.
+#   Este parâmetro pode ser usado para alterar como os parâmetros &#39;channel_x&#39;
+#   são interpretados. Se fornecido, então os parâmetros &#39;channel_x&#39;
+#   devem estar entre 0.0 e &#39;escala&#39;. Isso pode ser útil quando o
+#   AD5206 é usado para definir referências de tensão de passo. A &#39;escala&#39; pode
+#   ser definida para a amperagem equivalente do passo se o AD5206 estiver em
+#   sua maior resistência, e então os parâmetros &#39;channel_x&#39; podem ser
+#   especificados usando o valor de amperagem desejado para o passo. O
+#   padrão é não escalar os parâmetros &#39;channel_x&#39;.
 </code></pre></div>
 
 <h3 id="mcp4451">[mcp4451]<a class="headerlink" href="#mcp4451" title="Permanent link">&para;</a></h3>
@@ -5640,7 +5640,7 @@ lcd_type:
 
 <h3 id="display_data">[display_data]<a class="headerlink" href="#display_data" title="Permanent link">&para;</a></h3>
 <p>Support for displaying custom data on an lcd screen. One may create any number of display groups and any number of data items under those groups. The display will show all the data items for a given group if the display_group option in the [display] section is set to the given group name.</p>
-<p>A <a href="https://github.com/Klipper3d/klipper/blob/master/klippy/extras/display/display.cfg">default set of display groups</a> are automatically created. One can replace or extend these display_data items by overriding the defaults in the main printer.cfg config file.</p>
+<p>Um <a href="https://github.com/Klipper3d/klipper/blob/master/klippy/extras/display/display.cfg">default set of display groups</a> é criado automaticamente. Pode-se substituir ou estender esses itens de display_data substituindo os padrões no arquivo de configuração principal printer.cfg.</p>
 <div class="highlight"><pre><span></span><code>[display_data my_group_name my_data_name]
 position:
 #   Comma separated row and column of the display position that should
@@ -5702,7 +5702,7 @@ text:
 
 <h3 id="menu">[menu]<a class="headerlink" href="#menu" title="Permanent link">&para;</a></h3>
 <p>Customizable lcd display menus.</p>
-<p>A <a href="https://github.com/Klipper3d/klipper/blob/master/klippy/extras/display/menu.cfg">default set of menus</a> are automatically created. One can replace or extend the menu by overriding the defaults in the main printer.cfg config file.</p>
+<p>Um <a href="https://github.com/Klipper3d/klipper/blob/master/klippy/extras/display/menu.cfg">default set of menus</a> é criado automaticamente. Você pode substituir ou estender o menu substituindo os padrões no arquivo de configuração principal printer.cfg.</p>
 <p>See the <a href="Command_Templates.html#menu-templates">command template document</a> for information on menu attributes available during template rendering.</p>
 <div class="highlight"><pre><span></span><code># Common parameters available for all menu config sections.
 #[menu __some_list __some_name]
@@ -5936,15 +5936,15 @@ clk_pin:
 <p>See the <a href="https://github.com/Klipper3d/klipper/blob/master/config/generic-duet2-maestro.cfg">generic-duet2-maestro.cfg</a> file for an example.</p>
 <div class="highlight"><pre><span></span><code>[adc_scaled my_name]
 vref_pin:
-#   The ADC pin to use for VREF monitoring. This parameter must be
-#   provided.
+#   O pino ADC a ser usado para monitoramento de VREF. Este parâmetro deve ser
+#   fornecido.
 vssa_pin:
-#   The ADC pin to use for VSSA monitoring. This parameter must be
-#   provided.
+#   O pino ADC a ser usado para monitoramento de VSSA. Este parâmetro deve ser
+#   fornecido.
 #smooth_time: 2.0
-#   A time value (in seconds) over which the vref and vssa
-#   measurements will be smoothed to reduce the impact of measurement
-#   noise. The default is 2 seconds.
+#   Um valor de tempo (em segundos) durante o qual as medições de vref e vssa
+#   serão suavizadas para reduzir o impacto do ruído de medição
+#   O padrão é 2 segundos.
 </code></pre></div>
 
 <h3 id="replicape">[replicape]<a class="headerlink" href="#replicape" title="Permanent link">&para;</a></h3>
@@ -6033,30 +6033,30 @@ serial:
 <p>Magnetic hall angle sensor support for reading stepper motor angle shaft measurements using a1333, as5047d, or tle5012b SPI chips. The measurements are available via the <a href="API_Server.html">API Server</a> and <a href="Debugging.html#motion-analysis-and-data-logging">motion analysis tool</a>. See the <a href="G-Codes.html#angle">G-Code reference</a> for available commands.</p>
 <div class="highlight"><pre><span></span><code>[angle my_angle_sensor]
 sensor_type:
-#   The type of the magnetic hall sensor chip. Available choices are
-#   &quot;a1333&quot;, &quot;as5047d&quot;, and &quot;tle5012b&quot;. This parameter must be
-#   specified.
+#   O tipo do chip do sensor magnético hall. As opções disponíveis são
+#   &quot;a1333&quot;, &quot;as5047d&quot; e &quot;tle5012b&quot;. Este parâmetro deve ser
+#   especificado.
 #sample_period: 0.000400
-#   The query period (in seconds) to use during measurements. The
-#   default is 0.000400 (which is 2500 samples per second).
+#   O período de consulta (em segundos) a ser usado durante as medições. O
+#   padrão é 0.000400 (que são 2500 amostras por segundo)..
 #stepper:
-#   The name of the stepper that the angle sensor is attached to (eg,
-#   &quot;stepper_x&quot;). Setting this value enables an angle calibration
-#   tool. To use this feature, the Python &quot;numpy&quot; package must be
-#   installed. The default is to not enable angle calibration for the
-#   angle sensor.
+#   O nome do motor de passo ao qual o sensor de ângulo está conectado (por exemplo,
+#   &quot;stepper_x&quot;). Definir este valor habilita uma ferramenta de calibração
+#   de ângulo. Para usar este recurso, o pacote Python &quot;numpy&quot; deve ser
+#   instalado. O padrão é não habilitar a calibração de ângulo para o
+#   sensor de ângulo.
 cs_pin:
-#   The SPI enable pin for the sensor. This parameter must be provided.
+#   O pino SPI de habilitação para o sensor. Este parâmetro deve ser fornecido.
 #spi_speed:
 #spi_bus:
 #spi_software_sclk_pin:
 #spi_software_mosi_pin:
 #spi_software_miso_pin:
-#   See the &quot;common SPI settings&quot; section for a description of the
-#   above parameters.
+#   Consulte a seção &quot;configurações SPI comuns&quot; para uma descrição dos
+#   parâmetros acima.
 </code></pre></div>
 
-<h2 id="common-bus-parameters">Common bus parameters<a class="headerlink" href="#common-bus-parameters" title="Permanent link">&para;</a></h2>
+<h2 id="parametros-comuns-do-barramento">Parâmetros comuns do barramento<a class="headerlink" href="#parametros-comuns-do-barramento" title="Permanent link">&para;</a></h2>
 <h3 id="common-spi-settings">Common SPI settings<a class="headerlink" href="#common-spi-settings" title="Permanent link">&para;</a></h3>
 <p>The following parameters are generally available for devices using an SPI bus.</p>
 <div class="highlight"><pre><span></span><code>#spi_speed:
@@ -6075,7 +6075,7 @@ cs_pin:
 #   &quot;software spi&quot;.
 </code></pre></div>
 
-<h3 id="common-i2c-settings">Common I2C settings<a class="headerlink" href="#common-i2c-settings" title="Permanent link">&para;</a></h3>
+<h3 id="configuracoes-comuns-de-i2c">Configurações comuns de I2C<a class="headerlink" href="#configuracoes-comuns-de-i2c" title="Permanent link">&para;</a></h3>
 <p>The following parameters are generally available for devices using an I2C bus.</p>
 <p>Note that Klipper's current micro-controller support for I2C is generally not tolerant to line noise. Unexpected errors on the I2C wires may result in Klipper raising a run-time error. Klipper's support for error recovery varies between each micro-controller type. It is generally recommended to only use I2C devices that are on the same printed circuit board as the micro-controller.</p>
 <p>Most Klipper micro-controller implementations only support an <code>i2c_speed</code> of 100000 (<em>standard mode</em>, 100kbit/s). The Klipper "Linux" micro-controller supports a 400000 speed (<em>fast mode</em>, 400kbit/s), but it must be <a href="RPi_microcontroller.html#optional-enabling-i2c">set in the operating system</a> and the <code>i2c_speed</code> parameter is otherwise ignored. The Klipper "RP2040" micro-controller and ATmega AVR family support a rate of 400000 via the <code>i2c_speed</code> parameter. All other Klipper micro-controllers use a 100000 rate and ignore the <code>i2c_speed</code> parameter.</p>
