@@ -12,4 +12,4 @@ Command templates
 
 Developer Documentation
 
-Device Specific Documents
+Documentos de dispositivos específicos
