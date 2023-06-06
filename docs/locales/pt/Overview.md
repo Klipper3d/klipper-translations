@@ -2,18 +2,18 @@
 
 Bem- vindo a documentação do Klipper, comece com os documentos [features](Features.md) e [installation](Installation.md) .
 
-## Overview information
+## Visão geral
 
-- [Features](Features.md): A high-level list of features in Klipper.
-- [FAQ](FAQ.md): Frequently asked questions.
-- [Releases](Releases.md): The history of Klipper releases.
-- [Config changes](Config_Changes.md): Recent software changes that may require users to update their printer config file.
-- [Contact](Contact.md): Information on bug reporting and general communication with the Klipper developers.
+- [Funcionalidades](Features.md) Uma lista de alto nível das funcionalidades do Klipper.
+- [FAQ](FAQ.md): Questões frequentes perguntadas.
+- [Versões](Releases.md): Histórico de versões do Klipper.
+- [Alterações de Configuração](Config_Changes.md): Atualizações recentes ao software que podem precisar que os utilizadores atualizem o ficheiro de configuração da sua impressora.
+- [Contactos](Contact.md): Informação sobre denúncia de bugs e comunicação geral com os desenvolvedores do Klipper.
 
 ## Installation and Configuration
 
-- [Installation](Installation.md): Guide to installing Klipper.
-- [Config Reference](Config_Reference.md): Description of config parameters.
+- [Instalação](Installation.md): Guia de instalação do Klipper.
+- [Referência de configuração](Config_Reference.md): Descrição de parâmetros de configuração.
    - [Rotation Distance](Rotation_Distance.md): Calculating the rotation_distance stepper parameter.
 - [Config checks](Config_checks.md): Verify basic pin settings in the config file.
 - [Bed level](Bed_Level.md): Information on "bed leveling" in Klipper.
@@ -21,7 +21,7 @@ Bem- vindo a documentação do Klipper, comece com os documentos [features](Feat
    - [Probe calibrate](Probe_Calibrate.md): Calibration of automatic Z probes.
    - [BL-Touch](BLTouch.md): Configure a "BL-Touch" Z probe.
    - [Manual level](Manual_Level.md): Calibration of Z endstops (and similar).
-   - [Bed Mesh](Bed_Mesh.md): Bed height correction based on XY locations.
+   - [Malha de cama](Bed_Mesh.md): Correção da altura da cama baseado em coordenadas XY.
    - [Endstop phase](Endstop_Phase.md): Stepper assisted Z endstop positioning.
 - [Resonance compensation](Resonance_Compensation.md): A tool to reduce ringing in prints.
    - [Measuring resonances](Measuring_Resonances.md): Information on using adxl345 accelerometer hardware to measure resonance.
@@ -46,14 +46,14 @@ Bem- vindo a documentação do Klipper, comece com os documentos [features](Feat
 - [CAN bus protocol](CANBUS_protocol.md): Klipper CAN bus message format.
 - [Debugging](Debugging.md): Information on how to test and debug Klipper.
 - [Benchmarks](Benchmarks.md): Information on the Klipper benchmark method.
-- [Contributing](CONTRIBUTING.md): Information on how to submit improvements to Klipper.
-- [Packaging](Packaging.md): Information on building OS packages.
+- [Contribuir](CONTRIBUTING.md): Informação sobre como submeter melhorias ao Klipper.
+- [Empacotamento](Packaging.md): Informação sobre como criar pacotes de SO.
 
-## Device Specific Documents
+## Documentos de dispositivos específicos
 
-- [Example configs](Example_Configs.md): Information on adding an example config file to Klipper.
-- [SDCard Updates](SDCard_Updates.md): Flash a micro-controller by copying a binary to an sdcard in the micro-controller.
-- [Raspberry Pi as Micro-controller](RPi_microcontroller.md): Details for controlling devices wired to the GPIO pins of a Raspberry Pi.
+- [Configurações exemplo](Example_Configs.md): Informação sobre como adicionar um ficheiro de configuração exemplo ao Klipper.
+- [Atualizações por Cartão SD](SDCard_Updates.md): Escrever para um micro-controlador copiando um ficheiro binário para um cartão SD no micro-controlador.
+- [Raspberry Pi como um Micro-controlador](RPi_microcontroller.md): Detalhes sobre como controlar dispositivos ligados aos pinos GPIO de um Raspberry Pi.
 - [Beaglebone](Beaglebone.md): Details for running Klipper on the Beaglebone PRU.
 - [Bootloaders](Bootloaders.md): Developer information on micro-controller flashing.
 - [CAN bus](CANBUS.md): Information on using CAN bus with Klipper.
