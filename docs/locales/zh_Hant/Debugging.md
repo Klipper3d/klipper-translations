@@ -162,7 +162,7 @@ make build
 ls ./build/pysimulavr/_pysimulavr.*.so
 ```
 
-This command should report a specific file (e.g. **./build/pysimulavr/_pysimulavr.cpython-39-x86_64-linux-gnu.so**) and not an error.
+此命令應報告特定文件（例如 **./build/pysimulavr/_pysimulavr.cpython-39-x86_64-linux-gnu.so**）而不是錯誤。
 
 如果您在基於 Debian 的系統（Debian、Ubuntu 等）上，您可以安裝以下軟件包並生成 *.deb 文件以在系統範圍內安裝 simulavr：
 
@@ -180,7 +180,7 @@ cd /path/to/klipper
 make menuconfig
 ```
 
-and compile the micro-controller software for an AVR atmega644p and select SIMULAVR software emulation support. Then one can compile Klipper (run `make`) and then start the simulation with:
+並為 AVR atmega644p 編譯微控制器軟件並選擇 SIMULAVR 軟件仿真支持。然後可以編譯 Klipper（運行 `make`）然後開始模擬：
 
 ```
 PYTHONPATH=/path/to/simulavr/build/pysimulavr/ ./scripts/avrsim.py out/klipper.elf
