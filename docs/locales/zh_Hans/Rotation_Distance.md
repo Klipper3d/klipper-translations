@@ -38,7 +38,7 @@ rotation_distance = <full_steps_per_rotation> * <microsteps> * <step_distance>
 
 如果实际挤出的长度与请求挤出的距离相差超过2毫米，那么最好再重复一次上述步骤。
 
-注意：*不要*使用"测量并修正"类的方法来校准x、y或z轴。对于这些轴来说，"测量并修剪"的方法不够精确，而且可能会导致更糟糕的配置。相反，如果需要，这些轴可以通过[j检查皮带、滑轮和丝杆](#obtaining-rotation_distance-by-inspecting-the-hardware)来确定旋转距离。
+注意：*不要*使用"测量并修正"类的方法来校准x、y或z轴。对于这些轴来说，"测量并修剪"的方法不够精确，而且可能会导致更糟糕的配置。相反，如果需要，这些轴可以通过[检查皮带、滑轮和丝杆](#obtaining-rotation_distance-by-inspecting-the-hardware)来确定旋转距离。
 
 ## 通过检查硬件获得旋转距离
 
