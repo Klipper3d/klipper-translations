@@ -1,12 +1,12 @@
 # TRẦN HOÀI THANH TRỌNG <inspire4dev@gmail.com>, 2022.
 # Dinh Phong <phongdinh9991@gmail.com>, 2022.
-# Karas <vannam34760@gmail.com>, 2023.
+# Karas <vannam34760@gmail.com>, 2023, 2025.
 # Deleted User <noreply+43942@weblate.org>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:33+0000\n"
-"Last-Translator: Deleted User <noreply+43942@weblate.org>\n"
+"Last-Translator: Karas <vannam34760@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/klipper/"
 "config_checks/vi/>\n"
 "Language: vi\n"
@@ -36,8 +36,8 @@ msgstr ""
 "Klipper. Tránh vấn đề bằng cách RESTART lệnh sau mỗi lần thay đổi trong tệp "
 "cấu hình để đảm bảo những thay đổi sẽ  được sử  dụng. (Gõ \"restart\" vào "
 "trong Octoprint terminal tab và sau đó click \"Send\"). Ngoài ra đó cũng là "
-"một ý tưởng tốt cho vấn đề STATUS lệnh sau khi mỗi RESTART được xác minh rằng "
-"cấu hình tệp đã tiến hành thành công."
+"một ý tưởng tốt cho vấn đề STATUS lệnh sau khi mỗi RESTART được xác minh "
+"rằng cấu hình tệp đã tiến hành thành công."
 
 msgid "Verify temperature"
 msgstr "Xác Minh nhiệt độ"
