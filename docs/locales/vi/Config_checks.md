@@ -2,9 +2,9 @@
 
 Tài liệu này cung cấp danh sách các bước để giúp xác nhận cài đặt ghim trong tệp Klipper print.cfg. Bạn nên chạy qua các bước này sau khi làm theo các bước trong [tài liệu cài đặt] (Install.md).
 
-During this guide, it may be necessary to make changes to the Klipper config file. Be sure to issue a RESTART command after every change to the config file to ensure that the change takes effect (type "restart" in the Octoprint terminal tab and then click "Send"). It's also a good idea to issue a STATUS command after every RESTART to verify that the config file is successfully loaded.
+Trong suốt hướng dẫn này, nó có thể cần thiết để thay đổi trong tệp cấu hình Klipper. Tránh vấn đề bằng cách RESTART lệnh sau mỗi lần thay đổi trong tệp cấu hình để đảm bảo những thay đổi sẽ  được sử  dụng. (Gõ "restart" vào trong Octoprint terminal tab và sau đó click "Send"). Ngoài ra đó cũng là một ý tưởng tốt cho vấn đề STATUS lệnh sau khi mỗi RESTART được xác minh rằng cấu hình tệp đã tiến hành thành công.
 
-## Verify temperature
+## Xác Minh nhiệt độ
 
 Start by verifying that temperatures are being properly reported. Navigate to the Octoprint temperature tab.
 
