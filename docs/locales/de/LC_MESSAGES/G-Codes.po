@@ -2,7 +2,7 @@
 # Sebastian Fiedler <See1807@hotmail.de>, 2022.
 # Sven van Beckum <kontakt@partner-3d.de>, 2022.
 # Yifei Ding <dingyifeiair@gmail.com>, 2022.
-# LopeKinz <youtbeacczlp@gmail.com>, 2023.
+# LopeKinz <youtbeacczlp@gmail.com>, 2023, 2025.
 # aaron oelschlegel <aaron.oelschlegel@web.de>, 2023.
 # Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024, 2025.
 msgid ""
@@ -11,7 +11,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:32+0200\n"
 "PO-Revision-Date: 2025-05-03 07:23+0000\n"
-"Last-Translator: Niklas Tecklenborg <niklas.tecklenborg@gmail.com>\n"
+"Last-Translator: LopeKinz <youtbeacczlp@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/g-codes/"
 "de/>\n"
 "Language: de\n"
@@ -738,10 +738,10 @@ msgid ""
 "refer to ADXL345 data sheet for the reference."
 msgstr ""
 "`ACCELEROMETER_DEBUG_WRITE [CHIP=<config_name>] REG=<register> VAL=<value>`: "
-"Schreibt den Rohwert \"value\" in ein Register \"register\". Sowohl \"value\" "
-"als auch \"register\" können eine dezimale oder hexadezimale Ganzzahl sein. "
-"Verwenden Sie es mit Vorsicht und konsultieren Sie das Datenblatt des ADXL345 "
-"für weitere Informationen."
+"Schreibt den Rohwert \"value\" in ein Register \"register\". Sowohl \"value\""
+" als auch \"register\" können eine dezimale oder hexadezimale Ganzzahl sein. "
+"Verwenden Sie es mit Vorsicht und konsultieren Sie das Datenblatt des "
+"ADXL345 für weitere Informationen."
 
 #: docs/G-Codes.md:block 22 (header)
 msgid "[bed_mesh]"
