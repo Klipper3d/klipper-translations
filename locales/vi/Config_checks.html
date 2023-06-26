@@ -1225,8 +1225,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#verify-temperature" class="md-nav__link">
-    Verify temperature
+  <a href="#xac-minh-nhiet-o" class="md-nav__link">
+    Xác Minh nhiệt độ
   </a>
   
 </li>
@@ -1306,8 +1306,8 @@
 
 <h1 id="configuration-checks">Configuration checks<a class="headerlink" href="#configuration-checks" title="Permanent link">&para;</a></h1>
 <p>Tài liệu này cung cấp danh sách các bước để giúp xác nhận cài đặt ghim trong tệp Klipper print.cfg. Bạn nên chạy qua các bước này sau khi làm theo các bước trong [tài liệu cài đặt] (Install.md).</p>
-<p>During this guide, it may be necessary to make changes to the Klipper config file. Be sure to issue a RESTART command after every change to the config file to ensure that the change takes effect (type "restart" in the Octoprint terminal tab and then click "Send"). It's also a good idea to issue a STATUS command after every RESTART to verify that the config file is successfully loaded.</p>
-<h2 id="verify-temperature">Verify temperature<a class="headerlink" href="#verify-temperature" title="Permanent link">&para;</a></h2>
+<p>Trong suốt hướng dẫn này, nó có thể cần thiết để thay đổi trong tệp cấu hình Klipper. Tránh vấn đề bằng cách RESTART lệnh sau mỗi lần thay đổi trong tệp cấu hình để đảm bảo những thay đổi sẽ  được sử  dụng. (Gõ "restart" vào trong Octoprint terminal tab và sau đó click "Send"). Ngoài ra đó cũng là một ý tưởng tốt cho vấn đề STATUS lệnh sau khi mỗi RESTART được xác minh rằng cấu hình tệp đã tiến hành thành công.</p>
+<h2 id="xac-minh-nhiet-o">Xác Minh nhiệt độ<a class="headerlink" href="#xac-minh-nhiet-o" title="Permanent link">&para;</a></h2>
 <p>Start by verifying that temperatures are being properly reported. Navigate to the Octoprint temperature tab.</p>
 <p><img alt="octoprint-temperature" src="img/octoprint-temperature.png" /></p>
 <p>Verify that the temperature of the nozzle and bed (if applicable) are present and not increasing. If it is increasing, remove power from the printer. If the temperatures are not accurate, review the "sensor_type" and "sensor_pin" settings for the nozzle and/or bed.</p>
