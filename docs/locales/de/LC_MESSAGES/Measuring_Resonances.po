@@ -1,6 +1,6 @@
 # Sebastian Fiedler <See1807@hotmail.de>, 2022.
 # Sven van Beckum <kontakt@partner-3d.de>, 2022.
-# Sascha Petersen <zarrsito@gmail.com>, 2023.
+# Sascha Petersen <zarrsito@gmail.com>, 2023, 2025.
 # Extrutex <w1indt@outlook.com>, 2024.
 # Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024, 2025.
 msgid ""
@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:34+0200\n"
 "PO-Revision-Date: 2025-05-03 07:23+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Sascha Petersen <zarrsito@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/"
 "measuring_resonances/de/>\n"
 "Language: de\n"
@@ -135,10 +135,10 @@ msgid ""
 "toolhead and one for the bed, and run the measurements twice. See the "
 "corresponding [section](#bed-slinger-printers) for more details."
 msgstr ""
-"Beachte das bei Cartesian Druckern (Bettschubser) zwei Befestigungen benötigt "
-"werden: eine für den Druckkopf und eine für das Druckbett. Zudem müssen die "
-"Messungen separat für die jeweiligen Achsen durchgeführt werden. Siehe hierzu "
-"auch [section](#bed-slinger-printers) für weitere Details."
+"Beachte das bei Cartesian Druckern (Bettschubser) zwei Befestigungen "
+"benötigt werden: eine für den Druckkopf und eine für das Druckbett. Zudem "
+"müssen die Messungen separat für die jeweiligen Achsen durchgeführt werden. "
+"Siehe hierzu auch [section](#bed-slinger-printers) für weitere Details."
 
 msgid ""
 "**Attention:** make sure the accelerometer and any screws that hold it in "
@@ -149,10 +149,10 @@ msgid ""
 msgstr ""
 "**ACHTUNG:** Stelle sicher, dass weder der Beschleunigungssensor noch die "
 "Schrauben, mit denen er befestigt wurde, irgendein metallenes Teil des "
-"Druckers berühren. Grundsätzlich muss die Befestigung so gewählt werden, dass "
-"eine elektrische Isolation des Beschleunigungssensors gegenüber dem Drucker "
-"jederzeit gewährleistet ist. Wird dies nicht eingehalten, kann es zu einer "
-"Masseschleife im System kommen, welche die Elektronik beschädigen kann."
+"Druckers berühren. Grundsätzlich muss die Befestigung so gewählt werden, "
+"dass eine elektrische Isolation des Beschleunigungssensors gegenüber dem "
+"Drucker jederzeit gewährleistet ist. Wird dies nicht eingehalten, kann es zu "
+"einer Masseschleife im System kommen, welche die Elektronik beschädigen kann."
 
 msgid "Software installation"
 msgstr "Software Installation"
