@@ -1,19 +1,21 @@
 # Sebastian Fiedler <See1807@hotmail.de>, 2022.
 # Sven van Beckum <kontakt@partner-3d.de>, 2022.
+# Sascha Petersen <zarrsito@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:34+0200\n"
-"PO-Revision-Date: 2022-07-03 11:20+0000\n"
-"Last-Translator: Sven van Beckum <kontakt@partner-3d.de>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/klipper/measuring_resonances/de/>\n"
+"PO-Revision-Date: 2023-07-15 02:20+0000\n"
+"Last-Translator: Sascha Petersen <zarrsito@gmail.com>\n"
+"Language-Team: German <https://hosted.weblate.org/projects/klipper/"
+"measuring_resonances/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13.1-dev\n"
+"X-Generator: Weblate 5.0-dev\n"
 
 msgid "Measuring Resonances"
 msgstr "Resonanzen messen"
@@ -36,10 +38,10 @@ msgstr ""
 "einigermaßen schnell sein)."
 
 msgid "Installation instructions"
-msgstr ""
+msgstr "Installationsanleitung"
 
 msgid "Wiring"
-msgstr ""
+msgstr "Verkabelung"
 
 msgid ""
 "You need to connect ADXL345 to your Raspberry Pi via SPI. Note that the I2C "
@@ -48,76 +50,78 @@ msgid ""
 msgstr ""
 
 msgid "ADXL345 pin"
-msgstr ""
+msgstr "ADXL345 Pin"
 
 msgid "RPi pin"
-msgstr ""
+msgstr "RPi Pin"
 
 msgid "RPi pin name"
-msgstr ""
+msgstr "RPi Pin Name"
 
 msgid "3V3 (or VCC)"
-msgstr ""
+msgstr "3V3 (oder VCC)"
 
 msgid "01"
-msgstr ""
+msgstr "01"
 
 msgid "3.3v DC power"
-msgstr ""
+msgstr "3.3V DC Spannung"
 
 msgid "GND"
-msgstr ""
+msgstr "GND"
 
 msgid "06"
-msgstr ""
+msgstr "06"
 
 msgid "Ground"
-msgstr ""
+msgstr "Masse (-)"
 
 msgid "CS"
-msgstr ""
+msgstr "CS"
 
 msgid "24"
-msgstr ""
+msgstr "24"
 
 msgid "GPIO08 (SPI0_CE0_N)"
-msgstr ""
+msgstr "GPIO08 (SPI0_CE0_N)"
 
 msgid "SDO"
-msgstr ""
+msgstr "SDO"
 
 msgid "21"
-msgstr ""
+msgstr "21"
 
 msgid "GPIO09 (SPI0_MISO)"
-msgstr ""
+msgstr "GPIO09 (SPI0_MISO)"
 
 msgid "SDA"
-msgstr ""
+msgstr "SDA"
 
 msgid "19"
-msgstr ""
+msgstr "19"
 
 msgid "GPIO10 (SPI0_MOSI)"
-msgstr ""
+msgstr "GPIO10 (SPI0_MOSI)"
 
 msgid "SCL"
-msgstr ""
+msgstr "SCl"
 
 msgid "23"
-msgstr ""
+msgstr "23"
 
 msgid "GPIO11 (SPI0_SCLK)"
-msgstr ""
+msgstr "GPIO11 (SPI0_SCLK)"
 
 msgid "Fritzing wiring diagrams for some of the ADXL345 boards:"
 msgstr ""
+"Anschlussbeispiele für diverse ADXL345 Boards (Bilder bereitgestellt von "
+"Fritzing):"
 
 msgid "![ADXL345-Rpi](img/adxl345-fritzing.png)"
-msgstr ""
+msgstr "![ADXL345-Rpi](img/adxl345-fritzing.png)"
 
 msgid "Mounting the accelerometer"
-msgstr ""
+msgstr "Befestigung des Beschleunigungssensors"
 
 msgid ""
 "The accelerometer must be attached to the toolhead. One needs to design a "
@@ -127,18 +131,29 @@ msgid ""
 " forth - it should be fine even if Z axis of accelerometer is X axis of the "
 "printer, etc.)."
 msgstr ""
+"Der Beschleunigungssensor muss am Druckkopf befestigt werden. Es sollte eine "
+"passende Befestigungslösung für den jeweiligen, eigenen 3D Drucker benutzt "
+"werden. Es emfpiehlt sich die Achsen des Beschleunigungssensors so "
+"auszurichten, dass diese mit den Achsen des 3D Druckers übereinstimmen (aber "
+"falls es einfacher ist, lassen sich die Achsen auch tauschen - zum Beispiel "
+"kann die z-Achse des Beschleunigungssensors auch zum Messen der Resonanz für "
+"die x-Achse des Drucker verwendet werden, usw.)."
 
 msgid "An example of mounting ADXL345 on the SmartEffector:"
-msgstr ""
+msgstr "Ein Beispiel der Befestigung des ADXL345 am SmartEffector:"
 
 msgid "![ADXL345 on SmartEffector](img/adxl345-mount.jpg)"
-msgstr ""
+msgstr "![ADXL345 on SmartEffector](img/adxl345-mount.jpg)"
 
 msgid ""
 "Note that on a bed slinger printer one must design 2 mounts: one for the "
 "toolhead and one for the bed, and run the measurements twice. See the "
 "corresponding [section](#bed-slinger-printers) for more details."
 msgstr ""
+"Beachte das bei Cartesian Druckern (Bettschubser) zwei Befestigungen "
+"benötigt werden: eine für den Druckkopf und eine für das Druckbett. Zudem "
+"müssen die Messungen separat für die jeweiligen Achsen durchgeführt werden. "
+"Siehe hierzu auch [section](#bed-slinger-printers) für weitere Details."
 
 msgid ""
 "**Attention:** make sure the accelerometer and any screws that hold it in "
@@ -147,9 +162,15 @@ msgid ""
 " from the printer frame. Failing to ensure that can create a ground loop in "
 "the system that may damage the electronics."
 msgstr ""
+"**ACHTUNG:** Stelle sicher, dass weder der Beschleunigungssensor noch die "
+"Schrauben, mit denen er befestigt wurde, irgendein metallenes Teil des "
+"Druckers berühren. Grundsätzlich muss die Befestigung so gewählt werden, "
+"dass eine elektrische Isolation des Beschleunigungssensors gegenüber dem "
+"Drucker jederzeit gewährleistet ist. Wird dies nicht eingehalten, kann es zu "
+"einer Masseschleife im System kommen, welche die Elektronik beschädigen kann."
 
 msgid "Software installation"
-msgstr ""
+msgstr "Software Installation"
 
 msgid ""
 "Afterwards, check and follow the instructions in the [RPi Microcontroller "
@@ -168,10 +189,10 @@ msgid ""
 msgstr ""
 
 msgid "Restart Klipper via the `RESTART` command."
-msgstr ""
+msgstr "Klipper über den `RESTART` Befehl neustarten."
 
 msgid "Measuring the resonances"
-msgstr ""
+msgstr "Resonanzenmessen"
 
 msgid "Checking the setup"
 msgstr ""
