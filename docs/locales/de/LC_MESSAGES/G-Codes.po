@@ -2,20 +2,22 @@
 # Sebastian Fiedler <See1807@hotmail.de>, 2022.
 # Sven van Beckum <kontakt@partner-3d.de>, 2022.
 # Yifei Ding <dingyifeiair@gmail.com>, 2022.
+# LopeKinz <youtbeacczlp@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:32+0200\n"
-"PO-Revision-Date: 2022-08-18 04:18+0000\n"
-"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/klipper/g-codes/de/>\n"
+"PO-Revision-Date: 2023-06-27 09:48+0000\n"
+"Last-Translator: LopeKinz <youtbeacczlp@gmail.com>\n"
+"Language-Team: German <https://hosted.weblate.org/projects/klipper/g-codes/"
+"de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14-dev\n"
+"X-Generator: Weblate 4.18.1\n"
 
 msgid ""
 "This document describes the commands that Klipper supports. These are "
@@ -768,6 +770,9 @@ msgid ""
 "ADXL345 register \"register\" (e.g. 44 or 0x2C). Can be useful for debugging"
 " purposes."
 msgstr ""
+"`ACCELEROMETER_DEBUG_READ [CHIP=<config_name>] REG=<register>`: queries "
+"ADXL345 register \"register\" (e.g. 44 or 0x2C). Kann für Debugging Zwecke "
+"nützlich sein"
 
 #: docs/G-Codes.md:block 20 (header)
 msgid "ACCELEROMETER_DEBUG_WRITE"
@@ -780,6 +785,11 @@ msgid ""
 "\"register\" can be a decimal or a hexadecimal integer. Use with care, and "
 "refer to ADXL345 data sheet for the reference."
 msgstr ""
+"`ACCELEROMETER_DEBUG_WRITE [CHIP=<config_name>] REG=<register> VAL=<value>`: "
+"Schreibt den Rohwert \"value\" in ein Register \"register\". Sowohl \"value\""
+" als auch \"register\" können eine dezimale oder hexadezimale Ganzzahl sein. "
+"Verwenden Sie es mit Vorsicht und konsultieren Sie das Datenblatt des "
+"ADXL345 für weitere Informationen."
 
 #: docs/G-Codes.md:block 22 (header)
 msgid "[bed_mesh]"
