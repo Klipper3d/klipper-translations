@@ -1,23 +1,33 @@
-#
+# Luc Van den Borre <luc@orotec.be>, 2023.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2023-06-30 06:49+0000\n"
+"Last-Translator: Luc Van den Borre <luc@orotec.be>\n"
+"Language-Team: Dutch <https://hosted.weblate.org/projects/klipper/overview/"
+"nl/>\n"
 "Language: nl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.1\n"
 
 msgid ""
 "Welcome to the Klipper documentation. If new to Klipper, start with the "
 "[features](Features.md) and [installation](Installation.md) documents."
 msgstr ""
+"Welkom bij de Klipper-documentatie. Als u nieuw bent in Klipper, begin dan "
+"met de documenten [kenmerken](Features.md) en [installatie](Installation.md)."
 
 msgid "Overview information"
-msgstr ""
+msgstr "Overzicht informatie"
 
 msgid "[Features](Features.md): A high-level list of features in Klipper."
 msgstr ""
+"[Kenmerken](Features.md): een lijst op hoog niveau met functies in Klipper."
 
 msgid "[FAQ](FAQ.md): Frequently asked questions."
-msgstr ""
+msgstr "[FAQ](FAQ.md): Veel gestelde vragen."
 
 msgid "[Releases](Releases.md): The history of Klipper releases."
 msgstr ""

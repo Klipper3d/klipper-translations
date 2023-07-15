@@ -1,9 +1,16 @@
-#
+# Luc Van den Borre <luc@orotec.be>, 2023.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2023-06-30 06:48+0000\n"
+"Last-Translator: Luc Van den Borre <luc@orotec.be>\n"
+"Language-Team: Dutch <https://hosted.weblate.org/projects/klipper/protocol/"
+"nl/>\n"
 "Language: nl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.1\n"
 
 msgid ""
 "The Klipper messaging protocol is used for low-level communication between "
@@ -468,4 +475,4 @@ msgstr ""
 
 #: docs/Protocol.md:block 1 (header)
 msgid "Protocol"
-msgstr ""
+msgstr "Protocol"
