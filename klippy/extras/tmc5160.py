@@ -105,6 +105,13 @@ Fields["CHOPCONF"] = {
     "diss2g":                   0x01 << 30,
     "diss2vs":                  0x01 << 31
 }
+Fields["DRV_CONF"] = {
+    "bbmtime":                  0x1F << 0,
+    "bbmclks":                  0x0F << 8,
+    "otselect":                 0x03 << 16,
+    "drvstrength":              0x03 << 18,
+    "filt_isense":              0x03 << 20,
+}
 Fields["DRV_STATUS"] = {
     "sg_result":                0x3FF << 0,
     "s2vsa":                    0x01 << 12,
@@ -327,10 +334,11 @@ class TMC5160:
         self.get_phase_offset = cmdhelper.get_phase_offset
         self.get_status = cmdhelper.get_status
         # Setup basic register values
-        self.fields.set_field("multistep_filt", True)
         tmc.TMCWaveTableHelper(config, self.mcu_tmc)
         tmc.TMCStealthchopHelper(config, self.mcu_tmc, TMC_FREQUENCY)
         set_config_field = self.fields.set_config_field
+        #   GCONF
+        set_config_field(config, "multistep_filt", True)
         #   CHOPCONF
         set_config_field(config, "toff", 3)
         set_config_field(config, "hstrt", 5)
@@ -352,6 +360,11 @@ class TMC5160:
         set_config_field(config, "seimin", 0)
         set_config_field(config, "sgt", 0)
         set_config_field(config, "sfilt", 0)
+        #   DRV_CONF
+        set_config_field(config, "drvstrength", 0)
+        set_config_field(config, "bbmclks", 4)
+        set_config_field(config, "bbmtime", 0)
+        set_config_field(config, "filt_isense", 0)
         #   IHOLDIRUN
         set_config_field(config, "iholddelay", 6)
         #   PWMCONF
