@@ -1,16 +1,20 @@
 # Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022.
 # Evgeniy Khramov <thejenjagamertjg@gmail.com>, 2022.
+# Anrey <bilaynvceigpy2@gmail.com>, 2023.
+# gggdeff <gggdeff17@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-12-08 10:47+0000\n"
-"Last-Translator: Evgeniy Khramov <thejenjagamertjg@gmail.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/g-codes/ru/>\n"
+"PO-Revision-Date: 2023-07-04 08:52+0000\n"
+"Last-Translator: gggdeff <gggdeff17@gmail.com>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/g-codes/"
+"ru/>\n"
 "Language: ru\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.15-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.0-dev\n"
 
 #, fuzzy
 msgid ""
@@ -268,6 +272,7 @@ msgstr ""
 
 msgid "`ABORT`: This command terminates the manual probing tool."
 msgstr ""
+"Прервано: Эта команда завершает работу инструмента ручного зондирования."
 
 msgid ""
 "`TESTZ Z=<value>`: This command moves the nozzle up or down by the amount "
@@ -758,11 +763,15 @@ msgid "ACCELEROMETER_DEBUG_READ"
 msgstr ""
 
 #: docs/G-Codes.md:block 19 (paragraph)
+#, fuzzy
 msgid ""
 "`ACCELEROMETER_DEBUG_READ [CHIP=<config_name>] REG=<register>`: queries "
 "ADXL345 register \"register\" (e.g. 44 or 0x2C). Can be useful for debugging"
 " purposes."
 msgstr ""
+"`АКСЕЛЕРОМЕТР_ОТЛАДКА_ЧТЕНИЕ [ЧИП =  <имя_конфигурации> РЕГ=<регистр>`: "
+"запросы ADXL345 регистр \"регистр\" (e.g. 44 или 0x2C). Может быть полезен "
+"для целей отладки."
 
 #: docs/G-Codes.md:block 20 (header)
 msgid "ACCELEROMETER_DEBUG_WRITE"

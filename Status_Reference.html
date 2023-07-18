@@ -880,6 +880,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#gcode_button" class="md-nav__link">
+    gcode_button
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#gcode_macro" class="md-nav__link">
     gcode_macro
   </a>
@@ -1494,6 +1501,20 @@
   
   
     <li class="md-nav__item">
+      <a href="CANBUS_Troubleshooting.html" class="md-nav__link">
+        CANBUS Troubleshooting
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="TSL1401CL_Filament_Width_Sensor.html" class="md-nav__link">
         TSL1401CL filament width sensor
       </a>
@@ -1643,6 +1664,13 @@
         <li class="md-nav__item">
   <a href="#firmware_retraction" class="md-nav__link">
     firmware_retraction
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#gcode_button" class="md-nav__link">
+    gcode_button
   </a>
   
 </li>
@@ -2050,6 +2078,12 @@ objects:</p>
   module. These settings may differ from the config file if a
   <code>SET_RETRACTION</code> command alters them.</li>
 </ul>
+<h2 id="gcode_button">gcode_button<a class="headerlink" href="#gcode_button" title="Permanent link">&para;</a></h2>
+<p>The following information is available in
+<a href="Config_Reference.html#gcode_button">gcode_button some_name</a> objects:</p>
+<ul>
+<li><code>state</code>: The current button state returned as "PRESSED" or "RELEASED"</li>
+</ul>
 <h2 id="gcode_macro">gcode_macro<a class="headerlink" href="#gcode_macro" title="Permanent link">&para;</a></h2>
 <p>The following information is available in
 <a href="Config_Reference.html#gcode_macro">gcode_macro some_name</a> objects:</p>
@@ -2341,6 +2375,9 @@ objects (eg, <code>[tmc2208 stepper_x]</code>):</p>
 <li><code>drv_status</code>: The results of the last driver status query. (Only
   non-zero fields are reported.) This field will be null if the driver
   is not enabled (and thus is not periodically queried).</li>
+<li><code>temperature</code>: The internal temperature reported by the driver. This
+  field will be null if the driver is not enabled or if the driver
+  does not support temperature reporting.</li>
 <li><code>run_current</code>: The currently set run current.</li>
 <li><code>hold_current</code>: The currently set hold current.</li>
 </ul>

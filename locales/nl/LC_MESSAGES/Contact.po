@@ -1,15 +1,17 @@
 # Simon Tillema <simontillema@gmail.com>, 2023.
+# Luc Van den Borre <luc@orotec.be>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-01-25 17:51+0000\n"
-"Last-Translator: Simon Tillema <simontillema@gmail.com>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/klipper/contact/nl/>\n"
+"PO-Revision-Date: 2023-06-30 06:49+0000\n"
+"Last-Translator: Luc Van den Borre <luc@orotec.be>\n"
+"Language-Team: Dutch <https://hosted.weblate.org/projects/klipper/contact/nl/"
+">\n"
 "Language: nl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.16-dev\n"
+"X-Generator: Weblate 4.18.1\n"
 
 msgid "This document provides contact information for Klipper."
 msgstr "Dit document bevat contactinformatie voor Klipper."
@@ -193,7 +195,7 @@ msgstr ""
 
 #: docs/Contact.md:block 1 (header)
 msgid "Contact"
-msgstr ""
+msgstr "Contact"
 
 #: docs/Contact.md:block 7 (paragraph)
 msgid ""

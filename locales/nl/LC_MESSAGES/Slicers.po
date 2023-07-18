@@ -1,9 +1,16 @@
-#
+# Luc Van den Borre <luc@orotec.be>, 2023.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2023-06-30 06:49+0000\n"
+"Last-Translator: Luc Van den Borre <luc@orotec.be>\n"
+"Language-Team: Dutch <https://hosted.weblate.org/projects/klipper/slicers/nl/"
+">\n"
 "Language: nl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 4.18.1\n"
 
 msgid ""
 "This document provides some tips for configuring a \"slicer\" application "
@@ -125,7 +132,7 @@ msgstr ""
 
 #: docs/Slicers.md:block 1 (header)
 msgid "Slicers"
-msgstr ""
+msgstr "Slicers"
 
 #: docs/Slicers.md:block 24 (header)
 msgid "START_PRINT macros"

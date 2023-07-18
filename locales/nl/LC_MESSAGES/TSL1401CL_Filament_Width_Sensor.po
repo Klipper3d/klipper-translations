@@ -1,15 +1,17 @@
 # Simon Tillema <simontillema@gmail.com>, 2023.
+# Luc Van den Borre <luc@orotec.be>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-01-24 17:07+0000\n"
-"Last-Translator: Simon Tillema <simontillema@gmail.com>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/klipper/tsl1401cl_filament_width_sensor/nl/>\n"
+"PO-Revision-Date: 2023-06-30 06:48+0000\n"
+"Last-Translator: Luc Van den Borre <luc@orotec.be>\n"
+"Language-Team: Dutch <https://hosted.weblate.org/projects/klipper/"
+"tsl1401cl_filament_width_sensor/nl/>\n"
 "Language: nl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.16-dev\n"
+"X-Generator: Weblate 4.18.1\n"
 
 msgid "How does it work?"
 msgstr "Hoe werkt het?"
@@ -35,7 +37,7 @@ msgstr ""
 
 #: docs/TSL1401CL_Filament_Width_Sensor.md:block 1 (header)
 msgid "TSL1401CL filament width sensor"
-msgstr "TSL1401CL filamentdiametersensor"
+msgstr "TSL1401CL filament breedte sensor"
 
 #: docs/TSL1401CL_Filament_Width_Sensor.md:block 2 (paragraph)
 msgid ""
