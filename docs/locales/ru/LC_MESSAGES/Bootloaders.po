@@ -1,11 +1,11 @@
 # Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022.
-# VICTOR <subfyn@gmail.com>, 2023.
+# VICTOR <subfyn@gmail.com>, 2023, 2025.
 # gfbdrgng <hnaofegnp@hldrive.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:36+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: VICTOR <subfyn@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
 "bootloaders/ru/>\n"
 "Language: ru\n"
@@ -80,20 +80,20 @@ msgid ""
 msgstr ""
 "Для самостоятельной прошивки загрузчика в микросхемах AVR требуется внешнее "
 "аппаратное средство прошивки (которое взаимодействует с микросхемой по "
-"интерфейсу SPI). Такой инструмент можно приобрести (например, выполните поиск "
-"в Интернете по словам \"avr isp\", \"arduino isp\" или \"usb tiny isp\"). "
-"Также можно использовать другую Arduino или Raspberry Pi для прошивки "
-"загрузчика AVR (например, выполните поиск в Интернете по запросу \"program an "
-"avr using raspberry pi\"). Приведенные ниже примеры написаны в предположении, "
-"что используется устройство типа \"AVR ISP Mk2\"."
+"интерфейсу SPI). Такой инструмент можно приобрести (например, выполните "
+"поиск в Интернете по словам \"avr isp\", \"arduino isp\" или \"usb tiny isp\""
+"). Также можно использовать другую Arduino или Raspberry Pi для прошивки "
+"загрузчика AVR (например, выполните поиск в Интернете по запросу "
+"\"program an avr using raspberry pi\"). Приведенные ниже примеры написаны в "
+"предположении, что используется устройство типа \"AVR ISP Mk2\"."
 
 msgid ""
 "The \"avrdude\" program is the most common tool used to flash atmega chips "
 "(both bootloader flashing and application flashing)."
 msgstr ""
 "Программа \"avrdude\" является наиболее распространенным инструментом, "
-"используемым для прошивки микросхем atmega (как для прошивки загрузчика, так и"
-" для прошивки приложений)."
+"используемым для прошивки микросхем atmega (как для прошивки загрузчика, так "
+"и для прошивки приложений)."
 
 #, fuzzy
 msgid "Atmega2560"
