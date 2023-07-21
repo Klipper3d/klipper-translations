@@ -1,13 +1,13 @@
 # Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022, 2025.
 # Evgeniy Khramov <thejenjagamertjg@gmail.com>, 2022.
-# VICTOR <subfyn@gmail.com>, 2023.
+# VICTOR <subfyn@gmail.com>, 2023, 2025.
 # xXx <xxx_xxx_xxxxxxxxx@mail.ru>, 2023, 2025.
 # gfbdrgng <hnaofegnp@hldrive.com>, 2024.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:35+0000\n"
-"Last-Translator: Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>\n"
+"Last-Translator: VICTOR <subfyn@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
 "probe_calibrate/ru/>\n"
 "Language: ru\n"
@@ -50,14 +50,14 @@ msgid ""
 "Issue a `GET_POSITION` command and record the toolhead XY location reported by"
 " that command. For example if one sees:"
 msgstr ""
-"Выдать команду `GET_POSITION` и записать положение инструментальной головки по"
-" оси XY, сообщенное этой командой. Например, если вы видите:"
+"Выдать команду `GET_POSITION` и записать положение инструментальной головки "
+"по оси XY, сообщенное этой командой. Например, если вы видите:"
 
 msgid ""
 "then one would record a probe X position of 46.5 and probe Y position of 27."
 msgstr ""
-"то можно записать положение зонда X, равное 46,5, и положение зонда Y, равное "
-"27."
+"то можно записать положение зонда X, равное 46,5, и положение зонда Y, "
+"равное 27."
 
 msgid ""
 "After recording the probe position, issue a series of G1 commands until the "
