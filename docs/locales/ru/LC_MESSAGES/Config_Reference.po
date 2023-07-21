@@ -1,7 +1,7 @@
 # Comocen <Comoc_en@mail.ru>, 2022.
 # Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022, 2025.
 # Evgeniy Khramov <thejenjagamertjg@gmail.com>, 2022.
-# VICTOR <subfyn@gmail.com>, 2023.
+# VICTOR <subfyn@gmail.com>, 2023, 2025.
 # xXx <xxx_xxx_xxxxxxxxx@mail.ru>, 2023.
 # Dr_Perry_Coke <dr.perrycoke@gmail.com>, 2023.
 # Michail Fedorov <fedorovmichail50@gmail.com>, 2024.
@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:34+0000\n"
-"Last-Translator: Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>\n"
+"Last-Translator: VICTOR <subfyn@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
 "config_reference/ru/>\n"
 "Language: ru\n"
@@ -56,19 +56,19 @@ msgid ""
 "Pin names may be preceded by `!` to indicate that a reverse polarity should be"
 " used (eg, trigger on low instead of high)."
 msgstr ""
-"Перед названиями выводов может стоять символ `!`, указывающий на необходимость"
-" использования обратной полярности (например, срабатывание по низкому, а не по"
-" высокому уровню)."
+"Перед названиями выводов может стоять символ `!`, указывающий на "
+"необходимость использования обратной полярности (например, срабатывание по "
+"низкому, а не по высокому уровню)."
 
 msgid ""
 "Input pins may be preceded by `^` to indicate that a hardware pull-up resistor"
 " should be enabled for the pin. If the micro-controller supports pull-down "
 "resistors then an input pin may alternatively be preceded by `~`."
 msgstr ""
-"Перед входными выводами может стоять символ `^`, указывающий на необходимость "
-"включения аппаратного подтягивающего резистора для данного вывода. Если "
-"микроконтроллер поддерживает подтягивающие резисторы, то перед входным выводом"
-" можно поставить `~`."
+"Перед входными выводами может стоять символ `^`, указывающий на "
+"необходимость включения аппаратного подтягивающего резистора для данного "
+"вывода. Если микроконтроллер поддерживает подтягивающие резисторы, то перед "
+"входным выводом можно поставить `~`."
 
 msgid ""
 "Note, some config sections may \"create\" additional pins. Where this occurs, "
