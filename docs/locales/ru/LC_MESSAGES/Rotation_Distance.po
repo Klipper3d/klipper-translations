@@ -1,5 +1,5 @@
 # Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022, 2025.
-# VICTOR <subfyn@gmail.com>, 2023.
+# VICTOR <subfyn@gmail.com>, 2023, 2025.
 # xXx <xxx_xxx_xxxxxxxxx@mail.ru>, 2023, 2025.
 # Russ <xruss.kz@gmail.com>, 2024.
 # gfbdrgng <hnaofegnp@hldrive.com>, 2024.
@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:35+0000\n"
-"Last-Translator: Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>\n"
+"Last-Translator: VICTOR <subfyn@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
 "rotation_distance/ru/>\n"
 "Language: ru\n"
@@ -71,8 +71,9 @@ msgid ""
 "use 16 in the formula above."
 msgstr ""
 "Настройка `<microsteps>` определяется драйвером шагового двигателя. "
-"Большинство драйверов используют 16 микрошагов. Если вы не уверены, установите"
-" `microsteps: 16` в конфигурации и используйте 16 в приведенной выше формуле."
+"Большинство драйверов используют 16 микрошагов. Если вы не уверены, "
+"установите `microsteps: 16` в конфигурации и используйте 16 в приведенной "
+"выше формуле."
 
 msgid "Calibrating rotation_distance on extruders"
 msgstr "Калибровка rotation_distance на экструдерах"
