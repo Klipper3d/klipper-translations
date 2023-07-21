@@ -1,12 +1,12 @@
 # Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022.
-# VICTOR <subfyn@gmail.com>, 2023.
+# VICTOR <subfyn@gmail.com>, 2023, 2025.
 # xXx <xxx_xxx_xxxxxxxxx@mail.ru>, 2023, 2025.
 # gfbdrgng <hnaofegnp@hldrive.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:35+0000\n"
-"Last-Translator: gfbdrgng <hnaofegnp@hldrive.com>\n"
+"Last-Translator: VICTOR <subfyn@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
 "beaglebone/ru/>\n"
 "Language: ru\n"
