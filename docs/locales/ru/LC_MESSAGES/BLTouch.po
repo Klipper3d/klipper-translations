@@ -1,12 +1,12 @@
 # Comocen <Comoc_en@mail.ru>, 2022.
 # Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022.
-# VICTOR <subfyn@gmail.com>, 2023.
+# VICTOR <subfyn@gmail.com>, 2023, 2025.
 # xXx <xxx_xxx_xxxxxxxxx@mail.ru>, 2023, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:36+0000\n"
-"Last-Translator: xXx <xxx_xxx_xxxxxxxxx@mail.ru>\n"
+"Last-Translator: VICTOR <subfyn@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/bltouch/"
 "ru/>\n"
 "Language: ru\n"
@@ -74,9 +74,9 @@ msgstr ""
 "При включении принтера датчик BL-Touch должен выполнить самотестирование и "
 "несколько раз переместить штифт вверх и вниз. По завершении самотестирования "
 "штифт должен быть втянут, а на датчике должен гореть красный светодиод. Если "
-"возникли какие-либо ошибки, например, датчик мигает красным цветом или штырек "
-"опускается, а не поднимается, выключите принтер и проверьте подключение и "
-"конфигурацию."
+"возникли какие-либо ошибки, например, датчик мигает красным цветом или "
+"штырек опускается, а не поднимается, выключите принтер и проверьте "
+"подключение и конфигурацию."
 
 msgid ""
 "If the above is looking good, it's time to test that the control pin is "
@@ -119,8 +119,8 @@ msgid ""
 "If that was successful, do another `G28` (or `PROBE`) but this time let it "
 "touch the bed as it should."
 msgstr ""
-"Если это удалось, выполните еще одну операцию `G28` (или `PROBE`), но на этот "
-"раз пусть она коснется стола, как и положено."
+"Если это удалось, выполните еще одну операцию `G28` (или `PROBE`), но на "
+"этот раз пусть она коснется стола, как и положено."
 
 msgid "BL-Touch gone bad"
 msgstr "BL-Прикосновение испортилось"
