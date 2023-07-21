@@ -2,7 +2,7 @@
 # Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022, 2025.
 # Vik <xasertop@gmail.com>, 2022.
 # Evgeniy Khramov <thejenjagamertjg@gmail.com>, 2022.
-# VICTOR <subfyn@gmail.com>, 2023.
+# VICTOR <subfyn@gmail.com>, 2023, 2025.
 # gfbdrgng <hnaofegnp@hldrive.com>, 2024, 2025.
 # Evgeniy Khramov <65224669+thejenja@users.noreply.github.com>, 2025.
 # Vin <k3kelm4vw@mozmail.com>, 2025.
@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:35+0000\n"
-"Last-Translator: Comocen <Comoc_en@mail.ru>\n"
+"Last-Translator: VICTOR <subfyn@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/protocol/"
 "ru/>\n"
 "Language: ru\n"
@@ -75,12 +75,13 @@ msgid ""
 "generate. The host uses that information to command the micro-controller to "
 "perform actions and to interpret the results."
 msgstr ""
-"Протокол передачи данных Klipper можно представить как механизм "
-"[RPC](https://en.wikipedia.org/wiki/Remote_procedure_call) между "
-"микроконтроллером и хостом. Программное обеспечение микроконтроллера объявляет"
-" команды, которые может вызывать хост, а также ответные сообщения, которые он "
-"может генерировать. Хост использует эту информацию, чтобы дать команду "
-"микроконтроллеру на выполнение действий и интерпретировать их результаты."
+"Протокол передачи данных Klipper можно представить как механизм [RPC]"
+"(https://en.wikipedia.org/wiki/Remote_procedure_call) между "
+"микроконтроллером и хостом. Программное обеспечение микроконтроллера "
+"объявляет команды, которые может вызывать хост, а также ответные сообщения, "
+"которые он может генерировать. Хост использует эту информацию, чтобы дать "
+"команду микроконтроллеру на выполнение действий и интерпретировать их "
+"результаты."
 
 msgid "Declaring commands"
 msgstr "Объявление команд"
