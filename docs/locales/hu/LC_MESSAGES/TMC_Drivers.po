@@ -1,19 +1,21 @@
 # Zs.Antal <zsikaiantal@gmail.com>, 2022.
 # Yifei Ding <dingyifeiair@gmail.com>, 2022.
+# "Zs.Antal" <zsikaiantal@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-11-28 09:48+0000\n"
-"Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/tmc_drivers/hu/>\n"
+"PO-Revision-Date: 2023-07-26 16:08+0000\n"
+"Last-Translator: \"Zs.Antal\" <zsikaiantal@gmail.com>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
+"tmc_drivers/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.15-dev\n"
+"X-Generator: Weblate 5.0-dev\n"
 
 msgid ""
 "This document provides information on using Trinamic stepper motor drivers "
@@ -1089,12 +1091,12 @@ msgid ""
 "without introducing a systemic positional error."
 msgstr ""
 "A legjobb helymeghatározási pontosság érdekében fontold meg a SpreadCycle "
-"mód használatát és az interpoláció kikapcsolását (állítsd be az "
-"`interpolate: False` értéket a TMC motorvezérlő konfigurációjában). Ilyen "
-"konfiguráció esetén növelhetjük a `microstep` beállítást a léptető mozgása "
-"közbeni hallható zajok csökkentése érdekében. Általában a `64` vagy `128` "
-"mikrolépés beállítása az interpolációhoz hasonló hallható zajjal jár, és "
-"mindezt anélkül, hogy rendszerszintű helyzeti hibát vezetne be."
+"mód használatát és az interpoláció kikapcsolását (állítsd be az `interpolate:"
+" False` értéket a TMC motorvezérlő konfigurációjában). Ilyen konfiguráció "
+"esetén növelhetjük a `microstep` beállítást a léptető mozgása közbeni "
+"hallható zajok csökkentése érdekében. Általában a `64` vagy `128` mikrolépés "
+"beállítása az interpolációhoz hasonló hallható zajjal jár, és mindezt "
+"anélkül, hogy rendszerszintű helyzeti hibát jelezne."
 
 #: docs/TMC_Drivers.md:block 21 (paragraph)
 msgid ""
@@ -1115,7 +1117,7 @@ msgid ""
 "homing and set a new current after the carriage has moved away."
 msgstr ""
 "Az is hasznos lehet, ha ez a makró beállítja a meghajtó áramát a kezdőpont "
-"felvétel előtt, és új áramot állít be, miután a kocsi elindult."
+"felvétel előtt, és új áramot állít be, a kocsi indulásakor."
 
 #: docs/TMC_Drivers.md:block 73 (code)
 msgid ""
@@ -1241,7 +1243,7 @@ msgstr ""
 
 #: docs/TMC_Drivers.md:block 110 (header)
 msgid "TMC reports error: `... ShortToGND` OR `ShortToSupply`"
-msgstr ""
+msgstr "TMC hibát jelent: `... ShortToGND` VAGY `ShortToSupply`"
 
 #~ msgid "TMC reports error: `... ShortToGND` OR `LowSideShort`"
 #~ msgstr "A TMC hibát jelent: `... ShortToGND` VAGY `LowSideShort`"

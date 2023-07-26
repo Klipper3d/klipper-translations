@@ -5,15 +5,16 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2023-02-11 15:38+0000\n"
+"PO-Revision-Date: 2023-07-26 16:08+0000\n"
 "Last-Translator: \"Zs.Antal\" <zsikaiantal@gmail.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/measuring_resonances/hu/>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
+"measuring_resonances/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.16-dev\n"
+"X-Generator: Weblate 5.0-dev\n"
 
 msgid "Measuring Resonances"
 msgstr "Rezonanciák mérése"
@@ -930,7 +931,7 @@ msgstr ""
 "[resonance_tester]\n"
 "accel_chip: ...\n"
 "probe_points: ...\n"
-"max_smoothing: 0.25 # egy példa\n"
+"max_smoothing: 0.25  # egy példa\n"
 
 msgid "SHAPER_CALIBRATE\n"
 msgstr "SHAPER_CALIBRATE\n"
@@ -949,17 +950,27 @@ msgid ""
 "To avoid too much smoothing with '3hump_ei', suggested max_accel <= 2500 mm/sec^2\n"
 "Recommended shaper_type_y = mzv, shaper_freq_y = 36.8 Hz\n"
 msgstr ""
-"A legjobb bemeneti alakító paraméterek kiszámítása az y tengelyhez\n"
-"Beillesztett alakító 'zv' frekvencia = 39,0 Hz (rezgések = 13,2%, simítás ~= 0,105)\n"
-"A túl nagy simítás elkerülése érdekében a 'zv', javasolt max_accel <= 5900 mm/sec^2\n"
-"Alkalmazott alakító 'mzv' frekvencia = 36,8 Hz (rezgések = 1,7%, simítás ~= 0,150)\n"
-"A túl nagy simítás elkerülése érdekében az 'mzv' esetében javasolt max_accel <= 4000 mm/sec^2\n"
-"Alkalmazott alakító 'ei' frekvencia = 36,6 Hz (rezgések = 2,2%, simítás ~= 0,240)\n"
-"A túl nagy simítás elkerülése érdekében az 'ei', javasolt max_accel <= 2500 mm/sec^2\n"
-"Alkalmazott alakító '2hump_ei' frekvencia = 48,0 Hz (rezgések = 0,0%, simítás ~= 0,234)\n"
-"A túl nagy simítás elkerülése érdekében a '2hump_ei' esetében javasolt max_accel <= 2500 mm/sec^2\n"
-"Alkalmazott alakító '3hump_ei' frekvencia = 59,0 Hz (rezgések = 0,0%, simítás ~= 0,235)\n"
-"A túl nagy simítás elkerülése érdekében a '3hump_ei' esetében javasolt max_accel <= 2500 mm/sec^2\n"
+"A legjobb bemeneti alakító paraméterek kiszámítása az Y tengelyhez\n"
+"Beillesztett alakító 'zv' frekvencia = 39,0 Hz (rezgések = 13,2%, simítás ~= "
+"0,105)\n"
+"A túl nagy simítás elkerülése érdekében a 'zv', javasolt max_accel <= 5900 "
+"mm/sec^2\n"
+"Alkalmazott alakító 'mzv' frekvencia = 36,8 Hz (rezgések = 1,7%, simítás ~= "
+"0,150)\n"
+"A túl nagy simítás elkerülése érdekében az 'mzv' esetében javasolt max_accel "
+"<= 4000 mm/sec^2\n"
+"Alkalmazott alakító 'ei' frekvencia = 36,6 Hz (rezgések = 2,2%, simítás ~= "
+"0,240)\n"
+"A túl nagy simítás elkerülése érdekében az 'ei', javasolt max_accel <= 2500 "
+"mm/sec^2\n"
+"Alkalmazott alakító '2hump_ei' frekvencia = 48,0 Hz (rezgések = 0,0%, "
+"simítás ~= 0,234)\n"
+"A túl nagy simítás elkerülése érdekében a '2hump_ei' esetében javasolt "
+"max_accel <= 2500 mm/sec^2\n"
+"Alkalmazott alakító '3hump_ei' frekvencia = 59,0 Hz (rezgések = 0,0%, "
+"simítás ~= 0,235)\n"
+"A túl nagy simítás elkerülése érdekében a '3hump_ei' esetében javasolt "
+"max_accel <= 2500 mm/sec^2\n"
 "Ajánlott shaper_type_y = mzv, shaper_freq_y = 36,8 Hz\n"
 
 msgid "SHAPER_CALIBRATE AXIS=Y\n"
@@ -1366,10 +1377,13 @@ msgid ""
 "recommended for signal integrity over a long distance. If you still "
 "experience signal integrity issues (SPI/I2C errors), shorten the cable."
 msgstr ""
+"A hosszú távú jelintegritás érdekében árnyékolt sodrott páros (cat5e vagy "
+"jobb) ethernet-kábel használata ajánlott. Ha továbbra is jelintegritási "
+"problémákat tapasztalsz (SPI/I2C hibák), rövidítsd le a kábelt."
 
 #: docs/Measuring_Resonances.md:block 13 (header)
 msgid "Direct to Raspberry Pi"
-msgstr ""
+msgstr "Közvetlenül a Raspberry Pi-re"
 
 #: docs/Measuring_Resonances.md:block 14 (paragraph)
 msgid ""
@@ -1377,14 +1391,17 @@ msgid ""
 "and configuration will vary according to your specific board and available "
 "pins.**"
 msgstr ""
+"**Megjegyzés: Sok MCU működik az ADXL345-össel SPI módban (pl. Pi Pico), a "
+"vezetékezés és a konfiguráció az adott laptól és a rendelkezésre álló tűktől "
+"függően változik.**"
 
 #: docs/Measuring_Resonances.md:block 16 (table)
 msgid "3.3V DC power"
-msgstr ""
+msgstr "3.3V DC feszültség"
 
 #: docs/Measuring_Resonances.md:block 19 (header)
 msgid "Using Raspberry Pi Pico"
-msgstr ""
+msgstr "Raspberry Pi Pico használata"
 
 #: docs/Measuring_Resonances.md:block 20 (paragraph)
 msgid ""
@@ -1394,6 +1411,12 @@ msgid ""
 "of GPIO. The Pico does not have much processing power, so make sure it is "
 "only running the accelerometer and not performing any other duties."
 msgstr ""
+"Az ADXL345-öt csatlakoztathatod a Raspberry Pi Pico számítógéphez, majd a "
+"Pico számítógépet USB-n keresztül csatlakoztathatod a Raspberry Pi "
+"számítógéphez. Ez megkönnyíti a gyorsulásmérő újrafelhasználását más Klipper "
+"eszközökön, mivel GPIO helyett USB-n keresztül csatlakozik. A Pico nem "
+"rendelkezik nagy feldolgozási teljesítménnyel, ezért győződj meg róla, hogy "
+"csak a gyorsulásmérőt futtatja, és nem végez más feladatokat."
 
 #: docs/Measuring_Resonances.md:block 21 (paragraph)
 msgid ""
@@ -1401,70 +1424,73 @@ msgid ""
 "3.3V only. Depending on the board's layout, a level shifter may be present, "
 "which makes 5V dangerous for your RPi."
 msgstr ""
+"Az RPi károsodásának elkerülése érdekében ügyelj arra, hogy az ADXL345-öt "
+"csak 3,3 V-hoz csatlakoztasd. A tábla elrendezésétől függően előfordulhat, "
+"hogy egy feszváltó jelen van, ami veszélyessé teszi az 5V-ot az RPi számára."
 
 #: docs/Measuring_Resonances.md:block 22 (table)
 msgid "Pico pin"
-msgstr ""
+msgstr "Pico tű"
 
 #: docs/Measuring_Resonances.md:block 22 (table)
 msgid "Pico pin name"
-msgstr ""
+msgstr "Pico tű neve"
 
 #: docs/Measuring_Resonances.md:block 22 (table)
 msgid "36"
-msgstr ""
+msgstr "36"
 
 #: docs/Measuring_Resonances.md:block 22 (table)
 msgid "2"
-msgstr ""
+msgstr "2"
 
 #: docs/Measuring_Resonances.md:block 22 (table)
 msgid "GP1 (SPI0_CSn)"
-msgstr ""
+msgstr "GP1 (SPI0_CSn)"
 
 #: docs/Measuring_Resonances.md:block 22 (table)
 msgid "1"
-msgstr ""
+msgstr "1"
 
 #: docs/Measuring_Resonances.md:block 22 (table)
 msgid "GP0 (SPI0_RX)"
-msgstr ""
+msgstr "GP0 (SPI0_RX)"
 
 #: docs/Measuring_Resonances.md:block 22 (table)
 msgid "5"
-msgstr ""
+msgstr "5"
 
 #: docs/Measuring_Resonances.md:block 22 (table)
 msgid "GP3 (SPI0_TX)"
-msgstr ""
+msgstr "GP3 (SPI0_TX)"
 
 #: docs/Measuring_Resonances.md:block 22 (table)
 msgid "4"
-msgstr ""
+msgstr "4"
 
 #: docs/Measuring_Resonances.md:block 22 (table)
 msgid "GP2 (SPI0_SCK)"
-msgstr ""
+msgstr "GP2 (SPI0_SCK)"
 
 #: docs/Measuring_Resonances.md:block 23 (paragraph)
 msgid "Wiring diagrams for some of the ADXL345 boards:"
-msgstr ""
+msgstr "Néhány ADXL345 lap kapcsolási rajzai:"
 
 #: docs/Measuring_Resonances.md:block 24 (paragraph)
 msgid "![ADXL345-Pico](img/adxl345-pico.png)"
-msgstr ""
+msgstr "![ADXL345-Pico](img/adxl345-pico.png)"
 
 #: docs/Measuring_Resonances.md:block 54 (header)
 msgid "Configure ADXL345 With Pi Pico"
-msgstr ""
+msgstr "ADXL345 konfigurálása Pi Pico segítségével"
 
 #: docs/Measuring_Resonances.md:block 55 (header)
 msgid "Flash the Pico Firmware"
-msgstr ""
+msgstr "A Pico firmware égetése"
 
 #: docs/Measuring_Resonances.md:block 56 (paragraph)
 msgid "On your Raspberry Pi, compile the firmware for the Pico."
-msgstr ""
+msgstr "A Raspberry Pi-n fordítsd le a firmware-t a Pico számára."
 
 #: docs/Measuring_Resonances.md:block 57 (code)
 msgid ""
@@ -1472,20 +1498,26 @@ msgid ""
 "make clean\n"
 "make menuconfig\n"
 msgstr ""
+"cd ~/klipper\n"
+"make clean\n"
+"make menuconfig\n"
 
 #: docs/Measuring_Resonances.md:block 58 (paragraph)
 msgid "![Pico menuconfig](img/klipper_pico_menuconfig.png)"
-msgstr ""
+msgstr "![Pico menuconfig](img/klipper_pico_menuconfig.png)"
 
 #: docs/Measuring_Resonances.md:block 59 (paragraph)
 msgid ""
 "Now, while holding down the `BOOTSEL` button on the Pico, connect the Pico "
 "to the Raspberry Pi via USB. Compile and flash the firmware."
 msgstr ""
+"Most, miközben lenyomva tartjuk a `BOOTSEL` gombot a Pico-n, csatlakoztassuk "
+"a Pico-t a Raspberry Pi-hez USB-n keresztül. Fordítsuk le és égessük a "
+"firmware-t."
 
 #: docs/Measuring_Resonances.md:block 60 (code)
 msgid "make flash FLASH_DEVICE=first\n"
-msgstr ""
+msgstr "make flash FLASH_DEVICE=first\n"
 
 #: docs/Measuring_Resonances.md:block 61 (paragraph)
 msgid ""
@@ -1493,10 +1525,13 @@ msgid ""
 "example, that's `make flash FLASH_DEVICE=2e8a:0003`. ![Determine flash "
 "device](img/flash_rp2040_FLASH_DEVICE.png)"
 msgstr ""
+"Ha ez nem sikerül, a rendszer megmondja, hogy melyik `FLASH_DEVICE` címet "
+"kell használni. Ebben a példában ez a `make flash FLASH_DEVICE=2e8a:0003`. !["
+"Égető eszköz meghatározása](img/flash_rp2040_FLASH_DEVICE.png)"
 
 #: docs/Measuring_Resonances.md:block 62 (header)
 msgid "Configure the Connection"
-msgstr ""
+msgstr "A kapcsolat konfigurálása"
 
 #: docs/Measuring_Resonances.md:block 63 (paragraph)
 msgid ""
@@ -1504,6 +1539,10 @@ msgid ""
 "serial device. Find the pico serial device with `ls /dev/serial/by-id/*`. "
 "You can now add an `adxl.cfg` file with the following settings:"
 msgstr ""
+"A Pico most újraindul az új firmware-vel, és soros eszközként fog "
+"megjelenni. Keresd meg a Pico soros eszközét az `ls /dev/serial/by-id/*` "
+"segítségével. Most hozzáadhatsz egy `adxl.cfg` fájlt a következő "
+"beállításokkal:"
 
 #: docs/Measuring_Resonances.md:block 64 (code)
 msgid ""
@@ -1526,18 +1565,41 @@ msgid ""
 "[output_pin power_mode] # Improve power stability\n"
 "pin: adxl:gpio23\n"
 msgstr ""
+"[mcu adxl]\n"
+"# Változtassuk meg a <mySerial>-t arra, amit fentebb találtunk. Például,\n"
+"# usb-Klipper_rp2040_E661640843545B2E-if00\n"
+"serial: /dev/serial/by-id/usb-Klipper_rp2040_<mySerial>.\n"
+"\n"
+"[adxl345]\n"
+"cs_pin: adxl:gpio1\n"
+"spi_bus: spi0a\n"
+"axes_map: x,z,y\n"
+"\n"
+"[resonance_tester]\n"
+"accel_chip: adxl345\n"
+"probe_points:\n"
+"    # Valahol a nyomtatóágy közepe felett\n"
+"    147,154, 20\n"
+"\n"
+"[output_pin power_mode] # Javítja a teljesítmény stabilitását\n"
+"pin: adxl:gpio23\n"
 
 #: docs/Measuring_Resonances.md:block 65 (paragraph)
 msgid ""
 "If setting up the ADXL345 configuration in a separate file, as shown above, "
 "you'll also want to modify your `printer.cfg` file to include this:"
 msgstr ""
+"Ha az ADXL345 konfigurációját külön fájlban állítod be, ahogy fentebb "
+"látható, akkor a `printer.cfg` fájlt is módosítani kell, hogy tartalmazza "
+"ezt:"
 
 #: docs/Measuring_Resonances.md:block 66 (code)
 msgid ""
 "[include adxl.cfg] # Comment this out when you disconnect the "
 "accelerometer\n"
 msgstr ""
+"[include adxl.cfg] # Kommenteld ki ezt, amikor lekapcsolod a gyorsulásmérőt."
+"\n"
 
 #: docs/Measuring_Resonances.md:block 73 (code)
 msgid ""
@@ -1556,6 +1618,21 @@ msgid ""
 "[static_digital_output pico_3V3pwm] # Improve power stability\n"
 "pin: pico:gpio23\n"
 msgstr ""
+"[mcu pico]\n"
+"serial: /dev/serial/by-id/<a PICO soros azonosítója>\n"
+"\n"
+"[mpu9250]\n"
+"i2c_mcu: pico\n"
+"i2c_bus: i2c0a\n"
+"\n"
+"[resonance_tester]\n"
+"accel_chip: mpu9250\n"
+"probe_points:\n"
+"    100, 100, 20 # egy példa\n"
+"\n"
+"[static_digital_output pico_3V3pwm] # A teljesítmény stabilitásának "
+"javítása\n"
+"pin: pico:gpio23\n"
 
 #: docs/Measuring_Resonances.md:block 81 (paragraph)
 msgid ""
@@ -1566,6 +1643,12 @@ msgid ""
 "power, the wiring (that it matches the schematics, no wire is broken or "
 "loose, etc.), and soldering quality."
 msgstr ""
+"Ha a következő hibát kapod: `Invalid adxl345 id (got xx vs e5)`, ahol `xx` "
+"egy másik azonosító, azonnal próbáld meg újra. Az SPI inicializálásával van "
+"probléma. Ha továbbra is hibát kapsz, az az ADXL345-tel való kapcsolódási "
+"problémára, vagy a hibás érzékelőre utal. Duplán ellenőrizd a tápellátást, a "
+"vezetékezést (hogy megfelel-e a kapcsolási rajzoknak, nincs-e törött vagy "
+"laza vezeték stb.) és a forrasztás minőségét."
 
 #: docs/Measuring_Resonances.md:block 100 (paragraph)
 msgid ""
@@ -1574,6 +1657,10 @@ msgid ""
 " for example, for the input shaper [re-calibration](#input-shaper-re-"
 "calibration)."
 msgstr ""
+"Megjegyzendő, hogy alternatívaként a bemeneti alakító automatikus "
+"kalibrációját a Klipperből [közvetlenül](#input-shaper-auto-calibration) is "
+"futtathatod, ami például a bemeneti alakító [re-kalibrációjához](#input-"
+"shaper-re-calibration) lehet hasznos."
 
 #: docs/Measuring_Resonances.md:block 152 (paragraph)
 msgid ""
@@ -1587,6 +1674,17 @@ msgid ""
 "Always check that all parts of the printer (including the ones that may "
 "normally not move) are securely fixed in place after each auto-tuning."
 msgstr ""
+"**Figyelem!** Nem tanácsos a formázógép automatikus kalibrációját nagyon "
+"gyakran futtatni (pl. minden nyomtatás előtt vagy minden nap). A "
+"rezonanciafrekvenciák meghatározása érdekében az automatikus kalibrálás "
+"intenzív rezgéseket hoz létre az egyes tengelyeken. A 3D nyomtatókat "
+"általában nem úgy tervezték, hogy a rezonanciafrekvenciákhoz közeli "
+"rezgéseknek tartósan ellenálljanak. Ez növelheti a nyomtató alkatrészeinek "
+"kopását és csökkentheti élettartamukat. Megnő a kockázata annak is, hogy "
+"egyes alkatrészek kicsavarodnak vagy meglazulnak. Minden egyes automatikus "
+"hangolás után mindig ellenőrizd, hogy a nyomtató minden alkatrésze ("
+"beleértve azokat is, amelyek normál esetben nem mozoghatnak) biztonságosan a "
+"helyén van-e rögzítve."
 
 #~ msgid ""
 #~ "If you get an error like `Invalid adxl345 id (got xx vs e5)`, where `xx` is "
