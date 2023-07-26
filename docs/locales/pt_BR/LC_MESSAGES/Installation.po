@@ -1,16 +1,17 @@
-# Roberto Besser <rmbesser@gmail.com>, 2021.
+# Roberto Besser <rmbesser@gmail.com>, 2021, 2023.
 # dfosantos <santosdiogo97@gmail.com>, 2022.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-01-20 20:08+0000\n"
-"Last-Translator: dfosantos <santosdiogo97@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/klipper/installation/pt_BR/>\n"
+"PO-Revision-Date: 2023-07-23 06:05+0000\n"
+"Last-Translator: Roberto Besser <rmbesser@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
+"klipper/installation/pt_BR/>\n"
 "Language: pt_BR\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.11-dev\n"
+"X-Generator: Weblate 5.0-dev\n"
 
 msgid ""
 "These instructions assume the software will run on a Raspberry Pi computer "
@@ -141,6 +142,8 @@ msgid ""
 "cd ~/klipper/\n"
 "make menuconfig\n"
 msgstr ""
+"cd ~/klipper/\n"
+"make menuconfig\n"
 
 msgid "make\n"
 msgstr ""

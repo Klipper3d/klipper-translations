@@ -1,10 +1,20 @@
-#
+# Roberto Besser <rmbesser@gmail.com>, 2023.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2023-07-23 06:05+0000\n"
+"Last-Translator: Roberto Besser <rmbesser@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
+"klipper/exclude_object/pt_BR/>\n"
+"Language: pt_BR\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.0-dev\n"
+"Content-Transfer-Encoding: 8bit\n"
 
 #: docs/Exclude_Object.md:block 1 (header)
 msgid "Exclude Objects"
-msgstr ""
+msgstr "Excluir Objetos"
 
 #: docs/Exclude_Object.md:block 2 (paragraph)
 msgid ""
@@ -15,6 +25,12 @@ msgid ""
 "macros.cfg](../config/sample-macros.cfg) file for a Marlin/RepRapFirmware "
 "compatible M486 G-Code macro.)"
 msgstr ""
+"O módulo `[exclude_object]` permite que o Klipper exclua objetos enquanto "
+"uma impressão está em andamento. Para habilitar este recurso, inclua uma ["
+"seção de configuração de exclusão de objeto](Config_Reference."
+"md#exclude_object) (veja também a [referência de comandos](G-Codes.md"
+"#exclude-object) e o arquivo [sample-macros.cfg](../config/sample-macros.cfg)"
+" para um macro de código G M486 compatível com Marlin/RepRapFirmware.)"
 
 #: docs/Exclude_Object.md:block 3 (paragraph)
 msgid ""
@@ -25,14 +41,22 @@ msgid ""
 "contract covers the contents of the gcode file, how the internal state of "
 "the module is controlled, and how that state is provided to clients."
 msgstr ""
+"Diferente de outras opções de firmware de impressora 3D, uma impressora que "
+"executa o Klipper utiliza um conjunto de componentes e os usuários têm "
+"muitas opções para escolher. Portanto, para fornecer uma experiência de "
+"usuário consistente, o módulo `[exclude_object]` estabelecerá um contrato ou "
+"API de algum tipo. O contrato abrange o conteúdo do arquivo gcode, como o "
+"estado interno do módulo é controlado e como esse estado é fornecido aos "
+"clientes."
 
 #: docs/Exclude_Object.md:block 4 (header)
 msgid "Workflow Overview"
-msgstr ""
+msgstr "Visão geral do fluxo de trabalho"
 
 #: docs/Exclude_Object.md:block 5 (paragraph)
 msgid "A typical workflow for printing a file might look like this:"
 msgstr ""
+"Um fluxo de trabalho típico para imprimir um arquivo pode parecer com isso:"
 
 #: docs/Exclude_Object.md:block 6 (ordered list)
 msgid ""
@@ -41,18 +65,27 @@ msgid ""
 "the file. Alternately, slicers may be configured to prepare object exclusion"
 " markers natively, or in it's own pre-processing step."
 msgstr ""
+"O fatiamento é concluído e o arquivo é carregado para impressão. Durante o "
+"carregamento, o arquivo é processado e os marcadores `[exclude_object]` são "
+"adicionados ao arquivo. Alternativamente, os fatiadores podem ser "
+"configurados para preparar os marcadores de exclusão de objeto nativamente, "
+"ou em seu próprio passo de pré-processamento."
 
 #: docs/Exclude_Object.md:block 6 (ordered list)
 msgid ""
 "When printing starts, Klipper will reset the `[exclude_object]` "
 "[status](Status_Reference.md#exclude_object)."
 msgstr ""
+"Quando a impressão começa, o Klipper irá resetar o status do "
+"`[exclude_object]` [status](Status_Reference.md#exclude_object)."
 
 #: docs/Exclude_Object.md:block 6 (ordered list)
 msgid ""
 "When Klipper processes the `EXCLUDE_OBJECT_DEFINE` block, it will update the"
 " status with the known objects and pass it on to clients."
 msgstr ""
+"Quando o Klipper processa o bloco `EXCLUDE_OBJECT_DEFINE`, ele irá atualizar "
+"o status com os objetos conhecidos e passá-lo para os clientes."
 
 #: docs/Exclude_Object.md:block 6 (ordered list)
 msgid ""
@@ -60,34 +93,46 @@ msgid ""
 "progress can be tracked. Klipper will update the status to include the "
 "currently printing object which the client can use for display purposes."
 msgstr ""
+"O cliente pode usar essas informações para apresentar uma UI ao usuário para "
+"que o progresso possa ser rastreado. O Klipper irá atualizar o status para "
+"incluir o objeto que está sendo impresso no momento, que o cliente pode usar "
+"para fins de exibição."
 
 #: docs/Exclude_Object.md:block 6 (ordered list)
 msgid ""
 "If the user requests that an object be cancelled, the client will issue an "
 "`EXCLUDE_OBJECT NAME=<name>` command to Klipper."
 msgstr ""
+"Se o usuário solicitar que um objeto seja cancelado, o cliente emitirá um "
+"comando `EXCLUDE_OBJECT NAME=<nome>` para o Klipper."
 
 #: docs/Exclude_Object.md:block 6 (ordered list)
 msgid ""
 "When Klipper process the command, it will add the object to the list of "
 "excluded objects and update the status for the client."
 msgstr ""
+"Quando o Klipper processa o comando, ele adicionará o objeto à lista de "
+"objetos excluídos e atualizará o status para o cliente."
 
 #: docs/Exclude_Object.md:block 6 (ordered list)
 msgid ""
 "The client will receive the updated status from Klipper and can use that "
 "information to reflect the object's status in the UI."
 msgstr ""
+"O cliente receberá o status atualizado do Klipper e poderá usar essas "
+"informações para refletir o status do objeto na UI (interface do usuário)."
 
 #: docs/Exclude_Object.md:block 6 (ordered list)
 msgid ""
 "When printing finishes, the `[exclude_object]` status will continue to be "
 "available until another action resets it."
 msgstr ""
+"Quando a impressão terminar, o status do `[exclude_object]` continuará "
+"disponível até que outra ação o resete."
 
 #: docs/Exclude_Object.md:block 7 (header)
 msgid "The GCode File"
-msgstr ""
+msgstr "O arquivo GCode"
 
 #: docs/Exclude_Object.md:block 8 (paragraph)
 msgid ""
@@ -100,10 +145,19 @@ msgid ""
 "python library, see [cancelobject-"
 "preprocessor](https://github.com/kageurufu/cancelobject-preprocessor)."
 msgstr ""
+"O processamento especializado de gcode necessário para suportar a exclusão "
+"de objetos não se enquadra nos objetivos centrais de design do Klipper. "
+"Portanto, este módulo requer que o arquivo seja processado antes de ser "
+"enviado para o Klipper para impressão. Usar um script de pós-processamento "
+"no fatiador ou ter um middleware processando o arquivo no upload são duas "
+"possibilidades para preparar o arquivo para o Klipper. Um script de pós-"
+"processamento de referência está disponível tanto como um executável quanto "
+"uma biblioteca python, veja [cancelobject-preprocessor](https://github.com/"
+"kageurufu/cancelobject-preprocessor)."
 
 #: docs/Exclude_Object.md:block 9 (header)
 msgid "Object Definitions"
-msgstr ""
+msgstr "Definições de objetos"
 
 #: docs/Exclude_Object.md:block 10 (paragraph)
 msgid ""
@@ -113,6 +167,11 @@ msgid ""
 "other commands. The primary purpose of this command is to provide "
 "information to the UI without needing to parse the entire gcode file."
 msgstr ""
+"O comando `EXCLUDE_OBJECT_DEFINE` é usado para fornecer um resumo de cada "
+"objeto no arquivo gcode a ser impresso. Fornece um resumo de um objeto no "
+"arquivo. Objetos não precisam ser definidos para serem referenciados por "
+"outros comandos. O objetivo principal deste comando é fornecer informações "
+"para a UI sem a necessidade de analisar todo o arquivo gcode."
 
 #: docs/Exclude_Object.md:block 11 (paragraph)
 msgid ""
@@ -128,46 +187,66 @@ msgid ""
 "Additional parameters will be saved as strings in the object definition and "
 "provided in status updates."
 msgstr ""
+"As definições de objeto são nomeadas, para permitir que os usuários "
+"selecionem facilmente um objeto para ser excluído, e metadados adicionais "
+"podem ser fornecidos para permitir exibições gráficas de cancelamento. Os "
+"metadados definidos atualmente incluem uma coordenada `CENTER` X,Y, e uma "
+"lista `POLYGON` de pontos X,Y representando um contorno mínimo do objeto. "
+"Isso pode ser uma simples caixa delimitadora, ou um casco complicado para "
+"mostrar visualizações mais detalhadas dos objetos impressos. Especialmente "
+"quando os arquivos gcode incluem várias partes com regiões delimitadoras "
+"sobrepostas, os pontos centrais se tornam difíceis de distinguir "
+"visualmente. `POLYGONS` deve ser um array compatível com json de pontos "
+"`[X,Y]` sem espaços em branco. Parâmetros adicionais serão salvos como "
+"strings na definição do objeto e fornecidos em atualizações de status."
 
 #: docs/Exclude_Object.md:block 12 (paragraph)
 msgid ""
 "`EXCLUDE_OBJECT_DEFINE NAME=calibration_pyramid CENTER=50,50 "
 "POLYGON=[[40,40],[50,60],[60,40]]`"
 msgstr ""
+"`EXCLUDE_OBJECT_DEFINE NAME=calibration_pyramid CENTER=50,50 "
+"POLYGON=[[40,40],[50,60],[60,40]]`"
 
 #: docs/Exclude_Object.md:block 13 (paragraph)
 msgid ""
 "All available G-Code commands are documented in the [G-Code "
 "Reference](./G-Codes.md#excludeobject)"
 msgstr ""
+"Todos os comandos G-Code disponíveis estão documentados na [Referência de "
+"G-Code](./G-Codes.md#excludeobject)"
 
 #: docs/Exclude_Object.md:block 14 (header)
 msgid "Status Information"
-msgstr ""
+msgstr "Informações de status"
 
 #: docs/Exclude_Object.md:block 15 (paragraph)
 msgid ""
 "The state of this module is provided to clients by the [exclude_object "
 "status](Status_Reference.md#exclude_object)."
 msgstr ""
+"O estado deste módulo é fornecido aos clientes pelo status do "
+"[exclude_object](Status_Reference.md#exclude_object)."
 
 #: docs/Exclude_Object.md:block 16 (paragraph)
 msgid "The status is reset when:"
-msgstr ""
+msgstr "O status é reiniciado quando:"
 
 #: docs/Exclude_Object.md:block 17 (unordered list)
 msgid "The Klipper firmware is restarted."
-msgstr ""
+msgstr "O firmware do Klipper é reiniciado."
 
 #: docs/Exclude_Object.md:block 17 (unordered list)
 msgid ""
 "There is a reset of the `[virtual_sdcard]`. Notably, this is reset by "
 "Klipper at the start of a print."
 msgstr ""
+"Há um reset do `[virtual_sdcard]`. Notavelmente, este é reiniciado pelo "
+"Klipper no início de uma impressão."
 
 #: docs/Exclude_Object.md:block 17 (unordered list)
 msgid "When an `EXCLUDE_OBJECT_DEFINE RESET=1` command is issued."
-msgstr ""
+msgstr "Quando um comando `EXCLUDE_OBJECT_DEFINE RESET=1` é emitido."
 
 #: docs/Exclude_Object.md:block 18 (paragraph)
 msgid ""
@@ -177,6 +256,11 @@ msgid ""
 "provide clients with object names and coordinates so the UI can provide a "
 "graphical representation of the objects if desired."
 msgstr ""
+"A lista de objetos definidos é representada no campo de status "
+"`exclude_object.objects`. Em um arquivo gcode bem definido, isso será feito "
+"com comandos `EXCLUDE_OBJECT_DEFINE` no início do arquivo. Isso fornecerá "
+"aos clientes nomes de objetos e coordenadas para que a UI possa fornecer uma "
+"representação gráfica dos objetos, se desejado."
 
 #: docs/Exclude_Object.md:block 19 (paragraph)
 msgid ""
@@ -187,6 +271,12 @@ msgid ""
 "`EXCLUDE_OBJECT_START` will be added to the known objects to assist in UI "
 "hinting, without any additional metadata."
 msgstr ""
+"Conforme a impressão avança, o campo de status `exclude_object."
+"current_object` será atualizado à medida que o Klipper processa os comandos "
+"`EXCLUDE_OBJECT_START` e `EXCLUDE_OBJECT_END`. O campo `current_object` será "
+"definido mesmo se o objeto tiver sido excluído. Objetos indefinidos marcados "
+"com um `EXCLUDE_OBJECT_START` serão adicionados aos objetos conhecidos para "
+"ajudar nas dicas da UI, sem nenhum metadado adicional."
 
 #: docs/Exclude_Object.md:block 20 (paragraph)
 msgid ""
@@ -195,3 +285,7 @@ msgid ""
 " ahead to process upcoming gcode, there may be a delay between when the "
 "command is issued and when the status is updated."
 msgstr ""
+"Conforme os comandos `EXCLUDE_OBJECT` são emitidos, a lista de objetos "
+"excluídos é fornecida no array `exclude_object.excluded_objects`. Como o "
+"Klipper olha para frente para processar o gcode que está por vir, pode haver "
+"um atraso entre quando o comando é emitido e quando o status é atualizado."

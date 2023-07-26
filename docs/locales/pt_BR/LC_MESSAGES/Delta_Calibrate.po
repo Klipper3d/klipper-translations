@@ -1,15 +1,17 @@
 # Francisco Lima <limamg@gmail.com>, 2023.
+# Roberto Besser <rmbesser@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-01-17 23:57+0000\n"
-"Last-Translator: Francisco Lima <limamg@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/klipper/delta_calibrate/pt_BR/>\n"
+"PO-Revision-Date: 2023-07-20 12:54+0000\n"
+"Last-Translator: Roberto Besser <rmbesser@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
+"klipper/delta_calibrate/pt_BR/>\n"
 "Language: pt_BR\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.15.1-dev\n"
+"X-Generator: Weblate 5.0-dev\n"
 
 msgid ""
 "This document describes Klipper's automatic calibration system for \"delta\""
@@ -268,7 +270,7 @@ msgid ""
 msgstr ""
 
 msgid "Additional notes"
-msgstr ""
+msgstr "Notas adicionais"
 
 msgid ""
 "If the delta printer has good dimensional accuracy then the distance between"
@@ -313,7 +315,7 @@ msgid ""
 msgstr ""
 
 msgid "SAVE_CONFIG\n"
-msgstr ""
+msgstr "SAVE_CONFIG\n"
 
 msgid ""
 "DELTA_ANALYZE "

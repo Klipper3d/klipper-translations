@@ -1,4 +1,4 @@
-# Roberto Besser <rmbesser@gmail.com>, 2021.
+# Roberto Besser <rmbesser@gmail.com>, 2021, 2023.
 # Zeldazul <b.ferreirargs@gmail.com>, 2022.
 # Wagner Reck <wagner.reck@gmail.com>, 2022.
 # gbonaspetti <gbonaspetti@hotmail.com>, 2022.
@@ -6,14 +6,15 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-10-22 22:10+0000\n"
-"Last-Translator: Lucas Rafaldini <lrafaldini@pm.me>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/klipper/g-codes/pt_BR/>\n"
+"PO-Revision-Date: 2023-07-22 04:51+0000\n"
+"Last-Translator: Roberto Besser <rmbesser@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
+"klipper/g-codes/pt_BR/>\n"
 "Language: pt_BR\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.14.2-dev\n"
+"X-Generator: Weblate 5.0-dev\n"
 
 msgid ""
 "This document describes the commands that Klipper supports. These are "
@@ -1440,7 +1441,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 233 (header)
 msgid "PROBE"
-msgstr ""
+msgstr "SONDA"
 
 #: docs/G-Codes.md:block 235 (header)
 msgid "QUERY_PROBE"
