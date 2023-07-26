@@ -2,11 +2,12 @@
 # Evgeniy Khramov <thejenjagamertjg@gmail.com>, 2022.
 # Anrey <bilaynvceigpy2@gmail.com>, 2023.
 # gggdeff <gggdeff17@gmail.com>, 2023.
+# VICTOR <subfyn@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-07-04 08:52+0000\n"
-"Last-Translator: gggdeff <gggdeff17@gmail.com>\n"
+"PO-Revision-Date: 2023-07-21 13:06+0000\n"
+"Last-Translator: VICTOR <subfyn@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/g-codes/"
 "ru/>\n"
 "Language: ru\n"
@@ -38,10 +39,10 @@ msgid "Dwell: `G4 P<milliseconds>`"
 msgstr ""
 
 msgid "Move to origin: `G28 [X] [Y] [Z]`"
-msgstr ""
+msgstr "Перемещение в начало координат: `G28 [X] [Y] [Z]`."
 
 msgid "Turn off motors: `M18` or `M84`"
-msgstr ""
+msgstr "Выключите моторы: `М18` или `М84`"
 
 msgid "Wait for current moves to finish: `M400`"
 msgstr ""

@@ -2,17 +2,20 @@
 # Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022.
 # Evgeniy Khramov <thejenjagamertjg@gmail.com>, 2022.
 # Anatoliy <anatoliy.males@yandex.ru>, 2022.
+# VICTOR <subfyn@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-12-15 18:51+0000\n"
-"Last-Translator: Anatoliy <anatoliy.males@yandex.ru>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/hall_filament_width_sensor/ru/>\n"
+"PO-Revision-Date: 2023-07-21 13:06+0000\n"
+"Last-Translator: VICTOR <subfyn@gmail.com>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
+"hall_filament_width_sensor/ru/>\n"
 "Language: ru\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.15-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.0-dev\n"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 1 (header)
 msgid "Hall filament width sensor"
@@ -40,6 +43,18 @@ msgid ""
 "name: Raw: {'%4.0F' % printer.hall_filament_width_sensor.Raw}\n"
 "index: 1\n"
 msgstr ""
+"[menu __main __filament __width_current] /Меню главной толщины филамента\n"
+"type: command /тип:команда\n"
+"enable: {'hall_filament_width_sensor' in printer} /включить:\n"
+"name: Dia: {'%.2F' % printer.hall_filament_width_sensor.Diameter}/Имя:\n"
+"index: 0 /индекс:\n"
+"\n"
+"[menu __main __filament __raw_width_current] /Меню главной толщины сырого "
+"филамента\n"
+"type: command\n"
+"enable: {'hall_filament_width_sensor' in printer}\n"
+"name: Raw: {'%4.0F' % printer.hall_filament_width_sensor.Raw}\n"
+"index: 1\n"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 22 (header)
 msgid "Calibration procedure"
@@ -48,11 +63,15 @@ msgstr "Процедура калибровки"
 #: docs/Hall_Filament_Width_Sensor.md:block 24 (ordered list)
 msgid "Insert first calibration rod (1.5 mm size) get first raw sensor value"
 msgstr ""
+"Вставьте первый калибровочный стержень (размер 1,5 мм) и получите первое "
+"необработанное значение датчика"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 24 (ordered list)
 msgid ""
 "Insert second calibration rod (2.0 mm size) get second raw sensor value"
 msgstr ""
+"Вставьте второй калибровочный стержень (размер 2,0 мм) и получите второе "
+"необработанное значение датчика"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 24 (ordered list)
 msgid "Save raw sensor values in config parameter `Raw_dia1` and `Raw_dia2`"
