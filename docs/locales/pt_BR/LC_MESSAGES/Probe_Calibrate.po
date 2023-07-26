@@ -1,15 +1,17 @@
 # Wagner Reck <wagner.reck@gmail.com>, 2022.
+# Roberto Besser <rmbesser@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-08-25 14:22+0000\n"
-"Last-Translator: Wagner Reck <wagner.reck@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/klipper/probe_calibrate/pt_BR/>\n"
+"PO-Revision-Date: 2023-07-20 12:54+0000\n"
+"Last-Translator: Roberto Besser <rmbesser@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
+"klipper/probe_calibrate/pt_BR/>\n"
 "Language: pt_BR\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.14-dev\n"
+"X-Generator: Weblate 5.0-dev\n"
 
 msgid "Calibrating probe X and Y offsets"
 msgstr "Calibrando os deslocamentos X e Y da sonda"
@@ -231,7 +233,7 @@ msgid "G1 F300 X57 Y30 Z15\n"
 msgstr ""
 
 msgid "SAVE_CONFIG\n"
-msgstr ""
+msgstr "SAVE_CONFIG\n"
 
 msgid ""
 "Recv: // probe accuracy: at X:0.000 Y:0.000 Z:10.000\n"

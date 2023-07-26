@@ -1,9 +1,16 @@
-#
+# Roberto Besser <rmbesser@gmail.com>, 2023.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2023-07-20 12:54+0000\n"
+"Last-Translator: Roberto Besser <rmbesser@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
+"klipper/manual_level/pt_BR/>\n"
 "Language: pt_BR\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.0-dev\n"
 
 msgid ""
 "This document describes tools for calibrating a Z endstop and for performing"
@@ -198,7 +205,7 @@ msgid "Z_ENDSTOP_CALIBRATE\n"
 msgstr ""
 
 msgid "SAVE_CONFIG\n"
-msgstr ""
+msgstr "SAVE_CONFIG\n"
 
 msgid "BED_SCREWS_ADJUST\n"
 msgstr ""
