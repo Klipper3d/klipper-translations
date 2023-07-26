@@ -1,15 +1,17 @@
 # Zs.Antal <zsikaiantal@gmail.com>, 2022.
+# "Zs.Antal" <zsikaiantal@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-11-23 19:48+0000\n"
-"Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/benchmarks/hu/>\n"
+"PO-Revision-Date: 2023-07-24 10:03+0000\n"
+"Last-Translator: \"Zs.Antal\" <zsikaiantal@gmail.com>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
+"benchmarks/hu/>\n"
 "Language: hu\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.15-dev\n"
+"X-Generator: Weblate 5.0-dev\n"
 
 msgid "This document describes Klipper benchmarks."
 msgstr "Ez a dokumentum a Klipper referenciaértékeit ismerteti."
@@ -1007,12 +1009,14 @@ msgstr "198"
 
 #: docs/Benchmarks.md:block 85 (header)
 msgid "AR100 step rate benchmark"
-msgstr ""
+msgstr "AR100 lépési sebesség referencia"
 
 #: docs/Benchmarks.md:block 86 (paragraph)
 msgid ""
 "The following configuration sequence is used on AR100 CPU (Allwinner A64):"
 msgstr ""
+"Az AR100 CPU (Allwinner A64) esetében a következő konfigurációs sorrend "
+"használatos:"
 
 #: docs/Benchmarks.md:block 87 (code)
 msgid ""
@@ -1023,40 +1027,51 @@ msgid ""
 "finalize_config crc=0\n"
 "\n"
 msgstr ""
+"allocate_oids count=3\n"
+"config_stepper oid=0 step_pin=PL10 dir_pin=PE14 invert_step=-1 "
+"step_pulse_ticks=0\n"
+"config_stepper oid=1 step_pin=PL11 dir_pin=PE15 invert_step=-1 "
+"step_pulse_ticks=0\n"
+"config_stepper oid=2 step_pin=PL12 dir_pin=PE16 invert_step=-1 "
+"step_pulse_ticks=0\n"
+"finalize_config crc=0\n"
+"\n"
 
 #: docs/Benchmarks.md:block 88 (paragraph)
 msgid ""
 "The test was last run on commit `08d037c6` with gcc version `or1k-linux-"
 "musl-gcc (GCC) 9.2.0` on an Allwinner A64-H micro-controller."
 msgstr ""
+"A tesztet utoljára a `08d037c6` ` or1k-linux-musl-gcc (GCC) 9.2.0` gcc "
+"verzióval futtatták egy Allwinner A64-H mikrokontrollerrel."
 
 #: docs/Benchmarks.md:block 89 (table)
 msgid "AR100 R_PIO"
-msgstr ""
+msgstr "AR100 R_PIO"
 
 #: docs/Benchmarks.md:block 89 (table)
 msgid "85"
-msgstr ""
+msgstr "85"
 
 #: docs/Benchmarks.md:block 89 (table)
 msgid "359"
-msgstr ""
+msgstr "359"
 
 #: docs/Benchmarks.md:block 105 (table)
 msgid "ar100 (serial)"
-msgstr ""
+msgstr "AR100 (soros)"
 
 #: docs/Benchmarks.md:block 105 (table)
 msgid "138K"
-msgstr ""
+msgstr "138K"
 
 #: docs/Benchmarks.md:block 105 (table)
 msgid "08d037c6"
-msgstr ""
+msgstr "08d037c6"
 
 #: docs/Benchmarks.md:block 105 (table)
 msgid "or1k-linux-musl-gcc 9.3.0"
-msgstr ""
+msgstr "or1k-linux-musl-gcc 9.3.0"
 
 #~ msgid ""
 #~ "To produce the benchmarks found in the Features.md document, the total "
