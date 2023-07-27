@@ -905,10 +905,18 @@ Esempi visivi:
 #   be applied to change the amount of slope interpolated. Larger
 #   numbers will increase the amount of slope, which results in more
 #   curvature in the mesh. Default is .2.
+#zero_reference_position:
+#   An optional X,Y coordinate that specifies the location on the bed
+#   where Z = 0.  When this option is specified the mesh will be offset
+#   so that zero Z adjustment occurs at this location.  The default is
+#   no zero reference.
 #relative_reference_index:
-#   A point index in the mesh to reference all z values to. Enabling
-#   this parameter produces a mesh relative to the probed z position
-#   at the provided index.
+#   **DEPRECATED, use the "zero_reference_position" option**
+#   The legacy option superceded by the "zero reference position".
+#   Rather than a coordinate this option takes an integer "index" that
+#   refers to the location of one of the generated points. It is recommended
+#   to use the "zero_reference_position" instead of this option for new
+#   configurations. The default is no relative reference index.
 #faulty_region_1_min:
 #faulty_region_1_max:
 #   Optional points that define a faulty region.  See docs/Bed_Mesh.md
@@ -1533,6 +1541,8 @@ Support for MPU-9250, MPU-9255, MPU-6515, MPU-6050, and MPU-6500 accelerometers 
 #   Default is 104 (0x68). If AD0 is high, it would be 0x69 instead.
 #i2c_mcu:
 #i2c_bus:
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
 #i2c_speed: 400000
 #   See the "common I2C settings" section for a description of the
 #   above parameters. The default "i2c_speed" is 400000.
@@ -2161,13 +2171,34 @@ Sensori ambientali BMP280/BME280/BME680 con interfaccia I2C. Si noti che questi 
 ```
 sensor_type: BME280
 #i2c_address:
-#   Il valore predefinito è 118 (0x76). Alcuni sensori BME280 hanno un
-#   indirizzo di 119 (0x77).
+#   Default is 118 (0x76). Some BME280 sensors have an address of 119
+#   (0x77).
+#i2c_mcu:
+#i2c_bus:
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
+#i2c_speed:
+#   See the "common I2C settings" section for a description of the
+#   above parameters.
+```
+
+### AHT10/AHT20/AHT21 temperature sensor
+
+AHT10/AHT20/AHT21 two wire interface (I2C) environmental sensors. Note that these sensors are not intended for use with extruders and heater beds, but rather for monitoring ambient temperature (C) and relative humidity. See [sample-macros.cfg](../config/sample-macros.cfg) for a gcode_macro that may be used to report humidity in addition to temperature.
+
+```
+sensor_type: AHT10
+#   Also use AHT10 for AHT20 and AHT21 sensors.
+#i2c_address:
+#   Default is 56 (0x38). Some AHT10 sensors give the option to use
+#   57 (0x39) by moving a resistor.
 #i2c_mcu:
 #i2c_bus:
 #i2c_speed:
-#   Vedere la sezione "impostazioni comuni I2C" per una descrizione 
-#   dei parametri di cui sopra.
+#   See the "common I2C settings" section for a description of the
+#   above parameters.
+#aht10_report_time:
+#   Interval in seconds between readings. Default is 30, minimum is 5
 ```
 
 ### Sensore HTU21D
@@ -2176,28 +2207,30 @@ Sensore ambientale con interfaccia a due fili (I2C) della famiglia HTU21D. Si no
 
 ```
 sensor_type:
-#  Deve essere "HTU21D", "SI7013", "SI7020", "SI7021" o "SHT21"
+#   Must be "HTU21D" , "SI7013", "SI7020", "SI7021" or "SHT21"
 #i2c_address:
-#   Il valore predefinito è 64 (0x40).
+#   Default is 64 (0x40).
 #i2c_mcu:
 #i2c_bus:
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
 #i2c_speed:
-#   Vedere la sezione "impostazioni comuni I2C" per una
-#   descrizione dei parametri di cui sopra.
+#   See the "common I2C settings" section for a description of the
+#   above parameters.
 #htu21d_hold_master:
-#   Se il sensore può trattenere il buf I2C durante la lettura. Se
-#   True nessun'altra comunicazione bus può essere eseguita mentre
-#   la lettura è in corso. L'impostazione predefinita è False.
+#   If the sensor can hold the I2C buf while reading. If True no other
+#   bus communication can be performed while reading is in progress.
+#   Default is False.
 #htu21d_resolution:
-#   La risoluzione della lettura di temperatura e umidità.
-#   I valori validi sono:
-#    'TEMP14_HUM12' -> 14bit per Temp e 12bit per umidità
-#    'TEMP13_HUM10' -> 13bit per Temp e 10bit per umidità
-#    'TEMP12_HUM08' -> 12bit per Temp e 08bit per umidità
-#    'TEMP11_HUM11' -> 11bit per Temp e 11bit per umidità
-#   L'impostazione predefinita è: "TEMP11_HUM11"
+#   The resolution of temperature and humidity reading.
+#   Valid values are:
+#    'TEMP14_HUM12' -> 14bit for Temp and 12bit for humidity
+#    'TEMP13_HUM10' -> 13bit for Temp and 10bit for humidity
+#    'TEMP12_HUM08' -> 12bit for Temp and 08bit for humidity
+#    'TEMP11_HUM11' -> 11bit for Temp and 11bit for humidity
+#   Default is: "TEMP11_HUM11"
 #htu21d_report_time:
-#   Intervallo in secondi tra le letture. Il valore predefinito è 30
+#   Interval in seconds between readings. Default is 30
 ```
 
 ### Sensore di temperatura LM75
@@ -2207,17 +2240,19 @@ Sensori di temperatura (I2C) LM75/LM75A. Questi sensori hanno una gamma di -55~1
 ```
 sensor_type: LM75
 #i2c_address:
-#   Il valore predefinito è 72 (0x48). L'intervallo normale è 72-79
-#   (0x48-0x4F) e i 3 bit bassi dell'indirizzo sono configurati tramite
-#   pin sul chip (di solito con ponticelli o cablati).
+#   Default is 72 (0x48). Normal range is 72-79 (0x48-0x4F) and the 3
+#   low bits of the address are configured via pins on the chip
+#   (usually with jumpers or hard wired).
 #i2c_mcu:
 #i2c_bus:
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
 #i2c_speed:
-#   Vedere la sezione "impostazioni comuni I2C" per una descrizione 
-#   dei parametri di cui sopra.
+#   See the "common I2C settings" section for a description of the
+#   above parameters.
 #lm75_report_time:
-#   Intervallo in secondi tra le letture. Il valore predefinito è 0.8 
-#   con il minimo 0.5.
+#   Interval in seconds between readings. Default is 0.8, with minimum
+#   0.5.
 ```
 
 ### Sensore di temperatura integrato nel microcontrollore
@@ -2368,7 +2403,7 @@ pin:
 Ventole di raffreddamento del riscaldatore (si può definire un numero qualsiasi di sezioni con un prefisso "heater_fan"). Una "ventola riscaldatore" è una ventola che verrà abilitata ogni volta che il riscaldatore associato è attivo. Per impostazione predefinita, un heater_fan ha una velocità di spegnimento pari a max_power.
 
 ```
-[heater_fan my_nozzle_fan]
+[heater_fan heatbreak_cooling_fan]
 #pin:
 #max_power:
 #shutdown_speed:
@@ -2380,21 +2415,19 @@ Ventole di raffreddamento del riscaldatore (si può definire un numero qualsiasi
 #tachometer_ppr:
 #tachometer_poll_interval:
 #enable_pin:
-#   Vedere la sezione "fan" per una descrizione dei parametri di cui sopra.
+#   See the "fan" section for a description of the above parameters.
 #heater: extruder
-#   Nome della sezione di configurazione che definisce il riscaldatore a cui
-#   è associato questa ventola. Se qui viene fornito un elenco di nomi di
-#   riscaldatori separati da virgole, la ventola verrà abilitata quando uno
-#   qualsiasi dei riscaldatori indicati è abilitato.
-#   L'impostazione predefinita è "extruder".
+#   Name of the config section defining the heater that this fan is
+#   associated with. If a comma separated list of heater names is
+#   provided here, then the fan will be enabled when any of the given
+#   heaters are enabled. The default is "extruder".
 #heater_temp: 50.0
-#   Una temperatura (in gradi Celsius) sotto la quale il riscaldatore deve
-#   scendere prima che la ventola venga disattivata.
-#   L'impostazione predefinita è 50 gradi Celsius.
+#   A temperature (in Celsius) that the heater must drop below before
+#   the fan is disabled. The default is 50 Celsius.
 #fan_speed: 1.0
-#   La velocità della ventola (espressa come un valore compreso tra 0.0 e
-#   1.0) a cui verrà impostato la ventola quando viene abilitato il relativo 
-#   riscaldatore. L'impostazione predefinita è 1.0
+#   The fan speed (expressed as a value from 0.0 to 1.0) that the fan
+#   will be set to when its associated heater is enabled. The default
+#   is 1.0
 ```
 
 ### [controller_fan]
@@ -2600,18 +2633,20 @@ PCA9533 Supporto LED. Il PCA9533 viene utilizzato sulla scheda mightyboard.
 ```
 [pca9533 my_pca9533]
 #i2c_address: 98
-#   L'indirizzo i2c utilizzato dal chip sul bus i2c. Utilizzare 98 per
-#   PCA9533/1, 99 per PCA9533/2. Il valore predefinito è 98.
+#   The i2c address that the chip is using on the i2c bus. Use 98 for
+#   the PCA9533/1, 99 for the PCA9533/2. The default is 98.
 #i2c_mcu:
 #i2c_bus:
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
 #i2c_speed:
-#   Vedere la sezione "impostazioni comuni I2C" per una 
-#   descrizione dei parametri di cui sopra.
+#   See the "common I2C settings" section for a description of the
+#   above parameters.
 #initial_RED: 0.0
 #initial_GREEN: 0.0
 #initial_BLUE: 0.0
 #initial_WHITE: 0.0
-#   Vedere la sezione "led" per informazioni su questi parametri.
+#   See the "led" section for information on these parameters.
 ```
 
 ### [pca9632]
@@ -2621,28 +2656,28 @@ Supporto LED PCA9632. Il PCA9632 viene utilizzato su FlashForge Dreamer.
 ```
 [pca9632 my_pca9632]
 #i2c_address: 98
-#   L'indirizzo i2c utilizzato dal chip sul bus i2c. Può essere 96,
-#   97, 98 o 99. Il valore predefinito è 98.
+#   The i2c address that the chip is using on the i2c bus. This may be
+#   96, 97, 98, or 99.  The default is 98.
 #i2c_mcu:
 #i2c_bus:
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
 #i2c_speed:
-#   Vedere la sezione "impostazioni I2C comuni" per una
-#   descrizione dei parametri di cui sopra.
+#   See the "common I2C settings" section for a description of the
+#   above parameters.
 #scl_pin:
 #sda_pin:
-#   In alternativa, se il pca9632 non è collegato a un bus I2C 
-#   hardware, è possibile specificare i pin "clock" (pin scl) e "data"
-#   (pin sda). L'impostazione predefinita prevede l'utilizzo
-#   dell'hardware I2C.
+#   Alternatively, if the pca9632 is not connected to a hardware I2C
+#   bus, then one may specify the "clock" (scl_pin) and "data"
+#   (sda_pin) pins. The default is to use hardware I2C.
 #color_order: RGBW
-#   Impostare l'ordine dei pixel del LED (usando una stringa
-#   contenente le lettere R, G, B, W). L'impostazione predefinita
-#   è RGBW.
+#   Set the pixel order of the LED (using a string containing the
+#   letters R, G, B, W). The default is RGBW.
 #initial_RED: 0.0
 #initial_GREEN: 0.0
 #initial_BLUE: 0.0
 #initial_WHITE: 0.0
-#   Vedere la sezione "led" per informazioni su questi parametri.
+#   See the "led" section for information on these parameters.
 ```
 
 ## Servocomandi aggiuntivi, pulsanti e altri pin
@@ -2883,40 +2918,39 @@ Configurare un driver per motore passo-passo TMC2208 (o TMC2224) tramite UART a 
 ```
 [tmc2208 stepper_x]
 uart_pin:
-#   Il pin collegato al PDN_UART del TMC2208 .
-#   Questo parametro deve essere fornito.
+#   The pin connected to the TMC2208 PDN_UART line. This parameter
+#   must be provided.
 #tx_pin:
-#   Se si utilizzano linee di ricezione e trasmissione separate per
-#   comunicare con il driver, impostare uart_pin sul pin di ricezione e
-#   tx_pin sul pin di trasmissione. L'impostazione predefinita è usare
-uart_pin sia per la lettura che per la scrittura.
+#   If using separate receive and transmit lines to communicate with
+#   the driver then set uart_pin to the receive pin and tx_pin to the
+#   transmit pin. The default is to use uart_pin for both reading and
+#   writing.
 #select_pins:
-#   Un elenco separato da virgole di pin da impostare prima di accedere
-#   all'UART tmc2208. Questo può essere utile per configurare un mux
-#   analogico per la comunicazione UART. L'impostazione predefinita è
-#   di non configurare alcun pin.
+#   A comma separated list of pins to set prior to accessing the
+#   tmc2208 UART. This may be useful for configuring an analog mux for
+#   UART communication. The default is to not configure any pins.
 #interpolate: True
-#   Se True, abilita l'interpolazione del passo (il driver eseguirà un passo
-#   intero con 256 micropassi). Questa interpolazione
-#   introduce una piccola deviazione posizionale sistemica - vedere
-#   TMC_Drivers.md per i dettagli. L'impostazione predefinita è True.
+#   If true, enable step interpolation (the driver will internally
+#   step at a rate of 256 micro-steps). This interpolation does
+#   introduce a small systemic positional deviation - see
+#   TMC_Drivers.md for details. The default is True.
 run_current:
-#   La quantità di corrente (in ampere RMS) per configurare il driver da
-#   utilizzare durante il movimento passo-passo.
-#   Questo parametro deve essere fornito.
+#   The amount of current (in amps RMS) to configure the driver to use
+#   during stepper movement. This parameter must be provided.
 #hold_current:
-#   La quantità di corrente (in ampere RMS) per configurare il driver da
-#   utilizzare quando lo stepper non è in movimento. L'impostazione di
-#   hold_current non è consigliata (consultare TMC_Drivers.md per i
-#   dettagli). L'impostazione predefinita è di non ridurre la corrente.
+#   The amount of current (in amps RMS) to configure the driver to use
+#   when the stepper is not moving. Setting a hold_current is not
+#   recommended (see TMC_Drivers.md for details). The default is to
+#   not reduce the current.
 #sense_resistor: 0.110
-#   La resistenza (in ohm) del resistore di rilevamento del motore.
-#   Il valore predefinito è 0,110 ohm.
+#   The resistance (in ohms) of the motor sense resistor. The default
+#   is 0.110 ohms.
 #stealthchop_threshold: 0
-#   La velocità (in mm/s) su cui impostare la soglia "stealthChop". Se
-#   impostata, la modalità "stealthChop" sarà abilitata se la velocità del
-#   motore passo-passo è inferiore a questo valore. Il valore predefinito
-#   è 0, che disabilita la modalità "stealthChop".
+#   The velocity (in mm/s) to set the "stealthChop" threshold to. When
+#   set, "stealthChop" mode will be enabled if the stepper motor
+#   velocity is below this value. The default is 0, which disables
+#   "stealthChop" mode.
+#driver_MULTISTEP_FILT: True
 #driver_IHOLDDELAY: 8
 #driver_TPOWERDOWN: 20
 #driver_TBL: 2
@@ -2930,10 +2964,10 @@ run_current:
 #driver_PWM_FREQ: 1
 #driver_PWM_GRAD: 14
 #driver_PWM_OFS: 36
-#   Impostare il registro dato durante la configurazione del chip TMC2208.
-#   Può essere utilizzato per impostare parametri motore personalizzati.
-#   I valori predefiniti per ciascun parametro sono accanto al nome del
-#   parametro nell'elenco precedente.
+#   Set the given register during the configuration of the TMC2208
+#   chip. This may be used to set custom motor parameters. The
+#   defaults for each parameter are next to the parameter name in the
+#   above list.
 ```
 
 ### [tmc2209]
@@ -2950,11 +2984,12 @@ run_current:
 #hold_current:
 #sense_resistor: 0.110
 #stealthchop_threshold: 0
-#   Vedere la sezione "tmc2208" per la definizione di questi parametri.
+#   See the "tmc2208" section for the definition of these parameters.
 #uart_address:
-#   L'indirizzo del chip TMC2209 per i messaggi UART (un numero intero
-#   compreso tra 0 e 3). Viene in genere utilizzato quando più chip TMC2209
-#   sono collegati allo stesso pin UART. Il valore predefinito è zero
+#   The address of the TMC2209 chip for UART messages (an integer
+#   between 0 and 3). This is typically used when multiple TMC2209
+#   chips are connected to the same UART pin. The default is zero.
+#driver_MULTISTEP_FILT: True
 #driver_IHOLDDELAY: 8
 #driver_TPOWERDOWN: 20
 #driver_TBL: 2
@@ -2969,18 +3004,18 @@ run_current:
 #driver_PWM_GRAD: 14
 #driver_PWM_OFS: 36
 #driver_SGTHRS: 0
-#   Impostare il registro dato durante la configurazione del chip TMC2209.
-#   Può essere utilizzato per impostare parametri motore personalizzati. I
-#   valori predefiniti per ciascun parametro sono accanto al nome del
-#   parametro nell'elenco precedente.
+#   Set the given register during the configuration of the TMC2209
+#   chip. This may be used to set custom motor parameters. The
+#   defaults for each parameter are next to the parameter name in the
+#   above list.
 #diag_pin:
-#   Il pin del microcontrollore collegato alla linea DIAG del chip TMC2209.
-#   Il pin è normalmente preceduto da "^" per abilitare un pullup.
-#   L'impostazione di questo crea un pin virtuale "tmc2209_stepper_x:virtual_endstop"
-#   che può essere utilizzato come endstop_pin dello stepper. In questo modo
-#   si abilita l'"homing sensorless". (Assicurarsi di impostare anche driver_SGTHRS
-#   su un valore di sensibilità appropriato.) L'impostazione predefinita è di non
-#   abilitare l'homing sensorless.
+#   The micro-controller pin attached to the DIAG line of the TMC2209
+#   chip. The pin is normally prefaced with "^" to enable a pullup.
+#   Setting this creates a "tmc2209_stepper_x:virtual_endstop" virtual
+#   pin which may be used as the stepper's endstop_pin. Doing this
+#   enables "sensorless homing". (Be sure to also set driver_SGTHRS to
+#   an appropriate sensitivity value.) The default is to not enable
+#   sensorless homing.
 ```
 
 ### [tmc2660]
@@ -3124,6 +3159,7 @@ run_current:
 #   to tune a motor with unbalanced coils. See the `Sine Wave Lookup Table`
 #   section in the datasheet for information about this field and how to tune
 #   it.
+#driver_MULTISTEP_FILT: True
 #driver_IHOLDDELAY: 6
 #driver_IRUNDELAY: 4
 #driver_TPOWERDOWN: 10
@@ -3236,6 +3272,7 @@ run_current:
 #   values used by the driver. The value must be specified as a decimal integer
 #   (hex form is not supported). In order to compute the wave table fields,
 #   see the tmc2130 "Calculation Sheet" from the Trinamic website.
+#driver_MULTISTEP_FILT: True
 #driver_IHOLDDELAY: 6
 #driver_TPOWERDOWN: 10
 #driver_TBL: 2
@@ -3264,6 +3301,10 @@ run_current:
 #driver_SEDN: 0
 #driver_SEIMIN: 0
 #driver_SFILT: 0
+#driver_DRVSTRENGTH: 0
+#driver_BBMCLKS: 4
+#driver_BBMTIME: 0
+#driver_FILT_ISENSE: 0
 #   Set the given register during the configuration of the TMC5160
 #   chip. This may be used to set custom motor parameters. The
 #   defaults for each parameter are next to the parameter name in the
@@ -3328,34 +3369,33 @@ Digipot MCP4451 configurato staticamente collegato tramite bus I2C (si può defi
 ```
 [mcp4451 my_digipot]
 i2c_address:
-#   L'indirizzo i2c utilizzato dal chip sul bus i2c. Questo parametro deve
-#   essere fornito.
+#   The i2c address that the chip is using on the i2c bus. This
+#   parameter must be provided.
 #i2c_mcu:
 #i2c_bus:
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
 #i2c_speed:
-#   Vedere la sezione "impostazioni I2C comuni" per una descrizione
-#   dei parametri di cui sopra.
+#   See the "common I2C settings" section for a description of the
+#   above parameters.
 #wiper_0:
 #wiper_1:
 #wiper_2:
 #wiper_3:
-#   Il valore su cui impostare staticamente il "wiper" MCP4451
-#   specificato. Questo è in genere impostato su un numero compreso
-#   tra 0,0 e 1,0 con 1,0 come resistenza più alta e 0,0 come resistenza
-#   più bassa. Tuttavia, l'intervallo può essere modificato con il parametro
-#   'scale' (vedi sotto). Se non viene specificato un wiper, non viene
-#   configurato.
+#   The value to statically set the given MCP4451 "wiper" to. This is
+#   typically set to a number between 0.0 and 1.0 with 1.0 being the
+#   highest resistance and 0.0 being the lowest resistance. However,
+#   the range may be changed with the 'scale' parameter (see below).
+#   If a wiper is not specified then it is left unconfigured.
 #scale:
-#   Questo parametro può essere utilizzato per modificare il modo in
-#   cui vengono interpretati i parametri 'wiper_x'. Se forniti, i parametri
-#   'wiper_x' dovrebbero essere compresi tra 0.0 e 'scale'. Questo può
-#   essere utile quando l'MCP4451 viene utilizzato per impostare i
-#   riferimenti di tensione stepper. La "scala" può essere impostata
-#   sull'amperaggio stepper equivalente se l'MCP4451 fosse alla sua
-#   massima resistenza, quindi i parametri "wiper_x" possono essere
-#   specificati utilizzando il valore di amperaggio desiderato per lo
-#   stepper. L'impostazione predefinita è di non ridimensionare i
-#   parametri 'wiper_x'.
+#   This parameter can be used to alter how the 'wiper_x' parameters
+#   are interpreted. If provided, then the 'wiper_x' parameters should
+#   be between 0.0 and 'scale'. This may be useful when the MCP4451 is
+#   used to set stepper voltage references. The 'scale' can be set to
+#   the equivalent stepper amperage if the MCP4451 were at its highest
+#   resistance, and then the 'wiper_x' parameters can be specified
+#   using the desired amperage value for the stepper. The default is
+#   to not scale the 'wiper_x' parameters.
 ```
 
 ### [mcp4728]
@@ -3365,34 +3405,34 @@ Convertitore digitale-analogico MCP4728 in configurazione statica collegato tram
 ```
 [mcp4728 my_dac]
 #i2c_address: 96
-#  L'indirizzo i2c utilizzato dal chip sul bus i2c. Il valore predefinito
-#  è 96.
+#   The i2c address that the chip is using on the i2c bus. The default
+#   is 96.
 #i2c_mcu:
 #i2c_bus:
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
 #i2c_speed:
-#   Vedere la sezione "impostazioni I2C comuni" per una descrizione
-#   dei parametri di cui sopra.
+#   See the "common I2C settings" section for a description of the
+#   above parameters.
 #channel_a:
 #channel_b:
 #channel_c:
 #channel_d:
-#   Il valore su cui impostare staticamente il canale MCP4728
-#   specificato. Questo è in genere impostato su un numero compreso
-#   tra 0,0 e 1,0 con 1,0 come tensione più alta (2,048 V) e 0,0 come
-#   tensione più bassa. Tuttavia, l'intervallo può essere modificato con
-#   il parametro 'scale' (vedi sotto). Se un canale non è specificato,
-#   non viene configurato.
+#   The value to statically set the given MCP4728 channel to. This is
+#   typically set to a number between 0.0 and 1.0 with 1.0 being the
+#   highest voltage (2.048V) and 0.0 being the lowest voltage.
+#   However, the range may be changed with the 'scale' parameter (see
+#   below). If a channel is not specified then it is left
+#   unconfigured.
 #scale:
-#   Questo parametro può essere utilizzato per modificare il modo
-#   in cui vengono interpretati i parametri 'channel_x'. Se forniti, i
-#   parametri 'channel_x' dovrebbero essere compresi tra 0.0 e 'scale'.
-#   Questo può essere utile quando l'MCP4728 viene utilizzato per
-#   impostare i riferimenti di tensione stepper. La "scala" può essere
-#   impostata sull'amperaggio stepper equivalente se l'MCP4728
-#   fosse alla sua tensione più alta (2,048 V), e quindi i parametri
-#   "channel_x" possono essere specificati utilizzando il valore di
-#   amperaggio desiderato per lo stepper. L'impostazione
-#   predefinita è di non ridimensionare i parametri 'channel_x'.
+#   This parameter can be used to alter how the 'channel_x' parameters
+#   are interpreted. If provided, then the 'channel_x' parameters
+#   should be between 0.0 and 'scale'. This may be useful when the
+#   MCP4728 is used to set stepper voltage references. The 'scale' can
+#   be set to the equivalent stepper amperage if the MCP4728 were at
+#   its highest voltage (2.048V), and then the 'channel_x' parameters
+#   can be specified using the desired amperage value for the
+#   stepper. The default is to not scale the 'channel_x' parameters.
 ```
 
 ### [mcp4018]
@@ -3634,6 +3674,8 @@ lcd_type:
 #   Set to either "ssd1306" or "sh1106" for the given display type.
 #i2c_mcu:
 #i2c_bus:
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
 #i2c_speed:
 #   Optional parameters available for displays connected via an i2c
 #   bus. See the "common I2C settings" section for a description of
@@ -3971,19 +4013,16 @@ Per un esempio, vedere il file [generic-duet2-duex.cfg](../config/generic-duet2-
 ```
 [sx1509 my_sx1509]
 i2c_address:
-#   Indirizzo I2C utilizzato da questa espansione. A seconda dei
-#   ponticelli hardware è uno dei seguenti indirizzi: 62 63 112 113.
-#   Questo parametro deve essere fornito.
+#   I2C address used by this expander. Depending on the hardware
+#   jumpers this is one out of the following addresses: 62 63 112
+#   113. This parameter must be provided.
 #i2c_mcu:
 #i2c_bus:
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
 #i2c_speed:
-#   Vedere la sezione "impostazioni comuni I2C" per una 
-#   escrizione dei parametri di cui sopra.
-#i2c_bus:
-#   Se l'implementazione I2C del tuo microcontrollore supporta
-#   più bus I2C, puoi specificare qui il nome del bus. L'impostazione
-#   predefinita prevede l'utilizzo del bus i2c del microcontrollore
-#   predefinito.
+#   See the "common I2C settings" section for a description of the
+#   above parameters.
 ```
 
 ### [samd_sercom]
@@ -4200,6 +4239,13 @@ Most Klipper micro-controller implementations only support an `i2c_speed` of 100
 #   If the micro-controller supports multiple I2C busses then one may
 #   specify the micro-controller bus name here. The default depends on
 #   the type of micro-controller.
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
+#   Specify these parameters to use micro-controller software based
+#   I2C "bit-banging" support. The two parameters should the two pins
+#   on the micro-controller to use for the scl and sda wires. The
+#   default is to use hardware based I2C support as specified by the
+#   i2c_bus parameter.
 #i2c_speed:
 #   The I2C speed (in Hz) to use when communicating with the device.
 #   The Klipper implementation on most micro-controllers is hard-coded

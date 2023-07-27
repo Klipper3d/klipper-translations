@@ -8,11 +8,11 @@
 
 ## Автоматическое и ручное зондирование
 
-Klipper supports calibrating the delta parameters via a manual probing method or via an automatic Z probe.
+Klipper поддерживает калибровку дельта-параметров с помощью ручного метода измерения или с помощью автоматического Z-зонда.
 
-A number of delta printer kits come with automatic Z probes that are not sufficiently accurate (specifically, small differences in arm length can cause effector tilt which can skew an automatic probe). If using an automatic probe then first [calibrate the probe](Probe_Calibrate.md) and then check for a [probe location bias](Probe_Calibrate.md#location-bias-check). If the automatic probe has a bias of more than 25 microns (.025mm) then use manual probing instead. Manual probing only takes a few minutes and it eliminates error introduced by the probe.
+Некоторые комплекты дельта-принтеров поставляются с автоматическими Z-зондами, которые не обладают достаточной точностью (в частности, небольшая разница в длине может вызвать наклон эффектора, что может исказить показания автоматического датчика). Если используется автоматический датчик, то сначала необходимо откалибровать датчик [calibrate the probe](Probe_Calibrate.md), а затем проверить смещение положения датчика [probe location bias](Probe_Calibrate.md#location-bias-check). Если смещение автоматического датчика превышает 25 микрон (.025 мм), то вместо этого используйте ручное зондирование. Ручное зондирование занимает всего несколько минут и устраняет погрешность, вносимую зондом.
 
-If using a probe that is mounted on the side of the hotend (that is, it has an X or Y offset) then note that performing delta calibration will invalidate the results of probe calibration. These types of probes are rarely suitable for use on a delta (because minor effector tilt will result in a probe location bias). If using the probe anyway, then be sure to rerun probe calibration after any delta calibration.
+Если используется датчик, установленный сбоку от хотэнда (т.е. имеющий смещение по оси X или Y), то следует учитывать, что при выполнении дельта-калибровки результаты калибровки датчика будут недействительными. Такие датчики редко подходят для дельта-калибровки (поскольку незначительный наклон эффектора приведет к смещению положения датчика). Если датчик все же используется, то после выполнения дельта-калибровки обязательно выполните повторную калибровку датчика.
 
 ## Basic delta calibration
 

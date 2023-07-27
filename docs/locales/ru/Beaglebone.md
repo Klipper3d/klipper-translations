@@ -6,14 +6,14 @@
 
 Начните с установки [Debian 9.9 2019-08-03 4GB SD IoT](https://beagleboard.org/latest-images ) изображение. Изображение можно запустить либо с карты micro-SD, либо со встроенного eMMC. Если вы используете eMMC, установите его в eMMC сейчас, следуя инструкциям по приведенной выше ссылке.
 
-Then ssh into the Beaglebone machine (`ssh debian@beaglebone` -- password is `temppwd`) and install Klipper by running the following commands:
+Затем подключитесь по ssh к машине Beaglebone (`ssh debian@beaglebone` -- пароль `temppwd`) и установите Klipper, выполнив следующие команды:
 
 ```
 git clone https://github.com/Klipper3d/klipper
 ./klipper/scripts/install-beaglebone.sh
 ```
 
-## Install Octoprint
+## Установите Octoprint
 
 One may then install Octoprint:
 
@@ -24,7 +24,7 @@ virtualenv venv
 ./venv/bin/python setup.py install
 ```
 
-And setup OctoPrint to start at bootup:
+И настройте OctoPrint на запуск при загрузке:
 
 ```
 sudo cp ~/OctoPrint/scripts/octoprint.init /etc/init.d/octoprint

@@ -118,9 +118,9 @@ fade_target: 0
 - `fade_end: 10` *預設值：0* 網格淡出完成的 Z 高度。 如果此值低於`fade_start`，則禁用網格淡出。 該值可以根據列印表面的彎曲程度進行調整。 明顯彎曲的表面應該在將網格淡出的距離長。 接近平坦的表面可能能夠降低該值以更快地逐步淘汰。 如果對 `fade_start` 使用預設值 1，則 10mm 是一個合理的值。
 - `fade_target: 0` *Default Value: The average Z value of the mesh* The `fade_target` can be thought of as an additional Z offset applied to the entire bed after fade completes. Generally speaking we would like this value to be 0, however there are circumstances where it should not be. For example, lets assume your homing position on the bed is an outlier, its .2 mm lower than the average probed height of the bed. If the `fade_target` is 0, fade will shrink the print by an average of .2 mm across the bed. By setting the `fade_target` to .2, the homed area will expand by .2 mm, however, the rest of the bed will be accurately sized. Generally its a good idea to leave `fade_target` out of the configuration so the average height of the mesh is used, however it may be desirable to manually adjust the fade target if one wants to print on a specific portion of the bed.
 
-### 相對參考索引
+### Configuring the zero reference position
 
-Most probes are susceptible to drift, ie: inaccuracies in probing introduced by heat or interference. This can make calculating the probe's z-offset challenging, particularly at different bed temperatures. As such, some printers use an endstop for homing the Z axis, and a probe for calibrating the mesh. These printers can benefit from configuring the relative reference index.
+Many probes are susceptible to "drift", ie: inaccuracies in probing introduced by heat or interference. This can make calculating the probe's z-offset challenging, particularly at different bed temperatures. As such, some printers use an endstop for homing the Z axis and a probe for calibrating the mesh. In this configuration it is possible offset the mesh so that the (X, Y) `reference position` applies zero adjustment. The `reference postion` should be the location on the bed where a [Z_ENDSTOP_CALIBRATE](./Manual_Level#calibrating-a-z-endstop) paper test is performed. The bed_mesh module provides the `zero_reference_position` option for specifying this coordinate:
 
 ```
 [bed_mesh]
@@ -128,13 +128,30 @@ speed: 120
 horizontal_move_z: 5
 mesh_min: 35, 6
 mesh_max: 240, 198
+zero_reference_position: 125, 110
 probe_count: 5, 3
-relative_reference_index: 7
 ```
 
-- `relative_reference_index: 7`*預設值：無（禁用）*產生探測點時，為每個點分配一個索引。您可以使用網床輸出或在 klippy.log 中查詢此索引（有關詳細資訊，請參閱下面的網床 G程式碼部分）。如果您為 `relative_reference_index` 選項分配了索引，則在該座標處探測的值將替換探針的 Z偏移值。 這將把這個座標作為「零高度」的參考。
+- `zero_reference_position: ` *Default Value: None (disabled)* The `zero_reference_position` expects an (X, Y) coordinate matching that of the `reference position` described above. If the coordinate lies within the mesh then the mesh will be offset so the reference position applies zero adjustment. If the coordinate lies outside of the mesh then the coordinate will be probed after calibration, with the resulting z-value used as the z-offset. Note that this coordinate must NOT be in a location specified as a `faulty_region` if a probe is necessary.
 
-使用相對參考指數時，應選擇距離床身 Z 限位器校準點最近的指數。 請注意，在網床輸出或在日誌中查詢索引時，您應該使用「探針」標題下列出的座標來查詢正確的索引。
+#### The deprecated relative_reference_index
+
+Existing configurations using the `relative_reference_index` option must be updated to use the `zero_reference_position`. The response to the [BED_MESH_OUTPUT PGP=1](#output) gcode command will include the (X, Y) coordinate associated with the index; this position may be used as the value for the `zero_reference_position`. The output will look similar to the following:
+
+```
+// bed_mesh: generated points
+// Index | Tool Adjusted | Probe
+// 0 | (1.0, 1.0) | (24.0, 6.0)
+// 1 | (36.7, 1.0) | (59.7, 6.0)
+// 2 | (72.3, 1.0) | (95.3, 6.0)
+// 3 | (108.0, 1.0) | (131.0, 6.0)
+... (additional generated points)
+// bed_mesh: relative_reference_index 24 is (131.5, 108.0)
+```
+
+*Note: The above output is also printed in `klippy.log` during initialization.*
+
+Using the example above we see that the `relative_reference_index` is printed along with its coordinate. Thus the `zero_reference_position` is `131.5, 108`.
 
 ### 故障區域
 
@@ -186,7 +203,6 @@ faulty_region_4_max: 45.0, 210.0
    - `MESH_ORIGIN`
    - `ROUND_PROBE_COUNT`
 - 全部列印床：
-   - `RELATIVE_REFERNCE_INDEX`
    - `ALGORITHM`
 
 有關在網格中使用的配置參數詳見配置文件。

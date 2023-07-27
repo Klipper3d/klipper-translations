@@ -8,15 +8,15 @@
 
 Для калибровки опережения давления принтер должен быть сконфигурирован и работать, поскольку тест настройки включает в себя печать и проверку тестируемого объекта. Рекомендуется прочитать этот документ полностью перед запуском теста.
 
-Use a slicer to generate g-code for the large hollow square found in [docs/prints/square_tower.stl](prints/square_tower.stl). Use a high speed (eg, 100mm/s), zero infill, and a coarse layer height (the layer height should be around 75% of the nozzle diameter). Make sure any "dynamic acceleration control" is disabled in the slicer.
+С помощью слайсера сгенерируйте g-код для большого полого квадрата, представленного в файле [docs/prints/square_tower.stl](prints/square_tower.stl). Используйте высокую скорость (например, 100 мм/с), нулевое заполнение и грубую высоту слоя (высота слоя должна составлять около 75% от диаметра сопла). Убедитесь, что в слайсере отключено "управление динамическим ускорением".
 
-Prepare for the test by issuing the following G-Code command:
+Подготовьтесь к тестированию, выполнив следующую команду G-Code:
 
 ```
 SET_VELOCITY_LIMIT SQUARE_CORNER_VELOCITY=1 ACCEL=500
 ```
 
-This command makes the nozzle travel slower through corners to emphasize the effects of extruder pressure. Then for printers with a direct drive extruder run the command:
+Эта команда заставляет сопло медленнее проходить углы, чтобы подчеркнуть влияние давления экструдера. Затем для принтеров с прямым приводом экструдера выполните команду:
 
 ```
 TUNING_TOWER COMMAND=SET_PRESSURE_ADVANCE PARAMETER=ADVANCE START=0 FACTOR=.005

@@ -6,7 +6,7 @@ Tijdens het volgen van deze handleiding zijn mogelijk wijzigingen in het configu
 
 ## Controleer temperatuur
 
-Controleer eerst of de temperatuur goed gemeten worden. Ga naar het Octoprint-temperatuurtabblad.
+Controleer eerst of de temperatuur goed gemeten worden. Ga naar het Octoprint-temperatuur tabblad.
 
 ![octoprint-temperatuur](img/octoprint-temperature.png)
 
@@ -14,7 +14,7 @@ Controleer of de temperatuur van de nozzle en het bed (indien van toepassing) ge
 
 ## Controleer M112
 
-Ga naar de Octoprint-terminal en geef een M112-commando. Dit commando zorgt dat Klipper stopt. Hierdoor zal Octoprint de verbinding met Klipper verbreken. Klik op "Connect" om opnieuw te verbinden. Ga dan naar het Octoprint-temperatuurtabblad en controleer of de temperatuurwaarden verversen en niet stijgen. Als de waarden stijgen, dient de printer uitgezet te worden.
+Ga naar de Octoprint-terminal en geef een M112-commando. Dit commando zorgt dat Klipper stopt. Hierdoor zal Octoprint de verbinding met Klipper verbreken. Klik op "Connect" om opnieuw te verbinden. Ga dan naar het Octoprint-temperatuur tabblad en controleer of de temperatuurwaarden verversen en niet stijgen. Als de waarden stijgen, dient de printer uitgezet te worden.
 
 The M112 command causes Klipper to go into a "shutdown" state. To clear this state, issue a FIRMWARE_RESTART command in the Octoprint terminal tab.
 

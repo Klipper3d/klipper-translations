@@ -8,6 +8,10 @@ Klipper est un logiciel libre. Nous dépendons du généreux soutien des sponsor
 
 BIGTREETECH est le sponsor officiel de cartes mères pour Klipper. BIGTREETECH s’engage à développer des produits innovants et compétitifs pour mieux servir la communauté de l’impression 3D. Suivez-les sur [Facebook](https://www.facebook.com/BIGTREETECH) ou [Twitter](https://twitter.com/BigTreeTech).
 
+## Sponsors
+
+[<img src="./img/sponsors/obico-light-horizontal.png" width="200" />](https://obico.io/klipper.html?source=klipper_sponsor)
+
 ## Développeurs Klipper
 
 ### Kevin O'Connor

@@ -12,9 +12,9 @@
 
 In general, the Arduino project is a good reference for bootloaders and flashing procedures on the 8-bit Atmel Atmega micro-controllers. In particular, the "boards.txt" file: <https://github.com/arduino/Arduino/blob/1.8.5/hardware/arduino/avr/boards.txt> is a useful reference.
 
-To flash a bootloader itself, the AVR chips require an external hardware flashing tool (which communicates with the chip using SPI). This tool can be purchased (for example, do a web search for "avr isp", "arduino isp", or "usb tiny isp"). It is also possible to use another Arduino or Raspberry Pi to flash an AVR bootloader (for example, do a web search for "program an avr using raspberry pi"). The examples below are written assuming an "AVR ISP Mk2" type device is in use.
+Для самостоятельной прошивки загрузчика в микросхемах AVR требуется внешнее аппаратное средство прошивки (которое взаимодействует с микросхемой по интерфейсу SPI). Такой инструмент можно приобрести (например, выполните поиск в Интернете по словам "avr isp", "arduino isp" или "usb tiny isp"). Также можно использовать другую Arduino или Raspberry Pi для прошивки загрузчика AVR (например, выполните поиск в Интернете по запросу "program an avr using raspberry pi"). Приведенные ниже примеры написаны в предположении, что используется устройство типа "AVR ISP Mk2".
 
-The "avrdude" program is the most common tool used to flash atmega chips (both bootloader flashing and application flashing).
+Программа "avrdude" является наиболее распространенным инструментом, используемым для прошивки микросхем atmega (как для прошивки загрузчика, так и для прошивки приложений).
 
 ### Atmega2560
 

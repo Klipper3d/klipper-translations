@@ -10,11 +10,11 @@ Klipper использует только пакеты CAN 2.0A стандарт
 
 ## Сообщения администратора
 
-Admin messages are used for id assignment. Admin messages sent from host to micro-controller use the CAN bus id `0x3f0` and messages sent from micro-controller to host use the CAN bus id `0x3f1`. All micro-controllers listen to messages on id `0x3f0`; that id can be thought of as a "broadcast address".
+Для присвоения идентификатора используются сообщения администратора. Административные сообщения, передаваемые от хоста к микроконтроллеру, используют идентификатор CAN-шины `0x3f0`, а сообщения, передаваемые от микроконтроллера к хосту, - идентификатор CAN-шины `0x3f1`. Все микроконтроллеры прослушивают сообщения с идентификатором `0x3f0`; этот идентификатор можно рассматривать как "широковещательный адрес".
 
-### CMD_QUERY_UNASSIGNED message
+### CMD_QUERY_UNASSIGNED сообщение
 
-This command queries all micro-controllers that have not yet been assigned a `canbus_nodeid`. Unassigned micro-controllers will respond with a RESP_NEED_NODEID response message.
+Эта команда запрашивает все микроконтроллеры, которым еще не присвоен `canbus_nodeid`. В ответ на запрос микроконтроллеры, которым еще не присвоен `canbus_nodeid`, выдают сообщение RESP_NEED_NODEID.
 
 The CMD_QUERY_UNASSIGNED message format is: `<1-byte message_id = 0x00>`
 
@@ -24,7 +24,7 @@ This command assigns a `canbus_nodeid` to the micro-controller with a given `can
 
 The CMD_SET_KLIPPER_NODEID message format is: `<1-byte message_id = 0x01><6-byte canbus_uuid><1-byte canbus_nodeid>`
 
-### RESP_NEED_NODEID message
+### RESP_NEED_NODEID сообщение
 
 The RESP_NEED_NODEID message format is: `<1-byte message_id = 0x20><6-byte canbus_uuid><1-byte set_klipper_nodeid = 0x01>`
 

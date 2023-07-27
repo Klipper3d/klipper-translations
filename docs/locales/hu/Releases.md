@@ -173,7 +173,7 @@ Elérhető a 20161223. Főbb változások ebben a kiadásban:
 * Új "léptetőfázis-alapú végállás" funkció - nagyobb pontosságot tesz lehetővé a kezdőpont végállásában.
 * A "kiterjesztett G-kód" parancsok támogatása, mint például a "help", "restart" és "status".
 * A Klipper konfiguráció újratöltésének és a gazdaszoftver újraindításának támogatása a "restart" parancs terminálból történő kiadásával.
-* Lépegető teljesítményének javítása (20Mhz-es AVR-ek akár 158K lépés/másodpercig).
+* Léptető teljesítményének javítása (20Mhz-es AVR-ek akár 158K lépés/másodpercig).
 * Javított hibajelentés. A legtöbb hiba mostantól a terminálon keresztül jelenik meg, a megoldásra vonatkozó segítséggel együtt.
 * Számos hibajavítás és kódtisztítás
 
@@ -181,7 +181,7 @@ Elérhető a 20161223. Főbb változások ebben a kiadásban:
 
 A Klipper első kiadása. Elérhető a 20160525. A kezdeti kiadásban elérhető főbb funkciók a következők:
 
-* Alapvető támogatás cartesian nyomtatókhoz (stepperek, extruder, fűtött tárgyasztal, hűtőventilátor).
+* Alapvető támogatás cartesian nyomtatókhoz (léptetők, extruder, fűtött tárgyasztal, hűtőventilátor).
 * A gyakori G-kód parancsok támogatása. Az OctoPrint interfész támogatása.
 * Gyorsulás és előretekintő kezelés
 * AVR mikrovezérlők támogatása szabványos soros portokon keresztül

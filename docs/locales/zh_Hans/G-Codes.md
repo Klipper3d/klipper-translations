@@ -614,7 +614,7 @@ The following commands are available when a [resonance_tester config section](Co
 
 #### SHAPER_CALIBRATE
 
-`SHAPER_CALIBRATE [AXIS=<轴>] [NAME=<名称>] [FREQ_START=<最小频率>] [FREQ_END=<最大频率>] [HZ_PER_SEC=<hz_per_sec>] [MAX_SMOOTHING=<max_smoothing>]`：类似`TEST_RESONANCES`，该命令按配置运行共振测试并尝试寻找给定轴最佳的输入整形参数。如果没有选择`AXIS`，则测量X和Y轴。如果没有选择 `MAX_SMOOTHING` ，会使用 `[resonance_tester]` 的默认参数。有关该特性的使用方法，详见共振量测量指南中的 [最大平滑](Measuring_Resonances.md#max-smoothing)章节。测试结果会被输出到终端，而频响和不同输入整形器的参数将被写入到一个或多个 CSV 文件中。它们的名称是`/tmp/calibration_data_<轴>_<名称>.csv`。如果没有指定，名称默认为“YYYYMMDD_HHMMSS”格式的当前时间。注意，可以通过请求 `SAVE_CONFIG` 命令将推荐的输入整形器参数直接保存到配置文件中。
+`SHAPER_CALIBRATE [AXIS=<axis>] [NAME=<name>] [FREQ_START=<min_freq>] [FREQ_END=<max_freq>] [HZ_PER_SEC=<hz_per_sec>] [CHIPS=<adxl345_chip_name>] [MAX_SMOOTHING=<max_smoothing>]`: Similarly to `TEST_RESONANCES`, runs the resonance test as configured, and tries to find the optimal parameters for the input shaper for the requested axis (or both X and Y axes if `AXIS` parameter is unset). If `MAX_SMOOTHING` is unset, its value is taken from `[resonance_tester]` section, with the default being unset. See the [Max smoothing](Measuring_Resonances.md#max-smoothing) of the measuring resonances guide for more information on the use of this feature. The results of the tuning are printed to the console, and the frequency responses and the different input shapers values are written to a CSV file(s) `/tmp/calibration_data_<axis>_<name>.csv`. Unless specified, NAME defaults to the current time in "YYYYMMDD_HHMMSS" format. Note that the suggested input shaper parameters can be persisted in the config by issuing `SAVE_CONFIG` command, and if `[input_shaper]` was already enabled previously, these parameters take effect immediately.
 
 ### [respond]
 

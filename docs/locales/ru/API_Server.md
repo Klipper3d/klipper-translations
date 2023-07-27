@@ -16,13 +16,13 @@ See the [Moonraker](https://github.com/Arksine/moonraker) project for a popular 
 
 ## Формат запроса
 
-Messages sent and received on the socket are JSON encoded strings terminated by an ASCII 0x03 character:
+Сообщения, передаваемые и принимаемые по сокету, представляют собой строки в кодировке JSON, завершаемые символом ASCII 0x03:
 
 ```
 <json_object_1><0x03><json_object_2><0x03>...
 ```
 
-Klipper contains a `scripts/whconsole.py` tool that can perform the above message framing. For example:
+Klipper содержит инструмент `scripts/whconsole.py`, который может выполнять указанное выше обрамление сообщений. Например:
 
 ```
 ~/klipper/scripts/whconsole.py /tmp/klippy_uds

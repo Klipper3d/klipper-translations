@@ -8,6 +8,10 @@ Klipper è un software libero. Dipendiamo dal generoso supporto degli sponsor. C
 
 BIGTREETECH è lo sponsor ufficiale della scheda madre di Klipper. BIGTREETECH si impegna a sviluppare prodotti innovativi e competitivi per servire meglio la comunità della stampa 3D. Seguili su [Facebook](https://www.facebook.com/BIGTREETECH) o [Twitter](https://twitter.com/BigTreeTech).
 
+## Sponsors
+
+[<img src="./img/sponsors/obico-light-horizontal.png" width="200" />](https://obico.io/klipper.html?source=klipper_sponsor)
+
 ## Sviluppatori Klipper
 
 ### Kevin O'Connor

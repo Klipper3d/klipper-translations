@@ -18,7 +18,7 @@ queue_step oid=7 interval=11717 count=4 add=1281
 
 ## Интерфейс микроконтроллера
 
-The Klipper transmission protocol can be thought of as a [RPC](https://en.wikipedia.org/wiki/Remote_procedure_call) mechanism between micro-controller and host. The micro-controller software declares the commands that the host may invoke along with the response messages that it can generate. The host uses that information to command the micro-controller to perform actions and to interpret the results.
+Протокол передачи данных Klipper можно представить как механизм [RPC](https://en.wikipedia.org/wiki/Remote_procedure_call) между микроконтроллером и хостом. Программное обеспечение микроконтроллера объявляет команды, которые может вызывать хост, а также ответные сообщения, которые он может генерировать. Хост использует эту информацию, чтобы дать команду микроконтроллеру на выполнение действий и интерпретировать их результаты.
 
 ### Объявление команд
 

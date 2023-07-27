@@ -20,12 +20,12 @@ probe_count: 5, 3
 ```
 
 - `speed: 120` *Default Value: 50* Скорость, с которой инструмент перемещается между точками.
-- `horizontal_move_z: 5` *Default Value: 5* The Z coordinate the probe rises to prior to traveling between points.
+- `horizontal_move_z: 5` *Default Value: 5* Координата Z, по которой поднимается зонд перед перемещением между точками.
 - `mesh_min: 35, 6` *Required* The first probed coordinate, nearest to the origin. This coordinate is relative to the probe's location.
 - `mesh_max: 240, 198` *Required* The probed coordinate farthest farthest from the origin. This is not necessarily the last point probed, as the probing process occurs in a zig-zag fashion. As with `mesh_min`, this coordinate is relative to the probe's location.
 - `probe_count: 5, 3` *Default Value: 3, 3* The number of points to probe on each axis, specified as X, Y integer values. In this example 5 points will be probed along the X axis, with 3 points along the Y axis, for a total of 15 probed points. Note that if you wanted a square grid, for example 3x3, this could be specified as a single integer value that is used for both axes, ie `probe_count: 3`. Note that a mesh requires a minimum probe_count of 3 along each axis.
 
-The illustration below demonstrates how the `mesh_min`, `mesh_max`, and `probe_count` options are used to generate probe points. The arrows indicate the direction of the probing procedure, beginning at `mesh_min`. For reference, when the probe is at `mesh_min` the nozzle will be at (11, 1), and when the probe is at `mesh_max`, the nozzle will be at (206, 193).
+На рисунке ниже показано, как опции `mesh_min`, `mesh_max` и `probe_count` используются для генерации точек зондирования. Стрелки указывают направление процедуры зондирования, начиная с точки `mesh_min`. Для примера, когда зонд находится в точке `mesh_min`, сопло будет находиться в точке (11, 1), а когда зонд находится в точке `mesh_max`, сопло будет находиться в точке (206, 193).
 
 ![bedmesh_rect_basic](img/bedmesh_rect_basic.svg)
 
@@ -42,7 +42,7 @@ mesh_origin: 0, 0
 round_probe_count: 5
 ```
 
-- `mesh_radius: 75` *Required* The radius of the probed mesh in mm, relative to the `mesh_origin`. Note that the probe's offsets limit the size of the mesh radius. In this example, a radius larger than 76 would move the tool beyond the range of the printer.
+- `mesh_radius: 75` *Required* Радиус сетки зонда в мм относительно `mesh_origin`. Обратите внимание, что смещение зонда ограничивает размер радиуса сетки. В данном примере радиус, превышающий 76, выведет инструмент за пределы диапазона принтера.
 - `mesh_origin: 0, 0` *Default Value: 0, 0* The center point of the mesh. This coordinate is relative to the probe's location. While the default is 0, 0, it may be useful to adjust the origin in an effort to probe a larger portion of the bed. See the illustration below.
 - `round_probe_count: 5` *Default Value: 5* This is an integer value that defines the maximum number of probed points along the X and Y axes. By "maximum", we mean the number of points probed along the mesh origin. This value must be an odd number, as it is required that the center of the mesh is probed.
 
@@ -118,9 +118,9 @@ fade_target: 0
 - `fade_end: 10` *Default Value: 0* The Z height in which fade should complete. If this value is lower than `fade_start` then fade is disabled. This value may be adjusted depending on how warped the print surface is. A significantly warped surface should fade out over a longer distance. A near flat surface may be able to reduce this value to phase out more quickly. 10mm is a sane value to begin with if using the default value of 1 for `fade_start`.
 - `fade_target: 0` *Default Value: The average Z value of the mesh* The `fade_target` can be thought of as an additional Z offset applied to the entire bed after fade completes. Generally speaking we would like this value to be 0, however there are circumstances where it should not be. For example, lets assume your homing position on the bed is an outlier, its .2 mm lower than the average probed height of the bed. If the `fade_target` is 0, fade will shrink the print by an average of .2 mm across the bed. By setting the `fade_target` to .2, the homed area will expand by .2 mm, however, the rest of the bed will be accurately sized. Generally its a good idea to leave `fade_target` out of the configuration so the average height of the mesh is used, however it may be desirable to manually adjust the fade target if one wants to print on a specific portion of the bed.
 
-### The Relative Reference Index
+### Configuring the zero reference position
 
-Most probes are susceptible to drift, ie: inaccuracies in probing introduced by heat or interference. This can make calculating the probe's z-offset challenging, particularly at different bed temperatures. As such, some printers use an endstop for homing the Z axis, and a probe for calibrating the mesh. These printers can benefit from configuring the relative reference index.
+Many probes are susceptible to "drift", ie: inaccuracies in probing introduced by heat or interference. This can make calculating the probe's z-offset challenging, particularly at different bed temperatures. As such, some printers use an endstop for homing the Z axis and a probe for calibrating the mesh. In this configuration it is possible offset the mesh so that the (X, Y) `reference position` applies zero adjustment. The `reference postion` should be the location on the bed where a [Z_ENDSTOP_CALIBRATE](./Manual_Level#calibrating-a-z-endstop) paper test is performed. The bed_mesh module provides the `zero_reference_position` option for specifying this coordinate:
 
 ```
 [bed_mesh]
@@ -128,13 +128,30 @@ speed: 120
 horizontal_move_z: 5
 mesh_min: 35, 6
 mesh_max: 240, 198
+zero_reference_position: 125, 110
 probe_count: 5, 3
-relative_reference_index: 7
 ```
 
-- `relative_reference_index: 7` *Default Value: None (disabled)* When the probed points are generated they are each assigned an index. You can look up this index in klippy.log or by using BED_MESH_OUTPUT (see the section on Bed Mesh GCodes below for more information). If you assign an index to the `relative_reference_index` option, the value probed at this coordinate will replace the probe's z_offset. This effectively makes this coordinate the "zero" reference for the mesh.
+- `zero_reference_position: ` *Default Value: None (disabled)* The `zero_reference_position` expects an (X, Y) coordinate matching that of the `reference position` described above. If the coordinate lies within the mesh then the mesh will be offset so the reference position applies zero adjustment. If the coordinate lies outside of the mesh then the coordinate will be probed after calibration, with the resulting z-value used as the z-offset. Note that this coordinate must NOT be in a location specified as a `faulty_region` if a probe is necessary.
 
-When using the relative reference index, you should choose the index nearest to the spot on the bed where Z endstop calibration was done. Note that when looking up the index using the log or BED_MESH_OUTPUT, you should use the coordinates listed under the "Probe" header to find the correct index.
+#### The deprecated relative_reference_index
+
+Existing configurations using the `relative_reference_index` option must be updated to use the `zero_reference_position`. The response to the [BED_MESH_OUTPUT PGP=1](#output) gcode command will include the (X, Y) coordinate associated with the index; this position may be used as the value for the `zero_reference_position`. The output will look similar to the following:
+
+```
+// bed_mesh: generated points
+// Index | Tool Adjusted | Probe
+// 0 | (1.0, 1.0) | (24.0, 6.0)
+// 1 | (36.7, 1.0) | (59.7, 6.0)
+// 2 | (72.3, 1.0) | (95.3, 6.0)
+// 3 | (108.0, 1.0) | (131.0, 6.0)
+... (additional generated points)
+// bed_mesh: relative_reference_index 24 is (131.5, 108.0)
+```
+
+*Note: The above output is also printed in `klippy.log` during initialization.*
+
+Using the example above we see that the `relative_reference_index` is printed along with its coordinate. Thus the `zero_reference_position` is `131.5, 108`.
 
 ### Faulty Regions
 
@@ -186,7 +203,6 @@ It is possible to specify mesh parameters to modify the probed area. The followi
    - `MESH_ORIGIN`
    - `ROUND_PROBE_COUNT`
 - All beds:
-   - `RELATIVE_REFERNCE_INDEX`
    - `ALGORITHM`
 
 See the configuration documentation above for details on how each parameter applies to the mesh.

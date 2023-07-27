@@ -118,9 +118,9 @@ fade_target: 0
 - `fade_end : 10` *Valeur par défaut : 0* La hauteur Z à laquelle le fondu doit s'arrêter. Si cette valeur est inférieure à `fade_start`, le fondu est désactivé. Cette valeur peut être ajustée en fonction de la déformation de la surface d'impression. Une surface fortement déformée devrait s'estomper sur une plus grande distance. Une surface presque plate peut être capable de réduire cette valeur pour s'estomper plus rapidement. 10mm est une valeur raisonnable pour commencer si vous utilisez la valeur par défaut de 1 pour `fade_start`.
 - `fade_target : 0` *Valeur par défaut : la valeur Z moyenne du maillage* Le `fade_target` peut être considéré comme un décalage Z supplémentaire appliqué à l'ensemble du lit une fois l'interpolation terminée . L'idéal serait d'avoir cette valeur à 0, mais il y a des circonstances où elle ne peut pas l'être. Par exemple, supposons que votre position de référence sur le lit est une valeur aberrante, 0,2 mm inférieure à la hauteur moyenne sondée du lit. Si le `fade_target` est 0, le fondu réduira l'impression de 0,2 mm en moyenne sur le lit. En réglant `fade_target` sur 0,2, la zone référencée s'agrandira de 0,2 mm, cependant, le reste du lit sera dimensionné avec précision. Généralement, c'est une bonne idée de laisser `fade_target` hors de la configuration afin que la hauteur moyenne du maillage soit utilisée, cependant il peut être souhaitable d'ajuster manuellement cette valeur si l'on veut imprimer sur une partie spécifique du lit.
 
-### L'indice de référence relatif
+### Configuring the zero reference position
 
-La plupart des sondes sont sensibles à la dérive, c'est-à-dire aux imprécisions de sonde introduites par la chaleur ou les interférences. Cela peut compliquer le calcul du décalage z de la sonde, en particulier à différentes températures de lit. Ainsi, certaines imprimantes utilisent une butée pour la prise d'origine de l'axe Z et une sonde pour calibrer le maillage. Ces imprimantes peuvent bénéficier de la configuration de l'index de référence relatif.
+Many probes are susceptible to "drift", ie: inaccuracies in probing introduced by heat or interference. This can make calculating the probe's z-offset challenging, particularly at different bed temperatures. As such, some printers use an endstop for homing the Z axis and a probe for calibrating the mesh. In this configuration it is possible offset the mesh so that the (X, Y) `reference position` applies zero adjustment. The `reference postion` should be the location on the bed where a [Z_ENDSTOP_CALIBRATE](./Manual_Level#calibrating-a-z-endstop) paper test is performed. The bed_mesh module provides the `zero_reference_position` option for specifying this coordinate:
 
 ```
 [bed_mesh]
@@ -128,13 +128,30 @@ speed: 120
 horizontal_move_z: 5
 mesh_min: 35, 6
 mesh_max: 240, 198
+zero_reference_position: 125, 110
 probe_count: 5, 3
-relative_reference_index: 7
 ```
 
-- `relative_reference_index : 7` *Valeur par défaut : None (désactivé)* Lorsque les points palpés sont générés, un index leur est attribué. Vous pouvez consulter cet index dans klippy.log ou en utilisant BED_MESH_OUTPUT (voir la section sur les GCodes de maillage de lit ci-dessous pour plus d'informations). Si vous assignez un index à l'option `relative_reference_index`, la valeur palpée à cette coordonnée remplacera le z_offset de la sonde. Ce qui fait de cette coordonnée la référence "zéro" pour le maillage.
+- `zero_reference_position: ` *Default Value: None (disabled)* The `zero_reference_position` expects an (X, Y) coordinate matching that of the `reference position` described above. If the coordinate lies within the mesh then the mesh will be offset so the reference position applies zero adjustment. If the coordinate lies outside of the mesh then the coordinate will be probed after calibration, with the resulting z-value used as the z-offset. Note that this coordinate must NOT be in a location specified as a `faulty_region` if a probe is necessary.
 
-Lorsque vous utilisez l'indice de référence relatif, vous devez choisir l'indice le plus proche de l'endroit du lit où le calibrage de la butée Z a été effectué. Notez que lorsque vous recherchez l'indice en utilisant le journal ou BED_MESH_OUTPUT, vous devez utiliser les coordonnées listées sous l'en-tête "Probe" pour trouver l'indice correct.
+#### The deprecated relative_reference_index
+
+Existing configurations using the `relative_reference_index` option must be updated to use the `zero_reference_position`. The response to the [BED_MESH_OUTPUT PGP=1](#output) gcode command will include the (X, Y) coordinate associated with the index; this position may be used as the value for the `zero_reference_position`. The output will look similar to the following:
+
+```
+// bed_mesh: generated points
+// Index | Tool Adjusted | Probe
+// 0 | (1.0, 1.0) | (24.0, 6.0)
+// 1 | (36.7, 1.0) | (59.7, 6.0)
+// 2 | (72.3, 1.0) | (95.3, 6.0)
+// 3 | (108.0, 1.0) | (131.0, 6.0)
+... (additional generated points)
+// bed_mesh: relative_reference_index 24 is (131.5, 108.0)
+```
+
+*Note: The above output is also printed in `klippy.log` during initialization.*
+
+Using the example above we see that the `relative_reference_index` is printed along with its coordinate. Thus the `zero_reference_position` is `131.5, 108`.
 
 ### Régions défectueuses
 
@@ -186,7 +203,6 @@ Il est possible de spécifier des paramètres de maillage pour modifier la zone 
    - `MESH_ORIGIN`
    - `ROUND_PROBE_COUNT`
 - Tous les lits :
-   - `RELATIVE_REFERNCE_INDEX`
    - `ALGORITHM`
 
 Consultez la documentation de configuration ci-dessus pour plus de détails sur la façon dont chaque paramètre s'applique au maillage.

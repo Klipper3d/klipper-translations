@@ -57,5 +57,6 @@
 - [Beaglebone](Beaglebone.md)：在 Beaglebone PRU 上运行 Klipper 的详细信息。
 - [底层引导程序](Bootloaders.md)：有关于微控制器刷写的开发者信息。
 - [CAN 总线](CANBUS.md)：有关于 Klipper 使用 CAN 总线的信息。
+   - [CAN bus troubleshooting](CANBUS_Troubleshooting.md): Tips for troubleshooting CAN bus.
 - [TSL1401CL 耗材线径传感器](TSL1401CL_Filament_Width_Sensor.md)
 - [霍尔打印丝宽度传感器](Hall_Filament_Width_Sensor.md)

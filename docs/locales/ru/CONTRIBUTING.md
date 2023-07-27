@@ -144,7 +144,7 @@ In the above example, `module` should be the name of a file or directory in the 
 
 - [ ] 75% Общее покрытие
 - [ ] All titles (H1) are translated
-- [ ] An updated navigation hierarchy PR in klipper-translations.
+- [ ] Обновленная навигационная иерархия PR в klipper-translations.
 
 Чтобы уменьшить трудности перевода специфических терминов и получить информацию о текущих переводах, вы можете отправить PR, изменяющий [Klipper-translations Project](https://github.com/Klipper3d/klipper-translations) `readme.md`. Как только перевод будет готов, можно внести соответствующую модификацию в проект Klipper.
 

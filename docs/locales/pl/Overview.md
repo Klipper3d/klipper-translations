@@ -25,7 +25,7 @@ Witaj w dokumentacji Klipper. Jeśli jesteś nowy, zapoznaj się z [funkcjami](F
    - [Faza krańcówki](Endstop_Phase.md): Pozycjonowanie krańcówki Z ze wspomaganiem krokowym.
 - [Kompensacja rezonansu](Resonance_Compensation.md): Narzędzie do redukcji dzwonienia w wydrukach.
    - [Pomiar rezonansów](Measuring_Resonances.md): Informacje na temat używania sprzętowego akcelerometru adxl345 do pomiaru rezonansu.
-- [Natężenie docisku](Pressure_Advance.md): Kalibracja docisku wytłaczarki (Pressure Advance).
+- [Pressure Advance](Pressure_Advance.md): Kalibracja docisku wytłaczarki.
 - [Kody G](G-Codes.md): Informacje o poleceniach obsługiwanych przez Klippera.
 - [Szablony poleceń](Command_Templates.md): Makra kodu G i ocena warunkowa.
    - [Referencje statusu](Status_Reference.md): Informacje dostępne dla makr (i podobnych).
@@ -57,5 +57,6 @@ Witaj w dokumentacji Klipper. Jeśli jesteś nowy, zapoznaj się z [funkcjami](F
 - [Beaglebone](Beaglebone.md): Szczegóły dotyczące uruchamiania Klippera na Beaglebone PRU.
 - [Bootloadery](Bootloaders.md): Informacje dla programistów dotyczące flashowania mikrokontrolerów.
 - [Magistrala CAN](CANBUS.md): Informacje na temat korzystania z magistrali CAN z Klipperem.
+   - [CAN bus troubleshooting](CANBUS_Troubleshooting.md): Tips for troubleshooting CAN bus.
 - [Czujnik szerokości filamentu TSL1401CL](TSL1401CL_Filament_Width_Sensor.md)
 - [Czujnik szerokości filamentu Halla](Hall_Filament_Width_Sensor.md)

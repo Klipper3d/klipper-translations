@@ -116,11 +116,11 @@ fade_target: 0
 
 - `fade_start: 1` *Alapértelmezett érték: 1* A Z magasság, amelyben a fokozatos kiigazítást el kell kezdeni. Jó ötlet, ha a fade folyamat megkezdése előtt néhány réteggel lejjebb kerül.
 - `fade_end: 10` *Alapértelmezett érték: 0* A Z magasság, amelyben a fade-nek be kell fejeződnie. Ha ez az érték kisebb, mint `fade_start` akkor a fade le van tiltva. Ezt az értéket a nyomtatási felület torzulásától függően lehet módosítani. Egy jelentősen görbült felületnek hosszabb távon kell elhalványulnia. Egy közel sík felület esetében ez az érték csökkenthető, hogy gyorsabban fakuljon ki. A 10 mm egy ésszerű érték, ha a `fade_start` alapértelmezett 1 értékét használjuk.
-- `fade_target: 0` *Default Value: The average Z value of the mesh* The `fade_target` can be thought of as an additional Z offset applied to the entire bed after fade completes. Generally speaking we would like this value to be 0, however there are circumstances where it should not be. For example, lets assume your homing position on the bed is an outlier, its .2 mm lower than the average probed height of the bed. If the `fade_target` is 0, fade will shrink the print by an average of .2 mm across the bed. By setting the `fade_target` to .2, the homed area will expand by .2 mm, however, the rest of the bed will be accurately sized. Generally its a good idea to leave `fade_target` out of the configuration so the average height of the mesh is used, however it may be desirable to manually adjust the fade target if one wants to print on a specific portion of the bed.
+- `fade_target: 0` *Alapértelmezett érték: A háló átlagos Z-értéke* A `fade_target` úgy tekinthető, mint egy további Z-eltolás, amelyet a teljes ágyra alkalmaznak a fade befejezése után. Általánosságban azt szeretnénk, ha ez az érték 0 lenne, azonban vannak olyan körülmények, amikor ez nem kell, hogy így legyen. Tegyük fel például, hogy az ágyon a kezdőpont pozíciója egy kiugró érték, amely 0,2 mm-rel alacsonyabb, mint az ágy átlagos mért magassága. Ha a `fade_target` értéke 0, akkor a fade átlagosan 0,2 mm-rel zsugorítja a nyomtatást az ágyon. Ha a `fade_target` értéket .2-re állítja, a homed terület .2 mm-rel fog tágulni, azonban az ágy többi része pontosan lesz mérve. Általában jó ötlet a `fade_target` elhagyása a konfigurációból, így a háló átlagos magassága kerül felhasználásra, azonban kívánatos lehet a fade target kézi beállítása, ha az ágy egy bizonyos részére szeretnénk nyomtatni.
 
-### A relatív referenciaindex
+### Configuring the zero reference position
 
-Most probes are susceptible to drift, ie: inaccuracies in probing introduced by heat or interference. This can make calculating the probe's z-offset challenging, particularly at different bed temperatures. As such, some printers use an endstop for homing the Z axis, and a probe for calibrating the mesh. These printers can benefit from configuring the relative reference index.
+Many probes are susceptible to "drift", ie: inaccuracies in probing introduced by heat or interference. This can make calculating the probe's z-offset challenging, particularly at different bed temperatures. As such, some printers use an endstop for homing the Z axis and a probe for calibrating the mesh. In this configuration it is possible offset the mesh so that the (X, Y) `reference position` applies zero adjustment. The `reference postion` should be the location on the bed where a [Z_ENDSTOP_CALIBRATE](./Manual_Level#calibrating-a-z-endstop) paper test is performed. The bed_mesh module provides the `zero_reference_position` option for specifying this coordinate:
 
 ```
 [bed_mesh]
@@ -128,13 +128,30 @@ speed: 120
 horizontal_move_z: 5
 mesh_min: 35, 6
 mesh_max: 240, 198
+zero_reference_position: 125, 110
 probe_count: 5, 3
-relative_reference_index: 7
 ```
 
-- `relative_reference_index: 7` *Alapértelmezett érték: Nincs (letiltva)* A mért pontok létrehozásakor mindegyikhez indexet rendelünk. Ezt az indexet a klippy.log fájlban vagy a BED_MESH_OUTPUT segítségével kereshetjük meg (további információkért lásd az alábbi, Bed Mesh GCodes című részt). Ha indexet rendelsz a `relative_reference_index` opcióhoz, akkor az ezen a koordinátán mért érték fogja helyettesíteni a szonda z_offset-ét. Ezáltal ez a koordináta gyakorlatilag a háló "nulla" referenciájává válik.
+- `zero_reference_position: ` *Default Value: None (disabled)* The `zero_reference_position` expects an (X, Y) coordinate matching that of the `reference position` described above. If the coordinate lies within the mesh then the mesh will be offset so the reference position applies zero adjustment. If the coordinate lies outside of the mesh then the coordinate will be probed after calibration, with the resulting z-value used as the z-offset. Note that this coordinate must NOT be in a location specified as a `faulty_region` if a probe is necessary.
 
-A relatív referenciaindex használatakor azt az indexet kell válaztatnod, amelyik a legközelebb van ahhoz a ponthoz a tárgyasztalon, ahol a Z végállás kalibrálása történt. Vedd figyelembe, hogy ha az indexet a napló vagy a BED_MESH_OUTPUT segítségével keresed meg, akkor a "Probe" fejléc alatt felsorolt koordinátákat kell használnod a helyes index megtalálásához.
+#### The deprecated relative_reference_index
+
+Existing configurations using the `relative_reference_index` option must be updated to use the `zero_reference_position`. The response to the [BED_MESH_OUTPUT PGP=1](#output) gcode command will include the (X, Y) coordinate associated with the index; this position may be used as the value for the `zero_reference_position`. The output will look similar to the following:
+
+```
+// bed_mesh: generated points
+// Index | Tool Adjusted | Probe
+// 0 | (1.0, 1.0) | (24.0, 6.0)
+// 1 | (36.7, 1.0) | (59.7, 6.0)
+// 2 | (72.3, 1.0) | (95.3, 6.0)
+// 3 | (108.0, 1.0) | (131.0, 6.0)
+... (additional generated points)
+// bed_mesh: relative_reference_index 24 is (131.5, 108.0)
+```
+
+*Note: The above output is also printed in `klippy.log` during initialization.*
+
+Using the example above we see that the `relative_reference_index` is printed along with its coordinate. Thus the `zero_reference_position` is `131.5, 108`.
 
 ### Hibás régiók
 
@@ -186,7 +203,6 @@ Lehetőség van hálóparaméterek megadására a mért terület módosításár
    - `MESH_ORIGIN`
    - `ROUND_PROBE_COUNT`
 - Minden tárgyasztal:
-   - `RELATIVE_REFERNCE_INDEX`
    - `ALGORITHM`
 
 Az egyes paraméterek hálóra való alkalmazásának részleteit lásd a fenti konfigurációs dokumentációban.
@@ -199,7 +215,7 @@ A BED_MESH_CALIBRATE elvégzése után lehetőség van a háló aktuális állap
 
 A profilok a `BED_MESH_PROFILE LOAD=<name>` parancs végrehajtásával tölthetők be.
 
-It should be noted that each time a BED_MESH_CALIBRATE occurs, the current state is automatically saved to the *default* profile. The *default* profile can be removed as follows:
+Meg kell jegyezni, hogy minden alkalommal, amikor egy BED_MESH_CALIBRATE történik, az aktuális állapot automatikusan elmentésre kerül az *alapértelmezett* profilba. Az *alapértelmezett* profil a következőképpen távolítható el:
 
 `BED_MESH_PROFILE REMOVE=default`
 

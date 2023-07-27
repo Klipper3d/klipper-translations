@@ -121,6 +121,12 @@ The following information is available for extruder_stepper objects (as well as 
 
 - `retract_length`, `retract_speed`, `unretract_extra_length`, `unretract_speed`: Firmware_retraction 모듈의 현재 설정입니다. 이 설정은 `SET_RETRACTION` 명령이 변경하는 경우 구성 파일과 다를 수 있습니다.
 
+## gcode_button
+
+The following information is available in [gcode_button some_name](Config_Reference.md#gcode_button) objects:
+
+- `state`: The current button state returned as "PRESSED" or "RELEASED"
+
 ## gcode_macro
 
 다음 정보는 [gcode_macro some_name](Config_Reference.md#gcode_macro) 개체에서 사용할 수 있습니다:
@@ -310,6 +316,7 @@ The following information is available in [TMC stepper driver](Config_Reference.
 - `mcu_phase_offset`: The micro-controller stepper position corresponding with the driver's "zero" phase. This field may be null if the phase offset is not known.
 - `phase_offset_position`: The "commanded position" corresponding to the driver's "zero" phase. This field may be null if the phase offset is not known.
 - `drv_status`: The results of the last driver status query. (Only non-zero fields are reported.) This field will be null if the driver is not enabled (and thus is not periodically queried).
+- `temperature`: The internal temperature reported by the driver. This field will be null if the driver is not enabled or if the driver does not support temperature reporting.
 - `run_current`: The currently set run current.
 - `hold_current`: The currently set hold current.
 

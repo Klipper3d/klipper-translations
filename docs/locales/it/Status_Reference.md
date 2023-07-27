@@ -121,6 +121,12 @@ Le seguenti informazioni sono disponibili nell'oggetto [firmware_retraction](Con
 
 - `retract_length`, `retract_speed`, `unretract_extra_length`, `unretract_speed`: le impostazioni correnti per il modulo firmware_retraction. Queste impostazioni possono differire dal file di configurazione se un comando `SET_RETRACTION` le altera.
 
+## gcode_button
+
+The following information is available in [gcode_button some_name](Config_Reference.md#gcode_button) objects:
+
+- `state`: The current button state returned as "PRESSED" or "RELEASED"
+
 ## gcode_macro
 
 Le seguenti informazioni sono disponibili negli oggetti [gcode_macro some_name](Config_Reference.md#gcode_macro):
@@ -310,6 +316,7 @@ Le seguenti informazioni sono disponibili negli oggetti [TMC stepper driver](Con
 - `mcu_phase_offset`: La posizione dello stepper del microcontrollore corrispondente alla fase "zero" del driver. Questo campo può essere nullo se l'offset di fase non è noto.
 - `phase_offset_position`: La "posizione comandata" corrispondente alla fase "zero" del driver. Questo campo può essere nullo se l'offset di fase non è noto.
 - `drv_status`: i risultati dell'ultima query sullo stato del driver. (Sono riportati solo i campi diversi da zero.) Questo campo sarà nullo se il driver non è abilitato (e quindi non viene interrogato periodicamente).
+- `temperature`: The internal temperature reported by the driver. This field will be null if the driver is not enabled or if the driver does not support temperature reporting.
 - `run_current`: La corrente di esecuzione attualmente impostata.
 - `hold_current`: La corrente di mantenimento attualmente impostata.
 

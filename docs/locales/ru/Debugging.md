@@ -42,19 +42,19 @@ make menuconfig
 make
 ```
 
-Once the above is done it is possible to run Klipper in batch mode (see [installation](Installation.md) for the steps necessary to build the python virtual environment and a printer.cfg file):
+После выполнения этих действий можно запускать Klipper в пакетном режиме (шаги, необходимые для создания виртуальной среды python и файла printer.cfg, см. в [installation](Installation.md)):
 
 ```
 ~/klippy-env/bin/python ./klippy/klippy.py ~/printer.cfg -i test.gcode -o test.serial -v -d out/klipper.dict
 ```
 
-The above will produce a file **test.serial** with the binary serial output. This output can be translated to readable text with:
+В результате выполнения этих действий будет создан файл **test.serial** с двоичным последовательным выводом. Этот вывод может быть переведен в читаемый текст с помощью:
 
 ```
 ~/klippy-env/bin/python ./klippy/parsedump.py out/klipper.dict test.serial > test.txt
 ```
 
-The resulting file **test.txt** contains a human readable list of micro-controller commands.
+Результирующий файл **test.txt** содержит человекочитаемый список команд микроконтроллера.
 
 The batch mode disables certain response / request commands in order to function. As a result, there will be some differences between actual commands and the above output. The generated data is useful for testing and inspection; it is not useful for sending to a real micro-controller.
 
@@ -145,7 +145,7 @@ The script will extract the printer config file and will extract MCU shutdown in
 
 ## Testing with simulavr
 
-The [simulavr](http://www.nongnu.org/simulavr/) tool enables one to simulate an Atmel ATmega micro-controller. This section describes how one can run test gcode files through simulavr. It is recommended to run this on a desktop class machine (not a Raspberry Pi) as it does require significant cpu to run efficiently.
+Инструмент [simulavr](http://www.nongnu.org/simulavr/) позволяет моделировать микроконтроллер Atmel ATmega. В этом разделе описывается, как можно запускать тестовые gcode-файлы через simulavr. Рекомендуется запускать эту программу на машине настольного класса (не на Raspberry Pi), поскольку для ее эффективной работы требуется значительное количество процессора.
 
 To use simulavr, download the simulavr package and compile with python support. Note that the build system may need to have some packages (such as swig) installed in order to build the python module.
 

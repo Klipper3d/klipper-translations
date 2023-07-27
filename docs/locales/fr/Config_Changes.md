@@ -6,6 +6,16 @@ Toutes les dates de ce document sont approximatives.
 
 ## Changements
 
+20230619: The `relative_reference_index` option has been deprecated and superceded by the `zero_reference_position` option. Refer to the [Bed Mesh Documentation](./Bed_Mesh.md#the-deprecated-relative_reference_index) for details on how to update the configuration. With this deprecation the `RELATIVE_REFERENCE_INDEX` is no longer available as a parameter for the `BED_MESH_CALIBRATE` gcode command.
+
+20230530: The default canbus frequency in "make menuconfig" is now 1000000. If using canbus and using canbus with some other frequency is required, then be sure to select "Enable extra low-level configuration options" and specify the desired "CAN bus speed" in "make menuconfig" when compiling and flashing the micro-controller.
+
+20230525: `SHAPER_CALIBRATE` command immediately applies input shaper parameters if `[input_shaper]` was enabled already.
+
+20230407: The `stalled_bytes` counter in the log and in the `printer.mcu.last_stats` field has been renamed to `upcoming_bytes`.
+
+20230323: On tmc5160 drivers `multistep_filt` is now enabled by default. Set `driver_MULTISTEP_FILT: False` in the tmc5160 config for the previous behavior.
+
 20230304 : La commande `SET_TMC_CURRENT` ajuste désormais correctement le registre globalscaler pour les pilotes qui l'ont. Cela supprime une limitation où sur tmc5160, les courants ne pouvaient pas être augmentés plus haut avec `SET_TMC_CURRENT` que la valeur `run_current` définie dans le fichier de configuration. Cependant, cela a un effet secondaire : après avoir exécuté `SET_TMC_CURRENT`, le moteur pas à pas doit être maintenu à l'arrêt pendant plus de 130 ms dans le cas où StealthChop2 est utilisé afin que l'étalonnage AT#1 soit exécuté par le pilote.
 
 20230202 : Le format des informations d'état `printer.screws_tilt_adjust` a changé. Les informations sont maintenant stockées sous forme de dictionnaire de vis avec les mesures résultantes. Voir la [référence d'état](Status_Reference.md#screws_tilt_adjust) pour plus de détails.

@@ -57,5 +57,6 @@ Klipper 에 오신것을 환영합니다. Klipper를 처음 사용하는 경우�
 - [Beaglebone](Beaglebone.md): Beaglebone PRU에서 Klipper를 실행하기 위한 세부 정보입니다.
 - [브트로더](Bootloaders.md): 마이크로 컨트롤러 펌업에 대한 개발자 정보.
 - [캔버스](CANBUS.md): Klipper에서 CAN 버스를 사용하는 방법에 대한 정보.
+   - [CAN bus troubleshooting](CANBUS_Troubleshooting.md): Tips for troubleshooting CAN bus.
 - [TSL1401CL 필라멘트 폭 센서](TSL1401CL_Filament_Width_Sensor.md)
 - [홀 필라멘트 폭 센서](Hall_Filament_Width_Sensor.md)

@@ -896,10 +896,18 @@ Visual Examples:
 #   be applied to change the amount of slope interpolated. Larger
 #   numbers will increase the amount of slope, which results in more
 #   curvature in the mesh. Default is .2.
+#zero_reference_position:
+#   An optional X,Y coordinate that specifies the location on the bed
+#   where Z = 0.  When this option is specified the mesh will be offset
+#   so that zero Z adjustment occurs at this location.  The default is
+#   no zero reference.
 #relative_reference_index:
-#   A point index in the mesh to reference all z values to. Enabling
-#   this parameter produces a mesh relative to the probed z position
-#   at the provided index.
+#   **DEPRECATED, use the "zero_reference_position" option**
+#   The legacy option superceded by the "zero reference position".
+#   Rather than a coordinate this option takes an integer "index" that
+#   refers to the location of one of the generated points. It is recommended
+#   to use the "zero_reference_position" instead of this option for new
+#   configurations. The default is no relative reference index.
 #faulty_region_1_min:
 #faulty_region_1_max:
 #   Optional points that define a faulty region.  See docs/Bed_Mesh.md
@@ -1502,6 +1510,8 @@ Support for MPU-9250, MPU-9255, MPU-6515, MPU-6050, and MPU-6500 accelerometers 
 #   Default is 104 (0x68). If AD0 is high, it would be 0x69 instead.
 #i2c_mcu:
 #i2c_bus:
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
 #i2c_speed: 400000
 #   See the "common I2C settings" section for a description of the
 #   above parameters. The default "i2c_speed" is 400000.
@@ -2130,9 +2140,30 @@ sensor_type: BME280
 #   (0x77).
 #i2c_mcu:
 #i2c_bus:
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
 #i2c_speed:
 #   See the "common I2C settings" section for a description of the
 #   above parameters.
+```
+
+### AHT10/AHT20/AHT21 temperature sensor
+
+AHT10/AHT20/AHT21 two wire interface (I2C) environmental sensors. Note that these sensors are not intended for use with extruders and heater beds, but rather for monitoring ambient temperature (C) and relative humidity. See [sample-macros.cfg](../config/sample-macros.cfg) for a gcode_macro that may be used to report humidity in addition to temperature.
+
+```
+sensor_type: AHT10
+#   Also use AHT10 for AHT20 and AHT21 sensors.
+#i2c_address:
+#   Default is 56 (0x38). Some AHT10 sensors give the option to use
+#   57 (0x39) by moving a resistor.
+#i2c_mcu:
+#i2c_bus:
+#i2c_speed:
+#   See the "common I2C settings" section for a description of the
+#   above parameters.
+#aht10_report_time:
+#   Interval in seconds between readings. Default is 30, minimum is 5
 ```
 
 ### HTU21D sensor
@@ -2146,6 +2177,8 @@ sensor_type:
 #   Default is 64 (0x40).
 #i2c_mcu:
 #i2c_bus:
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
 #i2c_speed:
 #   See the "common I2C settings" section for a description of the
 #   above parameters.
@@ -2177,6 +2210,8 @@ sensor_type: LM75
 #   (usually with jumpers or hard wired).
 #i2c_mcu:
 #i2c_bus:
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
 #i2c_speed:
 #   See the "common I2C settings" section for a description of the
 #   above parameters.
@@ -2324,7 +2359,7 @@ pin:
 Heater cooling fans (one may define any number of sections with a "heater_fan" prefix). A "heater fan" is a fan that will be enabled whenever its associated heater is active. By default, a heater_fan has a shutdown_speed equal to max_power.
 
 ```
-[heater_fan my_nozzle_fan]
+[heater_fan heatbreak_cooling_fan]
 #pin:
 #max_power:
 #shutdown_speed:
@@ -2557,6 +2592,8 @@ PCA9533 LED support. The PCA9533 is used on the mightyboard.
 #   the PCA9533/1, 99 for the PCA9533/2. The default is 98.
 #i2c_mcu:
 #i2c_bus:
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
 #i2c_speed:
 #   See the "common I2C settings" section for a description of the
 #   above parameters.
@@ -2578,6 +2615,8 @@ PCA9632 LED support. The PCA9632 is used on the FlashForge Dreamer.
 #   96, 97, 98, or 99.  The default is 98.
 #i2c_mcu:
 #i2c_bus:
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
 #i2c_speed:
 #   See the "common I2C settings" section for a description of the
 #   above parameters.
@@ -2866,6 +2905,7 @@ run_current:
 #   set, "stealthChop" mode will be enabled if the stepper motor
 #   velocity is below this value. The default is 0, which disables
 #   "stealthChop" mode.
+#driver_MULTISTEP_FILT: True
 #driver_IHOLDDELAY: 8
 #driver_TPOWERDOWN: 20
 #driver_TBL: 2
@@ -2904,6 +2944,7 @@ run_current:
 #   The address of the TMC2209 chip for UART messages (an integer
 #   between 0 and 3). This is typically used when multiple TMC2209
 #   chips are connected to the same UART pin. The default is zero.
+#driver_MULTISTEP_FILT: True
 #driver_IHOLDDELAY: 8
 #driver_TPOWERDOWN: 20
 #driver_TBL: 2
@@ -3072,6 +3113,7 @@ run_current:
 #   to tune a motor with unbalanced coils. See the `Sine Wave Lookup Table`
 #   section in the datasheet for information about this field and how to tune
 #   it.
+#driver_MULTISTEP_FILT: True
 #driver_IHOLDDELAY: 6
 #driver_IRUNDELAY: 4
 #driver_TPOWERDOWN: 10
@@ -3184,6 +3226,7 @@ run_current:
 #   values used by the driver. The value must be specified as a decimal integer
 #   (hex form is not supported). In order to compute the wave table fields,
 #   see the tmc2130 "Calculation Sheet" from the Trinamic website.
+#driver_MULTISTEP_FILT: True
 #driver_IHOLDDELAY: 6
 #driver_TPOWERDOWN: 10
 #driver_TBL: 2
@@ -3212,6 +3255,10 @@ run_current:
 #driver_SEDN: 0
 #driver_SEIMIN: 0
 #driver_SFILT: 0
+#driver_DRVSTRENGTH: 0
+#driver_BBMCLKS: 4
+#driver_BBMTIME: 0
+#driver_FILT_ISENSE: 0
 #   Set the given register during the configuration of the TMC5160
 #   chip. This may be used to set custom motor parameters. The
 #   defaults for each parameter are next to the parameter name in the
@@ -3280,6 +3327,8 @@ i2c_address:
 #   parameter must be provided.
 #i2c_mcu:
 #i2c_bus:
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
 #i2c_speed:
 #   See the "common I2C settings" section for a description of the
 #   above parameters.
@@ -3314,6 +3363,8 @@ Statically configured MCP4728 digital-to-analog converter connected via I2C bus 
 #   is 96.
 #i2c_mcu:
 #i2c_bus:
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
 #i2c_speed:
 #   See the "common I2C settings" section for a description of the
 #   above parameters.
@@ -3576,6 +3627,8 @@ lcd_type:
 #   Set to either "ssd1306" or "sh1106" for the given display type.
 #i2c_mcu:
 #i2c_bus:
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
 #i2c_speed:
 #   Optional parameters available for displays connected via an i2c
 #   bus. See the "common I2C settings" section for a description of
@@ -3914,13 +3967,11 @@ i2c_address:
 #   113. This parameter must be provided.
 #i2c_mcu:
 #i2c_bus:
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
 #i2c_speed:
 #   See the "common I2C settings" section for a description of the
 #   above parameters.
-#i2c_bus:
-#   If the I2C implementation of your micro-controller supports
-#   multiple I2C busses, you may specify the bus name here. The
-#   default is to use the default micro-controller i2c bus.
 ```
 
 ### [samd_sercom]
@@ -4132,6 +4183,13 @@ Most Klipper micro-controller implementations only support an `i2c_speed` of 100
 #   If the micro-controller supports multiple I2C busses then one may
 #   specify the micro-controller bus name here. The default depends on
 #   the type of micro-controller.
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
+#   Specify these parameters to use micro-controller software based
+#   I2C "bit-banging" support. The two parameters should the two pins
+#   on the micro-controller to use for the scl and sda wires. The
+#   default is to use hardware based I2C support as specified by the
+#   i2c_bus parameter.
 #i2c_speed:
 #   The I2C speed (in Hz) to use when communicating with the device.
 #   The Klipper implementation on most micro-controllers is hard-coded

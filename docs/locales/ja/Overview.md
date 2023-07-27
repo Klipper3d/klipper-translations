@@ -57,5 +57,6 @@ Klipperドキュメントへようこそ。Klipperが初めての方は [機能�
 - [Beaglebone](Beaglebone.md): Beaglebone PRUでKlipperを実行する際の詳細について。
 - [ブートローダー](Bootloaders.md): マイクロコントローラーのフラッシュに関する開発情報。
 - [CAN bus](CANBUS.md): KlipperでのCAN bus使用に関する情報。
+   - [CAN bus troubleshooting](CANBUS_Troubleshooting.md): Tips for troubleshooting CAN bus.
 - [TSL1401CLフィラメント径センサー](TSL1401CL_Filament_Width_Sensor.md)
 - [ホール素子フィラメント径センサー](Hall_Filament_Width_Sensor.md)

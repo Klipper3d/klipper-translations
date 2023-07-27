@@ -4,19 +4,19 @@ Sterowniki silników krokowych w Klipperze wymagają parametru `rotation_distanc
 
 ## Uzyskanie rotation_distance z steps_per_mm (lub step_distance)
 
-The designers of your 3d printer originally calculated `steps_per_mm` from a rotation distance. If you know the steps_per_mm then it is possible to use this general formula to obtain that original rotation distance:
+Projektanci twojej drukarki 3D pierwotnie obliczyli `steps_per_mm` na podstawie odległości obrotu. Jeśli znasz step_per_mm, możesz użyć tego ogólnego wzoru, aby uzyskać oryginalną odległość obrotu:
 
 ```
 rotation_distance = <full_steps_per_rotation> * <microsteps> / <steps_per_mm>
 ```
 
-Or, if you have an older Klipper configuration and know the `step_distance` parameter you can use this formula:
+Lub, jeśli masz starszą konfigurację Klippera i znasz parametr `step_distance`, możesz użyć tego wzoru:
 
 ```
 rotation_distance = <full_steps_per_rotation> * <microsteps> * <step_distance>
 ```
 
-The `<full_steps_per_rotation>` setting is determined from the type of stepper motor. Most stepper motors are "1.8 degree steppers" and therefore have 200 full steps per rotation (360 divided by 1.8 is 200). Some stepper motors are "0.9 degree steppers" and thus have 400 full steps per rotation. Other stepper motors are rare. If unsure, do not set full_steps_per_rotation in the config file and use 200 in the formula above.
+Ustawienie `<full_steps_per_rotation>` jest określane na podstawie typu silnika krokowego. Większość silników krokowych to "steppery 1,8 stopnia" i dlatego mają 200 pełnych kroków na obrót (360 podzielone przez 1,8 to 200). Niektóre silniki krokowe są "stepperami 0,9 stopnia", a zatem mają 400 pełnych kroków na obrót. Inne silniki krokowe są rzadkie. Jeśli nie masz pewności, nie ustawiaj full_steps_per_rotation w pliku konfiguracyjnym i użyj 200 w powyższym wzorze.
 
 The `<microsteps>` setting is determined by the stepper motor driver. Most drivers use 16 microsteps. If unsure, set `microsteps: 16` in the config and use 16 in the formula above.
 

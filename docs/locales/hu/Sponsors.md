@@ -8,6 +8,10 @@ A Klipper szabad szoftver. A szponzorok nagylelkű támogatásától függünk. 
 
 A BIGTREETECH a Klipper hivatalos alaplapszponzora. A BIGTREETECH elkötelezett az innovatív és versenyképes termékek fejlesztése mellett, hogy a 3D nyomtatási közösséget jobban szolgálják. Kövesd őket a [Facebookon](https://www.facebook.com/BIGTREETECH) vagy a [Twitteren](https://twitter.com/BigTreeTech).
 
+## Szponzorok
+
+[<img src="./img/sponsors/obico-light-horizontal.png" width="200" />](https://obico.io/klipper.html?source=klipper_sponsor)
+
 ## Klipper fejlesztők
 
 ### Kevin O'Connor

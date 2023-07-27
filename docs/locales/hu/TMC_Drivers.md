@@ -36,7 +36,7 @@ Javasoljuk, hogy mindig a "SpreadCycle" módot használd (nem megadva a `stealth
 
 A TMC motorvezérlő `interpolate` beállítása csökkentheti a nyomtató mozgásának hallható zaját, de ennek ára egy kis rendszerszintű helyzeti hiba. Ez a rendszerszintű helyzeti hiba abból adódik, hogy a motorvezérlő késve hajtja végre a Klipper által küldött "lépéseket". Állandó sebességű mozgások során ez a késleltetés közel fél konfigurált mikrolépésnyi pozícióhibát eredményez (pontosabban a hiba fél mikrolépésnyi távolság mínusz a teljes lépés távolság 512-ed része). Például egy 40 mm-es rotation_distance, 200 steps_per_rotation és 16 microstep tengelyen az állandó sebességű mozgások során bevezetett rendszerszintű hiba ~0,006 mm.
 
-A legjobb helymeghatározási pontosság érdekében fontold meg a SpreadCycle mód használatát és az interpoláció kikapcsolását (állítsd be az `interpolate: False` értéket a TMC motorvezérlő konfigurációjában). Ilyen konfiguráció esetén növelhetjük a `microstep` beállítást a léptető mozgása közbeni hallható zajok csökkentése érdekében. Általában a `64` vagy `128` mikrolépés beállítása az interpolációhoz hasonló hallható zajjal jár, és mindezt anélkül, hogy rendszerszintű helyzeti hibát vezetne be.
+A legjobb helymeghatározási pontosság érdekében fontold meg a SpreadCycle mód használatát és az interpoláció kikapcsolását (állítsd be az `interpolate: False` értéket a TMC motorvezérlő konfigurációjában). Ilyen konfiguráció esetén növelhetjük a `microstep` beállítást a léptető mozgása közbeni hallható zajok csökkentése érdekében. Általában a `64` vagy `128` mikrolépés beállítása az interpolációhoz hasonló hallható zajjal jár, és mindezt anélkül, hogy rendszerszintű helyzeti hibát jelezne.
 
 Ha a StealthChop módot használod, akkor az interpolációból eredő helyzeti pontatlanság kicsi a StealthChop módból eredő helyzeti pontatlansághoz képest. Ezért az interpoláció hangolása nem tekinthető hasznosnak StealthChop üzemmódban, és az interpoláció alapértelmezett állapotban hagyható.
 
@@ -184,7 +184,7 @@ Az érzékelő nélküli kezdőpont felvétel befejezése után a kocsi a sín v
 
 Jó ötlet, ha a makró legalább 2 másodperc szünetet tart az érzékelő nélküli kezdőpont felvétel elindítása előtt (vagy más módon biztosítja, hogy a léptetőn 2 másodpercig nem volt mozgás). A késleltetés nélkül lehetséges, hogy a meghajtó belső leállási jelzője még mindig be van állítva egy korábbi mozgás miatt.
 
-Az is hasznos lehet, ha ez a makró beállítja a meghajtó áramát a kezdőpont felvétel előtt, és új áramot állít be, miután a kocsi elindult.
+Az is hasznos lehet, ha ez a makró beállítja a meghajtó áramát a kezdőpont felvétel előtt, és új áramot állít be, a kocsi indulásakor.
 
 Egy példamakró így nézhet ki:
 
@@ -295,7 +295,7 @@ Néhány gyakori hiba és tipp a diagnosztizáláshoz:
 
 Ez azt jelzi, hogy a motorvezérlő kikapcsolta magát, mert túlmelegedett. A tipikus megoldások a léptetőmotor áramának csökkentése, a motorvezérlő és/vagy a léptetőmotor hűtése.
 
-#### TMC reports error: `... ShortToGND` OR `ShortToSupply`
+#### TMC hibát jelent: `... ShortToGND` VAGY `ShortToSupply`
 
 Ez azt jelzi, hogy a motorvezérlő letiltotta magát, mert nagyon magas áramot érzékelt a meghajtón keresztül. Ez azt jelezheti, hogy meglazult vagy rövidre zárt vezeték van a léptetőmotorban vagy magához a léptetőmotorhoz futó vezeték hibás.
 

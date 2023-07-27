@@ -301,65 +301,64 @@ Itt csak a deltesian nyomtatókra jellemző paraméterek kerülnek leírásra. A
 [printer]
 kinematics: deltesian
 max_z_velocity:
-#   For deltesian printers, this limits the maximum velocity (in mm/s) of
-#   moves with z axis movement. This setting can be used to reduce the
-#   maximum speed of up/down moves (which require a higher step rate
-#   than other moves on a deltesian printer). The default is to use
-#   max_velocity for max_z_velocity.
+# Delta nyomtatók esetében ez korlátozza a maximális sebességet (mm/s-ban) a Z
+# tengely mozgatásával végzett mozgásoknak. Ezzel a beállítással csökkentheted a
+# a fel/le mozgások maximális sebességét (amelyek nagyobb lépésszámot igényelnek),
+# mint más mozgások egy delta nyomtatón). Az alapértelmezett beállítás a
+# max_velocity a max_z_velocity helyett.
 #max_z_accel:
-#   This sets the maximum acceleration (in mm/s^2) of movement along
-#   the z axis. Setting this may be useful if the printer can reach higher
-#   acceleration on XY moves than Z moves (eg, when using input shaper).
-#   The default is to use max_accel for max_z_accel.
+# Ez állítja be a mozgás maximális gyorsulását (mm/s^2 -ben) a Z tengely mentén.
+# Ennek beállítása akkor lehet hasznos, ha a nyomtató magasabb gyorsulást érhet el az
+# XY mozgásoknál, mint a Z mozgásoknál (pl. ha bemeneti alakítót használ).
+# A max_z_accel alapértelmezés szerint a max_accel értéket használja.
 #minimum_z_position: 0
-#   The minimum Z position that the user may command the head to move
-#   to. The default is 0.
+# A minimális Z pozíció, amelyre a felhasználó a fejnek parancsot adhat.
+# Az alapértelmezett érték 0.
 #min_angle: 5
-#   This represents the minimum angle (in degrees) relative to horizontal
-#   that the deltesian arms are allowed to achieve. This parameter is
-#   intended to restrict the arms from becoming completely horizontal,
-#   which would risk accidental inversion of the XZ axis. The default is 5.
+# Ez a vízszinteshez viszonyított minimális szög (fokban).
+# Amit a deltás karok elérhetnek. Ez a paraméter célja, hogy korlátozza a
+# karokat abban, hogy ne váljanak teljesen vízszintessé, ami az XZ tengely véletlen
+# megfordítását kockáztatná. Az alapértelmezett érték 5.
 #print_width:
-#   The distance (in mm) of valid toolhead X coordinates. One may use
-#   this setting to customize the range checking of toolhead moves. If
-#   a large value is specified here then it may be possible to command
-#   the toolhead into a collision with a tower. This setting usually
-#   corresponds to bed width (in mm).
+# Az érvényes szerszámfej X koordináták távolsága (mm-ben). Lehet használni
+# ezt a beállítást a szerszámfejmozgások tartományellenőrzésének testreszabására. Ha
+# nagy értéket adunk meg itt, akkor lehetséges, hogy a parancs miatt
+# a szerszámfej ütközésbe kerülhet egy toronnyal. Ez a beállítás általában
+# az ágy szélességének fele (mm-ben).
 #slow_ratio: 3
-#   The ratio used to limit velocity and acceleration on moves near the
-#   extremes of the X axis. If vertical distance divided by horizontal
-#   distance exceeds the value of slow_ratio, then velocity and
-#   acceleration are limited to half their nominal values. If vertical
-#   distance divided by horizontal distance exceeds twice the value of
-#   the slow_ratio, then velocity and acceleration are limited to one
-#   quarter of their nominal values. The default is 3.
+# A sebesség és a gyorsulás korlátozására használt arány a mozdulatoknál az
+# X tengely szélsőértéke. Ha a függőleges távolságot elosztjuk a vízszintes
+# távolság meghaladja a slow_ratio értékét, akkor a sebesség és a
+# gyorsulás a névleges érték felére korlátozódik. Ha a függőleges
+# távolság osztva a vízszintes távolsággal meghaladja a
+# a slow_ratio értékének kétszeresét, akkor a sebesség és a gyorsulás egy értékre korlátozódik
+# névleges értékük negyedére korlátozódik. Az alapértelmezett érték 3.
 
-# The stepper_left section is used to describe the stepper controlling
-# the left tower. This section also controls the homing parameters
-# (homing_speed, homing_retract_dist) for all towers.
+# A stepper_left szakasz a steppert vezérlő léptető leírására szolgál.
+# a bal oldali toronynál. Ez a szakasz vezérli a homing paramétereket is
+# (homing_speed, homing_retract_dist) minden torony esetében.
 [stepper_left]
 position_endstop:
-#   Distance (in mm) between the nozzle and the bed when the nozzle is
-#   in the center of the build area and the endstops are triggered. This
-#   parameter must be provided for stepper_left; for stepper_right this
-#   parameter defaults to the value specified for stepper_left.
+# A fúvóka és az ágy közötti távolság (mm-ben), amikor a fúvóka
+# az építési terület közepén van, és a végállások működésbe lépnek. Ezt a
+# paramétert a stepper_left esetében kell megadni; a stepper_right esetében ezt a
+# paramétert kell megadni.
+# A paraméter alapértelmezés szerint a stepper_left esetében megadott értéket veszi fel.
 arm_length:
-#   Length (in mm) of the diagonal rod that connects the tower carriage to
-#   the print head. This parameter must be provided for stepper_left; for
-#   stepper_right, this parameter defaults to the value specified for
-#   stepper_left.
+# Az átlós rúd hossza (mm-ben), amely a toronykocsit összekapcsolja a
+# a nyomtatófejjel. Ezt a paramétert a stepper_left esetében meg kell adni; a stepper_left esetében a
+# stepper_right esetében ez a paraméter alapértelmezés szerint a stepper_right esetében megadott értéket veszi fel.
+# stepper_left.
 arm_x_length:
-#   Horizontal distance between the print head and the tower when the
-#   printers is homed. This parameter must be provided for stepper_left;
-#   for stepper_right, this parameter defaults to the value specified for
-#   stepper_left.
+# A nyomtatófej és a torony közötti vízszintes távolság, amire a
+# nyomtató van beállítva. Ezt a paramétert a stepper_left esetében meg kell adni;
+# stepper_right esetén ez a paraméter alapértelmezés szerint a stepper_right esetében megadott értéket veszi fel.
+# stepper_left.
 
-# The stepper_right section is used to describe the stepper controlling the
-# right tower.
+# A stepper_right szakasz a stepper leírására szolgál, amely a nyomtató jobb oldalát vezérli.
 [stepper_right]
 
-# The stepper_y section is used to describe the stepper controlling
-# the Y axis in a deltesian robot.
+# A stepper_y szekció a tornyot vezérlő léptető leírására szolgál egy delta nyomtatón.
 [stepper_y]
 ```
 
@@ -806,98 +805,94 @@ Vizuális példák:
 ```
 [bed_mesh]
 #speed: 50
-#   A kalibrálás során a nem próbamozgások sebessége (mm/sec-ben).
-#   Az alapértelmezett érték 50.
+#   The speed (in mm/s) of non-probing moves during the calibration.
+#   The default is 50.
 #horizontal_move_z: 5
-#   Az a magasság (mm-ben), amelyre a fejnek parancsot kell adni a
-#   mozgásra közvetlenül a szondaművelet megkezdése előtt.
-#   Az alapértelmezett érték 5.
+#   The height (in mm) that the head should be commanded to move to
+#   just prior to starting a probe operation. The default is 5.
 #mesh_radius:
-#   Meghatározza a háló sugarát a kerek tárgyasztalokhoz. Ne feledd, hogy a
-#   sugár a mesh_origin paraméter által megadott koordinátához
-#   viszonyított. Ezt a paramétert a kerek tárgyasztaloknál meg kell adni,
-#   a téglalap alakú tárgyasztaloknál pedig ki kell hagyni.
-# mesh_origin
-#   Az opció által meghatározott koordináta.
-#   Ezt a paramétert kerek tárgyasztalok esetében meg kell adni.
-#   De elhagyható a téglalap alakú tárgyasztalok esetében.
+#   Defines the radius of the mesh to probe for round beds. Note that
+#   the radius is relative to the coordinate specified by the
+#   mesh_origin option. This parameter must be provided for round beds
+#   and omitted for rectangular beds.
 #mesh_origin:
-#   Meghatározza a háló középpontjának X, Y koordinátáját kerek tárgyasztalok
-#   esetén. Ez a koordináta a szonda helyéhez képest relatív. Hasznos
-#   lehet a mesh_origin beállítása, hogy maximalizáljuk a háló méretét.
-#   Az alapértelmezett érték 0, 0. Ezt a paramétert el kell hagyni
-#   téglalap alakú tárgyasztalok esetén.
+#   Defines the center X, Y coordinate of the mesh for round beds. This
+#   coordinate is relative to the probe's location. It may be useful
+#   to adjust the mesh_origin in an effort to maximize the size of the
+#   mesh radius. Default is 0, 0. This parameter must be omitted for
+#   rectangular beds.
 #mesh_min:
-#   Meghatározza a háló minimális X, Y koordinátáját téglalap alakú
-#   tárgyasztalok esetén. Ez a koordináta a szonda helyéhez képest relatív.
-#   Ez lesz az első szondázott pont, amely a legközelebb van az origóhoz.
-#   Ezt a paramétert téglalap alakú tárgyasztalok esetén meg kell adni.
+#   Defines the minimum X, Y coordinate of the mesh for rectangular
+#   beds. This coordinate is relative to the probe's location. This
+#   will be the first point probed, nearest to the origin. This
+#   parameter must be provided for rectangular beds.
 #mesh_max:
-#   Meghatározza a háló maximális X, Y koordinátáját téglalap alakú
-#   tárgyasztalok esetén. Ugyanazon az elven működik, mint a mesh_min,
-#   azonban ez a paraméter a legtávolabbi pont lesz, amelyet a tárgyasztal
-#   origójától vizsgálunk. Ezt a paramétert téglalap alakú tárgyasztalok
-#   esetén meg kell adni.
+#   Defines the maximum X, Y coordinate of the mesh for rectangular
+#   beds. Adheres to the same principle as mesh_min, however this will
+#   be the furthest point probed from the bed's origin. This parameter
+#   must be provided for rectangular beds.
 #probe_count: 3, 3
-#   Téglalap alakú tárgyasztalok esetén ez egy vesszővel elválasztott egész
-#   számpár. X, Y értékek, amelyek meghatározzák a mérni kívánt
-#   pontok számát az egyes tengelyek mentén. Egyetlen érték is
-#   érvényes, ebben az esetben ez az érték mindkét tengelyre vonatkozik.
-#   Az alapértelmezett érték 3, 3.
+#   For rectangular beds, this is a comma separate pair of integer
+#   values X, Y defining the number of points to probe along each
+#   axis. A single value is also valid, in which case that value will
+#   be applied to both axes. Default is 3, 3.
 #round_probe_count: 5
-#   A kerek tárgyasztalok esetében ez az egész érték határozza meg a
-#   maximális számú pontok számát, amelyeket minden tengely mentén
-#   meg kell vizsgálni. Ennek az értéknek páratlan számnak kell lennie.
-#   Az alapértelmezett érték 5.
+#   For round beds, this integer value defines the maximum number of
+#   points to probe along each axis. This value must be an odd number.
+#   Default is 5.
 #fade_start: 1.0
-#   A G-kód Z pozíciója, ahol a Z-korrekció fokozatos megszüntetése
-#   elkezdődik amikor a fade engedélyezve van.
-#   Az alapértelmezett érték 1.0.
+#   The gcode z position in which to start phasing out z-adjustment
+#   when fade is enabled. Default is 1.0.
 #fade_end: 0.0
-#   A G-kód Z pozíciója, amelyben a fading out befejeződik. Ha be van
-#   állítva egy fade_start alatti értékre a fade ki van kapcsolva.
-#   Meg kell jegyezni, hogy a fade nem kívánt skálázást adhat a
-#   nyomtatás Z tengelye mentén. Ha egy felhasználó engedélyezni
-#   kívánja a fade-et, a 10.0 érték ajánlott.
-#   Az alapértelmezett érték 0.0, amely kikapcsolja a fade-et.
+#   The gcode z position in which phasing out completes. When set to a
+#   value below fade_start, fade is disabled. It should be noted that
+#   fade may add unwanted scaling along the z-axis of a print. If a
+#   user wishes to enable fade, a value of 10.0 is recommended.
+#   Default is 0.0, which disables fade.
 #fade_target:
-#   A Z pozíció, amelyben a fade-nek konvergálnia kell. Ha ez az érték
-#   nem nulla értékre van beállítva, akkor annak a Z-értékek tartományán
-#   belül kell lennie a hálóban. Azok a felhasználók, akik a Z kezdőponthoz
-#   kívánnak konvergálni, 0-ra kell állítaniuk.
-#   Az alapértelmezett érték a háló átlagos Z értéke.
+#   The z position in which fade should converge. When this value is
+#   set to a non-zero value it must be within the range of z-values in
+#   the mesh. Users that wish to converge to the z homing position
+#   should set this to 0. Default is the average z value of the mesh.
 #split_delta_z: .025
-#   A Z különbség mértéke (mm-ben) a mozgás mentén, amely kivált
-#   egy osztást. Az alapértelmezett érték .025.
+#   The amount of Z difference (in mm) along a move that will trigger
+#   a split. Default is .025.
 #move_check_distance: 5.0
-#   A távolság (mm-ben) a mozgás mentén, amelynél a split_delta_z-t
-#   ellenőrizni kell. Ez egyben a minimális hossz, ameddig egy mozgást
-#   fel lehet osztani. Alapértelmezett érték 5.0.
+#   The distance (in mm) along a move to check for split_delta_z.
+#   This is also the minimum length that a move can be split. Default
+#   is 5.0.
 #mesh_pps: 2, 2
-#   Egy vesszővel elválasztott egész számpár X, Y, amely meghatározza a
-#   következő pontok számát szegmensenként, amelyeket interpolálni kell
-#   a hálóban az egyes tengelyek mentén. A "szegmens" úgy definiálható,
-#   mint az egyes mért pontok közötti tér. A felhasználó egyetlen értéket
-#   adhat meg, amely mindkét tengelyre vonatkozik.
-#   Az alapértelmezett érték 2, 2.
-#algoritmus: lagrange
-#   Az alkalmazandó interpolációs algoritmus. Lehet akár "lagrange" vagy
-#   "bicubic". Ez az opció nem érinti a 3x3-as rácsokat, amelyek kényszerített
-#   lagrange mintavételt használnak. Az alapértelmezett lagrange.
+#   A comma separated pair of integers X, Y defining the number of
+#   points per segment to interpolate in the mesh along each axis. A
+#   "segment" can be defined as the space between each probed point.
+#   The user may enter a single value which will be applied to both
+#   axes. Default is 2, 2.
+#algorithm: lagrange
+#   The interpolation algorithm to use. May be either "lagrange" or
+#   "bicubic". This option will not affect 3x3 grids, which are forced
+#   to use lagrange sampling. Default is lagrange.
 #bicubic_tension: .2
-#   A bikubik algoritmus használatakor a fenti feszültség paraméter
-#   alkalmazható az interpolált meredekség mértékének megváltoztatására.
-#   Nagyobb számok növelik a meredekség mértékét, ami nagyobb
-#   görbületet eredményez a hálóban. Az alapértelmezett érték .2.
+#   When using the bicubic algorithm the tension parameter above may
+#   be applied to change the amount of slope interpolated. Larger
+#   numbers will increase the amount of slope, which results in more
+#   curvature in the mesh. Default is .2.
+#zero_reference_position:
+#   An optional X,Y coordinate that specifies the location on the bed
+#   where Z = 0.  When this option is specified the mesh will be offset
+#   so that zero Z adjustment occurs at this location.  The default is
+#   no zero reference.
 #relative_reference_index:
-#   Egy pontindex a hálóban, amelyre minden Z értéket hivatkozni kell.
-#   Az engedélyezése ennek a paraméternek a bekapcsolása a vizsgált
-#   Z pozícióhoz viszonyított hálót eredményez a megadott indexhez képest.
+#   **DEPRECATED, use the "zero_reference_position" option**
+#   The legacy option superceded by the "zero reference position".
+#   Rather than a coordinate this option takes an integer "index" that
+#   refers to the location of one of the generated points. It is recommended
+#   to use the "zero_reference_position" instead of this option for new
+#   configurations. The default is no relative reference index.
 #faulty_region_1_min:
 #faulty_region_1_max:
-#   A hibás régiót meghatározó opcionális pontok. Lásd docs/Bed_Mesh.md
-#   A hibás régiókkal kapcsolatos részletekért. Legfeljebb 99 hibás régió
-#   adható hozzá. Alapértelmezés szerint nincsenek hibás régiók beállítva.
+#   Optional points that define a faulty region.  See docs/Bed_Mesh.md
+#   for details on faulty regions.  Up to 99 faulty regions may be added.
+#   By default no faulty regions are set.
 ```
 
 ### [bed_tilt]
@@ -986,33 +981,34 @@ További információkért lásd a [szintezési útmutató](Manual_Level.md#adju
 ```
 [screws_tilt_adjust]
 #screw1:
-#   The (X, Y) coordinate of the first bed leveling screw. This is a
-#   position to command the nozzle to so that the probe is directly
-#   above the bed screw (or as close as possible while still being
-#   above the bed). This is the base screw used in calculations. This
-#   parameter must be provided.
+# Az első ágykiegyenlítő csavar (X, Y) koordinátája. Ez egy
+# pozíció, ahová a fúvókát kell küldeni, hogy a szonda közvetlenül
+# az alapcsavar felett (vagy a lehető legközelebb legyen hozzá.)
+# Ez a számítások során használt alapcsavar. Ezt a
+# paramétert meg kell adni.
 #screw1_name:
-#   An arbitrary name for the given screw. This name is displayed when
-#   the helper script runs. The default is to use a name based upon
-#   the screw XY location.
+# Az adott csavar tetszőleges neve. Ez a név jelenik meg, amikor
+# a segédszkript fut. Az alapértelmezés szerint a név alapja
+# a csavar XY helyzete.
 #screw2:
 #screw2_name:
 #...
-#   Additional bed leveling screws. At least two screws must be
-#   defined.
+# További ágykiegyenlítő csavarok. Legalább két csavarnak kell lennie
+# definiálva.
 #speed: 50
-#   The speed (in mm/s) of non-probing moves during the calibration.
-#   The default is 50.
+# A kalibrálás során a nem próbamozgások sebessége (mm/s-ban).
+# Az alapértelmezett érték 50.
 #horizontal_move_z: 5
-#   The height (in mm) that the head should be commanded to move to
-#   just prior to starting a probe operation. The default is 5.
+# Az a magasság (mm-ben), amelyre a fejnek parancsot kell adni a mozgásra.
+# Közvetlenül a szondaművelet megkezdése előtt. Az alapértelmezett érték 5.
 #screw_thread: CW-M3
-#   The type of screw used for bed leveling, M3, M4, or M5, and the
-#   rotation direction of the knob that is used to level the bed.
-#   Accepted values: CW-M3, CCW-M3, CW-M4, CCW-M4, CW-M5, CCW-M5.
-#   Default value is CW-M3 which most printers use. A clockwise
-#   rotation of the knob decreases the gap between the nozzle and the
-#   bed. Conversely, a counter-clockwise rotation increases the gap.
+# Az ágy szintezéséhez használt csavar típusa, M3, M4 vagy M5, és
+# az ágy szintezéséhez használt gomb forgásiránya.
+# Elfogadott értékek: CW-M3, CCW-M3, CW-M4, CCW-M4, CW-M5, CCW-M5.
+# Az alapértelmezett érték CW-M3, amelyet a legtöbb nyomtató használ.
+# Az óramutató járásával megegyező forgatása csökkenti a fúvóka és az
+# ágy közötti távolságot.
+# Ezzel szemben az óramutató járásával ellentétes irányú forgatás növeli a rést.
 ```
 
 ### [z_tilt]
@@ -1510,17 +1506,16 @@ MPU-9250, MPU-9255, MPU-6515, MPU-6050 és MPU-6500 gyorsulásmérők támogatá
 ```
 [mpu9250 my_accelerometer]
 #i2c_address:
-#   Az alapértelmezett 104 (0x68). Ha az AD0 magas, akkor
-#   0x69 lesz helyette.
+#   Default is 104 (0x68). If AD0 is high, it would be 0x69 instead.
 #i2c_mcu:
 #i2c_bus:
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
 #i2c_speed: 400000
-#   Lásd a "közös I2C beállítások" fejezetben a
-#   fenti paraméterek leírását.
-#   Az alapértelmezett "i2c_speed" 400000.
+#   See the "common I2C settings" section for a description of the
+#   above parameters. The default "i2c_speed" is 400000.
 #axes_map: x, y, z
-#   Lásd az "adxl345" szakaszban az ezzel a paraméterrel
-#   kapcsolatos információkat.
+#   See the "adxl345" section for information on this parameter.
 ```
 
 ### [resonance_tester]
@@ -1918,7 +1913,7 @@ Kézi léptetők (tetszőleges számú szakasz definiálható "manual_stepper" e
 
 ### [verify_heater]
 
-A fűtés és a hőmérséklet-érzékelő ellenőrzése. A fűtőelemek ellenőrzése automatikusan engedélyezve van minden olyan fűtőelemhez, amely a nyomtatón be van állítva. Az alapértelmezett beállítások módosításához használd a verify_heater szakaszokat.
+A fűtés és a hőmérséklet-érzékelő ellenőrzése. A fűtőelemek ellenőrzése automatikusan engedélyezve van minden olyan fűtőelemhez, amely a nyomtatón be van állítva. Az alapértelmezett beállítások módosításához használd a verify_heater szakaszt.
 
 ```
 [verify_heater heater_config_name]
@@ -2162,13 +2157,34 @@ BMP280/BME280/BME680 kétvezetékes interfész (I2C) környezeti érzékelők. V
 ```
 sensor_type: BME280
 #i2c_address:
-#   Az alapértelmezett 118 (0x76). Egyes BME280 érzékelők címe 119
-# (0x77).
+#   Default is 118 (0x76). Some BME280 sensors have an address of 119
+#   (0x77).
+#i2c_mcu:
+#i2c_bus:
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
+#i2c_speed:
+#   See the "common I2C settings" section for a description of the
+#   above parameters.
+```
+
+### AHT10/AHT20/AHT21 temperature sensor
+
+AHT10/AHT20/AHT21 two wire interface (I2C) environmental sensors. Note that these sensors are not intended for use with extruders and heater beds, but rather for monitoring ambient temperature (C) and relative humidity. See [sample-macros.cfg](../config/sample-macros.cfg) for a gcode_macro that may be used to report humidity in addition to temperature.
+
+```
+sensor_type: AHT10
+#   Also use AHT10 for AHT20 and AHT21 sensors.
+#i2c_address:
+#   Default is 56 (0x38). Some AHT10 sensors give the option to use
+#   57 (0x39) by moving a resistor.
 #i2c_mcu:
 #i2c_bus:
 #i2c_speed:
-#   A fenti paraméterek leírását lásd az "általános I2C beállítások"
-#   részben.
+#   See the "common I2C settings" section for a description of the
+#   above parameters.
+#aht10_report_time:
+#   Interval in seconds between readings. Default is 30, minimum is 5
 ```
 
 ### HTU21D érzékelő
@@ -2177,30 +2193,30 @@ HTU21D kétvezetékes interfész (I2C) környezeti érzékelő. Vedd figyelembe,
 
 ```
 sensor_type:
-#   A következőnek kell lennie: "HTU21D", "SI7013", "SI7020",
-#   "SI7021" vagy "SHT21"
+#   Must be "HTU21D" , "SI7013", "SI7020", "SI7021" or "SHT21"
 #i2c_address:
-#   Az alapértelmezett 64 (0x40).
+#   Default is 64 (0x40).
 #i2c_mcu:
 #i2c_bus:
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
 #i2c_speed:
-#   A fenti paraméterek leírását lásd az "általános I2C beállítások"
-#   részben.
+#   See the "common I2C settings" section for a description of the
+#   above parameters.
 #htu21d_hold_master:
-#   Ha az érzékelő képes megtartani az I2C buffot olvasás közben.
-#   Ha True, az olvasás közben más buszkommunikáció nem
-#   hajtható végre. Az alapértelmezett érték False.
+#   If the sensor can hold the I2C buf while reading. If True no other
+#   bus communication can be performed while reading is in progress.
+#   Default is False.
 #htu21d_resolution:
-#   A hőmérséklet és a páratartalom leolvasásának felbontása.
-#   Az érvényes értékek a következők:
-#    'TEMP14_HUM12' -> 14 bit a hőmérséklethez és 12 bit a páratartalomhoz
-#    'TEMP13_HUM10' -> 13 bit a hőmérséklethez és 10 bit a páratartalomhoz
-#    'TEMP12_HUM08' -> 12 bit a hőmérséklethez és 08 bit a páratartalomhoz
-#    'TEMP11_HUM11' -> 11 bit a hőmérséklethez és 11 bit a páratartalomhoz
-#   Az alapértelmezett érték: "TEMP11_HUM11"
+#   The resolution of temperature and humidity reading.
+#   Valid values are:
+#    'TEMP14_HUM12' -> 14bit for Temp and 12bit for humidity
+#    'TEMP13_HUM10' -> 13bit for Temp and 10bit for humidity
+#    'TEMP12_HUM08' -> 12bit for Temp and 08bit for humidity
+#    'TEMP11_HUM11' -> 11bit for Temp and 11bit for humidity
+#   Default is: "TEMP11_HUM11"
 #htu21d_report_time:
-#   A leolvasások közötti intervallum másodpercben.
-#   Az alapértelmezett a 30
+#   Interval in seconds between readings. Default is 30
 ```
 
 ### LM75 hőmérséklet-érzékelő
@@ -2210,17 +2226,19 @@ LM75/LM75A kétvezetékes (I2C) csatlakozású hőmérséklet érzékelők. Ezek
 ```
 sensor_type: LM75
 #i2c_address:
-#   Az alapértelmezett 72 (0x48). A normál tartomány 72-79 (0x48-0x4F),
-#   és a cím 3 alacsony bitje a chipen található érintkezőkön keresztül
-#   van konfigurálva (általában jumperekkel vagy áthidaló vezetékekkel).
+#   Default is 72 (0x48). Normal range is 72-79 (0x48-0x4F) and the 3
+#   low bits of the address are configured via pins on the chip
+#   (usually with jumpers or hard wired).
 #i2c_mcu:
 #i2c_bus:
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
 #i2c_speed:
-#   A fenti paraméterek leírását lásd az "általános I2C beállítások"
-#   részben.
+#   See the "common I2C settings" section for a description of the
+#   above parameters.
 #lm75_report_time:
-#   A leolvasások közötti intervallum másodpercben.
-#   Az alapértelmezett érték 0,8 de a minimum érték 0,5.
+#   Interval in seconds between readings. Default is 0.8, with minimum
+#   0.5.
 ```
 
 ### Beépített mikrokontroller hőmérséklet-érzékelő
@@ -2364,7 +2382,7 @@ pin:
 Fejhűtő ventilátorok (a "heater_fan" előtaggal tetszőleges számú szakasz definiálható). A "fejhűtő ventilátor" egy olyan ventilátor, amely akkor lesz engedélyezve, amikor a hozzá tartozó fűtőberendezés aktív. Alapértelmezés szerint a heater_fan alapértelmezés szerint a shutdown_speed a max_power értékkel egyenlő.
 
 ```
-[heater_fan my_nozzle_fan]
+[heater_fan heatbreak_cooling_fan]
 #pin:
 #max_power:
 #shutdown_speed:
@@ -2376,19 +2394,19 @@ Fejhűtő ventilátorok (a "heater_fan" előtaggal tetszőleges számú szakasz 
 #tachometer_ppr:
 #tachometer_poll_interval:
 #enable_pin:
-#   A fenti paraméterek leírását lásd a "ventilátor" szakaszban.
+#   See the "fan" section for a description of the above parameters.
 #heater: extruder
-#   A ventilátorhoz társított fűtést meghatározó konfigurációs szakasz neve.
-#   Ha itt megadod a fűtőelemek vesszővel elválasztott nevét,
-#   akkor a ventilátor engedélyezve lesz, ha valamelyik adott fűtőtest engedélyezve van.
-#   Az alapértelmezett az "extruder".
+#   Name of the config section defining the heater that this fan is
+#   associated with. If a comma separated list of heater names is
+#   provided here, then the fan will be enabled when any of the given
+#   heaters are enabled. The default is "extruder".
 #heater_temp: 50.0
-#   A hőmérséklet (Celsiusban), amely alá a fűtőelemnek csökkennie kell, mielőtt
-#   a ventilátor kikapcsolna. Az alapértelmezett érték 50 Celsius fok.
+#   A temperature (in Celsius) that the heater must drop below before
+#   the fan is disabled. The default is 50 Celsius.
 #fan_speed: 1.0
-#   A ventilátor sebessége (0.0 és 1.0 közötti értékben kifejezve), amelyet a ventilátor
-#   alkalmaz, amikor a hozzá tartozó fűtőelem be van kapcsolva.
-#   Az alapértelmezett érték 1.0
+#   The fan speed (expressed as a value from 0.0 to 1.0) that the fan
+#   will be set to when its associated heater is enabled. The default
+#   is 1.0
 ```
 
 ### [controller_fan]
@@ -2596,19 +2614,20 @@ PCA9533 LED-támogatás. A PCA9533 a mightyboardon használatos.
 ```
 [pca9533 my_pca9533]
 #i2c_address: 98
-#   Az I2C cím, amelyet a chip az I2C buszon használ.
-#   Használd a 98-at a PCA9533/1-hez, a 99-et a PCA9533/2-hez.
-#   Az alapértelmezett érték 98.
+#   The i2c address that the chip is using on the i2c bus. Use 98 for
+#   the PCA9533/1, 99 for the PCA9533/2. The default is 98.
 #i2c_mcu:
 #i2c_bus:
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
 #i2c_speed:
-#   A fenti paraméterek leírását lásd az "általános I2C beállítások"
-#   részben.
+#   See the "common I2C settings" section for a description of the
+#   above parameters.
 #initial_RED: 0.0
 #initial_GREEN: 0.0
 #initial_BLUE: 0.0
 #initial_WHITE: 0.0
-#   Ezen paraméterek leírásáról nézd meg a "LED" részt.
+#   See the "led" section for information on these parameters.
 ```
 
 ### [pca9632]
@@ -2618,27 +2637,28 @@ PCA9632 LED támogatás. A PCA9632-t a FlashForge Dreamer-ben használják.
 ```
 [pca9632 my_pca9632]
 #i2c_address: 98
-#   Az I2C cím, amelyet a chip az I2C buszon használ.
-#   Ez lehet 96, 97, 98 vagy 99. Az alapértelmezett érték 98.
+#   The i2c address that the chip is using on the i2c bus. This may be
+#   96, 97, 98, or 99.  The default is 98.
 #i2c_mcu:
 #i2c_bus:
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
 #i2c_speed:
-#   A fenti paraméterek leírását lásd az "általános I2C beállítások"
-#   részben.
+#   See the "common I2C settings" section for a description of the
+#   above parameters.
 #scl_pin:
 #sda_pin:
-#   Alternatív megoldásként, ha a pca9632 nincs hardveres I2C
-#   buszhoz csatlakoztatva, akkor megadhatod az "óra" (scl_pin)
-#   és "data" (sda_pin) érintkezőket.
-#   Az alapértelmezés a hardveres I2C használata.
+#   Alternatively, if the pca9632 is not connected to a hardware I2C
+#   bus, then one may specify the "clock" (scl_pin) and "data"
+#   (sda_pin) pins. The default is to use hardware I2C.
 #color_order: RGBW
-#   Állítsd be a LED pixelsorrendjét (egy R, G, B, W betűket
-#   tartalmazó sztring segítségével). Az alapértelmezett az RGBW.
+#   Set the pixel order of the LED (using a string containing the
+#   letters R, G, B, W). The default is RGBW.
 #initial_RED: 0.0
 #initial_GREEN: 0.0
 #initial_BLUE: 0.0
 #initial_WHITE: 0.0
-#   Ezen paraméterek leírásáról nézd meg a "LED" részt.
+#   See the "led" section for information on these parameters.
 ```
 
 ## További szervók, gombok és egyéb tűk
@@ -2876,39 +2896,39 @@ TMC2208 (vagy TMC2224) motorvezérlő konfigurálása egyvezetékes UART-on kere
 ```
 [tmc2208 stepper_x]
 uart_pin:
-#   A TMC2208 PDN_UART vonalhoz csatlakoztatott tű.
-#   Ezt a paramétert meg kell adni.
+#   The pin connected to the TMC2208 PDN_UART line. This parameter
+#   must be provided.
 #tx_pin:
-#   Ha külön vételi és adási vonalat használ a meghajtóval való
-#   kommunikációhoz, akkor állítsd be az uart_pin paramétert a vételi
-#   lábra, és a tx_pin értéket az átviteli lábra. Az alapértelmezett az
-#   uart_pin használata mind olvasáshoz, mind íráshoz.
+#   If using separate receive and transmit lines to communicate with
+#   the driver then set uart_pin to the receive pin and tx_pin to the
+#   transmit pin. The default is to use uart_pin for both reading and
+#   writing.
 #select_pins:
-#   A tmc2208 UART elérése előtt beállítandó tűk vesszővel elválasztott
-#   listája. Ez hasznos lehet egy analóg mux konfigurálásakor az UART
-#   kommunikációhoz. Az alapértelmezett az, hogy nem konfigurál
-#   semmilyen érintkezőt.
+#   A comma separated list of pins to set prior to accessing the
+#   tmc2208 UART. This may be useful for configuring an analog mux for
+#   UART communication. The default is to not configure any pins.
 #interpolate: True
-#   Ha True, engedélyezd a lépésinterpolációt (a motorvezérlő belsőleg
-#   256 mikrolépéses sebességgel léptet). Ez az interpoláció egy kis
-#   szisztémás pozícióeltérést vezet be. A részletekért lásd:
-#   TMC_Drivers.md. Az alapértelmezett érték True.
+#   If true, enable step interpolation (the driver will internally
+#   step at a rate of 256 micro-steps). This interpolation does
+#   introduce a small systemic positional deviation - see
+#   TMC_Drivers.md for details. The default is True.
 run_current:
-#   Az áramerősség (amper RMS-ben) a meghajtó konfigurálásához a
-#   léptetőmotor mozgása során. Ezt a paramétert meg kell adni.
+#   The amount of current (in amps RMS) to configure the driver to use
+#   during stepper movement. This parameter must be provided.
 #hold_current:
-#   Az az áramerősség (amper RMS-ben), amelyet a motorvezérlő akkor
-#   ad le, amikor a léptető nem mozog. A hold_current beállítása nem
-#   ajánlott (a részletekért lásd: TMC_Drivers.md).
-#   Az alapértelmezett az, hogy nem csökkenti az áramerősséget.
+#   The amount of current (in amps RMS) to configure the driver to use
+#   when the stepper is not moving. Setting a hold_current is not
+#   recommended (see TMC_Drivers.md for details). The default is to
+#   not reduce the current.
 #sense_resistor: 0.110
-#   A motor érzékelő ellenállásának ellenállása (ohmban).
-#   Az alapértelmezett érték 0,110 ohm.
+#   The resistance (in ohms) of the motor sense resistor. The default
+#   is 0.110 ohms.
 #stealthchop_threshold: 0
-#   A „StealthChop” küszöbérték beállításához szükséges sebesség
-#   (mm/sec-ben). Ha be van állítva, a "StealthChop" mód engedélyezve
-#   lesz, ha a léptetőmotor sebessége ez alatt az érték alatt van.
-#   Az alapértelmezett érték 0, ami letiltja a "StealthChop" módot.
+#   The velocity (in mm/s) to set the "stealthChop" threshold to. When
+#   set, "stealthChop" mode will be enabled if the stepper motor
+#   velocity is below this value. The default is 0, which disables
+#   "stealthChop" mode.
+#driver_MULTISTEP_FILT: True
 #driver_IHOLDDELAY: 8
 #driver_TPOWERDOWN: 20
 #driver_TBL: 2
@@ -2922,10 +2942,10 @@ run_current:
 #driver_PWM_FREQ: 1
 #driver_PWM_GRAD: 14
 #driver_PWM_OFS: 36
-#   Állítsd be a megadott regisztert a TMC2208 chip konfigurációja során.
-#   Ez egyéni motorparaméterek beállítására használható. Az egyes
-#   paraméterek alapértelmezett értékei a paraméter neve mellett
-#   találhatók a fenti listában.
+#   Set the given register during the configuration of the TMC2208
+#   chip. This may be used to set custom motor parameters. The
+#   defaults for each parameter are next to the parameter name in the
+#   above list.
 ```
 
 ### [tmc2209]
@@ -2942,11 +2962,12 @@ run_current:
 #hold_current:
 #sense_resistor: 0.110
 #stealthchop_threshold: 0
-#   A paraméterek meghatározásához lásd a "TMC2208" részt.
+#   See the "tmc2208" section for the definition of these parameters.
 #uart_address:
-#   A TMC2209 chip címe UART üzenetekhez (0 és 3 közötti egész szám).
-#   Ezt általában akkor használják, ha több TMC2209 chip csatlakozik
-#   ugyanahhoz az UART érintkezőhöz. Az alapértelmezett érték nulla.
+#   The address of the TMC2209 chip for UART messages (an integer
+#   between 0 and 3). This is typically used when multiple TMC2209
+#   chips are connected to the same UART pin. The default is zero.
+#driver_MULTISTEP_FILT: True
 #driver_IHOLDDELAY: 8
 #driver_TPOWERDOWN: 20
 #driver_TBL: 2
@@ -2961,20 +2982,18 @@ run_current:
 #driver_PWM_GRAD: 14
 #driver_PWM_OFS: 36
 #driver_SGTHRS: 0
-#   Állítsd be a megadott regisztert a TMC2209 chip konfigurációja során.
-#   Ez egyéni motorparaméterek beállítására használható.
-#   Az egyes paraméterek alapértelmezett értékei a paraméter neve
-#   mellett találhatók a fenti listában.
+#   Set the given register during the configuration of the TMC2209
+#   chip. This may be used to set custom motor parameters. The
+#   defaults for each parameter are next to the parameter name in the
+#   above list.
 #diag_pin:
-#   A TMC2209 chip DIAG tűjéhez csatlakoztatott mikrovezérlő tűje.
-#   A tű előtagja általában "^"-vel történik, hogy lehetővé tegye a
-#   felhúzást. Ennek beállítása egy
-#   "tmc2209_stepper_x:virtual_endstop" virtuális tűt hoz létre,
-#   amely a léptető endstop_pin-jeként használható. Ez lehetővé teszi a
-#   "végálláskapcsoló nélküli kezdőpont felvételt". (Győződj meg arról,
-#   hogy a driver_SGTHRS-t is megfelelő érzékenységi értékre állítja be.)
-#   Alapértelmezés szerint nincs engedélyezve a végálláskapcsoló nélküli
-#   kezdőpont felvételt.
+#   The micro-controller pin attached to the DIAG line of the TMC2209
+#   chip. The pin is normally prefaced with "^" to enable a pullup.
+#   Setting this creates a "tmc2209_stepper_x:virtual_endstop" virtual
+#   pin which may be used as the stepper's endstop_pin. Doing this
+#   enables "sensorless homing". (Be sure to also set driver_SGTHRS to
+#   an appropriate sensitivity value.) The default is to not enable
+#   sensorless homing.
 ```
 
 ### [tmc2660]
@@ -3049,7 +3068,7 @@ run_current:
 
 ### [tmc2240]
 
-Configure a TMC2240 stepper motor driver via SPI bus. To use this feature, define a config section with a "tmc2240" prefix followed by the name of the corresponding stepper config section (for example, "[tmc2240 stepper_x]").
+TMC2240 léptetőmotor-meghajtó konfigurálása SPI-buszon keresztül. A funkció használatához definiálj egy config szekciót "tmc2240" előtaggal, amelyet a megfelelő léptető config szekció neve követ (például "[tmc2240 stepper_x]").
 
 ```
 [tmc2240 stepper_x]
@@ -3118,6 +3137,7 @@ run_current:
 #   to tune a motor with unbalanced coils. See the `Sine Wave Lookup Table`
 #   section in the datasheet for information about this field and how to tune
 #   it.
+#driver_MULTISTEP_FILT: True
 #driver_IHOLDDELAY: 6
 #driver_IRUNDELAY: 4
 #driver_TPOWERDOWN: 10
@@ -3171,41 +3191,41 @@ TMC5160 motorvezérlő konfigurálása SPI-buszon keresztül. A funkció haszná
 ```
 [tmc5160 stepper_x]
 cs_pin:
-#   A TMC5160 chip kiválasztási vonalának megfelelő tű. Ez a tű
-#   alacsony értékre lesz állítva az SPI-üzenetek elején, és magasra
-#   az üzenet befejezése után. Ezt a paramétert meg kell adni.
+#   The pin corresponding to the TMC5160 chip select line. This pin
+#   will be set to low at the start of SPI messages and raised to high
+#   after the message completes. This parameter must be provided.
 #spi_speed:
 #spi_bus:
 #spi_software_sclk_pin:
 #spi_software_mosi_pin:
 #spi_software_miso_pin:
-#   A fenti paraméterek leírását az "általános SPI-beállítások" részben találod.
+#   See the "common SPI settings" section for a description of the
+#   above parameters.
 #chain_position:
 #chain_length:
-#   Ezek a paraméterek egy SPI-láncot konfigurálnak. A két paraméter
-#   határozza meg a léptető pozícióját a láncban és a teljes lánchosszt.
-#   Az 1. pozíció a MOSI jelhez csatlakozó léptetőnek felel meg.
-#   Az alapértelmezés szerint nem használ SPI-láncot.
+#   These parameters configure an SPI daisy chain. The two parameters
+#   define the stepper position in the chain and the total chain length.
+#   Position 1 corresponds to the stepper that connects to the MOSI signal.
+#   The default is to not use an SPI daisy chain.
 #interpolate: True
-#   Ha true, engedélyezd a lépésinterpolációt (az illesztőprogram
-#   belsőleg 256 mikrolépéses sebességgel léptet).
-#   Az alapértelmezett érték True.
+#   If true, enable step interpolation (the driver will internally
+#   step at a rate of 256 micro-steps). The default is True.
 run_current:
-#   Az áramerősség (amper RMS-ben) a meghajtónak a léptető mozgása
-#   közbeni konfigurálásához. Ezt a paramétert meg kell adni.
+#   The amount of current (in amps RMS) to configure the driver to use
+#   during stepper movement. This parameter must be provided.
 #hold_current:
-#   Az az áramerősség (amper RMS-ben), amellyel az illesztőprogramot
-#   akkor kell használni, amikor a léptető nem mozog. A hold_current
-#   beállítása nem ajánlott (a részletekért lásd: TMC_Drivers.md).
-#   Az alapértelmezett az, hogy nem csökkenti az áramerősséget.
-#sense_resistor: 0,075
-#   A motor érzékelő ellenállásának ellenállása (ohmban).
-#   Az alapértelmezett érték 0,075 ohm.
+#   The amount of current (in amps RMS) to configure the driver to use
+#   when the stepper is not moving. Setting a hold_current is not
+#   recommended (see TMC_Drivers.md for details). The default is to
+#   not reduce the current.
+#sense_resistor: 0.075
+#   The resistance (in ohms) of the motor sense resistor. The default
+#   is 0.075 ohms.
 #stealthchop_threshold: 0
-#   A sebesség (mm/s-ban), amelyre a "stealthChop" küszöbértéket
-#   be kell állítani. Ha be van állítva, a "stealthChop" mód engedélyezve
-#   lesz, ha a léptetőmotor sebessége ez az érték alatt van.
-#   Az alapértelmezett 0, ami letiltja a "stealthChop" módot.
+#   The velocity (in mm/s) to set the "stealthChop" threshold to. When
+#   set, "stealthChop" mode will be enabled if the stepper motor
+#   velocity is below this value. The default is 0, which disables
+#   "stealthChop" mode.
 #driver_MSLUT0: 2863314260
 #driver_MSLUT1: 1251300522
 #driver_MSLUT2: 608774441
@@ -3223,15 +3243,14 @@ run_current:
 #driver_X3: 255
 #driver_START_SIN: 0
 #driver_START_SIN90: 247
-#   Ezek a mezők közvetlenül vezérlik a Microstep Table regisztereket.
-#   Az optimális hullámtábla minden motorra jellemző, és az áramerősség
-#   függvényében változhat. Az optimális konfiguráció minimális nyomtatási
-#   műhibákat tartalmaz, amelyet a léptető nem lineáris mozgása okoz.
-#   A fent megadott értékek az illesztőprogram által használt alapértelmezett
-#   értékek. Az értéket decimális egész számként kell megadni
-#   (a hexadecimális alak nem támogatott).
-#   A hullámtábla mezőinek kiszámításához lásd a tmc2130
-#   „Számítási lapot” a Trinamic webhelyen.
+#   These fields control the Microstep Table registers directly. The optimal
+#   wave table is specific to each motor and might vary with current. An
+#   optimal configuration will have minimal print artifacts caused by
+#   non-linear stepper movement. The values specified above are the default
+#   values used by the driver. The value must be specified as a decimal integer
+#   (hex form is not supported). In order to compute the wave table fields,
+#   see the tmc2130 "Calculation Sheet" from the Trinamic website.
+#driver_MULTISTEP_FILT: True
 #driver_IHOLDDELAY: 6
 #driver_TPOWERDOWN: 10
 #driver_TBL: 2
@@ -3245,8 +3264,8 @@ run_current:
 #driver_VHIGHCHM: 0
 #driver_DISS2G: 0
 #driver_DISS2VS: 0
-#driver_PWM_AUTOSCALE: Igaz
-#driver_PWM_AUTOGRAD: Igaz
+#driver_PWM_AUTOSCALE: True
+#driver_PWM_AUTOGRAD: True
 #driver_PWM_FREQ: 0
 #driver_FREEWHEEL: 0
 #driver_PWM_GRAD: 0
@@ -3260,18 +3279,24 @@ run_current:
 #driver_SEDN: 0
 #driver_SEIMIN: 0
 #driver_SFILT: 0
-#   Állítsd be a megadott regisztert a TMC5160 chip konfigurációja során.
-#   Ez egyéni motorparaméterek beállítására használható. Az egyes paraméterek
-#   alapértelmezett értékei a paraméter neve mellett találhatók a fenti listában.
+#driver_DRVSTRENGTH: 0
+#driver_BBMCLKS: 4
+#driver_BBMTIME: 0
+#driver_FILT_ISENSE: 0
+#   Set the given register during the configuration of the TMC5160
+#   chip. This may be used to set custom motor parameters. The
+#   defaults for each parameter are next to the parameter name in the
+#   above list.
 #diag0_pin:
 #diag1_pin:
-#   A mikrovezérlő tűje a TMC5160 chip egyik DIAG vonalához csatlakozik.
-#   Csak egyetlen diag tűt kell megadni. A tű "aktív alacsony", ezért általában
-#   "^!" előtagja van. Ennek beállítása egy „tmc5160_stepper_x:virtual_endstop”
-#   virtuális tűt hoz létre, amely a léptető endstop_pin-jeként használható.
-#   Ez lehetővé teszi az „érzékelő nélküli kezdőpont” funkciót.
-#   (Győződj meg arról, hogy a driver_SGT is megfelelő érzékenységi értékre van állítva.)
-#   Az alapértelmezés az, hogy nem engedélyezett az érzékelő nélküli kezdőpont.
+#   The micro-controller pin attached to one of the DIAG lines of the
+#   TMC5160 chip. Only a single diag pin should be specified. The pin
+#   is "active low" and is thus normally prefaced with "^!". Setting
+#   this creates a "tmc5160_stepper_x:virtual_endstop" virtual pin
+#   which may be used as the stepper's endstop_pin. Doing this enables
+#   "sensorless homing". (Be sure to also set driver_SGT to an
+#   appropriate sensitivity value.) The default is to not enable
+#   sensorless homing.
 ```
 
 ## Futás-idejű léptetőmotor áram konfiguráció
@@ -3322,31 +3347,33 @@ Statikusan konfigurált MCP4451 digipot, amely I2C buszon keresztül csatlakozik
 ```
 [mcp4451 my_digipot]
 i2c_address:
-#   Az I2C cím, amelyet a chip az I2C buszon használ.
-#   Ezt a paramétert meg kell adni.
+#   The i2c address that the chip is using on the i2c bus. This
+#   parameter must be provided.
 #i2c_mcu:
 #i2c_bus:
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
 #i2c_speed:
-#   A fenti paraméterek leírását lásd az "általános I2C beállítások"
-#   részben.
+#   See the "common I2C settings" section for a description of the
+#   above parameters.
 #wiper_0:
 #wiper_1:
 #wiper_2:
 #wiper_3:
-#   Az az érték, amelyre az adott MCP4451 "wiper" statikusan beállítható.
-#   Ez általában 0,0 és 1,0 közötti számra van beállítva, ahol az 1,0 a
-#   legnagyobb ellenállás, a 0,0 pedig a legkisebb ellenállás.
-#   A tartomány azonban módosítható a 'scale' paraméterrel (lásd alább).
-#   Ha nincs megadva 'wiper', akkor az konfigurálatlanul marad.
+#   The value to statically set the given MCP4451 "wiper" to. This is
+#   typically set to a number between 0.0 and 1.0 with 1.0 being the
+#   highest resistance and 0.0 being the lowest resistance. However,
+#   the range may be changed with the 'scale' parameter (see below).
+#   If a wiper is not specified then it is left unconfigured.
 #scale:
-#   Ezzel a paraméterrel módosítható a 'wiper_x' paraméterek értelmezése.
-#   Ha meg van adva, akkor a 'wiper_x' paraméternek 0,0 és 'scale' között
-#   kell lennie. Ez akkor lehet hasznos, ha az MCP4451-et a léptető
-#   feszültségreferenciák beállítására használják. A 'scale' beállítható az
-#   egyenértékű léptető áramerősségre, ha az MCP4451 a legnagyobb
-#   ellenálláson volt, majd a 'wiper_x' paraméterek megadhatók a
-#   léptető kívánt áramerőssége segítségével.
-#   Az alapértelmezés az, hogy a 'wiper_x' paramétereket nem skálázzuk.
+#   This parameter can be used to alter how the 'wiper_x' parameters
+#   are interpreted. If provided, then the 'wiper_x' parameters should
+#   be between 0.0 and 'scale'. This may be useful when the MCP4451 is
+#   used to set stepper voltage references. The 'scale' can be set to
+#   the equivalent stepper amperage if the MCP4451 were at its highest
+#   resistance, and then the 'wiper_x' parameters can be specified
+#   using the desired amperage value for the stepper. The default is
+#   to not scale the 'wiper_x' parameters.
 ```
 
 ### [mcp4728]
@@ -3356,33 +3383,34 @@ Statikusan konfigurált MCP4728 digitális-analóg átalakító, amely I2C buszo
 ```
 [mcp4728 my_dac]
 #i2c_address: 96
-#   Az I2C cím, amelyet a chip az I2C buszon használ.
-#   Az alapértelmezett érték 96.
+#   The i2c address that the chip is using on the i2c bus. The default
+#   is 96.
 #i2c_mcu:
 #i2c_bus:
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
 #i2c_speed:
-#   A fenti paraméterek leírását lásd az "általános I2C beállítások"
-#   részben.
+#   See the "common I2C settings" section for a description of the
+#   above parameters.
 #channel_a:
 #channel_b:
 #channel_c:
 #channel_d:
-#   Az adott MCP4728 csatorna statikus beállítására szolgáló érték.
-#   Ez általában 0,0 és 1,0 közötti számra van beállítva, ahol az 1,0 a
-#   legmagasabb feszültség (2,048 V), a 0,0 pedig a legalacsonyabb
-#   feszültség. A tartomány azonban módosítható a 'scale'
-#   paraméterrel (lásd alább).
-#   Ha egy csatorna nincs megadva, akkor az konfigurálatlanul marad.
+#   The value to statically set the given MCP4728 channel to. This is
+#   typically set to a number between 0.0 and 1.0 with 1.0 being the
+#   highest voltage (2.048V) and 0.0 being the lowest voltage.
+#   However, the range may be changed with the 'scale' parameter (see
+#   below). If a channel is not specified then it is left
+#   unconfigured.
 #scale:
-#   Ez a paraméter használható a 'channel_x' paraméterek
-#   értelmezésének megváltoztatására. Ha meg van adva, akkor a
-#   'channel_x' paraméternek 0,0 és 'scale' között kell lennie. Ez akkor
-#   lehet hasznos, ha az MCP4728-at a léptető feszültségreferenciák
-#   beállítására használják. A 'scale' beállítható az egyenértékű léptető
-#   áramerősségére, ha az MCP4728 a legmagasabb feszültségen volt
-#   (2,048 V), majd a 'channel_x' paraméterek megadhatók a léptető
-#   kívánt amperértékével. Az alapértelmezett az, hogy nem
-#   méretezi a 'channel_x' paramétereket.
+#   This parameter can be used to alter how the 'channel_x' parameters
+#   are interpreted. If provided, then the 'channel_x' parameters
+#   should be between 0.0 and 'scale'. This may be useful when the
+#   MCP4728 is used to set stepper voltage references. The 'scale' can
+#   be set to the equivalent stepper amperage if the MCP4728 were at
+#   its highest voltage (2.048V), and then the 'channel_x' parameters
+#   can be specified using the desired amperage value for the
+#   stepper. The default is to not scale the 'channel_x' parameters.
 ```
 
 ### [mcp4018]
@@ -3621,14 +3649,15 @@ Az SSD1306 és SH1106 kijelzők konfigurálásával kapcsolatos információk.
 ```
 [display]
 lcd_type:
-#   Állítsd be az "ssd1306" vagy az "sh1106" értéket az adott
-#   megjelenítési típushoz.
+#   Set to either "ssd1306" or "sh1106" for the given display type.
 #i2c_mcu:
 #i2c_bus:
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
 #i2c_speed:
-#   Opcionális paraméterek állnak rendelkezésre az I2C buszon
-#   keresztül csatlakoztatott kijelzőkhöz. A fenti paraméterek leírását
-#   lásd az "általános I2C beállítások" részben.
+#   Optional parameters available for displays connected via an i2c
+#   bus. See the "common I2C settings" section for a description of
+#   the above parameters.
 #cs_pin:
 #dc_pin:
 #spi_speed:
@@ -3636,27 +3665,27 @@ lcd_type:
 #spi_software_sclk_pin:
 #spi_software_mosi_pin:
 #spi_software_miso_pin:
-#   Az LCD-hez csatlakoztatott érintkezők „4 vezetékes” SPI módban.
-#   Az „spi_” karakterrel kezdődő paraméterek leírását a „általános
-#   SPI-beállítások” részben találja. Az alapértelmezett az I2C mód
-#   használata a kijelzőhöz.
+#   The pins connected to the lcd when in "4-wire" spi mode. See the
+#   "common SPI settings" section for a description of the parameters
+#   that start with "spi_". The default is to use i2c mode for the
+#   display.
 #reset_pin:
-#   A kijelzőn megadható egy reset tű. Ha nincs megadva, akkor a
-#   hardvernek rendelkeznie kell egy felhúzással a megfelelő LCD
-#   soron.
+#   A reset pin may be specified on the display. If it is not
+#   specified then the hardware must have a pull-up on the
+#   corresponding lcd line.
 #contrast:
-#   A beállítandó kontraszt. Az érték 0 és 256 között változhat, és az
-#   alapértelmezett a 239.
+#   The contrast to set. The value may range from 0 to 256 and the
+#   default is 239.
 #vcomh: 0
-#   Állítsd be a Vcomh értéket a kijelzőn. Ez az érték egyes
-#   OLED-kijelzők "elkenődési" hatásával jár. Az érték 0 és 63 között
-#   változhat. Az alapértelmezett érték 0.
+#   Set the Vcomh value on the display. This value is associated with
+#   a "smearing" effect on some OLED displays. The value may range
+#   from 0 to 63. Default is 0.
 #invert: False
-#   A TRUE megfordítja a képpontokat bizonyos OLED-kijelzőkön.
-#   Az alapértelmezett érték False.
+#   TRUE inverts the pixels on certain OLED displays.  The default is
+#   False.
 #x_offset: 0
-#   Állítsd be a vízszintes eltolás értékét az SH1106 kijelzőkön.
-#   Az alapértelmezett érték 0.
+#   Set the horizontal offset value on SH1106 displays. The default is
+#   0.
 ...
 ```
 
@@ -3966,18 +3995,16 @@ Lásd a [generic-duet2-duex.cfg](../config/generic-duet2-duex.cfg) fájlt egy p�
 ```
 [sx1509 my_sx1509]
 i2c_address:
-#   A bővítő által használt I2C cím. A hardveres jumperektől
-#   függően ez a következő címek egyike: 62 63 112 113.
-#   Ezt a paramétert meg kell adni.
+#   I2C address used by this expander. Depending on the hardware
+#   jumpers this is one out of the following addresses: 62 63 112
+#   113. This parameter must be provided.
 #i2c_mcu:
 #i2c_bus:
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
 #i2c_speed:
-#   A fenti paraméterek leírását lásd az "általános I2C beállítások"
-#   részben.
-#i2c_bus:
-#   Ha a mikrovezérlő I2C megvalósítása több I2C buszt is támogat,
-#   itt megadhatod a busz nevét.
-#   Az alapértelmezett a mikrovezérlő I2C busz használata.
+#   See the "common I2C settings" section for a description of the
+#   above parameters.
 ```
 
 ### [samd_sercom]
@@ -4106,19 +4133,19 @@ Ha ezt a modult használod, ne használd a Palette 2 plugint az Octoprinthez, mi
 Ha az Octoprintet használod és a G-kódot a soros porton keresztül streameli a virtual_sd-ről való nyomtatás helyett, akkor a **M1** és **M0** parancsok *Pausing parancsok* a *Settings >. alatt remo; Serial Connection > Firmware & protocol* megakadályozzák, hogy a nyomtatás megkezdéséhez a Paletta 2-n el kelljen indítani a nyomtatást, és az Octoprintben fel kelljen oldani a szünetet.
 
 ```
-[palette2]
+[paletta2]
 serial:
-#   The serial port to connect to the Palette 2.
+# A soros port, amelyhez a Palette 2 csatlakozik.
 #baud: 115200
-#   The baud rate to use. The default is 115200.
+# A használandó átviteli sebesség. Az alapértelmezett érték 115200.
 #feedrate_splice: 0.8
-#   The feedrate to use when splicing, default is 0.8
+# A spliceléskor használandó feedrate, alapértelmezett 0.8.
 #feedrate_normal: 1.0
-#   The feedrate to use after splicing, default is 1.0
+# A splicing után használandó feedrate, alapértelmezett értéke 1.0.
 #auto_load_speed: 2
-#   Extrude feedrate when autoloading, default is 2 (mm/s)
+# Extrudálási előtolási sebesség automatikus betöltéskor, alapértelmezett 2 (mm/s)
 #auto_cancel_variation: 0.1
-#   Auto cancel print when ping variation is above this threshold
+# Automatikusan törli a nyomtatást, ha a ping variáció meghaladja ezt a küszöbértéket.
 ```
 
 ### [angle]
@@ -4179,9 +4206,9 @@ Az SPI-buszt használó eszközök esetében általában a következő paraméte
 
 A következő paraméterek általában az I2C-buszt használó eszközökhöz állnak rendelkezésre.
 
-Note that Klipper's current micro-controller support for I2C is generally not tolerant to line noise. Unexpected errors on the I2C wires may result in Klipper raising a run-time error. Klipper's support for error recovery varies between each micro-controller type. It is generally recommended to only use I2C devices that are on the same printed circuit board as the micro-controller.
+Vedd figyelembe, hogy a Klipper jelenlegi mikrokontroller I2C támogatása általában nem tolerálja a hálózati zajt. Az I2C vezetékek nem várt hibái a Klipper futásidejű hibaüzenetét eredményezhetik. A Klipper hibaelhárítási támogatása az egyes mikrokontroller-típusoknál eltérő. Általában csak olyan I2C eszközök használata ajánlott, amelyek ugyanazon a nyomtatott áramköri lapon vannak, mint a mikrokontroller.
 
-Most Klipper micro-controller implementations only support an `i2c_speed` of 100000 (*standard mode*, 100kbit/s). The Klipper "Linux" micro-controller supports a 400000 speed (*fast mode*, 400kbit/s), but it must be [set in the operating system](RPi_microcontroller.md#optional-enabling-i2c) and the `i2c_speed` parameter is otherwise ignored. The Klipper "RP2040" micro-controller and ATmega AVR family support a rate of 400000 via the `i2c_speed` parameter. All other Klipper micro-controllers use a 100000 rate and ignore the `i2c_speed` parameter.
+A legtöbb Klipper mikrokontroller implementáció csak az `i2c_speed` 100000 (*standard mód*, 100kbit/s) sebességet támogatja. A Klipper "Linux" mikrokontroller támogatja a 400000 sebességet (*fast mode*, 400kbit/s), de ezt [z operációs rendszerben](RPi_microcontroller.md#optional-enabling-i2c) kell beállítani, és az `i2c_speed` paramétert egyébként figyelmen kívül hagyja. A Klipper "RP2040" mikrokontroller és az ATmega AVR család 400000-es sebességet támogat az `i2c_speed` paraméteren keresztül. Az összes többi Klipper mikrovezérlő 100000-es sebességet használ, és figyelmen kívül hagyja az `i2c_speed` paramétert.
 
 ```
 #i2c_address:
@@ -4194,6 +4221,13 @@ Most Klipper micro-controller implementations only support an `i2c_speed` of 100
 #   If the micro-controller supports multiple I2C busses then one may
 #   specify the micro-controller bus name here. The default depends on
 #   the type of micro-controller.
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
+#   Specify these parameters to use micro-controller software based
+#   I2C "bit-banging" support. The two parameters should the two pins
+#   on the micro-controller to use for the scl and sda wires. The
+#   default is to use hardware based I2C support as specified by the
+#   i2c_bus parameter.
 #i2c_speed:
 #   The I2C speed (in Hz) to use when communicating with the device.
 #   The Klipper implementation on most micro-controllers is hard-coded

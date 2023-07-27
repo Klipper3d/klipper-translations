@@ -8,11 +8,11 @@
 
 ** Предупреждение **: Если вашей платформой является * Beaglebone* и вы правильно выполнили шаги по установке, микроконтроллер Linux уже установлен и настроен для вашей системы.
 
-## Install the rc script
+## Установите скрипт rc
 
-If you want to use the host as a secondary MCU the klipper_mcu process must run before the klippy process.
+Если вы хотите использовать хост в качестве дополнительного MCU, то процесс klipper_mcu должен выполняться до процесса klippy.
 
-After installing Klipper, install the script. run:
+После установки Klipper установите скрипт. запустите:
 
 ```
 cd ~/klipper/
@@ -29,7 +29,7 @@ cd ~/klipper/
 make menuconfig
 ```
 
-In the menu, set "Microcontroller Architecture" to "Linux process," then save and exit.
+В меню "Microcontroller Architecture" установите значение "Linux process", затем сохраните и выйдите.
 
 To build and install the new micro-controller code, run:
 

@@ -24,11 +24,11 @@ z_hop_speed: 5
 
 Важно, чтобы перемещение z_hop в safe_z_home было достаточно высоким, чтобы зонд ни во что не врезался, даже если контакт зонда находится в самом низком состоянии.
 
-## Initial tests
+## Начальные проверки
 
-Before moving on, verify that the BL-Touch is mounted at the correct height, the pin should be roughly 2 mm above the nozzle when retracted
+Прежде чем продолжить, убедитесь, что BL-Touch установлен на правильной высоте, штифт должен быть примерно на 2 мм выше сопла в задвинутом состоянии
 
-When you turn on the printer, the BL-Touch probe should perform a self-test and move the pin up and down a couple of times. Once the self-test is completed, the pin should be retracted and the red LED on the probe should be lit. If there are any errors, for example the probe is flashing red or the pin is down instead of up, please turn off the printer and check the wiring and configuration.
+При включении принтера датчик BL-Touch должен выполнить самотестирование и несколько раз переместить штифт вверх и вниз. По завершении самотестирования штифт должен быть втянут, а на датчике должен гореть красный светодиод. Если возникли какие-либо ошибки, например, датчик мигает красным цветом или штырек опускается, а не поднимается, выключите принтер и проверьте подключение и конфигурацию.
 
 If the above is looking good, it's time to test that the control pin is working correctly. First run `BLTOUCH_DEBUG COMMAND=pin_down` in your printer terminal. Verify that the pin moves down and that the red LED on the probe turns off. If not, check your wiring and configuration again. Next issue a `BLTOUCH_DEBUG COMMAND=pin_up`, verify that the pin moves up, and that the red light turns on again. If it's flashing then there's some problem.
 
@@ -36,7 +36,7 @@ The next step is to confirm that the sensor pin is working correctly. Run `BLTOU
 
 After completing the BL-Touch control pin and sensor pin tests, it is now time to test probing, but with a twist. Instead of letting the probe pin touch the print bed, let it touch the nail on your finger. Position the toolhead far from the bed, issue a `G28` (or `PROBE` if not using probe:z_virtual_endstop), wait until the toolhead starts to move down, and stop the movement by very gently touching the pin with your nail. You may have to do it twice, since the default homing configuration probes twice. Be prepared to turn off the printer if it doesn't stop when you touch the pin.
 
-If that was successful, do another `G28` (or `PROBE`) but this time let it touch the bed as it should.
+Если это удалось, выполните еще одну операцию `G28` (или `PROBE`), но на этот раз пусть она коснется стола, как и положено.
 
 ## BL-Touch gone bad
 

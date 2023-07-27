@@ -118,9 +118,9 @@ fade_target: 0
 - `fade_end: 10` *Default 값: 0* 페이드 효과를 마치는 높이. 만약 이 값이 `fade_start`보다 작다면 페이드는 꺼지게 된다. 이 값은 프린터 베드표면이 얼마나 휘어있느냐에 따라 값을 정해주면 된다. 아주 심각하게 휘어 있는 베드라면 좀더 두껍게 페이드 아웃을 진행해줘야 한다. 거의 평면에 가까운 베드라면 보다 빨리 보정이 완료되도록 이 값을 줄이면 되겠다. 만약 `fade_start`로 1을 지정했다면 10mm 값은 적당한 값이라 하겠다.
 - `fade_target: 0` *Default Value: The average Z value of the mesh* The `fade_target` can be thought of as an additional Z offset applied to the entire bed after fade completes. Generally speaking we would like this value to be 0, however there are circumstances where it should not be. For example, lets assume your homing position on the bed is an outlier, its .2 mm lower than the average probed height of the bed. If the `fade_target` is 0, fade will shrink the print by an average of .2 mm across the bed. By setting the `fade_target` to .2, the homed area will expand by .2 mm, however, the rest of the bed will be accurately sized. Generally its a good idea to leave `fade_target` out of the configuration so the average height of the mesh is used, however it may be desirable to manually adjust the fade target if one wants to print on a specific portion of the bed.
 
-### 상대적 참조 인덱스
+### Configuring the zero reference position
 
-Most probes are susceptible to drift, ie: inaccuracies in probing introduced by heat or interference. This can make calculating the probe's z-offset challenging, particularly at different bed temperatures. As such, some printers use an endstop for homing the Z axis, and a probe for calibrating the mesh. These printers can benefit from configuring the relative reference index.
+Many probes are susceptible to "drift", ie: inaccuracies in probing introduced by heat or interference. This can make calculating the probe's z-offset challenging, particularly at different bed temperatures. As such, some printers use an endstop for homing the Z axis and a probe for calibrating the mesh. In this configuration it is possible offset the mesh so that the (X, Y) `reference position` applies zero adjustment. The `reference postion` should be the location on the bed where a [Z_ENDSTOP_CALIBRATE](./Manual_Level#calibrating-a-z-endstop) paper test is performed. The bed_mesh module provides the `zero_reference_position` option for specifying this coordinate:
 
 ```
 [bed_mesh]
@@ -128,13 +128,30 @@ speed: 120
 horizontal_move_z: 5
 mesh_min: 35, 6
 mesh_max: 240, 198
+zero_reference_position: 125, 110
 probe_count: 5, 3
-relative_reference_index: 7
 ```
 
-- `relative_reference_index: 7` *Default 값: None (꺼짐)* 레벨측정 포인트가 생성되면 그것들은 인텍스로 할당된다. 당신이 klippy.log 에서나 BED_MESH_OUTPUT을 사용하여 인덱스를 살펴볼 수 있다. (보다 자세한 내용은 아래의 Bed Mesh GCodes에 있는 섹션을 참고하기 바란다) 만일 인덱스값에 `relative_reference_index` 옵션을 할당하게 되면, 이 좌표계에서 측정된 값은 프로브의 Z 오프셋을 대체할 것이다. 이것은 효과적으로 이 좌표계가 메쉬에 대한 "zero" 참조를 만든다.
+- `zero_reference_position: ` *Default Value: None (disabled)* The `zero_reference_position` expects an (X, Y) coordinate matching that of the `reference position` described above. If the coordinate lies within the mesh then the mesh will be offset so the reference position applies zero adjustment. If the coordinate lies outside of the mesh then the coordinate will be probed after calibration, with the resulting z-value used as the z-offset. Note that this coordinate must NOT be in a location specified as a `faulty_region` if a probe is necessary.
 
-상대적 참조 인덱스를 사용할 때는 Z endstop 캘리브레이션이 진행된 베드상의 지점에서 가장 가까운 인덱스를 골라야 한다. log 나 BED_MESH_OUTPUT을 사용하여 인덱스를 살펴본다면, 정확한 인덱스를 찾기 위해 "Probe" 헤더아래 리스트된 좌표계를 사용해야함을 기억하라.
+#### The deprecated relative_reference_index
+
+Existing configurations using the `relative_reference_index` option must be updated to use the `zero_reference_position`. The response to the [BED_MESH_OUTPUT PGP=1](#output) gcode command will include the (X, Y) coordinate associated with the index; this position may be used as the value for the `zero_reference_position`. The output will look similar to the following:
+
+```
+// bed_mesh: generated points
+// Index | Tool Adjusted | Probe
+// 0 | (1.0, 1.0) | (24.0, 6.0)
+// 1 | (36.7, 1.0) | (59.7, 6.0)
+// 2 | (72.3, 1.0) | (95.3, 6.0)
+// 3 | (108.0, 1.0) | (131.0, 6.0)
+... (additional generated points)
+// bed_mesh: relative_reference_index 24 is (131.5, 108.0)
+```
+
+*Note: The above output is also printed in `klippy.log` during initialization.*
+
+Using the example above we see that the `relative_reference_index` is printed along with its coordinate. Thus the `zero_reference_position` is `131.5, 108`.
 
 ### 결함 영역
 
@@ -186,7 +203,6 @@ faulty_region_4_max: 45.0, 210.0
    - `MESH_ORIGIN`
    - `ROUND_PROBE_COUNT`
 - 모든 베드:
-   - `RELATIVE_REFERNCE_INDEX`
    - `ALGORITHM`
 
 See the configuration documentation above for details on how each parameter applies to the mesh.

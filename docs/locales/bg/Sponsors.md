@@ -8,6 +8,10 @@ Klipper е свободен софтуер. Разчитаме на щедрат
 
 BIGTREETECH е официалният спонсор на Klipper. BIGTREETECH се ангажира да разработва иновативни и конкурентни продукти, които да служат по-добре на общността за 3D принтиране. Последвайте ги във [Facebook](https://www.facebook.com/BIGTREETECH) или [Twitter](https://twitter.com/BigTreeTech).
 
+## Спонсори
+
+[<img src="./img/sponsors/obico-light-horizontal.png" width="200" />](https://obico.io/klipper.html?source=klipper_sponsor)
+
 ## Разработчици на Klipper
 
 ### Кевин О'Конър

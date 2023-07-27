@@ -56,7 +56,9 @@ START_PRINT BED_TEMP={material_bed_temperature_layer_0} EXTRUDER_TEMP={material_
 
 在PrusaSlicer和SuperSlicer等sli3er衍生版本中，使用以下G代码：
 
+```
 START_PRINT EXTRUDER_TEMP=[first_layer_temperature] BED_TEMP=[first_layer_bed_temperature]
+```
 
 还要注意，当某些条件不满足时，这些切片软件会插入自己的加热代码。在Cura中，存在`{material_bed_temperature_layer_0}`和`{material_print_temperature_layer_0}`这两个变量就足够了。在slic3r衍生品中，你需要使用：
 

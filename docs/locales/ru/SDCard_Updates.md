@@ -19,13 +19,13 @@ sudo service klipper start
 
 Пользователь сам определяет местоположение устройства и название платы. Если пользователю необходимо прошить несколько плат, `flash-sdcard.sh ` (или `make flash`, если это уместно) следует запустить для каждой платы перед перезапуском службы Klipper.
 
-Supported boards can be listed with the following command:
+Список поддерживаемых плат можно получить с помощью следующей команды:
 
 ```
 ./scripts/flash-sdcard.sh -l
 ```
 
-If you do not see your board listed it may be necessary to add a new board definition as [described below](#board-definitions).
+Если вы не видите свою плату в списке, возможно, необходимо добавить новое определение платы, как [описано ниже](#board-definitions).
 
 ## Продвинутое использование
 
@@ -56,7 +56,7 @@ If your board is flashed with firmware that connects at a custom baud rate it is
 ./scripts/flash-sdcard.sh -b 115200 /dev/ttyAMA0 btt-skr-v1.3
 ```
 
-If you wish to flash a build of Klipper located somewhere other than the default location it can be done by specifying the `-f` option:
+Если вы хотите прошить сборку Klipper, расположенную не в том месте, где она находится по умолчанию, это можно сделать, указав опцию `-f`:
 
 ```
 ./scripts/flash-sdcard.sh -f ~/downloads/klipper.bin /dev/ttyAMA0 btt-skr-v1.3

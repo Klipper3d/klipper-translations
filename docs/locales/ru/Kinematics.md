@@ -8,21 +8,21 @@ Klipper реализует схему постоянного ускорения 
 
 Также важно ограничить ускорение, чтобы шаговые двигатели не пропускали и не создавали чрезмерной нагрузки на машину. Klipper ограничивает крутящий момент на каждом шаговом механизме за счет ограничения ускорения печатающей головки. Принудительное ускорение печатающей головки, естественно, также ограничивает крутящий момент шаговых двигателей, которые перемещают печатающую головку (обратное не всегда верно).
 
-Klipper implements constant acceleration. The key formula for constant acceleration is:
+Klipper реализует постоянное ускорение. Ключевой формулой для постоянного ускорения является:
 
 ```
 velocity(time) = start_velocity + accel*time
 ```
 
-## Trapezoid generator
+## Генератор трапеций
 
-Klipper uses a traditional "trapezoid generator" to model the motion of each move - each move has a start speed, it accelerates to a cruising speed at constant acceleration, it cruises at a constant speed, and then decelerates to the end speed using constant acceleration.
+В Klipper используется традиционный "генератор трапеций" для моделирования движения каждого хода - каждый ход имеет начальную скорость, разгоняется до крейсерской скорости с постоянным ускорением, движется с постоянной скоростью, а затем замедляется до конечной скорости с постоянным ускорением.
 
 ![trapezoid](img/trapezoid.svg.png)
 
 It's called a "trapezoid generator" because a velocity diagram of the move looks like a trapezoid.
 
-The cruising speed is always greater than or equal to both the start speed and the end speed. The acceleration phase may be of zero duration (if the start speed is equal to the cruising speed), the cruising phase may be of zero duration (if the move immediately starts decelerating after acceleration), and/or the deceleration phase may be of zero duration (if the end speed is equal to the cruising speed).
+Крейсерская скорость всегда больше или равна как начальной, так и конечной скорости. Фаза разгона может быть нулевой (если начальная скорость равна крейсерской), фаза крейсерской может быть нулевой (если после разгона движение сразу начинает замедляться), и/или фаза замедления может быть нулевой (если конечная скорость равна крейсерской).
 
 ![trapezoids](img/trapezoids.svg.png)
 

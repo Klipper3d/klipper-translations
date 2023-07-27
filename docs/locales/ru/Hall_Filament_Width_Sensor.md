@@ -13,13 +13,13 @@ Sensor generates two analog output based on calculated filament width. Sum of ou
 ## Шаблон переменных меню
 
 ```
-[menu __main __filament __width_current]
-type: command
-enable: {'hall_filament_width_sensor' in printer}
-name: Dia: {'%.2F' % printer.hall_filament_width_sensor.Diameter}
-index: 0
+[menu __main __filament __width_current] /Меню главной толщины филамента
+type: command /тип:команда
+enable: {'hall_filament_width_sensor' in printer} /включить:
+name: Dia: {'%.2F' % printer.hall_filament_width_sensor.Diameter}/Имя:
+index: 0 /индекс:
 
-[menu __main __filament __raw_width_current]
+[menu __main __filament __raw_width_current] /Меню главной толщины сырого филамента
 type: command
 enable: {'hall_filament_width_sensor' in printer}
 name: Raw: {'%4.0F' % printer.hall_filament_width_sensor.Raw}
@@ -30,8 +30,8 @@ index: 1
 
 To get raw sensor value you can use menu item or **QUERY_RAW_FILAMENT_WIDTH** command in terminal.
 
-1. Insert first calibration rod (1.5 mm size) get first raw sensor value
-1. Insert second calibration rod (2.0 mm size) get second raw sensor value
+1. Вставьте первый калибровочный стержень (размер 1,5 мм) и получите первое необработанное значение датчика
+1. Вставьте второй калибровочный стержень (размер 2,0 мм) и получите второе необработанное значение датчика
 1. Save raw sensor values in config parameter `Raw_dia1` and `Raw_dia2`
 
 ## Как включить сенсор
