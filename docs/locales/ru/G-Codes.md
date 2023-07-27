@@ -8,8 +8,8 @@ Klipper поддерживает следующие стандартные ко�
 
 - Перемещение (G0 или G1): `G1 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>]`
 - Dwell: `G4 P<milliseconds>`
-- Move to origin: `G28 [X] [Y] [Z]`
-- Turn off motors: `M18` or `M84`
+- Перемещение в начало координат: `G28 [X] [Y] [Z]`.
+- Выключите моторы: `М18` или `М84`
 - Wait for current moves to finish: `M400`
 - Use absolute/relative distances for extrusion: `M82`, `M83`
 - Use absolute/relative coordinates: `G90`, `G91`
@@ -57,7 +57,7 @@ The following commands are available when an [adxl345 config section](Config_Ref
 
 #### ACCELEROMETER_DEBUG_READ
 
-`ACCELEROMETER_DEBUG_READ [CHIP=<config_name>] REG=<register>`: queries ADXL345 register "register" (e.g. 44 or 0x2C). Can be useful for debugging purposes.
+`АКСЕЛЕРОМЕТР_ОТЛАДКА_ЧТЕНИЕ [ЧИП =  <имя_конфигурации> РЕГ=<регистр>`: запросы ADXL345 регистр "регистр" (e.g. 44 или 0x2C). Может быть полезен для целей отладки.
 
 #### ACCELEROMETER_DEBUG_WRITE
 
@@ -443,7 +443,7 @@ The manual_probe module is automatically loaded.
 `MANUAL_PROBE [SPEED=<speed>]`: Run a helper script useful for measuring the height of the nozzle at a given location. If SPEED is specified, it sets the speed of TESTZ commands (the default is 5mm/s). During a manual probe, the following additional commands are available:
 
 - `ACCEPT`: This command accepts the current Z position and concludes the manual probing tool.
-- `ABORT`: This command terminates the manual probing tool.
+- Прервано: Эта команда завершает работу инструмента ручного зондирования.
 - `TESTZ Z=<value>`: This command moves the nozzle up or down by the amount specified in "value". For example, `TESTZ Z=-.1` would move the nozzle down .1mm while `TESTZ Z=.1` would move the nozzle up .1mm. The value may also be `+`, `-`, `++`, or `--` to move the nozzle up or down an amount relative to previous attempts.
 
 #### Z_ENDSTOP_CALIBRATE
@@ -614,7 +614,7 @@ The following commands are available when a [resonance_tester config section](Co
 
 #### SHAPER_CALIBRATE
 
-`SHAPER_CALIBRATE [AXIS=<axis>] [NAME=<name>] [FREQ_START=<min_freq>] [FREQ_END=<max_freq>] [HZ_PER_SEC=<hz_per_sec>] [MAX_SMOOTHING=<max_smoothing>]`: Similarly to `TEST_RESONANCES`, runs the resonance test as configured, and tries to find the optimal parameters for the input shaper for the requested axis (or both X and Y axes if `AXIS` parameter is unset). If `MAX_SMOOTHING` is unset, its value is taken from `[resonance_tester]` section, with the default being unset. See the [Max smoothing](Measuring_Resonances.md#max-smoothing) of the measuring resonances guide for more information on the use of this feature. The results of the tuning are printed to the console, and the frequency responses and the different input shapers values are written to a CSV file(s) `/tmp/calibration_data_<axis>_<name>.csv`. Unless specified, NAME defaults to the current time in "YYYYMMDD_HHMMSS" format. Note that the suggested input shaper parameters can be persisted in the config by issuing `SAVE_CONFIG` command.
+`SHAPER_CALIBRATE [AXIS=<axis>] [NAME=<name>] [FREQ_START=<min_freq>] [FREQ_END=<max_freq>] [HZ_PER_SEC=<hz_per_sec>] [CHIPS=<adxl345_chip_name>] [MAX_SMOOTHING=<max_smoothing>]`: Similarly to `TEST_RESONANCES`, runs the resonance test as configured, and tries to find the optimal parameters for the input shaper for the requested axis (or both X and Y axes if `AXIS` parameter is unset). If `MAX_SMOOTHING` is unset, its value is taken from `[resonance_tester]` section, with the default being unset. See the [Max smoothing](Measuring_Resonances.md#max-smoothing) of the measuring resonances guide for more information on the use of this feature. The results of the tuning are printed to the console, and the frequency responses and the different input shapers values are written to a CSV file(s) `/tmp/calibration_data_<axis>_<name>.csv`. Unless specified, NAME defaults to the current time in "YYYYMMDD_HHMMSS" format. Note that the suggested input shaper parameters can be persisted in the config by issuing `SAVE_CONFIG` command, and if `[input_shaper]` was already enabled previously, these parameters take effect immediately.
 
 ### [respond]
 

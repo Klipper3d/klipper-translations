@@ -118,9 +118,9 @@ fade_target: 0
 - `fade_end: 10` *Valore predefinito: 0* L'altezza Z in cui deve essere completata la dissolvenza. Se questo valore è inferiore a `fade_start`, la dissolvenza è disabilitata. Questo valore può essere regolato a seconda di quanto è deformata la superficie di stampa. Una superficie notevolmente deformata dovrebbe dissolvere su una distanza maggiore. Una superficie quasi piatta potrebbe essere in grado di ridurre questo valore per eliminarlo gradualmente più rapidamente. 10mm è un valore ragionevole per cominciare se si utilizza il valore predefinito di 1 per `fade_start`.
 - `fade_target: 0` *Default Value: The average Z value of the mesh* The `fade_target` can be thought of as an additional Z offset applied to the entire bed after fade completes. Generally speaking we would like this value to be 0, however there are circumstances where it should not be. For example, lets assume your homing position on the bed is an outlier, its .2 mm lower than the average probed height of the bed. If the `fade_target` is 0, fade will shrink the print by an average of .2 mm across the bed. By setting the `fade_target` to .2, the homed area will expand by .2 mm, however, the rest of the bed will be accurately sized. Generally its a good idea to leave `fade_target` out of the configuration so the average height of the mesh is used, however it may be desirable to manually adjust the fade target if one wants to print on a specific portion of the bed.
 
-### L'Indice di Riferimento Relativo
+### Configuring the zero reference position
 
-Most probes are susceptible to drift, ie: inaccuracies in probing introduced by heat or interference. This can make calculating the probe's z-offset challenging, particularly at different bed temperatures. As such, some printers use an endstop for homing the Z axis, and a probe for calibrating the mesh. These printers can benefit from configuring the relative reference index.
+Many probes are susceptible to "drift", ie: inaccuracies in probing introduced by heat or interference. This can make calculating the probe's z-offset challenging, particularly at different bed temperatures. As such, some printers use an endstop for homing the Z axis and a probe for calibrating the mesh. In this configuration it is possible offset the mesh so that the (X, Y) `reference position` applies zero adjustment. The `reference postion` should be the location on the bed where a [Z_ENDSTOP_CALIBRATE](./Manual_Level#calibrating-a-z-endstop) paper test is performed. The bed_mesh module provides the `zero_reference_position` option for specifying this coordinate:
 
 ```
 [bed_mesh]
@@ -128,13 +128,30 @@ speed: 120
 horizontal_move_z: 5
 mesh_min: 35, 6
 mesh_max: 240, 198
+zero_reference_position: 125, 110
 probe_count: 5, 3
-relative_reference_index: 7
 ```
 
-- `relative_reference_index: 7` *Valore predefinito: Nessuno (disabilitato)* Quando i punti sondati vengono generati, a ciascuno viene assegnato un indice. Puoi cercare questo indice in klippy.log o usando BED_MESH_OUTPUT (vedi la sezione sui GCodes Bed Mesh di seguito per maggiori informazioni). Se si assegna un indice all'opzione `relative_reference_index`, il valore rilevato a questa coordinata sostituirà lo z_offset del probe. Questo rende effettivamente questa coordinata il riferimento "zero" per la mesh.
+- `zero_reference_position: ` *Default Value: None (disabled)* The `zero_reference_position` expects an (X, Y) coordinate matching that of the `reference position` described above. If the coordinate lies within the mesh then the mesh will be offset so the reference position applies zero adjustment. If the coordinate lies outside of the mesh then the coordinate will be probed after calibration, with the resulting z-value used as the z-offset. Note that this coordinate must NOT be in a location specified as a `faulty_region` if a probe is necessary.
 
-Quando si utilizza l'indice di riferimento relativo, è necessario scegliere l'indice più vicino al punto sul letto in cui è stata eseguita la calibrazione del fine corsa Z. Nota che quando cerchi l'indice usando il log o BED_MESH_OUTPUT, dovresti usare le coordinate elencate sotto l'intestazione "Probe" per trovare l'indice corretto.
+#### The deprecated relative_reference_index
+
+Existing configurations using the `relative_reference_index` option must be updated to use the `zero_reference_position`. The response to the [BED_MESH_OUTPUT PGP=1](#output) gcode command will include the (X, Y) coordinate associated with the index; this position may be used as the value for the `zero_reference_position`. The output will look similar to the following:
+
+```
+// bed_mesh: generated points
+// Index | Tool Adjusted | Probe
+// 0 | (1.0, 1.0) | (24.0, 6.0)
+// 1 | (36.7, 1.0) | (59.7, 6.0)
+// 2 | (72.3, 1.0) | (95.3, 6.0)
+// 3 | (108.0, 1.0) | (131.0, 6.0)
+... (additional generated points)
+// bed_mesh: relative_reference_index 24 is (131.5, 108.0)
+```
+
+*Note: The above output is also printed in `klippy.log` during initialization.*
+
+Using the example above we see that the `relative_reference_index` is printed along with its coordinate. Thus the `zero_reference_position` is `131.5, 108`.
 
 ### Regioni difettose
 
@@ -186,7 +203,6 @@ La mesh verrà salvata in un profilo specificato dal parametro `PROFILE`, o `def
    - `MESH_ORIGIN`
    - `ROUND_PROBE_COUNT`
 - Tutti i piatti:
-   - `RELATIVE_REFERNCE_INDEX`
    - `ALGORITHM`
 
 Vedere la documentazione di configurazione sopra per i dettagli su come ogni parametro si applica alla mesh.

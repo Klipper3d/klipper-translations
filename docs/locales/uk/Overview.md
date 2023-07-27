@@ -34,7 +34,7 @@
 - [Slicers](Slicers.md): Налаштування програмного забезпечення "slicer" для Klipper.
 - [Корекція перекосу](Skew_Correction.md): Регулювання для осей не ідеально квадратних.
 - [PWM інструменти](Using_PWM_Tools.md): Керівництво по використанню інструментів контролю PWM, таких як лазери або шпиндельки.
-- [Exclude Object](Exclude_Object.md): The guide to the Exclude Objects implementation.
+- [Exclude Object](Exclude_Object.md): Посібник з реалізації виключення об'єктів.
 
 ## Документація розробника
 
@@ -57,5 +57,6 @@
 - [Beaglebone](Beaglebone.md): Деталі для запуску Klipper на Beaglebone PRU.
 - [Завантажувачі](Bootloaders.md): Інформація для розробників про перепрошивку мікроконтролерів.
 - [CAN шина](CANBUS.md): Інформація щодо використання шини CAN із Klipper.
+   - [CAN bus troubleshooting](CANBUS_Troubleshooting.md): Tips for troubleshooting CAN bus.
 - [TSL1401CL датчик ширини нитки ](TSL1401CL_Filament_Width_Sensor.md)
 - [Датчик ширини нитки Холла](Hall_Filament_Width_Sensor.md)

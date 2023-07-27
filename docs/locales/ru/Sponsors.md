@@ -6,9 +6,13 @@ Klipper - это свободное программное обеспечени�
 
 [<img src="./img/sponsors/BTT_BTT.png" width="200" />](https://bigtree-tech.com/collections/all-products)
 
-BIGTREETECH is the official mainboard sponsor of Klipper. BIGTREETECH is committed to developing innovative and competitive products to serve the 3D printing community better. Follow them on [Facebook](https://www.facebook.com/BIGTREETECH) or [Twitter](https://twitter.com/BigTreeTech).
+Компания BIGTREETECH является официальным спонсором Klipper. Компания BIGTREETECH стремится разрабатывать инновационные и конкурентоспособные продукты, чтобы лучше служить сообществу 3D-печати. Следите за ними на [Facebook](https://www.facebook.com/BIGTREETECH) или [Twitter](https://twitter.com/BigTreeTech).
 
-## Klipper Developers
+## Спонсировать
+
+[<img src="./img/sponsors/obico-light-horizontal.png" width="200" />](https://obico.io/klipper.html?source=klipper_sponsor)
+
+## Разработчики Klipper
 
 ### Kevin O'Connor
 

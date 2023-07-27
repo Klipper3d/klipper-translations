@@ -755,85 +755,94 @@ max_temp:
 ```
 [bed_mesh]
 #speed: 50
-# 校准期间非探测移动的速度(mm/s)
-# 默认是 50.
+#   The speed (in mm/s) of non-probing moves during the calibration.
+#   The default is 50.
 #horizontal_move_z: 5
-# 在探测中喷头的高度单位是mm
-# 默认值是5
+#   The height (in mm) that the head should be commanded to move to
+#   just prior to starting a probe operation. The default is 5.
 #mesh_radius:
-# 定义探测圆形热床的网格半径
-# 半径是相对于mesh_origin指定的坐标
-# 此选项只适用于圆形热床
+#   Defines the radius of the mesh to probe for round beds. Note that
+#   the radius is relative to the coordinate specified by the
+#   mesh_origin option. This parameter must be provided for round beds
+#   and omitted for rectangular beds.
 #mesh_origin:
-# 定义圆形热床的中心X Y坐标 
-# 此坐标相对于探头的位置
-# 调整 mesh_origin可能会对最大化mesh_radius有帮助
-# 默认值是0,0
-# 此选项只适用于圆形热床
+#   Defines the center X, Y coordinate of the mesh for round beds. This
+#   coordinate is relative to the probe's location. It may be useful
+#   to adjust the mesh_origin in an effort to maximize the size of the
+#   mesh radius. Default is 0, 0. This parameter must be omitted for
+#   rectangular beds.
 #mesh_min:
-# 定义矩形热床的最小X Y 坐标
-# 这个坐标是相对于
-# 这是探测的第一个点在原点附近
-# 矩形热床必须要提供此参数
+#   Defines the minimum X, Y coordinate of the mesh for rectangular
+#   beds. This coordinate is relative to the probe's location. This
+#   will be the first point probed, nearest to the origin. This
+#   parameter must be provided for rectangular beds.
 #mesh_max:
-# 定义矩形热床的最大X Y 坐标
-# 与mesh_min相同但是这将是离床的原点最远的探测点
-# 矩形热床必须要提供此参数
+#   Defines the maximum X, Y coordinate of the mesh for rectangular
+#   beds. Adheres to the same principle as mesh_min, however this will
+#   be the furthest point probed from the bed's origin. This parameter
+#   must be provided for rectangular beds.
 #probe_count: 3, 3
-# 对于矩形热床，这个逗号分开了在X Y 轴需要探测的点数
-# 单个值也是有效的，在这个情况下值会被应用到两个轴
-# 默认值是 3, 3
+#   For rectangular beds, this is a comma separate pair of integer
+#   values X, Y defining the number of points to probe along each
+#   axis. A single value is also valid, in which case that value will
+#   be applied to both axes. Default is 3, 3.
 #round_probe_count: 5
-# 对于圆形热床，这个值去定义了每个轴最大的探测点的数量
-# 这个值必须要是奇数
-# 默认值是 5
+#   For round beds, this integer value defines the maximum number of
+#   points to probe along each axis. This value must be an odd number.
+#   Default is 5.
 #fade_start: 1.0
-# 启用fade_start时开始分阶段调整的gcode z位置
-# 默认值是 1.0.
+#   The gcode z position in which to start phasing out z-adjustment
+#   when fade is enabled. Default is 1.0.
 #fade_end: 0.0
-# 在完成渐变后的gcode z 位置
-# 当值比 fade_start低的时候会禁用此功能
-# 注意这个功能可能会在打印的时候往z轴添加不需要的缩放
-# 如果希望启用过度那么, 推荐值为10.0
-# 默认值是 0.0 不启用过度
+#   The gcode z position in which phasing out completes. When set to a
+#   value below fade_start, fade is disabled. It should be noted that
+#   fade may add unwanted scaling along the z-axis of a print. If a
+#   user wishes to enable fade, a value of 10.0 is recommended.
+#   Default is 0.0, which disables fade.
 #fade_target:
-# 淡化应该聚集的z位置
-# 当这个值被设置为非零值时那么就必须在网格中的Z值范围内
-# 用户希望汇聚的时候z原点的位置
-# 应该被设置为0
-# 默认是网格的平均值
+#   The z position in which fade should converge. When this value is
+#   set to a non-zero value it must be within the range of z-values in
+#   the mesh. Users that wish to converge to the z homing position
+#   should set this to 0. Default is the average z value of the mesh.
 #split_delta_z: .025
-# 触发分层的沿途Z差量 (mm)
-# 默认值是 .025.
+#   The amount of Z difference (in mm) along a move that will trigger
+#   a split. Default is .025.
 #move_check_distance: 5.0
-# 检查split_delta_z的距离
-# 这也是一个动作可以分层的最小长度。
-# 默认值是 5.0
+#   The distance (in mm) along a move to check for split_delta_z.
+#   This is also the minimum length that a move can be split. Default
+#   is 5.0.
 #mesh_pps: 2, 2
-# 一对以逗号分隔的整数X、Y，定义每段的点的数量
-# 在网格中沿每个轴插值的点数
-# "segment "可以被定义为每个探测点之间的空间
-# 如果用户输入了一个值那么将会应用到两个轴上
-# 默认值上 2, 2
+#   A comma separated pair of integers X, Y defining the number of
+#   points per segment to interpolate in the mesh along each axis. A
+#   "segment" can be defined as the space between each probed point.
+#   The user may enter a single value which will be applied to both
+#   axes. Default is 2, 2.
 #algorithm: lagrange
-# 要使用的插值算法
-# 可以是"lagrange"或者"bicubic"
-# 这个选项不会影响 3x3 的网格因为3x3 的网格会强制使用lagrange采样
-# 默认值是lagrange
+#   The interpolation algorithm to use. May be either "lagrange" or
+#   "bicubic". This option will not affect 3x3 grids, which are forced
+#   to use lagrange sampling. Default is lagrange.
 #bicubic_tension: .2
-# 当使用bicubic算法时使用bicubic_tension参数来改变插值的斜率量
-# 较大的数字会增加斜率的数量会在网格中产生更多的弯曲
-# 默认值是 .2
+#   When using the bicubic algorithm the tension parameter above may
+#   be applied to change the amount of slope interpolated. Larger
+#   numbers will increase the amount of slope, which results in more
+#   curvature in the mesh. Default is .2.
+#zero_reference_position:
+#   An optional X,Y coordinate that specifies the location on the bed
+#   where Z = 0.  When this option is specified the mesh will be offset
+#   so that zero Z adjustment occurs at this location.  The default is
+#   no zero reference.
 #relative_reference_index:
-# 网格中的一个点索引，用来引用所有的Z值
-# 启用这个参数可以产生一个相对于所提供的索引处的
-# 探测到的Z位置的网格
+#   **DEPRECATED, use the "zero_reference_position" option**
+#   The legacy option superceded by the "zero reference position".
+#   Rather than a coordinate this option takes an integer "index" that
+#   refers to the location of one of the generated points. It is recommended
+#   to use the "zero_reference_position" instead of this option for new
+#   configurations. The default is no relative reference index.
 #faulty_region_1_min:
 #faulty_region_1_max:
-# 可选点被定义为故障区域
-# 更多对于故障区域多信息See docs/Bed_Mesh.md
-# 最多可添加 99 个故障区域。
-# 默认没有设置故障区域
+#   Optional points that define a faulty region.  See docs/Bed_Mesh.md
+#   for details on faulty regions.  Up to 99 faulty regions may be added.
+#   By default no faulty regions are set.
 ```
 
 ### [bed_tilt]
@@ -1403,14 +1412,16 @@ Support for MPU-9250, MPU-9255, MPU-6515, MPU-6050, and MPU-6500 accelerometers 
 ```
 [mpu9250 my_accelerometer]
 #i2c_address:
-#   默认为104（0x68）。如果AD0为高，那么它将是0x69。
+#   Default is 104 (0x68). If AD0 is high, it would be 0x69 instead.
 #i2c_mcu:
 #i2c_bus:
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
 #i2c_speed: 400000
-#   有关上述参数的描述，请参见“常见I2C设置”部分。
-#   默认的"i2c_speed"是400000。
+#   See the "common I2C settings" section for a description of the
+#   above parameters. The default "i2c_speed" is 400000.
 #axes_map: x, y, z
-#   有关此参数的信息，请参阅"adxl345"部分。
+#   See the "adxl345" section for information on this parameter.
 ```
 
 ### [resonance_tester]
@@ -1994,11 +2005,34 @@ BMP280/BME280/BME680 两线接口 (I2C) 环境传感器。注意，这些传感�
 ```
 sensor_type: BME280
 #i2c_address:
-#   默认为118(0x76)。一些BME280传感器的地址为119(0x77).
+#   Default is 118 (0x76). Some BME280 sensors have an address of 119
+#   (0x77).
+#i2c_mcu:
+#i2c_bus:
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
+#i2c_speed:
+#   See the "common I2C settings" section for a description of the
+#   above parameters.
+```
+
+### AHT10/AHT20/AHT21 temperature sensor
+
+AHT10/AHT20/AHT21 two wire interface (I2C) environmental sensors. Note that these sensors are not intended for use with extruders and heater beds, but rather for monitoring ambient temperature (C) and relative humidity. See [sample-macros.cfg](../config/sample-macros.cfg) for a gcode_macro that may be used to report humidity in addition to temperature.
+
+```
+sensor_type: AHT10
+#   Also use AHT10 for AHT20 and AHT21 sensors.
+#i2c_address:
+#   Default is 56 (0x38). Some AHT10 sensors give the option to use
+#   57 (0x39) by moving a resistor.
 #i2c_mcu:
 #i2c_bus:
 #i2c_speed:
-#   参见 "常见的I2C设置 "部分，以了解对上述参数的描述。
+#   See the "common I2C settings" section for a description of the
+#   above parameters.
+#aht10_report_time:
+#   Interval in seconds between readings. Default is 30, minimum is 5
 ```
 
 ### HTU21D 传感器
@@ -2007,28 +2041,30 @@ HTU21D 系列双线接口（I2C）环境传感器。注意，这种传感器不�
 
 ```
 sensor_type:
-# 必须是 "HTU21D" , "SI7013", "SI7020", "SI7021" 或 "SHT21"
+#   Must be "HTU21D" , "SI7013", "SI7020", "SI7021" or "SHT21"
 #i2c_address:
-#   默认为64 (0x40).
+#   Default is 64 (0x40).
 #i2c_mcu:
 #i2c_bus:
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
 #i2c_speed:
-#   参见 "常见的I2C设置 "章节，了解关于上述参数的描述。
+#   See the "common I2C settings" section for a description of the
+#   above parameters.
 #htu21d_hold_master:
-#   如果传感器在读取时可以保持I2C缓冲区。如果是 "真"，则没有其他
-#   总线通信可以在读取过程中进行。
-#   默认为 False。
+#   If the sensor can hold the I2C buf while reading. If True no other
+#   bus communication can be performed while reading is in progress.
+#   Default is False.
 #htu21d_resolution:
-#   温度和湿度读数的分辨率。
-#   有效值有：
-#   'TEMP14_HUM12' -> 温度为14位，湿度为12位
-#   'TEMP13_HUM10' -> 温度为13位，湿度为10位
-#   'TEMP12_HUM08' -> 温度为12位，湿度为8位
-#   'TEMP11_HUM11' -> 温度为11位，湿度为11位
-#   默认为："TEMP11_HUM11"
+#   The resolution of temperature and humidity reading.
+#   Valid values are:
+#    'TEMP14_HUM12' -> 14bit for Temp and 12bit for humidity
+#    'TEMP13_HUM10' -> 13bit for Temp and 10bit for humidity
+#    'TEMP12_HUM08' -> 12bit for Temp and 08bit for humidity
+#    'TEMP11_HUM11' -> 11bit for Temp and 11bit for humidity
+#   Default is: "TEMP11_HUM11"
 #htu21d_report_time:
-#   读数之间的间隔，以秒为单位。
-#   默认为30
+#   Interval in seconds between readings. Default is 30
 ```
 
 ### LM75 温度传感器
@@ -2038,16 +2074,19 @@ LM75/LM75A两线（I2C）连接的温度传感器。这些传感器的温度范�
 ```
 sensor_type: LM75
 #i2c_address:
-#   默认为 72 （0x48）。正常范围为 72-79（0x48-0x4F），3个地址的低位
-#   可以通过芯片上的引脚进行配置。（通常是跳线或硬接线）。
+#   Default is 72 (0x48). Normal range is 72-79 (0x48-0x4F) and the 3
+#   low bits of the address are configured via pins on the chip
+#   (usually with jumpers or hard wired).
 #i2c_mcu:
 #i2c_bus:
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
 #i2c_speed:
-#   请参阅“常见 I2C 设置”部分，了解
-#   以上参数。
+#   See the "common I2C settings" section for a description of the
+#   above parameters.
 #lm75_report_time:
-#   读数之间的间隔（以秒为单位）。
-#   默认值为 0.8，最小值为0.5。
+#   Interval in seconds between readings. Default is 0.8, with minimum
+#   0.5.
 ```
 
 ### 微控制器的内置温度传感器
@@ -2178,7 +2217,7 @@ pin:
 加热器冷却风扇（可以用"heater_fan"前缀定义任意数量的分段）。"加热器风扇"是一种当其关联的加热器活跃时会启用的风扇。默认情况下，heater_fan shutdown_speed 等于 max_power。
 
 ```
-[heater_fan my_nozzle_fan]
+[heater_fan heatbreak_cooling_fan]
 #pin:
 #max_power:
 #shutdown_speed:
@@ -2190,15 +2229,19 @@ pin:
 #tachometer_ppr:
 #tachometer_poll_interval:
 #enable_pin:
-#   请参阅“fan”分段，了解上述参数的描述。
+#   See the "fan" section for a description of the above parameters.
 #heater: extruder
-#   此风扇所关联的加热器的配置部分的名称。如果在此处提供了加热器名称的逗号分隔列表，
-#   则在给定的任何加热器启用时，风扇将被启用。默认为“extruder”。
+#   Name of the config section defining the heater that this fan is
+#   associated with. If a comma separated list of heater names is
+#   provided here, then the fan will be enabled when any of the given
+#   heaters are enabled. The default is "extruder".
 #heater_temp: 50.0
-#   加热器必须降至此温度（摄氏度）以下，风扇才会被禁用。默认为 50 摄氏度。
+#   A temperature (in Celsius) that the heater must drop below before
+#   the fan is disabled. The default is 50 Celsius.
 #fan_speed: 1.0
-#   当关联的加热器启用时，风扇将设置的风扇速度（表示为从 0.0 到 1.0 的值）。
-#   默认值为 1.0
+#   The fan speed (expressed as a value from 0.0 to 1.0) that the fan
+#   will be set to when its associated heater is enabled. The default
+#   is 1.0
 ```
 
 ### [controller_fan]
@@ -2397,19 +2440,22 @@ Dotstar（又名 APA102）LED 支持（可以使用“dotstar”前缀定义任�
 PCA9533 LED支持。PCA9533 在mightyboard上使用。
 
 ```
-[pca9533 my_pca9533]。
-#i2c_address:98
-#   芯片在i2c总线上使用的i2c地址。使用98表示
-#   PCA9533/1，99表示PCA9533/2。默认为98。
+[pca9533 my_pca9533]
+#i2c_address: 98
+#   The i2c address that the chip is using on the i2c bus. Use 98 for
+#   the PCA9533/1, 99 for the PCA9533/2. The default is 98.
 #i2c_mcu:
 #i2c_bus:
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
 #i2c_speed:
-#   参见 "常用I2C设置 "部分，以了解对上述参数的描述。
-#initial_RED:0.0
+#   See the "common I2C settings" section for a description of the
+#   above parameters.
+#initial_RED: 0.0
 #initial_GREEN: 0.0
 #initial_BLUE: 0.0
 #initial_WHITE: 0.0
-#   有关这些参数的信息，请参见 "led "分段。
+#   See the "led" section for information on these parameters.
 ```
 
 ### [pca9632]
@@ -2417,27 +2463,30 @@ PCA9533 LED支持。PCA9533 在mightyboard上使用。
 PCA9632 LED支持。PCA9632在FlashForge Dreamer上使用。
 
 ```
-[pca9632 my_pca9632]。
-#i2c_address:98
-#   芯片在i2c总线上使用的i2c地址。可以是96, 97, 98, 或 99。
-#   默认为98。
+[pca9632 my_pca9632]
+#i2c_address: 98
+#   The i2c address that the chip is using on the i2c bus. This may be
+#   96, 97, 98, or 99.  The default is 98.
 #i2c_mcu:
 #i2c_bus:
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
 #i2c_speed:
-#   参见 "常见的I2C设置 "一节，以了解对上述参数的描述。
+#   See the "common I2C settings" section for a description of the
+#   above parameters.
 #scl_pin:
 #sda_pin:
-#   如果pca9632没有连接到硬件I2C总线，那么可以指定
-#   "时钟"(scl_pin)和 "数据"(sda_pin)引脚。
-#   默认使用硬件I2C。
-#color_order:RGBW
-#   设置LED的像素顺序(使用一个包含R、G、B、W的字符串)。
-#   默认是RGBW。
-#initial_RED:0.0
+#   Alternatively, if the pca9632 is not connected to a hardware I2C
+#   bus, then one may specify the "clock" (scl_pin) and "data"
+#   (sda_pin) pins. The default is to use hardware I2C.
+#color_order: RGBW
+#   Set the pixel order of the LED (using a string containing the
+#   letters R, G, B, W). The default is RGBW.
+#initial_RED: 0.0
 #initial_GREEN: 0.0
 #initial_BLUE: 0.0
 #initial_WHITE: 0.0
-#   有关这些参数的信息，请参见 "led "分段。
+#   See the "led" section for information on these parameters.
 ```
 
 ## 额外的舵机、按钮和其他引脚
@@ -2654,36 +2703,39 @@ run_current:
 ```
 [tmc2208 stepper_x]
 uart_pin:
-#   连接到TMC2208的PDN_UART的脚
-#   这个参数必须给定
+#   The pin connected to the TMC2208 PDN_UART line. This parameter
+#   must be provided.
 #tx_pin:
-#   如果使用分离接收和发送线的方式和驱动器通讯
-#   可以设置uart_pin来作为接收脚，tx_pin作为发送脚
-#   默认是使用uart_pin来读写
+#   If using separate receive and transmit lines to communicate with
+#   the driver then set uart_pin to the receive pin and tx_pin to the
+#   transmit pin. The default is to use uart_pin for both reading and
+#   writing.
 #select_pins:
-#   一个使用（英文）逗号分隔的引脚的列表。
-#   这是访问tmc2208的UART之前要设置的引脚列表。
-#   需要配置模拟开关来实现串口通讯时可能很有用
-#   默认是不配置任何引脚
+#   A comma separated list of pins to set prior to accessing the
+#   tmc2208 UART. This may be useful for configuring an analog mux for
+#   UART communication. The default is to not configure any pins.
 #interpolate: True
-#   如果为True，使能插补（驱动器会在内部使用256微步）
-#   这个插补会带来一个小的系统位置偏差
-#   详见TMC_Drivers.md
-#   默认值是True
+#   If true, enable step interpolation (the driver will internally
+#   step at a rate of 256 micro-steps). This interpolation does
+#   introduce a small systemic positional deviation - see
+#   TMC_Drivers.md for details. The default is True.
 run_current:
-#   配置驱动器在驱动步进电机移动时的电流（以电流的有效值安培为单位）
-#   这个参数必须给定
+#   The amount of current (in amps RMS) to configure the driver to use
+#   during stepper movement. This parameter must be provided.
 #hold_current:
-#   配置驱动器在步进电机不移动时的电流（以电流的有效值安培为单位）
-#   不建议设置保持电流（详见TMC_Drivers.md）
-#   默认是不减少电流
+#   The amount of current (in amps RMS) to configure the driver to use
+#   when the stepper is not moving. Setting a hold_current is not
+#   recommended (see TMC_Drivers.md for details). The default is to
+#   not reduce the current.
 #sense_resistor: 0.110
-#   电机采样电阻阻值（以欧姆为单位）
-#   默认是0.110欧姆
+#   The resistance (in ohms) of the motor sense resistor. The default
+#   is 0.110 ohms.
 #stealthchop_threshold: 0
-#   设置stealthChop模式的门槛速度（以毫米每秒为单位）
-#   当设置了这个量，步进电机速度低于这个值时会启用stealthChop模式
-#   默认是0，意味着失能了stealthChop模式
+#   The velocity (in mm/s) to set the "stealthChop" threshold to. When
+#   set, "stealthChop" mode will be enabled if the stepper motor
+#   velocity is below this value. The default is 0, which disables
+#   "stealthChop" mode.
+#driver_MULTISTEP_FILT: True
 #driver_IHOLDDELAY: 8
 #driver_TPOWERDOWN: 20
 #driver_TBL: 2
@@ -2697,9 +2749,10 @@ run_current:
 #driver_PWM_FREQ: 1
 #driver_PWM_GRAD: 14
 #driver_PWM_OFS: 36
-#   配置TMC2208时设置给定的寄存器值
-#   设置定制的电机参数时使用
-#   默认值如上
+#   Set the given register during the configuration of the TMC2208
+#   chip. This may be used to set custom motor parameters. The
+#   defaults for each parameter are next to the parameter name in the
+#   above list.
 ```
 
 ### [tmc2209]
@@ -2716,11 +2769,12 @@ run_current:
 #hold_current:
 #sense_resistor: 0.110
 #stealthchop_threshold: 0
-#   以上参数见"tmc2208"部分
+#   See the "tmc2208" section for the definition of these parameters.
 #uart_address:
-#   TMC2209的UART地址（0-3的整数）
-#   这个参数通常用于多个TMC2209连接到同个UART接口
-#   默认是0
+#   The address of the TMC2209 chip for UART messages (an integer
+#   between 0 and 3). This is typically used when multiple TMC2209
+#   chips are connected to the same UART pin. The default is zero.
+#driver_MULTISTEP_FILT: True
 #driver_IHOLDDELAY: 8
 #driver_TPOWERDOWN: 20
 #driver_TBL: 2
@@ -2735,17 +2789,18 @@ run_current:
 #driver_PWM_GRAD: 14
 #driver_PWM_OFS: 36
 #driver_SGTHRS: 0
-#   配置TMC2209时配置的寄存器
-#   这些参数通常用于设定自己定制的电机参数
-#   每个参数的默认值如上
+#   Set the given register during the configuration of the TMC2209
+#   chip. This may be used to set custom motor parameters. The
+#   defaults for each parameter are next to the parameter name in the
+#   above list.
 #diag_pin:
-#   微控制器连接到TMC2209的DIAG接口的引脚
-#   这个引脚通常使用"^"前缀来开启内部上拉
-#   设置这个会创建一个名为"tmc2209_stepper_x:virtual_endstop"的虚拟引脚
-#   用做步进电机的终止引脚。
-#   在启动"sensorless homing"（无限位归零）时设置这个。
-#   （确保同时设置了driver_SGTHRS为一个合适的灵敏度）
-#   默认是关闭了无限位归零
+#   The micro-controller pin attached to the DIAG line of the TMC2209
+#   chip. The pin is normally prefaced with "^" to enable a pullup.
+#   Setting this creates a "tmc2209_stepper_x:virtual_endstop" virtual
+#   pin which may be used as the stepper's endstop_pin. Doing this
+#   enables "sensorless homing". (Be sure to also set driver_SGTHRS to
+#   an appropriate sensitivity value.) The default is to not enable
+#   sensorless homing.
 ```
 
 ### [tmc2660]
@@ -2814,37 +2869,41 @@ run_current:
 ```
 [tmc2240 stepper_x]
 cs_pin:
-#   对应于TMC2240芯片选择线的引脚。此引脚在SPI消息开始时设为低电平，
-#   并在消息完成后设为高电平。
-#   必须提供此参数。
+#   The pin corresponding to the TMC2240 chip select line. This pin
+#   will be set to low at the start of SPI messages and raised to high
+#   after the message completes. This parameter must be provided.
 #spi_speed:
 #spi_bus:
 #spi_software_sclk_pin:
 #spi_software_mosi_pin:
 #spi_software_miso_pin:
-#   有关上述参数的描述，请参见“常见SPI设置”部分。
+#   See the "common SPI settings" section for a description of the
+#   above parameters.
 #chain_position:
 #chain_length:
-#   这些参数配置一个SPI菊链。这两个参数定义了菊花链中的步进器
-#   位置和总链长度。位置1对应连接到MOSI信号的步进器。
-#   默认不使用SPI菊链。
+#   These parameters configure an SPI daisy chain. The two parameters
+#   define the stepper position in the chain and the total chain length.
+#   Position 1 corresponds to the stepper that connects to the MOSI signal.
+#   The default is to not use an SPI daisy chain.
 #interpolate: True
-#   如果为真，启用步进插补（驱动器将内部以256微步的速率步进）。
-#   默认为True。
+#   If true, enable step interpolation (the driver will internally
+#   step at a rate of 256 micro-steps). The default is True.
 run_current:
-#   在步进电机移动期间，配置驱动器使用的电流（以安培RMS为单位）
-#   量。必须提供此参数。
+#   The amount of current (in amps RMS) to configure the driver to use
+#   during stepper movement. This parameter must be provided.
 #hold_current:
-#   当步进电机不移动时，配置驱动器使用的电流（以安培RMS为单位）
-#   量。不建议设置hold_current（详见TMC_Drivers.md）。
-#   默认不降低电流。
+#   The amount of current (in amps RMS) to configure the driver to use
+#   when the stepper is not moving. Setting a hold_current is not
+#   recommended (see TMC_Drivers.md for details). The default is to
+#   not reduce the current.
 #rref: 12000
-#   IREF和GND之间的电阻器的电阻（以欧姆为单位）。
-#   默认为12000。
+#   The resistance (in ohms) of the resistor between IREF and GND. The
+#   default is 12000.
 #stealthchop_threshold: 0
-#   将“stealthChop”阈值设为的速度（以mm/s为单位）。设定后，
-#   如果步进电机的速度低于此值，将启用“stealthChop”模式。
-#   默认为0，这将禁用“stealthChop”模式。
+#   The velocity (in mm/s) to set the "stealthChop" threshold to. When
+#   set, "stealthChop" mode will be enabled if the stepper motor
+#   velocity is below this value. The default is 0, which disables
+#   "stealthChop" mode.
 #driver_MSLUT0: 2863314260
 #driver_MSLUT1: 1251300522
 #driver_MSLUT2: 608774441
@@ -2863,14 +2922,18 @@ run_current:
 #driver_START_SIN: 0
 #driver_START_SIN90: 247
 #driver_OFFSET_SIN90: 0
-#   这些字段直接控制Microstep Table寄存器。每个电机的最优波表
-#   特定，并可能随电流变化。最优配置会将由非线性步进器运动引
-#   起的打印件制造缺陷降至最低。上述指定的值是驱动器默认使用的值。
-#   该值必须以十进制整数形式指定（不支持十六进制形式）。为了计算
-#   波表字段，请参见Trinamic网站上的tmc2130“计算表”。
-#   此外，这款驱动器还有OFFSET_SIN90字段，可以用来调整一个具有不平
-#   衡线圈的电机。有关此字段以及如何调整它的信息，请参见数据表中的
-#   `正弦波查找表`部分。
+#   These fields control the Microstep Table registers directly. The optimal
+#   wave table is specific to each motor and might vary with current. An
+#   optimal configuration will have minimal print artifacts caused by
+#   non-linear stepper movement. The values specified above are the default
+#   values used by the driver. The value must be specified as a decimal integer
+#   (hex form is not supported). In order to compute the wave table fields,
+#   see the tmc2130 "Calculation Sheet" from the Trinamic website.
+#   Additionally, this driver also has the OFFSET_SIN90 field which can be used
+#   to tune a motor with unbalanced coils. See the `Sine Wave Lookup Table`
+#   section in the datasheet for information about this field and how to tune
+#   it.
+#driver_MULTISTEP_FILT: True
 #driver_IHOLDDELAY: 6
 #driver_IRUNDELAY: 4
 #driver_TPOWERDOWN: 10
@@ -2901,17 +2964,20 @@ run_current:
 #driver_SEIMIN: 0
 #driver_SFILT: 0
 #driver_SG4_ANGLE_OFFSET: 1
-#   在配置TMC2240芯片期间设置给定的寄存器这可以用于设置自定义电机
-#   参数。
-#   每个参数的默认值在参数名称旁边的上面的列表中。
+#   Set the given register during the configuration of the TMC2240
+#   chip. This may be used to set custom motor parameters. The
+#   defaults for each parameter are next to the parameter name in the
+#   above list.
 #diag0_pin:
 #diag1_pin:
-#   连接到TMC2240芯片的DIAG线的微控制器引脚。应只指定一个diag引脚。
-#   该引脚为“活动低”，因此通常加上"^!"前缀。设置
-#   这个会创建一个“tmc2240_stepper_x:virtual_endstop”虚拟引脚
-#   可以用作步进器的endstop_pin。这样做可以启用“无传感器归位”。
-#   （确保也将driver_SGT设置为适当的灵敏度值。）
-#   默认不启用无传感器归位。
+#   The micro-controller pin attached to one of the DIAG lines of the
+#   TMC2240 chip. Only a single diag pin should be specified. The pin
+#   is "active low" and is thus normally prefaced with "^!". Setting
+#   this creates a "tmc2240_stepper_x:virtual_endstop" virtual pin
+#   which may be used as the stepper's endstop_pin. Doing this enables
+#   "sensorless homing". (Be sure to also set driver_SGT to an
+#   appropriate sensitivity value.) The default is to not enable
+#   sensorless homing.
 ```
 
 ### [tmc5160]
@@ -2980,6 +3046,7 @@ run_current:
 #   values used by the driver. The value must be specified as a decimal integer
 #   (hex form is not supported). In order to compute the wave table fields,
 #   see the tmc2130 "Calculation Sheet" from the Trinamic website.
+#driver_MULTISTEP_FILT: True
 #driver_IHOLDDELAY: 6
 #driver_TPOWERDOWN: 10
 #driver_TBL: 2
@@ -3008,6 +3075,10 @@ run_current:
 #driver_SEDN: 0
 #driver_SEIMIN: 0
 #driver_SFILT: 0
+#driver_DRVSTRENGTH: 0
+#driver_BBMCLKS: 4
+#driver_BBMTIME: 0
+#driver_FILT_ISENSE: 0
 #   Set the given register during the configuration of the TMC5160
 #   chip. This may be used to set custom motor parameters. The
 #   defaults for each parameter are next to the parameter name in the
@@ -3067,27 +3138,33 @@ enable_pin:
 ```
 [mcp4451 my_digipot]
 i2c_address:
-#   芯片在i2c总线上使用的i2c地址。
-#   必须提供此参数。
+#   The i2c address that the chip is using on the i2c bus. This
+#   parameter must be provided.
 #i2c_mcu:
 #i2c_bus:
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
 #i2c_speed:
-#   参见"常见I2C设置"部分以获取上述参数的描述。
+#   See the "common I2C settings" section for a description of the
+#   above parameters.
 #wiper_0:
 #wiper_1:
 #wiper_2:
 #wiper_3:
-#   静态设置给定MCP4451 "wiper"的值。这通常设置为0.0到1.0之间的
-#   数字，其中1.0是最高阻值，0.0是最低阻值。然而，可以用'scale'参
-#   数（见下文）改变范围。
-#   如果没有指定wiper，则不对其进行配置。
+#   The value to statically set the given MCP4451 "wiper" to. This is
+#   typically set to a number between 0.0 and 1.0 with 1.0 being the
+#   highest resistance and 0.0 being the lowest resistance. However,
+#   the range may be changed with the 'scale' parameter (see below).
+#   If a wiper is not specified then it is left unconfigured.
 #scale:
-#   此参数可用于改变对'wiper_x'参数的解释。如果提供了此参数，
-#   那么'wiper_x'参数应在0.0和'scale'之间。当MCP4451用于设置步进电
-#   压引用时，这可能很有用。'scale'可以设置为当MCP4451处于最高阻
-#   值时的等效步进电流，然后可以使用步进电机所需的电流值来指定
-#   'wiper_x'参数。
-#   默认不对'wiper_x'参数进行缩放。
+#   This parameter can be used to alter how the 'wiper_x' parameters
+#   are interpreted. If provided, then the 'wiper_x' parameters should
+#   be between 0.0 and 'scale'. This may be useful when the MCP4451 is
+#   used to set stepper voltage references. The 'scale' can be set to
+#   the equivalent stepper amperage if the MCP4451 were at its highest
+#   resistance, and then the 'wiper_x' parameters can be specified
+#   using the desired amperage value for the stepper. The default is
+#   to not scale the 'wiper_x' parameters.
 ```
 
 ### [mcp4728]
@@ -3097,28 +3174,34 @@ i2c_address:
 ```
 [mcp4728 my_dac]
 #i2c_address: 96
-#   芯片在I2C总线上使用的地址。
-#   默认为96。
+#   The i2c address that the chip is using on the i2c bus. The default
+#   is 96.
 #i2c_mcu:
 #i2c_bus:
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
 #i2c_speed:
-#   以上参数请见“常见的I2C设置”
+#   See the "common I2C settings" section for a description of the
+#   above parameters.
 #channel_a:
 #channel_b:
 #channel_c:
 #channel_d:
-#   设置 MCP4728 通道为给定的静态值。通常它被设置为一个在
-#   0.0和1.0之间，1.0代表最高电压（2.048V）而0.0代表最低电压。
-#   然而，该范围可以被'scale'（ 缩放）参数改变（见下文）。没有给
-#   定值的通道不会被配置。
+#   The value to statically set the given MCP4728 channel to. This is
+#   typically set to a number between 0.0 and 1.0 with 1.0 being the
+#   highest voltage (2.048V) and 0.0 being the lowest voltage.
+#   However, the range may be changed with the 'scale' parameter (see
+#   below). If a channel is not specified then it is left
+#   unconfigured.
 #scale:
-#   该参数可以改变'channel_x'参数被解释的方式。如果设定了该参数，
-#   'channel_x'参数的范围会在0.0 和 'scale'之间。该功能在使用MCP4728 产生
-#   步进电机参考电压时可能有用。The 'scale' can
+#   This parameter can be used to alter how the 'channel_x' parameters
+#   are interpreted. If provided, then the 'channel_x' parameters
+#   should be between 0.0 and 'scale'. This may be useful when the
+#   MCP4728 is used to set stepper voltage references. The 'scale' can
 #   be set to the equivalent stepper amperage if the MCP4728 were at
 #   its highest voltage (2.048V), and then the 'channel_x' parameters
 #   can be specified using the desired amperage value for the
-#   stepper.默认不对channel_x'参数进行缩放。
+#   stepper. The default is to not scale the 'channel_x' parameters.
 ```
 
 ### [mcp4018]
@@ -3343,12 +3426,15 @@ ssd1306 和 sh1106 显示屏的配置信息。
 ```
 [display]
 lcd_type:
-#   对于给定的显示屏类型，设置为 “ssd1306" 或 "sh1106"。
+#   Set to either "ssd1306" or "sh1106" for the given display type.
 #i2c_mcu:
 #i2c_bus:
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
 #i2c_speed:
-#   连接到I2C总线的显示屏的可选参数， 以上参数详见通
-#   用 I2C 设置章节。
+#   Optional parameters available for displays connected via an i2c
+#   bus. See the "common I2C settings" section for a description of
+#   the above parameters.
 #cs_pin:
 #dc_pin:
 #spi_speed:
@@ -3356,25 +3442,27 @@ lcd_type:
 #spi_software_sclk_pin:
 #spi_software_mosi_pin:
 #spi_software_miso_pin:
-#   使用4线 SPI 模式时连接到 lcd 的引脚。以 "spi_" 开头的
-#   参数详见 “通用 SPI 设置” 章节。
-#   显示屏默认使用 I2C 模式
+#   The pins connected to the lcd when in "4-wire" spi mode. See the
+#   "common SPI settings" section for a description of the parameters
+#   that start with "spi_". The default is to use i2c mode for the
+#   display.
 #reset_pin:
-#   可以指定一个显示屏上的重置引脚，如果不指定，硬件
-#   必须在相应的 lcd 线路上有一个拉高电阻。
+#   A reset pin may be specified on the display. If it is not
+#   specified then the hardware must have a pull-up on the
+#   corresponding lcd line.
 #contrast:
-#   可设置的对比度。
-#   数值必须在 0 和 256 之间，默认为 239。
+#   The contrast to set. The value may range from 0 to 256 and the
+#   default is 239.
 #vcomh: 0
-#   设置显示屏的 Vcomh 值。这个值与一些OLED显示屏的
-#   模糊效果有关。这个数值可以在 0 和 63 之间。
-#   默认为0。
+#   Set the Vcomh value on the display. This value is associated with
+#   a "smearing" effect on some OLED displays. The value may range
+#   from 0 to 63. Default is 0.
 #invert: False
-#   TRUE 可以在一些OLED显示屏上反转像素
-#   默认为 False。
+#   TRUE inverts the pixels on certain OLED displays.  The default is
+#   False.
 #x_offset: 0
-#   设置在 SH1106 显示屏上的水平偏移。
-#   默认为0。
+#   Set the horizontal offset value on SH1106 displays. The default is
+#   0.
 ...
 ```
 
@@ -3672,13 +3760,11 @@ i2c_address:
 #   113. This parameter must be provided.
 #i2c_mcu:
 #i2c_bus:
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
 #i2c_speed:
 #   See the "common I2C settings" section for a description of the
 #   above parameters.
-#i2c_bus:
-#   If the I2C implementation of your micro-controller supports
-#   multiple I2C busses, you may specify the bus name here. The
-#   default is to use the default micro-controller i2c bus.
 ```
 
 ### [samd_sercom]
@@ -3873,18 +3959,25 @@ cs_pin:
 
 ```
 #i2c_address:
-#   设备的i2c地址。必须以十进制数指定（不是十六进制）。
-#   默认取决于设备的类型。
+#   The i2c address of the device. This must specified as a decimal
+#   number (not in hex). The default depends on the type of device.
 #i2c_mcu:
-#   芯片连接的微控制器的名称。
-#   默认为"mcu"。
+#   The name of the micro-controller that the chip is connected to.
+#   The default is "mcu".
 #i2c_bus:
-#   如果微控制器支持多个I2C总线，则可以在此处指定微控制
-#   器总线名称。
-#   默认取决于微控制器的类型。
+#   If the micro-controller supports multiple I2C busses then one may
+#   specify the micro-controller bus name here. The default depends on
+#   the type of micro-controller.
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
+#   Specify these parameters to use micro-controller software based
+#   I2C "bit-banging" support. The two parameters should the two pins
+#   on the micro-controller to use for the scl and sda wires. The
+#   default is to use hardware based I2C support as specified by the
+#   i2c_bus parameter.
 #i2c_speed:
-#   与设备通信时使用的I2C速度（以Hz为单位）。Klipper在大
-#   多数微控制器上的实现都是硬编码为100000，改变这个值
-#   没有效果。
-#   默认值是100000。Linux，RP2040和ATmega支持400000。
+#   The I2C speed (in Hz) to use when communicating with the device.
+#   The Klipper implementation on most micro-controllers is hard-coded
+#   to 100000 and changing this value has no effect. The default is
+#   100000. Linux, RP2040 and ATmega support 400000.
 ```

@@ -1,11 +1,11 @@
 # Overview
 
-Welcome to the Klipper documentation. If new to Klipper, start with the [features](Features.md) and [installation](Installation.md) documents.
+Welkom bij de Klipper-documentatie. Als u nieuw bent in Klipper, begin dan met de documenten [kenmerken](Features.md) en [installatie](Installation.md).
 
-## Overview information
+## Overzicht informatie
 
-- [Features](Features.md): A high-level list of features in Klipper.
-- [FAQ](FAQ.md): Frequently asked questions.
+- [Kenmerken](Features.md): een lijst op hoog niveau met functies in Klipper.
+- [FAQ](FAQ.md): Veel gestelde vragen.
 - [Releases](Releases.md): The history of Klipper releases.
 - [Config changes](Config_Changes.md): Recent software changes that may require users to update their printer config file.
 - [Contact](Contact.md): Information on bug reporting and general communication with the Klipper developers.
@@ -57,5 +57,6 @@ Welcome to the Klipper documentation. If new to Klipper, start with the [feature
 - [Beaglebone](Beaglebone.md): Details for running Klipper on the Beaglebone PRU.
 - [Bootloaders](Bootloaders.md): Developer information on micro-controller flashing.
 - [CAN bus](CANBUS.md): Information on using CAN bus with Klipper.
+   - [CAN bus troubleshooting](CANBUS_Troubleshooting.md): Tips for troubleshooting CAN bus.
 - [TSL1401CL filament width sensor](TSL1401CL_Filament_Width_Sensor.md)
 - [Hall filament width sensor](Hall_Filament_Width_Sensor.md)

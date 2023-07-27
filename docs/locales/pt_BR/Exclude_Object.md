@@ -1,52 +1,52 @@
-# Exclude Objects
+# Excluir Objetos
 
 The `[exclude_object]` module allows Klipper to exclude objects while a print is in progress. To enable this feature include an [exclude_object config
 section](Config_Reference.md#exclude_object) (also see the [command
 reference](G-Codes.md#exclude-object) and [sample-macros.cfg](../config/sample-macros.cfg) file for a Marlin/RepRapFirmware compatible M486 G-Code macro.)
 
-Unlike other 3D printer firmware options, a printer running Klipper utilizes a suite of components and users have many options to choose from. Therefore, in order to provide a a consistent user experience, the `[exclude_object]` module will establish a contract or API of sorts. The contract covers the contents of the gcode file, how the internal state of the module is controlled, and how that state is provided to clients.
+Diferente de outras opções de firmware de impressora 3D, uma impressora que executa o Klipper utiliza um conjunto de componentes e os usuários têm muitas opções para escolher. Portanto, para fornecer uma experiência de usuário consistente, o módulo `[exclude_object]` estabelecerá um contrato ou API de algum tipo. O contrato abrange o conteúdo do arquivo gcode, como o estado interno do módulo é controlado e como esse estado é fornecido aos clientes.
 
-## Workflow Overview
+## Visão geral do fluxo de trabalho
 
-A typical workflow for printing a file might look like this:
+Um fluxo de trabalho típico para imprimir um arquivo pode parecer com isso:
 
-1. Slicing is completed and the file is uploaded for printing. During the upload, the file is processed and `[exclude_object]` markers are added to the file. Alternately, slicers may be configured to prepare object exclusion markers natively, or in it's own pre-processing step.
-1. When printing starts, Klipper will reset the `[exclude_object]` [status](Status_Reference.md#exclude_object).
-1. When Klipper processes the `EXCLUDE_OBJECT_DEFINE` block, it will update the status with the known objects and pass it on to clients.
-1. The client may use that information to present a UI to the user so that progress can be tracked. Klipper will update the status to include the currently printing object which the client can use for display purposes.
-1. If the user requests that an object be cancelled, the client will issue an `EXCLUDE_OBJECT NAME=<name>` command to Klipper.
-1. When Klipper process the command, it will add the object to the list of excluded objects and update the status for the client.
-1. The client will receive the updated status from Klipper and can use that information to reflect the object's status in the UI.
-1. When printing finishes, the `[exclude_object]` status will continue to be available until another action resets it.
+1. O fatiamento é concluído e o arquivo é carregado para impressão. Durante o carregamento, o arquivo é processado e os marcadores `[exclude_object]` são adicionados ao arquivo. Alternativamente, os fatiadores podem ser configurados para preparar os marcadores de exclusão de objeto nativamente, ou em seu próprio passo de pré-processamento.
+1. Quando a impressão começa, o Klipper irá resetar o status do `[exclude_object]` [status](Status_Reference.md#exclude_object).
+1. Quando o Klipper processa o bloco `EXCLUDE_OBJECT_DEFINE`, ele irá atualizar o status com os objetos conhecidos e passá-lo para os clientes.
+1. O cliente pode usar essas informações para apresentar uma UI ao usuário para que o progresso possa ser rastreado. O Klipper irá atualizar o status para incluir o objeto que está sendo impresso no momento, que o cliente pode usar para fins de exibição.
+1. Se o usuário solicitar que um objeto seja cancelado, o cliente emitirá um comando `EXCLUDE_OBJECT NAME=<nome>` para o Klipper.
+1. Quando o Klipper processa o comando, ele adicionará o objeto à lista de objetos excluídos e atualizará o status para o cliente.
+1. O cliente receberá o status atualizado do Klipper e poderá usar essas informações para refletir o status do objeto na UI (interface do usuário).
+1. Quando a impressão terminar, o status do `[exclude_object]` continuará disponível até que outra ação o resete.
 
-## The GCode File
+## O arquivo GCode
 
-The specialized gcode processing needed to support excluding objects does not fit into Klipper's core design goals. Therefore, this module requires that the file is processed before being sent to Klipper for printing. Using a post-process script in the slicer or having middleware process the file on upload are two possibilities for preparing the file for Klipper. A reference post-processing script is available both as an executable and a python library, see [cancelobject-preprocessor](https://github.com/kageurufu/cancelobject-preprocessor).
+O processamento especializado de gcode necessário para suportar a exclusão de objetos não se enquadra nos objetivos centrais de design do Klipper. Portanto, este módulo requer que o arquivo seja processado antes de ser enviado para o Klipper para impressão. Usar um script de pós-processamento no fatiador ou ter um middleware processando o arquivo no upload são duas possibilidades para preparar o arquivo para o Klipper. Um script de pós-processamento de referência está disponível tanto como um executável quanto uma biblioteca python, veja [cancelobject-preprocessor](https://github.com/kageurufu/cancelobject-preprocessor).
 
-### Object Definitions
+### Definições de objetos
 
-The `EXCLUDE_OBJECT_DEFINE` command is used to provide a summary of each object in the gcode file to be printed. Provides a summary of an object in the file. Objects don't need to be defined in order to be referenced by other commands. The primary purpose of this command is to provide information to the UI without needing to parse the entire gcode file.
+O comando `EXCLUDE_OBJECT_DEFINE` é usado para fornecer um resumo de cada objeto no arquivo gcode a ser impresso. Fornece um resumo de um objeto no arquivo. Objetos não precisam ser definidos para serem referenciados por outros comandos. O objetivo principal deste comando é fornecer informações para a UI sem a necessidade de analisar todo o arquivo gcode.
 
-Object definitions are named, to allow users to easily select an object to be excluded, and additional metadata may be provided to allow for graphical cancellation displays. Currently defined metadata includes a `CENTER` X,Y coordinate, and a `POLYGON` list of X,Y points representing a minimal outline of the object. This could be a simple bounding box, or a complicated hull for showing more detailed visualizations of the printed objects. Especially when gcode files include multiple parts with overlapping bounding regions, center points become hard to visually distinguish. `POLYGONS` must be a json-compatible array of point `[X,Y]` tuples without whitespace. Additional parameters will be saved as strings in the object definition and provided in status updates.
+As definições de objeto são nomeadas, para permitir que os usuários selecionem facilmente um objeto para ser excluído, e metadados adicionais podem ser fornecidos para permitir exibições gráficas de cancelamento. Os metadados definidos atualmente incluem uma coordenada `CENTER` X,Y, e uma lista `POLYGON` de pontos X,Y representando um contorno mínimo do objeto. Isso pode ser uma simples caixa delimitadora, ou um casco complicado para mostrar visualizações mais detalhadas dos objetos impressos. Especialmente quando os arquivos gcode incluem várias partes com regiões delimitadoras sobrepostas, os pontos centrais se tornam difíceis de distinguir visualmente. `POLYGONS` deve ser um array compatível com json de pontos `[X,Y]` sem espaços em branco. Parâmetros adicionais serão salvos como strings na definição do objeto e fornecidos em atualizações de status.
 
 `EXCLUDE_OBJECT_DEFINE NAME=calibration_pyramid CENTER=50,50 POLYGON=[[40,40],[50,60],[60,40]]`
 
 All available G-Code commands are documented in the [G-Code
 Reference](./G-Codes.md#excludeobject)
 
-## Status Information
+## Informações de status
 
 The state of this module is provided to clients by the [exclude_object
 status](Status_Reference.md#exclude_object).
 
-The status is reset when:
+O status é reiniciado quando:
 
-- The Klipper firmware is restarted.
-- There is a reset of the `[virtual_sdcard]`. Notably, this is reset by Klipper at the start of a print.
-- When an `EXCLUDE_OBJECT_DEFINE RESET=1` command is issued.
+- O firmware do Klipper é reiniciado.
+- Há um reset do `[virtual_sdcard]`. Notavelmente, este é reiniciado pelo Klipper no início de uma impressão.
+- Quando um comando `EXCLUDE_OBJECT_DEFINE RESET=1` é emitido.
 
-The list of defined objects is represented in the `exclude_object.objects` status field. In a well defined gcode file, this will be done with `EXCLUDE_OBJECT_DEFINE` commands at the beginning of the file. This will provide clients with object names and coordinates so the UI can provide a graphical representation of the objects if desired.
+A lista de objetos definidos é representada no campo de status `exclude_object.objects`. Em um arquivo gcode bem definido, isso será feito com comandos `EXCLUDE_OBJECT_DEFINE` no início do arquivo. Isso fornecerá aos clientes nomes de objetos e coordenadas para que a UI possa fornecer uma representação gráfica dos objetos, se desejado.
 
-As the print progresses, the `exclude_object.current_object` status field will be updated as Klipper processes `EXCLUDE_OBJECT_START` and `EXCLUDE_OBJECT_END` commands. The `current_object` field will be set even if the object has been excluded. Undefined objects marked with a `EXCLUDE_OBJECT_START` will be added to the known objects to assist in UI hinting, without any additional metadata.
+Conforme a impressão avança, o campo de status `exclude_object.current_object` será atualizado à medida que o Klipper processa os comandos `EXCLUDE_OBJECT_START` e `EXCLUDE_OBJECT_END`. O campo `current_object` será definido mesmo se o objeto tiver sido excluído. Objetos indefinidos marcados com um `EXCLUDE_OBJECT_START` serão adicionados aos objetos conhecidos para ajudar nas dicas da UI, sem nenhum metadado adicional.
 
-As `EXCLUDE_OBJECT` commands are issued, the list of excluded objects is provided in the `exclude_object.excluded_objects` array. Since Klipper looks ahead to process upcoming gcode, there may be a delay between when the command is issued and when the status is updated.
+Conforme os comandos `EXCLUDE_OBJECT` são emitidos, a lista de objetos excluídos é fornecida no array `exclude_object.excluded_objects`. Como o Klipper olha para frente para processar o gcode que está por vir, pode haver um atraso entre quando o comando é emitido e quando o status é atualizado.

@@ -121,6 +121,12 @@ The following information is available for extruder_stepper objects (as well as 
 
 - `retract_length`、`retract_speed`、`unretract_extra_length`、`unretract_speed`：firmware_retraction 模組的當前設定。如果 `SET_RETRACTION` 命令改變它們，這些設定可能與配置檔案不同。
 
+## gcode_button
+
+The following information is available in [gcode_button some_name](Config_Reference.md#gcode_button) objects:
+
+- `state`: The current button state returned as "PRESSED" or "RELEASED"
+
 ## gcode_macro
 
 [gcode_macro <名稱>](Config_Reference.md#gcode_macro) 對像提供了以下資訊：
@@ -310,6 +316,7 @@ The following information is available in the `stepper_enable` object (this obje
 - `mcu_phase_offset`：微控制器步進位置與驅動器的"零"相位的相對位置。如果相位偏移未知，則此欄位可能為空。
 - `phase_offset_position`：對應電機「零」相位的「指令位置」。如果相位偏移未知，則該欄位可以為空。
 - `drv_status`：上次驅動狀態查詢結果。（僅報告非零欄位。如果驅動沒有被啟用（因此沒有輪詢），則此欄位將為 null。
+- `temperature`: The internal temperature reported by the driver. This field will be null if the driver is not enabled or if the driver does not support temperature reporting.
 - `run_current`：目前設定的執行電流。
 - `hold_current`：目前設定的保持電流。
 

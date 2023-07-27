@@ -16,19 +16,19 @@ rotation_distance = <full_steps_per_rotation> * <microsteps> / <steps_per_mm>
 rotation_distance = <full_steps_per_rotation> * <microsteps> * <step_distance>
 ```
 
-The `<full_steps_per_rotation>` setting is determined from the type of stepper motor. Most stepper motors are "1.8 degree steppers" and therefore have 200 full steps per rotation (360 divided by 1.8 is 200). Some stepper motors are "0.9 degree steppers" and thus have 400 full steps per rotation. Other stepper motors are rare. If unsure, do not set full_steps_per_rotation in the config file and use 200 in the formula above.
+Настройка `<full_steps_per_rotation` определяется типом шагового двигателя. Большинство шаговых двигателей являются "шаговиками 1,8 градуса" и поэтому имеют 200 полных шагов на оборот (360 разделить на 1,8 - 200). Некоторые шаговые двигатели - это "шаговые двигатели 0,9 градуса", поэтому они имеют 400 полных шагов на оборот. Другие шаговые двигатели встречаются редко. Если вы не уверены, не задавайте значение full_steps_per_rotation в конфигурационном файле и используйте 200 в приведенной выше формуле.
 
-The `<microsteps>` setting is determined by the stepper motor driver. Most drivers use 16 microsteps. If unsure, set `microsteps: 16` in the config and use 16 in the formula above.
+Настройка `<microsteps>` определяется драйвером шагового двигателя. Большинство драйверов используют 16 микрошагов. Если вы не уверены, установите `microsteps: 16` в конфигурации и используйте 16 в приведенной выше формуле.
 
 Almost all printers should have a whole number for `rotation_distance` on X, Y, and Z type axes. If the above formula results in a rotation_distance that is within .01 of a whole number then round the final value to that whole_number.
 
-## Calibrating rotation_distance on extruders
+## Калибровка rotation_distance на экструдерах
 
 On an extruder, the `rotation_distance` is the amount of distance the filament travels for one full rotation of the stepper motor. The best way to get an accurate value for this setting is to use a "measure and trim" procedure.
 
 First start with an initial guess for the rotation distance. This may be obtained from [steps_per_mm](#obtaining-rotation_distance-from-steps_per_mm-or-step_distance) or by [inspecting the hardware](#extruder).
 
-Then use the following procedure to "measure and trim":
+Затем используйте следующую процедуру для "измерения и обрезки":
 
 1. Make sure the extruder has filament in it, the hotend is heated to an appropriate temperature, and the printer is ready to extrude.
 1. Use a marker to place a mark on the filament around 70mm from the intake of the extruder body. Then use a digital calipers to measure the actual distance of that mark as precisely as one can. Note this as `<initial_mark_distance>`.

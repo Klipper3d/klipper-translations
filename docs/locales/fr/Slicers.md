@@ -56,7 +56,9 @@ START_PRINT BED_TEMP={material_bed_temperature_layer_0} EXTRUDER_TEMP={material_
 
 Dans slic3r et ses dérivés tels que PrusaSlicer et SuperSlicer, les éléments suivants seraient utilisés :
 
+```
 START_PRINT EXTRUDER_TEMP=[first_layer_temperature] BED_TEMP=[first_layer_bed_temperature]
+```
 
 Notez également que ces trancheurs insèrent leurs propres codes de chauffe lorsque certaines conditions ne sont pas remplies. Dans Cura, l'existence des variables `{material_bed_temperature_layer_0}` et `{material_print_temperature_layer_0}` suffit à supprimer ces code de chauffe. Dans les dérivés slic3r, vous utiliseriez :
 

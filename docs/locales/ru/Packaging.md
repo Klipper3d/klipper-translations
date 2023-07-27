@@ -10,9 +10,9 @@ Klipper использует модуль C для более быстрой о�
 
 Во многих дистрибутивах существует политика компиляции всего кода python перед упаковкой, чтобы увеличить время запуска. Вы можете сделать это, запустив "python2 -m compileall klippy`.
 
-## Versioning
+## Версии
 
-If you are building a package of Klipper from git, it is usual practice not to ship a .git directory, so the versioning must be handled without git. To do this, use the script shipped in `scripts/make_version.py` which should be run as follows: `python2 scripts/make_version.py YOURDISTRONAME > klippy/.version`.
+Если вы собираете пакет Klipper из git, то обычно не поставляется каталог .git, поэтому версионирование должно осуществляться без git. Для этого используется скрипт, поставляемый в `scripts/make_version.py`, который следует запустить следующим образом: `python2 scripts/make_version.py YOURDISTRONAME > klippy/.version`.
 
 ## Sample packaging script
 

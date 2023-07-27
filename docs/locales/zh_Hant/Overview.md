@@ -57,5 +57,6 @@
 - [Beaglebone](Beaglebone.md)：在 Beaglebone PRU 上執行 Klipper 的詳細資訊。
 - [底層載入程式](Bootloaders.md)：有關於微控制器刷寫的開發者資訊。
 - [CAN 匯流排](CANBUS.md)：有關於 Klipper 使用 CAN 匯流排的資訊。
+   - [CAN bus troubleshooting](CANBUS_Troubleshooting.md): Tips for troubleshooting CAN bus.
 - [TSL1401CL 耗材線徑感測器](TSL1401CL_Filament_Width_Sensor.md)
 - [霍爾列印絲寬度感測器](Hall_Filament_Width_Sensor.md)

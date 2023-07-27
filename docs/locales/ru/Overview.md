@@ -57,5 +57,6 @@
 - [Beaglebone](Beaglebone.md): Подробности для запуска Klipper на Beaglebone PRU.
 - [Bootloaders](Bootloaders.md): Информация для разработчиков о прошивке микроконтроллеров.
 - [CAN шина](CANBUS.md): Информация об использовании шины CAN с Klipper.
+   - [CAN bus troubleshooting](CANBUS_Troubleshooting.md): Tips for troubleshooting CAN bus.
 - [TSL1401CL датчик ширины нити](TSL1401CL_Filament_Width_Sensor.md)
 - [Датчик ширины нити Холла](Hall_Filament_Width_Sensor.md)

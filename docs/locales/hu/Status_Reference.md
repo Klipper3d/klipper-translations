@@ -92,7 +92,7 @@ Az alábbi információk az extruder_stepper objektumok (valamint az [extruder](
 
 - `pressure_advance`: Az aktuális [nyomás előtolás](Pressure_Advance.md) érték.
 - `smooth_time`: Az aktuális nyomás előtolásának simítási ideje.
-- `motion_queue`: The name of the extruder that this extruder stepper is currently synchronized to. This is reported as `None` if the extruder stepper is not currently associated with an extruder.
+- `motion_queue`: Az extruder neve, amelyhez ez az extruder léptető jelenleg szinkronizálva van. Ezt a `None` értékként kell jelölni, ha az extruder léptető jelenleg nem kapcsolódik extruderhez.
 
 ## fan
 
@@ -120,6 +120,12 @@ A következő információk a [filament_motion_sensor some_name](Config_Referenc
 A következő információk a [firmware_retraction](Config_Reference.md#firmware_retraction) objektumban találhatók:
 
 - `retract_length`, `retract_speed`, `unretract_extra_length`, `unretract_speed`: A firmware_retraction modul aktuális beállításai. Ezek a beállítások eltérhetnek a konfigurációs állománytól, ha a `SET_RETRACTION` parancs megváltoztatja őket.
+
+## gcode_button
+
+The following information is available in [gcode_button some_name](Config_Reference.md#gcode_button) objects:
+
+- `state`: The current button state returned as "PRESSED" or "RELEASED"
 
 ## gcode_macro
 
@@ -235,7 +241,7 @@ A következő információk a `print_stats` objektumban érhetők el (ez az obje
 
 A következő információk a [szonda](Config_Reference.md#probe) objektumban érhetők el (ez az objektum akkor is elérhető, ha egy [bltouch](Config_Reference.md#bltouch) konfigurációs szakasz van definiálva):
 
-- `name`: Returns the name of the probe in use.
+- `name`: Visszaadja a használt szonda nevét.
 - `last_query`: True értéket ad vissza, ha a szondát az utolsó QUERY_PROBE parancs során "triggered" -ként jelentették. Megjegyzés: ha ezt egy makróban használjuk, a sablon bővítési sorrendje miatt a QUERY_PROBE parancsot akkor ezt a hivatkozást tartalmazó makró előtt kell lefuttatni.
 - `last_z_result`: Az utolsó PROBE parancs Z eredményének értékét adja vissza. Figyelem, ha ezt egy makróban használjuk, a sablon bővítési sorrendje miatt a PROBE (vagy hasonló) parancsot akkor ezt a hivatkozást tartalmazó makró előtt kell lefuttatni.
 
@@ -256,11 +262,11 @@ A következő információk a `query_endstops` objektumban érhetők el (ez az o
 A következő információk a `screws_tilt_adjust` objektumban találhatók:
 
 - `error`: True értéket ad vissza, ha a legutóbbi `SCREWS_TILT_CALCULATE` parancs tartalmazta a `MAX_DEVIATION` paramétert, és bármelyik vizsgált csavarpont meghaladta a megadott `MAX_DEVIATION` értéket.
-- `results["<screw>"]`: A dictionary containing the following keys:
+- `results["<screw>"]`: A következő kulcsokat tartalmazó szótár:
    - `z`: A csavar helyének mért Z magassága.
-   - `sign`: A string specifying the direction to turn to screw for the necessary adjustment. Either "CW" for clockwise or "CCW" for counterclockwise.
+   - `sign`: Egy karakterlánc, amely megadja, hogy a szükséges beállításhoz milyen irányba kell elfordítani a csavart. Vagy "CW" az óramutató járásával megegyező irányban, vagy "CCW" az óramutató járásával ellentétes irányban.
    - `adjust`: A csavar beállításához szükséges csavarfordítások száma, "HH:MM" formátumban megadva, ahol "HH" a teljes csavarfordítások száma, "MM" pedig a részleges csavarfordítást jelentő "óramutató percek" száma. (Pl. "01:15" azt jelentené, hogy a csavart egy és negyed fordulatot kell elfordítani.)
-   - `is_base`: Returns True if this is the base screw.
+   - `is_base`: True értéket ad vissza, ha ez az alapcsavar.
 
 ## servo
 
@@ -270,9 +276,9 @@ A következő információk a [szervó some_name](Config_Reference.md#servo) obj
 
 ## stepper_enable
 
-The following information is available in the `stepper_enable` object (this object is available if any stepper is defined):
+A következő információk a `stepper_enable` objektumban érhetők el (ez az objektum akkor érhető el, ha bármilyen léptető definiálva van):
 
-- `steppers["<stepper>"]`: Returns True if the given stepper is enabled.
+- `steppers["<stepper>"]`: True értéket ad vissza, ha az adott léptető engedélyezve van.
 
 ## system_stats
 
@@ -310,6 +316,7 @@ A következő információk a [TMC léptető motorvezérlők](Config_Reference.m
 - `mcu_phase_offset`: A mikrokontroller léptető pozíciója, amely megfelel a meghajtó "nulla" fázisának. Ez a mező lehet nulla, ha a fáziseltolás nem ismert.
 - `phase_offset_position`: A vezető "nulladik" fázisának megfelelő "parancsolt pozíció". Ez a mező lehet nulla, ha a fáziseltolás nem ismert.
 - `drv_status`: A legutóbbi motorvezérlő állapotlekérdezés eredményei. (Csak a nem nulla mezők kerülnek jelentésre.) Ez a mező nulla lesz, ha a motorvezérlő nincs engedélyezve (és így nem kerül rendszeresen lekérdezésre).
+- `temperature`: The internal temperature reported by the driver. This field will be null if the driver is not enabled or if the driver does not support temperature reporting.
 - `run_current`: Az aktuálisan beállított működési áram.
 - `hold_current`: Az aktuálisan beállított tartóáram.
 
@@ -322,7 +329,7 @@ A következő információk a `toolhead` objektumban érhetők el (ez az objektu
 - `homed_axes`: Az aktuálisan "homed" állapotban lévőnek tekintett cartesian tengelyek. Ez egy karakterlánc, amely egy vagy több "X", "Y", "Z" értéket tartalmaz.
 - `axis_minimum`, `axis_maximum`: A tengely mozgásának határai (mm) a kezdőpont felvétel után. Lehetőség van e határérték X, Y, Z összetevőinek elérésére (pl. `axis_minimum.x`, `axis_maximum.z`).
 - A Delta nyomtatók esetében a `cone_start_z` a maximális sugaraknál mért maximális Z magasság (`printer.toolhead.cone_start_z`).
-- `max_velocity`, `max_accel`, `max_accel_to_decel`, `square_corner_velocity`: Az aktuálisan érvényben lévő nyomtatási korlátok. Ez eltérhet a konfigurációs fájl beállításaitól, ha a `SET_VELOCITY_LIMIT` (vagy `M204`) parancs megváltoztatja azokat használat közben.
+- `max_velocity`, `max_accel`, `max_accel_to_decel`, `square_corner_velocity`: Az aktuálisan érvényben lévő nyomtatási korlátok. Ez eltérhet a konfigurációs fájl beállításaiból, ha a `SET_VELOCITY_LIMIT` (vagy `M204`) parancs megváltoztatja azokat használat közben.
 - `stalls`: Az összes alkalom száma (az utolsó újraindítás óta), amikor a nyomtatót szüneteltetni kellett, mert a nyomtatófej gyorsabban mozgott, mint ahány mozdulatot a G-kód bemenetről be lehetett olvasni.
 
 ## dual_carriage

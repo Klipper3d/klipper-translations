@@ -8,6 +8,10 @@ Klipper ist Freie Software. Wir sind vom großzügigen Support von Sponsoren abh
 
 BIGTREETECH is the official mainboard sponsor of Klipper. BIGTREETECH is committed to developing innovative and competitive products to serve the 3D printing community better. Follow them on [Facebook](https://www.facebook.com/BIGTREETECH) or [Twitter](https://twitter.com/BigTreeTech).
 
+## Förderer
+
+[<img src="./img/sponsors/obico-light-horizontal.png" width="200" />](https://obico.io/klipper.html?source=klipper_sponsor)
+
 ## Klipper Developers
 
 ### Kevin O'Connor

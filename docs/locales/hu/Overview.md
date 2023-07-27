@@ -57,5 +57,6 @@
 - [Beaglebone](Beaglebone.md): Klipper futtatásának részletei a Beaglebone PRU-n.
 - [Bootloaderek](Bootloaders.md): Fejlesztői információk a mikrokontrollerek égetéséről.
 - [CAN-busz](CANBUS.md): Információk a CAN-busz Klipper-el való használatáról.
+   - [CAN bus troubleshooting](CANBUS_Troubleshooting.md): Tips for troubleshooting CAN bus.
 - [TSL1401CL szálszélesség érzékelő](TSL1401CL_Filament_Width_Sensor.md)
 - [Hall szálszélesség érzékelő](Hall_Filament_Width_Sensor.md)

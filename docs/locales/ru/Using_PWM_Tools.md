@@ -12,9 +12,9 @@ For an example configuration, see [config/sample-pwm-tool.cfg](/config/sample-pw
 
 ## Текущие ограничения
 
-There is a limitation of how frequent PWM updates may occur. While being very precise, a PWM update may only occur every 0.1 seconds, rendering it almost useless for raster engraving. However, there exists an [experimental branch](https://github.com/Cirromulus/klipper/tree/laser_tool) with its own tradeoffs. In long term, it is planned to add this functionality to main-line klipper.
+Существует ограничение на частоту обновления ШИМ. Несмотря на высокую точность, обновление ШИМ может происходить только раз в 0,1 секунды, что делает его практически бесполезным для растровой гравировки. Однако существует [экспериментальная ветвь] (https://github.com/Cirromulus/klipper/tree/laser_tool) со своими собственными недостатками. В перспективе планируется добавить эту функциональность в основной klipper main-line klipper.
 
-## Commands
+## Команды
 
 `M3/M4 S<value>` : Set PWM duty-cycle. Values between 0 and 255. `M5` : Stop PWM output to shutdown value.
 

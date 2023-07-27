@@ -6,6 +6,16 @@
 
 ## 变更
 
+20230619: The `relative_reference_index` option has been deprecated and superceded by the `zero_reference_position` option. Refer to the [Bed Mesh Documentation](./Bed_Mesh.md#the-deprecated-relative_reference_index) for details on how to update the configuration. With this deprecation the `RELATIVE_REFERENCE_INDEX` is no longer available as a parameter for the `BED_MESH_CALIBRATE` gcode command.
+
+20230530: The default canbus frequency in "make menuconfig" is now 1000000. If using canbus and using canbus with some other frequency is required, then be sure to select "Enable extra low-level configuration options" and specify the desired "CAN bus speed" in "make menuconfig" when compiling and flashing the micro-controller.
+
+20230525: `SHAPER_CALIBRATE` command immediately applies input shaper parameters if `[input_shaper]` was enabled already.
+
+20230407: The `stalled_bytes` counter in the log and in the `printer.mcu.last_stats` field has been renamed to `upcoming_bytes`.
+
+20230323: On tmc5160 drivers `multistep_filt` is now enabled by default. Set `driver_MULTISTEP_FILT: False` in the tmc5160 config for the previous behavior.
+
 20230304:`SET_TMC_CURRENT` 命令现在可以正确地调整有globalscalar的驱动的globalscalar。这消除了一个限制，即在 tmc5160 上，使用`SET_TMC_CURRENT` 所提高的电流不能高于配置文件中设置的`run_current` 值。然而，这有一个副作用：如果使用StealthChop2，在运行`SET_TMC_CURRENT` 之后，步进电机必须保持在静止状态至少130ms，这样AT#1校准才会被驱动执行。
 
 20230202：`printer.screw_tilt_adjust` 状态信息的格式已经改变。该信息现在是以screws的字典形式存储的，并附有测量结果。详情见[状态参考文档](Status_Reference.md#screws_tilt_adjust)。

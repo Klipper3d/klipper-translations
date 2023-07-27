@@ -18,9 +18,9 @@ gcode:
   SET_PIN PIN=my_led VALUE=0
 ```
 
-Note how the `gcode:` config option always starts at the beginning of the line and subsequent lines in the G-Code macro never start at the beginning.
+Обратите внимание, что опция конфигурации `gcode:` всегда начинается с начала строки, а последующие строки в макросе G-Code никогда не начинаются с начала.
 
-## Add a description to your macro
+## Добавьте описание своему макросу
 
 To help identify the functionality a short description can be added. Add `description:` with a short text to describe the functionality. Default is "G-Code macro" if not specified. For example:
 
@@ -37,7 +37,7 @@ The terminal will display the description when you use the `HELP` command or the
 
 ## Save/Restore state for G-Code moves
 
-Unfortunately, the G-Code command language can be challenging to use. The standard mechanism to move the toolhead is via the `G1` command (the `G0` command is an alias for `G1` and it can be used interchangeably with it). However, this command relies on the "G-Code parsing state" setup by `M82`, `M83`, `G90`, `G91`, `G92`, and previous `G1` commands. When creating a G-Code macro it is a good idea to always explicitly set the G-Code parsing state prior to issuing a `G1` command. (Otherwise, there is a risk the `G1` command will make an undesirable request.)
+К сожалению, командный язык G-Code может оказаться сложным в использовании. Стандартным механизмом перемещения инструментальной головки является команда `G1` (команда `G0` является псевдонимом для `G1` и может использоваться как взаимозаменяемая с ней). Однако эта команда опирается на "состояние разбора G-кода", установленное командами `M82`, `M83`, `G90`, `G91`, `G92` и предыдущими командами `G1`. При создании макроса G-кода целесообразно всегда явно устанавливать состояние разбора G-кода перед подачей команды `G1`. (В противном случае есть риск, что команда `G1` выполнит нежелательный запрос)
 
 A common way to accomplish that is to wrap the `G1` moves in `SAVE_GCODE_STATE`, `G91`, and `RESTORE_GCODE_STATE`. For example:
 

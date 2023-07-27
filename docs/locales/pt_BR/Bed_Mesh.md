@@ -1,14 +1,14 @@
-# Malha da Base
+# Malha da Cama
 
-The Bed Mesh module may be used to compensate for bed surface irregularities to achieve a better first layer across the entire bed. It should be noted that software based correction will not achieve perfect results, it can only approximate the shape of the bed. Bed Mesh also cannot compensate for mechanical and electrical issues. If an axis is skewed or a probe is not accurate then the bed_mesh module will not receive accurate results from the probing process.
+O módulo "Bed Mesh" pode ser usado para compensar irregularidades na superfície da cama a fim de obter uma primeira camada consistente em toda cama. Deve-se observar que a correção baseada em software não alcançará um resultado perfeito, podendo apenas se aproximar da forma da cama. Além disso, o "Bed Mesh" não pode corrigir problemas mecânicos e/ou elétricos. Se um eixo estiver desalinhado ou uma sonda não for precisa, o módulo "bed_mesh" não receberá resultados precisos do processo de sondagem da superfície.
 
-Prior to Mesh Calibration you will need to be sure that your Probe's Z-Offset is calibrated. If using an endstop for Z homing it will need to be calibrated as well. See [Probe Calibrate](Probe_Calibrate.md) and Z_ENDSTOP_CALIBRATE in [Manual Level](Manual_Level.md) for more information.
+Antes de realizar a Calibração da Malha (Mesh Calibration), é necessário garantir que o Z-Offset da sua sonda esteja calibrado. Se estiver usando um fim de curso (endstop) para o homing do eixo Z, ele também precisará ser calibrado. Para mais informações, consulte [Calibraçao de Sonda](Probe_Calibrate.md) e "Z_ENDSTOP_CALIBRATE" em [Nivelamento Manual](Manual_Level.md).
 
 ## Configuração básica
 
-### Rectangular Beds
+### Camas Retangulares
 
-This example assumes a printer with a 250 mm x 220 mm rectangular bed and a probe with an x-offset of 24 mm and y-offset of 5 mm.
+Este exemplo pressupõe uma impressora com uma cama retangular de 250 mm x 220 mm e uma sonda com um deslocamento (offset) de x de 24 mm e um deslocamento (offset) de y de 5 mm.
 
 ```
 [bed_mesh]
@@ -19,19 +19,19 @@ mesh_max: 240, 198
 probe_count: 5, 3
 ```
 
-- `speed: 120` *Default Value: 50* The speed in which the tool moves between points.
-- `horizontal_move_z: 5` *Default Value: 5* The Z coordinate the probe rises to prior to traveling between points.
-- `mesh_min: 35, 6` *Required* The first probed coordinate, nearest to the origin. This coordinate is relative to the probe's location.
-- `mesh_max: 240, 198` *Required* The probed coordinate farthest farthest from the origin. This is not necessarily the last point probed, as the probing process occurs in a zig-zag fashion. As with `mesh_min`, this coordinate is relative to the probe's location.
-- `probe_count: 5, 3` *Default Value: 3, 3* The number of points to probe on each axis, specified as X, Y integer values. In this example 5 points will be probed along the X axis, with 3 points along the Y axis, for a total of 15 probed points. Note that if you wanted a square grid, for example 3x3, this could be specified as a single integer value that is used for both axes, ie `probe_count: 3`. Note that a mesh requires a minimum probe_count of 3 along each axis.
+- `speed: 120` *Valor padrão: 50* A velocidade com a qual a ferramenta (bico ou cabeça de impressão) se move entre os pontos.
+- `horizontal_move_z: 5` *Valor padrão: 5* A coordenada Z para a qual a sonda é elevada antes de se deslocar entre os pontos de sondagem.
+- `mesh_min: 35, 6` *Obrigatório* A primeira coordenada sondada, mais próxima à origem. Esta coordenada é relativa à localização da sonda.
+- `mesh_max: 240, 198` *Obrigatório* A coordenada sondada mais distante da origem. Isso não é necessariamente o último ponto sondado, pois o processo de sondagem ocorre em um padrão de zigue-zague. Assim como `mesh_min`, esta coordenada é relativa à localização da sonda.
+- `probe_count: 5, 3` *Valor padrão: 3, 3* O número de pontos a serem sondados em cada eixo, especificados como valores inteiros X, Y. Neste exemplo, 5 pontos serão sondados ao longo do eixo X e 3 pontos ao longo do eixo Y, totalizando 15 pontos sondados. Observe que, se você quisesse uma grade quadrada, por exemplo, 3x3, isso poderia ser especificado como um único valor inteiro que é usado para ambos os eixos, por exemplo, `probe_count: 3`. Lembre-se de que uma malha requer um `probe_count` mínimo de 3 ao longo de cada eixo.
 
-The illustration below demonstrates how the `mesh_min`, `mesh_max`, and `probe_count` options are used to generate probe points. The arrows indicate the direction of the probing procedure, beginning at `mesh_min`. For reference, when the probe is at `mesh_min` the nozzle will be at (11, 1), and when the probe is at `mesh_max`, the nozzle will be at (206, 193).
+A ilustração abaixo demonstra como as opções `mesh_min`, `mesh_max` e `probe_count` são utilizadas para gerar os pontos de sondagem. As setas indicam a direção do procedimento de sondagem, começando em `mesh_min`. Para referência, quando a sonda está em `mesh_min`, o bico (nozzle) estará em (11, 1), e quando a sonda estiver em `mesh_max`, o bico estará em (206, 193).
 
 ![bedmesh_rect_basic](img/bedmesh_rect_basic.svg)
 
-### Round beds
+### Camas circulares
 
-This example assumes a printer equipped with a round bed radius of 100mm. We will use the same probe offsets as the rectangular example, 24 mm on X and 5 mm on Y.
+Este exemplo pressupõe uma impressora equipada com uma cama redonda com raio de 100 mm. Utilizaremos os mesmos deslocamentos (offsets) da sonda do exemplo retangular, 24 mm no eixo X e 5 mm no eixo Y.
 
 ```
 [bed_mesh]
@@ -42,21 +42,21 @@ mesh_origin: 0, 0
 round_probe_count: 5
 ```
 
-- `mesh_radius: 75` *Required* The radius of the probed mesh in mm, relative to the `mesh_origin`. Note that the probe's offsets limit the size of the mesh radius. In this example, a radius larger than 76 would move the tool beyond the range of the printer.
-- `mesh_origin: 0, 0` *Default Value: 0, 0* The center point of the mesh. This coordinate is relative to the probe's location. While the default is 0, 0, it may be useful to adjust the origin in an effort to probe a larger portion of the bed. See the illustration below.
-- `round_probe_count: 5` *Default Value: 5* This is an integer value that defines the maximum number of probed points along the X and Y axes. By "maximum", we mean the number of points probed along the mesh origin. This value must be an odd number, as it is required that the center of the mesh is probed.
+- `mesh_radius: 75` *Requerido* O raio da malha sondada em milímetros (mm), relativo à `mesh_origin` (origem da malha). É importante notar que os deslocamentos da sonda limitam o tamanho do raio da malha. Neste exemplo, um raio maior que 76 moveria a ferramenta para além do alcance da impressora.
+- `mesh_origin: 0, 0` *Valor padrão: 0, 0* O ponto central da malha. Esta coordenada é relativa à localização da sonda. Embora o padrão seja 0, 0, pode ser útil ajustar a origem para sondar uma porção maior da cama. Veja a ilustração abaixo.
+- `round_probe_count: 5` *Valor padrão: 5* Este é um valor inteiro que define o número máximo de pontos sondados ao longo dos eixos X e Y. Por "máximo", entendemos o número de pontos sondados ao longo da origem da malha. Esse valor deve ser um número ímpar, pois é necessário que o centro da malha seja sondado.
 
-The illustration below shows how the probed points are generated. As you can see, setting the `mesh_origin` to (-10, 0) allows us to specify a larger mesh radius of 85.
+A ilustração abaixo mostra como os pontos sondados são gerados. Como você pode ver, definir `mesh_origin` com (-10, 0) nos permite especificar um raio maior para a malha de 85.
 
 ![bedmesh_round_basic](img/bedmesh_round_basic.svg)
 
 ## Configuração avançada
 
-Below the more advanced configuration options are explained in detail. Each example will build upon the basic rectangular bed configuration shown above. Each of the advanced options apply to round beds in the same manner.
+Abaixo, as opções de configuração mais avançadas são explicadas em detalhes. Cada exemplo será baseado na configuração básica de cama retangular mostrada acima. Todas as opções avançadas também se aplicam a camas redondas da mesma maneira.
 
-### Mesh Interpolation
+### Interpolação de malha (Mesh Interpolation)
 
-While its possible to sample the probed matrix directly using simple bi-linear interpolation to determine the Z-Values between probed points, it is often useful to interpolate extra points using more advanced interpolation algorithms to increase mesh density. These algorithms add curvature to the mesh, attempting to simulate the material properties of the bed. Bed Mesh offers lagrange and bicubic interpolation to accomplish this.
+Embora seja possível amostrar diretamente a matriz sondada usando interpolação bilinear simples para determinar os valores Z entre os pontos sondados, muitas vezes é útil interpolar pontos extras usando algoritmos de interpolação mais avançados para aumentar a densidade da malha. Esses algoritmos adicionam curvatura à malha, tentando simular as propriedades do material da cama. A Malha da Cama oferece interpolação de Lagrange e bicúbica para realizar esse objetivo.
 
 ```
 [bed_mesh]
@@ -70,17 +70,17 @@ algorithm: bicubic
 bicubic_tension: 0.2
 ```
 
-- `mesh_pps: 2, 3` *Default Value: 2, 2* The `mesh_pps` option is shorthand for Mesh Points Per Segment. This option specifies how many points to interpolate for each segment along the X and Y axes. Consider a 'segment' to be the space between each probed point. Like `probe_count`, `mesh_pps` is specified as an X, Y integer pair, and also may be specified a single integer that is applied to both axes. In this example there are 4 segments along the X axis and 2 segments along the Y axis. This evaluates to 8 interpolated points along X, 6 interpolated points along Y, which results in a 13x8 mesh. Note that if mesh_pps is set to 0 then mesh interpolation is disabled and the probed matrix will be sampled directly.
-- `algorithm: lagrange` *Default Value: lagrange* The algorithm used to interpolate the mesh. May be `lagrange` or `bicubic`. Lagrange interpolation is capped at 6 probed points as oscillation tends to occur with a larger number of samples. Bicubic interpolation requires a minimum of 4 probed points along each axis, if less than 4 points are specified then lagrange sampling is forced. If `mesh_pps` is set to 0 then this value is ignored as no mesh interpolation is done.
-- `bicubic_tension: 0.2` *Default Value: 0.2* If the `algorithm` option is set to bicubic it is possible to specify the tension value. The higher the tension the more slope is interpolated. Be careful when adjusting this, as higher values also create more overshoot, which will result in interpolated values higher or lower than your probed points.
+- `mesh_pps: 2, 3` *Valor padrão: 2, 2* A opção `mesh_pps` é uma abreviação para "Mesh Points Per Segment" (Pontos de Malha por Segmento). Essa opção especifica quantos pontos serão interpolados para cada segmento ao longo dos eixos X e Y. Um 'segmento' é o espaço entre cada ponto sondado. Assim como `probe_count`, `mesh_pps` é especificado como um par de números inteiros X, Y, e também pode ser especificado como um único número inteiro que se aplica a ambos os eixos.
+- `algorithm: lagrange` *Valor padrão: lagrange* O algoritmo usado para interpolar a malha. Pode ser `lagrange` ou `bicubic`. A interpolação de Lagrange é limitada a 6 pontos sondados, pois a oscilação tende a ocorrer com um número maior de amostras. A interpolação bicúbica requer um mínimo de 4 pontos sondados ao longo de cada eixo; se menos de 4 pontos forem especificados, a amostragem de Lagrange será forçada. Se mesh_pps estiver definido como 0, este valor será ignorado, pois nenhuma interpolação de malha será realizada.
+- `bicubic_tension: 0.2` *Valor padrão: 0.2* Se a opção `algorithm` for definida como bicubic, é possível especificar o valor de tensão (tension). Quanto maior a tensão, mais inclinação é interpolada. Tome cuidado ao ajustar esse valor, pois valores mais altos também criam mais overshoot (sobressinal), o que resultará em valores interpolados mais altos ou mais baixos do que seus pontos sondados.
 
-The illustration below shows how the options above are used to generate an interpolated mesh.
+A ilustração abaixo mostra como as opções acima são usadas para gerar uma malha interpolada.
 
 ![bedmesh_interpolated](img/bedmesh_interpolated.svg)
 
-### Move Splitting
+### Divisão de Movimento
 
-Bed Mesh works by intercepting gcode move commands and applying a transform to their Z coordinate. Long moves must be split into smaller moves to correctly follow the shape of the bed. The options below control the splitting behavior.
+A Malha da Cama funciona interceptando comandos de movimento gcode e aplicando uma transformação em suas coordenadas Z. Movimentos longos devem ser divididos em movimentos menores para seguir corretamente a forma da cama. As opções abaixo controlam o comportamento de divisão.
 
 ```
 [bed_mesh]
@@ -93,14 +93,14 @@ move_check_distance: 5
 split_delta_z: .025
 ```
 
-- `move_check_distance: 5` *Default Value: 5* The minimum distance to check for the desired change in Z before performing a split. In this example, a move longer than 5mm will be traversed by the algorithm. Each 5mm a mesh Z lookup will occur, comparing it with the Z value of the previous move. If the delta meets the threshold set by `split_delta_z`, the move will be split and traversal will continue. This process repeats until the end of the move is reached, where a final adjustment will be applied. Moves shorter than the `move_check_distance` have the correct Z adjustment applied directly to the move without traversal or splitting.
-- `split_delta_z: .025` *Default Value: .025* As mentioned above, this is the minimum deviation required to trigger a move split. In this example, any Z value with a deviation +/- .025mm will trigger a split.
+- `move_check_distance: 5` *Valor padrão: 5* A distância mínima para verificar a mudança desejada em Z antes de realizar uma divisão (split) de movimento. Neste exemplo, um movimento com comprimento superior a 5 mm será analisado pelo algoritmo. A cada intervalo de 5 mm, ocorrerá uma consulta à malha Z (mesh Z lookup), comparando-a com o valor de Z do movimento anterior. Se a diferença (delta) atender ao limite definido por `split_delta_z`, o movimento será dividido (split) e o deslocamento continuará. Esse processo se repete até que o final do movimento seja alcançado, onde um ajuste final será aplicado. Movimentos mais curtos que a `move_check_distance` têm o ajuste correto de Z aplicado diretamente ao movimento sem divisão ou travessia.
+- `split_delta_z: .025` *Valor padrão: .025* Como mencionado anteriormente, este é o desvio mínimo necessário para acionar a divisão (split) de movimento. Neste exemplo, qualquer valor de Z com um desvio de +/- 0,025 mm acionará uma divisão.
 
-Generally the default values for these options are sufficient, in fact the default value of 5mm for the `move_check_distance` may be overkill. However an advanced user may wish to experiment with these options in an effort to squeeze out the optimal first layer.
+Geralmente, os valores padrão para essas opções são suficientes; na verdade, o valor padrão de 5 mm para `move_check_distance` pode ser exagerado. No entanto, um usuário avançado pode desejar experimentar com essas opções na tentativa de obter a camada inicial ideal.
 
-### Mesh Fade
+### Desvanecimento de Malha (Mesh Fade)
 
-When "fade" is enabled Z adjustment is phased out over a distance defined by the configuration. This is accomplished by applying small adjustments to the layer height, either increasing or decreasing depending on the shape of the bed. When fade has completed, Z adjustment is no longer applied, allowing the top of the print to be flat rather than mirror the shape of the bed. Fade also may have some undesirable traits, if you fade too quickly it can result in visible artifacts on the print. Also, if your bed is significantly warped, fade can shrink or stretch the Z height of the print. As such, fade is disabled by default.
+Quando a opção "fade" está habilitada, o ajuste em Z é gradualmente reduzido ao longo de uma distância específica, conforme definido pela configuração. Isso é alcançado aplicando pequenos ajustes à altura da camada, seja aumentando ou diminuindo, dependendo da forma da cama de impressão. O objetivo do "fade" é fazer uma transição dos ajustes da altura das camadas usados para compensar as irregularidades da cama para uma altura de camada mais uniforme na parte superior da impressão.
 
 ```
 [bed_mesh]
@@ -114,13 +114,13 @@ fade_end: 10
 fade_target: 0
 ```
 
-- `fade_start: 1` *Default Value: 1* The Z height in which to start phasing out adjustment. It is a good idea to get a few layers down before starting the fade process.
-- `fade_end: 10` *Default Value: 0* The Z height in which fade should complete. If this value is lower than `fade_start` then fade is disabled. This value may be adjusted depending on how warped the print surface is. A significantly warped surface should fade out over a longer distance. A near flat surface may be able to reduce this value to phase out more quickly. 10mm is a sane value to begin with if using the default value of 1 for `fade_start`.
-- `fade_target: 0` *Default Value: The average Z value of the mesh* The `fade_target` can be thought of as an additional Z offset applied to the entire bed after fade completes. Generally speaking we would like this value to be 0, however there are circumstances where it should not be. For example, lets assume your homing position on the bed is an outlier, its .2 mm lower than the average probed height of the bed. If the `fade_target` is 0, fade will shrink the print by an average of .2 mm across the bed. By setting the `fade_target` to .2, the homed area will expand by .2 mm, however, the rest of the bed will be accurately sized. Generally its a good idea to leave `fade_target` out of the configuration so the average height of the mesh is used, however it may be desirable to manually adjust the fade target if one wants to print on a specific portion of the bed.
+- `fade_start: 1` *Valor padrão: 1* A altura em Z na qual começar a reduzir gradualmente o ajuste. É uma boa ideia aguardar algumas camadas antes de iniciar o processo de "fade".
+- `fade_end: 10` *Valor padrão: 0* A altura em Z em que o processo de "fade" deve ser concluído. Se esse valor for menor que `fade_start`, o "fade" será desabilitado. Esse valor pode ser ajustado dependendo do quão deformada é a superfície de impressão. Uma superfície significativamente deformada deve ter o "fade" concluído ao longo de uma distância maior. Uma superfície quase plana pode reduzir esse valor para que o "fade" seja concluído mais rapidamente. Um valor de 10mm é uma escolha razoável para começar, se o valor padrão de 1 para `fade_start` for usado.
+- `fade_target: 0` *Valor padrão: O valor médio da coordenada Z da malha* O `fade_target` pode ser considerado como um deslocamento Z adicional aplicado em toda a cama após a conclusão do fade. Geralmente, gostaríamos que esse valor fosse 0, no entanto, há circunstâncias em que não deve ser. Por exemplo, suponha que sua posição de homing (inicial) na cama seja uma exceção, ou seja, ela está 0,2 mm abaixo da altura média sondada da cama. Se o `fade_target` for 0, o fade reduzirá a impressão em uma média de 0,2 mm em toda a cama. Ao definir o `fade_target` para 0,2, a área de homing se expandirá em 0,2 mm, mas o restante da cama será dimensionado com precisão. Geralmente, é uma boa ideia deixar o `fade_target` fora da configuração para que a altura média da malha seja usada; no entanto, pode ser desejável ajustar manualmente o `fade_target` se você desejar imprimir em uma parte específica da cama.
 
-### The Relative Reference Index
+### Configuring the zero reference position
 
-Most probes are susceptible to drift, ie: inaccuracies in probing introduced by heat or interference. This can make calculating the probe's z-offset challenging, particularly at different bed temperatures. As such, some printers use an endstop for homing the Z axis, and a probe for calibrating the mesh. These printers can benefit from configuring the relative reference index.
+Many probes are susceptible to "drift", ie: inaccuracies in probing introduced by heat or interference. This can make calculating the probe's z-offset challenging, particularly at different bed temperatures. As such, some printers use an endstop for homing the Z axis and a probe for calibrating the mesh. In this configuration it is possible offset the mesh so that the (X, Y) `reference position` applies zero adjustment. The `reference postion` should be the location on the bed where a [Z_ENDSTOP_CALIBRATE](./Manual_Level#calibrating-a-z-endstop) paper test is performed. The bed_mesh module provides the `zero_reference_position` option for specifying this coordinate:
 
 ```
 [bed_mesh]
@@ -128,19 +128,36 @@ speed: 120
 horizontal_move_z: 5
 mesh_min: 35, 6
 mesh_max: 240, 198
+zero_reference_position: 125, 110
 probe_count: 5, 3
-relative_reference_index: 7
 ```
 
-- `relative_reference_index: 7` *Default Value: None (disabled)* When the probed points are generated they are each assigned an index. You can look up this index in klippy.log or by using BED_MESH_OUTPUT (see the section on Bed Mesh GCodes below for more information). If you assign an index to the `relative_reference_index` option, the value probed at this coordinate will replace the probe's z_offset. This effectively makes this coordinate the "zero" reference for the mesh.
+- `zero_reference_position: ` *Default Value: None (disabled)* The `zero_reference_position` expects an (X, Y) coordinate matching that of the `reference position` described above. If the coordinate lies within the mesh then the mesh will be offset so the reference position applies zero adjustment. If the coordinate lies outside of the mesh then the coordinate will be probed after calibration, with the resulting z-value used as the z-offset. Note that this coordinate must NOT be in a location specified as a `faulty_region` if a probe is necessary.
 
-When using the relative reference index, you should choose the index nearest to the spot on the bed where Z endstop calibration was done. Note that when looking up the index using the log or BED_MESH_OUTPUT, you should use the coordinates listed under the "Probe" header to find the correct index.
+#### The deprecated relative_reference_index
 
-### Faulty Regions
+Existing configurations using the `relative_reference_index` option must be updated to use the `zero_reference_position`. The response to the [BED_MESH_OUTPUT PGP=1](#output) gcode command will include the (X, Y) coordinate associated with the index; this position may be used as the value for the `zero_reference_position`. The output will look similar to the following:
 
-It is possible for some areas of a bed to report inaccurate results when probing due to a "fault" at specific locations. The best example of this are beds with series of integrated magnets used to retain removable steel sheets. The magnetic field at and around these magnets may cause an inductive probe to trigger at a distance higher or lower than it would otherwise, resulting in a mesh that does not accurately represent the surface at these locations. **Note: This should not be confused with probe location bias, which produces inaccurate results across the entire bed.**
+```
+// bed_mesh: generated points
+// Index | Tool Adjusted | Probe
+// 0 | (1.0, 1.0) | (24.0, 6.0)
+// 1 | (36.7, 1.0) | (59.7, 6.0)
+// 2 | (72.3, 1.0) | (95.3, 6.0)
+// 3 | (108.0, 1.0) | (131.0, 6.0)
+... (additional generated points)
+// bed_mesh: relative_reference_index 24 is (131.5, 108.0)
+```
 
-The `faulty_region` options may be configured to compensate for this affect. If a generated point lies within a faulty region bed mesh will attempt to probe up to 4 points at the boundaries of this region. These probed values will be averaged and inserted in the mesh as the Z value at the generated (X, Y) coordinate.
+*Note: The above output is also printed in `klippy.log` during initialization.*
+
+Using the example above we see that the `relative_reference_index` is printed along with its coordinate. Thus the `zero_reference_position` is `131.5, 108`.
+
+### Regiões defeituosas
+
+É possível que algumas áreas da cama relatem resultados imprecisos durante a sondagem devido a uma "falha" em locais específicos. O melhor exemplo disso são camas com séries de ímãs integrados usados para manter folhas de aço removíveis. O campo magnético nos arredores desses ímãs pode fazer com que uma sonda indutiva seja acionada a uma distância maior ou menor do que o normal, resultando em uma malha que não representa com precisão a superfície nessas áreas. **Observação: Isso não deve ser confundido com o viés de localização da sonda, que produz resultados imprecisos em toda a cama.**
+
+As opções `faulty_region` podem ser configuradas para compensar esse efeito. Se um ponto gerado estiver localizado dentro de uma região com falha, a malha da cama tentará sondar até 4 pontos nas bordas dessa região. Esses valores sondados serão calculados em uma média e inseridos na malha como o valor Z na coordenada gerada (X, Y).
 
 ```
 [bed_mesh]
@@ -159,57 +176,56 @@ faulty_region_4_min: 30.0, 170.0
 faulty_region_4_max: 45.0, 210.0
 ```
 
-- `faulty_region_{1...99}_min` `faulty_region_{1..99}_max` *Default Value: None (disabled)* Faulty Regions are defined in a way similar to that of mesh itself, where minimum and maximum (X, Y) coordinates must be specified for each region. A faulty region may extend outside of a mesh, however the alternate points generated will always be within the mesh boundary. No two regions may overlap.
+- `faulty_region_{1...99}_min` `faulty_region_{1..99}_max` * Valor padrão: Nenhum (desativado)* As Regiões com Falha (Faulty Regions) são definidas de maneira semelhante à própria malha, onde as coordenadas mínimas e máximas (X, Y) devem ser especificadas para cada região. Uma região com falha pode se estender para fora da malha, mas os pontos alternativos gerados sempre estarão dentro do limite da malha. Nenhuma região pode sobrepor-se a outra.
 
-The image below illustrates how replacement points are generated when a generated point lies within a faulty region. The regions shown match those in the sample config above. The replacement points and their coordinates are identified in green.
+A imagem abaixo ilustra como os pontos de substituição são gerados quando um ponto gerado está localizado dentro de uma região com falha. As regiões mostradas correspondem às mostradas na configuração de exemplo acima. Os pontos de substituição e suas coordenadas são identificados em verde.
 
 ![bedmesh_interpolated](img/bedmesh_faulty_regions.svg)
 
-## Bed Mesh Gcodes
+## Gcode para Malha da Cama
 
-### Calibration
+### Calibração
 
-`BED_MESH_CALIBRATE PROFILE=<name> METHOD=[manual | automatic] [<probe_parameter>=<value>] [<mesh_parameter>=<value>]` *Default Profile: default* *Default Method: automatic if a probe is detected, otherwise manual*
+`BED_MESH_CALIBRATE PROFILE=<name> METHOD=[manual | automatic] [<probe_parameter>=<value>] [<mesh_parameter>=<value>]` *Perfil padrão: default* *Método padrão: automatic se uma sonda for detectada, caso contrário, manual*
 
-Initiates the probing procedure for Bed Mesh Calibration.
+Inicia o procedimento de sondagem para a Calibração da Malha da Cama (Bed Mesh Calibration).
 
-The mesh will be saved into a profile specified by the `PROFILE` parameter, or `default` if unspecified. If `METHOD=manual` is selected then manual probing will occur. When switching between automatic and manual probing the generated mesh points will automatically be adjusted.
+A malha será salva em um perfil especificado pelo parâmetro `PROFILE`, ou `default` se não for especificado. Se `METHOD=manual` for selecionado, a sondagem manual será realizada. Ao alternar entre sondagem automática e manual, os pontos gerados da malha serão ajustados automaticamente.
 
-It is possible to specify mesh parameters to modify the probed area. The following parameters are available:
+É possível especificar os parâmetros da malha para modificar a área sondada. Os seguintes parâmetros estão disponíveis:
 
-- Rectangular beds (cartesian):
+- Camas retangulares (cartesianas):
    - `MESH_MIN`
    - `MESH_MAX`
    - `PROBE_COUNT`
-- Round beds (delta):
+- Camas circulares (delta):
    - `MESH_RADIUS`
    - `MESH_ORIGIN`
    - `ROUND_PROBE_COUNT`
-- All beds:
-   - `RELATIVE_REFERNCE_INDEX`
+- Todas as camas:
    - `ALGORITHM`
 
-See the configuration documentation above for details on how each parameter applies to the mesh.
+Consulte a documentação de configuração acima para obter detalhes sobre como cada parâmetro se aplica à malha.
 
-### Profiles
+### Perfis
 
-`BED_MESH_PROFILE SAVE=<name> LOAD=<name> REMOVE=<name>`
+`BED_MESH_PROFILE SAVE=<nome> LOAD=<nome> REMOVE=<nome>`
 
-After a BED_MESH_CALIBRATE has been performed, it is possible to save the current mesh state into a named profile. This makes it possible to load a mesh without re-probing the bed. After a profile has been saved using `BED_MESH_PROFILE SAVE=<name>` the `SAVE_CONFIG` gcode may be executed to write the profile to printer.cfg.
+Após a execução de um BED_MESH_CALIBRATE, é possível salvar o estado atual da malha em um perfil com um nome. Isso permite carregar uma malha sem a necessidade de sondar a cama novamente. Após salvar um perfil usando `BED_MESH_PROFILE SAVE=<nome>`, o código G (gcode) `SAVE_CONFIG` pode ser executado para escrever o perfil no arquivo printer.cfg.
 
-Profiles can be loaded by executing `BED_MESH_PROFILE LOAD=<name>`.
+Os perfis podem ser carregados executando `BED_MESH_PROFILE LOAD=<nome>`.
 
-It should be noted that each time a BED_MESH_CALIBRATE occurs, the current state is automatically saved to the *default* profile. The *default* profile can be removed as follows:
+Deve ser observado que cada vez que ocorre um BED_MESH_CALIBRATE, o estado atual é automaticamente salvo no perfil *default*. O perfil *default* pode ser removido da seguinte forma:
 
 `BED_MESH_PROFILE REMOVE=default`
 
-Any other saved profile can be removed in the same fashion, replacing *default* with the named profile you wish to remove.
+Qualquer outro perfil salvo pode ser removido da mesma maneira, substituindo *default* pelo nome do perfil que você deseja remover.
 
-#### Loading the default profile
+#### Carregando o perfil padrão
 
-Previous versions of `bed_mesh` always loaded the profile named *default* on startup if it was present. This behavior has been removed in favor of allowing the user to determine when a profile is loaded. If a user wishes to load the `default` profile it is recommended to add `BED_MESH_PROFILE LOAD=default` to either their `START_PRINT` macro or their slicer's "Start G-Code" configuration, whichever is applicable.
+Versões anteriores do `bed_mesh` sempre carregavam o perfil chamado *default* na inicialização, caso estivesse presente. Esse comportamento foi removido para permitir que o usuário determine quando um perfil é carregado. Se o usuário desejar carregar o perfil `default`, é recomendado adicionar `BED_MESH_PROFILE LOAD=default` no macro `START_PRINT` ou na configuração de "Start G-Code" do slicer, dependendo do que for aplicável.
 
-Alternatively the old behavior of loading a profile at startup can be restored with a `[delayed_gcode]`:
+Alternativamente, o antigo comportamento de carregar um perfil na inicialização pode ser restaurado com `[delayed_gcode]`:
 
 ```ini
 [delayed_gcode bed_mesh_init]
@@ -218,13 +234,13 @@ gcode:
   BED_MESH_PROFILE LOAD=default
 ```
 
-### Output
+### Saída
 
 `BED_MESH_OUTPUT PGP=[0 | 1]`
 
-Outputs the current mesh state to the terminal. Note that the mesh itself is output
+Mostra o estado atual da malha no terminal. Observe que a malha em si é exibida
 
-The PGP parameter is shorthand for "Print Generated Points". If `PGP=1` is set, the generated probed points will be output to the terminal:
+O parâmetro PGP é uma abreviação para "Print Generated Points" (Exibir Pontos Gerados). Se `PGP=1` for definido, os pontos sondados gerados serão exibidos no terminal:
 
 ```
 // bed_mesh: generated points
@@ -246,16 +262,16 @@ The PGP parameter is shorthand for "Print Generated Points". If `PGP=1` is set, 
 // 14 | (216.0, 193.0) | (240.0, 198.0)
 ```
 
-The "Tool Adjusted" points refer to the nozzle location for each point, and the "Probe" points refer to the probe location. Note that when manually probing the "Probe" points will refer to both the tool and nozzle locations.
+Os pontos "Ajustados pela Ferramenta" se referem à localização da ponta da extrusora (bico) para cada ponto, enquanto os pontos "Sondados" (Probe) se referem à localização da sonda. Observe que, ao realizar a sondagem manualmente, os pontos "Sondados" (Probe) se referirão tanto à localização da ferramenta quanto à localização da ponta da extrusora (bico).
 
-### Clear Mesh State
+### Limpar Estado da Malha
 
 `BED_MESH_CLEAR`
 
-This gcode may be used to clear the internal mesh state.
+Este gcode pode ser usado para apagar o estado interno da malha.
 
-### Apply X/Y offsets
+### Aplicar deslocamentos em X/Y
 
 `BED_MESH_OFFSET [X=<value>] [Y=<value>]`
 
-This is useful for printers with multiple independent extruders, as an offset is necessary to produce correct Z adjustment after a tool change. Offsets should be specified relative to the primary extruder. That is, a positive X offset should be specified if the secondary extruder is mounted to the right of the primary extruder, and a positive Y offset should be specified if the secondary extruder is mounted "behind" the primary extruder.
+Isso é útil para impressoras com múltiplos extrusores independentes, já que um deslocamento é necessário para produzir o ajuste correto em Z após a troca de ferramenta. Os deslocamentos devem ser especificados em relação ao extrusor primário. Ou seja, um deslocamento positivo em X deve ser especificado se o extrusor secundário estiver montado à direita do extrusor primário, e um deslocamento positivo em Y deve ser especificado se o extrusor secundário estiver montado "atrás" do extrusor primário.

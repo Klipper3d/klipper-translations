@@ -8,6 +8,10 @@ Klipper 是免費軟件。我們依靠贊助商的慷慨支持。請考慮贊助
 
 BIGTREETECH 是 Klipper 的主板官方贊助商。 BIGTREETECH 致力於開發具有創新性和競爭力的產品，以更好地服務於 3D 打印社區。在 [Facebook](https://www.facebook.com/BIGTREETECH) 或 [Twitter](https://twitter.com/BigTreeTech) 上關注他們。
 
+## 贊助商
+
+[<img src="./img/sponsors/obico-light-horizontal.png" width="200" />](https://obico.io/klipper.html?source=klipper_sponsor)
+
 ## Klipper開發人員
 
 ### Kevin O'Connor

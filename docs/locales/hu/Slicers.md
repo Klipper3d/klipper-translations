@@ -56,7 +56,9 @@ START_PRINT BED_TEMP={material_bed_temperature_layer_0} EXTRUDER_TEMP={material_
 
 A slic3r származékokban, mint például a PrusaSlicer és a SuperSlicer, a következőket kell használni:
 
+```
 START_PRINT EXTRUDER_TEMP=[first_layer_temperature] BED_TEMP=[first_layer_bed_temperature]
+```
 
 Vedd figyelembe azt is, hogy ezek a szeletelők saját fűtési kódokat adnak meg, ha bizonyos feltételek nem teljesülnek. A Curában a `{material_bed_temperature_layer_0}` és a `{material_print_temperature_layer_0}` változók létezése elegendő ennek enyhítésére. A slic3r származékokban a következőket használhatod:
 

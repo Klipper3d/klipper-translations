@@ -1,4 +1,4 @@
-# TSL1401CL filamentdiametersensor
+# TSL1401CL filament breedte sensor
 
 Dit document beschrijft de filamentdiametersensor-hostmodule. De gebruikte hardware voor de ontwikkeling van deze hostmodule is gebaseerd op de TSL1401CL-sensor maar werkt met elke sensor van dit type met analoge output. U kunt het ontwerp vinden op [Thingiverse](https://www.thingiverse.com/search?q=filament%20width%20sensor).
 

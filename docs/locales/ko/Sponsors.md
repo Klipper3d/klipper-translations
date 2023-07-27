@@ -8,6 +8,10 @@ Klipper는 자유 소프트웨어입니다. 우리는 후원자의 아낌없는 
 
 BIGTREETECH는 Klipper의 공식 메인보드 후원사입니다. BIGTREETECH는 3D 프린팅 커뮤니티에 더 나은 서비스를 제공하기 위해 혁신적이고 경쟁력 있는 제품을 개발하기 위해 최선을 다하고 있습니다. [Facebook](https://www.facebook.com/BIGTREETECH) 또는 [Twitter](https://twitter.com/BigTreeTech)에서 팔로우하세요.
 
+## 후원자
+
+[<img src="./img/sponsors/obico-light-horizontal.png" width="200" />](https://obico.io/klipper.html?source=klipper_sponsor)
+
 ## Klipper 개발자
 
 ### Kevin O'Connor

@@ -20,7 +20,7 @@ sudo cp ./scripts/klipper-mcu.service /etc/systemd/system/
 sudo systemctl enable klipper-mcu.service
 ```
 
-## Building the micro-controller code
+## Construindo o código do micro-controlador
 
 To compile the Klipper micro-controller code, start by configuring it for the "Linux process":
 
@@ -31,7 +31,7 @@ make menuconfig
 
 In the menu, set "Microcontroller Architecture" to "Linux process," then save and exit.
 
-To build and install the new micro-controller code, run:
+Para construir e instalar o novo código do micro-controlador, execute:
 
 ```
 sudo service klipper stop
@@ -45,7 +45,7 @@ If klippy.log reports a "Permission denied" error when attempting to connect to 
 sudo usermod -a -G tty pi
 ```
 
-## Remaining configuration
+## Configuração restante
 
 Complete the installation by configuring Klipper secondary MCU following the instructions in [RaspberryPi sample config](../config/sample-raspberry-pi.cfg) and [Multi MCU sample config](../config/sample-multi-mcu.cfg).
 

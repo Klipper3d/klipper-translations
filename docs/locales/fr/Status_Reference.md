@@ -121,6 +121,12 @@ Les informations suivantes sont disponibles dans l'objet [firmware_retraction](C
 
 - `retract_length`, `retract_speed`, `unretract_extra_length`, `unretract_speed` : sont les paramètres du module firmware_retraction. Ces paramètres peuvent différer du fichier de configuration si une commande `SET_RETRACTION` les modifie.
 
+## gcode_button
+
+The following information is available in [gcode_button some_name](Config_Reference.md#gcode_button) objects:
+
+- `state`: The current button state returned as "PRESSED" or "RELEASED"
+
 ## gcode_macro
 
 Les informations suivantes sont disponibles dans les objets [gcode_macro nom_de_la_macro](Config_Reference.md#gcode_macro) :
@@ -310,6 +316,7 @@ Les informations suivantes sont disponibles dans les objets [pilote pas à pas T
 - `mcu_phase_offset` : la position du moteur pas à pas du microcontrôleur correspondant à la phase "zéro" du pilote. Ce champ peut être nul si le déphasage n'est pas connu.
 - `phase_offset_position` : La "position commandée" correspondant à la phase "zéro" du driver. Ce champ peut être nul si le déphasage n'est pas connu.
 - `drv_status` : les résultats de la dernière requête d'état du pilote. (Seuls les champs non nuls sont signalés.) Ce champ sera nul si le pilote n'est pas activé (et n'est donc pas interrogé périodiquement).
+- `temperature`: The internal temperature reported by the driver. This field will be null if the driver is not enabled or if the driver does not support temperature reporting.
 - `run_current` : le courant de fonctionnement actuellement défini.
 - `hold_current` : Le courant de maintien actuellement défini.
 

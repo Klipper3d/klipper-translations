@@ -57,5 +57,6 @@ Benvenuto nella documentazione di Klipper. Se sei nuovo di Klipper, inizia con i
 - [Beaglebone](beaglebone.md): Dettagli per l'esecuzione di Klipper sulla PRU Beaglebone.
 - [Bootloaders](Bootloaders.md): Informazioni per gli sviluppatori sul flashing del microcontrollore.
 - [CAN bus](CANBUS.md): Informazioni sull'uso del CAN bus con Klipper.
+   - [CAN bus troubleshooting](CANBUS_Troubleshooting.md): Tips for troubleshooting CAN bus.
 - [Sensore larghezza filamento TSL1401CL](TSL1401CL_Filament_Width_Sensor.md)
 - [Sensore di larghezza del filamento Hall](HallFilamentWidthSensor.md)

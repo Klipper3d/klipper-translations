@@ -121,6 +121,12 @@
 
 - `retract_length`、`retract_speed`、`unretract_extra_length`、`unretract_speed`：firmware_retraction 模块的当前设置。如果 `SET_RETRACTION` 命令改变它们，这些设置可能与配置文件不同。
 
+## gcode_button
+
+The following information is available in [gcode_button some_name](Config_Reference.md#gcode_button) objects:
+
+- `state`: The current button state returned as "PRESSED" or "RELEASED"
+
 ## gcode_macro
 
 [gcode_macro <名称>](Config_Reference.md#gcode_macro) 对象提供了以下信息：
@@ -310,6 +316,7 @@
 - `mcu_phase_offset`：微控制器步进位置与驱动器的"零"相位的相对位置。如果相位偏移未知，则此字段可能为空。
 - `phase_offset_position`：对应电机“零”相位的“指令位置”。如果相位偏移未知，则该字段可以为空。
 - `drv_status`：上次驱动状态查询结果。（仅报告非零字段。如果驱动没有被启用（因此没有轮询），则此字段将为 null。
+- `temperature`: The internal temperature reported by the driver. This field will be null if the driver is not enabled or if the driver does not support temperature reporting.
 - `run_current`：当前设置的运行电流。
 - `hold_current`：当前设置的保持电流。
 
