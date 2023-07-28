@@ -1872,6 +1872,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#aht10aht20aht21-temperature-sensor" class="md-nav__link">
+    AHT10/AHT20/AHT21 temperature sensor
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#htu21d" class="md-nav__link">
     Сензор HTU21D
   </a>
@@ -3133,86 +3140,94 @@ max_temp:
 
 <div class="highlight"><pre><span></span><code>[bed_mesh]
 #speed: 50
-# Скоростта (в мм/сек) на движенията без пробиване по време на калибрирането.
-# По подразбиране е 50.
+#   The speed (in mm/s) of non-probing moves during the calibration.
+#   The default is 50.
 #horizontal_move_z: 5
-# Височината (в mm), до която трябва да се командва главата да се движи
-# непосредствено преди започване на работа със сондата. По подразбиране е 5.
+#   The height (in mm) that the head should be commanded to move to
+#   just prior to starting a probe operation. The default is 5.
 #mesh_radius:
-# Определя радиуса на мрежата за сондиране на кръгли легла. Имайте предвид, че
-# радиусът е относителен спрямо координатата, зададена от
-# опцията mesh_origin. Този параметър трябва да се предостави за кръгли легла.
-# и се пропуска за правоъгълни легла.
+#   Defines the radius of the mesh to probe for round beds. Note that
+#   the radius is relative to the coordinate specified by the
+#   mesh_origin option. This parameter must be provided for round beds
+#   and omitted for rectangular beds.
 #mesh_origin:
-# Определя централната координата X, Y на мрежата за кръгли легла. Този
-# координата е относителна спрямо местоположението на сондата. Тя може да бъде полезна
-# да се коригира mesh_origin, за да се увеличи максимално размерът на
-# радиуса на мрежата. По подразбиране е 0, 0. Този параметър трябва да се пропусне за
-# правоъгълни легла.
+#   Defines the center X, Y coordinate of the mesh for round beds. This
+#   coordinate is relative to the probe&#39;s location. It may be useful
+#   to adjust the mesh_origin in an effort to maximize the size of the
+#   mesh radius. Default is 0, 0. This parameter must be omitted for
+#   rectangular beds.
 #mesh_min:
-# Определя минималната координата X, Y на мрежата за правоъгълни
-# легла. Тази координата е относителна спрямо местоположението на сондата. Това
-# ще бъде първата изследвана точка, която е най-близо до началото. Това
-# параметър трябва да се предостави за правоъгълни легла.
+#   Defines the minimum X, Y coordinate of the mesh for rectangular
+#   beds. This coordinate is relative to the probe&#39;s location. This
+#   will be the first point probed, nearest to the origin. This
+#   parameter must be provided for rectangular beds.
 #mesh_max:
-# Определя максималната координата X, Y на мрежата за правоъгълни легла.
-# легла. Придържа се към същия принцип като mesh_min, но това ще
-# ще бъде най-отдалечената точка, която се изследва от началото на леглото. Този параметър
-# трябва да се предостави за правоъгълни легла.
+#   Defines the maximum X, Y coordinate of the mesh for rectangular
+#   beds. Adheres to the same principle as mesh_min, however this will
+#   be the furthest point probed from the bed&#39;s origin. This parameter
+#   must be provided for rectangular beds.
 #probe_count: 3, 3
-# За правоъгълни легла това е двойка цели числа, разделени със запетая
-# стойности X, Y, определящи броя на точките, които ще се изследват по протежение на всяка
-# осите. Валидна е и единична стойност, като в този случай тази стойност ще
-# се прилага и към двете оси. По подразбиране е 3, 3.
+#   For rectangular beds, this is a comma separate pair of integer
+#   values X, Y defining the number of points to probe along each
+#   axis. A single value is also valid, in which case that value will
+#   be applied to both axes. Default is 3, 3.
 #round_probe_count: 5
-# За кръгли легла тази целочислена стойност определя максималния брой
-# точки, които да се сондират по всяка ос. Тази стойност трябва да е нечетно число.
-# По подразбиране е 5.
+#   For round beds, this integer value defines the maximum number of
+#   points to probe along each axis. This value must be an odd number.
+#   Default is 5.
 #fade_start: 1.0
-# Позицията z на gcode, в която да се започне постепенното намаляване на корекцията z
-# когато е активирано избледняване. По подразбиране е 1,0.
+#   The gcode z position in which to start phasing out z-adjustment
+#   when fade is enabled. Default is 1.0.
 #fade_end: 0.0
-# Позицията z на gcode, в която завършва поетапното изтегляне. Когато е зададено на
-# стойност под fade_start, избледняването се деактивира. Трябва да се отбележи, че
-# избледняването може да добави нежелано мащабиране по оста z на отпечатъка. Ако
-# потребителят желае да активира избледняването, се препоръчва стойност 10,0.
-# По подразбиране е 0.0, което деактивира затихването.
+#   The gcode z position in which phasing out completes. When set to a
+#   value below fade_start, fade is disabled. It should be noted that
+#   fade may add unwanted scaling along the z-axis of a print. If a
+#   user wishes to enable fade, a value of 10.0 is recommended.
+#   Default is 0.0, which disables fade.
 #fade_target:
-# Позицията z, в която трябва да се сгъсти избледняването. Когато тази стойност е
-# зададена на стойност, различна от нула, тя трябва да е в обхвата на z-стойностите в
-# на мрежата. Потребителите, които желаят да конвергират към позицията z на насочване
-# трябва да зададат тази стойност на 0. По подразбиране е средната стойност на z на мрежата.
+#   The z position in which fade should converge. When this value is
+#   set to a non-zero value it must be within the range of z-values in
+#   the mesh. Users that wish to converge to the z homing position
+#   should set this to 0. Default is the average z value of the mesh.
 #split_delta_z: .025
-# Размерът на разликата в Z (в мм) по протежение на движението, който ще задейства
-# разделяне. По подразбиране е .025.
+#   The amount of Z difference (in mm) along a move that will trigger
+#   a split. Default is .025.
 #move_check_distance: 5.0
-# Разстоянието (в мм) по протежение на движението, за да се провери за split_delta_z.
-# Това е и минималната дължина, на която може да се раздели ходът. По подразбиране:
-# е 5,0.
+#   The distance (in mm) along a move to check for split_delta_z.
+#   This is also the minimum length that a move can be split. Default
+#   is 5.0.
 #mesh_pps: 2, 2
-# Двойка цели числа X, Y, разделени със запетая, които определят броя на
-# точки на сегмент, които да се интерполират в мрежата по всяка ос. A
-# &quot;сегмент&quot; може да се дефинира като пространството между всяка изследвана точка.
-# Потребителят може да въведе единична стойност, която ще бъде приложена към двете
-# осите. По подразбиране е 2, 2.
-#алгоритъм: lagrange
-# Алгоритъмът за интерполация, който ще се използва. Може да бъде &quot;lagrange&quot; или
-# &quot;bicubic&quot;. Тази опция няма да повлияе на решетките 3х3, които са принудително
-# да използват lagrange извадка. По подразбиране е lagrange.
+#   A comma separated pair of integers X, Y defining the number of
+#   points per segment to interpolate in the mesh along each axis. A
+#   &quot;segment&quot; can be defined as the space between each probed point.
+#   The user may enter a single value which will be applied to both
+#   axes. Default is 2, 2.
+#algorithm: lagrange
+#   The interpolation algorithm to use. May be either &quot;lagrange&quot; or
+#   &quot;bicubic&quot;. This option will not affect 3x3 grids, which are forced
+#   to use lagrange sampling. Default is lagrange.
 #bicubic_tension: .2
-# Когато използвате бикубичен алгоритъм, параметърът за напрежение по-горе може да
-# да бъде приложен, за да се промени размерът на интерполирания наклон. По-голям
-# ще увеличат размера на наклона, което води до повече
-# кривина в мрежата. По подразбиране е .2.
+#   When using the bicubic algorithm the tension parameter above may
+#   be applied to change the amount of slope interpolated. Larger
+#   numbers will increase the amount of slope, which results in more
+#   curvature in the mesh. Default is .2.
+#zero_reference_position:
+#   An optional X,Y coordinate that specifies the location on the bed
+#   where Z = 0.  When this option is specified the mesh will be offset
+#   so that zero Z adjustment occurs at this location.  The default is
+#   no zero reference.
 #relative_reference_index:
-# Индекс на точката в мрежата, към която се отнасят всички стойности на z. Включване на
-# този параметър създава мрежа, относителна към изследваната позиция z
-# в предоставения индекс.
+#   **DEPRECATED, use the &quot;zero_reference_position&quot; option**
+#   The legacy option superceded by the &quot;zero reference position&quot;.
+#   Rather than a coordinate this option takes an integer &quot;index&quot; that
+#   refers to the location of one of the generated points. It is recommended
+#   to use the &quot;zero_reference_position&quot; instead of this option for new
+#   configurations. The default is no relative reference index.
 #faulty_region_1_min:
 #faulty_region_1_max:
-# Незадължителни точки, които определят дефектната област.  Виж docs/Bed_Mesh.md
-# за подробности относно дефектните региони.  Могат да се добавят до 99 дефектни области.
-# По подразбиране не са зададени дефектни региони.
+#   Optional points that define a faulty region.  See docs/Bed_Mesh.md
+#   for details on faulty regions.  Up to 99 faulty regions may be added.
+#   By default no faulty regions are set.
 </code></pre></div>
 
 <h3 id="bed_tilt">[bed_tilt]<a class="headerlink" href="#bed_tilt" title="Permanent link">&para;</a></h3>
@@ -3726,6 +3741,8 @@ cs_pin:
 #   Default is 104 (0x68). If AD0 is high, it would be 0x69 instead.
 #i2c_mcu:
 #i2c_bus:
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
 #i2c_speed: 400000
 #   See the &quot;common I2C settings&quot; section for a description of the
 #   above parameters. The default &quot;i2c_speed&quot; is 400000.
@@ -4276,9 +4293,27 @@ sensor_pin:
 #   (0x77).
 #i2c_mcu:
 #i2c_bus:
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
 #i2c_speed:
 #   See the &quot;common I2C settings&quot; section for a description of the
 #   above parameters.
+</code></pre></div>
+
+<h3 id="aht10aht20aht21-temperature-sensor">AHT10/AHT20/AHT21 temperature sensor<a class="headerlink" href="#aht10aht20aht21-temperature-sensor" title="Permanent link">&para;</a></h3>
+<p>AHT10/AHT20/AHT21 two wire interface (I2C) environmental sensors. Note that these sensors are not intended for use with extruders and heater beds, but rather for monitoring ambient temperature (C) and relative humidity. See <a href="https://github.com/Klipper3d/klipper/blob/master/config/sample-macros.cfg">sample-macros.cfg</a> for a gcode_macro that may be used to report humidity in addition to temperature.</p>
+<div class="highlight"><pre><span></span><code>sensor_type: AHT10
+#   Also use AHT10 for AHT20 and AHT21 sensors.
+#i2c_address:
+#   Default is 56 (0x38). Some AHT10 sensors give the option to use
+#   57 (0x39) by moving a resistor.
+#i2c_mcu:
+#i2c_bus:
+#i2c_speed:
+#   See the &quot;common I2C settings&quot; section for a description of the
+#   above parameters.
+#aht10_report_time:
+#   Interval in seconds between readings. Default is 30, minimum is 5
 </code></pre></div>
 
 <h3 id="htu21d">Сензор HTU21D<a class="headerlink" href="#htu21d" title="Permanent link">&para;</a></h3>
@@ -4289,6 +4324,8 @@ sensor_pin:
 #   Default is 64 (0x40).
 #i2c_mcu:
 #i2c_bus:
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
 #i2c_speed:
 #   See the &quot;common I2C settings&quot; section for a description of the
 #   above parameters.
@@ -4317,6 +4354,8 @@ sensor_pin:
 #   (usually with jumpers or hard wired).
 #i2c_mcu:
 #i2c_bus:
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
 #i2c_speed:
 #   See the &quot;common I2C settings&quot; section for a description of the
 #   above parameters.
@@ -4448,7 +4487,7 @@ pin:
 
 <h3 id="heater_fan">[heater_fan]<a class="headerlink" href="#heater_fan" title="Permanent link">&para;</a></h3>
 <p>Вентилатори за охлаждане на нагреватели (могат да се дефинират произволен брой секции с префикс "heater_fan"). "Вентилатор на нагревател" е вентилатор, който ще бъде активиран, когато свързаният с него нагревател е активен. По подразбиране вентилаторът на нагревателя има скорост на изключване, равна на max_power.</p>
-<div class="highlight"><pre><span></span><code>[heater_fan my_nozzle_fan]
+<div class="highlight"><pre><span></span><code>[heater_fan heatbreak_cooling_fan]
 #pin:
 #max_power:
 #shutdown_speed:
@@ -4657,6 +4696,8 @@ clock_pin:
 #   the PCA9533/1, 99 for the PCA9533/2. The default is 98.
 #i2c_mcu:
 #i2c_bus:
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
 #i2c_speed:
 #   See the &quot;common I2C settings&quot; section for a description of the
 #   above parameters.
@@ -4675,6 +4716,8 @@ clock_pin:
 #   96, 97, 98, or 99.  The default is 98.
 #i2c_mcu:
 #i2c_bus:
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
 #i2c_speed:
 #   See the &quot;common I2C settings&quot; section for a description of the
 #   above parameters.
@@ -4939,6 +4982,7 @@ run_current:
 #   set, &quot;stealthChop&quot; mode will be enabled if the stepper motor
 #   velocity is below this value. The default is 0, which disables
 #   &quot;stealthChop&quot; mode.
+#driver_MULTISTEP_FILT: True
 #driver_IHOLDDELAY: 8
 #driver_TPOWERDOWN: 20
 #driver_TBL: 2
@@ -4974,6 +5018,7 @@ run_current:
 #   The address of the TMC2209 chip for UART messages (an integer
 #   between 0 and 3). This is typically used when multiple TMC2209
 #   chips are connected to the same UART pin. The default is zero.
+#driver_MULTISTEP_FILT: True
 #driver_IHOLDDELAY: 8
 #driver_TPOWERDOWN: 20
 #driver_TBL: 2
@@ -5136,6 +5181,7 @@ run_current:
 #   to tune a motor with unbalanced coils. See the `Sine Wave Lookup Table`
 #   section in the datasheet for information about this field and how to tune
 #   it.
+#driver_MULTISTEP_FILT: True
 #driver_IHOLDDELAY: 6
 #driver_IRUNDELAY: 4
 #driver_TPOWERDOWN: 10
@@ -5245,6 +5291,7 @@ run_current:
 #   values used by the driver. The value must be specified as a decimal integer
 #   (hex form is not supported). In order to compute the wave table fields,
 #   see the tmc2130 &quot;Calculation Sheet&quot; from the Trinamic website.
+#driver_MULTISTEP_FILT: True
 #driver_IHOLDDELAY: 6
 #driver_TPOWERDOWN: 10
 #driver_TBL: 2
@@ -5273,6 +5320,10 @@ run_current:
 #driver_SEDN: 0
 #driver_SEIMIN: 0
 #driver_SFILT: 0
+#driver_DRVSTRENGTH: 0
+#driver_BBMCLKS: 4
+#driver_BBMTIME: 0
+#driver_FILT_ISENSE: 0
 #   Set the given register during the configuration of the TMC5160
 #   chip. This may be used to set custom motor parameters. The
 #   defaults for each parameter are next to the parameter name in the
@@ -5334,6 +5385,8 @@ i2c_address:
 #   parameter must be provided.
 #i2c_mcu:
 #i2c_bus:
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
 #i2c_speed:
 #   See the &quot;common I2C settings&quot; section for a description of the
 #   above parameters.
@@ -5365,6 +5418,8 @@ i2c_address:
 #   is 96.
 #i2c_mcu:
 #i2c_bus:
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
 #i2c_speed:
 #   See the &quot;common I2C settings&quot; section for a description of the
 #   above parameters.
@@ -5597,15 +5652,17 @@ a0_pin:
 
 <h4 id="ssd1306-and-sh1106-displays">ssd1306 and sh1106 displays<a class="headerlink" href="#ssd1306-and-sh1106-displays" title="Permanent link">&para;</a></h4>
 <p>Информация за конфигуриране на дисплеите ssd1306 и sh1106.</p>
-<div class="highlight"><pre><span></span><code>[дисплей]
+<div class="highlight"><pre><span></span><code>[display]
 lcd_type:
-# Задава се на &quot;ssd1306&quot; или &quot;sh1106&quot; за дадения тип дисплей.
+#   Set to either &quot;ssd1306&quot; or &quot;sh1106&quot; for the given display type.
 #i2c_mcu:
 #i2c_bus:
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
 #i2c_speed:
-# Незадължителни параметри, достъпни за дисплеи, свързани чрез i2c
-# шина. Вижте раздела &quot;Общи I2C настройки&quot; за описание на
-# горните параметри.
+#   Optional parameters available for displays connected via an i2c
+#   bus. See the &quot;common I2C settings&quot; section for a description of
+#   the above parameters.
 #cs_pin:
 #dc_pin:
 #spi_speed:
@@ -5613,27 +5670,27 @@ lcd_type:
 #spi_software_sclk_pin:
 #spi_software_mosi_pin:
 #spi_software_miso_pin:
-# Изводите, свързани към дисплея, когато е в &quot;4-проводен&quot; spi режим. Вижте
-# &quot;общи настройки на SPI&quot; за описание на параметрите.
-# които започват с &quot;spi_&quot;. По подразбиране се използва режим i2c за
-# дисплея.
+#   The pins connected to the lcd when in &quot;4-wire&quot; spi mode. See the
+#   &quot;common SPI settings&quot; section for a description of the parameters
+#   that start with &quot;spi_&quot;. The default is to use i2c mode for the
+#   display.
 #reset_pin:
-# На дисплея може да се посочи извод за нулиране. Ако той не е
-# посочен, тогава хардуерът трябва да има издърпване на
-# съответната линия на дисплея.
+#   A reset pin may be specified on the display. If it is not
+#   specified then the hardware must have a pull-up on the
+#   corresponding lcd line.
 #contrast:
-# Контрастът, който трябва да се зададе. Стойността може да варира от 0 до 256 и
-# по подразбиране е 239.
+#   The contrast to set. The value may range from 0 to 256 and the
+#   default is 239.
 #vcomh: 0
-# Задайте стойността на Vcomh на дисплея. Тази стойност е свързана с
-# ефект на &quot;размазване&quot; при някои OLED дисплеи. Стойността може да варира
-# от 0 до 63. По подразбиране е 0.
-# инвертиране: False
-# TRUE инвертира пикселите на някои OLED дисплеи.  По подразбиране е
-# False.
+#   Set the Vcomh value on the display. This value is associated with
+#   a &quot;smearing&quot; effect on some OLED displays. The value may range
+#   from 0 to 63. Default is 0.
+#invert: False
+#   TRUE inverts the pixels on certain OLED displays.  The default is
+#   False.
 #x_offset: 0
-# Задаване на стойността на хоризонталното отместване при дисплеи SH1106. По подразбиране е
-# 0.
+#   Set the horizontal offset value on SH1106 displays. The default is
+#   0.
 ...
 </code></pre></div>
 
@@ -5899,13 +5956,11 @@ i2c_address:
 #   113. This parameter must be provided.
 #i2c_mcu:
 #i2c_bus:
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
 #i2c_speed:
 #   See the &quot;common I2C settings&quot; section for a description of the
 #   above parameters.
-#i2c_bus:
-#   If the I2C implementation of your micro-controller supports
-#   multiple I2C busses, you may specify the bus name here. The
-#   default is to use the default micro-controller i2c bus.
 </code></pre></div>
 
 <h3 id="samd_sercom">[samd_sercom]<a class="headerlink" href="#samd_sercom" title="Permanent link">&para;</a></h3>
@@ -6088,6 +6143,13 @@ cs_pin:
 #   If the micro-controller supports multiple I2C busses then one may
 #   specify the micro-controller bus name here. The default depends on
 #   the type of micro-controller.
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
+#   Specify these parameters to use micro-controller software based
+#   I2C &quot;bit-banging&quot; support. The two parameters should the two pins
+#   on the micro-controller to use for the scl and sda wires. The
+#   default is to use hardware based I2C support as specified by the
+#   i2c_bus parameter.
 #i2c_speed:
 #   The I2C speed (in Hz) to use when communicating with the device.
 #   The Klipper implementation on most micro-controllers is hard-coded

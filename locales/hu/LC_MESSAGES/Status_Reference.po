@@ -1,19 +1,21 @@
 # Zs.Antal <zsikaiantal@gmail.com>, 2022.
 # Yifei Ding <dingyifeiair@gmail.com>, 2022.
+# "Zs.Antal" <zsikaiantal@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-12-23 11:49+0000\n"
-"Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/status_reference/hu/>\n"
+"PO-Revision-Date: 2023-07-26 16:08+0000\n"
+"Last-Translator: \"Zs.Antal\" <zsikaiantal@gmail.com>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
+"status_reference/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.15.1-dev\n"
+"X-Generator: Weblate 5.0-dev\n"
 
 msgid ""
 "This document is a reference of printer status information available in "
@@ -761,9 +763,9 @@ msgid ""
 "config file settings if a `SET_VELOCITY_LIMIT` (or `M204`) command alters "
 "them at run-time."
 msgstr ""
-"`max_velocity`, `max_accel`, `max_accel_to_decel`, `square_corner_velocity`:"
-" Az aktuálisan érvényben lévő nyomtatási korlátok. Ez eltérhet a "
-"konfigurációs fájl beállításaitól, ha a `SET_VELOCITY_LIMIT` (vagy `M204`) "
+"`max_velocity`, `max_accel`, `max_accel_to_decel`, `square_corner_velocity`: "
+"Az aktuálisan érvényben lévő nyomtatási korlátok. Ez eltérhet a "
+"konfigurációs fájl beállításaiból, ha a `SET_VELOCITY_LIMIT` (vagy `M204`) "
 "parancs megváltoztatja azokat használat közben."
 
 msgid ""
@@ -1355,38 +1357,49 @@ msgid ""
 "currently synchronized to. This is reported as `None` if the extruder "
 "stepper is not currently associated with an extruder."
 msgstr ""
+"`motion_queue`: Az extruder neve, amelyhez ez az extruder léptető jelenleg "
+"szinkronizálva van. Ezt a `None` értékként kell jelölni, ha az extruder "
+"léptető jelenleg nem kapcsolódik extruderhez."
 
 #: docs/Status_Reference.md:block 86 (unordered list)
 msgid "`name`: Returns the name of the probe in use."
-msgstr ""
+msgstr "`name`: Visszaadja a használt szonda nevét."
 
 #: docs/Status_Reference.md:block 95 (unordered list)
 msgid "`results[\"<screw>\"]`: A dictionary containing the following keys:"
-msgstr ""
+msgstr "`results[\"<screw>\"]`: A következő kulcsokat tartalmazó szótár:"
 
 #: docs/Status_Reference.md:block 95 (unordered list)
 msgid ""
 "`sign`: A string specifying the direction to turn to screw for the necessary"
 " adjustment. Either \"CW\" for clockwise or \"CCW\" for counterclockwise."
 msgstr ""
+"`sign`: Egy karakterlánc, amely megadja, hogy a szükséges beállításhoz "
+"milyen irányba kell elfordítani a csavart. Vagy \"CW\" az óramutató "
+"járásával megegyező irányban, vagy \"CCW\" az óramutató járásával ellentétes "
+"irányban."
 
 #: docs/Status_Reference.md:block 95 (unordered list)
 msgid "`is_base`: Returns True if this is the base screw."
-msgstr ""
+msgstr "`is_base`: True értéket ad vissza, ha ez az alapcsavar."
 
 #: docs/Status_Reference.md:block 99 (header)
 msgid "stepper_enable"
-msgstr ""
+msgstr "stepper_enable"
 
 #: docs/Status_Reference.md:block 100 (paragraph)
 msgid ""
 "The following information is available in the `stepper_enable` object (this "
 "object is available if any stepper is defined):"
 msgstr ""
+"A következő információk a `stepper_enable` objektumban érhetők el (ez az "
+"objektum akkor érhető el, ha bármilyen léptető definiálva van):"
 
 #: docs/Status_Reference.md:block 101 (unordered list)
 msgid "`steppers[\"<stepper>\"]`: Returns True if the given stepper is enabled."
 msgstr ""
+"`steppers[\"<stepper>\"]`: True értéket ad vissza, ha az adott léptető "
+"engedélyezve van."
 
 #~ msgid ""
 #~ "`results`: A list of the probed screw locations. Each entry in the list will"

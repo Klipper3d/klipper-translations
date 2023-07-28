@@ -1246,8 +1246,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#note" class="md-nav__link">
-    Note:
+  <a href="#_2" class="md-nav__link">
+    Заметка:
   </a>
   
 </li>
@@ -1270,11 +1270,11 @@
 
 
 <h1 id="tsl1401cl">Датчик филамента TSL1401CL<a class="headerlink" href="#tsl1401cl" title="Permanent link">&para;</a></h1>
-<p>This document describes Filament Width Sensor host module. Hardware used for developing this host module is based on TSL1401CL linear sensor array but it can work with any sensor array that has analog output. You can find designs at <a href="https://www.thingiverse.com/search?q=filament%20width%20sensor">Thingiverse</a>.</p>
-<p>To use a sensor array as a filament width sensor, read <a href="Config_Reference.html#tsl1401cl_filament_width_sensor">Config Reference</a> and <a href="G-Codes.html#hall_filament_width_sensor">G-Code documentation</a>.</p>
+<p>В данном документе описывается хост-модуль Filament Width Sensor. Аппаратная часть, использованная для разработки этого хост-модуля, основана на линейном датчике TSL1401CL, но может работать с любым датчиком, имеющим аналоговый выход. С разработками можно ознакомиться на сайте <a href="https://www.thingiverse.com/search?q=filament%20width%20sensor">Thingiverse</a>.</p>
+<p>Чтобы использовать датчики ширины филамента, прочитайте <a href="Config_Reference.html#tsl1401cl_filament_width_sensor">Config Reference</a> и <a href="G-Codes.html#hall_filament_width_sensor">G-Code documentation</a>.</p>
 <h2 id="_1">Как это работает?<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>Датчик генерирует аналоговый выходной сигнал на основе расчетной ширины нити накала. Выходное напряжение всегда равно обнаруженной ширине нити накала (например, 1,65 В, 1,70 В, 3,0 В). Главный модуль отслеживает изменения напряжения и регулирует множитель экструзии.</p>
-<h2 id="note">Note:<a class="headerlink" href="#note" title="Permanent link">&para;</a></h2>
+<h2 id="_2">Заметка:<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>Показания датчика по умолчанию выполняются с интервалом в 10 мм. При необходимости вы можете изменить этот параметр, отредактировав параметр <strong><em>MEASUREMENT_INTERVAL_MM</em></strong> в <strong>filament_width_sensor.py </strong> файл.</p>
 
               

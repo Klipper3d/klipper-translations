@@ -1323,6 +1323,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#gcode_button" class="md-nav__link">
+    gcode_button
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#gcode_macro" class="md-nav__link">
     gcode_macro
   </a>
@@ -1663,6 +1670,11 @@
 <ul>
 <li><code>retract_length</code>, <code>retract_speed</code>, <code>unretract_extra_length</code>, <code>unretract_speed</code>: Firmware_retraction 모듈의 현재 설정입니다. 이 설정은 <code>SET_RETRACTION</code> 명령이 변경하는 경우 구성 파일과 다를 수 있습니다.</li>
 </ul>
+<h2 id="gcode_button">gcode_button<a class="headerlink" href="#gcode_button" title="Permanent link">&para;</a></h2>
+<p>The following information is available in <a href="Config_Reference.html#gcode_button">gcode_button some_name</a> objects:</p>
+<ul>
+<li><code>state</code>: The current button state returned as "PRESSED" or "RELEASED"</li>
+</ul>
 <h2 id="gcode_macro">gcode_macro<a class="headerlink" href="#gcode_macro" title="Permanent link">&para;</a></h2>
 <p>다음 정보는 <a href="Config_Reference.html#gcode_macro">gcode_macro some_name</a> 개체에서 사용할 수 있습니다:</p>
 <ul>
@@ -1828,6 +1840,7 @@
 <li><code>mcu_phase_offset</code>: The micro-controller stepper position corresponding with the driver's "zero" phase. This field may be null if the phase offset is not known.</li>
 <li><code>phase_offset_position</code>: The "commanded position" corresponding to the driver's "zero" phase. This field may be null if the phase offset is not known.</li>
 <li><code>drv_status</code>: The results of the last driver status query. (Only non-zero fields are reported.) This field will be null if the driver is not enabled (and thus is not periodically queried).</li>
+<li><code>temperature</code>: The internal temperature reported by the driver. This field will be null if the driver is not enabled or if the driver does not support temperature reporting.</li>
 <li><code>run_current</code>: The currently set run current.</li>
 <li><code>hold_current</code>: The currently set hold current.</li>
 </ul>

@@ -1297,13 +1297,13 @@
 <h2 id="_2">Как это работает?<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>Sensor generates two analog output based on calculated filament width. Sum of output voltage always equals to detected filament width. Host module monitors voltage changes and adjusts extrusion multiplier. I use the aux2 connector on a ramps-like board with the analog11 and analog12 pins. You can use different pins and different boards.</p>
 <h2 id="_3">Шаблон переменных меню<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<div class="highlight"><pre><span></span><code>[menu __main __filament __width_current]
-type: command
-enable: {&#39;hall_filament_width_sensor&#39; in printer}
-name: Dia: {&#39;%.2F&#39; % printer.hall_filament_width_sensor.Diameter}
-index: 0
+<div class="highlight"><pre><span></span><code>[menu __main __filament __width_current] /Меню главной толщины филамента
+type: command /тип:команда
+enable: {&#39;hall_filament_width_sensor&#39; in printer} /включить:
+name: Dia: {&#39;%.2F&#39; % printer.hall_filament_width_sensor.Diameter}/Имя:
+index: 0 /индекс:
 
-[menu __main __filament __raw_width_current]
+[menu __main __filament __raw_width_current] /Меню главной толщины сырого филамента
 type: command
 enable: {&#39;hall_filament_width_sensor&#39; in printer}
 name: Raw: {&#39;%4.0F&#39; % printer.hall_filament_width_sensor.Raw}
@@ -1313,8 +1313,8 @@ index: 1
 <h2 id="_4">Процедура калибровки<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>To get raw sensor value you can use menu item or <strong>QUERY_RAW_FILAMENT_WIDTH</strong> command in terminal.</p>
 <ol>
-<li>Insert first calibration rod (1.5 mm size) get first raw sensor value</li>
-<li>Insert second calibration rod (2.0 mm size) get second raw sensor value</li>
+<li>Вставьте первый калибровочный стержень (размер 1,5 мм) и получите первое необработанное значение датчика</li>
+<li>Вставьте второй калибровочный стержень (размер 2,0 мм) и получите второе необработанное значение датчика</li>
 <li>Save raw sensor values in config parameter <code>Raw_dia1</code> and <code>Raw_dia2</code></li>
 </ol>
 <h2 id="_5">Как включить сенсор<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>

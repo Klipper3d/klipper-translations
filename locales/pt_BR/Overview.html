@@ -1247,14 +1247,14 @@
       
         <li class="md-nav__item">
   <a href="#instalacao-e-configuracao" class="md-nav__link">
-    Instalação e configuração
+    Instalação e Configuração
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#documentacao-de-desenvolvedor" class="md-nav__link">
-    Documentação de desenvolvedor
+  <a href="#documentacao-do-desenvolvedor" class="md-nav__link">
+    Documentação do Desenvolvedor
   </a>
   
 </li>
@@ -1287,67 +1287,70 @@
 <p>Bem-vindo à documentação do Klipper. Se for novo no Klipper, comece com os documentos de <a href="Features.html">recursos</a> e <a href="Installation.html">Instalação</a>.</p>
 <h2 id="informacoes-gerais">Informações gerais<a class="headerlink" href="#informacoes-gerais" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="Features.html">Características</a>: Uma lista de características de alto nível no Klipper.</li>
+<li><a href="Features.html">Recursos</a>: Uma lista de alto nível dos recursos do Klipper.</li>
 <li><a href="FAQ.html">FAQ</a>: Perguntas frequentes.</li>
 <li><a href="Releases.html">Lançamentos</a>: O histórico de lançamentos do Klipper.</li>
-<li><a href="Config_Changes.html">Alterações de configurações</a>: Alterações recentes de software que podem exigir que os usuários atualizem seu arquivo de configuração da impressora.</li>
-<li><a href="Contact.html">Contato</a>: Informação sobre como reportar erros ou comunicação em geral com os desenvolvedores do Klipper.</li>
+<li><a href="Config_Changes.html">Alterações de Configuração</a>: Mudanças recentes no software que podem exigir que os usuários atualizem o arquivo de configuração da impressora.</li>
+<li><a href="Contact.html">Contato</a>: Informações sobre como reportar erros (bugs) e comunicação geral com os desenvolvedores do Klipper.</li>
 </ul>
-<h2 id="instalacao-e-configuracao">Instalação e configuração<a class="headerlink" href="#instalacao-e-configuracao" title="Permanent link">&para;</a></h2>
+<h2 id="instalacao-e-configuracao">Instalação e Configuração<a class="headerlink" href="#instalacao-e-configuracao" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="Installation.html">Instalação</a>: Guia de instalação do Klipper.</li>
-<li><a href="Config_Reference.html">Referências para Configuração</a>: Descrição dos parâmetros de configuração.<ul>
-<li><a href="Rotation_Distance.html">Distância de Rotação</a>: Como calcular o parâmetro de distância de rotação passo a passo.</li>
+<li><a href="Config_Reference.html">Referência de Configuração</a>: Descrição dos parâmetros de configuração.<ul>
+<li><a href="Rotation_Distance.html">Distância de Rotação</a>: Calculando o parâmetro do motor de passo "rotation_distance".</li>
 </ul>
 </li>
-<li><a href="Config_checks.html">Verificação de Configuração</a>: Verificar as configurações básicas do PIN no arquivo de configuração.</li>
-<li><a href="Bed_Level.html">Nível da cama</a>: Informação da "nivelação da cama" no Klipper.<ul>
-<li><a href="Delta_Calibrate.html">Calibração delta</a>: Calibração da cinemática delta.</li>
-<li><a href="Probe_Calibrate.html">Calibração da sonda</a>: Calibração das sondas automáticas Z.</li>
-<li><a href="BLTouch.html">BL-Touch</a>: Configure uma sonda Z "BL-Touch".</li>
-<li><a href="Manual_Level.html">Nível manual</a>: Calibração das paradas finais de Z (e similares).</li>
-<li><a href="Bed_Mesh.html">Cama de Malha</a>: Correção da altura da cama baseada em coordenadas XY.</li>
-<li><a href="Endstop_Phase.html">Fase de fim de curso</a>: Posicionado do fim de curso de Z assistido via motor de passo.</li>
+<li><a href="Config_checks.html">Verificação de Configuração</a>: Verificar as configurações básicas dos pinos no arquivo de configuração.</li>
+<li><a href="Bed_Level.html">Nivelamento da Cama</a>: Informações sobre o "nivelamento da cama" no Klipper.<ul>
+<li><a href="Delta_Calibrate.html">Calibração Delta</a>: Calibração da cinemática delta.</li>
+<li><a href="Probe_Calibrate.html">Calibração da Sonda</a>: Calibração das sondas automáticas de Z.</li>
+<li><a href="BLTouch.html">BL-Touch</a>: Configurar uma sonda Z "BL-Touch".</li>
+<li><a href="Manual_Level.html">Nivelamento Manual</a>: Calibração de fim de curso de Z (e similares).</li>
+<li><a href="Bed_Mesh.html">Malha da Cama</a>: Correção de altura da cama baseada em coordenadas XY.</li>
+<li><a href="Endstop_Phase.html">Fase do Fim de Curso</a>: Posicionamento do fim de curso de Z assistido por motor de passo.</li>
 </ul>
 </li>
-<li><a href="Resonance_Compensation.html">Compensação de ressonância</a>: Uma ferramenta para reduzir irregularidades nas impressões.<ul>
-<li><a href="Measuring_Resonances.html">Ressonâncias de medida</a>: Informação sobre o uso do acelerômetro adxl345 para medir a ressonância.</li>
+<li><a href="Resonance_Compensation.html">Compensação de ressonância</a>: Uma ferramenta para reduzir o ringing (vibrações indesejadas) nas impressões.<ul>
+<li><a href="Measuring_Resonances.html">Medindo ressonâncias</a>: Informações sobre como usar um acelerômetro adxl345 para medir ressonâncias.</li>
 </ul>
 </li>
-<li><a href="Pressure_Advance.html">Avançar a pressão</a>: Calibrar a pressão da extrusor.</li>
+<li><a href="Pressure_Advance.html">Avanço de pressão</a>: Calibrar a pressão do extrusor.</li>
 <li><a href="G-Codes.html">G-Codes</a>: Informações sobre comandos suportados pelo Klipper.</li>
-<li><a href="Command_Templates.html">Modelos de comandos</a>: Macros em G-Code e avaliação condicional.<ul>
+<li><a href="Command_Templates.html">Modelos de comandos</a>: Macros G-Code e avaliação condicional.<ul>
 <li><a href="Status_Reference.html">Referência de Status</a>: Informações disponíveis para macros (e similares).</li>
 </ul>
 </li>
-<li><a href="TMC_Drivers.html">Drivers TMC</a>: Usando drivers Trinamic para motores de passo com o Klipper.</li>
-<li><a href="Multi_MCU_Homing.html">Multi-MCU Homing</a>: Posicionamento e sondagem usando vários micro-controladores.</li>
-<li><a href="Slicers.html">Fatiadores</a>: Configuração do programa "fatiador" para o Klipper.</li>
-<li><a href="Skew_Correction.html">Skew correction</a>: Ajustes para eixos não perfeitamente quadrados.</li>
-<li><a href="Using_PWM_Tools.html">Ferramentas PWM</a>: Guia de como usar ferramentas de controladas por PWM tais como lasers e fusos.</li>
-<li><a href="Exclude_Object.html">Exclude Object</a>: The guide to the Exclude Objects implementation.</li>
+<li><a href="TMC_Drivers.html">Drivers TMC</a>: Usando drivers de motor de passo Trinamic com Klipper.</li>
+<li><a href="Multi_MCU_Homing.html">Homing Multi-MCU</a>: Homing e sondagem usando múltiplos microcontroladores.</li>
+<li><a href="Slicers.html">Slicers</a>: Configurar o software "slicer" (fatiador) para o Klipper.</li>
+<li><a href="Skew_Correction.html">Correção de Distorção</a>: Ajustes para eixos não perfeitamente quadrados.</li>
+<li><a href="Using_PWM_Tools.html">Ferramentas PWM</a>: Guia sobre como usar ferramentas controladas por PWM, como lasers ou fresas.</li>
+<li><a href="Exclude_Object.html">Excluir Objeto</a>: O guia para a implementação de Excluir Objetos.</li>
 </ul>
-<h2 id="documentacao-de-desenvolvedor">Documentação de desenvolvedor<a class="headerlink" href="#documentacao-de-desenvolvedor" title="Permanent link">&para;</a></h2>
+<h2 id="documentacao-do-desenvolvedor">Documentação do Desenvolvedor<a class="headerlink" href="#documentacao-do-desenvolvedor" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="Code_Overview.html">Visão geral do código</a>: Desenvolvedor devem ler isto primeiro.</li>
-<li><a href="Kinematics.html">Cinemática</a>: Detalhes técnicos em como o Klipper implementa movimento.</li>
-<li><a href="Protocol.html">Protocolo</a>: Informação sobre protocolo de troca de mensagem em baixo nível entre hospedeiro e microcontrolador.</li>
-<li><a href="API_Server.html">Servidor API</a>: Informações sobre comando e controle API do Klipper.</li>
-<li><a href="MCU_Commands.html">Comandos MCU</a>: Uma descrição dos comandos de baixo nível implementas no software do microcontrolador.</li>
-<li><a href="CANBUS_protocol.html">Protoloco de barramento CAN</a>: Formato de mensagens do barramento CAN.</li>
-<li><a href="Debugging.html">Depuração</a>: Informação sobre como testar e depurar o Klipper.</li>
-<li><a href="Benchmarks.html">Benchmarks</a>: Informação do método de medição de performance no Klipper.</li>
-<li><a href="CONTRIBUTING.html">Contribuindo</a>: Informação sobre como enviar melhorias para o Klipper.</li>
-<li><a href="Packaging.html">Empacotamento</a>: Informação sobre a construção de pacotes de SO.</li>
+<li><a href="Code_Overview.html">Visão Geral do Código</a>: Os desenvolvedores devem ler isso primeiro.</li>
+<li><a href="Kinematics.html">Cinemática</a>: Detalhes técnicos de como o Klipper implementa o movimento.</li>
+<li><a href="Protocol.html">Protocolo</a>: Informações sobre o protocolo de mensagens de baixo nível entre host e microcontrolador.</li>
+<li><a href="API_Server.html">Servidor API</a>: Informações sobre a API de comando e controle do Klipper.</li>
+<li><a href="MCU_Commands.html">Comandos MCU</a>: Uma descrição dos comandos de baixo nível implementados no software do microcontrolador.</li>
+<li><a href="CANBUS_protocol.html">Protocolo de barramento CAN</a>: Formato de mensagem do barramento CAN do Klipper.</li>
+<li><a href="Debugging.html">Depuração</a>: Informações sobre como testar e depurar o Klipper.</li>
+<li><a href="Benchmarks.html">Benchmarks</a>: Informações sobre o método de medição de performance do Klipper.</li>
+<li><a href="CONTRIBUTING.html">Contribuindo</a>: Informações sobre como enviar melhorias para o Klipper.</li>
+<li><a href="Packaging.html">Empacotamento</a>: Informações sobre a construção de pacotes de sistema operacional.</li>
 </ul>
 <h2 id="documentos-de-dispositivos-especificos">Documentos de Dispositivos Específicos<a class="headerlink" href="#documentos-de-dispositivos-especificos" title="Permanent link">&para;</a></h2>
 <ul>
 <li><a href="Example_Configs.html">Configurações de exemplo</a>: Informação de como adicionar um arquivo de configuração de exemplo no Klipper.</li>
-<li><a href="SDCard_Updates.html">Atualizações por cartão SD</a>: Programar um micro controlador via cópia de binário para um cartão SD no microcontrolador.</li>
-<li><a href="RPi_microcontroller.html">Raspberry Pi como Micro-controlador</a>: Detalhes para controlar dispositivos cabeados a pinos GPIO de um Raspberry Pi.</li>
-<li><a href="Beaglebone.html">Beaglebone</a>: Detalhes para executar o Klipper no Beaglebone PRU.</li>
-<li><a href="Bootloaders.html">Bootloaders</a>: Informações do desenvolvedor sobre o flash do microcontrolador.</li>
-<li><a href="CANBUS.html">CAN bus</a>: Informações sobre o uso do barramento CAN com Klipper.</li>
+<li><a href="SDCard_Updates.html">Atualizações do Cartão SD</a>: Programar um microcontrolador copiando um binário para um cartão SD no microcontrolador.</li>
+<li><a href="RPi_microcontroller.html">Raspberry Pi como Microcontrolador</a>: Detalhes para controlar dispositivos conectados aos pinos GPIO de um Raspberry Pi.</li>
+<li><a href="Beaglebone.html">Beaglebone</a>: Detalhes para rodar Klipper no Beaglebone PRU.</li>
+<li><a href="Bootloaders.html">Bootloaders</a>: Informações de desenvolvedor sobre a gravação de microcontrolador.</li>
+<li><a href="CANBUS.html">Barramento CAN</a>: Informações sobre o uso do barramento CAN com Klipper.<ul>
+<li><a href="CANBUS_Troubleshooting.html">CAN bus troubleshooting</a>: Tips for troubleshooting CAN bus.</li>
+</ul>
+</li>
 <li><a href="TSL1401CL_Filament_Width_Sensor.html">Sensor de largura de filamento TSL1401CL</a></li>
 <li><a href="Hall_Filament_Width_Sensor.html">Sensor de largura de filamento Hall</a></li>
 </ul>

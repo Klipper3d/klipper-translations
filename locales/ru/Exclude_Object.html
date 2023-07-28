@@ -1295,10 +1295,10 @@ section</a> (also see the <a href="G-Codes.html#exclude-object">command
 reference</a> and <a href="https://github.com/Klipper3d/klipper/blob/master/config/sample-macros.cfg">sample-macros.cfg</a> file for a Marlin/RepRapFirmware compatible M486 G-Code macro.)</p>
 <p>В отличие от других вариантов прошивки 3D-принтера, принтер под управлением Klipper использует набор компонентов, и у пользователей есть много вариантов на выбор. Поэтому, чтобы обеспечить согласованный пользовательский интерфейс, модуль <code>[exclude_object]</code> установит своего рода контракт или API. Контракт охватывает содержимое файла gcode, как контролируется внутреннее состояние модуля и как это состояние предоставляется клиентам.</p>
 <h2 id="_2">Обзор рабочего процесса<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>A typical workflow for printing a file might look like this:</p>
+<p>Типичный процесс печати файла может выглядеть следующим образом:</p>
 <ol>
-<li>Slicing is completed and the file is uploaded for printing. During the upload, the file is processed and <code>[exclude_object]</code> markers are added to the file. Alternately, slicers may be configured to prepare object exclusion markers natively, or in it's own pre-processing step.</li>
-<li>When printing starts, Klipper will reset the <code>[exclude_object]</code> <a href="Status_Reference.html#exclude_object">status</a>.</li>
+<li>Нарезка завершена, и файл выгружается на печать. Во время загрузки файл обрабатывается, и в него добавляются маркеры <code>[exclude_object]</code>. В качестве альтернативы слайсеры могут быть настроены на подготовку маркеров исключения объектов нативно или на отдельном этапе предварительной обработки.</li>
+<li>Когда начнется печать, Klipper сбросит значение <code>[exclude_object]</code> <a href="Status_Reference.html#exclude_object">status</a>.</li>
 <li>When Klipper processes the <code>EXCLUDE_OBJECT_DEFINE</code> block, it will update the status with the known objects and pass it on to clients.</li>
 <li>The client may use that information to present a UI to the user so that progress can be tracked. Klipper will update the status to include the currently printing object which the client can use for display purposes.</li>
 <li>If the user requests that an object be cancelled, the client will issue an <code>EXCLUDE_OBJECT NAME=&lt;name&gt;</code> command to Klipper.</li>

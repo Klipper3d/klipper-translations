@@ -1246,8 +1246,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#install-the-rc-script" class="md-nav__link">
-    Install the rc script
+  <a href="#rc" class="md-nav__link">
+    Установите скрипт rc
   </a>
   
 </li>
@@ -1316,9 +1316,9 @@
 <h2 id="rpi">Зачем использовать RPi в качестве вторичного микроконтроллера?<a class="headerlink" href="#rpi" title="Permanent link">&para;</a></h2>
 <p>Часто микроконтроллеры, предназначенные для управления 3D-принтерами, имеют ограниченное и предварительно настроенное количество открытых контактов для управления основными функциями печати (терморезисторы, экструдеры, шаговые двигатели ...). Использование RPi, в котором Klipper установлен в качестве дополнительного микроконтроллера, дает возможность напрямую использовать GPIO и шины (i2c, spi) RPi внутри klipper без использования плагинов Octoprint (если они используются) или внешних программ, дающих возможность управлять всем в GCODE печати.</p>
 <p><strong> Предупреждение </strong>: Если вашей платформой является * Beaglebone* и вы правильно выполнили шаги по установке, микроконтроллер Linux уже установлен и настроен для вашей системы.</p>
-<h2 id="install-the-rc-script">Install the rc script<a class="headerlink" href="#install-the-rc-script" title="Permanent link">&para;</a></h2>
-<p>If you want to use the host as a secondary MCU the klipper_mcu process must run before the klippy process.</p>
-<p>After installing Klipper, install the script. run:</p>
+<h2 id="rc">Установите скрипт rc<a class="headerlink" href="#rc" title="Permanent link">&para;</a></h2>
+<p>Если вы хотите использовать хост в качестве дополнительного MCU, то процесс klipper_mcu должен выполняться до процесса klippy.</p>
+<p>После установки Klipper установите скрипт. запустите:</p>
 <div class="highlight"><pre><span></span><code>cd ~/klipper/
 sudo cp ./scripts/klipper-mcu.service /etc/systemd/system/
 sudo systemctl enable klipper-mcu.service
@@ -1330,7 +1330,7 @@ sudo systemctl enable klipper-mcu.service
 make menuconfig
 </code></pre></div>
 
-<p>In the menu, set "Microcontroller Architecture" to "Linux process," then save and exit.</p>
+<p>В меню "Microcontroller Architecture" установите значение "Linux process", затем сохраните и выйдите.</p>
 <p>To build and install the new micro-controller code, run:</p>
 <div class="highlight"><pre><span></span><code>sudo service klipper stop
 make flash

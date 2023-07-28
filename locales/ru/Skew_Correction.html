@@ -1246,8 +1246,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#take-your-measurements" class="md-nav__link">
-    Take your measurements
+  <a href="#_3" class="md-nav__link">
+    Проведите свои измерения
   </a>
   
 </li>
@@ -1267,7 +1267,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     Оговорки
   </a>
   
@@ -1295,8 +1295,8 @@
 <h2 id="_2">Печать Объекта Калибровки<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>Первым шагом в исправлении перекоса является печать <a href="https://www.thingiverse.com/thing:2563185/files">калибровочного объекта</a> вдоль плоскости, которую вы хотите исправить. Существует также <a href="https://www.thingiverse.com/thing:2972743">объект калибровки</a>, который включает в себя все плоскости в одной модели. Вы хотите, чтобы объект был ориентирован так, чтобы угол A был направлен к началу плоскости.</p>
 <p>Убедитесь, что во время этой печати не применяется коррекция перекоса. Вы можете сделать это, либо удалив модуль <code>[skew_correction]</code> из файла printer.cfg, либо введя gcode <code>SET_SKEW CLEAR=1</code>.</p>
-<h2 id="take-your-measurements">Take your measurements<a class="headerlink" href="#take-your-measurements" title="Permanent link">&para;</a></h2>
-<p>The <code>[skew_correcton]</code> module requires 3 measurements for each plane you want to correct; the length from Corner A to Corner C, the length from Corner B to Corner D, and the length from Corner A to Corner D. When measuring length AD do not include the flats on the corners that some test objects provide.</p>
+<h2 id="_3">Проведите свои измерения<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>Модуль <code>[skew_correcton]</code> требует проведения трех измерений для каждой плоскости, которую необходимо скорректировать: длина от угла A до угла C, длина от угла B до угла D и длина от угла A до угла D. При измерении длины AD не учитывайте плоские поверхности на углах, которые предусмотрены в некоторых тестовых объектах.</p>
 <p><img alt="skew_lengths" src="img/skew_lengths.png" /></p>
 <h2 id="configure-your-skew">Configure your skew<a class="headerlink" href="#configure-your-skew" title="Permanent link">&para;</a></h2>
 <p>Make sure <code>[skew_correction]</code> is in printer.cfg. You may now use the <code>SET_SKEW</code> gcode to configure skew_correcton. For example, if your measured lengths along XY are as follows:</p>
@@ -1332,7 +1332,7 @@ Length AD = 99.8
 <div class="highlight"><pre><span></span><code>CALC_MEASURED_SKEW AC=&lt;ac_length&gt; BD=&lt;bd_length&gt; AD=&lt;ad_length&gt;
 </code></pre></div>
 
-<h2 id="_3">Оговорки<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<h2 id="_4">Оговорки<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>Due to the nature of skew correction it is recommended to configure skew in your start gcode, after homing and any kind of movement that travels near the edge of the print area such as a purge or nozzle wipe. You may use use the <code>SET_SKEW</code> or <code>SKEW_PROFILE</code> gcodes to accomplish this. It is also recommended to issue a <code>SET_SKEW CLEAR=1</code> in your end gcode.</p>
 <p>Keep in mind that it is possible for <code>[skew_correction]</code> to generate a correction that moves the tool beyond the printer's boundaries on the X and/or Y axes. It is recommended to arrange parts away from the edges when using <code>[skew_correction]</code>.</p>
 

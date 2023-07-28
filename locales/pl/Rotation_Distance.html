@@ -1313,15 +1313,15 @@
 <h1 id="rotation-distance">Rotation distance<a class="headerlink" href="#rotation-distance" title="Permanent link">&para;</a></h1>
 <p>Sterowniki silników krokowych w Klipperze wymagają parametru <code>rotation_distance</code> w każdej sekcji <a href="Config_Reference.html#stepper">stepper config</a>. Parametr <code>rotation_distance</code> jest odległością, o jaką porusza się oś przy jednym pełnym obrocie silnika krokowego. Ten dokument opisuje jak można skonfigurować tę wartość.</p>
 <h2 id="uzyskanie-rotation_distance-z-steps_per_mm-lub-step_distance">Uzyskanie rotation_distance z steps_per_mm (lub step_distance)<a class="headerlink" href="#uzyskanie-rotation_distance-z-steps_per_mm-lub-step_distance" title="Permanent link">&para;</a></h2>
-<p>The designers of your 3d printer originally calculated <code>steps_per_mm</code> from a rotation distance. If you know the steps_per_mm then it is possible to use this general formula to obtain that original rotation distance:</p>
+<p>Projektanci twojej drukarki 3D pierwotnie obliczyli <code>steps_per_mm</code> na podstawie odległości obrotu. Jeśli znasz step_per_mm, możesz użyć tego ogólnego wzoru, aby uzyskać oryginalną odległość obrotu:</p>
 <div class="highlight"><pre><span></span><code>rotation_distance = &lt;full_steps_per_rotation&gt; * &lt;microsteps&gt; / &lt;steps_per_mm&gt;
 </code></pre></div>
 
-<p>Or, if you have an older Klipper configuration and know the <code>step_distance</code> parameter you can use this formula:</p>
+<p>Lub, jeśli masz starszą konfigurację Klippera i znasz parametr <code>step_distance</code>, możesz użyć tego wzoru:</p>
 <div class="highlight"><pre><span></span><code>rotation_distance = &lt;full_steps_per_rotation&gt; * &lt;microsteps&gt; * &lt;step_distance&gt;
 </code></pre></div>
 
-<p>The <code>&lt;full_steps_per_rotation&gt;</code> setting is determined from the type of stepper motor. Most stepper motors are "1.8 degree steppers" and therefore have 200 full steps per rotation (360 divided by 1.8 is 200). Some stepper motors are "0.9 degree steppers" and thus have 400 full steps per rotation. Other stepper motors are rare. If unsure, do not set full_steps_per_rotation in the config file and use 200 in the formula above.</p>
+<p>Ustawienie <code>&lt;full_steps_per_rotation&gt;</code> jest określane na podstawie typu silnika krokowego. Większość silników krokowych to "steppery 1,8 stopnia" i dlatego mają 200 pełnych kroków na obrót (360 podzielone przez 1,8 to 200). Niektóre silniki krokowe są "stepperami 0,9 stopnia", a zatem mają 400 pełnych kroków na obrót. Inne silniki krokowe są rzadkie. Jeśli nie masz pewności, nie ustawiaj full_steps_per_rotation w pliku konfiguracyjnym i użyj 200 w powyższym wzorze.</p>
 <p>The <code>&lt;microsteps&gt;</code> setting is determined by the stepper motor driver. Most drivers use 16 microsteps. If unsure, set <code>microsteps: 16</code> in the config and use 16 in the formula above.</p>
 <p>Almost all printers should have a whole number for <code>rotation_distance</code> on X, Y, and Z type axes. If the above formula results in a rotation_distance that is within .01 of a whole number then round the final value to that whole_number.</p>
 <h2 id="calibrating-rotation_distance-on-extruders">Calibrating rotation_distance on extruders<a class="headerlink" href="#calibrating-rotation_distance-on-extruders" title="Permanent link">&para;</a></h2>

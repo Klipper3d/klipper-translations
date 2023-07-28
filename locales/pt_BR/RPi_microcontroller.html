@@ -1253,15 +1253,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#building-the-micro-controller-code" class="md-nav__link">
-    Building the micro-controller code
+  <a href="#construindo-o-codigo-do-micro-controlador" class="md-nav__link">
+    Construindo o código do micro-controlador
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#remaining-configuration" class="md-nav__link">
-    Remaining configuration
+  <a href="#configuracao-restante" class="md-nav__link">
+    Configuração restante
   </a>
   
 </li>
@@ -1324,14 +1324,14 @@ sudo cp ./scripts/klipper-mcu.service /etc/systemd/system/
 sudo systemctl enable klipper-mcu.service
 </code></pre></div>
 
-<h2 id="building-the-micro-controller-code">Building the micro-controller code<a class="headerlink" href="#building-the-micro-controller-code" title="Permanent link">&para;</a></h2>
+<h2 id="construindo-o-codigo-do-micro-controlador">Construindo o código do micro-controlador<a class="headerlink" href="#construindo-o-codigo-do-micro-controlador" title="Permanent link">&para;</a></h2>
 <p>To compile the Klipper micro-controller code, start by configuring it for the "Linux process":</p>
 <div class="highlight"><pre><span></span><code>cd ~/klipper/
 make menuconfig
 </code></pre></div>
 
 <p>In the menu, set "Microcontroller Architecture" to "Linux process," then save and exit.</p>
-<p>To build and install the new micro-controller code, run:</p>
+<p>Para construir e instalar o novo código do micro-controlador, execute:</p>
 <div class="highlight"><pre><span></span><code>sudo service klipper stop
 make flash
 sudo service klipper start
@@ -1341,7 +1341,7 @@ sudo service klipper start
 <div class="highlight"><pre><span></span><code>sudo usermod -a -G tty pi
 </code></pre></div>
 
-<h2 id="remaining-configuration">Remaining configuration<a class="headerlink" href="#remaining-configuration" title="Permanent link">&para;</a></h2>
+<h2 id="configuracao-restante">Configuração restante<a class="headerlink" href="#configuracao-restante" title="Permanent link">&para;</a></h2>
 <p>Complete the installation by configuring Klipper secondary MCU following the instructions in <a href="https://github.com/Klipper3d/klipper/blob/master/config/sample-raspberry-pi.cfg">RaspberryPi sample config</a> and <a href="https://github.com/Klipper3d/klipper/blob/master/config/sample-multi-mcu.cfg">Multi MCU sample config</a>.</p>
 <h2 id="optional-enabling-spi">Optional: Enabling SPI<a class="headerlink" href="#optional-enabling-spi" title="Permanent link">&para;</a></h2>
 <p>Make sure the Linux SPI driver is enabled by running <code>sudo raspi-config</code> and enabling SPI under the "Interfacing options" menu.</p>

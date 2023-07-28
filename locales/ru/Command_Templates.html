@@ -1253,8 +1253,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#add-a-description-to-your-macro" class="md-nav__link">
-    Add a description to your macro
+  <a href="#_1" class="md-nav__link">
+    Добавьте описание своему макросу
   </a>
   
 </li>
@@ -1365,8 +1365,8 @@ gcode:
   SET_PIN PIN=my_led VALUE=0
 </code></pre></div>
 
-<p>Note how the <code>gcode:</code> config option always starts at the beginning of the line and subsequent lines in the G-Code macro never start at the beginning.</p>
-<h2 id="add-a-description-to-your-macro">Add a description to your macro<a class="headerlink" href="#add-a-description-to-your-macro" title="Permanent link">&para;</a></h2>
+<p>Обратите внимание, что опция конфигурации <code>gcode:</code> всегда начинается с начала строки, а последующие строки в макросе G-Code никогда не начинаются с начала.</p>
+<h2 id="_1">Добавьте описание своему макросу<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>To help identify the functionality a short description can be added. Add <code>description:</code> with a short text to describe the functionality. Default is "G-Code macro" if not specified. For example:</p>
 <div class="highlight"><pre><span></span><code>[gcode_macro blink_led]
 description: Blink my_led one time
@@ -1378,7 +1378,7 @@ gcode:
 
 <p>The terminal will display the description when you use the <code>HELP</code> command or the autocomplete function.</p>
 <h2 id="saverestore-state-for-g-code-moves">Save/Restore state for G-Code moves<a class="headerlink" href="#saverestore-state-for-g-code-moves" title="Permanent link">&para;</a></h2>
-<p>Unfortunately, the G-Code command language can be challenging to use. The standard mechanism to move the toolhead is via the <code>G1</code> command (the <code>G0</code> command is an alias for <code>G1</code> and it can be used interchangeably with it). However, this command relies on the "G-Code parsing state" setup by <code>M82</code>, <code>M83</code>, <code>G90</code>, <code>G91</code>, <code>G92</code>, and previous <code>G1</code> commands. When creating a G-Code macro it is a good idea to always explicitly set the G-Code parsing state prior to issuing a <code>G1</code> command. (Otherwise, there is a risk the <code>G1</code> command will make an undesirable request.)</p>
+<p>К сожалению, командный язык G-Code может оказаться сложным в использовании. Стандартным механизмом перемещения инструментальной головки является команда <code>G1</code> (команда <code>G0</code> является псевдонимом для <code>G1</code> и может использоваться как взаимозаменяемая с ней). Однако эта команда опирается на "состояние разбора G-кода", установленное командами <code>M82</code>, <code>M83</code>, <code>G90</code>, <code>G91</code>, <code>G92</code> и предыдущими командами <code>G1</code>. При создании макроса G-кода целесообразно всегда явно устанавливать состояние разбора G-кода перед подачей команды <code>G1</code>. (В противном случае есть риск, что команда <code>G1</code> выполнит нежелательный запрос)</p>
 <p>A common way to accomplish that is to wrap the <code>G1</code> moves in <code>SAVE_GCODE_STATE</code>, <code>G91</code>, and <code>RESTORE_GCODE_STATE</code>. For example:</p>
 <div class="highlight"><pre><span></span><code>[gcode_macro MOVE_UP]
 gcode:

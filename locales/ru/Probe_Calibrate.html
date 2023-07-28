@@ -1246,8 +1246,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#calibrating-probe-z-offset" class="md-nav__link">
-    Calibrating probe Z offset
+  <a href="#z" class="md-nav__link">
+    Калибровка датчика со смещением по оси Z
   </a>
   
 </li>
@@ -1299,18 +1299,18 @@
 </code></pre></div>
 
 <p>Сделайте отметку на ленте непосредственно под тем местом, где находится зонд (или используйте аналогичный метод, чтобы отметить местоположение на кровати).</p>
-<p>Issue a <code>GET_POSITION</code> command and record the toolhead XY location reported by that command. For example if one sees:</p>
+<p>Выдать команду <code>GET_POSITION</code> и записать положение инструментальной головки по оси XY, сообщенное этой командой. Например, если вы видите:</p>
 <div class="highlight"><pre><span></span><code>Recv: // toolhead: X:46.500000 Y:27.000000 Z:15.000000 E:0.000000
 </code></pre></div>
 
-<p>then one would record a probe X position of 46.5 and probe Y position of 27.</p>
-<p>After recording the probe position, issue a series of G1 commands until the nozzle is directly above the mark on the bed. For example, one might issue:</p>
+<p>то можно записать положение зонда X, равное 46,5, и положение зонда Y, равное 27.</p>
+<p>Зафиксировав положение зонда, подайте серию команд G1 до тех пор, пока сопло не окажется непосредственно над меткой на станине. Например, можно выдать:</p>
 <div class="highlight"><pre><span></span><code>G1 F300 X57 Y30 Z15
 </code></pre></div>
 
 <p>to move the nozzle to an X position of 57 and Y of 30. Once one finds the position directly above the mark, use the <code>GET_POSITION</code> command to report that position. This is the nozzle position.</p>
 <p>The x_offset is then the <code>nozzle_x_position - probe_x_position</code> and y_offset is similarly the <code>nozzle_y_position - probe_y_position</code>. Update the printer.cfg file with the given values, remove the tape/marks from the bed, and then issue a <code>RESTART</code> command so that the new values take effect.</p>
-<h2 id="calibrating-probe-z-offset">Calibrating probe Z offset<a class="headerlink" href="#calibrating-probe-z-offset" title="Permanent link">&para;</a></h2>
+<h2 id="z">Калибровка датчика со смещением по оси Z<a class="headerlink" href="#z" title="Permanent link">&para;</a></h2>
 <p>Providing an accurate probe z_offset is critical to obtaining high quality prints. The z_offset is the distance between the nozzle and bed when the probe triggers. The Klipper <code>PROBE_CALIBRATE</code> tool can be used to obtain this value - it will run an automatic probe to measure the probe's Z trigger position and then start a manual probe to obtain the nozzle Z height. The probe z_offset will then be calculated from these measurements.</p>
 <p>Start by homing the printer and then move the head to a position near the center of the bed. Navigate to the OctoPrint terminal tab and run the <code>PROBE_CALIBRATE</code> command to start the tool.</p>
 <p>This tool will perform an automatic probe, then lift the head, move the nozzle over the location of the probe point, and start the manual probe tool. If the nozzle does not move to a position above the automatic probe point, then <code>ABORT</code> the manual probe tool and perform the XY probe offset calibration described above.</p>

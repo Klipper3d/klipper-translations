@@ -1295,14 +1295,27 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_9" class="md-nav__link">
-    상대적 참조 인덱스
+  <a href="#configuring-the-zero-reference-position" class="md-nav__link">
+    Configuring the zero reference position
+  </a>
+  
+    <nav class="md-nav" aria-label="Configuring the zero reference position">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#the-deprecated-relative_reference_index" class="md-nav__link">
+    The deprecated relative_reference_index
   </a>
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+        
           <li class="md-nav__item">
-  <a href="#_10" class="md-nav__link">
+  <a href="#_9" class="md-nav__link">
     결함 영역
   </a>
   
@@ -1322,14 +1335,14 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_11" class="md-nav__link">
+  <a href="#_10" class="md-nav__link">
     캘리브레이션
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_12" class="md-nav__link">
+  <a href="#_11" class="md-nav__link">
     프로필
   </a>
   
@@ -1349,14 +1362,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#_12" class="md-nav__link">
     결과출력
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
+  <a href="#_13" class="md-nav__link">
     메쉬 상태 제거
   </a>
   
@@ -1488,22 +1501,35 @@ fade_target: 0
 <li><code>fade_end: 10</code> <em>Default 값: 0</em> 페이드 효과를 마치는 높이. 만약 이 값이 <code>fade_start</code>보다 작다면 페이드는 꺼지게 된다. 이 값은 프린터 베드표면이 얼마나 휘어있느냐에 따라 값을 정해주면 된다. 아주 심각하게 휘어 있는 베드라면 좀더 두껍게 페이드 아웃을 진행해줘야 한다. 거의 평면에 가까운 베드라면 보다 빨리 보정이 완료되도록 이 값을 줄이면 되겠다. 만약 <code>fade_start</code>로 1을 지정했다면 10mm 값은 적당한 값이라 하겠다.</li>
 <li><code>fade_target: 0</code> <em>Default Value: The average Z value of the mesh</em> The <code>fade_target</code> can be thought of as an additional Z offset applied to the entire bed after fade completes. Generally speaking we would like this value to be 0, however there are circumstances where it should not be. For example, lets assume your homing position on the bed is an outlier, its .2 mm lower than the average probed height of the bed. If the <code>fade_target</code> is 0, fade will shrink the print by an average of .2 mm across the bed. By setting the <code>fade_target</code> to .2, the homed area will expand by .2 mm, however, the rest of the bed will be accurately sized. Generally its a good idea to leave <code>fade_target</code> out of the configuration so the average height of the mesh is used, however it may be desirable to manually adjust the fade target if one wants to print on a specific portion of the bed.</li>
 </ul>
-<h3 id="_9">상대적 참조 인덱스<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
-<p>Most probes are susceptible to drift, ie: inaccuracies in probing introduced by heat or interference. This can make calculating the probe's z-offset challenging, particularly at different bed temperatures. As such, some printers use an endstop for homing the Z axis, and a probe for calibrating the mesh. These printers can benefit from configuring the relative reference index.</p>
+<h3 id="configuring-the-zero-reference-position">Configuring the zero reference position<a class="headerlink" href="#configuring-the-zero-reference-position" title="Permanent link">&para;</a></h3>
+<p>Many probes are susceptible to "drift", ie: inaccuracies in probing introduced by heat or interference. This can make calculating the probe's z-offset challenging, particularly at different bed temperatures. As such, some printers use an endstop for homing the Z axis and a probe for calibrating the mesh. In this configuration it is possible offset the mesh so that the (X, Y) <code>reference position</code> applies zero adjustment. The <code>reference postion</code> should be the location on the bed where a <a href="./Manual_Level#calibrating-a-z-endstop">Z_ENDSTOP_CALIBRATE</a> paper test is performed. The bed_mesh module provides the <code>zero_reference_position</code> option for specifying this coordinate:</p>
 <div class="highlight"><pre><span></span><code>[bed_mesh]
 speed: 120
 horizontal_move_z: 5
 mesh_min: 35, 6
 mesh_max: 240, 198
+zero_reference_position: 125, 110
 probe_count: 5, 3
-relative_reference_index: 7
 </code></pre></div>
 
 <ul>
-<li><code>relative_reference_index: 7</code> <em>Default 값: None (꺼짐)</em> 레벨측정 포인트가 생성되면 그것들은 인텍스로 할당된다. 당신이 klippy.log 에서나 BED_MESH_OUTPUT을 사용하여 인덱스를 살펴볼 수 있다. (보다 자세한 내용은 아래의 Bed Mesh GCodes에 있는 섹션을 참고하기 바란다) 만일 인덱스값에 <code>relative_reference_index</code> 옵션을 할당하게 되면, 이 좌표계에서 측정된 값은 프로브의 Z 오프셋을 대체할 것이다. 이것은 효과적으로 이 좌표계가 메쉬에 대한 "zero" 참조를 만든다.</li>
+<li><code>zero_reference_position:</code> <em>Default Value: None (disabled)</em> The <code>zero_reference_position</code> expects an (X, Y) coordinate matching that of the <code>reference position</code> described above. If the coordinate lies within the mesh then the mesh will be offset so the reference position applies zero adjustment. If the coordinate lies outside of the mesh then the coordinate will be probed after calibration, with the resulting z-value used as the z-offset. Note that this coordinate must NOT be in a location specified as a <code>faulty_region</code> if a probe is necessary.</li>
 </ul>
-<p>상대적 참조 인덱스를 사용할 때는 Z endstop 캘리브레이션이 진행된 베드상의 지점에서 가장 가까운 인덱스를 골라야 한다. log 나 BED_MESH_OUTPUT을 사용하여 인덱스를 살펴본다면, 정확한 인덱스를 찾기 위해 "Probe" 헤더아래 리스트된 좌표계를 사용해야함을 기억하라.</p>
-<h3 id="_10">결함 영역<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
+<h4 id="the-deprecated-relative_reference_index">The deprecated relative_reference_index<a class="headerlink" href="#the-deprecated-relative_reference_index" title="Permanent link">&para;</a></h4>
+<p>Existing configurations using the <code>relative_reference_index</code> option must be updated to use the <code>zero_reference_position</code>. The response to the <a href="#output">BED_MESH_OUTPUT PGP=1</a> gcode command will include the (X, Y) coordinate associated with the index; this position may be used as the value for the <code>zero_reference_position</code>. The output will look similar to the following:</p>
+<div class="highlight"><pre><span></span><code>// bed_mesh: generated points
+// Index | Tool Adjusted | Probe
+// 0 | (1.0, 1.0) | (24.0, 6.0)
+// 1 | (36.7, 1.0) | (59.7, 6.0)
+// 2 | (72.3, 1.0) | (95.3, 6.0)
+// 3 | (108.0, 1.0) | (131.0, 6.0)
+... (additional generated points)
+// bed_mesh: relative_reference_index 24 is (131.5, 108.0)
+</code></pre></div>
+
+<p><em>Note: The above output is also printed in <code>klippy.log</code> during initialization.</em></p>
+<p>Using the example above we see that the <code>relative_reference_index</code> is printed along with its coordinate. Thus the <code>zero_reference_position</code> is <code>131.5, 108</code>.</p>
+<h3 id="_9">결함 영역<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
 <p>베드 특정위치에 결함이 있는 상태에서 레벨 측정이 되었을때 어떤 위치가 부정확한 결과를 내는 곳인지 레포팅 하는것이 가능하다. 이에 대한 가장 좋은 예는 쉽게 제거할 수 있는 자석스틸시트를 사용한 베드에서 찾아볼 수 있다. 이 자석들 주변에 형성된 자기장은 인덕티브 방식의 프로브로 하여금 높이를 더 높거나 낮게 측정되게 만들 수 있다. 결과적으로 자석이 있는 표면에서는 부정확한 측정 결과를 얻게 된다. <strong>주의: 이것을 전체 베드상에서 부정확한결과를 초래하는 프로브의 지역별 편차와 헷갈리지 말아야 한다.</strong></p>
 <p><code>faulty_region</code> 옵션은 이 영향을 보상하기 위해 설정할 수 있다. 형성된 지점이 결함 영역안에 놓인다면 베드 메쉬는 이 지역경계에 4 지점을 측정하게 될 것이다. 이렇게 측정된 값의 평균치를 얻고, 생성된 X,Y 좌표계에 메쉬의 Z 값으로 입력되게 된다.</p>
 <div class="highlight"><pre><span></span><code>[bed_mesh]
@@ -1528,7 +1554,7 @@ faulty_region_4_max: 45.0, 210.0
 <p>아래 그림은 측정해야할 메쉬 좌표가 결함영역안에 들어갈 때 어떤 대체포인트를 이용해 측정되는지를 나타낸 그림이다. 아래 그림에 나타난 좌표들은 위 예시에 정의된 위치좌표를 사용했다. 대체 포인트와 좌표값은 초록색으로 표시해두었다.</p>
 <p><img alt="bedmesh_interpolated" src="img/bedmesh_faulty_regions.svg" /></p>
 <h2 id="gcode">베드 메쉬 Gcode<a class="headerlink" href="#gcode" title="Permanent link">&para;</a></h2>
-<h3 id="_11">캘리브레이션<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
+<h3 id="_10">캘리브레이션<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
 <p><code>BED_MESH_CALIBRATE PROFILE=&lt;name&gt; METHOD=[manual | automatic] [&lt;probe_parameter&gt;=&lt;value&gt;] [&lt;mesh_parameter&gt;=&lt;value&gt;]</code> <em>Default Profile: default</em> <em>Default Method: automatic if a probe is detected, otherwise manual</em></p>
 <p>메드 메쉬 캘리브레이션을 위해 프로빙 과정을 초기화하라.</p>
 <p>메쉬는 <code>PROFILE 파라메타로 특정된 프로필이나 특정되지 않았다면</code>default<code>에 저장된다. 만일</code>METHOD=manual`이 선택되있다면 수동 측정이 될 것이다. 자동과 수동 측정사이의 변환이 될 때에는 메쉬 포인트가 자동으로 적용될 것이다.</p>
@@ -1547,13 +1573,12 @@ faulty_region_4_max: 45.0, 210.0
 </ul>
 </li>
 <li>모든 베드:<ul>
-<li><code>RELATIVE_REFERNCE_INDEX</code></li>
 <li><code>ALGORITHM</code></li>
 </ul>
 </li>
 </ul>
 <p>See the configuration documentation above for details on how each parameter applies to the mesh.</p>
-<h3 id="_12">프로필<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<h3 id="_11">프로필<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
 <p><code>BED_MESH_PROFILE SAVE=&lt;name&gt; LOAD=&lt;name&gt; REMOVE=&lt;name&gt;</code></p>
 <p>After a BED_MESH_CALIBRATE has been performed, it is possible to save the current mesh state into a named profile. This makes it possible to load a mesh without re-probing the bed. After a profile has been saved using <code>BED_MESH_PROFILE SAVE=&lt;name&gt;</code> the <code>SAVE_CONFIG</code> gcode may be executed to write the profile to printer.cfg.</p>
 <p>Profiles can be loaded by executing <code>BED_MESH_PROFILE LOAD=&lt;name&gt;</code>.</p>
@@ -1569,7 +1594,7 @@ faulty_region_4_max: 45.0, 210.0
 <span class="w">  </span><span class="na">BED_MESH_PROFILE LOAD</span><span class="o">=</span><span class="s">default</span>
 </code></pre></div>
 
-<h3 id="_13">결과출력<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<h3 id="_12">결과출력<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
 <p><code>BED_MESH_OUTPUT PGP=[0 | 1]</code></p>
 <p>현재 메쉬 측정상태를 터미널에 출력한다. 메쉬 그자체가 출력됨을 기억하라</p>
 <p>PGP 파라메터는 "Print Generated Points"의 줄임말이다. 만약 <code>PGP=1</code> 이렇게 셋팅을 하면, 생성된 측정 포인트들은 터미널에 위치결과를 내보낼 것이다.:</p>
@@ -1593,7 +1618,7 @@ faulty_region_4_max: 45.0, 210.0
 </code></pre></div>
 
 <p>"Tool Adjusted" 포인트는 각 포인트에 대한 노즐의 위치를 말한다. 그리고 "Probe" 포인트는 프로브의 위치를 말한다. 수동으로 측정을 한다면, "Probe" 포인트는 노즐위치를 뜻함을 기억하라.</p>
-<h3 id="_14">메쉬 상태 제거<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<h3 id="_13">메쉬 상태 제거<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
 <p><code>BED_MESH_CLEAR</code></p>
 <p>이 gcode 는 내부 메쉬 상태를 삭제하기 위해 사용된다.</p>
 <h3 id="xy">X/Y 오프셋을 적용<a class="headerlink" href="#xy" title="Permanent link">&para;</a></h3>

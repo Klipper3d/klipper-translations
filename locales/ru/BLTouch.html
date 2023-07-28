@@ -1246,8 +1246,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#initial-tests" class="md-nav__link">
-    Initial tests
+  <a href="#_1" class="md-nav__link">
+    Начальные проверки
   </a>
   
 </li>
@@ -1329,13 +1329,13 @@ z_hop_speed: 5
 </code></pre></div>
 
 <p>Важно, чтобы перемещение z_hop в safe_z_home было достаточно высоким, чтобы зонд ни во что не врезался, даже если контакт зонда находится в самом низком состоянии.</p>
-<h2 id="initial-tests">Initial tests<a class="headerlink" href="#initial-tests" title="Permanent link">&para;</a></h2>
-<p>Before moving on, verify that the BL-Touch is mounted at the correct height, the pin should be roughly 2 mm above the nozzle when retracted</p>
-<p>When you turn on the printer, the BL-Touch probe should perform a self-test and move the pin up and down a couple of times. Once the self-test is completed, the pin should be retracted and the red LED on the probe should be lit. If there are any errors, for example the probe is flashing red or the pin is down instead of up, please turn off the printer and check the wiring and configuration.</p>
+<h2 id="_1">Начальные проверки<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>Прежде чем продолжить, убедитесь, что BL-Touch установлен на правильной высоте, штифт должен быть примерно на 2 мм выше сопла в задвинутом состоянии</p>
+<p>При включении принтера датчик BL-Touch должен выполнить самотестирование и несколько раз переместить штифт вверх и вниз. По завершении самотестирования штифт должен быть втянут, а на датчике должен гореть красный светодиод. Если возникли какие-либо ошибки, например, датчик мигает красным цветом или штырек опускается, а не поднимается, выключите принтер и проверьте подключение и конфигурацию.</p>
 <p>If the above is looking good, it's time to test that the control pin is working correctly. First run <code>BLTOUCH_DEBUG COMMAND=pin_down</code> in your printer terminal. Verify that the pin moves down and that the red LED on the probe turns off. If not, check your wiring and configuration again. Next issue a <code>BLTOUCH_DEBUG COMMAND=pin_up</code>, verify that the pin moves up, and that the red light turns on again. If it's flashing then there's some problem.</p>
 <p>The next step is to confirm that the sensor pin is working correctly. Run <code>BLTOUCH_DEBUG COMMAND=pin_down</code>, verify that the pin moves down, run <code>BLTOUCH_DEBUG COMMAND=touch_mode</code>, run <code>QUERY_PROBE</code>, and verify that command reports "probe: open". Then while gently pushing the pin up slightly with the nail of your finger run <code>QUERY_PROBE</code> again. Verify the command reports "probe: TRIGGERED". If either query does not report the correct message then it usually indicates an incorrect wiring or configuration (though some <a href="#bl-touch-clones">clones</a> may require special handling). At the completion of this test run <code>BLTOUCH_DEBUG COMMAND=pin_up</code> and verify that the pin moves up.</p>
 <p>After completing the BL-Touch control pin and sensor pin tests, it is now time to test probing, but with a twist. Instead of letting the probe pin touch the print bed, let it touch the nail on your finger. Position the toolhead far from the bed, issue a <code>G28</code> (or <code>PROBE</code> if not using probe:z_virtual_endstop), wait until the toolhead starts to move down, and stop the movement by very gently touching the pin with your nail. You may have to do it twice, since the default homing configuration probes twice. Be prepared to turn off the printer if it doesn't stop when you touch the pin.</p>
-<p>If that was successful, do another <code>G28</code> (or <code>PROBE</code>) but this time let it touch the bed as it should.</p>
+<p>Если это удалось, выполните еще одну операцию <code>G28</code> (или <code>PROBE</code>), но на этот раз пусть она коснется стола, как и положено.</p>
 <h2 id="bl-touch-gone-bad">BL-Touch gone bad<a class="headerlink" href="#bl-touch-gone-bad" title="Permanent link">&para;</a></h2>
 <p>Once the BL-Touch is in inconsistent state, it starts blinking red. You can force it to leave that state by issuing:</p>
 <p>BLTOUCH_DEBUG COMMAND=reset</p>

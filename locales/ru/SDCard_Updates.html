@@ -1332,11 +1332,11 @@ sudo service klipper start
 </code></pre></div>
 
 <p>Пользователь сам определяет местоположение устройства и название платы. Если пользователю необходимо прошить несколько плат, <code>flash-sdcard.sh</code> (или <code>make flash</code>, если это уместно) следует запустить для каждой платы перед перезапуском службы Klipper.</p>
-<p>Supported boards can be listed with the following command:</p>
+<p>Список поддерживаемых плат можно получить с помощью следующей команды:</p>
 <div class="highlight"><pre><span></span><code>./scripts/flash-sdcard.sh -l
 </code></pre></div>
 
-<p>If you do not see your board listed it may be necessary to add a new board definition as <a href="#board-definitions">described below</a>.</p>
+<p>Если вы не видите свою плату в списке, возможно, необходимо добавить новое определение платы, как <a href="#board-definitions">описано ниже</a>.</p>
 <h2 id="_2">Продвинутое использование<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>The above commands assume that your MCU connects at the default baud rate of 250000 and the firmware is located at <code>~/klipper/out/klipper.bin</code>. The <code>flash-sdcard.sh</code> script provides options for changing these defaults. All options can be viewed by the help screen:</p>
 <div class="highlight"><pre><span></span><code>./scripts/flash-sdcard.sh -h
@@ -1361,7 +1361,7 @@ optional arguments:
 <div class="highlight"><pre><span></span><code>./scripts/flash-sdcard.sh -b 115200 /dev/ttyAMA0 btt-skr-v1.3
 </code></pre></div>
 
-<p>If you wish to flash a build of Klipper located somewhere other than the default location it can be done by specifying the <code>-f</code> option:</p>
+<p>Если вы хотите прошить сборку Klipper, расположенную не в том месте, где она находится по умолчанию, это можно сделать, указав опцию <code>-f</code>:</p>
 <div class="highlight"><pre><span></span><code>./scripts/flash-sdcard.sh -f ~/downloads/klipper.bin /dev/ttyAMA0 btt-skr-v1.3
 </code></pre></div>
 

@@ -13,7 +13,7 @@
     
     
       
-        <title>Example configurations - Klipper documentation</title>
+        <title>Voorbeeld configuraties - Klipper documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#example-configurations" class="md-skip">
+        <a href="#voorbeeld-configuraties" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Example configurations
+              Voorbeeld configuraties
             
           </span>
         </div>
@@ -1239,8 +1239,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#guidelines" class="md-nav__link">
-    Guidelines
+  <a href="#richtlijnen" class="md-nav__link">
+    Richtlijnen
   </a>
   
 </li>
@@ -1262,46 +1262,46 @@
 </a>
 
 
-<h1 id="example-configurations">Example configurations<a class="headerlink" href="#example-configurations" title="Permanent link">&para;</a></h1>
-<p>This document contains guidelines for contributing an example Klipper configuration to the Klipper github repository (located in the <a href="https://github.com/Klipper3d/klipper/blob/master/config/">config directory</a>).</p>
-<p>Note that the <a href="https://community.klipper3d.org">Klipper Community Discourse server</a> is also a useful resource for finding and sharing config files.</p>
-<h2 id="guidelines">Guidelines<a class="headerlink" href="#guidelines" title="Permanent link">&para;</a></h2>
+<h1 id="voorbeeld-configuraties">Voorbeeld configuraties<a class="headerlink" href="#voorbeeld-configuraties" title="Permanent link">&para;</a></h1>
+<p>Dit document bevat richtlijnen voor het toevoegen van een voorbeeld van een Klipper-configuratie aan de Klipper github-repository (te vinden in de <a href="https://github.com/Klipper3d/klipper/blob/master/config/">configuratiefolder</a>).</p>
+<p>Merk op dat de <a href="https://community.klipper3d.org">Klipper Community Discourse server</a> ook een nuttige bron is voor het vinden en delen van configuratiebestanden.</p>
+<h2 id="richtlijnen">Richtlijnen<a class="headerlink" href="#richtlijnen" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Select the appropriate config filename prefix:<ol>
-<li>The <code>printer</code> prefix is used for stock printers sold by a mainstream manufacturer.</li>
-<li>The <code>generic</code> prefix is used for a 3d printer board that may be used in many different types of printers.</li>
-<li>The <code>kit</code> prefix is for 3d printers that are assembled according to a widely used specification. These "kit" printers are generally distinct from normal "printers" in that they are not sold by a manufacturer.</li>
-<li>The <code>sample</code> prefix is used for config "snippets" that one may copy-and-paste into the main config file.</li>
-<li>The <code>example</code> prefix is used to describe printer kinematics. This type of config is typically only added along with code for a new type of printer kinematics.</li>
+<li>Selecteer het juiste voorvoegsel van de configuratiebestandsnaam:<ol>
+<li>Het voorvoegsel <code>printer</code> wordt gebruikt voor standaardprinters die worden verkocht door een reguliere fabrikant.</li>
+<li>Het voorvoegsel <code>generic</code> wordt gebruikt voor een 3D-printerkaart die in veel verschillende soorten printers kan worden gebruikt.</li>
+<li>Het voorvoegsel <code>kit</code> is voor 3D-printers die zijn samengesteld volgens een veelgebruikte specificatie. Deze "kit"-printers onderscheiden zich over het algemeen van normale "printers" doordat ze niet door een fabrikant worden verkocht.</li>
+<li>Het voorvoegsel <code>sample</code> wordt gebruikt voor configuratie-"fragmenten" (snippets) die men kan kopiëren en plakken in het hoofdconfiguratiebestand.</li>
+<li>Het voorvoegsel <code>example</code> wordt gebruikt om de kinematica van de printer te beschrijven. Dit type configuratie wordt meestal alleen toegevoegd samen met code voor een nieuw type printerkinematica.</li>
 </ol>
 </li>
-<li>All configuration files must end in a <code>.cfg</code> suffix. The <code>printer</code> config files must end in a year followed by <code>.cfg</code> (eg, <code>-2019.cfg</code>). In this case, the year is an approximate year the given printer was sold.</li>
-<li>Do not use spaces or special characters in the config filename. The filename should contain only characters <code>A-Z</code>, <code>a-z</code>, <code>0-9</code>, <code>-</code>, and <code>.</code>.</li>
-<li>Klipper must be able to start <code>printer</code>, <code>generic</code>, and <code>kit</code> example config file without error. These config files should be added to the <a href="https://github.com/Klipper3d/klipper/blob/master/test/klippy/printers.test">test/klippy/printers.test</a> regression test case. Add new config files to that test case in the appropriate section and in alphabetical order within that section.</li>
-<li>The example configuration should be for the "stock" configuration of the printer. (There are too many "customized" configurations to track in the main Klipper repository.) Similarly, we only add example config files for printers, kits, and boards that have mainstream popularity (eg, there should be at least a 100 of them in active use). Consider using the <a href="https://community.klipper3d.org">Klipper Community Discourse server</a> for other configs.</li>
+<li>Alle configuratiebestanden moeten eindigen op een <code>.cfg</code>-achtervoegsel. De <code>printer</code> configuratiebestanden moeten eindigen in een jaar gevolgd door <code>.cfg</code> (bijv. <code>-2019.cfg</code>). In dit geval is het jaar bij benadering het jaar waarin de printer is verkocht.</li>
+<li>Gebruik geen spaties of speciale tekens in de configuratiebestandsnaam. De bestandsnaam mag alleen de tekens <code>A-Z</code>, <code>a-z</code>, <code>0-9</code>, <code>-</code> en <code>.</code> bevatten.</li>
+<li>Klipper moet het configuratiebestand <code>printer</code>, <code>generiek</code> en <code>kit</code> zonder fouten kunnen starten. Deze configuratiebestanden moeten worden toegevoegd aan de <a href="https://github.com/Klipper3d/klipper/blob/master/test/klippy/printers.test">test/klippy/printers.test</a> regressietestcase. Voeg nieuwe configuratiebestanden toe aan die testcase in de juiste sectie en in alfabetische volgorde binnen die sectie.</li>
+<li>De voorbeeldconfiguratie moet voor de "generieke" -configuratie van de printer zijn. (Er zijn te veel "aangepaste" configuraties om bij te houden in de hoofdrepository van Klipper.) Evenzo voegen we alleen voorbeeldconfiguratiebestanden toe voor printers, kits en boards die algemeen populair zijn (er zouden er bijvoorbeeld minstens 100 moeten zijn in actief gebruik). Overweeg om de <a href="https://community.klipper3d.org">Klipper Community Discourse server</a> te gebruiken voor andere configuraties.</li>
 <li>Only specify those devices present on the given printer or board. Do not specify settings specific to your particular setup.<ol>
 <li>For <code>generic</code> config files, only those devices on the mainboard should be described. For example, it would not make sense to add a display config section to a "generic" config as there is no way to know if the board will be attached to that type of display. If the board has a specific hardware port to facilitate an optional peripheral (eg, a bltouch port) then one can add a "commented out" config section for the given device.</li>
-<li>Do not specify <code>pressure_advance</code> in an example config, as that value is specific to the filament, not the printer hardware. Similarly, do not specify <code>max_extrude_only_velocity</code> nor <code>max_extrude_only_accel</code> settings.</li>
-<li>Do not specify a config section containing a host path or host hardware. For example, do not specify <code>[virtual_sdcard]</code> nor <code>[temperature_host]</code> config sections.</li>
-<li>Only define macros that utilize functionality specific to the given printer or to define g-codes that are commonly emitted by slicers configured for the given printer.</li>
+<li>Specificeer <code>pressure_advance</code> niet in een voorbeeldconfiguratie, aangezien die waarde specifiek is voor het filament, niet voor de printerhardware. Geef op dezelfde manier geen <code>max_extrude_only_velocity</code>- of <code>max_extrude_only_accel</code>-instellingen op.</li>
+<li>Geef geen configuratiesectie op die een hostpad of hosthardware bevat. Geef bijvoorbeeld geen <code>[virtual_sdcard]</code> of <code>[temperature_host]</code> configuratiesecties op.</li>
+<li>Definieer alleen macro's die functionaliteit gebruiken die specifiek is voor de bepaalde printer of om g-codes te definiëren die gewoonlijk worden ingevoegd door slicers die voor de bepaalde printer zijn geconfigureerd.</li>
 </ol>
 </li>
 <li>Where possible, it is best to use the same wording, phrasing, indentation, and section ordering as the existing config files.<ol>
 <li>The top of each config file should list the type of micro-controller the user should select during "make menuconfig". It should also have a reference to "docs/Config_Reference.md".</li>
-<li>Do not copy the field documentation into the example config files. (Doing so creates a maintenance burden as an update to the documentation would then require changing it in many places.)</li>
-<li>Example config files should not contain a "SAVE_CONFIG" section. If necessary, copy the relevant fields from the SAVE_CONFIG section to the appropriate section in the main config area.</li>
-<li>Use <code>field: value</code> syntax instead of <code>field=value</code>.</li>
-<li>When adding an extruder <code>rotation_distance</code> it is preferable to specify a <code>gear_ratio</code> if the extruder has a gearing mechanism. We expect the rotation_distance in the example configs to correlate with the circumference of the hobbed gear in the extruder - it is normally in the range of 20 to 35mm. When specifying a <code>gear_ratio</code> it is preferable to specify the actual gears on the mechanism (eg, prefer <code>gear_ratio: 80:20</code> over <code>gear_ratio: 4:1</code>). See the <a href="Rotation_Distance.html#using-a-gear_ratio">rotation distance document</a> for more information.</li>
-<li>Avoid defining field values that are set to their default value. For example, one should not specify <code>min_extrude_temp: 170</code> as that is already the default value.</li>
-<li>Where possible, lines should not exceed 80 columns.</li>
-<li>Avoid adding attribution or revision messages to the config files. (For example, avoid adding lines like "this file was created by ...".) Place attribution and change history in the git commit message.</li>
+<li>Kopieer de velddocumentatie niet naar de voorbeeldconfiguratiebestanden. (Als u dit wel doet, ontstaat er een onderhoudslast, aangezien een update van de documentatie deze dan op veel plaatsen zou moeten wijzigen.)</li>
+<li>Voorbeeldconfiguratiebestanden mogen geen "SAVE_CONFIG"-sectie bevatten. Kopieer indien nodig de relevante velden van de SAVE_CONFIG-sectie naar de juiste sectie in het hoofdconfiguratiegebied.</li>
+<li>Gebruik <code>field: value</code> syntaxis in plaats van <code>field=value</code>.</li>
+<li>Bij het toevoegen van een extruder <code>rotation_distance</code> verdient het de voorkeur om een <code>gear_ratio</code> op te geven als de extruder een tandwielmechanisme heeft. We verwachten dat de rotation_distance in de voorbeeldconfiguraties correleert met de omtrek van het gekarteld-tandwiel in de extruder - normaal gesproken ligt deze tussen de 20 en 35 mm. Bij het specificeren van een <code>overbrengingsverhouding</code> verdient het de voorkeur om de daadwerkelijke versnellingen op het mechanisme te specificeren (geef bijvoorbeeld de voorkeur aan <code>overbrengingsverhouding: 80:20</code> boven <code>overbrengingsverhouding: 4:1</code>). Zie het document <a href="Rotation_Distance.html#using-a-gear_ratio">rotatieafstand</a> voor meer informatie.</li>
+<li>Vermijd het definiëren van veldwaarden die zijn ingesteld op hun standaardwaarde. Men zou bijvoorbeeld niet <code>min_extrude_temp: 170</code> moeten specificeren, aangezien dat al de standaardwaarde is.</li>
+<li>Waar mogelijk mogen regels niet langer zijn dan 80 tekens.</li>
+<li>Voeg geen attributie- of revisieberichten toe aan de configuratiebestanden. (Vermijd bijvoorbeeld het toevoegen van regels als "dit bestand is gemaakt door ...".) Plaats attributie- en wijzigingsgeschiedenis in het git commit-bericht.</li>
 </ol>
 </li>
-<li>Do not use any deprecated features in the example config file.</li>
-<li>Do not disable a default safety system in an example config file. For example, a config should not specify a custom <code>max_extrude_cross_section</code>. Do not enable debugging features. For example there should not be a <code>force_move</code> config section.</li>
-<li>All known boards that Klipper supports can use the default serial baud rate of 250000. Do not recommend a different baud rate in an example config file.</li>
+<li>Gebruik geen verouderde parameters (features) in het voorbeeldconfiguratiebestand.</li>
+<li>Schakel een standaard veiligheidssysteem niet uit in een voorbeeldconfiguratiebestand. Een configuratie mag bijvoorbeeld geen aangepaste <code>max_extrude_cross_section</code> specificeren. Schakel foutopsporingsfuncties niet in. Er zou bijvoorbeeld geen <code>force_move</code> configuratiesectie moeten zijn.</li>
+<li>Alle bekende boards die Klipper ondersteunt, kunnen de standaard seriële baudrate van 250000 gebruiken. Het is niet aan te raden om een andere baudrate in een voorbeeldconfiguratiebestand te gebruiken.</li>
 </ol>
-<p>Example config files are submitted by creating a github "pull request". Please also follow the directions in the <a href="CONTRIBUTING.html">contributing document</a>.</p>
+<p>Voorbeeldconfiguratiebestanden worden ingediend door een github "pull request" te maken. Volg ook de aanwijzingen in het <a href="CONTRIBUTING.html">bijdragende document</a>.</p>
 
               
             </article>

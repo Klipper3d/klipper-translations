@@ -1254,8 +1254,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#cmd_query_unassigned-message" class="md-nav__link">
-    CMD_QUERY_UNASSIGNED message
+  <a href="#cmd_query_unassigned" class="md-nav__link">
+    CMD_QUERY_UNASSIGNED сообщение
   </a>
   
 </li>
@@ -1268,8 +1268,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#resp_need_nodeid-message" class="md-nav__link">
-    RESP_NEED_NODEID message
+  <a href="#resp_need_nodeid" class="md-nav__link">
+    RESP_NEED_NODEID сообщение
   </a>
   
 </li>
@@ -1309,14 +1309,14 @@
 <p>Klipper использует только пакеты CAN 2.0A стандартного размера, которые ограничены 8 байтами данных и 11-битным идентификатором шины CAN. Чтобы поддерживать эффективную связь, каждому микроконтроллеру во время выполнения присваивается уникальный 1-байтовый идентификатор узла шины CAN (<code>canbus_nodeid</code>) для общего трафика команд и ответов Klipper. Командные сообщения Klipper, идущие от хоста к микроконтроллеру, используют идентификатор шины CAN <code>canbus_nodeid * 2 + 256</code>, в то время как ответные сообщения Klipper от микроконтроллера к хосту используют <code>canbus_nodeid * 2 + 256 + 1</code>.</p>
 <p>Каждый микроконтроллер имеет присвоенный заводом уникальный идентификатор чипа, который используется при назначении идентификатора. Этот идентификатор может превышать длину одного пакета CAN, поэтому хэш-функция используется для генерации уникального 6-байтового идентификатора (<code>canbus_uuid</code>) из заводского идентификатора.</p>
 <h2 id="_2">Сообщения администратора<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>Admin messages are used for id assignment. Admin messages sent from host to micro-controller use the CAN bus id <code>0x3f0</code> and messages sent from micro-controller to host use the CAN bus id <code>0x3f1</code>. All micro-controllers listen to messages on id <code>0x3f0</code>; that id can be thought of as a "broadcast address".</p>
-<h3 id="cmd_query_unassigned-message">CMD_QUERY_UNASSIGNED message<a class="headerlink" href="#cmd_query_unassigned-message" title="Permanent link">&para;</a></h3>
-<p>This command queries all micro-controllers that have not yet been assigned a <code>canbus_nodeid</code>. Unassigned micro-controllers will respond with a RESP_NEED_NODEID response message.</p>
+<p>Для присвоения идентификатора используются сообщения администратора. Административные сообщения, передаваемые от хоста к микроконтроллеру, используют идентификатор CAN-шины <code>0x3f0</code>, а сообщения, передаваемые от микроконтроллера к хосту, - идентификатор CAN-шины <code>0x3f1</code>. Все микроконтроллеры прослушивают сообщения с идентификатором <code>0x3f0</code>; этот идентификатор можно рассматривать как "широковещательный адрес".</p>
+<h3 id="cmd_query_unassigned">CMD_QUERY_UNASSIGNED сообщение<a class="headerlink" href="#cmd_query_unassigned" title="Permanent link">&para;</a></h3>
+<p>Эта команда запрашивает все микроконтроллеры, которым еще не присвоен <code>canbus_nodeid</code>. В ответ на запрос микроконтроллеры, которым еще не присвоен <code>canbus_nodeid</code>, выдают сообщение RESP_NEED_NODEID.</p>
 <p>The CMD_QUERY_UNASSIGNED message format is: <code>&lt;1-byte message_id = 0x00&gt;</code></p>
 <h3 id="cmd_set_klipper_nodeid-message">CMD_SET_KLIPPER_NODEID message<a class="headerlink" href="#cmd_set_klipper_nodeid-message" title="Permanent link">&para;</a></h3>
 <p>This command assigns a <code>canbus_nodeid</code> to the micro-controller with a given <code>canbus_uuid</code>.</p>
 <p>The CMD_SET_KLIPPER_NODEID message format is: <code>&lt;1-byte message_id = 0x01&gt;&lt;6-byte canbus_uuid&gt;&lt;1-byte canbus_nodeid&gt;</code></p>
-<h3 id="resp_need_nodeid-message">RESP_NEED_NODEID message<a class="headerlink" href="#resp_need_nodeid-message" title="Permanent link">&para;</a></h3>
+<h3 id="resp_need_nodeid">RESP_NEED_NODEID сообщение<a class="headerlink" href="#resp_need_nodeid" title="Permanent link">&para;</a></h3>
 <p>The RESP_NEED_NODEID message format is: <code>&lt;1-byte message_id = 0x20&gt;&lt;6-byte canbus_uuid&gt;&lt;1-byte set_klipper_nodeid = 0x01&gt;</code></p>
 <h2 id="data-packets">Data Packets<a class="headerlink" href="#data-packets" title="Permanent link">&para;</a></h2>
 <p>A micro-controller that has been assigned a nodeid via the CMD_SET_KLIPPER_NODEID command can send and receive data packets.</p>
