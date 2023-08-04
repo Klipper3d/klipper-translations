@@ -1,11 +1,11 @@
 # Nikolai Danov <nikolaidanov67@gmail.com>, 2022, 2025.
-# Salif Mehmed <mail@salif.eu>, 2023.
+# Salif Mehmed <mail@salif.eu>, 2023, 2025.
 # Niolay Danov <nikdan@abv.bg>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:38+0000\n"
-"Last-Translator: Nikolai Danov <nikolaidanov67@gmail.com>\n"
+"Last-Translator: Salif Mehmed <mail@salif.eu>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/klipper/"
 "overview/bg/>\n"
 "Language: bg\n"
