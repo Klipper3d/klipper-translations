@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2023-07-26 16:08+0000\n"
+"PO-Revision-Date: 2023-07-27 19:03+0000\n"
 "Last-Translator: \"Zs.Antal\" <zsikaiantal@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
 "releases/hu/>\n"
@@ -644,7 +644,7 @@ msgstr ""
 #: docs/Releases.md:block 5 (unordered list)
 msgid "Automated support for flashing firmware via sdcard on many boards."
 msgstr ""
-"Automatizált támogatás a firmware SDkártyán keresztüli égetéséhez számos "
+"Automatizált támogatás a firmware SD-kártyán keresztüli égetéséhez számos "
 "lapon."
 
 #: docs/Releases.md:block 5 (unordered list)
