@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2023-08-08 13:47+0000\n"
-"Last-Translator: \"Neko.vecter\" <Vecterfang@icloud.com>\n"
+"Last-Translator: 猫尾草 <aike1997sims2@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "klipper/releases/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -484,22 +484,22 @@ msgstr "Klipper 0.2.0"
 msgid ""
 "Initial release of Klipper. Available on 20160525. Major features available "
 "in the initial release include:"
-msgstr ""
+msgstr "Klipper的最初版本。发布于2016年5月25日。初始版本中提供的主要功能包括："
 
 msgid ""
 "Basic support for cartesian printers (steppers, extruder, heated bed, "
 "cooling fan)."
-msgstr ""
+msgstr "对于笛卡尔打印机（步进电机、挤出机、热床、冷却风扇）的初步支持。"
 
 msgid ""
 "Support for common g-code commands. Support for interfacing with OctoPrint."
-msgstr ""
+msgstr "支持常见的G-Code命令。支持OctoPrint的接口。"
 
 msgid "Acceleration and lookahead handling"
-msgstr ""
+msgstr "加速和前瞻处理"
 
 msgid "Support for AVR micro-controllers via standard serial ports"
-msgstr ""
+msgstr "通过标准串行接口支持AVR微控制器"
 
 #: docs/Releases.md:block 1 (header)
 msgid "Releases"
@@ -511,14 +511,15 @@ msgstr "Klipper 0.10.0"
 
 #: docs/Releases.md:block 4 (paragraph)
 msgid "Available on 20210929. Major changes in this release:"
-msgstr ""
+msgstr "发布于2021年9月29日。此版本主要更新："
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
 "Support for \"Multi-MCU Homing\". It is now possible for a stepper motor and"
 " its endstop to be wired to separate micro-controllers. This simplifies "
 "wiring of Z probes on \"toolhead boards\"."
-msgstr ""
+msgstr "支持“多微控制器归位”。现在可以将步进电机和限位连接到单独的微控制器上。此举简"
+"化了“工具板”上的Z探头的接线。"
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
@@ -534,10 +535,13 @@ msgid ""
 "infrastructure. There is also a [Klipper "
 "Translations](https://github.com/Klipper3d/klipper-translations) project."
 msgstr ""
+"[Klipper官网](https://www.klipper3d."
+"org)现在使用“mkdocs”基础架构。还有一个[翻译Klipper](https://github.com/"
+"Klipper3d/klipper-translations)项目。"
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid "Automated support for flashing firmware via sdcard on many boards."
-msgstr ""
+msgstr "在许多开发板上通过sdcard自动更新固件。"
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid "New kinematic support for \"Hybrid CoreXY\" and \"Hybrid CoreXZ\" printers."
@@ -547,25 +551,25 @@ msgstr "添加了新的运动学\"Hybrid CoreXY\"和\"Hybrid CoreXZ\"的打印�
 msgid ""
 "Klipper now uses `rotation_distance` to configure stepper motor travel "
 "distances."
-msgstr ""
+msgstr "Klipper 现在使用`rotation_distance`来配置步进电机的行程距离。"
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
 "The main Klipper host code can now directly communicate with micro-"
 "controllers using CAN bus."
-msgstr ""
+msgstr "Klipper上位机现在可以使用CAN总线与微控制器进行通信。"
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
 "New \"motion analysis\" system. Klipper's internal motion updates and sensor"
 " results can be tracked and logged for analysis."
-msgstr ""
+msgstr "新的“运动分析”系统。可以追踪和记录Klipper内部的运动更新和传感器结果以供分析。"
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
 "Trinamic stepper motor drivers are now continuously monitored for error "
 "conditions."
-msgstr ""
+msgstr "Trinamic步进电机驱动现在可以连续监控错误情况。"
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid "Support for the rp2040 micro-controller (Raspberry Pi Pico boards)."
@@ -581,6 +585,9 @@ msgid ""
 "filament_motion_sensor, palette2, motion_report, pca9533, pulse_counter, "
 "save_variables, sdcard_loop, temperature_host, temperature_mcu"
 msgstr ""
+"添加了许多附加模块：ds18b20, duplicate_pin_override, filament_motion_sensor, "
+"palette2, motion_report, pca9533, pulse_counter, save_variables, "
+"sdcard_loop, temperature_host, temperature_mcu"
 
 #: docs/Releases.md:block 3 (header)
 msgid "Klipper 0.11.0"
