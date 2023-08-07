@@ -2,11 +2,12 @@
 # Arda <pengfei.fu@gmail.com>, 2022.
 # Yifei Ding <dingyifeiair@gmail.com>, 2022.
 # 猫尾草 <aike1997sims2@gmail.com>, 2023.
+# "Neko.vecter" <Vecterfang@icloud.com>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2023-08-07 09:07+0000\n"
-"Last-Translator: 猫尾草 <aike1997sims2@gmail.com>\n"
+"Last-Translator: \"Neko.vecter\" <Vecterfang@icloud.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "klipper/releases/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -356,7 +357,7 @@ msgid ""
 msgstr "初步支持所有github提交的持续集成测试"
 
 msgid "Klipper 0.5.0"
-msgstr ""
+msgstr "Klipper 0.5.0"
 
 msgid "Available on 20171025. Major changes in this release:"
 msgstr "发布于2017年10月25日。此版本的主要更新："
@@ -391,7 +392,7 @@ msgid ""
 msgstr "支持控制舵机，支持自定义喷嘴冷却风扇。"
 
 msgid "Klipper 0.4.0"
-msgstr ""
+msgstr "Klipper 0.4.0"
 
 msgid "Available on 20170503. Major changes in this release:"
 msgstr "发布于2017年5月3日。此版本主要更新："
@@ -429,56 +430,56 @@ msgid "Support for limiting the top speed of short zigzag moves"
 msgstr "支持限制短之字形移动的最高速度"
 
 msgid "Support for AD595 sensors"
-msgstr ""
+msgstr "支持了AD595 传感器"
 
 msgid "Klipper 0.3.0"
-msgstr ""
+msgstr "Klipper 0.3.0"
 
 msgid "Available on 20161223. Major changes in this release:"
-msgstr ""
+msgstr "在20161223可用。在这个release中主要的更改："
 
 msgid "Improved documentation"
-msgstr ""
+msgstr "改进文档"
 
 msgid "Support for robots with delta kinematics"
-msgstr ""
+msgstr "支持delta运动学的机器"
 
 msgid "Support for Arduino Due micro-controller (ARM cortex-M3)"
-msgstr ""
+msgstr "添加了Arduino Due MCU (ARM cortex-M3)的支持"
 
 msgid "Support for USB based AVR micro-controllers"
-msgstr ""
+msgstr "添加了对USB based 的AVR MCU 支持"
 
 msgid ""
 "Support for \"pressure advance\" algorithm - it reduces ooze during prints."
-msgstr ""
+msgstr "添加了对\"pressure advance\"算法的支持 - 以减少打印过程中的溢出。"
 
 msgid ""
 "New \"stepper phased based endstop\" feature - enables higher precision on "
 "endstop homing."
-msgstr ""
+msgstr "添加了\"stepper phased based endstop\"特性 - 以获得更高的限位精度。"
 
 msgid ""
 "Support for \"extended g-code\" commands such as \"help\", \"restart\", and "
 "\"status\"."
-msgstr ""
+msgstr "添加了对\"extended g-code\"的支持，例如\"help\" \"restart\"和 \"status\"。"
 
 msgid ""
 "Support for reloading the Klipper config and restarting the host software by"
 " issuing a \"restart\" command from the terminal."
-msgstr ""
+msgstr "支持重新加载 Klipper 配置，并通过终端发出 \"restart\"命令重启主机软件。"
 
 msgid ""
 "Stepper performance improvements (20Mhz AVRs up to 158K steps per second)."
-msgstr ""
+msgstr "步进电机性能提升（20Mhz AVRs 可以到达158K steps 每秒）。"
 
 msgid ""
 "Improved error reporting. Most errors now shown via the terminal along with "
 "help on how to resolve."
-msgstr ""
+msgstr "改善了报错。绝大多数错误会在终端中显示并且有解决方法。"
 
 msgid "Klipper 0.2.0"
-msgstr ""
+msgstr "Klipper 0.2.0"
 
 msgid ""
 "Initial release of Klipper. Available on 20160525. Major features available "
@@ -506,7 +507,7 @@ msgstr "版本发布"
 
 #: docs/Releases.md:block 3 (header)
 msgid "Klipper 0.10.0"
-msgstr ""
+msgstr "Klipper 0.10.0"
 
 #: docs/Releases.md:block 4 (paragraph)
 msgid "Available on 20210929. Major changes in this release:"
@@ -524,6 +525,8 @@ msgid ""
 "Klipper now has a [Community Discord Server](https://discord.klipper3d.org) "
 "and a [Community Discourse Server](https://community.klipper3d.org)."
 msgstr ""
+"klipper 现在有[社区Discord 服务器](https://discord.klipper3d."
+"org)和[社区论坛](https://community.klipper3d.org)."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
@@ -538,7 +541,7 @@ msgstr ""
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid "New kinematic support for \"Hybrid CoreXY\" and \"Hybrid CoreXZ\" printers."
-msgstr ""
+msgstr "添加了新的运动学\"Hybrid CoreXY\"和\"Hybrid CoreXZ\"的打印机支持。"
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
@@ -581,7 +584,7 @@ msgstr ""
 
 #: docs/Releases.md:block 3 (header)
 msgid "Klipper 0.11.0"
-msgstr ""
+msgstr "Klipper 0.11.0"
 
 #: docs/Releases.md:block 4 (paragraph)
 msgid "Available on 20221128. Major changes in this release:"
