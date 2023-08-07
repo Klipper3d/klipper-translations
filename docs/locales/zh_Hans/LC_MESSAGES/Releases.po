@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-08-07 09:07+0000\n"
+"PO-Revision-Date: 2023-08-08 13:47+0000\n"
 "Last-Translator: \"Neko.vecter\" <Vecterfang@icloud.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "klipper/releases/zh_Hans/>\n"
@@ -436,7 +436,7 @@ msgid "Klipper 0.3.0"
 msgstr "Klipper 0.3.0"
 
 msgid "Available on 20161223. Major changes in this release:"
-msgstr "在20161223可用。在这个release中主要的更改："
+msgstr "发布于2016年12月23日。此版本的主要更新："
 
 msgid "Improved documentation"
 msgstr "改进文档"
@@ -569,11 +569,11 @@ msgstr ""
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid "Support for the rp2040 micro-controller (Raspberry Pi Pico boards)."
-msgstr ""
+msgstr "添加了对RP2040 MCU的支持（Raspberry Pi Pico）。"
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid "The \"make menuconfig\" system now utilizes kconfiglib."
-msgstr ""
+msgstr "\"make menuconfig\"系统现在使用 kconfiglib。"
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
@@ -588,37 +588,39 @@ msgstr "Klipper 0.11.0"
 
 #: docs/Releases.md:block 4 (paragraph)
 msgid "Available on 20221128. Major changes in this release:"
-msgstr ""
+msgstr "发布于2022年11月28日。此版本的主要更新："
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid "Trinamic stepper motor driver \"step on both edges\" optimization."
-msgstr ""
+msgstr "优化了Trinamic驱动的 \"step on both edges\"功能。"
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
 "Support for Python3. The Klipper host code will run with either Python2 or "
 "Python3."
-msgstr ""
+msgstr "添加对Python3的支持。现在Klipper Host 的代码可以运行在Python2 或 Python3中。"
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
 "Enhanced CAN bus support. Support for CAN bus on rp2040, stm32g0, stm32h7, "
 "same51, and same54 chips. Support for \"USB to CAN bus bridge\" mode."
 msgstr ""
+"改进了CAN Bus 支持。在rp2040 stm32g0 stm32h7 same51 以及 same54 "
+"芯片上支持了CAN Bus。并支持了\"USB to CAN bus bridge\" 模式。"
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid "Support for CanBoot bootloader."
-msgstr ""
+msgstr "添加了对CanBoot bootloader的支持。"
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid "Support for mpu9250 and mpu6050 accelerometers."
-msgstr ""
+msgstr "添加了对mpu9250以及mpu6050 加速度计的支持。"
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
 "Improved error handling for max31856, max31855, max31865, and max6675 "
 "temperature sensors."
-msgstr ""
+msgstr "改进了对温度传感器max31856 max31855 max31865 max6675的错误处理。"
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
@@ -634,6 +636,10 @@ msgid ""
 " based event dispatch. New rp2040 support for \"make flash\", i2c, and "
 "rp2040-e5 USB errata."
 msgstr ""
+"多项微控制器改进。 新增对 stm32h743 stm32h750 stm32l412 stm32g0b1 same70 "
+"same51 same54 芯片的支持。在 atsamd 和 stm32f0 上支持 i2c 读取。在 stm32 "
+"上支持硬件 pwm。基于 Linux mcu 信号的事件分派。 新的 rp2040 支持 \"make "
+"flash\" i2c 以及 rp2040-e5 USB 勘误。"
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
