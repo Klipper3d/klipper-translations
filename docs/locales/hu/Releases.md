@@ -24,11 +24,11 @@ Elérhető a 20210929. Fontosabb változások ebben a kiadásban:
 * A "Multi-MCU Homing" támogatása. Mostantól lehetőség van arra, hogy egy léptetőmotor és a végállás külön mikrovezérlőkhöz legyen csatlakoztatva. Ez leegyszerűsíti a Z-érzékelők kábelezését a "nyomtatófejen".
 * Klipper mostantól rendelkezik egy [Közösségi Discord Szerver](https://discord.klipper3d.org) és egy [Közösségi Társalgó Szerver](https://community.klipper3d.org)-rel.
 * A [Klipper weboldal](https://www.klipper3d.org) mostantól az "mkdocs" infrastruktúrát használja. Létezik egy [Klipper Fordítások](https://github.com/Klipper3d/klipper-translations) projekt is.
-* Automatizált támogatás a firmware SDkártyán keresztüli égetéséhez számos lapon.
+* Automatizált támogatás a firmware SD-kártyán keresztüli égetéséhez számos lapon.
 * Új kinematikai támogatás a "Hybrid CoreXY" és "Hybrid CoreXZ" nyomtatókhoz.
 * A Klipper mostantól a `rotation_distance` funkciót használja a léptetőmotorok mozgási távolságának beállításához.
 * A Klipper fő gazdakódja mostantól közvetlenül kommunikálhat a mikrovezérlőkkel a CAN-buszon keresztül.
-* Új "mozgáselemző" rendszer. A Klipper 'belső mozgásfrissítések és az érzékelő eredményei nyomon követhetők és naplózhatók elemzés céljából.
+* Új "mozgáselemző" rendszer. A Klipper belső mozgásfrissítések és az érzékelő eredményei nyomon követhetők és naplózhatók elemzés céljából.
 * A Trinamic léptetőmotor-meghajtókat mostantól folyamatosan ellenőrzik a hibaállapotok szempontjából.
 * Az rp2040 mikrokontroller támogatása (Raspberry Pi Pico lapok).
 * A "make menuconfig" rendszer mostantól a kconfiglib-et használja.

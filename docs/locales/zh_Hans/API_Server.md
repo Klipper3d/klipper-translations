@@ -54,7 +54,7 @@ Klipper使用`scripts/whconsole.py`的代码进行上述的数据帧打包。例
 
 Klipper 会按照收到请求的顺序依次处理请求。然而，一些请求可能不会立即完成，这可能会导致相关的响应与其他请求的响应不按顺序发送。一个 JSON 请求永远不会暂停对未来JSON 请求的处理。
 
-## 订阅
+## 订阅（Subscriptions）
 
 一些 Klipper 的"endpoint"可以以 "订阅" 的形式接收未来的异步更新消息。
 
@@ -76,7 +76,7 @@ A subscription request accepts a "response_template" dictionary in the "params" 
 
 By convention, Klipper "endpoints" are of the form `<module_name>/<some_name>`. When making a request to an "endpoint", the full name must be set in the "method" parameter of the request dictionary (eg, `{"method"="gcode/restart"}`).
 
-### 信息
+### info
 
 “info” 用于从Klipper获取系统和版本信息。同时也被用来向Klipper提供客户端的版本信息。比如说`{"id": 123, "method": "info", "params": { "client_info": { "version": "v1"}}}`
 
@@ -84,11 +84,11 @@ If present, the "client_info" parameter must be a dictionary, but that dictionar
 
 ### emergency_stop
 
-The "emergency_stop" endpoint is used to instruct Klipper to transition to a "shutdown" state. It behaves similarly to the G-Code `M112` command. For example: `{"id": 123, "method": "emergency_stop"}`
+"emergency_stop"端点用于指示 Klipper 过渡到 "shutdown"状态。它的行为类似于 G 代码 "M112 "命令。例如：`{"id"： 123, "method"： "emergency_stop"}`
 
 ### register_remote_method
 
-This endpoint allows clients to register methods that can be called from klipper. It will return an empty object upon success.
+该端点允许客户端注册可从 klipper 调用的方法。成功后将返回一个空对象。
 
 For example: `{"id": 123, "method": "register_remote_method", "params": {"response_template": {"action": "run_paneldue_beep"}, "remote_method": "paneldue_beep"}}` will return: `{"id": 123, "result": {}}`
 

@@ -1967,7 +1967,7 @@ Eszköz a fűtőberendezések letiltására, amikor egy tengely kezdőpont felv�
 
 ### [thermistor]
 
-Egyéni termisztorok (tetszőleges számú szakasz definiálható "termisztor" előtaggal). Egyéni termisztor használható a fűtőberendezés konfigurációs szakaszának sensor_type mezőjében. (Ha például egy "[thermistor my_thermistor]" szekciót definiálunk, akkor a fűtőelem definiálásakor használhatjuk a "sensor_type: my_thermistor" mezőt.) Ügyelj arra, hogy a termisztor szekciót a konfigurációs fájlban az első fűtőszekcióban való használata fölé helyezd.
+Egyéni termisztorok (tetszőleges számú szakasz definiálható "thermistor" előtaggal). Egyéni termisztor használható a fűtőberendezés konfigurációs szakaszának sensor_type mezőjében. (Ha például egy "[thermistor my_thermistor]" szekciót definiálunk, akkor a fűtőelem definiálásakor használhatjuk a "sensor_type: my_thermistor" mezőt.) Ügyelj arra, hogy a termisztor szekciót a konfigurációs fájlban az első fűtőszekcióban való használata fölé helyezd.
 
 ```
 [thermistor my_thermistor]
@@ -2065,7 +2065,7 @@ A Klipper számos típusú hőmérséklet-érzékelő definícióját tartalmazz
 
 ### Közös termisztorok
 
-Közönséges termisztorok. A következő paraméterek állnak rendelkezésre azokban a fűtőszakaszban, amelyek ezen érzékelők valamelyikét használják.
+Közönséges termisztorok. A következő paraméterek állnak rendelkezésre azokban a fűtőszakaszokban, amelyek ezen érzékelők valamelyikét használják.
 
 ```
 sensor_type:
@@ -2103,7 +2103,7 @@ sensor_pin:
 #   Az ADC feszültség eltolása (V-ban). Az alapértelmezett érték 0.
 ```
 
-### Közvetlenül csatlakoztatott PT1000 érzékelő
+### Közvetlenül csatlakozó PT1000 érzékelő
 
 Közvetlenül csatlakoztatott PT1000 érzékelő. A következő paraméterek állnak rendelkezésre azokban a fűtési szakaszokban, amelyek valamelyik érzékelőt használják.
 
