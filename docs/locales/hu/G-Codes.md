@@ -61,7 +61,7 @@ A következő parancsok akkor érhetők el, ha az [adxl345 konfigurációs szaka
 
 #### ACCELEROMETER_DEBUG_WRITE
 
-`ACCELEROMETER_DEBUG_WRITE [CHIP=<config_name>] REG=<register> VAL=<value>`: Nyers "érték" írása a "register"-be. Mind az "érték", mind a "register" lehet decimális vagy hexadecimális egész szám. Használd óvatosan, és hivatkozzon az ADXL345 adatlapjára.
+`ACCELEROMETER_DEBUG_WRITE [CHIP=<config_name>] REG=<register> VAL=<value>`: Nyers "érték" írása a "register"-be. Mind az "érték", mind a "register" lehet decimális vagy hexadecimális egész szám. Használd óvatosan, és hivatkozz az ADXL345 adatlapjára.
 
 ### [angle]
 
@@ -81,7 +81,7 @@ A következő parancsok akkor érhetők el, ha az [szög konfigurációs szakasz
 
 ### [bed_mesh]
 
-A következő parancsok akkor érhetők el, ha a [bed_mesh konfigurációs szakasz](Config_Reference.md#bed_mesh) engedélyezve van (lásd még az [tárgyasztal háló útmutatót](Bed_Mesh.md)).
+A következő parancsok akkor érhetők el, ha a [bed_mesh konfigurációs szakasz](Config_Reference.md#bed_mesh) engedélyezve van (lásd még a [tárgyasztal háló útmutatót](Bed_Mesh.md)).
 
 #### BED_MESH_CALIBRATE
 

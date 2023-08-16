@@ -152,7 +152,7 @@ A TMC2130, TMC5160 és a TMC2660 modellekhez:
 SET_TMC_FIELD STEPPER=stepper_x FIELD=sgt VALUE=-64
 ```
 
-Ezután adj ki egy `G28 X0` parancsot, és ellenőrizd, hogy a tengely egyáltalán nem mozog, vagy gyorsan megáll. Ha a tengely nem áll meg, akkor adj ki egy `M112` parancsot a nyomtató megállítására. Valami nem stimmel a diag/sg_tst pin kábelezésével vagy konfigurációjával, és a folytatás előtt ki kell javítani.
+Ezután adj ki egy `G28 X0` parancsot, és ellenőrizd, hogy a tengely egyáltalán nem mozog, vagy gyorsan megáll. Ha a tengely nem áll meg, akkor adj ki egy `M112` parancsot a nyomtató megállítására. Valami nem stimmel a diag/sg_tst tű kábelezésével vagy konfigurációjával, és a folytatás előtt ki kell javítani.
 
 Ezután folyamatosan csökkentsd a `VALUE` beállítás érzékenységét, és futtasd le újra a `SET_TMC_FIELD` `G28 X0` parancsokat, hogy megtaláld a legnagyobb érzékenységet, amely a kocsi sikeres mozgását eredményezi a végállásig és a megállásig. (A TMC2209 motorvezérlők esetében ez az SGTHRS csökkentése, más vezérlők esetében az sgt növelése lesz.) Ügyelj arra, hogy minden kísérletet úgy kezdj, hogy a kocsi a sín közepéhez közel legyen (ha szükséges, adj ki egy `M84` parancsot, majd kézzel mozgasd a kocsit középállásba). Meg kell találni a legnagyobb érzékenységet, amely megbízhatóan jelzi a végállást (a nagyobb érzékenységű beállítások kicsi vagy semmilyen mozgást nem eredményeznek). Jegyezd fel a kapott értéket *maximum_sensitivity* néven. (Ha a lehető legkisebb érzékenységet (SGTHRS=0 vagy sgt=63) kapjuk a kocsi elmozdulása nélkül, akkor valami nincs rendben a diag/sg_tst tűk bekötésével vagy konfigurációjával, és a folytatás előtt ki kell javítani.)
 

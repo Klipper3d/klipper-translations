@@ -10,7 +10,7 @@ Ez a dokumentum megpróbálja leírni a gyakori bootloadereket, a bootloader ég
 
 ## AVR mikrovezérlők
 
-Általánosságban az Arduino projekt jó referencia a 8 bites Atmel Atmega mikrovezérlők bootloadereiről és a égetési eljárásokról. Különösen a "boards.txt" fájl: <https://github.com/arduino/Arduino/blob/1.8.5/hardware/arduino/avr/boards.txt> hasznos referencia.
+Általánosságban az Arduino projekt jó referencia a 8 bites Atmel Atmega mikrovezérlők bootloadereiről és az égetési eljárásokról. Különösen a "boards.txt" fájl: <https://github.com/arduino/Arduino/blob/1.8.5/hardware/arduino/avr/boards.txt> hasznos referencia.
 
 A bootloader égetéséhez az AVR chipekhez külső hardveres égető eszközre van szükség (amely SPI segítségével kommunikál a chippel). Ez az eszköz megvásárolható (például keress rá az interneten az "avr isp", "arduino isp" vagy "usb tiny isp" szavakra). Az is lehetséges, hogy egy másik Arduino vagy Raspberry Pi segítségével égess egy AVR bootloadert (például keress rá az interneten a "program an avr using raspberry pi" kifejezésre). Az alábbi példákat egy "AVR ISP Mk2" típusú eszköz használatát feltételezve írtuk.
 
