@@ -1,12 +1,19 @@
-#
+# nickvmeurs <nickvanmeursyt@gmail.com>, 2023.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2023-08-15 01:49+0000\n"
+"Last-Translator: nickvmeurs <nickvanmeursyt@gmail.com>\n"
+"Language-Team: Dutch <https://hosted.weblate.org/projects/klipper/features/"
+"nl/>\n"
 "Language: nl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.0-dev\n"
 
 msgid "Klipper has several compelling features:"
-msgstr ""
+msgstr "Klipper heeft meerdere meeslepende functies:"
 
 msgid ""
 "Klipper supports printers with multiple micro-controllers. For example, one "

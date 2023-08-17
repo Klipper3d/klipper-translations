@@ -1,15 +1,17 @@
 # Nikolai Danov <nikolaidanov67@gmail.com>, 2022.
+# Salif Mehmed <mail@salif.eu>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-08-26 14:58+0000\n"
-"Last-Translator: Nikolai Danov <nikolaidanov67@gmail.com>\n"
-"Language-Team: Bulgarian <https://hosted.weblate.org/projects/klipper/overview/bg/>\n"
+"PO-Revision-Date: 2023-08-05 21:50+0000\n"
+"Last-Translator: Salif Mehmed <mail@salif.eu>\n"
+"Language-Team: Bulgarian <https://hosted.weblate.org/projects/klipper/"
+"overview/bg/>\n"
 "Language: bg\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14-dev\n"
+"X-Generator: Weblate 5.0-dev\n"
 
 msgid ""
 "Welcome to the Klipper documentation. If new to Klipper, start with the "
@@ -27,7 +29,7 @@ msgstr ""
 "[Характеристики](Features.md): Списък на високо ниво на функциите в Klipper."
 
 msgid "[FAQ](FAQ.md): Frequently asked questions."
-msgstr "[ЧЗВ] (FAQ.md): Често задавани въпроси."
+msgstr "[ЧЗВ](FAQ.md): Често задавани въпроси."
 
 msgid "[Releases](Releases.md): The history of Klipper releases."
 msgstr "[Releases](Releases.md): Историята на изданията на Klipper."

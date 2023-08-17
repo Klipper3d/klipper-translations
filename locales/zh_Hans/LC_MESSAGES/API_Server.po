@@ -2,17 +2,19 @@
 # Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022.
 # Neko.vecter <Vecterfang@icloud.com>, 2022, 2023.
 # Hessian Chow <hess.4x@gmail.com>, 2022.
+# "Neko.vecter" <Vecterfang@icloud.com>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-01-24 13:48+0000\n"
-"Last-Translator: Neko.vecter <Vecterfang@icloud.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/api_server/zh_Hans/>\n"
+"PO-Revision-Date: 2023-08-07 09:07+0000\n"
+"Last-Translator: \"Neko.vecter\" <Vecterfang@icloud.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/api_server/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.16-dev\n"
+"X-Generator: Weblate 5.0-dev\n"
 
 msgid ""
 "This document describes Klipper's Application Programmer Interface (API). "
@@ -145,7 +147,7 @@ msgstr ""
 "请求永远不会暂停对未来JSON 请求的处理。"
 
 msgid "Subscriptions"
-msgstr "订阅"
+msgstr "订阅（Subscriptions）"
 
 msgid ""
 "Some Klipper \"endpoint\" requests allow one to \"subscribe\" to future "
@@ -196,7 +198,7 @@ msgid ""
 msgstr ""
 
 msgid "info"
-msgstr "信息"
+msgstr "info"
 
 msgid ""
 "The \"info\" endpoint is used to obtain system and version information from "
@@ -216,21 +218,24 @@ msgid ""
 msgstr ""
 
 msgid "emergency_stop"
-msgstr ""
+msgstr "emergency_stop"
 
 msgid ""
 "The \"emergency_stop\" endpoint is used to instruct Klipper to transition to"
 " a \"shutdown\" state. It behaves similarly to the G-Code `M112` command. "
 "For example: `{\"id\": 123, \"method\": \"emergency_stop\"}`"
 msgstr ""
+"\"emergency_stop\"端点用于指示 Klipper 过渡到 \"shutdown\"状态。"
+"它的行为类似于 G 代码 \"M112 \"命令。例如：`{\"id\"： 123, \"method\"： "
+"\"emergency_stop\"}`"
 
 msgid "register_remote_method"
-msgstr ""
+msgstr "register_remote_method"
 
 msgid ""
 "This endpoint allows clients to register methods that can be called from "
 "klipper. It will return an empty object upon success."
-msgstr ""
+msgstr "该端点允许客户端注册可从 klipper 调用的方法。成功后将返回一个空对象。"
 
 msgid ""
 "For example: `{\"id\": 123, \"method\": \"register_remote_method\", "
@@ -390,7 +395,7 @@ msgid ""
 msgstr ""
 
 msgid "gcode/firmware_restart"
-msgstr ""
+msgstr "gcode/firmware_restart"
 
 msgid ""
 "This is similar to the \"gcode/restart\" endpoint - it implements the G-Code"
@@ -473,7 +478,7 @@ msgstr "API 服务器"
 
 #: docs/API_Server.md:block 71 (header)
 msgid "motion_report/dump_stepper"
-msgstr ""
+msgstr "motion_report/dump_stepper"
 
 #: docs/API_Server.md:block 72 (paragraph)
 msgid ""
