@@ -2,17 +2,19 @@
 # Francisco Serrador <fserrador@gmail.com>, 2022.
 # Alberto <aru_hackZ.official@zohomail.eu>, 2022.
 # Cecilia Mora <cecilia-mora22@hotmail.com>, 2022.
+# JACK EDWARD INGA NAUPA <jinganaupa@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-10-05 22:22+0000\n"
-"Last-Translator: Cecilia Mora <cecilia-mora22@hotmail.com>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/config_reference/es/>\n"
+"PO-Revision-Date: 2023-08-22 13:53+0000\n"
+"Last-Translator: JACK EDWARD INGA NAUPA <jinganaupa@gmail.com>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/"
+"config_reference/es/>\n"
 "Language: es\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 5.0-dev\n"
 
 msgid ""
 "This document is a reference for options available in the Klipper config "
@@ -3537,7 +3539,7 @@ msgid ""
 "#   not recommended to change this rate from the default 3200, and\n"
 "#   rates below 800 will considerably affect the quality of resonance\n"
 "#   measurements.\n"
-msgstr ""
+msgstr "ajustes de SPI comunes\n"
 
 #: docs/Config_Reference.md:block 391 (code)
 msgid ""
