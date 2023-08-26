@@ -1,15 +1,16 @@
-# ktyubeshi <kt.yubeshi@gmail.com>, 2023.
+# ktyubeshi <kt.yubeshi@gmail.com>, 2023, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-08-26 07:55+0000\n"
-"Last-Translator: ktyubeshi <kt.yubeshi@gmail.com>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/klipper/readme/ja/>\n"
+"PO-Revision-Date: 2025-05-03 07:41+0000\n"
+"Last-Translator: yubeshi <kt.yubeshi@gmail.com>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/klipper/readme/"
+"ja/>\n"
 "Language: ja\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.0.1-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 msgid ""
 "Welcome to the Klipper documentation. The [overview document](Overview.md) is "
