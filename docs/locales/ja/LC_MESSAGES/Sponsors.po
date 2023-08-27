@@ -1,9 +1,16 @@
-#
+# ktyubeshi <kt.yubeshi@gmail.com>, 2023.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2023-08-26 07:55+0000\n"
+"Last-Translator: ktyubeshi <kt.yubeshi@gmail.com>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/klipper/"
+"sponsors/ja/>\n"
 "Language: ja\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.0.1-dev\n"
 
 #: docs/Sponsors.md:block 1 (header)
 msgid "Sponsors"
@@ -40,11 +47,11 @@ msgstr ""
 
 #: docs/Sponsors.md:block 7 (header)
 msgid "Kevin O'Connor"
-msgstr ""
+msgstr "Kevin O'Connor"
 
 #: docs/Sponsors.md:block 9 (header)
 msgid "Eric Callahan"
-msgstr ""
+msgstr "Eric Callahan"
 
 #: docs/Sponsors.md:block 10 (paragraph)
 msgid ""

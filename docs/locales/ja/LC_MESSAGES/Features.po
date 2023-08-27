@@ -1,12 +1,19 @@
-#
+# ktyubeshi <kt.yubeshi@gmail.com>, 2023.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2023-08-26 15:03+0000\n"
+"Last-Translator: ktyubeshi <kt.yubeshi@gmail.com>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/klipper/"
+"features/ja/>\n"
 "Language: ja\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.0.1-dev\n"
 
 msgid "Klipper has several compelling features:"
-msgstr ""
+msgstr "Klipper にはいくつかの魅力的な機能があります:"
 
 msgid ""
 "Klipper supports printers with multiple micro-controllers. For example, one "
@@ -17,6 +24,12 @@ msgid ""
 " to enable multiple micro-controllers - it just requires a few extra lines "
 "in the config file."
 msgstr ""
+"Klipper は複数のマイクロコントローラーを搭載したプリンターをサポートしていま"
+"す。例えば、1つのマイコンをエクストルーダーの制御に使い、別のマイコンはプリン"
+"ターのヒーターを制御し、3つ目のマイコンはプリンターの残りの部分を制御すること"
+"ができます。クリッパーホストソフトウェアは、マイクロコントローラー間のクロッ"
+"クドリフトを考慮したクロック同期を実装しています。複数のマイコンを有効にする"
+"ための特別なコードは必要なく、設定ファイルに数行追加するだけです。"
 
 msgid ""
 "Configuration via simple config file. There's no need to reflash the micro-"
@@ -24,6 +37,10 @@ msgid ""
 "a standard config file which can be easily edited. This makes it easier to "
 "setup and maintain the hardware."
 msgstr ""
+"シンプルなConfigファイルによる設定。 設定を変更するためにマイクロコントローラ"
+"ーをリフラッシュする必要はありません。Klipper の全ての設定は、簡単に編集でき"
+"る標準の設定ファイルに保存されています。これにより、ハードウェアのセットアッ"
+"プとメンテナンスが容易になります。"
 
 msgid ""
 "Klipper supports \"Smooth Pressure Advance\" - a mechanism to account for "
@@ -32,6 +49,10 @@ msgid ""
 " introduce instantaneous extruder speed changes, which improves overall "
 "stability and robustness."
 msgstr ""
+"Klipper は \"Smooth Pressure Advance\" をサポートしています。 これにより、"
+"エクストルーダーの\"にじみ\"が減り、コーナーのプリント品質が向上します。クリ"
+"ッパーの実装は、瞬間的なエクストルーダのスピード変更を行わないため、全体的な"
+"安定性と堅牢性が向上します。"
 
 msgid ""
 "Klipper supports \"Input Shaping\" to reduce the impact of vibrations on "
@@ -40,6 +61,10 @@ msgid ""
 " to obtain faster printing speeds while still maintaining high print "
 "quality."
 msgstr ""
+"Klipper は、印刷品質への振動の影響を軽減する \"Input Shaping\" "
+"をサポートしています。これにより、印刷の \"リンギング\"（\"ゴースト\"、"
+"\"エコー\"、\"リップリング\"とも呼ばれる）を低減または除去することができます"
+"。また、高い印刷品質を維持しながら、より速い印刷速度を得ることができます。"
 
 msgid ""
 "Klipper uses an \"iterative solver\" to calculate precise step times from "
@@ -47,6 +72,10 @@ msgid ""
 "robots easier and it keeps timing precise even with complex kinematics (no "
 "\"line segmentation\" is needed)."
 msgstr ""
+"Klipper ーは \"反復ソルバー\" を使って、シンプルな運動方程式から正確なステッ"
+"プタイムを計算します。これにより、新しいタイプのロボットへのクリッパーの移植"
+"が容易になり、複雑な運動学でも正確なタイミングを保つことができます（"
+"\"ラインセグメンテーション\" は必要ありません）。"
 
 msgid ""
 "Portable code. Klipper works on ARM, AVR, and PRU based micro-controllers. "
@@ -54,6 +83,11 @@ msgid ""
 "modification - just add a Raspberry Pi. Klipper's internal code layout makes"
 " it easier to support other micro-controller architectures as well."
 msgstr ""
+"ポータブルコード。 Klipper "
+"はARM、AVR、PRUベースのマイクロコントローラーで動作します。既存の \"reprap\" "
+"スタイルのプリンターは、ハードウェアを変更することなく、Raspberry Piを追加す"
+"るだけでKlipperを動かすことができます。Klipperの内部コードレイアウトは、他の"
+"マイクロコントローラ・アーキテクチャのサポートも容易にしています。"
 
 msgid ""
 "Simpler code. Klipper uses a very high level language (Python) for most "
@@ -61,6 +95,10 @@ msgid ""
 "thermistor algorithms, etc. are all written in Python. This makes it easier "
 "to develop new functionality."
 msgstr ""
+"よりシンプルなコード。Klipper は、ほとんどのコードに非常に高度な言語（Python"
+"）を使用しています。運動学アルゴリズム、Gコード解析、加熱とサーミスタのアルゴ"
+"リズムなど、すべてがPythonで書かれています。これにより、新機能の開発が容易に"
+"なります。"
 
 msgid ""
 "Custom programmable macros. New G-Code commands can be defined in the "
@@ -68,23 +106,31 @@ msgid ""
 "programmable - allowing them to produce different actions depending on the "
 "state of the printer."
 msgstr ""
+"カスタムのプログラマブルなマクロ。 新しいGコードコマンドをプリンタの設定ファ"
+"イルで定義できます（コードの変更は不要です）。 これらのコマンドはプログラマブ"
+"ルで、プリンタの状態に応じて異なるアクションを生成できます。"
 
 msgid ""
 "Builtin API server. In addition to the standard G-Code interface, Klipper "
 "supports a rich JSON based application interface. This enables programmers "
 "to build external applications with detailed control of the printer."
 msgstr ""
+"ビルトイン API サーバー。標準的なGコードインターフェースに加え、Klipper "
+"はリッチなJSONベースのアプリケーションインターフェースをサポートしています。 "
+"これにより、プログラマーはプリンターを詳細に制御できる外部アプリケーションを"
+"構築できます。"
 
 msgid "Additional features"
-msgstr ""
+msgstr "その他の特徴"
 
 msgid "Klipper supports many standard 3d printer features:"
-msgstr ""
+msgstr "Klipperは多くの標準的な3dプリンター機能をサポートしています："
 
 msgid ""
 "Support for multiple extruders. Extruders with shared heaters and extruders "
 "on independent carriages (IDEX) are also supported."
-msgstr ""
+msgstr "複数のエクストルーダをサポート。 ヒーターを共有する押出機や独立キャリッジ（ID"
+"EX）上のエクストルーダもサポートしています。"
 
 msgid ""
 "Automatic bed leveling support. Klipper can be configured for basic bed tilt"
@@ -93,21 +139,33 @@ msgid ""
 "Most Z height probes are supported, including BL-Touch probes and servo "
 "activated probes."
 msgstr ""
+"自動ベッドレベリングサポート。 Klipper は、基本的なベッドの傾き検出、またはフ"
+"ルメッシュのベッドレベリングに構成できます。ベッドが複数のZステッパーを使用し"
+"ている場合、クリッパーはZステッパーを個別に操作してレベリングすることもできま"
+"す。BLタッチプローブやサーボ式プローブなど、ほとんどのZハイトプローブに対応し"
+"ています。"
 
 msgid ""
 "Automatic delta calibration support. The calibration tool can perform basic "
 "height calibration as well as an enhanced X and Y dimension calibration. The"
 " calibration can be done with a Z height probe or via manual probing."
 msgstr ""
+"自動デルタキャリブレーションをサポート。キャリブレーションツールは、基本的な"
+"高さのキャリブレーションだけでなく、XおよびY寸法の拡張キャリブレーションも実"
+"行できます。キャリブレーションは、Z高さプローブまたは手動プローブを使用して行"
+"うことができます。"
 
 msgid "Basic thermal heater protection enabled by default."
-msgstr ""
+msgstr "基本的なサーマルヒーター保護はデフォルトで有効。"
 
 msgid ""
 "Support for common LCD displays attached directly to the printer. A default "
 "menu is also available. The contents of the display and menu can be fully "
 "customized via the config file."
 msgstr ""
+"プリンタに直接取り付けられた一般的なLCDディスプレイをサポート。デフォルトメニ"
+"ューも用意されています。ディスプレイとメニューの内容は、Configファイルで完全"
+"にカスタマイズできます。"
 
 msgid ""
 "Constant acceleration and \"look-ahead\" support. All printer moves will "
@@ -117,63 +175,80 @@ msgid ""
 "direction will be optimized to reduce print stalls and improve overall print"
 " time."
 msgstr ""
+"定加速と \"look-ahead\" (先読み) サポート。すべてのプリンター動作は、停止状態"
+"から巡航速度まで徐々に加速し、その後減速して停止状態に戻ります。入力されるGコ"
+"ード移動コマンドのストリームはキューに入れられ、分析されます。同じ方向の移動"
+"間の加速は、印刷ストールを減らし、全体的な印刷時間を改善するために最適化され"
+"ます。"
 
 msgid ""
 "Klipper implements a \"stepper phase endstop\" algorithm that can improve "
 "the accuracy of typical endstop switches. When properly tuned it can improve"
 " a print's first layer bed adhesion."
 msgstr ""
+"Klipper は、一般的なエンドストップスイッチの精度を向上させる \"stepper phase "
+"endstop\" アルゴリズムを実装しています。適切に調整された場合、印刷の1層目のベ"
+"ッド密着性を向上させることができます。"
 
 msgid ""
 "Support for limiting the top speed of short \"zigzag\" moves to reduce "
 "printer vibration and noise. See the [kinematics](Kinematics.md) document "
 "for more information."
 msgstr ""
+"プリンタの振動とノイズを低減するために、短いジグザグ移動の最高速度を制限する"
+"機能をサポートしました。詳しくは [kinematics](Kinematics.md) "
+"ドキュメントを参照してください。"
 
 msgid ""
 "Sample configuration files are available for many common printers. Check the"
 " [config directory](../config/) for a list."
 msgstr ""
+"多くの一般的なプリンターについて、サンプル設定ファイルが用意されています。["
+"config ディレクトリ](../config/)に一覧があります。"
 
 msgid ""
 "To get started with Klipper, read the [installation](Installation.md) guide."
-msgstr ""
+msgstr "Klipperを使い始めるには、[installation](Installation.md) "
+"ガイドをお読みください。"
 
 msgid "Step Benchmarks"
-msgstr ""
+msgstr "ステップ・ベンチマーク"
 
 msgid ""
 "Below are the results of stepper performance tests. The numbers shown "
 "represent total number of steps per second on the micro-controller."
-msgstr ""
+msgstr "以下はステッパー性能テストの結果です。表示されている数字は、マイクロコントロ"
+"ーラーの1秒あたりの総ステップ数を表しています。"
 
 msgid "Micro-controller"
-msgstr ""
+msgstr "マイクロコントローラ"
 
 msgid "3 steppers active"
-msgstr ""
+msgstr "3 steppers active"
 
 msgid "16Mhz AVR"
-msgstr ""
+msgstr "16Mhz AVR"
 
 msgid "20Mhz AVR"
-msgstr ""
+msgstr "20Mhz AVR"
 
 msgid "Beaglebone PRU"
-msgstr ""
+msgstr "Beaglebone PRU"
 
 msgid "686K"
-msgstr ""
+msgstr "686K"
 
 #: docs/Features.md:block 1 (header)
 msgid "Features"
-msgstr ""
+msgstr "特徴"
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
 "Standard G-Code support. Common g-code commands that are produced by typical"
 " \"slicers\" (SuperSlicer, Cura, PrusaSlicer, etc.) are supported."
 msgstr ""
+"標準的なGコードのサポート。 典型的な\"スライサー\"（SuperSlicer、Cura、PrusaS"
+"licerなど）で生成される一般的なGコードコマンドがサポートされています。"
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
@@ -184,6 +259,11 @@ msgid ""
 "micro-controller temperature sensor and the internal temperature sensor of a"
 " Raspberry Pi."
 msgstr ""
+"一般的な温度センサをサポート（例：一般的なサーミスタ、AD595、AD597、AD849x、P"
+"T100、PT1000、MAX6675、MAX31855、MAX31856、MAX31865、BME280、HTU21D、DS18B20"
+"、LM75）。カスタム・サーミスタやカスタム・アナログ温度センサも設定可能です。"
+"マイクロコントローラー内部の温度センサーやRaspberry "
+"Piの内部温度センサーをモニターすることもできます。"
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
@@ -191,198 +271,203 @@ msgid ""
 "need to keep fans running when the printer is idle. Fan speed can be "
 "monitored on fans that have a tachometer."
 msgstr ""
+"標準ファン、ノズルファン、温度制御ファンをサポート。プリンターのアイドル時に"
+"ファンを回し続ける必要がありません。タコメーター付きのファンでは、ファンの回"
+"転数をモニターできます。"
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
 "Support for filament presence sensors, filament motion sensors, and filament"
 " width sensors."
-msgstr ""
+msgstr "フィラメント有無センサー、フィラメントモーションセンサー、フィラメント幅セン"
+"サーをサポート。"
 
 #: docs/Features.md:block 10 (table)
 msgid "1 stepper active"
-msgstr ""
+msgstr "1 stepper active"
 
 #: docs/Features.md:block 10 (table)
 msgid "157K"
-msgstr ""
+msgstr "157K"
 
 #: docs/Features.md:block 10 (table)
 msgid "99K"
-msgstr ""
+msgstr "99K"
 
 #: docs/Features.md:block 10 (table)
 msgid "196K"
-msgstr ""
+msgstr "196K"
 
 #: docs/Features.md:block 10 (table)
 msgid "123K"
-msgstr ""
+msgstr "123K"
 
 #: docs/Features.md:block 10 (table)
 msgid "471K"
-msgstr ""
+msgstr "471K"
 
 #: docs/Features.md:block 10 (table)
 msgid "STM32F042"
-msgstr ""
+msgstr "STM32F042"
 
 #: docs/Features.md:block 10 (table)
 msgid "814K"
-msgstr ""
+msgstr "814K"
 
 #: docs/Features.md:block 10 (table)
 msgid "578K"
-msgstr ""
+msgstr "578K"
 
 #: docs/Features.md:block 10 (table)
 msgid "866K"
-msgstr ""
+msgstr "866K"
 
 #: docs/Features.md:block 10 (table)
 msgid "708K"
-msgstr ""
+msgstr "708K"
 
 #: docs/Features.md:block 10 (table)
 msgid "1180K"
-msgstr ""
+msgstr "1180K"
 
 #: docs/Features.md:block 10 (table)
 msgid "818K"
-msgstr ""
+msgstr "818K"
 
 #: docs/Features.md:block 10 (table)
 msgid "1273K"
-msgstr ""
+msgstr "1273K"
 
 #: docs/Features.md:block 10 (table)
 msgid "981K"
-msgstr ""
+msgstr "981K"
 
 #: docs/Features.md:block 10 (table)
 msgid "1690K"
-msgstr ""
+msgstr "1690K"
 
 #: docs/Features.md:block 10 (table)
 msgid "1385K"
-msgstr ""
+msgstr "1385K"
 
 #: docs/Features.md:block 10 (table)
 msgid "1923K"
-msgstr ""
+msgstr "1923K"
 
 #: docs/Features.md:block 10 (table)
 msgid "1351K"
-msgstr ""
+msgstr "1351K"
 
 #: docs/Features.md:block 10 (table)
 msgid "2353K"
-msgstr ""
+msgstr "2353K"
 
 #: docs/Features.md:block 10 (table)
 msgid "1622K"
-msgstr ""
+msgstr "1622K"
 
 #: docs/Features.md:block 10 (table)
 msgid "2400K"
-msgstr ""
+msgstr "2400K"
 
 #: docs/Features.md:block 10 (table)
 msgid "1636K"
-msgstr ""
+msgstr "1636K"
 
 #: docs/Features.md:block 10 (table)
 msgid "2500K"
-msgstr ""
+msgstr "2500K"
 
 #: docs/Features.md:block 10 (table)
 msgid "1674K"
-msgstr ""
+msgstr "1674K"
 
 #: docs/Features.md:block 10 (table)
 msgid "3077K"
-msgstr ""
+msgstr "3077K"
 
 #: docs/Features.md:block 10 (table)
 msgid "1885K"
-msgstr ""
+msgstr "1885K"
 
 #: docs/Features.md:block 10 (table)
 msgid "3652K"
-msgstr ""
+msgstr "3652K"
 
 #: docs/Features.md:block 10 (table)
 msgid "2459K"
-msgstr ""
+msgstr "2459K"
 
 #: docs/Features.md:block 10 (table)
 msgid "3913K"
-msgstr ""
+msgstr "3913K"
 
 #: docs/Features.md:block 10 (table)
 msgid "2634K"
-msgstr ""
+msgstr "2634K"
 
 #: docs/Features.md:block 11 (paragraph)
 msgid ""
 "Further details on the benchmarks are available in the [Benchmarks "
 "document](Benchmarks.md)."
-msgstr ""
+msgstr "ベンチマークの詳細については、[ベンチマーク・ドキュメント](Benchmarks."
+"md)を参照してください。"
 
 #: docs/Features.md:block 10 (table)
 msgid "STM32G0B1"
-msgstr ""
+msgstr "STM32G0B1"
 
 #: docs/Features.md:block 10 (table)
 msgid "1103K"
-msgstr ""
+msgstr "1103K"
 
 #: docs/Features.md:block 10 (table)
 msgid "790K"
-msgstr ""
+msgstr "790K"
 
 #: docs/Features.md:block 10 (table)
 msgid "SAMD21"
-msgstr ""
+msgstr "SAMD21"
 
 #: docs/Features.md:block 10 (table)
 msgid "STM32F103"
-msgstr ""
+msgstr "STM32F103"
 
 #: docs/Features.md:block 10 (table)
 msgid "SAM3X8E"
-msgstr ""
+msgstr "SAM3X8E"
 
 #: docs/Features.md:block 10 (table)
 msgid "SAM4S8C"
-msgstr ""
+msgstr "SAM4S8C"
 
 #: docs/Features.md:block 10 (table)
 msgid "LPC1768"
-msgstr ""
+msgstr "LPC1768"
 
 #: docs/Features.md:block 10 (table)
 msgid "LPC1769"
-msgstr ""
+msgstr "LPC1769"
 
 #: docs/Features.md:block 10 (table)
 msgid "RP2040"
-msgstr ""
+msgstr "RP2040"
 
 #: docs/Features.md:block 10 (table)
 msgid "SAM4E8E"
-msgstr ""
+msgstr "SAM4E8E"
 
 #: docs/Features.md:block 10 (table)
 msgid "SAMD51"
-msgstr ""
+msgstr "SAMD51"
 
 #: docs/Features.md:block 10 (table)
 msgid "STM32F407"
-msgstr ""
+msgstr "STM32F407"
 
 #: docs/Features.md:block 10 (table)
 msgid "STM32F446"
-msgstr ""
+msgstr "STM32F446"
 
 #: docs/Features.md:block 11 (paragraph)
 msgid ""
@@ -390,18 +475,21 @@ msgid ""
 "appropriate [config file](../config/), and look for the micro-controller "
 "name in the comments at the top of that file."
 msgstr ""
+"特定のボードのマイクロコントローラーがわからない場合は、適切な "
+"[configファイル](../config/) を見つけて、そのファイルの先頭にあるコメントから"
+"マイクロコントローラーの名前を探してください。"
 
 #: docs/Features.md:block 10 (table)
 msgid "STM32H743"
-msgstr ""
+msgstr "STM32H743"
 
 #: docs/Features.md:block 10 (table)
 msgid "9091K"
-msgstr ""
+msgstr "9091K"
 
 #: docs/Features.md:block 10 (table)
 msgid "6061K"
-msgstr ""
+msgstr "6061K"
 
 #: docs/Features.md:block 3 (unordered list)
 msgid ""
@@ -416,6 +504,16 @@ msgid ""
 "of acceleration and the physics of the machine kinematics. More precise "
 "stepper movement provides quieter and more stable printer operation."
 msgstr ""
+"高精度のステッパー動作。 "
+"Klipperは、プリンターの動きを計算する際に、アプリケーションプロセッサ（"
+"低価格のRaspberry Piなど）を利用します。アプリケーションプロセッサは、各ステ"
+"ッピングモータをいつステップさせるかを決定し、それらのイベントを圧縮してマイ"
+"クロコントローラに送信し、マイクロコントローラが要求された時間に各イベントを"
+"実行します。各ステッパーイベントは、25マイクロ秒以上の精度でスケジュールされ"
+"ます。このソフトウェアは（ブレゼンハムのアルゴリズムのような）運動学的推定を"
+"使用せず、加速の物理学と機械の運動学の物理学に基づいて正確なステップ時間を計"
+"算します。より正確なステッパー動作は、より静かで安定したプリンター動作を提供"
+"します。"
 
 #: docs/Features.md:block 3 (unordered list)
 msgid ""
@@ -426,6 +524,12 @@ msgid ""
 "to). This makes it easier to use available hardware, to upgrade to new "
 "hardware, and to have confidence in the hardware."
 msgstr ""
+"Klipper はハードウェアにとらわれません。ローレベルのエレクトロニクス・ハード"
+"ウェアとは無関係に、同じ正確なタイミングを得ることができるはずです。Klipper "
+"マイクロコントローラーのコードは、Klipper ホスト・ソフトウェアが提供するスケ"
+"ジュールに忠実に従うように設計されています。これにより、利用可能なハードウェ"
+"アの使用や、新しいハードウェアへのアップグレードが容易になり、ハードウェアへ"
+"の信頼が高まります。"
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
@@ -434,18 +538,27 @@ msgid ""
 "browser. The same Raspberry Pi that runs Klipper can also run the web "
 "interface."
 msgstr ""
+"いくつかのウェブインターフェースを利用可能。 Mainsail、Fluidd、OctoPrint など"
+"で動作します。これにより、通常のウェブブラウザを使ってプリンターを制御するこ"
+"とができます。Klipperを動かすのと同じRaspberry "
+"Piでもウェブインターフェースを動かすことができます。"
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
 "Support for cartesian, delta, corexy, corexz, hybrid-corexy, hybrid-corexz, "
 "deltesian, rotary delta, polar, and cable winch style printers."
 msgstr ""
+"Cartesian(デカルト式), Delta, CoreXY, CoreXZ, Hybrid-CoreXY, Hybrid-CoreXZ, "
+"Deltesian, Rotary Delta, Polar, Cable Winch Style "
+"のプリンタに対応しています。"
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
 "Run-time \"exclude object\" support. When configured, this module may "
 "facilitate canceling of just one object in a multi-part print."
 msgstr ""
+"印刷中の \"exclude object\" サポート。 このモジュールが設定されている場合、マ"
+"ルチパート印刷の1つのオブジェクトだけをキャンセルすることができます。"
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
@@ -454,12 +567,17 @@ msgid ""
 "current control of traditional stepper drivers via AD5206, DAC084S085, "
 "MCP4451, MCP4728, MCP4018, and PWM pins."
 msgstr ""
+"TMC2130、TMC2208/TMC2224、TMC2209、TMC2660、およびTMC5160ステッパ・モータ・ド"
+"ライバのランタイム・コンフィギュレーションをサポートします。また、AD5206、DAC"
+"084S085、MCP4451、MCP4728、MCP4018、PWMピンを介した従来のステッパ・ドライバの"
+"電流制御もサポートしています。"
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
 "Support for measuring and recording acceleration using an adxl345, mpu9250, "
 "and mpu6050 accelerometers."
-msgstr ""
+msgstr "adxl345、mpu9250、mpu6050加速度センサーを使用した加速度の測定と記録をサポート"
+"。"
 
 #: docs/Features.md:block 3 (unordered list)
 msgid ""
@@ -470,18 +588,23 @@ msgid ""
 "higher print velocities. The stepper event timing remains precise even at "
 "high speeds which improves overall stability."
 msgstr ""
+"クラス最高のパフォーマンス。 Klipper は、新旧どちらのマイコンでも高いステップ"
+"レートを実現できます。古い8ビットマイコンでも、毎秒175Kステップを超える速度を"
+"得ることができます。最近のマイコンでは、毎秒数百万ステップも可能です。ステッ"
+"パー・レートが高いほど、印刷速度が速くなります。ステッパーイベントのタイミン"
+"グは、高速でも正確なままであるため、全体的な安定性が向上します。"
 
 #: docs/Features.md:block 10 (table)
 msgid "AR100"
-msgstr ""
+msgstr "AR100"
 
 #: docs/Features.md:block 10 (table)
 msgid "3529K"
-msgstr ""
+msgstr "3529K"
 
 #: docs/Features.md:block 10 (table)
 msgid "2507K"
-msgstr ""
+msgstr "2507K"
 
 #~ msgid ""
 #~ "Best in class performance. Klipper is able to achieve high stepping rates on"
