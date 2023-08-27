@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2023-08-20 17:47+0000\n"
+"PO-Revision-Date: 2023-08-27 22:41+0000\n"
 "Last-Translator: \"Zs.Antal\" <zsikaiantal@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
 "bootloaders/hu/>\n"
@@ -14,7 +14,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.0-dev\n"
+"X-Generator: Weblate 5.0.1-dev\n"
 
 msgid ""
 "This document provides information on common bootloaders found on micro-"
@@ -1019,7 +1019,7 @@ msgid ""
 "bootloader (the application must be compiled with with the corresponding "
 "starting address)."
 msgstr ""
-"Ez a bootloader 8KiB vagy 16KiB flash helyet használ, lásd a bootloader "
+"Ez a bootloader 8KiB vagy 16KiB memória helyet használ, lásd a bootloader "
 "leírását (az alkalmazást a megfelelő kezdőcímmel kell lefordítani)."
 
 #: docs/Bootloaders.md:block 111 (paragraph)
@@ -1102,7 +1102,7 @@ msgstr ""
 
 #: docs/Bootloaders.md:block 119 (paragraph)
 msgid "Once you have a UUID, you may upload firmware with following command:"
-msgstr "Ha megvan az UUID, a következő paranccsal tölthet fel firmware-t:"
+msgstr "Ha megvan az UUID, a következő paranccsal tölthetsz fel firmware-t:"
 
 #: docs/Bootloaders.md:block 120 (code)
 msgid ""
