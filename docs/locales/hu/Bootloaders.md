@@ -210,7 +210,7 @@ Az STM32F103 eszközök rendelkeznek egy ROM-mal, amely 3,3 V-os soros kapcsolat
 stm32flash -w out/klipper.bin -v -g 0 /dev/ttyAMA0
 ```
 
-Vedd figyelembe, hogy ha Raspberry Pi-t használ a 3,3V-os soros kapcsolathoz, az stm32flash protokoll olyan soros paritásmódot használ, amelyet a Raspberry Pi "mini UART" nem támogat. Lásd <https://www.raspberrypi.com/documentation/computers/configuration.html#configuring-uarts> a teljes uart engedélyezéséről a Raspberry Pi GPIO tűin.
+Vedd figyelembe, hogy ha Raspberry Pi-t használsz a 3,3V-os soros kapcsolathoz, az stm32flash protokoll olyan soros paritásmódot használ, amelyet a Raspberry Pi "mini UART" nem támogat. Lásd <https://www.raspberrypi.com/documentation/computers/configuration.html#configuring-uarts> a teljes uart engedélyezéséről a Raspberry Pi GPIO tűin.
 
 Az égetés után állítsd vissza a "boot 0" és a "boot 1" értéket alacsonyra, hogy a jövőben az égetésről induló rendszer újrainduljon.
 
@@ -323,7 +323,7 @@ Az STM32F072 lapok esetében a bootloader USB-n keresztül (DFU-n keresztül) is
  dfu-util -d 0483:df11 -a 0 -R -D  MSCboot-STM32F072.bin -s0x08000000:leave
 ```
 
-Ez a bootloader 8KiB vagy 16KiB flash helyet használ, lásd a bootloader leírását (az alkalmazást a megfelelő kezdőcímmel kell lefordítani).
+Ez a bootloader 8KiB vagy 16KiB memória helyet használ, lásd a bootloader leírását (az alkalmazást a megfelelő kezdőcímmel kell lefordítani).
 
 A bootloader a kártya reset gombjának kétszeri megnyomásával aktiválható. Amint a bootloader aktiválódik, a kártya USB flash meghajtóként jelenik meg, amelyre a klipper.bin fájl másolható.
 
@@ -343,7 +343,7 @@ python3 flash_can.py -q
 
 Ez visszaadja az összes olyan csatlakoztatott csomópont UUID-jét, amelyhez jelenleg nem tartozik UUID. Ennek tartalmaznia kell a jelenlegi bootloaderben lévő összes csomópontot.
 
-Ha megvan az UUID, a következő paranccsal tölthet fel firmware-t:
+Ha megvan az UUID, a következő paranccsal tölthetsz fel firmware-t:
 
 ```
 python3 flash_can.py -i can0 -f ~/klipper/out/klipper.bin -u aabbccddeeff

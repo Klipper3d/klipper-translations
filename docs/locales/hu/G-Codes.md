@@ -109,7 +109,7 @@ A következő parancsok akkor érhetők el, ha a [bed_mesh konfigurációs szaka
 
 ### [bed_screws]
 
-A következő parancsok akkor érhetők el, ha az [tárgyasztal szintező csavarok konfigurációs szakasz](Config_Reference.md#bed_screws) engedélyezve van (lásd még a [kézi szintezés útmutatót](Manual_Level.md#adjusting-bed-leveling-screws)).
+A következő parancsok akkor érhetők el, ha a [tárgyasztal szintező csavarok konfigurációs szakasz](Config_Reference.md#bed_screws) engedélyezve van (lásd még a [kézi szintezés útmutatót](Manual_Level.md#adjusting-bed-leveling-screws)).
 
 #### BED_SCREWS_ADJUST
 

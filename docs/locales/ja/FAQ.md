@@ -1,22 +1,22 @@
-# Frequently Asked Questions
+# よくある質問
 
-## How can I donate to the project?
+## このプロジェクトに寄付するにはどうすればいいですか？
 
-Thank you for your support. See the [Sponsors page](Sponsors.md) for information.
+ご支援ありがとうございます。詳しくは [スポンサーページ](Sponsors.md) をご覧ください。
 
-## How do I calculate the rotation_distance config parameter?
+## rotation_distance の設定パラメーターはどのように計算すれば良いですか？
 
-See the [rotation distance document](Rotation_Distance.md).
+[回転距離に関するドキュメント](Rotation_Distance.md) を参照。
 
-## Where's my serial port?
+## シリアルポートはどこですか？ {#wheres-my-serial-port}
 
-The general way to find a USB serial port is to run `ls /dev/serial/by-id/*` from an ssh terminal on the host machine. It will likely produce output similar to the following:
+USBシリアルポートを見つける一般的な方法は、ホストマシンのsshターミナルから `ls /dev/serial/by-id/*` を実行することです。以下のような出力が得られるはずです:
 
 ```
 /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 ```
 
-The name found in the above command is stable and it is possible to use it in the config file and while flashing the micro-controller code. For example, a flash command might look similar to:
+上記のコマンドで見つかった名前は安定しており、コンフィグファイルやマイクロコントローラーのコードをフラッシュする際に使用することができます。例えば、フラッシュ・コマンドは以下のようになります：
 
 ```
 sudo service klipper stop
@@ -24,43 +24,43 @@ make flash FLASH_DEVICE=/dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 sudo service klipper start
 ```
 
-and the updated config might look like:
+更新されたConfigは次のようになります:
 
 ```
 [mcu]
 serial: /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 ```
 
-Be sure to copy-and-paste the name from the "ls" command that you ran above as the name will be different for each printer.
+プリンタごとに名前が異なるため、上記で実行した "ls "コマンドの名前をコピー＆ペーストしてください。
 
-If you are using multiple micro-controllers and they do not have unique ids (common on boards with a CH340 USB chip) then follow the directions above using the command `ls /dev/serial/by-path/*` instead.
+複数のマイクロコントローラーを使用していて、それらがユニークなIDを持っていない場合（CH340 USBチップを搭載したボードでは一般的）、代わりに `ls /dev/serial/by-path/*` コマンドを使用して上記の指示に従ってください。
 
-## When the micro-controller restarts the device changes to /dev/ttyUSB1
+## マイクロコントローラーが再起動すると、デバイスは/dev/ttyUSB1に変わります。
 
-Follow the directions in the "[Where's my serial port?](#wheres-my-serial-port)" section to prevent this from occurring.
+これを防ぐには、"[シリアルポートはどこですか?](#wheres-my-serial-port)" のセクションの指示に従ってください。
 
-## The "make flash" command doesn't work
+## "make flash" コマンドが機能しない
 
-The code attempts to flash the device using the most common method for each platform. Unfortunately, there is a lot of variance in flashing methods, so the "make flash" command may not work on all boards.
+このコードでは、各プラットフォームで最も一般的な方法でデバイスのフラッシュを試みます。残念ながら、フラッシュ方法には多くの方法があるため、"make flash" コマンドはすべてのボードで動作するとは限りません。
 
-If you're having an intermittent failure or you do have a standard setup, then double check that Klipper isn't running when flashing (sudo service klipper stop), make sure OctoPrint isn't trying to connect directly to the device (open the Connection tab in the web page and click Disconnect if the Serial Port is set to the device), and make sure FLASH_DEVICE is set correctly for your board (see the [question above](#wheres-my-serial-port)).
+もし断続的な失敗があるか、標準的なセットアップをしているのであれば、フラッシュ時にKlipperが動作していないか（sudo service klipper stop）、OctoPrintがデバイスに直接接続しようとしていないか（ウェブページの Connection タブを開き、シリアルポートがデバイスに設定されている場合はDisconnectをクリックしてください）、FLASH_DEVICE がボードに正しく設定されているかを再確認してください。（上の[質問](#wheres-my-serial-port)を参照してください）
 
-However, if "make flash" just doesn't work for your board, then you will need to manually flash. See if there is a config file in the [config directory](../config) with specific instructions for flashing the device. Also, check the board manufacturer's documentation to see if it describes how to flash the device. Finally, it may be possible to manually flash the device using tools such as "avrdude" or "bossac" - see the [bootloader document](Bootloaders.md) for additional information.
+しかし、"make flash" があなたのボードでうまくいかない場合は、手動でフラッシュする必要があります。[configディレクトリ](../config)に、デバイスをフラッシュするための具体的な手順が書かれたConfigファイルがあるかどうかを確認してください。また、ボードの製造元のドキュメントをチェックして、デバイスをフラッシュする方法が記載されているかどうかを確認してください。最後に、"avrdude "や "bossac "のようなツールを使って、手動でデバイスをフラッシュすることができるかもしれません - 追加情報については、[bootloader document](Bootloaders.md)を参照してください。
 
-## How do I change the serial baud rate?
+## シリアル・ボーレートを変更するにはどうすればよいですか？
 
-The recommended baud rate for Klipper is 250000. This baud rate works well on all micro-controller boards that Klipper supports. If you've found an online guide recommending a different baud rate, then ignore that part of the guide and continue with the default value of 250000.
+Klipper の推奨ボーレートは 250000 です。このボーレートは、クリッパーがサポートしている全てのマイコンボードで動作します。もし別のボーレートを推奨しているオンラインガイドを見つけたのであれば、その部分は無視して、デフォルトの250000を使い続けてください。
 
-If you want to change the baud rate anyway, then the new rate will need to be configured in the micro-controller (during **make menuconfig**) and that updated code will need to be compiled and flashed to the micro-controller. The Klipper printer.cfg file will also need to be updated to match that baud rate (see the [config reference](Config_Reference.md#mcu) for details). For example:
+ボーレートを変更したい場合は、新しいレートをマイクロコントローラに(**make menuconfig**の中で)設定し、更新されたコードをコンパイルしてマイクロコントローラにフラッシュする必要があります。また、Klipperの printer.cfg ファイルも、そのボーレートに合うように更新する必要があります (詳細については、[config reference](Config_Reference.md#mcu) を参照してください)。設定例:
 
 ```
 [mcu]
 baud: 250000
 ```
 
-The baud rate shown on the OctoPrint web page has no impact on the internal Klipper micro-controller baud rate. Always set the OctoPrint baud rate to 250000 when using Klipper.
+OctoPrint のウェブページに表示されているボーレートはKlipper のマイクロコントローラー内部のボーレートに影響 はありません。Klipper を使用するときは OctoPrint のボーレートを常に 250000 に設定してください。
 
-The Klipper micro-controller baud rate is not related to the baud rate of the micro-controller's bootloader. See the [bootloader document](Bootloaders.md) for additional information on bootloaders.
+Klipper のマイクロコントローラのボーレートは、マイクロコントローラのブートローダのボーレートとは関係ありません。ブートローダに関する追加情報については、[ブートローダ・ドキュメント](Bootloaders.md) を参照してください。
 
 ## Can I run Klipper on something other than a Raspberry Pi 3?
 

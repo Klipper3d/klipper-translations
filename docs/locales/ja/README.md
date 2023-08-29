@@ -1,1 +1,1 @@
-Welcome to the Klipper documentation. The [overview document](Overview.md) is a good starting point.
+Klipper のドキュメントへようこそ。[概要](Overview.md) は良い出発点です。
