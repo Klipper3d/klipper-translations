@@ -1476,31 +1476,7 @@ Habilita la [compensación de resonancia](Resonance_Compensation.md). Mírese ta
 Support for ADXL345 accelerometers. This support allows one to query accelerometer measurements from the sensor. This enables an ACCELEROMETER_MEASURE command (see [G-Codes](G-Codes.md#adxl345) for more information). The default chip name is "default", but one may specify an explicit name (eg, [adxl345 my_chip_name]).
 
 ```
-[adxl345]
-cs_pin:
-#   The SPI enable pin for the sensor. This parameter must be provided.
-#spi_speed: 5000000
-#   The SPI speed (in hz) to use when communicating with the chip.
-#   The default is 5000000.
-#spi_bus:
-#spi_software_sclk_pin:
-#spi_software_mosi_pin:
-#spi_software_miso_pin:
-#   See the "common SPI settings" section for a description of the
-#   above parameters.
-#axes_map: x, y, z
-#   The accelerometer axis for each of the printer's X, Y, and Z axes.
-#   This may be useful if the accelerometer is mounted in an
-#   orientation that does not match the printer orientation. For
-#   example, one could set this to "y, x, z" to swap the X and Y axes.
-#   It is also possible to negate an axis if the accelerometer
-#   direction is reversed (eg, "x, z, -y"). The default is "x, y, z".
-#rate: 3200
-#   Output data rate for ADXL345. ADXL345 supports the following data
-#   rates: 3200, 1600, 800, 400, 200, 100, 50, and 25. Note that it is
-#   not recommended to change this rate from the default 3200, and
-#   rates below 800 will considerably affect the quality of resonance
-#   measurements.
+ajustes de SPI comunes
 ```
 
 ### [mpu9250]

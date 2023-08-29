@@ -202,7 +202,7 @@ config_stepper oid=2 step_pin=PB3 dir_pin=PB7 invert_step=-1 step_pulse_ticks=0
 finalize_config crc=0
 ```
 
-A tesztet utoljára a `59314d99` megbízási gcc verzióval `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0` futtatta. Az STM32F407-es eredményeket úgy kaptuk, hogy egy STM32F407-es bináris programot futtattunk egy STM32F446-oson (és így 168 MHz-es órajelet használtunk).
+A tesztet utoljára az `59314d99` megbízási gcc verzióval `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0` futtatta. Az STM32F407-es eredményeket úgy kaptuk, hogy egy STM32F407-es bináris programot futtattunk egy STM32F446-oson (és így 168 MHz-es órajelet használtunk).
 
 | stm32f446 | trükkök |
 | --- | --- |

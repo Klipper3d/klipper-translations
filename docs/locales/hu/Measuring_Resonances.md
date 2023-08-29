@@ -160,7 +160,7 @@ Vedd figyelembe, hogy egy tárgyasztal csúsztatós nyomtatónál 2 rögzítést
 
 ### Szoftver telepítése
 
-Vedd figyelembe, hogy a rezonanciamérések és a shaper automatikus kalibrálása további, alapértelmezés szerint nem telepített szoftverfüggőségeket igényel. Először futtassa a Raspberry Pi számítógépén a következő parancsokat:
+Vedd figyelembe, hogy a rezonanciamérések és a shaper automatikus kalibrálása további, alapértelmezés szerint nem telepített szoftverfüggőségeket igényel. Először futtasd a Raspberry Pi számítógépen a következő parancsokat:
 
 ```
 sudo apt update
@@ -173,7 +173,7 @@ Ezután a NumPy telepítéséhez a Klipper környezetbe futtassuk a parancsot:
 ~/klippy-env/bin/pip install -v numpy
 ```
 
-Vedd figyelembe, hogy a CPU teljesítményétől függően ez *sok* időt vehet igénybe, akár 10-20 percet is. Legyen türelmes, és várja meg a telepítés befejezését. Bizonyos esetekben, ha a kártyán túl kevés RAM van, a telepítés meghiúsulhat, és engedélyeznie kell a swapot.
+Vedd figyelembe, hogy a CPU teljesítményétől függően ez *sok* időt vehet igénybe, akár 10-20 percet is. Legyél türelmes, és várd meg a telepítés befejezését. Bizonyos esetekben, ha a kártyán túl kevés RAM van, a telepítés meghiúsulhat, és engedélyezned kell a swapot.
 
 #### ADXL345 konfigurálása RPi-vel
 
@@ -268,7 +268,7 @@ i2c_bus: i2c.1
 [resonance_tester]
 accel_chip: mpu9250
 probe_points:
-    100, 100, 20  # an example
+    100, 100, 20  # egy példa
 ```
 
 #### Configure MPU-9520 Compatibles With Pico
@@ -357,7 +357,7 @@ Ha az X tengelyen működik, futtasd az Y tengelyen is:
 TEST_RESONANCES AXIS=Y
 ```
 
-Ez 2 CSV fájlt fog létrehozni (`/tmp/resonances_x_*.csv` és `/tmp/resonances_y_*.csv`) Ezeket a fájlokat a Raspberry Pi-n lévő önálló szkript segítségével lehet feldolgozni. Ehhez futtassa a következő parancsokat:
+Ez 2 CSV fájlt fog létrehozni (`/tmp/resonances_x_*.csv` és `/tmp/resonances_y_*.csv`) Ezeket a fájlokat a Raspberry Pi-n lévő önálló szkript segítségével lehet feldolgozni. Ehhez futtasd a következő parancsokat:
 
 ```
 ~/klipper/scripts/calibrate_shaper.py /tmp/resonances_x_*.csv -o /tmp/shaper_calibrate_x.png
