@@ -13,7 +13,7 @@
     
     
       
-        <title>Contributing to Klipper - Klipper documentation</title>
+        <title>Klipper に貢献する - Klipper documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#contributing-to-klipper" class="md-skip">
+        <a href="#klipper" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Contributing to Klipper
+              Klipper に貢献する
             
           </span>
         </div>
@@ -1240,29 +1240,29 @@
       
         <li class="md-nav__item">
   <a href="#overview-of-contribution-process" class="md-nav__link">
-    Overview of Contribution Process
+    貢献プロセスの概要
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#what-to-expect-in-a-review" class="md-nav__link">
-    What to expect in a review
+    レビューで期待されること
   </a>
   
-    <nav class="md-nav" aria-label="What to expect in a review">
+    <nav class="md-nav" aria-label="レビューで期待されること">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
   <a href="#helping-with-reviews" class="md-nav__link">
-    Helping with reviews
+    レビューの支援
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#reviewers" class="md-nav__link">
-    Reviewers
+    レビュアー
   </a>
   
 </li>
@@ -1274,14 +1274,14 @@
       
         <li class="md-nav__item">
   <a href="#format-of-commit-messages" class="md-nav__link">
-    Format of commit messages
+    コミットメッセージのフォーマット
   </a>
   
 </li>
       
         <li class="md-nav__item">
   <a href="#contributing-to-klipper-translations" class="md-nav__link">
-    Contributing to Klipper Translations
+    Klipperの翻訳に貢献する
   </a>
   
 </li>
@@ -1303,117 +1303,117 @@
 </a>
 
 
-<h1 id="contributing-to-klipper">Contributing to Klipper<a class="headerlink" href="#contributing-to-klipper" title="Permanent link">&para;</a></h1>
-<p>Thank you for contributing to Klipper! This document describes the process for contributing changes to Klipper.</p>
-<p>Please see the <a href="Contact.html">contact page</a> for information on reporting an issue or for details on contacting the developers.</p>
-<h2 id="overview-of-contribution-process">Overview of Contribution Process<a class="headerlink" href="#overview-of-contribution-process" title="Permanent link">&para;</a></h2>
-<p>Contributions to Klipper generally follow a high-level process:</p>
+<h1 id="klipper">Klipper に貢献する<a class="headerlink" href="#klipper" title="Permanent link">&para;</a></h1>
+<p>Klipperに貢献していただき、ありがとうございます! このドキュメントでは、Klipper の変更に貢献するためのプロセスについて説明します。</p>
+<p>問題の報告や開発者への連絡については、<a href="Contact.html">問い合わせ先</a>をご覧ください。</p>
+<h2 id="overview-of-contribution-process">貢献プロセスの概要<a class="headerlink" href="#overview-of-contribution-process" title="Permanent link">&para;</a></h2>
+<p>Klipper への貢献は、一般的にハイレベルなプロセスに従います：</p>
 <ol>
-<li>A submitter starts by creating a <a href="https://github.com/Klipper3d/klipper/pulls">GitHub Pull Request</a> when a submission is ready for widespread deployment.</li>
-<li>When a <a href="#reviewers">reviewer</a> is available to <a href="#what-to-expect-in-a-review">review</a> the submission, they will assign themselves to the Pull Request on GitHub. The goal of the review is to look for defects and to check that the submission follows documented guidelines.</li>
-<li>After a successful review, the reviewer will "approve the review" on GitHub and a <a href="#reviewers">maintainer</a> will commit the change to the Klipper master branch.</li>
+<li>提出者は、提出物が広範な展開に適していると判断した時点で、<a href="https://github.com/Klipper3d/klipper/pulls">GitHub のプルリクエスト</a>を作成します。</li>
+<li><a href="#reviewers">レビュアー</a>が提出物のレビューを行う準備ができたら、GitHub上のそのプルリクエストに自身を割り当てます。レビューの目的は、欠陥を見つけることと、提出物が文書化されたガイドラインに従っていることを確認することです。</li>
+<li>レビューが成功すると、レビュアーは GitHub 上で "レビューを承認" し、<a href="#reviewers">メンテナー</a> がその変更を Klipper の master ブランチにコミットします。</li>
 </ol>
-<p>When working on enhancements, consider starting (or contributing to) a topic on <a href="Contact.html">Klipper Discourse</a>. An ongoing discussion on the forum can improve visibility of development work and may attract others interested in testing new work.</p>
-<h2 id="what-to-expect-in-a-review">What to expect in a review<a class="headerlink" href="#what-to-expect-in-a-review" title="Permanent link">&para;</a></h2>
-<p>Contributions to Klipper are reviewed before merging. The primary goal of the review process is to check for defects and to check that the submission follows guidelines specified in the Klipper documentation.</p>
-<p>It is understood that there are many ways to accomplish a task; it is not the intent of the review to discuss the "best" implementation. Where possible, review discussions focused on facts and measurements are preferable.</p>
-<p>The majority of submissions will result in feedback from a review. Be prepared to obtain feedback, provide further details, and to update the submission if needed.</p>
-<p>Common things a reviewer will look for:</p>
+<p>機能拡張に取り組む際には、<a href="Contact.html">Klipper Discourse</a> でトピックを立ち上げる (または、トピックに貢献する) ことを検討してください。フォーラムでの継続的な議論は、開発作業の可視性を向上させ、新しい作業のテストに興味を持つ他の人たちを惹きつけるかもしれません。</p>
+<h2 id="what-to-expect-in-a-review">レビューで期待されること<a class="headerlink" href="#what-to-expect-in-a-review" title="Permanent link">&para;</a></h2>
+<p>Klipperへの投稿は、マージする前にレビューされます。レビューの主な目的は、欠陥のチェックと、投稿がKlipperのドキュメントで指定されているガイドラインに従っているかどうかをチェックすることです。</p>
+<p>課題をするための方法は多岐にわたることが理解されています。レビューの目的は "最良の" 実装を議論することではありません。可能な限り、事実と計測に基づくレビューの議論が好ましいです。</p>
+<p>ほとんどの提出物はレビューからフィードバックが得られるでしょう。フィードバックを受け入れ、さらなる詳細を提供し、必要に応じて提出物を更新する準備をしておいてください。</p>
+<p>レビュアーが注意を払う一般的な点：</p>
 <ol>
 <li>
-<p>Is the submission free of defects and is it ready to be widely deployed?Submitters are expected to test their changes prior to submission. The reviewers look for errors, but they don't, in general, test submissions. An accepted submission is often deployed to thousands of printers within a few weeks of acceptance. Quality of submissions is therefore considered a priority.</p>
-<p>The main <a href="https://github.com/Klipper3d/klipper">Klipper3d/klipper</a> GitHub repository does not accept experimental work. Submitters should perform experimentation, debugging, and testing in their own repositories. The <a href="Contact.html">Klipper Discourse</a> server is a good place to raise awareness of new work and to find users interested in providing real-world feedback.</p>
-<p>Submissions must pass all <a href="Debugging.html">regression test cases</a>.</p>
-<p>When fixing a defect in the code, submitters should have a general understanding of the root cause of that defect, and the fix should target that root cause.</p>
-<p>Code submissions should not contain excessive debugging code, debugging options, nor run-time debug logging.</p>
-<p>Comments in code submissions should focus on enhancing code maintenance. Submissions should not contain "commented out code" nor excessive comments describing past implementations. There should not be excessive "todo" comments.</p>
-<p>Updates to documentation should not declare that they are a "work in progress".</p>
+<p>提出されたものに欠陥はなく、広く展開される準備ができていますか?提出者は提出前に変更をテストすることが期待されています。レビュアーはエラーを探しますが、一般的には投稿をテストすることはありません。受理された提出物は、多くの場合、受理から数週間以内に何千ものプリンタに展開されます。そのため、提出物の品質が優先されます。</p>
+<p>メインの<a href="https://github.com/Klipper3d/klipper">Klipper3d/klipper</a> GitHubリポジトリでは、実験的な作業は受け付けていません。提出者は自分のリポジトリで実験、デバッグ、テストを行うべきです。 <a href="Contact.html">Klipper Discourse</a> サーバーは新しい作業を周知し、実世界のフィードバックを提供する興味を持つユーザーを見つけるための良い場所です。</p>
+<p>提出物はすべての<a href="Debugging.html">回帰テスト</a>ケースをパスする必要があります。</p>
+<p>コード内の欠陥を修正する際には、提出者はその欠陥の根本原因を把握しておく必要があり、修正はその根本原因に焦点を当てるべきです。</p>
+<p>コードの提出物には過剰なデバッグコード、デバッグオプション、実行時のデバッグログは含めないでください。</p>
+<p>コード提出時のコメントは、コードの保守性を高めることに重点を置いてください。提出されたコードには、"コメントアウトされたコード" や、過去の実装を説明する過剰なコメントを含めるべきではありません。過剰な "todo" コメントを含めてはいけません。</p>
+<p>ドキュメントの更新は "進行中の作業" と宣言してはいけません。</p>
 </li>
 <li>
-<p>Does the submission provide a "high impact" benefit to real-world users performing real-world tasks?Reviewers need to identify, at least in their own minds, roughly "who the target audience is", a rough scale of "the size of that audience", the "benefit" they will obtain, how the "benefit is measured", and the "results of those measurement tests". In most cases this will be obvious to both the submitter and the reviewer, and it is not explicitly stated during a review.</p>
-<p>Submissions to the master Klipper branch are expected to have a noteworthy target audience. As a general "rule of thumb", submissions should target a user base of at least a 100 real-world users.</p>
-<p>If a reviewer asks for details on the "benefit" of a submission, please don't consider it criticism. Being able to understand the real-world benefits of a change is a natural part of a review.</p>
-<p>When discussing benefits it is preferable to discuss "facts and measurements". In general, reviewers are not looking for responses of the form "someone may find option X useful", nor are they looking for responses of the form "this submission adds a feature that firmware X implements". Instead, it is generally preferable to discuss details on how the quality improvement was measured and what were the results of those measurements - for example, "tests on Acme X1000 printers show improved corners as seen in picture ...", or for example "print time of real-world object X on a Foomatic X900 printer went from 4 hours to 3.5 hours". It is understood that testing of this type can take significant time and effort. Some of Klipper's most notable features took months of discussion, rework, testing, and documentation prior to being merged into the master branch.</p>
-<p>All new modules, config options, commands, command parameters, and documents should have "high impact". We do not want to burden users with options that they can not reasonably configure nor do we want to burden them with options that don't provide a notable benefit.</p>
-<p>A reviewer may ask for clarification on how a user is to configure an option - an ideal response will contain details on the process - for example, "users of the MegaX500 are expected to set option X to 99.3 while users of the Elite100Y are expected to calibrate option X using procedure ...".</p>
-<p>If the goal of an option is to make the code more modular then prefer using code constants instead of user facing config options.</p>
-<p>New modules, new options, and new parameters should not provide similar functionality to existing modules - if the differences are arbitrary than it's preferable to utilize the existing system or refactor the existing code.</p>
+<p>提出物は、実世界のユーザーが実際のタスクを実行する際に "インパクトの大きい" 利益をもたらすか？レビュアーは、少なくとも自分自身の中で、おおよその "対象ユーザー層" 、そのユーザー層の "おおよその規模" 、得られる "利益" 、その"利益の計測方法"、および "その計測テストの結果" を特定する必要があります。ほとんどの場合、これは提出者とレビュアーの両者にとって明白であり、レビュー中に明示されることはありません。</p>
+<p>Klipper の master ブランチへの提出物は、注目すべきターゲット層を持つことが期待されます。一般的な "おおよその目安" として、提出物は少なくとも100人の実際のユーザーを対象とするべきです。</p>
+<p>もしレビュアーが提出物の "利益" に関する詳細を求める場合、それを批判とは考えないでください。変更がもたらす実世界での利益を理解するように務めることは、レビューの一環であり、自然なことです。</p>
+<p>利益について議論する際には、"事実と計測" に基づく議論が好ましいです。一般的に、レビュアーは "誰かがオプションXを有用と考えるかもしれない" といった形式の回答を求めているわけではありませんし、また "この提出物はファームウェアXが実装する機能を追加する" といった形式の回答も求めていません。代わりに、品質改善の計測方法やその計測結果の詳細について議論する方が一般的に望ましいです。例えば、"Acme X1000プリンタでのテストは、写真で見るようにコーナーの改善が見られる" といった内容や、"Foomatic X900プリンタ上での実際のオブジェクトXの印刷時間は4時間から3.5時間に短縮された" といった内容です。この種のテストにはかなりの時間と労力がかかることをご理解ください。いくつかのKlipperの注目すべき機能は、master ブランチにマージされる前に、数ヶ月にわたる議論、改良、テスト、文書化が行われました。</p>
+<p>すべての新しいモジュール、設定オプション、コマンド、コマンドパラメータ、およびドキュメントは "インパクトが大きい" ものであるべきです。私たちはユーザーが理に適った設定ができないオプションでユーザに負担をかけたくありませんし、注目すべき利益を提供しないオプションでユーザーに負担をかけたくありません。</p>
+<p>レビュアーは、ユーザーがオプションをどのように設定するかについての説明を求める場合があります。 理想的な回答は、プロセスの詳細を含むものです。 例: "MegaX500のユーザーはオプションXを99.3に設定することを期待しており、Elite100Yのユーザーは手順...を使用してオプションXをキャリブレーションすることを期待しています..."</p>
+<p>もしオプションの目標がコードをよりモジュール化することであるなら、ユーザー向けの設定オプションの代わりにコード定数の使用を優先してください。</p>
+<p>新しいモジュール、新しいオプション、および新しいパラメータは、既存のモジュールと類似の機能を提供すべきではありません。もし違いが恣意的である場合、既存のシステムを活用するか、既存のコードをリファクタリングすることが望ましいです。</p>
 </li>
 <li>
-<p>Is the copyright of the submission clear, non-gratuitous, and compatible?New C files and Python files should have an unambiguous copyright statement. See the existing files for the preferred format. Declaring a copyright on an existing file when making minor changes to that file is discouraged.</p>
-<p>Code taken from 3rd party sources must be compatible with the Klipper license (GNU GPLv3). Large 3rd party code additions should be added to the <code>lib/</code> directory (and follow the format described in <a href="https://github.com/Klipper3d/klipper/blob/master/lib/README">lib/README</a>).</p>
-<p>Submitters must provide a <a href="#format-of-commit-messages">Signed-off-by line</a> using their full real name. It indicates the submitter agrees with the <a href="developer-certificate-of-origin">developer certificate of origin</a>.</p>
+<p>提出物の著作権は明確で無償であり、ライセンスに互換性がありますか？新しいCファイルとPythonファイルには、明確な著作権表記が必要です。望ましい形式については、既存のファイルを参照してください。既存のファイルにわずかな変更を加えるときに、そのファイルに著作権を宣言することは推奨されません。</p>
+<p>サードパーティのソースから取得したコードは、Klipper のライセンス (GNU GPLv3) と互換性がなければなりません。大規模なサードパーティのコードの追加は、 <code>lib/</code> ディレクトリに追加してください (そして、<a href="https://github.com/Klipper3d/klipper/blob/master/lib/README">lib/README</a> に記述されているフォーマットに従ってください)。</p>
+<p>投稿者は、<a href="#format-of-commit-messages">Signed-off-by 行</a> に自分の完全な実名を記入しなければなりません。これは、投稿者が <a href="developer-certificate-of-origin">developer certificate of origin</a> に同意していることを示すものです。</p>
 </li>
 <li>
-<p>Does the submission follow guidelines specified in the Klipper documentation?In particular, code should follow the guidelines in <Code_Overview.md> and config files should follow the guidelines in <Example_Configs.md>.</p>
+<p>提出物は、Klipper のドキュメントで指定されているガイドラインに従っていますか?特に、コードは <a href="Code_Overview.html">Code_Overview.md</a> のガイドラインに従うべきであり、設定ファイルは <a href="Example_Configs.html">Example_Configs.md</a> のガイドラインに従うべきです。</p>
 </li>
 <li>
-<p>Is the Klipper documentation updated to reflect new changes?At a minimum, the reference documentation must be updated with corresponding changes to the code:</p>
+<p>Klipper のドキュメントは、新しい変更を反映して更新されていますか?少なくとも、リファレンス・ドキュメントはコードの変更に対応して更新されなければなりません:</p>
 </li>
 </ol>
 <ul>
-<li>All commands and command parameters must be documented in <G-Codes.md>.</li>
-<li>All user facing modules and their config parameters must be documented in <Config_Reference.md>.</li>
-<li>All exported "status variables" must be documented in <Status_Reference.md>.</li>
-<li>All new "webhooks" and their parameters must be documented in <API_Server.md>.</li>
-<li>Any change that makes a non-backwards compatible change to a command or config file setting must be documented in <Config_Changes.md>.</li>
+<li>すべてのコマンドとコマンド・パラメーターは <a href="G-Codes.html">G-Codes.md</a> に文書化されていなければなりません。</li>
+<li>すべてのユーザー向けモジュールとその設定パラメータは、<a href="Config_Reference.html">Config_Reference.md</a> に文書化されていなければなりません。</li>
+<li>エクスポートされた "ステータス変数" はすべて<a href="Status_Reference.html">Status_Reference.md</a> に文書化されなければなりません。</li>
+<li>すべての新しい "webhooks "とそのパラメータは、<a href="API_Server.html">API_Server.md</a> に文書化されなければなりません。</li>
+<li>コマンドやConfigファイルの設定に後方互換性のない変更を加える場合は、<a href="Config_Changes.html">Config_Changes.md</a> に文書化しなければなりません。</li>
 </ul>
-<p>New documents should be added to <Overview.md> and be added to the website index <a href="https://github.com/Klipper3d/klipper/blob/master/docs/_klipper3d/mkdocs.yml">docs/_klipper3d/mkdocs.yml</a>.</p>
+<p>新しいドキュメントは <a href="Overview.html">Overview.md</a> に追加し、ウェブサイトのインデックス <a href="https://github.com/Klipper3d/klipper/blob/master/docs/_klipper3d/mkdocs.yml">docs/_klipper3d/mkdocs.yml</a> に追加してください。</p>
 <ol>
 <li>
-<p>Are commits well formed, address a single topic per commit, and independent?Commit messages should follow the <a href="#format-of-commit-messages">preferred format</a>.</p>
-<p>Commits must not have a merge conflict. New additions to the Klipper master branch are always done via a "rebase" or "squash and rebase". It is generally not necessary for submitters to re-merge their submission on every update to the Klipper master repository. However, if there is a merge conflict, then submitters are recommended to use <code>git rebase</code> to address the conflict.</p>
-<p>Each commit should address a single high-level change. Large changes should be broken up into multiple independent commits. Each commit should "stand on its own" so that tools like <code>git bisect</code> and <code>git revert</code> work reliably.</p>
-<p>Whitespace changes should not be mixed with functional changes. In general, gratuitous whitespace changes are not accepted unless they are from the established "owner" of the code being modified.</p>
+<p>コミットは適切に形成され、1つのコミットにつき1つのトピックに取り組み、独立していますか?コミットメッセージは<a href="#format-of-commit-messages">望ましいフォーマット</a>に従うべきです。</p>
+<p>コミットにはマージでの競合があってはなりません。Klipper の master ブランチへの新規追加は常に "revase" または "squash and rebase" によって行われます。通常、提出者がKlipperのmaster リポジトリを更新するたびに再度マージする必要はありません。ただし、マージの競合が発生する場合、提出者は競合を解消するために <code>git rebase</code> を使用することを推奨します。</p>
+<p>各コミットは1つの高レベルな変更に取り組むべきです。大きな変更は複数の独立したコミットに分割するべきです。各コミットは "単独で成立する" ようにすることで、 <code>git bisect</code> や <code>git revert</code> のようなツールが期待通りに動作するようにするべきです。</p>
+<p>空白の変更と機能の変更は混在させないでください。一般的に、不必要な空白の変更は、修正されるコードの確立された "所有者" からのものでない限り受け入れられません。</p>
 </li>
 </ol>
-<p>Klipper does not implement a strict "coding style guide", but modifications to existing code should follow the high-level code flow, code indentation style, and format of that existing code. Submissions of new modules and systems have more flexibility in coding style, but it is preferable for that new code to follow an internally consistent style and to generally follow industry wide coding norms.</p>
-<p>It is not a goal of a review to discuss "better implementations". However, if a reviewer struggles to understand the implementation of a submission, then they may ask for changes to make the implementation more transparent. In particular, if reviewers can not convince themselves that a submission is free of defects then changes may be necessary.</p>
-<p>As part of a review, a reviewer may create an alternate Pull Request for a topic. This may be done to avoid excessive "back and forth" on minor procedural items and thus streamline the submission process. It may also be done because the discussion inspires a reviewer to build an alternative implementation. Both situations are a normal result of a review and should not be considered criticism of the original submission.</p>
-<h3 id="helping-with-reviews">Helping with reviews<a class="headerlink" href="#helping-with-reviews" title="Permanent link">&para;</a></h3>
-<p>We appreciate help with reviews! It is not necessary to be a <a href="#reviewers">listed reviewer</a> to perform a review. Submitters of GitHub Pull Requests are also encouraged to review their own submissions.</p>
-<p>To help with a review, follow the steps outlined in <a href="#what-to-expect-in-a-review">what to expect in a review</a> to verify the submission. After completing the review, add a comment to the GitHub Pull Request with your findings. If the submission passes the review then please state that explicitly in the comment - for example something like "I reviewed this change according to the steps in the CONTRIBUTING document and everything looks good to me". If unable to complete some steps in the review then please explicitly state which steps were reviewed and which steps were not reviewed - for example something like "I didn't check the code for defects, but I reviewed everything else in the CONTRIBUTING document and it looks good".</p>
-<p>We also appreciate testing of submissions. If the code was tested then please add a comment to the GitHub Pull Request with the results of your test - success or failure. Please explicitly state that the code was tested and the results - for example something like "I tested this code on my Acme900Z printer with a vase print and the results were good".</p>
-<h3 id="reviewers">Reviewers<a class="headerlink" href="#reviewers" title="Permanent link">&para;</a></h3>
-<p>The Klipper "reviewers" are:</p>
+<p>Klipper では、厳密な "コーディング・スタイル・ガイド" を導入していませんが、既存のコードを修正する場合は、その既存コードのハイレベルなコードフロー、コードのインデントスタイル、フォーマットに従う必要があります。新しいモジュールやシステムの提出は、コーディングスタイルにおいてより柔軟性がありますが、新しいコードが内部的に一貫したスタイルに従うこと、そして一般的な業界のコーディング規範に従うことが望ましいです。</p>
+<p>"より良い実装" について議論することは、レビューの目標ではありません。ただし、レビュアーが提出物の実装を理解するのに苦労する場合、実装の透明性を高めるための変更を求めることがあります。特に、レビュアーが提出物に欠陥がないと確信を持てない場合、変更が必要になる可能性があります。</p>
+<p>レビューの一環として、レビュアーはトピックに対して代わりのプルリクエストを作成することがあります。これは、細かな手続き上の項目での過度なやり取りを避け、提出プロセスを効率化するために行われることがあります。また、議論がレビュアーに別の実装を考えさせることがあるため、このようなことも行われるかもしれません。どちらの状況もレビューの正常な結果であり、元の提出物への批判とは考えるべきではありません。</p>
+<h3 id="helping-with-reviews">レビューの支援<a class="headerlink" href="#helping-with-reviews" title="Permanent link">&para;</a></h3>
+<p>レビューへの協力は大歓迎です！ レビューを行うには、指定された<a href="#reviewers">レビューア</a> である必要はありません。GitHubのプルリクエストの提出者も、自身の提出物をレビューすることが推奨されていています。</p>
+<p>レビューを支援するためには、<a href="#what-to-expect-in-a-review">レビューで期待されること</a> に示された手順に従って提出物を検証してください。レビューを完了した後、GitHubプルリクエストにコメントを追加して結果を報告してください。提出物がレビューをパスした場合、コメントで明示的にそのことを述べてください。例えば、"CONTRIBUTINGドキュメントの手順に従ってこの変更をレビューし、すべてが問題ないように見えます" といった内容です。レビューの一部の手順を完了できなかった場合は、どの手順をレビューしたか、どの手順をレビューしていないかを明示的に述べてください。例えば、"コードの欠陥はチェックしていませんが、CONTRIBUTINGドキュメントの他の部分はレビューし、問題ないように見えます" といった内容です。</p>
+<p>提出物のテストも大変ありがたく思います。もしコードがテストされた場合は、GitHubプルリクエストにテスト結果を記載するコメントを追加してください - 成功または失敗に関わらず。コードがテストされたことと、その結果を明示的に述べてください - 例えば、 "このコードをAcme900Zプリンタで花瓶の印刷をテストしました。結果は良好でした" といった内容です。</p>
+<h3 id="reviewers">レビュアー<a class="headerlink" href="#reviewers" title="Permanent link">&para;</a></h3>
+<p>Klipper のレビュアー:</p>
 <table>
 <thead>
 <tr>
-<th>Name</th>
+<th>名前</th>
 <th>GitHub Id</th>
-<th>Areas of interest</th>
+<th>関心領域</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>Dmitry Butyugin</td>
 <td>@dmbutyugin</td>
-<td>Input shaping, resonance testing, kinematics</td>
+<td>Input shaping, 共振テスト, 運動学</td>
 </tr>
 <tr>
 <td>Eric Callahan</td>
 <td>@Arksine</td>
-<td>Bed leveling, MCU flashing</td>
+<td>ベッドレベリング, MCUフラッシュ</td>
 </tr>
 <tr>
 <td>James Hartley</td>
 <td>@JamesH1978</td>
-<td>Configuration files</td>
+<td>Config ファイル</td>
 </tr>
 <tr>
 <td>Kevin O'Connor</td>
 <td>@KevinOConnor</td>
-<td>Core motion system, Micro-controller code</td>
+<td>コアモーションシステム, マイコン用のコード</td>
 </tr>
 </tbody>
 </table>
-<p>Please do not "ping" any of the reviewers and please do not direct submissions at them. All of the reviewers monitor the forums and PRs, and will take on reviews when they have time to.</p>
-<p>The Klipper "maintainers" are:</p>
+<p>レビュアーのどなたにも直接メッセージを送ったり提出物を送ることはご遠慮ください。すべてのレビュアーがフォーラムとプルリクエストを監視しており、時間がある時にレビューを行います。</p>
+<p>Klipper のメンテナ:</p>
 <table>
 <thead>
 <tr>
-<th>Name</th>
-<th>GitHub name</th>
+<th>名前</th>
+<th>Git Hub 名</th>
 </tr>
 </thead>
 <tbody>
@@ -1423,8 +1423,8 @@
 </tr>
 </tbody>
 </table>
-<h2 id="format-of-commit-messages">Format of commit messages<a class="headerlink" href="#format-of-commit-messages" title="Permanent link">&para;</a></h2>
-<p>Each commit should have a commit message formatted similar to the following:</p>
+<h2 id="format-of-commit-messages">コミットメッセージのフォーマット<a class="headerlink" href="#format-of-commit-messages" title="Permanent link">&para;</a></h2>
+<p>各コミットには、以下のような形式のコミット・メッセージが必要です：</p>
 <div class="highlight"><pre><span></span><code>module: Capitalized, short (50 chars or less) summary
 
 More detailed explanatory text, if necessary.  Wrap it to about 75
@@ -1439,26 +1439,26 @@ Further paragraphs come after blank lines..
 Signed-off-by: My Name &lt;myemail@example.org&gt;
 </code></pre></div>
 
-<p>In the above example, <code>module</code> should be the name of a file or directory in the repository (without a file extension). For example, <code>clocksync: Fix typo in pause() call at connect time</code>. The purpose of specifying a module name in the commit message is to help provide context for the commit comments.</p>
-<p>It is important to have a "Signed-off-by" line on each commit - it certifies that you agree to the <a href="developer-certificate-of-origin">developer certificate of origin</a>. It must contain your real name (sorry, no pseudonyms or anonymous contributions) and contain a current email address.</p>
-<h2 id="contributing-to-klipper-translations">Contributing to Klipper Translations<a class="headerlink" href="#contributing-to-klipper-translations" title="Permanent link">&para;</a></h2>
-<p><a href="https://github.com/Klipper3d/klipper-translations">Klipper-translations Project</a> is a project dedicated to translating Klipper to different languages. <a href="https://hosted.weblate.org/projects/klipper/">Weblate</a> hosts all the Gettext strings for translating and reviewing. Locales can be displayed on <a href="https://www.klipper3d.org">klipper3d.org</a> once they satisfy the following requirements:</p>
+<p>上記の例では、<code>module</code> はリポジトリ内のファイル名またはディレクトリ名（拡張子なし）でなければなりません。例: <code>clocksync: Fix typo in pause() call at connect time</code>. コミットメッセージにモジュール名を明記する目的は、コミットにコンテキストを提供するためです。</p>
+<p>各コミットには "Signed-off-by" の行を追加することが重要です。これにより、<a href="developer-certificate-of-origin">developer certificate of origin</a>に同意したことが確認されます。その行には、本名（疑名や匿名の寄稿はご遠慮ください）と現在のメールアドレスを含める必要があります。</p>
+<h2 id="contributing-to-klipper-translations">Klipperの翻訳に貢献する<a class="headerlink" href="#contributing-to-klipper-translations" title="Permanent link">&para;</a></h2>
+<p><a href="https://github.com/Klipper3d/klipper-translations">Klipper-translationsプロジェクト</a> は、Klipperをさまざまな言語に翻訳するためのプロジェクトです。<a href="https://hosted.weblate.org/projects/klipper/">Weblate</a>は、翻訳とレビューのためのすべてのGettext文字列をホストしています。ロケールは、<a href="https://www.klipper3d.org">klipper3d.org</a> で、以下の条件を満たせば表示することができます：</p>
 <ul>
-<li><input disabled="disabled" type="checkbox" /> 75% Total coverage</li>
-<li><input disabled="disabled" type="checkbox" /> All titles (H1) are translated</li>
-<li><input disabled="disabled" type="checkbox" /> An updated navigation hierarchy PR in klipper-translations.</li>
+<li><input disabled="disabled" type="checkbox" /> 75% の合計カバー率</li>
+<li><input disabled="disabled" type="checkbox" /> すべてのタイトル（H1）が翻訳されていること</li>
+<li><input disabled="disabled" type="checkbox" /> klipper-translations における更新されたナビゲーション階層のプルリクエスト</li>
 </ul>
-<p>To reduce the frustration of translating domain-specific terms and gain awareness of the ongoing translations, you can submit a PR modifying the <a href="https://github.com/Klipper3d/klipper-translations">Klipper-translations Project</a> <code>readme.md</code>. Once a translation is ready, the corresponding modification to the Klipper project can be made.</p>
-<p>If a translation already exists in the Klipper repository and no longer meets the checklist above, it will be marked out-of-date after a month without updates.</p>
-<p>Once the requirements are met, you need to:</p>
+<p>ドメイン固有の用語を翻訳するフラストレーションを軽減し、進行中の翻訳を認識するために、<a href="https://github.com/Klipper3d/klipper-translations">Klipper-translations Project</a> の <code>readme.md</code> を修正するプルリクエストを送ることができます。翻訳の準備が整えば、Klipper プロジェクトを修正することができます。</p>
+<p>もしKlipperリポジトリ内に既に翻訳が存在し、上記のチェックリストに当てはまらなくなった場合、更新がないまま1ヶ月が経過すると、その翻訳は out-of-date とマークされます。</p>
+<p>要件を満たしたら次のことが必要です :</p>
 <ol>
-<li>update klipper-tranlations repository <a href="https://github.com/Klipper3d/klipper-translations/blob/translations/active_translations">active_translations</a></li>
-<li>Optional: add a manual-index.md file in klipper-translations repository's <code>docs\locals\&lt;lang&gt;</code> folder to replace the language specific index.md (generated index.md does not render correctly).</li>
+<li>klipper-tranlations リポジトリの <a href="https://github.com/Klipper3d/klipper-translations/blob/translations/active_translations">active_translations</a> を更新</li>
+<li>オプション: klipper-translations リポジトリの <code>docs\locals\&lt;lang&gt;</code> フォルダに、言語固有の index.md を置き換えるための manual-index.md ファイルを追加してください (生成された index.md は正しくレンダリングされません)。</li>
 </ol>
-<p>Known Issues:</p>
+<p>既知の問題:</p>
 <ol>
-<li>Currently, there isn't a method for correctly translating pictures in the documentation</li>
-<li>It is impossible to translate titles in mkdocs.yml.</li>
+<li>現在のところ、ドキュメント内の画像を正しく翻訳する方法はありません。</li>
+<li>mkdocs.yml のタイトルを翻訳することはできません。</li>
 </ol>
 
               

@@ -1,26 +1,26 @@
 # 京都タラレバ息子 <japan100@gmail.com>, 2023.
 # Lol A-girl-with-tea <f300f300f300@gmail.com>, 2023.
+# ktyubeshi <kt.yubeshi@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-05-15 07:52+0000\n"
-"Last-Translator: Lol A-girl-with-tea <f300f300f300@gmail.com>\n"
+"PO-Revision-Date: 2023-08-26 07:55+0000\n"
+"Last-Translator: ktyubeshi <kt.yubeshi@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/klipper/"
 "config_checks/ja/>\n"
 "Language: ja\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.18-dev\n"
+"X-Generator: Weblate 5.0.1-dev\n"
 
-#, fuzzy
 msgid ""
 "This document provides a list of steps to help confirm the pin settings in "
 "the Klipper printer.cfg file. It is a good idea to run through these steps "
 "after following the steps in the [installation document](Installation.md)."
 msgstr ""
 "このドキュメントでは、Klipper printer.cfg ファイルのピン設定を確認するのに役"
-"立つステップのリストを提供します。インストールドキュメント](Installation."
+"立つステップのリストを提供します。[インストールドキュメント](Installation."
 "md)の手順を踏んだ後に、これらの手順を実行するのがよいでしょう。"
 
 #, fuzzy
