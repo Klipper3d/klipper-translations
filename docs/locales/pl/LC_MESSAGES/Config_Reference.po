@@ -1,11 +1,12 @@
 # Den Bo <denbo.swaggins@gmail.com>, 2021.
 # Robert Jaroszewicz <mediagott1977@googlemail.com>, 2022.
 # Damian Jasinski <flasch44@gmail.com>, 2023.
+# Jan P <jasiek.kliper06@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-04-10 20:28+0000\n"
-"Last-Translator: Damian Jasinski <flasch44@gmail.com>\n"
+"PO-Revision-Date: 2023-09-13 21:52+0000\n"
+"Last-Translator: Jan P <jasiek.kliper06@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/klipper/"
 "config_reference/pl/>\n"
 "Language: pl\n"
@@ -13,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.17-dev\n"
+"X-Generator: Weblate 5.0.1-dev\n"
 
 msgid ""
 "This document is a reference for options available in the Klipper config "
@@ -265,7 +266,7 @@ msgid "Visual Examples:"
 msgstr ""
 
 msgid "[bed_tilt]"
-msgstr ""
+msgstr "[Łóżko_tytuł]"
 
 msgid ""
 "Bed tilt compensation. One may define a bed_tilt config section to enable "
@@ -274,7 +275,7 @@ msgid ""
 msgstr ""
 
 msgid "[bed_screws]"
-msgstr ""
+msgstr "[łóżkowe_śruby]"
 
 msgid ""
 "Tool to help adjust bed leveling screws. One may define a [bed_screws] "
@@ -348,7 +349,7 @@ msgid ""
 msgstr ""
 
 msgid "[delayed_gcode]"
-msgstr ""
+msgstr "[opóźniony_gkod]"
 
 msgid "[save_variables]"
 msgstr ""
@@ -452,7 +453,7 @@ msgid ""
 msgstr ""
 
 msgid "[bltouch]"
-msgstr ""
+msgstr "[dotyk]"
 
 msgid ""
 "BLTouch probe. One may define this section (instead of a probe section) to "
