@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2023-08-27 22:41+0000\n"
+"PO-Revision-Date: 2023-08-29 16:36+0000\n"
 "Last-Translator: \"Zs.Antal\" <zsikaiantal@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
 "measuring_resonances/hu/>\n"
@@ -1235,7 +1235,7 @@ msgstr "SPI Gyorsulásmérők"
 
 #: docs/Measuring_Resonances.md:block 10 (paragraph)
 msgid "Suggested twisted pair order:"
-msgstr "Javasolt csavart érpáros sorrend:"
+msgstr "Javasolt csavartérpáros sorrend:"
 
 #: docs/Measuring_Resonances.md:block 11 (code)
 msgid ""
