@@ -1,11 +1,11 @@
 # 京都タラレバ息子 <japan100@gmail.com>, 2023, 2025.
-# yubeshi <kt.yubeshi@gmail.com>, 2023.
+# yubeshi <kt.yubeshi@gmail.com>, 2023, 2025.
 # immeteor2 <ryumeteor175@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:40+0000\n"
-"Last-Translator: 京都タラレバ息子 <japan100@gmail.com>\n"
+"Last-Translator: yubeshi <kt.yubeshi@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/klipper/"
 "config_reference/ja/>\n"
 "Language: ja\n"
