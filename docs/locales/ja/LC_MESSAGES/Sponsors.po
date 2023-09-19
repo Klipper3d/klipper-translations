@@ -2,35 +2,40 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-08-26 07:55+0000\n"
-"Last-Translator: ktyubeshi <kt.yubeshi@gmail.com>\n"
+"PO-Revision-Date: 2023-09-17 17:07+0000\n"
+"Last-Translator: yubeshi <kt.yubeshi@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/klipper/"
 "sponsors/ja/>\n"
 "Language: ja\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.0.1-dev\n"
+"X-Generator: Weblate 5.0.2\n"
 
 #: docs/Sponsors.md:block 1 (header)
 msgid "Sponsors"
-msgstr ""
+msgstr "スポンサー"
 
 #: docs/Sponsors.md:block 2 (paragraph)
 msgid ""
 "Klipper is Free Software. We depend on the generous support from sponsors. "
 "Please consider sponsoring Klipper or supporting our sponsors."
 msgstr ""
+"Klipper はフリーソフトウェアです。私たちは、スポンサーからの惜しみない支援に"
+"依存しています。Klipper "
+"のスポンサーになること、またはスポンサーを支援することをご検討ください。"
 
 #: docs/Sponsors.md:block 3 (header)
 msgid "BIGTREETECH"
-msgstr ""
+msgstr "BIGTREETECH"
 
 #: docs/Sponsors.md:block 4 (paragraph)
 msgid ""
 "[<img src=\"./img/sponsors/BTT_BTT.png\" width=\"200\" />](https://bigtree-"
 "tech.com/collections/all-products)"
 msgstr ""
+"[<img src=\"./img/sponsors/BTT_BTT.png\" width=\"200\" />](https://bigtree-"
+"tech.com/collections/all-products)"
 
 #: docs/Sponsors.md:block 5 (paragraph)
 msgid ""
@@ -40,10 +45,14 @@ msgid ""
 "[Facebook](https://www.facebook.com/BIGTREETECH) or "
 "[Twitter](https://twitter.com/BigTreeTech)."
 msgstr ""
+"BIGTREETECHはKlipperの公式メインボードスポンサーです。BIGTREETECHは、3Dプリン"
+"ティングコミュニティにより良いサービスを提供するため、革新的で競争力のある製"
+"品の開発に取り組んでいます。 [Facebook](https://www.facebook.com/BIGTREETECH)"
+" または [Twitter](https://twitter.com/BigTreeTech) でフォローしてください。"
 
 #: docs/Sponsors.md:block 6 (header)
 msgid "Klipper Developers"
-msgstr ""
+msgstr "Klipper 開発者"
 
 #: docs/Sponsors.md:block 7 (header)
 msgid "Kevin O'Connor"
@@ -58,42 +67,47 @@ msgid ""
 "Eric is the author of bed_mesh, spi_flash, and several other Klipper "
 "modules. Eric has a donations page at: <https://ko-fi.com/arksine>"
 msgstr ""
+"Eric は bed_mesh、spi_flash、その他いくつかの Klipper モジュールの作者です。"
+"Eric の寄付のページは <https://ko-fi.com/arksine>"
 
 #: docs/Sponsors.md:block 11 (header)
 msgid "Related Klipper Projects"
-msgstr ""
+msgstr "Klipper の関連プロジェクト"
 
 #: docs/Sponsors.md:block 12 (paragraph)
 msgid ""
 "Klipper is frequently used with other Free Software. Consider using or "
 "supporting these projects."
-msgstr ""
+msgstr "Klipper は、他のフリーソフトウェアと共に使用されることがよくあります。これら"
+"のプロジェクトの利用や支援をご検討ください。"
 
 #: docs/Sponsors.md:block 13 (unordered list)
 msgid "[Moonraker](https://github.com/Arksine/moonraker)"
-msgstr ""
+msgstr "[Moonraker](https://github.com/Arksine/moonraker)"
 
 #: docs/Sponsors.md:block 13 (unordered list)
 msgid "[Mainsail](https://github.com/mainsail-crew/mainsail)"
-msgstr ""
+msgstr "[Mainsail](https://github.com/mainsail-crew/mainsail)"
 
 #: docs/Sponsors.md:block 13 (unordered list)
 msgid "[Fluidd](https://github.com/fluidd-core/fluidd)"
-msgstr ""
+msgstr "[Fluidd](https://github.com/fluidd-core/fluidd)"
 
 #: docs/Sponsors.md:block 13 (unordered list)
 msgid "[OctoPrint](https://octoprint.org/)"
-msgstr ""
+msgstr "[OctoPrint](https://octoprint.org/)"
 
 #: docs/Sponsors.md:block 13 (unordered list)
 msgid "[KlipperScreen](https://github.com/jordanruthe/KlipperScreen)"
-msgstr ""
+msgstr "[KlipperScreen](https://github.com/jordanruthe/KlipperScreen)"
 
 #: docs/Sponsors.md:block 8 (paragraph)
 msgid ""
 "Kevin is the original author and current maintainer of Klipper. Donate at: "
 "<https://ko-fi.com/koconnor> or <https://www.patreon.com/koconnor>"
 msgstr ""
+"Kevin は Klipper の原作者であり、現在のメンテナです。寄付は <https://ko-fi."
+"com/koconnor> または <https://www.patreon.com/koconnor>"
 
 #~ msgid ""
 #~ "Kevin is the original author and current maintainer of Klipper. Kevin has a "
