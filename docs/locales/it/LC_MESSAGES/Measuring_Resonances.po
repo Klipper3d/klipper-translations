@@ -1,16 +1,17 @@
 # Dex94 <Dasvaresu@dr.com>, 2022.
-# Ale Ale <ale.99.ale@gmail.com>, 2022.
+# Ale Ale <ale.99.ale@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-12-26 16:42+0000\n"
+"PO-Revision-Date: 2023-09-15 00:48+0000\n"
 "Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/measuring_resonances/it/>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/"
+"measuring_resonances/it/>\n"
 "Language: it\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.15.1-dev\n"
+"X-Generator: Weblate 5.0.1-dev\n"
 
 msgid "Measuring Resonances"
 msgstr "Misurazione delle risonanze"
@@ -1356,10 +1357,13 @@ msgid ""
 "recommended for signal integrity over a long distance. If you still "
 "experience signal integrity issues (SPI/I2C errors), shorten the cable."
 msgstr ""
+"Si consiglia un cavo Ethernet con doppini intrecciati schermati (cat5e o "
+"migliore) per l'integrità del segnale su lunghe distanze. Se riscontri "
+"ancora problemi di integrità del segnale (errori SPI/I2C), accorcia il cavo."
 
 #: docs/Measuring_Resonances.md:block 13 (header)
 msgid "Direct to Raspberry Pi"
-msgstr ""
+msgstr "Diretto a Raspberry Pi"
 
 #: docs/Measuring_Resonances.md:block 14 (paragraph)
 msgid ""
@@ -1367,14 +1371,17 @@ msgid ""
 "and configuration will vary according to your specific board and available "
 "pins.**"
 msgstr ""
+"**Nota: molti MCU funzioneranno con un ADXL345 in modalità SPI (ad esempio "
+"Pi Pico), il cablaggio e la configurazione varieranno in base alla scheda "
+"specifica ed ai pin disponibili.**"
 
 #: docs/Measuring_Resonances.md:block 16 (table)
 msgid "3.3V DC power"
-msgstr ""
+msgstr "3.3V DC power"
 
 #: docs/Measuring_Resonances.md:block 19 (header)
 msgid "Using Raspberry Pi Pico"
-msgstr ""
+msgstr "Utilizzo di Raspberry Pi Pico"
 
 #: docs/Measuring_Resonances.md:block 20 (paragraph)
 msgid ""
@@ -1384,6 +1391,12 @@ msgid ""
 "of GPIO. The Pico does not have much processing power, so make sure it is "
 "only running the accelerometer and not performing any other duties."
 msgstr ""
+"Puoi collegare ADXL345 al tuo Raspberry Pi Pico e quindi collegare Pico al "
+"tuo Raspberry Pi tramite USB. Ciò semplifica il riutilizzo "
+"dell'accelerometro su altri dispositivi Klipper, poiché puoi connetterti "
+"tramite USB anziché GPIO. Il Pico non ha molta potenza di elaborazione, "
+"quindi assicurati che stia solo eseguendo l'accelerometro e non svolga altre "
+"funzioni."
 
 #: docs/Measuring_Resonances.md:block 21 (paragraph)
 msgid ""
@@ -1391,70 +1404,73 @@ msgid ""
 "3.3V only. Depending on the board's layout, a level shifter may be present, "
 "which makes 5V dangerous for your RPi."
 msgstr ""
+"Per evitare danni al tuo RPi assicurati di collegare l'ADXL345 solo a 3,3 V. "
+"A seconda del layout della scheda, potrebbe essere presente un cambio di "
+"livello, che rende i 5 V pericolosi per il tuo RPi."
 
 #: docs/Measuring_Resonances.md:block 22 (table)
 msgid "Pico pin"
-msgstr ""
+msgstr "pin Pico"
 
 #: docs/Measuring_Resonances.md:block 22 (table)
 msgid "Pico pin name"
-msgstr ""
+msgstr "Nome pin Pico"
 
 #: docs/Measuring_Resonances.md:block 22 (table)
 msgid "36"
-msgstr ""
+msgstr "36"
 
 #: docs/Measuring_Resonances.md:block 22 (table)
 msgid "2"
-msgstr ""
+msgstr "2"
 
 #: docs/Measuring_Resonances.md:block 22 (table)
 msgid "GP1 (SPI0_CSn)"
-msgstr ""
+msgstr "GP1 (SPI0_CSn)"
 
 #: docs/Measuring_Resonances.md:block 22 (table)
 msgid "1"
-msgstr ""
+msgstr "1"
 
 #: docs/Measuring_Resonances.md:block 22 (table)
 msgid "GP0 (SPI0_RX)"
-msgstr ""
+msgstr "GP0 (SPI0_RX)"
 
 #: docs/Measuring_Resonances.md:block 22 (table)
 msgid "5"
-msgstr ""
+msgstr "5"
 
 #: docs/Measuring_Resonances.md:block 22 (table)
 msgid "GP3 (SPI0_TX)"
-msgstr ""
+msgstr "GP3 (SPI0_TX)"
 
 #: docs/Measuring_Resonances.md:block 22 (table)
 msgid "4"
-msgstr ""
+msgstr "4"
 
 #: docs/Measuring_Resonances.md:block 22 (table)
 msgid "GP2 (SPI0_SCK)"
-msgstr ""
+msgstr "GP2 (SPI0_SCK)"
 
 #: docs/Measuring_Resonances.md:block 23 (paragraph)
 msgid "Wiring diagrams for some of the ADXL345 boards:"
-msgstr ""
+msgstr "Schemi di collegamento per alcune schede ADXL345:"
 
 #: docs/Measuring_Resonances.md:block 24 (paragraph)
 msgid "![ADXL345-Pico](img/adxl345-pico.png)"
-msgstr ""
+msgstr "![ADXL345-Pico](img/adxl345-pico.png)"
 
 #: docs/Measuring_Resonances.md:block 54 (header)
 msgid "Configure ADXL345 With Pi Pico"
-msgstr ""
+msgstr "Configura ADXL345 con Pi Pico"
 
 #: docs/Measuring_Resonances.md:block 55 (header)
 msgid "Flash the Pico Firmware"
-msgstr ""
+msgstr "Aggiorna il firmware Pico"
 
 #: docs/Measuring_Resonances.md:block 56 (paragraph)
 msgid "On your Raspberry Pi, compile the firmware for the Pico."
-msgstr ""
+msgstr "Sul tuo Raspberry Pi, compila il firmware per Pico."
 
 #: docs/Measuring_Resonances.md:block 57 (code)
 msgid ""
@@ -1462,20 +1478,25 @@ msgid ""
 "make clean\n"
 "make menuconfig\n"
 msgstr ""
+"cd ~/klipper\n"
+"make clean\n"
+"make menuconfig\n"
 
 #: docs/Measuring_Resonances.md:block 58 (paragraph)
 msgid "![Pico menuconfig](img/klipper_pico_menuconfig.png)"
-msgstr ""
+msgstr "![Pico menuconfig](img/klipper_pico_menuconfig.png)"
 
 #: docs/Measuring_Resonances.md:block 59 (paragraph)
 msgid ""
 "Now, while holding down the `BOOTSEL` button on the Pico, connect the Pico "
 "to the Raspberry Pi via USB. Compile and flash the firmware."
 msgstr ""
+"Ora, tenendo premuto il pulsante `BOOTSEL` sul Pico, collega il Pico al "
+"Raspberry Pi tramite USB. Compilare e eseguire il flashing del firmware."
 
 #: docs/Measuring_Resonances.md:block 60 (code)
 msgid "make flash FLASH_DEVICE=first\n"
-msgstr ""
+msgstr "make flash FLASH_DEVICE=first\n"
 
 #: docs/Measuring_Resonances.md:block 61 (paragraph)
 msgid ""
@@ -1483,10 +1504,13 @@ msgid ""
 "example, that's `make flash FLASH_DEVICE=2e8a:0003`. ![Determine flash "
 "device](img/flash_rp2040_FLASH_DEVICE.png)"
 msgstr ""
+"Se fallisce, ti verrà detto quale `FLASH_DEVICE` utilizzare. In questo "
+"esempio si tratta di `make flash FLASH_DEVICE=2e8a:0003`. ![Determina "
+"dispositivo flash](img/flash_rp2040_FLASH_DEVICE.png)"
 
 #: docs/Measuring_Resonances.md:block 62 (header)
 msgid "Configure the Connection"
-msgstr ""
+msgstr "Configura la connessione"
 
 #: docs/Measuring_Resonances.md:block 63 (paragraph)
 msgid ""
@@ -1494,6 +1518,10 @@ msgid ""
 "serial device. Find the pico serial device with `ls /dev/serial/by-id/*`. "
 "You can now add an `adxl.cfg` file with the following settings:"
 msgstr ""
+"Il Pico ora si riavvierà con il nuovo firmware e dovrebbe apparire come "
+"dispositivo seriale. Trova il dispositivo pico seriale con `ls /dev/serial/"
+"by-id/*`. Ora puoi aggiungere un file `adxl.cfg` con le seguenti "
+"impostazioni:"
 
 #: docs/Measuring_Resonances.md:block 64 (code)
 msgid ""
@@ -1516,18 +1544,39 @@ msgid ""
 "[output_pin power_mode] # Improve power stability\n"
 "pin: adxl:gpio23\n"
 msgstr ""
+"[mcu adxl]\n"
+"# Cambia <mySerial> con quello che hai trovato sopra. Per esempio,\n"
+"# usb-Klipper_rp2040_E661640843545B2E-if00\n"
+"serial: /dev/serial/by-id/usb-Klipper_rp2040_<mySerial>\n"
+"\n"
+"[adxl345]\n"
+"cs_pin: adxl:gpio1\n"
+"spi_bus: spi0a\n"
+"axes_map: x,z,y\n"
+"\n"
+"[resonance_tester]\n"
+"accel_chip: adxl345\n"
+"probe_points:\n"
+"    # Da qualche parte leggermente sopra la metà del piano di stampa\n"
+"    147,154, 20\n"
+"\n"
+"[output_pin power_mode] #Migliora la stabilità dell' alimentazione\n"
+"pin: adxl:gpio23\n"
 
 #: docs/Measuring_Resonances.md:block 65 (paragraph)
 msgid ""
 "If setting up the ADXL345 configuration in a separate file, as shown above, "
 "you'll also want to modify your `printer.cfg` file to include this:"
 msgstr ""
+"Se imposti la configurazione di ADXL345 in un file separato, come mostrato "
+"sopra, ti consigliamo di modificare anche il file `printer.cfg` per "
+"includere questo:"
 
 #: docs/Measuring_Resonances.md:block 66 (code)
 msgid ""
 "[include adxl.cfg] # Comment this out when you disconnect the "
 "accelerometer\n"
-msgstr ""
+msgstr "[include adxl.cfg] # Commenta questo quando scolleghi l'accelerometro\n"
 
 #: docs/Measuring_Resonances.md:block 73 (code)
 msgid ""
@@ -1546,6 +1595,21 @@ msgid ""
 "[static_digital_output pico_3V3pwm] # Improve power stability\n"
 "pin: pico:gpio23\n"
 msgstr ""
+"[mcu pico]\n"
+"serial: /dev/serial/by-id/<your PICO's serial ID>\n"
+"\n"
+"[mpu9250]\n"
+"i2c_mcu: pico\n"
+"i2c_bus: i2c0a\n"
+"\n"
+"[resonance_tester]\n"
+"accel_chip: mpu9250\n"
+"probe_points:\n"
+"    100, 100, 20  # an example\n"
+"\n"
+"[static_digital_output pico_3V3pwm] # Migliora la stabilita dell'"
+"alimentazione\n"
+"pin: pico:gpio23\n"
 
 #: docs/Measuring_Resonances.md:block 81 (paragraph)
 msgid ""
@@ -1556,6 +1620,12 @@ msgid ""
 "power, the wiring (that it matches the schematics, no wire is broken or "
 "loose, etc.), and soldering quality."
 msgstr ""
+"Se ricevi un errore del tipo `ID adxl345 non valido (ottenuto xx vs e5)`, "
+"dove `xx` è un altro ID, riprova immediatamente. Si è verificato un problema "
+"con l'inizializzazione SPI. Se ricevi ancora un errore, è indicativo del "
+"problema di connessione con ADXL345 o del sensore difettoso. Ricontrolla "
+"l'alimentazione, il cablaggio (che corrisponda agli schemi, nessun filo sia "
+"rotto o allentato, ecc.) e la qualità della saldatura."
 
 #: docs/Measuring_Resonances.md:block 100 (paragraph)
 msgid ""
@@ -1564,6 +1634,10 @@ msgid ""
 " for example, for the input shaper [re-calibration](#input-shaper-re-"
 "calibration)."
 msgstr ""
+"Nota che in alternativa puoi eseguire la calibrazione automatica dell input "
+"shaper da Klipper [directly](#input-shaper-auto-calibration), che può essere "
+"conveniente, ad esempio, per la [re-calibration](#input-shaper-re-"
+"calibration)."
 
 #: docs/Measuring_Resonances.md:block 152 (paragraph)
 msgid ""
@@ -1577,6 +1651,17 @@ msgid ""
 "Always check that all parts of the printer (including the ones that may "
 "normally not move) are securely fixed in place after each auto-tuning."
 msgstr ""
+"**Attenzione!** Non è consigliabile eseguire la calibrazione automatica del "
+"modellatore molto frequentemente (ad esempio prima di ogni stampa o ogni "
+"giorno). Per determinare le frequenze di risonanza, l'autocalibrazione crea "
+"vibrazioni intense su ciascuno degli assi. Generalmente le stampanti 3D non "
+"sono progettate per resistere ad un’esposizione prolungata a vibrazioni "
+"vicine alle frequenze di risonanza. Ciò potrebbe aumentare l'usura dei "
+"componenti della stampante e ridurne la durata. Esiste anche un rischio "
+"maggiore che alcune parti si svitino o si allentino. Controllare sempre che "
+"tutte le parti della stampante (comprese quelle che normalmente potrebbero "
+"non muoversi) siano fissate saldamente in posizione dopo ogni regolazione "
+"automatica."
 
 #~ msgid ""
 #~ "If you get an error like `Invalid adxl345 id (got xx vs e5)`, where `xx` is "
