@@ -1,18 +1,19 @@
 # Stefano Serioli <stefano.serioli@outlook.com>, 2021.
 # Dex94 <Dasvaresu@dr.com>, 2022.
 # elovalvoc047faba7aa1427f <ernesto.lovalvo@unipa.it>, 2022.
-# Ale Ale <ale.99.ale@gmail.com>, 2022.
+# Ale Ale <ale.99.ale@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-08-01 07:21+0000\n"
+"PO-Revision-Date: 2023-09-14 18:54+0000\n"
 "Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/hall_filament_width_sensor/it/>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/"
+"hall_filament_width_sensor/it/>\n"
 "Language: it\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14-dev\n"
+"X-Generator: Weblate 5.0.1-dev\n"
 
 msgid "How does it work?"
 msgstr "Come funziona?"
@@ -151,6 +152,13 @@ msgid ""
 "operation: two hall sensors work in differential mode, temperature drift "
 "same for sensor. Special temperature compensation not needed."
 msgstr ""
+"Questo documento descrive il modulo host del sensore di larghezza del "
+"filamento. L'hardware utilizzato per lo sviluppo di questo modulo host si "
+"basa su due sensori lineari Hall (ad esempio SS49e). I sensori nel corpo si "
+"trovano sui lati opposti. Principio di funzionamento: due sensori Hall "
+"funzionano in modalità differenziale, la deriva della temperatura è la "
+"stessa per il sensore. Non è necessaria una speciale compensazione della "
+"temperatura."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 6 (paragraph)
 msgid ""
@@ -160,6 +168,12 @@ msgid ""
 "connector on a ramps-like board with the analog11 and analog12 pins. You can"
 " use different pins and different boards."
 msgstr ""
+"Il sensore genera due uscite analogiche in base alla larghezza calcolata del "
+"filamento. La somma della tensione di uscita è sempre uguale alla larghezza "
+"del filamento rilevato. Il modulo host monitora le variazioni di tensione e "
+"regola il moltiplicatore di estrusione. Utilizzo il connettore aux2 su una "
+"scheda simile alle ramps con i pin analog11 e analog12. È possibile "
+"utilizzare pin diversi e schede diverse."
 
 #~ msgid ""
 #~ "This document describes Filament Width Sensor host module. Hardware used for"

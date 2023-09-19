@@ -1,15 +1,16 @@
-# Ale Ale <ale.99.ale@gmail.com>, 2022.
+# Ale Ale <ale.99.ale@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-12-26 16:42+0000\n"
+"PO-Revision-Date: 2023-09-14 18:54+0000\n"
 "Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/status_reference/it/>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/"
+"status_reference/it/>\n"
 "Language: it\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.15.1-dev\n"
+"X-Generator: Weblate 5.0.1-dev\n"
 
 msgid ""
 "This document is a reference of printer status information available in "
@@ -1372,38 +1373,48 @@ msgid ""
 "currently synchronized to. This is reported as `None` if the extruder "
 "stepper is not currently associated with an extruder."
 msgstr ""
+"`motion_queue`: il nome dell'estrusore con cui è attualmente sincronizzato "
+"questo stepper estrusore. Questo viene segnalato come `None` se lo stepper "
+"dell'estrusore non è attualmente associato a un estrusore."
 
 #: docs/Status_Reference.md:block 86 (unordered list)
 msgid "`name`: Returns the name of the probe in use."
-msgstr ""
+msgstr "`name`: restituisce il nome della sonda in uso."
 
 #: docs/Status_Reference.md:block 95 (unordered list)
 msgid "`results[\"<screw>\"]`: A dictionary containing the following keys:"
-msgstr ""
+msgstr "`results[\"<screw>\"]`: un dizionario contenente le seguenti chiavi:"
 
 #: docs/Status_Reference.md:block 95 (unordered list)
 msgid ""
 "`sign`: A string specifying the direction to turn to screw for the necessary"
 " adjustment. Either \"CW\" for clockwise or \"CCW\" for counterclockwise."
 msgstr ""
+"`sign`: una stringa che specifica la direzione in cui ruotare la vite per la "
+"regolazione necessaria. O \"CW\" per senso orario o \"CCW\" per senso "
+"antiorario."
 
 #: docs/Status_Reference.md:block 95 (unordered list)
 msgid "`is_base`: Returns True if this is the base screw."
-msgstr ""
+msgstr "`is_base`: Restituisce True se questa è la vite di base."
 
 #: docs/Status_Reference.md:block 99 (header)
 msgid "stepper_enable"
-msgstr ""
+msgstr "stepper_enable"
 
 #: docs/Status_Reference.md:block 100 (paragraph)
 msgid ""
 "The following information is available in the `stepper_enable` object (this "
 "object is available if any stepper is defined):"
 msgstr ""
+"Le seguenti informazioni sono disponibili nell'oggetto `stepper_enable` ("
+"questo oggetto è disponibile se è definito uno stepper):"
 
 #: docs/Status_Reference.md:block 101 (unordered list)
 msgid "`steppers[\"<stepper>\"]`: Returns True if the given stepper is enabled."
 msgstr ""
+"`steppers[\"<stepper>\"]`: Restituisce True se lo stepper specificato è "
+"abilitato."
 
 #~ msgid ""
 #~ "`results`: A list of the probed screw locations. Each entry in the list will"
