@@ -104,7 +104,7 @@ I "revisori" di Klipper sono:
 | --- | --- | --- |
 | Dmitry Butyugin | @dmbutyugin | Input shaping, test di risonanza, cinematica |
 | Eric Callahan | @Arksine | Livellamento del piatto, flashing MCU |
-| James Hartley | @JamesH1978 | Configuration files |
+| James Hartley | @JamesH1978 | File di configurazione |
 | Kevin O'Connor | @KevinOConnor | Core motion system, codice microcontrollore |
 
 Si prega di non eseguire il "ping" di nessuno dei revisori e di non indirizzare gli invii a loro. Tutti i revisori controllano i forum e le PR e si occuperanno delle revisioni quando ne avranno il tempo.

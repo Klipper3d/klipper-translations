@@ -295,7 +295,7 @@ Alcuni errori comuni e suggerimenti per diagnosticarli:
 
 Ciò indica che il driver del motore si è disabilitato perché è diventato troppo caldo. Le soluzioni tipiche consistono nel ridurre la corrente del motore passo-passo, aumentare il raffreddamento sul driver del motore passo-passo e/o aumentare il raffreddamento sul motore passo-passo.
 
-#### TMC reports error: `... ShortToGND` OR `ShortToSupply`
+#### TMC segnala l'errore: `... ShortToGND` O `ShortToSupply`
 
 Ciò indica che il driver si è disabilitato perché ha rilevato una corrente molto elevata che passa attraverso il driver. Ciò potrebbe indicare un filo allentato o in cortocircuito al motore passo-passo o all'interno del motore passo-passo stesso.
 

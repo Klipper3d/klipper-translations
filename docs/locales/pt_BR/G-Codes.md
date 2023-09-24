@@ -37,7 +37,7 @@ Klipper's goal is to support the G-Code commands produced by common 3rd party so
 
 If one requires a less common G-Code command then it may be possible to implement it with a custom [gcode_macro config section](Config_Reference.md#gcode_macro). For example, one might use this to implement: `G12`, `G29`, `G30`, `G31`, `M42`, `M80`, `M81`, `T1`, etc.
 
-## Additional Commands
+## Comandos Adicionais
 
 Klipper uses "extended" G-Code commands for general configuration and status. These extended commands all follow a similar format - they start with a command name and may be followed by one or more parameters. For example: `SET_SERVO SERVO=myservo ANGLE=5.3`. In this document, the commands and parameters are shown in uppercase, however they are not case sensitive. (So, "SET_SERVO" and "set_servo" both run the same command.)
 
@@ -49,19 +49,19 @@ The following commands are available when an [adxl345 config section](Config_Ref
 
 #### ACCELEROMETER_MEASURE
 
-`ACCELEROMETER_MEASURE [CHIP=<config_name>] [NAME=<value>]`: Starts accelerometer measurements at the requested number of samples per second. If CHIP is not specified it defaults to "adxl345". The command works in a start-stop mode: when executed for the first time, it starts the measurements, next execution stops them. The results of measurements are written to a file named `/tmp/adxl345-<chip>-<name>.csv` where `<chip>` is the name of the accelerometer chip (`my_chip_name` from `[adxl345 my_chip_name]`) and `<name>` is the optional NAME parameter. If NAME is not specified it defaults to the current time in "YYYYMMDD_HHMMSS" format. If the accelerometer does not have a name in its config section (simply `[adxl345]`) then `<chip>` part of the name is not generated.
+`ACCELEROMETER_MEASURE [CHIP=<nome_config>] [NAME=<valor>]`: Inicia as medidas de acelerômetro à taxa solicitada de amostras por segundo. Se CHIP não for especificado, é usado o padrão "adxl345". O comando funciona num modo início-parada: quando executado pela primeira vez, ele inicia as medidas, e a próxima execução as interrompe. Os resultados das medidas são escritos em um arquivo nomeado `/tmp/adxl345-<chip>-<nome>.csv`, onde `<chip>` é o nome do chip do acelerômetro (`nome_do_chip` de `[adxl345 nome_do_chip]`) e `<nome>` é o parâmetro opcional NAME. Se NAME não for especificado, é utilizado por padrão o horário atual no formato "AAAAMMDD_HHMMSS". Se o acelerômetro não possuir um nome na sua seção de configuração (simplesmente  `[adxl345]`), então a parte `<chip>` do nome não será gerada.
 
 #### ACCELEROMETER_QUERY
 
-`ACCELEROMETER_QUERY [CHIP=<config_name>] [RATE=<value>]`: queries accelerometer for the current value. If CHIP is not specified it defaults to "adxl345". If RATE is not specified, the default value is used. This command is useful to test the connection to the ADXL345 accelerometer: one of the returned values should be a free-fall acceleration (+/- some noise of the chip).
+`ACCELEROMETER_QUERY [CHIP=<nome_config>] [RATE=<valor>]`: solicita o valor atual ao acelerômetro. Se CHIP não for especificado, é usado por padrão "adxl345". Se RATE não for especificada, o valor padrão é utilizado. Este comando é útil para testar a conexão com o acelerômetro ADXL345: um dos valores retornados deve ser uma aceleração de queda livre (+/- algum ruído do chip).
 
 #### ACCELEROMETER_DEBUG_READ
 
-`ACCELEROMETER_DEBUG_READ [CHIP=<config_name>] REG=<register>`: consultas ADXL345 registar "register" (por exemplo 44 ou 0x2C). Pode ser útil para efeitos de depuração.
+`ACCELEROMETER_DEBUG_READ [CHIP=<nome_config>] REG=<registro>`: consulta o registro "registro" do ADXL345 (por exemplo 44 ou 0x2C). Pode ser útil para fins de depuração.
 
-#### ACELEROMETRO_DEBUG_ESCRITA
+#### ACCELEROMETER_DEBUG_WRITE
 
-`ACCELEROMETER_DEBUG_WRITE [CHIP=<config_name>] REG=<register> VAL=<value>`: Escreve "value" em bruto num registo "register". Tanto "value" como "register" podem ser um número inteiro decimal ou hexadecimal. Use com cuidado, e consulte a folha de dados ADXL345 para a referência.
+`ACCELEROMETER_DEBUG_WRITE [CHIP=<nome_config>] REG=<registro> VAL=<valor>`: Escreve o "valor" bruto num registro "registro". Tanto "valor" como "registro" podem ser um número inteiro decimal ou hexadecimal. Use com cuidado, e consulte a folha de dados ADXL345 para referência.
 
 ### [angle]
 
@@ -69,15 +69,15 @@ The following commands are available when an [angle config section](Config_Refer
 
 #### ANGLE_CALIBRATE
 
-`ANGLE_CALIBRATE CHIP=<chip_name>`: Perform angle calibration on the given sensor (there must be an `[angle chip_name]` config section that has specified a `stepper` parameter). IMPORTANT - this tool will command the stepper motor to move without checking the normal kinematic boundary limits. Ideally the motor should be disconnected from any printer carriage before performing calibration. If the stepper can not be disconnected from the printer, make sure the carriage is near the center of its rail before starting calibration. (The stepper motor may move forwards or backwards two full rotations during this test.) After completing this test use the `SAVE_CONFIG` command to save the calibration data to the config file. In order to use this tool the Python "numpy" package must be installed (see the [measuring resonance document](Measuring_Resonances.md#software-installation) for more information).
+`ANGLE_CALIBRATE CHIP=<nome_chip>`: Realiza a calibração de ângulo no sensor fornecido (deve haver uma seção de configuração `[angle chip_name]` que tenha especificado um parâmetro `stepper`). IMPORTANTE - esta ferramenta comandará o motor de passo a se mover sem verificar os limites de fronteira cinemática normais. Idealmente, o motor deve estar desconectado de qualquer carro da impressora antes de se realizar a calibração. Se o motor de passo não puder ser desconectado da impressora, certifique-se de que o carro está próximo do centro de seu trilho antes de começar a calibração. (O motor de passos pode se mover para frente ou para trás duas rotações completas durante o teste.) Depois de completar este teste, use o comando `SAVE_CONFIG` para salvar os dados de calibração no arquivo de configuração. Para usar esta ferramenta, o pacote Python "numpy" deve estar instalado (ver o [measuring resonance document](Measuring_Resonances.md#software-installation) para mais informações).
 
 #### ANGLE_DEBUG_READ
 
-`ANGLE_DEBUG_READ CHIP=<config_name> REG=<register>`: Queries sensor register "register" (e.g. 44 or 0x2C). Can be useful for debugging purposes. This is only available for tle5012b chips.
+`ANGLE_DEBUG_READ` CHIP=<nome_config> REG=<registro>`: solicita o registro "registro" ao sensor (por exemplo 44 ou 0x2C). Pode ser útil para fins de depuração. Este comando só está disponível para chips tle5012b.
 
 #### ANGLE_DEBUG_WRITE
 
-`ANGLE_DEBUG_WRITE CHIP=<config_name> REG=<register> VAL=<value>`: Writes raw "value" into register "register". Both "value" and "register" can be a decimal or a hexadecimal integer. Use with care, and refer to sensor data sheet for the reference. This is only available for tle5012b chips.
+`ANGLE_DEBUG_WRITE CHIP=<nome_config> REG=<registro> VAL=<valor>`: escreve o "valor" bruto no registro "registro". Ambos "valor" e "registro" podem ser um número inteiro decimal ou hexadecimal. Use com cuidado, e consulte a folha de dados do sensor para referência. Este comando só está disponível para chips tle5012b.
 
 ### [bed_mesh]
 
@@ -85,7 +85,7 @@ The following commands are available when the [bed_mesh config section](Config_R
 
 #### BED_MESH_CALIBRATE
 
-`BED_MESH_CALIBRATE [METHOD=manual] [HORIZONTAL_MOVE_Z=<value>] [<probe_parameter>=<value>] [<mesh_parameter>=<value>]`: This command probes the bed using generated points specified by the parameters in the config. After probing, a mesh is generated and z-movement is adjusted according to the mesh. See the PROBE command for details on the optional probe parameters. If METHOD=manual is specified then the manual probing tool is activated - see the MANUAL_PROBE command above for details on the additional commands available while this tool is active. The optional `HORIZONTAL_MOVE_Z` value overrides the `horizontal_move_z` option specified in the config file.
+`BED_MESH_CALIBRATE [METHOD=manual] [HORIZONTAL_MOVE_Z=<valor>] [<parâmetro_sonda>=<valor>] [<parâmetro_malha>=<valor>]`: Este comando sonda o leito usando-se os pontos gerados especificados pelos parâmetros na configuração. Após a sondagem, uma malha é gerada e o movimento-z é ajustado de acordo com a malha. Veja o comando PROBE para detalhes sobre os parâmetros opcionais de sonda. Se METHOD=manual for especificado então a ferramenta de sondagem manual é ativada - ver o comando MANUAL_PROBE acima para detalhes sobre os comandos adicionais disponíveis enquanto esta ferramenta estiver ativa. O valor opcional `HORIZONTAL_MOVE_Z` se sobrepõe à opção `horizontal_move_z` especificada no arquivo de configurações.
 
 #### BED_MESH_OUTPUT
 
@@ -97,7 +97,7 @@ The following commands are available when the [bed_mesh config section](Config_R
 
 #### BED_MESH_CLEAR
 
-`BED_MESH_CLEAR`: This command clears the mesh and removes all z adjustment. It is recommended to put this in your end-gcode.
+`BED_MESH_CLEAR`: Este comando apaga a malha e remove todos os ajustes em z. É recomendável colocar isto em seu end-gcode.
 
 #### BED_MESH_PROFILE
 
@@ -178,7 +178,7 @@ The display_status module is automatically loaded if a [display config section](
 - Display Message: `M117 <message>`
 - Set build percentage: `M73 P<percent>`
 
-Also provided is the following extended G-Code command:
+O seguinte comando G-Code estendido também é providenciado:
 
 - `SET_DISPLAY_TEXT MSG=<message>`: Performs the equivalent of M117, setting the supplied `MSG` as the current display message. If `MSG` is omitted the display will be cleared.
 
@@ -240,7 +240,7 @@ The following commands are available if an [extruder config section](Config_Refe
 
 #### ACTIVATE_EXTRUDER
 
-`ACTIVATE_EXTRUDER EXTRUDER=<config_name>`: In a printer with multiple [extruder](Config_Reference.md#extruder) config sections, this command changes the active hotend.
+`ACTIVATE_EXTRUDER EXTRUDER=<nome_config>`: Numa impressora com múltiplas seções de configuração [extruder](Config_Reference.md#extruder), este comando altera a extrusora ativa.
 
 #### SET_PRESSURE_ADVANCE
 
@@ -339,8 +339,8 @@ The gcode module is automatically loaded.
 
 The following standard G-Code commands are available if a [gcode_arcs config section](Config_Reference.md#gcode_arcs) is enabled:
 
-- Arc Move Clockwise (G2), Arc Move Counter-clockwise (G3): `G2|G3 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>] I<value> J<value>|I<value> K<value>|J<value> K<value>`
-- Arc Plane Select: G17 (XY plane), G18 (XZ plane), G19 (YZ plane)
+- Movimento em Arco Sentido Horário (G2), Movimento em Arco Sentido Anti-Horário (G3): `G2|G3  [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<velocidade>] I<valor> J<valor>|I<valor> K<valor>|J<valor> K<valor>`
+- Seleção de Plano do Arco: G17 (plano XY), G18 (plano XZ), G19 (plano YZ)
 
 ### [gcode_macro]
 
@@ -442,7 +442,7 @@ The manual_probe module is automatically loaded.
 
 `MANUAL_PROBE [SPEED=<speed>]`: Run a helper script useful for measuring the height of the nozzle at a given location. If SPEED is specified, it sets the speed of TESTZ commands (the default is 5mm/s). During a manual probe, the following additional commands are available:
 
-- `ACCEPT`: This command accepts the current Z position and concludes the manual probing tool.
+- `ACCEPT`: Este comando aceita a posição Z atual e conclui a ferramenta de sondagem manual.
 - `ABORT`: Este comando encerra a ferramenta de sondagem manual.
 - `TESTZ Z=<value>`: This command moves the nozzle up or down by the amount specified in "value". For example, `TESTZ Z=-.1` would move the nozzle down .1mm while `TESTZ Z=.1` would move the nozzle up .1mm. The value may also be `+`, `-`, `++`, or `--` to move the nozzle up or down an amount relative to previous attempts.
 

@@ -89,9 +89,9 @@ BOARD_DEFS = {
 
 Possono essere specificati i seguenti campi:
 
-- `mcu`: The mcu type. This can be retrieved after configuring the build via `make menuconfig` by running `cat .config | grep CONFIG_MCU`. This field is required.
-- `spi_bus`: The SPI bus connected to the SD Card. This should be retrieved from the board's schematic. This field is required.
-- `cs_pin`: The Chip Select Pin connected to the SD Card. This should be retrieved from the board schematic. This field is required.
+- `mcu`: il tipo di Mcu. Questo può essere recuperato dopo aver configurato la build tramite `make menuconfig` eseguendo `cat .config | grep CONFIG_MCU`. Questo campo è obbligatorio.
+- `spi_bus`: il bus SPI collegato alla scheda SD. Questo dovrebbe essere recuperato dallo schema della scheda. Questo campo è obbligatorio.
+- `cs_pin`: il pin di selezione del chip collegato alla scheda SD. Questo dovrebbe essere recuperato dallo schema della scheda. Questo campo è obbligatorio.
 - `firmware_path`: il percorso sulla scheda SD in cui trasferire il firmware. L'impostazione predefinita è `firmware.bin`.
 - `current_firmware_path`: il percorso sulla scheda SD in cui si trova il file del firmware rinominato dopo un flash riuscito. L'impostazione predefinita è 'firmware.cur'.
 - `skip_verify`: Definisce un valore booleano che dice agli script di saltare il passaggio di verifica del firmware durante il processo di flashing. L'impostazione predefinita è `False`. Può essere impostato su `True` per le schede che richiedono un ciclo di alimentazione manuale per completare il flashing. Per verificare il firmware in seguito, eseguire nuovamente lo script con l'opzione `-c` per eseguire lo step di verifica. [Vedi le avvertenze con le schede SDIO](#caveats)

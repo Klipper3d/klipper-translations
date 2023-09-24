@@ -44,29 +44,29 @@ In particolare, queste impostazioni dello slicer possono indicare al firmware di
 
 Al contrario, va bene (e spesso utile) utilizzare l'impostazione ritiro "retract" , l'impostazione pulire "wipe" e/o l'impostazione pulire alla retrazione "wipe on retract".
 
-## START_PRINT macros
+## Macro START_PRINT
 
-When using a START_PRINT macro or similar, it is useful to sometimes pass through parameters from the slicer variables to the macro.
+Quando si utilizza una macro START_PRINT o simile, a volte è utile passare i parametri dalle variabili dello slicer alla macro.
 
-In Cura, to pass through temperatures, the following start gcode would be used:
+In Cura, per passare le temperature, verrebbe utilizzato il seguente gcode iniziale:
 
 ```
 START_PRINT BED_TEMP={material_bed_temperature_layer_0} EXTRUDER_TEMP={material_print_temperature_layer_0}
 ```
 
-In slic3r derivatives such as PrusaSlicer and SuperSlicer, the following would be used:
+Nei derivati di slic3r come PrusaSlicer e SuperSlicer, verrebbe utilizzato quanto segue:
 
 ```
 START_PRINT EXTRUDER_TEMP=[first_layer_temperature] BED_TEMP=[first_layer_bed_temperature]
 ```
 
-Also note that these slicers will insert their own heating codes when certain conditions are not met. In Cura, the existence of the `{material_bed_temperature_layer_0}` and `{material_print_temperature_layer_0}` variables is enough to mitigate this. In slic3r derivatives, you would use:
+Si noti inoltre che questeislicer inseriranno i propri codici di riscaldamento quando determinate condizioni non vengono soddisfatte. In Cura, l'esistenza delle variabili `{material_bed_temperature_layer_0}` e `{material_print_temperature_layer_0}` è sufficiente per mitigare questo problema. Nei derivati slic3r, dovresti usare:
 
 ```
 M140 S0
 M104 S0
 ```
 
-before the macro call. Also note that SuperSlicer has a "custom gcode only" button option, which achieves the same outcome.
+prima della chiamata della macro. Tieni inoltre presente che SuperSlicer ha un'opzione del pulsante "solo gcode personalizzato", che ottiene lo stesso risultato.
 
-An example of a START_PRINT macro using these paramaters can be found in config/sample-macros.cfg
+Un esempio di una macro START_PRINT che utilizza questi parametri può essere trovato in config/sample-macros.cfg

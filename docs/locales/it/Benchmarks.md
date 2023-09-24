@@ -316,9 +316,9 @@ Il test è stato eseguito l'ultima volta su commit `59314d99` con versione gcc `
 | 1 stepper (200Mhz) | 39 |
 | 3 stepper (200Mhz) | 181 |
 
-### AR100 step rate benchmark
+### Benchmark della velocità di passo AR100
 
-The following configuration sequence is used on AR100 CPU (Allwinner A64):
+La seguente sequenza di configurazione viene utilizzata sulla CPU AR100 (Allwinner A64):
 
 ```
 allocate_oids count=3
@@ -328,7 +328,7 @@ config_stepper oid=2 step_pin=PL12 dir_pin=PE16 invert_step=-1 step_pulse_ticks=
 finalize_config crc=0
 ```
 
-The test was last run on commit `08d037c6` with gcc version `or1k-linux-musl-gcc (GCC) 9.2.0` on an Allwinner A64-H micro-controller.
+Il test è stato eseguito l'ultima volta sul commit `08d037c6` con la versione gcc `or1k-linux-musl-gcc (GCC) 9.2.0` su un microcontrollore Allwinner A64-H.
 
 | AR100 R_PIO | ticks |
 | --- | --- |
@@ -393,7 +393,7 @@ Nota che questo test potrebbe saturare la capacità USB/CPU di un Raspberry Pi. 
 | atmega2560 (serial) | 23K | b161a69e | avr-gcc (GCC) 4.8.1 |
 | sam3x8e (serial) | 23K | b161a69e | arm-none-eabi-gcc (Fedora 7.1.0-5.fc27) 7.1.0 |
 | at90usb1286 (USB) | 75K | 01d2183f | avr-gcc (GCC) 5.4.0 |
-| ar100 (serial) | 138K | 08d037c6 | or1k-linux-musl-gcc 9.3.0 |
+| ar100 (seriale) | 138K | 08d037c6 | or1k-linux-musl-gcc 9.3.0 |
 | samd21 (USB) | 223K | 01d2183f | arm-none-eabi-gcc (Fedora 7.4.0-1.fc30) 7.4.0 |
 | pru (shared memory) | 260K | c5968a08 | pru-gcc (GCC) 8.0.0 20170530 (experimental) |
 | stm32f103 (USB) | 355K | 01d2183f | arm-none-eabi-gcc (Fedora 7.4.0-1.fc30) 7.4.0 |
