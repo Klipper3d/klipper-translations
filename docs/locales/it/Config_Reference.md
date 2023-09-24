@@ -536,13 +536,13 @@ gear_ratio:
 [stepper_z]
 ```
 
-### Rotary delta Kinematics
+### Cinematica delta rotatoria
 
-See [example-rotary-delta.cfg](../config/example-rotary-delta.cfg) for an example rotary delta kinematics config file.
+Vedere [example-rotary-delta.cfg](../config/example-rotary-delta.cfg) per un esempio di file di configurazione della cinematica delta rotante.
 
 Qui vengono descritti solo i parametri specifici delle stampanti delta rotative - vedere [impostazioni cinematiche comuni](#impostazioni-cinematica-comune) per i parametri disponibili.
 
-ROTARY DELTA KINEMATICS ARE A WORK IN PROGRESS. Homing moves may timeout and some boundary checks are not implemented.
+LA CINEMATICA DELTA ROTANTE È UN LAVORO IN CORSO. Gli spostamenti di homing potrebbero scadere e alcuni controlli dei confini non vengono implementati.
 
 ```
 [printer]
@@ -622,13 +622,13 @@ radius:
 #   just prior to starting a probe operation. The default is 5.
 ```
 
-### Cable winch Kinematics
+### Cinematica dell'argano a fune
 
 Vedere [example-winch.cfg](../config/example-winch.cfg) per un esempio di file di configurazione della cinematica con verricello, cable winch.
 
 Qui sono descritti solo i parametri specifici per le stampanti cavo verricello - vedere [impostazioni comuni cinematiche](#common-kinematic-settings) per i parametri disponibili.
 
-CABLE WINCH SUPPORT IS EXPERIMENTAL. Homing is not implemented on cable winch kinematics. In order to home the printer, manually send movement commands until the toolhead is at 0, 0, 0 and then issue a `G28` command.
+IL SUPPORTO DEL VERRICELLO È SPERIMENTALE. L'homing non è implementato nella cinematica del verricello. Per riportare la stampante alla posizione iniziale, inviare manualmente i comandi di movimento finché la testa utensile non si trova su 0, 0, 0, quindi emettere un comando "G28".
 
 ```
 [printer]
@@ -1079,7 +1079,7 @@ Regolazione multipla dell'inclinazione dello stepper Z. Questa funzione consente
 
 ### [quad_gantry_level]
 
-Moving gantry leveling using 4 independently controlled Z motors. Corrects hyperbolic parabola effects (potato chip) on moving gantry which is more flexible. WARNING: Using this on a moving bed may lead to undesirable results. If this section is present then a QUAD_GANTRY_LEVEL extended G-Code command becomes available. This routine assumes the following Z motor configuration:
+Livellamento del gantly mediante 4 motori Z controllati in modo indipendente. Corregge gli effetti della parabola iperbolica (patatine fritte) sul portale mobile che è più flessibile. ATTENZIONE: l'utilizzo su un letto mobile può portare a risultati indesiderati. Se questa sezione è presente, diventa disponibile un comando G-Code esteso QUAD_GANTRY_LEVEL. Questa routine presuppone la seguente configurazione del motore Z:
 
 ```
  ----------------
@@ -1533,7 +1533,7 @@ cs_pin:
 
 ### [mpu9250]
 
-Support for MPU-9250, MPU-9255, MPU-6515, MPU-6050, and MPU-6500 accelerometers (one may define any number of sections with an "mpu9250" prefix).
+Supporto per accelerometri MPU-9250, MPU-9255, MPU-6515, MPU-6050 e MPU-6500 (è possibile definire un numero qualsiasi di sezioni con un prefisso "mpu9250").
 
 ```
 [mpu9250 my_accelerometer]
@@ -3090,7 +3090,7 @@ run_current:
 
 ### [tmc2240]
 
-Configure a TMC2240 stepper motor driver via SPI bus. To use this feature, define a config section with a "tmc2240" prefix followed by the name of the corresponding stepper config section (for example, "[tmc2240 stepper_x]").
+Configurare un driver del motore passo-passo TMC2240 tramite bus SPI. Per utilizzare questa funzionalità, definire una sezione di configurazione con un prefisso "tmc2240" seguito dal nome della sezione di configurazione dello stepper corrispondente (ad esempio, "[tmc2240 stepper_x]").
 
 ```
 [tmc2240 stepper_x]
@@ -4224,9 +4224,9 @@ I seguenti parametri sono generalmente disponibili per i dispositivi che utilizz
 
 I seguenti parametri sono generalmente disponibili per i dispositivi che utilizzano un bus I2C.
 
-Note that Klipper's current micro-controller support for I2C is generally not tolerant to line noise. Unexpected errors on the I2C wires may result in Klipper raising a run-time error. Klipper's support for error recovery varies between each micro-controller type. It is generally recommended to only use I2C devices that are on the same printed circuit board as the micro-controller.
+Tieni presente che l'attuale supporto del microcontrollore di Klipper per I2C generalmente non tollera il rumore di linea. Errori imprevisti sui cavi I2C potrebbero far sì che Klipper sollevi un errore di runtime. Il supporto di Klipper per il ripristino degli errori varia a seconda del tipo di microcontrollore. In genere si consiglia di utilizzare solo dispositivi I2C che si trovano sullo stesso circuito stampato del microcontrollore.
 
-Most Klipper micro-controller implementations only support an `i2c_speed` of 100000 (*standard mode*, 100kbit/s). The Klipper "Linux" micro-controller supports a 400000 speed (*fast mode*, 400kbit/s), but it must be [set in the operating system](RPi_microcontroller.md#optional-enabling-i2c) and the `i2c_speed` parameter is otherwise ignored. The Klipper "RP2040" micro-controller and ATmega AVR family support a rate of 400000 via the `i2c_speed` parameter. All other Klipper micro-controllers use a 100000 rate and ignore the `i2c_speed` parameter.
+La maggior parte delle implementazioni del microcontrollore Klipper supportano solo una `i2c_speed` di 100000 (*modalità standard*, 100kbit/s). Il microcontrollore Klipper "Linux" supporta una velocità 400000 (*modalità veloce*, 400kbit/s), ma deve essere [impostato nel sistema operativo](RPi_microcontroller.md#optional-enabling-i2c) e `i2c_speed` il parametro viene altrimenti ignorato. Il microcontrollore Klipper "RP2040" e la famiglia ATmega AVR supportano una velocità di 400000 tramite il parametro `i2c_speed`. Tutti gli altri microcontrollori Klipper utilizzano una velocità 100000 e ignorano il parametro "i2c_speed".
 
 ```
 #i2c_address:

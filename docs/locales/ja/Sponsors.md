@@ -1,30 +1,30 @@
-# Sponsors
+# スポンサー
 
-Klipper is Free Software. We depend on the generous support from sponsors. Please consider sponsoring Klipper or supporting our sponsors.
+Klipper はフリーソフトウェアです。私たちは、スポンサーからの惜しみない支援に依存しています。Klipper のスポンサーになること、またはスポンサーを支援することをご検討ください。
 
 ## BIGTREETECH
 
 [<img src="./img/sponsors/BTT_BTT.png" width="200" />](https://bigtree-tech.com/collections/all-products)
 
-BIGTREETECH is the official mainboard sponsor of Klipper. BIGTREETECH is committed to developing innovative and competitive products to serve the 3D printing community better. Follow them on [Facebook](https://www.facebook.com/BIGTREETECH) or [Twitter](https://twitter.com/BigTreeTech).
+BIGTREETECHはKlipperの公式メインボードスポンサーです。BIGTREETECHは、3Dプリンティングコミュニティにより良いサービスを提供するため、革新的で競争力のある製品の開発に取り組んでいます。 [Facebook](https://www.facebook.com/BIGTREETECH) または [Twitter](https://twitter.com/BigTreeTech) でフォローしてください。
 
-## Sponsors
+## スポンサー
 
 [<img src="./img/sponsors/obico-light-horizontal.png" width="200" />](https://obico.io/klipper.html?source=klipper_sponsor)
 
-## Klipper Developers
+## Klipper 開発者
 
 ### Kevin O'Connor
 
-Kevin is the original author and current maintainer of Klipper. Donate at: <https://ko-fi.com/koconnor> or <https://www.patreon.com/koconnor>
+Kevin は Klipper の原作者であり、現在のメンテナです。寄付は <https://ko-fi.com/koconnor> または <https://www.patreon.com/koconnor>
 
 ### Eric Callahan
 
-Eric is the author of bed_mesh, spi_flash, and several other Klipper modules. Eric has a donations page at: <https://ko-fi.com/arksine>
+Eric は bed_mesh、spi_flash、その他いくつかの Klipper モジュールの作者です。Eric の寄付のページは <https://ko-fi.com/arksine>
 
-## Related Klipper Projects
+## Klipper の関連プロジェクト
 
-Klipper is frequently used with other Free Software. Consider using or supporting these projects.
+Klipper は、他のフリーソフトウェアと共に使用されることがよくあります。これらのプロジェクトの利用や支援をご検討ください。
 
 * [Moonraker](https://github.com/Arksine/moonraker)
 * [Mainsail](https://github.com/mainsail-crew/mainsail)

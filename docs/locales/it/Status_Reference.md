@@ -92,7 +92,7 @@ Le seguenti informazioni sono disponibili per gli oggetti extruder_stepper (cos�
 
 - `pressure_advance`: il valore corrente di [pressure advance](Pressure_Advance.md).
 - `smooth_time`: il tempo di avanzamento graduale della pressure advance corrente.
-- `motion_queue`: The name of the extruder that this extruder stepper is currently synchronized to. This is reported as `None` if the extruder stepper is not currently associated with an extruder.
+- `motion_queue`: il nome dell'estrusore con cui è attualmente sincronizzato questo stepper estrusore. Questo viene segnalato come `None` se lo stepper dell'estrusore non è attualmente associato a un estrusore.
 
 ## fan
 
@@ -241,7 +241,7 @@ Le seguenti informazioni sono disponibili nell'oggetto `print_stats` (questo ogg
 
 Le seguenti informazioni sono disponibili nell'oggetto [probe](Config_Reference.md#probe) (questo oggetto è disponibile anche se è definita una sezione di configurazione [bltouch](Config_Reference.md#bltouch)):
 
-- `name`: Returns the name of the probe in use.
+- `name`: restituisce il nome della sonda in uso.
 - `last_query`: Restituisce True se il probe è stato segnalato come "attivato" durante l'ultimo comando QUERY_PROBE. Nota, se questo viene utilizzato in una macro, a causa dell'ordine di espansione del modello, il comando QUERY_PROBE deve essere eseguito prima della macro contenente questo riferimento.
 - `last_z_result`: Restituisce il valore del risultato Z dell'ultimo comando PROBE. Nota, se questo viene utilizzato in una macro, a causa dell'ordine di espansione del modello, il comando PROBE (o simile) deve essere eseguito prima della macro contenente questo riferimento.
 
@@ -262,11 +262,11 @@ Le seguenti informazioni sono disponibili nell'oggetto `query_endstops` (questo 
 Le seguenti informazioni sono disponibili nell'oggetto `screws_tilt_adjust`:
 
 - `error`: restituisce True se il comando `SCREWS_TILT_CALCULATE` più recente includeva il parametro `MAX_DEVIATION` e uno qualsiasi dei punti della vite rilevati superava il `MAX_DEVIATION` specificato.
-- `results["<screw>"]`: A dictionary containing the following keys:
+- `results["<screw>"]`: un dizionario contenente le seguenti chiavi:
    - `z`: L'altezza Z misurata della posizione della vite.
-   - `sign`: A string specifying the direction to turn to screw for the necessary adjustment. Either "CW" for clockwise or "CCW" for counterclockwise.
+   - `sign`: una stringa che specifica la direzione in cui ruotare la vite per la regolazione necessaria. O "CW" per senso orario o "CCW" per senso antiorario.
    - `adjust`: il numero di giri di vite per regolare la vite, dato nel formato "HH:MM", dove "HH" è il numero di giri di vite completi e "MM" è il numero di "minuti di un quadrante di orologio" che rappresenta un giro di vite parziale. (Es. "01:15" significherebbe girare la vite di un giro e un quarto.)
-   - `is_base`: Returns True if this is the base screw.
+   - `is_base`: Restituisce True se questa è la vite di base.
 
 ## servo
 
@@ -276,9 +276,9 @@ Le seguenti informazioni sono disponibili negli oggetti [servo some_name](Config
 
 ## stepper_enable
 
-The following information is available in the `stepper_enable` object (this object is available if any stepper is defined):
+Le seguenti informazioni sono disponibili nell'oggetto `stepper_enable` (questo oggetto è disponibile se è definito uno stepper):
 
-- `steppers["<stepper>"]`: Returns True if the given stepper is enabled.
+- `steppers["<stepper>"]`: Restituisce True se lo stepper specificato è abilitato.
 
 ## system_stats
 

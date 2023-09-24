@@ -1,41 +1,41 @@
 # G-Codes
 
-This document describes the commands that Klipper supports. These are commands that one may enter into the OctoPrint terminal tab.
+このドキュメントでは Klipper がサポートしているコマンドについて説明します。これらは OctoPrint のターミナルタブに入力できるコマンドです。
 
-## G-Code commands
+## Gコードコマンド
 
-Klipper supports the following standard G-Code commands:
+Klipper は以下の標準Gコードコマンドをサポートしています：
 
-- Move (G0 or G1): `G1 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>]`
-- Dwell: `G4 P<milliseconds>`
-- Move to origin: `G28 [X] [Y] [Z]`
-- Turn off motors: `M18` or `M84`
-- Wait for current moves to finish: `M400`
-- Use absolute/relative distances for extrusion: `M82`, `M83`
-- Use absolute/relative coordinates: `G90`, `G91`
-- Set position: `G92 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>]`
-- Set speed factor override percentage: `M220 S<percent>`
-- Set extrude factor override percentage: `M221 S<percent>`
-- Set acceleration: `M204 S<value>` OR `M204 P<value> T<value>`
-   - Note: If S is not specified and both P and T are specified, then the acceleration is set to the minimum of P and T. If only one of P or T is specified, the command has no effect.
-- Get extruder temperature: `M105`
-- Set extruder temperature: `M104 [T<index>] [S<temperature>]`
-- Set extruder temperature and wait: `M109 [T<index>] S<temperature>`
-   - Note: M109 always waits for temperature to settle at requested value
-- Set bed temperature: `M140 [S<temperature>]`
-- Set bed temperature and wait: `M190 S<temperature>`
-   - Note: M190 always waits for temperature to settle at requested value
-- Set fan speed: `M106 S<value>`
-- Turn fan off: `M107`
-- Emergency stop: `M112`
-- Get current position: `M114`
-- Get firmware version: `M115`
+- 移動 (G0 または G1)： `G1 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>]`
+- ドウェル: `G4 P<milliseconds>`
+- 原点に移動: `G28 [X] [Y] [Z]`.
+- モーターを切る: `M18` or `M84`
+- 現在の動作が完了するのを待つ: `M400`
+- 押し出しに絶対距離/相対距離を使用する: `M82`, `M83`
+- 絶対座標/相対座標を使用する: `G90`, `G91`
+- セットポジション: `G92 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>]`
+- スピード係数のオーバーライド率を設定: `M220 S<percent>`
+- 押し出し係数のオーバーライド率を設定する: `M221 S<percent>`
+- 加速度の設定: `M204 S<value>` OR `M204 P<value> T<value>`
+   - 注: もし S が指定されず、P と T の両方が指定された場合、加速度は P と T の最小値に設定されます。P または T のどちらか一方だけが指定された場合、このコマンドは何の影響も及ぼしません。
+- エクストルーダの温度を取得する: `M105`
+- エクストルーダの温度を設定する: `M104 [T<index>] [S<temperature>]`
+- エクストルーダの温度を設定して待機: `M109 [T<index>] S<temperature>`
+   - 注: M109は常に温度が要求された値に落ち着くまで待機します
+- ベッド温度の設定: `M140 [S<temperature>]`
+- ベッド温度を設定して待機: `M190 S<temperature>`
+   - 注: M190は常に温度が要求値に落ち着くまで待機します
+- ファンの回転数を設定: `M106 S<value>`
+- ファンをオフにする: `M107`
+- 非常停止: `M112`
+- 現在位置を取得: `M114`
+- ファームウェアのバージョンを取得: `M115`
 
-For further details on the above commands see the [RepRap G-Code documentation](http://reprap.org/wiki/G-code).
+上記のコマンドの詳細については、[RepRap G-Code documentation](http://reprap.org/wiki/G-code) を参照してください。
 
 Klipper's goal is to support the G-Code commands produced by common 3rd party software (eg, OctoPrint, Printrun, Slic3r, Cura, etc.) in their standard configurations. It is not a goal to support every possible G-Code command. Instead, Klipper prefers human readable ["extended G-Code commands"](#additional-commands). Similarly, the G-Code terminal output is only intended to be human readable - see the [API Server document](API_Server.md) if controlling Klipper from external software.
 
-If one requires a less common G-Code command then it may be possible to implement it with a custom [gcode_macro config section](Config_Reference.md#gcode_macro). For example, one might use this to implement: `G12`, `G29`, `G30`, `G31`, `M42`, `M80`, `M81`, `T1`, etc.
+あまり一般的でない G-Code コマンドが必要な場合は、カスタムの [gcode_macro config section](Config_Reference.md#gcode_macro) を使って実装することができます。例えば、`G12`, `G29`, `G30`, `G31`, `M42`, `M80`, `M81`, `T1`などを実装することができます。
 
 ## Additional Commands
 
@@ -175,8 +175,8 @@ The following command is available when a [display config section](Config_Refere
 
 The display_status module is automatically loaded if a [display config section](Config_Reference.md#display) is enabled. It provides the following standard G-Code commands:
 
-- Display Message: `M117 <message>`
-- Set build percentage: `M73 P<percent>`
+- メッセージを表示する: `M117 <message>`
+- ビルドのパーセンテージを設定する: `M73 P<percent>`
 
 Also provided is the following extended G-Code command:
 
@@ -337,7 +337,7 @@ The gcode module is automatically loaded.
 
 ### [gcode_arcs]
 
-The following standard G-Code commands are available if a [gcode_arcs config section](Config_Reference.md#gcode_arcs) is enabled:
+[gcode_arcs config section](Config_Reference.md#gcode_arcs) が有効になっていれば、以下の標準Gコード・コマンドが利用できます:
 
 - Arc Move Clockwise (G2), Arc Move Counter-clockwise (G3): `G2|G3 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>] I<value> J<value>|I<value> K<value>|J<value> K<value>`
 - Arc Plane Select: G17 (XY plane), G18 (XZ plane), G19 (YZ plane)
@@ -594,7 +594,7 @@ The query_adc module is automatically loaded.
 
 The query_endstops module is automatically loaded. The following standard G-Code commands are currently available, but using them is not recommended:
 
-- Get Endstop Status: `M119` (Use QUERY_ENDSTOPS instead.)
+- エンドストップ・ステータスを取得する: `M119` (代わりにQUERY_ENDSTOPSを使用する。)
 
 #### QUERY_ENDSTOPS
 
@@ -766,12 +766,12 @@ The tuning_tower module is automatically loaded.
 Klipper supports the following standard G-Code commands if the [virtual_sdcard config section](Config_Reference.md#virtual_sdcard) is enabled:
 
 - List SD card: `M20`
-- Initialize SD card: `M21`
-- Select SD file: `M23 <filename>`
-- Start/resume SD print: `M24`
-- Pause SD print: `M25`
-- Set SD position: `M26 S<offset>`
-- Report SD print status: `M27`
+- SDカードを初期化する: `M21`
+- SDファイルを選択する: `M23 <filename>`
+- SDプリントを開始/再開する: `M24`
+- SDプリントを一時停止する: `M25`
+- SDの位置を設定: `M26 S<offset>`
+- SD プリントステータスを報告する: `M27`
 
 In addition, the following extended commands are available when the "virtual_sdcard" config section is enabled.
 

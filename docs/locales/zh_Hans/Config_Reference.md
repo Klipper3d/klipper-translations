@@ -1040,7 +1040,7 @@ Where x is the 0, 0 point on the bed
 
 ### [z_thermal_adjust]
 
-Temperature-dependant toolhead Z position adjustment. Compensate for vertical toolhead movement caused by thermal expansion of the printer's frame in real-time using a temperature sensor (typically coupled to a vertical section of frame).
+基于温度的工具头Z位置调整。使用温度传感器（通常连接到框架的垂直部分）实时补偿由于打印机框架的热膨胀引起的垂直方向工具头移动。
 
 另请参阅：[扩展G代码命令](G-Codes.md#z_thermal_adjust)。
 
@@ -1205,7 +1205,7 @@ gcode:
 
 ### [save_variables]
 
-Support saving variables to disk so that they are retained across restarts. See [command templates](Command_Templates.md#save-variables-to-disk) and [G-Code reference](G-Codes.md#save_variables) for further information.
+支持将变量保存到磁盘，以便在重新启动后保留。有关更多信息，请参阅[命令模板](Command_Templates.md#save-variables-to-disk)和[G-Code参考文档](G-Codes.md#save_variables)。
 
 ```
 [save_variables]
@@ -1259,7 +1259,7 @@ path:
 
 ### [force_move]
 
-Support manually moving stepper motors for diagnostic purposes. Note, using this feature may place the printer in an invalid state - see the [command reference](G-Codes.md#force_move) for important details.
+支持手动移动步进电机以进行诊断。注意，使用此功能可能会使打印机处于无效状态——有关重要细节，请参阅[命令参考](G-Codes.md#force_move)。
 
 ```
 [force_move]
@@ -1375,7 +1375,7 @@ Support manually moving stepper motors for diagnostic purposes. Note, using this
 
 ### [adxl345]
 
-Support for ADXL345 accelerometers. This support allows one to query accelerometer measurements from the sensor. This enables an ACCELEROMETER_MEASURE command (see [G-Codes](G-Codes.md#adxl345) for more information). The default chip name is "default", but one may specify an explicit name (eg, [adxl345 my_chip_name]).
+对 ADXL345 加速度传感器的支持。该支持允许用户从传感器获取加速度测量数据。这启用了一个 ACCELEROMETER_MEASURE 命令（有关更多信息，请参见 [G-Codes](G-Codes.md#adxl345)）。默认的芯片名称为 "default"，但您也可以指定一个明确的名称（例如，[adxl345 芯片名称]）。
 
 ```
 [adxl345]
@@ -1407,7 +1407,7 @@ cs_pin:
 
 ### [mpu9250]
 
-Support for MPU-9250, MPU-9255, MPU-6515, MPU-6050, and MPU-6500 accelerometers (one may define any number of sections with an "mpu9250" prefix).
+支持 MPU-9250、MPU-9255、MPU-6515、MPU-6050 和 MPU-6500 加速度计（可通过“mpu9250”前缀定义任意数量的分段）。
 
 ```
 [mpu9250 my_accelerometer]
@@ -1426,7 +1426,7 @@ Support for MPU-9250, MPU-9255, MPU-6515, MPU-6050, and MPU-6500 accelerometers 
 
 ### [resonance_tester]
 
-Support for resonance testing and automatic input shaper calibration. In order to use most of the functionality of this module, additional software dependencies must be installed; refer to [Measuring Resonances](Measuring_Resonances.md) and the [command reference](G-Codes.md#resonance_tester) for more information. See the [Max smoothing](Measuring_Resonances.md#max-smoothing) section of the measuring resonances guide for more information on `max_smoothing` parameter and its use.
+支持共振测试和自动输入整形器校准。为了使用该模块的大多数功能，必须安装额外的软件依赖项；参考[测量共振](Measuring_Resonances.md)和[命令参考](G-Codes.md#resonance_tester)以获取更多信息。有关 `max_smoothing` 参数及其用途的更多信息，请查阅测量共振指南的 [Max smoothing](Measuring_Resonances.md#max-smoothing) 章节。
 
 ```
 [resonance_tester]
@@ -1705,7 +1705,7 @@ z_offset:
 
 ### [dual_carriage]
 
-Support for cartesian printers with dual carriages on a single axis. The active carriage is set via the SET_DUAL_CARRIAGE extended g-code command. The "SET_DUAL_CARRIAGE CARRIAGE=1" command will activate the carriage defined in this section (CARRIAGE=0 will return activation to the primary carriage). Dual carriage support is typically combined with extra extruders - the SET_DUAL_CARRIAGE command is often called at the same time as the ACTIVATE_EXTRUDER command. Be sure to park the carriages during deactivation.
+对单轴上具有双滑车的笛卡尔打印机的支持。通过 SET_DUAL_CARRIAGE 扩展G代码命令来设置活跃的滑车。"SET_DUAL_CARRIAGE CARRIAGE=1" 命令将激活在此分段中定义的滑车（CARRIAGE=0 将重新激活主滑车）。双滑车支持通常与额外的挤出机组合在一起 - SET_DUAL_CARRIAGE 命令通常与 ACTIVATE_EXTRUDER 命令同时调用。在停用期间，请务必将滑车停放到适当的位置。
 
 Idex参考示例[sample-idex.cfg](../config/sample-idex.cfg)
 
@@ -2361,7 +2361,7 @@ pin:
 
 ### [led]
 
-Support for LEDs (and LED strips) controlled via micro-controller PWM pins (one may define any number of sections with an "led" prefix). See the [command reference](G-Codes.md#led) for more information.
+支持通过微控制器 PWM 引脚控制的 LED（和 LED 条）（可通过“led”前缀定义任意数量的分段）。有关更多信息，请参阅[命令参考](G-Codes.md#led)。
 
 ```
 [led my_led]
@@ -3468,7 +3468,7 @@ lcd_type:
 
 ### [display_data]
 
-Support for displaying custom data on an lcd screen. One may create any number of display groups and any number of data items under those groups. The display will show all the data items for a given group if the display_group option in the [display] section is set to the given group name.
+支持在LCD屏幕上显示自定义数据。您可以创建任意数量的显示组和该组下的任意数量的数据项。如果[display]分段中的display_group参数设置为给定的组名，则显示屏将显示该组下的所有数据项。
 
 一套[默认显示组](../klippy/extras/display/display.cfg)将被自动创建。通过覆盖打印机的 printer.cfg 主配置文件中的默认值可以替换或扩展这些 display_data 项。
 

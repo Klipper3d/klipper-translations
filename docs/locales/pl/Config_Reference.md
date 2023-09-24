@@ -915,7 +915,7 @@ Visual Examples:
 #   By default no faulty regions are set.
 ```
 
-### [bed_tilt]
+### [Łóżko_tytuł]
 
 Bed tilt compensation. One may define a bed_tilt config section to enable move transformations that account for a tilted bed. Note that bed_mesh and bed_tilt are incompatible; both cannot be defined.
 
@@ -949,7 +949,7 @@ See the [command reference](G-Codes.md#bed_tilt) for additional information.
 #   just prior to starting a probe operation. The default is 5.
 ```
 
-### [bed_screws]
+### [łóżkowe_śruby]
 
 Tool to help adjust bed leveling screws. One may define a [bed_screws] config section to enable a BED_SCREWS_ADJUST g-code command.
 
@@ -1277,7 +1277,7 @@ G-Code macros (one may define any number of sections with a "gcode_macro" prefix
 #   using the auto completion feature. Default "G-Code macro"
 ```
 
-### [delayed_gcode]
+### [opóźniony_gkod]
 
 Execute a gcode on a set delay. See the [command template guide](Command_Templates.md#delayed-gcodes) and [command reference](G-Codes.md#delayed_gcode) for more information.
 
@@ -1679,7 +1679,7 @@ z_offset:
 #   not run any special G-Code commands on deactivation.
 ```
 
-### [bltouch]
+### [dotyk]
 
 BLTouch probe. One may define this section (instead of a probe section) to enable a BLTouch probe. See [BL-Touch guide](BLTouch.md) and [command reference](G-Codes.md#bltouch) for further information. A virtual "probe:z_virtual_endstop" pin is also created (see the "probe" section for the details).
 

@@ -16,9 +16,9 @@ Tutte le date in questo documento sono approssimative.
 
 20230323: On tmc5160 drivers `multistep_filt` is now enabled by default. Set `driver_MULTISTEP_FILT: False` in the tmc5160 config for the previous behavior.
 
-20230304: The `SET_TMC_CURRENT` command now properly adjusts the globalscaler register for drivers that have it. This removes a limitation where on tmc5160, the currents could not be raised higher with `SET_TMC_CURRENT` than the `run_current` value set in the config file. However, this has a side effect: After running `SET_TMC_CURRENT`, the stepper must be held at standstill for >130ms in case StealthChop2 is used so that the AT#1 calibration gets executed by the driver.
+20230304: Il comando `SET_TMC_CURRENT` ora regola correttamente il registro globalscaler per i driver che lo dispongono. Ciò rimuove una limitazione per cui su tmc5160, le correnti non potevano essere aumentate con `SET_TMC_CURRENT` rispetto al valore `run_current` impostato nel file di configurazione. Tuttavia, questo ha un effetto collaterale: dopo aver eseguito `SET_TMC_CURRENT`, lo stepper deve essere tenuto fermo per >130 ms nel caso in cui venga utilizzato StealthChop2 in modo che la calibrazione AT#1 venga eseguita dal driver.
 
-20230202: The format of the `printer.screws_tilt_adjust` status information has changed. The information is now stored as a dictionary of screws with the resulting measurements. See the [status reference](Status_Reference.md#screws_tilt_adjust) for details.
+20230202: il formato delle informazioni sullo stato di `printer.screws_tilt_adjust` è stato modificato. Le informazioni vengono ora memorizzate come dizionario delle viti con le misurazioni risultanti. Consulta il [riferimento sullo stato](Status_Reference.md#screws_tilt_adjust) per i dettagli.
 
 20230201: Il modulo `[bed_mesh]` non carica più il profilo `default` all'avvio. Si consiglia agli utenti che usano il profilo `default` di aggiungere `BED_MESH_PROFILE LOAD=default` alla loro macro `START_PRINT` (o alla configurazione "Start G-Code" del loro slicer quando applicabile).
 

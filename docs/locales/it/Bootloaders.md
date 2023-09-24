@@ -238,7 +238,7 @@ Il bootloader in genere viene eseguito solo per un breve periodo dopo l'avvio. P
 
 Il [bootloader HID](https://github.com/Serasidis/STM32_HID_Bootloader) è un bootloader compatto e senza driver in grado di eseguire il flashing attraverso USB. È inoltre disponibile un [fork con build specifiche per SKR Mini E3 1.2](https://github.com/Arksine/STM32_HID_Bootloader/releases/latest).
 
-For generic STM32F103 boards such as the blue pill it is possible to flash the bootloader via 3.3V serial using stm32flash as noted in the stm32duino section above, substituting the file name for the desired hid bootloader binary (ie: hid_generic_pc13.bin for the blue pill).
+Per le schede STM32F103 generiche come la blue pill è possibile eseguire il flashing del bootloader tramite seriale da 3,3 V utilizzando stm32flash come indicato nella sezione stm32duino sopra, sostituendo il nome del file con il binario del bootloader hid desiderato (ad esempio: hid_generic_pc13.bin per la blue pill ).
 
 Non è possibile utilizzare stm32flash per SKR Mini E3 poiché il pin boot0 è collegato direttamente a terra e non disponibile tramite pin header. Si consiglia di utilizzare un STLink V2 con STM32Cubeprogrammer per eseguire il flashing del bootloader. Se non hai accesso a un STLink è anche possibile utilizzare un [Raspberry Pi e OpenOCD](#running-openocd-on-the-raspberry-pi) con la seguente configurazione del chip:
 
@@ -309,13 +309,13 @@ O se klipper è stato precedentemente flashato:
 make flash FLASH_DEVICE=/dev/ttyACM0
 ```
 
-It may be necessary to manually enter the bootloader, this can be done by setting "boot 0" low and "boot 1" high. On the SKR Mini E3 "Boot 1" is not available, so it may be done by setting pin PA2 low if you flashed "hid_btt_skr_mini_e3.bin". This pin is labeled "TX0" on the TFT header in the SKR Mini E3's "PIN" document. There is a ground pin next to PA2 which you can use to pull PA2 low.
+Potrebbe essere necessario accedere manualmente al bootloader, questo può essere fatto impostando "boot 0" basso e "boot 1" alto. Sull'SKR Mini E3 "Boot 1" non è disponibile, quindi può essere fatto impostando il pin PA2 basso se hai flashato "hid_btt_skr_mini_e3.bin". Questo pin è etichettato "TX0" sull'intestazione TFT nel documento "PIN" di SKR Mini E3. C'è un pin di terra accanto a PA2 che puoi utilizzare per abbassare PA2.
 
 ### STM32F103/STM32F072 con bootloader MSC
 
 Il [bootloader MSC](https://github.com/Telekatz/MSC-stm32f103-bootloader) è un bootloader senza driver in grado di eseguire il flashing su USB.
 
-It is possible to flash the bootloader via 3.3V serial using stm32flash as noted in the stm32duino section above, substituting the file name for the desired MSC bootloader binary (ie: MSCboot-Bluepill.bin for the blue pill).
+È possibile eseguire il flashing del bootloader tramite seriale da 3,3 V utilizzando stm32flash come indicato nella sezione stm32duino sopra, sostituendo il nome del file con il binario del bootloader MSC desiderato (ad esempio: MSCboot-Bluepill.bin per la blue pill).
 
 Per le schede STM32F072 è anche possibile eseguire il flashing del bootloader su USB (tramite DFU) con qualcosa del tipo:
 
@@ -331,7 +331,7 @@ Il bootloader può essere attivato premendo due volte il pulsante di reset della
 
 Il bootloader [CanBoot](https://github.com/Arksine/CanBoot) fornisce un'opzione per caricare il firmware Klipper su CANBUS. Il bootloader stesso è derivato dal codice sorgente di Klipper. Attualmente CanBoot supporta i modelli STM32F103, STM32F042 e STM32F072.
 
-It is recommended to use a ST-Link Programmer to flash CanBoot, however it should be possible to flash using `stm32flash` on STM32F103 devices, and `dfu-util` on STM32F042/STM32F072 devices. See the previous sections in this document for instructions on these flashing methods, substituting `canboot.bin` for the file name where appropriate. The CanBoot repository linked above provides instructions for building the bootloader.
+Si consiglia di utilizzare un programmatore ST-Link per eseguire il flashing di CanBoot, tuttavia dovrebbe essere possibile eseguire il flashing utilizzando `stm32flash` sui dispositivi STM32F103 e "dfu-util" sui dispositivi STM32F042/STM32F072. Consulta le sezioni precedenti di questo documento per istruzioni su questi metodi di flashing, sostituendo `canboot.bin` con il nome del file dove appropriato. Il repository CanBoot collegato sopra fornisce istruzioni per la creazione del bootloader.
 
 La prima volta che CanBoot è stato flashato, dovrebbe rilevare che non è presente alcuna applicazione e accedere al bootloader. Se ciò non accade è possibile entrare nel bootloader premendo due volte di seguito il pulsante di reset.
 
@@ -355,9 +355,9 @@ Quando crei Klipper per l'uso con CanBoot, seleziona l'opzione Bootloader da 8 K
 
 ## Microcontrollori STM32F4 (SKR Pro 1.1)
 
-STM32F4 micro-controllers come equipped with a built-in system bootloader capable of flashing over USB (via DFU), 3.3V Serial, and various other methods (see STM Document AN2606 for more information). Some STM32F4 boards, such as the SKR Pro 1.1, are not able to enter the DFU bootloader. The HID bootloader is available for STM32F405/407 based boards should the user prefer flashing over USB over using the sdcard. Note that you may need to configure and build a version specific to your board, a [build for the SKR Pro 1.1 is available here](https://github.com/Arksine/STM32_HID_Bootloader/releases/latest).
+I microcontrollori STM32F4 sono dotati di un bootloader di sistema integrato in grado di eseguire il flashing tramite USB (tramite DFU), seriale da 3,3 V e vari altri metodi (vedere il documento STM AN2606 per ulteriori informazioni). Alcune schede STM32F4, come SKR Pro 1.1, non sono in grado di accedere al bootloader DFU. Il bootloader HID è disponibile per le schede basate su STM32F405/407 nel caso in cui l'utente preferisca eseguire il flashing tramite USB anziché utilizzare la scheda SD. Tieni presente che potrebbe essere necessario configurare e creare una versione specifica per la tua scheda, una [build per SKR Pro 1.1 è disponibile qui](https://github.com/Arksine/STM32_HID_Bootloader/releases/latest).
 
-Unless your board is DFU capable the most accessible flashing method is likely via 3.3V serial, which follows the same procedure as [flashing the STM32F103 using stm32flash](#stm32f103-micro-controllers-blue-pill-devices). For example:
+A meno che la tua scheda non sia compatibile con DFU, il metodo di flashing più accessibile è probabilmente tramite seriale da 3,3 V, che segue la stessa procedura di [flash di STM32F103 utilizzando stm32flash](#stm32f103-micro-controllers-blue-pill-devices). Per esempio:
 
 ```
 wget https://github.com/Arksine/STM32_HID_Bootloader/releases/download/v0.5-beta/hid_bootloader_SKR_PRO.bin
