@@ -1,17 +1,18 @@
 # Dex94 <Dasvaresu@dr.com>, 2022.
 # elovalvoc047faba7aa1427f <ernesto.lovalvo@unipa.it>, 2022.
-# Ale Ale <ale.99.ale@gmail.com>, 2022.
+# Ale Ale <ale.99.ale@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-08-04 21:22+0000\n"
+"PO-Revision-Date: 2023-09-14 18:54+0000\n"
 "Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/slicers/it/>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/slicers/"
+"it/>\n"
 "Language: it\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14-dev\n"
+"X-Generator: Weblate 5.0.1-dev\n"
 
 msgid ""
 "This document provides some tips for configuring a \"slicer\" application "
@@ -207,37 +208,47 @@ msgstr "slicer"
 
 #: docs/Slicers.md:block 24 (header)
 msgid "START_PRINT macros"
-msgstr ""
+msgstr "Macro START_PRINT"
 
 #: docs/Slicers.md:block 25 (paragraph)
 msgid ""
 "When using a START_PRINT macro or similar, it is useful to sometimes pass "
 "through parameters from the slicer variables to the macro."
 msgstr ""
+"Quando si utilizza una macro START_PRINT o simile, a volte è utile passare i "
+"parametri dalle variabili dello slicer alla macro."
 
 #: docs/Slicers.md:block 26 (paragraph)
 msgid ""
 "In Cura, to pass through temperatures, the following start gcode would be "
 "used:"
 msgstr ""
+"In Cura, per passare le temperature, verrebbe utilizzato il seguente gcode "
+"iniziale:"
 
 #: docs/Slicers.md:block 27 (code)
 msgid ""
 "START_PRINT BED_TEMP={material_bed_temperature_layer_0} "
 "EXTRUDER_TEMP={material_print_temperature_layer_0}\n"
 msgstr ""
+"START_PRINT BED_TEMP={material_bed_temperature_layer_0} "
+"EXTRUDER_TEMP={material_print_temperature_layer_0}\n"
 
 #: docs/Slicers.md:block 28 (paragraph)
 msgid ""
 "In slic3r derivatives such as PrusaSlicer and SuperSlicer, the following "
 "would be used:"
 msgstr ""
+"Nei derivati di slic3r come PrusaSlicer e SuperSlicer, verrebbe utilizzato "
+"quanto segue:"
 
 #: docs/Slicers.md:block 29 (paragraph)
 msgid ""
 "START_PRINT EXTRUDER_TEMP=[first_layer_temperature] "
 "BED_TEMP=[first_layer_bed_temperature]"
 msgstr ""
+"START_PRINT EXTRUDER_TEMP=[first_layer_temperature] "
+"BED_TEMP=[first_layer_bed_temperature]"
 
 #: docs/Slicers.md:block 30 (paragraph)
 msgid ""
@@ -247,21 +258,33 @@ msgid ""
 "`{material_print_temperature_layer_0}` variables is enough to mitigate this."
 " In slic3r derivatives, you would use:"
 msgstr ""
+"Si noti inoltre che questeislicer inseriranno i propri codici di "
+"riscaldamento quando determinate condizioni non vengono soddisfatte. In "
+"Cura, l'esistenza delle variabili `{material_bed_temperature_layer_0}` e "
+"`{material_print_temperature_layer_0}` è sufficiente per mitigare questo "
+"problema. Nei derivati slic3r, dovresti usare:"
 
 #: docs/Slicers.md:block 31 (code)
 msgid ""
 "M140 S0\n"
 "M104 S0\n"
 msgstr ""
+"M140 S0\n"
+"M104 S0\n"
 
 #: docs/Slicers.md:block 32 (paragraph)
 msgid ""
 "before the macro call. Also note that SuperSlicer has a \"custom gcode "
 "only\" button option, which achieves the same outcome."
 msgstr ""
+"prima della chiamata della macro. Tieni inoltre presente che SuperSlicer ha "
+"un'opzione del pulsante \"solo gcode personalizzato\", che ottiene lo stesso "
+"risultato."
 
 #: docs/Slicers.md:block 33 (paragraph)
 msgid ""
 "An example of a START_PRINT macro using these paramaters can be found in "
 "config/sample-macros.cfg"
 msgstr ""
+"Un esempio di una macro START_PRINT che utilizza questi parametri può essere "
+"trovato in config/sample-macros.cfg"

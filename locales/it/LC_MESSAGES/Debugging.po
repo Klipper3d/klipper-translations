@@ -1,16 +1,17 @@
 # Dex94 <Dasvaresu@dr.com>, 2022.
-# Ale Ale <ale.99.ale@gmail.com>, 2022.
+# Ale Ale <ale.99.ale@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-08-10 04:19+0000\n"
+"PO-Revision-Date: 2023-09-14 18:54+0000\n"
 "Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/debugging/it/>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/"
+"debugging/it/>\n"
 "Language: it\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14-dev\n"
+"X-Generator: Weblate 5.0.1-dev\n"
 
 msgid "This document describes some of the Klipper debugging tools."
 msgstr "Questo documento descrive alcuni degli strumenti di debug di Klipper."
@@ -570,6 +571,8 @@ msgid ""
 "**./build/pysimulavr/_pysimulavr.cpython-39-x86_64-linux-gnu.so**) and not "
 "an error."
 msgstr ""
+"Questo comando dovrebbe segnalare un file specifico (ad esempio **./build/"
+"pysimulavr/_pysimulavr.cpython-39-x86_64-linux-gnu.so**) e non un errore."
 
 #~ msgid ""
 #~ "This commmand should report a specific file (e.g. "

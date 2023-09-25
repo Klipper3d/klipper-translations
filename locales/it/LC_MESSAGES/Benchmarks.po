@@ -1,17 +1,18 @@
 # Dex94 <Dasvaresu@dr.com>, 2022.
 # Yifei Ding <dingyifeiair@gmail.com>, 2022.
-# Ale Ale <ale.99.ale@gmail.com>, 2022.
+# Ale Ale <ale.99.ale@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-11-01 13:33+0000\n"
+"PO-Revision-Date: 2023-09-14 18:54+0000\n"
 "Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/benchmarks/it/>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/"
+"benchmarks/it/>\n"
 "Language: it\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.2-dev\n"
+"X-Generator: Weblate 5.0.1-dev\n"
 
 msgid "This document describes Klipper benchmarks."
 msgstr "Questo documento descrive i benchmark di Klipper."
@@ -1013,12 +1014,14 @@ msgstr "198"
 
 #: docs/Benchmarks.md:block 85 (header)
 msgid "AR100 step rate benchmark"
-msgstr ""
+msgstr "Benchmark della velocità di passo AR100"
 
 #: docs/Benchmarks.md:block 86 (paragraph)
 msgid ""
 "The following configuration sequence is used on AR100 CPU (Allwinner A64):"
 msgstr ""
+"La seguente sequenza di configurazione viene utilizzata sulla CPU AR100 ("
+"Allwinner A64):"
 
 #: docs/Benchmarks.md:block 87 (code)
 msgid ""
@@ -1029,40 +1032,52 @@ msgid ""
 "finalize_config crc=0\n"
 "\n"
 msgstr ""
+"allocate_oids count=3\n"
+"config_stepper oid=0 step_pin=PL10 dir_pin=PE14 invert_step=-1 "
+"step_pulse_ticks=0\n"
+"config_stepper oid=1 step_pin=PL11 dir_pin=PE15 invert_step=-1 "
+"step_pulse_ticks=0\n"
+"config_stepper oid=2 step_pin=PL12 dir_pin=PE16 invert_step=-1 "
+"step_pulse_ticks=0\n"
+"finalize_config crc=0\n"
+"\n"
 
 #: docs/Benchmarks.md:block 88 (paragraph)
 msgid ""
 "The test was last run on commit `08d037c6` with gcc version `or1k-linux-"
 "musl-gcc (GCC) 9.2.0` on an Allwinner A64-H micro-controller."
 msgstr ""
+"Il test è stato eseguito l'ultima volta sul commit `08d037c6` con la "
+"versione gcc `or1k-linux-musl-gcc (GCC) 9.2.0` su un microcontrollore "
+"Allwinner A64-H."
 
 #: docs/Benchmarks.md:block 89 (table)
 msgid "AR100 R_PIO"
-msgstr ""
+msgstr "AR100 R_PIO"
 
 #: docs/Benchmarks.md:block 89 (table)
 msgid "85"
-msgstr ""
+msgstr "85"
 
 #: docs/Benchmarks.md:block 89 (table)
 msgid "359"
-msgstr ""
+msgstr "359"
 
 #: docs/Benchmarks.md:block 105 (table)
 msgid "ar100 (serial)"
-msgstr ""
+msgstr "ar100 (seriale)"
 
 #: docs/Benchmarks.md:block 105 (table)
 msgid "138K"
-msgstr ""
+msgstr "138K"
 
 #: docs/Benchmarks.md:block 105 (table)
 msgid "08d037c6"
-msgstr ""
+msgstr "08d037c6"
 
 #: docs/Benchmarks.md:block 105 (table)
 msgid "or1k-linux-musl-gcc 9.3.0"
-msgstr ""
+msgstr "or1k-linux-musl-gcc 9.3.0"
 
 #~ msgid ""
 #~ "To produce the benchmarks found in the Features.md document, the total "

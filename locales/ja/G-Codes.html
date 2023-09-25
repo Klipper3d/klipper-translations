@@ -1239,8 +1239,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#g-code-commands" class="md-nav__link">
-    G-Code commands
+  <a href="#g" class="md-nav__link">
+    Gコードコマンド
   </a>
   
 </li>
@@ -2798,44 +2798,44 @@
 
 
 <h1 id="g-codes">G-Codes<a class="headerlink" href="#g-codes" title="Permanent link">&para;</a></h1>
-<p>This document describes the commands that Klipper supports. These are commands that one may enter into the OctoPrint terminal tab.</p>
-<h2 id="g-code-commands">G-Code commands<a class="headerlink" href="#g-code-commands" title="Permanent link">&para;</a></h2>
-<p>Klipper supports the following standard G-Code commands:</p>
+<p>このドキュメントでは Klipper がサポートしているコマンドについて説明します。これらは OctoPrint のターミナルタブに入力できるコマンドです。</p>
+<h2 id="g">Gコードコマンド<a class="headerlink" href="#g" title="Permanent link">&para;</a></h2>
+<p>Klipper は以下の標準Gコードコマンドをサポートしています：</p>
 <ul>
-<li>Move (G0 or G1): <code>G1 [X&lt;pos&gt;] [Y&lt;pos&gt;] [Z&lt;pos&gt;] [E&lt;pos&gt;] [F&lt;speed&gt;]</code></li>
-<li>Dwell: <code>G4 P&lt;milliseconds&gt;</code></li>
-<li>Move to origin: <code>G28 [X] [Y] [Z]</code></li>
-<li>Turn off motors: <code>M18</code> or <code>M84</code></li>
-<li>Wait for current moves to finish: <code>M400</code></li>
-<li>Use absolute/relative distances for extrusion: <code>M82</code>, <code>M83</code></li>
-<li>Use absolute/relative coordinates: <code>G90</code>, <code>G91</code></li>
-<li>Set position: <code>G92 [X&lt;pos&gt;] [Y&lt;pos&gt;] [Z&lt;pos&gt;] [E&lt;pos&gt;]</code></li>
-<li>Set speed factor override percentage: <code>M220 S&lt;percent&gt;</code></li>
-<li>Set extrude factor override percentage: <code>M221 S&lt;percent&gt;</code></li>
-<li>Set acceleration: <code>M204 S&lt;value&gt;</code> OR <code>M204 P&lt;value&gt; T&lt;value&gt;</code><ul>
-<li>Note: If S is not specified and both P and T are specified, then the acceleration is set to the minimum of P and T. If only one of P or T is specified, the command has no effect.</li>
+<li>移動 (G0 または G1)： <code>G1 [X&lt;pos&gt;] [Y&lt;pos&gt;] [Z&lt;pos&gt;] [E&lt;pos&gt;] [F&lt;speed&gt;]</code></li>
+<li>ドウェル: <code>G4 P&lt;milliseconds&gt;</code></li>
+<li>原点に移動: <code>G28 [X] [Y] [Z]</code>.</li>
+<li>モーターを切る: <code>M18</code> or <code>M84</code></li>
+<li>現在の動作が完了するのを待つ: <code>M400</code></li>
+<li>押し出しに絶対距離/相対距離を使用する: <code>M82</code>, <code>M83</code></li>
+<li>絶対座標/相対座標を使用する: <code>G90</code>, <code>G91</code></li>
+<li>セットポジション: <code>G92 [X&lt;pos&gt;] [Y&lt;pos&gt;] [Z&lt;pos&gt;] [E&lt;pos&gt;]</code></li>
+<li>スピード係数のオーバーライド率を設定: <code>M220 S&lt;percent&gt;</code></li>
+<li>押し出し係数のオーバーライド率を設定する: <code>M221 S&lt;percent&gt;</code></li>
+<li>加速度の設定: <code>M204 S&lt;value&gt;</code> OR <code>M204 P&lt;value&gt; T&lt;value&gt;</code><ul>
+<li>注: もし S が指定されず、P と T の両方が指定された場合、加速度は P と T の最小値に設定されます。P または T のどちらか一方だけが指定された場合、このコマンドは何の影響も及ぼしません。</li>
 </ul>
 </li>
-<li>Get extruder temperature: <code>M105</code></li>
-<li>Set extruder temperature: <code>M104 [T&lt;index&gt;] [S&lt;temperature&gt;]</code></li>
-<li>Set extruder temperature and wait: <code>M109 [T&lt;index&gt;] S&lt;temperature&gt;</code><ul>
-<li>Note: M109 always waits for temperature to settle at requested value</li>
+<li>エクストルーダの温度を取得する: <code>M105</code></li>
+<li>エクストルーダの温度を設定する: <code>M104 [T&lt;index&gt;] [S&lt;temperature&gt;]</code></li>
+<li>エクストルーダの温度を設定して待機: <code>M109 [T&lt;index&gt;] S&lt;temperature&gt;</code><ul>
+<li>注: M109は常に温度が要求された値に落ち着くまで待機します</li>
 </ul>
 </li>
-<li>Set bed temperature: <code>M140 [S&lt;temperature&gt;]</code></li>
-<li>Set bed temperature and wait: <code>M190 S&lt;temperature&gt;</code><ul>
-<li>Note: M190 always waits for temperature to settle at requested value</li>
+<li>ベッド温度の設定: <code>M140 [S&lt;temperature&gt;]</code></li>
+<li>ベッド温度を設定して待機: <code>M190 S&lt;temperature&gt;</code><ul>
+<li>注: M190は常に温度が要求値に落ち着くまで待機します</li>
 </ul>
 </li>
-<li>Set fan speed: <code>M106 S&lt;value&gt;</code></li>
-<li>Turn fan off: <code>M107</code></li>
-<li>Emergency stop: <code>M112</code></li>
-<li>Get current position: <code>M114</code></li>
-<li>Get firmware version: <code>M115</code></li>
+<li>ファンの回転数を設定: <code>M106 S&lt;value&gt;</code></li>
+<li>ファンをオフにする: <code>M107</code></li>
+<li>非常停止: <code>M112</code></li>
+<li>現在位置を取得: <code>M114</code></li>
+<li>ファームウェアのバージョンを取得: <code>M115</code></li>
 </ul>
-<p>For further details on the above commands see the <a href="http://reprap.org/wiki/G-code">RepRap G-Code documentation</a>.</p>
+<p>上記のコマンドの詳細については、<a href="http://reprap.org/wiki/G-code">RepRap G-Code documentation</a> を参照してください。</p>
 <p>Klipper's goal is to support the G-Code commands produced by common 3rd party software (eg, OctoPrint, Printrun, Slic3r, Cura, etc.) in their standard configurations. It is not a goal to support every possible G-Code command. Instead, Klipper prefers human readable <a href="#additional-commands">"extended G-Code commands"</a>. Similarly, the G-Code terminal output is only intended to be human readable - see the <a href="API_Server.html">API Server document</a> if controlling Klipper from external software.</p>
-<p>If one requires a less common G-Code command then it may be possible to implement it with a custom <a href="Config_Reference.html#gcode_macro">gcode_macro config section</a>. For example, one might use this to implement: <code>G12</code>, <code>G29</code>, <code>G30</code>, <code>G31</code>, <code>M42</code>, <code>M80</code>, <code>M81</code>, <code>T1</code>, etc.</p>
+<p>あまり一般的でない G-Code コマンドが必要な場合は、カスタムの <a href="Config_Reference.html#gcode_macro">gcode_macro config section</a> を使って実装することができます。例えば、<code>G12</code>, <code>G29</code>, <code>G30</code>, <code>G31</code>, <code>M42</code>, <code>M80</code>, <code>M81</code>, <code>T1</code>などを実装することができます。</p>
 <h2 id="additional-commands">Additional Commands<a class="headerlink" href="#additional-commands" title="Permanent link">&para;</a></h2>
 <p>Klipper uses "extended" G-Code commands for general configuration and status. These extended commands all follow a similar format - they start with a command name and may be followed by one or more parameters. For example: <code>SET_SERVO SERVO=myservo ANGLE=5.3</code>. In this document, the commands and parameters are shown in uppercase, however they are not case sensitive. (So, "SET_SERVO" and "set_servo" both run the same command.)</p>
 <p>This section is organized by Klipper module name, which generally follows the section names specified in the <a href="Config_Reference.html">printer configuration file</a>. Note that some modules are automatically loaded.</p>
@@ -2906,8 +2906,8 @@
 <h3 id="display_status">[display_status]<a class="headerlink" href="#display_status" title="Permanent link">&para;</a></h3>
 <p>The display_status module is automatically loaded if a <a href="Config_Reference.html#display">display config section</a> is enabled. It provides the following standard G-Code commands:</p>
 <ul>
-<li>Display Message: <code>M117 &lt;message&gt;</code></li>
-<li>Set build percentage: <code>M73 P&lt;percent&gt;</code></li>
+<li>メッセージを表示する: <code>M117 &lt;message&gt;</code></li>
+<li>ビルドのパーセンテージを設定する: <code>M73 P&lt;percent&gt;</code></li>
 </ul>
 <p>Also provided is the following extended G-Code command:</p>
 <ul>
@@ -2996,7 +2996,7 @@
 <h4 id="help">HELP<a class="headerlink" href="#help" title="Permanent link">&para;</a></h4>
 <p><code>HELP</code>: Report the list of available extended G-Code commands.</p>
 <h3 id="gcode_arcs">[gcode_arcs]<a class="headerlink" href="#gcode_arcs" title="Permanent link">&para;</a></h3>
-<p>The following standard G-Code commands are available if a <a href="Config_Reference.html#gcode_arcs">gcode_arcs config section</a> is enabled:</p>
+<p><a href="Config_Reference.html#gcode_arcs">gcode_arcs config section</a> が有効になっていれば、以下の標準Gコード・コマンドが利用できます:</p>
 <ul>
 <li>Arc Move Clockwise (G2), Arc Move Counter-clockwise (G3): <code>G2|G3 [X&lt;pos&gt;] [Y&lt;pos&gt;] [Z&lt;pos&gt;] [E&lt;pos&gt;] [F&lt;speed&gt;] I&lt;value&gt; J&lt;value&gt;|I&lt;value&gt; K&lt;value&gt;|J&lt;value&gt; K&lt;value&gt;</code></li>
 <li>Arc Plane Select: G17 (XY plane), G18 (XZ plane), G19 (YZ plane)</li>
@@ -3133,7 +3133,7 @@
 <h3 id="query_endstops">[query_endstops]<a class="headerlink" href="#query_endstops" title="Permanent link">&para;</a></h3>
 <p>The query_endstops module is automatically loaded. The following standard G-Code commands are currently available, but using them is not recommended:</p>
 <ul>
-<li>Get Endstop Status: <code>M119</code> (Use QUERY_ENDSTOPS instead.)</li>
+<li>エンドストップ・ステータスを取得する: <code>M119</code> (代わりにQUERY_ENDSTOPSを使用する。)</li>
 </ul>
 <h4 id="query_endstops_1">QUERY_ENDSTOPS<a class="headerlink" href="#query_endstops_1" title="Permanent link">&para;</a></h4>
 <p><code>QUERY_ENDSTOPS</code>: Probe the axis endstops and report if they are "triggered" or in an "open" state. This command is typically used to verify that an endstop is working correctly.</p>
@@ -3231,12 +3231,12 @@
 <p>Klipper supports the following standard G-Code commands if the <a href="Config_Reference.html#virtual_sdcard">virtual_sdcard config section</a> is enabled:</p>
 <ul>
 <li>List SD card: <code>M20</code></li>
-<li>Initialize SD card: <code>M21</code></li>
-<li>Select SD file: <code>M23 &lt;filename&gt;</code></li>
-<li>Start/resume SD print: <code>M24</code></li>
-<li>Pause SD print: <code>M25</code></li>
-<li>Set SD position: <code>M26 S&lt;offset&gt;</code></li>
-<li>Report SD print status: <code>M27</code></li>
+<li>SDカードを初期化する: <code>M21</code></li>
+<li>SDファイルを選択する: <code>M23 &lt;filename&gt;</code></li>
+<li>SDプリントを開始/再開する: <code>M24</code></li>
+<li>SDプリントを一時停止する: <code>M25</code></li>
+<li>SDの位置を設定: <code>M26 S&lt;offset&gt;</code></li>
+<li>SD プリントステータスを報告する: <code>M27</code></li>
 </ul>
 <p>In addition, the following extended commands are available when the "virtual_sdcard" config section is enabled.</p>
 <h4 id="sdcard_print_file">SDCARD_PRINT_FILE<a class="headerlink" href="#sdcard_print_file" title="Permanent link">&para;</a></h4>

@@ -1,16 +1,17 @@
 # elovalvoc047faba7aa1427f <ernesto.lovalvo@unipa.it>, 2022.
-# Ale Ale <ale.99.ale@gmail.com>, 2022.
+# Ale Ale <ale.99.ale@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-11-01 13:33+0000\n"
+"PO-Revision-Date: 2023-09-14 18:54+0000\n"
 "Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/contributing/it/>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/"
+"contributing/it/>\n"
 "Language: it\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.2-dev\n"
+"X-Generator: Weblate 5.0.1-dev\n"
 
 msgid "Contributing to Klipper"
 msgstr "Contribuire a Klipper"
@@ -833,15 +834,15 @@ msgstr ""
 
 #: docs/CONTRIBUTING.md:block 23 (table)
 msgid "James Hartley"
-msgstr ""
+msgstr "James Hartley"
 
 #: docs/CONTRIBUTING.md:block 23 (table)
 msgid "@JamesH1978"
-msgstr ""
+msgstr "@JamesH1978"
 
 #: docs/CONTRIBUTING.md:block 23 (table)
 msgid "Configuration files"
-msgstr ""
+msgstr "File di configurazione"
 
 #~ msgid "Paul McGowan"
 #~ msgstr "Paul McGowan"

@@ -1,16 +1,17 @@
 # Dex94 <Dasvaresu@dr.com>, 2022.
-# Ale Ale <ale.99.ale@gmail.com>, 2022.
+# Ale Ale <ale.99.ale@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-12-26 16:42+0000\n"
+"PO-Revision-Date: 2023-09-14 18:54+0000\n"
 "Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/features/it/>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/features/"
+"it/>\n"
 "Language: it\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.15.1-dev\n"
+"X-Generator: Weblate 5.0.1-dev\n"
 
 msgid "Klipper has several compelling features:"
 msgstr "Klipper ha diverse caratteristiche interessanti:"
@@ -610,18 +611,26 @@ msgid ""
 "higher print velocities. The stepper event timing remains precise even at "
 "high speeds which improves overall stability."
 msgstr ""
+"Le migliori prestazioni della categoria. Klipper è in grado di raggiungere "
+"velocità di passo elevate sia sui microcontrollori nuovi che su quelli "
+"vecchi. Anche i vecchi microcontrollori a 8 bit possono ottenere velocità "
+"superiori a 175.000 passi al secondo. Sui microcontrollori più recenti sono "
+"possibili diversi milioni di passi al secondo. Velocità di stepper più "
+"elevate consentono velocità di stampa più elevate. La temporizzazione degli "
+"eventi dello stepper rimane precisa anche a velocità elevate, migliorando la "
+"stabilità generale."
 
 #: docs/Features.md:block 10 (table)
 msgid "AR100"
-msgstr ""
+msgstr "AR100"
 
 #: docs/Features.md:block 10 (table)
 msgid "3529K"
-msgstr ""
+msgstr "3529K"
 
 #: docs/Features.md:block 10 (table)
 msgid "2507K"
-msgstr ""
+msgstr "2507K"
 
 #~ msgid ""
 #~ "Best in class performance. Klipper is able to achieve high stepping rates on"

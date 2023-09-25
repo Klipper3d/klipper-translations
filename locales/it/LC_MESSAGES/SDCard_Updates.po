@@ -1,15 +1,16 @@
-# Ale Ale <ale.99.ale@gmail.com>, 2022.
+# Ale Ale <ale.99.ale@gmail.com>, 2022, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-09-26 11:24+0000\n"
+"PO-Revision-Date: 2023-09-14 18:54+0000\n"
 "Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/sdcard_updates/it/>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/"
+"sdcard_updates/it/>\n"
 "Language: it\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 5.0.1-dev\n"
 
 msgid ""
 "Many of today's popular controller boards ship with a bootloader capable of "
@@ -662,18 +663,26 @@ msgid ""
 "`make menuconfig` by running `cat .config | grep CONFIG_MCU`. This field is "
 "required."
 msgstr ""
+"`mcu`: il tipo di Mcu. Questo può essere recuperato dopo aver configurato la "
+"build tramite `make menuconfig` eseguendo `cat .config | grep CONFIG_MCU`. "
+"Questo campo è obbligatorio."
 
 #: docs/SDCard_Updates.md:block 25 (unordered list)
 msgid ""
 "`spi_bus`: The SPI bus connected to the SD Card. This should be retrieved "
 "from the board's schematic. This field is required."
 msgstr ""
+"`spi_bus`: il bus SPI collegato alla scheda SD. Questo dovrebbe essere "
+"recuperato dallo schema della scheda. Questo campo è obbligatorio."
 
 #: docs/SDCard_Updates.md:block 25 (unordered list)
 msgid ""
 "`cs_pin`: The Chip Select Pin connected to the SD Card. This should be "
 "retrieved from the board schematic. This field is required."
 msgstr ""
+"`cs_pin`: il pin di selezione del chip collegato alla scheda SD. Questo "
+"dovrebbe essere recuperato dallo schema della scheda. Questo campo è "
+"obbligatorio."
 
 #~ msgid ""
 #~ "`mcu`: The mcu type. This can be retrevied after configuring the build via "

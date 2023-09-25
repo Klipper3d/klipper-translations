@@ -1246,11 +1246,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#additional-commands" class="md-nav__link">
-    Additional Commands
+  <a href="#comandos-adicionais" class="md-nav__link">
+    Comandos Adicionais
   </a>
   
-    <nav class="md-nav" aria-label="Additional Commands">
+    <nav class="md-nav" aria-label="Comandos Adicionais">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1283,8 +1283,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#acelerometro_debug_escrita" class="md-nav__link">
-    ACELEROMETRO_DEBUG_ESCRITA
+  <a href="#accelerometer_debug_write" class="md-nav__link">
+    ACCELEROMETER_DEBUG_WRITE
   </a>
   
 </li>
@@ -2836,37 +2836,37 @@
 <p>For further details on the above commands see the <a href="http://reprap.org/wiki/G-code">RepRap G-Code documentation</a>.</p>
 <p>Klipper's goal is to support the G-Code commands produced by common 3rd party software (eg, OctoPrint, Printrun, Slic3r, Cura, etc.) in their standard configurations. It is not a goal to support every possible G-Code command. Instead, Klipper prefers human readable <a href="#additional-commands">"extended G-Code commands"</a>. Similarly, the G-Code terminal output is only intended to be human readable - see the <a href="API_Server.html">API Server document</a> if controlling Klipper from external software.</p>
 <p>If one requires a less common G-Code command then it may be possible to implement it with a custom <a href="Config_Reference.html#gcode_macro">gcode_macro config section</a>. For example, one might use this to implement: <code>G12</code>, <code>G29</code>, <code>G30</code>, <code>G31</code>, <code>M42</code>, <code>M80</code>, <code>M81</code>, <code>T1</code>, etc.</p>
-<h2 id="additional-commands">Additional Commands<a class="headerlink" href="#additional-commands" title="Permanent link">&para;</a></h2>
+<h2 id="comandos-adicionais">Comandos Adicionais<a class="headerlink" href="#comandos-adicionais" title="Permanent link">&para;</a></h2>
 <p>Klipper uses "extended" G-Code commands for general configuration and status. These extended commands all follow a similar format - they start with a command name and may be followed by one or more parameters. For example: <code>SET_SERVO SERVO=myservo ANGLE=5.3</code>. In this document, the commands and parameters are shown in uppercase, however they are not case sensitive. (So, "SET_SERVO" and "set_servo" both run the same command.)</p>
 <p>This section is organized by Klipper module name, which generally follows the section names specified in the <a href="Config_Reference.html">printer configuration file</a>. Note that some modules are automatically loaded.</p>
 <h3 id="adxl345">[adxl345]<a class="headerlink" href="#adxl345" title="Permanent link">&para;</a></h3>
 <p>The following commands are available when an <a href="Config_Reference.html#adxl345">adxl345 config section</a> is enabled.</p>
 <h4 id="accelerometer_measure">ACCELEROMETER_MEASURE<a class="headerlink" href="#accelerometer_measure" title="Permanent link">&para;</a></h4>
-<p><code>ACCELEROMETER_MEASURE [CHIP=&lt;config_name&gt;] [NAME=&lt;value&gt;]</code>: Starts accelerometer measurements at the requested number of samples per second. If CHIP is not specified it defaults to "adxl345". The command works in a start-stop mode: when executed for the first time, it starts the measurements, next execution stops them. The results of measurements are written to a file named <code>/tmp/adxl345-&lt;chip&gt;-&lt;name&gt;.csv</code> where <code>&lt;chip&gt;</code> is the name of the accelerometer chip (<code>my_chip_name</code> from <code>[adxl345 my_chip_name]</code>) and <code>&lt;name&gt;</code> is the optional NAME parameter. If NAME is not specified it defaults to the current time in "YYYYMMDD_HHMMSS" format. If the accelerometer does not have a name in its config section (simply <code>[adxl345]</code>) then <code>&lt;chip&gt;</code> part of the name is not generated.</p>
+<p><code>ACCELEROMETER_MEASURE [CHIP=&lt;nome_config&gt;] [NAME=&lt;valor&gt;]</code>: Inicia as medidas de acelerômetro à taxa solicitada de amostras por segundo. Se CHIP não for especificado, é usado o padrão "adxl345". O comando funciona num modo início-parada: quando executado pela primeira vez, ele inicia as medidas, e a próxima execução as interrompe. Os resultados das medidas são escritos em um arquivo nomeado <code>/tmp/adxl345-&lt;chip&gt;-&lt;nome&gt;.csv</code>, onde <code>&lt;chip&gt;</code> é o nome do chip do acelerômetro (<code>nome_do_chip</code> de <code>[adxl345 nome_do_chip]</code>) e <code>&lt;nome&gt;</code> é o parâmetro opcional NAME. Se NAME não for especificado, é utilizado por padrão o horário atual no formato "AAAAMMDD_HHMMSS". Se o acelerômetro não possuir um nome na sua seção de configuração (simplesmente  <code>[adxl345]</code>), então a parte <code>&lt;chip&gt;</code> do nome não será gerada.</p>
 <h4 id="accelerometer_query">ACCELEROMETER_QUERY<a class="headerlink" href="#accelerometer_query" title="Permanent link">&para;</a></h4>
-<p><code>ACCELEROMETER_QUERY [CHIP=&lt;config_name&gt;] [RATE=&lt;value&gt;]</code>: queries accelerometer for the current value. If CHIP is not specified it defaults to "adxl345". If RATE is not specified, the default value is used. This command is useful to test the connection to the ADXL345 accelerometer: one of the returned values should be a free-fall acceleration (+/- some noise of the chip).</p>
+<p><code>ACCELEROMETER_QUERY [CHIP=&lt;nome_config&gt;] [RATE=&lt;valor&gt;]</code>: solicita o valor atual ao acelerômetro. Se CHIP não for especificado, é usado por padrão "adxl345". Se RATE não for especificada, o valor padrão é utilizado. Este comando é útil para testar a conexão com o acelerômetro ADXL345: um dos valores retornados deve ser uma aceleração de queda livre (+/- algum ruído do chip).</p>
 <h4 id="accelerometer_debug_read">ACCELEROMETER_DEBUG_READ<a class="headerlink" href="#accelerometer_debug_read" title="Permanent link">&para;</a></h4>
-<p><code>ACCELEROMETER_DEBUG_READ [CHIP=&lt;config_name&gt;] REG=&lt;register&gt;</code>: consultas ADXL345 registar "register" (por exemplo 44 ou 0x2C). Pode ser útil para efeitos de depuração.</p>
-<h4 id="acelerometro_debug_escrita">ACELEROMETRO_DEBUG_ESCRITA<a class="headerlink" href="#acelerometro_debug_escrita" title="Permanent link">&para;</a></h4>
-<p><code>ACCELEROMETER_DEBUG_WRITE [CHIP=&lt;config_name&gt;] REG=&lt;register&gt; VAL=&lt;value&gt;</code>: Escreve "value" em bruto num registo "register". Tanto "value" como "register" podem ser um número inteiro decimal ou hexadecimal. Use com cuidado, e consulte a folha de dados ADXL345 para a referência.</p>
+<p><code>ACCELEROMETER_DEBUG_READ [CHIP=&lt;nome_config&gt;] REG=&lt;registro&gt;</code>: consulta o registro "registro" do ADXL345 (por exemplo 44 ou 0x2C). Pode ser útil para fins de depuração.</p>
+<h4 id="accelerometer_debug_write">ACCELEROMETER_DEBUG_WRITE<a class="headerlink" href="#accelerometer_debug_write" title="Permanent link">&para;</a></h4>
+<p><code>ACCELEROMETER_DEBUG_WRITE [CHIP=&lt;nome_config&gt;] REG=&lt;registro&gt; VAL=&lt;valor&gt;</code>: Escreve o "valor" bruto num registro "registro". Tanto "valor" como "registro" podem ser um número inteiro decimal ou hexadecimal. Use com cuidado, e consulte a folha de dados ADXL345 para referência.</p>
 <h3 id="angle">[angle]<a class="headerlink" href="#angle" title="Permanent link">&para;</a></h3>
 <p>The following commands are available when an <a href="Config_Reference.html#angle">angle config section</a> is enabled.</p>
 <h4 id="angle_calibrate">ANGLE_CALIBRATE<a class="headerlink" href="#angle_calibrate" title="Permanent link">&para;</a></h4>
-<p><code>ANGLE_CALIBRATE CHIP=&lt;chip_name&gt;</code>: Perform angle calibration on the given sensor (there must be an <code>[angle chip_name]</code> config section that has specified a <code>stepper</code> parameter). IMPORTANT - this tool will command the stepper motor to move without checking the normal kinematic boundary limits. Ideally the motor should be disconnected from any printer carriage before performing calibration. If the stepper can not be disconnected from the printer, make sure the carriage is near the center of its rail before starting calibration. (The stepper motor may move forwards or backwards two full rotations during this test.) After completing this test use the <code>SAVE_CONFIG</code> command to save the calibration data to the config file. In order to use this tool the Python "numpy" package must be installed (see the <a href="Measuring_Resonances.html#software-installation">measuring resonance document</a> for more information).</p>
+<p><code>ANGLE_CALIBRATE CHIP=&lt;nome_chip&gt;</code>: Realiza a calibração de ângulo no sensor fornecido (deve haver uma seção de configuração <code>[angle chip_name]</code> que tenha especificado um parâmetro <code>stepper</code>). IMPORTANTE - esta ferramenta comandará o motor de passo a se mover sem verificar os limites de fronteira cinemática normais. Idealmente, o motor deve estar desconectado de qualquer carro da impressora antes de se realizar a calibração. Se o motor de passo não puder ser desconectado da impressora, certifique-se de que o carro está próximo do centro de seu trilho antes de começar a calibração. (O motor de passos pode se mover para frente ou para trás duas rotações completas durante o teste.) Depois de completar este teste, use o comando <code>SAVE_CONFIG</code> para salvar os dados de calibração no arquivo de configuração. Para usar esta ferramenta, o pacote Python "numpy" deve estar instalado (ver o <a href="Measuring_Resonances.html#software-installation">measuring resonance document</a> para mais informações).</p>
 <h4 id="angle_debug_read">ANGLE_DEBUG_READ<a class="headerlink" href="#angle_debug_read" title="Permanent link">&para;</a></h4>
-<p><code>ANGLE_DEBUG_READ CHIP=&lt;config_name&gt; REG=&lt;register&gt;</code>: Queries sensor register "register" (e.g. 44 or 0x2C). Can be useful for debugging purposes. This is only available for tle5012b chips.</p>
+<p><code>ANGLE_DEBUG_READ</code> CHIP=<nome_config> REG=<registro>`: solicita o registro "registro" ao sensor (por exemplo 44 ou 0x2C). Pode ser útil para fins de depuração. Este comando só está disponível para chips tle5012b.</p>
 <h4 id="angle_debug_write">ANGLE_DEBUG_WRITE<a class="headerlink" href="#angle_debug_write" title="Permanent link">&para;</a></h4>
-<p><code>ANGLE_DEBUG_WRITE CHIP=&lt;config_name&gt; REG=&lt;register&gt; VAL=&lt;value&gt;</code>: Writes raw "value" into register "register". Both "value" and "register" can be a decimal or a hexadecimal integer. Use with care, and refer to sensor data sheet for the reference. This is only available for tle5012b chips.</p>
+<p><code>ANGLE_DEBUG_WRITE CHIP=&lt;nome_config&gt; REG=&lt;registro&gt; VAL=&lt;valor&gt;</code>: escreve o "valor" bruto no registro "registro". Ambos "valor" e "registro" podem ser um número inteiro decimal ou hexadecimal. Use com cuidado, e consulte a folha de dados do sensor para referência. Este comando só está disponível para chips tle5012b.</p>
 <h3 id="bed_mesh">[bed_mesh]<a class="headerlink" href="#bed_mesh" title="Permanent link">&para;</a></h3>
 <p>The following commands are available when the <a href="Config_Reference.html#bed_mesh">bed_mesh config section</a> is enabled (also see the <a href="Bed_Mesh.html">bed mesh guide</a>).</p>
 <h4 id="bed_mesh_calibrate">BED_MESH_CALIBRATE<a class="headerlink" href="#bed_mesh_calibrate" title="Permanent link">&para;</a></h4>
-<p><code>BED_MESH_CALIBRATE [METHOD=manual] [HORIZONTAL_MOVE_Z=&lt;value&gt;] [&lt;probe_parameter&gt;=&lt;value&gt;] [&lt;mesh_parameter&gt;=&lt;value&gt;]</code>: This command probes the bed using generated points specified by the parameters in the config. After probing, a mesh is generated and z-movement is adjusted according to the mesh. See the PROBE command for details on the optional probe parameters. If METHOD=manual is specified then the manual probing tool is activated - see the MANUAL_PROBE command above for details on the additional commands available while this tool is active. The optional <code>HORIZONTAL_MOVE_Z</code> value overrides the <code>horizontal_move_z</code> option specified in the config file.</p>
+<p><code>BED_MESH_CALIBRATE [METHOD=manual] [HORIZONTAL_MOVE_Z=&lt;valor&gt;] [&lt;parâmetro_sonda&gt;=&lt;valor&gt;] [&lt;parâmetro_malha&gt;=&lt;valor&gt;]</code>: Este comando sonda o leito usando-se os pontos gerados especificados pelos parâmetros na configuração. Após a sondagem, uma malha é gerada e o movimento-z é ajustado de acordo com a malha. Veja o comando PROBE para detalhes sobre os parâmetros opcionais de sonda. Se METHOD=manual for especificado então a ferramenta de sondagem manual é ativada - ver o comando MANUAL_PROBE acima para detalhes sobre os comandos adicionais disponíveis enquanto esta ferramenta estiver ativa. O valor opcional <code>HORIZONTAL_MOVE_Z</code> se sobrepõe à opção <code>horizontal_move_z</code> especificada no arquivo de configurações.</p>
 <h4 id="bed_mesh_output">BED_MESH_OUTPUT<a class="headerlink" href="#bed_mesh_output" title="Permanent link">&para;</a></h4>
 <p><code>BED_MESH_OUTPUT PGP=[&lt;0:1&gt;]</code>: This command outputs the current probed z values and current mesh values to the terminal. If PGP=1 is specified the X, Y coordinates generated by bed_mesh, along with their associated indices, will be output to the terminal.</p>
 <h4 id="bed_mesh_map">BED_MESH_MAP<a class="headerlink" href="#bed_mesh_map" title="Permanent link">&para;</a></h4>
 <p><code>BED_MESH_MAP</code>: Like to BED_MESH_OUTPUT, this command prints the current state of the mesh to the terminal. Instead of printing the values in a human readable format, the state is serialized in json format. This allows octoprint plugins to easily capture the data and generate height maps approximating the bed's surface.</p>
 <h4 id="bed_mesh_clear">BED_MESH_CLEAR<a class="headerlink" href="#bed_mesh_clear" title="Permanent link">&para;</a></h4>
-<p><code>BED_MESH_CLEAR</code>: This command clears the mesh and removes all z adjustment. It is recommended to put this in your end-gcode.</p>
+<p><code>BED_MESH_CLEAR</code>: Este comando apaga a malha e remove todos os ajustes em z. É recomendável colocar isto em seu end-gcode.</p>
 <h4 id="bed_mesh_profile">BED_MESH_PROFILE<a class="headerlink" href="#bed_mesh_profile" title="Permanent link">&para;</a></h4>
 <p><code>BED_MESH_PROFILE LOAD=&lt;name&gt; SAVE=&lt;name&gt; REMOVE=&lt;name&gt;</code>: This command provides profile management for mesh state. LOAD will restore the mesh state from the profile matching the supplied name. SAVE will save the current mesh state to a profile matching the supplied name. Remove will delete the profile matching the supplied name from persistent memory. Note that after SAVE or REMOVE operations have been run the SAVE_CONFIG gcode must be run to make the changes to persistent memory permanent.</p>
 <h4 id="bed_mesh_offset">BED_MESH_OFFSET<a class="headerlink" href="#bed_mesh_offset" title="Permanent link">&para;</a></h4>
@@ -2909,7 +2909,7 @@
 <li>Display Message: <code>M117 &lt;message&gt;</code></li>
 <li>Set build percentage: <code>M73 P&lt;percent&gt;</code></li>
 </ul>
-<p>Also provided is the following extended G-Code command:</p>
+<p>O seguinte comando G-Code estendido também é providenciado:</p>
 <ul>
 <li><code>SET_DISPLAY_TEXT MSG=&lt;message&gt;</code>: Performs the equivalent of M117, setting the supplied <code>MSG</code> as the current display message. If <code>MSG</code> is omitted the display will be cleared.</li>
 </ul>
@@ -2945,7 +2945,7 @@
 <h3 id="extruder">[extruder]<a class="headerlink" href="#extruder" title="Permanent link">&para;</a></h3>
 <p>The following commands are available if an <a href="Config_Reference.html#extruder">extruder config section</a> is enabled:</p>
 <h4 id="activate_extruder">ACTIVATE_EXTRUDER<a class="headerlink" href="#activate_extruder" title="Permanent link">&para;</a></h4>
-<p><code>ACTIVATE_EXTRUDER EXTRUDER=&lt;config_name&gt;</code>: In a printer with multiple <a href="Config_Reference.html#extruder">extruder</a> config sections, this command changes the active hotend.</p>
+<p><code>ACTIVATE_EXTRUDER EXTRUDER=&lt;nome_config&gt;</code>: Numa impressora com múltiplas seções de configuração <a href="Config_Reference.html#extruder">extruder</a>, este comando altera a extrusora ativa.</p>
 <h4 id="set_pressure_advance">SET_PRESSURE_ADVANCE<a class="headerlink" href="#set_pressure_advance" title="Permanent link">&para;</a></h4>
 <p><code>SET_PRESSURE_ADVANCE [EXTRUDER=&lt;config_name&gt;] [ADVANCE=&lt;pressure_advance&gt;] [SMOOTH_TIME=&lt;pressure_advance_smooth_time&gt;]</code>: Set pressure advance parameters of an extruder stepper (as defined in an <a href="Config_Reference.html#extruder">extruder</a> or <a href="Config_Reference.html#extruder_stepper">extruder_stepper</a> config section). If EXTRUDER is not specified, it defaults to the stepper defined in the active hotend.</p>
 <h4 id="set_extruder_rotation_distance">SET_EXTRUDER_ROTATION_DISTANCE<a class="headerlink" href="#set_extruder_rotation_distance" title="Permanent link">&para;</a></h4>
@@ -2998,8 +2998,8 @@
 <h3 id="gcode_arcs">[gcode_arcs]<a class="headerlink" href="#gcode_arcs" title="Permanent link">&para;</a></h3>
 <p>The following standard G-Code commands are available if a <a href="Config_Reference.html#gcode_arcs">gcode_arcs config section</a> is enabled:</p>
 <ul>
-<li>Arc Move Clockwise (G2), Arc Move Counter-clockwise (G3): <code>G2|G3 [X&lt;pos&gt;] [Y&lt;pos&gt;] [Z&lt;pos&gt;] [E&lt;pos&gt;] [F&lt;speed&gt;] I&lt;value&gt; J&lt;value&gt;|I&lt;value&gt; K&lt;value&gt;|J&lt;value&gt; K&lt;value&gt;</code></li>
-<li>Arc Plane Select: G17 (XY plane), G18 (XZ plane), G19 (YZ plane)</li>
+<li>Movimento em Arco Sentido Horário (G2), Movimento em Arco Sentido Anti-Horário (G3): <code>G2|G3  [X&lt;pos&gt;] [Y&lt;pos&gt;] [Z&lt;pos&gt;] [E&lt;pos&gt;] [F&lt;velocidade&gt;] I&lt;valor&gt; J&lt;valor&gt;|I&lt;valor&gt; K&lt;valor&gt;|J&lt;valor&gt; K&lt;valor&gt;</code></li>
+<li>Seleção de Plano do Arco: G17 (plano XY), G18 (plano XZ), G19 (plano YZ)</li>
 </ul>
 <h3 id="gcode_macro">[gcode_macro]<a class="headerlink" href="#gcode_macro" title="Permanent link">&para;</a></h3>
 <p>The following command is available when a <a href="Config_Reference.html#gcode_macro">gcode_macro config section</a> is enabled (also see the <a href="Command_Templates.html">command templates guide</a>).</p>
@@ -3052,7 +3052,7 @@
 <h4 id="manual_probe_1">MANUAL_PROBE<a class="headerlink" href="#manual_probe_1" title="Permanent link">&para;</a></h4>
 <p><code>MANUAL_PROBE [SPEED=&lt;speed&gt;]</code>: Run a helper script useful for measuring the height of the nozzle at a given location. If SPEED is specified, it sets the speed of TESTZ commands (the default is 5mm/s). During a manual probe, the following additional commands are available:</p>
 <ul>
-<li><code>ACCEPT</code>: This command accepts the current Z position and concludes the manual probing tool.</li>
+<li><code>ACCEPT</code>: Este comando aceita a posição Z atual e conclui a ferramenta de sondagem manual.</li>
 <li><code>ABORT</code>: Este comando encerra a ferramenta de sondagem manual.</li>
 <li><code>TESTZ Z=&lt;value&gt;</code>: This command moves the nozzle up or down by the amount specified in "value". For example, <code>TESTZ Z=-.1</code> would move the nozzle down .1mm while <code>TESTZ Z=.1</code> would move the nozzle up .1mm. The value may also be <code>+</code>, <code>-</code>, <code>++</code>, or <code>--</code> to move the nozzle up or down an amount relative to previous attempts.</li>
 </ul>
