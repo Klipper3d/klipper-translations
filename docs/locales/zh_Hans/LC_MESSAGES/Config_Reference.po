@@ -3,13 +3,14 @@
 # Neko.vecter <Vecterfang@icloud.com>, 2021, 2022.
 # 王攀 <41330784@qq.com>, 2022.
 # Kai <2857693944@qq.com>, 2022.
+# "Neko.vecter" <Vecterfang@icloud.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-06-28 08:28+0200\n"
-"PO-Revision-Date: 2023-08-31 18:44+0000\n"
-"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
+"PO-Revision-Date: 2023-09-27 10:02+0000\n"
+"Last-Translator: \"Neko.vecter\" <Vecterfang@icloud.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "klipper/config_reference/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -17,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.0.1-dev\n"
+"X-Generator: Weblate 5.1-dev\n"
 
 msgid ""
 "This document is a reference for options available in the Klipper config "
@@ -207,7 +208,8 @@ msgstr "polar运动学配置文件参考 [example-polar.cfg](../config/example-p
 msgid ""
 "Only parameters specific to polar printers are described here - see [common "
 "kinematic settings](#common-kinematic-settings) for available parameters."
-msgstr "这里只描述了极地打印机特有的参数—全部可用的参数请见[常用的运动学设置](#common-kinematic-settings)。"
+msgstr "这里只描述了极坐标打印机特有的参数—全部可用的参数请见[常用的运动学设置"
+"](#common-kinematic-settings)。"
 
 msgid "Rotary delta Kinematics"
 msgstr "Rotary delta 运动学"
