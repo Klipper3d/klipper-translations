@@ -2,7 +2,7 @@
 # Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022, 2025.
 # Evgeniy Khramov <thejenjagamertjg@gmail.com>, 2022.
 # VICTOR <subfyn@gmail.com>, 2023, 2025.
-# xXx <xxx_xxx_xxxxxxxxx@mail.ru>, 2023.
+# xXx <xxx_xxx_xxxxxxxxx@mail.ru>, 2023, 2025.
 # Dr_Perry_Coke <dr.perrycoke@gmail.com>, 2023.
 # Michail Fedorov <fedorovmichail50@gmail.com>, 2024.
 # V R <hardorzz@gmail.com>, 2024, 2025.
@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:34+0000\n"
-"Last-Translator: V R <hardorzz@gmail.com>\n"
+"Last-Translator: xXx <xxx_xxx_xxxxxxxxx@mail.ru>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
 "config_reference/ru/>\n"
 "Language: ru\n"
@@ -35,9 +35,9 @@ msgid ""
 "an initial config file."
 msgstr ""
 "Описания в этом документе отформатированы таким образом, чтобы их можно было "
-"вырезать и вставить в конфигурационный файл принтера. См. [installation "
-"document](Installation.md) для получения информации о настройке Klipper и "
-"выборе начального конфигурационного файла."
+"вырезать и вставить в конфигурационный файл принтера. См. "
+"[installation document](Installation.md) для получения информации о "
+"настройке Klipper и выборе начального конфигурационного файла."
 
 msgid "Micro-controller configuration"
 msgstr "Конфигурация микроконтроллера"
@@ -49,8 +49,9 @@ msgid ""
 "Many config options require the name of a micro-controller pin. Klipper uses "
 "the hardware names for these pins - for example `PA4`."
 msgstr ""
-"Многие параметры конфигурации требуют указания имени вывода микроконтроллера. "
-"Klipper использует аппаратные имена этих выводов - например, `PA4`."
+"Многие параметры конфигурации требуют указания имени вывода "
+"микроконтроллера. Klipper использует аппаратные имена этих выводов - "
+"например, `PA4`."
 
 msgid ""
 "Pin names may be preceded by `!` to indicate that a reverse polarity should be"
