@@ -439,7 +439,7 @@ max_z_accel:
 
 polar运动学配置文件参考 [example-polar.cfg](../config/example-polar.cfg)
 
-这里只描述了极地打印机特有的参数—全部可用的参数请见[常用的运动学设置](#common-kinematic-settings)。
+这里只描述了极坐标打印机特有的参数—全部可用的参数请见[常用的运动学设置](#common-kinematic-settings)。
 
 极坐标运动学还在开发中。在0, 0位置周围移动有一些已知问题。
 
