@@ -1,13 +1,13 @@
 # Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022, 2025.
 # Evgeniy Khramov <thejenjagamertjg@gmail.com>, 2022.
 # VICTOR <subfyn@gmail.com>, 2023.
-# xXx <xxx_xxx_xxxxxxxxx@mail.ru>, 2023.
+# xXx <xxx_xxx_xxxxxxxxx@mail.ru>, 2023, 2025.
 # gfbdrgng <hnaofegnp@hldrive.com>, 2024.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:35+0000\n"
-"Last-Translator: Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>\n"
+"Last-Translator: xXx <xxx_xxx_xxxxxxxxx@mail.ru>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
 "skew_correction/ru/>\n"
 "Language: ru\n"
@@ -103,9 +103,9 @@ msgid ""
 "similar to `[bed_mesh]`. After setting skew using the `SET_SKEW` gcode, you "
 "may use the `SKEW_PROFILE` gcode to save it:"
 msgstr ""
-"Модуль `[skew_correction]` также поддерживает управление профилями аналогично "
-"`[bed_mesh]`. После настройки перекоса с помощью gcode `SET_SKEW` вы можете "
-"использовать gcode `SKEW_PROFILE` для его сохранения:"
+"Модуль `[skew_correction]` также поддерживает управление профилями "
+"аналогично `[bed_mesh]`. После настройки перекоса с помощью gcode `SET_SKEW` "
+"вы можете использовать gcode `SKEW_PROFILE` для его сохранения:"
 
 #: docs/Skew_Correction.md:block 18 (paragraph)
 msgid ""
@@ -115,9 +115,9 @@ msgid ""
 "overwritten."
 msgstr ""
 "После этой команды вам будет предложено ввести gcode `SAVE_CONFIG` для "
-"сохранения профиля в постоянном хранилище. Если ни один профиль не имеет имени"
-" «my_skew_profile», будет создан новый профиль. Если именованный профиль "
-"существует, он будет перезаписан."
+"сохранения профиля в постоянном хранилище. Если ни один профиль не имеет "
+"имени «my_skew_profile», будет создан новый профиль. Если именованный "
+"профиль существует, он будет перезаписан."
 
 #: docs/Skew_Correction.md:block 19 (paragraph)
 msgid "Once you have a saved profile, you may load it:"
@@ -132,8 +132,8 @@ msgid ""
 "After removing a profile you will be prompted to issue a `SAVE_CONFIG` to make"
 " this change persist."
 msgstr ""
-"После удаления профиля вам будет предложено выполнить `SAVE_CONFIG`, чтобы это"
-" изменение сохранилось."
+"После удаления профиля вам будет предложено выполнить `SAVE_CONFIG`, чтобы "
+"это изменение сохранилось."
 
 #: docs/Skew_Correction.md:block 24 (header)
 msgid "Verifying your correction"
@@ -146,8 +146,8 @@ msgid ""
 "plane. The results should be lower than those reported via `GET_CURRENT_SKEW`."
 msgstr ""
 "После настройки skew_correction вы можете перепечатать калибровочную часть с "
-"включенной коррекцией. Используйте следующий gcode, чтобы проверить перекос на"
-" каждой плоскости. Результаты должны быть ниже, чем те, которые сообщаются "
+"включенной коррекцией. Используйте следующий gcode, чтобы проверить перекос "
+"на каждой плоскости. Результаты должны быть ниже, чем те, которые сообщаются "
 "через `GET_CURRENT_SKEW`."
 
 #: docs/Skew_Correction.md:block 27 (header)
@@ -162,11 +162,11 @@ msgid ""
 "`SET_SKEW` or `SKEW_PROFILE` gcodes to accomplish this. It is also recommended"
 " to issue a `SET_SKEW CLEAR=1` in your end gcode."
 msgstr ""
-"Из-за характера коррекции перекоса рекомендуется настроить перекос в начальном"
-" gcode после возврата в исходное положение и любого движения, совершающегося "
-"вблизи края области печати, например продувки или протирания сопла. Для этого "
-"вы можете использовать g-коды `SET_SKEW` или `SKEW_PROFILE`. Также "
-"рекомендуется указать `SET_SKEW CLEAR=1` в конечном gcode."
+"Из-за характера коррекции перекоса рекомендуется настроить перекос в "
+"начальном gcode после возврата в исходное положение и любого движения, "
+"совершающегося вблизи края области печати, например продувки или протирания "
+"сопла. Для этого вы можете использовать g-коды `SET_SKEW` или `SKEW_PROFILE`"
+". Также рекомендуется указать `SET_SKEW CLEAR=1` в конечном gcode."
 
 #: docs/Skew_Correction.md:block 29 (paragraph)
 msgid ""
@@ -177,8 +177,8 @@ msgid ""
 msgstr ""
 "Имейте в виду, что `[skew_correction]` может генерировать коррекцию, которая "
 "перемещает инструмент за пределы границ принтера по осям X и/или Y. При "
-"использовании `[skew_correction]` рекомендуется располагать детали подальше от"
-" краев."
+"использовании `[skew_correction]` рекомендуется располагать детали подальше "
+"от краев."
 
 #: docs/Skew_Correction.md:block 7 (paragraph)
 msgid ""
