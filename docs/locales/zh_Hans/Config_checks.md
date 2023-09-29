@@ -58,7 +58,7 @@ Klipper支持挤出机和热床加热器的[PID控制](https://en.wikipedia.org/
 
 调整测试完成后，运行 `SAVE_CONFIG` 以保存新PID设置到printer.cfg文件。
 
-如果打印机有加热床，并且支持PWM（脉宽调制）驱动，那么建议对加热床使用PID控制。 （当使用 PID 算法控制床加热器时，它可能每秒打开和关闭十次，这可能不适用于使用机械开关的加热器。）一般的热床 PID 校准命令是：`PID_CALIBRATE HEATER=heater_bed TARGET= 60`
+如果打印机有加热床，并且支持PWM（脉宽调制）驱动，那么建议对加热床使用PID控制。 （当使用 PID 算法控制床加热器时，它可能每秒打开和关闭十次，这可能不适用于使用机械开关的加热器。）一般的热床 PID 校准命令是：`PID_CALIBRATE HEATER=heater_bed TARGET=60`
 
 ## 下一步
 
