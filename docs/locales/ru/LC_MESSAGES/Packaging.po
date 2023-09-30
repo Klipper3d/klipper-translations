@@ -1,10 +1,11 @@
 # Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022.
 # VICTOR <subfyn@gmail.com>, 2023.
+# xXx <xxx_xxx_xxxxxxxxx@mail.ru>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-07-21 13:06+0000\n"
-"Last-Translator: VICTOR <subfyn@gmail.com>\n"
+"PO-Revision-Date: 2023-09-29 19:44+0000\n"
+"Last-Translator: xXx <xxx_xxx_xxxxxxxxx@mail.ru>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
 "packaging/ru/>\n"
 "Language: ru\n"
@@ -12,7 +13,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.0-dev\n"
+"X-Generator: Weblate 5.1-dev\n"
 
 msgid ""
 "Klipper is somewhat of a packaging anomaly among python programs, as it "
@@ -48,7 +49,7 @@ msgid ""
 msgstr ""
 "Во многих дистрибутивах существует политика компиляции всего кода python "
 "перед упаковкой, чтобы увеличить время запуска. Вы можете сделать это, "
-"запустив \"python2 -m compileall klippy`."
+"запустив `python2 -m compileall klippy`."
 
 msgid "Versioning"
 msgstr "Версии"
@@ -67,11 +68,11 @@ msgstr ""
 "YOURDISTRONAME > klippy/.version`."
 
 msgid "Sample packaging script"
-msgstr ""
+msgstr "Образец сценария упаковки"
 
 #: docs/Packaging.md:block 1 (header)
 msgid "Packaging Klipper"
-msgstr ""
+msgstr "Упаковочный клиппер"
 
 #: docs/Packaging.md:block 10 (paragraph)
 msgid ""
@@ -80,6 +81,9 @@ msgid ""
 "Repository](https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper-"
 "git)."
 msgstr ""
+"klipper-git упакован для Arch Linux и имеет PKGBUILD (скрипт сборки пакета), "
+"доступный по адресу [Arch User Repository](https://aur.archlinux.org/cgit/aur"
+".git/tree/PKGBUILD?h=klipper-git)."
 
 #~ msgid ""
 #~ "klipper-git is packaged for Arch Linux, and has a PKGBUILD (package build "
