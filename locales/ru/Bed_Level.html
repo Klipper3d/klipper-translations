@@ -13,7 +13,7 @@
     
     
       
-        <title>Bed leveling - Klipper documentation</title>
+        <title>Выравнивание кровати - Klipper documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#bed-leveling" class="md-skip">
+        <a href="#_1" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Bed leveling
+              Выравнивание кровати
             
           </span>
         </div>
@@ -1239,22 +1239,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     Выберите подходящий механизм калибровки
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     "Бумажный тест"
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#determining-thermal-expansion" class="md-nav__link">
-    Determining Thermal Expansion
+  <a href="#_4" class="md-nav__link">
+    Определение температурного расширения
   </a>
   
 </li>
@@ -1276,32 +1276,32 @@
 </a>
 
 
-<h1 id="bed-leveling">Bed leveling<a class="headerlink" href="#bed-leveling" title="Permanent link">&para;</a></h1>
+<h1 id="_1">Выравнивание кровати<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>Выравнивание кровати (иногда также называемое "выравниванием стола") имеет решающее значение для получения высококачественных отпечатков. Если кровать не выровнен должным образом, это может привести к плохой адгезии слоя, "деформации" и незначительным проблемам по всей печати. Этот документ служит руководством по выполнению выравнивания слоя в Klipper.</p>
-<p>Важно понимать цель выравнивания кровати. Если во время печати принтеру задается положение "X0 Y0 Z10", то цель состоит в том, чтобы сопло принтера находилось ровно в 10 мм от станины принтера. Кроме того, если затем принтеру будет дана команда на положение "X50 Z10", цель состоит в том, чтобы сопло сохраняло точное расстояние в 10 мм от станины во время всего этого горизонтального перемещения.</p>
+<p>Важно понимать цель выравнивания ложа. Если во время печати принтеру дается команда занять положение <code>X0 Y0 Z10</code>, то цель состоит в том, чтобы сопло принтера находилось на расстоянии ровно 10 мм от печатной формы. Далее, если принтеру будет дана команда перейти в положение <code>X50 Z10</code>, то цель состоит в том, чтобы сопло принтера сохраняло точное расстояние в 10 мм от станины в течение всего горизонтального перемещения.</p>
 <p>Для получения отпечатков хорошего качества принтер должен быть откалиброван таким образом, чтобы расстояния Z были точными с точностью примерно до 25 микрон (0,025 мм). Это небольшое расстояние - значительно меньше ширины обычного человеческого волоса. Эта шкала не может быть измерена "на глаз". Тонкие эффекты (такие как тепловое расширение) влияют на измерения в этом масштабе. Секрет получения высокой точности заключается в использовании повторяющегося процесса и метода выравнивания, который использует высокую точность собственной системы перемещения принтера.</p>
-<h2 id="_1">Выберите подходящий механизм калибровки<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2 id="_2">Выберите подходящий механизм калибровки<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>Различные типы принтеров используют разные методы для выполнения выравнивания ложа. Все они в конечном итоге зависят от "бумажного теста" (описанного ниже). Однако фактический процесс для конкретного типа принтера описан в других документах.</p>
-<p>Перед запуском любого из этих инструментов калибровки обязательно выполните проверки, описанные в документе <a href="Config_checks.html">config check document</a>. Перед выполнением выравнивания станины необходимо проверить базовое движение принтера.</p>
+<p>Перед запуском любого из этих инструментов калибровки обязательно выполните проверки, описанные в <a href="Config_checks.html">документе проверки конфигурации</a>. Перед выполнением выравнивания слоя необходимо проверить основные движения принтера.</p>
 <p>Для принтеров с "автоматическим Z-зондом" обязательно откалибруйте зонд, следуя указаниям в документе <a href="Probe_Calibrate.html">Probe Calibrate</a>. Для дельта-принтеров см. документ <a href="Delta_Calibrate.html">Delta Calibrate</a>. Для принтеров с винтами станины и традиционными концевыми упорами Z см. документ <a href="Manual_Level.html">Manual Level</a>.</p>
 <p>Во время калибровки может потребоваться установить для параметра Z принтера <code>position_min</code> отрицательное число (например, <code>position_min = -2</code>). Принтер обеспечивает проверку границ даже во время процедуры калибровки. Установка отрицательного числа позволяет принтеру двигаться ниже номинального положения станины, что может помочь при попытке определить фактическое положение станины.</p>
-<h2 id="_2">"Бумажный тест"<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h2 id="_3">"Бумажный тест"<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>Основным механизмом калибровки станины является "бумажный тест". Он включает в себя размещение обычного листа "копировальной бумаги" между станиной принтера и соплом, а затем подачу команды соплу на разные высоты Z до тех пор, пока не будет ощущаться небольшое трение при проталкивании бумаги вперед и назад.</p>
 <p>Важно понимать "бумажный тест", даже если у вас есть "автоматический Z-зонд". Для получения хороших результатов часто требуется калибровка самого датчика. Калибровка датчика выполняется с помощью этого "бумажного теста".</p>
-<p>In order to perform the paper test, cut a small rectangular piece of paper using a pair of scissors (eg, 5x3 cm). The paper generally has a thickness of around 100 microns (0.100mm). (The exact thickness of the paper isn't crucial.)</p>
+<p>Для проведения бумажного теста необходимо отрезать ножницами небольшой прямоугольный кусок бумаги (например, 5x3 см). Толщина бумаги обычно составляет около 100 микрон (0,100 мм). (Точная толщина бумаги не имеет принципиального значения.)</p>
 <p>Первым шагом проверки бумаги является осмотр сопла и станины принтера. Убедитесь, что на сопле и станине нет пластика (или другого мусора).</p>
 <p><strong>Осмотрите сопло и станину, чтобы убедиться в отсутствии пластика!</strong></p>
-<p>If one always prints on a particular tape or printing surface then one may perform the paper test with that tape/surface in place. However, note that tape itself has a thickness and different tapes (or any other printing surface) will impact Z measurements. Be sure to rerun the paper test to measure each type of surface that is in use.</p>
+<p>Если вы всегда печатаете на определенной ленте или печатной поверхности, то тест бумаги можно проводить с этой лентой/поверхностью. Однако следует учитывать, что лента сама по себе имеет толщину, и разные ленты (или любые другие поверхности для печати) будут влиять на результаты измерений Z. Обязательно повторите тест на бумаге для измерения каждого типа используемой поверхности.</p>
 <p>Если на сопле остался пластик, нагрейте экструдер и удалите его металлическим пинцетом. Подождите, пока экструдер полностью остынет до комнатной температуры, прежде чем продолжить тест бумаги. Пока насадка остывает, удалите металлическим пинцетом пластик, который может вытечь.</p>
 <p><strong>Всегда проводите тест бумаги, когда сопло и станина находятся при комнатной температуре!</strong></p>
-<p>When the nozzle is heated, its position (relative to the bed) changes due to thermal expansion. This thermal expansion is typically around a 100 microns, which is about the same thickness as a typical piece of printer paper. The exact amount of thermal expansion isn't crucial, just as the exact thickness of the paper isn't crucial. Start with the assumption that the two are equal (see below for a method of determining the difference between the two distances).</p>
+<p>При нагреве сопла его положение (относительно станины) изменяется за счет теплового расширения. Это тепловое расширение обычно составляет около 100 мкм, т.е. примерно столько же, сколько толщина обычного листа бумаги для принтера. Точная величина теплового расширения не имеет принципиального значения, так же как и точная толщина бумаги. Начните с предположения, что эти два параметра равны (метод определения разницы между этими двумя расстояниями см. ниже).</p>
 <p>Может показаться странным калибровать расстояние при комнатной температуре, когда цель - получить постоянное расстояние при нагревании. Однако, если калибровать при нагретом сопле, то на бумагу попадает небольшое количество расплавленного пластика, что изменяет величину ощущаемого трения. Это затрудняет получение хорошей калибровки. Калибровка при горячем ложе/сопле также значительно повышает риск обжечься. Величина теплового расширения стабильна, поэтому ее легко учесть позже в процессе калибровки.</p>
 <p><strong>Используйте автоматизированный инструмент для точного определения высоты Z!</strong></p>
 <p>В Klipper есть несколько вспомогательных скриптов (например, MANUAL_PROBE, Z_ENDSTOP_CALIBRATE, PROBE_CALIBRATE, DELTA_CALIBRATE). Чтобы выбрать один из них, смотрите документы <a href="#choose-the-appropriate-calibration-mechanism">описанные выше</a>.</p>
 <p>Запустите соответствующую команду в окне терминала OctoPrint. Сценарий запросит взаимодействие с пользователем в выводе терминала OctoPrint. Это будет выглядеть примерно так:</p>
-<div class="highlight"><pre><span></span><code>Recv: // Starting manual Z probe. Use TESTZ to adjust position.
-Recv: // Finish with ACCEPT or ABORT command.
-Recv: // Z position: ?????? --&gt; 5.000 &lt;-- ??????
+<div class="highlight"><pre><span></span><code>Recv: // Запуск ручного Z-зонда. Используйте TESTZ для настройки положения.
+Recv: // Завершение работы командой ACCEPT или ABORT.
+Recv: // Положение по оси Z: ?????? --&gt; 5.000 &lt;-- ??????
 </code></pre></div>
 
 <p>Текущая высота сопла (как ее понимает принтер в данный момент) отображается между символами "--&gt; &lt;--". Число справа - это высота последней попытки зонда чуть больше текущей высоты, а слева - последняя попытка зонда меньше текущей высоты (или ??????, если попыток не было).</p>
@@ -1312,25 +1312,25 @@ Recv: // Z position: ?????? --&gt; 5.000 &lt;-- ??????
 </code></pre></div>
 
 <p>Команда TESTZ переместит сопло на относительное расстояние от текущего положения сопла. (Так, <code>Z=-.1</code> просит сопло переместиться ближе к станине на .1 мм.) После того, как сопло перестанет двигаться, подтолкните бумагу вперед-назад, чтобы проверить, соприкасается ли сопло с бумагой, и почувствовать трение. Продолжайте подавать команды TESTZ, пока не почувствуете небольшое трение при тестировании с бумагой.</p>
-<p>If too much friction is found then one can use a positive Z value to move the nozzle up. It is also possible to use <code>TESTZ Z=+</code> or <code>TESTZ Z=-</code> to "bisect" the last position - that is to move to a position half way between two positions. For example, if one received the following prompt from a TESTZ command:</p>
-<div class="highlight"><pre><span></span><code>Recv: // Z position: 0.130 --&gt; 0.230 &lt;-- 0.280
+<p>Если обнаружено слишком большое трение, то можно использовать положительное значение Z для перемещения сопла вверх. Также можно использовать команду <code>TESTZ Z=+</code> или <code>TESTZ Z=-</code> для "биссекции" последнего положения, т.е. для перемещения в положение, находящееся на полпути между двумя положениями. Например, если в результате выполнения команды TESTZ был получен следующий запрос:</p>
+<div class="highlight"><pre><span></span><code>Recv: // Положение по Z: 0.130 --&gt; 0.230 &lt;-- 0.280
 </code></pre></div>
 
-<p>Then a <code>TESTZ Z=-</code> would move the nozzle to a Z position of 0.180 (half way between 0.130 and 0.230). One can use this feature to help rapidly narrow down to a consistent friction. It is also possible to use <code>Z=++</code> and <code>Z=--</code> to return directly to a past measurement - for example, after the above prompt a <code>TESTZ Z=--</code> command would move the nozzle to a Z position of 0.130.</p>
-<p>After finding a small amount of friction run the ACCEPT command:</p>
-<div class="highlight"><pre><span></span><code>ACCEPT
+<p>Тогда команда <code>TESTZ Z=-</code> переместит сопло в положение Z, равное 0,180 (половина пути между 0,130 и 0,230). Эту функцию можно использовать для быстрого сужения диапазона трения. Также можно использовать команды <code>Z=++</code> и <code>Z=--</code> для возврата непосредственно к прошлому измерению - например, после приведенного выше запроса команда <code>TESTZ Z=--</code> переместит сопло в положение по оси Z, равное 0,130.</p>
+<p>После обнаружения небольшого трения выполните команду ACCEPT:</p>
+<div class="highlight"><pre><span></span><code>ПРИНЯТЬ
 </code></pre></div>
 
-<p>This will accept the given Z height and proceed with the given calibration tool.</p>
-<p>The exact amount of friction felt isn't crucial, just as the amount of thermal expansion and exact width of the paper isn't crucial. Just try to obtain the same amount of friction each time one runs the test.</p>
-<p>If something goes wrong during the test, one can use the <code>ABORT</code> command to exit the calibration tool.</p>
-<h2 id="determining-thermal-expansion">Determining Thermal Expansion<a class="headerlink" href="#determining-thermal-expansion" title="Permanent link">&para;</a></h2>
-<p>After successfully performing bed leveling, one may go on to calculate a more precise value for the combined impact of "thermal expansion", "thickness of the paper", and "amount of friction felt during the paper test".</p>
-<p>This type of calculation is generally not needed as most users find the simple "paper test" provides good results.</p>
-<p>The easiest way to make this calculation is to print a test object that has straight walls on all sides. The large hollow square found in <a href="prints/square.stl">docs/prints/square.stl</a> can be used for this. When slicing the object, make sure the slicer uses the same layer height and extrusion widths for the first level that it does for all subsequent layers. Use a coarse layer height (the layer height should be around 75% of the nozzle diameter) and do not use a brim or raft.</p>
-<p>Print the test object, wait for it to cool, and remove it from the bed. Inspect the lowest layer of the object. (It may also be useful to run a finger or nail along the bottom edge.) If one finds the bottom layer bulges out slightly along all sides of the object then it indicates the nozzle was slightly closer to the bed then it should be. One can issue a <code>SET_GCODE_OFFSET Z=+.010</code> command to increase the height. In subsequent prints one can inspect for this behavior and make further adjustment as needed. Adjustments of this type are typically in 10s of microns (.010mm).</p>
-<p>If the bottom layer consistently appears narrower than subsequent layers then one can use the SET_GCODE_OFFSET command to make a negative Z adjustment. If one is unsure, then one can decrease the Z adjustment until the bottom layer of prints exhibit a small bulge, and then back-off until it disappears.</p>
-<p>The easiest way to apply the desired Z adjustment is to create a START_PRINT g-code macro, arrange for the slicer to call that macro during the start of each print, and add a SET_GCODE_OFFSET command to that macro. See the <a href="Slicers.html">slicers</a> document for further details.</p>
+<p>При этом принимается заданная высота Z и выполняется калибровка с помощью заданного инструмента.</p>
+<p>Точная величина ощущаемого трения не имеет решающего значения, так же как не имеет значения величина теплового расширения и точная ширина бумаги. Просто старайтесь добиться одинаковой величины трения при каждом испытании.</p>
+<p>Если в процессе тестирования что-то пошло не так, то для выхода из программы калибровки можно воспользоваться командой <code>ABORT</code>.</p>
+<h2 id="_4">Определение температурного расширения<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>После успешного выполнения выравнивания станины можно перейти к расчету более точного значения совместного влияния "теплового расширения", "толщины бумаги" и "величины трения, ощущаемого при испытании бумаги".</p>
+<p>Этот тип расчетов обычно не требуется, поскольку большинство пользователей считают, что простой "бумажный тест" дает хорошие результаты.</p>
+<p>Самый простой способ выполнить этот расчет - распечатать тестовый объект, имеющий прямые стенки со всех сторон. Для этого можно использовать большой полый квадрат, находящийся в <a href="prints/square.stl">docs/prints/square.stl</a>. При нарезке объекта убедитесь, что для первого уровня слайсер использует ту же высоту слоя и ширину выдавливания, что и для всех последующих слоев. Используйте грубую высоту слоя (высота слоя должна составлять около 75% диаметра сопла) и не используйте обводку или плот.</p>
+<p>Напечатайте тестовый объект, подождите, пока он остынет, и снимите его со стола. Осмотрите самый нижний слой объекта. (Если нижний слой немного выпуклый со всех сторон, то это означает, что сопло было расположено немного ближе к слою, чем должно быть. Для увеличения высоты можно подать команду <code>SET_GCODE_OFFSET Z=+.010</code>. В последующих отпечатках можно проконтролировать такое поведение и при необходимости произвести дальнейшую настройку. Регулировки такого типа обычно выражаются в десятках микрон (.010 мм).</p>
+<p>Если нижний слой постоянно оказывается более узким, чем последующие, то можно воспользоваться командой SET_GCODE_OFFSET для отрицательной корректировки по Z. Если нет уверенности, то можно уменьшить корректировку по Z до появления небольшой выпуклости нижнего слоя отпечатков, а затем отступить до ее исчезновения.</p>
+<p>Самый простой способ применить нужную корректировку по Z - создать макрос g-кода START_PRINT, организовать вызов этого макроса слайсером в начале каждой печати и добавить в этот макрос команду SET_GCODE_OFFSET. Более подробная информация приведена в документе <a href="Slicers.html">slicers</a>.</p>
 
               
             </article>
