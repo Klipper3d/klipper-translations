@@ -16,22 +16,22 @@
 - [Справочник по конфигурации](Config_Reference.md): Описание параметров конфигурации.
    - [Дистанция поворота](Rotation_Distance.md): Расчет параметра дистанции попорота(Rotation_distance).
 - [Проверки конфигурации](Config_checks.md): Проверка основных настроек контактов в файле конфигурации.
-- [Уровень кровати](Bed_Level.md): Информация о "выравнивании кровати" в Klipper.
+- [Bed level](Bed_Level.md): информация о "выравнивании стола" в Klipper.
    - [Delta calibrate](Delta_Calibrate.md): Калибровка дельта-киноматики.
    - [Probe calibrate](Probe_Calibrate.md): Калибровка автоматический Z-зондов.
    - [BL-Touch](BLTouch.md): Конфигурация Z-зондов "BL-Touch".
    - [Manual level](Manual_Level.md): Калибровка крайних точек Z ( и подобные).
-   - [Bed Mesh](Bed_Mesh.md): Коррекция высоты дна на основе расположения XY.
+   - [Bed Mesh](Bed_Mesh.md): корректировки высоты стола относительно  координат по  XY.
    - [Endstop phase](Endstop_Phase.md): Позиционирование концевого упора Z с помощью шарового двигателя.
 - [Resonance compensation](Resonance_Compensation.md): Инструмент для уменьшения звона при печати.
-   - [Измерение резонанса](Measuring_Resonances.md): Информация об использовании аппаратных средств акселерометра adxl345 для измерения резонанса.
-- [Pressure advance](Pressure_Advance.md): Калибровка давления в экструдере.
+   - [Measuring resonances](Measuring_Resonances.md): информация по использованию adxl345 акселерометра для "железных" измерений резонанса.
+- [Pressure advance](Pressure_Advance.md): калибровка давления экструдера, основанная на действиях кинематики в конкретный момент.
 - [G-Codes](G-Codes.md): Информация о командах, поддерживаемых Klipper.
-- [Шаблоны команд](Command_Templates.md): Макросы G-Code и условная оценка.
+- Command Templates](Command_Templates.md): G-Code макросы и условный прогресс.
    - [Status Reference](Status_Reference.md): Информация, доступная макросам (и им подобным).
 - [TMC Drivers](TMC_Drivers.md): Использование драйверов шаговых двигателей Trinamic с Klipper.
 - [Multi-MCU Homing](Multi_MCU_Homing.md): Наведение и зондирование с использованием нескольких микроконтроллеров.
-- [Slicers](Slicers.md): Настройка программного обеспечения "слайсера" для Klipper.
+- [Slicers](Slicers.md): Конфигурация программного комплекса "slicer" для Klipper.
 - [Коррекция перекоса](Skew_Correction.md): Корректировка для осей, не являющихся идеально квадратными.
 - [PWM tools](Using_PWM_Tools.md): Руководство по использованию инструментов с ШИМ-управлением, таких как лазеры или шпиндели.
 - [Exclude Object](Exclude_Object.md): Руководство по реализации исключаемых объектов.

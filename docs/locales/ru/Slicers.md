@@ -44,29 +44,29 @@
 
 В отличие от этого, можно (и часто полезно) использовать настройки "втягивание", "протирка" и/или "протирка при втягивании" ломтерезки.
 
-## START_PRINT macros
+## Макрос START_PRINT
 
-When using a START_PRINT macro or similar, it is useful to sometimes pass through parameters from the slicer variables to the macro.
+При использовании макроса START_PRINT или аналогичного ему полезно иногда передавать в макрос параметры из переменных слайсера.
 
-In Cura, to pass through temperatures, the following start gcode would be used:
+В Cura для прохождения температур используется следующий стартовый g-код:
 
 ```
-START_PRINT BED_TEMP={material_bed_temperature_layer_0} EXTRUDER_TEMP={material_print_temperature_layer_0}
+START_PRINT BED_TEMP={материал_кровать_температура_слоя_0} EXTRUDER_TEMP={материал_печать_температура_слоя_0}
 ```
 
-In slic3r derivatives such as PrusaSlicer and SuperSlicer, the following would be used:
+В производных slic3r, таких как PrusaSlicer и SuperSlicer, используется следующее:
 
 ```
 START_PRINT EXTRUDER_TEMP=[first_layer_temperature] BED_TEMP=[first_layer_bed_temperature]
 ```
 
-Also note that these slicers will insert their own heating codes when certain conditions are not met. In Cura, the existence of the `{material_bed_temperature_layer_0}` and `{material_print_temperature_layer_0}` variables is enough to mitigate this. In slic3r derivatives, you would use:
+Также следует учитывать, что эти слайсеры вставляют свои собственные коды нагрева при несоблюдении определенных условий. В Cura для уменьшения этого достаточно наличия переменных `{material_bed_temperature_layer_0}` и `{material_print_temperature_layer_0}`. В производных slic3r можно использовать:
 
 ```
 M140 S0
 M104 S0
 ```
 
-before the macro call. Also note that SuperSlicer has a "custom gcode only" button option, which achieves the same outcome.
+перед вызовом макроса. Также отметим, что в SuperSlicer есть опция кнопки "только пользовательский gcode", которая позволяет добиться того же результата.
 
-An example of a START_PRINT macro using these paramaters can be found in config/sample-macros.cfg
+Пример макроса START_PRINT с этими параметрами можно найти в файле config/sample-macros.cfg

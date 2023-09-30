@@ -4,21 +4,21 @@
 
 ** ПРЕДУПРЕЖДЕНИЕ ** Перед началом работы: Не прикасайтесь к штифту BL-Touch голыми пальцами, так как он довольно чувствителен к смазке для пальцев. И если вы все-таки прикоснетесь к нему, будьте очень нежны, чтобы ничего не согнуть и не толкнуть.
 
-Подключите разъем BL-Touch "servo" к разъему "control_pin" в соответствии с документацией BL-Touch или документацией вашего MCU. Используя оригинальную проводку, желтый провод от тройки - это "control_pin", а белый провод от пары - "sensor_pin". Вам необходимо настроить эти контакты в соответствии с вашей проводкой. Для большинства устройств BL-Touch требуется подтягивание pin-кода датчика (префикс имени pin-кода с помощью "^"). Например:
+Подключите разъем BL-Touch "servo" к разъему `control_pin` в соответствии с документацией BL-Touch или документацией вашего MCU. Используя оригинальную проводку, желтый провод от тройки - это `control_pin`, а белый провод от пары - `sensor_pin`. Вам необходимо настроить эти контакты в соответствии с вашей проводкой. Для большинства устройств BL-Touch требуется подтягивание вывода датчика (префикс имени вывода с помощью "^"). Например:
 
 ```
 [bltouch]
-sensor_pin: ^P1.24
-control_pin: P1.26
+сенсор_пин: ^P1.24
+контрольный_пин: P1.26
 ```
 
-If the BL-Touch will be used to home the Z axis then set `endstop_pin: probe:z_virtual_endstop` and remove `position_endstop` in the `[stepper_z]` config section, then add a `[safe_z_home]` config section to raise the z axis, home the xy axes, move to the center of the bed, and home the z axis. For example:
+Если BL-Touch будет использоваться для исходного положения оси Z, установите `endstop_pin:probe:z_virtual_endstop` и удалите `position_endstop` в разделе конфигурации `[stepper_z]`, затем добавьте раздел конфигурации `[safe_z_home]`, чтобы поднять ось z, возвращение осей xy, перемещение к центру станины и возвращение оси z. Например:
 
 ```
-[safe_z_home]
-home_xy_position: 100, 100 # Change coordinates to the center of your print bed
-speed: 50
-z_hop: 10                 # Move up 10mm
+[безопасный_z_home]
+home_xy_position: 100, 100 # Переместите координаты в центр печатного слоя
+скорость: 50
+z_hop: 10 # Переместите вверх на 10 мм
 z_hop_speed: 5
 ```
 
@@ -30,70 +30,70 @@ z_hop_speed: 5
 
 При включении принтера датчик BL-Touch должен выполнить самотестирование и несколько раз переместить штифт вверх и вниз. По завершении самотестирования штифт должен быть втянут, а на датчике должен гореть красный светодиод. Если возникли какие-либо ошибки, например, датчик мигает красным цветом или штырек опускается, а не поднимается, выключите принтер и проверьте подключение и конфигурацию.
 
-If the above is looking good, it's time to test that the control pin is working correctly. First run `BLTOUCH_DEBUG COMMAND=pin_down` in your printer terminal. Verify that the pin moves down and that the red LED on the probe turns off. If not, check your wiring and configuration again. Next issue a `BLTOUCH_DEBUG COMMAND=pin_up`, verify that the pin moves up, and that the red light turns on again. If it's flashing then there's some problem.
+Если все вышеперечисленное выглядит хорошо, пришло время проверить, правильно ли работает управляющий контакт. Сначала запустите BLTOUCH_DEBUG COMMAND=pin_down на терминале принтера. Убедитесь, что штифт опускается вниз и красный светодиод на щупе гаснет. Если нет, проверьте проводку и конфигурацию еще раз. Затем введите `BLTOUCH_DEBUG COMMAND=pin_up`, убедитесь, что штифт перемещается вверх и красный индикатор снова загорается. Если он мигает, значит, есть какая-то проблема.
 
-The next step is to confirm that the sensor pin is working correctly. Run `BLTOUCH_DEBUG COMMAND=pin_down`, verify that the pin moves down, run `BLTOUCH_DEBUG COMMAND=touch_mode`, run `QUERY_PROBE`, and verify that command reports "probe: open". Then while gently pushing the pin up slightly with the nail of your finger run `QUERY_PROBE` again. Verify the command reports "probe: TRIGGERED". If either query does not report the correct message then it usually indicates an incorrect wiring or configuration (though some [clones](#bl-touch-clones) may require special handling). At the completion of this test run `BLTOUCH_DEBUG COMMAND=pin_up` and verify that the pin moves up.
+Следующим шагом является подтверждение того, что контакт датчика работает правильно. Запустите `BLTOUCH_DEBUG COMMAND=pin_down`, убедитесь, что pin-код перемещается вниз, запустите `BLTOUCH_DEBUG COMMAND=touch_mode`, запустите `QUERY_PROBE` и убедитесь, что команда сообщает "probe: открыто". Затем, слегка надавливая на булавку ногтем пальца, снова запустите `QUERY_PROBE`. Проверьте, что команда сообщает "зонд: СРАБОТАЛ". Если какой-либо запрос не выдает правильного сообщения, то это обычно указывает на неправильное подключение или конфигурацию (хотя некоторые [клоны](#bl-touch-clones) могут потребовать специальной обработки). По завершении этого теста запустите `BLTOUCH_DEBUG COMMAND=pin_up` и убедитесь, что контакт перемещается вверх.
 
-After completing the BL-Touch control pin and sensor pin tests, it is now time to test probing, but with a twist. Instead of letting the probe pin touch the print bed, let it touch the nail on your finger. Position the toolhead far from the bed, issue a `G28` (or `PROBE` if not using probe:z_virtual_endstop), wait until the toolhead starts to move down, and stop the movement by very gently touching the pin with your nail. You may have to do it twice, since the default homing configuration probes twice. Be prepared to turn off the printer if it doesn't stop when you touch the pin.
+После завершения тестов контрольного штифта BL-Touch и сенсорного штифта пришло время протестировать зондирование, но с изюминкой. Вместо того чтобы позволять штифту датчика касаться печатной подложки, позвольте ему коснуться ногтя на вашем пальце. Расположите инструментальную головку далеко от станины, нажмите `G28` (или `PROBE`, если не используете probe:z_virtual_endstop), дождитесь, пока инструментальная головка начнет опускаться, и остановите движение, очень осторожно прикоснувшись ногтем к штифту. Возможно, вам придется сделать это дважды, поскольку конфигурация самонаведения по умолчанию проверяет дважды. Будьте готовы выключить принтер, если он не остановится при нажатии на контакт.
 
 Если это удалось, выполните еще одну операцию `G28` (или `PROBE`), но на этот раз пусть она коснется стола, как и положено.
 
-## BL-Touch gone bad
+## BL-Прикосновение испортилось
 
-Once the BL-Touch is in inconsistent state, it starts blinking red. You can force it to leave that state by issuing:
+Как только BL-Touch находится в несогласованном состоянии, он начинает мигать красным. Вы можете заставить его покинуть это состояние, выдав:
 
-BLTOUCH_DEBUG COMMAND=reset
+КОМАНДА BLTOUCH_DEBUG=сброс
 
-This may happen if its calibration is interrupted by the probe being blocked from being extracted.
+Это может произойти, если его калибровка будет прервана из-за блокировки извлечения зонда.
 
-However, the BL-Touch may also not be able to calibrate itself anymore. This happens if the screw on its top is in the wrong position or the magnetic core inside the probe pin has moved. If it has moved up so that it sticks to the screw, it may not be able to lower its pin anymore. With this behavior you need to open the screw and use a ball-point pen to push it gently back into place. Re-Insert the pin into the BL-Touch so that it falls into the extracted position. Carefully readjust the headless screw into place. You need to find the right position so it is able to lower and raise the pin and the red light turns on and of. Use the `reset`, `pin_up` and `pin_down` commands to achieve this.
+Однако BL-Touch, возможно, больше не сможет калиброваться самостоятельно. Это происходит, если винт на его вершине находится в неправильном положении или сместился магнитопровод внутри штифта щупа. Если он переместился вверх и прилип к винту, возможно, он больше не сможет опустить штифт. При таком поведении вам необходимо открыть винт и с помощью шариковой ручки аккуратно вернуть его на место. Снова вставьте штифт в BL-Touch так, чтобы он встал в извлеченное положение. Осторожно установите винт с головкой на место. Вам нужно найти правильное положение, чтобы он мог опускать и поднимать штифт, а красный свет включался и гас. Для этого используйте команды `reset`, `pin_up` и `pin_down`.
 
-## BL-Touch "clones"
+## BL-Touch «клоны»
 
-Many BL-Touch "clone" devices work correctly with Klipper using the default configuration. However, some "clone" devices may not support the `QUERY_PROBE` command and some "clone" devices may require configuration of `pin_up_reports_not_triggered` or `pin_up_touch_mode_reports_triggered`.
+Многие «клонированные» устройства BL-Touch корректно работают с Klipper, используя конфигурацию по умолчанию. Однако некоторые устройства «клонирования» могут не поддерживать команду `QUERY_PROBE`, а для некоторых устройств «клонирования» может потребоваться настройка `pin_up_reports_not_triggered` или `pin_up_touch_mode_reports_triggered`.
 
-Important! Do not configure `pin_up_reports_not_triggered` or `pin_up_touch_mode_reports_triggered` to False without first following these directions. Do not configure either of these to False on a genuine BL-Touch. Incorrectly setting these to False can increase probing time and can increase the risk of damaging the printer.
+Важный! Не устанавливайте для `pin_up_reports_not_triggered` или `pin_up_touch_mode_reports_triggered` значение False, предварительно не следуя этим указаниям. Не устанавливайте ни одно из этих значений в значение False на подлинном BL-Touch. Неправильная установка этих значений в значение False может увеличить время проверки и увеличить риск повреждения принтера.
 
-Some "clone" devices do not support `touch_mode` and as a result the `QUERY_PROBE` command does not work. Despite this, it may still be possible to perform probing and homing with these devices. On these devices the `QUERY_PROBE` command during the [initial tests](#initial-tests) will not succeed, however the subsequent `G28` (or `PROBE`) test does succeed. It may be possible to use these "clone" devices with Klipper if one does not utilize the `QUERY_PROBE` command and one does not enable the `probe_with_touch_mode` feature.
+Некоторые устройства-клоны не поддерживают `Touch_mode`, и в результате команда `QUERY_PROBE` не работает. Несмотря на это, с помощью этих устройств по-прежнему возможно выполнять зондирование и возврат в исходное положение. На этих устройствах команда `QUERY_PROBE` во время [начальных тестов](#initial-tests) не будет успешной, однако последующий тест G28 (или `PROBE`) будет успешным. Эти «клонированные» устройства можно будет использовать с Klipper, если не использовать команду `QUERY_PROBE` и не включить функцию probe_with_touch_mode.
 
-Some "clone" devices are unable to perform Klipper's internal sensor verification test. On these devices, attempts to home or probe can result in Klipper reporting a "BLTouch failed to verify sensor state" error. If this occurs, then manually run the steps to confirm the sensor pin is working as described in the [initial tests section](#initial-tests). If the `QUERY_PROBE` commands in that test always produce the expected results and "BLTouch failed to verify sensor state" errors still occur, then it may be necessary to set `pin_up_touch_mode_reports_triggered` to False in the Klipper config file.
+Некоторые устройства-"клоны" не могут выполнить проверку внутреннего датчика Klipper. На этих устройствах попытки входа в систему или зондирования могут привести к тому, что Klipper сообщит об ошибке "BLTouch не удалось проверить состояние датчика". Если это происходит, то вручную выполните действия, чтобы подтвердить работоспособность контакта датчика, как описано в разделе [начальные тесты](#initial-tests). Если команды `QUERY_PROBE` в этом тесте всегда дают ожидаемые результаты, а ошибки "BLTouch не удалось проверить состояние датчика" по-прежнему возникают, то может потребоваться установить `pin_up_touch_mode_reports_triggered` в значение False в конфигурационном файле Klipper.
 
-A rare number of old "clone" devices are unable to report when they have successfully raised their probe. On these devices Klipper will report a "BLTouch failed to raise probe" error after every home or probe attempt. One can test for these devices - move the head far from the bed, run `BLTOUCH_DEBUG COMMAND=pin_down`, verify the pin has moved down, run `QUERY_PROBE`, verify that command reports "probe: open", run `BLTOUCH_DEBUG COMMAND=pin_up`, verify the pin has moved up, and run `QUERY_PROBE`. If the pin remains up, the device does not enter an error state, and the first query reports "probe: open" while the second query reports "probe: TRIGGERED" then it indicates that `pin_up_reports_not_triggered` should be set to False in the Klipper config file.
+Редкое количество старых устройств-"клонов" не могут сообщить об успешном запуске своего зонда. На этих устройствах Klipper будет сообщать об ошибке "BLTouch не удалось активировать зонд" после каждой домашней попытки или попытки зондирования. Можно протестировать эти устройства - отодвиньте голову подальше от кровати, запустите `BLTOUCH_DEBUG COMMAND=pin_down`, убедитесь, что pin-код переместился вниз, запустите `QUERY_PROBE`, убедитесь, что команда сообщает "зонд: открыт", запустите `BLTOUCH_DEBUG COMMAND=pin_up`, убедитесь, что pin-код переместился вверх, и запустите `QUERY_PROBE`. Если pin-код остается введенным, устройство не переходит в состояние ошибки, и первый запрос сообщает "probe: открыто", в то время как второй запрос сообщает "probe: ЗАПУЩЕНО", тогда это указывает на то, что для `pin_up_reports_not_triggered` должно быть установлено значение False в файле конфигурации Klipper.
 
 ## BL-Touch v3
 
-Some BL-Touch v3.0 and BL-Touch 3.1 devices may require configuring `probe_with_touch_mode` in the printer config file.
+Для некоторых устройств BL-Touch версии 3.0 и BL-Touch версии 3.1 может потребоваться настройка `probe_with_touch_mode` в файле конфигурации принтера.
 
-If the BL-Touch v3.0 has its signal wire connected to an endstop pin (with a noise filtering capacitor), then the BL-Touch v3.0 may not be able to consistently send a signal during homing and probing. If the `QUERY_PROBE` commands in the [initial tests section](#initial-tests) always produce the expected results, but the toolhead does not always stop during G28/PROBE commands, then it is indicative of this issue. A workaround is to set `probe_with_touch_mode: True` in the config file.
+Если сигнальный провод BL-Touch v3.0 подключен к контакту endstop (с конденсатором для фильтрации шума), то BL-Touch v3.0, возможно, не сможет последовательно посылать сигнал во время наведения и зондирования. Если команды `QUERY_PROBE` в разделе [начальные тесты](#initial-tests) всегда дают ожидаемые результаты, но инструментальная головка не всегда останавливается во время команд G28/PROBE, то это указывает на эту проблему. Обходной путь заключается в установке `probe_with_touch_mode: True` в конфигурационном файле.
 
-The BL-Touch v3.1 may incorrectly enter an error state after a successful probe attempt. The symptoms are an occasional flashing light on the BL-Touch v3.1 that lasts for a couple of seconds after it successfully contacts the bed. Klipper should clear this error automatically and it is generally harmless. However, one may set `probe_with_touch_mode` in the config file to avoid this issue.
+BL-Touch v3.1 может неправильно перейти в состояние ошибки после успешной попытки проверки. Симптомами являются периодическое мигание индикатора на BL-Touch v3.1, которое длится пару секунд после успешного контакта с кроватью. Klipper должен автоматически устранить эту ошибку, и, как правило, она безвредна. Однако можно установить `probe_with_touch_mode` в конфигурационном файле, чтобы избежать этой проблемы.
 
-Important! Some "clone" devices and the BL-Touch v2.0 (and earlier) may have reduced accuracy when `probe_with_touch_mode` is set to True. Setting this to True also increases the time it takes to deploy the probe. If configuring this value on a "clone" or older BL-Touch device, be sure to test the probe accuracy before and after setting this value (use the `PROBE_ACCURACY` command to test).
+Важный! Некоторые устройства "клонирования" и BL-Touch версии 2.0 (и более ранних версий) могут иметь пониженную точность, если для параметра `probe_with_touch_mode` установлено значение True. Установка этого параметра в значение True также увеличивает время, необходимое для развертывания зонда. При настройке этого значения на "клоне" или более старом устройстве BL-Touch обязательно проверьте точность датчика до и после установки этого значения (используйте команду `PROBE_ACCURACY` для проверки).
 
-## Multi-probing without stowing
+## Многозондирование без укладки
 
-By default, Klipper will deploy the probe at the start of each probe attempt and then stow the probe afterwards. This repetitive deploying and stowing of the probe may increase the total time of calibration sequences that involve many probe measurements. Klipper supports leaving the probe deployed between consecutive probes, which can reduce the total time of probing. This mode is enabled by configuring `stow_on_each_sample` to False in the config file.
+По умолчанию Klipper будет разворачивать зонд в начале каждой попытки зондирования, а затем убирать зонд после этого. Такое повторяющееся развертывание и укладка зонда может увеличить общее время выполнения последовательностей калибровки, которые включают в себя множество измерений зондом. Klipper поддерживает возможность оставлять зонд развернутым между последовательными зондами, что может сократить общее время зондирования. Этот режим включается путем настройки `stow_on_each_sample` на значение False в конфигурационном файле.
 
-Important! Setting `stow_on_each_sample` to False can lead to Klipper making horizontal toolhead movements while the probe is deployed. Be sure to verify all probing operations have sufficient Z clearance prior to setting this value to False. If there is insufficient clearance then a horizontal move may cause the pin to catch on an obstruction and result in damage to the printer.
+Важный! Установка значения `stow_on_each_sample` в значение False может привести к тому, что клипер будет совершать горизонтальные перемещения головки инструмента во время развертывания зонда. Обязательно убедитесь, что все операции зондирования имеют достаточный зазор по Z, прежде чем устанавливать это значение в значение False. Если зазор недостаточен, то горизонтальное перемещение может привести к зацеплению штифта за препятствие и повреждению принтера.
 
-Important! It is recommended to use `probe_with_touch_mode` configured to True when using `stow_on_each_sample` configured to False. Some "clone" devices may not detect a subsequent bed contact if `probe_with_touch_mode` is not set. On all devices, using the combination of these two settings simplifies the device signaling, which can improve overall stability.
+Важный! Рекомендуется использовать `probe_with_touch_mode`, настроенный на значение True, при использовании `stow_on_each_sample`, настроенного на значение False. Некоторые устройства "клонирования" могут не обнаруживать последующий контакт с кроватью, если не задан `probe_with_touch_mode`. На всех устройствах использование комбинации этих двух настроек упрощает сигнализацию устройства, что может повысить общую стабильность.
 
-Note, however, that some "clone" devices and the BL-Touch v2.0 (and earlier) may have reduced accuracy when `probe_with_touch_mode` is set to True. On these devices it is a good idea to test the probe accuracy before and after setting `probe_with_touch_mode` (use the `PROBE_ACCURACY` command to test).
+Обратите внимание, однако, что некоторые устройства "клонирования" и BL-Touch версии 2.0 (и более ранних версий) могут иметь пониженную точность, если для параметра `probe_with_touch_mode` установлено значение True. На этих устройствах рекомендуется проверить точность датчика до и после установки `probe_with_touch_mode` (для проверки используйте команду `PROBE_ACCURACY`).
 
-## Calibrating the BL-Touch offsets
+## Калибровка смещений BL-Touch
 
-Follow the directions in the [Probe Calibrate](Probe_Calibrate.md) guide to set the x_offset, y_offset, and z_offset config parameters.
+Следуйте инструкциям в разделе [Калибровка датчика](Probe_Calibrate.md ) руководство по установке конфигурационных параметров x_offset, y_offset и z_offset.
 
-It's a good idea to verify that the Z offset is close to 1mm. If not, then you probably want to move the probe up or down to fix this. You want it to trigger well before the nozzle hits the bed, so that possible stuck filament or a warped bed doesn't affect any probing action. But at the same time, you want the retracted position to be as far above the nozzle as possible to avoid it touching printed parts. If an adjustment is made to the probe position, then rerun the probe calibration steps.
+Рекомендуется убедиться, что смещение по Z близко к 1 мм. Если нет, то вы, вероятно, захотите переместить зонд вверх или вниз, чтобы исправить это. Вы хотите, чтобы он сработал задолго до того, как сопло коснется слоя, чтобы возможная застрявшая нить накала или деформированный слой не повлияли на какие-либо действия по зондированию. Но в то же время вы хотите, чтобы втянутое положение было как можно выше сопла, чтобы оно не касалось деталей с печатью. Если положение датчика было скорректировано, повторите шаги калибровки датчика.
 
-## BL-Touch output mode
+## Режим вывода BL-Touch
 
 
-   * A BL-Touch V3.0 supports setting a 5V or OPEN-DRAIN output mode, a BL-Touch V3.1 supports this too, but can also store this in its internal EEPROM. If your controller board needs the fixed 5V high logic level of the 5V mode you may set the 'set_output_mode' parameter in the [bltouch] section of the printer config file to "5V".*** Only use the 5V mode if your controller boards input line is 5V tolerant. This is why the default configuration of these BL-Touch versions is OPEN-DRAIN mode. You could potentially damage your controller boards CPU ***
+   * A BL-Touch V3.0 поддерживает установку выходного режима 5 В или с открытым стоком, full-Touch V3.1 также поддерживает это, но также может сохранять это во внутренней EEPROM. Если вашей плате контроллера требуется фиксированный высокий логический уровень 5 В для режима 5 В, вы можете установить параметр "set_output_mode" в разделе [bltouch] файла конфигурации принтера на "5 В".*** Используйте режим 5 В только в том случае, если входная линия вашей платы контроллера допускает напряжение 5 В. Вот почему по умолчанию в этих версиях BL-Touch используется режим ОТКРЫТЫЙ Сток. Вы потенциально можете повредить процессор платы контроллера ***
 
-   So therefore: If a controller board NEEDs 5V mode AND it is 5V tolerant on its input signal line AND if
+   Итак, следовательно: если плате контроллера требуется режим 5 В, И она допускает 5 В на своей входной сигнальной линии, И если
 
-   - you have a BL-Touch Smart V3.0, you need the use 'set_output_mode: 5V' parameter to ensure this setting at each startup, since the probe cannot remember the needed setting.
-   - you have a BL-Touch Smart V3.1, you have the choice of using 'set_output_mode: 5V' or storing the mode once by use of a 'BLTOUCH_STORE MODE=5V' command manually and NOT using the parameter 'set_output_mode:'.
-   - you have some other probe: Some probes have a trace on the circuit board to cut or a jumper to set in order to (permanently) set the output mode. In that case, omit the 'set_output_mode' parameter completely.
-If you have a V3.1, do not automate or repeat storing the output mode to avoid wearing out the EEPROM of the probe.The BLTouch EEPROM is good for about 100.000 updates. 100 stores per day would add up to about 3 years of operation prior to wearing it out. Thus, storing the output mode in a V3.1 is designed by the vendor to be a complicated operation (the factory default being a safe OPEN DRAIN mode) and is not suited to be repeatedly issued by any slicer, macro or anything else, it is preferably only to be used when first integrating the probe into a printers electronics.
+   - у вас есть BL-Touch Smart версии 3.0, вам нужен пользовательский параметр 'set_output_mode: 5V', чтобы обеспечить эту настройку при каждом запуске, поскольку датчик не может запомнить необходимую настройку.
+   - у вас есть BL-Touch Smart версии 3.1, у вас есть выбор: использовать 'set_output_mode: 5V' или сохранить режим один раз с помощью команды 'BLTOUCH_STORE MODE=5V' вручную и НЕ использовать параметр 'set_output_mode:'.
+   - у вас есть какой-то другой датчик: у некоторых датчиков есть след на печатной плате, который нужно вырезать, или перемычка, которую нужно установить, чтобы (постоянно) установить режим вывода. В этом случае полностью опустите параметр 'set_output_mode'.
+Если у вас установлена версия 3.1, не автоматизируйте и не повторяйте сохранение режима вывода, чтобы избежать износа EEPROM датчика.EEPROM BLTouch рассчитан примерно на 100 000 обновлений. 100 магазинов в день - это примерно 3 года работы, прежде чем он выйдет из строя. Таким образом, сохранение режима вывода в версии 3.1 разработано поставщиком как сложная операция (заводским значением по умолчанию является режим безопасного открытого слива) и не подходит для повторного использования каким-либо слайсером, макросом или чем-либо еще, предпочтительно использовать его только при первой интеграции исследуйте электронику принтера.

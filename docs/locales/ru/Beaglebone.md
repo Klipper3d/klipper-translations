@@ -15,7 +15,7 @@ git clone https://github.com/Klipper3d/klipper
 
 ## Установите Octoprint
 
-One may then install Octoprint:
+Затем можно установить Octoprint:
 
 ```
 git clone https://github.com/foosel/OctoPrint.git
@@ -33,30 +33,30 @@ sudo cp ~/OctoPrint/scripts/octoprint.default /etc/default/octoprint
 sudo update-rc.d octoprint defaults
 ```
 
-It is necessary to modify OctoPrint's **/etc/default/octoprint** configuration file. One must change the `OCTOPRINT_USER` user to `debian`, change `NICELEVEL` to `0`, uncomment the `BASEDIR`, `CONFIGFILE`, and `DAEMON` settings and change the references from `/home/pi/` to `/home/debian/`:
+Необходимо изменить файл конфигурации **/etc/default/octoprint** OctoPrint. Необходимо изменить пользователя OCTOPRINT_USER на debian, NICELEVEL на 0, раскомментировать настройки BASEDIR, CONFIGFILE и DAEMON и изменить ссылки с /home/pi/ на `/home/debian/`:
 
 ```
 sudo nano /etc/default/octoprint
 ```
 
-Then start the Octoprint service:
+Затем запустите сервис Octoprint:
 
 ```
 sudo systemctl start octoprint
 ```
 
-Make sure the OctoPrint web server is accessible - it should be at: <http://beaglebone:5000/>
+Убедитесь, что веб-сервер OctoPrint доступен — он должен находиться по адресу: <http://beaglebone:5000/>
 
-## Building the micro-controller code
+## Создание кода микроконтроллера
 
-To compile the Klipper micro-controller code, start by configuring it for the "Beaglebone PRU":
+Чтобы скомпилировать код микроконтроллера Klipper, начните с настройки его для «Beaglebone PRU»:
 
 ```
 cd ~/klipper/
 make menuconfig
 ```
 
-To build and install the new micro-controller code, run:
+Чтобы собрать и установить новый код микроконтроллера, запустите:
 
 ```
 sudo service klipper stop
@@ -64,13 +64,13 @@ make flash
 sudo service klipper start
 ```
 
-It is also necessary to compile and install the micro-controller code for a Linux host process. Configure it a second time for a "Linux process":
+Также необходимо скомпилировать и установить код микроконтроллера для хост-процесса Linux. Настройте его второй раз для «процесса Linux»:
 
 ```
 make menuconfig
 ```
 
-Then install this micro-controller code as well:
+Затем установите также этот код микроконтроллера:
 
 ```
 sudo service klipper stop
@@ -78,10 +78,10 @@ make flash
 sudo service klipper start
 ```
 
-## Remaining configuration
+## Оставшаяся конфигурация
 
-Complete the installation by configuring Klipper and Octoprint following the instructions in the main [Installation](Installation.md#configuring-klipper) document.
+Завершите установку, настроив Klipper и Octoprint, следуя инструкциям в основном документе [Установка](Installation.md#configuring-klipper).
 
-## Printing on the Beaglebone
+## Печать на Beaglebone
 
-Unfortunately, the Beaglebone processor can sometimes struggle to run OctoPrint well. Print stalls have been known to occur on complex prints (the printer may move faster than OctoPrint can send movement commands). If this occurs, consider using the "virtual_sdcard" feature (see [Config Reference](Config_Reference.md#virtual_sdcard) for details) to print directly from Klipper.
+К сожалению, процессор Beaglebone иногда может с трудом справляться с работой OctoPrint. Известно, что при сложных отпечатках случаются остановки печати (принтер может двигаться быстрее, чем OctoPrint может отправлять команды движения). В этом случае рассмотрите возможность использования функции «virtual_sdcard» (подробности см. в [Справочнике по конфигурации](Config_Reference.md#virtual_sdcard)) для печати непосредственно из Klipper.

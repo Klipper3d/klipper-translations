@@ -179,7 +179,7 @@ Note that, depending on the performance of the CPU, it may take *a lot* of time,
 
 First, check and follow the instructions in the [RPi Microcontroller document](RPi_microcontroller.md) to setup the "linux mcu" on the Raspberry Pi. This will configure a second Klipper instance that runs on your Pi.
 
-Make sure the Linux SPI driver is enabled by running `sudo raspi-config` and enabling SPI under the "Interfacing options" menu.
+Убедитесь, что драйвер Linux SPI включен, запустив `sudo raspi-config` и включив SPI в меню "Параметры взаимодействия".
 
 Add the following to the printer.cfg file:
 

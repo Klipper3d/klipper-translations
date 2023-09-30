@@ -1,91 +1,91 @@
-# Rotation distance
+# Расстояние поворота
 
-Драйверы шаговых двигателей на Klipper требуют параметра `rotation_distance` в каждом [разделе конфигурации шагового двигателя] (Config_Reference.md #stepper). `rotation_distance` - это величина расстояния, на которое перемещается ось за один полный оборот шагового двигателя. В этом документе описано, как можно настроить это значение.
+Драйверы шаговых двигателей на Klipper требуют параметра `rotation_distance` в каждом [разделе конфигурации шагового двигателя](Config_Reference.md #stepper). `rotation_distance` это величина расстояния, на которое перемещается ось за один полный оборот шагового двигателя. В этом документе описано, как можно настроить это значение.
 
 ## Получение rotation_distance из steps_per_mm (или step_distance)
 
-Разработчики вашего 3d-принтера изначально рассчитали "steps_per_mm" исходя из расстояния поворота. Если вы знаете steps_per_mm, то можно использовать эту общую формулу для получения этого исходного расстояния поворота:
+Разработчики вашего 3d-принтера изначально рассчитали `steps_per_mm` исходя из расстояния поворота. Если вы знаете steps_per_mm, то можно использовать эту общую формулу для получения этого исходного расстояния поворота:
 
 ```
-rotation_distance = <full_steps_per_rotation> * <microsteps> / <steps_per_mm>
+rotation_distance = <полные_шаги_пер_ротации>* <микрошаги> / <шаги_пер_мм>
 ```
 
 Или, если у вас более старая конфигурация Klipper и вы знаете параметр `step_distance`, вы можете использовать эту формулу:
 
 ```
-rotation_distance = <full_steps_per_rotation> * <microsteps> * <step_distance>
+rotation_distance = <полные_шаги_пере_ротации> * <микрошаги> * <шаг_дистанция>
 ```
 
 Настройка `<full_steps_per_rotation` определяется типом шагового двигателя. Большинство шаговых двигателей являются "шаговиками 1,8 градуса" и поэтому имеют 200 полных шагов на оборот (360 разделить на 1,8 - 200). Некоторые шаговые двигатели - это "шаговые двигатели 0,9 градуса", поэтому они имеют 400 полных шагов на оборот. Другие шаговые двигатели встречаются редко. Если вы не уверены, не задавайте значение full_steps_per_rotation в конфигурационном файле и используйте 200 в приведенной выше формуле.
 
 Настройка `<microsteps>` определяется драйвером шагового двигателя. Большинство драйверов используют 16 микрошагов. Если вы не уверены, установите `microsteps: 16` в конфигурации и используйте 16 в приведенной выше формуле.
 
-Almost all printers should have a whole number for `rotation_distance` on X, Y, and Z type axes. If the above formula results in a rotation_distance that is within .01 of a whole number then round the final value to that whole_number.
+Почти у всех принтеров должно быть целое число для `rotation_distance` по осям типа X, Y и Z. Если приведенная выше формула приводит к rotation_distance, которое находится в пределах .01 от целого числа, то округлите конечное значение до этого whole_number.
 
 ## Калибровка rotation_distance на экструдерах
 
-On an extruder, the `rotation_distance` is the amount of distance the filament travels for one full rotation of the stepper motor. The best way to get an accurate value for this setting is to use a "measure and trim" procedure.
+В экструдере `rotation_distance` - это величина расстояния, которое проходит нить накала за один полный оборот шагового двигателя. Лучший способ получить точное значение для этого параметра - использовать процедуру "измерить и обрезать".
 
-First start with an initial guess for the rotation distance. This may be obtained from [steps_per_mm](#obtaining-rotation_distance-from-steps_per_mm-or-step_distance) or by [inspecting the hardware](#extruder).
+Сначала начните с первоначального предположения о расстоянии поворота. Это может быть получено с помощью [steps_per_mm](#получение-rotation_distance-из-steps_per_mm-или-step_distance) или с помощью [проверки оборудования](#экструдер).
 
 Затем используйте следующую процедуру для "измерения и обрезки":
 
-1. Make sure the extruder has filament in it, the hotend is heated to an appropriate temperature, and the printer is ready to extrude.
-1. Use a marker to place a mark on the filament around 70mm from the intake of the extruder body. Then use a digital calipers to measure the actual distance of that mark as precisely as one can. Note this as `<initial_mark_distance>`.
-1. Extrude 50mm of filament with the following command sequence: `G91` followed by `G1 E50 F60`. Note 50mm as `<requested_extrude_distance>`. Wait for the extruder to finish the move (it will take about 50 seconds). It is important to use the slow extrusion rate for this test as a faster rate can cause high pressure in the extruder which will skew the results. (Do not use the "extrude button" on graphical front-ends for this test as they extrude at a fast rate.)
-1. Use the digital calipers to measure the new distance between the extruder body and the mark on the filament. Note this as `<subsequent_mark_distance>`. Then calculate: `actual_extrude_distance = <initial_mark_distance> - <subsequent_mark_distance>`
-1. Calculate rotation_distance as: `rotation_distance = <previous_rotation_distance> * <actual_extrude_distance> / <requested_extrude_distance>` Round the new rotation_distance to three decimal places.
+1. Убедитесь, что в экструдере есть нить накала, горячий конец нагрет до соответствующей температуры и принтер готов к выдавливанию.
+1. Используйте маркер, чтобы сделать отметку на нити примерно в 70 мм от входного отверстия корпуса экструдера. Затем с помощью цифрового штангенциркуля измерьте фактическое расстояние до этой отметки настолько точно, насколько это возможно. Обратите внимание на это как на `<initial_mark_distance>`.
+1. Выдавите 50 мм нити накала, используя следующую последовательность команд: "G91", за которой следует `G1 E50 F60`. Обратите внимание на 50 мм как на "<запрошенное_extrude_distance>". Дождитесь завершения работы экструдера (это займет около 50 секунд). Для этого теста важно использовать медленную скорость экструзии, так как более высокая скорость может вызвать высокое давление в экструдере, что исказит результаты. (Не используйте кнопку "выдавливать" на графических интерфейсах для этого теста, так как они выдавливаются с высокой скоростью.)
+1. С помощью цифрового штангенциркуля измерьте новое расстояние между корпусом экструдера и меткой на нити накала. Обратите внимание на это как на `<subscribent_mark_distance>`. Затем вычислите: `actual_extrude_distance = <initial_mark_distance> - <subscribent_mark_distance>`
+1. Вычислить значение rotation_distance следующим образом: `значение rotation_distance = <предыдущее значение rotation_distance> * <фактическое значение extrude_distance> / <запрошенное значение extrude_distance>` Округлите новое значение rotation_distance до трех знаков после запятой.
 
-If the actual_extrude_distance differs from requested_extrude_distance by more than about 2mm then it is a good idea to perform the steps above a second time.
+Если фактическое значение extrude_distance отличается от запрошенного значения extrude_distance более чем примерно на 2 мм, то рекомендуется выполнить описанные выше действия во второй раз.
 
-Note: Do *not* use a "measure and trim" type of method to calibrate x, y, or z type axes. The "measure and trim" method is not accurate enough for those axes and will likely lead to a worse configuration. Instead, if needed, those axes can be determined by [measuring the belts, pulleys, and lead screw hardware](#obtaining-rotation_distance-by-inspecting-the-hardware).
+Примечание: *Не используйте* метод типа "измерение и обрезка" для калибровки осей типа x, y или z. Метод "измерения и обрезки" недостаточно точен для этих осей и, скорее всего, приведет к ухудшению конфигурации. Вместо этого, при необходимости, эти оси могут быть определены с помощью [измерения ремней, шкивов и ходового винта](#получение-расстояния-вращения-путем-проверки-оборудования).
 
-## Obtaining rotation_distance by inspecting the hardware
+## Получение rotation_distance путем проверки аппаратного обеспечения
 
-It's possible to calculate rotation_distance with knowledge of the stepper motors and printer kinematics. This may be useful if the steps_per_mm is not known or if designing a new printer.
+Можно рассчитать rotation_distance, зная шаговые двигатели и кинематику принтера. Это может быть полезно, если steps_per_mm неизвестен или при разработке нового принтера.
 
-### Belt driven axes
+### Оси с ременным приводом
 
-It is easy to calculate rotation_distance for a linear axis that uses a belt and pulley.
+Легко рассчитать rotation_distance для линейной оси, использующей ремень и шкив.
 
-First determine the type of belt. Most printers use a 2mm belt pitch (that is, each tooth on the belt is 2mm apart). Then count the number of teeth on the stepper motor pulley. The rotation_distance is then calculated as:
-
-```
-rotation_distance = <belt_pitch> * <number_of_teeth_on_pulley>
-```
-
-For example, if a printer has a 2mm belt and uses a pulley with 20 teeth, then the rotation distance is 40.
-
-### Axes with a lead screw
-
-It is easy to calculate the rotation_distance for common lead screws using the following formula:
+Сначала определитесь с типом ремня. Большинство принтеров используют шаг ленты 2 мм (то есть каждый зуб на ленте находится на расстоянии 2 мм друг от друга). Затем подсчитайте количество зубьев на шкиве шагового двигателя. Затем значение rotation_distance вычисляется как:
 
 ```
-rotation_distance = <screw_pitch> * <number_of_separate_threads>
+rotation_distance = <belt_pitch> * <число_зубов_на_пульке>
 ```
 
-For example, the common "T8 leadscrew" has a rotation distance of 8 (it has a pitch of 2mm and has 4 separate threads).
+Например, если принтер оснащен ремнем диаметром 2 мм и использует шкив с 20 зубьями, то расстояние поворота равно 40.
 
-Older printers with "threaded rods" have only one "thread" on the lead screw and thus the rotation distance is the pitch of the screw. (The screw pitch is the distance between each groove on the screw.) So, for example, an M6 metric rod has a rotation distance of 1 and an M8 rod has a rotation distance of 1.25.
+### Оси с ходовым винтом
 
-### Extruder
+Легко рассчитать расстояние поворота для обычных ходовых винтов, используя следующую формулу:
 
-It's possible to obtain an initial rotation distance for extruders by measuring the diameter of the "hobbed bolt" that pushes the filament and using the following formula: `rotation_distance = <diameter> * 3.14`
+```
+rotation_distance = <винтовой переключатель> * <количество_ отдельных нитей>
+```
 
-If the extruder uses gears then it will also be necessary to [determine and set the gear_ratio](#using-a-gear_ratio) for the extruder.
+Например, обычный "ходовой винт T8" имеет расстояние поворота 8 (он имеет шаг 2 мм и имеет 4 отдельные резьбы).
 
-The actual rotation distance on an extruder will vary from printer to printer, because the grip of the "hobbed bolt" that engages the filament can vary. It can even vary between filament spools. After obtaining an initial rotation_distance, use the [measure and trim procedure](#calibrating-rotation_distance-on-extruders) to obtain a more accurate setting.
+Старые принтеры с "резьбовыми стержнями" имеют только одну "резьбу" на ходовом винте, и, таким образом, расстояние поворота равно шагу винта. (Шаг винта - это расстояние между каждой канавкой на винте.) Так, например, метрический стержень M6 имеет расстояние поворота, равное 1, а стержень M8 имеет расстояние поворота, равное 1,25.
 
-## Using a gear_ratio
+### Экструдер
 
-Setting a `gear_ratio` can make it easier to configure the `rotation_distance` on steppers that have a gear box (or similar) attached to it. Most steppers do not have a gear box - if unsure then do not set `gear_ratio` in the config.
+Начальное расстояние вращения для экструдеров можно получить, измерив диаметр "зубчатого болта", который проталкивает нить, и используя следующую формулу: `rotation_distance = <диаметр> * 3,14`
 
-When `gear_ratio` is set, the `rotation_distance` represents the distance the axis moves with one full rotation of the final gear on the gear box. If, for example, one is using a gearbox with a "5:1" ratio, then one could calculate the rotation_distance with [knowledge of the hardware](#obtaining-rotation_distance-by-inspecting-the-hardware) and then add `gear_ratio: 5:1` to the config.
+Если в экструдере используются шестерни, то также необходимо будет [определить и установить gear_ratio](#using-a-gear_ratio) для экструдера.
 
-For gearing implemented with belts and pulleys, it is possible to determine the gear_ratio by counting the teeth on the pulleys. For example, if a stepper with a 16 toothed pulley drives the next pulley with 80 teeth then one would use `gear_ratio: 80:16`. Indeed, one could open a common off the shelf "gear box" and count the teeth in it to confirm its gear ratio.
+Фактическое расстояние вращения экструдера будет варьироваться от принтера к принтеру, поскольку захват "зубчатого болта", который захватывает нить накала, может варьироваться. Она может варьироваться даже в зависимости от катушки с нитью накала. После получения начального значения rotation_distance используйте [процедуру измерения и обрезки](#калибровка-rotation_distance-на-экструдерах) для получения более точной настройки.
 
-Note that sometimes a gearbox will have a slightly different gear ratio than what it is advertised as. The common BMG extruder motor gears are an example of this - they are advertised as "3:1" but actually use "50:17" gearing. (Using teeth numbers without a common denominator may improve overall gear wear as the teeth don't always mesh the same way with each revolution.) The common "5.18:1 planetary gearbox", is more accurately configured with `gear_ratio: 57:11`.
+## Использование gear_ratio
 
-If several gears are used on an axis then it is possible to provide a comma separated list to gear_ratio. For example, a "5:1" gear box driving a 16 toothed to 80 toothed pulley could use `gear_ratio: 5:1, 80:16`.
+Установка `gear_ratio` может упростить настройку `rotation_distance` на степперах, к которым подключена коробка передач (или что-то подобное). У большинства степперов нет коробки передач - если вы не уверены, то не устанавливайте `gear_ratio` в конфигурации.
 
-In most cases, gear_ratio should be defined with whole numbers as common gears and pulleys have a whole number of teeth on them. However, in cases where a belt drives a pulley using friction instead of teeth, it may make sense to use a floating point number in the gear ratio (eg, `gear_ratio: 107.237:16`).
+Когда задано значение `gear_ratio`, значение `rotation_distance` представляет расстояние, на которое перемещается ось при одном полном обороте последней передачи коробки передач. Если, например, используется коробка передач с передаточным отношением "5:1", то можно было бы рассчитать rotation_distance с помощью [знания аппаратного обеспечения](#получение-rotation_distance-путем-проверки-аппаратного обеспечения), а затем добавить `gear_ratio: 5:1` в конфигурацию.
+
+Для зубчатой передачи, реализованной с помощью ремней и шкивов, можно определить соотношение зубьев путем подсчета зубьев на шкивах. Например, если шаговый двигатель с 16-зубчатым шкивом приводит в движение следующий шкив с 80 зубьями, то можно было бы использовать `gear_ratio: 80:16`. Действительно, можно было бы открыть обычную "коробку передач" и сосчитать зубья в ней, чтобы подтвердить ее передаточное отношение.
+
+Обратите внимание, что иногда коробка передач будет иметь несколько иное передаточное отношение, чем то, как она рекламируется. Примером этого являются обычные мотор-редукторы экструдеров BMG - они рекламируются как "3:1", но на самом деле используют передачу "50:17". (Использование номеров зубьев без общего знаменателя может улучшить общий износ зубчатого колеса, поскольку зубья не всегда входят в зацепление одинаково при каждом обороте.) Обычная планетарная коробка передач "5.18:1" более точно сконфигурирована с помощью `gear_ratio: 57:11`.
+
+Если на оси используется несколько зубчатых колес, то в gear_ratio можно указать список, разделенный запятыми. Например, коробка передач "5:1", приводящая в движение шкив с 16 зубьями на 80 зубьев, может использовать `gear_ratio: 5:1, 80:16`.
+
+В большинстве случаев gear_ratio следует определять целыми числами, поскольку обычные шестерни и шкивы имеют на себе целое число зубьев. Однако в случаях, когда ремень приводит в движение шкив, используя трение вместо зубьев, может иметь смысл использовать число с плавающей запятой в передаточном отношении (например, `gear_ratio: 107.237:16`).

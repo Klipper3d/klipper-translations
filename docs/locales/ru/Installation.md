@@ -2,19 +2,19 @@
 
 В этих инструкциях предполагается, что программное обеспечение будет работать на компьютере Raspberry Pi совместно с OctoPrint. В качестве хост-машины рекомендуется использовать компьютер Raspberry Pi 2, 3 или 4 (см. [Часто задаваемые вопросы](FAQ.md#can-i-run-klipper-on-something-other-than-a-raspberry-pi-3) для других машин).
 
-## Obtain a Klipper Configuration File
+## Получение файла конфигурации Klipper
 
-Most Klipper settings are determined by a "printer configuration file" that will be stored on the Raspberry Pi. An appropriate configuration file can often be found by looking in the Klipper [config directory](../config/) for a file starting with a "printer-" prefix that corresponds to the target printer. The Klipper configuration file contains technical information about the printer that will be needed during the installation.
+Большинство настроек Klipper определяется "файлом конфигурации принтера", который будет храниться на Raspberry Pi. Соответствующий файл конфигурации часто можно найти, заглянув в каталог Klipper [config](../config/) в поисках файла, начинающегося с префикса "printer-", который соответствует целевому принтеру. Конфигурационный файл Klipper содержит техническую информацию о принтере, которая понадобится в процессе установки.
 
-If there isn't an appropriate printer configuration file in the Klipper config directory then try searching the printer manufacturer's website to see if they have an appropriate Klipper configuration file.
+Если в каталоге Klipper config нет соответствующего файла конфигурации принтера, попробуйте поискать на сайте производителя принтера, чтобы узнать, есть ли у него соответствующий файл конфигурации Klipper.
 
-If no configuration file for the printer can be found, but the type of printer control board is known, then look for an appropriate [config file](../config/) starting with a "generic-" prefix. These example printer board files should allow one to successfully complete the initial installation, but will require some customization to obtain full printer functionality.
+Если конфигурационный файл для принтера не найден, но известен тип платы управления принтером, то ищите соответствующий [config-файл](../config/), начинающийся с префикса "generic-". Приведенные примеры файлов платы управления принтером должны позволить успешно завершить начальную установку, но для получения полной функциональности принтера потребуется некоторая доработка.
 
-It is also possible to define a new printer configuration from scratch. However, this requires significant technical knowledge about the printer and its electronics. It is recommended that most users start with an appropriate configuration file. If creating a new custom printer configuration file, then start with the closest example [config file](../config/) and use the Klipper [config reference](Config_Reference.md) for further information.
+Можно также задать новую конфигурацию принтера с нуля. Однако это требует значительных технических знаний о принтере и его электронике. Большинству пользователей рекомендуется начинать работу с соответствующего файла конфигурации. При создании нового файла конфигурации принтера следует начать с ближайшего примера [config file](../config/), а для получения дополнительной информации использовать справочник Klipper [config reference](Config_Reference.md).
 
 ## Подготовка образа операционной системы
 
-Start by installing [OctoPi](https://github.com/guysoft/OctoPi) on the Raspberry Pi computer. Use OctoPi v0.17.0 or later - see the [OctoPi releases](https://github.com/guysoft/OctoPi/releases) for release information. One should verify that OctoPi boots and that the OctoPrint web server works. After connecting to the OctoPrint web page, follow the prompt to upgrade OctoPrint to v1.4.2 or later.
+Начните с установки [OctoPi](https://github.com/guysoft/OctoPi) на компьютер Raspberry Pi. Используйте OctoPi версии 0.17.0 или более поздней - информацию о релизах см. в разделе [OctoPi releases](https://github.com/guysoft/OctoPi/releases). Необходимо убедиться, что OctoPi загружается и веб-сервер OctoPrint работает. После подключения к веб-странице OctoPrint выполните запрос на обновление OctoPrint до версии 1.4.2 или более поздней.
 
 После установки OctoPi и обновления OctoPrint необходимо будет подключиться к целевому компьютеру по ssh для выполнения нескольких системных команд. Если используется рабочий стол Linux или macOS, то утилита "ssh", скорее всего, уже установлена. Существуют бесплатные ssh-клиенты, доступные для других настольных компьютеров (например, [PuTTY](https://www.chiark.greenend.org.uk/~sgtatham/putty/)). Используйте утилиту ssh для подключения к Raspberry Pi (ssh pi@octopi -- пароль "raspberry") и выполните следующие команды:
 
@@ -34,15 +34,15 @@ cd ~/klipper/
 make menuconfig
 ```
 
-The comments at the top of the [printer configuration file](#obtain-a-klipper-configuration-file) should describe the settings that need to be set during "make menuconfig". Open the file in a web browser or text editor and look for these instructions near the top of the file. Once the appropriate "menuconfig" settings have been configured, press "Q" to exit, and then "Y" to save. Then run:
+Комментарии в верхней части файла [printer configuration file](#obtain-a-klipper-configuration-file) должны описывать настройки, которые необходимо задать при выполнении команды "make menuconfig". Откройте файл в браузере или текстовом редакторе и найдите эти инструкции в верхней части файла. После того как соответствующие настройки "menuconfig" будут заданы, нажмите "Q" для выхода, а затем "Y" для сохранения. Затем запустите программу:
 
 ```
 make
 ```
 
-If the comments at the top of the [printer configuration file](#obtain-a-klipper-configuration-file) describe custom steps for "flashing" the final image to the printer control board then follow those steps and then proceed to [configuring OctoPrint](#configuring-octoprint-to-use-klipper).
+Если в комментариях в верхней части файла [printer configuration file](#obtain-a-klipper-configuration-file) описаны пользовательские шаги по "прошивке" конечного изображения на плату управления принтером, то выполните эти шаги, а затем перейдите к [configuring OctoPrint](#configuring-octoprint-to-use-klipper).
 
-Otherwise, the following steps are often used to "flash" the printer control board. First, it is necessary to determine the serial port connected to the micro-controller. Run the following:
+В противном случае для "прошивки" платы управления принтером часто используются следующие действия. Во-первых, необходимо определить последовательный порт, подключенный к микроконтроллеру. Для этого выполните следующее:
 
 ```
 ls /dev/serial/by-id/*
@@ -54,7 +54,7 @@ ls /dev/serial/by-id/*
 /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 ```
 
-Зачастую у каждого принтера есть своё уникальное имя последовательного порта. По этому имени мы и будем производить прошивку. Вышеуказанная команда также может вывести и несколько строк вместо одной – в таком случае вам нужно выбрать строку, соответствующую микроконтроллеру, который вы хотите прошить (см [ЧАВО](FAQ.md#wheres-my-serial-port)).
+Обычно каждый принтер имеет свое уникальное имя последовательного порта. Это уникальное имя будет использоваться при прошивке микроконтроллера. Возможно, в приведенном выше выводе будет несколько строк - в этом случае выберите строку, соответствующую микроконтроллеру (более подробную информацию см. в разделе [FAQ](FAQ.md#wheres-my-serial-port)).
 
 Большинство контроллеров могут быть прошиты с помощью:
 
@@ -66,36 +66,36 @@ sudo service klipper start
 
 Не забудьте заменить значение FLASH_DEVICE на имя порта вашего принтера.
 
-При первой прошивке убедитесь, что OctoPrint не подключен напрямую к принтеру (на странице OctoPrint в разделе "Соединение" нажмите "Отключиться").
+При первой прошивке убедитесь, что OctoPrint не подключен напрямую к принтеру (на веб-странице OctoPrint в разделе "Подключение" нажмите кнопку "Отключить").
 
 ## Конфигурация OctoPrint для работы с Klipper
 
-Чтобы веб-сервер OctoPrint мог взаимодействовать с Klipper, его нужно соответствующим образом настроить. Войдите в OctoPrint через браузер и установите следующие настройки:
+Для связи с хост-программой Klipper необходимо настроить веб-сервер OctoPrint. Используя веб-браузер, войдите на веб-страницу OctoPrint, а затем настройте следующие элементы:
 
-Перейдите на вкладку "Настройки" (иконка ключа вверху страницы). В разделе "Соединение", в "Дополнительные последовательные порты" добавьте "/tmp/printer". Затем нажмите "Сохранить".
+Перейдите на вкладку "Настройки" (значок гаечного ключа в верхней части страницы). В разделе "Последовательное соединение" в пункте "Дополнительные последовательные порты" добавьте "/tmp/printer". Затем нажмите кнопку "Сохранить".
 
-Снова зайдите на вкладку "Настройки" и в разделе "Соединение" замените "Последовательный порт" на "/tmp/printer".
+Снова войдите на вкладку "Настройки" и в разделе "Последовательное соединение" измените значение параметра "Последовательный порт" на "/tmp/printer".
 
-На вкладке "Настройки", перейдите на под-вкладку "Поведение" и выберите "Отменить все неоконченные печати, но не прерывать соединение". Нажмите "Сохранить".
+На вкладке "Настройки" перейдите на подвкладку "Поведение" и выберите опцию "Отменить все текущие отпечатки, но оставаться подключенным к принтеру". Нажмите кнопку "Сохранить".
 
-From the main page, under the "Connection" section (at the top left of the page) make sure the "Serial Port" is set to "/tmp/printer" and click "Connect". (If "/tmp/printer" is not an available selection then try reloading the page.)
+На главной странице в разделе "Подключение" (в левой верхней части страницы) убедитесь, что для параметра "Последовательный порт" выбрано значение "/tmp/printer", и нажмите кнопку "Подключить". (Если "/tmp/printer" недоступен, попробуйте перезагрузить страницу.)
 
-Once connected, navigate to the "Terminal" tab and type "status" (without the quotes) into the command entry box and click "Send". The terminal window will likely report there is an error opening the config file - that means OctoPrint is successfully communicating with Klipper. Proceed to the next section.
+После подключения перейдите на вкладку "Терминал", введите в поле ввода команды "status" (без кавычек) и нажмите кнопку "Отправить". Скорее всего, в окне терминала появится сообщение об ошибке открытия файла конфигурации - это означает, что OctoPrint успешно взаимодействует с Klipper. Перейдите к следующему разделу.
 
-## Configuring Klipper
+## Настройка клиперов
 
-The next step is to copy the [printer configuration file](#obtain-a-klipper-configuration-file) to the Raspberry Pi.
+На следующем этапе необходимо скопировать [файл конфигурации принтера](#obtain-a-klipper-configuration-file) на Raspberry Pi.
 
-Arguably the easiest way to set the Klipper configuration file is to use a desktop editor that supports editing files over the "scp" and/or "sftp" protocols. There are freely available tools that support this (eg, Notepad++, WinSCP, and Cyberduck). Load the printer config file in the editor and then save it as a file named "printer.cfg" in the home directory of the pi user (ie, /home/pi/printer.cfg).
+Пожалуй, самым простым способом настройки конфигурационного файла Klipper является использование настольного редактора, поддерживающего редактирование файлов по протоколам "scp" и/или "sftp". Существуют свободно распространяемые инструменты, поддерживающие эту функцию (например, Notepad++, WinSCP и Cyberduck). Загрузите файл конфигурации принтера в редактор и сохраните его в виде файла с именем "printer.cfg" в домашнем каталоге пользователя pi (т.е. /home/pi/printer.cfg).
 
-Alternatively, one can also copy and edit the file directly on the Raspberry Pi via ssh. That may look something like the following (be sure to update the command to use the appropriate printer config filename):
+В качестве альтернативы можно скопировать и отредактировать файл непосредственно на Raspberry Pi через ssh. Это может выглядеть следующим образом (не забудьте обновить команду, чтобы использовать соответствующее имя файла конфигурации принтера):
 
 ```
 cp ~/klipper/config/example-cartesian.cfg ~/printer.cfg
 nano ~/printer.cfg
 ```
 
-It's common for each printer to have its own unique name for the micro-controller. The name may change after flashing Klipper, so rerun these steps again even if they were already done when flashing. Run:
+Обычно каждый принтер имеет свое собственное уникальное имя для микроконтроллера. После прошивки Klipper это имя может измениться, поэтому повторите эти шаги еще раз, даже если они уже были выполнены при прошивке. Выполнить:
 
 ```
 ls /dev/serial/by-id/*
@@ -107,17 +107,17 @@ ls /dev/serial/by-id/*
 /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 ```
 
-Then update the config file with the unique name. For example, update the `[mcu]` section to look something similar to:
+Затем обновите конфигурационный файл с уникальным именем. Например, обновите секцию `[mcu]`, чтобы она выглядела примерно так:
 
 ```
 [mcu]
 serial: /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 ```
 
-After creating and editing the file it will be necessary to issue a "restart" command in the OctoPrint web terminal to load the config. A "status" command will report the printer is ready if the Klipper config file is successfully read and the micro-controller is successfully found and configured.
+После создания и редактирования файла необходимо выполнить команду "restart" в веб-терминале OctoPrint для загрузки конфигурации. Команда "status" сообщит о готовности принтера, если файл конфигурации Klipper успешно прочитан, а микроконтроллер успешно найден и настроен.
 
-When customizing the printer config file, it is not uncommon for Klipper to report a configuration error. If an error occurs, make any necessary corrections to the printer config file and issue "restart" until "status" reports the printer is ready.
+При настройке файла конфигурации принтера нередко Klipper сообщает об ошибке конфигурации. При возникновении ошибки внесите необходимые исправления в файл конфигурации принтера и выполняйте команду "restart" до тех пор, пока "status" не сообщит о готовности принтера.
 
-Klipper reports error messages via the OctoPrint terminal tab. The "status" command can be used to re-report error messages. The default Klipper startup script also places a log in **/tmp/klippy.log** which provides more detailed information.
+Klipper сообщает о сообщениях об ошибках на вкладке терминала OctoPrint. Для повторного вывода сообщений об ошибках можно использовать команду "status". Сценарий запуска Klipper по умолчанию также помещает журнал в **/tmp/klippy.log**, в котором содержится более подробная информация.
 
-After Klipper reports that the printer is ready, proceed to the [config check document](Config_checks.md) to perform some basic checks on the definitions in the config file. See the main [documentation reference](Overview.md) for other information.
+После того как Klipper сообщит, что принтер готов, перейдите к документу [Проверка конфигурации](Config_checks.md) для выполнения некоторых базовых проверок определений в файле конфигурации. Другую информацию см. в основной части [справочной документации](Overview.md).

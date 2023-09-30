@@ -1,6 +1,6 @@
-# CANBUS protocol
+# Протокол CANBUS
 
-This document describes the protocol Klipper uses to communicate over [CAN bus](https://en.wikipedia.org/wiki/CAN_bus). See <CANBUS.md> for information on configuring Klipper with CAN bus.
+В этом документе описывается протокол, используемый Klipper для обмена данными по [CAN-шине](https://en.wikipedia.org/wiki/CAN_bus). Информацию о настройке Klipper на работу с шиной CAN см. в разделе <CANBUS.md>.
 
 ## Идентификатор микроконтроллера
 
@@ -16,22 +16,22 @@ Klipper использует только пакеты CAN 2.0A стандарт
 
 Эта команда запрашивает все микроконтроллеры, которым еще не присвоен `canbus_nodeid`. В ответ на запрос микроконтроллеры, которым еще не присвоен `canbus_nodeid`, выдают сообщение RESP_NEED_NODEID.
 
-The CMD_QUERY_UNASSIGNED message format is: `<1-byte message_id = 0x00>`
+Формат сообщения CMD_QUERY_UNASSIGNED: `<1-байтовый message_id = 0x00>`
 
-### CMD_SET_KLIPPER_NODEID message
+### Сообщение CMD_SET_KLIPPER_NODEID
 
-This command assigns a `canbus_nodeid` to the micro-controller with a given `canbus_uuid`.
+Эта команда назначает микроконтроллеру `canbus_nodeid` с заданным `canbus_uuid`.
 
-The CMD_SET_KLIPPER_NODEID message format is: `<1-byte message_id = 0x01><6-byte canbus_uuid><1-byte canbus_nodeid>`
+Формат сообщения CMD_SET_KLIPPER_NODEID следующий: `<1-байтовый message_id = 0x01><6-байтовый canbus_uuid><1-байтовый canbus_nodeid>`
 
 ### RESP_NEED_NODEID сообщение
 
-The RESP_NEED_NODEID message format is: `<1-byte message_id = 0x20><6-byte canbus_uuid><1-byte set_klipper_nodeid = 0x01>`
+Формат сообщения RESP_NEED_NODEID следующий: `<1-байтовый message_id = 0x20><6-байтовый canbus_uuid><1-байтовый set_klipper_nodeid = 0x01>`
 
-## Data Packets
+## Пакеты данных
 
-A micro-controller that has been assigned a nodeid via the CMD_SET_KLIPPER_NODEID command can send and receive data packets.
+Микроконтроллер, которому присвоен идентификатор узла командой CMD_SET_KLIPPER_NODEID, может отправлять и принимать пакеты данных.
 
-The packet data in messages using the node's receive CAN bus id (`canbus_nodeid * 2 + 256`) are simply appended to a buffer, and when a complete [mcu protocol message](Protocol.md) is found its contents are parsed and processed. The data is treated as a byte stream - there is no requirement for the start of a Klipper message block to align with the start of a CAN bus packet.
+Данные пакетов в сообщениях, использующих идентификатор принимаемой CAN-шины узла (`canbus_nodeid * 2 + 256`), просто добавляются в буфер, а при обнаружении полного [mcu protocol message](Protocol.md) его содержимое разбирается и обрабатывается. Данные обрабатываются как поток байтов - нет требования, чтобы начало блока сообщений Klipper совпадало с началом пакета CAN-шины.
 
-Similarly, mcu protocol message responses are sent from micro-controller to host by copying the message data into one or more packets with the node's transmit CAN bus id (`canbus_nodeid * 2 + 256 + 1`).
+Аналогично, ответы на сообщения протокола mcu передаются от микроконтроллера к хосту путем копирования данных сообщения в один или несколько пакетов с идентификатором передаваемого узла CAN-шины (`canbus_nodeid * 2 + 256 + 1`).

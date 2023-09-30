@@ -14,20 +14,20 @@ Klipper - это свободное программное обеспечени�
 
 ## Разработчики Klipper
 
-### Kevin O'Connor
+### Кевин О'Коннор
 
-Kevin is the original author and current maintainer of Klipper. Donate at: <https://ko-fi.com/koconnor> or <https://www.patreon.com/koconnor>
+Кевин - оригинальный автор и текущий сопровождающий Klipper. Пожертвовать можно по адресу: <https://ko-fi.com/koconnor> или <https://www.patreon.com/koconnor>
 
-### Eric Callahan
+### Эрик Каллахан
 
-Eric is the author of bed_mesh, spi_flash, and several other Klipper modules. Eric has a donations page at: <https://ko-fi.com/arksine>
+Эрик является автором bed_mesh, spi_flash и ряда других модулей Klipper. У Эрика есть страница для пожертвований по адресу: <https://ko-fi.com/arksine>
 
-## Related Klipper Projects
+## Связанные проекты Klipper
 
-Klipper is frequently used with other Free Software. Consider using or supporting these projects.
+Klipper часто используется вместе с другими свободными программами. Рассмотрите возможность использования или поддержки этих проектов.
 
-* [Moonraker](https://github.com/Arksine/moonraker)
-* [Mainsail](https://github.com/mainsail-crew/mainsail)
+* [Лунный гонщик](https://github.com/Arksine/moonraker)
+* [Грот](https://github.com/mainsail-crew/mainsail)
 * [Fluidd](https://github.com/fluidd-core/fluidd)
 * [OctoPrint](https://octoprint.org/)
 * [KlipperScreen](https://github.com/jordanruthe/KlipperScreen)

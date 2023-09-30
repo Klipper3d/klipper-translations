@@ -1,6 +1,6 @@
-# Probe calibration
+# Калибровка датчика
 
-This document describes the method for calibrating the X, Y, and Z offsets of an "automatic z probe" in Klipper. This is useful for users that have a `[probe]` or `[bltouch]` section in their config file.
+В этом документе описывается метод калибровки смещений X, Y и Z "автоматического датчика z" в Klipper. Это полезно для пользователей, у которых в конфигурационном файле есть секция `[probe]` или `[bltouch]`.
 
 ## Калибровка смещений X и Y зонда
 
@@ -28,76 +28,76 @@ Recv: // toolhead: X:46.500000 Y:27.000000 Z:15.000000 E:0.000000
 G1 F300 X57 Y30 Z15
 ```
 
-to move the nozzle to an X position of 57 and Y of 30. Once one finds the position directly above the mark, use the `GET_POSITION` command to report that position. This is the nozzle position.
+для перемещения сопла в положение по оси X, равное 57, и по оси Y, равное 30. Найдя положение непосредственно над меткой, с помощью команды `GET_POSITION` сообщите это положение. Это и есть положение сопла.
 
-The x_offset is then the `nozzle_x_position - probe_x_position` and y_offset is similarly the `nozzle_y_position - probe_y_position`. Update the printer.cfg file with the given values, remove the tape/marks from the bed, and then issue a `RESTART` command so that the new values take effect.
+В этом случае x_offset равно `nozzle_x_position - probe_x_position`, а y_offset аналогично `nozzle_y_position - probe_y_position`. Обновите файл printer.cfg с заданными значениями, удалите ленту/марки со станины, а затем выполните команду `RESTART`, чтобы новые значения вступили в силу.
 
 ## Калибровка датчика со смещением по оси Z
 
-Providing an accurate probe z_offset is critical to obtaining high quality prints. The z_offset is the distance between the nozzle and bed when the probe triggers. The Klipper `PROBE_CALIBRATE` tool can be used to obtain this value - it will run an automatic probe to measure the probe's Z trigger position and then start a manual probe to obtain the nozzle Z height. The probe z_offset will then be calculated from these measurements.
+Обеспечение точного смещения датчика z_offset имеет решающее значение для получения высококачественных отпечатков. Смещение z_offset - это расстояние между соплом и станиной в момент срабатывания датчика. Для получения этого значения можно использовать инструмент Klipper `PROBE_CALIBRATE` - он запускает автоматический датчик для измерения положения триггера датчика по оси Z, а затем запускает ручной датчик для получения высоты сопла по оси Z. Затем на основе этих измерений будет рассчитано смещение зонда по оси z.
 
-Start by homing the printer and then move the head to a position near the center of the bed. Navigate to the OctoPrint terminal tab and run the `PROBE_CALIBRATE` command to start the tool.
+Начните с наведения принтера, а затем переместите головку в положение, близкое к центру станины. Перейдите на вкладку терминала OctoPrint и выполните команду `PROBE_CALIBRATE` для запуска инструмента.
 
-This tool will perform an automatic probe, then lift the head, move the nozzle over the location of the probe point, and start the manual probe tool. If the nozzle does not move to a position above the automatic probe point, then `ABORT` the manual probe tool and perform the XY probe offset calibration described above.
+Этот инструмент выполнит автоматический зонд, затем поднимет головку, переместит сопло над точкой зондирования и запустит инструмент ручного зондирования. Если сопло не перемещается в положение над точкой автоматического зондирования, то следует `АБОРТИРОВАТЬ` инструмент ручного зондирования и выполнить калибровку смещения зонда по оси XY, описанную выше.
 
-Once the manual probe tool starts, follow the steps described at ["the paper test"](Bed_Level.md#the-paper-test)) to determine the actual distance between the nozzle and bed at the given location. Once those steps are complete one can `ACCEPT` the position and save the results to the config file with:
+После запуска инструмента ручного зондирования выполните действия, описанные в разделе ["тест бумаги"](Bed_Level.md#the-paper-test)], чтобы определить фактическое расстояние между соплом и станиной в заданном месте. По завершении этих действий можно `принять` позицию и сохранить результаты в файле конфигурации с помощью:
 
 ```
 SAVE_CONFIG
 ```
 
-Note that if a change is made to the printer's motion system, hotend position, or probe location then it will invalidate the results of PROBE_CALIBRATE.
+Обратите внимание, что если изменить систему перемещения принтера, положение хотэнда или расположение датчика, то это приведет к аннулированию результатов PROBE_CALIBRATE.
 
-If the probe has an X or Y offset and the bed tilt is changed (eg, by adjusting bed screws, running DELTA_CALIBRATE, running Z_TILT_ADJUST, running QUAD_GANTRY_LEVEL, or similar) then it will invalidate the results of PROBE_CALIBRATE. After making any of the above adjustments it will be necessary to run PROBE_CALIBRATE again.
+Если зонд имеет смещение по X или Y, а наклон станины изменен (например, путем регулировки винтов станины, выполнения DELTA_CALIBRATE, Z_TILT_ADJUST, QUAD_GANTRY_LEVEL и т.п.), то результаты PROBE_CALIBRATE окажутся недействительными. После выполнения любой из перечисленных выше корректировок необходимо повторно запустить PROBE_CALIBRATE.
 
-If the results of PROBE_CALIBRATE are invalidated, then any previous [bed mesh](Bed_Mesh.md) results that were obtained using the probe are also invalidated - it will be necessary to rerun BED_MESH_CALIBRATE after recalibrating the probe.
+Если результаты PROBE_CALIBRATE недействительны, то все предыдущие результаты [bed mesh](Bed_Mesh.md), полученные с помощью зонда, также будут недействительны - необходимо будет повторно запустить BED_MESH_CALIBRATE после повторной калибровки зонда.
 
-## Repeatability check
+## Проверка воспроизводимости
 
-After calibrating the probe X, Y, and Z offsets it is a good idea to verify that the probe provides repeatable results. Start by homing the printer and then move the head to a position near the center of the bed. Navigate to the OctoPrint terminal tab and run the `PROBE_ACCURACY` command.
+После калибровки смещений датчика по осям X, Y и Z следует убедиться в том, что датчик обеспечивает повторяемость результатов. Начните с самонаведения принтера, затем переместите головку в положение, близкое к центру станины. Перейдите на вкладку терминала OctoPrint и выполните команду `PROBE_ACCURACY`.
 
-This command will run the probe ten times and produce output similar to the following:
+Эта команда запустит зонд десять раз и выдаст результаты, аналогичные приведенным ниже:
 
 ```
-Recv: // probe accuracy: at X:0.000 Y:0.000 Z:10.000
-Recv: // and read 10 times with speed of 5 mm/s
+Recv: // Точность зонда: при X:0.000 Y:0.000 Z:10.000
+Recv: // и считать 10 раз со скоростью 5 мм/с
+Recv: // зонд в точках -0.003,0.005 имеет значение z=2.506948
+Recv: // зонд в точке -0.003,0.005 имеет значение z=2.519448
+Recv: // probe at -0.003,0.005 is z=2.519448
 Recv: // probe at -0.003,0.005 is z=2.506948
 Recv: // probe at -0.003,0.005 is z=2.519448
 Recv: // probe at -0.003,0.005 is z=2.519448
 Recv: // probe at -0.003,0.005 is z=2.506948
-Recv: // probe at -0.003,0.005 is z=2.519448
-Recv: // probe at -0.003,0.005 is z=2.519448
-Recv: // probe at -0.003,0.005 is z=2.506948
 Recv: // probe at -0.003,0.005 is z=2.506948
 Recv: // probe at -0.003,0.005 is z=2.519448
 Recv: // probe at -0.003,0.005 is z=2.506948
-Recv: // probe accuracy results: maximum 2.519448, minimum 2.506948, range 0.012500, average 2.513198, median 2.513198, standard deviation 0.006250
+Recv: // результаты точности зондирования: максимум 2,519448, минимум 2,506948, диапазон 0,012500, среднее 2,513198, медиана 2,513198, стандартное отклонение 0,006250
 ```
 
-Ideally the tool will report an identical maximum and minimum value. (That is, ideally the probe obtains an identical result on all ten probes.) However, it's normal for the minimum and maximum values to differ by one Z "step distance" or up to 5 microns (.005mm). A "step distance" is `rotation_distance/(full_steps_per_rotation*microsteps)`. The distance between the minimum and the maximum value is called the range. So, in the above example, since the printer uses a Z step distance of .0125, a range of 0.012500 would be considered normal.
+В идеальном случае инструмент выдает одинаковое максимальное и минимальное значение. (То есть в идеале датчик получает идентичный результат на всех десяти зондах). Однако нормальной является ситуация, когда минимальное и максимальное значения отличаются на один Z "шаг" или до 5 микрон (.005 мм). Расстояние "шага" равно `расстояние_вращения/(полные_шаги_на_вращение*микрошаги)`. Расстояние между минимальным и максимальным значением называется диапазоном. Так, в приведенном выше примере, поскольку принтер использует расстояние шага по Z, равное .0125, нормальным считается диапазон 0,012500.
 
-If the results of the test show a range value that is greater than 25 microns (.025mm) then the probe does not have sufficient accuracy for typical bed leveling procedures. It may be possible to tune the probe speed and/or probe start height to improve the repeatability of the probe. The `PROBE_ACCURACY` command allows one to run tests with different parameters to see their impact - see the [G-Codes document](G-Codes.md#probe_accuracy) for further details. If the probe generally obtains repeatable results but has an occasional outlier, then it may be possible to account for that by using multiple samples on each probe - read the description of the probe `samples` config parameters in the [config reference](Config_Reference.md#probe) for more details.
+Если результаты теста показывают значение диапазона, превышающее 25 микрон (.025 мм), значит, точность датчика недостаточна для типичных процедур выравнивания станины. Возможно, для повышения повторяемости измерений можно отрегулировать скорость перемещения датчика и/или высоту его старта. Команда `PROBE_ACCURACY` позволяет проводить тесты с различными параметрами для определения их влияния - более подробная информация приведена в документе [G-Codes](G-Codes.md#probe_accuracy). Если зонд в целом дает воспроизводимые результаты, но иногда имеет отклонения от нормы, то это можно учесть, используя несколько образцов для каждого зонда - подробнее об этом читайте в описании параметров конфигурации зонда `samples в документе [config reference](Config_Reference.md#probe).
 
-If new probe speed, samples count, or other settings are needed, then update the printer.cfg file and issue a `RESTART` command. If so, it is a good idea to [calibrate the z_offset](#calibrating-probe-z-offset) again. If repeatable results can not be obtained then don't use the probe for bed leveling. Klipper has several manual probing tools that can be used instead - see the [Bed Level document](Bed_Level.md) for further details.
+Если требуется новая скорость зонда, количество образцов или другие настройки, то обновите файл printer.cfg и выполните команду `RESTART`. В этом случае целесообразно еще раз [откалибровать смещение z_offset](#calibrating-probe-z-offset). Если воспроизводимые результаты не могут быть получены, то не используйте зонд для выравнивания станины. В Klipper есть несколько инструментов для ручного зондирования, которые можно использовать вместо него - более подробную информацию см. в документе [Bed Level](Bed_Level.md).
 
-## Location Bias Check
+## Проверка смещения местоположения
 
-Some probes can have a systemic bias that corrupts the results of the probe at certain toolhead locations. For example, if the probe mount tilts slightly when moving along the Y axis then it could result in the probe reporting biased results at different Y positions.
+Некоторые датчики могут иметь системное смещение, искажающее результаты измерений в определенных точках инструментальной головки. Например, если крепление датчика немного наклоняется при перемещении вдоль оси Y, то это может привести к тому, что датчик будет выдавать смещенные результаты в различных положениях по оси Y.
 
-This is a common issue with probes on delta printers, however it can occur on all printers.
+Это распространенная проблема с датчиками на дельта-принтерах, однако она может возникать на всех принтерах.
 
-One can check for a location bias by using the `PROBE_CALIBRATE` command to measuring the probe z_offset at various X and Y locations. Ideally, the probe z_offset would be a constant value at every printer location.
+Проверить смещение местоположения можно с помощью команды `PROBE_CALIBRATE`, измеряющей смещение z_зонда в различных точках X и Y. В идеале смещение z_зонда должно быть постоянной величиной при любом расположении принтера.
 
-For delta printers, try measuring the z_offset at a position near the A tower, at a position near the B tower, and at a position near the C tower. For cartesian, corexy, and similar printers, try measuring the z_offset at positions near the four corners of the bed.
+Для дельта-принтеров попробуйте измерить смещение z_offset в позиции около башни A, в позиции около башни B и в позиции около башни C. Для принтеров с картезианской, корексианской и аналогичными системами попробуйте измерить смещение z_ в точках, расположенных вблизи четырех углов станины.
 
-Before starting this test, first calibrate the probe X, Y, and Z offsets as described at the beginning of this document. Then home the printer and navigate to the first XY position. Follow the steps at [calibrating probe Z offset](#calibrating-probe-z-offset) to run the `PROBE_CALIBRATE` command, `TESTZ` commands, and `ACCEPT` command, but do not run `SAVE_CONFIG`. Note the reported z_offset found. Then navigate to the other XY positions, repeat these `PROBE_CALIBRATE` steps, and note the reported z_offset.
+Перед началом этого теста сначала откалибруйте смещения датчиков по осям X, Y и Z, как описано в начале данного документа. Затем установите принтер в исходное положение и перейдите к первой позиции XY. Выполните шаги, описанные в разделе [калибровка Z-смещения зонда](#calibrating-probe-z-offset), чтобы выполнить команду `PROBE_CALIBRATE`, команды `TESTZ` и `ACCEPT`, но не выполняйте команду `SAVE_CONFIG`. Обратите внимание на найденное значение z_offset. Затем перейдите к другим позициям XY, повторите эти шаги `PROBE_CALIBRATE` и запишите полученное значение z_offset.
 
-If the difference between the minimum reported z_offset and the maximum reported z_offset is greater than 25 microns (.025mm) then the probe is not suitable for typical bed leveling procedures. See the [Bed Level document](Bed_Level.md) for manual probe alternatives.
+Если разница между минимальным зарегистрированным смещением z_ и максимальным зарегистрированным смещением z_ превышает 25 микрон (.025 мм), то датчик не подходит для типичных процедур выравнивания слоя. Альтернативные варианты ручных датчиков см. в документе [Bed Level](Bed_Level.md).
 
-## Temperature Bias
+## Температурная погрешность
 
-Many probes have a systemic bias when probing at different temperatures. For example, the probe may consistently trigger at a lower height when the probe is at a higher temperature.
+Многие датчики имеют системное смещение при измерении различных температур. Например, при более высокой температуре зонд может постоянно срабатывать на меньшей высоте.
 
-It is recommended to run the bed leveling tools at a consistent temperature to account for this bias. For example, either always run the tools when the printer is at room temperature, or always run the tools after the printer has obtained a consistent print temperature. In either case, it is a good idea to wait several minutes after the desired temperature is reached, so that the printer apparatus is consistently at the desired temperature.
+Для устранения этой погрешности рекомендуется запускать инструменты для выравнивания ложа при постоянной температуре. Например, либо всегда запускать инструменты, когда принтер находится при комнатной температуре, либо всегда запускать инструменты после того, как принтер достигнет постоянной температуры печати. В любом случае следует подождать несколько минут после достижения требуемой температуры, чтобы аппарат принтера постоянно находился при требуемой температуре.
 
-To check for a temperature bias, start with the printer at room temperature and then home the printer, move the head to a position near the center of the bed, and run the `PROBE_ACCURACY` command. Note the results. Then, without homing or disabling the stepper motors, heat the printer nozzle and bed to printing temperature, and run the `PROBE_ACCURACY` command again. Ideally, the command will report identical results. As above, if the probe does have a temperature bias then be careful to always use the probe at a consistent temperature.
+Чтобы проверить наличие температурного смещения, запустите принтер при комнатной температуре, затем переведите принтер в исходное положение, переместите головку в положение, близкое к центру станины, и выполните команду `PROBE_ACCURACY`. Заметьте результаты. Затем, не возвращая принтер в исходное положение и не отключая шаговые двигатели, нагрейте сопло и ложе принтера до температуры печати и снова выполните команду `PROBE_ACCURACY`. В идеале команда должна выдать идентичные результаты. Как указано выше, если датчик действительно имеет температурное смещение, то необходимо следить за тем, чтобы датчик всегда использовался при постоянной температуре.
