@@ -103,9 +103,9 @@ We also appreciate testing of submissions. If the code was tested then please ad
 | Name | GitHub Id | Сферы интересов |
 | --- | --- | --- |
 | Dmitry Butyugin | @dmbutyugin | Input shaping, resonance testing, kinematics |
-| Eric Callahan | @Arksine | Bed leveling, MCU flashing |
+| Эрик Каллахан | @Arksine | Bed leveling, MCU flashing |
 | James Hartley | @JamesH1978 | Configuration files |
-| Kevin O'Connor | @KevinOConnor | Core motion system, Micro-controller code |
+| Кевин О'Коннор | @KevinOConnor | Core motion system, Micro-controller code |
 
 Please do not "ping" any of the reviewers and please do not direct submissions at them. All of the reviewers monitor the forums and PRs, and will take on reviews when they have time to.
 
@@ -113,7 +113,7 @@ The Klipper "maintainers" are:
 
 | Name | GitHub name |
 | --- | --- |
-| Kevin O'Connor | @KevinOConnor |
+| Кевин О'Коннор | @KevinOConnor |
 
 ## Format of commit messages
 

@@ -79,7 +79,7 @@ The following commands are available when an [angle config section](Config_Refer
 
 `ANGLE_DEBUG_WRITE CHIP=<config_name> REG=<register> VAL=<value>`: Writes raw "value" into register "register". Both "value" and "register" can be a decimal or a hexadecimal integer. Use with care, and refer to sensor data sheet for the reference. This is only available for tle5012b chips.
 
-### [bed_mesh]
+### [кровать_сетка]
 
 The following commands are available when the [bed_mesh config section](Config_Reference.md#bed_mesh) is enabled (also see the [bed mesh guide](Bed_Mesh.md)).
 
@@ -115,7 +115,7 @@ The following commands are available when the [bed_screws config section](Config
 
 `BED_SCREWS_ADJUST`: This command will invoke the bed screws adjustment tool. It will command the nozzle to different locations (as defined in the config file) and allow one to make adjustments to the bed screws so that the bed is a constant distance from the nozzle.
 
-### [bed_tilt]
+### [кровать_наклон]
 
 The following commands are available when the [bed_tilt config section](Config_Reference.md#bed_tilt) is enabled.
 
@@ -234,7 +234,7 @@ When the `RESET` parameter is provided, all defined objects will be cleared, and
 
 `EXCLUDE_OBJECT_END [NAME=object_name]`: Denotes the end of the object's gcode for the layer. It is paired with `EXCLUDE_OBJECT_START`. A `NAME` parameter is optional, and will only warn when the provided name does not match the current object.
 
-### [extruder]
+### [экструдер]
 
 The following commands are available if an [extruder config section](Config_Reference.md#extruder) is enabled:
 

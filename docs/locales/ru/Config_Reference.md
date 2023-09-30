@@ -2,13 +2,13 @@
 
 Этот документ является справочным для опций, доступных в конфигурационном файле Klipper.
 
-Описания в этом документе отформатированы таким образом, чтобы их можно было вырезать и вставить в конфигурационный файл принтера. См.  [installation document](Installation.md) для получения информации о настройке Klipper и выборе начального конфигурационного файла.
+Описания в этом документе отформатированы таким образом, чтобы их можно было вырезать и вставить в конфигурационный файл принтера. См. [installation document](Installation.md) для получения информации о настройке Klipper и выборе начального конфигурационного файла.
 
 ## Конфигурация микроконтроллера
 
 ### Формат имен контактов микроконтроллера
 
-Для многих параметров конфигурации требуется имя PIN-кода микроконтроллера. Klipper использует названия оборудования для этих выводов - например, `PA4`.
+Многие параметры конфигурации требуют указания имени вывода микроконтроллера. Klipper использует аппаратные имена этих выводов - например, `PA4`.
 
 Перед названиями выводов может стоять символ `!`, указывающий на необходимость использования обратной полярности (например, срабатывание по низкому, а не по высокому уровню).
 
@@ -60,7 +60,7 @@ Additional micro-controllers (one may define any number of sections with an "mcu
 
 ## Common kinematic settings
 
-### [printer]
+### [принтер]
 
 The printer section controls high level printer settings.
 
@@ -94,7 +94,7 @@ max_accel:
 #   decelerate to zero at each corner. The default is 5mm/s.
 ```
 
-### [stepper]
+### [шаговый]
 
 Stepper motor definitions. Different printer types (as specified by the "kinematics" option in the [printer] config section) require different names for the stepper (eg, `stepper_x` vs `stepper_a`). Below are common stepper definitions.
 
@@ -649,7 +649,7 @@ max_accel: 1
 
 ## Common extruder and heated bed support
 
-### [extruder]
+### [экструдер]
 
 The extruder section is used to describe the heater parameters for the nozzle hotend along with the stepper controlling the extruder. See the [command reference](G-Codes.md#extruder) for additional information. See the [pressure advance guide](Pressure_Advance.md) for information on tuning pressure advance.
 
@@ -794,7 +794,7 @@ max_temp:
 
 ## Bed level support
 
-### [bed_mesh]
+### [кровать_сетка]
 
 Mesh Bed Leveling. One may define a bed_mesh config section to enable move transformations that offset the z axis based on a mesh generated from probed points. When using a probe to home the z-axis, it is recommended to define a safe_z_home section in printer.cfg to home toward the center of the print area.
 
@@ -915,7 +915,7 @@ Visual Examples:
 #   By default no faulty regions are set.
 ```
 
-### [bed_tilt]
+### [кровать_наклон]
 
 Bed tilt compensation. One may define a bed_tilt config section to enable move transformations that account for a tilted bed. Note that bed_mesh and bed_tilt are incompatible; both cannot be defined.
 
@@ -2491,19 +2491,19 @@ See the [command reference](G-Codes.md#temperature_fan) for additional informati
 Manually controlled fan (one may define any number of sections with a "fan_generic" prefix). The speed of a manually controlled fan is set with the SET_FAN_SPEED [gcode command](G-Codes.md#fan_generic).
 
 ```
-[fan_generic extruder_partfan]
-#pin:
-#max_power:
-#shutdown_speed:
-#cycle_time:
-#hardware_pwm:
-#kick_start_time:
-#off_below:
-#tachometer_pin:
-#tachometer_ppr:
-#tachometer_poll_interval:
-#enable_pin:
-#   Описание вышеуказанных параметров см. в разделе "вентилятор".
+[вентилятор _ универсальный экструдер_ partfan]
+#приколоть:
+#максимальная мощность:
+#выключение_скорость:
+#время цикла:
+#оборудование_pwm:
+#кик_начало_времени:
+#выключено_ниже:
+#тахометр_pin:
+#тахометр_ppr:
+#тахометр_опрос_интервал:
+#включить_pin:
+# См. раздел «Вентилятор» для описания вышеуказанных параметров.
 ```
 
 ## LEDs
