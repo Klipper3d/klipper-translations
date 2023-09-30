@@ -1,17 +1,18 @@
 # Allan Nordhøy <epost@anotheragency.no>, 2021.
 # Yifei Ding <dingyifeiair@gmail.com>, 2021.
-# Petter Reinholdtsen <pere-weblate@hungry.com>, 2021.
+# Petter Reinholdtsen <pere-weblate@hungry.com>, 2021, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-12-17 08:52+0000\n"
-"Last-Translator: Allan Nordhøy <epost@anotheragency.no>\n"
-"Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/klipper/index/nb_NO/>\n"
+"PO-Revision-Date: 2023-09-30 21:41+0000\n"
+"Last-Translator: Petter Reinholdtsen <pere-weblate@hungry.com>\n"
+"Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/klipper/"
+"index/nb_NO/>\n"
 "Language: nb_NO\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.10\n"
+"X-Generator: Weblate 5.1-dev\n"
 
 #: docs/index.md:block 1 (paragraph)
 msgid "hide:"
@@ -49,6 +50,9 @@ msgid ""
 " Klipper code on github](https://github.com/Klipper3d/klipper). We depend on"
 " the generous support from our [sponsors](Sponsors.md)."
 msgstr ""
+"Killer er fri programvare. Les [dokumentasjonen](Overview.md) eller se "
+"[Klipper-kildekoden på github](https://github.com/Klipper3d/klipper). Vi er "
+"avhengig av generøs støtte fra våre [sponsorer](Sponsors.md)."
 
 #~ msgid ""
 #~ "Klipper is Free Software. Read the [documentation](Overview.md) or view [the"
