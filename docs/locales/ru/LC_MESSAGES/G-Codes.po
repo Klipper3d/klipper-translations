@@ -4,11 +4,12 @@
 # gggdeff <gggdeff17@gmail.com>, 2023.
 # VICTOR <subfyn@gmail.com>, 2023.
 # Dmitriy <dima.ladmol@yandex.ru>, 2023.
+# xXx <xxx_xxx_xxxxxxxxx@mail.ru>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-09-24 20:03+0000\n"
-"Last-Translator: Dmitriy <dima.ladmol@yandex.ru>\n"
+"PO-Revision-Date: 2023-09-29 07:01+0000\n"
+"Last-Translator: xXx <xxx_xxx_xxxxxxxxx@mail.ru>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/g-codes/"
 "ru/>\n"
 "Language: ru\n"
@@ -789,7 +790,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 22 (header)
 msgid "[bed_mesh]"
-msgstr "[bed_mesh]"
+msgstr "[кровать_сетка]"
 
 #: docs/G-Codes.md:block 23 (paragraph)
 msgid ""
@@ -850,7 +851,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 40 (header)
 msgid "[bed_tilt]"
-msgstr "[bed_tilt]"
+msgstr "[кровать_наклон]"
 
 #: docs/G-Codes.md:block 41 (paragraph)
 msgid ""
@@ -992,7 +993,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 79 (header)
 msgid "[extruder]"
-msgstr "[extruder]"
+msgstr "[экструдер]"
 
 #: docs/G-Codes.md:block 80 (paragraph)
 msgid ""

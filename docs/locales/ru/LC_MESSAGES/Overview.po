@@ -4,11 +4,12 @@
 # Mari Japaridze <mari.mari.japaridze@mail.ru>, 2022.
 # Evgeniy Khramov <thejenjagamertjg@gmail.com>, 2022.
 # Kirill Plotnikov <ponfertato@gmail.com>, 2023.
+# xXx <xxx_xxx_xxxxxxxxx@mail.ru>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-04-30 13:52+0000\n"
-"Last-Translator: Kirill Plotnikov <ponfertato@gmail.com>\n"
+"PO-Revision-Date: 2023-09-30 21:41+0000\n"
+"Last-Translator: xXx <xxx_xxx_xxxxxxxxx@mail.ru>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/overview/"
 "ru/>\n"
 "Language: ru\n"
@@ -16,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.18-dev\n"
+"X-Generator: Weblate 5.1-dev\n"
 
 msgid ""
 "Welcome to the Klipper documentation. If new to Klipper, start with the "
@@ -77,8 +78,7 @@ msgstr ""
 
 msgid "[Bed level](Bed_Level.md): Information on \"bed leveling\" in Klipper."
 msgstr ""
-"[Уровень кровати](Bed_Level.md): Информация о \"выравнивании кровати\" в "
-"Klipper."
+"[Bed level](Bed_Level.md): информация о \"выравнивании стола\" в Klipper."
 
 msgid ""
 "[Delta calibrate](Delta_Calibrate.md): Calibration of delta kinematics."
@@ -99,7 +99,8 @@ msgstr ""
 
 msgid "[Bed Mesh](Bed_Mesh.md): Bed height correction based on XY locations."
 msgstr ""
-"[Bed Mesh](Bed_Mesh.md): Коррекция высоты дна на основе расположения XY."
+"[Bed Mesh](Bed_Mesh.md): корректировки высоты стола относительно  координат "
+"по  XY."
 
 msgid ""
 "[Endstop phase](Endstop_Phase.md): Stepper assisted Z endstop positioning."
@@ -118,23 +119,24 @@ msgid ""
 "[Measuring resonances](Measuring_Resonances.md): Information on using "
 "adxl345 accelerometer hardware to measure resonance."
 msgstr ""
-"[Измерение резонанса](Measuring_Resonances.md): Информация об использовании "
-"аппаратных средств акселерометра adxl345 для измерения резонанса."
+"[Measuring resonances](Measuring_Resonances.md): информация по использованию "
+"adxl345 акселерометра для \"железных\" измерений резонанса."
 
 msgid "[Pressure advance](Pressure_Advance.md): Calibrate extruder pressure."
 msgstr ""
-"[Pressure advance](Pressure_Advance.md): Калибровка давления в экструдере."
+"[Pressure advance](Pressure_Advance.md): калибровка давления экструдера, "
+"основанная на действиях кинематики в конкретный момент."
 
 msgid "[Slicers](Slicers.md): Configure \"slicer\" software for Klipper."
 msgstr ""
-"[Slicers](Slicers.md): Настройка программного обеспечения \"слайсера\" для "
+"[Slicers](Slicers.md): Конфигурация программного комплекса \"slicer\" для "
 "Klipper."
 
 msgid ""
 "[Command Templates](Command_Templates.md): G-Code macros and conditional "
 "evaluation."
 msgstr ""
-"[Шаблоны команд](Command_Templates.md): Макросы G-Code и условная оценка."
+"Command Templates](Command_Templates.md): G-Code макросы и условный прогресс."
 
 msgid ""
 "[Status Reference](Status_Reference.md): Information available to macros "

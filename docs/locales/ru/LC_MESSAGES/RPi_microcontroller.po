@@ -1,11 +1,12 @@
 # Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022.
 # Evgeniy Khramov <thejenjagamertjg@gmail.com>, 2022.
 # VICTOR <subfyn@gmail.com>, 2023.
+# xXx <xxx_xxx_xxxxxxxxx@mail.ru>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-07-21 13:06+0000\n"
-"Last-Translator: VICTOR <subfyn@gmail.com>\n"
+"PO-Revision-Date: 2023-09-30 21:41+0000\n"
+"Last-Translator: xXx <xxx_xxx_xxxxxxxxx@mail.ru>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
 "rpi_microcontroller/ru/>\n"
 "Language: ru\n"
@@ -13,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.0-dev\n"
+"X-Generator: Weblate 5.1-dev\n"
 
 msgid ""
 "This document describes the process of running Klipper on a RPi and use the "
@@ -66,12 +67,14 @@ msgid "After installing Klipper, install the script. run:"
 msgstr "После установки Klipper установите скрипт. запустите:"
 
 msgid "Building the micro-controller code"
-msgstr ""
+msgstr "Создание кода микроконтроллера"
 
 msgid ""
 "To compile the Klipper micro-controller code, start by configuring it for "
 "the \"Linux process\":"
 msgstr ""
+"Чтобы скомпилировать код микроконтроллера Klipper, начните с настройки его "
+"для \"процесса Linux\":"
 
 msgid ""
 "In the menu, set \"Microcontroller Architecture\" to \"Linux process,\" then"
@@ -81,67 +84,90 @@ msgstr ""
 ", затем сохраните и выйдите."
 
 msgid "To build and install the new micro-controller code, run:"
-msgstr ""
+msgstr "Чтобы собрать и установить новый код микроконтроллера, запустите:"
 
 msgid ""
 "If klippy.log reports a \"Permission denied\" error when attempting to "
 "connect to `/tmp/klipper_host_mcu` then you need to add your user to the tty"
 " group. The following command will add the \"pi\" user to the tty group:"
 msgstr ""
+"Если klippy.log сообщает об ошибке \"Отказано в разрешении\" при попытке "
+"подключиться к `/tmp/klipper_host_mcu`, вам необходимо добавить своего "
+"пользователя в группу tty. Следующая команда добавит пользователя \"pi\" в "
+"группу tty:"
 
 msgid "Remaining configuration"
-msgstr ""
+msgstr "Оставшаяся конфигурация"
 
 msgid ""
 "Complete the installation by configuring Klipper secondary MCU following the"
 " instructions in [RaspberryPi sample config](../config/sample-raspberry-"
 "pi.cfg) and [Multi MCU sample config](../config/sample-multi-mcu.cfg)."
 msgstr ""
+"Завершите установку, настроив дополнительный микроконтроллер Klipper, следуя "
+"инструкциям в [Raspberry Pi sample config](../config/sample-raspberry-pi.cfg)"
+" и [Multi MCU sample config](../config/sample-multi-mcu.cfg)."
 
 msgid "Optional: Identify the correct gpiochip"
-msgstr ""
+msgstr "Необязательно: Определите правильный чип gpio"
 
 msgid ""
 "To install the *Linux GPIO character device - binary* on a debian based "
 "distro like octopi run:"
 msgstr ""
+"Чтобы установить *Linux GPIO character device - двоичный файл* в дистрибутив "
+"на базе debian, такой как octopi, запустите:"
 
 msgid "To check available gpiochip run:"
-msgstr ""
+msgstr "Чтобы проверить доступный чип, выполните:"
 
 msgid "To check the pin number and the pin availability tun:"
-msgstr ""
+msgstr "Чтобы проверить номер контакта и настройку доступности контакта:"
 
 msgid ""
 "***Warning:*** only gpio marked as `unused` can be used. It is not possible "
 "for a *line* to be used by multiple processes simultaneously."
 msgstr ""
+"***Внимание:*** можно использовать только gpio, помеченный как "
+"`неиспользуемый`. Невозможно, чтобы *строка* использовалась несколькими "
+"процессами одновременно."
 
 msgid "For example on a RPi 3B+ where klipper use the GPIO20 for a switch:"
-msgstr ""
+msgstr "Например, на RPi 3B+, где Klipper использует GPIO20 для переключателя:"
 
+#, fuzzy
 msgid ""
 "cd ~/klipper/\n"
 "make menuconfig\n"
 msgstr ""
+"cd ~/klipper/\n"
+"make menuconfig\n"
 
+#, fuzzy
 msgid ""
 "sudo service klipper stop\n"
 "make flash\n"
 "sudo service klipper start\n"
 msgstr ""
+"sudo service klipper stop\n"
+"make flash\n"
+"sudo service klipper start\n"
 
+#, fuzzy
 msgid "sudo usermod -a -G tty pi\n"
-msgstr ""
+msgstr "sudo usermod -a -G tty pi\n"
 
+#, fuzzy
 msgid "sudo apt-get install gpiod\n"
-msgstr ""
+msgstr "sudo apt-get install gpiod\n"
 
+#, fuzzy
 msgid "gpiodetect\n"
-msgstr ""
+msgstr "gpiodetect\n"
 
+#, fuzzy
 msgid "gpioinfo\n"
-msgstr ""
+msgstr "gpioinfo\n"
 
 msgid ""
 "$ gpiodetect\n"
@@ -214,10 +240,82 @@ msgid ""
 "        line   6:      unnamed       unused   input  active-high\n"
 "        line   7:      unnamed       unused   input  active-high\n"
 msgstr ""
+"$ gpiodetect\n"
+"gpiochip0 [pinctrl-bcm2835] (54 строки)\n"
+"gpiochip1 [raspberrypi-exp-gpio] (8 строк)\n"
+"\n"
+"$ gpioinfo\n"
+"gpiochip0 - 54 строки:\n"
+"        строка 0: безымянный неиспользуемый вход активен-высокий\n"
+"        строка 1: безымянный неиспользуемый вход активен-высокий\n"
+"        строка 2: безымянный неиспользуемый вход активен-высокий\n"
+"        строка 3: безымянный неиспользуемый вход активен-высокий\n"
+"        строка 4: безымянный неиспользуемый вход активен-высокий\n"
+"        строка 5: безымянный неиспользуемый вход активен-высокий\n"
+"        строка 6: безымянный неиспользуемый вход активен-высокий\n"
+"        строка 7: безымянный неиспользуемый вход активен-высокий\n"
+"        строка 8: безымянный неиспользуемый вход активен-высокий\n"
+"        строка 9: безымянный неиспользуемый вход активен-высокий\n"
+"        строка 10: безымянный неиспользуемый вход активен-высокий\n"
+"        строка 11: безымянный неиспользуемый вход активен-высокий\n"
+"        строка 12: безымянный неиспользуемый вход активен-высокий\n"
+"        строка 13: безымянный неиспользуемый вход активен-высокий\n"
+"        строка 14: безымянный неиспользуемый вход активен-высокий\n"
+"        строка 15: безымянный неиспользуемый вход активен-высокий\n"
+"        строка 16: безымянный неиспользуемый вход активен-высокий\n"
+"        строка 17: безымянный неиспользуемый вход активен-высокий\n"
+"        строка 18: безымянный неиспользуемый вход активен-высокий\n"
+"        строка 19: безымянный неиспользуемый вход активен-высокий\n"
+"        строка 20: неназванный выходной сигнал \"klipper\" активен-высокий "
+"[используется]\n"
+"        строка 21: безымянный неиспользуемый вход активен-высокий\n"
+"        строка 22: безымянный неиспользуемый вход активен-высокий\n"
+"        строка 23: безымянный неиспользуемый вход активен-высокий\n"
+"        строка 24: безымянный неиспользуемый вход активен-высокий\n"
+"        строка 25: безымянный неиспользуемый вход активен-высокий\n"
+"        строка 26: безымянный неиспользуемый вход активен-высокий\n"
+"        строка 27: безымянный неиспользуемый вход активен-высокий\n"
+"        строка 28: безымянный неиспользуемый вход активен-высокий\n"
+"        строка 29: неназванный выходной сигнал \"led0\" активен-высокий "
+"[используется]\n"
+"        строка 30: безымянный неиспользуемый вход активен-высокий\n"
+"        строка 31: безымянный неиспользуемый вход активен-высокий\n"
+"        строка 32: безымянный неиспользуемый вход активен-высокий\n"
+"        строка 33: безымянный неиспользуемый вход активен-высокий\n"
+"        строка 34: безымянный неиспользуемый вход активен-высокий\n"
+"        строка 35: безымянный неиспользуемый вход активен-высокий\n"
+"        строка 36: безымянный неиспользуемый вход активен-высокий\n"
+"        строка 37: безымянный неиспользуемый вход активен-высокий\n"
+"        строка 38: безымянный неиспользуемый вход активен-высокий\n"
+"        строка 39: безымянный неиспользуемый вход активен-высокий\n"
+"        строка 40: безымянный неиспользуемый вход активен-высокий\n"
+"        строка 41: безымянный неиспользуемый вход активен-высокий\n"
+"        строка 42: безымянный неиспользуемый вход активен-высокий\n"
+"        строка 43: безымянный неиспользуемый вход активен-высокий\n"
+"        строка 44: безымянный неиспользуемый вход активен-высокий\n"
+"        строка 45: безымянный неиспользуемый вход активен-высокий\n"
+"        строка 46: безымянный неиспользуемый вход активен-высокий\n"
+"        строка 47: безымянный неиспользуемый вход активен-высокий\n"
+"        строка 48: безымянный неиспользуемый вход активен-высокий\n"
+"        строка 49: безымянный неиспользуемый вход активен-высокий\n"
+"        строка 50: безымянный неиспользуемый вход активен-высокий\n"
+"        строка 51: безымянный неиспользуемый вход активен-высокий\n"
+"        строка 52: безымянный неиспользуемый вход активен-высокий\n"
+"        строка 53: безымянный неиспользуемый вход активен-высокий\n"
+"gpiochip1 - 8 строк:\n"
+"        строка 0: безымянный неиспользуемый вход активен-высокий\n"
+"        строка 1: безымянный неиспользуемый вход активен-высокий\n"
+"        строка 2: неназванный выходной сигнал \"led1\" активен-низкий "
+"[используется]\n"
+"        строка 3: безымянный неиспользуемый вход активен-высокий\n"
+"        строка 4: безымянный неиспользуемый вход активен-высокий\n"
+"        строка 5: безымянный неиспользуемый вход активен-высокий\n"
+"        строка 6: безымянный неиспользуемый вход активен-высокий\n"
+"        строка 7: безымянный неиспользуемый вход активен-высокий\n"
 
 #: docs/RPi_microcontroller.md:block 31 (header)
 msgid "Optional: Hardware PWM"
-msgstr ""
+msgstr "Дополнительно: Аппаратный ШИМ"
 
 #: docs/RPi_microcontroller.md:block 32 (paragraph)
 msgid ""
@@ -227,18 +325,28 @@ msgid ""
 "Linux hosts. The pwm sysfs interface is not exposed by default on a "
 "Raspberry and can be activated by adding a line to `/boot/config.txt`:"
 msgstr ""
+"Raspberry Pi имеет два ШИМ-канала (PWM0 и PWM1), которые отображаются в "
+"заголовке или, если нет, могут быть перенаправлены на существующие контакты "
+"gpio. Демон Linux mc использует интерфейс sysfs микросхемы pwm для "
+"управления аппаратными устройствами pwm на хостах Linux. Интерфейс pwm sysfs "
+"по умолчанию не доступен на Raspberry и может быть активирован добавлением "
+"строки в `/boot/config.txt `:"
 
 #: docs/RPi_microcontroller.md:block 33 (code)
 msgid ""
 "# Enable pwmchip sysfs interface\n"
 "dtoverlay=pwm,pin=12,func=4\n"
 msgstr ""
+"# # Включить интерфейс sysfs микросхемы pwm\n"
+"dtoverlay=pwm,вывод=12,функция=4\n"
 
 #: docs/RPi_microcontroller.md:block 34 (paragraph)
 msgid ""
 "This example enables only PWM0 and routes it to gpio12. If both PWM channels"
 " need to be enabled you can use `pwm-2chan`."
 msgstr ""
+"В этом примере включается только PWM0 и перенаправляется в gpio12. Если "
+"необходимо включить оба ШИМ-канала, вы можете использовать `pwm-2chan`."
 
 #: docs/RPi_microcontroller.md:block 35 (paragraph)
 msgid ""
@@ -246,10 +354,13 @@ msgid ""
 "exported by echo'ing the number of the pwm channel to "
 "`/sys/class/pwm/pwmchip0/export`:"
 msgstr ""
+"Наложение не отображает строку pwm в sysfs при загрузке и должно быть "
+"экспортировано путем повторной установки номера канала pwm в `/sys/class/pwm/"
+"pwmchip0/export`:"
 
 #: docs/RPi_microcontroller.md:block 36 (code)
 msgid "echo 0 > /sys/class/pwm/pwmchip0/export\n"
-msgstr ""
+msgstr "echo 0 > /sys/class/pwm/pwmchip0/экспорт\n"
 
 #: docs/RPi_microcontroller.md:block 37 (paragraph)
 msgid ""
@@ -257,12 +368,17 @@ msgid ""
 "The easiest way to do this is by adding this to `/etc/rc.local` before the "
 "`exit 0` line."
 msgstr ""
+"Это создаст устройство `/sys/class/pwm/pwmchip0/pwm0` в файловой системе. "
+"Самый простой способ сделать это - добавить это в \"/etc/rc.local\" перед "
+"строкой \"exit 0\"."
 
 #: docs/RPi_microcontroller.md:block 38 (paragraph)
 msgid ""
 "With the sysfs in place, you can now use either the pwm channel(s) by adding"
 " the following piece of configuration to your `printer.cfg`:"
 msgstr ""
+"Теперь, когда sysfs установлена, вы можете использовать любой из каналов "
+"pwm, добавив следующий фрагмент конфигурации в свой файл `printer.cfg`:"
 
 #: docs/RPi_microcontroller.md:block 39 (code)
 msgid ""
@@ -272,50 +388,63 @@ msgid ""
 "hardware_pwm: True\n"
 "cycle_time: 0.000001\n"
 msgstr ""
+"[[индикатор корпуса output_pin]\n"
+"вывод: хост:pwmchip0/pwm0\n"
+"pwm: True\n"
+"hardware_pwm: True\n"
+"cycle_time: 0.000001\n"
 
 #: docs/RPi_microcontroller.md:block 40 (paragraph)
 msgid ""
 "This will add hardware pwm control to gpio12 on the Pi (because the overlay "
 "was configured to route pwm0 to pin=12)."
 msgstr ""
+"Это добавит аппаратное управление шим к gpio12 на Pi (поскольку наложение "
+"было настроено для маршрутизации pwm0 на вывод =12)."
 
 #: docs/RPi_microcontroller.md:block 1 (header)
 msgid "RPi microcontroller"
-msgstr ""
+msgstr "Микроконтроллер RPi"
 
 #: docs/RPi_microcontroller.md:block 44 (paragraph)
 msgid ""
 "PWM0 can be routed to gpio12 and gpio18, PWM1 can be routed to gpio13 and "
 "gpio19:"
 msgstr ""
+"PWM0 может быть направлен в gpio12 и gpio18, PWM1 может быть направлен в "
+"gpio13 и gpio19:"
 
 #: docs/RPi_microcontroller.md:block 45 (table)
+#, fuzzy
 msgid "PWM"
-msgstr ""
+msgstr "PWM"
 
 #: docs/RPi_microcontroller.md:block 45 (table)
 msgid "gpio PIN"
-msgstr ""
+msgstr "вывод gpio"
 
 #: docs/RPi_microcontroller.md:block 45 (table)
 msgid "Func"
-msgstr ""
+msgstr "Функция"
 
 #: docs/RPi_microcontroller.md:block 45 (table)
+#, fuzzy
 msgid "0"
-msgstr ""
+msgstr "0"
 
 #: docs/RPi_microcontroller.md:block 45 (table)
+#, fuzzy
 msgid "12"
-msgstr ""
+msgstr "12"
 
 #: docs/RPi_microcontroller.md:block 45 (table)
 msgid "4"
 msgstr "4"
 
 #: docs/RPi_microcontroller.md:block 45 (table)
+#, fuzzy
 msgid "18"
-msgstr ""
+msgstr "18"
 
 #: docs/RPi_microcontroller.md:block 45 (table)
 msgid "2"
@@ -326,22 +455,26 @@ msgid "1"
 msgstr "1"
 
 #: docs/RPi_microcontroller.md:block 45 (table)
+#, fuzzy
 msgid "13"
-msgstr ""
+msgstr "13"
 
 #: docs/RPi_microcontroller.md:block 45 (table)
+#, fuzzy
 msgid "19"
-msgstr ""
+msgstr "19"
 
 #: docs/RPi_microcontroller.md:block 20 (header)
 msgid "Optional: Enabling SPI"
-msgstr ""
+msgstr "Необязательно: Включение SPI"
 
 #: docs/RPi_microcontroller.md:block 21 (paragraph)
 msgid ""
 "Make sure the Linux SPI driver is enabled by running `sudo raspi-config` and"
 " enabling SPI under the \"Interfacing options\" menu."
 msgstr ""
+"Убедитесь, что драйвер Linux SPI включен, запустив `sudo raspi-config` и "
+"включив SPI в меню \"Параметры взаимодействия\"."
 
 #: docs/RPi_microcontroller.md:block 30 (paragraph)
 msgid ""
@@ -350,6 +483,9 @@ msgid ""
 "`gpiodetect` command and **o** is the line number seen by the`gpioinfo` "
 "command."
 msgstr ""
+"Таким образом, выбранный вывод может использоваться в конфигурации как "
+"`gpiochip<n>/gpio<o>`, где **n** - номер чипа, отображаемый командой "
+"`gpiodetect`, а **o** - номер строки, отображаемый командой 'gpioinfo`."
 
 #: docs/RPi_microcontroller.md:block 23 (paragraph)
 msgid ""
@@ -361,10 +497,17 @@ msgid ""
 "cases it is useful to use the commands to access the *Linux GPIO character "
 "device* to verify the configuration."
 msgstr ""
+"На Raspberry Pi и на многих клонах контакты, выставленные на GPIO, "
+"принадлежат первому gpiochip. Поэтому их можно использовать в klipper, "
+"просто указав на них имя `gpio0..n`. Однако бывают случаи, когда открытые "
+"контакты принадлежат gpiochips, отличным от первого. Например, в случае "
+"некоторых моделей Orange Pi или при использовании расширителя портов. В этих "
+"случаях полезно использовать команды для доступа к *символьному устройству "
+"Linux GPIO* для проверки конфигурации."
 
 #: docs/RPi_microcontroller.md:block 22 (header)
 msgid "Optional: Enabling I2C"
-msgstr ""
+msgstr "Необязательно: Включение I2C"
 
 #: docs/RPi_microcontroller.md:block 23 (paragraph)
 msgid ""
@@ -374,13 +517,23 @@ msgid ""
 "400000 by: adding/uncommenting `dtparam=i2c_arm=on,i2c_arm_baudrate=400000` "
 "in `/boot/config.txt` (or `/boot/firmware/config.txt` in some distros)."
 msgstr ""
+"Убедитесь, что драйвер Linux I2C включен, запустив `sudo raspi-config` и "
+"включив I2C в меню \"Параметры взаимодействия\". Если планируется "
+"использовать I2C для акселерометра MPU, также необходимо установить скорость "
+"передачи данных на 400000, добавив/раскомментировав "
+"`dtparam=i2c_arm=on,i2c_arm_baudrate=400000` в `/boot/config.txt ` (или `/"
+"boot/firmware/config.txt ` в некоторых дистрибутивах)."
 
 #: docs/RPi_microcontroller.md:block 9 (code)
+#, fuzzy
 msgid ""
 "cd ~/klipper/\n"
 "sudo cp ./scripts/klipper-mcu.service /etc/systemd/system/\n"
 "sudo systemctl enable klipper-mcu.service\n"
 msgstr ""
+"cd ~/klipper/\n"
+"sudo cp ./scripts/klipper-mcu.service /etc/systemd/system/\n"
+"sudo systemctl enable klipper-mcu.service\n"
 
 #~ msgid ""
 #~ "cd ~/klipper/\n"
