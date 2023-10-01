@@ -1,10 +1,11 @@
 # Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022.
 # VICTOR <subfyn@gmail.com>, 2023.
+# xXx <xxx_xxx_xxxxxxxxx@mail.ru>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-07-21 13:06+0000\n"
-"Last-Translator: VICTOR <subfyn@gmail.com>\n"
+"PO-Revision-Date: 2023-09-29 07:01+0000\n"
+"Last-Translator: xXx <xxx_xxx_xxxxxxxxx@mail.ru>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/sponsors/"
 "ru/>\n"
 "Language: ru\n"
@@ -12,7 +13,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.0-dev\n"
+"X-Generator: Weblate 5.1-dev\n"
 
 #: docs/Sponsors.md:block 1 (header)
 msgid "Sponsors"
@@ -57,35 +58,39 @@ msgstr "Разработчики Klipper"
 
 #: docs/Sponsors.md:block 7 (header)
 msgid "Kevin O'Connor"
-msgstr ""
+msgstr "Кевин О'Коннор"
 
 #: docs/Sponsors.md:block 9 (header)
 msgid "Eric Callahan"
-msgstr ""
+msgstr "Эрик Каллахан"
 
 #: docs/Sponsors.md:block 10 (paragraph)
 msgid ""
 "Eric is the author of bed_mesh, spi_flash, and several other Klipper "
 "modules. Eric has a donations page at: <https://ko-fi.com/arksine>"
 msgstr ""
+"Эрик является автором bed_mesh, spi_flash и ряда других модулей Klipper. У "
+"Эрика есть страница для пожертвований по адресу: <https://ko-fi.com/arksine>"
 
 #: docs/Sponsors.md:block 11 (header)
 msgid "Related Klipper Projects"
-msgstr ""
+msgstr "Связанные проекты Klipper"
 
 #: docs/Sponsors.md:block 12 (paragraph)
 msgid ""
 "Klipper is frequently used with other Free Software. Consider using or "
 "supporting these projects."
 msgstr ""
+"Klipper часто используется вместе с другими свободными программами. "
+"Рассмотрите возможность использования или поддержки этих проектов."
 
 #: docs/Sponsors.md:block 13 (unordered list)
 msgid "[Moonraker](https://github.com/Arksine/moonraker)"
-msgstr ""
+msgstr "[Лунный гонщик](https://github.com/Arksine/moonraker)"
 
 #: docs/Sponsors.md:block 13 (unordered list)
 msgid "[Mainsail](https://github.com/mainsail-crew/mainsail)"
-msgstr ""
+msgstr "[Грот](https://github.com/mainsail-crew/mainsail)"
 
 #: docs/Sponsors.md:block 13 (unordered list)
 msgid "[Fluidd](https://github.com/fluidd-core/fluidd)"
@@ -104,6 +109,9 @@ msgid ""
 "Kevin is the original author and current maintainer of Klipper. Donate at: "
 "<https://ko-fi.com/koconnor> or <https://www.patreon.com/koconnor>"
 msgstr ""
+"Кевин - оригинальный автор и текущий сопровождающий Klipper. Пожертвовать "
+"можно по адресу: <https://ko-fi.com/koconnor> или <https://www.patreon.com/"
+"koconnor>"
 
 #~ msgid ""
 #~ "Kevin is the original author and current maintainer of Klipper. Kevin has a "

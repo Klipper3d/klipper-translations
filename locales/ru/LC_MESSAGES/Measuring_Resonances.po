@@ -1,11 +1,12 @@
 # Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022.
 # Evgeniy Khramov <thejenjagamertjg@gmail.com>, 2022.
 # VICTOR <subfyn@gmail.com>, 2023.
+# xXx <xxx_xxx_xxxxxxxxx@mail.ru>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-07-21 13:06+0000\n"
-"Last-Translator: VICTOR <subfyn@gmail.com>\n"
+"PO-Revision-Date: 2023-09-30 21:41+0000\n"
+"Last-Translator: xXx <xxx_xxx_xxxxxxxxx@mail.ru>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
 "measuring_resonances/ru/>\n"
 "Language: ru\n"
@@ -13,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.0-dev\n"
+"X-Generator: Weblate 5.1-dev\n"
 
 msgid "Measuring Resonances"
 msgstr "Изменения Резонансов"
@@ -97,8 +98,9 @@ msgstr ""
 msgid "SDA"
 msgstr ""
 
+#, fuzzy
 msgid "19"
-msgstr ""
+msgstr "19"
 
 msgid "GPIO10 (SPI0_MOSI)"
 msgstr ""
@@ -163,6 +165,8 @@ msgid ""
 "Make sure the Linux SPI driver is enabled by running `sudo raspi-config` and"
 " enabling SPI under the \"Interfacing options\" menu."
 msgstr ""
+"Убедитесь, что драйвер Linux SPI включен, запустив `sudo raspi-config` и "
+"включив SPI в меню \"Параметры взаимодействия\"."
 
 msgid ""
 "It is advised to start with 1 probe point, in the middle of the print bed, "
@@ -1027,7 +1031,7 @@ msgstr ""
 
 #: docs/Measuring_Resonances.md:block 22 (table)
 msgid "2"
-msgstr ""
+msgstr "2"
 
 #: docs/Measuring_Resonances.md:block 22 (table)
 msgid "GP1 (SPI0_CSn)"
@@ -1035,7 +1039,7 @@ msgstr ""
 
 #: docs/Measuring_Resonances.md:block 22 (table)
 msgid "1"
-msgstr ""
+msgstr "1"
 
 #: docs/Measuring_Resonances.md:block 22 (table)
 msgid "GP0 (SPI0_RX)"
@@ -1043,7 +1047,7 @@ msgstr ""
 
 #: docs/Measuring_Resonances.md:block 22 (table)
 msgid "5"
-msgstr ""
+msgstr "5"
 
 #: docs/Measuring_Resonances.md:block 22 (table)
 msgid "GP3 (SPI0_TX)"
@@ -1051,7 +1055,7 @@ msgstr ""
 
 #: docs/Measuring_Resonances.md:block 22 (table)
 msgid "4"
-msgstr ""
+msgstr "4"
 
 #: docs/Measuring_Resonances.md:block 22 (table)
 msgid "GP2 (SPI0_SCK)"

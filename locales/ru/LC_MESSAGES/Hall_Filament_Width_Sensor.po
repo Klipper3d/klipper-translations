@@ -3,11 +3,12 @@
 # Evgeniy Khramov <thejenjagamertjg@gmail.com>, 2022.
 # Anatoliy <anatoliy.males@yandex.ru>, 2022.
 # VICTOR <subfyn@gmail.com>, 2023.
+# xXx <xxx_xxx_xxxxxxxxx@mail.ru>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-07-21 13:06+0000\n"
-"Last-Translator: VICTOR <subfyn@gmail.com>\n"
+"PO-Revision-Date: 2023-09-29 19:44+0000\n"
+"Last-Translator: xXx <xxx_xxx_xxxxxxxxx@mail.ru>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
 "hall_filament_width_sensor/ru/>\n"
 "Language: ru\n"
@@ -15,11 +16,11 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.0-dev\n"
+"X-Generator: Weblate 5.1-dev\n"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 1 (header)
 msgid "Hall filament width sensor"
-msgstr "Датчик Холла ширины филамента"
+msgstr "Датчик ширины филамента"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 4 (header)
 msgid "How does it work?"
@@ -76,10 +77,12 @@ msgstr ""
 #: docs/Hall_Filament_Width_Sensor.md:block 24 (ordered list)
 msgid "Save raw sensor values in config parameter `Raw_dia1` and `Raw_dia2`"
 msgstr ""
+"Сохранять необработанные значения датчиков в параметре конфигурации "
+"`Raw_dia1` и `Raw_dia2`"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 25 (header)
 msgid "How to enable sensor"
-msgstr "Как включить сенсор"
+msgstr "Как включить датчик"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 26 (paragraph)
 msgid "By default, the sensor is disabled at power-on."
@@ -99,6 +102,10 @@ msgid ""
 "**DISABLE_FILAMENT_WIDTH_LOG** command to stop logging. To enable logging at"
 " power-on, set the `logging` parameter to `true`."
 msgstr ""
+"Для запуска протоколирования выполните команду **ENABLE_FILAMENT_WIDTH_LOG**"
+", а для остановки протоколирования - команду **DISABLE_FILAMENT_WIDTH_LOG**. "
+"Чтобы включить ведение журнала при включении питания, установите параметр "
+"`logging` в значение `true`."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 31 (paragraph)
 msgid ""
@@ -123,6 +130,8 @@ msgid ""
 "To get raw sensor value you can use menu item or "
 "**QUERY_RAW_FILAMENT_WIDTH** command in terminal."
 msgstr ""
+"Для получения необработанного значения датчика можно воспользоваться пунктом "
+"меню или командой **QUERY_RAW_FILAMENT_WIDTH** в терминале."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 4 (paragraph)
 msgid ""
@@ -130,12 +139,17 @@ msgid ""
 "Reference](Config_Reference.md#hall_filament_width_sensor) and [G-Code "
 "documentation](G-Codes.md#hall_filament_width_sensor)."
 msgstr ""
+"Для использования датчика ширины нити Холла необходимо ознакомиться с ["
+"Config Reference](Config_Reference.md#hall_filament_width_sensor) и [G-Code "
+"documentation](G-Codes.md#hall_filament_width_sensor)."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 14 (paragraph)
 msgid ""
 "To enable the sensor, issue **ENABLE_FILAMENT_WIDTH_SENSOR** command or set "
 "the `enable` parameter to `true`."
 msgstr ""
+"Чтобы включить датчик, выполните команду **ENABLE_FILAMENT_WIDTH_SENSOR** "
+"или установите параметр `enable` в значение `true`."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 2 (paragraph)
 msgid ""
@@ -145,6 +159,12 @@ msgid ""
 "operation: two hall sensors work in differential mode, temperature drift "
 "same for sensor. Special temperature compensation not needed."
 msgstr ""
+"В данном документе описывается хост-модуль Filament Width Sensor. Аппаратная "
+"часть, используемая для разработки данного хост-модуля, основана на двух "
+"линейных датчиках Холла (например, ss49e). Датчики в корпусе расположены на "
+"противоположных сторонах. Принцип работы: два датчика Холла работают в "
+"дифференциальном режиме, температурный дрейф датчиков одинаков. Специальная "
+"температурная компенсация не требуется."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 6 (paragraph)
 msgid ""
@@ -154,6 +174,11 @@ msgid ""
 "connector on a ramps-like board with the analog11 and analog12 pins. You can"
 " use different pins and different boards."
 msgstr ""
+"Датчик формирует два аналоговых выхода в зависимости от рассчитанной ширины "
+"нити накала. Сумма выходных напряжений всегда равна обнаруженной ширине "
+"нити. Хост-модуль отслеживает изменения напряжения и регулирует множитель "
+"экструзии. Я использую разъем aux2 на плате типа ramps с выводами analog11 и "
+"analog12. Можно использовать другие контакты и другие платы."
 
 #~ msgid ""
 #~ "This document describes Filament Width Sensor host module. Hardware used for"
