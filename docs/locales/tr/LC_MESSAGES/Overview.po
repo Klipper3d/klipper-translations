@@ -2,7 +2,7 @@
 # Oguz <mustafa.oguz@live.com>, 2022.
 # Mustafa Said Ağca <m.said.agca@gmail.com>, 2022.
 # Kaan Özbilek <info@kaanozbilek.com>, 2023.
-# Kursat <sitting_1907@hotmail.com>, 2023.
+# Kursat <sitting_1907@hotmail.com>, 2023, 2025.
 # Semih <semihbrn10@gmail.com>, 2024.
 # kasım atmaca <kasim.atmaca13@gmail.com>, 2024.
 # Sümer Okan <smr.okan@gmail.com>, 2024.
@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:22+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Kursat <sitting_1907@hotmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/overview/"
 "tr/>\n"
 "Language: tr\n"
@@ -98,7 +98,8 @@ msgstr "[BL-Touch](BLTouch.md): Bir \"BL-Touch\" Z probu yapılandırın."
 msgid ""
 "[Manual level](Manual_Level.md): Calibration of Z endstops (and similar)."
 msgstr ""
-"[Manuel seviye](Manual_Level.md): Z uç duraklarının (ve benzeri) kalibrasyonu."
+"[Manuel seviye](Manual_Level.md): Z uç duraklarının (ve benzeri) "
+"kalibrasyonu."
 
 msgid "[Bed Mesh](Bed_Mesh.md): Bed height correction based on XY locations."
 msgstr ""
@@ -114,8 +115,8 @@ msgid ""
 "[Resonance compensation](Resonance_Compensation.md): A tool to reduce ringing "
 "in prints."
 msgstr ""
-"[Rezonans telafisi](Resonance_Compensation.md): Baskılardaki çınlamayı azaltan"
-" bir araç."
+"[Rezonans telafisi](Resonance_Compensation.md): Baskılardaki çınlamayı "
+"azaltan bir araç."
 
 msgid ""
 "[Measuring resonances](Measuring_Resonances.md): Information on using adxl345 "
