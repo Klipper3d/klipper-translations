@@ -13,7 +13,7 @@
     
     
       
-        <title>Packaging Klipper - Klipper documentation</title>
+        <title>Упаковочный клиппер - Klipper documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#packaging-klipper" class="md-skip">
+        <a href="#_1" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Packaging Klipper
+              Упаковочный клиппер
             
           </span>
         </div>
@@ -1253,15 +1253,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     Версии
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#sample-packaging-script" class="md-nav__link">
-    Sample packaging script
+  <a href="#_3" class="md-nav__link">
+    Образец сценария упаковки
   </a>
   
 </li>
@@ -1283,16 +1283,16 @@
 </a>
 
 
-<h1 id="packaging-klipper">Packaging Klipper<a class="headerlink" href="#packaging-klipper" title="Permanent link">&para;</a></h1>
+<h1 id="_1">Упаковочный клиппер<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>Klipper является своего рода аномалией упаковки среди программ на Python, поскольку он не использует setuptools для сборки и установки. Некоторые замечания относительно того, как лучше всего его упаковать, следующие:</p>
 <h2 id="c">Модули C<a class="headerlink" href="#c" title="Permanent link">&para;</a></h2>
 <p>Klipper использует модуль C для более быстрой обработки некоторых кинематических вычислений. Этот модуль должен быть скомпилирован во время упаковки, чтобы избежать введения зависимости времени выполнения от компилятора. Чтобы скомпилировать модуль C, запустите <code>python2 klippy/chelper/__init__.py</code>.</p>
 <h2 id="python">Компиляция кода python<a class="headerlink" href="#python" title="Permanent link">&para;</a></h2>
-<p>Во многих дистрибутивах существует политика компиляции всего кода python перед упаковкой, чтобы увеличить время запуска. Вы можете сделать это, запустив "python2 -m compileall klippy`.</p>
-<h2 id="_1">Версии<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>Во многих дистрибутивах существует политика компиляции всего кода python перед упаковкой, чтобы увеличить время запуска. Вы можете сделать это, запустив <code>python2 -m compileall klippy</code>.</p>
+<h2 id="_2">Версии<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>Если вы собираете пакет Klipper из git, то обычно не поставляется каталог .git, поэтому версионирование должно осуществляться без git. Для этого используется скрипт, поставляемый в <code>scripts/make_version.py</code>, который следует запустить следующим образом: <code>python2 scripts/make_version.py YOURDISTRONAME &gt; klippy/.version</code>.</p>
-<h2 id="sample-packaging-script">Sample packaging script<a class="headerlink" href="#sample-packaging-script" title="Permanent link">&para;</a></h2>
-<p>klipper-git is packaged for Arch Linux, and has a PKGBUILD (package build script) available at <a href="https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper-git">Arch User Repository</a>.</p>
+<h2 id="_3">Образец сценария упаковки<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>klipper-git упакован для Arch Linux и имеет PKGBUILD (скрипт сборки пакета), доступный по адресу <a href="https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper-git">Arch User Repository</a>.</p>
 
               
             </article>

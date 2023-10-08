@@ -1288,8 +1288,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#start_print-macros" class="md-nav__link">
-    START_PRINT macros
+  <a href="#start_print" class="md-nav__link">
+    Макрос START_PRINT
   </a>
   
 </li>
@@ -1334,23 +1334,23 @@
 <p>Некоторые слайсеры рекламируют возможность "расширенного давления экструдера". При использовании Klipper рекомендуется отключать эти опции, так как они, скорее всего, приведут к плохому качеству отпечатков. Вместо этого используйте опцию Klipper <a href="Pressure_Advance.html">pressure advance</a>.</p>
 <p>В частности, эти настройки слайсера могут предписывать микропрограмме вносить дикие изменения в скорость экструзии в надежде, что микропрограмма приблизительно выполнит эти запросы и принтер примерно получит желаемое давление в экструдере. Klipper, однако, использует точные кинематические расчеты и синхронизацию. Когда Klipper получает команду внести значительные изменения в скорость экструзии, он планирует соответствующие изменения скорости, ускорения и движения экструдера, что не входит в намерения слайсера. Слайсер может даже задать чрезмерную скорость экструзии до такой степени, что сработает проверка Klipper на максимальное сечение экструзии.</p>
 <p>В отличие от этого, можно (и часто полезно) использовать настройки "втягивание", "протирка" и/или "протирка при втягивании" ломтерезки.</p>
-<h2 id="start_print-macros">START_PRINT macros<a class="headerlink" href="#start_print-macros" title="Permanent link">&para;</a></h2>
-<p>When using a START_PRINT macro or similar, it is useful to sometimes pass through parameters from the slicer variables to the macro.</p>
-<p>In Cura, to pass through temperatures, the following start gcode would be used:</p>
-<div class="highlight"><pre><span></span><code>START_PRINT BED_TEMP={material_bed_temperature_layer_0} EXTRUDER_TEMP={material_print_temperature_layer_0}
+<h2 id="start_print">Макрос START_PRINT<a class="headerlink" href="#start_print" title="Permanent link">&para;</a></h2>
+<p>При использовании макроса START_PRINT или аналогичного ему полезно иногда передавать в макрос параметры из переменных слайсера.</p>
+<p>В Cura для прохождения температур используется следующий стартовый g-код:</p>
+<div class="highlight"><pre><span></span><code>START_PRINT BED_TEMP={материал_кровать_температура_слоя_0} EXTRUDER_TEMP={материал_печать_температура_слоя_0}
 </code></pre></div>
 
-<p>In slic3r derivatives such as PrusaSlicer and SuperSlicer, the following would be used:</p>
+<p>В производных slic3r, таких как PrusaSlicer и SuperSlicer, используется следующее:</p>
 <div class="highlight"><pre><span></span><code>START_PRINT EXTRUDER_TEMP=[first_layer_temperature] BED_TEMP=[first_layer_bed_temperature]
 </code></pre></div>
 
-<p>Also note that these slicers will insert their own heating codes when certain conditions are not met. In Cura, the existence of the <code>{material_bed_temperature_layer_0}</code> and <code>{material_print_temperature_layer_0}</code> variables is enough to mitigate this. In slic3r derivatives, you would use:</p>
+<p>Также следует учитывать, что эти слайсеры вставляют свои собственные коды нагрева при несоблюдении определенных условий. В Cura для уменьшения этого достаточно наличия переменных <code>{material_bed_temperature_layer_0}</code> и <code>{material_print_temperature_layer_0}</code>. В производных slic3r можно использовать:</p>
 <div class="highlight"><pre><span></span><code>M140 S0
 M104 S0
 </code></pre></div>
 
-<p>before the macro call. Also note that SuperSlicer has a "custom gcode only" button option, which achieves the same outcome.</p>
-<p>An example of a START_PRINT macro using these paramaters can be found in config/sample-macros.cfg</p>
+<p>перед вызовом макроса. Также отметим, что в SuperSlicer есть опция кнопки "только пользовательский gcode", которая позволяет добиться того же результата.</p>
+<p>Пример макроса START_PRINT с этими параметрами можно найти в файле config/sample-macros.cfg</p>
 
               
             </article>

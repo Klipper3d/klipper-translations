@@ -13,7 +13,7 @@
     
     
       
-        <title>Using PWM tools - Klipper documentation</title>
+        <title>Использование инструментов ШИМ - Klipper documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#using-pwm-tools" class="md-skip">
+        <a href="#_1" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Using PWM tools
+              Использование инструментов ШИМ
             
           </span>
         </div>
@@ -1239,29 +1239,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     Как это работает?
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_2" class="md-nav__link">
+  <a href="#_3" class="md-nav__link">
     Текущие ограничения
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_3" class="md-nav__link">
+  <a href="#_4" class="md-nav__link">
     Команды
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#laserweb-configuration" class="md-nav__link">
-    Laserweb Configuration
+  <a href="#_5" class="md-nav__link">
+    Конфигурация лазерной сети
   </a>
   
 </li>
@@ -1283,41 +1283,41 @@
 </a>
 
 
-<h1 id="using-pwm-tools">Using PWM tools<a class="headerlink" href="#using-pwm-tools" title="Permanent link">&para;</a></h1>
-<p>В этом документе описывается, как настроить лазер или шпиндель с ШИМ-управлением, используя `output_pin' и некоторые макросы.</p>
-<h2 id="_1">Как это работает?<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h1 id="_1">Использование инструментов ШИМ<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>В этом документе описывается, как настроить лазер или шпиндель с ШИМ-управлением, используя <code>output_pin</code> и некоторые макросы.</p>
+<h2 id="_2">Как это работает?<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>Перенастроив ШИМ-выход вентилятора печатающей головки, вы можете управлять лазерами или шпинделями. Это полезно, если вы используете переключаемые печатающие головки, например, E3D устройство для смены инструмента или решение "Сделай сам". Обычно кулачковые инструменты, такие как LaserWeb, могут быть сконфигурированы для использования команд <code>M3-M5</code>, которые обозначают <em>скорость вращения шпинделя CW * (<code>M3 S[0-255]</code>), * скорость вращения шпинделя CCW</em> (<code>M4 S[0-255]</code>) и * остановка шпинделя* (<code>M5</code>).</p>
 <p><strong> Внимание: </strong> При управлении лазером соблюдайте все возможные меры предосторожности! Диодные лазеры обычно инвертируются. Это означает, что при перезапуске MCU лазер будет * полностью включен * в течение времени, необходимого MCU для повторного запуска. Для достижения наилучших результатов рекомендуется * всегда * надевать соответствующие лазерные очки с нужной длиной волны, если лазер включен; и отключать лазер, когда он не нужен. Кроме того, вы должны настроить тайм-аут безопасности, чтобы, когда ваш хост или MCU столкнутся с ошибкой, инструмент остановится.</p>
-<p>For an example configuration, see <a href="/config/sample-pwm-tool.cfg">config/sample-pwm-tool.cfg</a>.</p>
-<h2 id="_2">Текущие ограничения<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
-<p>Существует ограничение на частоту обновления ШИМ. Несмотря на высокую точность, обновление ШИМ может происходить только раз в 0,1 секунды, что делает его практически бесполезным для растровой гравировки. Однако существует [экспериментальная ветвь] (<a href="https://github.com/Cirromulus/klipper/tree/laser_tool">https://github.com/Cirromulus/klipper/tree/laser_tool</a>) со своими собственными недостатками. В перспективе планируется добавить эту функциональность в основной klipper main-line klipper.</p>
-<h2 id="_3">Команды<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
-<p><code>M3/M4 S&lt;value&gt;</code> : Set PWM duty-cycle. Values between 0 and 255. <code>M5</code> : Stop PWM output to shutdown value.</p>
-<h2 id="laserweb-configuration">Laserweb Configuration<a class="headerlink" href="#laserweb-configuration" title="Permanent link">&para;</a></h2>
-<p>If you use Laserweb, a working configuration would be:</p>
+<p>Пример конфигурации приведен в разделе <a href="/config/sample-pwm-tool.cfg">config/sample-pwm-tool.cfg</a>.</p>
+<h2 id="_3">Текущие ограничения<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>Существует ограничение на частоту обновления ШИМ. Несмотря на высокую точность, обновление ШИМ может происходить только раз в 0,1 секунды, что делает его практически бесполезным для растровой гравировки. Однако существует <a href="https://github.com/Cirromulus/klipper/tree/laser_tool">экспериментальная ветвь</a> со своими собственными недостатками. В перспективе планируется добавить эту функциональность в основной klipper main-line klipper.</p>
+<h2 id="_4">Команды<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p><code>M3/M4 S&lt;значение&gt;</code> : Установка длительности цикла ШИМ. Значения от 0 до 255. <code>M5</code> : Остановка вывода ШИМ на значение отключения.</p>
+<h2 id="_5">Конфигурация лазерной сети<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>Если вы используете Laserweb, то рабочей конфигурацией будет следующая:</p>
 <pre><code>GCODE START:
-    M5            ; Disable Laser
-    G21           ; Set units to mm
-    G90           ; Absolute positioning
-    G0 Z0 F7000   ; Set Non-Cutting speed
+    M5 ; Отключить лазер
+    G21 ; Установить единицы измерения на мм
+    G90 ; Абсолютное позиционирование
+    G0 Z0 F7000 ; Установить скорость отсутствия резания
 
 GCODE END:
-    M5            ; Disable Laser
-    G91           ; relative
+    M5 ; Отключить лазер
+    G91 ; относительное
     G0 Z+20 F4000 ;
-    G90           ; absolute
+    G90 ; абсолютный
 
 GCODE HOMING:
-    M5            ; Disable Laser
-    G28           ; Home all axis
+    M5 ; Отключить лазер
+    G28 ; Вывод всех осей в исходное положение
 
 TOOL ON:
     M3 $INTENSITY
 
 TOOL OFF:
-    M5            ; Disable Laser
+    M5 ; Отключить лазер
 
-LASER INTENSITY:
+ИНТЕНСИВНОСТЬ ЛАЗЕРА:
     S
 </code></pre>
 

@@ -13,7 +13,7 @@
     
     
       
-        <title>CANBUS protocol - Klipper documentation</title>
+        <title>Протокол CANBUS - Klipper documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#canbus-protocol" class="md-skip">
+        <a href="#canbus" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              CANBUS protocol
+              Протокол CANBUS
             
           </span>
         </div>
@@ -1261,8 +1261,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#cmd_set_klipper_nodeid-message" class="md-nav__link">
-    CMD_SET_KLIPPER_NODEID message
+  <a href="#cmd_set_klipper_nodeid" class="md-nav__link">
+    Сообщение CMD_SET_KLIPPER_NODEID
   </a>
   
 </li>
@@ -1280,8 +1280,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#data-packets" class="md-nav__link">
-    Data Packets
+  <a href="#_3" class="md-nav__link">
+    Пакеты данных
   </a>
   
 </li>
@@ -1303,8 +1303,8 @@
 </a>
 
 
-<h1 id="canbus-protocol">CANBUS protocol<a class="headerlink" href="#canbus-protocol" title="Permanent link">&para;</a></h1>
-<p>This document describes the protocol Klipper uses to communicate over <a href="https://en.wikipedia.org/wiki/CAN_bus">CAN bus</a>. See <CANBUS.md> for information on configuring Klipper with CAN bus.</p>
+<h1 id="canbus">Протокол CANBUS<a class="headerlink" href="#canbus" title="Permanent link">&para;</a></h1>
+<p>В этом документе описывается протокол, используемый Klipper для обмена данными по <a href="https://en.wikipedia.org/wiki/CAN_bus">CAN-шине</a>. Информацию о настройке Klipper на работу с шиной CAN см. в разделе <CANBUS.md>.</p>
 <h2 id="_1">Идентификатор микроконтроллера<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>Klipper использует только пакеты CAN 2.0A стандартного размера, которые ограничены 8 байтами данных и 11-битным идентификатором шины CAN. Чтобы поддерживать эффективную связь, каждому микроконтроллеру во время выполнения присваивается уникальный 1-байтовый идентификатор узла шины CAN (<code>canbus_nodeid</code>) для общего трафика команд и ответов Klipper. Командные сообщения Klipper, идущие от хоста к микроконтроллеру, используют идентификатор шины CAN <code>canbus_nodeid * 2 + 256</code>, в то время как ответные сообщения Klipper от микроконтроллера к хосту используют <code>canbus_nodeid * 2 + 256 + 1</code>.</p>
 <p>Каждый микроконтроллер имеет присвоенный заводом уникальный идентификатор чипа, который используется при назначении идентификатора. Этот идентификатор может превышать длину одного пакета CAN, поэтому хэш-функция используется для генерации уникального 6-байтового идентификатора (<code>canbus_uuid</code>) из заводского идентификатора.</p>
@@ -1312,16 +1312,16 @@
 <p>Для присвоения идентификатора используются сообщения администратора. Административные сообщения, передаваемые от хоста к микроконтроллеру, используют идентификатор CAN-шины <code>0x3f0</code>, а сообщения, передаваемые от микроконтроллера к хосту, - идентификатор CAN-шины <code>0x3f1</code>. Все микроконтроллеры прослушивают сообщения с идентификатором <code>0x3f0</code>; этот идентификатор можно рассматривать как "широковещательный адрес".</p>
 <h3 id="cmd_query_unassigned">CMD_QUERY_UNASSIGNED сообщение<a class="headerlink" href="#cmd_query_unassigned" title="Permanent link">&para;</a></h3>
 <p>Эта команда запрашивает все микроконтроллеры, которым еще не присвоен <code>canbus_nodeid</code>. В ответ на запрос микроконтроллеры, которым еще не присвоен <code>canbus_nodeid</code>, выдают сообщение RESP_NEED_NODEID.</p>
-<p>The CMD_QUERY_UNASSIGNED message format is: <code>&lt;1-byte message_id = 0x00&gt;</code></p>
-<h3 id="cmd_set_klipper_nodeid-message">CMD_SET_KLIPPER_NODEID message<a class="headerlink" href="#cmd_set_klipper_nodeid-message" title="Permanent link">&para;</a></h3>
-<p>This command assigns a <code>canbus_nodeid</code> to the micro-controller with a given <code>canbus_uuid</code>.</p>
-<p>The CMD_SET_KLIPPER_NODEID message format is: <code>&lt;1-byte message_id = 0x01&gt;&lt;6-byte canbus_uuid&gt;&lt;1-byte canbus_nodeid&gt;</code></p>
+<p>Формат сообщения CMD_QUERY_UNASSIGNED: <code>&lt;1-байтовый message_id = 0x00&gt;</code></p>
+<h3 id="cmd_set_klipper_nodeid">Сообщение CMD_SET_KLIPPER_NODEID<a class="headerlink" href="#cmd_set_klipper_nodeid" title="Permanent link">&para;</a></h3>
+<p>Эта команда назначает микроконтроллеру <code>canbus_nodeid</code> с заданным <code>canbus_uuid</code>.</p>
+<p>Формат сообщения CMD_SET_KLIPPER_NODEID следующий: <code>&lt;1-байтовый message_id = 0x01&gt;&lt;6-байтовый canbus_uuid&gt;&lt;1-байтовый canbus_nodeid&gt;</code></p>
 <h3 id="resp_need_nodeid">RESP_NEED_NODEID сообщение<a class="headerlink" href="#resp_need_nodeid" title="Permanent link">&para;</a></h3>
-<p>The RESP_NEED_NODEID message format is: <code>&lt;1-byte message_id = 0x20&gt;&lt;6-byte canbus_uuid&gt;&lt;1-byte set_klipper_nodeid = 0x01&gt;</code></p>
-<h2 id="data-packets">Data Packets<a class="headerlink" href="#data-packets" title="Permanent link">&para;</a></h2>
-<p>A micro-controller that has been assigned a nodeid via the CMD_SET_KLIPPER_NODEID command can send and receive data packets.</p>
-<p>The packet data in messages using the node's receive CAN bus id (<code>canbus_nodeid * 2 + 256</code>) are simply appended to a buffer, and when a complete <a href="Protocol.html">mcu protocol message</a> is found its contents are parsed and processed. The data is treated as a byte stream - there is no requirement for the start of a Klipper message block to align with the start of a CAN bus packet.</p>
-<p>Similarly, mcu protocol message responses are sent from micro-controller to host by copying the message data into one or more packets with the node's transmit CAN bus id (<code>canbus_nodeid * 2 + 256 + 1</code>).</p>
+<p>Формат сообщения RESP_NEED_NODEID следующий: <code>&lt;1-байтовый message_id = 0x20&gt;&lt;6-байтовый canbus_uuid&gt;&lt;1-байтовый set_klipper_nodeid = 0x01&gt;</code></p>
+<h2 id="_3">Пакеты данных<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>Микроконтроллер, которому присвоен идентификатор узла командой CMD_SET_KLIPPER_NODEID, может отправлять и принимать пакеты данных.</p>
+<p>Данные пакетов в сообщениях, использующих идентификатор принимаемой CAN-шины узла (<code>canbus_nodeid * 2 + 256</code>), просто добавляются в буфер, а при обнаружении полного <a href="Protocol.html">mcu protocol message</a> его содержимое разбирается и обрабатывается. Данные обрабатываются как поток байтов - нет требования, чтобы начало блока сообщений Klipper совпадало с началом пакета CAN-шины.</p>
+<p>Аналогично, ответы на сообщения протокола mcu передаются от микроконтроллера к хосту путем копирования данных сообщения в один или несколько пакетов с идентификатором передаваемого узла CAN-шины (<code>canbus_nodeid * 2 + 256 + 1</code>).</p>
 
               
             </article>

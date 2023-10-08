@@ -13,7 +13,7 @@
     
     
       
-        <title>Delta calibration - Klipper documentation</title>
+        <title>Дельта-калибровка - Klipper documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#delta-calibration" class="md-skip">
+        <a href="#-" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Delta calibration
+              Дельта-калибровка
             
           </span>
         </div>
@@ -1246,18 +1246,18 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#basic-delta-calibration" class="md-nav__link">
-    Basic delta calibration
+  <a href="#-_1" class="md-nav__link">
+    Базовая дельта-калибровка
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#enhanced-delta-calibration" class="md-nav__link">
-    Enhanced delta calibration
+  <a href="#-_2" class="md-nav__link">
+    Улучшенная дельта-калибровка
   </a>
   
-    <nav class="md-nav" aria-label="Enhanced delta calibration">
+    <nav class="md-nav" aria-label="Улучшенная дельта-калибровка">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1273,8 +1273,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#using-bed-mesh-on-a-delta" class="md-nav__link">
-    Using Bed Mesh on a Delta
+  <a href="#bed-mesh" class="md-nav__link">
+    Использование сетки Bed Mesh в дельте
   </a>
   
 </li>
@@ -1296,7 +1296,7 @@
 </a>
 
 
-<h1 id="delta-calibration">Delta calibration<a class="headerlink" href="#delta-calibration" title="Permanent link">&para;</a></h1>
+<h1 id="-">Дельта-калибровка<a class="headerlink" href="#-" title="Permanent link">&para;</a></h1>
 <p>В этом документе описывается система автоматической калибровки Klipper для принтеров типа "delta".</p>
 <p>Дельта-калибровка включает в себя определение положений концевых упоров башни, углов башни, дельта-радиуса и длины дельта-рычагов. Эти настройки управляют перемещением принтера на принтере delta. Каждый из этих параметров оказывает неочевидное и нелинейное влияние, и их трудно откалибровать вручную. Напротив, программный код калибровки может обеспечить отличные результаты всего за несколько минут. Никакого специального зондирующего оборудования не требуется.</p>
 <p>В конечном счете, дельта-калибровка зависит от точности концевых выключателей башни. Если вы используете драйверы шаговых двигателей Trinamic, то рассмотрите возможность включения <a href="Endstop_Phase.html">endstop phase</a> обнаружения для повышения точности этих переключателей.</p>
@@ -1304,82 +1304,82 @@
 <p>Klipper поддерживает калибровку дельта-параметров с помощью ручного метода измерения или с помощью автоматического Z-зонда.</p>
 <p>Некоторые комплекты дельта-принтеров поставляются с автоматическими Z-зондами, которые не обладают достаточной точностью (в частности, небольшая разница в длине может вызвать наклон эффектора, что может исказить показания автоматического датчика). Если используется автоматический датчик, то сначала необходимо откалибровать датчик <a href="Probe_Calibrate.html">calibrate the probe</a>, а затем проверить смещение положения датчика <a href="Probe_Calibrate.html#location-bias-check">probe location bias</a>. Если смещение автоматического датчика превышает 25 микрон (.025 мм), то вместо этого используйте ручное зондирование. Ручное зондирование занимает всего несколько минут и устраняет погрешность, вносимую зондом.</p>
 <p>Если используется датчик, установленный сбоку от хотэнда (т.е. имеющий смещение по оси X или Y), то следует учитывать, что при выполнении дельта-калибровки результаты калибровки датчика будут недействительными. Такие датчики редко подходят для дельта-калибровки (поскольку незначительный наклон эффектора приведет к смещению положения датчика). Если датчик все же используется, то после выполнения дельта-калибровки обязательно выполните повторную калибровку датчика.</p>
-<h2 id="basic-delta-calibration">Basic delta calibration<a class="headerlink" href="#basic-delta-calibration" title="Permanent link">&para;</a></h2>
-<p>Klipper has a DELTA_CALIBRATE command that can perform basic delta calibration. This command probes seven different points on the bed and calculates new values for the tower angles, tower endstops, and delta radius.</p>
-<p>In order to perform this calibration the initial delta parameters (arm lengths, radius, and endstop positions) must be provided and they should have an accuracy to within a few millimeters. Most delta printer kits will provide these parameters - configure the printer with these initial defaults and then go on to run the DELTA_CALIBRATE command as described below. If no defaults are available then search online for a delta calibration guide that can provide a basic starting point.</p>
-<p>During the delta calibration process it may be necessary for the printer to probe below what would otherwise be considered the plane of the bed. It is typical to permit this during calibration by updating the config so that the printer's <code>minimum_z_position=-5</code>. (Once calibration completes, one can remove this setting from the config.)</p>
-<p>There are two ways to perform the probing - manual probing (<code>DELTA_CALIBRATE METHOD=manual</code>) and automatic probing (<code>DELTA_CALIBRATE</code>). The manual probing method will move the head near the bed and then wait for the user to follow the steps described at <a href="Bed_Level.html#the-paper-test">"the paper test"</a> to determine the actual distance between the nozzle and bed at the given location.</p>
-<p>To perform the basic probe, make sure the config has a [delta_calibrate] section defined and then run the tool:</p>
+<h2 id="-_1">Базовая дельта-калибровка<a class="headerlink" href="#-_1" title="Permanent link">&para;</a></h2>
+<p>В Klipper есть команда DELTA_CALIBRATE, которая может выполнять базовую дельта-калибровку. Эта команда исследует семь различных точек на станине и вычисляет новые значения для углов башни, торцевых поверхностей башни и радиуса дельты.</p>
+<p>Для выполнения этой калибровки необходимо указать начальные дельта-параметры (длины рычагов, радиус и положения конечных упоров), и они должны иметь точность с точностью до нескольких миллиметров. Большинство комплектов принтеров delta предоставляют эти параметры - настройте принтер с этими начальными значениями по умолчанию, а затем выполните команду DELTA_CALIBRATE, как описано ниже. Если значения по умолчанию недоступны, найдите в Интернете руководство по дельта-калибровке, которое может послужить базовой отправной точкой.</p>
+<p>В процессе дельта-калибровки принтеру может потребоваться провести зондирование ниже того, что в противном случае считалось бы плоскостью подложки. Обычно это разрешается во время калибровки путем обновления конфигурации таким образом, чтобы <code>minimum_z_position принтера=-5</code>. (После завершения калибровки можно удалить эту настройку из конфигурации.)</p>
+<p>Существует два способа выполнения зондирования - ручное зондирование (<code>DELTA_CALIBRATE METHOD=manual</code>) и автоматическое зондирование (<code>DELTA_CALIBRATE</code>). Метод ручного зондирования позволяет приблизить головку к подложке, а затем дождаться, пока пользователь выполнит шаги, описанные в <a href="Bed_Level.html#the-paper-test">"тест бумаги"</a>, чтобы определить фактическое расстояние между насадкой и подложкой в заданном месте.</p>
+<p>Чтобы выполнить базовую проверку, убедитесь, что в конфигурации определен раздел [delta_calibrate], а затем запустите инструмент:</p>
 <div class="highlight"><pre><span></span><code>G28
-DELTA_CALIBRATE METHOD=manual
+DELTA_CALIBRATE METHOD=ручной
 </code></pre></div>
 
-<p>After probing the seven points new delta parameters will be calculated. Save and apply these parameters by running:</p>
+<p>После зондирования семи точек будут рассчитаны новые дельта-параметры. Сохраните и примените эти параметры, выполнив:</p>
 <div class="highlight"><pre><span></span><code>SAVE_CONFIG
 </code></pre></div>
 
-<p>The basic calibration should provide delta parameters that are accurate enough for basic printing. If this is a new printer, this is a good time to print some basic objects and verify general functionality.</p>
-<h2 id="enhanced-delta-calibration">Enhanced delta calibration<a class="headerlink" href="#enhanced-delta-calibration" title="Permanent link">&para;</a></h2>
-<p>The basic delta calibration generally does a good job of calculating delta parameters such that the nozzle is the correct distance from the bed. However, it does not attempt to calibrate X and Y dimensional accuracy. It's a good idea to perform an enhanced delta calibration to verify dimensional accuracy.</p>
-<p>This calibration procedure requires printing a test object and measuring parts of that test object with digital calipers.</p>
-<p>Prior to running an enhanced delta calibration one must run the basic delta calibration (via the DELTA_CALIBRATE command) and save the results (via the SAVE_CONFIG command). Make sure there hasn't been any notable change to the printer configuration nor hardware since last performing a basic delta calibration (if unsure, rerun the <a href="#basic-delta-calibration">basic delta calibration</a>, including SAVE_CONFIG, just prior to printing the test object described below.)</p>
-<p>Use a slicer to generate G-Code from the <a href="prints/calibrate_size.stl">docs/prints/calibrate_size.stl</a> file. Slice the object using a slow speed (eg, 40mm/s). If possible, use a stiff plastic (such as PLA) for the object. The object has a diameter of 140mm. If this is too large for the printer then one can scale it down (but be sure to uniformly scale both the X and Y axes). If the printer supports significantly larger prints then this object can also be increased in size. A larger size can improve the measurement accuracy, but good print adhesion is more important than a larger print size.</p>
-<p>Print the test object and wait for it to fully cool. The commands described below must be run with the same printer settings used to print the calibration object (don't run DELTA_CALIBRATE between printing and measuring, or do something that would otherwise change the printer configuration).</p>
-<p>If possible, perform the measurements described below while the object is still attached to the print bed, but don't worry if the part detaches from the bed - just try to avoid bending the object when performing the measurements.</p>
-<p>Start by measuring the distance between the center pillar and the pillar next to the "A" label (which should also be pointing towards the "A" tower).</p>
-<p><img alt="delta-a-distance" src="img/delta-a-distance.jpg" /></p>
-<p>Then go counterclockwise and measure the distances between the center pillar and the other pillars (distance from center to pillar across from C label, distance from center to pillar with B label, etc.).</p>
+<p>Базовая калибровка должна обеспечивать дельта-параметры, достаточные для базовой печати. Если это новый принтер, сейчас самое подходящее время напечатать некоторые базовые объекты и проверить общую функциональность.</p>
+<h2 id="-_2">Улучшенная дельта-калибровка<a class="headerlink" href="#-_2" title="Permanent link">&para;</a></h2>
+<p>Базовая дельта-калибровка, как правило, хорошо справляется с вычислением дельта-параметров таким образом, чтобы сопло находилось на правильном расстоянии от слоя. Однако он не пытается откалибровать точность размеров X и Y. Рекомендуется выполнить расширенную дельта-калибровку для проверки точности размеров.</p>
+<p>Эта процедура калибровки требует распечатки тестируемого объекта и измерения частей этого тестируемого объекта цифровыми штангенциркулями.</p>
+<p>Перед запуском расширенной дельта калибровки необходимо запустить базовую дельта-калибровку (с помощью команды DELTA_CALIBRATE) и сохранить результаты (с помощью команды SAVE_CONFIG). Убедитесь, что с момента последнего выполнения базовой дельта-калибровки не произошло каких-либо заметных изменений ни в конфигурации принтера, ни в оборудовании (если вы не уверены, повторно запустите <a href="#basic-delta-калибровка">базовую дельта калибровку</a>, включая SAVE_CONFIG, непосредственно перед печатью. тестовый объект, описанный ниже.)</p>
+<p>Используйте слайсер для генерации G-кода из файла <a href="prints/calibrate_size.stl">docs/prints/calibrate_size.style</a>. Нарежьте объект, используя медленную скорость (например, 40 мм/с). Если возможно, используйте для этого предмета жесткий пластик (например, PLA). Объект имеет диаметр 140 мм. Если он слишком велик для принтера, то можно уменьшить его масштаб (но обязательно равномерно масштабируйте обе оси X и Y). Если принтер поддерживает печать значительно большего размера, то этот объект также можно увеличить в размере. Больший размер может повысить точность измерений, но хорошая адгезия к отпечатку важнее, чем больший размер отпечатка.</p>
+<p>Распечатайте тестовый объект и подождите, пока он полностью остынет. Команды, описанные ниже, должны выполняться с теми же настройками принтера, которые использовались для печати объекта калибровки (не запускайте DELTA_CALIBRATE между печатью и измерением и не делайте ничего, что в противном случае изменило бы конфигурацию принтера).</p>
+<p>Если возможно, выполните измерения, описанные ниже, пока объект все еще прикреплен к подложке для печати, но не волнуйтесь, если деталь отсоединится от подложки - просто старайтесь избегать изгиба объекта при выполнении измерений.</p>
+<p>Начните с измерения расстояния между центральной стойкой и стойкой рядом с надписью "А" (которая также должна быть направлена в сторону башни "А").</p>
+<p><img alt="дельта-расстояние" src="img/delta-a-distance.jpg" /></p>
+<p>Затем поверните против часовой стрелки и измерьте расстояния между центральной стойкой и другими стойками (расстояние от центра до стойки напротив метки C, расстояние от центра до стойки с меткой B и т.д.).</p>
 <p><img alt="delta_cal_e_step1" src="img/delta_cal_e_step1.png" /></p>
-<p>Enter these parameters into Klipper with a comma separated list of floating point numbers:</p>
+<p>Введите эти параметры в Klipper со списком чисел с плавающей запятой, разделенных запятыми:</p>
 <div class="highlight"><pre><span></span><code>DELTA_ANALYZE CENTER_DISTS=&lt;a_dist&gt;,&lt;far_c_dist&gt;,&lt;b_dist&gt;,&lt;far_a_dist&gt;,&lt;c_dist&gt;,&lt;far_b_dist&gt;
 </code></pre></div>
 
-<p>Provide the values without spaces between them.</p>
-<p>Then measure the distance between the A pillar and the pillar across from the C label.</p>
-<p><img alt="delta-ab-distance" src="img/delta-outer-distance.jpg" /></p>
-<p>Then go counterclockwise and measure the distance between the pillar across from C to the B pillar, the distance between the B pillar and the pillar across from A, and so on.</p>
+<p>Укажите значения без пробелов между ними.</p>
+<p>Затем измерьте расстояние между стойкой A и стойкой напротив метки C.</p>
+<p><img alt="дельта-ав-расстояние" src="img/delta-outer-distance.jpg" /></p>
+<p>Затем поверните против часовой стрелки и измерьте расстояние между стойкой напротив от C до стойки B, расстояние между стойкой B и стойкой напротив A и так далее.</p>
 <p><img alt="delta_cal_e_step2" src="img/delta_cal_e_step2.png" /></p>
-<p>Enter these parameters into Klipper:</p>
+<p>Введите эти параметры в Klipper:</p>
 <div class="highlight"><pre><span></span><code>DELTA_ANALYZE OUTER_DISTS=&lt;a_to_far_c&gt;,&lt;far_c_to_b&gt;,&lt;b_to_far_a&gt;,&lt;far_a_to_c&gt;,&lt;c_to_far_b&gt;,&lt;far_b_to_a&gt;
 </code></pre></div>
 
-<p>At this point it is okay to remove the object from the bed. The final measurements are of the pillars themselves. Measure the size of the center pillar along the A spoke, then the B spoke, and then the C spoke.</p>
+<p>На этом этапе можно убрать предмет с кровати. Окончательные измерения производятся для самих колонн. Измерьте размер центральной стойки вдоль спицы A, затем спицы B, а затем спицы C.</p>
 <p><img alt="delta-a-pillar" src="img/delta-a-pillar.jpg" /></p>
 <p><img alt="delta_cal_e_step3" src="img/delta_cal_e_step3.png" /></p>
-<p>Enter them into Klipper:</p>
+<p>Введите их в Klipper:</p>
 <div class="highlight"><pre><span></span><code>DELTA_ANALYZE CENTER_PILLAR_WIDTHS=&lt;a&gt;,&lt;b&gt;,&lt;c&gt;
 </code></pre></div>
 
-<p>The final measurements are of the outer pillars. Start by measuring the distance of the A pillar along the line from A to the pillar across from C.</p>
+<p>Окончательные измерения производятся для внешних опор. Начните с измерения расстояния от столба A по линии от A до столба напротив C.</p>
 <p><img alt="delta-ab-pillar" src="img/delta-outer-pillar.jpg" /></p>
-<p>Then go counterclockwise and measure the remaining outer pillars (pillar across from C along the line to B, B pillar along the line to pillar across from A, etc.).</p>
+<p>Затем идите против часовой стрелки и измерьте оставшиеся внешние стойки (стойка напротив C вдоль линии до B, стойка B вдоль линии до стойки напротив A и т.д.).</p>
 <p><img alt="delta_cal_e_step4" src="img/delta_cal_e_step4.png" /></p>
-<p>And enter them into Klipper:</p>
+<p>И введите их в Klipper:</p>
 <div class="highlight"><pre><span></span><code>DELTA_ANALYZE OUTER_PILLAR_WIDTHS=&lt;a&gt;,&lt;far_c&gt;,&lt;b&gt;,&lt;far_a&gt;,&lt;c&gt;,&lt;far_b&gt;
 </code></pre></div>
 
-<p>If the object was scaled to a smaller or larger size then provide the scale factor that was used when slicing the object:</p>
-<div class="highlight"><pre><span></span><code>DELTA_ANALYZE SCALE=1.0
+<p>Если объект был масштабирован до меньшего или большего размера, укажите коэффициент масштабирования, который использовался при нарезке объекта:</p>
+<div class="highlight"><pre><span></span><code>ШКАЛА DELTA_ANALYZE=1.0
 </code></pre></div>
 
-<p>(A scale value of 2.0 would mean the object is twice its original size, 0.5 would be half its original size.)</p>
-<p>Finally, perform the enhanced delta calibration by running:</p>
-<div class="highlight"><pre><span></span><code>DELTA_ANALYZE CALIBRATE=extended
+<p>(Значение масштаба, равное 2,0, означало бы, что объект в два раза больше своего первоначального размера, 0,5 - это половина его первоначального размера.)</p>
+<p>Наконец, выполните расширенную дельта-калибровку, запустив:</p>
+<div class="highlight"><pre><span></span><code>DELTA_ANALYZE CALIBRATE=расширенный
 </code></pre></div>
 
-<p>This command can take several minutes to complete. After completion it will calculate updated delta parameters (delta radius, tower angles, endstop positions, and arm lengths). Use the SAVE_CONFIG command to save and apply the settings:</p>
+<p>Выполнение этой команды может занять несколько минут. После завершения он рассчитает обновленные дельта-параметры (радиус дельты, углы наклона башни, положения концевых упоров и длины рычагов). Используйте команду SAVE_CONFIG, чтобы сохранить и применить настройки:</p>
 <div class="highlight"><pre><span></span><code>SAVE_CONFIG
 </code></pre></div>
 
-<p>The SAVE_CONFIG command will save both the updated delta parameters and information from the distance measurements. Future DELTA_CALIBRATE commands will also utilize this distance information. Do not attempt to reenter the raw distance measurements after running SAVE_CONFIG, as this command changes the printer configuration and the raw measurements no longer apply.</p>
+<p>Команда SAVE_CONFIG сохранит как обновленные дельта-параметры, так и информацию, полученную в результате измерений расстояния. Будущие команды DELTA_CALIBRATE также будут использовать эту информацию о расстоянии. Не пытайтесь повторно ввести необработанные измерения расстояния после запуска SAVE_CONFIG, так как эта команда изменяет конфигурацию принтера и необработанные измерения больше не применяются.</p>
 <h3 id="_2">Дополнительные примечания<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
 <ul>
-<li>If the delta printer has good dimensional accuracy then the distance between any two pillars should be around 74mm and the width of every pillar should be around 9mm. (Specifically, the goal is for the distance between any two pillars minus the width of one of the pillars to be exactly 65mm.) Should there be a dimensional inaccuracy in the part then the DELTA_ANALYZE routine will calculate new delta parameters using both the distance measurements and the previous height measurements from the last DELTA_CALIBRATE command.</li>
-<li>DELTA_ANALYZE may produce delta parameters that are surprising. For example, it may suggest arm lengths that do not match the printer's actual arm lengths. Despite this, testing has shown that DELTA_ANALYZE often produces superior results. It is believed that the calculated delta parameters are able to account for slight errors elsewhere in the hardware. For example, small differences in arm length may result in a tilt to the effector and some of that tilt may be accounted for by adjusting the arm length parameters.</li>
+<li>Если принтер delta обладает хорошей точностью размеров, то расстояние между любыми двумя стойками должно составлять около 74 мм, а ширина каждой стойки - около 9 мм. (В частности, цель состоит в том, чтобы расстояние между любыми двумя стойками за вычетом ширины одной из стоек составляло ровно 65 мм.) Если в детали имеется неточность в размерах, то процедура DELTA_ANALYZE вычислит новые дельта-параметры, используя как измерения расстояния, так и предыдущие измерения высоты из последней команды DELTA_CALIBRATE.</li>
+<li>DELTA_ANALYZE может выдавать неожиданные дельта-параметры. Например, в нем может быть указана длина рычагов, которая не соответствует фактической длине рычагов принтера. Несмотря на это, тестирование показало, что DELTA_ANALYZE часто дает превосходные результаты. Считается, что вычисленные дельта-параметры способны учитывать незначительные ошибки в других частях аппаратного обеспечения. Например, небольшие различия в длине руки могут привести к наклону исполнительного устройства, и часть этого наклона может быть учтена путем регулировки параметров длины руки.</li>
 </ul>
-<h2 id="using-bed-mesh-on-a-delta">Using Bed Mesh on a Delta<a class="headerlink" href="#using-bed-mesh-on-a-delta" title="Permanent link">&para;</a></h2>
-<p>It is possible to use <a href="Bed_Mesh.html">bed mesh</a> on a delta. However, it is important to obtain good delta calibration prior to enabling a bed mesh. Running bed mesh with poor delta calibration will result in confusing and poor results.</p>
-<p>Note that performing delta calibration will invalidate any previously obtained bed mesh. After performing a new delta calibration be sure to rerun BED_MESH_CALIBRATE.</p>
+<h2 id="bed-mesh">Использование сетки Bed Mesh в дельте<a class="headerlink" href="#bed-mesh" title="Permanent link">&para;</a></h2>
+<p>Можно использовать <a href="Bed_Mesh.html">сетку для кровати</a> на дельте. Однако важно получить хорошую дельта-калибровку перед включением сетки слоя. Использование сетки слоя с плохой дельта-калибровкой приведет к путанице и плохим результатам.</p>
+<p>Обратите внимание, что выполнение дельта-калибровки сделает недействительной любую ранее полученную сетку пласта. После выполнения новой дельта-калибровки обязательно повторно запустите BED_MESH_CALIBRATE.</p>
 
               
             </article>

@@ -1253,22 +1253,22 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#building-the-micro-controller-code" class="md-nav__link">
-    Building the micro-controller code
+  <a href="#_2" class="md-nav__link">
+    Создание кода микроконтроллера
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#remaining-configuration" class="md-nav__link">
-    Remaining configuration
+  <a href="#_3" class="md-nav__link">
+    Оставшаяся конфигурация
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#printing-on-the-beaglebone" class="md-nav__link">
-    Printing on the Beaglebone
+  <a href="#beaglebone_1" class="md-nav__link">
+    Печать на Beaglebone
   </a>
   
 </li>
@@ -1300,7 +1300,7 @@
 </code></pre></div>
 
 <h2 id="octoprint">Установите Octoprint<a class="headerlink" href="#octoprint" title="Permanent link">&para;</a></h2>
-<p>One may then install Octoprint:</p>
+<p>Затем можно установить Octoprint:</p>
 <div class="highlight"><pre><span></span><code>git clone https://github.com/foosel/OctoPrint.git
 cd OctoPrint/
 virtualenv venv
@@ -1314,41 +1314,41 @@ sudo cp ~/OctoPrint/scripts/octoprint.default /etc/default/octoprint
 sudo update-rc.d octoprint defaults
 </code></pre></div>
 
-<p>It is necessary to modify OctoPrint's <strong>/etc/default/octoprint</strong> configuration file. One must change the <code>OCTOPRINT_USER</code> user to <code>debian</code>, change <code>NICELEVEL</code> to <code>0</code>, uncomment the <code>BASEDIR</code>, <code>CONFIGFILE</code>, and <code>DAEMON</code> settings and change the references from <code>/home/pi/</code> to <code>/home/debian/</code>:</p>
+<p>Необходимо изменить файл конфигурации <strong>/etc/default/octoprint</strong> OctoPrint. Необходимо изменить пользователя OCTOPRINT_USER на debian, NICELEVEL на 0, раскомментировать настройки BASEDIR, CONFIGFILE и DAEMON и изменить ссылки с /home/pi/ на <code>/home/debian/</code>:</p>
 <div class="highlight"><pre><span></span><code>sudo nano /etc/default/octoprint
 </code></pre></div>
 
-<p>Then start the Octoprint service:</p>
+<p>Затем запустите сервис Octoprint:</p>
 <div class="highlight"><pre><span></span><code>sudo systemctl start octoprint
 </code></pre></div>
 
-<p>Make sure the OctoPrint web server is accessible - it should be at: <a href="http://beaglebone:5000/">http://beaglebone:5000/</a></p>
-<h2 id="building-the-micro-controller-code">Building the micro-controller code<a class="headerlink" href="#building-the-micro-controller-code" title="Permanent link">&para;</a></h2>
-<p>To compile the Klipper micro-controller code, start by configuring it for the "Beaglebone PRU":</p>
+<p>Убедитесь, что веб-сервер OctoPrint доступен — он должен находиться по адресу: <a href="http://beaglebone:5000/">http://beaglebone:5000/</a></p>
+<h2 id="_2">Создание кода микроконтроллера<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>Чтобы скомпилировать код микроконтроллера Klipper, начните с настройки его для «Beaglebone PRU»:</p>
 <div class="highlight"><pre><span></span><code>cd ~/klipper/
 make menuconfig
 </code></pre></div>
 
-<p>To build and install the new micro-controller code, run:</p>
+<p>Чтобы собрать и установить новый код микроконтроллера, запустите:</p>
 <div class="highlight"><pre><span></span><code>sudo service klipper stop
 make flash
 sudo service klipper start
 </code></pre></div>
 
-<p>It is also necessary to compile and install the micro-controller code for a Linux host process. Configure it a second time for a "Linux process":</p>
+<p>Также необходимо скомпилировать и установить код микроконтроллера для хост-процесса Linux. Настройте его второй раз для «процесса Linux»:</p>
 <div class="highlight"><pre><span></span><code>make menuconfig
 </code></pre></div>
 
-<p>Then install this micro-controller code as well:</p>
+<p>Затем установите также этот код микроконтроллера:</p>
 <div class="highlight"><pre><span></span><code>sudo service klipper stop
 make flash
 sudo service klipper start
 </code></pre></div>
 
-<h2 id="remaining-configuration">Remaining configuration<a class="headerlink" href="#remaining-configuration" title="Permanent link">&para;</a></h2>
-<p>Complete the installation by configuring Klipper and Octoprint following the instructions in the main <a href="Installation.html#configuring-klipper">Installation</a> document.</p>
-<h2 id="printing-on-the-beaglebone">Printing on the Beaglebone<a class="headerlink" href="#printing-on-the-beaglebone" title="Permanent link">&para;</a></h2>
-<p>Unfortunately, the Beaglebone processor can sometimes struggle to run OctoPrint well. Print stalls have been known to occur on complex prints (the printer may move faster than OctoPrint can send movement commands). If this occurs, consider using the "virtual_sdcard" feature (see <a href="Config_Reference.html#virtual_sdcard">Config Reference</a> for details) to print directly from Klipper.</p>
+<h2 id="_3">Оставшаяся конфигурация<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>Завершите установку, настроив Klipper и Octoprint, следуя инструкциям в основном документе <a href="Installation.html#configuring-klipper">Установка</a>.</p>
+<h2 id="beaglebone_1">Печать на Beaglebone<a class="headerlink" href="#beaglebone_1" title="Permanent link">&para;</a></h2>
+<p>К сожалению, процессор Beaglebone иногда может с трудом справляться с работой OctoPrint. Известно, что при сложных отпечатках случаются остановки печати (принтер может двигаться быстрее, чем OctoPrint может отправлять команды движения). В этом случае рассмотрите возможность использования функции «virtual_sdcard» (подробности см. в <a href="Config_Reference.html#virtual_sdcard">Справочнике по конфигурации</a>) для печати непосредственно из Klipper.</p>
 
               
             </article>
