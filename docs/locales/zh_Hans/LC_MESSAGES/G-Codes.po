@@ -3,7 +3,7 @@
 # Neko.vecter <Vecterfang@icloud.com>, 2021, 2022.
 # Peppa Pig <hansongming88@gmail.com>, 2022, 2025.
 # ghyuav <ghyuav2021@163.com>, 2022.
-# xm Y <3260838022@qq.com>, 2023.
+# xm Y <3260838022@qq.com>, 2023, 2025.
 # Arda <pengfei.fu@gmail.com>, 2024, 2025.
 # enly sure <enlysure@gmail.com>, 2024.
 # WMMM <mo18218985508@163.com>, 2024.
@@ -14,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-13 14:53+0200\n"
 "PO-Revision-Date: 2025-05-03 07:22+0000\n"
-"Last-Translator: Arda <pengfei.fu@gmail.com>\n"
+"Last-Translator: xm Y <3260838022@qq.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/klipper/g-codes/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -952,7 +952,9 @@ msgid ""
 "section](Config_Reference.md#bed_mesh) is enabled (also see the [bed mesh "
 "guide](Bed_Mesh.md))."
 msgstr ""
-"启用[床网格配置部分]（config_Reference.md#bed_mesh）时，以下命令可用（另请参阅[床网格指南]（bed_mesh.md））。"
+"启用[床网格配置部分]"
+"（config_Reference.md#bed_mesh）时，以下命令可用（另请参阅[床网格指南]"
+"（bed_mesh.md））。"
 
 #: docs/G-Codes.md:block 24 (header)
 msgid "BED_MESH_CALIBRATE"
@@ -2561,7 +2563,11 @@ msgid ""
 "the VELOCITY argument for fields that represent velocities."
 msgstr ""
 "`SET_TMC_FIELD "
-"STEPPER=<name>FIELD=<FIELD>VALUE=<VALUE>VELOCITY=<VALUE>`：这将更改TMC驱动器的指定寄存器字段的值。此命令仅用于低级别诊断和调试，因为在运行时更改字段可能会导致打印机出现不希望出现的潜在危险行为。应使用打印机配置文件进行永久性更改。没有对给定的值执行健全性检查。也可以指定VELOCITY而不是VALUE。该速度被转换为基于20位TSTEP的值表示。仅对表示速度的字段使用VELOCITY参数。"
+"STEPPER=<name>FIELD=<FIELD>VALUE=<VALUE>VELOCITY=<VALUE>`：这将更改TMC驱动器"
+"的指定寄存器字段的值。此命令仅用于低级别诊断和调试，因为在运行时更改字段可能"
+"会导致打印机出现不希望出现的潜在危险行为。应使用打印机配置文件进行永久性更改"
+"。没有对给定的值执行健全性检查。也可以指定VELOCITY而不是VALUE。该速度被转换为"
+"基于20位TSTEP的值表示。仅对表示速度的字段使用VELOCITY参数。"
 
 #: docs/G-Codes.md:block 84 (paragraph)
 msgid ""
