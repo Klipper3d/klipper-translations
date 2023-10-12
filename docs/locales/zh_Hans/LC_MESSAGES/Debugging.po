@@ -1,13 +1,13 @@
 # Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022, 2025.
 # Neko.vecter <Vecterfang@icloud.com>, 2022.
-# xm Y <3260838022@qq.com>, 2023.
+# xm Y <3260838022@qq.com>, 2023, 2025.
 # Hosted Weblate <mfvotmjhcj@iubridge.com>, 2023, 2024, 2025.
 # "Neko.vecter" <Vecterfang@icloud.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:22+0000\n"
-"Last-Translator: Hosted Weblate <mfvotmjhcj@iubridge.com>\n"
+"Last-Translator: xm Y <3260838022@qq.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/klipper/debugging/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -195,7 +195,9 @@ msgstr "运行回归测试"
 msgid ""
 "The main Klipper GitHub repository uses \"github actions\" to run a series of "
 "regression tests. It can be useful to run some of these tests locally."
-msgstr "Klipper GitHub主存储库使用“GitHub操作”来运行一系列回归测试。在本地运行其中一些测试可能很有用。"
+msgstr "Klipper "
+"GitHub主存储库使用“GitHub操作”来运行一系列回归测试。在本地运行其中一些测试可"
+"能很有用。"
 
 msgid "The source code \"whitespace check\" can be run with:"
 msgstr "源代码“whitespace check(空白检查)”可以使用以下代码运行："
