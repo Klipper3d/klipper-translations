@@ -1,16 +1,18 @@
 # Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022.
 # Neko.vecter <Vecterfang@icloud.com>, 2022.
+# xm Y <3260838022@qq.com>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-08-11 06:22+0000\n"
-"Last-Translator: Neko.vecter <Vecterfang@icloud.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/debugging/zh_Hans/>\n"
+"PO-Revision-Date: 2023-10-13 16:03+0000\n"
+"Last-Translator: xm Y <3260838022@qq.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/debugging/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.14-dev\n"
+"X-Generator: Weblate 5.1-dev\n"
 
 msgid "This document describes some of the Klipper debugging tools."
 msgstr "本文档描述了一些 Klipper 调试工具。"
@@ -174,10 +176,11 @@ msgstr "运行回归测试"
 msgid ""
 "The main Klipper GitHub repository uses \"github actions\" to run a series "
 "of regression tests. It can be useful to run some of these tests locally."
-msgstr ""
+msgstr "Klipper GitHub主存储库使用“GitHub操作”来运行一系列回归测试。在本地运行其中一"
+"些测试可能很有用。"
 
 msgid "The source code \"whitespace check\" can be run with:"
-msgstr ""
+msgstr "源代码“whitespace check(空白检查)”可以使用以下代码运行："
 
 msgid ""
 "make menuconfig\n"
@@ -236,7 +239,7 @@ msgstr "调试"
 
 #: docs/Debugging.md:block 24 (header)
 msgid "Motion analysis and data logging"
-msgstr ""
+msgstr "运动分析和数据记录"
 
 #: docs/Debugging.md:block 25 (paragraph)
 msgid ""
@@ -244,10 +247,12 @@ msgid ""
 "analyzed. To use this feature, Klipper must be started with the [API "
 "Server](API_Server.md) enabled."
 msgstr ""
+"Klipper支持记录其内部运动历史，稍后可以对其进行分析。若要使用此功能，Klipper"
+"必须在启用[API服务器]（API_Server.md）的情况下启动。"
 
 #: docs/Debugging.md:block 26 (paragraph)
 msgid "Data logging is enabled with the `data_logger.py` tool. For example:"
-msgstr ""
+msgstr "使用 `data_logger.py` 工具启用数据日志记录。例如："
 
 #: docs/Debugging.md:block 27 (code)
 msgid "~/klipper/scripts/motan/data_logger.py /tmp/klippy_uds mylog\n"
@@ -262,6 +267,10 @@ msgid ""
 "prints and other actions - the logging will continue in the background. When"
 " done logging, hit `ctrl-c` to exit from the `data_logger.py` tool."
 msgstr ""
+"此命令将连接到Klipper API服务器，订阅状态和运动信息，并记录结果。生成两个文件"
+"-一个压缩数据文件和一个索引文件（例如“mylog.json.gz”和“mylog.index.gz”）。启"
+"动日志记录后，可以完成打印和其他操作-日志记录将在后台继续。完成日志记录后，点"
+"击“ctrl-c”退出“data_logger.py”工具。"
 
 #: docs/Debugging.md:block 29 (paragraph)
 msgid ""
@@ -303,7 +312,7 @@ msgstr ""
 msgid ""
 "The list of available datasets can be found using the `-l` option - for "
 "example:"
-msgstr ""
+msgstr "可用数据集的列表可以使用“-l”选项找到，例如："
 
 #: docs/Debugging.md:block 37 (code)
 msgid "~/klipper/scripts/motan/motan_graph.py -l\n"
