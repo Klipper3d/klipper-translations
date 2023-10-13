@@ -3,20 +3,22 @@
 # Neko.vecter <Vecterfang@icloud.com>, 2021, 2022.
 # Peppa Pig <hansongming88@gmail.com>, 2022.
 # ghyuav <ghyuav2021@163.com>, 2022.
+# xm Y <3260838022@qq.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-13 14:53+0200\n"
-"PO-Revision-Date: 2022-09-15 07:23+0000\n"
-"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/g-codes/zh_Hans/>\n"
+"PO-Revision-Date: 2023-10-13 16:03+0000\n"
+"Last-Translator: xm Y <3260838022@qq.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/g-codes/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.14.1-dev\n"
+"X-Generator: Weblate 5.1-dev\n"
 
 msgid ""
 "This document describes the commands that Klipper supports. These are "
@@ -944,6 +946,8 @@ msgid ""
 "section](Config_Reference.md#bed_mesh) is enabled (also see the [bed mesh "
 "guide](Bed_Mesh.md))."
 msgstr ""
+"启用[床网格配置部分]（config_Reference."
+"md#bed_mesh）时，以下命令可用（另请参阅[床网格指南]（bed_mesh.md））。"
 
 #: docs/G-Codes.md:block 24 (header)
 msgid "BED_MESH_CALIBRATE"
@@ -2583,6 +2587,11 @@ msgid ""
 "representation. Only use the VELOCITY argument for fields that represent "
 "velocities."
 msgstr ""
+"`SET_TMC_FIELD STEPPER=<name>FIELD=<FIELD>VALUE=<VALUE>VELOCITY=<VALUE>`：这"
+"将更改TMC驱动器的指定寄存器字段的值。此命令仅用于低级别诊断和调试，因为在运行"
+"时更改字段可能会导致打印机出现不希望出现的潜在危险行为。应使用打印机配置文件"
+"进行永久性更改。没有对给定的值执行健全性检查。也可以指定VELOCITY而不是VALUE。"
+"该速度被转换为基于20位TSTEP的值表示。仅对表示速度的字段使用VELOCITY参数。"
 
 #: docs/G-Codes.md:block 379 (paragraph)
 msgid ""
@@ -2593,6 +2602,10 @@ msgid ""
 "`HORIZONTAL_MOVE_Z` value overrides the `horizontal_move_z` option specified"
 " in the config file."
 msgstr ""
+"`Z_TILT_ADJUST[HORIZONTAL_MOVE_Z=<value>][<probe_parameter>=<value>>：此命令"
+"将探测配置中指定的点，然后对每个Z步进器进行独立调整以补偿倾斜。有关可选探测参"
+"数的详细信息，请参阅PROBE命令。可选的“HORIZONTAL_MOVE_Z”值将覆盖配置文件中指"
+"定的“HORIZONTAL_MOVE_Z”选项。"
 
 #~ msgid ""
 #~ "`DELTA_CALIBRATE [METHOD=manual] [<probe_parameter>=<value>]`: This command "

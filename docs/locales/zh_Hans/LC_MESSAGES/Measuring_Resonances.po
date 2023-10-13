@@ -2,18 +2,19 @@
 # Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022, 2023.
 # Neko.vecter <Vecterfang@icloud.com>, 2022.
 # 红豆蛋黄派 <zgpride87@outlook.com>, 2022.
+# xm Y <3260838022@qq.com>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-04-07 22:49+0000\n"
-"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
+"PO-Revision-Date: 2023-10-13 16:03+0000\n"
+"Last-Translator: xm Y <3260838022@qq.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "klipper/measuring_resonances/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.17-dev\n"
+"X-Generator: Weblate 5.1-dev\n"
 
 msgid "Measuring Resonances"
 msgstr "共振值测量"
@@ -828,6 +829,9 @@ msgid ""
 "I2C by pulling SDO to GND), and, if it is going to be connected to a 5V "
 "printer MCU, that it has a voltage regulator and a level shifter."
 msgstr ""
+"在采购ADXL345时，请注意有各种不同的PCB板设计和它们的不同克隆。确保板支持SPI模"
+"式（通过将SDO拉到GND，少数板似乎是为I2C硬配置的），并且，如果要连接到5V打印机"
+"MCU，它有一个电压调节器和一个电平转换器。"
 
 #: docs/Measuring_Resonances.md:block 26 (code)
 msgid ""
@@ -849,6 +853,8 @@ msgid ""
 "`/tmp/resonances_y_*.csv`). These files can be processed with the stand-"
 "alone script on a Raspberry Pi. To do that, run the following commands:"
 msgstr ""
+"这将生成2个CSV文件（`/tmp/reonances_x_*.CSV`和`/tmp/Reonances_y_*.CSV'）。这"
+"些文件可以在树莓派上使用独立脚本进行处理。要执行此操作，请运行以下命令："
 
 #: docs/Measuring_Resonances.md:block 111 (paragraph)
 msgid ""
@@ -857,6 +863,9 @@ msgid ""
 "first to start the measurements, and then to stop them and write the output "
 "file. Refer to [G-Codes](G-Codes.md#adxl345) for more details."
 msgstr ""
+"在一些正常的打印机活动中，也可以通过运行命令“ACCELEROMETER_MEASURE”两次来获得"
+"原始数据——首先是开始测量，然后是停止测量并写入输出文件。有关更多详细信息，请"
+"参阅[G-Codes]（G-Codes.md#adxl345）。"
 
 #: docs/Measuring_Resonances.md:block 9 (table)
 msgid "MPU-9250 pin"
