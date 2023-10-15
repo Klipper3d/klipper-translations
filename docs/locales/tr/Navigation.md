@@ -10,6 +10,6 @@ Rezonans Telafisi
 
 Command templates
 
-Developer Documentation
+Geliştirici Belgeleri
 
 Device Specific Documents

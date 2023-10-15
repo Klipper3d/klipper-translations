@@ -10,7 +10,7 @@ Klipper支持输入整形 -一种可以用来减少打印件上振纹（也被�
 
 ## 调整
 
-Basic tuning requires measuring the ringing frequencies of the printer by printing a test model.
+基本调谐需要通过打印测试模型来测量打印机的振铃频率。
 
 将振纹测试模型切片，该模型可以在[docs/prints/ringing_tower.stl](prints/ringing_tower.stl)中找到，在切片软件中：
 
@@ -26,7 +26,7 @@ Basic tuning requires measuring the ringing frequencies of the printer by printi
 
 首先，测量**振纹频率**。
 
-1. If `square_corner_velocity` parameter was changed, revert it back to 5.0. It is not advised to increase it when using input shaper because it can cause more smoothing in parts - it is better to use higher acceleration value instead.
+1. 如果“square_corner_velocity”参数已更改，请将其恢复到5.0。当使用输入整形器时，不建议增加它，因为它会导致零件更加平滑——最好使用更高的加速度值。
 1. Increase `max_accel_to_decel` by issuing the following command: `SET_VELOCITY_LIMIT ACCEL_TO_DECEL=7000`
 1. Disable Pressure Advance: `SET_PRESSURE_ADVANCE ADVANCE=0`
 1. 如果你已经将`[input_shaper]`分段添加到print.cfg中，执行`SET_INPUT_SHAPER SHAPER_FREQ_X=0 SHAPER_FREQ_Y=0`命令。如果你得到"未知命令"错误，此时你可以安全地忽略它，继续进行测量。
@@ -258,7 +258,7 @@ Also note that EI, 2HUMP_EI, and 3HUMP_EI are tuned to reduce vibrations to 5%, 
 
 **How to use this table:**
 
-* Shaper duration affects the smoothing in parts - the larger it is, the more smooth the parts are. This dependency is not linear, but can give a sense of which shapers 'smooth' more for the same frequency. The ordering by smoothing is like this: ZV < MZV < ZVD ≈ EI < 2HUMP_EI < 3HUMP_EI. Also, it is rarely practical to set shaper_freq = resonance freq for shapers 2HUMP_EI and 3HUMP_EI (they should be used to reduce vibrations for several frequencies).
-* One can estimate a range of frequencies in which the shaper reduces vibrations. For example, MZV with shaper_freq = 35 Hz reduces vibrations to 5% for frequencies [33.6, 36.4] Hz. 3HUMP_EI with shaper_freq = 50 Hz reduces vibrations to 5% in range [27.5, 75] Hz.
-* One can use this table to check which shaper they should be using if they need to reduce vibrations at several frequencies. For example, if one has resonances at 35 Hz and 60 Hz on the same axis: a) EI shaper needs to have shaper_freq = 35 / (1 - 0.2) = 43.75 Hz, and it will reduce resonances until 43.75 * (1 + 0.2) = 52.5 Hz, so it is not sufficient; b) 2HUMP_EI shaper needs to have shaper_freq = 35 / (1 - 0.35) = 53.85 Hz and will reduce vibrations until 53.85 * (1 + 0.35) = 72.7 Hz - so this is an acceptable configuration. Always try to use as high shaper_freq as possible for a given shaper (perhaps with some safety margin, so in this example shaper_freq ≈ 50-52 Hz would work best), and try to use a shaper with as small shaper duration as possible.
-* If one needs to reduce vibrations at several very different frequencies (say, 30 Hz and 100 Hz), they may see that the table above does not provide enough information. In this case one may have more luck with [scripts/graph_shaper.py](../scripts/graph_shaper.py) script, which is more flexible.
+* “Shaper”持续时间会影响零件的平滑度——它越大，零件就越平滑。这种依赖性不是线性的，但可以让人感觉到哪些整形器在相同频率下更“平滑”。平滑排序如下：ZV<MZV<ZVD≈EI<2HUMP_EI<3HUMP_EI。此外，为整形器2HUMP_EI和3HUMP_EI设置shapper_freq＝谐振频率是不实际的（它们应该用于减少几个频率的振动）。
+* 可以估计整形器减少振动的频率范围。例如，shapper_freq=35Hz的MZV将频率[33.6,36.4]Hz的振动降低到5%。shaper_freq=50 Hz的3HUMP_EI将[27.5，75]Hz范围内的振动降低到5%。
+* 如果需要减少几个频率的振动，可以使用此表来检查应该使用哪个整形器。例如，如果在同一轴上有35Hz和60Hz的谐振：a）EI整形器需要shapper_freq=35/（1-0.2）=43.75Hz，并且它将减小谐振直到43.75*（1+0.2）=52.5Hz，所以这是不够的；b） 2HUMP_EI整形器需要shapper_freq=35/（1-0.35）=53.85 Hz，并且将减小振动直到53.85*（1+0.35）=72.7 Hz，因此这是可接受的配置。对于给定的整形器，始终尝试使用尽可能高的shapper_freq（可能有一些安全裕度，因此在本例中，shapper_freq≈50-52 Hz最有效），并尝试使用整形器持续时间尽可能短的整形器。
+* 如果需要减少几个非常不同频率（例如，30Hz和100Hz）的振动，他们可能会发现上表没有提供足够的信息。在这种情况下，使用[scripts/graph_shaper.py]（../scripts/graph_sShaper.py）脚本可能会更幸运，因为它更灵活。

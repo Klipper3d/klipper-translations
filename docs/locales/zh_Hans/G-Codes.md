@@ -81,7 +81,7 @@ The following commands are available when an [angle config section](Config_Refer
 
 ### [bed_mesh]
 
-The following commands are available when the [bed_mesh config section](Config_Reference.md#bed_mesh) is enabled (also see the [bed mesh guide](Bed_Mesh.md)).
+启用[床网格配置部分]（config_Reference.md#bed_mesh）时，以下命令可用（另请参阅[床网格指南]（bed_mesh.md））。
 
 #### BED_MESH_CALIBRATE
 
@@ -739,7 +739,7 @@ The following commands are available when any of the [tmcXXXX config sections](C
 
 #### SET_TMC_FIELD
 
-`SET_TMC_FIELD STEPPER=<name> FIELD=<field> VALUE=<value> VELOCITY=<value>`: This will alter the value of the specified register field of the TMC driver. This command is intended for low-level diagnostics and debugging only because changing the fields during run-time can lead to undesired and potentially dangerous behavior of your printer. Permanent changes should be made using the printer configuration file instead. No sanity checks are performed for the given values. A VELOCITY can also be specified instead of a VALUE. This velocity is converted to the 20bit TSTEP based value representation. Only use the VELOCITY argument for fields that represent velocities.
+`SET_TMC_FIELD STEPPER=<name>FIELD=<FIELD>VALUE=<VALUE>VELOCITY=<VALUE>`：这将更改TMC驱动器的指定寄存器字段的值。此命令仅用于低级别诊断和调试，因为在运行时更改字段可能会导致打印机出现不希望出现的潜在危险行为。应使用打印机配置文件进行永久性更改。没有对给定的值执行健全性检查。也可以指定VELOCITY而不是VALUE。该速度被转换为基于20位TSTEP的值表示。仅对表示速度的字段使用VELOCITY参数。
 
 ### [toolhead]
 
@@ -797,4 +797,4 @@ The following commands are available when the [z_tilt config section](Config_Ref
 
 #### Z_TILT_ADJUST
 
-`Z_TILT_ADJUST [HORIZONTAL_MOVE_Z=<value>] [<probe_parameter>=<value>]`: This command will probe the points specified in the config and then make independent adjustments to each Z stepper to compensate for tilt. See the PROBE command for details on the optional probe parameters. The optional `HORIZONTAL_MOVE_Z` value overrides the `horizontal_move_z` option specified in the config file.
+`Z_TILT_ADJUST[HORIZONTAL_MOVE_Z=<value>][<probe_parameter>=<value>>：此命令将探测配置中指定的点，然后对每个Z步进器进行独立调整以补偿倾斜。有关可选探测参数的详细信息，请参阅PROBE命令。可选的“HORIZONTAL_MOVE_Z”值将覆盖配置文件中指定的“HORIZONTAL_MOVE_Z”选项。

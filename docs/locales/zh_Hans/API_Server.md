@@ -70,17 +70,17 @@ Klipper 会按照收到请求的顺序依次处理请求。然而，一些请求
 
 `{"params": {"response": "ok B:22.8 /0.0 T0:22.4 /0.0"}, "key": 345}`
 
-A subscription request accepts a "response_template" dictionary in the "params" field of the request. That "response_template" dictionary is used as a template for future asynchronous messages - it may contain arbitrary key/value pairs. When sending these future asynchronous messages, Klipper will add a "params" field containing a dictionary with "endpoint" specific contents to the response template and then send that template. If a "response_template" field is not provided then it defaults to an empty dictionary (`{}`).
+订阅请求接受请求的“params”字段中的“response_template”字典。“response_template”字典被用作未来异步消息的模板——它可能包含任意的键/值对。当发送这些未来的异步消息时，Klipper将在响应模板中添加一个“params”字段，该字段包含一个具有“端点”特定内容的字典，然后发送该模板。如果没有提供“response_template”字段，则默认为空字典（`{}`）。
 
 ## 可用的"endpoint"
 
-By convention, Klipper "endpoints" are of the form `<module_name>/<some_name>`. When making a request to an "endpoint", the full name must be set in the "method" parameter of the request dictionary (eg, `{"method"="gcode/restart"}`).
+按照惯例，Klipper“端点”的形式为“<module_name>/<some_name>'”。当向“端点”发出请求时，必须在请求字典的“方法”参数中设置全名（例如，`{“方法”=“gcode/restart”}`）。
 
 ### info
 
 “info” 用于从Klipper获取系统和版本信息。同时也被用来向Klipper提供客户端的版本信息。比如说`{"id": 123, "method": "info", "params": { "client_info": { "version": "v1"}}}`
 
-If present, the "client_info" parameter must be a dictionary, but that dictionary may have arbitrary contents. Clients are encouraged to provide the name of the client and its software version when first connecting to the Klipper API server.
+如果存在，“client_info”参数必须是一个字典，但该字典可能具有任意内容。鼓励客户端在首次连接到Klipper API服务器时提供客户端名称及其软件版本。
 
 ### emergency_stop
 
@@ -90,9 +90,9 @@ If present, the "client_info" parameter must be a dictionary, but that dictionar
 
 该端点允许客户端注册可从 klipper 调用的方法。成功后将返回一个空对象。
 
-For example: `{"id": 123, "method": "register_remote_method", "params": {"response_template": {"action": "run_paneldue_beep"}, "remote_method": "paneldue_beep"}}` will return: `{"id": 123, "result": {}}`
+例如：`{“id”：123，“method”：“register_remote_method”，“params”：{“response_template”：｛“action”：“run_paneldue_deep”}，“remote_method“：”paneldue_beep`
 
-The remote method `paneldue_beep` may now be called from Klipper. Note that if the method takes parameters they should be provided as keyword arguments. Below is an example of how it may called from a gcode_macro:
+现在可以从Klipper调用远程方法“paneldue_beep”。请注意，如果方法采用参数，则应将它们作为关键字参数提供。以下是如何从gcode_macro调用它的示例：
 
 ```
 [gcode_macro PANELDUE_BEEP]
@@ -104,7 +104,7 @@ gcode:
 
 ### objects/list
 
-This endpoint queries the list of available printer "objects" that one may query (via the "objects/query" endpoint). For example: `{"id": 123, "method": "objects/list"}` might return: `{"id": 123, "result": {"objects": ["webhooks", "configfile", "heaters", "gcode_move", "query_endstops", "idle_timeout", "toolhead", "extruder"]}}`
+该端点查询可用打印机“对象”的列表，可以查询（通过“对象/查询”端点）。例如：`｛“id”：123，“method”：“objects/list”｝`可能返回： `{"id": 123, "result": {"objects": ["webhooks", "configfile", "heaters", "gcode_move", "query_endstops", "idle_timeout", "toolhead", "extruder"]}}`
 
 ### objects/query
 

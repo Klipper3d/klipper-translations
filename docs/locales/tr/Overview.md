@@ -19,32 +19,32 @@ Klipper dökümantasyonuna hoş geldiniz. Eğer Klipper'e yeni iseniz , [özelli
 - [Baskı yatağı düzeyi](Bed_Level.md): Klipper'da "baskı yatağı düzeyleme" hakkında bilgi.
    - [Delta ayarı](Delta_Calibrate.md): Delta kinematik kalibrasyonu.
    - [Probe ayarı](Probe_Calibrate.md): Otomatik Z probe'larının kalibrasyonu.
-   - [BL-Touch](BLTouch.md): Configure a "BL-Touch" Z probe.
-   - [Manual level](Manual_Level.md): Calibration of Z endstops (and similar).
-   - [Bed Mesh](Bed_Mesh.md): Bed height correction based on XY locations.
-   - [Endstop phase](Endstop_Phase.md): Stepper assisted Z endstop positioning.
-- [Resonance compensation](Resonance_Compensation.md): A tool to reduce ringing in prints.
-   - [Measuring resonances](Measuring_Resonances.md): Information on using adxl345 accelerometer hardware to measure resonance.
-- [Pressure advance](Pressure_Advance.md): Calibrate extruder pressure.
-- [G-Codes](G-Codes.md): Information on commands supported by Klipper.
-- [Command Templates](Command_Templates.md): G-Code macros and conditional evaluation.
-   - [Status Reference](Status_Reference.md): Information available to macros (and similar).
-- [TMC Drivers](TMC_Drivers.md): Using Trinamic stepper motor drivers with Klipper.
+   - [BL-Touch](BLTouch.md): Bir "BL-Touch" Z probu yapılandırın.
+   - [Manuel seviye](Manual_Level.md): Z uç duraklarının (ve benzeri) kalibrasyonu.
+   - [Bed Mesh](Bed_Mesh.md): XY konumlarına dayalı yatak yüksekliği düzeltmesi.
+   - [Son durdurma aşaması](Endstop_Phase.md): Kademeli destekli Z uç durdurma konumlandırması.
+- [Rezonans telafisi](Resonance_Compensation.md): Baskılardaki çınlamayı azaltan bir araç.
+   - [Rezonansların ölçülmesi](Measuring_Resonances.md): Rezonansı ölçmek için adxl345 ivmeölçer donanımının kullanılmasına ilişkin bilgiler.
+- [Basınç ilerlemesi](Pressure_Advance.md): Ekstruder basıncını kalibre edin.
+- [G-Codes](G-Codes.md): Klipper tarafından desteklenen komutlara ilişkin bilgiler.
+- [Komut Şablonları](Command_Templates.md): G Kodu makroları ve koşullu değerlendirme.
+   - [Durum Referansı](Status_Reference.md): Makrolar (ve benzerleri) tarafından kullanılabilen bilgiler.
+- [TMC Drivers](TMC_Drivers.md): Klipper ile Trinamic step motor sürücülerini kullanma.
 - [Multi-MCU Homing](Multi_MCU_Homing.md): Homing and probing using multiple micro-controllers.
-- [Slicers](Slicers.md): Configure "slicer" software for Klipper.
+- [Dilimleyiciler](Slicers.md): Klipper için "dilimleyici" yazılımını yapılandırın.
 - [Skew correction](Skew_Correction.md): Adjustments for axes not perfectly square.
-- [PWM tools](Using_PWM_Tools.md): Guide on how to use PWM controlled tools such as lasers or spindles.
+- [PWM araçları](Using_PWM_Tools.md): Lazerler veya iş milleri gibi PWM kontrollü araçların nasıl kullanılacağına ilişkin kılavuz.
 - [Exclude Object](Exclude_Object.md): The guide to the Exclude Objects implementation.
 
-## Developer Documentation
+## Geliştirici Belgeleri
 
-- [Code overview](Code_Overview.md): Developers should read this first.
-- [Kinematics](Kinematics.md): Technical details on how Klipper implements motion.
+- [Koda genel bakış](Code_Overview.md): Geliştiriciler önce bunu okumalıdır.
+- [Kinematics](Kinematics.md): Klipper'ın hareketi nasıl uyguladığına ilişkin teknik ayrıntılar.
 - [Protokol](Protocol.md): Ana bilgisayar ile mikro denetleyici arasındaki düşük düzey mesajlaşma protokolü hakkında bilgi.
-- [API Server](API_Server.md): Information on Klipper's command and control API.
-- [MCU commands](MCU_Commands.md): A description of low-level commands implemented in the micro-controller software.
-- [CAN bus protocol](CANBUS_protocol.md): Klipper CAN bus message format.
-- [Debugging](Debugging.md): Information on how to test and debug Klipper.
+- [API Sunucusu](API_Server.md): Klipper'ın komut ve kontrol API'si hakkında bilgi.
+- [MCU komutları](MCU_Commands.md): Mikro denetleyici yazılımında uygulanan düşük seviyeli komutların açıklaması.
+- [CAN veri yolu protokolü](CANBUS_protocol.md): Klipper CAN veri yolu mesaj formatı.
+- [Hata Ayıklama](Debugging.md): Klipper'ın nasıl test edileceği ve hata ayıklanacağı hakkında bilgi.
 - [Benchmarks](Benchmarks.md): Information on the Klipper benchmark method.
 - [Contributing](CONTRIBUTING.md): Information on how to submit improvements to Klipper.
 - [Packaging](Packaging.md): Information on building OS packages.
