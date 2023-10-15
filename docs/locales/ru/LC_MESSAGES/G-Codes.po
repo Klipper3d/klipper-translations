@@ -5,7 +5,7 @@
 # VICTOR <subfyn@gmail.com>, 2023.
 # Dmitriy <dima.ladmol@yandex.ru>, 2023.
 # xXx <xxx_xxx_xxxxxxxxx@mail.ru>, 2023.
-# Mix <3xh096xz4@mozmail.com>, 2023.
+# Mix <3xh096xz4@mozmail.com>, 2023, 2025.
 # Ворон Stars <voronstars1255@gmail.com>, 2023.
 # michailtoksovo <mikhailtoksovo@yandex.ru>, 2023.
 # Кирилл Еремеев <kirnet79@gmail.com>, 2024.
@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:34+0000\n"
-"Last-Translator: Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>\n"
+"Last-Translator: Mix <3xh096xz4@mozmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/g-codes/"
 "ru/>\n"
 "Language: ru\n"
@@ -1067,9 +1067,9 @@ msgid ""
 "ADXL345 register \"register\" (e.g. 44 or 0x2C). Can be useful for debugging "
 "purposes."
 msgstr ""
-"`Отладка акселерометра [ЧИП =<имя_конфигурации> РЕГ=<регистр>`: запрос ADXL345"
-" регистрация \"регистр\" (примеры: 44 или 0x2C). Может быть полезен для целей "
-"отладки."
+"`Отладка акселерометра [ЧИП =<имя_конфигурации> РЕГ=<регистр>`: запрос "
+"ADXL345 регистрация \"регистр\" (примеры: 44 или 0x2C). Может быть полезен "
+"для целей отладки."
 
 #: docs/G-Codes.md:block 20 (header)
 msgid "ACCELEROMETER_DEBUG_WRITE"
