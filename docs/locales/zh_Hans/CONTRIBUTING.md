@@ -53,7 +53,7 @@
 
    如果一个选项的目标是使代码更加模块化，那么最好使用代码常量而不是向用户开放的配置选项。
 
-   New modules, new options, and new parameters should not provide similar functionality to existing modules - if the differences are arbitrary than it's preferable to utilize the existing system or refactor the existing code.
+   新模块、新选项和新参数不应提供与现有模块类似的功能——如果差异是任意的，那么最好利用现有系统或重构现有代码。
 
    1. 提交的版权是否清晰、无偿、兼容？新的 C 文件和 Python 文件应该有一个明确的版权声明。请看现有文件以了解推荐格式。不推荐在对现有文件进行小的修改时对该文件进行版权声明。
 
@@ -82,9 +82,9 @@
 
    空格的修改不应该与功能修改混在一起。一般来说，无意义的空格修改是不被接受的，除非是来自被修改代码的既定 "所有者"。
 
-Klipper does not implement a strict "coding style guide", but modifications to existing code should follow the high-level code flow, code indentation style, and format of that existing code. Submissions of new modules and systems have more flexibility in coding style, but it is preferable for that new code to follow an internally consistent style and to generally follow industry wide coding norms.
+Klipper没有实现严格的“编码风格指南”，但对现有代码的修改应该遵循高级代码流、代码缩进风格和现有代码的格式。新模块和系统的提交在编码风格上具有更大的灵活性，但新代码最好遵循内部一致的风格，并通常遵循行业范围的编码规范。
 
-It is not a goal of a review to discuss "better implementations". However, if a reviewer struggles to understand the implementation of a submission, then they may ask for changes to make the implementation more transparent. In particular, if reviewers can not convince themselves that a submission is free of defects then changes may be necessary.
+讨论“更好的实现”并不是审查的目标。然而，如果审查人员很难理解提交的实现，那么他们可能会要求进行更改，以使实现更加透明。特别是，如果评审员不能说服自己提交的文件没有缺陷，那么可能需要进行更改。
 
 As part of a review, a reviewer may create an alternate Pull Request for a topic. This may be done to avoid excessive "back and forth" on minor procedural items and thus streamline the submission process. It may also be done because the discussion inspires a reviewer to build an alternative implementation. Both situations are a normal result of a review and should not be considered criticism of the original submission.
 

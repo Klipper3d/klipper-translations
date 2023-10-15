@@ -4,9 +4,9 @@
 
 ## 运行回归测试
 
-The main Klipper GitHub repository uses "github actions" to run a series of regression tests. It can be useful to run some of these tests locally.
+Klipper GitHub主存储库使用“GitHub操作”来运行一系列回归测试。在本地运行其中一些测试可能很有用。
 
-The source code "whitespace check" can be run with:
+源代码“whitespace check(空白检查)”可以使用以下代码运行：
 
 ```
 ./scripts/check_whitespace.sh
@@ -58,17 +58,17 @@ make
 
 为了使批处理模式正常运行，一些响应和请求命令被禁用了。因此，实际命令和上述输出之间会有一些差异。生成的数据可以用于测试和检查，但是它不能被发送到真正的微控制器。
 
-## Motion analysis and data logging
+## 运动分析和数据记录
 
-Klipper supports logging its internal motion history, which can be later analyzed. To use this feature, Klipper must be started with the [API Server](API_Server.md) enabled.
+Klipper支持记录其内部运动历史，稍后可以对其进行分析。若要使用此功能，Klipper必须在启用[API服务器]（API_Server.md）的情况下启动。
 
-Data logging is enabled with the `data_logger.py` tool. For example:
+使用 `data_logger.py` 工具启用数据日志记录。例如：
 
 ```
 ~/klipper/scripts/motan/data_logger.py /tmp/klippy_uds mylog
 ```
 
-This command will connect to the Klipper API Server, subscribe to status and motion information, and log the results. Two files are generated - a compressed data file and an index file (eg, `mylog.json.gz` and `mylog.index.gz`). After starting the logging, it is possible to complete prints and other actions - the logging will continue in the background. When done logging, hit `ctrl-c` to exit from the `data_logger.py` tool.
+此命令将连接到Klipper API服务器，订阅状态和运动信息，并记录结果。生成两个文件-一个压缩数据文件和一个索引文件（例如“mylog.json.gz”和“mylog.index.gz”）。启动日志记录后，可以完成打印和其他操作-日志记录将在后台继续。完成日志记录后，点击“ctrl-c”退出“data_logger.py”工具。
 
 The resulting files can be read and graphed using the `motan_graph.py` tool. To generate graphs on a Raspberry Pi, a one time step is necessary to install the "matplotlib" package:
 
@@ -91,7 +91,7 @@ One can use the `-g` option to specify the datasets to graph (it takes a Python 
 ~/klipper/scripts/motan/motan_graph.py mylog -g '[["trapq(toolhead,velocity)"], ["trapq(toolhead,accel)"]]'
 ```
 
-The list of available datasets can be found using the `-l` option - for example:
+可用数据集的列表可以使用“-l”选项找到，例如：
 
 ```
 ~/klipper/scripts/motan/motan_graph.py -l
