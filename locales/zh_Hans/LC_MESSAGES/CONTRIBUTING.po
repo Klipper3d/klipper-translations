@@ -1,20 +1,22 @@
 # Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022.
 # Arda <pengfei.fu@gmail.com>, 2022.
 # Neko.vecter <Vecterfang@icloud.com>, 2022.
+# xm Y <3260838022@qq.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-10 16:29+0200\n"
-"PO-Revision-Date: 2022-08-28 08:18+0000\n"
-"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/contributing/zh_Hans/>\n"
+"PO-Revision-Date: 2023-10-13 16:02+0000\n"
+"Last-Translator: xm Y <3260838022@qq.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/contributing/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.14.1-dev\n"
+"X-Generator: Weblate 5.1-dev\n"
 
 msgid "Contributing to Klipper"
 msgstr "为 Klipper 做贡献"
@@ -414,7 +416,8 @@ msgid ""
 "functionality to existing modules - if the differences are arbitrary than "
 "it's preferable to utilize the existing system or refactor the existing "
 "code."
-msgstr ""
+msgstr "新模块、新选项和新参数不应提供与现有模块类似的功能——如果差异是任意的，那么最"
+"好利用现有系统或重构现有代码。"
 
 #: docs/CONTRIBUTING.md:block 14 (paragraph)
 msgid ""
@@ -425,6 +428,9 @@ msgid ""
 "preferable for that new code to follow an internally consistent style and to"
 " generally follow industry wide coding norms."
 msgstr ""
+"Klipper没有实现严格的“编码风格指南”，但对现有代码的修改应该遵循高级代码流、代"
+"码缩进风格和现有代码的格式。新模块和系统的提交在编码风格上具有更大的灵活性，"
+"但新代码最好遵循内部一致的风格，并通常遵循行业范围的编码规范。"
 
 #: docs/CONTRIBUTING.md:block 15 (paragraph)
 msgid ""
@@ -434,6 +440,9 @@ msgid ""
 "In particular, if reviewers can not convince themselves that a submission is"
 " free of defects then changes may be necessary."
 msgstr ""
+"讨论“更好的实现”并不是审查的目标。然而，如果审查人员很难理解提交的实现，那么"
+"他们可能会要求进行更改，以使实现更加透明。特别是，如果评审员不能说服自己提交"
+"的文件没有缺陷，那么可能需要进行更改。"
 
 #: docs/CONTRIBUTING.md:block 16 (paragraph)
 msgid ""
