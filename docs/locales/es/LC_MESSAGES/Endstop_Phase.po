@@ -1,10 +1,10 @@
 # Alberto <aru_hackZ.official@zohomail.eu>, 2022.
-# Francisco Javier Hoyos Arango <cofhal@gmail.com>, 2023.
+# Francisco Javier Hoyos Arango <cofhal@gmail.com>, 2023, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:21+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Francisco Javier Hoyos Arango <cofhal@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/"
 "endstop_phase/es/>\n"
 "Language: es\n"
@@ -20,9 +20,9 @@ msgid ""
 "most useful when using a Trinamic stepper motor driver that has run-time "
 "configuration."
 msgstr ""
-"Este documento describe como usa klipper el sistema de finales de carrera por "
-"medio de la fase del motor paso a paso. Esta funcionalidad puede mejorar la "
-"precisión de los finales de carrera tradicionales. Es más útil cuando se "
+"Este documento describe como usa klipper el sistema de finales de carrera "
+"por medio de la fase del motor paso a paso. Esta funcionalidad puede mejorar "
+"la precisión de los finales de carrera tradicionales. Es más útil cuando se "
 "utiliza un controlador de motor paso a paso Trinamic que tiene configuración "
 "en tiempo de ejecución."
 
