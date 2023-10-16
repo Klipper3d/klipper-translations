@@ -3,7 +3,7 @@
 # Alberto <aru_hackZ.official@zohomail.eu>, 2022.
 # Cecilia Mora <cecilia-mora22@hotmail.com>, 2022.
 # JACK EDWARD INGA NAUPA <jinganaupa@gmail.com>, 2023.
-# Francisco Javier Hoyos Arango <cofhal@gmail.com>, 2023.
+# Francisco Javier Hoyos Arango <cofhal@gmail.com>, 2023, 2025.
 # Jesus Barba <jesbm1g2@gmail.com>, 2024.
 # Ars_Codicis <cto@piruxinc.com>, 2024.
 # Alberto <alberto.robles.gomez@aruzeta.com>, 2025.
@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:21+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Francisco Javier Hoyos Arango <cofhal@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/"
 "config_reference/es/>\n"
 "Language: es\n"
