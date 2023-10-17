@@ -1,11 +1,24 @@
-#
+# Francisco Javier Hoyos Arango <cofhal@gmail.com>, 2023.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2023-10-17 04:11+0000\n"
+"Last-Translator: Francisco Javier Hoyos Arango <cofhal@gmail.com>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/"
+"delta_calibrate/es/>\n"
+"Language: es\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.1\n"
+"Content-Transfer-Encoding: 8bit\n"
 
+#, fuzzy
 msgid ""
 "This document describes Klipper's automatic calibration system for \"delta\""
 " style printers."
 msgstr ""
+"Este documento describe el sistema de calibración automática de Klipper para "
+"impresoras de estilo \"delta\"."
 
 msgid ""
 "Delta calibration involves finding the tower endstop positions, tower "
