@@ -3,23 +3,27 @@
 # Alberto <aru_hackZ.official@zohomail.eu>, 2022.
 # Cecilia Mora <cecilia-mora22@hotmail.com>, 2022.
 # JACK EDWARD INGA NAUPA <jinganaupa@gmail.com>, 2023.
+# Francisco Javier Hoyos Arango <cofhal@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-08-22 13:53+0000\n"
-"Last-Translator: JACK EDWARD INGA NAUPA <jinganaupa@gmail.com>\n"
+"PO-Revision-Date: 2023-10-17 04:11+0000\n"
+"Last-Translator: Francisco Javier Hoyos Arango <cofhal@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/"
 "config_reference/es/>\n"
 "Language: es\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.0-dev\n"
+"X-Generator: Weblate 5.1\n"
 
+#, fuzzy
 msgid ""
 "This document is a reference for options available in the Klipper config "
 "file."
 msgstr ""
+"Este documento es una referencia para las opciones disponibles en el archivo "
+"de configuración de Klipper."
 
 msgid ""
 "The descriptions in this document are formatted so that it is possible to "
