@@ -7,8 +7,7 @@ msgstr ""
 "POT-Creation-Date: \n"
 "PO-Revision-Date: 2023-08-29 16:36+0000\n"
 "Last-Translator: \"Zs.Antal\" <zsikaiantal@gmail.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
-"measuring_resonances/hu/>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/measuring_resonances/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,22 +17,6 @@ msgstr ""
 
 msgid "Measuring Resonances"
 msgstr "Rezonanciák mérése"
-
-msgid ""
-"Klipper has built-in support for ADXL345 accelerometer, which can be used to"
-" measure resonance frequencies of the printer for different axes, and auto-"
-"tune [input shapers](Resonance_Compensation.md) to compensate for "
-"resonances. Note that using ADXL345 requires some soldering and crimping. "
-"ADXL345 can be connected to a Raspberry Pi directly, or to an SPI interface "
-"of an MCU board (it needs to be reasonably fast)."
-msgstr ""
-"A Klipper beépített támogatással rendelkezik az ADXL345 gyorsulásmérőhöz, "
-"amely a nyomtató rezonanciáinak mérésére használható a különböző tengelyek "
-"esetében, és automatikus hangolással [rezonancia "
-"kompenzációval](Resonance_Compensation.md) a rezonanciák kompenzálására. "
-"Vedd figyelembe, hogy az ADXL345 használata némi forrasztást és krimpelést "
-"igényel. Az ADXL345 közvetlenül csatlakoztatható egy Raspberry Pi-hez, vagy "
-"egy MCU-kártya SPI-interfészéhez (meglehetősen gyorsnak kell lennie)."
 
 msgid "Installation instructions"
 msgstr "Telepítési utasítások"
@@ -169,15 +152,6 @@ msgstr ""
 
 msgid "Software installation"
 msgstr "Szoftver telepítése"
-
-msgid ""
-"Afterwards, check and follow the instructions in the [RPi Microcontroller "
-"document](RPi_microcontroller.md) to setup the \"linux mcu\" on the "
-"Raspberry Pi."
-msgstr ""
-"Ezután ellenőrizd és kövesd az [RPi Microcontroller "
-"dokumentum](RPi_microcontroller.md) utasításait a \"linux mcu\" "
-"beállításához a Raspberry Pi-n."
 
 msgid ""
 "Make sure the Linux SPI driver is enabled by running `sudo raspi-config` and"
@@ -321,17 +295,6 @@ msgstr ""
 "rezonanciáit a nyomtatófejre szerelt gyorsulásmérővel, az Y tengely "
 "rezonanciáit pedig a tárgyasztalra szerelt gyorsulásmérővel kell mérned (a "
 "szokásos nyomtató beállítással)."
-
-msgid ""
-"However, you can also connect two accelerometers simultaneously, though they"
-" must be connected to different boards (say, to an RPi and printer MCU "
-"board), or to two different physical SPI interfaces on the same board "
-"(rarely available). Then they can be configured in the following manner:"
-msgstr ""
-"Azonban két gyorsulásmérőt is csatlakoztathatsz egyszerre, bár ezeket "
-"különböző lapokhoz kell csatlakoztatni (mondjuk egy RPi és egy nyomtató MCU "
-"laphoz), vagy két különböző fizikai SPI interfészhez ugyanazon a lapon "
-"(ritkán elérhető). Ezután a következő módon lehet őket konfigurálni:"
 
 msgid ""
 "Then the commands `TEST_RESONANCES AXIS=X` and `TEST_RESONANCES AXIS=Y` will"
@@ -951,26 +914,16 @@ msgid ""
 "Recommended shaper_type_y = mzv, shaper_freq_y = 36.8 Hz\n"
 msgstr ""
 "A legjobb bemeneti alakító paraméterek kiszámítása az Y tengelyhez\n"
-"Beillesztett alakító 'zv' frekvencia = 39,0 Hz (rezgések = 13,2%, simítás ~= "
-"0,105)\n"
-"A túl nagy simítás elkerülése érdekében a 'zv', javasolt max_accel <= 5900 "
-"mm/sec^2\n"
-"Alkalmazott alakító 'mzv' frekvencia = 36,8 Hz (rezgések = 1,7%, simítás ~= "
-"0,150)\n"
-"A túl nagy simítás elkerülése érdekében az 'mzv' esetében javasolt max_accel "
-"<= 4000 mm/sec^2\n"
-"Alkalmazott alakító 'ei' frekvencia = 36,6 Hz (rezgések = 2,2%, simítás ~= "
-"0,240)\n"
-"A túl nagy simítás elkerülése érdekében az 'ei', javasolt max_accel <= 2500 "
-"mm/sec^2\n"
-"Alkalmazott alakító '2hump_ei' frekvencia = 48,0 Hz (rezgések = 0,0%, "
-"simítás ~= 0,234)\n"
-"A túl nagy simítás elkerülése érdekében a '2hump_ei' esetében javasolt "
-"max_accel <= 2500 mm/sec^2\n"
-"Alkalmazott alakító '3hump_ei' frekvencia = 59,0 Hz (rezgések = 0,0%, "
-"simítás ~= 0,235)\n"
-"A túl nagy simítás elkerülése érdekében a '3hump_ei' esetében javasolt "
-"max_accel <= 2500 mm/sec^2\n"
+"Beillesztett alakító 'zv' frekvencia = 39,0 Hz (rezgések = 13,2%, simítás ~= 0,105)\n"
+"A túl nagy simítás elkerülése érdekében a 'zv', javasolt max_accel <= 5900 mm/sec^2\n"
+"Alkalmazott alakító 'mzv' frekvencia = 36,8 Hz (rezgések = 1,7%, simítás ~= 0,150)\n"
+"A túl nagy simítás elkerülése érdekében az 'mzv' esetében javasolt max_accel <= 4000 mm/sec^2\n"
+"Alkalmazott alakító 'ei' frekvencia = 36,6 Hz (rezgések = 2,2%, simítás ~= 0,240)\n"
+"A túl nagy simítás elkerülése érdekében az 'ei', javasolt max_accel <= 2500 mm/sec^2\n"
+"Alkalmazott alakító '2hump_ei' frekvencia = 48,0 Hz (rezgések = 0,0%, simítás ~= 0,234)\n"
+"A túl nagy simítás elkerülése érdekében a '2hump_ei' esetében javasolt max_accel <= 2500 mm/sec^2\n"
+"Alkalmazott alakító '3hump_ei' frekvencia = 59,0 Hz (rezgések = 0,0%, simítás ~= 0,235)\n"
+"A túl nagy simítás elkerülése érdekében a '3hump_ei' esetében javasolt max_accel <= 2500 mm/sec^2\n"
 "Ajánlott shaper_type_y = mzv, shaper_freq_y = 36,8 Hz\n"
 
 msgid "SHAPER_CALIBRATE AXIS=Y\n"
@@ -1066,21 +1019,6 @@ msgid "to generate `/tmp/resonances.png` comparing the resonances."
 msgstr ""
 "`/tmp/resonances.png` létrehozásához, amely összehasonlítja a rezonanciákat."
 
-#: docs/Measuring_Resonances.md:block 3 (paragraph)
-msgid ""
-"When sourcing ADXL345, be aware that there is a variety of different PCB "
-"board designs and different clones of them. Make sure that the board "
-"supports SPI mode (small number of boards appear to be hard-configured for "
-"I2C by pulling SDO to GND), and, if it is going to be connected to a 5V "
-"printer MCU, that it has a voltage regulator and a level shifter."
-msgstr ""
-"Az ADXL345 beszerzésekor vedd figyelembe, hogy számos különböző NYÁK "
-"lapkakialakítás és különböző klónok léteznek. Győződj meg róla, hogy a "
-"kártya támogatja az SPI módot (kis számú kártya úgy tűnik, hogy szorosan "
-"konfigurálva van az I2C-re az SDO GND-re húzásával), és ha 5V-os nyomtató "
-"MCU-hoz csatlakozik ellenőrizd, hogy rendelkezik feszültségszabályozóval és "
-"szintválasztóval."
-
 #: docs/Measuring_Resonances.md:block 26 (code)
 msgid ""
 "[mcu rpi]\n"
@@ -1111,9 +1049,10 @@ msgid ""
 "`/tmp/resonances_y_*.csv`). These files can be processed with the stand-"
 "alone script on a Raspberry Pi. To do that, run the following commands:"
 msgstr ""
-"Ez 2 CSV fájlt fog létrehozni (`/tmp/resonances_x_*.csv` és `/tmp/"
-"resonances_y_*.csv`) Ezeket a fájlokat a Raspberry Pi-n lévő önálló szkript "
-"segítségével lehet feldolgozni. Ehhez futtasd a következő parancsokat:"
+"Ez 2 CSV fájlt fog létrehozni (`/tmp/resonances_x_*.csv` és "
+"`/tmp/resonances_y_*.csv`) Ezeket a fájlokat a Raspberry Pi-n lévő önálló "
+"szkript segítségével lehet feldolgozni. Ehhez futtasd a következő "
+"parancsokat:"
 
 #: docs/Measuring_Resonances.md:block 111 (paragraph)
 msgid ""
@@ -1186,8 +1125,8 @@ msgid ""
 msgstr ""
 "Vedd figyelembe, hogy a CPU teljesítményétől függően ez *sok* időt vehet "
 "igénybe, akár 10-20 percet is. Legyél türelmes, és várd meg a telepítés "
-"befejezését. Bizonyos esetekben, ha a kártyán túl kevés RAM van, a telepítés "
-"meghiúsulhat, és engedélyezned kell a swapot."
+"befejezését. Bizonyos esetekben, ha a kártyán túl kevés RAM van, a telepítés"
+" meghiúsulhat, és engedélyezned kell a swapot."
 
 #: docs/Measuring_Resonances.md:block 31 (code)
 msgid ""
@@ -1215,12 +1154,6 @@ msgstr ""
 "probe_points:\n"
 "    100, 100, 20  # egy példa\n"
 
-#: docs/Measuring_Resonances.md:block 7 (paragraph)
-msgid "Connect ethernet cable shielding to the controller board/RPI ground."
-msgstr ""
-"Csatlakoztasd az ethernet kábel árnyékolását a vezérlőpanel/RPI "
-"földeléséhez."
-
 #: docs/Measuring_Resonances.md:block 8 (paragraph)
 msgid ""
 "***Double-check your wiring before powering up to prevent damaging your "
@@ -1232,10 +1165,6 @@ msgstr ""
 #: docs/Measuring_Resonances.md:block 9 (header)
 msgid "SPI Accelerometers"
 msgstr "SPI Gyorsulásmérők"
-
-#: docs/Measuring_Resonances.md:block 10 (paragraph)
-msgid "Suggested twisted pair order:"
-msgstr "Javasolt csavartérpáros sorrend:"
 
 #: docs/Measuring_Resonances.md:block 11 (code)
 msgid ""
@@ -1267,16 +1196,6 @@ msgstr ""
 msgid "MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500"
 msgstr "MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500"
 
-#: docs/Measuring_Resonances.md:block 22 (paragraph)
-msgid ""
-"Alternatives to the ADXL345 are "
-"MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500. These accelerometers have been"
-" tested to work over I2C on the RPi or RP2040(pico) at 400kbaud."
-msgstr ""
-"Az ADXL345 alternatívái az MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500. "
-"Ezeket a gyorsulásmérőket tesztelték, hogy az RPi vagy RP2040(pico) I2C-n "
-"keresztül 400kbaud-on működnek."
-
 #: docs/Measuring_Resonances.md:block 23 (paragraph)
 msgid "Recommended connection scheme for I2C on the Raspberry Pi:"
 msgstr "Ajánlott csatlakozási séma az I2C-hez a Raspberry Pi-n:"
@@ -1284,14 +1203,6 @@ msgstr "Ajánlott csatlakozási séma az I2C-hez a Raspberry Pi-n:"
 #: docs/Measuring_Resonances.md:block 24 (table)
 msgid "VCC"
 msgstr "VCC"
-
-#: docs/Measuring_Resonances.md:block 25 (paragraph)
-msgid "![MPU-9250 connected to RPI](img/mpu9250-PI-fritzing.png)"
-msgstr "![MPU-9250 csatlakoztatva az RPI-hez](img/mpu9250-PI-fritzing.png)"
-
-#: docs/Measuring_Resonances.md:block 26 (paragraph)
-msgid "Recommended connection scheme for I2C(i2c0a) on the RP2040:"
-msgstr "Az RP2040-en lévő I2C(i2c0a) javasolt csatlakozási séma:"
 
 #: docs/Measuring_Resonances.md:block 27 (table)
 msgid "RP2040 pin"
@@ -1321,10 +1232,6 @@ msgstr "02"
 msgid "GP1 (I2C0 SCL)"
 msgstr "GP1 (I2C0 SCL)"
 
-#: docs/Measuring_Resonances.md:block 28 (paragraph)
-msgid "![MPU-9250 connected to PICO](img/mpu9250-PICO-fritzing.png)"
-msgstr "![MPU-9250 csatlakoztatva az RPI-hez](img/mpu9250-PICO-fritzing.png)"
-
 #: docs/Measuring_Resonances.md:block 42 (header)
 msgid "Configure ADXL345 With RPi"
 msgstr "ADXL345 konfigurálása RPi-vel"
@@ -1349,50 +1256,9 @@ msgstr ""
 "enabling-i2c) részt). Ezután adjuk hozzá a következőket a printer.cfg "
 "fájlhoz:"
 
-#: docs/Measuring_Resonances.md:block 50 (header)
-msgid "Configure MPU-6000/9000 series With PICO"
-msgstr "MPU-6000/9000 sorozat konfigurálása PICO-val"
-
-#: docs/Measuring_Resonances.md:block 51 (paragraph)
-msgid ""
-"PICO I2C is set to 400000 on default. Simply add the following to the "
-"printer.cfg:"
-msgstr ""
-"A PICO I2C alapértelmezés szerint 400000-re van beállítva. Egyszerűen add "
-"hozzá a következőket a printer.cfg fájlhoz:"
-
-#: docs/Measuring_Resonances.md:block 61 (paragraph)
-msgid ""
-"**If you are using MPU-6000/9000 series accelerometer and it show up as "
-"`mpu-unknown`, use with caution! They are probably refurbished chips!**"
-msgstr ""
-"**Ha MPU-6000/9000 sorozatú gyorsulásmérőt használsz, és az `mpu-"
-"unknown`-ként jelenik meg, óvatosan használd! Ezek valószínűleg felújított "
-"chipek!**"
-
-#: docs/Measuring_Resonances.md:block 6 (paragraph)
-msgid ""
-"An ethernet cable with shielded twisted pairs (cat5e or better) is "
-"recommended for signal integrity over a long distance. If you still "
-"experience signal integrity issues (SPI/I2C errors), shorten the cable."
-msgstr ""
-"A hosszú távú jelintegritás érdekében árnyékolt sodrott páros (cat5e vagy "
-"jobb) ethernet-kábel használata ajánlott. Ha továbbra is jelintegritási "
-"problémákat tapasztalsz (SPI/I2C hibák), rövidítsd le a kábelt."
-
 #: docs/Measuring_Resonances.md:block 13 (header)
 msgid "Direct to Raspberry Pi"
 msgstr "Közvetlenül a Raspberry Pi-re"
-
-#: docs/Measuring_Resonances.md:block 14 (paragraph)
-msgid ""
-"**Note: Many MCUs will work with an ADXL345 in SPI mode(eg Pi Pico), wiring "
-"and configuration will vary according to your specific board and available "
-"pins.**"
-msgstr ""
-"**Megjegyzés: Sok MCU működik az ADXL345-össel SPI módban (pl. Pi Pico), a "
-"vezetékezés és a konfiguráció az adott laptól és a rendelkezésre álló tűktől "
-"függően változik.**"
 
 #: docs/Measuring_Resonances.md:block 16 (table)
 msgid "3.3V DC power"
@@ -1412,8 +1278,8 @@ msgid ""
 msgstr ""
 "Az ADXL345-öt csatlakoztathatod a Raspberry Pi Pico számítógéphez, majd a "
 "Pico számítógépet USB-n keresztül csatlakoztathatod a Raspberry Pi "
-"számítógéphez. Ez megkönnyíti a gyorsulásmérő újrafelhasználását más Klipper "
-"eszközökön, mivel GPIO helyett USB-n keresztül csatlakozik. A Pico nem "
+"számítógéphez. Ez megkönnyíti a gyorsulásmérő újrafelhasználását más Klipper"
+" eszközökön, mivel GPIO helyett USB-n keresztül csatlakozik. A Pico nem "
 "rendelkezik nagy feldolgozási teljesítménnyel, ezért győződj meg róla, hogy "
 "csak a gyorsulásmérőt futtatja, és nem végez más feladatokat."
 
@@ -1510,8 +1376,8 @@ msgid ""
 "Now, while holding down the `BOOTSEL` button on the Pico, connect the Pico "
 "to the Raspberry Pi via USB. Compile and flash the firmware."
 msgstr ""
-"Most, miközben lenyomva tartjuk a `BOOTSEL` gombot a Pico-n, csatlakoztassuk "
-"a Pico-t a Raspberry Pi-hez USB-n keresztül. Fordítsuk le és égessük a "
+"Most, miközben lenyomva tartjuk a `BOOTSEL` gombot a Pico-n, csatlakoztassuk"
+" a Pico-t a Raspberry Pi-hez USB-n keresztül. Fordítsuk le és égessük a "
 "firmware-t."
 
 #: docs/Measuring_Resonances.md:block 60 (code)
@@ -1525,8 +1391,8 @@ msgid ""
 "device](img/flash_rp2040_FLASH_DEVICE.png)"
 msgstr ""
 "Ha ez nem sikerül, a rendszer megmondja, hogy melyik `FLASH_DEVICE` címet "
-"kell használni. Ebben a példában ez a `make flash FLASH_DEVICE=2e8a:0003`. !["
-"Égető eszköz meghatározása](img/flash_rp2040_FLASH_DEVICE.png)"
+"kell használni. Ebben a példában ez a `make flash FLASH_DEVICE=2e8a:0003`. "
+"![Égető eszköz meghatározása](img/flash_rp2040_FLASH_DEVICE.png)"
 
 #: docs/Measuring_Resonances.md:block 62 (header)
 msgid "Configure the Connection"
@@ -1597,41 +1463,8 @@ msgid ""
 "[include adxl.cfg] # Comment this out when you disconnect the "
 "accelerometer\n"
 msgstr ""
-"[include adxl.cfg] # Kommenteld ki ezt, amikor lekapcsolod a gyorsulásmérőt."
-"\n"
-
-#: docs/Measuring_Resonances.md:block 73 (code)
-msgid ""
-"[mcu pico]\n"
-"serial: /dev/serial/by-id/<your PICO's serial ID>\n"
-"\n"
-"[mpu9250]\n"
-"i2c_mcu: pico\n"
-"i2c_bus: i2c0a\n"
-"\n"
-"[resonance_tester]\n"
-"accel_chip: mpu9250\n"
-"probe_points:\n"
-"    100, 100, 20  # an example\n"
-"\n"
-"[static_digital_output pico_3V3pwm] # Improve power stability\n"
-"pin: pico:gpio23\n"
-msgstr ""
-"[mcu pico]\n"
-"serial: /dev/serial/by-id/<a PICO soros azonosítója>\n"
-"\n"
-"[mpu9250]\n"
-"i2c_mcu: pico\n"
-"i2c_bus: i2c0a\n"
-"\n"
-"[resonance_tester]\n"
-"accel_chip: mpu9250\n"
-"probe_points:\n"
-"    100, 100, 20 # egy példa\n"
-"\n"
-"[static_digital_output pico_3V3pwm] # A teljesítmény stabilitásának "
-"javítása\n"
-"pin: pico:gpio23\n"
+"[include adxl.cfg] # Kommenteld ki ezt, amikor lekapcsolod a "
+"gyorsulásmérőt.\n"
 
 #: docs/Measuring_Resonances.md:block 81 (paragraph)
 msgid ""
@@ -1645,8 +1478,8 @@ msgstr ""
 "Ha a következő hibát kapod: `Invalid adxl345 id (got xx vs e5)`, ahol `xx` "
 "egy másik azonosító, azonnal próbáld meg újra. Az SPI inicializálásával van "
 "probléma. Ha továbbra is hibát kapsz, az az ADXL345-tel való kapcsolódási "
-"problémára, vagy a hibás érzékelőre utal. Duplán ellenőrizd a tápellátást, a "
-"vezetékezést (hogy megfelel-e a kapcsolási rajzoknak, nincs-e törött vagy "
+"problémára, vagy a hibás érzékelőre utal. Duplán ellenőrizd a tápellátást, a"
+" vezetékezést (hogy megfelel-e a kapcsolási rajzoknak, nincs-e törött vagy "
 "laza vezeték stb.) és a forrasztás minőségét."
 
 #: docs/Measuring_Resonances.md:block 100 (paragraph)
@@ -1681,9 +1514,523 @@ msgstr ""
 "rezgéseknek tartósan ellenálljanak. Ez növelheti a nyomtató alkatrészeinek "
 "kopását és csökkentheti élettartamukat. Megnő a kockázata annak is, hogy "
 "egyes alkatrészek kicsavarodnak vagy meglazulnak. Minden egyes automatikus "
-"hangolás után mindig ellenőrizd, hogy a nyomtató minden alkatrésze ("
-"beleértve azokat is, amelyek normál esetben nem mozoghatnak) biztonságosan a "
-"helyén van-e rögzítve."
+"hangolás után mindig ellenőrizd, hogy a nyomtató minden alkatrésze "
+"(beleértve azokat is, amelyek normál esetben nem mozoghatnak) biztonságosan "
+"a helyén van-e rögzítve."
+
+#: docs/Measuring_Resonances.md:block 2 (paragraph)
+msgid ""
+"Klipper has built-in support for the ADXL345, MPU-9250 and LIS2DW compatible"
+" accelerometers which can be used to measure resonance frequencies of the "
+"printer for different axes, and auto-tune [input "
+"shapers](Resonance_Compensation.md) to compensate for resonances. Note that "
+"using accelerometers requires some soldering and crimping. The "
+"ADXL345/LIS2DW can be connected to the SPI interface of a Raspberry Pi or "
+"MCU board (it needs to be reasonably fast). The MPU family can be connected "
+"to the I2C interface of a Raspberry Pi directly, or to an I2C interface of "
+"an MCU board that supports 400kbit/s *fast mode* in Klipper."
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 3 (paragraph)
+msgid ""
+"When sourcing accelerometers, be aware that there are a variety of different"
+" PCB board designs and different clones of them. If it is going to be "
+"connected to a 5V printer MCU ensure it has a voltage regulator and level "
+"shifters."
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 4 (paragraph)
+msgid ""
+"For ADXL345s/LIS2DWs, make sure that the board supports SPI mode (a small "
+"number of boards appear to be hard-configured for I2C by pulling SDO to "
+"GND)."
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 5 (paragraph)
+msgid ""
+"For MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500s there are also a variety "
+"of board designs and clones with different I2C pull-up resistors which will "
+"need supplementing."
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 6 (header)
+msgid "MCUs with Klipper I2C *fast-mode* Support"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 7 (table)
+msgid "MCU Family"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 7 (table)
+msgid "MCU(s) Tested"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 7 (table)
+msgid "MCU(s) with Support"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 7 (table)
+msgid "Raspberry Pi"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 7 (table)
+msgid "3B+, Pico"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 7 (table)
+msgid "3A, 3A+, 3B, 4"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 7 (table)
+msgid "AVR ATmega"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 7 (table)
+msgid "ATmega328p"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 7 (table)
+msgid ""
+"ATmega32u4, ATmega128, ATmega168, ATmega328, ATmega644p, ATmega1280, "
+"ATmega1284, ATmega2560"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 7 (table)
+msgid "AVR AT90"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 7 (table)
+msgid "-"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 7 (table)
+msgid "AT90usb646, AT90usb1286"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 10 (paragraph)
+msgid ""
+"An ethernet cable with shielded twisted pairs (cat5e or better) is "
+"recommended for signal integrity over a long distance. If you still "
+"experience signal integrity issues (SPI/I2C errors):"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 11 (unordered list)
+msgid "Double check the wiring with a digital multimeter for:"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 11 (unordered list)
+msgid "Correct connections when turned off (continuity)"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 11 (unordered list)
+msgid "Correct power and ground voltages"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 11 (unordered list)
+msgid "I2C only:"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 11 (unordered list)
+msgid ""
+"Check the SCL and SDA lines' resistances to 3.3V are in the range of 900 "
+"ohms to 1.8K"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 11 (unordered list)
+msgid ""
+"For full technical details consult [chapter 7 of the I2C-bus specification "
+"and user manual UM10204](https://www.pololu.com/file/0J435/UM10204.pdf) for "
+"*fast-mode*"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 11 (unordered list)
+msgid "Shorten the cable"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 12 (paragraph)
+msgid "Connect ethernet cable shielding only to the MCU board/Pi ground."
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 15 (paragraph)
+msgid "Suggested twisted pair order for three twisted pairs:"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 17 (paragraph)
+msgid "Note that unlike a cable shield, GND must be connected at both ends."
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 20 (paragraph)
+msgid ""
+"**Note: Many MCUs will work with an ADXL345 in SPI mode (e.g. Pi Pico), "
+"wiring and configuration will vary according to your specific board and "
+"available pins.**"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 32 (paragraph)
+msgid "Suggested twisted pair order for three pairs (preferred):"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 33 (code)
+msgid ""
+"3.3V+GND\n"
+"SDA+GND\n"
+"SCL+GND\n"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 34 (paragraph)
+msgid "or for two pairs:"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 36 (paragraph)
+msgid ""
+"Note that unlike a cable shield, any GND(s) should be connected at both "
+"ends."
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 38 (paragraph)
+msgid ""
+"These accelerometers have been tested to work over I2C on the RPi, RP2040 "
+"(Pico) and AVR at 400kbit/s (*fast mode*). Some MPU accelerometer modules "
+"include pull-ups, but some are too large at 10K and must be changed or "
+"supplemented by smaller parallel resistors."
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 41 (paragraph)
+msgid "The RPi has buit-in 1.8K pull-ups on both SCL and SDA."
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 42 (paragraph)
+msgid "![MPU-9250 connected to Pi](img/mpu9250-PI-fritzing.png)"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 43 (paragraph)
+msgid "Recommended connection scheme for I2C (i2c0a) on the RP2040:"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 44 (table)
+msgid "RP2040 pin name"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 45 (paragraph)
+msgid "The Pico does not include any built-in I2C pull-up resistors."
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 46 (paragraph)
+msgid "![MPU-9250 connected to Pico](img/mpu9250-PICO-fritzing.png)"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 47 (header)
+msgid ""
+"Recommended connection scheme for I2C(TWI) on the AVR ATmega328P Arduino "
+"Nano:"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 48 (table)
+msgid "Atmega328P TQFP32 pin"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 48 (table)
+msgid "Atmega328P pin name"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 48 (table)
+msgid "Arduino Nano pin"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 48 (table)
+msgid "27"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 48 (table)
+msgid "A4"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 48 (table)
+msgid "28"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 48 (table)
+msgid "A5"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 49 (paragraph)
+msgid ""
+"The Arduino Nano does not include any built-in pull-up resistors nor a 3.3V "
+"power pin."
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 63 (paragraph)
+msgid ""
+"First, check and follow the instructions in the [RPi Microcontroller "
+"document](RPi_microcontroller.md) to setup the \"linux mcu\" on the "
+"Raspberry Pi. This will configure a second Klipper instance that runs on "
+"your Pi."
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 82 (header)
+msgid "Configure LIS2DW series"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 83 (code)
+msgid ""
+"[mcu lis]\n"
+"# Change <mySerial> to whatever you found above. For example,\n"
+"# usb-Klipper_rp2040_E661640843545B2E-if00\n"
+"serial: /dev/serial/by-id/usb-Klipper_rp2040_<mySerial>\n"
+"\n"
+"[lis2dw]\n"
+"cs_pin: lis:gpio1\n"
+"spi_bus: spi0a\n"
+"axes_map: x,z,y\n"
+"\n"
+"[resonance_tester]\n"
+"accel_chip: lis2dw\n"
+"probe_points:\n"
+"    # Somewhere slightly above the middle of your print bed\n"
+"    147,154, 20\n"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 87 (header)
+msgid "Configure MPU-9520 Compatibles With Pico"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 88 (paragraph)
+msgid ""
+"Pico I2C is set to 400000 on default. Simply add the following to the "
+"printer.cfg:"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 89 (code)
+msgid ""
+"[mcu pico]\n"
+"serial: /dev/serial/by-id/<your Pico's serial ID>\n"
+"\n"
+"[mpu9250]\n"
+"i2c_mcu: pico\n"
+"i2c_bus: i2c0a\n"
+"\n"
+"[resonance_tester]\n"
+"accel_chip: mpu9250\n"
+"probe_points:\n"
+"    100, 100, 20  # an example\n"
+"\n"
+"[static_digital_output pico_3V3pwm] # Improve power stability\n"
+"pins: pico:gpio23\n"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 90 (header)
+msgid "Configure MPU-9520 Compatibles with AVR"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 91 (paragraph)
+msgid ""
+"AVR I2C will be set to 400000 by the mpu9250 option. Simply add the "
+"following to the printer.cfg:"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 92 (code)
+msgid ""
+"[mcu nano]\n"
+"serial: /dev/serial/by-id/<your nano's serial ID>\n"
+"\n"
+"[mpu9250]\n"
+"i2c_mcu: nano\n"
+"\n"
+"[resonance_tester]\n"
+"accel_chip: mpu9250\n"
+"probe_points:\n"
+"    100, 100, 20  # an example\n"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 101 (paragraph)
+msgid ""
+"**If you are using a MPU-9250 compatible accelerometer and it shows up as "
+"`mpu-unknown`, use with caution! They are probably refurbished chips!**"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 122 (paragraph)
+msgid ""
+"However, you can also connect two accelerometers simultaneously, though the "
+"ADXL345 must be connected to different boards (say, to an RPi and printer "
+"MCU board), or to two different physical SPI interfaces on the same board "
+"(rarely available). Then they can be configured in the following manner:"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 124 (paragraph)
+msgid ""
+"Two MPUs can share one I2C bus, but they **cannot** measure simultaneously "
+"as the 400kbit/s I2C bus is not fast enough. One must have its AD0 pin "
+"pulled-down to 0V (address 104) and the other its AD0 pin pulled-up to 3.3V "
+"(address 105):"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 125 (code)
+msgid ""
+"[mpu9250 hotend]\n"
+"i2c_mcu: rpi\n"
+"i2c_bus: i2c.1\n"
+"i2c_address: 104 # This MPU has pin AD0 pulled low\n"
+"\n"
+"[mpu9250 bed]\n"
+"i2c_mcu: rpi\n"
+"i2c_bus: i2c.1\n"
+"i2c_address: 105 # This MPU has pin AD0 pulled high\n"
+"\n"
+"[resonance_tester]\n"
+"# Assuming the typical setup of the bed slinger printer\n"
+"accel_chip_x: mpu9250 hotend\n"
+"accel_chip_y: mpu9250 bed\n"
+"probe_points: ...\n"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 126 (paragraph)
+msgid ""
+"[Test with each MPU individually before connecting both to the bus for easy "
+"debugging.]"
+msgstr ""
+
+#~ msgid ""
+#~ "Klipper has built-in support for ADXL345 accelerometer, which can be used to"
+#~ " measure resonance frequencies of the printer for different axes, and auto-"
+#~ "tune [input shapers](Resonance_Compensation.md) to compensate for "
+#~ "resonances. Note that using ADXL345 requires some soldering and crimping. "
+#~ "ADXL345 can be connected to a Raspberry Pi directly, or to an SPI interface "
+#~ "of an MCU board (it needs to be reasonably fast)."
+#~ msgstr ""
+#~ "A Klipper beépített támogatással rendelkezik az ADXL345 gyorsulásmérőhöz, "
+#~ "amely a nyomtató rezonanciáinak mérésére használható a különböző tengelyek "
+#~ "esetében, és automatikus hangolással [rezonancia "
+#~ "kompenzációval](Resonance_Compensation.md) a rezonanciák kompenzálására. "
+#~ "Vedd figyelembe, hogy az ADXL345 használata némi forrasztást és krimpelést "
+#~ "igényel. Az ADXL345 közvetlenül csatlakoztatható egy Raspberry Pi-hez, vagy "
+#~ "egy MCU-kártya SPI-interfészéhez (meglehetősen gyorsnak kell lennie)."
+
+#~ msgid ""
+#~ "Afterwards, check and follow the instructions in the [RPi Microcontroller "
+#~ "document](RPi_microcontroller.md) to setup the \"linux mcu\" on the "
+#~ "Raspberry Pi."
+#~ msgstr ""
+#~ "Ezután ellenőrizd és kövesd az [RPi Microcontroller "
+#~ "dokumentum](RPi_microcontroller.md) utasításait a \"linux mcu\" "
+#~ "beállításához a Raspberry Pi-n."
+
+#~ msgid ""
+#~ "However, you can also connect two accelerometers simultaneously, though they"
+#~ " must be connected to different boards (say, to an RPi and printer MCU "
+#~ "board), or to two different physical SPI interfaces on the same board "
+#~ "(rarely available). Then they can be configured in the following manner:"
+#~ msgstr ""
+#~ "Azonban két gyorsulásmérőt is csatlakoztathatsz egyszerre, bár ezeket "
+#~ "különböző lapokhoz kell csatlakoztatni (mondjuk egy RPi és egy nyomtató MCU "
+#~ "laphoz), vagy két különböző fizikai SPI interfészhez ugyanazon a lapon "
+#~ "(ritkán elérhető). Ezután a következő módon lehet őket konfigurálni:"
+
+#~ msgid ""
+#~ "When sourcing ADXL345, be aware that there is a variety of different PCB "
+#~ "board designs and different clones of them. Make sure that the board "
+#~ "supports SPI mode (small number of boards appear to be hard-configured for "
+#~ "I2C by pulling SDO to GND), and, if it is going to be connected to a 5V "
+#~ "printer MCU, that it has a voltage regulator and a level shifter."
+#~ msgstr ""
+#~ "Az ADXL345 beszerzésekor vedd figyelembe, hogy számos különböző NYÁK "
+#~ "lapkakialakítás és különböző klónok léteznek. Győződj meg róla, hogy a "
+#~ "kártya támogatja az SPI módot (kis számú kártya úgy tűnik, hogy szorosan "
+#~ "konfigurálva van az I2C-re az SDO GND-re húzásával), és ha 5V-os nyomtató "
+#~ "MCU-hoz csatlakozik ellenőrizd, hogy rendelkezik feszültségszabályozóval és "
+#~ "szintválasztóval."
+
+#~ msgid "Connect ethernet cable shielding to the controller board/RPI ground."
+#~ msgstr ""
+#~ "Csatlakoztasd az ethernet kábel árnyékolását a vezérlőpanel/RPI "
+#~ "földeléséhez."
+
+#~ msgid "Suggested twisted pair order:"
+#~ msgstr "Javasolt csavartérpáros sorrend:"
+
+#~ msgid ""
+#~ "Alternatives to the ADXL345 are "
+#~ "MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500. These accelerometers have been"
+#~ " tested to work over I2C on the RPi or RP2040(pico) at 400kbaud."
+#~ msgstr ""
+#~ "Az ADXL345 alternatívái az MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500. "
+#~ "Ezeket a gyorsulásmérőket tesztelték, hogy az RPi vagy RP2040(pico) I2C-n "
+#~ "keresztül 400kbaud-on működnek."
+
+#~ msgid "![MPU-9250 connected to RPI](img/mpu9250-PI-fritzing.png)"
+#~ msgstr "![MPU-9250 csatlakoztatva az RPI-hez](img/mpu9250-PI-fritzing.png)"
+
+#~ msgid "Recommended connection scheme for I2C(i2c0a) on the RP2040:"
+#~ msgstr "Az RP2040-en lévő I2C(i2c0a) javasolt csatlakozási séma:"
+
+#~ msgid "![MPU-9250 connected to PICO](img/mpu9250-PICO-fritzing.png)"
+#~ msgstr "![MPU-9250 csatlakoztatva az RPI-hez](img/mpu9250-PICO-fritzing.png)"
+
+#~ msgid "Configure MPU-6000/9000 series With PICO"
+#~ msgstr "MPU-6000/9000 sorozat konfigurálása PICO-val"
+
+#~ msgid ""
+#~ "PICO I2C is set to 400000 on default. Simply add the following to the "
+#~ "printer.cfg:"
+#~ msgstr ""
+#~ "A PICO I2C alapértelmezés szerint 400000-re van beállítva. Egyszerűen add "
+#~ "hozzá a következőket a printer.cfg fájlhoz:"
+
+#~ msgid ""
+#~ "**If you are using MPU-6000/9000 series accelerometer and it show up as "
+#~ "`mpu-unknown`, use with caution! They are probably refurbished chips!**"
+#~ msgstr ""
+#~ "**Ha MPU-6000/9000 sorozatú gyorsulásmérőt használsz, és az `mpu-"
+#~ "unknown`-ként jelenik meg, óvatosan használd! Ezek valószínűleg felújított "
+#~ "chipek!**"
+
+#~ msgid ""
+#~ "An ethernet cable with shielded twisted pairs (cat5e or better) is "
+#~ "recommended for signal integrity over a long distance. If you still "
+#~ "experience signal integrity issues (SPI/I2C errors), shorten the cable."
+#~ msgstr ""
+#~ "A hosszú távú jelintegritás érdekében árnyékolt sodrott páros (cat5e vagy "
+#~ "jobb) ethernet-kábel használata ajánlott. Ha továbbra is jelintegritási "
+#~ "problémákat tapasztalsz (SPI/I2C hibák), rövidítsd le a kábelt."
+
+#~ msgid ""
+#~ "**Note: Many MCUs will work with an ADXL345 in SPI mode(eg Pi Pico), wiring "
+#~ "and configuration will vary according to your specific board and available "
+#~ "pins.**"
+#~ msgstr ""
+#~ "**Megjegyzés: Sok MCU működik az ADXL345-össel SPI módban (pl. Pi Pico), a "
+#~ "vezetékezés és a konfiguráció az adott laptól és a rendelkezésre álló tűktől"
+#~ " függően változik.**"
+
+#~ msgid ""
+#~ "[mcu pico]\n"
+#~ "serial: /dev/serial/by-id/<your PICO's serial ID>\n"
+#~ "\n"
+#~ "[mpu9250]\n"
+#~ "i2c_mcu: pico\n"
+#~ "i2c_bus: i2c0a\n"
+#~ "\n"
+#~ "[resonance_tester]\n"
+#~ "accel_chip: mpu9250\n"
+#~ "probe_points:\n"
+#~ "    100, 100, 20  # an example\n"
+#~ "\n"
+#~ "[static_digital_output pico_3V3pwm] # Improve power stability\n"
+#~ "pin: pico:gpio23\n"
+#~ msgstr ""
+#~ "[mcu pico]\n"
+#~ "serial: /dev/serial/by-id/<a PICO soros azonosítója>\n"
+#~ "\n"
+#~ "[mpu9250]\n"
+#~ "i2c_mcu: pico\n"
+#~ "i2c_bus: i2c0a\n"
+#~ "\n"
+#~ "[resonance_tester]\n"
+#~ "accel_chip: mpu9250\n"
+#~ "probe_points:\n"
+#~ "    100, 100, 20 # egy példa\n"
+#~ "\n"
+#~ "[static_digital_output pico_3V3pwm] # A teljesítmény stabilitásának javítása\n"
+#~ "pin: pico:gpio23\n"
 
 #~ msgid ""
 #~ "If you get an error like `Invalid adxl345 id (got xx vs e5)`, where `xx` is "

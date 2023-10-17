@@ -4,8 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2023-06-30 06:49+0000\n"
 "Last-Translator: Luc Van den Borre <luc@orotec.be>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/klipper/overview/"
-"nl/>\n"
+"Language-Team: Dutch <https://hosted.weblate.org/projects/klipper/overview/nl/>\n"
 "Language: nl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -17,7 +16,8 @@ msgid ""
 "[features](Features.md) and [installation](Installation.md) documents."
 msgstr ""
 "Welkom bij de Klipper-documentatie. Als u nieuw bent in Klipper, begin dan "
-"met de documenten [kenmerken](Features.md) en [installatie](Installation.md)."
+"met de documenten [kenmerken](Features.md) en "
+"[installatie](Installation.md)."
 
 msgid "Overview information"
 msgstr "Overzicht informatie"
@@ -232,6 +232,22 @@ msgstr ""
 msgid ""
 "[Exclude Object](Exclude_Object.md): The guide to the Exclude Objects "
 "implementation."
+msgstr ""
+
+#: docs/Overview.md:block 6 (unordered list)
+msgid ""
+"[Axis Twist Compensation](Axis_Twist_Compensation.md): A tool to compensate "
+"for inaccurate probe readings due to twist in X gantry."
+msgstr ""
+
+#: docs/Overview.md:block 10 (unordered list)
+msgid "[Bootloader Entry](Bootloader_Entry.md): Requesting the bootloader."
+msgstr ""
+
+#: docs/Overview.md:block 10 (unordered list)
+msgid ""
+"[CAN bus troubleshooting](CANBUS_Troubleshooting.md): Tips for "
+"troubleshooting CAN bus."
 msgstr ""
 
 #~ msgid ""

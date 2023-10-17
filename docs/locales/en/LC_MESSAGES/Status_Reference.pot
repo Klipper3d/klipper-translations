@@ -470,15 +470,6 @@ msgstr ""
 msgid "The following information is available in"
 msgstr ""
 
-msgid ""
-"[bme280 "
-"config_section_name](Config_Reference.md#bmp280bme280bme680-temperature-"
-"sensor), [htu21d config_section_name](Config_Reference.md#htu21d-sensor), "
-"[lm75 config_section_name](Config_Reference.md#lm75-temperature-sensor), and"
-" [temperature_host config_section_name](Config_Reference.md#host-"
-"temperature-sensor) objects:"
-msgstr ""
-
 msgid "`temperature`: The last read temperature from the sensor."
 msgstr ""
 
@@ -606,20 +597,6 @@ msgid ""
 msgstr ""
 
 msgid "dual_carriage"
-msgstr ""
-
-msgid ""
-"The following information is available in "
-"[dual_carriage](Config_Reference.md#dual_carriage) on a hybrid_corexy or "
-"hybrid_corexz robot"
-msgstr ""
-
-msgid "`mode`: The current mode. Possible values are: \"FULL_CONTROL\""
-msgstr ""
-
-msgid ""
-"`active_carriage`: The current active carriage. Possible values are: "
-"\"CARRIAGE_0\", \"CARRIAGE_1\""
 msgstr ""
 
 msgid "`file_path`: A full path to the file of currently loaded file."
@@ -1032,6 +1009,95 @@ msgstr ""
 #: docs/Status_Reference.md:block 101 (unordered list)
 msgid "`steppers[\"<stepper>\"]`: Returns True if the given stepper is enabled."
 msgstr ""
+
+#: docs/Status_Reference.md:block 42 (header)
+msgid "gcode_button"
+msgstr ""
+
+#: docs/Status_Reference.md:block 43 (paragraph)
+msgid ""
+"The following information is available in [gcode_button "
+"some_name](Config_Reference.md#gcode_button) objects:"
+msgstr ""
+
+#: docs/Status_Reference.md:block 44 (unordered list)
+msgid "`state`: The current button state returned as \"PRESSED\" or \"RELEASED\""
+msgstr ""
+
+#: docs/Status_Reference.md:block 59 (unordered list)
+msgid ""
+"`available_monitors`: Returns a list of all currently available temperature "
+"monitors by their full config section names, e.g. `[\"tmc2240 stepper_x\"]`."
+" While a temperature sensor is always available to read, a temperature "
+"monitor may not be available and will return null in such case."
+msgstr ""
+
+#: docs/Status_Reference.md:block 98 (unordered list)
+msgid ""
+"`max_deviation`: Return the last `MAX_DEVIATION` value of the most recent "
+"`SCREWS_TILT_CALCULATE` command."
+msgstr ""
+
+#: docs/Status_Reference.md:block 110 (paragraph)
+msgid ""
+"[bme280 "
+"config_section_name](Config_Reference.md#bmp280bme280bme680-temperature-"
+"sensor), [htu21d config_section_name](Config_Reference.md#htu21d-sensor), "
+"[lm75 config_section_name](Config_Reference.md#lm75-temperature-sensor), "
+"[temperature_host config_section_name](Config_Reference.md#host-temperature-"
+"sensor) and [temperature_combined "
+"config_section_name](Config_Reference.md#combined-temperature-sensor) "
+"objects:"
+msgstr ""
+
+#: docs/Status_Reference.md:block 120 (unordered list)
+msgid ""
+"`temperature`: The internal temperature reported by the driver. This field "
+"will be null if the driver is not enabled or if the driver does not support "
+"temperature reporting."
+msgstr ""
+
+#: docs/Status_Reference.md:block 125 (paragraph)
+msgid ""
+"The following information is available in "
+"[dual_carriage](Config_Reference.md#dual_carriage) on a cartesian, "
+"hybrid_corexy or hybrid_corexz robot"
+msgstr ""
+
+#: docs/Status_Reference.md:block 126 (unordered list)
+msgid ""
+"`carriage_0`: The mode of the carriage 0. Possible values are: \"INACTIVE\" "
+"and \"PRIMARY\"."
+msgstr ""
+
+#: docs/Status_Reference.md:block 126 (unordered list)
+msgid ""
+"`carriage_1`: The mode of the carriage 1. Possible values are: \"INACTIVE\","
+" \"PRIMARY\", \"COPY\", and \"MIRROR\"."
+msgstr ""
+
+#~ msgid ""
+#~ "[bme280 "
+#~ "config_section_name](Config_Reference.md#bmp280bme280bme680-temperature-"
+#~ "sensor), [htu21d config_section_name](Config_Reference.md#htu21d-sensor), "
+#~ "[lm75 config_section_name](Config_Reference.md#lm75-temperature-sensor), and"
+#~ " [temperature_host config_section_name](Config_Reference.md#host-"
+#~ "temperature-sensor) objects:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The following information is available in "
+#~ "[dual_carriage](Config_Reference.md#dual_carriage) on a hybrid_corexy or "
+#~ "hybrid_corexz robot"
+#~ msgstr ""
+
+#~ msgid "`mode`: The current mode. Possible values are: \"FULL_CONTROL\""
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`active_carriage`: The current active carriage. Possible values are: "
+#~ "\"CARRIAGE_0\", \"CARRIAGE_1\""
+#~ msgstr ""
 
 #~ msgid ""
 #~ "`results`: A list of the probed screw locations. Each entry in the list will"

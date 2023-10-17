@@ -507,18 +507,6 @@ msgstr ""
 msgid "Is dual carriage setup supported with input shapers?"
 msgstr ""
 
-msgid ""
-"There is no dedicated support for dual carriages with input shapers, but it "
-"does not mean this setup will not work. One should run the tuning twice for "
-"each of the carriages, and calculate the ringing frequencies for X and Y "
-"axes for each of the carriages independently. Then put the values for "
-"carriage 0 into [input_shaper] section, and change the values on the fly "
-"when changing carriages, e.g. as a part of some macro:"
-msgstr ""
-
-msgid "And similarly when switching back to carriage 0."
-msgstr ""
-
 msgid "Does input_shaper affect print time?"
 msgstr ""
 
@@ -702,11 +690,6 @@ msgid ""
 "shaper_type: 2hump_ei\n"
 msgstr ""
 
-msgid ""
-"SET_DUAL_CARRIAGE CARRIAGE=1\n"
-"SET_INPUT_SHAPER SHAPER_FREQ_X=... SHAPER_FREQ_Y=...\n"
-msgstr ""
-
 #: docs/Resonance_Compensation.md:block 7 (paragraph)
 msgid ""
 "Basic tuning requires measuring the ringing frequencies of the printer by "
@@ -872,6 +855,65 @@ msgstr ""
 #: docs/Resonance_Compensation.md:block 72 (ordered list)
 msgid "`SET_INPUT_SHAPER SHAPER_TYPE=EI SHAPER_FREQ_X=... SHAPER_FREQ_Y=...`"
 msgstr ""
+
+#: docs/Resonance_Compensation.md:block 85 (paragraph)
+msgid ""
+"Yes. In this case, one should measure the resonances twice for each "
+"carriage. For example, if the second (dual) carriage is installed on X axis,"
+" it is possible to set different input shapers for X axis for the primary "
+"and dual carriages. However, the input shaper for Y axis should be the same "
+"for both carriages (as ultimately this axis is driven by one or more stepper"
+" motors each commanded to perform exactly the same steps). One possibility "
+"to configure the input shaper for such setups is to keep `[input_shaper]` "
+"section empty and additionally define a `[delayed_gcode]` section in the "
+"`printer.cfg` as follows:"
+msgstr ""
+
+#: docs/Resonance_Compensation.md:block 86 (code)
+msgid ""
+"[input_shaper]\n"
+"# Intentionally empty\n"
+"\n"
+"[delayed_gcode init_shaper]\n"
+"initial_duration: 0.1\n"
+"gcode:\n"
+"  SET_DUAL_CARRIAGE CARRIAGE=1\n"
+"  SET_INPUT_SHAPER SHAPER_TYPE_X=<dual_carriage_shaper> SHAPER_FREQ_X=<dual_carriage_freq> SHAPER_TYPE_Y=<y_shaper> SHAPER_FREQ_Y=<y_freq>\n"
+"  SET_DUAL_CARRIAGE CARRIAGE=0\n"
+"  SET_INPUT_SHAPER SHAPER_TYPE_X=<primary_carriage_shaper> SHAPER_FREQ_X=<primary_carriage_freq> SHAPER_TYPE_Y=<y_shaper> SHAPER_FREQ_Y=<y_freq>\n"
+msgstr ""
+
+#: docs/Resonance_Compensation.md:block 87 (paragraph)
+msgid ""
+"Note that `SHAPER_TYPE_Y` and `SHAPER_FREQ_Y` should be the same in both "
+"commands. It is also possible to put a similar snippet into the start g-code"
+" in the slicer, however then the shaper will not be enabled until any print "
+"is started."
+msgstr ""
+
+#: docs/Resonance_Compensation.md:block 88 (paragraph)
+msgid ""
+"Note that the input shaper only needs to be configured once. Subsequent "
+"changes of the carriages or their modes via `SET_DUAL_CARRIAGE` command will"
+" preserve the configured input shaper parameters."
+msgstr ""
+
+#~ msgid ""
+#~ "There is no dedicated support for dual carriages with input shapers, but it "
+#~ "does not mean this setup will not work. One should run the tuning twice for "
+#~ "each of the carriages, and calculate the ringing frequencies for X and Y "
+#~ "axes for each of the carriages independently. Then put the values for "
+#~ "carriage 0 into [input_shaper] section, and change the values on the fly "
+#~ "when changing carriages, e.g. as a part of some macro:"
+#~ msgstr ""
+
+#~ msgid "And similarly when switching back to carriage 0."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "SET_DUAL_CARRIAGE CARRIAGE=1\n"
+#~ "SET_INPUT_SHAPER SHAPER_FREQ_X=... SHAPER_FREQ_Y=...\n"
+#~ msgstr ""
 
 #~ msgid ""
 #~ "Basic tuning requires measuring the ringing frequencies of the printer and "

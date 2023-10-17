@@ -873,6 +873,64 @@ msgid ""
 " For example:"
 msgstr ""
 
+#: docs/Bootloaders.md:block 51 (header)
+msgid "SAMDC21 micro-controllers (Duet3D Toolboard 1LC)"
+msgstr ""
+
+#: docs/Bootloaders.md:block 52 (paragraph)
+msgid ""
+"The SAMC21 is flashed via the ARM Serial Wire Debug (SWD) interface. This is"
+" commonly done with a dedicated SWD hardware dongle. Alternatively, one can "
+"use a [Raspberry Pi with OpenOCD](#running-openocd-on-the-raspberry-pi)."
+msgstr ""
+
+#: docs/Bootloaders.md:block 53 (paragraph)
+msgid ""
+"When using OpenOCD with the SAMC21, extra steps must be taken to first put "
+"the chip into Cold Plugging mode if the board makes use of the SWD pins for "
+"other purposes. If using OpenOCD on a Rasberry Pi, this can be done by "
+"running the following commands before invoking OpenOCD."
+msgstr ""
+
+#: docs/Bootloaders.md:block 54 (code)
+msgid ""
+"SWCLK=25\n"
+"SWDIO=24\n"
+"SRST=18\n"
+"\n"
+"echo \"Exporting SWCLK and SRST pins.\"\n"
+"echo $SWCLK > /sys/class/gpio/export\n"
+"echo $SRST > /sys/class/gpio/export\n"
+"echo \"out\" > /sys/class/gpio/gpio$SWCLK/direction\n"
+"echo \"out\" > /sys/class/gpio/gpio$SRST/direction\n"
+"\n"
+"echo \"Setting SWCLK low and pulsing SRST.\"\n"
+"echo \"0\" > /sys/class/gpio/gpio$SWCLK/value\n"
+"echo \"0\" > /sys/class/gpio/gpio$SRST/value\n"
+"echo \"1\" > /sys/class/gpio/gpio$SRST/value\n"
+"\n"
+"echo \"Unexporting SWCLK and SRST pins.\"\n"
+"echo $SWCLK > /sys/class/gpio/unexport\n"
+"echo $SRST > /sys/class/gpio/unexport\n"
+msgstr ""
+
+#: docs/Bootloaders.md:block 55 (paragraph)
+msgid "To flash a program with OpenOCD use the following chip config:"
+msgstr ""
+
+#: docs/Bootloaders.md:block 57 (paragraph)
+msgid ""
+"Obtain a program; for instance, klipper can be built for this chip. Flash "
+"with OpenOCD commands similar to:"
+msgstr ""
+
+#: docs/Bootloaders.md:block 58 (code)
+msgid ""
+"at91samd chip-erase\n"
+"at91samd bootloader 0\n"
+"program out/klipper.elf verify\n"
+msgstr ""
+
 #~ msgid ""
 #~ "For generic STM32F103 boards such as the blue pill it is possible to flash "
 #~ "the bootloader via 3.3v serial using stm32flash as noted in the stm32duino "
