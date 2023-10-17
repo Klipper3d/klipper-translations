@@ -6,13 +6,11 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2023-09-29 07:01+0000\n"
 "Last-Translator: xXx <xxx_xxx_xxxxxxxxx@mail.ru>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/sponsors/"
-"ru/>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/sponsors/ru/>\n"
 "Language: ru\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 5.1-dev\n"
 
 #: docs/Sponsors.md:block 1 (header)
@@ -31,12 +29,6 @@ msgstr ""
 #: docs/Sponsors.md:block 3 (header)
 msgid "BIGTREETECH"
 msgstr "BIGTREETECH"
-
-#: docs/Sponsors.md:block 4 (paragraph)
-msgid ""
-"[<img src=\"./img/sponsors/BTT_BTT.png\" width=\"200\" />](https://bigtree-"
-"tech.com/collections/all-products)"
-msgstr ""
 
 #: docs/Sponsors.md:block 5 (paragraph)
 msgid ""
@@ -110,8 +102,28 @@ msgid ""
 "<https://ko-fi.com/koconnor> or <https://www.patreon.com/koconnor>"
 msgstr ""
 "Кевин - оригинальный автор и текущий сопровождающий Klipper. Пожертвовать "
-"можно по адресу: <https://ko-fi.com/koconnor> или <https://www.patreon.com/"
-"koconnor>"
+"можно по адресу: <https://ko-fi.com/koconnor> или "
+"<https://www.patreon.com/koconnor>"
+
+#: docs/Sponsors.md:block 4 (paragraph)
+msgid ""
+"[<img src=\"./img/sponsors/BTT_BTT.png\" width=\"200\" "
+"style=\"margin:25px\"/>](https://bigtree-tech.com/collections/all-products)"
+msgstr ""
+
+#: docs/Sponsors.md:block 7 (paragraph)
+msgid ""
+"[<img src=\"./img/sponsors/obico-light-horizontal.png\" width=\"200\" "
+"style=\"margin:25px\" "
+"/>](https://obico.io/klipper.html?source=klipper_sponsor) [<img "
+"src=\"./img/sponsors/peopoly-logo.png\" width=\"200\" style=\"margin:25px\" "
+"/>](https://peopoly.net)"
+msgstr ""
+
+#~ msgid ""
+#~ "[<img src=\"./img/sponsors/BTT_BTT.png\" width=\"200\" />](https://bigtree-"
+#~ "tech.com/collections/all-products)"
+#~ msgstr ""
 
 #~ msgid ""
 #~ "Kevin is the original author and current maintainer of Klipper. Kevin has a "

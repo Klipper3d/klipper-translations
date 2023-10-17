@@ -29,12 +29,6 @@ msgstr ""
 msgid "BIGTREETECH"
 msgstr ""
 
-#: docs/Sponsors.md:block 4 (paragraph)
-msgid ""
-"[<img src=\"./img/sponsors/BTT_BTT.png\" width=\"200\" />](https://bigtree-"
-"tech.com/collections/all-products)"
-msgstr ""
-
 #: docs/Sponsors.md:block 5 (paragraph)
 msgid ""
 "BIGTREETECH is the official mainboard sponsor of Klipper. BIGTREETECH is "
@@ -97,6 +91,26 @@ msgid ""
 "Kevin is the original author and current maintainer of Klipper. Donate at: "
 "<https://ko-fi.com/koconnor> or <https://www.patreon.com/koconnor>"
 msgstr ""
+
+#: docs/Sponsors.md:block 4 (paragraph)
+msgid ""
+"[<img src=\"./img/sponsors/BTT_BTT.png\" width=\"200\" "
+"style=\"margin:25px\"/>](https://bigtree-tech.com/collections/all-products)"
+msgstr ""
+
+#: docs/Sponsors.md:block 7 (paragraph)
+msgid ""
+"[<img src=\"./img/sponsors/obico-light-horizontal.png\" width=\"200\" "
+"style=\"margin:25px\" "
+"/>](https://obico.io/klipper.html?source=klipper_sponsor) [<img "
+"src=\"./img/sponsors/peopoly-logo.png\" width=\"200\" style=\"margin:25px\" "
+"/>](https://peopoly.net)"
+msgstr ""
+
+#~ msgid ""
+#~ "[<img src=\"./img/sponsors/BTT_BTT.png\" width=\"200\" />](https://bigtree-"
+#~ "tech.com/collections/all-products)"
+#~ msgstr ""
 
 #~ msgid ""
 #~ "Kevin is the original author and current maintainer of Klipper. Kevin has a "

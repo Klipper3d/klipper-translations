@@ -1,0 +1,216 @@
+#
+msgid ""
+msgstr "Content-Type: text/plain; charset=UTF-8\n"
+
+#: docs/Bootloader_Entry.md:block 1 (header)
+msgid "Bootloader Entry"
+msgstr ""
+
+#: docs/Bootloader_Entry.md:block 2 (paragraph)
+msgid ""
+"Klipper can be instructed to reboot into a [Bootloader](Bootloaders.md) in "
+"one of the following ways:"
+msgstr ""
+
+#: docs/Bootloader_Entry.md:block 3 (header)
+msgid "Requesting the bootloader"
+msgstr ""
+
+#: docs/Bootloader_Entry.md:block 4 (header)
+msgid "Virtual Serial"
+msgstr ""
+
+#: docs/Bootloader_Entry.md:block 5 (paragraph)
+msgid ""
+"If a virtual (USB-ACM) serial port is in use, pulsing DTR while at 1200 baud"
+" will request the bootloader."
+msgstr ""
+
+#: docs/Bootloader_Entry.md:block 6 (header)
+msgid "Python (with `flash_usb`)"
+msgstr ""
+
+#: docs/Bootloader_Entry.md:block 7 (paragraph)
+msgid "To enter the bootloader using python (using `flash_usb`):"
+msgstr ""
+
+#: docs/Bootloader_Entry.md:block 8 (code)
+msgid ""
+"> cd klipper/scripts\n"
+"> python3 -c 'import flash_usb as u; u.enter_bootloader(\"<DEVICE>\")'\n"
+"Entering bootloader on <DEVICE>\n"
+msgstr ""
+
+#: docs/Bootloader_Entry.md:block 9 (paragraph)
+msgid ""
+"Where `<DEVICE>` is your serial device, such as `/dev/serial.by-id/usb-"
+"Klipper[...]` or `/dev/ttyACM0`"
+msgstr ""
+
+#: docs/Bootloader_Entry.md:block 10 (paragraph)
+msgid ""
+"Note that if this fails, no output will be printed, success is indicated by "
+"printing `Entering bootloader on <DEVICE>`."
+msgstr ""
+
+#: docs/Bootloader_Entry.md:block 11 (header)
+msgid "Picocom"
+msgstr ""
+
+#: docs/Bootloader_Entry.md:block 12 (code)
+msgid ""
+"picocom -b 1200 <DEVICE>\n"
+"<Ctrl-A><Ctrl-P>\n"
+msgstr ""
+
+#: docs/Bootloader_Entry.md:block 14 (paragraph)
+msgid ""
+"`<Ctrl-A><Ctrl-P>` means holding `Ctrl`, pressing and releasing `a`, "
+"pressing and releasing `p`, then releasing `Ctrl`"
+msgstr ""
+
+#: docs/Bootloader_Entry.md:block 15 (header)
+msgid "Physical serial"
+msgstr ""
+
+#: docs/Bootloader_Entry.md:block 16 (paragraph)
+msgid ""
+"If a physical serial port is being used on the MCU (even if a USB serial "
+"adapter is being used to connect to it), sending the string "
+"`<SPACE><FS><SPACE>Request Serial Bootloader!!<SPACE>~`."
+msgstr ""
+
+#: docs/Bootloader_Entry.md:block 17 (paragraph)
+msgid "`<SPACE>` is an ASCII literal space, 0x20."
+msgstr ""
+
+#: docs/Bootloader_Entry.md:block 18 (paragraph)
+msgid "`<FS>` is the ASCII File Separator, 0x1c."
+msgstr ""
+
+#: docs/Bootloader_Entry.md:block 19 (paragraph)
+msgid ""
+"Note that this is not a valid message as per the [MCU "
+"Protocol](Protocol.md#micro-controller-interface), but sync characters(`~`) "
+"are still respected."
+msgstr ""
+
+#: docs/Bootloader_Entry.md:block 20 (paragraph)
+msgid ""
+"Because this message must be the only thing in the \"block\" it is received "
+"in, prefixing an extra sync character can increase reliability if other "
+"tools were previously accessing the serial port."
+msgstr ""
+
+#: docs/Bootloader_Entry.md:block 21 (header)
+msgid "Shell"
+msgstr ""
+
+#: docs/Bootloader_Entry.md:block 22 (code)
+msgid ""
+"stty <BAUD> < /dev/<DEVICE>\n"
+"echo $'~ \\x1c Request Serial Bootloader!! ~' >> /dev/<DEVICE>\n"
+msgstr ""
+
+#: docs/Bootloader_Entry.md:block 23 (paragraph)
+msgid ""
+"Where `<DEVICE>` is your serial port, such as `/dev/ttyS0`, or "
+"`/dev/serial/by-id/gpio-serial2`, and"
+msgstr ""
+
+#: docs/Bootloader_Entry.md:block 24 (paragraph)
+msgid "`<BAUD>` is the baud rate of the serial port, such as `115200`."
+msgstr ""
+
+#: docs/Bootloader_Entry.md:block 25 (header)
+msgid "CANBUS"
+msgstr ""
+
+#: docs/Bootloader_Entry.md:block 26 (paragraph)
+msgid ""
+"If CANBUS is in use, a special [admin message](CANBUS_protocol.md#admin-"
+"messages) will request the bootloader. This message will be respected even "
+"if the device already has a nodeid, and will also be processed if the mcu is"
+" shutdown."
+msgstr ""
+
+#: docs/Bootloader_Entry.md:block 27 (paragraph)
+msgid ""
+"This method also applies to devices operating in [CANBridge](CANBUS.md#usb-"
+"to-can-bus-bridge-mode) mode."
+msgstr ""
+
+#: docs/Bootloader_Entry.md:block 28 (header)
+msgid "Katapult's flashtool.py"
+msgstr ""
+
+#: docs/Bootloader_Entry.md:block 29 (code)
+msgid "python3 ./katapult/scripts/flashtool.py -i <CAN_IFACE> -u <UUID> -r\n"
+msgstr ""
+
+#: docs/Bootloader_Entry.md:block 30 (paragraph)
+msgid ""
+"Where `<CAN_IFACE>` is the can interface to use. If using `can0`, both the "
+"`-i` and `<CAN_IFACE>` may be omitted."
+msgstr ""
+
+#: docs/Bootloader_Entry.md:block 31 (paragraph)
+msgid "`<UUID>` is the UUID of your CAN device."
+msgstr ""
+
+#: docs/Bootloader_Entry.md:block 32 (paragraph)
+msgid ""
+"See the [CANBUS Documentation](CANBUS.md#finding-the-canbus_uuid-for-new-"
+"micro-controllers) for information on finding the CAN UUID of your devices."
+msgstr ""
+
+#: docs/Bootloader_Entry.md:block 33 (header)
+msgid "Entering the bootloader"
+msgstr ""
+
+#: docs/Bootloader_Entry.md:block 34 (paragraph)
+msgid "When klipper receives one of the above bootloader requests:"
+msgstr ""
+
+#: docs/Bootloader_Entry.md:block 35 (paragraph)
+msgid ""
+"If Katapult (formerly known as CANBoot) is available, klipper will request "
+"that Katapult stay active on the next boot, then reset the MCU (therefore "
+"entering Katapult)."
+msgstr ""
+
+#: docs/Bootloader_Entry.md:block 36 (paragraph)
+msgid ""
+"If Katapult is not available, klipper will then try to enter a platform-"
+"specific bootloader, such as STM32's DFU mode([see note](#stm32-dfu-"
+"warning))."
+msgstr ""
+
+#: docs/Bootloader_Entry.md:block 37 (paragraph)
+msgid ""
+"In short, Klipper will reboot to Katapult if installed, then a hardware "
+"specific bootloader if available."
+msgstr ""
+
+#: docs/Bootloader_Entry.md:block 38 (paragraph)
+msgid ""
+"For details about the specific bootloaders on various platforms see "
+"[Bootloaders](Bootloaders.md)"
+msgstr ""
+
+#: docs/Bootloader_Entry.md:block 39 (header)
+msgid "Notes"
+msgstr ""
+
+#: docs/Bootloader_Entry.md:block 40 (header)
+msgid "STM32 DFU Warning"
+msgstr ""
+
+#: docs/Bootloader_Entry.md:block 41 (paragraph)
+msgid ""
+"Note that on some boards, like the Octopus Pro v1, entering DFU mode can "
+"cause undesired actions (such as powering the heater while in DFU mode). It "
+"is recommended to disconnect heaters, and otherwise prevent undesired "
+"operations when using DFU mode. Consult the documentation for your board for"
+" more details."
+msgstr ""

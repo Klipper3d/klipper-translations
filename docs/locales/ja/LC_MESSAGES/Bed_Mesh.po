@@ -154,26 +154,6 @@ msgid ""
 "`fade_start`."
 msgstr ""
 
-msgid "The Relative Reference Index"
-msgstr ""
-
-msgid ""
-"`relative_reference_index: 7` *Default Value: None (disabled)* When the "
-"probed points are generated they are each assigned an index. You can look up"
-" this index in klippy.log or by using BED_MESH_OUTPUT (see the section on "
-"Bed Mesh GCodes below for more information). If you assign an index to the "
-"`relative_reference_index` option, the value probed at this coordinate will "
-"replace the probe's z_offset. This effectively makes this coordinate the "
-"\"zero\" reference for the mesh."
-msgstr ""
-
-msgid ""
-"When using the relative reference index, you should choose the index nearest"
-" to the spot on the bed where Z endstop calibration was done. Note that when"
-" looking up the index using the log or BED_MESH_OUTPUT, you should use the "
-"coordinates listed under the \"Probe\" header to find the correct index."
-msgstr ""
-
 msgid "Faulty Regions"
 msgstr ""
 
@@ -251,9 +231,6 @@ msgid "`ROUND_PROBE_COUNT`"
 msgstr ""
 
 msgid "All beds:"
-msgstr ""
-
-msgid "`RELATIVE_REFERNCE_INDEX`"
 msgstr ""
 
 msgid "Profiles"
@@ -499,17 +476,6 @@ msgid ""
 "fade_target: 0\n"
 msgstr ""
 
-#: docs/Bed_Mesh.md:block 36 (code)
-msgid ""
-"[bed_mesh]\n"
-"speed: 120\n"
-"horizontal_move_z: 5\n"
-"mesh_min: 35, 6\n"
-"mesh_max: 240, 198\n"
-"probe_count: 5, 3\n"
-"relative_reference_index: 7\n"
-msgstr ""
-
 #: docs/Bed_Mesh.md:block 42 (code)
 msgid ""
 "[bed_mesh]\n"
@@ -616,22 +582,134 @@ msgid ""
 " target if one wants to print on a specific portion of the bed."
 msgstr ""
 
-#: docs/Bed_Mesh.md:block 35 (paragraph)
-msgid ""
-"Most probes are susceptible to drift, ie: inaccuracies in probing introduced"
-" by heat or interference. This can make calculating the probe's z-offset "
-"challenging, particularly at different bed temperatures. As such, some "
-"printers use an endstop for homing the Z axis, and a probe for calibrating "
-"the mesh. These printers can benefit from configuring the relative reference"
-" index."
-msgstr ""
-
 #: docs/Bed_Mesh.md:block 58 (paragraph)
 msgid ""
 "It should be noted that each time a BED_MESH_CALIBRATE occurs, the current "
 "state is automatically saved to the *default* profile. The *default* profile"
 " can be removed as follows:"
 msgstr ""
+
+#: docs/Bed_Mesh.md:block 34 (header)
+msgid "Configuring the zero reference position"
+msgstr ""
+
+#: docs/Bed_Mesh.md:block 35 (paragraph)
+msgid ""
+"Many probes are susceptible to \"drift\", ie: inaccuracies in probing "
+"introduced by heat or interference. This can make calculating the probe's "
+"z-offset challenging, particularly at different bed temperatures. As such, "
+"some printers use an endstop for homing the Z axis and a probe for "
+"calibrating the mesh. In this configuration it is possible offset the mesh "
+"so that the (X, Y) `reference position` applies zero adjustment. The "
+"`reference postion` should be the location on the bed where a "
+"[Z_ENDSTOP_CALIBRATE](./Manual_Level#calibrating-a-z-endstop) paper test is "
+"performed. The bed_mesh module provides the `zero_reference_position` option"
+" for specifying this coordinate:"
+msgstr ""
+
+#: docs/Bed_Mesh.md:block 36 (code)
+msgid ""
+"[bed_mesh]\n"
+"speed: 120\n"
+"horizontal_move_z: 5\n"
+"mesh_min: 35, 6\n"
+"mesh_max: 240, 198\n"
+"zero_reference_position: 125, 110\n"
+"probe_count: 5, 3\n"
+msgstr ""
+
+#: docs/Bed_Mesh.md:block 37 (unordered list)
+msgid ""
+"`zero_reference_position: ` *Default Value: None (disabled)* The "
+"`zero_reference_position` expects an (X, Y) coordinate matching that of the "
+"`reference position` described above. If the coordinate lies within the mesh"
+" then the mesh will be offset so the reference position applies zero "
+"adjustment. If the coordinate lies outside of the mesh then the coordinate "
+"will be probed after calibration, with the resulting z-value used as the "
+"z-offset. Note that this coordinate must NOT be in a location specified as a"
+" `faulty_region` if a probe is necessary."
+msgstr ""
+
+#: docs/Bed_Mesh.md:block 38 (header)
+msgid "The deprecated relative_reference_index"
+msgstr ""
+
+#: docs/Bed_Mesh.md:block 39 (paragraph)
+msgid ""
+"Existing configurations using the `relative_reference_index` option must be "
+"updated to use the `zero_reference_position`. The response to the "
+"[BED_MESH_OUTPUT PGP=1](#output) gcode command will include the (X, Y) "
+"coordinate associated with the index; this position may be used as the value"
+" for the `zero_reference_position`. The output will look similar to the "
+"following:"
+msgstr ""
+
+#: docs/Bed_Mesh.md:block 40 (code)
+msgid ""
+"// bed_mesh: generated points\n"
+"// Index | Tool Adjusted | Probe\n"
+"// 0 | (1.0, 1.0) | (24.0, 6.0)\n"
+"// 1 | (36.7, 1.0) | (59.7, 6.0)\n"
+"// 2 | (72.3, 1.0) | (95.3, 6.0)\n"
+"// 3 | (108.0, 1.0) | (131.0, 6.0)\n"
+"... (additional generated points)\n"
+"// bed_mesh: relative_reference_index 24 is (131.5, 108.0)\n"
+msgstr ""
+
+#: docs/Bed_Mesh.md:block 41 (paragraph)
+msgid ""
+"*Note: The above output is also printed in `klippy.log` during "
+"initialization.*"
+msgstr ""
+
+#: docs/Bed_Mesh.md:block 42 (paragraph)
+msgid ""
+"Using the example above we see that the `relative_reference_index` is "
+"printed along with its coordinate. Thus the `zero_reference_position` is "
+"`131.5, 108`."
+msgstr ""
+
+#~ msgid "The Relative Reference Index"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`relative_reference_index: 7` *Default Value: None (disabled)* When the "
+#~ "probed points are generated they are each assigned an index. You can look up"
+#~ " this index in klippy.log or by using BED_MESH_OUTPUT (see the section on "
+#~ "Bed Mesh GCodes below for more information). If you assign an index to the "
+#~ "`relative_reference_index` option, the value probed at this coordinate will "
+#~ "replace the probe's z_offset. This effectively makes this coordinate the "
+#~ "\"zero\" reference for the mesh."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "When using the relative reference index, you should choose the index nearest"
+#~ " to the spot on the bed where Z endstop calibration was done. Note that when"
+#~ " looking up the index using the log or BED_MESH_OUTPUT, you should use the "
+#~ "coordinates listed under the \"Probe\" header to find the correct index."
+#~ msgstr ""
+
+#~ msgid "`RELATIVE_REFERNCE_INDEX`"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "[bed_mesh]\n"
+#~ "speed: 120\n"
+#~ "horizontal_move_z: 5\n"
+#~ "mesh_min: 35, 6\n"
+#~ "mesh_max: 240, 198\n"
+#~ "probe_count: 5, 3\n"
+#~ "relative_reference_index: 7\n"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Most probes are susceptible to drift, ie: inaccuracies in probing introduced"
+#~ " by heat or interference. This can make calculating the probe's z-offset "
+#~ "challenging, particularly at different bed temperatures. As such, some "
+#~ "printers use an endstop for homing the Z axis, and a probe for calibrating "
+#~ "the mesh. These printers can benefit from configuring the relative reference"
+#~ " index."
+#~ msgstr ""
 
 #~ msgid ""
 #~ "The Bed Mesh module may be used to compensate for bed surface irregularties "

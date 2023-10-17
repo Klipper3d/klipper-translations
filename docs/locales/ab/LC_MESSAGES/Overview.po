@@ -224,6 +224,22 @@ msgid ""
 "implementation."
 msgstr ""
 
+#: docs/Overview.md:block 6 (unordered list)
+msgid ""
+"[Axis Twist Compensation](Axis_Twist_Compensation.md): A tool to compensate "
+"for inaccurate probe readings due to twist in X gantry."
+msgstr ""
+
+#: docs/Overview.md:block 10 (unordered list)
+msgid "[Bootloader Entry](Bootloader_Entry.md): Requesting the bootloader."
+msgstr ""
+
+#: docs/Overview.md:block 10 (unordered list)
+msgid ""
+"[CAN bus troubleshooting](CANBUS_Troubleshooting.md): Tips for "
+"troubleshooting CAN bus."
+msgstr ""
+
 #~ msgid ""
 #~ "[Exclude Object](Exclude_Object.md): The guide to the Exclude Objecs "
 #~ "implementation."

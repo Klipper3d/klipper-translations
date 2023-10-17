@@ -7,8 +7,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2023-09-14 18:54+0000\n"
 "Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/overview/"
-"it/>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/overview/it/>\n"
 "Language: it\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -308,8 +307,24 @@ msgid ""
 "[Exclude Object](Exclude_Object.md): The guide to the Exclude Objects "
 "implementation."
 msgstr ""
-"[Exclude Object](Exclude_Object.md): La guida all'implementazione di Exclude "
-"Objects."
+"[Exclude Object](Exclude_Object.md): La guida all'implementazione di Exclude"
+" Objects."
+
+#: docs/Overview.md:block 6 (unordered list)
+msgid ""
+"[Axis Twist Compensation](Axis_Twist_Compensation.md): A tool to compensate "
+"for inaccurate probe readings due to twist in X gantry."
+msgstr ""
+
+#: docs/Overview.md:block 10 (unordered list)
+msgid "[Bootloader Entry](Bootloader_Entry.md): Requesting the bootloader."
+msgstr ""
+
+#: docs/Overview.md:block 10 (unordered list)
+msgid ""
+"[CAN bus troubleshooting](CANBUS_Troubleshooting.md): Tips for "
+"troubleshooting CAN bus."
+msgstr ""
 
 #~ msgid ""
 #~ "[Exclude Object](Exclude_Object.md): The guide to the Exclude Objecs "

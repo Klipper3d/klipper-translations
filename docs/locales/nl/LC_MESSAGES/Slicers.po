@@ -4,8 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2023-06-30 06:49+0000\n"
 "Last-Translator: Luc Van den Borre <luc@orotec.be>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/klipper/slicers/nl/"
-">\n"
+"Language-Team: Dutch <https://hosted.weblate.org/projects/klipper/slicers/nl/>\n"
 "Language: nl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -162,12 +161,6 @@ msgid ""
 "would be used:"
 msgstr ""
 
-#: docs/Slicers.md:block 29 (paragraph)
-msgid ""
-"START_PRINT EXTRUDER_TEMP=[first_layer_temperature] "
-"BED_TEMP=[first_layer_bed_temperature]"
-msgstr ""
-
 #: docs/Slicers.md:block 30 (paragraph)
 msgid ""
 "Also note that these slicers will insert their own heating codes when "
@@ -194,3 +187,14 @@ msgid ""
 "An example of a START_PRINT macro using these paramaters can be found in "
 "config/sample-macros.cfg"
 msgstr ""
+
+#: docs/Slicers.md:block 29 (code)
+msgid ""
+"START_PRINT EXTRUDER_TEMP=[first_layer_temperature] "
+"BED_TEMP=[first_layer_bed_temperature]\n"
+msgstr ""
+
+#~ msgid ""
+#~ "START_PRINT EXTRUDER_TEMP=[first_layer_temperature] "
+#~ "BED_TEMP=[first_layer_bed_temperature]"
+#~ msgstr ""
