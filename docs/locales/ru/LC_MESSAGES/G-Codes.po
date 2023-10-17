@@ -5,11 +5,12 @@
 # VICTOR <subfyn@gmail.com>, 2023.
 # Dmitriy <dima.ladmol@yandex.ru>, 2023.
 # xXx <xxx_xxx_xxxxxxxxx@mail.ru>, 2023.
+# Mix <3xh096xz4@mozmail.com>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-09-29 07:01+0000\n"
-"Last-Translator: xXx <xxx_xxx_xxxxxxxxx@mail.ru>\n"
+"PO-Revision-Date: 2023-10-17 04:11+0000\n"
+"Last-Translator: Mix <3xh096xz4@mozmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/g-codes/"
 "ru/>\n"
 "Language: ru\n"
@@ -17,7 +18,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.1-dev\n"
+"X-Generator: Weblate 5.1\n"
 
 #, fuzzy
 msgid ""
@@ -763,22 +764,21 @@ msgstr ""
 
 #: docs/G-Codes.md:block 18 (header)
 msgid "ACCELEROMETER_DEBUG_READ"
-msgstr ""
+msgstr "Отладка акселерометра"
 
 #: docs/G-Codes.md:block 19 (paragraph)
-#, fuzzy
 msgid ""
 "`ACCELEROMETER_DEBUG_READ [CHIP=<config_name>] REG=<register>`: queries "
 "ADXL345 register \"register\" (e.g. 44 or 0x2C). Can be useful for debugging"
 " purposes."
 msgstr ""
-"`АКСЕЛЕРОМЕТР_ОТЛАДКА_ЧТЕНИЕ [ЧИП =  <имя_конфигурации> РЕГ=<регистр>`: "
-"запросы ADXL345 регистр \"регистр\" (e.g. 44 или 0x2C). Может быть полезен "
+"`Отладка акселерометра [ЧИП =<имя_конфигурации> РЕГ=<регистр>`: запрос "
+"ADXL345 регистрация \"регистр\" (примеры: 44 или 0x2C). Может быть полезен "
 "для целей отладки."
 
 #: docs/G-Codes.md:block 20 (header)
 msgid "ACCELEROMETER_DEBUG_WRITE"
-msgstr ""
+msgstr "Отладка акселерометра: запись"
 
 #: docs/G-Codes.md:block 21 (paragraph)
 msgid ""
