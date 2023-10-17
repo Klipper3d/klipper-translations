@@ -26,12 +26,12 @@ http://www.facebook.com/HKMakers.hk
 
 ### 这是测试版文档！
 
-状态：已上线(Last updated 2022-04-08)
+状态：需要更新(Last updated 2023-10-17)
 
 [Klipper中文文档](https://github.com/KevinOConnor/klipper-translations/tree/translations/docs/locales/zh-hans)
 
 中文社群
-- Klipper QQ群：301368478
+- Klipper文档催更 QQ群：301368478
 - More
 
 ## German Deutsche
