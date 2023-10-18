@@ -1,9 +1,18 @@
-#
+# Francisco Javier Hoyos Arango <cofhal@gmail.com>, 2023.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2023-10-17 04:11+0000\n"
+"Last-Translator: Francisco Javier Hoyos Arango <cofhal@gmail.com>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/probe_calibrate/es/>\n"
+"Language: es\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.1\n"
 
 msgid "Calibrating probe X and Y offsets"
-msgstr ""
+msgstr "Calibrando los desfaces X y Y de la sonda"
 
 msgid ""
 "To calibrate the X and Y offset, navigate to the OctoPrint \"Control\" tab, "

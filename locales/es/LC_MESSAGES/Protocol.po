@@ -1,17 +1,19 @@
 # Francisco Serrador <fserrador@gmail.com>, 2022.
 # Alberto <aru_hackZ.official@zohomail.eu>, 2022.
+# Francisco Javier Hoyos Arango <cofhal@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-06-13 15:15+0000\n"
-"Last-Translator: Alberto <aru_hackZ.official@zohomail.eu>\n"
+"PO-Revision-Date: 2023-10-17 04:11+0000\n"
+"Last-Translator: Francisco Javier Hoyos Arango <cofhal@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/protocol/es/>\n"
 "Language: es\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.13-dev\n"
+"X-Generator: Weblate 5.1\n"
 
+#, fuzzy
 msgid ""
 "The Klipper messaging protocol is used for low-level communication between "
 "the Klipper host software and the Klipper micro-controller software. At a "
@@ -20,6 +22,12 @@ msgid ""
 " receiving side. An example series of commands in uncompressed human-"
 "readable format might look like:"
 msgstr ""
+"El protocolo de mensajes de Klipper se utiliza para la comunicación de bajo "
+"nivel entre el software host Klipper y el software del microcontrolador "
+"Klipper.  En un nivel alto, se puede considerar el protocolo como una serie "
+"de cadenas de comando y respuesta que se comprimen, transmiten y luego "
+"procesan en el lado receptor.  Una serie de ejemplos de comandos en formato "
+"legible por humanos sin comprimir podría verse así:"
 
 msgid ""
 "See the [mcu commands](MCU_Commands.md) document for information on "

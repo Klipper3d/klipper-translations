@@ -7,8 +7,7 @@ msgstr ""
 "POT-Creation-Date: 2021-07-10 16:29+0200\n"
 "PO-Revision-Date: 2023-04-07 22:49+0000\n"
 "Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
-"klipper/rpi_microcontroller/zh_Hans/>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/rpi_microcontroller/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -307,59 +306,11 @@ msgstr ""
 "# 启用 pwmchip sysfs 接口\n"
 "dtoverlay=pwm,pin=12,func=4\n"
 
-#: docs/RPi_microcontroller.md:block 34 (paragraph)
-msgid ""
-"This example enables only PWM0 and routes it to gpio12. If both PWM channels"
-" need to be enabled you can use `pwm-2chan`."
-msgstr "此示例仅启用 PWM0 并将其路由到 gpio12。如果需要同时启用两个 PWM 通道，则可以使用 `pwm-2chan`。"
-
-#: docs/RPi_microcontroller.md:block 35 (paragraph)
-msgid ""
-"The overlay does not expose the pwm line on sysfs on boot and needs to be "
-"exported by echo'ing the number of the pwm channel to "
-"`/sys/class/pwm/pwmchip0/export`:"
-msgstr ""
-"overlay 在启动时不会在 sysfs 上暴露出 PWM 线路，需要通过echo将 PWM 通道的编号导出到 "
-"`/sys/class/pwm/pwmchip0/export`："
-
-#: docs/RPi_microcontroller.md:block 36 (code)
-msgid "echo 0 > /sys/class/pwm/pwmchip0/export\n"
-msgstr "echo 0 > /sys/class/pwm/pwmchip0/export\n"
-
-#: docs/RPi_microcontroller.md:block 37 (paragraph)
-msgid ""
-"This will create device `/sys/class/pwm/pwmchip0/pwm0` in the filesystem. "
-"The easiest way to do this is by adding this to `/etc/rc.local` before the "
-"`exit 0` line."
-msgstr ""
-"这将在文件系统中创建设备`/sys/class/pwm/kwmchip0/pwm0`。最简单的方法是在`/etc/rc.local`的`exit "
-"0`行之前添加这行。"
-
 #: docs/RPi_microcontroller.md:block 38 (paragraph)
 msgid ""
 "With the sysfs in place, you can now use either the pwm channel(s) by adding"
 " the following piece of configuration to your `printer.cfg`:"
 msgstr "有了 sysfs，现在可以通过将以下配置添加到 `printer.cfg` 来使用 PWM 通道："
-
-#: docs/RPi_microcontroller.md:block 39 (code)
-msgid ""
-"[output_pin caselight]\n"
-"pin: host:pwmchip0/pwm0\n"
-"pwm: True\n"
-"hardware_pwm: True\n"
-"cycle_time: 0.000001\n"
-msgstr ""
-"[output_pin caselight]\n"
-"pin: host:pwmchip0/pwm0\n"
-"pwm: True\n"
-"hardware_pwm: True\n"
-"cycle_time: 0.000001\n"
-
-#: docs/RPi_microcontroller.md:block 40 (paragraph)
-msgid ""
-"This will add hardware pwm control to gpio12 on the Pi (because the overlay "
-"was configured to route pwm0 to pin=12)."
-msgstr "这将为树莓派上的 gpio12 引脚添加硬件 PWM 控制（因为overlay被配置为将 pwm0 路由到 pin=12）。"
 
 #: docs/RPi_microcontroller.md:block 1 (header)
 msgid "RPi microcontroller"
@@ -476,6 +427,115 @@ msgstr ""
 "cd ~/klipper/\n"
 "sudo cp ./scripts/klipper-mcu.service /etc/systemd/system/\n"
 "sudo systemctl enable klipper-mcu.service\n"
+
+#: docs/RPi_microcontroller.md:block 39 (paragraph)
+msgid ""
+"This example enables only PWM0 and routes it to gpio12. If both PWM channels"
+" need to be enabled you can use `pwm-2chan`:"
+msgstr ""
+
+#: docs/RPi_microcontroller.md:block 40 (code)
+msgid ""
+"# Enable pwmchip sysfs interface\n"
+"dtoverlay=pwm-2chan,pin=12,func=4,pin2=13,func2=4\n"
+msgstr ""
+
+#: docs/RPi_microcontroller.md:block 41 (paragraph)
+msgid "This example additionally enables PWM1 and routes it to gpio13."
+msgstr ""
+
+#: docs/RPi_microcontroller.md:block 42 (paragraph)
+msgid ""
+"The overlay does not expose the pwm line on sysfs on boot and needs to be "
+"exported by echo'ing the number of the pwm channel to "
+"`/sys/class/pwm/pwmchip0/export`. This will create device "
+"`/sys/class/pwm/pwmchip0/pwm0` in the filesystem. The easiest way to do this"
+" is by adding this to `/etc/rc.local` before the `exit 0` line:"
+msgstr ""
+
+#: docs/RPi_microcontroller.md:block 43 (code)
+msgid ""
+"# Enable pwmchip sysfs interface\n"
+"echo 0 > /sys/class/pwm/pwmchip0/export\n"
+msgstr ""
+
+#: docs/RPi_microcontroller.md:block 44 (paragraph)
+msgid ""
+"When using both PWM channels, the number of the second channel needs to be "
+"echo'd as well:"
+msgstr ""
+
+#: docs/RPi_microcontroller.md:block 45 (code)
+msgid ""
+"# Enable pwmchip sysfs interface\n"
+"echo 0 > /sys/class/pwm/pwmchip0/export\n"
+"echo 1 > /sys/class/pwm/pwmchip0/export\n"
+msgstr ""
+
+#: docs/RPi_microcontroller.md:block 47 (code)
+msgid ""
+"[output_pin caselight]\n"
+"pin: host:pwmchip0/pwm0\n"
+"pwm: True\n"
+"hardware_pwm: True\n"
+"cycle_time: 0.000001\n"
+"\n"
+"[output_pin beeper]\n"
+"pin: host:pwmchip0/pwm1\n"
+"pwm: True\n"
+"hardware_pwm: True\n"
+"value: 0\n"
+"shutdown_value: 0\n"
+"cycle_time: 0.0005\n"
+msgstr ""
+
+#: docs/RPi_microcontroller.md:block 48 (paragraph)
+msgid ""
+"This will add hardware pwm control to gpio12 and gpio13 on the Pi (because "
+"the overlay was configured to route pwm0 to pin=12 and pwm1 to pin=13)."
+msgstr ""
+
+#~ msgid ""
+#~ "This example enables only PWM0 and routes it to gpio12. If both PWM channels"
+#~ " need to be enabled you can use `pwm-2chan`."
+#~ msgstr "此示例仅启用 PWM0 并将其路由到 gpio12。如果需要同时启用两个 PWM 通道，则可以使用 `pwm-2chan`。"
+
+#~ msgid ""
+#~ "The overlay does not expose the pwm line on sysfs on boot and needs to be "
+#~ "exported by echo'ing the number of the pwm channel to "
+#~ "`/sys/class/pwm/pwmchip0/export`:"
+#~ msgstr ""
+#~ "overlay 在启动时不会在 sysfs 上暴露出 PWM 线路，需要通过echo将 PWM 通道的编号导出到 "
+#~ "`/sys/class/pwm/pwmchip0/export`："
+
+#~ msgid "echo 0 > /sys/class/pwm/pwmchip0/export\n"
+#~ msgstr "echo 0 > /sys/class/pwm/pwmchip0/export\n"
+
+#~ msgid ""
+#~ "This will create device `/sys/class/pwm/pwmchip0/pwm0` in the filesystem. "
+#~ "The easiest way to do this is by adding this to `/etc/rc.local` before the "
+#~ "`exit 0` line."
+#~ msgstr ""
+#~ "这将在文件系统中创建设备`/sys/class/pwm/kwmchip0/pwm0`。最简单的方法是在`/etc/rc.local`的`exit "
+#~ "0`行之前添加这行。"
+
+#~ msgid ""
+#~ "[output_pin caselight]\n"
+#~ "pin: host:pwmchip0/pwm0\n"
+#~ "pwm: True\n"
+#~ "hardware_pwm: True\n"
+#~ "cycle_time: 0.000001\n"
+#~ msgstr ""
+#~ "[output_pin caselight]\n"
+#~ "pin: host:pwmchip0/pwm0\n"
+#~ "pwm: True\n"
+#~ "hardware_pwm: True\n"
+#~ "cycle_time: 0.000001\n"
+
+#~ msgid ""
+#~ "This will add hardware pwm control to gpio12 on the Pi (because the overlay "
+#~ "was configured to route pwm0 to pin=12)."
+#~ msgstr "这将为树莓派上的 gpio12 引脚添加硬件 PWM 控制（因为overlay被配置为将 pwm0 路由到 pin=12）。"
 
 #~ msgid ""
 #~ "cd ~/klipper/\n"

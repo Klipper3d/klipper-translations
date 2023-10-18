@@ -5,8 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2023-08-05 21:50+0000\n"
 "Last-Translator: Salif Mehmed <mail@salif.eu>\n"
-"Language-Team: Bulgarian <https://hosted.weblate.org/projects/klipper/"
-"overview/bg/>\n"
+"Language-Team: Bulgarian <https://hosted.weblate.org/projects/klipper/overview/bg/>\n"
 "Language: bg\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -305,6 +304,22 @@ msgstr "[Сензор за ширина на нишката на Хол](Hall_Fi
 msgid ""
 "[Exclude Object](Exclude_Object.md): The guide to the Exclude Objects "
 "implementation."
+msgstr ""
+
+#: docs/Overview.md:block 6 (unordered list)
+msgid ""
+"[Axis Twist Compensation](Axis_Twist_Compensation.md): A tool to compensate "
+"for inaccurate probe readings due to twist in X gantry."
+msgstr ""
+
+#: docs/Overview.md:block 10 (unordered list)
+msgid "[Bootloader Entry](Bootloader_Entry.md): Requesting the bootloader."
+msgstr ""
+
+#: docs/Overview.md:block 10 (unordered list)
+msgid ""
+"[CAN bus troubleshooting](CANBUS_Troubleshooting.md): Tips for "
+"troubleshooting CAN bus."
 msgstr ""
 
 #~ msgid ""

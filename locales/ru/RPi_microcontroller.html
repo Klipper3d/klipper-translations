@@ -616,6 +616,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Axis_Twist_Compensation.html" class="md-nav__link">
+        Axis Twist Compensation
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1141,6 +1155,20 @@
   
   
     <li class="md-nav__item">
+      <a href="../../Bootloader_Entry.html" class="md-nav__link">
+        Bootloader Entry
+      </a>
+    </li>
+  
+
+            
+          
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
       <a href="../../CANBUS.html" class="md-nav__link">
         CANBUS
       </a>
@@ -1281,8 +1309,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#gpio" class="md-nav__link">
-    Необязательно: Определите правильный чип gpio
+  <a href="#gpiochip" class="md-nav__link">
+    Необязательно: Определите правильный gpiochip
   </a>
   
 </li>
@@ -1347,7 +1375,7 @@ sudo service klipper start
 <p>Убедитесь, что драйвер Linux SPI включен, запустив <code>sudo raspi-config</code> и включив SPI в меню "Параметры взаимодействия".</p>
 <h2 id="i2c">Необязательно: Включение I2C<a class="headerlink" href="#i2c" title="Permanent link">&para;</a></h2>
 <p>Убедитесь, что драйвер Linux I2C включен, запустив <code>sudo raspi-config</code> и включив I2C в меню "Параметры взаимодействия". Если планируется использовать I2C для акселерометра MPU, также необходимо установить скорость передачи данных на 400000, добавив/раскомментировав <code>dtparam=i2c_arm=on,i2c_arm_baudrate=400000</code> в <code>/boot/config.txt</code> (или <code>/boot/firmware/config.txt</code> в некоторых дистрибутивах).</p>
-<h2 id="gpio">Необязательно: Определите правильный чип gpio<a class="headerlink" href="#gpio" title="Permanent link">&para;</a></h2>
+<h2 id="gpiochip">Необязательно: Определите правильный gpiochip<a class="headerlink" href="#gpiochip" title="Permanent link">&para;</a></h2>
 <p>На Raspberry Pi и на многих клонах контакты, выставленные на GPIO, принадлежат первому gpiochip. Поэтому их можно использовать в klipper, просто указав на них имя <code>gpio0..n</code>. Однако бывают случаи, когда открытые контакты принадлежат gpiochips, отличным от первого. Например, в случае некоторых моделей Orange Pi или при использовании расширителя портов. В этих случаях полезно использовать команды для доступа к <em>символьному устройству Linux GPIO</em> для проверки конфигурации.</p>
 <p>Чтобы установить <em>Linux GPIO character device - двоичный файл</em> в дистрибутив на базе debian, такой как octopi, запустите:</p>
 <div class="highlight"><pre><span></span><code>sudo apt-get install gpiod

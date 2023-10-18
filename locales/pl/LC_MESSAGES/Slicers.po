@@ -167,12 +167,6 @@ msgid ""
 "would be used:"
 msgstr ""
 
-#: docs/Slicers.md:block 29 (paragraph)
-msgid ""
-"START_PRINT EXTRUDER_TEMP=[first_layer_temperature] "
-"BED_TEMP=[first_layer_bed_temperature]"
-msgstr ""
-
 #: docs/Slicers.md:block 30 (paragraph)
 msgid ""
 "Also note that these slicers will insert their own heating codes when "
@@ -199,3 +193,14 @@ msgid ""
 "An example of a START_PRINT macro using these paramaters can be found in "
 "config/sample-macros.cfg"
 msgstr ""
+
+#: docs/Slicers.md:block 29 (code)
+msgid ""
+"START_PRINT EXTRUDER_TEMP=[first_layer_temperature] "
+"BED_TEMP=[first_layer_bed_temperature]\n"
+msgstr ""
+
+#~ msgid ""
+#~ "START_PRINT EXTRUDER_TEMP=[first_layer_temperature] "
+#~ "BED_TEMP=[first_layer_bed_temperature]"
+#~ msgstr ""
