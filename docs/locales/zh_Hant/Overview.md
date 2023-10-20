@@ -23,6 +23,7 @@
    - [手動調平](Manual_Level.md)：校準 Z 限位和調整熱床調平螺絲。
    - [床網](Bed_Mesh.md)：基於 XY 位置的列印床高度補償。
    - [限位相位](Endstop_Phase.md)：使用步進電機相位輔助 Z 限位定位。
+   - [Axis Twist Compensation](Axis_Twist_Compensation.md): A tool to compensate for inaccurate probe readings due to twist in X gantry.
 - [共振補償](Resonance_Compensation.md)：減少列印震紋的工具。
    - [測量共振](Measuring_Resonances.md)：使用 adxl345 加速度計模組測量共振。
 - [提前壓力](Pressure_Advance.md)：校準擠出機壓力。
@@ -56,6 +57,7 @@
 - [將樹莓派作為微控制器](RPi_microcontroller.md)：關於如何控制與樹莓派 GPIO 引腳連線的裝置。
 - [Beaglebone](Beaglebone.md)：在 Beaglebone PRU 上執行 Klipper 的詳細資訊。
 - [底層載入程式](Bootloaders.md)：有關於微控制器刷寫的開發者資訊。
+- [Bootloader Entry](Bootloader_Entry.md): Requesting the bootloader.
 - [CAN 匯流排](CANBUS.md)：有關於 Klipper 使用 CAN 匯流排的資訊。
    - [CAN bus troubleshooting](CANBUS_Troubleshooting.md): Tips for troubleshooting CAN bus.
 - [TSL1401CL 耗材線徑感測器](TSL1401CL_Filament_Width_Sensor.md)

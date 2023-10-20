@@ -23,6 +23,7 @@ Bem- vindo a documentação do Klipper, comece com os documentos [features](Feat
    - [Manual level](Manual_Level.md): Calibration of Z endstops (and similar).
    - [Malha de cama](Bed_Mesh.md): Correção da altura da cama baseado em coordenadas XY.
    - [Endstop phase](Endstop_Phase.md): Stepper assisted Z endstop positioning.
+   - [Axis Twist Compensation](Axis_Twist_Compensation.md): A tool to compensate for inaccurate probe readings due to twist in X gantry.
 - [Resonance compensation](Resonance_Compensation.md): A tool to reduce ringing in prints.
    - [Measuring resonances](Measuring_Resonances.md): Information on using adxl345 accelerometer hardware to measure resonance.
 - [Pressure advance](Pressure_Advance.md): Calibrate extruder pressure.
@@ -56,6 +57,7 @@ Bem- vindo a documentação do Klipper, comece com os documentos [features](Feat
 - [Raspberry Pi como um Micro-controlador](RPi_microcontroller.md): Detalhes sobre como controlar dispositivos ligados aos pinos GPIO de um Raspberry Pi.
 - [Beaglebone](Beaglebone.md): Details for running Klipper on the Beaglebone PRU.
 - [Bootloaders](Bootloaders.md): Developer information on micro-controller flashing.
+- [Bootloader Entry](Bootloader_Entry.md): Requesting the bootloader.
 - [CAN bus](CANBUS.md): Information on using CAN bus with Klipper.
    - [CAN bus troubleshooting](CANBUS_Troubleshooting.md): Tips for troubleshooting CAN bus.
 - [TSL1401CL filament width sensor](TSL1401CL_Filament_Width_Sensor.md)

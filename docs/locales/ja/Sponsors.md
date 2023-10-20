@@ -4,13 +4,13 @@ Klipper はフリーソフトウェアです。私たちは、スポンサーか
 
 ## BIGTREETECH
 
-[<img src="./img/sponsors/BTT_BTT.png" width="200" />](https://bigtree-tech.com/collections/all-products)
+[<img src="./img/sponsors/BTT_BTT.png" width="200" style="margin:25px"/>](https://bigtree-tech.com/collections/all-products)
 
 BIGTREETECHはKlipperの公式メインボードスポンサーです。BIGTREETECHは、3Dプリンティングコミュニティにより良いサービスを提供するため、革新的で競争力のある製品の開発に取り組んでいます。 [Facebook](https://www.facebook.com/BIGTREETECH) または [Twitter](https://twitter.com/BigTreeTech) でフォローしてください。
 
 ## スポンサー
 
-[<img src="./img/sponsors/obico-light-horizontal.png" width="200" />](https://obico.io/klipper.html?source=klipper_sponsor)
+[<img src="./img/sponsors/obico-light-horizontal.png" width="200" style="margin:25px" />](https://obico.io/klipper.html?source=klipper_sponsor) [<img src="./img/sponsors/peopoly-logo.png" width="200" style="margin:25px" />](https://peopoly.net)
 
 ## Klipper 開発者
 

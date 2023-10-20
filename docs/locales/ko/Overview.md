@@ -23,6 +23,7 @@ Klipper 에 오신것을 환영합니다. Klipper를 처음 사용하는 경우�
    - [수동 레벨링](Manual_Level.md): Z 엔드스톱(및 유사)의 보정.
    - [베드 메쉬](Bed_Mesh.md): XY 위치를 기반으로 한 BED 높이 보정.
    - [Endstop phase](Endstop_Phase.md): 스테퍼 지원 Z 엔드스톱 포지셔닝.
+   - [Axis Twist Compensation](Axis_Twist_Compensation.md): A tool to compensate for inaccurate probe readings due to twist in X gantry.
 - [Resonance compensation](Resonance_Compensation.md): 인쇄물에서 물결을 줄이는 도구.
    - [Measuring resonances](Measuring_Resonances.md): 공진을 측정하기 위해 adxl345 가속도계 하드웨어를 사용하는 방법에 대한 정보.
 - [Pressure advance](Pressure_Advance.md): 익스트루더 압출 보정.
@@ -56,6 +57,7 @@ Klipper 에 오신것을 환영합니다. Klipper를 처음 사용하는 경우�
 - [Raspberry Pi as Micro-controller](RPi_microcontroller.md): Raspberry Pi의 GPIO 핀에 연결된 장치 제어에 대한 세부 정보.
 - [Beaglebone](Beaglebone.md): Beaglebone PRU에서 Klipper를 실행하기 위한 세부 정보입니다.
 - [브트로더](Bootloaders.md): 마이크로 컨트롤러 펌업에 대한 개발자 정보.
+- [Bootloader Entry](Bootloader_Entry.md): Requesting the bootloader.
 - [캔버스](CANBUS.md): Klipper에서 CAN 버스를 사용하는 방법에 대한 정보.
    - [CAN bus troubleshooting](CANBUS_Troubleshooting.md): Tips for troubleshooting CAN bus.
 - [TSL1401CL 필라멘트 폭 센서](TSL1401CL_Filament_Width_Sensor.md)

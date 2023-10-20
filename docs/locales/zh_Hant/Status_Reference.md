@@ -169,6 +169,7 @@ The following information is available in [gcode_button some_name](Config_Refere
 
 - `available_heaters`：返回所有當前可用加熱器的完整配置分段名稱，例如 `["extruder"、"heater_bed"、"heater_generic my_custom_heater"]`。
 - `available_sensors`：返回所有當前可用的溫度感測器的完整配置分段名稱列表，例如：`["extruder", "heater_bed", "heater_generic my_custom_heater", "temperature_sensor electronics_temp"] `。
+- `available_monitors`: Returns a list of all currently available temperature monitors by their full config section names, e.g. `["tmc2240 stepper_x"]`. While a temperature sensor is always available to read, a temperature monitor may not be available and will return null in such case.
 
 ## idle_timeout
 
@@ -262,6 +263,7 @@ The following information is available in the `manual_probe` object:
 The following information is available in the `screws_tilt_adjust` object:
 
 - `error`: Returns True if the most recent `SCREWS_TILT_CALCULATE` command included the `MAX_DEVIATION` parameter and any of the probed screw points exceeded the specified `MAX_DEVIATION`.
+- `max_deviation`: Return the last `MAX_DEVIATION` value of the most recent `SCREWS_TILT_CALCULATE` command.
 - `results["<screw>"]`: A dictionary containing the following keys:
    - `z`: The measured Z height of the screw location.
    - `sign`: A string specifying the direction to turn to screw for the necessary adjustment. Either "CW" for clockwise or "CCW" for counterclockwise.
@@ -290,7 +292,7 @@ The following information is available in the `stepper_enable` object (this obje
 
 以下資訊可在
 
-[bme280 config_section_name](Config_Reference.md#bmp280bme280bme680-temperature-sensor)、[htu21d config_section_name](Config_Reference.md#htu21d-sensor)、[lm75 config_section_name](Config_Reference.md#lm75-temperature-sensor)和[temperature_host config_section_name](Config_Reference.md#host-temperature-sensor) 對像：
+[bme280 config_section_name](Config_Reference.md#bmp280bme280bme680-temperature-sensor), [htu21d config_section_name](Config_Reference.md#htu21d-sensor), [lm75 config_section_name](Config_Reference.md#lm75-temperature-sensor), [temperature_host config_section_name](Config_Reference.md#host-temperature-sensor) and [temperature_combined config_section_name](Config_Reference.md#combined-temperature-sensor) objects:
 
 - `temperature`：上一次從感測器讀取的溫度。
 - `hemidity`、`pressure`和`gas`：感測器上一次讀取的值（僅在bme280、htu21d和lm75感測器上）。
@@ -334,10 +336,10 @@ The following information is available in the `stepper_enable` object (this obje
 
 ## dual_carriage
 
-使用了 hybrid_corexy 或 hybrid_corexz 運動學的 [dual_carriage](Config_Reference.md#dual_carriage) 對像提供了以下資訊
+The following information is available in [dual_carriage](Config_Reference.md#dual_carriage) on a cartesian, hybrid_corexy or hybrid_corexz robot
 
-- `mode`：目前模式。可能的值："FULL_CONTROL"
-- `active_carriage`：目前的活躍的滑車。可能的值是"CARRIAGE_0"和"CARRIAGE_1"
+- `carriage_0`: The mode of the carriage 0. Possible values are: "INACTIVE" and "PRIMARY".
+- `carriage_1`: The mode of the carriage 1. Possible values are: "INACTIVE", "PRIMARY", "COPY", and "MIRROR".
 
 ## virtual_sdcard
 

@@ -26,7 +26,7 @@ name: Raw: {'%4.0F' % printer.hall_filament_width_sensor.Raw}
 index: 1
 ```
 
-## Calibration procedure
+## Procedura kalibracji
 
 To get raw sensor value you can use menu item or **QUERY_RAW_FILAMENT_WIDTH** command in terminal.
 
@@ -36,7 +36,7 @@ To get raw sensor value you can use menu item or **QUERY_RAW_FILAMENT_WIDTH** co
 
 ## How to enable sensor
 
-By default, the sensor is disabled at power-on.
+Domyślnie, sensor jest zablokowany po włączeniu.
 
 To enable the sensor, issue **ENABLE_FILAMENT_WIDTH_SENSOR** command or set the `enable` parameter to `true`.
 

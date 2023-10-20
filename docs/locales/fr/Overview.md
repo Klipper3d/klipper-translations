@@ -23,6 +23,7 @@ Bienvenue dans la documentation de Klipper. Si vous débutez avec Klipper, comme
    - [Nivelage manuel](Manual_Level.md) : Calibration des butées Z (et similaires).
    - [Maillage du lit](Bed_Mesh.md) : Correction de la hauteur du lit basée sur les emplacements XY.
    - [Phase de fin de course](Endstop_Phase.md) : Positionnement de la butée Z assisté par moteur.
+   - [Axis Twist Compensation](Axis_Twist_Compensation.md): A tool to compensate for inaccurate probe readings due to twist in X gantry.
 - [Compensation de la résonance](Resonance_Compensation.md) : Un outil permettant de réduire la résonance durant les impressions.
    - [Mesure des résonances](Measuring_Resonances.md) : Informations sur l'utilisation d'un accéléromètre adxl345 pour mesurer les résonances.
 - [Avance à la pression](Pressure_Advance.md) : Calibration de la pression dans l'extrudeur.
@@ -56,6 +57,7 @@ Bienvenue dans la documentation de Klipper. Si vous débutez avec Klipper, comme
 - [Raspberry Pi en tant que micro-contrôleur](RPi_microcontroller.md) : Détails pour contrôler les appareils connectés aux broches GPIO d'un Raspberry Pi.
 - [Beaglebone](Beaglebone.md) : Détails pour l'exécution de Klipper sur le SBC Beaglebone.
 - [Bootloaders](Bootloaders.md) : Informations pour les développeurs sur le flashage des microcontrôleurs.
+- [Bootloader Entry](Bootloader_Entry.md): Requesting the bootloader.
 - [Bus CAN](CANBUS.md) : Informations sur l'utilisation du bus CAN avec Klipper.
    - [CAN bus troubleshooting](CANBUS_Troubleshooting.md): Tips for troubleshooting CAN bus.
 - [Capteur de largeur de filament TSL1401CL](TSL1401CL_Filament_Width_Sensor.md)

@@ -4,13 +4,13 @@ Klipper 是免費軟件。我們依靠贊助商的慷慨支持。請考慮贊助
 
 ## BIGTREETECH
 
-[<img src="./img/sponsors/BTT_BTT.png" width="200" />](https://bigtree-tech.com/collections/all-products)
+[<img src="./img/sponsors/BTT_BTT.png" width="200" style="margin:25px"/>](https://bigtree-tech.com/collections/all-products)
 
 BIGTREETECH 是 Klipper 的主板官方贊助商。 BIGTREETECH 致力於開發具有創新性和競爭力的產品，以更好地服務於 3D 打印社區。在 [Facebook](https://www.facebook.com/BIGTREETECH) 或 [Twitter](https://twitter.com/BigTreeTech) 上關注他們。
 
 ## 贊助商
 
-[<img src="./img/sponsors/obico-light-horizontal.png" width="200" />](https://obico.io/klipper.html?source=klipper_sponsor)
+[<img src="./img/sponsors/obico-light-horizontal.png" width="200" style="margin:25px" />](https://obico.io/klipper.html?source=klipper_sponsor) [<img src="./img/sponsors/peopoly-logo.png" width="200" style="margin:25px" />](https://peopoly.net)
 
 ## Klipper開發人員
 

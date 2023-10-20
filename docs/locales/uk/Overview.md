@@ -23,6 +23,7 @@
    - [Ручний рівень](Manual_Level.md): Калібрування кінцевих зупинок Z (і подібних).
    - [Сітка ліжка](Bed_Mesh.md): Корекція висоти ліжка на основі розташування XY.
    - [Фаза зупинки](Endstop_Phase.md): Позиціонування кінцевої зупинки Z за допомогою ступеня.
+   - [Axis Twist Compensation](Axis_Twist_Compensation.md): A tool to compensate for inaccurate probe readings due to twist in X gantry.
 - [Компенсація резонансу](Resonance_Compensation.md): Інструмент для зменшення дзвону в друкуванні.
    - [Вимірювання резонансів](Measuring_Resonances.md): Інформація про використання акселерометра adxl345 для вимірювання резонансу.
 - [Підвищення тиску](Pressure_Advance.md): Калібровка тиск екструдера.
@@ -56,6 +57,7 @@
 - [Raspberry Pi як мікроконтролер](RPi_microcontroller.md): Деталі для керування пристроями, підключеними до контактів GPIO Raspberry Pi.
 - [Beaglebone](Beaglebone.md): Деталі для запуску Klipper на Beaglebone PRU.
 - [Завантажувачі](Bootloaders.md): Інформація для розробників про перепрошивку мікроконтролерів.
+- [Bootloader Entry](Bootloader_Entry.md): Requesting the bootloader.
 - [CAN шина](CANBUS.md): Інформація щодо використання шини CAN із Klipper.
    - [CAN bus troubleshooting](CANBUS_Troubleshooting.md): Tips for troubleshooting CAN bus.
 - [TSL1401CL датчик ширини нитки ](TSL1401CL_Filament_Width_Sensor.md)

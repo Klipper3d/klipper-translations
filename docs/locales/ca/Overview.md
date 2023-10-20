@@ -23,6 +23,7 @@ Benvingut a la documentació de Klipper. Si comences amb Klipper, comença llegi
    - [Anivellat manual](Manual_Level.md): Calibratge de finals de carrera Z (i similars).
    - [Mallat del llit](Bed_Mesh.md): Correcció de l'alçada del llit basat en localitzacions XY en forma de malla.
    - [Fase de final de carrera](Endstop_Phase.md): Posicionament precís al final de carrera Z assistit per el motor pas a pas.
+   - [Axis Twist Compensation](Axis_Twist_Compensation.md): A tool to compensate for inaccurate probe readings due to twist in X gantry.
 - [Compensació de ressonància](Resonance_Compensation.md): Eina per a reduir els repics i ecos a les impressions.
    - [Mesurant ressonàncies](Measuring_Resonances.md): Informació de com emprar un accelerómetre adxl345 per mesurar les ressonàncies.
 - [Previsió de pressió](Pressure_Advance.md): Calibratge de la pressió del filament del fusor.
@@ -56,6 +57,7 @@ Benvingut a la documentació de Klipper. Si comences amb Klipper, comença llegi
 - [Raspberry Pi com a micro controlador](RPi_microcontroller.md): Detalls per controlar dispositius connectats als ports GPIO d'una Raspberry Pi.
 - [Beaglebone](Beaglebone.md): Detalls per executar Klipper en una Beaglebone.
 - [Carregadors d'arrancada](Bootloaders.md): Informació per a desenvolupadors sobre programació del micro controlador.
+- [Bootloader Entry](Bootloader_Entry.md): Requesting the bootloader.
 - [Bus CAN](CANBUS.md): Infiormació sobre l'us del bus CAN a Klipper.
    - [CAN bus troubleshooting](CANBUS_Troubleshooting.md): Tips for troubleshooting CAN bus.
 - [Sensor d'amplada del filament TSL1401CL](TSL1401CL_Filament_Width_Sensor.md)
