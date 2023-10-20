@@ -166,15 +166,29 @@ Les Raspberry Pi ont deux canaux PWM (PWM0 et PWM1) qui sont disponibles sur le 
 dtoverlay=pwm,pin=12,func=4
 ```
 
-Cet exemple active uniquement PWM0 et l'achemine vers gpio12. Si les deux canaux PWM doivent être activés, vous pouvez utiliser `pwm-2chan`.
-
-La superposition n'expose pas la ligne pwm sur sysfs au démarrage et doit être redirigée en renvoyant le numéro du canal pwm vers `/sys/class/pwm/pwmchip0/export` :
+This example enables only PWM0 and routes it to gpio12. If both PWM channels need to be enabled you can use `pwm-2chan`:
 
 ```
+# Enable pwmchip sysfs interface
+dtoverlay=pwm-2chan,pin=12,func=4,pin2=13,func2=4
+```
+
+This example additionally enables PWM1 and routes it to gpio13.
+
+The overlay does not expose the pwm line on sysfs on boot and needs to be exported by echo'ing the number of the pwm channel to `/sys/class/pwm/pwmchip0/export`. This will create device `/sys/class/pwm/pwmchip0/pwm0` in the filesystem. The easiest way to do this is by adding this to `/etc/rc.local` before the `exit 0` line:
+
+```
+# Enable pwmchip sysfs interface
 echo 0 > /sys/class/pwm/pwmchip0/export
 ```
 
-Cela créera le périphérique `/sys/class/pwm/pwmchip0/pwm0` dans le système de fichiers. La façon la plus simple de le faire est d'ajouter ceci à `/etc/rc.local` avant la ligne `exit 0`.
+When using both PWM channels, the number of the second channel needs to be echo'd as well:
+
+```
+# Enable pwmchip sysfs interface
+echo 0 > /sys/class/pwm/pwmchip0/export
+echo 1 > /sys/class/pwm/pwmchip0/export
+```
 
 Avec le sysfs en place, vous pouvez maintenant utiliser l'un ou l'autre des canaux pwm en ajoutant la configuration suivante à votre `printer.cfg` :
 
@@ -184,9 +198,17 @@ pin: host:pwmchip0/pwm0
 pwm: True
 hardware_pwm: True
 cycle_time: 0.000001
+
+[output_pin beeper]
+pin: host:pwmchip0/pwm1
+pwm: True
+hardware_pwm: True
+value: 0
+shutdown_value: 0
+cycle_time: 0.0005
 ```
 
-Cela ajoutera un contrôle pwm matériel à gpio12 sur le Pi (car la superposition a été configurée pour acheminer pwm0 vers la broche = 12).
+This will add hardware pwm control to gpio12 and gpio13 on the Pi (because the overlay was configured to route pwm0 to pin=12 and pwm1 to pin=13).
 
 PWM0 peut être redirigé vers gpio12 et gpio18, PWM1 peut être redirigé vers gpio13 et gpio19 :
 

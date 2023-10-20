@@ -224,14 +224,24 @@ shaper_type: 2hump_ei
 
 ### input shaper是否支持雙步進匣設置？
 
-沒有對帶有input shaper的雙筆架的專門支持，但這並不意味著此設置不起作用。應該對每個托架運行兩次調諧，並獨立計算每個托架的 X 軸和 Y 軸的環紋頻率。然後將托架 0 的值放入 [input_shaper] 部分，並在更改托架時即時更改值，例如作為一些宏的一部分：
+Yes. In this case, one should measure the resonances twice for each carriage. For example, if the second (dual) carriage is installed on X axis, it is possible to set different input shapers for X axis for the primary and dual carriages. However, the input shaper for Y axis should be the same for both carriages (as ultimately this axis is driven by one or more stepper motors each commanded to perform exactly the same steps). One possibility to configure the input shaper for such setups is to keep `[input_shaper]` section empty and additionally define a `[delayed_gcode]` section in the `printer.cfg` as follows:
 
 ```
-SET_DUAL_CARRIAGE CARRIAGE=1
-SET_INPUT_SHAPER SHAPER_FREQ_X=... SHAPER_FREQ_Y=...
+[input_shaper]
+# Intentionally empty
+
+[delayed_gcode init_shaper]
+initial_duration: 0.1
+gcode:
+  SET_DUAL_CARRIAGE CARRIAGE=1
+  SET_INPUT_SHAPER SHAPER_TYPE_X=<dual_carriage_shaper> SHAPER_FREQ_X=<dual_carriage_freq> SHAPER_TYPE_Y=<y_shaper> SHAPER_FREQ_Y=<y_freq>
+  SET_DUAL_CARRIAGE CARRIAGE=0
+  SET_INPUT_SHAPER SHAPER_TYPE_X=<primary_carriage_shaper> SHAPER_FREQ_X=<primary_carriage_freq> SHAPER_TYPE_Y=<y_shaper> SHAPER_FREQ_Y=<y_freq>
 ```
 
-同樣當切換回步進匣 0 時。
+Note that `SHAPER_TYPE_Y` and `SHAPER_FREQ_Y` should be the same in both commands. It is also possible to put a similar snippet into the start g-code in the slicer, however then the shaper will not be enabled until any print is started.
+
+Note that the input shaper only needs to be configured once. Subsequent changes of the carriages or their modes via `SET_DUAL_CARRIAGE` command will preserve the configured input shaper parameters.
 
 ### input_shaper 會影響打印時間嗎？
 

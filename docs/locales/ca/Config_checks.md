@@ -6,39 +6,33 @@ Al llarg d'aquesta guia pot ser necessari fer canvis al fitxer config Klipper. �
 
 ## Verificar la temperatura
 
-Comença verificant que la temperatura s'ha desat correctament. Navega a la pestanya de temperatura Octoprint.
-
-![octoprint-temperature](img/octoprint-temperature.png)
-
-Verificar que la temperatura del fusor i el llit (si és aplicable ) són presents i no estan augmentant. Si augmenten, desconnecteu la impressora. Si la temperatura no és exacta, reviseu els ajustaments del "sensor_type" i del "sensor_pin" per al fusor i/o llit.
+Start by verifying that temperatures are being properly reported. Navigate to the temperature graph section in the user interface. Verify that the temperature of the nozzle and bed (if applicable) are present and not increasing. If it is increasing, remove power from the printer. If the temperatures are not accurate, review the "sensor_type" and "sensor_pin" settings for the nozzle and/or bed.
 
 ## Verificar M112
 
-Navegar a la pestanya terminal de l’Octoprint i executar l'ordre M112 al camp de la terminal. Aquesta ordre fa que Klipper s’apagui i que l’Octoprint es desconnecti - navegar a l'àrea de connexió i fer clic a "Connect" per tal que Octoprint es connecti de nou. Després d'això, navegar de nou a la pestanya de temperatura d'Octoprint i comprovar que la temperatura segueix actualitzant-se i no augmenta. Si la temperatura augmenta, desconnecteu la impressora.
-
-L’ordre M112 provoca que Klipper entri en un estat d’apagada. Per arreglar-ho, escriu l’ordre FIRMWARE_RESTART al la pestanya de terminal d’Octoprint
+Navigate to the command console and issue an M112 command in the terminal box. This command requests Klipper to go into a "shutdown" state. It will cause an error to show, which can be cleared with a FIRMWARE_RESTART command in the command console. Octoprint will also require a reconnect. Then navigate to the temperature graph section and verify that temperatures continue to update and the temperatures are not increasing. If temperatures are increasing, remove power from the printer.
 
 ## Verificar els calentadors
 
-Navegar fins la pestanya de temperatura de l’Octoprint i al camp corresponent a l’eina posar 50 seguit de la tecla de retorn. La gràfica de temperatura del fusor ha de començar a incrementar (en uns 30 segons aproximadament). Després, de la llista desplegable corresponent a l’eina, seleccionar l’opció “OFF”. Passats uns minuts, la temperatura ha de començar a tornar a la temperatura ambient. En cas que la temperatura no incrementi, verificar el valor de “heater_pin” al fitxer de configuració
+Navigate to the temperature graph section and type in 50 followed by enter in the extruder/tool temperature box. The extruder temperature in the graph should start to increase (within about 30 seconds or so). Then go to the extruder temperature drop-down box and select "Off". After several minutes the temperature should start to return to its initial room temperature value. If the temperature does not increase then verify the "heater_pin" setting in the config.
 
 Si la impressora disposa de llit calent, executa l’anterior comprovació amb el llit calent tambè.
 
 ## Verificar el pin ENABLE del motor pas a pas
 
-Verificar que tots els eixos de la impressora es poden bellugar lliurement a mà (els motors pas a pas estan desactivats). Si no és així, enviar el comandament M84 per desactivar-los. Si algun dels eixos encara no es pot bellugar lliurement, verificar la configuració del pin ENABLE per a aquest eix. A la majoria de controladors de motors pas a pas, el pin ENABLE s’ha de configurar com a “active low” i a la definició del pin hi ha d’anar el símbol “!” precedínt al pin (per exemple, “enable_pin: !ar38”).
+Verify that all of the printer axes can manually move freely (the stepper motors are disabled). If not, issue an M84 command to disable the motors. If any of the axes still can not move freely, then verify the stepper "enable_pin" configuration for the given axis. On most commodity stepper motor drivers, the motor enable pin is "active low" and therefore the enable pin should have a "!" before the pin (for example, "enable_pin: !PA1").
 
 ## Verificar els finals de carrera
 
-Belluga manualment tots els eixos de tal forma que no es premi cap dels sensors de final de carrera. Envia l’ordre QUERY_ENDSTOPS a la pestanya de la terminal d’Octoprint. La resposta a aquest comandament hauria de ser que tots els sensors estan “OBERT” (open). Envia de nou el comandament QUERY_ENDSTOPS mentre manualment actives el sensor. El comandament hauria de mostrar el sensor activat com a “TANCAT/ACTIVAT”(triggered).
+Manually move all the printer axes so that none of them are in contact with an endstop. Send a QUERY_ENDSTOPS command via the command console. It should respond with the current state of all of the configured endstops and they should all report a state of "open". For each of the endstops, rerun the QUERY_ENDSTOPS command while manually triggering the endstop. The QUERY_ENDSTOPS command should report the endstop as "TRIGGERED".
 
-Si el sensor es mostra invertit i es detecta “obert” quan s’activa i viceversa, afegir “!” davant del nom del pin al fitxer de configuració (per exemple “endstop_pin: ^!ar3") o bé treure’l si ja hi és present.
+If the endstop appears inverted (it reports "open" when triggered and vice-versa) then add a "!" to the pin definition (for example, "endstop_pin: ^PA2"), or remove the "!" if there is already one present.
 
 Si l’estat del sensor no canvia mai, normalment indica que el sensor donat s’ha connectat a un altre pin. Tant mateix , cal tenir present que moltes impressores fan servir una resistència “pullup” que implica que el valor de endstop_pin ha d’estar precedit pel caràcter ‘^' per canviar el valor d’aquest paràmetre.
 
 ## Verificar els motors pas a pas
 
-Emprar el comandament STEPPER_BUZZ per verificar la connectivitat de cada motor pas a pas. Per començar, situar l’eix a verificar a la meitat de recorregut i enviar el comandament `STEPPER_BUZZ STEPPER=stepper_x`. El comandament farà moure el motor un mil·límetre en el sentit positiu de l’eix i retornarà a la posició inicial (si el sensor de final de carrera es defineix a position_endstop=0 aleshores el moviment es farà allunyant-se del sensor). Això es durà a terme 10 vegades.
+Use the STEPPER_BUZZ command to verify the connectivity of each stepper motor. Start by manually positioning the given axis to a midway point and then run `STEPPER_BUZZ STEPPER=stepper_x` in the command console. The STEPPER_BUZZ command will cause the given stepper to move one millimeter in a positive direction and then it will return to its starting position. (If the endstop is defined at position_endstop=0 then at the start of each movement the stepper will move away from the endstop.) It will perform this oscillation ten times.
 
 Si el motor no es belluga res, verificar els valors de "enable_pin" i "step_pin" per a aquest motor. Si el motor es belluga però no retorna a la posició inicial, verificar el calor de "dir_pin". Si el motor oscil·la en una direcció incorrecta, generalment indicarà que el valor de "dir_pin" per a aquest axis està invertit. Per a això afegir "!" al valor de "dir_pin" o remoure'l en cas que hi sigui.
 
@@ -48,13 +42,13 @@ Despeés d’haver verificat el bon funcionament dels sensors de final de carrer
 
 ## Verificar el motor de l’extrussor
 
-Per poder. Edificat el motor de l’extrussor, el fusor s’ha de posar en temperatura d’impressió. Seleccionar una temperatura de la llista desplegable de temperatures o entrar el valor numèric directament a la pestanya temperatures d’Octoprint. Esperar a que la temperatura seleccionada s’estabilitzi i prémer el botó “Extrude” del panell se control de l’Octoprint. Edificat que el motor fira en el sentit correcte. Si no ho fa, consulta la secció de localització i reparació d’errors de la secció anterior per confirmar que els valors de “enable_pin", "step_pin", i "dir_pin" estan ben configurats per a l’extrussor.
+To test the extruder motor it will be necessary to heat the extruder to a printing temperature. Navigate to the temperature graph section and select a target temperature from the temperature drop-down box (or manually enter an appropriate temperature). Wait for the printer to reach the desired temperature. Then navigate to the command console and click the "Extrude" button. Verify that the extruder motor turns in the correct direction. If it does not, see the troubleshooting tips in the previous section to confirm the "enable_pin", "step_pin", and "dir_pin" settings for the extruder.
 
 ## Calibrar les configuracions del PID
 
 Klipper suporta [controladores PID](https://ca.wikipedia.org/wiki/Proporcional_integral_derivatiu) per al fusor i el llit calent. Per tal de poder fer servir aquest algoritme és necessari calibrar els valors PID de cada impressora (valors PID trobats a altres firmware o a les configuracions d'exemple solen donar resultats molt pobres).
 
-Per calibrar el PID de l’extrussor s’ha d’enviar el comandament PID_CALIBRATE a la pestanya Terminal de l’Octoprint. Per exemple: `PID_CALIBRATE HEATER=extruder TARGET=170`
+To calibrate the extruder, navigate to the command console and run the PID_CALIBRATE command. For example: `PID_CALIBRATE HEATER=extruder TARGET=170`
 
 En acabar el procés de calibració envia el comandament `SAVE_CONFIG` per actualitzar el fitxer printer.cfg amb els nous valors de PID.
 

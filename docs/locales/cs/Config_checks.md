@@ -6,39 +6,33 @@ Během této příručky může být nutné provést změny v konfiguračním so
 
 ## Ověřte teplotu
 
-Začněte tím, že si ověříte, že jsou teploty správně hlášeny. Přejděte na kartu teploty Octoprint .
-
-![octoprint-temperature](img/octoprint-temperature.png)
-
-Ověřte, že teplota trysky a podložky (je-li k dispozici) je přítomna a nezvyšuje se. Pokud se zvyšuje, odpojte napájení tiskárny. Pokud teploty nejsou přesné, zkontrolujte nastavení „sensor_type“ a „sensor_pin“ pro trysku a/nebo podložku.
+Start by verifying that temperatures are being properly reported. Navigate to the temperature graph section in the user interface. Verify that the temperature of the nozzle and bed (if applicable) are present and not increasing. If it is increasing, remove power from the printer. If the temperatures are not accurate, review the "sensor_type" and "sensor_pin" settings for the nozzle and/or bed.
 
 ## Ověřte M112
 
-Přejděte na kartu Terminál Octoprint a zadejte příkaz M112 ve svorkovnici. Tento příkaz požaduje , aby Klipper přešel do stavu „vypnutí“. Způsobí to odpojení Octoprint od Klipper – přejděte do oblasti Připojení a klikněte na „Připojit“, aby se Octoprint znovu připojil. Poté přejděte na kartu teploty Octoprint a ověřte, zda se teploty nadále aktualizují a teploty se nezvyšují. Pokud se teploty zvyšují, odpojte napájení tiskárny.
-
-Příkaz M112 způsobí , že Klipper přejde do stavu „vypnutí“. Chcete-li tento stav vymazat, zadejte příkaz FIRMWARE_RESTART na kartě terminálu Octoprint .
+Navigate to the command console and issue an M112 command in the terminal box. This command requests Klipper to go into a "shutdown" state. It will cause an error to show, which can be cleared with a FIRMWARE_RESTART command in the command console. Octoprint will also require a reconnect. Then navigate to the temperature graph section and verify that temperatures continue to update and the temperatures are not increasing. If temperatures are increasing, remove power from the printer.
 
 ## Ověření ohřívačů
 
-Přejděte na kartu teploty Octoprint a zadejte 50 a poté zadejte do pole teploty "Nástroj". Teplota extrudéru v grafu by se měla začít zvyšovat (asi do 30 sekund). Poté přejděte do rozevíracího pole teploty „Nástroj“ a vyberte „Vypnuto“. Po několika minutách by se teplota měla začít vracet na původní hodnotu pokojové teploty. Pokud se teplota nezvýší, ověřte nastavení "heater_pin" v konfiguraci.
+Navigate to the temperature graph section and type in 50 followed by enter in the extruder/tool temperature box. The extruder temperature in the graph should start to increase (within about 30 seconds or so). Then go to the extruder temperature drop-down box and select "Off". After several minutes the temperature should start to return to its initial room temperature value. If the temperature does not increase then verify the "heater_pin" setting in the config.
 
 Pokud má tiskárna vyhřívané lůžko, proveďte výše uvedený test znovu s lůžkem.
 
 ## Ověřte aktivační kolík krokového motoru
 
-Ověřte, že se všechny osy tiskárny mohou ručně volně pohybovat (krokové motory jsou deaktivovány). Pokud ne, zadejte příkaz M84 k deaktivaci motorů. Pokud se některá z os stále nemůže volně pohybovat, ověřte konfiguraci krokového ovladače "enable_pin" pro danou osu. Na většině běžných ovladačů krokových motorů je kolík aktivace motoru "aktivní nízko" a proto by měl mít kolík "!" před pin (například "enable_pin: !ar38").
+Verify that all of the printer axes can manually move freely (the stepper motors are disabled). If not, issue an M84 command to disable the motors. If any of the axes still can not move freely, then verify the stepper "enable_pin" configuration for the given axis. On most commodity stepper motor drivers, the motor enable pin is "active low" and therefore the enable pin should have a "!" before the pin (for example, "enable_pin: !PA1").
 
 ## Ověření koncovek
 
-Ručně posuňte všechny osy tiskárny tak, aby žádná z nich nebyla v kontaktu s koncovým dorazem. Odešlete příkaz QUERY_ENDSTOPS přes kartu terminálu Octoprint. Měl by reagovat aktuálním stavem všech nakonfigurovaných koncových zarážek a všechny by měly hlásit stav „otevřeno“. Pro každou z koncových zarážek znovu spusťte příkaz QUERY_ENDSTOPS a ručně spusťte koncovou zarážku. Příkaz QUERY_ENDSTOPS by měl hlásit koncovou zastávku jako "TRIGGERED".
+Manually move all the printer axes so that none of them are in contact with an endstop. Send a QUERY_ENDSTOPS command via the command console. It should respond with the current state of all of the configured endstops and they should all report a state of "open". For each of the endstops, rerun the QUERY_ENDSTOPS command while manually triggering the endstop. The QUERY_ENDSTOPS command should report the endstop as "TRIGGERED".
 
-Pokud se endstop jeví jako inverzní (při spuštění hlásí "open" a naopak), přidejte k definici pinu "!" (například "endstop_pin: ^!ar3") nebo odstraňte "!", pokud je již přítomen.
+If the endstop appears inverted (it reports "open" when triggered and vice-versa) then add a "!" to the pin definition (for example, "endstop_pin: ^PA2"), or remove the "!" if there is already one present.
 
 Pokud se koncová zarážka vůbec nezmění, obecně to znamená, že koncová zarážka je připojena k jinému kolíku. Může však také vyžadovat změnu nastavení pullup pinu ('^' na začátku názvu endstop_pin - většina tiskáren bude používat pullup rezistor a '^' by mělo být přítomno).
 
 ## Ověřte krokové motory
 
-Pomocí příkazu STEPPER_BUZZ ověřte konektivitu každého krokového motoru. Začněte ručním umístěním dané osy do středního bodu a poté spusťte `STEPPER_BUZZ STEPPER=stepper_x`. Příkaz STEPPER_BUZZ způsobí, že se daný stepper posune o jeden milimetr kladným směrem a poté se vrátí do výchozí polohy. (Pokud je koncová zarážka definována jako position_endstop=0, pak se na začátku každého pohybu stepper odkloní od koncové zarážky.) Tuto oscilaci provede desetkrát.
+Use the STEPPER_BUZZ command to verify the connectivity of each stepper motor. Start by manually positioning the given axis to a midway point and then run `STEPPER_BUZZ STEPPER=stepper_x` in the command console. The STEPPER_BUZZ command will cause the given stepper to move one millimeter in a positive direction and then it will return to its starting position. (If the endstop is defined at position_endstop=0 then at the start of each movement the stepper will move away from the endstop.) It will perform this oscillation ten times.
 
 Pokud se stepper vůbec nepohybuje, ověřte nastavení "enable_pin" a "step_pin" pro stepper. Pokud se krokový motor pohybuje, ale nevrátí se do své původní polohy, ověřte nastavení "dir_pin". Pokud krokový motor kmitá nesprávným směrem, pak to obecně znamená, že "dir_pin" pro osu je třeba převrátit. To se provádí přidáním '!' na "dir_pin" v konfiguračním souboru tiskárny (nebo jej odstraňte, pokud tam již nějaký je). Pokud se motor pohybuje výrazně více nebo výrazně méně než jeden milimetr, ověřte nastavení "rotation_distance".
 
@@ -48,13 +42,13 @@ Po ověření všech koncových dorazů a ověření všech krokových motorů b
 
 ## Ověřte motor extruderu
 
-Pro testování motoru extrudéru bude nutné zahřát extrudér na tiskovou teplotu. Přejděte na kartu Octoprint teplota a vyberte cílovou teplotu z rozevíracího pole teploty (nebo ručně zadejte vhodnou teplotu). Počkejte, až tiskárna dosáhne požadované teploty. Poté přejděte na kartu ovládání Octoprint a klikněte na tlačítko "Extrude". Ověřte, že se motor extrudéru otáčí správným směrem. Pokud ne, podívejte se na tipy pro odstraňování problémů v předchozí části a potvrďte nastavení „enable_pin“, „step_pin“ a „dir_pin“ pro extruder.
+To test the extruder motor it will be necessary to heat the extruder to a printing temperature. Navigate to the temperature graph section and select a target temperature from the temperature drop-down box (or manually enter an appropriate temperature). Wait for the printer to reach the desired temperature. Then navigate to the command console and click the "Extrude" button. Verify that the extruder motor turns in the correct direction. If it does not, see the troubleshooting tips in the previous section to confirm the "enable_pin", "step_pin", and "dir_pin" settings for the extruder.
 
 ## Kalibrace nastavení PID
 
 Klipper podporuje [PID ovládání](https://en.wikipedia.org/wiki/PID_controller) pro extruder a ohřívače lože. Aby bylo možné použít tento kontrolní mechanismus, je nutné zkalibrovat nastavení PID na každé tiskárně (nastavení PID nalezená v jiných firmwarech nebo v příkladech konfiguračních souborů často fungují špatně).
 
-Chcete-li kalibrovat extruder, přejděte na kartu terminálu OctoPrint a spusťte příkaz PID_CALIBRATE. Například: `PID_CALIBRATE HEATER=extruder TARGET=170`
+To calibrate the extruder, navigate to the command console and run the PID_CALIBRATE command. For example: `PID_CALIBRATE HEATER=extruder TARGET=170`
 
 Po dokončení testu ladění spusťte `SAVE_CONFIG` a aktualizujte soubor printer.cfg na nové nastavení PID.
 

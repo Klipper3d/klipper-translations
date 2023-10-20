@@ -169,6 +169,7 @@ A következő információk a `heaters` objektumban érhetők el (ez az objektum
 
 - `available_heaters`: Visszaadja az összes jelenleg elérhető fűtőberendezés listáját a teljes config szekció nevével, pl. `["extruder", "heater_bed", "heater_generic my_custom_heater"]`.
 - `available_sensors`: Visszaadja az összes jelenleg elérhető hőmérséklet érzékelő listáját a teljes config szekció nevével, pl. `["extruder", "heater_bed", "heater_generic my_custom_heater", "temperature_sensor electronics_temp"]`.
+- `available_monitors`: Returns a list of all currently available temperature monitors by their full config section names, e.g. `["tmc2240 stepper_x"]`. While a temperature sensor is always available to read, a temperature monitor may not be available and will return null in such case.
 
 ## idle_timeout
 
@@ -262,6 +263,7 @@ A következő információk a `query_endstops` objektumban érhetők el (ez az o
 A következő információk a `screws_tilt_adjust` objektumban találhatók:
 
 - `error`: True értéket ad vissza, ha a legutóbbi `SCREWS_TILT_CALCULATE` parancs tartalmazta a `MAX_DEVIATION` paramétert, és bármelyik vizsgált csavarpont meghaladta a megadott `MAX_DEVIATION` értéket.
+- `max_deviation`: Return the last `MAX_DEVIATION` value of the most recent `SCREWS_TILT_CALCULATE` command.
 - `results["<screw>"]`: A következő kulcsokat tartalmazó szótár:
    - `z`: A csavar helyének mért Z magassága.
    - `sign`: Egy karakterlánc, amely megadja, hogy a szükséges beállításhoz milyen irányba kell elfordítani a csavart. Vagy "CW" az óramutató járásával megegyező irányban, vagy "CCW" az óramutató járásával ellentétes irányban.
@@ -290,7 +292,7 @@ A következő információk a `system_stats` objektumban érhetők el (ez az obj
 
 A következő információk a következő dokumentumban találhatók
 
-[bme280 config_section_name](Config_Reference.md#bmp280bme280bme680-temperature-sensor), [htu21d config_section_name](Config_Reference.md#htu21d-sensor), [lm75 config_section_name](Config_Reference.md#lm75-temperature-sensor), és [temperature_host config_section_name](Config_Reference.md#host-temperature-sensor) objektumok:
+[bme280 config_section_name](Config_Reference.md#bmp280bme280bme680-temperature-sensor), [htu21d config_section_name](Config_Reference.md#htu21d-sensor), [lm75 config_section_name](Config_Reference.md#lm75-temperature-sensor), [temperature_host config_section_name](Config_Reference.md#host-temperature-sensor) and [temperature_combined config_section_name](Config_Reference.md#combined-temperature-sensor) objects:
 
 - `temperature`: Az érzékelőtől utoljára kapott hőmérséklet.
 - `humidity`, `pressure`, `gas`: Az érzékelőtől utoljára kapott értékek (csak a bme280, htu21d és lm75 érzékelők esetében).
@@ -334,10 +336,10 @@ A következő információk a `toolhead` objektumban érhetők el (ez az objektu
 
 ## dual_carriage
 
-A következő információk a [dual_carriage](Config_Reference.md#dual_carriage) alatt érhetőek el egy hybrid_corexy vagy hybrid_corexz gép esetében
+The following information is available in [dual_carriage](Config_Reference.md#dual_carriage) on a cartesian, hybrid_corexy or hybrid_corexz robot
 
-- `mode`: Az aktuális üzemmód. A lehetséges értékek: "FULL_CONTROL"
-- `active_carriage`: Az aktuális aktív kocsi. Lehetséges értékek: "CARRIAGE_0", "CARRIAGE_1"
+- `carriage_0`: The mode of the carriage 0. Possible values are: "INACTIVE" and "PRIMARY".
+- `carriage_1`: The mode of the carriage 1. Possible values are: "INACTIVE", "PRIMARY", "COPY", and "MIRROR".
 
 ## virtual_sdcard
 

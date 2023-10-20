@@ -169,6 +169,7 @@ Le seguenti informazioni sono disponibili nell'oggetto `heaters` (questo oggetto
 
 - `disponibili_riscaldatori`: restituisce un elenco di tutti i riscaldatori attualmente disponibili in base ai nomi completi delle sezioni di configurazione, ad es. `["extruder", "heater_bed", "heater_generic my_custom_heater"]`.
 - `available_sensors`: restituisce un elenco di tutti i riscaldatori attualmente disponibili in base ai nomi completi delle sezioni di configurazione, ad es. `["extruder", "heater_bed", "heater_generic my_custom_heater"]`.
+- `available_monitors`: Returns a list of all currently available temperature monitors by their full config section names, e.g. `["tmc2240 stepper_x"]`. While a temperature sensor is always available to read, a temperature monitor may not be available and will return null in such case.
 
 ## idle_timeout
 
@@ -262,6 +263,7 @@ Le seguenti informazioni sono disponibili nell'oggetto `query_endstops` (questo 
 Le seguenti informazioni sono disponibili nell'oggetto `screws_tilt_adjust`:
 
 - `error`: restituisce True se il comando `SCREWS_TILT_CALCULATE` più recente includeva il parametro `MAX_DEVIATION` e uno qualsiasi dei punti della vite rilevati superava il `MAX_DEVIATION` specificato.
+- `max_deviation`: Return the last `MAX_DEVIATION` value of the most recent `SCREWS_TILT_CALCULATE` command.
 - `results["<screw>"]`: un dizionario contenente le seguenti chiavi:
    - `z`: L'altezza Z misurata della posizione della vite.
    - `sign`: una stringa che specifica la direzione in cui ruotare la vite per la regolazione necessaria. O "CW" per senso orario o "CCW" per senso antiorario.
@@ -290,7 +292,7 @@ Le seguenti informazioni sono disponibili nell'oggetto `system_stats` (questo og
 
 Le seguenti informazioni sono disponibili in
 
-[bme280 config_section_name](Config_Reference.md#bmp280bme280bme680-temperature-sensor), [htu21d config_section_name](Config_Reference.md#htu21d-sensor), [lm75 config_section_name](Config_Reference.md#lm75-temperature-sensor) e [temperature_host config_section_name ](Config_Reference.md#host-temperature-sensor):
+[bme280 config_section_name](Config_Reference.md#bmp280bme280bme680-temperature-sensor), [htu21d config_section_name](Config_Reference.md#htu21d-sensor), [lm75 config_section_name](Config_Reference.md#lm75-temperature-sensor), [temperature_host config_section_name](Config_Reference.md#host-temperature-sensor) and [temperature_combined config_section_name](Config_Reference.md#combined-temperature-sensor) objects:
 
 - `temperature`: l'ultima temperatura letta dal sensore.
 - `humidity`, `pressure`, `gas`: gli ultimi valori letti dal sensore (solo sui sensori bme280, htu21d e lm75).
@@ -334,10 +336,10 @@ Le seguenti informazioni sono disponibili nell'oggetto `toolhead` (questo oggett
 
 ## dual_carriage
 
-Le seguenti informazioni sono disponibili in [dual_carriage](Config_Reference.md#dual_carriage) su una macchina hybrid_corexy o hybrid_corexz
+The following information is available in [dual_carriage](Config_Reference.md#dual_carriage) on a cartesian, hybrid_corexy or hybrid_corexz robot
 
-- `mode`: la modalità corrente. I valori possibili sono: "FULL_CONTROL"
-- `active_carriage`: il carrello attivo corrente. I valori possibili sono: "CARRIAGE_0", "CARRIAGE_1"
+- `carriage_0`: The mode of the carriage 0. Possible values are: "INACTIVE" and "PRIMARY".
+- `carriage_1`: The mode of the carriage 1. Possible values are: "INACTIVE", "PRIMARY", "COPY", and "MIRROR".
 
 ## virtual_sdcard
 

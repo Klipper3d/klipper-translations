@@ -224,14 +224,24 @@ shaper_type: 2hump_ei
 
 ### Input shapers에서 이중 캐리지 설정이 지원됩니까?
 
-Input shpaer가 있는 이중 캐리지에 대한 전용 지원은 없지만 이 설정이 작동하지 않는다는 의미는 아닙니다. 각 캐리지에 대해 튜닝을 두 번 실행하고 각 캐리지에 대해 독립적으로 X 및 Y 축에 대한 ringing 주파수를 계산해야 합니다. 그런 다음 캐리지 0의 값을 [input_shaper] 섹션에 입력하고 캐리지를 변경할 때 값을 즉시 변경합니다. 예. 일부 매크로의 일부로:
+Yes. In this case, one should measure the resonances twice for each carriage. For example, if the second (dual) carriage is installed on X axis, it is possible to set different input shapers for X axis for the primary and dual carriages. However, the input shaper for Y axis should be the same for both carriages (as ultimately this axis is driven by one or more stepper motors each commanded to perform exactly the same steps). One possibility to configure the input shaper for such setups is to keep `[input_shaper]` section empty and additionally define a `[delayed_gcode]` section in the `printer.cfg` as follows:
 
 ```
-SET_DUAL_CARRIAGE CARRIAGE=1
-SET_INPUT_SHAPER SHAPER_FREQ_X=... SHAPER_FREQ_Y=...
+[input_shaper]
+# Intentionally empty
+
+[delayed_gcode init_shaper]
+initial_duration: 0.1
+gcode:
+  SET_DUAL_CARRIAGE CARRIAGE=1
+  SET_INPUT_SHAPER SHAPER_TYPE_X=<dual_carriage_shaper> SHAPER_FREQ_X=<dual_carriage_freq> SHAPER_TYPE_Y=<y_shaper> SHAPER_FREQ_Y=<y_freq>
+  SET_DUAL_CARRIAGE CARRIAGE=0
+  SET_INPUT_SHAPER SHAPER_TYPE_X=<primary_carriage_shaper> SHAPER_FREQ_X=<primary_carriage_freq> SHAPER_TYPE_Y=<y_shaper> SHAPER_FREQ_Y=<y_freq>
 ```
 
-캐리지 0으로 다시 전환할 때도 마찬가지입니다.
+Note that `SHAPER_TYPE_Y` and `SHAPER_FREQ_Y` should be the same in both commands. It is also possible to put a similar snippet into the start g-code in the slicer, however then the shaper will not be enabled until any print is started.
+
+Note that the input shaper only needs to be configured once. Subsequent changes of the carriages or their modes via `SET_DUAL_CARRIAGE` command will preserve the configured input shaper parameters.
 
 ### input_shaper가 인쇄 시간에 영향을 줍니까?
 

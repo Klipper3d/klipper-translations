@@ -166,15 +166,29 @@ gpiochip1 - 8 lines:
 dtoverlay=pwm,pin=12,func=4
 ```
 
-此示例僅啟用 PWM0 並將其路由到 gpio12。如果需要同時啟用兩個 PWM 通道，則可以使用 `pwm-2chan`。
-
-overlay 在啟動時不會在 sysfs 上暴露出 PWM 線路，需要通過echo將 PWM 通道的編號導出到 `/sys/class/pwm/pwmchip0/export`：
+This example enables only PWM0 and routes it to gpio12. If both PWM channels need to be enabled you can use `pwm-2chan`:
 
 ```
+# Enable pwmchip sysfs interface
+dtoverlay=pwm-2chan,pin=12,func=4,pin2=13,func2=4
+```
+
+This example additionally enables PWM1 and routes it to gpio13.
+
+The overlay does not expose the pwm line on sysfs on boot and needs to be exported by echo'ing the number of the pwm channel to `/sys/class/pwm/pwmchip0/export`. This will create device `/sys/class/pwm/pwmchip0/pwm0` in the filesystem. The easiest way to do this is by adding this to `/etc/rc.local` before the `exit 0` line:
+
+```
+# Enable pwmchip sysfs interface
 echo 0 > /sys/class/pwm/pwmchip0/export
 ```
 
-這將在檔案系統中建立裝置`/sys/class/pwm/kwmchip0/pwm0`。最簡單的方法是在`/etc/rc.local`的`exit 0`行之前新增這行。
+When using both PWM channels, the number of the second channel needs to be echo'd as well:
+
+```
+# Enable pwmchip sysfs interface
+echo 0 > /sys/class/pwm/pwmchip0/export
+echo 1 > /sys/class/pwm/pwmchip0/export
+```
 
 有了 sysfs，現在可以通過將以下配置新增到 `printer.cfg` 來使用 PWM 通道：
 
@@ -184,9 +198,17 @@ pin: host:pwmchip0/pwm0
 pwm: True
 hardware_pwm: True
 cycle_time: 0.000001
+
+[output_pin beeper]
+pin: host:pwmchip0/pwm1
+pwm: True
+hardware_pwm: True
+value: 0
+shutdown_value: 0
+cycle_time: 0.0005
 ```
 
-這將為樹莓派上的 gpio12 引腳新增硬體 PWM 控制（因為overlay被配置為將 pwm0 路由到 pin=12）。
+This will add hardware pwm control to gpio12 and gpio13 on the Pi (because the overlay was configured to route pwm0 to pin=12 and pwm1 to pin=13).
 
 PWM0 可以被路由到 gpio12 和 gpio18，PWM1 可以被路由到 gpio13 和 gpio19：
 

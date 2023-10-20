@@ -19,17 +19,17 @@ sudo service klipper start
 
 It is up to the user to determine the device location and board name. If a user needs to flash multiple boards, `flash-sdcard.sh` (or `make flash` if appropriate) should be run for each board prior to restarting the Klipper service.
 
-Supported boards can be listed with the following command:
+Wspierane płytki mogą być wyświetlone następującym poleceniem:
 
 ```
 ./scripts/flash-sdcard.sh -l
 ```
 
-If you do not see your board listed it may be necessary to add a new board definition as [described below](#board-definitions).
+Jeśli nie znalazłeś zwojej płytki, możliwe że będzie potrzebne dodanie nowej definicji [patrz niżej](#board-definitions).
 
-## Advanced Usage
+## Zaawansowane użytkowanie
 
-The above commands assume that your MCU connects at the default baud rate of 250000 and the firmware is located at `~/klipper/out/klipper.bin`. The `flash-sdcard.sh` script provides options for changing these defaults. All options can be viewed by the help screen:
+Powyższe polecenia zakładają że MCU ma zkonfigurowaną domyślną prędkość transmisji 250000 oraz że firmware znajduje się w `~/klipper/out/klipper.bin`. Skrypt `flash-sdcard.sh` umożliwia zmianę prędkości transmisji. Wszystkie opcje są dostępne w widoku pomocy:
 
 ```
 ./scripts/flash-sdcard.sh -h
@@ -50,13 +50,13 @@ optional arguments:
   -f <firmware>   path to klipper.bin
 ```
 
-If your board is flashed with firmware that connects at a custom baud rate it is possible to upgrade by specifying the `-b` option:
+Jeśli oprogramowanie twojej płytki korzysta z innej prędkości transmisji, dokonanie aktualizacji możliwe jest przez wybranie flagi `-b`:
 
 ```
 ./scripts/flash-sdcard.sh -b 115200 /dev/ttyAMA0 btt-skr-v1.3
 ```
 
-If you wish to flash a build of Klipper located somewhere other than the default location it can be done by specifying the `-f` option:
+Jeśli chcesz wgrać zkompilowanego Klipper'a, który znajduje się gdzie indziej niż domyślna lokacja, możesz to sprecyzować za pomocą flagi `-f`:
 
 ```
 ./scripts/flash-sdcard.sh -f ~/downloads/klipper.bin /dev/ttyAMA0 btt-skr-v1.3

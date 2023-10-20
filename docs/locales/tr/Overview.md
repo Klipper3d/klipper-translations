@@ -23,6 +23,7 @@ Klipper dökümantasyonuna hoş geldiniz. Eğer Klipper'e yeni iseniz , [özelli
    - [Manuel seviye](Manual_Level.md): Z uç duraklarının (ve benzeri) kalibrasyonu.
    - [Bed Mesh](Bed_Mesh.md): XY konumlarına dayalı yatak yüksekliği düzeltmesi.
    - [Son durdurma aşaması](Endstop_Phase.md): Kademeli destekli Z uç durdurma konumlandırması.
+   - [Axis Twist Compensation](Axis_Twist_Compensation.md): A tool to compensate for inaccurate probe readings due to twist in X gantry.
 - [Rezonans telafisi](Resonance_Compensation.md): Baskılardaki çınlamayı azaltan bir araç.
    - [Rezonansların ölçülmesi](Measuring_Resonances.md): Rezonansı ölçmek için adxl345 ivmeölçer donanımının kullanılmasına ilişkin bilgiler.
 - [Basınç ilerlemesi](Pressure_Advance.md): Ekstruder basıncını kalibre edin.
@@ -56,6 +57,7 @@ Klipper dökümantasyonuna hoş geldiniz. Eğer Klipper'e yeni iseniz , [özelli
 - [Raspberry Pi as Micro-controller](RPi_microcontroller.md): Details for controlling devices wired to the GPIO pins of a Raspberry Pi.
 - [Beaglebone](Beaglebone.md): Details for running Klipper on the Beaglebone PRU.
 - [Bootloaders](Bootloaders.md): Developer information on micro-controller flashing.
+- [Bootloader Entry](Bootloader_Entry.md): Requesting the bootloader.
 - [CAN bus](CANBUS.md): Information on using CAN bus with Klipper.
    - [CAN bus troubleshooting](CANBUS_Troubleshooting.md): Tips for troubleshooting CAN bus.
 - [TSL1401CL filament width sensor](TSL1401CL_Filament_Width_Sensor.md)

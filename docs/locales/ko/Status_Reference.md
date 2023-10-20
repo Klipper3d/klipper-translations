@@ -169,6 +169,7 @@ The following information is available in [gcode_button some_name](Config_Refere
 
 - `available_heaters`: 전체 구성 섹션 이름별로 현재 사용 가능한 모든 히터 목록을 반환합니다. 예. `["extruder", "heater_bed", "heater_generic my_custom_heater"]`.
 - `available_sensors`: 전체 구성 섹션 이름별로 현재 사용 가능한 모든 온도 센서 목록을 반환합니다. 예. `["extruder", "heater_bed", "heater_generic my_custom_heater", "temperature_sensor electronics_temp"]`.
+- `available_monitors`: Returns a list of all currently available temperature monitors by their full config section names, e.g. `["tmc2240 stepper_x"]`. While a temperature sensor is always available to read, a temperature monitor may not be available and will return null in such case.
 
 ## idle_timeout
 
@@ -262,6 +263,7 @@ The following information is available in the `manual_probe` object:
 The following information is available in the `screws_tilt_adjust` object:
 
 - `error`: Returns True if the most recent `SCREWS_TILT_CALCULATE` command included the `MAX_DEVIATION` parameter and any of the probed screw points exceeded the specified `MAX_DEVIATION`.
+- `max_deviation`: Return the last `MAX_DEVIATION` value of the most recent `SCREWS_TILT_CALCULATE` command.
 - `results["<screw>"]`: A dictionary containing the following keys:
    - `z`: The measured Z height of the screw location.
    - `sign`: A string specifying the direction to turn to screw for the necessary adjustment. Either "CW" for clockwise or "CCW" for counterclockwise.
@@ -290,7 +292,7 @@ The following information is available in the `stepper_enable` object (this obje
 
 다음 정보 사용할 수 있습니다
 
-[bme280 config_section_name](Config_Reference.md#bmp280bme280bme680-temperature-sensor), [htu21d config_section_name](Config_Reference.md#htu21d-sensor), [lm75 config_section_name](Config_Reference.md#lm75-temperature-sensor), 그리고 [temperature_host config_section_name](Config_Reference.md#host-temperature-sensor) 객체에서:
+[bme280 config_section_name](Config_Reference.md#bmp280bme280bme680-temperature-sensor), [htu21d config_section_name](Config_Reference.md#htu21d-sensor), [lm75 config_section_name](Config_Reference.md#lm75-temperature-sensor), [temperature_host config_section_name](Config_Reference.md#host-temperature-sensor) and [temperature_combined config_section_name](Config_Reference.md#combined-temperature-sensor) objects:
 
 - `temperature`: 센서에서 마지막으로 읽은 온도입니다.
 - `humidity`, `pressure`, `gas`: 센서에서 마지막으로 읽은 값입니다 (bme280, htu21d 및 lm75 센서에만 해당).
@@ -334,10 +336,10 @@ The following information is available in [TMC stepper driver](Config_Reference.
 
 ## dual_carriage
 
-다음 정보는 hybrid_corexy 또는 hybrid_corexz 로봇의 [dual_carriage](Config_Reference.md#dual_carriage)에서 확인할 수 있습니다
+The following information is available in [dual_carriage](Config_Reference.md#dual_carriage) on a cartesian, hybrid_corexy or hybrid_corexz robot
 
-- `mode`: 현재 모드. 가능한 값은 "FULL_CONTROL"입니다
-- `active_carriage`: 현재 활성 캐리지입니다. 가능한 값은 "CARRIAGE_0", "CARRIAGE_1"입니다
+- `carriage_0`: The mode of the carriage 0. Possible values are: "INACTIVE" and "PRIMARY".
+- `carriage_1`: The mode of the carriage 1. Possible values are: "INACTIVE", "PRIMARY", "COPY", and "MIRROR".
 
 ## virtual_sdcard
 

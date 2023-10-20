@@ -169,6 +169,7 @@ The following information is available in [gcode_button some_name](Config_Refere
 
 - `available_heaters`：返回所有当前可用加热器的完整配置分段名称，例如 `["extruder"、"heater_bed"、"heater_generic my_custom_heater"]`。
 - `available_sensors`：返回所有当前可用的温度传感器的完整配置分段名称列表，例如：`["extruder", "heater_bed", "heater_generic my_custom_heater", "temperature_sensor electronics_temp"] `。
+- `available_monitors`: Returns a list of all currently available temperature monitors by their full config section names, e.g. `["tmc2240 stepper_x"]`. While a temperature sensor is always available to read, a temperature monitor may not be available and will return null in such case.
 
 ## idle_timeout
 
@@ -262,6 +263,7 @@ The following information is available in [gcode_button some_name](Config_Refere
 以下信息可在`screws_tilt_adjust`对象中获取：
 
 - `error`: 如果最近的 `SCREWS_TILT_CALCULATE` 命令包含了 `MAX_DEVIATION` 参数，并且任何一个已探测的螺丝坐标超过了指定的 `MAX_DEVIATION`，则返回 True。
+- `max_deviation`: Return the last `MAX_DEVIATION` value of the most recent `SCREWS_TILT_CALCULATE` command.
 - `results["<螺丝>"]`：包含以下键的字典：
    - `z`: 螺丝坐标测量的 Z 高度。
    - `sign`：一个字符串，指定进行必要的调整时旋转螺丝的方向。“CW”表示顺时针，“CCW”表示逆时针。
@@ -290,7 +292,7 @@ The following information is available in [gcode_button some_name](Config_Refere
 
 以下信息可在
 
-[bme280 config_section_name](Config_Reference.md#bmp280bme280bme680-temperature-sensor)、[htu21d config_section_name](Config_Reference.md#htu21d-sensor)、[lm75 config_section_name](Config_Reference.md#lm75-temperature-sensor)和[temperature_host config_section_name](Config_Reference.md#host-temperature-sensor) 对象：
+[bme280 config_section_name](Config_Reference.md#bmp280bme280bme680-temperature-sensor), [htu21d config_section_name](Config_Reference.md#htu21d-sensor), [lm75 config_section_name](Config_Reference.md#lm75-temperature-sensor), [temperature_host config_section_name](Config_Reference.md#host-temperature-sensor) and [temperature_combined config_section_name](Config_Reference.md#combined-temperature-sensor) objects:
 
 - `temperature`：上一次从传感器读取的温度。
 - `hemidity`、`pressure`和`gas`：传感器上一次读取的值（仅在bme280、htu21d和lm75传感器上）。
@@ -334,10 +336,10 @@ The following information is available in [gcode_button some_name](Config_Refere
 
 ## dual_carriage
 
-使用了 hybrid_corexy 或 hybrid_corexz 运动学的 [dual_carriage](Config_Reference.md#dual_carriage) 对象提供了以下信息
+The following information is available in [dual_carriage](Config_Reference.md#dual_carriage) on a cartesian, hybrid_corexy or hybrid_corexz robot
 
-- `mode`：当前模式。可能的值："FULL_CONTROL"
-- `active_carriage`：当前的活跃的滑车。可能的值是"CARRIAGE_0"和"CARRIAGE_1"
+- `carriage_0`: The mode of the carriage 0. Possible values are: "INACTIVE" and "PRIMARY".
+- `carriage_1`: The mode of the carriage 1. Possible values are: "INACTIVE", "PRIMARY", "COPY", and "MIRROR".
 
 ## virtual_sdcard
 

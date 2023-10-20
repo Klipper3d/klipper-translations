@@ -6,39 +6,33 @@ Während dieser Anleitung kann es notwendig sein, Änderungen an der Klipper-Kon
 
 ## Prüfen der Temperatur
 
-Beginnen Sie mit der Überprüfung, ob die Temperaturen korrekt gemeldet werden. Navigieren Sie zur Registerkarte "Octoprint-Temperatur".
-
-![octoprint-temperature](img/octoprint-temperature.png)
-
-Überprüfen Sie, ob die Temperatur der Düse und des Bettes (falls zutreffend) vorhanden ist und nicht ansteigt. Wenn sie ansteigt, trennen Sie den Drucker von der Stromversorgung. Wenn die Temperaturen nicht genau sind, überprüfen Sie die Einstellungen "sensor_type" und "sensor_pin" für die Düse und/oder das Bett.
+Start by verifying that temperatures are being properly reported. Navigate to the temperature graph section in the user interface. Verify that the temperature of the nozzle and bed (if applicable) are present and not increasing. If it is increasing, remove power from the printer. If the temperatures are not accurate, review the "sensor_type" and "sensor_pin" settings for the nozzle and/or bed.
 
 ## Überprüfen Sie M112
 
-Navigieren Sie zur Registerkarte "Octoprint-Terminal" und geben Sie einen M112-Befehl in der Terminalbox ein. Dieser Befehl fordert Klipper auf, in einen "Shutdown"-Zustand zu gehen. Dies führt dazu, dass Octoprint die Verbindung zu Klipper trennt - navigieren Sie zum Bereich "Verbindung" und klicken Sie auf "Verbinden", damit Octoprint die Verbindung wieder aufnimmt. Navigieren Sie dann zur Registerkarte "Octoprint-Temperatur" und überprüfen Sie, ob die Temperaturen weiterhin aktualisiert werden und nicht ansteigen. Wenn die Temperaturen ansteigen, trennen Sie den Drucker von der Stromversorgung.
-
-Der M112-Befehl veranlasst Klipper, in einen "Shutdown"-Zustand zu gehen. Um diesen Zustand zu löschen, geben Sie einen FIRMWARE_RESTART-Befehl in der Octoprint-Terminal-Registerkarte ein.
+Navigate to the command console and issue an M112 command in the terminal box. This command requests Klipper to go into a "shutdown" state. It will cause an error to show, which can be cleared with a FIRMWARE_RESTART command in the command console. Octoprint will also require a reconnect. Then navigate to the temperature graph section and verify that temperatures continue to update and the temperatures are not increasing. If temperatures are increasing, remove power from the printer.
 
 ## Prüfen Sie die Heizelemente
 
-Navigieren Sie zur Registerkarte "Octoprint temperature" (Octoprint-Temperatur) und geben Sie im Feld "Tool" (Werkzeug) den Wert 50 gefolgt von der Eingabetaste ein. Die Extrudertemperatur in der Grafik sollte beginnen, sich zu erhöhen (innerhalb von etwa 30 Sekunden oder so). Gehen Sie dann zum Dropdown-Feld "Tool"-Temperatur und wählen Sie "Off". Nach einigen Minuten sollte die Temperatur auf den ursprünglichen Wert der Raumtemperatur zurückkehren. Wenn die Temperatur nicht ansteigt, überprüfen Sie die "heater_pin"-Einstellung in der Konfiguration.
+Navigate to the temperature graph section and type in 50 followed by enter in the extruder/tool temperature box. The extruder temperature in the graph should start to increase (within about 30 seconds or so). Then go to the extruder temperature drop-down box and select "Off". After several minutes the temperature should start to return to its initial room temperature value. If the temperature does not increase then verify the "heater_pin" setting in the config.
 
 Wenn der Drucker über ein beheiztes Bett verfügt, führen Sie den obigen Test erneut mit dem Bett durch.
 
 ## Schrittmotor-Freigabe-Pin verifizieren
 
-Stellen Sie sicher, dass sich alle Druckerachsen manuell frei bewegen lassen (die Schrittmotoren sind deaktiviert). Wenn nicht, geben Sie einen M84-Befehl ein, um die Motoren zu deaktivieren. Wenn sich eine der Achsen immer noch nicht frei bewegen kann, überprüfen Sie die Stepper-Konfiguration "enable_pin" für die angegebene Achse. Bei den meisten Handelsüblichen Schrittmotortreibern ist der Motoraktivierungspin "aktiv niedrig" und daher sollte der Aktivierungsstift vor dem Pin ein "!" haben (z. B. "enable_pin: !ar38").
+Verify that all of the printer axes can manually move freely (the stepper motors are disabled). If not, issue an M84 command to disable the motors. If any of the axes still can not move freely, then verify the stepper "enable_pin" configuration for the given axis. On most commodity stepper motor drivers, the motor enable pin is "active low" and therefore the enable pin should have a "!" before the pin (for example, "enable_pin: !PA1").
 
 ## Endstopps verifizieren
 
-Bewegen Sie alle Druckerachsen manuell so, dass keine von ihnen mit einem Endanschlag in Kontakt ist. Senden Sie einen QUERY_ENDSTOPS-Befehl über das Octoprint-Terminalregister. Er sollte mit dem aktuellen Status aller konfigurierten Endstops antworten und sie sollten alle den Status "offen" melden. Führen Sie für jeden der Endstopps den Befehl QUERY_ENDSTOPS erneut aus, während Sie den Endstopp manuell auslösen. Der QUERY_ENDSTOPS-Befehl sollte den Endstopp als "TRIGGERED" melden.
+Manually move all the printer axes so that none of them are in contact with an endstop. Send a QUERY_ENDSTOPS command via the command console. It should respond with the current state of all of the configured endstops and they should all report a state of "open". For each of the endstops, rerun the QUERY_ENDSTOPS command while manually triggering the endstop. The QUERY_ENDSTOPS command should report the endstop as "TRIGGERED".
 
-Wenn der Endstopp invertiert erscheint (er meldet "offen", wenn er ausgelöst wird und umgekehrt), fügen Sie der Pin-Definition ein "!" hinzu (z. B. "endstop_pin: ^!ar3"), oder entfernen Sie das "!", wenn es bereits eines vorhanden ist.
+If the endstop appears inverted (it reports "open" when triggered and vice-versa) then add a "!" to the pin definition (for example, "endstop_pin: ^PA2"), or remove the "!" if there is already one present.
 
 Wenn sich der Endstop überhaupt nicht ändert, deutet dies im Allgemeinen darauf hin, dass der Endstop an einen anderen Pin angeschlossen ist. Es kann jedoch auch eine Änderung der Pullup-Einstellung des Pins erforderlich sein (das '^' am Anfang des endstop_pin-Namens - die meisten Drucker verwenden einen Pullup-Widerstand und das '^' sollte vorhanden sein).
 
 ## Schrittmotoren überprüfen
 
-Verwenden Sie den Befehl STEPPER_BUZZ, um die Konnektivität der einzelnen Schrittmotoren zu überprüfen. Beginnen Sie mit der manuellen Positionierung der angegebenen Achse auf einen mittleren Punkt und führen Sie dann `STEPPER_BUZZ STEPPER=stepper_x` aus. Der Befehl STEPPER_BUZZ bewirkt, dass sich der angegebene Schrittmotor einen Millimeter in eine positive Richtung bewegt und dann in seine Ausgangsposition zurückkehrt. (Wenn der Endanschlag mit position_endstop=0 definiert ist, bewegt sich der Stepper zu Beginn jeder Bewegung vom Endanschlag weg). Diese Oszillation wird zehnmal durchgeführt.
+Use the STEPPER_BUZZ command to verify the connectivity of each stepper motor. Start by manually positioning the given axis to a midway point and then run `STEPPER_BUZZ STEPPER=stepper_x` in the command console. The STEPPER_BUZZ command will cause the given stepper to move one millimeter in a positive direction and then it will return to its starting position. (If the endstop is defined at position_endstop=0 then at the start of each movement the stepper will move away from the endstop.) It will perform this oscillation ten times.
 
 Wenn sich der Schrittmotor überhaupt nicht bewegt, dann überprüfen Sie die Einstellungen "enable_pin" und "step_pin" für den Schrittmotor. Wenn sich der Schrittmotor bewegt, aber nicht in seine ursprüngliche Position zurückkehrt, überprüfen Sie die Einstellung von "dir_pin". Wenn der Schrittmotor in eine falsche Richtung schwingt, deutet dies in der Regel darauf hin, dass der "dir_pin" für die Achse invertiert werden muss. Dies geschieht durch Hinzufügen eines '!' zum "dir_pin" in der Druckerkonfigurationsdatei (oder durch Entfernen, falls dort bereits eines vorhanden ist). Wenn sich der Motor deutlich mehr oder deutlich weniger als einen Millimeter bewegt, überprüfen Sie die Einstellung "rotation_distance".
 
@@ -48,13 +42,13 @@ Nach der Verifizierung aller Endanschläge und der Verifizierung aller Schrittmo
 
 ## Prüfen Sie den Extrudermotor
 
-Um den Extrudermotor zu testen, muss der Extruder auf eine Drucktemperatur erhitzen. Navigieren Sie zur Registerkarte Octoprint-Temperatur und wählen Sie eine Zieltemperatur aus dem Dropdown-Feld Temperatur aus (oder geben Sie manuell eine geeignete Temperatur ein). Warten Sie, bis der Drucker die gewünschte Temperatur erreicht hat. Navigieren Sie dann zur Registerkarte Octoprint-Steuerelement und klicken Sie auf die Schaltfläche "Extrudieren". Stellen Sie sicher, dass sich der Extrudermotor in die richtige Richtung dreht. Wenn dies nicht der Fall ist, lesen Sie die Tipps zur Fehlerbehebung im vorherigen Abschnitt, um die Einstellungen "enable_pin", "step_pin" und "dir_pin" für den Extruder zu bestätigen.
+To test the extruder motor it will be necessary to heat the extruder to a printing temperature. Navigate to the temperature graph section and select a target temperature from the temperature drop-down box (or manually enter an appropriate temperature). Wait for the printer to reach the desired temperature. Then navigate to the command console and click the "Extrude" button. Verify that the extruder motor turns in the correct direction. If it does not, see the troubleshooting tips in the previous section to confirm the "enable_pin", "step_pin", and "dir_pin" settings for the extruder.
 
 ## PID-Einstellungen kalibrieren
 
 Klipper unterstützt die [PID-Regelung](https://de.wikipedia.org/wiki/Regler#PID-Regler) für den Extruder und die Bettheizungen. Um diesen Regelungsmechanismus zu nutzen, ist es notwendig, die PID-Einstellungen auf jedem Drucker zu kalibrieren (PID-Einstellungen, die in anderen Programmen oder in den Beispielkonfigurationsdateien gefunden wurden, funktionieren oft schlecht).
 
-Um den Extruder zu kalibrieren, navigieren Sie zur Registerkarte Terminal in OctoPrint und führen Sie den Befehl PID_CALIBRATE aus. Zum Beispiel: `PID_CALIBRATE HEATER=extruder TARGET=170`
+To calibrate the extruder, navigate to the command console and run the PID_CALIBRATE command. For example: `PID_CALIBRATE HEATER=extruder TARGET=170`
 
 Führen Sie nach Abschluss des Abstimmungstests `SAVE_CONFIG` aus, um die Datei printer.cfg mit den neuen PID-Einstellungen zu aktualisieren.
 

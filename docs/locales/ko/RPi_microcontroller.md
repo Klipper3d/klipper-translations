@@ -166,15 +166,29 @@ Raspberry Pi에는 헤더에 노출되거나 그렇지 않은 경우 기존 gpio
 dtoverlay=pwm,pin=12,func=4
 ```
 
-이 예에서는 PWM0만 활성화하고 이를 gpio12로 라우팅합니다. 두 PWM 채널을 모두 활성화해야 하는 경우 `pwm-2chan` 을 사용할 수 있습니다.
-
-오버레이는 부팅 시 sysfs의 pwm 라인을 노출하지 않으며 pwm 채널 번호를 `/sys/class/pwm/pwmchip0/export` 로 에코하여 내보내야 합니다:
+This example enables only PWM0 and routes it to gpio12. If both PWM channels need to be enabled you can use `pwm-2chan`:
 
 ```
+# Enable pwmchip sysfs interface
+dtoverlay=pwm-2chan,pin=12,func=4,pin2=13,func2=4
+```
+
+This example additionally enables PWM1 and routes it to gpio13.
+
+The overlay does not expose the pwm line on sysfs on boot and needs to be exported by echo'ing the number of the pwm channel to `/sys/class/pwm/pwmchip0/export`. This will create device `/sys/class/pwm/pwmchip0/pwm0` in the filesystem. The easiest way to do this is by adding this to `/etc/rc.local` before the `exit 0` line:
+
+```
+# Enable pwmchip sysfs interface
 echo 0 > /sys/class/pwm/pwmchip0/export
 ```
 
-그러면 파일 시스템에 `/sys/class/pwm/pwmchip0/pwm0` 장치가 생성됩니다. 이것을 하는 가장 쉬운 방법은 `exit 0` 행 앞에 `/etc/rc.local` 에 이것을 추가하는 것입니다.
+When using both PWM channels, the number of the second channel needs to be echo'd as well:
+
+```
+# Enable pwmchip sysfs interface
+echo 0 > /sys/class/pwm/pwmchip0/export
+echo 1 > /sys/class/pwm/pwmchip0/export
+```
 
 sysfs가 있으면 이제 다음 구성을 `printer.cfg`에 추가하여 pwm 채널을 사용할 수 있습니다:
 
@@ -184,9 +198,17 @@ pin: host:pwmchip0/pwm0
 pwm: True
 hardware_pwm: True
 cycle_time: 0.000001
+
+[output_pin beeper]
+pin: host:pwmchip0/pwm1
+pwm: True
+hardware_pwm: True
+value: 0
+shutdown_value: 0
+cycle_time: 0.0005
 ```
 
-그러면 Pi의 하드웨어 pwm 제어가 gpio12에 추가됩니다(오버레이가 pwm0을 pin=12로 라우팅하도록 구성되었기 때문).
+This will add hardware pwm control to gpio12 and gpio13 on the Pi (because the overlay was configured to route pwm0 to pin=12 and pwm1 to pin=13).
 
 PWM0 can be routed to gpio12 and gpio18, PWM1 can be routed to gpio13 and gpio19:
 

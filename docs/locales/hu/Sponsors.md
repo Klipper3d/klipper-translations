@@ -4,13 +4,13 @@ A Klipper szabad szoftver. A szponzorok nagylelkű támogatásától függünk. 
 
 ## BIGTREETECH
 
-[<img src="./img/sponsors/BTT_BTT.png" width="200" />](https://bigtree-tech.com/collections/all-products)
+[<img src="./img/sponsors/BTT_BTT.png" width="200" style="margin:25px"/>](https://bigtree-tech.com/collections/all-products)
 
 A BIGTREETECH a Klipper hivatalos alaplapszponzora. A BIGTREETECH elkötelezett az innovatív és versenyképes termékek fejlesztése mellett, hogy a 3D nyomtatási közösséget jobban szolgálják. Kövesd őket a [Facebookon](https://www.facebook.com/BIGTREETECH) vagy a [Twitteren](https://twitter.com/BigTreeTech).
 
 ## Szponzorok
 
-[<img src="./img/sponsors/obico-light-horizontal.png" width="200" />](https://obico.io/klipper.html?source=klipper_sponsor)
+[<img src="./img/sponsors/obico-light-horizontal.png" width="200" style="margin:25px" />](https://obico.io/klipper.html?source=klipper_sponsor) [<img src="./img/sponsors/peopoly-logo.png" width="200" style="margin:25px" />](https://peopoly.net)
 
 ## Klipper fejlesztők
 

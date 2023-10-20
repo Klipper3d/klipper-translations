@@ -166,27 +166,49 @@ Raspberry Pi имеет два ШИМ-канала (PWM0 и PWM1), которы�
 dtoverlay=pwm,вывод=12,функция=4
 ```
 
-В этом примере включается только PWM0 и перенаправляется в gpio12. Если необходимо включить оба ШИМ-канала, вы можете использовать `pwm-2chan`.
-
-Наложение не отображает строку pwm в sysfs при загрузке и должно быть экспортировано путем повторной установки номера канала pwm в `/sys/class/pwm/pwmchip0/export`:
+This example enables only PWM0 and routes it to gpio12. If both PWM channels need to be enabled you can use `pwm-2chan`:
 
 ```
-echo 0 > /sys/class/pwm/pwmchip0/экспорт
+# Enable pwmchip sysfs interface
+dtoverlay=pwm-2chan,pin=12,func=4,pin2=13,func2=4
 ```
 
-Это создаст устройство `/sys/class/pwm/pwmchip0/pwm0` в файловой системе. Самый простой способ сделать это - добавить это в "/etc/rc.local" перед строкой "exit 0".
+This example additionally enables PWM1 and routes it to gpio13.
+
+The overlay does not expose the pwm line on sysfs on boot and needs to be exported by echo'ing the number of the pwm channel to `/sys/class/pwm/pwmchip0/export`. This will create device `/sys/class/pwm/pwmchip0/pwm0` in the filesystem. The easiest way to do this is by adding this to `/etc/rc.local` before the `exit 0` line:
+
+```
+# Enable pwmchip sysfs interface
+echo 0 > /sys/class/pwm/pwmchip0/export
+```
+
+When using both PWM channels, the number of the second channel needs to be echo'd as well:
+
+```
+# Enable pwmchip sysfs interface
+echo 0 > /sys/class/pwm/pwmchip0/export
+echo 1 > /sys/class/pwm/pwmchip0/export
+```
 
 Теперь, когда sysfs установлена, вы можете использовать любой из каналов pwm, добавив следующий фрагмент конфигурации в свой файл `printer.cfg`:
 
 ```
-[[индикатор корпуса output_pin]
-вывод: хост:pwmchip0/pwm0
+[output_pin caselight]
+pin: host:pwmchip0/pwm0
 pwm: True
 hardware_pwm: True
 cycle_time: 0.000001
+
+[output_pin beeper]
+pin: host:pwmchip0/pwm1
+pwm: True
+hardware_pwm: True
+value: 0
+shutdown_value: 0
+cycle_time: 0.0005
 ```
 
-Это добавит аппаратное управление шим к gpio12 на Pi (поскольку наложение было настроено для маршрутизации pwm0 на вывод =12).
+This will add hardware pwm control to gpio12 and gpio13 on the Pi (because the overlay was configured to route pwm0 to pin=12 and pwm1 to pin=13).
 
 PWM0 может быть направлен в gpio12 и gpio18, PWM1 может быть направлен в gpio13 и gpio19:
 

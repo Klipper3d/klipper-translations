@@ -6,39 +6,33 @@
 
 ## 驗證溫度
 
-首先驗證溫度是否被正確的報告。導航到 Octoprint 溫度選項卡。
-
-![octoprint-溫度](img/octoprint-temperature.png)
-
-確認噴嘴和熱床（如果適用）的溫度合理且不在上升。如果溫度正在上升，請立即斷開印表機的電源。如果溫度顯示不準確，請檢查熱端和/或熱床的 「sensor_type」 和 「sensor_pin」 設定。
+Start by verifying that temperatures are being properly reported. Navigate to the temperature graph section in the user interface. Verify that the temperature of the nozzle and bed (if applicable) are present and not increasing. If it is increasing, remove power from the printer. If the temperatures are not accurate, review the "sensor_type" and "sensor_pin" settings for the nozzle and/or bed.
 
 ## 驗證 M112
 
-導航到 Octoprint 終端選項卡並通過終端發送 M112 命令。該命令會使 Klipper 進入關閉狀態，並導致 Octoprint 與 Klipper 斷開鏈接。找到連線板塊單擊 "Connect"（連線）以重新連線到 Klipper。然後在 Octoprint 溫度選項卡中驗證溫度是否持續更新和升高。如果溫度升高，請立即斷開印表機電源。
-
-M112 命令會使 Klipper 進入 "shutdown"（關閉）狀態。要退出這一狀態，請在 Octoprint 終端選項卡中發出 FIRMWARE_RESTART 命令。
+Navigate to the command console and issue an M112 command in the terminal box. This command requests Klipper to go into a "shutdown" state. It will cause an error to show, which can be cleared with a FIRMWARE_RESTART command in the command console. Octoprint will also require a reconnect. Then navigate to the temperature graph section and verify that temperatures continue to update and the temperatures are not increasing. If temperatures are increasing, remove power from the printer.
 
 ## 驗證加熱器
 
-導航到 Octoprint 溫度選項卡中的「Tool」（工具）溫度框，輸入 50 並按下回車。 圖中的擠出頭溫度應開始升高（在約 30 秒左右的時間內）。 然後在工具溫度的下拉框中選擇「off」（關閉）。 幾分鐘后，溫度應開始恢復到其初始室溫值。 如果溫度沒有上升，需要檢查配置中的「heater_pin」設定是否正確。
+Navigate to the temperature graph section and type in 50 followed by enter in the extruder/tool temperature box. The extruder temperature in the graph should start to increase (within about 30 seconds or so). Then go to the extruder temperature drop-down box and select "Off". After several minutes the temperature should start to return to its initial room temperature value. If the temperature does not increase then verify the "heater_pin" setting in the config.
 
 如果印表機帶有熱床，則用熱床重複上述測試。
 
 ## 驗證步進電機 enable（啟用）引腳
 
-驗證所有印表機軸都可以用手自由移動（步進電機已禁用）。 如果沒有，請發出 M84 命令禁用電機。 如果任何軸仍然無法自由移動，需要檢查該軸的步進驅動「enable_pin」（使能引腳）配置。 在大多數步進電機驅動器上，電機使能引腳為「低電平有效」，因此使能引腳在pin之前應帶有「！」 （例如，「enable_pin: !ar38」）。
+Verify that all of the printer axes can manually move freely (the stepper motors are disabled). If not, issue an M84 command to disable the motors. If any of the axes still can not move freely, then verify the stepper "enable_pin" configuration for the given axis. On most commodity stepper motor drivers, the motor enable pin is "active low" and therefore the enable pin should have a "!" before the pin (for example, "enable_pin: !PA1").
 
 ## 驗證限位開關
 
-手動移動所有印表機軸，使它們都不與限位器接觸。 通過 Octoprint 終端發送 QUERY_ENDSTOPS 命令。 它應該以所有配置的限位的當前狀態做出響應，並且它們都應該報告「open」（未觸發）狀態。 手動觸發每個限位器的同時重新執行 QUERY_ENDSTOPS 命令。相應的限位應該被 QUERY_ENDSTOPS 報告為「TRIGGERED」。
+Manually move all the printer axes so that none of them are in contact with an endstop. Send a QUERY_ENDSTOPS command via the command console. It should respond with the current state of all of the configured endstops and they should all report a state of "open". For each of the endstops, rerun the QUERY_ENDSTOPS command while manually triggering the endstop. The QUERY_ENDSTOPS command should report the endstop as "TRIGGERED".
 
-如果限位狀態是相反的（觸發時報告「open」，反之亦然），則新增「！」 到引腳定義（例如，「endstop_pin: ^!ar3」），如果存在「！」就將之刪除。
+If the endstop appears inverted (it reports "open" when triggered and vice-versa) then add a "!" to the pin definition (for example, "endstop_pin: ^PA2"), or remove the "!" if there is already one present.
 
 如果限位狀態根本沒有變化，則通常表示限位器連線到不同的引腳。 但是，它也可能表示需要更改引腳的上拉設定（endstop_pin 名稱開頭的「^」 - 大多數印表機需要使用上拉電阻並且應該存在「^」）。
 
 ## 驗證步進電機
 
-使用 STEPPER_BUZZ 命令驗證每個步進電機的連通性。 首先將要驗證的軸手動挪到到中間點，然後執行`STEPPER_BUZZ STEPPER=stepper_x`。 STEPPER_BUZZ 命令將使X軸向正方向移動一毫米，再返回到其起始位置。 （如果在 position_endstop=0 處定義了限位的位置，則在每次運動開始時，步進器將遠離限位。）它將執行這個動作十次。
+Use the STEPPER_BUZZ command to verify the connectivity of each stepper motor. Start by manually positioning the given axis to a midway point and then run `STEPPER_BUZZ STEPPER=stepper_x` in the command console. The STEPPER_BUZZ command will cause the given stepper to move one millimeter in a positive direction and then it will return to its starting position. (If the endstop is defined at position_endstop=0 then at the start of each movement the stepper will move away from the endstop.) It will perform this oscillation ten times.
 
 如果步進電機根本不動，則需要驗證步進驅動的「enable_pin」和「step_pin」設定。 如果步進電機移動但沒有返回其原始位置，則需要驗證「dir_pin」設定。 如果步進電機的振盪方向不正確，則通常表示需要反轉驅動的「dir_pin」。 即通過新增「!」 到印表機配置檔案中的「dir_pin」設定來完成（如果已經存在"!"，則將其刪除）。 如果電機移動明顯大於或小於一毫米，則需要驗證「rotation_distance」設定。
 
@@ -48,13 +42,13 @@ M112 命令會使 Klipper 進入 "shutdown"（關閉）狀態。要退出這一�
 
 ## 驗證擠出機電機
 
-要測試擠出機電機，必須先將熱端加熱到列印溫度。導航到 Octoprint 溫度選項卡並在溫度下拉框中選擇目標溫度（或手動輸入適當的溫度）。等待印表機達到目標溫度，然後找到 Octoprint 控制選項卡並單擊「Extrude」（擠出）按鈕。 確認擠出機電機以正確的方向轉動。 如果沒有，請參閱上一節中的故障排除提示，以確認擠出機的「enable_pin」、「step_pin」和「dir_pin」設定。
+To test the extruder motor it will be necessary to heat the extruder to a printing temperature. Navigate to the temperature graph section and select a target temperature from the temperature drop-down box (or manually enter an appropriate temperature). Wait for the printer to reach the desired temperature. Then navigate to the command console and click the "Extrude" button. Verify that the extruder motor turns in the correct direction. If it does not, see the troubleshooting tips in the previous section to confirm the "enable_pin", "step_pin", and "dir_pin" settings for the extruder.
 
 ## 校準 PID 設定
 
 Klipper支援擠出機和熱床加熱器的[PID控制](https://en.wikipedia.org/wiki/PID_controller)。爲了使用這種控制機制，必須對每臺印表機的 PID 參數進行校準（在其他韌體或示例配置檔案中找到的 PID 設定往往效果不佳）。
 
-要校準擠出機，請找到 OctoPrint 終端選項卡並執行 PID_CALIBRATE 命令。 例如：`PID_CALIBRATE HEATER=extruder TARGET=170`
+To calibrate the extruder, navigate to the command console and run the PID_CALIBRATE command. For example: `PID_CALIBRATE HEATER=extruder TARGET=170`
 
 調整測試完成後，執行 `SAVE_CONFIG` 以儲存新PID設定到printer.cfg檔案。
 

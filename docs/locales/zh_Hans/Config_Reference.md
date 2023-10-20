@@ -1405,6 +1405,27 @@ cs_pin:
 #   共振测量的质量。
 ```
 
+### [lis2dw]
+
+Support for LIS2DW accelerometers.
+
+```
+[lis2dw]
+cs_pin:
+#   The SPI enable pin for the sensor. This parameter must be provided.
+#spi_speed: 5000000
+#   The SPI speed (in hz) to use when communicating with the chip.
+#   The default is 5000000.
+#spi_bus:
+#spi_software_sclk_pin:
+#spi_software_mosi_pin:
+#spi_software_miso_pin:
+#   See the "common SPI settings" section for a description of the
+#   above parameters.
+#axes_map: x, y, z
+#   See the "adxl345" section for information on this parameter.
+```
+
 ### [mpu9250]
 
 支持 MPU-9250、MPU-9255、MPU-6515、MPU-6050 和 MPU-6500 加速度计（可通过“mpu9250”前缀定义任意数量的分段）。
@@ -1666,6 +1687,33 @@ z_offset:
 #   有关以上参数的更多信息，请参阅"probe"分段。
 ```
 
+### [axis_twist_compensation]
+
+A tool to compensate for inaccurate probe readings due to twist in X gantry. See the [Axis Twist Compensation Guide](Axis_Twist_Compensation.md) for more detailed information regarding symptoms, configuration and setup.
+
+```
+[axis_twist_compensation]
+#speed: 50
+#   The speed (in mm/s) of non-probing moves during the calibration.
+#   The default is 50.
+#horizontal_move_z: 5
+#   The height (in mm) that the head should be commanded to move to
+#   just prior to starting a probe operation. The default is 5.
+calibrate_start_x: 20
+#   Defines the minimum X coordinate of the calibration
+#   This should be the X coordinate that positions the nozzle at the starting
+#   calibration position. This parameter must be provided.
+calibrate_end_x: 200
+#   Defines the maximum X coordinate of the calibration
+#   This should be the X coordinate that positions the nozzle at the ending
+#   calibration position. This parameter must be provided.
+calibrate_y: 112.5
+#   Defines the Y coordinate of the calibration
+#   This should be the Y coordinate that positions the nozzle during the
+#   calibration process. This parameter must be provided and is recommended to
+#   be near the center of the bed
+```
+
 ## 额外的步进电机和挤出机
 
 ### [stepper_z1]
@@ -1705,15 +1753,26 @@ z_offset:
 
 ### [dual_carriage]
 
-对单轴上具有双滑车的笛卡尔打印机的支持。通过 SET_DUAL_CARRIAGE 扩展G代码命令来设置活跃的滑车。"SET_DUAL_CARRIAGE CARRIAGE=1" 命令将激活在此分段中定义的滑车（CARRIAGE=0 将重新激活主滑车）。双滑车支持通常与额外的挤出机组合在一起 - SET_DUAL_CARRIAGE 命令通常与 ACTIVATE_EXTRUDER 命令同时调用。在停用期间，请务必将滑车停放到适当的位置。
+Support for cartesian and hybrid_corexy/z printers with dual carriages on a single axis. The carriage mode can be set via the SET_DUAL_CARRIAGE extended g-code command. For example, "SET_DUAL_CARRIAGE CARRIAGE=1" command will activate the carriage defined in this section (CARRIAGE=0 will return activation to the primary carriage). Dual carriage support is typically combined with extra extruders - the SET_DUAL_CARRIAGE command is often called at the same time as the ACTIVATE_EXTRUDER command. Be sure to park the carriages during deactivation. Note that during G28 homing, typically the primary carriage is homed first followed by the carriage defined in the `[dual_carriage]` config section. However, the `[dual_carriage]` carriage will be homed first if both carriages home in a positive direction and the [dual_carriage] carriage has a `position_endstop` greater than the primary carriage, or if both carriages home in a negative direction and the `[dual_carriage]` carriage has a `position_endstop` less than the primary carriage.
+
+Additionally, one could use "SET_DUAL_CARRIAGE CARRIAGE=1 MODE=COPY" or "SET_DUAL_CARRIAGE CARRIAGE=1 MODE=MIRROR" commands to activate either copying or mirroring mode of the dual carriage, in which case it will follow the motion of the carriage 0 accordingly. These commands can be used to print two parts simultaneously - either two identical parts (in COPY mode) or mirrored parts (in MIRROR mode). Note that COPY and MIRROR modes also require appropriate configuration of the extruder on the dual carriage, which can typically be achieved with "SYNC_EXTRUDER_MOTION MOTION_QUEUE=extruder EXTRUDER=<dual_carriage_extruder>" or a similar command.
 
 Idex参考示例[sample-idex.cfg](../config/sample-idex.cfg)
 
 ```
 [dual_carriage]
 axis:
-#   额外滑车所在的轴（x或者y）。
-#   必须提供这个参数。
+#   The axis this extra carriage is on (either x or y). This parameter
+#   must be provided.
+#safe_distance:
+#   The minimum distance (in mm) to enforce between the dual and the primary
+#   carriages. If a G-Code command is executed that will bring the carriages
+#   closer than the specified limit, such a command will be rejected with an
+#   error. If safe_distance is not provided, it will be inferred from
+#   position_min and position_max for the dual and primary carriages. If set
+#   to 0 (or safe_distance is unset and position_min and position_max are
+#   identical for the primary and dual carraiges), the carriages proximity
+#   checks will be disabled.
 #step_pin:
 #dir_pin:
 #enable_pin:
@@ -1723,7 +1782,7 @@ axis:
 #position_endstop:
 #position_min:
 #position_max:
-#   以上参数的定义请查阅“stepper”分段。
+#   See the "stepper" section for the definition of the above parameters.
 ```
 
 ### [extruder_stepper]
@@ -2147,6 +2206,24 @@ serial_no:
 #   默认值为 3.0，最小值为 1.0
 #sensor_mcu：
 #   读取的微控制器。必须是host_mcu
+```
+
+### Combined temperature sensor
+
+Combined temperature sensor is a virtual temperature sensor based on several other sensors. This sensor can be used with extruders, heater_generic and heater beds.
+
+```
+sensor_type: temperature_combined
+#sensor_list:
+#   Must be provided. List of sensors to combine to new "virtual"
+#   sensor.
+#   E.g. 'temperature_sensor sensor1,extruder,heater_bed'
+#combination_method:
+#   Must be provided. Combination method used for the sensor.
+#   Available options are 'max', 'min', 'mean'.
+#maximum_deviation:
+#   Must be provided. Maximum permissible deviation between the sensors
+#   to combine (e.g. 5 degrees). To disable it, use a large value (e.g. 999.9)
 ```
 
 ## 风扇
@@ -2864,7 +2941,7 @@ run_current:
 
 ### [tmc2240]
 
-通过 SPI 总线配置 TMC2240 步进电机驱动器。要使用此功能，请定义一个配置分段，其前缀为 "tmc2240"，后跟相应步进配置分段的名称（例如，"[tmc2240 stepper_x]"）。
+Configure a TMC2240 stepper motor driver via SPI bus or UART. To use this feature, define a config section with a "tmc2240" prefix followed by the name of the corresponding stepper config section (for example, "[tmc2240 stepper_x]").
 
 ```
 [tmc2240 stepper_x]
@@ -2879,6 +2956,9 @@ cs_pin:
 #spi_software_miso_pin:
 #   See the "common SPI settings" section for a description of the
 #   above parameters.
+#uart_pin:
+#   The pin connected to the TMC2240 DIAG1/SW line. If this parameter
+#   is provided UART communication is used rather then SPI.
 #chain_position:
 #chain_length:
 #   These parameters configure an SPI daisy chain. The two parameters

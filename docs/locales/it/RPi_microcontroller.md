@@ -166,15 +166,29 @@ I Raspberry Pi hanno due canali PWM (PWM0 e PWM1) che sono esposti sull'intestaz
 dtoverlay=pwm,pin=12,func=4
 ```
 
-Questo esempio abilita solo PWM0 e lo indirizza a gpio12. Se entrambi i canali PWM devono essere abilitati potete usare `pwm-2chan`.
-
-L'overlay non espone la riga pwm sui sysfs all'avvio e deve essere esportata facendo eco al numero del canale pwm in `/sys/class/pwm/pwmchip0/export`:
+This example enables only PWM0 and routes it to gpio12. If both PWM channels need to be enabled you can use `pwm-2chan`:
 
 ```
+# Enable pwmchip sysfs interface
+dtoverlay=pwm-2chan,pin=12,func=4,pin2=13,func2=4
+```
+
+This example additionally enables PWM1 and routes it to gpio13.
+
+The overlay does not expose the pwm line on sysfs on boot and needs to be exported by echo'ing the number of the pwm channel to `/sys/class/pwm/pwmchip0/export`. This will create device `/sys/class/pwm/pwmchip0/pwm0` in the filesystem. The easiest way to do this is by adding this to `/etc/rc.local` before the `exit 0` line:
+
+```
+# Enable pwmchip sysfs interface
 echo 0 > /sys/class/pwm/pwmchip0/export
 ```
 
-Questo creerà il dispositivo `/sys/class/pwm/pwmchip0/pwm0` nel filesystem. Il modo più semplice per farlo è aggiungerlo a `/etc/rc.local` prima della riga `exit 0`.
+When using both PWM channels, the number of the second channel needs to be echo'd as well:
+
+```
+# Enable pwmchip sysfs interface
+echo 0 > /sys/class/pwm/pwmchip0/export
+echo 1 > /sys/class/pwm/pwmchip0/export
+```
 
 Con il sysfs a posto, potete ora utilizzare il canale o i canali pwm aggiungendo il seguente pezzo di configurazione al vostro `printer.cfg`:
 
@@ -184,9 +198,17 @@ pin: host:pwmchip0/pwm0
 pwm: True
 hardware_pwm: True
 cycle_time: 0.000001
+
+[output_pin beeper]
+pin: host:pwmchip0/pwm1
+pwm: True
+hardware_pwm: True
+value: 0
+shutdown_value: 0
+cycle_time: 0.0005
 ```
 
-Questo aggiungerà il controllo pwm hardware a gpio12 sul Pi (perché l'overlay è stato configurato per instradare pwm0 a pin = 12).
+This will add hardware pwm control to gpio12 and gpio13 on the Pi (because the overlay was configured to route pwm0 to pin=12 and pwm1 to pin=13).
 
 PWM0 può essere indirizzato su gpio12 e gpio18, PWM1 può essere indirizzato su gpio13 e gpio19:
 

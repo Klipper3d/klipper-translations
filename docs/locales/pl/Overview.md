@@ -23,6 +23,7 @@ Witaj w dokumentacji Klipper. Jeśli jesteś nowy, zapoznaj się z [funkcjami](F
    - [Ręczne poziomowanie](Manual_Level.md): Kalibracja krańcówek Z (i podobnych).
    - [Siatka stołu](Bed_Mesh.md): Korekcja wysokości stołu na podstawie lokalizacji XY.
    - [Faza krańcówki](Endstop_Phase.md): Pozycjonowanie krańcówki Z ze wspomaganiem krokowym.
+   - [Axis Twist Compensation](Axis_Twist_Compensation.md): A tool to compensate for inaccurate probe readings due to twist in X gantry.
 - [Kompensacja rezonansu](Resonance_Compensation.md): Narzędzie do redukcji dzwonienia w wydrukach.
    - [Pomiar rezonansów](Measuring_Resonances.md): Informacje na temat używania sprzętowego akcelerometru adxl345 do pomiaru rezonansu.
 - [Pressure Advance](Pressure_Advance.md): Kalibracja docisku wytłaczarki.
@@ -56,6 +57,7 @@ Witaj w dokumentacji Klipper. Jeśli jesteś nowy, zapoznaj się z [funkcjami](F
 - [Raspberry Pi jako mikrokontroler](RPi_microcontroller.md): Szczegóły dotyczące sterowania urządzeniami podłączonymi do pinów GPIO Raspberry Pi.
 - [Beaglebone](Beaglebone.md): Szczegóły dotyczące uruchamiania Klippera na Beaglebone PRU.
 - [Bootloadery](Bootloaders.md): Informacje dla programistów dotyczące flashowania mikrokontrolerów.
+- [Bootloader Entry](Bootloader_Entry.md): Requesting the bootloader.
 - [Magistrala CAN](CANBUS.md): Informacje na temat korzystania z magistrali CAN z Klipperem.
    - [CAN bus troubleshooting](CANBUS_Troubleshooting.md): Tips for troubleshooting CAN bus.
 - [Czujnik szerokości filamentu TSL1401CL](TSL1401CL_Filament_Width_Sensor.md)

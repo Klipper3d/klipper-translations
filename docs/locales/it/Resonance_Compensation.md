@@ -224,14 +224,24 @@ Controllare le considerazioni nella sezione [Selecting max_accel](#selecting-max
 
 ### La configurazione a doppio carrello è supportata con gli input shaper?
 
-Non esiste un supporto dedicato per doppi carrelli con input shaper, ma ciò non significa che questa configurazione non funzionerà. Si dovrebbe eseguire la messa a punto due volte per ciascuno dei carrelli e calcolare le frequenze di ringing per gli assi X e Y per ciascuno dei carrelli in modo indipendente. Quindi inserisci i valori per il carrello 0 nella sezione [input_shaper] e modifica i valori al volo quando si cambiano i carrelli, ad es. come parte di alcune macro:
+Yes. In this case, one should measure the resonances twice for each carriage. For example, if the second (dual) carriage is installed on X axis, it is possible to set different input shapers for X axis for the primary and dual carriages. However, the input shaper for Y axis should be the same for both carriages (as ultimately this axis is driven by one or more stepper motors each commanded to perform exactly the same steps). One possibility to configure the input shaper for such setups is to keep `[input_shaper]` section empty and additionally define a `[delayed_gcode]` section in the `printer.cfg` as follows:
 
 ```
-SET_DUAL_CARRIAGE CARRIAGE=1
-SET_INPUT_SHAPER SHAPER_FREQ_X=... SHAPER_FREQ_Y=...
+[input_shaper]
+# Intentionally empty
+
+[delayed_gcode init_shaper]
+initial_duration: 0.1
+gcode:
+  SET_DUAL_CARRIAGE CARRIAGE=1
+  SET_INPUT_SHAPER SHAPER_TYPE_X=<dual_carriage_shaper> SHAPER_FREQ_X=<dual_carriage_freq> SHAPER_TYPE_Y=<y_shaper> SHAPER_FREQ_Y=<y_freq>
+  SET_DUAL_CARRIAGE CARRIAGE=0
+  SET_INPUT_SHAPER SHAPER_TYPE_X=<primary_carriage_shaper> SHAPER_FREQ_X=<primary_carriage_freq> SHAPER_TYPE_Y=<y_shaper> SHAPER_FREQ_Y=<y_freq>
 ```
 
-E allo stesso modo quando si torna al carrello 0.
+Note that `SHAPER_TYPE_Y` and `SHAPER_FREQ_Y` should be the same in both commands. It is also possible to put a similar snippet into the start g-code in the slicer, however then the shaper will not be enabled until any print is started.
+
+Note that the input shaper only needs to be configured once. Subsequent changes of the carriages or their modes via `SET_DUAL_CARRIAGE` command will preserve the configured input shaper parameters.
 
 ### L'input_shaper influisce sul tempo di stampa?
 
