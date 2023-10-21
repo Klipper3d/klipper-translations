@@ -1,15 +1,18 @@
 # Robert Jaroszewicz <mediagott1977@googlemail.com>, 2022.
+# Krzysztof Kolasa <kyskolasa2@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-07-03 11:20+0000\n"
-"Last-Translator: Robert Jaroszewicz <mediagott1977@googlemail.com>\n"
-"Language-Team: Polish <https://hosted.weblate.org/projects/klipper/hall_filament_width_sensor/pl/>\n"
+"PO-Revision-Date: 2023-10-20 04:04+0000\n"
+"Last-Translator: Krzysztof Kolasa <kyskolasa2@gmail.com>\n"
+"Language-Team: Polish <https://hosted.weblate.org/projects/klipper/"
+"hall_filament_width_sensor/pl/>\n"
 "Language: pl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.13.1-dev\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.1\n"
 
 msgid "How does it work?"
 msgstr "Jak to działa?"
@@ -18,7 +21,7 @@ msgid "Template for menu variables"
 msgstr "Szablon dla zmiennych menu"
 
 msgid "Calibration procedure"
-msgstr ""
+msgstr "Procedura kalibracji"
 
 msgid "Insert first calibration rod (1.5 mm size) get first raw sensor value"
 msgstr ""
@@ -57,7 +60,7 @@ msgstr ""
 
 #: docs/HallFilamentWidthSensor.md:block 26 (paragraph)
 msgid "By default, the sensor is disabled at power-on."
-msgstr ""
+msgstr "Domyślnie, sensor jest zablokowany po włączeniu."
 
 #: docs/HallFilamentWidthSensor.md:block 29 (paragraph)
 msgid "By default, diameter logging is disabled at power-on."
