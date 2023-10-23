@@ -1469,21 +1469,40 @@ gpiochip1 - 8 строк:
 dtoverlay=pwm,вывод=12,функция=4
 </code></pre></div>
 
-<p>В этом примере включается только PWM0 и перенаправляется в gpio12. Если необходимо включить оба ШИМ-канала, вы можете использовать <code>pwm-2chan</code>.</p>
-<p>Наложение не отображает строку pwm в sysfs при загрузке и должно быть экспортировано путем повторной установки номера канала pwm в <code>/sys/class/pwm/pwmchip0/export</code>:</p>
-<div class="highlight"><pre><span></span><code>echo 0 &gt; /sys/class/pwm/pwmchip0/экспорт
+<p>This example enables only PWM0 and routes it to gpio12. If both PWM channels need to be enabled you can use <code>pwm-2chan</code>:</p>
+<div class="highlight"><pre><span></span><code># Enable pwmchip sysfs interface
+dtoverlay=pwm-2chan,pin=12,func=4,pin2=13,func2=4
 </code></pre></div>
 
-<p>Это создаст устройство <code>/sys/class/pwm/pwmchip0/pwm0</code> в файловой системе. Самый простой способ сделать это - добавить это в "/etc/rc.local" перед строкой "exit 0".</p>
+<p>This example additionally enables PWM1 and routes it to gpio13.</p>
+<p>The overlay does not expose the pwm line on sysfs on boot and needs to be exported by echo'ing the number of the pwm channel to <code>/sys/class/pwm/pwmchip0/export</code>. This will create device <code>/sys/class/pwm/pwmchip0/pwm0</code> in the filesystem. The easiest way to do this is by adding this to <code>/etc/rc.local</code> before the <code>exit 0</code> line:</p>
+<div class="highlight"><pre><span></span><code># Enable pwmchip sysfs interface
+echo 0 &gt; /sys/class/pwm/pwmchip0/export
+</code></pre></div>
+
+<p>When using both PWM channels, the number of the second channel needs to be echo'd as well:</p>
+<div class="highlight"><pre><span></span><code># Enable pwmchip sysfs interface
+echo 0 &gt; /sys/class/pwm/pwmchip0/export
+echo 1 &gt; /sys/class/pwm/pwmchip0/export
+</code></pre></div>
+
 <p>Теперь, когда sysfs установлена, вы можете использовать любой из каналов pwm, добавив следующий фрагмент конфигурации в свой файл <code>printer.cfg</code>:</p>
-<div class="highlight"><pre><span></span><code>[[индикатор корпуса output_pin]
-вывод: хост:pwmchip0/pwm0
+<div class="highlight"><pre><span></span><code>[output_pin caselight]
+pin: host:pwmchip0/pwm0
 pwm: True
 hardware_pwm: True
 cycle_time: 0.000001
+
+[output_pin beeper]
+pin: host:pwmchip0/pwm1
+pwm: True
+hardware_pwm: True
+value: 0
+shutdown_value: 0
+cycle_time: 0.0005
 </code></pre></div>
 
-<p>Это добавит аппаратное управление шим к gpio12 на Pi (поскольку наложение было настроено для маршрутизации pwm0 на вывод =12).</p>
+<p>This will add hardware pwm control to gpio12 and gpio13 on the Pi (because the overlay was configured to route pwm0 to pin=12 and pwm1 to pin=13).</p>
 <p>PWM0 может быть направлен в gpio12 и gpio18, PWM1 может быть направлен в gpio13 и gpio19:</p>
 <table>
 <thead>

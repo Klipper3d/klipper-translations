@@ -1580,12 +1580,21 @@ shaper_type: 2hump_ei
 <h3 id="ringing-ringing">Ringing 없이 일정 시간동안 성공적으로 인쇄한 후 ringing 현상이 다시 나타나는 것처럼 보입니다<a class="headerlink" href="#ringing-ringing" title="Permanent link">&para;</a></h3>
 <p>얼마 후 공진 주파수가 변경되었을 수 있습니다. 예를 들어 벨트 장력이 변경되었을 수 있습니다(벨트가 더 느슨해짐) 등. <a href="#ringing-frequency">Ringing frequency</a> 섹션에 설명된 대로 울리는 주파수를 확인후 다시 측정하고 필요한 경우 구성 파일을 업데이트하는 것이 좋습니다.</p>
 <h3 id="input-shapers">Input shapers에서 이중 캐리지 설정이 지원됩니까?<a class="headerlink" href="#input-shapers" title="Permanent link">&para;</a></h3>
-<p>Input shpaer가 있는 이중 캐리지에 대한 전용 지원은 없지만 이 설정이 작동하지 않는다는 의미는 아닙니다. 각 캐리지에 대해 튜닝을 두 번 실행하고 각 캐리지에 대해 독립적으로 X 및 Y 축에 대한 ringing 주파수를 계산해야 합니다. 그런 다음 캐리지 0의 값을 [input_shaper] 섹션에 입력하고 캐리지를 변경할 때 값을 즉시 변경합니다. 예. 일부 매크로의 일부로:</p>
-<div class="highlight"><pre><span></span><code>SET_DUAL_CARRIAGE CARRIAGE=1
-SET_INPUT_SHAPER SHAPER_FREQ_X=... SHAPER_FREQ_Y=...
+<p>Yes. In this case, one should measure the resonances twice for each carriage. For example, if the second (dual) carriage is installed on X axis, it is possible to set different input shapers for X axis for the primary and dual carriages. However, the input shaper for Y axis should be the same for both carriages (as ultimately this axis is driven by one or more stepper motors each commanded to perform exactly the same steps). One possibility to configure the input shaper for such setups is to keep <code>[input_shaper]</code> section empty and additionally define a <code>[delayed_gcode]</code> section in the <code>printer.cfg</code> as follows:</p>
+<div class="highlight"><pre><span></span><code>[input_shaper]
+# Intentionally empty
+
+[delayed_gcode init_shaper]
+initial_duration: 0.1
+gcode:
+  SET_DUAL_CARRIAGE CARRIAGE=1
+  SET_INPUT_SHAPER SHAPER_TYPE_X=&lt;dual_carriage_shaper&gt; SHAPER_FREQ_X=&lt;dual_carriage_freq&gt; SHAPER_TYPE_Y=&lt;y_shaper&gt; SHAPER_FREQ_Y=&lt;y_freq&gt;
+  SET_DUAL_CARRIAGE CARRIAGE=0
+  SET_INPUT_SHAPER SHAPER_TYPE_X=&lt;primary_carriage_shaper&gt; SHAPER_FREQ_X=&lt;primary_carriage_freq&gt; SHAPER_TYPE_Y=&lt;y_shaper&gt; SHAPER_FREQ_Y=&lt;y_freq&gt;
 </code></pre></div>
 
-<p>캐리지 0으로 다시 전환할 때도 마찬가지입니다.</p>
+<p>Note that <code>SHAPER_TYPE_Y</code> and <code>SHAPER_FREQ_Y</code> should be the same in both commands. It is also possible to put a similar snippet into the start g-code in the slicer, however then the shaper will not be enabled until any print is started.</p>
+<p>Note that the input shaper only needs to be configured once. Subsequent changes of the carriages or their modes via <code>SET_DUAL_CARRIAGE</code> command will preserve the configured input shaper parameters.</p>
 <h3 id="input_shaper_1">input_shaper가 인쇄 시간에 영향을 줍니까?<a class="headerlink" href="#input_shaper_1" title="Permanent link">&para;</a></h3>
 <p>아니요, 'input_shaper' 기능 자체는 인쇄 시간에 거의 영향을 미치지 않습니다. 그러나 <code>max_accel</code>의 값은 확실히 영향을 미칩니다.(<a href="#selecting-max_accel">이 섹션</a>에 설명된 이 매개변수의 조정).</p>
 <h2 id="_4">기술적 세부 사항<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
