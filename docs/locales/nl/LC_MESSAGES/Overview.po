@@ -1,10 +1,10 @@
 # Luc Van den Borre <luc@orotec.be>, 2023.
-# Lasse Lauwerys <lauweryslasse@gmail.com>, 2023.
+# Lasse Lauwerys <lauweryslasse@gmail.com>, 2023, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:40+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Lasse Lauwerys <lauweryslasse@gmail.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/klipper/overview/"
 "nl/>\n"
 "Language: nl\n"
@@ -59,8 +59,8 @@ msgid ""
 "[Rotation Distance](Rotation_Distance.md): Calculating the rotation_distance "
 "stepper parameter."
 msgstr ""
-"[Rotation Distance](Rotation_Distance.md): Berekening van de rotation_distance"
-" stepper parameter."
+"[Rotation Distance](Rotation_Distance.md): Berekening van de "
+"rotation_distance stepper parameter."
 
 msgid ""
 "[Config checks](Config_checks.md): Verify basic pin settings in the config "
