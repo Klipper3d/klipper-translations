@@ -1,5 +1,5 @@
 # Mathis Mensing <gcmatmen@gmail.com>, 2021.
-# Tobias Mohr <tobias_mohr_1991@gmx.de>, 2023.
+# Tobias Mohr <tobias_mohr_1991@gmx.de>, 2023, 2025.
 # Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024.
 # Mathis Mensing <github@matmen.dev>, 2025.
 msgid ""
@@ -8,7 +8,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:35+0200\n"
 "PO-Revision-Date: 2025-05-03 07:23+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Tobias Mohr <tobias_mohr_1991@gmx.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/contact/"
 "de/>\n"
 "Language: de\n"
