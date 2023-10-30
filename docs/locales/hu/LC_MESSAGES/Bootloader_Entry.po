@@ -1,30 +1,44 @@
-#
+# "Zs.Antal" <zsikaiantal@icloud.com>, 2023.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2023-10-30 09:04+0000\n"
+"Last-Translator: \"Zs.Antal\" <zsikaiantal@icloud.com>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
+"bootloader_entry/hu/>\n"
+"Language: hu\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.2-dev\n"
 
 #: docs/Bootloader_Entry.md:block 1 (header)
 msgid "Bootloader Entry"
-msgstr ""
+msgstr "Bootloader belépés"
 
 #: docs/Bootloader_Entry.md:block 2 (paragraph)
 msgid ""
 "Klipper can be instructed to reboot into a [Bootloader](Bootloaders.md) in "
 "one of the following ways:"
 msgstr ""
+"Klipper utasítható, hogy újraindítsa a [Bootloadert](Bootloaders.md) az "
+"alábbi módok egyikében:"
 
 #: docs/Bootloader_Entry.md:block 3 (header)
 msgid "Requesting the bootloader"
-msgstr ""
+msgstr "A bootloader kérése"
 
 #: docs/Bootloader_Entry.md:block 4 (header)
 msgid "Virtual Serial"
-msgstr ""
+msgstr "Virtuális sorozat"
 
 #: docs/Bootloader_Entry.md:block 5 (paragraph)
 msgid ""
 "If a virtual (USB-ACM) serial port is in use, pulsing DTR while at 1200 baud"
 " will request the bootloader."
 msgstr ""
+"Ha virtuális (USB-ACM) soros port van használatban, a DTR pulzálása 1200 "
+"baud mellett kéri a rendszerbetöltőt."
 
 #: docs/Bootloader_Entry.md:block 6 (header)
 msgid "Python (with `flash_usb`)"
