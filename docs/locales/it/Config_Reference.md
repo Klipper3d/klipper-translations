@@ -1840,7 +1840,7 @@ z_offset:
 
 ### [axis_twist_compensation]
 
-A tool to compensate for inaccurate probe readings due to twist in X gantry. See the [Axis Twist Compensation Guide](Axis_Twist_Compensation.md) for more detailed information regarding symptoms, configuration and setup.
+Uno strumento per compensare letture imprecise della sonda dovute alla torsione nel portale X. Consultare la [Guida alla compensazione della torsione dell'asse](Axis_Twist_Compensation.md) per informazioni più dettagliate su sintomi, configurazione e impostazione.
 
 ```
 [axis_twist_compensation]
@@ -1907,7 +1907,7 @@ Vedere [sample-multi-extruder.cfg](../config/sample-multi-extruder.cfg) per un e
 
 Support for cartesian and hybrid_corexy/z printers with dual carriages on a single axis. The carriage mode can be set via the SET_DUAL_CARRIAGE extended g-code command. For example, "SET_DUAL_CARRIAGE CARRIAGE=1" command will activate the carriage defined in this section (CARRIAGE=0 will return activation to the primary carriage). Dual carriage support is typically combined with extra extruders - the SET_DUAL_CARRIAGE command is often called at the same time as the ACTIVATE_EXTRUDER command. Be sure to park the carriages during deactivation. Note that during G28 homing, typically the primary carriage is homed first followed by the carriage defined in the `[dual_carriage]` config section. However, the `[dual_carriage]` carriage will be homed first if both carriages home in a positive direction and the [dual_carriage] carriage has a `position_endstop` greater than the primary carriage, or if both carriages home in a negative direction and the `[dual_carriage]` carriage has a `position_endstop` less than the primary carriage.
 
-Additionally, one could use "SET_DUAL_CARRIAGE CARRIAGE=1 MODE=COPY" or "SET_DUAL_CARRIAGE CARRIAGE=1 MODE=MIRROR" commands to activate either copying or mirroring mode of the dual carriage, in which case it will follow the motion of the carriage 0 accordingly. These commands can be used to print two parts simultaneously - either two identical parts (in COPY mode) or mirrored parts (in MIRROR mode). Note that COPY and MIRROR modes also require appropriate configuration of the extruder on the dual carriage, which can typically be achieved with "SYNC_EXTRUDER_MOTION MOTION_QUEUE=extruder EXTRUDER=<dual_carriage_extruder>" or a similar command.
+Inoltre, è possibile utilizzare i comandi "SET_DUAL_CARRIAGE CARRIAGE=1 MODE=COPY" o "SET_DUAL_CARRIAGE CARRIAGE=1 MODE=MIRROR" per attivare la modalità di copia o di mirroring del doppio carrello, nel qual caso seguirà di conseguenza il movimento del carrello 0 . Questi comandi possono essere utilizzati per stampare due parti contemporaneamente: due parti identiche (in modalità COPIA) o parti specchiate (in modalità SPECCHIO). Tieni presente che le modalità COPY e MIRROR richiedono anche la configurazione appropriata dell'estrusore sul doppio carrello, che in genere può essere ottenuta con "SYNC_EXTRUDER_MOTION MOTION_QUEUE=extruder EXTRUDER=<dual_carriage_extruder>" o un comando simile.
 
 Vedere [sample-idex.cfg](../config/sample-idex.cfg) per un esempio di configurazione.
 
@@ -2241,9 +2241,9 @@ sensor_type: BME280
 #   above parameters.
 ```
 
-### AHT10/AHT20/AHT21 temperature sensor
+### Sensore temperatura AHT10/AHT20/AHT21
 
-AHT10/AHT20/AHT21 two wire interface (I2C) environmental sensors. Note that these sensors are not intended for use with extruders and heater beds, but rather for monitoring ambient temperature (C) and relative humidity. See [sample-macros.cfg](../config/sample-macros.cfg) for a gcode_macro that may be used to report humidity in addition to temperature.
+Sensori ambientali con interfaccia a due fili (I2C) AHT10/AHT20/AHT21. Si noti che questi sensori non sono destinati all'uso con estrusori e letti riscaldanti, ma piuttosto per il monitoraggio della temperatura ambiente (C) e dell'umidità relativa. Vedi [sample-macros.cfg](../config/sample-macros.cfg) per un gcode_macro che può essere utilizzato per segnalare l'umidità oltre alla temperatura.
 
 ```
 sensor_type: AHT10

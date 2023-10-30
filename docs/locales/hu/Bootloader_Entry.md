@@ -1,12 +1,12 @@
-# Bootloader Entry
+# Bootloader belépés
 
-Klipper can be instructed to reboot into a [Bootloader](Bootloaders.md) in one of the following ways:
+Klipper utasítható, hogy újraindítsa a [Bootloadert](Bootloaders.md) az alábbi módok egyikében:
 
-## Requesting the bootloader
+## A bootloader kérése
 
-### Virtual Serial
+### Virtuális sorozat
 
-If a virtual (USB-ACM) serial port is in use, pulsing DTR while at 1200 baud will request the bootloader.
+Ha virtuális (USB-ACM) soros port van használatban, a DTR pulzálása 1200 baud mellett kéri a rendszerbetöltőt.
 
 #### Python (with `flash_usb`)
 

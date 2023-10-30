@@ -4,7 +4,7 @@ Dieses Dokument ist eine Referenz für Optionen, die in der Klipper-Konfiguratio
 
 Die Beschreibungen in diesem Dokument sind so formatiert, dass es möglich ist, sie auszuschneiden und in eine Druckerkonfigurationsdatei einzufügen. Siehe das [Installationsdokument](Installation.md) für Informationen über die Einrichtung von Klipper und die Auswahl einer ersten Konfigurationsdatei.
 
-## Micro-controller configuration
+## Mikrocontroller-Konfiguration
 
 ### Format of micro-controller pin names
 

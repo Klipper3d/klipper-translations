@@ -1,10 +1,10 @@
-# CANBUS Troubleshooting
+# CANBUS Hibaelhárítás
 
-This document provides information on troubleshooting communication issues when using [Klipper with CAN bus](CANBUS.md).
+Ez a dokumentum információt ad a hibaelhárítás kommunikációs problémáiról a [Klipper és CAN bus](CANBUS.md) használatakor.
 
-## Verify CAN bus wiring
+## CAN-busz vezetékek ellenőrzése
 
-The first step in troubleshooting communication issues is to verify the CAN bus wiring.
+A kommunikációs problémák hibaelhárításának első lépése a CAN-busz vezetékeinek ellenőrzése.
 
 Be sure there are exactly two 120 Ohm [terminating
 resistors](CANBUS.md#terminating-resistors) on the CAN bus. If the resistors are not properly installed then messages may not be able to be sent at all or the connection may have sporadic instability.

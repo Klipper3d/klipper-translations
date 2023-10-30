@@ -61,7 +61,7 @@ The following commands are available when an [adxl345 config section](Config_Ref
 
 #### Отладка акселерометра: запись
 
-`ACCELEROMETER_DEBUG_WRITE [CHIP=<config_name>] REG=<register> VAL=<value>`: Writes raw "value" into a register "register". Both "value" and "register" can be a decimal or a hexadecimal integer. Use with care, and refer to ADXL345 data sheet for the reference.
+`ACCELEROMETER_DEBUG_WRITE [CHIP=<config_name>] REG=<register> VAL=<value>`: Записывает необработанное «value» в регистр «register». И «value», и «register» могут быть десятичным или шестнадцатеричным целым числом. Используйте с осторожностью и обратитесь к спецификации ADXL345 для справки.
 
 ### [angle]
 
