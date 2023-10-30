@@ -3,14 +3,15 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-09-15 00:48+0000\n"
+"PO-Revision-Date: 2023-10-29 05:19+0000\n"
 "Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/config_reference/it/>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/"
+"config_reference/it/>\n"
 "Language: it\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.0.1-dev\n"
+"X-Generator: Weblate 5.2-dev\n"
 
 msgid ""
 "This document is a reference for options available in the Klipper config "
@@ -7670,7 +7671,7 @@ msgstr ""
 
 #: docs/Config_Reference.md:block 200 (header)
 msgid "[axis_twist_compensation]"
-msgstr ""
+msgstr "[axis_twist_compensation]"
 
 #: docs/Config_Reference.md:block 201 (paragraph)
 msgid ""
@@ -7678,6 +7679,10 @@ msgid ""
 " See the [Axis Twist Compensation Guide](Axis_Twist_Compensation.md) for "
 "more detailed information regarding symptoms, configuration and setup."
 msgstr ""
+"Uno strumento per compensare letture imprecise della sonda dovute alla "
+"torsione nel portale X. Consultare la [Guida alla compensazione della "
+"torsione dell'asse](Axis_Twist_Compensation.md) per informazioni più "
+"dettagliate su sintomi, configurazione e impostazione."
 
 #: docs/Config_Reference.md:block 202 (code)
 msgid ""
@@ -7735,6 +7740,16 @@ msgid ""
 "MOTION_QUEUE=extruder EXTRUDER=<dual_carriage_extruder>\" or a similar "
 "command."
 msgstr ""
+"Inoltre, è possibile utilizzare i comandi \"SET_DUAL_CARRIAGE CARRIAGE=1 "
+"MODE=COPY\" o \"SET_DUAL_CARRIAGE CARRIAGE=1 MODE=MIRROR\" per attivare la "
+"modalità di copia o di mirroring del doppio carrello, nel qual caso seguirà "
+"di conseguenza il movimento del carrello 0 . Questi comandi possono essere "
+"utilizzati per stampare due parti contemporaneamente: due parti identiche ("
+"in modalità COPIA) o parti specchiate (in modalità SPECCHIO). Tieni presente "
+"che le modalità COPY e MIRROR richiedono anche la configurazione appropriata "
+"dell'estrusore sul doppio carrello, che in genere può essere ottenuta con "
+"\"SYNC_EXTRUDER_MOTION MOTION_QUEUE=extruder "
+"EXTRUDER=<dual_carriage_extruder>\" o un comando simile."
 
 #: docs/Config_Reference.md:block 215 (code)
 msgid ""
@@ -7780,7 +7795,7 @@ msgstr ""
 
 #: docs/Config_Reference.md:block 259 (header)
 msgid "AHT10/AHT20/AHT21 temperature sensor"
-msgstr ""
+msgstr "Sensore temperatura AHT10/AHT20/AHT21"
 
 #: docs/Config_Reference.md:block 260 (paragraph)
 msgid ""
@@ -7790,6 +7805,12 @@ msgid ""
 "[sample-macros.cfg](../config/sample-macros.cfg) for a gcode_macro that may "
 "be used to report humidity in addition to temperature."
 msgstr ""
+"Sensori ambientali con interfaccia a due fili (I2C) AHT10/AHT20/AHT21. Si "
+"noti che questi sensori non sono destinati all'uso con estrusori e letti "
+"riscaldanti, ma piuttosto per il monitoraggio della temperatura ambiente (C) "
+"e dell'umidità relativa. Vedi [sample-macros.cfg](../config/sample-macros."
+"cfg) per un gcode_macro che può essere utilizzato per segnalare l'umidità "
+"oltre alla temperatura."
 
 #: docs/Config_Reference.md:block 261 (code)
 msgid ""

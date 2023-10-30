@@ -3,14 +3,15 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-09-14 18:54+0000\n"
+"PO-Revision-Date: 2023-10-29 05:19+0000\n"
 "Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/g-codes/it/>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/g-codes/"
+"it/>\n"
 "Language: it\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.0.1-dev\n"
+"X-Generator: Weblate 5.2-dev\n"
 
 msgid ""
 "This document describes the commands that Klipper supports. These are "
@@ -3282,7 +3283,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 376 (header)
 msgid "[axis_twist_compensation]"
-msgstr ""
+msgstr "[axis_twist_compensation]"
 
 #: docs/G-Codes.md:block 377 (paragraph)
 msgid ""
