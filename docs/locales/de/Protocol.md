@@ -1,4 +1,4 @@
-# Protocol
+# Protokoll
 
 Das Klipper-Messaging-Protokoll wird für die Low-Level-Kommunikation zwischen der Klipper-Host-Software und der Klipper-Mikrocontroller-Software verwendet. Auf hoher Ebene kann man sich das Protokoll als eine Reihe von Befehls- und Antwortzeichenfolgen vorstellen, die komprimiert, übertragen und dann auf der Empfängerseite verarbeitet werden. Eine beispielhafte Reihe von Befehlen in unkomprimiertem, für Menschen lesbarem Format könnte folgendermaßen aussehen:
 

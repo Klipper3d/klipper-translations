@@ -1,4 +1,4 @@
-# Bootloader Entry
+# Bootloader-Eintrag
 
 Klipper can be instructed to reboot into a [Bootloader](Bootloaders.md) in one of the following ways:
 

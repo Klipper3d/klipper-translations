@@ -6,16 +6,16 @@ Welkom bij de Klipper-documentatie. Als u nieuw bent in Klipper, begin dan met d
 
 - [Kenmerken](Features.md): een lijst op hoog niveau met functies in Klipper.
 - [FAQ](FAQ.md): Veel gestelde vragen.
-- [Releases](Releases.md): The history of Klipper releases.
-- [Config changes](Config_Changes.md): Recent software changes that may require users to update their printer config file.
-- [Contact](Contact.md): Information on bug reporting and general communication with the Klipper developers.
+- [Releases](Releases.md): De geschiedenis van Klipper releases.
+- [Config changes](Config_Changes.md): Recente software wijzigingen die ervoor kunnen zorgen dat gebruikers hun printer configuratie moeten updaten.
+- [Contact](Contact.md): Informatie over foutrapportering en algemene communicatie met Klipper ontwikkelaars.
 
 ## Installation and Configuration
 
-- [Installation](Installation.md): Guide to installing Klipper.
-- [Config Reference](Config_Reference.md): Description of config parameters.
-   - [Rotation Distance](Rotation_Distance.md): Calculating the rotation_distance stepper parameter.
-- [Config checks](Config_checks.md): Verify basic pin settings in the config file.
+- [Installation](Installation.md): Gids voor het installeren van Klipper.
+- [Config Reference](Config_Reference.md): Uitleg van configuratie parameters.
+   - [Rotation Distance](Rotation_Distance.md): Berekening van de rotation_distance stepper parameter.
+- [Config checks](Config_checks.md): Verifieer simpele pin instellingen in het configuratie bestand.
 - [Bed level](Bed_Level.md): Information on "bed leveling" in Klipper.
    - [Delta calibrate](Delta_Calibrate.md): Calibration of delta kinematics.
    - [Probe calibrate](Probe_Calibrate.md): Calibration of automatic Z probes.
