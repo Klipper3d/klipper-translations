@@ -1,10 +1,20 @@
-#
+# Ettore Atalan <atalanttore@googlemail.com>, 2023.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2023-10-30 09:04+0000\n"
+"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
+"Language-Team: German <https://hosted.weblate.org/projects/klipper/"
+"canbus_troubleshooting/de/>\n"
+"Language: de\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.2-dev\n"
+"Content-Transfer-Encoding: 8bit\n"
 
 #: docs/CANBUS_Troubleshooting.md:block 1 (header)
 msgid "CANBUS Troubleshooting"
-msgstr ""
+msgstr "CANBUS-Fehlerbehebung"
 
 #: docs/CANBUS_Troubleshooting.md:block 2 (paragraph)
 msgid ""
