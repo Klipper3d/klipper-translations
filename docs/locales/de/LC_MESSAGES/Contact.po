@@ -1,18 +1,20 @@
 # Mathis Mensing <gcmatmen@gmail.com>, 2021.
+# Tobias Mohr <tobias_mohr_1991@gmx.de>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:35+0200\n"
-"PO-Revision-Date: 2021-09-29 00:47+0000\n"
-"Last-Translator: Mathis Mensing <gcmatmen@gmail.com>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/klipper/contact/de/>\n"
+"PO-Revision-Date: 2023-10-29 05:19+0000\n"
+"Last-Translator: Tobias Mohr <tobias_mohr_1991@gmx.de>\n"
+"Language-Team: German <https://hosted.weblate.org/projects/klipper/contact/"
+"de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.9-dev\n"
+"X-Generator: Weblate 5.2-dev\n"
 
 msgid "This document provides contact information for Klipper."
 msgstr ""
@@ -234,7 +236,7 @@ msgstr ""
 
 #: docs/Contact.md:block 1 (header)
 msgid "Contact"
-msgstr ""
+msgstr "Kontakt"
 
 #: docs/Contact.md:block 7 (paragraph)
 msgid ""
