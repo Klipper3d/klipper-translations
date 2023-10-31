@@ -1,26 +1,40 @@
-#
+# "Zs.Antal" <zsikaiantal@icloud.com>, 2023.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2023-10-30 09:04+0000\n"
+"Last-Translator: \"Zs.Antal\" <zsikaiantal@icloud.com>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
+"canbus_troubleshooting/hu/>\n"
+"Language: hu\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.2-dev\n"
 
 #: docs/CANBUS_Troubleshooting.md:block 1 (header)
 msgid "CANBUS Troubleshooting"
-msgstr ""
+msgstr "CANBUS Hibaelhárítás"
 
 #: docs/CANBUS_Troubleshooting.md:block 2 (paragraph)
 msgid ""
 "This document provides information on troubleshooting communication issues "
 "when using [Klipper with CAN bus](CANBUS.md)."
 msgstr ""
+"Ez a dokumentum információt ad a hibaelhárítás kommunikációs problémáiról a ["
+"Klipper és CAN bus](CANBUS.md) használatakor."
 
 #: docs/CANBUS_Troubleshooting.md:block 3 (header)
 msgid "Verify CAN bus wiring"
-msgstr ""
+msgstr "CAN-busz vezetékek ellenőrzése"
 
 #: docs/CANBUS_Troubleshooting.md:block 4 (paragraph)
 msgid ""
 "The first step in troubleshooting communication issues is to verify the CAN "
 "bus wiring."
 msgstr ""
+"A kommunikációs problémák hibaelhárításának első lépése a CAN-busz "
+"vezetékeinek ellenőrzése."
 
 #: docs/CANBUS_Troubleshooting.md:block 5 (paragraph)
 msgid ""

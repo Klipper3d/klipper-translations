@@ -1,14 +1,24 @@
-#
+# "Zs.Antal" <zsikaiantal@icloud.com>, 2023.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2023-10-30 09:04+0000\n"
+"Last-Translator: \"Zs.Antal\" <zsikaiantal@icloud.com>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
+"axis_twist_compensation/hu/>\n"
+"Language: hu\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.2-dev\n"
 
 #: docs/Axis_Twist_Compensation.md:block 1 (header)
 msgid "Axis Twist Compensation"
-msgstr ""
+msgstr "Tengely fordulat kompenzáció"
 
 #: docs/Axis_Twist_Compensation.md:block 2 (paragraph)
 msgid "This document describes the [axis_twist_compensation] module."
-msgstr ""
+msgstr "Ez a dokumentum leírja az [axis_twist_compensation] modult."
 
 #: docs/Axis_Twist_Compensation.md:block 3 (paragraph)
 msgid ""
@@ -21,6 +31,13 @@ msgid ""
 "Adjust](G-Codes.md#z_tilt_adjust) etc returning inaccurate representations "
 "of the bed."
 msgstr ""
+"Néhány nyomtatónak lehet egy kis csavarodása az X kocsiban, amely az X "
+"mozgásához csatolt szonda eredményeit elronthatja. Ez gyakori olyan "
+"nyomtatókban, mint a Prusa MK3, Sovol SV06 stb., és a [hely torzítás "
+"ellenőrzése](Probe_Calibrate.md#location-bias-check). Előfordulhat, hogy a "
+"problémás műveletek, például az [Ágy háló](Bed_Mesh.md), [Csavarok dőlésszög "
+"beállítása](G-Codes.md#screws_tilt_adjust), [Z dőlésszög beállítása](G-Codes."
+"md#z_tilt_adjust) stb. visszatérő pontatlan méréseket eredményezhet."
 
 #: docs/Axis_Twist_Compensation.md:block 4 (paragraph)
 msgid ""
@@ -29,12 +46,19 @@ msgid ""
 "recommended to first use mechanical means to fix it prior to applying "
 "software corrections."
 msgstr ""
+"Ez a modul kézi méréseket használ a felhasználó számára, hogy korrigálja a "
+"szonda eredményeit. Vedd figyelembe, hogy ha a tengely jelentősen csavart, "
+"akkor határozottan ajánlott először mechanikai eszközöket használni a "
+"szoftveres korrekciók alkalmazása előtt."
 
 #: docs/Axis_Twist_Compensation.md:block 5 (paragraph)
 msgid ""
 "**Warning**: This module is not compatible with dockable probes yet and will"
 " try to probe the bed without attaching the probe if you use it."
 msgstr ""
+"**Figyelem**: Ez a modul még nem kompatibilis a dokkolható szondákkal, és a "
+"szonda csatlakoztatása nélkül próbáld meg megmérni az ágyat, mielőtt "
+"használod."
 
 #: docs/Axis_Twist_Compensation.md:block 6 (header)
 msgid "Overview of compensation usage"
