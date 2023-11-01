@@ -4,7 +4,7 @@
 # Yifei Ding <dingyifeiair@gmail.com>, 2022.
 # Alexander Weiss <alexweiss@alexweiss.net>, 2023, 2025.
 # Ettore Atalan <atalanttore@googlemail.com>, 2023, 2025.
-# Haui <hauisminecraft@gmail.com>, 2023.
+# Haui <hauisminecraft@gmail.com>, 2023, 2025.
 # T1z3n <info@njbraun.de>, 2024.
 # Extrutex <w1indt@outlook.com>, 2024.
 # Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024, 2025.
@@ -18,7 +18,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:33+0200\n"
 "PO-Revision-Date: 2025-05-03 07:23+0000\n"
-"Last-Translator: Deleted User <noreply+100566@weblate.org>\n"
+"Last-Translator: Haui <hauisminecraft@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/"
 "config_reference/de/>\n"
 "Language: de\n"
@@ -1607,12 +1607,12 @@ msgid ""
 "[sample-macros.cfg](../config/sample-macros.cfg) for a gcode_macro that may be"
 " used to report humidity in addition to temperature."
 msgstr ""
-"AHT10/AHT20/AHT21 Zweidraht-Schnittstellen-Umweltsensoren (I2C). Beachten Sie,"
-" dass diese Sensoren nicht für den Einsatz mit Extrudern und Heizbetten "
-"gedacht sind, sondern vielmehr für die Überwachung der Umgebungstemperatur (C)"
-" und der relativen Luftfeuchtigkeit. Unter [sample-"
-"macros.cfg](../config/sample-macros.cfg) finden Sie ein gcode_macro, mit dem "
-"neben der Temperatur auch die Luftfeuchtigkeit gemeldet werden kann."
+"AHT10/AHT20/AHT21 Zweidraht-Schnittstellen-Umweltsensoren (I2C). Beachten "
+"Sie, dass diese Sensoren nicht für den Einsatz mit Extrudern und Heizbetten "
+"gedacht sind, sondern vielmehr für die Überwachung der Umgebungstemperatur "
+"(C) und der relativen Luftfeuchtigkeit. Unter [sample-macros.cfg](../config/"
+"sample-macros.cfg) finden Sie ein gcode_macro, mit dem neben der Temperatur "
+"auch die Luftfeuchtigkeit gemeldet werden kann."
 
 #: docs/Config_Reference.md:block 277 (header)
 msgid "Combined temperature sensor"
