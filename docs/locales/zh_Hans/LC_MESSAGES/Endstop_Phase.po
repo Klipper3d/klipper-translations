@@ -1,11 +1,11 @@
 # mirokymac <toufubomb@gmail.com>, 2021, 2025.
 # Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022.
-# Hosted Weblate <mfvotmjhcj@iubridge.com>, 2023.
+# Hosted Weblate <mfvotmjhcj@iubridge.com>, 2023, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:21+0000\n"
-"Last-Translator: mirokymac <toufubomb@gmail.com>\n"
+"Last-Translator: Hosted Weblate <mfvotmjhcj@iubridge.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/klipper/endstop_phase/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -134,8 +134,13 @@ msgid ""
 " Z endstop (as the stepper phase is only stable if the endstop is at a static "
 "location on a rail)."
 msgstr ""
-"此功能在Delta打印机和笛卡尔/COREXY打印机的Z端止器上最有用。可以在笛卡尔打印机的XY端止器上使用此功能，但这并不是特别有用，因为X/Y端止器位置的微小错误不太可能影响打印质量。在Corexy打印机的XY端止器上使用此功能是无效的(因为Corexy运动学上的单个步进器不能确定XY位置)。在使用\"probe:z_virtual_endstop\"Z"
-" EndStop的打印机上使用此功能是无效的(因为仅当EndStop位于轨道上的静态位置时，步进器阶段才稳定)。"
+"此功能在Delta打印机和笛卡尔/COREXY打印机的Z端止器上最有用。可以在笛卡尔打印机"
+"的XY端止器上使用此功能，但这并不是特别有用，因为X/"
+"Y端止器位置的微小错误不太可能影响打印质量。在Corexy打印机的XY端止器上使用此功"
+"能是无效的(因为Corexy运动学上的单个步进器不能确定XY位置)。在使用\"probe:"
+"z_virtual_endstop\"Z "
+"EndStop的打印机上使用此功能是无效的(因为仅当EndStop位于轨道上的静态位置时，步"
+"进器阶段才稳定)。"
 
 msgid ""
 "After calibrating the endstop phase, if the endstop is later moved or adjusted"
