@@ -2,12 +2,12 @@
 # Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022, 2025.
 # mouren 120 <mouren1101@outlook.com>, 2022.
 # Hessian Chow <hess.4x@gmail.com>, 2022, 2025.
-# Hosted Weblate <mfvotmjhcj@iubridge.com>, 2023.
+# Hosted Weblate <mfvotmjhcj@iubridge.com>, 2023, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:22+0000\n"
-"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
+"Last-Translator: Hosted Weblate <mfvotmjhcj@iubridge.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/klipper/pressure_advance/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -107,8 +107,9 @@ msgid ""
 "would be `.258`.)"
 msgstr ""
 "压力提前的设定值可以通过`pressure_advance = <start> + <measured_height> * "
-"<factor>`进行计算，如测出的最优层高（measured_height）为12.9 mm，测试起始点（start）为0 "
-"mm，增量（factor）为0.02，则计算结果为（ `0 + 12.90 *.020=0.258`。）"
+"<factor>`进行计算，如测出的最优层高（measured_height）为12.9 "
+"mm，测试起始点（start）为0 mm，增量（factor）为0.02，则计算结果为（ `0 + "
+"12.90 *.020=0.258`。）"
 
 msgid ""
 "It is possible to choose custom settings for START and FACTOR if that helps "
