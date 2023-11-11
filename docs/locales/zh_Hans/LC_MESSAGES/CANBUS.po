@@ -1,6 +1,6 @@
 # Neko.vecter <Vecterfang@icloud.com>, 2021, 2022.
 # Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022, 2025.
-# Hosted Weblate <mfvotmjhcj@iubridge.com>, 2023, 2024.
+# Hosted Weblate <mfvotmjhcj@iubridge.com>, 2023, 2024, 2025.
 # "Neko.vecter" <Vecterfang@icloud.com>, 2024.
 # hani-lengxi <2836842270@qq.com>, 2024.
 msgid ""
@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-10 16:29+0200\n"
 "PO-Revision-Date: 2025-05-03 07:21+0000\n"
-"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
+"Last-Translator: Hosted Weblate <mfvotmjhcj@iubridge.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/klipper/canbus/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -133,7 +133,8 @@ msgid ""
 "Klipper currently supports CAN on stm32, SAME5x, and rp2040 chips. In "
 "addition, the micro-controller chip must be on a board that has a CAN "
 "transceiver."
-msgstr "Klipper目前支持STM32、SAME5x和rp2040芯片上的CAN。此外，微控制器芯片必须位于具有CAN收发器的板上。"
+msgstr "Klipper目前支持STM32、SAME5x和rp2040芯片上的CAN。此外，微控制器芯片必须位于具"
+"有CAN收发器的板上。"
 
 #: docs/CANBUS.md:block 7 (paragraph)
 msgid ""
@@ -146,9 +147,12 @@ msgid ""
 " its \"USB to CAN bridge mode\") or that run the [candlelight "
 "firmware](https://github.com/candle-usb/candleLight_fw)."
 msgstr ""
-"为了使用CAN总线，必须有一个主机适配器。建议使用“USB转CAN适配器”。不同的制造商提供了许多不同的USB转CAN适配器。在选择其中一个时，我们建议验证是否可以在其上更新固件。(不幸的是，我们发现一些USB适配器运行有缺陷的固件并被锁定，因此请在购买之前进行验证。)。寻找可以直接运行Klipper的适配器(在其“USB"
-" to CAN桥模式”下)或运行[Candlellight firmware](https://github.com/candle-"
-"usb/candleLight_fw)."
+"为了使用CAN总线，必须有一个主机适配器。建议使用“USB转CAN适配器”。不同的制造商"
+"提供了许多不同的USB转CAN适配器。在选择其中一个时，我们建议验证是否可以在其上"
+"更新固件。(不幸的是，我们发现一些USB适配器运行有缺陷的固件并被锁定，因此请在"
+"购买之前进行验证。)。寻找可以直接运行Klipper的适配器(在其“USB to "
+"CAN桥模式”下)或运行[Candlellight firmware](https://github.com/candle-usb/"
+"candleLight_fw)."
 
 #: docs/CANBUS.md:block 12 (paragraph)
 msgid ""
@@ -158,7 +162,9 @@ msgid ""
 "Be sure to check the schematics of all devices on the CAN bus to verify that "
 "there are two and only two 120 Ohm resistors on the bus."
 msgstr ""
-"请注意，有些器件内置了120欧姆的电阻，不易拆卸。有些器件根本不包括电阻器。其他设备具有选择电阻的机制(通常通过连接“引脚跳线”)。务必检查CAN总线上所有器件的原理图，以验证该总线上是否有且只有两个120欧姆电阻。"
+"请注意，有些器件内置了120欧姆的电阻，不易拆卸。有些器件根本不包括电阻器。其他"
+"设备具有选择电阻的机制(通常通过连接“引脚跳线”)。务必检查CAN总线上所有器件的原"
+"理图，以验证该总线上是否有且只有两个120欧姆电阻。"
 
 #: docs/CANBUS.md:block 25 (paragraph)
 msgid ""
@@ -177,8 +183,8 @@ msgid ""
 "be configured like other CAN bus Klipper nodes."
 msgstr ""
 "当Klipper使用此模式时，微控制器在Linux下显示为“USB CAN Bus "
-"Adapter”。“Klipper网桥MCU”本身看起来就像在此CAN总线上一样-它可以通过`canbus_query.py`识别，并且必须像其他CAN "
-"Bus Klipper节点一样进行配置。"
+"Adapter”。“Klipper网桥MCU”本身看起来就像在此CAN总线上一样-它可以通过`canbus_q"
+"uery.py`识别，并且必须像其他CAN Bus Klipper节点一样进行配置。"
 
 #: docs/CANBUS.md:block 28 (unordered list)
 msgid ""
@@ -187,7 +193,8 @@ msgid ""
 "commands, it is recommended to use `allow-hotplug` in the "
 "`/etc/network/interfaces.d/can0` file. For example:"
 msgstr ""
-"每当桥接MCU重置时，Linux都会关闭相应的`can0`接口。为了确保Firmware_Restart和Restart命令的正确处理，建议使用`/etc/network/interfaces.d/can0`文件中的`Allow-"
+"每当桥接MCU重置时，Linux都会关闭相应的`can0`接口。为了确保Firmware_Restart和R"
+"estart命令的正确处理，建议使用`/etc/network/interfaces.d/can0`文件中的`Allow-"
 "hotplug`。例如："
 
 #: docs/CANBUS.md:block 30 (unordered list)
@@ -203,7 +210,8 @@ msgid ""
 "is recommended to use a CAN bus frequency of 1000000 when using \"USB to CAN "
 "bus bridge mode\"."
 msgstr ""
-"“桥式MCU”本身和CAN总线上的所有设备的可用带宽都受到CAN总线频率的有效限制。因此，在使用“USB转CAN总线桥模式”时，建议使用1000000的CAN总线频率。"
+"“桥式MCU”本身和CAN总线上的所有设备的可用带宽都受到CAN总线频率的有效限制。因此"
+"，在使用“USB转CAN总线桥模式”时，建议使用1000000的CAN总线频率。"
 
 #: docs/CANBUS.md:block 30 (unordered list)
 msgid ""
@@ -211,8 +219,8 @@ msgid ""
 "to run a `SHAPER_CALIBRATE` test if both the XY steppers and the accelerometer"
 " all communicate via a single \"USB to CAN bus\" interface."
 msgstr ""
-"即使在CAN总线频率为1000000的情况下，如果XY步进器和加速度计都通过单个“USB to CAN Bus”接口进行通信，也可能没有足够的带宽来运行 "
-"`SHAPER_CALIBRATE` 测试。"
+"即使在CAN总线频率为1000000的情况下，如果XY步进器和加速度计都通过单个“USB to "
+"CAN Bus”接口进行通信，也可能没有足够的带宽来运行 `SHAPER_CALIBRATE` 测试。"
 
 #: docs/CANBUS.md:block 30 (unordered list)
 msgid ""
@@ -223,8 +231,9 @@ msgid ""
 "[CAN node](#configuring-klipper)."
 msgstr ""
 "USB转CAN桥板不会显示为USB串口设备，也不会在运行`ls/dev/Serial/by-"
-"id`时出现，也不能在Klipper的printer.cfg文件中使用`Serial：`参数进行配置。桥接板显示为“USB "
-"CAN适配器”，并在printer.cfg中配置为[CAN节点](#configuring-klipper)。"
+"id`时出现，也不能在Klipper的printer.cfg文件中使用`Serial：`参数进行配置。桥接"
+"板显示为“USB CAN适配器”，并在printer.cfg中配置为[CAN节点](#configuring-"
+"klipper)。"
 
 #: docs/CANBUS.md:block 31 (header)
 msgid "Tips for troubleshooting"
