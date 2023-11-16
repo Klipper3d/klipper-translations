@@ -1,17 +1,19 @@
 # Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022.
 # Neko.vecter <Vecterfang@icloud.com>, 2022.
 # xm Y <3260838022@qq.com>, 2023.
+# Hosted Weblate <mfvotmjhcj@iubridge.com>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-10-13 16:03+0000\n"
-"Last-Translator: xm Y <3260838022@qq.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/debugging/zh_Hans/>\n"
+"PO-Revision-Date: 2023-11-11 17:19+0000\n"
+"Last-Translator: Hosted Weblate <mfvotmjhcj@iubridge.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/debugging/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.1-dev\n"
+"X-Generator: Weblate 5.2-dev\n"
 
 msgid "This document describes some of the Klipper debugging tools."
 msgstr "本文档描述了一些 Klipper 调试工具。"
@@ -191,45 +193,68 @@ msgid ""
 "~/klippy-env/bin/python ./klippy/klippy.py ~/printer.cfg -i test.gcode -o "
 "test.serial -v -d out/klipper.dict\n"
 msgstr ""
+"~/klippy-env/bin/python ./klippy/klippy.py ~/printer.cfg -i test.gcode -o "
+"test.serial -v -d out/klipper.dict\n"
 
 msgid ""
 "~/klippy-env/bin/python ./klippy/parsedump.py out/klipper.dict test.serial >"
 " test.txt\n"
 msgstr ""
+"~/klippy-env/bin/python ./klippy/parsedump.py out/klipper.dict test.serial > "
+"test.txt\n"
 
+#, fuzzy
 msgid ""
 "~/klippy-env/bin/python ./klippy/klippy.py config/generic-simulavr.cfg -i "
 "test.gcode -v\n"
 msgstr ""
+"~/klippy-env/bin/python ./klippy/klippy.py config/generic-simulavr.cfg -i "
+"test.gcode -v\n"
 
+#, fuzzy
 msgid "gtkwave avrsim.vcd\n"
-msgstr ""
+msgstr "gtkwave avrsim.vcd\n"
 
+#, fuzzy
 msgid "~/klippy-env/bin/python ./klippy/console.py /tmp/pseudoserial\n"
-msgstr ""
+msgstr "~/klippy-env/bin/python ./klippy/console.py /tmp/pseudoserial\n"
 
+#, fuzzy
 msgid ""
 "sudo apt-get update\n"
 "sudo apt-get install python-matplotlib\n"
 msgstr ""
+"sudo apt-get update\n"
+"sudo apt-get install python-matplotlib\n"
 
+#, fuzzy
 msgid "~/klipper/scripts/graphstats.py /tmp/klippy.log -o loadgraph.png\n"
-msgstr ""
+msgstr "~/klipper/scripts/graphstats.py /tmp/klippy.log -o loadgraph.png\n"
 
+#, fuzzy
 msgid ""
 "mkdir work_directory\n"
 "cd work_directory\n"
 "cp /tmp/klippy.log .\n"
 "~/klipper/scripts/logextract.py ./klippy.log\n"
 msgstr ""
+"mkdir work_directory\n"
+"cd work_directory\n"
+"cp /tmp/klippy.log .\n"
+"~/klipper/scripts/logextract.py ./klippy.log\n"
 
+#, fuzzy
 msgid "./scripts/check_whitespace.sh\n"
-msgstr ""
+msgstr "./scripts/check_whitespace.sh\n"
 
+#, fuzzy
 msgid ""
 "tar xfz klipper-dict-20??????.tar.gz\n"
 "~/klippy-env/bin/python ~/klipper/scripts/test_klippy.py -d dict/ ~/klipper/test/klippy/*.test\n"
 msgstr ""
+"tar xfz klipper-dict-20??????.tar.gz\n"
+"~/klippy-env/bin/python ~/klipper/scripts/test_klippy.py -d dict/ ~/klipper/"
+"test/klippy/*.test\n"
 
 #: docs/Debugging.md:block 1 (header)
 msgid "Debugging"
@@ -245,15 +270,17 @@ msgid ""
 "analyzed. To use this feature, Klipper must be started with the [API "
 "Server](API_Server.md) enabled."
 msgstr ""
-"Klipper支持记录其内部运动历史，稍后可以对其进行分析。若要使用此功能，Klipper必须在启用[API服务器]（API_Server.md）的情况下启动。"
+"Klipper支持记录其内部运动历史，稍后可以对其进行分析。若要使用此功能，Klipper"
+"必须在启用[API服务器](API_Server.md)的情况下启动。"
 
 #: docs/Debugging.md:block 26 (paragraph)
 msgid "Data logging is enabled with the `data_logger.py` tool. For example:"
 msgstr "使用 `data_logger.py` 工具启用数据日志记录。例如："
 
 #: docs/Debugging.md:block 27 (code)
+#, fuzzy
 msgid "~/klipper/scripts/motan/data_logger.py /tmp/klippy_uds mylog\n"
-msgstr ""
+msgstr "~/klipper/scripts/motan/data_logger.py /tmp/klippy_uds mylog\n"
 
 #: docs/Debugging.md:block 28 (paragraph)
 msgid ""
@@ -264,9 +291,10 @@ msgid ""
 "prints and other actions - the logging will continue in the background. When"
 " done logging, hit `ctrl-c` to exit from the `data_logger.py` tool."
 msgstr ""
-"此命令将连接到Klipper API服务器，订阅状态和运动信息，并记录结果。生成两个文件-"
-"一个压缩数据文件和一个索引文件（例如“mylog.json.gz”和“mylog.index.gz”）。启动日志记录后，可以完成打印和其他操作-"
-"日志记录将在后台继续。完成日志记录后，点击“ctrl-c”退出“data_logger.py”工具。"
+"此命令将连接到Klipper API服务器，订阅状态和运动信息，并记录结果。生成两个文件"
+"-一个压缩数据文件和一个索引文件（例如`mylog.json.gz`和`mylog.index.gz`）。启"
+"动日志记录后，可以完成打印和其他操作-日志记录将在后台继续。完成日志记录后，"
+"点击 `ctrl-c`退出 `data_logger.py` 工具。"
 
 #: docs/Debugging.md:block 29 (paragraph)
 msgid ""
@@ -274,6 +302,8 @@ msgid ""
 " To generate graphs on a Raspberry Pi, a one time step is necessary to "
 "install the \"matplotlib\" package:"
 msgstr ""
+"可以使用`motan_graph.py`工具读取生成的文件并绘制成图形。要在Raspberry "
+"PI上生成图形，需要一个时间步骤来安装“matplotlib”包："
 
 #: docs/Debugging.md:block 31 (paragraph)
 msgid ""
@@ -283,53 +313,65 @@ msgid ""
 "[Python](https://python.org) and [Matplotlib](https://matplotlib.org/) "
 "installed."
 msgstr ""
+"但是，将数据文件与`scripts/motan/`目录中的Python代码一起复制到台式机上可能会"
+"更方便。运动分析脚本应在安装了最新版本的[PYTHON](https://python."
+"org))和[Matplotlib](https://matplotlib.org/))的任何计算机上运行。"
 
 #: docs/Debugging.md:block 32 (paragraph)
 msgid "Graphs can be generated with a command like the following:"
-msgstr ""
+msgstr "可以使用如下所示的命令生成图形："
 
 #: docs/Debugging.md:block 33 (code)
+#, fuzzy
 msgid "~/klipper/scripts/motan/motan_graph.py mylog -o mygraph.png\n"
-msgstr ""
+msgstr "~/klipper/scripts/motan/motan_graph.py mylog -o mygraph.png\n"
 
 #: docs/Debugging.md:block 34 (paragraph)
 msgid ""
 "One can use the `-g` option to specify the datasets to graph (it takes a "
 "Python literal containing a list of lists). For example:"
-msgstr ""
+msgstr "可以使用`-g`选项来指定要绘制图形的数据集(它接受一个包含列表的列表Python文字)"
+"。例如："
 
 #: docs/Debugging.md:block 35 (code)
+#, fuzzy
 msgid ""
 "~/klipper/scripts/motan/motan_graph.py mylog -g "
 "'[[\"trapq(toolhead,velocity)\"], [\"trapq(toolhead,accel)\"]]'\n"
 msgstr ""
+"~/klipper/scripts/motan/motan_graph.py mylog -g '[[\"trapq(toolhead,velocity)"
+"\"], [\"trapq(toolhead,accel)\"]]'\n"
 
 #: docs/Debugging.md:block 36 (paragraph)
 msgid ""
 "The list of available datasets can be found using the `-l` option - for "
 "example:"
-msgstr "可用数据集的列表可以使用“-l”选项找到，例如："
+msgstr "可用数据集的列表可以使用 `-l` 选项找到，例如："
 
 #: docs/Debugging.md:block 37 (code)
+#, fuzzy
 msgid "~/klipper/scripts/motan/motan_graph.py -l\n"
-msgstr ""
+msgstr "~/klipper/scripts/motan/motan_graph.py -l\n"
 
 #: docs/Debugging.md:block 38 (paragraph)
 msgid ""
 "It is also possible to specify matplotlib plot options for each dataset:"
-msgstr ""
+msgstr "还可以为每个数据集指定matplotlib绘图选项："
 
 #: docs/Debugging.md:block 39 (code)
+#, fuzzy
 msgid ""
 "~/klipper/scripts/motan/motan_graph.py mylog -g "
 "'[[\"trapq(toolhead,velocity)?color=red&alpha=0.4\"]]'\n"
 msgstr ""
+"~/klipper/scripts/motan/motan_graph.py mylog -g '[[\"trapq"
+"(toolhead,velocity)?color=red&alpha=0.4\"]]'\n"
 
 #: docs/Debugging.md:block 40 (paragraph)
 msgid ""
 "Many matplotlib options are available; some examples are \"color\", "
 "\"label\", \"alpha\", and \"linestyle\"."
-msgstr ""
+msgstr "有许多matplotlib选项可用；例如“颜色”、“标签”、“阿尔法”和“线条样式”。"
 
 #: docs/Debugging.md:block 41 (paragraph)
 msgid ""
@@ -337,12 +379,18 @@ msgid ""
 "the `--help` option to see a list. It may also be convenient to view/modify "
 "the [motan_graph.py](../scripts/motan/motan_graph.py) script itself."
 msgstr ""
+"`motan_graph.py`工具支持其他几个命令行选项--"
+"使用`--help`选项查看列表。查看/修改[motan_graph.py](../scripts/motan/"
+"motan_graph.py)脚本本身可能也很方便。"
 
 #: docs/Debugging.md:block 60 (code)
+#, fuzzy
 msgid ""
 "cd /path/to/klipper\n"
 "make menuconfig\n"
 msgstr ""
+"cd /path/to/klipper\n"
+"make menuconfig\n"
 
 #: docs/Debugging.md:block 61 (paragraph)
 msgid ""
@@ -350,12 +398,17 @@ msgid ""
 "SIMULAVR software emulation support. Then one can compile Klipper (run "
 "`make`) and then start the simulation with:"
 msgstr ""
+"并针对AVR atmega644P编写了微控制器软件，并选择了SIMULAVR软件仿真支持。然后可"
+"以编译Klipper(运行`make`)，然后使用以下命令开始模拟："
 
 #: docs/Debugging.md:block 67 (code)
+#, fuzzy
 msgid ""
 "PYTHONPATH=/path/to/simulavr/src/python/ ./scripts/avrsim.py out/klipper.elf"
 " -t PORTA.PORT,PORTC.PORT\n"
 msgstr ""
+"PYTHONPATH=/path/to/simulavr/src/python/ ./scripts/avrsim.py out/klipper.elf "
+"-t PORTA.PORT,PORTC.PORT\n"
 
 #: docs/Debugging.md:block 7 (paragraph)
 msgid ""
@@ -364,6 +417,9 @@ msgid ""
 "github](https://github.com/Klipper3d/klipper/issues/1438). Once the data "
 "dictionaries are downloaded, use the following to run the regression suite:"
 msgstr ""
+"Klippy回归测试套件需要来自多个平台的“数据字典”。获取它们的最简单方法是[从gith"
+"ub](https://github.com/Klipper3d/klipper/issues/1438)."
+"下载它们。下载数据字典后，使用以下命令运行回归套件："
 
 #: docs/Debugging.md:block 42 (paragraph)
 msgid ""
@@ -372,6 +428,10 @@ msgid ""
 "the data with a Unix command like the following: `gunzip < mylog.json.gz | "
 "tr '\\03' '\\n' | less`"
 msgstr ""
+"`data_logger.py`工具产生的原始数据日志遵循[API服务器](API_Server."
+"md)中描述的格式。使用如下所示的Unix命令检查数据可能很有用：`GunZip<mylog.json"
+".gz|tr‘\\03’\\n"
+"‘|less`"
 
 #: docs/Debugging.md:block 57 (paragraph)
 msgid ""
@@ -379,24 +439,32 @@ msgid ""
 "support. Note that the build system may need to have some packages (such as "
 "swig) installed in order to build the python module."
 msgstr ""
+"要使用Simavr，请下载Simavr包并在支持Python的情况下进行编译。请注意，构建系统"
+"可能需要安装一些包(如SWIG)才能构建Python模块。"
 
 #: docs/Debugging.md:block 58 (code)
+#, fuzzy
 msgid ""
 "git clone git://git.savannah.nongnu.org/simulavr.git\n"
 "cd simulavr\n"
 "make python\n"
 "make build\n"
 msgstr ""
+"git clone git://git.savannah.nongnu.org/simulavr.git\n"
+"cd simulavr\n"
+"make python\n"
+"make build\n"
 
 #: docs/Debugging.md:block 59 (paragraph)
 msgid ""
 "Make sure a file like **./build/pysimulavr/_pysimulavr.*.so** is present "
 "after the above compilation:"
-msgstr ""
+msgstr "确保在上述编译后存在类似**./Build/pysimavr/_pysimavr.*.so**的文件："
 
 #: docs/Debugging.md:block 60 (code)
+#, fuzzy
 msgid "ls ./build/pysimulavr/_pysimulavr.*.so\n"
-msgstr ""
+msgstr "ls ./build/pysimulavr/_pysimulavr.*.so\n"
 
 #: docs/Debugging.md:block 62 (paragraph)
 msgid ""
@@ -404,30 +472,42 @@ msgid ""
 "the following packages and generate *.deb files for system-wide installation"
 " of simulavr:"
 msgstr ""
+"如果您使用的是基于Debian的系统(Debian、Ubuntu等)。您可以安装以下程序包并生成*"
+".deb文件，以便在系统范围内安装simavr："
 
 #: docs/Debugging.md:block 63 (code)
+#, fuzzy
 msgid ""
 "sudo apt update\n"
 "sudo apt install g++ make cmake swig rst2pdf help2man texinfo\n"
 "make cfgclean python debian\n"
 "sudo dpkg -i build/debian/python3-simulavr*.deb\n"
 msgstr ""
+"sudo apt update\n"
+"sudo apt install g++ make cmake swig rst2pdf help2man texinfo\n"
+"make cfgclean python debian\n"
+"sudo dpkg -i build/debian/python3-simulavr*.deb\n"
 
 #: docs/Debugging.md:block 67 (code)
+#, fuzzy
 msgid ""
 "PYTHONPATH=/path/to/simulavr/build/pysimulavr/ ./scripts/avrsim.py "
 "out/klipper.elf\n"
 msgstr ""
+"PYTHONPATH=/path/to/simulavr/build/pysimulavr/ ./scripts/avrsim.py out/"
+"klipper.elf\n"
 
 #: docs/Debugging.md:block 68 (paragraph)
 msgid ""
 "Note that if you have installed python3-simulavr system-wide, you do not "
 "need to set `PYTHONPATH`, and can simply run the simulator as"
-msgstr ""
+msgstr "请注意，如果您已经在系统范围内安装了python3-simavr，则不需要设置`PYTHONPATH`"
+"，只需将其作为模拟器"
 
 #: docs/Debugging.md:block 69 (code)
+#, fuzzy
 msgid "./scripts/avrsim.py out/klipper.elf\n"
-msgstr ""
+msgstr "./scripts/avrsim.py out/klipper.elf\n"
 
 #: docs/Debugging.md:block 61 (paragraph)
 msgid ""
@@ -435,6 +515,8 @@ msgid ""
 "**./build/pysimulavr/_pysimulavr.cpython-39-x86_64-linux-gnu.so**) and not "
 "an error."
 msgstr ""
+"此命令应报告特定文件(例如**./build/pysimulavr/_pysimulavr.cpython-39-x86_64"
+"-linux-gnu.so**)，而不是错误)。"
 
 #~ msgid ""
 #~ "This commmand should report a specific file (e.g. "

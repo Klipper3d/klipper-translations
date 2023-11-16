@@ -3,17 +3,19 @@
 # Neko.vecter <Vecterfang@icloud.com>, 2022.
 # 红豆蛋黄派 <zgpride87@outlook.com>, 2022.
 # xm Y <3260838022@qq.com>, 2023.
+# Hosted Weblate <mfvotmjhcj@iubridge.com>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-10-13 16:03+0000\n"
-"Last-Translator: xm Y <3260838022@qq.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/measuring_resonances/zh_Hans/>\n"
+"PO-Revision-Date: 2023-11-11 17:19+0000\n"
+"Last-Translator: Hosted Weblate <mfvotmjhcj@iubridge.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/measuring_resonances/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.1-dev\n"
+"X-Generator: Weblate 5.2-dev\n"
 
 msgid "Measuring Resonances"
 msgstr "共振值测量"
@@ -823,7 +825,9 @@ msgid ""
 "first to start the measurements, and then to stop them and write the output "
 "file. Refer to [G-Codes](G-Codes.md#adxl345) for more details."
 msgstr ""
-"在一些正常的打印机活动中，也可以通过运行命令“ACCELEROMETER_MEASURE”两次来获得原始数据——首先是开始测量，然后是停止测量并写入输出文件。有关更多详细信息，请参阅[G-Codes]（G-Codes.md#adxl345）。"
+"在一些正常的打印机活动中，也可以通过运行命令 `ACCELEROMETER_MEASURE`两次来获"
+"得原始数据——首先是开始测量，然后是停止测量并写入输出文件。有关更多详细信息，"
+"请参阅[G-Codes](G-Codes.md#adxl345)。"
 
 #: docs/Measuring_Resonances.md:block 9 (table)
 msgid "MPU-9250 pin"
@@ -938,8 +942,9 @@ msgid "RP2040 pin"
 msgstr ""
 
 #: docs/Measuring_Resonances.md:block 27 (table)
+#, fuzzy
 msgid "39"
-msgstr ""
+msgstr "39"
 
 #: docs/Measuring_Resonances.md:block 27 (table)
 msgid "3v3"
@@ -1037,8 +1042,9 @@ msgid "GP0 (SPI0_RX)"
 msgstr ""
 
 #: docs/Measuring_Resonances.md:block 22 (table)
+#, fuzzy
 msgid "5"
-msgstr ""
+msgstr "5"
 
 #: docs/Measuring_Resonances.md:block 22 (table)
 msgid "GP3 (SPI0_TX)"

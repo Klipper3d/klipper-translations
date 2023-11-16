@@ -4,17 +4,19 @@
 # Hessian Chow <hess.4x@gmail.com>, 2022.
 # "Neko.vecter" <Vecterfang@icloud.com>, 2023.
 # xm Y <3260838022@qq.com>, 2023.
+# Hosted Weblate <mfvotmjhcj@iubridge.com>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-10-13 16:03+0000\n"
-"Last-Translator: xm Y <3260838022@qq.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/api_server/zh_Hans/>\n"
+"PO-Revision-Date: 2023-11-11 17:19+0000\n"
+"Last-Translator: Hosted Weblate <mfvotmjhcj@iubridge.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/api_server/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.1-dev\n"
+"X-Generator: Weblate 5.2-dev\n"
 
 msgid ""
 "This document describes Klipper's Application Programmer Interface (API). "
@@ -253,7 +255,8 @@ msgid ""
 "if the method takes parameters they should be provided as keyword arguments."
 " Below is an example of how it may called from a gcode_macro:"
 msgstr ""
-"现在可以从Klipper调用远程方法“paneldue_beep”。请注意，如果方法采用参数，则应将它们作为关键字参数提供。以下是如何从gcode_macro调用它的示例："
+"现在可以从Klipper调用远程方法 `paneldue_beep`。请注意，如果方法采用参数，则应"
+"将它们作为关键字参数提供。以下是如何从gcode_macro调用它的示例："
 
 msgid ""
 "When the PANELDUE_BEEP gcode macro is executed, Klipper would send something"
