@@ -1,9 +1,16 @@
-#
+# Spravko <spravko@azet.sk>, 2023.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2023-11-16 17:03+0000\n"
+"Last-Translator: Spravko <spravko@azet.sk>\n"
+"Language-Team: Slovak <https://hosted.weblate.org/projects/klipper/"
+"resonance_compensation/sk/>\n"
 "Language: sk\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 5.2\n"
 
 msgid "Resonance Compensation"
 msgstr ""
@@ -552,7 +559,7 @@ msgid "0.5 / shaper_freq"
 msgstr ""
 
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
 msgid "± 5% shaper_freq"
 msgstr ""

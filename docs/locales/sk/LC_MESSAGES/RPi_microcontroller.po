@@ -1,9 +1,16 @@
-#
+# Spravko <spravko@azet.sk>, 2023.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2023-11-16 17:03+0000\n"
+"Last-Translator: Spravko <spravko@azet.sk>\n"
+"Language-Team: Slovak <https://hosted.weblate.org/projects/klipper/"
+"rpi_microcontroller/sk/>\n"
 "Language: sk\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 5.2\n"
 
 msgid ""
 "This document describes the process of running Klipper on a RPi and use the "
@@ -245,7 +252,7 @@ msgstr ""
 
 #: docs/RPi_microcontroller.md:block 45 (table)
 msgid "4"
-msgstr ""
+msgstr "4"
 
 #: docs/RPi_microcontroller.md:block 45 (table)
 msgid "18"
@@ -253,11 +260,11 @@ msgstr ""
 
 #: docs/RPi_microcontroller.md:block 45 (table)
 msgid "2"
-msgstr ""
+msgstr "2"
 
 #: docs/RPi_microcontroller.md:block 45 (table)
 msgid "1"
-msgstr ""
+msgstr "1"
 
 #: docs/RPi_microcontroller.md:block 45 (table)
 msgid "13"
