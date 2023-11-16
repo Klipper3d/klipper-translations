@@ -4,13 +4,14 @@
 # Yifei Ding <dingyifeiair@gmail.com>, 2022.
 # Alexander Weiss <alexweiss@alexweiss.net>, 2023.
 # Ettore Atalan <atalanttore@googlemail.com>, 2023.
+# Haui <hauisminecraft@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:33+0200\n"
-"PO-Revision-Date: 2023-10-30 09:04+0000\n"
-"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
+"PO-Revision-Date: 2023-11-03 05:15+0000\n"
+"Last-Translator: Haui <hauisminecraft@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/"
 "config_reference/de/>\n"
 "Language: de\n"
@@ -4654,7 +4655,7 @@ msgstr ""
 
 #: docs/Config_Reference.md:block 259 (header)
 msgid "AHT10/AHT20/AHT21 temperature sensor"
-msgstr ""
+msgstr "AHT10/AHT20/AHT21 Temperatursensor"
 
 #: docs/Config_Reference.md:block 260 (paragraph)
 msgid ""
@@ -4664,6 +4665,12 @@ msgid ""
 "[sample-macros.cfg](../config/sample-macros.cfg) for a gcode_macro that may "
 "be used to report humidity in addition to temperature."
 msgstr ""
+"AHT10/AHT20/AHT21 Zweidraht-Schnittstellen-Umweltsensoren (I2C). Beachten "
+"Sie, dass diese Sensoren nicht für den Einsatz mit Extrudern und Heizbetten "
+"gedacht sind, sondern vielmehr für die Überwachung der Umgebungstemperatur "
+"(C) und der relativen Luftfeuchtigkeit. Unter [sample-macros.cfg](../config/"
+"sample-macros.cfg) finden Sie ein gcode_macro, mit dem neben der Temperatur "
+"auch die Luftfeuchtigkeit gemeldet werden kann."
 
 #: docs/Config_Reference.md:block 261 (code)
 msgid ""
