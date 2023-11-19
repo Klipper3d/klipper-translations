@@ -2,17 +2,19 @@
 # Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022.
 # mouren 120 <mouren1101@outlook.com>, 2022.
 # Hessian Chow <hess.4x@gmail.com>, 2022.
+# Hosted Weblate <mfvotmjhcj@iubridge.com>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-08-25 14:22+0000\n"
-"Last-Translator: Hessian Chow <hess.4x@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/pressure_advance/zh_Hans/>\n"
+"PO-Revision-Date: 2023-11-11 07:34+0000\n"
+"Last-Translator: Hosted Weblate <mfvotmjhcj@iubridge.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/pressure_advance/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.14-dev\n"
+"X-Generator: Weblate 5.2-dev\n"
 
 msgid ""
 "This document provides information on tuning the \"pressure advance\" "
@@ -97,8 +99,9 @@ msgid ""
 "would be `.258`.)"
 msgstr ""
 "压力提前的设定值可以通过`pressure_advance = <start> + <measured_height> * "
-"<factor>`进行计算，如测出的最优层高（measured_height）为12.9 mm，测试起始点（start）为0 "
-"mm，增量（factor）为0.02，则计算结果为 `0 + 12.90 *.020=0.258`。"
+"<factor>`进行计算，如测出的最优层高（measured_height）为12.9 "
+"mm，测试起始点（start）为0 mm，增量（factor）为0.02，则计算结果为（ `0 + "
+"12.90 *.020=0.258`。）"
 
 msgid ""
 "It is possible to choose custom settings for START and FACTOR if that helps "
@@ -134,7 +137,7 @@ msgstr ""
 "命令重启Klipper以应用配置。同时RESTART会重置转角速度设置并取消压力提前值的逐层变化的设置。"
 
 msgid "Important Notes"
-msgstr "重要提示："
+msgstr "重要提示"
 
 msgid ""
 "The pressure advance value is dependent on the extruder, the nozzle, and the"
