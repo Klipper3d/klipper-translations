@@ -44,7 +44,7 @@ Klippy上位机程序包含四个进程。主线程用于处理输入的G代码�
 
 典型的打印机运动始于klipper上位机接收到"G1"命令，并在微控制器发出对应的步进脉冲结束。本节将简述典型运动命令的代码流。[运动学](Kinematics.md)文档将更为细致的描述运动的机械原理。
 
-* 移动命令的处理始于gcode.py，该代码将G代码转化为内部调用。G1命令将调用klippy/extras/gcode_move.py中的cmd_G1()函数。gcode_move.py中的代码将处理 原点变换（G92），绝对坐标模式（G90）和单位变换（如F6000=100mm/s）。一个移动命令的处理路径为：`_process_data() -> _process_commands() -> cmd_G1()`。最终将调用ToolHead类的方法实现移动 `cmd_G1() -> ToolHead.move()`。
+* 移动命令的处理始于gcode.py，该代码将G代码转化为内部调用。G1命令将调用klippy/extras/gcode_move.py中的cmd_G1()函数。gcode_move.py中的代码将处理 原点变换（G92），绝对坐标模式（G90）和单位变换（如F6000=100mm/s）。一个移动命令的处理路径为：`_process_data() -> _process_commands() -> cmd_G1()`。最终将调用ToolHead类的方法实现移动 `cmd_G1() -> ToolHead.move()`
 * ToolHead类（位于toolhead.py）处理“前瞻”行为和记录打印的时间点。移动命令的代码路径为 `ToolHead.move() -> MoveQueue.add_move() -> MoveQueue.flush() -> Move.set_junction() -> ToolHead._process_moves()`。
    * ToolHead.move()将创建一个Move()对象实例，其中将包含移动的参数（在笛卡尔空间中，并这些参数以mm和s为单位）。
    * kinematics类将检查每个运动命令（`ToolHead.move() -> kin.check_move()`）。各种kinematics类存放于 klippy/kinematics/ 目录。check_move()能在运动命令不合理时抛出错误。如果 check_move()成功，这意味着打印机必定能完成运动命令。
@@ -80,7 +80,7 @@ Klippy上位机的主程序能对模块进行热加载。如果设置文件中�
 * 如果模块需要使用系统时钟或外部文件描述符，可通过`printer.get_reactor()`对获取全局事件反应器进行访问（event reactor）。通过该反应器类可以部署定时器，等待文件描述符输入，或者“挂起”上位机程序。
 * 不应使用全局变量。全部状态量应存储于 "printer objects"，并通过 `load_config()`进行访问。否则，RESTART命令的行为将无法预测。同样，任何在运行时打开的外部文件（或套接字），应在"klippy:disconnect"的事件内注册相应的回调函数进行关闭。
 * 应避免访问其他"printer objects"私有对象属性（或调用命名以下划线开始的方法）。遵循这一方式可方便之后的变更。
-* 推荐在类的工厂函数中将所有成员变量实例化（即避免使用Python的动态变动成员变量的功能）。
+* 推荐在类的工厂函数中将所有成员变量实例化（即避免使用Python的动态变动成员变量的功能。）
 * 若一Python变量存放有一浮点数，那么建议该变量应总赋予浮点类型的量，并仅使用浮点数常量进行值运算（并绝不使用整形常数进行运算）。例如，应使用`self.speed = 1.`而非`self.speed = 1`，并以`self.speed = 2. * x` 替代 ` self.speed = 2 *x`。一致地使用浮点值可以避免Python类型转换中难以调试的怪异现象。
 * 若需向 klipper 母分支提交模块的代码，请在模块代码的头部加入版权声明。详请参考已有模块的格式。
 

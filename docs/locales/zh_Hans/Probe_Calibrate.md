@@ -90,7 +90,7 @@ Recv: // probe accuracy results: maximum 2.519448, minimum 2.506948, range 0.012
 
 对于三角洲打印机，请尝试依次在靠近A柱、B柱和C柱的位置测量z_offset。对于龙门、corexy或类似结构打印机，尝试在热床的四个角进行z_offset的测量。
 
-在进行上述测试前，应先按照本文档的开头部分对X、Y、Z的偏移值进行校准，然后对打印机进行归零，并将探针移动到首个目标XY位置。按照[探针Z偏移值校准](#探针Z偏移值校准)的步骤，运行`PROBE_CALIBRATE`，重复多次`TESTZ`命令，并在喷嘴触床时使用 `ACCEPT`命令，但是**切勿使用 `SAVE_CONFIG`**。手动记下此时的z_offset 。之后将探针移动到其他XY位置，重复上述的`PROBE_CALIBRATE`步骤，并分别记下z_offset。
+在开始测试之前，首先按照本文件开头所述校准探头X、Y和Z偏移量。然后回到打印机主页并导航到第一个XY位置。按照[校准探头Z偏移量](#calibrating-probe-z-offset)中的步骤运行`PROBE_CALIBRATE`命令、`TESTZ`命令和`ACCEPT`命令，但不运行`SAVE_CONFIG`。请注意已找到报告的z_Offset。然后导航到其他XY位置，重复这些`PROBE_CALIBRATE‘步骤，并注意报告的z_Offset。
 
 如果上述方法中测出的最大z_offset 和最小z_offset 之间的差值大于25微米（.025mm），则该探针不适用于常规的热床调平。此时应参照 [热床调平](Bed_Level.md) 文档的手动调平部分进行调平。
 

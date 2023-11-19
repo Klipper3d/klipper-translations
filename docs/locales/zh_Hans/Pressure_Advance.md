@@ -40,7 +40,7 @@ TUNING_TOWER COMMAND=SET_PRESSURE_ADVANCE PARAMETER=ADVANCE START=0 FACTOR=.020
 
 ![对高度进行测量](img/tune_pa.jpg)
 
-压力提前的设定值可以通过`pressure_advance = <start> + <measured_height> * <factor>`进行计算，如测出的最优层高（measured_height）为12.9 mm，测试起始点（start）为0 mm，增量（factor）为0.02，则计算结果为 `0 + 12.90 *.020=0.258`。
+压力提前的设定值可以通过`pressure_advance = <start> + <measured_height> * <factor>`进行计算，如测出的最优层高（measured_height）为12.9 mm，测试起始点（start）为0 mm，增量（factor）为0.02，则计算结果为（ `0 + 12.90 *.020=0.258`。）
 
 为获得最佳的压力提前设定值，您可以自定义 起始高度（START）和增量（FACTOR）。切记在开始打印前通过调试塔（TUNING_TOWER）命令设置测试值。
 
@@ -50,7 +50,7 @@ TUNING_TOWER COMMAND=SET_PRESSURE_ADVANCE PARAMETER=ADVANCE START=0 FACTOR=.020
 
 完成测试后，在配置中的`[extruder]`节中加入`pressure_advance = <calculated_value>`（其中`calculated_value`为前述测试计算出的数值），保存并使用 RESTART 命令重启Klipper以应用配置。同时RESTART会重置转角速度设置并取消压力提前值的逐层变化的设置。
 
-## 重要提示：
+## 重要提示
 
 * 压力提前的设置值与挤出结构，喷嘴和耗材息息相关。对于不同厂商的耗材，或同一厂商的不同颜色/批次的耗材都会出现压力提前值显著不同的状况。因此，建议在更换耗材后重新校准压力提前值。
 * 打印温度和打印速度会显著影响压力提前设置。因此请确保在完成[挤出距离校准（extruder rotation_distance）](Rotation_Distance.md#calibrating-rotation_distance-on-extruders) 和 [喷嘴温度校准（nozzle temperature）](http://reprap.org/wiki/Triffid_Hunter%27s_Calibration_Guide#Nozzle_Temperature)后进行压力提前校准。

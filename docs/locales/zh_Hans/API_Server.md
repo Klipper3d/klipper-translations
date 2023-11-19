@@ -92,7 +92,7 @@ Klipper 会按照收到请求的顺序依次处理请求。然而，一些请求
 
 例如：`{“id”：123，“method”：“register_remote_method”，“params”：{“response_template”：｛“action”：“run_paneldue_deep”}，“remote_method“：”paneldue_beep`
 
-现在可以从Klipper调用远程方法“paneldue_beep”。请注意，如果方法采用参数，则应将它们作为关键字参数提供。以下是如何从gcode_macro调用它的示例：
+现在可以从Klipper调用远程方法 `paneldue_beep`。请注意，如果方法采用参数，则应将它们作为关键字参数提供。以下是如何从gcode_macro调用它的示例：
 
 ```
 [gcode_macro PANELDUE_BEEP]

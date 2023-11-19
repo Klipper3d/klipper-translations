@@ -12,7 +12,7 @@ Klipper GitHub主存储库使用“GitHub操作”来运行一系列回归测试
 ./scripts/check_whitespace.sh
 ```
 
-The Klippy regression test suite requires "data dictionaries" from many platforms. The easiest way to obtain them is to [download them from github](https://github.com/Klipper3d/klipper/issues/1438). Once the data dictionaries are downloaded, use the following to run the regression suite:
+Klippy回归测试套件需要来自多个平台的“数据字典”。获取它们的最简单方法是[从github](https://github.com/Klipper3d/klipper/issues/1438).下载它们。下载数据字典后，使用以下命令运行回归套件：
 
 ```
 tar xfz klipper-dict-20??????.tar.gz
@@ -60,7 +60,7 @@ make
 
 ## 运动分析和数据记录
 
-Klipper支持记录其内部运动历史，稍后可以对其进行分析。若要使用此功能，Klipper必须在启用[API服务器]（API_Server.md）的情况下启动。
+Klipper支持记录其内部运动历史，稍后可以对其进行分析。若要使用此功能，Klipper必须在启用[API服务器](API_Server.md)的情况下启动。
 
 使用 `data_logger.py` 工具启用数据日志记录。例如：
 
@@ -68,46 +68,46 @@ Klipper支持记录其内部运动历史，稍后可以对其进行分析。若�
 ~/klipper/scripts/motan/data_logger.py /tmp/klippy_uds mylog
 ```
 
-此命令将连接到Klipper API服务器，订阅状态和运动信息，并记录结果。生成两个文件-一个压缩数据文件和一个索引文件（例如“mylog.json.gz”和“mylog.index.gz”）。启动日志记录后，可以完成打印和其他操作-日志记录将在后台继续。完成日志记录后，点击“ctrl-c”退出“data_logger.py”工具。
+此命令将连接到Klipper API服务器，订阅状态和运动信息，并记录结果。生成两个文件-一个压缩数据文件和一个索引文件（例如`mylog.json.gz`和`mylog.index.gz`）。启动日志记录后，可以完成打印和其他操作-日志记录将在后台继续。完成日志记录后，点击 `ctrl-c`退出 `data_logger.py` 工具。
 
-The resulting files can be read and graphed using the `motan_graph.py` tool. To generate graphs on a Raspberry Pi, a one time step is necessary to install the "matplotlib" package:
+可以使用`motan_graph.py`工具读取生成的文件并绘制成图形。要在Raspberry PI上生成图形，需要一个时间步骤来安装“matplotlib”包：
 
 ```
 sudo apt-get update
 sudo apt-get install python-matplotlib
 ```
 
-However, it may be more convenient to copy the data files to a desktop class machine along with the Python code in the `scripts/motan/` directory. The motion analysis scripts should run on any machine with a recent version of [Python](https://python.org) and [Matplotlib](https://matplotlib.org/) installed.
+但是，将数据文件与`scripts/motan/`目录中的Python代码一起复制到台式机上可能会更方便。运动分析脚本应在安装了最新版本的[PYTHON](https://python.org))和[Matplotlib](https://matplotlib.org/))的任何计算机上运行。
 
-Graphs can be generated with a command like the following:
+可以使用如下所示的命令生成图形：
 
 ```
 ~/klipper/scripts/motan/motan_graph.py mylog -o mygraph.png
 ```
 
-One can use the `-g` option to specify the datasets to graph (it takes a Python literal containing a list of lists). For example:
+可以使用`-g`选项来指定要绘制图形的数据集(它接受一个包含列表的列表Python文字)。例如：
 
 ```
 ~/klipper/scripts/motan/motan_graph.py mylog -g '[["trapq(toolhead,velocity)"], ["trapq(toolhead,accel)"]]'
 ```
 
-可用数据集的列表可以使用“-l”选项找到，例如：
+可用数据集的列表可以使用 `-l` 选项找到，例如：
 
 ```
 ~/klipper/scripts/motan/motan_graph.py -l
 ```
 
-It is also possible to specify matplotlib plot options for each dataset:
+还可以为每个数据集指定matplotlib绘图选项：
 
 ```
 ~/klipper/scripts/motan/motan_graph.py mylog -g '[["trapq(toolhead,velocity)?color=red&alpha=0.4"]]'
 ```
 
-Many matplotlib options are available; some examples are "color", "label", "alpha", and "linestyle".
+有许多matplotlib选项可用；例如“颜色”、“标签”、“阿尔法”和“线条样式”。
 
-The `motan_graph.py` tool supports several other command-line options - use the `--help` option to see a list. It may also be convenient to view/modify the [motan_graph.py](../scripts/motan/motan_graph.py) script itself.
+`motan_graph.py`工具支持其他几个命令行选项--使用`--help`选项查看列表。查看/修改[motan_graph.py](../scripts/motan/motan_graph.py)脚本本身可能也很方便。
 
-The raw data logs produced by the `data_logger.py` tool follow the format described in the [API Server](API_Server.md). It may be useful to inspect the data with a Unix command like the following: `gunzip < mylog.json.gz | tr '\03' '\n' | less`
+`data_logger.py`工具产生的原始数据日志遵循[API服务器](API_Server.md)中描述的格式。使用如下所示的Unix命令检查数据可能很有用：`GunZip<mylog.json.gz|tr‘\03’\n‘|less`
 
 ## 生成负载图
 
@@ -147,7 +147,7 @@ cp /tmp/klippy.log .
 
 [simulavr](http://www.nongnu.org/simulavr/)工具可以模拟 Atmel ATmega 微控制器。本章描述了如何通过simulavr运行测试gcode文件。由于该工具需要大量cpu资源，建议在台式机（而不是树莓派）上运行。
 
-To use simulavr, download the simulavr package and compile with python support. Note that the build system may need to have some packages (such as swig) installed in order to build the python module.
+要使用Simavr，请下载Simavr包并在支持Python的情况下进行编译。请注意，构建系统可能需要安装一些包(如SWIG)才能构建Python模块。
 
 ```
 git clone git://git.savannah.nongnu.org/simulavr.git
@@ -156,15 +156,15 @@ make python
 make build
 ```
 
-Make sure a file like **./build/pysimulavr/_pysimulavr.*.so** is present after the above compilation:
+确保在上述编译后存在类似**./Build/pysimavr/_pysimavr.*.so**的文件：
 
 ```
 ls ./build/pysimulavr/_pysimulavr.*.so
 ```
 
-This command should report a specific file (e.g. **./build/pysimulavr/_pysimulavr.cpython-39-x86_64-linux-gnu.so**) and not an error.
+此命令应报告特定文件(例如**./build/pysimulavr/_pysimulavr.cpython-39-x86_64-linux-gnu.so**)，而不是错误)。
 
-If you are on a Debian-based system (Debian, Ubuntu, etc.) you can install the following packages and generate *.deb files for system-wide installation of simulavr:
+如果您使用的是基于Debian的系统(Debian、Ubuntu等)。您可以安装以下程序包并生成*.deb文件，以便在系统范围内安装simavr：
 
 ```
 sudo apt update
@@ -180,13 +180,13 @@ cd /path/to/klipper
 make menuconfig
 ```
 
-and compile the micro-controller software for an AVR atmega644p and select SIMULAVR software emulation support. Then one can compile Klipper (run `make`) and then start the simulation with:
+并针对AVR atmega644P编写了微控制器软件，并选择了SIMULAVR软件仿真支持。然后可以编译Klipper(运行`make`)，然后使用以下命令开始模拟：
 
 ```
 PYTHONPATH=/path/to/simulavr/build/pysimulavr/ ./scripts/avrsim.py out/klipper.elf
 ```
 
-Note that if you have installed python3-simulavr system-wide, you do not need to set `PYTHONPATH`, and can simply run the simulator as
+请注意，如果您已经在系统范围内安装了python3-simavr，则不需要设置`PYTHONPATH`，只需将其作为模拟器
 
 ```
 ./scripts/avrsim.py out/klipper.elf

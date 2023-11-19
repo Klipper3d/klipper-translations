@@ -2185,9 +2185,9 @@ sensor_type: BME280
 #   above parameters.
 ```
 
-### AHT10/AHT20/AHT21 temperature sensor
+### AHT10/AHT20/AHT21 Temperatursensor
 
-AHT10/AHT20/AHT21 two wire interface (I2C) environmental sensors. Note that these sensors are not intended for use with extruders and heater beds, but rather for monitoring ambient temperature (C) and relative humidity. See [sample-macros.cfg](../config/sample-macros.cfg) for a gcode_macro that may be used to report humidity in addition to temperature.
+AHT10/AHT20/AHT21 Zweidraht-Schnittstellen-Umweltsensoren (I2C). Beachten Sie, dass diese Sensoren nicht für den Einsatz mit Extrudern und Heizbetten gedacht sind, sondern vielmehr für die Überwachung der Umgebungstemperatur (C) und der relativen Luftfeuchtigkeit. Unter [sample-macros.cfg](../config/sample-macros.cfg) finden Sie ein gcode_macro, mit dem neben der Temperatur auch die Luftfeuchtigkeit gemeldet werden kann.
 
 ```
 sensor_type: AHT10
