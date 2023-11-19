@@ -56,7 +56,7 @@ Where `<DEVICE>` is your serial port, such as `/dev/ttyS0`, or `/dev/serial/by-i
 
 `<BAUD>` is the baud rate of the serial port, such as `115200`.
 
-### CAN 总线
+### CANBUS
 
 If CANBUS is in use, a special [admin message](CANBUS_protocol.md#admin-messages) will request the bootloader. This message will be respected even if the device already has a nodeid, and will also be processed if the mcu is shutdown.
 

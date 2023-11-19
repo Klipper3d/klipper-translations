@@ -1,10 +1,10 @@
 # G-Codes
 
-Dieses Dokument beschreibt die von Klipper unterstützten Befehle. Dies sind Befehle, die man auf der OctoPrint Registerkarte Terminals eingeben kann.
+This document describes the commands that Klipper supports. These are commands that one may enter into the OctoPrint terminal tab.
 
-## G-code Befehle
+## G-Code commands
 
-Klipper unterstützt die folgenden Standard- G-Code-Befehle:
+Klipper supports the following standard G-Code commands:
 
 - Move (G0 or G1): `G1 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>]`
 - Dwell: `G4 P<milliseconds>`
@@ -57,11 +57,11 @@ The following commands are available when an [adxl345 config section](Config_Ref
 
 #### ACCELEROMETER_DEBUG_READ
 
-`ACCELEROMETER_DEBUG_READ [CHIP=<config_name>] REG=<register>`: queries ADXL345 register "register" (e.g. 44 or 0x2C). Kann für Debugging Zwecke nützlich sein
+`ACCELEROMETER_DEBUG_READ [CHIP=<config_name>] REG=<register>`: queries ADXL345 register "register" (e.g. 44 or 0x2C). Can be useful for debugging purposes.
 
 #### ACCELEROMETER_DEBUG_WRITE
 
-`ACCELEROMETER_DEBUG_WRITE [CHIP=<config_name>] REG=<register> VAL=<value>`: Schreibt den Rohwert "value" in ein Register "register". Sowohl "value" als auch "register" können eine dezimale oder hexadezimale Ganzzahl sein. Verwenden Sie es mit Vorsicht und konsultieren Sie das Datenblatt des ADXL345 für weitere Informationen.
+`ACCELEROMETER_DEBUG_WRITE [CHIP=<config_name>] REG=<register> VAL=<value>`: Writes raw "value" into a register "register". Both "value" and "register" can be a decimal or a hexadecimal integer. Use with care, and refer to ADXL345 data sheet for the reference.
 
 ### [angle]
 
@@ -450,8 +450,8 @@ The manual_probe module is automatically loaded.
 
 `MANUAL_PROBE [SPEED=<speed>]`: Run a helper script useful for measuring the height of the nozzle at a given location. If SPEED is specified, it sets the speed of TESTZ commands (the default is 5mm/s). During a manual probe, the following additional commands are available:
 
-- `ACCEPT`: Dieser Befehl akzeptiert die aktuelle Z-Position und beendet das manuelle Ausrichtungstool.
-- `ABORT`: Dieser Befehl bricht das manuelle Bettleveling ab.
+- `ACCEPT`: This command accepts the current Z position and concludes the manual probing tool.
+- `ABORT`: This command terminates the manual probing tool.
 - `TESTZ Z=<value>`: This command moves the nozzle up or down by the amount specified in "value". For example, `TESTZ Z=-.1` would move the nozzle down .1mm while `TESTZ Z=.1` would move the nozzle up .1mm. The value may also be `+`, `-`, `++`, or `--` to move the nozzle up or down an amount relative to previous attempts.
 
 #### Z_ENDSTOP_CALIBRATE
