@@ -1,9 +1,16 @@
-#
+# Michael Landbo <dev@l4ndbo.com>, 2023.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2023-11-25 12:02+0000\n"
+"Last-Translator: Michael Landbo <dev@l4ndbo.com>\n"
+"Language-Team: Danish <https://hosted.weblate.org/projects/klipper/"
+"tsl1401cl_filament_width_sensor/da/>\n"
 "Language: da\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.2.1-rc\n"
 
 msgid "How does it work?"
 msgstr ""
@@ -22,7 +29,7 @@ msgstr ""
 
 #: docs/TSL1401CL_Filament_Width_Sensor.md:block 1 (header)
 msgid "TSL1401CL filament width sensor"
-msgstr ""
+msgstr "TSL1401CL sensor til filament"
 
 #: docs/TSL1401CL_Filament_Width_Sensor.md:block 2 (paragraph)
 msgid ""
