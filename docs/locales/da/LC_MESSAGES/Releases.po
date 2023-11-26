@@ -1,9 +1,16 @@
-#
+# Michael Landbo <dev@l4ndbo.com>, 2023.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2023-11-25 12:02+0000\n"
+"Last-Translator: Michael Landbo <dev@l4ndbo.com>\n"
+"Language-Team: Danish <https://hosted.weblate.org/projects/klipper/releases/"
+"da/>\n"
 "Language: da\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.2.1-rc\n"
 
 msgid ""
 "History of Klipper releases. Please see [installation](Installation.md) for "
@@ -468,7 +475,7 @@ msgstr ""
 
 #: docs/Releases.md:block 1 (header)
 msgid "Releases"
-msgstr ""
+msgstr "Udgivelser"
 
 #: docs/Releases.md:block 3 (header)
 msgid "Klipper 0.10.0"
