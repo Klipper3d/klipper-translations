@@ -1,9 +1,16 @@
-#
+# Michael Landbo <dev@l4ndbo.com>, 2023.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2023-11-25 12:02+0000\n"
+"Last-Translator: Michael Landbo <dev@l4ndbo.com>\n"
+"Language-Team: Danish <https://hosted.weblate.org/projects/klipper/"
+"config_reference/da/>\n"
 "Language: da\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.2.1-rc\n"
 
 msgid ""
 "This document is a reference for options available in the Klipper config "
@@ -387,7 +394,7 @@ msgid "[respond]"
 msgstr ""
 
 msgid "Resonance compensation"
-msgstr ""
+msgstr "Resonanskompensation"
 
 msgid "[input_shaper]"
 msgstr ""
@@ -771,7 +778,7 @@ msgid "Run-time stepper motor current configuration"
 msgstr ""
 
 msgid "[ad5206]"
-msgstr ""
+msgstr "[ad5206]"
 
 msgid ""
 "Statically configured AD5206 digipots connected via SPI bus (one may define "
