@@ -1,10 +1,10 @@
-# Thomas Fournier <thomas@artivain.com>, 2023.
+# Thomas Fournier <thomas@artivain.com>, 2023, 2025.
 # Pyroa Surtac <pyroa@orange.fr>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:44+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Thomas Fournier <thomas@artivain.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/klipper/"
 "axis_twist_compensation/fr/>\n"
 "Language: fr\n"
@@ -76,8 +76,9 @@ msgid ""
 "**Tip:** Bed temperature and nozzle temperature and size do not seem to have "
 "an influence to the calibration process."
 msgstr ""
-"**Conseil :** La température du plateau ainsi que la température et la taille "
-"de la buse ne semblent pas avoir d'influence sur le processus de calibration."
+"**Conseil :** La température du plateau ainsi que la température et la "
+"taille de la buse ne semblent pas avoir d'influence sur le processus de "
+"calibration."
 
 #: docs/Axis_Twist_Compensation.md:block 12 (header)
 msgid "[axis_twist_compensation] setup and commands"
