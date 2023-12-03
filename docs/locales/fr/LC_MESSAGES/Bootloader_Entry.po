@@ -1,16 +1,17 @@
-# Thomas Fournier <thomas@artivain.com>, 2023.
+# Thomas Fournier <thomas@artivain.com>, 2023, 2025.
 # jean-luc MATTEI <jlucm@free.fr>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-12-12 15:07+0000\n"
-"Last-Translator: jean-luc MATTEI <jlucm@free.fr>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/klipper/bootloader_entry/fr/>\n"
+"PO-Revision-Date: 2025-05-03 07:45+0000\n"
+"Last-Translator: Thomas Fournier <thomas@artivain.com>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/klipper/"
+"bootloader_entry/fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.3-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: docs/Bootloader_Entry.md:block 1 (header)
 msgid "Bootloader Entry"
@@ -21,8 +22,8 @@ msgid ""
 "Klipper can be instructed to reboot into a [Bootloader](Bootloaders.md) in one"
 " of the following ways:"
 msgstr ""
-"Klipper redémarrer dans un [Bootloader](Bootloaders.md) de l'une des manières "
-"suivantes :"
+"Klipper redémarrer dans un [Bootloader](Bootloaders.md) de l'une des "
+"manières suivantes :"
 
 #: docs/Bootloader_Entry.md:block 3 (header)
 msgid "Requesting the bootloader"
