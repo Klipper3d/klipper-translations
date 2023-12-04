@@ -1,15 +1,16 @@
-# Kaan Özbilek <info@kaanozbilek.com>, 2023.
+# Kaan Özbilek <info@kaanozbilek.com>, 2023, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-12-05 06:02+0000\n"
+"PO-Revision-Date: 2025-05-03 07:24+0000\n"
 "Last-Translator: Kaan Özbilek <info@kaanozbilek.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/index/tr/>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/index/tr/"
+">\n"
 "Language: tr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.3-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: docs/index.md:block 1 (paragraph)
 msgid "hide:"
