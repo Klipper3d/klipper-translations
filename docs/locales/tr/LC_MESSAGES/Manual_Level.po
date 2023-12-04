@@ -1,10 +1,10 @@
-# Kaan Özbilek <info@kaanozbilek.com>, 2023.
+# Kaan Özbilek <info@kaanozbilek.com>, 2023, 2025.
 # Sümer Okan <smr.okan@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:22+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Kaan Özbilek <info@kaanozbilek.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/"
 "manual_level/tr/>\n"
 "Language: tr\n"
@@ -17,8 +17,8 @@ msgid ""
 "This document describes tools for calibrating a Z endstop and for performing "
 "adjustments to bed leveling screws."
 msgstr ""
-"Bu belge, bir Z endstop kalibre etmek ve yatak tesviye vidalarında ayarlamalar"
-" yapmak için kullanılan araçlar açıklamaktadır."
+"Bu belge, bir Z endstop kalibre etmek ve yatak tesviye vidalarında "
+"ayarlamalar yapmak için kullanılan araçlar açıklamaktadır."
 
 msgid "Calibrating a Z endstop"
 msgstr "Z endstop' u kalibre ediliyor"
