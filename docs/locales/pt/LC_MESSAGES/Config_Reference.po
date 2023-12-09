@@ -1,5 +1,5 @@
 # Luciano Moda <desenvolvimento@gtmax.com.br>, 2023, 2025.
-# Milton Miranda Neto <voidmmn@gmail.com>, 2023.
+# Milton Miranda Neto <voidmmn@gmail.com>, 2023, 2025.
 # Ducarmel Hilaire <dl-admin@users.noreply.hosted.weblate.org>, 2024.
 # ssantos <ssantos@web.de>, 2024, 2025.
 # Emerson Jhones <ejhones@gmail.com>, 2024, 2025.
@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:29+0000\n"
-"Last-Translator: Emerson Jhones <ejhones@gmail.com>\n"
+"Last-Translator: Milton Miranda Neto <voidmmn@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/klipper/"
 "config_reference/pt/>\n"
 "Language: pt\n"
@@ -1633,23 +1633,25 @@ msgid ""
 "typically be achieved with \"SYNC_EXTRUDER_MOTION MOTION_QUEUE=extruder "
 "EXTRUDER=<dual_carriage_extruder>\" or a similar command."
 msgstr ""
-"Além disso, pode-se usar os comandos \"SET_DUAL_CARRIAGE CARRIAGE=1 "
-"MODE=COPY\" ou \"SET_DUAL_CARRIAGE CARRIAGE=1 MODE=MIRROR\" para ativar o modo"
-" de cópia ou espelhamento do carro duplo, no qual ele seguirá o movimento do "
-"carro 0 de acordo. Esses comandos podem ser usados para imprimir duas partes "
-"simultaneamente - ou duas partes idênticas (no modo COPY) ou partes espelhadas"
-" (no modo MIRROR). Observe que os modos COPY e MIRROR também requerem "
-"configuração apropriada do extrusor no carro duplo, que geralmente pode ser "
-"alcançada com o comando \"SYNC_EXTRUDER_MOTION MOTION_QUEUE=extruder "
-"EXTRUDER=<extrusor_do_carro_duplo>\" ou um comando similar."
+"Além disso, pode-se usar os comandos "
+"\"SET_DUAL_CARRIAGE CARRIAGE=1 MODE=COPY\" ou "
+"\"SET_DUAL_CARRIAGE CARRIAGE=1 MODE=MIRROR\" para ativar o modo de cópia ou "
+"espelhamento do carro duplo, no qual ele seguirá o movimento do carro 0 de "
+"acordo. Esses comandos podem ser usados para imprimir duas partes "
+"simultaneamente - ou duas partes idênticas (no modo COPY) ou partes "
+"espelhadas (no modo MIRROR). Observe que os modos COPY e MIRROR também "
+"requerem configuração apropriada do extrusor no carro duplo, que geralmente "
+"pode ser alcançada com o comando \"SYNC_EXTRUDER_MOTION "
+"MOTION_QUEUE=extruder EXTRUDER=<extrusor_do_carro_duplo>\" ou um comando "
+"similar."
 
 #: docs/Config_Reference.md:block 259 (header)
 msgid "AHT10/AHT20/AHT21 temperature sensor"
 msgstr ""
 "Sensor de temperatura AHT10/AHT20/AHT21. Refere-se a uma série de sensores "
-"desenvolvidos para medir temperatura e umidade. Esses sensores são conhecidos "
-"por sua precisão, confiabilidade e fácil integração com sistemas eletrônicos, "
-"como microcontroladores e sistemas de automação."
+"desenvolvidos para medir temperatura e umidade. Esses sensores são "
+"conhecidos por sua precisão, confiabilidade e fácil integração com sistemas "
+"eletrônicos, como microcontroladores e sistemas de automação."
 
 #: docs/Config_Reference.md:block 260 (paragraph)
 msgid ""
@@ -1660,10 +1662,10 @@ msgid ""
 " used to report humidity in addition to temperature."
 msgstr ""
 "Sensores ambientais AHT10/AHT20/AHT21 com interface de dois fios (I2C). "
-"Observe que esses sensores não são destinados para uso com extrusoras e mesas "
-"aquecidas, mas sim para monitorar a temperatura ambiente (C) e a umidade "
-"relativa. Veja [sample-macros.cfg](../config/sample-macros.cfg) para um "
-"gcode_macro que pode ser usado para relatar a umidade além da temperatura."
+"Observe que esses sensores não são destinados para uso com extrusoras e "
+"mesas aquecidas, mas sim para monitorar a temperatura ambiente (C) e a "
+"umidade relativa. Veja [sample-macros.cfg](../config/sample-macros.cfg) para "
+"um gcode_macro que pode ser usado para relatar a umidade além da temperatura."
 
 #: docs/Config_Reference.md:block 277 (header)
 msgid "Combined temperature sensor"
