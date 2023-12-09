@@ -1,12 +1,12 @@
 # Adrian Medeiros <lima.adrian13@gmail.com>, 2023.
 # João Alves <joao.2003.couto@gmail.com>, 2023, 2025.
-# Milton Miranda Neto <voidmmn@gmail.com>, 2023.
+# Milton Miranda Neto <voidmmn@gmail.com>, 2023, 2025.
 # Andre Costa <andrecaeu@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:30+0000\n"
-"Last-Translator: Andre Costa <andrecaeu@gmail.com>\n"
+"Last-Translator: Milton Miranda Neto <voidmmn@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/klipper/"
 "overview/pt/>\n"
 "Language: pt\n"
@@ -105,8 +105,8 @@ msgstr ""
 msgid ""
 "[Endstop phase](Endstop_Phase.md): Stepper assisted Z endstop positioning."
 msgstr ""
-"[Endstop phase](Endstop_Phase.md): Posicionamento do fim de curso Z assistido "
-"por motor de passo."
+"[Endstop phase](Endstop_Phase.md): Posicionamento do fim de curso Z "
+"assistido por motor de passo."
 
 msgid ""
 "[Resonance compensation](Resonance_Compensation.md): A tool to reduce ringing "
