@@ -2,13 +2,13 @@
 # Wivik <seb+weblate@zedas.fr>, 2021, 2025.
 # gbonaspetti <gbonaspetti@hotmail.com>, 2022, 2025.
 # Yifei Ding <dingyifeiair@gmail.com>, 2022, 2025.
-# jean-luc MATTEI <jlucm@free.fr>, 2023.
+# jean-luc MATTEI <jlucm@free.fr>, 2023, 2025.
 # Sébastien Thieury <dev.sebthieu@serendip-it.fr>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-05-03 07:23+0000\n"
-"Last-Translator: Sébastien Thieury <dev.sebthieu@serendip-it.fr>\n"
+"PO-Revision-Date: 2025-05-03 07:24+0000\n"
+"Last-Translator: jean-luc MATTEI <jlucm@free.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/klipper/"
 "config_checks/fr/>\n"
 "Language: fr\n"
@@ -240,8 +240,8 @@ msgid ""
 " the temperatures are not increasing. If temperatures are increasing, remove "
 "power from the printer."
 msgstr ""
-"Dans la console du terminal, tapez une commande M112. Cette commande demande à"
-" Klipper de passer dans l'état 'arrêté'. Cela va provoquer l'affichage d'un "
+"Dans la console du terminal, tapez une commande M112. Cette commande demande "
+"à Klipper de passer dans l'état 'arrêté'. Cela va provoquer l'affichage d'un "
 "erreur, qui peut être effacée avec une commande FIRMWARE_RESTART dans la "
 "console du terminal. Octoprint nécessitera également une reconnexion. "
 "Retournez ensuite vers les graphiques de température et vérifiez que les "
