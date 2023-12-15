@@ -1,6 +1,16 @@
-#
+# Thomas Fournier <thomas@artivain.com>, 2023.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2023-12-04 04:08+0000\n"
+"Last-Translator: Thomas Fournier <thomas@artivain.com>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/klipper/"
+"canbus_troubleshooting/fr/>\n"
+"Language: fr\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.3-dev\n"
+"Content-Transfer-Encoding: 8bit\n"
 
 #: docs/CANBUS_Troubleshooting.md:block 1 (header)
 msgid "CANBUS Troubleshooting"
@@ -91,6 +101,9 @@ msgid ""
 "Reordered messages is a severe problem that must be fixed. It will result in"
 " unstable behavior and can lead to confusing errors at any part of a print."
 msgstr ""
+"La réorganisation des messages est un problème grave qui doit être résolu. "
+"Cela entraînera un comportement instable et peut conduire à des erreurs "
+"déroutantes à n'importe quelle partie d'une impression."
 
 #: docs/CANBUS_Troubleshooting.md:block 13 (header)
 msgid "Obtaining candump logs"

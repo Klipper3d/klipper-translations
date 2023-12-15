@@ -1,14 +1,24 @@
-#
+# Thomas Fournier <thomas@artivain.com>, 2023.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2023-12-04 04:08+0000\n"
+"Last-Translator: Thomas Fournier <thomas@artivain.com>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/klipper/"
+"axis_twist_compensation/fr/>\n"
+"Language: fr\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.3-dev\n"
+"Content-Transfer-Encoding: 8bit\n"
 
 #: docs/Axis_Twist_Compensation.md:block 1 (header)
 msgid "Axis Twist Compensation"
-msgstr ""
+msgstr "Compensation de torsion de l'axe"
 
 #: docs/Axis_Twist_Compensation.md:block 2 (paragraph)
 msgid "This document describes the [axis_twist_compensation] module."
-msgstr ""
+msgstr "Ce document décrit le module [axis_twist_compensation]."
 
 #: docs/Axis_Twist_Compensation.md:block 3 (paragraph)
 msgid ""
@@ -51,22 +61,30 @@ msgid ""
 "After setting up the [axis_twist_compensation] module, perform "
 "`AXIS_TWIST_COMPENSATION_CALIBRATE`"
 msgstr ""
+"Après avoir configuré le module [axis_twist_compensation], effectuez "
+"`AXIS_TWIST_COMPENSATION_CALIBRATE`"
 
 #: docs/Axis_Twist_Compensation.md:block 9 (unordered list)
 msgid ""
 "The calibration wizard will prompt you to measure the probe Z offset at a "
 "few points along the bed"
 msgstr ""
+"L'assistant de calibration vous invitera à calibrer la sonde de l'axe Z à "
+"quelques emplacements sur le plateau"
 
 #: docs/Axis_Twist_Compensation.md:block 9 (unordered list)
 msgid ""
 "The calibration defaults to 3 points but you can use the option "
 "`SAMPLE_COUNT=` to use a different number."
 msgstr ""
+"L'étalonnage est par défaut de 3 points mais vous pouvez utiliser l'option "
+"`SAMPLE_COUNT=` pour utiliser un nombre différent."
 
 #: docs/Axis_Twist_Compensation.md:block 10 (ordered list)
 msgid "[Adjust your Z offset](Probe_Calibrate.md#calibrating-probe-z-offset)"
 msgstr ""
+"[Ajustez votre décalage de l'axe Z](Probe_Calibrate.md#calibrating-"
+"probe-z-offset)"
 
 #: docs/Axis_Twist_Compensation.md:block 10 (ordered list)
 msgid ""
@@ -84,12 +102,17 @@ msgid ""
 "Perform a test print, followed by any [fine-"
 "tuning](Axis_Twist_Compensation.md#fine-tuning) as desired"
 msgstr ""
+"Effectuez un test d'impression, suivi d'un [réglage de "
+"précision](Axis_Twist_Compensation.md#fine-tuning) comme vous le souhaitez"
 
 #: docs/Axis_Twist_Compensation.md:block 11 (quote)
 msgid ""
 "**Tip:** Bed temperature and nozzle temperature and size do not seem to have"
 " an influence to the calibration process."
 msgstr ""
+"**Conseil :** La température du plateau ainsi que la température et la "
+"taille de la buse ne semblent pas avoir d'influence sur le processus de "
+"calibration."
 
 #: docs/Axis_Twist_Compensation.md:block 12 (header)
 msgid "[axis_twist_compensation] setup and commands"
