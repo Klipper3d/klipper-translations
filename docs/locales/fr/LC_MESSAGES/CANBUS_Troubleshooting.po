@@ -1,36 +1,41 @@
 # Thomas Fournier <thomas@artivain.com>, 2023.
+# jean-luc MATTEI <jlucm@free.fr>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-12-04 04:08+0000\n"
-"Last-Translator: Thomas Fournier <thomas@artivain.com>\n"
+"PO-Revision-Date: 2023-12-13 15:08+0000\n"
+"Last-Translator: jean-luc MATTEI <jlucm@free.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/klipper/"
 "canbus_troubleshooting/fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.3-dev\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.3-rc\n"
 
 #: docs/CANBUS_Troubleshooting.md:block 1 (header)
 msgid "CANBUS Troubleshooting"
-msgstr ""
+msgstr "Dépannage du CANBUS"
 
 #: docs/CANBUS_Troubleshooting.md:block 2 (paragraph)
 msgid ""
 "This document provides information on troubleshooting communication issues "
 "when using [Klipper with CAN bus](CANBUS.md)."
 msgstr ""
+"Ce document fournit des informations sur le dépannage des problèmes de "
+"communication lors de l'utilisation de [Bus CAN avec Klipper](CANBUS.md)."
 
 #: docs/CANBUS_Troubleshooting.md:block 3 (header)
 msgid "Verify CAN bus wiring"
-msgstr ""
+msgstr "Vérifier le câblage du bus CAN"
 
 #: docs/CANBUS_Troubleshooting.md:block 4 (paragraph)
 msgid ""
 "The first step in troubleshooting communication issues is to verify the CAN "
 "bus wiring."
 msgstr ""
+"La première étape pour résoudre les problèmes de communication est de "
+"vérifier le câblage du bus CAN."
 
 #: docs/CANBUS_Troubleshooting.md:block 5 (paragraph)
 msgid ""
@@ -39,6 +44,10 @@ msgid ""
 " are not properly installed then messages may not be able to be sent at all "
 "or the connection may have sporadic instability."
 msgstr ""
+"Assurez-vous qu'il y a bien deux résistances de terminaison de 120 Ohms ["
+"résistances de terminaison](CANBUS.md#terminating-resistors) sur le bus CAN. "
+"Si les résistances ne sont pas correctement installées, les messages peuvent "
+"ne pas être envoyés du tout ou la connexion peut être aléatoirement instable."
 
 #: docs/CANBUS_Troubleshooting.md:block 6 (paragraph)
 msgid ""
@@ -48,6 +57,10 @@ msgid ""
 "wires that travel parallel to the CANH and CANL wires do not have the same "
 "amount of twists."
 msgstr ""
+"Les câbles CANH et CANL doivent être torsadés. Les torsades ne doivent pas "
+"être espacées de plus de quelques centimètres. Évitez de torsader les câbles "
+"CANH et CANL avec les fils de puissance et assurez-vous que les fils de "
+"puissance placés à côté du bus can n'aient pas le même nombre de torsades."
 
 #: docs/CANBUS_Troubleshooting.md:block 7 (paragraph)
 msgid ""
@@ -56,10 +69,14 @@ msgid ""
 "causing a bad wire crimp or unsecured plug to result in intermittent "
 "communication errors."
 msgstr ""
+"Vérifier que toutes les fiches et sertissages sur le câblage CAN sont "
+"entièrement sécurisés. Le mouvement de la tête d'outil d'imprimante peut "
+"faire bouger le câblage de bus CAN et provoquer des faux contacts - source "
+"d'erreurs de communication aléatoires."
 
 #: docs/CANBUS_Troubleshooting.md:block 8 (header)
 msgid "Check for incrementing bytes_invalid counter"
-msgstr ""
+msgstr "Vérification de l'augmentation du compteur octets_invalide"
 
 #: docs/CANBUS_Troubleshooting.md:block 9 (paragraph)
 msgid ""
@@ -72,6 +89,15 @@ msgid ""
 "printing (it increments every few hours or more frequently) then it is an "
 "indication of a severe problem."
 msgstr ""
+"Le fichier journal de Klipper affiche une ligne `Stats` une fois par seconde "
+"lorsque l'imprimante est active. Ces lignes \"Stats\" ont un compteur "
+"`bytes_invalid` pour chaque microcontrôleur. Ce compteur ne devrait pas "
+"augmenter au cours de l'utilisation normale de l'imprimante (il est normal "
+"que le compteur soit non nul après un RESTART et ce n'est pas une "
+"préoccupation si le compteur augmente une fois par mois). Si ce compteur "
+"augmente sur un microcontrôleur de bus CAN pendant un fonctionnement normal ("
+"s'il augmente toutes les heures ou plus fréquemment) alors c'est une "
+"indication d'un problème grave."
 
 #: docs/CANBUS_Troubleshooting.md:block 10 (paragraph)
 msgid ""
@@ -79,6 +105,9 @@ msgid ""
 "reordered messages on the CAN bus. There are two known causes of reordered "
 "messages:"
 msgstr ""
+"L'augmentation du compteur `bytes_invalid` sur une connexion de bus CAN est "
+"un symptôme de messages réémis sur le bus CAN. Il existe deux causes connues "
+"de réémission de messages :"
 
 #: docs/CANBUS_Troubleshooting.md:block 11 (ordered list)
 msgid ""
@@ -87,6 +116,11 @@ msgid ""
 "this firmware then make sure to update to the latest firmware if "
 "incrementing `bytes_invalid` is observed."
 msgstr ""
+"Les anciennes versions du micrologiciel candlight ont un bug qui peut causer "
+"des réémissions de messages. Si vous utilisez un adaptateur USB CAN qui "
+"exécute ce micrologiciel, assurez-vous de mettre à jour le dernier "
+"micrologiciel si vous remarquez une incrémentation anormale du compteur "
+"`bytes_invalid`."
 
 #: docs/CANBUS_Troubleshooting.md:block 11 (ordered list)
 msgid ""
@@ -95,6 +129,10 @@ msgid ""
 "use alternative hardware that supports mainstream Linux kernels that do not "
 "exhibit this problem."
 msgstr ""
+"Certains noyaux Linux destinés à des périphériques embarqués sont connus "
+"pour réémettre les messages de bus CAN. Il peut être nécessaire d'utiliser "
+"un autre noyau Linux ou d'utiliser du matériel qui prend en charge les "
+"noyaux Linux courants qui ne présentent pas ce problème."
 
 #: docs/CANBUS_Troubleshooting.md:block 12 (paragraph)
 msgid ""
@@ -107,7 +145,7 @@ msgstr ""
 
 #: docs/CANBUS_Troubleshooting.md:block 13 (header)
 msgid "Obtaining candump logs"
-msgstr ""
+msgstr "Obtenir les journaux 'candump'"
 
 #: docs/CANBUS_Troubleshooting.md:block 14 (paragraph)
 msgid ""
@@ -116,26 +154,33 @@ msgid ""
 "for debugging purposes. A log of these messages may be of use in "
 "diagnostics."
 msgstr ""
+"Les messages de bus CAN envoyés au microcontrôleur sont gérés par le noyau "
+"Linux. Il est possible de capturer ces messages à des fins de débogage. Le "
+"journal de ces messages peut être utile lors des diagnostics."
 
 #: docs/CANBUS_Troubleshooting.md:block 15 (paragraph)
 msgid ""
 "The Linux [can-utils](https://github.com/linux-can/can-utils) tool provides "
 "the capture software. It is typically installed on a machine by running:"
 msgstr ""
+"L'outil Linux [can-utils](https ://github.com/linux-can/can-utils) fournit "
+"le logiciel de capture. Il peut être installé en exécutant :"
 
 #: docs/CANBUS_Troubleshooting.md:block 16 (code)
 msgid "sudo apt-get update && sudo apt-get install can-utils\n"
-msgstr ""
+msgstr "sudo apt-get update && sudo apt-get install can-utils\n"
 
 #: docs/CANBUS_Troubleshooting.md:block 17 (paragraph)
 msgid ""
 "Once installed, one may obtain a capture of all CAN bus messages on an "
 "interface with the following command:"
 msgstr ""
+"Une fois installé, on peut obtenir une capture de tous les messages de bus "
+"CAN sur une interface avec la commande suivante :"
 
 #: docs/CANBUS_Troubleshooting.md:block 18 (code)
 msgid "candump -tz -Ddex can0,#FFFFFFFF > mycanlog\n"
-msgstr ""
+msgstr "candump -tz -Ddex can0,#FFFFFFFF > mycanlog\n"
 
 #: docs/CANBUS_Troubleshooting.md:block 19 (paragraph)
 msgid ""
@@ -145,10 +190,15 @@ msgid ""
 "knowledge of Klipper's [CANBUS protocol](CANBUS_protocol.md) and Klipper's "
 "[MCU commands](MCU_Commands.md)."
 msgstr ""
+"On peut lire le fichier journal résultant (`mycanlog` dans l'exemple ci-"
+"dessus) pour voir chaque message de bus CAN brut qui a été envoyé et reçu "
+"par Klipper. Comprendre le contenu de ces messages nécessite une "
+"connaissance de bas niveau de Klipper : [Protocole CANBUS](CANBUS_protocol."
+"md) et [Commandes MCU](MCU_Commands.md)."
 
 #: docs/CANBUS_Troubleshooting.md:block 20 (header)
 msgid "Parsing Klipper messages in a candump log"
-msgstr ""
+msgstr "Analyser les messages Klipper dans un journal candump"
 
 #: docs/CANBUS_Troubleshooting.md:block 21 (paragraph)
 msgid ""
@@ -157,10 +207,14 @@ msgid ""
 "advanced topic that requires knowledge of Klipper [MCU "
 "commands](MCU_Commands.md). For example:"
 msgstr ""
+"Il est possible d'utiliser l'outil `parsecandump.py` pour analyser les "
+"messages microcontrôleur Klipper de bas niveau contenus dans un journal "
+"candump. L'utilisation de cet outil nécessite la connaissance de Klipper ["
+"MCU commands](MCU_Commands.md). Par exemple :"
 
 #: docs/CANBUS_Troubleshooting.md:block 22 (code)
 msgid "./scripts/parsecandump.py mycanlog 108 ./out/klipper.dict\n"
-msgstr ""
+msgstr "./scripts/parsecandump.py mycanlog 108 ./out/klipper.dict\n"
 
 #: docs/CANBUS_Troubleshooting.md:block 23 (paragraph)
 msgid ""
@@ -169,6 +223,10 @@ msgid ""
 "See the documentation for that tool for information on generating the "
 "Klipper micro-controller data dictionary."
 msgstr ""
+"Cet outil produit une sortie similaire à l'[outil parsedump](Debugging.md"
+"#translating-gcode-files-to-micro-controller-commands). Voir la "
+"documentation de cet outil pour l'information sur la production du "
+"dictionnaire de données de microcontrôleur Klipper."
 
 #: docs/CANBUS_Troubleshooting.md:block 24 (paragraph)
 msgid ""
@@ -178,6 +236,11 @@ msgid ""
 "multiple micro-controllers on it, then the second micro-controller would be "
 "`10a`, the third would be `10c`, and so on."
 msgstr ""
+"Dans l'exemple ci-dessus, `108` est le [CAN bus id](CANBUS_protocol.md#micro-"
+"controller-id-assignment). C'est un nombre hexadécimal. Le id `108` est "
+"assigné par Klipper au premier microcontrôleur. Si le bus CAN comporte "
+"plusieurs microcontrôleurs, le deuxième microcontrôleur serait `10a`, le "
+"troisième serait `10c`, et ainsi de suite."
 
 #: docs/CANBUS_Troubleshooting.md:block 25 (paragraph)
 msgid ""
@@ -185,10 +248,13 @@ msgid ""
 "arguments (for example: `candump -tz -Ddex can0,#FFFFFFFF`) in order to use "
 "the `parsecandump.py` tool."
 msgstr ""
+"Le journal candump doit être généré avec les arguments de ligne de commande "
+"`-tz -Ddex` (par exemple : `candump -tz -Ddex can0,#FFFFFF`)) Afin de "
+"pouvoir être utilisé avec l'outil `parsecandump.py`."
 
 #: docs/CANBUS_Troubleshooting.md:block 26 (header)
 msgid "Using a logic analyzer on the canbus wiring"
-msgstr ""
+msgstr "Utiliser un analyseur logique sur le câblage canbus"
 
 #: docs/CANBUS_Troubleshooting.md:block 27 (paragraph)
 msgid ""
@@ -198,6 +264,10 @@ msgid ""
 "diagnosing CAN bus signaling. This is an advanced topic likely only of "
 "interest to experts."
 msgstr ""
+"Le logiciel [Sigrok Pulseview](https://sigrok.org/wiki/PulseView) associé à "
+"un analyseur logique à bas coût [logic analysisr](https://en.wikipedia.org/"
+"wiki/Logic_analyzer) peut être utile pour le diagnostic de signal de bus "
+"CAN. C'est un sujet avancé qui n'intéressera probablement que les experts."
 
 #: docs/CANBUS_Troubleshooting.md:block 28 (paragraph)
 msgid ""
@@ -205,10 +275,13 @@ msgid ""
 "2023). These devices are often listed as \"Saleae logic clones\" or as "
 "\"24MHz 8 channel USB logic analyzers\"."
 msgstr ""
+"On peut trouver des « analyseurs logiques USB » pour moins de 15 $ (prix "
+"américain de 2023). Ces appareils sont souvent nommés « Saleae logic clone » "
+"ou « analyseur logique USB 24MHz 8 canaux »."
 
 #: docs/CANBUS_Troubleshooting.md:block 29 (paragraph)
 msgid "![pulseview-canbus](img/pulseview-canbus.png)"
-msgstr ""
+msgstr "![pulseview-canbus](img/pulseview-canbus.png)"
 
 #: docs/CANBUS_Troubleshooting.md:block 30 (paragraph)
 msgid ""
@@ -229,9 +302,29 @@ msgid ""
 "(click \"Run\" at top left) and a packet was transmitted on the CAN bus "
 "(`cansend can0 123#121212121212`)."
 msgstr ""
+"L'image ci-dessus a été prise en utilisant Pulseview avec un analyseur "
+"logique \"Saleae clone\". Le logiciel Sigrok et Pulseview ont été installés "
+"sur une machine de bureau (il faudra aussi installe le microligiciel "
+"\"fx2lafw\" si il est fourni séparément). La broche CH0 sur l'analyseur "
+"logique doit être connectée à la ligne CAN Rx, la broche CH1 à la ligne CAN "
+"Tx, GND doit être connecté avec GND. Pulseview doit être configuré pour "
+"n'afficher que les lignes D0 et D1 (icône rouge 'probe' au centre de la "
+"barre d'outils). Le nombre d'échantillons a été fixé à 5 millions (barre "
+"d'outils) et le taux d'échantillonnage à 24Mhz (barre d'outils). Le décodeur "
+"CAN a été ajouté (icône bulle jaune et verte sir la barre d'outils en haut à "
+"droite). Le canal D0 étiqueté comme RX et défini pour être déclenché sur un "
+"front descendant (cliquez sur l'étiquette D0 noire à gauche). Le canal D1 a "
+"été étiqueté comme TX (cliquez sur l'étiquette D1 brune à gauche). Le "
+"décodeur CAN a été configuré à une vitesse de 1Mbit (cliquez sur l'étiquette "
+"CAN verte à gauche). Le décodeur CAN a été déplacé en haut de l'écran ("
+"cliquez et faites glisser l'étiquette CAN verte). Enfin, la capture a été "
+"commencée (cliquez sur \"Run\" en haut à gauche) et un paquet a été transmis "
+"sur le bus CAN (`cansend cans0 123#121212121212`)."
 
 #: docs/CANBUS_Troubleshooting.md:block 31 (paragraph)
 msgid ""
 "The logic analyzer provides an independent tool for capturing packets and "
 "verifying bit timing."
 msgstr ""
+"L'analyseur logique fournit un outil indépendant pour capturer les paquets "
+"et vérifier la chronologie."
