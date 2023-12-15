@@ -1,17 +1,18 @@
 # Francis Poulizac <fpoulizac@vivaldi.net>, 2021.
 # Jonathan <jonathanhav09@sfr.fr>, 2022.
-# jean-luc MATTEI <jlucm@free.fr>, 2022.
+# jean-luc MATTEI <jlucm@free.fr>, 2022, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-12-07 05:47+0000\n"
+"PO-Revision-Date: 2023-12-12 15:07+0000\n"
 "Last-Translator: jean-luc MATTEI <jlucm@free.fr>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/klipper/canbus/fr/>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/klipper/canbus/fr/"
+">\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.15-dev\n"
+"X-Generator: Weblate 5.3-dev\n"
 
 msgid "This document describes Klipper's CAN bus support."
 msgstr "Ce document décrit la prise en charge du CAN bus de Klipper."
@@ -112,7 +113,7 @@ msgstr ""
 
 #: docs/CANBUS.md:block 1 (header)
 msgid "CANBUS"
-msgstr "CANBUS"
+msgstr "BUS CAN"
 
 #: docs/CANBUS.md:block 5 (paragraph)
 msgid ""
@@ -156,6 +157,9 @@ msgid ""
 "addition, the micro-controller chip must be on a board that has a CAN "
 "transceiver."
 msgstr ""
+"Klipper supporte actuellement CAN sur les puces stm32, SAME5x et rp2040. Le "
+"microcontrôleur doit être sur une carte qui possède aussi un transpondeur "
+"CAN."
 
 #: docs/CANBUS.md:block 7 (paragraph)
 msgid ""
@@ -168,6 +172,16 @@ msgid ""
 "(in its \"USB to CAN bridge mode\") or that run the [candlelight "
 "firmware](https://github.com/candle-usb/candleLight_fw)."
 msgstr ""
+"Pour utiliser un bus CAN, il est nécessaire d'avoir un adaptateur hôte. Il "
+"est recommandé d'utiliser un adaptateur \"USB to CAN\". Il existe de "
+"nombreux adaptateurs USB différents pour CAN disponibles auprès de "
+"différents fabricants. Lors de votre choix, nous vous recommandons de "
+"vérifier que le micrologiciel peut être mis à jour. (Malheureusement, nous "
+"avons trouvé quelques adaptateurs USB avec un micrologiciel défectueux et "
+"non modifiable, donc vérifiez avant l'achat.) Recherchez des adaptateurs qui "
+"peuvent exécuter Klipper directement (dans son mode \"USB to CAN bridge\") "
+"ou qui exécutent [candlelight firmware](https://github.com/candle-usb/"
+"candleLight_fw)."
 
 #: docs/CANBUS.md:block 9 (code)
 msgid ""
@@ -176,6 +190,10 @@ msgid ""
 "    bitrate 1000000\n"
 "    up ifconfig $IFACE txqueuelen 128\n"
 msgstr ""
+"allow-hotplug can0\n"
+"iface can0 can static\n"
+"    bitrate 1000000\n"
+"    up ifconfig $IFACE txqueuelen 128\n"
 
 #: docs/CANBUS.md:block 12 (paragraph)
 msgid ""
@@ -185,6 +203,12 @@ msgid ""
 "jumper\"). Be sure to check the schematics of all devices on the CAN bus to "
 "verify that there are two and only two 120 Ohm resistors on the bus."
 msgstr ""
+"Certains appareils ont une résistance intégrée de 120 ohm qui ne peut pas "
+"être facilement supprimée, d'autres n'ont pas de résistance et d'autres ont "
+"un mécanisme pour sélectionner la résistance (généralement en connectant un "
+"\"cavalier\"). Assurez-vous de vérifier les schémas de tous les appareils du "
+"bus CAN pour vérifier qu'il y a deux et seulement deux résistances de 120 "
+"Ohm sur le bus ."
 
 #: docs/CANBUS.md:block 25 (paragraph)
 msgid ""
@@ -192,6 +216,10 @@ msgid ""
 "during Klipper's \"make menuconfig\". This mode may allow one to use a "
 "micro-controller as both a \"USB to CAN bus adapter\" and as a Klipper node."
 msgstr ""
+"Certains microcontrôleurs prennent en charge la sélection du mode \"USB to "
+"CAN bus bridge\" pendant la phase \"make menuconfig\" de Klipper\". Ce mode "
+"peut permettre d'utiliser un microcontrôleur à la fois comme un adaptateur "
+"de bus USB vers CAN et comme nœud Klipper (mcu)."
 
 #: docs/CANBUS.md:block 26 (paragraph)
 msgid ""
@@ -200,6 +228,10 @@ msgid ""
 "it was on this CAN bus - it can be identified via `canbus_query.py` and it "
 "must be configured like other CAN bus Klipper nodes."
 msgstr ""
+"Lorsque Klipper utilise ce mode, le microcontrôleur apparaît comme un \"USB "
+"CAN bus adapter\" sous Linux. Le mcu \"Klipper apparaîtra comme s'il était "
+"sur le bus CAN - il peut être identifié via `canbus_query.py` et il doit "
+"être configuré comme les autres noeuds Klipper de bus CAN."
 
 #: docs/CANBUS.md:block 28 (unordered list)
 msgid ""
@@ -208,12 +240,19 @@ msgid ""
 "commands, it is recommended to use `allow-hotplug` in the "
 "`/etc/network/interfaces.d/can0` file. For example:"
 msgstr ""
+"Dès que le \"bridge mcu\" est réinitialisé, Linux désactivera l'interface "
+"correspondante `can0`. Pour assurer une bonne manipulation des commandes "
+"FIRMWARE_RESTART et RESTART, il est recommandé d'utiliser `allow-hotplug` "
+"dans le fichier `/etc/network/interfaces.d/can0`. Par exemple :"
 
 #: docs/CANBUS.md:block 30 (unordered list)
 msgid ""
 "The \"bridge mcu\" is not actually on the CAN bus. Messages to and from the "
 "bridge mcu will not be seen by other adapters that may be on the CAN bus."
 msgstr ""
+"Le « pont mcu » n'est pas en fait sur le bus CAN. Les messages entrant et "
+"sortant du bridge mcu ne seront pas vus par les autres adaptateurs présents "
+"sur le bus CAN."
 
 #: docs/CANBUS.md:block 30 (unordered list)
 msgid ""
@@ -222,6 +261,10 @@ msgid ""
 "it is recommended to use a CAN bus frequency of 1000000 when using \"USB to "
 "CAN bus bridge mode\"."
 msgstr ""
+"La bande passante disponible pour tous les appareils du bus CAN (et du "
+"bridge mcu) est limitée par la fréquence de bus CAN. Par conséquent, il est "
+"recommandé d'utiliser une fréquence de bus CAN de 1000000 lors de "
+"l'utilisation du mode \"USB to CAN bus bridge\"."
 
 #: docs/CANBUS.md:block 30 (unordered list)
 msgid ""
@@ -229,6 +272,10 @@ msgid ""
 "bandwidth to run a `SHAPER_CALIBRATE` test if both the XY steppers and the "
 "accelerometer all communicate via a single \"USB to CAN bus\" interface."
 msgstr ""
+"Même à une fréquence de bus CAN de 1000000, il peut ne pas y avoir assez de "
+"bande passante pour exécuter un test `SHAPER_CALIBRATE` si les deux steppers "
+"XY et l'accéléromètre communiquent tous par une seule interface \"USB to CAN "
+"bus\"."
 
 #: docs/CANBUS.md:block 30 (unordered list)
 msgid ""
@@ -238,14 +285,20 @@ msgid ""
 "bridge board appears as a \"USB CAN adapter\" and it is configured in the "
 "printer.cfg as a [CAN node](#configuring-klipper)."
 msgstr ""
+"Une carte de pont USB à CAN n'apparaîtra pas en tant que périphérique série "
+"USB, elle ne s'affichera pas lors de l'execution de la commande `ls /dev/"
+"serial/by-id`, et elle ne peut pas être configurée dans le fichier Klipper "
+"avec un paramètre `serial:`. La carte pont apparaît comme un « adaptateur "
+"CAN USB » et est configuré dans le printer.cfg en tant que [Nœud CAN"
+"](#configuring-klipper)."
 
 #: docs/CANBUS.md:block 31 (header)
 msgid "Tips for troubleshooting"
-msgstr ""
+msgstr "Conseils pour le dépannage"
 
 #: docs/CANBUS.md:block 32 (paragraph)
 msgid "See the [CAN bus troubleshooting](CANBUS_Troubleshooting.md) document."
-msgstr ""
+msgstr "Voir le document [Dépannage du Bus CAN](CANBUS_Troubleshooting.md)."
 
 #~ msgid ""
 #~ "In order to use a CAN bus, it is necessary to have a host adapter. There are"

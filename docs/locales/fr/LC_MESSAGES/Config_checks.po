@@ -2,17 +2,19 @@
 # Wivik <seb+weblate@zedas.fr>, 2021.
 # gbonaspetti <gbonaspetti@hotmail.com>, 2022.
 # Yifei Ding <dingyifeiair@gmail.com>, 2022.
+# jean-luc MATTEI <jlucm@free.fr>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-07-11 18:57+0000\n"
-"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/klipper/config_checks/fr/>\n"
+"PO-Revision-Date: 2023-12-12 15:07+0000\n"
+"Last-Translator: jean-luc MATTEI <jlucm@free.fr>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/klipper/"
+"config_checks/fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.14-dev\n"
+"X-Generator: Weblate 5.3-dev\n"
 
 msgid ""
 "This document provides a list of steps to help confirm the pin settings in "
@@ -221,6 +223,12 @@ msgid ""
 "temperatures are not accurate, review the \"sensor_type\" and \"sensor_pin\""
 " settings for the nozzle and/or bed."
 msgstr ""
+"Commencez par vérifier que les températures sont correctes. Accédez à la "
+"section du graphique de température de l'interface utilisateur. Vérifier que "
+"la température de la buse et du lit (le cas échéant) est affichée et "
+"n'augmente pas. Si elle augmente, éteignez l'imprimante. Si les températures "
+"ne sont pas exactes, consultez les paramètres \"sensor_type\" et \"sensor_pin"
+"\" pour la buse et/ou le lit."
 
 #: docs/Config_checks.md:block 7 (paragraph)
 msgid ""
@@ -232,6 +240,13 @@ msgid ""
 "continue to update and the temperatures are not increasing. If temperatures "
 "are increasing, remove power from the printer."
 msgstr ""
+"Dans la console du terminal, tapez une commande M112. Cette commande demande "
+"à Klipper de passer dans l'état 'arrêté'. Cela va provoquer l'affichage d'un "
+"erreur, qui peut être effacée avec une commande FIRMWARE_RESTART dans la "
+"console du terminal. Octoprint nécessitera également une reconnexion. "
+"Retournez ensuite vers les graphiques de température et vérifiez que les "
+"températures continuent de se mettre à jour et qu'elles n'augmentent pas. Si "
+"les températures augmentent, éteignez l'imprimante."
 
 #: docs/Config_checks.md:block 9 (paragraph)
 msgid ""
