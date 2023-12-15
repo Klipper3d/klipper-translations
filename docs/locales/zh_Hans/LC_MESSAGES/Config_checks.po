@@ -1,17 +1,19 @@
 # Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022.
 # badpoi <a1635835119@gmail.com>, 2021.
 # "Neko.vecter" <Vecterfang@icloud.com>, 2023.
+# Petal <Petalzu@outlook.com>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-09-26 09:02+0000\n"
-"Last-Translator: \"Neko.vecter\" <Vecterfang@icloud.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/config_checks/zh_Hans/>\n"
+"PO-Revision-Date: 2023-12-15 14:10+0000\n"
+"Last-Translator: Petal <Petalzu@outlook.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/config_checks/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.1-dev\n"
+"X-Generator: Weblate 5.3\n"
 
 msgid ""
 "This document provides a list of steps to help confirm the pin settings in "
@@ -177,6 +179,9 @@ msgid ""
 "temperatures are not accurate, review the \"sensor_type\" and \"sensor_pin\""
 " settings for the nozzle and/or bed."
 msgstr ""
+"首先验证温度报告是否正确。导航到用户界面中的温度图部分。验证喷嘴和床（如适用"
+"）的温度是否存在且没有升高。如果它正在增加，请断开打印机的电源。如果温度不准"
+"确，请查看喷嘴和/或床的“sensor_type”和“sensor_pin”设置。"
 
 #: docs/Config_checks.md:block 7 (paragraph)
 msgid ""
@@ -188,6 +193,10 @@ msgid ""
 "continue to update and the temperatures are not increasing. If temperatures "
 "are increasing, remove power from the printer."
 msgstr ""
+"导航到命令控制台，并在接线盒中发出M112命令。此命令要求Klipper进入“关闭”状态。"
+"它将导致显示一个错误，可以通过命令控制台中的FIRMWARE_RESTART命令清除该错误。"
+"八达通还需要重新连接。然后导航到温度图部分，验证温度是否继续更新，温度是否没"
+"有升高。如果温度升高，请断开打印机电源。"
 
 #: docs/Config_checks.md:block 9 (paragraph)
 msgid ""
@@ -199,6 +208,9 @@ msgid ""
 "value. If the temperature does not increase then verify the \"heater_pin\" "
 "setting in the config."
 msgstr ""
+"导航到温度图部分，键入50，然后在挤出机/工具温度框中输入。图中的挤出机温度应开"
+"始升高（大约在30秒内）。然后转到挤出机温度下拉框，选择“关闭”。几分钟后，温度"
+"应开始恢复到其初始室温值。如果温度没有升高，则验证配置中的“heater_pin”设置。"
 
 #: docs/Config_checks.md:block 12 (paragraph)
 msgid ""
@@ -210,6 +222,10 @@ msgid ""
 "enable pin should have a \"!\" before the pin (for example, \"enable_pin: "
 "!PA1\")."
 msgstr ""
+"验证所有打印机轴是否可以手动自由移动（步进电机已禁用）。如果没有，则发出M84命"
+"令以禁用电机。如果任何轴仍然不能自由移动，则验证给定轴的步进器“enable_pin”配"
+"置。在大多数商用步进电机驱动器上，电机启用引脚为“低激活”，因此启用引脚应在引"
+"脚之前有一个“！”（例如，“enable_pin:!PA1”）。"
 
 #: docs/Config_checks.md:block 14 (paragraph)
 msgid ""
@@ -220,6 +236,10 @@ msgid ""
 "QUERY_ENDSTOPS command while manually triggering the endstop. The "
 "QUERY_ENDSTOPS command should report the endstop as \"TRIGGERED\"."
 msgstr ""
+"手动移动所有打印机轴，使其不与端挡接触。通过命令控制台发送QUERY_ENDSTOPS命令"
+"。它应该以所有配置的端站的当前状态进行响应，并且它们都应该报告“打开”状态。对"
+"于每个endstop，在手动触发endstop的同时重新运行QUERY_endstops命令。QUERY_ENDST"
+"OPS命令应将endstop报告为“TRIGGERED”。"
 
 #: docs/Config_checks.md:block 15 (paragraph)
 msgid ""
@@ -227,6 +247,8 @@ msgid ""
 "vice-versa) then add a \"!\" to the pin definition (for example, "
 "\"endstop_pin: ^PA2\"), or remove the \"!\" if there is already one present."
 msgstr ""
+"如果endstop出现反转（触发时报告“打开”，反之亦然），则在端号定义中添加一个“！”"
+"（例如，“endstop_pin:^PA2”），或者如果已经存在“！”，则删除该“！”。"
 
 #: docs/Config_checks.md:block 18 (paragraph)
 msgid ""
@@ -239,6 +261,11 @@ msgid ""
 "movement the stepper will move away from the endstop.) It will perform this "
 "oscillation ten times."
 msgstr ""
+"使用STEPPER_BUZZ命令验证每个步进电机的连接。首先手动将给定轴定位到中间点，然"
+"后在命令控制台中运行`STEPPER_BUZZ STEPPER=stepper_x` 。STEPPER_BUZZ命令将使给"
+"定的步进器向正方向移动一毫米，然后返回其起始位置。（如果在position_endstop=0"
+"处定义了端止点，则在每次移动开始时，步进器将远离端止点。）它将执行十次此振荡"
+"。"
 
 #: docs/Config_checks.md:block 23 (paragraph)
 msgid ""
@@ -251,6 +278,11 @@ msgid ""
 " does not, see the troubleshooting tips in the previous section to confirm "
 "the \"enable_pin\", \"step_pin\", and \"dir_pin\" settings for the extruder."
 msgstr ""
+"为了测试挤出机电机，有必要将挤出机加热到打印温度。导航到温度图部分，并从温度"
+"下拉框中选择目标温度（或手动输入适当的温度）。等待打印机达到所需温度。然后导"
+"航到命令控制台并单击“挤出”按钮。确认挤出机电机的转动方向正确。如果没有，请参"
+"阅上一节中的故障排除提示，以确认挤出机的“enable_pin”、“step_pin”和“dir_pin”设"
+"置。"
 
 #: docs/Config_checks.md:block 26 (paragraph)
 msgid ""
@@ -258,6 +290,8 @@ msgid ""
 "PID_CALIBRATE command. For example: `PID_CALIBRATE HEATER=extruder "
 "TARGET=170`"
 msgstr ""
+"要校准挤出机，请导航到命令控制台并运行PID_calibrate命令。例如：`"
+"PID_CALIBRATE HEATER=挤出机TARGET=170`"
 
 #~ msgid ""
 #~ "Start by verifying that temperatures are being properly reported. Navigate "
