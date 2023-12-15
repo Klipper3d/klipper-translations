@@ -1,10 +1,20 @@
-#
+# Kaan Özbilek <info@kaanozbilek.com>, 2023.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2023-12-05 06:02+0000\n"
+"Last-Translator: Kaan Özbilek <info@kaanozbilek.com>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/"
+"bootloader_entry/tr/>\n"
+"Language: tr\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.3-dev\n"
+"Content-Transfer-Encoding: 8bit\n"
 
 #: docs/Bootloader_Entry.md:block 1 (header)
 msgid "Bootloader Entry"
-msgstr ""
+msgstr "Bootloader Girdisi"
 
 #: docs/Bootloader_Entry.md:block 2 (paragraph)
 msgid ""
