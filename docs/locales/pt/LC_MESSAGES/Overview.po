@@ -1,16 +1,18 @@
 # Adrian Medeiros <lima.adrian13@gmail.com>, 2023.
 # João Alves <joao.2003.couto@gmail.com>, 2023.
+# Milton Miranda Neto <voidmmn@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-06-04 21:52+0000\n"
-"Last-Translator: João Alves <joao.2003.couto@gmail.com>\n"
-"Language-Team: Portuguese <https://hosted.weblate.org/projects/klipper/overview/pt/>\n"
+"PO-Revision-Date: 2023-12-10 04:02+0000\n"
+"Last-Translator: Milton Miranda Neto <voidmmn@gmail.com>\n"
+"Language-Team: Portuguese <https://hosted.weblate.org/projects/klipper/"
+"overview/pt/>\n"
 "Language: pt\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.18-dev\n"
+"X-Generator: Weblate 5.3-dev\n"
 
 msgid ""
 "Welcome to the Klipper documentation. If new to Klipper, start with the "
@@ -19,7 +21,6 @@ msgstr ""
 "Bem- vindo a documentação do Klipper, comece com os documentos "
 "[features](Features.md) e [installation](Installation.md) ."
 
-#, fuzzy
 msgid "Overview information"
 msgstr "Visão geral"
 
@@ -62,29 +63,39 @@ msgid ""
 "[Rotation Distance](Rotation_Distance.md): Calculating the rotation_distance"
 " stepper parameter."
 msgstr ""
+"[Rotation Distance](Rotation_Distance.md): Calculando o parâmetro stepper "
+"rotation_distance."
 
 msgid ""
 "[Config checks](Config_checks.md): Verify basic pin settings in the config "
 "file."
 msgstr ""
+"[Config checks](Config_checks.md): Verifique as configurações básicas dos "
+"pinos no arquivo de configuração."
 
 msgid "[Bed level](Bed_Level.md): Information on \"bed leveling\" in Klipper."
 msgstr ""
+"[Bed level](Bed_Level.md): Informações sobre \"nivelamento da mesa\" no "
+"Klipper."
 
 msgid ""
 "[Delta calibrate](Delta_Calibrate.md): Calibration of delta kinematics."
-msgstr ""
+msgstr "[Delta calibrate](Delta_Calibrate.md): Calibração de cinemática delta."
 
+#, fuzzy
 msgid ""
 "[Probe calibrate](Probe_Calibrate.md): Calibration of automatic Z probes."
 msgstr ""
+"[Probe calibrate](Probe_Calibrate.md): Calibração de sondas automáticas Z."
 
 msgid "[BL-Touch](BLTouch.md): Configure a \"BL-Touch\" Z probe."
-msgstr ""
+msgstr "[BL-Touch](BLTouch.md): Configure uma sonda Z \"BL-Touch\"."
 
 msgid ""
 "[Manual level](Manual_Level.md): Calibration of Z endstops (and similar)."
 msgstr ""
+"[Manual level](Manual_Level.md): Calibração de Z endstops (e similares). "
+"Endstops são os sensores de final de curso."
 
 msgid "[Bed Mesh](Bed_Mesh.md): Bed height correction based on XY locations."
 msgstr ""
@@ -94,19 +105,26 @@ msgstr ""
 msgid ""
 "[Endstop phase](Endstop_Phase.md): Stepper assisted Z endstop positioning."
 msgstr ""
+"[Endstop phase](Endstop_Phase.md): Posicionamento do fim de curso Z "
+"assistido por motor de passo."
 
 msgid ""
 "[Resonance compensation](Resonance_Compensation.md): A tool to reduce "
 "ringing in prints."
 msgstr ""
+"[Resonance compensation](Resonance_Compensation.md): Uma ferramenta para "
+"reduzir o efeito \"ringing\" nas impressões."
 
 msgid ""
 "[Measuring resonances](Measuring_Resonances.md): Information on using "
 "adxl345 accelerometer hardware to measure resonance."
 msgstr ""
+"[Measuring resonances](Measuring_Resonances.md): Informações fornecidas pelo "
+"acelerômetro adxl345 para medir ressonância."
 
 msgid "[Pressure advance](Pressure_Advance.md): Calibrate extruder pressure."
 msgstr ""
+"[Pressure advance](Pressure_Advance.md): Calibrar a pressão do extrusor."
 
 msgid "[Slicers](Slicers.md): Configure \"slicer\" software for Klipper."
 msgstr ""
