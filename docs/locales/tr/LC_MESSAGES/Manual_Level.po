@@ -1,11 +1,23 @@
-#
+# Kaan Özbilek <info@kaanozbilek.com>, 2023.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2023-12-05 06:02+0000\n"
+"Last-Translator: Kaan Özbilek <info@kaanozbilek.com>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/"
+"manual_level/tr/>\n"
+"Language: tr\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.3-dev\n"
+"Content-Transfer-Encoding: 8bit\n"
 
 msgid ""
 "This document describes tools for calibrating a Z endstop and for performing"
 " adjustments to bed leveling screws."
 msgstr ""
+"Bu belge, bir Z endstop kalibre etmek ve yatak tesviye vidalarında "
+"ayarlamalar yapmak için kullanılan araçlar açıklamaktadır."
 
 msgid "Calibrating a Z endstop"
 msgstr ""
