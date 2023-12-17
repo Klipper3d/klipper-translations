@@ -6,7 +6,7 @@ To use a sensor array as a filament width sensor, read [Config Reference](Config
 
 ## Nasıl çalışıyor?
 
-Sensor generates analog output based on calculated filament width. Output voltage always equals to detected filament width (Ex. 1.65v, 1.70v, 3.0v). Host module monitors voltage changes and adjusts extrusion multiplier.
+Sensör, hesaplanan filaman genişliğine göre analog çıkış üretir. Çıkış voltajı her zaman algılanan filaman genişliğine eşittir (Örn. 1,65v, 1,70v, 3,0v). Ana modül voltaj değişikliklerini izler ve ekstrüzyon çarpanını ayarlar
 
 ## Note:
 

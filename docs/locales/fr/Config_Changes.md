@@ -97,7 +97,7 @@ document](Command_Templates.md#macro-parameters) for examples.
 
 20210201: La commande `TEST_RESONANCES` va maintenant désactiver la mise en forme des entrées si elle était précédemment activée (et la réactiver après le test). Afin d'outrepasser ce comportement et de garder la mise en forme de l'entrée activée, on peut passer un paramètre supplémentaire `INPUT_SHAPING=1` à la commande.
 
-20210201 : La commande `ACCELEROMETER_MEASURE` ajoutera désormais le nom de la puce accéléromètre au nom du fichier de sortie si un nom a été donné à la puce dans la section adxl345 correspondante du printer.cfg.
+20210201 : La commande `ACCELEROMETER_MEASURE` ajoute désormais le nom de l'accéléromètre au nom du fichier de sortie si un nom a été donné à la puce dans la section adxl345 correspondante du fichier printer.cfg.
 
 20201222 : Le paramètre `step_distance` dans les sections de configuration de moteur est obsolète. Il est conseillé de mettre à jour la configuration pour utiliser le paramètre [`rotation_distance`](Rotation_Distance.md). Le support de `step_distance` sera supprimé dans un futur proche.
 

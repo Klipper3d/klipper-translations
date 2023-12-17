@@ -1,16 +1,16 @@
-# CANBUS
+# BUS CAN
 
 Ce document décrit la prise en charge du CAN bus de Klipper.
 
 ## Matériel de l'appareil
 
-Klipper currently supports CAN on stm32, SAME5x, and rp2040 chips. In addition, the micro-controller chip must be on a board that has a CAN transceiver.
+Klipper supporte actuellement CAN sur les puces stm32, SAME5x et rp2040. Le microcontrôleur doit être sur une carte qui possède aussi un transpondeur CAN.
 
 Pour compiler le firmware de votre matériel canbus, exécutez `make menuconfig` et sélectionnez « CAN bus » comme interface de communication. Enfin, compilez le code du microcontrôleur et flashez-le sur la carte cible.
 
 ## Matériel de l'hôte
 
-In order to use a CAN bus, it is necessary to have a host adapter. It is recommended to use a "USB to CAN adapter". There are many different USB to CAN adapters available from different manufacturers. When choosing one, we recommend verifying that the firmware can be updated on it. (Unfortunately, we've found some USB adapters run defective firmware and are locked down, so verify before purchasing.) Look for adapters that can run Klipper directly (in its "USB to CAN bridge mode") or that run the [candlelight firmware](https://github.com/candle-usb/candleLight_fw).
+Pour utiliser un bus CAN, il est nécessaire d'avoir un adaptateur hôte. Il est recommandé d'utiliser un adaptateur "USB to CAN". Il existe de nombreux adaptateurs USB différents pour CAN disponibles auprès de différents fabricants. Lors de votre choix, nous vous recommandons de vérifier que le micrologiciel peut être mis à jour. (Malheureusement, nous avons trouvé quelques adaptateurs USB avec un micrologiciel défectueux et non modifiable, donc vérifiez avant l'achat.) Recherchez des adaptateurs qui peuvent exécuter Klipper directement (dans son mode "USB to CAN bridge") ou qui exécutent [candlelight firmware](https://github.com/candle-usb/candleLight_fw).
 
 Il faut aussi configurer le système d'exploitation hôte pour utiliser l'adaptateur. Cela se fait généralement en créant un nouveau fichier nommé `/etc/network/interfaces.d/can0` avec le contenu suivant :
 
@@ -25,7 +25,7 @@ iface can0 can static
 
 Un bus CAN doit avoir deux résistances de 120 ohms entre les fils CANH et CANL. Idéalement, une résistance située à chaque extrémité du bus.
 
-Note that some devices have a builtin 120 ohm resistor that can not be easily removed. Some devices do not include a resistor at all. Other devices have a mechanism to select the resistor (typically by connecting a "pin jumper"). Be sure to check the schematics of all devices on the CAN bus to verify that there are two and only two 120 Ohm resistors on the bus.
+Certains appareils ont une résistance intégrée de 120 ohm qui ne peut pas être facilement supprimée, d'autres n'ont pas de résistance et d'autres ont un mécanisme pour sélectionner la résistance (généralement en connectant un "cavalier"). Assurez-vous de vérifier les schémas de tous les appareils du bus CAN pour vérifier qu'il y a deux et seulement deux résistances de 120 Ohm sur le bus .
 
 Pour tester que les résistances sont correctes, on peut couper l'alimentation de l'imprimante et utiliser un multimètre pour vérifier la résistance entre les fils CANH et CANL - la résistance doit être d'environ 60 ohms sur un bus CAN correctement câblé.
 
@@ -58,14 +58,14 @@ canbus_uuid: 11aa22bb33cc
 
 ## Mode pont USB vers bus CAN
 
-Some micro-controllers support selecting "USB to CAN bus bridge" mode during Klipper's "make menuconfig". This mode may allow one to use a micro-controller as both a "USB to CAN bus adapter" and as a Klipper node.
+Certains microcontrôleurs prennent en charge la sélection du mode "USB to CAN bus bridge" pendant la phase "make menuconfig" de Klipper". Ce mode peut permettre d'utiliser un microcontrôleur à la fois comme un adaptateur de bus USB vers CAN et comme nœud Klipper (mcu).
 
-When Klipper uses this mode the micro-controller appears as a "USB CAN bus adapter" under Linux. The "Klipper bridge mcu" itself will appear as if it was on this CAN bus - it can be identified via `canbus_query.py` and it must be configured like other CAN bus Klipper nodes.
+Lorsque Klipper utilise ce mode, le microcontrôleur apparaît comme un "USB CAN bus adapter" sous Linux. Le mcu "Klipper apparaîtra comme s'il était sur le bus CAN - il peut être identifié via `canbus_query.py` et il doit être configuré comme les autres noeuds Klipper de bus CAN.
 
 Quelques remarques importantes lors de l'utilisation de ce mode :
 
 * Il est nécessaire de configurer l'interface `can0` (ou similaire) sous Linux afin de communiquer avec le bus. Cependant, la vitesse du bus CAN Linux et les options de synchronisation des bits du bus CAN sont ignorées par Klipper. Actuellement, la fréquence du bus CAN est spécifiée lors de "make menuconfig" et la vitesse du bus spécifiée dans Linux est ignorée.
-* Whenever the "bridge mcu" is reset, Linux will disable the corresponding `can0` interface. To ensure proper handling of FIRMWARE_RESTART and RESTART commands, it is recommended to use `allow-hotplug` in the `/etc/network/interfaces.d/can0` file. For example:
+* Dès que le "bridge mcu" est réinitialisé, Linux désactivera l'interface correspondante `can0`. Pour assurer une bonne manipulation des commandes FIRMWARE_RESTART et RESTART, il est recommandé d'utiliser `allow-hotplug` dans le fichier `/etc/network/interfaces.d/can0`. Par exemple :
 
 ```
 allow-hotplug can0
@@ -74,11 +74,11 @@ iface can0 can static
     up ifconfig $IFACE txqueuelen 128
 ```
 
-* The "bridge mcu" is not actually on the CAN bus. Messages to and from the bridge mcu will not be seen by other adapters that may be on the CAN bus.
+* Le « pont mcu » n'est pas en fait sur le bus CAN. Les messages entrant et sortant du bridge mcu ne seront pas vus par les autres adaptateurs présents sur le bus CAN.
 
-   * The available bandwidth to both the "bridge mcu" itself and all devices on the CAN bus is effectively limited by the CAN bus frequency. As a result, it is recommended to use a CAN bus frequency of 1000000 when using "USB to CAN bus bridge mode".Even at a CAN bus frequency of 1000000, there may not be sufficient bandwidth to run a `SHAPER_CALIBRATE` test if both the XY steppers and the accelerometer all communicate via a single "USB to CAN bus" interface.
-* A USB to CAN bridge board will not appear as a USB serial device, it will not show up when running `ls /dev/serial/by-id`, and it can not be configured in Klipper's printer.cfg file with a `serial:` parameter. The bridge board appears as a "USB CAN adapter" and it is configured in the printer.cfg as a [CAN node](#configuring-klipper).
+   * La bande passante disponible pour tous les appareils du bus CAN (et du bridge mcu) est limitée par la fréquence de bus CAN. Par conséquent, il est recommandé d'utiliser une fréquence de bus CAN de 1000000 lors de l'utilisation du mode "USB to CAN bus bridge".Même à une fréquence de bus CAN de 1000000, il peut ne pas y avoir assez de bande passante pour exécuter un test `SHAPER_CALIBRATE` si les deux steppers XY et l'accéléromètre communiquent tous par une seule interface "USB to CAN bus".
+* Une carte de pont USB à CAN n'apparaîtra pas en tant que périphérique série USB, elle ne s'affichera pas lors de l'execution de la commande `ls /dev/serial/by-id`, et elle ne peut pas être configurée dans le fichier Klipper avec un paramètre `serial:`. La carte pont apparaît comme un « adaptateur CAN USB » et est configuré dans le printer.cfg en tant que [Nœud CAN](#configuring-klipper).
 
-## Tips for troubleshooting
+## Conseils pour le dépannage
 
-See the [CAN bus troubleshooting](CANBUS_Troubleshooting.md) document.
+Voir le document [Dépannage du Bus CAN](CANBUS_Troubleshooting.md).

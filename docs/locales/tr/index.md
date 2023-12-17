@@ -1,6 +1,6 @@
 ***
 
-hide:
+gizle:
 
 - toc title: Welcome
 

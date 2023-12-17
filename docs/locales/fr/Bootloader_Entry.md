@@ -1,16 +1,16 @@
-# Bootloader Entry
+# Entrée du bootloader
 
-Klipper can be instructed to reboot into a [Bootloader](Bootloaders.md) in one of the following ways:
+Klipper redémarrer dans un [Bootloader](Bootloaders.md) de l'une des manières suivantes :
 
-## Requesting the bootloader
+## Demande du bootloader
 
-### Virtual Serial
+### Série virtuel
 
 If a virtual (USB-ACM) serial port is in use, pulsing DTR while at 1200 baud will request the bootloader.
 
 #### Python (with `flash_usb`)
 
-To enter the bootloader using python (using `flash_usb`):
+Pour accéder au bootloader en utilisant python (en utilisant `flash_usb`) :
 
 ```shell
 > cd klipper/scripts
@@ -18,9 +18,9 @@ To enter the bootloader using python (using `flash_usb`):
 Entering bootloader on <DEVICE>
 ```
 
-Where `<DEVICE>` is your serial device, such as `/dev/serial.by-id/usb-Klipper[...]` or `/dev/ttyACM0`
+Où `<DEVICE>` est votre périphérique série, tel que `/dev/serial.by-id/usb-Klipper[...]` ou `/dev/ttyACM0`
 
-Note that if this fails, no output will be printed, success is indicated by printing `Entering bootloader on <DEVICE>`.
+Notez que si cela échoue, rien ne sera affiché, une opération réussie est indiqué en affichant `Entering bootloader on <DEVICE>`.
 
 #### Picocom
 
@@ -29,11 +29,11 @@ picocom -b 1200 <DEVICE>
 <Ctrl-A><Ctrl-P>
 ```
 
-Where `<DEVICE>` is your serial device, such as `/dev/serial.by-id/usb-Klipper[...]` or `/dev/ttyACM0`
+Où `<DEVICE>` est votre périphérique série, tel que `/dev/serial.by-id/usb-Klipper[...]` ou `/dev/ttyACM0`
 
 `<Ctrl-A><Ctrl-P>` means holding `Ctrl`, pressing and releasing `a`, pressing and releasing `p`, then releasing `Ctrl`
 
-### Physical serial
+### Série physique
 
 If a physical serial port is being used on the MCU (even if a USB serial adapter is being used to connect to it), sending the string `<SPACE><FS><SPACE>Request Serial Bootloader!!<SPACE>~`.
 
@@ -56,7 +56,7 @@ Where `<DEVICE>` is your serial port, such as `/dev/ttyS0`, or `/dev/serial/by-i
 
 `<BAUD>` is the baud rate of the serial port, such as `115200`.
 
-### CANBUS
+### BUS CAN
 
 If CANBUS is in use, a special [admin message](CANBUS_protocol.md#admin-messages) will request the bootloader. This message will be respected even if the device already has a nodeid, and will also be processed if the mcu is shutdown.
 

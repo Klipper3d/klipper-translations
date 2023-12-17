@@ -1,50 +1,50 @@
-# CANBUS Troubleshooting
+# Dépannage du CANBUS
 
-This document provides information on troubleshooting communication issues when using [Klipper with CAN bus](CANBUS.md).
+Ce document fournit des informations sur le dépannage des problèmes de communication lors de l'utilisation de [Bus CAN avec Klipper](CANBUS.md).
 
-## Verify CAN bus wiring
+## Vérifier le câblage du bus CAN
 
-The first step in troubleshooting communication issues is to verify the CAN bus wiring.
+La première étape pour résoudre les problèmes de communication est de vérifier le câblage du bus CAN.
 
 Be sure there are exactly two 120 Ohm [terminating
 resistors](CANBUS.md#terminating-resistors) on the CAN bus. If the resistors are not properly installed then messages may not be able to be sent at all or the connection may have sporadic instability.
 
-The CANH and CANL bus wiring should be twisted around each other. At a minimum, the wiring should have a twist every few centimeters. Avoid twisting the CANH and CANL wiring around power wires and ensure that power wires that travel parallel to the CANH and CANL wires do not have the same amount of twists.
+Les câbles CANH et CANL doivent être torsadés. Les torsades ne doivent pas être espacées de plus de quelques centimètres. Évitez de torsader les câbles CANH et CANL avec les fils de puissance et assurez-vous que les fils de puissance placés à côté du bus can n'aient pas le même nombre de torsades.
 
-Verify that all plugs and wire crimps on the CAN bus wiring are fully secured. Movement of the printer toolhead may jostle the CAN bus wiring causing a bad wire crimp or unsecured plug to result in intermittent communication errors.
+Vérifier que toutes les fiches et sertissages sur le câblage CAN sont entièrement sécurisés. Le mouvement de la tête d'outil d'imprimante peut faire bouger le câblage de bus CAN et provoquer des faux contacts - source d'erreurs de communication aléatoires.
 
-## Check for incrementing bytes_invalid counter
+## Vérification de l'augmentation du compteur octets_invalide
 
-The Klipper log file will report a `Stats` line once a second when the printer is active. These "Stats" lines will have a `bytes_invalid` counter for each micro-controller. This counter should not increment during normal printer operation (it is normal for the counter to be non-zero after a RESTART and it is not a concern if the counter increments once a month or so). If this counter increments on a CAN bus micro-controller during normal printing (it increments every few hours or more frequently) then it is an indication of a severe problem.
+Le fichier journal de Klipper affiche une ligne `Stats` une fois par seconde lorsque l'imprimante est active. Ces lignes "Stats" ont un compteur `bytes_invalid` pour chaque microcontrôleur. Ce compteur ne devrait pas augmenter au cours de l'utilisation normale de l'imprimante (il est normal que le compteur soit non nul après un RESTART et ce n'est pas une préoccupation si le compteur augmente une fois par mois). Si ce compteur augmente sur un microcontrôleur de bus CAN pendant un fonctionnement normal (s'il augmente toutes les heures ou plus fréquemment) alors c'est une indication d'un problème grave.
 
-Incrementing `bytes_invalid` on a CAN bus connection is a symptom of reordered messages on the CAN bus. There are two known causes of reordered messages:
+L'augmentation du compteur `bytes_invalid` sur une connexion de bus CAN est un symptôme de messages réémis sur le bus CAN. Il existe deux causes connues de réémission de messages :
 
-1. Old versions of the popular candlight_firmware for USB CAN adapters had a bug that could cause reordered messages. If using a USB CAN adapter running this firmware then make sure to update to the latest firmware if incrementing `bytes_invalid` is observed.
-1. Some Linux kernel builds for embedded devices have been known to reorder CAN bus messages. It may be necessary to use an alternative Linux kernel or to use alternative hardware that supports mainstream Linux kernels that do not exhibit this problem.
+1. Les anciennes versions du micrologiciel candlight ont un bug qui peut causer des réémissions de messages. Si vous utilisez un adaptateur USB CAN qui exécute ce micrologiciel, assurez-vous de mettre à jour le dernier micrologiciel si vous remarquez une incrémentation anormale du compteur `bytes_invalid`.
+1. Certains noyaux Linux destinés à des périphériques embarqués sont connus pour réémettre les messages de bus CAN. Il peut être nécessaire d'utiliser un autre noyau Linux ou d'utiliser du matériel qui prend en charge les noyaux Linux courants qui ne présentent pas ce problème.
 
-Reordered messages is a severe problem that must be fixed. It will result in unstable behavior and can lead to confusing errors at any part of a print.
+La réorganisation des messages est un problème grave qui doit être résolu. Cela entraînera un comportement instable et peut conduire à des erreurs déroutantes à n'importe quelle partie d'une impression.
 
-## Obtaining candump logs
+## Obtenir les journaux 'candump'
 
-The CAN bus messages sent to and from the micro-controller are handled by the Linux kernel. It is possible to capture these messages from the kernel for debugging purposes. A log of these messages may be of use in diagnostics.
+Les messages de bus CAN envoyés au microcontrôleur sont gérés par le noyau Linux. Il est possible de capturer ces messages à des fins de débogage. Le journal de ces messages peut être utile lors des diagnostics.
 
-The Linux [can-utils](https://github.com/linux-can/can-utils) tool provides the capture software. It is typically installed on a machine by running:
+L'outil Linux [can-utils](https ://github.com/linux-can/can-utils) fournit le logiciel de capture. Il peut être installé en exécutant :
 
 ```
 sudo apt-get update && sudo apt-get install can-utils
 ```
 
-Once installed, one may obtain a capture of all CAN bus messages on an interface with the following command:
+Une fois installé, on peut obtenir une capture de tous les messages de bus CAN sur une interface avec la commande suivante :
 
 ```
 candump -tz -Ddex can0,#FFFFFFFF > mycanlog
 ```
 
-One can view the resulting log file (`mycanlog` in the example above) to see each raw CAN bus message that was sent and received by Klipper. Understanding the content of these messages will likely require low-level knowledge of Klipper's [CANBUS protocol](CANBUS_protocol.md) and Klipper's [MCU commands](MCU_Commands.md).
+On peut lire le fichier journal résultant (`mycanlog` dans l'exemple ci-dessus) pour voir chaque message de bus CAN brut qui a été envoyé et reçu par Klipper. Comprendre le contenu de ces messages nécessite une connaissance de bas niveau de Klipper : [Protocole CANBUS](CANBUS_protocol.md) et [Commandes MCU](MCU_Commands.md).
 
-### Parsing Klipper messages in a candump log
+### Analyser les messages Klipper dans un journal candump
 
-One may use the `parsecandump.py` tool to parse the low-level Klipper micro-controller messages contained in a candump log. Using this tool is an advanced topic that requires knowledge of Klipper [MCU commands](MCU_Commands.md). For example:
+Il est possible d'utiliser l'outil `parsecandump.py` pour analyser les messages microcontrôleur Klipper de bas niveau contenus dans un journal candump. L'utilisation de cet outil nécessite la connaissance de Klipper [MCU commands](MCU_Commands.md). Par exemple :
 
 ```
 ./scripts/parsecandump.py mycanlog 108 ./out/klipper.dict
@@ -56,16 +56,16 @@ tool](Debugging.md#translating-gcode-files-to-micro-controller-commands). See th
 In the above example, `108` is the [CAN bus
 id](CANBUS_protocol.md#micro-controller-id-assignment). It is a hexadecimal number. The id `108` is assigned by Klipper to the first micro-controller. If the CAN bus has multiple micro-controllers on it, then the second micro-controller would be `10a`, the third would be `10c`, and so on.
 
-The candump log must be produced using the `-tz -Ddex` command-line arguments (for example: `candump -tz -Ddex can0,#FFFFFFFF`) in order to use the `parsecandump.py` tool.
+Le journal candump doit être généré avec les arguments de ligne de commande `-tz -Ddex` (par exemple : `candump -tz -Ddex can0,#FFFFFF`)) Afin de pouvoir être utilisé avec l'outil `parsecandump.py`.
 
-## Using a logic analyzer on the canbus wiring
+## Utiliser un analyseur logique sur le câblage canbus
 
-The [Sigrok Pulseview](https://sigrok.org/wiki/PulseView) software along with a low-cost [logic analyzer](https://en.wikipedia.org/wiki/Logic_analyzer) can be useful for diagnosing CAN bus signaling. This is an advanced topic likely only of interest to experts.
+Le logiciel [Sigrok Pulseview](https://sigrok.org/wiki/PulseView) associé à un analyseur logique à bas coût [logic analysisr](https://en.wikipedia.org/wiki/Logic_analyzer) peut être utile pour le diagnostic de signal de bus CAN. C'est un sujet avancé qui n'intéressera probablement que les experts.
 
-One can often find "USB logic analyzers" for under $15 (US pricing as of 2023). These devices are often listed as "Saleae logic clones" or as "24MHz 8 channel USB logic analyzers".
+On peut trouver des « analyseurs logiques USB » pour moins de 15 $ (prix américain de 2023). Ces appareils sont souvent nommés « Saleae logic clone » ou « analyseur logique USB 24MHz 8 canaux ».
 
 ![pulseview-canbus](img/pulseview-canbus.png)
 
-The above picture was taken while using Pulseview with a "Saleae clone" logic analyzer. The Sigrok and Pulseview software was installed on a desktop machine (also install the "fx2lafw" firmware if that is packaged separately). The CH0 pin on the logic analyzer was routed to the CAN Rx line, the CH1 pin was wired to the CAN Tx pin, and GND was wired to GND. Pulseview was configured to only display the D0 and D1 lines (red "probe" icon center top toolbar). The number of samples was set to 5 million (top toolbar) and the sample rate was set to 24Mhz (top toolbar). The CAN decoder was added (yellow and green "bubble icon" right top toolbar). The D0 channel was labeled as RX and set to trigger on a falling edge (click on black D0 label at left). The D1 channel was labeled as TX (click on brown D1 label at left). The CAN decoder was configured for 1Mbit rate (click on green CAN label at left). The CAN decoder was moved to the top of the display (click and drag green CAN label). Finally, the capture was started (click "Run" at top left) and a packet was transmitted on the CAN bus (`cansend can0 123#121212121212`).
+L'image ci-dessus a été prise en utilisant Pulseview avec un analyseur logique "Saleae clone". Le logiciel Sigrok et Pulseview ont été installés sur une machine de bureau (il faudra aussi installe le microligiciel "fx2lafw" si il est fourni séparément). La broche CH0 sur l'analyseur logique doit être connectée à la ligne CAN Rx, la broche CH1 à la ligne CAN Tx, GND doit être connecté avec GND. Pulseview doit être configuré pour n'afficher que les lignes D0 et D1 (icône rouge 'probe' au centre de la barre d'outils). Le nombre d'échantillons a été fixé à 5 millions (barre d'outils) et le taux d'échantillonnage à 24Mhz (barre d'outils). Le décodeur CAN a été ajouté (icône bulle jaune et verte sir la barre d'outils en haut à droite). Le canal D0 étiqueté comme RX et défini pour être déclenché sur un front descendant (cliquez sur l'étiquette D0 noire à gauche). Le canal D1 a été étiqueté comme TX (cliquez sur l'étiquette D1 brune à gauche). Le décodeur CAN a été configuré à une vitesse de 1Mbit (cliquez sur l'étiquette CAN verte à gauche). Le décodeur CAN a été déplacé en haut de l'écran (cliquez et faites glisser l'étiquette CAN verte). Enfin, la capture a été commencée (cliquez sur "Run" en haut à gauche) et un paquet a été transmis sur le bus CAN (`cansend cans0 123#121212121212`).
 
-The logic analyzer provides an independent tool for capturing packets and verifying bit timing.
+L'analyseur logique fournit un outil indépendant pour capturer les paquets et vérifier la chronologie.
