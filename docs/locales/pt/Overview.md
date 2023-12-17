@@ -14,19 +14,19 @@ Bem- vindo a documentação do Klipper, comece com os documentos [features](Feat
 
 - [Instalação](Installation.md): Guia de instalação do Klipper.
 - [Referência de configuração](Config_Reference.md): Descrição de parâmetros de configuração.
-   - [Rotation Distance](Rotation_Distance.md): Calculating the rotation_distance stepper parameter.
-- [Config checks](Config_checks.md): Verify basic pin settings in the config file.
-- [Bed level](Bed_Level.md): Information on "bed leveling" in Klipper.
-   - [Delta calibrate](Delta_Calibrate.md): Calibration of delta kinematics.
-   - [Probe calibrate](Probe_Calibrate.md): Calibration of automatic Z probes.
-   - [BL-Touch](BLTouch.md): Configure a "BL-Touch" Z probe.
-   - [Manual level](Manual_Level.md): Calibration of Z endstops (and similar).
+   - [Rotation Distance](Rotation_Distance.md): Calculando o parâmetro stepper rotation_distance.
+- [Config checks](Config_checks.md): Verifique as configurações básicas dos pinos no arquivo de configuração.
+- [Bed level](Bed_Level.md): Informações sobre "nivelamento da mesa" no Klipper.
+   - [Delta calibrate](Delta_Calibrate.md): Calibração de cinemática delta.
+   - [Probe calibrate](Probe_Calibrate.md): Calibração de sondas automáticas Z.
+   - [BL-Touch](BLTouch.md): Configure uma sonda Z "BL-Touch".
+   - [Manual level](Manual_Level.md): Calibração de Z endstops (e similares). Endstops são os sensores de final de curso.
    - [Malha de cama](Bed_Mesh.md): Correção da altura da cama baseado em coordenadas XY.
-   - [Endstop phase](Endstop_Phase.md): Stepper assisted Z endstop positioning.
+   - [Endstop phase](Endstop_Phase.md): Posicionamento do fim de curso Z assistido por motor de passo.
    - [Axis Twist Compensation](Axis_Twist_Compensation.md): A tool to compensate for inaccurate probe readings due to twist in X gantry.
-- [Resonance compensation](Resonance_Compensation.md): A tool to reduce ringing in prints.
-   - [Measuring resonances](Measuring_Resonances.md): Information on using adxl345 accelerometer hardware to measure resonance.
-- [Pressure advance](Pressure_Advance.md): Calibrate extruder pressure.
+- [Resonance compensation](Resonance_Compensation.md): Uma ferramenta para reduzir o efeito "ringing" nas impressões.
+   - [Measuring resonances](Measuring_Resonances.md): Informações fornecidas pelo acelerômetro adxl345 para medir ressonância.
+- [Pressure advance](Pressure_Advance.md): Calibrar a pressão do extrusor.
 - [G-Codes](G-Codes.md): Information on commands supported by Klipper.
 - [Command Templates](Command_Templates.md): G-Code macros and conditional evaluation.
    - [Status Reference](Status_Reference.md): Information available to macros (and similar).

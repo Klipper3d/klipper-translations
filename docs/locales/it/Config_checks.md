@@ -6,11 +6,11 @@ In alcuni passaggi di questa guida, potrebbe essere necessario modificare il fil
 
 ## Verifica delle temperature
 
-Start by verifying that temperatures are being properly reported. Navigate to the temperature graph section in the user interface. Verify that the temperature of the nozzle and bed (if applicable) are present and not increasing. If it is increasing, remove power from the printer. If the temperatures are not accurate, review the "sensor_type" and "sensor_pin" settings for the nozzle and/or bed.
+Inizia verificando che le temperature siano riportate correttamente. Naviga nella sezione della temperatura nell'interfaccia utente. Verifica che la temperatura del nozzle e del letto (se possibile) sono presenti e non aumentino. Nel caso aumentino, togli corrente alla stampante. Se le temperature non sono accurate, ricontrolla le impostazioni del nozzle e del letto chiamate "sensor_type" e "sensor_pin".
 
 ## Verifica M112
 
-Navigate to the command console and issue an M112 command in the terminal box. This command requests Klipper to go into a "shutdown" state. It will cause an error to show, which can be cleared with a FIRMWARE_RESTART command in the command console. Octoprint will also require a reconnect. Then navigate to the temperature graph section and verify that temperatures continue to update and the temperatures are not increasing. If temperatures are increasing, remove power from the printer.
+Naviga nella console dei comandi e invia un comando M112 nel terminale. Questo comando chiede a Klipper di andare in uno stato di spegnimento. Ciò causerà un errore, che potrà essere risolto con l'esecuzione di un comando "FIRMWARE_RESTART" nella console. Anche octoprint richiederà una riconessione. Poi vai nella sezione delle temperature e verifica che esse continuino ad aggiornarsi e non incrementino. Se le temperature incrementano togliere immediatamente corrente alla stampante.
 
 ## Verifica i riscaldatori
 
@@ -20,7 +20,7 @@ Se la stampante ha il piatto riscaldato, eseguire nuovamente il test indicato in
 
 ## Verifica il pin di abilitazione del motore passo-passo
 
-Verify that all of the printer axes can manually move freely (the stepper motors are disabled). If not, issue an M84 command to disable the motors. If any of the axes still can not move freely, then verify the stepper "enable_pin" configuration for the given axis. On most commodity stepper motor drivers, the motor enable pin is "active low" and therefore the enable pin should have a "!" before the pin (for example, "enable_pin: !PA1").
+Verifica che gli assi della stampante possano muoversi liberamente (I motori sono disabilitati). In caso contrario, inviare un comando M84 per disabilitare i motori. Se un asse qualunque non si potesse muovere liberamente, verificare la configurazione stepper "enable_pin" per gli assi in questione.Nella maggior parte dei driver per motori passo-passo, il pin di abilitazione del motore è "attivo basso" e pertanto il pin di abilitazione deve essere preceduto da un "!" (ad esempio, "enable_pin: !PA1").
 
 ## Verifica i finecorsa
 

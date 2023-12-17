@@ -1,6 +1,6 @@
 # Beaglebone
 
-This document describes the process of running Klipper on a Beaglebone PRU.
+Bu belge Klipper'ı Beaglebone PRU'da çalıştırma sürecini açıklamaktadır.
 
 ## Building an OS image
 

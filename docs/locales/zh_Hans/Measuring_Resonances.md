@@ -624,22 +624,22 @@ SHAPER_CALIBRATE AXIS=X
 
 ## 离线处理加速计数据
 
-It is possible to generate the raw accelerometer data and process it offline (e.g. on a host machine), for example to find resonances. In order to do so, run the following commands via Octoprint terminal:
+可以生成原始的加速度计数据并离线处理（例如在一台电脑上），以查找共振频率为例，在Octoprint的终端内运行如下命令：
 
 ```
 SET_INPUT_SHAPER SHAPER_FREQ_X=0 SHAPER_FREQ_Y=0
 TEST_RESONANCES AXIS=X OUTPUT=raw_data
 ```
 
-ignoring any errors for `SET_INPUT_SHAPER` command. For `TEST_RESONANCES` command, specify the desired test axis. The raw data will be written into `/tmp` directory on the RPi.
+忽略`SET_INPUT_SHAPER`命令的任何错误。对`TEST_RESONANCES`指定测试的方向。原始数据保存至`/tmp`目录内。
 
 在一些正常的打印机活动中，也可以通过运行命令 `ACCELEROMETER_MEASURE`两次来获得原始数据——首先是开始测量，然后是停止测量并写入输出文件。有关更多详细信息，请参阅[G-Codes](G-Codes.md#adxl345)。
 
-The data can be processed later by the following scripts: `scripts/graph_accelerometer.py` and `scripts/calibrate_shaper.py`. Both of them accept one or several raw csv files as the input depending on the mode. The graph_accelerometer.py script supports several modes of operation:
+这些数据可在以后通过`scripts/graph_accelerometer.py`和scripts/calibrate_shaper.py`脚本进行处理，在不同的工作模式下，两种脚本支持一个或多个原始数据csv文件作为输入。graph_accelerometer.py支持以下几种模式：
 
-* plotting raw accelerometer data (use `-r` parameter), only 1 input is supported;
-* plotting a frequency response (no extra parameters required), if multiple inputs are specified, the average frequency response is computed;
-* comparison of the frequency response between several inputs (use `-c` parameter); you can additionally specify which accelerometer axis to consider via `-a x`, `-a y` or `-a z` parameter (if none specified, the sum of vibrations for all axes is used);
+* 绘制原始加速度数据图（使用`-r`参数），仅支持一个输入；
+* 绘制频率响应图（无需额外参数），如果指定了多个输入文件，将计算他们的平均值；
+* 在多个输入之间比较频率响应曲线（使用`-c`参数）；通过`-ax，`-ay`或`-az`参数，可以额外指定哪个轴参与比较（在未指定时将计算所有轴振动的总和）;
 * plotting the spectrogram (use `-s` parameter), only 1 input is supported; you can additionally specify which accelerometer axis to consider via `-a x`, `-a y` or `-a z` parameter (if none specified, the sum of vibrations for all axes is used).
 
 Note that graph_accelerometer.py script supports only the raw_data\*.csv files and not resonances\*.csv or calibration_data\*.csv files.

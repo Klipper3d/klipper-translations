@@ -2568,19 +2568,19 @@ See the [command reference](G-Codes.md#temperature_fan) for additional informati
 Manually controlled fan (one may define any number of sections with a "fan_generic" prefix). The speed of a manually controlled fan is set with the SET_FAN_SPEED [gcode command](G-Codes.md#fan_generic).
 
 ```
-[вентилятор _ универсальный экструдер_ partfan]
-#приколоть:
-#максимальная мощность:
-#выключение_скорость:
-#время цикла:
-#оборудование_pwm:
-#кик_начало_времени:
-#выключено_ниже:
-#тахометр_pin:
-#тахометр_ppr:
-#тахометр_опрос_интервал:
-#включить_pin:
-# См. раздел «Вентилятор» для описания вышеуказанных параметров.
+[fan_generic extruder_partfan]
+#pin:
+#max_power:
+#shutdown_speed:
+#cycle_time:
+#hardware_pwm:
+#kick_start_time:
+#off_below:
+#tachometer_pin:
+#tachometer_ppr:
+#tachometer_poll_interval:
+#enable_pin:
+#   See the "fan" section for a description of the above parameters.
 ```
 
 ## LEDs

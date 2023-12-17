@@ -6,11 +6,11 @@ Pendant ce guide, il peut être nécessaire d'apporter des modifications au fich
 
 ## Vérifier la température
 
-Start by verifying that temperatures are being properly reported. Navigate to the temperature graph section in the user interface. Verify that the temperature of the nozzle and bed (if applicable) are present and not increasing. If it is increasing, remove power from the printer. If the temperatures are not accurate, review the "sensor_type" and "sensor_pin" settings for the nozzle and/or bed.
+Commencez par vérifier que les températures sont correctes. Accédez à la section du graphique de température de l'interface utilisateur. Vérifier que la température de la buse et du lit (le cas échéant) est affichée et n'augmente pas. Si elle augmente, éteignez l'imprimante. Si les températures ne sont pas exactes, consultez les paramètres "sensor_type" et "sensor_pin" pour la buse et/ou le lit.
 
 ## Vérifier M112
 
-Navigate to the command console and issue an M112 command in the terminal box. This command requests Klipper to go into a "shutdown" state. It will cause an error to show, which can be cleared with a FIRMWARE_RESTART command in the command console. Octoprint will also require a reconnect. Then navigate to the temperature graph section and verify that temperatures continue to update and the temperatures are not increasing. If temperatures are increasing, remove power from the printer.
+Dans la console du terminal, tapez une commande M112. Cette commande demande à Klipper de passer dans l'état 'arrêté'. Cela va provoquer l'affichage d'un erreur, qui peut être effacée avec une commande FIRMWARE_RESTART dans la console du terminal. Octoprint nécessitera également une reconnexion. Retournez ensuite vers les graphiques de température et vérifiez que les températures continuent de se mettre à jour et qu'elles n'augmentent pas. Si les températures augmentent, éteignez l'imprimante.
 
 ## Vérifier la cartouche chauffante
 

@@ -1,4 +1,4 @@
-Klipper documentation
+Klipper dökümantasyonu
 
 Installation and Configuration
 

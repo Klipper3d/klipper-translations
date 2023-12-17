@@ -1432,7 +1432,7 @@ See the [exclude objects guide](Exclude_Object.md) and [command reference](G-Cod
 [exclude_object]
 ```
 
-## Resonance compensation
+## Resonanskompensation
 
 ### [input_shaper]
 

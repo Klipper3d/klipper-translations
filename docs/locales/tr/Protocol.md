@@ -1,6 +1,6 @@
 # Protokol
 
-The Klipper messaging protocol is used for low-level communication between the Klipper host software and the Klipper micro-controller software. At a high level the protocol can be thought of as a series of command and response strings that are compressed, transmitted, and then processed at the receiving side. An example series of commands in uncompressed human-readable format might look like:
+Klipper mesajlaşma protokolü, Klipper ana bilgisayar yazılımı ile Klipper mikro denetleyici yazılımı arasındaki alçak düzey iletişim için kullanılır. Yüksek düzey protokol, sıkıştırılan, iletilen ve daha sonra alıcı tarafta işlenen bir dizi komut ve yanıt dizisi olarak düşünülebilir. Sıkıştırılmamış, okunabilir formatta örnek bir komut dizisi aşağıdaki gibi görünebilir:
 
 ```
 set_digital_out pin=PA3 value=1

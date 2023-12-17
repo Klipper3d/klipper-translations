@@ -1806,29 +1806,29 @@ z_offset:
 
 ### [axis_twist_compensation]
 
-A tool to compensate for inaccurate probe readings due to twist in X gantry. See the [Axis Twist Compensation Guide](Axis_Twist_Compensation.md) for more detailed information regarding symptoms, configuration and setup.
+Uma ferramenta para compensar leituras imprecisas do sensor devido à torção no eixo X da estrutura. Consulte o [Guia de Compensação de Torção do Eixo](Axis_Twist_Compensation.md) para obter informações mais detalhadas sobre os sintomas, ajustes e configuração.
 
 ```
 [axis_twist_compensation]
 #speed: 50
-#   The speed (in mm/s) of non-probing moves during the calibration.
-#   The default is 50.
+#   A velocidade (em mm/s) de movimentos non-probing (movimentos ou ações que não envolvem o uso de um sensor para medir ou sondar) durante a calibração.
+#   O padrão é 50.
 #horizontal_move_z: 5
-#   The height (in mm) that the head should be commanded to move to
-#   just prior to starting a probe operation. The default is 5.
+#   A altura (em mm) que a cabeça deve ser comandada para se mover
+#   logo antes de iniciar uma operação de sondagem. O padrão é 5.
 calibrate_start_x: 20
-#   Defines the minimum X coordinate of the calibration
-#   This should be the X coordinate that positions the nozzle at the starting
-#   calibration position. This parameter must be provided.
+#   Define a coordenada X mínima da calibração
+#   Esta deve ser a coordenada X que posiciona o bico na posição inicial
+#   de calibração. Este parâmetro deve ser fornecido.
 calibrate_end_x: 200
-#   Defines the maximum X coordinate of the calibration
-#   This should be the X coordinate that positions the nozzle at the ending
-#   calibration position. This parameter must be provided.
+#   Define a coordenada X máxima da calibração
+#   Esta deve ser a coordenada X que posiciona o bico na posição final
+#   de calibração. Este parâmetro deve ser fornecido.
 calibrate_y: 112.5
-#   Defines the Y coordinate of the calibration
-#   This should be the Y coordinate that positions the nozzle during the
-#   calibration process. This parameter must be provided and is recommended to
-#   be near the center of the bed
+#   Define a coordenada Y da calibração
+#   Esta deve ser a coordenada Y que posiciona o bico durante o
+#   processo de calibração. Este parâmetro deve ser fornecido e é recomendado que
+#   seja próximo ao centro da cama"
 ```
 
 ## Motores de passo e extrusoras adicionais
@@ -1873,7 +1873,7 @@ See [sample-multi-extruder.cfg](../config/sample-multi-extruder.cfg) for an exam
 
 Support for cartesian and hybrid_corexy/z printers with dual carriages on a single axis. The carriage mode can be set via the SET_DUAL_CARRIAGE extended g-code command. For example, "SET_DUAL_CARRIAGE CARRIAGE=1" command will activate the carriage defined in this section (CARRIAGE=0 will return activation to the primary carriage). Dual carriage support is typically combined with extra extruders - the SET_DUAL_CARRIAGE command is often called at the same time as the ACTIVATE_EXTRUDER command. Be sure to park the carriages during deactivation. Note that during G28 homing, typically the primary carriage is homed first followed by the carriage defined in the `[dual_carriage]` config section. However, the `[dual_carriage]` carriage will be homed first if both carriages home in a positive direction and the [dual_carriage] carriage has a `position_endstop` greater than the primary carriage, or if both carriages home in a negative direction and the `[dual_carriage]` carriage has a `position_endstop` less than the primary carriage.
 
-Additionally, one could use "SET_DUAL_CARRIAGE CARRIAGE=1 MODE=COPY" or "SET_DUAL_CARRIAGE CARRIAGE=1 MODE=MIRROR" commands to activate either copying or mirroring mode of the dual carriage, in which case it will follow the motion of the carriage 0 accordingly. These commands can be used to print two parts simultaneously - either two identical parts (in COPY mode) or mirrored parts (in MIRROR mode). Note that COPY and MIRROR modes also require appropriate configuration of the extruder on the dual carriage, which can typically be achieved with "SYNC_EXTRUDER_MOTION MOTION_QUEUE=extruder EXTRUDER=<dual_carriage_extruder>" or a similar command.
+Além disso, pode-se usar os comandos "SET_DUAL_CARRIAGE CARRIAGE=1 MODE=COPY" ou "SET_DUAL_CARRIAGE CARRIAGE=1 MODE=MIRROR" para ativar o modo de cópia ou espelhamento do carro duplo, no qual ele seguirá o movimento do carro 0 de acordo. Esses comandos podem ser usados para imprimir duas partes simultaneamente - ou duas partes idênticas (no modo COPY) ou partes espelhadas (no modo MIRROR). Observe que os modos COPY e MIRROR também requerem configuração apropriada do extrusor no carro duplo, que geralmente pode ser alcançada com o comando "SYNC_EXTRUDER_MOTION MOTION_QUEUE=extruder EXTRUDER=<extrusor_do_carro_duplo>" ou um comando similar.
 
 See [sample-idex.cfg](../config/sample-idex.cfg) for an example configuration.
 
@@ -2209,9 +2209,9 @@ sensor_type: BME280
 #   above parameters.
 ```
 
-### AHT10/AHT20/AHT21 temperature sensor
+### Sensor de temperatura AHT10/AHT20/AHT21. Refere-se a uma série de sensores desenvolvidos para medir temperatura e umidade. Esses sensores são conhecidos por sua precisão, confiabilidade e fácil integração com sistemas eletrônicos, como microcontroladores e sistemas de automação.
 
-AHT10/AHT20/AHT21 two wire interface (I2C) environmental sensors. Note that these sensors are not intended for use with extruders and heater beds, but rather for monitoring ambient temperature (C) and relative humidity. See [sample-macros.cfg](../config/sample-macros.cfg) for a gcode_macro that may be used to report humidity in addition to temperature.
+Sensores ambientais AHT10/AHT20/AHT21 com interface de dois fios (I2C). Observe que esses sensores não são destinados para uso com extrusoras e mesas aquecidas, mas sim para monitorar a temperatura ambiente (C) e a umidade relativa. Veja [sample-macros.cfg](../config/sample-macros.cfg) para um gcode_macro que pode ser usado para relatar a umidade além da temperatura.
 
 ```
 sensor_type: AHT10
