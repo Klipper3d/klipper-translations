@@ -1,24 +1,37 @@
-#
+# Thomas Fournier <thomas@artivain.com>, 2023.
+# jean-luc MATTEI <jlucm@free.fr>, 2023.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2023-12-12 15:07+0000\n"
+"Last-Translator: jean-luc MATTEI <jlucm@free.fr>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/klipper/"
+"bootloader_entry/fr/>\n"
+"Language: fr\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.3-dev\n"
 
 #: docs/Bootloader_Entry.md:block 1 (header)
 msgid "Bootloader Entry"
-msgstr ""
+msgstr "Entrée du bootloader"
 
 #: docs/Bootloader_Entry.md:block 2 (paragraph)
 msgid ""
 "Klipper can be instructed to reboot into a [Bootloader](Bootloaders.md) in "
 "one of the following ways:"
 msgstr ""
+"Klipper redémarrer dans un [Bootloader](Bootloaders.md) de l'une des "
+"manières suivantes :"
 
 #: docs/Bootloader_Entry.md:block 3 (header)
 msgid "Requesting the bootloader"
-msgstr ""
+msgstr "Demande du bootloader"
 
 #: docs/Bootloader_Entry.md:block 4 (header)
 msgid "Virtual Serial"
-msgstr ""
+msgstr "Série virtuel"
 
 #: docs/Bootloader_Entry.md:block 5 (paragraph)
 msgid ""
@@ -33,25 +46,34 @@ msgstr ""
 #: docs/Bootloader_Entry.md:block 7 (paragraph)
 msgid "To enter the bootloader using python (using `flash_usb`):"
 msgstr ""
+"Pour accéder au bootloader en utilisant python (en utilisant `flash_usb`) :"
 
 #: docs/Bootloader_Entry.md:block 8 (code)
+#, fuzzy
 msgid ""
 "> cd klipper/scripts\n"
 "> python3 -c 'import flash_usb as u; u.enter_bootloader(\"<DEVICE>\")'\n"
 "Entering bootloader on <DEVICE>\n"
 msgstr ""
+"> cd klipper/scripts\n"
+"> python3 -c 'import flash_usb as u; u.enter_bootloader(\"<DEVICE>\")'\n"
+"Entering bootloader on <DEVICE>\n"
 
 #: docs/Bootloader_Entry.md:block 9 (paragraph)
 msgid ""
 "Where `<DEVICE>` is your serial device, such as `/dev/serial.by-id/usb-"
 "Klipper[...]` or `/dev/ttyACM0`"
 msgstr ""
+"Où `<DEVICE>` est votre périphérique série, tel que `/dev/serial.by-id/usb-"
+"Klipper[...]` ou `/dev/ttyACM0`"
 
 #: docs/Bootloader_Entry.md:block 10 (paragraph)
 msgid ""
 "Note that if this fails, no output will be printed, success is indicated by "
 "printing `Entering bootloader on <DEVICE>`."
 msgstr ""
+"Notez que si cela échoue, rien ne sera affiché, une opération réussie est "
+"indiqué en affichant `Entering bootloader on <DEVICE>`."
 
 #: docs/Bootloader_Entry.md:block 11 (header)
 msgid "Picocom"
@@ -71,7 +93,7 @@ msgstr ""
 
 #: docs/Bootloader_Entry.md:block 15 (header)
 msgid "Physical serial"
-msgstr ""
+msgstr "Série physique"
 
 #: docs/Bootloader_Entry.md:block 16 (paragraph)
 msgid ""
@@ -124,7 +146,7 @@ msgstr ""
 
 #: docs/Bootloader_Entry.md:block 25 (header)
 msgid "CANBUS"
-msgstr ""
+msgstr "BUS CAN"
 
 #: docs/Bootloader_Entry.md:block 26 (paragraph)
 msgid ""

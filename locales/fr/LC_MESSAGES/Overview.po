@@ -5,17 +5,19 @@
 # Linda 'linigrhf' Ayasing <linigrhf@gmail.com>, 2022.
 # Francis Poulizac <francis@poulizac.fr>, 2022, 2023.
 # jean-luc MATTEI <jlucm@free.fr>, 2023.
+# Thomas Fournier <thomas@artivain.com>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-04-25 05:52+0000\n"
-"Last-Translator: jean-luc MATTEI <jlucm@free.fr>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/klipper/overview/fr/>\n"
+"PO-Revision-Date: 2023-12-04 04:08+0000\n"
+"Last-Translator: Thomas Fournier <thomas@artivain.com>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/klipper/overview/"
+"fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.18-dev\n"
+"X-Generator: Weblate 5.3-dev\n"
 
 msgid ""
 "Welcome to the Klipper documentation. If new to Klipper, start with the "
@@ -331,7 +333,7 @@ msgstr ""
 
 #: docs/Overview.md:block 10 (unordered list)
 msgid "[Bootloader Entry](Bootloader_Entry.md): Requesting the bootloader."
-msgstr ""
+msgstr "[Bootloader Entry](Bootloader_Entry.md) : Demande du bootloader."
 
 #: docs/Overview.md:block 10 (unordered list)
 msgid ""
