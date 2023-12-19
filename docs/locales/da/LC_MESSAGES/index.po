@@ -1,10 +1,10 @@
 # Michael Landbo <dev@l4ndbo.com>, 2023, 2025.
-# srbjessen <srbjessen@gmail.com>, 2023.
+# srbjessen <srbjessen@gmail.com>, 2023, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:42+0000\n"
-"Last-Translator: Michael Landbo <dev@l4ndbo.com>\n"
+"Last-Translator: srbjessen <srbjessen@gmail.com>\n"
 "Language-Team: Danish <https://hosted.weblate.org/projects/klipper/index/da/>"
 "\n"
 "Language: da\n"
@@ -39,8 +39,8 @@ msgstr ""
 #: docs/index.md:block 5 (paragraph)
 msgid "To begin using Klipper start by [installing](Installation.md) it."
 msgstr ""
-"For at begynde at bruge Klipper skal du starte med at "
-"[installere](Installation.md) det."
+"For at begynde at bruge Klipper skal du starte med at [installere]"
+"(Installation.md) det."
 
 #: docs/index.md:block 6 (paragraph)
 msgid ""
