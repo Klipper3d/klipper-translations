@@ -13,7 +13,7 @@
     
     
       
-        <title>Multiple Micro-controller Homing and Probing - Klipper documentation</title>
+        <title>Çoklu Mikro Denetleyici Sıfırlama ve Problama - Klipper documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#multiple-micro-controller-homing-and-probing" class="md-skip">
+        <a href="#coklu-mikro-denetleyici-sfrlama-ve-problama" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Multiple Micro-controller Homing and Probing
+              Çoklu Mikro Denetleyici Sıfırlama ve Problama
             
           </span>
         </div>
@@ -1275,7 +1275,7 @@
 </a>
 
 
-<h1 id="multiple-micro-controller-homing-and-probing">Multiple Micro-controller Homing and Probing<a class="headerlink" href="#multiple-micro-controller-homing-and-probing" title="Permanent link">&para;</a></h1>
+<h1 id="coklu-mikro-denetleyici-sfrlama-ve-problama">Çoklu Mikro Denetleyici Sıfırlama ve Problama<a class="headerlink" href="#coklu-mikro-denetleyici-sfrlama-ve-problama" title="Permanent link">&para;</a></h1>
 <p>Klipper supports a mechanism for homing with an endstop attached to one micro-controller while its stepper motors are on a different micro-controller. This support is referred to as "multi-mcu homing". This feature is also used when a Z probe is on a different micro-controller than the Z stepper motors.</p>
 <p>This feature can be useful to simplify wiring, as it may be more convenient to attach an endstop or probe to a closer micro-controller. However, using this feature may result in "overshoot" of the stepper motors during homing and probing operations.</p>
 <p>The overshoot occurs due to possible message transmission delays between the micro-controller monitoring the endstop and the micro-controllers moving the stepper motors. The Klipper code is designed to limit this delay to no more than 25ms. (When multi-mcu homing is activated, the micro-controllers send periodic status messages and check that corresponding status messages are received within 25ms.)</p>
