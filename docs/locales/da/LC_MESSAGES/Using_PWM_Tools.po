@@ -1,9 +1,9 @@
-# srbjessen <srbjessen@gmail.com>, 2023.
+# srbjessen <srbjessen@gmail.com>, 2023, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:42+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: srbjessen <srbjessen@gmail.com>\n"
 "Language-Team: Danish <https://hosted.weblate.org/projects/klipper/"
 "using_pwm_tools/da/>\n"
 "Language: da\n"
