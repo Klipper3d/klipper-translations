@@ -88,7 +88,7 @@ max_accel:
 #   Az alapértelmezett érték a max_accel fele.
 #square_corner_velocity: 5.0
 #   Az a maximális sebesség (mm/s-ban), amellyel a nyomtatófej egy
-#   90 fokos sarokban haladhat. A nullától eltérő érték csökkentheti az 
+#   90 fokos sarokban haladhat. A nullától eltérő érték csökkentheti az
 #   extruder áramlási sebességének változásait azáltal, hogy lehetővé teszi
 #   a nyomtatófej azonnali sebességváltozását kanyarodás közben.
 #   Ez az érték konfigurálja a belső centripetális sebesség
@@ -3873,7 +3873,7 @@ A sablonok renderelése során elérhető menüattribútumokról a [parancssablo
 #       list    - lehetővé teszi a menüelemek egy görgethető listába
 #                 történő csoportosítását.
 #                 Adj hozzá a listához menükonfigurációk létrehozásával
-#                 a „some_list” előtagként – 
+#                 a „some_list” előtagként –
 #                 például: [menu some_list some_item_in_the_list]
 #       vsdlist - ugyanaz, mint a "list", de hozzáfűzi a virtuális
 #                 sdcard fájlokat (a jövőben eltávolítjuk)

@@ -190,7 +190,7 @@ Un exemple de macro pourrait ressembler à :
 
 ```
 [gcode_macro SENSORLESS_HOME_X]
-gcode:
+gcode :
     {% set HOME_CUR = 0.700 %}
     {% set driver_config = printer.configfile.settings['tmc2209 stepper_x'] %}
     {% set RUN_CUR = driver_config.run_current %}
@@ -200,7 +200,7 @@ gcode:
     G4 P2000
     # mise à l'origine
     G28 X0
-    # Déplacement 
+    # Déplacement
     G90
     G1 X5 F1200
     # Remise du courant d'impression

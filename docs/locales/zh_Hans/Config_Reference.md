@@ -1264,7 +1264,7 @@ path:
 ```
 [force_move]
 #enable_force_move: False
-#   设置为true来启用 FORCE_MOVE 和 SET_KINEMATIC_POSITION 扩展 
+#   设置为true来启用 FORCE_MOVE 和 SET_KINEMATIC_POSITION 扩展
 #   G代码命令。
 #   默认为false。
 ```
@@ -1502,7 +1502,7 @@ aliases_<name>:
 #   为给定的微控制器创建的一个以逗号分隔的 "name=value "
 #   别名列表。例如，"EXP1_1=PE6" 将创建一个用于 "PE6 "引
 #   脚的"EXP1_1 "别名。然而，如果 "值 " 被包括在 "<>"中，
-#   则 "name "将被创建为一个保留针脚（例如，"EXP1_9=<GND>" 
+#   则 "name "将被创建为一个保留针脚（例如，"EXP1_9=<GND>"
 #   将保留 "EXP1_9"）。可以指定任何数量以 "aliases_"开头的分段。
 ```
 

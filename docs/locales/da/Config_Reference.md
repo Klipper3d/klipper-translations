@@ -1,6 +1,6 @@
 # Configuration reference
 
-This document is a reference for options available in the Klipper config file.
+Dette dokument er en reference for tilgængelige muligheder i Klippers konfigurationsfil.
 
 The descriptions in this document are formatted so that it is possible to cut-and-paste them into a printer config file. See the [installation document](Installation.md) for information on setting up Klipper and choosing an initial config file.
 

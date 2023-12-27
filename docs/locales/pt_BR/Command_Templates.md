@@ -108,7 +108,7 @@ Consulte o arquivo [sample-macros.cfg](../config/sample-macros.cfg) para obter u
 
 ```
 [gcode_macro slow_fan]
-gcode: 
+gcode:
   M106 S{ printer.fan.speed * 0.9 * 255}
 ```
 

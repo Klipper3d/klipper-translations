@@ -963,7 +963,7 @@ See the [leveling guide](Manual_Level.md#adjusting-bed-leveling-screws) and [com
 #   da mesa (ou o mais próximo possível enqaunto está acima da mesa).
 #   Este parâmetro deve ser provido.
 #screw1_name:
-#   Um nome arbitrário para o parafuso fornecido. Esse nome é apresentado 
+#   Um nome arbitrário para o parafuso fornecido. Esse nome é apresentado
 #   quando um script auxiliar é executado. O padrão é usar o nome baseado na
 #   localização XY do parafuso.
 #screw1_fine_adjust:
@@ -974,7 +974,7 @@ See the [leveling guide](Manual_Level.md#adjusting-bed-leveling-screws) and [com
 #screw2_name:
 #screw2_fine_adjust:
 #...
-#   Parafusos de nivelamento adicionais. Pelo menos três parafusos devem ser 
+#   Parafusos de nivelamento adicionais. Pelo menos três parafusos devem ser
 #   definidos.
 #horizontal_move_z: 5
 #   A altura(em mm) que a cabeça deve ser comanda a mover para
@@ -986,7 +986,7 @@ See the [leveling guide](Manual_Level.md#adjusting-bed-leveling-screws) and [com
 #   A velocidade (em mm/s) de movimentos sem sondagem durante a calibração.
 #   O padrão é 50.
 #probe_speed: 5
-#   A velocidade (emmm/s) quando mover de uma posição horizontal_move_z 
+#   A velocidade (emmm/s) quando mover de uma posição horizontal_move_z
 #   para uma posição probe_height. O padrão é 5.
 ```
 
@@ -1262,7 +1262,7 @@ G-Code macros (one may define any number of sections with a "gcode_macro" prefix
 #   como literal do Python) e estará disponível durante a expansão da macro.
 #   Por exemplo, uma secção com "variable_velocidade_ventilador = 75" pode ter
 #   comandos gcode contendo "M106 S{ velocidade_ventilador * 255 }". Variáveis
-#   podem ser modificadas em tempo de execução usando o comando SET_GCODE_VARIABLE 
+#   podem ser modificadas em tempo de execução usando o comando SET_GCODE_VARIABLE
 #   (veja docs/Command_Templates.md para detalhes). Nomes de variáveis
 #   não devem usar caracteres em caixa alta(maiúsculas).
 #rename_existing:
@@ -4097,7 +4097,7 @@ vssa_pin:
 #   Pino ADC usado para monitoramento de VSSA . Este parâmetro deve
 #   ser provido.
 #smooth_time: 2.0
-#   Um valor de tempo (em segundos) sobre o qual medições de 
+#   Um valor de tempo (em segundos) sobre o qual medições de
 #   vref e vssa serão suavizadas a fim de reduzir o impacto de ruídos
 #   da medição. O padrão são 2 segundos.
 ```

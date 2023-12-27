@@ -162,7 +162,7 @@ gpiochip1 - 8 lines:
 Les Raspberry Pi ont deux canaux PWM (PWM0 et PWM1) qui sont disponibles sur le connecteur ou, sinon, peuvent être redirigés vers des broches gpio existantes. Le service mcu Linux utilise l'interface pwmchip sysfs pour contrôler les périphériques matériels pwm sur les hôtes Linux. L'interface pwm sysfs n'est pas disponible par défaut sur un Raspberry et peut être activée en ajoutant une ligne à `/boot/config.txt` :
 
 ```
-# Activer l'interface pwmchip sysfs 
+# Activer l'interface pwmchip sysfs
 dtoverlay=pwm,pin=12,func=4
 ```
 
