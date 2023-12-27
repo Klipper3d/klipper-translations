@@ -1,14 +1,23 @@
-#
+# srbjessen <srbjessen@gmail.com>, 2023.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2023-12-19 10:10+0000\n"
+"Last-Translator: srbjessen <srbjessen@gmail.com>\n"
+"Language-Team: Danish <https://hosted.weblate.org/projects/klipper/g-codes/"
+"da/>\n"
 "Language: da\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.3\n"
 
 msgid ""
 "This document describes the commands that Klipper supports. These are "
 "commands that one may enter into the OctoPrint terminal tab."
 msgstr ""
+"Dette dokument beskriver de kommandoer der er understøttet af Klipper. Disse "
+"kommandoer kan indtastes i Terminalen på OctoPrint, Fluidd samt Mainsail."
 
 msgid "G-Code commands"
 msgstr ""

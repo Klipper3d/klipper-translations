@@ -1,9 +1,16 @@
-#
+# srbjessen <srbjessen@gmail.com>, 2023.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2023-12-19 10:10+0000\n"
+"Last-Translator: srbjessen <srbjessen@gmail.com>\n"
+"Language-Team: Danish <https://hosted.weblate.org/projects/klipper/"
+"using_pwm_tools/da/>\n"
 "Language: da\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.3\n"
 
 msgid ""
 "This document describes how to setup a PWM-controlled laser or spindle using"
@@ -11,7 +18,7 @@ msgid ""
 msgstr ""
 
 msgid "How does it work?"
-msgstr ""
+msgstr "Hvordan virker det?"
 
 msgid ""
 "With re-purposing the printhead's fan pwm output, you can control lasers or "
