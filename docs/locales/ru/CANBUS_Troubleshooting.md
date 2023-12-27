@@ -1,6 +1,6 @@
-# CANBUS Troubleshooting
+# Устранение неполадок CANBUS
 
-This document provides information on troubleshooting communication issues when using [Klipper with CAN bus](CANBUS.md).
+Этот документ содержит информацию об исправлении проблем соединения, при использовании шины CAN [Klipper with CAN bus](CANBUS.md).
 
 ## Verify CAN bus wiring
 

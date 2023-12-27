@@ -22,22 +22,22 @@ Configuration du microcontrôleur primaire.
 
 ```
 [mcu]
-serial:
+serial :
 #    Le port série à connecter à l'unité MCU. Si vous n'êtes pas sûr (ou s'il
-#    change) consultez la section "Où est mon port série ?" de la FAQ.
+#    change) consultez la section "Où est mon port série ?" de la FAQ.
 #    Ce paramètre doit être fourni lors de l'utilisation d'un port série.
-#baud: 250000
+#baud : 250000
 #    Le débit en bauds à utiliser. La valeur par défaut est 250000.
-#canbus_uuid:
+#canbus_uuid :
 #    Si vous utilisez un dispositif connecté à un bus CAN, ceci définit l'identifiant
 #    unique de la puce à laquelle se connecter. Cette valeur doit être fournie lorsque l'on utilise
 #    le bus CAN pour la communication.
-#canbus_interface:
+#canbus_interface :
 #    Si vous utilisez un dispositif connecté à un bus CAN, ceci définit l'interface réseau CAN
 #    à utiliser. La valeur par défaut est 'can0'.
-#restart_method:
+#restart_method :
 #    Ceci contrôle le mécanisme que l'hôte utilisera pour réinitialiser le microcontrôleur.
-#    Les choix sont 'arduino', 'cheetah', 'rpi_usb', et 'command'. La méthode 'arduino' 
+#    Les choix sont 'arduino', 'cheetah', 'rpi_usb', et 'command'. La méthode 'arduino'
 #    (basculer DTR) est courante sur les cartes et clones Arduino.
 #    La méthode 'cheetah' est une méthode particulière nécessaire pour certaines cartes
 #    Fysetc Cheetah. La méthode 'rpi_usb' est utile sur les cartes Raspberry Pi avec des
@@ -353,12 +353,12 @@ Seuls les paramètres spécifiques aux imprimantes corexy sont décrits ici - vo
 
 ```
 [printer]
-kinematics: corexy
-max_z_velocity:
+kinematics : corexy
+max_z_velocity :
 #    Ceci définit la vitesse maximale (en mm/s) du mouvement le long de l'axe z
 #    Ce paramètre peut être utilisé pour limiter la vitesse maximale du moteur pas à pas z.
 #    La valeur par défaut est l'utilisation de max_velocity pour max_z_velocity.
-max_z_accel:
+max_z_accel :
 #    Ce paramètre définit l'accélération maximale (en mm/s^2) du mouvement sur l'axe z.
 #    Cela limite l'accélération du moteur pas à pas z. La valeur par défaut est
 #    d'utiliser max_accel pour max_z_accel.
@@ -367,7 +367,7 @@ max_z_accel:
 #    contrôlant le mouvement X+Y.
 [stepper_x]
 
-#    La section stepper_y est utilisée pour décrire l'axe Y ainsi que le moteur pas à pas 
+#    La section stepper_y est utilisée pour décrire l'axe Y ainsi que le moteur pas à pas
 #    contrôlant le mouvement X-Y.
 [stepper_y]
 
@@ -891,27 +891,27 @@ Voir la [référence des commandes](G-Codes.md#bed_tilt) pour plus d'information
 
 ```
 [bed_tilt]
-#x_adjust: 0
+#x_adjust : 0
 #   Quantité à ajouter à la hauteur Z de chaque mouvement pour chaque mm sur l'axe X.
 #   La valeur par défaut est 0.
-#y_adjust: 0
+#y_adjust : 0
 #   Quantité à ajouter à la hauteur Z de chaque mouvement pour chaque mm sur l'axe Y.
 #   La valeur par défaut est 0.
-#z_adjust: 0
+#z_adjust : 0
 #   Quantité à ajouter à la hauteur Z lorsque la buse est nominalement à 0, 0.
 #   La valeur par défaut est 0.
 #   Les paramètres suivants contrôlent la commande g-code étendue BED_TILT_CALIBRATE
 #   utilisée pour calibrer les paramètres de réglage x et y appropriés.
-#points:
-#   Une liste de coordonnées X, Y (une par ligne ; les lignes suivantes indentées) devant
+#points :
+#   Une liste de coordonnées X, Y (une par ligne ; les lignes suivantes indentées) devant
 #   être palpées pendant une commande BED_TILT_CALIBRATE
 #   Spécifiez les coordonnées de la buse et assurez-vous que la sonde est au-dessus du lit
-#   aux coordonnées données de la buse. 
+#   aux coordonnées données de la buse.
 #   La valeur par défaut est de ne pas activer la commande.
-#speed: 50
+#speed : 50
 #   Vitesse (en mm/s) des mouvements de déplacements hors palpage pendant l'étalonnage.
 #   La valeur par défaut est 50.
-#horizontal_move_z: 5
+#horizontal_move_z : 5
 #   Hauteur (en mm) à laquelle la tête doit être relevée lors du déplacement juste avant
 #   de lancer une opération de palpage. La valeur par défaut est 5.
 ```
@@ -1159,24 +1159,24 @@ Homing override. On peut utiliser ce mécanisme pour exécuter une série de com
 
 ```
 [homing_override]
-gcode:
+gcode :
 #    Une liste de commandes G-Code à exécuter à la place des commandes
-#    G28 trouvées dans l'entrée g-code normale. Voir 
+#    G28 trouvées dans l'entrée g-code normale. Voir
 #    docs/Command_Templates.md pour le format G-Code. Si un G28 est
 #    contenu dans cette liste de commandes alors la procédure de mise à
 #    l'origine de l'imprimante sera invoquée. Les commandes énumérées
 #    ici doivent ramener tous les axes à la position initiale.
 #    Ce paramètre doit être fourni.
-#axes: xyz
+#axes : xyz
 #    Les axes à remplacer. Par exemple, si ce paramètre est défini sur "z",
 #    alors le script d'annulation ne sera exécuté que lorsque l'axe z est mis
-#    à l'origine (par ex. une commande "G28" ou "G28 Z"). Remarque :
+#    à l'origine (par ex. une commande "G28" ou "G28 Z"). Remarque :
 #    le script de neutralisation doit toujours gérer tous les axes. La valeur
 #    par défaut est "xyz" ce qui fait que le script de remplacement sera
 #    exécuté à la place de toutes les commandes G28.
-#set_position_x:
-#set_position_y:
-#set_position_z:
+#set_position_x :
+#set_position_y :
+#set_position_z :
 #    Si spécifié, l'imprimante supposera que l'axe est à la position indiquée
 #    avant d'exécuter les commandes g-code ci-dessus. Le fait de définir
 #    ceci désactive les contrôles d'orientation pour cet axe. Cela peut être
@@ -1453,27 +1453,27 @@ Support des accéléromètres ADXL345. Ce support permet d'interroger les mesure
 
 ```
 [adxl345]
-cs_pin:
+cs_pin :
 #   La broche d'activation SPI du capteur. Ce paramètre doit être fourni.
-#spi_speed: 5000000
+#spi_speed : 5000000
 #   La vitesse SPI (en hz) à utiliser lors de la communication avec la puce.
 #   La valeur par défaut est 5000000.
-#spi_bus:
-#spi_software_sclk_pin:
-#spi_software_mosi_pin:
-#spi_software_miso_pin:
+#spi_bus :
+#spi_software_sclk_pin :
+#spi_software_mosi_pin :
+#spi_software_miso_pin :
 #   Voir la section "paramètres SPI communs" pour une description des
 #   paramètres ci-dessus.
-#axes_map : x, y, z
+#axes_map : x, y, z
 #   L'axe de l'accéléromètre de chacun des axes X, Y et Z de l'imprimante.
-#   Ceci peut être utile si l'accéléromètre est monté dans une orientation 
+#   Ceci peut être utile si l'accéléromètre est monté dans une orientation
 #   qui ne correspond pas à celle de l'imprimante. Par exemple, on peut
 #   régler cette option sur "y, x, z" pour permuter les axes X et Y.
 #   Il est également possible d'inverser un axe si la direction de l'accéléromètre
 #   est inversée (par exemple, "x, z, -y"). La valeur par défaut est "x, y, z".
-#Rate: 3200
+#Rate : 3200
 #   Débit de données de sortie pour ADXL345. ADXL345 prend en charge les débits
-#   de données suivants : 3200, 1600, 800, 400, 200, 100, 50, et 25. Notez qu'il n'est
+#   de données suivants : 3200, 1600, 800, 400, 200, 100, 50, et 25. Notez qu'il n'est
 #   pas recommandé de changer ce débit par rapport au débit par défaut de 3200,
 #   les débits inférieurs à 800 affecteront considérablement la qualité des mesures
 #   de résonance.
@@ -1898,22 +1898,22 @@ Pilotes de moteur manuels (on peut définir un nombre quelconque de sections ave
 
 ```
 [manual_stepper my_stepper]
-#step_pin:
-#dir_pin:
-#enable_pin:
-#microsteps:
-#rotation_distance:
+#step_pin :
+#dir_pin :
+#enable_pin :
+#microsteps :
+#rotation_distance :
 #    Voir la section "stepper" pour une description de ces paramètres.
-#velocity:
+#velocity :
 #    Définit la vitesse par défaut (en mm/s) pour le pilote moteur. Cette valeur
 #    sera utilisée si une commande MANUAL_STEPPER ne spécifie pas de paramètre SPEED
 #    La valeur par défaut est 5mm/s.
-#accel 
+#accel
 #    Définit l'accélération par défaut (en mm/s^2) pour le pilote moteur Une
 #    accélération de zéro n'entraînera aucune accélération. Cette valeur
 #    sera utilisée si une commande MANUAL_STEPPER ne spécifie pas de
 #    paramètre ACCEL. La valeur par défaut est zéro.
-#endstop_pin:
+#endstop_pin :
 #    Broche de détection de l'interrupteur de fin de course. Si elle est spécifiée, on peut effectuer
 #    des "mouvements de retour à l'origine" en ajoutant un paramètre STOP_ON_ENDSTOP aux
 #    commandes de mouvement MANUAL_STEPPER.
@@ -2002,20 +2002,20 @@ Capteurs de température ADC personnalisés (on peut définir un nombre quelconq
 
 ```
 [adc_temperature mon_capteur]
-#temperature1:
-#voltage1:
-#temperature2:
-#voltage2:
+#temperature1 :
+#voltage1 :
+#temperature2 :
+#voltage2 :
 #...
-#    Un ensemble de températures (en Celsius) et de tensions (en Volts) à utiliser comme 
+#    Un ensemble de températures (en Celsius) et de tensions (en Volts) à utiliser comme
 #    référence lors de la conversion d'une température. Une section de chauffage utilisant
 #    ce capteur peut également spécifier les paramètres adc_voltage et voltage_offset
 #    pour définir la tension ADC (voir la section "Amplificateurs communs de température"
 #    pour plus de détails). Au moins deux mesures doivent être fournies.
-#temperature1:
-#resistance1:
-#temperature2:
-#resistance2:
+#temperature1 :
+#resistance1 :
+#temperature2 :
+#resistance2 :
 #...
 #    Alternativement, on peut indiquer un ensemble de températures (en Celsius)
 #    et de résistance (en Ohms) à utiliser comme référence lors de la conversion d'une
@@ -2784,9 +2784,9 @@ Broches de sortie numérique configurées statiquement (on peut définir un nomb
 
 ```
 [static_digital_output my_output_pins]
-pins:
+pins :
 #    Une liste de broches séparées par des virgules à définir comme broches de sortie GPIO. La broche
-#    sera définie à un niveau haut, sauf si le nom de la broche est précédé de "!". 
+#    sera définie à un niveau haut, sauf si le nom de la broche est précédé de " !".
 #    Ce paramètre doit être fourni.
 ```
 
@@ -3316,31 +3316,31 @@ Digipots AD5206 configurés statiquement et connectés via un bus SPI (on peut d
 
 ```
 [ad5206 my_digipot]
-enable_pin:
+enable_pin :
 #    La broche correspondant à la ligne de sélection de la puce AD5206. Cette broche
 #    sera réglée à un niveau bas au début des messages SPI et sera relevée à un niveau élevé
 #    après la fin du message. Ce paramètre doit être fourni.
-#spi_speed:
-#spi_bus:
-#spi_software_sclk_pin:
-#spi_software_mosi_pin:
-#spi_software_miso_pin:
+#spi_speed :
+#spi_bus :
+#spi_software_sclk_pin :
+#spi_software_mosi_pin :
+#spi_software_miso_pin :
 #    Voir la section "paramètres communs SPI" pour une description des paramètres ci-dessus.
-#    
-#channel_1:
-#channel_2:
-#channel_3:
-#channel_4:
-#channel_5:
-#channel_6:
+#
+#channel_1 :
+#channel_2 :
+#channel_3 :
+#channel_4 :
+#channel_5 :
+#channel_6 :
 #     La valeur pour définir statiquement le canal AD5206 donné. Cette valeur est
 #     généralement définie sur un nombre compris entre 0,0 et 1,0. 1,0 étant la résistance
 #     la plus élevée et 0,0 la résistance la plus faible. Cependant,  la plage peut être
 #     modifiée à l'aide du paramètre 'scale' (voir ci-dessous).
 #     Si un canal n'est pas spécifié, il n'est pas configuré.
-# scale:
+# scale :
 #    Ce paramètre peut être utilisé pour modifier l'interprétation des paramètres 'channel_x'.
-#    S'il est fourni, alors les paramètres 'channel_x' doivent être compris entre 0.0 et 'scale'. 
+#    S'il est fourni, alors les paramètres 'channel_x' doivent être compris entre 0.0 et 'scale'.
 #    Cela peut être utile lorsque le AD5206 est utilisé pour définir des références de tension
 #    pas à pas. L''échelle' peut être réglée sur l'intensité équivalente de la commande pas à pas
 #    si l'AD5206 était à sa résistance la plus élevée, puis les paramètres 'channel_x' peuvent être
@@ -3454,71 +3454,71 @@ Prise en charge d'un écran relié au microcontrôleur.
 
 ```
 [display]
-lcd_type:
+lcd_type :
 #   Le type de puce LCD utilisé. Cela peut être "hd44780", "hd44780_spi", "st7920",
 #   "emulated_st7920", "uc1701", "ssd1306", ou "sh1106".
 #   Voir les sections d'affichage ci-dessous pour plus d'informations sur chaque type
 #   et les paramètres supplémentaires qu'ils fournissent. Ce paramètre doit être
 #   fourni.
-#display_group:
+#display_group :
 #   Le nom du groupe de données à afficher sur l'écran. Cela contrôle le contenu de
 #   l'écran (voir la section "display_data" pour plus d'informations). La valeur par
 #   défaut est _default_20x4 pour les écrans hd44780 et _default_16x4 pour les
 #   autres affichages.
-#menu_timeout:
+#menu_timeout :
 #   Délai d'attente pour le menu. Le fait d'être inactif pendant ce nombre de secondes
 #   déclenchera la sortie du menu ou le retour au menu racine si l'autorun est activé.
 #   La valeur par défaut est 0 seconde (désactivé)
-#menu_root:
+#menu_root :
 #   Nom de la section du menu principal à afficher lorsque vous cliquez sur l'encodeur
 #   de l'écran d'accueil. La valeur par défaut est __main, et cela affiche les menus par
 #   défaut tels que définis dans klippy/extras/display/menu.cfg
-#menu_reverse_navigation:
+#menu_reverse_navigation :
 #   Lorsque activé, inverse les directions vers le haut et vers le bas de la liste.
 #   La valeur par défaut est False. Ce paramètre est optionnel.
-#encoder_pins:
+#encoder_pins :
 #   Les broches connectées à l'encodeur. 2 broches doivent être fournies lorsque vous
 #   utilisez l'encodeur. Ce paramètre doit être fourni lors de l'utilisation du menu.
-#encoder_steps_per_detent:
+#encoder_steps_per_detent :
 #   Combien de pas l'encodeur émet par cran ("clic"). Si l'encodeur prend deux crans pour
 #   se déplacer entre les entrées ou déplace deux entrées à partir d'un seul cran, essayez de
 #   modifier cette valeur. Les valeurs autorisées sont 2 (demi-step) ou 4 (full-step).
 #   La valeur par défaut est 4.
-#click_pin:
+#click_pin :
 #   La broche connectée au bouton 'entrée' ou au 'clic' de l'encodeur. Ce paramètre doit
 #   être fourni lors de l'utilisation du menu. La présence d'un paramètre de configuration
 #   'analog_range_click_pin' fait passer ce paramètre de numérique à analogique.
-#back_pin:
+#back_pin :
 #   La broche connectée au bouton 'retour'. Ce paramètre est facultatif, le menu peut être utilisé
-#   sans lui. La présence d'un paramètre de configuration 'analog_range_back_pin'  transforme 
+#   sans lui. La présence d'un paramètre de configuration 'analog_range_back_pin'  transforme
 #   ce paramètre de numérique à analogique.
-#up_pin:
+#up_pin :
 #   La broche connectée au bouton 'haut'. Ce paramètre doit être fourni lorsque vous utilisez un
-#   menu sans encodeur. La présence d'un paramètre de configuration 'analog_range_up_pin' 
+#   menu sans encodeur. La présence d'un paramètre de configuration 'analog_range_up_pin'
 #   transforme ce paramètre de numérique à analogique.
-#down_pin:
+#down_pin :
 #   La broche connectée au bouton 'bas'. Ce paramètre doit être fourni lorsque vous utilisez un
-#   menu sans encodeur. La présence d'un paramètre de configuration 'analog_range_down_pin' 
+#   menu sans encodeur. La présence d'un paramètre de configuration 'analog_range_down_pin'
 #   transforme ce paramètre de numérique à analogique.
-#kill_pin:
+#kill_pin :
 #   La broche connectée au bouton 'kill'. Ce bouton appellera l'arrêt d'urgence. La présence d'un
 #   paramètre 'analog_range_kill_pin'  fait passer ce paramètre de numérique à analogique.
-#analog_pullup_resistor: 4700
+#analog_pullup_resistor : 4700
 #   La résistance (en ohms) du pullup attaché au bouton analogique.
 #   La valeur par défaut est de 4700 ohms.
-#analog_range_click_pin:
+#analog_range_click_pin :
 #   La plage de résistances du bouton 'entrée'. Les valeurs minimale et maximale de la plage
 #   séparées par des virgules doivent être fournies lors de l'utilisation du bouton analogique.
-#analog_range_back_pin:
+#analog_range_back_pin :
 #   La plage de résistances du bouton 'retour'. Les valeurs minimale et maximale de la plage
 #   séparées par des virgules doivent être fournies lors de l'utilisation du bouton analogique.
-#analog_range_up_pin:
+#analog_range_up_pin :
 #   La plage de résistances du bouton 'haut'. Les valeurs minimale et maximale de la plage
 #   séparées par des virgules doivent être fournies lors de l'utilisation du bouton analogique.
-#analog_range_down_pin:
+#analog_range_down_pin :
 #   La plage de résistances du bouton 'bas'. Les valeurs minimale et maximale de la plage
 #   séparées par des virgules doivent être fournies lors de l'utilisation du bouton analogique.
-#analog_range_kill_pin:
+#analog_range_kill_pin :
 #   La plage de résistances du bouton 'kill'. Les valeurs minimale et maximale de la plage
 #   séparées par des virgules doivent être fournies lors de l'utilisation du bouton analogique.
 ```

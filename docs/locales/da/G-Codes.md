@@ -1,6 +1,6 @@
 # G-Codes
 
-This document describes the commands that Klipper supports. These are commands that one may enter into the OctoPrint terminal tab.
+Dette dokument beskriver de kommandoer der er understøttet af Klipper. Disse kommandoer kan indtastes i Terminalen på OctoPrint, Fluidd samt Mainsail.
 
 ## G-Code commands
 

@@ -1,4 +1,4 @@
-# Contributing to Klipper
+# Bidragelse til Klipper
 
 Thank you for contributing to Klipper! This document describes the process for contributing changes to Klipper.
 

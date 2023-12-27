@@ -1,16 +1,16 @@
 # API server
 
-‎Este documento descreve a Interface do Programador de Aplicativos (API) da ‎‎Klipper‎‎. Esta interface permite que aplicativos externos consultem e controlem o software de host ‎‎Klipper‎‎.
+Este documento descreve a Interface do Programador de Aplicativos (API) da Klipper. Esta interface permite que aplicativos externos consultem e controlem o software de host Klipper.
 
-## ‎Habilitando o soquete de API‎
+## Habilitando o soquete de API
 
-‎Para usar o ‎‎servidor API‎‎, o software host klippy.py deve ser iniciado com o ‎parâmetro `-a`‎. Por exemplo:
+Para usar o servidor API, o software host klippy.py deve ser iniciado com o parâmetro `-a`. Por exemplo:
 
 ```
 ~/klippy-env/bin/python ~/klipper/klippy/klippy.py ~/printer.cfg -a /tmp/klippy_uds -l /tmp/klippy.log
 ```
 
-‎Isso faz com que o software host crie um Soquete de domínio Unix, um cliente pode então abrir uma conexão nesse soquete e enviar comandos para ‎‎Klipper‎‎.
+Isso faz com que o software host crie um Soquete de domínio Unix, um cliente pode então abrir uma conexão nesse soquete e enviar comandos para Klipper.
 
 See the [Moonraker](https://github.com/Arksine/moonraker) project for a popular tool that can forward HTTP requests to Klipper's API Server Unix Domain Socket.
 

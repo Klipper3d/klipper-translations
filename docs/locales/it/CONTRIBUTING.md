@@ -123,7 +123,7 @@ Ogni commit dovrebbe avere un messaggio di commit formattato in modo simile al s
 modulo: Riepilogo breve (50 caratteri o meno) in maiuscolo
 
 Testo esplicativo più dettagliato, se necessario. Incolonna a circa
-75 caratteri o giù di lì. In alcuni contesti, la prima riga è trattata 
+75 caratteri o giù di lì. In alcuni contesti, la prima riga è trattata
 come l'oggetto di un'e-mail e il resto del testo come corpo. La
 riga vuota che separa il riassunto dal corpo è critica (a meno che
 non si ometta del tutto il corpo); strumenti come rebase possono
