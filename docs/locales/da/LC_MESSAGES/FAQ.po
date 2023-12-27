@@ -1,12 +1,18 @@
-#
+# srbjessen <srbjessen@gmail.com>, 2023.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2023-12-19 10:10+0000\n"
+"Last-Translator: srbjessen <srbjessen@gmail.com>\n"
+"Language-Team: Danish <https://hosted.weblate.org/projects/klipper/faq/da/>\n"
 "Language: da\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.3\n"
 
 msgid "How can I donate to the project?"
-msgstr ""
+msgstr "Hvordan kan jeg donerer til projektet?"
 
 msgid "How do I calculate the rotation_distance config parameter?"
 msgstr ""
