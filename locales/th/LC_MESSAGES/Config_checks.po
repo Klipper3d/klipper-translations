@@ -1,15 +1,26 @@
 # Pisan Chueachatchai <chueachatchai@gmail.com>, 2023.
+# Mods HD <pannawit.rue@gmail.com>, 2023.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2023-12-22 23:07+0000\n"
+"Last-Translator: Mods HD <pannawit.rue@gmail.com>\n"
+"Language-Team: Thai <https://hosted.weblate.org/projects/klipper/"
+"config_checks/th/>\n"
 "Language: th\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 msgid ""
 "This document provides a list of steps to help confirm the pin settings in "
 "the Klipper printer.cfg file. It is a good idea to run through these steps "
 "after following the steps in the [installation document](Installation.md)."
 msgstr ""
+"เอกสารนี้ประกอบด้วยรายการขั้นตอนเพื่อ help ยืนยันการตั้งค่าพินในไฟล์ Klipper "
+"printer.cfg เป็นความคิดที่ดีที่จะทำตามขั้นตอนเหล่านี้หลังจากทำตามขั้นตอนใน ["
+"installation document](Installation.md)"
 
 msgid ""
 "During this guide, it may be necessary to make changes to the Klipper config"

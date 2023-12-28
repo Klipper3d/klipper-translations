@@ -3,17 +3,19 @@
 # Jonathan <jonathanhav09@sfr.fr>, 2022.
 # Francis Poulizac <francis@poulizac.fr>, 2022, 2023.
 # jean-luc MATTEI <jlucm@free.fr>, 2022, 2023.
+# Alfredo Monclus <alfredomonclus@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-02-14 10:38+0000\n"
-"Last-Translator: Francis Poulizac <francis@poulizac.fr>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/klipper/rpi_microcontroller/fr/>\n"
+"PO-Revision-Date: 2023-12-27 15:09+0000\n"
+"Last-Translator: Alfredo Monclus <alfredomonclus@gmail.com>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/klipper/"
+"rpi_microcontroller/fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.16-dev\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 msgid ""
 "This document describes the process of running Klipper on a RPi and use the "
@@ -334,7 +336,7 @@ msgid ""
 "# Enable pwmchip sysfs interface\n"
 "dtoverlay=pwm,pin=12,func=4\n"
 msgstr ""
-"# Activer l'interface pwmchip sysfs \n"
+"# Activer l'interface pwmchip sysfs\n"
 "dtoverlay=pwm,pin=12,func=4\n"
 
 #: docs/RPi_microcontroller.md:block 38 (paragraph)
