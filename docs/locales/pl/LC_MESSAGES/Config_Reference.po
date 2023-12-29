@@ -2,7 +2,7 @@
 # Robert Jaroszewicz <mediagott1977@googlemail.com>, 2022, 2025.
 # Damian Jasinski <flasch44@gmail.com>, 2023, 2025.
 # Jan P <jasiek.kliper06@gmail.com>, 2023, 2025.
-# Mateusz Kapała <lolekwielki@gmail.com>, 2023.
+# Mateusz Kapała <lolekwielki@gmail.com>, 2023, 2025.
 # Woo Cash <woocash87@gmail.com>, 2024.
 # Łukasz Kosiński <lukikosin@gmail.com>, 2024.
 # Bartosz Trojan <51444728+ethylowy@users.noreply.github.com>, 2024.
@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:26+0000\n"
-"Last-Translator: Damian Jasinski <flasch44@gmail.com>\n"
+"Last-Translator: Mateusz Kapała <lolekwielki@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/klipper/"
 "config_reference/pl/>\n"
 "Language: pl\n"
