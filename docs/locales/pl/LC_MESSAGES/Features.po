@@ -1,12 +1,12 @@
 # Robert Jaroszewicz <mediagott1977@googlemail.com>, 2022, 2025.
-# Mateusz Kapała <lolekwielki@gmail.com>, 2023.
+# Mateusz Kapała <lolekwielki@gmail.com>, 2023, 2025.
 # Woo Cash <woocash87@gmail.com>, 2024, 2025.
 # Kacper Karpiński <kacperocik@yahoo.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:26+0000\n"
-"Last-Translator: Robert Jaroszewicz <mediagott1977@googlemail.com>\n"
+"Last-Translator: Mateusz Kapała <lolekwielki@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/klipper/features/"
 "pl/>\n"
 "Language: pl\n"
@@ -43,8 +43,9 @@ msgid ""
 msgstr ""
 "Konfiguracja za pomocą prostego pliku konfiguracyjnego. Nie ma potrzeby "
 "ponownego programowania mikrokontrolera w celu zmiany ustawień. Cała "
-"konfiguracja Klippera jest przechowywana w standardowym pliku konfiguracyjnym,"
-" który można łatwo edytować. Ułatwia to konfigurację i konserwację sprzętu."
+"konfiguracja Klippera jest przechowywana w standardowym pliku "
+"konfiguracyjnym, który można łatwo edytować. Ułatwia to konfigurację i "
+"konserwację sprzętu."
 
 msgid ""
 "Klipper supports \"Smooth Pressure Advance\" - a mechanism to account for the "
