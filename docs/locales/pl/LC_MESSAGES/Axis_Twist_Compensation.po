@@ -1,14 +1,25 @@
-#
+# Mateusz Kapała <lolekwielki@gmail.com>, 2023.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2023-12-29 18:14+0000\n"
+"Last-Translator: Mateusz Kapała <lolekwielki@gmail.com>\n"
+"Language-Team: Polish <https://hosted.weblate.org/projects/klipper/"
+"axis_twist_compensation/pl/>\n"
+"Language: pl\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.4-dev\n"
+"Content-Transfer-Encoding: 8bit\n"
 
 #: docs/Axis_Twist_Compensation.md:block 1 (header)
 msgid "Axis Twist Compensation"
-msgstr ""
+msgstr "Kompensacja Obrotu Osi"
 
 #: docs/Axis_Twist_Compensation.md:block 2 (paragraph)
 msgid "This document describes the [axis_twist_compensation] module."
-msgstr ""
+msgstr "Ten dokument opisuje moduł [axis_twist_compensation]"
 
 #: docs/Axis_Twist_Compensation.md:block 3 (paragraph)
 msgid ""
