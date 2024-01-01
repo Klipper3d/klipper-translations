@@ -1,23 +1,25 @@
 # Robert Jaroszewicz <mediagott1977@googlemail.com>, 2022.
 # Damian Jasinski <flasch44@gmail.com>, 2023.
 # piiken <07.poza_dojrzewac@icloud.com>, 2023.
+# Mateusz Kapała <lolekwielki@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-05-14 06:52+0000\n"
-"Last-Translator: piiken <07.poza_dojrzewac@icloud.com>\n"
+"PO-Revision-Date: 2023-12-30 10:58+0000\n"
+"Last-Translator: Mateusz Kapała <lolekwielki@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/klipper/faq/pl/>\n"
 "Language: pl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.18-dev\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 msgid "How can I donate to the project?"
-msgstr ""
+msgstr "Jak mogę wesprzeć projekt?"
 
 msgid "How do I calculate the rotation_distance config parameter?"
-msgstr "jak obliczyć rotation_distance?"
+msgstr "Jak obliczyć parametr rotation_distance (długość_obrotu)?"
 
 msgid "See the [rotation distance document](Rotation_Distance.md)."
 msgstr "Zapoznaj się z [rotation distance document](Rotation_Distance.md)."
