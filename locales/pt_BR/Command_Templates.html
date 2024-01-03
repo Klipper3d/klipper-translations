@@ -1456,7 +1456,7 @@ gcode:
 <h3 id="a-variavel-impressora">A variável "impressora"<a class="headerlink" href="#a-variavel-impressora" title="Permanent link">&para;</a></h3>
 <p>É possível inspecionar (e alterar) o estado atual da impressora através da pseudo-variável <code>printer</code>. Por exemplo:</p>
 <div class="highlight"><pre><span></span><code>[gcode_macro slow_fan]
-gcode: 
+gcode:
   M106 S{ printer.fan.speed * 0.9 * 255}
 </code></pre></div>
 

@@ -1268,7 +1268,7 @@
       
         <li class="md-nav__item">
   <a href="#habilitando-o-soquete-de-api" class="md-nav__link">
-    ‎Habilitando o soquete de API‎
+    Habilitando o soquete de API
   </a>
   
 </li>
@@ -1458,13 +1458,13 @@
 
 
 <h1 id="api-server">API server<a class="headerlink" href="#api-server" title="Permanent link">&para;</a></h1>
-<p>‎Este documento descreve a Interface do Programador de Aplicativos (API) da ‎‎Klipper‎‎. Esta interface permite que aplicativos externos consultem e controlem o software de host ‎‎Klipper‎‎.</p>
-<h2 id="habilitando-o-soquete-de-api">‎Habilitando o soquete de API‎<a class="headerlink" href="#habilitando-o-soquete-de-api" title="Permanent link">&para;</a></h2>
-<p>‎Para usar o ‎‎servidor API‎‎, o software host klippy.py deve ser iniciado com o ‎parâmetro <code>-a</code>‎. Por exemplo:</p>
+<p>Este documento descreve a Interface do Programador de Aplicativos (API) da Klipper. Esta interface permite que aplicativos externos consultem e controlem o software de host Klipper.</p>
+<h2 id="habilitando-o-soquete-de-api">Habilitando o soquete de API<a class="headerlink" href="#habilitando-o-soquete-de-api" title="Permanent link">&para;</a></h2>
+<p>Para usar o servidor API, o software host klippy.py deve ser iniciado com o parâmetro <code>-a</code>. Por exemplo:</p>
 <div class="highlight"><pre><span></span><code>~/klippy-env/bin/python ~/klipper/klippy/klippy.py ~/printer.cfg -a /tmp/klippy_uds -l /tmp/klippy.log
 </code></pre></div>
 
-<p>‎Isso faz com que o software host crie um Soquete de domínio Unix, um cliente pode então abrir uma conexão nesse soquete e enviar comandos para ‎‎Klipper‎‎.</p>
+<p>Isso faz com que o software host crie um Soquete de domínio Unix, um cliente pode então abrir uma conexão nesse soquete e enviar comandos para Klipper.</p>
 <p>See the <a href="https://github.com/Arksine/moonraker">Moonraker</a> project for a popular tool that can forward HTTP requests to Klipper's API Server Unix Domain Socket.</p>
 <h2 id="formato-da-solicitacao">Formato da solicitação<a class="headerlink" href="#formato-da-solicitacao" title="Permanent link">&para;</a></h2>
 <p>As mensagens enviadas e recebidas no soquete são strings codificadas em JSON terminadas por um caractere ASCII 0x03:</p>

@@ -1,9 +1,16 @@
-#
+# Thijs Triemstra <info@collab.nl>, 2024.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2024-01-01 16:10+0000\n"
+"Last-Translator: Thijs Triemstra <info@collab.nl>\n"
+"Language-Team: Dutch <https://hosted.weblate.org/projects/klipper/benchmarks/"
+"nl/>\n"
 "Language: nl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 msgid "This document describes Klipper benchmarks."
 msgstr ""
@@ -215,7 +222,7 @@ msgid ""
 msgstr ""
 
 msgid "MCU"
-msgstr ""
+msgstr "MCU"
 
 msgid "Rate"
 msgstr ""
