@@ -2,7 +2,7 @@ This GitHub repository is used for Klipper translations.
 
 The main Klipper project is at https://www.klipper3d.org/
 
-You can help translate the program at [Hosted Weblate](https://hosted.weblate.org/widgets/klipper).
+You can help translate the program at [Hosted Weblate](https://hosted.weblate.org/engage/klipper).
 
 <a href="https://hosted.weblate.org/engage/klipper/">
 <img src="https://hosted.weblate.org/widgets/klipper/-/multi-auto.svg" alt="Translation status" />
@@ -36,7 +36,7 @@ http://www.facebook.com/HKMakers.hk
 
 ## German Deutsche
 
-### Dies ist eine sehr einfache Beta-Dokumentation! 
+### Dies ist eine sehr einfache Beta-Dokumentation!
 
 Status: In Bearbeitung(Last updated ???)
 
@@ -44,7 +44,7 @@ Status: In Bearbeitung(Last updated ???)
 
 ## Turkish Türk
 
-### Bu çok kolay Beta Belgeleri! 
+### Bu çok kolay Beta Belgeleri!
 
 Status: Devam etmekte(Last updated ???)
 
@@ -52,7 +52,7 @@ Status: Devam etmekte(Last updated ???)
 
 ## Spanish Español
 
-### ¡Esta es una documentación muy fácil de Beta! 
+### ¡Esta es una documentación muy fácil de Beta!
 
 Status: En curso(Last updated ???)
 
@@ -60,7 +60,7 @@ Status: En curso(Last updated ???)
 
 ## Norwegian Norsk bokmål
 
-### Dette er veldig enkel Beta-dokumentasjon! 
+### Dette er veldig enkel Beta-dokumentasjon!
 
 Status: Underveis (Last updated ???)
 
