@@ -1,6 +1,6 @@
-# Bootloader Entry
+# Wejście do Bootloadera
 
-Klipper can be instructed to reboot into a [Bootloader](Bootloaders.md) in one of the following ways:
+Klipper może zostać zrestartowany do [Bootloader](Bootloaders.md) na jeden z następujących sposobów:
 
 ## Requesting the bootloader
 

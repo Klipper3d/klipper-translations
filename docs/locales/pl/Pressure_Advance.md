@@ -4,7 +4,7 @@ Ten dokument zawiera informacje na temat dostrajania zmiennej konfiguracyjnej "p
 
 ## Dostrajanie pressure advance
 
-Pressure advance does two useful things - it reduces ooze during non-extrude moves and it reduces blobbing during cornering. This guide uses the second feature (reducing blobbing during cornering) as a mechanism for tuning.
+Ciśnienie wyprzedzenia to dwie przydatne rzeczy - pierwsza zmniejsza wyciek podczas ruchów bez wyciskania i druga zmniejsza kropelkowanie podczas wykonywania naroża. Ta porada omawia tą drugą funkcję (zmniejszenie kropelkowania podczas wykonywania naroża) jako mechanizm dostrajania.
 
 In order to calibrate pressure advance the printer must be configured and operational as the tuning test involves printing and inspecting a test object. It is a good idea to read this document in full prior to running the test.
 
