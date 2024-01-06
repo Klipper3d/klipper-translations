@@ -11,11 +11,11 @@ Ten dokument zawiera informacje kontaktowe dla firmy Klipper.
 1. [I am making changes that I'd like to include in Klipper](#i-am-making-changes-that-id-like-to-include-in-klipper)
 1. [Klipper github](#klipper-github)
 
-## Community Forum
+## Forum społecznościowe
 
 There is a [Klipper Community Discourse server](https://community.klipper3d.org) for discussions on Klipper.
 
-## Discord Chat
+## Czat Discord
 
 There is a Discord server dedicated to Klipper at: <https://discord.klipper3d.org>.
 

@@ -1,6 +1,6 @@
 # Kontrola konfiguracji
 
-Ten dokument zawiera listę kroków, które pomogą potwierdzić ustawienia pinów w pliku konfiguracyjnym klipper printer.cfg. Dobrym pomysłem jest wykonanie tych kroków po wykonaniu czynności opisanych w [installation document](Installation.md).
+Ten dokument zawiera listę kroków, które pomogą potwierdzić ustawienia pinów w pliku konfiguracyjnym Klipper printer.cfg. Dobrym pomysłem jest wykonanie tych kroków po wykonaniu czynności opisanych w [installation document](Installation.md).
 
 Podczas tego przewodnika może być konieczne wprowadzenie zmian w pliku konfiguracyjnym Klippera. Pamiętaj, aby wydać polecenie RESTART po każdej zmianie w pliku konfiguracyjnym, aby mieć pewność, że zmiana zacznie obowiązywać (wpisz „restart” w zakładce terminala Octoprint, a następnie kliknij „Wyślij”). Dobrym pomysłem jest również wydanie polecenia STATUS po każdym RESTARTU, aby sprawdzić, czy plik konfiguracyjny został pomyślnie załadowany.
 

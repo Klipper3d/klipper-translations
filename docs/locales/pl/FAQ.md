@@ -1,10 +1,10 @@
 # Frequently Asked Questions
 
-## How can I donate to the project?
+## Jak mogę wesprzeć projekt?
 
 Thank you for your support. See the [Sponsors page](Sponsors.md) for information.
 
-## jak obliczyć rotation_distance?
+## Jak obliczyć parametr rotation_distance (długość_obrotu)?
 
 Zapoznaj się z [rotation distance document](Rotation_Distance.md).
 

@@ -1,6 +1,6 @@
-# CANBUS Troubleshooting
+# Wykrywanie i usuwanie problemów z CANBUS
 
-This document provides information on troubleshooting communication issues when using [Klipper with CAN bus](CANBUS.md).
+Ten dokument zawiera informacje na temat rozwiązywania problemów z komunikacją podczas korzystania z aplikacji [Klipper z magistralą CAN](CANBUS.md).
 
 ## Verify CAN bus wiring
 

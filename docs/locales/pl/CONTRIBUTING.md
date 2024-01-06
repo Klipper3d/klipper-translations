@@ -120,18 +120,18 @@ The Klipper "maintainers" are:
 Each commit should have a commit message formatted similar to the following:
 
 ```
-module: Capitalized, short (50 chars or less) summary
+moduł: Zbierający, krótkie (50 znakowe lub mniejsze) zestawienia
 
-More detailed explanatory text, if necessary.  Wrap it to about 75
-characters or so.  In some contexts, the first line is treated as the
-subject of an email and the rest of the text as the body.  The blank
-line separating the summary from the body is critical (unless you omit
-the body entirely); tools like rebase can get confused if you run the
-two together.
+Bardziej szczegółowy tekst objaśniający, jeśli to konieczne. Zawiń go do 75
+znaków lub mniej więcej. W niektórych przypadkach pierwszy wiersz jest 
+traktowany jako temat wiadomości e-mail, a reszta tekstu jako treść. Pusta
+linia oddzielająca podsumowanie od treści jest krytyczna (chyba że 
+całkowicie pominiesz treść); Narzędzie jak rebase może zostać pomylone,
+ jeśli uruchomisz dwa razem.
 
-Further paragraphs come after blank lines..
+Kolejne akapity następują po pustych liniach..
 
-Signed-off-by: My Name <myemail@example.org>
+Podpisano: Moje Imię <mojemail@przykład.org>
 ```
 
 In the above example, `module` should be the name of a file or directory in the repository (without a file extension). For example, `clocksync: Fix typo in pause() call at connect time`. The purpose of specifying a module name in the commit message is to help provide context for the commit comments.

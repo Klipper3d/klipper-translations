@@ -12,7 +12,7 @@ queue_step oid=7 interval=11717 count=4 add=1281
 
 Informacje o dostępnych poleceniach znajdują się w dokumencie [mcu commands](MCU_Commands.md). Zobacz dokument [debugowanie](Debugowanie.md), aby dowiedzieć się, jak przetłumaczyć plik G-Code na odpowiadające mu, czytelne dla człowieka, polecenia mikrokontrolera.
 
-This page provides a high-level description of the Klipper messaging protocol itself. It describes how messages are declared, encoded in binary format (the "compression" scheme), and transmitted.
+Ta strona zawiera opis wysokopoziomowego (high-level) przesyłania wiadomości w Klipper. Opisuje, w jaki sposób wiadomości są deklarowane, kodowane w formacie binarnym (zawiera schemat "kompresji") i przesyłane.
 
 The goal of the protocol is to enable an error-free communication channel between the host and micro-controller that is low-latency, low-bandwidth, and low-complexity for the micro-controller.
 

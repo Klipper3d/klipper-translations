@@ -6,7 +6,7 @@ Opisy w tym dokumencie są tak sformatowane, że można je wyciąć i wkleić do
 
 ## Konfiguracja mikrokontrolera
 
-### Format of micro-controller pin names
+### Format nazw pinów mikrokontrolera
 
 Many config options require the name of a micro-controller pin. Klipper uses the hardware names for these pins - for example `PA4`.
 

@@ -4,7 +4,7 @@ W tym dokumencie opisano narzędzia do kalibracji ogranicznika krańcowego Z ora
 
 ## Kalibracja ogranicznika krańcowego Z
 
-An accurate Z endstop position is critical to obtaining high quality prints.
+Dokładna pozycja wyłącznika krańcowego osi Z ma kluczowe znaczenie dla uzyskania wysokiej jakości wydruków.
 
 Note, though, the accuracy of the Z endstop switch itself can be a limiting factor. If one is using Trinamic stepper motor drivers then consider enabling [endstop phase](Endstop_Phase.md) detection to improve the accuracy of the switch.
 

@@ -6,7 +6,7 @@ Kalibracja delta obejmuje znalezienie pozycji zatrzymania wieży, kątów wieży
 
 Ostatecznie, kalibracja delta zależy od precyzji przełączników zatrzymania wieży. Jeśli używasz sterowników silników krokowych Trinamic, rozważ włączenie detekcji [fazy zatrzymania końcowego](Endstop_Phase.md), aby poprawić dokładność tych przełączników.
 
-## Automatic vs manual probing
+## Pomiar Automatyczny vs Ręczny
 
 Klipper supports calibrating the delta parameters via a manual probing method or via an automatic Z probe.
 

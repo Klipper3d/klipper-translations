@@ -4,7 +4,7 @@ Niniejszy dokument opisuje interfejs programisty aplikacji (API) programu Klippe
 
 ## Włączenie gniazda API
 
-In order to use the API server, the klippy.py host software must be started with the `-a` parameter. For example:
+Aby korzystać z serwera API, klippy.py oprogramowanie hosta musi być uruchomione z parametrem `-a`. Na przykład:
 
 ```
 ~/klippy-env/bin/python ~/klipper/klippy/klippy.py ~/printer.cfg -a /tmp/klippy_uds -l /tmp/klippy.log
