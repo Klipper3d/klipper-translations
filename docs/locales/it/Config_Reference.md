@@ -71,7 +71,7 @@ La sezione printer controlla le impostazioni di alto livello della stampante.
 kinematics:
 #   Il tipo di stampante in uso. Questa opzione può essere una delle
 #   seguenti: cartesian, corexy, corexz, hybrid_corexy, hybrid_corexz,
-#   rotary_delta, delta, deltesian, polar, winch o nessuno. 
+#   rotary_delta, delta, deltesian, polar, winch o nessuno.
 #   Questo parametro deve essere specificato.
 max_velocity:
 #   Velocità massima (in mm/s) della testa di stampa (relativa alla stampa).
@@ -173,7 +173,7 @@ position_max:
 #   Se true, l'homing farà muovere lo stepper in una direzione positiva
 #   (allontanandosi da zero); se falso, home verso zero. È meglio utilizzare
 #   l'impostazione predefinita piuttosto che specificare questo parametro.
-#   Il valore predefinito è true se position_endstop è vicino a position_max 
+#   Il valore predefinito è true se position_endstop è vicino a position_max
 #   false se vicino a position_min.
 ```
 
@@ -187,7 +187,7 @@ Qui sono descritti solo i parametri specifici delle stampanti cartesiane - veder
 [printer]
 kinematics: cartesian
 max_z_velocity:
-#   Imposta la velocità massima (in mm/s) di movimento lungo 
+#   Imposta la velocità massima (in mm/s) di movimento lungo
 #   l'asse z. Questa impostazione può essere utilizzata per limitare
 #   la velocità massima del motore passo-passo z. L'impostazione
 #   predefinita è utilizzare max_velocity per max_z_velocity.
@@ -223,7 +223,7 @@ max_z_velocity:
 #   movimenti con movimento dell'asse z. Questa impostazione può essere
 #   utilizzata per ridurre la velocità massima dei movimenti su/giù (che
 #   richiedono una velocità di incremento maggiore rispetto ad altri
-#   movimenti su una stampante delta). L'impostazione predefinita è 
+#   movimenti su una stampante delta). L'impostazione predefinita è
 #   utilizzare max_velocity per max_z_velocity.
 #max_z_accel:
 #   Imposta l'accelerazione massima (in mm/s^2) del movimento lungo
@@ -232,7 +232,7 @@ max_z_velocity:
 #   movimenti Z (ad esempio, quando si utilizza l'input shaper).
 #   L'impostazione predefinita è utilizzare max_accel per max_z_accel.
 #minimum_z_position: 0
-#   La posizione Z minima in cui l'utente può comandare alla testa di 
+#   La posizione Z minima in cui l'utente può comandare alla testa di
 #   spostarsi. Il valore predefinito è 0.
 delta_radius:
 #   Raggio (in mm) del cerchio orizzontale formato dalle tre torri ad
@@ -245,7 +245,7 @@ delta_radius:
 #   controllo dell'intervallo dei movimenti della testa. Se qui
 #   viene specificato un valore elevato, potrebbe essere possibile
 #   comandare la collisione della testa di stampa con una torre.
-#   L'impostazione predefinita è usare delta_radius per print_radius 
+#   L'impostazione predefinita è usare delta_radius per print_radius
 #   (che normalmente impedirebbe una collisione con torri).
 
 # La sezione stepper_a descrive lo stepper che controlla la torre
@@ -380,18 +380,18 @@ kinematics: corexy
 max_z_velocity:
 #   Imposta la velocità massima (in mm/s) di movimento lungo l'asse z.
 #   Questa impostazione può essere utilizzata per limitare la velocità
-#   massima del motore passo-passo z. L'impostazione predefinita è 
+#   massima del motore passo-passo z. L'impostazione predefinita è
 #   utilizzare max_velocity per max_z_velocity.
 max_z_accel:
 #   Imposta l'accelerazione massima (in mm/s^2) del movimento
 #   lungo l'asse z. Limita l'accelerazione del motore passo-passo z.
 #   L'impostazione predefinita è utilizzare max_accel per max_z_accel.
 
-# La sezione stepper_x viene utilizzata per descrivere l'asse X e lo 
+# La sezione stepper_x viene utilizzata per descrivere l'asse X e lo
 # stepper che controlla il movimento X+Y.
 [stepper_x]
 
-# La sezione stepper_y viene utilizzata per descrivere l'asse Y e lo 
+# La sezione stepper_y viene utilizzata per descrivere l'asse Y e lo
 # stepper che controlla il movimento X+Y.
 [stepper_y]
 
@@ -417,7 +417,7 @@ max_z_accel:
 #   l'asse z. L'impostazione predefinita è utilizzare max_accel per
 #   max_z_accel.
 
-# La sezione stepper_x viene utilizzata per descrivere l'asse X e lo 
+# La sezione stepper_x viene utilizzata per descrivere l'asse X e lo
 # stepper che controlla il movimento X+Z.
 [stepper_x]
 
@@ -442,7 +442,7 @@ Qui vengono descritti solo i parametri specifici delle stampanti corexy ibride, 
 kinematics: hybrid_corexy
 max_z_velocity:
 #   Imposta la velocità massima (in mm/s) di movimento lungo
-#   l'asse z. L'impostazione predefinita è utilizzare max_velocity 
+#   l'asse z. L'impostazione predefinita è utilizzare max_velocity
 #   per max_z_velocity.
 max_z_accel:
 #   Imposta l'accelerazione massima (in mm/s^2) del movimento
@@ -453,7 +453,7 @@ max_z_accel:
 # stepper che controlla il movimento X-Y.
 [stepper_x]
 
-# La sezione stepper_y viene utilizzata per descrivere lo stepper 
+# La sezione stepper_y viene utilizzata per descrivere lo stepper
 # che controlla l'asse Y.
 [stepper_y]
 
@@ -521,13 +521,13 @@ max_z_accel:
 # che controlla il piatto
 [stepper_bed]
 gear_ratio:
-#   È necessario specificare un gear_ratio e rotation_distance 
-#   potrebbe non essere specificato. Ad esempio, se il piatto ha una 
+#   È necessario specificare un gear_ratio e rotation_distance
+#   potrebbe non essere specificato. Ad esempio, se il piatto ha una
 #   ruota a 80 denti azionata da uno stepper con una ruota a 16
 #   denti, si dovrebbe specificare un rapporto di trasmissione di "80:16".
 #   Questo parametro deve essere fornito.
 
-# La sezione stepper_arm è usata per descrivere lo stepper che 
+# La sezione stepper_arm è usata per descrivere lo stepper che
 # controlla il carrello sul braccio.
 [stepper_arm]
 
@@ -729,13 +729,13 @@ heater_pin:
 #   può essere impostato il riscaldatore_pin. Il valore 1.0 consente di impostare il pin
 #   completamente abilitato per periodi prolungati, mentre un valore di 0,5
 #   consentirebbe di abilitare il pin per non più della metà del tempo. Questo
-#   l'impostazione può essere utilizzata per limitare la potenza totale 
+#   l'impostazione può essere utilizzata per limitare la potenza totale
 #   (per periodi prolungati) al riscaldatore. L'impostazione predefinita è 1.0.
 sensor_type:
 #   Tipo di sensore - i termistori comuni sono "EPCOS 100K B57560G104F",
 #   "ATC Semitec 104GT-2", "ATC Semitec 104NT-4-R025H42G", "Generico
 #   3950","Honeywell 100K 135-104LAG-J01", "NTC 100K MGB18-104F39050L32",
-#   "SliceEngineering 450" e "TDK NTCG104LH104JT1". Vedere la sezione 
+#   "SliceEngineering 450" e "TDK NTCG104LH104JT1". Vedere la sezione
 #   "Sensori di temperatura" per altri sensori. Questo parametro deve essere fornito.
 sensor_pin:
 #   Pin di ingresso analogico collegato al sensore. Questo parametro deve essere fornito.
@@ -772,7 +772,7 @@ pid_Kd:
 #   requisito accendere il riscaldatore più velocemente di 10 volte al secondo.
 #   Il valore predefinito è 0,100 secondi.
 #min_extrude_temp: 170
-#   La temperatura minima (in gradi Celsius) alla quale possono essere 
+#   La temperatura minima (in gradi Celsius) alla quale possono essere
 #   impartiti comandi all'estrusore. L'impostazione predefinita è 170 gradi Celsius.
 min_temp:
 max_temp:
@@ -1048,9 +1048,9 @@ Regolazione multipla dell'inclinazione dello stepper Z. Questa funzione consente
 #   identate) che descrivono la posizione di ciascun "pivot point"
 #   del piattotto. Il "pivot point" è il punto in cui il piatto si attacca
 #   al dato stepper Z. Viene descritto utilizzando le coordinate dell'ugello
-#   (la posizione X, Y dell'ugello se potesse spostarsi direttamente sopra 
-#   il punto). La prima voce corrisponde a stepper_z, la seconda a 
-#   stepper_z1, la terza a stepper_z2, ecc. 
+#   (la posizione X, Y dell'ugello se potesse spostarsi direttamente sopra
+#   il punto). La prima voce corrisponde a stepper_z, la seconda a
+#   stepper_z1, la terza a stepper_z2, ecc.
 #   Questo parametro deve essere fornito.
 #points:
 #   Un elenco di coordinate X, Y (una per riga; righe successive identate)
@@ -1059,7 +1059,7 @@ Regolazione multipla dell'inclinazione dello stepper Z. Questa funzione consente
 #   sopra il piatto alle coordinate dell'ugello date.
 #   Questo parametro deve essere fornito.
 #speed: 50
-#   La velocità (in mm/s) degli spostamenti senza probing durante 
+#   La velocità (in mm/s) degli spostamenti senza probing durante
 #   la calibrazione. Il valore predefinito è 50.
 #horizontal_move_z: 5
 #   L'altezza (in mm) a cui la testa deve essere comandata per spostarsi
@@ -1070,10 +1070,10 @@ Regolazione multipla dell'inclinazione dello stepper Z. Questa funzione consente
 #   della tolleranza.
 #retry_tolerance: 0
 #   Se i tentativi sono abilitati, riprovare se i punti sondati più grande e
-#   più piccolo differiscono più di retry_tolerance. Nota che l'unità di 
-#   modifica più piccola qui sarebbe un singolo passaggio. 
-#   Tuttavia, se stai sondando più punti rispetto agli stepper, 
-#   probabilmente avrai un valore minimo fisso per l'intervallo di punti 
+#   più piccolo differiscono più di retry_tolerance. Nota che l'unità di
+#   modifica più piccola qui sarebbe un singolo passaggio.
+#   Tuttavia, se stai sondando più punti rispetto agli stepper,
+#   probabilmente avrai un valore minimo fisso per l'intervallo di punti
 #   sondati che puoi apprendere osservando l'output del comando.
 ```
 
@@ -1178,7 +1178,7 @@ home_xy_position:
 #   Una coordinata X, Y (ad es. 100, 100) dove deve essere eseguita
 #   homing Z. Questo parametro deve essere fornito.
 #speed: 50.0
-#   Velocità alla quale la testa di stampa viene spostata sulla 
+#   Velocità alla quale la testa di stampa viene spostata sulla
 #   coordinata Z sicura. Il valore predefinito è 50 mm/s
 #z_hop:
 #   Distanza (in mm) per sollevare l'asse Z prima dell'homing.
@@ -1408,7 +1408,7 @@ I#   l valore predefinito è 0 mm.
 #   La velocità di retrazione, in mm/s.
 #   Il valore predefinito è 20 mm/s.
 #unretract_extra_length: 0
-#   La lunghezza (in mm) del filamento *aggiuntivo* da 
+#   La lunghezza (in mm) del filamento *aggiuntivo* da
 #   sommare quando non si ritrae.
 #unretract_speed: 10
 #   La velocità di srotolamento, in mm/s.
@@ -1423,7 +1423,7 @@ Supporto per i comandi Gcode arc (G2/G3).
 [gcode_arcs]
 #resolution: 1.0
 #   Un arco sarà diviso in segmenti. La lunghezza di ciascun segmento
-#   sarà uguale alla risoluzione in mm impostata sopra. Valori più bassi 
+#   sarà uguale alla risoluzione in mm impostata sopra. Valori più bassi
 #   produrranno un arco più fine, ma anche più lavoro per la tua macchina.
 #   Archi più piccoli del valore configurato diventerà linee rette.
 #   L'impostazione predefinita è
@@ -1469,7 +1469,7 @@ Abilita [compensazione della risonanza](Resonance_Compensation.md). Vedere anche
 #   solitamente una frequenza di risonanza dell'asse X che l'input
 #   shaper dovrebbe sopprimere. Per shaper più complessi, come
 #   shaper di input EI a 2 e 3 gobbe, questo parametro può essere
-#   impostato in base a diverse considerazioni. 
+#   impostato in base a diverse considerazioni.
 #   Il valore predefinito è 0, che disabilita la modellatura dell'input
 #   per l'asse X.
 #shaper_freq_y: 0
@@ -1595,7 +1595,7 @@ Supporto per test di risonanza e calibrazione automatica del input shaper. Per u
 #   ciascuno degli assi. Può essere utile, ad esempio, su una stampante con
 #   piatto, se due accelerometri separati sono montati sul piatto (per l'asse Y)
 #   e sulla testa di stampa (per l'asse X). Questi parametri hanno lo stesso
-#   formato del parametro 'accel_chip'. 
+#   formato del parametro 'accel_chip'.
 #   È necessario fornire solo 'accel_chip' o questi due parametri.
 #max_smoothing:
 #   Maximum input shaper smoothing to allow for each axis during shaper
@@ -1679,7 +1679,7 @@ pin:
 #   gcode tra ogni tentativo di esplorazione durante l'esecuzione di
 #   una sequenza di probe multiple. L'impostazione predefinita è True.
 #x_offset: 0.0
-#   La distanza (in mm) tra la sonda e l'ugello lungo l'asse x. 
+#   La distanza (in mm) tra la sonda e l'ugello lungo l'asse x.
 #   Il valore predefinito è 0.
 #y_offset: 0.0
 #   La distanza (in mm) tra la sonda e l'ugello lungo l'asse y.
@@ -1981,7 +1981,7 @@ Stepper manuali (è possibile definire un numero qualsiasi di sezioni con un pre
 #   specifica un parametro ACCEL. Il valore predefinito è zero.
 #endstop_pin:
 #   Pin di rilevamento interruttore di fine corsa. Se specificato, è possibile
-#   eseguire "movimenti di riferimento" aggiungendo un parametro 
+#   eseguire "movimenti di riferimento" aggiungendo un parametro
 #   STOP_ON_ENDSTOP ai comandi di movimento MANUAL_STEPPER.
 ```
 
@@ -2146,7 +2146,7 @@ sensor_type:
 #   "Honeywell 100K 135-104LAG-J01", "NTC 100K MGB18-104F39050L32",
 #   "SliceEngineering 450", o "TDK NTCG104LH104JT1"
 sensor_pin:
-#   Pin di ingresso analogico collegato al termistore. 
+#   Pin di ingresso analogico collegato al termistore.
 #   Questo parametro deve essere fornito.
 #pullup_resistor: 4700
 #   La resistenza (in ohm) del pullup collegato al termistore.
@@ -2206,7 +2206,7 @@ sensor_pin:
 #spi_software_sclk_pin:
 #spi_software_mosi_pin:
 #spi_software_miso_pin:
-#   Vedere la sezione "impostazioni comuni SPI" per una 
+#   Vedere la sezione "impostazioni comuni SPI" per una
 #   descrizione dei parametri di cui sopra.
 #tc_type: K
 #tc_use_50Hz_filter: False
@@ -2354,7 +2354,7 @@ Temperatura dalla macchina (es. Raspberry Pi) che esegue il software host.
 ```
 sensor_type: temperature_host
 #sensor_path:
-#   il percorso del file di sistema della temperatura. L'impostazione 
+#   il percorso del file di sistema della temperatura. L'impostazione
 #   predefinita è "/sys/class/thermal/thermal_zone0/temp" che è il file di
 #   sistema della temperatura su un computer Raspberry Pi.
 ```
@@ -2457,7 +2457,7 @@ pin:
 #   ventola. In genere è richiesto un pullup. Questo parametro è facoltativo.
 #tachometer_ppr: 2
 #   Quando viene specificato tachometer_pin, questo è il numero di
-#   impulsi per giro del segnale del tachimetro. Per una ventola BLDC 
+#   impulsi per giro del segnale del tachimetro. Per una ventola BLDC
 #   questo è normalmente la metà del numero di poli.
 #   L'impostazione predefinita è 2.
 #tachometer_poll_interval: 0.0015
@@ -2668,7 +2668,7 @@ pin:
 #   Il pin collegato al neopixel. Questo parametro deve essere fornito.
 #chain_count:
 #   Il numero di chip Neopixel che sono "collegati a margherita" al
-#   pin fornito. Il valore predefinito è 1 (che indica che un solo 
+#   pin fornito. Il valore predefinito è 1 (che indica che un solo
 #   Neopixel è collegato al pin).
 #color_order: GRB
 #   Impostare l'ordine dei pixel richiesto dall'hardware del LED
@@ -2766,7 +2766,7 @@ Servo (si può definire un numero qualsiasi di sezioni con un prefisso "servo").
 ```
 [servo my_servo]
 pin:
-#   Pin di uscita PWM che controlla il servo. Questo parametro deve 
+#   Pin di uscita PWM che controlla il servo. Questo parametro deve
 #   essere fornito.
 #maximum_servo_angle: 180
 #   L'angolo massimo (in gradi) a cui questo servo può essere impostato.
@@ -2819,24 +2819,24 @@ Pin di uscita configurabili in fase di run-time (è possibile definire un numero
 ```
 [output_pin my_pin]
 pin:
-#   Il pin da configurare come output. 
+#   Il pin da configurare come output.
 #   Questo parametro deve essere fornito.
 #pwm: False
 #   Impostare se il pin di uscita deve essere in grado di modulare la
-#   larghezza di impulso PWM. Se questo è True, i campi del valore 
+#   larghezza di impulso PWM. Se questo è True, i campi del valore
 #   dovrebbero essere compresi tra 0 e 1; se è False i campi del valore
 #   devono essere 0 o 1. Il valore predefinito è False.
 #static_value:
 #   Se è valorizzato, il pin viene assegnato a questo valore all'avvio e
 #   il pin non può essere modificato durante il runtime. Un pin statico
 #   utilizza una ram leggermente inferiore nel microcontrollore.
-#   L'impostazione predefinita prevede l'utilizzo della configurazione 
+#   L'impostazione predefinita prevede l'utilizzo della configurazione
 #   di runtime dei pin.
 #value:
-#   Il valore su cui impostare inizialmente il pin durante la 
+#   Il valore su cui impostare inizialmente il pin durante la
 #   configurazione dell'MCU. Il valore predefinito è 0 (per bassa tensione).
 #shutdown_value:
-#   Il valore su cui impostare il pin su un evento di arresto dell'MCU. 
+#   Il valore su cui impostare il pin su un evento di arresto dell'MCU.
 #   Il valore predefinito è 0 (per bassa tensione).
 #maximum_mcu_duration:
 #   La durata massima di un valore di non spegnimento può essere
@@ -3526,7 +3526,7 @@ scl_pin:
 sda_pin:
 #   Il pin "dati" SDA. Questo parametro deve essere fornito.
 wiper:
-#   Il valore su cui impostare staticamente il "Wiper" MCP4018 
+#   Il valore su cui impostare staticamente il "Wiper" MCP4018
 #   specificato. Questo è in genere impostato su un numero compreso
 #   tra 0,0 e 1,0 con 1,0 come resistenza più alta e 0,0 come resistenza
 #   più bassa. Tuttavia, l'intervallo può essere modificato con il
@@ -3538,8 +3538,8 @@ wiper:
 #   utile quando l'MCP4018 viene utilizzato per impostare i riferimenti di
 #   tensione stepper. La "scala" può essere impostata sull'amperaggio
 #   stepper equivalente se l'MCP4018 è alla sua massima resistenza,
-#   quindi è possibile specificare il parametro "wiper" utilizzando il 
-#   valore di amperaggio desiderato per lo stepper. L'impostazione 
+#   quindi è possibile specificare il parametro "wiper" utilizzando il
+#   valore di amperaggio desiderato per lo stepper. L'impostazione
 #   predefinita è di non ridimensionare il parametro 'wiper'.
 ```
 
@@ -3995,7 +3995,7 @@ Per ulteriori informazioni, vedere [command reference](G-Codes.md#filament_switc
 ```
 [filament_motion_sensor my_sensor]
 detection_length: 7.0
-#   La lunghezza minima di filamento tirato attraverso il sensore 
+#   La lunghezza minima di filamento tirato attraverso il sensore
 #   per attivare un cambio di stato su switch_pin
 #   Il default è 7 mm.
 extruder:
@@ -4033,7 +4033,7 @@ Sensore di larghezza del filamento ad effetto Hall (vedere [Sensore di larghezza
 [hall_filament_width_sensor]
 adc1:
 adc2:
-#   Pin di ingresso analogico collegati al sensore. 
+#   Pin di ingresso analogico collegati al sensore.
 #   Questi parametri devono essere forniti.
 #cal_dia1: 1.50
 #cal_dia2: 2.00
@@ -4060,7 +4060,7 @@ adc2:
 #   del sensore in un array e li riporta nella posizione corretta.
 #   Questo parametro deve essere fornito.
 #enable: False
-#   Sensore abilitato o disabilitato dopo l'accensione. 
+#   Sensore abilitato o disabilitato dopo l'accensione.
 L'impostazione predefinita è disabilitare.
 #measurement_interval: 10
 #   La distanza approssimativa (in mm) tra le letture del sensore.
@@ -4071,14 +4071,14 @@ L'impostazione predefinita è disabilitare.
 #min_diameter: 1.0
 #   Diametro minimo per trigger filament_switch_sensor virtuale.
 #use_current_dia_while_delay: False
-#   Utilizzare il diametro attuale invece del diametro nominale 
+#   Utilizzare il diametro attuale invece del diametro nominale
 #   mentre il ritardo di misurazione non è trascorso.
 #pause_on_runout:
 #runout_gcode:
 #insert_gcode:
 #event_delay:
 #pause_delay:
-#   Vedere la sezione "filament_switch_sensor" per una 
+#   Vedere la sezione "filament_switch_sensor" per una
 #   descrizione dei parametri di cui sopra.
 ```
 
@@ -4116,7 +4116,7 @@ sercom:
 #   disponibili sono "sercom0", "sercom1", ecc.
 #   Questo parametro deve essere fornito.
 tx_pin:
-#   Pin MOSI per la comunicazione SPI o pin SDA (dati) per la 
+#   Pin MOSI per la comunicazione SPI o pin SDA (dati) per la
 #   comunicazione I2C. Il pin deve avere una configurazione pinmux
 #   valida per la specifica periferica SERCOM.
 #   Questo parametro deve essere fornito.
@@ -4170,7 +4170,7 @@ revision:
 #   Il pin di abilitazione globale dei replicape. L'impostazione predefinita
 #   è !gpio0_20 (aka P9_41).
 host_mcu:
-#   Il nome della sezione mcu config che comunica con l'istanza mcu 
+#   Il nome della sezione mcu config che comunica con l'istanza mcu
 #   "linux process" di Klipper. Questo parametro deve essere fornito.
 #standstill_power_down: False
 #   Questo parametro controlla la linea CFG6_ENN su tutti i motori
