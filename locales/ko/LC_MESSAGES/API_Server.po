@@ -1,16 +1,18 @@
 # bookledge <bookledge@gmail.com>, 2021.
 # brian park <gouache95@gmail.com>, 2021.
+# Alfredo Monclus <alfredomonclus@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-08-23 02:32+0000\n"
-"Last-Translator: brian park <gouache95@gmail.com>\n"
-"Language-Team: Korean <https://hosted.weblate.org/projects/klipper/api_server/ko/>\n"
+"PO-Revision-Date: 2024-01-04 14:10+0000\n"
+"Last-Translator: Alfredo Monclus <alfredomonclus@gmail.com>\n"
+"Language-Team: Korean <https://hosted.weblate.org/projects/klipper/"
+"api_server/ko/>\n"
 "Language: ko\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.8.1-dev\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 msgid ""
 "This document describes Klipper's Application Programmer Interface (API). "
@@ -527,9 +529,10 @@ msgid ""
 "gcode:\n"
 "  {action_call_remote_method(\"paneldue_beep\", frequency=300, duration=1.0)}\n"
 msgstr ""
-"[gcode_macro PANELDUE_BEEP] \n"
+"[gcode_macro PANELDUE_BEEP]\n"
 "gcode:\n"
-"  {action_call_remote_method(\"paneldue_beep\", frequency=300, duration=1.0)}\n"
+"   {action_call_remote_method(\"paneldue_beep\", frequency=300, duration=1."
+"0)}\n"
 
 #: docs/API_Server.md:block 1 (header)
 msgid "API server"
