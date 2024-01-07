@@ -96,9 +96,9 @@ Klipper 는 `scripts/whconsole.py` 도구를 포함하고 있습니다.이 도�
 원격 메쏘드 `paneldue_beep` 는 클리퍼로 부터 불려질 수 있습니다. 만일 메쏘드가 파라메터들을 가지게 되면 그것들은 키워드 아규먼트들로써 제공될 수 있음을 기억하십시오. 아래 어떻게 gcode 메크로에서 불러올 수 있는지에 대한 예시가 있습니다. :
 
 ```
-[gcode_macro PANELDUE_BEEP] 
+[gcode_macro PANELDUE_BEEP]
 gcode:
-  {action_call_remote_method("paneldue_beep", frequency=300, duration=1.0)}
+   {action_call_remote_method("paneldue_beep", frequency=300, duration=1.0)}
 ```
 
 PANELDUE_BEEP gcode 매크로가 실행되면 클리퍼는 소켓위에 아래와 같은 것을 내보낼 것이다.: `{"action": "run_paneldue_beep", "params": {"frequency": 300, "duration": 1.0}}`
