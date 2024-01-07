@@ -4,13 +4,12 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2023-12-04 04:08+0000\n"
 "Last-Translator: Thomas Fournier <thomas@artivain.com>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/klipper/"
-"axis_twist_compensation/fr/>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/klipper/axis_twist_compensation/fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
 "X-Generator: Weblate 5.3-dev\n"
-"Content-Transfer-Encoding: 8bit\n"
 
 #: docs/Axis_Twist_Compensation.md:block 1 (header)
 msgid "Axis Twist Compensation"
@@ -83,8 +82,8 @@ msgstr ""
 #: docs/Axis_Twist_Compensation.md:block 10 (ordered list)
 msgid "[Adjust your Z offset](Probe_Calibrate.md#calibrating-probe-z-offset)"
 msgstr ""
-"[Ajustez votre décalage de l'axe Z](Probe_Calibrate.md#calibrating-"
-"probe-z-offset)"
+"[Ajustez votre décalage de l'axe Z](Probe_Calibrate.md#calibrating-probe-z-"
+"offset)"
 
 #: docs/Axis_Twist_Compensation.md:block 10 (ordered list)
 msgid ""
