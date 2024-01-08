@@ -1,9 +1,9 @@
-# Riccardo Babetto <riccardobabetto@gmail.com>, 2024.
+# Riccardo Babetto <riccardobabetto@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:45+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Riccardo Babetto <riccardobabetto@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/klipper/"
 "canbus_troubleshooting/it/>\n"
 "Language: it\n"
@@ -33,8 +33,8 @@ msgid ""
 "The first step in troubleshooting communication issues is to verify the CAN "
 "bus wiring."
 msgstr ""
-"Il primo passo nella risoluzione dei problemi di comunicazione è verificare il"
-" cablaggio del CAN bus."
+"Il primo passo nella risoluzione dei problemi di comunicazione è verificare "
+"il cablaggio del CAN bus."
 
 #: docs/CANBUS_Troubleshooting.md:block 5 (paragraph)
 msgid ""
