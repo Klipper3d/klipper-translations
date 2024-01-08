@@ -1,9 +1,9 @@
-# Riccardo Babetto <riccardobabetto@gmail.com>, 2024.
+# Riccardo Babetto <riccardobabetto@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:44+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Riccardo Babetto <riccardobabetto@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/klipper/"
 "axis_twist_compensation/it/>\n"
 "Language: it\n"
@@ -39,10 +39,10 @@ msgid ""
 "recommended to first use mechanical means to fix it prior to applying software"
 " corrections."
 msgstr ""
-"Questo modulo utilizza misurazioni manuali da parte dell'utente per correggere"
-" i risultati della sonda. Tieni presente che se l'asse è notevolmente "
-"distorto, ti consigliamo vivamente di utilizzare mezzi meccanici per ripararlo"
-" prima di applicare le correzioni del software."
+"Questo modulo utilizza misurazioni manuali da parte dell'utente per "
+"correggere i risultati della sonda. Tieni presente che se l'asse è "
+"notevolmente distorto, ti consigliamo vivamente di utilizzare mezzi "
+"meccanici per ripararlo prima di applicare le correzioni del software."
 
 #: docs/Axis_Twist_Compensation.md:block 5 (paragraph)
 msgid ""
