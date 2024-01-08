@@ -7,8 +7,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2023-11-11 17:19+0000\n"
 "Last-Translator: Hosted Weblate <mfvotmjhcj@iubridge.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
-"klipper/debugging/zh_Hans/>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/debugging/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -200,8 +199,8 @@ msgid ""
 "~/klippy-env/bin/python ./klippy/parsedump.py out/klipper.dict test.serial >"
 " test.txt\n"
 msgstr ""
-"~/klippy-env/bin/python ./klippy/parsedump.py out/klipper.dict test.serial > "
-"test.txt\n"
+"~/klippy-env/bin/python ./klippy/parsedump.py out/klipper.dict test.serial >"
+" test.txt\n"
 
 #, fuzzy
 msgid ""
@@ -253,8 +252,7 @@ msgid ""
 "~/klippy-env/bin/python ~/klipper/scripts/test_klippy.py -d dict/ ~/klipper/test/klippy/*.test\n"
 msgstr ""
 "tar xfz klipper-dict-20??????.tar.gz\n"
-"~/klippy-env/bin/python ~/klipper/scripts/test_klippy.py -d dict/ ~/klipper/"
-"test/klippy/*.test\n"
+"~/klippy-env/bin/python ~/klipper/scripts/test_klippy.py -d dict/ ~/klipper/test/klippy/*.test\n"
 
 #: docs/Debugging.md:block 1 (header)
 msgid "Debugging"
@@ -270,8 +268,7 @@ msgid ""
 "analyzed. To use this feature, Klipper must be started with the [API "
 "Server](API_Server.md) enabled."
 msgstr ""
-"Klipper支持记录其内部运动历史，稍后可以对其进行分析。若要使用此功能，Klipper"
-"必须在启用[API服务器](API_Server.md)的情况下启动。"
+"Klipper支持记录其内部运动历史，稍后可以对其进行分析。若要使用此功能，Klipper必须在启用[API服务器](API_Server.md)的情况下启动。"
 
 #: docs/Debugging.md:block 26 (paragraph)
 msgid "Data logging is enabled with the `data_logger.py` tool. For example:"
@@ -291,10 +288,9 @@ msgid ""
 "prints and other actions - the logging will continue in the background. When"
 " done logging, hit `ctrl-c` to exit from the `data_logger.py` tool."
 msgstr ""
-"此命令将连接到Klipper API服务器，订阅状态和运动信息，并记录结果。生成两个文件"
-"-一个压缩数据文件和一个索引文件（例如`mylog.json.gz`和`mylog.index.gz`）。启"
-"动日志记录后，可以完成打印和其他操作-日志记录将在后台继续。完成日志记录后，"
-"点击 `ctrl-c`退出 `data_logger.py` 工具。"
+"此命令将连接到Klipper API服务器，订阅状态和运动信息，并记录结果。生成两个文件-"
+"一个压缩数据文件和一个索引文件（例如`mylog.json.gz`和`mylog.index.gz`）。启动日志记录后，可以完成打印和其他操作-"
+"日志记录将在后台继续。完成日志记录后，点击 `ctrl-c`退出 `data_logger.py` 工具。"
 
 #: docs/Debugging.md:block 29 (paragraph)
 msgid ""
@@ -313,9 +309,7 @@ msgid ""
 "[Python](https://python.org) and [Matplotlib](https://matplotlib.org/) "
 "installed."
 msgstr ""
-"但是，将数据文件与`scripts/motan/`目录中的Python代码一起复制到台式机上可能会"
-"更方便。运动分析脚本应在安装了最新版本的[PYTHON](https://python."
-"org))和[Matplotlib](https://matplotlib.org/))的任何计算机上运行。"
+"但是，将数据文件与`scripts/motan/`目录中的Python代码一起复制到台式机上可能会更方便。运动分析脚本应在安装了最新版本的[PYTHON](https://python.org))和[Matplotlib](https://matplotlib.org/))的任何计算机上运行。"
 
 #: docs/Debugging.md:block 32 (paragraph)
 msgid "Graphs can be generated with a command like the following:"
@@ -330,8 +324,7 @@ msgstr "~/klipper/scripts/motan/motan_graph.py mylog -o mygraph.png\n"
 msgid ""
 "One can use the `-g` option to specify the datasets to graph (it takes a "
 "Python literal containing a list of lists). For example:"
-msgstr "可以使用`-g`选项来指定要绘制图形的数据集(它接受一个包含列表的列表Python文字)"
-"。例如："
+msgstr "可以使用`-g`选项来指定要绘制图形的数据集(它接受一个包含列表的列表Python文字)。例如："
 
 #: docs/Debugging.md:block 35 (code)
 #, fuzzy
@@ -339,8 +332,8 @@ msgid ""
 "~/klipper/scripts/motan/motan_graph.py mylog -g "
 "'[[\"trapq(toolhead,velocity)\"], [\"trapq(toolhead,accel)\"]]'\n"
 msgstr ""
-"~/klipper/scripts/motan/motan_graph.py mylog -g '[[\"trapq(toolhead,velocity)"
-"\"], [\"trapq(toolhead,accel)\"]]'\n"
+"~/klipper/scripts/motan/motan_graph.py mylog -g "
+"'[[\"trapq(toolhead,velocity)\"], [\"trapq(toolhead,accel)\"]]'\n"
 
 #: docs/Debugging.md:block 36 (paragraph)
 msgid ""
@@ -364,8 +357,8 @@ msgid ""
 "~/klipper/scripts/motan/motan_graph.py mylog -g "
 "'[[\"trapq(toolhead,velocity)?color=red&alpha=0.4\"]]'\n"
 msgstr ""
-"~/klipper/scripts/motan/motan_graph.py mylog -g '[[\"trapq"
-"(toolhead,velocity)?color=red&alpha=0.4\"]]'\n"
+"~/klipper/scripts/motan/motan_graph.py mylog -g "
+"'[[\"trapq(toolhead,velocity)?color=red&alpha=0.4\"]]'\n"
 
 #: docs/Debugging.md:block 40 (paragraph)
 msgid ""
@@ -380,8 +373,7 @@ msgid ""
 "the [motan_graph.py](../scripts/motan/motan_graph.py) script itself."
 msgstr ""
 "`motan_graph.py`工具支持其他几个命令行选项--"
-"使用`--help`选项查看列表。查看/修改[motan_graph.py](../scripts/motan/"
-"motan_graph.py)脚本本身可能也很方便。"
+"使用`--help`选项查看列表。查看/修改[motan_graph.py](../scripts/motan/motan_graph.py)脚本本身可能也很方便。"
 
 #: docs/Debugging.md:block 60 (code)
 #, fuzzy
@@ -398,8 +390,8 @@ msgid ""
 "SIMULAVR software emulation support. Then one can compile Klipper (run "
 "`make`) and then start the simulation with:"
 msgstr ""
-"并针对AVR atmega644P编写了微控制器软件，并选择了SIMULAVR软件仿真支持。然后可"
-"以编译Klipper(运行`make`)，然后使用以下命令开始模拟："
+"并针对AVR "
+"atmega644P编写了微控制器软件，并选择了SIMULAVR软件仿真支持。然后可以编译Klipper(运行`make`)，然后使用以下命令开始模拟："
 
 #: docs/Debugging.md:block 67 (code)
 #, fuzzy
@@ -407,8 +399,8 @@ msgid ""
 "PYTHONPATH=/path/to/simulavr/src/python/ ./scripts/avrsim.py out/klipper.elf"
 " -t PORTA.PORT,PORTC.PORT\n"
 msgstr ""
-"PYTHONPATH=/path/to/simulavr/src/python/ ./scripts/avrsim.py out/klipper.elf "
-"-t PORTA.PORT,PORTC.PORT\n"
+"PYTHONPATH=/path/to/simulavr/src/python/ ./scripts/avrsim.py out/klipper.elf"
+" -t PORTA.PORT,PORTC.PORT\n"
 
 #: docs/Debugging.md:block 7 (paragraph)
 msgid ""
@@ -417,9 +409,7 @@ msgid ""
 "github](https://github.com/Klipper3d/klipper/issues/1438). Once the data "
 "dictionaries are downloaded, use the following to run the regression suite:"
 msgstr ""
-"Klippy回归测试套件需要来自多个平台的“数据字典”。获取它们的最简单方法是[从gith"
-"ub](https://github.com/Klipper3d/klipper/issues/1438)."
-"下载它们。下载数据字典后，使用以下命令运行回归套件："
+"Klippy回归测试套件需要来自多个平台的“数据字典”。获取它们的最简单方法是[从github](https://github.com/Klipper3d/klipper/issues/1438).下载它们。下载数据字典后，使用以下命令运行回归套件："
 
 #: docs/Debugging.md:block 42 (paragraph)
 msgid ""
@@ -428,10 +418,7 @@ msgid ""
 "the data with a Unix command like the following: `gunzip < mylog.json.gz | "
 "tr '\\03' '\\n' | less`"
 msgstr ""
-"`data_logger.py`工具产生的原始数据日志遵循[API服务器](API_Server."
-"md)中描述的格式。使用如下所示的Unix命令检查数据可能很有用：`GunZip<mylog.json"
-".gz|tr‘\\03’\\n"
-"‘|less`"
+"`data_logger.py`工具产生的原始数据日志遵循[API服务器](API_Server.md)中描述的格式。使用如下所示的Unix命令检查数据可能很有用：`GunZip<mylog.json.gz|tr‘\\03’\\n‘|less`"
 
 #: docs/Debugging.md:block 57 (paragraph)
 msgid ""
@@ -439,8 +426,7 @@ msgid ""
 "support. Note that the build system may need to have some packages (such as "
 "swig) installed in order to build the python module."
 msgstr ""
-"要使用Simavr，请下载Simavr包并在支持Python的情况下进行编译。请注意，构建系统"
-"可能需要安装一些包(如SWIG)才能构建Python模块。"
+"要使用Simavr，请下载Simavr包并在支持Python的情况下进行编译。请注意，构建系统可能需要安装一些包(如SWIG)才能构建Python模块。"
 
 #: docs/Debugging.md:block 58 (code)
 #, fuzzy
@@ -472,8 +458,7 @@ msgid ""
 "the following packages and generate *.deb files for system-wide installation"
 " of simulavr:"
 msgstr ""
-"如果您使用的是基于Debian的系统(Debian、Ubuntu等)。您可以安装以下程序包并生成*"
-".deb文件，以便在系统范围内安装simavr："
+"如果您使用的是基于Debian的系统(Debian、Ubuntu等)。您可以安装以下程序包并生成*.deb文件，以便在系统范围内安装simavr："
 
 #: docs/Debugging.md:block 63 (code)
 #, fuzzy
@@ -494,15 +479,14 @@ msgid ""
 "PYTHONPATH=/path/to/simulavr/build/pysimulavr/ ./scripts/avrsim.py "
 "out/klipper.elf\n"
 msgstr ""
-"PYTHONPATH=/path/to/simulavr/build/pysimulavr/ ./scripts/avrsim.py out/"
-"klipper.elf\n"
+"PYTHONPATH=/path/to/simulavr/build/pysimulavr/ ./scripts/avrsim.py "
+"out/klipper.elf\n"
 
 #: docs/Debugging.md:block 68 (paragraph)
 msgid ""
 "Note that if you have installed python3-simulavr system-wide, you do not "
 "need to set `PYTHONPATH`, and can simply run the simulator as"
-msgstr "请注意，如果您已经在系统范围内安装了python3-simavr，则不需要设置`PYTHONPATH`"
-"，只需将其作为模拟器"
+msgstr "请注意，如果您已经在系统范围内安装了python3-simavr，则不需要设置`PYTHONPATH`，只需将其作为模拟器"
 
 #: docs/Debugging.md:block 69 (code)
 #, fuzzy
@@ -515,8 +499,8 @@ msgid ""
 "**./build/pysimulavr/_pysimulavr.cpython-39-x86_64-linux-gnu.so**) and not "
 "an error."
 msgstr ""
-"此命令应报告特定文件(例如**./build/pysimulavr/_pysimulavr.cpython-39-x86_64"
-"-linux-gnu.so**)，而不是错误)。"
+"此命令应报告特定文件(例如**./build/pysimulavr/_pysimulavr.cpython-39-x86_64-linux-"
+"gnu.so**)，而不是错误)。"
 
 #~ msgid ""
 #~ "This commmand should report a specific file (e.g. "
