@@ -1,9 +1,9 @@
-# Riccardo Babetto <riccardobabetto@gmail.com>, 2024.
+# Riccardo Babetto <riccardobabetto@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:45+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Riccardo Babetto <riccardobabetto@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/klipper/"
 "bootloader_entry/it/>\n"
 "Language: it\n"
@@ -21,8 +21,8 @@ msgid ""
 "Klipper can be instructed to reboot into a [Bootloader](Bootloaders.md) in one"
 " of the following ways:"
 msgstr ""
-"È possibile impostare Klipper in modo che si riavvii in un "
-"[Bootloader](Bootloaders.md) in uno dei seguenti modi:"
+"È possibile impostare Klipper in modo che si riavvii in un [Bootloader]"
+"(Bootloaders.md) in uno dei seguenti modi:"
 
 #: docs/Bootloader_Entry.md:block 3 (header)
 msgid "Requesting the bootloader"
