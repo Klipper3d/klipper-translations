@@ -1509,9 +1509,9 @@
 <p>이 endpoint 는 클라이언트가 클리퍼로부터 불려지 수 있도록 메쏘드를 등록하게 해줍니다. 이는 성공시 비어있는 객체를 반환합니다.</p>
 <p>예시 : <code>{"id": 123, "method": "register_remote_method", "params": {"response_template": {"action": "run_paneldue_beep"}, "remote_method": "paneldue_beep"}}</code> 반환값 :<code>{"id": 123, "result": {}}</code></p>
 <p>원격 메쏘드 <code>paneldue_beep</code> 는 클리퍼로 부터 불려질 수 있습니다. 만일 메쏘드가 파라메터들을 가지게 되면 그것들은 키워드 아규먼트들로써 제공될 수 있음을 기억하십시오. 아래 어떻게 gcode 메크로에서 불러올 수 있는지에 대한 예시가 있습니다. :</p>
-<div class="highlight"><pre><span></span><code>[gcode_macro PANELDUE_BEEP] 
+<div class="highlight"><pre><span></span><code>[gcode_macro PANELDUE_BEEP]
 gcode:
-  {action_call_remote_method(&quot;paneldue_beep&quot;, frequency=300, duration=1.0)}
+   {action_call_remote_method(&quot;paneldue_beep&quot;, frequency=300, duration=1.0)}
 </code></pre></div>
 
 <p>PANELDUE_BEEP gcode 매크로가 실행되면 클리퍼는 소켓위에 아래와 같은 것을 내보낼 것이다.: <code>{"action": "run_paneldue_beep", "params": {"frequency": 300, "duration": 1.0}}</code></p>
