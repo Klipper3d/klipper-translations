@@ -1,26 +1,40 @@
-#
+# Riccardo Babetto <riccardobabetto@gmail.com>, 2024.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2024-01-09 09:06+0000\n"
+"Last-Translator: Riccardo Babetto <riccardobabetto@gmail.com>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/"
+"canbus_troubleshooting/it/>\n"
+"Language: it\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.4-dev\n"
+"Content-Transfer-Encoding: 8bit\n"
 
 #: docs/CANBUS_Troubleshooting.md:block 1 (header)
 msgid "CANBUS Troubleshooting"
-msgstr ""
+msgstr "Risoluzione dei problemi CANBUS"
 
 #: docs/CANBUS_Troubleshooting.md:block 2 (paragraph)
 msgid ""
 "This document provides information on troubleshooting communication issues "
 "when using [Klipper with CAN bus](CANBUS.md)."
 msgstr ""
+"Questo documento fornisce informazioni sulla risoluzione dei problemi di "
+"comunicazione quando si utilizza [Klipper with CAN bus](CANBUS.md)."
 
 #: docs/CANBUS_Troubleshooting.md:block 3 (header)
 msgid "Verify CAN bus wiring"
-msgstr ""
+msgstr "Verificare la connessione CAN bus"
 
 #: docs/CANBUS_Troubleshooting.md:block 4 (paragraph)
 msgid ""
 "The first step in troubleshooting communication issues is to verify the CAN "
 "bus wiring."
 msgstr ""
+"Il primo passo nella risoluzione dei problemi di comunicazione è verificare "
+"il cablaggio del CAN bus."
 
 #: docs/CANBUS_Troubleshooting.md:block 5 (paragraph)
 msgid ""
