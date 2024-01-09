@@ -5,14 +5,16 @@
 # Kai <2857693944@qq.com>, 2022.
 # "Neko.vecter" <Vecterfang@icloud.com>, 2023.
 # Alfredo Monclus <alfredomonclus@gmail.com>, 2023.
+# Xpol Wan <xpolife@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-06-28 08:28+0200\n"
-"PO-Revision-Date: 2023-12-27 18:00+0000\n"
-"Last-Translator: Alfredo Monclus <alfredomonclus@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/config_reference/zh_Hans/>\n"
+"PO-Revision-Date: 2024-01-09 09:06+0000\n"
+"Last-Translator: Xpol Wan <xpolife@gmail.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/config_reference/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -154,7 +156,7 @@ msgstr ""
 "这里只描述了 CoreXY 打印机特有的参数 -- 有关可用参数，请参阅 [常见运动学设置](#common-kinematic-settings)。"
 
 msgid "CoreXZ Kinematics"
-msgstr "CoreXY 运动学"
+msgstr "CoreXZ 运动学"
 
 msgid ""
 "See [example-corexz.cfg](../config/example-corexz.cfg) for an example corexz"
