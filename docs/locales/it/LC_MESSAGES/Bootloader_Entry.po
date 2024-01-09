@@ -1,6 +1,16 @@
-#
+# Riccardo Babetto <riccardobabetto@gmail.com>, 2024.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2024-01-09 09:06+0000\n"
+"Last-Translator: Riccardo Babetto <riccardobabetto@gmail.com>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/"
+"bootloader_entry/it/>\n"
+"Language: it\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.4-dev\n"
+"Content-Transfer-Encoding: 8bit\n"
 
 #: docs/Bootloader_Entry.md:block 1 (header)
 msgid "Bootloader Entry"
@@ -11,14 +21,16 @@ msgid ""
 "Klipper can be instructed to reboot into a [Bootloader](Bootloaders.md) in "
 "one of the following ways:"
 msgstr ""
+"È possibile impostare Klipper in modo che si riavvii in un "
+"[Bootloader](Bootloaders.md) in uno dei seguenti modi:"
 
 #: docs/Bootloader_Entry.md:block 3 (header)
 msgid "Requesting the bootloader"
-msgstr ""
+msgstr "Richiesta del bootloader"
 
 #: docs/Bootloader_Entry.md:block 4 (header)
 msgid "Virtual Serial"
-msgstr ""
+msgstr "Seriale virtuale"
 
 #: docs/Bootloader_Entry.md:block 5 (paragraph)
 msgid ""

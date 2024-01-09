@@ -1,14 +1,24 @@
-#
+# Riccardo Babetto <riccardobabetto@gmail.com>, 2024.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2024-01-09 09:06+0000\n"
+"Last-Translator: Riccardo Babetto <riccardobabetto@gmail.com>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/"
+"axis_twist_compensation/it/>\n"
+"Language: it\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.4-dev\n"
+"Content-Transfer-Encoding: 8bit\n"
 
 #: docs/Axis_Twist_Compensation.md:block 1 (header)
 msgid "Axis Twist Compensation"
-msgstr ""
+msgstr "Compensazione torsione assi"
 
 #: docs/Axis_Twist_Compensation.md:block 2 (paragraph)
 msgid "This document describes the [axis_twist_compensation] module."
-msgstr ""
+msgstr "Questo documento descrive il modulo [axis_twist_compensation]."
 
 #: docs/Axis_Twist_Compensation.md:block 3 (paragraph)
 msgid ""
@@ -29,6 +39,10 @@ msgid ""
 "recommended to first use mechanical means to fix it prior to applying "
 "software corrections."
 msgstr ""
+"Questo modulo utilizza misurazioni manuali da parte dell'utente per "
+"correggere i risultati della sonda. Tieni presente che se l'asse è "
+"notevolmente distorto, ti consigliamo vivamente di utilizzare mezzi "
+"meccanici per ripararlo prima di applicare le correzioni del software."
 
 #: docs/Axis_Twist_Compensation.md:block 5 (paragraph)
 msgid ""
