@@ -1,9 +1,17 @@
-#
+# Alex Bread <htc.hlebowitsc@gmail.com>, 2024.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2024-01-07 21:02+0000\n"
+"Last-Translator: Alex Bread <htc.hlebowitsc@gmail.com>\n"
+"Language-Team: Ukrainian <https://hosted.weblate.org/projects/klipper/"
+"bed_level/uk/>\n"
 "Language: uk\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 msgid ""
 "Bed leveling (sometimes also referred to as \"bed tramming\") is critical to"
@@ -182,12 +190,18 @@ msgid ""
 "This will accept the given Z height and proceed with the given calibration "
 "tool."
 msgstr ""
+"Це прийме задану висоту Z і продовжить роботу з заданим інструментом "
+"калібрування."
 
 msgid ""
 "The exact amount of friction felt isn't crucial, just as the amount of "
 "thermal expansion and exact width of the paper isn't crucial. Just try to "
 "obtain the same amount of friction each time one runs the test."
 msgstr ""
+"Точна величина тертя не має вирішального значення, так само як величина "
+"теплового розширення та точна ширина паперу не мають вирішального значення. "
+"Просто намагайтеся отримати однакову кількість тертя кожного разу, коли "
+"запускаєте тест."
 
 msgid ""
 "If something goes wrong during the test, one can use the `ABORT` command to "
@@ -245,17 +259,17 @@ msgid ""
 msgstr ""
 
 msgid "TESTZ Z=-.1\n"
-msgstr ""
+msgstr "TESTZ Z=-.1\n"
 
 msgid "Recv: // Z position: 0.130 --> 0.230 <-- 0.280\n"
-msgstr ""
+msgstr "Recv: // Z position: 0.130 --> 0.230 <-- 0.280\n"
 
 msgid "ACCEPT\n"
-msgstr ""
+msgstr "ПРИЙНЯТИ\n"
 
 #: docs/Bed_Level.md:block 1 (header)
 msgid "Bed leveling"
-msgstr ""
+msgstr "Вирівнювання столу"
 
 #: docs/Bed_Level.md:block 13 (paragraph)
 msgid ""
@@ -264,6 +278,9 @@ msgid ""
 "of around 100 microns (0.100mm). (The exact thickness of the paper isn't "
 "crucial.)"
 msgstr ""
+"Для виконання паперового тесту виріжте невеликий прямокутний аркуш паперу за "
+"допомогою ножиць (наприклад, 5x3 см). Папір зазвичай має товщину близько 100 "
+"мікрон (0,100 мм). (Точна товщина паперу не має вирішального значення.)"
 
 #: docs/Bed_Level.md:block 16 (paragraph)
 msgid ""
