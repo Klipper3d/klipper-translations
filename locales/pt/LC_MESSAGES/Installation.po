@@ -1,9 +1,17 @@
-#
+# Gabriel Brandão Machado <0LB-i@users.noreply.hosted.weblate.org>, 2024.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2024-01-09 09:06+0000\n"
+"Last-Translator: Gabriel Brandão Machado <0LB-i@users.noreply.hosted.weblate."
+"org>\n"
+"Language-Team: Portuguese <https://hosted.weblate.org/projects/klipper/"
+"installation/pt/>\n"
 "Language: pt\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 msgid ""
 "These instructions assume the software will run on a Raspberry Pi computer "
@@ -33,15 +41,17 @@ msgid ""
 msgstr ""
 
 msgid "Building and flashing the micro-controller"
-msgstr ""
+msgstr "Construindo e atualizando o micro controlador"
 
 msgid ""
 "To compile the micro-controller code, start by running these commands on the"
 " Raspberry Pi:"
 msgstr ""
+"Para compilar o código do micro controlador, comece executando estes "
+"comandos no Raspberry Pi:"
 
 msgid "It should report something similar to the following:"
-msgstr ""
+msgstr "Deve relatar algo semelhante ao seguinte:"
 
 msgid ""
 "It's common for each printer to have its own unique serial port name. This "
