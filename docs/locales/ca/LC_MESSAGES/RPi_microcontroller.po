@@ -1,9 +1,9 @@
-# Oriol Tous Casadesús <otousc@gmail.com>, 2024.
+# Oriol Tous Casadesús <otousc@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:43+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Oriol Tous Casadesús <otousc@gmail.com>\n"
 "Language-Team: Catalan <https://hosted.weblate.org/projects/klipper/"
 "rpi_microcontroller/ca/>\n"
 "Language: ca\n"
