@@ -1,9 +1,16 @@
-#
+# Oriol Tous Casadesús <otousc@gmail.com>, 2024.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2024-01-13 10:11+0000\n"
+"Last-Translator: Oriol Tous Casadesús <otousc@gmail.com>\n"
+"Language-Team: Catalan <https://hosted.weblate.org/projects/klipper/"
+"benchmarks/ca/>\n"
 "Language: ca\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 msgid "This document describes Klipper benchmarks."
 msgstr ""
@@ -390,7 +397,7 @@ msgid "66"
 msgstr ""
 
 msgid "5"
-msgstr ""
+msgstr "5"
 
 msgid "22"
 msgstr ""
