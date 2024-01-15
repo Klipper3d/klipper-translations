@@ -23,7 +23,7 @@ Benvingut a la documentació de Klipper. Si comences amb Klipper, comença llegi
    - [Anivellat manual](Manual_Level.md): Calibratge de finals de carrera Z (i similars).
    - [Mallat del llit](Bed_Mesh.md): Correcció de l'alçada del llit basat en localitzacions XY en forma de malla.
    - [Fase de final de carrera](Endstop_Phase.md): Posicionament precís al final de carrera Z assistit per el motor pas a pas.
-   - [Axis Twist Compensation](Axis_Twist_Compensation.md): A tool to compensate for inaccurate probe readings due to twist in X gantry.
+   - [Compensació de gir de l'eix](Axis_Twist_Compensation.md): una eina per compensar les lectures de sondes inexactes a causa de la torsió del pòrtic X.
 - [Compensació de ressonància](Resonance_Compensation.md): Eina per a reduir els repics i ecos a les impressions.
    - [Mesurant ressonàncies](Measuring_Resonances.md): Informació de com emprar un accelerómetre adxl345 per mesurar les ressonàncies.
 - [Previsió de pressió](Pressure_Advance.md): Calibratge de la pressió del filament del fusor.
@@ -31,7 +31,7 @@ Benvingut a la documentació de Klipper. Si comences amb Klipper, comença llegi
 - [Plantilla d'ordres](Command_Templates.md): Macros de G-code i evaluació condicional.
    - [Referència de l'estat](Status_Reference.md):Informació disponible de macros (i similars).
 - [Controladors TMC](TMC_Drivers.md): Emprant els controladors pas a pas de Trinamic amb Klipper.
-- [Inicialització del llit emprant varies MCU](Multi_MCU_Homing.md): Inicialització i compensació del llit emprant varies MCU.
+- [Inicialització de coordenades amb múltiples MCU](Multi_MCU_Homing.md): Inicialització i compensació del llit emprant múltiples MCU.
 - [Slicers](Slicers.md): Configurar el programa de llescat per a treballar amb Klipper.
 - [Correcció del biaix](Skew_Correction.md): Ajustaments per a eixos que no son perfectament perpendiculars.
 - [Eines PWM](Using_PWM_Tools.md): Guies per fer servir eines controlades per PWM com ara làsers i trepants.
@@ -57,8 +57,8 @@ Benvingut a la documentació de Klipper. Si comences amb Klipper, comença llegi
 - [Raspberry Pi com a micro controlador](RPi_microcontroller.md): Detalls per controlar dispositius connectats als ports GPIO d'una Raspberry Pi.
 - [Beaglebone](Beaglebone.md): Detalls per executar Klipper en una Beaglebone.
 - [Carregadors d'arrancada](Bootloaders.md): Informació per a desenvolupadors sobre programació del micro controlador.
-- [Bootloader Entry](Bootloader_Entry.md): Requesting the bootloader.
+- [Entrada del carregador d'arrencada](Bootloader_Entry.md): sol·licitant el carregador d'arrencada.
 - [Bus CAN](CANBUS.md): Infiormació sobre l'us del bus CAN a Klipper.
-   - [CAN bus troubleshooting](CANBUS_Troubleshooting.md): Tips for troubleshooting CAN bus.
+   - [Resolució de problemes del bus CAN](CANBUS_Troubleshooting.md): Consells per resoldre problemes del bus CAN.
 - [Sensor d'amplada del filament TSL1401CL](TSL1401CL_Filament_Width_Sensor.md)
 - [Sensor d'efecte Hall d'amplada de filament](Hall_Filament_Width_Sensor.md)

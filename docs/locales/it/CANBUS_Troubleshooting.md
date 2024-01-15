@@ -1,10 +1,10 @@
-# CANBUS Troubleshooting
+# Risoluzione dei problemi CANBUS
 
-This document provides information on troubleshooting communication issues when using [Klipper with CAN bus](CANBUS.md).
+Questo documento fornisce informazioni sulla risoluzione dei problemi di comunicazione quando si utilizza [Klipper with CAN bus](CANBUS.md).
 
-## Verify CAN bus wiring
+## Verificare la connessione CAN bus
 
-The first step in troubleshooting communication issues is to verify the CAN bus wiring.
+Il primo passo nella risoluzione dei problemi di comunicazione è verificare il cablaggio del CAN bus.
 
 Be sure there are exactly two 120 Ohm [terminating
 resistors](CANBUS.md#terminating-resistors) on the CAN bus. If the resistors are not properly installed then messages may not be able to be sent at all or the connection may have sporadic instability.

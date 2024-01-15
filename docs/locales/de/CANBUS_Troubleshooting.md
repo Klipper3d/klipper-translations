@@ -2,7 +2,7 @@
 
 This document provides information on troubleshooting communication issues when using [Klipper with CAN bus](CANBUS.md).
 
-## Verify CAN bus wiring
+## CAN-Bus-Verkabelung überprüfen
 
 The first step in troubleshooting communication issues is to verify the CAN bus wiring.
 

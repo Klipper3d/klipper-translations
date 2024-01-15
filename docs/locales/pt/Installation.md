@@ -25,9 +25,9 @@ git clone https://github.com/Klipper3d/klipper
 
 The above will download Klipper, install some system dependencies, setup Klipper to run at system startup, and start the Klipper host software. It will require an internet connection and it may take a few minutes to complete.
 
-## Building and flashing the micro-controller
+## Construindo e atualizando o micro controlador
 
-To compile the micro-controller code, start by running these commands on the Raspberry Pi:
+Para compilar o código do micro controlador, comece executando estes comandos no Raspberry Pi:
 
 ```
 cd ~/klipper/
@@ -48,7 +48,7 @@ Otherwise, the following steps are often used to "flash" the printer control boa
 ls /dev/serial/by-id/*
 ```
 
-It should report something similar to the following:
+Deve relatar algo semelhante ao seguinte:
 
 ```
 /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
@@ -101,7 +101,7 @@ It's common for each printer to have its own unique name for the micro-controlle
 ls /dev/serial/by-id/*
 ```
 
-It should report something similar to the following:
+Deve relatar algo semelhante ao seguinte:
 
 ```
 /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
