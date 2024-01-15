@@ -353,7 +353,7 @@ max_z_accel:
 [stepper_z]
 ```
 
-### CoreXY 运动学
+### CoreXZ 运动学
 
 corexz 运动学配置文件参考[example-corexz.cfg](../config/example-corexz.cfg)
 

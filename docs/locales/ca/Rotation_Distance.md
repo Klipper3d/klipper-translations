@@ -1,4 +1,4 @@
-# Rotation distance
+# Distància de rotació
 
 Els controladors de motor pas a pas a Klipper requereixen el paràmetre `rotation_distance` (distància de rotació) a cada [Secció de configuració del motor](Config_Reference.md#stepper). La `rotation_distance` és la quantitat de distància que l'eix es mou amb una revolució completa del motor pas a pas. Aquest document descriu com s'ha de configurar aquest valor.
 
@@ -7,85 +7,85 @@ Els controladors de motor pas a pas a Klipper requereixen el paràmetre `rotatio
 Els dissenyadors de la impressora originalment calculen els `passos per mil·límetre` a partir de la distància d'una rotació sencera.Si es coneixen els passos per mm (steps_per_mm) es possible emprar aquesta fórmula general per obtenir la distància de rotació:
 
 ```
-rotation_distance = <full_steps_per_rotation> * <microsteps> / <steps_per_mm>
+rotation_distance = <passos_complets_per_rotació> * <microspassos> / <passos_per_mm>
 ```
 
 D'altre banda, si es disposa d'una configuració antiga de Klipper i es coneix el valor del paràmetre `step_distance`, es pot emprar aquesta fórmula:
 
 ```
-rotation_distance = <full_steps_per_rotation> * <microsteps> * <step_distance>
+rotation_distance =<passos_complets_per_rotació> * <micropassos> * <distància_de_passos>
 ```
 
-El valor `<full_steps_per_rotation>`(pasos sencers per revolució) es determinat pel tipus de motor pas a pas. La majoria dels motors són del tipus "1.8 graus" i per tant necessiten 200 passos sencers per fer una revolució sencera (360 dividit entre 1.8 són 200 passos). Hi ha motors que son de "0.9 graus" i necessiten 400 passos per revolució. Altres opcions són menys freqüents. Si hi ha dubtes, no emprar cap valor per a full_steps_per_rotation en el fitxer de configuració i emprar 200 en la fómula donada.
+El valor `<full_steps_per_rotation>`(pasos per revolució) es determinat pel tipus de motor pas a pas. La majoria dels motors són del tipus "1.8 graus" i per tant necessiten 200 passos sencers per fer una revolució sencera (360 dividit entre 1.8 són 200 passos). Hi ha motors que son de "0.9 graus" i necessiten 400 passos per revolució. Altres opcions són menys freqüents. Si hi ha dubtes, no emprar cap valor per a full_steps_per_rotation en el fitxer de configuració i emprar 200 en la fómula donada.
 
-The `<microsteps>` setting is determined by the stepper motor driver. Most drivers use 16 microsteps. If unsure, set `microsteps: 16` in the config and use 16 in the formula above.
+La configuració "<microssteps>" la determina el controlador del motor pas a pas. La majoria dels controladors utilitzen 16 micropassos. Si no esteu segur, configureu "microspasos: 16" a la configuració i utilitzeu 16 a la fórmula anterior.
 
-Almost all printers should have a whole number for `rotation_distance` on X, Y, and Z type axes. If the above formula results in a rotation_distance that is within .01 of a whole number then round the final value to that whole_number.
+Gairebé totes les impressores haurien de tenir un nombre sencer per a 'rotation_distance' als eixos de tipus X, Y i Z. Si la fórmula anterior dóna com a resultat una distància de rotació que es troba a 0,01 d'un nombre sencer, arrodoneix el valor final a aquest nombre_sencer.
 
-## Calibrating rotation_distance on extruders
+## Calibrant rotation_distance a les extrusores
 
-On an extruder, the `rotation_distance` is the amount of distance the filament travels for one full rotation of the stepper motor. The best way to get an accurate value for this setting is to use a "measure and trim" procedure.
+En una extrusora, la 'rotation_distance' és la distància que recorre el filament durant una rotació completa del motor pas a pas. La millor manera d'obtenir un valor precís per a aquesta configuració és utilitzar un procediment de 'mesura i retalla'.
 
-First start with an initial guess for the rotation distance. This may be obtained from [steps_per_mm](#obtaining-rotation_distance-from-steps_per_mm-or-step_distance) or by [inspecting the hardware](#extruder).
+Primer comenceu amb una estimació inicial de la distància de rotació. Això es pot obtenir des de [steps_per_mm](#obtaining-rotation_distance-from-steps_per_mm-or-step_distance) o [inspeccionant el maquinari](#extruder).
 
-Then use the following procedure to "measure and trim":
+A continuació, utilitzeu el procediment d'assaig i error com s'indica:
 
-1. Make sure the extruder has filament in it, the hotend is heated to an appropriate temperature, and the printer is ready to extrude.
-1. Use a marker to place a mark on the filament around 70mm from the intake of the extruder body. Then use a digital calipers to measure the actual distance of that mark as precisely as one can. Note this as `<initial_mark_distance>`.
-1. Extrude 50mm of filament with the following command sequence: `G91` followed by `G1 E50 F60`. Note 50mm as `<requested_extrude_distance>`. Wait for the extruder to finish the move (it will take about 50 seconds). It is important to use the slow extrusion rate for this test as a faster rate can cause high pressure in the extruder which will skew the results. (Do not use the "extrude button" on graphical front-ends for this test as they extrude at a fast rate.)
-1. Use the digital calipers to measure the new distance between the extruder body and the mark on the filament. Note this as `<subsequent_mark_distance>`. Then calculate: `actual_extrude_distance = <initial_mark_distance> - <subsequent_mark_distance>`
-1. Calculate rotation_distance as: `rotation_distance = <previous_rotation_distance> * <actual_extrude_distance> / <requested_extrude_distance>` Round the new rotation_distance to three decimal places.
+1. Assegureu-vos que l'extrusora tingui filament, que l'hotend s'escalfi a una temperatura adequada i que la impressora estigui llesta per extruir.
+1. Utilitzeu un marcador per posar una marca al filament a uns 70 mm de l'entrada del cos de l'extrusora. A continuació, utilitzeu un calibrador digital per mesurar la distància real d'aquesta marca amb la màxima precisió possible. Tingueu en compte això com a `<marca_inicial>`.
+1. Extrudiu 50 mm de filament amb la següent seqüència d'ordres: "G91" seguit de "G1 E50 F60". Tingueu en compte 50 mm com a "<distància_de_extrusió_sol·licitada>". Espereu que l'extrusora acabi el moviment (trigarà uns 50 segons). És important utilitzar la velocitat d'extrusió lenta per a aquesta prova, ja que una velocitat més ràpida pot provocar una pressió alta a l'extrusora que distorsionarà els resultats. (No utilitzeu el "botó d'extrusió" als front-ends gràfics per a aquesta prova, ja que s'extrueixen a un ritme ràpid.)
+1. Utilitzeu les pinces digitals per mesurar la nova distància entre el cos de l'extrusora i la marca del filament. Tingueu en compte això com a `<marca_final>`. A continuació, calculeu: `actual_extrude_distance = <marca_inicial> - <marca_final>`
+1. Calculeu rotation_distance com: `rotation_distance = <distancia_rotació_prèvia> * <distancia_actual_extrusio> / <longitut_ordre_extrussió>` Arrodoneix la nova rotation_distance a tres decimals.
 
-If the actual_extrude_distance differs from requested_extrude_distance by more than about 2mm then it is a good idea to perform the steps above a second time.
+Si la longitut_actual_extrusio difereix de la longitut_ordre_extrusió en més d'uns 2 mm, és una bona idea realitzar els passos anteriors una segona vegada.
 
-Note: Do *not* use a "measure and trim" type of method to calibrate x, y, or z type axes. The "measure and trim" method is not accurate enough for those axes and will likely lead to a worse configuration. Instead, if needed, those axes can be determined by [measuring the belts, pulleys, and lead screw hardware](#obtaining-rotation_distance-by-inspecting-the-hardware).
+Nota: *no* utilitzeu un mètode de tipus 'd'assaig i error' per calibrar eixos de tipus x, y o z. El mètode 'mesura i retalla' no és prou precís per a aquests eixos i probablement conduirà a una configuració pitjor. En canvi, si cal, aquests eixos es poden determinar [mesurant les corretges, les politges i els visos sens fi] (#obtaining-rotation_distance-by-inspecting-the-hardware).
 
-## Obtaining rotation_distance by inspecting the hardware
+## Obtenció de rotation_distance inspeccionant el maquinari
 
-It's possible to calculate rotation_distance with knowledge of the stepper motors and printer kinematics. This may be useful if the steps_per_mm is not known or if designing a new printer.
+És possible calcular rotation_distance amb el coneixement dels motors pas a pas i la cinemàtica de la impressora. Això pot ser útil si no es coneix els passos_per_mm o si es dissenya una impressora nova.
 
-### Belt driven axes
+### Eixos accionats per corretja
 
-It is easy to calculate rotation_distance for a linear axis that uses a belt and pulley.
+És fàcil calcular rotation_distance per a un eix lineal que utilitza una corretja i una politja.
 
-First determine the type of belt. Most printers use a 2mm belt pitch (that is, each tooth on the belt is 2mm apart). Then count the number of teeth on the stepper motor pulley. The rotation_distance is then calculated as:
-
-```
-rotation_distance = <belt_pitch> * <number_of_teeth_on_pulley>
-```
-
-For example, if a printer has a 2mm belt and uses a pulley with 20 teeth, then the rotation distance is 40.
-
-### Axes with a lead screw
-
-It is easy to calculate the rotation_distance for common lead screws using the following formula:
+Primer determineu el tipus de corretja. La majoria de les impressores utilitzen un pas de corretja de 2 mm (és a dir, cada dent de la corretja està separada de 2 mm). A continuació, compta el nombre de dents de la politja del motor pas a pas. Aleshores, la distància de rotació es calcula com:
 
 ```
-rotation_distance = <screw_pitch> * <number_of_separate_threads>
+rotation_distance = <pas_de_corretja> * <nombre_de_dents_a_politja>
 ```
 
-For example, the common "T8 leadscrew" has a rotation distance of 8 (it has a pitch of 2mm and has 4 separate threads).
+Per exemple, si una impressora té una corretja de 2 mm i utilitza una politja amb 20 dents, la distància de rotació és de 40.
 
-Older printers with "threaded rods" have only one "thread" on the lead screw and thus the rotation distance is the pitch of the screw. (The screw pitch is the distance between each groove on the screw.) So, for example, an M6 metric rod has a rotation distance of 1 and an M8 rod has a rotation distance of 1.25.
+### Eixos amb vis sense fi
 
-### Extruder
+És fàcil calcular la distància de rotació per als cargols comuns mitjançant la fórmula següent:
 
-It's possible to obtain an initial rotation distance for extruders by measuring the diameter of the "hobbed bolt" that pushes the filament and using the following formula: `rotation_distance = <diameter> * 3.14`
+```
+rotation_distance = <pas_de_rosca> * <nombre_de_fils>
+```
 
-If the extruder uses gears then it will also be necessary to [determine and set the gear_ratio](#using-a-gear_ratio) for the extruder.
+Per exemple, el "cargol T8" comú té una distància de rotació de 8 (té un pas de 2 mm i té 4 fils separats).
 
-The actual rotation distance on an extruder will vary from printer to printer, because the grip of the "hobbed bolt" that engages the filament can vary. It can even vary between filament spools. After obtaining an initial rotation_distance, use the [measure and trim procedure](#calibrating-rotation_distance-on-extruders) to obtain a more accurate setting.
+Les impressores més antigues amb "barres roscades" només tenen una "rosca" al cargol i, per tant, la distància de rotació és el pas del cargol. (El pas del cargol és la distància entre cada ranura del cargol.) Així, per exemple, una vareta mètrica M6 té una distància de rotació d'1 i una vareta M8 té una distància de rotació d'1,25.
 
-## Using a gear_ratio
+### Extrusor
 
-Setting a `gear_ratio` can make it easier to configure the `rotation_distance` on steppers that have a gear box (or similar) attached to it. Most steppers do not have a gear box - if unsure then do not set `gear_ratio` in the config.
+És possible obtenir una distància de rotació inicial per a les extrusores mesurant el diàmetre de la "secció mecanitzada" que empeny el filament i utilitzant la fórmula següent: `rotation_distance = <diametre> * 3,14`
 
-When `gear_ratio` is set, the `rotation_distance` represents the distance the axis moves with one full rotation of the final gear on the gear box. If, for example, one is using a gearbox with a "5:1" ratio, then one could calculate the rotation_distance with [knowledge of the hardware](#obtaining-rotation_distance-by-inspecting-the-hardware) and then add `gear_ratio: 5:1` to the config.
+Si l'extrusora utilitza engranatges, també caldrà [determinar i establir la relació_engranatges](#using-a-gear_ratio) per a l'extrusora.
 
-For gearing implemented with belts and pulleys, it is possible to determine the gear_ratio by counting the teeth on the pulleys. For example, if a stepper with a 16 toothed pulley drives the next pulley with 80 teeth then one would use `gear_ratio: 80:16`. Indeed, one could open a common off the shelf "gear box" and count the teeth in it to confirm its gear ratio.
+La distància de rotació real d'una extrusora variarà d'una impressora a una altra, ja que l'adherència del "secció mecanitzada" que enganxa el filament pot variar. Fins i tot pot variar entre bobines de filament. Després d'obtenir una distància de rotació inicial, utilitzeu el [procediment d'assaig i error] (#calibrating-rotation_distance-on-extruders) per obtenir una configuració més precisa.
 
-Note that sometimes a gearbox will have a slightly different gear ratio than what it is advertised as. The common BMG extruder motor gears are an example of this - they are advertised as "3:1" but actually use "50:17" gearing. (Using teeth numbers without a common denominator may improve overall gear wear as the teeth don't always mesh the same way with each revolution.) The common "5.18:1 planetary gearbox", is more accurately configured with `gear_ratio: 57:11`.
+## Utilitzant una relació d'engranatges
 
-If several gears are used on an axis then it is possible to provide a comma separated list to gear_ratio. For example, a "5:1" gear box driving a 16 toothed to 80 toothed pulley could use `gear_ratio: 5:1, 80:16`.
+Establir una `gear_ratio` pot facilitar la configuració de la `rotation_distance` als passos que tenen una caixa d'engranatges (o similar) connectada. La majoria dels steppers no tenen una caixa d'engranatges; si no esteu segurs, no configureu `gear_ratio` a la configuració.
 
-In most cases, gear_ratio should be defined with whole numbers as common gears and pulleys have a whole number of teeth on them. However, in cases where a belt drives a pulley using friction instead of teeth, it may make sense to use a floating point number in the gear ratio (eg, `gear_ratio: 107.237:16`).
+Quan s'estableix 'gear_ratio', la 'rotation_distance' representa la distància que es mou l'eix amb una rotació completa de l'engranatge final a la caixa d'engranatges. Si, per exemple, s'està utilitzant una caixa d'engranatges amb una relació "5:1", es podria calcular la distància de rotació amb [coneixement del maquinari] (#obtaining-rotation_distance-by-inspecting-the-hardware) i després afegir ` gear_ratio: 5:1` a la configuració.
+
+Per als engranatges implementats amb corretges i politges, és possible determinar la relació d'engranatges comptant les dents de les politges. Per exemple, si un pas a pas amb una politja de 16 dents acciona la següent politja amb 80 dents, s'utilitzaria `gear_ratio: 80:16`. De fet, es podria obrir una "caixa d'engranatges" comuna de la prestatgeria i comptar-hi les dents per confirmar la seva relació d'engranatges.
+
+Tingueu en compte que de vegades una caixa d'engranatges tindrà una relació de transmissió lleugerament diferent de la que s'anuncia. Els engranatges comuns del motor de l'extrusora BMG són un exemple d'això: s'anuncien com a "3:1", però en realitat utilitzen engranatges "50:17". (L'ús de números de dents sense un denominador comú pot millorar el desgast general de l'engranatge, ja que les dents no sempre engranen de la mateixa manera amb cada revolució.) La "caixa d'engranatges planetaris 5.18:1" comuna es configura amb més precisió amb `gear_ratio: 57:11. `.
+
+Si s'utilitzen diversos engranatges en un eix, és possible proporcionar una llista separada per comes a gear_ratio. Per exemple, una caixa d'engranatges "5:1" que condueix una politja de 16 dents a 80 dents podria utilitzar `gear_ratio: 5:1, 80:16`.
+
+En la majoria dels casos, gear_ratio s'hauria de definir amb nombres enters, ja que els engranatges i politges comuns tenen un nombre sencer de dents. Tanmateix, en els casos en què una corretja acciona una politja utilitzant fricció en lloc de dents, pot tenir sentit utilitzar un nombre de coma flotant en la relació d'engranatges (p. ex., `gear_ratio: 107.237:16`).

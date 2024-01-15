@@ -1,10 +1,10 @@
 # Bootloader Entry
 
-Klipper can be instructed to reboot into a [Bootloader](Bootloaders.md) in one of the following ways:
+È possibile impostare Klipper in modo che si riavvii in un [Bootloader](Bootloaders.md) in uno dei seguenti modi:
 
-## Requesting the bootloader
+## Richiesta del bootloader
 
-### Virtual Serial
+### Seriale virtuale
 
 If a virtual (USB-ACM) serial port is in use, pulsing DTR while at 1200 baud will request the bootloader.
 

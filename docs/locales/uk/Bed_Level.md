@@ -1,4 +1,4 @@
-# Bed leveling
+# Вирівнювання столу
 
 Bed leveling (sometimes also referred to as "bed tramming") is critical to getting high quality prints. If a bed is not properly "leveled" it can lead to poor bed adhesion, "warping", and subtle problems throughout the print. This document serves as a guide to performing bed leveling in Klipper.
 
@@ -22,7 +22,7 @@ The primary bed calibration mechanism is the "paper test". It involves placing a
 
 It is important to understand the "paper test" even if one has an "automatic Z probe". The probe itself often needs to be calibrated to get good results. That probe calibration is done using this "paper test".
 
-In order to perform the paper test, cut a small rectangular piece of paper using a pair of scissors (eg, 5x3 cm). The paper generally has a thickness of around 100 microns (0.100mm). (The exact thickness of the paper isn't crucial.)
+Для виконання паперового тесту виріжте невеликий прямокутний аркуш паперу за допомогою ножиць (наприклад, 5x3 см). Папір зазвичай має товщину близько 100 мікрон (0,100 мм). (Точна товщина паперу не має вирішального значення.)
 
 The first step of the paper test is to inspect the printer's nozzle and bed. Make sure there is no plastic (or other debris) on the nozzle or bed.
 
@@ -75,12 +75,12 @@ Then a `TESTZ Z=-` would move the nozzle to a Z position of 0.180 (half way betw
 After finding a small amount of friction run the ACCEPT command:
 
 ```
-ACCEPT
+ПРИЙНЯТИ
 ```
 
-This will accept the given Z height and proceed with the given calibration tool.
+Це прийме задану висоту Z і продовжить роботу з заданим інструментом калібрування.
 
-The exact amount of friction felt isn't crucial, just as the amount of thermal expansion and exact width of the paper isn't crucial. Just try to obtain the same amount of friction each time one runs the test.
+Точна величина тертя не має вирішального значення, так само як величина теплового розширення та точна ширина паперу не мають вирішального значення. Просто намагайтеся отримати однакову кількість тертя кожного разу, коли запускаєте тест.
 
 If something goes wrong during the test, one can use the `ABORT` command to exit the calibration tool.
 
