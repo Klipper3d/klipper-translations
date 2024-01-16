@@ -1,15 +1,16 @@
-# Oriol Tous Casadesús <otousc@gmail.com>, 2023.
+# Oriol Tous Casadesús <otousc@gmail.com>, 2023, 2024.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-04-24 17:52+0000\n"
+"PO-Revision-Date: 2024-01-13 10:11+0000\n"
 "Last-Translator: Oriol Tous Casadesús <otousc@gmail.com>\n"
-"Language-Team: Catalan <https://hosted.weblate.org/projects/klipper/overview/ca/>\n"
+"Language-Team: Catalan <https://hosted.weblate.org/projects/klipper/overview/"
+"ca/>\n"
 "Language: ca\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.18-dev\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 msgid ""
 "Welcome to the Klipper documentation. If new to Klipper, start with the "
@@ -280,8 +281,8 @@ msgid ""
 "[Multi-MCU Homing](Multi_MCU_Homing.md): Homing and probing using multiple "
 "micro-controllers."
 msgstr ""
-"[Inicialització del llit emprant varies MCU](Multi_MCU_Homing.md): "
-"Inicialització i compensació del llit emprant varies MCU."
+"[Inicialització de coordenades amb múltiples MCU](Multi_MCU_Homing.md): "
+"Inicialització i compensació del llit emprant múltiples MCU."
 
 #: docs/Overview.md:block 6 (unordered list)
 msgid ""
@@ -316,16 +317,22 @@ msgid ""
 "[Axis Twist Compensation](Axis_Twist_Compensation.md): A tool to compensate "
 "for inaccurate probe readings due to twist in X gantry."
 msgstr ""
+"[Compensació de gir de l'eix](Axis_Twist_Compensation.md): una eina per "
+"compensar les lectures de sondes inexactes a causa de la torsió del pòrtic X."
 
 #: docs/Overview.md:block 10 (unordered list)
 msgid "[Bootloader Entry](Bootloader_Entry.md): Requesting the bootloader."
 msgstr ""
+"[Entrada del carregador d'arrencada](Bootloader_Entry.md): sol·licitant el "
+"carregador d'arrencada."
 
 #: docs/Overview.md:block 10 (unordered list)
 msgid ""
 "[CAN bus troubleshooting](CANBUS_Troubleshooting.md): Tips for "
 "troubleshooting CAN bus."
 msgstr ""
+"[Resolució de problemes del bus CAN](CANBUS_Troubleshooting.md): Consells "
+"per resoldre problemes del bus CAN."
 
 #~ msgid ""
 #~ "[Exclude Object](Exclude_Object.md): The guide to the Exclude Objecs "

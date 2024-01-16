@@ -13,7 +13,7 @@
     
     
       
-        <title>Bed leveling - Klipper documentation</title>
+        <title>Вирівнювання столу - Klipper documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#bed-leveling" class="md-skip">
+        <a href="#_1" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Bed leveling
+              Вирівнювання столу
             
           </span>
         </div>
@@ -1304,7 +1304,7 @@
 </a>
 
 
-<h1 id="bed-leveling">Bed leveling<a class="headerlink" href="#bed-leveling" title="Permanent link">&para;</a></h1>
+<h1 id="_1">Вирівнювання столу<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>Bed leveling (sometimes also referred to as "bed tramming") is critical to getting high quality prints. If a bed is not properly "leveled" it can lead to poor bed adhesion, "warping", and subtle problems throughout the print. This document serves as a guide to performing bed leveling in Klipper.</p>
 <p>It's important to understand the goal of bed leveling. If the printer is commanded to a position <code>X0 Y0 Z10</code> during a print, then the goal is for the printer's nozzle to be exactly 10mm from the printer's bed. Further, should the printer then be commanded to a position of <code>X50 Z10</code> the goal is for the nozzle to maintain an exact distance of 10mm from the bed during that entire horizontal move.</p>
 <p>In order to get good quality prints the printer should be calibrated so that Z distances are accurate to within about 25 microns (.025mm). This is a small distance - significantly smaller than the width of a typical human hair. This scale can not be measured "by eye". Subtle effects (such as heat expansion) impact measurements at this scale. The secret to getting high accuracy is to use a repeatable process and to use a leveling method that leverages the high accuracy of the printer's own motion system.</p>
@@ -1316,7 +1316,7 @@
 <h2 id="the-paper-test">The "paper test"<a class="headerlink" href="#the-paper-test" title="Permanent link">&para;</a></h2>
 <p>The primary bed calibration mechanism is the "paper test". It involves placing a regular piece of "copy machine paper" between the printer's bed and nozzle, and then commanding the nozzle to different Z heights until one feels a small amount of friction when pushing the paper back and forth.</p>
 <p>It is important to understand the "paper test" even if one has an "automatic Z probe". The probe itself often needs to be calibrated to get good results. That probe calibration is done using this "paper test".</p>
-<p>In order to perform the paper test, cut a small rectangular piece of paper using a pair of scissors (eg, 5x3 cm). The paper generally has a thickness of around 100 microns (0.100mm). (The exact thickness of the paper isn't crucial.)</p>
+<p>Для виконання паперового тесту виріжте невеликий прямокутний аркуш паперу за допомогою ножиць (наприклад, 5x3 см). Папір зазвичай має товщину близько 100 мікрон (0,100 мм). (Точна товщина паперу не має вирішального значення.)</p>
 <p>The first step of the paper test is to inspect the printer's nozzle and bed. Make sure there is no plastic (or other debris) on the nozzle or bed.</p>
 <p><strong>Inspect the nozzle and bed to ensure no plastic is present!</strong></p>
 <p>If one always prints on a particular tape or printing surface then one may perform the paper test with that tape/surface in place. However, note that tape itself has a thickness and different tapes (or any other printing surface) will impact Z measurements. Be sure to rerun the paper test to measure each type of surface that is in use.</p>
@@ -1346,11 +1346,11 @@ Recv: // Z position: ?????? --&gt; 5.000 &lt;-- ??????
 
 <p>Then a <code>TESTZ Z=-</code> would move the nozzle to a Z position of 0.180 (half way between 0.130 and 0.230). One can use this feature to help rapidly narrow down to a consistent friction. It is also possible to use <code>Z=++</code> and <code>Z=--</code> to return directly to a past measurement - for example, after the above prompt a <code>TESTZ Z=--</code> command would move the nozzle to a Z position of 0.130.</p>
 <p>After finding a small amount of friction run the ACCEPT command:</p>
-<div class="highlight"><pre><span></span><code>ACCEPT
+<div class="highlight"><pre><span></span><code>ПРИЙНЯТИ
 </code></pre></div>
 
-<p>This will accept the given Z height and proceed with the given calibration tool.</p>
-<p>The exact amount of friction felt isn't crucial, just as the amount of thermal expansion and exact width of the paper isn't crucial. Just try to obtain the same amount of friction each time one runs the test.</p>
+<p>Це прийме задану висоту Z і продовжить роботу з заданим інструментом калібрування.</p>
+<p>Точна величина тертя не має вирішального значення, так само як величина теплового розширення та точна ширина паперу не мають вирішального значення. Просто намагайтеся отримати однакову кількість тертя кожного разу, коли запускаєте тест.</p>
 <p>If something goes wrong during the test, one can use the <code>ABORT</code> command to exit the calibration tool.</p>
 <h2 id="determining-thermal-expansion">Determining Thermal Expansion<a class="headerlink" href="#determining-thermal-expansion" title="Permanent link">&para;</a></h2>
 <p>After successfully performing bed leveling, one may go on to calculate a more precise value for the combined impact of "thermal expansion", "thickness of the paper", and "amount of friction felt during the paper test".</p>
