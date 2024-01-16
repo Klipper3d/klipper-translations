@@ -1,11 +1,11 @@
 # Vojtech Horvath <wojtas@email.cz>, 2022, 2025.
-# Pavel Šubík <wgspider@gmail.com>, 2024.
+# Pavel Šubík <wgspider@gmail.com>, 2024, 2025.
 # Miloslav Kos <kos.m@post.cz>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:31+0000\n"
-"Last-Translator: Vojtech Horvath <wojtas@email.cz>\n"
+"Last-Translator: Pavel Šubík <wgspider@gmail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/klipper/kinematics/"
 "cs/>\n"
 "Language: cs\n"
@@ -22,9 +22,9 @@ msgid ""
 "machines."
 msgstr ""
 "Tento dokument poskytuje přehled toho, jak Klipper implementuje pohyb robota "
-"(jeho [kinematiku](https://en.wikipedia.org/wiki/Kinematics)). Obsah může být "
-"zajímavý jak pro vývojáře, kteří chtějí pracovat na softwaru Klipper, tak pro "
-"uživatele, kteří chtějí lépe porozumět mechanice svých strojů."
+"(jeho [kinematiku](https://en.wikipedia.org/wiki/Kinematics)). Obsah může "
+"být zajímavý jak pro vývojáře, kteří chtějí pracovat na softwaru Klipper, "
+"tak pro uživatele, kteří chtějí lépe porozumět mechanice svých strojů."
 
 msgid "Acceleration"
 msgstr "Zrychlení"
