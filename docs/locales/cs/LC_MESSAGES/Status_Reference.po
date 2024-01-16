@@ -1,10 +1,10 @@
-# Pavel Šubík <wgspider@gmail.com>, 2024.
+# Pavel Šubík <wgspider@gmail.com>, 2024, 2025.
 # Miloslav Kos <kos.m@post.cz>, 2024.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:31+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Pavel Šubík <wgspider@gmail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/klipper/"
 "status_reference/cs/>\n"
 "Language: cs\n"
@@ -19,8 +19,8 @@ msgid ""
 "fields](Config_Reference.md#display), and via the [API Server](API_Server.md)."
 msgstr ""
 "Tento dokument slouží jako reference informací o stavu tiskárny dostupných v "
-"Klipperu prostřednictvím [maker](Command_Templates.md), [zobrazení "
-"polí](Config_Reference.md#display) a přes [API Server](API_Server.md)."
+"Klipperu prostřednictvím [maker](Command_Templates.md), [zobrazení polí]"
+"(Config_Reference.md#display) a přes [API Server](API_Server.md)."
 
 msgid ""
 "The fields in this document are subject to change - if using an attribute be "
