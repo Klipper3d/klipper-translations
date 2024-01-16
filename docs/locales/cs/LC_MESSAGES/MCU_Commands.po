@@ -1,11 +1,11 @@
 # Vojtech Horvath <wojtas@email.cz>, 2022.
-# Pavel Šubík <wgspider@gmail.com>, 2024.
+# Pavel Šubík <wgspider@gmail.com>, 2024, 2025.
 # Miloslav Kos <kos.m@post.cz>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:30+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Pavel Šubík <wgspider@gmail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/klipper/"
 "mcu_commands/cs/>\n"
 "Language: cs\n"
@@ -20,10 +20,11 @@ msgid ""
 "micro-controller software. This document is not an authoritative reference for"
 " these commands, nor is it an exclusive list of all available commands."
 msgstr ""
-"Tento dokument obsahuje informace o nízkoúrovňových příkazech mikrokontroléru,"
-" které jsou odesílány z \"hostitelského\" softwaru Klipper a zpracovávány "
-"softwarem mikrokontroléru Klipper. Tento dokument není směrodatným odkazem na "
-"tyto příkazy, ani není výlučným seznamem všech dostupných příkazů."
+"Tento dokument obsahuje informace o nízkoúrovňových příkazech "
+"mikrokontroléru, které jsou odesílány z \"hostitelského\" softwaru Klipper a "
+"zpracovávány softwarem mikrokontroléru Klipper. Tento dokument není "
+"směrodatným odkazem na tyto příkazy, ani není výlučným seznamem všech "
+"dostupných příkazů."
 
 msgid ""
 "This document may be useful for developers interested in understanding the "
