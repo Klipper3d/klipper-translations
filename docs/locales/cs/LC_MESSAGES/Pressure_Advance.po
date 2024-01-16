@@ -1,11 +1,11 @@
 # Vojtech Horvath <wojtas@email.cz>, 2022, 2025.
-# Pavel Šubík <wgspider@gmail.com>, 2024.
+# Pavel Šubík <wgspider@gmail.com>, 2024, 2025.
 # Miloslav Kos <kos.m@post.cz>, 2024.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:31+0000\n"
-"Last-Translator: Vojtech Horvath <wojtas@email.cz>\n"
+"Last-Translator: Pavel Šubík <wgspider@gmail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/klipper/"
 "pressure_advance/cs/>\n"
 "Language: cs\n"
@@ -20,10 +20,11 @@ msgid ""
 "advance feature can be helpful in reducing ooze. For more information on how "
 "pressure advance is implemented see the [kinematics](Kinematics.md) document."
 msgstr ""
-"Tento dokument poskytuje informace o ladění konfigurační proměnné \"pressure "
-"advance\" pro konkrétní trysku a filament. Funkce pressure advance může být "
-"užitečná při snižování vytékání. Pro více informací o tom, jak je pressure "
-"advance implementován, viz dokument [kinematics](Kinematics.md)."
+"Tento dokument poskytuje informace o ladění konfigurační proměnné "
+"\"pressure advance\" pro konkrétní trysku a filament. Funkce pressure "
+"advance může být užitečná při snižování vytékání. Pro více informací o tom, "
+"jak je pressure advance implementován, viz dokument [kinematics]"
+"(Kinematics.md)."
 
 msgid "Tuning pressure advance"
 msgstr "Ladění předstihu tlaku"
