@@ -1,10 +1,10 @@
 # Vojtech Horvath <wojtas@email.cz>, 2022, 2025.
-# Pavel Šubík <wgspider@gmail.com>, 2024.
+# Pavel Šubík <wgspider@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:30+0000\n"
-"Last-Translator: Vojtech Horvath <wojtas@email.cz>\n"
+"Last-Translator: Pavel Šubík <wgspider@gmail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/klipper/bltouch/cs/"
 ">\n"
 "Language: cs\n"
@@ -22,8 +22,9 @@ msgid ""
 "it, be very gentle, in order to not bend or push anything."
 msgstr ""
 "**Varování** předtím, než začnete: Vyvarujte se dotyku pinu BL-Touch svými "
-"holými prsty, protože je velmi citlivý na mastnotu z prstů. A pokud ho opravdu"
-" musíte dotknout, buďte velmi opatrní, aby nedošlo k ohnutí nebo poškození."
+"holými prsty, protože je velmi citlivý na mastnotu z prstů. A pokud ho "
+"opravdu musíte dotknout, buďte velmi opatrní, aby nedošlo k ohnutí nebo "
+"poškození."
 
 msgid ""
 "Hook up the BL-Touch \"servo\" connector to a `control_pin` according to the "
