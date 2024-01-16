@@ -1,10 +1,10 @@
-# Pavel Šubík <wgspider@gmail.com>, 2024.
+# Pavel Šubík <wgspider@gmail.com>, 2024, 2025.
 # Miloslav Kos <kos.m@post.cz>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:30+0000\n"
-"Last-Translator: Miloslav Kos <kos.m@post.cz>\n"
+"Last-Translator: Pavel Šubík <wgspider@gmail.com>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/klipper/"
 "skew_correction/cs/>\n"
 "Language: cs\n"
@@ -25,10 +25,10 @@ msgid ""
 "mechanical means to get your printer as square as possible prior to applying "
 "software based correction."
 msgstr ""
-"Korekce zkosení založená na softwaru může pomoci vyřešit rozměrové nepřesnosti"
-" vznikající v důsledku montáže tiskárny, která není zcela čtvercová. "
-"Upozorňujeme však, že pokud je vaše tiskárna výrazně zkosená, silně "
-"doporučujeme nejprve použít mechanická opatření k dosažení co nejvíce "
+"Korekce zkosení založená na softwaru může pomoci vyřešit rozměrové "
+"nepřesnosti vznikající v důsledku montáže tiskárny, která není zcela "
+"čtvercová. Upozorňujeme však, že pokud je vaše tiskárna výrazně zkosená, "
+"silně doporučujeme nejprve použít mechanická opatření k dosažení co nejvíce "
 "čtvercového stavu tiskárny před použitím korekce založené na softwaru."
 
 #: docs/Skew_Correction.md:block 3 (header)
