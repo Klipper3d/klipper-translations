@@ -1,18 +1,18 @@
 # Zs.Antal <zsikaiantal@gmail.com>, 2022.
-# Bálint László <blaszlobors@gmail.com>, 2024.
+# Bálint László <blaszlobors@gmail.com>, 2024, 2025.
 # "Zs.Antal" <antonio092130@icloud.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-02-23 13:01+0000\n"
-"Last-Translator: \"Zs.Antal\" <antonio092130@icloud.com>\n"
+"PO-Revision-Date: 2025-05-03 07:37+0000\n"
+"Last-Translator: Bálint László <blaszlobors@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
 "sponsors/hu/>\n"
 "Language: hu\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10.1-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: docs/Sponsors.md:block 1 (header)
 msgid "Sponsors"
@@ -110,8 +110,8 @@ msgid ""
 "[<img src=\"./img/sponsors/BTT_BTT.png\" width=\"200\" "
 "style=\"margin:25px\"/>](https://bigtree-tech.com/collections/all-products)"
 msgstr ""
-"[<img src=\"./img/sponsors/BTT_BTT.png\" width=\"200\" "
-"style=\"margin:25px\"/>](https://bigtree-tech.com/collections/all-products)"
+"[<img src=\"./img/sponsors/BTT_BTT.png\" width=\"200\" style=\"margin:25px\""
+"/>](https://bigtree-tech.com/collections/all-products)"
 
 #: docs/Sponsors.md:block 7 (paragraph)
 msgid ""
