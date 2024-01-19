@@ -1,6 +1,6 @@
 # Zs.Antal <zsikaiantal@gmail.com>, 2022.
 # Yifei Ding <dingyifeiair@gmail.com>, 2022.
-# Bálint László <blaszlobors@gmail.com>, 2024.
+# Bálint László <blaszlobors@gmail.com>, 2024, 2025.
 # "Zs.Antal" <antonio092130@icloud.com>, 2025.
 msgid ""
 msgstr ""
@@ -8,7 +8,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: 2025-05-03 07:33+0000\n"
-"Last-Translator: \"Zs.Antal\" <antonio092130@icloud.com>\n"
+"Last-Translator: Bálint László <blaszlobors@gmail.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
 "protocol/hu/>\n"
 "Language: hu\n"
