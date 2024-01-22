@@ -1,15 +1,16 @@
-# srbjessen <srbjessen@gmail.com>, 2023, 2024.
+# srbjessen <srbjessen@gmail.com>, 2023, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-01-23 11:06+0000\n"
+"PO-Revision-Date: 2025-05-03 07:42+0000\n"
 "Last-Translator: srbjessen <srbjessen@gmail.com>\n"
-"Language-Team: Danish <https://hosted.weblate.org/projects/klipper/navigation/da/>\n"
+"Language-Team: Danish <https://hosted.weblate.org/projects/klipper/"
+"navigation/da/>\n"
 "Language: da\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.4-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 msgid "Klipper documentation"
 msgstr "Klipper dokumentation"
