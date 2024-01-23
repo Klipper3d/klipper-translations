@@ -1,9 +1,16 @@
-#
+# srbjessen <srbjessen@gmail.com>, 2024.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2024-01-23 11:06+0000\n"
+"Last-Translator: srbjessen <srbjessen@gmail.com>\n"
+"Language-Team: Danish <https://hosted.weblate.org/projects/klipper/overview/"
+"da/>\n"
 "Language: da\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 msgid ""
 "Welcome to the Klipper documentation. If new to Klipper, start with the "
@@ -114,7 +121,7 @@ msgid "[G-Codes](G-Codes.md): Information on commands supported by Klipper."
 msgstr ""
 
 msgid "Developer Documentation"
-msgstr ""
+msgstr "Udvikler-dokumentation"
 
 msgid "[Code overview](Code_Overview.md): Developers should read this first."
 msgstr ""
@@ -160,7 +167,7 @@ msgid "[Packaging](Packaging.md): Information on building OS packages."
 msgstr ""
 
 msgid "Device Specific Documents"
-msgstr ""
+msgstr "Enheds-specifikke dokumenter"
 
 msgid ""
 "[Example configs](Example_Configs.md): Information on adding an example "
@@ -194,7 +201,7 @@ msgstr ""
 
 #: docs/Overview.md:block 5 (header)
 msgid "Installation and Configuration"
-msgstr ""
+msgstr "Installation og konfigurering"
 
 #: docs/Overview.md:block 6 (unordered list)
 msgid ""
