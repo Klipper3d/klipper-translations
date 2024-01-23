@@ -1,12 +1,19 @@
-#
+# Pavel Šubík <wgspider@gmail.com>, 2024.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2024-01-17 13:06+0000\n"
+"Last-Translator: Pavel Šubík <wgspider@gmail.com>\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/klipper/"
+"contributing/cs/>\n"
 "Language: cs\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 msgid "Contributing to Klipper"
-msgstr ""
+msgstr "Přispívání do Klipperu"
 
 msgid ""
 "It is important to have a \"Signed-off-by\" line on each commit - it "
@@ -14,6 +21,10 @@ msgid ""
 "certificate-of-origin). It must contain your real name (sorry, no pseudonyms"
 " or anonymous contributions) and contain a current email address."
 msgstr ""
+"Je důležité mít na každém commitu řádek \"Signed-off-by\" - certifikuje, že "
+"souhlasíte s [osvědčením vývojáře](developer-certificate-of-origin). Musí "
+"obsahovat vaše skutečné jméno (omlouváme se, pseudonymy nebo anonymní "
+"příspěvky nejsou povoleny) a aktuální emailovou adresu."
 
 msgid ""
 "module: Capitalized, short (50 chars or less) summary\n"

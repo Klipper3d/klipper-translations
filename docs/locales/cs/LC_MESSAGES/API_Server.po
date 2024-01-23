@@ -1,18 +1,27 @@
-#
+# Pavel Šubík <wgspider@gmail.com>, 2024.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2024-01-17 13:06+0000\n"
+"Last-Translator: Pavel Šubík <wgspider@gmail.com>\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/klipper/api_server/"
+"cs/>\n"
 "Language: cs\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 msgid ""
 "This document describes Klipper's Application Programmer Interface (API). "
 "This interface enables external applications to query and control the "
 "Klipper host software."
 msgstr ""
+"Tento dokument popisuje aplikační rozhraní (API) aplikace Klipper. Toto "
+"rozhraní umožňuje externím aplikacím dotazovat se a ovládat software Klipper."
 
 msgid "Enabling the API socket"
-msgstr ""
+msgstr "Povolení API socketu"
 
 msgid ""
 "In order to use the API server, the klippy.py host software must be started "

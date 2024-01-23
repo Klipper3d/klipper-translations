@@ -1,18 +1,28 @@
-#
+# Pavel Šubík <wgspider@gmail.com>, 2024.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2024-01-17 13:06+0000\n"
+"Last-Translator: Pavel Šubík <wgspider@gmail.com>\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/klipper/packaging/"
+"cs/>\n"
 "Language: cs\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 msgid ""
 "Klipper is somewhat of a packaging anomaly among python programs, as it "
 "doesn't use setuptools to build and install. Some notes regarding how best "
 "to package it are as follows:"
 msgstr ""
+"Klipper je do jisté míry anomálií v balení mezi pythonovými programy, "
+"protože nepoužívá setuptools k sestavení a instalaci. Několik poznámek o "
+"tom, jak ho nejlépe zabalit, je následujících:"
 
 msgid "C modules"
-msgstr ""
+msgstr "Moduly v jazyce C"
 
 msgid ""
 "Klipper uses a C module to handle some kinematics calculations more quickly."
