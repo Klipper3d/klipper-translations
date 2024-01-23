@@ -1,13 +1,20 @@
-#
+# Pavel Šubík <wgspider@gmail.com>, 2024.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2024-01-17 13:06+0000\n"
+"Last-Translator: Pavel Šubík <wgspider@gmail.com>\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/klipper/"
+"skew_correction/cs/>\n"
 "Language: cs\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 #: docs/Skew_Correction.md:block 1 (header)
 msgid "Skew correction"
-msgstr ""
+msgstr "Korekce zkosení"
 
 #: docs/Skew_Correction.md:block 2 (paragraph)
 msgid ""
@@ -17,6 +24,11 @@ msgid ""
 "use mechanical means to get your printer as square as possible prior to "
 "applying software based correction."
 msgstr ""
+"Korekce zkosení založená na softwaru může pomoci vyřešit rozměrové "
+"nepřesnosti vznikající v důsledku montáže tiskárny, která není zcela "
+"čtvercová. Upozorňujeme však, že pokud je vaše tiskárna výrazně zkosená, "
+"silně doporučujeme nejprve použít mechanická opatření k dosažení co nejvíce "
+"čtvercového stavu tiskárny před použitím korekce založené na softwaru."
 
 #: docs/Skew_Correction.md:block 3 (header)
 msgid "Print a Calibration Object"

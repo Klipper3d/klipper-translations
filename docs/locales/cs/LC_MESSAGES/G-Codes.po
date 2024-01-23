@@ -1,20 +1,24 @@
 # Vlastimil Dědek <dedekvlastimil@gmail.com>, 2022.
+# Pavel Šubík <wgspider@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-10-10 18:02+0000\n"
-"Last-Translator: Vlastimil Dědek <dedekvlastimil@gmail.com>\n"
-"Language-Team: Czech <https://hosted.weblate.org/projects/klipper/g-codes/cs/>\n"
+"PO-Revision-Date: 2024-01-17 13:06+0000\n"
+"Last-Translator: Pavel Šubík <wgspider@gmail.com>\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/klipper/g-codes/cs/"
+">\n"
 "Language: cs\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 msgid ""
 "This document describes the commands that Klipper supports. These are "
 "commands that one may enter into the OctoPrint terminal tab."
 msgstr ""
+"Tento dokument popisuje příkazy, které Klipper podporuje. Jedná se o "
+"příkazy, které lze zadat do záložky terminálu v OctoPrint."
 
 msgid "G-Code commands"
 msgstr ""
