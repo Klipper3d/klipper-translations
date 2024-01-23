@@ -1,19 +1,21 @@
 # Zs.Antal <zsikaiantal@gmail.com>, 2022.
 # "Zs.Antal" <zsikaiantal@gmail.com>, 2023.
+# Bálint László <blaszlobors@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2023-05-21 04:48+0000\n"
-"Last-Translator: \"Zs.Antal\" <zsikaiantal@gmail.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/overview/hu/>\n"
+"PO-Revision-Date: 2024-01-20 10:01+0000\n"
+"Last-Translator: Bálint László <blaszlobors@gmail.com>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
+"overview/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.18-dev\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 msgid ""
 "Welcome to the Klipper documentation. If new to Klipper, start with the "
@@ -314,16 +316,20 @@ msgid ""
 "[Axis Twist Compensation](Axis_Twist_Compensation.md): A tool to compensate "
 "for inaccurate probe readings due to twist in X gantry."
 msgstr ""
+"[Axis Twist Compensation](Axis_Twist_Compensation.md): Eszköz az X portál "
+"csavarodásából adódó pontatlan szonda leolvasások kompenzálására."
 
 #: docs/Overview.md:block 10 (unordered list)
 msgid "[Bootloader Entry](Bootloader_Entry.md): Requesting the bootloader."
-msgstr ""
+msgstr "[Bootloader Entry](Bootloader_Entry.md): Rendszerbetöltő kérése."
 
 #: docs/Overview.md:block 10 (unordered list)
 msgid ""
 "[CAN bus troubleshooting](CANBUS_Troubleshooting.md): Tips for "
 "troubleshooting CAN bus."
 msgstr ""
+"[CAN bus troubleshooting](CANBUS_Troubleshooting.md): Tippek a CAN-busz "
+"hibaelhárításához."
 
 #~ msgid ""
 #~ "[Exclude Object](Exclude_Object.md): The guide to the Exclude Objecs "
