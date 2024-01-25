@@ -7,11 +7,12 @@
 # delvani <inavleb@users.noreply.hosted.weblate.org>, 2024.
 # Jose Delvani <jsdelvani@users.noreply.hosted.weblate.org>, 2024.
 # Deleted User <jsdelvani@users.noreply.hosted.weblate.org>, 2025.
+# Deleted User <inavleb@users.noreply.hosted.weblate.org>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:28+0000\n"
-"Last-Translator: Deleted User <jsdelvani@users.noreply.hosted.weblate.org>\n"
+"Last-Translator: Deleted User <inavleb@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "klipper/overview/pt_BR/>\n"
 "Language: pt_BR\n"
