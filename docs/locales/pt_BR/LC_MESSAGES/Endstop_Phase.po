@@ -1,10 +1,10 @@
 # Roberto Besser <rmbesser@gmail.com>, 2021, 2023, 2025.
-# Bernardo Scolnik <bscolnik@gmail.com>, 2024.
+# Bernardo Scolnik <bscolnik@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:28+0000\n"
-"Last-Translator: Roberto Besser <rmbesser@gmail.com>\n"
+"Last-Translator: Bernardo Scolnik <bscolnik@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "klipper/endstop_phase/pt_BR/>\n"
 "Language: pt_BR\n"
