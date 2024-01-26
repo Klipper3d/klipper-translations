@@ -2,11 +2,12 @@
 # Raquel Fernanda Alves Silva <fernanda.quel@yahoo.com.br>, 2022.
 # Francisco Lima <limamg@gmail.com>, 2023.
 # delvani <inavleb@users.noreply.hosted.weblate.org>, 2024.
+# Bernardo Scolnik <bscolnik@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2024-01-26 16:02+0000\n"
-"Last-Translator: delvani <inavleb@users.noreply.hosted.weblate.org>\n"
+"Last-Translator: Bernardo Scolnik <bscolnik@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "klipper/bed_mesh/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -464,7 +465,7 @@ msgstr ""
 
 #: docs/Bed_Mesh.md:block 1 (header)
 msgid "Bed Mesh"
-msgstr "Malha da Cama"
+msgstr "Malha da Base"
 
 #: docs/Bed_Mesh.md:block 49 (paragraph)
 msgid "Initiates the probing procedure for Bed Mesh Calibration."
