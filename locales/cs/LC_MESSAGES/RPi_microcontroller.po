@@ -1,14 +1,23 @@
-#
+# Pavel Šubík <wgspider@gmail.com>, 2024.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2024-01-17 13:06+0000\n"
+"Last-Translator: Pavel Šubík <wgspider@gmail.com>\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/klipper/"
+"rpi_microcontroller/cs/>\n"
 "Language: cs\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 msgid ""
 "This document describes the process of running Klipper on a RPi and use the "
 "same RPi as secondary mcu."
 msgstr ""
+"Tento dokument popisuje proces spuštění Klipperu na RPi a použití stejného "
+"RPi jako sekundárního mikrokontroléru."
 
 msgid "Why use RPi as a secondary MCU?"
 msgstr ""

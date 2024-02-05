@@ -1,14 +1,23 @@
-#
+# Pavel Šubík <wgspider@gmail.com>, 2024.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2024-01-17 13:06+0000\n"
+"Last-Translator: Pavel Šubík <wgspider@gmail.com>\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/klipper/"
+"tmc_drivers/cs/>\n"
 "Language: cs\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 msgid ""
 "This document provides information on using Trinamic stepper motor drivers "
 "in SPI/UART mode on Klipper."
 msgstr ""
+"Tento dokument poskytuje informace o použití ovladačů krokových motorů "
+"Trinamic v režimu SPI/UART na Klipperu."
 
 msgid ""
 "Klipper can also use Trinamic drivers in their \"standalone mode\". However,"

@@ -1,18 +1,20 @@
 # Zs.Antal <zsikaiantal@gmail.com>, 2022.
+# Bálint László <blaszlobors@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2022-11-07 19:07+0000\n"
-"Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/command_templates/hu/>\n"
+"PO-Revision-Date: 2024-01-20 10:01+0000\n"
+"Last-Translator: Bálint László <blaszlobors@gmail.com>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
+"command_templates/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.2\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 msgid ""
 "This document provides information on implementing G-Code command sequences "
@@ -635,7 +637,7 @@ msgstr ""
 
 #: docs/Command_Templates.md:block 1 (header)
 msgid "Commands templates"
-msgstr "Parancssablonok"
+msgstr "Parancs sablonok"
 
 #: docs/Command_Templates.md:block 28 (header)
 msgid "The \"rawparams\" variable"

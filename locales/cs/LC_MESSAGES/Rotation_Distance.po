@@ -1,9 +1,16 @@
-#
+# Pavel Šubík <wgspider@gmail.com>, 2024.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2024-01-17 13:06+0000\n"
+"Last-Translator: Pavel Šubík <wgspider@gmail.com>\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/klipper/"
+"rotation_distance/cs/>\n"
 "Language: cs\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 msgid ""
 "Stepper motor drivers on Klipper require a `rotation_distance` parameter in "
@@ -12,9 +19,15 @@ msgid ""
 "full revolution of the stepper motor. This document describes how one can "
 "configure this value."
 msgstr ""
+"Ovladače krokových motorů v Klipperu vyžadují parametr `rotation_distance` v "
+"každé sekci konfigurace [stepper config section](Config_Reference.md#stepper)"
+". `rotation_distance` je vzdálenost, kterou osa urazí jedním úplným otočením "
+"krokového motoru. Tento dokument popisuje, jak lze tuto hodnotu "
+"nakonfigurovat."
 
 msgid "Obtaining rotation_distance from steps_per_mm (or step_distance)"
 msgstr ""
+"Získání hodnoty `rotation_distance` z `steps_per_mm` (nebo `step_distance`)"
 
 msgid ""
 "The designers of your 3d printer originally calculated `steps_per_mm` from a"

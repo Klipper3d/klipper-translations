@@ -1,36 +1,37 @@
-# srbjessen <srbjessen@gmail.com>, 2023.
+# srbjessen <srbjessen@gmail.com>, 2023, 2024.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-12-19 10:10+0000\n"
+"PO-Revision-Date: 2024-01-23 11:06+0000\n"
 "Last-Translator: srbjessen <srbjessen@gmail.com>\n"
-"Language-Team: Danish <https://hosted.weblate.org/projects/klipper/navigation/da/>\n"
+"Language-Team: Danish <https://hosted.weblate.org/projects/klipper/"
+"navigation/da/>\n"
 "Language: da\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.3\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 msgid "Klipper documentation"
-msgstr ""
+msgstr "Klipper dokumentation"
 
 msgid "Installation and Configuration"
-msgstr ""
+msgstr "Installation og konfigurering"
 
 msgid "Configuration Reference"
-msgstr ""
+msgstr "Konfigurationsreference"
 
 msgid "Bed Level"
-msgstr ""
+msgstr "Bed level"
 
 msgid "Resonance Compensation"
 msgstr "Resonans kompensering"
 
 msgid "Command templates"
-msgstr ""
+msgstr "Kommando skabeloner"
 
 msgid "Developer Documentation"
-msgstr ""
+msgstr "Udvikler-dokumentation"
 
 msgid "Device Specific Documents"
-msgstr ""
+msgstr "Enheds-specifikke dokumenter"

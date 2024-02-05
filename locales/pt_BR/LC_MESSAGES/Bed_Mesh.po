@@ -1,17 +1,20 @@
 # Roberto Besser <rmbesser@gmail.com>, 2021, 2023.
 # Raquel Fernanda Alves Silva <fernanda.quel@yahoo.com.br>, 2022.
 # Francisco Lima <limamg@gmail.com>, 2023.
+# delvani <inavleb@users.noreply.hosted.weblate.org>, 2024.
+# Bernardo Scolnik <bscolnik@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-07-22 04:52+0000\n"
-"Last-Translator: Roberto Besser <rmbesser@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/klipper/bed_mesh/pt_BR/>\n"
+"PO-Revision-Date: 2024-01-26 16:02+0000\n"
+"Last-Translator: Bernardo Scolnik <bscolnik@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
+"klipper/bed_mesh/pt_BR/>\n"
 "Language: pt_BR\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.0-dev\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 msgid "Basic Configuration"
 msgstr "Configuração básica"
@@ -462,7 +465,7 @@ msgstr ""
 
 #: docs/Bed_Mesh.md:block 1 (header)
 msgid "Bed Mesh"
-msgstr "Malha da Cama"
+msgstr "Malha da Base"
 
 #: docs/Bed_Mesh.md:block 49 (paragraph)
 msgid "Initiates the probing procedure for Bed Mesh Calibration."
@@ -894,7 +897,7 @@ msgstr ""
 
 #: docs/Bed_Mesh.md:block 34 (header)
 msgid "Configuring the zero reference position"
-msgstr ""
+msgstr "Configurando a posição de referência zero"
 
 #: docs/Bed_Mesh.md:block 35 (paragraph)
 msgid ""
@@ -909,6 +912,16 @@ msgid ""
 "performed. The bed_mesh module provides the `zero_reference_position` option"
 " for specifying this coordinate:"
 msgstr ""
+"Muitas sondas são suscetíveis a “desvios”, ou seja: imprecisões na sondagem "
+"introduzidas por calor ou interferência. Isso pode tornar o cálculo do z-"
+"offset da sonda um desafio, especialmente em diferentes temperaturas do "
+"leito. Como tal, algumas impressoras usam um fim de curso para posicionar o "
+"eixo \"Z\" e uma sonda para calibrar a malha. Nesta configuração é possível "
+"deslocar a malha para que a `reference position` (X, Y) aplique ajuste zero. "
+"A `reference position` deve ser o local na cama onde um teste de papel "
+"[Z_ENDSTOP_CALIBRATE](./Manual_Level#calibrating-a-z-endstop) é realizado. O "
+"módulo \"bed_mesh\" fornece a opção `zero_reference_position` para "
+"especificar esta coordenada:"
 
 #: docs/Bed_Mesh.md:block 36 (code)
 msgid ""
@@ -920,6 +933,13 @@ msgid ""
 "zero_reference_position: 125, 110\n"
 "probe_count: 5, 3\n"
 msgstr ""
+"[bed_mesh]\n"
+"speed: 120\n"
+"horizontal_move_z: 5\n"
+"mesh_min: 35, 6\n"
+"mesh_max: 240, 198\n"
+"zero_reference_position: 125, 110\n"
+"probe_count: 5, 3\n"
 
 #: docs/Bed_Mesh.md:block 37 (unordered list)
 msgid ""
@@ -932,10 +952,18 @@ msgid ""
 "z-offset. Note that this coordinate must NOT be in a location specified as a"
 " `faulty_region` if a probe is necessary."
 msgstr ""
+"`zero_reference_position: ` *Valor padrão: Nenhum (desabilitado)* A "
+"`zero_reference_position` espera uma coordenada (X, Y) correspondente à `"
+"reference position` descrita acima. Se a coordenada estiver dentro da malha, "
+"então a malha será deslocada para que a posição de referência aplique ajuste "
+"zero. Se a coordenada estiver fora da malha, então a coordenada será sondada "
+"após a calibração, com o z-value resultante usado como z-offset. Observe que "
+"esta coordenada NÃO deve estar em um local especificado como `faulty_region` "
+"se uma sonda for necessária."
 
 #: docs/Bed_Mesh.md:block 38 (header)
 msgid "The deprecated relative_reference_index"
-msgstr ""
+msgstr "Obsoleto relative_reference_index"
 
 #: docs/Bed_Mesh.md:block 39 (paragraph)
 msgid ""
@@ -946,6 +974,11 @@ msgid ""
 " for the `zero_reference_position`. The output will look similar to the "
 "following:"
 msgstr ""
+"As configurações existentes que usam a opção `relative_reference_index` "
+"devem ser atualizadas para usar a `zero_reference_position`. A resposta ao "
+"comando gcode [BED_MESH_OUTPUT PGP=1](#output) incluirá a coordenada (X, Y) "
+"associada ao índice; esta posição pode ser usada como o valor para "
+"`zero_reference_position`. A saída será semelhante à seguinte:"
 
 #: docs/Bed_Mesh.md:block 40 (code)
 msgid ""
@@ -958,12 +991,22 @@ msgid ""
 "... (additional generated points)\n"
 "// bed_mesh: relative_reference_index 24 is (131.5, 108.0)\n"
 msgstr ""
+"// bed_mesh: generated points\n"
+"// Index | Tool Adjusted | Probe\n"
+"// 0 | (1.0, 1.0) | (24.0, 6.0)\n"
+"// 1 | (36.7, 1.0) | (59.7, 6.0)\n"
+"// 2 | (72.3, 1.0) | (95.3, 6.0)\n"
+"// 3 | (108.0, 1.0) | (131.0, 6.0)\n"
+"... (additional generated points)\n"
+"// bed_mesh: relative_reference_index 24 is (131.5, 108.0)\n"
 
 #: docs/Bed_Mesh.md:block 41 (paragraph)
 msgid ""
 "*Note: The above output is also printed in `klippy.log` during "
 "initialization.*"
 msgstr ""
+"*Nota: A saída acima também é impressa em `klippy.log` durante a "
+"inicialização.*"
 
 #: docs/Bed_Mesh.md:block 42 (paragraph)
 msgid ""
@@ -971,6 +1014,9 @@ msgid ""
 "printed along with its coordinate. Thus the `zero_reference_position` is "
 "`131.5, 108`."
 msgstr ""
+"Usando o exemplo acima, vemos que o `relative_reference_index` é impresso "
+"junto com sua coordenada. Portanto, a `zero_reference_position` é `131,5, "
+"108`."
 
 #~ msgid "The Relative Reference Index"
 #~ msgstr "Índice de Referência Relativa"

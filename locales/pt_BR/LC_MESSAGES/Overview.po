@@ -4,17 +4,19 @@
 # Wagner Reck <wagner.reck@gmail.com>, 2022.
 # Francisco Lima <limamg@gmail.com>, 2022.
 # Roberto Besser <rmbesser@gmail.com>, 2023.
+# delvani <inavleb@users.noreply.hosted.weblate.org>, 2024.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-07-23 06:05+0000\n"
-"Last-Translator: Roberto Besser <rmbesser@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/klipper/overview/pt_BR/>\n"
+"PO-Revision-Date: 2024-01-26 16:02+0000\n"
+"Last-Translator: delvani <inavleb@users.noreply.hosted.weblate.org>\n"
+"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
+"klipper/overview/pt_BR/>\n"
 "Language: pt_BR\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.0-dev\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 msgid ""
 "Welcome to the Klipper documentation. If new to Klipper, start with the "
@@ -320,16 +322,20 @@ msgid ""
 "[Axis Twist Compensation](Axis_Twist_Compensation.md): A tool to compensate "
 "for inaccurate probe readings due to twist in X gantry."
 msgstr ""
+"[Axis Twist Compensation](Axis_Twist_Compensation.md): Uma ferramenta para "
+"compensar leituras imprecisas da sonda devido à torção no pórtico X."
 
 #: docs/Overview.md:block 10 (unordered list)
 msgid "[Bootloader Entry](Bootloader_Entry.md): Requesting the bootloader."
-msgstr ""
+msgstr "[Entrada do bootloader](Bootloader_Entry.md): Solicitando o bootloader."
 
 #: docs/Overview.md:block 10 (unordered list)
 msgid ""
 "[CAN bus troubleshooting](CANBUS_Troubleshooting.md): Tips for "
 "troubleshooting CAN bus."
 msgstr ""
+"[Solução de problemas do barramento CAN](CANBUS_Troubleshooting.md): Dicas "
+"para solução de problemas do barramento CAN."
 
 #~ msgid ""
 #~ "[Exclude Object](Exclude_Object.md): The guide to the Exclude Objecs "

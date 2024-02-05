@@ -1,15 +1,17 @@
 # Rodrigo Zimmermann <rodrigo.zimmermann23@gmail.com>, 2021.
+# Bernardo Scolnik <bscolnik@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-11-11 19:18+0000\n"
-"Last-Translator: Rodrigo Zimmermann <rodrigo.zimmermann23@gmail.com>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/klipper/benchmarks/pt_BR/>\n"
+"PO-Revision-Date: 2024-01-26 16:02+0000\n"
+"Last-Translator: Bernardo Scolnik <bscolnik@gmail.com>\n"
+"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
+"klipper/benchmarks/pt_BR/>\n"
 "Language: pt_BR\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 4.9.1-dev\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 msgid "This document describes Klipper benchmarks."
 msgstr "Este documento descreve os benchmarks do Klipper."
@@ -223,7 +225,7 @@ msgid ""
 msgstr ""
 
 msgid "MCU"
-msgstr ""
+msgstr "MCU"
 
 msgid "Rate"
 msgstr ""

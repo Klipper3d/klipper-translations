@@ -1,15 +1,17 @@
 # Zs.Antal <zsikaiantal@gmail.com>, 2022.
+# Bálint László <blaszlobors@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-11-07 06:08+0000\n"
-"Last-Translator: Zs.Antal <zsikaiantal@gmail.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/sponsors/hu/>\n"
+"PO-Revision-Date: 2024-01-20 10:01+0000\n"
+"Last-Translator: Bálint László <blaszlobors@gmail.com>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
+"sponsors/hu/>\n"
 "Language: hu\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.2\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 #: docs/Sponsors.md:block 1 (header)
 msgid "Sponsors"
@@ -107,6 +109,8 @@ msgid ""
 "[<img src=\"./img/sponsors/BTT_BTT.png\" width=\"200\" "
 "style=\"margin:25px\"/>](https://bigtree-tech.com/collections/all-products)"
 msgstr ""
+"[<img src=\"./img/sponsors/BTT_BTT.png\" width=\"200\" style=\"margin:25px\""
+"/>](https://bigtree-tech.com/collections/all-products)"
 
 #: docs/Sponsors.md:block 7 (paragraph)
 msgid ""
@@ -116,6 +120,10 @@ msgid ""
 "src=\"./img/sponsors/peopoly-logo.png\" width=\"200\" style=\"margin:25px\" "
 "/>](https://peopoly.net)"
 msgstr ""
+"[<img src=\"./img/sponsors/obico-light-horizontal.png\" width=\"200\" style="
+"\"margin:25px\" />](https://obico.io/klipper.html?source=klipper_sponsor) ["
+"<img src=\"./img/sponsors/peopoly-logo.png\" width=\"200\" style=\"margin:"
+"25px\" />](https://peopoly.net)"
 
 #~ msgid ""
 #~ "[<img src=\"./img/sponsors/BTT_BTT.png\" width=\"200\" />](https://bigtree-"

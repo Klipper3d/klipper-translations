@@ -1,13 +1,20 @@
-#
+# Pavel Šubík <wgspider@gmail.com>, 2024.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2024-01-17 13:06+0000\n"
+"Last-Translator: Pavel Šubík <wgspider@gmail.com>\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/klipper/"
+"multi_mcu_homing/cs/>\n"
 "Language: cs\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 #: docs/Multi_MCU_Homing.md:block 1 (header)
 msgid "Multiple Micro-controller Homing and Probing"
-msgstr ""
+msgstr "Vícečipové Mikrokontroléry pro Domácí Použití a Sondování"
 
 #: docs/Multi_MCU_Homing.md:block 2 (paragraph)
 msgid ""
@@ -17,6 +24,11 @@ msgid ""
 "feature is also used when a Z probe is on a different micro-controller than "
 "the Z stepper motors."
 msgstr ""
+"Klipper podporuje mechanismus homingu s koncovým spínačem připojeným k "
+"jednomu mikrokontroléru, zatímco krokové motory jsou připojeny k jinému "
+"mikrokontroléru. Tato podpora je označována jako \"multi-mcu homing\". Tato "
+"funkce se také používá, když je snímač Z na jiném mikrokontroléru než "
+"krokové motory Z."
 
 #: docs/Multi_MCU_Homing.md:block 3 (paragraph)
 msgid ""

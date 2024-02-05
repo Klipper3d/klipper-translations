@@ -1,14 +1,21 @@
-#
+# Pavel Šubík <wgspider@gmail.com>, 2024.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2024-01-17 13:06+0000\n"
+"Last-Translator: Pavel Šubík <wgspider@gmail.com>\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/klipper/"
+"code_overview/cs/>\n"
 "Language: cs\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 msgid ""
 "This document describes the overall code layout and major code flow of "
 "Klipper."
-msgstr ""
+msgstr "Tento dokument popisuje celkovou strukturu kódu a hlavní kód Klipperu."
 
 msgid "Directory Layout"
 msgstr ""

@@ -1,10 +1,20 @@
-#
+# Michael Haßfurther <hassfurther.michael@googlemail.com>, 2024.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2024-02-03 21:01+0000\n"
+"Last-Translator: Michael Haßfurther <hassfurther.michael@googlemail.com>\n"
+"Language-Team: German <https://hosted.weblate.org/projects/klipper/"
+"axis_twist_compensation/de/>\n"
+"Language: de\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.4-dev\n"
+"Content-Transfer-Encoding: 8bit\n"
 
 #: docs/Axis_Twist_Compensation.md:block 1 (header)
 msgid "Axis Twist Compensation"
-msgstr ""
+msgstr "Kompensation der Achsenverdrehung"
 
 #: docs/Axis_Twist_Compensation.md:block 2 (paragraph)
 msgid "This document describes the [axis_twist_compensation] module."
