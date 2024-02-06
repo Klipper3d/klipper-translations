@@ -5,14 +5,14 @@
 # Yifei Ding <dingyifeiair@gmail.com>, 2022.
 # Damian Jasinski <flasch44@gmail.com>, 2023.
 # Mateusz Kapała <lolekwielki@gmail.com>, 2023.
-# Woo Cash <woocash87@gmail.com>, 2024.
+# Woo Cash <woocash87@gmail.com>, 2024, 2025.
 # BotchedRPR <ibelwon@protonmail.com>, 2024.
 # Bartosz Trojan <51444728+ethylowy@users.noreply.github.com>, 2024.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:26+0000\n"
-"Last-Translator: Robert Jaroszewicz <mediagott1977@googlemail.com>\n"
+"Last-Translator: Woo Cash <woocash87@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/klipper/"
 "config_checks/pl/>\n"
 "Language: pl\n"
@@ -78,8 +78,8 @@ msgid ""
 "present)."
 msgstr ""
 "Jeżeli stan krańcówki nie zmienia się, to oznacza to, że jest ona podłączona "
-"do innego pinu. Jednak może również być wymagana zmiana ustawienia pullup dla "
-"tego pinu ('^' na początku nazwy endstop_pin - większość drukarek będzie "
+"do innego pinu. Jednak może również być wymagana zmiana ustawienia pullup "
+"dla tego pinu ('^' na początku nazwy endstop_pin - większość drukarek będzie "
 "używać rezystora pullup i '^' powinno to być zdefiniowane)."
 
 msgid "Verify stepper motors"
