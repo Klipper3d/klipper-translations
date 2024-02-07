@@ -5,16 +5,19 @@
 # Yifei Ding <dingyifeiair@gmail.com>, 2022.
 # Damian Jasinski <flasch44@gmail.com>, 2023.
 # Mateusz Kapała <lolekwielki@gmail.com>, 2023.
+# Woo Cash <woocash87@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-12-29 18:14+0000\n"
-"Last-Translator: Mateusz Kapała <lolekwielki@gmail.com>\n"
-"Language-Team: Polish <https://hosted.weblate.org/projects/klipper/config_checks/pl/>\n"
+"PO-Revision-Date: 2024-02-07 05:01+0000\n"
+"Last-Translator: Woo Cash <woocash87@gmail.com>\n"
+"Language-Team: Polish <https://hosted.weblate.org/projects/klipper/"
+"config_checks/pl/>\n"
 "Language: pl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
 "X-Generator: Weblate 5.4-dev\n"
 
 msgid ""
@@ -72,10 +75,10 @@ msgid ""
 "endstop_pin name - most printers will use a pullup resistor and the '^' "
 "should be present)."
 msgstr ""
-"Jeżeli endstop w ogóle się nie zmienia, to generalnie oznacza to, że endstop"
-" jest podłączony do innego pinu. Jednak może to również wymagać zmiany "
-"ustawienia pullup dla tego pinu ('^' na początku nazwy endstop_pin - "
-"większość drukarek będzie używać rezystora pullup i '^' powinno być obecne)."
+"Jeżeli stan krańcówki nie zmienia się, to oznacza to, że jest ona podłączona "
+"do innego pinu. Jednak może również być wymagana zmiana ustawienia pullup "
+"dla tego pinu ('^' na początku nazwy endstop_pin - większość drukarek będzie "
+"używać rezystora pullup i '^' powinno to być zdefiniowane)."
 
 msgid "Verify stepper motors"
 msgstr "Weryfikacja silników krokowych"
