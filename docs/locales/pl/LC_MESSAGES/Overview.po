@@ -2,14 +2,14 @@
 # Robert Jaroszewicz <mediagott1977@googlemail.com>, 2022.
 # gnu-ewm <gnu.ewm@protonmail.com>, 2022.
 # Daviteusz <imefiu3@gmail.com>, 2023.
-# Woo Cash <woocash87@gmail.com>, 2024.
+# Woo Cash <woocash87@gmail.com>, 2024, 2025.
 # Dawid <dawidgorski.m@gmail.com>, 2024.
 # Julia 🌸🏳️‍⚧️ <daviteusz0@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:26+0000\n"
-"Last-Translator: Julia 🌸🏳️‍⚧️ <daviteusz0@gmail.com>\n"
+"Last-Translator: Woo Cash <woocash87@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/klipper/overview/"
 "pl/>\n"
 "Language: pl\n"
@@ -141,7 +141,8 @@ msgid ""
 "[Status Reference](Status_Reference.md): Information available to macros (and "
 "similar)."
 msgstr ""
-"[Referencje statusu](Status_Reference.md): Informacje o makrach (i podobnych)."
+"[Referencje statusu](Status_Reference.md): Informacje o makrach (i "
+"podobnych)."
 
 msgid ""
 "[TMC Drivers](TMC_Drivers.md): Using Trinamic stepper motor drivers with "
@@ -312,8 +313,9 @@ msgid ""
 "[Axis Twist Compensation](Axis_Twist_Compensation.md): A tool to compensate "
 "for inaccurate probe readings due to twist in X gantry."
 msgstr ""
-"[Kompensacja skrętu osi](Axis_Twist_Compensation.md): Narzędzie do kompensacji"
-" niedokładnych odczytów sondy spowodowanych skręceniem suwnicy osi X."
+"[Kompensacja skrętu osi](Axis_Twist_Compensation.md): Narzędzie do "
+"kompensacji niedokładnych odczytów sondy spowodowanych skręceniem suwnicy "
+"osi X."
 
 #: docs/Overview.md:block 10 (unordered list)
 msgid "[Bootloader Entry](Bootloader_Entry.md): Requesting the bootloader."
@@ -324,8 +326,8 @@ msgid ""
 "[CAN bus troubleshooting](CANBUS_Troubleshooting.md): Tips for troubleshooting"
 " CAN bus."
 msgstr ""
-"[Rozwiązywanie problemów CAN](CANBUS_Troubleshooting.md): Wskazówki dotyczące "
-"rozwiązywania problemów z magistralą CAN."
+"[Rozwiązywanie problemów CAN](CANBUS_Troubleshooting.md): Wskazówki "
+"dotyczące rozwiązywania problemów z magistralą CAN."
 
 #: docs/Overview.md:block 6 (unordered list)
 msgid "[Octoprint](OctoPrint.md): Guide to installing Octoprint with Klipper."
