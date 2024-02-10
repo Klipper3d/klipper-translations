@@ -1,19 +1,22 @@
 # Robert Jaroszewicz <mediagott1977@googlemail.com>, 2022.
 # gnu-ewm <gnu.ewm@protonmail.com>, 2022, 2023.
+# Woo Cash <woocash87@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2022-03-06 16:52+0200\n"
-"PO-Revision-Date: 2023-01-14 20:48+0000\n"
-"Last-Translator: gnu-ewm <gnu.ewm@protonmail.com>\n"
-"Language-Team: Polish <https://hosted.weblate.org/projects/klipper/navigation/pl/>\n"
+"PO-Revision-Date: 2024-02-08 13:01+0000\n"
+"Last-Translator: Woo Cash <woocash87@gmail.com>\n"
+"Language-Team: Polish <https://hosted.weblate.org/projects/klipper/"
+"navigation/pl/>\n"
 "Language: pl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.15.1-dev\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 msgid "Klipper documentation"
 msgstr "Dokumentacja Klippera"
@@ -37,4 +40,4 @@ msgid "Developer Documentation"
 msgstr "Dokumentacja dla programistów"
 
 msgid "Device Specific Documents"
-msgstr "Dokumenty specyficzne dla urządzenia"
+msgstr "Dokumenty specyfikacyjne urządzenia"
