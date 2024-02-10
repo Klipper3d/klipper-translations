@@ -4,17 +4,19 @@
 # Cecilia Mora <cecilia-mora22@hotmail.com>, 2022.
 # JACK EDWARD INGA NAUPA <jinganaupa@gmail.com>, 2023.
 # Francisco Javier Hoyos Arango <cofhal@gmail.com>, 2023.
+# Jesus Barba <jesbm1g2@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-10-17 04:11+0000\n"
-"Last-Translator: Francisco Javier Hoyos Arango <cofhal@gmail.com>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/config_reference/es/>\n"
+"PO-Revision-Date: 2024-02-09 16:01+0000\n"
+"Last-Translator: Jesus Barba <jesbm1g2@gmail.com>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/"
+"config_reference/es/>\n"
 "Language: es\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.1\n"
+"X-Generator: Weblate 5.4-dev\n"
 
 #, fuzzy
 msgid ""
@@ -4818,7 +4820,7 @@ msgstr ""
 
 #: docs/Config_Reference.md:block 259 (header)
 msgid "AHT10/AHT20/AHT21 temperature sensor"
-msgstr ""
+msgstr "AHT10/AHT20/AHT21 sensor de temperatura"
 
 #: docs/Config_Reference.md:block 260 (paragraph)
 msgid ""
