@@ -1,26 +1,26 @@
 # Fáze Endstop
 
-This document describes Klipper's stepper phase adjusted endstop system. This functionality can improve the accuracy of traditional endstop switches. It is most useful when using a Trinamic stepper motor driver that has run-time configuration.
+Tento dokument popisuje systém Klipperu pro nastavení fáze krokového motoru koncovým spínačem. Tato funkce může zlepšit přesnost tradičních koncových spínačů. Je nejvíce užitečná při použití krokového motoru Trinamic s konfigurací za běhu.
 
-A typical endstop switch has an accuracy of around 100 microns. (Each time an axis is homed the switch may trigger slightly earlier or slightly later.) Although this is a relatively small error, it can result in unwanted artifacts. In particular, this positional deviation may be noticeable when printing the first layer of an object. In contrast, typical stepper motors can obtain significantly higher precision.
+Typický koncový spínač má přesnost kolem 100 mikronů. (Při každém homingu osy může spínač spustit trochu dříve nebo trochu později.) I když se jedná o relativně malou chybu, může způsobit nechtěné artefakty. Tato odchylka v pozici může být zejména pozorovatelná při tisku první vrstvy objektu. Naopak, typické krokové motory mohou dosahovat výrazně vyšší přesnosti.
 
-The stepper phase adjusted endstop mechanism can use the precision of the stepper motors to improve the precision of the endstop switches. A stepper motor moves by cycling through a series of phases until in completes four "full steps". So, a stepper motor using 16 micro-steps would have 64 phases and when moving in a positive direction it would cycle through phases: 0, 1, 2, ... 61, 62, 63, 0, 1, 2, etc. Crucially, when the stepper motor is at a particular position on a linear rail it should always be at the same stepper phase. Thus, when a carriage triggers the endstop switch the stepper controlling that carriage should always be at the same stepper motor phase. Klipper's endstop phase system combines the stepper phase with the endstop trigger to improve the accuracy of the endstop.
+Mechanismus nastavení fáze krokového motoru koncovým spínačem může využít přesnost krokových motorů k zlepšení přesnosti koncových spínačů. Krokový motor se pohybuje tím, že projde řadou fází, dokud nedokončí čtyři "plné kroky". Takže krokový motor používající 16 mikrokroků bude mít 64 fází a při pohybu v kladném směru projde fázemi: 0, 1, 2, ... 61, 62, 63, 0, 1, 2, atd. Zásadní je, že když je krokový motor v určité pozici na lineárním kolejnici, měl by být vždy v téže fázi krokového motoru. Takže, když vozík spustí koncový spínač, krokový motor ovládající tento vozík by měl být vždy ve stejné fázi krokového motoru. Klipperův systém koncové fáze kombinuje fázi krokového motoru s trigerem koncového spínače k zlepšení přesnosti koncového spínače.
 
-In order to use this functionality it is necessary to be able to identify the phase of the stepper motor. If one is using Trinamic TMC2130, TMC2208, TMC2224 or TMC2660 drivers in run-time configuration mode (ie, not stand-alone mode) then Klipper can query the stepper phase from the driver. (It is also possible to use this system on traditional stepper drivers if one can reliably reset the stepper drivers - see below for details.)
+Pro použití této funkce je nezbytné být schopen identifikovat fázi krokového motoru. Pokud používáte řidiče Trinamic TMC2130, TMC2208, TMC2224 nebo TMC2660 v režimu konfigurace za běhu (tj. ne ve stand-alone režimu), pak Klipper může získat informaci o fázi krokového motoru od řidiče. (Je také možné použít tento systém s tradičními krokovými řidiči, pokud lze spolehlivě resetovat krokové řidiče - viz níže pro podrobnosti.)
 
-## Calibrating endstop phases
+## Kalibrace fází koncového spínače
 
-If using Trinamic stepper motor drivers with run-time configuration then one can calibrate the endstop phases using the ENDSTOP_PHASE_CALIBRATE command. Start by adding the following to the config file:
+Pokud používáte krokové motory Trinamic s konfigurací za běhu, můžete kalibrovat fáze koncového spínače pomocí příkazu ENDSTOP_PHASE_CALIBRATE. Začněte tím, že do konfiguračního souboru přidáte následující:
 
 ```
 [endstop_phase]
 ```
 
-Then RESTART the printer and run a `G28` command followed by an `ENDSTOP_PHASE_CALIBRATE` command. Then move the toolhead to a new location and run `G28` again. Try moving the toolhead to several different locations and rerun `G28` from each position. Run at least five `G28` commands.
+Poté RESTARTUJTE tiskárnu a spusťte příkaz `G28`, následovaný příkazem `ENDSTOP_PHASE_CALIBRATE`. Poté přesuňte nástrojovou hlavu na nové místo a znovu spusťte příkaz `G28`. Zkuste nástrojovou hlavu přemístit na několik různých míst a znovu spusťte `G28` z každé pozice. Spusťte alespoň pět příkazů `G28`.
 
-After performing the above, the `ENDSTOP_PHASE_CALIBRATE` command will often report the same (or nearly the same) phase for the stepper. This phase can be saved in the config file so that all future G28 commands use that phase. (So, in future homing operations, Klipper will obtain the same position even if the endstop triggers a little earlier or a little later.)
+Po provedení výše uvedených kroků příkaz `ENDSTOP_PHASE_CALIBRATE` často hlásí stejnou (nebo téměř stejnou) fázi pro krokový motor. Tuto fázi lze uložit do konfiguračního souboru, takže všechny budoucí příkazy `G28` budou používat tuto fázi. (Takže v budoucích homingových operacích Klipper získá stejnou pozici, i když koncový spínač spustí trochu dříve nebo trochu později.)
 
-To save the endstop phase for a particular stepper motor, run something like the following:
+Chcete-li uložit fázi koncového spínače pro konkrétní krokový motor, spusťte něco podobného následujícímu:
 
 ```
 ENDSTOP_PHASE_CALIBRATE STEPPER=stepper_z

@@ -19,17 +19,17 @@ Witaj w dokumentacji Klipper. Jeśli jesteś nowy, zapoznaj się z [funkcjami](F
 - [Poziomowanie stołu](Bed_Level.md): Informacje na temat "poziomowania stołu" w Klipperze.
    - [Kalibracja delta](Delta_Calibrate.md): Kalibracja kinematyki delta.
    - [Kalibracja sondy](Probe_Calibrate.md): Kalibracja automatycznych sond Z.
-   - [BL-Touch](BLTouch.md): Konfiguracja sondy Z "BL-Touch".
+   - [BL-Touch](BLTouch.md): Konfiguracja sondy Z typu "BL-Touch".
    - [Ręczne poziomowanie](Manual_Level.md): Kalibracja krańcówek Z (i podobnych).
    - [Siatka stołu](Bed_Mesh.md): Korekcja wysokości stołu na podstawie lokalizacji XY.
    - [Faza krańcówki](Endstop_Phase.md): Pozycjonowanie krańcówki Z ze wspomaganiem krokowym.
-   - [Axis Twist Compensation](Axis_Twist_Compensation.md): A tool to compensate for inaccurate probe readings due to twist in X gantry.
-- [Kompensacja rezonansu](Resonance_Compensation.md): Narzędzie do redukcji dzwonienia w wydrukach.
+   - [Kompensacja skrętu osi](Axis_Twist_Compensation.md): Narzędzie do kompensacji niedokładnych odczytów sondy spowodowanych skręceniem suwnicy osi X.
+- [Kompensacja rezonansu](Resonance_Compensation.md): Narzędzie do kompensacji rezonansu drukarki podczas druku.
    - [Pomiar rezonansów](Measuring_Resonances.md): Informacje na temat używania sprzętowego akcelerometru adxl345 do pomiaru rezonansu.
-- [Pressure Advance](Pressure_Advance.md): Kalibracja docisku wytłaczarki.
+- [Pressure Advance](Pressure_Advance.md): Kalibracja ciśnienia wytłaczarki filamentu.
 - [Kody G](G-Codes.md): Informacje o poleceniach obsługiwanych przez Klippera.
 - [Szablony poleceń](Command_Templates.md): Makra kodu G i ocena warunkowa.
-   - [Referencje statusu](Status_Reference.md): Informacje dostępne dla makr (i podobnych).
+   - [Referencje statusu](Status_Reference.md): Informacje o makrach (i podobnych).
 - [Sterowniki TMC](TMC_Drivers.md): Używanie sterowników silników krokowych Trinamic z Klipperem.
 - [Bazowanie MultiMCU](Multi_MCU_Homing.md): Bazowanie i sondowanie przy użyciu wielu mikrokontrolerów.
 - [Slicery](Slicers.md): Konfiguracja oprogramowania "slicer" dla Klippera.
@@ -50,15 +50,15 @@ Witaj w dokumentacji Klipper. Jeśli jesteś nowy, zapoznaj się z [funkcjami](F
 - [Współtworzenie](CONTRIBUTING.md): Informacje o tym, jak dodawać ulepszenia do Klippera.
 - [Pakowanie](Packaging.md): Informacje na temat budowania pakietów systemu operacyjnego.
 
-## Dokumenty specyficzne dla urządzenia
+## Dokumenty specyfikacyjne urządzenia
 
 - [Przykładowe konfiguracje](Example_Configs.md): Informacje na temat dodawania przykładowego pliku konfiguracyjnego do Klippera.
-- [Aktualizacje kartą SD](SDCard_Updates.md): Flashowanie mikrokontrolera poprzez skopiowanie pliku binarnego na kartę SD w mikrokontrolerze.
+- [Aktualizacje kartą SD](SDCard_Updates.md): Programowanie mikrokontrolera poprzez skopiowanie pliku binarnego na kartę SD w mikrokontrolerze.
 - [Raspberry Pi jako mikrokontroler](RPi_microcontroller.md): Szczegóły dotyczące sterowania urządzeniami podłączonymi do pinów GPIO Raspberry Pi.
 - [Beaglebone](Beaglebone.md): Szczegóły dotyczące uruchamiania Klippera na Beaglebone PRU.
-- [Bootloadery](Bootloaders.md): Informacje dla programistów dotyczące flashowania mikrokontrolerów.
+- [Bootloadery](Bootloaders.md): Informacje dla programistów dotyczące programowania mikrokontrolerów.
 - [Bootloader Entry](Bootloader_Entry.md): Requesting the bootloader.
 - [Magistrala CAN](CANBUS.md): Informacje na temat korzystania z magistrali CAN z Klipperem.
-   - [CAN bus troubleshooting](CANBUS_Troubleshooting.md): Tips for troubleshooting CAN bus.
+   - [Rozwiązywanie problemów CAN](CANBUS_Troubleshooting.md): Wskazówki dotyczące rozwiązywania problemów z magistralą CAN.
 - [Czujnik szerokości filamentu TSL1401CL](TSL1401CL_Filament_Width_Sensor.md)
 - [Czujnik szerokości filamentu Halla](Hall_Filament_Width_Sensor.md)

@@ -35,33 +35,33 @@ Muitas perguntas que recebemos são perguntas gerais sobre impressão em 3D que 
 
 Todos os novos recursos exigem alguém interessado e capaz de implementar esse recurso. Se você estiver interessado em ajudar a implementar ou testar um novo recurso, você pode procurar pelos desenvolvimentos em andamento no [Fórum da Comunidade Klipper](#community-forum). Há também [Chat no Discord do Klipper](#discord-chat) para discussões entre os colaboradores.
 
-## Help! It doesn't work!
+## Ajuda! Isso não funciona!
 
-Unfortunately, we receive many more requests for help than we could possibly answer. Most problem reports we see are eventually tracked down to:
+Infelizmente recebemos mais pedidos por ajuda do que podemos responder. A maioria dos relatórios de problemas que vemos eventualmente levam a:
 
-1. Subtle errors in the hardware, or
-1. Not following all the steps described in the Klipper documentation.
+1. Pequenos erros de hardware, ou
+1. Não seguir a todos os passos descritos na documentação do Klipper.
 
-If you are experiencing problems we recommend you carefully read the [Klipper documentation](Overview.md) and double check that all steps were followed.
+Se você está experienciando problemas, recomendamos que leia atentamente a [documentação do Klipper](Overview.md) e se certifique que todos os passos foram seguidos.
 
-If you are experiencing a printing problem, then we recommend carefully inspecting the printer hardware (all joints, wires, screws, etc.) and verify nothing is abnormal. We find most printing problems are not related to the Klipper software. If you do find a problem with the printer hardware then you will likely get a better response by searching in a general 3d-printing forum or in a forum dedicated to your printer hardware.
+Se você tem experienciado problemas com impressões, recomendamos que inspecione cuidadosamente o hardware de sua impressora (todas as juntas, fiação, parafusos, etc.) e veja se tem alguma coisa fora do normal. Na nossa experiência a maioria dos problemas com impressões não estão relacionados ao software do Klipper. Caso encontre algum problema com o hardware da impressora, é mais provável encontrar uma solução procurando em um fórum sobre impressão 3d em geral ou em um fórum dedicado ao hardware de sua impressora.
 
-It is also possible to search for similar issues in the [Klipper Community Forum](#community-forum).
+Também é possível procurar por problemas semelhantes no [Fórum Comunitário do Klipper](#community-forum).
 
 Se você estiver interessado em compartilhar seu conhecimento e experiência com outros usuários do Klipper, então você pode se juntar ao [Fórum da Comunidade Klipper](#community-forum) ou ao [Chat no Discord Klipper](#discord-chat). Ambas são comunidades onde os usuários do Klipper podem discutir sobre o Klipper com outros usuários.
 
 ## I found a bug in the Klipper software
 
-Klipper is an open-source project and we appreciate when collaborators diagnose errors in the software.
+Klipper é um projeto de código aberto e apreciamos quando colaboradores diagnosticam erros no software.
 
 Problems should be reported in the [Klipper Community Forum](#community-forum).
 
-There is important information that will be needed in order to fix a bug. Please follow these steps:
+Tem informações importantes que serão necessárias para correção do bug. Por favor siga os seguintes passos:
 
 1. Make sure you are running unmodified code from <https://github.com/Klipper3d/klipper>. If the code has been modified or is obtained from another source, then you should reproduce the problem on the unmodified code from <https://github.com/Klipper3d/klipper> prior to reporting.
 1. If possible, run an `M112` command immediately after the undesirable event occurs. This causes Klipper to go into a "shutdown state" and it will cause additional debugging information to be written to the log file.
-1. Obtain the Klipper log file from the event. The log file has been engineered to answer common questions the Klipper developers have about the software and its environment (software version, hardware type, configuration, event timing, and hundreds of other questions).
-   1. The Klipper log file is located in `/tmp/klippy.log` on the Klipper "host" computer (the Raspberry Pi).
+1. Obtenha o arquivo de registro do Klipper sobre o evento. O arquivo de registro foi projetado para responder a dúvidas comuns que os desenvolvedores do Klipper tenham a respeito do software e seu ambiente (versão de software, tipo de hardware, configuração, horário do evento, e outras centenas de questões).
+   1. O arquivo de registro do Klipper está localizado em `/tmp/klippy.log`, no computador que hospeda o Klipper (o Raspberry Pi).
    1. An "scp" or "sftp" utility is needed to copy this log file to your desktop computer. The "scp" utility comes standard with Linux and MacOS desktops. There are freely available scp utilities for other desktops (eg, WinSCP). If using a graphical scp utility that can not directly copy `/tmp/klippy.log` then repeatedly click on `..` or `parent folder` until you get to the root directory, click on the `tmp` folder, and then select the `klippy.log` file.
    1. Copy the log file to your desktop so that it can be attached to an issue report.
    1. Do not modify the log file in any way; do not provide a snippet of the log. Only the full unmodified log file provides the necessary information.

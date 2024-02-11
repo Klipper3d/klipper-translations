@@ -20,7 +20,7 @@ velocity(time) = start_velocity + accel*time
 
 ![trapezoid](img/trapezoid.svg.png)
 
-It's called a "trapezoid generator" because a velocity diagram of the move looks like a trapezoid.
+Его называют "генератором трапеций", потому что диаграмма скорости движения похожа на трапецию.
 
 Крейсерская скорость всегда больше или равна как начальной, так и конечной скорости. Фаза разгона может быть нулевой (если начальная скорость равна крейсерской), фаза крейсерской может быть нулевой (если после разгона движение сразу начинает замедляться), и/или фаза замедления может быть нулевой (если конечная скорость равна крейсерской).
 
@@ -28,23 +28,23 @@ It's called a "trapezoid generator" because a velocity diagram of the move looks
 
 ## Look-ahead
 
-The "look-ahead" system is used to determine cornering speeds between moves.
+Система "look-ahead" используется для определения скорости прохождения поворотов между ходами.
 
-Consider the following two moves contained on an XY plane:
+Рассмотрим следующие два движения, расположенные на плоскости XY:
 
 ![corner](img/corner.svg.png)
 
-In the above situation it is possible to fully decelerate after the first move and then fully accelerate at the start of the next move, but that is not ideal as all that acceleration and deceleration would greatly increase the print time and the frequent changes in extruder flow would result in poor print quality.
+В описанной выше ситуации можно полностью замедлиться после первого движения и затем полностью ускориться в начале следующего движения, но это не идеальный вариант, поскольку все эти ускорения и замедления значительно увеличат время печати, а частые изменения потока в экструдере приведут к ухудшению качества печати.
 
-To solve this, the "look-ahead" mechanism queues multiple incoming moves and analyzes the angles between moves to determine a reasonable speed that can be obtained during the "junction" between two moves. If the next move is nearly in the same direction then the head need only slow down a little (if at all).
+Чтобы решить эту проблему, механизм "look-ahead" ставит в очередь несколько входящих ходов и анализирует углы между ними, чтобы определить разумную скорость, которую можно получить на "стыке" между двумя ходами. Если следующий ход почти в том же направлении, то голове нужно лишь немного замедлиться (если это вообще возможно).
 
 ![lookahead](img/lookahead.svg.png)
 
-However, if the next move forms an acute angle (the head is going to travel in nearly a reverse direction on the next move) then only a small junction speed is permitted.
+Однако если следующий ход образует острый угол (голова будет двигаться почти в обратном направлении на следующем ходу), то допускается лишь небольшая скорость перехода.
 
 ![lookahead](img/lookahead-slow.svg.png)
 
-The junction speeds are determined using "approximated centripetal acceleration". Best [described by the author](https://onehossshay.wordpress.com/2011/09/24/improving_grbl_cornering_algorithm/). However, in Klipper, junction speeds are configured by specifying the desired speed that a 90° corner should have (the "square corner velocity"), and the junction speeds for other angles are derived from that.
+Скорости на перекрестках определяются с помощью "приближенного центростремительного ускорения". Лучшее [описано автором](https://onehossshay.wordpress.com/2011/09/24/improving_grbl_cornering_algorithm/). Однако в Klipper скорости переходов настраиваются путем указания желаемой скорости, которую должен иметь угол 90° ("квадратная угловая скорость"), а скорости переходов для других углов определяются исходя из этого.
 
 Key formula for look-ahead:
 

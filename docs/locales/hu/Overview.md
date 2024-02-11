@@ -23,7 +23,7 @@
    - [Kézi szintezés](Manual_Level.md): Z végállások kalibrálása (és hasonlók).
    - [Tárgyasztal háló](Bed_Mesh.md): X-Y-helyeken alapuló tárgyasztal szintkorrekció.
    - [Végállás fázis](Endstop_Phase.md): Z végállás pozícionálása lépéssegédlettel.
-   - [Axis Twist Compensation](Axis_Twist_Compensation.md): A tool to compensate for inaccurate probe readings due to twist in X gantry.
+   - [Axis Twist Compensation](Axis_Twist_Compensation.md): Eszköz az X portál csavarodásából adódó pontatlan szonda leolvasások kompenzálására.
 - [Rezonancia kompenzáció](Resonance_Compensation.md): Egy eszköz a nyomatok gyűrődésének (ringing) csökkentésére.
    - [Rezonanciák mérése](Measuring_Resonances.md): adxl345 gyorsulásmérő hardver használatával kapcsolatos információk a rezonancia méréséhez.
 - [Nyomás előtolás](Pressure_Advance.md): Az extruder nyomásának kalibrálása.
@@ -57,8 +57,8 @@
 - [Raspberry Pi mint mikrokontroller](RPi_microcontroller.md): A Raspberry Pi GPIO-tűire csatlakoztatott eszközök vezérlésének részletei.
 - [Beaglebone](Beaglebone.md): Klipper futtatásának részletei a Beaglebone PRU-n.
 - [Bootloaderek](Bootloaders.md): Fejlesztői információk a mikrokontrollerek égetéséről.
-- [Bootloader Entry](Bootloader_Entry.md): Requesting the bootloader.
+- [Bootloader Entry](Bootloader_Entry.md): Rendszerbetöltő kérése.
 - [CAN-busz](CANBUS.md): Információk a CAN-busz Klipper-el való használatáról.
-   - [CAN bus troubleshooting](CANBUS_Troubleshooting.md): Tips for troubleshooting CAN bus.
+   - [CAN bus troubleshooting](CANBUS_Troubleshooting.md): Tippek a CAN-busz hibaelhárításához.
 - [TSL1401CL szálszélesség érzékelő](TSL1401CL_Filament_Width_Sensor.md)
 - [Hall szálszélesség érzékelő](Hall_Filament_Width_Sensor.md)

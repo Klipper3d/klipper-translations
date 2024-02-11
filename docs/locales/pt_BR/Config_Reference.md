@@ -2040,22 +2040,21 @@ Custom ADC temperature sensors (one may define any number of sections with an "a
 #temperature2:
 #voltage2:
 #...
-#   A set of temperatures (in Celsius) and voltages (in Volts) to use
-#   as reference when converting a temperature. A heater section using
-#   this sensor may also specify adc_voltage and voltage_offset
-#   parameters to define the ADC voltage (see "Common temperature
-#   amplifiers" section for details). At least two measurements must
-#   be provided.
+#   Uma série de temperaturas (em Celsius) e tensões (em Volts) para usar
+#   como referência ao converter uma temperatura. Uma seção de aquecedor usando
+#   esse sensor pode também especificar os dados de adc_voltage e voltage_offset
+#   para definir a voltagem ADC (ver a sessão "Amplificadores de temperatura comuns"
+#   para mais detalhes). Pelo menos duas medições devem ser fornecidas.
 #temperature1:
 #resistance1:
 #temperature2:
 #resistance2:
 #...
-#   Alternatively one may specify a set of temperatures (in Celsius)
-#   and resistance (in Ohms) to use as reference when converting a
-#   temperature. A heater section using this sensor may also specify a
-#   pullup_resistor parameter (see "extruder" section for details). At
-#   least two measurements must be provided.
+#   Alternativamente se deve especificar uma série de temperaturas (em Celsius)
+#   e resistências (em Ohms) para usar como referência ao converter uma
+#   temperatura. Uma seção de aquecedor usando esse sensor também deve especificar a
+#   propriedade pullup_resistor (ver a seção "Extrusora" para mais detalhes).
+#   Pelo menos duas medições devem ser fornecidas.
 ```
 
 ### [heater_generic]
@@ -3367,36 +3366,36 @@ Statically configured AD5206 digipots connected via SPI bus (one may define any 
 ```
 [ad5206 my_digipot]
 enable_pin:
-#   The pin corresponding to the AD5206 chip select line. This pin
-#   will be set to low at the start of SPI messages and raised to high
-#   after the message completes. This parameter must be provided.
+#   O pino correspondente a linha de seleção do chip AD5206. Esse pino
+#   será ajustado para low no inicio de mensagens SPI e elevado para high
+#   após a conclusão da mensagem. Esse parâmetro deve ser fornecido.
 #spi_speed:
 #spi_bus:
 #spi_software_sclk_pin:
 #spi_software_mosi_pin:
 #spi_software_miso_pin:
-#   See the "common SPI settings" section for a description of the
-#   above parameters.
+#   Ver a seção "ajustes de SPI comuns" para a descrição dos
+#   parâmetros acima.
 #channel_1:
 #channel_2:
 #channel_3:
 #channel_4:
 #channel_5:
 #channel_6:
-#   The value to statically set the given AD5206 channel to. This is
-#   typically set to a number between 0.0 and 1.0 with 1.0 being the
-#   highest resistance and 0.0 being the lowest resistance. However,
-#   the range may be changed with the 'scale' parameter (see below).
-#   If a channel is not specified then it is left unconfigured.
+#   O valor para definir estaticamente o referido canal do AD5206. Esse é
+#   tipicamente definido com um número entre 0.0 e 1.0, sendo 1.0 a
+#   resistência mais alta e 0.0 a resistência mais baixa. Porém,
+#   a faixa deve ser modificada com o parâmetro 'scale' (ver abaixo).
+#   Se um canal não é especificado, esse é deixado sem configuração.
 #scale:
-#   This parameter can be used to alter how the 'channel_x' parameters
-#   are interpreted. If provided, then the 'channel_x' parameters
-#   should be between 0.0 and 'scale'. This may be useful when the
-#   AD5206 is used to set stepper voltage references. The 'scale' can
-#   be set to the equivalent stepper amperage if the AD5206 were at
-#   its highest resistance, and then the 'channel_x' parameters can be
-#   specified using the desired amperage value for the stepper. The
-#   default is to not scale the 'channel_x' parameters.
+#   Essa propriedade pode ser usada para alterar como os parâmetros 'channel_x'
+#   são interpretados. Se providos, os dados 'channel_x'
+#   devem estar entre 0.0 e 'scale'. Isso pode ser útil quando o
+#   AD5206 é usado para ajustar a referência de voltagem de passo. A 'scale' pode
+#   ser ajustada como a amperagem equivalente de passo, caso o AD5206 esteja em
+#   sua resistência mais alta, e então as propriedades 'channel_x' podem ser
+#   especificadas usando o valor desejado de amperagem para o passo. O
+#   padrão é não colocar em escala os parâmetros 'channel_x'.
 ```
 
 ### [mcp4451]

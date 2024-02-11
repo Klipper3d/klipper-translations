@@ -23,7 +23,7 @@ Bem-vindo à documentação do Klipper. Se for novo no Klipper, comece com os do
    - [Nivelamento Manual](Manual_Level.md): Calibração de fim de curso de Z (e similares).
    - [Malha da Cama](Bed_Mesh.md): Correção de altura da cama baseada em coordenadas XY.
    - [Fase do Fim de Curso](Endstop_Phase.md): Posicionamento do fim de curso de Z assistido por motor de passo.
-   - [Axis Twist Compensation](Axis_Twist_Compensation.md): A tool to compensate for inaccurate probe readings due to twist in X gantry.
+   - [Axis Twist Compensation](Axis_Twist_Compensation.md): Uma ferramenta para compensar leituras imprecisas da sonda devido à torção no pórtico X.
 - [Compensação de ressonância](Resonance_Compensation.md): Uma ferramenta para reduzir o ringing (vibrações indesejadas) nas impressões.
    - [Medindo ressonâncias](Measuring_Resonances.md): Informações sobre como usar um acelerômetro adxl345 para medir ressonâncias.
 - [Avanço de pressão](Pressure_Advance.md): Calibrar a pressão do extrusor.
@@ -57,8 +57,8 @@ Bem-vindo à documentação do Klipper. Se for novo no Klipper, comece com os do
 - [Raspberry Pi como Microcontrolador](RPi_microcontroller.md): Detalhes para controlar dispositivos conectados aos pinos GPIO de um Raspberry Pi.
 - [Beaglebone](Beaglebone.md): Detalhes para rodar Klipper no Beaglebone PRU.
 - [Bootloaders](Bootloaders.md): Informações de desenvolvedor sobre a gravação de microcontrolador.
-- [Bootloader Entry](Bootloader_Entry.md): Requesting the bootloader.
+- [Entrada do bootloader](Bootloader_Entry.md): Solicitando o bootloader.
 - [Barramento CAN](CANBUS.md): Informações sobre o uso do barramento CAN com Klipper.
-   - [CAN bus troubleshooting](CANBUS_Troubleshooting.md): Tips for troubleshooting CAN bus.
+   - [Solução de problemas do barramento CAN](CANBUS_Troubleshooting.md): Dicas para solução de problemas do barramento CAN.
 - [Sensor de largura de filamento TSL1401CL](TSL1401CL_Filament_Width_Sensor.md)
 - [Sensor de largura de filamento Hall](Hall_Filament_Width_Sensor.md)

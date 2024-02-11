@@ -1,6 +1,6 @@
 # Předstih tlaku
 
-This document provides information on tuning the "pressure advance" configuration variable for a particular nozzle and filament. The pressure advance feature can be helpful in reducing ooze. For more information on how pressure advance is implemented see the [kinematics](Kinematics.md) document.
+Tento dokument poskytuje informace o ladění konfigurační proměnné "pressure advance" pro konkrétní trysku a filament. Funkce pressure advance může být užitečná při snižování vytékání. Pro více informací o tom, jak je pressure advance implementován, viz dokument [kinematics](Kinematics.md).
 
 ## Tuning pressure advance
 

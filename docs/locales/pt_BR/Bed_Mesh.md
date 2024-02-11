@@ -1,4 +1,4 @@
-# Malha da Cama
+# Malha da Base
 
 O módulo "Bed Mesh" pode ser usado para compensar irregularidades na superfície da cama a fim de obter uma primeira camada consistente em toda cama. Deve-se observar que a correção baseada em software não alcançará um resultado perfeito, podendo apenas se aproximar da forma da cama. Além disso, o "Bed Mesh" não pode corrigir problemas mecânicos e/ou elétricos. Se um eixo estiver desalinhado ou uma sonda não for precisa, o módulo "bed_mesh" não receberá resultados precisos do processo de sondagem da superfície.
 
@@ -118,9 +118,9 @@ fade_target: 0
 - `fade_end: 10` *Valor padrão: 0* A altura em Z em que o processo de "fade" deve ser concluído. Se esse valor for menor que `fade_start`, o "fade" será desabilitado. Esse valor pode ser ajustado dependendo do quão deformada é a superfície de impressão. Uma superfície significativamente deformada deve ter o "fade" concluído ao longo de uma distância maior. Uma superfície quase plana pode reduzir esse valor para que o "fade" seja concluído mais rapidamente. Um valor de 10mm é uma escolha razoável para começar, se o valor padrão de 1 para `fade_start` for usado.
 - `fade_target: 0` *Valor padrão: O valor médio da coordenada Z da malha* O `fade_target` pode ser considerado como um deslocamento Z adicional aplicado em toda a cama após a conclusão do fade. Geralmente, gostaríamos que esse valor fosse 0, no entanto, há circunstâncias em que não deve ser. Por exemplo, suponha que sua posição de homing (inicial) na cama seja uma exceção, ou seja, ela está 0,2 mm abaixo da altura média sondada da cama. Se o `fade_target` for 0, o fade reduzirá a impressão em uma média de 0,2 mm em toda a cama. Ao definir o `fade_target` para 0,2, a área de homing se expandirá em 0,2 mm, mas o restante da cama será dimensionado com precisão. Geralmente, é uma boa ideia deixar o `fade_target` fora da configuração para que a altura média da malha seja usada; no entanto, pode ser desejável ajustar manualmente o `fade_target` se você desejar imprimir em uma parte específica da cama.
 
-### Configuring the zero reference position
+### Configurando a posição de referência zero
 
-Many probes are susceptible to "drift", ie: inaccuracies in probing introduced by heat or interference. This can make calculating the probe's z-offset challenging, particularly at different bed temperatures. As such, some printers use an endstop for homing the Z axis and a probe for calibrating the mesh. In this configuration it is possible offset the mesh so that the (X, Y) `reference position` applies zero adjustment. The `reference postion` should be the location on the bed where a [Z_ENDSTOP_CALIBRATE](./Manual_Level#calibrating-a-z-endstop) paper test is performed. The bed_mesh module provides the `zero_reference_position` option for specifying this coordinate:
+Muitas sondas são suscetíveis a “desvios”, ou seja: imprecisões na sondagem introduzidas por calor ou interferência. Isso pode tornar o cálculo do z-offset da sonda um desafio, especialmente em diferentes temperaturas do leito. Como tal, algumas impressoras usam um fim de curso para posicionar o eixo "Z" e uma sonda para calibrar a malha. Nesta configuração é possível deslocar a malha para que a `reference position` (X, Y) aplique ajuste zero. A `reference position` deve ser o local na cama onde um teste de papel [Z_ENDSTOP_CALIBRATE](./Manual_Level#calibrating-a-z-endstop) é realizado. O módulo "bed_mesh" fornece a opção `zero_reference_position` para especificar esta coordenada:
 
 ```
 [bed_mesh]
@@ -132,11 +132,11 @@ zero_reference_position: 125, 110
 probe_count: 5, 3
 ```
 
-- `zero_reference_position: ` *Default Value: None (disabled)* The `zero_reference_position` expects an (X, Y) coordinate matching that of the `reference position` described above. If the coordinate lies within the mesh then the mesh will be offset so the reference position applies zero adjustment. If the coordinate lies outside of the mesh then the coordinate will be probed after calibration, with the resulting z-value used as the z-offset. Note that this coordinate must NOT be in a location specified as a `faulty_region` if a probe is necessary.
+- `zero_reference_position: ` *Valor padrão: Nenhum (desabilitado)* A `zero_reference_position` espera uma coordenada (X, Y) correspondente à `reference position` descrita acima. Se a coordenada estiver dentro da malha, então a malha será deslocada para que a posição de referência aplique ajuste zero. Se a coordenada estiver fora da malha, então a coordenada será sondada após a calibração, com o z-value resultante usado como z-offset. Observe que esta coordenada NÃO deve estar em um local especificado como `faulty_region` se uma sonda for necessária.
 
-#### The deprecated relative_reference_index
+#### Obsoleto relative_reference_index
 
-Existing configurations using the `relative_reference_index` option must be updated to use the `zero_reference_position`. The response to the [BED_MESH_OUTPUT PGP=1](#output) gcode command will include the (X, Y) coordinate associated with the index; this position may be used as the value for the `zero_reference_position`. The output will look similar to the following:
+As configurações existentes que usam a opção `relative_reference_index` devem ser atualizadas para usar a `zero_reference_position`. A resposta ao comando gcode [BED_MESH_OUTPUT PGP=1](#output) incluirá a coordenada (X, Y) associada ao índice; esta posição pode ser usada como o valor para `zero_reference_position`. A saída será semelhante à seguinte:
 
 ```
 // bed_mesh: generated points
@@ -149,9 +149,9 @@ Existing configurations using the `relative_reference_index` option must be upda
 // bed_mesh: relative_reference_index 24 is (131.5, 108.0)
 ```
 
-*Note: The above output is also printed in `klippy.log` during initialization.*
+*Nota: A saída acima também é impressa em `klippy.log` durante a inicialização.*
 
-Using the example above we see that the `relative_reference_index` is printed along with its coordinate. Thus the `zero_reference_position` is `131.5, 108`.
+Usando o exemplo acima, vemos que o `relative_reference_index` é impresso junto com sua coordenada. Portanto, a `zero_reference_position` é `131,5, 108`.
 
 ### Regiões defeituosas
 

@@ -1,8 +1,8 @@
 # Bootloaders
 
-This document provides information on common bootloaders found on micro-controllers that Klipper supports.
+Tento dokument poskytuje informace o běžných bootloaderech na mikrokontrolérech, které Klipper podporuje.
 
-The bootloader is 3rd-party software that runs on the micro-controller when it is first powered on. It is typically used to flash a new application (eg, Klipper) to the micro-controller without requiring specialized hardware. Unfortunately, there is no industry wide standard for flashing a micro-controller, nor is there a standard bootloader that works across all micro-controllers. Worse, it is common for each bootloader to require a different set of steps to flash an application.
+Bootloader je softwarový nástroj třetí strany, který běží na mikrokontroléru při jeho prvním zapnutí. Obvykle se používá k nahrání nové aplikace (například Klipper) na mikrokontrolér bez potřeby specializovaného hardwaru. Bohužel neexistuje žádný průmyslový standard pro nahrávání mikrokontroléru, a není ani standardní bootloader, který by fungoval na všech mikrokontrolérech. Navíc je běžné, že každý bootloader vyžaduje jiný soubor kroků k nahrání aplikace.
 
 If one can flash a bootloader to a micro-controller then one can generally also use that mechanism to flash an application, but care should be taken when doing this as one may inadvertently remove the bootloader. In contrast, a bootloader will generally only permit a user to flash an application. It is therefore recommended to use a bootloader to flash an application where possible.
 

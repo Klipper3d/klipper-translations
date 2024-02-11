@@ -23,7 +23,7 @@ Bienvenido a la documentación de Klipper. Si eres nuevo con Klipper, comienza p
    - [Nivel manual](Manual_Level.md): Calibración de paradas finales de Z (y similares).
    - [Cama de malla](Bed_Mesh.md): Corrección de la altura de la cama basada en las coordenadas XY.
    - [Fase de parada final](Endstop_Phase.md): Posicionamiento del tope Z asistido por el motor a pasos.
-   - [Axis Twist Compensation](Axis_Twist_Compensation.md): A tool to compensate for inaccurate probe readings due to twist in X gantry.
+   - [Compensación por giro de un eje](Axis_Twist_Compensation.md): Un instrumento para compensar las lecturas de sonda inexactas debido al giro en el armazón X .
 - [Compensación de resonancia](Resonance_Compensation.md): Una herramienta para reducir las irregularidades en las impresiones.
    - [Resonancias de medida](Measuring_Resonances.md): Información sobre el uso del acelerómetro adxl345 para medir la resonancia.
 - [Avance de presión](Pressure_Advance.md): Calibrar la presión del extrusor.
@@ -57,8 +57,8 @@ Bienvenido a la documentación de Klipper. Si eres nuevo con Klipper, comienza p
 - [Raspberry PI como un micro controlador](RPI_microcontroller.md): Detalles para controlar dispositivos cableados a los pines GPIO de la Raspberry Pi.
 - [Beaglebone](Beaglebone.md): Detalles para correr Klipper en la PRU de Beaglebone.
 - [Cargadores de arranque](Bootloaders.md): Información para desarrolladores sobre el flasheo de microcontroladores.
-- [Bootloader Entry](Bootloader_Entry.md): Requesting the bootloader.
+- [Entrada al programa de inicio](Bootloader_Entry.md): Solicitando el programa para iniciar.
 - [Bus CAN](CANBUS.md): información para utilizar un bus CAN con Klipper.
-   - [CAN bus troubleshooting](CANBUS_Troubleshooting.md): Tips for troubleshooting CAN bus.
+   - [Resolución de Problemas del bus CAN](CANBUS-Troubleshooting.md): Consejos para la resolución de problems con el bus CAN.
 - [Sensor de anchura del filamento TSL1401CL](TSL1401CL_Filament_Width_Sensor.md)
 - [Sensor de anchura del filamento Hall](Hall_Filament_Width_Sensor.md)

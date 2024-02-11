@@ -12,4 +12,4 @@ Szablony poleceń
 
 Dokumentacja dla programistów
 
-Dokumenty specyficzne dla urządzenia
+Dokumenty specyfikacyjne urządzenia

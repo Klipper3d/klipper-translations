@@ -28,7 +28,7 @@ Manually move all the printer axes so that none of them are in contact with an e
 
 If the endstop appears inverted (it reports "open" when triggered and vice-versa) then add a "!" to the pin definition (for example, "endstop_pin: ^PA2"), or remove the "!" if there is already one present.
 
-Jeżeli endstop w ogóle się nie zmienia, to generalnie oznacza to, że endstop jest podłączony do innego pinu. Jednak może to również wymagać zmiany ustawienia pullup dla tego pinu ('^' na początku nazwy endstop_pin - większość drukarek będzie używać rezystora pullup i '^' powinno być obecne).
+Jeżeli stan krańcówki nie zmienia się, to oznacza to, że jest ona podłączona do innego pinu. Jednak może również być wymagana zmiana ustawienia pullup dla tego pinu ('^' na początku nazwy endstop_pin - większość drukarek będzie używać rezystora pullup i '^' powinno to być zdefiniowane).
 
 ## Weryfikacja silników krokowych
 

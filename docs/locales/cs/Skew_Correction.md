@@ -1,6 +1,6 @@
-# Skew correction
+# Korekce zkosení
 
-Software based skew correction can help resolve dimensional inaccuracies resulting from a printer assembly that is not perfectly square. Note that if your printer is significantly skewed it is strongly recommended to first use mechanical means to get your printer as square as possible prior to applying software based correction.
+Korekce zkosení založená na softwaru může pomoci vyřešit rozměrové nepřesnosti vznikající v důsledku montáže tiskárny, která není zcela čtvercová. Upozorňujeme však, že pokud je vaše tiskárna výrazně zkosená, silně doporučujeme nejprve použít mechanická opatření k dosažení co nejvíce čtvercového stavu tiskárny před použitím korekce založené na softwaru.
 
 ## Print a Calibration Object
 

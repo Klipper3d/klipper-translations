@@ -1,8 +1,8 @@
 # Configuration reference
 
-This document is a reference for options available in the Klipper config file.
+Tento dokument je příručkou pro možnosti dostupné v konfiguračním souboru Klipperu.
 
-The descriptions in this document are formatted so that it is possible to cut-and-paste them into a printer config file. See the [installation document](Installation.md) for information on setting up Klipper and choosing an initial config file.
+Popisy v tomto dokumentu jsou formátovány tak, aby bylo možné je zkopírovat a vložit do konfiguračního souboru tiskárny. Viz [dokumentace k instalaci](Installation.md) pro informace o nastavení Klipperu a výběru počátečního konfiguračního souboru.
 
 ## Micro-controller configuration
 

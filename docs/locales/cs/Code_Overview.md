@@ -1,6 +1,6 @@
 # Code overview
 
-This document describes the overall code layout and major code flow of Klipper.
+Tento dokument popisuje celkovou strukturu kódu a hlavní kód Klipperu.
 
 ## Directory Layout
 

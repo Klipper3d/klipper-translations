@@ -4,7 +4,7 @@ Programowa korekcja przekrzywienia może pomóc w rozwiązaniu problemu niedokł
 
 ## Drukowanie obiektu kalibracyjnego
 
-The first step in correcting skew is to print a [calibration object](https://www.thingiverse.com/thing:2563185/files) along the plane you want to correct. There is also a [calibration object](https://www.thingiverse.com/thing:2972743) that includes all planes in one model. You want the object oriented so that corner A is toward the origin of the plane.
+Pierwszym krokiem w korygowaniu przekrzywienia jest wydrukowanie [obiektu kalibracji](https://www.thingiverse.com/thing:2563185/files) wzdłuż płaszczyzny, którą chcesz skorygować. Dostępny jest również [obiekt kalibracji](https://www.thingiverse.com/thing:2972743), który zawiera wszystkie płaszczyzny w jednym modelu. Obiekt powinien być zorientowany tak, aby narożnik A był skierowany w stronę początku płaszczyzny.
 
 Make sure that no skew correction is applied during this print. You may do this by either removing the `[skew_correction]` module from printer.cfg or by issuing a `SET_SKEW CLEAR=1` gcode.
 

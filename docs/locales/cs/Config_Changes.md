@@ -1,6 +1,6 @@
 # Configuration Changes
 
-This document covers recent software changes to the config file that are not backwards compatible. It is a good idea to review this document when upgrading the Klipper software.
+Tento dokument popisuje nedávné softwaru v konfiguračním souboru, které nejsou zpětně kompatibilní. Při aktualizaci softwaru Klipper je dobré si tento dokument prostudovat.
 
 All dates in this document are approximate.
 
