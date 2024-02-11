@@ -1,6 +1,6 @@
 # Manual leveling
 
-This document describes tools for calibrating a Z endstop and for performing adjustments to bed leveling screws.
+Tento dokument popisuje nástroje pro kalibraci Z koncového spínače a pro použití šroubů vyrovnávání podložky.
 
 ## Calibrating a Z endstop
 

@@ -1,8 +1,8 @@
 # CANBUS
 
-This document describes Klipper's CAN bus support.
+Tento dokument popisuje podporu CAN sběrnice Klipperem.
 
-## Device Hardware
+## Hardware zařízení
 
 Klipper currently supports CAN on stm32, SAME5x, and rp2040 chips. In addition, the micro-controller chip must be on a board that has a CAN transceiver.
 

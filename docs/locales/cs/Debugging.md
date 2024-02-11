@@ -1,6 +1,6 @@
 # Debugging
 
-This document describes some of the Klipper debugging tools.
+Tento dokument popisuje některé nástroje pro ladění Klipperu.
 
 ## Running the regression tests
 

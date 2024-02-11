@@ -2185,7 +2185,7 @@ sensor_type: BME280
 #   above parameters.
 ```
 
-### AHT10/AHT20/AHT21 temperature sensor
+### AHT10/AHT20/AHT21 sensor de temperatura
 
 AHT10/AHT20/AHT21 two wire interface (I2C) environmental sensors. Note that these sensors are not intended for use with extruders and heater beds, but rather for monitoring ambient temperature (C) and relative humidity. See [sample-macros.cfg](../config/sample-macros.cfg) for a gcode_macro that may be used to report humidity in addition to temperature.
 

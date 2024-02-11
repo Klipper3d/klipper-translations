@@ -4,7 +4,7 @@ A Klipper kiadások története. A Klipper telepítésével kapcsolatos informá
 
 ## Klipper 0.11.0
 
-Elérhető a 20201020. Főbb változások ebben a kiadásban:
+Elérhető a 20221128. Főbb változások ebben a kiadásban:
 
 * Trinamic léptetőmotor-meghajtó "lépés mindkét szélén" optimalizálás.
 * A Python3 támogatása. A Klipper gazdagép kódja Python2 vagy Python3 programmal is fut.

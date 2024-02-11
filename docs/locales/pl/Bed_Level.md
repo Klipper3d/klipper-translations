@@ -1,8 +1,8 @@
 # Bed leveling
 
-Poziomowanie stołu jest kluczowe w otrzymywaniu dobrej jakosci wydruków.Jesli stół jest nieprawidłowo "wypoziomowany" prowadzi to do słabej adhezji , podwijania krawędzi i drobnych problemów przez cały wydruk .Ten dokument pokazuje jak wykononać poziomowanie stołu w systemie Klipper
+Poziomowanie stołu jest kluczowe w otrzymywaniu dobrej jakości wydruków. Jeżeli stół jest nieprawidłowo "wypoziomowany" prowadzi to do słabej adhezji filamentu, podwijania krawędzi obiektów i drobnych problemów przez cały wydruk .Ten dokument pokazuje jak wykonać poziomowanie stołu w systemie Klipper.
 
-Bardzo ważne jest zrozumienie celu poziomowania stołu. Jeśli drukarka otrzyma komendę `X0 Y0 Z10` podczas wydruku , wtedy celem dla drukarki jest utrzymanie dyszy dokładnie 10mm nad stołem.Drukarka zanając odstęp od stołu przy komendzie `X50 Z10` będzie wstanie utrzymać dystans od stołu 10mm przez cały ruch niezależnie od płaszczyzny stołu.
+Bardzo ważne jest zrozumienie celu poziomowania stołu. Jeśli drukarka otrzyma komendę `X0 Y0 Z10` podczas wydruku , wtedy celem dla drukarki jest utrzymanie dyszy dokładnie 10mm nad stołem. Dając kolejną komendę `X50 Z10` celem jest utrzymanie stałej wysokości 10mm między stołem a głowicą podczas wykonywania ruchu.
 
 W celu uzyskania dobrej jakości wydruków drukarka powinna być skalibrowana tak, aby odległości Z były dokładne z dokładnością do około 25 mikronów (.025mm). Jest to niewielka odległość - znacznie mniejsza niż szerokość typowego ludzkiego włosa. Skala ta nie może być mierzona "na oko". Subtelne efekty (takie jak rozszerzalność cieplna) wpływają na pomiary w tej skali. Sekretem uzyskania wysokiej dokładności jest zastosowanie powtarzalnego procesu oraz metody poziomowania, która wykorzystuje wysoką dokładność własnego systemu ruchu drukarki.
 

@@ -2,7 +2,7 @@
 
 This document describes the method for calibrating the X, Y, and Z offsets of an "automatic z probe" in Klipper. This is useful for users that have a `[probe]` or `[bltouch]` section in their config file.
 
-## Calibrating probe X and Y offsets
+## Kalibrace ofsetu sondy X a Y
 
 To calibrate the X and Y offset, navigate to the OctoPrint "Control" tab, home the printer, and then use the OctoPrint jogging buttons to move the head to a position near the center of the bed.
 

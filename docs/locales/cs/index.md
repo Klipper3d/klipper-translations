@@ -1,6 +1,6 @@
 ***
 
-hide:
+skrýt:
 
 - toc title: Welcome
 

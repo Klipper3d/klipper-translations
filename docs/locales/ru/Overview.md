@@ -57,7 +57,7 @@
 - [Raspberry Pi как микроконтроллер](RPi_microcontroller.md): Детали для управления устройствами, подключенными к контактам GPIO Raspberry Pi.
 - [Beaglebone](Beaglebone.md): Подробности для запуска Klipper на Beaglebone PRU.
 - [Bootloaders](Bootloaders.md): Информация для разработчиков о прошивке микроконтроллеров.
-- [Bootloader Entry](Bootloader_Entry.md): Requesting the bootloader.
+- [Bootloader Entry](Bootloader_Entry.md): Запрос загрузчика операционной системы.
 - [CAN шина](CANBUS.md): Информация об использовании шины CAN с Klipper.
    - [CAN bus troubleshooting](CANBUS_Troubleshooting.md): Tips for troubleshooting CAN bus.
 - [TSL1401CL датчик ширины нити](TSL1401CL_Filament_Width_Sensor.md)

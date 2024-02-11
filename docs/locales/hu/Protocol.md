@@ -70,7 +70,7 @@ DECL_ENUMERATION_RANGE("pin", "PC0", 16, 8);
 
 Ha az első példa, a DECL_ENUMERATION() makró felsorolást határoz meg minden olyan parancs/válasz üzenethez, amelynek paraméterneve "spi_bus" vagy "_spi_bus" utótag, e paraméterek esetében az "SPI" karakterlánc érvényes érték, és nullás egész számértékkel kerül továbbításra.
 
-Lehetőség van felsorolási tartomány kijelölésére is. A második példában egy "pin" paraméter (vagy bármely paraméter, amelynek utótagja "_pin") elfogadná a PC0, PC1, PC2, ..., PC7 értékeket. A karakterláncokat a 16, 17, 18, ..., ..., 23 egész számokkal kell továbbítani.
+Lehetőség van felsorolási tartomány kijelölésére is. A második példában egy "pin" paraméter (vagy bármely paraméter, amelynek utótagja "_pin") elfogadná a PC0, PC1, PC2, ..., PC7 értékeket. A karakterláncokat a 16, 17, 18, ..., ..., 23 egész számokkal kekerülnek továbbításra.
 
 ### Állandók deklarálása
 

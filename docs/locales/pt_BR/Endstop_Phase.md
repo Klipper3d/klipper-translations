@@ -1,4 +1,4 @@
-# Fase de fim de curso
+# Estágio da chave de fim de curso
 
 Este documento descreve o sistema de fim de curso do Klipper ajustado pela fase do motor de passo. Esta funcionalidade pode melhorar a precisão das chaves de fim de curso tradicionais. É mais útil ao usar um driver de motor de passo Trinamic que possua configuração em tempo de execução.
 

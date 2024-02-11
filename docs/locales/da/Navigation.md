@@ -1,15 +1,15 @@
-Klipper documentation
+Klipper dokumentation
 
-Installation and Configuration
+Installation og konfigurering
 
-Configuration Reference
+Konfigurationsreference
 
-Bed Level
+Bed level
 
 Resonans kompensering
 
-Command templates
+Kommando skabeloner
 
-Developer Documentation
+Udvikler-dokumentation
 
-Device Specific Documents
+Enheds-specifikke dokumenter

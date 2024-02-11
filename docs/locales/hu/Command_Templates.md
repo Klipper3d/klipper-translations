@@ -1,4 +1,4 @@
-# Parancssablonok
+# Parancs sablonok
 
 Ez a dokumentum a G-kód parancssorozatok gcode_macro (és hasonló) konfigurációs szakaszokban történő implementálásáról nyújt információt.
 

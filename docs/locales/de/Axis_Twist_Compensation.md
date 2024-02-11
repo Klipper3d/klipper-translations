@@ -1,4 +1,4 @@
-# Axis Twist Compensation
+# Kompensation der Achsenverdrehung
 
 This document describes the [axis_twist_compensation] module.
 

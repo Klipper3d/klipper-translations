@@ -4,7 +4,7 @@ The Bed Mesh module may be used to compensate for bed surface irregularities to 
 
 Prior to Mesh Calibration you will need to be sure that your Probe's Z-Offset is calibrated. If using an endstop for Z homing it will need to be calibrated as well. See [Probe Calibrate](Probe_Calibrate.md) and Z_ENDSTOP_CALIBRATE in [Manual Level](Manual_Level.md) for more information.
 
-## Basic Configuration
+## Základní konfigurace
 
 ### Obdelníková tisková plocha
 

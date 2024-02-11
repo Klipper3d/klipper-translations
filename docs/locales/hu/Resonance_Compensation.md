@@ -224,24 +224,24 @@ Lehetséges, hogy egy idő után a rezonanciafrekvenciák megváltoztak. Pl. tal
 
 ### Támogatott a kettős kocsi beállítása a bemeneti formázókkal?
 
-Yes. In this case, one should measure the resonances twice for each carriage. For example, if the second (dual) carriage is installed on X axis, it is possible to set different input shapers for X axis for the primary and dual carriages. However, the input shaper for Y axis should be the same for both carriages (as ultimately this axis is driven by one or more stepper motors each commanded to perform exactly the same steps). One possibility to configure the input shaper for such setups is to keep `[input_shaper]` section empty and additionally define a `[delayed_gcode]` section in the `printer.cfg` as follows:
+Igen. Ebben az esetben minden kocsinál kétszer kell megmérni a rezonanciákat. Például, ha a második (kettős) kocsi az X tengelyre van felszerelve, lehetőség van különböző bemeneti formálók beállítására az X tengelyhez az elsődleges és a kettős kocsihoz. Az Y tengely bemeneti alakítójának azonban mindkét kocsinál azonosnak kell lennie (mivel végső soron ezt a tengelyt egy vagy több léptetőmotor hajtja, amelyek mindegyike pontosan ugyanazokat a lépéseket hajtja végre). Az egyik lehetőség a bemeneti alakító konfigurálására az ilyen beállításokhoz az, hogy az `[input_shaper]' szakaszt üresen hagyja, és a `printer.cfg' fájlban a következőképpen határozzon meg egy `[delayed_gcode]' szakaszt:
 
 ```
 [input_shaper]
-# Intentionally empty
+# Szándékosan üres
 
 [delayed_gcode init_shaper]
-initial_duration: 0.1
+kezdeti_időtartam: 0.1
 gcode:
-  SET_DUAL_CARRIAGE CARRIAGE=1
-  SET_INPUT_SHAPER SHAPER_TYPE_X=<dual_carriage_shaper> SHAPER_FREQ_X=<dual_carriage_freq> SHAPER_TYPE_Y=<y_shaper> SHAPER_FREQ_Y=<y_freq>
-  SET_DUAL_CARRIAGE CARRIAGE=0
-  SET_INPUT_SHAPER SHAPER_TYPE_X=<primary_carriage_shaper> SHAPER_FREQ_X=<primary_carriage_freq> SHAPER_TYPE_Y=<y_shaper> SHAPER_FREQ_Y=<y_freq>
+   SET_DUAL_CARRIAGE CARRIAGE=1
+   SET_INPUT_SHAPER SHAPER_TYPE_X=<dual_carriage_shaper> SHAPER_FREQ_X=<dual_carriage_shaper> SHAPER_TYPE_Y=<y_shaper> SHAPER_FREQ_Y=<y_freq>
+   SET_DUAL_CARRIAGE CARRIAGE=0
+   SET_INPUT_SHAPER SHAPER_TYPE_X=<primary_carriage_shaper> SHAPER_FREQ_X=<elsődleges_kocsi_gyakoriság> SHAPER_TYPE_Y=<y_shaper> SHAPER_FREQ_Y=<y_freq>
 ```
 
-Note that `SHAPER_TYPE_Y` and `SHAPER_FREQ_Y` should be the same in both commands. It is also possible to put a similar snippet into the start g-code in the slicer, however then the shaper will not be enabled until any print is started.
+Vegye figyelembe, hogy a `SHAPER_TYPE_Y` és `SHAPER_FREQ_Y` mindkét parancsban azonosnak kell lennie. A szeletelőben a kezdő g-kódba is be lehet helyezni egy hasonló részletet, azonban ekkor a formáló nem lesz engedélyezve, amíg a nyomtatás el nem indul.
 
-Note that the input shaper only needs to be configured once. Subsequent changes of the carriages or their modes via `SET_DUAL_CARRIAGE` command will preserve the configured input shaper parameters.
+Vegye figyelembe, hogy a bemeneti alakítót csak egyszer kell konfigurálni. A kocsik vagy módozataik`SET_DUAL_CARRIAGE`paranccsal történő későbbi módosítása megőrzi a konfigurált bemeneti alakformáló paramétereket.
 
 ### Az input_shaper befolyásolja a nyomtatási időt?
 

@@ -2,9 +2,9 @@
 
 Este documento entrega informacion para utilizar el driver de motor paso a paso Trinamic en modo SPI/UART en Klipper.
 
-Klipper can also use Trinamic drivers in their "standalone mode". However, when the drivers are in this mode, no special Klipper configuration is needed and the advanced Klipper features discussed in this document are not available.
+Klipper también puede usar controladores Trinamic en su "modo independiente" ("standalone mode" en inglés). Sin embargo, cuando los controladores están en este modo, no se necesita una configuración especial de Klipper y las funciones avanzadas de Klipper presentadas en este documento no están disponibles.
 
-In addition to this document, be sure to review the [TMC driver config reference](Config_Reference.md#tmc-stepper-driver-configuration).
+Además de este documento, asegúrese de revisar [TMC driver config reference](Config_Reference.md#tmc-stepper-driver-configuration).
 
 ## Tuning motor current
 
@@ -40,25 +40,25 @@ For best positional accuracy consider using spreadCycle mode and disable interpo
 
 If using stealthChop mode then the positional inaccuracy from interpolation is small relative to the positional inaccuracy introduced from stealthChop mode. Therefore tuning interpolation is not considered useful when in stealthChop mode, and one can leave interpolation in its default state.
 
-## Sensorless Homing
+## Proceso de regreso a casa sin sensor
 
-Sensorless homing allows to home an axis without the need for a physical limit switch. Instead, the carriage on the axis is moved into the mechanical limit making the stepper motor lose steps. The stepper driver senses the lost steps and indicates this to the controlling MCU (Klipper) by toggling a pin. This information can be used by Klipper as end stop for the axis.
+El proceso de regreso a casa sin sensor (“Sensorless Homing” en inglés") permite regresar un eje a casa sin la necesidad de un interruptor de límite físico. En su lugar, el carruaje en el eje se mueve hacia el límite mecánico haciendo que el motor paso a paso pierda pasos. El controlador del motor paso a paso detecta los pasos perdidos y alterna un pin para indicar la pérdida al microcontrolador (“MCU”) dominante (Klipper). Klipper puede utilizar esta información como el punto de parada final para el eje.
 
-This guide covers the setup of sensorless homing for the X axis of your (cartesian) printer. However, it works the same with all other axes (that require an end stop). You should configure and tune it for one axis at a time.
+Esta guía cubre como configurar el proceso de regreso a casa sin sensor para el eje X de su impresora (cartesiana). Sin embargo, funciona igual con todos los demás ejes (que requieren parada final). Debe configurarlo y afinarlo para un eje a la vez.
 
-### Limitations
+### Limitaciones
 
-Be sure that your mechanical components are able to handle the load of the carriage bumping into the limit of the axis repeatedly. Especially leadscrews might generate a lot of force. Homing a Z axis by bumping the nozzle into the printing surface might not be a good idea. For best results, verify that the axis carriage will make a firm contact with the axis limit.
+Asegúrese de que sus componentes mecánicos sean capaces de manejar la carga del carruaje chocando contra el límite del eje repetidamente. Especialmente los husillos pues podrían generar mucha fuerza. Posicionar un eje Z golpeando la boquilla contra la superficie de impresión puede que no sea una buena idea. Para obtener los mejores resultados, verifique que el carruaje del eje va hacer un contacto firme con el límite del eje.
 
-Further, sensorless homing might not be accurate enough for your printer. While homing X and Y axes on a cartesian machine can work well, homing the Z axis is generally not accurate enough and may result in an inconsistent first layer height. Homing a delta printer sensorless is not advisable due to missing accuracy.
+Además, es posible que el proceso de retorno a casa sin sensor no sea lo suficientemente preciso para su impresora. Mientras el proceso de retorno a casa de los ejes X e Y en una máquina cartesiana puede funcionar bien, el mismo proceso en el eje Z generalmente no es lo suficientemente preciso y puede resultar en que la primera capa tenga una altura inconsistente. No es aconsejable completar el proceso de retorno a casa sin un sesor en una impresora delta debido a la falta de precisión.
 
-Further, the stall detection of the stepper driver is dependent on the mechanical load on the motor, the motor current and the motor temperature (coil resistance).
+Además, la habilidad de detectar cuando el motor se detiene (“stall detection” en inglés) que se encuentra en el controlador del motor paso a paso depende de la carga mecánica en el motor, la corriente del motor y la temperatura del motor (resistencia de la bobina).
 
-Sensorless homing works best at medium motor speeds. For very slow speeds (less than 10 RPM) the motor does not generate significant back EMF and the TMC cannot reliably detect motor stalls. Further, at very high speeds, the back EMF of the motor approaches the supply voltage of the motor, so the TMC cannot detect stalls anymore. It is advised to have a look in the datasheet of your specific TMCs. There you can also find more details on limitations of this setup.
+El proceso de retorno a casa sin sensor funciona mejor a velocidades de motor medias. Para velocidades bien bajas (menos de 10 r.p.m.) el motor no genera suficiente fuerza contraelectromotriz (CEMF por sus siglas en inglés) y el controlador (“TMC” por sus siglas en inglés) no puede detectar con confiabilidad cuando el motor se detiene. Además, a velocidades muy altas, el CEMF del motor se acerca al voltaje de alimentación del motor, así es que el TMC ya no puede detectar los paros del motor.Se recomienda que revise la hoja de datos de su TMC espcífico. Allí también encontrará mas detalles sobre las limitaciones de esta configuración.
 
-### Prerequisites
+### Prerequisitos
 
-A few prerequisites are needed to use sensorless homing:
+Se necesitan algunos prerequisitos para utilizar le proceso de retorno a casa sin sensor:
 
 1. A stallGuard capable TMC stepper driver (tmc2130, tmc2209, tmc2660, or tmc5160).
 1. SPI / UART interface of the TMC driver wired to micro-controller (stand-alone mode does not work).

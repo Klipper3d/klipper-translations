@@ -1,8 +1,8 @@
 # příkazy MCU
 
-This document provides information on the low-level micro-controller commands that are sent from the Klipper "host" software and processed by the Klipper micro-controller software. This document is not an authoritative reference for these commands, nor is it an exclusive list of all available commands.
+Tento dokument obsahuje informace o nízkoúrovňových příkazech mikrokontroléru, které jsou odesílány z "hostitelského" softwaru Klipper a zpracovávány softwarem mikrokontroléru Klipper. Tento dokument není směrodatným odkazem na tyto příkazy, ani není výlučným seznamem všech dostupných příkazů.
 
-This document may be useful for developers interested in understanding the low-level micro-controller commands.
+Tento dokument může být užitečný pro vývojáře, kteří chtějí porozumět nízkoúrovňovým příkazům mikrokontroléru.
 
 See the [protocol](Protocol.md) document for more information on the format of commands and their transmission. The commands here are described using their "printf" style syntax - for those unfamiliar with that format, just note that where a '%...' sequence is seen it should be replaced with an actual integer. For example, a description with "count=%c" could be replaced with the text "count=10". Note that parameters that are considered "enumerations" (see the above protocol document) take a string value which is automatically converted to an integer value for the micro-controller. This is common with parameters named "pin" (or that have a suffix of "_pin").
 

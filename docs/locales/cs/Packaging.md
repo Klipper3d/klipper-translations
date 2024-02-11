@@ -1,8 +1,8 @@
 # Packaging Klipper
 
-Klipper is somewhat of a packaging anomaly among python programs, as it doesn't use setuptools to build and install. Some notes regarding how best to package it are as follows:
+Klipper je do jisté míry anomálií v balení mezi pythonovými programy, protože nepoužívá setuptools k sestavení a instalaci. Několik poznámek o tom, jak ho nejlépe zabalit, je následujících:
 
-## C modules
+## Moduly v jazyce C
 
 Klipper uses a C module to handle some kinematics calculations more quickly. This module needs to be compiled at packaging time to avoid introducing a runtime dependency on a compiler. To compile the C module, run `python2 klippy/chelper/__init__.py`.
 

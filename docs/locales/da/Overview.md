@@ -10,7 +10,7 @@ Welcome to the Klipper documentation. If new to Klipper, start with the [feature
 - [Config changes](Config_Changes.md): Recent software changes that may require users to update their printer config file.
 - [Contact](Contact.md): Information on bug reporting and general communication with the Klipper developers.
 
-## Installation and Configuration
+## Installation og konfigurering
 
 - [Installation](Installation.md): Guide to installing Klipper.
 - [Config Reference](Config_Reference.md): Description of config parameters.
@@ -37,7 +37,7 @@ Welcome to the Klipper documentation. If new to Klipper, start with the [feature
 - [PWM tools](Using_PWM_Tools.md): Guide on how to use PWM controlled tools such as lasers or spindles.
 - [Exclude Object](Exclude_Object.md): The guide to the Exclude Objects implementation.
 
-## Developer Documentation
+## Udvikler-dokumentation
 
 - [Code overview](Code_Overview.md): Developers should read this first.
 - [Kinematics](Kinematics.md): Technical details on how Klipper implements motion.
@@ -50,7 +50,7 @@ Welcome to the Klipper documentation. If new to Klipper, start with the [feature
 - [Contributing](CONTRIBUTING.md): Information on how to submit improvements to Klipper.
 - [Packaging](Packaging.md): Information on building OS packages.
 
-## Device Specific Documents
+## Enheds-specifikke dokumenter
 
 - [Example configs](Example_Configs.md): Information on adding an example config file to Klipper.
 - [SDCard Updates](SDCard_Updates.md): Flash a micro-controller by copying a binary to an sdcard in the micro-controller.
