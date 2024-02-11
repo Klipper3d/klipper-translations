@@ -13,7 +13,7 @@
     
     
       
-        <title>Malha da Cama - Klipper documentation</title>
+        <title>Malha da Base - Klipper documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#malha-da-cama" class="md-skip">
+        <a href="#malha-da-base" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Malha da Cama
+              Malha da Base
             
           </span>
         </div>
@@ -1323,16 +1323,16 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#configuring-the-zero-reference-position" class="md-nav__link">
-    Configuring the zero reference position
+  <a href="#configurando-a-posicao-de-referencia-zero" class="md-nav__link">
+    Configurando a posição de referência zero
   </a>
   
-    <nav class="md-nav" aria-label="Configuring the zero reference position">
+    <nav class="md-nav" aria-label="Configurando a posição de referência zero">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#the-deprecated-relative_reference_index" class="md-nav__link">
-    The deprecated relative_reference_index
+  <a href="#obsoleto-relative_reference_index" class="md-nav__link">
+    Obsoleto relative_reference_index
   </a>
   
 </li>
@@ -1432,7 +1432,7 @@
 </a>
 
 
-<h1 id="malha-da-cama">Malha da Cama<a class="headerlink" href="#malha-da-cama" title="Permanent link">&para;</a></h1>
+<h1 id="malha-da-base">Malha da Base<a class="headerlink" href="#malha-da-base" title="Permanent link">&para;</a></h1>
 <p>O módulo "Bed Mesh" pode ser usado para compensar irregularidades na superfície da cama a fim de obter uma primeira camada consistente em toda cama. Deve-se observar que a correção baseada em software não alcançará um resultado perfeito, podendo apenas se aproximar da forma da cama. Além disso, o "Bed Mesh" não pode corrigir problemas mecânicos e/ou elétricos. Se um eixo estiver desalinhado ou uma sonda não for precisa, o módulo "bed_mesh" não receberá resultados precisos do processo de sondagem da superfície.</p>
 <p>Antes de realizar a Calibração da Malha (Mesh Calibration), é necessário garantir que o Z-Offset da sua sonda esteja calibrado. Se estiver usando um fim de curso (endstop) para o homing do eixo Z, ele também precisará ser calibrado. Para mais informações, consulte <a href="Probe_Calibrate.html">Calibraçao de Sonda</a> e "Z_ENDSTOP_CALIBRATE" em <a href="Manual_Level.html">Nivelamento Manual</a>.</p>
 <h2 id="configuracao-basica">Configuração básica<a class="headerlink" href="#configuracao-basica" title="Permanent link">&para;</a></h2>
@@ -1529,8 +1529,8 @@ fade_target: 0
 <li><code>fade_end: 10</code> <em>Valor padrão: 0</em> A altura em Z em que o processo de "fade" deve ser concluído. Se esse valor for menor que <code>fade_start</code>, o "fade" será desabilitado. Esse valor pode ser ajustado dependendo do quão deformada é a superfície de impressão. Uma superfície significativamente deformada deve ter o "fade" concluído ao longo de uma distância maior. Uma superfície quase plana pode reduzir esse valor para que o "fade" seja concluído mais rapidamente. Um valor de 10mm é uma escolha razoável para começar, se o valor padrão de 1 para <code>fade_start</code> for usado.</li>
 <li><code>fade_target: 0</code> <em>Valor padrão: O valor médio da coordenada Z da malha</em> O <code>fade_target</code> pode ser considerado como um deslocamento Z adicional aplicado em toda a cama após a conclusão do fade. Geralmente, gostaríamos que esse valor fosse 0, no entanto, há circunstâncias em que não deve ser. Por exemplo, suponha que sua posição de homing (inicial) na cama seja uma exceção, ou seja, ela está 0,2 mm abaixo da altura média sondada da cama. Se o <code>fade_target</code> for 0, o fade reduzirá a impressão em uma média de 0,2 mm em toda a cama. Ao definir o <code>fade_target</code> para 0,2, a área de homing se expandirá em 0,2 mm, mas o restante da cama será dimensionado com precisão. Geralmente, é uma boa ideia deixar o <code>fade_target</code> fora da configuração para que a altura média da malha seja usada; no entanto, pode ser desejável ajustar manualmente o <code>fade_target</code> se você desejar imprimir em uma parte específica da cama.</li>
 </ul>
-<h3 id="configuring-the-zero-reference-position">Configuring the zero reference position<a class="headerlink" href="#configuring-the-zero-reference-position" title="Permanent link">&para;</a></h3>
-<p>Many probes are susceptible to "drift", ie: inaccuracies in probing introduced by heat or interference. This can make calculating the probe's z-offset challenging, particularly at different bed temperatures. As such, some printers use an endstop for homing the Z axis and a probe for calibrating the mesh. In this configuration it is possible offset the mesh so that the (X, Y) <code>reference position</code> applies zero adjustment. The <code>reference postion</code> should be the location on the bed where a <a href="./Manual_Level#calibrating-a-z-endstop">Z_ENDSTOP_CALIBRATE</a> paper test is performed. The bed_mesh module provides the <code>zero_reference_position</code> option for specifying this coordinate:</p>
+<h3 id="configurando-a-posicao-de-referencia-zero">Configurando a posição de referência zero<a class="headerlink" href="#configurando-a-posicao-de-referencia-zero" title="Permanent link">&para;</a></h3>
+<p>Muitas sondas são suscetíveis a “desvios”, ou seja: imprecisões na sondagem introduzidas por calor ou interferência. Isso pode tornar o cálculo do z-offset da sonda um desafio, especialmente em diferentes temperaturas do leito. Como tal, algumas impressoras usam um fim de curso para posicionar o eixo "Z" e uma sonda para calibrar a malha. Nesta configuração é possível deslocar a malha para que a <code>reference position</code> (X, Y) aplique ajuste zero. A <code>reference position</code> deve ser o local na cama onde um teste de papel <a href="./Manual_Level#calibrating-a-z-endstop">Z_ENDSTOP_CALIBRATE</a> é realizado. O módulo "bed_mesh" fornece a opção <code>zero_reference_position</code> para especificar esta coordenada:</p>
 <div class="highlight"><pre><span></span><code>[bed_mesh]
 speed: 120
 horizontal_move_z: 5
@@ -1541,10 +1541,10 @@ probe_count: 5, 3
 </code></pre></div>
 
 <ul>
-<li><code>zero_reference_position:</code> <em>Default Value: None (disabled)</em> The <code>zero_reference_position</code> expects an (X, Y) coordinate matching that of the <code>reference position</code> described above. If the coordinate lies within the mesh then the mesh will be offset so the reference position applies zero adjustment. If the coordinate lies outside of the mesh then the coordinate will be probed after calibration, with the resulting z-value used as the z-offset. Note that this coordinate must NOT be in a location specified as a <code>faulty_region</code> if a probe is necessary.</li>
+<li><code>zero_reference_position:</code> <em>Valor padrão: Nenhum (desabilitado)</em> A <code>zero_reference_position</code> espera uma coordenada (X, Y) correspondente à <code>reference position</code> descrita acima. Se a coordenada estiver dentro da malha, então a malha será deslocada para que a posição de referência aplique ajuste zero. Se a coordenada estiver fora da malha, então a coordenada será sondada após a calibração, com o z-value resultante usado como z-offset. Observe que esta coordenada NÃO deve estar em um local especificado como <code>faulty_region</code> se uma sonda for necessária.</li>
 </ul>
-<h4 id="the-deprecated-relative_reference_index">The deprecated relative_reference_index<a class="headerlink" href="#the-deprecated-relative_reference_index" title="Permanent link">&para;</a></h4>
-<p>Existing configurations using the <code>relative_reference_index</code> option must be updated to use the <code>zero_reference_position</code>. The response to the <a href="#output">BED_MESH_OUTPUT PGP=1</a> gcode command will include the (X, Y) coordinate associated with the index; this position may be used as the value for the <code>zero_reference_position</code>. The output will look similar to the following:</p>
+<h4 id="obsoleto-relative_reference_index">Obsoleto relative_reference_index<a class="headerlink" href="#obsoleto-relative_reference_index" title="Permanent link">&para;</a></h4>
+<p>As configurações existentes que usam a opção <code>relative_reference_index</code> devem ser atualizadas para usar a <code>zero_reference_position</code>. A resposta ao comando gcode <a href="#output">BED_MESH_OUTPUT PGP=1</a> incluirá a coordenada (X, Y) associada ao índice; esta posição pode ser usada como o valor para <code>zero_reference_position</code>. A saída será semelhante à seguinte:</p>
 <div class="highlight"><pre><span></span><code>// bed_mesh: generated points
 // Index | Tool Adjusted | Probe
 // 0 | (1.0, 1.0) | (24.0, 6.0)
@@ -1555,8 +1555,8 @@ probe_count: 5, 3
 // bed_mesh: relative_reference_index 24 is (131.5, 108.0)
 </code></pre></div>
 
-<p><em>Note: The above output is also printed in <code>klippy.log</code> during initialization.</em></p>
-<p>Using the example above we see that the <code>relative_reference_index</code> is printed along with its coordinate. Thus the <code>zero_reference_position</code> is <code>131.5, 108</code>.</p>
+<p><em>Nota: A saída acima também é impressa em <code>klippy.log</code> durante a inicialização.</em></p>
+<p>Usando o exemplo acima, vemos que o <code>relative_reference_index</code> é impresso junto com sua coordenada. Portanto, a <code>zero_reference_position</code> é <code>131,5, 108</code>.</p>
 <h3 id="regioes-defeituosas">Regiões defeituosas<a class="headerlink" href="#regioes-defeituosas" title="Permanent link">&para;</a></h3>
 <p>É possível que algumas áreas da cama relatem resultados imprecisos durante a sondagem devido a uma "falha" em locais específicos. O melhor exemplo disso são camas com séries de ímãs integrados usados para manter folhas de aço removíveis. O campo magnético nos arredores desses ímãs pode fazer com que uma sonda indutiva seja acionada a uma distância maior ou menor do que o normal, resultando em uma malha que não representa com precisão a superfície nessas áreas. <strong>Observação: Isso não deve ser confundido com o viés de localização da sonda, que produz resultados imprecisos em toda a cama.</strong></p>
 <p>As opções <code>faulty_region</code> podem ser configuradas para compensar esse efeito. Se um ponto gerado estiver localizado dentro de uma região com falha, a malha da cama tentará sondar até 4 pontos nas bordas dessa região. Esses valores sondados serão calculados em uma média e inseridos na malha como o valor Z na coordenada gerada (X, Y).</p>

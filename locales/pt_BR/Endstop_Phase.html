@@ -13,7 +13,7 @@
     
     
       
-        <title>Fase de fim de curso - Klipper documentation</title>
+        <title>Estágio da chave de fim de curso - Klipper documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#fase-de-fim-de-curso" class="md-skip">
+        <a href="#estagio-da-chave-de-fim-de-curso" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Fase de fim de curso
+              Estágio da chave de fim de curso
             
           </span>
         </div>
@@ -1303,7 +1303,7 @@
 </a>
 
 
-<h1 id="fase-de-fim-de-curso">Fase de fim de curso<a class="headerlink" href="#fase-de-fim-de-curso" title="Permanent link">&para;</a></h1>
+<h1 id="estagio-da-chave-de-fim-de-curso">Estágio da chave de fim de curso<a class="headerlink" href="#estagio-da-chave-de-fim-de-curso" title="Permanent link">&para;</a></h1>
 <p>Este documento descreve o sistema de fim de curso do Klipper ajustado pela fase do motor de passo. Esta funcionalidade pode melhorar a precisão das chaves de fim de curso tradicionais. É mais útil ao usar um driver de motor de passo Trinamic que possua configuração em tempo de execução.</p>
 <p>Uma chave de fim de curso comum tem uma precisão de cerca de 100 microns e cada vez que um eixo é enviado para a posição inicial, a chave pode ser acionada um pouco mais cedo ou um pouco mais tarde. Embora seja um erro relativamente pequeno, pode resultar em artefatos indesejados. Em particular, esse desvio de posição pode ser perceptível ao imprimir a primeira camada de um objeto. Em contraste, os motores de passo comuns podem obter uma precisão significativamente maior.</p>
 <p>O mecanismo de fim de curso ajustado pela fase do motor de passo pode usar a precisão dos motores de passo para melhorar a precisão das chaves de fim de curso. Um motor de passo se move passando por uma série de fases até que complete quatro "passos completos". Assim, um motor de passo com 16 micro-passos teria 64 fases e, ao se mover em uma direção positiva, passaria pelas fases: 0, 1, 2, ... 61, 62, 63, 0, 1, 2, etc. Importante, quando o motor de passo posicionar um trilho linear em um ponto específico, a fase do motor deverá ser sempre o mesma. Assim, quando um carrinho acionar a chave de fim de curso, o motor que controla esse carrinho sempre deverá estar na mesma fase. O sistema de fase de fim de curso (endstop phase) do Klipper combina a fase do motor de passo com o acionamento da chave para melhorar a precisão do fim de curso.</p>

@@ -1295,23 +1295,23 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sensorless-homing" class="md-nav__link">
-    Sensorless Homing
+  <a href="#proceso-de-regreso-a-casa-sin-sensor" class="md-nav__link">
+    Proceso de regreso a casa sin sensor
   </a>
   
-    <nav class="md-nav" aria-label="Sensorless Homing">
+    <nav class="md-nav" aria-label="Proceso de regreso a casa sin sensor">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#limitations" class="md-nav__link">
-    Limitations
+  <a href="#limitaciones" class="md-nav__link">
+    Limitaciones
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#prerequisites" class="md-nav__link">
-    Prerequisites
+  <a href="#prerequisitos" class="md-nav__link">
+    Prerequisitos
   </a>
   
 </li>
@@ -1498,8 +1498,8 @@
 
 <h1 id="tmc-drivers">TMC drivers<a class="headerlink" href="#tmc-drivers" title="Permanent link">&para;</a></h1>
 <p>Este documento entrega informacion para utilizar el driver de motor paso a paso Trinamic en modo SPI/UART en Klipper.</p>
-<p>Klipper can also use Trinamic drivers in their "standalone mode". However, when the drivers are in this mode, no special Klipper configuration is needed and the advanced Klipper features discussed in this document are not available.</p>
-<p>In addition to this document, be sure to review the <a href="Config_Reference.html#tmc-stepper-driver-configuration">TMC driver config reference</a>.</p>
+<p>Klipper también puede usar controladores Trinamic en su "modo independiente" ("standalone mode" en inglés). Sin embargo, cuando los controladores están en este modo, no se necesita una configuración especial de Klipper y las funciones avanzadas de Klipper presentadas en este documento no están disponibles.</p>
+<p>Además de este documento, asegúrese de revisar <a href="Config_Reference.html#tmc-stepper-driver-configuration">TMC driver config reference</a>.</p>
 <h2 id="tuning-motor-current">Tuning motor current<a class="headerlink" href="#tuning-motor-current" title="Permanent link">&para;</a></h2>
 <p>A higher driver current increases positional accuracy and torque. However, a higher current also increases the heat produced by the stepper motor and the stepper motor driver. If the stepper motor driver gets too hot it will disable itself and Klipper will report an error. If the stepper motor gets too hot, it loses torque and positional accuracy. (If it gets very hot it may also melt plastic parts attached to it or near it.)</p>
 <p>As a general tuning tip, prefer higher current values as long as the stepper motor does not get too hot and the stepper motor driver does not report warnings or errors. In general, it is okay for the stepper motor to feel warm, but it should not become so hot that it is painful to touch.</p>
@@ -1517,16 +1517,16 @@
 <p>The TMC driver <code>interpolate</code> setting may reduce the audible noise of printer movement at the cost of introducing a small systemic positional error. This systemic positional error results from the driver's delay in executing "steps" that Klipper sends it. During constant velocity moves, this delay results in a positional error of nearly half a configured microstep (more precisely, the error is half a microstep distance minus a 512th of a full step distance). For example, on an axis with a 40mm rotation_distance, 200 steps_per_rotation, and 16 microsteps, the systemic error introduced during constant velocity moves is ~0.006mm.</p>
 <p>For best positional accuracy consider using spreadCycle mode and disable interpolation (set <code>interpolate: False</code> in the TMC driver config). When configured this way, one may increase the <code>microstep</code> setting to reduce audible noise during stepper movement. Typically, a microstep setting of <code>64</code> or <code>128</code> will have similar audible noise as interpolation, and do so without introducing a systemic positional error.</p>
 <p>If using stealthChop mode then the positional inaccuracy from interpolation is small relative to the positional inaccuracy introduced from stealthChop mode. Therefore tuning interpolation is not considered useful when in stealthChop mode, and one can leave interpolation in its default state.</p>
-<h2 id="sensorless-homing">Sensorless Homing<a class="headerlink" href="#sensorless-homing" title="Permanent link">&para;</a></h2>
-<p>Sensorless homing allows to home an axis without the need for a physical limit switch. Instead, the carriage on the axis is moved into the mechanical limit making the stepper motor lose steps. The stepper driver senses the lost steps and indicates this to the controlling MCU (Klipper) by toggling a pin. This information can be used by Klipper as end stop for the axis.</p>
-<p>This guide covers the setup of sensorless homing for the X axis of your (cartesian) printer. However, it works the same with all other axes (that require an end stop). You should configure and tune it for one axis at a time.</p>
-<h3 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">&para;</a></h3>
-<p>Be sure that your mechanical components are able to handle the load of the carriage bumping into the limit of the axis repeatedly. Especially leadscrews might generate a lot of force. Homing a Z axis by bumping the nozzle into the printing surface might not be a good idea. For best results, verify that the axis carriage will make a firm contact with the axis limit.</p>
-<p>Further, sensorless homing might not be accurate enough for your printer. While homing X and Y axes on a cartesian machine can work well, homing the Z axis is generally not accurate enough and may result in an inconsistent first layer height. Homing a delta printer sensorless is not advisable due to missing accuracy.</p>
-<p>Further, the stall detection of the stepper driver is dependent on the mechanical load on the motor, the motor current and the motor temperature (coil resistance).</p>
-<p>Sensorless homing works best at medium motor speeds. For very slow speeds (less than 10 RPM) the motor does not generate significant back EMF and the TMC cannot reliably detect motor stalls. Further, at very high speeds, the back EMF of the motor approaches the supply voltage of the motor, so the TMC cannot detect stalls anymore. It is advised to have a look in the datasheet of your specific TMCs. There you can also find more details on limitations of this setup.</p>
-<h3 id="prerequisites">Prerequisites<a class="headerlink" href="#prerequisites" title="Permanent link">&para;</a></h3>
-<p>A few prerequisites are needed to use sensorless homing:</p>
+<h2 id="proceso-de-regreso-a-casa-sin-sensor">Proceso de regreso a casa sin sensor<a class="headerlink" href="#proceso-de-regreso-a-casa-sin-sensor" title="Permanent link">&para;</a></h2>
+<p>El proceso de regreso a casa sin sensor (“Sensorless Homing” en inglés") permite regresar un eje a casa sin la necesidad de un interruptor de límite físico. En su lugar, el carruaje en el eje se mueve hacia el límite mecánico haciendo que el motor paso a paso pierda pasos. El controlador del motor paso a paso detecta los pasos perdidos y alterna un pin para indicar la pérdida al microcontrolador (“MCU”) dominante (Klipper). Klipper puede utilizar esta información como el punto de parada final para el eje.</p>
+<p>Esta guía cubre como configurar el proceso de regreso a casa sin sensor para el eje X de su impresora (cartesiana). Sin embargo, funciona igual con todos los demás ejes (que requieren parada final). Debe configurarlo y afinarlo para un eje a la vez.</p>
+<h3 id="limitaciones">Limitaciones<a class="headerlink" href="#limitaciones" title="Permanent link">&para;</a></h3>
+<p>Asegúrese de que sus componentes mecánicos sean capaces de manejar la carga del carruaje chocando contra el límite del eje repetidamente. Especialmente los husillos pues podrían generar mucha fuerza. Posicionar un eje Z golpeando la boquilla contra la superficie de impresión puede que no sea una buena idea. Para obtener los mejores resultados, verifique que el carruaje del eje va hacer un contacto firme con el límite del eje.</p>
+<p>Además, es posible que el proceso de retorno a casa sin sensor no sea lo suficientemente preciso para su impresora. Mientras el proceso de retorno a casa de los ejes X e Y en una máquina cartesiana puede funcionar bien, el mismo proceso en el eje Z generalmente no es lo suficientemente preciso y puede resultar en que la primera capa tenga una altura inconsistente. No es aconsejable completar el proceso de retorno a casa sin un sesor en una impresora delta debido a la falta de precisión.</p>
+<p>Además, la habilidad de detectar cuando el motor se detiene (“stall detection” en inglés) que se encuentra en el controlador del motor paso a paso depende de la carga mecánica en el motor, la corriente del motor y la temperatura del motor (resistencia de la bobina).</p>
+<p>El proceso de retorno a casa sin sensor funciona mejor a velocidades de motor medias. Para velocidades bien bajas (menos de 10 r.p.m.) el motor no genera suficiente fuerza contraelectromotriz (CEMF por sus siglas en inglés) y el controlador (“TMC” por sus siglas en inglés) no puede detectar con confiabilidad cuando el motor se detiene. Además, a velocidades muy altas, el CEMF del motor se acerca al voltaje de alimentación del motor, así es que el TMC ya no puede detectar los paros del motor.Se recomienda que revise la hoja de datos de su TMC espcífico. Allí también encontrará mas detalles sobre las limitaciones de esta configuración.</p>
+<h3 id="prerequisitos">Prerequisitos<a class="headerlink" href="#prerequisitos" title="Permanent link">&para;</a></h3>
+<p>Se necesitan algunos prerequisitos para utilizar le proceso de retorno a casa sin sensor:</p>
 <ol>
 <li>A stallGuard capable TMC stepper driver (tmc2130, tmc2209, tmc2660, or tmc5160).</li>
 <li>SPI / UART interface of the TMC driver wired to micro-controller (stand-alone mode does not work).</li>

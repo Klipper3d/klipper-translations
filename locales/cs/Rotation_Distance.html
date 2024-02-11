@@ -1267,8 +1267,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#obtaining-rotation_distance-from-steps_per_mm-or-step_distance" class="md-nav__link">
-    Obtaining rotation_distance from steps_per_mm (or step_distance)
+  <a href="#ziskani-hodnoty-rotation_distance-z-steps_per_mm-nebo-step_distance" class="md-nav__link">
+    Získání hodnoty rotation_distance z steps_per_mm (nebo step_distance)
   </a>
   
 </li>
@@ -1339,8 +1339,8 @@
 
 
 <h1 id="rotation-distance">Rotation distance<a class="headerlink" href="#rotation-distance" title="Permanent link">&para;</a></h1>
-<p>Stepper motor drivers on Klipper require a <code>rotation_distance</code> parameter in each <a href="Config_Reference.html#stepper">stepper config section</a>. The <code>rotation_distance</code> is the amount of distance that the axis moves with one full revolution of the stepper motor. This document describes how one can configure this value.</p>
-<h2 id="obtaining-rotation_distance-from-steps_per_mm-or-step_distance">Obtaining rotation_distance from steps_per_mm (or step_distance)<a class="headerlink" href="#obtaining-rotation_distance-from-steps_per_mm-or-step_distance" title="Permanent link">&para;</a></h2>
+<p>Ovladače krokových motorů v Klipperu vyžadují parametr <code>rotation_distance</code> v každé sekci konfigurace <a href="Config_Reference.html#stepper">stepper config section</a>. <code>rotation_distance</code> je vzdálenost, kterou osa urazí jedním úplným otočením krokového motoru. Tento dokument popisuje, jak lze tuto hodnotu nakonfigurovat.</p>
+<h2 id="ziskani-hodnoty-rotation_distance-z-steps_per_mm-nebo-step_distance">Získání hodnoty <code>rotation_distance</code> z <code>steps_per_mm</code> (nebo <code>step_distance</code>)<a class="headerlink" href="#ziskani-hodnoty-rotation_distance-z-steps_per_mm-nebo-step_distance" title="Permanent link">&para;</a></h2>
 <p>The designers of your 3d printer originally calculated <code>steps_per_mm</code> from a rotation distance. If you know the steps_per_mm then it is possible to use this general formula to obtain that original rotation distance:</p>
 <div class="highlight"><pre><span></span><code>rotation_distance = &lt;full_steps_per_rotation&gt; * &lt;microsteps&gt; / &lt;steps_per_mm&gt;
 </code></pre></div>
