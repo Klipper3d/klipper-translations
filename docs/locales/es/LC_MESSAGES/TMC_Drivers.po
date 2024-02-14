@@ -1,11 +1,12 @@
 # Jose Luis Navarrete <joewysnake@gmail.com>, 2022.
 # L Garcia <unsaid.sorrels.0y@icloud.com>, 2024, 2025.
 # gallegonovato <fran-carro@hotmail.es>, 2024.
+# Deleted User <noreply+48943@weblate.org>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:21+0000\n"
-"Last-Translator: L Garcia <unsaid.sorrels.0y@icloud.com>\n"
+"Last-Translator: Deleted User <noreply+48943@weblate.org>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/"
 "tmc_drivers/es/>\n"
 "Language: es\n"
