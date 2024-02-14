@@ -2,12 +2,12 @@
 # Yifei Ding <dingyifeiair@gmail.com>, 2021.
 # G R <gradaellig@gmail.com>, 2022, 2025.
 # Ale Ale <ale.99.ale@gmail.com>, 2022, 2023, 2025.
-# Gabriele <gabriele1413.4@gmail.com>, 2024.
+# Gabriele <gabriele1413.4@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:25+0000\n"
-"Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
+"Last-Translator: Gabriele <gabriele1413.4@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/klipper/overview/"
 "it/>\n"
 "Language: it\n"
@@ -20,9 +20,9 @@ msgid ""
 "Welcome to the Klipper documentation. If new to Klipper, start with the "
 "[features](Features.md) and [installation](Installation.md) documents."
 msgstr ""
-"Benvenuto nella documentazione di Klipper. Se sei nuovo di Klipper, inizia con"
-" la documentazione su [features](Features.md) e "
-"[istallazione](Installation.md)."
+"Benvenuto nella documentazione di Klipper. Se sei nuovo di Klipper, inizia "
+"con la documentazione su [features](Features.md) e [istallazione]"
+"(Installation.md)."
 
 msgid "Overview information"
 msgstr "Informazioni generali"
@@ -311,8 +311,9 @@ msgid ""
 "[Axis Twist Compensation](Axis_Twist_Compensation.md): A tool to compensate "
 "for inaccurate probe readings due to twist in X gantry."
 msgstr ""
-"[Compensazione torsione degli assi](Axis_Twist_Compensation.md): Uno strumento"
-" per compensare letture inaccurate della sonda per torsioni dell'asse X."
+"[Compensazione torsione degli assi](Axis_Twist_Compensation.md): Uno "
+"strumento per compensare letture inaccurate della sonda per torsioni "
+"dell'asse X."
 
 #: docs/Overview.md:block 10 (unordered list)
 msgid "[Bootloader Entry](Bootloader_Entry.md): Requesting the bootloader."
@@ -323,8 +324,8 @@ msgid ""
 "[CAN bus troubleshooting](CANBUS_Troubleshooting.md): Tips for troubleshooting"
 " CAN bus."
 msgstr ""
-"[Risoluzione problemi CAN Bus](CANBUS_Troubleshooting.md): Suggerimenti per la"
-" risoluzione di problemi del CAN Bus."
+"[Risoluzione problemi CAN Bus](CANBUS_Troubleshooting.md): Suggerimenti per "
+"la risoluzione di problemi del CAN Bus."
 
 #: docs/Overview.md:block 6 (unordered list)
 msgid "[Octoprint](OctoPrint.md): Guide to installing Octoprint with Klipper."
