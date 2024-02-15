@@ -1,10 +1,11 @@
 # Jose Luis Navarrete <joewysnake@gmail.com>, 2022.
 # L Garcia <unsaid.sorrels.0y@icloud.com>, 2024.
+# gallegonovato <fran-carro@hotmail.es>, 2024.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2024-02-15 19:01+0000\n"
-"Last-Translator: L Garcia <unsaid.sorrels.0y@icloud.com>\n"
+"Last-Translator: gallegonovato <fran-carro@hotmail.es>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/"
 "tmc_drivers/es/>\n"
 "Language: es\n"
@@ -268,18 +269,25 @@ msgstr ""
 
 msgid "An example tmc2130 or tmc5160 config might look like:"
 msgstr ""
+"Un ejemplo de configuración para tmc2130 o tmc5160 podría ser el siguiente:"
 
 msgid "An example tmc2660 config might look like:"
-msgstr ""
+msgstr "Un ejemplo de configuración de tmc2660 podría ser así:"
 
 msgid ""
 "The examples above only show settings specific to sensorless homing. See the"
 " [config reference](Config_Reference.md#tmc-stepper-driver-configuration) "
 "for all the available options."
 msgstr ""
+"Los ejemplos anteriores solo muestran configuraciones específicas para la "
+"localización sin sensores. Consulte la [referencia de configuración] "
+"(Config_Reference.md#tmc-stepper-driver-configuration) para conocer todas "
+"las opciones disponibles."
 
 msgid "Find highest sensitivity that successfully homes"
 msgstr ""
+"Encuentre la configuración de sensibilidad más alta para una localización "
+"exitosa"
 
 msgid ""
 "Place the carriage near the center of the rail. Use the SET_TMC_FIELD "
