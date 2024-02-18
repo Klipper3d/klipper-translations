@@ -1,15 +1,17 @@
 # Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022, 2023.
+# Hosted Weblate <mfvotmjhcj@iubridge.com>, 2024.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-04-19 19:52+0000\n"
-"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/status_reference/zh_Hans/>\n"
+"PO-Revision-Date: 2024-02-18 14:02+0000\n"
+"Last-Translator: Hosted Weblate <mfvotmjhcj@iubridge.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/status_reference/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.18-dev\n"
+"X-Generator: Weblate 5.4\n"
 
 msgid ""
 "This document is a reference of printer status information available in "
@@ -1134,17 +1136,18 @@ msgstr "`steppers[\"<步进器>\"]` ：如果给定的步进器被启用，返�
 
 #: docs/Status_Reference.md:block 42 (header)
 msgid "gcode_button"
-msgstr ""
+msgstr "gcode_button"
 
 #: docs/Status_Reference.md:block 43 (paragraph)
 msgid ""
 "The following information is available in [gcode_button "
 "some_name](Config_Reference.md#gcode_button) objects:"
-msgstr ""
+msgstr "在[Gcode_Button Some_NAME](Config_Reference."
+"md#gcode_Button)对象中提供了以下信息："
 
 #: docs/Status_Reference.md:block 44 (unordered list)
 msgid "`state`: The current button state returned as \"PRESSED\" or \"RELEASED\""
-msgstr ""
+msgstr "`state`：当前返回的按钮状态为按下或释放"
 
 #: docs/Status_Reference.md:block 59 (unordered list)
 msgid ""
@@ -1153,12 +1156,17 @@ msgid ""
 " While a temperature sensor is always available to read, a temperature "
 "monitor may not be available and will return null in such case."
 msgstr ""
+"`available_monitor "
+"ors`：按配置节全名返回当前所有可用的温度监视器的列表，例如`[“tmc2240 Steper_x"
+"”]`。虽然温度传感器始终可用于读取，但温度监视器可能不可用，在这种情况下将返回"
+"NULL。"
 
 #: docs/Status_Reference.md:block 98 (unordered list)
 msgid ""
 "`max_deviation`: Return the last `MAX_DEVIATION` value of the most recent "
 "`SCREWS_TILT_CALCULATE` command."
-msgstr ""
+msgstr "`MAX_DEVERATION`：返回最新的`SPRWS_TILT_CALCULATE`命令的最后一个`MAX_DEVIATIO"
+"N`值。"
 
 #: docs/Status_Reference.md:block 110 (paragraph)
 msgid ""
@@ -1171,13 +1179,20 @@ msgid ""
 "config_section_name](Config_Reference.md#combined-temperature-sensor) "
 "objects:"
 msgstr ""
+"[BME280 config_section_name](Config_Reference.md#bmp280bme280bme680"
+"-temperature-sensor)，[htu21d config_section_name(Config_Reference.md#htu21d-"
+"sensor)，[lm75 config_section_name](Config_Reference."
+"md#lm75-temperaturesensor)，[温度_主机config_section_name](Config_Reference."
+"md#host-temperature-sensor) 和[温度_组合config_section_name](Config_Reference"
+".md#combined-temperature-sensor) 对象："
 
 #: docs/Status_Reference.md:block 120 (unordered list)
 msgid ""
 "`temperature`: The internal temperature reported by the driver. This field "
 "will be null if the driver is not enabled or if the driver does not support "
 "temperature reporting."
-msgstr ""
+msgstr "`temperature`：司机上报的车内温度。如果驱动程序未启用或驱动程序不支持温度报告"
+"，则此字段为空。"
 
 #: docs/Status_Reference.md:block 125 (paragraph)
 msgid ""
@@ -1185,18 +1200,20 @@ msgid ""
 "[dual_carriage](Config_Reference.md#dual_carriage) on a cartesian, "
 "hybrid_corexy or hybrid_corexz robot"
 msgstr ""
+"关于笛卡尔机器人、混合核心机器人或混合核心机器人，[dual_carriage](Config_Refe"
+"rence.md#dual_carriage)中提供了以下信息"
 
 #: docs/Status_Reference.md:block 126 (unordered list)
 msgid ""
 "`carriage_0`: The mode of the carriage 0. Possible values are: \"INACTIVE\" "
 "and \"PRIMARY\"."
-msgstr ""
+msgstr "`Carty_0`：表示0的车厢模式。可能的值为：“非活动”和“主要”。"
 
 #: docs/Status_Reference.md:block 126 (unordered list)
 msgid ""
 "`carriage_1`: The mode of the carriage 1. Possible values are: \"INACTIVE\","
 " \"PRIMARY\", \"COPY\", and \"MIRROR\"."
-msgstr ""
+msgstr "`Carrance_1`：马车1的模式，可选值为：Inactive、PRIMARY、COPY、MIRROR。"
 
 #~ msgid ""
 #~ "[bme280 "

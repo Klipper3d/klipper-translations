@@ -1,14 +1,24 @@
-#
+# Hosted Weblate <mfvotmjhcj@iubridge.com>, 2024.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2024-02-18 14:02+0000\n"
+"Last-Translator: Hosted Weblate <mfvotmjhcj@iubridge.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/axis_twist_compensation/zh_Hans/>\n"
+"Language: zh_Hans\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.4\n"
+"Content-Transfer-Encoding: 8bit\n"
 
 #: docs/Axis_Twist_Compensation.md:block 1 (header)
 msgid "Axis Twist Compensation"
-msgstr ""
+msgstr "轴扭曲补偿"
 
 #: docs/Axis_Twist_Compensation.md:block 2 (paragraph)
 msgid "This document describes the [axis_twist_compensation] module."
-msgstr ""
+msgstr "本文档介绍了[AXIS_TWIST_COMPOMENT]模块。"
 
 #: docs/Axis_Twist_Compensation.md:block 3 (paragraph)
 msgid ""
@@ -21,6 +31,12 @@ msgid ""
 "Adjust](G-Codes.md#z_tilt_adjust) etc returning inaccurate representations "
 "of the bed."
 msgstr ""
+"某些打印机的X导轨可能有一个小的扭曲，这可能会歪曲连接到X托架的探头的结果。"
+"这在具有Prusa MK3、SoVOL SV06等设计的打印机中很常见，并在[Probe Location "
+"bias](Probe_Calibrate.md#location-bias-"
+"check).]一节中进一步描述。这可能会导致探测操作，如[Bed Mesh](Bed_Mesh."
+"md)、[螺旋倾斜调整](G-Codes.md#螺旋倾斜调整)、[Z倾斜调整](G-Codes."
+"md#z_tilt_adjust)等返回不准确的床表示。"
 
 #: docs/Axis_Twist_Compensation.md:block 4 (paragraph)
 msgid ""
@@ -28,81 +44,91 @@ msgid ""
 "results. Note that if your axis is significantly twisted it is strongly "
 "recommended to first use mechanical means to fix it prior to applying "
 "software corrections."
-msgstr ""
+msgstr "该模块使用用户手动测量来修正探头的结果。请注意，如果您的轴严重扭曲，强烈建议"
+"您在应用软件更正之前首先使用机械方法修复它。"
 
 #: docs/Axis_Twist_Compensation.md:block 5 (paragraph)
 msgid ""
 "**Warning**: This module is not compatible with dockable probes yet and will"
 " try to probe the bed without attaching the probe if you use it."
-msgstr ""
+msgstr "**警告**：此模块暂时与可对接探头不兼容，如果使用，将尝试在不连接探头的情况下"
+"探床。"
 
 #: docs/Axis_Twist_Compensation.md:block 6 (header)
 msgid "Overview of compensation usage"
-msgstr ""
+msgstr "薪酬使用概览"
 
 #: docs/Axis_Twist_Compensation.md:block 7 (quote)
 msgid ""
 "**Tip:** Make sure the [probe X and Y offsets](Config_Reference.md#probe) "
 "are correctly set as they greatly influence calibration."
 msgstr ""
+"**提示：**请确保正确设置[Probe X和Y Offset](Config_Reference."
+"md#Probe)，因为它们对校准影响很大。"
 
 #: docs/Axis_Twist_Compensation.md:block 8 (ordered list)
 msgid ""
 "After setting up the [axis_twist_compensation] module, perform "
 "`AXIS_TWIST_COMPENSATION_CALIBRATE`"
-msgstr ""
+msgstr "设置好[AXIS_TWIST_COMPOMENT]模块后，执行`AXIS_TWIST_COMCOMPATION_CALIBRATE`"
 
 #: docs/Axis_Twist_Compensation.md:block 9 (unordered list)
 msgid ""
 "The calibration wizard will prompt you to measure the probe Z offset at a "
 "few points along the bed"
-msgstr ""
+msgstr "校准向导将提示您在床上的几个点上测量探头Z偏移量"
 
 #: docs/Axis_Twist_Compensation.md:block 9 (unordered list)
 msgid ""
 "The calibration defaults to 3 points but you can use the option "
 "`SAMPLE_COUNT=` to use a different number."
-msgstr ""
+msgstr "该校准默认为3分，但您可以使用选项`SAMPLE_COUNT=`来使用不同的数字。"
 
 #: docs/Axis_Twist_Compensation.md:block 10 (ordered list)
 msgid "[Adjust your Z offset](Probe_Calibrate.md#calibrating-probe-z-offset)"
-msgstr ""
+msgstr "[调整您的Z offset](Probe_Calibrate.md#calibrating-probe-z-offset)"
 
 #: docs/Axis_Twist_Compensation.md:block 10 (ordered list)
 msgid ""
 "Perform automatic/probe-based bed tramming operations, such as [Screws Tilt "
 "Adjust](G-Codes.md#screws_tilt_adjust), [Z Tilt "
 "Adjust](G-Codes.md#z_tilt_adjust) etc"
-msgstr ""
+msgstr "执行自动/探针式床铺操作，如[螺旋倾斜调整](G-Codes."
+"md#螺旋倾斜调整)、[Z倾斜调整](G-Codes.md#z_倾斜调整)等"
 
 #: docs/Axis_Twist_Compensation.md:block 10 (ordered list)
 msgid "Home all axis, then perform a [Bed Mesh](Bed_Mesh.md) if required"
-msgstr ""
+msgstr "原点所有轴，然后根据需要执行[Bed Mesh](Bed_Mesh.md)"
 
 #: docs/Axis_Twist_Compensation.md:block 10 (ordered list)
 msgid ""
 "Perform a test print, followed by any [fine-"
 "tuning](Axis_Twist_Compensation.md#fine-tuning) as desired"
-msgstr ""
+msgstr "执行测试打印，然后根据需要执行任何[fine-tuning](Axis_Twist_Compensation.md"
+"#fine-tuning)"
 
 #: docs/Axis_Twist_Compensation.md:block 11 (quote)
 msgid ""
 "**Tip:** Bed temperature and nozzle temperature and size do not seem to have"
 " an influence to the calibration process."
-msgstr ""
+msgstr "**提示：**床温、喷嘴温度和尺寸似乎对校准过程没有影响。"
 
 #: docs/Axis_Twist_Compensation.md:block 12 (header)
 msgid "[axis_twist_compensation] setup and commands"
-msgstr ""
+msgstr "[AXIS_TWIST_COMMENTION]设置和命令"
 
 #: docs/Axis_Twist_Compensation.md:block 13 (paragraph)
 msgid ""
 "Configuration options for [axis_twist_compensation] can be found in the "
 "[Configuration Reference](Config_Reference.md#axis_twist_compensation)."
 msgstr ""
+"可在[配置Reference](Config_Reference."
+"md#axis_twist_compensation).]中找到[AXIS_TWIST_COMPOMENT]的配置选项。"
 
 #: docs/Axis_Twist_Compensation.md:block 14 (paragraph)
 msgid ""
 "Commands for [axis_twist_compensation] can be found in the [G-Codes "
 "Reference](G-Codes.md#axis_twist_compensation)"
 msgstr ""
+"可在[G-Codes Reference](G-Codes."
+"md#axis_twist_compensation)]中找到[AXIS_TWIST_COMPATION]的命令"

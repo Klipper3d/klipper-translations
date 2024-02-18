@@ -2,17 +2,19 @@
 # Neko.vecter <Vecterfang@icloud.com>, 2021, 2022.
 # mirokymac <toufubomb@gmail.com>, 2021.
 # Arda <pengfei.fu@gmail.com>, 2022.
+# Hosted Weblate <mfvotmjhcj@iubridge.com>, 2024.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-04-07 22:49+0000\n"
-"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/bootloaders/zh_Hans/>\n"
+"PO-Revision-Date: 2024-02-18 18:09+0000\n"
+"Last-Translator: Hosted Weblate <mfvotmjhcj@iubridge.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/bootloaders/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.17-dev\n"
+"X-Generator: Weblate 5.4\n"
 
 msgid ""
 "This document provides information on common bootloaders found on micro-"
@@ -1048,7 +1050,7 @@ msgstr ""
 
 #: docs/Bootloaders.md:block 51 (header)
 msgid "SAMDC21 micro-controllers (Duet3D Toolboard 1LC)"
-msgstr ""
+msgstr "SAMDC21微控制器(Duet3D工具板1LC)"
 
 #: docs/Bootloaders.md:block 52 (paragraph)
 msgid ""
@@ -1056,6 +1058,9 @@ msgid ""
 " commonly done with a dedicated SWD hardware dongle. Alternatively, one can "
 "use a [Raspberry Pi with OpenOCD](#running-openocd-on-the-raspberry-pi)."
 msgstr ""
+"SAMC21通过ARM串行线调试(SWD)接口进行刷新。这通常是通过专用的社署硬件加密狗来"
+"完成的。或者，人们可以使用带有[Raspberry Pi的 OpenOCD](#running-openocd-on-"
+"the-raspberry-pi)."
 
 #: docs/Bootloaders.md:block 53 (paragraph)
 msgid ""
@@ -1064,6 +1069,9 @@ msgid ""
 "other purposes. If using OpenOCD on a Rasberry Pi, this can be done by "
 "running the following commands before invoking OpenOCD."
 msgstr ""
+"当将OpenOCD与SAMC21一起使用时，如果主板将SWD引脚用于其他目的，则必须采取额外"
+"步骤，首先将芯片置于冷插拔模式。如果在Rasberry "
+"PI上使用OpenOCD，可以通过在调用OpenOCD之前运行以下命令来完成。"
 
 #: docs/Bootloaders.md:block 54 (code)
 msgid ""
@@ -1086,16 +1094,34 @@ msgid ""
 "echo $SWCLK > /sys/class/gpio/unexport\n"
 "echo $SRST > /sys/class/gpio/unexport\n"
 msgstr ""
+"SWCLK=25\n"
+"SWDIO=24\n"
+"SRST=18\n"
+"\n"
+"echo \"Exporting SWCLK and SRST pins.\"\n"
+"echo $SWCLK > /sys/class/gpio/export\n"
+"echo $SRST > /sys/class/gpio/export\n"
+"echo \"out\" > /sys/class/gpio/gpio$SWCLK/direction\n"
+"echo \"out\" > /sys/class/gpio/gpio$SRST/direction\n"
+"\n"
+"echo \"Setting SWCLK low and pulsing SRST.\"\n"
+"echo \"0\" > /sys/class/gpio/gpio$SWCLK/value\n"
+"echo \"0\" > /sys/class/gpio/gpio$SRST/value\n"
+"echo \"1\" > /sys/class/gpio/gpio$SRST/value\n"
+"\n"
+"echo \"Unexporting SWCLK and SRST pins.\"\n"
+"echo $SWCLK > /sys/class/gpio/unexport\n"
+"echo $SRST > /sys/class/gpio/unexport\n"
 
 #: docs/Bootloaders.md:block 55 (paragraph)
 msgid "To flash a program with OpenOCD use the following chip config:"
-msgstr ""
+msgstr "要使用OpenOCD刷新程序，请使用以下芯片配置："
 
 #: docs/Bootloaders.md:block 57 (paragraph)
 msgid ""
 "Obtain a program; for instance, klipper can be built for this chip. Flash "
 "with OpenOCD commands similar to:"
-msgstr ""
+msgstr "获取一个程序；例如，可以为该芯片构建Klipper。带有OpenOCD命令的闪存，类似于："
 
 #: docs/Bootloaders.md:block 58 (code)
 msgid ""
@@ -1103,6 +1129,9 @@ msgid ""
 "at91samd bootloader 0\n"
 "program out/klipper.elf verify\n"
 msgstr ""
+"AT91samd芯片擦除。\n"
+"AT91samd引导加载程序%0。\n"
+"程序输出/klipper.self验证\n"
 
 #~ msgid ""
 #~ "For generic STM32F103 boards such as the blue pill it is possible to flash "
