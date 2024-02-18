@@ -1,10 +1,10 @@
 # Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022, 2023, 2024, 2025.
-# Hosted Weblate <mfvotmjhcj@iubridge.com>, 2024.
+# Hosted Weblate <mfvotmjhcj@iubridge.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:22+0000\n"
-"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
+"Last-Translator: Hosted Weblate <mfvotmjhcj@iubridge.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/klipper/status_reference/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -1126,7 +1126,8 @@ msgstr "gcode_button"
 msgid ""
 "The following information is available in [gcode_button "
 "some_name](Config_Reference.md#gcode_button) objects:"
-msgstr "在[Gcode_Button Some_NAME](Config_Reference.md#gcode_Button)对象中提供了以下信息："
+msgstr "在[Gcode_Button Some_NAME]"
+"(Config_Reference.md#gcode_Button)对象中提供了以下信息："
 
 #: docs/Status_Reference.md:block 44 (unordered list)
 msgid "`state`: The current button state returned as \"PRESSED\" or \"RELEASED\""
@@ -1139,21 +1140,26 @@ msgid ""
 "While a temperature sensor is always available to read, a temperature monitor "
 "may not be available and will return null in such case."
 msgstr ""
-"`available_monitor ors`：按配置节全名返回当前所有可用的温度监视器的列表，例如`[“tmc2240 "
-"Steper_x”]`。虽然温度传感器始终可用于读取，但温度监视器可能不可用，在这种情况下将返回NULL。"
+"`available_monitor "
+"ors`：按配置节全名返回当前所有可用的温度监视器的列表，例如`"
+"[“tmc2240 Steper_x”]"
+"`。虽然温度传感器始终可用于读取，但温度监视器可能不可用，在这种情况下将返回NU"
+"LL。"
 
 #: docs/Status_Reference.md:block 98 (unordered list)
 msgid ""
 "`max_deviation`: Return the last `MAX_DEVIATION` value of the most recent "
 "`SCREWS_TILT_CALCULATE` command."
-msgstr "`MAX_DEVERATION`：返回最新的`SPRWS_TILT_CALCULATE`命令的最后一个`MAX_DEVIATION`值。"
+msgstr "`MAX_DEVERATION`：返回最新的`SPRWS_TILT_CALCULATE`命令的最后一个`MAX_DEVIATIO"
+"N`值。"
 
 #: docs/Status_Reference.md:block 120 (unordered list)
 msgid ""
 "`temperature`: The internal temperature reported by the driver. This field "
 "will be null if the driver is not enabled or if the driver does not support "
 "temperature reporting."
-msgstr "`temperature`：司机上报的车内温度。如果驱动程序未启用或驱动程序不支持温度报告，则此字段为空。"
+msgstr "`temperature`：司机上报的车内温度。如果驱动程序未启用或驱动程序不支持温度报告"
+"，则此字段为空。"
 
 #: docs/Status_Reference.md:block 125 (paragraph)
 msgid ""
@@ -1161,7 +1167,8 @@ msgid ""
 "[dual_carriage](Config_Reference.md#dual_carriage) on a cartesian, "
 "hybrid_corexy or hybrid_corexz robot"
 msgstr ""
-"关于笛卡尔机器人、混合核心机器人或混合核心机器人，[dual_carriage](Config_Reference.md#dual_carriage)中提供了以下信息"
+"关于笛卡尔机器人、混合核心机器人或混合核心机器人，[dual_carriage]"
+"(Config_Reference.md#dual_carriage)中提供了以下信息"
 
 #: docs/Status_Reference.md:block 126 (unordered list)
 msgid ""
