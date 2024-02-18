@@ -1,6 +1,6 @@
 # badpoi <a1635835119@gmail.com>, 2021, 2025.
 # Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022, 2023, 2025.
-# Hosted Weblate <mfvotmjhcj@iubridge.com>, 2024.
+# Hosted Weblate <mfvotmjhcj@iubridge.com>, 2024, 2025.
 # "Neko.vecter" <Vecterfang@icloud.com>, 2024.
 # 云line <yunline@foxmail.com>, 2024, 2025.
 msgid ""
@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-06-28 08:28+0200\n"
 "PO-Revision-Date: 2025-05-03 07:21+0000\n"
-"Last-Translator: 云line <yunline@foxmail.com>\n"
+"Last-Translator: Hosted Weblate <mfvotmjhcj@iubridge.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/klipper/bed_mesh/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -591,7 +591,11 @@ msgid ""
 "z-offset. Note that this coordinate must NOT be in a location specified as a "
 "`faulty_region` if a probe is necessary."
 msgstr ""
-"`ZERO_REFERENCE_POSITION：`*默认值：无(禁用)*`ZERO_REFERENCE_POSITION`期望(X，Y)坐标与上面描述的`参考位置`匹配。如果坐标位于网格内，则网格将偏移，因此参考位置应用零点调整。如果坐标位于网格之外，则将在校准后探测该坐标，并将生成的z值用作z偏移。请注意，如果需要探测，则此坐标不能位于指定为`FAULTY_REGION`的位置。"
+"`ZERO_REFERENCE_POSITION：`*默认值：无(禁用)*`ZERO_REFERENCE_POSITION`期望(X"
+"，Y)坐标与上面描述的`参考位置`匹配。如果坐标位于网格内，则网格将偏移，因此参"
+"考位置应用零点调整。如果坐标位于网格之外，则将在校准后探测该坐标，并将生成的z"
+"值用作z偏移。请注意，如果需要探测，则此坐标不能位于指定为`FAULTY_REGION`的位"
+"置。"
 
 #: docs/Bed_Mesh.md:block 38 (header)
 msgid "The deprecated relative_reference_index"
@@ -606,9 +610,10 @@ msgid ""
 "for the `zero_reference_position`. The output will look similar to the "
 "following:"
 msgstr ""
-"使用`Relative_Reference_index`选项的现有配置必须更新为使用`ZERO_REFERENCE_Position`。对[BED_MESH_OUTPUT"
-" "
-"PGP=1](#output)GCODE命令的响应将包括与索引相关的(X，Y)坐标；该位置可用`ZERO_REFERENCE_POSITION`的值。输出将如下所示："
+"使用`Relative_Reference_index`选项的现有配置必须更新为使用`ZERO_REFERENCE_Pos"
+"ition`。对[BED_MESH_OUTPUT PGP=1]"
+"(#output)GCODE命令的响应将包括与索引相关的(X，Y)坐标；该位置可用`ZERO_REFEREN"
+"CE_POSITION`的值。输出将如下所示："
 
 #: docs/Bed_Mesh.md:block 41 (paragraph)
 msgid ""
@@ -621,7 +626,8 @@ msgid ""
 "Using the example above we see that the `relative_reference_index` is printed "
 "along with its coordinate. Thus the `zero_reference_position` is `131.5, 108`."
 msgstr ""
-"在上面的例子中，我们看到`Relative_Reference_index`与它的坐标一起打印。因此，`ZERO_REFERENCE_Position`是`131.5,108`。"
+"在上面的例子中，我们看到`Relative_Reference_index`与它的坐标一起打印。因此，`"
+"ZERO_REFERENCE_Position`是`131.5,108`。"
 
 #: docs/Bed_Mesh.md:block 50 (header)
 msgid "Adaptive Meshes"
