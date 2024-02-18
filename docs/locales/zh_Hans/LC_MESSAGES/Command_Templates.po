@@ -1,12 +1,12 @@
 # Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022, 2025.
 # Neko.vecter <Vecterfang@icloud.com>, 2022.
-# Hosted Weblate <mfvotmjhcj@iubridge.com>, 2024.
+# Hosted Weblate <mfvotmjhcj@iubridge.com>, 2024, 2025.
 # "Neko.vecter" <Vecterfang@icloud.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:21+0000\n"
-"Last-Translator: \"Neko.vecter\" <Vecterfang@icloud.com>\n"
+"Last-Translator: Hosted Weblate <mfvotmjhcj@iubridge.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/klipper/command_templates/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -402,8 +402,8 @@ msgid ""
 "See the [sample-macros.cfg](../config/sample-macros.cfg) file for an example "
 "showing how to override the `M117` command using `rawparams`."
 msgstr ""
-"有关如何使用`rawpars`覆盖`M117`命令的示例，请参阅[sample-macros.cfg](../config/sample-"
-"macros.cfg)文件。"
+"有关如何使用`rawpars`覆盖`M117`命令的示例，请参阅[sample-macros.cfg](../"
+"config/sample-macros.cfg)文件。"
 
 #~ msgid ""
 #~ "[gcode_macro blink_led]\n"
