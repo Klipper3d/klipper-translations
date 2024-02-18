@@ -3,17 +3,19 @@
 # Yifei Ding <dingyifeiair@gmail.com>, 2022.
 # 猫尾草 <aike1997sims2@gmail.com>, 2023.
 # "Neko.vecter" <Vecterfang@icloud.com>, 2023.
+# Hosted Weblate <mfvotmjhcj@iubridge.com>, 2024.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-08-08 13:47+0000\n"
-"Last-Translator: 猫尾草 <aike1997sims2@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/releases/zh_Hans/>\n"
+"PO-Revision-Date: 2024-02-18 18:09+0000\n"
+"Last-Translator: Hosted Weblate <mfvotmjhcj@iubridge.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/releases/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.0-dev\n"
+"X-Generator: Weblate 5.4\n"
 
 msgid ""
 "History of Klipper releases. Please see [installation](Installation.md) for "
@@ -628,7 +630,7 @@ msgstr "改进了对温度传感器max31856 max31855 max31865 max6675的错误�
 msgid ""
 "It is now possible to configure LEDs to update during long running G-Code "
 "commands using LED \"template\" support."
-msgstr ""
+msgstr "现在可以使用LED“模板”支持将LED配置为在长时间运行G-Code命令期间更新。"
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
@@ -648,3 +650,5 @@ msgid ""
 " smart_effector, z_thermal_adjust. New deltesian kinematics added. New "
 "dump_mcu tool added."
 msgstr ""
+"新增模块：ANGLE、DAC084S085、EXCLUDE_OBJECT、LED、mpu9250、pca9632、SMART_EFE"
+"CTOR、Z_HEARTER_ADJUST。添加了新的Deltesian运动学。添加了新的Dump_MCU工具。"

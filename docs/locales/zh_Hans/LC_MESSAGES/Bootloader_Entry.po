@@ -1,47 +1,49 @@
-# Hosted Weblate <mfvotmjhcj@iubridge.com>, 2023.
+# Hosted Weblate <mfvotmjhcj@iubridge.com>, 2023, 2024.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-11-11 07:34+0000\n"
+"PO-Revision-Date: 2024-02-18 14:02+0000\n"
 "Last-Translator: Hosted Weblate <mfvotmjhcj@iubridge.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/bootloader_entry/zh_Hans/>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/bootloader_entry/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.2-dev\n"
+"X-Generator: Weblate 5.4\n"
 
 #: docs/Bootloader_Entry.md:block 1 (header)
 msgid "Bootloader Entry"
-msgstr ""
+msgstr "引导加载程序条目"
 
 #: docs/Bootloader_Entry.md:block 2 (paragraph)
 msgid ""
 "Klipper can be instructed to reboot into a [Bootloader](Bootloaders.md) in "
 "one of the following ways:"
-msgstr ""
+msgstr "可以通过以下方式之一指示Klipper重新启动到[BootLoader](Bootloaders.md)："
 
 #: docs/Bootloader_Entry.md:block 3 (header)
 msgid "Requesting the bootloader"
-msgstr ""
+msgstr "请求引导加载程序"
 
 #: docs/Bootloader_Entry.md:block 4 (header)
 msgid "Virtual Serial"
-msgstr ""
+msgstr "虚拟串口"
 
 #: docs/Bootloader_Entry.md:block 5 (paragraph)
 msgid ""
 "If a virtual (USB-ACM) serial port is in use, pulsing DTR while at 1200 baud"
 " will request the bootloader."
-msgstr ""
+msgstr "如果正在使用虚拟(USB-"
+"ACM)串口，则在波特率为1200的情况下使用脉冲DTR将请求引导加载程序。"
 
 #: docs/Bootloader_Entry.md:block 6 (header)
 msgid "Python (with `flash_usb`)"
-msgstr ""
+msgstr "Python (with `flash_usb`)"
 
 #: docs/Bootloader_Entry.md:block 7 (paragraph)
 msgid "To enter the bootloader using python (using `flash_usb`):"
-msgstr ""
+msgstr "要使用python进入引导加载程序(使用`flash_usb`)："
 
 #: docs/Bootloader_Entry.md:block 8 (code)
 msgid ""
@@ -49,38 +51,46 @@ msgid ""
 "> python3 -c 'import flash_usb as u; u.enter_bootloader(\"<DEVICE>\")'\n"
 "Entering bootloader on <DEVICE>\n"
 msgstr ""
+">CD Klipper/scripts。\n"
+"> python3 -c 'import flash_usb as u; u.enter_bootloader(\"<DEVICE>\")'\n"
+"正在进入<设备>上的引导加载程序\n"
 
 #: docs/Bootloader_Entry.md:block 9 (paragraph)
 msgid ""
 "Where `<DEVICE>` is your serial device, such as `/dev/serial.by-id/usb-"
 "Klipper[...]` or `/dev/ttyACM0`"
-msgstr ""
+msgstr "其中`<Device>`为您的串口设备，如`/dev/seral.by-id/usb-klipper[...]`或`/dev/"
+"ttyACM0`"
 
 #: docs/Bootloader_Entry.md:block 10 (paragraph)
 msgid ""
 "Note that if this fails, no output will be printed, success is indicated by "
 "printing `Entering bootloader on <DEVICE>`."
-msgstr ""
+msgstr "请注意，如果失败，则不会打印任何输出，并通过打印`Enting BootLoader "
+"on<Device>`来表示成功。"
 
 #: docs/Bootloader_Entry.md:block 11 (header)
 msgid "Picocom"
-msgstr ""
+msgstr "Picocom"
 
 #: docs/Bootloader_Entry.md:block 12 (code)
 msgid ""
 "picocom -b 1200 <DEVICE>\n"
 "<Ctrl-A><Ctrl-P>\n"
 msgstr ""
+"picocom -b 1200 <DEVICE>\n"
+"<Ctrl-A><Ctrl-P>\n"
 
 #: docs/Bootloader_Entry.md:block 14 (paragraph)
 msgid ""
 "`<Ctrl-A><Ctrl-P>` means holding `Ctrl`, pressing and releasing `a`, "
 "pressing and releasing `p`, then releasing `Ctrl`"
-msgstr ""
+msgstr "`<Ctrl-A><Ctrl-P>`表示按住`Ctrl`，按住并松开`a`，按住并松开`p`，然后松开`Ctrl"
+"`"
 
 #: docs/Bootloader_Entry.md:block 15 (header)
 msgid "Physical serial"
-msgstr ""
+msgstr "物理序列"
 
 #: docs/Bootloader_Entry.md:block 16 (paragraph)
 msgid ""
@@ -88,14 +98,16 @@ msgid ""
 "adapter is being used to connect to it), sending the string "
 "`<SPACE><FS><SPACE>Request Serial Bootloader!!<SPACE>~`."
 msgstr ""
+"如果MCU上正在使用物理串口(即使使用USB串口适配器连接)，则发送字符串`"
+"<space><FS><space>RequestSerial BootLoader！！<space>~`。"
 
 #: docs/Bootloader_Entry.md:block 17 (paragraph)
 msgid "`<SPACE>` is an ASCII literal space, 0x20."
-msgstr ""
+msgstr "`<space>`是ASCII文字空格，0x20。"
 
 #: docs/Bootloader_Entry.md:block 18 (paragraph)
 msgid "`<FS>` is the ASCII File Separator, 0x1c."
-msgstr ""
+msgstr "`<FS>`是ASCII文件分隔符0x1c。"
 
 #: docs/Bootloader_Entry.md:block 19 (paragraph)
 msgid ""
@@ -103,33 +115,39 @@ msgid ""
 "Protocol](Protocol.md#micro-controller-interface), but sync characters(`~`) "
 "are still respected."
 msgstr ""
+"请注意，根据[MCU Protocol](Protocol.md#micro-controller-"
+"interface)，，这不是一个有效的消息，但仍然尊重同步字符(`~`)。"
 
 #: docs/Bootloader_Entry.md:block 20 (paragraph)
 msgid ""
 "Because this message must be the only thing in the \"block\" it is received "
 "in, prefixing an extra sync character can increase reliability if other "
 "tools were previously accessing the serial port."
-msgstr ""
+msgstr "由于该消息必须是接收该消息的“块”中的唯一内容，如果其他工具先前正在访问该串口"
+"，则添加额外的同步字符前缀可以提高可靠性。"
 
 #: docs/Bootloader_Entry.md:block 21 (header)
 msgid "Shell"
-msgstr ""
+msgstr "Shell"
 
 #: docs/Bootloader_Entry.md:block 22 (code)
 msgid ""
 "stty <BAUD> < /dev/<DEVICE>\n"
 "echo $'~ \\x1c Request Serial Bootloader!! ~' >> /dev/<DEVICE>\n"
 msgstr ""
+"stty <BAUD> < /dev/<DEVICE>\n"
+"echo $'~ \\x1c请求串行引导加载器!! ~' >> /dev/<DEVICE>\n"
 
 #: docs/Bootloader_Entry.md:block 23 (paragraph)
 msgid ""
 "Where `<DEVICE>` is your serial port, such as `/dev/ttyS0`, or "
 "`/dev/serial/by-id/gpio-serial2`, and"
-msgstr ""
+msgstr "其中`<Device>`为您的串口，如`/dev/ttyS0`或`/dev/Serial/by-id/gpio-"
+"Serial2`，以及"
 
 #: docs/Bootloader_Entry.md:block 24 (paragraph)
 msgid "`<BAUD>` is the baud rate of the serial port, such as `115200`."
-msgstr ""
+msgstr "`<波特>`为串口的波特率，如`115200`。"
 
 #: docs/Bootloader_Entry.md:block 25 (header)
 msgid "CANBUS"
@@ -142,44 +160,51 @@ msgid ""
 "if the device already has a nodeid, and will also be processed if the mcu is"
 " shutdown."
 msgstr ""
+"如果正在使用CanBus，则会有一个特殊的[管理消息](canbus_Protocol.md#admin-Messa"
+"ges)请求引导加载程序。即使设备已经具有节点ID，也会考虑此消息，并且如果MCU关闭"
+"，也会处理此消息。"
 
 #: docs/Bootloader_Entry.md:block 27 (paragraph)
 msgid ""
 "This method also applies to devices operating in [CANBridge](CANBUS.md#usb-"
 "to-can-bus-bridge-mode) mode."
-msgstr ""
+msgstr "此方法也适用于在[CANBridge](CANBUS.md#usb-to-can-bus-bridge-"
+"mode)模式下运行的设备。"
 
 #: docs/Bootloader_Entry.md:block 28 (header)
 msgid "Katapult's flashtool.py"
-msgstr ""
+msgstr "Katapult's flashtool.py"
 
 #: docs/Bootloader_Entry.md:block 29 (code)
 msgid "python3 ./katapult/scripts/flashtool.py -i <CAN_IFACE> -u <UUID> -r\n"
-msgstr ""
+msgstr "python3 ./katapult/scripts/flashtool.py -i <CAN_IFACE> -u <UUID> -r\n"
 
 #: docs/Bootloader_Entry.md:block 30 (paragraph)
 msgid ""
 "Where `<CAN_IFACE>` is the can interface to use. If using `can0`, both the "
 "`-i` and `<CAN_IFACE>` may be omitted."
-msgstr ""
+msgstr "其中`<CAN_iFace>`是要使用的CAN接口。如果使用`can0`，则可以省略`-i`和`<can_iFa"
+"ce>`。"
 
 #: docs/Bootloader_Entry.md:block 31 (paragraph)
 msgid "`<UUID>` is the UUID of your CAN device."
-msgstr ""
+msgstr "`<uuid>`是您的CAN设备的uuid。"
 
 #: docs/Bootloader_Entry.md:block 32 (paragraph)
 msgid ""
 "See the [CANBUS Documentation](CANBUS.md#finding-the-canbus_uuid-for-new-"
 "micro-controllers) for information on finding the CAN UUID of your devices."
 msgstr ""
+"有关查找设备的CAN UUID的信息，请参阅[CAN Bus Documentation](CANBUS.md"
+"#finding-the-canbus_uuid-for-new-micro-controllers)。"
 
 #: docs/Bootloader_Entry.md:block 33 (header)
 msgid "Entering the bootloader"
-msgstr ""
+msgstr "进入引导加载程序"
 
 #: docs/Bootloader_Entry.md:block 34 (paragraph)
 msgid "When klipper receives one of the above bootloader requests:"
-msgstr ""
+msgstr "当Klipper收到上述引导加载程序请求之一时："
 
 #: docs/Bootloader_Entry.md:block 35 (paragraph)
 msgid ""
@@ -187,6 +212,8 @@ msgid ""
 "that Katapult stay active on the next boot, then reset the MCU (therefore "
 "entering Katapult)."
 msgstr ""
+"如果Katapult(以前称为CANBoot)可用，Klipper将请求Katapult在下一次启动时保持活"
+"动状态，然后重置MCU(因此进入Katapult)。"
 
 #: docs/Bootloader_Entry.md:block 36 (paragraph)
 msgid ""
@@ -194,26 +221,29 @@ msgid ""
 "specific bootloader, such as STM32's DFU mode([see note](#stm32-dfu-"
 "warning))."
 msgstr ""
+"如果Katapult不可用，Klipper将尝试进入特定于平台的引导加载程序，例如STM32的S "
+"DFU模式([参见备注](#stm32-dfu-warning))。"
 
 #: docs/Bootloader_Entry.md:block 37 (paragraph)
 msgid ""
 "In short, Klipper will reboot to Katapult if installed, then a hardware "
 "specific bootloader if available."
-msgstr ""
+msgstr "简而言之，Klipper将重新引导到Katapult(如果已安装)，然后重新引导到特定于硬件的"
+"引导程序(如果可用)。"
 
 #: docs/Bootloader_Entry.md:block 38 (paragraph)
 msgid ""
 "For details about the specific bootloaders on various platforms see "
 "[Bootloaders](Bootloaders.md)"
-msgstr ""
+msgstr "关于各种平台上的具体BootLoader的详细信息，请参阅[BootLoader](Bootloaders.md)"
 
 #: docs/Bootloader_Entry.md:block 39 (header)
 msgid "Notes"
-msgstr ""
+msgstr "笔记"
 
 #: docs/Bootloader_Entry.md:block 40 (header)
 msgid "STM32 DFU Warning"
-msgstr ""
+msgstr "STM32 DFU警告"
 
 #: docs/Bootloader_Entry.md:block 41 (paragraph)
 msgid ""
@@ -223,3 +253,6 @@ msgid ""
 "operations when using DFU mode. Consult the documentation for your board for"
 " more details."
 msgstr ""
+"请注意，在某些主板上，如Octopus Pro v1，进入DFU模式可能会导致不必要的操作(如"
+"在DFU模式下为加热器供电)。建议在使用DFU模式时断开加热器，否则将防止不必要的操"
+"作。有关更多详细信息，请参阅您的主板文档。"

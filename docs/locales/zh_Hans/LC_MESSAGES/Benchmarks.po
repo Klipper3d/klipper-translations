@@ -1,17 +1,18 @@
 # Neko.vecter <Vecterfang@icloud.com>, 2021, 2022.
 # Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022, 2023.
-# Hosted Weblate <mfvotmjhcj@iubridge.com>, 2023.
+# Hosted Weblate <mfvotmjhcj@iubridge.com>, 2023, 2024.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-11-11 17:19+0000\n"
+"PO-Revision-Date: 2024-02-18 14:01+0000\n"
 "Last-Translator: Hosted Weblate <mfvotmjhcj@iubridge.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/benchmarks/zh_Hans/>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/benchmarks/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.2-dev\n"
+"X-Generator: Weblate 5.4\n"
 
 msgid "This document describes Klipper benchmarks."
 msgstr "这个文档解释了Klipper的基准测试。"
@@ -793,7 +794,6 @@ msgstr ""
 " 10.2.0` 在 SAMD51J19A 微控制器上运行的。"
 
 #: docs/Benchmarks.md:block 74 (table)
-#, fuzzy
 msgid "39"
 msgstr "39"
 

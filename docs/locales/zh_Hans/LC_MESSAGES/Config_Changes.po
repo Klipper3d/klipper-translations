@@ -1,20 +1,22 @@
 # Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022, 2023.
 # Neko.vecter <Vecterfang@icloud.com>, 2021, 2022.
 # Arda <pengfei.fu@gmail.com>, 2022.
+# Hosted Weblate <mfvotmjhcj@iubridge.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-10 16:29+0200\n"
-"PO-Revision-Date: 2023-04-07 22:49+0000\n"
-"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/config_changes/zh_Hans/>\n"
+"PO-Revision-Date: 2024-02-18 14:01+0000\n"
+"Last-Translator: Hosted Weblate <mfvotmjhcj@iubridge.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/config_changes/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.17-dev\n"
+"X-Generator: Weblate 5.4\n"
 
 msgid ""
 "This document covers recent software changes to the config file that are not"
@@ -872,6 +874,11 @@ msgid ""
 "direction, see [[dual_carriage] configuration "
 "reference](./Config_Reference.md#dual_carriage) for more details)."
 msgstr ""
+"20230826：如果在 `[dual_carriage]`中将“safe_distance”设置或计算为0，则将根据"
+"文档禁用车厢接近检查。用户可能希望明确配置“safe_distance”，以防止车厢彼此意外"
+"碰撞。此外，主滑架和双滑架的归位顺序在某些配置中会发生变化（当两个滑架都在同"
+"一方向上归位时的某些配置，请参阅[[dual_carriage] 配置参考](./Config_Reference"
+".md#dual_carriage)了解更多详细信息）。"
 
 #: docs/Config_Changes.md:block 6 (paragraph)
 msgid ""
@@ -879,6 +886,9 @@ msgid ""
 "Bigtreetech SKR-3, STM32H743 and STM32H723. For this, the original tag of "
 "btt-skr-3 now has changed to be either btt-skr-3-h743 or btt-skr-3-h723."
 msgstr ""
+"20230810：Flash-sdcard.sh脚本现在支持Bigtreetech "
+"SKR-3的两个变体：STM32H743和STM32H723。为此，btt-skr-"
+"3的原始标签现在已更改为btt-skr-3-h743或btt-skr-3-h723。"
 
 #: docs/Config_Changes.md:block 7 (paragraph)
 msgid ""
@@ -887,6 +897,9 @@ msgid ""
 "carriage are exported as `printer.dual_carriage.carriage_0` and "
 "`printer.dual_carriage.carriage_1`."
 msgstr ""
+"20230729:`dual_carriage`的导出状态已更改。不是导出 "
+"`mode`和`active_carriage`，而是将每个车厢的各个模式导出为 `printer."
+"dual_carriage.carriage_0`和 `printer.dual_carriage.carriage_1`."
 
 #: docs/Config_Changes.md:block 8 (paragraph)
 msgid ""
@@ -897,6 +910,11 @@ msgid ""
 "`RELATIVE_REFERENCE_INDEX` is no longer available as a parameter for the "
 "`BED_MESH_CALIBRATE` gcode command."
 msgstr ""
+"20230619：`Relative_Reference_Index`选项已弃用，取而代之的是`ZERO_REFERENCE_P"
+"osition`选项。有关如何更新配置的详细信息请参阅[Bed Mesh "
+"Documentation](./Bed_Mesh.md#the-deprecated-relative_reference_index)。在此情"
+"况下，`Relative_Reference_INDEX`不再可用作`BED_MESH_CALIBRATE`gcode命令的参数"
+"。"
 
 #: docs/Config_Changes.md:block 9 (paragraph)
 msgid ""
@@ -906,18 +924,24 @@ msgid ""
 "options\" and specify the desired \"CAN bus speed\" in \"make menuconfig\" "
 "when compiling and flashing the micro-controller."
 msgstr ""
+"20230530：“make menuconfig”中的默认CANBUS频率现在为1000000。如果需要使用CANBU"
+"S和使用其他频率的CANBUS，则在编译和刷新微控制器时，请务必选择“启用额外的低级"
+"配置选项”，并在“Make menuconfig”中指定所需的“CAN Bus速度”。"
 
 #: docs/Config_Changes.md:block 10 (paragraph)
 msgid ""
 "20230525: `SHAPER_CALIBRATE` command immediately applies input shaper "
 "parameters if `[input_shaper]` was enabled already."
-msgstr ""
+msgstr "20230525：如果`[INPUT_SHAPPER]`已启用，则`SHAPER_CALIBRATE`命令立即应用输入形"
+"成器参数。"
 
 #: docs/Config_Changes.md:block 11 (paragraph)
 msgid ""
 "20230407: The `stalled_bytes` counter in the log and in the "
 "`printer.mcu.last_stats` field has been renamed to `upcoming_bytes`."
 msgstr ""
+"20230407：日志和`printer.mcu."
+"last_stats`字段中的`stalled_bytes`计数器已重命名为`income_bytes`。"
 
 #: docs/Config_Changes.md:block 12 (paragraph)
 msgid ""
@@ -925,6 +949,8 @@ msgid ""
 " `driver_MULTISTEP_FILT: False` in the tmc5160 config for the previous "
 "behavior."
 msgstr ""
+"20230323：在tmc5160驱动上，现在默认开启`MultiStep_filt`。对于之前的行为，在tm"
+"c5160配置中设置`DRIVER_MULTSTEP_FILT：False`。"
 
 #~ msgid ""
 #~ "20211104: The \"step pulse duration\" option in \"make menuconfig\" has been"

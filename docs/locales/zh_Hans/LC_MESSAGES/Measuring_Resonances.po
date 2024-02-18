@@ -3,19 +3,20 @@
 # Neko.vecter <Vecterfang@icloud.com>, 2022.
 # 红豆蛋黄派 <zgpride87@outlook.com>, 2022.
 # xm Y <3260838022@qq.com>, 2023.
-# Hosted Weblate <mfvotmjhcj@iubridge.com>, 2023.
+# Hosted Weblate <mfvotmjhcj@iubridge.com>, 2023, 2024.
 # Dayong Wang <wuyoutech@gmail.com>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-12-15 14:10+0000\n"
-"Last-Translator: Dayong Wang <wuyoutech@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/measuring_resonances/zh_Hans/>\n"
+"PO-Revision-Date: 2024-02-18 14:01+0000\n"
+"Last-Translator: Hosted Weblate <mfvotmjhcj@iubridge.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/measuring_resonances/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.3\n"
+"X-Generator: Weblate 5.4\n"
 
 msgid "Measuring Resonances"
 msgstr "共振值测量"
@@ -944,7 +945,6 @@ msgid "RP2040 pin"
 msgstr ""
 
 #: docs/Measuring_Resonances.md:block 27 (table)
-#, fuzzy
 msgid "39"
 msgstr "39"
 
