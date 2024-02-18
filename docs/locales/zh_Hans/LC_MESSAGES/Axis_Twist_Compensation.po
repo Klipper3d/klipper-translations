@@ -1,9 +1,9 @@
-# Hosted Weblate <mfvotmjhcj@iubridge.com>, 2024.
+# Hosted Weblate <mfvotmjhcj@iubridge.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:45+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Hosted Weblate <mfvotmjhcj@iubridge.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/klipper/axis_twist_compensation/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -31,10 +31,12 @@ msgid ""
 "Adjust](G-Codes.md#z_tilt_adjust) etc returning inaccurate representations of "
 "the bed."
 msgstr ""
-"某些打印机的X导轨可能有一个小的扭曲，这可能会歪曲连接到X托架的探头的结果。这在具有Prusa MK3、SoVOL "
-"SV06等设计的打印机中很常见，并在[Probe Location bias](Probe_Calibrate.md#location-bias-"
-"check).]一节中进一步描述。这可能会导致探测操作，如[Bed "
-"Mesh](Bed_Mesh.md)、[螺旋倾斜调整](G-Codes.md#螺旋倾斜调整)、[Z倾斜调整](G-Codes.md#z_tilt_adjust)等返回不准确的床表示。"
+"某些打印机的X导轨可能有一个小的扭曲，这可能会歪曲连接到X托架的探头的结果。"
+"这在具有Prusa MK3、SoVOL SV06等设计的打印机中很常见，并在"
+"[Probe Location bias](Probe_Calibrate.md#location-bias-"
+"check).]一节中进一步描述。这可能会导致探测操作，如[Bed Mesh](Bed_Mesh.md)、"
+"[螺旋倾斜调整](G-Codes.md#螺旋倾斜调整)、[Z倾斜调整]"
+"(G-Codes.md#z_tilt_adjust)等返回不准确的床表示。"
 
 #: docs/Axis_Twist_Compensation.md:block 4 (paragraph)
 msgid ""
@@ -42,13 +44,15 @@ msgid ""
 "results. Note that if your axis is significantly twisted it is strongly "
 "recommended to first use mechanical means to fix it prior to applying software"
 " corrections."
-msgstr "该模块使用用户手动测量来修正探头的结果。请注意，如果您的轴严重扭曲，强烈建议您在应用软件更正之前首先使用机械方法修复它。"
+msgstr "该模块使用用户手动测量来修正探头的结果。请注意，如果您的轴严重扭曲，强烈建议"
+"您在应用软件更正之前首先使用机械方法修复它。"
 
 #: docs/Axis_Twist_Compensation.md:block 5 (paragraph)
 msgid ""
 "**Warning**: This module is not compatible with dockable probes yet and will "
 "try to probe the bed without attaching the probe if you use it."
-msgstr "**警告**：此模块暂时与可对接探头不兼容，如果使用，将尝试在不连接探头的情况下探床。"
+msgstr "**警告**：此模块暂时与可对接探头不兼容，如果使用，将尝试在不连接探头的情况下"
+"探床。"
 
 #: docs/Axis_Twist_Compensation.md:block 6 (header)
 msgid "Overview of compensation usage"
@@ -59,7 +63,8 @@ msgid ""
 "**Tip:** Make sure the [probe X and Y offsets](Config_Reference.md#probe) are "
 "correctly set as they greatly influence calibration."
 msgstr ""
-"**提示：**请确保正确设置[Probe X和Y Offset](Config_Reference.md#Probe)，因为它们对校准影响很大。"
+"**提示：**请确保正确设置[Probe X和Y Offset]"
+"(Config_Reference.md#Probe)，因为它们对校准影响很大。"
 
 #: docs/Axis_Twist_Compensation.md:block 11 (quote)
 msgid ""
@@ -76,15 +81,16 @@ msgid ""
 "Configuration options for [axis_twist_compensation] can be found in the "
 "[Configuration Reference](Config_Reference.md#axis_twist_compensation)."
 msgstr ""
-"可在[配置Reference](Config_Reference.md#axis_twist_compensation).]中找到[AXIS_TWIST_COMPOMENT]的配置选项。"
+"可在[配置Reference](Config_Reference.md#axis_twist_compensation).]中找到"
+"[AXIS_TWIST_COMPOMENT]的配置选项。"
 
 #: docs/Axis_Twist_Compensation.md:block 14 (paragraph)
 msgid ""
 "Commands for [axis_twist_compensation] can be found in the [G-Codes "
 "Reference](G-Codes.md#axis_twist_compensation)"
 msgstr ""
-"可在[G-Codes "
-"Reference](G-Codes.md#axis_twist_compensation)]中找到[AXIS_TWIST_COMPATION]的命令"
+"可在[G-Codes Reference](G-Codes.md#axis_twist_compensation)]中找到"
+"[AXIS_TWIST_COMPATION]的命令"
 
 #: docs/Axis_Twist_Compensation.md:block 8 (header)
 msgid "Basic Usage: X-Axis Calibration"
