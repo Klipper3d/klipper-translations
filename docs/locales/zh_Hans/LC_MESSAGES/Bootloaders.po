@@ -2,13 +2,13 @@
 # Neko.vecter <Vecterfang@icloud.com>, 2021, 2022.
 # mirokymac <toufubomb@gmail.com>, 2021, 2025.
 # Arda <pengfei.fu@gmail.com>, 2022, 2025.
-# Hosted Weblate <mfvotmjhcj@iubridge.com>, 2024.
+# Hosted Weblate <mfvotmjhcj@iubridge.com>, 2024, 2025.
 # "Neko.vecter" <Vecterfang@icloud.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:23+0000\n"
-"Last-Translator: \"Neko.vecter\" <Vecterfang@icloud.com>\n"
+"Last-Translator: Hosted Weblate <mfvotmjhcj@iubridge.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/klipper/bootloaders/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -767,8 +767,9 @@ msgid ""
 "commonly done with a dedicated SWD hardware dongle. Alternatively, one can use"
 " a [Raspberry Pi with OpenOCD](#running-openocd-on-the-raspberry-pi)."
 msgstr ""
-"SAMC21通过ARM串行线调试(SWD)接口进行刷新。这通常是通过专用的社署硬件加密狗来完成的。或者，人们可以使用带有[Raspberry Pi的 "
-"OpenOCD](#running-openocd-on-the-raspberry-pi)."
+"SAMC21通过ARM串行线调试(SWD)接口进行刷新。这通常是通过专用的社署硬件加密狗来"
+"完成的。或者，人们可以使用带有[Raspberry Pi的 OpenOCD](#running-openocd-on-"
+"the-raspberry-pi)."
 
 #: docs/Bootloaders.md:block 53 (paragraph)
 msgid ""
@@ -777,7 +778,8 @@ msgid ""
 " purposes. If using OpenOCD on a Rasberry Pi, this can be done by running the "
 "following commands before invoking OpenOCD."
 msgstr ""
-"当将OpenOCD与SAMC21一起使用时，如果主板将SWD引脚用于其他目的，则必须采取额外步骤，首先将芯片置于冷插拔模式。如果在Rasberry "
+"当将OpenOCD与SAMC21一起使用时，如果主板将SWD引脚用于其他目的，则必须采取额外"
+"步骤，首先将芯片置于冷插拔模式。如果在Rasberry "
 "PI上使用OpenOCD，可以通过在调用OpenOCD之前运行以下命令来完成。"
 
 #: docs/Bootloaders.md:block 55 (paragraph)
