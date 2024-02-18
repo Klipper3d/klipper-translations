@@ -3,12 +3,12 @@
 # Yifei Ding <dingyifeiair@gmail.com>, 2022.
 # 猫尾草 <aike1997sims2@gmail.com>, 2023, 2025.
 # "Neko.vecter" <Vecterfang@icloud.com>, 2023, 2025.
-# Hosted Weblate <mfvotmjhcj@iubridge.com>, 2024.
+# Hosted Weblate <mfvotmjhcj@iubridge.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:21+0000\n"
-"Last-Translator: \"Neko.vecter\" <Vecterfang@icloud.com>\n"
+"Last-Translator: Hosted Weblate <mfvotmjhcj@iubridge.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/klipper/releases/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -649,4 +649,5 @@ msgid ""
 "smart_effector, z_thermal_adjust. New deltesian kinematics added. New dump_mcu"
 " tool added."
 msgstr ""
-"新增模块：ANGLE、DAC084S085、EXCLUDE_OBJECT、LED、mpu9250、pca9632、SMART_EFECTOR、Z_HEARTER_ADJUST。添加了新的Deltesian运动学。添加了新的Dump_MCU工具。"
+"新增模块：ANGLE、DAC084S085、EXCLUDE_OBJECT、LED、mpu9250、pca9632、SMART_EFE"
+"CTOR、Z_HEARTER_ADJUST。添加了新的Deltesian运动学。添加了新的Dump_MCU工具。"
