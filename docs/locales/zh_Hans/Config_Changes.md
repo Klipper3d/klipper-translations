@@ -6,21 +6,21 @@
 
 ## 变更
 
-20230826: If `safe_distance` is set or calculated to be 0 in `[dual_carriage]`, the carriages proximity checks will be disabled as per documentation. A user may wish to configure `safe_distance` explicitly to prevent accidental crashes of the carriages with each other. Additionally, the homing order of the primary and the dual carriage is changed in some configurations (certain configurations when both carriages home in the same direction, see [[dual_carriage] configuration reference](./Config_Reference.md#dual_carriage) for more details).
+20230826：如果在 `[dual_carriage]`中将“safe_distance”设置或计算为0，则将根据文档禁用车厢接近检查。用户可能希望明确配置“safe_distance”，以防止车厢彼此意外碰撞。此外，主滑架和双滑架的归位顺序在某些配置中会发生变化（当两个滑架都在同一方向上归位时的某些配置，请参阅[[dual_carriage] 配置参考](./Config_Reference.md#dual_carriage)了解更多详细信息）。
 
-20230810: The flash-sdcard.sh script now supports both variants of the Bigtreetech SKR-3, STM32H743 and STM32H723. For this, the original tag of btt-skr-3 now has changed to be either btt-skr-3-h743 or btt-skr-3-h723.
+20230810：Flash-sdcard.sh脚本现在支持Bigtreetech SKR-3的两个变体：STM32H743和STM32H723。为此，btt-skr-3的原始标签现在已更改为btt-skr-3-h743或btt-skr-3-h723。
 
-20230729: The exported status for `dual_carriage` is changed. Instead of exporting `mode` and `active_carriage`, the individual modes for each carriage are exported as `printer.dual_carriage.carriage_0` and `printer.dual_carriage.carriage_1`.
+20230729:`dual_carriage`的导出状态已更改。不是导出 `mode`和`active_carriage`，而是将每个车厢的各个模式导出为 `printer.dual_carriage.carriage_0`和 `printer.dual_carriage.carriage_1`.
 
-20230619: The `relative_reference_index` option has been deprecated and superceded by the `zero_reference_position` option. Refer to the [Bed Mesh Documentation](./Bed_Mesh.md#the-deprecated-relative_reference_index) for details on how to update the configuration. With this deprecation the `RELATIVE_REFERENCE_INDEX` is no longer available as a parameter for the `BED_MESH_CALIBRATE` gcode command.
+20230619：`Relative_Reference_Index`选项已弃用，取而代之的是`ZERO_REFERENCE_Position`选项。有关如何更新配置的详细信息请参阅[Bed Mesh Documentation](./Bed_Mesh.md#the-deprecated-relative_reference_index)。在此情况下，`Relative_Reference_INDEX`不再可用作`BED_MESH_CALIBRATE`gcode命令的参数。
 
-20230530: The default canbus frequency in "make menuconfig" is now 1000000. If using canbus and using canbus with some other frequency is required, then be sure to select "Enable extra low-level configuration options" and specify the desired "CAN bus speed" in "make menuconfig" when compiling and flashing the micro-controller.
+20230530：“make menuconfig”中的默认CANBUS频率现在为1000000。如果需要使用CANBUS和使用其他频率的CANBUS，则在编译和刷新微控制器时，请务必选择“启用额外的低级配置选项”，并在“Make menuconfig”中指定所需的“CAN Bus速度”。
 
-20230525: `SHAPER_CALIBRATE` command immediately applies input shaper parameters if `[input_shaper]` was enabled already.
+20230525：如果`[INPUT_SHAPPER]`已启用，则`SHAPER_CALIBRATE`命令立即应用输入形成器参数。
 
-20230407: The `stalled_bytes` counter in the log and in the `printer.mcu.last_stats` field has been renamed to `upcoming_bytes`.
+20230407：日志和`printer.mcu.last_stats`字段中的`stalled_bytes`计数器已重命名为`income_bytes`。
 
-20230323: On tmc5160 drivers `multistep_filt` is now enabled by default. Set `driver_MULTISTEP_FILT: False` in the tmc5160 config for the previous behavior.
+20230323：在tmc5160驱动上，现在默认开启`MultiStep_filt`。对于之前的行为，在tmc5160配置中设置`DRIVER_MULTSTEP_FILT：False`。
 
 20230304:`SET_TMC_CURRENT` 命令现在可以正确地调整有globalscalar的驱动的globalscalar。这消除了一个限制，即在 tmc5160 上，使用`SET_TMC_CURRENT` 所提高的电流不能高于配置文件中设置的`run_current` 值。然而，这有一个副作用：如果使用StealthChop2，在运行`SET_TMC_CURRENT` 之后，步进电机必须保持在静止状态至少130ms，这样AT#1校准才会被驱动执行。
 

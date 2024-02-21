@@ -12,9 +12,9 @@ Klipper版本发布。如何安装Klipper ，请查看[installation](Installatio
 * 添加了对CanBoot bootloader的支持。
 * 添加了对mpu9250以及mpu6050 加速度计的支持。
 * 改进了对温度传感器max31856 max31855 max31865 max6675的错误处理。
-* It is now possible to configure LEDs to update during long running G-Code commands using LED "template" support.
+* 现在可以使用LED“模板”支持将LED配置为在长时间运行G-Code命令期间更新。
 * 多项微控制器改进。 新增对 stm32h743 stm32h750 stm32l412 stm32g0b1 same70 same51 same54 芯片的支持。在 atsamd 和 stm32f0 上支持 i2c 读取。在 stm32 上支持硬件 pwm。基于 Linux mcu 信号的事件分派。 新的 rp2040 支持 "make flash" i2c 以及 rp2040-e5 USB 勘误。
-* New modules added: angle, dac084S085, exclude_object, led, mpu9250, pca9632, smart_effector, z_thermal_adjust. New deltesian kinematics added. New dump_mcu tool added.
+* 新增模块：ANGLE、DAC084S085、EXCLUDE_OBJECT、LED、mpu9250、pca9632、SMART_EFECTOR、Z_HEARTER_ADJUST。添加了新的Deltesian运动学。添加了新的Dump_MCU工具。
 * 几个错误的修复和代码的清理。
 
 ## Klipper 0.10.0

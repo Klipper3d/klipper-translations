@@ -118,40 +118,40 @@ fade_target: 0
 - `fade_end: 10` *默认值：0* 网格淡出完成的 Z 高度。 如果此值低于`fade_start`，则禁用网格淡出。 该值可以根据打印表面的弯曲程度进行调整。 明显弯曲的表面应该在将网格淡出的距离长。 接近平坦的表面可能能够降低该值以更快地逐步淘汰。 如果对 `fade_start` 使用默认值 1，则 10mm 是一个合理的值。
 - `fade_target: 0` *默认值：网格的平均 Z 值* `fade_target` 可以被视为在淡化完成后应用于整个床面的额外 Z 偏移量。一般来说，我们希望这个值为 0，但有些情况下不应该是这样的。例如，假设您在床上的归位位置是一个异常值，比床面的平均探测高度低 0.2 毫米。如果 `fade_target` 为 0，淡化将会使整个床面平均降低 0.2 毫米。通过将 `fade_target` 设置为 0.2，淡化区域将会提高到 0.2 毫米，但是，床面的其余部分将保持原大小。通常最好将 `fade_target` 留在配置中，以便使用网格的平均高度，但是如果您想在床面的特定部分上打印，则可能需要手动调整淡化目标。
 
-### Configuring the zero reference position
+### 配置零点参考位置
 
-Many probes are susceptible to "drift", ie: inaccuracies in probing introduced by heat or interference. This can make calculating the probe's z-offset challenging, particularly at different bed temperatures. As such, some printers use an endstop for homing the Z axis and a probe for calibrating the mesh. In this configuration it is possible offset the mesh so that the (X, Y) `reference position` applies zero adjustment. The `reference postion` should be the location on the bed where a [Z_ENDSTOP_CALIBRATE](./Manual_Level#calibrating-a-z-endstop) paper test is performed. The bed_mesh module provides the `zero_reference_position` option for specifying this coordinate:
-
-```
-[bed_mesh]
-speed: 120
-horizontal_move_z: 5
-mesh_min: 35, 6
-mesh_max: 240, 198
-zero_reference_position: 125, 110
-probe_count: 5, 3
-```
-
-- `zero_reference_position: ` *Default Value: None (disabled)* The `zero_reference_position` expects an (X, Y) coordinate matching that of the `reference position` described above. If the coordinate lies within the mesh then the mesh will be offset so the reference position applies zero adjustment. If the coordinate lies outside of the mesh then the coordinate will be probed after calibration, with the resulting z-value used as the z-offset. Note that this coordinate must NOT be in a location specified as a `faulty_region` if a probe is necessary.
-
-#### The deprecated relative_reference_index
-
-Existing configurations using the `relative_reference_index` option must be updated to use the `zero_reference_position`. The response to the [BED_MESH_OUTPUT PGP=1](#output) gcode command will include the (X, Y) coordinate associated with the index; this position may be used as the value for the `zero_reference_position`. The output will look similar to the following:
+许多探头容易出现“漂移”，即：由于热或干扰而引起的探头不准确。这使得计算探测器的z偏移量具有挑战性，特别是在不同床温的情况下。因此，一些打印机使用端止器来定位Z轴，并使用探头来校准网格。在这种配置中，可以对网格进行偏移，从而使(X，Y)`参考位置‘应用零点调整。‘参考位置’应该是床上进行[Z_ENDSTOP_CALIBRATE](./Manual_Level#calibrating-a-z-endstop)试纸测试的位置。Bed_Mesh模块提供了`ZERO_REFERENCE_Position`选项来指定该坐标：
 
 ```
-// bed_mesh: generated points
-// Index | Tool Adjusted | Probe
-// 0 | (1.0, 1.0) | (24.0, 6.0)
-// 1 | (36.7, 1.0) | (59.7, 6.0)
-// 2 | (72.3, 1.0) | (95.3, 6.0)
-// 3 | (108.0, 1.0) | (131.0, 6.0)
-... (additional generated points)
-// bed_mesh: relative_reference_index 24 is (131.5, 108.0)
+[床_网格]。
+速度：120。
+水平移动z：5。
+网格最小值：35，6。
+Mesh_max：240,198。
+Zero_Reference_Position：125,110。
+探测计数：5，3
 ```
 
-*Note: The above output is also printed in `klippy.log` during initialization.*
+- `ZERO_REFERENCE_POSITION：`*默认值：无(禁用)*`ZERO_REFERENCE_POSITION`期望(X，Y)坐标与上面描述的`参考位置`匹配。如果坐标位于网格内，则网格将偏移，因此参考位置应用零点调整。如果坐标位于网格之外，则将在校准后探测该坐标，并将生成的z值用作z偏移。请注意，如果需要探测，则此坐标不能位于指定为`FAULTY_REGION`的位置。
 
-Using the example above we see that the `relative_reference_index` is printed along with its coordinate. Thus the `zero_reference_position` is `131.5, 108`.
+#### 不推荐使用的Relative_Reference_Index
+
+使用`Relative_Reference_index`选项的现有配置必须更新为使用`ZERO_REFERENCE_Position`。对[BED_MESH_OUTPUT PGP=1](#output)GCODE命令的响应将包括与索引相关的(X，Y)坐标；该位置可用`ZERO_REFERENCE_POSITION`的值。输出将如下所示：
+
+```
+//Bed_Mesh：生成点。
+//索引|调整工具|探测。
+//0|(1.0，1.0)|(24.0，6.0)。
+//1|(36.7，1.0)|(59.7，6.0)。
+//2|(72.3，1.0)|(95.3，6.0)。
+//3|(108.0，1.0)|(131.0，6.0)。
+..。(其他生成点)。
+//BED_MESH：Relative_Reference_Index 24为(131.5,108.0)
+```
+
+*注意：上述输出在初始化时也会打印在`klippy.log`中。*
+
+在上面的例子中，我们看到`Relative_Reference_index`与它的坐标一起打印。因此，`ZERO_REFERENCE_Position`是`131.5,108`。
 
 ### 故障区域
 

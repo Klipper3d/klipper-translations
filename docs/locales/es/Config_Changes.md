@@ -6,7 +6,7 @@ Todas las fechas en este archivo son aproximadas.
 
 ## Cambios
 
-20230826: Si `safe_distance` está activado o se calcula a 0 en `[dual_carriage]`, los chequeos de proximidad de los carruajes seran desactivados de acuerdo con la documentación. Es posible que un usuario desee configurar `safe_distance` explícitamente para evitar choques accidentales entre los carruajes. Además, el orden del proceso de retorno a casa de los carruajes principales y secundarios ha cambiado en algunas configuraciones (ciertas configuraciones cuando ambos carruajes estan restornando a casa en la misma dirección, vea [[dual_carriage] configuration reference](./Config_Reference.md#dual_carriage) para más detalles).
+20230826: Si `safe_distance` está activado o se calcula a 0 en `[dual_carriage]`, los chequeos de proximidad de los carruajes serán desactivados de acuerdo con la documentación. Es posible que un usuario desee configurar `safe_distance` explícitamente para evitar choques accidentales entre los carruajes. Además, el orden del proceso de localización de la boquilla de los carruajes principales y secundarios ha cambiado en algunas configuraciones (ciertas configuraciones cuando ambos carruajes están moviéndose en la misma dirección, vea [[dual_carriage] configuration reference](./Config_Reference.md#dual_carriage) para más detalles).
 
 20230810: El programa flash-sdcard.sh ahora apoya las dos variantes del Bigtreetech SKR-3: STM32H743 y STM32H723. Para esto, la etiqueta original btt-skr-3 ahora a cambiado a ser btt-skr-3-h743 o btt-skr-3-h723.
 
@@ -32,7 +32,7 @@ Todas las fechas en este archivo son aproximadas.
 
 20221128: La versión v0.11.0 de Klipper se lanzó.
 
-20221122: Anteriormente, con safe_z_home, era posible que el z_hop fuera en la dirección z negativa después del proceso de retorno a casa g28. Ahora, un z_hop solamente se realiza después del g28 cuando resulta en un brinco positivo, reflejando el comportamiento del z_hop que ocurre antes del proceso de retorno a casa g28.
+20221122: Anteriormente, con safe_z_home, era posible que el z_hop fuera en la dirección z negativa después del proceso de localización de la boquilla g28. Ahora, un z_hop solamente se realiza después del g28 cuando resulta en un brinco positivo, reflejando el comportamiento del z_hop que ocurre antes del proceso de localización de la boquilla g28.
 
 20220616: Anteriormente era posible borrar y reprogramar ("flash") el microchip rp2040 en modo de gestor de arranque ejecutando `make flash FLASH_DEVICE=first`. El comando equivalente es ahora `make flash FLASH_DEVICE=2e8a:0003`.
 
@@ -70,7 +70,7 @@ Todas las fechas en este archivo son aproximadas.
 
 20210821: Varios parámetros de configuración en `printer.configfile.settings` ahora se informarán como listas en vez de cadenas sin procesar. Si desea la cadena sin procesar actual, use `printer.configfile.config` en su lugar.
 
-20210819: En algunos casos, un movimiento de retorno a casa `G28` puede terminar en una posición que está nominalmente fuera del intervalo de movimiento válido. En raras ocasiones esto puede resultar en errores confusos de "Move out of range" depués de completar el proceso de retorno a casa. Si esto ocurre, cambie los programas de inicio para mover el cabezal a una posición válida inmediatamente después del proceso de retorno a casa.
+20210819: En algunos casos, un movimiento de retorno a casa `G28` puede terminar en una posición que está nominalmente fuera del intervalo de movimiento válido. En raras ocasiones esto puede resultar en errores confusos de "Move out of range" depués de completar el proceso de localización de la boquilla. Si esto ocurre, cambie los programas de inicio para mover el cabezal a una posición válida inmediatamente después del proceso de localización de la boquilla.
 
 20210814: Los nombres de los pseudo-pines analógicos en el atmega168 y el atmega328 han cambiado de PE0/PE1 a PE2/PE3.
 
@@ -169,7 +169,7 @@ document](Command_Templates.md#macro-parameters) for examples.
 
 20191003: Ahora, la opción move_to_previous en [safe_z_homing] es preestablecida como Falso. (Era efectivamente Falso antes de 20190918.)
 
-20190918: La opción zhop en [safe_z_homing] siempre se vuelve a aplicar después de completar el proceso de retorno a casa en el eje Z. Esto podría requerir que los usuarios actualicen los programas personalizados basados en este módulo.
+20190918: La opción zhop en [safe_z_homing] siempre se vuelve a aplicar después de completar el proceso de localización de la boquilla en el eje Z. Esto podría requerir que los usuarios actualicen los programas personalizados basados en este módulo.
 
 20190806: El comando SET_NEOPIXEL ha cambiado de nombre a SET_LED.
 

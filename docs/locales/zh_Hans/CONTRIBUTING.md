@@ -47,7 +47,7 @@
 
    When discussing benefits it is preferable to discuss "facts and measurements". In general, reviewers are not looking for responses of the form "someone may find option X useful", nor are they looking for responses of the form "this submission adds a feature that firmware X implements". Instead, it is generally preferable to discuss details on how the quality improvement was measured and what were the results of those measurements - for example, "tests on Acme X1000 printers show improved corners as seen in picture ...", or for example "print time of real-world object X on a Foomatic X900 printer went from 4 hours to 3.5 hours". It is understood that testing of this type can take significant time and effort. Some of Klipper's most notable features took months of discussion, rework, testing, and documentation prior to being merged into the master branch.
 
-   All new modules, config options, commands, command parameters, and documents should have "high impact". We do not want to burden users with options that they can not reasonably configure nor do we want to burden them with options that don't provide a notable benefit.
+   所有新的模块、配置选项、命令、命令参数和文档都应该具有“高影响力”。我们不想让用户负担他们不能合理配置的选项，也不想让他们负担不能提供显著好处的选项。
 
    评审员可能会要求解释用户该如何配置一个选项，一个理想的答复将包含过程的细节，例如："MegaX500的用户应将选项 X 设置为99.3，而Elite100Y的用户应使用程序校准选项X..." 。
 
@@ -86,32 +86,32 @@ Klipper没有实现严格的“编码风格指南”，但对现有代码的修�
 
 讨论“更好的实现”并不是审查的目标。然而，如果审查人员很难理解提交的实现，那么他们可能会要求进行更改，以使实现更加透明。特别是，如果评审员不能说服自己提交的文件没有缺陷，那么可能需要进行更改。
 
-As part of a review, a reviewer may create an alternate Pull Request for a topic. This may be done to avoid excessive "back and forth" on minor procedural items and thus streamline the submission process. It may also be done because the discussion inspires a reviewer to build an alternative implementation. Both situations are a normal result of a review and should not be considered criticism of the original submission.
+作为审阅的一部分，审阅人可以为主题创建替代拉取请求。可以这样做，以避免在次要程序项目上过度“来回”，从而简化提交程序。这也可能是因为讨论激发了评审者构建替代实现的灵感。这两种情况都是审查的正常结果，不应被视为对原始划界案的批评。
 
-### Helping with reviews
+### 帮助撰写评论
 
-We appreciate help with reviews! It is not necessary to be a [listed reviewer](#reviewers) to perform a review. Submitters of GitHub Pull Requests are also encouraged to review their own submissions.
+我们非常感谢评论方面的帮助！不一定要是[列出的审查者](#reviewers)才能执行审查。GitHub Pull请求的提交者也被鼓励审查他们自己的提交。
 
-To help with a review, follow the steps outlined in [what to expect in a review](#what-to-expect-in-a-review) to verify the submission. After completing the review, add a comment to the GitHub Pull Request with your findings. If the submission passes the review then please state that explicitly in the comment - for example something like "I reviewed this change according to the steps in the CONTRIBUTING document and everything looks good to me". If unable to complete some steps in the review then please explicitly state which steps were reviewed and which steps were not reviewed - for example something like "I didn't check the code for defects, but I reviewed everything else in the CONTRIBUTING document and it looks good".
+为了帮助审查，请遵循[审查中预期的内容](#what-to-expect-in-a-review)中概述的步骤来核实提交。完成审核后，请在GitHub拉取请求中添加您的调查结果。如果提交的文件通过了审查，请在评论中明确说明--例如，“我按照提交文件中的步骤审查了这项更改，我认为一切都很好”。如果无法完成评审中的某些步骤，请明确说明哪些步骤已审核，哪些步骤未审核--例如，类似于“我没有检查代码中的缺陷，但我审核了贡献文档中的所有其他内容，它看起来很好”。
 
-We also appreciate testing of submissions. If the code was tested then please add a comment to the GitHub Pull Request with the results of your test - success or failure. Please explicitly state that the code was tested and the results - for example something like "I tested this code on my Acme900Z printer with a vase print and the results were good".
+我们也感谢对提交材料的测试。如果代码经过测试，请在GitHub Pull请求中添加注释，并附上测试结果--成功或失败。请明确说明代码已经过测试并得到了结果--例如，“我用花瓶打印在我的Acme900Z打印机上测试了这段代码，结果很好”。
 
-### Reviewers
+### 审稿人
 
-The Klipper "reviewers" are:
+Klipper的“评论者”是：
 
-| Name | GitHub Id | Areas of interest |
+| 名称 | GitHub Id | 感兴趣的领域 |
 | --- | --- | --- |
-| Dmitry Butyugin | @dmbutyugin | Input shaping, resonance testing, kinematics |
-| Eric Callahan | @Arksine | Bed leveling, MCU flashing |
+| Dmitry Butyugin | @dmbutyugin | 输入整形、共振测试、运动学 |
+| Eric Callahan | @Arksine | 床位调平，MCU闪烁 |
 | James Hartley | @JamesH1978 | Configuration files |
-| Kevin O'Connor | @KevinOConnor | Core motion system, Micro-controller code |
+| Kevin O'Connor | @KevinOConnor | 核心运动系统，微控制器代码 |
 
-Please do not "ping" any of the reviewers and please do not direct submissions at them. All of the reviewers monitor the forums and PRs, and will take on reviews when they have time to.
+请不要“ping”任何一位评审员，也不要直接向他们投稿。所有的评论者都会监督论坛和公关，并在有时间的时候进行评论。
 
 The Klipper "maintainers" are:
 
-| Name | GitHub name |
+| 名称 | GitHub name |
 | --- | --- |
 | Kevin O'Connor | @KevinOConnor |
 
