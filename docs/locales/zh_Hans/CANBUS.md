@@ -4,28 +4,28 @@
 
 ## 硬件设备
 
-Klipper currently supports CAN on stm32, SAME5x, and rp2040 chips. In addition, the micro-controller chip must be on a board that has a CAN transceiver.
+Klipper目前支持STM32、SAME5x和rp2040芯片上的CAN。此外，微控制器芯片必须位于具有CAN收发器的板上。
 
 要针对 CAN 进行编译，请运行 ` make menuconfig`并选择"CAN Bus"作为通信接口。最后，编译微控制器代码并将其刷写到目标控制版上。
 
 ## 主机硬件
 
-In order to use a CAN bus, it is necessary to have a host adapter. It is recommended to use a "USB to CAN adapter". There are many different USB to CAN adapters available from different manufacturers. When choosing one, we recommend verifying that the firmware can be updated on it. (Unfortunately, we've found some USB adapters run defective firmware and are locked down, so verify before purchasing.) Look for adapters that can run Klipper directly (in its "USB to CAN bridge mode") or that run the [candlelight firmware](https://github.com/candle-usb/candleLight_fw).
+为了使用CAN总线，必须有一个主机适配器。建议使用“USB转CAN适配器”。不同的制造商提供了许多不同的USB转CAN适配器。在选择其中一个时，我们建议验证是否可以在其上更新固件。(不幸的是，我们发现一些USB适配器运行有缺陷的固件并被锁定，因此请在购买之前进行验证。)。寻找可以直接运行Klipper的适配器(在其“USB to CAN桥模式”下)或运行[Candlellight firmware](https://github.com/candle-usb/candleLight_fw).
 
 还需要将主机操作系统配置为使用适配器。通常可以通过创建一个名为 `/etc/network/interfaces.d/can0` 的新文件来实现，该文件包含以下内容：
 
 ```
-allow-hotplug can0
-iface can0 can static
-    bitrate 1000000
-    up ifconfig $IFACE txqueuelen 128
+允许-热插拔can0。
+IFace can0可以静态。
+比特率1000000。
+Up ifconfig$iFace txqueelen 128
 ```
 
 ## 终端电阻
 
 CAN总线在 CANH 和 CANL 导线之间必须两个 120 欧姆的电阻。理想情况下，总线的两端各有一个电阻。
 
-Note that some devices have a builtin 120 ohm resistor that can not be easily removed. Some devices do not include a resistor at all. Other devices have a mechanism to select the resistor (typically by connecting a "pin jumper"). Be sure to check the schematics of all devices on the CAN bus to verify that there are two and only two 120 Ohm resistors on the bus.
+请注意，有些器件内置了120欧姆的电阻，不易拆卸。有些器件根本不包括电阻器。其他设备具有选择电阻的机制(通常通过连接“引脚跳线”)。务必检查CAN总线上所有器件的原理图，以验证该总线上是否有且只有两个120欧姆电阻。
 
 要测试电阻是否正确，先切断打印机的电源，并用多用表检查 CANH 和 CANL 线之间的阻值—在正确接线的 CAN 总线上，它应该报告大约60 欧姆。
 
@@ -58,27 +58,27 @@ canbus_uuid: 11aa22bb33cc
 
 ## USB转CAN总线桥接模式
 
-Some micro-controllers support selecting "USB to CAN bus bridge" mode during Klipper's "make menuconfig". This mode may allow one to use a micro-controller as both a "USB to CAN bus adapter" and as a Klipper node.
+有些微控制器支持在Klipper的“make menuconfig”模式下选择“USB转CAN Bus Bridge”模式。该模式可使微控制器既可用作“USB转CAN总线适配器”，又可用作Klipper节点。
 
-When Klipper uses this mode the micro-controller appears as a "USB CAN bus adapter" under Linux. The "Klipper bridge mcu" itself will appear as if it was on this CAN bus - it can be identified via `canbus_query.py` and it must be configured like other CAN bus Klipper nodes.
+当Klipper使用此模式时，微控制器在Linux下显示为“USB CAN Bus Adapter”。“Klipper网桥MCU”本身看起来就像在此CAN总线上一样-它可以通过`canbus_query.py`识别，并且必须像其他CAN Bus Klipper节点一样进行配置。
 
 使用该模式时的一些重要注意事项：
 
 * 有必要在Linux中配置`can0` （或类似）接口，以便与总线通信。然而，Klipper 会忽略 Linux的CAN总线速度和 CAN 总线bit-timing选项。目前，CAN总线的频率需要在 "make menuconfig "中指定。Linux中指定的总线速度会被忽略。
-* Whenever the "bridge mcu" is reset, Linux will disable the corresponding `can0` interface. To ensure proper handling of FIRMWARE_RESTART and RESTART commands, it is recommended to use `allow-hotplug` in the `/etc/network/interfaces.d/can0` file. For example:
+* 每当桥接MCU重置时，Linux都会关闭相应的`can0`接口。为了确保Firmware_Restart和Restart命令的正确处理，建议使用`/etc/network/interfaces.d/can0`文件中的`Allow-hotplug`。例如：
 
 ```
-allow-hotplug can0
-iface can0 can static
-    bitrate 1000000
-    up ifconfig $IFACE txqueuelen 128
+允许-热插拔can0。
+IFace can0可以静态。
+比特率1000000。
+Up ifconfig$iFace txqueelen 128
 ```
 
-* The "bridge mcu" is not actually on the CAN bus. Messages to and from the bridge mcu will not be seen by other adapters that may be on the CAN bus.
+* “桥式MCU”实际上并不在CAN总线上。可能位于CAN总线上的其他适配器不会看到进出桥接器MCU的消息。
 
-   * The available bandwidth to both the "bridge mcu" itself and all devices on the CAN bus is effectively limited by the CAN bus frequency. As a result, it is recommended to use a CAN bus frequency of 1000000 when using "USB to CAN bus bridge mode".Even at a CAN bus frequency of 1000000, there may not be sufficient bandwidth to run a `SHAPER_CALIBRATE` test if both the XY steppers and the accelerometer all communicate via a single "USB to CAN bus" interface.
-* A USB to CAN bridge board will not appear as a USB serial device, it will not show up when running `ls /dev/serial/by-id`, and it can not be configured in Klipper's printer.cfg file with a `serial:` parameter. The bridge board appears as a "USB CAN adapter" and it is configured in the printer.cfg as a [CAN node](#configuring-klipper).
+   * “桥式MCU”本身和CAN总线上的所有设备的可用带宽都受到CAN总线频率的有效限制。因此，在使用“USB转CAN总线桥模式”时，建议使用1000000的CAN总线频率。即使在CAN总线频率为1000000的情况下，如果XY步进器和加速度计都通过单个“USB to CAN Bus”接口进行通信，也可能没有足够的带宽来运行 `SHAPER_CALIBRATE` 测试。
+* USB转CAN桥板不会显示为USB串口设备，也不会在运行`ls/dev/Serial/by-id`时出现，也不能在Klipper的printer.cfg文件中使用`Serial：`参数进行配置。桥接板显示为“USB CAN适配器”，并在printer.cfg中配置为[CAN节点](#configuring-klipper)。
 
-## Tips for troubleshooting
+## 故障排除提示
 
-See the [CAN bus troubleshooting](CANBUS_Troubleshooting.md) document.
+参见[CAN Bus故障排除](CanBus_Troublrouoting.md)文档。

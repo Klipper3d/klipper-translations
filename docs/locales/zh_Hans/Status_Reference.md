@@ -123,9 +123,9 @@
 
 ## gcode_button
 
-The following information is available in [gcode_button some_name](Config_Reference.md#gcode_button) objects:
+在[Gcode_Button Some_NAME](Config_Reference.md#gcode_Button)对象中提供了以下信息：
 
-- `state`: The current button state returned as "PRESSED" or "RELEASED"
+- `state`：当前返回的按钮状态为按下或释放
 
 ## gcode_macro
 
@@ -169,7 +169,7 @@ The following information is available in [gcode_button some_name](Config_Refere
 
 - `available_heaters`：返回所有当前可用加热器的完整配置分段名称，例如 `["extruder"、"heater_bed"、"heater_generic my_custom_heater"]`。
 - `available_sensors`：返回所有当前可用的温度传感器的完整配置分段名称列表，例如：`["extruder", "heater_bed", "heater_generic my_custom_heater", "temperature_sensor electronics_temp"] `。
-- `available_monitors`: Returns a list of all currently available temperature monitors by their full config section names, e.g. `["tmc2240 stepper_x"]`. While a temperature sensor is always available to read, a temperature monitor may not be available and will return null in such case.
+- `available_monitor ors`：按配置节全名返回当前所有可用的温度监视器的列表，例如`[“tmc2240 Steper_x”]`。虽然温度传感器始终可用于读取，但温度监视器可能不可用，在这种情况下将返回NULL。
 
 ## idle_timeout
 
@@ -263,7 +263,7 @@ The following information is available in [gcode_button some_name](Config_Refere
 以下信息可在`screws_tilt_adjust`对象中获取：
 
 - `error`: 如果最近的 `SCREWS_TILT_CALCULATE` 命令包含了 `MAX_DEVIATION` 参数，并且任何一个已探测的螺丝坐标超过了指定的 `MAX_DEVIATION`，则返回 True。
-- `max_deviation`: Return the last `MAX_DEVIATION` value of the most recent `SCREWS_TILT_CALCULATE` command.
+- `MAX_DEVERATION`：返回最新的`SPRWS_TILT_CALCULATE`命令的最后一个`MAX_DEVIATION`值。
 - `results["<螺丝>"]`：包含以下键的字典：
    - `z`: 螺丝坐标测量的 Z 高度。
    - `sign`：一个字符串，指定进行必要的调整时旋转螺丝的方向。“CW”表示顺时针，“CCW”表示逆时针。
@@ -292,7 +292,7 @@ The following information is available in [gcode_button some_name](Config_Refere
 
 以下信息可在
 
-[bme280 config_section_name](Config_Reference.md#bmp280bme280bme680-temperature-sensor), [htu21d config_section_name](Config_Reference.md#htu21d-sensor), [lm75 config_section_name](Config_Reference.md#lm75-temperature-sensor), [temperature_host config_section_name](Config_Reference.md#host-temperature-sensor) and [temperature_combined config_section_name](Config_Reference.md#combined-temperature-sensor) objects:
+[BME280 config_section_name](Config_Reference.md#bmp280bme280bme680-temperature-sensor)，[htu21d config_section_name(Config_Reference.md#htu21d-sensor)，[lm75 config_section_name](Config_Reference.md#lm75-temperaturesensor)，[温度_主机config_section_name](Config_Reference.md#host-temperature-sensor) 和[温度_组合config_section_name](Config_Reference.md#combined-temperature-sensor) 对象：
 
 - `temperature`：上一次从传感器读取的温度。
 - `hemidity`、`pressure`和`gas`：传感器上一次读取的值（仅在bme280、htu21d和lm75传感器上）。
@@ -318,7 +318,7 @@ The following information is available in [gcode_button some_name](Config_Refere
 - `mcu_phase_offset`：微控制器步进位置与驱动器的"零"相位的相对位置。如果相位偏移未知，则此字段可能为空。
 - `phase_offset_position`：对应电机“零”相位的“指令位置”。如果相位偏移未知，则该字段可以为空。
 - `drv_status`：上次驱动状态查询结果。（仅报告非零字段。如果驱动没有被启用（因此没有轮询），则此字段将为 null。
-- `temperature`: The internal temperature reported by the driver. This field will be null if the driver is not enabled or if the driver does not support temperature reporting.
+- `temperature`：司机上报的车内温度。如果驱动程序未启用或驱动程序不支持温度报告，则此字段为空。
 - `run_current`：当前设置的运行电流。
 - `hold_current`：当前设置的保持电流。
 
@@ -336,10 +336,10 @@ The following information is available in [gcode_button some_name](Config_Refere
 
 ## dual_carriage
 
-The following information is available in [dual_carriage](Config_Reference.md#dual_carriage) on a cartesian, hybrid_corexy or hybrid_corexz robot
+关于笛卡尔机器人、混合核心机器人或混合核心机器人，[dual_carriage](Config_Reference.md#dual_carriage)中提供了以下信息
 
-- `carriage_0`: The mode of the carriage 0. Possible values are: "INACTIVE" and "PRIMARY".
-- `carriage_1`: The mode of the carriage 1. Possible values are: "INACTIVE", "PRIMARY", "COPY", and "MIRROR".
+- `Carty_0`：表示0的车厢模式。可能的值为：“非活动”和“主要”。
+- `Carrance_1`：马车1的模式，可选值为：Inactive、PRIMARY、COPY、MIRROR。
 
 ## virtual_sdcard
 

@@ -33,7 +33,7 @@ gcode:
   SET_PIN PIN=my_led VALUE=0 #关灯
 ```
 
-The terminal will display the description when you use the `HELP` command or the autocomplete function.
+当您使用`HELP`命令或自动补全功能时，终端会显示说明。
 
 ## 保存/恢复 G-Code 移动的状态
 
@@ -94,13 +94,13 @@ gcode:
   M140 S{bed_temp} # 设置热床温度为bed_temp
 ```
 
-### The "rawparams" variable
+### “rawparams”变量
 
-The full unparsed parameters for the running macro can be access via the `rawparams` pseudo-variable.
+可以通过`rawpars`伪变量访问正在运行的宏的完整未解析参数。
 
-Note that this will include any comments that were part of the original command.
+请注意，这将包括原始命令中的任何注释。
 
-See the [sample-macros.cfg](../config/sample-macros.cfg) file for an example showing how to override the `M117` command using `rawparams`.
+有关如何使用`rawpars`覆盖`M117`命令的示例，请参阅[sample-macros.cfg](../config/sample-macros.cfg)文件。
 
 ### "printer"变量
 
@@ -197,7 +197,7 @@ gcode:
 
 ```
 [delayed_gcode report_temp]
-initial_duration: 2.
+初始_持续时间： 2.
 gcode:
   {action_respond_info("Extruder Temp: %.1f" % (printer.extruder0.temperature))}
   UPDATE_DELAYED_GCODE ID=report_temp DURATION=2

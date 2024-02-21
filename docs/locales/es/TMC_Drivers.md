@@ -1,10 +1,10 @@
 # TMC drivers
 
-Este documento entrega informacion para utilizar el driver de motor paso a paso Trinamic en modo SPI/UART en Klipper.
+Este documento provee información para utilizar el controlador de Trinamic para motor de paso a paso en modo SPI/UART en Klipper.
 
-Klipper también puede usar controladores Trinamic en su "modo independiente" ("standalone mode" en inglés). Sin embargo, cuando los controladores están en este modo, no se necesita una configuración especial de Klipper y las funciones avanzadas de Klipper presentadas en este documento no están disponibles.
+Klipper también puede usar controladores Trinamic en su "modo independiente" (“standalone-mode” en inglés). Sin embargo, cuando los controladores están en este modo, Klipper no necesita una configuración especial y las funciones avanzadas de Klipper exploradas en este documento no están disponibles.
 
-Además de este documento, asegúrese de revisar [TMC driver config reference](Config_Reference.md#tmc-stepper-driver-configuration).
+Además de este documento, asegúrese de revisar la [referencia de configuración del controlador TMC](Config_Reference.md#tmc-stepper-driver-configuration).
 
 ## Tuning motor current
 
@@ -40,47 +40,47 @@ For best positional accuracy consider using spreadCycle mode and disable interpo
 
 If using stealthChop mode then the positional inaccuracy from interpolation is small relative to the positional inaccuracy introduced from stealthChop mode. Therefore tuning interpolation is not considered useful when in stealthChop mode, and one can leave interpolation in its default state.
 
-## Proceso de regreso a casa sin sensor
+## Proceso de localización de la boquilla sin sensor
 
-El proceso de regreso a casa sin sensor (“Sensorless Homing” en inglés") permite regresar un eje a casa sin la necesidad de un interruptor de límite físico. En su lugar, el carruaje en el eje se mueve hacia el límite mecánico haciendo que el motor paso a paso pierda pasos. El controlador del motor paso a paso detecta los pasos perdidos y alterna un pin para indicar la pérdida al microcontrolador (“MCU”) dominante (Klipper). Klipper puede utilizar esta información como el punto de parada final para el eje.
+El proceso de localización de la boquilla sin sensor ("Sensorless Homing" en inglés) permite determinar el punto donde la boquilla de la impresora se encuentra en un eje sin la necesidad de un interruptor de límite físico. En su lugar, el carruaje en el eje se mueve hacia el límite mecánico haciendo que el motor paso a paso pierda pasos. El controlador del motor paso a paso detecta los pasos perdidos y alterna un pin para indicar la perdida al microcontrolador (“MCU”) dominante (Klipper). Klipper puede utilizar esta información como el punto de parada final para el eje.
 
-Esta guía cubre como configurar el proceso de regreso a casa sin sensor para el eje X de su impresora (cartesiana). Sin embargo, funciona igual con todos los demás ejes (que requieren parada final). Debe configurarlo y afinarlo para un eje a la vez.
+Esta guía cubre la configuración del proceso de localización de la boquilla sin sensor para el eje X de su impresora (cartesiana). Sin embargo, funciona igual con todos los demás ejes (que requieren parada final). Debe configurarlo y afinarlo para un eje a la vez.
 
 ### Limitaciones
 
 Asegúrese de que sus componentes mecánicos sean capaces de manejar la carga del carruaje chocando contra el límite del eje repetidamente. Especialmente los husillos pues podrían generar mucha fuerza. Posicionar un eje Z golpeando la boquilla contra la superficie de impresión puede que no sea una buena idea. Para obtener los mejores resultados, verifique que el carruaje del eje va hacer un contacto firme con el límite del eje.
 
-Además, es posible que el proceso de retorno a casa sin sensor no sea lo suficientemente preciso para su impresora. Mientras el proceso de retorno a casa de los ejes X e Y en una máquina cartesiana puede funcionar bien, el mismo proceso en el eje Z generalmente no es lo suficientemente preciso y puede resultar en que la primera capa tenga una altura inconsistente. No es aconsejable completar el proceso de retorno a casa sin un sesor en una impresora delta debido a la falta de precisión.
+Además, es posible que el proceso de localización de la boquilla sin sensor no sea lo suficientemente preciso para su impresora. Mientras el proceso de localización de la boquilla de los ejes X e Y en una máquina cartesiana puede funcionar bien, el mismo proceso en el eje Z generalmente no es lo suficientemente preciso y puede resultar en que la primera capa tenga una altura inconsistente. No es aconsejable completar el proceso de localización de la boquilla sin un sensor en una impresora delta debido a la falta de precisión.
 
 Además, la habilidad de detectar cuando el motor se detiene (“stall detection” en inglés) que se encuentra en el controlador del motor paso a paso depende de la carga mecánica en el motor, la corriente del motor y la temperatura del motor (resistencia de la bobina).
 
-El proceso de retorno a casa sin sensor funciona mejor a velocidades de motor medias. Para velocidades bien bajas (menos de 10 r.p.m.) el motor no genera suficiente fuerza contraelectromotriz (CEMF por sus siglas en inglés) y el controlador (“TMC” por sus siglas en inglés) no puede detectar con confiabilidad cuando el motor se detiene. Además, a velocidades muy altas, el CEMF del motor se acerca al voltaje de alimentación del motor, así es que el TMC ya no puede detectar los paros del motor.Se recomienda que revise la hoja de datos de su TMC espcífico. Allí también encontrará mas detalles sobre las limitaciones de esta configuración.
+El proceso de retorno a casa sin sensor funciona mejor a velocidades de "motor medias. Para velocidades bien bajas (menos de 10 r.p.m.) el motor no genera suficiente fuerza contraelectromotriz (CEMF por sus siglas en inglés) y el controlador (“TMC” por sus siglas en inglés) no puede detectar con confiabilidad cuando el motor se detiene. Además, a velocidades muy altas, el CEMF del motor se acerca al voltaje de alimentación del motor, así es que el TMC ya no puede detectar los paros del motor. Se recomienda que revise la hoja de datos de su TMC específico. Allí también encontrará mas detalles sobre las limitaciones de esta configuración.
 
 ### Prerequisitos
 
-Se necesitan algunos prerequisitos para utilizar le proceso de retorno a casa sin sensor:
+Se necesitan algunos prerequisitos para utilizar le proceso de localización de la boquilla sin sensor:
 
 1. A stallGuard capable TMC stepper driver (tmc2130, tmc2209, tmc2660, or tmc5160).
-1. SPI / UART interface of the TMC driver wired to micro-controller (stand-alone mode does not work).
-1. The appropriate "DIAG" or "SG_TST" pin of TMC driver connected to the micro-controller.
-1. The steps in the [config checks](Config_checks.md) document must be run to confirm the stepper motors are configured and working properly.
+1. El interfaz SPI / UART del controlador TMC conectado al microcontrolador (el modo autónomo no funciona).
+1. El pin “DIAG” o “SG_TST” apropiado del controlador TMC conectado al microcontrolador.
+1. Los pasos en el documento [comprobaciones de configuración](Config_checks.md) tienen que ejecutarse para confirmar que los motores paso a paso están configurados y funcionando correctamente.
 
-### Tuning
+### Afinamiento
 
-The procedure described here has six major steps:
+El procedimiento descrito aquí tiene seis pasos principales:
 
-1. Choose a homing speed.
-1. Configure the `printer.cfg` file to enable sensorless homing.
-1. Find the stallguard setting with highest sensitivity that successfully homes.
-1. Find the stallguard setting with lowest sensitivity that successfully homes with a single touch.
-1. Update the `printer.cfg` with the desired stallguard setting.
-1. Create or update `printer.cfg` macros to home consistently.
+1. Escoja una velocidad para el proceso de localización de la boquilla.
+1. Configure el archivo `printer.cfg` para habilitar el proceso de localización de la boquilla sin sensor.
+1. Encuentre el ajuste del “stallguard” con la mayor sensibilidad que complete el proceso de localización de la boquilla con éxito.
+1. Encuentre el ajuste del “stallguard” con la menor sensibilidad que complete el proceso de localización de la boquilla con un solo toque.
+1. Actualice `printer.cfg` con la configuración de “stallguard” deseada.
+1. Cree o actualice los macros de `printer.cfg` para completar el proceso de localización de la boquilla de forma consistente.
 
-#### Choose homing speed
+#### Escoja una velocidad para el proceso de localización de la boquilla
 
-The homing speed is an important choice when performing sensorless homing. It's desirable to use a slow homing speed so that the carriage does not exert excessive force on the frame when making contact with the end of the rail. However, the TMC drivers can't reliably detect a stall at very slow speeds.
+La velocidad del proceso de localización de la boquilla sin sensor es una elección importante cuando se va a ejecutar el proceso. Completar el proceso a baja velocidad es preferible para evitar que el carruaje ejerza una fuerza excesiva en el armazón cuando haga contacto con el extremo del riel. Sin embargo, a bajas velocidades, los controladores TMC no pueden detectar de forma fiable cuando el motor se detiene.
 
-A good starting point for the homing speed is for the stepper motor to make a full rotation every two seconds. For many axes this will be the `rotation_distance` divided by two. For example:
+Un buen punto de partida para la velocidad del proceso de localización de la boquilla es que el motor paso a paso complete una rotación cada dos segundos. Para muchos ejes esta será la ‘distancia de rotación’ (`rotation_distance` en inglés) dividida por dos. Por ejemplo:
 
 ```
 [stepper_x]
@@ -89,13 +89,13 @@ homing_speed: 20
 ...
 ```
 
-#### Configure printer.cfg for sensorless homing
+#### Configure printer.cfg para el proceso de localización de la boquilla sin sensor
 
-The `homing_retract_dist` setting must be set to zero in the `stepper_x` config section to disable the second homing move. The second homing attempt does not add value when using sensorless homing, it will not work reliably, and it will confuse the tuning process.
+El ajuste `homing_retract_dist` debe inicializarse a cero en la sección de configuración `stepper_x` para desactivar el segundo movimiento del proceso de localización de la boquilla. El segundo intento del proceso no añade valor cuando se usa el proceso de localización de la boquilla sin sensor, pues no trabajará de forma fiable y confundirá el proceso de afinamiento.
 
-Be sure that a `hold_current` setting is not specified in the TMC driver section of the config. (If a hold_current is set then after contact is made, the motor stops while the carriage is pressed against the end of the rail, and reducing the current while in that position may cause the carriage to move - that results in poor performance and will confuse the tuning process.)
+Asegúrese de que el ajuste `hold_current` no está especificado en la sección del controlador TMC de la configuración. (Si `hold_current` está inicializado, entonces después de hacer contacto, el motor se detendrá mientras el carruaje está presionado contra el extremo del riel y una reducción de corriente mientras está en esa posición puede hacer que el carruaje se mueva, lo que resultaría en un rendimiento deficiente y confundiría el proceso de afinamiento).
 
-It is necessary to configure the sensorless homing pins and to configure initial "stallguard" settings. A tmc2209 example configuration for an X axis might look like:
+Es necesario configurar los pines del proceso de localización de la boquilla sin sensor y configurar los ajustes iniciales de "stallguard". Aquí sigue un ejemplo de como la configuración de un tmc2209 para el eje X podría ser:
 
 ```
 [tmc2209 stepper_x]
@@ -109,7 +109,7 @@ homing_retract_dist: 0
 ...
 ```
 
-An example tmc2130 or tmc5160 config might look like:
+El siguiente ejemplo demuestra una posible configuración para el tmc2130 o el tmc5160:
 
 ```
 [tmc2130 stepper_x]
@@ -123,7 +123,7 @@ homing_retract_dist: 0
 ...
 ```
 
-An example tmc2660 config might look like:
+Aquí sigue un ejemplo de como se podría configurar el tmc2660:
 
 ```
 [tmc2660 stepper_x]
@@ -136,17 +136,17 @@ homing_retract_dist: 0
 ...
 ```
 
-The examples above only show settings specific to sensorless homing. See the [config reference](Config_Reference.md#tmc-stepper-driver-configuration) for all the available options.
+Los ejemplos anteriores solo muestran configuraciones específicas para la localización de la boquilla sin sensor. Consulte la [referencia de configuración] (Config_Reference.md#tmc-stepper-driver-configuration) para conocer todas las opciones disponibles.
 
-#### Find highest sensitivity that successfully homes
+#### Encuentre la configuración de sensibilidad más alta para una localización exitosa
 
-Place the carriage near the center of the rail. Use the SET_TMC_FIELD command to set the highest sensitivity. For tmc2209:
+Coloque el carruaje cerca del centro del riel. Utilice el comando SET_TMC_FIELD para establecer la sensibilidad más alta. Para el tmc2209:
 
 ```
 SET_TMC_FIELD STEPPER=stepper_x FIELD=SGTHRS VALUE=255
 ```
 
-For tmc2130, tmc5160, and tmc2660:
+Para el tmc2130, el tmc5160, y el tmc2660:
 
 ```
 SET_TMC_FIELD STEPPER=stepper_x FIELD=sgt VALUE=-64
@@ -154,39 +154,39 @@ SET_TMC_FIELD STEPPER=stepper_x FIELD=sgt VALUE=-64
 
 Then issue a `G28 X0` command and verify the axis does not move at all or quickly stops moving. If the axis does not stop, then issue an `M112` to halt the printer - something is not correct with the diag/sg_tst pin wiring or configuration and it must be corrected before continuing.
 
-Next, continually decrease the sensitivity of the `VALUE` setting and run the `SET_TMC_FIELD` `G28 X0` commands again to find the highest sensitivity that results in the carriage successfully moving all the way to the endstop and halting. (For tmc2209 drivers this will be decreasing SGTHRS, for other drivers it will be increasing sgt.) Be sure to start each attempt with the carriage near the center of the rail (if needed issue `M84` and then manually move the carriage to the center). It should be possible to find the highest sensitivity that homes reliably (settings with higher sensitivity result in small or no movement). Note the found value as *maximum_sensitivity*. (If the minimum possible sensitivity (SGTHRS=0 or sgt=63) is obtained without any carriage movement then something is not correct with the diag/sg_tst pin wiring or configuration and it must be corrected before continuing.)
+A continuación, disminuya continuamente la sensibilidad del ajuste `VALUE` y ejecute los comandos `SET_TMC_FIELD` y `G28 X0` nuevamente para encontrar la más alta sensibilidad que resulte en que el carruaje se mueva exitosamente hasta su casa y se detenga. (Para los controladores tmc2209 esto será disminuir SGTHRS, para otros controladores será aumentar sgt.) Asegúrese de empezar cada intento con el carruaje cerca del centro del riel (si es necesario emita `M84` y luego mueva manualmente el carruaje al centro). Debería ser posible encontrar la sensibilidad más alta que localice la boquilla de forma fiable (los ajustes con mayor sensibilidad dan como resultado un movimiento pequeño o nulo). Apunte el valor encontrado como *maximum_sensitivity*. (Si la sensibilidad mínima posible (SGTHRS=0 o sgt =63) se obtiene sin ningún movimiento del carruaje, entonces hay algún error con el cableado o la configuración de los pines diag/sg_tst y debe corregirse antes de continuar).
 
-When searching for maximum_sensitivity, it may be convenient to jump to different VALUE settings (so as to bisect the VALUE parameter). If doing this then be prepared to issue an `M112` command to halt the printer, as a setting with a very low sensitivity may cause the axis to repeatedly "bang" into the end of the rail.
+Al buscar la sensibilidad_máxima (“maximum_sensitivity” en inglés), puede ser conveniente saltar a un ajuste diferente de VALUE (para dividir en dos el parámetro VALUE). Si hace esto, entonces prepárese para emitir un comando `M112` para detener la impresora, ya que un ajuste con una sensibilidad muy baja puede causar que el eje "golpee" repetidamente contra el extremo del riel.
 
-Be sure to wait a couple of seconds between each homing attempt. After the TMC driver detects a stall it may take a little time for it to clear its internal indicator and be capable of detecting another stall.
+Asegúrese de esperar un par de segundos entre cada intento del proceso de localización de la boquilla. Después de que el controlador TMC detecta una parada, puede tardar un poco en despejar su indicador interno y ser capaz de detectar otra parada.
 
-During these tuning tests, if a `G28 X0` command does not move all the way to the axis limit, then be careful with issuing any regular movement commands (eg, `G1`). Klipper will not have a correct understanding of the carriage position and a move command may cause undesirable and confusing results.
+Durante estas pruebas de afinamiento, si un comando `G28 X0` no causa que el carruaje se mueva hasta el límite del eje, tenga cuidado al emitir cualquier comando de movimiento regular (por ejemplo, `G1`). Klipper no tendrá una comprensión correcta de la posición del carruaje y un comando de movimiento puede causar resultados indeseables y confusos.
 
-#### Find lowest sensitivity that homes with one touch
+#### Encuentre la sensibilidad más baja que complete el proceso de localización de la boquilla con un solo toque
 
-When homing with the found *maximum_sensitivity* value, the axis should move to the end of the rail and stop with a "single touch" - that is, there should not be a "clicking" or "banging" sound. (If there is a banging or clicking sound at maximum_sensitivity then the homing_speed may be too low, the driver current may be too low, or sensorless homing may not be a good choice for the axis.)
+Cuando ejecutando el proceso de localización de la boquilla con el valor de *maximum_sensitivity* encontrado, el eje debe moverse hasta el extremo del riel y detenerse con un "solo toque", es decir, no debe haber un sonido de “click” o “golpeteo”. (Si hay un sonido de golpeteo o clic cuando se usa el valor de maximum_sensitivity, entonces el valor de homing_speed puede ser demasiado bajo, la corriente del controlador puede ser demasiado baja o el proceso de localización de la boquilla sin sensor puede no ser una buena opción para el eje).
 
-The next step is to again continually move the carriage to a position near the center of the rail, decrease the sensitivity, and run the `SET_TMC_FIELD` `G28 X0` commands - the goal is now to find the lowest sensitivity that still results in the carriage successfully homing with a "single touch". That is, it does not "bang" or "click" when contacting the end of the rail. Note the found value as *minimum_sensitivity*.
+El próximo paso es volver a mover continuamente el carruaje a una posición cerca del centro del riel, disminuir la sensibilidad, y ejecutar los comandos `SET_TMC_FIELD` y `G28 X0`; el objetivo ahora es encontrar la sensibilidad más baja que aún resulte en que el carruaje complete con éxito el proceso de localización de la boquilla con un “solo toque”. Es decir, no “golpea” ni hace “clic” cuando entra en contacto con el extremo del riel. Apunte el valor encontrado como *minimum_sensitivity*.
 
-#### Update printer.cfg with sensitivity value
+#### Actualizando printer.cfg con el valor de sensibilidad
 
-After finding *maximum_sensitivity* and *minimum_sensitivity*, use a calculator to obtain the recommend sensitivity as *minimum_sensitivity + (maximum_sensitivity - minimum_sensitivity)/3*. The recommended sensitivity should be in the range between the minimum and maximum, but slightly closer to the minimum. Round the final value to the nearest integer value.
+Después de encontrar *maximum_sensitivity* y *minimum_sensitivity*, use una calculadora para obtener la sensibilidad recomendada como *minimum_sensitivity + (maximum_sensitivity - minimum_sensitivity)/3*. La sensibilidad recomendada debe estar en el rango entre el mínimo y el máximo, pero ligeramente más cerca del mínimo. Redondee el valor final al valor entero más cercano.
 
-For tmc2209 set this in the config as `driver_SGTHRS`, for other TMC drivers set this in the config as `driver_SGT`.
+Para el tmc2209 establezca esto en la configuración como `driver_SGTHRS` y para los otros controladores TMC establezca esto en la configuración como `driver_SGT`.
 
-If the range between *maximum_sensitivity* and *minimum_sensitivity* is small (eg, less than 5) then it may result in unstable homing. A faster homing speed may increase the range and make the operation more stable.
+Si el rango entre *maximum_sensitivity* y *minimum_sensitivity*. encontrado es corto (por ejemplo inferior a 5) entonces puede resultar en un proceso de localización de la boquilla inestable. Una velocidad para el proceso de localización de la boquilla más rápida puede aumentar el intervalo y hacer que la operación sea más estable.
 
-Note that if any change is made to driver current, homing speed, or a notable change is made to the printer hardware, then it will be necessary to run the tuning process again.
+Tenga en cuenta que si se realiza algún cambio en la corriente del controlador, la velocidad del proceso de localización de la boquilla o se realiza un cambio notable en el hardware de la impresora, será necesario ejecutar el proceso de afinamiento nuevamente.
 
-#### Using Macros when Homing
+#### Usando macros cuando se ejecuta el proceso de localización de la boquilla
 
-After sensorless homing completes the carriage will be pressed against the end of the rail and the stepper will exert a force on the frame until the carriage is moved away. It is a good idea to create a macro to home the axis and immediately move the carriage away from the end of the rail.
+Después de que el proceso de localización de la boquilla sin sensor complete, el carruaje se presionará contra el extremo del riel y el motor de paso a paso ejercerá una fuerza sobre el armazón hasta que el carruaje sea alejado. Así es que, es una buena idea crear un macro para ejecutar el proceso de localización de la boquilla e inmediatamente el carruaje del extremo del riel.
 
-It is a good idea for the macro to pause at least 2 seconds prior to starting sensorless homing (or otherwise ensure that there has been no movement on the stepper for 2 seconds). Without a delay it is possible for the driver's internal stall flag to still be set from a previous move.
+También es una buena idea que el macro haga una pausa de por lo menos 2 segundos antes de empezar el proceso de localización de la boquilla sin sensor (o de lo contrario asegúrese de que no haya habido movimiento en el motor de paso a paso durante 2 segundos). Sin la pausa, es posible que el indicador interno de parada del controlador se mantenga inicializado basado en un movimiento anterior.
 
 It can also be useful to have that macro set the driver current before homing and set a new current after the carriage has moved away.
 
-An example macro might look something like:
+Un ejemplo de un macro podría ser algo así como:
 
 ```
 [gcode_macro SENSORLESS_HOME_X]
@@ -207,19 +207,19 @@ gcode:
     SET_TMC_CURRENT STEPPER=stepper_x CURRENT={RUN_CUR}
 ```
 
-The resulting macro can be called from a [homing_override config section](Config_Reference.md#homing_override) or from a [START_PRINT macro](Slicers.md#klipper-gcode_macro).
+El macro resultante se puede llamar desde la [sección de configuración homing_override](Config_Reference.md#homing_override) o desde un [macro START_PRINT](Slicers.md#klipper-gcode_macro).
 
-Note that if the driver current during homing is changed, then the tuning process should be run again.
+Tenga en cuenta que si se cambia la corriente del controlador durante el proceso de localización de la boquilla, entonces el proceso de afinamiento debe ejecutarse de nuevo.
 
-### Tips for sensorless homing on CoreXY
+### Consejos para el proceso de localización de la boquilla sin sensor en CoreXY
 
-It is possible to use sensorless homing on the X and Y carriages of a CoreXY printer. Klipper uses the `[stepper_x]` stepper to detect stalls when homing the X carriage and uses the `[stepper_y]` stepper to detect stalls when homing the Y carriage.
+Es posible utilizar el proceso de localización de la boquilla sin sensor en los carruajes X e Y de una impresora CoreXY. Klipper usa la definición `[stepper_x]` para detectar los detenimientos del motor paso a paso mientras se ejecuta el proceso de localización de la boquilla en el carruaje X y usa la definición `[stepper_y]` para detectar los detenimientos del motor paso a paso mientras se ejecuta el proceso de localización de la boquilla en el carruaje Y.
 
-Use the tuning guide described above to find the appropriate "stall sensitivity" for each carriage, but be aware of the following restrictions:
+Utilice la guía de afinamiento descrita anteriormente para encontrar la “sensibilidad a detenimientos”, “stall sensitivity” en inglés, adecuada para cada carruaje, pero tenga en cuenta las siguientes restricciones:
 
 1. When using sensorless homing on CoreXY, make sure there is no `hold_current` configured for either stepper.
-1. While tuning, make sure both the X and Y carriages are near the center of their rails before each home attempt.
-1. After tuning is complete, when homing both X and Y, use macros to ensure that one axis is homed first, then move that carriage away from the axis limit, pause for at least 2 seconds, and then start the homing of the other carriage. The move away from the axis avoids homing one axis while the other is pressed against the axis limit (which may skew the stall detection). The pause is necessary to ensure the driver's stall flag is cleared prior to homing again.
+1. Mientras afina, asegúrese de que los carruajes X e Y estén cerca del centro de sus rieles antes de cada intento de ejecutar el proceso de localización de la boquilla.
+1. Después de completar el afinamiento, cuando se ejecute el proceso de localización de la boquilla para tanto X como Y, use macros para asegurarse de que se completen los siguientes cuatro pasos en orden: un eje complete el proceso primero; entonces se aleje ese carruaje del extremo del eje; haya una pausa de al menos 2 segundos, y entonces comience el proceso en el otro carruaje. El alejamiento del eje previene que el proceso de localización de la boquilla de un eje se ejecute mientras que el otro este presionado contra el extremo del eje (lo que podría distorsionar la detección de detenimientos). La pausa es necesaria para asegurarse que el indicador de parada del controlador este despejado antes de ejecutar el proceso de localización de la boquilla nuevamente.
 
 An example CoreXY homing macro might look like:
 
@@ -239,23 +239,23 @@ gcode:
     G1 X5 F1200
 ```
 
-## Querying and diagnosing driver settings
+## Consultando y diagnosticando los ajustes del controlador
 
 The `[DUMP_TMC command](G-Codes.md#dump_tmc) is a useful tool when configuring and diagnosing the drivers. It will report all fields configured by Klipper as well as all fields that can be queried from the driver.
 
-All of the reported fields are defined in the Trinamic datasheet for each driver. These datasheets can be found on the [Trinamic website](https://www.trinamic.com/). Obtain and review the Trinamic datasheet for the driver to interpret the results of DUMP_TMC.
+Todos los campos declarados se definen en la hoja de datos de Trinamic para cada controlador. Estas hojas de datos se pueden encontrar en el [sitio web de Trinamic](https://www.trinamic.com/). Obtenga y revise la hoja de datos del conductor publicada por Trinamic para interpretar los resultados de DUMP_TMC.
 
-## Configuring driver_XXX settings
+## Configurado los ajustes de driver_XXX
 
-Klipper supports configuring many low-level driver fields using `driver_XXX` settings. The [TMC driver config reference](Config_Reference.md#tmc-stepper-driver-configuration) has the full list of fields available for each type of driver.
+Klipper admite la configuración de muchos campos de bajo nivel utilizando los ajustes disponibles en la sección `driver_XXX` del controlador. La [referencia de configuración del controlador TMC](Config_Reference.md#tmc-stepper-driver-configuration) tiene la lista completa de campos disponibles para cada tipo de controlador.
 
 In addition, almost all fields can be modified at run-time using the [SET_TMC_FIELD command](G-Codes.md#set_tmc_field).
 
-Each of these fields is defined in the Trinamic datasheet for each driver. These datasheets can be found on the [Trinamic website](https://www.trinamic.com/).
+Cada uno de estos campos se define en la hoja de datos de Trinamic para cada controlador. Estas hojas de datos se pueden encontrar en el [sitio web de Trinamic](https://www.trinamic.com/).
 
-Note that the Trinamic datasheets sometime use wording that can confuse a high-level setting (such as "hysteresis end") with a low-level field value (eg, "HEND"). In Klipper, `driver_XXX` and SET_TMC_FIELD always set the low-level field value that is actually written to the driver. So, for example, if the Trinamic datasheet states that a value of 3 must be written to the HEND field to obtain a "hysteresis end" of 0, then set `driver_HEND=3` to obtain the high-level value of 0.
+Tenga en cuenta que las hojas de datos de Trinamic a veces usan una redacción que puede confundir una ajuste de alto nivel (como "hysteresis end") con un valor para un campo de bajo nivel (por ejemplo, "HEND"). En Klipper, `driver_XXX` y SET_TMC_FIELD siempre establecen el valor del campo de bajo nivel que realmente se escribe en el controlador. Entonces, por ejemplo, si la hoja de datos Trinamic establece que se debe escribir un valor de 3 en el campo HEND para obtener un "final de histéresis" (“hysteresis end” en inglés) de 0, establezca `driver_HEND=3` para obtener el valor de alto nivel de 0.
 
-## Common Questions
+## <strong>Preguntas más frecuentes</strong>
 
 ### Can I use stealthChop mode on an extruder with pressure advance?
 

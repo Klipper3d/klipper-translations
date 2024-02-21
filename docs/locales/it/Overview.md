@@ -1,6 +1,6 @@
 # Panoramica
 
-Benvenuto nella documentazione di Klipper. Se sei nuovo di Klipper, inizia con i documenti [features](Features.md) e [installation](Installation.md).
+Benvenuto nella documentazione di Klipper. Se sei nuovo di Klipper, inizia con la documentazione su [features](Features.md) e [istallazione](Installation.md).
 
 ## Informazioni generali
 
@@ -19,11 +19,11 @@ Benvenuto nella documentazione di Klipper. Se sei nuovo di Klipper, inizia con i
 - [Livello del piatto](Bed_Level.md): Informazioni sul "livellamento del piatto" in Klipper.
    - [Calibrazione Delta](Delta_Calibrate.md): Calibrazione della cinematica delta.
    - [Calibrazione sonda](Probe_Calibrate.md): Calibrazione di sonde Z automatiche.
-   - [BL-Touch](BLTouch.md): Configurare una sonda Z "BL-Touch".
+   - [BL-Touch](BLTouch.md): Configura una sonda Z "BL-Touch".
    - [Livello manuale](Manual_Level.md): Calibrazione dei finecorsa Z (e simili).
    - [Maglia del letto](Bed_Mesh.md): Correzione dell'altezza del piatto basata sulle posizioni XY.
    - [Endstop phase](Endstop_Phase.md): Posizionamento finecorsa Z assistito da stepper.
-   - [Axis Twist Compensation](Axis_Twist_Compensation.md): A tool to compensate for inaccurate probe readings due to twist in X gantry.
+   - [Compensazione torsione degli assi](Axis_Twist_Compensation.md): Uno strumento per compensare letture inaccurate della sonda per torsioni dell'asse X.
 - [Compensazione della risonanza](Resonance_Compensation.md): Uno strumento per ridurre le risonanze nelle stampe.
    - [Misurare le risonanze](Measuring_Resonances.md): Informazioni sull'uso dell'hardware dell'accelerometro adxl345 per misurare le risonanze.
 - [Avanzamento pressione](Pressure_Advance.md): Calibra la pressione dell'estrusore.
@@ -39,7 +39,7 @@ Benvenuto nella documentazione di Klipper. Se sei nuovo di Klipper, inizia con i
 
 ## Documentazione per sviluppatori
 
-- [Panoramica del codice](Code_Overview.md): Gli sviluppatori dovrebbero leggere prima questo.
+- [Panoramica codice](Code_Overview.md): Gli sviluppatori dovrebbero leggere prima questo.
 - [Cinematica](Kinematics.md): Dettagli tecnici su come Klipper implementa il movimento.
 - [Protocollo](Protocol.md): Informazioni sul protocollo di messaggistica di basso livello tra host e microcontrollore.
 - [Server API](API_Server.md): Informazioni sulle API di comando e controllo di Klipper.
@@ -57,8 +57,8 @@ Benvenuto nella documentazione di Klipper. Se sei nuovo di Klipper, inizia con i
 - [Raspberry Pi come microcontrollore](RPi_microcontroller.md): Dettagli per controllare i dispositivi collegati ai pin GPIO di un Raspberry Pi.
 - [Beaglebone](beaglebone.md): Dettagli per l'esecuzione di Klipper sulla PRU Beaglebone.
 - [Bootloaders](Bootloaders.md): Informazioni per gli sviluppatori sul flashing del microcontrollore.
-- [Bootloader Entry](Bootloader_Entry.md): Requesting the bootloader.
+- [Bootloader Entry](Bootloader_Entry.md): Richiedere il bootloader.
 - [CAN bus](CANBUS.md): Informazioni sull'uso del CAN bus con Klipper.
-   - [CAN bus troubleshooting](CANBUS_Troubleshooting.md): Tips for troubleshooting CAN bus.
+   - [Risoluzione problemi CAN Bus](CANBUS_Troubleshooting.md): Suggerimenti per la risoluzione di problemi del CAN Bus.
 - [Sensore larghezza filamento TSL1401CL](TSL1401CL_Filament_Width_Sensor.md)
 - [Sensore di larghezza del filamento Hall](HallFilamentWidthSensor.md)

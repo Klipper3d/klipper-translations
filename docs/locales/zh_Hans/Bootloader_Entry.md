@@ -1,26 +1,26 @@
-# Bootloader Entry
+# 引导加载程序条目
 
-Klipper can be instructed to reboot into a [Bootloader](Bootloaders.md) in one of the following ways:
+可以通过以下方式之一指示Klipper重新启动到[BootLoader](Bootloaders.md)：
 
-## Requesting the bootloader
+## 请求引导加载程序
 
-### Virtual Serial
+### 虚拟串口
 
-If a virtual (USB-ACM) serial port is in use, pulsing DTR while at 1200 baud will request the bootloader.
+如果正在使用虚拟(USB-ACM)串口，则在波特率为1200的情况下使用脉冲DTR将请求引导加载程序。
 
 #### Python (with `flash_usb`)
 
-To enter the bootloader using python (using `flash_usb`):
+要使用python进入引导加载程序(使用`flash_usb`)：
 
 ```shell
-> cd klipper/scripts
+>CD Klipper/scripts。
 > python3 -c 'import flash_usb as u; u.enter_bootloader("<DEVICE>")'
-Entering bootloader on <DEVICE>
+正在进入<设备>上的引导加载程序
 ```
 
-Where `<DEVICE>` is your serial device, such as `/dev/serial.by-id/usb-Klipper[...]` or `/dev/ttyACM0`
+其中`<Device>`为您的串口设备，如`/dev/seral.by-id/usb-klipper[...]`或`/dev/ttyACM0`
 
-Note that if this fails, no output will be printed, success is indicated by printing `Entering bootloader on <DEVICE>`.
+请注意，如果失败，则不会打印任何输出，并通过打印`Enting BootLoader on<Device>`来表示成功。
 
 #### Picocom
 
@@ -29,38 +29,38 @@ picocom -b 1200 <DEVICE>
 <Ctrl-A><Ctrl-P>
 ```
 
-Where `<DEVICE>` is your serial device, such as `/dev/serial.by-id/usb-Klipper[...]` or `/dev/ttyACM0`
+其中`<Device>`为您的串口设备，如`/dev/seral.by-id/usb-klipper[...]`或`/dev/ttyACM0`
 
-`<Ctrl-A><Ctrl-P>` means holding `Ctrl`, pressing and releasing `a`, pressing and releasing `p`, then releasing `Ctrl`
+`<Ctrl-A><Ctrl-P>`表示按住`Ctrl`，按住并松开`a`，按住并松开`p`，然后松开`Ctrl`
 
-### Physical serial
+### 物理序列
 
-If a physical serial port is being used on the MCU (even if a USB serial adapter is being used to connect to it), sending the string `<SPACE><FS><SPACE>Request Serial Bootloader!!<SPACE>~`.
+如果MCU上正在使用物理串口(即使使用USB串口适配器连接)，则发送字符串`<space><FS><space>RequestSerial BootLoader！！<space>~`。
 
-`<SPACE>` is an ASCII literal space, 0x20.
+`<space>`是ASCII文字空格，0x20。
 
-`<FS>` is the ASCII File Separator, 0x1c.
+`<FS>`是ASCII文件分隔符0x1c。
 
-Note that this is not a valid message as per the [MCU Protocol](Protocol.md#micro-controller-interface), but sync characters(`~`) are still respected.
+请注意，根据[MCU Protocol](Protocol.md#micro-controller-interface)，，这不是一个有效的消息，但仍然尊重同步字符(`~`)。
 
-Because this message must be the only thing in the "block" it is received in, prefixing an extra sync character can increase reliability if other tools were previously accessing the serial port.
+由于该消息必须是接收该消息的“块”中的唯一内容，如果其他工具先前正在访问该串口，则添加额外的同步字符前缀可以提高可靠性。
 
 #### Shell
 
 ```shell
 stty <BAUD> < /dev/<DEVICE>
-echo $'~ \x1c Request Serial Bootloader!! ~' >> /dev/<DEVICE>
+echo $'~ \x1c请求串行引导加载器!! ~' >> /dev/<DEVICE>
 ```
 
-Where `<DEVICE>` is your serial port, such as `/dev/ttyS0`, or `/dev/serial/by-id/gpio-serial2`, and
+其中`<Device>`为您的串口，如`/dev/ttyS0`或`/dev/Serial/by-id/gpio-Serial2`，以及
 
-`<BAUD>` is the baud rate of the serial port, such as `115200`.
+`<波特>`为串口的波特率，如`115200`。
 
 ### CAN 总线
 
-If CANBUS is in use, a special [admin message](CANBUS_protocol.md#admin-messages) will request the bootloader. This message will be respected even if the device already has a nodeid, and will also be processed if the mcu is shutdown.
+如果正在使用CanBus，则会有一个特殊的[管理消息](canbus_Protocol.md#admin-Messages)请求引导加载程序。即使设备已经具有节点ID，也会考虑此消息，并且如果MCU关闭，也会处理此消息。
 
-This method also applies to devices operating in [CANBridge](CANBUS.md#usb-to-can-bus-bridge-mode) mode.
+此方法也适用于在[CANBridge](CANBUS.md#usb-to-can-bus-bridge-mode)模式下运行的设备。
 
 #### Katapult's flashtool.py
 
@@ -68,26 +68,26 @@ This method also applies to devices operating in [CANBridge](CANBUS.md#usb-to-ca
 python3 ./katapult/scripts/flashtool.py -i <CAN_IFACE> -u <UUID> -r
 ```
 
-Where `<CAN_IFACE>` is the can interface to use. If using `can0`, both the `-i` and `<CAN_IFACE>` may be omitted.
+其中`<CAN_iFace>`是要使用的CAN接口。如果使用`can0`，则可以省略`-i`和`<can_iFace>`。
 
-`<UUID>` is the UUID of your CAN device.
+`<uuid>`是您的CAN设备的uuid。
 
-See the [CANBUS Documentation](CANBUS.md#finding-the-canbus_uuid-for-new-micro-controllers) for information on finding the CAN UUID of your devices.
+有关查找设备的CAN UUID的信息，请参阅[CAN Bus Documentation](CANBUS.md#finding-the-canbus_uuid-for-new-micro-controllers)。
 
-## Entering the bootloader
+## 进入引导加载程序
 
-When klipper receives one of the above bootloader requests:
+当Klipper收到上述引导加载程序请求之一时：
 
-If Katapult (formerly known as CANBoot) is available, klipper will request that Katapult stay active on the next boot, then reset the MCU (therefore entering Katapult).
+如果Katapult(以前称为CANBoot)可用，Klipper将请求Katapult在下一次启动时保持活动状态，然后重置MCU(因此进入Katapult)。
 
-If Katapult is not available, klipper will then try to enter a platform-specific bootloader, such as STM32's DFU mode([see note](#stm32-dfu-warning)).
+如果Katapult不可用，Klipper将尝试进入特定于平台的引导加载程序，例如STM32的S DFU模式([参见备注](#stm32-dfu-warning))。
 
-In short, Klipper will reboot to Katapult if installed, then a hardware specific bootloader if available.
+简而言之，Klipper将重新引导到Katapult(如果已安装)，然后重新引导到特定于硬件的引导程序(如果可用)。
 
-For details about the specific bootloaders on various platforms see [Bootloaders](Bootloaders.md)
+关于各种平台上的具体BootLoader的详细信息，请参阅[BootLoader](Bootloaders.md)
 
-## Notes
+## 笔记
 
-### STM32 DFU Warning
+### STM32 DFU警告
 
-Note that on some boards, like the Octopus Pro v1, entering DFU mode can cause undesired actions (such as powering the heater while in DFU mode). It is recommended to disconnect heaters, and otherwise prevent undesired operations when using DFU mode. Consult the documentation for your board for more details.
+请注意，在某些主板上，如Octopus Pro v1，进入DFU模式可能会导致不必要的操作(如在DFU模式下为加热器供电)。建议在使用DFU模式时断开加热器，否则将防止不必要的操作。有关更多详细信息，请参阅您的主板文档。

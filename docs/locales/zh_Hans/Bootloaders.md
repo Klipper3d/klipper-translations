@@ -139,11 +139,11 @@ bossac -U -p /dev/ttyACM0 -R
 bossac --port=/dev/ttyACM0 -b -U -e -w -v -R out/klipper.bin
 ```
 
-## SAMDC21 micro-controllers (Duet3D Toolboard 1LC)
+## SAMDC21微控制器(Duet3D工具板1LC)
 
-The SAMC21 is flashed via the ARM Serial Wire Debug (SWD) interface. This is commonly done with a dedicated SWD hardware dongle. Alternatively, one can use a [Raspberry Pi with OpenOCD](#running-openocd-on-the-raspberry-pi).
+SAMC21通过ARM串行线调试(SWD)接口进行刷新。这通常是通过专用的社署硬件加密狗来完成的。或者，人们可以使用带有[Raspberry Pi的 OpenOCD](#running-openocd-on-the-raspberry-pi).
 
-When using OpenOCD with the SAMC21, extra steps must be taken to first put the chip into Cold Plugging mode if the board makes use of the SWD pins for other purposes. If using OpenOCD on a Rasberry Pi, this can be done by running the following commands before invoking OpenOCD.
+当将OpenOCD与SAMC21一起使用时，如果主板将SWD引脚用于其他目的，则必须采取额外步骤，首先将芯片置于冷插拔模式。如果在Rasberry PI上使用OpenOCD，可以通过在调用OpenOCD之前运行以下命令来完成。
 
 ```
 SWCLK=25
@@ -166,18 +166,18 @@ echo $SWCLK > /sys/class/gpio/unexport
 echo $SRST > /sys/class/gpio/unexport
 ```
 
-To flash a program with OpenOCD use the following chip config:
+要使用OpenOCD刷新程序，请使用以下芯片配置：
 
 ```
 source [find target/at91samdXX.cfg]
 ```
 
-Obtain a program; for instance, klipper can be built for this chip. Flash with OpenOCD commands similar to:
+获取一个程序；例如，可以为该芯片构建Klipper。带有OpenOCD命令的闪存，类似于：
 
 ```
-at91samd chip-erase
-at91samd bootloader 0
-program out/klipper.elf verify
+AT91samd芯片擦除。
+AT91samd引导加载程序%0。
+程序输出/klipper.self验证
 ```
 
 ## SAMD21微控制器（Arduino Zero）

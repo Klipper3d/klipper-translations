@@ -8,7 +8,7 @@ Ringing is caused by mechanical vibrations in the printer due to quick changes o
 
 [Input shaping](https://en.wikipedia.org/wiki/Input_shaping) is an open-loop control technique which creates a commanding signal that cancels its own vibrations. Input shaping requires some tuning and measurements before it can be enabled. Besides ringing, Input Shaping typically reduces the vibrations and shaking of the printer in general, and may also improve the reliability of the stealthChop mode of Trinamic stepper drivers.
 
-## Tuning
+## Afinamiento
 
 Basic tuning requires measuring the ringing frequencies of the printer by printing a test model.
 
