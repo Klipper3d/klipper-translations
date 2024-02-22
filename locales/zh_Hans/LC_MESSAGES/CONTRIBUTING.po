@@ -2,20 +2,22 @@
 # Arda <pengfei.fu@gmail.com>, 2022.
 # Neko.vecter <Vecterfang@icloud.com>, 2022.
 # xm Y <3260838022@qq.com>, 2023.
+# Hosted Weblate <mfvotmjhcj@iubridge.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-10 16:29+0200\n"
-"PO-Revision-Date: 2023-10-13 16:02+0000\n"
-"Last-Translator: xm Y <3260838022@qq.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/contributing/zh_Hans/>\n"
+"PO-Revision-Date: 2024-02-18 18:09+0000\n"
+"Last-Translator: Hosted Weblate <mfvotmjhcj@iubridge.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/contributing/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.1-dev\n"
+"X-Generator: Weblate 5.4\n"
 
 msgid "Contributing to Klipper"
 msgstr "为 Klipper 做贡献"
@@ -392,6 +394,8 @@ msgid ""
 "that they can not reasonably configure nor do we want to burden them with "
 "options that don't provide a notable benefit."
 msgstr ""
+"所有新的模块、配置选项、命令、命令参数和文档都应该具有“高影响力”。我们不想让"
+"用户负担他们不能合理配置的选项，也不想让他们负担不能提供显著好处的选项。"
 
 #: docs/CONTRIBUTING.md:block 13 (ordered list)
 msgid ""
@@ -447,10 +451,13 @@ msgid ""
 "implementation. Both situations are a normal result of a review and should "
 "not be considered criticism of the original submission."
 msgstr ""
+"作为审阅的一部分，审阅人可以为主题创建替代拉取请求。可以这样做，以避免在次要"
+"程序项目上过度“来回”，从而简化提交程序。这也可能是因为讨论激发了评审者构建替"
+"代实现的灵感。这两种情况都是审查的正常结果，不应被视为对原始划界案的批评。"
 
 #: docs/CONTRIBUTING.md:block 17 (header)
 msgid "Helping with reviews"
-msgstr ""
+msgstr "帮助撰写评论"
 
 #: docs/CONTRIBUTING.md:block 18 (paragraph)
 msgid ""
@@ -458,6 +465,8 @@ msgid ""
 "reviewer](#reviewers) to perform a review. Submitters of GitHub Pull "
 "Requests are also encouraged to review their own submissions."
 msgstr ""
+"我们非常感谢评论方面的帮助！不一定要是[列出的审查者](#reviewers)才能执行审查"
+"。GitHub Pull请求的提交者也被鼓励审查他们自己的提交。"
 
 #: docs/CONTRIBUTING.md:block 19 (paragraph)
 msgid ""
@@ -473,6 +482,12 @@ msgid ""
 " but I reviewed everything else in the CONTRIBUTING document and it looks "
 "good\"."
 msgstr ""
+"为了帮助审查，请遵循[审查中预期的内容](#what-to-expect-in-a-review)中概述的步"
+"骤来核实提交。完成审核后，请在GitHub拉取请求中添加您的调查结果。如果提交的文"
+"件通过了审查，请在评论中明确说明--例如，“我按照提交文件中的步骤审查了这项更改"
+"，我认为一切都很好”。如果无法完成评审中的某些步骤，请明确说明哪些步骤已审核，"
+"哪些步骤未审核--例如，类似于“我没有检查代码中的缺陷，但我审核了贡献文档中的所"
+"有其他内容，它看起来很好”。"
 
 #: docs/CONTRIBUTING.md:block 20 (paragraph)
 msgid ""
@@ -482,69 +497,79 @@ msgid ""
 "and the results - for example something like \"I tested this code on my "
 "Acme900Z printer with a vase print and the results were good\"."
 msgstr ""
+"我们也感谢对提交材料的测试。如果代码经过测试，请在GitHub "
+"Pull请求中添加注释，并附上测试结果--"
+"成功或失败。请明确说明代码已经过测试并得到了结果--"
+"例如，“我用花瓶打印在我的Acme900Z打印机上测试了这段代码，结果很好”。"
 
 #: docs/CONTRIBUTING.md:block 21 (header)
 msgid "Reviewers"
-msgstr ""
+msgstr "审稿人"
 
 #: docs/CONTRIBUTING.md:block 22 (paragraph)
 msgid "The Klipper \"reviewers\" are:"
-msgstr ""
+msgstr "Klipper的“评论者”是："
 
 #: docs/CONTRIBUTING.md:block 23 (table)
 msgid "Name"
-msgstr ""
+msgstr "名称"
 
 #: docs/CONTRIBUTING.md:block 23 (table)
+#, fuzzy
 msgid "GitHub Id"
-msgstr ""
+msgstr "GitHub Id"
 
 #: docs/CONTRIBUTING.md:block 23 (table)
 msgid "Areas of interest"
-msgstr ""
+msgstr "感兴趣的领域"
 
 #: docs/CONTRIBUTING.md:block 23 (table)
+#, fuzzy
 msgid "Dmitry Butyugin"
-msgstr ""
+msgstr "Dmitry Butyugin"
 
 #: docs/CONTRIBUTING.md:block 23 (table)
+#, fuzzy
 msgid "@dmbutyugin"
-msgstr ""
+msgstr "@dmbutyugin"
 
 #: docs/CONTRIBUTING.md:block 23 (table)
 msgid "Input shaping, resonance testing, kinematics"
-msgstr ""
+msgstr "输入整形、共振测试、运动学"
 
 #: docs/CONTRIBUTING.md:block 23 (table)
 msgid "Eric Callahan"
 msgstr "Eric Callahan"
 
 #: docs/CONTRIBUTING.md:block 23 (table)
+#, fuzzy
 msgid "@Arksine"
-msgstr ""
+msgstr "@Arksine"
 
 #: docs/CONTRIBUTING.md:block 23 (table)
 msgid "Bed leveling, MCU flashing"
-msgstr ""
+msgstr "床位调平，MCU闪烁"
 
 #: docs/CONTRIBUTING.md:block 23 (table)
 msgid "Kevin O'Connor"
 msgstr "Kevin O'Connor"
 
 #: docs/CONTRIBUTING.md:block 23 (table)
+#, fuzzy
 msgid "@KevinOConnor"
-msgstr ""
+msgstr "@KevinOConnor"
 
 #: docs/CONTRIBUTING.md:block 23 (table)
 msgid "Core motion system, Micro-controller code"
-msgstr ""
+msgstr "核心运动系统，微控制器代码"
 
 #: docs/CONTRIBUTING.md:block 24 (paragraph)
 msgid ""
 "Please do not \"ping\" any of the reviewers and please do not direct "
 "submissions at them. All of the reviewers monitor the forums and PRs, and "
 "will take on reviews when they have time to."
-msgstr ""
+msgstr "请不要“ping”任何一位评审员，也不要直接向他们投稿。所有的评论者都会监督论坛和"
+"公关，并在有时间的时候进行评论。"
 
 #: docs/CONTRIBUTING.md:block 25 (paragraph)
 msgid "The Klipper \"maintainers\" are:"

@@ -1,19 +1,21 @@
 # badpoi <a1635835119@gmail.com>, 2021.
 # Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022, 2023.
+# Hosted Weblate <mfvotmjhcj@iubridge.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-06-28 08:28+0200\n"
-"PO-Revision-Date: 2023-04-08 07:52+0000\n"
-"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/bed_mesh/zh_Hans/>\n"
+"PO-Revision-Date: 2024-02-18 14:01+0000\n"
+"Last-Translator: Hosted Weblate <mfvotmjhcj@iubridge.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/bed_mesh/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.17-dev\n"
+"X-Generator: Weblate 5.4\n"
 
 msgid "Basic Configuration"
 msgstr "基本配置"
@@ -752,7 +754,7 @@ msgstr ""
 
 #: docs/Bed_Mesh.md:block 34 (header)
 msgid "Configuring the zero reference position"
-msgstr ""
+msgstr "配置零点参考位置"
 
 #: docs/Bed_Mesh.md:block 35 (paragraph)
 msgid ""
@@ -767,6 +769,12 @@ msgid ""
 "performed. The bed_mesh module provides the `zero_reference_position` option"
 " for specifying this coordinate:"
 msgstr ""
+"许多探头容易出现“漂移”，即：由于热或干扰而引起的探头不准确。这使得计算探测器"
+"的z偏移量具有挑战性，特别是在不同床温的情况下。因此，一些打印机使用端止器来定"
+"位Z轴，并使用探头来校准网格。在这种配置中，可以对网格进行偏移，从而使(X，Y)`"
+"参考位置‘应用零点调整。‘参考位置’应该是床上进行[Z_ENDSTOP_CALIBRATE](./Manual"
+"_Level#calibrating-a-z-endstop)试纸测试的位置。Bed_Mesh模块提供了`ZERO_REFERE"
+"NCE_Position`选项来指定该坐标："
 
 #: docs/Bed_Mesh.md:block 36 (code)
 msgid ""
@@ -778,6 +786,13 @@ msgid ""
 "zero_reference_position: 125, 110\n"
 "probe_count: 5, 3\n"
 msgstr ""
+"[床_网格]。\n"
+"速度：120。\n"
+"水平移动z：5。\n"
+"网格最小值：35，6。\n"
+"Mesh_max：240,198。\n"
+"Zero_Reference_Position：125,110。\n"
+"探测计数：5，3\n"
 
 #: docs/Bed_Mesh.md:block 37 (unordered list)
 msgid ""
@@ -790,10 +805,15 @@ msgid ""
 "z-offset. Note that this coordinate must NOT be in a location specified as a"
 " `faulty_region` if a probe is necessary."
 msgstr ""
+"`ZERO_REFERENCE_POSITION：`*默认值：无(禁用)*`ZERO_REFERENCE_POSITION`期望(X"
+"，Y)坐标与上面描述的`参考位置`匹配。如果坐标位于网格内，则网格将偏移，因此参"
+"考位置应用零点调整。如果坐标位于网格之外，则将在校准后探测该坐标，并将生成的z"
+"值用作z偏移。请注意，如果需要探测，则此坐标不能位于指定为`FAULTY_REGION`的位"
+"置。"
 
 #: docs/Bed_Mesh.md:block 38 (header)
 msgid "The deprecated relative_reference_index"
-msgstr ""
+msgstr "不推荐使用的Relative_Reference_Index"
 
 #: docs/Bed_Mesh.md:block 39 (paragraph)
 msgid ""
@@ -804,6 +824,9 @@ msgid ""
 " for the `zero_reference_position`. The output will look similar to the "
 "following:"
 msgstr ""
+"使用`Relative_Reference_index`选项的现有配置必须更新为使用`ZERO_REFERENCE_Pos"
+"ition`。对[BED_MESH_OUTPUT PGP=1](#output)GCODE命令的响应将包括与索引相关的(X"
+"，Y)坐标；该位置可用`ZERO_REFERENCE_POSITION`的值。输出将如下所示："
 
 #: docs/Bed_Mesh.md:block 40 (code)
 msgid ""
@@ -816,12 +839,20 @@ msgid ""
 "... (additional generated points)\n"
 "// bed_mesh: relative_reference_index 24 is (131.5, 108.0)\n"
 msgstr ""
+"//Bed_Mesh：生成点。\n"
+"//索引|调整工具|探测。\n"
+"//0|(1.0，1.0)|(24.0，6.0)。\n"
+"//1|(36.7，1.0)|(59.7，6.0)。\n"
+"//2|(72.3，1.0)|(95.3，6.0)。\n"
+"//3|(108.0，1.0)|(131.0，6.0)。\n"
+"..。(其他生成点)。\n"
+"//BED_MESH：Relative_Reference_Index 24为(131.5,108.0)\n"
 
 #: docs/Bed_Mesh.md:block 41 (paragraph)
 msgid ""
 "*Note: The above output is also printed in `klippy.log` during "
 "initialization.*"
-msgstr ""
+msgstr "*注意：上述输出在初始化时也会打印在`klippy.log`中。*"
 
 #: docs/Bed_Mesh.md:block 42 (paragraph)
 msgid ""
@@ -829,6 +860,8 @@ msgid ""
 "printed along with its coordinate. Thus the `zero_reference_position` is "
 "`131.5, 108`."
 msgstr ""
+"在上面的例子中，我们看到`Relative_Reference_index`与它的坐标一起打印。因此，`"
+"ZERO_REFERENCE_Position`是`131.5,108`。"
 
 #~ msgid "The Relative Reference Index"
 #~ msgstr "相对参考索引"

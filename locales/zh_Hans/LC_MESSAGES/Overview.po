@@ -1,20 +1,22 @@
 # Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022, 2023.
 # badpoi <a1635835119@gmail.com>, 2021.
 # Neko.vecter <Vecterfang@icloud.com>, 2021.
+# Hosted Weblate <mfvotmjhcj@iubridge.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-06-25 03:39+0200\n"
-"PO-Revision-Date: 2023-04-04 23:42+0000\n"
-"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/overview/zh_Hans/>\n"
+"PO-Revision-Date: 2024-02-18 14:02+0000\n"
+"Last-Translator: Hosted Weblate <mfvotmjhcj@iubridge.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/overview/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 4.17-dev\n"
+"X-Generator: Weblate 5.4\n"
 
 msgid ""
 "Welcome to the Klipper documentation. If new to Klipper, start with the "
@@ -241,16 +243,18 @@ msgid ""
 "[Axis Twist Compensation](Axis_Twist_Compensation.md): A tool to compensate "
 "for inaccurate probe readings due to twist in X gantry."
 msgstr ""
+"[Axis Twist Compensation.md](Axis_Twist_Compensation."
+"md)：用于补偿因X台架扭曲而导致的探头读数不准确的工具。"
 
 #: docs/Overview.md:block 10 (unordered list)
 msgid "[Bootloader Entry](Bootloader_Entry.md): Requesting the bootloader."
-msgstr ""
+msgstr "[Bootloader Entry](Bootloader_Entry.md): 正在请求引导加载程序。"
 
 #: docs/Overview.md:block 10 (unordered list)
 msgid ""
 "[CAN bus troubleshooting](CANBUS_Troubleshooting.md): Tips for "
 "troubleshooting CAN bus."
-msgstr ""
+msgstr "[CAN Bus故障排除](CanBus_Troublrouoting.md)：CAN Bus故障排除提示。"
 
 #~ msgid ""
 #~ "[Exclude Object](Exclude_Object.md): The guide to the Exclude Objecs "
