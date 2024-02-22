@@ -4,7 +4,7 @@
 # Christian S <schnellrieder.cs@gmail.com>, 2022.
 # Yifei Ding <dingyifeiair@gmail.com>, 2022.
 # Synertry <jonny.somrak@gmail.com>, 2023, 2025.
-# Kev <leadustin@gmail.com>, 2024.
+# Kev <leadustin@gmail.com>, 2024, 2025.
 # Christian Patzl <christian.patzl@gmx.net>, 2024.
 # Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024.
 # Mathis Mensing <github@matmen.dev>, 2025.
@@ -14,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:32+0200\n"
 "PO-Revision-Date: 2025-05-03 07:23+0000\n"
-"Last-Translator: Synertry <jonny.somrak@gmail.com>\n"
+"Last-Translator: Kev <leadustin@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/overview/"
 "de/>\n"
 "Language: de\n"
@@ -333,8 +333,8 @@ msgid ""
 "[CAN bus troubleshooting](CANBUS_Troubleshooting.md): Tips for troubleshooting"
 " CAN bus."
 msgstr ""
-"[CAN-Bus-Fehlerbehebung](CANBUS_Troubleshooting.md): Tipps zur Fehlersuche am "
-"CAN-Bus."
+"[CAN-Bus-Fehlerbehebung](CANBUS_Troubleshooting.md): Tipps zur Fehlersuche "
+"am CAN-Bus."
 
 #: docs/Overview.md:block 6 (unordered list)
 msgid "[Octoprint](OctoPrint.md): Guide to installing Octoprint with Klipper."
