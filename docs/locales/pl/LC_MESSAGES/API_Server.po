@@ -1,11 +1,11 @@
 # Robert Jaroszewicz <mediagott1977@googlemail.com>, 2022, 2025.
 # Mateusz Kapała <lolekwielki@gmail.com>, 2023.
-# Woo Cash <woocash87@gmail.com>, 2024.
+# Woo Cash <woocash87@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:27+0000\n"
-"Last-Translator: Robert Jaroszewicz <mediagott1977@googlemail.com>\n"
+"Last-Translator: Woo Cash <woocash87@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/klipper/"
 "api_server/pl/>\n"
 "Language: pl\n"
@@ -39,7 +39,8 @@ msgid ""
 "then open a connection on that socket and send commands to Klipper."
 msgstr ""
 "Powoduje to, że oprogramowanie hosta tworzy gniazdo domeny Unix. Klient może "
-"następnie otworzyć połączenie na tym gnieździe i wysłać polecenia do Klippera."
+"następnie otworzyć połączenie na tym gnieździe i wysłać polecenia do "
+"Klippera."
 
 msgid "Request format"
 msgstr ""
