@@ -1,10 +1,10 @@
 # Robert Jaroszewicz <mediagott1977@googlemail.com>, 2022, 2025.
-# Woo Cash <woocash87@gmail.com>, 2024.
+# Woo Cash <woocash87@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:26+0000\n"
-"Last-Translator: Robert Jaroszewicz <mediagott1977@googlemail.com>\n"
+"Last-Translator: Woo Cash <woocash87@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/klipper/"
 "code_overview/pl/>\n"
 "Language: pl\n"
@@ -54,9 +54,9 @@ msgid ""
 msgstr ""
 "Katalog **klippy/** zawiera oprogramowanie hosta. Większość oprogramowania "
 "hosta jest napisana w języku Python, jednakże katalog **klippy/chelper/** "
-"zawiera kilka pomocniczych plików zakodowanych w języku C. Katalog "
-"**klippy/kinematics/** zawiera kod kinematyki urządzeń. Katalog "
-"**klippy/extras/** zawiera rozszerzalne „moduły” kodu hosta."
+"zawiera kilka pomocniczych plików zakodowanych w języku C. Katalog **klippy/"
+"kinematics/** zawiera kod kinematyki urządzeń. Katalog **klippy/extras/** "
+"zawiera rozszerzalne „moduły” kodu hosta."
 
 msgid ""
 "The **lib/** directory contains external 3rd-party library code that is "
