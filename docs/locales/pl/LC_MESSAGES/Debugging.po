@@ -1,10 +1,10 @@
 # Robert Jaroszewicz <mediagott1977@googlemail.com>, 2022, 2025.
-# Woo Cash <woocash87@gmail.com>, 2024.
+# Woo Cash <woocash87@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:27+0000\n"
-"Last-Translator: Robert Jaroszewicz <mediagott1977@googlemail.com>\n"
+"Last-Translator: Woo Cash <woocash87@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/klipper/debugging/"
 "pl/>\n"
 "Language: pl\n"
@@ -38,10 +38,10 @@ msgid ""
 "generate the micro-controller \"data dictionary\". This is done by compiling "
 "the micro-controller code to obtain the **out/klipper.dict** file:"
 msgstr ""
-"Aby uruchomić Klippy w tym trybie wsadowym, należy wykonać jednorazowy krok w "
-"celu wygenerowania „słownika danych” dla mikrokontrolera. Odbywa się to "
-"poprzez kompilację kodu mikrokontrolera w celu uzyskania pliku "
-"**out/klipper.dict**:"
+"Aby uruchomić Klippy w tym trybie wsadowym, należy wykonać jednorazowy krok "
+"w celu wygenerowania „słownika danych” dla mikrokontrolera. Odbywa się to "
+"poprzez kompilację kodu mikrokontrolera w celu uzyskania pliku **out/"
+"klipper.dict**:"
 
 msgid ""
 "Once the above is done it is possible to run Klipper in batch mode (see "
