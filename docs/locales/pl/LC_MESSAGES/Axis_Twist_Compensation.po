@@ -1,10 +1,10 @@
 # Mateusz Kapała <lolekwielki@gmail.com>, 2023.
-# Woo Cash <woocash87@gmail.com>, 2024.
+# Woo Cash <woocash87@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:44+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Woo Cash <woocash87@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/klipper/"
 "axis_twist_compensation/pl/>\n"
 "Language: pl\n"
@@ -43,8 +43,8 @@ msgid ""
 msgstr ""
 "Moduł ten wykorzystuje pomiary wykonywane ręcznie przez użytkownika w celu "
 "skorygowania wyników sondy. Należy pamiętać, że jeśli oś jest znacznie "
-"skrzywiona, zdecydowanie zaleca się najpierw wprowadzić poprawki mechaniczne, "
-"aby ją naprawić przed zastosowaniem poprawek programowych."
+"skrzywiona, zdecydowanie zaleca się najpierw wprowadzić poprawki "
+"mechaniczne, aby ją naprawić przed zastosowaniem poprawek programowych."
 
 #: docs/Axis_Twist_Compensation.md:block 5 (paragraph)
 msgid ""
