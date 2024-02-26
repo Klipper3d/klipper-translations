@@ -1,10 +1,10 @@
 # Robert Jaroszewicz <mediagott1977@googlemail.com>, 2022, 2025.
-# Woo Cash <woocash87@gmail.com>, 2024.
+# Woo Cash <woocash87@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:27+0000\n"
-"Last-Translator: Robert Jaroszewicz <mediagott1977@googlemail.com>\n"
+"Last-Translator: Woo Cash <woocash87@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/klipper/"
 "resonance_compensation/pl/>\n"
 "Language: pl\n"
@@ -45,8 +45,8 @@ msgstr ""
 "zmian kierunku druku. Należy pamiętać, że ringing ma zwykle podłoże "
 "mechaniczne: niewystarczająco sztywna rama drukarki, nie napięte lub zbyt "
 "sprężyste paski, problemy z wyrównaniem części mechanicznych, duża ruchoma "
-"masa itp. Należy najpierw sprawdzić urządzenie pod kątem mechanicznym i jeżeli"
-" to możliwe wyeliminować wszystkie problemy."
+"masa itp. Należy najpierw sprawdzić urządzenie pod kątem mechanicznym i "
+"jeżeli to możliwe wyeliminować wszystkie problemy."
 
 msgid ""
 "[Input shaping](https://en.wikipedia.org/wiki/Input_shaping) is an open-loop "
