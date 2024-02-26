@@ -1,10 +1,10 @@
 # Robert Jaroszewicz <mediagott1977@googlemail.com>, 2022, 2025.
-# Woo Cash <woocash87@gmail.com>, 2024.
+# Woo Cash <woocash87@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:26+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Woo Cash <woocash87@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/klipper/releases/"
 "pl/>\n"
 "Language: pl\n"
@@ -39,9 +39,9 @@ msgid ""
 "without introducing instantaneous velocity changes. It is also now possible to"
 " tune pressure advance using a \"Tuning Tower\" method."
 msgstr ""
-"Nowy system „Smooth Pressure Advance”. Implementuje to „Pressure Advance” bez "
-"wprowadzania natychmiastowych zmian prędkości. Możliwe jest teraz dostrojenie "
-"wzrostu ciśnienia za pomocą metody „Tuning Tower”."
+"Nowy system „Smooth Pressure Advance”. Implementuje to „Pressure Advance” "
+"bez wprowadzania natychmiastowych zmian prędkości. Możliwe jest teraz "
+"dostrojenie wzrostu ciśnienia za pomocą metody „Tuning Tower”."
 
 msgid ""
 "New \"webhooks\" API server. This provides a programmable JSON interface to "
