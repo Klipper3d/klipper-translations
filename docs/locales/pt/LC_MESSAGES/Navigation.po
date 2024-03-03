@@ -1,12 +1,12 @@
 # João Alves <joao.2003.couto@gmail.com>, 2023, 2025.
-# Andre Costa <andrecaeu@gmail.com>, 2024.
+# Andre Costa <andrecaeu@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2022-03-06 16:51+0200\n"
 "PO-Revision-Date: 2025-05-03 07:32+0000\n"
-"Last-Translator: João Alves <joao.2003.couto@gmail.com>\n"
+"Last-Translator: Andre Costa <andrecaeu@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/klipper/"
 "navigation/pt/>\n"
 "Language: pt\n"
