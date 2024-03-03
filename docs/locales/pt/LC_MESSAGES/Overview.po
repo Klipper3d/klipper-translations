@@ -1,12 +1,12 @@
 # Adrian Medeiros <lima.adrian13@gmail.com>, 2023.
 # João Alves <joao.2003.couto@gmail.com>, 2023, 2025.
 # Milton Miranda Neto <voidmmn@gmail.com>, 2023.
-# Andre Costa <andrecaeu@gmail.com>, 2024.
+# Andre Costa <andrecaeu@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:30+0000\n"
-"Last-Translator: João Alves <joao.2003.couto@gmail.com>\n"
+"Last-Translator: Andre Costa <andrecaeu@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/klipper/"
 "overview/pt/>\n"
 "Language: pt\n"
@@ -85,7 +85,8 @@ msgstr "[Delta calibrate](Delta_Calibrate.md): Calibração de cinemática delta
 msgid ""
 "[Probe calibrate](Probe_Calibrate.md): Calibration of automatic Z probes."
 msgstr ""
-"[Calibração da sonda](Probe_Calibrate.md): Calibração de sondas automáticas Z."
+"[Calibração da sonda](Probe_Calibrate.md): Calibração de sondas automáticas "
+"Z."
 
 msgid "[BL-Touch](BLTouch.md): Configure a \"BL-Touch\" Z probe."
 msgstr "[BL-Touch](BLTouch.md): Configure uma sonda Z \"BL-Touch\"."
@@ -172,21 +173,21 @@ msgid ""
 "[Kinematics](Kinematics.md): Technical details on how Klipper implements "
 "motion."
 msgstr ""
-"[Cinemática](Kinematics.md): Detalhes técnicos sobre como o Klipper implementa"
-" o movimento."
+"[Cinemática](Kinematics.md): Detalhes técnicos sobre como o Klipper "
+"implementa o movimento."
 
 msgid ""
 "[Protocol](Protocol.md): Information on the low-level messaging protocol "
 "between host and micro-controller."
 msgstr ""
-"[Protocolo](Protocol.md): Informações sobre o protocolo de mensagens de baixo "
-"nível entre o anfitrião e o microcontrolador."
+"[Protocolo](Protocol.md): Informações sobre o protocolo de mensagens de "
+"baixo nível entre o anfitrião e o microcontrolador."
 
 msgid ""
 "[API Server](API_Server.md): Information on Klipper's command and control API."
 msgstr ""
-"[Servidor API](API_Server.md): Informação sobre a API de comando e controlo do"
-" Klipper."
+"[Servidor API](API_Server.md): Informação sobre a API de comando e controlo "
+"do Klipper."
 
 msgid ""
 "[MCU commands](MCU_Commands.md): A description of low-level commands "
@@ -197,8 +198,8 @@ msgstr ""
 
 msgid "[CAN bus protocol](CANBUS_protocol.md): Klipper CAN bus message format."
 msgstr ""
-"[Protocolo do bus CAN](CANBUS_protocol.md): Formato de mensagem do bus CAN da "
-"Klipper."
+"[Protocolo do bus CAN](CANBUS_protocol.md): Formato de mensagem do bus CAN "
+"da Klipper."
 
 msgid "[Debugging](Debugging.md): Information on how to test and debug Klipper."
 msgstr ""
@@ -249,16 +250,18 @@ msgid ""
 "[Bootloaders](Bootloaders.md): Developer information on micro-controller "
 "flashing."
 msgstr ""
-"[Bootloaders](Bootloaders.md): Informação para programadores sobre flashes de "
-"microcontroladores."
+"[Bootloaders](Bootloaders.md): Informação para programadores sobre flashes "
+"de microcontroladores."
 
 msgid "[CAN bus](CANBUS.md): Information on using CAN bus with Klipper."
 msgstr ""
-"[CAN bus](CANBUS.md): Informações sobre a utilização do bus CAN com o Klipper."
+"[CAN bus](CANBUS.md): Informações sobre a utilização do bus CAN com o "
+"Klipper."
 
 msgid "[TSL1401CL filament width sensor](TSL1401CL_Filament_Width_Sensor.md)"
 msgstr ""
-"[Sensor de largura do filamento TSL1401CL](TSL1401CL_Filament_Width_Sensor.md)"
+"[Sensor de largura do filamento TSL1401CL]"
+"(TSL1401CL_Filament_Width_Sensor.md)"
 
 #: docs/Overview.md:block 1 (header)
 msgid "Overview"
@@ -322,8 +325,8 @@ msgid ""
 "[CAN bus troubleshooting](CANBUS_Troubleshooting.md): Tips for troubleshooting"
 " CAN bus."
 msgstr ""
-"[Resolução de problemas do bus CAN](CANBUS_Troubleshooting.md): Sugestões para"
-" a resolução de problemas do bus CAN."
+"[Resolução de problemas do bus CAN](CANBUS_Troubleshooting.md): Sugestões "
+"para a resolução de problemas do bus CAN."
 
 #: docs/Overview.md:block 6 (unordered list)
 msgid "[Octoprint](OctoPrint.md): Guide to installing Octoprint with Klipper."
