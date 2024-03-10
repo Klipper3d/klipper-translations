@@ -2,7 +2,7 @@
 # Martin Käsemodel <SQ-1@gmx.de>, 2021, 2025.
 # Zimbo111 <Stefan_Zippel@web.de>, 2022.
 # Mathis Mensing <gcmatmen@gmail.com>, 2022.
-# T1z3n <info@njbraun.de>, 2024.
+# T1z3n <info@njbraun.de>, 2024, 2025.
 # Attila Jeitler <attila.j@gmx.at>, 2024.
 # Mathis Mensing <github@matmen.dev>, 2024, 2025.
 # Extrutex <w1indt@outlook.com>, 2024.
@@ -12,7 +12,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:34+0200\n"
 "PO-Revision-Date: 2025-05-03 07:23+0000\n"
-"Last-Translator: Mathis Mensing <github@matmen.dev>\n"
+"Last-Translator: T1z3n <info@njbraun.de>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/"
 "config_checks/de/>\n"
 "Language: de\n"
