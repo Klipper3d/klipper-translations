@@ -3,7 +3,7 @@
 # Zimbo111 <Stefan_Zippel@web.de>, 2022.
 # Mathis Mensing <gcmatmen@gmail.com>, 2022.
 # T1z3n <info@njbraun.de>, 2024, 2025.
-# Attila Jeitler <attila.j@gmx.at>, 2024.
+# Attila Jeitler <attila.j@gmx.at>, 2024, 2025.
 # Mathis Mensing <github@matmen.dev>, 2024, 2025.
 # Extrutex <w1indt@outlook.com>, 2024.
 msgid ""
@@ -12,7 +12,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:34+0200\n"
 "PO-Revision-Date: 2025-05-03 07:23+0000\n"
-"Last-Translator: T1z3n <info@njbraun.de>\n"
+"Last-Translator: Attila Jeitler <attila.j@gmx.at>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/"
 "config_checks/de/>\n"
 "Language: de\n"
@@ -99,15 +99,16 @@ msgid ""
 "setting."
 msgstr ""
 "Wenn sich der Schrittmotor überhaupt nicht bewegt, dann überprüfen Sie die "
-"Einstellungen \"enable_pin\" und \"step_pin\" für den Schrittmotor. Wenn sich "
-"der Schrittmotor bewegt, aber nicht in seine ursprüngliche Position "
+"Einstellungen \"enable_pin\" und \"step_pin\" für den Schrittmotor. Wenn "
+"sich der Schrittmotor bewegt, aber nicht in seine ursprüngliche Position "
 "zurückkehrt, überprüfen Sie die Einstellung von \"dir_pin\". Wenn sich der "
-"Schrittmotor in eine falsche Richtung bewegt, deutet dies in der Regel darauf "
-"hin, dass der \"dir_pin\" für die Achse invertiert werden muss. Dies geschieht"
-" durch Hinzufügen eines '!' zum \"dir_pin\" in der Druckerkonfigurationsdatei "
-"(oder durch Entfernen, falls dort bereits eines vorhanden ist). Wenn sich der "
-"Motor deutlich mehr oder deutlich weniger als einen Millimeter bewegt, "
-"überprüfen Sie die Einstellung \"rotation_distance\"."
+"Schrittmotor in eine falsche Richtung bewegt, deutet dies in der Regel "
+"darauf hin, dass der \"dir_pin\" für die Achse invertiert werden muss. Dies "
+"geschieht durch Hinzufügen eines '!' zum \"dir_pin\" in der "
+"Druckerkonfigurationsdatei (oder durch Entfernen, falls dort bereits eines "
+"vorhanden ist). Wenn sich der Motor deutlich mehr oder deutlich weniger als "
+"einen Millimeter bewegt, überprüfen Sie die Einstellung \"rotation_distance\""
+"."
 
 msgid ""
 "Run the above test for each stepper motor defined in the config file. (Set the"
