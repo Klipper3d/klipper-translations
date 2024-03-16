@@ -48,7 +48,7 @@
 
 Klipper支持挤出机和热床加热器的[PID控制](https://en.wikipedia.org/wiki/PID_controller)。为了使用这种控制机制，必须对每台打印机的 PID 参数进行校准（在其他固件或示例配置文件中找到的 PID 设置往往效果不佳）。
 
-要校准挤出机，请导航到命令控制台并运行PID_calibrate命令。例如：`PID_CALIBRATE HEATER=挤出机TARGET=170`
+要校准挤出机，请导航到命令控制台并运行PID_calibrate命令。例如：`PID_CALIBRATE HEATER=extruder TARGET=170`
 
 调整测试完成后，运行 `SAVE_CONFIG` 以保存新PID设置到printer.cfg文件。
 
