@@ -1,17 +1,19 @@
 # Adrian Medeiros <lima.adrian13@gmail.com>, 2023.
 # João Alves <joao.2003.couto@gmail.com>, 2023.
 # Milton Miranda Neto <voidmmn@gmail.com>, 2023.
+# Andre Costa <andrecaeu@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-12-10 04:02+0000\n"
-"Last-Translator: Milton Miranda Neto <voidmmn@gmail.com>\n"
-"Language-Team: Portuguese <https://hosted.weblate.org/projects/klipper/overview/pt/>\n"
+"PO-Revision-Date: 2024-03-03 16:45+0000\n"
+"Last-Translator: Andre Costa <andrecaeu@gmail.com>\n"
+"Language-Team: Portuguese <https://hosted.weblate.org/projects/klipper/"
+"overview/pt/>\n"
 "Language: pt\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.3-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 msgid ""
 "Welcome to the Klipper documentation. If new to Klipper, start with the "
@@ -82,11 +84,11 @@ msgid ""
 msgstr ""
 "[Delta calibrate](Delta_Calibrate.md): Calibração de cinemática delta."
 
-#, fuzzy
 msgid ""
 "[Probe calibrate](Probe_Calibrate.md): Calibration of automatic Z probes."
 msgstr ""
-"[Probe calibrate](Probe_Calibrate.md): Calibração de sondas automáticas Z."
+"[Calibração da sonda](Probe_Calibrate.md): Calibração de sondas automáticas "
+"Z."
 
 msgid "[BL-Touch](BLTouch.md): Configure a \"BL-Touch\" Z probe."
 msgstr "[BL-Touch](BLTouch.md): Configure uma sonda Z \"BL-Touch\"."
@@ -127,68 +129,91 @@ msgstr ""
 "[Pressure advance](Pressure_Advance.md): Calibrar a pressão do extrusor."
 
 msgid "[Slicers](Slicers.md): Configure \"slicer\" software for Klipper."
-msgstr ""
+msgstr "[Slicers](Slicers.md): Configurar o software \"slicer\" para o Klipper."
 
 msgid ""
 "[Command Templates](Command_Templates.md): G-Code macros and conditional "
 "evaluation."
 msgstr ""
+"[Modelos de comando](Command_Templates.md): Macros G-Code e avaliação "
+"condicional."
 
 msgid ""
 "[Status Reference](Status_Reference.md): Information available to macros "
 "(and similar)."
 msgstr ""
+"[Referência de estado](Status_Reference.md): Informações disponíveis para "
+"macros (e similares)."
 
 msgid ""
 "[TMC Drivers](TMC_Drivers.md): Using Trinamic stepper motor drivers with "
 "Klipper."
 msgstr ""
+"[Controladores TMC](TMC_Drivers.md): Utilização de controladores de motor "
+"passo a passo Trinamic com Klipper."
 
 msgid ""
 "[PWM tools](Using_PWM_Tools.md): Guide on how to use PWM controlled tools "
 "such as lasers or spindles."
 msgstr ""
+"[Ferramentas PWM](Using_PWM_Tools.md): Guia sobre como utilizar ferramentas "
+"controladas por PWM, tais como lasers ou spindles."
 
 msgid "[G-Codes](G-Codes.md): Information on commands supported by Klipper."
 msgstr ""
+"[G-Codes](G-Codes.md): Informação sobre os comandos suportados pelo Klipper."
 
 msgid "Developer Documentation"
-msgstr ""
+msgstr "Documentação para programadores"
 
 msgid "[Code overview](Code_Overview.md): Developers should read this first."
 msgstr ""
+"[Visão geral do código](Code_Overview.md): Os programadores devem ler isto "
+"primeiro."
 
 msgid ""
 "[Kinematics](Kinematics.md): Technical details on how Klipper implements "
 "motion."
 msgstr ""
+"[Cinemática](Kinematics.md): Detalhes técnicos sobre como o Klipper "
+"implementa o movimento."
 
 msgid ""
 "[Protocol](Protocol.md): Information on the low-level messaging protocol "
 "between host and micro-controller."
 msgstr ""
+"[Protocolo](Protocol.md): Informações sobre o protocolo de mensagens de "
+"baixo nível entre o anfitrião e o microcontrolador."
 
 msgid ""
 "[API Server](API_Server.md): Information on Klipper's command and control "
 "API."
 msgstr ""
+"[Servidor API](API_Server.md): Informação sobre a API de comando e controlo "
+"do Klipper."
 
 msgid ""
 "[MCU commands](MCU_Commands.md): A description of low-level commands "
 "implemented in the micro-controller software."
 msgstr ""
+"[Comandos MCU](MCU_Commands.md): Uma descrição dos comandos de baixo nível "
+"implementados no software do microcontrolador."
 
 msgid ""
 "[CAN bus protocol](CANBUS_protocol.md): Klipper CAN bus message format."
 msgstr ""
+"[Protocolo do bus CAN](CANBUS_protocol.md): Formato de mensagem do bus CAN "
+"da Klipper."
 
 msgid ""
 "[Debugging](Debugging.md): Information on how to test and debug Klipper."
 msgstr ""
+"[Depuração](Depuração.md): Informações sobre como testar e depurar o Klipper."
 
 msgid ""
 "[Benchmarks](Benchmarks.md): Information on the Klipper benchmark method."
 msgstr ""
+"[Benchmarks](Benchmarks.md): Informações sobre o método de benchmark Klipper."
 
 msgid ""
 "[Contributing](CONTRIBUTING.md): Information on how to submit improvements "
@@ -197,7 +222,6 @@ msgstr ""
 "[Contribuir](CONTRIBUTING.md): Informação sobre como submeter melhorias ao "
 "Klipper."
 
-#, fuzzy
 msgid "[Packaging](Packaging.md): Information on building OS packages."
 msgstr ""
 "[Empacotamento](Packaging.md): Informação sobre como criar pacotes de SO."
@@ -231,64 +255,83 @@ msgid ""
 "[Bootloaders](Bootloaders.md): Developer information on micro-controller "
 "flashing."
 msgstr ""
+"[Bootloaders](Bootloaders.md): Informação para programadores sobre flashes "
+"de microcontroladores."
 
 msgid "[CAN bus](CANBUS.md): Information on using CAN bus with Klipper."
 msgstr ""
+"[CAN bus](CANBUS.md): Informações sobre a utilização do bus CAN com o "
+"Klipper."
 
 msgid "[TSL1401CL filament width sensor](TSL1401CL_Filament_Width_Sensor.md)"
 msgstr ""
+"[Sensor de largura do filamento TSL1401CL](TSL1401CL_Filament_Width_Sensor."
+"md)"
 
 #: docs/Overview.md:block 1 (header)
 msgid "Overview"
-msgstr ""
+msgstr "Visão geral"
 
 #: docs/Overview.md:block 5 (header)
 msgid "Installation and Configuration"
-msgstr ""
+msgstr "Instalação e configuração"
 
 #: docs/Overview.md:block 6 (unordered list)
 msgid ""
 "[Multi-MCU Homing](Multi_MCU_Homing.md): Homing and probing using multiple "
 "micro-controllers."
 msgstr ""
+"[Multi-MCU Homing](Multi_MCU_Homing.md): Homing e sondagem utilizando vários "
+"microcontroladores."
 
 #: docs/Overview.md:block 6 (unordered list)
 msgid ""
 "[Skew correction](Skew_Correction.md): Adjustments for axes not perfectly "
 "square."
 msgstr ""
+"[Correção de inclinação](Skew_Correction.md): Ajustes para eixos não "
+"perfeitamente quadrados."
 
 #: docs/Overview.md:block 10 (unordered list)
 msgid ""
 "[Beaglebone](Beaglebone.md): Details for running Klipper on the Beaglebone "
 "PRU."
 msgstr ""
+"[Beaglebone](Beaglebone.md): Detalhes para executar o Klipper no Beaglebone "
+"PRU."
 
 #: docs/Overview.md:block 10 (unordered list)
 msgid "[Hall filament width sensor](Hall_Filament_Width_Sensor.md)"
-msgstr ""
+msgstr "[Sensor de largura do filamento Hall](Hall_Filament_Width_Sensor.md)"
 
 #: docs/Overview.md:block 6 (unordered list)
 msgid ""
 "[Exclude Object](Exclude_Object.md): The guide to the Exclude Objects "
 "implementation."
 msgstr ""
+"[Excluir Objeto](Exclude_Object.md): O guia para a implementação do Exclude "
+"Objects."
 
 #: docs/Overview.md:block 6 (unordered list)
 msgid ""
 "[Axis Twist Compensation](Axis_Twist_Compensation.md): A tool to compensate "
 "for inaccurate probe readings due to twist in X gantry."
 msgstr ""
+"[Compensação de torção do eixo](Axis_Twist_Compensation.md): Uma ferramenta "
+"para compensar leituras imprecisas da sonda devido à torção no pórtico X."
 
 #: docs/Overview.md:block 10 (unordered list)
 msgid "[Bootloader Entry](Bootloader_Entry.md): Requesting the bootloader."
 msgstr ""
+"[Entrada do Bootloader](Bootloader_Entry.md): Requesting the bootloader."
 
 #: docs/Overview.md:block 10 (unordered list)
 msgid ""
 "[CAN bus troubleshooting](CANBUS_Troubleshooting.md): Tips for "
 "troubleshooting CAN bus."
 msgstr ""
+"[Resolução de problemas do bus CAN](CANBUS_Troubleshooting.md): Sugestões "
+"para a resolução de problemas do bus CAN."
 
 #~ msgid ""
 #~ "[Exclude Object](Exclude_Object.md): The guide to the Exclude Objecs "
