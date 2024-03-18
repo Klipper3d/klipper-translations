@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-02-18 18:09+0000\n"
+"PO-Revision-Date: 2024-02-23 22:02+0000\n"
 "Last-Translator: Hosted Weblate <mfvotmjhcj@iubridge.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "klipper/releases/zh_Hans/>\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.4\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 msgid ""
 "History of Klipper releases. Please see [installation](Installation.md) for "
@@ -502,7 +502,7 @@ msgstr "通过标准串行接口支持AVR微控制器"
 
 #: docs/Releases.md:block 1 (header)
 msgid "Releases"
-msgstr "版本发布"
+msgstr "发行说明"
 
 #: docs/Releases.md:block 3 (header)
 msgid "Klipper 0.10.0"
