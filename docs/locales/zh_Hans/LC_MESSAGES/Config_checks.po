@@ -1,18 +1,19 @@
 # Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022.
 # badpoi <a1635835119@gmail.com>, 2021.
-# "Neko.vecter" <Vecterfang@icloud.com>, 2023.
+# "Neko.vecter" <Vecterfang@icloud.com>, 2023, 2024.
 # Petal <Petalzu@outlook.com>, 2023.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-12-15 14:10+0000\n"
-"Last-Translator: Petal <Petalzu@outlook.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/config_checks/zh_Hans/>\n"
+"PO-Revision-Date: 2024-03-18 18:18+0000\n"
+"Last-Translator: \"Neko.vecter\" <Vecterfang@icloud.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/config_checks/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.3\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 msgid ""
 "This document provides a list of steps to help confirm the pin settings in "
@@ -269,7 +270,8 @@ msgid ""
 "PID_CALIBRATE command. For example: `PID_CALIBRATE HEATER=extruder "
 "TARGET=170`"
 msgstr ""
-"要校准挤出机，请导航到命令控制台并运行PID_calibrate命令。例如：`PID_CALIBRATE HEATER=挤出机TARGET=170`"
+"要校准挤出机，需要在控制台并使用PID_calibrate命令。例如：`PID_CALIBRATE "
+"HEATER=extruder TARGET=170`"
 
 #~ msgid ""
 #~ "Start by verifying that temperatures are being properly reported. Navigate "
