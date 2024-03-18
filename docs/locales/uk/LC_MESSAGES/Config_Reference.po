@@ -1,15 +1,18 @@
 # FATTY <uzikyavny@gmail.com>, 2023.
+# Владислав <vlad.marusenko2000@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-02-04 04:39+0000\n"
-"Last-Translator: FATTY <uzikyavny@gmail.com>\n"
-"Language-Team: Ukrainian <https://hosted.weblate.org/projects/klipper/config_reference/uk/>\n"
+"PO-Revision-Date: 2024-02-22 01:02+0000\n"
+"Last-Translator: Владислав <vlad.marusenko2000@gmail.com>\n"
+"Language-Team: Ukrainian <https://hosted.weblate.org/projects/klipper/"
+"config_reference/uk/>\n"
 "Language: uk\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.16-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 msgid ""
 "This document is a reference for options available in the Klipper config "
@@ -393,7 +396,7 @@ msgid "[respond]"
 msgstr ""
 
 msgid "Resonance compensation"
-msgstr ""
+msgstr "Компенсація резонансів"
 
 msgid "[input_shaper]"
 msgstr ""
@@ -777,7 +780,7 @@ msgid "Run-time stepper motor current configuration"
 msgstr ""
 
 msgid "[ad5206]"
-msgstr ""
+msgstr "[ad5206]"
 
 msgid ""
 "Statically configured AD5206 digipots connected via SPI bus (one may define "
