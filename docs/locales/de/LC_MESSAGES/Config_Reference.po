@@ -6,13 +6,14 @@
 # Ettore Atalan <atalanttore@googlemail.com>, 2023.
 # Haui <hauisminecraft@gmail.com>, 2023.
 # T1z3n <info@njbraun.de>, 2024.
+# Extrutex <w1indt@outlook.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:33+0200\n"
-"PO-Revision-Date: 2024-03-11 22:01+0000\n"
-"Last-Translator: T1z3n <info@njbraun.de>\n"
+"PO-Revision-Date: 2024-03-15 16:01+0000\n"
+"Last-Translator: Extrutex <w1indt@outlook.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/"
 "config_reference/de/>\n"
 "Language: de\n"
@@ -415,7 +416,7 @@ msgid "[respond]"
 msgstr ""
 
 msgid "Resonance compensation"
-msgstr ""
+msgstr "Resonanzkompensation"
 
 msgid "[input_shaper]"
 msgstr ""
