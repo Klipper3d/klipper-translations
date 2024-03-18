@@ -1,12 +1,19 @@
-#
+# Andre Costa <andrecaeu@gmail.com>, 2024.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2024-03-03 16:45+0000\n"
+"Last-Translator: Andre Costa <andrecaeu@gmail.com>\n"
+"Language-Team: Portuguese <https://hosted.weblate.org/projects/klipper/"
+"tsl1401cl_filament_width_sensor/pt/>\n"
 "Language: pt\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 msgid "How does it work?"
-msgstr ""
+msgstr "Como funciona?"
 
 msgid ""
 "Sensor generates analog output based on calculated filament width. Output "
