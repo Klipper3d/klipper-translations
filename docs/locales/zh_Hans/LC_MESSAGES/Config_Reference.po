@@ -6,13 +6,14 @@
 # "Neko.vecter" <Vecterfang@icloud.com>, 2023.
 # Alfredo Monclus <alfredomonclus@gmail.com>, 2023.
 # Xpol Wan <xpolife@gmail.com>, 2024.
+# Arda <pengfei.fu@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-06-28 08:28+0200\n"
-"PO-Revision-Date: 2024-01-09 09:06+0000\n"
-"Last-Translator: Xpol Wan <xpolife@gmail.com>\n"
+"PO-Revision-Date: 2024-02-22 01:01+0000\n"
+"Last-Translator: Arda <pengfei.fu@gmail.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "klipper/config_reference/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -20,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.4-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 msgid ""
 "This document is a reference for options available in the Klipper config "
@@ -6872,7 +6873,7 @@ msgstr ""
 
 #: docs/Config_Reference.md:block 200 (header)
 msgid "[axis_twist_compensation]"
-msgstr ""
+msgstr "[axis_twist_compensation]"
 
 #: docs/Config_Reference.md:block 201 (paragraph)
 msgid ""
