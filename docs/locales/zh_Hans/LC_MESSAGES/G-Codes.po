@@ -4,20 +4,22 @@
 # Peppa Pig <hansongming88@gmail.com>, 2022.
 # ghyuav <ghyuav2021@163.com>, 2022.
 # xm Y <3260838022@qq.com>, 2023.
+# Arda <pengfei.fu@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-13 14:53+0200\n"
-"PO-Revision-Date: 2023-10-13 16:03+0000\n"
-"Last-Translator: xm Y <3260838022@qq.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/g-codes/zh_Hans/>\n"
+"PO-Revision-Date: 2024-02-22 01:02+0000\n"
+"Last-Translator: Arda <pengfei.fu@gmail.com>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/g-codes/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.1-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 msgid ""
 "This document describes the commands that Klipper supports. These are "
@@ -962,6 +964,9 @@ msgid ""
 "section](Config_Reference.md#bed_screws) is enabled (also see the [manual "
 "level guide](Manual_Level.md#adjusting-bed-leveling-screws))."
 msgstr ""
+"以下命令当 [bed_screws 配置段](Config_Reference.md#bed_screws) "
+"使能的时候可用 (也可参考 [手动调平指南](Manual_Level.md#adjusting-bed-"
+"leveling-screws))。"
 
 #: docs/G-Codes.md:block 38 (header)
 msgid "BED_SCREWS_ADJUST"
@@ -975,7 +980,7 @@ msgstr "[bed_tilt]"
 msgid ""
 "The following commands are available when the [bed_tilt config "
 "section](Config_Reference.md#bed_tilt) is enabled."
-msgstr ""
+msgstr "当 [bed_tilt 配置部分](Config_Reference.md#bed_tilt) 被启用时，以下命令可用："
 
 #: docs/G-Codes.md:block 42 (header)
 msgid "BED_TILT_CALIBRATE"
@@ -1503,7 +1508,7 @@ msgstr "[palette2]"
 msgid ""
 "The following commands are available when the [palette2 config "
 "section](Config_Reference.md#palette2) is enabled."
-msgstr ""
+msgstr "当[palette2 配置分段](Config_Reference.md#palette2)被启用时，以下命令可用："
 
 #: docs/G-Codes.md:block 207 (header)
 msgid "PALETTE_CONNECT"
@@ -2445,10 +2450,12 @@ msgid ""
 "[Y<pos>] [Z<pos>] [E<pos>] [F<speed>] I<value> J<value>|I<value> "
 "K<value>|J<value> K<value>`"
 msgstr ""
+"顺时针圆弧运动 (G2), 逆时针圆弧运动 (G3): `G2|G3 [X<pos>] [Y<pos>] [Z<pos>] "
+"[E<pos>] [F<speed>] I<value> J<value>|I<value> K<value>|J<value> K<value>`"
 
 #: docs/G-Codes.md:block 158 (unordered list)
 msgid "Arc Plane Select: G17 (XY plane), G18 (XZ plane), G19 (YZ plane)"
-msgstr ""
+msgstr "选择圆弧运动参考面: G17 (XY 平面), G18 (XZ 平面), G19 (YZ 平面)"
 
 #: docs/G-Codes.md:block 231 (paragraph)
 msgid ""
@@ -2630,7 +2637,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 376 (header)
 msgid "[axis_twist_compensation]"
-msgstr ""
+msgstr "[axis_twist_compensation]"
 
 #: docs/G-Codes.md:block 377 (paragraph)
 msgid ""
@@ -2640,7 +2647,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 378 (header)
 msgid "AXIS_TWIST_COMPENSATION_CALIBRATE"
-msgstr ""
+msgstr "AXIS_TWIST_COMPENSATION_CALIBRATE"
 
 #: docs/G-Codes.md:block 379 (paragraph)
 msgid ""
@@ -2648,6 +2655,8 @@ msgid ""
 "twist calibration wizard. `SAMPLE_COUNT` specifies the number of points "
 "along the X axis to calibrate at and defaults to 3."
 msgstr ""
+"`AXIS_TWIST_COMPENSATION_CALIBRATE [SAMPLE_COUNT=<value>]`: "
+"启动X轴扭转校准向导。 `SAMPLE_COUNT` 指定沿着X轴进行校准的点数，默认为3个。"
 
 #~ msgid ""
 #~ "`SET_DUAL_CARRIAGE CARRIAGE=[0|1]`: This command will set the active "
