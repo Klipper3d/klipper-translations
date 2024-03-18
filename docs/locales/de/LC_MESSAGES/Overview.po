@@ -4,20 +4,22 @@
 # Christian S <schnellrieder.cs@gmail.com>, 2022.
 # Yifei Ding <dingyifeiair@gmail.com>, 2022.
 # Synertry <jonny.somrak@gmail.com>, 2023.
+# Kev <leadustin@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:32+0200\n"
-"PO-Revision-Date: 2023-04-15 23:53+0000\n"
-"Last-Translator: Synertry <jonny.somrak@gmail.com>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/klipper/overview/de/>\n"
+"PO-Revision-Date: 2024-02-23 22:02+0000\n"
+"Last-Translator: Kev <leadustin@gmail.com>\n"
+"Language-Team: German <https://hosted.weblate.org/projects/klipper/overview/"
+"de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 msgid ""
 "Welcome to the Klipper documentation. If new to Klipper, start with the "
@@ -319,16 +321,21 @@ msgid ""
 "[Axis Twist Compensation](Axis_Twist_Compensation.md): A tool to compensate "
 "for inaccurate probe readings due to twist in X gantry."
 msgstr ""
+"[Achsendrehungskompensation](Axis_Twist_Compensation.md): Ein Werkzeug, um "
+"ungenaue Messwerte des Messtasters aufgrund einer Verdrehung des X-Gantry zu "
+"kompensieren."
 
 #: docs/Overview.md:block 10 (unordered list)
 msgid "[Bootloader Entry](Bootloader_Entry.md): Requesting the bootloader."
-msgstr ""
+msgstr "[Bootloader-Eintrag](Bootloader_Entry.md): Abfrage des Bootloaders."
 
 #: docs/Overview.md:block 10 (unordered list)
 msgid ""
 "[CAN bus troubleshooting](CANBUS_Troubleshooting.md): Tips for "
 "troubleshooting CAN bus."
 msgstr ""
+"[CAN-Bus-Fehlerbehebung](CANBUS_Troubleshooting.md): Tipps zur Fehlersuche "
+"am CAN-Bus."
 
 #~ msgid ""
 #~ "[Exclude Object](Exclude_Object.md): The guide to the Exclude Objecs "

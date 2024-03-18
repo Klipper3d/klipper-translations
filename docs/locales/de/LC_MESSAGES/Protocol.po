@@ -1,20 +1,22 @@
 # Sebastian Fiedler <See1807@hotmail.de>, 2022.
 # Sven van Beckum <kontakt@partner-3d.de>, 2022.
 # Tobias Mohr <tobias_mohr_1991@gmx.de>, 2023.
+# Kev <leadustin@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:35+0200\n"
-"PO-Revision-Date: 2023-10-29 05:19+0000\n"
-"Last-Translator: Tobias Mohr <tobias_mohr_1991@gmx.de>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/klipper/protocol/de/>\n"
+"PO-Revision-Date: 2024-02-23 22:02+0000\n"
+"Last-Translator: Kev <leadustin@gmail.com>\n"
+"Language-Team: German <https://hosted.weblate.org/projects/klipper/protocol/"
+"de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.2-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 msgid ""
 "The Klipper messaging protocol is used for low-level communication between "
@@ -48,6 +50,9 @@ msgid ""
 "protocol itself. It describes how messages are declared, encoded in binary "
 "format (the \"compression\" scheme), and transmitted."
 msgstr ""
+"Diese Seite enthält eine allgemeine Beschreibung des Klipper-"
+"Nachrichtenprotokolls selbst. Sie beschreibt, wie Nachrichten deklariert, im "
+"Binärformat kodiert (das \"Kompressionsschema\") und übertragen werden."
 
 msgid ""
 "The goal of the protocol is to enable an error-free communication channel "
