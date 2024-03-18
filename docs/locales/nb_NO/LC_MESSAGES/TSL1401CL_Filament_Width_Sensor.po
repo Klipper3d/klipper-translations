@@ -1,9 +1,19 @@
-#
+# Rune Steenstrup <rst.steen@gmail.com>, 2024.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2024-03-10 21:01+0000\n"
+"Last-Translator: Rune Steenstrup <rst.steen@gmail.com>\n"
+"Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/klipper/"
+"tsl1401cl_filament_width_sensor/nb_NO/>\n"
+"Language: nb_NO\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.5-dev\n"
+"Content-Transfer-Encoding: 8bit\n"
 
 msgid "How does it work?"
-msgstr ""
+msgstr "Hvordan virker det?"
 
 msgid ""
 "Sensor generates analog output based on calculated filament width. Output "

@@ -1,11 +1,23 @@
-#
+# Rune Steenstrup <rst.steen@gmail.com>, 2024.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2024-03-10 21:01+0000\n"
+"Last-Translator: Rune Steenstrup <rst.steen@gmail.com>\n"
+"Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/klipper/"
+"tmc_drivers/nb_NO/>\n"
+"Language: nb_NO\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.5-dev\n"
+"Content-Transfer-Encoding: 8bit\n"
 
 msgid ""
 "This document provides information on using Trinamic stepper motor drivers "
 "in SPI/UART mode on Klipper."
 msgstr ""
+"Dette dokumentet gir informasjon om bruk av Trinamic trinnmotordrivere i SPI/"
+"UART-modus på Klipper ."
 
 msgid ""
 "Klipper can also use Trinamic drivers in their \"standalone mode\". However,"
