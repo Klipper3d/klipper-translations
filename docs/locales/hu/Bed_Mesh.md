@@ -118,9 +118,9 @@ fade_target: 0
 - `fade_end: 10` *Alapértelmezett érték: 0* A Z magasság, amelyben a fade-nek be kell fejeződnie. Ha ez az érték kisebb, mint `fade_start` akkor a fade le van tiltva. Ezt az értéket a nyomtatási felület torzulásától függően lehet módosítani. Egy jelentősen görbült felületnek hosszabb távon kell elhalványulnia. Egy közel sík felület esetében ez az érték csökkenthető, hogy gyorsabban fakuljon ki. A 10 mm egy ésszerű érték, ha a `fade_start` alapértelmezett 1 értékét használjuk.
 - `fade_target: 0` *Alapértelmezett érték: A háló átlagos Z-értéke* A `fade_target` úgy tekinthető, mint egy további Z-eltolás, amelyet a teljes ágyra alkalmaznak a fade befejezése után. Általánosságban azt szeretnénk, ha ez az érték 0 lenne, azonban vannak olyan körülmények, amikor ez nem kell, hogy így legyen. Tegyük fel például, hogy az ágyon a kezdőpont pozíciója egy kiugró érték, amely 0,2 mm-rel alacsonyabb, mint az ágy átlagos mért magassága. Ha a `fade_target` értéke 0, akkor a fade átlagosan 0,2 mm-rel zsugorítja a nyomtatást az ágyon. Ha a `fade_target` értéket .2-re állítja, a homed terület .2 mm-rel fog tágulni, azonban az ágy többi része pontosan lesz mérve. Általában jó ötlet a `fade_target` elhagyása a konfigurációból, így a háló átlagos magassága kerül felhasználásra, azonban kívánatos lehet a fade target kézi beállítása, ha az ágy egy bizonyos részére szeretnénk nyomtatni.
 
-### Configuring the zero reference position
+### A nulla referenciapozíció beállítása
 
-Many probes are susceptible to "drift", ie: inaccuracies in probing introduced by heat or interference. This can make calculating the probe's z-offset challenging, particularly at different bed temperatures. As such, some printers use an endstop for homing the Z axis and a probe for calibrating the mesh. In this configuration it is possible offset the mesh so that the (X, Y) `reference position` applies zero adjustment. The `reference postion` should be the location on the bed where a [Z_ENDSTOP_CALIBRATE](./Manual_Level#calibrating-a-z-endstop) paper test is performed. The bed_mesh module provides the `zero_reference_position` option for specifying this coordinate:
+Sok szonda hajlamos a "driftre", azaz: a hő vagy interferencia által okozott pontatlanságokra. Ez kihívássá teheti a szonda Z-eltolásának kiszámítását, különösen különböző ágyhőmérsékleteken. Ezért egyes nyomtatók a Z tengely beállításához végállást, a háló kalibrálásához pedig szondát használnak. Ebben a konfigurációban lehetséges a háló eltolása úgy, hogy az (X, Y) `referenciapozíció` nullpontbeállításra vonatkozik. A `referenciapozíciónak` az ágyon annak a helynek kell lennie, ahol a [Z_ENDSTOP_CALIBRATE](./Manual_Level#calibrating-a-z-endstop) papírtesztet végzik. A bed_mesh modul biztosítja a `zero_reference_position` opciót e koordináta megadásához:
 
 ```
 [bed_mesh]
@@ -132,26 +132,26 @@ zero_reference_position: 125, 110
 probe_count: 5, 3
 ```
 
-- `zero_reference_position: ` *Default Value: None (disabled)* The `zero_reference_position` expects an (X, Y) coordinate matching that of the `reference position` described above. If the coordinate lies within the mesh then the mesh will be offset so the reference position applies zero adjustment. If the coordinate lies outside of the mesh then the coordinate will be probed after calibration, with the resulting z-value used as the z-offset. Note that this coordinate must NOT be in a location specified as a `faulty_region` if a probe is necessary.
+- `zero_reference_position: ` *Alapértelmezett érték: A `zero_reference_position` egy olyan (X, Y) koordinátát vár el, amely megfelel a fent leírt `reference position` koordinátának. Ha a koordináta a hálóban van, akkor a háló eltolódik, így a referenciapozíció nulla korrekciót alkalmaz. Ha a koordináta a hálón kívül esik, akkor a koordinátát a kalibrálás után meg kell vizsgálni, és az így kapott Z-értéket kell Z-eltolásként használni. Vedd figyelembe, hogy ez a koordináta NEM lehet olyan helyen, amelyet `faulty_region`-ként határoztak meg, ahol mérésre van szükség.
 
-#### The deprecated relative_reference_index
+#### Az elavult relative_reference_index
 
-Existing configurations using the `relative_reference_index` option must be updated to use the `zero_reference_position`. The response to the [BED_MESH_OUTPUT PGP=1](#output) gcode command will include the (X, Y) coordinate associated with the index; this position may be used as the value for the `zero_reference_position`. The output will look similar to the following:
+A `relative_reference_index` opciót használó meglévő konfigurációkat frissíteni kell a `zero_reference_position` használatához. A [BED_MESH_OUTPUT PGP=1](#output) G-kód parancsra adott válasz tartalmazza az indexhez tartozó (X, Y) koordinátát; ez a pozíció használható a `zero_reference_position` értékeként. A kimenet az alábbiakhoz hasonlóan fog kinézni:
 
 ```
-// bed_mesh: generated points
-// Index | Tool Adjusted | Probe
+// bed_mesh: generált pontok
+// Index | Szerszámbeállítás | Szonda
 // 0 | (1.0, 1.0) | (24.0, 6.0)
 // 1 | (36.7, 1.0) | (59.7, 6.0)
 // 2 | (72.3, 1.0) | (95.3, 6.0)
 // 3 | (108.0, 1.0) | (131.0, 6.0)
-... (additional generated points)
+... (további generált pontok)
 // bed_mesh: relative_reference_index 24 is (131.5, 108.0)
 ```
 
-*Note: The above output is also printed in `klippy.log` during initialization.*
+*Figyelem: A fenti kimenet az inicializálás során a `klippy.log`-ban is megjelenik.*
 
-Using the example above we see that the `relative_reference_index` is printed along with its coordinate. Thus the `zero_reference_position` is `131.5, 108`.
+A fenti példa alapján láthatjuk, hogy a `relative_reference_index` a koordinátával együtt kerül kiírásra. Így a `zero_reference_position` a `131.5, 108`.
 
 ### Hibás régiók
 

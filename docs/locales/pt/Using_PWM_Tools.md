@@ -1,48 +1,48 @@
-# Using PWM tools
+# Utilização de ferramentas PWM
 
-This document describes how to setup a PWM-controlled laser or spindle using `output_pin` and some macros.
+Este documento descreve como configurar um laser ou spindle controlado por PWM utilizando `output_pin` e algumas macros.
 
-## How does it work?
+## Como funciona?
 
-With re-purposing the printhead's fan pwm output, you can control lasers or spindles. This is useful if you use switchable print heads, for example the E3D toolchanger or a DIY solution. Usually, cam-tools such as LaserWeb can be configured to use `M3-M5` commands, which stand for *spindle speed CW* (`M3 S[0-255]`), *spindle speed CCW* (`M4 S[0-255]`) and *spindle stop* (`M5`).
+Ao reutilizar a saída pwm da ventoinha da cabeça de impressão, pode controlar lasers ou fusos. Isto é útil se utilizar cabeças de impressão comutáveis, por exemplo, o permutador de ferramentas E3D ou uma solução DIY. Normalmente, as ferramentas de cames como o LaserWeb podem ser configuradas para usar comandos `M3-M5`, que significam *velocidade do fuso CW* (`M3 S[0-255]`), *velocidade do fuso CCW* (`M4 S[0-255]`) e *paragem do fuso* (`M5`).
 
-**Warning:** When driving a laser, keep all security precautions that you can think of! Diode lasers are usually inverted. This means, that when the MCU restarts, the laser will be *fully on* for the time it takes the MCU to start up again. For good measure, it is recommended to *always* wear appropriate laser-goggles of the right wavelength if the laser is powered; and to disconnect the laser when it is not needed. Also, you should configure a safety timeout, so that when your host or MCU encounters an error, the tool will stop.
+**Aviso:** Ao acionar um laser, tome todas as precauções de segurança de que se possa lembrar! Os lasers de díodo são normalmente invertidos. Isto significa que, quando a MCU reinicia, o laser estará *completamente ligado* durante o tempo que a MCU demora a arrancar novamente. Para uma boa medida, recomenda-se *sempre* usar óculos de proteção contra laser adequados com o comprimento de onda correto se o laser estiver ligado; e desligar o laser quando não for necessário. Além disso, deve configurar um tempo limite de segurança, para que, quando o anfitrião ou a MCU encontrar um erro, a ferramenta pare.
 
-For an example configuration, see [config/sample-pwm-tool.cfg](/config/sample-pwm-tool.cfg).
+Para um exemplo de configuração, consulte [config/sample-pwm-tool.cfg](/config/sample-pwm-tool.cfg).
 
-## Current Limitations
+## Limitações atuais
 
-There is a limitation of how frequent PWM updates may occur. While being very precise, a PWM update may only occur every 0.1 seconds, rendering it almost useless for raster engraving. However, there exists an [experimental branch](https://github.com/Cirromulus/klipper/tree/laser_tool) with its own tradeoffs. In long term, it is planned to add this functionality to main-line klipper.
+Existe uma limitação quanto à frequência com que as actualizações PWM podem ocorrer. Embora seja muito precisa, uma atualização PWM só pode ocorrer a cada 0,1 segundos, o que a torna quase inútil para a gravação raster. No entanto, existe um [ramo experimental] (https://github.com/Cirromulus/klipper/tree/laser_tool) com as suas próprias desvantagens. A longo prazo, está planeado adicionar esta funcionalidade ao klipper de linha principal.
 
-## Commands
+## Comandos
 
-`M3/M4 S<value>` : Set PWM duty-cycle. Values between 0 and 255. `M5` : Stop PWM output to shutdown value.
+`M3/M4 S<value>` : Define o ciclo de trabalho PWM. Valores entre 0 e 255. M5` : Parar a saída PWM para o valor de paragem.
 
-## Laserweb Configuration
+## Configuração Laserweb
 
-If you use Laserweb, a working configuration would be:
+Se utilizar o Laserweb, uma configuração funcional seria a seguinte:
 
     GCODE START:
-        M5            ; Disable Laser
-        G21           ; Set units to mm
-        G90           ; Absolute positioning
-        G0 Z0 F7000   ; Set Non-Cutting speed
+        M5            ; Desativar laser
+        G21           ; Definir unidades para mm
+        G90           ; Posicionamento absoluto
+        G0 Z0 F7000   ; Ajustar velocidade de não corte
     
     GCODE END:
-        M5            ; Disable Laser
-        G91           ; relative
+        M5            ; Desativar o laser
+        G91           ; relativo
         G0 Z+20 F4000 ;
-        G90           ; absolute
+        G90           ; absoluto
     
     GCODE HOMING:
-        M5            ; Disable Laser
-        G28           ; Home all axis
+        M5            ; Desativar laser
+        G28           ; Colocar todos os eixos em posição inicial
     
     TOOL ON:
         M3 $INTENSITY
     
     TOOL OFF:
-        M5            ; Disable Laser
+        M5            ; Desativar laser
     
     LASER INTENSITY:
         S

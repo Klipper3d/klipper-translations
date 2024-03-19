@@ -12,7 +12,7 @@ Umieścić kawałek niebieskiej taśmy malarskiej (lub podobnej) na stole pod so
 PROBE
 ```
 
-Place a mark on the tape directly under where the probe is (or use a similar method to note the location on the bed).
+Zaznacz punk na taśmie klejącej bezpośrednio pod miejscem, w którym znajduje się sonda (lub użyj podobnej metody, aby zaznaczyć jej położenie na stole).
 
 Issue a `GET_POSITION` command and record the toolhead XY location reported by that command. For example if one sees:
 

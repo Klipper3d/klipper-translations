@@ -1,4 +1,4 @@
-# Slicers
+# Slicer
 
 Dieses Dokument enthält einige Tipps zum Konfigurieren einer "Slicer"-Anwendung für die Verwendung mit Klipper. Übliche Slicer, die mit Klipper verwendet werden, sind Slic3r, Cura, Simplify3D usw.
 

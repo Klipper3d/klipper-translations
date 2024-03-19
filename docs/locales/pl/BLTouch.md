@@ -22,7 +22,7 @@ z_hop: 10                 # Move up 10mm
 z_hop_speed: 5
 ```
 
-It's important that the z_hop movement in safe_z_home is high enough that the probe doesn't hit anything even if the probe pin happens to be in its lowest state.
+Ważne jest, aby ruch z_hop w safe_z_home był na tyle wysoki, aby sonda w nic nie uderzyła, nawet jeśli pin sondy będzie w najniższym położeniu.
 
 ## Initial tests
 

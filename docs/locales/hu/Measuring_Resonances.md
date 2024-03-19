@@ -1,16 +1,16 @@
 # Rezonanciák mérése
 
-Klipper has built-in support for the ADXL345, MPU-9250 and LIS2DW compatible accelerometers which can be used to measure resonance frequencies of the printer for different axes, and auto-tune [input shapers](Resonance_Compensation.md) to compensate for resonances. Note that using accelerometers requires some soldering and crimping. The ADXL345/LIS2DW can be connected to the SPI interface of a Raspberry Pi or MCU board (it needs to be reasonably fast). The MPU family can be connected to the I2C interface of a Raspberry Pi directly, or to an I2C interface of an MCU board that supports 400kbit/s *fast mode* in Klipper.
+A Klipper beépített támogatással rendelkezik az ADXL345, MPU-9250 és LIS2DW kompatibilis gyorsulásmérőkhöz, amelyek segítségével a nyomtató különböző tengelyek rezonanciafrekvenciái mérhetők, és a rezonanciák kompenzálására a [bemeneti alakítók](Resonance_Compensation.md) automatikus beállítása használható. Vedd figyelembe, hogy a gyorsulásmérők használata némi forrasztást és krimpelést igényel. Az ADXL345/LIS2DW csatlakoztatható egy Raspberry Pi vagy MCU lap SPI interfészéhez (viszonylag gyorsnak kell lennie). Az MPU-család közvetlenül csatlakoztatható egy Raspberry Pi I2C-interfészéhez, vagy egy MCU-kártya I2C-interfészéhez, amely támogatja a Klipper 400kbit/s *gyors üzemmódot*.
 
-When sourcing accelerometers, be aware that there are a variety of different PCB board designs and different clones of them. If it is going to be connected to a 5V printer MCU ensure it has a voltage regulator and level shifters.
+A gyorsulásmérők beszerzésekor vedd figyelembe, hogy számos különböző nyomtatott áramköri lapkakialakítás és különböző klónok léteznek. Ha 5V-os nyomtató MCU-hoz csatlakozik, győződj meg róla, hogy rendelkezel feszültségszabályozóval és szintválasztóval.
 
-For ADXL345s/LIS2DWs, make sure that the board supports SPI mode (a small number of boards appear to be hard-configured for I2C by pulling SDO to GND).
+Az ADXL345s/LIS2DW-k esetében győződj meg róla, hogy a kártya támogatja az SPI módot (úgy tűnik, hogy néhány kártya keményen I2C-re van konfigurálva az SDO GND-re húzásával).
 
-For MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500s there are also a variety of board designs and clones with different I2C pull-up resistors which will need supplementing.
+Az MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500-asok esetében is vannak különböző lapkakialakítások és klónok különböző I2C pull-up ellenállásokkal, amelyeket ki kell egészíteni.
 
-## MCUs with Klipper I2C *fast-mode* Support
+## MCU-k Klipper I2C *gyors üzemmódú* támogatással
 
-| MCU Family | MCU(s) Tested | MCU(s) with Support |
+| MCU Család | Tesztelt MCU(-k) | Támogatott MCU(-k) |
 | :-: | :-- | :-- |
 | Raspberry Pi | 3B+, Pico | 3A, 3A+, 3B, 4 |
 | AVR ATmega | ATmega328p | ATmega32u4, ATmega128, ATmega168, ATmega328, ATmega644p, ATmega1280, ATmega1284, ATmega2560 |
@@ -20,23 +20,23 @@ For MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500s there are also a variety of bo
 
 ### Vezetékek
 
-An ethernet cable with shielded twisted pairs (cat5e or better) is recommended for signal integrity over a long distance. If you still experience signal integrity issues (SPI/I2C errors):
+A hosszú távú jelintegritás érdekében árnyékolt, sodrott érpáros (cat5e vagy jobb) ethernet-kábel használata ajánlott. Ha továbbra is jelintegritási problémákat tapasztalsz (SPI/I2C hibák):
 
-- Double check the wiring with a digital multimeter for:
-   - Correct connections when turned off (continuity)
-   - Correct power and ground voltages
-- I2C only:
-   - Check the SCL and SDA lines' resistances to 3.3V are in the range of 900 ohms to 1.8K
-   - For full technical details consult [chapter 7 of the I2C-bus specification and user manual UM10204](https://www.pololu.com/file/0J435/UM10204.pdf) for *fast-mode*
-- Shorten the cable
+- Duplán ellenőrizd a vezetékeket egy digitális multiméterrel:
+   - Helyes csatlakozások kikapcsolt állapotban (folytonosság)
+   - Helyes hálózati és földelési feszültségek
+- Csak I2C:
+   - Ellenőrizd, hogy az SCL és SDA vonalak ellenállása a 3,3V-on 900 ohm és 1,8K között van-e
+   - A teljes műszaki részleteket lásd [az I2C-busz specifikációjának 7. fejezetében és az UM10204 felhasználói kézikönyvben](https://www.pololu.com/file/0J435/UM10204.pdf) a *gyors üzemmódhoz*
+- Rövidítsd a kábelt
 
-Connect ethernet cable shielding only to the MCU board/Pi ground.
+Az ethernet kábel árnyékolását csak az MCU lap/Pi földeléséhez csatlakoztasd.
 
 ***Kétszer is ellenőrizd a vezetékeket a bekapcsolás előtt, hogy elkerüld az MCU/Raspberry Pi vagy a gyorsulásmérő károsodását.***
 
 ### SPI Gyorsulásmérők
 
-Suggested twisted pair order for three twisted pairs:
+Javasolt csavart érpáros sorrend három csavart érpárhoz:
 
 ```
 GND+MISO
@@ -44,13 +44,13 @@ GND+MISO
 SCLK+CS
 ```
 
-Note that unlike a cable shield, GND must be connected at both ends.
+Vedd figyelembe, hogy a kábelárnyékolással ellentétben a GND-t mindkét végén csatlakoztatni kell.
 
 #### ADXL345
 
 ##### Közvetlenül a Raspberry Pi-re
 
-**Note: Many MCUs will work with an ADXL345 in SPI mode (e.g. Pi Pico), wiring and configuration will vary according to your specific board and available pins.**
+**Figyelem: Sok MCU működik az ADXL345-tel SPI módban (pl. Pi Pico), a kábelezés és a konfiguráció az adott laptól és a rendelkezésre álló tűktől függően változik.**
 
 Az ADXL345-öt SPI-n keresztül kell csatlakoztatnod a Raspberry Pi-hez. Vedd figyelembe, hogy az ADXL345 dokumentációja által javasolt I2C kapcsolatnak túl alacsony az adatforgalmi képessége, és **nem fog működni**. Az ajánlott kapcsolási séma:
 
@@ -88,7 +88,7 @@ Néhány ADXL345 lap kapcsolási rajzai:
 
 ### I2C Gyorsulásmérők
 
-Suggested twisted pair order for three pairs (preferred):
+Javasolt csavart érpáros sorrend három érpárhoz (előnyben részesített):
 
 ```
 3.3V+GND
@@ -96,18 +96,18 @@ SDA+GND
 SCL+GND
 ```
 
-or for two pairs:
+vagy két párra:
 
 ```
 3.3V+SDA
 GND+SCL
 ```
 
-Note that unlike a cable shield, any GND(s) should be connected at both ends.
+Vedd figyelembe, hogy a kábelárnyékolással ellentétben a GND(k)-et mindkét végén csatlakoztatni kell.
 
 #### MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500
 
-These accelerometers have been tested to work over I2C on the RPi, RP2040 (Pico) and AVR at 400kbit/s (*fast mode*). Some MPU accelerometer modules include pull-ups, but some are too large at 10K and must be changed or supplemented by smaller parallel resistors.
+Ezeket a gyorsulásmérőket teszteltük, hogy az RPi, RP2040 (Pico) és AVR modelleken 400kbit/s sebességgel (*gyors mód*) működnek I2C-n keresztül. Néhány MPU gyorsulásmérő modul tartalmaz pull-upot, de néhány túl nagy 10K, és kisebb párhuzamos ellenállásokkal kell megváltoztatni vagy kiegészíteni.
 
 Ajánlott csatlakozási séma az I2C-hez a Raspberry Pi-n:
 
@@ -118,33 +118,33 @@ Ajánlott csatlakozási séma az I2C-hez a Raspberry Pi-n:
 | SDA | 03 | GPIO02 (SDA1) |
 | SCL | 05 | GPIO03 (SCL1) |
 
-The RPi has buit-in 1.8K pull-ups on both SCL and SDA.
+Az RPi mind az SCL, mind az SDA esetében rendelkezik beépített 1,8K pull-upokkal.
 
-![MPU-9250 connected to Pi](img/mpu9250-PI-fritzing.png)
+![MPU-9250 csatlakoztatva a Pi-hez](img/mpu9250-PI-fritzing.png)
 
-Recommended connection scheme for I2C (i2c0a) on the RP2040:
+Az I2C (i2c0a) ajánlott csatlakozási sémája az RP2040-en:
 
-| MPU-9250 tű | RP2040 tű | RP2040 pin name |
+| MPU-9250 tű | RP2040 tű | RP2040 tű neve |
 | :-: | :-: | :-: |
 | VCC | 36 | 3v3 |
 | GND | 38 | Föld |
 | SDA | 01 | GP0 (I2C0 SDA) |
 | SCL | 02 | GP1 (I2C0 SCL) |
 
-The Pico does not include any built-in I2C pull-up resistors.
+A Pico nem tartalmaz beépített I2C pull-up ellenállást.
 
-![MPU-9250 connected to Pico](img/mpu9250-PICO-fritzing.png)
+![MPU-9250 Pico csatlakoztatva](img/mpu9250-PICO-fritzing.png)
 
-##### Recommended connection scheme for I2C(TWI) on the AVR ATmega328P Arduino Nano:
+##### Az AVR ATmega328P Arduino Nano I2C(TWI) ajánlott csatlakozási sémája:
 
-| MPU-9250 tű | Atmega328P TQFP32 pin | Atmega328P pin name | Arduino Nano pin |
+| MPU-9250 tű | Atmega328P TQFP32 tű | Atmega328P tű neve | Arduino Nano tű |
 | :-: | :-: | :-: | :-: |
 | VCC | 39 | - | - |
 | GND | 38 | Föld | GND |
 | SDA | 27 | SDA | A4 |
 | SCL | 28 | SCL | A5 |
 
-The Arduino Nano does not include any built-in pull-up resistors nor a 3.3V power pin.
+Az Arduino Nano nem tartalmaz beépített pull-up ellenállást és 3,3 V-os tápcsatlakozót sem.
 
 ### A gyorsulásmérő felszerelése
 
@@ -177,7 +177,7 @@ Vedd figyelembe, hogy a CPU teljesítményétől függően ez *sok* időt vehet 
 
 #### ADXL345 konfigurálása RPi-vel
 
-First, check and follow the instructions in the [RPi Microcontroller document](RPi_microcontroller.md) to setup the "linux mcu" on the Raspberry Pi. This will configure a second Klipper instance that runs on your Pi.
+Először is, ellenőrizd és kövesd az [RPi Microcontroller dokumentum](RPi_microcontroller.md) utasításait a "linux mcu" beállításához a Raspberry Pi-n. Ez egy második Klipper példányt fog konfigurálni, amely a Pi-n fut.
 
 Győződjünk meg róla, hogy a Linux SPI-illesztőprogram engedélyezve van a `sudo raspi-config` futtatásával és az SPI engedélyezésével az "Interfacing options" menüben.
 
@@ -253,11 +253,11 @@ Ha az ADXL345 konfigurációját külön fájlban állítod be, ahogy fentebb l�
 
 Indítsd újra a Klippert a `RESTART` paranccsal.
 
-#### Configure LIS2DW series
+#### LIS2DW sorozat konfigurálása
 
 ```
 [mcu lis]
-# Change <mySerial> to whatever you found above. For example,
+# Változtasd meg a <mySerial> értéket arra, amit fentebb találtál. Például,
 # usb-Klipper_rp2040_E661640843545B2E-if00
 serial: /dev/serial/by-id/usb-Klipper_rp2040_<mySerial>
 
@@ -269,8 +269,8 @@ axes_map: x,z,y
 [resonance_tester]
 accel_chip: lis2dw
 probe_points:
-    # Somewhere slightly above the middle of your print bed
-    147,154, 20
+         # Valahol a nyomtatóágy közepe felett valamivel
+         147,154, 20
 ```
 
 #### Az MPU-6000/9000 sorozat konfigurálása RPi-vel
@@ -291,13 +291,13 @@ probe_points:
     100, 100, 20  # egy példa
 ```
 
-#### Configure MPU-9520 Compatibles With Pico
+#### MPU-9520 konfigurálása kompatibilis Pico segítségével
 
-Pico I2C is set to 400000 on default. Simply add the following to the printer.cfg:
+A Pico I2C alapértelmezés szerint 400000-re van beállítva. Egyszerűen add hozzá a következőket a printer.cfg fájlhoz:
 
 ```
 [mcu pico]
-serial: /dev/serial/by-id/<your Pico's serial ID>
+serial: /dev/serial/by-id/<a Pico soros ID azonosítója>
 
 [mpu9250]
 i2c_mcu: pico
@@ -306,19 +306,19 @@ i2c_bus: i2c0a
 [resonance_tester]
 accel_chip: mpu9250
 probe_points:
-    100, 100, 20  # an example
+ 100, 100, 20 # egy példa
 
-[static_digital_output pico_3V3pwm] # Improve power stability
+[static_digital_output pico_3V3pwm] # A teljesítmény stabilitásának javítása
 pins: pico:gpio23
 ```
 
-#### Configure MPU-9520 Compatibles with AVR
+#### MPU-9520 konfigurálása kompatibilis AVR-rel
 
-AVR I2C will be set to 400000 by the mpu9250 option. Simply add the following to the printer.cfg:
+Az AVR I2C az MPU9250 opcióval 400000-re lesz beállítva. Egyszerűen add hozzá a következőket a printer.cfg fájlhoz:
 
 ```
 [mcu nano]
-serial: /dev/serial/by-id/<your nano's serial ID>
+serial: /dev/serial/by-id/<a nano soros ID azonosítója>
 
 [mpu9250]
 i2c_mcu: nano
@@ -326,7 +326,7 @@ i2c_mcu: nano
 [resonance_tester]
 accel_chip: mpu9250
 probe_points:
-    100, 100, 20  # an example
+ 100, 100, 20 # egy példa
 ```
 
 Indítsd újra a Klippert a `RESTART` paranccsal.
@@ -348,7 +348,7 @@ Visszahívás: // adxl345 értékek (x, y, z): 470.719200, 941.438400, 9728.1968
 
 Ha a következő hibát kapod: `Invalid adxl345 id (got xx vs e5)`, ahol `xx` egy másik azonosító, azonnal próbáld meg újra. Az SPI inicializálásával van probléma. Ha továbbra is hibát kapsz, az az ADXL345-tel való kapcsolódási problémára, vagy a hibás érzékelőre utal. Duplán ellenőrizd a tápellátást, a vezetékezést (hogy megfelel-e a kapcsolási rajzoknak, nincs-e törött vagy laza vezeték stb.) és a forrasztás minőségét.
 
-**If you are using a MPU-9250 compatible accelerometer and it shows up as `mpu-unknown`, use with caution! They are probably refurbished chips!**
+**Ha MPU-9250 kompatibilis gyorsulásmérőt használsz, és az `mpu-unknown`-ként jelenik meg, óvatosan használd! Valószínűleg felújított chipekről van szó!**
 
 Ezután próbáld meg futtatni a `MEASURE_AXES_NOISE` parancsot az Octoprint-ben, így kaphatsz néhány alapszámot a gyorsulásmérő zajára a tengelyeken (valahol a ~1-100-as tartományban kell lennie). A túl magas tengelyzaj (pl. 1000 és több) az érzékelő problémáira, a tápellátásával kapcsolatos problémákra vagy a 3D nyomtató túl zajos, kiegyensúlyozatlan ventilátoraira utalhat.
 
@@ -423,7 +423,7 @@ Megjegyzendő, hogy alternatívaként a bemeneti alakító automatikus kalibrác
 
 Ha a nyomtatód tárgyasztala Y tengelyen van, akkor meg kell változtatnod a gyorsulásmérő helyét az X és Y tengelyek mérései között: az X tengely rezonanciáit a nyomtatófejre szerelt gyorsulásmérővel, az Y tengely rezonanciáit pedig a tárgyasztalra szerelt gyorsulásmérővel kell mérned (a szokásos nyomtató beállítással).
 
-However, you can also connect two accelerometers simultaneously, though the ADXL345 must be connected to different boards (say, to an RPi and printer MCU board), or to two different physical SPI interfaces on the same board (rarely available). Then they can be configured in the following manner:
+Azonban két gyorsulásmérőt is csatlakoztathatsz egyszerre, bár az ADXL345-öt különböző lapokhoz kell csatlakoztatni (mondjuk egy RPi és egy nyomtató MCU alaplaphoz), vagy két különböző fizikai SPI interfészhez ugyanazon a lapon (ritkán elérhető). Ezután a következő módon konfigurálhatók:
 
 ```
 [adxl345 hotend]
@@ -441,27 +441,27 @@ accel_chip_y: adxl345 bed
 probe_points: ...
 ```
 
-Two MPUs can share one I2C bus, but they **cannot** measure simultaneously as the 400kbit/s I2C bus is not fast enough. One must have its AD0 pin pulled-down to 0V (address 104) and the other its AD0 pin pulled-up to 3.3V (address 105):
+Két MPU megosztható egy I2C buszon, de **nem mérhetnek** egyszerre, mivel a 400kbit/s-os I2C busz nem elég gyors. Az egyiknek az AD0 tűjét 0V-ra kell lehúzni (104-es cím), a másiknak pedig az AD0 tűjét 3,3V-ra kell felhúzni (105-ös cím):
 
 ```
 [mpu9250 hotend]
 i2c_mcu: rpi
 i2c_bus: i2c.1
-i2c_address: 104 # This MPU has pin AD0 pulled low
+i2c_address: 104 # Ezen az MPU-n az AD0 pin alacsonyra van húzva.
 
 [mpu9250 bed]
 i2c_mcu: rpi
 i2c_bus: i2c.1
-i2c_address: 105 # This MPU has pin AD0 pulled high
+i2c_address: 105 # Ez az MPU az AD0 tűt magasra húzta.
 
 [resonance_tester]
-# Assuming the typical setup of the bed slinger printer
+# Feltételezve a nyomtató tipikus beállítását a bed slinger nyomtatóhoz.
 accel_chip_x: mpu9250 hotend
 accel_chip_y: mpu9250 bed
 probe_points: ...
 ```
 
-[Test with each MPU individually before connecting both to the bus for easy debugging.]
+[A hibakeresés megkönnyítése érdekében teszteld mindkét MPU-t külön-külön, mielőtt mindkettőt a buszra csatlakoztatod.]
 
 Ekkor a `TEST_RESONANCES AXIS=X` és `TEST_RESONANCES AXIS=Y` parancsok a megfelelő gyorsulásmérőt fogják használni minden tengelyhez.
 

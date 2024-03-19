@@ -6,7 +6,7 @@ Ten dokument opisuje jak skonfigurować laser lub wrzeciono sterowane PWM używa
 
 Wykorzystując wyjście pwm wentylatora głowicy drukującej, można sterować laserami lub wrzecionami. Jest to przydatne, jeśli używasz przełączalnych głowic drukujących, na przykład E3D toolchanger lub rozwiązania DIY. Zazwyczaj, narzędzia krzywkowe takie jak LaserWeb mogą być skonfigurowane do używania komend `M3-M5`, które oznaczają *spindle speed CW* (`M3 S[0-255]`), *spindle speed CCW* (`M4 S[0-255]`) i *spindle stop* (`M5`).
 
-**Warning:** When driving a laser, keep all security precautions that you can think of! Diode lasers are usually inverted. This means, that when the MCU restarts, the laser will be *fully on* for the time it takes the MCU to start up again. For good measure, it is recommended to *always* wear appropriate laser-goggles of the right wavelength if the laser is powered; and to disconnect the laser when it is not needed. Also, you should configure a safety timeout, so that when your host or MCU encounters an error, the tool will stop.
+**Uwaga:** Podczas używania lasera należy zachować wszelkie środki ostrożności, jakie tylko przychodzą na myśl! Lasery diodowe są zwykle odwrócone. Oznacza to, że po ponownym uruchomieniu MCU laser będzie *w pełni włączony* przez cały czas potrzebny do ponownego uruchomienia MCU. Dla pewności zaleca się *zawsze* noszenie odpowiednich okularów ochronnych dostosowanych do długości fal jeżeli laser jest uruchomiony, oraz do odłączania lasera, gdy nie jest on potrzebny. Powinieneś także skonfigurować limit czasu bezpieczeństwa, aby narzędzie zatrzymało się, gdy host lub MCU napotka błąd.
 
 For an example configuration, see [config/sample-pwm-tool.cfg](/config/sample-pwm-tool.cfg).
 

@@ -1,4 +1,4 @@
-# MCU commands
+# MCU Befehle
 
 Dieses Dokument enthält Informationen zu den Low-Level-Mikrocontroller-Befehlen, die von der Klipper "Host"-Software gesendet und von der Klipper Mikrocontroller-Software verarbeitet werden. Dieses Dokument ist weder eine verbindliche Referenz für diese Befehle, noch ist es eine exklusive Liste aller verfügbaren Befehle.
 

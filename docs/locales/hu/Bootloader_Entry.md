@@ -10,17 +10,17 @@ Ha virtuális (USB-ACM) soros port van használatban, a DTR pulzálása 1200 bau
 
 #### Python (with `flash_usb`)
 
-To enter the bootloader using python (using `flash_usb`):
+Belépés a bootloader-be python segítségével (using `flash_usb`):
 
 ```shell
 > cd klipper/scripts
 > python3 -c 'import flash_usb as u; u.enter_bootloader("<DEVICE>")'
-Entering bootloader on <DEVICE>
+Bootloader belépése a <DEVICE> rendszeren
 ```
 
-Where `<DEVICE>` is your serial device, such as `/dev/serial.by-id/usb-Klipper[...]` or `/dev/ttyACM0`
+Ahol `<DEVICE>` a soros eszköz, például `/dev/serial.by-id/usb-Klipper[...]` vagy `/dev/ttyACM0`
 
-Note that if this fails, no output will be printed, success is indicated by printing `Entering bootloader on <DEVICE>`.
+Vedd figyelembe, hogy ha ez nem sikerül, nem jelenik meg a kimenet, a sikert az `Entering bootloader on <DEVICE>` kiírása jelzi.
 
 #### Picocom
 
@@ -29,65 +29,65 @@ picocom -b 1200 <DEVICE>
 <Ctrl-A><Ctrl-P>
 ```
 
-Where `<DEVICE>` is your serial device, such as `/dev/serial.by-id/usb-Klipper[...]` or `/dev/ttyACM0`
+Ahol `<DEVICE>` a soros eszköz, például `/dev/serial.by-id/usb-Klipper[...]` vagy `/dev/ttyACM0`
 
-`<Ctrl-A><Ctrl-P>` means holding `Ctrl`, pressing and releasing `a`, pressing and releasing `p`, then releasing `Ctrl`
+`<Ctrl-A><Ctrl-P>` azt jelenti, hogy lenyomva tartjuk a "Ctrl"-t, megnyomjuk és elengedjük az "a"-t, megnyomjuk és elengedjük a "p"-t, majd elengedjük a "Ctrl"-t
 
-### Physical serial
+### Fizikai sorszám
 
-If a physical serial port is being used on the MCU (even if a USB serial adapter is being used to connect to it), sending the string `<SPACE><FS><SPACE>Request Serial Bootloader!!<SPACE>~`.
+Ha az MCU-n fizikai soros portot használunk (még akkor is, ha USB soros adaptert használunk a csatlakozáshoz), akkor a `<SPACE><FS><SPACE>Request Serial Bootloader!!<SPACE>~` karakterlánc elküldése szükséges.
 
-`<SPACE>` is an ASCII literal space, 0x20.
+A `<SPACE>` egy ASCII szóköz, 0x20.
 
-`<FS>` is the ASCII File Separator, 0x1c.
+A `<FS>` az ASCII fájlelválasztó, 0x1c.
 
-Note that this is not a valid message as per the [MCU Protocol](Protocol.md#micro-controller-interface), but sync characters(`~`) are still respected.
+Vedd figyelembe, hogy ez nem érvényes üzenet az [MCU protokoll](Protocol.md#micro-controller-interface) szerint, de a szinkronizáló karaktereket (`~`) továbbra is tiszteletben kell tartani.
 
-Because this message must be the only thing in the "block" it is received in, prefixing an extra sync character can increase reliability if other tools were previously accessing the serial port.
+Mivel ennek az üzenetnek kell lennie az egyetlen dolognak abban a "blokkban", amelyben érkezik, egy extra szinkronizáló karakter előtaggal növelheted a megbízhatóságot, ha korábban más eszközök is hozzáfértek a soros porthoz.
 
-#### Shell
+#### Parancsértelmező
 
 ```shell
 stty <BAUD> < /dev/<DEVICE>
 echo $'~ \x1c Request Serial Bootloader!! ~' >> /dev/<DEVICE>
 ```
 
-Where `<DEVICE>` is your serial port, such as `/dev/ttyS0`, or `/dev/serial/by-id/gpio-serial2`, and
+Ahol `<DEVICE>` a Te soros portod, például `/dev/ttyS0`, vagy `/dev/serial/by-id/gpio-serial2` és
 
-`<BAUD>` is the baud rate of the serial port, such as `115200`.
+`<BAUD>` a soros port buszsebessége, például `115200`.
 
 ### CANBUS
 
-If CANBUS is in use, a special [admin message](CANBUS_protocol.md#admin-messages) will request the bootloader. This message will be respected even if the device already has a nodeid, and will also be processed if the mcu is shutdown.
+Ha a CANBUS használatban van, egy speciális [admin üzenet](CANBUS_protocol.md#admin-messages) kéri a bootloadert. Ezt az üzenetet akkor is figyelembe veszi, ha az eszköznek már van nodeid-ja, és akkor is feldolgozza, ha az MCU le van kapcsolva.
 
-This method also applies to devices operating in [CANBridge](CANBUS.md#usb-to-can-bus-bridge-mode) mode.
+Ez a módszer a [CANBridge](CANBUS.md#usb-to-can-bus-bridge-mode) üzemmódban működő eszközökre is vonatkozik.
 
-#### Katapult's flashtool.py
+#### Katapult flashtool.py
 
 ```shell
 python3 ./katapult/scripts/flashtool.py -i <CAN_IFACE> -u <UUID> -r
 ```
 
-Where `<CAN_IFACE>` is the can interface to use. If using `can0`, both the `-i` and `<CAN_IFACE>` may be omitted.
+Ahol `<CAN_IFACE>` a használni kívánt can-interfész. Ha a `can0`-t használjuk, az `-i` és a `<CAN_IFACE>` is elhagyható.
 
-`<UUID>` is the UUID of your CAN device.
+A `<UUID>` a CAN-eszköz UUID-je.
 
-See the [CANBUS Documentation](CANBUS.md#finding-the-canbus_uuid-for-new-micro-controllers) for information on finding the CAN UUID of your devices.
+Lásd a [CANBUS dokumentáció](CANBUS.md#finding-the-canbus_uuid-for-new-micro-controllers) című dokumentumot az eszközök CAN UUID-jének megtalálására vonatkozó információkért.
 
-## Entering the bootloader
+## Belépés a bootloaderbe
 
-When klipper receives one of the above bootloader requests:
+Amikor a klipper megkapja a fenti bootloader kérések egyikét:
 
-If Katapult (formerly known as CANBoot) is available, klipper will request that Katapult stay active on the next boot, then reset the MCU (therefore entering Katapult).
+Ha a Katapult (korábbi nevén CANBoot) elérhető, a klipper kérni fogja, hogy a Katapult maradjon aktív a következő indításkor, majd visszaállítja az MCU-t (ezért belép a Katapultba).
 
-If Katapult is not available, klipper will then try to enter a platform-specific bootloader, such as STM32's DFU mode([see note](#stm32-dfu-warning)).
+Ha a Katapult nem elérhető, akkor a klipper megpróbál egy platform-specifikus bootloaderbe belépni, például az STM32 DFU módjába([lásd megjegyzés](#stm32-dfu-warning)).
 
-In short, Klipper will reboot to Katapult if installed, then a hardware specific bootloader if available.
+Röviden, a Klipper újraindítja a Katapultot, ha telepítve van, majd egy hardver-specifikus bootloadert, ha rendelkezésre áll.
 
-For details about the specific bootloaders on various platforms see [Bootloaders](Bootloaders.md)
+A különböző platformok speciális bootloadereiről részletesen lásd [Bootloaderek](Bootloaders.md)
 
-## Notes
+## Megjegyzések
 
-### STM32 DFU Warning
+### STM32 DFU Figyelmeztetés
 
-Note that on some boards, like the Octopus Pro v1, entering DFU mode can cause undesired actions (such as powering the heater while in DFU mode). It is recommended to disconnect heaters, and otherwise prevent undesired operations when using DFU mode. Consult the documentation for your board for more details.
+Ne feledd, hogy néhány lapon, mint például az Octopus Pro v1, a DFU módba való belépés nem kívánt műveleteket okozhat (például a fűtőberendezés bekapcsolása DFU módban). Javasoljuk, hogy a DFU mód használatakor a fűtőberendezéseket kapcsold ki, és más módon akadályozd meg a nemkívánatos műveleteket. További részletekért olvasd el az alaplap dokumentációját.

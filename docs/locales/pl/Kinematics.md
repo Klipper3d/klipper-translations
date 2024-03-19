@@ -6,7 +6,7 @@ Ten dokument stanowi przegląd tego, jak Klipper implementuje ruch robota (jego 
 
 Klipper posiada wbudowany schemat płynnego przyspieszenia za każdym razem, gdy głowica drukująca zmienia prędkość - prędkość jest stopniowo zmieniana na nową wartość, a nie skokowo. Klipper zawsze wymusza przyspieszenie pomiędzy głowicą a wydrukiem. Filament opuszczający ekstruder może być dość delikatny - gwałtowne szarpnięcia i/lub zmiany przepływu w ekstruderze prowadzą do niskiej jakości i słabej przyczepności do podłoża. Nawet jeśli głowica drukująca znajduje się na tym samym poziomie co wydruk, gwałtowne szarpnięcia głowicy mogą spowodować przerwanie niedawno osadzonego filamentu. Ograniczenie zmian prędkości głowicy drukującej (względem wydruku) zmniejsza ryzyko powstawania wad wydruku.
 
-It is also important to limit acceleration so that the stepper motors do not skip or put excessive stress on the machine. Klipper limits the torque on each stepper by virtue of limiting the acceleration of the print head. Enforcing acceleration at the print head naturally also limits the torque of the steppers that move the print head (the inverse is not always true).
+Ważne jest również ograniczenie przyspieszania, aby silniki krokowe nie przeskakiwały ani nie obciążały maszyny nadmiernie. Klipper ogranicza moment obrotowy każdego silnika poprzez ograniczenie przyspieszenia głowicy drukującej. Wymuszanie przyspieszenia głowicy drukującej w naturalny sposób ogranicza również moment obrotowy silników krokowych poruszających głowicę drukującą (odwrotne zastosowanie ograniczenia nie zawsze przynosi efekt).
 
 Klipper implements constant acceleration. The key formula for constant acceleration is:
 

@@ -8,7 +8,7 @@ Opisy w tym dokumencie są tak sformatowane, że można je wyciąć i wkleić do
 
 ### Format nazw pinów mikrokontrolera
 
-Many config options require the name of a micro-controller pin. Klipper uses the hardware names for these pins - for example `PA4`.
+Wiele opcji konfiguracyjnych wymaga podania nazwy pinu mikrokontrolera. Klipper używa nazw sprzętowych dla tych pinów - na przykład `PA4`.
 
 Pin names may be preceded by `!` to indicate that a reverse polarity should be used (eg, trigger on low instead of high).
 

@@ -23,7 +23,7 @@ git clone https://github.com/Klipper3d/klipper
 ./klipper/scripts/install-octopi.sh
 ```
 
-The above will download Klipper, install some system dependencies, setup Klipper to run at system startup, and start the Klipper host software. It will require an internet connection and it may take a few minutes to complete.
+Powyższe spowoduje pobranie Klippera, zainstalowanie niektórych zależności systemowych, skonfigurowanie Klippera do uruchamiania przy starcie systemu i uruchomienie oprogramowania hosta Klipper. Będzie to wymagało połączenia z Internetem i może zająć kilka minut.
 
 ## Building and flashing the micro-controller
 

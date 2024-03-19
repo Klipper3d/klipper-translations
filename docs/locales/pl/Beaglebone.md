@@ -13,7 +13,7 @@ git clone https://github.com/Klipper3d/klipper
 ./klipper/scripts/install-beaglebone.sh
 ```
 
-## Install Octoprint
+## Zainstaluj Octoprint
 
 One may then install Octoprint:
 

@@ -9,24 +9,24 @@ Ez a modul kézi méréseket használ a felhasználó számára, hogy korrigálj
 
 **Figyelem**: Ez a modul még nem kompatibilis a dokkolható szondákkal, és a szonda csatlakoztatása nélkül próbáld meg megmérni az ágyat, mielőtt használod.
 
-## Overview of compensation usage
+## A kompenzációs használat áttekintése
 
-> **Tip:** Make sure the [probe X and Y offsets](Config_Reference.md#probe) are correctly set as they greatly influence calibration.
+> **Tip:** Győződj meg róla, hogy az [ X és Y eltolás](Config_Reference.md#probe) megfelelően van beállítva, mivel nagymértékben befolyásolják a kalibrálást.
 
-1. After setting up the [axis_twist_compensation] module, perform `AXIS_TWIST_COMPENSATION_CALIBRATE`
+1. Az [axis_twist_compensation] modul beállítása után hajtsd végre az alábbi parancsot `AXIS_TWIST_COMPENSATION_CALIBRATE`
 
-* The calibration wizard will prompt you to measure the probe Z offset at a few points along the bed
-* The calibration defaults to 3 points but you can use the option `SAMPLE_COUNT=` to use a different number.
+* A kalibrációs varázsló felszólít Téged, hogy mérd meg a szonda Z eltolását az ágy mentén néhány ponton
+* A kalibrálás alapértelmezett értéke 3 pont, de a `SAMPLE_COUNT=` opcióval más számot is használhatsz.
 
-1. [Adjust your Z offset](Probe_Calibrate.md#calibrating-probe-z-offset)
-1. Perform automatic/probe-based bed tramming operations, such as [Screws Tilt Adjust](G-Codes.md#screws_tilt_adjust), [Z Tilt Adjust](G-Codes.md#z_tilt_adjust) etc
-1. Home all axis, then perform a [Bed Mesh](Bed_Mesh.md) if required
-1. Perform a test print, followed by any [fine-tuning](Axis_Twist_Compensation.md#fine-tuning) as desired
+1. [Z eltolás beállítása](Probe_Calibrate.md#calibrating-probe-z-offset)
+1. Automatikus/szondás szintezési műveletek végrehajtása, például [Orsók dőlésbeállítása](G-Codes.md#screws_tilt_adjust), [Z dőlésbeállítása](G-Codes.md#z_tilt_adjust) stb
+1. Kezdőpont minden tengelyen, majd szükség esetén végezzünk egy [ Ágyháló](Bed_Mesh.md) műveletet
+1. Végezz el egy próbanyomtatást, majd a kívánt [finomhangolást](Axis_Twist_Compensation.md#fine-tuning)
 
-> **Tip:** Bed temperature and nozzle temperature and size do not seem to have an influence to the calibration process.
+> **Tipp:** Úgy tűnik, hogy az ágy hőmérséklete és a fúvóka hőmérséklete és mértéke nem befolyásolja a kalibrálási folyamatot.
 
-## [axis_twist_compensation] setup and commands
+## [axis_twist_compensation] beállítások és parancsok
 
-Configuration options for [axis_twist_compensation] can be found in the [Configuration Reference](Config_Reference.md#axis_twist_compensation).
+Az [axis_twist_compensation] konfigurációs beállításai a [Konfigurációs referenciában](Config_Reference.md#axis_twist_compensation) találhatóak.
 
-Commands for [axis_twist_compensation] can be found in the [G-Codes Reference](G-Codes.md#axis_twist_compensation)
+Az [axis_twist_compensation] parancsok megtalálhatók a [G-Kódok referencia](G-Codes.md#axis_twist_compensation) című dokumentumban

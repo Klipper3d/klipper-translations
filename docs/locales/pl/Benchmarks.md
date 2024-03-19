@@ -6,7 +6,7 @@ Ten dokument opisuje benchmarki Klippera.
 
 W tym rozdziale opisano mechanizm wykorzystany do wygenerowania benchmarków szybkości kroków mikrokontrolera Klipper.
 
-The primary goal of the benchmarks is to provide a consistent mechanism for measuring the impact of coding changes within the software. A secondary goal is to provide high-level metrics for comparing the performance between chips and between software platforms.
+Podstawowym celem testów porównawczych jest zapewnienie spójnego mechanizmu pomiaru wpływu zmian w kodowaniu w oprogramowaniu. Drugorzędnym celem jest zapewnienie wskaźników wysokiego poziomu do porównywania wydajności między chipami i platformami oprogramowania.
 
 The step rate benchmark is designed to find the maximum stepping rate that the hardware and software can reach. This benchmark stepping rate is not achievable in day-to-day use as Klipper needs to perform other tasks (eg, mcu/host communication, temperature reading, endstop checking) in any real-world usage.
 

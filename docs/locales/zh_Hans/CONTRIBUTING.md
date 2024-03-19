@@ -31,7 +31,7 @@
 
    提交必须通过所有[回归测试用例](Debugging.md)。
 
-   When fixing a defect in the code, submitters should have a general understanding of the root cause of that defect, and the fix should target that root cause.
+   在修复代码中的缺陷时，提交者应该对该缺陷的根本原因有一个大致的了解，并且修复应该针对该根本原因。
 
    代码提交不应包含过多的调试代码、调试选项，也不应包含运行时调试日志。
 
@@ -45,7 +45,7 @@
 
    如果审稿人询问有关提交可以带来的“好处”的细节，请不要将其视为批评。能够理解更改带来的实际好处是审查的一个自然部分。
 
-   When discussing benefits it is preferable to discuss "facts and measurements". In general, reviewers are not looking for responses of the form "someone may find option X useful", nor are they looking for responses of the form "this submission adds a feature that firmware X implements". Instead, it is generally preferable to discuss details on how the quality improvement was measured and what were the results of those measurements - for example, "tests on Acme X1000 printers show improved corners as seen in picture ...", or for example "print time of real-world object X on a Foomatic X900 printer went from 4 hours to 3.5 hours". It is understood that testing of this type can take significant time and effort. Some of Klipper's most notable features took months of discussion, rework, testing, and documentation prior to being merged into the master branch.
+   在讨论利益时，最好是讨论“事实和衡量标准”。一般而言，审查者不是在寻找“某人可能会发现选项X有用”形式的答复，也不是在寻找形式为“此提交增加了固件X实现的功能”的答复。相反，通常更可取的是讨论如何测量质量改进的细节以及这些测量的结果是什么--例如，“在Acme X1000打印机上的测试显示如图片所示的改善的角落……”，或者例如，“在Foom X900打印机上打印现实世界中的对象X的时间从4小时缩短到3.5小时”。可以理解，这种类型的测试可能会花费大量的时间和精力。Klipper的一些最重要的功能在合并到主分支之前，花了几个月的讨论、返工、测试和文档。
 
    所有新的模块、配置选项、命令、命令参数和文档都应该具有“高影响力”。我们不想让用户负担他们不能合理配置的选项，也不想让他们负担不能提供显著好处的选项。
 
@@ -104,20 +104,20 @@ Klipper的“评论者”是：
 | --- | --- | --- |
 | Dmitry Butyugin | @dmbutyugin | 输入整形、共振测试、运动学 |
 | Eric Callahan | @Arksine | 床位调平，MCU闪烁 |
-| James Hartley | @JamesH1978 | Configuration files |
+| James Hartley | @JamesH1978 | 配置文件 |
 | Kevin O'Connor | @KevinOConnor | 核心运动系统，微控制器代码 |
 
 请不要“ping”任何一位评审员，也不要直接向他们投稿。所有的评论者都会监督论坛和公关，并在有时间的时候进行评论。
 
-The Klipper "maintainers" are:
+Klipper的“维护者”是：
 
-| 名称 | GitHub name |
+| 名称 | GitHub名称 |
 | --- | --- |
 | Kevin O'Connor | @KevinOConnor |
 
-## Format of commit messages
+## 提交消息的格式
 
-Each commit should have a commit message formatted similar to the following:
+每个提交都应具有格式类似于以下内容的提交消息：
 
 ```
 模块名: 大写、简短的摘要（50个字符或更少）
@@ -134,28 +134,28 @@ Each commit should have a commit message formatted similar to the following:
 Signed-off-by: 姓名< myemail@example.org >
 ```
 
-In the above example, `module` should be the name of a file or directory in the repository (without a file extension). For example, `clocksync: Fix typo in pause() call at connect time`. The purpose of specifying a module name in the commit message is to help provide context for the commit comments.
+在上面的示例中，`mode`应该是仓库中的文件或目录的名称(不带文件扩展名)。例如，`clocksync：修复连接时puse()调用中的拼写错误`。在提交消息中指定模块名称的目的是帮助为提交注释提供上下文。
 
 在每个提交上必须有一个 "Signed-off-by "行--它证明你同意[开发者起源证书](developer-certificate-of-origin)。它必须包含你的真实姓名（对不起，没有假名或匿名的贡献）和一个可用的电子邮件地址。
 
 ## 为 Klipper 翻译做出贡献
 
-[Klipper-translations Project](https://github.com/Klipper3d/klipper-translations) is a project dedicated to translating Klipper to different languages. [Weblate](https://hosted.weblate.org/projects/klipper/) hosts all the Gettext strings for translating and reviewing. Locales can be displayed on [klipper3d.org](https://www.klipper3d.org) once they satisfy the following requirements:
+[Klipper-Translations Project](https://github.com/Klipper3d/klipper-translations)是一个致力于将Klipper翻译成不同语言的项目。[Weblate](https://hosted.weblate.org/projects/klipper/)托管所有用于翻译和审阅的GetText字符串。只要满足以下要求，就可以在[klipper3d.org](https://www.klipper3d.org))上显示区域设置：
 
 - [ ] 75% 总覆盖率
-- [ ] All titles (H1) are translated
+- [ ] 所有标题(H1)均已翻译
 - [ ] klipper-translations 中提供一个更新导航层次的 PR。
 
 为了减少翻译特定领域术语的疑惑，并让更多人了解正在进行的翻译，你可以提交一个修改[Klipper-translations 项目](https://github.com/Klipper3d/klipper-translations) `readme.md` 文件的PR。一旦翻译完成，也可以对 Klipper 项目进行相应的修改。
 
 如果一个已经存在于 Klipper 代码库中的翻译不再符合上述的检查清单，那么在一个月没有更新后，它将被标记为过期。
 
-Once the requirements are met, you need to:
+满足要求后，您需要：
 
-1. update klipper-tranlations repository [active_translations](https://github.com/Klipper3d/klipper-translations/blob/translations/active_translations)
-1. Optional: add a manual-index.md file in klipper-translations repository's `docs\locals\<lang>` folder to replace the language specific index.md (generated index.md does not render correctly).
+1. 更新KLIPPER-翻译库[active_translations](https://github.com/Klipper3d/klipper-translations/blob/translations/active_translations)
+1. 可选：在Klipper-Translations存储库的`docs\Locals\<lang>`文件夹中添加手动index.md文件，以替换特定语言的index.md(生成的index.md无法正确呈现)。
 
-Known Issues:
+已知问题：
 
-1. Currently, there isn't a method for correctly translating pictures in the documentation
-1. It is impossible to translate titles in mkdocs.yml.
+1. 目前，没有一种方法可以正确翻译文档中的图片
+1. 不可能翻译mkdocs.yml中的标题。

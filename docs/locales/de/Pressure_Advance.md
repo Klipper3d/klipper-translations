@@ -1,4 +1,4 @@
-# Pressure advance
+# Druckvorschub
 
 Dieses Dokument enthält Informationen zur Einstellung der Konfigurationsvariablen "Druckvorschub" für eine bestimmte Düse und ein bestimmtes Filament. Die Druckvoreilung kann bei der Reduzierung von Schlamm hilfreich sein. Weitere Informationen darüber, wie der Druckvorschub implementiert ist, finden Sie im Dokument [kinematics](Kinematics.md).
 

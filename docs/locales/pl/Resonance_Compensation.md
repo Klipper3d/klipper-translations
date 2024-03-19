@@ -4,7 +4,7 @@ Klipper obsługuje Input Shaping - technikę, która może być użyta do redukc
 
 |![Test ringing](img/ringing-test.jpg)|![3D Benchy](img/ringing-3dbenchy.jpg)|
 
-Ringing is caused by mechanical vibrations in the printer due to quick changes of the printing direction. Note that ringing usually has mechanical origins: insufficiently rigid printer frame, non-tight or too springy belts, alignment issues of mechanical parts, heavy moving mass, etc. Those should be checked and fixed first, if possible.
+Ringing jest spowodowany mechanicznymi drganiami drukarki na skutek szybkich zmian kierunku druku. Należy pamiętać, że ringing ma zwykle podłoże mechaniczne: niewystarczająco sztywna rama drukarki, nie napięte lub zbyt sprężyste paski, problemy z wyrównaniem części mechanicznych, duża ruchoma masa itp. Należy najpierw sprawdzić urządzenie pod kątem mechanicznym i jeżeli to możliwe wyeliminować wszystkie problemy.
 
 [Input shaping](https://en.wikipedia.org/wiki/Input_shaping) is an open-loop control technique which creates a commanding signal that cancels its own vibrations. Input shaping requires some tuning and measurements before it can be enabled. Besides ringing, Input Shaping typically reduces the vibrations and shaking of the printer in general, and may also improve the reliability of the stealthChop mode of Trinamic stepper drivers.
 

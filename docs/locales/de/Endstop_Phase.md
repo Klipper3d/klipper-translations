@@ -1,4 +1,4 @@
-# Endstop phase
+# Endstop Phase
 
 Dieses Dokument beschreibt das Stepper-phasenangepasste Endstoppsystem von Klipper. Diese Funktionalität kann die Genauigkeit herkömmlicher Endstoppschalter verbessern. Dies ist am nützlichsten, wenn Sie einen Trinamic-Schrittmotortreiber mit Laufzeitkonfiguration verwenden.
 

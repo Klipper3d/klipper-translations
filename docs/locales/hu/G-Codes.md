@@ -188,15 +188,15 @@ A következő parancs akkor érhető el, ha a [dual_carriage konfigurációs sza
 
 #### SET_DUAL_CARRIAGE
 
-`SET_DUAL_CARRIAGE CARRIAGE=[0|1] [MODE=[PRIMARY|COPY|MIRROR]]`: This command will change the mode of the specified carriage. If no `MODE` is provided it defaults to `PRIMARY`. Setting the mode to `PRIMARY` deactivates the other carriage and makes the specified carriage execute subsequent G-Code commands as-is. `COPY` and `MIRROR` modes are supported only for `CARRIAGE=1`. When set to either of these modes, carriage 1 will then track the subsequent moves of the carriage 0 and either copy relative movements of it (in `COPY` mode) or execute them in the opposite (mirror) direction (in `MIRROR` mode).
+`SET_DUAL_CARRIAGE CARRIAGE=[0|1] [MODE=[PRIMARY|COPY|MIRROR]]`: Ez a parancs megváltoztatja a megadott kocsi üzemmódját. Ha nincs megadva a `MODE`, akkor az alapértelmezett érték a `PRIMARY`. Az üzemmód `PRIMARY`-re állítása kikapcsolja a másik kocsit, és a megadott kocsi a következő G-kód parancsokat változatlanul végrehajtja. A `COPY` és a `MIRROR` üzemmódok csak a `CARRIAGE=1` esetén támogatottak. Ha az 1-es kocsi ezen üzemmódok valamelyikére van állítva, akkor az 1-es kocsi követi a 0 kocsi következő mozgásait, és vagy lemásolja annak relatív mozgásait (`COPY` üzemmódban), vagy ellenkező (tükör) irányban hajtja végre azokat (`MIRROR` üzemmódban).
 
 #### SAVE_DUAL_CARRIAGE_STATE
 
-`SAVE_DUAL_CARRIAGE_STATE [NAME=<state_name>]`: Save the current positions of the dual carriages and their modes. Saving and restoring DUAL_CARRIAGE state can be useful in scripts and macros, as well as in homing routine overrides. If NAME is provided it allows one to name the saved state to the given string. If NAME is not provided it defaults to "default".
+`SAVE_DUAL_CARRIAGE_STATE [NAME=<state_name>]`: Mentsd el a kettős kocsik aktuális helyzetét és módjukat. A DUAL_CARRIAGE állapot mentése és visszaállítása hasznos lehet szkriptekben és makrókban, valamint a rutin felülírásainál. Ha meg van adva a NÉV, akkor lehetővé teszi a mentett állapot elnevezését az adott karakterlánchoz. Ha a NÉV nincs megadva, akkor az alapértelmezés szerint "alapértelmezett".
 
 #### RESTORE_DUAL_CARRIAGE_STATE
 
-`RESTORE_DUAL_CARRIAGE_STATE [NAME=<state_name>] [MOVE=[0|1] [MOVE_SPEED=<speed>]]`: Restore the previously saved positions of the dual carriages and their modes, unless "MOVE=0" is specified, in which case only the saved modes will be restored, but not the positions of the carriages. If positions are being restored and "MOVE_SPEED" is specified, then the toolhead moves will be performed with the given speed (in mm/s); otherwise the toolhead move will use the rail homing speed. Note that the carriages restore their positions only over their own axis, which may be necessary to correctly restore COPY and MIRROR mode of the dual carraige.
+`RESTORE_DUAL_CARRIAGE_STATE [NAME=<state_name>] [MOVE=[0|1] [MOVE_SPEED=<speed>]]`: Visszaállítja a kettős kocsik korábban elmentett pozícióit és üzemmódjait, hacsak nincs megadva a "MOVE=0" ebben az esetben csak a mentett módok állnak vissza, de a kocsik pozíciói nem. Ha a pozíciók visszaállításra kerülnek, és a "MOVE_SPEED" van megadva, akkor a szerszámfej mozgások a megadott sebességgel (mm/s-ban) történnek; ellenkező esetben a nyomtatófej-mozgatás a sínbeállítási sebességet használja. Vedd figyelembe, hogy a kocsik csak a saját tengelyük felett állítják vissza pozíciójukat, ami szükséges lehet a kettős kocsi MÁSOLÁS és TÜKÖR üzemmódjának helyes visszaállításához.
 
 ### [endstop_phase]
 
@@ -622,7 +622,7 @@ A következő parancsok akkor érhetők el, ha a [resonance_tester konfiguráci�
 
 #### SHAPER_CALIBRATE
 
-`SHAPER_CALIBRATE [AXIS=<axis>] [NAME=<name>] [FREQ_START=<min_freq>] [FREQ_END=<max_freq>] [HZ_PER_SEC=<hz_per_sec>] [CHIPS=<adxl345_chip_name>] [MAX_SMOOTHING=<max_smoothing>]`: Similarly to `TEST_RESONANCES`, runs the resonance test as configured, and tries to find the optimal parameters for the input shaper for the requested axis (or both X and Y axes if `AXIS` parameter is unset). If `MAX_SMOOTHING` is unset, its value is taken from `[resonance_tester]` section, with the default being unset. See the [Max smoothing](Measuring_Resonances.md#max-smoothing) of the measuring resonances guide for more information on the use of this feature. The results of the tuning are printed to the console, and the frequency responses and the different input shapers values are written to a CSV file(s) `/tmp/calibration_data_<axis>_<name>.csv`. Unless specified, NAME defaults to the current time in "YYYYMMDD_HHMMSS" format. Note that the suggested input shaper parameters can be persisted in the config by issuing `SAVE_CONFIG` command, and if `[input_shaper]` was already enabled previously, these parameters take effect immediately.
+`SHAPER_CALIBRATE [AXIS=<axis>] [NAME=<name>] [FREQ_START=<min_freq>] [FREQ_END=<max_freq>] [HZ_PER_SEC=<hz_per_sec>] [CHIPS=<adxl345_chip_name>] [CHIPS=<adxl345_chip_name>] ]`: Hasonlóan a `TEST_RESONANCES'-hoz, a beállított rezonanciatesztet futtatja, és megpróbálja megtalálni az optimális paramétereket a bemeneti alakítóhoz a kért tengelyen (vagy az X és Y tengelyen, ha az 'AXIS' paraméter nincs beállítva). Ha a `MAX_SMOOTHING` nincs beállítva, akkor az értéke a `[resonance_tester] szakaszból származik, és az alapértelmezett érték nincs beállítva. A funkció használatával kapcsolatos további információkért tekintsd meg a Rezonancia mérési útmutató [Maximális simítás](Measuring_Resonances.md#max-smoothing) részét. A hangolás eredményét a rendszer kiírja a konzolra, a frekvenciaválaszokat és a különböző bemeneti formáló értékeket pedig egy CSV-fájl(ok)ba írja `/tmp/calibration_data_<axis>_<name>.csv`. Ha nincs megadva, a NAME alapértelmezés szerint az aktuális időt „ÉÉÉÉHHNN_ÓÓPP” formátumban használja. Vedd figyelembe, hogy a javasolt bemeneti alakító paraméterek a `SAVE_CONFIG` parancs kiadásával megőrizhetők a konfigurációban, és ha az `[input_shaper]` már korábban engedélyezve volt, ezek a paraméterek azonnal érvénybe lépnek.
 
 ### [respond]
 
@@ -798,7 +798,7 @@ section](Config_Reference.md#axis_twist_compensation) is enabled.
 
 #### AXIS_TWIST_COMPENSATION_CALIBRATE
 
-`AXIS_TWIST_COMPENSATION_CALIBRATE [SAMPLE_COUNT=<value>]`: Initiates the X twist calibration wizard. `SAMPLE_COUNT` specifies the number of points along the X axis to calibrate at and defaults to 3.
+`AXIS_TWIST_COMPENSATION_CALIBRATE [SAMPLE_COUNT=<value>]`: Elindítja az X twist kalibrációs varázslót. A "SAMPLE_COUNT" meghatározza az X tengely mentén a kalibráláshoz szükséges pontok számát, az alapértelmezett érték pedig 3.
 
 ### [z_thermal_adjust]
 

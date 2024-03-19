@@ -923,30 +923,29 @@ See the [command reference](G-Codes.md#bed_tilt) for additional information.
 
 ```
 [bed_tilt]
-#x_adjust: 0
-#   The amount to add to each move's Z height for each mm on the X
-#   axis. The default is 0.
-#y_adjust: 0
-#   The amount to add to each move's Z height for each mm on the Y
-#   axis. The default is 0.
-#z_adjust: 0
-#   The amount to add to the Z height when the nozzle is nominally at
-#   0, 0. The default is 0.
-# The remaining parameters control a BED_TILT_CALIBRATE extended
-# g-code command that may be used to calibrate appropriate x and y
-# adjustment parameters.
-#points:
-#   A list of X, Y coordinates (one per line; subsequent lines
-#   indented) that should be probed during a BED_TILT_CALIBRATE
-#   command. Specify coordinates of the nozzle and be sure the probe
-#   is above the bed at the given nozzle coordinates. The default is
-#   to not enable the command.
-#speed: 50
-#   The speed (in mm/s) of non-probing moves during the calibration.
-#   The default is 50.
-#horizontal_move_z: 5
-#   The height (in mm) that the head should be commanded to move to
-#   just prior to starting a probe operation. The default is 5.
+#x_adjust : 0
+#   Quantité à ajouter à la hauteur Z de chaque mouvement pour chaque mm sur l'axe X.
+#   La valeur par défaut est 0.
+#y_adjust : 0
+#   Quantité à ajouter à la hauteur Z de chaque mouvement pour chaque mm sur l'axe Y.
+#   La valeur par défaut est 0.
+#z_adjust : 0
+#   Quantité à ajouter à la hauteur Z lorsque la buse est nominalement à 0, 0.
+#   La valeur par défaut est 0.
+#   Les paramètres suivants contrôlent la commande g-code étendue BED_TILT_CALIBRATE
+#   utilisée pour calibrer les paramètres de réglage x et y appropriés.
+#points :
+#   Une liste de coordonnées X, Y (une par ligne ; les lignes suivantes indentées) devant
+#   être palpées pendant une commande BED_TILT_CALIBRATE
+#   Spécifiez les coordonnées de la buse et assurez-vous que la sonde est au-dessus du lit
+#   aux coordonnées données de la buse.
+#   La valeur par défaut est de ne pas activer la commande.
+#speed : 50
+#   Vitesse (en mm/s) des mouvements de déplacements hors palpage pendant l'étalonnage.
+#   La valeur par défaut est 50.
+#horizontal_move_z : 5
+#   Hauteur (en mm) à laquelle la tête doit être relevée lors du déplacement juste avant
+#   de lancer une opération de palpage. La valeur par défaut est 5.
 ```
 
 ### [bed_screws]
@@ -1707,40 +1706,40 @@ BLTouch probe. One may define this section (instead of a probe section) to enabl
 ```
 [bltouch]
 sensor_pin:
-#   Pin connected to the BLTouch sensor pin. Most BLTouch devices
-#   require a pullup on the sensor pin (prefix the pin name with "^").
-#   This parameter must be provided.
+#   Broche connectée à la broche du capteur (sensor) BLTouch. La plupart des BLTouch
+#   exigent un pullup sur la broche du capteur (préfixez le nom de la broche par "^").
+#   Ce paramètre doit être fourni.
 control_pin:
-#   Pin connected to the BLTouch control pin. This parameter must be
-#   provided.
+#   Broche connectée à la broche de commande du BLTouch.
+#   Ce paramètre doit être fourni.
 #pin_move_time: 0.680
-#   The amount of time (in seconds) to wait for the BLTouch pin to
-#   move up or down. The default is 0.680 seconds.
+#   Durée d'attente (en secondes) pour que la broche BLTouch se déplace vers
+#   le haut ou le bas. La valeur par défaut est de 0,680 seconde.
 #stow_on_each_sample: True
-#   This determines if Klipper should command the pin to move up
-#   between each probe attempt when performing a multiple probe
-#   sequence. Read the directions in docs/BLTouch.md before setting
-#   this to False. The default is True.
+#   Détermine si Klipper doit ordonner à la broche de se déplacer vers le haut entre
+#   chaque palpage lors d'une séquence de palpages multiples.
+#   Lisez les instructions dans docs/BLTouch.md avant de régler ce paramètre à False.
+#   La valeur par défaut est True.
 #probe_with_touch_mode: False
-#   If this is set to True then Klipper will probe with the device in
-#   "touch_mode". The default is False (probing in "pin_down" mode).
+#   Si ce paramètre est défini sur True, Klipper palpera avec le périphérique en
+#   "touch_mode". La valeur par défaut est False (palpage en mode "pin_down").
 #pin_up_reports_not_triggered: True
-#   Set if the BLTouch consistently reports the probe in a "not
-#   triggered" state after a successful "pin_up" command. This should
-#   be True for all genuine BLTouch devices. Read the directions in
-#   docs/BLTouch.md before setting this to False. The default is True.
+#   Définit si le BLTouch rapporte systématiquement le palpeur dans un état "non
+#   déclenché" après une commande "pin_up" réussie. Ceci devrait être True pour
+#   tous les BLTouch authentiques. Lisez les instructions de docs/BLTouch.md avant
+#   de régler cette valeur à False. La valeur par défaut est True.
 #pin_up_touch_mode_reports_triggered: True
-#   Set if the BLTouch consistently reports a "triggered" state after
-#   the commands "pin_up" followed by "touch_mode". This should be
-#   True for all genuine BLTouch devices. Read the directions in
-#   docs/BLTouch.md before setting this to False. The default is True.
+#   Définit si le BLTouch rapporte systématiquement un état "déclenché" après la
+#   commande "pin_up_mode_reports_triggered". Ceci devrait être True pour tous les
+#   BLTouch authentiques. Lisez les instructions de docs/BLTouch.md avant de régler
+#   cette valeur à False. La valeur par défaut est True.
 #set_output_mode:
-#   Request a specific sensor pin output mode on the BLTouch V3.0 (and
-#   later). This setting should not be used on other types of probes.
-#   Set to "5V" to request a sensor pin output of 5 Volts (only use if
-#   the controller board needs 5V mode and is 5V tolerant on its input
-#   signal line). Set to "OD" to request the sensor pin output use
-#   open drain mode. The default is to not request an output mode.
+#   Demande un mode de sortie particulier de la broche du capteur sur un BLTouch V3.0
+#   (et ultérieurs). Ce paramètre ne doit pas être utilisé sur d'autres types de sondes.
+#   Réglez sur "5V" pour demander une sortie de 5 Volts de la broche du capteur (à n'utiliser
+#   que si la carte contrôleur nécessite le mode 5V et est tolérante à 5V sur sa ligne de signal
+#   d'entrée). Réglez sur "OD" pour demander l'utilisation de la sortie de la broche du capteur
+#   en mode drain ouvert. La valeur par défaut est de ne pas demander de mode de sortie.
 #x_offset:
 #y_offset:
 #z_offset:
@@ -1751,7 +1750,7 @@ control_pin:
 #samples_result:
 #samples_tolerance:
 #samples_tolerance_retries:
-#   See the "probe" section for information on these parameters.
+#   Voir la section "probe" pour des informations sur ces paramètres.
 ```
 
 ### [smart_effector]

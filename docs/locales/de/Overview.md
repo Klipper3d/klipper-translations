@@ -23,7 +23,7 @@ Willkommen auf der Klipper-Dokumentationsseite! Wenn Klipper für dich neu ist, 
    - [Manuelles Leveln](Manual_Level.md): Kalibrierung der Z-Endstopps (und ähnlichem).
    - [Bed Mesh](Bed_Mesh.md): Betthöhenkorrektion basierend auf XY Koordinaten.
    - [Endstop phase](Endstop_Phase.md): Z-Endstopp-Positionierung mithilfe von Steppermotoren.
-   - [Axis Twist Compensation](Axis_Twist_Compensation.md): A tool to compensate for inaccurate probe readings due to twist in X gantry.
+   - [Achsendrehungskompensation](Axis_Twist_Compensation.md): Ein Werkzeug, um ungenaue Messwerte des Messtasters aufgrund einer Verdrehung des X-Gantry zu kompensieren.
 - [Resonance compensation](Resonance_Compensation.md): Ein Werkzeug zum reduzieren von Ringing in Drucken.
    - [Measuring resonances](Measuring_Resonances.md): Informationen über das Verwenden von adxl345-Beschleunigungssensoren um Resonanz zu messen.
 - [Pressure advance](Pressure_Advance.md): Extruder-Druck kalibrieren.
@@ -57,8 +57,8 @@ Willkommen auf der Klipper-Dokumentationsseite! Wenn Klipper für dich neu ist, 
 - [Raspberry Pi als Mikrocontroller](RPi_microcontroller.md): Details über die Steuerung von Geräten, welche an die Raspberry Pi GPIO-Pins angeschlossen sind.
 - [Beaglebone](Beaglebone.md): Details für das Betreiben von Klipper auf der Beaglebone PRU.
 - [Bootloaders](Bootloaders.md): Entwicklerinformationen über das Flashen von Mikrocontrollern.
-- [Bootloader Entry](Bootloader_Entry.md): Requesting the bootloader.
+- [Bootloader-Eintrag](Bootloader_Entry.md): Abfrage des Bootloaders.
 - [CAN bus](CANBUS.md): Informationen über die Verwendung des CAN-Bus mit Klipper.
-   - [CAN bus troubleshooting](CANBUS_Troubleshooting.md): Tips for troubleshooting CAN bus.
+   - [CAN-Bus-Fehlerbehebung](CANBUS_Troubleshooting.md): Tipps zur Fehlersuche am CAN-Bus.
 - [TSL1401CL Filamentbreitensensor](TSL1401CL_Filament_Width_Sensor.md)
 - [Hall-Effekt Filamentbreitensensor](Hall_Filament_Width_Sensor.md)
