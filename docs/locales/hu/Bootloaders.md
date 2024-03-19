@@ -139,11 +139,11 @@ Egy alkalmazás égetéséhez használj valami olyasmit, mint:
 bossac --port=/dev/ttyACM0 -b -U -e -w -v -R out/klipper.bin
 ```
 
-## SAMDC21 micro-controllers (Duet3D Toolboard 1LC)
+## SAMDC21 mikrovezérlők (Duet3D Toolboard 1LC)
 
-The SAMC21 is flashed via the ARM Serial Wire Debug (SWD) interface. This is commonly done with a dedicated SWD hardware dongle. Alternatively, one can use a [Raspberry Pi with OpenOCD](#running-openocd-on-the-raspberry-pi).
+A SAMC21 égetése az ARM Serial Wire Debug (SWD) interfészen keresztül történik. Ez általában egy dedikált SWD hardver dongle segítségével történik. Alternatívaként használhatunk egy [Raspberry Pi-t az OpenOCD-vel](#running-openocd-on-the-raspberry-pi).
 
-When using OpenOCD with the SAMC21, extra steps must be taken to first put the chip into Cold Plugging mode if the board makes use of the SWD pins for other purposes. If using OpenOCD on a Rasberry Pi, this can be done by running the following commands before invoking OpenOCD.
+Ha az OpenOCD-t a SAMC21-gyel együtt használjuk, extra lépéseket kell tenni, hogy a chipet először Cold Plugging üzemmódba helyezzük, ha a kártya az SWD-tüskéket más célokra használja. Ha az OpenOCD-t Rasberry Pi-n használjuk, akkor ezt az OpenOCD meghívása előtt a következő parancsok futtatásával tehetjük meg.
 
 ```
 SWCLK=25
@@ -166,13 +166,13 @@ echo $SWCLK > /sys/class/gpio/unexport
 echo $SRST > /sys/class/gpio/unexport
 ```
 
-To flash a program with OpenOCD use the following chip config:
+Egy program OpenOCD-vel történő égetéséhez használd a következő chipkonfigurációt:
 
 ```
 forrás [find target/at91samdXX.cfg]
 ```
 
-Obtain a program; for instance, klipper can be built for this chip. Flash with OpenOCD commands similar to:
+Szerezz be egy programot; például klippert lehet telepíteni erre a chipre. Égetés az OpenOCD parancsokhoz hasonló parancsokkal:
 
 ```
 at91samd chip-erase

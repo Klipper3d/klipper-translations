@@ -1,14 +1,14 @@
 # Example configurations
 
-This document contains guidelines for contributing an example Klipper configuration to the Klipper github repository (located in the [config directory](../config/)).
+Цей документ містить інструкції щодо додавання прикладу конфігурації Klipper до репозиторію Klipper на github (розміщений у [config directory](../config/)).
 
-Note that the [Klipper Community Discourse server](https://community.klipper3d.org) is also a useful resource for finding and sharing config files.
+Зверніть увагу, що це [Klipper Community Discourse server](https://community.klipper3d.org) також корисний ресурс для пошуку та обміну конфігураційними файлами.
 
-## Guidelines
+## Інструкції
 
 1. Select the appropriate config filename prefix:
    1. The `printer` prefix is used for stock printers sold by a mainstream manufacturer.
-   1. The `generic` prefix is used for a 3d printer board that may be used in many different types of printers.
+   1. Приставка `generic` використовується для плат, які можуть використовуватись у різних 3D принтерах.
    1. The `kit` prefix is for 3d printers that are assembled according to a widely used specification. These "kit" printers are generally distinct from normal "printers" in that they are not sold by a manufacturer.
    1. The `sample` prefix is used for config "snippets" that one may copy-and-paste into the main config file.
    1. The `example` prefix is used to describe printer kinematics. This type of config is typically only added along with code for a new type of printer kinematics.

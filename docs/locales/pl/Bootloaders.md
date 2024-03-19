@@ -6,7 +6,7 @@ Bootloader jest oprogramowaniem innej firmy, które działa na mikrokontrolerze,
 
 Jeśli ktoś może flashować bootloader do mikrokontrolera, to generalnie może również użyć tego mechanizmu do flashowania aplikacji, ale należy zachować ostrożność podczas robienia tego, ponieważ można nieumyślnie usunąć bootloader. W przeciwieństwie do tego, bootloader generalnie pozwala użytkownikowi tylko na flashowanie aplikacji. Dlatego zaleca się używanie bootloadera do flashowania aplikacji, jeśli to możliwe.
 
-This document attempts to describe common bootloaders, the steps needed to flash a bootloader, and the steps needed to flash an application. This document is not an authoritative reference; it is intended as a collection of useful information that the Klipper developers have accumulated.
+W tym dokumencie podjęto próbę opisania typowych programów ładujących, kroków niezbędnych do flashowania programu ładującego oraz kroków wymaganych do flashowania aplikacji. Niniejszy dokument nie jest autorytatywnym źródłem informacji; ma on służyć jako zbiór przydatnych informacji zgromadzonych przez twórców Klippera.
 
 ## AVR micro-controllers
 

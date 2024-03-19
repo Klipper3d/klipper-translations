@@ -123,9 +123,9 @@ A következő információk a [firmware_retraction](Config_Reference.md#firmware
 
 ## gcode_button
 
-The following information is available in [gcode_button some_name](Config_Reference.md#gcode_button) objects:
+A következő információk a [gcode_button some_name](Config_Reference.md#gcode_button) objektumokban érhetők el:
 
-- `state`: The current button state returned as "PRESSED" or "RELEASED"
+- `állapot`: A gomb aktuális állapota, amely "PRESSED" vagy "RELEASED" formában érkezik vissza
 
 ## gcode_macro
 
@@ -169,7 +169,7 @@ A következő információk a `heaters` objektumban érhetők el (ez az objektum
 
 - `available_heaters`: Visszaadja az összes jelenleg elérhető fűtőberendezés listáját a teljes config szekció nevével, pl. `["extruder", "heater_bed", "heater_generic my_custom_heater"]`.
 - `available_sensors`: Visszaadja az összes jelenleg elérhető hőmérséklet érzékelő listáját a teljes config szekció nevével, pl. `["extruder", "heater_bed", "heater_generic my_custom_heater", "temperature_sensor electronics_temp"]`.
-- `available_monitors`: Returns a list of all currently available temperature monitors by their full config section names, e.g. `["tmc2240 stepper_x"]`. While a temperature sensor is always available to read, a temperature monitor may not be available and will return null in such case.
+- `available_monitors`: A jelenleg elérhető összes hőmérséklet-monitor listáját adja vissza a teljes konfigurációs szakasz nevével, pl. `["tmc2240 stepper_x"]`. Míg egy hőmérséklet-érzékelő mindig olvasható, előfordulhat, hogy egy hőmérséklet-érzékelő nem elérhető, és ilyen esetben null értéket ad vissza.
 
 ## idle_timeout
 
@@ -263,7 +263,7 @@ A következő információk a `query_endstops` objektumban érhetők el (ez az o
 A következő információk a `screws_tilt_adjust` objektumban találhatók:
 
 - `error`: True értéket ad vissza, ha a legutóbbi `SCREWS_TILT_CALCULATE` parancs tartalmazta a `MAX_DEVIATION` paramétert, és bármelyik vizsgált csavarpont meghaladta a megadott `MAX_DEVIATION` értéket.
-- `max_deviation`: Return the last `MAX_DEVIATION` value of the most recent `SCREWS_TILT_CALCULATE` command.
+- `max_deviation`: A legutóbbi `SCREWS_TILT_CALCULATE` parancs utolsó `MAX_DEVIATION` értékét adja vissza.
 - `results["<screw>"]`: A következő kulcsokat tartalmazó szótár:
    - `z`: A csavar helyének mért Z magassága.
    - `sign`: Egy karakterlánc, amely megadja, hogy a szükséges beállításhoz milyen irányba kell elfordítani a csavart. Vagy "CW" az óramutató járásával megegyező irányban, vagy "CCW" az óramutató járásával ellentétes irányban.
@@ -292,7 +292,7 @@ A következő információk a `system_stats` objektumban érhetők el (ez az obj
 
 A következő információk a következő dokumentumban találhatók
 
-[bme280 config_section_name](Config_Reference.md#bmp280bme280bme680-temperature-sensor), [htu21d config_section_name](Config_Reference.md#htu21d-sensor), [lm75 config_section_name](Config_Reference.md#lm75-temperature-sensor), [temperature_host config_section_name](Config_Reference.md#host-temperature-sensor) and [temperature_combined config_section_name](Config_Reference.md#combined-temperature-sensor) objects:
+[bme280 config_section_name](Config_Reference.md#bmp280bme280bme680-temperature-sensor), [htu21d config_section_name](Config_Reference.md#htu21d-sensor), [lm75 config_section_name](Config_Reference.md#lm75-temperature-sensor), [temperature_host config_section_name](Config_Reference.md#host-temperature-sensor) and [temperature_combined config_section_name](Config_Reference.md#combined-temperature-sensor) objektumok:
 
 - `temperature`: Az érzékelőtől utoljára kapott hőmérséklet.
 - `humidity`, `pressure`, `gas`: Az érzékelőtől utoljára kapott értékek (csak a bme280, htu21d és lm75 érzékelők esetében).
@@ -318,7 +318,7 @@ A következő információk a [TMC léptető motorvezérlők](Config_Reference.m
 - `mcu_phase_offset`: A mikrokontroller léptető pozíciója, amely megfelel a meghajtó "nulla" fázisának. Ez a mező lehet nulla, ha a fáziseltolás nem ismert.
 - `phase_offset_position`: A vezető "nulladik" fázisának megfelelő "parancsolt pozíció". Ez a mező lehet nulla, ha a fáziseltolás nem ismert.
 - `drv_status`: A legutóbbi motorvezérlő állapotlekérdezés eredményei. (Csak a nem nulla mezők kerülnek jelentésre.) Ez a mező nulla lesz, ha a motorvezérlő nincs engedélyezve (és így nem kerül rendszeresen lekérdezésre).
-- `temperature`: The internal temperature reported by the driver. This field will be null if the driver is not enabled or if the driver does not support temperature reporting.
+- `hőmérséklet`: Az illesztőprogram által jelentett belső hőmérséklet. Ez a mező nulla lesz, ha az illesztőprogram nincs engedélyezve, vagy ha az illesztőprogram nem támogatja a hőmérséklet jelentést.
 - `run_current`: Az aktuálisan beállított működési áram.
 - `hold_current`: Az aktuálisan beállított tartóáram.
 
@@ -336,10 +336,10 @@ A következő információk a `toolhead` objektumban érhetők el (ez az objektu
 
 ## dual_carriage
 
-The following information is available in [dual_carriage](Config_Reference.md#dual_carriage) on a cartesian, hybrid_corexy or hybrid_corexz robot
+A következő információk a [dual_carriage](Config_Reference.md#dual_carriage) menüpontban érhetőek el egy cartesian, hybrid_corexy vagy hybrid_corexz géphez
 
-- `carriage_0`: The mode of the carriage 0. Possible values are: "INACTIVE" and "PRIMARY".
-- `carriage_1`: The mode of the carriage 1. Possible values are: "INACTIVE", "PRIMARY", "COPY", and "MIRROR".
+- `carriage_0`: A kocsi 0. A lehetséges értékek a következők: "INACTIVE" és "PRIMARY".
+- `carriage_1`: A kocsi 1 üzemmódja. A lehetséges értékek a következők: "INACTIVE", "PRIMARY", "COPY" és "MIRROR".
 
 ## virtual_sdcard
 

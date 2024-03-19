@@ -6,7 +6,7 @@ Ten dokument może być przydatny dla programistów zainteresowanych zrozumienie
 
 Zobacz dokument [protocol](Protocol.md) po więcej informacji na temat formatu poleceń i ich przekazywania. Polecenia tutaj opisane są przy użyciu ich składni w stylu "printf" - dla tych, którzy nie znają tego formatu, zauważ, że tam, gdzie pojawia się sekwencja '%...', powinna być ona zastąpiona rzeczywistą liczbą całkowitą. Na przykład, opis z "count=%c" może być zastąpiony tekstem "count=10". Zauważ, że parametry, które są uważane za "enumeracje" (patrz powyższy dokument protokołu) przyjmują wartość łańcuchową, która jest automatycznie konwertowana na wartość całkowitą dla mikrokontrolera. Jest to powszechne w przypadku parametrów o nazwie "pin" (lub które mają przyrostek "_pin").
 
-## Startup Commands
+## Polecenia startowe
 
 It may be necessary to take certain one-time actions to configure the micro-controller and its peripherals. This section lists common commands available for that purpose. Unlike most micro-controller commands, these commands run as soon as they are received and they do not require any particular setup.
 

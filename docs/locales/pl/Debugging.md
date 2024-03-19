@@ -35,7 +35,7 @@ Some command-line options are available. For more information run: `~/klippy-env
 
 Kod hosta Klippy może działać w trybie wsadowym, aby wytworzyć niskopoziomowe polecenia mikrokontrolera związane z plikiem gcode. Przeglądanie tych niskopoziomowych komend jest przydatne, gdy próbujemy zrozumieć działanie sprzętu niskiego poziomu. Może być także użyteczne do porównania różnic w poleceniach mikrokontrolera po zmianie kodu.
 
-To run Klippy in this batch mode, there is a one time step necessary to generate the micro-controller "data dictionary". This is done by compiling the micro-controller code to obtain the **out/klipper.dict** file:
+Aby uruchomić Klippy w tym trybie wsadowym, należy wykonać jednorazowy krok w celu wygenerowania „słownika danych” dla mikrokontrolera. Odbywa się to poprzez kompilację kodu mikrokontrolera w celu uzyskania pliku **out/klipper.dict**:
 
 ```
 make menuconfig

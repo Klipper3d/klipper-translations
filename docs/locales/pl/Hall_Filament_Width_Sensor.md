@@ -30,7 +30,7 @@ index: 1
 
 To get raw sensor value you can use menu item or **QUERY_RAW_FILAMENT_WIDTH** command in terminal.
 
-1. Insert first calibration rod (1.5 mm size) get first raw sensor value
+1. Włóż pierwszy pręt kalibracyjny (rozmiar 1,5 mm) i uzyskaj pierwszą nieprzetworzoną wartość czujnika
 1. Insert second calibration rod (2.0 mm size) get second raw sensor value
 1. Save raw sensor values in config parameter `Raw_dia1` and `Raw_dia2`
 

@@ -10,7 +10,7 @@ Aby korzystać z serwera API, klippy.py oprogramowanie hosta musi być uruchomio
 ~/klippy-env/bin/python ~/klipper/klippy/klippy.py ~/printer.cfg -a /tmp/klippy_uds -l /tmp/klippy.log
 ```
 
-This causes the host software to create a Unix Domain Socket. A client can then open a connection on that socket and send commands to Klipper.
+Powoduje to, że oprogramowanie hosta tworzy gniazdo domeny Unix. Klient może następnie otworzyć połączenie na tym gnieździe i wysłać polecenia do Klippera.
 
 See the [Moonraker](https://github.com/Arksine/moonraker) project for a popular tool that can forward HTTP requests to Klipper's API Server Unix Domain Socket.
 

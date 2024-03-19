@@ -6,7 +6,7 @@ Niniejszy dokument zawiera informacje o implementacji sekwencji poleceń G-Code 
 
 Wielkość liter nie jest ważna dla nazwy makra w G-Code - MY_MACRO i my_macro będą oceniane tak samo i mogą być wywoływane zarówno dużymi jak i małymi literami. Jeśli w nazwie makra są użyte jakiekolwiek liczby, to muszą one być na końcu nazwy (np. TEST_MACRO25 jest poprawny, ale MACRO25_TEST3 nie jest).
 
-## Formatting of G-Code in the config
+## Formatowanie G-Code w konfiguracji
 
 Indentation is important when defining a macro in the config file. To specify a multi-line G-Code sequence it is important for each line to have proper indentation. For example:
 

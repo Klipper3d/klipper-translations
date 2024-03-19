@@ -1,4 +1,4 @@
-# Releases
+# Veröffentlichungen
 
 Historie der Klipper-Versionen. Bitte lesen Sie [installation](Installation.md) für Informationen zur Installation von Klipper.
 

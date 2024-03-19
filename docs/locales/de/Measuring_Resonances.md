@@ -12,7 +12,7 @@ For MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500s there are also a variety of bo
 
 | MCU Family | MCU(s) Tested | MCU(s) with Support |
 | :-: | :-- | :-- |
-| Raspberry Pi | 3B+, Pico | 3A, 3A+, 3B, 4 |
+| Eine Microcomputer Marke | 3B+, Pico | 3A, 3A+, 3B, 4 |
 | AVR ATmega | ATmega328p | ATmega32u4, ATmega128, ATmega168, ATmega328, ATmega644p, ATmega1280, ATmega1284, ATmega2560 |
 | AVR AT90 | - | AT90usb646, AT90usb1286 |
 

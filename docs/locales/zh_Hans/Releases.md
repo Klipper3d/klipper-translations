@@ -1,4 +1,4 @@
-# 版本发布
+# 发行说明
 
 Klipper版本发布。如何安装Klipper ，请查看[installation](Installation.md)。
 

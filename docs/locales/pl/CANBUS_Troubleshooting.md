@@ -2,9 +2,9 @@
 
 Ten dokument zawiera informacje na temat rozwiązywania problemów z komunikacją podczas korzystania z aplikacji [Klipper z magistralą CAN](CANBUS.md).
 
-## Verify CAN bus wiring
+## Sprawdź okablowanie magistrali CAN
 
-The first step in troubleshooting communication issues is to verify the CAN bus wiring.
+Pierwszym krokiem w rozwiązywaniu problemów z komunikacją jest sprawdzenie okablowania magistrali CAN.
 
 Be sure there are exactly two 120 Ohm [terminating
 resistors](CANBUS.md#terminating-resistors) on the CAN bus. If the resistors are not properly installed then messages may not be able to be sent at all or the connection may have sporadic instability.

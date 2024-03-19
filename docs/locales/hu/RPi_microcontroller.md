@@ -166,26 +166,26 @@ A Raspberry Pi két PWM csatornával (PWM0 és PWM1) rendelkezik, amelyek a fejl
 dtoverlay=pwm,pin=12,func=4
 ```
 
-This example enables only PWM0 and routes it to gpio12. If both PWM channels need to be enabled you can use `pwm-2chan`:
+Ez a példa csak a PWM0-t engedélyezi, és a gpio12-re irányítja. Ha mindkét PWM csatornát engedélyezni kell, használhatod a `pwm-2chan` parancsot:
 
 ```
-# Enable pwmchip sysfs interface
+# Enable pwmchip sysfs interfész engedélyezése
 dtoverlay=pwm-2chan,pin=12,func=4,pin2=13,func2=4
 ```
 
-This example additionally enables PWM1 and routes it to gpio13.
+Ez a példa ráadásul engedélyezi a PWM1-et, és a gpio13-ra irányítja.
 
-The overlay does not expose the pwm line on sysfs on boot and needs to be exported by echo'ing the number of the pwm channel to `/sys/class/pwm/pwmchip0/export`. This will create device `/sys/class/pwm/pwmchip0/pwm0` in the filesystem. The easiest way to do this is by adding this to `/etc/rc.local` before the `exit 0` line:
+Az overlay nem jeleníti meg a sysfs-en a PWM vonalat a rendszerindításkor, és a PWM csatorna számát a `/sys/class/pwm/pwmchip0/export` címre küldött echo'ing segítségével kell exportálni. Ez létrehozza a `/sys/class/pwm/pwmchip0/pwm0` eszközt a fájlrendszerben. A legegyszerűbb, ha ezt a `/etc/rc.local` állományba írjuk be a `exit 0` sor előtt:
 
 ```
-# Enable pwmchip sysfs interface
+# Enable pwmchip sysfs interfész engedélyezése
 echo 0 > /sys/class/pwm/pwmchip0/export
 ```
 
-When using both PWM channels, the number of the second channel needs to be echo'd as well:
+Ha mindkét PWM-csatornát használod, akkor a második csatorna számát is meg kell echózni:
 
 ```
-# Enable pwmchip sysfs interface
+# Enable pwmchip sysfs interfész engedélyezése
 echo 0 > /sys/class/pwm/pwmchip0/export
 echo 1 > /sys/class/pwm/pwmchip0/export
 ```
@@ -208,7 +208,7 @@ shutdown_value: 0
 cycle_time: 0.0005
 ```
 
-This will add hardware pwm control to gpio12 and gpio13 on the Pi (because the overlay was configured to route pwm0 to pin=12 and pwm1 to pin=13).
+Ez hozzáadja a hardveres PWM vezérlést a gpio12 és gpio13-hoz a Pi-n (mivel az overlay úgy volt konfigurálva, hogy a pwm0-t a pin=12-re és a pwm1-et a pin=13-ra irányítsa).
 
 A PWM0 a GPIO12 és a GPIO18 a PWM1 a GPIO13 és a GPIO19 felé irányítható:
 

@@ -10,47 +10,47 @@ For MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500s there are also a variety of bo
 
 ## MCUs with Klipper I2C *fast-mode* Support
 
-| MCU Family | MCU(s) Tested | MCU(s) with Support |
+| MCU Family | 微控制器(S)测试 | 支持的微控制器(S) |
 | :-: | :-- | :-- |
 | Raspberry Pi | 3B+, Pico | 3A, 3A+, 3B, 4 |
-| AVR ATmega | ATmega328p | ATmega32u4, ATmega128, ATmega168, ATmega328, ATmega644p, ATmega1280, ATmega1284, ATmega2560 |
+| AVR解锁 | ATmega328p | ATmega32u4, ATmega128, ATmega168, ATmega328, ATmega644p, ATmega1280, ATmega1284, ATmega2560 |
 | AVR AT90 | - | AT90usb646, AT90usb1286 |
 
 ## 安装指南
 
 ### 接线
 
-An ethernet cable with shielded twisted pairs (cat5e or better) is recommended for signal integrity over a long distance. If you still experience signal integrity issues (SPI/I2C errors):
+建议使用带有屏蔽双绞线(CAT5e或更好的)的以太网电缆，以实现远距离信号的完整性。如果您仍然遇到信号完整性问题(SPI/I2C错误)：
 
-- Double check the wiring with a digital multimeter for:
-   - Correct connections when turned off (continuity)
-   - Correct power and ground voltages
-- I2C only:
-   - Check the SCL and SDA lines' resistances to 3.3V are in the range of 900 ohms to 1.8K
-   - For full technical details consult [chapter 7 of the I2C-bus specification and user manual UM10204](https://www.pololu.com/file/0J435/UM10204.pdf) for *fast-mode*
-- Shorten the cable
+- 用数字万用表仔细检查接线：
+   - 关闭时正确连接(连续性)
+   - 正确的电源和接地电压
+- 仅限I2C：
+   - 检查SCL和SDA线路的3.3V电阻是否在900欧姆到1.8K的范围内
+   - 有关完整的技术细节，请参考[I2C-Bus规范的第7章和*FAST-MODE*的用户手册UM10204](https://www.pololu.com/file/0J435/UM10204.pdf)
+- 缩短电缆
 
-Connect ethernet cable shielding only to the MCU board/Pi ground.
+仅将以太网电缆屏蔽连接到MCU板/PI接地。
 
-***Double-check your wiring before powering up to prevent damaging your MCU/Raspberry Pi or the accelerometer.***
+***通电前请仔细检查接线，以防止损坏您的MCU/树莓PI或加速度计。***
 
-### SPI Accelerometers
+### SPI加速度计
 
-Suggested twisted pair order for three twisted pairs:
+三条双绞线的建议双绞线顺序：
 
 ```
 GND+MISO
 3.3V+MOSI
-SCLK+CS
+SCLK +CS
 ```
 
-Note that unlike a cable shield, GND must be connected at both ends.
+请注意，与电缆屏蔽不同，GND必须在两端连接。
 
 #### ADXL345
 
 ##### Direct to Raspberry Pi
 
-**Note: Many MCUs will work with an ADXL345 in SPI mode (e.g. Pi Pico), wiring and configuration will vary according to your specific board and available pins.**
+**注：许多MCU将在SPI模式下使用ADXL345(例如PI Pico)，布线和配置将根据您的特定主板和可用的引脚而有所不同。**
 
 我们需要将ADXL345连接到树莓派的SPI接口。注意，尽管ADXL345文档推荐使用I2C，但其数据吞吐能力不足，**不能**实现共振测量的要求。推荐的接线图为：
 
@@ -76,7 +76,7 @@ In order to avoid damage to your RPi make sure to connect the ADXL345 to 3.3V on
 | ADXL345引脚 | Pico pin | Pico pin name |
 | :-: | :-: | :-: |
 | 3V3 或 VCC | 36 | 3.3V DC power |
-| GND | 38 | 地（GND） |
+| GND | 388 | 地（GND） |
 | CS | 2 | GP1 (SPI0_CSn) |
 | SDO | 1 | GP0 (SPI0_RX) |
 | SDA | 5 | GP3 (SPI0_TX) |
@@ -86,9 +86,9 @@ Wiring diagrams for some of the ADXL345 boards:
 
 ![ADXL345-Pico](img/adxl345-pico.png)
 
-### I2C Accelerometers
+### I2C加速度计
 
-Suggested twisted pair order for three pairs (preferred):
+建议的三对双绞线顺序(首选)：
 
 ```
 3.3V+GND
@@ -96,55 +96,55 @@ SDA+GND
 SCL+GND
 ```
 
-or for two pairs:
+或用于两对：
 
 ```
 3.3V+SDA
 GND+SCL
 ```
 
-Note that unlike a cable shield, any GND(s) should be connected at both ends.
+请注意，与电缆屏蔽不同，任何接地网(S)都应在两端连接。
 
 #### MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500
 
-These accelerometers have been tested to work over I2C on the RPi, RP2040 (Pico) and AVR at 400kbit/s (*fast mode*). Some MPU accelerometer modules include pull-ups, but some are too large at 10K and must be changed or supplemented by smaller parallel resistors.
+这些加速度计已在RPI、RP2040(Pico)和AVR上以400kbit/S(*快速模式*)的I2C模式工作。一些MPU加速度计模块包括上拉，但有些模块在10K时太大，必须更换或补充较小的并联电阻。
 
-Recommended connection scheme for I2C on the Raspberry Pi:
+推荐的树莓派上的I2C连接方案：
 
-| MPU-9250 pin | 树莓派引脚 | 树莓派引脚名称 |
+| MPU-9250引脚 | 树莓派引脚 | 树莓派引脚名称 |
 | :-: | :-: | :-: |
 | VCC | 01 | 3.3v 直流（DC）电源 |
 | GND | 09 | 地（GND） |
-| SDA | 03 | GPIO02 (SDA1) |
+| SDA | 03 | GPIO02(SDA1) |
 | SCL | 05 | GPIO03 (SCL1) |
 
-The RPi has buit-in 1.8K pull-ups on both SCL and SDA.
+RPI在SCL和SDA上都有1.8k的Bit-in引体向上。
 
-![MPU-9250 connected to Pi](img/mpu9250-PI-fritzing.png)
+！[MPU-9250接入PI](img/mpu9250-Pi-fritzing.png)
 
-Recommended connection scheme for I2C (i2c0a) on the RP2040:
+RP2040上I2C(I2c0a)的建议连接方案：
 
-| MPU-9250 pin | RP2040 pin | RP2040 pin name |
+| MPU-9250引脚 | RP2040引脚 | RP2040引脚名称 |
 | :-: | :-: | :-: |
 | VCC | 36 | 3v3 |
-| GND | 38 | 地（GND） |
+| GND | 388 | 地（GND） |
 | SDA | 01 | GP0 (I2C0 SDA) |
 | SCL | 02 | GP1 (I2C0 SCL) |
 
-The Pico does not include any built-in I2C pull-up resistors.
+Pico不包括任何内置I2C上拉电阻。
 
-![MPU-9250 connected to Pico](img/mpu9250-PICO-fritzing.png)
+！[MPU-9250接入Pico](img/mpu9250-Pico-fritzing.png)
 
-##### Recommended connection scheme for I2C(TWI) on the AVR ATmega328P Arduino Nano:
+##### AVR ATmega328P Arduino Nano上I2C(TWI)的建议连接方案：
 
-| MPU-9250 pin | Atmega328P TQFP32 pin | Atmega328P pin name | Arduino Nano pin |
+| MPU-9250引脚 | Atmega 328P TQFP 32针脚 | Atmega 328P端号名称 | Arduino纳米针 |
 | :-: | :-: | :-: | :-: |
 | VCC | 39 | - | - |
-| GND | 38 | 地（GND） | GND |
+| GND | 388 | 地（GND） | GND |
 | SDA | 27 | SDA | A4 |
 | SCL | 28 | SCL | A5 |
 
-The Arduino Nano does not include any built-in pull-up resistors nor a 3.3V power pin.
+Arduino Nano不包括任何内置上拉电阻，也不包括3.3V电源插针。
 
 ### 固定加速度传感器
 
@@ -160,40 +160,40 @@ The Arduino Nano does not include any built-in pull-up resistors nor a 3.3V powe
 
 ### 软件设置
 
-Note that resonance measurements and shaper auto-calibration require additional software dependencies not installed by default. First, run on your Raspberry Pi the following commands:
+请注意，共振测量和整形器自动校准需要默认情况下不安装的其他软件依赖项。首先，在你的树莓派上运行以下命令：
 
 ```
 sudo apt update
 sudo apt install python3-numpy python3-matplotlib libatlas-base-dev
 ```
 
-Next, in order to install NumPy in the Klipper environment, run the command:
+接下来，为了在Klipper环境中安装NumPy，运行命令：
 
 ```
 ~/klippy-env/bin/pip install -v numpy
 ```
 
-Note that, depending on the performance of the CPU, it may take *a lot* of time, up to 10-20 minutes. Be patient and wait for the completion of the installation. On some occasions, if the board has too little RAM the installation may fail and you will need to enable swap.
+请注意，根据CPU性能的不同，这可能需要*很长*时间，最长可达10-20分钟。请耐心等待安装完成。在某些情况下，如果主板的RAM太少，安装可能会失败，您需要启用交换。
 
-#### Configure ADXL345 With RPi
+#### 使用RPI配置ADXL345
 
-First, check and follow the instructions in the [RPi Microcontroller document](RPi_microcontroller.md) to setup the "linux mcu" on the Raspberry Pi. This will configure a second Klipper instance that runs on your Pi.
+首先，检查并按照[RPI微控制器文档](rpi_微控制器.md)中的说明在Raspberry PI上设置“Linux MCU”。这将配置在您的PI上运行的第二个Klipper实例。
 
 通过运行`sudo raspi-config` 后的 "Interfacing options"菜单中启用 SPI 以确保Linux SPI 驱动已启用。
 
 在printer.cfg中添加以下内容：
 
 ```
-[mcu rpi]
-serial: /tmp/klipper_host_mcu
+[MCU RPI]。
+序列：/tmp/Klipper_host_mcu。
 
-[adxl345]
-cs_pin: rpi:None
+[adx1345]。
+CS_PIN：RPI：无。
 
-[resonance_tester]
-accel_chip: adxl345
-probe_points:
-    100, 100, 20  # an example
+[共振测试仪]。
+加速芯片：adxl345。
+探测点(_P)：
+100、100、20#一个例子
 ```
 
 建议在测试开始前，用探针在热床中央进行一次探测，触发后稍微上移。
@@ -253,24 +253,24 @@ If setting up the ADXL345 configuration in a separate file, as shown above, you'
 
 通过`RESTART`命令重启Klipper。
 
-#### Configure LIS2DW series
+#### 配置LIS2DW系列
 
 ```
-[mcu lis]
-# Change <mySerial> to whatever you found above. For example,
-# usb-Klipper_rp2040_E661640843545B2E-if00
-serial: /dev/serial/by-id/usb-Klipper_rp2040_<mySerial>
+[MCU列表]。
+#将<mySerial>更改为您在上面找到的任何内容。例如,。
+#usb-klipper_rp2040_E661640843545B2E-if00。
+序列号：/dev/serial/by-id/usb-Klipper_rp2040_<mySerial>。
 
-[lis2dw]
-cs_pin: lis:gpio1
-spi_bus: spi0a
-axes_map: x,z,y
+[lis2dw]。
+Cs_pin：lis：gpio1。
+SPI_BUS：SP0A。
+AXES_MAP：x、z、y。
 
-[resonance_tester]
-accel_chip: lis2dw
-probe_points:
-    # Somewhere slightly above the middle of your print bed
-    147,154, 20
+[共振测试仪]。
+加速芯片：lis2dw。
+探测点(_P)：
+#在你的打印床中间稍高一点的地方。
+147,154，20
 ```
 
 #### Configure MPU-6000/9000 series With RPi
@@ -278,22 +278,22 @@ probe_points:
 Make sure the Linux I2C driver is enabled and the baud rate is set to 400000 (see [Enabling I2C](RPi_microcontroller.md#optional-enabling-i2c) section for more details). Then, add the following to the printer.cfg:
 
 ```
-[mcu rpi]
-serial: /tmp/klipper_host_mcu
+[MCU RPI]。
+序列：/tmp/Klipper_host_mcu。
 
-[mpu9250]
-i2c_mcu: rpi
-i2c_bus: i2c.1
+[mpu9250]。
+I2C_MCU：RPI。
+I2C_BUS：I2c.1。
 
-[resonance_tester]
-accel_chip: mpu9250
-probe_points:
-    100, 100, 20  # an example
+[共振测试仪]。
+加速芯片：mpu9250。
+探测点(_P)：
+100、100、20#一个例子
 ```
 
-#### Configure MPU-9520 Compatibles With Pico
+#### 配置与Pico兼容的MPU-9520
 
-Pico I2C is set to 400000 on default. Simply add the following to the printer.cfg:
+默认情况下，Pico I2C设置为400000。只需将以下内容添加到printer.cfg：
 
 ```
 [mcu pico]
@@ -357,7 +357,7 @@ If you get an error like `Invalid adxl345 id (got xx vs e5)`, where `xx` is some
 现在可以运行进行实测。运行以下命令:
 
 ```
-TEST_RESONANCES AXIS=X
+TEST_RESONURS AXIS=X
 ```
 
 注意，这将在X轴上产生振动。如果之前启用了输入整形（input shaping ），它也将禁用输入整形，因为在启用输入整形的情况下运行共振测试是无效的。
@@ -365,10 +365,10 @@ TEST_RESONANCES AXIS=X
 **注意！**请确保第一次运行时时刻观察打印机，以确保振动不会太剧烈（`M112`命令可以在紧急情况下中止测试；但愿不会到这一步）。如果振动确实太强烈，你可以尝试在`[Resonance_tester]`分段中为`accel_per_hz`参数指定一个低于默认值的值，比如说。
 
 ```
-[resonance_tester]
-accel_chip: adxl345
-accel_per_hz: 50  # default is 75
-probe_points: ...
+[共振测试仪]。
+加速芯片：adxl345。
+Accel_PER_HZ：50#默认为75。
+探测点：...
 ```
 
 如果它适用于 X 轴，则也可以为 Y 轴运行：
@@ -389,30 +389,30 @@ TEST_RESONANCES AXIS=Y
 ![共振](img/calibrate-y.png)
 
 ```
-Fitted shaper 'zv' frequency = 34.4 Hz (vibrations = 4.0%, smoothing ~= 0.132)
-To avoid too much smoothing with 'zv', suggested max_accel <= 4500 mm/sec^2
-Fitted shaper 'mzv' frequency = 34.6 Hz (vibrations = 0.0%, smoothing ~= 0.170)
-To avoid too much smoothing with 'mzv', suggested max_accel <= 3500 mm/sec^2
-Fitted shaper 'ei' frequency = 41.4 Hz (vibrations = 0.0%, smoothing ~= 0.188)
-To avoid too much smoothing with 'ei', suggested max_accel <= 3200 mm/sec^2
-Fitted shaper '2hump_ei' frequency = 51.8 Hz (vibrations = 0.0%, smoothing ~= 0.201)
-To avoid too much smoothing with '2hump_ei', suggested max_accel <= 3000 mm/sec^2
-Fitted shaper '3hump_ei' frequency = 61.8 Hz (vibrations = 0.0%, smoothing ~= 0.215)
-To avoid too much smoothing with '3hump_ei', suggested max_accel <= 2800 mm/sec^2
-Recommended shaper is mzv @ 34.6 Hz
+贴合成形器‘zv’频率=34.4HZ(振动=4.0%，平滑~=0.132)。
+为避免使用‘zv’进行过多平滑处理，建议使用max_Accel<=4500 mm/秒^2。
+贴合成形器‘mzv’频率=34.6hz(振动=0.0%，平滑~=0.170)。
+为避免使用‘mzv’进行过多平滑处理，建议使用max_Accel<=3500 mm/秒^2。
+贴合成形器‘EI’频率=41.4HZ(振动=0.0%，平滑~=0.188)。
+为避免使用‘ei’进行过多平滑处理，建议使用max_Accel<=3200 mm/秒^2。
+贴合成形器‘2hump_ei’频率=51.8HZ(振动=0.0%，平滑~=0.201)。
+为避免使用‘2hump_ei’时过于平滑，建议使用max_Accel<=3000 mm/秒^2。
+成型器‘3hump_ei’频率=61.8HZ(振动=0.0%，平滑~=0.215)。
+为避免使用‘3hump_ei’时过于平滑，建议使用max_Accel<=2800 mm/秒^2。
+推荐的整形器为mzv@34.6 hz
 ```
 
 推荐的配置可以添加到`[input_shaper]`的`printer.cfg`分段中，例如：
 
 ```
-[input_shaper]
-shaper_freq_x: ...
-shaper_type_x: ...
-shaper_freq_y: 34.6
-shaper_type_y: mzv
+[输入整形器]。
+造型频率x：...。
+Shaper_type_x：...。
+Shaper_freq_y：34.6。
+Shaper_type_y：mzv。
 
-[printer]
-max_accel: 3000  # should not exceed the estimated max_accel for X and Y axes
+[打印机]。
+Max_Accel：3000#不应超过X和Y轴的估计max_Accel
 ```
 
 也可以根据生成的图表自己选择一些其他配置：图表上的功率谱密度的峰值对应于打印机的共振频率。
@@ -426,19 +426,19 @@ Note that alternatively you can run the input shaper auto-calibration from Klipp
 However, you can also connect two accelerometers simultaneously, though the ADXL345 must be connected to different boards (say, to an RPi and printer MCU board), or to two different physical SPI interfaces on the same board (rarely available). Then they can be configured in the following manner:
 
 ```
-[adxl345 hotend]
-# Assuming `hotend` chip is connected to an RPi
-cs_pin: rpi:None
+[adx1345 HOTEND]。
+#假设`hotend`芯片连接到RPI。
+CS_PIN：RPI：无。
 
-[adxl345 bed]
-# Assuming `bed` chip is connected to a printer MCU board
-cs_pin: ...  # Printer board SPI chip select (CS) pin
+[adx1345张床]。
+#假设`bed`芯片连接到打印机MCU板。
+CS_PIN：...#打印板SPI芯片选择(CS)针脚。
 
-[resonance_tester]
-# Assuming the typical setup of the bed slinger printer
-accel_chip_x: adxl345 hotend
-accel_chip_y: adxl345 bed
-probe_points: ...
+[共振测试仪]。
+#假设床吊杆打印机的典型设置。
+加速芯片_x：adx1345主机。
+Accel芯片y：adx1345床。
+探测点：...
 ```
 
 Two MPUs can share one I2C bus, but they **cannot** measure simultaneously as the 400kbit/s I2C bus is not fast enough. One must have its AD0 pin pulled-down to 0V (address 104) and the other its AD0 pin pulled-up to 3.3V (address 105):
@@ -540,16 +540,16 @@ max_smoothing: 0.25  # an example
 
 ### 自定义测试轴
 
-`TEST_RESONANCES` command supports custom axes. While this is not really useful for input shaper calibration, it can be used to study printer resonances in-depth and to check, for example, belt tension.
+`TEST_RESONANCES`命令支持自定义轴。虽然这对输入整形器校准并不真正有用，但它可用于深入研究打印机共振，并检查皮带张力等。
 
-To check the belt tension on CoreXY printers, execute
+要检查CoreXY打印机上的皮带张力，请执行
 
 ```
 TEST_RESONANCES AXIS=1,1 OUTPUT=raw_data
 TEST_RESONANCES AXIS=1,-1 OUTPUT=raw_data
 ```
 
-and use `graph_accelerometer.py` to process the generated files, e.g.
+并使用`graph_accelerometer.py`处理生成的文件，例如.
 
 ```
 ~/klipper/scripts/graph_accelerometer.py -c /tmp/raw_data_axis*.csv -o /tmp/resonances.png
@@ -640,23 +640,23 @@ TEST_RESONANCES AXIS=X OUTPUT=raw_data
 * 绘制原始加速度数据图（使用`-r`参数），仅支持一个输入；
 * 绘制频率响应图（无需额外参数），如果指定了多个输入文件，将计算他们的平均值；
 * 在多个输入之间比较频率响应曲线（使用`-c`参数）；通过`-ax，`-ay`或`-az`参数，可以额外指定哪个轴参与比较（在未指定时将计算所有轴振动的总和）;
-* plotting the spectrogram (use `-s` parameter), only 1 input is supported; you can additionally specify which accelerometer axis to consider via `-a x`, `-a y` or `-a z` parameter (if none specified, the sum of vibrations for all axes is used).
+* 绘制频谱图(使用`-s`参数)，只支持1个输入；您可以通过`-a x`、`-a y`或`-a z`参数指定考虑哪个加速度计轴(如果不指定，则取所有轴的振动总和)。
 
-Note that graph_accelerometer.py script supports only the raw_data\*.csv files and not resonances\*.csv or calibration_data\*.csv files.
+请注意，graph_accelerometer.py脚本仅支持RAW_DATA\*.csv文件，不支持共振\*.csv或CALIBRATION_DATA\*.csv文件。
 
-For example,
+例如，
 
 ```
 ~/klipper/scripts/graph_accelerometer.py /tmp/raw_data_x_*.csv -o /tmp/resonances_x.png -c -a z
 ```
 
-will plot the comparison of several `/tmp/raw_data_x_*.csv` files for Z axis to `/tmp/resonances_x.png` file.
+将绘制Z轴的几个`/tmp/raw_data_x_*.csv`文件与`/tMP/Resonance_x.png`文件的比较。
 
-The shaper_calibrate.py script accepts 1 or several inputs and can run automatic tuning of the input shaper and suggest the best parameters that work well for all provided inputs. It prints the suggested parameters to the console, and can additionally generate the chart if `-o output.png` parameter is provided, or the CSV file if `-c output.csv` parameter is specified.
+Shaper_calbrate.py脚本接受1个或多个输入，可以运行输入整形器的自动调优，并建议适合所有提供的输入的最佳参数。它会将建议的参数打印到控制台，如果提供了`-o output.png`参数，则可以额外生成图表；如果指定了`-c output.csv`参数，则可以额外生成CSV文件。
 
-Providing several inputs to shaper_calibrate.py script can be useful if running some advanced tuning of the input shapers, for example:
+如果运行输入整形器的一些高级调优，向shaper_calbrate.py脚本提供几个输入可能会很有用，例如：
 
-* Running `TEST_RESONANCES AXIS=X OUTPUT=raw_data` (and `Y` axis) for a single axis twice on a bed slinger printer with the accelerometer attached to the toolhead the first time, and the accelerometer attached to the bed the second time in order to detect axes cross-resonances and attempt to cancel them with input shapers.
-* Running `TEST_RESONANCES AXIS=Y OUTPUT=raw_data` twice on a bed slinger with a glass bed and a magnetic surfaces (which is lighter) to find the input shaper parameters that work well for any print surface configuration.
-* Combining the resonance data from multiple test points.
-* Combining the resonance data from 2 axis (e.g. on a bed slinger printer to configure X-axis input_shaper from both X and Y axes resonances to cancel vibrations of the *bed* in case the nozzle 'catches' a print when moving in X axis direction).
+* 在第一次将加速度计连接到刀头、第二次将加速度表连接到床的床甩油机打印机上，对单个轴运行两次`TEST_RESONANCES AXIS=X OUTPUT=raw_data`（和`Y`轴），以检测轴的交叉共振，并尝试用输入整形器消除它们。
+* 在具有玻璃床和磁性表面（较轻）的甩床器上运行两次`TEST_RESONANCES AXIS=Y OUTPUT=raw_data`，以找到适用于任何打印表面配置的输入整形器参数。
+* 组合来自多个测试点的共振数据。
+* 组合来自2个轴的共振数据(例如，在床吊杆打印机上配置X轴INPUT_SHAPER从X轴和Y轴共振，以消除*床*的振动，以防喷嘴在X轴方向上移动时‘捕捉’到印刷品)。

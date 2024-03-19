@@ -6,21 +6,21 @@ A dokumentumban szereplő valamennyi dátum hozzávetőleges.
 
 ## Változások
 
-20230826: If `safe_distance` is set or calculated to be 0 in `[dual_carriage]`, the carriages proximity checks will be disabled as per documentation. A user may wish to configure `safe_distance` explicitly to prevent accidental crashes of the carriages with each other. Additionally, the homing order of the primary and the dual carriage is changed in some configurations (certain configurations when both carriages home in the same direction, see [[dual_carriage] configuration reference](./Config_Reference.md#dual_carriage) for more details).
+20230826: Ha a `[dual_carriage]-ben a `safe_distance` értéke 0-ra van beállítva vagy kiszámítva, akkor a dokumentáció szerint a kocsik közelségének ellenőrzése le lesz tiltva. A felhasználónak érdemes a `safe_distance`-t explicit módon beállítani, hogy megakadályozza a kocsik véletlen ütközését egymással. Ezen kívül az elsődleges és a kettős kocsi indulási sorrendje bizonyos konfigurációkban megváltozik (bizonyos konfigurációk, amikor mindkét kocsi ugyanabba az irányba indul, további részletekért lásd a [[dual_carriage] konfigurációs hivatkozás](./Config_Reference.md#dual_carriage)).
 
-20230810: The flash-sdcard.sh script now supports both variants of the Bigtreetech SKR-3, STM32H743 and STM32H723. For this, the original tag of btt-skr-3 now has changed to be either btt-skr-3-h743 or btt-skr-3-h723.
+20230810: A flash-sdcard.sh szkript mostantól támogatja a Bigtreetech SKR-3 mindkét változatát, az STM32H743-at és az STM32H723-at. Ennek érdekében az eredeti btt-skr-3 címke mostantól btt-skr-3-h743 vagy btt-skr-3-h723-ra változott.
 
-20230729: The exported status for `dual_carriage` is changed. Instead of exporting `mode` and `active_carriage`, the individual modes for each carriage are exported as `printer.dual_carriage.carriage_0` and `printer.dual_carriage.carriage_1`.
+20230729: A `dual_carriage` exportált állapota megváltozott. A `mode` és az `active_carriage` exportálása helyett az egyes kocsik egyedi üzemmódjai `printer.dual_carriage.carriage_0` és `printer.dual_carriage.carriage_1` néven kerülnek exportálásra.
 
-20230619: The `relative_reference_index` option has been deprecated and superceded by the `zero_reference_position` option. Refer to the [Bed Mesh Documentation](./Bed_Mesh.md#the-deprecated-relative_reference_index) for details on how to update the configuration. With this deprecation the `RELATIVE_REFERENCE_INDEX` is no longer available as a parameter for the `BED_MESH_CALIBRATE` gcode command.
+20230619: A `relative_reference_index` opció elavult, és helyébe a `zero_reference_position` opció lépett. A konfiguráció frissítésének részleteiért olvasd el az [Ágyháló](./Bed_Mesh.md#the-deprecated-relative_reference_index) című dokumentumot. Ezzel a deprecationnel a `RELATIVE_REFERENCE_INDEX` már nem áll rendelkezésre a `BED_MESH_CALIBRATE` G-kód parancs paramétereként.
 
-20230530: The default canbus frequency in "make menuconfig" is now 1000000. If using canbus and using canbus with some other frequency is required, then be sure to select "Enable extra low-level configuration options" and specify the desired "CAN bus speed" in "make menuconfig" when compiling and flashing the micro-controller.
+20230530: A "make menuconfig" alapértelmezett canbus frekvenciája mostantól 1000000. Ha a canbus használata és a canbus valamilyen más frekvenciával történő használata szükséges, akkor a mikrokontroller fordításakor és égetésekor mindenképpen válaszd az "Enable extra low-level configuration options" opciót, és add meg a kívánt "CAN bus speed" értéket a "make menuconfig"-ben.
 
-20230525: `SHAPER_CALIBRATE` command immediately applies input shaper parameters if `[input_shaper]` was enabled already.
+20230525: A `SHAPER_CALIBRATE` parancs azonnal alkalmazza a bemeneti alakító paramétereket, ha az `[input_shaper]` már engedélyezve volt.
 
-20230407: The `stalled_bytes` counter in the log and in the `printer.mcu.last_stats` field has been renamed to `upcoming_bytes`.
+20230407: A `stalled_bytes` számláló a naplóban és a `printer.mcu.last_stats` mezőben `upcoming_bytes`-ra lett átnevezve.
 
-20230323: On tmc5160 drivers `multistep_filt` is now enabled by default. Set `driver_MULTISTEP_FILT: False` in the tmc5160 config for the previous behavior.
+20230323: A TMC5160 motorvezérlőkön a `multistep_filt` mostantól alapértelmezés szerint engedélyezve van. Állítsuk be a `driver_MULTISTEP_FILT: False` értéket a TMC5160 konfigurációjában a korábbi viselkedéshez.
 
 20230304: A `SET_TMC_CURRENT` parancs mostantól megfelelően beállítja a globális skálázó regisztert az ezzel rendelkező meghajtók esetében. Ez megszünteti azt a korlátozást, amikor a TMC5160 esetében az áramok nem voltak növelhetők magasabbra a `SET_TMC_CURRENT` paranccsal, mint a konfigurációs fájlban beállított `run_current` érték. Ennek azonban van egy mellékhatása: A `SET_TMC_CURRENT` futtatása után a StealthChop2 használata esetén >130 ms-ig álló helyzetben kell tartani a léptetőt, hogy az AT#1 kalibrációt a meghajtó végre tudja hajtani.
 

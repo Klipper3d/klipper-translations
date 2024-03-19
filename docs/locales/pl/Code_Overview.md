@@ -6,7 +6,7 @@ Ten dokument opisuje ogólny układ kodu i główny przepływ kodu Klippera.
 
 Katalog **src/** zawiera źródło C dla kodu mikrokontrolera. Katalogi **src/atsam/**, **src/atsamd/**, **src/avr/**, **src/linux/**, **src/lpc176x/**, **src/pru/**, oraz **src/stm32/** zawierają kod mikrokontrolera specyficzny dla danej architektury. **src/simulator/** zawiera stuby kodu, które pozwalają na testową kompilację mikrokontrolera na innych architekturach. Katalog **src/generic/** zawiera kod pomocniczy, który może być użyteczny dla różnych architektur. Kompilacja powoduje, że include'y "board/somefile.h" są najpierw szukane w katalogu aktualnej architektury (np. src/avr/somefile.h) a następnie w katalogu generycznym (np. src/generic/somefile.h).
 
-The **klippy/** directory contains the host software. Most of the host software is written in Python, however the **klippy/chelper/** directory contains some C code helpers. The **klippy/kinematics/** directory contains the robot kinematics code. The **klippy/extras/** directory contains the host code extensible "modules".
+Katalog **klippy/** zawiera oprogramowanie hosta. Większość oprogramowania hosta jest napisana w języku Python, jednakże katalog **klippy/chelper/** zawiera kilka pomocniczych plików zakodowanych w języku C. Katalog **klippy/kinematics/** zawiera kod kinematyki urządzeń. Katalog **klippy/extras/** zawiera rozszerzalne „moduły” kodu hosta.
 
 The **lib/** directory contains external 3rd-party library code that is necessary to build some targets.
 

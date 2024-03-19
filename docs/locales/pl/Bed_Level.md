@@ -6,9 +6,9 @@ Bardzo ważne jest zrozumienie celu poziomowania stołu. Jeśli drukarka otrzyma
 
 W celu uzyskania dobrej jakości wydruków drukarka powinna być skalibrowana tak, aby odległości Z były dokładne z dokładnością do około 25 mikronów (.025mm). Jest to niewielka odległość - znacznie mniejsza niż szerokość typowego ludzkiego włosa. Skala ta nie może być mierzona "na oko". Subtelne efekty (takie jak rozszerzalność cieplna) wpływają na pomiary w tej skali. Sekretem uzyskania wysokiej dokładności jest zastosowanie powtarzalnego procesu oraz metody poziomowania, która wykorzystuje wysoką dokładność własnego systemu ruchu drukarki.
 
-## Choose the appropriate calibration mechanism
+## Wybierz odpowiedni mechanizm kalibracji
 
-Different types of printers use different methods for performing bed leveling. All of them ultimately depend on the "paper test" (described below). However, the actual process for a particular type of printer is described in other documents.
+Różne typy drukarek stosują różne metody poziomowania stołu. Wszystkie ostatecznie zależą od „testu papierowego” (opisanego poniżej). Jednak faktyczny proces dla określonego typu drukarki jest opisany w innych dokumentach.
 
 Prior to running any of these calibration tools, be sure to run the checks described in the [config check document](Config_checks.md). It is necessary to verify basic printer motion before performing bed leveling.
 

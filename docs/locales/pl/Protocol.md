@@ -14,7 +14,7 @@ Informacje o dostępnych poleceniach znajdują się w dokumencie [mcu commands](
 
 Ta strona zawiera opis wysokopoziomowego (high-level) przesyłania wiadomości w Klipper. Opisuje, w jaki sposób wiadomości są deklarowane, kodowane w formacie binarnym (zawiera schemat "kompresji") i przesyłane.
 
-The goal of the protocol is to enable an error-free communication channel between the host and micro-controller that is low-latency, low-bandwidth, and low-complexity for the micro-controller.
+Celem protokołu jest zapewnienie wolnego od błędów kanału komunikacyjnego pomiędzy hostem a mikrokontrolerem, charakteryzującego się niskim opóźnieniem, małą przepustowością i niską złożonością dla mikrokontrolera.
 
 ## Micro-controller Interface
 

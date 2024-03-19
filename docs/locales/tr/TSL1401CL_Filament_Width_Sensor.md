@@ -8,6 +8,6 @@ To use a sensor array as a filament width sensor, read [Config Reference](Config
 
 Sensör, hesaplanan filaman genişliğine göre analog çıkış üretir. Çıkış voltajı her zaman algılanan filaman genişliğine eşittir (Örn. 1,65v, 1,70v, 3,0v). Ana modül voltaj değişikliklerini izler ve ekstrüzyon çarpanını ayarlar
 
-## Note:
+## Not:
 
 Sensor readings done with 10 mm intervals by default. If necessary you are free to change this setting by editing ***MEASUREMENT_INTERVAL_MM*** parameter in **filament_width_sensor.py** file.

@@ -109,7 +109,7 @@ The following commands are available when an [angle config section](Config_Refer
 
 ### [bed_screws]
 
-The following commands are available when the [bed_screws config section](Config_Reference.md#bed_screws) is enabled (also see the [manual level guide](Manual_Level.md#adjusting-bed-leveling-screws)).
+以下命令当 [bed_screws 配置段](Config_Reference.md#bed_screws) 使能的时候可用 (也可参考 [手动调平指南](Manual_Level.md#adjusting-bed-leveling-screws))。
 
 #### BED_SCREWS_ADJUST
 
@@ -117,7 +117,7 @@ The following commands are available when the [bed_screws config section](Config
 
 ### [bed_tilt]
 
-The following commands are available when the [bed_tilt config section](Config_Reference.md#bed_tilt) is enabled.
+当 [bed_tilt 配置部分](Config_Reference.md#bed_tilt) 被启用时，以下命令可用：
 
 #### BED_TILT_CALIBRATE
 
@@ -347,8 +347,8 @@ The gcode module is automatically loaded.
 
 如果启用了[gcode_arcs 配置分段](Config_Reference.md#gcode_arcs)，下列标准G代码命令可用：
 
-- Arc Move Clockwise (G2), Arc Move Counter-clockwise (G3): `G2|G3 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>] I<value> J<value>|I<value> K<value>|J<value> K<value>`
-- Arc Plane Select: G17 (XY plane), G18 (XZ plane), G19 (YZ plane)
+- 顺时针圆弧运动 (G2), 逆时针圆弧运动 (G3): `G2|G3 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>] I<value> J<value>|I<value> K<value>|J<value> K<value>`
+- 选择圆弧运动参考面: G17 (XY 平面), G18 (XZ 平面), G19 (YZ 平面)
 
 ### [gcode_macro]
 
@@ -502,7 +502,7 @@ Some pins (currently only "soft PWM" pins) support setting an explicit cycle tim
 
 ### [palette2]
 
-The following commands are available when the [palette2 config section](Config_Reference.md#palette2) is enabled.
+当[palette2 配置分段](Config_Reference.md#palette2)被启用时，以下命令可用：
 
 Palette打印通过在GCode文件中嵌入特殊的OCodes（Omega Codes）来工作。
 
@@ -798,7 +798,7 @@ section](Config_Reference.md#axis_twist_compensation) is enabled.
 
 #### AXIS_TWIST_COMPENSATION_CALIBRATE
 
-`AXIS_TWIST_COMPENSATION_CALIBRATE [SAMPLE_COUNT=<value>]`: Initiates the X twist calibration wizard. `SAMPLE_COUNT` specifies the number of points along the X axis to calibrate at and defaults to 3.
+`AXIS_TWIST_COMPENSATION_CALIBRATE [SAMPLE_COUNT=<value>]`: 启动X轴扭转校准向导。 `SAMPLE_COUNT` 指定沿着X轴进行校准的点数，默认为3个。
 
 ### [z_thermal_adjust]
 

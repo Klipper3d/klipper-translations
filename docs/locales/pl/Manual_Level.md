@@ -6,7 +6,7 @@ W tym dokumencie opisano narzędzia do kalibracji ogranicznika krańcowego Z ora
 
 Dokładna pozycja wyłącznika krańcowego osi Z ma kluczowe znaczenie dla uzyskania wysokiej jakości wydruków.
 
-Note, though, the accuracy of the Z endstop switch itself can be a limiting factor. If one is using Trinamic stepper motor drivers then consider enabling [endstop phase](Endstop_Phase.md) detection to improve the accuracy of the switch.
+Należy jednak pamiętać, że dokładność samego wyłącznika krańcowego Z może być czynnikiem ograniczającym. Jeśli używasz sterowników silników krokowych Trinamic, rozważ włączenie wykrywania [endstop phase](Endstop_Phase.md), aby poprawić dokładność przełącznika.
 
 To perform a Z endstop calibration, home the printer, command the head to move to a Z position that is at least five millimeters above the bed (if it is not already), command the head to move to an XY position near the center of the bed, then navigate to the OctoPrint terminal tab and run:
 

@@ -5,7 +5,7 @@ Ten dokument opisuje moduł [axis_twist_compensation]
 Some printers may have a small twist in their X rail which can skew the results of a probe attached to the X carriage. This is common in printers with designs like the Prusa MK3, Sovol SV06 etc and is further described under [probe location
 bias](Probe_Calibrate.md#location-bias-check). It may result in probe operations such as [Bed Mesh](Bed_Mesh.md), [Screws Tilt Adjust](G-Codes.md#screws_tilt_adjust), [Z Tilt Adjust](G-Codes.md#z_tilt_adjust) etc returning inaccurate representations of the bed.
 
-This module uses manual measurements by the user to correct the probe's results. Note that if your axis is significantly twisted it is strongly recommended to first use mechanical means to fix it prior to applying software corrections.
+Moduł ten wykorzystuje pomiary wykonywane ręcznie przez użytkownika w celu skorygowania wyników sondy. Należy pamiętać, że jeśli oś jest znacznie skrzywiona, zdecydowanie zaleca się najpierw wprowadzić poprawki mechaniczne, aby ją naprawić przed zastosowaniem poprawek programowych.
 
 **Warning**: This module is not compatible with dockable probes yet and will try to probe the bed without attaching the probe if you use it.
 

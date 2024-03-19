@@ -12,7 +12,7 @@ To compile for CAN, run `make menuconfig` and select "CAN bus" as the communicat
 
 In order to use a CAN bus, it is necessary to have a host adapter. It is recommended to use a "USB to CAN adapter". There are many different USB to CAN adapters available from different manufacturers. When choosing one, we recommend verifying that the firmware can be updated on it. (Unfortunately, we've found some USB adapters run defective firmware and are locked down, so verify before purchasing.) Look for adapters that can run Klipper directly (in its "USB to CAN bridge mode") or that run the [candlelight firmware](https://github.com/candle-usb/candleLight_fw).
 
-It is also necessary to configure the host operating system to use the adapter. This is typically done by creating a new file named `/etc/network/interfaces.d/can0` with the following contents:
+Konieczne jest także skonfigurowanie systemu operacyjnego hosta do korzystania z adaptera. Zwykle robi się to poprzez utworzenie nowego pliku o nazwie `/etc/network/interfaces.d/can0` z następującą zawartością:
 
 ```
 allow-hotplug can0

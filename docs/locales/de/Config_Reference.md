@@ -1432,7 +1432,7 @@ See the [exclude objects guide](Exclude_Object.md) and [command reference](G-Cod
 [exclude_object]
 ```
 
-## Resonance compensation
+## Resonanzkompensation
 
 ### [input_shaper]
 
@@ -2691,7 +2691,7 @@ PCA9632 LED support. The PCA9632 is used on the FlashForge Dreamer.
 #   See the "led" section for information on these parameters.
 ```
 
-## Zusätzliche Servo, Knöpfe und andere Pins
+## Zusätzliche Servomotoren, Schalter und andere Pins
 
 ### [servo]
 

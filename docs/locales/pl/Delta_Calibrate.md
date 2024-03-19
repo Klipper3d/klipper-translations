@@ -8,7 +8,7 @@ Ostatecznie, kalibracja delta zależy od precyzji przełączników zatrzymania w
 
 ## Pomiar Automatyczny vs Ręczny
 
-Klipper supports calibrating the delta parameters via a manual probing method or via an automatic Z probe.
+Klipper obsługuje kalibrację parametrów delta metodą ręczną lub automatyczną sondą Z.
 
 A number of delta printer kits come with automatic Z probes that are not sufficiently accurate (specifically, small differences in arm length can cause effector tilt which can skew an automatic probe). If using an automatic probe then first [calibrate the probe](Probe_Calibrate.md) and then check for a [probe location bias](Probe_Calibrate.md#location-bias-check). If the automatic probe has a bias of more than 25 microns (.025mm) then use manual probing instead. Manual probing only takes a few minutes and it eliminates error introduced by the probe.
 

@@ -52,7 +52,7 @@ Note that unlike a cable shield, GND must be connected at both ends.
 
 **Note: Many MCUs will work with an ADXL345 in SPI mode (e.g. Pi Pico), wiring and configuration will vary according to your specific board and available pins.**
 
-You need to connect ADXL345 to your Raspberry Pi via SPI. Note that the I2C connection, which is suggested by ADXL345 documentation, has too low throughput and **will not work**. The recommended connection scheme:
+Musisz podłączyć ADXL345 do Raspberry Pi przez SPI. Należy pamiętać, że połączenie I2C, które sugeruje dokumentacja ADXL345, ma zbyt małą przepustowość i **nie będzie działać**. Zalecany schemat połączeń:
 
 | ADXL345 pin | RPi pin | RPi pin name |
 | :-: | :-: | :-: |
