@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-02-18 14:01+0000\n"
+"PO-Revision-Date: 2024-02-23 22:02+0000\n"
 "Last-Translator: Hosted Weblate <mfvotmjhcj@iubridge.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "klipper/measuring_resonances/zh_Hans/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.4\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 msgid "Measuring Resonances"
 msgstr "共振值测量"
@@ -506,19 +506,24 @@ msgid ""
 "x`, `-a y` or `-a z` parameter (if none specified, the sum of vibrations for"
 " all axes is used)."
 msgstr ""
+"绘制频谱图(使用`-s`参数)，只支持1个输入；您可以通过`-a x`、`-a y`或`-a "
+"z`参数指定考虑哪个加速度计轴(如果不指定，则取所有轴的振动总和)。"
 
 msgid ""
 "Note that graph_accelerometer.py script supports only the raw_data\\*.csv "
 "files and not resonances\\*.csv or calibration_data\\*.csv files."
 msgstr ""
+"请注意，graph_accelerometer.py脚本仅支持RAW_DATA\\*.csv文件，不支持共振\\*."
+"csv或CALIBRATION_DATA\\*.csv文件。"
 
 msgid "For example,"
-msgstr ""
+msgstr "例如，"
 
 msgid ""
 "will plot the comparison of several `/tmp/raw_data_x_*.csv` files for Z axis"
 " to `/tmp/resonances_x.png` file."
-msgstr ""
+msgstr "将绘制Z轴的几个`/tmp/raw_data_x_*.csv`文件与`/tMP/Resonance_x."
+"png`文件的比较。"
 
 msgid ""
 "The shaper_calibrate.py script accepts 1 or several inputs and can run "
@@ -528,11 +533,16 @@ msgid ""
 "parameter is provided, or the CSV file if `-c output.csv` parameter is "
 "specified."
 msgstr ""
+"Shaper_calbrate.py脚本接受1个或多个输入，可以运行输入整形器的自动调优，并建议"
+"适合所有提供的输入的最佳参数。它会将建议的参数打印到控制台，如果提供了`-o "
+"output.png`参数，则可以额外生成图表；如果指定了`-c output."
+"csv`参数，则可以额外生成CSV文件。"
 
 msgid ""
 "Providing several inputs to shaper_calibrate.py script can be useful if "
 "running some advanced tuning of the input shapers, for example:"
-msgstr ""
+msgstr "如果运行输入整形器的一些高级调优，向shaper_calbrate."
+"py脚本提供几个输入可能会很有用，例如："
 
 msgid ""
 "Running `TEST_RESONANCES AXIS=X OUTPUT=raw_data` (and `Y` axis) for a single"
@@ -541,15 +551,20 @@ msgid ""
 "second time in order to detect axes cross-resonances and attempt to cancel "
 "them with input shapers."
 msgstr ""
+"在第一次将加速度计连接到刀头、第二次将加速度表连接到床的床甩油机打印机上，对"
+"单个轴运行两次`TEST_RESONANCES AXIS=X "
+"OUTPUT=raw_data`（和`Y`轴），以检测轴的交叉共振，并尝试用输入整形器消除它们。"
 
 msgid ""
 "Running `TEST_RESONANCES AXIS=Y OUTPUT=raw_data` twice on a bed slinger with"
 " a glass bed and a magnetic surfaces (which is lighter) to find the input "
 "shaper parameters that work well for any print surface configuration."
 msgstr ""
+"在具有玻璃床和磁性表面（较轻）的甩床器上运行两次`TEST_RESONANCES AXIS=Y "
+"OUTPUT=raw_data`，以找到适用于任何打印表面配置的输入整形器参数。"
 
 msgid "Combining the resonance data from multiple test points."
-msgstr ""
+msgstr "组合来自多个测试点的共振数据。"
 
 msgid ""
 "Combining the resonance data from 2 axis (e.g. on a bed slinger printer to "
@@ -557,15 +572,20 @@ msgid ""
 "vibrations of the *bed* in case the nozzle 'catches' a print when moving in "
 "X axis direction)."
 msgstr ""
+"组合来自2个轴的共振数据(例如，在床吊杆打印机上配置X轴INPUT_SHAPER从X轴和Y轴共"
+"振，以消除*床*的振动，以防喷嘴在X轴方向上移动时‘捕捉’到印刷品)。"
 
+#, fuzzy
 msgid "~/klippy-env/bin/pip install -v numpy\n"
-msgstr ""
+msgstr "~/klippy-env/bin/pip install -v numpy\n"
 
+#, fuzzy
 msgid "Recv: // adxl345 values (x, y, z): 470.719200, 941.438400, 9728.196800\n"
 msgstr ""
+"Recv: // adxl345 values (x, y, z): 470.719200, 941.438400, 9728.196800\n"
 
 msgid "TEST_RESONANCES AXIS=X\n"
-msgstr ""
+msgstr "TEST_RESONURS AXIS=X\n"
 
 msgid ""
 "[resonance_tester]\n"
@@ -573,14 +593,24 @@ msgid ""
 "accel_per_hz: 50  # default is 75\n"
 "probe_points: ...\n"
 msgstr ""
+"[共振测试仪]。\n"
+"加速芯片：adxl345。\n"
+"Accel_PER_HZ：50#默认为75。\n"
+"探测点：...\n"
 
+#, fuzzy
 msgid "TEST_RESONANCES AXIS=Y\n"
-msgstr ""
+msgstr "TEST_RESONANCES AXIS=Y\n"
 
+#, fuzzy
 msgid ""
 "~/klipper/scripts/calibrate_shaper.py /tmp/resonances_x_*.csv -o /tmp/shaper_calibrate_x.png\n"
 "~/klipper/scripts/calibrate_shaper.py /tmp/resonances_y_*.csv -o /tmp/shaper_calibrate_y.png\n"
 msgstr ""
+"~/klipper/scripts/calibrate_shaper.py /tmp/resonances_x_*.csv -o /tmp/"
+"shaper_calibrate_x.png\n"
+"~/klipper/scripts/calibrate_shaper.py /tmp/resonances_y_*.csv -o /tmp/"
+"shaper_calibrate_y.png\n"
 
 msgid ""
 "Fitted shaper 'zv' frequency = 34.4 Hz (vibrations = 4.0%, smoothing ~= 0.132)\n"
@@ -595,6 +625,17 @@ msgid ""
 "To avoid too much smoothing with '3hump_ei', suggested max_accel <= 2800 mm/sec^2\n"
 "Recommended shaper is mzv @ 34.6 Hz\n"
 msgstr ""
+"贴合成形器‘zv’频率=34.4HZ(振动=4.0%，平滑~=0.132)。\n"
+"为避免使用‘zv’进行过多平滑处理，建议使用max_Accel<=4500 mm/秒^2。\n"
+"贴合成形器‘mzv’频率=34.6hz(振动=0.0%，平滑~=0.170)。\n"
+"为避免使用‘mzv’进行过多平滑处理，建议使用max_Accel<=3500 mm/秒^2。\n"
+"贴合成形器‘EI’频率=41.4HZ(振动=0.0%，平滑~=0.188)。\n"
+"为避免使用‘ei’进行过多平滑处理，建议使用max_Accel<=3200 mm/秒^2。\n"
+"贴合成形器‘2hump_ei’频率=51.8HZ(振动=0.0%，平滑~=0.201)。\n"
+"为避免使用‘2hump_ei’时过于平滑，建议使用max_Accel<=3000 mm/秒^2。\n"
+"成型器‘3hump_ei’频率=61.8HZ(振动=0.0%，平滑~=0.215)。\n"
+"为避免使用‘3hump_ei’时过于平滑，建议使用max_Accel<=2800 mm/秒^2。\n"
+"推荐的整形器为mzv@34.6 hz\n"
 
 msgid ""
 "[input_shaper]\n"
@@ -606,6 +647,14 @@ msgid ""
 "[printer]\n"
 "max_accel: 3000  # should not exceed the estimated max_accel for X and Y axes\n"
 msgstr ""
+"[输入整形器]。\n"
+"造型频率x：...。\n"
+"Shaper_type_x：...。\n"
+"Shaper_freq_y：34.6。\n"
+"Shaper_type_y：mzv。\n"
+"\n"
+"[打印机]。\n"
+"Max_Accel：3000#不应超过X和Y轴的估计max_Accel\n"
 
 msgid ""
 "[adxl345 hotend]\n"
@@ -622,6 +671,19 @@ msgid ""
 "accel_chip_y: adxl345 bed\n"
 "probe_points: ...\n"
 msgstr ""
+"[adx1345 HOTEND]。\n"
+"#假设`hotend`芯片连接到RPI。\n"
+"CS_PIN：RPI：无。\n"
+"\n"
+"[adx1345张床]。\n"
+"#假设`bed`芯片连接到打印机MCU板。\n"
+"CS_PIN：...#打印板SPI芯片选择(CS)针脚。\n"
+"\n"
+"[共振测试仪]。\n"
+"#假设床吊杆打印机的典型设置。\n"
+"加速芯片_x：adx1345主机。\n"
+"Accel芯片y：adx1345床。\n"
+"探测点：...\n"
 
 msgid ""
 "Fitted shaper 'zv' frequency = 57.8 Hz (vibrations = 20.3%, smoothing ~= 0.053)\n"
@@ -750,27 +812,34 @@ msgid ""
 "`TEST_RESONANCES` command supports custom axes. While this is not really "
 "useful for input shaper calibration, it can be used to study printer "
 "resonances in-depth and to check, for example, belt tension."
-msgstr ""
+msgstr "`TEST_RESONANCES`命令支持自定义轴。虽然这对输入整形器校准并不真正有用，但它可"
+"用于深入研究打印机共振，并检查皮带张力等。"
 
 #: docs/Measuring_Resonances.md:block 82 (paragraph)
 msgid "To check the belt tension on CoreXY printers, execute"
-msgstr ""
+msgstr "要检查CoreXY打印机上的皮带张力，请执行"
 
 #: docs/Measuring_Resonances.md:block 83 (code)
+#, fuzzy
 msgid ""
 "TEST_RESONANCES AXIS=1,1 OUTPUT=raw_data\n"
 "TEST_RESONANCES AXIS=1,-1 OUTPUT=raw_data\n"
 msgstr ""
+"TEST_RESONANCES AXIS=1,1 OUTPUT=raw_data\n"
+"TEST_RESONANCES AXIS=1,-1 OUTPUT=raw_data\n"
 
 #: docs/Measuring_Resonances.md:block 84 (paragraph)
 msgid "and use `graph_accelerometer.py` to process the generated files, e.g."
-msgstr ""
+msgstr "并使用`graph_accelerometer.py`处理生成的文件，例如."
 
 #: docs/Measuring_Resonances.md:block 85 (code)
+#, fuzzy
 msgid ""
 "~/klipper/scripts/graph_accelerometer.py -c /tmp/raw_data_axis*.csv -o "
 "/tmp/resonances.png\n"
 msgstr ""
+"~/klipper/scripts/graph_accelerometer.py -c /tmp/raw_data_axis*.csv -o /tmp/"
+"resonances.png\n"
 
 #: docs/Measuring_Resonances.md:block 86 (paragraph)
 msgid "which will generate `/tmp/resonances.png` comparing the resonances."
@@ -813,6 +882,16 @@ msgid ""
 "probe_points:\n"
 "    100, 100, 20  # an example\n"
 msgstr ""
+"[MCU RPI]。\n"
+"序列：/tmp/Klipper_host_mcu。\n"
+"\n"
+"[adx1345]。\n"
+"CS_PIN：RPI：无。\n"
+"\n"
+"[共振测试仪]。\n"
+"加速芯片：adxl345。\n"
+"探测点(_P)：\n"
+"100、100、20#一个例子\n"
 
 #: docs/Measuring_Resonances.md:block 45 (paragraph)
 msgid ""
@@ -834,45 +913,51 @@ msgstr ""
 
 #: docs/Measuring_Resonances.md:block 9 (table)
 msgid "MPU-9250 pin"
-msgstr ""
+msgstr "MPU-9250引脚"
 
 #: docs/Measuring_Resonances.md:block 9 (table)
+#, fuzzy
 msgid "09"
-msgstr ""
+msgstr "09"
 
 #: docs/Measuring_Resonances.md:block 9 (table)
+#, fuzzy
 msgid "03"
-msgstr ""
+msgstr "03"
 
 #: docs/Measuring_Resonances.md:block 9 (table)
 msgid "GPIO02 (SDA1)"
-msgstr ""
+msgstr "GPIO02(SDA1)"
 
 #: docs/Measuring_Resonances.md:block 9 (table)
 msgid "05"
-msgstr ""
+msgstr "05"
 
 #: docs/Measuring_Resonances.md:block 9 (table)
 msgid "GPIO03 (SCL1)"
-msgstr ""
+msgstr "GPIO03 (SCL1)"
 
 #: docs/Measuring_Resonances.md:block 20 (paragraph)
 msgid ""
 "Note that resonance measurements and shaper auto-calibration require "
 "additional software dependencies not installed by default. First, run on "
 "your Raspberry Pi the following commands:"
-msgstr ""
+msgstr "请注意，共振测量和整形器自动校准需要默认情况下不安装的其他软件依赖项。首先，"
+"在你的树莓派上运行以下命令："
 
 #: docs/Measuring_Resonances.md:block 21 (code)
+#, fuzzy
 msgid ""
 "sudo apt update\n"
 "sudo apt install python3-numpy python3-matplotlib libatlas-base-dev\n"
 msgstr ""
+"sudo apt update\n"
+"sudo apt install python3-numpy python3-matplotlib libatlas-base-dev\n"
 
 #: docs/Measuring_Resonances.md:block 22 (paragraph)
 msgid ""
 "Next, in order to install NumPy in the Klipper environment, run the command:"
-msgstr ""
+msgstr "接下来，为了在Klipper环境中安装NumPy，运行命令："
 
 #: docs/Measuring_Resonances.md:block 24 (paragraph)
 msgid ""
@@ -881,6 +966,8 @@ msgid ""
 "installation. On some occasions, if the board has too little RAM the "
 "installation may fail and you will need to enable swap."
 msgstr ""
+"请注意，根据CPU性能的不同，这可能需要*很长*时间，最长可达10-20分钟。请耐心等"
+"待安装完成。在某些情况下，如果主板的RAM太少，安装可能会失败，您需要启用交换。"
 
 #: docs/Measuring_Resonances.md:block 31 (code)
 msgid ""
@@ -896,16 +983,27 @@ msgid ""
 "probe_points:\n"
 "    100, 100, 20  # an example\n"
 msgstr ""
+"[MCU RPI]。\n"
+"序列：/tmp/Klipper_host_mcu。\n"
+"\n"
+"[mpu9250]。\n"
+"I2C_MCU：RPI。\n"
+"I2C_BUS：I2c.1。\n"
+"\n"
+"[共振测试仪]。\n"
+"加速芯片：mpu9250。\n"
+"探测点(_P)：\n"
+"100、100、20#一个例子\n"
 
 #: docs/Measuring_Resonances.md:block 8 (paragraph)
 msgid ""
 "***Double-check your wiring before powering up to prevent damaging your "
 "MCU/Raspberry Pi or the accelerometer.***"
-msgstr ""
+msgstr "***通电前请仔细检查接线，以防止损坏您的MCU/树莓PI或加速度计。***"
 
 #: docs/Measuring_Resonances.md:block 9 (header)
 msgid "SPI Accelerometers"
-msgstr ""
+msgstr "SPI加速度计"
 
 #: docs/Measuring_Resonances.md:block 11 (code)
 msgid ""
@@ -913,36 +1011,45 @@ msgid ""
 "3.3V+MOSI\n"
 "SCLK+CS\n"
 msgstr ""
+"GND+MISO\n"
+"3.3V+MOSI\n"
+"SCLK +CS\n"
 
 #: docs/Measuring_Resonances.md:block 12 (header)
+#, fuzzy
 msgid "ADXL345"
-msgstr ""
+msgstr "ADXL345"
 
 #: docs/Measuring_Resonances.md:block 18 (header)
 msgid "I2C Accelerometers"
-msgstr ""
+msgstr "I2C加速度计"
 
 #: docs/Measuring_Resonances.md:block 20 (code)
+#, fuzzy
 msgid ""
 "3.3V+SDA\n"
 "GND+SCL\n"
 msgstr ""
+"3.3V+SDA\n"
+"GND+SCL\n"
 
 #: docs/Measuring_Resonances.md:block 21 (header)
+#, fuzzy
 msgid "MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500"
-msgstr ""
+msgstr "MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500"
 
 #: docs/Measuring_Resonances.md:block 23 (paragraph)
 msgid "Recommended connection scheme for I2C on the Raspberry Pi:"
-msgstr ""
+msgstr "推荐的树莓派上的I2C连接方案："
 
 #: docs/Measuring_Resonances.md:block 24 (table)
+#, fuzzy
 msgid "VCC"
-msgstr ""
+msgstr "VCC"
 
 #: docs/Measuring_Resonances.md:block 27 (table)
 msgid "RP2040 pin"
-msgstr ""
+msgstr "RP2040引脚"
 
 #: docs/Measuring_Resonances.md:block 27 (table)
 msgid "39"
@@ -950,27 +1057,27 @@ msgstr "39"
 
 #: docs/Measuring_Resonances.md:block 27 (table)
 msgid "3v3"
-msgstr ""
+msgstr "3v3"
 
 #: docs/Measuring_Resonances.md:block 27 (table)
 msgid "38"
-msgstr ""
+msgstr "388"
 
 #: docs/Measuring_Resonances.md:block 27 (table)
 msgid "GP0 (I2C0 SDA)"
-msgstr ""
+msgstr "GP0 (I2C0 SDA)"
 
 #: docs/Measuring_Resonances.md:block 27 (table)
 msgid "02"
-msgstr ""
+msgstr "02"
 
 #: docs/Measuring_Resonances.md:block 27 (table)
 msgid "GP1 (I2C0 SCL)"
-msgstr ""
+msgstr "GP1 (I2C0 SCL)"
 
 #: docs/Measuring_Resonances.md:block 42 (header)
 msgid "Configure ADXL345 With RPi"
-msgstr ""
+msgstr "使用RPI配置ADXL345"
 
 #: docs/Measuring_Resonances.md:block 44 (paragraph)
 msgid "Add the following to the printer.cfg file:"
@@ -1229,78 +1336,88 @@ msgstr ""
 
 #: docs/Measuring_Resonances.md:block 7 (table)
 msgid "MCU(s) Tested"
-msgstr ""
+msgstr "微控制器(S)测试"
 
 #: docs/Measuring_Resonances.md:block 7 (table)
 msgid "MCU(s) with Support"
-msgstr ""
+msgstr "支持的微控制器(S)"
 
 #: docs/Measuring_Resonances.md:block 7 (table)
 msgid "Raspberry Pi"
-msgstr ""
+msgstr "Raspberry Pi"
 
 #: docs/Measuring_Resonances.md:block 7 (table)
+#, fuzzy
 msgid "3B+, Pico"
-msgstr ""
+msgstr "3B+, Pico"
 
 #: docs/Measuring_Resonances.md:block 7 (table)
+#, fuzzy
 msgid "3A, 3A+, 3B, 4"
-msgstr ""
+msgstr "3A, 3A+, 3B, 4"
 
 #: docs/Measuring_Resonances.md:block 7 (table)
 msgid "AVR ATmega"
-msgstr ""
+msgstr "AVR解锁"
 
 #: docs/Measuring_Resonances.md:block 7 (table)
+#, fuzzy
 msgid "ATmega328p"
-msgstr ""
+msgstr "ATmega328p"
 
 #: docs/Measuring_Resonances.md:block 7 (table)
+#, fuzzy
 msgid ""
 "ATmega32u4, ATmega128, ATmega168, ATmega328, ATmega644p, ATmega1280, "
 "ATmega1284, ATmega2560"
 msgstr ""
+"ATmega32u4, ATmega128, ATmega168, ATmega328, ATmega644p, ATmega1280, "
+"ATmega1284, ATmega2560"
 
 #: docs/Measuring_Resonances.md:block 7 (table)
+#, fuzzy
 msgid "AVR AT90"
-msgstr ""
+msgstr "AVR AT90"
 
 #: docs/Measuring_Resonances.md:block 7 (table)
+#, fuzzy
 msgid "-"
-msgstr ""
+msgstr "-"
 
 #: docs/Measuring_Resonances.md:block 7 (table)
+#, fuzzy
 msgid "AT90usb646, AT90usb1286"
-msgstr ""
+msgstr "AT90usb646, AT90usb1286"
 
 #: docs/Measuring_Resonances.md:block 10 (paragraph)
 msgid ""
 "An ethernet cable with shielded twisted pairs (cat5e or better) is "
 "recommended for signal integrity over a long distance. If you still "
 "experience signal integrity issues (SPI/I2C errors):"
-msgstr ""
+msgstr "建议使用带有屏蔽双绞线(CAT5e或更好的)的以太网电缆，以实现远距离信号的完整性。"
+"如果您仍然遇到信号完整性问题(SPI/I2C错误)："
 
 #: docs/Measuring_Resonances.md:block 11 (unordered list)
 msgid "Double check the wiring with a digital multimeter for:"
-msgstr ""
+msgstr "用数字万用表仔细检查接线："
 
 #: docs/Measuring_Resonances.md:block 11 (unordered list)
 msgid "Correct connections when turned off (continuity)"
-msgstr ""
+msgstr "关闭时正确连接(连续性)"
 
 #: docs/Measuring_Resonances.md:block 11 (unordered list)
 msgid "Correct power and ground voltages"
-msgstr ""
+msgstr "正确的电源和接地电压"
 
 #: docs/Measuring_Resonances.md:block 11 (unordered list)
 msgid "I2C only:"
-msgstr ""
+msgstr "仅限I2C："
 
 #: docs/Measuring_Resonances.md:block 11 (unordered list)
 msgid ""
 "Check the SCL and SDA lines' resistances to 3.3V are in the range of 900 "
 "ohms to 1.8K"
-msgstr ""
+msgstr "检查SCL和SDA线路的3.3V电阻是否在900欧姆到1.8K的范围内"
 
 #: docs/Measuring_Resonances.md:block 11 (unordered list)
 msgid ""
@@ -1308,50 +1425,57 @@ msgid ""
 "and user manual UM10204](https://www.pololu.com/file/0J435/UM10204.pdf) for "
 "*fast-mode*"
 msgstr ""
+"有关完整的技术细节，请参考[I2C-Bus规范的第7章和*FAST-"
+"MODE*的用户手册UM10204](https://www.pololu.com/file/0J435/UM10204.pdf)"
 
 #: docs/Measuring_Resonances.md:block 11 (unordered list)
 msgid "Shorten the cable"
-msgstr ""
+msgstr "缩短电缆"
 
 #: docs/Measuring_Resonances.md:block 12 (paragraph)
 msgid "Connect ethernet cable shielding only to the MCU board/Pi ground."
-msgstr ""
+msgstr "仅将以太网电缆屏蔽连接到MCU板/PI接地。"
 
 #: docs/Measuring_Resonances.md:block 15 (paragraph)
 msgid "Suggested twisted pair order for three twisted pairs:"
-msgstr ""
+msgstr "三条双绞线的建议双绞线顺序："
 
 #: docs/Measuring_Resonances.md:block 17 (paragraph)
 msgid "Note that unlike a cable shield, GND must be connected at both ends."
-msgstr ""
+msgstr "请注意，与电缆屏蔽不同，GND必须在两端连接。"
 
 #: docs/Measuring_Resonances.md:block 20 (paragraph)
 msgid ""
 "**Note: Many MCUs will work with an ADXL345 in SPI mode (e.g. Pi Pico), "
 "wiring and configuration will vary according to your specific board and "
 "available pins.**"
-msgstr ""
+msgstr "**注：许多MCU将在SPI模式下使用ADXL345(例如PI "
+"Pico)，布线和配置将根据您的特定主板和可用的引脚而有所不同。**"
 
 #: docs/Measuring_Resonances.md:block 32 (paragraph)
 msgid "Suggested twisted pair order for three pairs (preferred):"
-msgstr ""
+msgstr "建议的三对双绞线顺序(首选)："
 
 #: docs/Measuring_Resonances.md:block 33 (code)
+#, fuzzy
 msgid ""
 "3.3V+GND\n"
 "SDA+GND\n"
 "SCL+GND\n"
 msgstr ""
+"3.3V+GND\n"
+"SDA+GND\n"
+"SCL+GND\n"
 
 #: docs/Measuring_Resonances.md:block 34 (paragraph)
 msgid "or for two pairs:"
-msgstr ""
+msgstr "或用于两对："
 
 #: docs/Measuring_Resonances.md:block 36 (paragraph)
 msgid ""
 "Note that unlike a cable shield, any GND(s) should be connected at both "
 "ends."
-msgstr ""
+msgstr "请注意，与电缆屏蔽不同，任何接地网(S)都应在两端连接。"
 
 #: docs/Measuring_Resonances.md:block 38 (paragraph)
 msgid ""
@@ -1360,70 +1484,77 @@ msgid ""
 "include pull-ups, but some are too large at 10K and must be changed or "
 "supplemented by smaller parallel resistors."
 msgstr ""
+"这些加速度计已在RPI、RP2040(Pico)和AVR上以400kbit/S(*快速模式*)的I2C模式工作"
+"。一些MPU加速度计模块包括上拉，但有些模块在10K时太大，必须更换或补充较小的并"
+"联电阻。"
 
 #: docs/Measuring_Resonances.md:block 41 (paragraph)
 msgid "The RPi has buit-in 1.8K pull-ups on both SCL and SDA."
-msgstr ""
+msgstr "RPI在SCL和SDA上都有1.8k的Bit-in引体向上。"
 
 #: docs/Measuring_Resonances.md:block 42 (paragraph)
 msgid "![MPU-9250 connected to Pi](img/mpu9250-PI-fritzing.png)"
-msgstr ""
+msgstr "！[MPU-9250接入PI](img/mpu9250-Pi-fritzing.png)"
 
 #: docs/Measuring_Resonances.md:block 43 (paragraph)
 msgid "Recommended connection scheme for I2C (i2c0a) on the RP2040:"
-msgstr ""
+msgstr "RP2040上I2C(I2c0a)的建议连接方案："
 
 #: docs/Measuring_Resonances.md:block 44 (table)
 msgid "RP2040 pin name"
-msgstr ""
+msgstr "RP2040引脚名称"
 
 #: docs/Measuring_Resonances.md:block 45 (paragraph)
 msgid "The Pico does not include any built-in I2C pull-up resistors."
-msgstr ""
+msgstr "Pico不包括任何内置I2C上拉电阻。"
 
 #: docs/Measuring_Resonances.md:block 46 (paragraph)
 msgid "![MPU-9250 connected to Pico](img/mpu9250-PICO-fritzing.png)"
-msgstr ""
+msgstr "！[MPU-9250接入Pico](img/mpu9250-Pico-fritzing.png)"
 
 #: docs/Measuring_Resonances.md:block 47 (header)
 msgid ""
 "Recommended connection scheme for I2C(TWI) on the AVR ATmega328P Arduino "
 "Nano:"
-msgstr ""
+msgstr "AVR ATmega328P Arduino Nano上I2C(TWI)的建议连接方案："
 
 #: docs/Measuring_Resonances.md:block 48 (table)
 msgid "Atmega328P TQFP32 pin"
-msgstr ""
+msgstr "Atmega 328P TQFP 32针脚"
 
 #: docs/Measuring_Resonances.md:block 48 (table)
 msgid "Atmega328P pin name"
-msgstr ""
+msgstr "Atmega 328P端号名称"
 
 #: docs/Measuring_Resonances.md:block 48 (table)
 msgid "Arduino Nano pin"
-msgstr ""
+msgstr "Arduino纳米针"
 
 #: docs/Measuring_Resonances.md:block 48 (table)
+#, fuzzy
 msgid "27"
-msgstr ""
+msgstr "27"
 
 #: docs/Measuring_Resonances.md:block 48 (table)
+#, fuzzy
 msgid "A4"
-msgstr ""
+msgstr "A4"
 
 #: docs/Measuring_Resonances.md:block 48 (table)
+#, fuzzy
 msgid "28"
-msgstr ""
+msgstr "28"
 
 #: docs/Measuring_Resonances.md:block 48 (table)
+#, fuzzy
 msgid "A5"
-msgstr ""
+msgstr "A5"
 
 #: docs/Measuring_Resonances.md:block 49 (paragraph)
 msgid ""
 "The Arduino Nano does not include any built-in pull-up resistors nor a 3.3V "
 "power pin."
-msgstr ""
+msgstr "Arduino Nano不包括任何内置上拉电阻，也不包括3.3V电源插针。"
 
 #: docs/Measuring_Resonances.md:block 63 (paragraph)
 msgid ""
@@ -1432,10 +1563,12 @@ msgid ""
 "Raspberry Pi. This will configure a second Klipper instance that runs on "
 "your Pi."
 msgstr ""
+"首先，检查并按照[RPI微控制器文档](rpi_微控制器.md)中的说明在Raspberry "
+"PI上设置“Linux MCU”。这将配置在您的PI上运行的第二个Klipper实例。"
 
 #: docs/Measuring_Resonances.md:block 82 (header)
 msgid "Configure LIS2DW series"
-msgstr ""
+msgstr "配置LIS2DW系列"
 
 #: docs/Measuring_Resonances.md:block 83 (code)
 msgid ""
@@ -1455,16 +1588,31 @@ msgid ""
 "    # Somewhere slightly above the middle of your print bed\n"
 "    147,154, 20\n"
 msgstr ""
+"[MCU列表]。\n"
+"#将<mySerial>更改为您在上面找到的任何内容。例如,。\n"
+"#usb-klipper_rp2040_E661640843545B2E-if00。\n"
+"序列号：/dev/serial/by-id/usb-Klipper_rp2040_<mySerial>。\n"
+"\n"
+"[lis2dw]。\n"
+"Cs_pin：lis：gpio1。\n"
+"SPI_BUS：SP0A。\n"
+"AXES_MAP：x、z、y。\n"
+"\n"
+"[共振测试仪]。\n"
+"加速芯片：lis2dw。\n"
+"探测点(_P)：\n"
+"#在你的打印床中间稍高一点的地方。\n"
+"147,154，20\n"
 
 #: docs/Measuring_Resonances.md:block 87 (header)
 msgid "Configure MPU-9520 Compatibles With Pico"
-msgstr ""
+msgstr "配置与Pico兼容的MPU-9520"
 
 #: docs/Measuring_Resonances.md:block 88 (paragraph)
 msgid ""
 "Pico I2C is set to 400000 on default. Simply add the following to the "
 "printer.cfg:"
-msgstr ""
+msgstr "默认情况下，Pico I2C设置为400000。只需将以下内容添加到printer.cfg："
 
 #: docs/Measuring_Resonances.md:block 89 (code)
 msgid ""

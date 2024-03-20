@@ -1,15 +1,16 @@
-# "Zs.Antal" <zsikaiantal@icloud.com>, 2023.
+# "Zs.Antal" <zsikaiantal@icloud.com>, 2023, 2024.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-10-30 09:04+0000\n"
+"PO-Revision-Date: 2024-03-15 16:02+0000\n"
 "Last-Translator: \"Zs.Antal\" <zsikaiantal@icloud.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/canbus_troubleshooting/hu/>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
+"canbus_troubleshooting/hu/>\n"
 "Language: hu\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.2-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: docs/CANBUS_Troubleshooting.md:block 1 (header)
 msgid "CANBUS Troubleshooting"
@@ -42,6 +43,10 @@ msgid ""
 " are not properly installed then messages may not be able to be sent at all "
 "or the connection may have sporadic instability."
 msgstr ""
+"Győződj meg róla, hogy pontosan két 120 Ohm [lezáró ellenállás](CANBUS.md"
+"#terminating-resistors) van a CAN-buszon. Ha az ellenálások nem megfelelően "
+"vannak elhelyezve, akkor az üzenetek egyáltalán nem tudnak átmenni, vagy a "
+"kapcsolatnak sporadikus instabilitása lehet."
 
 #: docs/CANBUS_Troubleshooting.md:block 6 (paragraph)
 msgid ""
@@ -51,6 +56,11 @@ msgid ""
 "wires that travel parallel to the CANH and CANL wires do not have the same "
 "amount of twists."
 msgstr ""
+"A CANH és a CANL buszvezetékeknek csavart érpároknak kell lennie. Vagy "
+"legalább pár centiméterenként csavarni kell az érpárokat. Kerüld el a CANH "
+"és a CANL vezetékek erős áramú vezetékekkel való kapcsolatát. Kerüld el és "
+"biztosítsd, hogy az erős áramú vezetékek, amelyek párhuzamosan futnak a CANH "
+"és a CANL vezetékekkel ne rendelkeznek azonos mennyiségű érpár csavarással."
 
 #: docs/CANBUS_Troubleshooting.md:block 7 (paragraph)
 msgid ""
@@ -59,10 +69,14 @@ msgid ""
 "causing a bad wire crimp or unsecured plug to result in intermittent "
 "communication errors."
 msgstr ""
+"Ellenőrizd, hogy a CAN-busz kábelezésén lévő összes csatlakozó és "
+"vezetékrögzítő jól van rögzítve. A nyomtatófej mozgása megrázhatja a CAN-"
+"busz vezetékeit, ami egy rosszul rögzített vagy rögzítetlen csatlakozó miatt "
+"időszakos kommunikációs hibákat okozhat."
 
 #: docs/CANBUS_Troubleshooting.md:block 8 (header)
 msgid "Check for incrementing bytes_invalid counter"
-msgstr ""
+msgstr "A bytes_invalid számláló növelésének ellenőrzése"
 
 #: docs/CANBUS_Troubleshooting.md:block 9 (paragraph)
 msgid ""
@@ -75,6 +89,14 @@ msgid ""
 "printing (it increments every few hours or more frequently) then it is an "
 "indication of a severe problem."
 msgstr ""
+"A Klipper naplófájl másodpercenként egyszer jelent egy `Stats` sort, amikor "
+"a nyomtató aktív. Ezek a \"Stats\" sorok minden mikrokontroller esetében "
+"tartalmaznak egy `bytes_invalid` számlálót. Ennek a számlálónak nem szabad "
+"növekednie a nyomtató normál működése során (normális, hogy a számláló nem "
+"nulla az újraindítás után, és nem jelent gondot, ha a számláló havonta "
+"egyszer növekszik). Ha ez a számláló egy CAN-buszos mikrovezérlőn normál "
+"nyomtatás közben növekszik (néhány óránként vagy gyakrabban), akkor az "
+"súlyos problémára utal."
 
 #: docs/CANBUS_Troubleshooting.md:block 10 (paragraph)
 msgid ""
@@ -82,6 +104,8 @@ msgid ""
 "reordered messages on the CAN bus. There are two known causes of reordered "
 "messages:"
 msgstr ""
+"A `bytes_invalid` növekedése egy CAN-busz kapcsolaton a CAN-buszon lévő "
+"átrendezett üzenetek tünete. Az újrarendezett üzeneteknek két ismert oka van:"
 
 #: docs/CANBUS_Troubleshooting.md:block 11 (ordered list)
 msgid ""
@@ -90,6 +114,10 @@ msgid ""
 "this firmware then make sure to update to the latest firmware if "
 "incrementing `bytes_invalid` is observed."
 msgstr ""
+"Az USB CAN-adapterek népszerű candlight_firmware-jének régi verzióiban volt "
+"egy hiba, amely átrendezett üzeneteket okozhatott. Ha ilyen firmware-t "
+"futtató USB CAN adaptert használsz, akkor mindenképpen frissítsd a legújabb "
+"firmware-re, ha a `bytes_invalid` növekedését észleled."
 
 #: docs/CANBUS_Troubleshooting.md:block 11 (ordered list)
 msgid ""
@@ -98,16 +126,24 @@ msgid ""
 "use alternative hardware that supports mainstream Linux kernels that do not "
 "exhibit this problem."
 msgstr ""
+"Néhány beágyazott eszközökhöz készült Linux kernelről ismert, hogy átrendezi "
+"a CAN-busz üzeneteket. Szükség lehet egy alternatív Linux kernel "
+"használatára, vagy olyan alternatív hardverek használatára, amelyek "
+"támogatják a mainstream Linux kerneleket, amelyek nem mutatják ezt a "
+"problémát."
 
 #: docs/CANBUS_Troubleshooting.md:block 12 (paragraph)
 msgid ""
 "Reordered messages is a severe problem that must be fixed. It will result in"
 " unstable behavior and can lead to confusing errors at any part of a print."
 msgstr ""
+"Az átrendezett üzenetek súlyos problémát jelentenek, amelyet orvosolni kell. "
+"Ez instabil viselkedést eredményez, és zavaró hibákhoz vezethet a nyomtatás "
+"bármelyik részénél."
 
 #: docs/CANBUS_Troubleshooting.md:block 13 (header)
 msgid "Obtaining candump logs"
-msgstr ""
+msgstr "Candump naplók beszerzése"
 
 #: docs/CANBUS_Troubleshooting.md:block 14 (paragraph)
 msgid ""
@@ -116,26 +152,35 @@ msgid ""
 "for debugging purposes. A log of these messages may be of use in "
 "diagnostics."
 msgstr ""
+"A mikrokontrollerhez küldött és onnan érkező CAN-busz üzeneteket a Linux "
+"kernel kezeli. Lehetőség van arra, hogy ezeket az üzeneteket a kernelből "
+"hibakeresés céljából rögzítsük. Ezen üzenetek naplózása hasznos lehet a "
+"diagnosztikában."
 
 #: docs/CANBUS_Troubleshooting.md:block 15 (paragraph)
 msgid ""
 "The Linux [can-utils](https://github.com/linux-can/can-utils) tool provides "
 "the capture software. It is typically installed on a machine by running:"
 msgstr ""
+"A Linux [can-utils](https://github.com/linux-can/can-utils) eszköz "
+"biztosítja a rögzítő szoftvert. Ezt általában a következő futtatásával "
+"telepíthetjük a gépre:"
 
 #: docs/CANBUS_Troubleshooting.md:block 16 (code)
 msgid "sudo apt-get update && sudo apt-get install can-utils\n"
-msgstr ""
+msgstr "sudo apt-get update && sudo apt-get install can-utils\n"
 
 #: docs/CANBUS_Troubleshooting.md:block 17 (paragraph)
 msgid ""
 "Once installed, one may obtain a capture of all CAN bus messages on an "
 "interface with the following command:"
 msgstr ""
+"A telepítés után a következő paranccsal az összes CAN-busz üzenetet "
+"rögzíthetjük egy interfészen:"
 
 #: docs/CANBUS_Troubleshooting.md:block 18 (code)
 msgid "candump -tz -Ddex can0,#FFFFFFFF > mycanlog\n"
-msgstr ""
+msgstr "candump -tz -Ddex can0,#FFFFFFFF > mycanlog\n"
 
 #: docs/CANBUS_Troubleshooting.md:block 19 (paragraph)
 msgid ""
@@ -145,10 +190,15 @@ msgid ""
 "knowledge of Klipper's [CANBUS protocol](CANBUS_protocol.md) and Klipper's "
 "[MCU commands](MCU_Commands.md)."
 msgstr ""
+"A kapott naplófájlban (a fenti példában a `mycanlog`) megtekinthetjük a "
+"Klipper által küldött és fogadott minden egyes nyers CAN-busz üzenetet. Ezen "
+"üzenetek tartalmának megértéséhez valószínűleg a Klipper [CANBUS "
+"protokoll](CANBUS_protocol.md) és a Klipper [MCU parancsok](MCU_Commands.md) "
+"alacsony szintű ismerete szükséges."
 
 #: docs/CANBUS_Troubleshooting.md:block 20 (header)
 msgid "Parsing Klipper messages in a candump log"
-msgstr ""
+msgstr "Klipper üzenetek elemzése a candump naplóban"
 
 #: docs/CANBUS_Troubleshooting.md:block 21 (paragraph)
 msgid ""
@@ -157,10 +207,14 @@ msgid ""
 "advanced topic that requires knowledge of Klipper [MCU "
 "commands](MCU_Commands.md). For example:"
 msgstr ""
+"A `parsecandump.py` eszközt használhatjuk a candump naplóban található "
+"alacsony szintű Klipper mikrokontroller üzenetek elemzésére. Ennek az "
+"eszköznek a használata haladó témakör, amelyhez a Klipper [MCU "
+"parancsok](MCU_Commands.md) ismerete szükséges. Például:"
 
 #: docs/CANBUS_Troubleshooting.md:block 22 (code)
 msgid "./scripts/parsecandump.py mycanlog 108 ./out/klipper.dict\n"
-msgstr ""
+msgstr "./scripts/parsecandump.py mycanlog 108 ./out/klipper.dict\n"
 
 #: docs/CANBUS_Troubleshooting.md:block 23 (paragraph)
 msgid ""
@@ -169,6 +223,10 @@ msgid ""
 "See the documentation for that tool for information on generating the "
 "Klipper micro-controller data dictionary."
 msgstr ""
+"Ez az eszköz a [parsedump eszközhöz](Debugging.md#translating-gcode-files-to-"
+"micro-controller-commands) hasonló kimenetet állít elő. A Klipper "
+"mikrokontroller adatszótár generálásával kapcsolatos információkért lásd az "
+"említett eszköz dokumentációját."
 
 #: docs/CANBUS_Troubleshooting.md:block 24 (paragraph)
 msgid ""
@@ -178,6 +236,11 @@ msgid ""
 "multiple micro-controllers on it, then the second micro-controller would be "
 "`10a`, the third would be `10c`, and so on."
 msgstr ""
+"A fenti példában a \"108\" a [CAN-busz azonosítója](CANBUS_protocol.md#micro-"
+"controller-id-assignment). Ez egy hexadecimális szám. A Klipper a `108` "
+"azonosítót az első mikrokontrollerhez rendeli. Ha a CAN-buszon több "
+"mikrokontroller van, akkor a második mikrokontroller `10a`, a harmadik `10c`"
+", és így tovább."
 
 #: docs/CANBUS_Troubleshooting.md:block 25 (paragraph)
 msgid ""
@@ -185,10 +248,13 @@ msgid ""
 "arguments (for example: `candump -tz -Ddex can0,#FFFFFFFF`) in order to use "
 "the `parsecandump.py` tool."
 msgstr ""
+"A candump naplót a `-tz -Ddex` parancssori argumentummal kell létrehozni "
+"(például: `candump -tz -Ddex can0,#FFFFFFFFFFFF`) a `parsecandump.py` eszköz "
+"használatához."
 
 #: docs/CANBUS_Troubleshooting.md:block 26 (header)
 msgid "Using a logic analyzer on the canbus wiring"
-msgstr ""
+msgstr "Logikai analizátor használata a canbus kábelezésen"
 
 #: docs/CANBUS_Troubleshooting.md:block 27 (paragraph)
 msgid ""
@@ -198,6 +264,10 @@ msgid ""
 "diagnosing CAN bus signaling. This is an advanced topic likely only of "
 "interest to experts."
 msgstr ""
+"A [Sigrok Pulseview](https://sigrok.org/wiki/PulseView) szoftver egy olcsó ["
+"logikai analizátorral](https://en.wikipedia.org/wiki/Logic_analyzer) együtt "
+"hasznos lehet a CAN-busz jelátvitelének diagnosztizálásához. Ez egy haladó "
+"téma, amely valószínűleg csak a szakértők számára érdekes."
 
 #: docs/CANBUS_Troubleshooting.md:block 28 (paragraph)
 msgid ""
@@ -205,10 +275,13 @@ msgid ""
 "2023). These devices are often listed as \"Saleae logic clones\" or as "
 "\"24MHz 8 channel USB logic analyzers\"."
 msgstr ""
+"Gyakran találhatunk \"USB logikai analizátorokat\" 15 dollár alatti áron ("
+"amerikai árképzés 2023-tól). Ezek az eszközök gyakran \"Saleae logic clones\""
+" vagy \"24MHz-es 8 csatornás USB logikai analizátorok\" néven szerepelnek."
 
 #: docs/CANBUS_Troubleshooting.md:block 29 (paragraph)
 msgid "![pulseview-canbus](img/pulseview-canbus.png)"
-msgstr ""
+msgstr "![pulseview-canbus](img/pulseview-canbus.png)"
 
 #: docs/CANBUS_Troubleshooting.md:block 30 (paragraph)
 msgid ""
@@ -229,9 +302,28 @@ msgid ""
 "(click \"Run\" at top left) and a packet was transmitted on the CAN bus "
 "(`cansend can0 123#121212121212`)."
 msgstr ""
+"A fenti kép a Pulseview használata közben készült egy \"Saleae klón\" "
+"logikai analizátorral. A Sigrok és a Pulseview szoftver egy asztali gépre "
+"lett telepítve (telepítsd az \"fx2lafw\" firmware-t is, ha az külön "
+"csomagban van). A logikai analizátor CH0 tűjét a CAN Rx tűre, a CH1 tűt a "
+"CAN Tx tűre, a GND-t pedig a GND-re vezettük. A Pulseview-t úgy "
+"konfiguráltuk, hogy csak a D0 és D1 vonalakat jelenítse meg (piros \"szonda\""
+" ikon középső felső eszköztár). A minták számát 5 millióra (felső eszköztár)"
+", a mintavételi sebességet pedig 24Mhz-re (felső eszköztár) állítottuk be. A "
+"CAN dekódert hozzáadtuk (sárga és zöld \"buborék ikon\" jobb felső eszköztár)"
+". A D0 csatornát RX-ként jelöltük meg, és úgy állítottuk be, hogy csökkenő "
+"élre triggereljen (kattintsunk a bal oldali fekete D0 címkére). A D1 "
+"csatornát TX-ként jelöltük (kattintsunk a bal oldali barna D1 címkére). A "
+"CAN dekódert 1Mbit sebességre konfiguráltuk (kattints a bal oldali zöld CAN "
+"címkére). A CAN dekóder a kijelző tetejére került (kattints és húzd a zöld "
+"CAN címkét). Végül elindítottuk a rögzítést (kattintsunk a bal felső "
+"sarokban lévő \"Run\" gombra), és egy csomagot továbbítottunk a CAN-buszon (`"
+"cansend can0 123#121212121212`)."
 
 #: docs/CANBUS_Troubleshooting.md:block 31 (paragraph)
 msgid ""
 "The logic analyzer provides an independent tool for capturing packets and "
 "verifying bit timing."
 msgstr ""
+"A logikai analizátor független eszközt biztosít a csomagok rögzítéséhez és a "
+"bitek időzítésének ellenőrzéséhez."

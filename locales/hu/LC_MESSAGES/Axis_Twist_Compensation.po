@@ -1,15 +1,16 @@
-# "Zs.Antal" <zsikaiantal@icloud.com>, 2023.
+# "Zs.Antal" <zsikaiantal@icloud.com>, 2023, 2024.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-10-30 09:04+0000\n"
+"PO-Revision-Date: 2024-03-15 16:02+0000\n"
 "Last-Translator: \"Zs.Antal\" <zsikaiantal@icloud.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/axis_twist_compensation/hu/>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
+"axis_twist_compensation/hu/>\n"
 "Language: hu\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.2-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: docs/Axis_Twist_Compensation.md:block 1 (header)
 msgid "Axis Twist Compensation"
@@ -62,35 +63,44 @@ msgstr ""
 
 #: docs/Axis_Twist_Compensation.md:block 6 (header)
 msgid "Overview of compensation usage"
-msgstr ""
+msgstr "A kompenzációs használat áttekintése"
 
 #: docs/Axis_Twist_Compensation.md:block 7 (quote)
 msgid ""
 "**Tip:** Make sure the [probe X and Y offsets](Config_Reference.md#probe) "
 "are correctly set as they greatly influence calibration."
 msgstr ""
+"**Tip:** Győződj meg róla, hogy az [ X és Y eltolás](Config_Reference."
+"md#probe) megfelelően van beállítva, mivel nagymértékben befolyásolják a "
+"kalibrálást."
 
 #: docs/Axis_Twist_Compensation.md:block 8 (ordered list)
 msgid ""
 "After setting up the [axis_twist_compensation] module, perform "
 "`AXIS_TWIST_COMPENSATION_CALIBRATE`"
 msgstr ""
+"Az [axis_twist_compensation] modul beállítása után hajtsd végre az alábbi "
+"parancsot `AXIS_TWIST_COMPENSATION_CALIBRATE`"
 
 #: docs/Axis_Twist_Compensation.md:block 9 (unordered list)
 msgid ""
 "The calibration wizard will prompt you to measure the probe Z offset at a "
 "few points along the bed"
 msgstr ""
+"A kalibrációs varázsló felszólít Téged, hogy mérd meg a szonda Z eltolását "
+"az ágy mentén néhány ponton"
 
 #: docs/Axis_Twist_Compensation.md:block 9 (unordered list)
 msgid ""
 "The calibration defaults to 3 points but you can use the option "
 "`SAMPLE_COUNT=` to use a different number."
 msgstr ""
+"A kalibrálás alapértelmezett értéke 3 pont, de a `SAMPLE_COUNT=` opcióval "
+"más számot is használhatsz."
 
 #: docs/Axis_Twist_Compensation.md:block 10 (ordered list)
 msgid "[Adjust your Z offset](Probe_Calibrate.md#calibrating-probe-z-offset)"
-msgstr ""
+msgstr "[Z eltolás beállítása](Probe_Calibrate.md#calibrating-probe-z-offset)"
 
 #: docs/Axis_Twist_Compensation.md:block 10 (ordered list)
 msgid ""
@@ -98,35 +108,48 @@ msgid ""
 "Adjust](G-Codes.md#screws_tilt_adjust), [Z Tilt "
 "Adjust](G-Codes.md#z_tilt_adjust) etc"
 msgstr ""
+"Automatikus/szondás szintezési műveletek végrehajtása, például [Orsók "
+"dőlésbeállítása](G-Codes.md#screws_tilt_adjust), [Z dőlésbeállítása](G-Codes."
+"md#z_tilt_adjust) stb"
 
 #: docs/Axis_Twist_Compensation.md:block 10 (ordered list)
 msgid "Home all axis, then perform a [Bed Mesh](Bed_Mesh.md) if required"
 msgstr ""
+"Kezdőpont minden tengelyen, majd szükség esetén végezzünk egy [ "
+"Ágyháló](Bed_Mesh.md) műveletet"
 
 #: docs/Axis_Twist_Compensation.md:block 10 (ordered list)
 msgid ""
 "Perform a test print, followed by any [fine-"
 "tuning](Axis_Twist_Compensation.md#fine-tuning) as desired"
 msgstr ""
+"Végezz el egy próbanyomtatást, majd a kívánt "
+"[finomhangolást](Axis_Twist_Compensation.md#fine-tuning)"
 
 #: docs/Axis_Twist_Compensation.md:block 11 (quote)
 msgid ""
 "**Tip:** Bed temperature and nozzle temperature and size do not seem to have"
 " an influence to the calibration process."
 msgstr ""
+"**Tipp:** Úgy tűnik, hogy az ágy hőmérséklete és a fúvóka hőmérséklete és "
+"mértéke nem befolyásolja a kalibrálási folyamatot."
 
 #: docs/Axis_Twist_Compensation.md:block 12 (header)
 msgid "[axis_twist_compensation] setup and commands"
-msgstr ""
+msgstr "[axis_twist_compensation] beállítások és parancsok"
 
 #: docs/Axis_Twist_Compensation.md:block 13 (paragraph)
 msgid ""
 "Configuration options for [axis_twist_compensation] can be found in the "
 "[Configuration Reference](Config_Reference.md#axis_twist_compensation)."
 msgstr ""
+"Az [axis_twist_compensation] konfigurációs beállításai a [Konfigurációs "
+"referenciában](Config_Reference.md#axis_twist_compensation) találhatóak."
 
 #: docs/Axis_Twist_Compensation.md:block 14 (paragraph)
 msgid ""
 "Commands for [axis_twist_compensation] can be found in the [G-Codes "
 "Reference](G-Codes.md#axis_twist_compensation)"
 msgstr ""
+"Az [axis_twist_compensation] parancsok megtalálhatók a [G-Kódok "
+"referencia](G-Codes.md#axis_twist_compensation) című dokumentumban"

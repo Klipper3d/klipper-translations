@@ -1,20 +1,22 @@
 # Zs.Antal <zsikaiantal@gmail.com>, 2022.
 # Yifei Ding <dingyifeiair@gmail.com>, 2022.
 # "Zs.Antal" <zsikaiantal@gmail.com>, 2023.
+# "Zs.Antal" <zsikaiantal@icloud.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2023-07-26 16:08+0000\n"
-"Last-Translator: \"Zs.Antal\" <zsikaiantal@gmail.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/status_reference/hu/>\n"
+"PO-Revision-Date: 2024-03-15 16:02+0000\n"
+"Last-Translator: \"Zs.Antal\" <zsikaiantal@icloud.com>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
+"status_reference/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.0-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 msgid ""
 "This document is a reference of printer status information available in "
@@ -1369,17 +1371,21 @@ msgstr ""
 
 #: docs/Status_Reference.md:block 42 (header)
 msgid "gcode_button"
-msgstr ""
+msgstr "gcode_button"
 
 #: docs/Status_Reference.md:block 43 (paragraph)
 msgid ""
 "The following information is available in [gcode_button "
 "some_name](Config_Reference.md#gcode_button) objects:"
 msgstr ""
+"A következő információk a [gcode_button some_name](Config_Reference."
+"md#gcode_button) objektumokban érhetők el:"
 
 #: docs/Status_Reference.md:block 44 (unordered list)
 msgid "`state`: The current button state returned as \"PRESSED\" or \"RELEASED\""
 msgstr ""
+"`állapot`: A gomb aktuális állapota, amely \"PRESSED\" vagy \"RELEASED\" "
+"formában érkezik vissza"
 
 #: docs/Status_Reference.md:block 59 (unordered list)
 msgid ""
@@ -1388,12 +1394,19 @@ msgid ""
 " While a temperature sensor is always available to read, a temperature "
 "monitor may not be available and will return null in such case."
 msgstr ""
+"`available_monitors`: A jelenleg elérhető összes hőmérséklet-monitor "
+"listáját adja vissza a teljes konfigurációs szakasz nevével, pl. `[\"tmc2240 "
+"stepper_x\"]`. Míg egy hőmérséklet-érzékelő mindig olvasható, előfordulhat, "
+"hogy egy hőmérséklet-érzékelő nem elérhető, és ilyen esetben null értéket ad "
+"vissza."
 
 #: docs/Status_Reference.md:block 98 (unordered list)
 msgid ""
 "`max_deviation`: Return the last `MAX_DEVIATION` value of the most recent "
 "`SCREWS_TILT_CALCULATE` command."
 msgstr ""
+"`max_deviation`: A legutóbbi `SCREWS_TILT_CALCULATE` parancs utolsó "
+"`MAX_DEVIATION` értékét adja vissza."
 
 #: docs/Status_Reference.md:block 110 (paragraph)
 msgid ""
@@ -1406,6 +1419,13 @@ msgid ""
 "config_section_name](Config_Reference.md#combined-temperature-sensor) "
 "objects:"
 msgstr ""
+"[bme280 config_section_name](Config_Reference.md#bmp280bme280bme680"
+"-temperature-sensor), [htu21d config_section_name](Config_Reference.md"
+"#htu21d-sensor), [lm75 config_section_name](Config_Reference.md#lm75"
+"-temperature-sensor), [temperature_host config_section_name](Config_Reference"
+".md#host-temperature-sensor) and [temperature_combined "
+"config_section_name](Config_Reference.md#combined-temperature-sensor) "
+"objektumok:"
 
 #: docs/Status_Reference.md:block 120 (unordered list)
 msgid ""
@@ -1413,6 +1433,9 @@ msgid ""
 "will be null if the driver is not enabled or if the driver does not support "
 "temperature reporting."
 msgstr ""
+"`hőmérséklet`: Az illesztőprogram által jelentett belső hőmérséklet. Ez a "
+"mező nulla lesz, ha az illesztőprogram nincs engedélyezve, vagy ha az "
+"illesztőprogram nem támogatja a hőmérséklet jelentést."
 
 #: docs/Status_Reference.md:block 125 (paragraph)
 msgid ""
@@ -1420,18 +1443,25 @@ msgid ""
 "[dual_carriage](Config_Reference.md#dual_carriage) on a cartesian, "
 "hybrid_corexy or hybrid_corexz robot"
 msgstr ""
+"A következő információk a [dual_carriage](Config_Reference.md#dual_carriage) "
+"menüpontban érhetőek el egy cartesian, hybrid_corexy vagy hybrid_corexz "
+"géphez"
 
 #: docs/Status_Reference.md:block 126 (unordered list)
 msgid ""
 "`carriage_0`: The mode of the carriage 0. Possible values are: \"INACTIVE\" "
 "and \"PRIMARY\"."
 msgstr ""
+"`carriage_0`: A kocsi 0. A lehetséges értékek a következők: \"INACTIVE\" és "
+"\"PRIMARY\"."
 
 #: docs/Status_Reference.md:block 126 (unordered list)
 msgid ""
 "`carriage_1`: The mode of the carriage 1. Possible values are: \"INACTIVE\","
 " \"PRIMARY\", \"COPY\", and \"MIRROR\"."
 msgstr ""
+"`carriage_1`: A kocsi 1 üzemmódja. A lehetséges értékek a következők: "
+"\"INACTIVE\", \"PRIMARY\", \"COPY\" és \"MIRROR\"."
 
 #~ msgid ""
 #~ "[bme280 "

@@ -1,24 +1,37 @@
-#
+# Rune Steenstrup <rst.steen@gmail.com>, 2024.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2024-03-10 21:01+0000\n"
+"Last-Translator: Rune Steenstrup <rst.steen@gmail.com>\n"
+"Language-Team: Norwegian Bokmål <https://hosted.weblate.org/projects/klipper/"
+"measuring_resonances/nb_NO/>\n"
+"Language: nb_NO\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.5-dev\n"
+"Content-Transfer-Encoding: 8bit\n"
 
 msgid "Measuring Resonances"
-msgstr ""
+msgstr "Måling av resonans"
 
 msgid "Installation instructions"
-msgstr ""
+msgstr "Installasjonsveiledning"
 
 msgid "Wiring"
-msgstr ""
+msgstr "ledninger"
 
 msgid ""
 "You need to connect ADXL345 to your Raspberry Pi via SPI. Note that the I2C "
 "connection, which is suggested by ADXL345 documentation, has too low "
 "throughput and **will not work**. The recommended connection scheme:"
 msgstr ""
+"Du må koble ADXL345 til din Raspberry Pi via SPI. Merk at I2C-tilkoblingen, "
+"som foreslås av ADXL345-dokumentasjonen, har for lav gjennomstrømning og vil "
+"ikke fungere. Anbefalt tilkoblingsskjema:"
 
 msgid "ADXL345 pin"
-msgstr ""
+msgstr "ADXL345 pin"
 
 msgid "RPi pin"
 msgstr ""
@@ -27,13 +40,13 @@ msgid "RPi pin name"
 msgstr ""
 
 msgid "3V3 (or VCC)"
-msgstr ""
+msgstr "3V3 (eller VCC)"
 
 msgid "01"
 msgstr ""
 
 msgid "3.3v DC power"
-msgstr ""
+msgstr "3,3v likestrøm"
 
 msgid "GND"
 msgstr ""
@@ -42,7 +55,7 @@ msgid "06"
 msgstr ""
 
 msgid "Ground"
-msgstr ""
+msgstr "Jord"
 
 msgid "CS"
 msgstr ""
@@ -87,7 +100,7 @@ msgid "![ADXL345-Rpi](img/adxl345-fritzing.png)"
 msgstr ""
 
 msgid "Mounting the accelerometer"
-msgstr ""
+msgstr "Montering av akselerometeret"
 
 msgid ""
 "The accelerometer must be attached to the toolhead. One needs to design a "
@@ -99,7 +112,7 @@ msgid ""
 msgstr ""
 
 msgid "An example of mounting ADXL345 on the SmartEffector:"
-msgstr ""
+msgstr "Et eksempel på montering av ADXL345 på SmartEffect:"
 
 msgid "![ADXL345 on SmartEffector](img/adxl345-mount.jpg)"
 msgstr ""

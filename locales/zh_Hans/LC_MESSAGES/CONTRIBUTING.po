@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-10 16:29+0200\n"
-"PO-Revision-Date: 2024-02-18 18:09+0000\n"
+"PO-Revision-Date: 2024-02-23 22:02+0000\n"
 "Last-Translator: Hosted Weblate <mfvotmjhcj@iubridge.com>\n"
 "Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
 "klipper/contributing/zh_Hans/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.4\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 msgid "Contributing to Klipper"
 msgstr "为 Klipper 做贡献"
@@ -573,20 +573,20 @@ msgstr "请不要“ping”任何一位评审员，也不要直接向他们投�
 
 #: docs/CONTRIBUTING.md:block 25 (paragraph)
 msgid "The Klipper \"maintainers\" are:"
-msgstr ""
+msgstr "Klipper的“维护者”是："
 
 #: docs/CONTRIBUTING.md:block 26 (table)
 msgid "GitHub name"
-msgstr ""
+msgstr "GitHub名称"
 
 #: docs/CONTRIBUTING.md:block 27 (header)
 msgid "Format of commit messages"
-msgstr ""
+msgstr "提交消息的格式"
 
 #: docs/CONTRIBUTING.md:block 28 (paragraph)
 msgid ""
 "Each commit should have a commit message formatted similar to the following:"
-msgstr ""
+msgstr "每个提交都应具有格式类似于以下内容的提交消息："
 
 #: docs/CONTRIBUTING.md:block 30 (paragraph)
 msgid ""
@@ -595,6 +595,9 @@ msgid ""
 " in pause() call at connect time`. The purpose of specifying a module name "
 "in the commit message is to help provide context for the commit comments."
 msgstr ""
+"在上面的示例中，`mode`应该是仓库中的文件或目录的名称(不带文件扩展名)。例如，`"
+"clocksync：修复连接时puse()调用中的拼写错误`。在提交消息中指定模块名称的目的"
+"是帮助为提交注释提供上下文。"
 
 #: docs/CONTRIBUTING.md:block 33 (paragraph)
 msgid ""
@@ -605,14 +608,19 @@ msgid ""
 " on [klipper3d.org](https://www.klipper3d.org) once they satisfy the "
 "following requirements:"
 msgstr ""
+"[Klipper-Translations Project](https://github.com/Klipper3d/klipper-translati"
+"ons)是一个致力于将Klipper翻译成不同语言的项目。[Weblate](https://hosted."
+"weblate.org/projects/klipper/"
+")托管所有用于翻译和审阅的GetText字符串。只要满足以下要求，就可以在[klipper3d."
+"org](https://www.klipper3d.org))上显示区域设置："
 
 #: docs/CONTRIBUTING.md:block 34 (unordered list)
 msgid "All titles (H1) are translated"
-msgstr ""
+msgstr "所有标题(H1)均已翻译"
 
 #: docs/CONTRIBUTING.md:block 37 (paragraph)
 msgid "Once the requirements are met, you need to:"
-msgstr ""
+msgstr "满足要求后，您需要："
 
 #: docs/CONTRIBUTING.md:block 38 (ordered list)
 msgid ""
@@ -620,6 +628,8 @@ msgid ""
 "[active_translations](https://github.com/Klipper3d/klipper-"
 "translations/blob/translations/active_translations)"
 msgstr ""
+"更新KLIPPER-翻译库[active_translations](https://github.com/Klipper3d/"
+"klipper-translations/blob/translations/active_translations)"
 
 #: docs/CONTRIBUTING.md:block 38 (ordered list)
 msgid ""
@@ -627,20 +637,23 @@ msgid ""
 "`docs\\locals\\<lang>` folder to replace the language specific index.md "
 "(generated index.md does not render correctly)."
 msgstr ""
+"可选：在Klipper-Translations存储库的`docs\\Locals\\"
+"<lang>`文件夹中添加手动index.md文件，以替换特定语言的index.md(生成的index."
+"md无法正确呈现)。"
 
 #: docs/CONTRIBUTING.md:block 39 (paragraph)
 msgid "Known Issues:"
-msgstr ""
+msgstr "已知问题："
 
 #: docs/CONTRIBUTING.md:block 40 (ordered list)
 msgid ""
 "Currently, there isn't a method for correctly translating pictures in the "
 "documentation"
-msgstr ""
+msgstr "目前，没有一种方法可以正确翻译文档中的图片"
 
 #: docs/CONTRIBUTING.md:block 40 (ordered list)
 msgid "It is impossible to translate titles in mkdocs.yml."
-msgstr ""
+msgstr "不可能翻译mkdocs.yml中的标题。"
 
 #: docs/CONTRIBUTING.md:block 13 (ordered list)
 msgid ""
@@ -657,25 +670,33 @@ msgid ""
 "Some of Klipper's most notable features took months of discussion, rework, "
 "testing, and documentation prior to being merged into the master branch."
 msgstr ""
+"在讨论利益时，最好是讨论“事实和衡量标准”。一般而言，审查者不是在寻找“某人可能"
+"会发现选项X有用”形式的答复，也不是在寻找形式为“此提交增加了固件X实现的功能”的"
+"答复。相反，通常更可取的是讨论如何测量质量改进的细节以及这些测量的结果是什么"
+"--例如，“在Acme X1000打印机上的测试显示如图片所示的改善的角落……”，或者例如，“"
+"在Foom X900打印机上打印现实世界中的对象X的时间从4小时缩短到3.5小时”。可以理解"
+"，这种类型的测试可能会花费大量的时间和精力。Klipper的一些最重要的功能在合并到"
+"主分支之前，花了几个月的讨论、返工、测试和文档。"
 
 #: docs/CONTRIBUTING.md:block 13 (ordered list)
 msgid ""
 "When fixing a defect in the code, submitters should have a general "
 "understanding of the root cause of that defect, and the fix should target "
 "that root cause."
-msgstr ""
+msgstr "在修复代码中的缺陷时，提交者应该对该缺陷的根本原因有一个大致的了解，并且修复"
+"应该针对该根本原因。"
 
 #: docs/CONTRIBUTING.md:block 23 (table)
 msgid "James Hartley"
-msgstr ""
+msgstr "James Hartley"
 
 #: docs/CONTRIBUTING.md:block 23 (table)
 msgid "@JamesH1978"
-msgstr ""
+msgstr "@JamesH1978"
 
 #: docs/CONTRIBUTING.md:block 23 (table)
 msgid "Configuration files"
-msgstr ""
+msgstr "配置文件"
 
 #~ msgid "Paul McGowan"
 #~ msgstr ""

@@ -1,18 +1,19 @@
 # Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022.
 # Neko.vecter <Vecterfang@icloud.com>, 2022.
 # xm Y <3260838022@qq.com>, 2023.
-# Hosted Weblate <mfvotmjhcj@iubridge.com>, 2023.
+# Hosted Weblate <mfvotmjhcj@iubridge.com>, 2023, 2024.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-11-11 17:19+0000\n"
+"PO-Revision-Date: 2024-02-23 22:02+0000\n"
 "Last-Translator: Hosted Weblate <mfvotmjhcj@iubridge.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/debugging/zh_Hans/>\n"
+"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/"
+"klipper/debugging/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.2-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 msgid "This document describes some of the Klipper debugging tools."
 msgstr "本文档描述了一些 Klipper 调试工具。"
@@ -210,7 +211,6 @@ msgstr ""
 "~/klippy-env/bin/python ./klippy/klippy.py config/generic-simulavr.cfg -i "
 "test.gcode -v\n"
 
-#, fuzzy
 msgid "gtkwave avrsim.vcd\n"
 msgstr "gtkwave avrsim.vcd\n"
 

@@ -1,36 +1,39 @@
 # Dan <denqwerta@gmail.com>, 2022.
+# Владислав <vlad.marusenko2000@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-12-10 06:49+0000\n"
-"Last-Translator: Dan <denqwerta@gmail.com>\n"
-"Language-Team: Ukrainian <https://hosted.weblate.org/projects/klipper/navigation/uk/>\n"
+"PO-Revision-Date: 2024-02-22 01:02+0000\n"
+"Last-Translator: Владислав <vlad.marusenko2000@gmail.com>\n"
+"Language-Team: Ukrainian <https://hosted.weblate.org/projects/klipper/"
+"navigation/uk/>\n"
 "Language: uk\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 4.15-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 msgid "Klipper documentation"
-msgstr ""
+msgstr "Документація Кліппера"
 
 msgid "Installation and Configuration"
 msgstr "Встановлення та налаштування"
 
 msgid "Configuration Reference"
-msgstr ""
+msgstr "Зразок конфігурації"
 
 msgid "Bed Level"
-msgstr ""
+msgstr "Калібрування столу"
 
 msgid "Resonance Compensation"
-msgstr ""
+msgstr "Компенсація резонансів"
 
 msgid "Command templates"
-msgstr ""
+msgstr "Зразки команд"
 
 msgid "Developer Documentation"
 msgstr "Документація розробника"
 
 msgid "Device Specific Documents"
-msgstr "Документи, що стосуються пристрою"
+msgstr "Специфікація пристрою"

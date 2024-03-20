@@ -1,15 +1,17 @@
 # Kaan Özbilek <info@kaanozbilek.com>, 2023.
+# NukeSource <dede48076@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-12-05 06:02+0000\n"
-"Last-Translator: Kaan Özbilek <info@kaanozbilek.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/tsl1401cl_filament_width_sensor/tr/>\n"
+"PO-Revision-Date: 2024-03-18 01:01+0000\n"
+"Last-Translator: NukeSource <dede48076@gmail.com>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/"
+"tsl1401cl_filament_width_sensor/tr/>\n"
 "Language: tr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.3-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 msgid "How does it work?"
 msgstr "Nasıl çalışıyor?"
@@ -45,7 +47,7 @@ msgstr ""
 
 #: docs/TSL1401CL_Filament_Width_Sensor.md:block 6 (header)
 msgid "Note:"
-msgstr ""
+msgstr "Not:"
 
 #: docs/TSL1401CL_Filament_Width_Sensor.md:block 3 (paragraph)
 msgid ""
