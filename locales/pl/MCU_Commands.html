@@ -1267,8 +1267,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#startup-commands" class="md-nav__link">
-    Startup Commands
+  <a href="#polecenia-startowe" class="md-nav__link">
+    Polecenia startowe
   </a>
   
 </li>
@@ -1348,7 +1348,7 @@
 <p>Niniejszy dokument zawiera informacje o poleceniach niskiego poziomu mikrokontrolera, które są wysyłane z oprogramowania "host" Klipper i przetwarzane przez oprogramowanie mikrokontrolera Klipper. Niniejszy dokument nie jest miarodajnym odniesieniem do tych poleceń, ani nie stanowi wyłącznej listy wszystkich dostępnych poleceń.</p>
 <p>Ten dokument może być przydatny dla programistów zainteresowanych zrozumieniem niskopoziomowych poleceń mikrokontrolera.</p>
 <p>Zobacz dokument <a href="Protocol.html">protocol</a> po więcej informacji na temat formatu poleceń i ich przekazywania. Polecenia tutaj opisane są przy użyciu ich składni w stylu "printf" - dla tych, którzy nie znają tego formatu, zauważ, że tam, gdzie pojawia się sekwencja '%...', powinna być ona zastąpiona rzeczywistą liczbą całkowitą. Na przykład, opis z "count=%c" może być zastąpiony tekstem "count=10". Zauważ, że parametry, które są uważane za "enumeracje" (patrz powyższy dokument protokołu) przyjmują wartość łańcuchową, która jest automatycznie konwertowana na wartość całkowitą dla mikrokontrolera. Jest to powszechne w przypadku parametrów o nazwie "pin" (lub które mają przyrostek "_pin").</p>
-<h2 id="startup-commands">Startup Commands<a class="headerlink" href="#startup-commands" title="Permanent link">&para;</a></h2>
+<h2 id="polecenia-startowe">Polecenia startowe<a class="headerlink" href="#polecenia-startowe" title="Permanent link">&para;</a></h2>
 <p>It may be necessary to take certain one-time actions to configure the micro-controller and its peripherals. This section lists common commands available for that purpose. Unlike most micro-controller commands, these commands run as soon as they are received and they do not require any particular setup.</p>
 <p>Common startup commands:</p>
 <ul>

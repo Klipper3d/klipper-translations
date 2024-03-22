@@ -1295,11 +1295,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#sensorless-homing" class="md-nav__link">
-    Sensorless Homing
+  <a href="#bezczujnikowe-bazowanie" class="md-nav__link">
+    Bezczujnikowe bazowanie
   </a>
   
-    <nav class="md-nav" aria-label="Sensorless Homing">
+    <nav class="md-nav" aria-label="Bezczujnikowe bazowanie">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1517,7 +1517,7 @@
 <p>The TMC driver <code>interpolate</code> setting may reduce the audible noise of printer movement at the cost of introducing a small systemic positional error. This systemic positional error results from the driver's delay in executing "steps" that Klipper sends it. During constant velocity moves, this delay results in a positional error of nearly half a configured microstep (more precisely, the error is half a microstep distance minus a 512th of a full step distance). For example, on an axis with a 40mm rotation_distance, 200 steps_per_rotation, and 16 microsteps, the systemic error introduced during constant velocity moves is ~0.006mm.</p>
 <p>For best positional accuracy consider using spreadCycle mode and disable interpolation (set <code>interpolate: False</code> in the TMC driver config). When configured this way, one may increase the <code>microstep</code> setting to reduce audible noise during stepper movement. Typically, a microstep setting of <code>64</code> or <code>128</code> will have similar audible noise as interpolation, and do so without introducing a systemic positional error.</p>
 <p>If using stealthChop mode then the positional inaccuracy from interpolation is small relative to the positional inaccuracy introduced from stealthChop mode. Therefore tuning interpolation is not considered useful when in stealthChop mode, and one can leave interpolation in its default state.</p>
-<h2 id="sensorless-homing">Sensorless Homing<a class="headerlink" href="#sensorless-homing" title="Permanent link">&para;</a></h2>
+<h2 id="bezczujnikowe-bazowanie">Bezczujnikowe bazowanie<a class="headerlink" href="#bezczujnikowe-bazowanie" title="Permanent link">&para;</a></h2>
 <p>Sensorless homing allows to home an axis without the need for a physical limit switch. Instead, the carriage on the axis is moved into the mechanical limit making the stepper motor lose steps. The stepper driver senses the lost steps and indicates this to the controlling MCU (Klipper) by toggling a pin. This information can be used by Klipper as end stop for the axis.</p>
 <p>This guide covers the setup of sensorless homing for the X axis of your (cartesian) printer. However, it works the same with all other axes (that require an end stop). You should configure and tune it for one axis at a time.</p>
 <h3 id="limitations">Limitations<a class="headerlink" href="#limitations" title="Permanent link">&para;</a></h3>

@@ -1356,7 +1356,7 @@ z_hop: 10                 # Move up 10mm
 z_hop_speed: 5
 </code></pre></div>
 
-<p>It's important that the z_hop movement in safe_z_home is high enough that the probe doesn't hit anything even if the probe pin happens to be in its lowest state.</p>
+<p>Ważne jest, aby ruch z_hop w safe_z_home był na tyle wysoki, aby sonda w nic nie uderzyła, nawet jeśli pin sondy będzie w najniższym położeniu.</p>
 <h2 id="initial-tests">Initial tests<a class="headerlink" href="#initial-tests" title="Permanent link">&para;</a></h2>
 <p>Before moving on, verify that the BL-Touch is mounted at the correct height, the pin should be roughly 2 mm above the nozzle when retracted</p>
 <p>When you turn on the printer, the BL-Touch probe should perform a self-test and move the pin up and down a couple of times. Once the self-test is completed, the pin should be retracted and the red LED on the probe should be lit. If there are any errors, for example the probe is flashing red or the pin is down instead of up, please turn off the printer and check the wiring and configuration.</p>

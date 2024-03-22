@@ -1267,8 +1267,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#choose-the-appropriate-calibration-mechanism" class="md-nav__link">
-    Choose the appropriate calibration mechanism
+  <a href="#wybierz-odpowiedni-mechanizm-kalibracji" class="md-nav__link">
+    Wybierz odpowiedni mechanizm kalibracji
   </a>
   
 </li>
@@ -1308,8 +1308,8 @@
 <p>Poziomowanie stołu jest kluczowe w otrzymywaniu dobrej jakości wydruków. Jeżeli stół jest nieprawidłowo "wypoziomowany" prowadzi to do słabej adhezji filamentu, podwijania krawędzi obiektów i drobnych problemów przez cały wydruk .Ten dokument pokazuje jak wykonać poziomowanie stołu w systemie Klipper.</p>
 <p>Bardzo ważne jest zrozumienie celu poziomowania stołu. Jeśli drukarka otrzyma komendę <code>X0 Y0 Z10</code> podczas wydruku , wtedy celem dla drukarki jest utrzymanie dyszy dokładnie 10mm nad stołem. Dając kolejną komendę <code>X50 Z10</code> celem jest utrzymanie stałej wysokości 10mm między stołem a głowicą podczas wykonywania ruchu.</p>
 <p>W celu uzyskania dobrej jakości wydruków drukarka powinna być skalibrowana tak, aby odległości Z były dokładne z dokładnością do około 25 mikronów (.025mm). Jest to niewielka odległość - znacznie mniejsza niż szerokość typowego ludzkiego włosa. Skala ta nie może być mierzona "na oko". Subtelne efekty (takie jak rozszerzalność cieplna) wpływają na pomiary w tej skali. Sekretem uzyskania wysokiej dokładności jest zastosowanie powtarzalnego procesu oraz metody poziomowania, która wykorzystuje wysoką dokładność własnego systemu ruchu drukarki.</p>
-<h2 id="choose-the-appropriate-calibration-mechanism">Choose the appropriate calibration mechanism<a class="headerlink" href="#choose-the-appropriate-calibration-mechanism" title="Permanent link">&para;</a></h2>
-<p>Different types of printers use different methods for performing bed leveling. All of them ultimately depend on the "paper test" (described below). However, the actual process for a particular type of printer is described in other documents.</p>
+<h2 id="wybierz-odpowiedni-mechanizm-kalibracji">Wybierz odpowiedni mechanizm kalibracji<a class="headerlink" href="#wybierz-odpowiedni-mechanizm-kalibracji" title="Permanent link">&para;</a></h2>
+<p>Różne typy drukarek stosują różne metody poziomowania stołu. Wszystkie ostatecznie zależą od „testu papierowego” (opisanego poniżej). Jednak faktyczny proces dla określonego typu drukarki jest opisany w innych dokumentach.</p>
 <p>Prior to running any of these calibration tools, be sure to run the checks described in the <a href="Config_checks.html">config check document</a>. It is necessary to verify basic printer motion before performing bed leveling.</p>
 <p>For printers with an "automatic Z probe" be sure to calibrate the probe following the directions in the <a href="Probe_Calibrate.html">Probe Calibrate</a> document. For delta printers, see the <a href="Delta_Calibrate.html">Delta Calibrate</a> document. For printers with bed screws and traditional Z endstops, see the <a href="Manual_Level.html">Manual Level</a> document.</p>
 <p>During calibration it may be necessary to set the printer's Z <code>position_min</code> to a negative number (eg, <code>position_min = -2</code>). The printer enforces boundary checks even during calibration routines. Setting a negative number allows the printer to move below the nominal position of the bed, which may help when trying to determine the actual bed position.</p>

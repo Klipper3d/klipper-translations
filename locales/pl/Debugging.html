@@ -1367,7 +1367,7 @@
 <p>Some command-line options are available. For more information run: <code>~/klippy-env/bin/python ./klippy/console.py --help</code></p>
 <h2 id="tumaczenie-plikow-gcode-na-komendy-mikrokontrolera">Tłumaczenie plików gcode na komendy mikrokontrolera<a class="headerlink" href="#tumaczenie-plikow-gcode-na-komendy-mikrokontrolera" title="Permanent link">&para;</a></h2>
 <p>Kod hosta Klippy może działać w trybie wsadowym, aby wytworzyć niskopoziomowe polecenia mikrokontrolera związane z plikiem gcode. Przeglądanie tych niskopoziomowych komend jest przydatne, gdy próbujemy zrozumieć działanie sprzętu niskiego poziomu. Może być także użyteczne do porównania różnic w poleceniach mikrokontrolera po zmianie kodu.</p>
-<p>To run Klippy in this batch mode, there is a one time step necessary to generate the micro-controller "data dictionary". This is done by compiling the micro-controller code to obtain the <strong>out/klipper.dict</strong> file:</p>
+<p>Aby uruchomić Klippy w tym trybie wsadowym, należy wykonać jednorazowy krok w celu wygenerowania „słownika danych” dla mikrokontrolera. Odbywa się to poprzez kompilację kodu mikrokontrolera w celu uzyskania pliku <strong>out/klipper.dict</strong>:</p>
 <div class="highlight"><pre><span></span><code>make menuconfig
 make
 </code></pre></div>

@@ -1447,8 +1447,8 @@ probe_count: 5, 3
 </code></pre></div>
 
 <ul>
-<li><code>speed: 120</code> <em>Default Value: 50</em> The speed in which the tool moves between points.</li>
-<li><code>horizontal_move_z: 5</code> <em>Default Value: 5</em> The Z coordinate the probe rises to prior to traveling between points.</li>
+<li><code>speed: 120</code> <em>Wartość domyślna: 50</em> Prędkość, z jaką narzędzie porusza się pomiędzy punktami.</li>
+<li><code>horizontal_move_z: 5</code> <em>Wartość domyślna: 5</em> Współrzędna Z, do której sonda wznosi się przed ruchem do kolejnych punktów.</li>
 <li><code>mesh_min: 35, 6</code> <em>Required</em> The first probed coordinate, nearest to the origin. This coordinate is relative to the probe's location.</li>
 <li><code>mesh_max: 240, 198</code> <em>Required</em> The probed coordinate farthest farthest from the origin. This is not necessarily the last point probed, as the probing process occurs in a zig-zag fashion. As with <code>mesh_min</code>, this coordinate is relative to the probe's location.</li>
 <li><code>probe_count: 5, 3</code> <em>Default Value: 3, 3</em> The number of points to probe on each axis, specified as X, Y integer values. In this example 5 points will be probed along the X axis, with 3 points along the Y axis, for a total of 15 probed points. Note that if you wanted a square grid, for example 3x3, this could be specified as a single integer value that is used for both axes, ie <code>probe_count: 3</code>. Note that a mesh requires a minimum probe_count of 3 along each axis.</li>

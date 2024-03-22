@@ -1274,8 +1274,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#formatting-of-g-code-in-the-config" class="md-nav__link">
-    Formatting of G-Code in the config
+  <a href="#formatowanie-g-code-w-konfiguracji" class="md-nav__link">
+    Formatowanie G-Code w konfiguracji
   </a>
   
 </li>
@@ -1384,7 +1384,7 @@
 <p>Niniejszy dokument zawiera informacje o implementacji sekwencji poleceń G-Code w sekcjach konfiguracyjnych gcode_macro (i podobnych).</p>
 <h2 id="nazewnictwo-makro-g-code">Nazewnictwo makro G-Code<a class="headerlink" href="#nazewnictwo-makro-g-code" title="Permanent link">&para;</a></h2>
 <p>Wielkość liter nie jest ważna dla nazwy makra w G-Code - MY_MACRO i my_macro będą oceniane tak samo i mogą być wywoływane zarówno dużymi jak i małymi literami. Jeśli w nazwie makra są użyte jakiekolwiek liczby, to muszą one być na końcu nazwy (np. TEST_MACRO25 jest poprawny, ale MACRO25_TEST3 nie jest).</p>
-<h2 id="formatting-of-g-code-in-the-config">Formatting of G-Code in the config<a class="headerlink" href="#formatting-of-g-code-in-the-config" title="Permanent link">&para;</a></h2>
+<h2 id="formatowanie-g-code-w-konfiguracji">Formatowanie G-Code w konfiguracji<a class="headerlink" href="#formatowanie-g-code-w-konfiguracji" title="Permanent link">&para;</a></h2>
 <p>Indentation is important when defining a macro in the config file. To specify a multi-line G-Code sequence it is important for each line to have proper indentation. For example:</p>
 <div class="highlight"><pre><span></span><code>[gcode_macro blink_led]
 gcode:

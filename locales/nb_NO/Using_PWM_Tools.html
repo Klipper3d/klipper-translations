@@ -1267,8 +1267,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#how-does-it-work" class="md-nav__link">
-    How does it work?
+  <a href="#hvordan-virker-det" class="md-nav__link">
+    Hvordan virker det?
   </a>
   
 </li>
@@ -1313,7 +1313,7 @@
 
 <h1 id="using-pwm-tools">Using PWM tools<a class="headerlink" href="#using-pwm-tools" title="Permanent link">&para;</a></h1>
 <p>This document describes how to setup a PWM-controlled laser or spindle using <code>output_pin</code> and some macros.</p>
-<h2 id="how-does-it-work">How does it work?<a class="headerlink" href="#how-does-it-work" title="Permanent link">&para;</a></h2>
+<h2 id="hvordan-virker-det">Hvordan virker det?<a class="headerlink" href="#hvordan-virker-det" title="Permanent link">&para;</a></h2>
 <p>With re-purposing the printhead's fan pwm output, you can control lasers or spindles. This is useful if you use switchable print heads, for example the E3D toolchanger or a DIY solution. Usually, cam-tools such as LaserWeb can be configured to use <code>M3-M5</code> commands, which stand for <em>spindle speed CW</em> (<code>M3 S[0-255]</code>), <em>spindle speed CCW</em> (<code>M4 S[0-255]</code>) and <em>spindle stop</em> (<code>M5</code>).</p>
 <p><strong>Warning:</strong> When driving a laser, keep all security precautions that you can think of! Diode lasers are usually inverted. This means, that when the MCU restarts, the laser will be <em>fully on</em> for the time it takes the MCU to start up again. For good measure, it is recommended to <em>always</em> wear appropriate laser-goggles of the right wavelength if the laser is powered; and to disconnect the laser when it is not needed. Also, you should configure a safety timeout, so that when your host or MCU encounters an error, the tool will stop.</p>
 <p>For an example configuration, see <a href="/config/sample-pwm-tool.cfg">config/sample-pwm-tool.cfg</a>.</p>

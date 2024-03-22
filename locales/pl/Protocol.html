@@ -1409,7 +1409,7 @@ queue_step oid=7 interval=11717 count=4 add=1281
 
 <p>Informacje o dostępnych poleceniach znajdują się w dokumencie <a href="MCU_Commands.html">mcu commands</a>. Zobacz dokument <a href="Debugowanie.md">debugowanie</a>, aby dowiedzieć się, jak przetłumaczyć plik G-Code na odpowiadające mu, czytelne dla człowieka, polecenia mikrokontrolera.</p>
 <p>Ta strona zawiera opis wysokopoziomowego (high-level) przesyłania wiadomości w Klipper. Opisuje, w jaki sposób wiadomości są deklarowane, kodowane w formacie binarnym (zawiera schemat "kompresji") i przesyłane.</p>
-<p>The goal of the protocol is to enable an error-free communication channel between the host and micro-controller that is low-latency, low-bandwidth, and low-complexity for the micro-controller.</p>
+<p>Celem protokołu jest zapewnienie wolnego od błędów kanału komunikacyjnego pomiędzy hostem a mikrokontrolerem, charakteryzującego się niskim opóźnieniem, małą przepustowością i niską złożonością dla mikrokontrolera.</p>
 <h2 id="micro-controller-interface">Micro-controller Interface<a class="headerlink" href="#micro-controller-interface" title="Permanent link">&para;</a></h2>
 <p>The Klipper transmission protocol can be thought of as a <a href="https://en.wikipedia.org/wiki/Remote_procedure_call">RPC</a> mechanism between micro-controller and host. The micro-controller software declares the commands that the host may invoke along with the response messages that it can generate. The host uses that information to command the micro-controller to perform actions and to interpret the results.</p>
 <h3 id="declaring-commands">Declaring commands<a class="headerlink" href="#declaring-commands" title="Permanent link">&para;</a></h3>

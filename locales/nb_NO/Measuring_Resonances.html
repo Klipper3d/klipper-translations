@@ -13,7 +13,7 @@
     
     
       
-        <title>Measuring Resonances - Klipper documentation</title>
+        <title>Måling av resonans - Klipper documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#measuring-resonances" class="md-skip">
+        <a href="#maling-av-resonans" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Measuring Resonances
+              Måling av resonans
             
           </span>
         </div>
@@ -1274,16 +1274,16 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#installation-instructions" class="md-nav__link">
-    Installation instructions
+  <a href="#installasjonsveiledning" class="md-nav__link">
+    Installasjonsveiledning
   </a>
   
-    <nav class="md-nav" aria-label="Installation instructions">
+    <nav class="md-nav" aria-label="Installasjonsveiledning">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#wiring" class="md-nav__link">
-    Wiring
+  <a href="#ledninger" class="md-nav__link">
+    ledninger
   </a>
   
 </li>
@@ -1362,8 +1362,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#mounting-the-accelerometer" class="md-nav__link">
-    Mounting the accelerometer
+  <a href="#montering-av-akselerometeret" class="md-nav__link">
+    Montering av akselerometeret
   </a>
   
 </li>
@@ -1547,7 +1547,7 @@
 </a>
 
 
-<h1 id="measuring-resonances">Measuring Resonances<a class="headerlink" href="#measuring-resonances" title="Permanent link">&para;</a></h1>
+<h1 id="maling-av-resonans">Måling av resonans<a class="headerlink" href="#maling-av-resonans" title="Permanent link">&para;</a></h1>
 <p>Klipper has built-in support for the ADXL345, MPU-9250 and LIS2DW compatible accelerometers which can be used to measure resonance frequencies of the printer for different axes, and auto-tune <a href="Resonance_Compensation.html">input shapers</a> to compensate for resonances. Note that using accelerometers requires some soldering and crimping. The ADXL345/LIS2DW can be connected to the SPI interface of a Raspberry Pi or MCU board (it needs to be reasonably fast). The MPU family can be connected to the I2C interface of a Raspberry Pi directly, or to an I2C interface of an MCU board that supports 400kbit/s <em>fast mode</em> in Klipper.</p>
 <p>When sourcing accelerometers, be aware that there are a variety of different PCB board designs and different clones of them. If it is going to be connected to a 5V printer MCU ensure it has a voltage regulator and level shifters.</p>
 <p>For ADXL345s/LIS2DWs, make sure that the board supports SPI mode (a small number of boards appear to be hard-configured for I2C by pulling SDO to GND).</p>
@@ -1579,8 +1579,8 @@
 </tr>
 </tbody>
 </table>
-<h2 id="installation-instructions">Installation instructions<a class="headerlink" href="#installation-instructions" title="Permanent link">&para;</a></h2>
-<h3 id="wiring">Wiring<a class="headerlink" href="#wiring" title="Permanent link">&para;</a></h3>
+<h2 id="installasjonsveiledning">Installasjonsveiledning<a class="headerlink" href="#installasjonsveiledning" title="Permanent link">&para;</a></h2>
+<h3 id="ledninger">ledninger<a class="headerlink" href="#ledninger" title="Permanent link">&para;</a></h3>
 <p>An ethernet cable with shielded twisted pairs (cat5e or better) is recommended for signal integrity over a long distance. If you still experience signal integrity issues (SPI/I2C errors):</p>
 <ul>
 <li>Double check the wiring with a digital multimeter for:<ul>
@@ -1608,7 +1608,7 @@ SCLK+CS
 <h4 id="adxl345">ADXL345<a class="headerlink" href="#adxl345" title="Permanent link">&para;</a></h4>
 <h5 id="direct-to-raspberry-pi">Direct to Raspberry Pi<a class="headerlink" href="#direct-to-raspberry-pi" title="Permanent link">&para;</a></h5>
 <p><strong>Note: Many MCUs will work with an ADXL345 in SPI mode (e.g. Pi Pico), wiring and configuration will vary according to your specific board and available pins.</strong></p>
-<p>You need to connect ADXL345 to your Raspberry Pi via SPI. Note that the I2C connection, which is suggested by ADXL345 documentation, has too low throughput and <strong>will not work</strong>. The recommended connection scheme:</p>
+<p>Du må koble ADXL345 til din Raspberry Pi via SPI. Merk at I2C-tilkoblingen, som foreslås av ADXL345-dokumentasjonen, har for lav gjennomstrømning og vil ikke fungere. Anbefalt tilkoblingsskjema:</p>
 <table>
 <thead>
 <tr>
@@ -1619,14 +1619,14 @@ SCLK+CS
 </thead>
 <tbody>
 <tr>
-<td align="center">3V3 (or VCC)</td>
+<td align="center">3V3 (eller VCC)</td>
 <td align="center">01</td>
 <td align="center">3.3V DC power</td>
 </tr>
 <tr>
 <td align="center">GND</td>
 <td align="center">06</td>
-<td align="center">Ground</td>
+<td align="center">Jord</td>
 </tr>
 <tr>
 <td align="center">CS</td>
@@ -1665,14 +1665,14 @@ SCLK+CS
 </thead>
 <tbody>
 <tr>
-<td align="center">3V3 (or VCC)</td>
+<td align="center">3V3 (eller VCC)</td>
 <td align="center">36</td>
 <td align="center">3.3V DC power</td>
 </tr>
 <tr>
 <td align="center">GND</td>
 <td align="center">38</td>
-<td align="center">Ground</td>
+<td align="center">Jord</td>
 </tr>
 <tr>
 <td align="center">CS</td>
@@ -1726,12 +1726,12 @@ GND+SCL
 <tr>
 <td align="center">VCC</td>
 <td align="center">01</td>
-<td align="center">3.3v DC power</td>
+<td align="center">3,3v likestrøm</td>
 </tr>
 <tr>
 <td align="center">GND</td>
 <td align="center">09</td>
-<td align="center">Ground</td>
+<td align="center">Jord</td>
 </tr>
 <tr>
 <td align="center">SDA</td>
@@ -1765,7 +1765,7 @@ GND+SCL
 <tr>
 <td align="center">GND</td>
 <td align="center">38</td>
-<td align="center">Ground</td>
+<td align="center">Jord</td>
 </tr>
 <tr>
 <td align="center">SDA</td>
@@ -1801,7 +1801,7 @@ GND+SCL
 <tr>
 <td align="center">GND</td>
 <td align="center">38</td>
-<td align="center">Ground</td>
+<td align="center">Jord</td>
 <td align="center">GND</td>
 </tr>
 <tr>
@@ -1819,9 +1819,9 @@ GND+SCL
 </tbody>
 </table>
 <p>The Arduino Nano does not include any built-in pull-up resistors nor a 3.3V power pin.</p>
-<h3 id="mounting-the-accelerometer">Mounting the accelerometer<a class="headerlink" href="#mounting-the-accelerometer" title="Permanent link">&para;</a></h3>
+<h3 id="montering-av-akselerometeret">Montering av akselerometeret<a class="headerlink" href="#montering-av-akselerometeret" title="Permanent link">&para;</a></h3>
 <p>The accelerometer must be attached to the toolhead. One needs to design a proper mount that fits their own 3D printer. It is better to align the axes of the accelerometer with the printer's axes (but if it makes it more convenient, axes can be swapped - i.e. no need to align X axis with X and so forth - it should be fine even if Z axis of accelerometer is X axis of the printer, etc.).</p>
-<p>An example of mounting ADXL345 on the SmartEffector:</p>
+<p>Et eksempel på montering av ADXL345 på SmartEffect:</p>
 <p><img alt="ADXL345 on SmartEffector" src="img/adxl345-mount.jpg" /></p>
 <p>Note that on a bed slinger printer one must design 2 mounts: one for the toolhead and one for the bed, and run the measurements twice. See the corresponding <a href="#bed-slinger-printers">section</a> for more details.</p>
 <p><strong>Attention:</strong> make sure the accelerometer and any screws that hold it in place do not touch any metal parts of the printer. Basically, the mount must be designed such as to ensure the electrical isolation of the accelerometer from the printer frame. Failing to ensure that can create a ground loop in the system that may damage the electronics.</p>

@@ -2468,7 +2468,7 @@
 <p>Opisy w tym dokumencie są tak sformatowane, że można je wyciąć i wkleić do pliku konfiguracyjnego drukarki. Informacje na temat konfiguracji Klippera i wyboru początkowego pliku konfiguracyjnego znajdują się w <a href="Installation.html">dokumencie instalacyjnym</a>.</p>
 <h2 id="konfiguracja-mikrokontrolera">Konfiguracja mikrokontrolera<a class="headerlink" href="#konfiguracja-mikrokontrolera" title="Permanent link">&para;</a></h2>
 <h3 id="format-nazw-pinow-mikrokontrolera">Format nazw pinów mikrokontrolera<a class="headerlink" href="#format-nazw-pinow-mikrokontrolera" title="Permanent link">&para;</a></h3>
-<p>Many config options require the name of a micro-controller pin. Klipper uses the hardware names for these pins - for example <code>PA4</code>.</p>
+<p>Wiele opcji konfiguracyjnych wymaga podania nazwy pinu mikrokontrolera. Klipper używa nazw sprzętowych dla tych pinów - na przykład <code>PA4</code>.</p>
 <p>Pin names may be preceded by <code>!</code> to indicate that a reverse polarity should be used (eg, trigger on low instead of high).</p>
 <p>Input pins may be preceded by <code>^</code> to indicate that a hardware pull-up resistor should be enabled for the pin. If the micro-controller supports pull-down resistors then an input pin may alternatively be preceded by <code>~</code>.</p>
 <p>Note, some config sections may "create" additional pins. Where this occurs, the config section defining the pins must be listed in the config file before any sections using those pins.</p>

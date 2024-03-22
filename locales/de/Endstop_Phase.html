@@ -13,7 +13,7 @@
     
     
       
-        <title>Endstop phase - Klipper documentation</title>
+        <title>Endstop Phase - Klipper documentation</title>
       
     
     
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Endstop phase
+              Endstop Phase
             
           </span>
         </div>
@@ -1303,7 +1303,7 @@
 </a>
 
 
-<h1 id="endstop-phase">Endstop phase<a class="headerlink" href="#endstop-phase" title="Permanent link">&para;</a></h1>
+<h1 id="endstop-phase">Endstop Phase<a class="headerlink" href="#endstop-phase" title="Permanent link">&para;</a></h1>
 <p>Dieses Dokument beschreibt das Stepper-phasenangepasste Endstoppsystem von Klipper. Diese Funktionalität kann die Genauigkeit herkömmlicher Endstoppschalter verbessern. Dies ist am nützlichsten, wenn Sie einen Trinamic-Schrittmotortreiber mit Laufzeitkonfiguration verwenden.</p>
 <p>Ein typischer Endlagenschalter hat eine Genauigkeit von etwa 100 Mikrometern. (Bei jeder Referenzfahrt einer Achse kann der Schalter etwas früher oder etwas später auslösen.) Obwohl dies ein relativ kleiner Fehler ist, kann er zu unerwünschten Artefakten führen. Insbesondere beim Druck der ersten Schicht eines Objekts kann sich diese Positionsabweichung bemerkbar machen. Im Gegensatz dazu können typische Schrittmotoren eine wesentlich höhere Präzision erreichen.</p>
 <p>The stepper phase adjusted endstop mechanism can use the precision of the stepper motors to improve the precision of the endstop switches. A stepper motor moves by cycling through a series of phases until in completes four "full steps". So, a stepper motor using 16 micro-steps would have 64 phases and when moving in a positive direction it would cycle through phases: 0, 1, 2, ... 61, 62, 63, 0, 1, 2, etc. Crucially, when the stepper motor is at a particular position on a linear rail it should always be at the same stepper phase. Thus, when a carriage triggers the endstop switch the stepper controlling that carriage should always be at the same stepper motor phase. Klipper's endstop phase system combines the stepper phase with the endstop trigger to improve the accuracy of the endstop.</p>
