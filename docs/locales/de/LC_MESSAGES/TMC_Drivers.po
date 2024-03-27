@@ -1,14 +1,14 @@
 # Sebastian Fiedler <See1807@hotmail.de>, 2022.
 # Sven van Beckum <kontakt@partner-3d.de>, 2022.
 # Extrutex <w1indt@outlook.com>, 2024, 2025.
-# Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024.
+# Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:35+0200\n"
 "PO-Revision-Date: 2025-05-03 07:23+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Niklas Tecklenborg <niklas.tecklenborg@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/"
 "tmc_drivers/de/>\n"
 "Language: de\n"
@@ -40,8 +40,9 @@ msgid ""
 "In addition to this document, be sure to review the [TMC driver config "
 "reference](Config_Reference.md#tmc-stepper-driver-configuration)."
 msgstr ""
-"Zusätzlich zu diesem Dokument sollten Sie auch die [TMC driver config "
-"reference](Config_Reference.md#tmc-stepper-driver-configuration) lesen."
+"Zusätzlich zu diesem Dokument sollten Sie auch die "
+"[TMC driver config reference](Config_Reference.md#tmc-stepper-driver-"
+"configuration) lesen."
 
 msgid "Sensorless Homing"
 msgstr "Sensorloses Homing"
@@ -543,10 +544,9 @@ msgid ""
 "for the driver to interpret the results of DUMP_TMC."
 msgstr ""
 "Alle angegebenen Felder sind im Trinamic-Datenblatt für jeden Treiber "
-"definiert. Diese Datenblätter finden Sie auf der [Trinamic-"
-"Website](https://www.trinamic.com/). Besorgen Sie sich das Trinamic Datenblatt"
-" für den Treiber und prüfen Sie es, um die Ergebnisse von DUMP_TMC zu "
-"interpretieren."
+"definiert. Diese Datenblätter finden Sie auf der [Trinamic-Website](https://"
+"www.trinamic.com/). Besorgen Sie sich das Trinamic Datenblatt für den "
+"Treiber und prüfen Sie es, um die Ergebnisse von DUMP_TMC zu interpretieren."
 
 msgid "Configuring driver_XXX settings"
 msgstr "Konfigurieren der Einstellungen von driver_XXX"
