@@ -1,7 +1,7 @@
 # Luciano Moda <desenvolvimento@gtmax.com.br>, 2023.
 # Milton Miranda Neto <voidmmn@gmail.com>, 2023.
 # Ducarmel Hilaire <dl-admin@users.noreply.hosted.weblate.org>, 2024.
-# ssantos <ssantos@web.de>, 2024.
+# ssantos <ssantos@web.de>, 2024, 2025.
 # Emerson Jhones <ejhones@gmail.com>, 2024.
 # theghost48 <gusthavonery00ghost@outlook.com>, 2024, 2025.
 # Thomas Martin Bueno de Moraes <thomasmbmoraes@gmail.com>, 2024, 2025.
@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:29+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: ssantos <ssantos@web.de>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/klipper/"
 "config_reference/pt/>\n"
 "Language: pt\n"
@@ -384,8 +384,8 @@ msgstr ""
 "Um cartão SD virtual pode ser útil se a máquina hospedeira não for rápida o "
 "suficiente para executar o OctoPrint de maneira eficiente. Ele permite que o "
 "software host do Klipper imprima diretamente ficheiros gcode armazenados num "
-"diretório no host usando comandos padrão de G-Code do cartão SD (por exemplo, "
-"M24)."
+"diretório no host usando comandos padrão de G-Code do cartão SD (por "
+"exemplo, M24)."
 
 msgid "[sdcard_loop]"
 msgstr ""
@@ -989,8 +989,8 @@ msgid ""
 "main printer.cfg config file."
 msgstr ""
 "Um [default set of menus](../klippy/extras/display/menu.cfg) é criado "
-"automaticamente. Pode substituir ou estender o menu substituindo os padrões no"
-" ficheiro de configuração principal printer.cfg."
+"automaticamente. Pode substituir ou estender o menu substituindo os padrões "
+"no ficheiro de configuração principal printer.cfg."
 
 msgid ""
 "See the [command template document](Command_Templates.md#menu-templates) for "
