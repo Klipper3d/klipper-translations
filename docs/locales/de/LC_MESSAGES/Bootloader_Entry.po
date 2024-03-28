@@ -1,15 +1,17 @@
 # Ettore Atalan <atalanttore@googlemail.com>, 2023.
+# Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-10-30 09:04+0000\n"
-"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/klipper/bootloader_entry/de/>\n"
+"PO-Revision-Date: 2024-03-28 01:37+0000\n"
+"Last-Translator: Niklas Tecklenborg <niklas.tecklenborg@gmail.com>\n"
+"Language-Team: German <https://hosted.weblate.org/projects/klipper/"
+"bootloader_entry/de/>\n"
 "Language: de\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.2-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: docs/Bootloader_Entry.md:block 1 (header)
 msgid "Bootloader Entry"
@@ -133,7 +135,7 @@ msgstr ""
 
 #: docs/Bootloader_Entry.md:block 25 (header)
 msgid "CANBUS"
-msgstr ""
+msgstr "CANBUS"
 
 #: docs/Bootloader_Entry.md:block 26 (paragraph)
 msgid ""
