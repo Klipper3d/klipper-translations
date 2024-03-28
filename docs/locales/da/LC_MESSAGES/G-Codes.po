@@ -1,15 +1,16 @@
-# srbjessen <srbjessen@gmail.com>, 2023.
+# srbjessen <srbjessen@gmail.com>, 2023, 2024.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-12-19 10:10+0000\n"
+"PO-Revision-Date: 2024-03-21 11:02+0000\n"
 "Last-Translator: srbjessen <srbjessen@gmail.com>\n"
-"Language-Team: Danish <https://hosted.weblate.org/projects/klipper/g-codes/da/>\n"
+"Language-Team: Danish <https://hosted.weblate.org/projects/klipper/g-codes/"
+"da/>\n"
 "Language: da\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.3\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 msgid ""
 "This document describes the commands that Klipper supports. These are "
@@ -950,7 +951,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 77 (header)
 msgid "ENDSTOP_PHASE_CALIBRATE"
-msgstr ""
+msgstr "ENDSTOP_PHASE_CALIBRATE"
 
 #: docs/G-Codes.md:block 79 (header)
 msgid "[extruder]"

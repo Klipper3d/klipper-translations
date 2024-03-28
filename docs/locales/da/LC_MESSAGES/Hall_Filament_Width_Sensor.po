@@ -1,15 +1,16 @@
-# srbjessen <srbjessen@gmail.com>, 2023.
+# srbjessen <srbjessen@gmail.com>, 2023, 2024.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-12-19 10:10+0000\n"
+"PO-Revision-Date: 2024-03-21 11:02+0000\n"
 "Last-Translator: srbjessen <srbjessen@gmail.com>\n"
-"Language-Team: Danish <https://hosted.weblate.org/projects/klipper/hall_filament_width_sensor/da/>\n"
+"Language-Team: Danish <https://hosted.weblate.org/projects/klipper/"
+"hall_filament_width_sensor/da/>\n"
 "Language: da\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.3\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 1 (header)
 msgid "Hall filament width sensor"
@@ -21,7 +22,7 @@ msgstr "Hvordan virker det?"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 20 (header)
 msgid "Template for menu variables"
-msgstr ""
+msgstr "Skabelon for menu variabler"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 21 (code)
 msgid ""
@@ -37,39 +38,50 @@ msgid ""
 "name: Raw: {'%4.0F' % printer.hall_filament_width_sensor.Raw}\n"
 "index: 1\n"
 msgstr ""
+"[menu __main __filament __width_current]\n"
+"type: command\n"
+"enable: {'hall_filament_width_sensor' in printer}\n"
+"name: Dia: {'%.2F' % printer.hall_filament_width_sensor.Diameter}\n"
+"index: 0\n"
+"\n"
+"[menu __main __filament __raw_width_current]\n"
+"type: command\n"
+"enable: {'hall_filament_width_sensor' in printer}\n"
+"name: Raw: {'%4.0F' % printer.hall_filament_width_sensor.Raw}\n"
+"index: 1\n"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 22 (header)
 msgid "Calibration procedure"
-msgstr ""
+msgstr "Kalibrerings procedure"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 24 (ordered list)
 msgid "Insert first calibration rod (1.5 mm size) get first raw sensor value"
-msgstr ""
+msgstr "Indsæt først kalibrerings del (1,5mm) for at få første sensor værdi"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 24 (ordered list)
 msgid ""
 "Insert second calibration rod (2.0 mm size) get second raw sensor value"
-msgstr ""
+msgstr "Indsæt anden kalibrerings del (2,0mm) for at få anden sensor værdi"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 24 (ordered list)
 msgid "Save raw sensor values in config parameter `Raw_dia1` and `Raw_dia2`"
-msgstr ""
+msgstr "Gem sensor værdier i konfigurationsfilen `Raw_dia1` og `Raw_dia2`"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 25 (header)
 msgid "How to enable sensor"
-msgstr ""
+msgstr "Sådan aktiveres sensoren"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 26 (paragraph)
 msgid "By default, the sensor is disabled at power-on."
-msgstr ""
+msgstr "Som standard er sensoren deaktiveret ved opstart."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 28 (header)
 msgid "Logging"
-msgstr ""
+msgstr "Logning"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 29 (paragraph)
 msgid "By default, diameter logging is disabled at power-on."
-msgstr ""
+msgstr "Som standard er diameter logning deaktiveret ved opstart."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 30 (paragraph)
 msgid ""
@@ -77,12 +89,16 @@ msgid ""
 "**DISABLE_FILAMENT_WIDTH_LOG** command to stop logging. To enable logging at"
 " power-on, set the `logging` parameter to `true`."
 msgstr ""
+"Send **ENABLE_FILAMENT_WIDTH_LOG** kommandoen for at starte logning, og send "
+"**DISABLE_FILAMENT_WIDTH_LOG** kommandoen for at stoppe. For at aktivere ved "
+"opstart som standard, set parameteren: `logging` til `true`."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 31 (paragraph)
 msgid ""
 "Filament diameter is logged on every measurement interval (10 mm by "
 "default)."
 msgstr ""
+"Filamentets diameter registreres ved hvert måle interval (10mm som standard)."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 3 (paragraph)
 msgid ""
@@ -90,12 +106,17 @@ msgid ""
 "[Thingiverse](https://www.thingiverse.com/thing:4138933), an assembly video "
 "is also available on [Youtube](https://www.youtube.com/watch?v=TDO9tME8vp4)"
 msgstr ""
+"Du kan finde design på [Thingiverse](https://www.thingiverse.com/"
+"thing:4138933), en monteringsvideo er også tilgængelig på "
+"[Youtube](https://www.youtube.com/watch?v=TDO9tME8vp4)"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 10 (paragraph)
 msgid ""
 "To get raw sensor value you can use menu item or "
 "**QUERY_RAW_FILAMENT_WIDTH** command in terminal."
 msgstr ""
+"For at få de rå parametere kan du bruge menuen eller sende "
+"**QUERY_RAW_FILAMENT_WIDTH** kommandoen i Terminalen."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 4 (paragraph)
 msgid ""
@@ -103,12 +124,17 @@ msgid ""
 "Reference](Config_Reference.md#hall_filament_width_sensor) and [G-Code "
 "documentation](G-Codes.md#hall_filament_width_sensor)."
 msgstr ""
+"For at bruge en Hall filament-bredde sensor, kan du læse "
+"[Konfigurationsreference](Config_Reference.md#hall_filament_width_sensor) og "
+"[G-kode dokumentationen](G-Codes.md#hall_filament_width_sensor)."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 14 (paragraph)
 msgid ""
 "To enable the sensor, issue **ENABLE_FILAMENT_WIDTH_SENSOR** command or set "
 "the `enable` parameter to `true`."
 msgstr ""
+"For at aktivere sensoren kan du sende **ENABLE_FILAMENT_WIDTH_SENSOR** "
+"kommandoen, eller indstil `enable` parameteren til `true`."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 2 (paragraph)
 msgid ""
@@ -118,6 +144,11 @@ msgid ""
 "operation: two hall sensors work in differential mode, temperature drift "
 "same for sensor. Special temperature compensation not needed."
 msgstr ""
+"Dette dokument beskriver Filament bredde sensor værts modulet. Hardwaren "
+"brugt til udvikling af dette modul er 2 stk. Hall Linære sensorer (ss49e for "
+"eksempel). Sensorer i modulet er monteret overfor hinanden. Derved arbejder "
+"de ud fra differentialet, med temperatur afvigelser der er ens for begge "
+"sensorer. Derfor skal der ikke tages højde for temperatur afvigelserne."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 6 (paragraph)
 msgid ""
@@ -127,6 +158,11 @@ msgid ""
 "connector on a ramps-like board with the analog11 and analog12 pins. You can"
 " use different pins and different boards."
 msgstr ""
+"Sensorerne genererer 2 analoge outputs baseret på den beregnede filament "
+"bredde. Summen af signalets styrke vil altid matche den målte filament "
+"bredde. Værts modulet overvåger signalet, og justerer ekstrusionen "
+"tilsvarende. Jeg har brugt aux2 stikket på et RAMPS-kort via analog11 og "
+"analog12 pins. Du kan bruge andre kort og andre pins."
 
 #~ msgid ""
 #~ "This document describes Filament Width Sensor host module. Hardware used for"

@@ -1,13 +1,20 @@
-#
+# srbjessen <srbjessen@gmail.com>, 2024.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2024-03-21 11:02+0000\n"
+"Last-Translator: srbjessen <srbjessen@gmail.com>\n"
+"Language-Team: Danish <https://hosted.weblate.org/projects/klipper/"
+"multi_mcu_homing/da/>\n"
 "Language: da\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 #: docs/Multi_MCU_Homing.md:block 1 (header)
 msgid "Multiple Micro-controller Homing and Probing"
-msgstr ""
+msgstr "Fler-mcu homing og probeudmåling"
 
 #: docs/Multi_MCU_Homing.md:block 2 (paragraph)
 msgid ""
@@ -17,6 +24,10 @@ msgid ""
 "feature is also used when a Z probe is on a different micro-controller than "
 "the Z stepper motors."
 msgstr ""
+"Klipper understøtter homing med endestop tilsluttet på én mcu, og stepper "
+"motorer tilsluttet en anden. Dette kaldes \"fler-mcu homing\". Denne "
+"funktion kan også bruges når en z-probe er monteret på en anden mcu end "
+"stepper motoren."
 
 #: docs/Multi_MCU_Homing.md:block 3 (paragraph)
 msgid ""
@@ -25,6 +36,10 @@ msgid ""
 "this feature may result in \"overshoot\" of the stepper motors during homing"
 " and probing operations."
 msgstr ""
+"Denne funktion kan være nyttig til at forkorte ledningsløb, da det kan være "
+"mere beljligt at tilslutte et endestop eller probe til en mcu i nærheden. "
+"Dog kan dette resultere i \"overshoot\", hvor stepper motorerne ikke når at "
+"stoppe i tide under homing og probeudmåling."
 
 #: docs/Multi_MCU_Homing.md:block 4 (paragraph)
 msgid ""
@@ -35,6 +50,11 @@ msgid ""
 "send periodic status messages and check that corresponding status messages "
 "are received within 25ms.)"
 msgstr ""
+"Dette \"overshoot\" sker hvis der opstår forsinkelser i transmissionen "
+"mellem de 2 mcu'er der håndterer sensorer og stepper motorer. Klippers kode "
+"er designet til at begrænse denne forsinkelse til ikke mere end 25ms. (Når "
+"fler-mcu funktionen er aktiveret sendes der periodiske status beskeder "
+"mellem mcu'er for at holde øje med at forsinkelsen ikke overstiger 25ms..)"
 
 #: docs/Multi_MCU_Homing.md:block 5 (paragraph)
 msgid ""
@@ -43,6 +63,10 @@ msgid ""
 "configuring multi-mcu homing to account for this type of overshoot. Using "
 "slower homing or probing speeds can reduce the overshoot."
 msgstr ""
+"For eksempel, hvis homing sker ved 10mm/s, så er det muligt at se et "
+"\"overshoot\" på op til 0.250mm (10mm/s*0,025s = 0,250mm). Det anbefales at "
+"planlægge for denne forsinkelse ved konfigurationen, for eksempel ved at "
+"sætte homing hastighederne ned."
 
 #: docs/Multi_MCU_Homing.md:block 6 (paragraph)
 msgid ""
@@ -52,6 +76,10 @@ msgid ""
 "hardware design is capable of handling overshoot without causing damage to "
 "the machine."
 msgstr ""
+"Stepper motor \"overshoot\" bør ikke påvirke præcisionen betydeligt. "
+"Klippers kode vil registrere dette \"overshoot\" og tage højde for det i "
+"beregningerne. Dog er det vigtigt at hardwaren designes på en sådan måde, at "
+"et \"overshoot\" ikke kan skade printeren eller dens dele."
 
 #: docs/Multi_MCU_Homing.md:block 7 (paragraph)
 msgid ""
@@ -59,6 +87,8 @@ msgid ""
 " multi-mcu homing then it will raise a \"Communication timeout during "
 "homing\" error."
 msgstr ""
+"Hvis Klipper registrerer en kommunikationsfejl under fler-mcu homing, vil "
+"Klipper udstede en \"Communication timeout during homing\" fejl."
 
 #: docs/Multi_MCU_Homing.md:block 8 (paragraph)
 msgid ""
@@ -68,3 +98,7 @@ msgid ""
 "`stepper_z` then `stepper_z1` must be on the same micro-controller as "
 "`stepper_z`."
 msgstr ""
+"Bemærk at en akse med flere steppere (for eksempel `stepper_z `og "
+"`stepper_z1`) skal være på samme mcu. Så hvis endestoppet er tilsluttet én "
+"mcu, og `stepper_z` er på en anden, skal `stepper_z1` være tilsluttet samme "
+"mcu som `stepper_z`."
