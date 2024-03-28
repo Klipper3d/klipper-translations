@@ -1,13 +1,14 @@
 # Stefan Dej <meteyou@gmail.com>, 2022.
 # Sven van Beckum <kontakt@partner-3d.de>, 2022.
 # Extrutex <w1indt@outlook.com>, 2024.
+# Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:35+0200\n"
-"PO-Revision-Date: 2024-03-15 16:01+0000\n"
-"Last-Translator: Extrutex <w1indt@outlook.com>\n"
+"PO-Revision-Date: 2024-03-28 01:37+0000\n"
+"Last-Translator: Niklas Tecklenborg <niklas.tecklenborg@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/"
 "tsl1401cl_filament_width_sensor/de/>\n"
 "Language: de\n"
@@ -35,6 +36,10 @@ msgid ""
 "free to change this setting by editing ***MEASUREMENT_INTERVAL_MM*** "
 "parameter in **filament_width_sensor.py** file."
 msgstr ""
+"Die Sensormessungen werden standardmäßig in 10-mm-Abständen durchgeführt. "
+"Bei Bedarf können Sie diese Einstellung jedoch ändern, indem Sie den "
+"Parameter ***MEASUREMENT_INTERVAL_MM*** in der Datei **filament_width_sensor."
+"py** bearbeiten."
 
 #: docs/TSL1401CL_Filament_Width_Sensor.md:block 1 (header)
 msgid "TSL1401CL filament width sensor"

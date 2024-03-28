@@ -3,20 +3,22 @@
 # Christian S <schnellrieder.cs@gmail.com>, 2022.
 # Yifei Ding <dingyifeiair@gmail.com>, 2022.
 # Mathis Mensing <gcmatmen@gmail.com>, 2022.
+# Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2022-03-06 16:50+0200\n"
-"PO-Revision-Date: 2022-10-26 08:36+0000\n"
-"Last-Translator: Mathis Mensing <gcmatmen@gmail.com>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/klipper/navigation/de/>\n"
+"PO-Revision-Date: 2024-03-28 01:37+0000\n"
+"Last-Translator: Niklas Tecklenborg <niklas.tecklenborg@gmail.com>\n"
+"Language-Team: German <https://hosted.weblate.org/projects/klipper/"
+"navigation/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.2-dev\n"
+"X-Generator: Weblate 5.5-dev\n"
 
 msgid "Klipper documentation"
 msgstr "Klipper-Dokumentation"
@@ -25,16 +27,16 @@ msgid "Installation and Configuration"
 msgstr "Installation und Konfiguration"
 
 msgid "Configuration Reference"
-msgstr ""
+msgstr "Konfigurationsreferenz"
 
 msgid "Bed Level"
-msgstr ""
+msgstr "Bettnivelierung"
 
 msgid "Resonance Compensation"
 msgstr "Resonanz-Kompensation"
 
 msgid "Command templates"
-msgstr ""
+msgstr "Befehlsvorlagen"
 
 msgid "Developer Documentation"
 msgstr "Entwicklerdokumentation"

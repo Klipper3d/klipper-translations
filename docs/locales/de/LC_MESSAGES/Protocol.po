@@ -2,13 +2,14 @@
 # Sven van Beckum <kontakt@partner-3d.de>, 2022.
 # Tobias Mohr <tobias_mohr_1991@gmx.de>, 2023.
 # Kev <leadustin@gmail.com>, 2024.
+# Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:35+0200\n"
-"PO-Revision-Date: 2024-02-23 22:02+0000\n"
-"Last-Translator: Kev <leadustin@gmail.com>\n"
+"PO-Revision-Date: 2024-03-28 01:37+0000\n"
+"Last-Translator: Niklas Tecklenborg <niklas.tecklenborg@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/protocol/"
 "de/>\n"
 "Language: de\n"
@@ -494,6 +495,5 @@ msgid "<VLQ encoded length><n-byte contents>\n"
 msgstr ""
 
 #: docs/Protocol.md:block 1 (header)
-#, fuzzy
 msgid "Protocol"
 msgstr "Protokoll"

@@ -1,13 +1,14 @@
 # Sebastian Fiedler <See1807@hotmail.de>, 2022.
 # Sven van Beckum <kontakt@partner-3d.de>, 2022.
 # Extrutex <w1indt@outlook.com>, 2024.
+# Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:35+0200\n"
-"PO-Revision-Date: 2024-03-15 16:01+0000\n"
-"Last-Translator: Extrutex <w1indt@outlook.com>\n"
+"PO-Revision-Date: 2024-03-28 01:37+0000\n"
+"Last-Translator: Niklas Tecklenborg <niklas.tecklenborg@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/"
 "tmc_drivers/de/>\n"
 "Language: de\n"
@@ -550,10 +551,10 @@ msgid ""
 "datasheet for the driver to interpret the results of DUMP_TMC."
 msgstr ""
 "Alle angegebenen Felder sind im Trinamic-Datenblatt für jeden Treiber "
-"definiert. Diese Datenblätter finden Sie auf der [Trinamic-Website] "
-"(https://www.trinamic.com/). Besorgen Sie sich das Trinamic Datenblatt für "
-"den Treiber und prüfen Sie es, um die Ergebnisse von DUMP_TMC zu "
-"interpretieren."
+"definiert. Diese Datenblätter finden Sie auf der [Trinamic-"
+"Website](https://www.trinamic.com/). Besorgen Sie sich das Trinamic "
+"Datenblatt für den Treiber und prüfen Sie es, um die Ergebnisse von DUMP_TMC "
+"zu interpretieren."
 
 msgid "Configuring driver_XXX settings"
 msgstr "Konfigurieren der Einstellungen von driver_XXX"
@@ -1032,7 +1033,7 @@ msgstr ""
 
 #: docs/TMC_Drivers.md:block 13 (header)
 msgid "Setting \"spreadCycle\" vs \"stealthChop\" Mode"
-msgstr ""
+msgstr "Einstellung \"spreadCycle\" vs \"stealthChop\" Modus"
 
 #: docs/TMC_Drivers.md:block 15 (paragraph)
 msgid ""
@@ -1054,7 +1055,7 @@ msgstr ""
 
 #: docs/TMC_Drivers.md:block 18 (header)
 msgid "TMC interpolate setting introduces small position deviation"
-msgstr ""
+msgstr "Die TMC interpolate einstellung führt zu geringen Positionsabweichungen"
 
 #: docs/TMC_Drivers.md:block 19 (paragraph)
 msgid ""
@@ -1118,6 +1119,8 @@ msgid ""
 "When using sensorless homing on CoreXY, make sure there is no `hold_current`"
 " configured for either stepper."
 msgstr ""
+"Bei Verwendung von sensorlosen Homing auf CoreXY, stellen Sie sicher, dass "
+"kein `hold_current` für die Stepper konfiguriert wurde."
 
 #: docs/TMC_Drivers.md:block 11 (paragraph)
 msgid ""
@@ -1150,7 +1153,7 @@ msgstr ""
 
 #: docs/TMC_Drivers.md:block 80 (paragraph)
 msgid "An example CoreXY homing macro might look like:"
-msgstr ""
+msgstr "Ein CoreXY Homing-Makro könnte beispielsweise so aussehen:"
 
 #: docs/TMC_Drivers.md:block 81 (code)
 msgid ""
