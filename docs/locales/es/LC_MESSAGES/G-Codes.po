@@ -2,7 +2,7 @@
 # Alberto <aru_hackZ.official@zohomail.eu>, 2022.
 # Sergio Fernández <sergiofernandezair@gmail.com>, 2023, 2025.
 # Francisco Javier Hoyos Arango <cofhal@gmail.com>, 2023, 2025.
-# eddit3d <eddit1193@gmail.com>, 2024.
+# eddit3d <eddit1193@gmail.com>, 2024, 2025.
 # ItsMeRecSevenTeen <rickagent478554@gmail.com>, 2024, 2025.
 # Pablo Casado <lu6mdm@gmail.com>, 2025.
 # Ramiro Luna boca <lunabocaramiro@gmail.com>, 2025.
@@ -11,7 +11,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:22+0000\n"
-"Last-Translator: Pablo Casado <lu6mdm@gmail.com>\n"
+"Last-Translator: eddit3d <eddit1193@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/g-codes/"
 "es/>\n"
 "Language: es\n"
@@ -667,12 +667,12 @@ msgstr ""
 "de accelorimetro al numero indicado de muestras por segundo . Si CHIP no es "
 "específico se usa \"adxl345\" como valor predeterminado. El comando funciona "
 "en modo start-stop: cuando executado inicialmente, Inicia medidas siguiente "
-"ejecution las culmina. Resultados se graban en el archivo "
-"`/tmp/adxl345-<chip>-<name>.csv` donde `<chip>` es el nombre de el "
+"ejecution las culmina. Resultados se graban en el archivo `/tmp/"
+"adxl345-<chip>-<name>.csv` donde `<chip>` es el nombre de el "
 "accelerometero(`Mi_chip` abstenido de `[adxl345 Mi_chip]`) y `<name>` en el "
 "parameter opcional NAME. Si NAME no se específico formato de tiempo "
-"\"YYYYMMDD_HHMMSS\" se utiliza. Si no tiene nombre en su configuración "
-"(como`[adxl345]`) entonses la porcion`<chip>` no es generado como nombre."
+"\"YYYYMMDD_HHMMSS\" se utiliza. Si no tiene nombre en su configuración (como`"
+"[adxl345]`) entonses la porcion`<chip>` no es generado como nombre."
 
 #: docs/G-Codes.md:block 120 (unordered list)
 msgid ""
