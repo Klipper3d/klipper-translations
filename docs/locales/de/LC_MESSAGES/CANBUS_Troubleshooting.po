@@ -1,10 +1,10 @@
 # Ettore Atalan <atalanttore@googlemail.com>, 2023.
-# Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024.
+# Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:44+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Niklas Tecklenborg <niklas.tecklenborg@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/"
 "canbus_troubleshooting/de/>\n"
 "Language: de\n"
@@ -22,8 +22,9 @@ msgid ""
 "This document provides information on troubleshooting communication issues "
 "when using [Klipper with CAN bus](CANBUS.md)."
 msgstr ""
-"Dieses Dokument enthält Informationen zur Behebung von Kommunikationsproblemen"
-" bei der Verwendung von [Klipper mit CAN-Bus](CANBUS.md)."
+"Dieses Dokument enthält Informationen zur Behebung von "
+"Kommunikationsproblemen bei der Verwendung von [Klipper mit CAN-Bus]"
+"(CANBUS.md)."
 
 #: docs/CANBUS_Troubleshooting.md:block 3 (header)
 msgid "Verify CAN bus wiring"
