@@ -4,14 +4,14 @@
 # Yifei Ding <dingyifeiair@gmail.com>, 2022.
 # LopeKinz <youtbeacczlp@gmail.com>, 2023.
 # aaron oelschlegel <aaron.oelschlegel@web.de>, 2023.
-# Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024.
+# Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:32+0200\n"
 "PO-Revision-Date: 2025-05-03 07:23+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Niklas Tecklenborg <niklas.tecklenborg@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/g-codes/"
 "de/>\n"
 "Language: de\n"
@@ -65,7 +65,8 @@ msgstr ""
 
 msgid "Set extrude factor override percentage: `M221 S<percent>`"
 msgstr ""
-"Prozentuale Überschreibung des Extrusionsfaktors einstellen: `M221 S<percent>`"
+"Prozentuale Überschreibung des Extrusionsfaktors einstellen: `M221 "
+"S<percent>`"
 
 msgid "Set acceleration: `M204 S<value>` OR `M204 P<value> T<value>`"
 msgstr ""
