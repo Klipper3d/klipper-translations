@@ -3,12 +3,12 @@
 # VICTOR <subfyn@gmail.com>, 2023, 2025.
 # xXx <xxx_xxx_xxxxxxxxx@mail.ru>, 2023, 2025.
 # dsa-t <dudesuchamazing@gmail.com>, 2023, 2025.
-# Mika <akimivanov43@gmail.com>, 2024.
+# Mika <akimivanov43@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:36+0000\n"
-"Last-Translator: dsa-t <dudesuchamazing@gmail.com>\n"
+"Last-Translator: Mika <akimivanov43@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
 "rpi_microcontroller/ru/>\n"
 "Language: ru\n"
@@ -307,10 +307,10 @@ msgid ""
 "is by adding this to `/etc/rc.local` before the `exit 0` line:"
 msgstr ""
 "Наложение не отображает строку pwm в sysfs при загрузке и должно быть "
-"экспортировано путем преобразования номера канала pwm в "
-"\"/sys/class/pwm/pwmchip0/export`. В результате в файловой системе будет "
-"создано устройство \"/sys/class/pwm/pwmchip0/pwm0\". Самый простой способ "
-"сделать это - добавить это в \"/etc/rc.local\" перед строкой \"exit 0\".:"
+"экспортировано путем преобразования номера канала pwm в \"/sys/class/pwm/"
+"pwmchip0/export`. В результате в файловой системе будет создано устройство "
+"\"/sys/class/pwm/pwmchip0/pwm0\". Самый простой способ сделать это - "
+"добавить это в \"/etc/rc.local\" перед строкой \"exit 0\".:"
 
 #: docs/RPi_microcontroller.md:block 44 (paragraph)
 msgid ""
