@@ -2,14 +2,14 @@
 # Sebastian Fiedler <See1807@hotmail.de>, 2022.
 # Sven van Beckum <kontakt@partner-3d.de>, 2022.
 # Mathis Mensing <gcmatmen@gmail.com>, 2022.
-# Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024.
+# Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:34+0200\n"
 "PO-Revision-Date: 2025-05-03 07:23+0000\n"
-"Last-Translator: Jens Müller <jens.mueller@mystefix.de>\n"
+"Last-Translator: Niklas Tecklenborg <niklas.tecklenborg@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/"
 "api_server/de/>\n"
 "Language: de\n"
@@ -156,8 +156,8 @@ msgid ""
 "`{\"id\": 123, \"method\": \"gcode/subscribe_output\", \"params\": "
 "{\"response_template\":{\"key\": 345}}}`"
 msgstr ""
-"`{\"id\": 123, \"method\": \"gcode/subscribe_output\", \"params\": "
-"{\"response_template\":{\"key\": 345}}}`"
+"`{\"id\": 123, \"method\": \"gcode/subscribe_output\", \"params\": {"
+"\"response_template\":{\"key\": 345}}}`"
 
 msgid "may initially respond with:"
 msgstr "kann anfänglich reagieren mit:"
