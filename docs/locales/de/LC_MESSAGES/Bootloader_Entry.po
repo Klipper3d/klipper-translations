@@ -1,10 +1,10 @@
 # Ettore Atalan <atalanttore@googlemail.com>, 2023.
-# Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024.
+# Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:45+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Niklas Tecklenborg <niklas.tecklenborg@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/"
 "bootloader_entry/de/>\n"
 "Language: de\n"
@@ -22,8 +22,8 @@ msgid ""
 "Klipper can be instructed to reboot into a [Bootloader](Bootloaders.md) in one"
 " of the following ways:"
 msgstr ""
-"Klipper kann auf eine der folgenden Arten zum Neustart in einen "
-"[Bootloader](Bootloaders.md) angewiesen werden:"
+"Klipper kann auf eine der folgenden Arten zum Neustart in einen [Bootloader]"
+"(Bootloaders.md) angewiesen werden:"
 
 #: docs/Bootloader_Entry.md:block 3 (header)
 msgid "Requesting the bootloader"
