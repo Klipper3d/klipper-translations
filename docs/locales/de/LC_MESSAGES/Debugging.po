@@ -1,14 +1,14 @@
 # Sebastian Fiedler <See1807@hotmail.de>, 2022.
 # Sven van Beckum <kontakt@partner-3d.de>, 2022.
 # Yifei Ding <dingyifeiair@gmail.com>, 2022.
-# Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024.
+# Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:34+0200\n"
 "PO-Revision-Date: 2025-05-03 07:23+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Niklas Tecklenborg <niklas.tecklenborg@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/debugging/"
 "de/>\n"
 "Language: de\n"
@@ -34,9 +34,9 @@ msgstr ""
 "Der Klippy-Hostcode kann im Batch-Modus ausgeführt werden, um die auf eine "
 "gcode-Datei bezogenen Low-Level-Microcontroller-Befehle zu generieren. Das "
 "Untersuchen dieser Low-Level-Befehle ist nützlich, wenn man versucht, das "
-"Verhalten der Low-Level-Hardware zu verstehen. Es kann auch nützlich sein, um "
-"den Unterschied in den Microcontroller-Befehlen nach einer Code-Änderung zu "
-"vergleichen."
+"Verhalten der Low-Level-Hardware zu verstehen. Es kann auch nützlich sein, "
+"um den Unterschied in den Microcontroller-Befehlen nach einer Code-Änderung "
+"zu vergleichen."
 
 msgid ""
 "To run Klippy in this batch mode, there is a one time step necessary to "
@@ -141,7 +141,8 @@ msgstr "Danach können Diagramme erstellt werden mit:"
 
 msgid "One can then view the resulting **loadgraph.png** file."
 msgstr ""
-"Die resultierende Datei **loadgraph.png** kann anschließend betrachtet werden."
+"Die resultierende Datei **loadgraph.png** kann anschließend betrachtet "
+"werden."
 
 msgid ""
 "Different graphs can be produced. For more information run: "
