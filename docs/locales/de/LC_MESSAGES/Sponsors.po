@@ -1,11 +1,11 @@
 # Yifei Ding <dingyifeiair@gmail.com>, 2022, 2025.
 # Mathis Mensing <gcmatmen@gmail.com>, 2022.
-# Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024.
+# Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:37+0000\n"
-"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
+"Last-Translator: Niklas Tecklenborg <niklas.tecklenborg@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/sponsors/"
 "de/>\n"
 "Language: de\n"
@@ -42,8 +42,8 @@ msgstr ""
 "BIGTREETECH ist der offizielle Mainboard Sponsor von Klipper. BIGTREETECH "
 "engagiert sich für die Entwicklung innovativer und wettbewerbsfähiger "
 "Produkte, um die 3D-Druck-Community besser zu unterstützen. Folgen Sie ihnen "
-"auf [Facebook](https://www.facebook.com/BIGTREETECH) oder "
-"[Twitter](https://twitter.com/BigTreeTech)."
+"auf [Facebook](https://www.facebook.com/BIGTREETECH) oder [Twitter](https://"
+"twitter.com/BigTreeTech)."
 
 #: docs/Sponsors.md:block 6 (header)
 msgid "Klipper Developers"
@@ -102,16 +102,17 @@ msgid ""
 "Kevin is the original author and current maintainer of Klipper. Donate at: "
 "<https://ko-fi.com/koconnor> or <https://www.patreon.com/koconnor>"
 msgstr ""
-"Kevin ist der ursprüngliche Autor und derzeitige Betreuer von Klipper. Donate "
-"at: <https://ko-fi.com/koconnor> oder <https://www.patreon.com/koconnor>"
+"Kevin ist der ursprüngliche Autor und derzeitige Betreuer von Klipper. "
+"Donate at: <https://ko-fi.com/koconnor> oder <https://www.patreon.com/"
+"koconnor>"
 
 #: docs/Sponsors.md:block 4 (paragraph)
 msgid ""
 "[<img src=\"./img/sponsors/BTT_BTT.png\" width=\"200\" "
 "style=\"margin:25px\"/>](https://bigtree-tech.com/collections/all-products)"
 msgstr ""
-"[<img src=\"./img/sponsors/BTT_BTT.png\" width=\"200\" "
-"style=\"margin:25px\"/>](https://bigtree-tech.com/collections/all-products)"
+"[<img src=\"./img/sponsors/BTT_BTT.png\" width=\"200\" style=\"margin:25px\""
+"/>](https://bigtree-tech.com/collections/all-products)"
 
 #: docs/Sponsors.md:block 7 (paragraph)
 msgid ""
