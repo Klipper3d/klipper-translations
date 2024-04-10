@@ -1,12 +1,12 @@
 # Sven van Beckum <kontakt@partner-3d.de>, 2022.
 # Yifei Ding <dingyifeiair@gmail.com>, 2022, 2025.
 # Mathis Mensing <gcmatmen@gmail.com>, 2022.
-# Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024.
+# Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:36+0000\n"
-"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
+"Last-Translator: Niklas Tecklenborg <niklas.tecklenborg@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/"
 "exclude_object/de/>\n"
 "Language: de\n"
@@ -167,8 +167,8 @@ msgid ""
 "`EXCLUDE_OBJECT_DEFINE NAME=calibration_pyramid CENTER=50,50 "
 "POLYGON=[[40,40],[50,60],[60,40]]`"
 msgstr ""
-"`EXCLUDE_OBJECT_DEFINE NAME=calibration_pyramid CENTER=50,50 "
-"POLYGON=[[40,40],[50,60],[60,40]]`"
+"`EXCLUDE_OBJECT_DEFINE NAME=calibration_pyramid CENTER=50,50 POLYGON=[[40,40]"
+",[50,60],[60,40]]`"
 
 #: docs/Exclude_Object.md:block 13 (paragraph)
 msgid ""
