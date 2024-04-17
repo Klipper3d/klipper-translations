@@ -1,9 +1,9 @@
-# mustafa kaya <m.mkaya92@gmail.com>, 2024.
+# mustafa kaya <m.mkaya92@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:45+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: mustafa kaya <m.mkaya92@gmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/"
 "axis_twist_compensation/tr/>\n"
 "Language: tr\n"
