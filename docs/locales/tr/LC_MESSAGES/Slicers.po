@@ -1,11 +1,11 @@
 # Kaan Özbilek <info@kaanozbilek.com>, 2023, 2025.
 # zafer yazkili <yazkili@hotmail.com>, 2023.
-# mustafa kaya <m.mkaya92@gmail.com>, 2024.
+# mustafa kaya <m.mkaya92@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:22+0000\n"
-"Last-Translator: Kaan Özbilek <info@kaanozbilek.com>\n"
+"Last-Translator: mustafa kaya <m.mkaya92@gmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/slicers/"
 "tr/>\n"
 "Language: tr\n"
