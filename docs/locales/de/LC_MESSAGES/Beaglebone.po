@@ -1,13 +1,13 @@
 # Christian S <schnellrieder.cs@gmail.com>, 2022, 2025.
 # Sven van Beckum <kontakt@partner-3d.de>, 2022, 2025.
-# Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024.
+# Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:36+0200\n"
 "PO-Revision-Date: 2025-05-03 07:28+0000\n"
-"Last-Translator: Christian S <schnellrieder.cs@gmail.com>\n"
+"Last-Translator: Niklas Tecklenborg <niklas.tecklenborg@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/"
 "beaglebone/de/>\n"
 "Language: de\n"
