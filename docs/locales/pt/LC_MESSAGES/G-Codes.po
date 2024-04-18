@@ -1,13 +1,13 @@
 # Luciano Moda <desenvolvimento@gtmax.com.br>, 2023, 2025.
 # Milton Miranda Neto <voidmmn@gmail.com>, 2023.
-# Matheus Mösken Diegues <dmosken2015@gmail.com>, 2024.
+# Matheus Mösken Diegues <dmosken2015@gmail.com>, 2024, 2025.
 # Emerson Jhones <ejhones@gmail.com>, 2024, 2025.
 # Thomas Martin Bueno de Moraes <thomasmbmoraes@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:29+0000\n"
-"Last-Translator: Luciano Moda <desenvolvimento@gtmax.com.br>\n"
+"Last-Translator: Matheus Mösken Diegues <dmosken2015@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/klipper/"
 "g-codes/pt/>\n"
 "Language: pt\n"
