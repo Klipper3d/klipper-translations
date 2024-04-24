@@ -1,13 +1,13 @@
 # mirokymac <toufubomb@gmail.com>, 2021.
 # Neko.vecter <Vecterfang@icloud.com>, 2022.
 # Yifei Ding <dingyifeiair@gmail.com>, 2022, 2025.
-# Temparo <temperacket@outlook.com>, 2024.
+# Temparo <temperacket@outlook.com>, 2024, 2025.
 # hani-lengxi <2836842270@qq.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:27+0000\n"
-"Last-Translator: hani-lengxi <2836842270@qq.com>\n"
+"Last-Translator: Temparo <temperacket@outlook.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/klipper/multi_mcu_homing/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -98,7 +98,8 @@ msgid ""
 "Should high latency result in a failure (or if some other communication issue "
 "is detected) then Klipper will raise a \"Communication timeout during homing\""
 " error."
-msgstr "如果高延迟导致故障（或者有其他通信问题），Klipper 将触发“复位期间通信超时”错误。"
+msgstr "如果高延迟导致故障（或者有其他通信问题），Klipper "
+"将触发“复位期间通信超时”错误。"
 
 #~ msgid ""
 #~ "Should Klipper detect a communication issue between micro-controllers during "
