@@ -8,7 +8,7 @@
 # T1z3n <info@njbraun.de>, 2024, 2025.
 # Extrutex <w1indt@outlook.com>, 2024, 2025.
 # Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024, 2025.
-# Mæve Rey <mrey@users.noreply.hosted.weblate.org>, 2024.
+# Mæve Rey <mrey@users.noreply.hosted.weblate.org>, 2024, 2025.
 # LH2301 <bummbumm600@gmail.com>, 2024.
 # Patrick <patrick_bruell@web.de>, 2025.
 # Deleted User <noreply+100566@weblate.org>, 2025.
@@ -18,7 +18,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:33+0200\n"
 "PO-Revision-Date: 2025-05-03 07:23+0000\n"
-"Last-Translator: Sven van Beckum <kontakt@partner-3d.de>\n"
+"Last-Translator: Mæve Rey <mrey@users.noreply.hosted.weblate.org>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/"
 "config_reference/de/>\n"
 "Language: de\n"
@@ -1590,10 +1590,10 @@ msgstr ""
 "Befehle können verwendet werden, um zwei Teile gleichzeitig zu drucken - "
 "entweder zwei identische Teile (im COPY-Modus) oder gespiegelte Teile (im "
 "MIRROR-Modus). Beachten Sie, dass die COPY- und MIRROR-Modi auch eine "
-"angemessene Konfiguration des Extruders auf dem doppelten Fahrwerk erfordern, "
-"die normalerweise mit \"SYNC_EXTRUDER_MOTION MOTION_QUEUE=extruder "
-"EXTRUDER=<dual_carriage_extruder>\" oder einem ähnlichen Befehl erreicht "
-"werden kann."
+"angemessene Konfiguration des Extruders auf dem doppelten Fahrwerk "
+"erfordern, die normalerweise mit \"SYNC_EXTRUDER_MOTION "
+"MOTION_QUEUE=extruder EXTRUDER=<dual_carriage_extruder>\" oder einem "
+"ähnlichen Befehl erreicht werden kann."
 
 #: docs/Config_Reference.md:block 259 (header)
 msgid "AHT10/AHT20/AHT21 temperature sensor"
