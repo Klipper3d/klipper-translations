@@ -1,7 +1,7 @@
 # Neko.vecter <Vecterfang@icloud.com>, 2021, 2022.
 # Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022, 2025.
 # Hosted Weblate <mfvotmjhcj@iubridge.com>, 2023, 2024, 2025.
-# "Neko.vecter" <Vecterfang@icloud.com>, 2024.
+# "Neko.vecter" <Vecterfang@icloud.com>, 2024, 2025.
 # hani-lengxi <2836842270@qq.com>, 2024.
 msgid ""
 msgstr ""
@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-10 16:29+0200\n"
 "PO-Revision-Date: 2025-05-03 07:21+0000\n"
-"Last-Translator: Hosted Weblate <mfvotmjhcj@iubridge.com>\n"
+"Last-Translator: \"Neko.vecter\" <Vecterfang@icloud.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/klipper/canbus/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -201,7 +201,8 @@ msgstr ""
 msgid ""
 "The \"bridge mcu\" is not actually on the CAN bus. Messages to and from the "
 "bridge mcu will not be seen by other adapters that may be on the CAN bus."
-msgstr "“桥接MCU”实际上并不在CAN总线上。可能位于CAN总线上的其他适配器不会看到进出桥接器MCU的消息。"
+msgstr "“桥接MCU”实际上并不在CAN总线上。可能位于CAN总线上的其他适配器不会看到进出桥接"
+"器MCU的消息。"
 
 #: docs/CANBUS.md:block 30 (unordered list)
 msgid ""
