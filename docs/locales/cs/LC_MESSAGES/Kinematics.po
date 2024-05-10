@@ -1,17 +1,18 @@
 # Vojtech Horvath <wojtas@email.cz>, 2022.
 # Pavel Šubík <wgspider@gmail.com>, 2024.
-# Miloslav Kos <kos.m@post.cz>, 2024.
+# Miloslav Kos <kos.m@post.cz>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-05-11 06:00+0000\n"
+"PO-Revision-Date: 2025-05-03 07:31+0000\n"
 "Last-Translator: Miloslav Kos <kos.m@post.cz>\n"
-"Language-Team: Czech <https://hosted.weblate.org/projects/klipper/kinematics/cs/>\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/klipper/kinematics/"
+"cs/>\n"
 "Language: cs\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2);\n"
-"X-Generator: Weblate 5.5.4\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 msgid ""
 "This document provides an overview of how Klipper implements robot motion (its"
