@@ -1,12 +1,12 @@
 # Vlastimil Dědek <dedekvlastimil@gmail.com>, 2022, 2025.
 # Pavel Šubík <wgspider@gmail.com>, 2024.
-# Miloslav Kos <kos.m@post.cz>, 2024.
+# Miloslav Kos <kos.m@post.cz>, 2024, 2025.
 # vyPal <kubik.palacky@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:31+0000\n"
-"Last-Translator: vyPal <kubik.palacky@gmail.com>\n"
+"Last-Translator: Miloslav Kos <kos.m@post.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/klipper/g-codes/cs/"
 ">\n"
 "Language: cs\n"
@@ -19,8 +19,8 @@ msgid ""
 "This document describes the commands that Klipper supports. These are commands"
 " that one may enter into the OctoPrint terminal tab."
 msgstr ""
-"Tento dokument popisuje příkazy, které Klipper podporuje. Jedná se o příkazy, "
-"které lze zadat na kartě terminálu OctoPrint."
+"Tento dokument popisuje příkazy, které Klipper podporuje. Jedná se o "
+"příkazy, které lze zadat na kartě terminálu OctoPrint."
 
 msgid "G-Code commands"
 msgstr "Příkazy G-Code"
