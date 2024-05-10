@@ -1,9 +1,9 @@
-# Miloslav Kos <kos.m@post.cz>, 2024.
+# Miloslav Kos <kos.m@post.cz>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:37+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Miloslav Kos <kos.m@post.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/klipper/sponsors/"
 "cs/>\n"
 "Language: cs\n"
@@ -21,8 +21,8 @@ msgid ""
 "Klipper is Free Software. We depend on the generous support from sponsors. "
 "Please consider sponsoring Klipper or supporting our sponsors."
 msgstr ""
-"Klipper je svobodný software. Jsme závislí na štědré podpoře sponzorů. Zvažte "
-"prosím možnost sponzorovat Klipper nebo podpořit naše sponzory."
+"Klipper je svobodný software. Jsme závislí na štědré podpoře sponzorů. "
+"Zvažte prosím možnost sponzorovat Klipper nebo podpořit naše sponzory."
 
 #: docs/Sponsors.md:block 3 (header)
 msgid "BIGTREETECH"
