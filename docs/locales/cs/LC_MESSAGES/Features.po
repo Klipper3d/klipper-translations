@@ -1,10 +1,10 @@
 # Pavel Šubík <wgspider@gmail.com>, 2024, 2025.
-# Miloslav Kos <kos.m@post.cz>, 2024.
+# Miloslav Kos <kos.m@post.cz>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:31+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Miloslav Kos <kos.m@post.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/klipper/features/"
 "cs/>\n"
 "Language: cs\n"
@@ -28,8 +28,8 @@ msgstr ""
 "být například použit k ovládání extrudéru, zatímco druhý ovládá ohřívače "
 "tiskárny, zatímco třetí ovládá zbytek tiskárny. Hostitelský software Klipper "
 "implementuje synchronizaci hodin pro zohlednění driftu hodin mezi "
-"mikrokontroléry. K povolení více mikrokontrolérů není potřeba žádný speciální "
-"kód - vyžaduje to jen několik řádků navíc v konfiguračním souboru."
+"mikrokontroléry. K povolení více mikrokontrolérů není potřeba žádný "
+"speciální kód - vyžaduje to jen několik řádků navíc v konfiguračním souboru."
 
 msgid ""
 "Configuration via simple config file. There's no need to reflash the micro-"
