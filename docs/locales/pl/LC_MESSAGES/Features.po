@@ -1,12 +1,12 @@
 # Robert Jaroszewicz <mediagott1977@googlemail.com>, 2022.
 # Mateusz Kapała <lolekwielki@gmail.com>, 2023.
 # Woo Cash <woocash87@gmail.com>, 2024, 2025.
-# Kacper Karpiński <kacperocik@yahoo.com>, 2024.
+# Kacper Karpiński <kacperocik@yahoo.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:26+0000\n"
-"Last-Translator: Woo Cash <woocash87@gmail.com>\n"
+"Last-Translator: Kacper Karpiński <kacperocik@yahoo.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/klipper/features/"
 "pl/>\n"
 "Language: pl\n"
@@ -79,8 +79,8 @@ msgid ""
 msgstr ""
 "Klipper wykorzystuje \"iteracyjny solver\" do obliczania dokładnych czasów "
 "kroków na podstawie prostych równań kinematycznych. Ułatwia to przenoszenie "
-"Klippera na nowe typy robotów i utrzymuje precyzyjny czas nawet przy złożonej "
-"kinematyce (nie jest wymagana \"segmentacja linii\")."
+"Klippera na nowe typy robotów i utrzymuje precyzyjny czas nawet przy "
+"złożonej kinematyce (nie jest wymagana \"segmentacja linii\")."
 
 msgid ""
 "Portable code. Klipper works on ARM, AVR, and PRU based micro-controllers. "
