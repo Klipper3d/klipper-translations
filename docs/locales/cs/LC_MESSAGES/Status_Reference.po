@@ -1,10 +1,10 @@
 # Pavel Šubík <wgspider@gmail.com>, 2024, 2025.
-# Miloslav Kos <kos.m@post.cz>, 2024.
+# Miloslav Kos <kos.m@post.cz>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:31+0000\n"
-"Last-Translator: Pavel Šubík <wgspider@gmail.com>\n"
+"Last-Translator: Miloslav Kos <kos.m@post.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/klipper/"
 "status_reference/cs/>\n"
 "Language: cs\n"
