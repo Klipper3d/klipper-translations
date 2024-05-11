@@ -1,10 +1,10 @@
 # Pavel Šubík <wgspider@gmail.com>, 2024.
-# Miloslav Kos <kos.m@post.cz>, 2024.
+# Miloslav Kos <kos.m@post.cz>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:31+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Miloslav Kos <kos.m@post.cz>\n"
 "Language-Team: Czech <https://hosted.weblate.org/projects/klipper/"
 "tmc_drivers/cs/>\n"
 "Language: cs\n"
@@ -27,9 +27,9 @@ msgid ""
 "available."
 msgstr ""
 "Klipper může používat ovladače Trinamic i v samostatném režimu. Pokud jsou "
-"však ovladače v tomto režimu, není nutná žádná speciální konfigurace Klipperu "
-"a pokročilé funkce Klipperu, o kterých pojednává tento dokument, nejsou k "
-"dispozici."
+"však ovladače v tomto režimu, není nutná žádná speciální konfigurace "
+"Klipperu a pokročilé funkce Klipperu, o kterých pojednává tento dokument, "
+"nejsou k dispozici."
 
 msgid ""
 "In addition to this document, be sure to review the [TMC driver config "
