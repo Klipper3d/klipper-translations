@@ -1,6 +1,6 @@
 # Simon Tillema <simontillema@gmail.com>, 2023, 2025.
 # Luc Van den Borre <luc@orotec.be>, 2023.
-# Tjalling Kaastra <tjalling@kaastra.net>, 2024.
+# Tjalling Kaastra <tjalling@kaastra.net>, 2024, 2025.
 # Austin <austin_adamek1@hotmail.com>, 2024.
 # Simon Tillema <shtillema@gomarus.nl>, 2024.
 # Danni <hostedweblate@danni-design.com>, 2024.
@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:39+0000\n"
-"Last-Translator: Simon Tillema <simontillema@gmail.com>\n"
+"Last-Translator: Tjalling Kaastra <tjalling@kaastra.net>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/klipper/"
 "config_checks/nl/>\n"
 "Language: nl\n"
@@ -55,8 +55,8 @@ msgid ""
 "If the printer has a heated bed then perform the above test again with the "
 "bed."
 msgstr ""
-"Als de printer een verwarmd bed heeft doe de bovenstaande test opnieuw met het"
-" bed."
+"Als de printer een verwarmd bed heeft doe de bovenstaande test opnieuw met "
+"het bed."
 
 msgid "Verify stepper motor enable pin"
 msgstr "Controleer stappenmotor ingeschakeld pin"
