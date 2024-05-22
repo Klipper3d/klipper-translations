@@ -2,7 +2,7 @@
 # Milton Miranda Neto <voidmmn@gmail.com>, 2023.
 # Ducarmel Hilaire <dl-admin@users.noreply.hosted.weblate.org>, 2024.
 # ssantos <ssantos@web.de>, 2024, 2025.
-# Emerson Jhones <ejhones@gmail.com>, 2024.
+# Emerson Jhones <ejhones@gmail.com>, 2024, 2025.
 # theghost48 <gusthavonery00ghost@outlook.com>, 2024, 2025.
 # Thomas Martin Bueno de Moraes <thomasmbmoraes@gmail.com>, 2024, 2025.
 # Marco Antonio <marcoocost@gmail.com>, 2025.
@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:29+0000\n"
-"Last-Translator: Marco Antonio <marcoocost@gmail.com>\n"
+"Last-Translator: Emerson Jhones <ejhones@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/klipper/"
 "config_reference/pt/>\n"
 "Language: pt\n"
