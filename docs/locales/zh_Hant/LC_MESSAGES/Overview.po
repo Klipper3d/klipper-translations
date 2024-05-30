@@ -1,17 +1,18 @@
 # Fred Chan <fred2088@gmail.com>, 2022.
-# hugoalh <hugoalh@users.noreply.hosted.weblate.org>, 2024.
+# hugoalh <hugoalh@users.noreply.hosted.weblate.org>, 2024, 2025.
 # Peter Dave Hello <hsu@peterdavehello.org>, 2024.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-10-20 12:16+0000\n"
-"Last-Translator: Peter Dave Hello <hsu@peterdavehello.org>\n"
-"Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/projects/klipper/overview/zh_Hant/>\n"
+"PO-Revision-Date: 2025-05-03 07:31+0000\n"
+"Last-Translator: hugoalh <hugoalh@users.noreply.hosted.weblate.org>\n"
+"Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
+"projects/klipper/overview/zh_Hant/>\n"
 "Language: zh_Hant\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.8-rc\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 msgid ""
 "Welcome to the Klipper documentation. If new to Klipper, start with the "
@@ -233,7 +234,8 @@ msgstr "[排除物件](Exclude_Object.md)：排除物件實現的指南。"
 msgid ""
 "[Axis Twist Compensation](Axis_Twist_Compensation.md): A tool to compensate "
 "for inaccurate probe readings due to twist in X gantry."
-msgstr "[軸扭曲補償](Axis_Twist_Compensation.md)：用於補償由於 X 機架扭曲而導致不準確的探頭讀數的工具。"
+msgstr "[軸扭曲補償](Axis_Twist_Compensation.md)：用於補償由於 X "
+"機架扭曲而導致不準確的探頭讀數的工具。"
 
 #: docs/Overview.md:block 10 (unordered list)
 msgid "[Bootloader Entry](Bootloader_Entry.md): Requesting the bootloader."
