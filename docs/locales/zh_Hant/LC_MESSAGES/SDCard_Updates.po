@@ -1,16 +1,17 @@
 # Fred Chan <fred2088@gmail.com>, 2022.
-# hugoalh <hugoalh@users.noreply.hosted.weblate.org>, 2024.
+# hugoalh <hugoalh@users.noreply.hosted.weblate.org>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-06-02 07:07+0000\n"
+"PO-Revision-Date: 2025-05-03 07:31+0000\n"
 "Last-Translator: hugoalh <hugoalh@users.noreply.hosted.weblate.org>\n"
-"Language-Team: Chinese (Traditional) <https://hosted.weblate.org/projects/klipper/sdcard_updates/zh_Hant/>\n"
+"Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
+"projects/klipper/sdcard_updates/zh_Hant/>\n"
 "Language: zh_Hant\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.6-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 msgid ""
 "Many of today's popular controller boards ship with a bootloader capable of "
