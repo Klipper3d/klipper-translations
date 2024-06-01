@@ -1,10 +1,10 @@
 # Fred Chan <fred2088@gmail.com>, 2022, 2025.
-# hugoalh <hugoalh@users.noreply.hosted.weblate.org>, 2024.
+# hugoalh <hugoalh@users.noreply.hosted.weblate.org>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:32+0000\n"
-"Last-Translator: Fred Chan <fred2088@gmail.com>\n"
+"Last-Translator: hugoalh <hugoalh@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
 "projects/klipper/measuring_resonances/zh_Hant/>\n"
 "Language: zh_Hant\n"
@@ -462,7 +462,8 @@ msgid ""
 "However, if you connected two accelerometers simultaneously, you simply run "
 "`SHAPER_CALIBRATE` without specifying an axis to calibrate the input shaper "
 "for both axes in one go."
-msgstr "但是，如果您同時連接兩個加速度計，您只需運行 `SHAPER_CALIBRATE`，而無需指定一個軸來一次性校準兩個軸的輸入整形器。"
+msgstr "但是，如果您同時連接兩個加速度計，您只需運行 "
+"`SHAPER_CALIBRATE`，而無需指定一個軸來一次性校準兩個軸的輸入整形器。"
 
 msgid "Input Shaper re-calibration"
 msgstr "輸入整形器重新校準"
@@ -534,8 +535,8 @@ msgid ""
 "via `-a x`, `-a y` or `-a z` parameter (if none specified, the sum of "
 "vibrations for all axes is used);"
 msgstr ""
-"比較幾個輸入之間的頻率響應（使用 `-c` 參數）；您還可以通過 `-a x`、`-a y` 或 `-a z` "
-"參數指定要考慮的加速度計軸（如果未指定，則使用所有軸的振動總和）；"
+"比較幾個輸入之間的頻率響應（使用 `-c` 參數）；您還可以通過 `-a x`、`-a y` 或 "
+"`-a z` 參數指定要考慮的加速度計軸（如果未指定，則使用所有軸的振動總和）；"
 
 msgid ""
 "plotting the spectrogram (use `-s` parameter), only 1 input is supported; you "
