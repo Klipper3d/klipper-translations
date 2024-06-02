@@ -4,7 +4,7 @@
 # Kaan Özbilek <info@kaanozbilek.com>, 2023.
 # Kursat <sitting_1907@hotmail.com>, 2023, 2025.
 # Semih <semihbrn10@gmail.com>, 2024, 2025.
-# kasım atmaca <kasim.atmaca13@gmail.com>, 2024.
+# kasım atmaca <kasim.atmaca13@gmail.com>, 2024, 2025.
 # Sümer Okan <smr.okan@gmail.com>, 2024, 2025.
 # Murateba <robloxmurat5@gmail.com>, 2024, 2025.
 # Tuna Dinçer <hweord@gmail.com>, 2024, 2025.
@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:22+0000\n"
-"Last-Translator: Semih <semihbrn10@gmail.com>\n"
+"Last-Translator: kasım atmaca <kasim.atmaca13@gmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/overview/"
 "tr/>\n"
 "Language: tr\n"
@@ -26,7 +26,8 @@ msgid ""
 "[features](Features.md) and [installation](Installation.md) documents."
 msgstr ""
 "Klipper dökümantasyonuna hoş geldiniz. Eğer Klipper'de yeni iseniz , "
-"[özellikler](Features.md) ve [kurulum](Installation.md) ile başlayabilirsiniz."
+"[özellikler](Features.md) ve [kurulum](Installation.md) ile "
+"başlayabilirsiniz."
 
 msgid "Overview information"
 msgstr "Genel Bakış"
