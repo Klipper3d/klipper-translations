@@ -1,16 +1,17 @@
 # Oriol Tous Casadesús <otousc@gmail.com>, 2023.
-# Carles Mateu <carlesm@carlesm.com>, 2024.
+# Carles Mateu <carlesm@carlesm.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-06-19 01:09+0000\n"
+"PO-Revision-Date: 2025-05-03 07:43+0000\n"
 "Last-Translator: Carles Mateu <carlesm@carlesm.com>\n"
-"Language-Team: Catalan <https://hosted.weblate.org/projects/klipper/navigation/ca/>\n"
+"Language-Team: Catalan <https://hosted.weblate.org/projects/klipper/"
+"navigation/ca/>\n"
 "Language: ca\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.6-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 msgid "Klipper documentation"
 msgstr "Documentació Klipper"
