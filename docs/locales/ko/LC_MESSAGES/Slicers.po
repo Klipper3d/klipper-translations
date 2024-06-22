@@ -1,10 +1,11 @@
 # brian park <gouache95@gmail.com>, 2021, 2025.
-# ElectricalBoy <15651807+ElectricalBoy@users.noreply.github.com>, 2024.
+# ElectricalBoy <15651807+ElectricalBoy@users.noreply.github.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:25+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: ElectricalBoy "
+"<15651807+ElectricalBoy@users.noreply.github.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/klipper/slicers/"
 "ko/>\n"
 "Language: ko\n"
