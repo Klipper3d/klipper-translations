@@ -1,10 +1,10 @@
 # Kaan Özbilek <info@kaanozbilek.com>, 2023, 2025.
-# Sümer Okan <smr.okan@gmail.com>, 2024.
+# Sümer Okan <smr.okan@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:38+0000\n"
-"Last-Translator: Kaan Özbilek <info@kaanozbilek.com>\n"
+"Last-Translator: Sümer Okan <smr.okan@gmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/sponsors/"
 "tr/>\n"
 "Language: tr\n"
@@ -23,8 +23,8 @@ msgid ""
 "Please consider sponsoring Klipper or supporting our sponsors."
 msgstr ""
 "Klipper sponsorların cömert destekleriyle geliştirilen ücretsiz bir "
-"yazılımdır. Lütfen Klipper' a sponsor olmayı veya sponsorlarımızı desteklemeyi"
-" düşünün."
+"yazılımdır. Lütfen Klipper' a sponsor olmayı veya sponsorlarımızı "
+"desteklemeyi düşünün."
 
 #: docs/Sponsors.md:block 3 (header)
 msgid "BIGTREETECH"
