@@ -1,11 +1,11 @@
 # Roberto Besser <rmbesser@gmail.com>, 2021.
 # Zeldazul <b.ferreirargs@gmail.com>, 2022, 2025.
-# Rafael Neuwirth Swierczynski <rafanswi@protonmail.com>, 2024.
+# Rafael Neuwirth Swierczynski <rafanswi@protonmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:28+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Rafael Neuwirth Swierczynski <rafanswi@protonmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "klipper/releases/pt_BR/>\n"
 "Language: pt_BR\n"
