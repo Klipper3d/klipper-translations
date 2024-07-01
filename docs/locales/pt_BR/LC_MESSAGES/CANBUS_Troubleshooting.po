@@ -1,9 +1,9 @@
-# Rafael Neuwirth Swierczynski <rafanswi@protonmail.com>, 2024.
+# Rafael Neuwirth Swierczynski <rafanswi@protonmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:45+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Rafael Neuwirth Swierczynski <rafanswi@protonmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "klipper/canbus_troubleshooting/pt_BR/>\n"
 "Language: pt_BR\n"
