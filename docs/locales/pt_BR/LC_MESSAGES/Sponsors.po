@@ -1,15 +1,16 @@
-# Rafael Neuwirth Swierczynski <rafanswi@protonmail.com>, 2024.
+# Rafael Neuwirth Swierczynski <rafanswi@protonmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-07-02 15:09+0000\n"
+"PO-Revision-Date: 2025-05-03 07:37+0000\n"
 "Last-Translator: Rafael Neuwirth Swierczynski <rafanswi@protonmail.com>\n"
-"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/klipper/sponsors/pt_BR/>\n"
+"Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
+"klipper/sponsors/pt_BR/>\n"
 "Language: pt_BR\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.7-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: docs/Sponsors.md:block 1 (header)
 msgid "Sponsors"
@@ -20,8 +21,9 @@ msgid ""
 "Klipper is Free Software. We depend on the generous support from sponsors. "
 "Please consider sponsoring Klipper or supporting our sponsors."
 msgstr ""
-"Klipper é um software livre. Dependemos do generoso apoio dos patrocinadores. "
-"Por favor, considere patrocinar o Klipper ou apoiar nossos patrocinadores."
+"Klipper é um software livre. Dependemos do generoso apoio dos "
+"patrocinadores. Por favor, considere patrocinar o Klipper ou apoiar nossos "
+"patrocinadores."
 
 #: docs/Sponsors.md:block 3 (header)
 msgid "BIGTREETECH"
@@ -37,9 +39,9 @@ msgid ""
 msgstr ""
 "BIGTREETECH é o patrocinador oficial da placa-mãe do Klipper. A BIGTREETECH "
 "está comprometida em desenvolver produtos inovadores e competitivos para "
-"melhor atender a comunidade de impressão 3D. Siga-os no "
-"[Facebook](https://www.facebook.com/BIGTREETECH) ou "
-"[Twitter(X)](https://twitter.com/BigTreeTech)."
+"melhor atender a comunidade de impressão 3D. Siga-os no [Facebook](https://"
+"www.facebook.com/BIGTREETECH) ou [Twitter(X)](https://twitter.com/"
+"BigTreeTech)."
 
 #: docs/Sponsors.md:block 6 (header)
 msgid "Klipper Developers"
@@ -58,8 +60,8 @@ msgid ""
 "Eric is the author of bed_mesh, spi_flash, and several other Klipper modules. "
 "Eric has a donations page at: <https://ko-fi.com/arksine>"
 msgstr ""
-"Eric é o autor do bed_mesh, spi_flash e vários outros módulos do Klipper. Eric"
-" tem uma página para doações em: <https://ko-fi.com/arksine>"
+"Eric é o autor do bed_mesh, spi_flash e vários outros módulos do Klipper. "
+"Eric tem uma página para doações em: <https://ko-fi.com/arksine>"
 
 #: docs/Sponsors.md:block 11 (header)
 msgid "Related Klipper Projects"
@@ -98,16 +100,16 @@ msgid ""
 "Kevin is the original author and current maintainer of Klipper. Donate at: "
 "<https://ko-fi.com/koconnor> or <https://www.patreon.com/koconnor>"
 msgstr ""
-"Kevin é o autor original e atual desenvolvedor do Klipper. Doe em: "
-"<https://ko-fi.com/koconnor> ou <https://www.patreon.com/koconnor>"
+"Kevin é o autor original e atual desenvolvedor do Klipper. Doe em: <https"
+"://ko-fi.com/koconnor> ou <https://www.patreon.com/koconnor>"
 
 #: docs/Sponsors.md:block 4 (paragraph)
 msgid ""
 "[<img src=\"./img/sponsors/BTT_BTT.png\" width=\"200\" "
 "style=\"margin:25px\"/>](https://bigtree-tech.com/collections/all-products)"
 msgstr ""
-"[<img src=\"./img/sponsors/BTT_BTT.png\" width=\"200\" "
-"style=\"margin:25px\"/>](https://bigtree-tech.com/collections/all-products)"
+"[<img src=\"./img/sponsors/BTT_BTT.png\" width=\"200\" style=\"margin:25px\""
+"/>](https://bigtree-tech.com/collections/all-products)"
 
 #: docs/Sponsors.md:block 7 (paragraph)
 msgid ""
