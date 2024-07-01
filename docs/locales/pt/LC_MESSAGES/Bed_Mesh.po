@@ -1,9 +1,9 @@
-# Emerson Jhones <ejhones@gmail.com>, 2024.
+# Emerson Jhones <ejhones@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:30+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Emerson Jhones <ejhones@gmail.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/klipper/"
 "bed_mesh/pt/>\n"
 "Language: pt\n"
