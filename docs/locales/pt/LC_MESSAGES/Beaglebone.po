@@ -1,15 +1,16 @@
-# Emerson Jhones <ejhones@gmail.com>, 2024.
+# Emerson Jhones <ejhones@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-07-02 15:09+0000\n"
+"PO-Revision-Date: 2025-05-03 07:30+0000\n"
 "Last-Translator: Emerson Jhones <ejhones@gmail.com>\n"
-"Language-Team: Portuguese <https://hosted.weblate.org/projects/klipper/beaglebone/pt/>\n"
+"Language-Team: Portuguese <https://hosted.weblate.org/projects/klipper/"
+"beaglebone/pt/>\n"
 "Language: pt\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.7-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: docs/Beaglebone.md:block 1 (header)
 msgid "Beaglebone"
