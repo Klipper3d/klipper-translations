@@ -1,11 +1,11 @@
 # 京都タラレバ息子 <japan100@gmail.com>, 2023, 2025.
 # ktyubeshi <kt.yubeshi@gmail.com>, 2023, 2025.
-# Haruhiro Obora <boraboraharuharu@outlook.com>, 2024.
+# Haruhiro Obora <boraboraharuharu@outlook.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:41+0000\n"
-"Last-Translator: yubeshi <kt.yubeshi@gmail.com>\n"
+"Last-Translator: Haruhiro Obora <boraboraharuharu@outlook.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/klipper/"
 "overview/ja/>\n"
 "Language: ja\n"
