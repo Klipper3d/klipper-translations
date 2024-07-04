@@ -3,14 +3,14 @@
 # Wagner Reck <wagner.reck@gmail.com>, 2022.
 # Alfredo Monclus <alfredomonclus@gmail.com>, 2023.
 # Bernardo Scolnik <bscolnik@gmail.com>, 2024.
-# Jhonny Rosa <jh0nny.rosa@gmail.com>, 2024.
+# Jhonny Rosa <jh0nny.rosa@gmail.com>, 2024, 2025.
 # Caio Henrique Dos Santos Carvalho <estudantecaiohsc@gmail.com>, 2024.
 # Rodrigo Altendorf Bernordi <risrdg@gmail.com>, 2024.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:27+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Jhonny Rosa <jh0nny.rosa@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "klipper/config_reference/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -1614,14 +1614,15 @@ msgid ""
 "typically be achieved with \"SYNC_EXTRUDER_MOTION MOTION_QUEUE=extruder "
 "EXTRUDER=<dual_carriage_extruder>\" or a similar command."
 msgstr ""
-"Adicionalmente, você pode usar os comandos \"SET_DUAL_CARRIAGE CARRIAGE=1 "
-"MODE=COPY\" ou \"SET_DUAL_CARRIAGE CARRIAGE=1 MODE=MIRROR\" para ativar tanto "
-"o modo de copiar ou de espelhar o carrinho duplo, em ambos os casos ele irá "
-"seguir o movimento do carrinho 0 de acordo. Estes comandos podem ser usados "
-"para imprimir duas partes simultaneamente - tanto duas partes idênticas (no "
-"modo COPY) ou espelhadas (no modo MIRROR). Note que os modos COPY e MIRROR "
-"também requerem configuração apropriada da extrusora no carrinho duplo, o que "
-"pode ser feito normalmente com o comando  \"SYNC_EXTRUDER_MOTION "
+"Adicionalmente, você pode usar os comandos "
+"\"SET_DUAL_CARRIAGE CARRIAGE=1 MODE=COPY\" ou "
+"\"SET_DUAL_CARRIAGE CARRIAGE=1 MODE=MIRROR\" para ativar tanto o modo de "
+"copiar ou de espelhar o carrinho duplo, em ambos os casos ele irá seguir o "
+"movimento do carrinho 0 de acordo. Estes comandos podem ser usados para "
+"imprimir duas partes simultaneamente - tanto duas partes idênticas (no modo "
+"COPY) ou espelhadas (no modo MIRROR). Note que os modos COPY e MIRROR também "
+"requerem configuração apropriada da extrusora no carrinho duplo, o que pode "
+"ser feito normalmente com o comando  \"SYNC_EXTRUDER_MOTION "
 "MOTION_QUEUE=extruder EXTRUDER=<dual_carriage_extruder>\" ou outro similar."
 
 #: docs/Config_Reference.md:block 259 (header)
