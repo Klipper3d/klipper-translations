@@ -1,11 +1,11 @@
-# Ruslan Kyba <kybargr@gmail.com>, 2024.
+# Ruslan Kyba <kybargr@gmail.com>, 2024, 2025.
 # Максим Горпиніч <mgorpinic2005@gmail.com>, 2024.
 # Deleted User <mgorpinic2005@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:36+0000\n"
-"Last-Translator: Deleted User <mgorpinic2005@gmail.com>\n"
+"Last-Translator: Ruslan Kyba <kybargr@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/klipper/"
 "api_server/uk/>\n"
 "Language: uk\n"
