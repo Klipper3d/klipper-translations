@@ -2,14 +2,15 @@
 # Yifei Ding <dingyifeiair@gmail.com>, 2022.
 # Kamil Kostrzewa <kamilianos3@gmail.com>, 2022.
 # Jan P <jasiek.kliper06@gmail.com>, 2023, 2025.
-# Bartosz Trojan <51444728+ethylowy@users.noreply.github.com>, 2024.
+# Bartosz Trojan <51444728+ethylowy@users.noreply.github.com>, 2024, 2025.
 # Dawid <dawidgorski.m@gmail.com>, 2024.
 # Mateusz <account.srrr3@slmail.me>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:26+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Bartosz Trojan <51444728+ethylowy@users.noreply.github.com>"
+"\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/klipper/g-codes/"
 "pl/>\n"
 "Language: pl\n"
