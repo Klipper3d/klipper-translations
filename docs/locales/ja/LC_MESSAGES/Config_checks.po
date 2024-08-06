@@ -1,21 +1,21 @@
 # 京都タラレバ息子 <japan100@gmail.com>, 2023.
 # Lol A-girl-with-tea <f300f300f300@gmail.com>, 2023.
 # ktyubeshi <kt.yubeshi@gmail.com>, 2023.
-# umesaburo sagawa <atowa-notonare-yamatonare427@pm.me>, 2024.
+# umesaburo sagawa <atowa-notonare-yamatonare427@pm.me>, 2024, 2025.
 # immeteor2 <ryumeteor175@gmail.com>, 2024.
 # Tachibana Saza <tachibanasaza@proton.me>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-04-03 19:07+0000\n"
-"Last-Translator: Tachibana Saza <tachibanasaza@proton.me>\n"
+"PO-Revision-Date: 2025-05-03 07:40+0000\n"
+"Last-Translator: umesaburo sagawa <atowa-notonare-yamatonare427@pm.me>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/klipper/"
 "config_checks/ja/>\n"
 "Language: ja\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.11-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 msgid ""
 "This document provides a list of steps to help confirm the pin settings in the"
@@ -52,7 +52,8 @@ msgstr "ヒーターを確認する"
 msgid ""
 "If the printer has a heated bed then perform the above test again with the "
 "bed."
-msgstr "プリンターに加熱ベッドがある場合は、ベッドで上記のテストを再度行ってください。"
+msgstr "プリンターに加熱ベッドがある場合は、ベッドで上記のテストを再度行ってください"
+"。"
 
 msgid "Verify stepper motor enable pin"
 msgstr "ステッピングモータ・イネーブル・ピンの確認"
@@ -67,8 +68,11 @@ msgid ""
 "name - most printers will use a pullup resistor and the '^' should be "
 "present)."
 msgstr ""
-"エンドストップが全く変化しない場合は、一般的にエンドストップが別のピンに接続されていることを示しています。ただし、ピンのプルアップ設定を変更する必要がある場合もあります。"
-" (エンドストップピン名の先頭にある-ほとんどのプリンタはプルアップ抵抗を使用するので、この抵抗があるはずである)。"
+"エンドストップが全く変化しない場合は、一般的にエンドストップが別のピンに接続"
+"されていることを示しています。ただし、ピンのプルアップ設定を変更する必要があ"
+"る場合もあります。 "
+"(エンドストップピン名の先頭にある-ほとんどのプリンタはプルアップ抵抗を使用す"
+"るので、この抵抗があるはずである)。"
 
 msgid "Verify stepper motors"
 msgstr "ステッピングモーターを確認する"
