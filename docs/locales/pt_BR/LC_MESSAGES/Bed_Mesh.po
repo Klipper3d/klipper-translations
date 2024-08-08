@@ -3,12 +3,12 @@
 # Francisco Lima <limamg@gmail.com>, 2023.
 # delvani <inavleb@users.noreply.hosted.weblate.org>, 2024.
 # Bernardo Scolnik <bscolnik@gmail.com>, 2024.
-# Matheus Mösken Diegues <dmosken2015@gmail.com>, 2024.
+# Matheus Mösken Diegues <dmosken2015@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:28+0000\n"
-"Last-Translator: Raquel Fernanda Alves Silva <fernanda.quel@yahoo.com.br>\n"
+"Last-Translator: Matheus Mösken Diegues <dmosken2015@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "klipper/bed_mesh/pt_BR/>\n"
 "Language: pt_BR\n"
