@@ -2,14 +2,14 @@
 # Kursat <sitting_1907@hotmail.com>, 2023.
 # Kaan Özbilek <info@kaanozbilek.com>, 2023, 2025.
 # Sümer Okan <smr.okan@gmail.com>, 2024.
-# Murateba <robloxmurat5@gmail.com>, 2024.
+# Murateba <robloxmurat5@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2022-03-06 16:50+0200\n"
 "PO-Revision-Date: 2025-05-03 07:32+0000\n"
-"Last-Translator: zafer yazkili <yazkili@hotmail.com>\n"
+"Last-Translator: Murateba <robloxmurat5@gmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/"
 "navigation/tr/>\n"
 "Language: tr\n"
