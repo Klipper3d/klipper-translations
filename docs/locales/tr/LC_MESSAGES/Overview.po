@@ -6,13 +6,13 @@
 # Semih <semihbrn10@gmail.com>, 2024.
 # kasım atmaca <kasim.atmaca13@gmail.com>, 2024.
 # Sümer Okan <smr.okan@gmail.com>, 2024.
-# Murateba <robloxmurat5@gmail.com>, 2024.
+# Murateba <robloxmurat5@gmail.com>, 2024, 2025.
 # Tuna Dinçer <hweord@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:22+0000\n"
-"Last-Translator: Kursat <sitting_1907@hotmail.com>\n"
+"Last-Translator: Murateba <robloxmurat5@gmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/overview/"
 "tr/>\n"
 "Language: tr\n"
@@ -234,8 +234,8 @@ msgid ""
 "[Example configs](Example_Configs.md): Information on adding an example config"
 " file to Klipper."
 msgstr ""
-"[Örnek yapılandırmalar](Example_Configs.md): Klipper'a örnek bir yapılandırma "
-"dosyası ekleme üzerine bilgilendirme."
+"[Örnek yapılandırmalar](Example_Configs.md): Klipper'a örnek bir "
+"yapılandırma dosyası ekleme üzerine bilgilendirme."
 
 msgid ""
 "[SDCard Updates](SDCard_Updates.md): Flash a micro-controller by copying a "
@@ -248,8 +248,9 @@ msgid ""
 "[Raspberry Pi as Micro-controller](RPi_microcontroller.md): Details for "
 "controlling devices wired to the GPIO pins of a Raspberry Pi."
 msgstr ""
-"[Mikro denetleyici olarak Raspberry Pi](RPi_microcontroller.md): Bir Raspberry"
-" Pi üzerindeki GPIO pinlerine bağlı cihazları kontrol etmek için ayrıntılar."
+"[Mikro denetleyici olarak Raspberry Pi](RPi_microcontroller.md): Bir "
+"Raspberry Pi üzerindeki GPIO pinlerine bağlı cihazları kontrol etmek için "
+"ayrıntılar."
 
 msgid ""
 "[Bootloaders](Bootloaders.md): Developer information on micro-controller "
