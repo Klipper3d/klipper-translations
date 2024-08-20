@@ -2,14 +2,14 @@
 # Vik <k3kelm4vw@mozmail.com>, 2022.
 # SleepyOwl <artem726artem@gmail.com>, 2023.
 # xXx <xxx_xxx_xxxxxxxxx@mail.ru>, 2023.
-# John Titor <utkin2007@gmail.com>, 2024.
+# John Titor <utkin2007@gmail.com>, 2024, 2025.
 # gfbdrgng <hnaofegnp@hldrive.com>, 2024.
 # Vin <k3kelm4vw@mozmail.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:35+0000\n"
-"Last-Translator: Vin <k3kelm4vw@mozmail.com>\n"
+"Last-Translator: John Titor <utkin2007@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/faq/ru/>"
 "\n"
 "Language: ru\n"
@@ -75,8 +75,9 @@ msgid ""
 "Follow the directions in the \"[Where's my serial port?](#wheres-my-serial-"
 "port)\" section to prevent this from occurring."
 msgstr ""
-"Следуйте указаниям из секции \"[Где мой последовательный порт?](#где-мой-"
-"последовательный-порт)\" чтобы предотвратить это."
+"Следуйте указаниям из секции "
+"\"[Где мой последовательный порт?](#где-мой-последовательный-порт)\" чтобы "
+"предотвратить это."
 
 msgid "The \"make flash\" command doesn't work"
 msgstr "Команда \"прошить\" не работает"
@@ -86,9 +87,9 @@ msgid ""
 "platform. Unfortunately, there is a lot of variance in flashing methods, so "
 "the \"make flash\" command may not work on all boards."
 msgstr ""
-"Код пытается прошить устройство с помощью самого распространенного способа. К "
-"сожалению, существует множество способов прошивки, потому команда \"прошить\" "
-"может не работать на всех возможных приборах."
+"Код пытается прошить устройство с помощью самого распространенного способа. "
+"К сожалению, существует множество способов прошивки, потому команда "
+"\"прошить\" может не работать на всех возможных приборах."
 
 msgid ""
 "If you're having an intermittent failure or you do have a standard setup, then"
