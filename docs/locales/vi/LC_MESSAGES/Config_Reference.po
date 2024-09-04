@@ -1,9 +1,9 @@
-# "N. Hao" <nguyenviethao2002@gmail.com>, 2024.
+# "N. Hao" <nguyenviethao2002@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:33+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: \"N. Hao\" <nguyenviethao2002@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/klipper/"
 "config_reference/vi/>\n"
 "Language: vi\n"
