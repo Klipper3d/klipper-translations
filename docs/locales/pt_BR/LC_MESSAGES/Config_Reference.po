@@ -4,13 +4,14 @@
 # Alfredo Monclus <alfredomonclus@gmail.com>, 2023.
 # Bernardo Scolnik <bscolnik@gmail.com>, 2024.
 # Jhonny Rosa <jh0nny.rosa@gmail.com>, 2024, 2025.
-# Caio Henrique Dos Santos Carvalho <estudantecaiohsc@gmail.com>, 2024.
+# Caio Henrique Dos Santos Carvalho <estudantecaiohsc@gmail.com>, 2024, 2025.
 # Rodrigo Altendorf Bernordi <risrdg@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:27+0000\n"
-"Last-Translator: Roberto Besser <rmbesser@gmail.com>\n"
+"Last-Translator: Caio Henrique Dos Santos Carvalho "
+"<estudantecaiohsc@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "klipper/config_reference/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -1579,7 +1580,6 @@ msgid "Support for LIS2DW accelerometers."
 msgstr ""
 
 #: docs/Config_Reference.md:block 200 (header)
-#, fuzzy
 msgid "[axis_twist_compensation]"
 msgstr "[compensação_de_desvio_no_eixo]"
 
