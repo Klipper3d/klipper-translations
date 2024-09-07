@@ -4,13 +4,14 @@
 # gbonaspetti <gbonaspetti@hotmail.com>, 2022.
 # Lucas Rafaldini <lrafaldini@pm.me>, 2022.
 # Vittor Paulo Vieira da Costa <vittorpaulovc@gmail.com>, 2023, 2025.
-# Caio Henrique Dos Santos Carvalho <estudantecaiohsc@gmail.com>, 2024.
+# Caio Henrique Dos Santos Carvalho <estudantecaiohsc@gmail.com>, 2024, 2025.
 # Thomas Martin Bueno de Moraes <thomasmbmoraes@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:27+0000\n"
-"Last-Translator: Thomas Martin Bueno de Moraes <thomasmbmoraes@gmail.com>\n"
+"Last-Translator: Caio Henrique Dos Santos Carvalho "
+"<estudantecaiohsc@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "klipper/g-codes/pt_BR/>\n"
 "Language: pt_BR\n"
@@ -2354,7 +2355,6 @@ msgid ""
 msgstr ""
 
 #: docs/G-Codes.md:block 376 (header)
-#, fuzzy
 msgid "[axis_twist_compensation]"
 msgstr "[compensação_de_desvio_no_eixo]"
 
@@ -2554,8 +2554,8 @@ msgid ""
 "`ABORT`: Aborts the calibration process, discarding the current results. This "
 "command is only available during drift calibration."
 msgstr ""
-"CANCELAR: Cancela o processo de calibração, independente dos resultados. Esse "
-"comando só está disponível durante calibração de movimento."
+"CANCELAR: Cancela o processo de calibração, independente dos resultados. "
+"Esse comando só está disponível durante calibração de movimento."
 
 #: docs/G-Codes.md:block 403 (header)
 msgid "TEMPERATURE_PROBE_ENABLE"
