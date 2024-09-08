@@ -5,7 +5,7 @@
 # ghyuav <ghyuav2021@163.com>, 2022.
 # xm Y <3260838022@qq.com>, 2023, 2025.
 # Arda <pengfei.fu@gmail.com>, 2024, 2025.
-# enly sure <enlysure@gmail.com>, 2024.
+# enly sure <enlysure@gmail.com>, 2024, 2025.
 # WMMM <mo18218985508@163.com>, 2024.
 # "Neko.vecter" <Vecterfang@icloud.com>, 2025.
 msgid ""
@@ -14,7 +14,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-13 14:53+0200\n"
 "PO-Revision-Date: 2025-05-03 07:22+0000\n"
-"Last-Translator: xm Y <3260838022@qq.com>\n"
+"Last-Translator: enly sure <enlysure@gmail.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/klipper/g-codes/zh_Hans/>\n"
 "Language: zh_Hans\n"
