@@ -2,13 +2,13 @@
 # Luc Van den Borre <luc@orotec.be>, 2023.
 # Tjalling Kaastra <tjalling@kaastra.net>, 2024, 2025.
 # Austin <austin_adamek1@hotmail.com>, 2024.
-# Simon Tillema <shtillema@gomarus.nl>, 2024.
+# Simon Tillema <shtillema@gomarus.nl>, 2024, 2025.
 # Danni <hostedweblate@danni-design.com>, 2024.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:39+0000\n"
-"Last-Translator: Tjalling Kaastra <tjalling@kaastra.net>\n"
+"Last-Translator: Simon Tillema <shtillema@gomarus.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/klipper/"
 "config_checks/nl/>\n"
 "Language: nl\n"
@@ -22,9 +22,9 @@ msgid ""
 " Klipper printer.cfg file. It is a good idea to run through these steps after "
 "following the steps in the [installation document](Installation.md)."
 msgstr ""
-"Dit document bevat een lijst met stappen om de pin-instellingen in printer.cfg"
-" te bevestigen. Het is belangrijk om deze stappen door te lopen in het "
-"[installatiedocument](Installation.md)."
+"Dit document bevat een lijst met stappen om de pin-instellingen in "
+"printer.cfg te bevestigen. Het is belangrijk om deze stappen door te lopen "
+"in het [installatiedocument](Installation.md)."
 
 #, fuzzy
 msgid ""
@@ -97,9 +97,9 @@ msgid ""
 "(see the next section)."
 msgstr ""
 "Draai de voorgaande test voor elke stappenmotor zoals gedefinieerd in het "
-"configuratiebestand. (Stel de STEPPER-parameters van het STEPPER_BUZZ-commando"
-" in op de naam zoals gebruikt in het configuratiebestand.) Als er geen "
-"filament geladen is, kan STEPPER_BUZZ ook gebruikt worden voor de "
+"configuratiebestand. (Stel de STEPPER-parameters van het STEPPER_BUZZ-"
+"commando in op de naam zoals gebruikt in het configuratiebestand.) Als er "
+"geen filament geladen is, kan STEPPER_BUZZ ook gebruikt worden voor de "
 "extrudermotor (gebruik STEPPER=extruder). Test anders de extrudermotor "
 "afzonderlijk (zie de volgende sectie)."
 
