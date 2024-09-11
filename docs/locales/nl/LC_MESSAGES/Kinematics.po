@@ -1,10 +1,10 @@
 # Luc Van den Borre <luc@orotec.be>, 2023.
-# Simon Tillema <shtillema@gomarus.nl>, 2024.
+# Simon Tillema <shtillema@gomarus.nl>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:39+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Simon Tillema <shtillema@gomarus.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/klipper/kinematics/"
 "nl/>\n"
 "Language: nl\n"
@@ -20,10 +20,10 @@ msgid ""
 "as well as users interested in better understanding the mechanics of their "
 "machines."
 msgstr ""
-"Dit document geeft een overzicht van hoe Klipper robotbewegingen implementeert"
-" (zie [kinematics](https://en.wikipedia.org/wiki/Kinematics)). De inhoud is "
-"interessant voor zowel Klipper-ontwikkelaars als gebruikers in het beter "
-"verstaan van de onderliggende techniek op hun machines."
+"Dit document geeft een overzicht van hoe Klipper robotbewegingen "
+"implementeert (zie [kinematics](https://en.wikipedia.org/wiki/Kinematics)). "
+"De inhoud is interessant voor zowel Klipper-ontwikkelaars als gebruikers in "
+"het beter verstaan van de onderliggende techniek op hun machines."
 
 msgid "Acceleration"
 msgstr ""
