@@ -9,7 +9,7 @@
 # Ворон Stars <voronstars1255@gmail.com>, 2023.
 # michailtoksovo <mikhailtoksovo@yandex.ru>, 2023.
 # Кирилл Еремеев <kirnet79@gmail.com>, 2024.
-# Тихон Титовец <titovetstixon@gmail.com>, 2024.
+# Тихон Титовец <titovetstixon@gmail.com>, 2024, 2025.
 # Alexandr Voznyuk <9169208719av@gmail.com>, 2024.
 # Arseniy <arseniy@neburalis.space>, 2024.
 # gfbdrgng <hnaofegnp@hldrive.com>, 2024, 2025.
@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:34+0000\n"
-"Last-Translator: gfbdrgng <hnaofegnp@hldrive.com>\n"
+"Last-Translator: Тихон Титовец <titovetstixon@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/g-codes/"
 "ru/>\n"
 "Language: ru\n"
