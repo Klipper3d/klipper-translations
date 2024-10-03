@@ -6,13 +6,13 @@
 # Dr_Perry_Coke <dr.perrycoke@gmail.com>, 2023.
 # Michail Fedorov <fedorovmichail50@gmail.com>, 2024.
 # V R <hardorzz@gmail.com>, 2024.
-# Тихон Титовец <titovetstixon@gmail.com>, 2024.
+# Тихон Титовец <titovetstixon@gmail.com>, 2024, 2025.
 # gfbdrgng <hnaofegnp@hldrive.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:34+0000\n"
-"Last-Translator: VICTOR <subfyn@gmail.com>\n"
+"Last-Translator: Тихон Титовец <titovetstixon@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
 "config_reference/ru/>\n"
 "Language: ru\n"
