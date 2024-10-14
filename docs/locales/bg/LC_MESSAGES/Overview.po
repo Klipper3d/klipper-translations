@@ -1,17 +1,18 @@
 # Nikolai Danov <nikolaidanov67@gmail.com>, 2022.
 # Salif Mehmed <mail@salif.eu>, 2023.
-# Niolay Danov <nikdan@abv.bg>, 2024.
+# Niolay Danov <nikdan@abv.bg>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-10-15 06:16+0000\n"
+"PO-Revision-Date: 2025-05-03 07:38+0000\n"
 "Last-Translator: Niolay Danov <nikdan@abv.bg>\n"
-"Language-Team: Bulgarian <https://hosted.weblate.org/projects/klipper/overview/bg/>\n"
+"Language-Team: Bulgarian <https://hosted.weblate.org/projects/klipper/"
+"overview/bg/>\n"
 "Language: bg\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.8-rc\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 msgid ""
 "Welcome to the Klipper documentation. If new to Klipper, start with the "
@@ -306,8 +307,8 @@ msgid ""
 "[Axis Twist Compensation](Axis_Twist_Compensation.md): A tool to compensate "
 "for inaccurate probe readings due to twist in X gantry."
 msgstr ""
-"[Компенсация на усукването на оста](Axis_Twist_Compensation.md): Инструмент за"
-" компенсиране на неточни показания на сондата, дължащи се на усукване на "
+"[Компенсация на усукването на оста](Axis_Twist_Compensation.md): Инструмент "
+"за компенсиране на неточни показания на сондата, дължащи се на усукване на "
 "портала X."
 
 #: docs/Overview.md:block 10 (unordered list)
