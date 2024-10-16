@@ -1,11 +1,11 @@
 # Alvaro <alvaro@null.net>, 2022, 2025.
 # Francisco Javier Hoyos Arango <cofhal@gmail.com>, 2023.
-# Francisco Serrador <fserrador@gmail.com>, 2024.
+# Francisco Serrador <fserrador@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:21+0000\n"
-"Last-Translator: Alvaro <alvaro@null.net>\n"
+"Last-Translator: Francisco Serrador <fserrador@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/"
 "sdcard_updates/es/>\n"
 "Language: es\n"
@@ -93,9 +93,10 @@ msgid ""
 "firmware. The initial flashing procedure must be done manually per the "
 "instructions that apply to your controller board."
 msgstr ""
-"Como mencioné en la introducción, este método solo funciona para modernización"
-" del firmware. El procedimiento de flaseado inicial debe ser hecho manualmente"
-" por las instrucciones que aplicar a su placa del controlador."
+"Como mencioné en la introducción, este método solo funciona para "
+"modernización del firmware. El procedimiento de flaseado inicial debe ser "
+"hecho manualmente por las instrucciones que aplicar a su placa del "
+"controlador."
 
 msgid ""
 "While it is possible to flash a build that changes the Serial Baud or "
