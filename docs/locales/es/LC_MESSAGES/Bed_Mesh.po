@@ -1,12 +1,12 @@
 # Alberto <aru_hackZ.official@zohomail.eu>, 2022.
 # Isaias Carrillo <icarrillo1304@gmail.com>, 2023.
 # Gael Caraballo <gcaraballo@alvic.net>, 2023.
-# Francisco Serrador <fserrador@gmail.com>, 2024.
+# Francisco Serrador <fserrador@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:21+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Francisco Serrador <fserrador@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/bed_mesh/"
 "es/>\n"
 "Language: es\n"
@@ -291,8 +291,8 @@ msgid ""
 "Outputs the current mesh state to the terminal. Note that the mesh itself is "
 "output"
 msgstr ""
-"Las salidas del estado lío actual para el terminal. Nótese que el lío mismo es"
-" la salida"
+"Las salidas del estado lío actual para el terminal. Nótese que el lío mismo "
+"es la salida"
 
 msgid ""
 "The PGP parameter is shorthand for \"Print Generated Points\". If `PGP=1` is "
@@ -335,9 +335,10 @@ msgid ""
 "follow the shape of the bed. The options below control the splitting behavior."
 msgstr ""
 "Malla del Cauce funciona interceptando comandos de movimiento de gcode y "
-"aplicando una transformación de su coordenada Z. Movimientos largos deben ser "
-"escindidos en movimientos más pequeños para seguir correctamente la forma del "
-"cauce. Las siguientes opciones controlan el comportamiento del desglose."
+"aplicando una transformación de su coordenada Z. Movimientos largos deben "
+"ser escindidos en movimientos más pequeños para seguir correctamente la "
+"forma del cauce. Las siguientes opciones controlan el comportamiento del "
+"desglose."
 
 #: docs/Bed_Mesh.md:block 3 (paragraph)
 msgid ""
