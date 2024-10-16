@@ -4,14 +4,14 @@
 # Alberto <aru_hackZ.official@zohomail.eu>, 2022.
 # Juan <benitesjn@gmail.com>, 2023.
 # L Garcia <unsaid.sorrels.0y@icloud.com>, 2024, 2025.
-# Francisco Serrador <fserrador@gmail.com>, 2024.
+# Francisco Serrador <fserrador@gmail.com>, 2024, 2025.
 # Alberto <alberto.robles.gomez@aruzeta.com>, 2025.
 # Juan Benites <benitesjn@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:22+0000\n"
-"Last-Translator: Juan Benites <benitesjn@gmail.com>\n"
+"Last-Translator: Francisco Serrador <fserrador@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/overview/"
 "es/>\n"
 "Language: es\n"
