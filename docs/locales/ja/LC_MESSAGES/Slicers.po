@@ -1,9 +1,10 @@
 # Hideki Matsunobu <maznobu@gmail.com>, 2024.
+# Deleted User <noreply+96425@weblate.org>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:41+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Deleted User <noreply+96425@weblate.org>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/klipper/slicers/"
 "ja/>\n"
 "Language: ja\n"
