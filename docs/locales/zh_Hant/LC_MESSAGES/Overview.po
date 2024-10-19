@@ -1,11 +1,11 @@
 # Fred Chan <fred2088@gmail.com>, 2022, 2025.
 # hugoalh <hugoalh@users.noreply.hosted.weblate.org>, 2024, 2025.
-# Peter Dave Hello <hsu@peterdavehello.org>, 2024.
+# Peter Dave Hello <hsu@peterdavehello.org>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:31+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Peter Dave Hello <hsu@peterdavehello.org>\n"
 "Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
 "projects/klipper/overview/zh_Hant/>\n"
 "Language: zh_Hant\n"
