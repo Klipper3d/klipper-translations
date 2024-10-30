@@ -4,13 +4,13 @@
 # Сергій <sergiy.goncharuk.1@gmail.com>, 2023, 2025.
 # Dan <jonweblin2205@protonmail.com>, 2024, 2025.
 # Максим Горпиніч <mgorpinic2005@gmail.com>, 2024.
-# Мойсеєнко Вадим <masterpemoiseenko1@gmail.com>, 2024.
+# Мойсеєнко Вадим <masterpemoiseenko1@gmail.com>, 2024, 2025.
 # Deleted User <mgorpinic2005@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:36+0000\n"
-"Last-Translator: Сергій <sergiy.goncharuk.1@gmail.com>\n"
+"Last-Translator: Мойсеєнко Вадим <masterpemoiseenko1@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/klipper/"
 "overview/uk/>\n"
 "Language: uk\n"
