@@ -1,10 +1,10 @@
 # Nikolai Danov <nikolaidanov67@gmail.com>, 2022.
-# Niolay Danov <nikdan@abv.bg>, 2024.
+# Niolay Danov <nikdan@abv.bg>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:38+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Niolay Danov <nikdan@abv.bg>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/klipper/"
 "mcu_commands/bg/>\n"
 "Language: bg\n"
@@ -22,8 +22,8 @@ msgstr ""
 "Този документ предоставя информация за командите от ниско ниво на "
 "микроконтролера, които се изпращат от софтуера Klipper \"host\" и се "
 "обработват от софтуера на микроконтролера Klipper. Този документ не е "
-"авторитетна справка за тези команди, нито пък е изчерпателен списък на всички "
-"налични команди."
+"авторитетна справка за тези команди, нито пък е изчерпателен списък на "
+"всички налични команди."
 
 msgid ""
 "This document may be useful for developers interested in understanding the "
