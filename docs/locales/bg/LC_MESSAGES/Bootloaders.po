@@ -1,9 +1,9 @@
-# Niolay Danov <nikdan@abv.bg>, 2024.
+# Niolay Danov <nikdan@abv.bg>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:39+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Niolay Danov <nikdan@abv.bg>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/klipper/"
 "bootloaders/bg/>\n"
 "Language: bg\n"
@@ -32,8 +32,8 @@ msgstr ""
 "при първото му включване. Обикновено се използва за флашване на ново "
 "приложение (например Klipper) на микроконтролера, без да е необходим "
 "специализиран хардуер. За съжаление, не съществува индустриален стандарт за "
-"флашване на микроконтролер, нито пък стандартен буутлоудър, който да работи за"
-" всички микроконтролери. Нещо по-лошо, често се случва всеки буутлоудър да "
+"флашване на микроконтролер, нито пък стандартен буутлоудър, който да работи "
+"за всички микроконтролери. Нещо по-лошо, често се случва всеки буутлоудър да "
 "изисква различен набор от стъпки за флашване на приложение."
 
 msgid ""
