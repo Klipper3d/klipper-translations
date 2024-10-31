@@ -1,10 +1,10 @@
 # Fred Chan <fred2088@gmail.com>, 2022, 2025.
-# Peter Dave Hello <hsu@peterdavehello.org>, 2024.
+# Peter Dave Hello <hsu@peterdavehello.org>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:38+0000\n"
-"Last-Translator: Fred Chan <fred2088@gmail.com>\n"
+"Last-Translator: Peter Dave Hello <hsu@peterdavehello.org>\n"
 "Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
 "projects/klipper/sponsors/zh_Hant/>\n"
 "Language: zh_Hant\n"
@@ -96,16 +96,16 @@ msgid ""
 "Kevin is the original author and current maintainer of Klipper. Donate at: "
 "<https://ko-fi.com/koconnor> or <https://www.patreon.com/koconnor>"
 msgstr ""
-"Kevin 是 Klipper 的原創作者及現任維護者。捐款支持請至：<https://ko-fi.com/koconnor> 或 "
-"<https://www.patreon.com/koconnor>"
+"Kevin 是 Klipper 的原創作者及現任維護者。捐款支持請至：<https://ko-fi.com/"
+"koconnor> 或 <https://www.patreon.com/koconnor>"
 
 #: docs/Sponsors.md:block 4 (paragraph)
 msgid ""
 "[<img src=\"./img/sponsors/BTT_BTT.png\" width=\"200\" "
 "style=\"margin:25px\"/>](https://bigtree-tech.com/collections/all-products)"
 msgstr ""
-"[<img src=\"./img/sponsors/BTT_BTT.png\" width=\"200\" "
-"style=\"margin:25px\"/>](https://bigtree-tech.com/collections/all-products)"
+"[<img src=\"./img/sponsors/BTT_BTT.png\" width=\"200\" style=\"margin:25px\""
+"/>](https://bigtree-tech.com/collections/all-products)"
 
 #: docs/Sponsors.md:block 7 (paragraph)
 msgid ""
