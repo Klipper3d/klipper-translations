@@ -1,16 +1,17 @@
 # Nikolai Danov <nikolaidanov67@gmail.com>, 2022.
-# Niolay Danov <nikdan@abv.bg>, 2024.
+# Niolay Danov <nikdan@abv.bg>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-10-31 21:01+0000\n"
+"PO-Revision-Date: 2025-05-03 07:38+0000\n"
 "Last-Translator: Niolay Danov <nikdan@abv.bg>\n"
-"Language-Team: Bulgarian <https://hosted.weblate.org/projects/klipper/multi_mcu_homing/bg/>\n"
+"Language-Team: Bulgarian <https://hosted.weblate.org/projects/klipper/"
+"multi_mcu_homing/bg/>\n"
 "Language: bg\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.8.2-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: docs/Multi_MCU_Homing.md:block 1 (header)
 msgid "Multiple Micro-controller Homing and Probing"
@@ -120,8 +121,8 @@ msgid ""
 " error."
 msgstr ""
 "Ако високата латентност доведе до неуспех (или ако се открие някакъв друг "
-"проблем с комуникацията), Klipper ще обяви грешка \"Communication timeout "
-"during homing\"."
+"проблем с комуникацията), Klipper ще обяви грешка "
+"\"Communication timeout during homing\"."
 
 #~ msgid ""
 #~ "Should Klipper detect a communication issue between micro-controllers during "
