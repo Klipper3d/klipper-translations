@@ -4,11 +4,12 @@
 # umesaburo sagawa <atowa-notonare-yamatonare427@pm.me>, 2024, 2025.
 # immeteor2 <ryumeteor175@gmail.com>, 2024.
 # Tachibana Saza <tachibanasaza@proton.me>, 2025.
+# Meteor2 <ryumeteor175@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:40+0000\n"
-"Last-Translator: Tachibana Saza <tachibanasaza@proton.me>\n"
+"Last-Translator: Meteor2 <ryumeteor175@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/klipper/"
 "config_checks/ja/>\n"
 "Language: ja\n"
