@@ -1,10 +1,11 @@
 # Максим Горпиніч <mgorpinic2005@gmail.com>, 2024.
 # Максим Горпиніч <maksimgorpinic2005a@gmail.com>, 2025.
+# Deleted User <mgorpinic2005@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-02-20 08:20+0000\n"
-"Last-Translator: Максим Горпиніч <maksimgorpinic2005a@gmail.com>\n"
+"PO-Revision-Date: 2025-05-03 07:38+0000\n"
+"Last-Translator: Deleted User <mgorpinic2005@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/klipper/"
 "sponsors/uk/>\n"
 "Language: uk\n"
@@ -12,7 +13,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.10.1-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: docs/Sponsors.md:block 1 (header)
 msgid "Sponsors"
@@ -23,9 +24,9 @@ msgid ""
 "Klipper is Free Software. We depend on the generous support from sponsors. "
 "Please consider sponsoring Klipper or supporting our sponsors."
 msgstr ""
-"Klipper є безкоштовним програмним забезпеченням. Від спонсорів залежить щедра "
-"підтримка. Будь ласка, врахуйте спонсорів Klipper або підтримайте наших "
-"спонсорів."
+"Klipper є безкоштовним програмним забезпеченням. Від спонсорів залежить "
+"щедра підтримка. Будь ласка, врахуйте спонсорів Klipper або підтримайте "
+"наших спонсорів."
 
 #: docs/Sponsors.md:block 3 (header)
 msgid "BIGTREETECH"
@@ -41,9 +42,8 @@ msgid ""
 msgstr ""
 "BIGTREETECH є офіційним спонсором материнської плати Klipper. BIGTREETECH "
 "прагне розробляти інноваційні та конкурентоспроможні продукти, щоб краще "
-"служити спільноті 3D-друку. Слідкуйте за ними у "
-"[Facebook](https://www.facebook.com/BIGTREETECH) або "
-"[Twitter](https://twitter.com/BigTreeTech)."
+"служити спільноті 3D-друку. Слідкуйте за ними у [Facebook](https://"
+"www.facebook.com/BIGTREETECH) або [Twitter](https://twitter.com/BigTreeTech)."
 
 #: docs/Sponsors.md:block 6 (header)
 msgid "Klipper Developers"
@@ -74,8 +74,8 @@ msgid ""
 "Klipper is frequently used with other Free Software. Consider using or "
 "supporting these projects."
 msgstr ""
-"Klipper часто використовується з іншими безкоштовним програмним забезпеченням."
-" Розглянуто використання або супровід цих проектів."
+"Klipper часто використовується з іншими безкоштовним програмним "
+"забезпеченням. Розглянуто використання або супровід цих проектів."
 
 #: docs/Sponsors.md:block 13 (unordered list)
 msgid "[Moonraker](https://github.com/Arksine/moonraker)"
@@ -110,8 +110,8 @@ msgid ""
 "[<img src=\"./img/sponsors/BTT_BTT.png\" width=\"200\" "
 "style=\"margin:25px\"/>](https://bigtree-tech.com/collections/all-products)"
 msgstr ""
-"[<img src=\"./img/sponsors/BTT_BTT.png\" width=\"200\" "
-"style=\"margin:25px\"/>](https://bigtree-tech.com/collections/all-products)"
+"[<img src=\"./img/sponsors/BTT_BTT.png\" width=\"200\" style=\"margin:25px\""
+"/>](https://bigtree-tech.com/collections/all-products)"
 
 #: docs/Sponsors.md:block 7 (paragraph)
 msgid ""
