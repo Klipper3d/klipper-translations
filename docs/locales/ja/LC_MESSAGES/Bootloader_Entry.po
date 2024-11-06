@@ -1,15 +1,17 @@
 # immeteor2 <ryumeteor175@gmail.com>, 2024.
+# Meteor2 <ryumeteor175@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-11-07 00:01+0000\n"
-"Last-Translator: immeteor2 <ryumeteor175@gmail.com>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/klipper/bootloader_entry/ja/>\n"
+"PO-Revision-Date: 2025-05-03 07:45+0000\n"
+"Last-Translator: Meteor2 <ryumeteor175@gmail.com>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/klipper/"
+"bootloader_entry/ja/>\n"
 "Language: ja\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.8.2\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: docs/Bootloader_Entry.md:block 1 (header)
 msgid "Bootloader Entry"
@@ -63,7 +65,8 @@ msgstr ""
 msgid ""
 "`<Ctrl-A><Ctrl-P>` means holding `Ctrl`, pressing and releasing `a`, pressing "
 "and releasing `p`, then releasing `Ctrl`"
-msgstr "`<Ctrl-A><Ctrl-P>` は `Ctrl`を押したまま、 `a`、`p`を入力し、 `Ctrl`を離すことを意味します"
+msgstr "`<Ctrl-A><Ctrl-P>` は `Ctrl`を押したまま、 `a`、`p`を入力し、 "
+"`Ctrl`を離すことを意味します"
 
 #: docs/Bootloader_Entry.md:block 15 (header)
 msgid "Physical serial"
