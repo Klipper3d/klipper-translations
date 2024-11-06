@@ -1,17 +1,19 @@
 # 京都タラレバ息子 <japan100@gmail.com>, 2023.
 # ktyubeshi <kt.yubeshi@gmail.com>, 2023.
 # immeteor2 <ryumeteor175@gmail.com>, 2024.
+# Meteor2 <ryumeteor175@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-11-08 05:00+0000\n"
-"Last-Translator: immeteor2 <ryumeteor175@gmail.com>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/klipper/installation/ja/>\n"
+"PO-Revision-Date: 2025-05-03 07:41+0000\n"
+"Last-Translator: Meteor2 <ryumeteor175@gmail.com>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/klipper/"
+"installation/ja/>\n"
 "Language: ja\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.8.2\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 msgid "Building and flashing the micro-controller"
 msgstr ""
@@ -40,7 +42,9 @@ msgid ""
 " directory then try searching the printer manufacturer's website to see if "
 "they have an appropriate Klipper configuration file."
 msgstr ""
-"もしKlipperの設定ディレクトリに適切なプリンタ設定ファイルがなければ、プリンタ製造元のウェブサイトを探して適切なKlipperの設定ファイルがあるかどうか確かめてください。"
+"もしKlipperの設定ディレクトリに適切なプリンタ設定ファイルがなければ、プリンタ"
+"製造元のウェブサイトを探して適切なKlipperの設定ファイルがあるかどうか確かめて"
+"ください。"
 
 #: docs/Installation.md:block 6 (paragraph)
 msgid ""
@@ -98,7 +102,8 @@ msgstr ""
 msgid ""
 "Then update the config file with the unique name. For example, update the "
 "`[mcu]` section to look something similar to:"
-msgstr "それからその固有名で設定ファイルを更新してください。例えば、`[mcu]` の項目を以下のように更新します:"
+msgstr "それからその固有名で設定ファイルを更新してください。例えば、`[mcu]` "
+"の項目を以下のように更新します:"
 
 #: docs/Installation.md:block 47 (paragraph)
 msgid ""
@@ -115,8 +120,9 @@ msgid ""
 " the config file. See the main [documentation reference](Overview.md) for "
 "other information."
 msgstr ""
-"Klipperがプリンターの準備完了を報告したら、 "
-"[設定の確認](Config_checks.md)に進み、設定ファイル内の定義について基本的なチェックを行います。詳しくは[概要](Overview.md)を見てください。"
+"Klipperがプリンターの準備完了を報告したら、 [設定の確認]"
+"(Config_checks.md)に進み、設定ファイル内の定義について基本的なチェックを行い"
+"ます。詳しくは[概要](Overview.md)を見てください。"
 
 #: docs/Installation.md:block 2 (paragraph)
 msgid ""
@@ -153,7 +159,8 @@ msgstr "Klipperとの対話"
 msgid ""
 "Klipper is a 3d printer firmware, so it needs some way for the user to "
 "interact with it."
-msgstr "Klipperは3Dプリンタのファームウェアなので、ユーザーがそれと対話するには何らかの方法が必要です。"
+msgstr "Klipperは3Dプリンタのファームウェアなので、ユーザーがそれと対話するには何らか"
+"の方法が必要です。"
 
 #: docs/Installation.md:block 11 (paragraph)
 msgid ""
@@ -162,8 +169,8 @@ msgid ""
 "the option to use [Octoprint](https://octoprint.org/) to control Klipper."
 msgstr ""
 "現在の最良の選択は [Moonraker web API](https://moonraker.readthedocs.io/) "
-"を通して情報を回収するフロントエンドです、他にもオプションとして、[Octoprint](https://octoprint.org/) "
-"を使ってKlipperをコントロールする方法もあります。"
+"を通して情報を回収するフロントエンドです、他にもオプションとして、[Octoprint]"
+"(https://octoprint.org/) を使ってKlipperをコントロールする方法もあります。"
 
 #: docs/Installation.md:block 12 (paragraph)
 msgid ""
@@ -268,13 +275,15 @@ msgstr ""
 msgid ""
 "It is important to note that RP2040 chips may need to be put into Boot mode "
 "before this operation."
-msgstr "注意するべきこととして、この操作を行う前にRP2040チップをブートモードにする必要があります。"
+msgstr "注意するべきこととして、この操作を行う前にRP2040チップをブートモードにする必"
+"要があります。"
 
 #: docs/Installation.md:block 41 (paragraph)
 msgid ""
 "The next step is to copy the [printer configuration file](#obtain-a-klipper-"
 "configuration-file) to the host."
-msgstr "次は、[プリンタ設定ファイル](#obtain-a-klipper-configuration-file) をホストにコピーしてください。"
+msgstr "次は、[プリンタ設定ファイル](#obtain-a-klipper-configuration-file) "
+"をホストにコピーしてください。"
 
 #: docs/Installation.md:block 42 (paragraph)
 msgid ""
