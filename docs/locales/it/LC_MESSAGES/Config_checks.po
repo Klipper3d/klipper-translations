@@ -4,12 +4,12 @@
 # Ale Ale <ale.99.ale@gmail.com>, 2022, 2025.
 # Diddi Deejay <diddideejay.official@gmail.com>, 2023.
 # Ezio Santellocco <eziosantellocco97@gmail.com>, 2024.
-# Antonio Ciavarro <a.ciavarro@gmail.com>, 2024.
+# Antonio Ciavarro <a.ciavarro@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:25+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Antonio Ciavarro <a.ciavarro@gmail.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/klipper/"
 "config_checks/it/>\n"
 "Language: it\n"
@@ -297,9 +297,9 @@ msgstr ""
 "contatto con gli ensdstop. Digita il comando QUERY_ENDSTOPS attraverso la "
 "consolle di comando. Dovrebbe essere visualizzato lo stato corrente degli "
 "endstop che dovrebbe essere per tutti e tre \"open\" (aperto). Per ogni "
-"endstop, digita di nuovo il comando QUERY_ENDSTOPS mentre manualmente chiudi, "
-"uno alla volta, gli endstop. Il comando QUERY_ENDSTOPS dovrebbe riportare "
-"l'endstop chiuso manualmente come \"TRIGGERED\"."
+"endstop, digita di nuovo il comando QUERY_ENDSTOPS mentre manualmente "
+"chiudi, uno alla volta, gli endstop. Il comando QUERY_ENDSTOPS dovrebbe "
+"riportare l'endstop chiuso manualmente come \"TRIGGERED\"."
 
 #: docs/Config_checks.md:block 15 (paragraph)
 msgid ""
