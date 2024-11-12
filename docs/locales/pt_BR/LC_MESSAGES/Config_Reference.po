@@ -5,12 +5,12 @@
 # Bernardo Scolnik <bscolnik@gmail.com>, 2024.
 # Jhonny Rosa <jh0nny.rosa@gmail.com>, 2024, 2025.
 # Caio Henrique Dos Santos Carvalho <estudantecaiohsc@gmail.com>, 2024.
-# Rodrigo Altendorf Bernordi <risrdg@gmail.com>, 2024.
+# Rodrigo Altendorf Bernordi <risrdg@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:27+0000\n"
-"Last-Translator: Wagner Reck <wagner.reck@gmail.com>\n"
+"Last-Translator: Rodrigo Altendorf Bernordi <risrdg@gmail.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "klipper/config_reference/pt_BR/>\n"
 "Language: pt_BR\n"
