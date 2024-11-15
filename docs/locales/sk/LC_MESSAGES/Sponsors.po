@@ -1,15 +1,16 @@
-# Pavol Vrba <pvrba2000@gmail.com>, 2024.
+# Pavol Vrba <pvrba2000@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-11-17 00:00+0000\n"
+"PO-Revision-Date: 2025-05-03 07:46+0000\n"
 "Last-Translator: Pavol Vrba <pvrba2000@gmail.com>\n"
-"Language-Team: Slovak <https://hosted.weblate.org/projects/klipper/sponsors/sk/>\n"
+"Language-Team: Slovak <https://hosted.weblate.org/projects/klipper/sponsors/"
+"sk/>\n"
 "Language: sk\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 5.9-dev\n"
+"Plural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2);\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: docs/Sponsors.md:block 1 (header)
 msgid "Sponsors"
@@ -36,10 +37,10 @@ msgid ""
 "[Twitter](https://twitter.com/BigTreeTech)."
 msgstr ""
 "BIGTREETECH je oficiálny sponzor základnej dosky Klipper. Spoločnosť "
-"BIGTREETECH sa zaviazala vyvíjať inovatívne a konkurencieschopné produkty, aby"
-" lepšie slúžili komunite 3D tlače. Sledujte ich na "
-"[Facebook](https://www.facebook.com/BIGTREETECH) alebo "
-"[Twitter](https://twitter.com/BigTreeTech)."
+"BIGTREETECH sa zaviazala vyvíjať inovatívne a konkurencieschopné produkty, "
+"aby lepšie slúžili komunite 3D tlače. Sledujte ich na [Facebook](https://"
+"www.facebook.com/BIGTREETECH) alebo [Twitter](https://twitter.com/"
+"BigTreeTech)."
 
 #: docs/Sponsors.md:block 6 (header)
 msgid "Klipper Developers"
@@ -98,16 +99,16 @@ msgid ""
 "Kevin is the original author and current maintainer of Klipper. Donate at: "
 "<https://ko-fi.com/koconnor> or <https://www.patreon.com/koconnor>"
 msgstr ""
-"Kevin je pôvodným autorom a súčasným správcom Klippera. Darujte na: "
-"<https://ko-fi.com/koconnor> alebo <https://www.patreon.com/koconnor>"
+"Kevin je pôvodným autorom a súčasným správcom Klippera. Darujte na: <https"
+"://ko-fi.com/koconnor> alebo <https://www.patreon.com/koconnor>"
 
 #: docs/Sponsors.md:block 4 (paragraph)
 msgid ""
 "[<img src=\"./img/sponsors/BTT_BTT.png\" width=\"200\" "
 "style=\"margin:25px\"/>](https://bigtree-tech.com/collections/all-products)"
 msgstr ""
-"[<img src=\"./img/sponsors/BTT_BTT.png\" width=\"200\" "
-"style=\"margin:25px\"/>](https://bigtree-tech.com/collections/all-products)"
+"[<img src=\"./img/sponsors/BTT_BTT.png\" width=\"200\" style=\"margin:25px\""
+"/>](https://bigtree-tech.com/collections/all-products)"
 
 #: docs/Sponsors.md:block 7 (paragraph)
 msgid ""
