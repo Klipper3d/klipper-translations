@@ -1,10 +1,10 @@
 # Spravko <spravko@azet.sk>, 2023, 2025.
-# Pavol Vrba <pvrba2000@gmail.com>, 2024.
+# Pavol Vrba <pvrba2000@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:46+0000\n"
-"Last-Translator: Spravko <spravko@azet.sk>\n"
+"Last-Translator: Pavol Vrba <pvrba2000@gmail.com>\n"
 "Language-Team: Slovak <https://hosted.weblate.org/projects/klipper/"
 "probe_calibrate/sk/>\n"
 "Language: sk\n"
@@ -365,10 +365,10 @@ msgid ""
 "can `ACCEPT` the position and save the results to the config file with:"
 msgstr ""
 "Po spustení nástroja manuálnej sondy postupujte podľa krokov popísaných v "
-"časti [\"test papiera\"](Bed_Level.md#the-paper-test), aby ste určili skutočnú"
-" vzdialenosť medzi tryskou a lôžkom na danom mieste. Po dokončení týchto "
-"krokov môžete pozíciu „PRIJAŤ“ a uložiť výsledky do konfiguračného súboru "
-"pomocou:"
+"časti [\"test papiera\"](Bed_Level.md#the-paper-test), aby ste určili "
+"skutočnú vzdialenosť medzi tryskou a lôžkom na danom mieste. Po dokončení "
+"týchto krokov môžete pozíciu „PRIJAŤ“ a uložiť výsledky do konfiguračného "
+"súboru pomocou:"
 
 #~ msgid "PROBE\n"
 #~ msgstr "PROBE\n"
