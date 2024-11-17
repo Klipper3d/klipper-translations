@@ -1,9 +1,9 @@
-# Niolay Danov <nikdan@abv.bg>, 2024.
+# Niolay Danov <nikdan@abv.bg>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:38+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Niolay Danov <nikdan@abv.bg>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/klipper/"
 "beaglebone/bg/>\n"
 "Language: bg\n"
