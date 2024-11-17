@@ -1,10 +1,10 @@
 # Fred Chan <fred2088@gmail.com>, 2022, 2025.
-# Kayz C <kayzed.x@gmail.com>, 2024.
+# Kayz C <kayzed.x@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:31+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Kayz C <kayzed.x@gmail.com>\n"
 "Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
 "projects/klipper/api_server/zh_Hant/>\n"
 "Language: zh_Hant\n"
@@ -17,7 +17,8 @@ msgid ""
 "This document describes Klipper's Application Programmer Interface (API). This"
 " interface enables external applications to query and control the Klipper host"
 " software."
-msgstr "該文件介紹Klipper的應用開發者介面（API）功能。該介面允許外部應用程式查詢和控制Klipper主機。"
+msgstr "該文件介紹Klipper的應用開發者介面（API）功能。該介面允許外部應用程式查詢和控"
+"制Klipper主機。"
 
 msgid "Enabling the API socket"
 msgstr "啟用API套接字"
