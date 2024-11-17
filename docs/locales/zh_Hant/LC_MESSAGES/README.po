@@ -1,16 +1,17 @@
 # Fred Chan <fred2088@gmail.com>, 2022.
-# Kayz C <kayzed.x@gmail.com>, 2024.
+# Kayz C <kayzed.x@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-11-18 04:15+0000\n"
+"PO-Revision-Date: 2025-05-03 07:31+0000\n"
 "Last-Translator: Kayz C <kayzed.x@gmail.com>\n"
-"Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/projects/klipper/readme/zh_Hant/>\n"
+"Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
+"projects/klipper/readme/zh_Hant/>\n"
 "Language: zh_Hant\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.9-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 msgid ""
 "Welcome to the Klipper documentation. The [overview document](Overview.md) is "
