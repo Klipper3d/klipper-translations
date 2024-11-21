@@ -1,9 +1,9 @@
-# Niolay Danov <nikdan@abv.bg>, 2024.
+# Niolay Danov <nikdan@abv.bg>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:38+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Niolay Danov <nikdan@abv.bg>\n"
 "Language-Team: Bulgarian <https://hosted.weblate.org/projects/klipper/"
 "bltouch/bg/>\n"
 "Language: bg\n"
@@ -21,8 +21,8 @@ msgid ""
 "it, be very gentle, in order to not bend or push anything."
 msgstr ""
 "Едно **предупреждение** преди да започнете: Избягвайте да докосвате щифта BL-"
-"Touch с голи пръсти, тъй като той е доста чувствителен към пръстова мазнина. А"
-" ако все пак го докоснете, бъдете много внимателни, за да не огънете или "
+"Touch с голи пръсти, тъй като той е доста чувствителен към пръстова мазнина. "
+"А ако все пак го докоснете, бъдете много внимателни, за да не огънете или "
 "натиснете нещо."
 
 msgid ""
