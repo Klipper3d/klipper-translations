@@ -5,13 +5,13 @@
 # JACK EDWARD INGA NAUPA <jinganaupa@gmail.com>, 2023.
 # Francisco Javier Hoyos Arango <cofhal@gmail.com>, 2023, 2025.
 # Jesus Barba <jesbm1g2@gmail.com>, 2024, 2025.
-# Ars_Codicis <cto@piruxinc.com>, 2024.
+# Ars_Codicis <cto@piruxinc.com>, 2024, 2025.
 # Alberto <alberto.robles.gomez@aruzeta.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:21+0000\n"
-"Last-Translator: Jesus Barba <jesbm1g2@gmail.com>\n"
+"Last-Translator: Ars_Codicis <cto@piruxinc.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/"
 "config_reference/es/>\n"
 "Language: es\n"
@@ -1607,14 +1607,15 @@ msgid ""
 "typically be achieved with \"SYNC_EXTRUDER_MOTION MOTION_QUEUE=extruder "
 "EXTRUDER=<dual_carriage_extruder>\" or a similar command."
 msgstr ""
-"Además, se pueden utilizar los comandos \"SET_DUAL_CARRIAGE CARRIAGE=1 "
-"MODE=COPY\" o \"SET_DUAL_CARRIAGE CARRIAGE=1 MODE=MIRROR\" para activar el "
-"modo de copia o de duplicación del carro doble, en cuyo caso seguirá el "
-"movimiento del carro 0 en consecuencia. Estos comandos se pueden utilizar para"
-" imprimir dos piezas simultáneamente: dos piezas idénticas (en modo COPY) o "
-"piezas duplicadas (en modo MIRROR). Tenga en cuenta que los modos COPY y "
-"MIRROR también requieren una configuración adecuada del extrusor en el carro "
-"doble, lo que normalmente se puede lograr con \"SYNC_EXTRUDER_MOTION "
+"Además, se pueden utilizar los comandos "
+"\"SET_DUAL_CARRIAGE CARRIAGE=1 MODE=COPY\" o "
+"\"SET_DUAL_CARRIAGE CARRIAGE=1 MODE=MIRROR\" para activar el modo de copia o "
+"de duplicación del carro doble, en cuyo caso seguirá el movimiento del carro "
+"0 en consecuencia. Estos comandos se pueden utilizar para imprimir dos "
+"piezas simultáneamente: dos piezas idénticas (en modo COPY) o piezas "
+"duplicadas (en modo MIRROR). Tenga en cuenta que los modos COPY y MIRROR "
+"también requieren una configuración adecuada del extrusor en el carro doble, "
+"lo que normalmente se puede lograr con \"SYNC_EXTRUDER_MOTION "
 "MOTION_QUEUE=extruder EXTRUDER=<dual_carriage_extruder>\" o un comando "
 "similar."
 
