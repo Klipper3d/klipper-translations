@@ -3,12 +3,12 @@
 # Tjalling Kaastra <tjalling@kaastra.net>, 2024, 2025.
 # Austin <austin_adamek1@hotmail.com>, 2024, 2025.
 # Simon Tillema <shtillema@gomarus.nl>, 2024, 2025.
-# Danni <hostedweblate@danni-design.com>, 2024.
+# Danni <hostedweblate@danni-design.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:39+0000\n"
-"Last-Translator: Austin <austin_adamek1@hotmail.com>\n"
+"Last-Translator: Danni <hostedweblate@danni-design.com>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/klipper/"
 "config_checks/nl/>\n"
 "Language: nl\n"
@@ -110,10 +110,10 @@ msgid ""
 "motor verification steps if necessary."
 msgstr ""
 "Na het verifiëren van alle eindstops en het controleren van alle "
-"steppermotoren, moet het homingmechanisme worden getest. Geef een G28-opdracht"
-" om alle assen te home. Verwijder de stroom van de printer als het niet "
-"correct homet. Voer indien nodig de verificatiestappen voor de eindstops en "
-"steppermotoren opnieuw uit."
+"steppermotoren, moet het homingmechanisme worden getest. Geef een G28-"
+"opdracht om alle assen te home. Verwijder de stroom van de printer als het "
+"niet correct homet. Voer indien nodig de verificatiestappen voor de "
+"eindstops en steppermotoren opnieuw uit."
 
 msgid "Verify extruder motor"
 msgstr "Verifieer extrudermotor"
