@@ -1,6 +1,6 @@
 # Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022, 2025.
 # Neko.vecter <Vecterfang@icloud.com>, 2021.
-# hani-lengxi <2836842270@qq.com>, 2024.
+# hani-lengxi <2836842270@qq.com>, 2024, 2025.
 # SiHengTang <tang142857dev@163.com>, 2025.
 # "Neko.vecter" <Vecterfang@icloud.com>, 2025.
 msgid ""
@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-06-28 08:28+0200\n"
 "PO-Revision-Date: 2025-05-03 07:22+0000\n"
-"Last-Translator: \"Neko.vecter\" <Vecterfang@icloud.com>\n"
+"Last-Translator: hani-lengxi <2836842270@qq.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/klipper/installation/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -155,16 +155,18 @@ msgid ""
 "host machine (see the [FAQ](FAQ.md#can-i-run-klipper-on-something-other-than-"
 "a-raspberry-pi-3) for other options)."
 msgstr ""
-"这些说明假设软件将在运行 Klipper 兼容前端的 Linux 主机上运行。建议使用 SBC（小型板计算机），例如 Raspberry Pi 或基于 "
-"Debian 的 Linux 设备作为主机（有关其他选项，请参阅 [FAQ](FAQ.md#can-i-run-klipper-on-something-"
-"other-than-a-raspberry-pi-3)）。"
+"这些说明假设软件将在运行 Klipper 兼容前端的 Linux 主机上运行。建议使用 "
+"SBC（小型板计算机），例如 Raspberry Pi 或基于 Debian 的 Linux "
+"设备作为主机（有关其他选项，请参阅 [FAQ](FAQ.md#can-i-run-klipper-on-"
+"something-other-than-a-raspberry-pi-3)）。"
 
 #: docs/Installation.md:block 3 (paragraph)
 msgid ""
 "For the purposes of these instructions host relates to the Linux device and "
 "mcu relates to the printboard. SBC relates to the term Small Board Computer "
 "such as the Raspberry Pi."
-msgstr "就本说明而言，主机与 Linux 设备相关，而 mcu 与印刷电路板相关。SBC 与术语“小型板计算机”相关，例如 Raspberry Pi。"
+msgstr "就本说明而言，主机与 Linux 设备相关，而 mcu 与印刷电路板相关。SBC "
+"与术语“小型板计算机”相关，例如 Raspberry Pi。"
 
 #: docs/Installation.md:block 5 (paragraph)
 msgid ""
@@ -176,9 +178,10 @@ msgid ""
 "technical information about the printer that will be needed during the "
 "installation."
 msgstr ""
-"大多数 Klipper 设置由“打印机配置文件”printer.cfg 决定，该文件将存储在主机上。通常可以通过在 Klipper [config "
-"目录](../config/) 中查找以“printer-”前缀开头且与目标打印机相对应的文件来找到适当的配置文件。Klipper "
-"配置文件包含安装过程中需要的有关打印机的技术信息。"
+"大多数 Klipper 设置由“打印机配置文件”printer.cfg 决定，该文件将存储在主机上。"
+"通常可以通过在 Klipper [config 目录](../config/) "
+"中查找以“printer-”前缀开头且与目标打印机相对应的文件来找到适当的配置文件。"
+"Klipper 配置文件包含安装过程中需要的有关打印机的技术信息。"
 
 #: docs/Installation.md:block 9 (header)
 msgid "Interacting with Klipper"
@@ -197,14 +200,16 @@ msgid ""
 "the option to use [Octoprint](https://octoprint.org/) to control Klipper."
 msgstr ""
 "目前最好的选择是通过 [Moonraker web API](https://moonraker.readthedocs.io/) "
-"检索信息的前端，也可以选择使用 [Octoprint](https://octoprint.org/) 来控制 Klipper。"
+"检索信息的前端，也可以选择使用 [Octoprint](https://octoprint.org/) 来控制 "
+"Klipper。"
 
 #: docs/Installation.md:block 12 (paragraph)
 msgid ""
 "The choice is up to the user on what to use, but the underlying Klipper is the"
 " same in all cases. We encourage users to research the options available and "
 "make an informed decision."
-msgstr "用户可自行选择使用哪种工具，但底层的 Klipper 在所有情况下都是相同的。我们鼓励用户研究可用的选项并做出明智的决定。"
+msgstr "用户可自行选择使用哪种工具，但底层的 Klipper "
+"在所有情况下都是相同的。我们鼓励用户研究可用的选项并做出明智的决定。"
 
 #: docs/Installation.md:block 13 (header)
 msgid "Obtaining an OS image for SBC's"
@@ -216,8 +221,9 @@ msgid ""
 " on what front end you wish to use. Some manafactures of these SBC boards also"
 " provide their own Klipper-centric images."
 msgstr ""
-"有多种方法可以获取用于 SBC 的 Klipper 操作系统映像，大多数方法取决于您希望使用哪种前端。这些 SBC 板的一些制造商还提供自己的以 "
-"Klipper 为中心的映像。"
+"有多种方法可以获取用于 SBC 的 Klipper "
+"操作系统映像，大多数方法取决于您希望使用哪种前端。这些 SBC "
+"板的一些制造商还提供自己的以 Klipper 为中心的映像。"
 
 #: docs/Installation.md:block 15 (paragraph)
 msgid ""
@@ -228,20 +234,22 @@ msgid ""
 msgstr ""
 "两个主要的基于 Moonraker 的前端是 [Fluidd](https://docs.fluidd.xyz/) 和 "
 "[Mainsail](https://docs.mainsail.xyz/)，后者具有预制的安装映像 "
-"[\"MainsailOS\"](http://docs.mainsailOS.xyz)，它有适用于 Raspberry Pi 和一些 OrangePi "
-"变体的选项。"
+"[\"MainsailOS\"](http://docs.mainsailOS.xyz)，它有适用于 Raspberry Pi 和一些 "
+"OrangePi 变体的选项。"
 
 #: docs/Installation.md:block 16 (paragraph)
 msgid ""
 "Fluidd can be installed via KIAUH(Klipper Install And Update Helper), which is"
 " explained below and is a 3rd party installer for all things Klipper."
-msgstr "Fluidd 可以通过 KIAUH（Klipper 安装和更新助手）进行安装，如下所述，它是所有 Klipper 的第三方安装程序。"
+msgstr "Fluidd 可以通过 KIAUH（Klipper 安装和更新助手）进行安装，如下所述，它是所有 "
+"Klipper 的第三方安装程序。"
 
 #: docs/Installation.md:block 17 (paragraph)
 msgid ""
 "OctoPrint can be installed via the popular OctoPi image or via KIAUH, this "
 "process is explained in <OctoPrint.md>"
-msgstr "OctoPrint 可以通过流行的 OctoPi 镜像或通过 KIAUH 安装，此过程在 <OctoPrint.md> 中有说明"
+msgstr "OctoPrint 可以通过流行的 OctoPi 镜像或通过 KIAUH 安装，此过程在 "
+"<OctoPrint.md> 中有说明"
 
 #: docs/Installation.md:block 18 (header)
 msgid "Installing via KIAUH"
@@ -254,8 +262,9 @@ msgid ""
 " Desktop variants are not recommended due to certain helper programs that can "
 "stop some Klipper functions working and even mask access to some print boards."
 msgstr ""
-"通常，您会从 SBC 的基本映像（例如 RPiOS Lite）开始，或者在 x86 Linux 设备的情况下，从 Ubuntu Server "
-"开始。请注意，不建议使用桌面版本，因为某些辅助程序可能会阻止某些 Klipper 功能运行，甚至屏蔽对某些打印板的访问。"
+"通常，您会从 SBC 的基本映像（例如 RPiOS Lite）开始，或者在 x86 Linux "
+"设备的情况下，从 Ubuntu Server 开始。请注意，不建议使用桌面版本，"
+"因为某些辅助程序可能会阻止某些 Klipper 功能运行，甚至屏蔽对某些打印板的访问。"
 
 #: docs/Installation.md:block 20 (paragraph)
 msgid ""
@@ -263,8 +272,8 @@ msgid ""
 "of Linux based systems that run a form of Debian. More information can be "
 "found at https://github.com/dw-0/kiauh"
 msgstr ""
-"KIAUH 可用于在运行 Debian 的各种 Linux 系统上安装 Klipper 及其相关程序。更多信息请访问 "
-"https://github.com/dw-0/kiauh"
+"KIAUH 可用于在运行 Debian 的各种 Linux 系统上安装 Klipper 及其相关程序。"
+"更多信息请访问 https://github.com/dw-0/kiauh"
 
 #: docs/Installation.md:block 22 (paragraph)
 msgid ""
@@ -282,15 +291,18 @@ msgid ""
 "will be your print board(see the [FAQ](FAQ.md#wheres-my-serial-port) for more "
 "information)."
 msgstr ""
-"通常，每台打印机都有自己独特的串行端口名称。此唯一名称将在刷新微控制器时使用。上面的输出中可能有多行 - "
-"如果是这样，请选择与微控制器相对应的行。如果列出了许多项目并且选择不明确，请拔下电路板并再次运行命令，缺少的项目将是您的打印板（有关更多信息，请参阅 "
+"通常，每台打印机都有自己独特的串行端口名称。此唯一名称将在刷新微控制器时使用"
+"。上面的输出中可能有多行 - "
+"如果是这样，请选择与微控制器相对应的行。如果列出了许多项目并且选择不明确，请"
+"拔下电路板并再次运行命令，缺少的项目将是您的打印板（有关更多信息，请参阅 "
 "[FAQ](FAQ.md#wheres-my-serial-port)）。"
 
 #: docs/Installation.md:block 32 (paragraph)
 msgid ""
 "For common micro-controllers with STM32 or clone chips, LPC chips and others "
 "it is usual that these need an initial Klipper flash via SD card."
-msgstr "对于带有 STM32 或克隆芯片、LPC 芯片和其他芯片的常见微控制器，通常需要通过 SD 卡进行初始 Klipper 闪存。"
+msgstr "对于带有 STM32 或克隆芯片、LPC 芯片和其他芯片的常见微控制器，通常需要通过 SD "
+"卡进行初始 Klipper 闪存。"
 
 #: docs/Installation.md:block 33 (paragraph)
 msgid ""
