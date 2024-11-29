@@ -1,12 +1,12 @@
 # mirokymac <toufubomb@gmail.com>, 2021, 2025.
 # Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022.
 # Hosted Weblate <mfvotmjhcj@iubridge.com>, 2023.
-# hani-lengxi <2836842270@qq.com>, 2024.
+# hani-lengxi <2836842270@qq.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:20+0000\n"
-"Last-Translator: mirokymac <toufubomb@gmail.com>\n"
+"Last-Translator: hani-lengxi <2836842270@qq.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/klipper/probe_calibrate/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -314,7 +314,8 @@ msgid ""
 "can `ACCEPT` the position and save the results to the config file with:"
 msgstr ""
 "手动探测工具启动后，按照 [\"纸张测试\"](Bed_Level.md#the-paper-test) "
-"中描述的步骤确定给定位置处喷嘴和床之间的实际距离。完成这些步骤后，可以`接受` 位置并将结果保存到配置文件中："
+"中描述的步骤确定给定位置处喷嘴和床之间的实际距离。完成这些步骤后，可以`接受` "
+"位置并将结果保存到配置文件中："
 
 #~ msgid "PROBE\n"
 #~ msgstr "PROBE\n"
