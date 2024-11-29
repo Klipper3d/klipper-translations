@@ -1,13 +1,13 @@
 # Neko.vecter <Vecterfang@icloud.com>, 2021.
 # Yifei Ding <dingyifeiair@gmail.com>, 2021.
-# hani-lengxi <2836842270@qq.com>, 2024.
+# hani-lengxi <2836842270@qq.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-10 16:29+0200\n"
 "PO-Revision-Date: 2025-05-03 07:29+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: hani-lengxi <2836842270@qq.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/klipper/beaglebone/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -67,15 +67,17 @@ msgid ""
 "either a micro-SD card or from builtin eMMC. If using the eMMC, install it to "
 "eMMC now by following the instructions from the above link."
 msgstr ""
-"首先安装 [Debian 11.7 2023-09-02 4GB microSD IoT]（https://beagleboard.org/latest-"
-"images） 镜像。可以从 micro-SD 卡或内置 eMMC 运行映像。如果使用 eMMC，请按照上述链接中的说明立即将其安装到 eMMC。"
+"首先安装 [Debian 11.7 2023-09-02 4GB microSD IoT]（https://beagleboard.org/"
+"latest-images） 镜像。可以从 micro-SD 卡或内置 eMMC 运行映像。如果使用 eMMC，"
+"请按照上述链接中的说明立即将其安装到 eMMC。"
 
 #: docs/Beaglebone.md:block 5 (paragraph)
 msgid ""
 "Then ssh into the Beaglebone machine (`ssh debian@beaglebone` -- password is "
 "`temppwd`)."
 msgstr ""
-"然后 ssh 进入 Beaglebone 机器(`ssh debian@beaglebone` -- password is `temppwd`)."
+"然后 ssh 进入 Beaglebone 机器(`ssh debian@beaglebone` -- password is "
+"`temppwd`)."
 
 #: docs/Beaglebone.md:block 6 (paragraph)
 msgid ""
@@ -91,7 +93,8 @@ msgstr "删除一些 BeagleBone“Demo”资源"
 msgid ""
 "if you did boot from SD-Card, and it's bigger than 4Gb - you can expand "
 "current filesystem to take whole card space"
-msgstr "如果你确实从 SD 卡启动，并且它大于 4Gb - 你可以扩展当前文件系统以占用整个卡空间"
+msgstr "如果你确实从 SD 卡启动，并且它大于 4Gb - "
+"你可以扩展当前文件系统以占用整个卡空间"
 
 #: docs/Beaglebone.md:block 7 (ordered list)
 msgid "do option #1 and #2 together."
@@ -118,14 +121,16 @@ msgid ""
 " you can't directly connect pins to 5v or 12v based hardware without "
 "conversion boards."
 msgstr ""
-"安装 Klipper 后，您需要决定需要什么样的部署，但请注意，BeagleBone 是基于 3.3v "
-"的硬件，在大多数情况下，如果没有转换板，您不能直接将引脚连接到基于 5v 或 12v 的硬件。"
+"安装 Klipper 后，您需要决定需要什么样的部署，但请注意，BeagleBone 是基于 "
+"3.3v 的硬件，在大多数情况下，如果没有转换板，您不能直接将引脚连接到基于 5v "
+"或 12v 的硬件。"
 
 #: docs/Beaglebone.md:block 15 (paragraph)
 msgid ""
 "As Klipper have multimodule architecture on BeagleBone you can achieve many "
 "different use cases, but general ones are following:"
-msgstr "由于 Klipper 在 BeagleBone 上具有多模块架构，因此您可以实现许多不同的用例，但一般用例如下："
+msgstr "由于 Klipper 在 BeagleBone "
+"上具有多模块架构，因此您可以实现许多不同的用例，但一般用例如下："
 
 #: docs/Beaglebone.md:block 16 (paragraph)
 msgid ""
@@ -133,8 +138,9 @@ msgid ""
 " software like OctoPrint/Fluidd + Moonraker/... and this configuration will be"
 " driving external micro-controllers via serial/usb/canbus connections."
 msgstr ""
-"用例 1：仅使用 BeagleBone 作为主机系统来运行 Klipper 和其他软件，如 OctoPrint/Fluidd + "
-"Moonraker/...，并且此配置将通过串行/usb/canbus 连接驱动外部微控制器。"
+"用例 1：仅使用 BeagleBone 作为主机系统来运行 Klipper 和其他软件，如 "
+"OctoPrint/Fluidd + Moonraker/...，并且此配置将通过串行/usb/canbus "
+"连接驱动外部微控制器。"
 
 #: docs/Beaglebone.md:block 17 (paragraph)
 msgid ""
@@ -143,14 +149,16 @@ msgid ""
 "will drive extension board with BeagleBone PRU cores (2 additional cores "
 "200Mh, 32Bit)."
 msgstr ""
-"用例 2：将 BeagleBone 与 CRAMPS 板等扩展板（cape）一起使用。在此配置下，BeagleBone 将托管 Klipper + "
-"附加软件，并使用 BeagleBone PRU 内核（2 个附加内核 200Mh，32Bit）驱动扩展板。"
+"用例 2：将 BeagleBone 与 CRAMPS 板等扩展板（cape）一起使用。在此配置下，"
+"BeagleBone 将托管 Klipper + 附加软件，并使用 BeagleBone PRU 内核（2 "
+"个附加内核 200Mh，32Bit）驱动扩展板。"
 
 #: docs/Beaglebone.md:block 18 (paragraph)
 msgid ""
 "Use case 3: It's same as \"Use case 1\" but additionally you want to drive "
 "BeagleBone GPIOs with high speed by utilizing PRU cores to offload main CPU."
-msgstr "用例 3：它与“用例 1”相同，但此外您还想利用 PRU 核心卸载主 CPU，以高速驱动 BeagleBone GPIO。"
+msgstr "用例 3：它与“用例 1”相同，但此外您还想利用 PRU 核心卸载主 CPU，以高速驱动 "
+"BeagleBone GPIO。"
 
 #: docs/Beaglebone.md:block 19 (header)
 msgid "Installing Octoprint"
@@ -166,7 +174,8 @@ msgstr "然后可以安装 Octoprint，或者如果需要其他软件，可以�
 msgid ""
 "Wait 1-2 minutes and make sure the OctoPrint web server is accessible - it "
 "should be at: <http://beaglebone:5000/>"
-msgstr "等待 1-2 分钟，确保 OctoPrint 网络服务器可访问 - 它应该位于：<http://beaglebone:5000/>"
+msgstr "等待 1-2 分钟，确保 OctoPrint 网络服务器可访问 - "
+"它应该位于：<http://beaglebone:5000/>"
 
 #: docs/Beaglebone.md:block 29 (header)
 msgid "Building the BeagleBone PRU micro-controller code (PRU firmware)"
@@ -176,7 +185,8 @@ msgstr "构建 BeagleBone PRU 微控制器代码（PRU 固件）"
 msgid ""
 "This section is required for \"Use case 2\" and \"Use case 3\" mentioned "
 "above, you should skip it for \"Use case 1\"."
-msgstr "此部分对于上面提到的“用例 2”和“用例 3”是必需的，对于“用例 1”，则应跳过此部分。"
+msgstr "此部分对于上面提到的“用例 2”和“用例 3”是必需的，对于“用例 "
+"1”，则应跳过此部分。"
 
 #: docs/Beaglebone.md:block 31 (paragraph)
 msgid "Check that required devices are present"
@@ -193,10 +203,13 @@ msgid ""
 "options or with cape-overlays Just for reference some output of working "
 "BeagleBone Black configuration with CRAMPS board:"
 msgstr ""
-"您应该检查输出是否包含成功的“remoteproc”驱动程序加载和 PRU 核心的存在，在内核 5.10 "
-"中，它们应该是“remoteproc1”和“remoteproc2”（4a334000.pru、4a338000.pru）还应检查是否加载了许多 "
-"GPIO，它们看起来像“分配的 GPIO id=0 name='P8_03'”通常一切都很好，不需要硬件配置。如果缺少某些东西 - 尝试使用“uboot "
-"overlays”选项或 cape-overlays 仅供参考，使用 CRAMPS 板工作的 BeagleBone Black 配置的一些输出："
+"您应该检查输出是否包含成功的“remoteproc”驱动程序加载和 PRU 核心的存在，"
+"在内核 5.10 "
+"中，它们应该是“remoteproc1”和“remoteproc2”（4a334000.pru、4a338000.pru）"
+"还应检查是否加载了许多 GPIO，它们看起来像“分配的 GPIO id=0 "
+"name='P8_03'”通常一切都很好，不需要硬件配置。如果缺少某些东西 - 尝试使用“"
+"uboot overlays”选项或 cape-overlays 仅供参考，使用 CRAMPS 板工作的 "
+"BeagleBone Black 配置的一些输出："
 
 #: docs/Beaglebone.md:block 35 (paragraph)
 msgid ""
