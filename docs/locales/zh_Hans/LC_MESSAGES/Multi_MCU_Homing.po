@@ -2,12 +2,12 @@
 # Neko.vecter <Vecterfang@icloud.com>, 2022.
 # Yifei Ding <dingyifeiair@gmail.com>, 2022, 2025.
 # Temparo <temperacket@outlook.com>, 2024.
-# hani-lengxi <2836842270@qq.com>, 2024.
+# hani-lengxi <2836842270@qq.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:27+0000\n"
-"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
+"Last-Translator: hani-lengxi <2836842270@qq.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/klipper/multi_mcu_homing/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -89,7 +89,8 @@ msgid ""
 "10ms. High latency (even for short periods) is likely to result in homing "
 "failures."
 msgstr ""
-"为了使用这种“多微控制器归位”功能，硬件必须在主机和所有微控制器之间具有可预测的低延迟。通常，往返时间必须始终小于 10 "
+"为了使用这种“多微控制器归位”功能，硬件必须在主机和所有微控制器之间具有可预测"
+"的低延迟。通常，往返时间必须始终小于 10 "
 "毫秒。高延迟（即使是短时间）也可能导致归位失败。"
 
 #: docs/Multi_MCU_Homing.md:block 8 (paragraph)
