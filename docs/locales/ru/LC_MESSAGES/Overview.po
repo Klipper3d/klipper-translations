@@ -7,12 +7,12 @@
 # xXx <xxx_xxx_xxxxxxxxx@mail.ru>, 2023.
 # Saveliy <jitropolit@gmail.com>, 2024.
 # Mika <akimivanov43@gmail.com>, 2024.
-# Arseniy <arseniy@neburalis.space>, 2024.
+# Arseniy <arseniy@neburalis.space>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:35+0000\n"
-"Last-Translator: Kirill Plotnikov <ponfertato@gmail.com>\n"
+"Last-Translator: Arseniy <arseniy@neburalis.space>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/overview/"
 "ru/>\n"
 "Language: ru\n"
@@ -100,8 +100,8 @@ msgstr ""
 
 msgid "[Bed Mesh](Bed_Mesh.md): Bed height correction based on XY locations."
 msgstr ""
-"[Bed Mesh](Bed_Mesh.md): корректировки высоты стола относительно координат по "
-"XY."
+"[Bed Mesh](Bed_Mesh.md): корректировки высоты стола относительно координат "
+"по XY."
 
 msgid ""
 "[Endstop phase](Endstop_Phase.md): Stepper assisted Z endstop positioning."
@@ -137,7 +137,8 @@ msgid ""
 "[Command Templates](Command_Templates.md): G-Code macros and conditional "
 "evaluation."
 msgstr ""
-"[Command Templates](Command_Templates.md): G-Code макросы и условный прогресс."
+"[Command Templates](Command_Templates.md): G-Code макросы и условный "
+"прогресс."
 
 msgid ""
 "[Status Reference](Status_Reference.md): Information available to macros (and "
@@ -195,12 +196,13 @@ msgid ""
 "[MCU commands](MCU_Commands.md): A description of low-level commands "
 "implemented in the micro-controller software."
 msgstr ""
-"[MCU commands](MCU_Commands.md): Описание низкоуровневых команд, реализованных"
-" в программном обеспечении микроконтроллера."
+"[MCU commands](MCU_Commands.md): Описание низкоуровневых команд, "
+"реализованных в программном обеспечении микроконтроллера."
 
 msgid "[CAN bus protocol](CANBUS_protocol.md): Klipper CAN bus message format."
 msgstr ""
-"[CAN bus protocol](CANBUS_protocol.md): формат сообщений Klipper для CAN шины."
+"[CAN bus protocol](CANBUS_protocol.md): формат сообщений Klipper для CAN "
+"шины."
 
 msgid "[Debugging](Debugging.md): Information on how to test and debug Klipper."
 msgstr ""
