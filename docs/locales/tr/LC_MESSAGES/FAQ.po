@@ -1,11 +1,11 @@
 # zafer yazkili <yazkili@hotmail.com>, 2023.
 # mustafa kaya <m.mkaya92@gmail.com>, 2024.
-# goknarbahceli <goknarbahceli@proton.me>, 2024.
+# goknarbahceli <goknarbahceli@proton.me>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:21+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: goknarbahceli <goknarbahceli@proton.me>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/faq/tr/>"
 "\n"
 "Language: tr\n"
@@ -31,9 +31,9 @@ msgid ""
 "from an ssh terminal on the host machine. It will likely produce output "
 "similar to the following:"
 msgstr ""
-"Seri portu bulmanın yaygın yolu host makinesinein ssh terminalinden `ls "
-"/dev/serial/by-id/*` komutunu çalıştırmaktır. Aşağıdaki gibi bir çıktı vermesi"
-" beklenir:"
+"Seri portu bulmanın yaygın yolu host makinesinein ssh terminalinden `ls /dev/"
+"serial/by-id/*` komutunu çalıştırmaktır. Aşağıdaki gibi bir çıktı vermesi "
+"beklenir:"
 
 msgid ""
 "The name found in the above command is stable and it is possible to use it in "
