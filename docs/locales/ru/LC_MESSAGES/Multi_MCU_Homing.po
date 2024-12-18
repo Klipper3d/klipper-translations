@@ -1,17 +1,19 @@
 # Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022.
 # Evgeniy Khramov <thejenjagamertjg@gmail.com>, 2022.
-# gfbdrgng <hnaofegnp@hldrive.com>, 2024.
+# gfbdrgng <hnaofegnp@hldrive.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-12-18 14:15+0000\n"
+"PO-Revision-Date: 2025-05-03 07:36+0000\n"
 "Last-Translator: gfbdrgng <hnaofegnp@hldrive.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/multi_mcu_homing/ru/>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
+"multi_mcu_homing/ru/>\n"
 "Language: ru\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.9.2-dev\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: docs/Multi_MCU_Homing.md:block 1 (header)
 msgid "Multiple Micro-controller Homing and Probing"
@@ -106,11 +108,12 @@ msgid ""
 "10ms. High latency (even for short periods) is likely to result in homing "
 "failures."
 msgstr ""
-"Для того чтобы использовать эту возможность \"наведения нескольких "
-"микроконтроллеров\", аппаратное обеспечение должно иметь предсказуемо низкую "
-"задержку между главным компьютером и всеми микроконтроллерами. Как правило, "
-"время прохождения маршрута должно быть менее 10 мс. Высокая задержка (даже в "
-"течение коротких периодов времени) может привести к сбоям в наведении."
+"Для того чтобы использовать эту возможность "
+"\"наведения нескольких микроконтроллеров\", аппаратное обеспечение должно "
+"иметь предсказуемо низкую задержку между главным компьютером и всеми "
+"микроконтроллерами. Как правило, время прохождения маршрута должно быть "
+"менее 10 мс. Высокая задержка (даже в течение коротких периодов времени) "
+"может привести к сбоям в наведении."
 
 #: docs/Multi_MCU_Homing.md:block 8 (paragraph)
 msgid ""
@@ -119,8 +122,8 @@ msgid ""
 " error."
 msgstr ""
 "Если высокая задержка приведет к сбою (или если будут обнаружены другие "
-"проблемы со связью), Klipper выдаст ошибку \"Communication timeout during "
-"homing\"."
+"проблемы со связью), Klipper выдаст ошибку "
+"\"Communication timeout during homing\"."
 
 #~ msgid ""
 #~ "Should Klipper detect a communication issue between micro-controllers during "
