@@ -2,12 +2,12 @@
 # Evgeniy Khramov <thejenjagamertjg@gmail.com>, 2022.
 # VICTOR <subfyn@gmail.com>, 2023, 2025.
 # xXx <xxx_xxx_xxxxxxxxx@mail.ru>, 2023, 2025.
-# gfbdrgng <hnaofegnp@hldrive.com>, 2024.
+# gfbdrgng <hnaofegnp@hldrive.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:35+0000\n"
-"Last-Translator: VICTOR <subfyn@gmail.com>\n"
+"Last-Translator: gfbdrgng <hnaofegnp@hldrive.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
 "probe_calibrate/ru/>\n"
 "Language: ru\n"
@@ -384,11 +384,11 @@ msgid ""
 "the nozzle and bed at the given location. Once those steps are complete one "
 "can `ACCEPT` the position and save the results to the config file with:"
 msgstr ""
-"После запуска инструмента ручного зондирования выполните действия, описанные в"
-" разделе [\"тест бумаги\"](Bed_Level.md#the-paper-test), чтобы определить "
-"фактическое расстояние между соплом и станиной в заданном месте. По завершении"
-" этих шагов можно `принять` положение и сохранить результаты в файле "
-"конфигурации с помощью:"
+"После запуска инструмента ручного зондирования выполните действия, описанные "
+"в разделе [\"тест бумаги\"](Bed_Level.md#the-paper-test), чтобы определить "
+"фактическое расстояние между соплом и станиной в заданном месте. По "
+"завершении этих шагов можно `принять` положение и сохранить результаты в "
+"файле конфигурации с помощью:"
 
 #, fuzzy
 #~ msgid "PROBE\n"
