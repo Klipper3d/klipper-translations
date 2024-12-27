@@ -5,13 +5,13 @@
 # Francis Poulizac <francis@poulizac.fr>, 2022, 2023, 2025.
 # Alfredo Monclus <alfredomonclus@gmail.com>, 2023.
 # Rundredoffi <contact.rundred@gmail.com>, 2024.
-# Zefut <zefut.pro@gmail.com>, 2024.
+# Zefut <zefut.pro@gmail.com>, 2024, 2025.
 # hilaire12 <hilaangalikiana1@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:24+0000\n"
-"Last-Translator: jean-luc MATTEI <jlucm@free.fr>\n"
+"Last-Translator: Zefut <zefut.pro@gmail.com>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/klipper/"
 "config_reference/fr/>\n"
 "Language: fr\n"
@@ -2082,7 +2082,6 @@ msgstr ""
 "le microcontrôleur."
 
 #: docs/Config_Reference.md:block 171 (header)
-#, fuzzy
 msgid "[lis2dw]"
 msgstr "[lis2dw]"
 
@@ -2274,7 +2273,6 @@ msgid ""
 msgstr ""
 
 #: docs/Config_Reference.md:block 443 (header)
-#, fuzzy
 msgid "HX717"
 msgstr "HX717"
 
