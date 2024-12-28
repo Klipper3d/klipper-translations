@@ -1,9 +1,9 @@
-# Tomasz Matuszewski <garage.make.zone@gmail.com>, 2024.
+# Tomasz Matuszewski <garage.make.zone@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:49+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Tomasz Matuszewski <garage.make.zone@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/klipper/"
 "eddy_probe/pl/>\n"
 "Language: pl\n"
@@ -23,8 +23,8 @@ msgid ""
 "current](https://en.wikipedia.org/wiki/Eddy_current) inductive probe in "
 "Klipper."
 msgstr ""
-"Ten dokument opisuje w jaki sposób używać czujnika indukcyjnego [eddy "
-"current](https://en.wikipedia.org/wiki/Eddy_current) z Klipperem."
+"Ten dokument opisuje w jaki sposób używać czujnika indukcyjnego "
+"[eddy current](https://en.wikipedia.org/wiki/Eddy_current) z Klipperem."
 
 #: docs/Eddy_Probe.md:block 3 (paragraph)
 msgid ""
