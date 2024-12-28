@@ -1,9 +1,9 @@
-# Tomasz Matuszewski <garage.make.zone@gmail.com>, 2024.
+# Tomasz Matuszewski <garage.make.zone@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:49+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Tomasz Matuszewski <garage.make.zone@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/klipper/octoprint/"
 "pl/>\n"
 "Language: pl\n"
