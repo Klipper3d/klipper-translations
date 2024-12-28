@@ -1,11 +1,11 @@
 # Robert Jaroszewicz <mediagott1977@googlemail.com>, 2022, 2025.
 # Woo Cash <woocash87@gmail.com>, 2024.
-# Tomasz Matuszewski <garage.make.zone@gmail.com>, 2024.
+# Tomasz Matuszewski <garage.make.zone@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:36+0000\n"
-"Last-Translator: Robert Jaroszewicz <mediagott1977@googlemail.com>\n"
+"Last-Translator: Tomasz Matuszewski <garage.make.zone@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/klipper/"
 "exclude_object/pl/>\n"
 "Language: pl\n"
@@ -44,9 +44,13 @@ msgid ""
 "contents of the gcode file, how the internal state of the module is "
 "controlled, and how that state is provided to clients."
 msgstr ""
-"W przeciwieństwie do innych firmware'ów drukarek 3D, drukarka z oprogramowaniem Klipper wykorzystuje system komponentów i daje użytkownikom wiele opcji do wyboru.\n"
-"Dlatego w celu zapewnienia spójności doświadczeń użytkownika moduł `[exclude_object]` jest pewnego rodzaju łącznikiem bądź API.\n"
-"Łącznik ten określa zawartość G-kodów oraz sposób kontroli stanu modułu i sposób udostępniania jego stanu klientom."
+"W przeciwieństwie do innych firmware'ów drukarek 3D, drukarka z "
+"oprogramowaniem Klipper wykorzystuje system komponentów i daje użytkownikom "
+"wiele opcji do wyboru.\n"
+"Dlatego w celu zapewnienia spójności doświadczeń użytkownika moduł `"
+"[exclude_object]` jest pewnego rodzaju łącznikiem bądź API.\n"
+"Łącznik ten określa zawartość G-kodów oraz sposób kontroli stanu modułu i "
+"sposób udostępniania jego stanu klientom."
 
 #: docs/Exclude_Object.md:block 4 (header)
 msgid "Workflow Overview"
