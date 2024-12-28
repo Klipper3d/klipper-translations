@@ -2,12 +2,12 @@
 # Damian Jasinski <flasch44@gmail.com>, 2023, 2025.
 # piiken <07.poza_dojrzewac@icloud.com>, 2023, 2025.
 # Mateusz Kapała <lolekwielki@gmail.com>, 2023, 2025.
-# Tomasz Matuszewski <garage.make.zone@gmail.com>, 2024.
+# Tomasz Matuszewski <garage.make.zone@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:26+0000\n"
-"Last-Translator: piiken <07.poza_dojrzewac@icloud.com>\n"
+"Last-Translator: Tomasz Matuszewski <garage.make.zone@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/klipper/faq/pl/>\n"
 "Language: pl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
