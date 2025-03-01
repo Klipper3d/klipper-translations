@@ -4,17 +4,20 @@
 # Jan P <jasiek.kliper06@gmail.com>, 2023.
 # Bartosz Trojan <51444728+ethylowy@users.noreply.github.com>, 2024.
 # Dawid <dawidgorski.m@gmail.com>, 2024.
+# Mateusz <account.srrr3@slmail.me>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-12-15 06:11+0000\n"
-"Last-Translator: Dawid <dawidgorski.m@gmail.com>\n"
-"Language-Team: Polish <https://hosted.weblate.org/projects/klipper/g-codes/pl/>\n"
+"PO-Revision-Date: 2025-02-28 02:53+0000\n"
+"Last-Translator: Mateusz <account.srrr3@slmail.me>\n"
+"Language-Team: Polish <https://hosted.weblate.org/projects/klipper/g-codes/"
+"pl/>\n"
 "Language: pl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.9-rc\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 5.10.2-rc\n"
 
 msgid ""
 "This document describes the commands that Klipper supports. These are commands"
@@ -842,6 +845,9 @@ msgid ""
 "section](Config_Reference.md#bed_mesh) is enabled (also see the [bed mesh "
 "guide](Bed_Mesh.md))."
 msgstr ""
+"Poniższe polecenia są dostępne, gdy włączona jest "
+"[sekcja konfiguracji bed_mesh](Config_Reference.md#bed_mesh) (zobacz także "
+"[przewodnik po siatce stołu](Bed_Mesh.md))."
 
 #: docs/G-Codes.md:block 24 (header)
 msgid "BED_MESH_CALIBRATE"
@@ -951,7 +957,7 @@ msgstr "[plik konfiguracyjny]"
 
 #: docs/G-Codes.md:block 51 (paragraph)
 msgid "The configfile module is automatically loaded."
-msgstr ""
+msgstr "Plik konfiguracyjny jest ładowany automatycznie."
 
 #: docs/G-Codes.md:block 52 (header)
 msgid "SAVE_CONFIG"
@@ -1018,7 +1024,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 71 (header)
 msgid "[dual_carriage]"
-msgstr ""
+msgstr "[dual_carriage]"
 
 #: docs/G-Codes.md:block 72 (paragraph)
 msgid ""
@@ -1032,7 +1038,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 75 (header)
 msgid "[endstop_phase]"
-msgstr ""
+msgstr "[endstop_phase]"
 
 #: docs/G-Codes.md:block 76 (paragraph)
 msgid ""
@@ -1073,7 +1079,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 93 (header)
 msgid "[fan_generic]"
-msgstr ""
+msgstr "[fan_generic]"
 
 #: docs/G-Codes.md:block 94 (paragraph)
 msgid ""
@@ -1093,7 +1099,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 97 (header)
 msgid "[firmware_retraction]"
-msgstr ""
+msgstr "[firmware_retraction]"
 
 #: docs/G-Codes.md:block 98 (paragraph)
 msgid ""
@@ -1119,7 +1125,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 105 (header)
 msgid "[filament_switch_sensor]"
-msgstr ""
+msgstr "[filament_switch_sensor]"
 
 #: docs/G-Codes.md:block 106 (paragraph)
 msgid ""
@@ -2052,7 +2058,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 87 (header)
 msgid "[exclude_object]"
-msgstr ""
+msgstr "[exclude_object]"
 
 #: docs/G-Codes.md:block 88 (paragraph)
 msgid ""
