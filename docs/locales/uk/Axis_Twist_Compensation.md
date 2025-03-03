@@ -13,46 +13,46 @@ bias](Probe_Calibrate.md#location-bias-check). It may result in probe operations
 
 > **Порада.** Переконайтеся, що [зміщення зонда X і Y](Config_Reference.md#probe) налаштовано правильно, оскільки вони значною мірою впливають на калібрування.
 
-### Basic Usage: X-Axis Calibration
+### Основне використання: калібрування осі X
 
-1. After setting up the `[axis_twist_compensation]` module, run:
+1. Після налаштування модуля `[axis_twist_compensation]` виконайте:
 
 ```
 AXIS_TWIST_COMPENSATION_CALIBRATE
 ```
 
-This command will calibrate the X-axis by default. - The calibration wizard will prompt you to measure the probe Z offset at several points along the bed. - By default, the calibration uses 3 points, but you can specify a different number with the option: `SAMPLE_COUNT=<value>`
+Ця команда відкалібрує вісь Х за замовчуванням. - Майстер калібрування запропонує вам виміряти зсув зонда Z у кількох точках уздовж дна. - За замовчуванням калібрування використовує 3 точки, але ви можете вказати інше число за допомогою опції: `SAMPLE_COUNT=<value>`
 
-1. **Adjust Your Z Offset:** After completing the calibration, be sure to [adjust your Z offset] (Probe_Calibrate.md#calibrating-probe-z-offset).
-1. **Perform Bed Leveling Operations:** Use probe-based operations as needed, such as:
+1. **Налаштуйте зміщення Z:** Після завершення калібрування обов’язково [налаштуйте зміщення Z] (Probe_Calibrate.md#calibrating-probe-z-offset).
+1. **Виконайте операції з вирівнювання ліжка: ** За потреби використовуйте операції на основі зонда, наприклад:
 
-   - [Screws Tilt Adjust](G-Codes.md#screws_tilt_adjust)
-   - [Z Tilt Adjust](G-Codes.md#z_tilt_adjust)
+   - [Регулювання нахилу гвинтів](G-Codes.md#screws_tilt_adjust)
+   - [Налаштування нахилу Z](G-Codes.md#z_tilt_adjust)
 
-1. **Finalize the Setup:**
+1. **Завершіть налаштування:**
 
-   - Home all axes, and perform a [Bed Mesh](Bed_Mesh.md) if necessary.
-   - Run a test print, followed by any [fine-tuning](Axis_Twist_Compensation.md#fine-tuning) if needed.
+   - Розмістіть усі осі та за потреби виконайте [Bed Mesh](Bed_Mesh.md).
+   - Запустіть пробний друк, а потім будь-яке [точне налаштування](Axis_Twist_Compensation.md#fine-tuning), якщо потрібно.
 
-### For Y-Axis Calibration
+### Для калібрування осі Y
 
-The calibration process for the Y-axis is similar to the X-axis. To calibrate the Y-axis, use:
+Процес калібрування для осі Y подібний до процесу калібрування для осі X. Щоб відкалібрувати вісь Y, використовуйте:
 
 ```
 AXIS_TWIST_COMPENSATION_CALIBRATE AXIS=Y
 ```
 
-This will guide you through the same measuring process as for the X-axis.
+Це проведе вас через той самий процес вимірювання, що й для осі X.
 
-### Automatic Calibration for Both Axes
+### Автоматичне калібрування для обох осей
 
-To perform automatic calibration for both the X and Y axes without manual intervention, use:
+Щоб виконати автоматичне калібрування осей X і Y без ручного втручання, використовуйте:
 
 ```
 AXIS_TWIST_COMPENSATION_CALIBRATE AUTO=True
 ```
 
-In this mode, the calibration process will run for both axes automatically.
+У цьому режимі процес калібрування буде виконуватися для обох осей автоматично.
 
 > **Порада:** Здається, температура шару, температура та розмір сопла не впливають на процес калібрування.
 

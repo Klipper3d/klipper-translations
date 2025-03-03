@@ -2296,7 +2296,7 @@ sensor_type: AHT10
 
 ### HTU21D 传感器
 
-HTU21D 系列双线接口（I2C）环境传感器。注意，这种传感器不适用于挤出机和加热床，它们可以用于监测环境温度（C）和相对湿度。参见 [sample-macros.cfg](../config/sample-macros.cfg) 中可以报告温度和湿度的 gcode_macro。
+[adc_temperature]
 
 ```
 sensor_type:

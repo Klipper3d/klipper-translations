@@ -1556,7 +1556,7 @@ LIS2DW gyorsulásmérők támogatása.
 
 ### [lis3dh]
 
-Support for LIS3DH accelerometers.
+LIS3DH gyorsulásmérők támogatása.
 
 ```
 [lis3dh]
@@ -1937,7 +1937,7 @@ sensor_type: ldc1612
 
 ### [axis_twist_compensation]
 
-A tool to compensate for inaccurate probe readings due to twist in X or Y gantry. See the [Axis Twist Compensation Guide](Axis_Twist_Compensation.md) for more detailed information regarding symptoms, configuration and setup.
+Az X vagy Y portál csavarodásából adódó pontatlan szondamérések kompenzálására szolgáló eszköz. A tünetekkel, konfigurációval és beállítással kapcsolatos részletesebb információkért lásd a [finomhangolás](Axis_Twist_Compensation.md) című dokumentumot.
 
 ```
 [axis_twist_compensation]
@@ -3975,9 +3975,9 @@ spi_software_miso_pin:
 ...
 ```
 
-#### aip31068_spi display
+#### aip31068_spi kijelző
 
-Information on configuring an aip31068_spi display - a very similar to hd44780_spi a 20x04 (20 symbols by 4 lines) display with slightly different internal protocol.
+Információ az aip31068_spi kijelző konfigurálásáról - a hd44780_spi-hez nagyon hasonló 20x04 (20 szimbólum 4 soros) kijelző, kissé eltérő belső protokollal.
 
 ```
 [display]
@@ -4676,7 +4676,7 @@ serial:
 
 ### [angle]
 
-Magnetic hall angle sensor support for reading stepper motor angle shaft measurements using a1333, as5047d, mt6816, mt6826s, or tle5012b SPI chips. The measurements are available via the [API Server](API_Server.md) and [motion analysis tool](Debugging.md#motion-analysis-and-data-logging). See the [G-Code reference](G-Codes.md#angle) for available commands.
+Mágneses Hall-szögérzékelő támogatás a1333, as5047d, mt6816, mt6826s, vagy tle5012b SPI chipek használatával a léptetőmotorok szögtengely méréseinek leolvasásához. A mérések az [API Szerver](API_Server.md) és a [mozgáselemző eszköz](Debugging.md#motion-analysis-and-data-logging) segítségével érhetők el. A rendelkezésre álló parancsokat lásd a [G-kód referencia](G-Codes.md#angle).
 
 ```
 [angle my_angle_sensor]
@@ -4734,7 +4734,7 @@ A következő paraméterek általában az I2C-buszt használó eszközökhöz á
 
 Vedd figyelembe, hogy a Klipper jelenlegi mikrokontroller I2C támogatása általában nem tolerálja a hálózati zajt. Az I2C vezetékek nem várt hibái a Klipper futásidejű hibaüzenetét eredményezhetik. A Klipper hibaelhárítási támogatása az egyes mikrokontroller-típusoknál eltérő. Általában csak olyan I2C eszközök használata ajánlott, amelyek ugyanazon a nyomtatott áramköri lapon vannak, mint a mikrokontroller.
 
-Most Klipper micro-controller implementations only support an `i2c_speed` of 100000 (*standard mode*, 100kbit/s). The Klipper "Linux" micro-controller supports a 400000 speed (*fast mode*, 400kbit/s), but it must be [set in the operating system](RPi_microcontroller.md#optional-enabling-i2c) and the `i2c_speed` parameter is otherwise ignored. The Klipper "RP2040" micro-controller and ATmega AVR family and some STM32 (F0, G0, G4, L4, F7, H7) support a rate of 400000 via the `i2c_speed` parameter. All other Klipper micro-controllers use a 100000 rate and ignore the `i2c_speed` parameter.
+A legtöbb Klipper mikrokontroller implementáció csak 100000-es „i2c_speed”-et támogat (*standard mód*, 100kbit/s). A Klipper „Linux” mikrokontroller támogatja a 400000 sebességet (*gyors mód*, 400kbit/s), de ezt az [I2C engedélyezése](RPi_microcontroller.md#optional-enabling-i2c) részen kell beállítani, és az `i2c_speed` paramétert egyébként figyelmen kívül hagyni. A Klipper „RP2040” mikrokontroller és az ATmega AVR család és néhány STM32 (F0, G0, G4, L4, F7, H7) támogatja a 400000-es sebességet az `i2c_speed` paraméteren keresztül. Az összes többi Klipper mikrovezérlő 100000-es sebességet használ, és figyelmen kívül hagyja az `i2c_speed` paramétert.
 
 ```
 #i2c_address:

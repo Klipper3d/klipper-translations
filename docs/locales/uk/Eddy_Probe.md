@@ -28,7 +28,7 @@
 # конфігурації температурного зонда ...
 ```
 
-See the [configuration reference](Config_Reference.md#temperature_probe) for further details on how to configure a `temperature_probe`. It is advised to configure the `calibration_position`, `calibration_extruder_temp`, `extruder_heating_z`, and `calibration_bed_temp` options, as doing so will automate some of the steps outlined below. If the printer to be calibrated is enclosed, it is strongly recommended to set the `max_validation_temp` option to a value between 100 and 120.
+Перегляньте [довідку з конфігурації](Config_Reference.md#temperature_probe), щоб отримати додаткові відомості про те, як налаштувати `temperature_probe`. Рекомендується налаштувати параметри `calibration_position`, `calibration_extruder_temp`, `extruder_heating_z` і `calibration_bed_temp`, оскільки це призведе до автоматизації деяких кроків, описаних нижче. Якщо принтер, який потрібно відкалібрувати, є закритим, настійно рекомендується встановити для параметра `max_validation_temp` значення від 100 до 120.
 
 Виробники Едді-пробе можуть запропонувати калібрування запасів, які можна вручну додавати до `drift_calibration` параметр `[probe_eddy_current]`. Якщо вони не є, або якщо калібрування запасів не виконує добре на вашій системі, модуль ` Температура_probe` пропонує процедуру ручного калібрування через `TEMPERATURE_PROBE_CALIBRATE` gcode команди.
 

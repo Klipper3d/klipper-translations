@@ -13,46 +13,46 @@ Ez a modul kézi méréseket használ a felhasználó számára, hogy korrigálj
 
 > **Tip:** Győződj meg róla, hogy az [ X és Y eltolás](Config_Reference.md#probe) megfelelően van beállítva, mivel nagymértékben befolyásolják a kalibrálást.
 
-### Basic Usage: X-Axis Calibration
+### Alapvető használat: X-Tengely kalibrálás
 
-1. After setting up the `[axis_twist_compensation]` module, run:
+1. Az `[axis_twist_compensation]` modul beállítása után futtasd a következőt:
 
 ```
 AXIS_TWIST_COMPENSATION_CALIBRATE
 ```
 
-This command will calibrate the X-axis by default. - The calibration wizard will prompt you to measure the probe Z offset at several points along the bed. - By default, the calibration uses 3 points, but you can specify a different number with the option: `SAMPLE_COUNT=<value>`
+Ez a parancs alapértelmezés szerint az X-tengelyt kalibrálja. - A kalibrációs varázsló felszólít, hogy mérd meg a szonda Z eltolását az ágy mentén több ponton. - Alapértelmezés szerint a kalibrálás 3 pontot használ, de a `SAMPLE_COUNT=<value>` opcióval más számot is megadhatsz.
 
-1. **Adjust Your Z Offset:** After completing the calibration, be sure to [adjust your Z offset] (Probe_Calibrate.md#calibrating-probe-z-offset).
-1. **Perform Bed Leveling Operations:** Use probe-based operations as needed, such as:
+1. **Z-eltolás beállítása:** A kalibrálás befejezése után mindenképpen [állítsd be a Z-eltolást] (Probe_Calibrate.md#calibrating-probe-z-offset).
+1. **Perform Bed Leveling Operations:** Használj szonda alapú műveleteket, például:
 
-   - [Screws Tilt Adjust](G-Codes.md#screws_tilt_adjust)
-   - [Z Tilt Adjust](G-Codes.md#z_tilt_adjust)
+   - [Csavarok dőlésszög beállítása](G-Codes.md#screws_tilt_adjust)
+   - [Z dőlésszög beállítása](G-Codes.md#z_tilt_adjust)
 
-1. **Finalize the Setup:**
+1. **A beállítás befejezése:**
 
-   - Home all axes, and perform a [Bed Mesh](Bed_Mesh.md) if necessary.
-   - Run a test print, followed by any [fine-tuning](Axis_Twist_Compensation.md#fine-tuning) if needed.
+   - Küldj kezdő pozícióba minden tengelyt, és hajtsd végre az [Ágy háló](Bed_Mesh.md) parancsot, ha szükséges.
+   - Futtass egy próbanyomtatást, majd szükség esetén [finomhangolást](Axis_Twist_Compensation.md#fine-tuning).
 
-### For Y-Axis Calibration
+### Y-Tengely kalibrálása
 
-The calibration process for the Y-axis is similar to the X-axis. To calibrate the Y-axis, use:
+Az Y-tengely kalibrálási folyamata hasonló az X-tengelyéhez. Az Y-tengely kalibrálásához használd a következőt:
 
 ```
 AXIS_TWIST_COMPENSATION_CALIBRATE AXIS=Y
 ```
 
-This will guide you through the same measuring process as for the X-axis.
+Ez végigvezet Téged ugyanazon a mérési folyamaton, mint az X-tengely esetében.
 
-### Automatic Calibration for Both Axes
+### Automatikus kalibrálás mindkét tengelyhez
 
-To perform automatic calibration for both the X and Y axes without manual intervention, use:
+Az X és Y tengely automatikus kalibrálásához kézi beavatkozás nélkül használd a következőt:
 
 ```
 AXIS_TWIST_COMPENSATION_CALIBRATE AUTO=True
 ```
 
-In this mode, the calibration process will run for both axes automatically.
+Ebben az üzemmódban a kalibrációs folyamat mindkét tengelyre automatikusan lefut.
 
 > **Tipp:** Úgy tűnik, hogy az ágy hőmérséklete és a fúvóka hőmérséklete és mértéke nem befolyásolja a kalibrálási folyamatot.
 

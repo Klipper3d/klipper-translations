@@ -28,7 +28,7 @@ Mint minden induktív szondánál, az örvényáramú szondáknál is jelentős 
 # temperature probe configuration...
 ```
 
-See the [configuration reference](Config_Reference.md#temperature_probe) for further details on how to configure a `temperature_probe`. It is advised to configure the `calibration_position`, `calibration_extruder_temp`, `extruder_heating_z`, and `calibration_bed_temp` options, as doing so will automate some of the steps outlined below. If the printer to be calibrated is enclosed, it is strongly recommended to set the `max_validation_temp` option to a value between 100 and 120.
+A [konfigurációs hivatkozás](Config_Reference.md#temperature_probe) további részleteket tartalmaz a `temperature_probe` konfigurálásáról. Javasoljuk a `calibration_position`, `calibration_extruder_temp`, `extruder_heating_z` és `calibration_bed_temp` opciók konfigurálását, mivel ez automatizálja az alább ismertetett lépések egy részét. Ha a kalibrálandó nyomtató zárt, erősen ajánlott a `max_validation_temp` opciót 100 és 120 közötti értékre állítani.
 
 Az örvényszondák gyártói kínálhatnak készleten lévő elhajlás kalibrációt, amelyet manuálisan hozzá lehet adni a `[probe_eddy_current]` szakasz `drift_calibration` opciójához. Ha nem, vagy ha a készletkalibráció nem működik jól a rendszereden, a `temperature_probe` modul a `TEMPERATURE_PROBE_CALIBRATE` G-kód parancs segítségével manuális kalibrálási eljárást kínál.
 

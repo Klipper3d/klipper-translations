@@ -316,9 +316,9 @@ A tesztet legutóbb a `59314d99` megbízási gcc verzióval `arm-none-eabi-gcc (
 | 1 lépés (200Mhz) | 39 |
 | 3 lépés (200Mhz) | 181 |
 
-### SAME70 step rate benchmark
+### SAME70 lépésszám referenciaérték
 
-The following configuration sequence is used on the SAME70:
+A SAME70 esetében a következő konfigurációs sorrendet kell alkalmazni:
 
 ```
 allocate_oids count=3
@@ -328,7 +328,7 @@ config_stepper oid=2 step_pin=PC28 dir_pin=PA4 invert_step=-1 step_pulse_ticks=0
 finalize_config crc=0
 ```
 
-The test was last run on commit `34e9ea55` with gcc version `arm-none-eabi-gcc (NixOS 10.3-2021.10) 10.3.1` on a SAME70Q20B micro-controller.
+A tesztet utoljára a `34e9ea55` kötelezően futtattuk az `arm-none-eabi-gcc (NixOS 10.3-2021.10) 10.3.1` gcc verzióval egy SAME70Q20B mikrokontrollerrel.
 
 | same70 | trükkök |
 | --- | --- |
@@ -347,16 +347,16 @@ config_stepper oid=2 step_pin=PL12 dir_pin=PE16 invert_step=-1 step_pulse_ticks=
 finalize_config crc=0
 ```
 
-The test was last run on commit `b7978d37` with gcc version `or1k-linux-musl-gcc (GCC) 9.2.0` on an Allwinner A64-H micro-controller.
+A tesztet utoljára a `b7978d37` kötelezően futtattuk az `or1k-linux-musl-gcc (GCC) 9.2.0` gcc verzióval egy Allwinner A64-H mikrokontrollerrel.
 
 | AR100 R_PIO | trükkök |
 | --- | --- |
 | 1 léptető | 85 |
 | 3 léptető | 359 |
 
-### RPxxxx step rate benchmark
+### RPxxxx lépésszám referenciaérték
 
-The following configuration sequence is used on the RP2040 and RP2350:
+Az RP2040 és RP2350 készülékeken a következő konfigurációs sorrendet kell alkalmazni:
 
 ```
 allocate_oids count=3
@@ -366,7 +366,7 @@ config_stepper oid=2 step_pin=gpio27 dir_pin=gpio5 invert_step=-1 step_pulse_tic
 finalize_config crc=0
 ```
 
-The test was last run on commit `f6718291` with gcc version `arm-none-eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0` on Raspberry Pi Pico and Pico 2 boards.
+A tesztet utoljára az `f6718291` kötelezően futtattuk a `arm-none-eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0` gcc verzióval Raspberry Pi Pico és Pico 2 lapkákon.
 
 | rp2040 (*) | trükkök |
 | --- | --- |
@@ -378,7 +378,7 @@ The test was last run on commit `f6718291` with gcc version `arm-none-eabi-gcc (
 | 1 léptető | 36 |
 | 3 léptető | 169 |
 
-(*) Note that the reported rp2040 ticks are relative to a 12Mhz scheduling timer and do not correspond to its 125Mhz internal ARM processing rate. It is expected that 5 scheduling ticks corresponds to ~47 ARM core cycles and 22 scheduling ticks corresponds to ~224 ARM core cycles.
+(*) Megjegyzendő, hogy a bejelentett rp2040 tickek egy 12Mhz-es ütemező időzítőhöz viszonyítva vannak, és nem felelnek meg a 125Mhz-es belső ARM-feldolgozási sebességnek. Várhatóan 5 ütemezési tick megfelel ~47 ARM magciklusnak, 22 ütemezési tick pedig ~224 ARM magciklusnak.
 
 ### Linux MCU lépésszám referencia
 

@@ -1,12 +1,12 @@
 # Rezonanciák mérése
 
-Klipper has built-in support for the ADXL345, MPU-9250, LIS2DW and LIS3DH compatible accelerometers which can be used to measure resonance frequencies of the printer for different axes, and auto-tune [input shapers](Resonance_Compensation.md) to compensate for resonances. Note that using accelerometers requires some soldering and crimping. The ADXL345 can be connected to the SPI interface of a Raspberry Pi or MCU board (it needs to be reasonably fast). The MPU family can be connected to the I2C interface of a Raspberry Pi directly, or to an I2C interface of an MCU board that supports 400kbit/s *fast mode* in Klipper. The LIS2DW and LIS3DH can be connected to either SPI or I2C with the same considerations as above.
+A Klipper beépített támogatással rendelkezik az ADXL345, MPU-9250, LIS2DW és LIS3DH kompatibilis gyorsulásmérőkhöz, amelyek segítségével a nyomtató különböző tengelyek rezonanciafrekvenciái mérhetők, és a rezonanciák kompenzálására a [Rezonancia kompenzáció](Resonance_Compensation.md) automatikus beállítása használható. Vedd figyelembe, hogy a gyorsulásmérők használata némi forrasztást és krimpelést igényel. Az ADXL345 csatlakoztatható egy Raspberry Pi vagy MCU lap SPI interfészéhez (viszonylag gyorsnak kell lennie). Az MPU-család közvetlenül csatlakoztatható egy Raspberry Pi I2C-interfészéhez, vagy egy MCU-kártya I2C-interfészéhez, amely támogatja a Klipper 400kbit/s *gyors üzemmódot*. A LIS2DW és a LIS3DH csatlakoztatható SPI vagy I2C interfészhez a fentiekkel megegyező megfontolásokkal.
 
 A gyorsulásmérők beszerzésekor vedd figyelembe, hogy számos különböző nyomtatott áramköri lapkakialakítás és különböző klónok léteznek. Ha 5V-os nyomtató MCU-hoz csatlakozik, győződj meg róla, hogy rendelkezel feszültségszabályozóval és szintválasztóval.
 
-For ADXL345s, make sure that the board supports SPI mode (a small number of boards appear to be hard-configured for I2C by pulling SDO to GND).
+Az ADXL345-ök esetében győződj meg róla, hogy a kártya támogatja az SPI módot (úgy tűnik, hogy néhány kártya keményen I2C-re van konfigurálva az SDO GND-re húzásával).
 
-For MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500s and LIS2DW/LIS3DH there are also a variety of board designs and clones with different I2C pull-up resistors which will need supplementing.
+Az MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500-asok és a LIS2DW/LIS3DH-ok esetében is számos különböző lapkakialakítás és klón létezik különböző I2C felhúzó ellenállásokkal, amelyeket ki kell egészíteni.
 
 ## MCU-k Klipper I2C *gyors üzemmódú* támogatással
 
@@ -174,15 +174,15 @@ Ezután a NumPy telepítéséhez a Klipper környezetbe futtassuk a parancsot:
 ~/klippy-env/bin/pip install -v "numpy<1.26"
 ```
 
-Note that, depending on the performance of the CPU, it may take *a lot* of time, up to 10-20 minutes. Be patient and wait for the completion of the installation. On some occasions, if the board has too little RAM the installation may fail and you will need to enable swap. Also note the forced version, due to newer versions of NumPY having requirements that may not be satisfied in some klipper python environments.
+Vedd figyelembe, hogy a CPU teljesítményétől függően ez *sok* időt vehet igénybe, akár 10-20 percet is. Legyél türelmes, és várd meg a telepítés befejezését. Bizonyos esetekben, ha a kártyán túl kevés RAM van, a telepítés sikertelen lehet, és engedélyezned kell a swapot. Vedd figyelembe a kényszerített verziót is, mivel a NumPY újabb verzióinak olyan követelményei vannak, amelyek nem feltétlenül teljesülnek egyes klipper python környezetekben.
 
-Once installed please check that no errors show from the command:
+A telepítés után ellenőrizd, hogy a parancs nem mutat-e hibát:
 
 ```
 ~/klippy-env/bin/python -c 'import numpy;'
 ```
 
-The correct output should simply be a new line.
+A helyes kimenetnek egyszerűen egy új sornak kell lennie.
 
 #### ADXL345 konfigurálása RPi-vel
 
@@ -262,7 +262,7 @@ Ha az ADXL345 konfigurációját külön fájlban állítod be, ahogy fentebb l�
 
 Indítsd újra a Klippert a `RESTART` paranccsal.
 
-#### Configure LIS2DW series over SPI
+#### LIS2DW sorozat konfigurálása SPI-n keresztül
 
 ```
 [mcu lis]
@@ -555,9 +555,9 @@ hogy helyesen tudd kiszámítani a maximális gyorsulási ajánlásokat. Vedd fi
 
 Ha a formázó újrakalibrálását végzi, és a javasolt formázó konfigurációhoz tartozó simítás majdnem megegyezik az előző kalibrálás során kapott értékkel, ez a lépés kihagyható.
 
-### Unreliable measurements of resonance frequencies
+### Megbízhatatlan rezonanciafrekvenciák mérése
 
-Sometimes the resonance measurements can produce bogus results, leading to the incorrect suggestions for the input shapers. This can be caused by a variety of reasons, including running fans on the toolhead, incorrect position or non-rigid mounting of the accelerometer, or mechanical problems such as loose belts or binding or bumpy axis. Keep in mind that all fans should be disabled for resonance testing, especially the noisy ones, and that the accelerometer should be rigidly mounted on the corresponding moving part (e.g. on the bed itself for the bed slinger, or on the extruder of the printer itself and not the carriage, and some people get better results by mounting the accelerometer on the nozzle itself). As for mechanical problems, the user should inspect if there is any fault that can be fixed with a moving axis (e.g. linear guide rails cleaned up and lubricated and V-slot wheels tension adjusted correctly). If none of that helps, a user may try the other shapers from the produced list besides the one recommended by default.
+Néha a rezonancia mérések hamis eredményeket adhatnak, ami a bemeneti alakítókra vonatkozó helytelen javaslatokhoz vezet. Ennek számos oka lehet, például a nyomtatófej ventilátorok, a gyorsulásmérő helytelen helyzete vagy nem merev rögzítése, vagy mechanikai problémák, például laza szíjak vagy tengelyek kötése vagy döcögése. Ne feledd, hogy a rezonancia vizsgálatához minden ventilátort ki kell kapcsolni, különösen a zajosakat, és hogy a gyorsulásmérőt stabilan kell felszerelni a megfelelő mozgó alkatrészre (pl. magára az ágyra a mozgó ágyak esetében, vagy magára a nyomtató extruderére és nem a kocsira, és egyesek jobb eredményeket érnek el, ha a gyorsulásmérőt magára a fúvókára szerelik). Ami a mechanikai problémákat illeti, a felhasználónak ellenőriznie kell, hogy van-e olyan hiba, amely a mozgó tengelyen javítható (pl. a lineáris vezetősínek megtisztítása és kenése, valamint a V-nyílású kerekek feszességének megfelelő beállítása). Ha mindez nem segít, a felhasználó kipróbálhatja az alapértelmezetten ajánlott formázón kívül a többi formázót is a gyártott listából.
 
 ### Egyéni tengelyek tesztelése
 

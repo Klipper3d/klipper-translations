@@ -120,7 +120,7 @@ fade_target: 0
 
 ### A nulla referenciapozíció beállítása
 
-Many probes are susceptible to "drift", ie: inaccuracies in probing introduced by heat or interference. This can make calculating the probe's z-offset challenging, particularly at different bed temperatures. As such, some printers use an endstop for homing the Z axis and a probe for calibrating the mesh. In this configuration it is possible offset the mesh so that the (X, Y) `reference position` applies zero adjustment. The `reference postion` should be the location on the bed where a [Z_ENDSTOP_CALIBRATE](./Manual_Level.md#calibrating-a-z-endstop) paper test is performed. The bed_mesh module provides the `zero_reference_position` option for specifying this coordinate:
+Sok szonda hajlamos a „csúszásra”, azaz: a hő vagy interferencia által okozott pontatlanságokra. Ez kihívássá teheti a szonda Z-eltolásának kiszámítását, különösen különböző ágyhőmérsékleteken. Ezért egyes nyomtatók a Z tengely beállításához végállást, a háló kalibrálásához pedig szondát használnak. Ebben a konfigurációban lehetséges a háló eltolása úgy, hogy az (X, Y) `referenciapozíció` nullpontbeállításra vonatkozik. A `referenciapozíciónak` az ágyon annak a helynek kell lennie, ahol a [Z_ENDSTOP_CALIBRATE](./Manual_Level.md#calibrating-a-z-endstop) papírpróbát végzik. A bed_mesh modul biztosítja a `zero_reference_position` opciót e koordináta megadásához:
 
 ```
 [bed_mesh]

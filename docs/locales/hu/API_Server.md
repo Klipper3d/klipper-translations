@@ -4,7 +4,7 @@ Ez a dokumentum leírja a Klipper Alkalmazás Programozói Interfészt (API). Ez
 
 ## Az API foglalat engedélyezése
 
-Az API-kiszolgáló használatához a klippy.py host szoftvert a `-a` paraméterrel kell elindítani. Például:
+Az API-kiszolgáló használatához a klippy.py gazdagép szoftvert a `-a` paraméterrel kell elindítani. Például:
 
 ```
 ~/klippy-env/bin/python ~/klipper/klippy/klippy.py ~/printer.cfg -a /tmp/klippy_uds -l /tmp/klippy.log

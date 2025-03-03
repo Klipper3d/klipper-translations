@@ -6,15 +6,15 @@ A dokumentumban szereplő valamennyi dátum hozzávetőleges.
 
 ## Változások
 
-20241203: The resonance test has been changed to include slow sweeping moves. This change requires that testing point(s) have some clearance in X/Y plane (+/- 30 mm from the test point should suffice when using the default settings). The new test should generally produce more accurate and reliable test results. However, if required, the previous test behavior can be restored by adding options `sweeping_period: 0` and `accel_per_hz: 75` to the `[resonance_tester]` config section.
+20241203: A rezonancia tesztet megváltoztattuk, hogy lassú, pásztázó mozdulatokat is tartalmazzon. Ez a változtatás megköveteli, hogy a vizsgálati pontoknak legyen némi távolsága az X/Y síkban (az alapértelmezett beállítások használata esetén +/- 30 mm távolság elegendő a vizsgálati pontoktól). Az új tesztnek általában pontosabb és megbízhatóbb teszteredményeket kell produkálnia. Szükség esetén azonban a korábbi tesztelési viselkedés visszaállítható a `sweeping_period: 0` és `accel_per_hz: 75` beállításokat a `[resonance_tester]` konfigurációs szakaszhoz.
 
-20241201: In some cases Klipper may have ignored leading characters or spaces in a traditional G-Code command. For example, "99M123" may have been interpreted as "M123" and "M 321" may have been interpreted as "M321". Klipper will now report these cases with an "Unknown command" warning.
+20241201: Egyes esetekben a Klipper figyelmen kívül hagyhatta a hagyományos G-kód-os parancsban a vezető karaktereket vagy szóközöket. Például a „99M123”-at „M123”-nak, az „M 321”-et pedig „M321”-nek értelmezhette. A Klipper mostantól ezeket az eseteket „Ismeretlen parancs” figyelmeztetéssel jelzi.
 
-20241112: Option `CHIPS=<chip_name>` in `TEST_RESONANCES` and `SHAPER_CALIBRATE` requires specifying the full name(s) of the accel chip(s). For example, `adxl345 rpi` instead of short name - `rpi`.
+20241112: A `CHIPS=<chip_name>` opció a `TEST_RESONANCES` és a `SHAPER_CALIBRATE` műveletekben megköveteli a gyorsítóchipek teljes nevének megadását. Például `adxl345 rpi` a rövid név - `rpi` helyett.
 
-20240912: `SET_PIN`, `SET_SERVO`, `SET_FAN_SPEED`, `M106`, and `M107` commands are now collated. Previously, if many updates to the same object were issued faster than the minimum scheduling time (typically 100ms) then actual updates could be queued far into the future. Now if many updates are issued in rapid succession then it is possible that only the latest request will be applied. If the previous behavior is requried then consider adding explicit `G4` delay commands between updates.
+20240912: A `SET_PIN`, `SET_SERVO`, `SET_FAN_SPEED`, `M106` és `M107` parancsok mostantól összeválogatottak. Korábban, ha ugyanannak az objektumnak a minimális ütemezési időnél (jellemzően 100 ms) gyorsabban adtak ki sok frissítést, akkor a tényleges frissítések messze a jövőbe sorolódhattak. Most, ha sok frissítést adnak ki gyors egymásutánban, akkor lehetséges, hogy csak a legutolsó kérés kerül alkalmazásra. Ha az előző viselkedés szükséges, akkor fontold meg explicit „G4” késleltetési parancsok hozzáadását a frissítések között.
 
-20240912: Support for `maximum_mcu_duration` and `static_value` parameters in `[output_pin]` config sections have been removed. These options have been deprecated since 20240123.
+20240912: és `static_value` paraméterek támogatása az `[output_pin]` konfigurációs szakaszokban megszűnt. Ezek az opciók a 20240123 óta elavultak.
 
 20240415: A `[virtual_sdcard]` konfigurációs szakaszban az `on_error_gcode` paraméter mostantól alapértelmezett. Ha ez a paraméter nincs megadva, az alapértelmezett érték mostantól `TURN_OFF_HEATERS`. Ha a korábbi viselkedést szeretnénk (hiba esetén a virtual_sdcard nyomtatása során nem teszünk alapértelmezett lépéseket), akkor a `on_error_gcode` paramétert üres értékkel definiáljuk.
 

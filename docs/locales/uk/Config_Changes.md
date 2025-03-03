@@ -6,15 +6,15 @@
 
 ## Зміни
 
-20241203: The resonance test has been changed to include slow sweeping moves. This change requires that testing point(s) have some clearance in X/Y plane (+/- 30 mm from the test point should suffice when using the default settings). The new test should generally produce more accurate and reliable test results. However, if required, the previous test behavior can be restored by adding options `sweeping_period: 0` and `accel_per_hz: 75` to the `[resonance_tester]` config section.
+20241203: перевірку резонансу було змінено, щоб включити повільні розгортаючі рухи. Ця зміна вимагає, щоб точки тестування мали певний зазор у площині X/Y (+/- 30 мм від точки тестування має бути достатньо, якщо використовуються налаштування за замовчуванням). Новий тест, як правило, повинен дати точніші та надійніші результати тестування. Однак, якщо потрібно, попередню поведінку тесту можна відновити, додавши параметри `sweeping_period: 0` і `accel_per_hz: 75` до розділу конфігурації `[resonance_tester]`.
 
-20241201: In some cases Klipper may have ignored leading characters or spaces in a traditional G-Code command. For example, "99M123" may have been interpreted as "M123" and "M 321" may have been interpreted as "M321". Klipper will now report these cases with an "Unknown command" warning.
+20241201: у деяких випадках Klipper міг проігнорувати початкові символи або пробіли в традиційній команді G-коду. Наприклад, «99M123» могло бути інтерпретовано як «M123», а «M 321» могло бути інтерпретовано як «M321». Klipper тепер повідомлятиме про ці випадки з попередженням «Невідома команда».
 
-20241112: Option `CHIPS=<chip_name>` in `TEST_RESONANCES` and `SHAPER_CALIBRATE` requires specifying the full name(s) of the accel chip(s). For example, `adxl345 rpi` instead of short name - `rpi`.
+20241112: параметр `CHIPS=<назва_чіпа>` в `TEST_RESONANCES` і `SHAPER_CALIBRATE` вимагає вказувати повну назву(на) чіпа(ів) прискорення. Наприклад, `adxl345 rpi` замість короткого імені - `rpi`.
 
-20240912: `SET_PIN`, `SET_SERVO`, `SET_FAN_SPEED`, `M106`, and `M107` commands are now collated. Previously, if many updates to the same object were issued faster than the minimum scheduling time (typically 100ms) then actual updates could be queued far into the future. Now if many updates are issued in rapid succession then it is possible that only the latest request will be applied. If the previous behavior is requried then consider adding explicit `G4` delay commands between updates.
+20240912: команди `SET_PIN`, `SET_SERVO`, `SET_FAN_SPEED`, `M106` і `M107` тепер упорядковано. Раніше, якщо багато оновлень для того самого об’єкта видавалися швидше, ніж мінімальний час планування (зазвичай 100 мс), тоді фактичні оновлення могли ставитися в чергу далеко в майбутнє. Тепер, якщо багато оновлень видано у швидкій послідовності, можливо, буде застосовано лише останній запит. Якщо потрібна попередня поведінка, розгляньте можливість додавання явних команд затримки `G4` між оновленнями.
 
-20240912: Support for `maximum_mcu_duration` and `static_value` parameters in `[output_pin]` config sections have been removed. These options have been deprecated since 20240123.
+20240912: вилучено підтримку параметрів `maximum_mcu_duration` і `static_value` у розділах конфігурації `[output_pin]`. Ці параметри застаріли з 2024 0123.
 
 20240415: параметр `on_error_gcode` в параметрі `[virtual_sdcard]` config розділ тепер має за замовчуванням. Якщо цей параметр не вказаний зараз за замовчуванням до `TURN_OFF_HEATERS`. Якщо попередня поведінка є бажаною (застосуйте не дію за замовчуванням на помилку під час віртуального друку_sdcard) потім визначте `on_error_gcode` з порожньою вартістю.
 

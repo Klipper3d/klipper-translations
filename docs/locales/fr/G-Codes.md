@@ -61,7 +61,7 @@ Les commandes suivantes sont disponibles lorsqu'une section [adxl345 config](Con
 
 #### ACCELEROMETER_DEBUG_WRITE
 
-`ACCELEROMETER_DEBUG_WRITE [CHIP=<nom_de_la_configuration>] REG=<registre> VAL=<valeur>` : Ecrit la "valeur" brute dans le registre "registre". La "valeur" et le "registre" peuvent être des entiers décimaux ou hexadécimaux. A utiliser avec précaution, et se référer à la fiche technique de l'ADXL345 pour la référence.
+`ACCELEROMETER_DEBUG_WRITE [CHIP=<nom_de_la_configuration>] REG=<registre> VAL=<valeur>` : Ecrit la "valeur" brute dans le registre "registre". La "valeur" et le "registre" peuvent être des entiers décimaux ou hexadécimaux. À utiliser avec précaution, et se référer à la fiche technique de l'ADXL345 pour la référence.
 
 ### [angle]
 

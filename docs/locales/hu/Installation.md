@@ -1,12 +1,12 @@
 # Telepítés
 
-These instructions assume the software will run on a linux based host running a Klipper compatible front end. It is recommended that a SBC(Small Board Computer) such as a Raspberry Pi or Debian based Linux device be used as the host machine (see the [FAQ](FAQ.md#can-i-run-klipper-on-something-other-than-a-raspberry-pi-3) for other options).
+Ezek az utasítások feltételezik, hogy a szoftver egy linux alapú gazdagépen fut, ahol egy Klipper-kompatibilis frontend fut. Javasoljuk, hogy egy SBC(Small Board Computer), például egy Raspberry Pi vagy Debian alapú Linux eszköz legyen a gazdagép (lásd a [GYIK](FAQ.md#can-i-run-klipper-on-something-other-other-than-a-raspberry-pi-3) más lehetőségeket).
 
-For the purposes of these instructions host relates to the Linux device and mcu relates to the printboard. SBC relates to the term Small Board Computer such as the Raspberry Pi.
+Ezen utasítások alkalmazásában a gazdagép a Linux eszközre, az MCU pedig a nyomtatólapra vonatkozik. Az SBC a Small Board Computer kifejezésre utal, mint például a Raspberry Pi.
 
 ## Klipper konfigurációs fájl beszerzése
 
-Most Klipper settings are determined by a "printer configuration file" printer.cfg, that will be stored on the host. An appropriate configuration file can often be found by looking in the Klipper [config directory](../config/) for a file starting with a "printer-" prefix that corresponds to the target printer. The Klipper configuration file contains technical information about the printer that will be needed during the installation.
+A Klipper legtöbb beállítását a printer.cfg „nyomtató konfigurációs fájl” határozza meg, amely a gépen lesz tárolva. A megfelelő konfigurációs fájl gyakran úgy található meg, hogy a Klipper [config könyvtárában](../config/) keresünk egy „printer-” előtaggal kezdődő fájlt, amely megfelel a célnyomtatónak. A Klipper konfigurációs fájl tartalmazza a nyomtatóra vonatkozó technikai információkat, amelyekre a telepítés során szükség lesz.
 
 Ha nincs megfelelő nyomtató konfigurációs fájl a Klipper config könyvtárban, akkor keresd meg a nyomtató gyártójának weboldalát, hogy van-e megfelelő Klipper konfigurációs fájljuk.
 
@@ -14,33 +14,33 @@ Ha nem találod a nyomtatóhoz tartozó konfigurációs fájlt, de a nyomtató v
 
 Lehetőség van új nyomtatókonfiguráció nulláról történő meghatározására is. Ehhez azonban jelentős műszaki ismeretekre van szükség a nyomtatóval és annak elektronikájával kapcsolatban. A legtöbb felhasználónak ajánlott, hogy egy megfelelő konfigurációs fájllal kezd. Ha új, egyéni nyomtató konfigurációs fájlt hozol létre, akkor a legközelebbi példával [config fájl](../config/) kezd, és további információkért használd a Klipper [konfigurációs hivatkozás](Config_Reference.md) című dokumentumot.
 
-## Interacting with Klipper
+## Klipperrel való interakció
 
-Klipper is a 3d printer firmware, so it needs some way for the user to interact with it.
+A Klipper egy 3D nyomtató firmware, így a felhasználónak valamilyen módon interakcióba kell lépnie vele.
 
-Currently the best choices are front ends that retrieve information through the [Moonraker web API](https://moonraker.readthedocs.io/) and there is also the option to use [Octoprint](https://octoprint.org/) to control Klipper.
+Jelenleg a legjobb választás a frontendek, amelyek a [Moonraker web API](https://moonraker.readthedocs.io/) segítségével kérik le az információkat, és lehetőség van az [Octoprint](https://octoprint.org/) használatára is a Klipper vezérléséhez.
 
-The choice is up to the user on what to use, but the underlying Klipper is the same in all cases. We encourage users to research the options available and make an informed decision.
+A felhasználó dönti el, hogy mit használ, de az alapjául szolgáló Klipper minden esetben ugyanaz. Arra bátorítjuk a felhasználókat, hogy kutassák fel a rendelkezésre álló lehetőségeket, és hozzanak megalapozott döntést.
 
-## Obtaining an OS image for SBC's
+## OS-kép beszerzése SBC-khez
 
-There are many ways to obtain an OS image for Klipper for SBC use, most depend on what front end you wish to use. Some manafactures of these SBC boards also provide their own Klipper-centric images.
+Számos módja van annak, hogy a Klipper SBC használatra szánt operációs rendszer képét megszerezd, a legtöbb attól függ, hogy milyen (front end-et) szeretnél használni. Az SBC lapok egyes gyártói saját Klipper-központú image-eket is biztosítanak.
 
-The two main Moonraker based front ends are [Fluidd](https://docs.fluidd.xyz/) and [Mainsail](https://docs.mainsail.xyz/), the latter of which has a premade install image ["MainsailOS"](http://docs.mainsailOS.xyz), this has the option for Raspberry Pi and some OrangePi varianta.
+A két fő Moonraker alapú frontend a [Fluidd](https://docs.fluidd.xyz/) és a [Mainsail](https://docs.mainsail.xyz/), az utóbbi rendelkezik egy előre elkészített telepítő image [„MainsailOS”](http://docs.mainsailOS.xyz), ez tartalmazza a Raspberry Pi és néhány OrangePi variáns opciót.
 
-Fluidd can be installed via KIAUH(Klipper Install And Update Helper), which is explained below and is a 3rd party installer for all things Klipper.
+A Fluidd telepíthető a KIAUH (Klipper Install And Update Helper) segítségével, amely az alábbiakban ismertetésre kerül, és egy harmadik féltől származó telepítő minden Klipper dologhoz.
 
-OctoPrint can be installed via the popular OctoPi image or via KIAUH, this process is explained in <OctoPrint.md>
+Az OctoPrint telepíthető a népszerű OctoPi képen keresztül vagy a KIAUH segítségével, ezt a folyamatot a <OctoPrint.md> ismerteti.
 
-## Installing via KIAUH
+## Telepítés a KIAUH-n keresztül
 
-Normally you would start with a base image for your SBC, RPiOS Lite for example, or in the case of a x86 Linux device, Ubuntu Server. Please note that Desktop variants are not recommended due to certain helper programs that can stop some Klipper functions working and even mask access to some print boards.
+Normális esetben az SBC alapképével kezd, például az RPiOS Lite-tal, vagy x86-os Linux eszköz esetén az Ubuntu Server-el. Kérjük, vedd figyelembe, hogy az asztali változatok nem ajánlottak bizonyos segédprogramok miatt, amelyek megakadályozhatják egyes Klipper funkciók működését, sőt, egyes nyomtatólapokhoz való hozzáférést is elfedhetik.
 
-KIAUH can be used to install Klipper and its associated programs on a variety of Linux based systems that run a form of Debian. More information can be found at https://github.com/dw-0/kiauh
+A KIAUH használható a Klipper és a hozzá tartozó programok telepítésére különböző Linux alapú rendszerekre, amelyeken a Debian egy formája fut. További információ a https://github.com/dw-0/kiauh oldalon található.
 
 ## A mikrokontroller felépítése és égetése
 
-To compile the micro-controller code, start by running these commands on your host device:
+A mikrokontroller kódjának lefordításához kezdj a következő parancsok futtatásával a gazdakészüléken:
 
 ```
 cd ~/klipper/
@@ -67,13 +67,13 @@ Az alábbiakhoz hasonlót kell kapnod:
 /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 ```
 
-It's common for each printer to have its own unique serial port name. This unique name will be used when flashing the micro-controller. It's possible there may be multiple lines in the above output - if so, choose the line corresponding to the micro-controller. If many items are listed and the choice is ambiguous, unplug the board and run the command again, the missing item will be your print board(see the [FAQ](FAQ.md#wheres-my-serial-port) for more information).
+Gyakori, hogy minden nyomtatónak saját egyedi soros port neve van. Ez az egyedi név kerül felhasználásra a mikrokontroller égetésekor. Lehetséges, hogy a fenti kimeneten több sor is szerepel - ha igen, válaszd ki a mikrokontrollernek megfelelő sort. Ha több elem is szerepel a listában, és a választás nem egyértelmű, húzd ki a kártyát, és futtasd le újra a parancsot, a hiányzó elem a nyomtató alaplapod lesz(további információért lásd [GYIK](FAQ.md#wheres-my-serial-port)).
 
-For common micro-controllers with STM32 or clone chips, LPC chips and others it is usual that these need an initial Klipper flash via SD card.
+Az STM32 vagy klón chipekkel, LPC chipekkel és más, gyakori mikrovezérlők esetében szokásos, hogy ezeknek SD-kártyán keresztül történő kezdeti Klipper flashelésre van szükségük.
 
-When flashing with this method, it is important to make sure that the print board is not connected with USB to the host, due to some boards being able to feed power back to the board and stopping a flash from occuring.
+Ha ezzel a módszerrel égetsz, fontos, hogy a nyomtatópanel ne legyen USB-n keresztül csatlakoztatva a gazdagéphez, mivel egyes panelek képesek visszatáplálni a feszültséget, és megakadályozni az égetést.
 
-For common micro-controllers using Atmega chips, for example the 2560, the code can be flashed with something similar to:
+Az Atmega chipeket használó általános mikrovezérlők, például a 2560-asok esetében a kódot a következő módon lehet égetni:
 
 ```
 sudo service klipper stop
@@ -83,7 +83,7 @@ sudo service klipper start
 
 Feltétlenül frissítd a FLASH_DEVICE eszközt a nyomtató egyedi soros portjának nevével.
 
-For common micro-controllers using RP2040 chips, the code can be flashed with something similar to:
+Az RP2040 chipeket használó általános mikrovezérlők esetében a kódot a következő módon lehet égetni:
 
 ```
 sudo service klipper stop
@@ -91,17 +91,17 @@ make flash FLASH_DEVICE=first
 sudo service klipper start
 ```
 
-It is important to note that RP2040 chips may need to be put into Boot mode before this operation.
+Fontos megjegyezni, hogy az RP2040 chipeket e művelet előtt Boot üzemmódba kell helyezni.
 
 ## A Klipper beállítása
 
-The next step is to copy the [printer configuration file](#obtain-a-klipper-configuration-file) to the host.
+A következő lépés a [nyomtató konfigurációs fájl](#obtain-a-klipper-configuration-file) átmásolása a gazdagépre.
 
-Arguably the easiest way to set the Klipper configuration file is using the built in editors in Mainsail or Fluidd. These will allow the user to open the configuration examples and save them to be printer.cfg.
+Vitathatatlanul a legegyszerűbb módja a Klipper konfigurációs fájl beállításának a Mainsail vagy a Fluidd beépített szerkesztőinek használata. Ezek lehetővé teszik a felhasználó számára, hogy megnyissa a konfigurációs példákat, és elmentse őket a printer.cfg fájlba.
 
-Another option is to use a desktop editor that supports editing files over the "scp" and/or "sftp" protocols. There are freely available tools that support this (eg, Notepad++, WinSCP, and Cyberduck). Load the printer config file in the editor and then save it as a file named "printer.cfg" in the home directory of the pi user (ie, /home/pi/printer.cfg).
+Egy másik lehetőség egy olyan asztali szerkesztő használata, amely támogatja a fájlok szerkesztését az „scp” és/vagy „sftp” protokollokon keresztül. Vannak szabadon elérhető eszközök, amelyek támogatják ezt (pl. Notepad++, WinSCP és Cyberduck). Töltsd be a nyomtató konfigurációs fájlját a szerkesztőbe, majd mentsd el a „printer.cfg” nevű fájlként a PI felhasználó home könyvtárába (pl. /home/pi/printer.cfg).
 
-Alternatively, one can also copy and edit the file directly on the host via ssh. That may look something like the following (be sure to update the command to use the appropriate printer config filename):
+Alternatív megoldásként a fájlt közvetlenül az állomáson is lehet másolni és szerkeszteni SSH-n keresztül. Ez valahogy így nézhet ki (ügyelj arra, hogy a parancsot frissítsd a megfelelő nyomtató konfigurációs fájlnévvel):
 
 ```
 cp ~/klipper/config/example-cartesian.cfg ~/printer.cfg
@@ -127,10 +127,10 @@ Ezután frissítsd a konfigurációs fájlt az egyedi névvel. Például frissí
 serial: /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 ```
 
-After creating and editing the file it will be necessary to issue a "restart" command in the command console to load the config. A "status" command will report the printer is ready if the Klipper config file is successfully read and the micro-controller is successfully found and configured.
+A fájl létrehozása és szerkesztése után a konfiguráció betöltéséhez szükséges lesz egy „restart” parancs kiadása a parancskonzolon. A „status” parancs azt jelenti, hogy a nyomtató készen áll, ha a Klipper config fájl sikeresen beolvasásra került, és a mikrokontroller sikeresen meg lett találva és konfigurálva.
 
 A nyomtató konfigurációs fájljának testreszabásakor nem ritka, hogy a Klipper konfigurációs hibát jelez. Ha hiba lép fel, végezd el a szükséges javításokat a nyomtató konfigurációs fájljában, és add ki az "újraindítás" parancsot, amíg az "állapot" nem jelzi, hogy a nyomtató készen áll.
 
-Klipper reports error messages via the command console and via pop up in Fluidd and Mainsail. The "status" command can be used to re-report error messages. A log is available and usually located in ~/printer_data/logs this is named klippy.log
+A Klipper hibaüzeneteket jelent a parancsikonon és a Fluidd és Mainsail felugró ablakán keresztül. A „status” parancs használható a hibaüzenetek újbóli jelentésére. Egy napló is rendelkezésre áll, és általában a ~/printer_data/logs könyvtárban található, ennek a neve klippy.log.
 
 Miután a Klipper jelenti, hogy a nyomtató készen áll, folytasd a [konfigurációs ellenőrzés](Config_checks.md) című dokumentummal, hogy elvégezz néhány alapvető ellenőrzést a config fájlban lévő definíciókon. További információkért lásd a fő [dokumentációs hivatkozás](Overview.md) című rész.

@@ -1,8 +1,8 @@
-# Eddy Current Inductive probe
+# Sonde inductive à courants de Foucault
 
-This document describes how to use an [eddy current](https://en.wikipedia.org/wiki/Eddy_current) inductive probe in Klipper.
+Ce document décrit comment utiliser une [sonde inductive](https://en.wikipedia.org/wiki/Eddy_current) à courants de Foucault dans Klipper.
 
-Currently, an eddy current probe can not be used for Z homing. The sensor can only be used for Z probing.
+Actuellement, une sonde à courants de Foucault ne peut pas être utilisée pour une mise à zéro du Z . Le capteur ne peut être utilisé que pour le palpage Z.
 
 Start by declaring a [probe_eddy_current config section](Config_Reference.md#probe_eddy_current) in the printer.cfg file. It is recommended to set the `z_offset` to 0.5mm. It is typical for the sensor to require an `x_offset` and `y_offset`. If these values are not known, one should estimate the values during initial calibration.
 

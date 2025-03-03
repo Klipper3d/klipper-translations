@@ -1,12 +1,12 @@
 # Вимірювання Резонансів
 
-Klipper has built-in support for the ADXL345, MPU-9250, LIS2DW and LIS3DH compatible accelerometers which can be used to measure resonance frequencies of the printer for different axes, and auto-tune [input shapers](Resonance_Compensation.md) to compensate for resonances. Note that using accelerometers requires some soldering and crimping. The ADXL345 can be connected to the SPI interface of a Raspberry Pi or MCU board (it needs to be reasonably fast). The MPU family can be connected to the I2C interface of a Raspberry Pi directly, or to an I2C interface of an MCU board that supports 400kbit/s *fast mode* in Klipper. The LIS2DW and LIS3DH can be connected to either SPI or I2C with the same considerations as above.
+Klipper має вбудовану підтримку сумісних акселерометрів ADXL345, MPU-9250, LIS2DW і LIS3DH, які можна використовувати для вимірювання резонансних частот принтера для різних осей і автоматичного налаштування [формувальників вхідних даних](Resonance_Compensation.md) для компенсації резонансів. Зауважте, що використання акселерометрів потребує пайки та обтиску. ADXL345 можна підключити до інтерфейсу SPI плати Raspberry Pi або MCU (він має бути достатньо швидким). Сімейство MPU можна підключити безпосередньо до інтерфейсу I2C Raspberry Pi або до інтерфейсу I2C плати MCU, яка підтримує 400 Кбіт/с *швидкий режим* у Klipper. LIS2DW і LIS3DH можна підключити до SPI або I2C з тими ж міркуваннями, що й вище.
 
 При стисканні акселерометрів слід розуміти, що існують різні зразки друкованої плати та різні клони їх. Якщо він буде підключений до принтера 5V MCU, щоб він має регулятор напруги та перемикачі рівня.
 
-For ADXL345s, make sure that the board supports SPI mode (a small number of boards appear to be hard-configured for I2C by pulling SDO to GND).
+Для ADXL345 переконайтеся, що плата підтримує режим SPI (невелика кількість плат, здається, жорстко налаштована для I2C шляхом підтягування SDO до GND).
 
-For MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500s and LIS2DW/LIS3DH there are also a variety of board designs and clones with different I2C pull-up resistors which will need supplementing.
+Для MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500s і LIS2DW/LIS3DH також є різноманітні дизайни плат і клони з різними підтягуючими резисторами I2C, які потребують доповнення.
 
 ## MCU з Klipper I2C *fast-mode* Підтримка
 
@@ -174,15 +174,15 @@ sudo apt встановити python3-numpy python3-matplotlib libatlas-base-dev
 ~/klippy-env/bin/pip install -v "numpy<1.26"
 ```
 
-Note that, depending on the performance of the CPU, it may take *a lot* of time, up to 10-20 minutes. Be patient and wait for the completion of the installation. On some occasions, if the board has too little RAM the installation may fail and you will need to enable swap. Also note the forced version, due to newer versions of NumPY having requirements that may not be satisfied in some klipper python environments.
+Зауважте, що, залежно від продуктивності ЦП, це може зайняти *багато* часу, до 10-20 хвилин. Запасіться терпінням і дочекайтеся завершення установки. У деяких випадках, якщо на платі занадто мало оперативної пам’яті, інсталяція може завершитися помилкою, і вам потрібно буде ввімкнути обмін. Також зверніть увагу на примусову версію, оскільки нові версії NumPY мають вимоги, які можуть не виконуватись у деяких середовищах klipper python.
 
-Once installed please check that no errors show from the command:
+Після встановлення переконайтеся, що команда не відображає помилки:
 
 ```
 ~/klippy-env/bin/python -c 'import numpy;'
 ```
 
-The correct output should simply be a new line.
+Правильний вихід має бути просто новим рядком.
 
 #### Налаштування ADXL345 з RPi
 
@@ -262,7 +262,7 @@ accel_chip: adxl345
 
 Рештарт Кліппер через команду `RESTART`.
 
-#### Configure LIS2DW series over SPI
+#### Налаштуйте серію LIS2DW через SPI
 
 ```
 [mcu lis]
@@ -555,9 +555,9 @@ max_smoothing: 0.25 # приклад
 
 Якщо ви виконуєте рекалібрацію формувача і повідомляється розгладжування за запропонованою конфігурацією формера практично таким же, що ви отримали під час попереднього калібрування, цей крок можна пропустити.
 
-### Unreliable measurements of resonance frequencies
+### Ненадійні вимірювання резонансних частот
 
-Sometimes the resonance measurements can produce bogus results, leading to the incorrect suggestions for the input shapers. This can be caused by a variety of reasons, including running fans on the toolhead, incorrect position or non-rigid mounting of the accelerometer, or mechanical problems such as loose belts or binding or bumpy axis. Keep in mind that all fans should be disabled for resonance testing, especially the noisy ones, and that the accelerometer should be rigidly mounted on the corresponding moving part (e.g. on the bed itself for the bed slinger, or on the extruder of the printer itself and not the carriage, and some people get better results by mounting the accelerometer on the nozzle itself). As for mechanical problems, the user should inspect if there is any fault that can be fixed with a moving axis (e.g. linear guide rails cleaned up and lubricated and V-slot wheels tension adjusted correctly). If none of that helps, a user may try the other shapers from the produced list besides the one recommended by default.
+Іноді резонансні вимірювання можуть давати фальшиві результати, що призводить до неправильних пропозицій для формувачів вхідних даних. Це може бути викликано різними причинами, зокрема роботою вентиляторів на інструментальній головці, неправильним положенням або нежорстким кріпленням акселерометра або механічними проблемами, як-от ослаблені ремені або закручування чи нерівність осі. Майте на увазі, що всі вентилятори мають бути відключені для перевірки резонансу, особливо галасливі, і що акселерометр має бути жорстко встановлений на відповідній рухомій частині (наприклад, на самій платформі для стропальника ліжка або на самому екструдері принтера, а не на каретці; деякі люди отримують кращі результати, встановлюючи акселерометр на самому соплі). Що стосується механічних проблем, користувач повинен перевірити, чи є якась несправність, яку можна усунути за допомогою рухомої осі (наприклад, лінійні напрямні рейки очищені та змащені, а натяг коліс із V-подібним пазом відрегульовано правильно). Якщо нічого з цього не допомагає, користувач може спробувати інші формувачі зі створеного списку, окрім рекомендованого за замовчуванням.
 
 ### Тестування користувальницьких осей
 

@@ -1818,7 +1818,7 @@ unretract_extra_length нижче). За замовчуванням 0 мм.
 
 ### [lis3dh]
 
-Support for LIS3DH accelerometers.
+Підтримка акселерометрів LIS3DH.
 
 ```
 [lis3dh]
@@ -2201,7 +2201,7 @@ docs/BLTouch.md, перш ніж встановити значення False. Т
 
 ### [axis_twist_compensation]
 
-A tool to compensate for inaccurate probe readings due to twist in X or Y gantry. See the [Axis Twist Compensation Guide](Axis_Twist_Compensation.md) for more detailed information regarding symptoms, configuration and setup.
+Інструмент для компенсації неточних показань датчика через скручування в гентрі X або Y. Перегляньте [Посібник з компенсації скручування осі](Axis_Twist_Compensation.md), щоб отримати докладнішу інформацію щодо симптомів, конфігурації та налаштування.
 
 ```
 [axis_twist_compensation]
@@ -4323,9 +4323,9 @@ fixed to 4.
 ...
 ```
 
-#### aip31068_spi display
+#### aip31068_spi дисплей
 
-Information on configuring an aip31068_spi display - a very similar to hd44780_spi a 20x04 (20 symbols by 4 lines) display with slightly different internal protocol.
+Інформація про налаштування дисплея aip31068_spi — дуже схожий на hd44780_spi дисплей 20x04 (20 символів по 4 рядки) із дещо іншим внутрішнім протоколом.
 
 ```
 [display]
@@ -5208,7 +5208,7 @@ vssa_pin:
 
 ### [кут]
 
-Magnetic hall angle sensor support for reading stepper motor angle shaft measurements using a1333, as5047d, mt6816, mt6826s, or tle5012b SPI chips. The measurements are available via the [API Server](API_Server.md) and [motion analysis tool](Debugging.md#motion-analysis-and-data-logging). See the [G-Code reference](G-Codes.md#angle) for available commands.
+Підтримка магнітного датчика кута Холла для зчитування вимірювань кута вала крокового двигуна за допомогою мікросхем SPI a1333, as5047d, mt6816, mt6826s або tle5012b. Вимірювання доступні через [API-сервер](API_Server.md) і [інструмент аналізу руху](Debugging.md#motion-analysis-and-data-logging). Доступні команди див. у [довідці G-Code](G-Codes.md#angle).
 
 ```
 [angle my_angle_sensor]
@@ -5265,7 +5265,7 @@ cs_pin:
 
 Зауважте, що поточна підтримка мікроконтролерів Klipper для I2C, як правило, нетерпима до лінійного шуму. Неочікувані помилки в проводах I2C можуть призвести до того, що Klipper викличе помилку виконання. Підтримка Klipper для відновлення помилок залежить від кожного типу мікроконтролера. Зазвичай рекомендується використовувати лише пристрої I2C, які розташовані на одній друкованій платі з мікроконтролером.
 
-Most Klipper micro-controller implementations only support an `i2c_speed` of 100000 (*standard mode*, 100kbit/s). The Klipper "Linux" micro-controller supports a 400000 speed (*fast mode*, 400kbit/s), but it must be [set in the operating system](RPi_microcontroller.md#optional-enabling-i2c) and the `i2c_speed` parameter is otherwise ignored. The Klipper "RP2040" micro-controller and ATmega AVR family and some STM32 (F0, G0, G4, L4, F7, H7) support a rate of 400000 via the `i2c_speed` parameter. All other Klipper micro-controllers use a 100000 rate and ignore the `i2c_speed` parameter.
+Більшість реалізацій мікроконтролерів Klipper підтримують лише `i2c_speed` 100000 (*стандартний режим*, 100 кбіт/с). Мікроконтролер Klipper "Linux" підтримує швидкість 400 000 (*швидкий режим*, 400 кбіт/с), але вона має бути [встановлена в операційній системі] (RPi_microcontroller.md#optional-enabling-i2c), а параметр `i2c_speed` інакше ігнорується. Сімейство мікроконтролерів Klipper "RP2040" і ATmega AVR, а також деякі STM32 (F0, G0, G4, L4, F7, H7) підтримують швидкість 400 000 за допомогою параметра `i2c_speed`. Усі інші мікроконтролери Klipper використовують швидкість 100 000 і ігнорують параметр `i2c_speed`.
 
 ```
 #i2c_адреса:

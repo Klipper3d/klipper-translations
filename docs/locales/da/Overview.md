@@ -13,7 +13,7 @@ Velkommen til Klippers dokumentation. Hvis du er ny her, anbefales det at starte
 ## Installation og konfigurering
 
 - [Installation](Installation.md): Vejledning til installation af Klipper.
-   - [Octoprint](OctoPrint.md): Guide to installing Octoprint with Klipper.
+   - [Octoprint](Octoprint.md): Guide til installering af Octoprint med Klipper.
 - [Konfigurations reference](Config_Reference.md): Beskrivelse af parametre der kan konfigureres.
    - [Rotationsdistance](Rotation_Distance.md): Beregning af Rotationsdistance parameteren.
 - [Konfigurationstjek](Config_checks.md): Verificér basale pinouts i konfigurationsfilen.

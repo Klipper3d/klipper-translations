@@ -316,9 +316,9 @@ JavaScript licenses API Веб-сайт Go1.13.8
 | 1 кроковий (200Mhz) | 39 хв |
 | 3 кроковий (200Mhz) | 181 |
 
-### SAME70 step rate benchmark
+### Еталонний показник швидкості кроків SAME70
 
-The following configuration sequence is used on the SAME70:
+Наступна послідовність конфігурації використовується на SAME70:
 
 ```
 allocate_oids count=3
@@ -328,7 +328,7 @@ config_stepper oid=2 step_pin=PC28 dir_pin=PA4 invert_step=-1 step_pulse_ticks=0
 finalize_config crc=0
 ```
 
-The test was last run on commit `34e9ea55` with gcc version `arm-none-eabi-gcc (NixOS 10.3-2021.10) 10.3.1` on a SAME70Q20B micro-controller.
+Тест востаннє запускався на коміті `34e9ea55` з версією gcc `arm-none-eabi-gcc (NixOS 10.3-2021.10) 10.3.1` на мікроконтролері SAME70Q20B.
 
 | same70 | кліщі |
 | --- | --- |
@@ -347,16 +347,16 @@ config_stepper oid=2 step_pin=PL12 dr_pin=PE16 invert_step=-1 step_pulse_ticks=0
 JavaScript licenses API Веб-сайт Go1.13.8
 ```
 
-The test was last run on commit `b7978d37` with gcc version `or1k-linux-musl-gcc (GCC) 9.2.0` on an Allwinner A64-H micro-controller.
+Востаннє тест проводився на коміті `b7978d37` з версією gcc `or1k-linux-musl-gcc (GCC) 9.2.0` на мікроконтролері Allwinner A64-H.
 
 | АР100 Р_ПІО | кліщі |
 | --- | --- |
 | 1 крок | 85 |
 | 3 крок | 359 |
 
-### RPxxxx step rate benchmark
+### RPxxxx контрольний показник швидкості кроків
 
-The following configuration sequence is used on the RP2040 and RP2350:
+На RP2040 і RP2350 використовується така послідовність конфігурації:
 
 ```
 сортувати_oids count=3
@@ -366,7 +366,7 @@ config_stepper oid=2 step_pin=gpio27 dir_pin=gpio5 invert_step=-1 step_pulse_tic
 javascript licenses api веб-сайт go1.13.8
 ```
 
-The test was last run on commit `f6718291` with gcc version `arm-none-eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0` on Raspberry Pi Pico and Pico 2 boards.
+Тест востаннє запускався на коміті `f6718291` з версією gcc `arm-none-eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0` на платах Raspberry Pi Pico та Pico 2.
 
 | rp2040 (*) | кліщі |
 | --- | --- |
@@ -378,7 +378,7 @@ The test was last run on commit `f6718291` with gcc version `arm-none-eabi-gcc (
 | 1 крок | 36 |
 | 3 крок | 169 |
 
-(*) Note that the reported rp2040 ticks are relative to a 12Mhz scheduling timer and do not correspond to its 125Mhz internal ARM processing rate. It is expected that 5 scheduling ticks corresponds to ~47 ARM core cycles and 22 scheduling ticks corresponds to ~224 ARM core cycles.
+(*) Зверніть увагу, що зареєстровані такти rp2040 відносяться до таймера планування 12 МГц і не відповідають його швидкості внутрішньої обробки ARM 125 МГц. Очікується, що 5 тактів планування відповідає ~47 циклам ядра ARM, а 22 такти планування відповідають ~224 циклам ядра ARM.
 
 ### Linux MCU покрокова оцінка
 

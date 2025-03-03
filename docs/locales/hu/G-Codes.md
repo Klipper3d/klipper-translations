@@ -73,9 +73,9 @@ A következő parancsok akkor érhetők el, ha az [szög konfigurációs szakasz
 
 #### ANGLE_CHIP_CALIBRATE
 
-`ANGLE_CHIP_CALIBRATE CHIP=<chip_name>`: Perform internal sensor calibration, if implemented (MT6826S/MT6835).
+`ANGLE_CHIP_CALIBRATE CHIP=<chip_name>`: Belső szenzorkalibrálás végrehajtása, ha van ilyen (MT6826S/MT6835).
 
-- **MT68XX**: The motor should be disconnected from any printer carriage before performing calibration. After calibration, the sensor should be reset by disconnecting the power.
+- **MT68XX**: A motort a kalibrálás elvégzése előtt le kell választani a nyomtatókocsiról. A kalibrálás után az érzékelőt a tápellátás megszakításával vissza kell állítani.
 
 #### ANGLE_DEBUG_READ
 
@@ -94,10 +94,10 @@ section](Config_Reference.md#axis_twist_compensation) is enabled.
 
 `AXIS_TWIST_COMPENSATION_CALIBRATE [AXIS=<X|Y>] [AUTO=<True|False>] [SAMPLE_COUNT=<value>]`
 
-Calibrates axis twist compensation by specifying the target axis or enabling automatic calibration.
+A tengelycsavar kompenzáció kalibrálása a céltengely megadásával vagy az automatikus kalibráció engedélyezésével.
 
-- **AXIS:** Define the axis (`X` or `Y`) for which the twist compensation will be calibrated. If not specified, the axis defaults to `'X'`.
-- **AUTO:** Enables automatic calibration mode. When `AUTO=True`, the calibration will run for both the X and Y axes. In this mode, `AXIS` cannot be specified. If both `AXIS` and `AUTO` are provided, an error will be raised.
+- **TENGELY:** Határozd meg azt a tengelyt (X vagy Y), amelyre a csavarkompenzáció kalibrálásra kerül. Ha nincs megadva, a tengely alapértelmezett értéke `'X'`.
+- **AUTO:** Automatikus kalibrációs üzemmód engedélyezése. Ha `AUTO=True`, a kalibrálás mind az X, mind az Y tengelyre lefut. Ebben az üzemmódban az `AXIS` nem adható meg. Ha az `AXIS` és az `AUTO` is meg van adva, hibaüzenet jelenik meg.
 
 ### [bed_mesh]
 
@@ -290,7 +290,7 @@ A következő parancs akkor érhető el, ha a [fan_generic konfigurációs szaka
 
 `SET_FAN_SPEED FAN=config_name SPEED=<speed>` Ez a parancs beállítja a ventilátor sebességét. "speed" 0.0 és 1.0 között kell lennie.
 
-`SET_FAN_SPEED PIN=config_name TEMPLATE=<template_name> [<param_x>=<literal>]`: If `TEMPLATE` is specified then it assigns a [display_template](Config_Reference.md#display_template) to the given fan. For example, if one defined a `[display_template my_fan_template]` config section then one could assign `TEMPLATE=my_fan_template` here. The display_template should produce a string containing a floating point number with the desired value. The template will be continuously evaluated and the fan will be automatically set to the resulting speed. One may set display_template parameters to use during template evaluation (parameters will be parsed as Python literals). If TEMPLATE is an empty string then this command will clear any previous template assigned to the pin (one can then use `SET_FAN_SPEED` commands to manage the values directly).
+`SET_FAN_SPEED PIN=config_name TEMPLATE=<template_name> [<param_x>=<literal>]`: Ha `TEMPLATE` van megadva, akkor egy [display_template](Config_Reference.md#display_template)-t rendel a megadott ventilátorhoz. Például, ha definiálnánk egy `[display_template my_fan_template]` konfigurációs részt, akkor a `TEMPLATE=my_fan_template`-t rendelhetnénk ide. A display_template-nek egy olyan karakterláncot kell létrehoznia, amely egy lebegőpontos számot tartalmaz a kívánt értékkel. A sablon folyamatosan kiértékelésre kerül, és a ventilátor automatikusan az így kapott sebességre lesz állítva. A sablon kiértékelése során használandó display_template paramétereket lehet beállítani (a paraméterek Python literálokként lesznek elemezve). Ha a TEMPLATE üres karakterlánc, akkor ez a parancs törli a tűhöz rendelt korábbi sablonokat (ezután az értékek közvetlen kezeléséhez a `SET_FAN_SPEED` parancsokat használhatjuk).
 
 ### [filament_switch_sensor]
 
@@ -335,7 +335,7 @@ A force_move modul automatikusan betöltődik, azonban néhány parancshoz szük
 
 #### SET_KINEMATIC_POSITION
 
-`SET_KINEMATIC_POSITION [X=<value>] [Y=<value>] [Z=<value>] [CLEAR=<[X][Y][Z]>]`: Force the low-level kinematic code to believe the toolhead is at the given cartesian position. This is a diagnostic and debugging command; use SET_GCODE_OFFSET and/or G92 for regular axis transformations. If an axis is not specified then it will default to the position that the head was last commanded to. Setting an incorrect or invalid position may lead to internal software errors. Use the CLEAR parameter to forget the homing state for the given axes. Note that CLEAR will not override the previous functionality; if an axis is not specified to CLEAR it will have its kinematic position set as per above. This command may invalidate future boundary checks; issue a G28 afterwards to reset the kinematics.
+`SET_KINEMATIC_POSITION [X=<value>] [Y=<value>] [Z=<value>] [CLEAR=<[X][Y][Z]>]`: Kényszeríti az alacsony szintű kinematikai kódot, hogy azt higgye, a nyomtatófej a megadott kartoték pozícióban van. Ez egy diagnosztikai és hibakeresési parancs; a SET_GCODE_OFFSET és/vagy a G92 parancsot használja a normál tengelytranszformációkhoz. Ha egy tengely nincs megadva, akkor alapértelmezés szerint az a pozíció lesz, ahová a fejet utoljára vezérelték. A helytelen vagy érvénytelen pozíció beállítása belső szoftverhibához vezethet. A CLEAR paraméterrel elfelejtheti a megadott tengelyek kezdőpozíció állapotát. Vedd figyelembe, hogy a CLEAR nem írja felül az előző funkciót; ha egy tengely nincs megadva a CLEAR paraméterhez, akkor a kinematikai pozíciója a fentiek szerint lesz beállítva. Ez a parancs érvénytelenítheti a jövőbeli határellenőrzéseket; a kinematika visszaállításához adjunk ki egy G28 parancsot.
 
 ### [gcode]
 
@@ -512,7 +512,7 @@ A következő parancs akkor érhető el, ha az [output_pin konfigurációs szaka
 
 `SET_PIN PIN=config_name VALUE=<value>`: A tűt a megadott kimeneti `VALUE` értékre állítja. A VALUE-nak 0-nak vagy 1-nek kell lennie a "digitális" kimeneti tűk esetében. PWM tűk esetén 0.0 és 1.0 közötti értékre állítsuk be, vagy 0.0 és `scale` közötti értékre, ha az output_pin konfigurációs szakaszban van beállítva a skála.
 
-`SET_PIN PIN=config_name TEMPLATE=<template_name> [<param_x>=<literal>]`: If `TEMPLATE` is specified then it assigns a [display_template](Config_Reference.md#display_template) to the given pin. For example, if one defined a `[display_template my_pin_template]` config section then one could assign `TEMPLATE=my_pin_template` here. The display_template should produce a string containing a floating point number with the desired value. The template will be continuously evaluated and the pin will be automatically set to the resulting value. One may set display_template parameters to use during template evaluation (parameters will be parsed as Python literals). If TEMPLATE is an empty string then this command will clear any previous template assigned to the pin (one can then use `SET_PIN` commands to manage the values directly).
+`SET_PIN PIN=config_name TEMPLATE=<template_name> [<param_x>=<literal>]`: Ha a `TEMPLATE` van megadva, akkor egy [display_template](Config_Reference.md#display_template) [kijelzősablont] rendel a megadott tűhöz. Például, ha definiálnánk egy `[display_template my_pin_template]` konfigurációs szakaszt, akkor a `TEMPLATE=my_pin_template`-t rendelhetnénk ide. A display_template-nek egy olyan karakterláncot kell előállítania, amely egy lebegőpontos számot tartalmaz a kívánt értékkel. A sablon folyamatosan kiértékelésre kerül, és a tű automatikusan a kapott értékre lesz állítva. Beállíthatjuk a display_template paramétereit a sablon kiértékelése során (a paraméterek Python literálokként lesznek elemezve). Ha a TEMPLATE üres karakterlánc, akkor ez a parancs törli a tűhöz rendelt korábbi sablonokat (ezután a `SET_PIN` parancsokkal közvetlenül lehet kezelni az értékeket).
 
 ### [palette2]
 
@@ -626,11 +626,11 @@ A következő parancs akkor érhető el, ha a [pwm_cycle_time config section](Co
 
 ### [quad_gantry_level]
 
-The following commands are available when the [quad_gantry_level config section](Config_Reference.md#quad_gantry_level) is enabled.
+A következő parancsok akkor érhetők el, ha a [quad_gantry_level konfigurációs szakasz](Config_Reference.md#quad_gantry_level) engedélyezve van.
 
 #### QUAD_GANTRY_LEVEL
 
-`QUAD_GANTRY_LEVEL [RETRIES=<value>] [RETRY_TOLERANCE=<value>] [HORIZONTAL_MOVE_Z=<value>] [<probe_parameter>=<value>]`: This command will probe the points specified in the config and then make independent adjustments to each Z stepper to compensate for tilt. See the PROBE command for details on the optional probe parameters. The optional `RETRIES`, `RETRY_TOLERANCE`, and `HORIZONTAL_MOVE_Z` values override those options specified in the config file.
+`QUAD_GANTRY_LEVEL [RETRIES=<value>] [RETRY_TOLERANCE=<value>] [HORIZONTAL_MOVE_Z=<value>] [<probe_parameter>=<value>]`: Ez a parancs a konfigurációban megadott pontokat méri, majd a dőlés kompenzálása érdekében független beállításokat végez minden egyes Z léptetőn. Az opcionális szondázó paraméterekkel kapcsolatos részletekért lásd a PROBE parancsot. Az opcionális `RETRIES`, `RETRY_TOLERANCE` és `HORIZONTAL_MOVE_Z` értékek felülírják a konfigurációs fájlban megadott opciókat.
 
 ### [query_adc]
 
@@ -660,11 +660,11 @@ A következő parancsok akkor érhetők el, ha a [resonance_tester konfiguráci�
 
 #### TEST_RESONANCES
 
-`TEST_RESONANCES AXIS=<axis> [OUTPUT=<resonances,raw_data>] [NAME=<name>] [FREQ_START=<min_freq>] [FREQ_END=<max_freq>] [ACCEL_PER_HZ=<accel_per_hz>] [HZ_PER_SEC=<hz_per_sec>] [CHIPS=<chip_name>] [POINT=x,y,z] [INPUT_SHAPING=<0:1>]`: Runs the resonance test in all configured probe points for the requested "axis" and measures the acceleration using the accelerometer chips configured for the respective axis. "axis" can either be X or Y, or specify an arbitrary direction as `AXIS=dx,dy`, where dx and dy are floating point numbers defining a direction vector (e.g. `AXIS=X`, `AXIS=Y`, or `AXIS=1,-1` to define a diagonal direction). Note that `AXIS=dx,dy` and `AXIS=-dx,-dy` is equivalent. `chip_name` can be one or more configured accel chips, delimited with comma, for example `CHIPS="adxl345, adxl345 rpi"`. If POINT is specified it will override the point(s) configured in `[resonance_tester]`. If `INPUT_SHAPING=0` or not set(default), disables input shaping for the resonance testing, because it is not valid to run the resonance testing with the input shaper enabled. `OUTPUT` parameter is a comma-separated list of which outputs will be written. If `raw_data` is requested, then the raw accelerometer data is written into a file or a series of files `/tmp/raw_data_<axis>_[<chip_name>_][<point>_]<name>.csv` with (`<point>_` part of the name generated only if more than 1 probe point is configured or POINT is specified). If `resonances` is specified, the frequency response is calculated (across all probe points) and written into `/tmp/resonances_<axis>_<name>.csv` file. If unset, OUTPUT defaults to `resonances`, and NAME defaults to the current time in "YYYYMMDD_HHMMSS" format.
+`TEST_RESONANCES AXIS=<axis> [OUTPUT=<resonances,raw_data>] [NAME=<name>] [FREQ_START=<min_freq>] [FREQ_END=<max_freq>] [ACCEL_PER_HZ=<accel_per_hz>] [HZ_PER_SEC=<hz_per_sec>] [CHIPS=<chip_name>] [POINT=x,y,z] [INPUT_SHAPING=<0:1>]`: Lefuttatja a rezonanciatesztet a kért "tengely" összes konfigurált mérőpontján, és méri a gyorsulást a megfelelő tengelyhez konfigurált gyorsulásmérő chipek segítségével. A "tengely" lehet X vagy Y, vagy megadhat egy tetszőleges irányt a következőképpen: "AXIS=dx,dy", ahol a dx és a dy lebegőpontos számok, amelyek egy irányvektort határoznak meg (például "AXIS=X", "AXIS=Y" vagy "AXIS=1,-1" az átlós irány meghatározásához). Vedd figyelembe, hogy az "AXIS=dx,dy" és az "AXIS=-dx,-dy" egyenértékűek. A `chip_name` egy vagy több konfigurált gyorsulásmérő lehet, vesszővel elválasztva, például `CHIPS="adxl345, adxl345 rpi"`. Ha a POINT meg van adva, az felülbírálja a [rezonancia-teszter]-ben konfigurált pontokat. Ha `INPUT_SHAPING=0`, vagy nincs beállítva (alapértelmezett), letiltja a bemeneti formázást a rezonanciateszthez, mert nem érvényes a rezonanciateszt futtatása a bemeneti alakítóval. Az `OUTPUT` paraméter egy vesszővel elválasztott lista, amelyen a kimenetek íródnak. Ha a `raw_data` kérésre kerül, akkor a nyers gyorsulásmérő adatok egy fájlba vagy egy fájlsorozatba íródnak `/tmp/raw_data_<axis>_[<chip_name>_][<point>_]<name>.csv` a (`<point>_` a név egy része csak akkor jön létre, ha 1-nél több vizsgálópont van megadva vagy konfigurálva). Ha a "rezonanciák" meg van adva, akkor a rendszer kiszámítja a frekvenciaválaszt (az összes mérőponton), és beírja a `/tmp/resonances_<axis>_<name>.csv` fájlba. Ha nincs beállítva, az OUTPUT alapértelmezés szerint a „rezonanciákat”, a NAME pedig az aktuális időt „ÉÉÉÉHHNN_ÓÓPP” formátumban adja meg.
 
 #### SHAPER_CALIBRATE
 
-`SHAPER_CALIBRATE [AXIS=<axis>] [NAME=<name>] [FREQ_START=<min_freq>] [FREQ_END=<max_freq>] [ACCEL_PER_HZ=<accel_per_hz>][HZ_PER_SEC=<hz_per_sec>] [CHIPS=<chip_name>] [MAX_SMOOTHING=<max_smoothing>] [INPUT_SHAPING=<0:1>]`: Similarly to `TEST_RESONANCES`, runs the resonance test as configured, and tries to find the optimal parameters for the input shaper for the requested axis (or both X and Y axes if `AXIS` parameter is unset). If `MAX_SMOOTHING` is unset, its value is taken from `[resonance_tester]` section, with the default being unset. See the [Max smoothing](Measuring_Resonances.md#max-smoothing) of the measuring resonances guide for more information on the use of this feature. The results of the tuning are printed to the console, and the frequency responses and the different input shapers values are written to a CSV file(s) `/tmp/calibration_data_<axis>_<name>.csv`. Unless specified, NAME defaults to the current time in "YYYYMMDD_HHMMSS" format. Note that the suggested input shaper parameters can be persisted in the config by issuing `SAVE_CONFIG` command, and if `[input_shaper]` was already enabled previously, these parameters take effect immediately.
+`SHAPER_CALIBRATE [AXIS=<axis>] [NAME=<name>] [FREQ_START=<min_freq>] [FREQ_END=<max_freq>] [ACCEL_PER_HZ=<accel_per_hz>] [HZ_PER_SEC=<hz_per_sec>] [CHIPS=<chip_name>] [MAX_SMOOTHING=<max_smoothing>] [INPUT_SHAPING=<0: 1>]`: A `TEST_RESONANCES`-hez hasonlóan lefuttatja a rezonancia tesztet a konfigurált módon, és megpróbálja megtalálni a bemeneti alakító optimális paramétereit a kért tengelyhez (vagy az X és Y tengelyhez, ha az `AXIS` paraméter nincs beállítva). Ha a `MAX_SMOOTHING` nincs beállítva, akkor az értékét a `[rezonancia_tester]` szakaszból veszi, az alapértelmezett érték pedig a be nem állított érték. Lásd a [Max simítás](Measuring_Resonances.md#max-smoothing) a rezonanciák mérése című útmutatóban a funkció használatáról szóló további információkat. A hangolás eredményei kiíródnak a konzolra, a frekvenciaválaszok és a különböző bemeneti alakítók értékei pedig egy vagy több `/tmp/calibration_data_<axis>_<name>.csv` CSV fájlba kerülnek. Hacsak nincs megadva, a NAME alapértelmezés szerint az aktuális időpontot jelenti „ÉÉÉÉHHNN_HHMMSS” formátumban. Vedd figyelembe, hogy a javasolt bemeneti alakító paraméterek a konfigurációban a `SAVE_CONFIG` parancs kiadásával megmaradhatnak, és ha a `[input_shaper]` már korábban engedélyezve volt, ezek a paraméterek azonnal érvénybe lépnek.
 
 ### [respond]
 
@@ -847,7 +847,7 @@ A következő parancsok akkor érhetők el, ha a [z_tilt konfigurációs szakasz
 
 #### Z_TILT_ADJUST
 
-`Z_TILT_ADJUST [RETRIES=<value>] [RETRY_TOLERANCE=<value>] [HORIZONTAL_MOVE_Z=<value>] [<probe_parameter>=<value>]`: This command will probe the points specified in the config and then make independent adjustments to each Z stepper to compensate for tilt. See the PROBE command for details on the optional probe parameters. The optional `RETRIES`, `RETRY_TOLERANCE`, and `HORIZONTAL_MOVE_Z` values override those options specified in the config file.
+`Z_TILT_ADJUST [RETRIES=<value>] [RETRY_TOLERANCE=<value>] [HORIZONTAL_MOVE_Z=<value>] [<probe_parameter>=<value>]`: Ez a parancs a konfigurációban megadott pontokat szondázza, majd a dőlés kompenzálása érdekében független beállításokat végez minden egyes Z léptetőn. Az opcionális mérő paraméterekkel kapcsolatos részletekért lásd a PROBE parancsot. Az opcionális `RETRIES`, `RETRY_TOLERANCE` és `HORIZONTAL_MOVE_Z` értékek felülírják a konfigurációs fájlban megadott opciókat.
 
 ### [temperature_probe]
 
