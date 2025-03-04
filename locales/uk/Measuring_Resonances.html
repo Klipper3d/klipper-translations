@@ -1472,8 +1472,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#configure-lis2dw-series-over-spi" class="md-nav__link">
-    Configure LIS2DW series over SPI
+  <a href="#lis2dw-spi" class="md-nav__link">
+    Налаштуйте серію LIS2DW через SPI
   </a>
   
 </li>
@@ -1553,14 +1553,14 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#unreliable-measurements-of-resonance-frequencies" class="md-nav__link">
-    Unreliable measurements of resonance frequencies
+  <a href="#_13" class="md-nav__link">
+    Ненадійні вимірювання резонансних частот
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     Тестування користувальницьких осей
   </a>
   
@@ -1572,7 +1572,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
+  <a href="#_15" class="md-nav__link">
     Вхідний шейпер автоматичного калібрування
   </a>
   
@@ -1592,7 +1592,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
+  <a href="#_16" class="md-nav__link">
     Офлайн обробки даних акселерометра
   </a>
   
@@ -1616,10 +1616,10 @@
 
 
 <h1 id="_1">Вимірювання Резонансів<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>Klipper has built-in support for the ADXL345, MPU-9250, LIS2DW and LIS3DH compatible accelerometers which can be used to measure resonance frequencies of the printer for different axes, and auto-tune <a href="Resonance_Compensation.html">input shapers</a> to compensate for resonances. Note that using accelerometers requires some soldering and crimping. The ADXL345 can be connected to the SPI interface of a Raspberry Pi or MCU board (it needs to be reasonably fast). The MPU family can be connected to the I2C interface of a Raspberry Pi directly, or to an I2C interface of an MCU board that supports 400kbit/s <em>fast mode</em> in Klipper. The LIS2DW and LIS3DH can be connected to either SPI or I2C with the same considerations as above.</p>
+<p>Klipper має вбудовану підтримку сумісних акселерометрів ADXL345, MPU-9250, LIS2DW і LIS3DH, які можна використовувати для вимірювання резонансних частот принтера для різних осей і автоматичного налаштування <a href="Resonance_Compensation.html">формувальників вхідних даних</a> для компенсації резонансів. Зауважте, що використання акселерометрів потребує пайки та обтиску. ADXL345 можна підключити до інтерфейсу SPI плати Raspberry Pi або MCU (він має бути достатньо швидким). Сімейство MPU можна підключити безпосередньо до інтерфейсу I2C Raspberry Pi або до інтерфейсу I2C плати MCU, яка підтримує 400 Кбіт/с <em>швидкий режим</em> у Klipper. LIS2DW і LIS3DH можна підключити до SPI або I2C з тими ж міркуваннями, що й вище.</p>
 <p>При стисканні акселерометрів слід розуміти, що існують різні зразки друкованої плати та різні клони їх. Якщо він буде підключений до принтера 5V MCU, щоб він має регулятор напруги та перемикачі рівня.</p>
-<p>For ADXL345s, make sure that the board supports SPI mode (a small number of boards appear to be hard-configured for I2C by pulling SDO to GND).</p>
-<p>For MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500s and LIS2DW/LIS3DH there are also a variety of board designs and clones with different I2C pull-up resistors which will need supplementing.</p>
+<p>Для ADXL345 переконайтеся, що плата підтримує режим SPI (невелика кількість плат, здається, жорстко налаштована для I2C шляхом підтягування SDO до GND).</p>
+<p>Для MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500s і LIS2DW/LIS3DH також є різноманітні дизайни плат і клони з різними підтягуючими резисторами I2C, які потребують доповнення.</p>
 <h2 id="mcu-klipper-i2c-fast-mode">MCU з Klipper I2C <em>fast-mode</em> Підтримка<a class="headerlink" href="#mcu-klipper-i2c-fast-mode" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -1908,12 +1908,12 @@ sudo apt встановити python3-numpy python3-matplotlib libatlas-base-dev
 <div class="highlight"><pre><span></span><code>~/klippy-env/bin/pip install -v &quot;numpy&lt;1.26&quot;
 </code></pre></div>
 
-<p>Note that, depending on the performance of the CPU, it may take <em>a lot</em> of time, up to 10-20 minutes. Be patient and wait for the completion of the installation. On some occasions, if the board has too little RAM the installation may fail and you will need to enable swap. Also note the forced version, due to newer versions of NumPY having requirements that may not be satisfied in some klipper python environments.</p>
-<p>Once installed please check that no errors show from the command:</p>
+<p>Зауважте, що, залежно від продуктивності ЦП, це може зайняти <em>багато</em> часу, до 10-20 хвилин. Запасіться терпінням і дочекайтеся завершення установки. У деяких випадках, якщо на платі занадто мало оперативної пам’яті, інсталяція може завершитися помилкою, і вам потрібно буде ввімкнути обмін. Також зверніть увагу на примусову версію, оскільки нові версії NumPY мають вимоги, які можуть не виконуватись у деяких середовищах klipper python.</p>
+<p>Після встановлення переконайтеся, що команда не відображає помилки:</p>
 <div class="highlight"><pre><span></span><code>~/klippy-env/bin/python -c &#39;import numpy;&#39;
 </code></pre></div>
 
-<p>The correct output should simply be a new line.</p>
+<p>Правильний вихід має бути просто новим рядком.</p>
 <h4 id="adxl345-rpi">Налаштування ADXL345 з RPi<a class="headerlink" href="#adxl345-rpi" title="Permanent link">&para;</a></h4>
 <p>По-перше, перевірте та дотримуйтесь інструкцій в <a href="RPi_microcontroller.html">RPi Microcontroller документ</a> для налаштування "linux mcu" на Raspberry Pi. Це налаштує другий екземпляр кліппера, який працює на Пі.</p>
 <p>Переконайтеся, що драйвер Linux SPI працює <code>sudo raspi-config</code> і дозволяє SPI під меню «Інфракційні параметри».</p>
@@ -1972,7 +1972,7 @@ accel_chip: adxl345
 </code></pre></div>
 
 <p>Рештарт Кліппер через команду <code>RESTART</code>.</p>
-<h4 id="configure-lis2dw-series-over-spi">Configure LIS2DW series over SPI<a class="headerlink" href="#configure-lis2dw-series-over-spi" title="Permanent link">&para;</a></h4>
+<h4 id="lis2dw-spi">Налаштуйте серію LIS2DW через SPI<a class="headerlink" href="#lis2dw-spi" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code>[mcu lis]
 Нема Змініть &lt;mySerial&gt;, щоб дізнатися вище. Наприклад,
 # usb-Klipper_rp2040_E661640843545B2E-if00
@@ -2197,9 +2197,9 @@ max_smoothing: 0.25 # приклад
 
 <p>таким чином, можна правильно розрахувати максимальні рекомендації прискорення. Зауважте, що <code>SHAPER_CALIBRATE</code> команда вже приймає налаштовувані <code>square_corner_velocity</code> параметр враховується, і немає необхідності уточнювати його явно.</p>
 <p>Якщо ви виконуєте рекалібрацію формувача і повідомляється розгладжування за запропонованою конфігурацією формера практично таким же, що ви отримали під час попереднього калібрування, цей крок можна пропустити.</p>
-<h3 id="unreliable-measurements-of-resonance-frequencies">Unreliable measurements of resonance frequencies<a class="headerlink" href="#unreliable-measurements-of-resonance-frequencies" title="Permanent link">&para;</a></h3>
-<p>Sometimes the resonance measurements can produce bogus results, leading to the incorrect suggestions for the input shapers. This can be caused by a variety of reasons, including running fans on the toolhead, incorrect position or non-rigid mounting of the accelerometer, or mechanical problems such as loose belts or binding or bumpy axis. Keep in mind that all fans should be disabled for resonance testing, especially the noisy ones, and that the accelerometer should be rigidly mounted on the corresponding moving part (e.g. on the bed itself for the bed slinger, or on the extruder of the printer itself and not the carriage, and some people get better results by mounting the accelerometer on the nozzle itself). As for mechanical problems, the user should inspect if there is any fault that can be fixed with a moving axis (e.g. linear guide rails cleaned up and lubricated and V-slot wheels tension adjusted correctly). If none of that helps, a user may try the other shapers from the produced list besides the one recommended by default.</p>
-<h3 id="_13">Тестування користувальницьких осей<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<h3 id="_13">Ненадійні вимірювання резонансних частот<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<p>Іноді резонансні вимірювання можуть давати фальшиві результати, що призводить до неправильних пропозицій для формувачів вхідних даних. Це може бути викликано різними причинами, зокрема роботою вентиляторів на інструментальній головці, неправильним положенням або нежорстким кріпленням акселерометра або механічними проблемами, як-от ослаблені ремені або закручування чи нерівність осі. Майте на увазі, що всі вентилятори мають бути відключені для перевірки резонансу, особливо галасливі, і що акселерометр має бути жорстко встановлений на відповідній рухомій частині (наприклад, на самій платформі для стропальника ліжка або на самому екструдері принтера, а не на каретці; деякі люди отримують кращі результати, встановлюючи акселерометр на самому соплі). Що стосується механічних проблем, користувач повинен перевірити, чи є якась несправність, яку можна усунути за допомогою рухомої осі (наприклад, лінійні напрямні рейки очищені та змащені, а натяг коліс із V-подібним пазом відрегульовано правильно). Якщо нічого з цього не допомагає, користувач може спробувати інші формувачі зі створеного списку, окрім рекомендованого за замовчуванням.</p>
+<h3 id="_14">Тестування користувальницьких осей<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
 <p><code>TEST_RESONANCES</code> команда підтримує користувацькі осі. В той час як це не дуже корисно для калібрування вводу, його можна використовувати для вивчення резонансів принтера глибоко і для перевірки, наприклад, натяг стрічки.</p>
 <p>Для перевірки натягу стрічки на принтерах CoreXY, виконання</p>
 <div class="highlight"><pre><span></span><code>TEST_RESONANCES AXIS=1,1 OUTPUT=raw_data
@@ -2222,7 +2222,7 @@ TEST_RESONANCES AXIS=0.866025404,-0.5 OUTPUT=raw_data
 </code></pre></div>
 
 <p>щоб створити <code>/tmp/resonances.png</code> для порівняння резонансів.</p>
-<h2 id="_14">Вхідний шейпер автоматичного калібрування<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
+<h2 id="_15">Вхідний шейпер автоматичного калібрування<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
 <p>Крім ручного вибору відповідних параметрів для функції вводу, можна також запустити автовизначення для вхідної форми безпосередньо від Klipper. Запустіть команду за допомогою терміналу Octoprint:</p>
 <div class="highlight"><pre><span></span><code>SHAPER_CALIBRATE
 </code></pre></div>
@@ -2256,7 +2256,7 @@ TEST_RESONANCES AXIS=0.866025404,-0.5 OUTPUT=raw_data
 
 <p><strong>Налаштування!</strong> Не доцільно запустити автоматичну калібрацію фігурки дуже часто (наприклад, перед кожним друком або кожним днем). Для визначення резонансних частот автокальібрація створює інтенсивні коливання на кожному з осей. Зазвичай принтери 3D не призначені для витримки тривалого впливу коливань біля резонансних частот. Дозування може збільшити знос компонентів принтера і зменшити термін служби. Також є підвищений ризик виникнення певних частин, що незламні або стають пухкими. Завжди перевірте, що всі частини принтера (в тому числі тих, які можуть зазвичай не переходити) надійно зафіксовані в місці після кожного автовиїзду.</p>
 <p>Крім того, через деякий шум при вимірюванні, можливо, що результати тюнінга будуть трохи відрізнятися від одного калібрування за один до одного. Тим не менш, не очікується, що шум впливає на якість друку занадто багато. Тим не менш, він ще радий подвійним вирізом запропонованих параметрів і друкувати деякі тестові відбитки, перш ніж використовувати їх, щоб підтвердити, що вони добре.</p>
-<h2 id="_15">Офлайн обробки даних акселерометра<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
+<h2 id="_16">Офлайн обробки даних акселерометра<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
 <p>Генерувати дані акселерометра і обробляти її автономно (наприклад, на хост-машину), наприклад, для пошуку резонансів. Для того, щоб зробити це, запустіть наступні команди через термінал Octoprint:</p>
 <div class="highlight"><pre><span></span><code>СЕТ_INPUT_SHAPER SHAPER_FREQ_X=0 SHAPER_FREQ_Y=0
 TEST_RESONANCES AXIS=X OUTPUT=raw_data

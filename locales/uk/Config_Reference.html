@@ -2341,8 +2341,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#aip31068_spi-display" class="md-nav__link">
-    aip31068_spi display
+  <a href="#aip31068_spi" class="md-nav__link">
+    aip31068_spi дисплей
   </a>
   
 </li>
@@ -4266,7 +4266,7 @@ unretract_extra_length нижче). За замовчуванням 0 мм.
 </code></pre></div>
 
 <h3 id="lis3dh">[lis3dh]<a class="headerlink" href="#lis3dh" title="Permanent link">&para;</a></h3>
-<p>Support for LIS3DH accelerometers.</p>
+<p>Підтримка акселерометрів LIS3DH.</p>
 <div class="highlight"><pre><span></span><code>[lis3dh]
 #cs_pin:
 #   The SPI enable pin for the sensor. This parameter must be provided
@@ -4617,7 +4617,7 @@ docs/BLTouch.md, перш ніж встановити значення False. Т
 </code></pre></div>
 
 <h3 id="axis_twist_compensation">[axis_twist_compensation]<a class="headerlink" href="#axis_twist_compensation" title="Permanent link">&para;</a></h3>
-<p>A tool to compensate for inaccurate probe readings due to twist in X or Y gantry. See the <a href="Axis_Twist_Compensation.html">Axis Twist Compensation Guide</a> for more detailed information regarding symptoms, configuration and setup.</p>
+<p>Інструмент для компенсації неточних показань датчика через скручування в гентрі X або Y. Перегляньте <a href="Axis_Twist_Compensation.html">Посібник з компенсації скручування осі</a>, щоб отримати докладнішу інформацію щодо симптомів, конфігурації та налаштування.</p>
 <div class="highlight"><pre><span></span><code>[axis_twist_compensation]
 #speed: 50
 #   The speed (in mm/s) of non-probing moves during the calibration.
@@ -6555,8 +6555,8 @@ fixed to 4.
 ...
 </code></pre></div>
 
-<h4 id="aip31068_spi-display">aip31068_spi display<a class="headerlink" href="#aip31068_spi-display" title="Permanent link">&para;</a></h4>
-<p>Information on configuring an aip31068_spi display - a very similar to hd44780_spi a 20x04 (20 symbols by 4 lines) display with slightly different internal protocol.</p>
+<h4 id="aip31068_spi">aip31068_spi дисплей<a class="headerlink" href="#aip31068_spi" title="Permanent link">&para;</a></h4>
+<p>Інформація про налаштування дисплея aip31068_spi — дуже схожий на hd44780_spi дисплей 20x04 (20 символів по 4 рядки) із дещо іншим внутрішнім протоколом.</p>
 <div class="highlight"><pre><span></span><code>[display]
 lcd_type: aip31068_spi
 latch_pin:
@@ -7353,7 +7353,7 @@ vssa_pin:
 </code></pre></div>
 
 <h3 id="_46">[кут]<a class="headerlink" href="#_46" title="Permanent link">&para;</a></h3>
-<p>Magnetic hall angle sensor support for reading stepper motor angle shaft measurements using a1333, as5047d, mt6816, mt6826s, or tle5012b SPI chips. The measurements are available via the <a href="API_Server.html">API Server</a> and <a href="Debugging.html#motion-analysis-and-data-logging">motion analysis tool</a>. See the <a href="G-Codes.html#angle">G-Code reference</a> for available commands.</p>
+<p>Підтримка магнітного датчика кута Холла для зчитування вимірювань кута вала крокового двигуна за допомогою мікросхем SPI a1333, as5047d, mt6816, mt6826s або tle5012b. Вимірювання доступні через <a href="API_Server.html">API-сервер</a> і <a href="Debugging.html#motion-analysis-and-data-logging">інструмент аналізу руху</a>. Доступні команди див. у <a href="G-Codes.html#angle">довідці G-Code</a>.</p>
 <div class="highlight"><pre><span></span><code>[angle my_angle_sensor]
 sensor_type:
 #   The type of the magnetic hall sensor chip. Available choices are
@@ -7401,7 +7401,7 @@ cs_pin:
 <h3 id="i2c">Загальні налаштування I2C<a class="headerlink" href="#i2c" title="Permanent link">&para;</a></h3>
 <p>Наступні параметри зазвичай доступні для пристроїв, які використовують шину I2C.</p>
 <p>Зауважте, що поточна підтримка мікроконтролерів Klipper для I2C, як правило, нетерпима до лінійного шуму. Неочікувані помилки в проводах I2C можуть призвести до того, що Klipper викличе помилку виконання. Підтримка Klipper для відновлення помилок залежить від кожного типу мікроконтролера. Зазвичай рекомендується використовувати лише пристрої I2C, які розташовані на одній друкованій платі з мікроконтролером.</p>
-<p>Most Klipper micro-controller implementations only support an <code>i2c_speed</code> of 100000 (<em>standard mode</em>, 100kbit/s). The Klipper "Linux" micro-controller supports a 400000 speed (<em>fast mode</em>, 400kbit/s), but it must be <a href="RPi_microcontroller.html#optional-enabling-i2c">set in the operating system</a> and the <code>i2c_speed</code> parameter is otherwise ignored. The Klipper "RP2040" micro-controller and ATmega AVR family and some STM32 (F0, G0, G4, L4, F7, H7) support a rate of 400000 via the <code>i2c_speed</code> parameter. All other Klipper micro-controllers use a 100000 rate and ignore the <code>i2c_speed</code> parameter.</p>
+<p>Більшість реалізацій мікроконтролерів Klipper підтримують лише <code>i2c_speed</code> 100000 (<em>стандартний режим</em>, 100 кбіт/с). Мікроконтролер Klipper "Linux" підтримує швидкість 400 000 (<em>швидкий режим</em>, 400 кбіт/с), але вона має бути [встановлена в операційній системі] (RPi_microcontroller.md#optional-enabling-i2c), а параметр <code>i2c_speed</code> інакше ігнорується. Сімейство мікроконтролерів Klipper "RP2040" і ATmega AVR, а також деякі STM32 (F0, G0, G4, L4, F7, H7) підтримують швидкість 400 000 за допомогою параметра <code>i2c_speed</code>. Усі інші мікроконтролери Klipper використовують швидкість 100 000 і ігнорують параметр <code>i2c_speed</code>.</p>
 <div class="highlight"><pre><span></span><code>#i2c_адреса:
 
 i2c-адреса пристрою. Це має бути вказано як десяткове число

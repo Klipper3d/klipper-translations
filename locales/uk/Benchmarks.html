@@ -1434,8 +1434,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#same70-step-rate-benchmark" class="md-nav__link">
-    SAME70 step rate benchmark
+  <a href="#same70" class="md-nav__link">
+    Еталонний показник швидкості кроків SAME70
   </a>
   
 </li>
@@ -1448,8 +1448,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#rpxxxx-step-rate-benchmark" class="md-nav__link">
-    RPxxxx step rate benchmark
+  <a href="#rpxxxx" class="md-nav__link">
+    RPxxxx контрольний показник швидкості кроків
   </a>
   
 </li>
@@ -1947,8 +1947,8 @@ JavaScript licenses API Веб-сайт Go1.13.8
 </tr>
 </tbody>
 </table>
-<h3 id="same70-step-rate-benchmark">SAME70 step rate benchmark<a class="headerlink" href="#same70-step-rate-benchmark" title="Permanent link">&para;</a></h3>
-<p>The following configuration sequence is used on the SAME70:</p>
+<h3 id="same70">Еталонний показник швидкості кроків SAME70<a class="headerlink" href="#same70" title="Permanent link">&para;</a></h3>
+<p>Наступна послідовність конфігурації використовується на SAME70:</p>
 <div class="highlight"><pre><span></span><code>allocate_oids count=3
 config_stepper oid=0 step_pin=PC18 dir_pin=PB5 invert_step=-1 step_pulse_ticks=0
 config_stepper oid=1 step_pin=PC16 dir_pin=PD10 invert_step=-1 step_pulse_ticks=0
@@ -1956,7 +1956,7 @@ config_stepper oid=2 step_pin=PC28 dir_pin=PA4 invert_step=-1 step_pulse_ticks=0
 finalize_config crc=0
 </code></pre></div>
 
-<p>The test was last run on commit <code>34e9ea55</code> with gcc version <code>arm-none-eabi-gcc (NixOS 10.3-2021.10) 10.3.1</code> on a SAME70Q20B micro-controller.</p>
+<p>Тест востаннє запускався на коміті <code>34e9ea55</code> з версією gcc <code>arm-none-eabi-gcc (NixOS 10.3-2021.10) 10.3.1</code> на мікроконтролері SAME70Q20B.</p>
 <table>
 <thead>
 <tr>
@@ -1984,7 +1984,7 @@ config_stepper oid=2 step_pin=PL12 dr_pin=PE16 invert_step=-1 step_pulse_ticks=0
 JavaScript licenses API Веб-сайт Go1.13.8
 </code></pre></div>
 
-<p>The test was last run on commit <code>b7978d37</code> with gcc version <code>or1k-linux-musl-gcc (GCC) 9.2.0</code> on an Allwinner A64-H micro-controller.</p>
+<p>Востаннє тест проводився на коміті <code>b7978d37</code> з версією gcc <code>or1k-linux-musl-gcc (GCC) 9.2.0</code> на мікроконтролері Allwinner A64-H.</p>
 <table>
 <thead>
 <tr>
@@ -2003,8 +2003,8 @@ JavaScript licenses API Веб-сайт Go1.13.8
 </tr>
 </tbody>
 </table>
-<h3 id="rpxxxx-step-rate-benchmark">RPxxxx step rate benchmark<a class="headerlink" href="#rpxxxx-step-rate-benchmark" title="Permanent link">&para;</a></h3>
-<p>The following configuration sequence is used on the RP2040 and RP2350:</p>
+<h3 id="rpxxxx">RPxxxx контрольний показник швидкості кроків<a class="headerlink" href="#rpxxxx" title="Permanent link">&para;</a></h3>
+<p>На RP2040 і RP2350 використовується така послідовність конфігурації:</p>
 <div class="highlight"><pre><span></span><code>сортувати_oids count=3
 config_stepper oid=0 step_pin=gpio25 dir_pin=gpio3 invert_step=-1 step_pulse_ticks=0
 config_stepper oid=1 step_pin=gpio26 dir_pin=gpio4 invert_step=-1 step_pulse_ticks=0
@@ -2012,7 +2012,7 @@ config_stepper oid=2 step_pin=gpio27 dir_pin=gpio5 invert_step=-1 step_pulse_tic
 javascript licenses api веб-сайт go1.13.8
 </code></pre></div>
 
-<p>The test was last run on commit <code>f6718291</code> with gcc version <code>arm-none-eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0</code> on Raspberry Pi Pico and Pico 2 boards.</p>
+<p>Тест востаннє запускався на коміті <code>f6718291</code> з версією gcc <code>arm-none-eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0</code> на платах Raspberry Pi Pico та Pico 2.</p>
 <table>
 <thead>
 <tr>
@@ -2049,7 +2049,7 @@ javascript licenses api веб-сайт go1.13.8
 </tr>
 </tbody>
 </table>
-<p>(*) Note that the reported rp2040 ticks are relative to a 12Mhz scheduling timer and do not correspond to its 125Mhz internal ARM processing rate. It is expected that 5 scheduling ticks corresponds to ~47 ARM core cycles and 22 scheduling ticks corresponds to ~224 ARM core cycles.</p>
+<p>(*) Зверніть увагу, що зареєстровані такти rp2040 відносяться до таймера планування 12 МГц і не відповідають його швидкості внутрішньої обробки ARM 125 МГц. Очікується, що 5 тактів планування відповідає ~47 циклам ядра ARM, а 22 такти планування відповідають ~224 циклам ядра ARM.</p>
 <h3 id="linux-mcu">Linux MCU покрокова оцінка<a class="headerlink" href="#linux-mcu" title="Permanent link">&para;</a></h3>
 <p>Наступна послідовність конфігурації використовується на Raspberry Pi:</p>
 <div class="highlight"><pre><span></span><code>сортувати_oids count=3

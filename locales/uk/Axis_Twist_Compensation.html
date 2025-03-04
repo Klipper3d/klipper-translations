@@ -1336,22 +1336,22 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#basic-usage-x-axis-calibration" class="md-nav__link">
-    Basic Usage: X-Axis Calibration
+  <a href="#x" class="md-nav__link">
+    Основне використання: калібрування осі X
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#for-y-axis-calibration" class="md-nav__link">
-    For Y-Axis Calibration
+  <a href="#y" class="md-nav__link">
+    Для калібрування осі Y
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#automatic-calibration-for-both-axes" class="md-nav__link">
-    Automatic Calibration for Both Axes
+  <a href="#_3" class="md-nav__link">
+    Автоматичне калібрування для обох осей
   </a>
   
 </li>
@@ -1395,43 +1395,43 @@ bias</a>. It may result in probe operations such as <a href="Bed_Mesh.html">Bed 
 <blockquote>
 <p><strong>Порада.</strong> Переконайтеся, що <a href="Config_Reference.html#probe">зміщення зонда X і Y</a> налаштовано правильно, оскільки вони значною мірою впливають на калібрування.</p>
 </blockquote>
-<h3 id="basic-usage-x-axis-calibration">Basic Usage: X-Axis Calibration<a class="headerlink" href="#basic-usage-x-axis-calibration" title="Permanent link">&para;</a></h3>
+<h3 id="x">Основне використання: калібрування осі X<a class="headerlink" href="#x" title="Permanent link">&para;</a></h3>
 <ol>
-<li>After setting up the <code>[axis_twist_compensation]</code> module, run:</li>
+<li>Після налаштування модуля <code>[axis_twist_compensation]</code> виконайте:</li>
 </ol>
 <div class="highlight"><pre><span></span><code>AXIS_TWIST_COMPENSATION_CALIBRATE
 </code></pre></div>
 
-<p>This command will calibrate the X-axis by default. - The calibration wizard will prompt you to measure the probe Z offset at several points along the bed. - By default, the calibration uses 3 points, but you can specify a different number with the option: <code>SAMPLE_COUNT=&lt;value&gt;</code></p>
+<p>Ця команда відкалібрує вісь Х за замовчуванням. - Майстер калібрування запропонує вам виміряти зсув зонда Z у кількох точках уздовж дна. - За замовчуванням калібрування використовує 3 точки, але ви можете вказати інше число за допомогою опції: <code>SAMPLE_COUNT=&lt;value&gt;</code></p>
 <ol>
-<li><strong>Adjust Your Z Offset:</strong> After completing the calibration, be sure to [adjust your Z offset] (Probe_Calibrate.md#calibrating-probe-z-offset).</li>
+<li><strong>Налаштуйте зміщення Z:</strong> Після завершення калібрування обов’язково [налаштуйте зміщення Z] (Probe_Calibrate.md#calibrating-probe-z-offset).</li>
 <li>
-<p><strong>Perform Bed Leveling Operations:</strong> Use probe-based operations as needed, such as:</p>
+<p><strong>Виконайте операції з вирівнювання ліжка: </strong> За потреби використовуйте операції на основі зонда, наприклад:</p>
 <ul>
-<li><a href="G-Codes.html#screws_tilt_adjust">Screws Tilt Adjust</a></li>
-<li><a href="G-Codes.html#z_tilt_adjust">Z Tilt Adjust</a></li>
+<li><a href="G-Codes.html#screws_tilt_adjust">Регулювання нахилу гвинтів</a></li>
+<li><a href="G-Codes.html#z_tilt_adjust">Налаштування нахилу Z</a></li>
 </ul>
 </li>
 <li>
-<p><strong>Finalize the Setup:</strong></p>
+<p><strong>Завершіть налаштування:</strong></p>
 <ul>
-<li>Home all axes, and perform a <a href="Bed_Mesh.html">Bed Mesh</a> if necessary.</li>
-<li>Run a test print, followed by any <a href="Axis_Twist_Compensation.html#fine-tuning">fine-tuning</a> if needed.</li>
+<li>Розмістіть усі осі та за потреби виконайте <a href="Bed_Mesh.html">Bed Mesh</a>.</li>
+<li>Запустіть пробний друк, а потім будь-яке <a href="Axis_Twist_Compensation.html#fine-tuning">точне налаштування</a>, якщо потрібно.</li>
 </ul>
 </li>
 </ol>
-<h3 id="for-y-axis-calibration">For Y-Axis Calibration<a class="headerlink" href="#for-y-axis-calibration" title="Permanent link">&para;</a></h3>
-<p>The calibration process for the Y-axis is similar to the X-axis. To calibrate the Y-axis, use:</p>
+<h3 id="y">Для калібрування осі Y<a class="headerlink" href="#y" title="Permanent link">&para;</a></h3>
+<p>Процес калібрування для осі Y подібний до процесу калібрування для осі X. Щоб відкалібрувати вісь Y, використовуйте:</p>
 <div class="highlight"><pre><span></span><code>AXIS_TWIST_COMPENSATION_CALIBRATE AXIS=Y
 </code></pre></div>
 
-<p>This will guide you through the same measuring process as for the X-axis.</p>
-<h3 id="automatic-calibration-for-both-axes">Automatic Calibration for Both Axes<a class="headerlink" href="#automatic-calibration-for-both-axes" title="Permanent link">&para;</a></h3>
-<p>To perform automatic calibration for both the X and Y axes without manual intervention, use:</p>
+<p>Це проведе вас через той самий процес вимірювання, що й для осі X.</p>
+<h3 id="_3">Автоматичне калібрування для обох осей<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<p>Щоб виконати автоматичне калібрування осей X і Y без ручного втручання, використовуйте:</p>
 <div class="highlight"><pre><span></span><code>AXIS_TWIST_COMPENSATION_CALIBRATE AUTO=True
 </code></pre></div>
 
-<p>In this mode, the calibration process will run for both axes automatically.</p>
+<p>У цьому режимі процес калібрування буде виконуватися для обох осей автоматично.</p>
 <blockquote>
 <p><strong>Порада:</strong> Здається, температура шару, температура та розмір сопла не впливають на процес калібрування.</p>
 </blockquote>
