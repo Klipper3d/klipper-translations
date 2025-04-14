@@ -5,17 +5,19 @@
 # xm Y <3260838022@qq.com>, 2023.
 # Hosted Weblate <mfvotmjhcj@iubridge.com>, 2023, 2024.
 # Dayong Wang <wuyoutech@gmail.com>, 2023.
+# "Neko.vecter" <Vecterfang@icloud.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-02-23 22:02+0000\n"
-"Last-Translator: Hosted Weblate <mfvotmjhcj@iubridge.com>\n"
-"Language-Team: Chinese (Simplified) <https://hosted.weblate.org/projects/klipper/measuring_resonances/zh_Hans/>\n"
+"PO-Revision-Date: 2025-03-20 13:19+0000\n"
+"Last-Translator: \"Neko.vecter\" <Vecterfang@icloud.com>\n"
+"Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
+"projects/klipper/measuring_resonances/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 5.11-dev\n"
 
 msgid "Measuring Resonances"
 msgstr "共振值测量"
@@ -271,7 +273,11 @@ msgid ""
 "vibrations. In these cases, you can request to limit the maximum smoothing "
 "from the input shaper."
 msgstr ""
-"请注意，输入整形器会在使一些打印的路径被平滑。由执行`calibrate_shaper.py`脚本或`SHAPER_CALIBRATE`命令自动得出的输入整形器会尽量不加剧平滑的同时试图最小化产生的振动。脚本可能会得出不是最优的整形器的频率，或者你可能希望以更强的剩余振动为代价来减少平滑度。在这些情况下，可以要求脚本限制输入整形器的最大平滑度。"
+"请注意，输入整形器会在使一些打印的路径被平滑。由执行`calibrate_shaper.py`脚本"
+"或`SHAPER_CALIBRATE`命令自动得出的输入整形器会尽量不加剧平滑的同时试图最小化"
+"产生的振动。脚本可能会得出不是最优的整形器的频率，或者你可能希望以更强的剩余"
+"振动为代价来减少平滑度。在这些情况下，可以要求脚本限制输入整形器的最大平滑度"
+"。"
 
 msgid "Let's consider the following results from the automatic tuning:"
 msgstr "参考以下自动调谐结果："
@@ -478,12 +484,12 @@ msgstr ""
 msgid ""
 "plotting raw accelerometer data (use `-r` parameter), only 1 input is "
 "supported;"
-msgstr "绘制原始加速度数据图（使用`-r`参数），仅支持一个输入；"
+msgstr "绘制原始加速度数据图（使用`-r`参数），仅支持一个输入;"
 
 msgid ""
 "plotting a frequency response (no extra parameters required), if multiple "
 "inputs are specified, the average frequency response is computed;"
-msgstr "绘制频率响应图（无需额外参数），如果指定了多个输入文件，将计算他们的平均值；"
+msgstr "绘制频率响应图（无需额外参数），如果指定了多个输入文件，将计算他们的平均值;"
 
 msgid ""
 "comparison of the frequency response between several inputs (use `-c` "
@@ -911,7 +917,6 @@ msgid "Raspberry Pi"
 msgstr "Raspberry Pi"
 
 #: docs/Measuring_Resonances.md:block 7 (table)
-#, fuzzy
 msgid "3B+, Pico"
 msgstr "3B+, Pico"
 
@@ -925,12 +930,10 @@ msgid "AVR ATmega"
 msgstr "AVR解锁"
 
 #: docs/Measuring_Resonances.md:block 7 (table)
-#, fuzzy
 msgid "ATmega328p"
 msgstr "ATmega328p"
 
 #: docs/Measuring_Resonances.md:block 7 (table)
-#, fuzzy
 msgid ""
 "ATmega32u4, ATmega128, ATmega168, ATmega328, ATmega644p, ATmega1280, "
 "ATmega1284, ATmega2560"
@@ -949,7 +952,6 @@ msgid "-"
 msgstr "-"
 
 #: docs/Measuring_Resonances.md:block 7 (table)
-#, fuzzy
 msgid "AT90usb646, AT90usb1286"
 msgstr "AT90usb646, AT90usb1286"
 
