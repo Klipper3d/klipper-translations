@@ -1,15 +1,17 @@
 # Spravko <spravko@azet.sk>, 2023.
+# martin “reisin” Gerber <martinpantl8@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-11-13 02:45+0000\n"
-"Last-Translator: Spravko <spravko@azet.sk>\n"
-"Language-Team: Slovak <https://hosted.weblate.org/projects/klipper/config_reference/sk/>\n"
+"PO-Revision-Date: 2025-03-12 10:06+0000\n"
+"Last-Translator: martin “reisin” Gerber <martinpantl8@gmail.com>\n"
+"Language-Team: Slovak <https://hosted.weblate.org/projects/klipper/"
+"config_reference/sk/>\n"
 "Language: sk\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 5.2-dev\n"
+"Plural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2);\n"
+"X-Generator: Weblate 5.10.3-dev\n"
 
 msgid ""
 "This document is a reference for options available in the Klipper config file."
@@ -2081,7 +2083,7 @@ msgstr ""
 
 #: docs/Config_Reference.md:block 446 (header)
 msgid "ADS1220"
-msgstr ""
+msgstr "ADS1220"
 
 #: docs/Config_Reference.md:block 447 (paragraph)
 msgid ""
@@ -2106,7 +2108,7 @@ msgstr ""
 
 #: docs/Config_Reference.md:block 391 (header)
 msgid "aip31068_spi display"
-msgstr ""
+msgstr "aip31068_spi displej"
 
 #: docs/Config_Reference.md:block 392 (paragraph)
 msgid ""
