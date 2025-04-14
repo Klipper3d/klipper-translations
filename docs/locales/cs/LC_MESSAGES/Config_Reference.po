@@ -2,17 +2,19 @@
 # Pavel Šubík <wgspider@gmail.com>, 2024.
 # Miloslav Kos <kos.m@post.cz>, 2024.
 # Lukáš “laky” Vacek neboli Arcus <lukyhova@gmail.com>, 2024.
+# vyPal <kubik.palacky@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-12-18 14:15+0000\n"
-"Last-Translator: Lukáš “laky” Vacek neboli Arcus <lukyhova@gmail.com>\n"
-"Language-Team: Czech <https://hosted.weblate.org/projects/klipper/config_reference/cs/>\n"
+"PO-Revision-Date: 2025-04-05 08:17+0000\n"
+"Last-Translator: vyPal <kubik.palacky@gmail.com>\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/klipper/"
+"config_reference/cs/>\n"
 "Language: cs\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2);\n"
-"X-Generator: Weblate 5.9.2-dev\n"
+"X-Generator: Weblate 5.11-dev\n"
 
 msgid ""
 "This document is a reference for options available in the Klipper config file."
@@ -405,7 +407,7 @@ msgid "[input_shaper]"
 msgstr ""
 
 msgid "[adxl345]"
-msgstr ""
+msgstr "[adxl345]"
 
 msgid "[resonance_tester]"
 msgstr ""
@@ -458,7 +460,7 @@ msgid ""
 msgstr ""
 
 msgid "Additional stepper motors and extruders"
-msgstr ""
+msgstr "Dodatečné krokové motory a extrudery"
 
 msgid "[stepper_z1]"
 msgstr ""
@@ -900,6 +902,9 @@ msgid ""
 "automatically created. One can replace or extend these display_data items by "
 "overriding the defaults in the main printer.cfg config file."
 msgstr ""
+"Automaticky se vytvoří [výchozí sada skupin zobrazení](../klippy/extras/"
+"display/display.cfg). Tyto položky display_data lze nahradit nebo rozšířit "
+"přepsáním výchozího nastavení v hlavním konfiguračním souboru printer.cfg."
 
 msgid "[display_template]"
 msgstr ""
@@ -938,6 +943,9 @@ msgid ""
 "created. One can replace or extend the menu by overriding the defaults in the "
 "main printer.cfg config file."
 msgstr ""
+"Automaticky se vytvoří [výchozí sada menu](../klippy/extras/display/menu.cfg)"
+". Nabídku lze nahradit nebo rozšířit přepsáním výchozího nastavení v hlavním "
+"konfiguračním souboru printer.cfg."
 
 msgid ""
 "See the [command template document](Command_Templates.md#menu-templates) for "
@@ -1415,7 +1423,7 @@ msgstr ""
 
 #: docs/Config_Reference.md:block 409 (header)
 msgid "[angle]"
-msgstr ""
+msgstr "[angle]"
 
 #: docs/Config_Reference.md:block 179 (header)
 msgid "[smart_effector]"
@@ -1567,7 +1575,7 @@ msgstr ""
 
 #: docs/Config_Reference.md:block 259 (header)
 msgid "AHT10/AHT20/AHT21 temperature sensor"
-msgstr ""
+msgstr "AHT10/AHT20/AHT21 senzor teploty"
 
 #: docs/Config_Reference.md:block 260 (paragraph)
 msgid ""
@@ -1577,6 +1585,11 @@ msgid ""
 "[sample-macros.cfg](../config/sample-macros.cfg) for a gcode_macro that may be"
 " used to report humidity in addition to temperature."
 msgstr ""
+"Dvouvodičové rozhraní (I2C) senzorů prostředí AHT10/AHT20/AHT21. "
+"Upozorňujeme, že tyto snímače nejsou určeny pro použití s extrudery a "
+"ohřívacími lůžky, ale spíše pro sledování okolní teploty (C) a relativní "
+"vlhkosti. Viz [sample-macros.cfg](../config/sample-macros.cfg), kde je "
+"uvedeno gcode_macro, které lze použít k hlášení vlhkosti navíc k teplotě."
 
 #: docs/Config_Reference.md:block 277 (header)
 msgid "Combined temperature sensor"
@@ -1705,7 +1718,7 @@ msgstr ""
 
 #: docs/Config_Reference.md:block 446 (header)
 msgid "ADS1220"
-msgstr ""
+msgstr "ADS1220"
 
 #: docs/Config_Reference.md:block 447 (paragraph)
 msgid ""
@@ -1730,7 +1743,7 @@ msgstr ""
 
 #: docs/Config_Reference.md:block 391 (header)
 msgid "aip31068_spi display"
-msgstr ""
+msgstr "aip31068_spi displej"
 
 #: docs/Config_Reference.md:block 392 (paragraph)
 msgid ""
