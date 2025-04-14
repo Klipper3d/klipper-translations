@@ -1,68 +1,80 @@
-#
+# sajad Soltani <zeoos328@gmail.com>, 2025.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2025-04-09 21:00+0000\n"
+"Last-Translator: sajad Soltani <zeoos328@gmail.com>\n"
+"Language-Team: Persian <https://hosted.weblate.org/projects/klipper/g-codes/"
+"fa/>\n"
 "Language: fa\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.11-dev\n"
 
 msgid ""
 "This document describes the commands that Klipper supports. These are commands"
 " that one may enter into the OctoPrint terminal tab."
 msgstr ""
+"این سند دستوراتی را توصیف می کند که Klipper از آن پشتیبانی می کند. این ها "
+"دستوراتی هستند که ممکن است در برگه ترمینال OctoPrint وارد شوند."
 
 msgid "G-Code commands"
-msgstr ""
+msgstr "دستورات G-Code"
 
 msgid "Klipper supports the following standard G-Code commands:"
-msgstr ""
+msgstr "Klipper از دستورات استاندارد G-Code پشتیبانی می کند:"
 
 msgid "Move (G0 or G1): `G1 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>]`"
-msgstr ""
+msgstr "حرکت (G0 یا G1): ` G1 [X<pos] [i<pos> [Z<pos>] [F<سرعت> [x67X]"
 
 msgid "Dwell: `G4 P<milliseconds>`"
-msgstr ""
+msgstr "ساکن: \"G4 P< میلی ثانیه>\"."
 
 msgid "Move to origin: `G28 [X] [Y] [Z]`"
-msgstr ""
+msgstr "به سمت مبدأ حرکت کنید: G28 [X] [Y] [Z]"
 
 msgid "Turn off motors: `M18` or `M84`"
-msgstr ""
+msgstr "موتور را خاموش کنید : M18 ` یا ` M84 `"
 
 msgid "Wait for current moves to finish: `M400`"
-msgstr ""
+msgstr "منتظر حرکت فعلی باشید تا به پایان برسد: `M400 `"
 
 msgid "Use absolute/relative distances for extrusion: `M82`, `M83`"
-msgstr ""
+msgstr "استفاده از فاصله های مطلق / نسبی برای اکستروژن: `M82 `، `M83 `"
 
 msgid "Use absolute/relative coordinates: `G90`, `G91`"
-msgstr ""
+msgstr "استفاده از هماهنگی های مطلق / نسبی: ` G90 `، ` G91 `"
 
 msgid "Set position: `G92 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>]`"
-msgstr ""
+msgstr "تنظیم موقعیت: `G92 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>]`"
 
 msgid "Set speed factor override percentage: `M220 S<percent>`"
-msgstr ""
+msgstr "تنظیم فاکتور سرعت معکوس درصد: ` M220 S<percent> `"
 
 msgid "Set extrude factor override percentage: `M221 S<percent>`"
-msgstr ""
+msgstr "درصد رد ضریب اکسترود را تنظیم کنید: «M221 S< درصد>»."
 
 msgid "Set acceleration: `M204 S<value>` OR `M204 P<value> T<value>`"
-msgstr ""
+msgstr "شتاب را تنظیم کنید: `M204 S<value> ` یا `M204 P<Value> T<value> `"
 
 msgid ""
 "Note: If S is not specified and both P and T are specified, then the "
 "acceleration is set to the minimum of P and T. If only one of P or T is "
 "specified, the command has no effect."
 msgstr ""
+"توجه: اگر S مشخص نشود و هر دو P و T مشخص شوند، شتاب به حداقل P و T تنظیم می "
+"شود. اگر فقط یکی از P یا T مشخص شود، دستور هیچ تاثیری ندارد."
 
 msgid "Get extruder temperature: `M105`"
-msgstr ""
+msgstr "دریافت درجه حرارت: `M105 `"
 
 msgid "Set extruder temperature: `M104 [T<index>] [S<temperature>]`"
-msgstr ""
+msgstr "تنظیم دما: `M104 [T<index] [S< Temperature> `"
 
 msgid "Set extruder temperature and wait: `M109 [T<index>] S<temperature>`"
 msgstr ""
+"دمای اکسترودر را تنظیم کنید و منتظر بمانید: `M109 [T<index>] S<temperature>`"
 
 msgid "Note: M109 always waits for temperature to settle at requested value"
 msgstr ""
