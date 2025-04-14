@@ -4,17 +4,19 @@
 # Francisco Javier Hoyos Arango <cofhal@gmail.com>, 2023.
 # eddit3d <eddit1193@gmail.com>, 2024.
 # ItsMeRecSevenTeen <rickagent478554@gmail.com>, 2024.
+# Pablo Casado <lu6mdm@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-09-23 00:15+0000\n"
-"Last-Translator: ItsMeRecSevenTeen <rickagent478554@gmail.com>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/g-codes/es/>\n"
+"PO-Revision-Date: 2025-03-23 14:53+0000\n"
+"Last-Translator: Pablo Casado <lu6mdm@gmail.com>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/g-codes/"
+"es/>\n"
 "Language: es\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.8-dev\n"
+"X-Generator: Weblate 5.11-dev\n"
 
 #, fuzzy
 msgid ""
@@ -2468,7 +2470,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 401 (header)
 msgid "ABORT"
-msgstr ""
+msgstr "cancela"
 
 #: docs/G-Codes.md:block 402 (paragraph)
 msgid ""
