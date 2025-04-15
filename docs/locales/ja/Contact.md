@@ -1,12 +1,12 @@
 # 問い合わせ先
 
-This document provides contact information for Klipper.
+Klipperの問い合わせ先がこのドキュメントに記載されている。
 
 1. [Community Forum](#community-forum)
 1. [Discord Chat](#discord-chat)
-1. [I have a question about Klipper](#i-have-a-question-about-klipper)
+1. [Klipperについて質問がある](#i-have-a-question-about-klipper)
 1. [I have a feature request](#i-have-a-feature-request)
-1. [Help! It doesn't work!](#help-it-doesnt-work)
+1. [手伝ってくれ！壊れられた！](#help-it-doesnt-work)
 1. [I found a bug in the Klipper software](#i-found-a-bug-in-the-klipper-software)
 1. [I am making changes that I'd like to include in Klipper](#i-am-making-changes-that-id-like-to-include-in-klipper)
 1. [Klipper github](#klipper-github)
@@ -21,7 +21,7 @@ There is a Discord server dedicated to Klipper at: <https://discord.klipper3d.or
 
 This server is run by a community of Klipper enthusiasts dedicated to discussions on Klipper. It allows users to chat with other users in real-time.
 
-## I have a question about Klipper
+## Klipperについて質問がある
 
 Many questions we receive are already answered in the [Klipper documentation](Overview.md). Please be sure to to read the documentation and follow the directions provided there.
 
@@ -35,7 +35,7 @@ Many questions we receive are general 3d-printing questions that are not specifi
 
 All new features require someone interested and able to implement that feature. If you are interested in helping to implement or test a new feature, you can search for ongoing developments in the [Klipper Community Forum](#community-forum). There is also [Klipper Discord Chat](#discord-chat) for discussions between collaborators.
 
-## Help! It doesn't work!
+## 手伝ってくれ！壊れられた！
 
 Unfortunately, we receive many more requests for help than we could possibly answer. Most problem reports we see are eventually tracked down to:
 

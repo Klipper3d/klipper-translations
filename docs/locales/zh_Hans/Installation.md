@@ -71,9 +71,9 @@ ls /dev/serial/by-id/*
 
 对于带有 STM32 或克隆芯片、LPC 芯片和其他芯片的常见微控制器，通常需要通过 SD 卡进行初始 Klipper 闪存。
 
-使用此方法进行闪烁时，务必确保打印板未通过 USB 连接到主机，因为某些电路板能够将电源反馈给电路板并阻止发生闪烁。
+使用此方法进行刷写时，务必确保打印板未通过 USB 连接到主机，因为某些电路板能够将电源反馈给电路板并阻止刷写开始。
 
-For common micro-controllers using Atmega chips, for example the 2560, the code can be flashed with something similar to:
+对于使用 Atmega 芯片的常见微控制器，例如 2560，代码可以使用类似以下内容进行烧录：
 
 ```
 sudo service klipper stop
@@ -83,7 +83,7 @@ sudo service klipper start
 
 请务必用打印机的唯一串行端口名称来更新 FLASH_DEVICE 参数。
 
-For common micro-controllers using RP2040 chips, the code can be flashed with something similar to:
+对于使用 RP2040 芯片的常见微控制器，代码可以使用类似以下方式烧录：
 
 ```
 sudo service klipper stop

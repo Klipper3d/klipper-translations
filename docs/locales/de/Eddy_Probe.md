@@ -1,6 +1,6 @@
-# Eddy Current Inductive probe
+# Induktive Wirbelstromsonde
 
-This document describes how to use an [eddy current](https://en.wikipedia.org/wiki/Eddy_current) inductive probe in Klipper.
+Dieses Dokument beschreibt die Verwendung einer induktiven [Wirbelstrom](https://en.wikipedia.org/wiki/Eddy_current) Sonde in Klipper.
 
 Currently, an eddy current probe can not be used for Z homing. The sensor can only be used for Z probing.
 

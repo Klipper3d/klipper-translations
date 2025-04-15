@@ -3930,7 +3930,7 @@ spi_software_miso_pin:
 ...
 ```
 
-#### aip31068_spi display
+#### aip31068_spi displej
 
 Information on configuring an aip31068_spi display - a very similar to hd44780_spi a 20x04 (20 symbols by 4 lines) display with slightly different internal protocol.
 

@@ -4,7 +4,7 @@ Dieses Dokument enthält Informationen zu den Low-Level-Mikrocontroller-Befehlen
 
 Dieses Dokument kann für Entwickler nützlich sein, die daran interessiert sind, die Low-Level-Mikrocontroller-Befehle zu verstehen.
 
-See the [protocol](Protocol.md) document for more information on the format of commands and their transmission. The commands here are described using their "printf" style syntax - for those unfamiliar with that format, just note that where a '%...' sequence is seen it should be replaced with an actual integer. For example, a description with "count=%c" could be replaced with the text "count=10". Note that parameters that are considered "enumerations" (see the above protocol document) take a string value which is automatically converted to an integer value for the micro-controller. This is common with parameters named "pin" (or that have a suffix of "_pin").
+Siehe das Dokument [protocol](Protocol.md) für weitere Informationen über das Format der Befehle und ihre Übertragung. Die Befehle werden hier in der „printf“-Syntax beschrieben - für diejenigen, die mit diesem Format nicht vertraut sind, sei darauf hingewiesen, dass eine „%...“-Sequenz durch eine Ganzzahl ersetzt werden sollte, wenn sie vorkommt. Zum Beispiel könnte eine Beschreibung mit „count=%c“ durch den Text „count=10“ ersetzt werden. Beachten Sie, dass Parameter, die als „Aufzählungen“ gelten (siehe das obige Protokolldokument), einen String-Wert annehmen, der für den Mikrocontroller automatisch in einen Integer-Wert umgewandelt wird. Dies ist bei Parametern mit dem Namen „pin“ (oder mit dem Suffix „_pin“) üblich.
 
 ## Start Befehle
 

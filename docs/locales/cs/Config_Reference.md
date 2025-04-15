@@ -1957,7 +1957,7 @@ calibrate_x: ...
 #   provided and is recommended to be near the center of the bed.
 ```
 
-## Additional stepper motors and extruders
+## Dodatečné krokové motory a extrudery
 
 ### [stepper_z1]
 
@@ -2395,9 +2395,9 @@ sensor_type: BME280
 #   above parameters.
 ```
 
-### AHT10/AHT20/AHT21 temperature sensor
+### AHT10/AHT20/AHT21 senzor teploty
 
-AHT10/AHT20/AHT21 two wire interface (I2C) environmental sensors. Note that these sensors are not intended for use with extruders and heater beds, but rather for monitoring ambient temperature (C) and relative humidity. See [sample-macros.cfg](../config/sample-macros.cfg) for a gcode_macro that may be used to report humidity in addition to temperature.
+Dvouvodičové rozhraní (I2C) senzorů prostředí AHT10/AHT20/AHT21. Upozorňujeme, že tyto snímače nejsou určeny pro použití s extrudery a ohřívacími lůžky, ale spíše pro sledování okolní teploty (C) a relativní vlhkosti. Viz [sample-macros.cfg](../config/sample-macros.cfg), kde je uvedeno gcode_macro, které lze použít k hlášení vlhkosti navíc k teplotě.
 
 ```
 sensor_type: AHT10
@@ -3929,7 +3929,7 @@ spi_software_miso_pin:
 ...
 ```
 
-#### aip31068_spi display
+#### aip31068_spi displej
 
 Information on configuring an aip31068_spi display - a very similar to hd44780_spi a 20x04 (20 symbols by 4 lines) display with slightly different internal protocol.
 
@@ -4063,7 +4063,7 @@ lcd_type:
 
 Support for displaying custom data on an lcd screen. One may create any number of display groups and any number of data items under those groups. The display will show all the data items for a given group if the display_group option in the [display] section is set to the given group name.
 
-A [default set of display groups](../klippy/extras/display/display.cfg) are automatically created. One can replace or extend these display_data items by overriding the defaults in the main printer.cfg config file.
+Automaticky se vytvoří [výchozí sada skupin zobrazení](../klippy/extras/display/display.cfg). Tyto položky display_data lze nahradit nebo rozšířit přepsáním výchozího nastavení v hlavním konfiguračním souboru printer.cfg.
 
 ```
 [display_data my_group_name my_data_name]
@@ -4141,7 +4141,7 @@ If a primary [display] section has been defined in printer.cfg as shown above it
 
 Customizable lcd display menus.
 
-A [default set of menus](../klippy/extras/display/menu.cfg) are automatically created. One can replace or extend the menu by overriding the defaults in the main printer.cfg config file.
+Automaticky se vytvoří [výchozí sada menu](../klippy/extras/display/menu.cfg). Nabídku lze nahradit nebo rozšířit přepsáním výchozího nastavení v hlavním konfiguračním souboru printer.cfg.
 
 See the [command template document](Command_Templates.md#menu-templates) for information on menu attributes available during template rendering.
 
