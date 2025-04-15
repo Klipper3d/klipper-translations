@@ -1,39 +1,53 @@
-#
+# Chip <itsjustchipoverhere@gmail.com>, 2025.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2025-03-11 14:05+0000\n"
+"Last-Translator: Chip <itsjustchipoverhere@gmail.com>\n"
+"Language-Team: Vietnamese <https://hosted.weblate.org/projects/klipper/"
+"overview/vi/>\n"
 "Language: vi\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.10.3-dev\n"
 
 msgid ""
 "Welcome to the Klipper documentation. If new to Klipper, start with the "
 "[features](Features.md) and [installation](Installation.md) documents."
 msgstr ""
+"Chào mứng đến với hướng dẫn sử dụng Klipper. Nếu bạn mới dùng Klipper, hãy "
+"bắt đầu từ tài liệu [features](Features.md) and [installation]"
+"(Installation.md)."
 
 msgid "Overview information"
-msgstr ""
+msgstr "Thông tin tổng quan"
 
 msgid "[Features](Features.md): A high-level list of features in Klipper."
 msgstr ""
 
 msgid "[FAQ](FAQ.md): Frequently asked questions."
-msgstr ""
+msgstr "[FAQ](FAQ.md): Câu hỏi thường được hỏi."
 
 msgid "[Releases](Releases.md): The history of Klipper releases."
-msgstr ""
+msgstr "[Phát hành](Releases.md): Lịch sử các bản phát hành của Klipper."
 
 msgid ""
 "[Config changes](Config_Changes.md): Recent software changes that may require "
 "users to update their printer config file."
 msgstr ""
+"[Config changes](Config_Changes.md): Các thay đổi về phần mếm mà yêu cầu "
+"người dùng phải nâng cấp máy in của họ."
 
 msgid ""
 "[Contact](Contact.md): Information on bug reporting and general communication "
 "with the Klipper developers."
 msgstr ""
+"[Liên hệ](Contact.md): Thông tin về gửi lỗi và giao tiếp với nhà phát triển "
+"của Klipper."
 
 msgid "[Installation](Installation.md): Guide to installing Klipper."
-msgstr ""
+msgstr "[Tải](Installation.md): Hướng dẫn tải Klipper."
 
 msgid ""
 "[Config Reference](Config_Reference.md): Description of config parameters."
