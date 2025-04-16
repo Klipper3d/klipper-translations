@@ -1,14 +1,14 @@
 # Perspectiva general
 
-Benvingut a la documentació de Klipper. Si comences amb Klipper, comença llegint els documents [funcionalitats](Features.md) and [instal·lació](Installation.md).
+Benvingut a la documentació de Klipper. Si ets nou a Klipper, comença llegint els documents [funcionalitats](Features.md) i [instal·lació](Installation.md).
 
 ## Informació general
 
-- [Funcionalitats](Features.md): Una llista detallada de les funcionalitats de Klipper.
+- [Funcionalitats](Funcionalitats.md): Una llista detallada de les funcionalitats de Klipper.
 - [Preguntes freqüents](FAQ.md): Preguntes freqüents.
-- [Versions](Releases.md): L'historial de les versions de Klipper.
-- [Canvis en la configuració](Config_Changes.md): Canvis recents en el programari que poden requerir que els usuaris hagin d'actualitzar els fitxers de configuració de la impressora.
-- [Contacte](Contact.md): Informació sobre com s'ha de reportar els errors i comunicació general amb els desenvolupadors de Klipper.
+- [Versions](Versions.md): L'historial de les versions de Klipper.
+- [Canvis en la configuració](Config_Canvis.md): Canvis recents en el programari que poden requerir que els usuaris hagin d'actualitzar els fitxers de configuració de la impressora.
+- [Contacte](Contact.md): Informació sobre com s'ha de denunciar els errors i sobre la comunicació general amb els desenvolupadors de Klipper.
 
 ## Instal·lació i configuració
 

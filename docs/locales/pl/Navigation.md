@@ -4,7 +4,7 @@ Instalacja i konfiguracja
 
 Informacje o konfiguracji
 
-Poziomowanie stołu
+Poziom stołu
 
 Kompensacja rezonansu
 

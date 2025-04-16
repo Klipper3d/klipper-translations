@@ -103,7 +103,7 @@ Calibrates axis twist compensation by specifying the target axis or enabling aut
 
 ### [bed_mesh]
 
-The following commands are available when the [bed_mesh config section](Config_Reference.md#bed_mesh) is enabled (also see the [bed mesh guide](Bed_Mesh.md)).
+Poniższe polecenia są dostępne, gdy włączona jest [sekcja konfiguracji bed_mesh](Config_Reference.md#bed_mesh) (zobacz także [przewodnik po siatce stołu](Bed_Mesh.md)).
 
 #### BED_MESH_CALIBRATE
 
@@ -159,7 +159,7 @@ The following command is available when a [bltouch config section](Config_Refere
 
 ### [plik konfiguracyjny]
 
-The configfile module is automatically loaded.
+Plik konfiguracyjny jest ładowany automatycznie.
 
 #### SAVE_CONFIG
 

@@ -1,18 +1,18 @@
 # Overview
 
-Welcome to the Klipper documentation. If new to Klipper, start with the [features](Features.md) and [installation](Installation.md) documents.
+Chào mứng đến với hướng dẫn sử dụng Klipper. Nếu bạn mới dùng Klipper, hãy bắt đầu từ tài liệu [features](Features.md) and [installation](Installation.md).
 
-## Overview information
+## Thông tin tổng quan
 
 - [Features](Features.md): A high-level list of features in Klipper.
-- [FAQ](FAQ.md): Frequently asked questions.
-- [Releases](Releases.md): The history of Klipper releases.
-- [Config changes](Config_Changes.md): Recent software changes that may require users to update their printer config file.
-- [Contact](Contact.md): Information on bug reporting and general communication with the Klipper developers.
+- [FAQ](FAQ.md): Câu hỏi thường được hỏi.
+- [Phát hành](Releases.md): Lịch sử các bản phát hành của Klipper.
+- [Config changes](Config_Changes.md): Các thay đổi về phần mếm mà yêu cầu người dùng phải nâng cấp máy in của họ.
+- [Liên hệ](Contact.md): Thông tin về gửi lỗi và giao tiếp với nhà phát triển của Klipper.
 
 ## Installation and Configuration
 
-- [Installation](Installation.md): Guide to installing Klipper.
+- [Tải](Installation.md): Hướng dẫn tải Klipper.
    - [Octoprint](OctoPrint.md): Guide to installing Octoprint with Klipper.
 - [Config Reference](Config_Reference.md): Description of config parameters.
    - [Rotation Distance](Rotation_Distance.md): Calculating the rotation_distance stepper parameter.

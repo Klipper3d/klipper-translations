@@ -4,7 +4,7 @@ Viele der heute gängigen Controller-Karten werden mit einem Bootloader ausgelie
 
 ## Typische Upgrade-Prozedur
 
-The procedure for updating MCU firmware using the SD Card is similar to that of other methods. Instead of using `make flash` it is necessary to run a helper script, `flash-sdcard.sh`. Updating a BigTreeTech SKR 1.3 might look like the following:
+Das Verfahren zur Aktualisierung der MCU-Firmware über die SD-Karte ist ähnlich wie bei anderen Methoden. Anstatt `make flash` zu verwenden, muss ein Hilfsskript, `flash-sdcard.sh`, ausgeführt werden. Die Aktualisierung eines BigTreeTech SKR 1.3 könnte wie folgt aussehen:
 
 ```
 sudo service klipper stop

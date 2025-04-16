@@ -1,4 +1,4 @@
-# Bed leveling
+# Poziomowanie stołu
 
 Poziomowanie stołu jest kluczowe w otrzymywaniu dobrej jakości wydruków. Jeżeli stół jest nieprawidłowo "wypoziomowany" prowadzi to do słabej adhezji filamentu, podwijania krawędzi obiektów i drobnych problemów przez cały wydruk .Ten dokument pokazuje jak wykonać poziomowanie stołu w systemie Klipper.
 
@@ -10,39 +10,39 @@ W celu uzyskania dobrej jakości wydruków drukarka powinna być skalibrowana ta
 
 Różne typy drukarek stosują różne metody poziomowania stołu. Wszystkie ostatecznie zależą od „testu papierowego” (opisanego poniżej). Jednak faktyczny proces dla określonego typu drukarki jest opisany w innych dokumentach.
 
-Prior to running any of these calibration tools, be sure to run the checks described in the [config check document](Config_checks.md). It is necessary to verify basic printer motion before performing bed leveling.
+Przed uruchomieniem któregokolwiek z tych narzędzi kalibracyjnych, należy wykonać kontrole opisane w [dokumencie sprawdzania konfiguracji](Config_checks.md). Przed wykonaniem poziomowania stołu konieczne jest sprawdzenie podstawowych ruchów drukarki.
 
-For printers with an "automatic Z probe" be sure to calibrate the probe following the directions in the [Probe Calibrate](Probe_Calibrate.md) document. For delta printers, see the [Delta Calibrate](Delta_Calibrate.md) document. For printers with bed screws and traditional Z endstops, see the [Manual Level](Manual_Level.md) document.
+W przypadku drukarek z "automatyczną sondą Z" należy skalibrować sondę zgodnie z instrukcjami w dokumencie [Probe Calibrate](Probe_Calibrate.md). W przypadku drukarek delta należy zapoznać się z dokumentem [Delta Calibrate](Delta_Calibrate.md). W przypadku drukarek ze śrubami stołu i tradycyjnymi krańcówkami Z należy zapoznać się z dokumentem [Manual Level](Manual_Level.md).
 
-During calibration it may be necessary to set the printer's Z `position_min` to a negative number (eg, `position_min = -2`). The printer enforces boundary checks even during calibration routines. Setting a negative number allows the printer to move below the nominal position of the bed, which may help when trying to determine the actual bed position.
+Podczas kalibracji może być konieczne ustawienie `position_min` osi Z drukarki na liczbę ujemną (np. `position_min = -2`). Drukarka wymusza sprawdzanie granic nawet podczas procedur kalibracji. Ustawienie liczby ujemnej pozwala drukarce na opuszczenie się poniżej nominalnej pozycji stołu, co może być pomocne podczas próby określenia rzeczywistej pozycji stołu.
 
-## The "paper test"
+## "Test papieru"
 
-The primary bed calibration mechanism is the "paper test". It involves placing a regular piece of "copy machine paper" between the printer's bed and nozzle, and then commanding the nozzle to different Z heights until one feels a small amount of friction when pushing the paper back and forth.
+Podstawowym mechanizmem kalibracji łoża jest "test papieru". Polega on na umieszczeniu kartki papieru między stołem drukarki a dyszą, a następnie na ustawieniu dyszy na różnych wysokościach, aż poczuje się niewielki opór podczas przesuwania papieru tam i z powrotem.
 
-It is important to understand the "paper test" even if one has an "automatic Z probe". The probe itself often needs to be calibrated to get good results. That probe calibration is done using this "paper test".
+Ważne jest zrozumienie "testu papieru", nawet jeśli ktoś ma "automatyczną sondę osi Z". Sama sonda często musi zostać skalibrowana, aby uzyskać dobre wyniki. Kalibracja sondy odbywa się za pomocą tego właśnie "testu papieru".
 
-In order to perform the paper test, cut a small rectangular piece of paper using a pair of scissors (eg, 5x3 cm). The paper generally has a thickness of around 100 microns (0.100mm). (The exact thickness of the paper isn't crucial.)
+Aby wykonać test papieru, wytnij nożyczkami mały prostokątny kawałek papieru (np. 5x3 cm). Papier ma zazwyczaj grubość około 100 mikronów (0,100 mm). (Dokładna grubość papieru nie jest kluczowa.)
 
-The first step of the paper test is to inspect the printer's nozzle and bed. Make sure there is no plastic (or other debris) on the nozzle or bed.
+Pierwszym krokiem testu papieru jest inspekcja dyszy i stołu drukarki. Upewnij się, że na dyszy lub stole nie ma plastiku (ani innych zanieczyszczeń).
 
-**Inspect the nozzle and bed to ensure no plastic is present!**
+**Sprawdź dyszę i stół, aby upewnić się, że nie ma tam plastiku!**
 
-If one always prints on a particular tape or printing surface then one may perform the paper test with that tape/surface in place. However, note that tape itself has a thickness and different tapes (or any other printing surface) will impact Z measurements. Be sure to rerun the paper test to measure each type of surface that is in use.
+Jeśli ktoś zawsze drukuje na konkretnej taśmie lub powierzchni do drukowania, może wykonać test papieru z tą taśmą/powierzchnią na miejscu. Należy jednak pamiętać, że sama taśma ma grubość, a różne taśmy (lub jakakolwiek inna powierzchnia do drukowania) będą miały wpływ na pomiary Z. Należy ponownie wykonać test papieru, aby zmierzyć każdy rodzaj używanej powierzchni.
 
-If there is plastic on the nozzle then heat up the extruder and use a metal tweezers to remove that plastic. Wait for the extruder to fully cool to room temperature before continuing with the paper test. While the nozzle is cooling, use the metal tweezers to remove any plastic that may ooze out.
+Jeśli na dyszy znajduje się plastik, podgrzej głowicę i usuń plastik metalową pęsetą. Poczekaj, aż głowica całkowicie ostygnie do temperatury pokojowej, zanim przejdziesz do testu papieru. Podczas chłodzenia dyszy usuń plastik, który mógł wycieknąć, metalową pęsetą.
 
-**Always perform the paper test when both nozzle and bed are at room temperature!**
+**Zawsze wykonuj test papieru, gdy dysza i stół mają temperaturę pokojową!**
 
-When the nozzle is heated, its position (relative to the bed) changes due to thermal expansion. This thermal expansion is typically around a 100 microns, which is about the same thickness as a typical piece of printer paper. The exact amount of thermal expansion isn't crucial, just as the exact thickness of the paper isn't crucial. Start with the assumption that the two are equal (see below for a method of determining the difference between the two distances).
+Gdy dysza jest podgrzewana, jej położenie (względem stołu) zmienia się z powodu rozszerzalności cieplnej. Ta rozszerzalność cieplna wynosi zazwyczaj około 100 mikronów, co odpowiada grubości typowego kawałka papieru do drukarki. Dokładna wartość rozszerzalności cieplnej nie jest kluczowa, tak jak dokładna grubość papieru nie jest kluczowa. Zacznij od założenia, że te dwie wartości są równe (patrz poniżej, aby poznać metodę określania różnicy między tymi dwiema odległościami).
 
-It may seem odd to calibrate the distance at room temperature when the goal is to have a consistent distance when heated. However, if one calibrates when the nozzle is heated, it tends to impart small amounts of molten plastic on to the paper, which changes the amount of friction felt. That makes it harder to get a good calibration. Calibrating while the bed/nozzle is hot also greatly increases the risk of burning oneself. The amount of thermal expansion is stable, so it is easily accounted for later in the calibration process.
+Może wydawać się dziwne kalibrowanie odległości w temperaturze pokojowej, gdy celem jest uzyskanie stałej odległości po podgrzaniu. Jednak jeśli kalibruje się, gdy dysza jest podgrzana, ma ona tendencję do wyciekania niewielkich ilości stopionego plastiku na papier, co zmienia ilość odczuwanego tarcia. Utrudnia to uzyskanie dobrej kalibracji. Kalibrowanie, gdy stół/dysza są gorące, również znacznie zwiększa ryzyko poparzenia. Ilość rozszerzalności cieplnej jest jednolita, więc można ją łatwo uwzględnić później w procesie kalibracji.
 
-**Use an automated tool to determine precise Z heights!**
+**Użyj zautomatyzowanego narzędzia do określenia dokładnych wysokości Z!**
 
-Klipper has several helper scripts available (eg, MANUAL_PROBE, Z_ENDSTOP_CALIBRATE, PROBE_CALIBRATE, DELTA_CALIBRATE). See the documents [described above](#choose-the-appropriate-calibration-mechanism) to choose one of them.
+Klipper ma kilka skryptów pomocniczych (np. MANUAL_PROBE, Z_ENDSTOP_CALIBRATE, PROBE_CALIBRATE, DELTA_CALIBRATE). Zobacz dokumenty [opisane powyżej](#choose-the-appropriate-calibration-mechanism), aby wybrać jeden z nich.
 
-Run the appropriate command in the OctoPrint terminal window. The script will prompt for user interaction in the OctoPrint terminal output. It will look something like:
+Uruchom odpowiednie polecenie w oknie terminala OctoPrint. Skrypt poprosi o interakcję użytkownika w wyjściu terminala OctoPrint. Będzie wyglądać mniej więcej tak:
 
 ```
 Recv: // Starting manual Z probe. Use TESTZ to adjust position.
@@ -50,50 +50,50 @@ Recv: // Finish with ACCEPT or ABORT command.
 Recv: // Z position: ?????? --> 5.000 <-- ??????
 ```
 
-The current height of the nozzle (as the printer currently understands it) is shown between the "--> <--". The number to the right is the height of the last probe attempt just greater than the current height, and to the left is the last probe attempt less than the current height (or ?????? if no attempt has been made).
+Aktualna wysokość dyszy (tak jak drukarka ją obecnie rozumie) jest wyświetlana pomiędzy "--> <--". Liczba po prawej stronie to wysokość ostatniej próby pomiaru, nieznacznie większa od bieżącej wysokości, a po lewej stronie to ostatnia próba pomiaru mniejsza od bieżącej wysokości (lub ?????? jeśli nie podjęto żadnej próby).
 
-Place the paper between the nozzle and bed. It can be useful to fold a corner of the paper so that it is easier to grab. (Try not to push down on the bed when moving the paper back and forth.)
+Umieść papier między dyszą a stołem. Może być przydatne zgięcie rogu kartki, aby łatwiej ją było chwycić. (Staraj się nie naciskać na łóżko, przesuwając papier tam i z powrotem.)
 
 ![paper-test](img/paper-test.jpg)
 
-Use the TESTZ command to request the nozzle to move closer to the paper. For example:
+Użyj polecenia TESTZ, aby zażądać zbliżenie się dyszy bliżej do papieru. Na przykład:
 
 ```
 TESTZ Z=-.1
 ```
 
-The TESTZ command will move the nozzle a relative distance from the nozzle's current position. (So, `Z=-.1` requests the nozzle to move closer to the bed by .1mm.) After the nozzle stops moving, push the paper back and forth to check if the nozzle is in contact with the paper and to feel the amount of friction. Continue issuing TESTZ commands until one feels a small amount of friction when testing with the paper.
+Polecenie TESTZ przesunie dyszę o względną odległość od bieżącej pozycji dyszy. (Tak więc `Z=-.1` żąda, aby dysza przesunęła się bliżej do stołu o .1 mm.) Po zatrzymaniu się dyszy, przesuwaj papier tam i z powrotem, aby sprawdzić, czy dysza styka się z papierem i aby poczuć tarcie. Kontynuuj wydawanie poleceń TESTZ, aż poczujesz niewielkie tarcie podczas testowania z papierem.
 
-If too much friction is found then one can use a positive Z value to move the nozzle up. It is also possible to use `TESTZ Z=+` or `TESTZ Z=-` to "bisect" the last position - that is to move to a position half way between two positions. For example, if one received the following prompt from a TESTZ command:
+Jeśli tarcie jest zbyt duże, można użyć dodatniej wartości Z, aby przesunąć dyszę w górę. Można również użyć `TESTZ Z=+` lub `TESTZ Z=-`, aby "przeciąć" ostatnią pozycję - to znaczy przesunąć się do pozycji w połowie drogi między dwiema pozycjami. Na przykład, jeśli ktoś otrzymał następujący monit od polecenia TESTZ:
 
 ```
 Recv: // Z position: 0.130 --> 0.230 <-- 0.280
 ```
 
-Then a `TESTZ Z=-` would move the nozzle to a Z position of 0.180 (half way between 0.130 and 0.230). One can use this feature to help rapidly narrow down to a consistent friction. It is also possible to use `Z=++` and `Z=--` to return directly to a past measurement - for example, after the above prompt a `TESTZ Z=--` command would move the nozzle to a Z position of 0.130.
+Wtedy `TESTZ Z=-` przesunęłoby dyszę do pozycji Z wynoszącej 0,180 (w połowie drogi między 0,130 a 0,230). Można użyć tej funkcji, aby szybko zawęzić do spójnego tarcia. Można również użyć `Z=++` i `Z=--`, aby powrócić bezpośrednio do poprzedniego pomiaru - na przykład po powyższym monicie polecenie `TESTZ Z=--` przesunęłoby dyszę do pozycji Z wynoszącej 0,130.
 
-After finding a small amount of friction run the ACCEPT command:
+Po znalezieniu niewielkiego tarcia uruchom polecenie ACCEPT:
 
 ```
 ACCEPT
 ```
 
-This will accept the given Z height and proceed with the given calibration tool.
+Spowoduje to zaakceptowanie podanej wysokości Z i przejście do podanego narzędzia kalibracyjnego.
 
-The exact amount of friction felt isn't crucial, just as the amount of thermal expansion and exact width of the paper isn't crucial. Just try to obtain the same amount of friction each time one runs the test.
+Dokładna ilość odczuwanego tarcia nie jest kluczowa, tak samo jak ilość rozszerzalności cieplnej i dokładna szerokość papieru nie są kluczowe. Po prostu staraj się uzyskać taką samą ilość tarcia za każdym razem, gdy przeprowadzasz test.
 
-If something goes wrong during the test, one can use the `ABORT` command to exit the calibration tool.
+Jeżeli w trakcie testu coś pójdzie nie tak, można użyć polecenia `ABORT`, aby opuścić narzędzie kalibracji.
 
-## Determining Thermal Expansion
+## Określanie rozszerzalności cieplnej
 
-After successfully performing bed leveling, one may go on to calculate a more precise value for the combined impact of "thermal expansion", "thickness of the paper", and "amount of friction felt during the paper test".
+Po pomyślnym przeprowadzeniu poziomowania stołu można przystąpić do obliczenia dokładniejszej wartości łącznego wpływu "rozszerzalności cieplnej", "grubości papieru" i "ilości tarcia odczuwalnego podczas testu papieru".
 
-This type of calculation is generally not needed as most users find the simple "paper test" provides good results.
+Ten typ obliczeń nie jest zazwyczaj potrzebny, gdyż większość użytkowników uważa, że prosty "test papieru" daje dobre wyniki.
 
-The easiest way to make this calculation is to print a test object that has straight walls on all sides. The large hollow square found in [docs/prints/square.stl](prints/square.stl) can be used for this. When slicing the object, make sure the slicer uses the same layer height and extrusion widths for the first level that it does for all subsequent layers. Use a coarse layer height (the layer height should be around 75% of the nozzle diameter) and do not use a brim or raft.
+Najprostszym sposobem wykonania tego obliczenia jest wydrukowanie obiektu testowego, który ma proste ściany ze wszystkich stron. Można do tego celu użyć dużego pustego kwadratu znalezionego w [docs/prints/square.stl](prints/square.stl). Podczas slicowania obiektu upewnij się, że slicer używa tej samej wysokości warstwy i szerokości linii dla pierwszej warstwy, co dla wszystkich kolejnych warstw. Użyj grubej wysokości warstwy (wysokość warstwy powinna wynosić około 75% średnicy dyszy) i nie używaj brimu ani raftu.
 
-Print the test object, wait for it to cool, and remove it from the bed. Inspect the lowest layer of the object. (It may also be useful to run a finger or nail along the bottom edge.) If one finds the bottom layer bulges out slightly along all sides of the object then it indicates the nozzle was slightly closer to the bed then it should be. One can issue a `SET_GCODE_OFFSET Z=+.010` command to increase the height. In subsequent prints one can inspect for this behavior and make further adjustment as needed. Adjustments of this type are typically in 10s of microns (.010mm).
+Wydrukuj obiekt testowy, poczekaj, aż ostygnie, i zdejmij go ze stołu. Sprawdź najniższą warstwę obiektu. (Może być również przydatne przesunięcie palcem lub paznokciem wzdłuż dolnej krawędzi.) Jeśli zauważysz, że dolna warstwa lekko wybrzusza się wzdłuż wszystkich boków obiektu, oznacza to, że dysza była nieco za blisko stołu. Możesz wydać polecenie `SET_GCODE_OFFSET Z=+.010`, aby zwiększyć wysokość. W kolejnych wydrukach możesz sprawdzić to zachowanie i dokonać dalszych korekt w razie potrzeby. Korekty tego typu są zazwyczaj w dziesiątkach mikronów (.010 mm).
 
-If the bottom layer consistently appears narrower than subsequent layers then one can use the SET_GCODE_OFFSET command to make a negative Z adjustment. If one is unsure, then one can decrease the Z adjustment until the bottom layer of prints exhibit a small bulge, and then back-off until it disappears.
+Jeśli dolna warstwa stale wydaje się grubsza niż kolejne warstwy, można użyć polecenia SET_GCODE_OFFSET, aby dokonać ujemnej korekty Z. Jeśli nie jest się pewnym, można zmniejszyć wartość korekty Z, aż dolna warstwa wydruków wykaże niewielkie wybrzuszenie, a następnie cofnąć się, aż zniknie.
 
-The easiest way to apply the desired Z adjustment is to create a START_PRINT g-code macro, arrange for the slicer to call that macro during the start of each print, and add a SET_GCODE_OFFSET command to that macro. See the [slicers](Slicers.md) document for further details.
+Najprostszym sposobem zastosowania pożądanej korekty Z jest utworzenie makra g-code START_PRINT, skonfigurowanie wywołania tego makra przez slicer podczas rozpoczęcia każdego wydruku i dodanie polecenia SET_GCODE_OFFSET do tego makra. Więcej szczegółów można znaleźć w dokumencie [slicers](Slicers.md).

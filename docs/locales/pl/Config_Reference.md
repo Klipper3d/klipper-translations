@@ -12,7 +12,7 @@ Wiele opcji konfiguracyjnych wymaga podania nazwy pinu mikrokontrolera. Klipper 
 
 Pin names may be preceded by `!` to indicate that a reverse polarity should be used (eg, trigger on low instead of high).
 
-Input pins may be preceded by `^` to indicate that a hardware pull-up resistor should be enabled for the pin. If the micro-controller supports pull-down resistors then an input pin may alternatively be preceded by `~`.
+Piny wejściowe mogą być poprzedzone znakiem `^`, aby wskazać, że dla danego pinu powinien zostać włączony rezystor podciągający w górę. Jeśli mikrokontroler obsługuje rezystory podciągające do masy, pin wejściowy może być adekwatnie poprzedzony znakiem `~`.
 
 Note, some config sections may "create" additional pins. Where this occurs, the config section defining the pins must be listed in the config file before any sections using those pins.
 
@@ -224,7 +224,7 @@ max_z_accel:
 [stepper_z]
 ```
 
-### Linear Delta Kinematics
+### Liniowa Kinematyka Delta
 
 See [example-delta.cfg](../config/example-delta.cfg) for an example linear delta kinematics config file. See the [delta calibrate guide](Delta_Calibrate.md) for information on calibration.
 
@@ -377,7 +377,7 @@ arm_x_length:
 [stepper_y]
 ```
 
-### CoreXY Kinematyka
+### Kinematyka CoreXY
 
 See [example-corexy.cfg](../config/example-corexy.cfg) for an example corexy (and h-bot) kinematics file.
 
@@ -409,7 +409,7 @@ max_z_accel:
 [stepper_z]
 ```
 
-### CoreXZ Kinematyka
+### Kinematyka CoreXZ
 
 See [example-corexz.cfg](../config/example-corexz.cfg) for an example corexz kinematics config file.
 
@@ -438,7 +438,7 @@ max_z_accel:
 [stepper_z]
 ```
 
-### Hybrid-CoreXY Kinematics
+### Hybrydowa kinematyka CoreXY
 
 See [example-hybrid-corexy.cfg](../config/example-hybrid-corexy.cfg) for an example hybrid corexy kinematics config file.
 
@@ -469,7 +469,7 @@ max_z_accel:
 [stepper_z]
 ```
 
-### Hybrid-CoreXZ Kinematics
+### Hybrydowa kinematyka CoreXZ
 
 See [example-hybrid-corexz.cfg](../config/example-hybrid-corexz.cfg) for an example hybrid corexz kinematics config file.
 
@@ -654,7 +654,7 @@ anchor_z:
 
 ### None Kinematics
 
-It is possible to define a special "none" kinematics to disable kinematic support in Klipper. This may be useful for controlling devices that are not typical 3d-printers or for debugging purposes.
+Można zdefiniować specjalną kinematykę "none", aby wyłączyć obsługę kinematyki w Klipper. Może to być przydatne do kontrolowania urządzeń, które nie są typowymi drukarkami 3D lub do celów debugowania.
 
 ```
 [printer]
@@ -1207,7 +1207,7 @@ home_xy_position:
 
 ### [homing_override]
 
-Homing override. One may use this mechanism to run a series of g-code commands in place of a G28 found in the normal g-code input. This may be useful on printers that require a specific procedure to home the machine.
+Nadpisanie zerowania pozycji. Można użyć tego mechanizmu, aby uruchomić serię poleceń g-code zamiast G28 znajdującego się w normalnym wejściu g-code. Może to być przydatne w drukarkach, które wymagają określonej procedury zerowania osi.
 
 ```
 [homing_override]
@@ -1264,11 +1264,11 @@ See the [endstop phases guide](Endstop_Phase.md) and [command reference](G-Codes
 #   layer will occur on a full step.) The default is False.
 ```
 
-## G-Code macros and events
+## Makra i zdarzenia G-Code
 
 ### [gcode_macro]
 
-G-Code macros (one may define any number of sections with a "gcode_macro" prefix). See the [command template guide](Command_Templates.md) for more information.
+Makra G-Code (można zdefiniować dowolną liczbę sekcji z prefiksem "gcode_macro"). Więcej informacji można znaleźć w [przewodniku po szablonach poleceń](Command_Templates.md).
 
 ```
 [gcode_macro my_cmd]
@@ -1299,7 +1299,7 @@ G-Code macros (one may define any number of sections with a "gcode_macro" prefix
 
 ### [opóźniony_gkod]
 
-Execute a gcode on a set delay. See the [command template guide](Command_Templates.md#delayed-gcodes) and [command reference](G-Codes.md#delayed_gcode) for more information.
+Wykonaj kod gcode o ustawionym opóźnieniu. Więcej informacji znajdziesz w [przewodniku po szablonach poleceń](Command_Templates.md#delayed-gcodes) i [odniesieniu do poleceń](G-Codes.md#delayed_gcode).
 
 ```
 [opóźniony _ gcode mój _ opóźniony _ gcode]
@@ -1329,7 +1329,7 @@ filename:
 
 ### [idle_timeout]
 
-Idle timeout. An idle timeout is automatically enabled - add an explicit idle_timeout config section to change the default settings.
+Limit czasu bezczynności. Limit ten jest włączany automatycznie - dodaj wyraźną sekcję konfiguracji idle_timeout, aby zmienić ustawienia domyślne.
 
 ```
 [idle_timeout]
@@ -1396,7 +1396,7 @@ Pause/Resume functionality with support of position capture and restore. See the
 
 ### [firmware_retraction]
 
-Firmware filament retraction. This enables G10 (retract) and G11 (unretract) GCODE commands issued by many slicers. The parameters below provide startup defaults, although the values can be adjusted via the SET_RETRACTION [command](G-Codes.md#firmware_retraction)), allowing per-filament settings and runtime tuning.
+Programowa retrakcja filamentu. Umożliwia to obsługę komend GCODE G10 (retrakcja) i G11 (powrót) generowanych przez wiele slicerów. Poniższe parametry zapewniają domyślne ustawienia startowe, chociaż wartości można dostosować za pomocą SET_RETRACTION [polecenie](G-Codes.md#firmware_retraction)), umożliwiając ustawienia dla każdego filamentu i dostrajanie w czasie rzeczywistym.
 
 ```
 [firmware_retraction]
@@ -1429,7 +1429,7 @@ Support for gcode arc (G2/G3) commands.
 
 ### [respond]
 
-Enable the "M118" and "RESPOND" extended [commands](G-Codes.md#respond).
+Włącz rozszerzone [polecenia](G-Codes.md#respond) "M118" i "RESPOND".
 
 ```
 [respond]
@@ -1446,7 +1446,7 @@ Enable the "M118" and "RESPOND" extended [commands](G-Codes.md#respond).
 
 ### [exclude_object]
 
-Enables support to exclude or cancel individual objects during the printing process.
+Umożliwia wykluczanie lub anulowanie poszczególnych obiektów podczas drukowania.
 
 See the [exclude objects guide](Exclude_Object.md) and [command reference](G-Codes.md#excludeobject) for additional information. See the [sample-macros.cfg](../config/sample-macros.cfg) file for a Marlin/RepRapFirmware compatible M486 G-Code macro.
 
@@ -1458,7 +1458,7 @@ See the [exclude objects guide](Exclude_Object.md) and [command reference](G-Cod
 
 ### [input_shaper]
 
-Enables [resonance compensation](Resonance_Compensation.md). Also see the [command reference](G-Codes.md#input_shaper).
+Włącza [kompensację rezonansu](Resonance_Compensation.md). Zobacz także [command reference](G-Codes.md#input_shaper).
 
 ```
 [input_shaper]
@@ -1687,7 +1687,7 @@ aliases_<name>:
 
 ### [include]
 
-Include file support. One may include additional config file from the main printer config file. Wildcards may also be used (eg, "configs/*.cfg").
+Obsługa dołączania plików. Można dołączyć dodatkowy plik konfiguracyjny z głównego pliku konfiguracyjnego drukarki. Można używać symboli wieloznacznych (np. "configs/*.cfg").
 
 ```
 [include my_other_config.cfg]
@@ -1907,7 +1907,7 @@ sensor_type: ldc1612
 
 ### [axis_twist_compensation]
 
-A tool to compensate for inaccurate probe readings due to twist in X or Y gantry. See the [Axis Twist Compensation Guide](Axis_Twist_Compensation.md) for more detailed information regarding symptoms, configuration and setup.
+Narzędzie do kompensacji niedokładnych odczytów sondy spowodowanych skręceniem osi X lub Y. Zobacz [Poradnik kompensacji skrętu osi](Axis_Twist_Compensation.md) aby uzyskać bardziej szczegółowe informacje dotyczące objawów, konfiguracji i ustawień.
 
 ```
 [axis_twist_compensation]
@@ -1972,7 +1972,7 @@ Multi-stepper axes. On a cartesian style printer, the stepper controlling a give
 
 ### [extruder1]
 
-In a multi-extruder printer add an additional extruder section for each additional extruder. The additional extruder sections should be named "extruder1", "extruder2", "extruder3", and so on. See the "extruder" section for a description of available parameters.
+W drukarce wieloekstruderowej dodaj dodatkową sekcję ekstrudera dla każdego dodatkowego ekstrudera. Dodatkowe sekcje powinny mieć nazwy "extruder1", "extruder2", "extruder3" itd. Opis dostępnych parametrów można znaleźć w sekcji "ekstruder".
 
 See [sample-multi-extruder.cfg](../config/sample-multi-extruder.cfg) for an example configuration.
 
@@ -2069,11 +2069,11 @@ Manual steppers (one may define any number of sections with a "manual_stepper" p
 #   MANUAL_STEPPER movement commands.
 ```
 
-## Ogrzewacze i sensory niestandardowe
+## Ogrzewacze i czujniki niestandardowe
 
 ### [verify_heater]
 
-Heater and temperature sensor verification. Heater verification is automatically enabled for each heater that is configured on the printer. Use verify_heater sections to change the default settings.
+Weryfikacja grzałki i czujnika temperatury. Weryfikacja grzałki jest automatycznie włączana dla każdej grzałki skonfigurowanej w drukarce. Użyj sekcji verify_heater, aby zmienić ustawienia domyślne.
 
 ```
 [verify_heater heater_config_name]
@@ -2176,7 +2176,7 @@ Niestandardowe czujniki temperatury ADC (można zdefiniować dowolną liczbę se
 
 ### [heater_generic]
 
-Generic heaters (one may define any number of sections with a "heater_generic" prefix). These heaters behave similarly to standard heaters (extruders, heated beds). Use the SET_HEATER_TEMPERATURE command (see [G-Codes](G-Codes.md#heaters) for details) to set the target temperature.
+Zwykłe grzałki (można zdefiniować dowolną liczbę sekcji z prefiksem "heater_generic"). Grzałki te zachowują się podobnie do standardowych grzałek (ekstrudery, podgrzewane stoły). Użyj polecenia SET_HEATER_TEMPERATURE (szczegóły w [G-Codes](G-Codes.md#heaters)), aby ustawić temperaturę docelową.
 
 ```
 [heater_generic my_generic_heater]
@@ -2201,7 +2201,7 @@ Generic heaters (one may define any number of sections with a "heater_generic" p
 
 ### [temperature_sensor]
 
-Generic temperature sensors. One can define any number of additional temperature sensors that are reported via the M105 command.
+Ogólne czujniki temperatury. Można zdefiniować dowolną liczbę dodatkowych czujników temperatury, które są raportowane za pomocą polecenia M105.
 
 ```
 [temperature_sensor my_sensor]
@@ -2278,7 +2278,7 @@ Reports probe coil temperature. Includes optional thermal drift calibration for 
 
 ## Temperature sensors
 
-Klipper includes definitions for many types of temperature sensors. These sensors may be used in any config section that requires a temperature sensor (such as an `[extruder]` or `[heater_bed]` section).
+Klipper zawiera definicje wielu typów czujników temperatury. Czujniki te mogą być używane w dowolnej sekcji konfiguracji, która wymaga czujnika temperatury (takiej jak sekcja `[extruder]` lub `[heater_bed]`).
 
 ### Typowe termistory
 
@@ -2404,7 +2404,7 @@ sensor_type: AHT10
 #   Interval in seconds between readings. Default is 30, minimum is 5
 ```
 
-### HTU21D sensor
+### Czujnik HTU21D
 
 HTU21D family two wire interface (I2C) environmental sensor. Note that this sensor is not intended for use with extruders and heater beds, but rather for monitoring ambient temperature (C) and relative humidity. See [sample-macros.cfg](../config/sample-macros.cfg) for a gcode_macro that may be used to report humidity in addition to temperature.
 
@@ -2507,7 +2507,7 @@ sensor_type: temperature_mcu
 #   micro-controller specification.
 ```
 
-### Host temperature sensor
+### Czujnik temperatury hosta
 
 Temperature from the machine (eg Raspberry Pi) running the host software.
 
@@ -2519,9 +2519,9 @@ sensor_type: temperature_host
 #   system file on a Raspberry Pi computer.
 ```
 
-### DS18B20 temperature sensor
+### Czujnik temperatury DS18B20
 
-DS18B20 is a 1-wire (w1) digital temperature sensor. Note that this sensor is not intended for use with extruders and heater beds, but rather for monitoring ambient temperature (C). These sensors have range up to 125 C, so are usable for e.g. chamber temperature monitoring. They can also function as simple fan/heater controllers. DS18B20 sensors are only supported on the "host mcu", e.g. the Raspberry Pi. The w1-gpio Linux kernel module must be installed.
+DS18B20 to 1-przewodowy (w1) cyfrowy czujnik temperatury. Należy pamiętać, że ten czujnik nie jest przeznaczony do stosowania z ekstruderami i stołami grzewczymi, lecz do monitorowania temperatury otoczenia (C). Te czujniki mają zakres do 125 C, więc nadają się np. do monitorowania temperatury komory. Mogą również działać jako proste regulatory wentylatorów/grzałek. Czujniki DS18B20 są obsługiwane tylko na "host mcu", np. Raspberry Pi. Moduł jądra Linux w1-gpio musi być zainstalowany.
 
 ```
 sensor_type: DS18B20
@@ -2554,7 +2554,7 @@ sensor_type: temperature_combined
 #   to combine (e.g. 5 degrees). To disable it, use a large value (e.g. 999.9)
 ```
 
-## Fans
+## Wentylatory
 
 ### [fan]
 
@@ -2629,7 +2629,7 @@ pin:
 
 ### [heater_fan]
 
-Heater cooling fans (one may define any number of sections with a "heater_fan" prefix). A "heater fan" is a fan that will be enabled whenever its associated heater is active. By default, a heater_fan has a shutdown_speed equal to max_power.
+Wentylatory chłodzące grzałki (można zdefiniować dowolną liczbę sekcji z prefiksem "heater_fan"). "Wentylator grzałki" to wentylator, który będzie włączany, gdy powiązana z nim grzałka będzie aktywna. Domyślnie heater_fan ma shutdown_speed równy max_power.
 
 ```
 [heater_fan heatbreak_cooling_fan]
@@ -2776,7 +2776,7 @@ Manually controlled fan (one may define any number of sections with a "fan_gener
 #   See the "fan" section for a description of the above parameters.
 ```
 
-## LEDs
+## Diody LED
 
 ### [led]
 
@@ -2836,7 +2836,7 @@ pin:
 
 ### [dotstar]
 
-Dotstar (aka APA102) LED support (one may define any number of sections with a "dotstar" prefix). See the [command reference](G-Codes.md#led) for more information.
+Obsługa diod LED Dotstar (znanej również jako APA102) (można zdefiniować dowolną liczbę sekcji z prefiksem "dotstar"). Więcej informacji można znaleźć w [command reference](G-Codes.md#led).
 
 ```
 [dotstar my_dotstar]
@@ -2940,7 +2940,7 @@ pin:
 
 ### [gcode_button]
 
-Execute gcode when a button is pressed or released (or when a pin changes state). You can check the state of the button by using `QUERY_BUTTON button=my_gcode_button`.
+Wykonaj gcode, gdy przycisk zostanie naciśnięty lub zwolniony (lub gdy pin zmieni stan). Możesz sprawdzić stan przycisku, używając `QUERY_BUTTON button=moj_przycisk_gcode`.
 
 ```
 [gcode_button my_gcode_button]
@@ -3777,7 +3777,7 @@ wiper:
 #   scale the 'wiper' parameter.
 ```
 
-## Display support
+## Wsparcie wyświetlaczy
 
 ### [display]
 
@@ -3864,7 +3864,7 @@ lcd_type:
 #   button.
 ```
 
-#### hd44780 display
+#### Wyświetlacz hd44780
 
 Information on configuring hd44780 displays (which is used in "RepRapDiscount 2004 Smart Controller" type displays).
 
@@ -3891,7 +3891,7 @@ d7_pin:
 ...
 ```
 
-#### hd44780_spi display
+#### wyświetlacz hd44780_spi
 
 Information on configuring an hd44780_spi display - a 20x04 display controlled via a hardware "shift register" (which is used in mightyboard based printers).
 
@@ -3921,7 +3921,7 @@ spi_software_miso_pin:
 
 #### aip31068_spi display
 
-Information on configuring an aip31068_spi display - a very similar to hd44780_spi a 20x04 (20 symbols by 4 lines) display with slightly different internal protocol.
+Informacje na temat konfiguracji wyświetlacza aip31068_spi - bardzo podobnego do hd44780_spi, o rozdzielczości 20x04 (20 symboli na 4 linie) z nieznacznie innym protokołem wewnętrznym.
 
 ```
 [display]
@@ -3958,7 +3958,7 @@ sid_pin:
 ...
 ```
 
-#### emulated_st7920 display
+#### emulowany wyświetlacz st7920
 
 Information on configuring an emulated st7920 display - found in some "2.4 inch touchscreen devices" and similar.
 
@@ -4069,7 +4069,7 @@ text:
 
 ### [display_template]
 
-Display data text "macros" (one may define any number of sections with a display_template prefix). See the [command templates](Command_Templates.md) document for information on template evaluation.
+Wyświetl tekst danych „makra” (można zdefiniować dowolną liczbę sekcji z prefiksem display_template). Zobacz dokument [command templates](Command_Templates.md) w celu uzyskania informacji na temat oceny szablonu.
 
 This feature allows one to reduce repetitive definitions in display_data sections. One may use the builtin `render()` function in display_data sections to evaluate a template. For example, if one were to define `[display_template my_template]` then one could use `{ render('my_template') }` in a display_data section.
 
@@ -4120,7 +4120,7 @@ See [sample-glyphs.cfg](../config/sample-glyphs.cfg) for some examples.
 
 ### [display my_extra_display]
 
-If a primary [display] section has been defined in printer.cfg as shown above it is possible to define multiple auxiliary displays. Note that auxiliary displays do not currently support menu functionality, thus they do not support the "menu" options or button configuration.
+Jeśli sekcja [display] została zdefiniowana w printer.cfg, jak pokazano powyżej, możliwe jest zdefiniowanie wielu wyświetlaczy pomocniczych. Należy zauważyć, że wyświetlacze pomocnicze obecnie nie obsługują funkcjonalności menu, a zatem nie obsługują opcji "menu" ani konfiguracji przycisków.
 
 ```
 [display my_extra_display]
@@ -4202,11 +4202,11 @@ See the [command template document](Command_Templates.md#menu-templates) for inf
 # Oceniany jako szablon. Kliknięcie przycisku uruchomi początek lub koniec trybu edycji.
 ```
 
-## Filament sensors
+## Czujniki filamentu
 
 ### [filament_switch_sensor]
 
-Filament Switch Sensor. Support for filament insert and runout detection using a switch sensor, such as an endstop switch.
+Czujnik filamentu. Obsługa wykrywania włożenia filamentu i jego wyczerpania za pomocą przycisku, takiego jak wyłącznik krańcowy.
 
 See the [command reference](G-Codes.md#filament_switch_sensor) for more information.
 
@@ -4243,7 +4243,7 @@ See the [command reference](G-Codes.md#filament_switch_sensor) for more informat
 
 ### [filament_motion_sensor]
 
-Filament Motion Sensor. Support for filament insert and runout detection using an encoder that toggles the output pin during filament movement through the sensor.
+Czujnik ruchu filamentu. Wsparcie wkładania filamentu i wykrywanie jego wyczerpania z użyciem enkodera zmieniającego stan pinu wyjściowego podczas ruchu filamentu w czujniku.
 
 See the [command reference](G-Codes.md#filament_switch_sensor) for more information.
 
@@ -4282,7 +4282,7 @@ TSLl401CL Based Filament Width Sensor. See the [guide](TSL1401CL_Filament_Width_
 
 ### [hall_filament_width_sensor]
 
-Hall filament width sensor (see [Hall Filament Width Sensor](Hall_Filament_Width_Sensor.md)).
+Czujnik średnicy filamentu efektu Halla (patrz [Czujnik szerokości efektu Halla](Hall_Filament_Width_Sensor.md)).
 
 ```
 [hall_filament_width_sensor]
@@ -4495,7 +4495,7 @@ clk_pin:
 
 ### [adc_scaled]
 
-Duet2 Maestro analog scaling by vref and vssa readings. Defining an adc_scaled section enables virtual adc pins (such as "my_name:PB0") that are automatically adjusted by the board's vref and vssa monitoring pins. Be sure to define this config section above any config sections that use one these virtual pins.
+Skalowanie analogowe Duet2 Maestro przez odczyty vref i vssa. Zdefiniowanie sekcji adc_scaled włącza wirtualne piny adc (takie jak "moja_nazwa:PB0"), które są automatycznie dostosowywane przez piny monitorujące vref i vssa płyty. Upewnij się, że ta sekcja konfiguracji jest zdefiniowana nad wszystkimi sekcjami konfiguracji, które używają tych wirtualnych pinów.
 
 See the [generic-duet2-maestro.cfg](../config/generic-duet2-maestro.cfg) file for an example.
 
@@ -4585,9 +4585,9 @@ Palette 2 multimaterial support - provides a tighter integration supporting Pale
 
 This modules also requires `[virtual_sdcard]` and `[pause_resume]` for full functionality.
 
-If you use this module, do not use the Palette 2 plugin for Octoprint as they will conflict, and 1 will fail to initialize properly likely aborting your print.
+Jeżeli używasz tego modułu, nie używaj wtyczki Palette 2 dla Octoprint, gdyż mogą one powodować konflikty, a 1 nie zostanie poprawnie zainicjowana, co prawdopodobnie spowoduje przerwanie drukowania.
 
-If you use Octoprint and stream gcode over the serial port instead of printing from virtual_sd, then remo **M1** and **M0** from *Pausing commands* in *Settings > Serial Connection > Firmware & protocol* will prevent the need to start print on the Palette 2 and unpausing in Octoprint for your print to begin.
+Jeśli używasz Octoprint i przesyłasz strumieniowo gcode przez port szeregowy zamiast drukować z virtual_sd, to usunięcie **M1** i **M0** z *Poleceń pauzujących* w *Ustawienia > Połączenie szeregowe > Oprogramowanie sprzętowe i protokół* zapobiegnie konieczności uruchamiania drukowania na Palette 2 i wznawiania drukowania w Octoprint w celu rozpoczęcia drukowania.
 
 ```
 [palette2]

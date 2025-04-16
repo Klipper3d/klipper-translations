@@ -53,7 +53,7 @@ The following commands are available when an [adxl345 config section](Config_Ref
 
 #### ACCELEROMETER_QUERY
 
-`ACCELEROMETER_QUERY [CHIP=<config_name>] [RATE=<value>]`: queries accelerometer for the current value. If CHIP is not specified it defaults to "adxl345". If RATE is not specified, the default value is used. This command is useful to test the connection to the ADXL345 accelerometer: one of the returned values should be a free-fall acceleration (+/- some noise of the chip).
+`ACCELEROMETER_QUERY [CHIP=<config_name>] [RATE=<value>]`: consulta el acelerómetro para obtener el valor actual. Si no se especifica CHIP, el valor predeterminado es "adxl345". Si no se especifica RATE, se utiliza el valor predeterminado. Este comando es útil para probar la conexión con el acelerómetro ADXL345: uno de los valores devueltos debe ser una aceleración en caída libre (+/- algo de ruido del chip).
 
 #### ACCELEROMETER_DEBUG_READ
 
@@ -69,7 +69,7 @@ The following commands are available when an [angle config section](Config_Refer
 
 #### ANGLE_CALIBRATE
 
-`ANGLE_CALIBRATE CHIP=<chip_name>`: Perform angle calibration on the given sensor (there must be an `[angle chip_name]` config section that has specified a `stepper` parameter). IMPORTANT - this tool will command the stepper motor to move without checking the normal kinematic boundary limits. Ideally the motor should be disconnected from any printer carriage before performing calibration. If the stepper can not be disconnected from the printer, make sure the carriage is near the center of its rail before starting calibration. (The stepper motor may move forwards or backwards two full rotations during this test.) After completing this test use the `SAVE_CONFIG` command to save the calibration data to the config file. In order to use this tool the Python "numpy" package must be installed (see the [measuring resonance document](Measuring_Resonances.md#software-installation) for more information).
+`ANGLE_CALIBRATE CHIP=<chip_name>`: Realiza la calibración angular en el sensor dado (debe haber una sección de configuración `[angle chip_name]` que especifique el parámetro `stepper`). IMPORTANTE: Esta herramienta ordenará al motor paso a paso que se mueva sin verificar los límites cinemáticos normales. Idealmente, el motor debe estar desconectado del carro de la impresora antes de realizar la calibración. Si el motor paso a paso no se puede desconectar de la impresora, asegúrese de que el carro esté cerca del centro de su riel antes de iniciar la calibración. (El motor paso a paso puede avanzar o retroceder dos vueltas completas durante esta prueba). Después de completar esta prueba, utilice el comando `SAVE_CONFIG` para guardar los datos de calibración en el archivo de configuración. Para usar esta herramienta, debe tener instalado el paquete "numpy" de Python (consulte el documento sobre resonancia de medición](Measuring_Resonances.md#software-installation) para obtener más información).
 
 #### ANGLE_CHIP_CALIBRATE
 
@@ -865,9 +865,9 @@ The following commands are available when a [temperature_probe config section](C
 
 `TEMPERATURE_PROBE_COMPLETE`: Can be used to end calibration and save the current result before the `TARGET` temperature is reached. This command is only available during calibration.
 
-#### ABORT
+#### cancela
 
-`ABORT`: Aborts the calibration process, discarding the current results. This command is only available during drift calibration.
+`ABORT`: Cancela el proceso de calibración y descarta los resultados actuales. Este comando solo está disponible durante la calibración de drift.
 
 ### TEMPERATURE_PROBE_ENABLE
 
