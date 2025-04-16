@@ -1,17 +1,19 @@
 # Vlastimil Dědek <dedekvlastimil@gmail.com>, 2022.
 # Pavel Šubík <wgspider@gmail.com>, 2024.
 # Miloslav Kos <kos.m@post.cz>, 2024.
+# vyPal <kubik.palacky@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-05-11 07:45+0000\n"
-"Last-Translator: Miloslav Kos <kos.m@post.cz>\n"
-"Language-Team: Czech <https://hosted.weblate.org/projects/klipper/g-codes/cs/>\n"
+"PO-Revision-Date: 2025-04-05 08:17+0000\n"
+"Last-Translator: vyPal <kubik.palacky@gmail.com>\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/klipper/g-codes/cs/"
+">\n"
 "Language: cs\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2);\n"
-"X-Generator: Weblate 5.5.4\n"
+"X-Generator: Weblate 5.11-dev\n"
 
 msgid ""
 "This document describes the commands that Klipper supports. These are commands"
@@ -1744,7 +1746,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 22 (header)
 msgid "[angle]"
-msgstr ""
+msgstr "[angle]"
 
 #: docs/G-Codes.md:block 23 (paragraph)
 msgid ""

@@ -5,21 +5,25 @@
 # Emerson Jhones <ejhones@gmail.com>, 2024.
 # theghost48 <gusthavonery00ghost@outlook.com>, 2024.
 # Thomas Martin Bueno de Moraes <thomasmbmoraes@gmail.com>, 2024.
+# Marco Antonio <marcoocost@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-12-03 06:04+0000\n"
-"Last-Translator: Thomas Martin Bueno de Moraes <thomasmbmoraes@gmail.com>\n"
-"Language-Team: Portuguese <https://hosted.weblate.org/projects/klipper/config_reference/pt/>\n"
+"PO-Revision-Date: 2025-03-11 03:45+0000\n"
+"Last-Translator: Marco Antonio <marcoocost@gmail.com>\n"
+"Language-Team: Portuguese <https://hosted.weblate.org/projects/klipper/"
+"config_reference/pt/>\n"
 "Language: pt\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.9-dev\n"
+"X-Generator: Weblate 5.10.3-dev\n"
 
 msgid ""
 "This document is a reference for options available in the Klipper config file."
 msgstr ""
+"Este documento é uma referência das opções disponíveis no arquivo de "
+"configuração do klipper."
 
 msgid ""
 "The descriptions in this document are formatted so that it is possible to cut-"

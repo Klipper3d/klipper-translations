@@ -1,0 +1,567 @@
+# Languages add-on <noreply-addon-languages@weblate.org>, 2025.
+msgid ""
+msgstr ""
+"Language: ota\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: docs/Beaglebone.md:block 1 (header)
+msgid "Beaglebone"
+msgstr ""
+
+#: docs/Beaglebone.md:block 2 (paragraph)
+msgid ""
+"This document describes the process of running Klipper on a Beaglebone PRU."
+msgstr ""
+
+#: docs/Beaglebone.md:block 3 (header)
+msgid "Building an OS image"
+msgstr ""
+
+#: docs/Beaglebone.md:block 10 (paragraph)
+msgid "And setup OctoPrint to start at bootup:"
+msgstr ""
+
+#: docs/Beaglebone.md:block 12 (paragraph)
+msgid ""
+"It is necessary to modify OctoPrint's **/etc/default/octoprint** configuration"
+" file. One must change the `OCTOPRINT_USER` user to `debian`, change "
+"`NICELEVEL` to `0`, uncomment the `BASEDIR`, `CONFIGFILE`, and `DAEMON` "
+"settings and change the references from `/home/pi/` to `/home/debian/`:"
+msgstr ""
+
+#: docs/Beaglebone.md:block 14 (paragraph)
+msgid "Then start the Octoprint service:"
+msgstr ""
+
+#: docs/Beaglebone.md:block 22 (paragraph)
+msgid ""
+"It is also necessary to compile and install the micro-controller code for a "
+"Linux host process. Configure it a second time for a \"Linux process\":"
+msgstr ""
+
+#: docs/Beaglebone.md:block 24 (paragraph)
+msgid "Then install this micro-controller code as well:"
+msgstr ""
+
+#: docs/Beaglebone.md:block 26 (header)
+msgid "Remaining configuration"
+msgstr ""
+
+#: docs/Beaglebone.md:block 28 (header)
+msgid "Printing on the Beaglebone"
+msgstr ""
+
+#: docs/Beaglebone.md:block 4 (paragraph)
+msgid ""
+"Start by installing the [Debian 11.7 2023-09-02 4GB microSD "
+"IoT](https://beagleboard.org/latest-images) image. One may run the image from "
+"either a micro-SD card or from builtin eMMC. If using the eMMC, install it to "
+"eMMC now by following the instructions from the above link."
+msgstr ""
+
+#: docs/Beaglebone.md:block 5 (paragraph)
+msgid ""
+"Then ssh into the Beaglebone machine (`ssh debian@beaglebone` -- password is "
+"`temppwd`)."
+msgstr ""
+
+#: docs/Beaglebone.md:block 6 (paragraph)
+msgid ""
+"Before start installing Klipper you need to free-up additional space. there "
+"are 3 options to do that:"
+msgstr ""
+
+#: docs/Beaglebone.md:block 7 (ordered list)
+msgid "remove some BeagleBone \"Demo\" resources"
+msgstr ""
+
+#: docs/Beaglebone.md:block 7 (ordered list)
+msgid ""
+"if you did boot from SD-Card, and it's bigger than 4Gb - you can expand "
+"current filesystem to take whole card space"
+msgstr ""
+
+#: docs/Beaglebone.md:block 7 (ordered list)
+msgid "do option #1 and #2 together."
+msgstr ""
+
+#: docs/Beaglebone.md:block 8 (paragraph)
+msgid "To remove some BeagleBone \"Demo\" resources execute these commands"
+msgstr ""
+
+#: docs/Beaglebone.md:block 10 (paragraph)
+msgid ""
+"To expand filesystem to full size of your SD-Card execute this command, reboot"
+" is not required."
+msgstr ""
+
+#: docs/Beaglebone.md:block 12 (paragraph)
+msgid "Install Klipper by running the following commands:"
+msgstr ""
+
+#: docs/Beaglebone.md:block 14 (paragraph)
+msgid ""
+"After installing Klipper you need to decide what kind of deployment do you "
+"need, but take a note that BeagleBone is 3.3v based hardware and in most cases"
+" you can't directly connect pins to 5v or 12v based hardware without "
+"conversion boards."
+msgstr ""
+
+#: docs/Beaglebone.md:block 15 (paragraph)
+msgid ""
+"As Klipper have multimodule architecture on BeagleBone you can achieve many "
+"different use cases, but general ones are following:"
+msgstr ""
+
+#: docs/Beaglebone.md:block 16 (paragraph)
+msgid ""
+"Use case 1: Use BeagleBone only as a host system to run Klipper and additional"
+" software like OctoPrint/Fluidd + Moonraker/... and this configuration will be"
+" driving external micro-controllers via serial/usb/canbus connections."
+msgstr ""
+
+#: docs/Beaglebone.md:block 17 (paragraph)
+msgid ""
+"Use case 2: Use BeagleBone with extension board (cape) like CRAMPS board. in "
+"this configuration BeagleBone will host Klipper + additional software, and it "
+"will drive extension board with BeagleBone PRU cores (2 additional cores "
+"200Mh, 32Bit)."
+msgstr ""
+
+#: docs/Beaglebone.md:block 18 (paragraph)
+msgid ""
+"Use case 3: It's same as \"Use case 1\" but additionally you want to drive "
+"BeagleBone GPIOs with high speed by utilizing PRU cores to offload main CPU."
+msgstr ""
+
+#: docs/Beaglebone.md:block 19 (header)
+msgid "Installing Octoprint"
+msgstr ""
+
+#: docs/Beaglebone.md:block 20 (paragraph)
+msgid ""
+"One may then install Octoprint or fully skip this section if desired other "
+"software:"
+msgstr ""
+
+#: docs/Beaglebone.md:block 28 (paragraph)
+msgid ""
+"Wait 1-2 minutes and make sure the OctoPrint web server is accessible - it "
+"should be at: <http://beaglebone:5000/>"
+msgstr ""
+
+#: docs/Beaglebone.md:block 29 (header)
+msgid "Building the BeagleBone PRU micro-controller code (PRU firmware)"
+msgstr ""
+
+#: docs/Beaglebone.md:block 30 (paragraph)
+msgid ""
+"This section is required for \"Use case 2\" and \"Use case 3\" mentioned "
+"above, you should skip it for \"Use case 1\"."
+msgstr ""
+
+#: docs/Beaglebone.md:block 31 (paragraph)
+msgid "Check that required devices are present"
+msgstr ""
+
+#: docs/Beaglebone.md:block 33 (paragraph)
+msgid ""
+"You should check that output contains successful \"remoteproc\" drivers "
+"loading and presence of PRU cores, in Kernel 5.10 they should be "
+"\"remoteproc1\" and \"remoteproc2\" (4a334000.pru, 4a338000.pru) Also check "
+"that many GPIOs are loaded they will look like \"Allocated GPIO id=0 "
+"name='P8_03'\" Usually everything is fine and no hardware configuration is "
+"required. If something is missing - try to play with \"uboot overlays\" "
+"options or with cape-overlays Just for reference some output of working "
+"BeagleBone Black configuration with CRAMPS board:"
+msgstr ""
+
+#: docs/Beaglebone.md:block 35 (paragraph)
+msgid ""
+"To compile the Klipper micro-controller code, start by configuring it for the "
+"\"Beaglebone PRU\", for \"BeagleBone Black\" additionally disable options "
+"\"Support GPIO Bit-banging devices\" and disable \"Support LCD devices\" "
+"inside the \"Optional features\" because they will not fit in 8Kb PRU firmware"
+" memory, then exit and save config:"
+msgstr ""
+
+#: docs/Beaglebone.md:block 37 (paragraph)
+msgid "To build and install the new PRU micro-controller code, run:"
+msgstr ""
+
+#: docs/Beaglebone.md:block 39 (paragraph)
+msgid ""
+"After previous commands was executed your PRU firmware should be ready and "
+"started to check if everything was fine you can execute following command"
+msgstr ""
+
+#: docs/Beaglebone.md:block 41 (paragraph)
+msgid ""
+"and compare last messages with sample one which indicate that everything "
+"started properly:"
+msgstr ""
+
+#: docs/Beaglebone.md:block 43 (paragraph)
+msgid ""
+"take a note about \"/dev/rpmsg_pru30\" - it's your future serial device for "
+"main mcu configuration this device is required to be present, if it's absent -"
+" your PRU cores did not start properly."
+msgstr ""
+
+#: docs/Beaglebone.md:block 44 (header)
+msgid "Building and installing Linux host micro-controller code"
+msgstr ""
+
+#: docs/Beaglebone.md:block 45 (paragraph)
+msgid ""
+"This section is required for \"Use case 2\" and optional for \"Use case 3\" "
+"mentioned above"
+msgstr ""
+
+#: docs/Beaglebone.md:block 50 (paragraph)
+msgid ""
+"take a note about \"/tmp/klipper_host_mcu\" - it will be your future serial "
+"device for \"mcu host\" if that file don't exist - refer to \"scripts/klipper-"
+"mcu.service\" file, it was installed by previous commands, and it's "
+"responsible for it."
+msgstr ""
+
+#: docs/Beaglebone.md:block 51 (paragraph)
+msgid ""
+"Take a note for \"Use case 2\" about following: when you will define printer "
+"configuration you should always use temperature sensors from \"mcu host\" "
+"because ADCs not present in default \"mcu\" (PRU cores). Sample configuration "
+"of \"sensor_pin\" for extruder and heated bed are available in \"generic-"
+"cramps.cfg\" You can use any other GPIO directly from \"mcu host\" by "
+"referencing them this way \"host:gpiochip1/gpio17\" but that should be avoided"
+" because it will be creating additional load on main CPU and most probably you"
+" can't use them for stepper control."
+msgstr ""
+
+#: docs/Beaglebone.md:block 53 (paragraph)
+msgid ""
+"Complete the installation by configuring Klipper following the instructions in"
+" the main [Installation](Installation.md#configuring-octoprint-to-use-klipper)"
+" document."
+msgstr ""
+
+#: docs/Beaglebone.md:block 55 (paragraph)
+msgid ""
+"Unfortunately, the Beaglebone processor can sometimes struggle to run "
+"OctoPrint well. Print stalls have been known to occur on complex prints (the "
+"printer may move faster than OctoPrint can send movement commands). If this "
+"occurs, consider using the \"virtual_sdcard\" feature (see [Config "
+"Reference](Config_Reference.md#virtual_sdcard) for details) to print directly "
+"from Klipper and disable any DEBUG or VERBOSE logging options if you did "
+"enable them."
+msgstr ""
+
+#: docs/Beaglebone.md:block 56 (header)
+msgid "AVR micro-controller code build"
+msgstr ""
+
+#: docs/Beaglebone.md:block 57 (paragraph)
+msgid ""
+"This environment have everything to build necessary micro-controller code "
+"except AVR, AVR packages was removed because of conflict with PRU packages. if"
+" you still want to build AVR micro-controller code in this environment you "
+"need to remove PRU packages and install AVR packages by executing following "
+"commands"
+msgstr ""
+
+#: docs/Beaglebone.md:block 59 (paragraph)
+msgid ""
+"if you need to restore PRU packages - then remove ARV packages before that"
+msgstr ""
+
+#: docs/Beaglebone.md:block 61 (header)
+msgid "Hardware Pin designation"
+msgstr ""
+
+#: docs/Beaglebone.md:block 62 (paragraph)
+msgid ""
+"BeagleBone is very flexible in terms of pin designation, same pin can be "
+"configured for different function but always single function for single pin, "
+"same function can be present on different pins. So you can't have multiple "
+"functions on single pin or have same function on multiple pins. Example: P9_20"
+" - i2c2_sda/can0_tx/spi1_cs0/gpio0_12/uart1_ctsn P9_19 - "
+"i2c2_scl/can0_rx/spi1_cs1/gpio0_13/uart1_rtsn P9_24 - "
+"i2c1_scl/can1_rx/gpio0_15/uart1_tx P9_26 - i2c1_sda/can1_tx/gpio0_14/uart1_rx"
+msgstr ""
+
+#: docs/Beaglebone.md:block 63 (paragraph)
+msgid ""
+"Pin designation is defined by using special \"overlays\" which will be loaded "
+"during linux boot they are configured by editing file /boot/uEnv.txt with "
+"elevated permissions"
+msgstr ""
+
+#: docs/Beaglebone.md:block 65 (paragraph)
+msgid ""
+"and defining which functionality to load, for example to enable CAN1 you need "
+"to define overlay for it"
+msgstr ""
+
+#: docs/Beaglebone.md:block 67 (paragraph)
+msgid ""
+"This overlay BB-CAN1-00A0.dtbo will reconfigure all required pins for CAN1 and"
+" create CAN device in Linux. Any change in overlays will require system reboot"
+" to be applied. If you need to understand which pins are involved in some "
+"overlay - you can analyze source files in this location: /opt/sources/bb.org-"
+"overlays/src/arm/ or search info in BeagleBone forums."
+msgstr ""
+
+#: docs/Beaglebone.md:block 68 (header)
+msgid "Enabling hardware SPI"
+msgstr ""
+
+#: docs/Beaglebone.md:block 69 (paragraph)
+msgid ""
+"BeagleBone usually have multiple hardware SPI buses, for example BeagleBone "
+"Black can have 2 of them, they can work up to 48Mhz, but usually they are "
+"limited to 16Mhz by Kernel Device-tree. By default, in BeagleBone Black some "
+"of SPI1 pins are configured for HDMI-Audio output, to fully enable 4-wire SPI1"
+" you need to disable HDMI Audio and enable SPI1 To do that edit file "
+"/boot/uEnv.txt with elevated permissions"
+msgstr ""
+
+#: docs/Beaglebone.md:block 71 (paragraph)
+msgid "uncomment variable"
+msgstr ""
+
+#: docs/Beaglebone.md:block 73 (paragraph)
+msgid "next uncomment variable and define it this way"
+msgstr ""
+
+#: docs/Beaglebone.md:block 75 (paragraph)
+msgid ""
+"Save changes in /boot/uEnv.txt and reboot the board. Now you have SPI1 "
+"Enabled, to verify its presence execute command"
+msgstr ""
+
+#: docs/Beaglebone.md:block 77 (paragraph)
+msgid ""
+"Take a note that BeagleBone usually is 3.3v based hardware and to use 5V SPI "
+"devices you need to add Level-Shifting chip, for example SN74CBTD3861, "
+"SN74LVC1G34 or similar. If you are using CRAMPS board - it already contains "
+"Level-Shifting chip and SPI1 pins will become available on P503 port, and they"
+" can accept 5v hardware, check CRAMPS board Schematics for pin references."
+msgstr ""
+
+#: docs/Beaglebone.md:block 78 (header)
+msgid "Enabling hardware I2C"
+msgstr ""
+
+#: docs/Beaglebone.md:block 79 (paragraph)
+msgid ""
+"BeagleBone usually have multiple hardware I2C buses, for example BeagleBone "
+"Black can have 3 of them, they support speed up-to 400Kbit Fast mode. By "
+"default, in BeagleBone Black there are two of them (i2c-1 and i2c-2) usually "
+"both are already configured and present on P9, third ic2-0 usually reserved "
+"for internal use. If you are using CRAMPS board then i2c-2 is present on P303 "
+"port with 3.3v level, If you want to obtain I2c-1 in CRAMPS board - you can "
+"get them on Extruder1.Step, Extruder1.Dir pins, they also are 3.3v based, "
+"check CRAMPS board Schematics for pin references. Related overlays, for "
+"[Hardware Pin designation](#hardware-pin-designation): I2C1(100Kbit): "
+"BB-I2C1-00A0.dtbo I2C1(400Kbit): BB-I2C1-FAST-00A0.dtbo I2C2(100Kbit): "
+"BB-I2C2-00A0.dtbo I2C2(400Kbit): BB-I2C2-FAST-00A0.dtbo"
+msgstr ""
+
+#: docs/Beaglebone.md:block 80 (header)
+msgid "Enabling hardware UART(Serial)/CAN"
+msgstr ""
+
+#: docs/Beaglebone.md:block 81 (paragraph)
+msgid ""
+"BeagleBone have up to 6 hardware UART(Serial) buses (up to 3Mbit) and up to 2 "
+"hardware CAN(1Mbit) buses. UART1(RX,TX) and CAN1(TX,RX) and I2C2(SDA,SCL) are "
+"using same pins - so you need to chose what to use UART1(CTSN,RTSN) and "
+"CAN0(TX,RX) and I2C1(SDA,SCL) are using same pins - so you need to chose what "
+"to use All UART/CAN related pins are 3.3v based, so you will need to use "
+"Transceiver chips/boards like SN74LVC2G241DCUR (for UART), SN65HVD230 (for "
+"CAN), TTL-RS485 (for RS-485) or something similar which can convert 3.3v "
+"signals to appropriate levels."
+msgstr ""
+
+#: docs/Beaglebone.md:block 82 (paragraph)
+msgid ""
+"Related overlays, for [Hardware Pin designation](#hardware-pin-designation) "
+"CAN0: BB-CAN0-00A0.dtbo CAN1: BB-CAN1-00A0.dtbo UART0: - used for Console "
+"UART1(RX,TX): BB-UART1-00A0.dtbo UART1(RTS,CTS): BB-UART1-RTSCTS-00A0.dtbo "
+"UART2(RX,TX): BB-UART2-00A0.dtbo UART3(RX,TX): BB-UART3-00A0.dtbo "
+"UART4(RS-485): BB-UART4-RS485-00A0.dtbo UART5(RX,TX): BB-UART5-00A0.dtbo"
+msgstr ""
+
+#~ msgid ""
+#~ "git clone https://github.com/foosel/OctoPrint.git\n"
+#~ "cd OctoPrint/\n"
+#~ "virtualenv venv\n"
+#~ "./venv/bin/python setup.py install\n"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "sudo cp ~/OctoPrint/scripts/octoprint.init /etc/init.d/octoprint\n"
+#~ "sudo chmod +x /etc/init.d/octoprint\n"
+#~ "sudo cp ~/OctoPrint/scripts/octoprint.default /etc/default/octoprint\n"
+#~ "sudo update-rc.d octoprint defaults\n"
+#~ msgstr ""
+
+#~ msgid "sudo nano /etc/default/octoprint\n"
+#~ msgstr ""
+
+#~ msgid "sudo systemctl start octoprint\n"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "cd ~/klipper/\n"
+#~ "make menuconfig\n"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "sudo service klipper stop\n"
+#~ "make flash\n"
+#~ "sudo service klipper start\n"
+#~ msgstr ""
+
+#~ msgid "make menuconfig\n"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "sudo apt remove bb-node-red-installer\n"
+#~ "sudo apt remove bb-code-server\n"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "sudo growpart /dev/mmcblk0 1\n"
+#~ "sudo resize2fs /dev/mmcblk0p1\n"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "git clone https://github.com/Klipper3d/klipper.git\n"
+#~ "./klipper/scripts/install-beaglebone.sh\n"
+#~ msgstr ""
+
+#~ msgid "sudo beagle-version\n"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "model:[TI_AM335x_BeagleBone_Black]\n"
+#~ "UBOOT: Booted Device-Tree:[am335x-boneblack-uboot-univ.dts]\n"
+#~ "UBOOT: Loaded Overlay:[BB-ADC-00A0.bb.org-overlays]\n"
+#~ "UBOOT: Loaded Overlay:[BB-BONE-eMMC1-01-00A0.bb.org-overlays]\n"
+#~ "kernel:[5.10.168-ti-r71]\n"
+#~ "/boot/uEnv.txt Settings:\n"
+#~ "uboot_overlay_options:[enable_uboot_overlays=1]\n"
+#~ "uboot_overlay_options:[disable_uboot_overlay_video=0]\n"
+#~ "uboot_overlay_options:[disable_uboot_overlay_audio=1]\n"
+#~ "uboot_overlay_options:[disable_uboot_overlay_wireless=1]\n"
+#~ "uboot_overlay_options:[enable_uboot_cape_universal=1]\n"
+#~ "pkg:[bb-cape-overlays]:[4.14.20210821.0-0~bullseye+20210821]\n"
+#~ "pkg:[bb-customizations]:[1.20230720.1-0~bullseye+20230720]\n"
+#~ "pkg:[bb-usb-gadgets]:[1.20230414.0-0~bullseye+20230414]\n"
+#~ "pkg:[bb-wl18xx-firmware]:[1.20230414.0-0~bullseye+20230414]\n"
+#~ ".............\n"
+#~ ".............\n"
+#~ "\n"
+#~ msgstr ""
+
+#~ msgid "dmesg\n"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "[   71.105499] remoteproc remoteproc1: 4a334000.pru is available\n"
+#~ "[   71.157155] remoteproc remoteproc2: 4a338000.pru is available\n"
+#~ "[   73.256287] remoteproc remoteproc1: powering up 4a334000.pru\n"
+#~ "[   73.279246] remoteproc remoteproc1: Booting fw image am335x-pru0-fw, size 97112\n"
+#~ "[   73.285807]  remoteproc1#vdev0buffer: registered virtio0 (type 7)\n"
+#~ "[   73.285836] remoteproc remoteproc1: remote processor 4a334000.pru is now up\n"
+#~ "[   73.286322] remoteproc remoteproc2: powering up 4a338000.pru\n"
+#~ "[   73.313717] remoteproc remoteproc2: Booting fw image am335x-pru1-fw, size 188560\n"
+#~ "[   73.313753] remoteproc remoteproc2: header-less resource table\n"
+#~ "[   73.329964] remoteproc remoteproc2: header-less resource table\n"
+#~ "[   73.348321] remoteproc remoteproc2: remote processor 4a338000.pru is now up\n"
+#~ "[   73.443355] virtio_rpmsg_bus virtio0: creating channel rpmsg-pru addr 0x1e\n"
+#~ "[   73.443727] virtio_rpmsg_bus virtio0: msg received with no recipient\n"
+#~ "[   73.444352] virtio_rpmsg_bus virtio0: rpmsg host is online\n"
+#~ "[   73.540993] rpmsg_pru virtio0.rpmsg-pru.-1.30: new rpmsg_pru device: /dev/rpmsg_pru30\n"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "sudo apt-get remove gcc-pru\n"
+#~ "sudo apt-get install avrdude gcc-avr binutils-avr avr-libc\n"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "sudo apt-get remove avrdude gcc-avr binutils-avr avr-libc\n"
+#~ "sudo apt-get install gcc-pru\n"
+#~ msgstr ""
+
+#~ msgid "sudo editor /boot/uEnv.txt\n"
+#~ msgstr ""
+
+#~ msgid "uboot_overlay_addr4=/lib/firmware/BB-CAN1-00A0.dtbo\n"
+#~ msgstr ""
+
+#~ msgid "disable_uboot_overlay_audio=1\n"
+#~ msgstr ""
+
+#~ msgid "uboot_overlay_addr4=/lib/firmware/BB-SPIDEV1-00A0.dtbo\n"
+#~ msgstr ""
+
+#~ msgid "ls /dev/spidev1.*\n"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Start by installing the [Debian 9.9 2019-08-03 4GB SD "
+#~ "IoT](https://beagleboard.org/latest-images) image. One may run the image from "
+#~ "either a micro-SD card or from builtin eMMC. If using the eMMC, install it to "
+#~ "eMMC now by following the instructions from the above link."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Then ssh into the Beaglebone machine (`ssh debian@beaglebone` -- password is "
+#~ "`temppwd`) and install Klipper by running the following commands:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "git clone https://github.com/Klipper3d/klipper\n"
+#~ "./klipper/scripts/install-beaglebone.sh\n"
+#~ msgstr ""
+
+#~ msgid "Install Octoprint"
+#~ msgstr ""
+
+#~ msgid "One may then install Octoprint:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Make sure the OctoPrint web server is accessible - it should be at: "
+#~ "<http://beaglebone:5000/>"
+#~ msgstr ""
+
+#~ msgid "Building the micro-controller code"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "To compile the Klipper micro-controller code, start by configuring it for the "
+#~ "\"Beaglebone PRU\":"
+#~ msgstr ""
+
+#~ msgid "To build and install the new micro-controller code, run:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Complete the installation by configuring Klipper and Octoprint following the "
+#~ "instructions in the main [Installation](Installation.md#configuring-klipper) "
+#~ "document."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Unfortunately, the Beaglebone processor can sometimes struggle to run "
+#~ "OctoPrint well. Print stalls have been known to occur on complex prints (the "
+#~ "printer may move faster than OctoPrint can send movement commands). If this "
+#~ "occurs, consider using the \"virtual_sdcard\" feature (see [Config "
+#~ "Reference](Config_Reference.md#virtual_sdcard) for details) to print directly "
+#~ "from Klipper."
+#~ msgstr ""

@@ -4,17 +4,20 @@
 # Francisco Javier Hoyos Arango <cofhal@gmail.com>, 2023.
 # eddit3d <eddit1193@gmail.com>, 2024.
 # ItsMeRecSevenTeen <rickagent478554@gmail.com>, 2024.
+# Pablo Casado <lu6mdm@gmail.com>, 2025.
+# Ramiro Luna boca <lunabocaramiro@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-09-23 00:15+0000\n"
-"Last-Translator: ItsMeRecSevenTeen <rickagent478554@gmail.com>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/g-codes/es/>\n"
+"PO-Revision-Date: 2025-04-02 00:43+0000\n"
+"Last-Translator: Ramiro Luna boca <lunabocaramiro@gmail.com>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/g-codes/"
+"es/>\n"
 "Language: es\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.8-dev\n"
+"X-Generator: Weblate 5.11-dev\n"
 
 #, fuzzy
 msgid ""
@@ -679,6 +682,12 @@ msgid ""
 "returned values should be a free-fall acceleration (+/- some noise of the "
 "chip)."
 msgstr ""
+"`ACCELEROMETER_QUERY [CHIP=<config_name>] [RATE=<value>]`: consulta el "
+"acelerómetro para obtener el valor actual. Si no se especifica CHIP, el "
+"valor predeterminado es \"adxl345\". Si no se especifica RATE, se utiliza el "
+"valor predeterminado. Este comando es útil para probar la conexión con el "
+"acelerómetro ADXL345: uno de los valores devueltos debe ser una aceleración "
+"en caída libre (+/- algo de ruido del chip)."
 
 #: docs/G-Codes.md:block 105 (unordered list)
 msgid ""
@@ -1805,6 +1814,20 @@ msgid ""
 "document](Measuring_Resonances.md#software-installation) for more "
 "information)."
 msgstr ""
+"`ANGLE_CALIBRATE CHIP=<chip_name>`: Realiza la calibración angular en el "
+"sensor dado (debe haber una sección de configuración `[angle chip_name]` que "
+"especifique el parámetro `stepper`). IMPORTANTE: Esta herramienta ordenará "
+"al motor paso a paso que se mueva sin verificar los límites cinemáticos "
+"normales. Idealmente, el motor debe estar desconectado del carro de la "
+"impresora antes de realizar la calibración. Si el motor paso a paso no se "
+"puede desconectar de la impresora, asegúrese de que el carro esté cerca del "
+"centro de su riel antes de iniciar la calibración. (El motor paso a paso "
+"puede avanzar o retroceder dos vueltas completas durante esta prueba). "
+"Después de completar esta prueba, utilice el comando `SAVE_CONFIG` para "
+"guardar los datos de calibración en el archivo de configuración. Para usar "
+"esta herramienta, debe tener instalado el paquete \"numpy\" de Python ("
+"consulte el documento sobre resonancia de medición](Measuring_Resonances.md"
+"#software-installation) para obtener más información)."
 
 #: docs/G-Codes.md:block 26 (header)
 msgid "ANGLE_DEBUG_READ"
@@ -2468,13 +2491,15 @@ msgstr ""
 
 #: docs/G-Codes.md:block 401 (header)
 msgid "ABORT"
-msgstr ""
+msgstr "cancela"
 
 #: docs/G-Codes.md:block 402 (paragraph)
 msgid ""
 "`ABORT`: Aborts the calibration process, discarding the current results. This "
 "command is only available during drift calibration."
 msgstr ""
+"`ABORT`: Cancela el proceso de calibración y descarta los resultados "
+"actuales. Este comando solo está disponible durante la calibración de drift."
 
 #: docs/G-Codes.md:block 403 (header)
 msgid "TEMPERATURE_PROBE_ENABLE"

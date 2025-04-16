@@ -1,18 +1,20 @@
 # Emerson Jhones <ejhones@gmail.com>, 2024.
+# Marco Antonio <marcoocost@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-05-22 09:10+0000\n"
-"Last-Translator: Emerson Jhones <ejhones@gmail.com>\n"
-"Language-Team: Portuguese <https://hosted.weblate.org/projects/klipper/measuring_resonances/pt/>\n"
+"PO-Revision-Date: 2025-03-11 03:45+0000\n"
+"Last-Translator: Marco Antonio <marcoocost@gmail.com>\n"
+"Language-Team: Portuguese <https://hosted.weblate.org/projects/klipper/"
+"measuring_resonances/pt/>\n"
 "Language: pt\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.6-dev\n"
+"X-Generator: Weblate 5.10.3-dev\n"
 
 msgid "Measuring Resonances"
-msgstr ""
+msgstr "Medindo Ressonâncias"
 
 msgid "Installation instructions"
 msgstr ""
