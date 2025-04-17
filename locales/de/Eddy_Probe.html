@@ -13,7 +13,7 @@
     
     
       
-        <title>Eddy Current Inductive probe - Klipper documentation</title>
+        <title>Induktive Wirbelstromsonde - Klipper documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#eddy-current-inductive-probe" class="md-skip">
+        <a href="#induktive-wirbelstromsonde" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Eddy Current Inductive probe
+              Induktive Wirbelstromsonde
             
           </span>
         </div>
@@ -1351,8 +1351,8 @@
 </a>
 
 
-<h1 id="eddy-current-inductive-probe">Eddy Current Inductive probe<a class="headerlink" href="#eddy-current-inductive-probe" title="Permanent link">&para;</a></h1>
-<p>This document describes how to use an <a href="https://en.wikipedia.org/wiki/Eddy_current">eddy current</a> inductive probe in Klipper.</p>
+<h1 id="induktive-wirbelstromsonde">Induktive Wirbelstromsonde<a class="headerlink" href="#induktive-wirbelstromsonde" title="Permanent link">&para;</a></h1>
+<p>Dieses Dokument beschreibt die Verwendung einer induktiven <a href="https://en.wikipedia.org/wiki/Eddy_current">Wirbelstrom</a> Sonde in Klipper.</p>
 <p>Currently, an eddy current probe can not be used for Z homing. The sensor can only be used for Z probing.</p>
 <p>Start by declaring a <a href="Config_Reference.html#probe_eddy_current">probe_eddy_current config section</a> in the printer.cfg file. It is recommended to set the <code>z_offset</code> to 0.5mm. It is typical for the sensor to require an <code>x_offset</code> and <code>y_offset</code>. If these values are not known, one should estimate the values during initial calibration.</p>
 <p>The first step in calibration is to determine the appropriate DRIVE_CURRENT for the sensor. Home the printer and navigate the toolhead so that the sensor is near the center of the bed and is about 20mm above the bed. Then issue an <code>LDC_CALIBRATE_DRIVE_CURRENT CHIP=&lt;config_name&gt;</code> command. For example, if the config section was named <code>[probe_eddy_current my_eddy_probe]</code> then one would run <code>LDC_CALIBRATE_DRIVE_CURRENT CHIP=my_eddy_probe</code>. This command should complete in a few seconds. After it completes, issue a <code>SAVE_CONFIG</code> command to save the results to the printer.cfg and restart.</p>

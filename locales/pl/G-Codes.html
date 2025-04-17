@@ -3105,7 +3105,7 @@ section</a> is enabled.</p>
 <li><strong>AUTO:</strong> Enables automatic calibration mode. When <code>AUTO=True</code>, the calibration will run for both the X and Y axes. In this mode, <code>AXIS</code> cannot be specified. If both <code>AXIS</code> and <code>AUTO</code> are provided, an error will be raised.</li>
 </ul>
 <h3 id="bed_mesh">[bed_mesh]<a class="headerlink" href="#bed_mesh" title="Permanent link">&para;</a></h3>
-<p>The following commands are available when the <a href="Config_Reference.html#bed_mesh">bed_mesh config section</a> is enabled (also see the <a href="Bed_Mesh.html">bed mesh guide</a>).</p>
+<p>Poniższe polecenia są dostępne, gdy włączona jest <a href="Config_Reference.html#bed_mesh">sekcja konfiguracji bed_mesh</a> (zobacz także <a href="Bed_Mesh.html">przewodnik po siatce stołu</a>).</p>
 <h4 id="bed_mesh_calibrate">BED_MESH_CALIBRATE<a class="headerlink" href="#bed_mesh_calibrate" title="Permanent link">&para;</a></h4>
 <p><code>BED_MESH_CALIBRATE [PROFILE=&lt;name&gt;] [METHOD=manual] [HORIZONTAL_MOVE_Z=&lt;value&gt;] [&lt;probe_parameter&gt;=&lt;value&gt;] [&lt;mesh_parameter&gt;=&lt;value&gt;] [ADAPTIVE=1] [ADAPTIVE_MARGIN=&lt;value&gt;]</code>: This command probes the bed using generated points specified by the parameters in the config. After probing, a mesh is generated and z-movement is adjusted according to the mesh. The mesh will be saved into a profile specified by the <code>PROFILE</code> parameter, or <code>default</code> if unspecified. See the PROBE command for details on the optional probe parameters. If METHOD=manual is specified then the manual probing tool is activated - see the MANUAL_PROBE command above for details on the additional commands available while this tool is active. The optional <code>HORIZONTAL_MOVE_Z</code> value overrides the <code>horizontal_move_z</code> option specified in the config file. If ADAPTIVE=1 is specified then the objects defined by the Gcode file being printed will be used to define the probed area. The optional <code>ADAPTIVE_MARGIN</code> value overrides the <code>adaptive_margin</code> option specified in the config file.</p>
 <h4 id="bed_mesh_output">BED_MESH_OUTPUT<a class="headerlink" href="#bed_mesh_output" title="Permanent link">&para;</a></h4>
@@ -3133,7 +3133,7 @@ section</a> is enabled.</p>
 <h4 id="bltouch_sklep">BLTOUCH_SKLEP<a class="headerlink" href="#bltouch_sklep" title="Permanent link">&para;</a></h4>
 <p><code>BLTOUCH_STORE MODE=&lt;output_mode&gt;</code>: Zapisuje tryb wyjściowy w EEPROM BLTouch V3.1. Dostępne tryby wyjściowe to: <code>5V</code>, <code>OD</code></p>
 <h3 id="plik-konfiguracyjny">[plik konfiguracyjny]<a class="headerlink" href="#plik-konfiguracyjny" title="Permanent link">&para;</a></h3>
-<p>The configfile module is automatically loaded.</p>
+<p>Plik konfiguracyjny jest ładowany automatycznie.</p>
 <h4 id="save_config">SAVE_CONFIG<a class="headerlink" href="#save_config" title="Permanent link">&para;</a></h4>
 <p><code>SAVE_CONFIG</code>: This command will overwrite the main printer config file and restart the host software. This command is used in conjunction with other calibration commands to store the results of calibration tests.</p>
 <h3 id="opozniony_gkod">[opóźniony_gkod]<a class="headerlink" href="#opozniony_gkod" title="Permanent link">&para;</a></h3>

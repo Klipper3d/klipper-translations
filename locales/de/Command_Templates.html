@@ -1444,7 +1444,7 @@
 <h1 id="befehlsvorlagen">Befehlsvorlagen<a class="headerlink" href="#befehlsvorlagen" title="Permanent link">&para;</a></h1>
 <p>Dieses Dokument enthält Informationen zur Implementierung von G-Code-Befehlssequenzen in gcode_macro (und ähnlichen) Konfigurationsabschnitten.</p>
 <h2 id="g-code-makro-benennung">G-Code Makro-Benennung<a class="headerlink" href="#g-code-makro-benennung" title="Permanent link">&para;</a></h2>
-<p>Case is not important for the G-Code macro name - MY_MACRO and my_macro will evaluate the same and may be called in either upper or lower case. If any numbers are used in the macro name then they must all be at the end of the name (eg, TEST_MACRO25 is valid, but MACRO25_TEST3 is not).</p>
+<p>Die Groß- und Kleinschreibung spielt für den G-Code-Makronamen keine Rolle - MY_MACRO und my_macro werden gleich ausgewertet und können sowohl in Groß- als auch in Kleinschreibung aufgerufen werden. Wenn im Makronamen Zahlen verwendet werden, müssen diese am Ende des Namens stehen (z. B. ist TEST_MACRO25 gültig, MACRO25_TEST3 jedoch nicht).</p>
 <h2 id="formatierung-von-g-code-in-der-konfigurationsdatei">Formatierung von G-Code in der Konfigurationsdatei<a class="headerlink" href="#formatierung-von-g-code-in-der-konfigurationsdatei" title="Permanent link">&para;</a></h2>
 <p>Indentation is important when defining a macro in the config file. To specify a multi-line G-Code sequence it is important for each line to have proper indentation. For example:</p>
 <div class="highlight"><pre><span></span><code>[gcode_macro blink_led]

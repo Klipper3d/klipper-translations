@@ -1843,11 +1843,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#additional-stepper-motors-and-extruders" class="md-nav__link">
-    Additional stepper motors and extruders
+  <a href="#dodatecne-krokove-motory-a-extrudery" class="md-nav__link">
+    Dodatečné krokové motory a extrudery
   </a>
   
-    <nav class="md-nav" aria-label="Additional stepper motors and extruders">
+    <nav class="md-nav" aria-label="Dodatečné krokové motory a extrudery">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1996,8 +1996,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#aht10aht20aht21-temperature-sensor" class="md-nav__link">
-    AHT10/AHT20/AHT21 temperature sensor
+  <a href="#aht10aht20aht21-senzor-teploty" class="md-nav__link">
+    AHT10/AHT20/AHT21 senzor teploty
   </a>
   
 </li>
@@ -2341,8 +2341,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#aip31068_spi-display" class="md-nav__link">
-    aip31068_spi display
+  <a href="#aip31068_spi-displej" class="md-nav__link">
+    aip31068_spi displej
   </a>
   
 </li>
@@ -4371,7 +4371,7 @@ calibrate_x: ...
 #   provided and is recommended to be near the center of the bed.
 </code></pre></div>
 
-<h2 id="additional-stepper-motors-and-extruders">Additional stepper motors and extruders<a class="headerlink" href="#additional-stepper-motors-and-extruders" title="Permanent link">&para;</a></h2>
+<h2 id="dodatecne-krokove-motory-a-extrudery">Dodatečné krokové motory a extrudery<a class="headerlink" href="#dodatecne-krokove-motory-a-extrudery" title="Permanent link">&para;</a></h2>
 <h3 id="stepper_z1">[stepper_z1]<a class="headerlink" href="#stepper_z1" title="Permanent link">&para;</a></h3>
 <p>Multi-stepper axes. On a cartesian style printer, the stepper controlling a given axis may have additional config blocks defining steppers that should be stepped in concert with the primary stepper. One may define any number of sections with a numeric suffix starting at 1 (for example, "stepper_z1", "stepper_z2", etc.).</p>
 <div class="highlight"><pre><span></span><code>[stepper_z1]
@@ -4750,8 +4750,8 @@ sensor_pin:
 #   above parameters.
 </code></pre></div>
 
-<h3 id="aht10aht20aht21-temperature-sensor">AHT10/AHT20/AHT21 temperature sensor<a class="headerlink" href="#aht10aht20aht21-temperature-sensor" title="Permanent link">&para;</a></h3>
-<p>AHT10/AHT20/AHT21 two wire interface (I2C) environmental sensors. Note that these sensors are not intended for use with extruders and heater beds, but rather for monitoring ambient temperature (C) and relative humidity. See <a href="https://github.com/Klipper3d/klipper/blob/master/config/sample-macros.cfg">sample-macros.cfg</a> for a gcode_macro that may be used to report humidity in addition to temperature.</p>
+<h3 id="aht10aht20aht21-senzor-teploty">AHT10/AHT20/AHT21 senzor teploty<a class="headerlink" href="#aht10aht20aht21-senzor-teploty" title="Permanent link">&para;</a></h3>
+<p>Dvouvodičové rozhraní (I2C) senzorů prostředí AHT10/AHT20/AHT21. Upozorňujeme, že tyto snímače nejsou určeny pro použití s extrudery a ohřívacími lůžky, ale spíše pro sledování okolní teploty (C) a relativní vlhkosti. Viz <a href="https://github.com/Klipper3d/klipper/blob/master/config/sample-macros.cfg">sample-macros.cfg</a>, kde je uvedeno gcode_macro, které lze použít k hlášení vlhkosti navíc k teplotě.</p>
 <div class="highlight"><pre><span></span><code>sensor_type: AHT10
 #   Also use AHT10 for AHT20 and AHT21 sensors.
 #i2c_address:
@@ -6161,7 +6161,7 @@ spi_software_miso_pin:
 ...
 </code></pre></div>
 
-<h4 id="aip31068_spi-display">aip31068_spi display<a class="headerlink" href="#aip31068_spi-display" title="Permanent link">&para;</a></h4>
+<h4 id="aip31068_spi-displej">aip31068_spi displej<a class="headerlink" href="#aip31068_spi-displej" title="Permanent link">&para;</a></h4>
 <p>Information on configuring an aip31068_spi display - a very similar to hd44780_spi a 20x04 (20 symbols by 4 lines) display with slightly different internal protocol.</p>
 <div class="highlight"><pre><span></span><code>[display]
 lcd_type: aip31068_spi
@@ -6278,7 +6278,7 @@ lcd_type:
 
 <h3 id="display_data">[display_data]<a class="headerlink" href="#display_data" title="Permanent link">&para;</a></h3>
 <p>Support for displaying custom data on an lcd screen. One may create any number of display groups and any number of data items under those groups. The display will show all the data items for a given group if the display_group option in the [display] section is set to the given group name.</p>
-<p>A <a href="https://github.com/Klipper3d/klipper/blob/master/klippy/extras/display/display.cfg">default set of display groups</a> are automatically created. One can replace or extend these display_data items by overriding the defaults in the main printer.cfg config file.</p>
+<p>Automaticky se vytvoří <a href="https://github.com/Klipper3d/klipper/blob/master/klippy/extras/display/display.cfg">výchozí sada skupin zobrazení</a>. Tyto položky display_data lze nahradit nebo rozšířit přepsáním výchozího nastavení v hlavním konfiguračním souboru printer.cfg.</p>
 <div class="highlight"><pre><span></span><code>[display_data my_group_name my_data_name]
 position:
 #   Comma separated row and column of the display position that should
@@ -6340,7 +6340,7 @@ text:
 
 <h3 id="menu">[menu]<a class="headerlink" href="#menu" title="Permanent link">&para;</a></h3>
 <p>Customizable lcd display menus.</p>
-<p>A <a href="https://github.com/Klipper3d/klipper/blob/master/klippy/extras/display/menu.cfg">default set of menus</a> are automatically created. One can replace or extend the menu by overriding the defaults in the main printer.cfg config file.</p>
+<p>Automaticky se vytvoří <a href="https://github.com/Klipper3d/klipper/blob/master/klippy/extras/display/menu.cfg">výchozí sada menu</a>. Nabídku lze nahradit nebo rozšířit přepsáním výchozího nastavení v hlavním konfiguračním souboru printer.cfg.</p>
 <p>See the <a href="Command_Templates.html#menu-templates">command template document</a> for information on menu attributes available during template rendering.</p>
 <div class="highlight"><pre><span></span><code># Common parameters available for all menu config sections.
 #[menu __some_list __some_name]

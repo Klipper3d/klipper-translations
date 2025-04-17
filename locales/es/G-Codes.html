@@ -2988,8 +2988,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#abort" class="md-nav__link">
-    ABORT
+  <a href="#cancela" class="md-nav__link">
+    cancela
   </a>
   
 </li>
@@ -3075,7 +3075,7 @@
 <h4 id="accelerometer_measure">ACCELEROMETER_MEASURE<a class="headerlink" href="#accelerometer_measure" title="Permanent link">&para;</a></h4>
 <p>'MEDIDAS_ACCELORIMETEO [CHIP=<config_name>] [NAME=<value>]<code>: Empieza medidas de accelorimetro al numero indicado de muestras por segundo . Si CHIP no es específico se usa "adxl345" como valor predeterminado. El comando funciona en modo start-stop: cuando executado inicialmente, Inicia medidas siguiente ejecution las culmina. Resultados se graban en el archivo</code>/tmp/adxl345-<chip>-<name>.csv<code>donde</code><chip><code>es el nombre de el accelerometero(</code>Mi_chip<code>abstenido de</code>[adxl345 Mi_chip]<code>) y</code><name><code>en el parameter opcional NAME. Si NAME no se específico formato de tiempo "YYYYMMDD_HHMMSS" se utiliza. Si no tiene nombre en su configuración (como</code>[adxl345]<code>) entonses la porcion</code><chip>` no es generado como nombre.</p>
 <h4 id="accelerometer_query">ACCELEROMETER_QUERY<a class="headerlink" href="#accelerometer_query" title="Permanent link">&para;</a></h4>
-<p><code>ACCELEROMETER_QUERY [CHIP=&lt;config_name&gt;] [RATE=&lt;value&gt;]</code>: queries accelerometer for the current value. If CHIP is not specified it defaults to "adxl345". If RATE is not specified, the default value is used. This command is useful to test the connection to the ADXL345 accelerometer: one of the returned values should be a free-fall acceleration (+/- some noise of the chip).</p>
+<p><code>ACCELEROMETER_QUERY [CHIP=&lt;config_name&gt;] [RATE=&lt;value&gt;]</code>: consulta el acelerómetro para obtener el valor actual. Si no se especifica CHIP, el valor predeterminado es "adxl345". Si no se especifica RATE, se utiliza el valor predeterminado. Este comando es útil para probar la conexión con el acelerómetro ADXL345: uno de los valores devueltos debe ser una aceleración en caída libre (+/- algo de ruido del chip).</p>
 <h4 id="accelerometer_debug_read">ACCELEROMETER_DEBUG_READ<a class="headerlink" href="#accelerometer_debug_read" title="Permanent link">&para;</a></h4>
 <p><code>ACCELEROMETER_DEBUG_READ [CHIP=&lt;config_name&gt;] REG=&lt;register&gt;</code>: consulta al registro "register" de ADXL345 (por ejemplo, 44 o 0x2C). Puede ser útil para propósitos de depuración.</p>
 <h4 id="accelerometer_debug_write">ACCELEROMETER_DEBUG_WRITE<a class="headerlink" href="#accelerometer_debug_write" title="Permanent link">&para;</a></h4>
@@ -3083,7 +3083,7 @@
 <h3 id="angle">[angle]<a class="headerlink" href="#angle" title="Permanent link">&para;</a></h3>
 <p>The following commands are available when an <a href="Config_Reference.html#angle">angle config section</a> is enabled.</p>
 <h4 id="angle_calibrate">ANGLE_CALIBRATE<a class="headerlink" href="#angle_calibrate" title="Permanent link">&para;</a></h4>
-<p><code>ANGLE_CALIBRATE CHIP=&lt;chip_name&gt;</code>: Perform angle calibration on the given sensor (there must be an <code>[angle chip_name]</code> config section that has specified a <code>stepper</code> parameter). IMPORTANT - this tool will command the stepper motor to move without checking the normal kinematic boundary limits. Ideally the motor should be disconnected from any printer carriage before performing calibration. If the stepper can not be disconnected from the printer, make sure the carriage is near the center of its rail before starting calibration. (The stepper motor may move forwards or backwards two full rotations during this test.) After completing this test use the <code>SAVE_CONFIG</code> command to save the calibration data to the config file. In order to use this tool the Python "numpy" package must be installed (see the <a href="Measuring_Resonances.html#software-installation">measuring resonance document</a> for more information).</p>
+<p><code>ANGLE_CALIBRATE CHIP=&lt;chip_name&gt;</code>: Realiza la calibración angular en el sensor dado (debe haber una sección de configuración <code>[angle chip_name]</code> que especifique el parámetro <code>stepper</code>). IMPORTANTE: Esta herramienta ordenará al motor paso a paso que se mueva sin verificar los límites cinemáticos normales. Idealmente, el motor debe estar desconectado del carro de la impresora antes de realizar la calibración. Si el motor paso a paso no se puede desconectar de la impresora, asegúrese de que el carro esté cerca del centro de su riel antes de iniciar la calibración. (El motor paso a paso puede avanzar o retroceder dos vueltas completas durante esta prueba). Después de completar esta prueba, utilice el comando <code>SAVE_CONFIG</code> para guardar los datos de calibración en el archivo de configuración. Para usar esta herramienta, debe tener instalado el paquete "numpy" de Python (consulte el documento sobre resonancia de medición](Measuring_Resonances.md#software-installation) para obtener más información).</p>
 <h4 id="angle_chip_calibrate">ANGLE_CHIP_CALIBRATE<a class="headerlink" href="#angle_chip_calibrate" title="Permanent link">&para;</a></h4>
 <p><code>ANGLE_CHIP_CALIBRATE CHIP=&lt;chip_name&gt;</code>: Perform internal sensor calibration, if implemented (MT6826S/MT6835).</p>
 <ul>
@@ -3520,8 +3520,8 @@ section</a> is enabled.</p>
 <p><code>TEMPERATURE_PROBE_NEXT</code>: After calibration has started this command is run to take the next sample. It is automatically scheduled to run when the delta specified by <code>STEP</code> has been reached, however its also possible to manually run this command to force a new sample. This command is only available during calibration.</p>
 <h4 id="temperature_probe_complete">TEMPERATURE_PROBE_COMPLETE:<a class="headerlink" href="#temperature_probe_complete" title="Permanent link">&para;</a></h4>
 <p><code>TEMPERATURE_PROBE_COMPLETE</code>: Can be used to end calibration and save the current result before the <code>TARGET</code> temperature is reached. This command is only available during calibration.</p>
-<h4 id="abort">ABORT<a class="headerlink" href="#abort" title="Permanent link">&para;</a></h4>
-<p><code>ABORT</code>: Aborts the calibration process, discarding the current results. This command is only available during drift calibration.</p>
+<h4 id="cancela">cancela<a class="headerlink" href="#cancela" title="Permanent link">&para;</a></h4>
+<p><code>ABORT</code>: Cancela el proceso de calibración y descarta los resultados actuales. Este comando solo está disponible durante la calibración de drift.</p>
 <h3 id="temperature_probe_enable">TEMPERATURE_PROBE_ENABLE<a class="headerlink" href="#temperature_probe_enable" title="Permanent link">&para;</a></h3>
 <p><code>TEMPERATURE_PROBE_ENABLE ENABLE=[0|1]</code>: Sets temperature drift compensation on or off. If ENABLE is set to 0, drift compensation will be disabled, if set to 1 it is enabled.</p>
 
