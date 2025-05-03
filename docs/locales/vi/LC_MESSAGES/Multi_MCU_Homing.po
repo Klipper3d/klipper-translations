@@ -1,9 +1,16 @@
 #
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2025-05-03 07:33+0000\n"
+"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Language-Team: Vietnamese <https://hosted.weblate.org/projects/klipper/"
+"multi_mcu_homing/vi/>\n"
 "Language: vi\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 #: docs/Multi_MCU_Homing.md:block 1 (header)
 msgid "Multiple Micro-controller Homing and Probing"
