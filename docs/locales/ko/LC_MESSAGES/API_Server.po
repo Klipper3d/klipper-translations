@@ -618,48 +618,6 @@ msgid ""
 "Domain Socket."
 msgstr ""
 
-#: docs/API_Server.md:block 88 (header)
-msgid "hx71x/dump_hx71x"
-msgstr ""
-
-#: docs/API_Server.md:block 89 (paragraph)
-msgid ""
-"This endpoint is used to subscribe to raw HX711 and HX717 ADC data. Obtaining "
-"these low-level ADC updates may be useful for diagnostic and debugging "
-"purposes. Using this endpoint may increase Klipper's system load."
-msgstr ""
-
-#: docs/API_Server.md:block 90 (paragraph)
-msgid ""
-"A request may look like: `{\"id\": 123, \"method\":\"hx71x/dump_hx71x\", "
-"\"params\": {\"sensor\": \"load_cell\", \"response_template\": {}}}` and might"
-" return: `{\"id\": "
-"123,\"result\":{\"header\":[\"time\",\"counts\",\"value\"]}}` and might later "
-"produce asynchronous messages such as: `{\"params\":{\"data\":[[3292.432935, "
-"562534, 0.067059278], [3292.4394937, 5625322, 0.670590639]]}}`"
-msgstr ""
-
-#: docs/API_Server.md:block 91 (header)
-msgid "ads1220/dump_ads1220"
-msgstr ""
-
-#: docs/API_Server.md:block 92 (paragraph)
-msgid ""
-"This endpoint is used to subscribe to raw ADS1220 ADC data. Obtaining these "
-"low-level ADC updates may be useful for diagnostic and debugging purposes. "
-"Using this endpoint may increase Klipper's system load."
-msgstr ""
-
-#: docs/API_Server.md:block 93 (paragraph)
-msgid ""
-"A request may look like: `{\"id\": 123, \"method\":\"ads1220/dump_ads1220\", "
-"\"params\": {\"sensor\": \"load_cell\", \"response_template\": {}}}` and might"
-" return: `{\"id\": "
-"123,\"result\":{\"header\":[\"time\",\"counts\",\"value\"]}}` and might later "
-"produce asynchronous messages such as: `{\"params\":{\"data\":[[3292.432935, "
-"562534, 0.067059278], [3292.4394937, 5625322, 0.670590639]]}}`"
-msgstr ""
-
 #: docs/API_Server.md:block 106 (header)
 msgid "bed_mesh/dump_mesh"
 msgstr ""
@@ -687,6 +645,61 @@ msgid ""
 "desired to visualize the probe points and/or travel path before performing "
 "`BED_MESH_CALIBRATE`."
 msgstr ""
+
+#: docs/API_Server.md:block 88 (header)
+msgid "load_cell/dump_force"
+msgstr ""
+
+#: docs/API_Server.md:block 89 (paragraph)
+msgid ""
+"This endpoint is used to subscribe to force data produced by a load_cell. "
+"Using this endpoint may increase Klipper's system load."
+msgstr ""
+
+#: docs/API_Server.md:block 90 (paragraph)
+msgid ""
+"A request may look like: `{\"id\": 123, \"method\":\"load_cell/dump_force\", "
+"\"params\": {\"sensor\": \"load_cell\", \"response_template\": {}}}` and might"
+" return: `{\"id\": 123,\"result\":{\"header\":[\"time\", \"force (g)\", "
+"\"counts\", \"tare_counts\"]}}` and might later produce asynchronous messages "
+"such as: `{\"params\":{\"data\":[[3292.432935, 40.65, 562534, -234467]]}}`"
+msgstr ""
+
+#~ msgid "hx71x/dump_hx71x"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "This endpoint is used to subscribe to raw HX711 and HX717 ADC data. Obtaining "
+#~ "these low-level ADC updates may be useful for diagnostic and debugging "
+#~ "purposes. Using this endpoint may increase Klipper's system load."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "A request may look like: `{\"id\": 123, \"method\":\"hx71x/dump_hx71x\", "
+#~ "\"params\": {\"sensor\": \"load_cell\", \"response_template\": {}}}` and might"
+#~ " return: `{\"id\": "
+#~ "123,\"result\":{\"header\":[\"time\",\"counts\",\"value\"]}}` and might later "
+#~ "produce asynchronous messages such as: `{\"params\":{\"data\":[[3292.432935, "
+#~ "562534, 0.067059278], [3292.4394937, 5625322, 0.670590639]]}}`"
+#~ msgstr ""
+
+#~ msgid "ads1220/dump_ads1220"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "This endpoint is used to subscribe to raw ADS1220 ADC data. Obtaining these "
+#~ "low-level ADC updates may be useful for diagnostic and debugging purposes. "
+#~ "Using this endpoint may increase Klipper's system load."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "A request may look like: `{\"id\": 123, \"method\":\"ads1220/dump_ads1220\", "
+#~ "\"params\": {\"sensor\": \"load_cell\", \"response_template\": {}}}` and might"
+#~ " return: `{\"id\": "
+#~ "123,\"result\":{\"header\":[\"time\",\"counts\",\"value\"]}}` and might later "
+#~ "produce asynchronous messages such as: `{\"params\":{\"data\":[[3292.432935, "
+#~ "562534, 0.067059278], [3292.4394937, 5625322, 0.670590639]]}}`"
+#~ msgstr ""
 
 #~ msgid ""
 #~ "~/klippy-env/bin/python ~/klipper/klippy/klippy.py ~/printer.cfg -a "

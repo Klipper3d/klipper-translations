@@ -77,37 +77,6 @@ msgstr ""
 "当打印机处于活动状态时，Klipper日志文件将每秒报告一次`Stats‘行。对于每个微控制器，这些“Stat”行都将有一个`bytes_valid`计数器。在正常的打印机操作期间，此计数器不应递增(重新启动后计数器为非零值是正常的，如果计数器每月递增一次也无关紧要)。如果在正常打印过程中，CAN"
 " Bus微控制器上的此计数器增加(每隔几个小时或更频繁地增加一次)，则表示存在严重问题。"
 
-#: docs/CANBUS_Troubleshooting.md:block 10 (paragraph)
-msgid ""
-"Incrementing `bytes_invalid` on a CAN bus connection is a symptom of reordered"
-" messages on the CAN bus. There are two known causes of reordered messages:"
-msgstr "在CAN总线连接上递增`BYTES_INVALID`是CAN总线上消息重新排序的症状。消息重新排序有两个已知原因："
-
-#: docs/CANBUS_Troubleshooting.md:block 11 (ordered list)
-msgid ""
-"Old versions of the popular candlight_firmware for USB CAN adapters had a bug "
-"that could cause reordered messages. If using a USB CAN adapter running this "
-"firmware then make sure to update to the latest firmware if incrementing "
-"`bytes_invalid` is observed."
-msgstr ""
-"用于USB CAN适配器的常用烛光固件的旧版本有一个错误，可能会导致消息重新排序。如果使用运行此固件的USB "
-"CAN适配器，则在观察到递增的`Bytes_Invalid`时，请确保更新到最新固件。"
-
-#: docs/CANBUS_Troubleshooting.md:block 11 (ordered list)
-msgid ""
-"Some Linux kernel builds for embedded devices have been known to reorder CAN "
-"bus messages. It may be necessary to use an alternative Linux kernel or to use"
-" alternative hardware that supports mainstream Linux kernels that do not "
-"exhibit this problem."
-msgstr ""
-"已知一些用于嵌入式设备的Linux内核版本会对CAN总线消息进行重新排序。可能需要使用替代的Linux内核，或者使用支持不存在此问题的主流Linux内核的替代硬件。"
-
-#: docs/CANBUS_Troubleshooting.md:block 12 (paragraph)
-msgid ""
-"Reordered messages is a severe problem that must be fixed. It will result in "
-"unstable behavior and can lead to confusing errors at any part of a print."
-msgstr "重新排序的消息是一个必须解决的严重问题。这将导致行为不稳定，并可能导致打印的任何部分出现令人困惑的错误。"
-
 #: docs/CANBUS_Troubleshooting.md:block 13 (header)
 msgid "Obtaining candump logs"
 msgstr "获取candump日志"
@@ -328,6 +297,117 @@ msgstr ""
 "在正常情况下，Klipper 可能每个 MCU 使用约 25 个队列槽 - 通常仅在重传期间使用更多槽。（具体而言，Klipper 主机可能向每个 "
 "Klipper MCU 传输最多 192 个字节，然后才会收到该 MCU 的确认。）如果单个 CAN 总线上有 5 个或更多 Klipper "
 "MCU，则可能需要将`txqueuelen`增加到建议值 128 以上。但是，如上所述，选择新值时应小心谨慎，以避免过长的往返时间延迟。"
+
+#: docs/CANBUS_Troubleshooting.md:block 10 (paragraph)
+msgid ""
+"Incrementing `bytes_invalid` on a CAN bus connection is a symptom of reordered"
+" messages on the CAN bus. If seen, make sure to:"
+msgstr ""
+
+#: docs/CANBUS_Troubleshooting.md:block 11 (unordered list)
+msgid "Use a Linux kernel version 6.6.0 or later."
+msgstr ""
+
+#: docs/CANBUS_Troubleshooting.md:block 11 (unordered list)
+msgid ""
+"If using a USB-to-CANBUS adapter running candlelight firmware, use v2.0 or "
+"later of candleLight_fw."
+msgstr ""
+
+#: docs/CANBUS_Troubleshooting.md:block 11 (unordered list)
+msgid ""
+"If using Klipper's USB-to-CANBUS bridge mode, make sure the bridge node is "
+"flashed with Klipper v0.12.0 or later."
+msgstr ""
+
+#: docs/CANBUS_Troubleshooting.md:block 12 (paragraph)
+msgid ""
+"Reordered messages is a severe problem that must be fixed. It will result in "
+"unstable behavior and can lead to confusing errors at any part of a print. An "
+"incrementing `bytes_invalid` is not caused by wiring or similar hardware "
+"issues and can only be fixed by identifying and updating the faulty software."
+msgstr ""
+
+#: docs/CANBUS_Troubleshooting.md:block 13 (paragraph)
+msgid ""
+"Older versions of the Linux kernel had a bug in the gs_usb canbus driver code "
+"that could cause reordered canbus packets. The issue is thought to be fixed in"
+" [Linux commit "
+"24bc41b4](https://github.com/torvalds/linux/commit/24bc41b4558347672a3db61009c339b1f5692169)"
+" which was released in v6.6.0. In some cases, older Linux versions may not "
+"show the problem (due to how hardware interrupts are configured), however if "
+"problems are seen the recommended solution is to upgrade to a newer kernel."
+msgstr ""
+
+#: docs/CANBUS_Troubleshooting.md:block 14 (paragraph)
+msgid ""
+"Older versions of candlelight firmware could reorder canbus packets, and the "
+"issue is thought to be fixed in [candlelight_fw commit "
+"8b3a7b45](https://github.com/candle-"
+"usb/candleLight_fw/commit/8b3a7b4565a3c9521b762b154c94c72c5acb2bcf)."
+msgstr ""
+
+#: docs/CANBUS_Troubleshooting.md:block 15 (paragraph)
+msgid ""
+"Older versions of Klipper's USB-to-CANBUS bridge code could incorrectly drop "
+"canbus messages. This is not as severe as reordering messages, but it should "
+"still be fixed. It is thought to be fixed with [Klipper PR "
+"#6175](https://github.com/Klipper3d/klipper/pull/6175)."
+msgstr ""
+
+#: docs/CANBUS_Troubleshooting.md:block 25 (header)
+msgid "Use `canbus_query.py` only to identify nodes never previously seen"
+msgstr ""
+
+#: docs/CANBUS_Troubleshooting.md:block 26 (paragraph)
+msgid ""
+"It is only valid to use the [`canbus_query.py` tool](CANBUS.md#finding-the-"
+"canbus_uuid-for-new-micro-controllers) to identify micro-controllers that have"
+" never been previously identified. Once all nodes on a bus are identified, "
+"record the resulting uuids in the printer.cfg, and avoid running the tool "
+"unnecessarily."
+msgstr ""
+
+#: docs/CANBUS_Troubleshooting.md:block 27 (paragraph)
+msgid ""
+"The tool is implemented using a low-level mechanism that can cause nodes to "
+"internally observe bus errors. These internal errors may result in "
+"communication interruptions and may result is some nodes disconnecting from "
+"the bus."
+msgstr ""
+
+#: docs/CANBUS_Troubleshooting.md:block 28 (paragraph)
+msgid ""
+"It is not valid to use the tool to \"ping\" if a node is connected. Do not run"
+" the tool during an active print."
+msgstr ""
+
+#~ msgid ""
+#~ "Incrementing `bytes_invalid` on a CAN bus connection is a symptom of reordered"
+#~ " messages on the CAN bus. There are two known causes of reordered messages:"
+#~ msgstr "在CAN总线连接上递增`BYTES_INVALID`是CAN总线上消息重新排序的症状。消息重新排序有两个已知原因："
+
+#~ msgid ""
+#~ "Old versions of the popular candlight_firmware for USB CAN adapters had a bug "
+#~ "that could cause reordered messages. If using a USB CAN adapter running this "
+#~ "firmware then make sure to update to the latest firmware if incrementing "
+#~ "`bytes_invalid` is observed."
+#~ msgstr ""
+#~ "用于USB CAN适配器的常用烛光固件的旧版本有一个错误，可能会导致消息重新排序。如果使用运行此固件的USB "
+#~ "CAN适配器，则在观察到递增的`Bytes_Invalid`时，请确保更新到最新固件。"
+
+#~ msgid ""
+#~ "Some Linux kernel builds for embedded devices have been known to reorder CAN "
+#~ "bus messages. It may be necessary to use an alternative Linux kernel or to use"
+#~ " alternative hardware that supports mainstream Linux kernels that do not "
+#~ "exhibit this problem."
+#~ msgstr ""
+#~ "已知一些用于嵌入式设备的Linux内核版本会对CAN总线消息进行重新排序。可能需要使用替代的Linux内核，或者使用支持不存在此问题的主流Linux内核的替代硬件。"
+
+#~ msgid ""
+#~ "Reordered messages is a severe problem that must be fixed. It will result in "
+#~ "unstable behavior and can lead to confusing errors at any part of a print."
+#~ msgstr "重新排序的消息是一个必须解决的严重问题。这将导致行为不稳定，并可能导致打印的任何部分出现令人困惑的错误。"
 
 #~ msgid "sudo apt-get update && sudo apt-get install can-utils\n"
 #~ msgstr "sudo apt-get update && sudo apt-get install can-utils\n"

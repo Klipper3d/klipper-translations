@@ -8,8 +8,7 @@ msgstr ""
 "POT-Creation-Date: \n"
 "PO-Revision-Date: 2025-02-23 13:01+0000\n"
 "Last-Translator: \"Zs.Antal\" <antonio092130@icloud.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
-"features/hu/>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/features/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -140,20 +139,6 @@ msgstr ""
 " a független kocsikon (IDEX) lévő extrudereket is támogatják."
 
 msgid ""
-"Automatic bed leveling support. Klipper can be configured for basic bed tilt "
-"detection or full mesh bed leveling. If the bed uses multiple Z steppers then "
-"Klipper can also level by independently manipulating the Z steppers. Most Z "
-"height probes are supported, including BL-Touch probes and servo activated "
-"probes."
-msgstr ""
-"Tárgyasztal szintezésének automatikus támogatása. A Klipper konfigurálható "
-"alapszintű tárgyasztal dőlés-érzékelésre vagy a tárgyasztal teljes hálós "
-"szintezésére. Ha a tárgyasztal több Z steppert használ, akkor a Klipper a Z "
-"stepper-ek független manipulálásával is képes szintezni. A legtöbb Z "
-"magasságmérő szonda támogatott, beleértve a BL-Touch szondákat és a "
-"szervómotoros szondákat is."
-
-msgid ""
 "Automatic delta calibration support. The calibration tool can perform basic "
 "height calibration as well as an enhanced X and Y dimension calibration. The "
 "calibration can be done with a Z height probe or via manual probing."
@@ -262,31 +247,6 @@ msgstr ""
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
-"Support for common temperature sensors (eg, common thermistors, AD595, AD597, "
-"AD849x, PT100, PT1000, MAX6675, MAX31855, MAX31856, MAX31865, BME280, HTU21D, "
-"DS18B20, and LM75). Custom thermistors and custom analog temperature sensors "
-"can also be configured. One can monitor the internal micro-controller "
-"temperature sensor and the internal temperature sensor of a Raspberry Pi."
-msgstr ""
-"Az általános hőmérséklet-érzékelők támogatása (pl. általános termisztorok, "
-"AD595, AD597, AD849x, PT100, PT1000, MAX6675, MAX31855, MAX31856, MAX31865, "
-"BME280, HTU21D, DS18B20 és LM75). Egyedi termisztorok és egyedi analóg "
-"hőmérséklet-érzékelők is konfigurálhatók. Lehet figyelni a mikrokontroller "
-"hőmérsékletét és a Raspberry Pi processzor hőmérsékletét."
-
-#: docs/Features.md:block 6 (unordered list)
-msgid ""
-"Support for standard fans, nozzle fans, and temperature controlled fans. No "
-"need to keep fans running when the printer is idle. Fan speed can be monitored"
-" on fans that have a tachometer."
-msgstr ""
-"Standard ventilátorok, fejhűtő ventilátorok és hőmérséklet-szabályozott "
-"ventilátorok támogatása. Nincs szükség arra, hogy a ventilátorok folyamatosan "
-"működjenek, amikor a nyomtató üresjáratban van. A fordulatszámmérővel ellátott"
-" ventilátoroknál a ventilátorok fordulatszáma ellenőrizhető."
-
-#: docs/Features.md:block 6 (unordered list)
-msgid ""
 "Support for filament presence sensors, filament motion sensors, and filament "
 "width sensors."
 msgstr "Száljelenlét-, szálmozgás- és szálszélesség-érzékelők támogatása."
@@ -374,14 +334,6 @@ msgstr "2353K"
 #: docs/Features.md:block 10 (table)
 msgid "1622K"
 msgstr "1622K"
-
-#: docs/Features.md:block 10 (table)
-msgid "2400K"
-msgstr "2400K"
-
-#: docs/Features.md:block 10 (table)
-msgid "1636K"
-msgstr "1636K"
 
 #: docs/Features.md:block 10 (table)
 msgid "2500K"
@@ -489,18 +441,6 @@ msgstr ""
 "megfelelő [config fájlt](../config/), és keresd meg a mikrokontroller nevét a "
 "fájl tetején lévő megjegyzésekben."
 
-#: docs/Features.md:block 10 (table)
-msgid "STM32H743"
-msgstr "STM32H743"
-
-#: docs/Features.md:block 10 (table)
-msgid "9091K"
-msgstr "9091K"
-
-#: docs/Features.md:block 10 (table)
-msgid "6061K"
-msgstr "6061K"
-
 #: docs/Features.md:block 3 (unordered list)
 msgid ""
 "High precision stepper movement. Klipper utilizes an application processor "
@@ -581,14 +521,6 @@ msgstr ""
 " AD5206, MCP4451, MCP4728, MCP4018 és PWM-tűkön keresztül történő "
 "áramszabályozásának támogatása is biztosított."
 
-#: docs/Features.md:block 6 (unordered list)
-msgid ""
-"Support for measuring and recording acceleration using an adxl345, mpu9250, "
-"and mpu6050 accelerometers."
-msgstr ""
-"A gyorsulás mérésének és rögzítésének támogatása adxl345, mpu9250 és mpu6050 "
-"gyorsulásmérőkkel."
-
 #: docs/Features.md:block 3 (unordered list)
 msgid ""
 "Best in class performance. Klipper is able to achieve high stepping rates on "
@@ -641,6 +573,120 @@ msgstr "6667K"
 #: docs/Features.md:block 10 (table)
 msgid "4737K"
 msgstr "4737K"
+
+#: docs/Features.md:block 6 (unordered list)
+msgid ""
+"Automatic bed leveling support. Klipper can be configured for basic bed tilt "
+"detection or full mesh bed leveling. The bed mesh can be customized to the "
+"print size (adaptive bed mesh). If the bed uses multiple Z steppers then "
+"Klipper can also level by independently manipulating the Z steppers. Most Z "
+"height probes are supported, including BL-Touch probes and servo activated "
+"probes. Probes may be calibrated for axis twist compensation. If using an "
+"\"eddy current probe\" then one can utilize fast bed mesh scanning,"
+msgstr ""
+
+#: docs/Features.md:block 6 (unordered list)
+msgid ""
+"Support for common temperature sensors (eg, common thermistors, AD595, AD597, "
+"AD849x, PT100, PT1000, MAX6675, MAX31855, MAX31856, MAX31865, BME280, HTU21D, "
+"DS18B20, AHT10, SHT3x, and LM75). Custom thermistors and custom analog "
+"temperature sensors can also be configured. One can monitor the internal "
+"micro-controller temperature sensor and the internal temperature sensor of a "
+"Raspberry Pi."
+msgstr ""
+
+#: docs/Features.md:block 6 (unordered list)
+msgid ""
+"Support for standard fans, nozzle fans, and temperature controlled fans. No "
+"need to keep fans running when the printer is idle. Fan speed can be monitored"
+" on fans that have a tachometer. One can assign a \"math formula\" to a fan "
+"for automatic fan speed updating."
+msgstr ""
+
+#: docs/Features.md:block 6 (unordered list)
+msgid ""
+"Support for measuring and recording acceleration using adxl345, mpu9250, "
+"mpu6050, lis2dw12, lis3dh, and icm20948 accelerometers."
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "4000K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "2571K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "STM32H723"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "7429K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "8619K"
+msgstr ""
+
+#~ msgid ""
+#~ "Automatic bed leveling support. Klipper can be configured for basic bed tilt "
+#~ "detection or full mesh bed leveling. If the bed uses multiple Z steppers then "
+#~ "Klipper can also level by independently manipulating the Z steppers. Most Z "
+#~ "height probes are supported, including BL-Touch probes and servo activated "
+#~ "probes."
+#~ msgstr ""
+#~ "Tárgyasztal szintezésének automatikus támogatása. A Klipper konfigurálható "
+#~ "alapszintű tárgyasztal dőlés-érzékelésre vagy a tárgyasztal teljes hálós "
+#~ "szintezésére. Ha a tárgyasztal több Z steppert használ, akkor a Klipper a Z "
+#~ "stepper-ek független manipulálásával is képes szintezni. A legtöbb Z "
+#~ "magasságmérő szonda támogatott, beleértve a BL-Touch szondákat és a "
+#~ "szervómotoros szondákat is."
+
+#~ msgid ""
+#~ "Support for common temperature sensors (eg, common thermistors, AD595, AD597, "
+#~ "AD849x, PT100, PT1000, MAX6675, MAX31855, MAX31856, MAX31865, BME280, HTU21D, "
+#~ "DS18B20, and LM75). Custom thermistors and custom analog temperature sensors "
+#~ "can also be configured. One can monitor the internal micro-controller "
+#~ "temperature sensor and the internal temperature sensor of a Raspberry Pi."
+#~ msgstr ""
+#~ "Az általános hőmérséklet-érzékelők támogatása (pl. általános termisztorok, "
+#~ "AD595, AD597, AD849x, PT100, PT1000, MAX6675, MAX31855, MAX31856, MAX31865, "
+#~ "BME280, HTU21D, DS18B20 és LM75). Egyedi termisztorok és egyedi analóg "
+#~ "hőmérséklet-érzékelők is konfigurálhatók. Lehet figyelni a mikrokontroller "
+#~ "hőmérsékletét és a Raspberry Pi processzor hőmérsékletét."
+
+#~ msgid ""
+#~ "Support for standard fans, nozzle fans, and temperature controlled fans. No "
+#~ "need to keep fans running when the printer is idle. Fan speed can be monitored"
+#~ " on fans that have a tachometer."
+#~ msgstr ""
+#~ "Standard ventilátorok, fejhűtő ventilátorok és hőmérséklet-szabályozott "
+#~ "ventilátorok támogatása. Nincs szükség arra, hogy a ventilátorok folyamatosan "
+#~ "működjenek, amikor a nyomtató üresjáratban van. A fordulatszámmérővel ellátott"
+#~ " ventilátoroknál a ventilátorok fordulatszáma ellenőrizhető."
+
+#~ msgid "2400K"
+#~ msgstr "2400K"
+
+#~ msgid "1636K"
+#~ msgstr "1636K"
+
+#~ msgid "STM32H743"
+#~ msgstr "STM32H743"
+
+#~ msgid "9091K"
+#~ msgstr "9091K"
+
+#~ msgid "6061K"
+#~ msgstr "6061K"
+
+#~ msgid ""
+#~ "Support for measuring and recording acceleration using an adxl345, mpu9250, "
+#~ "and mpu6050 accelerometers."
+#~ msgstr ""
+#~ "A gyorsulás mérésének és rögzítésének támogatása adxl345, mpu9250 és mpu6050 "
+#~ "gyorsulásmérőkkel."
 
 #~ msgid ""
 #~ "Best in class performance. Klipper is able to achieve high stepping rates on "

@@ -359,12 +359,6 @@ msgstr "Host 基准测试"
 msgid "66"
 msgstr "66"
 
-msgid "5"
-msgstr "5"
-
-msgid "22"
-msgstr "22"
-
 msgid "rp2040 (USB)"
 msgstr "rp2040 (USB)"
 
@@ -626,30 +620,6 @@ msgstr "stm32g0b1"
 msgid "STM32H7 step rate benchmark"
 msgstr "STM32H7 步进率基准测试"
 
-#: docs/Benchmarks.md:block 60 (paragraph)
-msgid "The following configuration sequence is used on a STM32H743VIT6:"
-msgstr "在STM32H743VIT6上使用以下配置序列："
-
-#: docs/Benchmarks.md:block 62 (paragraph)
-msgid ""
-"The test was last run on commit `00191b5c` with gcc version `arm-none-eabi-gcc"
-" (15:8-2019-q3-1+b1) 8.3.1 20190703 (release) [gcc-8-branch revision 273027]`."
-msgstr ""
-"该测试最后一次运行基于提交 `00191b5c`，gcc 版本为 `arm-none-eabi-gcc (15:8-2019-q3-1+b1) 8.3.1 "
-"20190703 (release) [gcc-8-branch revision 273027]`。"
-
-#: docs/Benchmarks.md:block 63 (table)
-msgid "stm32h7"
-msgstr "stm32h7"
-
-#: docs/Benchmarks.md:block 63 (table)
-msgid "44"
-msgstr "44"
-
-#: docs/Benchmarks.md:block 63 (table)
-msgid "198"
-msgstr "198"
-
 #: docs/Benchmarks.md:block 85 (header)
 msgid "AR100 step rate benchmark"
 msgstr "AR100 步进率基准测试"
@@ -727,12 +697,6 @@ msgstr ""
 msgid "The following configuration sequence is used on the RP2040 and RP2350:"
 msgstr ""
 
-#: docs/Benchmarks.md:block 98 (paragraph)
-msgid ""
-"The test was last run on commit `f6718291` with gcc version `arm-none-eabi-gcc"
-" (Fedora 14.1.0-1.fc40) 14.1.0` on Raspberry Pi Pico and Pico 2 boards."
-msgstr ""
-
 #: docs/Benchmarks.md:block 99 (table)
 msgid "rp2040 (*)"
 msgstr ""
@@ -747,14 +711,6 @@ msgstr ""
 
 #: docs/Benchmarks.md:block 100 (table)
 msgid "169"
-msgstr ""
-
-#: docs/Benchmarks.md:block 101 (paragraph)
-msgid ""
-"(*) Note that the reported rp2040 ticks are relative to a 12Mhz scheduling "
-"timer and do not correspond to its 125Mhz internal ARM processing rate. It is "
-"expected that 5 scheduling ticks corresponds to ~47 ARM core cycles and 22 "
-"scheduling ticks corresponds to ~224 ARM core cycles."
 msgstr ""
 
 #: docs/Benchmarks.md:block 112 (table)
@@ -772,6 +728,79 @@ msgstr ""
 #: docs/Benchmarks.md:block 112 (table)
 msgid "rp2350 (USB)"
 msgstr ""
+
+#: docs/Benchmarks.md:block 60 (paragraph)
+msgid "The following configuration sequence is used on STM32H723:"
+msgstr ""
+
+#: docs/Benchmarks.md:block 62 (paragraph)
+msgid ""
+"The test was last run on commit `554ae78d` with gcc version `arm-none-eabi-gcc"
+" (Fedora 14.1.0-1.fc40) 14.1.0`."
+msgstr ""
+
+#: docs/Benchmarks.md:block 63 (table)
+msgid "stm32h723"
+msgstr ""
+
+#: docs/Benchmarks.md:block 98 (paragraph)
+msgid ""
+"The test was last run on commit `14c105b8` with gcc version `arm-none-eabi-gcc"
+" (Fedora 14.1.0-1.fc40) 14.1.0` on Raspberry Pi Pico and Pico 2 boards."
+msgstr ""
+
+#: docs/Benchmarks.md:block 99 (table)
+msgid "3"
+msgstr ""
+
+#: docs/Benchmarks.md:block 99 (table)
+msgid "14"
+msgstr ""
+
+#: docs/Benchmarks.md:block 101 (paragraph)
+msgid ""
+"(*) Note that the reported rp2040 ticks are relative to a 12Mhz scheduling "
+"timer and do not correspond to its 200Mhz internal ARM processing rate. It is "
+"expected that 5 scheduling ticks corresponds to ~42 ARM core cycles and 14 "
+"scheduling ticks corresponds to ~225 ARM core cycles."
+msgstr ""
+
+#~ msgid "5"
+#~ msgstr "5"
+
+#~ msgid "22"
+#~ msgstr "22"
+
+#~ msgid "The following configuration sequence is used on a STM32H743VIT6:"
+#~ msgstr "在STM32H743VIT6上使用以下配置序列："
+
+#~ msgid ""
+#~ "The test was last run on commit `00191b5c` with gcc version `arm-none-eabi-gcc"
+#~ " (15:8-2019-q3-1+b1) 8.3.1 20190703 (release) [gcc-8-branch revision 273027]`."
+#~ msgstr ""
+#~ "该测试最后一次运行基于提交 `00191b5c`，gcc 版本为 `arm-none-eabi-gcc (15:8-2019-q3-1+b1) 8.3.1 "
+#~ "20190703 (release) [gcc-8-branch revision 273027]`。"
+
+#~ msgid "stm32h7"
+#~ msgstr "stm32h7"
+
+#~ msgid "44"
+#~ msgstr "44"
+
+#~ msgid "198"
+#~ msgstr "198"
+
+#~ msgid ""
+#~ "The test was last run on commit `f6718291` with gcc version `arm-none-eabi-gcc"
+#~ " (Fedora 14.1.0-1.fc40) 14.1.0` on Raspberry Pi Pico and Pico 2 boards."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "(*) Note that the reported rp2040 ticks are relative to a 12Mhz scheduling "
+#~ "timer and do not correspond to its 125Mhz internal ARM processing rate. It is "
+#~ "expected that 5 scheduling ticks corresponds to ~47 ARM core cycles and 22 "
+#~ "scheduling ticks corresponds to ~224 ARM core cycles."
+#~ msgstr ""
 
 #~ msgid ""
 #~ "SET start_clock {clock+freq}\n"

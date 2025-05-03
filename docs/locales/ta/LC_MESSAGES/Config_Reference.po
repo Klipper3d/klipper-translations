@@ -1339,20 +1339,6 @@ msgstr ""
 " வேண்டாம், ஏனெனில் அவை முரண்படும், மேலும் 1 உங்கள் அச்சுறுத்தலை கருக்கலைப்பதை "
 "சரியாக துவக்கத் தவறிவிடும்."
 
-msgid ""
-"If you use Octoprint and stream gcode over the serial port instead of printing"
-" from virtual_sd, then remo **M1** and **M0** from *Pausing commands* in "
-"*Settings > Serial Connection > Firmware & protocol* will prevent the need to "
-"start print on the Palette 2 and unpausing in Octoprint for your print to "
-"begin."
-msgstr ""
-"மெய்நிகர்_எச்டியிலிருந்து அச்சிடுவதற்குப் பதிலாக சீரியல் போர்ட்டின் மீது "
-"ஆக்டோப்ரின்ட் மற்றும் ச்ட்ரீம் சிகோடைப் பயன்படுத்தினால்,*அமைப்புகள்> "
-"அமைப்புகள்> தொடர் இணைப்பு> ஃபார்ம்வேர் & "
-"நெறிமுறை*இல்*கட்டளைகளை*இடைநிறுத்துவதில் இருந்து ரெமோ ** எம் 1 ** மற்றும் ** "
-"எம் 0 ** தட்டு 2 இல் அச்சிடத் தொடங்கவும், உங்கள் அச்சு தொடங்குவதற்கு "
-"ஆக்டோப்ரின்ட்டில் நிறுத்தி வைக்கவும்."
-
 msgid "Common bus parameters"
 msgstr "பொதுவான பச் அளவுருக்கள்"
 
@@ -2321,6 +2307,61 @@ msgid ""
 "support a rate of 400000 via the `i2c_speed` parameter. All other Klipper "
 "micro-controllers use a 100000 rate and ignore the `i2c_speed` parameter."
 msgstr ""
+
+#: docs/Config_Reference.md:block 171 (header)
+msgid "[icm20948]"
+msgstr ""
+
+#: docs/Config_Reference.md:block 172 (paragraph)
+msgid "Support for icm20948 accelerometers."
+msgstr ""
+
+#: docs/Config_Reference.md:block 470 (header)
+msgid "[ads1x1x]"
+msgstr ""
+
+#: docs/Config_Reference.md:block 471 (paragraph)
+msgid ""
+"ADS1013, ADS1014, ADS1015, ADS1113, ADS1114 and ADS1115 are I2C based Analog "
+"to Digital Converters that can be used for temperature sensors. They provide 4"
+" analog input pins either as single line or as differential input."
+msgstr ""
+
+#: docs/Config_Reference.md:block 472 (paragraph)
+msgid ""
+"Note: Use caution if using this sensor to control heaters. The heater min_temp"
+" and max_temp are only verified in the host and only if the host is running "
+"and operating normally. (ADC inputs directly connected to the micro-controller"
+" verify min_temp and max_temp within the micro-controller and do not require a"
+" working connection to the host.)"
+msgstr ""
+
+#: docs/Config_Reference.md:block 474 (paragraph)
+msgid "The chip provides pins that can be used on other sensors."
+msgstr ""
+
+#: docs/Config_Reference.md:block 484 (paragraph)
+msgid ""
+"If you use Octoprint and stream gcode over the serial port instead of printing"
+" from virtual_sd, then remove **M1** and **M0** from *Pausing commands* in "
+"*Settings > Serial Connection > Firmware & protocol* will prevent the need to "
+"start print on the Palette 2 and unpausing in Octoprint for your print to "
+"begin."
+msgstr ""
+
+#~ msgid ""
+#~ "If you use Octoprint and stream gcode over the serial port instead of printing"
+#~ " from virtual_sd, then remo **M1** and **M0** from *Pausing commands* in "
+#~ "*Settings > Serial Connection > Firmware & protocol* will prevent the need to "
+#~ "start print on the Palette 2 and unpausing in Octoprint for your print to "
+#~ "begin."
+#~ msgstr ""
+#~ "மெய்நிகர்_எச்டியிலிருந்து அச்சிடுவதற்குப் பதிலாக சீரியல் போர்ட்டின் மீது "
+#~ "ஆக்டோப்ரின்ட் மற்றும் ச்ட்ரீம் சிகோடைப் பயன்படுத்தினால்,*அமைப்புகள்> "
+#~ "அமைப்புகள்> தொடர் இணைப்பு> ஃபார்ம்வேர் & "
+#~ "நெறிமுறை*இல்*கட்டளைகளை*இடைநிறுத்துவதில் இருந்து ரெமோ ** எம் 1 ** மற்றும் ** "
+#~ "எம் 0 ** தட்டு 2 இல் அச்சிடத் தொடங்கவும், உங்கள் அச்சு தொடங்குவதற்கு "
+#~ "ஆக்டோப்ரின்ட்டில் நிறுத்தி வைக்கவும்."
 
 #~ msgid ""
 #~ "[mcu]\n"

@@ -39,14 +39,6 @@ msgid ""
 " It is a good idea to read this document in full prior to running the test."
 msgstr ""
 
-msgid ""
-"Use a slicer to generate g-code for the large hollow square found in "
-"[docs/prints/square_tower.stl](prints/square_tower.stl). Use a high speed (eg,"
-" 100mm/s), zero infill, and a coarse layer height (the layer height should be "
-"around 75% of the nozzle diameter). Make sure any \"dynamic acceleration "
-"control\" is disabled in the slicer."
-msgstr ""
-
 msgid "Prepare for the test by issuing the following G-Code command:"
 msgstr ""
 
@@ -194,6 +186,23 @@ msgstr ""
 #: docs/Pressure_Advance.md:block 1 (header)
 msgid "Pressure advance"
 msgstr "Avanço de pressão"
+
+#: docs/Pressure_Advance.md:block 6 (paragraph)
+msgid ""
+"Use a slicer to generate g-code for the large hollow square found in "
+"[docs/prints/square_tower.stl](prints/square_tower.stl). Use a high speed (eg,"
+" 100mm/s), zero infill, and a coarse layer height (the layer height should be "
+"around 75% of the nozzle diameter). Make sure any \"dynamic acceleration "
+"control\" and \"scarf joint\" seams are disabled in the slicer."
+msgstr ""
+
+#~ msgid ""
+#~ "Use a slicer to generate g-code for the large hollow square found in "
+#~ "[docs/prints/square_tower.stl](prints/square_tower.stl). Use a high speed (eg,"
+#~ " 100mm/s), zero infill, and a coarse layer height (the layer height should be "
+#~ "around 75% of the nozzle diameter). Make sure any \"dynamic acceleration "
+#~ "control\" is disabled in the slicer."
+#~ msgstr ""
 
 #~ msgid "SET_VELOCITY_LIMIT SQUARE_CORNER_VELOCITY=1 ACCEL=500\n"
 #~ msgstr ""

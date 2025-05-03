@@ -146,20 +146,6 @@ msgstr ""
 "prises en charge."
 
 msgid ""
-"Automatic bed leveling support. Klipper can be configured for basic bed tilt "
-"detection or full mesh bed leveling. If the bed uses multiple Z steppers then "
-"Klipper can also level by independently manipulating the Z steppers. Most Z "
-"height probes are supported, including BL-Touch probes and servo activated "
-"probes."
-msgstr ""
-"Support du nivellement automatique du bed. Klipper peut être configuré pour "
-"une détection de base de l'inclinaison du bed ou pour une mise à niveau "
-"complète de celui-ci. Si le bed utilise plusieurs steppers Z, Klipper peut "
-"également le mettre à niveau en manipulant indépendamment les steppers Z. La "
-"plupart des capteurs de hauteur Z sont prises en charge, y compris les sondes "
-"BL-Touch et les sondes activées par servomoteur."
-
-msgid ""
 "Automatic delta calibration support. The calibration tool can perform basic "
 "height calibration as well as an enhanced X and Y dimension calibration. The "
 "calibration can be done with a Z height probe or via manual probing."
@@ -272,33 +258,6 @@ msgstr ""
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
-"Support for common temperature sensors (eg, common thermistors, AD595, AD597, "
-"AD849x, PT100, PT1000, MAX6675, MAX31855, MAX31856, MAX31865, BME280, HTU21D, "
-"DS18B20, and LM75). Custom thermistors and custom analog temperature sensors "
-"can also be configured. One can monitor the internal micro-controller "
-"temperature sensor and the internal temperature sensor of a Raspberry Pi."
-msgstr ""
-"Prise en charge des capteurs de température courants (par exemple, les "
-"thermistances courantes, AD595, AD597, AD849x, PT100, PT1000, MAX6675, "
-"MAX31855, MAX31856, MAX31865, BME280, HTU21D, DS18B20 et LM75). Des "
-"thermistances et des capteurs de température analogiques personnalisés peuvent"
-" également être configurés. On peut surveiller le capteur de température "
-"interne du microcontrôleur et le capteur de température interne d'un Raspberry"
-" Pi."
-
-#: docs/Features.md:block 6 (unordered list)
-msgid ""
-"Support for standard fans, nozzle fans, and temperature controlled fans. No "
-"need to keep fans running when the printer is idle. Fan speed can be monitored"
-" on fans that have a tachometer."
-msgstr ""
-"Prise en charge des ventilateurs standard, des ventilateurs de buses et des "
-"ventilateurs à température contrôlée. Il n'est pas nécessaire de faire tourner"
-" les ventilateurs lorsque l'imprimante est inactive. La vitesse du ventilateur"
-" peut être contrôlée sur les ventilateurs dotés d'un tachymètre."
-
-#: docs/Features.md:block 6 (unordered list)
-msgid ""
 "Support for filament presence sensors, filament motion sensors, and filament "
 "width sensors."
 msgstr ""
@@ -388,14 +347,6 @@ msgstr "2353K"
 #: docs/Features.md:block 10 (table)
 msgid "1622K"
 msgstr "1622K"
-
-#: docs/Features.md:block 10 (table)
-msgid "2400K"
-msgstr "2400K"
-
-#: docs/Features.md:block 10 (table)
-msgid "1636K"
-msgstr "1636K"
 
 #: docs/Features.md:block 10 (table)
 msgid "2500K"
@@ -503,18 +454,6 @@ msgstr ""
 " [fichier de configuration](../config/) approprié , et cherchez le nom du "
 "microcontrôleur dans les commentaires en haut de ce fichier."
 
-#: docs/Features.md:block 10 (table)
-msgid "STM32H743"
-msgstr "STM32H743"
-
-#: docs/Features.md:block 10 (table)
-msgid "9091K"
-msgstr "9091K"
-
-#: docs/Features.md:block 10 (table)
-msgid "6061K"
-msgstr "6061K"
-
 #: docs/Features.md:block 3 (unordered list)
 msgid ""
 "High precision stepper movement. Klipper utilizes an application processor "
@@ -598,14 +537,6 @@ msgstr ""
 "pas traditionnels via AD5206, DAC084S085, MCP4451, MCP4728, MCP4018, et les "
 "broches PWM."
 
-#: docs/Features.md:block 6 (unordered list)
-msgid ""
-"Support for measuring and recording acceleration using an adxl345, mpu9250, "
-"and mpu6050 accelerometers."
-msgstr ""
-"Prise en charge de la mesure et l'enregistrement de l'accélération à l'aide "
-"d'un accéléromètre adxl345, mpu9250 et mpu6050."
-
 #: docs/Features.md:block 3 (unordered list)
 msgid ""
 "Best in class performance. Klipper is able to achieve high stepping rates on "
@@ -659,6 +590,122 @@ msgstr ""
 #: docs/Features.md:block 10 (table)
 msgid "4737K"
 msgstr ""
+
+#: docs/Features.md:block 6 (unordered list)
+msgid ""
+"Automatic bed leveling support. Klipper can be configured for basic bed tilt "
+"detection or full mesh bed leveling. The bed mesh can be customized to the "
+"print size (adaptive bed mesh). If the bed uses multiple Z steppers then "
+"Klipper can also level by independently manipulating the Z steppers. Most Z "
+"height probes are supported, including BL-Touch probes and servo activated "
+"probes. Probes may be calibrated for axis twist compensation. If using an "
+"\"eddy current probe\" then one can utilize fast bed mesh scanning,"
+msgstr ""
+
+#: docs/Features.md:block 6 (unordered list)
+msgid ""
+"Support for common temperature sensors (eg, common thermistors, AD595, AD597, "
+"AD849x, PT100, PT1000, MAX6675, MAX31855, MAX31856, MAX31865, BME280, HTU21D, "
+"DS18B20, AHT10, SHT3x, and LM75). Custom thermistors and custom analog "
+"temperature sensors can also be configured. One can monitor the internal "
+"micro-controller temperature sensor and the internal temperature sensor of a "
+"Raspberry Pi."
+msgstr ""
+
+#: docs/Features.md:block 6 (unordered list)
+msgid ""
+"Support for standard fans, nozzle fans, and temperature controlled fans. No "
+"need to keep fans running when the printer is idle. Fan speed can be monitored"
+" on fans that have a tachometer. One can assign a \"math formula\" to a fan "
+"for automatic fan speed updating."
+msgstr ""
+
+#: docs/Features.md:block 6 (unordered list)
+msgid ""
+"Support for measuring and recording acceleration using adxl345, mpu9250, "
+"mpu6050, lis2dw12, lis3dh, and icm20948 accelerometers."
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "4000K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "2571K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "STM32H723"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "7429K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "8619K"
+msgstr ""
+
+#~ msgid ""
+#~ "Automatic bed leveling support. Klipper can be configured for basic bed tilt "
+#~ "detection or full mesh bed leveling. If the bed uses multiple Z steppers then "
+#~ "Klipper can also level by independently manipulating the Z steppers. Most Z "
+#~ "height probes are supported, including BL-Touch probes and servo activated "
+#~ "probes."
+#~ msgstr ""
+#~ "Support du nivellement automatique du bed. Klipper peut être configuré pour "
+#~ "une détection de base de l'inclinaison du bed ou pour une mise à niveau "
+#~ "complète de celui-ci. Si le bed utilise plusieurs steppers Z, Klipper peut "
+#~ "également le mettre à niveau en manipulant indépendamment les steppers Z. La "
+#~ "plupart des capteurs de hauteur Z sont prises en charge, y compris les sondes "
+#~ "BL-Touch et les sondes activées par servomoteur."
+
+#~ msgid ""
+#~ "Support for common temperature sensors (eg, common thermistors, AD595, AD597, "
+#~ "AD849x, PT100, PT1000, MAX6675, MAX31855, MAX31856, MAX31865, BME280, HTU21D, "
+#~ "DS18B20, and LM75). Custom thermistors and custom analog temperature sensors "
+#~ "can also be configured. One can monitor the internal micro-controller "
+#~ "temperature sensor and the internal temperature sensor of a Raspberry Pi."
+#~ msgstr ""
+#~ "Prise en charge des capteurs de température courants (par exemple, les "
+#~ "thermistances courantes, AD595, AD597, AD849x, PT100, PT1000, MAX6675, "
+#~ "MAX31855, MAX31856, MAX31865, BME280, HTU21D, DS18B20 et LM75). Des "
+#~ "thermistances et des capteurs de température analogiques personnalisés peuvent"
+#~ " également être configurés. On peut surveiller le capteur de température "
+#~ "interne du microcontrôleur et le capteur de température interne d'un Raspberry"
+#~ " Pi."
+
+#~ msgid ""
+#~ "Support for standard fans, nozzle fans, and temperature controlled fans. No "
+#~ "need to keep fans running when the printer is idle. Fan speed can be monitored"
+#~ " on fans that have a tachometer."
+#~ msgstr ""
+#~ "Prise en charge des ventilateurs standard, des ventilateurs de buses et des "
+#~ "ventilateurs à température contrôlée. Il n'est pas nécessaire de faire tourner"
+#~ " les ventilateurs lorsque l'imprimante est inactive. La vitesse du ventilateur"
+#~ " peut être contrôlée sur les ventilateurs dotés d'un tachymètre."
+
+#~ msgid "2400K"
+#~ msgstr "2400K"
+
+#~ msgid "1636K"
+#~ msgstr "1636K"
+
+#~ msgid "STM32H743"
+#~ msgstr "STM32H743"
+
+#~ msgid "9091K"
+#~ msgstr "9091K"
+
+#~ msgid "6061K"
+#~ msgstr "6061K"
+
+#~ msgid ""
+#~ "Support for measuring and recording acceleration using an adxl345, mpu9250, "
+#~ "and mpu6050 accelerometers."
+#~ msgstr ""
+#~ "Prise en charge de la mesure et l'enregistrement de l'accélération à l'aide "
+#~ "d'un accéléromètre adxl345, mpu9250 et mpu6050."
 
 #~ msgid ""
 #~ "Best in class performance. Klipper is able to achieve high stepping rates on "

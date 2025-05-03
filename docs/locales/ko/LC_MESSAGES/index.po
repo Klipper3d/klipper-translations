@@ -26,23 +26,43 @@ msgstr "![](img/klipper-logo.png){ .center-image }"
 
 #: docs/index.md:block 4 (paragraph)
 msgid ""
-"Klipper is a 3d-Printer firmware. It combines the power of a general purpose "
-"computer with one or more micro-controllers. See the [features](Features.md) "
-"document for more information on why you should use Klipper."
+"The Klipper firmware controls 3d-Printers. It combines the power of a general "
+"purpose computer with one or more micro-controllers. See the [features "
+"document](https://www.klipper3d.org/Features.html) for more information on why"
+" you should use the Klipper software."
 msgstr ""
-"Klipper 는 3D 프린터 펌웨어입니다. Klipper 는 하나 이상의 마이크로 컨트롤러와 결합하여 사용됩니다. Klipper를 사용해야"
-" 하는 이유에 대한 자세한 내용은 [features](Features.md) 를 참조하세요."
 
 #: docs/index.md:block 5 (paragraph)
-msgid "To begin using Klipper start by [installing](Installation.md) it."
-msgstr "Klipper 를 사용하려면 [installing](Installation.md)부터 시작합니다."
+msgid ""
+"Start by [installing Klipper "
+"software](https://www.klipper3d.org/Installation.html)."
+msgstr ""
 
 #: docs/index.md:block 6 (paragraph)
 msgid ""
-"Klipper is Free Software. Read the [documentation](Overview.md) or view [the "
-"Klipper code on github](https://github.com/Klipper3d/klipper). We depend on "
-"the generous support from our [sponsors](Sponsors.md)."
+"Klipper software is Free Software. Read the "
+"[documentation](https://www.klipper3d.org/Overview.html), see the "
+"[license](COPYING), or [download](https://github.com/Klipper3d/Klipper) the "
+"software. We depend on the generous support from our "
+"[sponsors](https://www.klipper3d.org/Sponsors.html)."
 msgstr ""
+
+#~ msgid ""
+#~ "Klipper is a 3d-Printer firmware. It combines the power of a general purpose "
+#~ "computer with one or more micro-controllers. See the [features](Features.md) "
+#~ "document for more information on why you should use Klipper."
+#~ msgstr ""
+#~ "Klipper 는 3D 프린터 펌웨어입니다. Klipper 는 하나 이상의 마이크로 컨트롤러와 결합하여 사용됩니다. Klipper를 사용해야"
+#~ " 하는 이유에 대한 자세한 내용은 [features](Features.md) 를 참조하세요."
+
+#~ msgid "To begin using Klipper start by [installing](Installation.md) it."
+#~ msgstr "Klipper 를 사용하려면 [installing](Installation.md)부터 시작합니다."
+
+#~ msgid ""
+#~ "Klipper is Free Software. Read the [documentation](Overview.md) or view [the "
+#~ "Klipper code on github](https://github.com/Klipper3d/klipper). We depend on "
+#~ "the generous support from our [sponsors](Sponsors.md)."
+#~ msgstr ""
 
 #~ msgid ""
 #~ "Klipper is Free Software. Read the [documentation](Overview.md) or view [the "

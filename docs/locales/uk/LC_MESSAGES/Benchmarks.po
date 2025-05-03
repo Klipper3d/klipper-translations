@@ -6,13 +6,11 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-02-20 08:20+0000\n"
 "Last-Translator: Максим Горпиніч <maksimgorpinic2005a@gmail.com>\n"
-"Language-Team: Ukrainian <https://hosted.weblate.org/projects/klipper/"
-"benchmarks/uk/>\n"
+"Language-Team: Ukrainian <https://hosted.weblate.org/projects/klipper/benchmarks/uk/>\n"
 "Language: uk\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Weblate 5.10.1-dev\n"
 
 msgid "This document describes Klipper benchmarks."
@@ -382,12 +380,6 @@ msgstr "Хост Бенчмарки"
 msgid "66"
 msgstr "66"
 
-msgid "5"
-msgstr "5"
-
-msgid "22"
-msgstr "22"
-
 msgid "rp2040 (USB)"
 msgstr "rp2040 (USB)"
 
@@ -662,31 +654,6 @@ msgstr "stm32g0b1"
 msgid "STM32H7 step rate benchmark"
 msgstr "STM32H7 покрокова оцінка"
 
-#: docs/Benchmarks.md:block 60 (paragraph)
-msgid "The following configuration sequence is used on a STM32H743VIT6:"
-msgstr "Далі конфігурація використовується на STM32H743VIT6:"
-
-#: docs/Benchmarks.md:block 62 (paragraph)
-msgid ""
-"The test was last run on commit `00191b5c` with gcc version `arm-none-eabi-gcc"
-" (15:8-2019-q3-1+b1) 8.3.1 20190703 (release) [gcc-8-branch revision 273027]`."
-msgstr ""
-"Тест був останній курс на комітування `00191b5c` з версією Gcc `arm-non-eabi-"
-"gcc (15:8-2019-q3-1+b1) 8.3.1 20190703 (випуск) [gcc-8-branch version "
-"273027]`."
-
-#: docs/Benchmarks.md:block 63 (table)
-msgid "stm32h7"
-msgstr "стм32х7"
-
-#: docs/Benchmarks.md:block 63 (table)
-msgid "44"
-msgstr "44"
-
-#: docs/Benchmarks.md:block 63 (table)
-msgid "198"
-msgstr "198"
-
 #: docs/Benchmarks.md:block 85 (header)
 msgid "AR100 step rate benchmark"
 msgstr "AR100 покрокова оцінка"
@@ -737,8 +704,8 @@ msgid ""
 "The test was last run on commit `34e9ea55` with gcc version `arm-none-eabi-gcc"
 " (NixOS 10.3-2021.10) 10.3.1` on a SAME70Q20B micro-controller."
 msgstr ""
-"Тест востаннє запускався на коміті `34e9ea55` з версією gcc `arm-none-eabi-"
-"gcc (NixOS 10.3-2021.10) 10.3.1` на мікроконтролері SAME70Q20B."
+"Тест востаннє запускався на коміті `34e9ea55` з версією gcc `arm-none-eabi-gcc"
+" (NixOS 10.3-2021.10) 10.3.1` на мікроконтролері SAME70Q20B."
 
 #: docs/Benchmarks.md:block 89 (table)
 msgid "same70"
@@ -768,14 +735,6 @@ msgstr "RPxxxx контрольний показник швидкості кро
 msgid "The following configuration sequence is used on the RP2040 and RP2350:"
 msgstr "На RP2040 і RP2350 використовується така послідовність конфігурації:"
 
-#: docs/Benchmarks.md:block 98 (paragraph)
-msgid ""
-"The test was last run on commit `f6718291` with gcc version `arm-none-eabi-gcc"
-" (Fedora 14.1.0-1.fc40) 14.1.0` on Raspberry Pi Pico and Pico 2 boards."
-msgstr ""
-"Тест востаннє запускався на коміті `f6718291` з версією gcc `arm-none-eabi-"
-"gcc (Fedora 14.1.0-1.fc40) 14.1.0` на платах Raspberry Pi Pico та Pico 2."
-
 #: docs/Benchmarks.md:block 99 (table)
 msgid "rp2040 (*)"
 msgstr "rp2040 (*)"
@@ -792,18 +751,6 @@ msgstr "36"
 msgid "169"
 msgstr "169"
 
-#: docs/Benchmarks.md:block 101 (paragraph)
-msgid ""
-"(*) Note that the reported rp2040 ticks are relative to a 12Mhz scheduling "
-"timer and do not correspond to its 125Mhz internal ARM processing rate. It is "
-"expected that 5 scheduling ticks corresponds to ~47 ARM core cycles and 22 "
-"scheduling ticks corresponds to ~224 ARM core cycles."
-msgstr ""
-"(*) Зверніть увагу, що зареєстровані такти rp2040 відносяться до таймера "
-"планування 12 МГц і не відповідають його швидкості внутрішньої обробки ARM "
-"125 МГц. Очікується, що 5 тактів планування відповідає ~47 циклам ядра ARM, "
-"а 22 такти планування відповідають ~224 циклам ядра ARM."
-
 #: docs/Benchmarks.md:block 112 (table)
 msgid "885K"
 msgstr "885K"
@@ -819,6 +766,86 @@ msgstr "arm-none-eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0"
 #: docs/Benchmarks.md:block 112 (table)
 msgid "rp2350 (USB)"
 msgstr "rp2350 (USB)"
+
+#: docs/Benchmarks.md:block 60 (paragraph)
+msgid "The following configuration sequence is used on STM32H723:"
+msgstr ""
+
+#: docs/Benchmarks.md:block 62 (paragraph)
+msgid ""
+"The test was last run on commit `554ae78d` with gcc version `arm-none-eabi-gcc"
+" (Fedora 14.1.0-1.fc40) 14.1.0`."
+msgstr ""
+
+#: docs/Benchmarks.md:block 63 (table)
+msgid "stm32h723"
+msgstr ""
+
+#: docs/Benchmarks.md:block 98 (paragraph)
+msgid ""
+"The test was last run on commit `14c105b8` with gcc version `arm-none-eabi-gcc"
+" (Fedora 14.1.0-1.fc40) 14.1.0` on Raspberry Pi Pico and Pico 2 boards."
+msgstr ""
+
+#: docs/Benchmarks.md:block 99 (table)
+msgid "3"
+msgstr ""
+
+#: docs/Benchmarks.md:block 99 (table)
+msgid "14"
+msgstr ""
+
+#: docs/Benchmarks.md:block 101 (paragraph)
+msgid ""
+"(*) Note that the reported rp2040 ticks are relative to a 12Mhz scheduling "
+"timer and do not correspond to its 200Mhz internal ARM processing rate. It is "
+"expected that 5 scheduling ticks corresponds to ~42 ARM core cycles and 14 "
+"scheduling ticks corresponds to ~225 ARM core cycles."
+msgstr ""
+
+#~ msgid "5"
+#~ msgstr "5"
+
+#~ msgid "22"
+#~ msgstr "22"
+
+#~ msgid "The following configuration sequence is used on a STM32H743VIT6:"
+#~ msgstr "Далі конфігурація використовується на STM32H743VIT6:"
+
+#~ msgid ""
+#~ "The test was last run on commit `00191b5c` with gcc version `arm-none-eabi-gcc"
+#~ " (15:8-2019-q3-1+b1) 8.3.1 20190703 (release) [gcc-8-branch revision 273027]`."
+#~ msgstr ""
+#~ "Тест був останній курс на комітування `00191b5c` з версією Gcc `arm-non-eabi-"
+#~ "gcc (15:8-2019-q3-1+b1) 8.3.1 20190703 (випуск) [gcc-8-branch version "
+#~ "273027]`."
+
+#~ msgid "stm32h7"
+#~ msgstr "стм32х7"
+
+#~ msgid "44"
+#~ msgstr "44"
+
+#~ msgid "198"
+#~ msgstr "198"
+
+#~ msgid ""
+#~ "The test was last run on commit `f6718291` with gcc version `arm-none-eabi-gcc"
+#~ " (Fedora 14.1.0-1.fc40) 14.1.0` on Raspberry Pi Pico and Pico 2 boards."
+#~ msgstr ""
+#~ "Тест востаннє запускався на коміті `f6718291` з версією gcc `arm-none-eabi-gcc"
+#~ " (Fedora 14.1.0-1.fc40) 14.1.0` на платах Raspberry Pi Pico та Pico 2."
+
+#~ msgid ""
+#~ "(*) Note that the reported rp2040 ticks are relative to a 12Mhz scheduling "
+#~ "timer and do not correspond to its 125Mhz internal ARM processing rate. It is "
+#~ "expected that 5 scheduling ticks corresponds to ~47 ARM core cycles and 22 "
+#~ "scheduling ticks corresponds to ~224 ARM core cycles."
+#~ msgstr ""
+#~ "(*) Зверніть увагу, що зареєстровані такти rp2040 відносяться до таймера "
+#~ "планування 12 МГц і не відповідають його швидкості внутрішньої обробки ARM 125"
+#~ " МГц. Очікується, що 5 тактів планування відповідає ~47 циклам ядра ARM, а 22 "
+#~ "такти планування відповідають ~224 циклам ядра ARM."
 
 #~ msgid ""
 #~ "SET start_clock {clock+freq}\n"
