@@ -1512,6 +1512,25 @@ cs_pin:
 #   共振測量的質量。
 ```
 
+### [icm20948]
+
+Support for icm20948 accelerometers.
+
+```
+[icm20948]
+#i2c_address:
+#   Default is 104 (0x68). If AD0 is high, it would be 0x69 instead.
+#i2c_mcu:
+#i2c_bus:
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
+#i2c_speed: 400000
+#   See the "common I2C settings" section for a description of the
+#   above parameters. The default "i2c_speed" is 400000.
+#axes_map: x, y, z
+#   See the "adxl345" section for information on this parameter.
+```
+
 ### [lis2dw]
 
 Support for LIS2DW accelerometers.
@@ -1871,6 +1890,9 @@ Support for eddy current inductive probes. One may define this section (instead 
 sensor_type: ldc1612
 #   The sensor chip used to perform eddy current measurements. This
 #   parameter must be provided and must be set to ldc1612.
+#frequency:
+#   The external crystal frequency (in Hz) of the LDC1612 chip.
+#   The default is 12000000.
 #intb_pin:
 #   MCU gpio pin connected to the ldc1612 sensor's INTB pin (if
 #   available). The default is to not use the INTB pin.
@@ -2934,20 +2956,27 @@ pin:
 ```
 [gcode_button my_gcode_button]
 pin:
-#   連線到按鈕的引腳。
-#   必須提供此參數。
+#   The pin on which the button is connected. This parameter must be
+#   provided.
 #analog_range:
-#   兩個逗號分隔的阻值(單位：歐姆)，指定了按鈕的最小和最大電阻。
-#   如果提供了 analog_range ，必須使用一個模擬功能的引腳。預設
-#   情況下為按鈕使用數字GPIO。
-#   analog_pullup_resistor:
-#   當定義 analog_range 時的上拉電阻(歐姆)。預設為4700歐姆。
+#   Two comma separated resistances (in Ohms) specifying the minimum
+#   and maximum resistance range for the button. If analog_range is
+#   provided then the pin must be an analog capable pin. The default
+#   is to use digital gpio for the button.
+#analog_pullup_resistor:
+#   The pullup resistance (in Ohms) when analog_range is specified.
+#   The default is 4700 ohms.
 #press_gcode:
-#   當按鈕被按下時要執行的 G-Code 命令序列，支援G-Code模板。
-#   必須提供此參數。
+#   A list of G-Code commands to execute when the button is pressed.
+#   G-Code templates are supported. This parameter must be provided.
 #release_gcode:
-#   當按鈕被釋放時要執行的G-Code命令序列，支援G-Code模板。
-#   預設在按鈕釋放時不執行任何命令。
+#   A list of G-Code commands to execute when the button is released.
+#   G-Code templates are supported. The default is to not run any
+#   commands on a button release.
+#debounce_delay:
+#   A period of time in seconds to debounce events prior to running the
+#   button gcode. If the button is pressed and released during this
+#   delay, the entire button press is ignored. Default is 0.
 ```
 
 ### [output_pin]
@@ -3100,8 +3129,9 @@ run_current:
 #stealthchop_threshold: 0
 #   The velocity (in mm/s) to set the "stealthChop" threshold to. When
 #   set, "stealthChop" mode will be enabled if the stepper motor
-#   velocity is below this value. The default is 0, which disables
-#   "stealthChop" mode.
+#   velocity is below this value. Note that the "sensorless homing"
+#   code may temporarily override this setting during homing
+#   operations. The default is 0, which disables "stealthChop" mode.
 #coolstep_threshold:
 #   The velocity (in mm/s) to set the TMC driver internal "CoolStep"
 #   threshold to. If set, the coolstep feature will be enabled when
@@ -3150,6 +3180,7 @@ run_current:
 #driver_PWM_FREQ: 1
 #driver_PWM_GRAD: 4
 #driver_PWM_AMPL: 128
+#driver_FREEWHEEL: 0
 #driver_SGT: 0
 #driver_SEMIN: 0
 #driver_SEUP: 0
@@ -3210,8 +3241,9 @@ run_current:
 #stealthchop_threshold: 0
 #   The velocity (in mm/s) to set the "stealthChop" threshold to. When
 #   set, "stealthChop" mode will be enabled if the stepper motor
-#   velocity is below this value. The default is 0, which disables
-#   "stealthChop" mode.
+#   velocity is below this value. Note that the "sensorless homing"
+#   code may temporarily override this setting during homing
+#   operations. The default is 0, which disables "stealthChop" mode.
 #driver_MULTISTEP_FILT: True
 #driver_IHOLDDELAY: 8
 #driver_TPOWERDOWN: 20
@@ -3226,6 +3258,7 @@ run_current:
 #driver_PWM_FREQ: 1
 #driver_PWM_GRAD: 14
 #driver_PWM_OFS: 36
+#driver_FREEWHEEL: 0
 #   Set the given register during the configuration of the TMC2208
 #   chip. This may be used to set custom motor parameters. The
 #   defaults for each parameter are next to the parameter name in the
@@ -3272,6 +3305,7 @@ run_current:
 #driver_PWM_FREQ: 1
 #driver_PWM_GRAD: 14
 #driver_PWM_OFS: 36
+#driver_FREEWHEEL: 0
 #driver_SGTHRS: 0
 #driver_SEMIN: 0
 #driver_SEUP: 0
@@ -3404,8 +3438,9 @@ run_current:
 #stealthchop_threshold: 0
 #   The velocity (in mm/s) to set the "stealthChop" threshold to. When
 #   set, "stealthChop" mode will be enabled if the stepper motor
-#   velocity is below this value. The default is 0, which disables
-#   "stealthChop" mode.
+#   velocity is below this value. Note that the "sensorless homing"
+#   code may temporarily override this setting during homing
+#   operations. The default is 0, which disables "stealthChop" mode.
 #coolstep_threshold:
 #   The velocity (in mm/s) to set the TMC driver internal "CoolStep"
 #   threshold to. If set, the coolstep feature will be enabled when
@@ -3535,8 +3570,9 @@ run_current:
 #stealthchop_threshold: 0
 #   The velocity (in mm/s) to set the "stealthChop" threshold to. When
 #   set, "stealthChop" mode will be enabled if the stepper motor
-#   velocity is below this value. The default is 0, which disables
-#   "stealthChop" mode.
+#   velocity is below this value. Note that the "sensorless homing"
+#   code may temporarily override this setting during homing
+#   operations. The default is 0, which disables "stealthChop" mode.
 #coolstep_threshold:
 #   The velocity (in mm/s) to set the TMC driver internal "CoolStep"
 #   threshold to. If set, the coolstep feature will be enabled when
@@ -4185,35 +4221,39 @@ text:
 有關詳細信息，請參閱 [命令參考](G-Codes.md#filament_switch_sensor)。
 
 ```
-[filament_switch_sensor my_sensor]。
+[filament_switch_sensor my_sensor]
 #pause_on_runout: True
-#   當設定為 "True "時，會在檢測到耗盡后立即暫停印表機。
-#   請注意, 如果 pause_on_runout 為 False 並且沒有定義。
-#   runout_gcode的話, 耗盡檢測將被禁用。
-#   預設為 True。
+#   When set to True, a PAUSE will execute immediately after a runout
+#   is detected. Note that if pause_on_runout is False and the
+#   runout_gcode is omitted then runout detection is disabled. Default
+#   is True.
 #runout_gcode:
-#   在檢測到耗材耗盡後會執行的G程式碼命令列表。
-#   有關G-Code 格式請見 docs/Command_Templates.md。
-#   如果 pause_on_runout 被設定為 True，這個G-Code將在
-#   暫停后執行。
-#   預設情況是不執行任何 G-Code 命令。
+#   A list of G-Code commands to execute after a filament runout is
+#   detected. See docs/Command_Templates.md for G-Code format. If
+#   pause_on_runout is set to True this G-Code will run after the
+#   PAUSE is complete. The default is not to run any G-Code commands.
 #insert_gcode:
-#   在檢測到耗材插入後會執行的 G-Code 命令列表。
-#   關於G程式碼格式，請參見 docs/Command_Templates.md。
-#   預設不執行任何 G-Code 命令，這將禁用耗材插入檢測。
+#   A list of G-Code commands to execute after a filament insert is
+#   detected. See docs/Command_Templates.md for G-Code format. The
+#   default is not to run any G-Code commands, which disables insert
+#   detection.
 #event_delay: 3.0
-#   事件之間的最小延遲時間（秒）。
-#   在這個時間段內觸發的事件將被默許忽略。
-#   預設為3秒。
+#   The minimum amount of time in seconds to delay between events.
+#   Events triggered during this time period will be silently
+#   ignored. The default is 3 seconds.
 #pause_delay: 0.5
-#   暫停命令和執行 runout_gcode 之間的延遲時間, 單位是秒。
-#   如果在OctoPrint的情況下，增加這個延遲可能改善暫
-#   停的可靠性。如果OctoPrint表現出奇怪的暫停行為，
-#   考慮增加這個延遲。
-#   預設為0.5秒。
+#   The amount of time to delay, in seconds, between the pause command
+#   dispatch and execution of the runout_gcode. It may be useful to
+#   increase this delay if OctoPrint exhibits strange pause behavior.
+#   Default is 0.5 seconds.
+#debounce_delay:
+#   A period of time in seconds to debounce events prior to running the
+#   switch gcode. The switch must he held in a single state for at least
+#   this long to activate. If the switch is toggled on/off during this delay,
+#   the event is ignored. Default is 0.
 #switch_pin:
-#   連線到檢測開關的引腳。
-#   必須提供此參數。
+#   The pin on which the switch is connected. This parameter must be
+#   provided.
 ```
 
 ### [filament_motion_sensor]
@@ -4317,6 +4357,16 @@ Load Cell. Uses an ADC sensor attached to a load cell to create a digital scale.
 [load_cell]
 sensor_type:
 #   This must be one of the supported sensor types, see below.
+#counts_per_gram:
+#   The floating point number of sensor counts that indicates 1 gram of force.
+#   This value is calculated by the LOAD_CELL_CALIBRATE command.
+#reference_tare_counts:
+#   The integer tare value, in raw sensor counts, taken when LOAD_CELL_CALIBRATE
+#   is run. This is the default tare value when klipper starts up.
+#sensor_orientation:
+#   Change the sensor's orientation. Can be either 'normal' or 'inverted'.
+#   The default is 'normal'. Use 'inverted' if the sensor reports a
+#   decreasing force value when placed under load.
 ```
 
 #### HX711
@@ -4482,6 +4532,44 @@ vssa_pin:
 #   VSSA 測量來減少測量的干擾。預設為2秒。
 ```
 
+### [ads1x1x]
+
+ADS1013, ADS1014, ADS1015, ADS1113, ADS1114 and ADS1115 are I2C based Analog to Digital Converters that can be used for temperature sensors. They provide 4 analog input pins either as single line or as differential input.
+
+Note: Use caution if using this sensor to control heaters. The heater min_temp and max_temp are only verified in the host and only if the host is running and operating normally. (ADC inputs directly connected to the micro-controller verify min_temp and max_temp within the micro-controller and do not require a working connection to the host.)
+
+```
+[ads1x1x my_ads1x1x]
+chip: ADS1115
+#pga: 4.096V
+#   Default value is 4.096V. The maximum voltage range used for the input. This
+#   scales all values read from the ADC. Options are: 6.144V, 4.096V, 2.048V,
+#   1.024V, 0.512V, 0.256V
+#adc_voltage: 3.3
+#   The suppy voltage for the device. This allows additional software scaling
+#   for all values read from the ADC.
+i2c_mcu: host
+i2c_bus: i2c.1
+#address_pin: GND
+#   Default value is GND.  There can be up to four addressed devices depending
+#   upon wiring of the device. Check the datasheet for details. The i2c_address
+#   can be specified directly instead of using the address_pin.
+```
+
+The chip provides pins that can be used on other sensors.
+
+```
+sensor_type: ...
+#   Can be any thermistor or adc_temperature.
+sensor_pin: my_ads1x1x:AIN0
+#   A combination of the name of the ads1x1x chip and the pin. Possible
+#   pin values are AIN0, AIN1, AIN2 and AIN3 for single ended lines and
+#   DIFF01, DIFF03, DIFF13 and DIFF23 for differential between their
+#   correspoding lines. For example
+#   DIFF03 measures the differential between line 0 and 3. Only specific
+#   combinations for the differentials are allowed.
+```
+
 ### [replicape]
 
 副本支持 - 有關示例，請參見 [beaglebone guide](Beaglebone.md) 和 [generic-replicape.cfg](../config/generic-replicape.cfg) 文件。
@@ -4556,7 +4644,7 @@ Palette 2 多材料支援 - 提供更緊密的整合，支援處於連線模式�
 
 不要和 Octoprint 的 Palette 2外掛一起使用這個模組，因為它們會發生衝突，造成初始化和列印失敗。
 
-如果使用 OctoPrint 並通過串列埠流式傳輸 G-Code，而不通過 virtual_sd 列印，將 * 設定>序列連線>韌體和協議 * 中的「暫停命令」 設定為**M1** 和 **M0** 可以避免在開始列印時需要在Palette 2 上選擇開始列印並在 OctoPrint 中取消暫停。
+If you use Octoprint and stream gcode over the serial port instead of printing from virtual_sd, then remove **M1** and **M0** from *Pausing commands* in *Settings > Serial Connection > Firmware & protocol* will prevent the need to start print on the Palette 2 and unpausing in Octoprint for your print to begin.
 
 ```
 [palette2]

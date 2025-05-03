@@ -8,7 +8,7 @@
 
 为了校准压力提前，打印机必须已经配置完成并可以正常工作。因为调优测试涉及打印和检查测试对象。在运行测试之前，最好完整阅读本文档。
 
-用切片软件将[docs/prints/square_tower.stl](prints/square_tower.stl)模型转化为G-Code。建议切片时使用高速度（如大于100mm/s），0%填充，高层厚（如75%以上的喷嘴直径）。确保“动态加速度调整”功能已关闭。
+Use a slicer to generate g-code for the large hollow square found in [docs/prints/square_tower.stl](prints/square_tower.stl). Use a high speed (eg, 100mm/s), zero infill, and a coarse layer height (the layer height should be around 75% of the nozzle diameter). Make sure any "dynamic acceleration control" and "scarf joint" seams are disabled in the slicer.
 
 在打印G-Code前输入下面的命令：
 

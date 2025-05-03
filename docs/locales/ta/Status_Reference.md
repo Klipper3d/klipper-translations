@@ -19,12 +19,23 @@
 
 ## BED_SCREWS
 
-பின்வரும் தகவல்கள் `config_reference.md#bed_screws` பொருளில் கிடைக்கின்றன:
+The following information is available in the [bed_screws](Config_Reference.md#bed_screws) object:
 
 - `is_active`: படுக்கை திருகுகள் சரிசெய்தல் கருவி தற்போது செயலில் இருந்தால் உண்மை.
 - `மாநிலம்`: படுக்கை திருகுகள் சரிசெய்தல் கருவி நிலை. இது பின்வரும் சரங்களில் ஒன்றாகும்: "சரிசெய்யவும்", "நன்றாக".
 - `Current_screw`: தற்போதைய திருகு சரிசெய்யப்படும் குறியீடு.
 - `ஏற்றுக்கொள்ளப்பட்ட_சக்கிகள்`: ஏற்றுக்கொள்ளப்பட்ட திருகுகளின் எண்ணிக்கை.
+
+## canbus_stats
+
+The following information is available in the `canbus_stats some_mcu_name` object (this object is automatically available if an mcu is configured to use canbus):
+
+- `rx_error`: The number of receive errors detected by the micro-controller canbus hardware.
+- `tx_error`: The number of transmit errors detected by the micro-controller canbus hardware.
+- `tx_retries`: The number of transmit attempts that were retried due to bus contention or errors.
+- `bus_state`: The status of the interface (typically "active" for a bus in normal operation, "warn" for a bus with recent errors, "passive" for a bus that will no longer transmit canbus error frames, or "off" for a bus that will no longer transmit or receive messages).
+
+Note that only the rp2XXX micro-controllers report a non-zero `tx_retries` field and the rp2XXX micro-controllers always report `tx_error` as zero and `bus_state` as "active".
 
 ## கட்டமைப்பு
 
@@ -151,6 +162,7 @@
 
 பின்வரும் தகவல்கள் [hall_filament_width_sensor] (config_reference.md#hall_filament_width_sensor) பொருள்:
 
+- all items from [filament_switch_sensor](Status_Reference.md#filament_switch_sensor)
 - `is_active`: சென்சார் தற்போது செயலில் இருந்தால் உண்மை.
 - `விட்டம்`: மிமீ சென்சாரிலிருந்து கடைசி வாசிப்பு.
 - `ரா`: சென்சாரிலிருந்து கடைசி மூல ஏடிசி வாசிப்பு.
@@ -184,6 +196,18 @@
 ஒவ்வொரு `[எல்.ஈ.டி எல்.ஈ.டி_நேம்]`, `[நியோபிக்சல் லெட்_நேம்]`, `[டாட்ச்டார் லெட்_நேம்]`, `[பி.சி.ஏ 9533 லெட்_நேம்]`, மற்றும் `[பி.சி.ஏ 9632 லெட்_நேம்]` அச்சுப்பொறி.
 
 - `color_data`: சங்கிலியில் ஒரு எல்.ஈ.டி க்கான RGBW மதிப்புகளைக் கொண்ட வண்ண பட்டியல்களின் பட்டியல். ஒவ்வொரு மதிப்பும் 0.0 முதல் 1.0 வரை மிதவை என குறிப்பிடப்படுகிறது. ஒவ்வொரு வண்ண பட்டியலிலும் 4 உருப்படிகள் (சிவப்பு, பச்சை, நீலம், வெள்ளை) உள்ளன, அவை அண்டரிலிங் எல்.ஈ.டி குறைவான வண்ண சேனல்களை ஆதரித்தாலும். எடுத்துக்காட்டாக, ஒரு சங்கிலியில் இரண்டாவது நியோபிக்சலின் நீல மதிப்பு (வண்ண பட்டியலில் 3 வது உருப்படி) `அச்சுப்பொறி [" நியோபிக்சல் <config_name> "] இல் அணுகப்படலாம். Color_data [1] [2]`.
+
+## load_cell
+
+The following information is available for each `[load_cell name]`:
+
+- 'is_calibrated': True/False is the load cell calibrated
+- 'counts_per_gram': The number of raw sensor counts that equals 1 gram of force
+- 'reference_tare_counts': The reference number of raw sensor counts for 0 force
+- 'tare_counts': The current number of raw sensor counts for 0 force
+- 'force_g': The force in grams, averaged over the last polling period.
+- 'min_force_g': The minimum force in grams, over the last polling period.
+- 'max_force_g': The maximum force in grams, over the last polling period.
 
 ## கையேடு_ப்ரோப்
 
@@ -282,6 +306,12 @@
 பின்வரும் தகவல்கள் [servo some_name] (config_reference.md#servo) பொருள்களில் கிடைக்கின்றன:
 
 - `அச்சுப்பொறி [" சர்வோ <config_name> "]. மதிப்பு`: சர்வோவுடன் தொடர்புடைய PWM முள் (0.0 மற்றும் 1.0 க்கு இடையிலான மதிப்பு) கடைசி அமைப்பு.
+
+## skew_correction.py
+
+The following information is available in the `skew_correction` object (this object is available if any skew_correction is defined):
+
+- `current_profile_name`: Returns the name of the currently loaded SKEW_PROFILE.
 
 ## stepper_enable
 

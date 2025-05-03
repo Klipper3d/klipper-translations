@@ -78,6 +78,7 @@ iface can0 can static
 * Наличната широчина на честотната лента както за самия мостов микропроцесор, така и за всички устройства по шината CAN е ефективно ограничена от честотата на шината CAN. В резултат на това се препоръчва да се използва честота на CAN шината от 1000000, когато се използва "режим на мост от USB към CAN шина".
 
    Дори при честота на шината CAN 1000000 може да няма достатъчна широчина на честотната лента за провеждане на теста `SHAPER_CALIBRATE`, ако стъпковите устройства XY и акселерометърът комуникират чрез един интерфейс "USB към шина CAN".
+* It is only valid to use USB to CAN bridge mode if there is a functioning CAN bus with at least one other node available (in addition to the bridge node itself). Use a standard USB configuration if the goal is to communicate only with the single USB device. Using USB to CAN bridge mode without a fully functioning CAN bus (including terminating resistors and an additional node) may result in sporadic errors even when communicating with the bridge node.
 * Платка с мост от USB към CAN няма да се появи като USB серийно устройство, няма да се появи при изпълнение на `ls /dev/serial/by-id` и не може да бъде конфигурирана във файла printer.cfg на Klipper с параметър `serial:`. Мостовата платка се появява като "USB CAN адаптер" и се конфигурира в printer.cfg като [CAN възел](#configuring-klipper).
 
 ## Съвети за отстраняване на неизправности

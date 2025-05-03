@@ -1,8 +1,8 @@
 # நிறுவல்
 
-கிளிப்பர் இணக்கமான முன் இறுதியில் இயங்கும் லினக்ச் அடிப்படையிலான ஓச்டில் மென்பொருள் இயங்கும் என்று இந்த வழிமுறைகள் கருதுகின்றன. ராச்பெர்ரி பிஐ அல்லது டெபியன் அடிப்படையிலான லினக்ச் சாதனம் போன்ற ஒரு எச்.பி.சி (சிறிய போர்டு கணினி) புரவலன் இயந்திரமாகப் பயன்படுத்த பரிந்துரைக்கப்படுகிறது ([கேள்விகள்] (faq.md#can-i-run-klipper-on- ஏதோ பார்க்கவும் பிற விருப்பங்களுக்கு ஒரு-ராச்பெர்ரி-பிஐ -3 ஐ விட மற்ற விருப்பங்களுக்கு).
+These instructions assume the software will run on a Linux-based host running a Klipper-compatible front end. It is recommended that a SBC(Small Board Computer) such as a Raspberry Pi or Debian-based Linux device be used as the host machine (see the [FAQ](FAQ.md#can-i-run-klipper-on-something-other-than-a-raspberry-pi-3) for other options).
 
-இந்த அறிவுறுத்தல்களின் நோக்கங்களுக்காக புரவலன் லினக்ச் சாதனம் மற்றும் ச்பிரிங்போர்டு தொடர்பான எம்.சி.யு ஆகியவற்றுடன் தொடர்புடையது. எச்.பி.சி ராச்பெர்ரி பை போன்ற சிறிய பலகை கணினி என்ற சொல்லுடன் தொடர்புடையது.
+For the purposes of these instructions, host relates to the Linux device and mcu relates to the printer board. SBC relates to the term Small Board Computer such as the Raspberry Pi.
 
 ## கிளிப்பர் உள்ளமைவு கோப்பைப் பெறுங்கள்
 
@@ -24,9 +24,9 @@
 
 ## எச்.பி.சி.க்கு ஒரு OS படத்தைப் பெறுதல்
 
-எச்.பி.சி பயன்பாட்டிற்காக கிளிப்பருக்கான OS படத்தைப் பெற பல வழிகள் உள்ளன, பெரும்பாலானவை நீங்கள் எந்த முன் இறுதியில் பயன்படுத்த விரும்புகிறீர்கள் என்பதைப் பொறுத்தது. இந்த எச்.பி.சி போர்டுகளின் சில மனாஃபாக்சர்கள் அவற்றின் சொந்த கிளிப்பர்-மைய படங்களை வழங்குகின்றன.
+There are many ways to obtain an OS image for Klipper for SBC use, most depend on what front end you wish to use. Some manufacturers of these SBC boards also provide their own Klipper-centric images.
 
-இரண்டு முக்கிய மூன்ராகேக்கர் அடிப்படையிலான முன் முனைகள் [Flifimd] (https://docs.fluidd.xyz/) மற்றும் [மெயின்செயில்] (https://docs.mainesail.xyz/), இதில் பிந்தையது முன்கூட்டியே நிறுவப்பட்ட படத்தைக் கொண்டுள்ளது [ "மெயின்சைலோச்"]] (http://docs.mainesailos.xyz), இது ராச்பெர்ரி பை மற்றும் சில ஆரஞ்ச்பி மாறுபாட்டிற்கான விருப்பத்தைக் கொண்டுள்ளது.
+The two main Moonraker-based front ends are [Fluidd](https://docs.fluidd.xyz/) and [Mainsail](https://docs.mainsail.xyz/), the latter of which has a premade install image ["MainsailOS"](https://docs-os.mainsail.xyz/), this has the option for Raspberry Pi and some OrangePi variants.
 
 KIAUH (கிளிப்பர் நிறுவல் மற்றும் புதுப்பிப்பு உதவியாளர்) வழியாக FILIGDD ஐ நிறுவலாம், இது கீழே விளக்கப்பட்டுள்ளது மற்றும் எல்லாவற்றிற்கும் 3 வது தரப்பு நிறுவி கிளிப்பர் ஆகும்.
 
@@ -34,9 +34,9 @@ KIAUH (கிளிப்பர் நிறுவல் மற்றும் �
 
 ## கியாவ் வழியாக நிறுவுகிறது
 
-பொதுவாக நீங்கள் உங்கள் எச்.பி.சி, ஆர்.பி.ஓ.எச் லைட்டிற்கான அடிப்படை படத்துடன் தொடங்குவீர்கள், எடுத்துக்காட்டாக, அல்லது ஃச் 86 லினக்ச் சாதனம், உபுண்டு சேவையகத்தின் விசயத்தில். சில கிளிப்பர் செயல்பாடுகளைத் தடுக்கக்கூடிய சில உதவி நிரல்களால் டெச்க்டாப் வகைகள் பரிந்துரைக்கப்படவில்லை என்பதை நினைவில் கொள்க, சில அச்சு பலகைகளுக்கு அணுகலை கூட மறைக்கவும்.
+Normally you would start with a base image for your SBC, RPiOS Lite for example, or in the case of an x86 Linux device, Ubuntu Server. Please note that Desktop variants are not recommended due to certain helper programs that can stop some Klipper functions from working and even mask access to some printer boards.
 
-கிளிப்பர் மற்றும் அதனுடன் தொடர்புடைய நிரல்களை ஒரு வகையான டெபியனை இயக்கும் பல்வேறு லினக்ச் அடிப்படையிலான அமைப்புகளில் நிறுவ கியாவைப் பயன்படுத்தலாம். மேலும் தகவல்களை https://github.com/dw-0/kiauh இல் காணலாம்
+KIAUH can be used to install Klipper and its associated programs on a variety of Linux-based systems that run a form of Debian. More information can be found at https://github.com/dw-0/kiauh
 
 ## மைக்ரோ-கன்ட்ரோலரை உருவாக்கி ஒளிரச் செய்தல்
 
@@ -53,7 +53,7 @@ make menuconfig
 உருவாக்கு
 ```
 
-[அச்சுப்பொறி உள்ளமைவு கோப்பின் மேலே உள்ள கருத்துகள்] (#A-KLIPPER-உள்ளமைவு-கோப்பு பெறுதல்) அச்சுப்பொறி கட்டுப்பாட்டு வாரியத்திற்கு இறுதி படத்தை "ஒளிரும்" செய்வதற்கான தனிப்பயன் படிகளை விவரிக்கவும், பின்னர் அந்த படிகளைப் பின்பற்றி [உள்ளமைக்கவும் ஆக்டோப்ரின்ட்] (#கட்டமைத்தல்-ஆக்டோப்ரிண்ட்-டு-யூச்-கிளிப்பர்).
+If the comments at the top of the [printer configuration file](#obtain-a-klipper-configuration-file) describe custom steps for "flashing" the final image to the printer control board, then follow those steps and then proceed to [configuring OctoPrint](#configuring-octoprint-to-use-klipper).
 
 இல்லையெனில், அச்சுப்பொறி கட்டுப்பாட்டு பலகையை "ஃபிளாச்" செய்ய பின்வரும் படிகள் பெரும்பாலும் பயன்படுத்தப்படுகின்றன. முதலாவதாக, மைக்ரோ-கன்ட்ரோலருடன் இணைக்கப்பட்ட தொடர் துறைமுகத்தை தீர்மானிக்க வேண்டியது தேவை. பின்வருவனவற்றை இயக்கவும்:
 
@@ -69,9 +69,9 @@ ls/dev/serial/by-id/*
 
 ஒவ்வொரு அச்சுப்பொறியும் அதன் தனித்துவமான சீரியல் துறைமுகம் பெயரைக் கொண்டிருப்பது பொதுவானது. மைக்ரோ-கன்ட்ரோலரை ஒளிரும் போது இந்த தனித்துவமான பெயர் பயன்படுத்தப்படும். மேலே உள்ள வெளியீட்டில் பல கோடுகள் இருக்கலாம் - அப்படியானால், மைக்ரோ -கன்ட்ரோலருடன் தொடர்புடைய வரியைத் தேர்வுசெய்க. பல உருப்படிகள் பட்டியலிடப்பட்டு, தேர்வு தெளிவற்றதாக இருந்தால், பலகையை அவிழ்த்துவிட்டு மீண்டும் கட்டளையை இயக்கினால், காணாமல் போன உருப்படி உங்கள் அச்சு பலகையாக இருக்கும் (மேலும் தகவலுக்கு [கேள்விகள்] (கேள்விகள்) (கேள்விகள்) ).
 
-STM32 அல்லது நகலி சில்லுகள், எல்பிசி சில்லுகள் மற்றும் பிறவற்றைக் கொண்ட பொதுவான மைக்ரோ-கன்ட்ரோலர்களுக்கு, எச்டி அட்டை வழியாக ஆரம்ப கிளிப்பர் ஃபிளாச் தேவை என்பது வழக்கம்.
+For common micro-controllers with STM32 or clone chips, LPC chips and others, it is usual that these need an initial Klipper flash via SD card.
 
-இந்த முறையுடன் ஒளிரும் போது, சில பலகைகள் பலகைகளுக்கு மீண்டும் பலகைக்கு உணவளிக்க முடியும் மற்றும் ஒரு ஃபிளாச் ஏற்படாமல் நிறுத்துவதால், அச்சு பலகை யூ.எச்.பி உடன் ஓச்டுடன் இணைக்கப்படவில்லை என்பதை உறுதிப்படுத்துவது முதன்மை.
+When flashing with this method, it is important to make sure that the print board is not connected with USB to the host, due to some boards being able to feed power back to the board and stopping a flash from occurring.
 
 ATMEGA சில்லுகளைப் பயன்படுத்தி பொதுவான மைக்ரோ-கன்ட்ரோலர்களுக்கு, எடுத்துக்காட்டாக 2560, குறியீட்டை ஒத்த ஒன்றைக் கொண்டு ஒளிரச் செய்யலாம்:
 
@@ -97,11 +97,11 @@ RP2040 சில்லுகளைப் பயன்படுத்தும்
 
 அடுத்த கட்டம் [அச்சுப்பொறி உள்ளமைவு கோப்பை] (#a-klipper-configuration-file) ஓச்டுக்கு நகலெடுப்பது.
 
-கிளிப்பர் உள்ளமைவு கோப்பை அமைப்பதற்கான எளிதான வழி மெயின்செயில் அல்லது ஃப்ளூய்டில் உள்ள ஆசிரியர்களில் கட்டமைக்கப்பட்டதைப் பயன்படுத்துகிறது. இவை பயனரை உள்ளமைவு எடுத்துக்காட்டுகளைத் திறந்து அவற்றை அச்சுப்பொறியாக சேமிக்க அனுமதிக்கும்.
+Arguably the easiest way to set the Klipper configuration file is using the built-in editors in Mainsail or Fluidd. These will allow the user to open the configuration examples and save them to be printer.cfg.
 
 மற்றொரு விருப்பம் என்னவென்றால், "SCP" மற்றும்/அல்லது "SFTP" நெறிமுறைகளில் கோப்புகளைத் திருத்துவதை ஆதரிக்கும் டெச்க்டாப் எடிட்டரைப் பயன்படுத்துவது. இதை ஆதரிக்கும் இலவசமாக கிடைக்கக்கூடிய கருவிகள் உள்ளன (எ.கா., நோட்பேட் ++, வின்ச்கிபி மற்றும் சைபர்டக்). எடிட்டரில் அச்சுப்பொறி கட்டமைப்பு கோப்பை ஏற்றவும், பின்னர் அதை PI பயனரின் வீட்டு கோப்பகத்தில் (IE, /home/pi/printer.cfg) "அச்சுப்பொறி. CFG" என்ற கோப்பாக சேமிக்கவும்.
 
-மாற்றாக, ஒருவர் பாஓடு வழியாக ஓச்டில் நேரடியாக கோப்பை நகலெடுத்து திருத்தலாம். இது பின்வருவனவற்றைப் போலத் தோன்றலாம் (பொருத்தமான அச்சுப்பொறி கட்டமைப்பு கோப்பு பெயரைப் பயன்படுத்த கட்டளையைப் புதுப்பிக்க மறக்காதீர்கள்):
+Alternatively, one can also copy and edit the file directly on the host via SSH. That may look something like the following (be sure to update the command to use the appropriate printer config filename):
 
 ```
 cp ~/klipper/config/example-cartesian.cfg ~/printed.cfg
@@ -127,10 +127,10 @@ ls/dev/serial/by-id/*
 serial: /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 ```
 
-கோப்பை உருவாக்கி திருத்திய பின் கட்டளை கன்சோலில் "மறுதொடக்கம்" கட்டளையை வழங்க வேண்டியது தேவை. கிளிப்பர் கட்டமைப்பு கோப்பு வெற்றிகரமாக வாசிக்கப்பட்டு மைக்ரோ-கன்ட்ரோலர் வெற்றிகரமாக கண்டுபிடிக்கப்பட்டு கட்டமைக்கப்பட்டால் அச்சுப்பொறி தயாராக இருப்பதாக ஒரு "நிலை" கட்டளை தெரிவிக்கும்.
+After creating and editing the file, it will be necessary to issue a "restart" command in the command console to load the config. A "status" command will report that the printer is ready if the Klipper config file is successfully read and the micro-controller is successfully found and configured.
 
 அச்சுப்பொறி கட்டமைப்பு கோப்பைத் தனிப்பயனாக்கும்போது, க்ளிப்பர் ஒரு உள்ளமைவு பிழையைப் புகாரளிப்பது வழக்கமல்ல. பிழை ஏற்பட்டால், அச்சுப்பொறி கட்டமைப்பு கோப்பில் தேவையான திருத்தங்களைச் செய்து, அச்சுப்பொறி தயாராக இருப்பதாக "நிலை" புகாரளிக்கும் வரை "மறுதொடக்கம்" ஐ வழங்கவும்.
 
-க்ளிப்பர் கட்டளை கன்சோல் வழியாகவும், ஃப்ளூயிட் மற்றும் மெயின்செயிலில் பாப் அப் வழியாகவும் பிழை செய்திகளைப் புகாரளிக்கிறது. பிழை செய்திகளை மீண்டும் பதிவு செய்ய "நிலை" கட்டளை பயன்படுத்தப்படலாம். ஒரு பதிவு கிடைக்கிறது மற்றும் வழக்கமாக ~/printur_data/பதிவுகளில் அமைந்துள்ளது இதற்கு klippy.log என்று பெயரிடப்பட்டுள்ளது
+Klipper reports error messages via the command console and pop-ups in Fluidd and Mainsail. The "status" command can be used to re-report error messages. A log is available and usually located at `~/printer_data/logs/klippy.log`.
 
 அச்சுப்பொறி தயாராக இருப்பதாக கிளிப்பர் புகாரளித்த பிறகு, கட்டமைப்பு கோப்பில் உள்ள வரையறைகளில் சில அடிப்படை சோதனைகளைச் செய்ய [கட்டமைப்பு காசோலை ஆவணம்] (config_checks.md) க்குச் செல்லவும். பிற தகவல்களுக்கு முதன்மையான [ஆவணப்படுத்தல் குறிப்பு] (கண்ணோட்டம். எம்.டி) ஐப் பார்க்கவும்.

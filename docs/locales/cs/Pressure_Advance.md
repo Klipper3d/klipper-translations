@@ -8,7 +8,7 @@ Pressure advance does two useful things - it reduces ooze during non-extrude mov
 
 In order to calibrate pressure advance the printer must be configured and operational as the tuning test involves printing and inspecting a test object. It is a good idea to read this document in full prior to running the test.
 
-Use a slicer to generate g-code for the large hollow square found in [docs/prints/square_tower.stl](prints/square_tower.stl). Use a high speed (eg, 100mm/s), zero infill, and a coarse layer height (the layer height should be around 75% of the nozzle diameter). Make sure any "dynamic acceleration control" is disabled in the slicer.
+Use a slicer to generate g-code for the large hollow square found in [docs/prints/square_tower.stl](prints/square_tower.stl). Use a high speed (eg, 100mm/s), zero infill, and a coarse layer height (the layer height should be around 75% of the nozzle diameter). Make sure any "dynamic acceleration control" and "scarf joint" seams are disabled in the slicer.
 
 Prepare for the test by issuing the following G-Code command:
 

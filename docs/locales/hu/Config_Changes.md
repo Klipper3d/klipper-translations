@@ -6,6 +6,18 @@ A dokumentumban szereplő valamennyi dátum hozzávetőleges.
 
 ## Változások
 
+20250428: The maximum `cycle_time` for pwm `[output_pin]`, `[pwm_cycle_time]`, `[pwm_tool]`, and similar config sections is now 3 seconds (reduced from 5 seconds). The `maximum_mcu_duration` in `[pwm_tool]` is now also 3 seconds.
+
+20250418: The manual_stepper `STOP_ON_ENDSTOP` feature may now take less time to complete. Previously, the command would wait the entire time the move could possibly take even if the endstop triggered earlier. Now, the command finishes shortly after the endstop trigger.
+
+20250417: SPI devices using "software SPI" are now rate limited. Previously, the `spi_speed` in the config was ignored and the transmission speed was only limited by the processing speed of the micro-controller. Now, speeds are limited by the `spi_speed` config parameter (actual hardware speeds are likely to be lower than the configured value due to software overhead).
+
+20250411: Klipper v0.13.0 released.
+
+20250308: The `AUTO` parameter of the `AXIS_TWIST_COMPENSATION_CALIBRATE` command has been removed.
+
+20250131: Option `VARIABLE=<name>` in `SAVE_VARIABLE` requires lowercase value. For example, `extruder` instead of mixedcase `Extruder` or uppercase `EXTRUDER`. Using any uppercase letter will raise an error.
+
 20241203: A rezonancia tesztet megváltoztattuk, hogy lassú, pásztázó mozdulatokat is tartalmazzon. Ez a változtatás megköveteli, hogy a vizsgálati pontoknak legyen némi távolsága az X/Y síkban (az alapértelmezett beállítások használata esetén +/- 30 mm távolság elegendő a vizsgálati pontoktól). Az új tesztnek általában pontosabb és megbízhatóbb teszteredményeket kell produkálnia. Szükség esetén azonban a korábbi tesztelési viselkedés visszaállítható a `sweeping_period: 0` és `accel_per_hz: 75` beállításokat a `[resonance_tester]` konfigurációs szakaszhoz.
 
 20241201: Egyes esetekben a Klipper figyelmen kívül hagyhatta a hagyományos G-kód-os parancsban a vezető karaktereket vagy szóközöket. Például a „99M123”-at „M123”-nak, az „M 321”-et pedig „M321”-nek értelmezhette. A Klipper mostantól ezeket az eseteket „Ismeretlen parancs” figyelmeztetéssel jelzi.

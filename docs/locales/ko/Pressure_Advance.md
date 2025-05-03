@@ -8,7 +8,7 @@ Pressure advance 는 두 가지 유용한 작업을 수행합니다. 즉, 출력
 
 튜닝 테스트에는 개체의 인쇄 및 검사가 포함되므로 pressure advance 를 보정하려면 프린터를 구성하고 작동해야 합니다. 테스트를 실행하기 전에 이 문서를 완전히 읽는 것이 좋습니다.
 
-슬라이서를 사용하여 [docs/prints/square_tower.stl](prints/square_tower.stl) 에 있는 큰 속이 빈 사각형에 대한 g-code 를 생성합니다. high speed (예: 100mm/s), zero infill 및 coarse layer height (레이어 높이는 노즐 직경의 약 75% 여야 함) 를 사용합니다.
+Use a slicer to generate g-code for the large hollow square found in [docs/prints/square_tower.stl](prints/square_tower.stl). Use a high speed (eg, 100mm/s), zero infill, and a coarse layer height (the layer height should be around 75% of the nozzle diameter). Make sure any "dynamic acceleration control" and "scarf joint" seams are disabled in the slicer.
 
 다음 G-Code 명령을 실행하여 테스트를 준비합니다:
 

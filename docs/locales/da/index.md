@@ -8,8 +8,8 @@ gem:
 
 ![](img/klipper-logo.png){ .center-image }
 
-Klipper er en firmware til en 3d-printer. Den kombinerer kraften fra en computer til generelle formål med en eller flere mikrocontrollere. Se dokumentet [features](Features.md) for flere oplysninger om, hvorfor du skal bruge Klipper.
+The Klipper firmware controls 3d-Printers. It combines the power of a general purpose computer with one or more micro-controllers. See the [features document](https://www.klipper3d.org/Features.html) for more information on why you should use the Klipper software.
 
-For at begynde at bruge Klipper skal du starte med at [installere](Installation.md) det.
+Start by [installing Klipper software](https://www.klipper3d.org/Installation.html).
 
-Klipper er fri software. Læs [dokumentationen](Overview.md) eller se [Klipper-koden på github](https://github.com/Klipper3d/klipper). Vi er afhængige af den generøse støtte fra vores [sponsorer](Sponsors.md).
+Klipper software is Free Software. Read the [documentation](https://www.klipper3d.org/Overview.html), see the [license](COPYING), or [download](https://github.com/Klipper3d/Klipper) the software. We depend on the generous support from our [sponsors](https://www.klipper3d.org/Sponsors.html).

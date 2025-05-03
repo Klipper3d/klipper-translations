@@ -17,12 +17,19 @@ CAN மற்றும் CANL BUS வயரிங் ஒருவருக்�
 
 அச்சுப்பொறி செயலில் இருக்கும்போது ஒரு நொடிக்கு ஒரு முறை `புள்ளிவிவரங்கள்` வரியை கிளிப்பர் பதிவு கோப்பு புகாரளிக்கும். இந்த "புள்ளிவிவரங்கள்" வரிகள் ஒவ்வொரு மைக்ரோ-கன்ட்ரோலருக்கும் `பைட்டுகள்_இன் வாலிட்` கவுண்டரைக் கொண்டிருக்கும். சாதாரண அச்சுப்பொறி செயல்பாட்டின் போது இந்த கவுண்டர் அதிகரிக்கக்கூடாது (மறுதொடக்கத்திற்குப் பிறகு கவுண்டர் பூச்சியமற்றவராக இருப்பது இயல்பானது, மேலும் கவுண்டர் ஒரு மாதத்திற்கு ஒரு முறை அல்லது அதற்கு மேல் அதிகரித்தால் அது கவலைக்குரியது அல்ல). சாதாரண அச்சிடலின் போது இந்த கவுண்டர் கேன் பச் மைக்ரோ-கன்ட்ரோலரில் அதிகரித்தால் (இது ஒவ்வொரு சில மணிநேரங்களுக்கும் அல்லது அடிக்கடி அதிகரிக்கிறது), இது கடுமையான பிரச்சினையின் அறிகுறியாகும்.
 
-கேன் பச் இணைப்பில் `bytes_invalid` ஐ அதிகரிப்பது கேன் பச்சில் மறுவரிசைப்படுத்தப்பட்ட செய்திகளின் அறிகுறியாகும். மறுவரிசைப்படுத்தப்பட்ட செய்திகளுக்கு இரண்டு அறியப்பட்ட காரணங்கள் உள்ளன:
+Incrementing `bytes_invalid` on a CAN bus connection is a symptom of reordered messages on the CAN bus. If seen, make sure to:
 
-1. யூ.எச்.பி க்கான பிரபலமான மெழுகுவர்த்தி_பார்ம்வேரின் பழைய பதிப்புகள் அடாப்டர்களில் மறுவரிசைப்படுத்தப்பட்ட செய்திகளை ஏற்படுத்தக்கூடிய ஒரு பிழை இருந்தது. ஒரு யூ.எச்.பி பயன்படுத்தினால் இந்த ஃபார்ம்வேரை இயக்கும் அடாப்டர் முடியும் என்றால், `bytes_invalid` ஐ அதிகரிப்பதாக இருந்தால் அண்மைக் கால ஃபார்ம்வேரைப் புதுப்பிக்க உறுதிசெய்க.
-1. உட்பொதிக்கப்பட்ட சாதனங்களுக்கான சில லினக்ச் கர்னல் கட்டமைப்புகள் பச் செய்திகளை மறுவரிசைப்படுத்துகின்றன. மாற்று லினக்ச் கர்னலைப் பயன்படுத்துவது அல்லது இந்த சிக்கலை வெளிப்படுத்தாத முதன்மையான லினக்ச் கர்னல்களை ஆதரிக்கும் மாற்று வன்பொருளைப் பயன்படுத்துவது அவசியமாக இருக்கலாம்.
+* Use a Linux kernel version 6.6.0 or later.
+* If using a USB-to-CANBUS adapter running candlelight firmware, use v2.0 or later of candleLight_fw.
+* If using Klipper's USB-to-CANBUS bridge mode, make sure the bridge node is flashed with Klipper v0.12.0 or later.
 
-மறுவரிசைப்படுத்தப்பட்ட செய்திகள் ஒரு கடுமையான சிக்கல், அது சரி செய்யப்பட வேண்டும். இது நிலையற்ற நடத்தைக்கு வழிவகுக்கும் மற்றும் அச்சின் எந்தப் பகுதியிலும் குழப்பமான பிழைகள் வழிவகுக்கும்.
+Reordered messages is a severe problem that must be fixed. It will result in unstable behavior and can lead to confusing errors at any part of a print. An incrementing `bytes_invalid` is not caused by wiring or similar hardware issues and can only be fixed by identifying and updating the faulty software.
+
+Older versions of the Linux kernel had a bug in the gs_usb canbus driver code that could cause reordered canbus packets. The issue is thought to be fixed in [Linux commit 24bc41b4](https://github.com/torvalds/linux/commit/24bc41b4558347672a3db61009c339b1f5692169) which was released in v6.6.0. In some cases, older Linux versions may not show the problem (due to how hardware interrupts are configured), however if problems are seen the recommended solution is to upgrade to a newer kernel.
+
+Older versions of candlelight firmware could reorder canbus packets, and the issue is thought to be fixed in [candlelight_fw commit 8b3a7b45](https://github.com/candle-usb/candleLight_fw/commit/8b3a7b4565a3c9521b762b154c94c72c5acb2bcf).
+
+Older versions of Klipper's USB-to-CANBUS bridge code could incorrectly drop canbus messages. This is not as severe as reordering messages, but it should still be fixed. It is thought to be fixed with [Klipper PR #6175](https://github.com/Klipper3d/klipper/pull/6175).
 
 ## பொருத்தமான txquealen அமைப்பைப் பயன்படுத்தவும்
 
@@ -43,6 +50,14 @@ CAN மற்றும் CANL BUS வயரிங் ஒருவருக்�
 128 ஐ விட கணிசமாக பெரிய `txquealen` ஐப் பயன்படுத்த பரிந்துரைக்கப்படவில்லை. 1000000 அதிர்வெண்ணில் இயங்கும் ஒரு பச் பொதுவாக ஒரு கேன் பாக்கெட்டை அனுப்ப 120US ஐ எடுக்கும். இதனால் 128 பாக்கெட்டுகளின் வரிசை வடிகட்ட 15-20 மீட்டர் ஆகும். கணிசமாக பெரிய வரிசை செய்தி சுற்று-பயண நேரத்தில் அதிகப்படியான கூர்முனைகளை ஏற்படுத்தக்கூடும், இது மீட்டெடுக்க முடியாத பிழைகளுக்கு வழிவகுக்கும். மற்றொரு வழி, கிளிப்பரின் பயன்பாட்டு ரெட்ரான்ச்மிட் அமைப்பு லினக்ச் அதிகப்படியான பெரிய வரிசையை வடிகட்ட காத்திருக்க வேண்டியதில்லை என்றால் மிகவும் வலுவானது. இது இணைய ரவுட்டர்களில் [பஃபர் பிளாட்] (https://en.wikipedia.org/wiki/bufferbloat) இன் சிக்கலுக்கு ஒப்பானது.
 
 சாதாரண சூழ்நிலைகளில் கிளிப்பர் MCU க்கு ~ 25 வரிசை இடங்களைப் பயன்படுத்தலாம் - பொதுவாக மறுபிரவேசங்களின் போது அதிக இடங்களைப் பயன்படுத்துகிறது. . 128 இன் பரிந்துரைக்கப்பட்ட மதிப்புக்கு மேலே. இருப்பினும், மேலே உள்ளபடி, அதிகப்படியான சுற்று-பயண நேர தாமதத்தைத் தவிர்க்க புதிய மதிப்பைத் தேர்ந்தெடுக்கும்போது கவனமாக இருக்க வேண்டும்.
+
+## Use `canbus_query.py` only to identify nodes never previously seen
+
+It is only valid to use the [`canbus_query.py` tool](CANBUS.md#finding-the-canbus_uuid-for-new-micro-controllers) to identify micro-controllers that have never been previously identified. Once all nodes on a bus are identified, record the resulting uuids in the printer.cfg, and avoid running the tool unnecessarily.
+
+The tool is implemented using a low-level mechanism that can cause nodes to internally observe bus errors. These internal errors may result in communication interruptions and may result is some nodes disconnecting from the bus.
+
+It is not valid to use the tool to "ping" if a node is connected. Do not run the tool during an active print.
 
 ## கேண்டம்ப் பதிவுகளைப் பெறுதல்
 

@@ -6,7 +6,7 @@ Klipper has built-in support for the ADXL345, MPU-9250, LIS2DW and LIS3DH compat
 
 For ADXL345s, make sure that the board supports SPI mode (a small number of boards appear to be hard-configured for I2C by pulling SDO to GND).
 
-For MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500s and LIS2DW/LIS3DH there are also a variety of board designs and clones with different I2C pull-up resistors which will need supplementing.
+For MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500/ICM20948s and LIS2DW/LIS3DH there are also a variety of board designs and clones with different I2C pull-up resistors which will need supplementing.
 
 ## கிளிப்பர் I2C * வேகமான முறை * ஆதரவுடன் MCU கள்
 
@@ -106,7 +106,7 @@ Z.
 
 ஒரு கேபிள் கவசத்தைப் போலல்லாமல், மற்றும் சி.என்.டி) இரு முனைகளிலும் இணைக்கப்பட வேண்டும் என்பதை நினைவில் கொள்க.
 
-#### MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500
+#### MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500/ICM20948
 
 இந்த முடுக்கமானிகள் RPI, RP2040 (PICO) மற்றும் AVR இல் 400Kbit/s (*ஃபாச்ட் பயன்முறை*) இல் I2C க்கு மேல் வேலை செய்ய சோதிக்கப்பட்டுள்ளன. சில MPU முடுக்கமானி தொகுதிகள் புல்-அப்களை உள்ளடக்குகின்றன, ஆனால் சில 10K இல் மிகப் பெரியவை, மேலும் அவை சிறிய இணையான மின்தடையங்களால் மாற்றப்பட வேண்டும் அல்லது கூடுதலாக வழங்கப்பட வேண்டும்.
 
@@ -300,6 +300,8 @@ ADXL345 உள்ளமைவை ஒரு தனி கோப்பில் �
  100, 100, 20 # ஒரு எடுத்துக்காட்டு
 ```
 
+If you are using the ICM20948, replace instances of "mpu9250" with "icm20948".
+
 #### MPU-9520 ஐ பைக்கோவுடன் இணக்கமாக உள்ளமைக்கவும்
 
 பிக்கோ ஐ 2 சி இயல்புநிலையாக 400000 ஆக அமைக்கப்பட்டுள்ளது. அச்சுப்பொறியில் பின்வருவனவற்றைச் சேர்க்கவும். Cfg:
@@ -321,6 +323,8 @@ ADXL345 உள்ளமைவை ஒரு தனி கோப்பில் �
  பின்ச்: பிக்கோ: GPIO23
 ```
 
+If you are using the ICM20948, replace instances of "mpu9250" with "icm20948".
+
 #### AVR உடன் இணக்கமான MPU-9520 ஐ உள்ளமைக்கவும்
 
 AVR I2C MPU9250 விருப்பத்தால் 400000 ஆக அமைக்கப்படும். அச்சுப்பொறியில் பின்வருவனவற்றைச் சேர்க்கவும். Cfg:
@@ -337,6 +341,8 @@ AVR I2C MPU9250 விருப்பத்தால் 400000 ஆக அமை�
  probet_points:
  100, 100, 20 # ஒரு எடுத்துக்காட்டு
 ```
+
+If you are using the ICM20948, replace instances of "mpu9250" with "icm20948".
 
 `மறுதொடக்கம்` கட்டளை வழியாக கிளிப்பரை மறுதொடக்கம் செய்யுங்கள்.
 

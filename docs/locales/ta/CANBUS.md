@@ -78,6 +78,7 @@ Inisialialal can சாதனங்கள் கண்டறியப்பட�
 * "பிரிட்ச் எம்.சி.யு" மற்றும் கேன் பச்சில் உள்ள அனைத்து சாதனங்களுக்கும் கிடைக்கக்கூடிய அலைவரிசை கேன் பச் அதிர்வெண்ணால் திறம்பட வரையறுக்கப்படுகிறது. இதன் விளைவாக, "யூ.எச்.பி டு கேன் பச் பிரிட்ச் பயன்முறையை" பயன்படுத்தும் போது 1000000 இன் கேன் பச் அதிர்வெண்ணைப் பயன்படுத்த பரிந்துரைக்கப்படுகிறது.
 
    1000000 இன் கேன் பச் அதிர்வெண்ணில் கூட, XY ச்டெப்பர்கள் மற்றும் முடுக்கமானி இரண்டும் ஒரு "யூ.எச்.பி டு கேன் பச்" இடைமுகம் வழியாக தொடர்பு கொண்டால் `சேப்பர்_லிபிரேட்` சோதனையை இயக்க போதுமான அலைவரிசை இருக்காது.
+* It is only valid to use USB to CAN bridge mode if there is a functioning CAN bus with at least one other node available (in addition to the bridge node itself). Use a standard USB configuration if the goal is to communicate only with the single USB device. Using USB to CAN bridge mode without a fully functioning CAN bus (including terminating resistors and an additional node) may result in sporadic errors even when communicating with the bridge node.
 * ஒரு யூ.எச்.பி டு பிரிட்ச் போர்டு ஒரு யூ.எச்.பி சீரியல் சாதனமாக தோன்றாது, `ls/dev/serial/by-id` ஐ இயக்கும் போது அது காண்பிக்கப்படாது, மேலும் அதை` சீரியல் மூலம் klipper இன் printel.cfg கோப்பில் கட்டமைக்க முடியாது : `அளவுரு. பிரிட்ச் போர்டு "யூ.எச்.பி கேன் அடாப்டர்" ஆகத் தோன்றுகிறது, மேலும் இது அச்சுப்பொறி.
 
 ## சரிசெய்தலுக்கான உதவிக்குறிப்புகள்

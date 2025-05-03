@@ -1,8 +1,8 @@
 # Установка
 
-Эти инструкции предполагают, что программное обеспечение будет работать на хосте под управлением linux, на котором установлен фронт-энд, совместимый с Klipper. В качестве хост-машины рекомендуется использовать SBC (Small Board Computer), например, Raspberry Pi или Linux-устройство на базе Debian (другие варианты см. в [FAQ](FAQ.md#can-i-run-klipper-on-something-other-than-a-raspberry-pi-3)).
+These instructions assume the software will run on a Linux-based host running a Klipper-compatible front end. It is recommended that a SBC(Small Board Computer) such as a Raspberry Pi or Debian-based Linux device be used as the host machine (see the [FAQ](FAQ.md#can-i-run-klipper-on-something-other-than-a-raspberry-pi-3) for other options).
 
-Для целей данной инструкции host относится к устройству Linux, а mcu - к печатной плате. SBC относится к термину Small Board Computer, например, Raspberry Pi.
+For the purposes of these instructions, host relates to the Linux device and mcu relates to the printer board. SBC relates to the term Small Board Computer such as the Raspberry Pi.
 
 ## Получение файла конфигурации Klipper
 
@@ -24,9 +24,9 @@ Klipper - это прошивка для 3d-принтера, поэтому п�
 
 ## Получение образа ОС для SBC
 
-Существует множество способов получить образ ОС для Klipper для использования на SBC, большинство из них зависит от того, какой фронт-энд вы хотите использовать. Некоторые производители этих плат SBC также предоставляют свои собственные образы, ориентированные на Klipper.
+There are many ways to obtain an OS image for Klipper for SBC use, most depend on what front end you wish to use. Some manufacturers of these SBC boards also provide their own Klipper-centric images.
 
-Два основных фронт-энда на базе Moonraker - это [Fluidd](https://docs.fluidd.xyz/) и [Mainsail](https://docs.mainsail.xyz/), последний из которых имеет готовый установочный образ ["MainsailOS"](http://docs.mainsailOS.xyz), в котором есть возможность установки на Raspberry Pi и некоторые варианты OrangePi.
+The two main Moonraker-based front ends are [Fluidd](https://docs.fluidd.xyz/) and [Mainsail](https://docs.mainsail.xyz/), the latter of which has a premade install image ["MainsailOS"](https://docs-os.mainsail.xyz/), this has the option for Raspberry Pi and some OrangePi variants.
 
 Fluidd можно установить с помощью KIAUH (Klipper Install And Update Helper), о котором рассказывается ниже, и который является сторонним инсталлятором для всех вещей Klipper.
 
@@ -34,9 +34,9 @@ OctoPrint может быть установлен через популярны
 
 ## Установка через KIAUH
 
-Обычно вы начинаете с базового образа для вашего SBC, например, RPiOS Lite или, в случае устройства с x86 Linux, Ubuntu Server. Обратите внимание, что Desktop-варианты не рекомендуются из-за некоторых вспомогательных программ, которые могут помешать работе некоторых функций Klipper и даже заблокировать доступ к некоторым печатающим платам.
+Normally you would start with a base image for your SBC, RPiOS Lite for example, or in the case of an x86 Linux device, Ubuntu Server. Please note that Desktop variants are not recommended due to certain helper programs that can stop some Klipper functions from working and even mask access to some printer boards.
 
-KIAUH можно использовать для установки Klipper и связанных с ним программ на различные системы на базе Linux, работающие под управлением Debian. Более подробную информацию можно найти на сайте https://github.com/dw-0/kiauh
+KIAUH can be used to install Klipper and its associated programs on a variety of Linux-based systems that run a form of Debian. More information can be found at https://github.com/dw-0/kiauh
 
 ## Компиляция и прошивка микроконтроллера
 
@@ -53,7 +53,7 @@ make menuconfig
 make
 ```
 
-Если в комментариях в верхней части файла [printer configuration file](#obtain-a-klipper-configuration-file) описаны пользовательские шаги по "прошивке" конечного изображения на плату управления принтером, то выполните эти шаги, а затем перейдите к [configuring OctoPrint](#configuring-octoprint-to-use-klipper).
+If the comments at the top of the [printer configuration file](#obtain-a-klipper-configuration-file) describe custom steps for "flashing" the final image to the printer control board, then follow those steps and then proceed to [configuring OctoPrint](#configuring-octoprint-to-use-klipper).
 
 В противном случае для "прошивки" платы управления принтером часто используются следующие действия. Во-первых, необходимо определить последовательный порт, подключенный к микроконтроллеру. Для этого выполните следующее:
 
@@ -69,9 +69,9 @@ ls /dev/serial/by-id/*
 
 Обычно каждый принтер имеет свое уникальное имя последовательного порта. Это уникальное имя будет использоваться при прошивке микроконтроллера. Возможно, в приведенном выше выводе будет несколько строк - если это так, выберите строку, соответствующую микроконтроллеру. Если в списке много элементов и выбор неоднозначен, отключите плату и запустите команду снова, недостающим элементом будет ваша печатная плата (см. дополнительную информацию в [FAQ](FAQ.md#wheres-my-serial-port)).
 
-Для распространенных микроконтроллеров с микросхемами STM32 или клонами, микросхемами LPC и другими обычно требуется начальная прошивка Klipper через SD-карту.
+For common micro-controllers with STM32 or clone chips, LPC chips and others, it is usual that these need an initial Klipper flash via SD card.
 
-При прошивке этим методом важно убедиться, что печатная плата не подключена к хосту через USB, так как некоторые платы могут подавать питание обратно на плату и препятствовать возникновению вспышки.
+When flashing with this method, it is important to make sure that the print board is not connected with USB to the host, due to some boards being able to feed power back to the board and stopping a flash from occurring.
 
 Для распространенных микроконтроллеров, использующих микросхемы Atmega, например 2560, код можно прошить примерно так:
 
@@ -99,11 +99,11 @@ sudo service klipper start
 
 Следующим шагом будет копирование [файла конфигурации принтера](#obtain-a-klipper-configuration-file) на хост.
 
-Пожалуй, самый простой способ настроить конфигурационный файл Klipper - это использовать встроенные редакторы в Mainsail или Fluidd. Они позволят пользователю открыть примеры конфигурации и сохранить их в файле printer.cfg.
+Arguably the easiest way to set the Klipper configuration file is using the built-in editors in Mainsail or Fluidd. These will allow the user to open the configuration examples and save them to be printer.cfg.
 
 Другой вариант - использовать настольный редактор, поддерживающий редактирование файлов по протоколам "scp" и/или "sftp". Существуют свободно распространяемые инструменты, поддерживающие эту функцию (например, Notepad++, WinSCP и Cyberduck). Загрузите файл конфигурации принтера в редактор, а затем сохраните его в виде файла с именем "printer.cfg" в домашнем каталоге пользователя pi (например, /home/pi/printer.cfg).
 
-В качестве альтернативы можно скопировать и отредактировать файл непосредственно на хосте через ssh. Это может выглядеть примерно так (не забудьте обновить команду, чтобы использовать соответствующее имя файла конфигурации принтера):
+Alternatively, one can also copy and edit the file directly on the host via SSH. That may look something like the following (be sure to update the command to use the appropriate printer config filename):
 
 ```
 cp ~/klipper/config/example-cartesian.cfg ~/printer.cfg
@@ -129,10 +129,10 @@ ls /dev/serial/by-id/*
 serial: /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 ```
 
-После создания и редактирования файла необходимо будет выполнить команду "restart" в командной консоли для загрузки конфигурации. Команда "status" сообщит о готовности принтера, если файл конфигурации Klipper успешно прочитан, а микроконтроллер успешно найден и настроен.
+After creating and editing the file, it will be necessary to issue a "restart" command in the command console to load the config. A "status" command will report that the printer is ready if the Klipper config file is successfully read and the micro-controller is successfully found and configured.
 
 При настройке файла конфигурации принтера нередко Klipper сообщает об ошибке конфигурации. При возникновении ошибки внесите необходимые исправления в файл конфигурации принтера и выполняйте команду "restart" до тех пор, пока "status" не сообщит о готовности принтера.
 
-Klipper сообщает об ошибках через командную консоль и всплывающие окна во Fluidd и Mainsail. Команда "статус" может быть использована для повторного отображения сообщений об ошибках. Имеется журнал, который обычно располагается в ~/printer_data/logs и имеет имя klippy.log
+Klipper reports error messages via the command console and pop-ups in Fluidd and Mainsail. The "status" command can be used to re-report error messages. A log is available and usually located at `~/printer_data/logs/klippy.log`.
 
 После того как Klipper сообщит, что принтер готов, перейдите к документу [Проверка конфигурации](Config_checks.md) для выполнения некоторых базовых проверок определений в файле конфигурации. Другую информацию см. в основной части [справочной документации](Overview.md).

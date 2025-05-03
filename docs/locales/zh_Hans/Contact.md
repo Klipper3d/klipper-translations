@@ -74,8 +74,10 @@ Klipper 是开源软件，我们非常感谢新的贡献。
 
 新的贡献（包括代码和文档）需要通过拉取请求(PR)提交。重要信息请参见[贡献文档](CONTRIBUTING.md)。
 
-有几个[开发者文档](Overview.md#developer-documentation)。如果你对代码有疑问，那么你也可以在[Klipper社区论坛](#community-forum)或[Klipper社区Discord](#discord-chat)上提问。
+There are several [documents for developers](Overview.md#developer-documentation). If you have questions on the code then you can also ask in the [Klipper Discourse Forum](#discourse-forum) or on the [Klipper Discord Chat](#discord-chat).
 
-## Klipper GitHub
+## Professional Services
 
-Klipper GitHub可以被贡献者用来分享他们改进Klipper的工作状态。我们希望创建GitHub Ticket的人正在积极地处理给定的任务，并将执行所有必要工作以完成该任务。Klipper GitHub不用于功能请求，也不用于报告bug，更不用于提问。请使用[Klipper社区论坛](#community-forum)或[Klipper社区Discord](#discord-chat)来代替。
+![](img/klipper-logo-small.png)
+
+Custom software development, software support, and solutions: <https://ko-fi.com/koconnor>

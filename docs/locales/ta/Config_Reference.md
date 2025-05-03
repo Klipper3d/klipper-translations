@@ -1526,6 +1526,25 @@ ADXL345 முடுக்கமானிகளுக்கான உதவி. 
  # அளவீடுகள்.
 ```
 
+### [icm20948]
+
+Support for icm20948 accelerometers.
+
+```
+[icm20948]
+#i2c_address:
+#   Default is 104 (0x68). If AD0 is high, it would be 0x69 instead.
+#i2c_mcu:
+#i2c_bus:
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
+#i2c_speed: 400000
+#   See the "common I2C settings" section for a description of the
+#   above parameters. The default "i2c_speed" is 400000.
+#axes_map: x, y, z
+#   See the "adxl345" section for information on this parameter.
+```
+
 ### [LIS2DW]
 
 LIS2DW முடுக்கமானிகளுக்கான உதவி.
@@ -1884,33 +1903,36 @@ Bltouch ஆய்வு. ஒரு BLTOUCH ஆய்வை இயக்க இ�
 
 ```
 [probe_eddy_current my_eddy_probe]
- sensor_type: LDC1612
- # எடி தற்போதைய அளவீடுகளைச் செய்ய பயன்படுத்தப்படும் சென்சார் சிப். இது
- # அளவுரு வழங்கப்பட வேண்டும் மற்றும் LDC1612 க்கு அமைக்கப்பட வேண்டும்.
- #intb_pin:
- # MCU GPIO முள் LDC1612 சென்சாரின் INTB முள் உடன் இணைக்கப்பட்டுள்ளது (IF
- # கிடைக்கிறது). இயல்புநிலை INTB முள் பயன்படுத்தக்கூடாது.
- #Z_OFFSET:
- # முனை மற்றும் படுக்கைக்கு இடையில் பெயரளவு தூரம் (மிமீ) a
- # ஆய்வு முயற்சி நிறுத்தப்பட வேண்டும். இந்த அளவுரு வழங்கப்பட வேண்டும்.
- #i2c_address:
- #i2c_mcu:
- #i2c_bus:
- #i2c_software_scl_pin:
- #i2c_software_sda_pin:
- #i2c_speed:
- # சென்சார் சிப்பிற்கான I2C அமைப்புகள். "பொதுவான I2C ஐப் பார்க்கவும்
- மேலே உள்ள அளவுருக்களின் விளக்கத்திற்கான # அமைப்புகள் "பிரிவு.
- #x_offset:
- #y_offset:
- #SPEED:
- #lift_speed:
- #மாதிரிகள்:
- #sample_retract_dist:
- #samples_result:
- #samples_tolerance:
- #samples_tolerance_retries:
- # இந்த அளவுருக்கள் பற்றிய தகவலுக்கு "ஆய்வு" பகுதியைப் பார்க்கவும்.
+sensor_type: ldc1612
+#   The sensor chip used to perform eddy current measurements. This
+#   parameter must be provided and must be set to ldc1612.
+#frequency:
+#   The external crystal frequency (in Hz) of the LDC1612 chip.
+#   The default is 12000000.
+#intb_pin:
+#   MCU gpio pin connected to the ldc1612 sensor's INTB pin (if
+#   available). The default is to not use the INTB pin.
+#z_offset:
+#   The nominal distance (in mm) between the nozzle and bed that a
+#   probing attempt should stop at. This parameter must be provided.
+#i2c_address:
+#i2c_mcu:
+#i2c_bus:
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
+#i2c_speed:
+#   The i2c settings for the sensor chip. See the "common I2C
+#   settings" section for a description of the above parameters.
+#x_offset:
+#y_offset:
+#speed:
+#lift_speed:
+#samples:
+#sample_retract_dist:
+#samples_result:
+#samples_tolerance:
+#samples_tolerance_retries:
+#   See the "probe" section for information on these parameters.
 ```
 
 ### [AXIS_TWIST_COMPENSATION]
@@ -2954,24 +2976,28 @@ PCA9632 எல்.ஈ.டி உதவி. PCA9632 ஃப்ளாச்ஃப�
 
 ```
 [gcode_button my_gcode_button]
- முள்:
- # பொத்தானை இணைக்கப்பட்ட முள். இந்த அளவுரு இருக்க வேண்டும்
- # வழங்கப்பட்டது.
- #analog_range:
- # இரண்டு கமா பிரிக்கப்பட்ட எதிர்ப்புகள் (ஓம்சில்) குறைந்தபட்சத்தைக் குறிப்பிடுகின்றன
- # மற்றும் பொத்தானுக்கான அதிகபட்ச எதிர்ப்பு வரம்பு. அனலாக்_ரேஞ்ச் என்றால்
- # வழங்கப்பட்ட பின்னர் முள் அனலாக் திறன் கொண்ட முள் இருக்க வேண்டும். இயல்புநிலை
- # பொத்தானுக்கு டிசிட்டல் சி.பி.ஐ.ஓ.
- #analog_pullup_resistor:
- # அனலாக்_ரேஞ்ச் குறிப்பிடப்படும்போது புல்அப் எதிர்ப்பு (ஓம்சில்).
- # இயல்புநிலை 4700 ஓம்ச்.
- #press_gcode:
- # பொத்தானை அழுத்தும்போது செயல்படுத்த சி-குறியீடு கட்டளைகளின் பட்டியல்.
- # சி-குறியீடு வார்ப்புருக்கள் ஆதரிக்கப்படுகின்றன. இந்த அளவுரு வழங்கப்பட வேண்டும்.
- #release_gcode:
- # பொத்தானை வெளியிடும்போது செயல்படுத்த சி-கோட் கட்டளைகளின் பட்டியல்.
- # சி-குறியீடு வார்ப்புருக்கள் ஆதரிக்கப்படுகின்றன. இயல்புநிலை எதையும் இயக்கக்கூடாது
- # ஒரு பொத்தானை வெளியீட்டில் கட்டளைகள்.
+pin:
+#   The pin on which the button is connected. This parameter must be
+#   provided.
+#analog_range:
+#   Two comma separated resistances (in Ohms) specifying the minimum
+#   and maximum resistance range for the button. If analog_range is
+#   provided then the pin must be an analog capable pin. The default
+#   is to use digital gpio for the button.
+#analog_pullup_resistor:
+#   The pullup resistance (in Ohms) when analog_range is specified.
+#   The default is 4700 ohms.
+#press_gcode:
+#   A list of G-Code commands to execute when the button is pressed.
+#   G-Code templates are supported. This parameter must be provided.
+#release_gcode:
+#   A list of G-Code commands to execute when the button is released.
+#   G-Code templates are supported. The default is to not run any
+#   commands on a button release.
+#debounce_delay:
+#   A period of time in seconds to debounce events prior to running the
+#   button gcode. If the button is pressed and released during this
+#   delay, the entire button press is ignored. Default is 0.
 ```
 
 ### [output_pin]
@@ -3087,114 +3113,116 @@ UART/SPI பயன்முறையில் டிரினாமிக் ச
 SPI பச் வழியாக TMC2130 ச்டெப்பர் மின்னோடி டிரைவரை உள்ளமைக்கவும். இந்த அம்சத்தைப் பயன்படுத்த, "TMC2130" முன்னொட்டுடன் ஒரு கட்டமைப்பு பகுதியை வரையறுக்கவும், அதன்பிறகு தொடர்புடைய ச்டெப்பர் கட்டமைப்பு பிரிவின் பெயரை (எடுத்துக்காட்டாக, "[TMC2130 Stepeper_x]").
 
 ```
-[TMC2130 STEPPER_X]
- cs_pin:
- # TMC2130 சிப் தேர்ந்தெடுக்கப்பட்ட வரியுடன் தொடர்புடைய முள். இந்த முள்
- # SPI செய்திகளின் தொடக்கத்தில் குறைவாக அமைக்கப்பட்டு அதிக அளவில் உயர்த்தப்படும்
- # செய்தி முடிந்ததும். இந்த அளவுரு வழங்கப்பட வேண்டும்.
- #SPI_SPEED:
- #SPI_BUS:
- #SPI_SOFTWARE_SCLK_PIN:
- #SPI_SOFTWARE_MOSI_PIN:
- #Spi_software_miso_pin:
- # ஒரு விளக்கத்திற்கு "பொதுவான SPI அமைப்புகள்" பகுதியைக் காண்க
- # மேலே அளவுருக்கள்.
- #Chain_position:
- #Chain_length:
- # இந்த அளவுருக்கள் ஒரு SPI டெய்சி சங்கிலியை உள்ளமைக்கின்றன. இரண்டு அளவுருக்கள்
- # சங்கிலியில் உள்ள ச்டெப்பர் நிலை மற்றும் மொத்த சங்கிலி நீளத்தை வரையறுக்கவும்.
- # நிலை 1 மொசி சிக்னலுடன் இணைக்கும் ச்டெப்பருக்கு ஒத்திருக்கிறது.
- # இயல்புநிலை ஒரு SPI டெய்சி சங்கிலியைப் பயன்படுத்தக்கூடாது.
- #InterPolate: உண்மை
- # உண்மையாக இருந்தால், படி இடைக்கணிப்பை இயக்கவும் (இயக்கி உள்நாட்டில் இருக்கும்
- # 256 மைக்ரோ-படிகள் என்ற விகிதத்தில் அடியெடுத்து வைக்கவும்). இந்த இடைக்கணிப்பு செய்கிறது
- # ஒரு சிறிய முறையான நிலை விலகலை அறிமுகப்படுத்துங்கள் - பார்க்க
- விவரங்களுக்கு # TMC_DRIVERS.MD. இயல்புநிலை உண்மை.
- ரன்_கரண்ட்:
- # பயன்படுத்த இயக்கி கட்டமைக்க மின்னோட்டத்தின் அளவு (ஆம்ப்ச் ஆர்.எம்.எச்)
- # ச்டெப்பர் இயக்கத்தின் போது. இந்த அளவுரு வழங்கப்பட வேண்டும்.
- #ஓல்ட்_கரண்ட்:
- # பயன்படுத்த இயக்கி கட்டமைக்க மின்னோட்டத்தின் அளவு (ஆம்ப்ச் ஆர்.எம்.எச்)
- # ச்டெப்பர் நகராதபோது. ஒரு ஓல்ட்_கரண்ட் அமைப்பது இல்லை
- # பரிந்துரைக்கப்படுகிறது (விவரங்களுக்கு TMC_DRIVERS.MD ஐப் பார்க்கவும்). இயல்புநிலை
- # மின்னோட்டத்தை குறைக்க வேண்டாம்.
- #Sense_Resistor: 0.110
- # மின்னோடி சென்ச் மின்தடையத்தின் எதிர்ப்பு (ஓம்சில்). இயல்புநிலை
- # என்பது 0.110 ஓம்ச்.
- #stealthchop_threshold: 0
- # "ச்டீல்த்சாப்" வாசலை அமைக்க விரைவு (மிமீ/வி இல்). எப்போது
- # அமை
- # விரைவு இந்த மதிப்புக்கு கீழே உள்ளது. இயல்புநிலை 0, இது முடக்குகிறது
- # "ச்டீல்த்சாப்" பயன்முறை.
- #coolstep_threshold:
- # டி.எம்.சி இயக்கி உள் "கூல்ச்டெப்" ஐ அமைக்க விரைவு (மிமீ/வி இல்)
- # வாசல். அமைக்கப்பட்டால், கூல்ச்டெப் நற்பொருத்தம் எப்போது இயக்கப்படும்
- # ச்டெப்பர் மின்னோடி விரைவு இந்த மதிப்புக்கு அருகில் அல்லது அதற்கு மேல் உள்ளது. முக்கியமானது
- # - கூல்ச்டெப்_நெர்சோல்ட் அமைக்கப்பட்டால் மற்றும் "சென்சார்லெச் ஓமிங்" பயன்படுத்தப்பட்டால்,
- # பின்னர் ஓமிங் விரைவு கூல்ச்டெப்பிற்கு மேலே இருப்பதை உறுதிப்படுத்த வேண்டும்
- # வாசல்! கூல்ச்டெப் அம்சத்தை இயக்காதது இயல்புநிலை.
- #high_velocity_threshold:
- # டிஎம்சி டிரைவர் உள் "உயர் அமைக்க விரைவு (மிமீ/வி இல்)
- # விரைவு "வாசல் (தொடை). இது பொதுவாக முடக்க பயன்படுகிறது
- # அதிக வேகத்தில் "கூல்ச்டெப்" நற்பொருத்தம். இயல்புநிலை ஒரு அமைக்கக்கூடாது
- # டி.எம்.சி "உயர் விரைவு" வாசல்.
- #டிரைவர்_ம்லட் 0: 2863314260
- #டிரைவர்_ம்லட் 1: 1251300522
- #டிரைவர்_ம்லட் 2: 608774441
- #டிரைவர்_ம்லட் 3: 269500962
- #டிரைவர்_ம்லட் 4: 4227858431
- #டிரைவர்_ம்லட் 5: 3048961917
- #டிரைவர்_ம்லட் 6: 1227445590
- #டிரைவர்_ம்லட் 7: 4211234
- #டிரைவர்_டபிள்யூ 0: 2
- #டிரைவர்_டபிள்யூ 1: 1
- #டிரைவர்_டபிள்யூ 2: 1
- #டிரைவர்_டபிள்யூ 3: 1
- #டிரைவர்_எக்ச் 1: 128
- #டிரைவர்_எக்ச் 2: 255
- #டிரைவர்_எக்ச் 3: 255
- #driver_start_sin: 0
- #டிரைவர்_ச்டார்ட்_சின் 90: 247
- # இந்த புலங்கள் மைக்ரோச்டெப் அட்டவணை பதிவேடுகளை நேரடியாக கட்டுப்படுத்துகின்றன. உகந்த
- # அலை அட்டவணை ஒவ்வொரு மோட்டருக்கும் குறிப்பிட்டது மற்றும் மின்னோட்டத்துடன் மாறுபடும். ஒரு
- # உகந்த உள்ளமைவில் குறைந்தபட்ச அச்சு கலைப்பொருட்கள் இருக்கும்
- # நேரியல் அல்லாத ச்டெப்பர் இயக்கம். மேலே குறிப்பிடப்பட்ட மதிப்புகள் இயல்புநிலை
- # இயக்கி பயன்படுத்தும் மதிப்புகள். மதிப்பு ஒரு தசம முழு எண்ணாக குறிப்பிடப்பட வேண்டும்
- # (எக்ச் படிவம் ஆதரிக்கப்படவில்லை). அலை அட்டவணை புலங்களை கணக்கிடுவதற்காக,
- # டிரினாமிக் வலைத்தளத்திலிருந்து TMC2130 "கணக்கீட்டு தாள்" ஐப் பார்க்கவும்.
- #driver_iholddelay: 8
- #driver_tpowerdown: 0
- #driver_tbl: 1
- #Driver_toff: 4
- #driver_hend: 7
- #driver_hstrt: 0
- #driver_vhighfs: 0
- #driver_vhighchm: 0
- #driver_pwm_autoscale: உண்மை
- #driver_pwm_freq: 1
- #driver_pwm_grad: 4
- #driver_pwm_ampl: 128
- #driver_sgt: 0
- #driver_semin: 0
- #driver_seup: 0
- #driver_semax: 0
- #driver_sedn: 0
- #driver_seimin: 0
- #driver_sfilt: 0
- # TMC2130 இன் உள்ளமைவின் போது கொடுக்கப்பட்ட பதிவேட்டை அமைக்கவும்
- # சிப். தனிப்பயன் மின்னோடி அளவுருக்களை அமைக்க இது பயன்படுத்தப்படலாம். தி
- # ஒவ்வொரு அளவுருவுக்கும் இயல்புநிலைகள் உள்ள அளவுரு பெயருக்கு அடுத்ததாக உள்ளன
- # மேலே பட்டியல்.
- #diag0_pin:
- #diag1_pin:
- # மைக்ரோ-கன்ட்ரோலர் முள் ஒரு டயக் வரிகளில் ஒன்றோடு இணைக்கப்பட்டுள்ளது
- # TMC2130 சிப். ஒரு டயக் முள் மட்டுமே குறிப்பிடப்பட வேண்டும். முள்
- # "செயலில் குறைவாக" உள்ளது, இதனால் பொதுவாக "^!" அமைத்தல்
- # இது "TMC2130_STEPPER_X: மெய்நிகர்_இண்ட்ச்டாப்" மெய்நிகர் முள் உருவாக்குகிறது
- # இது ச்டெப்பரின் எண்ட்ச்டாப்_பினாக பயன்படுத்தப்படலாம். இதைச் செய்வது செயல்படுத்துகிறது
- # "சென்சார்லெச் ஓமிங்". (டிரைவர்_ச்க்டை ஒரு ஆக அமைக்க மறக்காதீர்கள்
- # பொருத்தமான உணர்திறன் மதிப்பு.) இயல்புநிலை இயக்கக்கூடாது
- # சென்சார்லெச் ஓமிங்.
+[tmc2130 stepper_x]
+cs_pin:
+#   The pin corresponding to the TMC2130 chip select line. This pin
+#   will be set to low at the start of SPI messages and raised to high
+#   after the message completes. This parameter must be provided.
+#spi_speed:
+#spi_bus:
+#spi_software_sclk_pin:
+#spi_software_mosi_pin:
+#spi_software_miso_pin:
+#   See the "common SPI settings" section for a description of the
+#   above parameters.
+#chain_position:
+#chain_length:
+#   These parameters configure an SPI daisy chain. The two parameters
+#   define the stepper position in the chain and the total chain length.
+#   Position 1 corresponds to the stepper that connects to the MOSI signal.
+#   The default is to not use an SPI daisy chain.
+#interpolate: True
+#   If true, enable step interpolation (the driver will internally
+#   step at a rate of 256 micro-steps). This interpolation does
+#   introduce a small systemic positional deviation - see
+#   TMC_Drivers.md for details. The default is True.
+run_current:
+#   The amount of current (in amps RMS) to configure the driver to use
+#   during stepper movement. This parameter must be provided.
+#hold_current:
+#   The amount of current (in amps RMS) to configure the driver to use
+#   when the stepper is not moving. Setting a hold_current is not
+#   recommended (see TMC_Drivers.md for details). The default is to
+#   not reduce the current.
+#sense_resistor: 0.110
+#   The resistance (in ohms) of the motor sense resistor. The default
+#   is 0.110 ohms.
+#stealthchop_threshold: 0
+#   The velocity (in mm/s) to set the "stealthChop" threshold to. When
+#   set, "stealthChop" mode will be enabled if the stepper motor
+#   velocity is below this value. Note that the "sensorless homing"
+#   code may temporarily override this setting during homing
+#   operations. The default is 0, which disables "stealthChop" mode.
+#coolstep_threshold:
+#   The velocity (in mm/s) to set the TMC driver internal "CoolStep"
+#   threshold to. If set, the coolstep feature will be enabled when
+#   the stepper motor velocity is near or above this value. Important
+#   - if coolstep_threshold is set and "sensorless homing" is used,
+#   then one must ensure that the homing speed is above the coolstep
+#   threshold! The default is to not enable the coolstep feature.
+#high_velocity_threshold:
+#   The velocity (in mm/s) to set the TMC driver internal "high
+#   velocity" threshold (THIGH) to. This is typically used to disable
+#   the "CoolStep" feature at high speeds. The default is to not set a
+#   TMC "high velocity" threshold.
+#driver_MSLUT0: 2863314260
+#driver_MSLUT1: 1251300522
+#driver_MSLUT2: 608774441
+#driver_MSLUT3: 269500962
+#driver_MSLUT4: 4227858431
+#driver_MSLUT5: 3048961917
+#driver_MSLUT6: 1227445590
+#driver_MSLUT7: 4211234
+#driver_W0: 2
+#driver_W1: 1
+#driver_W2: 1
+#driver_W3: 1
+#driver_X1: 128
+#driver_X2: 255
+#driver_X3: 255
+#driver_START_SIN: 0
+#driver_START_SIN90: 247
+#   These fields control the Microstep Table registers directly. The optimal
+#   wave table is specific to each motor and might vary with current. An
+#   optimal configuration will have minimal print artifacts caused by
+#   non-linear stepper movement. The values specified above are the default
+#   values used by the driver. The value must be specified as a decimal integer
+#   (hex form is not supported). In order to compute the wave table fields,
+#   see the tmc2130 "Calculation Sheet" from the Trinamic website.
+#driver_IHOLDDELAY: 8
+#driver_TPOWERDOWN: 0
+#driver_TBL: 1
+#driver_TOFF: 4
+#driver_HEND: 7
+#driver_HSTRT: 0
+#driver_VHIGHFS: 0
+#driver_VHIGHCHM: 0
+#driver_PWM_AUTOSCALE: True
+#driver_PWM_FREQ: 1
+#driver_PWM_GRAD: 4
+#driver_PWM_AMPL: 128
+#driver_FREEWHEEL: 0
+#driver_SGT: 0
+#driver_SEMIN: 0
+#driver_SEUP: 0
+#driver_SEMAX: 0
+#driver_SEDN: 0
+#driver_SEIMIN: 0
+#driver_SFILT: 0
+#   Set the given register during the configuration of the TMC2130
+#   chip. This may be used to set custom motor parameters. The
+#   defaults for each parameter are next to the parameter name in the
+#   above list.
+#diag0_pin:
+#diag1_pin:
+#   The micro-controller pin attached to one of the DIAG lines of the
+#   TMC2130 chip. Only a single diag pin should be specified. The pin
+#   is "active low" and is thus normally prefaced with "^!". Setting
+#   this creates a "tmc2130_stepper_x:virtual_endstop" virtual pin
+#   which may be used as the stepper's endstop_pin. Doing this enables
+#   "sensorless homing". (Be sure to also set driver_SGT to an
+#   appropriate sensitivity value.) The default is to not enable
+#   sensorless homing.
 ```
 
 ### [TMC2208]
@@ -3202,58 +3230,60 @@ SPI பச் வழியாக TMC2130 ச்டெப்பர் மின�
 ஒற்றை கம்பி UART வழியாக TMC2208 (அல்லது TMC2224) ச்டெப்பர் மின்னோடி டிரைவரை உள்ளமைக்கவும். இந்த அம்சத்தைப் பயன்படுத்த, "TMC2208" முன்னொட்டுடன் ஒரு கட்டமைப்பு பகுதியை வரையறுக்கவும், அதன்பிறகு தொடர்புடைய ச்டெப்பர் கட்டமைப்பு பிரிவின் பெயரை (எடுத்துக்காட்டாக, "[TMC2208 Steper_x]").
 
 ```
-[TMC2208 STEPPER_X]
- uart_pin:
- # TMC2208 PDN_UART வரியுடன் இணைக்கப்பட்ட முள். இந்த அளவுரு
- # வழங்கப்பட வேண்டும்.
- #tx_pin:
- # உடன் தொடர்பு கொள்ள தனித்தனி பெறுதல் மற்றும் கடத்தும் வரிகளைப் பயன்படுத்தினால்
- # இயக்கி பின்னர் UART_PIN ஐ பெறும் முள் மற்றும் tx_pin க்கு அமைக்கவும்
- # டிரான்ச்சன் முள். இயல்புநிலை வாசிப்பு மற்றும் இரண்டிற்கும் UART_PIN ஐப் பயன்படுத்துவது
- # எழுதுதல்.
- #Select_pins:
- # அணுகுவதற்கு முன் அமைக்க வேண்டிய ஊசிகளின் கமா பிரிக்கப்பட்ட பட்டியல்
- # TMC2208 UART. அனலாக் மக்ச் கட்டமைக்க இது பயனுள்ளதாக இருக்கும்
- # Uart தொடர்பு. இயல்புநிலை எந்த ஊசிகளையும் உள்ளமைக்கக்கூடாது.
- #InterPolate: உண்மை
- # உண்மையாக இருந்தால், படி இடைக்கணிப்பை இயக்கவும் (இயக்கி உள்நாட்டில் இருக்கும்
- # 256 மைக்ரோ-படிகள் என்ற விகிதத்தில் அடியெடுத்து வைக்கவும்). இந்த இடைக்கணிப்பு செய்கிறது
- # ஒரு சிறிய முறையான நிலை விலகலை அறிமுகப்படுத்துங்கள் - பார்க்க
- விவரங்களுக்கு # TMC_DRIVERS.MD. இயல்புநிலை உண்மை.
- ரன்_கரண்ட்:
- # பயன்படுத்த இயக்கி கட்டமைக்க மின்னோட்டத்தின் அளவு (ஆம்ப்ச் ஆர்.எம்.எச்)
- # ச்டெப்பர் இயக்கத்தின் போது. இந்த அளவுரு வழங்கப்பட வேண்டும்.
- #ஓல்ட்_கரண்ட்:
- # பயன்படுத்த இயக்கி கட்டமைக்க மின்னோட்டத்தின் அளவு (ஆம்ப்ச் ஆர்.எம்.எச்)
- # ச்டெப்பர் நகராதபோது. ஒரு ஓல்ட்_கரண்ட் அமைப்பது இல்லை
- # பரிந்துரைக்கப்படுகிறது (விவரங்களுக்கு TMC_DRIVERS.MD ஐப் பார்க்கவும்). இயல்புநிலை
- # மின்னோட்டத்தை குறைக்க வேண்டாம்.
- #Sense_Resistor: 0.110
- # மின்னோடி சென்ச் மின்தடையத்தின் எதிர்ப்பு (ஓம்சில்). இயல்புநிலை
- # என்பது 0.110 ஓம்ச்.
- #stealthchop_threshold: 0
- # "ச்டீல்த்சாப்" வாசலை அமைக்க விரைவு (மிமீ/வி இல்). எப்போது
- # அமை
- # விரைவு இந்த மதிப்புக்கு கீழே உள்ளது. இயல்புநிலை 0, இது முடக்குகிறது
- # "ச்டீல்த்சாப்" பயன்முறை.
- #driver_multistep_filt: உண்மை
- #driver_iholddelay: 8
- #driver_tpowerdown: 20
- #driver_tbl: 2
- #driver_toff: 3
- #driver_hend: 0
- #driver_hstrt: 5
- #driver_pwm_autograd: உண்மை
- #driver_pwm_autoscale: உண்மை
- #driver_pwm_lim: 12
- #driver_pwm_reg: 8
- #driver_pwm_freq: 1
- #driver_pwm_grad: 14
- #driver_pwm_ofs: 36
- # TMC2208 இன் உள்ளமைவின் போது கொடுக்கப்பட்ட பதிவேட்டை அமைக்கவும்
- # சிப். தனிப்பயன் மின்னோடி அளவுருக்களை அமைக்க இது பயன்படுத்தப்படலாம். தி
- # ஒவ்வொரு அளவுருவுக்கும் இயல்புநிலைகள் உள்ள அளவுரு பெயருக்கு அடுத்ததாக உள்ளன
- # மேலே பட்டியல்.
+[tmc2208 stepper_x]
+uart_pin:
+#   The pin connected to the TMC2208 PDN_UART line. This parameter
+#   must be provided.
+#tx_pin:
+#   If using separate receive and transmit lines to communicate with
+#   the driver then set uart_pin to the receive pin and tx_pin to the
+#   transmit pin. The default is to use uart_pin for both reading and
+#   writing.
+#select_pins:
+#   A comma separated list of pins to set prior to accessing the
+#   tmc2208 UART. This may be useful for configuring an analog mux for
+#   UART communication. The default is to not configure any pins.
+#interpolate: True
+#   If true, enable step interpolation (the driver will internally
+#   step at a rate of 256 micro-steps). This interpolation does
+#   introduce a small systemic positional deviation - see
+#   TMC_Drivers.md for details. The default is True.
+run_current:
+#   The amount of current (in amps RMS) to configure the driver to use
+#   during stepper movement. This parameter must be provided.
+#hold_current:
+#   The amount of current (in amps RMS) to configure the driver to use
+#   when the stepper is not moving. Setting a hold_current is not
+#   recommended (see TMC_Drivers.md for details). The default is to
+#   not reduce the current.
+#sense_resistor: 0.110
+#   The resistance (in ohms) of the motor sense resistor. The default
+#   is 0.110 ohms.
+#stealthchop_threshold: 0
+#   The velocity (in mm/s) to set the "stealthChop" threshold to. When
+#   set, "stealthChop" mode will be enabled if the stepper motor
+#   velocity is below this value. Note that the "sensorless homing"
+#   code may temporarily override this setting during homing
+#   operations. The default is 0, which disables "stealthChop" mode.
+#driver_MULTISTEP_FILT: True
+#driver_IHOLDDELAY: 8
+#driver_TPOWERDOWN: 20
+#driver_TBL: 2
+#driver_TOFF: 3
+#driver_HEND: 0
+#driver_HSTRT: 5
+#driver_PWM_AUTOGRAD: True
+#driver_PWM_AUTOSCALE: True
+#driver_PWM_LIM: 12
+#driver_PWM_REG: 8
+#driver_PWM_FREQ: 1
+#driver_PWM_GRAD: 14
+#driver_PWM_OFS: 36
+#driver_FREEWHEEL: 0
+#   Set the given register during the configuration of the TMC2208
+#   chip. This may be used to set custom motor parameters. The
+#   defaults for each parameter are next to the parameter name in the
+#   above list.
 ```
 
 ### [TMC2209]
@@ -3261,59 +3291,60 @@ SPI பச் வழியாக TMC2130 ச்டெப்பர் மின�
 ஒற்றை கம்பி UART வழியாக TMC2209 ச்டெப்பர் மின்னோடி டிரைவரை உள்ளமைக்கவும். இந்த அம்சத்தைப் பயன்படுத்த, "TMC2209" முன்னொட்டுடன் ஒரு கட்டமைப்பு பகுதியை வரையறுக்கவும், அதன்பிறகு தொடர்புடைய ச்டெப்பர் கட்டமைப்பு பிரிவின் பெயரை (எடுத்துக்காட்டாக, "[TMC2209 Stepper_x]").
 
 ```
-[TMC2209 STEPPER_X]
- uart_pin:
- #tx_pin:
- #Select_pins:
- #InterPolate: உண்மை
- ரன்_கரண்ட்:
- #ஓல்ட்_கரண்ட்:
- #Sense_Resistor: 0.110
- #stealthchop_threshold: 0
- # இந்த அளவுருக்களின் வரையறைக்கு "TMC2208" பகுதியைப் பார்க்கவும்.
- #coolstep_threshold:
- # டி.எம்.சி இயக்கி உள் "கூல்ச்டெப்" ஐ அமைக்க விரைவு (மிமீ/வி இல்)
- # வாசல். அமைக்கப்பட்டால், கூல்ச்டெப் நற்பொருத்தம் எப்போது இயக்கப்படும்
- # ச்டெப்பர் மின்னோடி விரைவு இந்த மதிப்புக்கு அருகில் அல்லது அதற்கு மேல் உள்ளது. முக்கியமானது
- # - கூல்ச்டெப்_நெர்சோல்ட் அமைக்கப்பட்டால் மற்றும் "சென்சார்லெச் ஓமிங்" பயன்படுத்தப்பட்டால்,
- # பின்னர் ஓமிங் விரைவு கூல்ச்டெப்பிற்கு மேலே இருப்பதை உறுதிப்படுத்த வேண்டும்
- # வாசல்! கூல்ச்டெப் அம்சத்தை இயக்காதது இயல்புநிலை.
- #uart_address:
- # UART செய்திகளுக்கான TMC2209 சிப்பின் முகவரி (ஒரு முழு எண்
- # 0 மற்றும் 3 க்கு இடையில்). பல TMC2209 போது இது பொதுவாகப் பயன்படுத்தப்படுகிறது
- # சில்லுகள் அதே UART முள் உடன் இணைக்கப்பட்டுள்ளன. இயல்புநிலை பூச்சியம்.
- #driver_multistep_filt: உண்மை
- #driver_iholddelay: 8
- #driver_tpowerdown: 20
- #driver_tbl: 2
- #driver_toff: 3
- #driver_hend: 0
- #driver_hstrt: 5
- #driver_pwm_autograd: உண்மை
- #driver_pwm_autoscale: உண்மை
- #driver_pwm_lim: 12
- #driver_pwm_reg: 8
- #driver_pwm_freq: 1
- #driver_pwm_grad: 14
- #driver_pwm_ofs: 36
- #driver_sgthrs: 0
- #driver_semin: 0
- #driver_seup: 0
- #driver_semax: 0
- #driver_sedn: 0
- #driver_seimin: 0
- # TMC2209 இன் உள்ளமைவின் போது கொடுக்கப்பட்ட பதிவேட்டை அமைக்கவும்
- # சிப். தனிப்பயன் மின்னோடி அளவுருக்களை அமைக்க இது பயன்படுத்தப்படலாம். தி
- # ஒவ்வொரு அளவுருவுக்கும் இயல்புநிலைகள் உள்ள அளவுரு பெயருக்கு அடுத்ததாக உள்ளன
- # மேலே பட்டியல்.
- #diag_pin:
- # TMC2209 இன் டயக் வரியுடன் இணைக்கப்பட்ட மைக்ரோ-கன்ட்ரோலர் முள்
- # சிப். முள் பொதுவாக ஒரு இழுப்பதை இயக்க "^" உடன் முன்னுரிமை அளிக்கப்படுகிறது.
- # இதை அமைப்பது "TMC2209_STEPPER_X: மெய்நிகர்_இண்ட்ச்டாப்" மெய்நிகர் உருவாக்குகிறது
- # முள், இது ச்டெப்பரின் எண்ட்ச்டாப்_பினாக பயன்படுத்தப்படலாம். இதைச் செய்வது
- # "சென்சார்லெச் ஓமிங்" ஐ இயக்குகிறது. (டிரைவர்_ச்கெர்சையும் அமைக்க மறக்காதீர்கள்
- # பொருத்தமான உணர்திறன் மதிப்பு.) இயல்புநிலை இயக்கக்கூடாது
- # சென்சார்லெச் ஓமிங்.
+[tmc2209 stepper_x]
+uart_pin:
+#tx_pin:
+#select_pins:
+#interpolate: True
+run_current:
+#hold_current:
+#sense_resistor: 0.110
+#stealthchop_threshold: 0
+#   See the "tmc2208" section for the definition of these parameters.
+#coolstep_threshold:
+#   The velocity (in mm/s) to set the TMC driver internal "CoolStep"
+#   threshold to. If set, the coolstep feature will be enabled when
+#   the stepper motor velocity is near or above this value. Important
+#   - if coolstep_threshold is set and "sensorless homing" is used,
+#   then one must ensure that the homing speed is above the coolstep
+#   threshold! The default is to not enable the coolstep feature.
+#uart_address:
+#   The address of the TMC2209 chip for UART messages (an integer
+#   between 0 and 3). This is typically used when multiple TMC2209
+#   chips are connected to the same UART pin. The default is zero.
+#driver_MULTISTEP_FILT: True
+#driver_IHOLDDELAY: 8
+#driver_TPOWERDOWN: 20
+#driver_TBL: 2
+#driver_TOFF: 3
+#driver_HEND: 0
+#driver_HSTRT: 5
+#driver_PWM_AUTOGRAD: True
+#driver_PWM_AUTOSCALE: True
+#driver_PWM_LIM: 12
+#driver_PWM_REG: 8
+#driver_PWM_FREQ: 1
+#driver_PWM_GRAD: 14
+#driver_PWM_OFS: 36
+#driver_FREEWHEEL: 0
+#driver_SGTHRS: 0
+#driver_SEMIN: 0
+#driver_SEUP: 0
+#driver_SEMAX: 0
+#driver_SEDN: 0
+#driver_SEIMIN: 0
+#   Set the given register during the configuration of the TMC2209
+#   chip. This may be used to set custom motor parameters. The
+#   defaults for each parameter are next to the parameter name in the
+#   above list.
+#diag_pin:
+#   The micro-controller pin attached to the DIAG line of the TMC2209
+#   chip. The pin is normally prefaced with "^" to enable a pullup.
+#   Setting this creates a "tmc2209_stepper_x:virtual_endstop" virtual
+#   pin which may be used as the stepper's endstop_pin. Doing this
+#   enables "sensorless homing". (Be sure to also set driver_SGTHRS to
+#   an appropriate sensitivity value.) The default is to not enable
+#   sensorless homing.
 ```
 
 ### [TMC2660]
@@ -3428,8 +3459,9 @@ run_current:
 #stealthchop_threshold: 0
 #   The velocity (in mm/s) to set the "stealthChop" threshold to. When
 #   set, "stealthChop" mode will be enabled if the stepper motor
-#   velocity is below this value. The default is 0, which disables
-#   "stealthChop" mode.
+#   velocity is below this value. Note that the "sensorless homing"
+#   code may temporarily override this setting during homing
+#   operations. The default is 0, which disables "stealthChop" mode.
 #coolstep_threshold:
 #   The velocity (in mm/s) to set the TMC driver internal "CoolStep"
 #   threshold to. If set, the coolstep feature will be enabled when
@@ -3524,126 +3556,127 @@ run_current:
 SPI பச் வழியாக TMC5160 ச்டெப்பர் மின்னோடி டிரைவரை உள்ளமைக்கவும். இந்த அம்சத்தைப் பயன்படுத்த, "TMC5160" முன்னொட்டுடன் ஒரு கட்டமைப்பு பகுதியை வரையறுக்கவும், அதன்பிறகு தொடர்புடைய ச்டெப்பர் கட்டமைப்பு பிரிவின் பெயரை (எடுத்துக்காட்டாக, "[TMC5160 STEPPER_X]").
 
 ```
-[TMC5160 STEPPER_X]
- cs_pin:
- # TMC5160 சிப் தேர்ந்தெடுக்கப்பட்ட வரியுடன் தொடர்புடைய முள். இந்த முள்
- # SPI செய்திகளின் தொடக்கத்தில் குறைவாக அமைக்கப்பட்டு அதிக அளவில் உயர்த்தப்படும்
- # செய்தி முடிந்ததும். இந்த அளவுரு வழங்கப்பட வேண்டும்.
- #SPI_SPEED:
- #SPI_BUS:
- #SPI_SOFTWARE_SCLK_PIN:
- #SPI_SOFTWARE_MOSI_PIN:
- #Spi_software_miso_pin:
- # ஒரு விளக்கத்திற்கு "பொதுவான SPI அமைப்புகள்" பகுதியைக் காண்க
- # மேலே அளவுருக்கள்.
- #Chain_position:
- #Chain_length:
- # இந்த அளவுருக்கள் ஒரு SPI டெய்சி சங்கிலியை உள்ளமைக்கின்றன. இரண்டு அளவுருக்கள்
- # சங்கிலியில் உள்ள ச்டெப்பர் நிலை மற்றும் மொத்த சங்கிலி நீளத்தை வரையறுக்கவும்.
- # நிலை 1 மொசி சிக்னலுடன் இணைக்கும் ச்டெப்பருக்கு ஒத்திருக்கிறது.
- # இயல்புநிலை ஒரு SPI டெய்சி சங்கிலியைப் பயன்படுத்தக்கூடாது.
- #InterPolate: உண்மை
- # உண்மையாக இருந்தால், படி இடைக்கணிப்பை இயக்கவும் (இயக்கி உள்நாட்டில் இருக்கும்
- # 256 மைக்ரோ-படிகள் என்ற விகிதத்தில் அடியெடுத்து வைக்கவும்). இயல்புநிலை உண்மை.
- ரன்_கரண்ட்:
- # பயன்படுத்த இயக்கி கட்டமைக்க மின்னோட்டத்தின் அளவு (ஆம்ப்ச் ஆர்.எம்.எச்)
- # ச்டெப்பர் இயக்கத்தின் போது. இந்த அளவுரு வழங்கப்பட வேண்டும்.
- #ஓல்ட்_கரண்ட்:
- # பயன்படுத்த இயக்கி கட்டமைக்க மின்னோட்டத்தின் அளவு (ஆம்ப்ச் ஆர்.எம்.எச்)
- # ச்டெப்பர் நகராதபோது. ஒரு ஓல்ட்_கரண்ட் அமைப்பது இல்லை
- # பரிந்துரைக்கப்படுகிறது (விவரங்களுக்கு TMC_DRIVERS.MD ஐப் பார்க்கவும்). இயல்புநிலை
- # மின்னோட்டத்தை குறைக்க வேண்டாம்.
- #Sense_Resistor: 0.075
- # மின்னோடி சென்ச் மின்தடையத்தின் எதிர்ப்பு (ஓம்சில்). இயல்புநிலை
- # 0.075 ஓம்ச்.
- #stealthchop_threshold: 0
- # "ச்டீல்த்சாப்" வாசலை அமைக்க விரைவு (மிமீ/வி இல்). எப்போது
- # அமை
- # விரைவு இந்த மதிப்புக்கு கீழே உள்ளது. இயல்புநிலை 0, இது முடக்குகிறது
- # "ச்டீல்த்சாப்" பயன்முறை.
- #coolstep_threshold:
- # டி.எம்.சி இயக்கி உள் "கூல்ச்டெப்" ஐ அமைக்க விரைவு (மிமீ/வி இல்)
- # வாசல். அமைக்கப்பட்டால், கூல்ச்டெப் நற்பொருத்தம் எப்போது இயக்கப்படும்
- # ச்டெப்பர் மின்னோடி விரைவு இந்த மதிப்புக்கு அருகில் அல்லது அதற்கு மேல் உள்ளது. முக்கியமானது
- # - கூல்ச்டெப்_நெர்சோல்ட் அமைக்கப்பட்டால் மற்றும் "சென்சார்லெச் ஓமிங்" பயன்படுத்தப்பட்டால்,
- # பின்னர் ஓமிங் விரைவு கூல்ச்டெப்பிற்கு மேலே இருப்பதை உறுதிப்படுத்த வேண்டும்
- # வாசல்! கூல்ச்டெப் அம்சத்தை இயக்காதது இயல்புநிலை.
- #high_velocity_threshold:
- # டிஎம்சி டிரைவர் உள் "உயர் அமைக்க விரைவு (மிமீ/வி இல்)
- # விரைவு "வாசல் (தொடை). இது பொதுவாக முடக்க பயன்படுகிறது
- # அதிக வேகத்தில் "கூல்ச்டெப்" நற்பொருத்தம். இயல்புநிலை ஒரு அமைக்கக்கூடாது
- # டி.எம்.சி "உயர் விரைவு" வாசல்.
- #டிரைவர்_ம்லட் 0: 2863314260
- #டிரைவர்_ம்லட் 1: 1251300522
- #டிரைவர்_ம்லட் 2: 608774441
- #டிரைவர்_ம்லட் 3: 269500962
- #டிரைவர்_ம்லட் 4: 4227858431
- #டிரைவர்_ம்லட் 5: 3048961917
- #டிரைவர்_ம்லட் 6: 1227445590
- #டிரைவர்_ம்லட் 7: 4211234
- #டிரைவர்_டபிள்யூ 0: 2
- #டிரைவர்_டபிள்யூ 1: 1
- #டிரைவர்_டபிள்யூ 2: 1
- #டிரைவர்_டபிள்யூ 3: 1
- #டிரைவர்_எக்ச் 1: 128
- #டிரைவர்_எக்ச் 2: 255
- #டிரைவர்_எக்ச் 3: 255
- #driver_start_sin: 0
- #டிரைவர்_ச்டார்ட்_சின் 90: 247
- # இந்த புலங்கள் மைக்ரோச்டெப் அட்டவணை பதிவேடுகளை நேரடியாக கட்டுப்படுத்துகின்றன. உகந்த
- # அலை அட்டவணை ஒவ்வொரு மோட்டருக்கும் குறிப்பிட்டது மற்றும் மின்னோட்டத்துடன் மாறுபடும். ஒரு
- # உகந்த உள்ளமைவில் குறைந்தபட்ச அச்சு கலைப்பொருட்கள் இருக்கும்
- # நேரியல் அல்லாத ச்டெப்பர் இயக்கம். மேலே குறிப்பிடப்பட்ட மதிப்புகள் இயல்புநிலை
- # இயக்கி பயன்படுத்தும் மதிப்புகள். மதிப்பு ஒரு தசம முழு எண்ணாக குறிப்பிடப்பட வேண்டும்
- # (எக்ச் படிவம் ஆதரிக்கப்படவில்லை). அலை அட்டவணை புலங்களை கணக்கிடுவதற்காக,
- # டிரினாமிக் வலைத்தளத்திலிருந்து TMC2130 "கணக்கீட்டு தாள்" ஐப் பார்க்கவும்.
- #driver_multistep_filt: உண்மை
- #driver_iholddelay: 6
- #driver_tpowerdown: 10
- #driver_tbl: 2
- #driver_toff: 3
- #driver_hend: 2
- #driver_hstrt: 5
- #டிரைவர்_ஃப்ட் 3: 0
- #driver_tpfd: 4
- #driver_chm: 0
- #driver_vhighfs: 0
- #driver_vhighchm: 0
- #டிரைவர்_டிச் 2 சி: 0
- #டிரைவர்_டிச் 2 விஎச்: 0
- #driver_pwm_autoscale: உண்மை
- #driver_pwm_autograd: உண்மை
- #driver_pwm_freq: 0
- #driver_freewheel: 0
- #driver_pwm_grad: 0
- #driver_pwm_ofs: 30
- #driver_pwm_reg: 4
- #driver_pwm_lim: 12
- #driver_sgt: 0
- #driver_semin: 0
- #driver_seup: 0
- #driver_semax: 0
- #driver_sedn: 0
- #driver_seimin: 0
- #driver_sfilt: 0
- #Driver_drvStrength: 0
- #driver_bbmclks: 4
- #driver_bbmtime: 0
- #driver_filt_isense: 0
- # TMC5160 இன் உள்ளமைவின் போது கொடுக்கப்பட்ட பதிவேட்டை அமைக்கவும்
- # சிப். தனிப்பயன் மின்னோடி அளவுருக்களை அமைக்க இது பயன்படுத்தப்படலாம். தி
- # ஒவ்வொரு அளவுருவுக்கும் இயல்புநிலைகள் உள்ள அளவுரு பெயருக்கு அடுத்ததாக உள்ளன
- # மேலே பட்டியல்.
- #diag0_pin:
- #diag1_pin:
- # மைக்ரோ-கன்ட்ரோலர் முள் ஒரு டயக் வரிகளில் ஒன்றோடு இணைக்கப்பட்டுள்ளது
- # TMC5160 சிப். ஒரு டயக் முள் மட்டுமே குறிப்பிடப்பட வேண்டும். முள்
- # "செயலில் குறைவாக" உள்ளது, இதனால் பொதுவாக "^!" அமைத்தல்
- # இது "TMC5160_STEPPER_X: மெய்நிகர்_இண்ட்ச்டாப்" மெய்நிகர் முள் உருவாக்குகிறது
- # இது ச்டெப்பரின் எண்ட்ச்டாப்_பினாக பயன்படுத்தப்படலாம். இதைச் செய்வது செயல்படுத்துகிறது
- # "சென்சார்லெச் ஓமிங்". (டிரைவர்_ச்க்டை ஒரு ஆக அமைக்க மறக்காதீர்கள்
- # பொருத்தமான உணர்திறன் மதிப்பு.) இயல்புநிலை இயக்கக்கூடாது
- # சென்சார்லெச் ஓமிங்.
+[tmc5160 stepper_x]
+cs_pin:
+#   The pin corresponding to the TMC5160 chip select line. This pin
+#   will be set to low at the start of SPI messages and raised to high
+#   after the message completes. This parameter must be provided.
+#spi_speed:
+#spi_bus:
+#spi_software_sclk_pin:
+#spi_software_mosi_pin:
+#spi_software_miso_pin:
+#   See the "common SPI settings" section for a description of the
+#   above parameters.
+#chain_position:
+#chain_length:
+#   These parameters configure an SPI daisy chain. The two parameters
+#   define the stepper position in the chain and the total chain length.
+#   Position 1 corresponds to the stepper that connects to the MOSI signal.
+#   The default is to not use an SPI daisy chain.
+#interpolate: True
+#   If true, enable step interpolation (the driver will internally
+#   step at a rate of 256 micro-steps). The default is True.
+run_current:
+#   The amount of current (in amps RMS) to configure the driver to use
+#   during stepper movement. This parameter must be provided.
+#hold_current:
+#   The amount of current (in amps RMS) to configure the driver to use
+#   when the stepper is not moving. Setting a hold_current is not
+#   recommended (see TMC_Drivers.md for details). The default is to
+#   not reduce the current.
+#sense_resistor: 0.075
+#   The resistance (in ohms) of the motor sense resistor. The default
+#   is 0.075 ohms.
+#stealthchop_threshold: 0
+#   The velocity (in mm/s) to set the "stealthChop" threshold to. When
+#   set, "stealthChop" mode will be enabled if the stepper motor
+#   velocity is below this value. Note that the "sensorless homing"
+#   code may temporarily override this setting during homing
+#   operations. The default is 0, which disables "stealthChop" mode.
+#coolstep_threshold:
+#   The velocity (in mm/s) to set the TMC driver internal "CoolStep"
+#   threshold to. If set, the coolstep feature will be enabled when
+#   the stepper motor velocity is near or above this value. Important
+#   - if coolstep_threshold is set and "sensorless homing" is used,
+#   then one must ensure that the homing speed is above the coolstep
+#   threshold! The default is to not enable the coolstep feature.
+#high_velocity_threshold:
+#   The velocity (in mm/s) to set the TMC driver internal "high
+#   velocity" threshold (THIGH) to. This is typically used to disable
+#   the "CoolStep" feature at high speeds. The default is to not set a
+#   TMC "high velocity" threshold.
+#driver_MSLUT0: 2863314260
+#driver_MSLUT1: 1251300522
+#driver_MSLUT2: 608774441
+#driver_MSLUT3: 269500962
+#driver_MSLUT4: 4227858431
+#driver_MSLUT5: 3048961917
+#driver_MSLUT6: 1227445590
+#driver_MSLUT7: 4211234
+#driver_W0: 2
+#driver_W1: 1
+#driver_W2: 1
+#driver_W3: 1
+#driver_X1: 128
+#driver_X2: 255
+#driver_X3: 255
+#driver_START_SIN: 0
+#driver_START_SIN90: 247
+#   These fields control the Microstep Table registers directly. The optimal
+#   wave table is specific to each motor and might vary with current. An
+#   optimal configuration will have minimal print artifacts caused by
+#   non-linear stepper movement. The values specified above are the default
+#   values used by the driver. The value must be specified as a decimal integer
+#   (hex form is not supported). In order to compute the wave table fields,
+#   see the tmc2130 "Calculation Sheet" from the Trinamic website.
+#driver_MULTISTEP_FILT: True
+#driver_IHOLDDELAY: 6
+#driver_TPOWERDOWN: 10
+#driver_TBL: 2
+#driver_TOFF: 3
+#driver_HEND: 2
+#driver_HSTRT: 5
+#driver_FD3: 0
+#driver_TPFD: 4
+#driver_CHM: 0
+#driver_VHIGHFS: 0
+#driver_VHIGHCHM: 0
+#driver_DISS2G: 0
+#driver_DISS2VS: 0
+#driver_PWM_AUTOSCALE: True
+#driver_PWM_AUTOGRAD: True
+#driver_PWM_FREQ: 0
+#driver_FREEWHEEL: 0
+#driver_PWM_GRAD: 0
+#driver_PWM_OFS: 30
+#driver_PWM_REG: 4
+#driver_PWM_LIM: 12
+#driver_SGT: 0
+#driver_SEMIN: 0
+#driver_SEUP: 0
+#driver_SEMAX: 0
+#driver_SEDN: 0
+#driver_SEIMIN: 0
+#driver_SFILT: 0
+#driver_DRVSTRENGTH: 0
+#driver_BBMCLKS: 4
+#driver_BBMTIME: 0
+#driver_FILT_ISENSE: 0
+#   Set the given register during the configuration of the TMC5160
+#   chip. This may be used to set custom motor parameters. The
+#   defaults for each parameter are next to the parameter name in the
+#   above list.
+#diag0_pin:
+#diag1_pin:
+#   The micro-controller pin attached to one of the DIAG lines of the
+#   TMC5160 chip. Only a single diag pin should be specified. The pin
+#   is "active low" and is thus normally prefaced with "^!". Setting
+#   this creates a "tmc5160_stepper_x:virtual_endstop" virtual pin
+#   which may be used as the stepper's endstop_pin. Doing this enables
+#   "sensorless homing". (Be sure to also set driver_SGT to an
+#   appropriate sensitivity value.) The default is to not enable
+#   sensorless homing.
 ```
 
 ## ரன்-டைம் ச்டெப்பர் மின்னோடி தற்போதைய உள்ளமைவு
@@ -4222,34 +4255,39 @@ SSD1306 மற்றும் SH1106 காட்சிகளை உள்ளம
 மேலும் தகவலுக்கு [கட்டளை குறிப்பு] (g-codes.md#filemament_switch_sensor) ஐப் பார்க்கவும்.
 
 ```
-[Filament_switch_sensor my_sensor]
- #pause_on_runout: உண்மை
- # உண்மைக்கு அமைக்கப்பட்டால், ரன்அவுட் முடிந்த உடனேயே இடைநிறுத்தம் செயல்படும்
- # கண்டறியப்பட்டது. Pause_on_runout என்றால் தவறானது மற்றும் என்பதை நினைவில் கொள்க
- # runout_gcode தவிர்க்கப்பட்ட பின்னர் ரன்அவுட் கண்டறிதல் முடக்கப்பட்டுள்ளது. இயல்புநிலை
- # உண்மை.
- #Runout_gcode:
- # ஒரு இழை ரன்அவுட்டுக்குப் பிறகு செயல்படுத்த சி-குறியீடு கட்டளைகளின் பட்டியல்
- # கண்டறியப்பட்டது. சி-குறியீடு வடிவமைப்பிற்கு டாக்ச்/கட்டளை_டெம்ப்ளேட்ச்.எம்டியைப் பார்க்கவும். என்றால்
- # pause_on_runout உண்மைக்கு அமைக்கப்பட்டுள்ளது இந்த சி-குறியீடு பின்னர் இயங்கும்
- # இடைநிறுத்தம் முடிந்தது. இயல்புநிலை எந்த சி-கோட் கட்டளைகளையும் இயக்கக்கூடாது.
- #insert_gcode:
- # ஒரு இழை செருகலுக்குப் பிறகு செயல்படுத்த சி-குறியீடு கட்டளைகளின் பட்டியல்
- # கண்டறியப்பட்டது. சி-குறியீடு வடிவமைப்பிற்கு டாக்ச்/கட்டளை_டெம்ப்ளேட்ச்.எம்டியைப் பார்க்கவும். தி
- # இயல்புநிலை எந்த சி-குறியீடு கட்டளைகளையும் இயக்கக்கூடாது, இது செருகலை முடக்குகிறது
- # கண்டறிதல்.
- #event_delay: 3.0
- # நிகழ்வுகளுக்கு இடையில் தாமதப்படுத்த நொடிகளில் குறைந்தபட்ச நேரம்.
- # இந்த காலகட்டத்தில் தூண்டப்பட்ட நிகழ்வுகள் அமைதியாக இருக்கும்
- # புறக்கணிக்கப்பட்டது. இயல்புநிலை 3 வினாடிகள்.
- #Pause_Delay: 0.5
- # இடைநிறுத்த கட்டளைக்கு இடையில், விநாடிகளில் தாமதப்படுத்தும் நேரம்
- # ரன்அவுட்_சி கோட் அனுப்புதல் மற்றும் செயல்படுத்துதல். இது பயனுள்ளதாக இருக்கும்
- # ஆக்டோபிரிண்ட் விசித்திரமான இடைநிறுத்த நடத்தையை வெளிப்படுத்தினால் இந்த தாமதத்தை அதிகரிக்கவும்.
- # இயல்புநிலை 0.5 வினாடிகள்.
- #switch_pin:
- # சுவிட்ச் இணைக்கப்பட்ட முள். இந்த அளவுரு இருக்க வேண்டும்
- # வழங்கப்பட்டது.
+[filament_switch_sensor my_sensor]
+#pause_on_runout: True
+#   When set to True, a PAUSE will execute immediately after a runout
+#   is detected. Note that if pause_on_runout is False and the
+#   runout_gcode is omitted then runout detection is disabled. Default
+#   is True.
+#runout_gcode:
+#   A list of G-Code commands to execute after a filament runout is
+#   detected. See docs/Command_Templates.md for G-Code format. If
+#   pause_on_runout is set to True this G-Code will run after the
+#   PAUSE is complete. The default is not to run any G-Code commands.
+#insert_gcode:
+#   A list of G-Code commands to execute after a filament insert is
+#   detected. See docs/Command_Templates.md for G-Code format. The
+#   default is not to run any G-Code commands, which disables insert
+#   detection.
+#event_delay: 3.0
+#   The minimum amount of time in seconds to delay between events.
+#   Events triggered during this time period will be silently
+#   ignored. The default is 3 seconds.
+#pause_delay: 0.5
+#   The amount of time to delay, in seconds, between the pause command
+#   dispatch and execution of the runout_gcode. It may be useful to
+#   increase this delay if OctoPrint exhibits strange pause behavior.
+#   Default is 0.5 seconds.
+#debounce_delay:
+#   A period of time in seconds to debounce events prior to running the
+#   switch gcode. The switch must he held in a single state for at least
+#   this long to activate. If the switch is toggled on/off during this delay,
+#   the event is ignored. Default is 0.
+#switch_pin:
+#   The pin on which the switch is connected. This parameter must be
+#   provided.
 ```
 
 ### [Filament_motion_sensor]
@@ -4354,8 +4392,18 @@ TSLL401CL அடிப்படையிலான இழை அகல சென�
 
 ```
 [load_cell]
- sensor_type:
- # இது ஆதரிக்கப்பட்ட சென்சார் வகைகளில் ஒன்றாக இருக்க வேண்டும், கீழே காண்க.
+sensor_type:
+#   This must be one of the supported sensor types, see below.
+#counts_per_gram:
+#   The floating point number of sensor counts that indicates 1 gram of force.
+#   This value is calculated by the LOAD_CELL_CALIBRATE command.
+#reference_tare_counts:
+#   The integer tare value, in raw sensor counts, taken when LOAD_CELL_CALIBRATE
+#   is run. This is the default tare value when klipper starts up.
+#sensor_orientation:
+#   Change the sensor's orientation. Can be either 'normal' or 'inverted'.
+#   The default is 'normal'. Use 'inverted' if the sensor reports a
+#   decreasing force value when placed under load.
 ```
 
 #### HX711
@@ -4524,6 +4572,44 @@ VREF மற்றும் VSSA வாசிப்புகளால் டூ�
  # ஒலி. இயல்புநிலை 2 வினாடிகள்.
 ```
 
+### [ads1x1x]
+
+ADS1013, ADS1014, ADS1015, ADS1113, ADS1114 and ADS1115 are I2C based Analog to Digital Converters that can be used for temperature sensors. They provide 4 analog input pins either as single line or as differential input.
+
+Note: Use caution if using this sensor to control heaters. The heater min_temp and max_temp are only verified in the host and only if the host is running and operating normally. (ADC inputs directly connected to the micro-controller verify min_temp and max_temp within the micro-controller and do not require a working connection to the host.)
+
+```
+[ads1x1x my_ads1x1x]
+chip: ADS1115
+#pga: 4.096V
+#   Default value is 4.096V. The maximum voltage range used for the input. This
+#   scales all values read from the ADC. Options are: 6.144V, 4.096V, 2.048V,
+#   1.024V, 0.512V, 0.256V
+#adc_voltage: 3.3
+#   The suppy voltage for the device. This allows additional software scaling
+#   for all values read from the ADC.
+i2c_mcu: host
+i2c_bus: i2c.1
+#address_pin: GND
+#   Default value is GND.  There can be up to four addressed devices depending
+#   upon wiring of the device. Check the datasheet for details. The i2c_address
+#   can be specified directly instead of using the address_pin.
+```
+
+The chip provides pins that can be used on other sensors.
+
+```
+sensor_type: ...
+#   Can be any thermistor or adc_temperature.
+sensor_pin: my_ads1x1x:AIN0
+#   A combination of the name of the ads1x1x chip and the pin. Possible
+#   pin values are AIN0, AIN1, AIN2 and AIN3 for single ended lines and
+#   DIFF01, DIFF03, DIFF13 and DIFF23 for differential between their
+#   correspoding lines. For example
+#   DIFF03 measures the differential between line 0 and 3. Only specific
+#   combinations for the differentials are allowed.
+```
+
 ### [பிரதி]
 
 பிரதி ஆதரவு-[பீகல்போன் வழிகாட்டி] (BeagleBone.MD) மற்றும் [generic-replicape.cfg] (../ config/generic-replicape.cfg) கோப்பைப் பார்க்கவும்.
@@ -4598,7 +4684,7 @@ VREF மற்றும் VSSA வாசிப்புகளால் டூ�
 
 இந்த தொகுதியைப் பயன்படுத்தினால், ஆக்டோப்ரின்ட்டுக்கு தட்டு 2 சொருகி பயன்படுத்த வேண்டாம், ஏனெனில் அவை முரண்படும், மேலும் 1 உங்கள் அச்சுறுத்தலை கருக்கலைப்பதை சரியாக துவக்கத் தவறிவிடும்.
 
-மெய்நிகர்_எச்டியிலிருந்து அச்சிடுவதற்குப் பதிலாக சீரியல் போர்ட்டின் மீது ஆக்டோப்ரின்ட் மற்றும் ச்ட்ரீம் சிகோடைப் பயன்படுத்தினால்,*அமைப்புகள்> அமைப்புகள்> தொடர் இணைப்பு> ஃபார்ம்வேர் & நெறிமுறை*இல்*கட்டளைகளை*இடைநிறுத்துவதில் இருந்து ரெமோ ** எம் 1 ** மற்றும் ** எம் 0 ** தட்டு 2 இல் அச்சிடத் தொடங்கவும், உங்கள் அச்சு தொடங்குவதற்கு ஆக்டோப்ரின்ட்டில் நிறுத்தி வைக்கவும்.
+If you use Octoprint and stream gcode over the serial port instead of printing from virtual_sd, then remove **M1** and **M0** from *Pausing commands* in *Settings > Serial Connection > Firmware & protocol* will prevent the need to start print on the Palette 2 and unpausing in Octoprint for your print to begin.
 
 ```
 [தட்டு 2]

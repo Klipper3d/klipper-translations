@@ -74,8 +74,10 @@ A Klipper nyílt forráskódú szoftver, és örömmel fogadjuk az új hozzájá
 
 Az új hozzájárulásokat (mind a kódot, mind a dokumentációt illetően) a GitHub Pull Requests-en keresztül küldheted be. Lásd a [CONTRIBUTING dokumentumot](CONTRIBUTING.md) a fontos információkért.
 
-Számos [dokumentum fejlesztőknek](Overview.md#developer-documentation). Ha kérdésed van a kóddal kapcsolatban, akkor a [Klipper Közösségi Fórum](#community-forum) vagy a [Klipper Közösségi Discord](#discord-chat) oldalon is felteheted.
+There are several [documents for developers](Overview.md#developer-documentation). If you have questions on the code then you can also ask in the [Klipper Discourse Forum](#discourse-forum) or on the [Klipper Discord Chat](#discord-chat).
 
-## Klipper github
+## Professional Services
 
-A Klipper githubot a közreműködők arra használhatják, hogy megosszák a Klipper fejlesztésére irányuló munkájuk állapotát. Elvárás, hogy a github jegyet nyitó személy aktívan dolgozzon az adott feladaton, és ő végezze el az összes szükséges munkát a feladat elvégzéséhez. A Klipper githubot nem használjuk kérésekre, sem hibák bejelentésére, sem kérdések feltevésére. Használd helyette a [Klipper közösségi fórumot](#community-forum) vagy a [Klipper közösségi discordot](#discord-chat).
+![](img/klipper-logo-small.png)
+
+Custom software development, software support, and solutions: <https://ko-fi.com/koconnor>

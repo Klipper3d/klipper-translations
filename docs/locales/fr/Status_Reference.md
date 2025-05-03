@@ -19,12 +19,23 @@ Les informations suivantes sont disponibles dans l'objet [cartographie du lit (b
 
 ## bed_screws
 
-Les informations suivantes sont disponibles dans l'objet `Config_Reference.md#bed_screws` :
+The following information is available in the [bed_screws](Config_Reference.md#bed_screws) object:
 
 - `is_active` : Renvoie True si le script de réglage des vis du lit est en cours.
 - `state` : L'état du script de réglage des vis du lit. deux étaIl s'agit de l'une des chaînes suivantes : "adjust", "fine".
 - `current_screw` : le numéro de la vis en cours de réglage.
 - `accepted_screws` : nombre de vis qui ont été acceptées (ndt donc marquées comme réglées).
+
+## canbus_stats
+
+The following information is available in the `canbus_stats some_mcu_name` object (this object is automatically available if an mcu is configured to use canbus):
+
+- `rx_error`: The number of receive errors detected by the micro-controller canbus hardware.
+- `tx_error`: The number of transmit errors detected by the micro-controller canbus hardware.
+- `tx_retries`: The number of transmit attempts that were retried due to bus contention or errors.
+- `bus_state`: The status of the interface (typically "active" for a bus in normal operation, "warn" for a bus with recent errors, "passive" for a bus that will no longer transmit canbus error frames, or "off" for a bus that will no longer transmit or receive messages).
+
+Note that only the rp2XXX micro-controllers report a non-zero `tx_retries` field and the rp2XXX micro-controllers always report `tx_error` as zero and `bus_state` as "active".
 
 ## fichier de configuration
 
@@ -151,6 +162,7 @@ Les informations suivantes sont disponibles dans l'objet `gcode_move` (cet objet
 
 Les informations suivantes sont disponibles dans l'objet [hall_filament_width_sensor](Config_Reference.md#hall_filament_width_sensor) :
 
+- all items from [filament_switch_sensor](Status_Reference.md#filament_switch_sensor)
 - `is_active` : renvoie True si le capteur est actif.
 - `Diameter` : La dernière lecture du capteur en mm.
 - `Raw` : La dernière lecture brute du convertisseur AN du capteur.
@@ -184,6 +196,18 @@ Les informations suivantes sont disponibles dans l'objet [idle_timeout](Config_R
 Les informations suivantes sont disponibles pour chaque sections `[led nom_des_leds]`, `[neopixel nom_des_leds]`, `[dotstar nom_des_leds]`, `[pca9533 nom_des_leds]` et `[pca9632 nom_des_leds]` définies dans printer.cfg :
 
 - `color_data` : une liste de listes de couleurs contenant les valeurs RGBW pour une led de la chaîne. Chaque valeur est représentée par un réel de 0,0 à 1,0. Chaque liste de couleurs contient 4 éléments (rouge, vert, bleu, blanc) même si la LED sous-jacente prend en charge moins de canaux de couleur. Par exemple, la valeur bleue (3e élément de la liste des couleurs) du deuxième neopixel d'une chaîne peut être consultée sur `printer["neopixel <config_name>"].color_data[1][2]`.
+
+## load_cell
+
+The following information is available for each `[load_cell name]`:
+
+- 'is_calibrated': True/False is the load cell calibrated
+- 'counts_per_gram': The number of raw sensor counts that equals 1 gram of force
+- 'reference_tare_counts': The reference number of raw sensor counts for 0 force
+- 'tare_counts': The current number of raw sensor counts for 0 force
+- 'force_g': The force in grams, averaged over the last polling period.
+- 'min_force_g': The minimum force in grams, over the last polling period.
+- 'max_force_g': The maximum force in grams, over the last polling period.
 
 ## manual_probe
 
@@ -282,6 +306,12 @@ Les informations suivantes sont disponibles dans l'objet `screws_tilt_adjust` :
 Les informations suivantes sont disponibles dans les objets [servo some_name](Config_Reference.md#servo) :
 
 - `printer["servo <config_name>"].value` : le dernier réglage de la broche PWM (une valeur comprise entre 0,0 et 1,0) associée au servo.
+
+## skew_correction.py
+
+The following information is available in the `skew_correction` object (this object is available if any skew_correction is defined):
+
+- `current_profile_name`: Returns the name of the currently loaded SKEW_PROFILE.
 
 ## stepper_enable
 

@@ -92,12 +92,11 @@ section](Config_Reference.md#axis_twist_compensation) is enabled.
 
 #### AXIS_TWIST_COMPENSATION_CALIBRATE
 
-`AXIS_TWIST_COMPENSATION_CALIBRATE [AXIS=<X|Y>] [AUTO=<True|False>] [SAMPLE_COUNT=<value>]`
+`AXIS_TWIST_COMPENSATION_CALIBRATE [AXIS=<X|Y>] [SAMPLE_COUNT=<value>]`
 
 Calibrates axis twist compensation by specifying the target axis or enabling automatic calibration.
 
 - **AXIS:** Define the axis (`X` or `Y`) for which the twist compensation will be calibrated. If not specified, the axis defaults to `'X'`.
-- **AUTO:** Enables automatic calibration mode. When `AUTO=True`, the calibration will run for both the X and Y axes. In this mode, `AXIS` cannot be specified. If both `AXIS` and `AUTO` are provided, an error will be raised.
 
 ### [BED_MESH]
 
@@ -335,7 +334,13 @@ Calibrates axis twist compensation by specifying the target axis or enabling aut
 
 #### Set_kinematic_position
 
-`SET_KINEMATIC_POSITION [X=<value>] [Y=<value>] [Z=<value>] [CLEAR=<[X][Y][Z]>]`: Force the low-level kinematic code to believe the toolhead is at the given cartesian position. This is a diagnostic and debugging command; use SET_GCODE_OFFSET and/or G92 for regular axis transformations. If an axis is not specified then it will default to the position that the head was last commanded to. Setting an incorrect or invalid position may lead to internal software errors. Use the CLEAR parameter to forget the homing state for the given axes. Note that CLEAR will not override the previous functionality; if an axis is not specified to CLEAR it will have its kinematic position set as per above. This command may invalidate future boundary checks; issue a G28 afterwards to reset the kinematics.
+`SET_KINEMATIC_POSITION [X=<value>] [Y=<value>] [Z=<value>] [SET_HOMED=<[X][Y][Z]>] [CLEAR_HOMED=<[X][Y][Z]>]`: Force the low-level kinematic code to believe the toolhead is at the given cartesian position and set/clear homed status. This is a diagnostic and debugging command; use SET_GCODE_OFFSET and/or G92 for regular axis transformations. Setting an incorrect or invalid position may lead to internal software errors.
+
+The `X`, `Y`, and `Z` parameters are used to alter the low-level kinematic position tracking. If any of these parameters are not set then the position is not changed - for example `SET_KINEMATIC_POSITION Z=10` would set all axes as homed, set the internal Z position to 10, and leave the X and Y positions unchanged. Changing the internal position tracking is not dependent on the internal homing state - one may alter the position for both homed and not homed axes, and similarly one may set or clear the homing state of an axis without altering its internal position.
+
+The `SET_HOMED` parameter defaults to `XYZ` which instructs the kinematics to consider all axes as homed. A bare `SET_KINEMATIC_POSITION` command will result in all axes being considered homed (and not change its current position). If it is not desired to change the state of homed axes then assign `SET_HOMED` to an empty string - for example: `SET_KINEMATIC_POSITION SET_HOMED= X=10`. It is also possible to request an individual axis be considered homed (eg, `SET_HOMED=X`), but note that non-cartesian style kinematics (such as delta kinematics) may not support setting an individual axis as homed.
+
+The `CLEAR_HOMED` parameter instructs the kinematics to consider the given axes as not homed. For example, `CLEAR_HOMED=XYZ` would request all axes to be considered not homed (and thus require homing prior to movement on those axes). The default is `SET_HOMED=XYZ` even if `CLEAR_HOMED` is present, so the command `SET_KINEMATIC_POSITION CLEAR_HOMED=Z` will set X and Y as homed and clear the homing state for Z. Use `SET_KINEMATIC_POSITION SET_HOMED= CLEAR_HOMED=Z` if the goal is to clear only the Z homing state. If an axis is specified in neither `SET_HOMED` nor `CLEAR_HOMED` then its homing state is not changed and if it is specified in both then `CLEAR_HOMED` has precedence. It is possible to request clearing of an individual axis, but on non-cartesian style kinematics (such as delta kinematics) doing so may result in clearing the homing state of additional axes. Note the `CLEAR` parameter is currently an alias for the `CLEAR_HOMED` parameter, but this alias will be removed in the future.
 
 ### [Gcode]
 
@@ -456,6 +461,44 @@ Idle_timeout தொகுதி தானாக ஏற்றப்படும�
 
 `Set_input_shaper [shaper_freq_x = <shaper_freq_x>] x>] [சேப்பர்_ டைப்_ஒய் = <சேப்பர்_ டைப்_ஒய்> ] `: உள்ளீட்டு சேப்பர் அளவுருக்களை மாற்றவும். [Input_shaper] பிரிவில் வெவ்வேறு சேப்பர் வகைகள் கட்டமைக்கப்பட்டிருந்தாலும் கூட, ஃச் மற்றும் ஒய் அச்சுகள் இரண்டிற்கும் உள்ளீட்டு சேப்பரை சேப்பர்_ டைப் அளவுரு மீட்டமைக்கிறது என்பதை நினைவில் கொள்க. சேப்பர்_பீ_எக்ச் மற்றும் சேப்பர்_ டைப்_ஒய் அளவுருக்கள் ஆகியவற்றுடன் சேப்பர்_ டைப்பைப் பயன்படுத்த முடியாது. இந்த ஒவ்வொரு அளவுருக்கள் பற்றிய கூடுதல் விவரங்களுக்கு [கட்டமைப்பு குறிப்பு] (config_reference.md#input_shaper) ஐப் பார்க்கவும்.
 
+### [led]
+
+[எல்.ஈ.டி கட்டமைப்பு பிரிவுகள்] (config_reference.md#LED கள்) இயக்கப்படும்போது பின்வரும் கட்டளை கிடைக்கும்.
+
+#### Set_led
+
+`Set_led led = <config_name> சிவப்பு = <மதிப்பு> பச்சை = <மதிப்பு> நீலம் = <மதிப்பு> வெள்ளை = <value> [index = <endex>] [டிரான்ச்மிட் = 0] [ஒத்திசைவு = 1]`: இது எல்.ஈ. வெளியீடு. ஒவ்வொரு வண்ணமும் `<மதிப்பு>` 0.0 முதல் 1.0 வரை இருக்க வேண்டும். வெள்ளை விருப்பம் RGBW எல்.ஈ.டிகளில் மட்டுமே செல்லுபடியாகும். எல்.ஈ. குறியீட்டு வழங்கப்படாவிட்டால், டெய்சி-சங்கிலியில் உள்ள அனைத்து எல்.ஈ.டிகளும் வழங்கப்பட்ட வண்ணத்திற்கு அமைக்கப்படும். டிரான்ச்மிட் = 0 குறிப்பிடப்பட்டால், டிரான்ச்மிட் = 0 ஐக் குறிப்பிடாத அடுத்த செட்_ல்ட் கட்டளையில் மட்டுமே வண்ண மாற்றம் செய்யப்படும்; டெய்சி-சங்கிலியில் பல புதுப்பிப்புகளை தொகுக்க குறியீட்டு அளவுருவுடன் இணைந்து இது பயனுள்ளதாக இருக்கும். இயல்பாக, SET_LED கட்டளை அதன் மாற்றங்களை மற்ற GCODE கட்டளைகளுடன் ஒத்திசைக்கும். அச்சுப்பொறி அச்சிடாதபோது எல்.ஈ.டிக்கள் அமைக்கப்பட்டால் இது விரும்பத்தகாத நடத்தைக்கு வழிவகுக்கும், ஏனெனில் இது செயலற்ற காலக்கெடுவை மீட்டமைக்கும். கவனமாக நேரம் தேவையில்லை என்றால், செயலற்ற காலக்கெடுவை மீட்டமைக்காமல் மாற்றங்களைப் பயன்படுத்த விருப்ப ஒத்திசைவு = 0 அளவுருவைக் குறிப்பிடலாம்.
+
+#### Set_led_template
+
+`Set_led_template led = <ed_name> வார்ப்புரு = <ementuplate_name> [<carm_x> = <iteral>] [index = <index>]`. .md#LEDS). எடுத்துக்காட்டாக, ஒருவர் `[display_template my_led_template]` கட்டமைப்பு பிரிவை வரையறுத்தால், ஒருவர் `வார்ப்புரு = my_led_template` ஐ இங்கே ஒதுக்கலாம். டிச்ப்ளே_டெம்ப்ளேட் சிவப்பு, பச்சை, நீலம் மற்றும் வெள்ளை வண்ண அமைப்புகளுடன் தொடர்புடைய நான்கு மிதக்கும் புள்ளி எண்களைக் கொண்ட கமா பிரிக்கப்பட்ட சரத்தை உருவாக்க வேண்டும். வார்ப்புரு தொடர்ந்து மதிப்பீடு செய்யப்படும் மற்றும் எல்.ஈ.டி தானாகவே அதன் விளைவாக வரும் வண்ணங்களுக்கு அமைக்கப்படும். வார்ப்புரு மதிப்பீட்டின் போது பயன்படுத்த வேண்டிய காட்சி_டெம்ப்ளேட் அளவுருக்களை ஒருவர் அமைக்கலாம் (அளவுருக்கள் பைதான் லிட்டரர்களாக பாகுபடுத்தப்படும்). குறியீடு குறிப்பிடப்படவில்லை எனில், எல்.ஈ.டி.யின் டெய்சி-சங்கிலியில் உள்ள அனைத்து சில்லுகளும் வார்ப்புருவுக்கு அமைக்கப்படும், இல்லையெனில் கொடுக்கப்பட்ட குறியீட்டைக் கொண்ட சிப் மட்டுமே புதுப்பிக்கப்படும். வார்ப்புரு ஒரு வெற்று சரம் என்றால், இந்த கட்டளை எல்.ஈ.
+
+### [load_cell]
+
+The following commands are enabled if a [load_cell config section](Config_Reference.md#load_cell) has been enabled.
+
+### LOAD_CELL_DIAGNOSTIC
+
+`LOAD_CELL_DIAGNOSTIC [LOAD_CELL=<config_name>]`: This command collects 10 seconds of load cell data and reports statistics that can help you verify proper operation of the load cell. This command can be run on both calibrated and uncalibrated load cells.
+
+### LOAD_CELL_CALIBRATE
+
+`LOAD_CELL_CALIBRATE [LOAD_CELL=<config_name>]`: Start the guided calibration utility. Calibration is a 3 step process:
+
+1. First you remove all load from the load cell and run the `TARE` command
+1. Next you apply a known load to the load cell and run the `CALIBRATE GRAMS=nnn` command
+1. Finally use the `ACCEPT` command to save the results
+
+You can cancel the calibration process at any time with `ABORT`.
+
+### LOAD_CELL_TARE
+
+`LOAD_CELL_TARE [LOAD_CELL=<config_name>]`: This works just like the tare button on digital scale. It sets the current raw reading of the load cell to be the zero point reference value. The response is the percentage of the sensors range that was read and the raw value in counts.
+
+### LOAD_CELL_READ load_cell="name"
+
+`LOAD_CELL_READ [LOAD_CELL=<config_name>]`: This command takes a reading from the load cell. The response is the percentage of the sensors range that was read and the raw value in counts. If the load cell is calibrated a force in grams is also reported.
+
 ### [கையேடு_ப்ரோப்]
 
 கையேடு_பிரோப் தொகுதி தானாக ஏற்றப்படும்.
@@ -491,18 +534,6 @@ Idle_timeout தொகுதி தானாக ஏற்றப்படும�
 #### Set_digipot
 
 `Set_digipot digipot = config_name wiper = <value>`: இந்த கட்டளை டிசிபோட்டின் தற்போதைய மதிப்பை மாற்றும். இந்த மதிப்பு பொதுவாக 0.0 முதல் 1.0 வரை இருக்க வேண்டும், கட்டமைப்பில் ஒரு 'அளவுகோல்' வரையறுக்கப்படாவிட்டால். 'அளவுகோல்' வரையறுக்கப்படும்போது, இந்த மதிப்பு 0.0 மற்றும் 'அளவுகோல்' வரை இருக்க வேண்டும்.
-
-### [led]
-
-[எல்.ஈ.டி கட்டமைப்பு பிரிவுகள்] (config_reference.md#LED கள்) இயக்கப்படும்போது பின்வரும் கட்டளை கிடைக்கும்.
-
-#### Set_led
-
-`Set_led led = <config_name> சிவப்பு = <மதிப்பு> பச்சை = <மதிப்பு> நீலம் = <மதிப்பு> வெள்ளை = <value> [index = <endex>] [டிரான்ச்மிட் = 0] [ஒத்திசைவு = 1]`: இது எல்.ஈ. வெளியீடு. ஒவ்வொரு வண்ணமும் `<மதிப்பு>` 0.0 முதல் 1.0 வரை இருக்க வேண்டும். வெள்ளை விருப்பம் RGBW எல்.ஈ.டிகளில் மட்டுமே செல்லுபடியாகும். எல்.ஈ. குறியீட்டு வழங்கப்படாவிட்டால், டெய்சி-சங்கிலியில் உள்ள அனைத்து எல்.ஈ.டிகளும் வழங்கப்பட்ட வண்ணத்திற்கு அமைக்கப்படும். டிரான்ச்மிட் = 0 குறிப்பிடப்பட்டால், டிரான்ச்மிட் = 0 ஐக் குறிப்பிடாத அடுத்த செட்_ல்ட் கட்டளையில் மட்டுமே வண்ண மாற்றம் செய்யப்படும்; டெய்சி-சங்கிலியில் பல புதுப்பிப்புகளை தொகுக்க குறியீட்டு அளவுருவுடன் இணைந்து இது பயனுள்ளதாக இருக்கும். இயல்பாக, SET_LED கட்டளை அதன் மாற்றங்களை மற்ற GCODE கட்டளைகளுடன் ஒத்திசைக்கும். அச்சுப்பொறி அச்சிடாதபோது எல்.ஈ.டிக்கள் அமைக்கப்பட்டால் இது விரும்பத்தகாத நடத்தைக்கு வழிவகுக்கும், ஏனெனில் இது செயலற்ற காலக்கெடுவை மீட்டமைக்கும். கவனமாக நேரம் தேவையில்லை என்றால், செயலற்ற காலக்கெடுவை மீட்டமைக்காமல் மாற்றங்களைப் பயன்படுத்த விருப்ப ஒத்திசைவு = 0 அளவுருவைக் குறிப்பிடலாம்.
-
-#### Set_led_template
-
-`Set_led_template led = <ed_name> வார்ப்புரு = <ementuplate_name> [<carm_x> = <iteral>] [index = <index>]`. .md#LEDS). எடுத்துக்காட்டாக, ஒருவர் `[display_template my_led_template]` கட்டமைப்பு பிரிவை வரையறுத்தால், ஒருவர் `வார்ப்புரு = my_led_template` ஐ இங்கே ஒதுக்கலாம். டிச்ப்ளே_டெம்ப்ளேட் சிவப்பு, பச்சை, நீலம் மற்றும் வெள்ளை வண்ண அமைப்புகளுடன் தொடர்புடைய நான்கு மிதக்கும் புள்ளி எண்களைக் கொண்ட கமா பிரிக்கப்பட்ட சரத்தை உருவாக்க வேண்டும். வார்ப்புரு தொடர்ந்து மதிப்பீடு செய்யப்படும் மற்றும் எல்.ஈ.டி தானாகவே அதன் விளைவாக வரும் வண்ணங்களுக்கு அமைக்கப்படும். வார்ப்புரு மதிப்பீட்டின் போது பயன்படுத்த வேண்டிய காட்சி_டெம்ப்ளேட் அளவுருக்களை ஒருவர் அமைக்கலாம் (அளவுருக்கள் பைதான் லிட்டரர்களாக பாகுபடுத்தப்படும்). குறியீடு குறிப்பிடப்படவில்லை எனில், எல்.ஈ.டி.யின் டெய்சி-சங்கிலியில் உள்ள அனைத்து சில்லுகளும் வார்ப்புருவுக்கு அமைக்கப்படும், இல்லையெனில் கொடுக்கப்பட்ட குறியீட்டைக் கொண்ட சிப் மட்டுமே புதுப்பிக்கப்படும். வார்ப்புரு ஒரு வெற்று சரம் என்றால், இந்த கட்டளை எல்.ஈ.
 
 ### [output_pin]
 
@@ -544,14 +575,6 @@ GCODE கோப்பில் சிறப்பு OCODES (OMEGA குறி�
 
 `தட்டு_மார்ட்_லோட்`: இந்த கட்டளை தட்டில் அறிவுள்ள சுமை வரிசையைத் தொடங்குகிறது. இந்த கட்டளை ** அறிவுள்ள சுமை ** ஐ அழுத்துவது சமம், இழை சுமை முடிந்ததும் தட்டு 2 திரையில் நேரடியாக.
 
-### [pid_calibrate]
-
-கட்டமைப்பு கோப்பில் ஒரு ஈட்டர் வரையறுக்கப்பட்டால் PID_Calibrate தொகுதி தானாக ஏற்றப்படும்.
-
-#### Pid_calibrate
-
-`Pid_calibrate heter = <config_name> இலக்கு = <வெப்பநிலை> [write_file = 1]`: PID அளவுத்திருத்த சோதனையைச் செய்யுங்கள். குறிப்பிட்ட இலக்கு வெப்பநிலை அடையும் வரை குறிப்பிட்ட ஈட்டர் இயக்கப்படும், பின்னர் ஈட்டர் அணைக்கப்படும் மற்றும் பல சுழற்சிகளுக்கு. WRITE_FILE அளவுரு இயக்கப்பட்டிருந்தால், சோதனையின் போது எடுக்கப்பட்ட அனைத்து வெப்பநிலை மாதிரிகளின் பதிவோடு /tmp/heattest.txt கோப்பு உருவாக்கப்படும்.
-
 ### [pause_resume]
 
 [Pause_resume கட்டமைப்பு பிரிவு] (config_reference.md#pause_resume) இயக்கப்பட்டால் பின்வரும் கட்டளைகள் கிடைக்கின்றன:
@@ -571,6 +594,14 @@ GCODE கோப்பில் சிறப்பு OCODES (OMEGA குறி�
 #### Reancel_print
 
 `CANCEL_PRINT`: தற்போதைய அச்சிடலை ரத்து செய்கிறது.
+
+### [pid_calibrate]
+
+கட்டமைப்பு கோப்பில் ஒரு ஈட்டர் வரையறுக்கப்பட்டால் PID_Calibrate தொகுதி தானாக ஏற்றப்படும்.
+
+#### Pid_calibrate
+
+`Pid_calibrate heter = <config_name> இலக்கு = <வெப்பநிலை> [write_file = 1]`: PID அளவுத்திருத்த சோதனையைச் செய்யுங்கள். குறிப்பிட்ட இலக்கு வெப்பநிலை அடையும் வரை குறிப்பிட்ட ஈட்டர் இயக்கப்படும், பின்னர் ஈட்டர் அணைக்கப்படும் மற்றும் பல சுழற்சிகளுக்கு. WRITE_FILE அளவுரு இயக்கப்பட்டிருந்தால், சோதனையின் போது எடுக்கப்பட்ட அனைத்து வெப்பநிலை மாதிரிகளின் பதிவோடு /tmp/heattest.txt கோப்பு உருவாக்கப்படும்.
 
 ### [print_stats]
 
@@ -689,7 +720,7 @@ Query_endstops தொகுதி தானாக ஏற்றப்படும
 
 #### Save_variable
 
-`Save_variable variact = <aname> மதிப்பு = <மதிப்பு>`: மாறி வட்டில் சேமிக்கிறது, இதனால் மறுதொடக்கங்கள் முழுவதும் பயன்படுத்தப்படலாம். சேமிக்கப்பட்ட அனைத்து மாறிகள் தொடக்கத்தில் `அச்சுப்பொறி.சேவ்_வார்பிள்கள். வழங்கப்பட்ட மதிப்பு ஒரு பைதான் மொழியாக பாகுபடுத்தப்படுகிறது.
+`SAVE_VARIABLE VARIABLE=<name> VALUE=<value>`: Saves the variable to disk so that it can be used across restarts. The VARIABLE must be lowercase. All stored variables are loaded into the `printer.save_variables.variables` dict at startup and can be used in gcode macros. The provided VALUE is parsed as a Python literal.
 
 ### [screws_tilt_adjust]
 
@@ -771,6 +802,30 @@ Query_endstops தொகுதி தானாக ஏற்றப்படும
 
 `Set_temperature_fan_target வெப்பநிலை_பான் = <வெப்பநிலை_பான்_நாம்> [இலக்கு = <target_temperature>] [min_speed = <min_speed>] [max_speed = <ax_speed>]`: வெப்பநிலை_பானுக்கான இலக்கு வெப்பநிலையை அமைக்கிறது. ஒரு இலக்கு வழங்கப்படாவிட்டால், அது கட்டமைப்பு கோப்பில் குறிப்பிட்ட வெப்பநிலைக்கு அமைக்கப்பட்டுள்ளது. விரைவு வழங்கப்படாவிட்டால், எந்த மாற்றமும் பயன்படுத்தப்படாது.
 
+### [temperature_probe]
+
+[வெப்பநிலை_பிரோப் கட்டமைப்பு பிரிவு] (config_reference.md#வெப்பநிலை_பிரோப்) இயக்கப்பட்டால் பின்வரும் கட்டளைகள் கிடைக்கும்.
+
+#### வெப்பநிலை_பிரோப்_கலிபிரேட்
+
+`வெப்பநிலை_பிரோப்_கலிப்ரேட் [ஆய்வு = <ஆய்வு பெயர்>] [இலக்கு = <மதிப்பு>] [படி = <மதிப்பு>]`: எடி தற்போதைய அடிப்படையிலான ஆய்வுகளுக்கான ஆய்வு சறுக்கல் அளவுத்திருத்தத்தைத் தொடங்குகிறது. `இலக்கு` என்பது கடைசி மாதிரியின் இலக்கு வெப்பநிலை. ஒரு மாதிரியின் போது பதிவுசெய்யப்பட்ட வெப்பநிலை `இலக்கு` அளவுத்திருத்தத்தை மீறும் போது. `படி` அளவுரு மாதிரிகளுக்கு இடையில் வெப்பநிலை டெல்டாவை (சி இல்) அமைக்கிறது. ஒரு மாதிரி எடுக்கப்பட்ட பிறகு, இந்த டெல்டா `வெப்பநிலை_பிரோப்_நெக்ச்ட்` என்ற அழைப்பை திட்டமிடப் பயன்படுகிறது. இயல்புநிலை `படி` 2.
+
+#### வெப்பநிலை_பிரோப்_நெக்ச்ட்
+
+`வெப்பநிலை_பிரோப்_நெக்ச்ட்`: அளவுத்திருத்தம் தொடங்கிய பிறகு இந்த கட்டளை அடுத்த மாதிரியை எடுக்க இயக்கப்படுகிறது. `படி` குறிப்பிட்ட டெல்டாவை எட்டியபோது இது தானாகவே இயக்க திட்டமிடப்பட்டுள்ளது, இருப்பினும் ஒரு புதிய மாதிரியை கட்டாயப்படுத்த இந்த கட்டளையை கைமுறையாக இயக்கவும் முடியும். இந்த கட்டளை அளவுத்திருத்தத்தின் போது மட்டுமே கிடைக்கும்.
+
+#### வெப்பநிலை_பிரோப்_ கமி:
+
+`வெப்பநிலை_பிரோப்_ கமோப்லெட்`:` இலக்கு` வெப்பநிலை அடைவதற்கு முன்பு அளவுத்திருத்தத்தை முடிவுக்குக் கொண்டுவருவதற்கும் தற்போதைய முடிவை சேமிப்பதற்கும் பயன்படுத்தலாம். இந்த கட்டளை அளவுத்திருத்தத்தின் போது மட்டுமே கிடைக்கும்.
+
+#### கருக்கலைப்பு
+
+`கருக்கலைப்பு`: அளவுத்திருத்த செயல்முறையை நிறுத்தி, தற்போதைய முடிவுகளை நிராகரிக்கிறது. இந்த கட்டளை சறுக்கல் அளவுத்திருத்தத்தின் போது மட்டுமே கிடைக்கிறது.
+
+### வெப்பநிலை_பிரோப்_இனபிள்
+
+`வெப்பநிலை_பிரோப்_இனபிள் இயக்கு = [0 | 1]`: வெப்பநிலை சறுக்கல் இழப்பீட்டை ஆன் அல்லது ஆஃப் அமைக்கிறது. இயக்கு 0 என அமைக்கப்பட்டால், சறுக்கல் இழப்பீடு முடக்கப்படும், 1 ஆக அமைக்கப்பட்டால் அது இயக்கப்பட்டிருந்தால்.
+
 ### [TMCXXXX]
 
 [TMCXXXX கட்டமைப்பு பிரிவுகள்] (config_reference.md#TMC- ச்டெப்பர்-டிரைவர்-உள்ளமைவு) இயக்கப்பட்டால் பின்வரும் கட்டளைகள் கிடைக்கின்றன.
@@ -848,27 +903,3 @@ Klipper supports the following தரநிலை G-Code கட்டளைக�
 #### Z_tilt_adjust
 
 `Z_TILT_ADJUST [RETRIES=<value>] [RETRY_TOLERANCE=<value>] [HORIZONTAL_MOVE_Z=<value>] [<probe_parameter>=<value>]`: This command will probe the points specified in the config and then make independent adjustments to each Z stepper to compensate for tilt. See the PROBE command for details on the optional probe parameters. The optional `RETRIES`, `RETRY_TOLERANCE`, and `HORIZONTAL_MOVE_Z` values override those options specified in the config file.
-
-### [temperature_probe]
-
-[வெப்பநிலை_பிரோப் கட்டமைப்பு பிரிவு] (config_reference.md#வெப்பநிலை_பிரோப்) இயக்கப்பட்டால் பின்வரும் கட்டளைகள் கிடைக்கும்.
-
-#### வெப்பநிலை_பிரோப்_கலிபிரேட்
-
-`வெப்பநிலை_பிரோப்_கலிப்ரேட் [ஆய்வு = <ஆய்வு பெயர்>] [இலக்கு = <மதிப்பு>] [படி = <மதிப்பு>]`: எடி தற்போதைய அடிப்படையிலான ஆய்வுகளுக்கான ஆய்வு சறுக்கல் அளவுத்திருத்தத்தைத் தொடங்குகிறது. `இலக்கு` என்பது கடைசி மாதிரியின் இலக்கு வெப்பநிலை. ஒரு மாதிரியின் போது பதிவுசெய்யப்பட்ட வெப்பநிலை `இலக்கு` அளவுத்திருத்தத்தை மீறும் போது. `படி` அளவுரு மாதிரிகளுக்கு இடையில் வெப்பநிலை டெல்டாவை (சி இல்) அமைக்கிறது. ஒரு மாதிரி எடுக்கப்பட்ட பிறகு, இந்த டெல்டா `வெப்பநிலை_பிரோப்_நெக்ச்ட்` என்ற அழைப்பை திட்டமிடப் பயன்படுகிறது. இயல்புநிலை `படி` 2.
-
-#### வெப்பநிலை_பிரோப்_நெக்ச்ட்
-
-`வெப்பநிலை_பிரோப்_நெக்ச்ட்`: அளவுத்திருத்தம் தொடங்கிய பிறகு இந்த கட்டளை அடுத்த மாதிரியை எடுக்க இயக்கப்படுகிறது. `படி` குறிப்பிட்ட டெல்டாவை எட்டியபோது இது தானாகவே இயக்க திட்டமிடப்பட்டுள்ளது, இருப்பினும் ஒரு புதிய மாதிரியை கட்டாயப்படுத்த இந்த கட்டளையை கைமுறையாக இயக்கவும் முடியும். இந்த கட்டளை அளவுத்திருத்தத்தின் போது மட்டுமே கிடைக்கும்.
-
-#### வெப்பநிலை_பிரோப்_ கமி:
-
-`வெப்பநிலை_பிரோப்_ கமோப்லெட்`:` இலக்கு` வெப்பநிலை அடைவதற்கு முன்பு அளவுத்திருத்தத்தை முடிவுக்குக் கொண்டுவருவதற்கும் தற்போதைய முடிவை சேமிப்பதற்கும் பயன்படுத்தலாம். இந்த கட்டளை அளவுத்திருத்தத்தின் போது மட்டுமே கிடைக்கும்.
-
-#### கருக்கலைப்பு
-
-`கருக்கலைப்பு`: அளவுத்திருத்த செயல்முறையை நிறுத்தி, தற்போதைய முடிவுகளை நிராகரிக்கிறது. இந்த கட்டளை சறுக்கல் அளவுத்திருத்தத்தின் போது மட்டுமே கிடைக்கிறது.
-
-### வெப்பநிலை_பிரோப்_இனபிள்
-
-`வெப்பநிலை_பிரோப்_இனபிள் இயக்கு = [0 | 1]`: வெப்பநிலை சறுக்கல் இழப்பீட்டை ஆன் அல்லது ஆஃப் அமைக்கிறது. இயக்கு 0 என அமைக்கப்பட்டால், சறுக்கல் இழப்பீடு முடக்கப்படும், 1 ஆக அமைக்கப்பட்டால் அது இயக்கப்பட்டிருந்தால்.

@@ -92,12 +92,11 @@ section](Config_Reference.md#axis_twist_compensation) is enabled.
 
 #### AXIS_TWIST_COMPENSATION_CALIBRATE
 
-`AXIS_TWIST_COMPENSATION_CALIBRATE [AXIS=<X|Y>] [AUTO=<True|False>] [SAMPLE_COUNT=<value>]`
+`AXIS_TWIST_COMPENSATION_CALIBRATE [AXIS=<X|Y>] [SAMPLE_COUNT=<value>]`
 
 Calibrates axis twist compensation by specifying the target axis or enabling automatic calibration.
 
 - **AXIS:** Define the axis (`X` or `Y`) for which the twist compensation will be calibrated. If not specified, the axis defaults to `'X'`.
-- **AUTO:** Enables automatic calibration mode. When `AUTO=True`, the calibration will run for both the X and Y axes. In this mode, `AXIS` cannot be specified. If both `AXIS` and `AUTO` are provided, an error will be raised.
 
 ### [bed_mesh]
 
@@ -335,7 +334,13 @@ Le module force_move est automatiquement chargé, mais certaines commandes néce
 
 #### SET_KINEMATIC_POSITION
 
-`SET_KINEMATIC_POSITION [X=<value>] [Y=<value>] [Z=<value>] [CLEAR=<[X][Y][Z]>]`: Force the low-level kinematic code to believe the toolhead is at the given cartesian position. This is a diagnostic and debugging command; use SET_GCODE_OFFSET and/or G92 for regular axis transformations. If an axis is not specified then it will default to the position that the head was last commanded to. Setting an incorrect or invalid position may lead to internal software errors. Use the CLEAR parameter to forget the homing state for the given axes. Note that CLEAR will not override the previous functionality; if an axis is not specified to CLEAR it will have its kinematic position set as per above. This command may invalidate future boundary checks; issue a G28 afterwards to reset the kinematics.
+`SET_KINEMATIC_POSITION [X=<value>] [Y=<value>] [Z=<value>] [SET_HOMED=<[X][Y][Z]>] [CLEAR_HOMED=<[X][Y][Z]>]`: Force the low-level kinematic code to believe the toolhead is at the given cartesian position and set/clear homed status. This is a diagnostic and debugging command; use SET_GCODE_OFFSET and/or G92 for regular axis transformations. Setting an incorrect or invalid position may lead to internal software errors.
+
+The `X`, `Y`, and `Z` parameters are used to alter the low-level kinematic position tracking. If any of these parameters are not set then the position is not changed - for example `SET_KINEMATIC_POSITION Z=10` would set all axes as homed, set the internal Z position to 10, and leave the X and Y positions unchanged. Changing the internal position tracking is not dependent on the internal homing state - one may alter the position for both homed and not homed axes, and similarly one may set or clear the homing state of an axis without altering its internal position.
+
+The `SET_HOMED` parameter defaults to `XYZ` which instructs the kinematics to consider all axes as homed. A bare `SET_KINEMATIC_POSITION` command will result in all axes being considered homed (and not change its current position). If it is not desired to change the state of homed axes then assign `SET_HOMED` to an empty string - for example: `SET_KINEMATIC_POSITION SET_HOMED= X=10`. It is also possible to request an individual axis be considered homed (eg, `SET_HOMED=X`), but note that non-cartesian style kinematics (such as delta kinematics) may not support setting an individual axis as homed.
+
+The `CLEAR_HOMED` parameter instructs the kinematics to consider the given axes as not homed. For example, `CLEAR_HOMED=XYZ` would request all axes to be considered not homed (and thus require homing prior to movement on those axes). The default is `SET_HOMED=XYZ` even if `CLEAR_HOMED` is present, so the command `SET_KINEMATIC_POSITION CLEAR_HOMED=Z` will set X and Y as homed and clear the homing state for Z. Use `SET_KINEMATIC_POSITION SET_HOMED= CLEAR_HOMED=Z` if the goal is to clear only the Z homing state. If an axis is specified in neither `SET_HOMED` nor `CLEAR_HOMED` then its homing state is not changed and if it is specified in both then `CLEAR_HOMED` has precedence. It is possible to request clearing of an individual axis, but on non-cartesian style kinematics (such as delta kinematics) doing so may result in clearing the homing state of additional axes. Note the `CLEAR` parameter is currently an alias for the `CLEAR_HOMED` parameter, but this alias will be removed in the future.
 
 ### [gcode]
 
@@ -456,6 +461,44 @@ La commande suivante est activée si une section de configuration [input_shaper]
 
 `SET_INPUT_SHAPER [SHAPER_FREQ_X=<shaper_freq_x>] [SHAPER_FREQ_Y=<shaper_freq_y>] [DAMPING_RATIO_X=<damping_ratio_x>] [DAMPING_RATIO_Y=<damping_ratio_y>] [SHAPER_TYPE=<shaper>] [SHAPER_TYPE_X=<shaper_type_x>] [SHAPER_TYPE_Y=<shaper_type_y>] ` : Modifie les paramètres de mise en forme d'entrée. Notez que le paramètre SHAPER_TYPE réinitialise le shaper d'entrée pour les axes X et Y même si différents types de shaper ont été configurés dans la section [input_shaper]. SHAPER_TYPE ne peut pas être utilisé avec l'un des paramètres SHAPER_TYPE_X et SHAPER_TYPE_Y. Voir [config reference](Config_Reference.md#input_shaper) pour plus de détails sur chacun de ces paramètres.
 
+### [led]
+
+La commande suivante est disponible lorsque l'une des sections [led config](Config_Reference.md#leds) est activée.
+
+#### SET_LED
+
+`SET_LED LED=<nom_de_la_configuration> RED=<valeur> GREEN=<valeur> BLUE=<valeur> WHITE=<valeur> [INDEX=<index>] [TRANSMIT=0] [SYNC=1]` : Ceci définit la sortie de la LED. Chaque `<valeur>` de couleur doit être comprise entre 0.0 et 1.0. L'option WHITE n'est valable que pour les LEDs RGBW. Si la LED supporte plusieurs puces dans une chaîne, on peut spécifier INDEX pour modifier la couleur de la seule puce donnée (1 pour la première puce, 2 pour la seconde, etc.). Si INDEX n'est pas spécifié, alors toutes les LEDs de la chaîne seront réglées sur la couleur fournie. Si TRANSMIT=0 est spécifié, le changement de couleur ne sera effectué que lors de la prochaine commande SET_LED qui ne spécifie pas TRANSMIT=0 ; cela peut être utile en combinaison avec le paramètre INDEX pour effectuer plusieurs mises à jour dans une chaîne. Par défaut, la commande SET_LED synchronisera ses changements avec les autres commandes gcode en cours. Cela peut conduire à un comportement indésirable si les LEDs sont réglées alors que l'imprimante n'imprime pas, car cela réinitialisera le délai d'inactivité. Si un timing précis n'est pas nécessaire, le paramètre optionnel SYNC=0 peut être spécifié pour appliquer les changements sans réinitialiser le délai d'inactivité.
+
+#### SET_LED_TEMPLATE
+
+`SET_LED_TEMPLATE LED=<nom_de_la_led> TEMPLATE=<nom_du_modèle> [<param_x>=<literal>] [INDEX=<index>]` : Attribue un [modèle d'affichage](Config_Reference.md#display_template) à une [LED](Config_Reference.md#leds) donnée. Par exemple, si l'on définit une section de configuration `[display_template my_led_template]`, on peut affecter `TEMPLATE=my_led_template` ici. Le modèle d'affichage doit produire une chaîne de caractères séparée par des virgules contenant quatre nombres à virgule flottante correspondant aux paramètres de couleur rouge, vert, bleu et blanc. Le modèle sera continuellement évalué et la LED sera automatiquement réglée sur les couleurs résultantes. On peut définir des paramètres display_template à utiliser pendant l'évaluation du modèle (les paramètres seront analysés comme des littéraux Python). Si INDEX n'est pas spécifié, alors toutes les puces dans la chaîne de la LED seront réglées sur le modèle, sinon seule la puce avec l'index donné sera mise à jour. Si TEMPLATE est une chaîne vide, cette commande effacera tout modèle précédent assigné à la LED (on peut alors utiliser les commandes `SET_LED` pour gérer les paramètres de couleur de la LED).
+
+### [load_cell]
+
+The following commands are enabled if a [load_cell config section](Config_Reference.md#load_cell) has been enabled.
+
+### LOAD_CELL_DIAGNOSTIC
+
+`LOAD_CELL_DIAGNOSTIC [LOAD_CELL=<config_name>]`: This command collects 10 seconds of load cell data and reports statistics that can help you verify proper operation of the load cell. This command can be run on both calibrated and uncalibrated load cells.
+
+### LOAD_CELL_CALIBRATE
+
+`LOAD_CELL_CALIBRATE [LOAD_CELL=<config_name>]`: Start the guided calibration utility. Calibration is a 3 step process:
+
+1. First you remove all load from the load cell and run the `TARE` command
+1. Next you apply a known load to the load cell and run the `CALIBRATE GRAMS=nnn` command
+1. Finally use the `ACCEPT` command to save the results
+
+You can cancel the calibration process at any time with `ABORT`.
+
+### LOAD_CELL_TARE
+
+`LOAD_CELL_TARE [LOAD_CELL=<config_name>]`: This works just like the tare button on digital scale. It sets the current raw reading of the load cell to be the zero point reference value. The response is the percentage of the sensors range that was read and the raw value in counts.
+
+### LOAD_CELL_READ load_cell="name"
+
+`LOAD_CELL_READ [LOAD_CELL=<config_name>]`: This command takes a reading from the load cell. The response is the percentage of the sensors range that was read and the raw value in counts. If the load cell is calibrated a force in grams is also reported.
+
 ### [manual_probe]
 
 Le module manual_probe est automatiquement chargé.
@@ -491,18 +534,6 @@ La commande suivante est disponible lorsqu'une section [mcp4018 config](Config_R
 #### SET_DIGIPOT
 
 `SET_DIGIPOT DIGIPOT=config_name WIPER=<valeur>` : Cette commande change la valeur actuelle du digipot. Cette valeur devrait typiquement être comprise entre 0.0 et 1.0, à moins qu'une 'échelle' soit définie dans la configuration. Lorsque 'scale' est défini, alors cette valeur doit être comprise entre 0.0 et 'scale'.
-
-### [led]
-
-La commande suivante est disponible lorsque l'une des sections [led config](Config_Reference.md#leds) est activée.
-
-#### SET_LED
-
-`SET_LED LED=<nom_de_la_configuration> RED=<valeur> GREEN=<valeur> BLUE=<valeur> WHITE=<valeur> [INDEX=<index>] [TRANSMIT=0] [SYNC=1]` : Ceci définit la sortie de la LED. Chaque `<valeur>` de couleur doit être comprise entre 0.0 et 1.0. L'option WHITE n'est valable que pour les LEDs RGBW. Si la LED supporte plusieurs puces dans une chaîne, on peut spécifier INDEX pour modifier la couleur de la seule puce donnée (1 pour la première puce, 2 pour la seconde, etc.). Si INDEX n'est pas spécifié, alors toutes les LEDs de la chaîne seront réglées sur la couleur fournie. Si TRANSMIT=0 est spécifié, le changement de couleur ne sera effectué que lors de la prochaine commande SET_LED qui ne spécifie pas TRANSMIT=0 ; cela peut être utile en combinaison avec le paramètre INDEX pour effectuer plusieurs mises à jour dans une chaîne. Par défaut, la commande SET_LED synchronisera ses changements avec les autres commandes gcode en cours. Cela peut conduire à un comportement indésirable si les LEDs sont réglées alors que l'imprimante n'imprime pas, car cela réinitialisera le délai d'inactivité. Si un timing précis n'est pas nécessaire, le paramètre optionnel SYNC=0 peut être spécifié pour appliquer les changements sans réinitialiser le délai d'inactivité.
-
-#### SET_LED_TEMPLATE
-
-`SET_LED_TEMPLATE LED=<nom_de_la_led> TEMPLATE=<nom_du_modèle> [<param_x>=<literal>] [INDEX=<index>]` : Attribue un [modèle d'affichage](Config_Reference.md#display_template) à une [LED](Config_Reference.md#leds) donnée. Par exemple, si l'on définit une section de configuration `[display_template my_led_template]`, on peut affecter `TEMPLATE=my_led_template` ici. Le modèle d'affichage doit produire une chaîne de caractères séparée par des virgules contenant quatre nombres à virgule flottante correspondant aux paramètres de couleur rouge, vert, bleu et blanc. Le modèle sera continuellement évalué et la LED sera automatiquement réglée sur les couleurs résultantes. On peut définir des paramètres display_template à utiliser pendant l'évaluation du modèle (les paramètres seront analysés comme des littéraux Python). Si INDEX n'est pas spécifié, alors toutes les puces dans la chaîne de la LED seront réglées sur le modèle, sinon seule la puce avec l'index donné sera mise à jour. Si TEMPLATE est une chaîne vide, cette commande effacera tout modèle précédent assigné à la LED (on peut alors utiliser les commandes `SET_LED` pour gérer les paramètres de couleur de la LED).
 
 ### [output_pin]
 
@@ -544,14 +575,6 @@ Les commandes supplémentaires suivantes sont également disponibles.
 
 ` PALETTE_SMART_LOAD` : cette commande initialise la séquence de chargement intelligente sur Palette 2. Le filament est chargé automatiquement en l’extrudant sur la distance calibrée sur l’appareil pour l’imprimante, et l'indique à Palette 2 une fois le chargement terminé. Cette commande revient à appuyer sur **Smart Load** directement sur l’écran Palette 2 une fois l'insertion du filament faite.
 
-### [pid_calibrate]
-
-Le module pid_calibrate est automatiquement chargé si un chauffage est défini dans le fichier de configuration.
-
-#### PID_CALIBRATE
-
-` PID_CALIBRATE HEATER=<config_name> TARGET=<temperature> [WRITE_FILE=1]`: Effectuer un test d’étalonnage PID. Le chauffage demandé sera activé jusqu’à ce que la température définie soit atteinte, il s'éteindra et se rallumera durant plusieurs cycles. Si le paramètre WRITE_FILE est activé, le fichier /tmp/heattest.txt sera créé avec un journal de tous les échantillons de température mesurés pendant le test.
-
 ### [pause_resume]
 
 Les commandes suivantes sont disponibles lorsque la section [pause_resume config](Config_Reference.md#pause_resume) est activée :
@@ -571,6 +594,14 @@ Les commandes suivantes sont disponibles lorsque la section [pause_resume config
 #### CANCEL_PRINT
 
 `CANCEL_PRINT`: Annule l'impression en cours.
+
+### [pid_calibrate]
+
+Le module pid_calibrate est automatiquement chargé si un chauffage est défini dans le fichier de configuration.
+
+#### PID_CALIBRATE
+
+` PID_CALIBRATE HEATER=<config_name> TARGET=<temperature> [WRITE_FILE=1]`: Effectuer un test d’étalonnage PID. Le chauffage demandé sera activé jusqu’à ce que la température définie soit atteinte, il s'éteindra et se rallumera durant plusieurs cycles. Si le paramètre WRITE_FILE est activé, le fichier /tmp/heattest.txt sera créé avec un journal de tous les échantillons de température mesurés pendant le test.
 
 ### [print_stats]
 
@@ -689,7 +720,7 @@ La commande suivante est activée si une section [save_variables config](Config_
 
 #### SAVE_VARIABLE
 
-`SAVE_VARIABLE VARIABLE=<nom> VALUE=<valeur> ` : Enregistre la variable sur le disque afin qu'elle puisse être utilisée lors des redémarrages. Toutes les variables enregistrées sont chargées dans le dict `printer.save_variables.variables` au démarrage et peuvent être utilisées dans des macros gcode. La VALEUR fournie est analysée comme un littéral Python.
+`SAVE_VARIABLE VARIABLE=<name> VALUE=<value>`: Saves the variable to disk so that it can be used across restarts. The VARIABLE must be lowercase. All stored variables are loaded into the `printer.save_variables.variables` dict at startup and can be used in gcode macros. The provided VALUE is parsed as a Python literal.
 
 ### [screws_tilt_adjust]
 
@@ -771,6 +802,30 @@ La commande suivante est disponible lorsqu'une section [temperature_fan config](
 
 `SET_TEMPERATURE_FAN_TARGET temperature_fan=<nom_du_ventilateur_température> [target=<température_cible>] [min_speed=<vitesse_min>] [max_speed=<vitesse_max>]` : Définit la température cible d'un ventilateur_température. Si une cible n'est pas fournie, elle est fixée à la température spécifiée dans le fichier de configuration. Si les vitesses ne sont pas fournies, aucun changement n'est appliqué.
 
+### [temperature_probe]
+
+The following commands are available when a [temperature_probe config section](Config_Reference.md#temperature_probe) is enabled.
+
+#### TEMPERATURE_PROBE_CALIBRATE
+
+`TEMPERATURE_PROBE_CALIBRATE [PROBE=<probe name>] [TARGET=<value>] [STEP=<value>]`: Initiates probe drift calibration for eddy current based probes. The `TARGET` is a target temperature for the last sample. When the temperature recorded during a sample exceeds the `TARGET` calibration will complete. The `STEP` parameter sets temperature delta (in C) between samples. After a sample has been taken, this delta is used to schedule a call to `TEMPERATURE_PROBE_NEXT`. The default `STEP` is 2.
+
+#### TEMPERATURE_PROBE_NEXT
+
+`TEMPERATURE_PROBE_NEXT`: After calibration has started this command is run to take the next sample. It is automatically scheduled to run when the delta specified by `STEP` has been reached, however its also possible to manually run this command to force a new sample. This command is only available during calibration.
+
+#### TEMPERATURE_PROBE_COMPLETE:
+
+`TEMPERATURE_PROBE_COMPLETE`: Can be used to end calibration and save the current result before the `TARGET` temperature is reached. This command is only available during calibration.
+
+#### ABORT
+
+`ABORT`: Aborts the calibration process, discarding the current results. This command is only available during drift calibration.
+
+### TEMPERATURE_PROBE_ENABLE
+
+`TEMPERATURE_PROBE_ENABLE ENABLE=[0|1]`: Sets temperature drift compensation on or off. If ENABLE is set to 0, drift compensation will be disabled, if set to 1 it is enabled.
+
 ### [tmcXXXX]
 
 Les commandes suivantes sont disponibles lorsque l'une des sections [tmcXXXX config](Config_Reference.md#tmc-stepper-driver-configuration) est activée.
@@ -848,27 +903,3 @@ Les commandes suivantes sont disponibles lorsque la section [z_tilt config](Conf
 #### Z_TILT_ADJUST
 
 `Z_TILT_ADJUST [RETRIES=<value>] [RETRY_TOLERANCE=<value>] [HORIZONTAL_MOVE_Z=<value>] [<probe_parameter>=<value>]`: This command will probe the points specified in the config and then make independent adjustments to each Z stepper to compensate for tilt. See the PROBE command for details on the optional probe parameters. The optional `RETRIES`, `RETRY_TOLERANCE`, and `HORIZONTAL_MOVE_Z` values override those options specified in the config file.
-
-### [temperature_probe]
-
-The following commands are available when a [temperature_probe config section](Config_Reference.md#temperature_probe) is enabled.
-
-#### TEMPERATURE_PROBE_CALIBRATE
-
-`TEMPERATURE_PROBE_CALIBRATE [PROBE=<probe name>] [TARGET=<value>] [STEP=<value>]`: Initiates probe drift calibration for eddy current based probes. The `TARGET` is a target temperature for the last sample. When the temperature recorded during a sample exceeds the `TARGET` calibration will complete. The `STEP` parameter sets temperature delta (in C) between samples. After a sample has been taken, this delta is used to schedule a call to `TEMPERATURE_PROBE_NEXT`. The default `STEP` is 2.
-
-#### TEMPERATURE_PROBE_NEXT
-
-`TEMPERATURE_PROBE_NEXT`: After calibration has started this command is run to take the next sample. It is automatically scheduled to run when the delta specified by `STEP` has been reached, however its also possible to manually run this command to force a new sample. This command is only available during calibration.
-
-#### TEMPERATURE_PROBE_COMPLETE:
-
-`TEMPERATURE_PROBE_COMPLETE`: Can be used to end calibration and save the current result before the `TARGET` temperature is reached. This command is only available during calibration.
-
-#### ABORT
-
-`ABORT`: Aborts the calibration process, discarding the current results. This command is only available during drift calibration.
-
-### TEMPERATURE_PROBE_ENABLE
-
-`TEMPERATURE_PROBE_ENABLE ENABLE=[0|1]`: Sets temperature drift compensation on or off. If ENABLE is set to 0, drift compensation will be disabled, if set to 1 it is enabled.

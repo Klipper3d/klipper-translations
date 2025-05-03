@@ -8,8 +8,8 @@
 
 ![](img/klipper-logo.png){ .center-image }
 
-Klipper یک سیستم عامل پرینتر سه بعدی است. قدرت یک کامپیوتر همه منظوره را با یک یا چند میکروکنترلر ترکیب می کند. برای اطلاعات بیشتر در مورد اینکه چرا باید از Klipper استفاده کنید، به سند [features] (Features.md) مراجعه کنید.
+The Klipper firmware controls 3d-Printers. It combines the power of a general purpose computer with one or more micro-controllers. See the [features document](https://www.klipper3d.org/Features.html) for more information on why you should use the Klipper software.
 
-برای شروع استفاده از Klipper با [نصب] (Installation.md) آن شروع کنید.
+Start by [installing Klipper software](https://www.klipper3d.org/Installation.html).
 
-کلیپر یک نرم افزار رایگان است. [documentation] (Overview.md) را بخوانید یا [کد Klipper را در github] مشاهده کنید (https://github.com/Klipper3d/klipper). ما به حمایت سخاوتمندانه [حامیان مالی] خود وابسته هستیم (Sponsors.md).
+Klipper software is Free Software. Read the [documentation](https://www.klipper3d.org/Overview.html), see the [license](COPYING), or [download](https://github.com/Klipper3d/Klipper) the software. We depend on the generous support from our [sponsors](https://www.klipper3d.org/Sponsors.html).

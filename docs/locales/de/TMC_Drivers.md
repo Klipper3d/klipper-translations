@@ -32,6 +32,8 @@ Tests comparing modes have shown an increased "positional lag" of around 75% of 
 
 Es wird empfohlen, immer den "spreadCycle"-Modus zu verwenden (indem `stealthchop_threshold` nicht angegeben wird) oder immer den "stealthChop"-Modus (indem `stealthchop_threshold` auf 999999 gesetzt wird). Leider liefern die Treiber oft schlechte und verwirrende Ergebnisse, wenn sich der Modus ändert, während der Motor eine Geschwindigkeit ungleich Null hat.
 
+Note that the `stealthchop_threshold` config option does not impact sensorless homing as Klipper automatically switches the TMC driver to an appropriate mode during sensorless homing operations.
+
 ## Die TMC interpolate einstellung führt zu geringen Positionsabweichungen
 
 The TMC driver `interpolate` setting may reduce the audible noise of printer movement at the cost of introducing a small systemic positional error. This systemic positional error results from the driver's delay in executing "steps" that Klipper sends it. During constant velocity moves, this delay results in a positional error of nearly half a configured microstep (more precisely, the error is half a microstep distance minus a 512th of a full step distance). For example, on an axis with a 40mm rotation_distance, 200 steps_per_rotation, and 16 microsteps, the systemic error introduced during constant velocity moves is ~0.006mm.

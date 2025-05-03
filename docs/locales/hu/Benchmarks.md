@@ -216,22 +216,22 @@ A tesztet utoljára az `59314d99` megbízási gcc verzióval `arm-none-eabi-gcc 
 
 ### STM32H7 lépésszám referencia
 
-A következő konfigurációs sorrendet egy STM32H743VIT6 esetében használjuk:
+The following configuration sequence is used on STM32H723:
 
 ```
 allocate_oids count=3
-config_stepper oid=0 step_pin=PD4 dir_pin=PD3 invert_step=-1 step_pulse_ticks=0
-config_stepper oid=1 step_pin=PA15 dir_pin=PA8 invert_step=-1 step_pulse_ticks=0
-config_stepper oid=2 step_pin=PE2 dir_pin=PE3 invert_step=-1 step_pulse_ticks=0
+config_stepper oid=0 step_pin=PA13 dir_pin=PB5 invert_step=-1 step_pulse_ticks=52
+config_stepper oid=1 step_pin=PB2 dir_pin=PB6 invert_step=-1 step_pulse_ticks=52
+config_stepper oid=2 step_pin=PB3 dir_pin=PB7 invert_step=-1 step_pulse_ticks=52
 finalize_config crc=0
 ```
 
-A teszt utoljára `00191b5c` véglegesítéssel futott a gcc `arm-none-eabi-gcc (15:8-2019-q3-1+b1) 8.3.1 20190703 (release) [gcc-8-branch revision 273027]` véglegesítéssel.
+The test was last run on commit `554ae78d` with gcc version `arm-none-eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0`.
 
-| stm32h7 | trükkök |
+| stm32h723 | trükkök |
 | --- | --- |
-| 1 léptető | 44 |
-| 3 léptető | 198 |
+| 1 léptető | 70 |
+| 3 léptető | 181 |
 
 ### STM32G0B1 lépésszám referencia
 
@@ -366,19 +366,19 @@ config_stepper oid=2 step_pin=gpio27 dir_pin=gpio5 invert_step=-1 step_pulse_tic
 finalize_config crc=0
 ```
 
-A tesztet utoljára az `f6718291` kötelezően futtattuk a `arm-none-eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0` gcc verzióval Raspberry Pi Pico és Pico 2 lapkákon.
+The test was last run on commit `14c105b8` with gcc version `arm-none-eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0` on Raspberry Pi Pico and Pico 2 boards.
 
 | rp2040 (*) | trükkök |
 | --- | --- |
-| 1 léptető | 5 |
-| 3 léptető | 22 |
+| 1 léptető | 3 |
+| 3 léptető | 14 |
 
 | rp2350 | trükkök |
 | --- | --- |
 | 1 léptető | 36 |
 | 3 léptető | 169 |
 
-(*) Megjegyzendő, hogy a bejelentett rp2040 tickek egy 12Mhz-es ütemező időzítőhöz viszonyítva vannak, és nem felelnek meg a 125Mhz-es belső ARM-feldolgozási sebességnek. Várhatóan 5 ütemezési tick megfelel ~47 ARM magciklusnak, 22 ütemezési tick pedig ~224 ARM magciklusnak.
+(*) Note that the reported rp2040 ticks are relative to a 12Mhz scheduling timer and do not correspond to its 200Mhz internal ARM processing rate. It is expected that 5 scheduling ticks corresponds to ~42 ARM core cycles and 14 scheduling ticks corresponds to ~225 ARM core cycles.
 
 ### Linux MCU lépésszám referencia
 

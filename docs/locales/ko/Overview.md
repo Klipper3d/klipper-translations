@@ -64,3 +64,4 @@ Klipper 에 오신것을 환영합니다. Klipper를 처음 사용하는 경우�
 - [TSL1401CL 필라멘트 폭 센서](TSL1401CL_Filament_Width_Sensor.md)
 - [홀 필라멘트 폭 센서](Hall_Filament_Width_Sensor.md)
 - [Eddy Current Inductive probe](Eddy_Probe.md)
+- [Load Cells](Load_Cell.md)

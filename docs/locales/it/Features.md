@@ -23,18 +23,18 @@ Klipper supporta molte funzionalità standard della stampante 3D:
 * Supporto G-code standard. Sono supportati i comandi G-code comuni prodotti dai tipici "slicer" (SuperSlicer, Cura, PrusaSlicer, ecc.).
 * Supporto per più estrusori. Sono supportati anche estrusori con riscaldatori condivisi ed estrusori su carrelli indipendenti (IDEX).
 * Supporto per stampanti cartesiane, delta, corexy, corexz, hybrid-corexy, hybrid-corexz, deltesian, rotary delta, polar e cable winch.
-* Supporto per il livellamento automatico del letto. Klipper può essere configurato per il rilevamento di base dell'inclinazione del piatto o per il livellamento del piatto a mesh completa. Se il piatto utilizza più stepper Z, Klipper può anche livellare manipolando in modo indipendente gli stepper Z. Sono supportate la maggior parte delle sonde di altezza Z, comprese le sonde BL-Touch e le sonde servoattivate.
+* Automatic bed leveling support. Klipper can be configured for basic bed tilt detection or full mesh bed leveling. The bed mesh can be customized to the print size (adaptive bed mesh). If the bed uses multiple Z steppers then Klipper can also level by independently manipulating the Z steppers. Most Z height probes are supported, including BL-Touch probes and servo activated probes. Probes may be calibrated for axis twist compensation. If using an "eddy current probe" then one can utilize fast bed mesh scanning,
 * Supporto per la calibrazione delta automatica. Lo strumento di calibrazione può eseguire la calibrazione dell'altezza di base e una calibrazione avanzata delle dimensioni X e Y. La calibrazione può essere eseguita con una sonda di altezza Z o tramite tastatura manuale.
 * Supporto "escludi oggetto" in fase di esecuzione. Se configurato, questo modulo può facilitare l'annullamento di un solo oggetto in una stampa multiparte.
-* Supporto per sensori di temperatura comuni (ad es. termistori comuni, AD595, AD597, AD849x, PT100, PT1000, MAX6675, MAX31855, MAX31856, MAX31865, BME280, HTU21D, DS18B20 e LM75). È inoltre possibile configurare termistori personalizzati e sensori di temperatura analogici personalizzati. È possibile monitorare il sensore di temperatura del microcontrollore interno e il sensore di temperatura interna di un Raspberry Pi.
+* Support for common temperature sensors (eg, common thermistors, AD595, AD597, AD849x, PT100, PT1000, MAX6675, MAX31855, MAX31856, MAX31865, BME280, HTU21D, DS18B20, AHT10, SHT3x, and LM75). Custom thermistors and custom analog temperature sensors can also be configured. One can monitor the internal micro-controller temperature sensor and the internal temperature sensor of a Raspberry Pi.
 * Protezione del riscaldatore termico di base abilitata di default.
-* Supporto per ventole standard, ventole per ugelli e ventole a temperatura controllata. Non è necessario mantenere le ventole in funzione quando la stampante è inattiva. La velocità della ventola può essere monitorata su ventole dotate di contagiri.
+* Support for standard fans, nozzle fans, and temperature controlled fans. No need to keep fans running when the printer is idle. Fan speed can be monitored on fans that have a tachometer. One can assign a "math formula" to a fan for automatic fan speed updating.
 * Supporto per la configurazione in fase di esecuzione dei driver per motori passo-passo TMC2130, TMC2208/TMC2224, TMC2209, TMC2660 e TMC5160. È inoltre disponibile il supporto per il controllo corrente dei tradizionali driver passo-passo tramite i pin AD5206, DAC084S085, MCP4451, MCP4728, MCP4018 e PWM.
 * Supporto per comuni display LCD collegati direttamente alla stampante. È disponibile anche un menu predefinito. Il contenuto del display e del menu può essere completamente personalizzato tramite il file di configurazione.
 * Accelerazione costante e supporto "look-ahead". Tutti i movimenti della stampante accelereranno gradualmente dall'arresto alla velocità di crociera, quindi decelereranno fino all'arresto. Il flusso in entrata dei comandi di movimento del G-code viene messo in coda e analizzato: l'accelerazione tra i movimenti in una direzione simile sarà ottimizzata per ridurre gli arresti di stampa e migliorare il tempo di stampa complessivo.
 * Klipper implementa un algoritmo "stepper phase endstop" che può migliorare la precisione dei tipici interruttori endstop. Se regolato correttamente, può migliorare l'adesione del primo strato di stampa.
 * Supporto per sensori di presenza del filamento, sensori di movimento del filamento e sensori di larghezza del filamento.
-* Supporto per misurare e registrare l'accelerazione utilizzando gli accelerometri adxl345, mpu9250 e mpu6050.
+* Support for measuring and recording acceleration using adxl345, mpu9250, mpu6050, lis2dw12, lis3dh, and icm20948 accelerometers.
 * Supporto per limitare la velocità massima di brevi spostamenti a "zigzag" per ridurre le vibrazioni e il rumore della stampante. Per ulteriori informazioni, vedere il documento [cinematica](Kinematics.md).
 * Sono disponibili file di configurazione di esempio per molte stampanti comuni. Controllare la [directory di configurazione](../config/) per un elenco.
 
@@ -57,15 +57,15 @@ Di seguito sono riportati i risultati dei test delle prestazioni degli stepper. 
 | SAM4S8C | 1690K | 1385K |
 | LPC1768 | 1923K | 1351K |
 | LPC1769 | 2353K | 1622K |
-| RP2040 | 2400K | 1636K |
 | SAM4E8E | 2500K | 1674K |
 | SAMD51 | 3077K | 1885K |
 | AR100 | 3529K | 2507K |
 | STM32F407 | 3652K | 2459K |
 | STM32F446 | 3913K | 2634K |
+| RP2040 | 4000K | 2571K |
 | RP2350 | 4167K | 2663K |
 | SAME70 | 6667K | 4737K |
-| STM32H743 | 9091K | 6061K |
+| STM32H723 | 7429K | 8619K |
 
 Se non sei sicuro del microcontrollore su una particolare scheda, trova il [file di configurazione](../config/) appropriato e cerca il nome del microcontrollore nei commenti nella parte superiore di quel file.
 

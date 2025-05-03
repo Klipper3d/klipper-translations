@@ -6,7 +6,7 @@ A gyorsulásmérők beszerzésekor vedd figyelembe, hogy számos különböző n
 
 Az ADXL345-ök esetében győződj meg róla, hogy a kártya támogatja az SPI módot (úgy tűnik, hogy néhány kártya keményen I2C-re van konfigurálva az SDO GND-re húzásával).
 
-Az MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500-asok és a LIS2DW/LIS3DH-ok esetében is számos különböző lapkakialakítás és klón létezik különböző I2C felhúzó ellenállásokkal, amelyeket ki kell egészíteni.
+For MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500/ICM20948s and LIS2DW/LIS3DH there are also a variety of board designs and clones with different I2C pull-up resistors which will need supplementing.
 
 ## MCU-k Klipper I2C *gyors üzemmódú* támogatással
 
@@ -106,7 +106,7 @@ GND+SCL
 
 Vedd figyelembe, hogy a kábelárnyékolással ellentétben a GND(k)-et mindkét végén csatlakoztatni kell.
 
-#### MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500
+#### MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500/ICM20948
 
 Ezeket a gyorsulásmérőket teszteltük, hogy az RPi, RP2040 (Pico) és AVR modelleken 400kbit/s sebességgel (*gyors mód*) működnek I2C-n keresztül. Néhány MPU gyorsulásmérő modul tartalmaz pull-upot, de néhány túl nagy 10K, és kisebb párhuzamos ellenállásokkal kell megváltoztatni vagy kiegészíteni.
 
@@ -300,6 +300,8 @@ probe_points:
     100, 100, 20  # egy példa
 ```
 
+If you are using the ICM20948, replace instances of "mpu9250" with "icm20948".
+
 #### MPU-9520 konfigurálása kompatibilis Pico segítségével
 
 A Pico I2C alapértelmezés szerint 400000-re van beállítva. Egyszerűen add hozzá a következőket a printer.cfg fájlhoz:
@@ -321,6 +323,8 @@ probe_points:
 pins: pico:gpio23
 ```
 
+If you are using the ICM20948, replace instances of "mpu9250" with "icm20948".
+
 #### MPU-9520 konfigurálása kompatibilis AVR-rel
 
 Az AVR I2C az MPU9250 opcióval 400000-re lesz beállítva. Egyszerűen add hozzá a következőket a printer.cfg fájlhoz:
@@ -337,6 +341,8 @@ accel_chip: mpu9250
 probe_points:
  100, 100, 20 # egy példa
 ```
+
+If you are using the ICM20948, replace instances of "mpu9250" with "icm20948".
 
 Indítsd újra a Klippert a `RESTART` paranccsal.
 

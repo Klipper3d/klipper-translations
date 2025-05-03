@@ -8,8 +8,8 @@ hide:
 
 ![](img/klipper-logo.png){ .center-image }
 
-Klipper 는 3D 프린터 펌웨어입니다. Klipper 는 하나 이상의 마이크로 컨트롤러와 결합하여 사용됩니다. Klipper를 사용해야 하는 이유에 대한 자세한 내용은 [features](Features.md) 를 참조하세요.
+The Klipper firmware controls 3d-Printers. It combines the power of a general purpose computer with one or more micro-controllers. See the [features document](https://www.klipper3d.org/Features.html) for more information on why you should use the Klipper software.
 
-Klipper 를 사용하려면 [installing](Installation.md)부터 시작합니다.
+Start by [installing Klipper software](https://www.klipper3d.org/Installation.html).
 
-Klipper is Free Software. Read the [documentation](Overview.md) or view [the Klipper code on github](https://github.com/Klipper3d/klipper). We depend on the generous support from our [sponsors](Sponsors.md).
+Klipper software is Free Software. Read the [documentation](https://www.klipper3d.org/Overview.html), see the [license](COPYING), or [download](https://github.com/Klipper3d/Klipper) the software. We depend on the generous support from our [sponsors](https://www.klipper3d.org/Sponsors.html).

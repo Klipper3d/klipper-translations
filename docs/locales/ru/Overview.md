@@ -64,3 +64,4 @@
 - [TSL1401CL датчик ширины нити](TSL1401CL_Filament_Width_Sensor.md)
 - [Датчик ширины нити Холла](Hall_Filament_Width_Sensor.md)
 - [Eddy Current Inductive probe](Eddy_Probe.md)
+- [Load Cells](Load_Cell.md)

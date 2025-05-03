@@ -74,8 +74,10 @@ Klipper est un logiciel libre et nous apprécions les nouvelles contributions.
 
 Les nouvelles contributions (que ce soit pour le code ou pour la documentation) sont soumises au moyen de Pull Requests Github. Référez-vous au document [CONTRIBUTIONS](CONTRIBUTION.md) pour connaître les informations importantes à ce sujet.
 
-Il existe plusieurs [documents pour les développeurs](Overview.md#developer-documentation). Si vous avez des questions sur le code, vous pouvez également les poser sur le [Forum de la communauté Klipper](#community-forum) ou sur le [Discord de la communauté Klipper](#discord-chat).
+There are several [documents for developers](Overview.md#developer-documentation). If you have questions on the code then you can also ask in the [Klipper Discourse Forum](#discourse-forum) or on the [Klipper Discord Chat](#discord-chat).
 
-## GitHub Klipper
+## Professional Services
 
-Le GitHub de Klipper peut être utilisé par les contributeurs pour partager l'état de leur travail pour améliorer Klipper. On s'attend à ce que la personne qui ouvre un ticket github travaille activement sur la tâche donnée et soit celle qui effectue tout le travail nécessaire pour l'accomplir. Le GitHub de Klipper n'est pas utilisé pour les demandes, ni pour signaler des bogues, ni pour poser des questions. Utilisez plutôt le [Forum communautaire Klipper](#community-forum) ou le [Discord communautaire Klipper](#discord-chat).
+![](img/klipper-logo-small.png)
+
+Custom software development, software support, and solutions: <https://ko-fi.com/koconnor>

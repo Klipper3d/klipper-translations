@@ -64,3 +64,4 @@
 - [TSL1401CL датчик ширини нитки ](TSL1401CL_Filament_Width_Sensor.md)
 - [Датчик ширини нитки Холла](Hall_Filament_Width_Sensor.md)
 - [Eddy Поточний індуктивний зонд](Eddy_Probe.md)
+- [Load Cells](Load_Cell.md)

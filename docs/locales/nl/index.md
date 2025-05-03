@@ -8,8 +8,8 @@ verberg:
 
 ![](img/klipper-logo.png){ .center-image }
 
-Klipper is firmware voor een 3D-printer. Het combineer de kracht van een computer met één of meer microcontrollers. Zie het [features](Features.md)document voor meer informatie over waarom u Klipper zou moeten gebruiken.
+The Klipper firmware controls 3d-Printers. It combines the power of a general purpose computer with one or more micro-controllers. See the [features document](https://www.klipper3d.org/Features.html) for more information on why you should use the Klipper software.
 
-Om Klipper te gaan gebruiken begint u bij de [installatie](Installation.md).
+Start by [installing Klipper software](https://www.klipper3d.org/Installation.html).
 
-Klipper is gratis software. Lees de [documentatie](Overview.md) of bekijke [de source code op Github](https://github.com/Klipper3d/klipper). We zijn afhankelijk van de steun van onze [sponsors](Sponsors.md).
+Klipper software is Free Software. Read the [documentation](https://www.klipper3d.org/Overview.html), see the [license](COPYING), or [download](https://github.com/Klipper3d/Klipper) the software. We depend on the generous support from our [sponsors](https://www.klipper3d.org/Sponsors.html).

@@ -19,12 +19,23 @@
 
 ## bed_screws
 
-Следующая информация доступна в объекте `Config_Reference.md#bed_screws`:
+The following information is available in the [bed_screws](Config_Reference.md#bed_screws) object:
 
 - `is_active`: Возвращает True, если инструмент регулировки винтов станины активен в данный момент.
 - `Состояние`: Состояние инструмента для регулировки винтов кровати. Это одна из следующих строк: " регулировать", "тонкий".
 - `current_screw`: Индекс для текущего винта, который регулируется.
 - `accepted_screws`: Количество принимаемых винтов.
+
+## canbus_stats
+
+The following information is available in the `canbus_stats some_mcu_name` object (this object is automatically available if an mcu is configured to use canbus):
+
+- `rx_error`: The number of receive errors detected by the micro-controller canbus hardware.
+- `tx_error`: The number of transmit errors detected by the micro-controller canbus hardware.
+- `tx_retries`: The number of transmit attempts that were retried due to bus contention or errors.
+- `bus_state`: The status of the interface (typically "active" for a bus in normal operation, "warn" for a bus with recent errors, "passive" for a bus that will no longer transmit canbus error frames, or "off" for a bus that will no longer transmit or receive messages).
+
+Note that only the rp2XXX micro-controllers report a non-zero `tx_retries` field and the rp2XXX micro-controllers always report `tx_error` as zero and `bus_state` as "active".
 
 ## configfile
 
@@ -151,6 +162,7 @@
 
 Следующая информация доступна в объекте [hall_filament_width_sensor](Config_Reference.md#hall_filament_width_sensor):
 
+- all items from [filament_switch_sensor](Status_Reference.md#filament_switch_sensor)
 - `is_active`: Возвращает True, если датчик в данный момент активен.
 - `Диаметр`: Последнее показание датчика в мм.
 - `Сырой`: Последнее необработанное показание АЦП с датчика.
@@ -184,6 +196,18 @@
 Следующая информация доступна для каждого раздела конфигурации `[led led_name]`, `[neopixel led_name]`, `[dotstar led_name]`, `[pca9533 led_name]` и `[pca9632 led_name]`, определенного в файле printer.cfg:
 
 - `color_data`: Список списков цветов, содержащих значения RGBW для светодиода в цепочке. Каждое значение представлено в виде float от 0.0 до 1.0. Каждый список цветов содержит 4 элемента (красный, зеленый, синий, белый), даже если подстроечный светодиод поддерживает меньшее количество цветовых каналов. Например, значение синего цвета (3-й элемент в списке цветов) второго неопикселя в цепочке может быть доступно по адресу `printer["neopixel <config_name>"].color_data[1][2]`.
+
+## load_cell
+
+The following information is available for each `[load_cell name]`:
+
+- 'is_calibrated': True/False is the load cell calibrated
+- 'counts_per_gram': The number of raw sensor counts that equals 1 gram of force
+- 'reference_tare_counts': The reference number of raw sensor counts for 0 force
+- 'tare_counts': The current number of raw sensor counts for 0 force
+- 'force_g': The force in grams, averaged over the last polling period.
+- 'min_force_g': The minimum force in grams, over the last polling period.
+- 'max_force_g': The maximum force in grams, over the last polling period.
 
 ## manual_probe
 
@@ -282,6 +306,12 @@
 Следующая информация доступна в объектах [servo some_name](Config_Reference.md#servo):
 
 - `printer["servo <config_name>"].value`: Последняя настройка вывода ШИМ (значение между 0.0 и 1.0), связанного с сервоприводом.
+
+## skew_correction.py
+
+The following information is available in the `skew_correction` object (this object is available if any skew_correction is defined):
+
+- `current_profile_name`: Returns the name of the currently loaded SKEW_PROFILE.
 
 ## stepper_enable
 

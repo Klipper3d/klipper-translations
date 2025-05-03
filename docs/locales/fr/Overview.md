@@ -64,3 +64,4 @@ Bienvenue dans la documentation de Klipper. Si vous débutez avec Klipper, comme
 - [Capteur de largeur de filament TSL1401CL](TSL1401CL_Filament_Width_Sensor.md)
 - [Détecteur de largeur de filament à effet hall](Hall_Width_Sensor.md)
 - [Eddy Current Inductive probe](Eddy_Probe.md)
+- [Load Cells](Load_Cell.md)

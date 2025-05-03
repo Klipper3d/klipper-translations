@@ -92,12 +92,11 @@ section](Config_Reference.md#axis_twist_compensation) is enabled.
 
 #### AXIS_TWIST_COMPENSATION_CALIBRATE
 
-`AXIS_TWIST_COMPENSATION_CALIBRATE [AXIS=<X|Y>] [AUTO=<True|False>] [SAMPLE_COUNT=<value>]`
+`AXIS_TWIST_COMPENSATION_CALIBRATE [AXIS=<X|Y>] [SAMPLE_COUNT=<value>]`
 
 A tengelycsavar kompenzáció kalibrálása a céltengely megadásával vagy az automatikus kalibráció engedélyezésével.
 
 - **TENGELY:** Határozd meg azt a tengelyt (X vagy Y), amelyre a csavarkompenzáció kalibrálásra kerül. Ha nincs megadva, a tengely alapértelmezett értéke `'X'`.
-- **AUTO:** Automatikus kalibrációs üzemmód engedélyezése. Ha `AUTO=True`, a kalibrálás mind az X, mind az Y tengelyre lefut. Ebben az üzemmódban az `AXIS` nem adható meg. Ha az `AXIS` és az `AUTO` is meg van adva, hibaüzenet jelenik meg.
 
 ### [bed_mesh]
 
@@ -335,7 +334,13 @@ A force_move modul automatikusan betöltődik, azonban néhány parancshoz szük
 
 #### SET_KINEMATIC_POSITION
 
-`SET_KINEMATIC_POSITION [X=<value>] [Y=<value>] [Z=<value>] [CLEAR=<[X][Y][Z]>]`: Kényszeríti az alacsony szintű kinematikai kódot, hogy azt higgye, a nyomtatófej a megadott kartoték pozícióban van. Ez egy diagnosztikai és hibakeresési parancs; a SET_GCODE_OFFSET és/vagy a G92 parancsot használja a normál tengelytranszformációkhoz. Ha egy tengely nincs megadva, akkor alapértelmezés szerint az a pozíció lesz, ahová a fejet utoljára vezérelték. A helytelen vagy érvénytelen pozíció beállítása belső szoftverhibához vezethet. A CLEAR paraméterrel elfelejtheti a megadott tengelyek kezdőpozíció állapotát. Vedd figyelembe, hogy a CLEAR nem írja felül az előző funkciót; ha egy tengely nincs megadva a CLEAR paraméterhez, akkor a kinematikai pozíciója a fentiek szerint lesz beállítva. Ez a parancs érvénytelenítheti a jövőbeli határellenőrzéseket; a kinematika visszaállításához adjunk ki egy G28 parancsot.
+`SET_KINEMATIC_POSITION [X=<value>] [Y=<value>] [Z=<value>] [SET_HOMED=<[X][Y][Z]>] [CLEAR_HOMED=<[X][Y][Z]>]`: Force the low-level kinematic code to believe the toolhead is at the given cartesian position and set/clear homed status. This is a diagnostic and debugging command; use SET_GCODE_OFFSET and/or G92 for regular axis transformations. Setting an incorrect or invalid position may lead to internal software errors.
+
+The `X`, `Y`, and `Z` parameters are used to alter the low-level kinematic position tracking. If any of these parameters are not set then the position is not changed - for example `SET_KINEMATIC_POSITION Z=10` would set all axes as homed, set the internal Z position to 10, and leave the X and Y positions unchanged. Changing the internal position tracking is not dependent on the internal homing state - one may alter the position for both homed and not homed axes, and similarly one may set or clear the homing state of an axis without altering its internal position.
+
+The `SET_HOMED` parameter defaults to `XYZ` which instructs the kinematics to consider all axes as homed. A bare `SET_KINEMATIC_POSITION` command will result in all axes being considered homed (and not change its current position). If it is not desired to change the state of homed axes then assign `SET_HOMED` to an empty string - for example: `SET_KINEMATIC_POSITION SET_HOMED= X=10`. It is also possible to request an individual axis be considered homed (eg, `SET_HOMED=X`), but note that non-cartesian style kinematics (such as delta kinematics) may not support setting an individual axis as homed.
+
+The `CLEAR_HOMED` parameter instructs the kinematics to consider the given axes as not homed. For example, `CLEAR_HOMED=XYZ` would request all axes to be considered not homed (and thus require homing prior to movement on those axes). The default is `SET_HOMED=XYZ` even if `CLEAR_HOMED` is present, so the command `SET_KINEMATIC_POSITION CLEAR_HOMED=Z` will set X and Y as homed and clear the homing state for Z. Use `SET_KINEMATIC_POSITION SET_HOMED= CLEAR_HOMED=Z` if the goal is to clear only the Z homing state. If an axis is specified in neither `SET_HOMED` nor `CLEAR_HOMED` then its homing state is not changed and if it is specified in both then `CLEAR_HOMED` has precedence. It is possible to request clearing of an individual axis, but on non-cartesian style kinematics (such as delta kinematics) doing so may result in clearing the homing state of additional axes. Note the `CLEAR` parameter is currently an alias for the `CLEAR_HOMED` parameter, but this alias will be removed in the future.
 
 ### [gcode]
 
@@ -456,6 +461,44 @@ A következő parancs akkor engedélyezett, ha az [input_shaper konfigurációs 
 
 `SET_INPUT_SHAPER [SHAPER_FREQ_X=<shaper_freq_x>] [SHAPER_FREQ_Y=<shaper_freq_y>] [DAMPING_RATIO_X=<damping_ratio_x>] [DAMPING_RATIO_Y=<damping_ratio_y>] [SHAPER_TYPE=<shaper>] [SHAPER_TYPE_X=<shaper_type_x>] [SHAPER_TYPE_Y=<shaper_type_y>]`: A bemeneti formáló paraméterek módosítása. Vedd figyelembe, hogy a SHAPER_TYPE paraméter visszaállítja a bemeneti formálót mind az X, mind az Y tengelyre, még akkor is, ha az [input_shaper] szakaszban különböző formálótípusok lettek beállítva. A SHAPER_TYPE nem használható együtt a SHAPER_TYPE_X és SHAPER_TYPE_Y paraméterekkel. Az egyes paraméterekkel kapcsolatos további részletekért lásd a [konfigurációs hivatkozást](Config_Reference.md#input_shaper).
 
+### [led]
+
+A következő parancs akkor érhető el, ha a [LED konfigurációs szakaszok](Config_Reference.md#leds) bármelyike engedélyezve van.
+
+#### SET_LED
+
+`SET_LED LED=<config_name> RED=<value> GREEN=<value> BLUE=<value> WHITE=<value> [INDEX=<index>] [TRANSMIT=0] [SYNC=1]`: Ez állítja be a LED kimenetet. Minden szín `<value>` 0,0 és 1,0 között kell lennie. A WHITE opció csak RGBW LED-ek esetén érvényes. Ha a LED több chipet támogat egy daisy-chainben, akkor megadhatjuk az INDEX-et, hogy csak az adott chip színét változtassuk meg (1 az első chiphez, 2 a másodikhoz stb.). Ha az INDEX nincs megadva, akkor a daisy-chain összes LED-je a megadott színre lesz beállítva. Ha TRANSMIT=0 van megadva, akkor a színváltoztatás csak a következő SET_LED parancsnál történik meg, amely nem ad meg TRANSMIT=0-t. Ez hasznos lehet az INDEX paraméterrel kombinálva, ha egy daisy-chainben több frissítést szeretnénk kötegelni. Alapértelmezés szerint a SET_LED parancs szinkronizálja a változtatásokat a többi folyamatban lévő G-kód paranccsal. Ez nemkívánatos viselkedéshez vezethet, ha a LED-ek beállítása akkor történik, amikor a nyomtató nem nyomtat, mivel ez visszaállítja az üresjárati időkorlátot. Ha nincs szükség gondos időzítésre, az opcionális SYNC=0 paraméter megadható, hogy a módosításokat az üresjárati időkorlát visszaállítása nélkül alkalmazd.
+
+#### SET_LED_TEMPLATE
+
+`SET_LED_TEMPLATE LED=<led_name> TEMPLATE=<template_name> [<param_x>=<literal>] [INDEX=<index>]`: Egy [display_template](Config_Reference.md#display_template) hozzárendelése egy adott [LED-hez](Config_Reference.md#leds). Például, ha definiáltunk egy `[display_template my_led_template]` konfigurációs szakaszt, akkor itt hozzárendelhetjük a `TEMPLATE=my_led_template`. A display_template-nek egy vesszővel elválasztott karakterláncot kell létrehoznia, amely négy lebegőpontos számot tartalmaz, amelyek megfelelnek a piros, zöld, kék és fehér színbeállításoknak. A sablon folyamatosan kiértékelésre kerül, és a LED automatikusan az így kapott színekre lesz beállítva. A sablon kiértékelése során használandó display_template paramétereket lehet beállítani (a paraméterek Python literálokként lesznek elemezve). Ha az INDEX nincs megadva, akkor a LED's daisy-chain összes chipje a sablonra lesz beállítva, ellenkező esetben csak a megadott indexszel rendelkező chip lesz frissítve. Ha a TEMPLATE üres karakterlánc, akkor ez a parancs törli a LED-hez rendelt korábbi sablonokat (ekkor a `SET_LED` parancsokat használhatjuk a LED színbeállításainak kezelésére).
+
+### [load_cell]
+
+The following commands are enabled if a [load_cell config section](Config_Reference.md#load_cell) has been enabled.
+
+### LOAD_CELL_DIAGNOSTIC
+
+`LOAD_CELL_DIAGNOSTIC [LOAD_CELL=<config_name>]`: This command collects 10 seconds of load cell data and reports statistics that can help you verify proper operation of the load cell. This command can be run on both calibrated and uncalibrated load cells.
+
+### LOAD_CELL_CALIBRATE
+
+`LOAD_CELL_CALIBRATE [LOAD_CELL=<config_name>]`: Start the guided calibration utility. Calibration is a 3 step process:
+
+1. First you remove all load from the load cell and run the `TARE` command
+1. Next you apply a known load to the load cell and run the `CALIBRATE GRAMS=nnn` command
+1. Finally use the `ACCEPT` command to save the results
+
+You can cancel the calibration process at any time with `ABORT`.
+
+### LOAD_CELL_TARE
+
+`LOAD_CELL_TARE [LOAD_CELL=<config_name>]`: This works just like the tare button on digital scale. It sets the current raw reading of the load cell to be the zero point reference value. The response is the percentage of the sensors range that was read and the raw value in counts.
+
+### LOAD_CELL_READ load_cell="name"
+
+`LOAD_CELL_READ [LOAD_CELL=<config_name>]`: This command takes a reading from the load cell. The response is the percentage of the sensors range that was read and the raw value in counts. If the load cell is calibrated a force in grams is also reported.
+
 ### [manual_probe]
 
 A manual_probe modul automatikusan betöltődik.
@@ -491,18 +534,6 @@ A következő parancs akkor érhető el, ha az [mcp4018 config szekció](Config_
 #### SET_DIGIPOT
 
 `SET_DIGIPOT DIGIPOT=config_name WIPER=<value>`: Ez a parancs megváltoztatja a digipot aktuális értékét. Ennek az értéknek általában 0.0 és 1.0 között kell lennie, hacsak a configban nincs definiálva 'scale'. Ha 'scale' van definiálva, akkor ennek az értéknek 0.0 és a 'scale' érték között kell lennie.
-
-### [led]
-
-A következő parancs akkor érhető el, ha a [LED konfigurációs szakaszok](Config_Reference.md#leds) bármelyike engedélyezve van.
-
-#### SET_LED
-
-`SET_LED LED=<config_name> RED=<value> GREEN=<value> BLUE=<value> WHITE=<value> [INDEX=<index>] [TRANSMIT=0] [SYNC=1]`: Ez állítja be a LED kimenetet. Minden szín `<value>` 0,0 és 1,0 között kell lennie. A WHITE opció csak RGBW LED-ek esetén érvényes. Ha a LED több chipet támogat egy daisy-chainben, akkor megadhatjuk az INDEX-et, hogy csak az adott chip színét változtassuk meg (1 az első chiphez, 2 a másodikhoz stb.). Ha az INDEX nincs megadva, akkor a daisy-chain összes LED-je a megadott színre lesz beállítva. Ha TRANSMIT=0 van megadva, akkor a színváltoztatás csak a következő SET_LED parancsnál történik meg, amely nem ad meg TRANSMIT=0-t. Ez hasznos lehet az INDEX paraméterrel kombinálva, ha egy daisy-chainben több frissítést szeretnénk kötegelni. Alapértelmezés szerint a SET_LED parancs szinkronizálja a változtatásokat a többi folyamatban lévő G-kód paranccsal. Ez nemkívánatos viselkedéshez vezethet, ha a LED-ek beállítása akkor történik, amikor a nyomtató nem nyomtat, mivel ez visszaállítja az üresjárati időkorlátot. Ha nincs szükség gondos időzítésre, az opcionális SYNC=0 paraméter megadható, hogy a módosításokat az üresjárati időkorlát visszaállítása nélkül alkalmazd.
-
-#### SET_LED_TEMPLATE
-
-`SET_LED_TEMPLATE LED=<led_name> TEMPLATE=<template_name> [<param_x>=<literal>] [INDEX=<index>]`: Egy [display_template](Config_Reference.md#display_template) hozzárendelése egy adott [LED-hez](Config_Reference.md#leds). Például, ha definiáltunk egy `[display_template my_led_template]` konfigurációs szakaszt, akkor itt hozzárendelhetjük a `TEMPLATE=my_led_template`. A display_template-nek egy vesszővel elválasztott karakterláncot kell létrehoznia, amely négy lebegőpontos számot tartalmaz, amelyek megfelelnek a piros, zöld, kék és fehér színbeállításoknak. A sablon folyamatosan kiértékelésre kerül, és a LED automatikusan az így kapott színekre lesz beállítva. A sablon kiértékelése során használandó display_template paramétereket lehet beállítani (a paraméterek Python literálokként lesznek elemezve). Ha az INDEX nincs megadva, akkor a LED's daisy-chain összes chipje a sablonra lesz beállítva, ellenkező esetben csak a megadott indexszel rendelkező chip lesz frissítve. Ha a TEMPLATE üres karakterlánc, akkor ez a parancs törli a LED-hez rendelt korábbi sablonokat (ekkor a `SET_LED` parancsokat használhatjuk a LED színbeállításainak kezelésére).
 
 ### [output_pin]
 
@@ -544,14 +575,6 @@ A következő további parancsok is rendelkezésre állnak.
 
 `PALETTE_SMART_LOAD`: Ez a parancs elindítja az intelligens betöltési sorozatot a Paletta 2-n. A nyomtatószál betöltése automatikusan történik a készülékben a nyomtatóhoz kalibrált távolság extrudálásával, és utasítja a Palette 2-t, amint a betöltés befejeződött. Ez a parancs megegyezik a **Smart Load** megnyomásával közvetlenül a Palette 2 képernyőjén, miután a nyomtatószál betöltése befejeződött.
 
-### [pid_calibrate]
-
-A pid_calibrate modul automatikusan betöltődik, ha a konfigurációs fájlban van egy fűtés definiálva.
-
-#### PID_CALIBRATE
-
-`PID_CALIBRATE HEATER=<config_name> TARGET=<temperature> [WRITE_FILE=1]`: A PID kalibrációs teszt elvégzése. A megadott fűtőberendezés a megadott célhőmérséklet eléréséig engedélyezve lesz, majd a fűtőberendezés több cikluson keresztül ki- és bekapcsol. Ha a WRITE_FILE paraméter engedélyezve van, akkor létrejön a /tmp/heattest.txt fájl a teszt során vett összes hőmérséklet-mintát tartalmazó naplóval.
-
 ### [pause_resume]
 
 A következő parancsok akkor érhetők el, ha a [pause_resume konfigurációs szakasz](Config_Reference.md#pause_resume) engedélyezve van:
@@ -571,6 +594,14 @@ A következő parancsok akkor érhetők el, ha a [pause_resume konfigurációs s
 #### CANCEL_PRINT
 
 `CANCEL_PRINT`: Az aktuális nyomtatás törlése.
+
+### [pid_calibrate]
+
+A pid_calibrate modul automatikusan betöltődik, ha a konfigurációs fájlban van egy fűtés definiálva.
+
+#### PID_CALIBRATE
+
+`PID_CALIBRATE HEATER=<config_name> TARGET=<temperature> [WRITE_FILE=1]`: A PID kalibrációs teszt elvégzése. A megadott fűtőberendezés a megadott célhőmérséklet eléréséig engedélyezve lesz, majd a fűtőberendezés több cikluson keresztül ki- és bekapcsol. Ha a WRITE_FILE paraméter engedélyezve van, akkor létrejön a /tmp/heattest.txt fájl a teszt során vett összes hőmérséklet-mintát tartalmazó naplóval.
 
 ### [print_stats]
 
@@ -689,7 +720,7 @@ A következő parancs akkor engedélyezett, ha a [save_variables konfigurációs
 
 #### SAVE_VARIABLE
 
-`SAVE_VARIABLE VARIABLE=<name> VALUE=<value>`: A változót a lemezre menti, hogy újraindításkor is használható legyen. Minden tárolt változó betöltődik a `printer.save_variables.variables` dict indításkor, és használható a G-kód makrókban. A megadott VALUE-t Python literálként elemzi.
+`SAVE_VARIABLE VARIABLE=<name> VALUE=<value>`: Saves the variable to disk so that it can be used across restarts. The VARIABLE must be lowercase. All stored variables are loaded into the `printer.save_variables.variables` dict at startup and can be used in gcode macros. The provided VALUE is parsed as a Python literal.
 
 ### [screws_tilt_adjust]
 
@@ -771,6 +802,30 @@ A következő parancs akkor érhető el, ha a [temperature_fan konfigurációs s
 
 `SET_TEMPERATURE_FAN_TARGET temperature_fan=<temperature_fan_name> [target=<target_temperature>] [min_speed=<min_speed>] [max_speed=<max_speed>]`: A temperature_fan célhőmérsékletének beállítása. Ha nincs megadva célérték, akkor a konfigurációs fájlban megadott hőmérsékletet állítja be. Ha a sebességek nincsenek megadva, akkor nem történik változás.
 
+### [temperature_probe]
+
+A következő parancsok akkor érhetők el, ha a [temperature_probe konfigurációs szakasz](Config_Reference.md#temperature_probe) engedélyezve van.
+
+#### TEMPERATURE_PROBE_CALIBRATE
+
+`TEMPERATURE_PROBE_CALIBRATE [PROBE=<probe name>] [TARGET=<value>] [STEP=<value>]`: Elindítja a szonda sodródásának kalibrálását örvényáram alapú szondákhoz. A `TARGET` az utolsó mérés célhőmérséklete. Ha a mérés során rögzített hőmérséklet meghaladja a `TARGET` kalibrációt, akkor a kalibráció befejeződik. A `STEP` paraméter beállítja a hőmérséklet-deltát (C-ban) a mérések között. A mérések után ez a delta a `TEMPERATURE_PROBE_NEXT` hívás ütemezésére szolgál. Az alapértelmezett `STEP` a 2.
+
+#### TEMPERATURE_PROBE_NEXT
+
+`TEMPERATURE_PROBE_NEXT`: A kalibrálás megkezdése után ez a parancs fut a következő méréshez. A rendszer automatikusan ütemezi a futást, amikor elérte a `STEP` által meghatározott delta értéket, de lehetséges manuálisan is futtatni ezt a parancsot egy új mérés kényszerítéséhez. Ez a parancs csak kalibrálás közben érhető el.
+
+#### TEMPERATURE_PROBE_COMPLETE:
+
+`TEMPERATURE_PROBE_COMPLETE`: A kalibráció befejezésére és az aktuális eredmény mentésére használható, mielőtt elérné a `TARGET` hőmérsékletet. Ez a parancs csak kalibrálás közben érhető el.
+
+#### ABORT
+
+`ABORT`: Megszakítja a kalibrálási folyamatot, elveti az aktuális eredményeket. Ez a parancs csak a drift-kalibráció során érhető el.
+
+### TEMPERATURE_PROBE_ENABLE
+
+`TEMPERATURE_PROBE_ENABLE ENABLE=[0|1]`: Be- vagy kikapcsolja a hőmérséklet-eltolás kompenzációját. Ha az ENGEDÉLYEZÉS 0-ra van állítva, az eltolás kompenzáció le lesz tiltva, ha 1-re van állítva, akkor engedélyezve van.
+
 ### [tmcXXXX]
 
 A következő parancsok akkor érhetők el, ha a [tmcXXXXXX konfigurációs szakaszok](Config_Reference.md#tmc-motorvezerlo-konfiguracioja) bármelyike engedélyezve van.
@@ -848,27 +903,3 @@ A következő parancsok akkor érhetők el, ha a [z_tilt konfigurációs szakasz
 #### Z_TILT_ADJUST
 
 `Z_TILT_ADJUST [RETRIES=<value>] [RETRY_TOLERANCE=<value>] [HORIZONTAL_MOVE_Z=<value>] [<probe_parameter>=<value>]`: Ez a parancs a konfigurációban megadott pontokat szondázza, majd a dőlés kompenzálása érdekében független beállításokat végez minden egyes Z léptetőn. Az opcionális mérő paraméterekkel kapcsolatos részletekért lásd a PROBE parancsot. Az opcionális `RETRIES`, `RETRY_TOLERANCE` és `HORIZONTAL_MOVE_Z` értékek felülírják a konfigurációs fájlban megadott opciókat.
-
-### [temperature_probe]
-
-A következő parancsok akkor érhetők el, ha a [temperature_probe konfigurációs szakasz](Config_Reference.md#temperature_probe) engedélyezve van.
-
-#### TEMPERATURE_PROBE_CALIBRATE
-
-`TEMPERATURE_PROBE_CALIBRATE [PROBE=<probe name>] [TARGET=<value>] [STEP=<value>]`: Elindítja a szonda sodródásának kalibrálását örvényáram alapú szondákhoz. A `TARGET` az utolsó mérés célhőmérséklete. Ha a mérés során rögzített hőmérséklet meghaladja a `TARGET` kalibrációt, akkor a kalibráció befejeződik. A `STEP` paraméter beállítja a hőmérséklet-deltát (C-ban) a mérések között. A mérések után ez a delta a `TEMPERATURE_PROBE_NEXT` hívás ütemezésére szolgál. Az alapértelmezett `STEP` a 2.
-
-#### TEMPERATURE_PROBE_NEXT
-
-`TEMPERATURE_PROBE_NEXT`: A kalibrálás megkezdése után ez a parancs fut a következő méréshez. A rendszer automatikusan ütemezi a futást, amikor elérte a `STEP` által meghatározott delta értéket, de lehetséges manuálisan is futtatni ezt a parancsot egy új mérés kényszerítéséhez. Ez a parancs csak kalibrálás közben érhető el.
-
-#### TEMPERATURE_PROBE_COMPLETE:
-
-`TEMPERATURE_PROBE_COMPLETE`: A kalibráció befejezésére és az aktuális eredmény mentésére használható, mielőtt elérné a `TARGET` hőmérsékletet. Ez a parancs csak kalibrálás közben érhető el.
-
-#### ABORT
-
-`ABORT`: Megszakítja a kalibrálási folyamatot, elveti az aktuális eredményeket. Ez a parancs csak a drift-kalibráció során érhető el.
-
-### TEMPERATURE_PROBE_ENABLE
-
-`TEMPERATURE_PROBE_ENABLE ENABLE=[0|1]`: Be- vagy kikapcsolja a hőmérséklet-eltolás kompenzációját. Ha az ENGEDÉLYEZÉS 0-ra van állítva, az eltolás kompenzáció le lesz tiltva, ha 1-re van állítva, akkor engedélyezve van.
