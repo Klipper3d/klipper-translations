@@ -1,6 +1,17 @@
 #
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2025-05-03 07:48+0000\n"
+"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Language-Team: Arabic <https://hosted.weblate.org/projects/klipper/"
+"eddy_probe/ar/>\n"
+"Language: ar\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Generator: Weblate 5.12-dev\n"
+"Content-Transfer-Encoding: 8bit\n"
 
 #: docs/Eddy_Probe.md:block 1 (header)
 msgid "Eddy Current Inductive probe"
