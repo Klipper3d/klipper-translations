@@ -78,6 +78,7 @@ iface can0 can static
 * “桥式MCU”本身和CAN总线上的所有设备的可用带宽都受到CAN总线频率的有效限制。因此，在使用“USB转CAN总线桥模式”时，建议使用1000000的CAN总线频率。
 
    即使在CAN总线频率为1000000的情况下，如果XY步进器和加速度计都通过单个“USB to CAN Bus”接口进行通信，也可能没有足够的带宽来运行 `SHAPER_CALIBRATE` 测试。
+* It is only valid to use USB to CAN bridge mode if there is a functioning CAN bus with at least one other node available (in addition to the bridge node itself). Use a standard USB configuration if the goal is to communicate only with the single USB device. Using USB to CAN bridge mode without a fully functioning CAN bus (including terminating resistors and an additional node) may result in sporadic errors even when communicating with the bridge node.
 * USB转CAN桥板不会显示为USB串口设备，也不会在运行`ls/dev/Serial/by-id`时出现，也不能在Klipper的printer.cfg文件中使用`Serial：`参数进行配置。桥接板显示为“USB CAN适配器”，并在printer.cfg中配置为[CAN节点](#configuring-klipper)。
 
 ## 故障排除提示

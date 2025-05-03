@@ -182,17 +182,13 @@ Klipper містить `scripts/whconsole.py` інструмент, який м�
 
 Поле "голова" в початковій відповіді запиту використовується для опису полів, знайдених в більш пізній "data".
 
-### hx71x/dump_hx71x
+### load_cell/dump_force
 
-Ця кінцева точка використовується для підписки на сирі дані HX711 та HX717 ADC. Отримуючи ці оновлення низького рівня ADC можуть бути корисними для діагностичних і знеболюючих цілей. Використання цього кінцевого пункту може збільшити навантаження системи Klipper.
+This endpoint is used to subscribe to force data produced by a load_cell. Using this endpoint may increase Klipper's system load.
 
-Запит може виглядати як: `{"id": 123, "метод":"hx71x/dump_hx71x", "params": {"sensor": "load_cell", "response_template": ` і може повернутися: `{"id": 123,"result":{"header":["time", "counts","value"]}}` і може пізніше виробляти асинхронні повідомлення, такі як: `{"params":{"data":[3292.432935, 562534, 0.067059278], [3292.4394937, 5625322, 0.670590639]]}}`
+A request may look like: `{"id": 123, "method":"load_cell/dump_force", "params": {"sensor": "load_cell", "response_template": {}}}` and might return: `{"id": 123,"result":{"header":["time", "force (g)", "counts", "tare_counts"]}}` and might later produce asynchronous messages such as: `{"params":{"data":[[3292.432935, 40.65, 562534, -234467]]}}`
 
-### ads1220/ dump_ads1220
-
-Ця кінцева точка використовується для підписки на сирі дані ADS1220 ADC. Отримуючи ці оновлення низького рівня ADC можуть бути корисними для діагностичних і знеболюючих цілей. Використання цього кінцевого пункту може збільшити навантаження системи Klipper.
-
-Запит може виглядати як: `{"id": 123, "метод":"ads1220/dump_ads1220", "params": "load_cell", "response_template": ` і може повернутися: `{"id": 123,"result":{"header":["time", "counts","value"]}}` і може пізніше виробляти асинхронні повідомлення, такі як: `{"params":{"data":[3292.432935, 562534, 0.067059278], [3292.4394937, 5625322, 0.670590639]]}}`
+Поле "голова" в початковій відповіді запиту використовується для опису полів, знайдених в більш пізній "data".
 
 ### пауза_resume/cancel
 

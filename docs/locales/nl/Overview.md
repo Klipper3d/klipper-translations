@@ -64,3 +64,4 @@ Welkom bij de Klipper-documentatie. Als u nieuw bent in Klipper, begin dan met d
 - [TSL1401CL filament width sensor](TSL1401CL_Filament_Width_Sensor.md)
 - [Hall filament width sensor](Hall_Filament_Width_Sensor.md)
 - [Eddy Current Inductive probe](Eddy_Probe.md)
+- [Load Cells](Load_Cell.md)

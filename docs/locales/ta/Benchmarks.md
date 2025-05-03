@@ -216,22 +216,22 @@ PRU இல் பின்வரும் உள்ளமைவு வரிச�
 
 ### STM32H7 படி வீத அளவுகோல்
 
-பின்வரும் உள்ளமைவு வரிசை STM32H743VIT6 இல் பயன்படுத்தப்படுகிறது:
+The following configuration sequence is used on STM32H723:
 
 ```
-ஒதுக்கீடு_யிட்ச் எண்ணிக்கை = 3
- config_stepper oid = 0 step_pin = pd4 dir_pin = pd3 invert_step = -1 step_pules_ticks = 0
- config_stepper oid = 1 step_pin = pa15 dir_pin = pa8 invert_step = -1 step_pules_ticks = 0
- config_stepper oid = 2 step_pin = pe2 dir_pin = pe3 invert_step = -1 step_pules_ticks = 0
- இறுதி_கான்ஃபிக் சி.ஆர்.சி = 0
+allocate_oids count=3
+config_stepper oid=0 step_pin=PA13 dir_pin=PB5 invert_step=-1 step_pulse_ticks=52
+config_stepper oid=1 step_pin=PB2 dir_pin=PB6 invert_step=-1 step_pulse_ticks=52
+config_stepper oid=2 step_pin=PB3 dir_pin=PB7 invert_step=-1 step_pulse_ticks=52
+finalize_config crc=0
 ```
 
-இந்த சோதனை கடைசியாக சி.சி.சி பதிப்பு `ஆர்ம்-நோன்-ஈபி-சி.சி.சி (15: 8-2019-Q3-1+பி 1) 8.3.1 20190703 (வெளியீடு) [சி.சி.சி -8-பிராஞ்ச் திருத்தம் 273027] `.
+The test was last run on commit `554ae78d` with gcc version `arm-none-eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0`.
 
-| நான் கேட்பேன் | உண்ணி |
+| stm32h723 | உண்ணி |
 | --- | --- |
-| 1 ச்டெப்பர் | 44 |
-| 3 ச்டெப்பர் | 198 |
+| 1 ச்டெப்பர் | 70 |
+| 3 ச்டெப்பர் | 181 |
 
 ### STM32G0B1 படி வீத அளவுகோல்
 
@@ -366,19 +366,19 @@ The following configuration sequence is used on the RP2040 and RP2350:
  இறுதி_கான்ஃபிக் சி.ஆர்.சி = 0
 ```
 
-The test was last run on commit `f6718291` with gcc version `arm-none-eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0` on Raspberry Pi Pico and Pico 2 boards.
+The test was last run on commit `14c105b8` with gcc version `arm-none-eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0` on Raspberry Pi Pico and Pico 2 boards.
 
 | rp2040 (*) | உண்ணி |
 | --- | --- |
-| 1 ச்டெப்பர் | 5 |
-| 3 ச்டெப்பர் | 22 |
+| 1 ச்டெப்பர் | 3 |
+| 3 ச்டெப்பர் | 14 |
 
 | rp2350 | உண்ணி |
 | --- | --- |
 | 1 ச்டெப்பர் | 36 |
 | 3 ச்டெப்பர் | 169 |
 
-(*) Note that the reported rp2040 ticks are relative to a 12Mhz scheduling timer and do not correspond to its 125Mhz internal ARM processing rate. It is expected that 5 scheduling ticks corresponds to ~47 ARM core cycles and 22 scheduling ticks corresponds to ~224 ARM core cycles.
+(*) Note that the reported rp2040 ticks are relative to a 12Mhz scheduling timer and do not correspond to its 200Mhz internal ARM processing rate. It is expected that 5 scheduling ticks corresponds to ~42 ARM core cycles and 14 scheduling ticks corresponds to ~225 ARM core cycles.
 
 ### லினக்ச் எம்.சி.யு படி வீத அளவுகோல்
 

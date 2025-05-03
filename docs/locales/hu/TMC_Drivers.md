@@ -32,6 +32,8 @@ Az üzemmódok összehasonlító tesztjei azt mutatták, hogy a StealthChop üze
 
 Javasoljuk, hogy mindig a "SpreadCycle" módot használd (nem megadva a `stealthchop_threshold` értéket) vagy mindig a "StealthChop" módot (a `stealthchop_threshold` 999999-re állítva). Sajnos a meghajtók gyakran rossz és zavaros eredményeket produkálnak, ha a mód változik, miközben a motor nem álló állapotban van.
 
+Note that the `stealthchop_threshold` config option does not impact sensorless homing as Klipper automatically switches the TMC driver to an appropriate mode during sensorless homing operations.
+
 ## A TMC interpolációs beállítása kis pozícióeltérést eredményez
 
 A TMC motorvezérlő `interpolate` beállítása csökkentheti a nyomtató mozgásának hallható zaját, de ennek ára egy kis rendszerszintű helyzeti hiba. Ez a rendszerszintű helyzeti hiba abból adódik, hogy a motorvezérlő késve hajtja végre a Klipper által küldött "lépéseket". Állandó sebességű mozgások során ez a késleltetés közel fél konfigurált mikrolépésnyi pozícióhibát eredményez (pontosabban a hiba fél mikrolépésnyi távolság mínusz a teljes lépés távolság 512-ed része). Például egy 40 mm-es rotation_distance, 200 steps_per_rotation és 16 microstep tengelyen az állandó sebességű mozgások során bevezetett rendszerszintű hiba ~0,006 mm.

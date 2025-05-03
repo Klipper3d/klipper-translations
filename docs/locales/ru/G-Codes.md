@@ -92,12 +92,11 @@ section](Config_Reference.md#axis_twist_compensation) is enabled.
 
 #### AXIS_TWIST_COMPENSATION_CALIBRATE
 
-`AXIS_TWIST_COMPENSATION_CALIBRATE [AXIS=<X|Y>] [AUTO=<True|False>] [SAMPLE_COUNT=<value>]`
+`AXIS_TWIST_COMPENSATION_CALIBRATE [AXIS=<X|Y>] [SAMPLE_COUNT=<value>]`
 
 Calibrates axis twist compensation by specifying the target axis or enabling automatic calibration.
 
 - **AXIS:** Define the axis (`X` or `Y`) for which the twist compensation will be calibrated. If not specified, the axis defaults to `'X'`.
-- **AUTO:** Enables automatic calibration mode. When `AUTO=True`, the calibration will run for both the X and Y axes. In this mode, `AXIS` cannot be specified. If both `AXIS` and `AUTO` are provided, an error will be raised.
 
 ### [сетка_стола]
 
@@ -335,7 +334,13 @@ Calibrates axis twist compensation by specifying the target axis or enabling aut
 
 #### SET_KINEMATIC_POSITION
 
-`SET_KINEMATIC_POSITION [X=<value>] [Y=<value>] [Z=<value>] [CLEAR=<[X][Y][Z]>]`: Force the low-level kinematic code to believe the toolhead is at the given cartesian position. This is a diagnostic and debugging command; use SET_GCODE_OFFSET and/or G92 for regular axis transformations. If an axis is not specified then it will default to the position that the head was last commanded to. Setting an incorrect or invalid position may lead to internal software errors. Use the CLEAR parameter to forget the homing state for the given axes. Note that CLEAR will not override the previous functionality; if an axis is not specified to CLEAR it will have its kinematic position set as per above. This command may invalidate future boundary checks; issue a G28 afterwards to reset the kinematics.
+`SET_KINEMATIC_POSITION [X=<value>] [Y=<value>] [Z=<value>] [SET_HOMED=<[X][Y][Z]>] [CLEAR_HOMED=<[X][Y][Z]>]`: Force the low-level kinematic code to believe the toolhead is at the given cartesian position and set/clear homed status. This is a diagnostic and debugging command; use SET_GCODE_OFFSET and/or G92 for regular axis transformations. Setting an incorrect or invalid position may lead to internal software errors.
+
+The `X`, `Y`, and `Z` parameters are used to alter the low-level kinematic position tracking. If any of these parameters are not set then the position is not changed - for example `SET_KINEMATIC_POSITION Z=10` would set all axes as homed, set the internal Z position to 10, and leave the X and Y positions unchanged. Changing the internal position tracking is not dependent on the internal homing state - one may alter the position for both homed and not homed axes, and similarly one may set or clear the homing state of an axis without altering its internal position.
+
+The `SET_HOMED` parameter defaults to `XYZ` which instructs the kinematics to consider all axes as homed. A bare `SET_KINEMATIC_POSITION` command will result in all axes being considered homed (and not change its current position). If it is not desired to change the state of homed axes then assign `SET_HOMED` to an empty string - for example: `SET_KINEMATIC_POSITION SET_HOMED= X=10`. It is also possible to request an individual axis be considered homed (eg, `SET_HOMED=X`), but note that non-cartesian style kinematics (such as delta kinematics) may not support setting an individual axis as homed.
+
+The `CLEAR_HOMED` parameter instructs the kinematics to consider the given axes as not homed. For example, `CLEAR_HOMED=XYZ` would request all axes to be considered not homed (and thus require homing prior to movement on those axes). The default is `SET_HOMED=XYZ` even if `CLEAR_HOMED` is present, so the command `SET_KINEMATIC_POSITION CLEAR_HOMED=Z` will set X and Y as homed and clear the homing state for Z. Use `SET_KINEMATIC_POSITION SET_HOMED= CLEAR_HOMED=Z` if the goal is to clear only the Z homing state. If an axis is specified in neither `SET_HOMED` nor `CLEAR_HOMED` then its homing state is not changed and if it is specified in both then `CLEAR_HOMED` has precedence. It is possible to request clearing of an individual axis, but on non-cartesian style kinematics (such as delta kinematics) doing so may result in clearing the homing state of additional axes. Note the `CLEAR` parameter is currently an alias for the `CLEAR_HOMED` parameter, but this alias will be removed in the future.
 
 ### [gcode]
 
@@ -456,6 +461,44 @@ Calibrates axis twist compensation by specifying the target axis or enabling aut
 
 `SET_INPUT_SHAPER [SHAPER_FREQ_X=<shaper_freq_x>] [SHAPER_FREQ_Y=<shaper_freq_y>] [DAMPING_RATIO_X=<damping_ratio_x>] [DAMPING_RATIO_Y=<damping_ratio_y>] [SHAPER_TYPE=<shaper>] [SHAPER_TYPE_X=<shaper_type_x>] [SHAPER_TYPE_Y=<shaper_type_y>]`: Изменение входных параметров формирователя. Обратите внимание, что параметр SHAPER_TYPE сбрасывает входной формирователь для осей X и Y, даже если в разделе [input_shaper] были настроены разные типы формирователей. SHAPER_TYPE нельзя использовать вместе с одним из параметров SHAPER_TYPE_X и SHAPER_TYPE_Y. Дополнительные сведения о каждом из этих параметров см. в [config reference](Config_Reference.md#input_shaper).
 
+### [led]
+
+Следующая команда доступна, если включен любой из разделов [led config](Config_Reference.md#leds).
+
+#### SET_LED
+
+`SET_LED LED=<config_name> RED=<value> GREEN=<value> BLUE=<value> WHITE=<value> [INDEX=<index>] [TRANSMIT=0] [SYNC=1]`: Устанавливает выход светодиодов. Каждый цвет `<значения>` должен быть в диапазоне от 0,0 до 1,0. Опция WHITE действительна только для RGBW-светодиодов. Если светодиод поддерживает несколько чипов в последовательной цепочке, можно указать INDEX для изменения цвета только данного чипа (1 для первого чипа, 2 для второго и т. д.). Если INDEX не указан, то все светодиоды в последовательной цепочке будут настроены на заданный цвет. Если указано TRANSMIT=0, то изменение цвета будет происходить только при следующей команде SET_LED, в которой не указано TRANSMIT=0; это может быть полезно в сочетании с параметром INDEX для пакетного обновления нескольких светодиодов в последовательной цепочке. По умолчанию команда SET_LED синхронизирует свои изменения с другими текущими командами gcode. Это может привести к нежелательному поведению, если светодиоды устанавливаются в то время, когда принтер не печатает, так как это приведет к сбросу таймаута простоя. Если тщательная синхронизация не требуется, можно указать дополнительный параметр SYNC=0, чтобы применить изменения без сброса таймаута простоя.
+
+#### SET_LED_TEMPLATE
+
+`SET_LED_TEMPLATE LED=<имя_леда> TEMPLATE=<имя_шаблона> [<param_x>=<литерал>] [INDEX=<индекс>]`: Присваивает [display_template](Config_Reference.md#display_template) заданному [LED](Config_Reference.md#leds). Например, если определить секцию конфигурации `[display_template my_led_template]`, то здесь можно назначить `TEMPLATE=my_led_template`. Шаблон display_template должен создавать строку, разделенную запятыми, содержащую четыре числа с плавающей точкой, соответствующие настройкам красного, зеленого, синего и белого цветов. Шаблон будет постоянно оцениваться, и светодиод будет автоматически устанавливаться на полученные цвета. Можно задать параметры display_template для использования во время оценки шаблона (параметры будут разобраны как литералы Python). Если INDEX не указан, то все чипы в последовательной цепочке светодиода будут установлены в соответствии с шаблоном, в противном случае будет обновлен только чип с заданным индексом. Если TEMPLATE - пустая строка, то эта команда очистит любой предыдущий шаблон, назначенный светодиоду (после этого можно использовать команды `SET_LED` для управления настройками цвета светодиода).
+
+### [load_cell]
+
+The following commands are enabled if a [load_cell config section](Config_Reference.md#load_cell) has been enabled.
+
+### LOAD_CELL_DIAGNOSTIC
+
+`LOAD_CELL_DIAGNOSTIC [LOAD_CELL=<config_name>]`: This command collects 10 seconds of load cell data and reports statistics that can help you verify proper operation of the load cell. This command can be run on both calibrated and uncalibrated load cells.
+
+### LOAD_CELL_CALIBRATE
+
+`LOAD_CELL_CALIBRATE [LOAD_CELL=<config_name>]`: Start the guided calibration utility. Calibration is a 3 step process:
+
+1. First you remove all load from the load cell and run the `TARE` command
+1. Next you apply a known load to the load cell and run the `CALIBRATE GRAMS=nnn` command
+1. Finally use the `ACCEPT` command to save the results
+
+You can cancel the calibration process at any time with `ABORT`.
+
+### LOAD_CELL_TARE
+
+`LOAD_CELL_TARE [LOAD_CELL=<config_name>]`: This works just like the tare button on digital scale. It sets the current raw reading of the load cell to be the zero point reference value. The response is the percentage of the sensors range that was read and the raw value in counts.
+
+### LOAD_CELL_READ load_cell="name"
+
+`LOAD_CELL_READ [LOAD_CELL=<config_name>]`: This command takes a reading from the load cell. The response is the percentage of the sensors range that was read and the raw value in counts. If the load cell is calibrated a force in grams is also reported.
+
 ### [manual_probe]
 
 Модуль manual_probe загружается автоматически.
@@ -491,18 +534,6 @@ Calibrates axis twist compensation by specifying the target axis or enabling aut
 #### SET_DIGIPOT
 
 `SET_DIGIPOT DIGIPOT=config_name WIPER=<value>`: Эта команда изменит текущее значение дигипота. Обычно это значение должно быть между 0.0 и 1.0, если только в конфигурации не задан 'scale'. Если 'scale' определено, то это значение должно быть между 0.0 и 'scale'.
-
-### [led]
-
-Следующая команда доступна, если включен любой из разделов [led config](Config_Reference.md#leds).
-
-#### SET_LED
-
-`SET_LED LED=<config_name> RED=<value> GREEN=<value> BLUE=<value> WHITE=<value> [INDEX=<index>] [TRANSMIT=0] [SYNC=1]`: Устанавливает выход светодиодов. Каждый цвет `<значения>` должен быть в диапазоне от 0,0 до 1,0. Опция WHITE действительна только для RGBW-светодиодов. Если светодиод поддерживает несколько чипов в последовательной цепочке, можно указать INDEX для изменения цвета только данного чипа (1 для первого чипа, 2 для второго и т. д.). Если INDEX не указан, то все светодиоды в последовательной цепочке будут настроены на заданный цвет. Если указано TRANSMIT=0, то изменение цвета будет происходить только при следующей команде SET_LED, в которой не указано TRANSMIT=0; это может быть полезно в сочетании с параметром INDEX для пакетного обновления нескольких светодиодов в последовательной цепочке. По умолчанию команда SET_LED синхронизирует свои изменения с другими текущими командами gcode. Это может привести к нежелательному поведению, если светодиоды устанавливаются в то время, когда принтер не печатает, так как это приведет к сбросу таймаута простоя. Если тщательная синхронизация не требуется, можно указать дополнительный параметр SYNC=0, чтобы применить изменения без сброса таймаута простоя.
-
-#### SET_LED_TEMPLATE
-
-`SET_LED_TEMPLATE LED=<имя_леда> TEMPLATE=<имя_шаблона> [<param_x>=<литерал>] [INDEX=<индекс>]`: Присваивает [display_template](Config_Reference.md#display_template) заданному [LED](Config_Reference.md#leds). Например, если определить секцию конфигурации `[display_template my_led_template]`, то здесь можно назначить `TEMPLATE=my_led_template`. Шаблон display_template должен создавать строку, разделенную запятыми, содержащую четыре числа с плавающей точкой, соответствующие настройкам красного, зеленого, синего и белого цветов. Шаблон будет постоянно оцениваться, и светодиод будет автоматически устанавливаться на полученные цвета. Можно задать параметры display_template для использования во время оценки шаблона (параметры будут разобраны как литералы Python). Если INDEX не указан, то все чипы в последовательной цепочке светодиода будут установлены в соответствии с шаблоном, в противном случае будет обновлен только чип с заданным индексом. Если TEMPLATE - пустая строка, то эта команда очистит любой предыдущий шаблон, назначенный светодиоду (после этого можно использовать команды `SET_LED` для управления настройками цвета светодиода).
 
 ### [output_pin]
 
@@ -544,14 +575,6 @@ Calibrates axis twist compensation by specifying the target axis or enabling aut
 
 `PALETTE_SMART_LOAD`: Эта команда запускает последовательность интеллектуальной загрузки на Palette 2. Филамент загружается автоматически, выдавливая его на расстояние, откалиброванное на устройстве для принтера, и дает команду Palette 2, когда загрузка завершена. Эта команда аналогична нажатию кнопки **Smart Load** непосредственно на экране Palette 2 после завершения загрузки филамента.
 
-### [pid_calibrate]
-
-Модуль pid_calibrate загружается автоматически, если в конфигурационном файле задан нагреватель.
-
-#### PID_CALIBRATE
-
-`PID_CALIBRATE HEATER=<имя_конфигурации> TARGET=<температура> [WRITE_FILE=1]`: Выполняет тест калибровки ПИД. Указанный нагреватель будет включен до достижения заданной целевой температуры, а затем нагреватель будет выключен и включен в течение нескольких циклов. Если параметр WRITE_FILE включен, то будет создан файл /tmp/heattest.txt с журналом всех образцов температуры, взятых во время теста.
-
 ### [pause_resume]
 
 Следующие команды доступны, если включен раздел [pause_resume config](Config_Reference.md#pause_resume):
@@ -571,6 +594,14 @@ Calibrates axis twist compensation by specifying the target axis or enabling aut
 #### CANCEL_PRINT
 
 `CANCEL_PRINT`: Отменяет текущую печать.
+
+### [pid_calibrate]
+
+Модуль pid_calibrate загружается автоматически, если в конфигурационном файле задан нагреватель.
+
+#### PID_CALIBRATE
+
+`PID_CALIBRATE HEATER=<имя_конфигурации> TARGET=<температура> [WRITE_FILE=1]`: Выполняет тест калибровки ПИД. Указанный нагреватель будет включен до достижения заданной целевой температуры, а затем нагреватель будет выключен и включен в течение нескольких циклов. Если параметр WRITE_FILE включен, то будет создан файл /tmp/heattest.txt с журналом всех образцов температуры, взятых во время теста.
 
 ### [print_stats]
 
@@ -689,7 +720,7 @@ The following commands are available when the [quad_gantry_level config section]
 
 #### SAVE_VARIABLE
 
-`SAVE_VARIABLE VARIABLE=<имя> VALUE=<значение>`: Сохраняет переменную на диск, чтобы ее можно было использовать после перезапуска. Все сохраненные переменные загружаются в дикту `printer.save_variables.variables` при запуске и могут быть использованы в макросах gcode. Указанное значение VALUE разбирается как литерал Python.
+`SAVE_VARIABLE VARIABLE=<name> VALUE=<value>`: Saves the variable to disk so that it can be used across restarts. The VARIABLE must be lowercase. All stored variables are loaded into the `printer.save_variables.variables` dict at startup and can be used in gcode macros. The provided VALUE is parsed as a Python literal.
 
 ### [screws_tilt_adjust]
 
@@ -771,6 +802,30 @@ The following commands are available when the [quad_gantry_level config section]
 
 `SET_TEMPERATURE_FAN_TARGET temperature_fan=<имя_температурного_вентилятора> [target=<target_temperature>] [min_speed=<min_speed>] [max_speed=<max_speed>]`: Устанавливает целевую температуру для вентилятора temperature_fan. Если целевая температура не указана, она устанавливается на указанную температуру в файле конфигурации. Если скорость не указана, изменения не применяются.
 
+### [temperature_probe]
+
+Следующие команды доступны, если включен раздел [temperature_probe config](Config_Reference.md#temperature_probe).
+
+#### TEMPERATURE_PROBE_CALIBRATE
+
+`TEMPERATURE_PROBE_CALIBRATE [PROBE=<имя зонда>] [TARGET=<значение>] [STEP=<значение>]`: Запускает калибровку дрейфа зонда для зондов на основе вихревых токов. Параметр `TARGET` - это целевая температура для последнего образца. Когда температура, зарегистрированная во время пробы, превысит `TARGET`, калибровка будет завершена. Параметр `STEP` задает дельту температуры (в C) между пробами. После взятия пробы эта дельта используется для планирования вызова `TEMPERATURE_PROBE_NEXT`. По умолчанию `STEP` равен 2.
+
+#### TEMPERATURE_PROBE_NEXT
+
+`TEMPERATURE_PROBE_NEXT`: После начала калибровки эта команда запускается для взятия следующего образца. Она автоматически запланирована на выполнение при достижении дельты, указанной в `STEP`, однако ее можно выполнить и вручную, чтобы заставить взять новый образец. Эта команда доступна только во время калибровки.
+
+#### TEMPERATURE_PROBE_COMPLETE:
+
+`TEMPERATURE_PROBE_COMPLETE`: Может использоваться для завершения калибровки и сохранения текущего результата до достижения температуры `TARGET`. Эта команда доступна только во время калибровки.
+
+#### ПРЕРВАТЬ
+
+`ABORT`: Прерывает процесс калибровки, отменяя текущие результаты. Эта команда доступна только во время калибровки дрейфа.
+
+### TEMPERATURE_PROBE_ENABLE
+
+`TEMPERATURE_PROBE_ENABLE ENABLE=[0|1]`: Устанавливает включение или выключение компенсации температурного дрейфа. Если ENABLE установлен в 0, компенсация дрейфа будет отключена, если установлен в 1 - включена.
+
 ### [tmcXXXX]
 
 Следующие команды доступны, если включен любой из разделов [tmcXXXX config](Config_Reference.md#tmc-stepper-driver-configuration).
@@ -848,27 +903,3 @@ Klipper поддерживает следующие стандартные ко�
 #### Z_TILT_ADJUST
 
 `Z_TILT_ADJUST [RETRIES=<value>] [RETRY_TOLERANCE=<value>] [HORIZONTAL_MOVE_Z=<value>] [<probe_parameter>=<value>]`: This command will probe the points specified in the config and then make independent adjustments to each Z stepper to compensate for tilt. See the PROBE command for details on the optional probe parameters. The optional `RETRIES`, `RETRY_TOLERANCE`, and `HORIZONTAL_MOVE_Z` values override those options specified in the config file.
-
-### [temperature_probe]
-
-Следующие команды доступны, если включен раздел [temperature_probe config](Config_Reference.md#temperature_probe).
-
-#### TEMPERATURE_PROBE_CALIBRATE
-
-`TEMPERATURE_PROBE_CALIBRATE [PROBE=<имя зонда>] [TARGET=<значение>] [STEP=<значение>]`: Запускает калибровку дрейфа зонда для зондов на основе вихревых токов. Параметр `TARGET` - это целевая температура для последнего образца. Когда температура, зарегистрированная во время пробы, превысит `TARGET`, калибровка будет завершена. Параметр `STEP` задает дельту температуры (в C) между пробами. После взятия пробы эта дельта используется для планирования вызова `TEMPERATURE_PROBE_NEXT`. По умолчанию `STEP` равен 2.
-
-#### TEMPERATURE_PROBE_NEXT
-
-`TEMPERATURE_PROBE_NEXT`: После начала калибровки эта команда запускается для взятия следующего образца. Она автоматически запланирована на выполнение при достижении дельты, указанной в `STEP`, однако ее можно выполнить и вручную, чтобы заставить взять новый образец. Эта команда доступна только во время калибровки.
-
-#### TEMPERATURE_PROBE_COMPLETE:
-
-`TEMPERATURE_PROBE_COMPLETE`: Может использоваться для завершения калибровки и сохранения текущего результата до достижения температуры `TARGET`. Эта команда доступна только во время калибровки.
-
-#### ПРЕРВАТЬ
-
-`ABORT`: Прерывает процесс калибровки, отменяя текущие результаты. Эта команда доступна только во время калибровки дрейфа.
-
-### TEMPERATURE_PROBE_ENABLE
-
-`TEMPERATURE_PROBE_ENABLE ENABLE=[0|1]`: Устанавливает включение или выключение компенсации температурного дрейфа. Если ENABLE установлен в 0, компенсация дрейфа будет отключена, если установлен в 1 - включена.

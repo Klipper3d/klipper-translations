@@ -64,3 +64,4 @@
 - [TSL1401CL 耗材线径传感器](TSL1401CL_Filament_Width_Sensor.md)
 - [霍尔耗材宽度传感器](Hall_Filament_Width_Sensor.md)
 - [Eddy 涡流感应探针](Eddy_Probe.md)
+- [Load Cells](Load_Cell.md)

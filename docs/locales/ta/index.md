@@ -8,8 +8,8 @@
 
 !
 
-கிளிப்பர் ஒரு 3D-பிரிண்டர் ஃபார்ம்வேர். இது ஒரு பொது நோக்கம் கணினியின் சக்தியை ஒன்று அல்லது அதற்கு மேற்பட்ட மைக்ரோ-கன்ட்ரோலர்களுடன் ஒருங்கிணைக்கிறது. நீங்கள் ஏன் கிளிப்பரைப் பயன்படுத்த வேண்டும் என்பது பற்றிய கூடுதல் தகவலுக்கு [அம்சங்கள்] (அம்சங்கள். எம்.டி) ஆவணத்தைப் பார்க்கவும்.
+The Klipper firmware controls 3d-Printers. It combines the power of a general purpose computer with one or more micro-controllers. See the [features document](https://www.klipper3d.org/Features.html) for more information on why you should use the Klipper software.
 
-[நிறுவுதல்] (Installation.md) மூலம் கிளிப்பர் தொடக்கத்தைப் பயன்படுத்தத் தொடங்க.
+Start by [installing Klipper software](https://www.klipper3d.org/Installation.html).
 
-கிளிப்பர் இலவச மென்பொருள். [ஆவணம்] (கண்ணோட்டம். எம்.டி) படிக்கவும் அல்லது [Github இல் உள்ள கிளிப்பர் குறியீட்டைக் காண்க] (https://github.com/klipper3d/klipper). எங்கள் [ச்பான்சர்கள்] (ச்பான்சர்கள். எம்.டி) இன் தாராள ஆதரவைப் பொறுத்தது.
+Klipper software is Free Software. Read the [documentation](https://www.klipper3d.org/Overview.html), see the [license](COPYING), or [download](https://github.com/Klipper3d/Klipper) the software. We depend on the generous support from our [sponsors](https://www.klipper3d.org/Sponsors.html).

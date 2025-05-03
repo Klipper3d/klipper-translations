@@ -74,8 +74,10 @@ Klipper є відкритим програмним забезпеченням і
 
 Нові внески (для обох кодів і документації) подаються через Github Pull запитів. Дивитися [CONTRIBUTING документ](CONTRIBUTING.md) за важливу інформацію.
 
-Є кілька [документи для розробників](Overview.md#developer-documentation). Якщо у вас є питання щодо коду, то ви також можете звернутися в [Кліпперський форум спільноти](#community-forum) або на [Klipper Community Discord](#discord-chat).
+There are several [documents for developers](Overview.md#developer-documentation). If you have questions on the code then you can also ask in the [Klipper Discourse Forum](#discourse-forum) or on the [Klipper Discord Chat](#discord-chat).
 
-## Клиппер github
+## Professional Services
 
-Кліпперовий github може бути використаний для того, щоб поділитися статусом їх роботи для поліпшення Klipper. Очікується, що людина, що відкриває квиток github, активно працює над поставленим завданням, і буде одним виконанням всіх робіт, необхідних для її виконання. Кліпперовий github не використовується для запитань, ані для повідомлення помилок, ані для запитань. Використовуйте [Klipper Community Forum](#community-forum) або [Klipper Community Discord](#discord-chat) замість.
+![](img/klipper-logo-small.png)
+
+Custom software development, software support, and solutions: <https://ko-fi.com/koconnor>

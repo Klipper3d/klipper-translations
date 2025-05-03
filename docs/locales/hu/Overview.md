@@ -64,3 +64,4 @@
 - [TSL1401CL szálszélesség érzékelő](TSL1401CL_Filament_Width_Sensor.md)
 - [Hall szálszélesség érzékelő](Hall_Filament_Width_Sensor.md)
 - [Örvényáramú induktív szonda](Eddy_Probe.md)
+- [Load Cells](Load_Cell.md)

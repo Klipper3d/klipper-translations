@@ -1527,6 +1527,25 @@ cs_pin:
 #      meraní.
 ```
 
+### [icm20948]
+
+Support for icm20948 accelerometers.
+
+```
+[icm20948]
+#i2c_address:
+#   Default is 104 (0x68). If AD0 is high, it would be 0x69 instead.
+#i2c_mcu:
+#i2c_bus:
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
+#i2c_speed: 400000
+#   See the "common I2C settings" section for a description of the
+#   above parameters. The default "i2c_speed" is 400000.
+#axes_map: x, y, z
+#   See the "adxl345" section for information on this parameter.
+```
+
 ### [lis2dw]
 
 Support for LIS2DW accelerometers.
@@ -1888,6 +1907,9 @@ Support for eddy current inductive probes. One may define this section (instead 
 sensor_type: ldc1612
 #   The sensor chip used to perform eddy current measurements. This
 #   parameter must be provided and must be set to ldc1612.
+#frequency:
+#   The external crystal frequency (in Hz) of the LDC1612 chip.
+#   The default is 12000000.
 #intb_pin:
 #   MCU gpio pin connected to the ldc1612 sensor's INTB pin (if
 #   available). The default is to not use the INTB pin.
@@ -2955,24 +2977,28 @@ Vykonajte gcode, keď je stlačené alebo uvoľnené tlačidlo (alebo keď kolí
 
 ```
 [gcode_button my_gcode_button]
-pripnúť:
-# Pin, na ktorom je tlačidlo pripojené. Tento parameter musí byť
-# poskytnuté.
+pin:
+#   The pin on which the button is connected. This parameter must be
+#   provided.
 #analog_range:
-# Dva čiarkami oddelené odpory (v ohmoch) určujúce minimum
-# a maximálny rozsah odporu pre tlačidlo. Ak je analógový_rozsah
-# za predpokladu, že kolík musí byť analógový. Predvolená hodnota
-# je použitie digitálneho gpio pre tlačidlo.
+#   Two comma separated resistances (in Ohms) specifying the minimum
+#   and maximum resistance range for the button. If analog_range is
+#   provided then the pin must be an analog capable pin. The default
+#   is to use digital gpio for the button.
 #analog_pullup_resistor:
-# Pullup odpor (v ohmoch), keď je špecifikovaný analog_range.
-# Predvolená hodnota je 4700 ohmov.
+#   The pullup resistance (in Ohms) when analog_range is specified.
+#   The default is 4700 ohms.
 #press_gcode:
-# Zoznam príkazov G-kódu, ktoré sa majú vykonať po stlačení tlačidla.
-# Šablóny G-Code sú podporované. Tento parameter je potrebné zadať.
+#   A list of G-Code commands to execute when the button is pressed.
+#   G-Code templates are supported. This parameter must be provided.
 #release_gcode:
-# Zoznam príkazov G-kódu, ktoré sa majú vykonať po uvoľnení tlačidla.
-# Šablóny G-Code sú podporované. Predvolená hodnota je nespúšťať žiadne
-# príkazov pri uvoľnení tlačidla.
+#   A list of G-Code commands to execute when the button is released.
+#   G-Code templates are supported. The default is to not run any
+#   commands on a button release.
+#debounce_delay:
+#   A period of time in seconds to debounce events prior to running the
+#   button gcode. If the button is pressed and released during this
+#   delay, the entire button press is ignored. Default is 0.
 ```
 
 ### [output_pin]
@@ -3125,8 +3151,9 @@ run_current:
 #stealthchop_threshold: 0
 #   The velocity (in mm/s) to set the "stealthChop" threshold to. When
 #   set, "stealthChop" mode will be enabled if the stepper motor
-#   velocity is below this value. The default is 0, which disables
-#   "stealthChop" mode.
+#   velocity is below this value. Note that the "sensorless homing"
+#   code may temporarily override this setting during homing
+#   operations. The default is 0, which disables "stealthChop" mode.
 #coolstep_threshold:
 #   The velocity (in mm/s) to set the TMC driver internal "CoolStep"
 #   threshold to. If set, the coolstep feature will be enabled when
@@ -3175,6 +3202,7 @@ run_current:
 #driver_PWM_FREQ: 1
 #driver_PWM_GRAD: 4
 #driver_PWM_AMPL: 128
+#driver_FREEWHEEL: 0
 #driver_SGT: 0
 #driver_SEMIN: 0
 #driver_SEUP: 0
@@ -3235,8 +3263,9 @@ run_current:
 #stealthchop_threshold: 0
 #   The velocity (in mm/s) to set the "stealthChop" threshold to. When
 #   set, "stealthChop" mode will be enabled if the stepper motor
-#   velocity is below this value. The default is 0, which disables
-#   "stealthChop" mode.
+#   velocity is below this value. Note that the "sensorless homing"
+#   code may temporarily override this setting during homing
+#   operations. The default is 0, which disables "stealthChop" mode.
 #driver_MULTISTEP_FILT: True
 #driver_IHOLDDELAY: 8
 #driver_TPOWERDOWN: 20
@@ -3251,6 +3280,7 @@ run_current:
 #driver_PWM_FREQ: 1
 #driver_PWM_GRAD: 14
 #driver_PWM_OFS: 36
+#driver_FREEWHEEL: 0
 #   Set the given register during the configuration of the TMC2208
 #   chip. This may be used to set custom motor parameters. The
 #   defaults for each parameter are next to the parameter name in the
@@ -3297,6 +3327,7 @@ run_current:
 #driver_PWM_FREQ: 1
 #driver_PWM_GRAD: 14
 #driver_PWM_OFS: 36
+#driver_FREEWHEEL: 0
 #driver_SGTHRS: 0
 #driver_SEMIN: 0
 #driver_SEUP: 0
@@ -3429,8 +3460,9 @@ run_current:
 #stealthchop_threshold: 0
 #   The velocity (in mm/s) to set the "stealthChop" threshold to. When
 #   set, "stealthChop" mode will be enabled if the stepper motor
-#   velocity is below this value. The default is 0, which disables
-#   "stealthChop" mode.
+#   velocity is below this value. Note that the "sensorless homing"
+#   code may temporarily override this setting during homing
+#   operations. The default is 0, which disables "stealthChop" mode.
 #coolstep_threshold:
 #   The velocity (in mm/s) to set the TMC driver internal "CoolStep"
 #   threshold to. If set, the coolstep feature will be enabled when
@@ -3560,8 +3592,9 @@ run_current:
 #stealthchop_threshold: 0
 #   The velocity (in mm/s) to set the "stealthChop" threshold to. When
 #   set, "stealthChop" mode will be enabled if the stepper motor
-#   velocity is below this value. The default is 0, which disables
-#   "stealthChop" mode.
+#   velocity is below this value. Note that the "sensorless homing"
+#   code may temporarily override this setting during homing
+#   operations. The default is 0, which disables "stealthChop" mode.
 #coolstep_threshold:
 #   The velocity (in mm/s) to set the TMC driver internal "CoolStep"
 #   threshold to. If set, the coolstep feature will be enabled when
@@ -4224,33 +4257,38 @@ Senzor prepínača vlákna. Podpora pre detekciu vloženia vlákna a hádzania p
 
 ```
 [filament_switch_sensor my_sensor]
-#pause_on_runout: Pravda
-# Keď je nastavené na True, PAUSE sa spustí ihneď po vyčerpaní
-# je zistený. Všimnite si, že ak je pause_on_runout False a
-# runout_gcode je vynechaný, potom je detekcia runout zakázaná. Predvolené
-#   je pravda.
+#pause_on_runout: True
+#   When set to True, a PAUSE will execute immediately after a runout
+#   is detected. Note that if pause_on_runout is False and the
+#   runout_gcode is omitted then runout detection is disabled. Default
+#   is True.
 #runout_gcode:
-# Zoznam príkazov kódu G, ktoré sa majú vykonať po vyčerpaní vlákna
-# zistených. Formát G-kódu nájdete na stránke docs/Command_Templates.md. Ak
-# pause_on_runout je nastavené na True tento G-kód sa spustí po
-# PAUSE je dokončená. Štandardne sa nespúšťajú žiadne príkazy G-kódu.
+#   A list of G-Code commands to execute after a filament runout is
+#   detected. See docs/Command_Templates.md for G-Code format. If
+#   pause_on_runout is set to True this G-Code will run after the
+#   PAUSE is complete. The default is not to run any G-Code commands.
 #insert_gcode:
-# Zoznam príkazov kódu G, ktoré sa majú vykonať po vložení vlákna
-# zistených. Formát G-kódu nájdete na stránke docs/Command_Templates.md. The
-# predvolené je nespúšťať žiadne príkazy G-kódu, čo zakazuje vkladanie
-# detekcia.
+#   A list of G-Code commands to execute after a filament insert is
+#   detected. See docs/Command_Templates.md for G-Code format. The
+#   default is not to run any G-Code commands, which disables insert
+#   detection.
 #event_delay: 3.0
-# Minimálny čas v sekundách na oneskorenie medzi udalosťami.
-# Udalosti spustené počas tohto časového obdobia budú tiché
-# ignorované. Predvolená hodnota je 3 sekundy.
-#pause_delay: 0,5
-# Čas oneskorenia v sekundách medzi príkazom pauzy
-# odoslanie a vykonanie runout_gcode. Môže to byť užitočné
-# zvýšte toto oneskorenie, ak OctoPrint vykazuje zvláštne správanie pri pozastavení.
-# Predvolená hodnota je 0,5 sekundy.
+#   The minimum amount of time in seconds to delay between events.
+#   Events triggered during this time period will be silently
+#   ignored. The default is 3 seconds.
+#pause_delay: 0.5
+#   The amount of time to delay, in seconds, between the pause command
+#   dispatch and execution of the runout_gcode. It may be useful to
+#   increase this delay if OctoPrint exhibits strange pause behavior.
+#   Default is 0.5 seconds.
+#debounce_delay:
+#   A period of time in seconds to debounce events prior to running the
+#   switch gcode. The switch must he held in a single state for at least
+#   this long to activate. If the switch is toggled on/off during this delay,
+#   the event is ignored. Default is 0.
 #switch_pin:
-# Pin, na ktorom je pripojený spínač. Tento parameter musí byť
-# poskytnuté.
+#   The pin on which the switch is connected. This parameter must be
+#   provided.
 ```
 
 ### [filament_motion_sensor]
@@ -4357,6 +4395,16 @@ Load Cell. Uses an ADC sensor attached to a load cell to create a digital scale.
 [load_cell]
 sensor_type:
 #   This must be one of the supported sensor types, see below.
+#counts_per_gram:
+#   The floating point number of sensor counts that indicates 1 gram of force.
+#   This value is calculated by the LOAD_CELL_CALIBRATE command.
+#reference_tare_counts:
+#   The integer tare value, in raw sensor counts, taken when LOAD_CELL_CALIBRATE
+#   is run. This is the default tare value when klipper starts up.
+#sensor_orientation:
+#   Change the sensor's orientation. Can be either 'normal' or 'inverted'.
+#   The default is 'normal'. Use 'inverted' if the sensor reports a
+#   decreasing force value when placed under load.
 ```
 
 #### HX711
@@ -4525,6 +4573,44 @@ vssa_pin:
 #       hluk. Predvolená hodnota je 2 sekundy.
 ```
 
+### [ads1x1x]
+
+ADS1013, ADS1014, ADS1015, ADS1113, ADS1114 and ADS1115 are I2C based Analog to Digital Converters that can be used for temperature sensors. They provide 4 analog input pins either as single line or as differential input.
+
+Note: Use caution if using this sensor to control heaters. The heater min_temp and max_temp are only verified in the host and only if the host is running and operating normally. (ADC inputs directly connected to the micro-controller verify min_temp and max_temp within the micro-controller and do not require a working connection to the host.)
+
+```
+[ads1x1x my_ads1x1x]
+chip: ADS1115
+#pga: 4.096V
+#   Default value is 4.096V. The maximum voltage range used for the input. This
+#   scales all values read from the ADC. Options are: 6.144V, 4.096V, 2.048V,
+#   1.024V, 0.512V, 0.256V
+#adc_voltage: 3.3
+#   The suppy voltage for the device. This allows additional software scaling
+#   for all values read from the ADC.
+i2c_mcu: host
+i2c_bus: i2c.1
+#address_pin: GND
+#   Default value is GND.  There can be up to four addressed devices depending
+#   upon wiring of the device. Check the datasheet for details. The i2c_address
+#   can be specified directly instead of using the address_pin.
+```
+
+The chip provides pins that can be used on other sensors.
+
+```
+sensor_type: ...
+#   Can be any thermistor or adc_temperature.
+sensor_pin: my_ads1x1x:AIN0
+#   A combination of the name of the ads1x1x chip and the pin. Possible
+#   pin values are AIN0, AIN1, AIN2 and AIN3 for single ended lines and
+#   DIFF01, DIFF03, DIFF13 and DIFF23 for differential between their
+#   correspoding lines. For example
+#   DIFF03 measures the differential between line 0 and 3. Only specific
+#   combinations for the differentials are allowed.
+```
+
 ### [replicape]
 
 Podpora repliky – príklad nájdete v [príručke pre beaglebone](Beaglebone.md) a v súbore [generic-replicape.cfg](../config/generic-replicape.cfg).
@@ -4599,7 +4685,7 @@ This modules also requires `[virtual_sdcard]` and `[pause_resume]` for full func
 
 Ak použijete tento modul, nepoužívajte doplnok Palette 2 pre Octoprint, pretože budú v konflikte a modul 1 sa nepodarí správne inicializovať, čo pravdepodobne spôsobí prerušenie tlače.
 
-Ak používate Octoprint a streamujete gcode cez sériový port namiesto tlače z virtual_sd, potom remo **M1** a **M0** z *Pozastavenie príkazov* v *Nastavenia > Sériové pripojenie > Firmvér a protokol* zabráni potrebe na spustenie tlače na Palete 2 a zrušenie pozastavenia v Octoprint, aby sa mohla začať tlač.
+If you use Octoprint and stream gcode over the serial port instead of printing from virtual_sd, then remove **M1** and **M0** from *Pausing commands* in *Settings > Serial Connection > Firmware & protocol* will prevent the need to start print on the Palette 2 and unpausing in Octoprint for your print to begin.
 
 ```
 [palette2]

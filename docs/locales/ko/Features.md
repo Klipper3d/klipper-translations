@@ -23,18 +23,18 @@ Klipper는 다양한 표준 3D 프린터 기능을 지원합니다:
 * Standard G-Code support. Common g-code commands that are produced by typical "slicers" (SuperSlicer, Cura, PrusaSlicer, etc.) are supported.
 * 멀티 익스트루더를 지원합니다. 히터를 공유하는 익스트루더 방식 및 독립 캐리지 상의 익스트루더(IDEX) 방식도 지원됩니다.
 * Support for cartesian, delta, corexy, corexz, hybrid-corexy, hybrid-corexz, deltesian, rotary delta, polar, and cable winch style printers.
-* 오토 베드 레벨링 지원. Klipper는 기본적으로 베드 기울기 감지 또는 전체 메쉬 베드 레벨링을 위해 구성할 수 있습니다. 여러 개의 Z축 스테퍼 모터를 사용하는 경우 Klipper는 각각의 Z축 모터를 독립적으로 조작하여 수평을 맞출 수도 있습니다. BL-Touch 프로브 및 서보 활성화 프로브를 포함하여 대부분의 Z 높이 프로브가 지원됩니다.
+* Automatic bed leveling support. Klipper can be configured for basic bed tilt detection or full mesh bed leveling. The bed mesh can be customized to the print size (adaptive bed mesh). If the bed uses multiple Z steppers then Klipper can also level by independently manipulating the Z steppers. Most Z height probes are supported, including BL-Touch probes and servo activated probes. Probes may be calibrated for axis twist compensation. If using an "eddy current probe" then one can utilize fast bed mesh scanning,
 * 오토 델타 캘리브레이션 지원. 자동으로 델타 프린터의 높이 보정과 향상된 X 및 Y 치수 보정을 수행할 수 있습니다. 보정은 Z 높이 프로브 또는 수동 프로빙을 통해 수행할 수 있습니다.
 * Run-time "exclude object" support. When configured, this module may facilitate canceling of just one object in a multi-part print.
-* Support for common temperature sensors (eg, common thermistors, AD595, AD597, AD849x, PT100, PT1000, MAX6675, MAX31855, MAX31856, MAX31865, BME280, HTU21D, DS18B20, and LM75). Custom thermistors and custom analog temperature sensors can also be configured. One can monitor the internal micro-controller temperature sensor and the internal temperature sensor of a Raspberry Pi.
+* Support for common temperature sensors (eg, common thermistors, AD595, AD597, AD849x, PT100, PT1000, MAX6675, MAX31855, MAX31856, MAX31865, BME280, HTU21D, DS18B20, AHT10, SHT3x, and LM75). Custom thermistors and custom analog temperature sensors can also be configured. One can monitor the internal micro-controller temperature sensor and the internal temperature sensor of a Raspberry Pi.
 * 온도 안전장치 기본적으로 thermal protection 이 활성화되어 있습니다.
-* Support for standard fans, nozzle fans, and temperature controlled fans. No need to keep fans running when the printer is idle. Fan speed can be monitored on fans that have a tachometer.
+* Support for standard fans, nozzle fans, and temperature controlled fans. No need to keep fans running when the printer is idle. Fan speed can be monitored on fans that have a tachometer. One can assign a "math formula" to a fan for automatic fan speed updating.
 * Support for run-time configuration of TMC2130, TMC2208/TMC2224, TMC2209, TMC2660, and TMC5160 stepper motor drivers. There is also support for current control of traditional stepper drivers via AD5206, DAC084S085, MCP4451, MCP4728, MCP4018, and PWM pins.
 * 프린터에 직접 연결된 일반 LCD 디스플레이를 지원합니다. 기본 메뉴도 있습니다. 디스플레이 및 메뉴의 내용은 config 파일을 통해 완전히 사용자가 정의할 수 있습니다.
 * 일정한 가속 및 "look-ahead" 지원. 모든 프린터의 이동은 정지 상태에서 점차 가속되었다가 다시 정지 상태로 감속됩니다. 읽어들이는 gcode 는 순서대로 쌓이고 분석됩니다. 같은 방향으로 이동 할때는 가/감속을 하지 않고 인쇄 시간을 개선하기 위해 최적화됩니다.
 * 스테퍼 위상 엔드스톱 지원. Klipper는 일반적인 엔드스톱 스위치의 정확도를 향상시킬 수 있는 "스테퍼 위상 엔드스톱" 알고리즘을 구현합니다. 적절히 튜닝하면 첫 레이어 베드 접착력을 향상시킬 수 있습니다.
 * Support for filament presence sensors, filament motion sensors, and filament width sensors.
-* Support for measuring and recording acceleration using an adxl345, mpu9250, and mpu6050 accelerometers.
+* Support for measuring and recording acceleration using adxl345, mpu9250, mpu6050, lis2dw12, lis3dh, and icm20948 accelerometers.
 * 짧은 "지그재그" 이동의 최고 속도 제한을 지원하여 프린터 진동과 소음을 줄입니다. 자세한 내용은 [kinematics](Kinematics.md) 문서를 참조하십시오.
 * 다양한 프린터를 지원하기 위해 sample config 파일을 제공합니다. [config directory](../config/) 디렉토리를 확인하십시오.
 
@@ -57,15 +57,15 @@ Klipper를 시작하려면 [설치](Installation.md) 가이드를 읽으십시�
 | SAM4S8C | 1690K | 1385K |
 | LPC1768 | 1923K | 1351K |
 | LPC1769 | 2353K | 1622K |
-| RP2040 | 2400K | 1636K |
 | SAM4E8E | 2500K | 1674K |
 | SAMD51 | 3077K | 1885K |
 | AR100 | 3529K | 2507K |
 | STM32F407 | 3652K | 2459K |
 | STM32F446 | 3913K | 2634K |
+| RP2040 | 4000K | 2571K |
 | RP2350 | 4167K | 2663K |
 | SAME70 | 6667K | 4737K |
-| STM32H743 | 9091K | 6061K |
+| STM32H723 | 7429K | 8619K |
 
 If unsure of the micro-controller on a particular board, find the appropriate [config file](../config/), and look for the micro-controller name in the comments at the top of that file.
 

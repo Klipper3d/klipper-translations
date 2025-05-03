@@ -8,7 +8,7 @@ Pressure advance permet deux choses importantes - réduire le suintement pendant
 
 Pour régler le pressure advance, l'imprimante doit être configurée et en état de marche le test nécessitant une impression et une inspection de l'objet imprimé. Il est conseillé de lire ce document en intégralité avant de lancer les tests.
 
-Utilisez un trancheur pour générer le g-code du grand carré creux disponible dans [docs/prints/square_tower.stl](prints/square_tower.stl). Utilisez un vitesse rapide (ex 100mm/s), pas de remplissage et une hauteur de couche grossière (la hauteur de couche devrait être dans les 75% du diamètre de la buse). Pensez à désactiver toutes les contrôle d'"accélération dynamique" dans le trancheur.
+Use a slicer to generate g-code for the large hollow square found in [docs/prints/square_tower.stl](prints/square_tower.stl). Use a high speed (eg, 100mm/s), zero infill, and a coarse layer height (the layer height should be around 75% of the nozzle diameter). Make sure any "dynamic acceleration control" and "scarf joint" seams are disabled in the slicer.
 
 Préparez le test en exécutant la commande G-Code suivante :
 

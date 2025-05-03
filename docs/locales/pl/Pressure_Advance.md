@@ -8,7 +8,7 @@ Ciśnienie wyprzedzenia to dwie przydatne rzeczy - pierwsza zmniejsza wyciek pod
 
 Aby skalibrować wyprzedzenie ciśnienia, drukarka musi być skonfigurowana i sprawna, ponieważ dostrajanie obejmuje wydrukowanie i sprawdzenie obiektu testowego. Przed przystąpieniem do testu warto przeczytać cały ten dokument.
 
-Use a slicer to generate g-code for the large hollow square found in [docs/prints/square_tower.stl](prints/square_tower.stl). Use a high speed (eg, 100mm/s), zero infill, and a coarse layer height (the layer height should be around 75% of the nozzle diameter). Make sure any "dynamic acceleration control" is disabled in the slicer.
+Use a slicer to generate g-code for the large hollow square found in [docs/prints/square_tower.stl](prints/square_tower.stl). Use a high speed (eg, 100mm/s), zero infill, and a coarse layer height (the layer height should be around 75% of the nozzle diameter). Make sure any "dynamic acceleration control" and "scarf joint" seams are disabled in the slicer.
 
 Prepare for the test by issuing the following G-Code command:
 

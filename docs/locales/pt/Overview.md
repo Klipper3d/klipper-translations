@@ -64,3 +64,4 @@ Bem- vindo a documentação do Klipper, comece com os documentos [features](Feat
 - [Sensor de largura do filamento TSL1401CL](TSL1401CL_Filament_Width_Sensor.md)
 - [Sensor de largura do filamento Hall](Hall_Filament_Width_Sensor.md)
 - [Eddy Current Inductive probe](Eddy_Probe.md)
+- [Load Cells](Load_Cell.md)

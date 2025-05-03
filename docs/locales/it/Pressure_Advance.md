@@ -8,7 +8,7 @@ Pressure advance fa due cose utili: riduce le colature durante i movimenti senza
 
 Per calibrare la pressure advance, la stampante deve essere configurata e operativa poiché il test di ottimizzazione prevede la stampa e l'ispezione di un oggetto di prova. È una buona idea leggere questo documento per intero prima di eseguire il test.
 
-Usa uno slicer per generare il codice G per il grande cubo vuoto che si trova in [docs/prints/square_tower.stl](prints/square_tower.stl). Utilizzare una velocità elevata (ad es. 100 mm/s), riempimento zero e un'altezza dello strato grossolana (l'altezza dello strato dovrebbe essere circa il 75% del diametro dell'ugello). Assicurati che qualsiasi "controllo dinamico dell'accelerazione" sia disabilitato nello slicer.
+Use a slicer to generate g-code for the large hollow square found in [docs/prints/square_tower.stl](prints/square_tower.stl). Use a high speed (eg, 100mm/s), zero infill, and a coarse layer height (the layer height should be around 75% of the nozzle diameter). Make sure any "dynamic acceleration control" and "scarf joint" seams are disabled in the slicer.
 
 Prepararsi per il test emettendo il seguente comando G-Code:
 

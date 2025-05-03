@@ -216,22 +216,22 @@ JavaScript licenses API Веб-сайт Go1.13.8
 
 ### STM32H7 покрокова оцінка
 
-Далі конфігурація використовується на STM32H743VIT6:
+The following configuration sequence is used on STM32H723:
 
 ```
-сортувати_oids count=3
-config_stepper oid=0 step_pin=PD4 dir_pin=PD3 invert_step=-1 step_pulse_ticks=0
-config_stepper oid=1 step_pin=PA15 dir_pin=PA8 invert_step=-1 step_pulse_ticks=0
-config_stepper oid=2 step_pin=PE2 dir_pin=PE3 invert_step=-1 step_pulse_ticks=0
-JavaScript licenses API Веб-сайт Go1.13.8
+allocate_oids count=3
+config_stepper oid=0 step_pin=PA13 dir_pin=PB5 invert_step=-1 step_pulse_ticks=52
+config_stepper oid=1 step_pin=PB2 dir_pin=PB6 invert_step=-1 step_pulse_ticks=52
+config_stepper oid=2 step_pin=PB3 dir_pin=PB7 invert_step=-1 step_pulse_ticks=52
+finalize_config crc=0
 ```
 
-Тест був останній курс на комітування `00191b5c` з версією Gcc `arm-non-eabi-gcc (15:8-2019-q3-1+b1) 8.3.1 20190703 (випуск) [gcc-8-branch version 273027]`.
+The test was last run on commit `554ae78d` with gcc version `arm-none-eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0`.
 
-| стм32х7 | кліщі |
+| stm32h723 | кліщі |
 | --- | --- |
-| 1 крок | 44 |
-| 3 крок | 198 |
+| 1 крок | 70 |
+| 3 крок | 181 |
 
 ### STM32G0B1 покрокова оцінка
 
@@ -366,19 +366,19 @@ config_stepper oid=2 step_pin=gpio27 dir_pin=gpio5 invert_step=-1 step_pulse_tic
 javascript licenses api веб-сайт go1.13.8
 ```
 
-Тест востаннє запускався на коміті `f6718291` з версією gcc `arm-none-eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0` на платах Raspberry Pi Pico та Pico 2.
+The test was last run on commit `14c105b8` with gcc version `arm-none-eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0` on Raspberry Pi Pico and Pico 2 boards.
 
 | rp2040 (*) | кліщі |
 | --- | --- |
-| 1 крок | 5 |
-| 3 крок | 22 |
+| 1 крок | 3 |
+| 3 крок | 14 |
 
 | rp2350 | кліщі |
 | --- | --- |
 | 1 крок | 36 |
 | 3 крок | 169 |
 
-(*) Зверніть увагу, що зареєстровані такти rp2040 відносяться до таймера планування 12 МГц і не відповідають його швидкості внутрішньої обробки ARM 125 МГц. Очікується, що 5 тактів планування відповідає ~47 циклам ядра ARM, а 22 такти планування відповідають ~224 циклам ядра ARM.
+(*) Note that the reported rp2040 ticks are relative to a 12Mhz scheduling timer and do not correspond to its 200Mhz internal ARM processing rate. It is expected that 5 scheduling ticks corresponds to ~42 ARM core cycles and 14 scheduling ticks corresponds to ~225 ARM core cycles.
 
 ### Linux MCU покрокова оцінка
 

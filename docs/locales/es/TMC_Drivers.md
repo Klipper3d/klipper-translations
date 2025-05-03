@@ -32,6 +32,8 @@ Las pruebas que comparan los modos han mostrado un aumento del "retraso posicion
 
 Se recomienda utilizar siempre el modo "spreadCycle" (al no especificar `stealthchop_threshold`) o utilizar siempre el modo "stealthChop" (ajustando `stealthchop_threshold` a 999999). Desafortunadamente, los controladores a menudo producen resultados pobres y confusos si el modo cambia mientras el motor está a una velocidad distinta de cero.
 
+Note that the `stealthchop_threshold` config option does not impact sensorless homing as Klipper automatically switches the TMC driver to an appropriate mode during sensorless homing operations.
+
 ## El ajuste interpolación del controlador TMC introduce una pequeña desviación de posición
 
 El ajuste "interpolación" (`interpolate` en inglés) del controlador TMC puede reducir el ruido audible creado por el movimiento de la impresora a costa de introducir un pequeño error de posición sistémico. Este error posicional sistémico es el resultado del retraso del controlador en ejecutar los "pasos" que Klipper le envía. Durante los movimientos de velocidad constante, este retraso da como resultado un error de posición de casi la mitad de un micropaso configurado (más precisamente, el error es la mitad de la distancia de un micropaso menos 1/512 parte de la distancia de un paso completo). Por ejemplo, en un eje con una distancia de rotación de 40 mm, 200 pasos por rotación y 16 micropasos, el error sistémico introducido durante los movimientos de velocidad constante es de ~ 0,006 mm.

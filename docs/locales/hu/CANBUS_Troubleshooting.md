@@ -17,12 +17,19 @@ Ellenőrizd, hogy a CAN-busz kábelezésén lévő összes csatlakozó és vezet
 
 A Klipper naplófájl másodpercenként egyszer jelent egy `Stats` sort, amikor a nyomtató aktív. Ezek a "Stats" sorok minden mikrokontroller esetében tartalmaznak egy `bytes_invalid` számlálót. Ennek a számlálónak nem szabad növekednie a nyomtató normál működése során (normális, hogy a számláló nem nulla az újraindítás után, és nem jelent gondot, ha a számláló havonta egyszer növekszik). Ha ez a számláló egy CAN-buszos mikrovezérlőn normál nyomtatás közben növekszik (néhány óránként vagy gyakrabban), akkor az súlyos problémára utal.
 
-A `bytes_invalid` növekedése egy CAN-busz kapcsolaton a CAN-buszon lévő átrendezett üzenetek tünete. Az újrarendezett üzeneteknek két ismert oka van:
+Incrementing `bytes_invalid` on a CAN bus connection is a symptom of reordered messages on the CAN bus. If seen, make sure to:
 
-1. Az USB CAN-adapterek népszerű candlight_firmware-jének régi verzióiban volt egy hiba, amely átrendezett üzeneteket okozhatott. Ha ilyen firmware-t futtató USB CAN adaptert használsz, akkor mindenképpen frissítsd a legújabb firmware-re, ha a `bytes_invalid` növekedését észleled.
-1. Néhány beágyazott eszközökhöz készült Linux kernelről ismert, hogy átrendezi a CAN-busz üzeneteket. Szükség lehet egy alternatív Linux kernel használatára, vagy olyan alternatív hardverek használatára, amelyek támogatják a mainstream Linux kerneleket, amelyek nem mutatják ezt a problémát.
+* Use a Linux kernel version 6.6.0 or later.
+* If using a USB-to-CANBUS adapter running candlelight firmware, use v2.0 or later of candleLight_fw.
+* If using Klipper's USB-to-CANBUS bridge mode, make sure the bridge node is flashed with Klipper v0.12.0 or later.
 
-Az átrendezett üzenetek súlyos problémát jelentenek, amelyet orvosolni kell. Ez instabil viselkedést eredményez, és zavaró hibákhoz vezethet a nyomtatás bármelyik részénél.
+Reordered messages is a severe problem that must be fixed. It will result in unstable behavior and can lead to confusing errors at any part of a print. An incrementing `bytes_invalid` is not caused by wiring or similar hardware issues and can only be fixed by identifying and updating the faulty software.
+
+Older versions of the Linux kernel had a bug in the gs_usb canbus driver code that could cause reordered canbus packets. The issue is thought to be fixed in [Linux commit 24bc41b4](https://github.com/torvalds/linux/commit/24bc41b4558347672a3db61009c339b1f5692169) which was released in v6.6.0. In some cases, older Linux versions may not show the problem (due to how hardware interrupts are configured), however if problems are seen the recommended solution is to upgrade to a newer kernel.
+
+Older versions of candlelight firmware could reorder canbus packets, and the issue is thought to be fixed in [candlelight_fw commit 8b3a7b45](https://github.com/candle-usb/candleLight_fw/commit/8b3a7b4565a3c9521b762b154c94c72c5acb2bcf).
+
+Older versions of Klipper's USB-to-CANBUS bridge code could incorrectly drop canbus messages. This is not as severe as reordering messages, but it should still be fixed. It is thought to be fixed with [Klipper PR #6175](https://github.com/Klipper3d/klipper/pull/6175).
 
 ## Használj megfelelő txqueuelen beállítást
 
@@ -43,6 +50,14 @@ Az aktuális várólista méretét a Linux `ip link show can0` parancs futtatás
 Nem ajánlott 128-nál lényegesen nagyobb `txqueuelen` értéket használni. Egy 1000000-ós frekvencián futó CAN-buszon egy CAN-csomag továbbítása általában körülbelül 120 másodpercig tart. Így egy 128 csomagból álló sor valószínűleg 15-20 ms-ig tart, amíg a sor kiürül. Egy lényegesen nagyobb várólista az üzenetek átfutási idejében túlzott kiugrásokat okozhat, ami helyrehozhatatlan hibákhoz vezethet. Másképp fogalmazva, a Klipper alkalmazás újraküldési rendszere robusztusabb, ha nem kell megvárnia, hogy a Linuxnak ki kelljen ürítenie egy túl nagy, esetleg elavult adatokat tartalmazó várólistát. Ez analóg a [bufferbloat](https://en.wikipedia.org/wiki/Bufferbloat) problémájával az internetes útválasztókon.
 
 Normál körülmények között a Klipper MCU-nként ~25 várólistahelyet használhat - jellemzően csak az újratovábbítások során használ több helyet. (Konkrétan, a Klipper gazdagép legfeljebb 192 bájtot küldhet minden Klipper MCU-nak, mielőtt nyugtát kapna az adott MCU-tól). Ha egy CAN-buszon 5 vagy több Klipper MCU van, akkor szükséges lehet a `txqueuelen` értéket a 128-as ajánlott érték fölé emelni. A fentiekhez hasonlóan azonban az új érték kiválasztásakor óvatosan kell eljárni, hogy elkerülhető legyen a túlzott körutazási késleltetés.
+
+## Use `canbus_query.py` only to identify nodes never previously seen
+
+It is only valid to use the [`canbus_query.py` tool](CANBUS.md#finding-the-canbus_uuid-for-new-micro-controllers) to identify micro-controllers that have never been previously identified. Once all nodes on a bus are identified, record the resulting uuids in the printer.cfg, and avoid running the tool unnecessarily.
+
+The tool is implemented using a low-level mechanism that can cause nodes to internally observe bus errors. These internal errors may result in communication interruptions and may result is some nodes disconnecting from the bus.
+
+It is not valid to use the tool to "ping" if a node is connected. Do not run the tool during an active print.
 
 ## Candump naplók beszerzése
 

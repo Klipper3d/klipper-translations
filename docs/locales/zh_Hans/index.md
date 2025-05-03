@@ -8,8 +8,8 @@ hide:
 
 ![](img/klipper-logo.png){ .center-image }
 
-Klipper一个将通用计算机的运算能力与一个或多个微控制器相结合的3D打印机固件。有关Klipper的优势，请参阅[功能](Features.md)文档。
+The Klipper firmware controls 3d-Printers. It combines the power of a general purpose computer with one or more micro-controllers. See the [features document](https://www.klipper3d.org/Features.html) for more information on why you should use the Klipper software.
 
-要开始使用 Klipper，请从[安装文档](Installation.md)开始阅读。
+Start by [installing Klipper software](https://www.klipper3d.org/Installation.html).
 
-Klipper是自由软件。阅读[文档](Overview.md)或查看[GitHub上的Klipper代码](https://github.com/Klipper3d/klipper)。我们依赖我们[赞助商](Sponsors.md)的慷慨支持。
+Klipper software is Free Software. Read the [documentation](https://www.klipper3d.org/Overview.html), see the [license](COPYING), or [download](https://github.com/Klipper3d/Klipper) the software. We depend on the generous support from our [sponsors](https://www.klipper3d.org/Sponsors.html).

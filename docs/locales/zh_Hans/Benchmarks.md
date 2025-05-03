@@ -216,22 +216,22 @@ finalize_config crc=0
 
 ### STM32H7 步进率基准测试
 
-在STM32H743VIT6上使用以下配置序列：
+The following configuration sequence is used on STM32H723:
 
 ```
 allocate_oids count=3
-config_stepper oid=0 step_pin=PD4 dir_pin=PD3 invert_step=-1 step_pulse_ticks=0
-config_stepper oid=1 step_pin=PA15 dir_pin=PA8 invert_step=-1 step_pulse_ticks=0
-config_stepper oid=2 step_pin=PE2 dir_pin=PE3 invert_step=-1 step_pulse_ticks=0
+config_stepper oid=0 step_pin=PA13 dir_pin=PB5 invert_step=-1 step_pulse_ticks=52
+config_stepper oid=1 step_pin=PB2 dir_pin=PB6 invert_step=-1 step_pulse_ticks=52
+config_stepper oid=2 step_pin=PB3 dir_pin=PB7 invert_step=-1 step_pulse_ticks=52
 finalize_config crc=0
 ```
 
-该测试最后一次运行基于提交 `00191b5c`，gcc 版本为 `arm-none-eabi-gcc (15:8-2019-q3-1+b1) 8.3.1 20190703 (release) [gcc-8-branch revision 273027]`。
+The test was last run on commit `554ae78d` with gcc version `arm-none-eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0`.
 
-| stm32h7 | ticks |
+| stm32h723 | ticks |
 | --- | --- |
-| 1个步进电机 | 44 |
-| 3个步进电机 | 198 |
+| 1个步进电机 | 70 |
+| 3个步进电机 | 181 |
 
 ### STM32G0B1 步速率基准测试
 
@@ -366,19 +366,19 @@ config_stepper oid=2 step_pin=gpio27 dir_pin=gpio5 invert_step=-1 step_pulse_tic
 finalize_config crc=0
 ```
 
-The test was last run on commit `f6718291` with gcc version `arm-none-eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0` on Raspberry Pi Pico and Pico 2 boards.
+The test was last run on commit `14c105b8` with gcc version `arm-none-eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0` on Raspberry Pi Pico and Pico 2 boards.
 
 | rp2040 (*) | ticks |
 | --- | --- |
-| 1个步进电机 | 5 |
-| 3个步进电机 | 22 |
+| 1个步进电机 | 3 |
+| 3个步进电机 | 14 |
 
 | rp2350 | ticks |
 | --- | --- |
 | 1个步进电机 | 36 |
 | 3个步进电机 | 169 |
 
-(*) Note that the reported rp2040 ticks are relative to a 12Mhz scheduling timer and do not correspond to its 125Mhz internal ARM processing rate. It is expected that 5 scheduling ticks corresponds to ~47 ARM core cycles and 22 scheduling ticks corresponds to ~224 ARM core cycles.
+(*) Note that the reported rp2040 ticks are relative to a 12Mhz scheduling timer and do not correspond to its 200Mhz internal ARM processing rate. It is expected that 5 scheduling ticks corresponds to ~42 ARM core cycles and 14 scheduling ticks corresponds to ~225 ARM core cycles.
 
 ### Linux MCU 步速率基准测试
 

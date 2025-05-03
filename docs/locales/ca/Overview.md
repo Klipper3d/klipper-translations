@@ -64,3 +64,4 @@ Benvingut a la documentació de Klipper. Si ets nou a Klipper, comença llegint 
 - [Sensor d'amplada del filament TSL1401CL](TSL1401CL_Filament_Width_Sensor.md)
 - [Sensor d'efecte Hall d'amplada de filament](Hall_Filament_Width_Sensor.md)
 - [Eddy Current Inductive probe](Eddy_Probe.md)
+- [Load Cells](Load_Cell.md)

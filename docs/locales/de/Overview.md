@@ -64,3 +64,4 @@ Willkommen auf der Klipper-Dokumentationsseite! Wenn Klipper für dich neu ist, 
 - [TSL1401CL Filamentbreitensensor](TSL1401CL_Filament_Width_Sensor.md)
 - [Hall-Effekt Filamentbreitensensor](Hall_Filament_Width_Sensor.md)
 - [Induktive Wirbelstromsonde](Eddy_Probe.md)
+- [Load Cells](Load_Cell.md)

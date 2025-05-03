@@ -19,12 +19,23 @@ Le seguenti informazioni sono disponibili in [bed_mesh](Config_Reference.md#bed_
 
 ## bed_screws
 
-Le seguenti informazioni sono disponibili nell'oggetto `Config_Reference.md#bed_screws`:
+The following information is available in the [bed_screws](Config_Reference.md#bed_screws) object:
 
 - `is_active`: Restituisce True se lo strumento di regolazione delle viti del letto è attualmente attivo.
 - `state`: lo stato dello strumento di regolazione delle viti del piatto. È una delle seguenti stringhe: "adjust", "fine".
 - `current_screw`: l'indice per la vite corrente in corso di regolazione.
 - `accepted_screws`: il numero di viti accettate.
+
+## canbus_stats
+
+The following information is available in the `canbus_stats some_mcu_name` object (this object is automatically available if an mcu is configured to use canbus):
+
+- `rx_error`: The number of receive errors detected by the micro-controller canbus hardware.
+- `tx_error`: The number of transmit errors detected by the micro-controller canbus hardware.
+- `tx_retries`: The number of transmit attempts that were retried due to bus contention or errors.
+- `bus_state`: The status of the interface (typically "active" for a bus in normal operation, "warn" for a bus with recent errors, "passive" for a bus that will no longer transmit canbus error frames, or "off" for a bus that will no longer transmit or receive messages).
+
+Note that only the rp2XXX micro-controllers report a non-zero `tx_retries` field and the rp2XXX micro-controllers always report `tx_error` as zero and `bus_state` as "active".
 
 ## configfile
 
@@ -151,6 +162,7 @@ Le seguenti informazioni sono disponibili nell'oggetto `gcode_move` (questo ogge
 
 Le seguenti informazioni sono disponibili nell'oggetto [hall_filament_width_sensor](Config_Reference.md#hall_filament_width_sensor):
 
+- all items from [filament_switch_sensor](Status_Reference.md#filament_switch_sensor)
 - `is_active`: Restituisce True se il sensore è attualmente attivo.
 - `Diameter`: l'ultima lettura dal sensore in mm.
 - `Raw`: l'ultima lettura grezza dell'ADC dal sensore.
@@ -184,6 +196,18 @@ Le seguenti informazioni sono disponibili nell'oggetto [idle_timeout](Config_Ref
 Le seguenti informazioni sono disponibili per ogni sezione di configurazione `[led led_name]`, `[neopixel led_name]`, `[dotstar led_name]`, `[pca9533 led_name]` e `[pca9632 led_name]` definita in printer.cfg:
 
 - `color_data`: un elenco di lista di colori contenenti i valori RGBW per ogni led nella catena. Ogni valore è rappresentato come un float da 0,0 a 1,0. Ciascuna lista di colori contiene 4 voci (rosso, verde, blu, bianco) anche se il LED sottostante supporta meno canali di colore. Ad esempio, è possibile accedere al valore blu (3° elemento nell'elenco dei colori) del secondo neopixel in una catena in `printer["neopixel <config_name>"].color_data[1][2]`.
+
+## load_cell
+
+The following information is available for each `[load_cell name]`:
+
+- 'is_calibrated': True/False is the load cell calibrated
+- 'counts_per_gram': The number of raw sensor counts that equals 1 gram of force
+- 'reference_tare_counts': The reference number of raw sensor counts for 0 force
+- 'tare_counts': The current number of raw sensor counts for 0 force
+- 'force_g': The force in grams, averaged over the last polling period.
+- 'min_force_g': The minimum force in grams, over the last polling period.
+- 'max_force_g': The maximum force in grams, over the last polling period.
 
 ## manual_probe
 
@@ -282,6 +306,12 @@ Le seguenti informazioni sono disponibili nell'oggetto `screws_tilt_adjust`:
 Le seguenti informazioni sono disponibili negli oggetti [servo some_name](Config_Reference.md#servo):
 
 - `printer["servo <config_name>"].value`: l'ultima impostazione del pin PWM (un valore compreso tra 0.0 e 1.0) associata al servo.
+
+## skew_correction.py
+
+The following information is available in the `skew_correction` object (this object is available if any skew_correction is defined):
+
+- `current_profile_name`: Returns the name of the currently loaded SKEW_PROFILE.
 
 ## stepper_enable
 

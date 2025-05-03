@@ -8,8 +8,8 @@ hide:
 
 ![](img/klipper-logo.png){ .center-image }
 
-Klipper er 3D-skriverfastvare. Det kombinerer kraften av en generell datamaskin med én eller flere mikrokontrollere. Sjekk [funksjoner](Features.md)-dokumenter for mer info om hvorfor du bør bruke Klipper.
+The Klipper firmware controls 3d-Printers. It combines the power of a general purpose computer with one or more micro-controllers. See the [features document](https://www.klipper3d.org/Features.html) for more information on why you should use the Klipper software.
 
-For å begynne å bruke Klipper kan du begynne med [installasjonen](installasjonen.md) av det.
+Start by [installing Klipper software](https://www.klipper3d.org/Installation.html).
 
-Killer er fri programvare. Les [dokumentasjonen](Overview.md) eller se [Klipper-kildekoden på github](https://github.com/Klipper3d/klipper). Vi er avhengig av generøs støtte fra våre [sponsorer](Sponsors.md).
+Klipper software is Free Software. Read the [documentation](https://www.klipper3d.org/Overview.html), see the [license](COPYING), or [download](https://github.com/Klipper3d/Klipper) the software. We depend on the generous support from our [sponsors](https://www.klipper3d.org/Sponsors.html).

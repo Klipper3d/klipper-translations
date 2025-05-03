@@ -92,12 +92,11 @@ section](Config_Reference.md#axis_twist_compensation) is enabled.
 
 #### AXIS_TWIST_COMPENSATION_CALIBRATE
 
-`AXIS_TWIST_COMPENSATION_CALIBRATE [AXIS=<X|Y>] [AUTO=<True|False>] [SAMPLE_COUNT=<value>]`
+`AXIS_TWIST_COMPENSATION_CALIBRATE [AXIS=<X|Y>] [SAMPLE_COUNT=<value>]`
 
 Calibrates axis twist compensation by specifying the target axis or enabling automatic calibration.
 
 - **AXIS:** Define the axis (`X` or `Y`) for which the twist compensation will be calibrated. If not specified, the axis defaults to `'X'`.
-- **AUTO:** Enables automatic calibration mode. When `AUTO=True`, the calibration will run for both the X and Y axes. In this mode, `AXIS` cannot be specified. If both `AXIS` and `AUTO` are provided, an error will be raised.
 
 ### [bed_mesh]
 
@@ -335,7 +334,13 @@ The force_move module is automatically loaded, however some commands require set
 
 #### SET_KINEMATIC_POSITION
 
-`SET_KINEMATIC_POSITION [X=<value>] [Y=<value>] [Z=<value>] [CLEAR=<[X][Y][Z]>]`: Force the low-level kinematic code to believe the toolhead is at the given cartesian position. This is a diagnostic and debugging command; use SET_GCODE_OFFSET and/or G92 for regular axis transformations. If an axis is not specified then it will default to the position that the head was last commanded to. Setting an incorrect or invalid position may lead to internal software errors. Use the CLEAR parameter to forget the homing state for the given axes. Note that CLEAR will not override the previous functionality; if an axis is not specified to CLEAR it will have its kinematic position set as per above. This command may invalidate future boundary checks; issue a G28 afterwards to reset the kinematics.
+`SET_KINEMATIC_POSITION [X=<value>] [Y=<value>] [Z=<value>] [SET_HOMED=<[X][Y][Z]>] [CLEAR_HOMED=<[X][Y][Z]>]`: Force the low-level kinematic code to believe the toolhead is at the given cartesian position and set/clear homed status. This is a diagnostic and debugging command; use SET_GCODE_OFFSET and/or G92 for regular axis transformations. Setting an incorrect or invalid position may lead to internal software errors.
+
+The `X`, `Y`, and `Z` parameters are used to alter the low-level kinematic position tracking. If any of these parameters are not set then the position is not changed - for example `SET_KINEMATIC_POSITION Z=10` would set all axes as homed, set the internal Z position to 10, and leave the X and Y positions unchanged. Changing the internal position tracking is not dependent on the internal homing state - one may alter the position for both homed and not homed axes, and similarly one may set or clear the homing state of an axis without altering its internal position.
+
+The `SET_HOMED` parameter defaults to `XYZ` which instructs the kinematics to consider all axes as homed. A bare `SET_KINEMATIC_POSITION` command will result in all axes being considered homed (and not change its current position). If it is not desired to change the state of homed axes then assign `SET_HOMED` to an empty string - for example: `SET_KINEMATIC_POSITION SET_HOMED= X=10`. It is also possible to request an individual axis be considered homed (eg, `SET_HOMED=X`), but note that non-cartesian style kinematics (such as delta kinematics) may not support setting an individual axis as homed.
+
+The `CLEAR_HOMED` parameter instructs the kinematics to consider the given axes as not homed. For example, `CLEAR_HOMED=XYZ` would request all axes to be considered not homed (and thus require homing prior to movement on those axes). The default is `SET_HOMED=XYZ` even if `CLEAR_HOMED` is present, so the command `SET_KINEMATIC_POSITION CLEAR_HOMED=Z` will set X and Y as homed and clear the homing state for Z. Use `SET_KINEMATIC_POSITION SET_HOMED= CLEAR_HOMED=Z` if the goal is to clear only the Z homing state. If an axis is specified in neither `SET_HOMED` nor `CLEAR_HOMED` then its homing state is not changed and if it is specified in both then `CLEAR_HOMED` has precedence. It is possible to request clearing of an individual axis, but on non-cartesian style kinematics (such as delta kinematics) doing so may result in clearing the homing state of additional axes. Note the `CLEAR` parameter is currently an alias for the `CLEAR_HOMED` parameter, but this alias will be removed in the future.
 
 ### [gcode]
 
@@ -456,6 +461,44 @@ The force_move module is automatically loaded, however some commands require set
 
 `SET_INPUT_SHAPER [SHAPER_FREQ_X=<shaper_freq_x>] [SHAPER_FREQ_Y=<shaper_freq_y>] [DAMPING_RATIO_X=<damping_ratio_x>] [DAMPING_RATIO_Y=<damping_ratio_y>] [SHAPER_TYPE=<shaper>] [SHAPER_TYPE_X=<shaper_type_x>] [SHAPER_TYPE_Y=<shaper_type_y>]`：修改輸入整形參數。注意 SHAPER_TYPE 參數會同時覆寫 X 和 Y 軸的整形器型別，即使它們在 [input_shaper] 配置分段中有不同的整形器型別。SHAPER_TYPE 不能和 SHAPER_TYPE_X 和 SHAPER_TYPE_Y 參數同時使用。這些參數的細節請見[配置參考](Config_Reference.md#input_shaper)。
 
+### [led]
+
+The following command is available when any of the [led config sections](Config_Reference.md#leds) are enabled.
+
+#### SET_LED
+
+`SET_LED LED=<config_name> RED=<value> GREEN=<value> BLUE=<value> WHITE=<value> [INDEX=<index>] [TRANSMIT=0] [SYNC=1]`: This sets the LED output. Each color `<value>` must be between 0.0 and 1.0. The WHITE option is only valid on RGBW LEDs. If the LED supports multiple chips in a daisy-chain then one may specify INDEX to alter the color of just the given chip (1 for the first chip, 2 for the second, etc.). If INDEX is not provided then all LEDs in the daisy-chain will be set to the provided color. If TRANSMIT=0 is specified then the color change will only be made on the next SET_LED command that does not specify TRANSMIT=0; this may be useful in combination with the INDEX parameter to batch multiple updates in a daisy-chain. By default, the SET_LED command will sync it's changes with other ongoing gcode commands. This can lead to undesirable behavior if LEDs are being set while the printer is not printing as it will reset the idle timeout. If careful timing is not needed, the optional SYNC=0 parameter can be specified to apply the changes without resetting the idle timeout.
+
+#### SET_LED_TEMPLATE
+
+`SET_LED_TEMPLATE LED=<led_name> TEMPLATE=<template_name> [<param_x>=<literal>] [INDEX=<index>]`: Assign a [display_template](Config_Reference.md#display_template) to a given [LED](Config_Reference.md#leds). For example, if one defined a `[display_template my_led_template]` config section then one could assign `TEMPLATE=my_led_template` here. The display_template should produce a comma separated string containing four floating point numbers corresponding to red, green, blue, and white color settings. The template will be continuously evaluated and the LED will be automatically set to the resulting colors. One may set display_template parameters to use during template evaluation (parameters will be parsed as Python literals). If INDEX is not specified then all chips in the LED's daisy-chain will be set to the template, otherwise only the chip with the given index will be updated. If TEMPLATE is an empty string then this command will clear any previous template assigned to the LED (one can then use `SET_LED` commands to manage the LED's color settings).
+
+### [load_cell]
+
+The following commands are enabled if a [load_cell config section](Config_Reference.md#load_cell) has been enabled.
+
+### LOAD_CELL_DIAGNOSTIC
+
+`LOAD_CELL_DIAGNOSTIC [LOAD_CELL=<config_name>]`: This command collects 10 seconds of load cell data and reports statistics that can help you verify proper operation of the load cell. This command can be run on both calibrated and uncalibrated load cells.
+
+### LOAD_CELL_CALIBRATE
+
+`LOAD_CELL_CALIBRATE [LOAD_CELL=<config_name>]`: Start the guided calibration utility. Calibration is a 3 step process:
+
+1. First you remove all load from the load cell and run the `TARE` command
+1. Next you apply a known load to the load cell and run the `CALIBRATE GRAMS=nnn` command
+1. Finally use the `ACCEPT` command to save the results
+
+You can cancel the calibration process at any time with `ABORT`.
+
+### LOAD_CELL_TARE
+
+`LOAD_CELL_TARE [LOAD_CELL=<config_name>]`: This works just like the tare button on digital scale. It sets the current raw reading of the load cell to be the zero point reference value. The response is the percentage of the sensors range that was read and the raw value in counts.
+
+### LOAD_CELL_READ load_cell="name"
+
+`LOAD_CELL_READ [LOAD_CELL=<config_name>]`: This command takes a reading from the load cell. The response is the percentage of the sensors range that was read and the raw value in counts. If the load cell is calibrated a force in grams is also reported.
+
 ### [manual_probe]
 
 模組manual_probe已自動載入.
@@ -491,18 +534,6 @@ The following command is available when a [mcp4018 config section](Config_Refere
 #### SET_DIGIPOT
 
 `SET_DIGIPOT DIGIPOT=config_name WIPER=<value>`: This command will change the current value of the digipot. This value should typically be between 0.0 and 1.0, unless a 'scale' is defined in the config. When 'scale' is defined, then this value should be between 0.0 and 'scale'.
-
-### [led]
-
-The following command is available when any of the [led config sections](Config_Reference.md#leds) are enabled.
-
-#### SET_LED
-
-`SET_LED LED=<config_name> RED=<value> GREEN=<value> BLUE=<value> WHITE=<value> [INDEX=<index>] [TRANSMIT=0] [SYNC=1]`: This sets the LED output. Each color `<value>` must be between 0.0 and 1.0. The WHITE option is only valid on RGBW LEDs. If the LED supports multiple chips in a daisy-chain then one may specify INDEX to alter the color of just the given chip (1 for the first chip, 2 for the second, etc.). If INDEX is not provided then all LEDs in the daisy-chain will be set to the provided color. If TRANSMIT=0 is specified then the color change will only be made on the next SET_LED command that does not specify TRANSMIT=0; this may be useful in combination with the INDEX parameter to batch multiple updates in a daisy-chain. By default, the SET_LED command will sync it's changes with other ongoing gcode commands. This can lead to undesirable behavior if LEDs are being set while the printer is not printing as it will reset the idle timeout. If careful timing is not needed, the optional SYNC=0 parameter can be specified to apply the changes without resetting the idle timeout.
-
-#### SET_LED_TEMPLATE
-
-`SET_LED_TEMPLATE LED=<led_name> TEMPLATE=<template_name> [<param_x>=<literal>] [INDEX=<index>]`: Assign a [display_template](Config_Reference.md#display_template) to a given [LED](Config_Reference.md#leds). For example, if one defined a `[display_template my_led_template]` config section then one could assign `TEMPLATE=my_led_template` here. The display_template should produce a comma separated string containing four floating point numbers corresponding to red, green, blue, and white color settings. The template will be continuously evaluated and the LED will be automatically set to the resulting colors. One may set display_template parameters to use during template evaluation (parameters will be parsed as Python literals). If INDEX is not specified then all chips in the LED's daisy-chain will be set to the template, otherwise only the chip with the given index will be updated. If TEMPLATE is an empty string then this command will clear any previous template assigned to the LED (one can then use `SET_LED` commands to manage the LED's color settings).
 
 ### [output_pin]
 
@@ -544,14 +575,6 @@ Palette列印通過在GCode檔案中嵌入特殊的OCodes（Omega Codes）來工
 
 `PALETTE_SMART_LOAD`：該命令在Palette 2上啟動智慧載入序列。通過在裝置上為印表機校準的距離擠壓，自動載入耗材，並在載入完成後指示Palette 2。該命令與耗材載入完成後直接在Palette 2螢幕上按**Smart Load**相同。
 
-### [pid_calibrate]
-
-如果在配置文件中定義了加熱器，則會自動載入 pid_calibrate 模塊。
-
-#### PID_CALIBRATE
-
-`PID_CALIBRATE HEATER=<config_name> TARGET=<temperature> [WRITE_FILE=1]`：執行一個PID校準測試。指定的加熱器將被啟用，直到達到指定的目標溫度，然後加熱器將被關閉和開啟幾個週期。如果WRITE_FILE參數被啟用，那麼將建立檔案/tmp/heattest.txt，其中包含測試期間所有溫度樣本的日誌。
-
 ### [pause_resume]
 
 當[pause_resume 配置分段](Config_Reference.md#pause_resume)被啟用時，以下命令可用：
@@ -571,6 +594,14 @@ Palette列印通過在GCode檔案中嵌入特殊的OCodes（Omega Codes）來工
 #### CANCEL_PRINT
 
 `CANCEL_PRINT`：取消目前的列印。
+
+### [pid_calibrate]
+
+如果在配置文件中定義了加熱器，則會自動載入 pid_calibrate 模塊。
+
+#### PID_CALIBRATE
+
+`PID_CALIBRATE HEATER=<config_name> TARGET=<temperature> [WRITE_FILE=1]`：執行一個PID校準測試。指定的加熱器將被啟用，直到達到指定的目標溫度，然後加熱器將被關閉和開啟幾個週期。如果WRITE_FILE參數被啟用，那麼將建立檔案/tmp/heattest.txt，其中包含測試期間所有溫度樣本的日誌。
 
 ### [print_stats]
 
@@ -689,7 +720,7 @@ The query_adc module is automatically loaded.
 
 #### SAVE_VARIABLE
 
-`SAVE_VARIABLE VARIABLE=<name> VALUE=<value>`：將變數儲存到磁碟，以便在重新啟動時使用。所有儲存的變數都會在啟動時載入到 `printer.save_variables.variables` 目錄中，並可以在 gcode 宏中使用。所提供的 VALUE 會被解析為一個 Python 字面。
+`SAVE_VARIABLE VARIABLE=<name> VALUE=<value>`: Saves the variable to disk so that it can be used across restarts. The VARIABLE must be lowercase. All stored variables are loaded into the `printer.save_variables.variables` dict at startup and can be used in gcode macros. The provided VALUE is parsed as a Python literal.
 
 ### [screws_tilt_adjust]
 
@@ -771,6 +802,30 @@ Several commands are available when a [smart_effector config section](Config_Ref
 
 `SET_TEMPERATURE_FAN_TARGET temperature_fan=<temperature_fan_名稱> [target=<目標溫度>] [min_speed=<最小速度>] [max_speed=<最大速度>]`：設定一個溫度控制風扇的目標溫度。如果沒有提供目標溫度，它將被設為配置檔案中定義的溫度。如果沒有提供速度，則不會進行任何更改。
 
+### [temperature_probe]
+
+The following commands are available when a [temperature_probe config section](Config_Reference.md#temperature_probe) is enabled.
+
+#### TEMPERATURE_PROBE_CALIBRATE
+
+`TEMPERATURE_PROBE_CALIBRATE [PROBE=<probe name>] [TARGET=<value>] [STEP=<value>]`: Initiates probe drift calibration for eddy current based probes. The `TARGET` is a target temperature for the last sample. When the temperature recorded during a sample exceeds the `TARGET` calibration will complete. The `STEP` parameter sets temperature delta (in C) between samples. After a sample has been taken, this delta is used to schedule a call to `TEMPERATURE_PROBE_NEXT`. The default `STEP` is 2.
+
+#### TEMPERATURE_PROBE_NEXT
+
+`TEMPERATURE_PROBE_NEXT`: After calibration has started this command is run to take the next sample. It is automatically scheduled to run when the delta specified by `STEP` has been reached, however its also possible to manually run this command to force a new sample. This command is only available during calibration.
+
+#### TEMPERATURE_PROBE_COMPLETE:
+
+`TEMPERATURE_PROBE_COMPLETE`: Can be used to end calibration and save the current result before the `TARGET` temperature is reached. This command is only available during calibration.
+
+#### ABORT
+
+`ABORT`: Aborts the calibration process, discarding the current results. This command is only available during drift calibration.
+
+### TEMPERATURE_PROBE_ENABLE
+
+`TEMPERATURE_PROBE_ENABLE ENABLE=[0|1]`: Sets temperature drift compensation on or off. If ENABLE is set to 0, drift compensation will be disabled, if set to 1 it is enabled.
+
 ### [tmcXXXX]
 
 當啟用任何 [tmcXXXX config sections](Config_Reference.md#tmc-stepper-driver-configuration) 時，以下命令可用。
@@ -848,27 +903,3 @@ The following commands are available when the [z_thermal_adjust config section](
 #### Z_TILT_ADJUST
 
 `Z_TILT_ADJUST [RETRIES=<value>] [RETRY_TOLERANCE=<value>] [HORIZONTAL_MOVE_Z=<value>] [<probe_parameter>=<value>]`: This command will probe the points specified in the config and then make independent adjustments to each Z stepper to compensate for tilt. See the PROBE command for details on the optional probe parameters. The optional `RETRIES`, `RETRY_TOLERANCE`, and `HORIZONTAL_MOVE_Z` values override those options specified in the config file.
-
-### [temperature_probe]
-
-The following commands are available when a [temperature_probe config section](Config_Reference.md#temperature_probe) is enabled.
-
-#### TEMPERATURE_PROBE_CALIBRATE
-
-`TEMPERATURE_PROBE_CALIBRATE [PROBE=<probe name>] [TARGET=<value>] [STEP=<value>]`: Initiates probe drift calibration for eddy current based probes. The `TARGET` is a target temperature for the last sample. When the temperature recorded during a sample exceeds the `TARGET` calibration will complete. The `STEP` parameter sets temperature delta (in C) between samples. After a sample has been taken, this delta is used to schedule a call to `TEMPERATURE_PROBE_NEXT`. The default `STEP` is 2.
-
-#### TEMPERATURE_PROBE_NEXT
-
-`TEMPERATURE_PROBE_NEXT`: After calibration has started this command is run to take the next sample. It is automatically scheduled to run when the delta specified by `STEP` has been reached, however its also possible to manually run this command to force a new sample. This command is only available during calibration.
-
-#### TEMPERATURE_PROBE_COMPLETE:
-
-`TEMPERATURE_PROBE_COMPLETE`: Can be used to end calibration and save the current result before the `TARGET` temperature is reached. This command is only available during calibration.
-
-#### ABORT
-
-`ABORT`: Aborts the calibration process, discarding the current results. This command is only available during drift calibration.
-
-### TEMPERATURE_PROBE_ENABLE
-
-`TEMPERATURE_PROBE_ENABLE ENABLE=[0|1]`: Sets temperature drift compensation on or off. If ENABLE is set to 0, drift compensation will be disabled, if set to 1 it is enabled.

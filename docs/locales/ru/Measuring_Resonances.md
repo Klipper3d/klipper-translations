@@ -6,7 +6,7 @@ Klipper has built-in support for the ADXL345, MPU-9250, LIS2DW and LIS3DH compat
 
 For ADXL345s, make sure that the board supports SPI mode (a small number of boards appear to be hard-configured for I2C by pulling SDO to GND).
 
-For MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500s and LIS2DW/LIS3DH there are also a variety of board designs and clones with different I2C pull-up resistors which will need supplementing.
+For MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500/ICM20948s and LIS2DW/LIS3DH there are also a variety of board designs and clones with different I2C pull-up resistors which will need supplementing.
 
 ## MCU с поддержкой *быстрого режима* I2C от Klipper
 
@@ -106,7 +106,7 @@ GND+SCL
 
 Обратите внимание, что в отличие от экрана кабеля, любые GND(ы) должны быть подключены с обоих концов.
 
-#### MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500
+#### MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500/ICM20948
 
 Эти акселерометры протестированы на работу по протоколу I2C на RPi, RP2040 (Pico) и AVR со скоростью 400 кбит/с (*быстрый режим*). Некоторые модули акселерометров MPU включают подтягивающие резисторы, но некоторые из них слишком велики - 10K, и их необходимо заменить или дополнить меньшими параллельными резисторами.
 
@@ -300,6 +300,8 @@ probe_points:
     100, 100, 20 # пример
 ```
 
+If you are using the ICM20948, replace instances of "mpu9250" with "icm20948".
+
 #### Настройка совместимости MPU-9520 с Pico
 
 По умолчанию для Pico I2C установлено значение 400000. Просто добавьте следующее в файл printer.cfg:
@@ -321,6 +323,8 @@ probe_points:
 выводы: pico:gpio23
 ```
 
+If you are using the ICM20948, replace instances of "mpu9250" with "icm20948".
+
 #### Настройка совместимости MPU-9520 с AVR
 
 Для AVR I2C будет установлено значение 400000 с помощью опции mpu9250. Просто добавьте следующее в файл printer.cfg:
@@ -337,6 +341,8 @@ accel_chip: mpu9250
 probe_points:
     100, 100, 20   # пример
 ```
+
+If you are using the ICM20948, replace instances of "mpu9250" with "icm20948".
 
 Перезапустите Klipper с помощью команды `RESTART`.
 

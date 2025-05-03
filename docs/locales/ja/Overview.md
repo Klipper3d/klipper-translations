@@ -64,3 +64,4 @@ Klipperドキュメントへようこそ。Klipperが初めての方は [機能�
 - [TSL1401CLフィラメント径センサー](TSL1401CL_Filament_Width_Sensor.md)
 - [ホール素子フィラメント径センサー](Hall_Filament_Width_Sensor.md)
 - [Eddy Current Inductive probe](Eddy_Probe.md)
+- [Load Cells](Load_Cell.md)

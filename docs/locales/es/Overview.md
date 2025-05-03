@@ -64,3 +64,4 @@ Bienvenido a la documentación de Klipper. Si eres nuevo con Klipper, comienza p
 - [Sensor de anchura del filamento TSL1401CL](TSL1401CL_Filament_Width_Sensor.md)
 - [Sensor de anchura del filamento Hall](Hall_Filament_Width_Sensor.md)
 - [Prueba Eddy Inductivo Actual](Eddy_Probe.md)
+- [Load Cells](Load_Cell.md)

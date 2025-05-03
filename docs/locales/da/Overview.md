@@ -64,3 +64,4 @@ Velkommen til Klippers dokumentation. Hvis du er ny her, anbefales det at starte
 - [TSL1401CL filament bredde sensor](TSL1401CL_Filament_Width_Sensor.md)
 - [Hall filament-bredde sensor](Hall_Filament_Width_Sensor.md)
 - [Eddy Current Inductive probe](Eddy_Probe.md)
+- [Load Cells](Load_Cell.md)

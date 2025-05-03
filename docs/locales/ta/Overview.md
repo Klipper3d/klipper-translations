@@ -64,3 +64,4 @@
 - [TSL1401CL தாள் width sensor](TSL1401CL_Filament_Width_Sensor.md)
 - [Hall தாள் width sensor](Hall_Filament_Width_Sensor.md)
 - [எடி தற்போதைய தூண்டல் ஆய்வு] (EDDY_PROBE.MD)
+- [Load Cells](Load_Cell.md)

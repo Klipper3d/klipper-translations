@@ -32,6 +32,8 @@ Klipper也可以在其 "standalone mode"下使用Trinamic驅動。然而，當�
 
 建議總是使用 "spreadCycle "模式（通過不指定`stealthchop_threshold`）或總是使用 "stealthChop "模式（通過設定`stealthchop_threshold`為99999）。不幸的是，如果在電機處於非零速度時改變模式，驅動器往往會產生糟糕和混亂的結果。
 
+Note that the `stealthchop_threshold` config option does not impact sensorless homing as Klipper automatically switches the TMC driver to an appropriate mode during sensorless homing operations.
+
 ## TMC插值設定引入了微小的位置偏差
 
 TMC驅動程式的 `interpolate` 設定可以減少印表機運動的噪音，但代價是引入一個小的系統位置誤差。這個系統性的位置誤差是由驅動器在執行Klipper發送的 "步驟 "時的延遲造成的。在恒速移動過程中，這種延遲導致了將近一半的配置微步的位置誤差（更準確地說，誤差是一半的微步距離減去512分之一的整步距離）。例如，在一個旋轉距離（rotation_distance）為40毫米、每圈200步（steps_per_rotation）、16微步的軸上，在恒速移動過程中引入的系統誤差是~0.006毫米。

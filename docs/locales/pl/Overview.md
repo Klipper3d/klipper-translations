@@ -64,3 +64,4 @@ Witaj w dokumentacji Klipper. Jeśli jesteś nowy, zapoznaj się z [funkcjami](F
 - [Czujnik szerokości filamentu TSL1401CL](TSL1401CL_Filament_Width_Sensor.md)
 - [Czujnik szerokości filamentu Halla](Hall_Filament_Width_Sensor.md)
 - [Sonda Eddy Current Inductive](Eddy_Probe.md)
+- [Load Cells](Load_Cell.md)

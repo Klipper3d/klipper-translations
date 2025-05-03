@@ -1785,6 +1785,25 @@ unretract_extra_length нижче). За замовчуванням 0 мм.
 вимірювання.
 ```
 
+### [icm20948]
+
+Support for icm20948 accelerometers.
+
+```
+[icm20948]
+#i2c_address:
+#   Default is 104 (0x68). If AD0 is high, it would be 0x69 instead.
+#i2c_mcu:
+#i2c_bus:
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
+#i2c_speed: 400000
+#   See the "common I2C settings" section for a description of the
+#   above parameters. The default "i2c_speed" is 400000.
+#axes_map: x, y, z
+#   See the "adxl345" section for information on this parameter.
+```
+
 ### [lis2dw]
 
 Підтримка акселерометрів LIS2DW.
@@ -2170,33 +2189,36 @@ docs/BLTouch.md, перш ніж встановити значення False. Т
 
 ```
 [probe_eddy_current my_eddy_probe]
- тип_датчика: ldc1612
- # Сенсорний чіп, який використовується для вимірювання вихрових струмів. Це
- Потрібно вказати # параметр і встановити значення ldc1612.
- #intb_pin:
- # Штифт gpio MCU, підключений до контакту INTB датчика ldc1612 (якщо
- # доступно). За замовчуванням PIN-код INTB не використовується.
- #z_offset:
- # Номінальна відстань (у мм) між соплом і ложем, що a
- # спроба зондування має закінчитися. Цей параметр необхідно вказати.
- #i2c_адреса:
- #i2c_mcu:
- #i2c_bus:
- #i2c_software_scl_pin:
- #i2c_software_sda_pin:
- #i2c_швидкість:
- # Налаштування i2c для сенсорного чіпа. Див. розділ «загальний I2C
- # налаштування" для опису наведених вище параметрів.
- #x_offset:
- #y_offset:
- #швидкість:
- #ліфт_швидкість:
- #зразки:
- #sample_retract_dist:
- #samples_result:
- #samples_tolerance:
- #samples_tolerance_retries:
- # Перегляньте розділ "зонд", щоб отримати інформацію про ці параметри.
+sensor_type: ldc1612
+#   The sensor chip used to perform eddy current measurements. This
+#   parameter must be provided and must be set to ldc1612.
+#frequency:
+#   The external crystal frequency (in Hz) of the LDC1612 chip.
+#   The default is 12000000.
+#intb_pin:
+#   MCU gpio pin connected to the ldc1612 sensor's INTB pin (if
+#   available). The default is to not use the INTB pin.
+#z_offset:
+#   The nominal distance (in mm) between the nozzle and bed that a
+#   probing attempt should stop at. This parameter must be provided.
+#i2c_address:
+#i2c_mcu:
+#i2c_bus:
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
+#i2c_speed:
+#   The i2c settings for the sensor chip. See the "common I2C
+#   settings" section for a description of the above parameters.
+#x_offset:
+#y_offset:
+#speed:
+#lift_speed:
+#samples:
+#sample_retract_dist:
+#samples_result:
+#samples_tolerance:
+#samples_tolerance_retries:
+#   See the "probe" section for information on these parameters.
 ```
 
 ### [axis_twist_compensation]
@@ -3270,39 +3292,29 @@ PCA9533/1, 99 для PCA9533/2. За замовчуванням 98.
 Виконувати gcode, коли кнопку натискають або відпускають (або коли пін змінює стан). Ви можете перевірити стан кнопки за допомогою  QUERY_BUTTON button=my_gcode_button .
 
 ```
-[gcode_button my_gcode_button] прикріпити:
-
-Штифт, до якого приєднана кнопка. Цей параметр повинен бути
-
-надано.
-
+[gcode_button my_gcode_button]
+pin:
+#   The pin on which the button is connected. This parameter must be
+#   provided.
 #analog_range:
-
-Два опори (в Омах), розділені комами, із зазначенням мінімуму
-
-і максимальний діапазон опору для кнопки. Якщо analog_range є
-
-за умови, що контакт має бути аналоговим контактом. За замовчуванням
-
-використовувати цифровий gpio для кнопки.
-
+#   Two comma separated resistances (in Ohms) specifying the minimum
+#   and maximum resistance range for the button. If analog_range is
+#   provided then the pin must be an analog capable pin. The default
+#   is to use digital gpio for the button.
 #analog_pullup_resistor:
-
-Опір підтягування (в Омах), коли вказано analog_range.
-
-За замовчуванням 4700 Ом.
-
+#   The pullup resistance (in Ohms) when analog_range is specified.
+#   The default is 4700 ohms.
 #press_gcode:
-
-Список команд G-Code для виконання, коли натиснуто кнопку.
-
-Підтримуються # шаблони G-Code. Цей параметр необхідно вказати. #release_gcode:
-
-Список команд G-Code для виконання після відпускання кнопки.
-
-Підтримуються # шаблони G-Code. За умовчанням жодного не запускати
-
-команд під час відпускання кнопки.
+#   A list of G-Code commands to execute when the button is pressed.
+#   G-Code templates are supported. This parameter must be provided.
+#release_gcode:
+#   A list of G-Code commands to execute when the button is released.
+#   G-Code templates are supported. The default is to not run any
+#   commands on a button release.
+#debounce_delay:
+#   A period of time in seconds to debounce events prior to running the
+#   button gcode. If the button is pressed and released during this
+#   delay, the entire button press is ignored. Default is 0.
 ```
 
 ### [вихідний_контакт]
@@ -3421,113 +3433,115 @@ PCA9533/1, 99 для PCA9533/2. За замовчуванням 98.
 
 ```
 [tmc2130 stepper_x]
- cs_pin:
- # Пін, що відповідає лінії вибору мікросхеми TMC2130. Ця шпилька
- # буде встановлено на низький рівень на початку повідомлень SPI і підвищено на високий
- # після завершення повідомлення. Цей параметр необхідно вказати.
- #spi_speed:
- #spi_bus:
- #spi_software_sclk_pin:
- #spi_software_mosi_pin:
- #spi_software_miso_pin:
- # Перегляньте розділ «Загальні налаштування SPI», щоб отримати опис
- # параметр вище.
- #chain_position:
- #chain_length:
- # Ці параметри налаштовують шлейфове з’єднання SPI. Два параметри
- # визначити позицію кроку в ланцюзі та загальну довжину ланцюга.
- # Позиція 1 відповідає степеру, який підключається до сигналу MOSI.
- # За замовчуванням ланцюжок SPI не використовується.
- #interpolate: Правда
- # Якщо істина, увімкнути покрокову інтерполяцію (драйвер буде внутрішньо
- # крок зі швидкістю 256 мікрокроків). Ця інтерполяція робить
- # ввести невелике системне позиційне відхилення - див
- # TMC_Drivers.md для деталей. Типовим значенням є True.
- run_current:
- # Величина струму (в амперах RMS), щоб налаштувати драйвер для використання
- # під час руху степера. Цей параметр необхідно вказати.
- #hold_current:
- # Величина струму (в амперах RMS), щоб налаштувати драйвер для використання
- # коли степпер не рухається. Налаштування hold_current не є
- # рекомендовано (подробиці див. на TMC_Drivers.md). За умовчанням встановлено значення
- # не зменшувати струм.
- #сенс_резистор: 0,110
- # Опір (в Омах) резистора датчика двигуна. За замовчуванням
- # дорівнює 0,110 Ом.
- #stealthchop_threshold: 0
- # Швидкість (у мм/с), на яку потрібно встановити порогове значення "stealthChop". Коли
- # set, режим "stealthChop" буде ввімкнено, якщо кроковий двигун
- # швидкість нижче цього значення. За замовчуванням 0, що вимикає
- # режим "stealthChop".
- #coolstep_threshold:
- # Швидкість (у мм/с) для встановлення внутрішнього "CoolStep" драйвера TMC
- # поріг до. Якщо встановлено, функція coolstep буде ввімкнена, коли
- # швидкість крокового двигуна близька до цього значення або перевищує його. важливо
- # - якщо встановлено coolstep_threshold і використовується "безсенсорне самонаведення",
- # тоді потрібно переконатися, що швидкість наведення вище кроку холоду
- #поріг! За замовчуванням функцію coolstep не ввімкнено.
- #high_velocity_threshold:
- # Швидкість (у мм/с) для встановлення високого рівня внутрішнього драйвера TMC
- # швидкість" порогове значення (СТЕГНО) до. Це зазвичай використовується для вимкнення
- # функція "CoolStep" на високих швидкостях. За замовчуванням не встановлено a
- # Поріг "високої швидкості" TMC.
- #драйвер_MSLUT0: 2863314260
- #драйвер_MSLUT1: 1251300522
- #драйвер_MSLUT2: 608774441
- #драйвер_MSLUT3: 269500962
- #драйвер_MSLUT4: 4227858431
- #драйвер_MSLUT5: 3048961917
- #драйвер_MSLUT6: 1227445590
- #driver_MSLUT7: 4211234
- #driver_W0: 2
- #driver_W1: 1
- #driver_W2: 1
- #driver_W3: 1
- #водій_X1: 128
- #driver_X2: 255
- #driver_X3: 255
- #driver_START_SIN: 0
- #driver_START_SIN90: 247
- # Ці поля безпосередньо керують регістрами таблиці Microstep. Оптимальний
- Таблиця хвиль # є специфічною для кожного двигуна та може змінюватись залежно від струму. Ан
- # оптимальна конфігурація матиме мінімальні артефакти друку, викликані
- # нелінійний кроковий рух. Зазначені вище значення є типовими
- # значення, які використовує драйвер. Значення має бути вказане як ціле десяткове число
- # (шістнадцяткова форма не підтримується). Щоб обчислити поля хвильової таблиці,
- # дивіться tmc2130 "Таблиця розрахунків" на веб-сайті Trinamic.
- #driver_IHOLDDELAY: 8
- #driver_TPOWERDOWN: 0
- #driver_TBL: 1
- #driver_TOFF: 4
- #водій_HEND: 7
- #driver_HSTRT: 0
- #driver_VHIGHFS: 0
- #driver_VHIGHCHM: 0
- #driver_PWM_AUTOSCALE: Правда
- #driver_PWM_FREQ: 1
- #driver_PWM_GRAD: 4
- #driver_PWM_AMPL: 128
- #driver_SGT: 0
- #driver_SEMIN: 0
- #driver_SEUP: 0
- #driver_SEMAX: 0
- #driver_SEDN: 0
- #driver_SEIMIN: 0
- #driver_SFILT: 0
- # Встановіть заданий регістр під час конфігурації TMC2130
- # чіп. Це може бути використано для встановлення власних параметрів двигуна. The
- # значення за замовчуванням для кожного параметра вказано поруч із назвою параметра в
- # вище списку.
- #diag0_pin:
- #diag1_pin:
- # Вивід мікроконтролера, приєднаний до однієї з ліній DIAG
- # Чіп TMC2130. Потрібно вказати лише один діагностичний штифт. шпилька
- # є "активним низьким" і тому зазвичай має перед собою "^!". Налаштування
- # це створює віртуальний пін "tmc2130_stepper_x:virtual_endstop"
- # який можна використовувати як endstop_pin степера. Це дозволяє
- # "безсенсорне самонаведення". (Не забудьте також встановити driver_SGT на an
- # відповідне значення чутливості.) За умовчанням не ввімкнено
- # безсенсорне самонаведення.
+cs_pin:
+#   The pin corresponding to the TMC2130 chip select line. This pin
+#   will be set to low at the start of SPI messages and raised to high
+#   after the message completes. This parameter must be provided.
+#spi_speed:
+#spi_bus:
+#spi_software_sclk_pin:
+#spi_software_mosi_pin:
+#spi_software_miso_pin:
+#   See the "common SPI settings" section for a description of the
+#   above parameters.
+#chain_position:
+#chain_length:
+#   These parameters configure an SPI daisy chain. The two parameters
+#   define the stepper position in the chain and the total chain length.
+#   Position 1 corresponds to the stepper that connects to the MOSI signal.
+#   The default is to not use an SPI daisy chain.
+#interpolate: True
+#   If true, enable step interpolation (the driver will internally
+#   step at a rate of 256 micro-steps). This interpolation does
+#   introduce a small systemic positional deviation - see
+#   TMC_Drivers.md for details. The default is True.
+run_current:
+#   The amount of current (in amps RMS) to configure the driver to use
+#   during stepper movement. This parameter must be provided.
+#hold_current:
+#   The amount of current (in amps RMS) to configure the driver to use
+#   when the stepper is not moving. Setting a hold_current is not
+#   recommended (see TMC_Drivers.md for details). The default is to
+#   not reduce the current.
+#sense_resistor: 0.110
+#   The resistance (in ohms) of the motor sense resistor. The default
+#   is 0.110 ohms.
+#stealthchop_threshold: 0
+#   The velocity (in mm/s) to set the "stealthChop" threshold to. When
+#   set, "stealthChop" mode will be enabled if the stepper motor
+#   velocity is below this value. Note that the "sensorless homing"
+#   code may temporarily override this setting during homing
+#   operations. The default is 0, which disables "stealthChop" mode.
+#coolstep_threshold:
+#   The velocity (in mm/s) to set the TMC driver internal "CoolStep"
+#   threshold to. If set, the coolstep feature will be enabled when
+#   the stepper motor velocity is near or above this value. Important
+#   - if coolstep_threshold is set and "sensorless homing" is used,
+#   then one must ensure that the homing speed is above the coolstep
+#   threshold! The default is to not enable the coolstep feature.
+#high_velocity_threshold:
+#   The velocity (in mm/s) to set the TMC driver internal "high
+#   velocity" threshold (THIGH) to. This is typically used to disable
+#   the "CoolStep" feature at high speeds. The default is to not set a
+#   TMC "high velocity" threshold.
+#driver_MSLUT0: 2863314260
+#driver_MSLUT1: 1251300522
+#driver_MSLUT2: 608774441
+#driver_MSLUT3: 269500962
+#driver_MSLUT4: 4227858431
+#driver_MSLUT5: 3048961917
+#driver_MSLUT6: 1227445590
+#driver_MSLUT7: 4211234
+#driver_W0: 2
+#driver_W1: 1
+#driver_W2: 1
+#driver_W3: 1
+#driver_X1: 128
+#driver_X2: 255
+#driver_X3: 255
+#driver_START_SIN: 0
+#driver_START_SIN90: 247
+#   These fields control the Microstep Table registers directly. The optimal
+#   wave table is specific to each motor and might vary with current. An
+#   optimal configuration will have minimal print artifacts caused by
+#   non-linear stepper movement. The values specified above are the default
+#   values used by the driver. The value must be specified as a decimal integer
+#   (hex form is not supported). In order to compute the wave table fields,
+#   see the tmc2130 "Calculation Sheet" from the Trinamic website.
+#driver_IHOLDDELAY: 8
+#driver_TPOWERDOWN: 0
+#driver_TBL: 1
+#driver_TOFF: 4
+#driver_HEND: 7
+#driver_HSTRT: 0
+#driver_VHIGHFS: 0
+#driver_VHIGHCHM: 0
+#driver_PWM_AUTOSCALE: True
+#driver_PWM_FREQ: 1
+#driver_PWM_GRAD: 4
+#driver_PWM_AMPL: 128
+#driver_FREEWHEEL: 0
+#driver_SGT: 0
+#driver_SEMIN: 0
+#driver_SEUP: 0
+#driver_SEMAX: 0
+#driver_SEDN: 0
+#driver_SEIMIN: 0
+#driver_SFILT: 0
+#   Set the given register during the configuration of the TMC2130
+#   chip. This may be used to set custom motor parameters. The
+#   defaults for each parameter are next to the parameter name in the
+#   above list.
+#diag0_pin:
+#diag1_pin:
+#   The micro-controller pin attached to one of the DIAG lines of the
+#   TMC2130 chip. Only a single diag pin should be specified. The pin
+#   is "active low" and is thus normally prefaced with "^!". Setting
+#   this creates a "tmc2130_stepper_x:virtual_endstop" virtual pin
+#   which may be used as the stepper's endstop_pin. Doing this enables
+#   "sensorless homing". (Be sure to also set driver_SGT to an
+#   appropriate sensitivity value.) The default is to not enable
+#   sensorless homing.
 ```
 
 ### [tmc2208]
@@ -3536,57 +3550,59 @@ PCA9533/1, 99 для PCA9533/2. За замовчуванням 98.
 
 ```
 [tmc2208 stepper_x]
- uart_pin:
- # Вивід, підключений до лінії TMC2208 PDN_UART. Цей параметр
- Потрібно вказати #.
- #tx_pin:
- # Якщо для зв’язку використовуються окремі лінії прийому та передачі
- # драйвер потім встановлює uart_pin на приймальний pin і tx_pin на
- # PIN передачі. За замовчуванням uart_pin використовується як для читання, так і для
- # написання.
- #select_pins:
- # Розділений комами список контактів, які потрібно встановити перед доступом до
- # tmc2208 UART. Це може бути корисним для налаштування аналогового мультиплексора
- # Зв'язок UART. За замовчуванням жодні контакти не налаштовуються.
- #interpolate: Правда
- # Якщо істина, увімкнути крокову інтерполяцію (драйвер буде внутрішньо
- # крок зі швидкістю 256 мікрокроків). Ця інтерполяція робить
- # ввести невелике системне позиційне відхилення - див
- # TMC_Drivers.md для деталей. Типовим значенням є True.
- run_current:
- # Величина струму (в амперах RMS), щоб налаштувати драйвер для використання
- # під час руху степера. Цей параметр необхідно вказати.
- #hold_current:
- # Величина струму (в амперах RMS), щоб налаштувати драйвер для використання
- # коли степпер не рухається. Налаштування hold_current не є
- # рекомендовано (подробиці див. на TMC_Drivers.md). Типовим значенням є
- # не зменшувати струм.
- #сенс_резистор: 0,110
- # Опір (в Омах) резистора датчика двигуна. За замовчуванням
- # дорівнює 0,110 Ом.
- #stealthchop_threshold: 0
- # Швидкість (у мм/с), на яку потрібно встановити порогове значення "stealthChop". Коли
- # set, режим "stealthChop" буде ввімкнено, якщо кроковий двигун
- # швидкість нижче цього значення. За замовчуванням 0, що вимикає
- # режим "stealthChop".
- #driver_MULTISTEP_FILT: Правда
- #driver_IHOLDDELAY: 8
- #driver_TPOWERDOWN: 20
- #драйвер_TBL: 2
- #driver_TOFF: 3
- #driver_HEND: 0
- #driver_HSTRT: 5
- #driver_PWM_AUTOGRAD: Правда
- #driver_PWM_AUTOSCALE: Правда
- #driver_PWM_LIM: 12
- #driver_PWM_REG: 8
- #driver_PWM_FREQ: 1
- #driver_PWM_GRAD: 14
- #driver_PWM_OFS: 36
- # Встановіть заданий регістр під час конфігурації TMC2208
- # чіп. Це може бути використано для встановлення власних параметрів двигуна. The
- # значення за замовчуванням для кожного параметра вказано поруч із назвою параметра в
- # вище списку.
+uart_pin:
+#   The pin connected to the TMC2208 PDN_UART line. This parameter
+#   must be provided.
+#tx_pin:
+#   If using separate receive and transmit lines to communicate with
+#   the driver then set uart_pin to the receive pin and tx_pin to the
+#   transmit pin. The default is to use uart_pin for both reading and
+#   writing.
+#select_pins:
+#   A comma separated list of pins to set prior to accessing the
+#   tmc2208 UART. This may be useful for configuring an analog mux for
+#   UART communication. The default is to not configure any pins.
+#interpolate: True
+#   If true, enable step interpolation (the driver will internally
+#   step at a rate of 256 micro-steps). This interpolation does
+#   introduce a small systemic positional deviation - see
+#   TMC_Drivers.md for details. The default is True.
+run_current:
+#   The amount of current (in amps RMS) to configure the driver to use
+#   during stepper movement. This parameter must be provided.
+#hold_current:
+#   The amount of current (in amps RMS) to configure the driver to use
+#   when the stepper is not moving. Setting a hold_current is not
+#   recommended (see TMC_Drivers.md for details). The default is to
+#   not reduce the current.
+#sense_resistor: 0.110
+#   The resistance (in ohms) of the motor sense resistor. The default
+#   is 0.110 ohms.
+#stealthchop_threshold: 0
+#   The velocity (in mm/s) to set the "stealthChop" threshold to. When
+#   set, "stealthChop" mode will be enabled if the stepper motor
+#   velocity is below this value. Note that the "sensorless homing"
+#   code may temporarily override this setting during homing
+#   operations. The default is 0, which disables "stealthChop" mode.
+#driver_MULTISTEP_FILT: True
+#driver_IHOLDDELAY: 8
+#driver_TPOWERDOWN: 20
+#driver_TBL: 2
+#driver_TOFF: 3
+#driver_HEND: 0
+#driver_HSTRT: 5
+#driver_PWM_AUTOGRAD: True
+#driver_PWM_AUTOSCALE: True
+#driver_PWM_LIM: 12
+#driver_PWM_REG: 8
+#driver_PWM_FREQ: 1
+#driver_PWM_GRAD: 14
+#driver_PWM_OFS: 36
+#driver_FREEWHEEL: 0
+#   Set the given register during the configuration of the TMC2208
+#   chip. This may be used to set custom motor parameters. The
+#   defaults for each parameter are next to the parameter name in the
+#   above list.
 ```
 
 ### [tmc2209]
@@ -3595,58 +3611,59 @@ PCA9533/1, 99 для PCA9533/2. За замовчуванням 98.
 
 ```
 [tmc2209 stepper_x]
- uart_pin:
- #tx_pin:
- #select_pins:
- #interpolate: Правда
- run_current:
- #hold_current:
- #сенс_резистор: 0,110
- #stealthchop_threshold: 0
- # Перегляньте розділ "tmc2208" для визначення цих параметрів.
- #coolstep_threshold:
- # Швидкість (у мм/с) для встановлення внутрішнього "CoolStep" драйвера TMC
- # поріг до. Якщо встановлено, функція coolstep буде ввімкнена, коли
- # швидкість крокового двигуна близька до цього значення або перевищує його. важливо
- # - якщо встановлено coolstep_threshold і використовується "безсенсорне самонаведення",
- # тоді потрібно переконатися, що швидкість наведення вище кроку холоду
- #поріг! За замовчуванням функцію coolstep не ввімкнено.
- #uart_address:
- # Адреса мікросхеми TMC2209 для повідомлень UART (ціле число
- # між 0 і 3). Це зазвичай використовується, коли кілька TMC2209
- # мікросхеми підключено до одного контакту UART. За умовчанням дорівнює нулю.
- #driver_MULTISTEP_FILT: Правда
- #driver_IHOLDDELAY: 8
- #driver_TPOWERDOWN: 20
- #драйвер_TBL: 2
- #driver_TOFF: 3
- #driver_HEND: 0
- #driver_HSTRT: 5
- #driver_PWM_AUTOGRAD: Правда
- #driver_PWM_AUTOSCALE: Правда
- #driver_PWM_LIM: 12
- #driver_PWM_REG: 8
- #driver_PWM_FREQ: 1
- #driver_PWM_GRAD: 14
- #driver_PWM_OFS: 36
- #driver_SGTHRS: 0
- #driver_SEMIN: 0
- #driver_SEUP: 0
- #driver_SEMAX: 0
- #driver_SEDN: 0
- #driver_SEIMIN: 0
- # Встановіть заданий регістр під час налаштування TMC2209
- # чіп. Це може бути використано для встановлення власних параметрів двигуна. The
- # значення за замовчуванням для кожного параметра вказано поруч із назвою параметра в
- # вище списку.
- #diag_pin:
- # Вивід мікроконтролера, підключений до лінії DIAG TMC2209
- # чіп. Перед штифтом зазвичай стоїть «^», щоб увімкнути підтягування.
- # Це налаштування створює віртуальний "tmc2209_stepper_x:virtual_endstop"
- # штифт, який можна використовувати як endstop_pin степера. Роблячи це
- # вмикає "безсенсорне самонаведення". (Обов’язково також установіть для driver_SGTHRS значення
- # відповідне значення чутливості.) За умовчанням не ввімкнено
- # безсенсорне самонаведення.
+uart_pin:
+#tx_pin:
+#select_pins:
+#interpolate: True
+run_current:
+#hold_current:
+#sense_resistor: 0.110
+#stealthchop_threshold: 0
+#   See the "tmc2208" section for the definition of these parameters.
+#coolstep_threshold:
+#   The velocity (in mm/s) to set the TMC driver internal "CoolStep"
+#   threshold to. If set, the coolstep feature will be enabled when
+#   the stepper motor velocity is near or above this value. Important
+#   - if coolstep_threshold is set and "sensorless homing" is used,
+#   then one must ensure that the homing speed is above the coolstep
+#   threshold! The default is to not enable the coolstep feature.
+#uart_address:
+#   The address of the TMC2209 chip for UART messages (an integer
+#   between 0 and 3). This is typically used when multiple TMC2209
+#   chips are connected to the same UART pin. The default is zero.
+#driver_MULTISTEP_FILT: True
+#driver_IHOLDDELAY: 8
+#driver_TPOWERDOWN: 20
+#driver_TBL: 2
+#driver_TOFF: 3
+#driver_HEND: 0
+#driver_HSTRT: 5
+#driver_PWM_AUTOGRAD: True
+#driver_PWM_AUTOSCALE: True
+#driver_PWM_LIM: 12
+#driver_PWM_REG: 8
+#driver_PWM_FREQ: 1
+#driver_PWM_GRAD: 14
+#driver_PWM_OFS: 36
+#driver_FREEWHEEL: 0
+#driver_SGTHRS: 0
+#driver_SEMIN: 0
+#driver_SEUP: 0
+#driver_SEMAX: 0
+#driver_SEDN: 0
+#driver_SEIMIN: 0
+#   Set the given register during the configuration of the TMC2209
+#   chip. This may be used to set custom motor parameters. The
+#   defaults for each parameter are next to the parameter name in the
+#   above list.
+#diag_pin:
+#   The micro-controller pin attached to the DIAG line of the TMC2209
+#   chip. The pin is normally prefaced with "^" to enable a pullup.
+#   Setting this creates a "tmc2209_stepper_x:virtual_endstop" virtual
+#   pin which may be used as the stepper's endstop_pin. Doing this
+#   enables "sensorless homing". (Be sure to also set driver_SGTHRS to
+#   an appropriate sensitivity value.) The default is to not enable
+#   sensorless homing.
 ```
 
 ### [tmc2660]
@@ -3761,8 +3778,9 @@ run_current:
 #stealthchop_threshold: 0
 #   The velocity (in mm/s) to set the "stealthChop" threshold to. When
 #   set, "stealthChop" mode will be enabled if the stepper motor
-#   velocity is below this value. The default is 0, which disables
-#   "stealthChop" mode.
+#   velocity is below this value. Note that the "sensorless homing"
+#   code may temporarily override this setting during homing
+#   operations. The default is 0, which disables "stealthChop" mode.
 #coolstep_threshold:
 #   The velocity (in mm/s) to set the TMC driver internal "CoolStep"
 #   threshold to. If set, the coolstep feature will be enabled when
@@ -3858,125 +3876,126 @@ run_current:
 
 ```
 [tmc5160 stepper_x]
- cs_pin:
- # Пін, що відповідає лінії вибору мікросхеми TMC5160. Ця шпилька
- # буде встановлено на низький рівень на початку повідомлень SPI і підвищено на високий
- # після завершення повідомлення. Цей параметр необхідно вказати.
- #spi_speed:
- #spi_bus:
- #spi_software_sclk_pin:
- #spi_software_mosi_pin:
- #spi_software_miso_pin:
- # Перегляньте розділ «Загальні налаштування SPI», щоб отримати опис
- # параметр вище.
- #chain_position:
- #chain_length:
- # Ці параметри налаштовують шлейфове з’єднання SPI. Два параметри
- # визначити позицію кроку в ланцюзі та загальну довжину ланцюга.
- # Позиція 1 відповідає степеру, який підключається до сигналу MOSI.
- # За замовчуванням ланцюжок SPI не використовується.
- #interpolate: Правда
- # Якщо істина, увімкнути покрокову інтерполяцію (драйвер буде внутрішньо
- # крок зі швидкістю 256 мікрокроків). Типовим значенням є True.
- run_current:
- # Величина струму (в амперах RMS), щоб налаштувати драйвер для використання
- # під час руху степера. Цей параметр необхідно вказати.
- #hold_current:
- # Величина струму (в амперах RMS), щоб налаштувати драйвер для використання
- # коли степпер не рухається. Налаштування hold_current не є
- # рекомендовано (подробиці див. на TMC_Drivers.md). За умовчанням встановлено значення
- # не зменшувати струм.
- #сенс_резистор: 0,075
- # Опір (в Омах) резистора датчика двигуна. За замовчуванням
- # дорівнює 0,075 Ом.
- #stealthchop_threshold: 0
- # Швидкість (у мм/с), на яку потрібно встановити порогове значення "stealthChop". Коли
- # set, режим "stealthChop" буде ввімкнено, якщо кроковий двигун
- # швидкість нижче цього значення. За замовчуванням 0, що вимикає
- # режим "stealthChop".
- #coolstep_threshold:
- # Швидкість (у мм/с) для встановлення внутрішнього "CoolStep" драйвера TMC
- # поріг до. Якщо встановлено, функція coolstep буде ввімкнена, коли
- # швидкість крокового двигуна близька до цього значення або перевищує його. важливо
- # - якщо встановлено coolstep_threshold і використовується "безсенсорне самонаведення",
- # тоді потрібно переконатися, що швидкість наведення вище кроку холоду
- #поріг! За замовчуванням функцію coolstep не ввімкнено.
- #high_velocity_threshold:
- # Швидкість (у мм/с) для встановлення високого рівня внутрішнього драйвера TMC
- # швидкість" порогове значення (СТЕГНО) до. Це зазвичай використовується для вимкнення
- # функція "CoolStep" на високих швидкостях. За замовчуванням не встановлено a
- # Поріг "високої швидкості" TMC.
- #драйвер_MSLUT0: 2863314260
- #драйвер_MSLUT1: 1251300522
- #драйвер_MSLUT2: 608774441
- #драйвер_MSLUT3: 269500962
- #драйвер_MSLUT4: 4227858431
- #драйвер_MSLUT5: 3048961917
- #драйвер_MSLUT6: 1227445590
- #driver_MSLUT7: 4211234
- #driver_W0: 2
- #driver_W1: 1
- #driver_W2: 1
- #driver_W3: 1
- #водій_X1: 128
- #driver_X2: 255
- #driver_X3: 255
- #driver_START_SIN: 0
- #driver_START_SIN90: 247
- # Ці поля безпосередньо керують регістрами таблиці Microstep. Оптимальний
- Таблиця хвиль # є специфічною для кожного двигуна та може змінюватись залежно від струму. Ан
- # оптимальна конфігурація матиме мінімальні артефакти друку, викликані
- # нелінійний кроковий рух. Зазначені вище значення є типовими
- # значення, які використовує драйвер. Значення має бути вказане як ціле десяткове число
- # (шістнадцяткова форма не підтримується). Щоб обчислити поля хвильової таблиці,
- # дивіться tmc2130 "Таблиця розрахунків" на веб-сайті Trinamic.
- #driver_MULTISTEP_FILT: Правда
- #driver_IHOLDDELAY: 6
- #driver_TPOWERDOWN: 10
- #драйвер_TBL: 2
- #driver_TOFF: 3
- #driver_HEND: 2
- #driver_HSTRT: 5
- #драйвер_FD3: 0
- #драйвер_TPFD: 4
- #driver_CHM: 0
- #driver_VHIGHFS: 0
- #driver_VHIGHCHM: 0
- #driver_DISS2G: 0
- #driver_DISS2VS: 0
- #driver_PWM_AUTOSCALE: Правда
- #driver_PWM_AUTOGRAD: Правда
- #driver_PWM_FREQ: 0
- #водій_ВІЛЬНИЙ КОЛЕШ: 0
- #driver_PWM_GRAD: 0
- #driver_PWM_OFS: 30
- #driver_PWM_REG: 4
- #driver_PWM_LIM: 12
- #driver_SGT: 0
- #driver_SEMIN: 0
- #driver_SEUP: 0
- #driver_SEMAX: 0
- #driver_SEDN: 0
- #driver_SEIMIN: 0
- #driver_SFILT: 0
- #driver_DRVSTRENGTH: 0
- #driver_BBMCLKS: 4
- #driver_BBMTIME: 0
- #driver_FILT_ISENSE: 0
- # Встановіть заданий регістр під час налаштування TMC5160
- # чіп. Це може бути використано для встановлення власних параметрів двигуна. The
- # значення за замовчуванням для кожного параметра вказано поруч із назвою параметра в
- # вище списку.
- #diag0_pin:
- #diag1_pin:
- # Вивід мікроконтролера, приєднаний до однієї з ліній DIAG
- # Чіп TMC5160. Потрібно вказати лише один діагностичний штифт. шпилька
- # є "активним низьким" і тому зазвичай має перед собою "^!". Налаштування
- # це створює віртуальний пін "tmc5160_stepper_x:virtual_endstop"
- # який можна використовувати як endstop_pin степера. Це дозволяє
- # "безсенсорне самонаведення". (Не забудьте також встановити driver_SGT на an
- # відповідне значення чутливості.) За умовчанням не ввімкнено
- # безсенсорне самонаведення.
+cs_pin:
+#   The pin corresponding to the TMC5160 chip select line. This pin
+#   will be set to low at the start of SPI messages and raised to high
+#   after the message completes. This parameter must be provided.
+#spi_speed:
+#spi_bus:
+#spi_software_sclk_pin:
+#spi_software_mosi_pin:
+#spi_software_miso_pin:
+#   See the "common SPI settings" section for a description of the
+#   above parameters.
+#chain_position:
+#chain_length:
+#   These parameters configure an SPI daisy chain. The two parameters
+#   define the stepper position in the chain and the total chain length.
+#   Position 1 corresponds to the stepper that connects to the MOSI signal.
+#   The default is to not use an SPI daisy chain.
+#interpolate: True
+#   If true, enable step interpolation (the driver will internally
+#   step at a rate of 256 micro-steps). The default is True.
+run_current:
+#   The amount of current (in amps RMS) to configure the driver to use
+#   during stepper movement. This parameter must be provided.
+#hold_current:
+#   The amount of current (in amps RMS) to configure the driver to use
+#   when the stepper is not moving. Setting a hold_current is not
+#   recommended (see TMC_Drivers.md for details). The default is to
+#   not reduce the current.
+#sense_resistor: 0.075
+#   The resistance (in ohms) of the motor sense resistor. The default
+#   is 0.075 ohms.
+#stealthchop_threshold: 0
+#   The velocity (in mm/s) to set the "stealthChop" threshold to. When
+#   set, "stealthChop" mode will be enabled if the stepper motor
+#   velocity is below this value. Note that the "sensorless homing"
+#   code may temporarily override this setting during homing
+#   operations. The default is 0, which disables "stealthChop" mode.
+#coolstep_threshold:
+#   The velocity (in mm/s) to set the TMC driver internal "CoolStep"
+#   threshold to. If set, the coolstep feature will be enabled when
+#   the stepper motor velocity is near or above this value. Important
+#   - if coolstep_threshold is set and "sensorless homing" is used,
+#   then one must ensure that the homing speed is above the coolstep
+#   threshold! The default is to not enable the coolstep feature.
+#high_velocity_threshold:
+#   The velocity (in mm/s) to set the TMC driver internal "high
+#   velocity" threshold (THIGH) to. This is typically used to disable
+#   the "CoolStep" feature at high speeds. The default is to not set a
+#   TMC "high velocity" threshold.
+#driver_MSLUT0: 2863314260
+#driver_MSLUT1: 1251300522
+#driver_MSLUT2: 608774441
+#driver_MSLUT3: 269500962
+#driver_MSLUT4: 4227858431
+#driver_MSLUT5: 3048961917
+#driver_MSLUT6: 1227445590
+#driver_MSLUT7: 4211234
+#driver_W0: 2
+#driver_W1: 1
+#driver_W2: 1
+#driver_W3: 1
+#driver_X1: 128
+#driver_X2: 255
+#driver_X3: 255
+#driver_START_SIN: 0
+#driver_START_SIN90: 247
+#   These fields control the Microstep Table registers directly. The optimal
+#   wave table is specific to each motor and might vary with current. An
+#   optimal configuration will have minimal print artifacts caused by
+#   non-linear stepper movement. The values specified above are the default
+#   values used by the driver. The value must be specified as a decimal integer
+#   (hex form is not supported). In order to compute the wave table fields,
+#   see the tmc2130 "Calculation Sheet" from the Trinamic website.
+#driver_MULTISTEP_FILT: True
+#driver_IHOLDDELAY: 6
+#driver_TPOWERDOWN: 10
+#driver_TBL: 2
+#driver_TOFF: 3
+#driver_HEND: 2
+#driver_HSTRT: 5
+#driver_FD3: 0
+#driver_TPFD: 4
+#driver_CHM: 0
+#driver_VHIGHFS: 0
+#driver_VHIGHCHM: 0
+#driver_DISS2G: 0
+#driver_DISS2VS: 0
+#driver_PWM_AUTOSCALE: True
+#driver_PWM_AUTOGRAD: True
+#driver_PWM_FREQ: 0
+#driver_FREEWHEEL: 0
+#driver_PWM_GRAD: 0
+#driver_PWM_OFS: 30
+#driver_PWM_REG: 4
+#driver_PWM_LIM: 12
+#driver_SGT: 0
+#driver_SEMIN: 0
+#driver_SEUP: 0
+#driver_SEMAX: 0
+#driver_SEDN: 0
+#driver_SEIMIN: 0
+#driver_SFILT: 0
+#driver_DRVSTRENGTH: 0
+#driver_BBMCLKS: 4
+#driver_BBMTIME: 0
+#driver_FILT_ISENSE: 0
+#   Set the given register during the configuration of the TMC5160
+#   chip. This may be used to set custom motor parameters. The
+#   defaults for each parameter are next to the parameter name in the
+#   above list.
+#diag0_pin:
+#diag1_pin:
+#   The micro-controller pin attached to one of the DIAG lines of the
+#   TMC5160 chip. Only a single diag pin should be specified. The pin
+#   is "active low" and is thus normally prefaced with "^!". Setting
+#   this creates a "tmc5160_stepper_x:virtual_endstop" virtual pin
+#   which may be used as the stepper's endstop_pin. Doing this enables
+#   "sensorless homing". (Be sure to also set driver_SGT to an
+#   appropriate sensitivity value.) The default is to not enable
+#   sensorless homing.
 ```
 
 ## Конфігурація струму крокового двигуна під час роботи
@@ -4715,59 +4734,39 @@ input_step > 100", тоді швидкий крок становить 10 * inpu
 Додаткову інформацію див. у [довідці щодо команд](G-Codes.md#filament_switch_sensor).
 
 ```
-[filament_switch_sensor my_sensor] #pause_on_runout: Правда
-
-Якщо встановлено значення True, ПАУЗА виконуватиметься одразу після завершення
-
-виявлено. Зауважте, що якщо pause_on_runout має значення False і
-
-runout_gcode пропущено, тоді виявлення биття вимкнено. За замовчуванням
-
-є правдою.
-
+[filament_switch_sensor my_sensor]
+#pause_on_runout: True
+#   When set to True, a PAUSE will execute immediately after a runout
+#   is detected. Note that if pause_on_runout is False and the
+#   runout_gcode is omitted then runout detection is disabled. Default
+#   is True.
 #runout_gcode:
-
-Список команд G-Code для виконання після закінчення розжарювання
-
-виявлено. Перегляньте docs/Command_Templates.md для формату G-коду. Якщо
-
-pause_on_runout має значення True, цей G-код запускатиметься після
-
-ПАУЗА завершена. За умовчанням жодні команди G-коду не запускаються.
-
+#   A list of G-Code commands to execute after a filament runout is
+#   detected. See docs/Command_Templates.md for G-Code format. If
+#   pause_on_runout is set to True this G-Code will run after the
+#   PAUSE is complete. The default is not to run any G-Code commands.
 #insert_gcode:
-
-Список команд G-коду для виконання після вставки нитки є
-
-виявлено. Перегляньте docs/Command_Templates.md для формату G-коду. The
-
-за замовчуванням не запускаються жодні команди G-коду, що вимикає вставку
-
-виявлення.
-
+#   A list of G-Code commands to execute after a filament insert is
+#   detected. See docs/Command_Templates.md for G-Code format. The
+#   default is not to run any G-Code commands, which disables insert
+#   detection.
 #event_delay: 3.0
-
-Мінімальний час у секундах для затримки між подіями.
-
-Події, ініційовані протягом цього періоду часу, відбуватимуться без звуку
-
-проігноровано. За замовчуванням 3 секунди.
-
-#pause_delay: 0,5
-
-Час затримки, у секундах, між командою паузи
-
-відправка та виконання runout_gcode. Це може бути корисним для
-
-збільшити цю затримку, якщо OctoPrint демонструє дивну поведінку паузи.
-
-За замовчуванням 0,5 секунди.
-
+#   The minimum amount of time in seconds to delay between events.
+#   Events triggered during this time period will be silently
+#   ignored. The default is 3 seconds.
+#pause_delay: 0.5
+#   The amount of time to delay, in seconds, between the pause command
+#   dispatch and execution of the runout_gcode. It may be useful to
+#   increase this delay if OctoPrint exhibits strange pause behavior.
+#   Default is 0.5 seconds.
+#debounce_delay:
+#   A period of time in seconds to debounce events prior to running the
+#   switch gcode. The switch must he held in a single state for at least
+#   this long to activate. If the switch is toggled on/off during this delay,
+#   the event is ignored. Default is 0.
 #switch_pin:
-
-Штифт, до якого підключено перемикач. Цей параметр повинен бути
-
-надано.
+#   The pin on which the switch is connected. This parameter must be
+#   provided.
 ```
 
 ### [filament_motion_sensor]
@@ -4905,9 +4904,19 @@ switch_pin: #pause_on_runout: #runout_gcode: #insert_gcode: #event_delay: #pause
 Датчик навантаження. Використовує датчик АЦП, прикріплений до тензодатчика, для створення цифрових ваг.
 
 ```
-[load_cell] тип_датчика:
-
-Це має бути один із підтримуваних типів датчиків, див. нижче.
+[load_cell]
+sensor_type:
+#   This must be one of the supported sensor types, see below.
+#counts_per_gram:
+#   The floating point number of sensor counts that indicates 1 gram of force.
+#   This value is calculated by the LOAD_CELL_CALIBRATE command.
+#reference_tare_counts:
+#   The integer tare value, in raw sensor counts, taken when LOAD_CELL_CALIBRATE
+#   is run. This is the default tare value when klipper starts up.
+#sensor_orientation:
+#   Change the sensor's orientation. Can be either 'normal' or 'inverted'.
+#   The default is 'normal'. Use 'inverted' if the sensor reports a
+#   decreasing force value when placed under load.
 ```
 
 #### HX711
@@ -5104,6 +5113,44 @@ vssa_pin:
 #шум. За замовчуванням 2 секунди.
 ```
 
+### [ads1x1x]
+
+ADS1013, ADS1014, ADS1015, ADS1113, ADS1114 and ADS1115 are I2C based Analog to Digital Converters that can be used for temperature sensors. They provide 4 analog input pins either as single line or as differential input.
+
+Note: Use caution if using this sensor to control heaters. The heater min_temp and max_temp are only verified in the host and only if the host is running and operating normally. (ADC inputs directly connected to the micro-controller verify min_temp and max_temp within the micro-controller and do not require a working connection to the host.)
+
+```
+[ads1x1x my_ads1x1x]
+chip: ADS1115
+#pga: 4.096V
+#   Default value is 4.096V. The maximum voltage range used for the input. This
+#   scales all values read from the ADC. Options are: 6.144V, 4.096V, 2.048V,
+#   1.024V, 0.512V, 0.256V
+#adc_voltage: 3.3
+#   The suppy voltage for the device. This allows additional software scaling
+#   for all values read from the ADC.
+i2c_mcu: host
+i2c_bus: i2c.1
+#address_pin: GND
+#   Default value is GND.  There can be up to four addressed devices depending
+#   upon wiring of the device. Check the datasheet for details. The i2c_address
+#   can be specified directly instead of using the address_pin.
+```
+
+The chip provides pins that can be used on other sensors.
+
+```
+sensor_type: ...
+#   Can be any thermistor or adc_temperature.
+sensor_pin: my_ads1x1x:AIN0
+#   A combination of the name of the ads1x1x chip and the pin. Possible
+#   pin values are AIN0, AIN1, AIN2 and AIN3 for single ended lines and
+#   DIFF01, DIFF03, DIFF13 and DIFF23 for differential between their
+#   correspoding lines. For example
+#   DIFF03 measures the differential between line 0 and 3. Only specific
+#   combinations for the differentials are allowed.
+```
+
 ### [репліка]
 
 Підтримка реплікатів – дивіться [посібник з beaglebone](Beaglebone.md) і файл [generic-replicape.cfg](../config/generic-replicape.cfg) для прикладу.
@@ -5178,7 +5225,7 @@ vssa_pin:
 
 Якщо ви використовуєте цей модуль, не використовуйте плагін Palette 2 для Octoprint, оскільки вони конфліктуватимуть, і 1 не вдасться правильно ініціалізувати, імовірно, ваш друк буде перервано.
 
-Якщо ви використовуєте Octoprint і передаєте gcode через послідовний порт замість друку з virtual_sd, тоді видалення M1 і M0 із Призупинення команд у Налаштуваннях > Послідовне з’єднання > Мікропрограмне забезпечення та протокол запобігає необхідності щоб розпочати друк на Palette 2 і відновити паузу в Octoprint для початку друку.
+If you use Octoprint and stream gcode over the serial port instead of printing from virtual_sd, then remove **M1** and **M0** from *Pausing commands* in *Settings > Serial Connection > Firmware & protocol* will prevent the need to start print on the Palette 2 and unpausing in Octoprint for your print to begin.
 
 ```
 [палітра2] серійний:

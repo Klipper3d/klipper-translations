@@ -8,7 +8,7 @@
 
 За да се калибрира предварително налягането, принтерът трябва да е конфигуриран и да работи, тъй като тестът за настройка включва отпечатване и проверка на тестов обект. Добре е да прочетете изцяло този документ, преди да стартирате теста.
 
-Използвайте слайсер, за да генерирате g-код за големия кух квадрат, който се намира в [docs/prints/square_tower.stl](prints/square_tower.stl). Използвайте висока скорост (например 100 mm/s), нулев пълнеж и голяма височина на слоя (височината на слоя трябва да бъде около 75% от диаметъра на дюзата). Уверете се, че всички функции "динамичен контрол на ускорението" са деактивирани в програмата за нарязване.
+Use a slicer to generate g-code for the large hollow square found in [docs/prints/square_tower.stl](prints/square_tower.stl). Use a high speed (eg, 100mm/s), zero infill, and a coarse layer height (the layer height should be around 75% of the nozzle diameter). Make sure any "dynamic acceleration control" and "scarf joint" seams are disabled in the slicer.
 
 Подгответе се за теста, като издадете следната команда G-Code:
 

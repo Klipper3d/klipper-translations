@@ -8,7 +8,7 @@ Pressure advance有兩個作用 - 它可以減少非擠出移動過程中的溢�
 
 爲了校準pressure advance，印表機必須已經配置完成並可以正常工作。因為調優測試涉及列印和檢查測試對象。在執行測試之前，最好完整閱讀本文件。
 
-使用切片器為 [docs/prints/square_tower.stl](prints/square_tower.stl) 中的大空心正方形生成 g 代碼。使用高速（例如，100 毫米/秒）、零填充和粗層高度（層高應約為噴嘴直徑的 75%）。確保在切片器中禁用任何“動態加速控制”。
+Use a slicer to generate g-code for the large hollow square found in [docs/prints/square_tower.stl](prints/square_tower.stl). Use a high speed (eg, 100mm/s), zero infill, and a coarse layer height (the layer height should be around 75% of the nozzle diameter). Make sure any "dynamic acceleration control" and "scarf joint" seams are disabled in the slicer.
 
 通過發出以下 G-Code命令為測試做準備：
 

@@ -182,17 +182,13 @@ Egy kérés így nézhet ki: `{"id": 123, "method":"angle/dump_angle", "params":
 
 A kezdeti lekérdezési válasz "header" mezője a későbbi "data" válaszokban található mezők leírására szolgál.
 
-### hx71x/dump_hx71x
+### load_cell/dump_force
 
-Ez a végpont a nyers HX711 és HX717 ADC-adatok előfizetésére szolgál. Ezen alacsony szintű ADC-frissítések lekérése hasznos lehet diagnosztikai és hibakeresési célokra. Ennek a végpontnak a használata növelheti a Klipper rendszerterhelését.
+This endpoint is used to subscribe to force data produced by a load_cell. Using this endpoint may increase Klipper's system load.
 
-Egy kérés így nézhet ki: `{"id": 123, "method":"hx71x/dump_hx71x", "params": {"sensor": "load_cell", "response_template": {}}}` és visszatérhet: `{"id": 123,"result":{"header":["time","counts","value"]}}` és később aszinkron üzeneteket produkálhat, mint például: `{"params":{"data":[[3292.432935, 562534, 0.067059278], [3292.4394937, 5625322, 0.670590639]]}}`
+A request may look like: `{"id": 123, "method":"load_cell/dump_force", "params": {"sensor": "load_cell", "response_template": {}}}` and might return: `{"id": 123,"result":{"header":["time", "force (g)", "counts", "tare_counts"]}}` and might later produce asynchronous messages such as: `{"params":{"data":[[3292.432935, 40.65, 562534, -234467]]}}`
 
-### ads1220/dump_ads1220
-
-Ez a végpont a nyers ADS1220 ADC-adatok felírására szolgál. Ezen alacsony szintű ADC-frissítések lekérése hasznos lehet diagnosztikai és hibakeresési célokra. Ennek a végpontnak a használata növelheti a Klipper rendszerterhelését.
-
-Egy kérés így nézhet ki: `{"id": 123, "method":"ads1220/dump_ads1220", "params": {"sensor": "load_cell", "response_template": {}}}` és visszatérhet: `{"id": 123,"result":{"header":["time","counts","value"]}}` és később aszinkron üzeneteket produkálhat: `{"params":{"data":[[3292.432935, 562534, 0.067059278], [3292.4394937, 5625322, 0.670590639]]}}`
+A kezdeti lekérdezési válasz "header" mezője a későbbi "data" válaszokban található mezők leírására szolgál.
 
 ### pause_resume/cancel
 

@@ -23,18 +23,18 @@ Klipper 支援許多標準的 3d 印表機功能：
 * 標準 G 程式碼支援。支援由常見「切片軟體」（SuperSlicer、Cura、PrusaSlicer 等）產生的通用 G 程式碼命令。
 * 支援多擠出機。包括對共享熱端的擠出機（多進一出）和多頭（IDEX）的支援。
 * 支援多種列印機架構，包括直線式 (Cartesian)、三角洲式 (Delta)、CoreXY、CoreXZ、混合式 CoreXY、混合式 CoreXZ、Deltesian、旋轉三角洲式 (Rotary Delta)、極座標式 (Polar) 以及纜繩式 (Cable Winch) 列印機。
-* 自動床面平整支援。Klipper可以被配置為基本的床身傾斜檢測或網床調平。如果床鋪使用多個Z步進器，那麼Klipper也可以通過獨立操縱Z步進器來調平。支援大多數Z高度探頭，包括BL-Touch探頭和伺服啟用的探頭。
+* Automatic bed leveling support. Klipper can be configured for basic bed tilt detection or full mesh bed leveling. The bed mesh can be customized to the print size (adaptive bed mesh). If the bed uses multiple Z steppers then Klipper can also level by independently manipulating the Z steppers. Most Z height probes are supported, including BL-Touch probes and servo activated probes. Probes may be calibrated for axis twist compensation. If using an "eddy current probe" then one can utilize fast bed mesh scanning,
 * 支援自動delta校準。校準工具可以進行基本的高度校準，以及增強的X和Y尺寸校準。校準可以用Z型高度探頭或通過手動探測來完成。
 * 列印時支援“排除物件”。當啟用此模組時，可在多件列印中僅取消指定的單一物件。
-* 支援常見的溫度感測器（例如，常見的熱敏電阻、AD595、AD597、AD849x、PT100、PT1000、MAX6675、MAX31855、MAX31856、MAX31865、BME280、HTU21D、DS18B20和LM75）。還可以配置自定義熱敏電阻和自定義模擬溫度感測器。還可以監測微控制器和 Raspberry Pi 內部的溫度感測器。
+* Support for common temperature sensors (eg, common thermistors, AD595, AD597, AD849x, PT100, PT1000, MAX6675, MAX31855, MAX31856, MAX31865, BME280, HTU21D, DS18B20, AHT10, SHT3x, and LM75). Custom thermistors and custom analog temperature sensors can also be configured. One can monitor the internal micro-controller temperature sensor and the internal temperature sensor of a Raspberry Pi.
 * 預設啟用基本加熱器保護。
-* 支援標準風扇、噴嘴風扇和溫控風扇。不需要在印表機閑置時保持風扇運轉。可以在帶有轉速錶的風扇上監測風扇速度。
+* Support for standard fans, nozzle fans, and temperature controlled fans. No need to keep fans running when the printer is idle. Fan speed can be monitored on fans that have a tachometer. One can assign a "math formula" to a fan for automatic fan speed updating.
 * 支援運行時配置 TMC2130、TMC2208/TMC2224、TMC2209、TMC2660 和 TMC5160 步進馬達驅動器。此外，也支援透過 AD5206、DAC084S085、MCP4451、MCP4728、MCP4018 和 PWM 腳位對傳統步進驅動器進行電流控制。
 * 支援直接連線到印表機的普通LCD顯示器。還提供了一個預設的菜單。顯示器和菜單的內容可以通過配置檔案完全定製。
 * 恒定加速和「look-ahead」（前瞻）支援。所有印表機移動將從靜止逐漸加速到巡航速度，然後減速回到靜止。對傳入的 G 程式碼移動命令流進行排隊和分析 - 將優化類似方向上的移動之間的加速度，以減少列印停頓並改善整體列印時間。
 * Klipper 實現了一種「步進相位限位」演算法，可以提高典型限位開關的精度。如果調整得當，它可以提高列印件首層和列印床的附著力。
 * 支援列印絲存在感測器、列印絲運動感測器和列印絲寬度感測器。
-* 支援使用 ADXL345、MPU9250 和 MPU6050 加速度計進行加速度的測量與記錄。
+* Support for measuring and recording acceleration using adxl345, mpu9250, mpu6050, lis2dw12, lis3dh, and icm20948 accelerometers.
 * 支援限制短距離「之」字形移動的最高速度，以減少印表機的振動和噪音。更多資訊見[運動學](Kinematics.md)文件。
 * 許多常見的印表機都有樣本配置檔案。檢視[配置資料夾](../config/)中的列表。
 
@@ -57,15 +57,15 @@ Klipper 支援許多標準的 3d 印表機功能：
 | SAM4S8C | 1690K | 1385K |
 | LPC1768 | 1923K | 1351K |
 | LPC1769 | 2353K | 1622K |
-| RP2040 | 2400K | 1636K |
 | SAM4E8E | 2500K | 1674K |
 | SAMD51 | 3077K | 1885K |
 | AR100 | 3529K | 2507K |
 | STM32F407 | 3652K | 2459K |
 | STM32F446 | 3913K | 2634K |
+| RP2040 | 4000K | 2571K |
 | RP2350 | 4167K | 2663K |
 | SAME70 | 6667K | 4737K |
-| STM32H743 | 9091K | 6061K |
+| STM32H723 | 7429K | 8619K |
 
 如果不確定特定板上的微控制器，請找到適當的 [配置文件](../config/)，並在該文件頂部的註釋中查找微控制器名稱。
 

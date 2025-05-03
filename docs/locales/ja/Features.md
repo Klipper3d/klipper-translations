@@ -23,18 +23,18 @@ Klipperは多くの標準的な3dプリンター機能をサポートしてい�
 * 標準的なGコードのサポート。 典型的な"スライサー"（SuperSlicer、Cura、PrusaSlicerなど）で生成される一般的なGコードコマンドがサポートされています。
 * 複数のエクストルーダをサポート。 ヒーターを共有する押出機や独立キャリッジ（IDEX）上のエクストルーダもサポートしています。
 * Cartesian(デカルト式), Delta, CoreXY, CoreXZ, Hybrid-CoreXY, Hybrid-CoreXZ, Deltesian, Rotary Delta, Polar, Cable Winch Style のプリンタに対応しています。
-* 自動ベッドレベリングサポート。 Klipper は、基本的なベッドの傾き検出、またはフルメッシュのベッドレベリングに構成できます。ベッドが複数のZステッパーを使用している場合、クリッパーはZステッパーを個別に操作してレベリングすることもできます。BLタッチプローブやサーボ式プローブなど、ほとんどのZハイトプローブに対応しています。
+* Automatic bed leveling support. Klipper can be configured for basic bed tilt detection or full mesh bed leveling. The bed mesh can be customized to the print size (adaptive bed mesh). If the bed uses multiple Z steppers then Klipper can also level by independently manipulating the Z steppers. Most Z height probes are supported, including BL-Touch probes and servo activated probes. Probes may be calibrated for axis twist compensation. If using an "eddy current probe" then one can utilize fast bed mesh scanning,
 * 自動デルタキャリブレーションをサポート。キャリブレーションツールは、基本的な高さのキャリブレーションだけでなく、XおよびY寸法の拡張キャリブレーションも実行できます。キャリブレーションは、Z高さプローブまたは手動プローブを使用して行うことができます。
 * 印刷中の "exclude object" サポート。 このモジュールが設定されている場合、マルチパート印刷の1つのオブジェクトだけをキャンセルすることができます。
-* 一般的な温度センサをサポート（例：一般的なサーミスタ、AD595、AD597、AD849x、PT100、PT1000、MAX6675、MAX31855、MAX31856、MAX31865、BME280、HTU21D、DS18B20、LM75）。カスタム・サーミスタやカスタム・アナログ温度センサも設定可能です。マイクロコントローラー内部の温度センサーやRaspberry Piの内部温度センサーをモニターすることもできます。
+* Support for common temperature sensors (eg, common thermistors, AD595, AD597, AD849x, PT100, PT1000, MAX6675, MAX31855, MAX31856, MAX31865, BME280, HTU21D, DS18B20, AHT10, SHT3x, and LM75). Custom thermistors and custom analog temperature sensors can also be configured. One can monitor the internal micro-controller temperature sensor and the internal temperature sensor of a Raspberry Pi.
 * 基本的なサーマルヒーター保護はデフォルトで有効。
-* 標準ファン、ノズルファン、温度制御ファンをサポート。プリンターのアイドル時にファンを回し続ける必要がありません。タコメーター付きのファンでは、ファンの回転数をモニターできます。
+* Support for standard fans, nozzle fans, and temperature controlled fans. No need to keep fans running when the printer is idle. Fan speed can be monitored on fans that have a tachometer. One can assign a "math formula" to a fan for automatic fan speed updating.
 * TMC2130、TMC2208/TMC2224、TMC2209、TMC2660、およびTMC5160ステッパ・モータ・ドライバのランタイム・コンフィギュレーションをサポートします。また、AD5206、DAC084S085、MCP4451、MCP4728、MCP4018、PWMピンを介した従来のステッパ・ドライバの電流制御もサポートしています。
 * プリンタに直接取り付けられた一般的なLCDディスプレイをサポート。デフォルトメニューも用意されています。ディスプレイとメニューの内容は、Configファイルで完全にカスタマイズできます。
 * 定加速と "look-ahead" (先読み) サポート。すべてのプリンター動作は、停止状態から巡航速度まで徐々に加速し、その後減速して停止状態に戻ります。入力されるGコード移動コマンドのストリームはキューに入れられ、分析されます。同じ方向の移動間の加速は、印刷ストールを減らし、全体的な印刷時間を改善するために最適化されます。
 * Klipper は、一般的なエンドストップスイッチの精度を向上させる "stepper phase endstop" アルゴリズムを実装しています。適切に調整された場合、印刷の1層目のベッド密着性を向上させることができます。
 * フィラメント有無センサー、フィラメントモーションセンサー、フィラメント幅センサーをサポート。
-* adxl345、mpu9250、mpu6050加速度センサーを使用した加速度の測定と記録をサポート。
+* Support for measuring and recording acceleration using adxl345, mpu9250, mpu6050, lis2dw12, lis3dh, and icm20948 accelerometers.
 * プリンタの振動とノイズを低減するために、短いジグザグ移動の最高速度を制限する機能をサポートしました。詳しくは [kinematics](Kinematics.md) ドキュメントを参照してください。
 * 多くの一般的なプリンターについて、サンプル設定ファイルが用意されています。[config ディレクトリ](../config/)に一覧があります。
 
@@ -57,15 +57,15 @@ Klipperを使い始めるには、[installation](Installation.md) ガイドを�
 | SAM4S8C | 1690K | 1385K |
 | LPC1768 | 1923K | 1351K |
 | LPC1769 | 2353K | 1622K |
-| RP2040 | 2400K | 1636K |
 | SAM4E8E | 2500K | 1674K |
 | SAMD51 | 3077K | 1885K |
 | AR100 | 3529K | 2507K |
 | STM32F407 | 3652K | 2459K |
 | STM32F446 | 3913K | 2634K |
+| RP2040 | 4000K | 2571K |
 | RP2350 | 4167K | 2663K |
 | SAME70 | 6667K | 4737K |
-| STM32H743 | 9091K | 6061K |
+| STM32H723 | 7429K | 8619K |
 
 特定のボードのマイクロコントローラーがわからない場合は、適切な [configファイル](../config/) を見つけて、そのファイルの先頭にあるコメントからマイクロコントローラーの名前を探してください。
 

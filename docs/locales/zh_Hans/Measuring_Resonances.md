@@ -6,7 +6,7 @@ When sourcing accelerometers, be aware that there are a variety of different PCB
 
 For ADXL345s, make sure that the board supports SPI mode (a small number of boards appear to be hard-configured for I2C by pulling SDO to GND).
 
-For MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500s and LIS2DW/LIS3DH there are also a variety of board designs and clones with different I2C pull-up resistors which will need supplementing.
+For MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500/ICM20948s and LIS2DW/LIS3DH there are also a variety of board designs and clones with different I2C pull-up resistors which will need supplementing.
 
 ## MCUs with Klipper I2C *fast-mode* Support
 
@@ -106,7 +106,7 @@ GND+SCL
 
 请注意，与电缆屏蔽不同，任何接地网(S)都应在两端连接。
 
-#### MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500
+#### MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500/ICM20948
 
 这些加速度计已在RPI、RP2040(Pico)和AVR上以400kbit/S(*快速模式*)的I2C模式工作。一些MPU加速度计模块包括上拉，但有些模块在10K时太大，必须更换或补充较小的并联电阻。
 
@@ -300,6 +300,8 @@ I2C_BUS：I2c.1。
 100、100、20#一个例子
 ```
 
+If you are using the ICM20948, replace instances of "mpu9250" with "icm20948".
+
 #### 配置与Pico兼容的MPU-9520
 
 默认情况下，Pico I2C设置为400000。只需将以下内容添加到printer.cfg：
@@ -321,6 +323,8 @@ probe_points:
 pins: pico:gpio23
 ```
 
+If you are using the ICM20948, replace instances of "mpu9250" with "icm20948".
+
 #### Configure MPU-9520 Compatibles with AVR
 
 AVR I2C will be set to 400000 by the mpu9250 option. Simply add the following to the printer.cfg:
@@ -337,6 +341,8 @@ accel_chip: mpu9250
 probe_points:
     100, 100, 20  # an example
 ```
+
+If you are using the ICM20948, replace instances of "mpu9250" with "icm20948".
 
 通过`RESTART`命令重启Klipper。
 

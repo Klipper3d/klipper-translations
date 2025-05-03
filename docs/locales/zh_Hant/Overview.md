@@ -64,3 +64,4 @@
 - [TSL1401CL 耗材線徑感測器](TSL1401CL_Filament_Width_Sensor.md)
 - [霍爾列印絲寬度感測器](Hall_Filament_Width_Sensor.md)
 - [Eddy Current Inductive probe](Eddy_Probe.md)
+- [Load Cells](Load_Cell.md)

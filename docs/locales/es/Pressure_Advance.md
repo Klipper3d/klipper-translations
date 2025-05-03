@@ -8,7 +8,7 @@ El Avance de presión hace dos cosas útiles - reduce el rezumado durante movimi
 
 Para calibrar el avance de presión la impresora debe ser configurada y estar operacional, ya que la prueba de ajuste involucra imprimir e inspeccionar un objeto de prueba. Es una buena idea el leer este documento en su totalidad previo al ejecutar la prueba.
 
-Use un rebanador para generar el código G para el cuadrado grande hueco que se encuentra en [docs/prints/square_tower.stl](prints/square_tower.stl). Use una velocidad alta (e.g. 100mm/s), cero relleno, y una altura de capa gruesa (la altura de capa debería estar entorno del 75% del diámetro del rociador). Asegúrese de que cualquier "control de aceleración dinámica" está deshabilitado en el rebanador.
+Use a slicer to generate g-code for the large hollow square found in [docs/prints/square_tower.stl](prints/square_tower.stl). Use a high speed (eg, 100mm/s), zero infill, and a coarse layer height (the layer height should be around 75% of the nozzle diameter). Make sure any "dynamic acceleration control" and "scarf joint" seams are disabled in the slicer.
 
 Prepare para la prueba mediante el envío del siguiente comando en código G:
 

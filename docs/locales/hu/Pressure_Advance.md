@@ -8,7 +8,7 @@ A nyomás előtolás két hasznos dolgot tesz. Csökkenti a nem extrudált mozg�
 
 A nyomás előtolás kalibrálásához a nyomtatónak konfiguráltnak és működőképesnek kell lennie, mivel a hangolási teszt egy tesztobjektum nyomtatásával és vizsgálatával jár. A teszt lefuttatása előtt érdemes ezt a dokumentumot teljes egészében elolvasni.
 
-A [docs/prints/square_tower.stl](prints/square_tower.stl) fájlban található nagy üreges négyzet G-kódjának létrehozásához használj egy szeletelőt. Használj nagy sebességet (pl. 100 mm/s), nulla kitöltést és durva rétegmagasságot (a rétegmagasságnak a fúvóka átmérőjének 75%-a körül kell lennie). Győződj meg róla, hogy a szeletelőben minden "dinamikus gyorsításvezérlés" ki van kapcsolva.
+Use a slicer to generate g-code for the large hollow square found in [docs/prints/square_tower.stl](prints/square_tower.stl). Use a high speed (eg, 100mm/s), zero infill, and a coarse layer height (the layer height should be around 75% of the nozzle diameter). Make sure any "dynamic acceleration control" and "scarf joint" seams are disabled in the slicer.
 
 Készülj fel a tesztre a következő G-kód parancs kiadásával:
 
