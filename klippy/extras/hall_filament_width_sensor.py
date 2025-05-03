@@ -124,8 +124,8 @@ class HallFilamentWidthSensor:
         # Update filament array for lastFilamentWidthReading
         self.update_filament_array(last_epos)
         # Check runout
-        self.runout_helper.note_filament_present(
-            self.diameter > self.runout_dia)
+        self.runout_helper.note_filament_present(eventtime,
+            self.runout_dia_min <= self.diameter <= self.runout_dia_max)
         # Does filament exists
         if self.diameter > 0.5:
             if len(self.filament_array) > 0:
@@ -208,10 +208,12 @@ class HallFilamentWidthSensor:
                       +self.lastFilamentWidthReading2))
         gcmd.respond_info(response)
     def get_status(self, eventtime):
-        return {'Diameter': self.diameter,
+        status = self.runout_helper.get_status(eventtime)
+        status.update({'Diameter': self.diameter,
                 'Raw':(self.lastFilamentWidthReading+
                  self.lastFilamentWidthReading2),
-                'is_active':self.is_active}
+                'is_active':self.is_active})
+        return status
     def cmd_log_enable(self, gcmd):
         self.is_log = True
         gcmd.respond_info("Filament width logging Turned On")

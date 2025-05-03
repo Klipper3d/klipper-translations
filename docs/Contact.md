@@ -143,15 +143,12 @@ for important information.
 There are several
 [documents for developers](Overview.md#developer-documentation). If
 you have questions on the code then you can also ask in the
-[Klipper Community Forum](#community-forum) or on the
-[Klipper Community Discord](#discord-chat).
+[Klipper Discourse Forum](#discourse-forum) or on the
+[Klipper Discord Chat](#discord-chat).
 
-## Klipper github
+## Professional Services
 
-Klipper github may be used by contributors to share the status of
-their work to improve Klipper. It is expected that the person opening
-a github ticket is actively working on the given task and will be the
-one performing all the work necessary to accomplish it. The Klipper
-github is not used for requests, nor to report bugs, nor to ask
-questions. Use the [Klipper Community Forum](#community-forum) or the
-[Klipper Community Discord](#discord-chat) instead.
+![](img/klipper-logo-small.png)
+
+Custom software development, software support, and solutions:
+[https://ko-fi.com/koconnor](https://ko-fi.com/koconnor)

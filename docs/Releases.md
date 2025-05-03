@@ -3,6 +3,53 @@
 History of Klipper releases. Please see
 [installation](Installation.md) for information on installing Klipper.
 
+## Klipper 0.13.0
+
+Available on 20250411. Major changes in this release:
+* New "sweeping vibrations" resonance testing mechanism for input
+  shaper.
+* Fans and GPIO pins can now be assigned a formula (via Jinja2
+  "templates").
+* The bed_mesh code now supports "adaptive bed mesh". The area probed
+  can be adjusted for the size of the print.
+* A new `minimum_cruise_ratio` kinematic parameter has been added (it
+  replaces the previous `max_accel_to_decel` parameter).
+* Several new sensors added:
+  * Support for ldc1612 "eddy" current sensors. This includes probing
+    support, fast "scan" probing, and temperature calibration.
+  * New support for "load cell" measurements. Support for connecting
+    these load cells to hx71x and ads1220 ADC sensors.
+  * Support for BMP180, BMP388, and SHT3x temperature sensors. Support
+    for measuring temperature with ADS1x1x ADC chips.
+  * New lis3dh and icm20948 accelerometer support.
+  * Support for mt6816 and mt6826s "hall angle" sensors.
+* New micro-controller improvements:
+  * New support for rp2350 micro-controllers.
+  * Existing rp2040 chips now run at 200MHz (up from 125Mhz).
+  * The micro-controller code can now define many more commands (up to
+    16384 from 128).
+* Other modules added: aip31068_spi, canbus_stats, error_mcu,
+  garbage_collection, pwm_cycle_time, pwm_tool, garbage_collection.
+* Several bug fixes and code cleanups.
+
+## Klipper 0.12.0
+
+Available on 20231110. Major changes in this release:
+* Support for COPY and MIRROR modes on IDEX printers.
+* Several micro-controller improvements:
+  * Support for new ar100 and hc32f460 architectures.
+  * Support for stm32f7, stm32g0b0, stm32g07x, stm32g4, stm32h723,
+    n32g45x, samc21, and samd21j18 chip variants.
+  * Improved DFU and Katapult reboot handling.
+  * Improved performance on USB to CANbus bridge mode.
+  * Improved performance on "linux mcu".
+  * New support for software based i2c.
+* New hardware support for tmc2240 stepper motor drivers, lis2dw12
+  accelerometers, and aht10 temperature sensors.
+* New axis_twist_compensation and temperature_combined modules added.
+* New support for gcode arcs in XY, XZ, and YZ planes.
+* Several bug fixes and code cleanups.
+
 ## Klipper 0.11.0
 
 Available on 20221128. Major changes in this release:
