@@ -12,8 +12,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-02-25 15:18+0000\n"
 "Last-Translator: hilaire12 <hilaangalikiana1@gmail.com>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/klipper/"
-"config_reference/fr/>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/klipper/config_reference/fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -1382,19 +1381,6 @@ msgstr ""
 "car ils entreront en conflit, et le module ne pourra pas s'initialiser "
 "correctement, ce qui fera échouer votre impression."
 
-msgid ""
-"If you use Octoprint and stream gcode over the serial port instead of printing"
-" from virtual_sd, then remo **M1** and **M0** from *Pausing commands* in "
-"*Settings > Serial Connection > Firmware & protocol* will prevent the need to "
-"start print on the Palette 2 and unpausing in Octoprint for your print to "
-"begin."
-msgstr ""
-"Si vous utilisez Octoprint et que vous diffusez du gcode sur le port série au "
-"lieu d'imprimer à partir de virtual_sd, alors supprimez **M1** et **M0** de "
-"*Commandes de pause* dans *Paramètres > Connexion série > Firmware & "
-"protocole* évitera d'avoir à lancer l'impression sur la Palette 2 et de devoir"
-" lever la pause dans Octoprint pour que l'impression commence."
-
 msgid "Common bus parameters"
 msgstr "Paramètres communs aux bus"
 
@@ -2335,6 +2321,60 @@ msgid ""
 "support a rate of 400000 via the `i2c_speed` parameter. All other Klipper "
 "micro-controllers use a 100000 rate and ignore the `i2c_speed` parameter."
 msgstr ""
+
+#: docs/Config_Reference.md:block 171 (header)
+msgid "[icm20948]"
+msgstr ""
+
+#: docs/Config_Reference.md:block 172 (paragraph)
+msgid "Support for icm20948 accelerometers."
+msgstr ""
+
+#: docs/Config_Reference.md:block 470 (header)
+msgid "[ads1x1x]"
+msgstr ""
+
+#: docs/Config_Reference.md:block 471 (paragraph)
+msgid ""
+"ADS1013, ADS1014, ADS1015, ADS1113, ADS1114 and ADS1115 are I2C based Analog "
+"to Digital Converters that can be used for temperature sensors. They provide 4"
+" analog input pins either as single line or as differential input."
+msgstr ""
+
+#: docs/Config_Reference.md:block 472 (paragraph)
+msgid ""
+"Note: Use caution if using this sensor to control heaters. The heater min_temp"
+" and max_temp are only verified in the host and only if the host is running "
+"and operating normally. (ADC inputs directly connected to the micro-controller"
+" verify min_temp and max_temp within the micro-controller and do not require a"
+" working connection to the host.)"
+msgstr ""
+
+#: docs/Config_Reference.md:block 474 (paragraph)
+msgid "The chip provides pins that can be used on other sensors."
+msgstr ""
+
+#: docs/Config_Reference.md:block 484 (paragraph)
+msgid ""
+"If you use Octoprint and stream gcode over the serial port instead of printing"
+" from virtual_sd, then remove **M1** and **M0** from *Pausing commands* in "
+"*Settings > Serial Connection > Firmware & protocol* will prevent the need to "
+"start print on the Palette 2 and unpausing in Octoprint for your print to "
+"begin."
+msgstr ""
+
+#~ msgid ""
+#~ "If you use Octoprint and stream gcode over the serial port instead of printing"
+#~ " from virtual_sd, then remo **M1** and **M0** from *Pausing commands* in "
+#~ "*Settings > Serial Connection > Firmware & protocol* will prevent the need to "
+#~ "start print on the Palette 2 and unpausing in Octoprint for your print to "
+#~ "begin."
+#~ msgstr ""
+#~ "Si vous utilisez Octoprint et que vous diffusez du gcode sur le port série au "
+#~ "lieu d'imprimer à partir de virtual_sd, alors supprimez **M1** et **M0** de "
+#~ "*Commandes de pause* dans *Paramètres > Connexion série > Firmware & "
+#~ "protocole* évitera d'avoir à lancer l'impression sur la Palette 2 et de devoir"
+#~ " lever la pause dans Octoprint pour que l'impression commence."
 
 #~ msgid ""
 #~ "[mcu]\n"

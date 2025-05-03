@@ -1041,6 +1041,13 @@ msgstr "Ein CoreXY Homing-Makro könnte beispielsweise so aussehen:"
 msgid "TMC reports error: `... ShortToGND` OR `ShortToSupply`"
 msgstr "TMC meldet Fehler: `... ShortToGND` ODER `ShortToSupply`"
 
+#: docs/TMC_Drivers.md:block 18 (paragraph)
+msgid ""
+"Note that the `stealthchop_threshold` config option does not impact sensorless"
+" homing as Klipper automatically switches the TMC driver to an appropriate "
+"mode during sensorless homing operations."
+msgstr ""
+
 #~ msgid ""
 #~ "[stepper_x]\n"
 #~ "rotation_distance: 40\n"

@@ -707,10 +707,6 @@ msgstr ""
 msgid "I2C Accelerometers"
 msgstr ""
 
-#: docs/Measuring_Resonances.md:block 21 (header)
-msgid "MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500"
-msgstr ""
-
 #: docs/Measuring_Resonances.md:block 23 (paragraph)
 msgid "Recommended connection scheme for I2C on the Raspberry Pi:"
 msgstr ""
@@ -1230,13 +1226,6 @@ msgid ""
 "boards appear to be hard-configured for I2C by pulling SDO to GND)."
 msgstr ""
 
-#: docs/Measuring_Resonances.md:block 5 (paragraph)
-msgid ""
-"For MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500s and LIS2DW/LIS3DH there are "
-"also a variety of board designs and clones with different I2C pull-up "
-"resistors which will need supplementing."
-msgstr ""
-
 #: docs/Measuring_Resonances.md:block 7 (table)
 msgid "SAMD"
 msgstr ""
@@ -1294,6 +1283,32 @@ msgid ""
 " If none of that helps, a user may try the other shapers from the produced "
 "list besides the one recommended by default."
 msgstr ""
+
+#: docs/Measuring_Resonances.md:block 5 (paragraph)
+msgid ""
+"For MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500/ICM20948s and LIS2DW/LIS3DH "
+"there are also a variety of board designs and clones with different I2C pull-"
+"up resistors which will need supplementing."
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 37 (header)
+msgid "MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500/ICM20948"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 90 (paragraph)
+msgid ""
+"If you are using the ICM20948, replace instances of \"mpu9250\" with "
+"\"icm20948\"."
+msgstr ""
+
+#~ msgid "MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "For MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500s and LIS2DW/LIS3DH there are "
+#~ "also a variety of board designs and clones with different I2C pull-up "
+#~ "resistors which will need supplementing."
+#~ msgstr ""
 
 #~ msgid "~/klippy-env/bin/pip install -v numpy\n"
 #~ msgstr "~/klippy-env/bin/pip install -v numpy\n"

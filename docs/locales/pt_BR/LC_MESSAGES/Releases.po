@@ -609,3 +609,141 @@ msgid ""
 "smart_effector, z_thermal_adjust. New deltesian kinematics added. New dump_mcu"
 " tool added."
 msgstr ""
+
+#: docs/Releases.md:block 3 (header)
+msgid "Klipper 0.13.0"
+msgstr ""
+
+#: docs/Releases.md:block 4 (paragraph)
+msgid "Available on 20250411. Major changes in this release:"
+msgstr ""
+
+#: docs/Releases.md:block 5 (unordered list)
+msgid "New \"sweeping vibrations\" resonance testing mechanism for input shaper."
+msgstr ""
+
+#: docs/Releases.md:block 5 (unordered list)
+msgid "Fans and GPIO pins can now be assigned a formula (via Jinja2 \"templates\")."
+msgstr ""
+
+#: docs/Releases.md:block 5 (unordered list)
+msgid ""
+"The bed_mesh code now supports \"adaptive bed mesh\". The area probed can be "
+"adjusted for the size of the print."
+msgstr ""
+
+#: docs/Releases.md:block 5 (unordered list)
+msgid ""
+"A new `minimum_cruise_ratio` kinematic parameter has been added (it replaces "
+"the previous `max_accel_to_decel` parameter)."
+msgstr ""
+
+#: docs/Releases.md:block 5 (unordered list)
+msgid "Several new sensors added:"
+msgstr ""
+
+#: docs/Releases.md:block 5 (unordered list)
+msgid ""
+"Support for ldc1612 \"eddy\" current sensors. This includes probing support, "
+"fast \"scan\" probing, and temperature calibration."
+msgstr ""
+
+#: docs/Releases.md:block 5 (unordered list)
+msgid ""
+"New support for \"load cell\" measurements. Support for connecting these load "
+"cells to hx71x and ads1220 ADC sensors."
+msgstr ""
+
+#: docs/Releases.md:block 5 (unordered list)
+msgid ""
+"Support for BMP180, BMP388, and SHT3x temperature sensors. Support for "
+"measuring temperature with ADS1x1x ADC chips."
+msgstr ""
+
+#: docs/Releases.md:block 5 (unordered list)
+msgid "New lis3dh and icm20948 accelerometer support."
+msgstr ""
+
+#: docs/Releases.md:block 5 (unordered list)
+msgid "Support for mt6816 and mt6826s \"hall angle\" sensors."
+msgstr ""
+
+#: docs/Releases.md:block 5 (unordered list)
+msgid "New micro-controller improvements:"
+msgstr ""
+
+#: docs/Releases.md:block 5 (unordered list)
+msgid "New support for rp2350 micro-controllers."
+msgstr ""
+
+#: docs/Releases.md:block 5 (unordered list)
+msgid "Existing rp2040 chips now run at 200MHz (up from 125Mhz)."
+msgstr ""
+
+#: docs/Releases.md:block 5 (unordered list)
+msgid ""
+"The micro-controller code can now define many more commands (up to 16384 from "
+"128)."
+msgstr ""
+
+#: docs/Releases.md:block 5 (unordered list)
+msgid ""
+"Other modules added: aip31068_spi, canbus_stats, error_mcu, "
+"garbage_collection, pwm_cycle_time, pwm_tool, garbage_collection."
+msgstr ""
+
+#: docs/Releases.md:block 6 (header)
+msgid "Klipper 0.12.0"
+msgstr ""
+
+#: docs/Releases.md:block 7 (paragraph)
+msgid "Available on 20231110. Major changes in this release:"
+msgstr ""
+
+#: docs/Releases.md:block 8 (unordered list)
+msgid "Support for COPY and MIRROR modes on IDEX printers."
+msgstr ""
+
+#: docs/Releases.md:block 8 (unordered list)
+msgid "Several micro-controller improvements:"
+msgstr ""
+
+#: docs/Releases.md:block 8 (unordered list)
+msgid "Support for new ar100 and hc32f460 architectures."
+msgstr ""
+
+#: docs/Releases.md:block 8 (unordered list)
+msgid ""
+"Support for stm32f7, stm32g0b0, stm32g07x, stm32g4, stm32h723, n32g45x, "
+"samc21, and samd21j18 chip variants."
+msgstr ""
+
+#: docs/Releases.md:block 8 (unordered list)
+msgid "Improved DFU and Katapult reboot handling."
+msgstr ""
+
+#: docs/Releases.md:block 8 (unordered list)
+msgid "Improved performance on USB to CANbus bridge mode."
+msgstr ""
+
+#: docs/Releases.md:block 8 (unordered list)
+msgid "Improved performance on \"linux mcu\"."
+msgstr ""
+
+#: docs/Releases.md:block 8 (unordered list)
+msgid "New support for software based i2c."
+msgstr ""
+
+#: docs/Releases.md:block 8 (unordered list)
+msgid ""
+"New hardware support for tmc2240 stepper motor drivers, lis2dw12 "
+"accelerometers, and aht10 temperature sensors."
+msgstr ""
+
+#: docs/Releases.md:block 8 (unordered list)
+msgid "New axis_twist_compensation and temperature_combined modules added."
+msgstr ""
+
+#: docs/Releases.md:block 8 (unordered list)
+msgid "New support for gcode arcs in XY, XZ, and YZ planes."
+msgstr ""
