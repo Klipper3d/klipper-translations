@@ -1280,6 +1280,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Load_Cell.html" class="md-nav__link">
+        Load Cells
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1574,6 +1588,7 @@
 <p>In general, spreadCycle mode provides greater torque and greater positional accuracy than stealthChop mode. However, stealthChop mode may produce significantly lower audible noise on some printers.</p>
 <p>Tests comparing modes have shown an increased "positional lag" of around 75% of a full-step during constant velocity moves when using stealthChop mode (for example, on a printer with 40mm rotation_distance and 200 steps_per_rotation, position deviation of constant speed moves increased by ~0.150mm). However, this "delay in obtaining the requested position" may not manifest as a significant print defect and one may prefer the quieter behavior of stealthChop mode.</p>
 <p>Es wird empfohlen, immer den "spreadCycle"-Modus zu verwenden (indem <code>stealthchop_threshold</code> nicht angegeben wird) oder immer den "stealthChop"-Modus (indem <code>stealthchop_threshold</code> auf 999999 gesetzt wird). Leider liefern die Treiber oft schlechte und verwirrende Ergebnisse, wenn sich der Modus ändert, während der Motor eine Geschwindigkeit ungleich Null hat.</p>
+<p>Note that the <code>stealthchop_threshold</code> config option does not impact sensorless homing as Klipper automatically switches the TMC driver to an appropriate mode during sensorless homing operations.</p>
 <h2 id="die-tmc-interpolate-einstellung-fuhrt-zu-geringen-positionsabweichungen">Die TMC interpolate einstellung führt zu geringen Positionsabweichungen<a class="headerlink" href="#die-tmc-interpolate-einstellung-fuhrt-zu-geringen-positionsabweichungen" title="Permanent link">&para;</a></h2>
 <p>The TMC driver <code>interpolate</code> setting may reduce the audible noise of printer movement at the cost of introducing a small systemic positional error. This systemic positional error results from the driver's delay in executing "steps" that Klipper sends it. During constant velocity moves, this delay results in a positional error of nearly half a configured microstep (more precisely, the error is half a microstep distance minus a 512th of a full step distance). For example, on an axis with a 40mm rotation_distance, 200 steps_per_rotation, and 16 microsteps, the systemic error introduced during constant velocity moves is ~0.006mm.</p>
 <p>For best positional accuracy consider using spreadCycle mode and disable interpolation (set <code>interpolate: False</code> in the TMC driver config). When configured this way, one may increase the <code>microstep</code> setting to reduce audible noise during stepper movement. Typically, a microstep setting of <code>64</code> or <code>128</code> will have similar audible noise as interpolation, and do so without introducing a systemic positional error.</p>

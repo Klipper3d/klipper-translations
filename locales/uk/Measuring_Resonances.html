@@ -1280,6 +1280,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Load_Cell.html" class="md-nav__link">
+        Load Cells
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1398,11 +1412,11 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#-9250-9255-6515-6050-6500" class="md-nav__link">
-    МПУ-9250/МПУ-9255/МПУ-6515/МПУ-6050/МПУ-6500
+  <a href="#mpu-9250mpu-9255mpu-6515mpu-6050mpu-6500icm20948" class="md-nav__link">
+    MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500/ICM20948
   </a>
   
-    <nav class="md-nav" aria-label="МПУ-9250/МПУ-9255/МПУ-6515/МПУ-6050/МПУ-6500">
+    <nav class="md-nav" aria-label="MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500/ICM20948">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1619,7 +1633,7 @@
 <p>Klipper має вбудовану підтримку сумісних акселерометрів ADXL345, MPU-9250, LIS2DW і LIS3DH, які можна використовувати для вимірювання резонансних частот принтера для різних осей і автоматичного налаштування <a href="Resonance_Compensation.html">формувальників вхідних даних</a> для компенсації резонансів. Зауважте, що використання акселерометрів потребує пайки та обтиску. ADXL345 можна підключити до інтерфейсу SPI плати Raspberry Pi або MCU (він має бути достатньо швидким). Сімейство MPU можна підключити безпосередньо до інтерфейсу I2C Raspberry Pi або до інтерфейсу I2C плати MCU, яка підтримує 400 Кбіт/с <em>швидкий режим</em> у Klipper. LIS2DW і LIS3DH можна підключити до SPI або I2C з тими ж міркуваннями, що й вище.</p>
 <p>При стисканні акселерометрів слід розуміти, що існують різні зразки друкованої плати та різні клони їх. Якщо він буде підключений до принтера 5V MCU, щоб він має регулятор напруги та перемикачі рівня.</p>
 <p>Для ADXL345 переконайтеся, що плата підтримує режим SPI (невелика кількість плат, здається, жорстко налаштована для I2C шляхом підтягування SDO до GND).</p>
-<p>Для MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500s і LIS2DW/LIS3DH також є різноманітні дизайни плат і клони з різними підтягуючими резисторами I2C, які потребують доповнення.</p>
+<p>For MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500/ICM20948s and LIS2DW/LIS3DH there are also a variety of board designs and clones with different I2C pull-up resistors which will need supplementing.</p>
 <h2 id="mcu-klipper-i2c-fast-mode">MCU з Klipper I2C <em>fast-mode</em> Підтримка<a class="headerlink" href="#mcu-klipper-i2c-fast-mode" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -1784,7 +1798,7 @@
 </code></pre></div>
 
 <p>Зауважте, що на відміну від кабельного щита, будь-які GND(s) повинні бути підключені до обох кінців.</p>
-<h4 id="-9250-9255-6515-6050-6500">МПУ-9250/МПУ-9255/МПУ-6515/МПУ-6050/МПУ-6500<a class="headerlink" href="#-9250-9255-6515-6050-6500" title="Permanent link">&para;</a></h4>
+<h4 id="mpu-9250mpu-9255mpu-6515mpu-6050mpu-6500icm20948">MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500/ICM20948<a class="headerlink" href="#mpu-9250mpu-9255mpu-6515mpu-6050mpu-6500icm20948" title="Permanent link">&para;</a></h4>
 <p>Ці акселерометри були протестовані для роботи над I2C на RPi, RP2040 (Pico) та AVR на 400kbit/s (<em>fast mode</em>). Деякі модулі акселерометра МПУ включають витяги, але деякі занадто великі на 10K і повинні бути змінені або доповнені меншими паралельними резисторами.</p>
 <p>Рекомендована схема підключення I2C на Малина Пі:</p>
 <table>
@@ -2005,6 +2019,7 @@ accel_chip: mpu9250
 100, 100, 20 # приклад
 </code></pre></div>
 
+<p>If you are using the ICM20948, replace instances of "mpu9250" with "icm20948".</p>
 <h4 id="mpu-9520-pico">Налаштування MPU-9520 Сумісний з Pico<a class="headerlink" href="#mpu-9520-pico" title="Permanent link">&para;</a></h4>
 <p>Pico I2C встановлюється до 400000 за замовчуванням. Просто додайте наступний до принтера.cfg:</p>
 <div class="highlight"><pre><span></span><code>[mcu pico]
@@ -2023,6 +2038,7 @@ accel_chip: mpu9250
 шпильки: pico:gpio23
 </code></pre></div>
 
+<p>If you are using the ICM20948, replace instances of "mpu9250" with "icm20948".</p>
 <h4 id="mpu-9520-avr">Налаштування MPU-9520 Сумісний з AVR<a class="headerlink" href="#mpu-9520-avr" title="Permanent link">&para;</a></h4>
 <p>AVR I2C буде встановлена до 400000 по параметру mpu9250. Просто додайте наступний до принтера.cfg:</p>
 <div class="highlight"><pre><span></span><code>[mcu нано]
@@ -2037,6 +2053,7 @@ accel_chip: mpu9250
 100, 100, 20 # приклад
 </code></pre></div>
 
+<p>If you are using the ICM20948, replace instances of "mpu9250" with "icm20948".</p>
 <p>Рештарт Кліппер через команду <code>RESTART</code>.</p>
 <h2 id="_8">Вимірювання резонансів<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
 <h3 id="_9">Перевірка налаштування<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>

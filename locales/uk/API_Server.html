@@ -1280,6 +1280,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Load_Cell.html" class="md-nav__link">
+        Load Cells
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1469,15 +1483,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#hx71xdump_hx71x" class="md-nav__link">
-    hx71x/dump_hx71x
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ads1220-dump_ads1220" class="md-nav__link">
-    ads1220/ dump_ads1220
+  <a href="#load_celldump_force" class="md-nav__link">
+    load_cell/dump_force
   </a>
   
 </li>
@@ -1636,12 +1643,10 @@
 <p>Ця кінцева точка використовується для підписки на дані датчика <a href="Config_Reference.html#angle">кутник</a>. Зберігаючи ці оновлення руху низького рівня можуть бути корисними для діагностичних і знеболюючих цілей. Використання цього кінцевого пункту може збільшити навантаження системи Klipper.</p>
 <p>Запит може виглядати як: <code>{"id": 123, "метод":"кутник/dump_кутник", "params": "my_angle_sensor", "response_template": {contact</code> і може повернутися: <code>{"id": 123,"result":{"header":["time","angle"]}}</code> і може пізніше випускати асинхронні повідомлення, такі як: `{"params":{"tion_offset":3.1512,"errors:012[12]</p>
 <p>Поле "голова" в початковій відповіді запиту використовується для опису полів, знайдених в більш пізній "data".</p>
-<h3 id="hx71xdump_hx71x">hx71x/dump_hx71x<a class="headerlink" href="#hx71xdump_hx71x" title="Permanent link">&para;</a></h3>
-<p>Ця кінцева точка використовується для підписки на сирі дані HX711 та HX717 ADC. Отримуючи ці оновлення низького рівня ADC можуть бути корисними для діагностичних і знеболюючих цілей. Використання цього кінцевого пункту може збільшити навантаження системи Klipper.</p>
-<p>Запит може виглядати як: <code>{"id": 123, "метод":"hx71x/dump_hx71x", "params": {"sensor": "load_cell", "response_template":</code> і може повернутися: <code>{"id": 123,"result":{"header":["time", "counts","value"]}}</code> і може пізніше виробляти асинхронні повідомлення, такі як: <code>{"params":{"data":[3292.432935, 562534, 0.067059278], [3292.4394937, 5625322, 0.670590639]]}}</code></p>
-<h3 id="ads1220-dump_ads1220">ads1220/ dump_ads1220<a class="headerlink" href="#ads1220-dump_ads1220" title="Permanent link">&para;</a></h3>
-<p>Ця кінцева точка використовується для підписки на сирі дані ADS1220 ADC. Отримуючи ці оновлення низького рівня ADC можуть бути корисними для діагностичних і знеболюючих цілей. Використання цього кінцевого пункту може збільшити навантаження системи Klipper.</p>
-<p>Запит може виглядати як: <code>{"id": 123, "метод":"ads1220/dump_ads1220", "params": "load_cell", "response_template":</code> і може повернутися: <code>{"id": 123,"result":{"header":["time", "counts","value"]}}</code> і може пізніше виробляти асинхронні повідомлення, такі як: <code>{"params":{"data":[3292.432935, 562534, 0.067059278], [3292.4394937, 5625322, 0.670590639]]}}</code></p>
+<h3 id="load_celldump_force">load_cell/dump_force<a class="headerlink" href="#load_celldump_force" title="Permanent link">&para;</a></h3>
+<p>This endpoint is used to subscribe to force data produced by a load_cell. Using this endpoint may increase Klipper's system load.</p>
+<p>A request may look like: <code>{"id": 123, "method":"load_cell/dump_force", "params": {"sensor": "load_cell", "response_template": {}}}</code> and might return: <code>{"id": 123,"result":{"header":["time", "force (g)", "counts", "tare_counts"]}}</code> and might later produce asynchronous messages such as: <code>{"params":{"data":[[3292.432935, 40.65, 562534, -234467]]}}</code></p>
+<p>Поле "голова" в початковій відповіді запиту використовується для опису полів, знайдених в більш пізній "data".</p>
 <h3 id="_resumecancel">пауза_resume/cancel<a class="headerlink" href="#_resumecancel" title="Permanent link">&para;</a></h3>
 <p>Ця кінцева точка схожа на запуск "PRINT_CANCEL" G-Code команди. Наприклад: <code>{"id": 123, "метод": "pause_resume/cancel"}</code></p>
 <p>Як з кінцевою точкою "gcode/script" цей кінцевий пункт завершується тільки після завершення будь-яких команд G-Code.</p>

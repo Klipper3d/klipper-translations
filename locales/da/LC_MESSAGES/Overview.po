@@ -5,8 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-01-16 04:17+0000\n"
 "Last-Translator: Sebastian <sebastiankiwidk@gmail.com>\n"
-"Language-Team: Danish <https://hosted.weblate.org/projects/klipper/overview/"
-"da/>\n"
+"Language-Team: Danish <https://hosted.weblate.org/projects/klipper/overview/da/>\n"
 "Language: da\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -318,6 +317,10 @@ msgstr ""
 #: docs/Overview.md:block 10 (unordered list)
 msgid "[Eddy Current Inductive probe](Eddy_Probe.md)"
 msgstr "[Eddy Current Inductive probe](Eddy_Probe.md)"
+
+#: docs/Overview.md:block 10 (unordered list)
+msgid "[Load Cells](Load_Cell.md)"
+msgstr ""
 
 #~ msgid ""
 #~ "[Exclude Object](Exclude_Object.md): The guide to the Exclude Objecs "

@@ -5,22 +5,16 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-02-20 08:20+0000\n"
 "Last-Translator: Максим Горпиніч <maksimgorpinic2005a@gmail.com>\n"
-"Language-Team: Ukrainian <https://hosted.weblate.org/projects/klipper/"
-"axis_twist_compensation/uk/>\n"
+"Language-Team: Ukrainian <https://hosted.weblate.org/projects/klipper/axis_twist_compensation/uk/>\n"
 "Language: uk\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Weblate 5.10.1-dev\n"
 
 #: docs/Axis_Twist_Compensation.md:block 1 (header)
 msgid "Axis Twist Compensation"
 msgstr "Компенсація скручування осі"
-
-#: docs/Axis_Twist_Compensation.md:block 2 (paragraph)
-msgid "This document describes the [axis_twist_compensation] module."
-msgstr "Цей документ описує модуль [axis_twist_compensation]."
 
 #: docs/Axis_Twist_Compensation.md:block 3 (paragraph)
 msgid ""
@@ -87,22 +81,6 @@ msgstr ""
 msgid "[axis_twist_compensation] setup and commands"
 msgstr "Налаштування та команди [axis_twist_compensation]"
 
-#: docs/Axis_Twist_Compensation.md:block 13 (paragraph)
-msgid ""
-"Configuration options for [axis_twist_compensation] can be found in the "
-"[Configuration Reference](Config_Reference.md#axis_twist_compensation)."
-msgstr ""
-"Параметри конфігурації для [axis_twist_compensation] можна знайти в "
-"[Configuration Reference](Config_Reference.md#axis_twist_compensation)."
-
-#: docs/Axis_Twist_Compensation.md:block 14 (paragraph)
-msgid ""
-"Commands for [axis_twist_compensation] can be found in the [G-Codes "
-"Reference](G-Codes.md#axis_twist_compensation)"
-msgstr ""
-"Команди для [axis_twist_compensation] можна знайти в [G-Codes "
-"Reference](G-Codes.md#axis_twist_compensation)"
-
 #: docs/Axis_Twist_Compensation.md:block 8 (header)
 msgid "Basic Usage: X-Axis Calibration"
 msgstr "Основне використання: калібрування осі X"
@@ -110,26 +88,6 @@ msgstr "Основне використання: калібрування осі
 #: docs/Axis_Twist_Compensation.md:block 9 (ordered list)
 msgid "After setting up the `[axis_twist_compensation]` module, run:"
 msgstr "Після налаштування модуля `[axis_twist_compensation]` виконайте:"
-
-#: docs/Axis_Twist_Compensation.md:block 11 (paragraph)
-msgid ""
-"This command will calibrate the X-axis by default. - The calibration wizard "
-"will prompt you to measure the probe Z offset at several points along the bed."
-" - By default, the calibration uses 3 points, but you can specify a different "
-"number with the option: `SAMPLE_COUNT=<value>`"
-msgstr ""
-"Ця команда відкалібрує вісь Х за замовчуванням. - Майстер калібрування "
-"запропонує вам виміряти зсув зонда Z у кількох точках уздовж дна. - За "
-"замовчуванням калібрування використовує 3 точки, але ви можете вказати інше "
-"число за допомогою опції: `SAMPLE_COUNT=<value>`"
-
-#: docs/Axis_Twist_Compensation.md:block 12 (ordered list)
-msgid ""
-"**Adjust Your Z Offset:** After completing the calibration, be sure to [adjust"
-" your Z offset] (Probe_Calibrate.md#calibrating-probe-z-offset)."
-msgstr ""
-"**Налаштуйте зміщення Z:** Після завершення калібрування обов’язково "
-"[налаштуйте зміщення Z] (Probe_Calibrate.md#calibrating-probe-z-offset)."
 
 #: docs/Axis_Twist_Compensation.md:block 12 (ordered list)
 msgid ""
@@ -160,8 +118,8 @@ msgid ""
 "Run a test print, followed by any [fine-"
 "tuning](Axis_Twist_Compensation.md#fine-tuning) if needed."
 msgstr ""
-"Запустіть пробний друк, а потім будь-яке [точне налаштування]"
-"(Axis_Twist_Compensation.md#fine-tuning), якщо потрібно."
+"Запустіть пробний друк, а потім будь-яке [точне "
+"налаштування](Axis_Twist_Compensation.md#fine-tuning), якщо потрібно."
 
 #: docs/Axis_Twist_Compensation.md:block 13 (header)
 msgid "For Y-Axis Calibration"
@@ -172,32 +130,102 @@ msgid ""
 "The calibration process for the Y-axis is similar to the X-axis. To calibrate "
 "the Y-axis, use:"
 msgstr ""
-"Процес калібрування для осі Y подібний до процесу калібрування для осі X. "
-"Щоб відкалібрувати вісь Y, використовуйте:"
+"Процес калібрування для осі Y подібний до процесу калібрування для осі X. Щоб "
+"відкалібрувати вісь Y, використовуйте:"
 
 #: docs/Axis_Twist_Compensation.md:block 16 (paragraph)
 msgid ""
 "This will guide you through the same measuring process as for the X-axis."
 msgstr "Це проведе вас через той самий процес вимірювання, що й для осі X."
 
-#: docs/Axis_Twist_Compensation.md:block 17 (header)
-msgid "Automatic Calibration for Both Axes"
-msgstr "Автоматичне калібрування для обох осей"
-
-#: docs/Axis_Twist_Compensation.md:block 18 (paragraph)
-msgid ""
-"To perform automatic calibration for both the X and Y axes without manual "
-"intervention, use:"
+#: docs/Axis_Twist_Compensation.md:block 2 (paragraph)
+msgid "This document describes the `[axis_twist_compensation]` module."
 msgstr ""
-"Щоб виконати автоматичне калібрування осей X і Y без ручного втручання, "
-"використовуйте:"
 
-#: docs/Axis_Twist_Compensation.md:block 20 (paragraph)
-msgid ""
-"In this mode, the calibration process will run for both axes automatically."
+#: docs/Axis_Twist_Compensation.md:block 11 (paragraph)
+msgid "This command will calibrate the X-axis by default."
 msgstr ""
-"У цьому режимі процес калібрування буде виконуватися для обох осей "
-"автоматично."
+
+#: docs/Axis_Twist_Compensation.md:block 12 (unordered list)
+msgid ""
+"The calibration wizard will prompt you to measure the probe Z offset at "
+"several points along the bed."
+msgstr ""
+
+#: docs/Axis_Twist_Compensation.md:block 12 (unordered list)
+msgid ""
+"By default, the calibration uses 3 points, but you can specify a different "
+"number with the option: `SAMPLE_COUNT=<value>`"
+msgstr ""
+
+#: docs/Axis_Twist_Compensation.md:block 13 (ordered list)
+msgid ""
+"**Adjust Your Z Offset:** After completing the calibration, be sure to [adjust"
+" your Z offset](Probe_Calibrate.md#calibrating-probe-z-offset)."
+msgstr ""
+
+#: docs/Axis_Twist_Compensation.md:block 23 (paragraph)
+msgid ""
+"Configuration options for `[axis_twist_compensation]` can be found in the "
+"[Configuration Reference](Config_Reference.md#axis_twist_compensation)."
+msgstr ""
+
+#: docs/Axis_Twist_Compensation.md:block 24 (paragraph)
+msgid ""
+"Commands for `[axis_twist_compensation]` can be found in the [G-Codes "
+"Reference](G-Codes.md#axis_twist_compensation)"
+msgstr ""
+
+#~ msgid "This document describes the [axis_twist_compensation] module."
+#~ msgstr "Цей документ описує модуль [axis_twist_compensation]."
+
+#~ msgid ""
+#~ "Configuration options for [axis_twist_compensation] can be found in the "
+#~ "[Configuration Reference](Config_Reference.md#axis_twist_compensation)."
+#~ msgstr ""
+#~ "Параметри конфігурації для [axis_twist_compensation] можна знайти в "
+#~ "[Configuration Reference](Config_Reference.md#axis_twist_compensation)."
+
+#~ msgid ""
+#~ "Commands for [axis_twist_compensation] can be found in the [G-Codes "
+#~ "Reference](G-Codes.md#axis_twist_compensation)"
+#~ msgstr ""
+#~ "Команди для [axis_twist_compensation] можна знайти в [G-Codes "
+#~ "Reference](G-Codes.md#axis_twist_compensation)"
+
+#~ msgid ""
+#~ "This command will calibrate the X-axis by default. - The calibration wizard "
+#~ "will prompt you to measure the probe Z offset at several points along the bed."
+#~ " - By default, the calibration uses 3 points, but you can specify a different "
+#~ "number with the option: `SAMPLE_COUNT=<value>`"
+#~ msgstr ""
+#~ "Ця команда відкалібрує вісь Х за замовчуванням. - Майстер калібрування "
+#~ "запропонує вам виміряти зсув зонда Z у кількох точках уздовж дна. - За "
+#~ "замовчуванням калібрування використовує 3 точки, але ви можете вказати інше "
+#~ "число за допомогою опції: `SAMPLE_COUNT=<value>`"
+
+#~ msgid ""
+#~ "**Adjust Your Z Offset:** After completing the calibration, be sure to [adjust"
+#~ " your Z offset] (Probe_Calibrate.md#calibrating-probe-z-offset)."
+#~ msgstr ""
+#~ "**Налаштуйте зміщення Z:** Після завершення калібрування обов’язково "
+#~ "[налаштуйте зміщення Z] (Probe_Calibrate.md#calibrating-probe-z-offset)."
+
+#~ msgid "Automatic Calibration for Both Axes"
+#~ msgstr "Автоматичне калібрування для обох осей"
+
+#~ msgid ""
+#~ "To perform automatic calibration for both the X and Y axes without manual "
+#~ "intervention, use:"
+#~ msgstr ""
+#~ "Щоб виконати автоматичне калібрування осей X і Y без ручного втручання, "
+#~ "використовуйте:"
+
+#~ msgid ""
+#~ "In this mode, the calibration process will run for both axes automatically."
+#~ msgstr ""
+#~ "У цьому режимі процес калібрування буде виконуватися для обох осей "
+#~ "автоматично."
 
 #~ msgid ""
 #~ "After setting up the [axis_twist_compensation] module, perform "

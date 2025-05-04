@@ -15,8 +15,7 @@ msgstr ""
 "POT-Creation-Date: 2021-06-28 08:28+0200\n"
 "PO-Revision-Date: 2025-02-22 17:30+0000\n"
 "Last-Translator: Core Shot <shotcore4@gmail.com>\n"
-"Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
-"projects/klipper/config_reference/zh_Hans/>\n"
+"Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/projects/klipper/config_reference/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -1118,16 +1117,6 @@ msgid ""
 "print."
 msgstr "不要和 Octoprint 的 Palette 2插件一起使用这个模块，因为它们会发生冲突，造成初始化和打印失败。"
 
-msgid ""
-"If you use Octoprint and stream gcode over the serial port instead of printing"
-" from virtual_sd, then remo **M1** and **M0** from *Pausing commands* in "
-"*Settings > Serial Connection > Firmware & protocol* will prevent the need to "
-"start print on the Palette 2 and unpausing in Octoprint for your print to "
-"begin."
-msgstr ""
-"如果使用 OctoPrint 并通过串行端口流式传输 G-Code，而不通过 virtual_sd 打印，将 * 设置>串行连接>固件和协议 * "
-"中的“暂停命令” 设置为**M1** 和 **M0** 可以避免在开始打印时需要在Palette 2 上选择开始打印并在 OctoPrint 中取消暂停。"
-
 msgid "Common bus parameters"
 msgstr "常见的总线参数"
 
@@ -1911,6 +1900,57 @@ msgid ""
 "support a rate of 400000 via the `i2c_speed` parameter. All other Klipper "
 "micro-controllers use a 100000 rate and ignore the `i2c_speed` parameter."
 msgstr ""
+
+#: docs/Config_Reference.md:block 171 (header)
+msgid "[icm20948]"
+msgstr ""
+
+#: docs/Config_Reference.md:block 172 (paragraph)
+msgid "Support for icm20948 accelerometers."
+msgstr ""
+
+#: docs/Config_Reference.md:block 470 (header)
+msgid "[ads1x1x]"
+msgstr ""
+
+#: docs/Config_Reference.md:block 471 (paragraph)
+msgid ""
+"ADS1013, ADS1014, ADS1015, ADS1113, ADS1114 and ADS1115 are I2C based Analog "
+"to Digital Converters that can be used for temperature sensors. They provide 4"
+" analog input pins either as single line or as differential input."
+msgstr ""
+
+#: docs/Config_Reference.md:block 472 (paragraph)
+msgid ""
+"Note: Use caution if using this sensor to control heaters. The heater min_temp"
+" and max_temp are only verified in the host and only if the host is running "
+"and operating normally. (ADC inputs directly connected to the micro-controller"
+" verify min_temp and max_temp within the micro-controller and do not require a"
+" working connection to the host.)"
+msgstr ""
+
+#: docs/Config_Reference.md:block 474 (paragraph)
+msgid "The chip provides pins that can be used on other sensors."
+msgstr ""
+
+#: docs/Config_Reference.md:block 484 (paragraph)
+msgid ""
+"If you use Octoprint and stream gcode over the serial port instead of printing"
+" from virtual_sd, then remove **M1** and **M0** from *Pausing commands* in "
+"*Settings > Serial Connection > Firmware & protocol* will prevent the need to "
+"start print on the Palette 2 and unpausing in Octoprint for your print to "
+"begin."
+msgstr ""
+
+#~ msgid ""
+#~ "If you use Octoprint and stream gcode over the serial port instead of printing"
+#~ " from virtual_sd, then remo **M1** and **M0** from *Pausing commands* in "
+#~ "*Settings > Serial Connection > Firmware & protocol* will prevent the need to "
+#~ "start print on the Palette 2 and unpausing in Octoprint for your print to "
+#~ "begin."
+#~ msgstr ""
+#~ "如果使用 OctoPrint 并通过串行端口流式传输 G-Code，而不通过 virtual_sd 打印，将 * 设置>串行连接>固件和协议 * "
+#~ "中的“暂停命令” 设置为**M1** 和 **M0** 可以避免在开始打印时需要在Palette 2 上选择开始打印并在 OctoPrint 中取消暂停。"
 
 #~ msgid ""
 #~ "[mcu]\n"

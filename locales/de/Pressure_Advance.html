@@ -1280,6 +1280,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Load_Cell.html" class="md-nav__link">
+        Load Cells
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1363,7 +1377,7 @@
 <h2 id="einstellung-des-pressure-advance-features">Einstellung des "Pressure Advance" Feature's<a class="headerlink" href="#einstellung-des-pressure-advance-features" title="Permanent link">&para;</a></h2>
 <p>Pressure advance does two useful things - it reduces ooze during non-extrude moves and it reduces blobbing during cornering. This guide uses the second feature (reducing blobbing during cornering) as a mechanism for tuning.</p>
 <p>In order to calibrate pressure advance the printer must be configured and operational as the tuning test involves printing and inspecting a test object. It is a good idea to read this document in full prior to running the test.</p>
-<p>Use a slicer to generate g-code for the large hollow square found in <a href="prints/square_tower.stl">docs/prints/square_tower.stl</a>. Use a high speed (eg, 100mm/s), zero infill, and a coarse layer height (the layer height should be around 75% of the nozzle diameter). Make sure any "dynamic acceleration control" is disabled in the slicer.</p>
+<p>Use a slicer to generate g-code for the large hollow square found in <a href="prints/square_tower.stl">docs/prints/square_tower.stl</a>. Use a high speed (eg, 100mm/s), zero infill, and a coarse layer height (the layer height should be around 75% of the nozzle diameter). Make sure any "dynamic acceleration control" and "scarf joint" seams are disabled in the slicer.</p>
 <p>Prepare for the test by issuing the following G-Code command:</p>
 <div class="highlight"><pre><span></span><code>SET_VELOCITY_LIMIT SQUARE_CORNER_VELOCITY=1 ACCEL=500
 </code></pre></div>

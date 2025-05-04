@@ -1280,6 +1280,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Load_Cell.html" class="md-nav__link">
+        Load Cells
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1363,7 +1377,7 @@
 <h2 id="pressure-advance">pressure advance 튜닝<a class="headerlink" href="#pressure-advance" title="Permanent link">&para;</a></h2>
 <p>Pressure advance 는 두 가지 유용한 작업을 수행합니다. 즉, 출력하지 않는 움직임 동안 노즐 흘러내림을 줄이고 코너링 중에 얼룩을 줄입니다. 이 가이드는 튜닝을 위한 메커니즘으로 두 번째 기능(코너링 중 얼룩 감소)을 사용합니다.</p>
 <p>튜닝 테스트에는 개체의 인쇄 및 검사가 포함되므로 pressure advance 를 보정하려면 프린터를 구성하고 작동해야 합니다. 테스트를 실행하기 전에 이 문서를 완전히 읽는 것이 좋습니다.</p>
-<p>슬라이서를 사용하여 <a href="prints/square_tower.stl">docs/prints/square_tower.stl</a> 에 있는 큰 속이 빈 사각형에 대한 g-code 를 생성합니다. high speed (예: 100mm/s), zero infill 및 coarse layer height (레이어 높이는 노즐 직경의 약 75% 여야 함) 를 사용합니다.</p>
+<p>Use a slicer to generate g-code for the large hollow square found in <a href="prints/square_tower.stl">docs/prints/square_tower.stl</a>. Use a high speed (eg, 100mm/s), zero infill, and a coarse layer height (the layer height should be around 75% of the nozzle diameter). Make sure any "dynamic acceleration control" and "scarf joint" seams are disabled in the slicer.</p>
 <p>다음 G-Code 명령을 실행하여 테스트를 준비합니다:</p>
 <div class="highlight"><pre><span></span><code>SET_VELOCITY_LIMIT SQUARE_CORNER_VELOCITY=1 ACCEL=500
 </code></pre></div>

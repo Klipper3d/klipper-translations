@@ -1280,6 +1280,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Load_Cell.html" class="md-nav__link">
+        Load Cells
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1363,7 +1377,7 @@
 <h2 id="ajustando-del-avance-de-presion">Ajustando del avance de presión<a class="headerlink" href="#ajustando-del-avance-de-presion" title="Permanent link">&para;</a></h2>
 <p>El Avance de presión hace dos cosas útiles - reduce el rezumado durante movimientos no extrudentes y reduce el goteo durante el esquinado. Esta guía usa la segunda característica (reducir el goteo durante el esquinado) como un mecanismo para el ajuste.</p>
 <p>Para calibrar el avance de presión la impresora debe ser configurada y estar operacional, ya que la prueba de ajuste involucra imprimir e inspeccionar un objeto de prueba. Es una buena idea el leer este documento en su totalidad previo al ejecutar la prueba.</p>
-<p>Use un rebanador para generar el código G para el cuadrado grande hueco que se encuentra en <a href="prints/square_tower.stl">docs/prints/square_tower.stl</a>. Use una velocidad alta (e.g. 100mm/s), cero relleno, y una altura de capa gruesa (la altura de capa debería estar entorno del 75% del diámetro del rociador). Asegúrese de que cualquier "control de aceleración dinámica" está deshabilitado en el rebanador.</p>
+<p>Use a slicer to generate g-code for the large hollow square found in <a href="prints/square_tower.stl">docs/prints/square_tower.stl</a>. Use a high speed (eg, 100mm/s), zero infill, and a coarse layer height (the layer height should be around 75% of the nozzle diameter). Make sure any "dynamic acceleration control" and "scarf joint" seams are disabled in the slicer.</p>
 <p>Prepare para la prueba mediante el envío del siguiente comando en código G:</p>
 <div class="highlight"><pre><span></span><code>SET_VELOCITY_LIMIT SQUARE_CORNER_VELOCITY=1 ACCEL=500
 </code></pre></div>

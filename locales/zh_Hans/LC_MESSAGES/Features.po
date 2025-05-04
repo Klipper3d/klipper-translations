@@ -124,17 +124,6 @@ msgstr "支持多挤出机。包括对共享热端的挤出机（多进一出）
 
 #: docs/Features.md:block 5 (unordered list)
 msgid ""
-"Automatic bed leveling support. Klipper can be configured for basic bed tilt "
-"detection or full mesh bed leveling. If the bed uses multiple Z steppers then "
-"Klipper can also level by independently manipulating the Z steppers. Most Z "
-"height probes are supported, including BL-Touch probes and servo activated "
-"probes."
-msgstr ""
-"自动床面平整支持。Klipper可以被配置为基本的床身倾斜检测或网床调平。如果床铺使用多个Z步进器，那么Klipper也可以通过独立操纵Z步进器来调平。支持大多数Z高度探头，包括BL-"
-"Touch探头和伺服激活的探头。"
-
-#: docs/Features.md:block 5 (unordered list)
-msgid ""
 "Automatic delta calibration support. The calibration tool can perform basic "
 "height calibration as well as an enhanced X and Y dimension calibration. The "
 "calibration can be done with a Z height probe or via manual probing."
@@ -234,24 +223,6 @@ msgstr "标准 G 代码支持。支持由常见“切片软件”（SuperSlicer�
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
-"Support for common temperature sensors (eg, common thermistors, AD595, AD597, "
-"AD849x, PT100, PT1000, MAX6675, MAX31855, MAX31856, MAX31865, BME280, HTU21D, "
-"DS18B20, and LM75). Custom thermistors and custom analog temperature sensors "
-"can also be configured. One can monitor the internal micro-controller "
-"temperature sensor and the internal temperature sensor of a Raspberry Pi."
-msgstr ""
-"支持常见的温度传感器（例如，常见的热敏电阻、AD595、AD597、AD849x、PT100、PT1000、MAX6675、MAX31855、MAX31856、MAX31865、BME280、HTU21D、DS18B20和LM75）。还可以配置自定义热敏电阻和自定义模拟温度传感器。还可以监测微控制器和"
-" Raspberry Pi 内部的温度传感器。"
-
-#: docs/Features.md:block 6 (unordered list)
-msgid ""
-"Support for standard fans, nozzle fans, and temperature controlled fans. No "
-"need to keep fans running when the printer is idle. Fan speed can be monitored"
-" on fans that have a tachometer."
-msgstr "支持标准风扇、喷嘴风扇和温控风扇。不需要在打印机闲置时保持风扇运转。可以在带有转速表的风扇上监测风扇速度。"
-
-#: docs/Features.md:block 6 (unordered list)
-msgid ""
 "Support for filament presence sensors, filament motion sensors, and filament "
 "width sensors."
 msgstr "支持打印丝存在传感器、打印丝运动传感器和打印丝宽度传感器。"
@@ -339,14 +310,6 @@ msgstr "2353K"
 #: docs/Features.md:block 10 (table)
 msgid "1622K"
 msgstr "1622K"
-
-#: docs/Features.md:block 10 (table)
-msgid "2400K"
-msgstr "2400K"
-
-#: docs/Features.md:block 10 (table)
-msgid "1636K"
-msgstr "1636K"
 
 #: docs/Features.md:block 10 (table)
 msgid "2500K"
@@ -449,18 +412,6 @@ msgid ""
 "comments at the top of that file."
 msgstr "如果不确定一个控制板上的微控制器型号，可以先找到相应的[配置文件](../config/)，并在该文件顶部的注释中寻找微控制器的型号。"
 
-#: docs/Features.md:block 10 (table)
-msgid "STM32H743"
-msgstr "STM32H743"
-
-#: docs/Features.md:block 10 (table)
-msgid "9091K"
-msgstr "9091K"
-
-#: docs/Features.md:block 10 (table)
-msgid "6061K"
-msgstr "6061K"
-
 #: docs/Features.md:block 3 (unordered list)
 msgid ""
 "High precision stepper movement. Klipper utilizes an application processor "
@@ -518,12 +469,6 @@ msgid ""
 msgstr ""
 "支持TMC2130、TMC2208/TMC2224、TMC2209、TMC2660和TMC5160步进电机驱动器的运行时配置。还支持通过AD5206、DAC084S085、MCP4451、MCP4728、MCP4018和PWM引脚对传统步进驱动器进行电流控制。"
 
-#: docs/Features.md:block 6 (unordered list)
-msgid ""
-"Support for measuring and recording acceleration using an adxl345, mpu9250, "
-"and mpu6050 accelerometers."
-msgstr "支持使用 adxl345、mpu9250 和 mpu 6050 加速度计测量和记录加速度。"
-
 #: docs/Features.md:block 3 (unordered list)
 msgid ""
 "Best in class performance. Klipper is able to achieve high stepping rates on "
@@ -571,6 +516,107 @@ msgstr ""
 #: docs/Features.md:block 10 (table)
 msgid "4737K"
 msgstr ""
+
+#: docs/Features.md:block 6 (unordered list)
+msgid ""
+"Automatic bed leveling support. Klipper can be configured for basic bed tilt "
+"detection or full mesh bed leveling. The bed mesh can be customized to the "
+"print size (adaptive bed mesh). If the bed uses multiple Z steppers then "
+"Klipper can also level by independently manipulating the Z steppers. Most Z "
+"height probes are supported, including BL-Touch probes and servo activated "
+"probes. Probes may be calibrated for axis twist compensation. If using an "
+"\"eddy current probe\" then one can utilize fast bed mesh scanning,"
+msgstr ""
+
+#: docs/Features.md:block 6 (unordered list)
+msgid ""
+"Support for common temperature sensors (eg, common thermistors, AD595, AD597, "
+"AD849x, PT100, PT1000, MAX6675, MAX31855, MAX31856, MAX31865, BME280, HTU21D, "
+"DS18B20, AHT10, SHT3x, and LM75). Custom thermistors and custom analog "
+"temperature sensors can also be configured. One can monitor the internal "
+"micro-controller temperature sensor and the internal temperature sensor of a "
+"Raspberry Pi."
+msgstr ""
+
+#: docs/Features.md:block 6 (unordered list)
+msgid ""
+"Support for standard fans, nozzle fans, and temperature controlled fans. No "
+"need to keep fans running when the printer is idle. Fan speed can be monitored"
+" on fans that have a tachometer. One can assign a \"math formula\" to a fan "
+"for automatic fan speed updating."
+msgstr ""
+
+#: docs/Features.md:block 6 (unordered list)
+msgid ""
+"Support for measuring and recording acceleration using adxl345, mpu9250, "
+"mpu6050, lis2dw12, lis3dh, and icm20948 accelerometers."
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "4000K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "2571K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "STM32H723"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "7429K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "8619K"
+msgstr ""
+
+#~ msgid ""
+#~ "Automatic bed leveling support. Klipper can be configured for basic bed tilt "
+#~ "detection or full mesh bed leveling. If the bed uses multiple Z steppers then "
+#~ "Klipper can also level by independently manipulating the Z steppers. Most Z "
+#~ "height probes are supported, including BL-Touch probes and servo activated "
+#~ "probes."
+#~ msgstr ""
+#~ "自动床面平整支持。Klipper可以被配置为基本的床身倾斜检测或网床调平。如果床铺使用多个Z步进器，那么Klipper也可以通过独立操纵Z步进器来调平。支持大多数Z高度探头，包括BL-"
+#~ "Touch探头和伺服激活的探头。"
+
+#~ msgid ""
+#~ "Support for common temperature sensors (eg, common thermistors, AD595, AD597, "
+#~ "AD849x, PT100, PT1000, MAX6675, MAX31855, MAX31856, MAX31865, BME280, HTU21D, "
+#~ "DS18B20, and LM75). Custom thermistors and custom analog temperature sensors "
+#~ "can also be configured. One can monitor the internal micro-controller "
+#~ "temperature sensor and the internal temperature sensor of a Raspberry Pi."
+#~ msgstr ""
+#~ "支持常见的温度传感器（例如，常见的热敏电阻、AD595、AD597、AD849x、PT100、PT1000、MAX6675、MAX31855、MAX31856、MAX31865、BME280、HTU21D、DS18B20和LM75）。还可以配置自定义热敏电阻和自定义模拟温度传感器。还可以监测微控制器和"
+#~ " Raspberry Pi 内部的温度传感器。"
+
+#~ msgid ""
+#~ "Support for standard fans, nozzle fans, and temperature controlled fans. No "
+#~ "need to keep fans running when the printer is idle. Fan speed can be monitored"
+#~ " on fans that have a tachometer."
+#~ msgstr "支持标准风扇、喷嘴风扇和温控风扇。不需要在打印机闲置时保持风扇运转。可以在带有转速表的风扇上监测风扇速度。"
+
+#~ msgid "2400K"
+#~ msgstr "2400K"
+
+#~ msgid "1636K"
+#~ msgstr "1636K"
+
+#~ msgid "STM32H743"
+#~ msgstr "STM32H743"
+
+#~ msgid "9091K"
+#~ msgstr "9091K"
+
+#~ msgid "6061K"
+#~ msgstr "6061K"
+
+#~ msgid ""
+#~ "Support for measuring and recording acceleration using an adxl345, mpu9250, "
+#~ "and mpu6050 accelerometers."
+#~ msgstr "支持使用 adxl345、mpu9250 和 mpu 6050 加速度计测量和记录加速度。"
 
 #~ msgid ""
 #~ "Best in class performance. Klipper is able to achieve high stepping rates on "

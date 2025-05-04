@@ -185,6 +185,16 @@ msgstr ""
 msgid "See the [CAN bus troubleshooting](CANBUS_Troubleshooting.md) document."
 msgstr ""
 
+#: docs/CANBUS.md:block 30 (unordered list)
+msgid ""
+"It is only valid to use USB to CAN bridge mode if there is a functioning CAN "
+"bus with at least one other node available (in addition to the bridge node "
+"itself). Use a standard USB configuration if the goal is to communicate only "
+"with the single USB device. Using USB to CAN bridge mode without a fully "
+"functioning CAN bus (including terminating resistors and an additional node) "
+"may result in sporadic errors even when communicating with the bridge node."
+msgstr ""
+
 #~ msgid "~/klippy-env/bin/python ~/klipper/scripts/canbus_query.py can0\n"
 #~ msgstr ""
 

@@ -1280,6 +1280,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Load_Cell.html" class="md-nav__link">
+        Load Cells
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1574,6 +1588,7 @@
 <p>En general, el modo spreadCycle proporciona un mayor par de torsión y una mayor precisión posicional que el modo stealthChop. Sin embargo, el modo stealthChop puede producir un ruido audible significativamente menor en algunas impresoras.</p>
 <p>Las pruebas que comparan los modos han mostrado un aumento del "retraso posicional" (“positional lag” en inglés) de alrededor del 75 % de un paso completo durante los movimientos de velocidad constante cuando se utiliza el modo stealthChop (por ejemplo, en una impresora con 40 mm de distancia de rotación (“rotation_distance” en inglés) y 200 pasos por rotación (“steps_per_rotation” en inglés) la desviación de posición de los movimientos de velocidad constante aumentó por ~ 0,150 mm). Sin embargo, este "retraso en obtener la posición solicitada" puede no manifestarse como un defecto de impresión significativo y uno puede preferir el comportamiento más silencioso del modo stealthChop.</p>
 <p>Se recomienda utilizar siempre el modo "spreadCycle" (al no especificar <code>stealthchop_threshold</code>) o utilizar siempre el modo "stealthChop" (ajustando <code>stealthchop_threshold</code> a 999999). Desafortunadamente, los controladores a menudo producen resultados pobres y confusos si el modo cambia mientras el motor está a una velocidad distinta de cero.</p>
+<p>Note that the <code>stealthchop_threshold</code> config option does not impact sensorless homing as Klipper automatically switches the TMC driver to an appropriate mode during sensorless homing operations.</p>
 <h2 id="el-ajuste-interpolacion-del-controlador-tmc-introduce-una-pequena-desviacion-de-posicion">El ajuste interpolación del controlador TMC introduce una pequeña desviación de posición<a class="headerlink" href="#el-ajuste-interpolacion-del-controlador-tmc-introduce-una-pequena-desviacion-de-posicion" title="Permanent link">&para;</a></h2>
 <p>El ajuste "interpolación" (<code>interpolate</code> en inglés) del controlador TMC puede reducir el ruido audible creado por el movimiento de la impresora a costa de introducir un pequeño error de posición sistémico. Este error posicional sistémico es el resultado del retraso del controlador en ejecutar los "pasos" que Klipper le envía. Durante los movimientos de velocidad constante, este retraso da como resultado un error de posición de casi la mitad de un micropaso configurado (más precisamente, el error es la mitad de la distancia de un micropaso menos 1/512 parte de la distancia de un paso completo). Por ejemplo, en un eje con una distancia de rotación de 40 mm, 200 pasos por rotación y 16 micropasos, el error sistémico introducido durante los movimientos de velocidad constante es de ~ 0,006 mm.</p>
 <p>Para una mejor precisión posicional, considere usar el modo spreadCycle y deshabilitar la interpolación (especifique <code>interpolate: False</code> en la configuración del controlador TMC). Cuando se configura de esta manera, se puede aumentar el valor del parámetro <code>microstep</code> para reducir el ruido audible durante el movimiento del motor de paso a paso. Por lo general, especificar un valor de <code>64</code> o <code>128</code> en el parámetro "microstep" causará un ruido audible similar al de la interpolación, y lo hará sin introducir un error de posición sistémico.</p>

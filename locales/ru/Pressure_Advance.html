@@ -1280,6 +1280,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Load_Cell.html" class="md-nav__link">
+        Load Cells
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1363,7 +1377,7 @@
 <h2 id="_2">Настройка опережения давления<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>Повышение давления делает две полезные вещи - уменьшает образование ила при движении без выдавливания и уменьшает образование пузырьков при прохождении поворотов. В этом руководстве в качестве механизма настройки используется вторая функция (уменьшение размытости при прохождении поворотов).</p>
 <p>Для калибровки опережения давления принтер должен быть сконфигурирован и работать, поскольку тест настройки включает в себя печать и проверку тестируемого объекта. Рекомендуется прочитать этот документ полностью перед запуском теста.</p>
-<p>С помощью слайсера сгенерируйте g-код для большого полого квадрата, представленного в файле <a href="prints/square_tower.stl">docs/prints/square_tower.stl</a>. Используйте высокую скорость (например, 100 мм/с), нулевое заполнение и грубую высоту слоя (высота слоя должна составлять около 75% от диаметра сопла). Убедитесь, что в слайсере отключено "управление динамическим ускорением".</p>
+<p>Use a slicer to generate g-code for the large hollow square found in <a href="prints/square_tower.stl">docs/prints/square_tower.stl</a>. Use a high speed (eg, 100mm/s), zero infill, and a coarse layer height (the layer height should be around 75% of the nozzle diameter). Make sure any "dynamic acceleration control" and "scarf joint" seams are disabled in the slicer.</p>
 <p>Подготовьтесь к тестированию, выполнив следующую команду G-Code:</p>
 <div class="highlight"><pre><span></span><code>SET_VELOCITY_LIMIT SQUARE_CORNER_VELOCITY=1 ACCEL=500
 </code></pre></div>

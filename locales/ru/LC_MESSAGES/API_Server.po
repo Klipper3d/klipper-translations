@@ -742,72 +742,6 @@ msgstr ""
 "популярного инструмента, который может перенаправлять HTTP-запросы на API-"
 "сервер Klipper's Unix Domain Socket."
 
-#: docs/API_Server.md:block 88 (header)
-#, fuzzy
-msgid "hx71x/dump_hx71x"
-msgstr "hx71x/dump_hx71x"
-
-#: docs/API_Server.md:block 89 (paragraph)
-msgid ""
-"This endpoint is used to subscribe to raw HX711 and HX717 ADC data. Obtaining "
-"these low-level ADC updates may be useful for diagnostic and debugging "
-"purposes. Using this endpoint may increase Klipper's system load."
-msgstr ""
-"Эта конечная точка используется для подписки на необработанные данные АЦП "
-"HX711 и HX717. Получение этих низкоуровневых обновлений АЦП может быть полезно"
-" для целей диагностики и отладки. Использование этой конечной точки может "
-"увеличить нагрузку на систему Klipper."
-
-#: docs/API_Server.md:block 90 (paragraph)
-msgid ""
-"A request may look like: `{\"id\": 123, \"method\":\"hx71x/dump_hx71x\", "
-"\"params\": {\"sensor\": \"load_cell\", \"response_template\": {}}}` and might"
-" return: `{\"id\": "
-"123,\"result\":{\"header\":[\"time\",\"counts\",\"value\"]}}` and might later "
-"produce asynchronous messages such as: `{\"params\":{\"data\":[[3292.432935, "
-"562534, 0.067059278], [3292.4394937, 5625322, 0.670590639]]}}`"
-msgstr ""
-"Запрос может выглядеть следующим образом: `{\"id\": 123, \"method\": "
-"\"hx71x/dump_hx71x\", \"params\": { \"sensor\": \"load_cell\", "
-"\"response_template\": {}}}` и может вернуть: `{\"id\": 123, "
-"\"result\":{\"header\":[\"time\", \"counts\", \"value\"]}}` и в дальнейшем "
-"может выдавать асинхронные сообщения, такие как: "
-"`{\"params\":{\"data\":[[3292.432935, 562534, 0.067059278], [3292.4394937, "
-"5625322, 0.670590639]]}}`"
-
-#: docs/API_Server.md:block 91 (header)
-#, fuzzy
-msgid "ads1220/dump_ads1220"
-msgstr "ads1220/dump_ads1220"
-
-#: docs/API_Server.md:block 92 (paragraph)
-msgid ""
-"This endpoint is used to subscribe to raw ADS1220 ADC data. Obtaining these "
-"low-level ADC updates may be useful for diagnostic and debugging purposes. "
-"Using this endpoint may increase Klipper's system load."
-msgstr ""
-"Эта конечная точка используется для подписки на необработанные данные АЦП "
-"ADS1220. Получение этих низкоуровневых обновлений АЦП может быть полезно для "
-"целей диагностики и отладки. Использование этой конечной точки может увеличить"
-" нагрузку на систему Klipper."
-
-#: docs/API_Server.md:block 93 (paragraph)
-msgid ""
-"A request may look like: `{\"id\": 123, \"method\":\"ads1220/dump_ads1220\", "
-"\"params\": {\"sensor\": \"load_cell\", \"response_template\": {}}}` and might"
-" return: `{\"id\": "
-"123,\"result\":{\"header\":[\"time\",\"counts\",\"value\"]}}` and might later "
-"produce asynchronous messages such as: `{\"params\":{\"data\":[[3292.432935, "
-"562534, 0.067059278], [3292.4394937, 5625322, 0.670590639]]}}`"
-msgstr ""
-"Запрос может выглядеть следующим образом: `{\"id\": 123, \"method\": "
-"\"ads1220/dump_ads1220\", \"params\": { \"sensor\": \"load_cell\", "
-"\"response_template\": {}}}` и может вернуть: `{\"id\": 123, "
-"\"result\":{\"header\":[\"time\", \"counts\", \"value\"]}}` и в дальнейшем "
-"может выдавать асинхронные сообщения, такие как: "
-"`{\"params\":{\"data\":[[3292.432935, 562534, 0.067059278], [3292.4394937, "
-"5625322, 0.670590639]]}}`"
-
 #: docs/API_Server.md:block 106 (header)
 #, fuzzy
 msgid "bed_mesh/dump_mesh"
@@ -845,6 +779,85 @@ msgstr ""
 "зондирования с использованием предоставленных параметров. Рекомендуется "
 "опустить параметры сетки, если не требуется визуализировать точки зондирования"
 " и/или траекторию движения перед выполнением `BED_MESH_CALIBRATE`."
+
+#: docs/API_Server.md:block 88 (header)
+msgid "load_cell/dump_force"
+msgstr ""
+
+#: docs/API_Server.md:block 89 (paragraph)
+msgid ""
+"This endpoint is used to subscribe to force data produced by a load_cell. "
+"Using this endpoint may increase Klipper's system load."
+msgstr ""
+
+#: docs/API_Server.md:block 90 (paragraph)
+msgid ""
+"A request may look like: `{\"id\": 123, \"method\":\"load_cell/dump_force\", "
+"\"params\": {\"sensor\": \"load_cell\", \"response_template\": {}}}` and might"
+" return: `{\"id\": 123,\"result\":{\"header\":[\"time\", \"force (g)\", "
+"\"counts\", \"tare_counts\"]}}` and might later produce asynchronous messages "
+"such as: `{\"params\":{\"data\":[[3292.432935, 40.65, 562534, -234467]]}}`"
+msgstr ""
+
+#, fuzzy
+#~ msgid "hx71x/dump_hx71x"
+#~ msgstr "hx71x/dump_hx71x"
+
+#~ msgid ""
+#~ "This endpoint is used to subscribe to raw HX711 and HX717 ADC data. Obtaining "
+#~ "these low-level ADC updates may be useful for diagnostic and debugging "
+#~ "purposes. Using this endpoint may increase Klipper's system load."
+#~ msgstr ""
+#~ "Эта конечная точка используется для подписки на необработанные данные АЦП "
+#~ "HX711 и HX717. Получение этих низкоуровневых обновлений АЦП может быть полезно"
+#~ " для целей диагностики и отладки. Использование этой конечной точки может "
+#~ "увеличить нагрузку на систему Klipper."
+
+#~ msgid ""
+#~ "A request may look like: `{\"id\": 123, \"method\":\"hx71x/dump_hx71x\", "
+#~ "\"params\": {\"sensor\": \"load_cell\", \"response_template\": {}}}` and might"
+#~ " return: `{\"id\": "
+#~ "123,\"result\":{\"header\":[\"time\",\"counts\",\"value\"]}}` and might later "
+#~ "produce asynchronous messages such as: `{\"params\":{\"data\":[[3292.432935, "
+#~ "562534, 0.067059278], [3292.4394937, 5625322, 0.670590639]]}}`"
+#~ msgstr ""
+#~ "Запрос может выглядеть следующим образом: `{\"id\": 123, \"method\": "
+#~ "\"hx71x/dump_hx71x\", \"params\": { \"sensor\": \"load_cell\", "
+#~ "\"response_template\": {}}}` и может вернуть: `{\"id\": 123, "
+#~ "\"result\":{\"header\":[\"time\", \"counts\", \"value\"]}}` и в дальнейшем "
+#~ "может выдавать асинхронные сообщения, такие как: "
+#~ "`{\"params\":{\"data\":[[3292.432935, 562534, 0.067059278], [3292.4394937, "
+#~ "5625322, 0.670590639]]}}`"
+
+#, fuzzy
+#~ msgid "ads1220/dump_ads1220"
+#~ msgstr "ads1220/dump_ads1220"
+
+#~ msgid ""
+#~ "This endpoint is used to subscribe to raw ADS1220 ADC data. Obtaining these "
+#~ "low-level ADC updates may be useful for diagnostic and debugging purposes. "
+#~ "Using this endpoint may increase Klipper's system load."
+#~ msgstr ""
+#~ "Эта конечная точка используется для подписки на необработанные данные АЦП "
+#~ "ADS1220. Получение этих низкоуровневых обновлений АЦП может быть полезно для "
+#~ "целей диагностики и отладки. Использование этой конечной точки может увеличить"
+#~ " нагрузку на систему Klipper."
+
+#~ msgid ""
+#~ "A request may look like: `{\"id\": 123, \"method\":\"ads1220/dump_ads1220\", "
+#~ "\"params\": {\"sensor\": \"load_cell\", \"response_template\": {}}}` and might"
+#~ " return: `{\"id\": "
+#~ "123,\"result\":{\"header\":[\"time\",\"counts\",\"value\"]}}` and might later "
+#~ "produce asynchronous messages such as: `{\"params\":{\"data\":[[3292.432935, "
+#~ "562534, 0.067059278], [3292.4394937, 5625322, 0.670590639]]}}`"
+#~ msgstr ""
+#~ "Запрос может выглядеть следующим образом: `{\"id\": 123, \"method\": "
+#~ "\"ads1220/dump_ads1220\", \"params\": { \"sensor\": \"load_cell\", "
+#~ "\"response_template\": {}}}` и может вернуть: `{\"id\": 123, "
+#~ "\"result\":{\"header\":[\"time\", \"counts\", \"value\"]}}` и в дальнейшем "
+#~ "может выдавать асинхронные сообщения, такие как: "
+#~ "`{\"params\":{\"data\":[[3292.432935, 562534, 0.067059278], [3292.4394937, "
+#~ "5625322, 0.670590639]]}}`"
 
 #, fuzzy
 #~ msgid ""

@@ -1280,6 +1280,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Load_Cell.html" class="md-nav__link">
+        Load Cells
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1469,15 +1483,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#hx71xdump_hx71x" class="md-nav__link">
-    hx71x/dump_hx71x
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#ads1220dump_ads1220" class="md-nav__link">
-    ads1220/dump_ads1220
+  <a href="#load_celldump_force" class="md-nav__link">
+    load_cell/dump_force
   </a>
   
 </li>
@@ -1636,12 +1643,10 @@ gcode:
 <p>Эта конечная точка используется для подписки на <a href="Config_Reference.html#angle">данные датчика угла</a>. Получение этих низкоуровневых обновлений движения может быть полезно для диагностики и отладки. Использование этой конечной точки может увеличить нагрузку на систему Klipper.</p>
 <p>Запрос может выглядеть следующим образом: <code>{"id": 123, "method": "angle/dump_angle", "params": { "sensor": "my_angle_sensor", "response_template": {}}}</code> и может вернуть: <code>{"id": 123, "result":{"header":["time", "angle"]}}</code> и в дальнейшем может выдавать асинхронные сообщения, такие как: <code>{"params":{"position_offset":3.151562,"errors":0, "data":[[1290.951905,-5063],[1290.952321,-5065]]}}</code></p>
 <p>Поле "заголовок" в первоначальном ответе на запрос используется для описания полей, содержащихся в последующих ответах "данные".</p>
-<h3 id="hx71xdump_hx71x">hx71x/dump_hx71x<a class="headerlink" href="#hx71xdump_hx71x" title="Permanent link">&para;</a></h3>
-<p>Эта конечная точка используется для подписки на необработанные данные АЦП HX711 и HX717. Получение этих низкоуровневых обновлений АЦП может быть полезно для целей диагностики и отладки. Использование этой конечной точки может увеличить нагрузку на систему Klipper.</p>
-<p>Запрос может выглядеть следующим образом: <code>{"id": 123, "method": "hx71x/dump_hx71x", "params": { "sensor": "load_cell", "response_template": {}}}</code> и может вернуть: <code>{"id": 123, "result":{"header":["time", "counts", "value"]}}</code> и в дальнейшем может выдавать асинхронные сообщения, такие как: <code>{"params":{"data":[[3292.432935, 562534, 0.067059278], [3292.4394937, 5625322, 0.670590639]]}}</code></p>
-<h3 id="ads1220dump_ads1220">ads1220/dump_ads1220<a class="headerlink" href="#ads1220dump_ads1220" title="Permanent link">&para;</a></h3>
-<p>Эта конечная точка используется для подписки на необработанные данные АЦП ADS1220. Получение этих низкоуровневых обновлений АЦП может быть полезно для целей диагностики и отладки. Использование этой конечной точки может увеличить нагрузку на систему Klipper.</p>
-<p>Запрос может выглядеть следующим образом: <code>{"id": 123, "method": "ads1220/dump_ads1220", "params": { "sensor": "load_cell", "response_template": {}}}</code> и может вернуть: <code>{"id": 123, "result":{"header":["time", "counts", "value"]}}</code> и в дальнейшем может выдавать асинхронные сообщения, такие как: <code>{"params":{"data":[[3292.432935, 562534, 0.067059278], [3292.4394937, 5625322, 0.670590639]]}}</code></p>
+<h3 id="load_celldump_force">load_cell/dump_force<a class="headerlink" href="#load_celldump_force" title="Permanent link">&para;</a></h3>
+<p>This endpoint is used to subscribe to force data produced by a load_cell. Using this endpoint may increase Klipper's system load.</p>
+<p>A request may look like: <code>{"id": 123, "method":"load_cell/dump_force", "params": {"sensor": "load_cell", "response_template": {}}}</code> and might return: <code>{"id": 123,"result":{"header":["time", "force (g)", "counts", "tare_counts"]}}</code> and might later produce asynchronous messages such as: <code>{"params":{"data":[[3292.432935, 40.65, 562534, -234467]]}}</code></p>
+<p>Поле "заголовок" в первоначальном ответе на запрос используется для описания полей, содержащихся в последующих ответах "данные".</p>
 <h3 id="pause_resumecancel">pause_resume/cancel<a class="headerlink" href="#pause_resumecancel" title="Permanent link">&para;</a></h3>
 <p>Эта конечная точка аналогична выполнению команды G-кода "PRINT_CANCEL". Например: <code>{"id": 123, "method": "pause_resume/cancel"}</code></p>
 <p>Как и в случае с конечной точкой "gcode/script", эта конечная точка завершается только после выполнения всех ожидающих команд G-Code.</p>

@@ -1280,6 +1280,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Load_Cell.html" class="md-nav__link">
+        Load Cells
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1344,6 +1358,13 @@
         <li class="md-nav__item">
   <a href="#bed_screws" class="md-nav__link">
     BED_SCREWS
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#canbus_stats" class="md-nav__link">
+    canbus_stats
   </a>
   
 </li>
@@ -1468,6 +1489,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#load_cell" class="md-nav__link">
+    load_cell
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#__1" class="md-nav__link">
     கையேடு_ப்ரோப்
   </a>
@@ -1554,6 +1582,13 @@
         <li class="md-nav__item">
   <a href="#_10" class="md-nav__link">
     சர்வோ
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#skew_correctionpy" class="md-nav__link">
+    skew_correction.py
   </a>
   
 </li>
@@ -1674,13 +1709,22 @@
 <li><code>சுயவிவரங்கள்</code>: BED_MESH_PROFILE ஐப் பயன்படுத்தி தற்போது வரையறுக்கப்பட்ட சுயவிவரங்களின் தொகுப்பு.</li>
 </ul>
 <h2 id="bed_screws">BED_SCREWS<a class="headerlink" href="#bed_screws" title="Permanent link">&para;</a></h2>
-<p>பின்வரும் தகவல்கள் <code>config_reference.md#bed_screws</code> பொருளில் கிடைக்கின்றன:</p>
+<p>The following information is available in the <a href="Config_Reference.html#bed_screws">bed_screws</a> object:</p>
 <ul>
 <li><code>is_active</code>: படுக்கை திருகுகள் சரிசெய்தல் கருவி தற்போது செயலில் இருந்தால் உண்மை.</li>
 <li><code>மாநிலம்</code>: படுக்கை திருகுகள் சரிசெய்தல் கருவி நிலை. இது பின்வரும் சரங்களில் ஒன்றாகும்: "சரிசெய்யவும்", "நன்றாக".</li>
 <li><code>Current_screw</code>: தற்போதைய திருகு சரிசெய்யப்படும் குறியீடு.</li>
 <li><code>ஏற்றுக்கொள்ளப்பட்ட_சக்கிகள்</code>: ஏற்றுக்கொள்ளப்பட்ட திருகுகளின் எண்ணிக்கை.</li>
 </ul>
+<h2 id="canbus_stats">canbus_stats<a class="headerlink" href="#canbus_stats" title="Permanent link">&para;</a></h2>
+<p>The following information is available in the <code>canbus_stats some_mcu_name</code> object (this object is automatically available if an mcu is configured to use canbus):</p>
+<ul>
+<li><code>rx_error</code>: The number of receive errors detected by the micro-controller canbus hardware.</li>
+<li><code>tx_error</code>: The number of transmit errors detected by the micro-controller canbus hardware.</li>
+<li><code>tx_retries</code>: The number of transmit attempts that were retried due to bus contention or errors.</li>
+<li><code>bus_state</code>: The status of the interface (typically "active" for a bus in normal operation, "warn" for a bus with recent errors, "passive" for a bus that will no longer transmit canbus error frames, or "off" for a bus that will no longer transmit or receive messages).</li>
+</ul>
+<p>Note that only the rp2XXX micro-controllers report a non-zero <code>tx_retries</code> field and the rp2XXX micro-controllers always report <code>tx_error</code> as zero and <code>bus_state</code> as "active".</p>
 <h2 id="_3">கட்டமைப்பு<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <p>பின்வரும் தகவல்கள் <code>கட்டமைப்பு</code> பொருளில் கிடைக்கின்றன (இந்த பொருள் எப்போதும் கிடைக்கும்):</p>
 <ul>
@@ -1794,6 +1838,7 @@
 <h2 id="___">ஆல்_பிலமென்ட்_விட்_சென்சர்<a class="headerlink" href="#___" title="Permanent link">&para;</a></h2>
 <p>பின்வரும் தகவல்கள் [hall_filament_width_sensor] (config_reference.md#hall_filament_width_sensor) பொருள்:</p>
 <ul>
+<li>all items from <a href="Status_Reference.html#filament_switch_sensor">filament_switch_sensor</a></li>
 <li><code>is_active</code>: சென்சார் தற்போது செயலில் இருந்தால் உண்மை.</li>
 <li><code>விட்டம்</code>: மிமீ சென்சாரிலிருந்து கடைசி வாசிப்பு.</li>
 <li><code>ரா</code>: சென்சாரிலிருந்து கடைசி மூல ஏடிசி வாசிப்பு.</li>
@@ -1823,6 +1868,17 @@
 <p>ஒவ்வொரு <code>[எல்.ஈ.டி எல்.ஈ.டி_நேம்]</code>, <code>[நியோபிக்சல் லெட்_நேம்]</code>, <code>[டாட்ச்டார் லெட்_நேம்]</code>, <code>[பி.சி.ஏ 9533 லெட்_நேம்]</code>, மற்றும் <code>[பி.சி.ஏ 9632 லெட்_நேம்]</code> அச்சுப்பொறி.</p>
 <ul>
 <li><code>color_data</code>: சங்கிலியில் ஒரு எல்.ஈ.டி க்கான RGBW மதிப்புகளைக் கொண்ட வண்ண பட்டியல்களின் பட்டியல். ஒவ்வொரு மதிப்பும் 0.0 முதல் 1.0 வரை மிதவை என குறிப்பிடப்படுகிறது. ஒவ்வொரு வண்ண பட்டியலிலும் 4 உருப்படிகள் (சிவப்பு, பச்சை, நீலம், வெள்ளை) உள்ளன, அவை அண்டரிலிங் எல்.ஈ.டி குறைவான வண்ண சேனல்களை ஆதரித்தாலும். எடுத்துக்காட்டாக, ஒரு சங்கிலியில் இரண்டாவது நியோபிக்சலின் நீல மதிப்பு (வண்ண பட்டியலில் 3 வது உருப்படி) <code>அச்சுப்பொறி [" நியோபிக்சல் &lt;config_name&gt; "] இல் அணுகப்படலாம். Color_data [1] [2]</code>.</li>
+</ul>
+<h2 id="load_cell">load_cell<a class="headerlink" href="#load_cell" title="Permanent link">&para;</a></h2>
+<p>The following information is available for each <code>[load_cell name]</code>:</p>
+<ul>
+<li>'is_calibrated': True/False is the load cell calibrated</li>
+<li>'counts_per_gram': The number of raw sensor counts that equals 1 gram of force</li>
+<li>'reference_tare_counts': The reference number of raw sensor counts for 0 force</li>
+<li>'tare_counts': The current number of raw sensor counts for 0 force</li>
+<li>'force_g': The force in grams, averaged over the last polling period.</li>
+<li>'min_force_g': The minimum force in grams, over the last polling period.</li>
+<li>'max_force_g': The maximum force in grams, over the last polling period.</li>
 </ul>
 <h2 id="__1">கையேடு_ப்ரோப்<a class="headerlink" href="#__1" title="Permanent link">&para;</a></h2>
 <p>பின்வரும் தகவல்கள் <code>கையேடு_ப்ரோப்</code> பொருளில் கிடைக்கின்றன:</p>
@@ -1910,6 +1966,11 @@
 <p>பின்வரும் தகவல்கள் [servo some_name] (config_reference.md#servo) பொருள்களில் கிடைக்கின்றன:</p>
 <ul>
 <li><code>அச்சுப்பொறி [" சர்வோ &lt;config_name&gt; "]. மதிப்பு</code>: சர்வோவுடன் தொடர்புடைய PWM முள் (0.0 மற்றும் 1.0 க்கு இடையிலான மதிப்பு) கடைசி அமைப்பு.</li>
+</ul>
+<h2 id="skew_correctionpy">skew_correction.py<a class="headerlink" href="#skew_correctionpy" title="Permanent link">&para;</a></h2>
+<p>The following information is available in the <code>skew_correction</code> object (this object is available if any skew_correction is defined):</p>
+<ul>
+<li><code>current_profile_name</code>: Returns the name of the currently loaded SKEW_PROFILE.</li>
 </ul>
 <h2 id="stepper_enable">stepper_enable<a class="headerlink" href="#stepper_enable" title="Permanent link">&para;</a></h2>
 <p>பின்வரும் தகவல்கள் <code>stepper_enable</code> பொருளில் கிடைக்கின்றன (ஏதேனும் ச்டெப்பர் வரையறுக்கப்பட்டால் இந்த பொருள் கிடைக்கும்):</p>

@@ -339,6 +339,10 @@ msgstr ""
 msgid "[Eddy Current Inductive probe](Eddy_Probe.md)"
 msgstr ""
 
+#: docs/Overview.md:block 10 (unordered list)
+msgid "[Load Cells](Load_Cell.md)"
+msgstr ""
+
 #~ msgid ""
 #~ "[Exclude Object](Exclude_Object.md): The guide to the Exclude Objecs "
 #~ "implementation."

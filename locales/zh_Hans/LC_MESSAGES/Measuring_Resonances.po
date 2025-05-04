@@ -11,8 +11,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-03-20 13:19+0000\n"
 "Last-Translator: \"Neko.vecter\" <Vecterfang@icloud.com>\n"
-"Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
-"projects/klipper/measuring_resonances/zh_Hans/>\n"
+"Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/projects/klipper/measuring_resonances/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -273,11 +272,7 @@ msgid ""
 "vibrations. In these cases, you can request to limit the maximum smoothing "
 "from the input shaper."
 msgstr ""
-"请注意，输入整形器会在使一些打印的路径被平滑。由执行`calibrate_shaper.py`脚本"
-"或`SHAPER_CALIBRATE`命令自动得出的输入整形器会尽量不加剧平滑的同时试图最小化"
-"产生的振动。脚本可能会得出不是最优的整形器的频率，或者你可能希望以更强的剩余"
-"振动为代价来减少平滑度。在这些情况下，可以要求脚本限制输入整形器的最大平滑度"
-"。"
+"请注意，输入整形器会在使一些打印的路径被平滑。由执行`calibrate_shaper.py`脚本或`SHAPER_CALIBRATE`命令自动得出的输入整形器会尽量不加剧平滑的同时试图最小化产生的振动。脚本可能会得出不是最优的整形器的频率，或者你可能希望以更强的剩余振动为代价来减少平滑度。在这些情况下，可以要求脚本限制输入整形器的最大平滑度。"
 
 msgid "Let's consider the following results from the automatic tuning:"
 msgstr "参考以下自动调谐结果："
@@ -669,11 +664,6 @@ msgstr "ADXL345"
 #: docs/Measuring_Resonances.md:block 18 (header)
 msgid "I2C Accelerometers"
 msgstr "I2C加速度计"
-
-#: docs/Measuring_Resonances.md:block 21 (header)
-#, fuzzy
-msgid "MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500"
-msgstr "MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500"
 
 #: docs/Measuring_Resonances.md:block 23 (paragraph)
 msgid "Recommended connection scheme for I2C on the Raspberry Pi:"
@@ -1210,13 +1200,6 @@ msgid ""
 "boards appear to be hard-configured for I2C by pulling SDO to GND)."
 msgstr ""
 
-#: docs/Measuring_Resonances.md:block 5 (paragraph)
-msgid ""
-"For MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500s and LIS2DW/LIS3DH there are "
-"also a variety of board designs and clones with different I2C pull-up "
-"resistors which will need supplementing."
-msgstr ""
-
 #: docs/Measuring_Resonances.md:block 7 (table)
 msgid "SAMD"
 msgstr ""
@@ -1274,6 +1257,33 @@ msgid ""
 " If none of that helps, a user may try the other shapers from the produced "
 "list besides the one recommended by default."
 msgstr ""
+
+#: docs/Measuring_Resonances.md:block 5 (paragraph)
+msgid ""
+"For MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500/ICM20948s and LIS2DW/LIS3DH "
+"there are also a variety of board designs and clones with different I2C pull-"
+"up resistors which will need supplementing."
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 37 (header)
+msgid "MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500/ICM20948"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 90 (paragraph)
+msgid ""
+"If you are using the ICM20948, replace instances of \"mpu9250\" with "
+"\"icm20948\"."
+msgstr ""
+
+#, fuzzy
+#~ msgid "MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500"
+#~ msgstr "MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500"
+
+#~ msgid ""
+#~ "For MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500s and LIS2DW/LIS3DH there are "
+#~ "also a variety of board designs and clones with different I2C pull-up "
+#~ "resistors which will need supplementing."
+#~ msgstr ""
 
 #, fuzzy
 #~ msgid "~/klippy-env/bin/pip install -v numpy\n"

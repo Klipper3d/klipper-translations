@@ -1280,6 +1280,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Load_Cell.html" class="md-nav__link">
+        Load Cells
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1381,18 +1395,18 @@
 <li>Поддержка стандартного G-кода. Поддерживаются общие команды g-кода, которые производятся типичными "слайсерами" (SuperSlicer, Cura, PrusaSlicer и т. д.).</li>
 <li>Поддержка нескольких экструдеров. Также поддерживаются экструдеры с общими нагревателями и экструдеры на независимых каретках (IDEX).</li>
 <li>Поддерживаются принтеры, работающие в форматах cartesian, delta, corexy, corexz, hybrid-corexy, hybrid-corexz, deltesian, rotary delta, polar и cable winch.</li>
-<li>Поддержка автоматического выравнивания кровати. Klipper может быть настроен на базовое определение наклона станины или полное выравнивание станины по сетке. Если в станине используется несколько Z-шаговиков, Klipper также может выравнивать станину, независимо управляя Z-шаговиками. Поддерживается большинство датчиков высоты Z, включая датчики BL-Touch и датчики с сервоприводом.</li>
+<li>Automatic bed leveling support. Klipper can be configured for basic bed tilt detection or full mesh bed leveling. The bed mesh can be customized to the print size (adaptive bed mesh). If the bed uses multiple Z steppers then Klipper can also level by independently manipulating the Z steppers. Most Z height probes are supported, including BL-Touch probes and servo activated probes. Probes may be calibrated for axis twist compensation. If using an "eddy current probe" then one can utilize fast bed mesh scanning,</li>
 <li>Поддержка автоматической дельта-калибровки. Инструмент калибровки может выполнять базовую калибровку по высоте, а также расширенную калибровку по размерам X и Y. Калибровка может выполняться с помощью датчика высоты Z или вручную.</li>
 <li>Поддержка функции "исключить объект" во время выполнения. При настройке этот модуль может облегчить отмену только одного объекта в печати, состоящей из нескольких частей.</li>
-<li>Поддержка распространенных датчиков температуры (например, обычных термисторов, AD595, AD597, AD849x, PT100, PT1000, MAX6675, MAX31855, MAX31856, MAX31865, BME280, HTU21D, DS18B20 и LM75). Также можно настроить пользовательские термисторы и аналоговые датчики температуры. Можно контролировать внутренний датчик температуры микроконтроллера и внутренний датчик температуры Raspberry Pi.</li>
+<li>Support for common temperature sensors (eg, common thermistors, AD595, AD597, AD849x, PT100, PT1000, MAX6675, MAX31855, MAX31856, MAX31865, BME280, HTU21D, DS18B20, AHT10, SHT3x, and LM75). Custom thermistors and custom analog temperature sensors can also be configured. One can monitor the internal micro-controller temperature sensor and the internal temperature sensor of a Raspberry Pi.</li>
 <li>Базовая тепловая защита нагревателя включена по умолчанию.</li>
-<li>Поддержка стандартных вентиляторов, вентиляторов сопел и вентиляторов с контролем температуры. Нет необходимости держать вентиляторы включенными, когда принтер простаивает. Скорость вращения вентиляторов можно отслеживать на вентиляторах, оснащенных тахометром.</li>
+<li>Support for standard fans, nozzle fans, and temperature controlled fans. No need to keep fans running when the printer is idle. Fan speed can be monitored on fans that have a tachometer. One can assign a "math formula" to a fan for automatic fan speed updating.</li>
 <li>Поддержка конфигурирования во время выполнения драйверов шаговых двигателей TMC2130, TMC2208/TMC2224, TMC2209, TMC2660 и TMC5160. Также поддерживается управление током традиционных шаговых драйверов с помощью AD5206, DAC084S085, MCP4451, MCP4728, MCP4018 и выводов ШИМ.</li>
 <li>Поддержка распространенных ЖК-дисплеев, подключаемых непосредственно к принтеру. Также доступно меню по умолчанию. Содержимое дисплея и меню можно полностью настроить с помощью файла конфигурации.</li>
 <li>Постоянное ускорение и поддержка "опережения". Все движения принтера постепенно ускоряются от остановки до крейсерской скорости, а затем замедляются до остановки. Поступающий поток команд движения G-кода ставится в очередь и анализируется - ускорение между движениями в одном направлении будет оптимизировано для уменьшения задержек печати и улучшения общего времени печати.</li>
 <li>В Klipper реализован алгоритм "шагового фазового концевика", который позволяет повысить точность типичных концевых выключателей. При правильной настройке он может улучшить адгезию первого слоя отпечатка.</li>
 <li>Поддержка датчиков наличия нити, датчиков движения нити и датчиков ширины нити.</li>
-<li>Поддержка измерения и регистрации ускорения с помощью акселерометров adxl345, mpu9250 и mpu6050.</li>
+<li>Support for measuring and recording acceleration using adxl345, mpu9250, mpu6050, lis2dw12, lis3dh, and icm20948 accelerometers.</li>
 <li>Поддержка ограничения максимальной скорости коротких "зигзагообразных" движений для уменьшения вибрации и шума принтера. Дополнительные сведения см. в документе <a href="Kinematics.html">кинематика </a>.</li>
 <li>Для многих распространенных принтеров доступны образцы конфигурационных файлов. Список можно найти в каталоге <a href="https://github.com/Klipper3d/klipper/blob/master/config/">config</a>.</li>
 </ul>
@@ -1464,11 +1478,6 @@
 <td>1622 тыс.</td>
 </tr>
 <tr>
-<td>RP2040</td>
-<td>2400 тыс.</td>
-<td>1636 тыс.</td>
-</tr>
-<tr>
 <td>SAM4E8E</td>
 <td>2500 тыс.</td>
 <td>1674 тыс.</td>
@@ -1494,6 +1503,11 @@
 <td>2634 тыс.</td>
 </tr>
 <tr>
+<td>RP2040</td>
+<td>4000K</td>
+<td>2571K</td>
+</tr>
+<tr>
 <td>RP2350</td>
 <td>4167K</td>
 <td>2663K</td>
@@ -1504,9 +1518,9 @@
 <td>4737K</td>
 </tr>
 <tr>
-<td>STM32H743</td>
-<td>9091K</td>
-<td>6061K</td>
+<td>STM32H723</td>
+<td>7429K</td>
+<td>8619K</td>
 </tr>
 </tbody>
 </table>

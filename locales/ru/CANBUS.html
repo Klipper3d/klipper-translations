@@ -1280,6 +1280,20 @@
 
             
           
+            
+              
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../Load_Cell.html" class="md-nav__link">
+        Load Cells
+      </a>
+    </li>
+  
+
+            
+          
         </ul>
       </nav>
     </li>
@@ -1450,6 +1464,7 @@ iface can0 can static
 </li>
 </ul>
 <ul>
+<li>It is only valid to use USB to CAN bridge mode if there is a functioning CAN bus with at least one other node available (in addition to the bridge node itself). Use a standard USB configuration if the goal is to communicate only with the single USB device. Using USB to CAN bridge mode without a fully functioning CAN bus (including terminating resistors and an additional node) may result in sporadic errors even when communicating with the bridge node.</li>
 <li>Мостовая плата USB to CAN не отображается как последовательное устройство USB, она не показывается при выполнении команды <code>ls /dev/serial/by-id</code>, и ее нельзя настроить в файле printer.cfg Klipper с параметром <code>serial:</code>. Плата моста отображается как "USB CAN адаптер" и конфигурируется в printer.cfg как <a href="#configuring-klipper">CAN узел</a>.</li>
 </ul>
 <h2 id="_5">Советы по устранению неполадок<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>

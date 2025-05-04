@@ -5,8 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-02-23 21:32+0000\n"
 "Last-Translator: Pyroa Surtac <pyroa@orange.fr>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/klipper/"
-"axis_twist_compensation/fr/>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/klipper/axis_twist_compensation/fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -16,10 +15,6 @@ msgstr ""
 #: docs/Axis_Twist_Compensation.md:block 1 (header)
 msgid "Axis Twist Compensation"
 msgstr "Compensation de torsion de l'axe"
-
-#: docs/Axis_Twist_Compensation.md:block 2 (paragraph)
-msgid "This document describes the [axis_twist_compensation] module."
-msgstr "Ce document décrit le module [axis_twist_compensation]."
 
 #: docs/Axis_Twist_Compensation.md:block 3 (paragraph)
 #, fuzzy
@@ -36,11 +31,12 @@ msgstr ""
 "Certaines imprimantes peuvent avoir une petite torsion dans leur rail X qui "
 "peut fausser les résultats d’une sonde fixée au chariot X. Ceci est courant "
 "dans les imprimantes avec des conceptions comme la Prusa MK3, la Sovol SV06, "
-"etc. et est décrit plus en détail dans [biais de localisation de la sonde]"
-"(Probe_Calibrate.md#location-bias-check). Cela peut entraîner des opérations "
-"de sonde telles que [Bed Mesh](Bed_Mesh.md), [Screw Tilt Adjust]"
-"(G-Codes.md#screws_tilt_adjust), [Z Tilt Adjust](G-Codes.md#z_tilt_adjust) "
-"etc. renvoyant des représentations inexactes du lit."
+"etc. et est décrit plus en détail dans [biais de localisation de la "
+"sonde](Probe_Calibrate.md#location-bias-check). Cela peut entraîner des "
+"opérations de sonde telles que [Bed Mesh](Bed_Mesh.md), [Screw Tilt "
+"Adjust](G-Codes.md#screws_tilt_adjust), [Z Tilt "
+"Adjust](G-Codes.md#z_tilt_adjust) etc. renvoyant des représentations inexactes"
+" du lit."
 
 #: docs/Axis_Twist_Compensation.md:block 4 (paragraph)
 msgid ""
@@ -51,8 +47,8 @@ msgid ""
 msgstr ""
 "Ce module utilise des mesures manuelles effectuées par l'utilisateur afin de "
 "corriger les résultats de la sonde. Notez que si votre axe est "
-"significativement tordu il est fortement recommandé d'utiliser en premier "
-"lieu des moyens mécaniques pour le corriger avant d'utiliser des solutions "
+"significativement tordu il est fortement recommandé d'utiliser en premier lieu"
+" des moyens mécaniques pour le corriger avant d'utiliser des solutions "
 "logicielles."
 
 #: docs/Axis_Twist_Compensation.md:block 5 (paragraph)
@@ -83,38 +79,12 @@ msgstr ""
 msgid "[axis_twist_compensation] setup and commands"
 msgstr ""
 
-#: docs/Axis_Twist_Compensation.md:block 13 (paragraph)
-msgid ""
-"Configuration options for [axis_twist_compensation] can be found in the "
-"[Configuration Reference](Config_Reference.md#axis_twist_compensation)."
-msgstr ""
-
-#: docs/Axis_Twist_Compensation.md:block 14 (paragraph)
-msgid ""
-"Commands for [axis_twist_compensation] can be found in the [G-Codes "
-"Reference](G-Codes.md#axis_twist_compensation)"
-msgstr ""
-
 #: docs/Axis_Twist_Compensation.md:block 8 (header)
 msgid "Basic Usage: X-Axis Calibration"
 msgstr ""
 
 #: docs/Axis_Twist_Compensation.md:block 9 (ordered list)
 msgid "After setting up the `[axis_twist_compensation]` module, run:"
-msgstr ""
-
-#: docs/Axis_Twist_Compensation.md:block 11 (paragraph)
-msgid ""
-"This command will calibrate the X-axis by default. - The calibration wizard "
-"will prompt you to measure the probe Z offset at several points along the bed."
-" - By default, the calibration uses 3 points, but you can specify a different "
-"number with the option: `SAMPLE_COUNT=<value>`"
-msgstr ""
-
-#: docs/Axis_Twist_Compensation.md:block 12 (ordered list)
-msgid ""
-"**Adjust Your Z Offset:** After completing the calibration, be sure to [adjust"
-" your Z offset] (Probe_Calibrate.md#calibrating-probe-z-offset)."
 msgstr ""
 
 #: docs/Axis_Twist_Compensation.md:block 12 (ordered list)
@@ -160,20 +130,80 @@ msgid ""
 "This will guide you through the same measuring process as for the X-axis."
 msgstr ""
 
-#: docs/Axis_Twist_Compensation.md:block 17 (header)
-msgid "Automatic Calibration for Both Axes"
+#: docs/Axis_Twist_Compensation.md:block 2 (paragraph)
+msgid "This document describes the `[axis_twist_compensation]` module."
 msgstr ""
 
-#: docs/Axis_Twist_Compensation.md:block 18 (paragraph)
-msgid ""
-"To perform automatic calibration for both the X and Y axes without manual "
-"intervention, use:"
+#: docs/Axis_Twist_Compensation.md:block 11 (paragraph)
+msgid "This command will calibrate the X-axis by default."
 msgstr ""
 
-#: docs/Axis_Twist_Compensation.md:block 20 (paragraph)
+#: docs/Axis_Twist_Compensation.md:block 12 (unordered list)
 msgid ""
-"In this mode, the calibration process will run for both axes automatically."
+"The calibration wizard will prompt you to measure the probe Z offset at "
+"several points along the bed."
 msgstr ""
+
+#: docs/Axis_Twist_Compensation.md:block 12 (unordered list)
+msgid ""
+"By default, the calibration uses 3 points, but you can specify a different "
+"number with the option: `SAMPLE_COUNT=<value>`"
+msgstr ""
+
+#: docs/Axis_Twist_Compensation.md:block 13 (ordered list)
+msgid ""
+"**Adjust Your Z Offset:** After completing the calibration, be sure to [adjust"
+" your Z offset](Probe_Calibrate.md#calibrating-probe-z-offset)."
+msgstr ""
+
+#: docs/Axis_Twist_Compensation.md:block 23 (paragraph)
+msgid ""
+"Configuration options for `[axis_twist_compensation]` can be found in the "
+"[Configuration Reference](Config_Reference.md#axis_twist_compensation)."
+msgstr ""
+
+#: docs/Axis_Twist_Compensation.md:block 24 (paragraph)
+msgid ""
+"Commands for `[axis_twist_compensation]` can be found in the [G-Codes "
+"Reference](G-Codes.md#axis_twist_compensation)"
+msgstr ""
+
+#~ msgid "This document describes the [axis_twist_compensation] module."
+#~ msgstr "Ce document décrit le module [axis_twist_compensation]."
+
+#~ msgid ""
+#~ "Configuration options for [axis_twist_compensation] can be found in the "
+#~ "[Configuration Reference](Config_Reference.md#axis_twist_compensation)."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Commands for [axis_twist_compensation] can be found in the [G-Codes "
+#~ "Reference](G-Codes.md#axis_twist_compensation)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "This command will calibrate the X-axis by default. - The calibration wizard "
+#~ "will prompt you to measure the probe Z offset at several points along the bed."
+#~ " - By default, the calibration uses 3 points, but you can specify a different "
+#~ "number with the option: `SAMPLE_COUNT=<value>`"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "**Adjust Your Z Offset:** After completing the calibration, be sure to [adjust"
+#~ " your Z offset] (Probe_Calibrate.md#calibrating-probe-z-offset)."
+#~ msgstr ""
+
+#~ msgid "Automatic Calibration for Both Axes"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "To perform automatic calibration for both the X and Y axes without manual "
+#~ "intervention, use:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "In this mode, the calibration process will run for both axes automatically."
+#~ msgstr ""
 
 #~ msgid ""
 #~ "After setting up the [axis_twist_compensation] module, perform "
