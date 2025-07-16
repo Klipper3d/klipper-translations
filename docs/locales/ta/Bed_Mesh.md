@@ -254,7 +254,7 @@ Many probes are susceptible to "drift", ie: inaccuracies in probing introduced b
 
 படுக்கை கண்ணி அளவுத்திருத்தத்திற்கான ஆய்வு நடைமுறையைத் தொடங்குகிறது.
 
-குறிப்பிடப்படாவிட்டால் `சுயவிவரம்` அளவுருவால் குறிப்பிடப்பட்ட சுயவிவரத்தில் கண்ணி சேமிக்கப்படும். `முறை` அளவுரு பின்வரும் மதிப்புகளில் ஒன்றை எடுக்கும்:
+The mesh will be immediately ready to use when the command completes and saved into a profile specified by the `PROFILE` parameter, or `default` if unspecified. The `METHOD` parameter takes one of the following values:
 
 - `முறை = கையேடு`: முனை மற்றும் காகித சோதனையைப் பயன்படுத்தி கையேடு ஆய்வை இயக்குகிறது
 - `முறை = தானியங்கி`: தானியங்கி (தரநிலை) ஆய்வு. இது இயல்புநிலை.
@@ -298,6 +298,8 @@ Many probes are susceptible to "drift", ie: inaccuracies in probing introduced b
 #### இயல்புநிலை சுயவிவரத்தை ஏற்றுகிறது
 
 `BED_MESH` இன் முந்தைய பதிப்புகள் தொடக்கத்தில் * இயல்புநிலை * என்ற சுயவிவரத்தை எப்போதும் ஏற்றின. ஒரு சுயவிவரம் ஏற்றப்படும் போது பயனரை தீர்மானிக்க அனுமதிப்பதற்கு ஆதரவாக இந்த நடத்தை அகற்றப்பட்டுள்ளது. ஒரு பயனர் `இயல்புநிலை` சுயவிவரத்தை ஏற்ற விரும்பினால்,` bed_mesh_profile load = இயல்புநிலை` அவற்றின் `start_print` மேக்ரோ அல்லது அவற்றின் ச்லைசரின்" தொடக்க சி-குறியீடு "உள்ளமைவுக்கு சேர்க்க பரிந்துரைக்கப்படுகிறது, எது பொருந்தினாலும்.
+
+Note that this is not required if a new mesh is generated with `BED_MESH_CALIBRATE` in the `START_PRINT` macro or the slicer's "Start G-Code" and may produce unexpected results, especially with adaptive meshing.
 
 மாற்றாக, தொடக்கத்தில் ஒரு சுயவிவரத்தை ஏற்றுவதற்கான பழைய நடத்தை `[தாமதமான_சி கோட்]`:
 

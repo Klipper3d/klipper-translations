@@ -76,8 +76,6 @@ iface can0 can static
 
 * Мостовой микроконтроллер" на самом деле не находится на шине CAN. Сообщения, поступающие в мостовой микроконтроллер, не будут видны другим адаптерам, которые могут находиться на шине CAN.
 * Доступная полоса пропускания как для самого " моста mcu", так и для всех устройств на CAN-шине фактически ограничена частотой CAN-шины. Поэтому рекомендуется использовать частоту шины CAN 1000000 при использовании режима "мост USB - шина CAN".
-
-   Даже при частоте шины CAN 1000000 может не хватить пропускной способности для выполнения теста `SHAPER_CALIBRATE`, если шаговики XY и акселерометр обмениваются данными через один интерфейс "USB - шина CAN".
 * It is only valid to use USB to CAN bridge mode if there is a functioning CAN bus with at least one other node available (in addition to the bridge node itself). Use a standard USB configuration if the goal is to communicate only with the single USB device. Using USB to CAN bridge mode without a fully functioning CAN bus (including terminating resistors and an additional node) may result in sporadic errors even when communicating with the bridge node.
 * Мостовая плата USB to CAN не отображается как последовательное устройство USB, она не показывается при выполнении команды `ls /dev/serial/by-id`, и ее нельзя настроить в файле printer.cfg Klipper с параметром `serial:`. Плата моста отображается как "USB CAN адаптер" и конфигурируется в printer.cfg как [CAN узел](#configuring-klipper).
 

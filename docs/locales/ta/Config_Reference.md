@@ -65,51 +65,52 @@
 அச்சுப்பொறி பிரிவு உயர் மட்ட அச்சுப்பொறி அமைப்புகளை கட்டுப்படுத்துகிறது.
 
 ```
-[அச்சுப்பொறி]
- இயக்கவியல்:
- # பயன்பாட்டில் உள்ள அச்சுப்பொறி வகை. இந்த விருப்பம் ஒன்றாக இருக்கலாம்: கார்ட்டீசியன்,
- # Corexy, corexz, hyprit_corexy, compity_corexz, ரோட்டரி_டெல்டா, டெல்டா,
- # டெல்டீசியன், துருவ, வின்ச் அல்லது எதுவுமில்லை. இந்த அளவுரு குறிப்பிடப்பட வேண்டும்.
- Max_velocity:
- கருவித்தடத்தின் அதிகபட்ச விரைவு (மிமீ/வி இல்) (தொடர்புடையது
- # அச்சு). இந்த அளவுரு குறிப்பிடப்பட வேண்டும்.
- max_accel:
- கருவித்தடத்தின் அதிகபட்ச முடுக்கம் (மிமீ/எச்^2 இல்) (தொடர்புடையது
- # அச்சு). இந்த அளவுரு "அதிகபட்சம்" என்று விவரிக்கப்பட்டாலும்
- # முடுக்கம், நடைமுறையில் பெரும்பாலான நகர்வுகள் துரிதப்படுத்தும் அல்லது குறைக்கும்
- # இங்கே குறிப்பிடப்பட்டுள்ள விகிதத்தில் அவ்வாறு செய்யும். இங்கே குறிப்பிடப்பட்ட மதிப்பு
- # set_velocity_limit கட்டளையைப் பயன்படுத்தி இயக்க நேரத்தில் மாற்றப்படலாம்.
- # இந்த அளவுரு குறிப்பிடப்பட வேண்டும்.
- #minimum_cruise_ratio: 0.5
- # பெரும்பாலான நகர்வுகள் பயண வேகத்திற்கு துரிதப்படுத்தப்படும், அதில் பயணம்
- # பயண விரைவு, பின்னர் குறைகிறது. இருப்பினும், சில நகர்வுகள்
- # சிறிது தூரம் பயணம் பெயரளவில் துரிதப்படுத்தலாம், பின்னர்
- # உடனடியாக குறைகிறது. இந்த விருப்பம் இவற்றின் வேகத்தை குறைக்கிறது
- # ஒரு குறைந்தபட்ச தூரம் எப்போதும் இருப்பதை உறுதி செய்வதற்கான நகர்வுகள் a
- # பயண விரைவு. அதாவது, இது குறைந்தபட்ச தூரத்தை செயல்படுத்துகிறது
- # பயணித்த மொத்த தூரத்துடன் ஒப்பிடும்போது பயண வேகத்தில். அது
- # குறுகிய சிக்சாக் நகர்வுகளின் உயர் வேகத்தைக் குறைக்கும் நோக்கம் கொண்டது (இதனால்
- # இந்த நகர்வுகளிலிருந்து அச்சுப்பொறி அதிர்வுகளை குறைக்கவும்). உதாரணமாக, அ
- 0.5 இன் குறைந்தபட்ச_ க்ரூச்_ரேட்டியோ ஒரு முழுமையான 1.5 மிமீ என்பதை உறுதி செய்யும்
- # நகர்வு குறைந்தபட்சம் 0.75 மிமீ தூரத்தை கொண்டிருக்கும். ஒரு குறிப்பிடவும் a
- # இந்த அம்சத்தை முடக்க 0.0 என்ற விகிதம் (குறைந்தபட்சம் இருக்காது
- # முடுக்கம் மற்றும் வீழ்ச்சிக்கு இடையில் செயல்படுத்தப்படும் பயணம்).
- # இங்கே குறிப்பிடப்பட்டுள்ள மதிப்பு இயக்க நேரத்தில் மாற்றப்படலாம்
- # Set_velocity_limit கட்டளை. இயல்புநிலை 0.5 ஆகும்.
- #square_corner_velocity: 5.0
- # கருவிக்கதை 90 பயணிக்கக்கூடிய அதிகபட்ச விரைவு (மிமீ/வி இல்)
- # பட்டம் மூலையில். பூச்சியமற்ற மதிப்பு எக்ச்ட்ரூடரின் மாற்றங்களைக் குறைக்கும்
- # உடனடி விரைவு மாற்றங்களை செயல்படுத்துவதன் மூலம் ஓட்ட விகிதங்கள்
- # மூலைவிட்டத்தின் போது கருவி. இந்த மதிப்பு உள் கட்டத்தை உள்ளமைக்கிறது
- # மையவிலக்கு விரைவு மூலைவிட்ட வழிமுறை; கோணங்களுடன் மூலைகள்
- # 90 டிகிரிக்கு மேல் பெரியது அதிக மூலைவிட்ட வேகத்தைக் கொண்டிருக்கும்
- # 90 டிகிரிக்கு குறைவான கோணங்களைக் கொண்ட மூலைகள் குறைவாக இருக்கும்
- # மூலைவிட்ட விரைவு. இது பூச்சியமாக அமைக்கப்பட்டால், கருவிஎட்
- # ஒவ்வொரு மூலையிலும் பூச்சியத்திற்கு குறைகிறது. இங்கே குறிப்பிடப்பட்டுள்ள மதிப்பு இருக்கலாம்
- # set_velocity_limit கட்டளையைப் பயன்படுத்தி இயக்க நேரத்தில் மாற்றப்பட்டது. தி
- # இயல்புநிலை 5 மிமீ/வி.
- #max_accel_to_decel:
- # இந்த அளவுரு நீக்கப்பட்டது, இனி பயன்படுத்தக்கூடாது.
+[printer]
+kinematics:
+#   The type of printer in use. This option may be one of: cartesian,
+#   corexy, corexz, hybrid_corexy, hybrid_corexz, generic_cartesian,
+#   rotary_delta, delta, deltesian, polar, winch, or none.
+#   This parameter must be specified.
+max_velocity:
+#   Maximum velocity (in mm/s) of the toolhead (relative to the
+#   print). This parameter must be specified.
+max_accel:
+#   Maximum acceleration (in mm/s^2) of the toolhead (relative to the
+#   print). Although this parameter is described as a "maximum"
+#   acceleration, in practice most moves that accelerate or decelerate
+#   will do so at the rate specified here. The value specified here
+#   may be changed at runtime using the SET_VELOCITY_LIMIT command.
+#   This parameter must be specified.
+#minimum_cruise_ratio: 0.5
+#   Most moves will accelerate to a cruising speed, travel at that
+#   cruising speed, and then decelerate. However, some moves that
+#   travel a short distance could nominally accelerate and then
+#   immediately decelerate. This option reduces the top speed of these
+#   moves to ensure there is always a minimum distance traveled at a
+#   cruising speed. That is, it enforces a minimum distance traveled
+#   at cruising speed relative to the total distance traveled. It is
+#   intended to reduce the top speed of short zigzag moves (and thus
+#   reduce printer vibration from these moves). For example, a
+#   minimum_cruise_ratio of 0.5 would ensure that a standalone 1.5mm
+#   move would have a minimum cruising distance of 0.75mm. Specify a
+#   ratio of 0.0 to disable this feature (there would be no minimum
+#   cruising distance enforced between acceleration and deceleration).
+#   The value specified here may be changed at runtime using the
+#   SET_VELOCITY_LIMIT command. The default is 0.5.
+#square_corner_velocity: 5.0
+#   The maximum velocity (in mm/s) that the toolhead may travel a 90
+#   degree corner at. A non-zero value can reduce changes in extruder
+#   flow rates by enabling instantaneous velocity changes of the
+#   toolhead during cornering. This value configures the internal
+#   centripetal velocity cornering algorithm; corners with angles
+#   larger than 90 degrees will have a higher cornering velocity while
+#   corners with angles less than 90 degrees will have a lower
+#   cornering velocity. If this is set to zero then the toolhead will
+#   decelerate to zero at each corner. The value specified here may be
+#   changed at runtime using the SET_VELOCITY_LIMIT command. The
+#   default is 5mm/s.
+#max_accel_to_decel:
+#   This parameter is deprecated and should no longer be used.
 ```
 
 ### [stepper]
@@ -651,6 +652,142 @@ CorexZ அச்சுப்பொறிகளுக்கு குறிப்
  # கார்ட்டீசியன் இடத்தில் கேபிள் வின்ச்சின் ஃச், ஒய் மற்றும் சட் நிலை.
  # இந்த அளவுருக்கள் வழங்கப்பட வேண்டும்.
 ```
+
+### Generic Cartesian Kinematics
+
+See [example-generic-cartesian.cfg](../config/example-generic-caretesian.cfg) for an example generic Cartesian kinematics config file.
+
+This printer kinematic class allows a user to define in a pretty flexible manner an arbitrary Cartesian-style kinematics. In principle, the regular cartesian, corexy, hybrid_corexy can be defined this way too. However, more importantly, various otherwise unsupported kinematics such as inverted hybrid_corexy or corexyuv can be defined using this kinematic.
+
+Notably, the definition of a generic Cartesian kinematic deviates significantly from the other kinematic types. It follows the following convention: a user defines a set of carriages with certain range of motion that can move independently from each other (they should move over the Cartesian axes X, Y, and Z, hence the name of the kinematic) and corresponding endstops that allow the firmware to determine the position of carriages during homing, as well as a set of steppers that move those carriages. The `[printer]` section must specify the kinematic and other printer-level settings same as the regular Cartesian kinematic:
+
+```
+[printer]
+kinematics: generic_cartesian
+max_velocity:
+max_accel:
+#minimum_cruise_ratio:
+#square_corner_velocity:
+#max_accel_to_decel:
+#max_z_velocity:
+#max_z_accel:
+```
+
+Then a user must define the following three carriages: `[carriage x]`, `[carriage y]`, and `[carriage z]`, e.g.
+
+```
+[carriage x]
+endstop_pin:
+#   Endstop switch detection pin. If this endstop pin is on a
+#   different mcu than the stepper motor(s) moving this carriage,
+#   then it enables "multi-mcu homing". This parameter must be provided.
+#position_min: 0
+#   Minimum valid distance (in mm) the user may command the carriage to
+#   move to.  The default is 0mm.
+position_endstop:
+#   Location of the endstop (in mm). This parameter must be provided.
+position_max:
+#   Maximum valid distance (in mm) the user may command the stepper to
+#   move to. This parameter must be provided.
+#homing_speed: 5.0
+#   Maximum velocity (in mm/s) of the carriage when homing. The default
+#   is 5mm/s.
+#homing_retract_dist: 5.0
+#   Distance to backoff (in mm) before homing a second time during
+#   homing. Set this to zero to disable the second home. The default
+#   is 5mm.
+#homing_retract_speed:
+#   Speed to use on the retract move after homing in case this should
+#   be different from the homing speed, which is the default for this
+#   parameter
+#second_homing_speed:
+#   Velocity (in mm/s) of the carriage when performing the second home.
+#   The default is homing_speed/2.
+#homing_positive_dir:
+#   If true, homing will cause the carriage to move in a positive
+#   direction (away from zero); if false, home towards zero. It is
+#   better to use the default than to specify this parameter. The
+#   default is true if position_endstop is near position_max and false
+#   if near position_min.
+```
+
+Afterwards, a user specifies the stepper motors that move these carriages, for instance
+
+```
+[stepper my_stepper]
+carriages:
+#   A string describing the carriages the stepper moves. All defined
+#   carriages can be specified here, as well as their linear combinations,
+#   e.g. x, x+y, y-0.5*z, x-z, etc. This parameter must be provided.
+step_pin:
+dir_pin:
+enable_pin:
+rotation_distance:
+microsteps:
+#full_steps_per_rotation: 200
+#gear_ratio:
+#step_pulse_duration:
+```
+
+See [stepper](#stepper) section for more information on the regular stepper parameters. The `carriages` parameter defines how the stepper affects the motion of the carriages. For example, `x+y` indicates that the motion of the stepper in the positive direction by the distance `d` moves the carriages `x` and `y` by the same distance `d` in the positive direction, while `x-0.5*y` means the motion of the stepper in the positive direction by the distance `d` moves the carriage `x` by the distance `d` in the positive direction, but the carriage `y` will travel distance `d/2` in the negative direction.
+
+More than a single stepper motor can be defined to drive the same axis or belt. For example, on a CoreXY AWD setups two motors driving the same belt can be defined as
+
+```
+[carriage x]
+endstop_pin: ...
+...
+
+[carriage y]
+endstop_pin: ...
+...
+
+[stepper a0]
+carriages: x-y
+step_pin: ...
+dir_pin: ...
+enable_pin: ...
+rotation_distance: ...
+...
+
+[stepper a1]
+carriages: x-y
+step_pin: ...
+dir_pin: ...
+enable_pin: ...
+rotation_distance: ...
+...
+```
+
+with `a0` and `a1` steppers having their own control pins, but sharing the same `carriages` and corresponding endstops.
+
+There are situations when a user wants to have more than one endstop per axis. Examples of such configurations include Y axis driven by two independent stepper motors with belts attached to both ends of the X beam, with effectively two carriages on Y axis each having an independent endstop, and multi-stepper Z axis with each stepper having its own endstop (not to be confused with the configurations with multiple Z motors but only a single endstop). These configurations can be declared by specifying additional carriage(s) with their endstops:
+
+```
+[extra_carriage my_carriage]
+primary_carriage:
+#   The name of the primary carriage this carriage corresponds to.
+#   It also effectively defines the axis the carriage moves over.
+#   This parameter must be provided.
+endstop_pin:
+#   Endstop switch detection pin. This parameter must be provided.
+```
+
+and the corresponding stepper motors, for example:
+
+```
+[extra_carriage y1]
+primary_carriage: y
+endstop_pin: ...
+
+[stepper sy1]
+carriages: y1
+...
+```
+
+Notably, an `[extra_carriage]` does not define parameters such as `position_min`, `position_max`, and `position_endstop`, but instead inherits them from the specified `primary_carriage`, thus sharing the same range of motion with the primary carriage.
+
+For the references on how to configure IDEX setups, see the [dual carriage](#dual-carriage) section.
 
 ### இயக்கவியல் எதுவும் இல்லை
 
@@ -2019,37 +2156,105 @@ calibrate_x: ...
 
 ### [dual_carriage]
 
-ஒற்றை அச்சில் இரட்டை வண்டிகளுடன் கார்ட்டீசியன் மற்றும் ஐப்ரிட்_கோரெக்சி/இசட் அச்சுப்பொறிகளுக்கான உதவி. வண்டி பயன்முறையை set_dual_carriage நீட்டிக்கப்பட்ட சி-குறியீடு கட்டளை வழியாக அமைக்கலாம். எடுத்துக்காட்டாக, "set_dual_carriage வண்டி = 1" கட்டளை இந்த பிரிவில் வரையறுக்கப்பட்ட வண்டியை செயல்படுத்தும் (வண்டி = 0 முதன்மை வண்டிக்கு செயல்படுத்தும்). இரட்டை வண்டி உதவி பொதுவாக கூடுதல் எக்ச்ட்ரூடர்களுடன் இணைக்கப்படுகிறது - Set_dual_carriage கட்டளை பெரும்பாலும் Activate_extruder கட்டளையின் அதே நேரத்தில் அழைக்கப்படுகிறது. செயலிழக்கும்போது வண்டிகளை நிறுத்த மறக்காதீர்கள். ஐயா 28 ஓமிங்கின் போது, பொதுவாக முதன்மை வண்டி முதலில் `[டூயல்_ காரேச்]` கட்டமைப்பு பிரிவில் வரையறுக்கப்பட்ட வண்டியைத் தொடர்ந்து உள்ளது என்பதை நினைவில் கொள்க. இருப்பினும், இரு நேர்மறையான திசையில் வீட்டிற்கு எடுத்துச் சென்றால் `[இரட்டை_ காரியேச்]` வண்டி முதலில் வைத்திருக்கும் மற்றும் [டூயல்_ காரேச்] வண்டியில் முதன்மை வண்டியை விட `நிலை_என்ட்ச்டாப்` அதிகமாக இருந்தால், அல்லது இருவரும் எதிர்மறையான திசையில் வீட்டிற்கு எடுத்துச் சென்றால் மற்றும்` .
+Support for cartesian, generic_cartesian and hybrid_corexy/z printers with dual carriages on a single axis. The carriage mode can be set via the SET_DUAL_CARRIAGE extended g-code command. For example, "SET_DUAL_CARRIAGE CARRIAGE=1" command will activate the carriage defined in this section (CARRIAGE=0 will return activation to the primary carriage). Dual carriage support is typically combined with extra extruders - the SET_DUAL_CARRIAGE command is often called at the same time as the ACTIVATE_EXTRUDER command. Be sure to park the carriages during deactivation. Note that during G28 homing, typically the primary carriage is homed first followed by the carriage defined in the `[dual_carriage]` config section. However, the `[dual_carriage]` carriage will be homed first if both carriages home in a positive direction and the [dual_carriage] carriage has a `position_endstop` greater than the primary carriage, or if both carriages home in a negative direction and the `[dual_carriage]` carriage has a `position_endstop` less than the primary carriage.
 
 கூடுதலாக, ஒருவர் "set_dual_carriage வண்டி = 1 பயன்முறை = நகல்" அல்லது "set_dual_carriage வண்டி = 1 பயன்முறை = மிரர்" கட்டளைகளை இரட்டை வண்டியின் நகலெடுத்தல் அல்லது பிரதிபலிக்கும் பயன்முறையை செயல்படுத்தலாம், இந்த விசயத்தில் அது வண்டி 0 இன் இயக்கத்தை பின்பற்றும் . இந்த கட்டளைகளை ஒரே நேரத்தில் இரண்டு பகுதிகளை அச்சிட பயன்படுத்தலாம் - இரண்டு ஒத்த பாகங்கள் (நகல் பயன்முறையில்) அல்லது பிரதிபலித்த பாகங்கள் (கண்ணாடி பயன்முறையில்). நகல் மற்றும் கண்ணாடி முறைகளுக்கு இரட்டை வண்டியில் எக்ச்ட்ரூடரின் பொருத்தமான உள்ளமைவு தேவைப்படுகிறது என்பதை நினைவில் கொள்க, இது பொதுவாக "Sync_extruder_motional Motion_queue = Extruder Extruder = <dual_carriage_extruder>" அல்லது இதே போன்ற கட்டளை மூலம் அடைய முடியும்.
 
-எடுத்துக்காட்டு உள்ளமைவுக்கு [salem-idex.cfg] (../ config/salem-idex.cfg) ஐப் பார்க்கவும்.
+See [sample-idex.cfg](../config/sample-idex.cfg) for an example configuration with a regular Cartesian kinematic.
 
 ```
 [dual_carriage]
- அச்சு:
- # அச்சு இந்த கூடுதல் வண்டி இயக்கத்தில் உள்ளது (x அல்லது y). இந்த அளவுரு
- # வழங்கப்பட வேண்டும்.
- #safe_distance:
- # இரட்டை மற்றும் முதன்மை இடையே செயல்படுத்த குறைந்தபட்ச தூரம் (மிமீ)
- # வண்டிகள். ஒரு சி-கோட் கட்டளை செயல்படுத்தப்பட்டால், அது வண்டிகளைக் கொண்டுவரும்
- # குறிப்பிட்ட வரம்பை விட நெருக்கமாக, அத்தகைய கட்டளை ஒரு நிராகரிக்கப்படும்
- # பிழை. Safe_distance வழங்கப்படாவிட்டால், அது ஊகிக்கப்படும்
- இரட்டை மற்றும் முதன்மை வண்டிகளுக்கு # நிலை_மின் மற்றும் நிலை_மாக்ச். அமைக்கப்பட்டால்
- # முதல் 0 வரை (அல்லது பாதுகாப்பான_டிகன்ச் அமைக்கப்படாதது மற்றும் நிலை_மின் மற்றும் நிலை_மாக்ச்
- # முதன்மை மற்றும் இரட்டை கேரிக்களுக்கு ஒரே மாதிரியானது), வண்டிகள் அருகாமையில்
- # காசோலைகள் முடக்கப்படும்.
- #step_pin:
- #dir_pin:
- #enable_pin:
- #microsteps:
- #Rotation_distance:
- #endstop_pin:
- #position_endstop:
- #Position_min:
- #Position_max:
- # மேலே உள்ள அளவுருக்களின் வரையறைக்கு "ச்டெப்பர்" பகுதியைக் காண்க.
+axis:
+#   The axis this extra carriage is on (either x or y). This parameter
+#   must be provided.
+#safe_distance:
+#   The minimum distance (in mm) to enforce between the dual and the primary
+#   carriages. If a G-Code command is executed that will bring the carriages
+#   closer than the specified limit, such a command will be rejected with an
+#   error. If safe_distance is not provided, it will be inferred from
+#   position_min and position_max for the dual and primary carriages. If set
+#   to 0 (or safe_distance is unset and position_min and position_max are
+#   identical for the primary and dual carriages), the carriages proximity
+#   checks will be disabled.
+#step_pin:
+#dir_pin:
+#enable_pin:
+#microsteps:
+#rotation_distance:
+#endstop_pin:
+#position_endstop:
+#position_min:
+#position_max:
+#   See the "stepper" section for the definition of the above parameters.
 ```
+
+For an example of dual carriage configuration with `generic_cartesian` kinematic, see the following configuration [sample](../config/example-generic-caretesian.cfg). Please note that in this case the `[dual_carriage]` configuration deviates from the configuration described above:
+
+```
+[dual_carriage my_dc_carriage]
+primary_carriage:
+#   Defines the matching primary carriage of this dual carriage and
+#   the corresponding IDEX axis. Valid choices are x, y, z.
+#   This parameter must be provided.
+#safe_distance:
+#   The minimum distance (in mm) to enforce between the dual and the primary
+#   carriages. If a G-Code command is executed that will bring the carriages
+#   closer than the specified limit, such a command will be rejected with an
+#   error. If safe_distance is not provided, it will be inferred from
+#   position_min and position_max for the dual and primary carriages. If set
+#   to 0 (or safe_distance is unset and position_min and position_max are
+#   identical for the primary and dual carriages), the carriages proximity
+#   checks will be disabled.
+endstop_pin:
+#position_min:
+position_endstop:
+position_max:
+#homing_speed:
+#homing_retract_dist:
+#homing_retract_speed:
+#second_homing_speed:
+#homing_positive_dir:
+...
+```
+
+Refer to [generic cartesian](#generic-cartesian) section for more information on the regular `carriage` parameters.
+
+Then a user must define one or more stepper motors moving the dual carriage (and other carriages as appropriate), for instance
+
+```
+[carriage x]
+...
+
+[carriage y]
+...
+
+[dual_carriage u]
+primary_carriage: x
+...
+
+[stepper dc_stepper]
+carriages: u-y
+...
+```
+
+`[dual_carriage]` requires special configuration for the input shaper. In general, it is necessary to run input shaper calibration twice - for the `dual_carriage` and its `primary_carriage` for the axis they share. Then the input shaper can be configured as follows, assuming the example above:
+
+```
+[input_shaper]
+# Intentionally empty
+
+[delayed_gcode init_shaper]
+initial_duration: 0.1
+gcode:
+  SET_DUAL_CARRIAGE CARRIAGE=u
+  SET_INPUT_SHAPER SHAPER_TYPE_X=<dual_carriage_x_shaper> SHAPER_FREQ_X=<dual_carriage_x_freq> SHAPER_TYPE_Y=<y_shaper> SHAPER_FREQ_Y=<y_freq>
+  SET_DUAL_CARRIAGE CARRIAGE=x
+  SET_INPUT_SHAPER SHAPER_TYPE_X=<primary_carriage_x_shaper> SHAPER_FREQ_X=<primary_carriage_x_freq> SHAPER_TYPE_Y=<y_shaper> SHAPER_FREQ_Y=<y_freq>
+```
+
+Note that `SHAPER_TYPE_Y` and `SHAPER_FREQ_Y` must be the same in both commands in this case, since the same motors drive Y axis when either of the `x` and `u` carriages are active.
+
+It is worth noting that `generic_cartesian` kinematic can support two dual carriages for X and Y axes. For reference, see for instance a [sample](../config/sample-corexyuv.cfg) of CoreXYUV configuration.
 
 ### [எக்ச்ட்ரூடர் ச்டெப்பர்]
 
@@ -2077,26 +2282,33 @@ calibrate_x: ...
 கையேடு ச்டெப்பர்கள் (ஒருவர் "கையேடு_ச்டெப்பர்" முன்னொட்டுடன் எத்தனை பிரிவுகளையும் வரையறுக்கலாம்). இவை கையேடு_ச்டெப்பர் சி-கோட் கட்டளையால் கட்டுப்படுத்தப்படும் ச்டெப்பர்கள். எடுத்துக்காட்டாக: "கையேடு_ச்டெப்பர் ச்டெப்பர் = மை_ச்டெப்பர் நகர்வு = 10 விரைவு = 5". கையேடு_ச்டெப்பர் கட்டளையின் விளக்கத்திற்கு [g-codes] (g-codes.md#manual_stepper) கோப்பைப் பார்க்கவும். ச்டெப்பர்கள் சாதாரண அச்சுப்பொறி இயக்கவியலுடன் இணைக்கப்படவில்லை.
 
 ```
-[Manual_stepper my_stepper]
- #step_pin:
- #dir_pin:
- #enable_pin:
- #microsteps:
- #Rotation_distance:
- # இந்த அளவுருக்களின் விளக்கத்திற்கு "ச்டெப்பர்" பகுதியைப் பார்க்கவும்.
- #velocity:
- # ச்டெப்பருக்கு இயல்புநிலை வேகத்தை (மிமீ/வி இல்) அமைக்கவும். இந்த மதிப்பு
- ஒரு கையேடு_ச்டெப்பர் கட்டளை வேகத்தைக் குறிப்பிடவில்லை என்றால் # பயன்படுத்தப்படும்
- # அளவுரு. இயல்புநிலை 5 மிமீ/வி.
- #Accel:
- # ச்டெப்பருக்கு இயல்புநிலை முடுக்கம் (மிமீ/எச்^2 இல்) அமைக்கவும். ஒரு
- # பூச்சியத்தின் முடுக்கம் முடுக்கம் ஏற்படாது. இந்த மதிப்பு
- ஒரு கையேடு_ச்டெப்பர் கட்டளை ஒரு முடுக்கைக் குறிப்பிடவில்லை என்றால் # பயன்படுத்தப்படும்
- # அளவுரு. இயல்புநிலை பூச்சியம்.
- #endstop_pin:
- # எண்ட்ச்டாப் சுவிட்ச் கண்டறிதல் முள். குறிப்பிடப்பட்டால், ஒருவர் நிகழ்த்தலாம்
- # "ஓமிங் நகர்வுகள்" ஒரு STOP_ON_ENDSTOP அளவுருவைச் சேர்ப்பதன் மூலம்
- # கையேடு_ச்டெப்பர் இயக்கம் கட்டளைகள்.
+[manual_stepper my_stepper]
+#step_pin:
+#dir_pin:
+#enable_pin:
+#microsteps:
+#rotation_distance:
+#   See the "stepper" section for a description of these parameters.
+#velocity:
+#   Set the default velocity (in mm/s) for the stepper. This value
+#   will be used if a MANUAL_STEPPER command does not specify a SPEED
+#   parameter. The default is 5mm/s.
+#accel:
+#   Set the default acceleration (in mm/s^2) for the stepper. An
+#   acceleration of zero will result in no acceleration. This value
+#   will be used if a MANUAL_STEPPER command does not specify an ACCEL
+#   parameter. The default is zero.
+#endstop_pin:
+#   Endstop switch detection pin. If specified, then one may perform
+#   "homing moves" by adding a STOP_ON_ENDSTOP parameter to
+#   MANUAL_STEPPER movement commands.
+#position_min:
+#position_max:
+#   The minimum and maximum position the stepper can be commanded to
+#   move to. If specified then one may not command the stepper to move
+#   past the given position. Note that these limits do not prevent
+#   setting an arbitrary position with the `MANUAL_STEPPER
+#   SET_POSITION=x` command. The default is to not enforce a limit.
 ```
 
 ## தனிப்பயன் ஈட்டர்கள் மற்றும் சென்சார்கள்
@@ -4502,6 +4714,66 @@ data_ready_pin:
 #vref:
 #   The selected voltage reference. Valid values are: 'internal', 'REF0', 'REF1'
 #   and 'analog_supply'. Default is 'internal'.
+```
+
+### [load_cell_probe]
+
+Load Cell Probe. This combines the functionality of a [probe] and a [load_cell].
+
+```
+[load_cell_probe]
+sensor_type:
+#   This must be one of the supported bulk ADC sensor types and support
+#   load cell endstops on the mcu.
+#counts_per_gram:
+#reference_tare_counts:
+#sensor_orientation:
+#   These parameters must be configured before the probe will operate.
+#   See the [load_cell] section for further details.
+#force_safety_limit: 2000
+#   The safe limit for probing force relative to the reference_tare_counts on
+#   the load_cell. The default is +/-2Kg.
+#trigger_force: 75.0
+#   The force that the probe will trigger at. 75g is the default.
+#drift_filter_cutoff_frequency: 0.8
+#   Enable optional continuous taring while homing & probing to reject drift.
+#   The value is a frequency, in Hz, below which drift will be ignored. This
+#   option requires the SciPy library. Default: None
+#drift_filter_delay: 2
+#   The delay, or 'order', of the drift filter. This controls the number of
+#   samples required to make a trigger detection. Can be 1 or 2, the default
+#   is 2.
+#buzz_filter_cutoff_frequency: 100.0
+#   The value is a frequency, in Hz, above which high frequency noise in the
+#   load cell will be igfiltered outnored. This option requires the SciPy
+#   library. Default: None
+#buzz_filter_delay: 2
+#   The delay, or 'order', of the buzz filter. This controle the number of
+#   samples required to make a trigger detection. Can be 1 or 2, the default
+#   is 2.
+#notch_filter_frequencies: 50, 60
+#   1 or 2 frequencies, in Hz, to filter out of the load cell data. This is
+#   intended to reject power line noise. This option requires the SciPy
+#   library.  Default: None
+#notch_filter_quality: 2.0
+#   Controls how narrow the range of frequencies are that the notch filter
+#   removes. Larger numbers produce a narrower filter. Minimum value is 0.5 and
+#   maximum is 3.0. Default: 2.0
+#tare_time:
+#   The rime in seconds used for taring the load_cell before each probe. The
+#   default value is: 4 / 60 = 0.066. This collects samples from 4 cycles of
+#   60Hz mains power to cancel power line noise.
+#z_offset:
+#speed:
+#samples:
+#sample_retract_dist:
+#lift_speed:
+#samples_result:
+#samples_tolerance:
+#samples_tolerance_retries:
+#activate_gcode:
+#deactivate_gcode:
+#   See the "[probe]" section for a description of the above parameters.
 ```
 
 ## குறிப்பிட்ட வன்பொருள் உதவி போர்டு

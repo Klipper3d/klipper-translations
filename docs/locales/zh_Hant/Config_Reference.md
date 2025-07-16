@@ -68,8 +68,9 @@ serial:
 [printer]
 kinematics:
 #   The type of printer in use. This option may be one of: cartesian,
-#   corexy, corexz, hybrid_corexy, hybrid_corexz, rotary_delta, delta,
-#   deltesian, polar, winch, or none. This parameter must be specified.
+#   corexy, corexz, hybrid_corexy, hybrid_corexz, generic_cartesian,
+#   rotary_delta, delta, deltesian, polar, winch, or none.
+#   This parameter must be specified.
 max_velocity:
 #   Maximum velocity (in mm/s) of the toolhead (relative to the
 #   print). This parameter must be specified.
@@ -651,6 +652,142 @@ anchor_z:
 #   The X, Y, and Z position of the cable winch in cartesian space.
 #   These parameters must be provided.
 ```
+
+### Generic Cartesian Kinematics
+
+See [example-generic-cartesian.cfg](../config/example-generic-caretesian.cfg) for an example generic Cartesian kinematics config file.
+
+This printer kinematic class allows a user to define in a pretty flexible manner an arbitrary Cartesian-style kinematics. In principle, the regular cartesian, corexy, hybrid_corexy can be defined this way too. However, more importantly, various otherwise unsupported kinematics such as inverted hybrid_corexy or corexyuv can be defined using this kinematic.
+
+Notably, the definition of a generic Cartesian kinematic deviates significantly from the other kinematic types. It follows the following convention: a user defines a set of carriages with certain range of motion that can move independently from each other (they should move over the Cartesian axes X, Y, and Z, hence the name of the kinematic) and corresponding endstops that allow the firmware to determine the position of carriages during homing, as well as a set of steppers that move those carriages. The `[printer]` section must specify the kinematic and other printer-level settings same as the regular Cartesian kinematic:
+
+```
+[printer]
+kinematics: generic_cartesian
+max_velocity:
+max_accel:
+#minimum_cruise_ratio:
+#square_corner_velocity:
+#max_accel_to_decel:
+#max_z_velocity:
+#max_z_accel:
+```
+
+Then a user must define the following three carriages: `[carriage x]`, `[carriage y]`, and `[carriage z]`, e.g.
+
+```
+[carriage x]
+endstop_pin:
+#   Endstop switch detection pin. If this endstop pin is on a
+#   different mcu than the stepper motor(s) moving this carriage,
+#   then it enables "multi-mcu homing". This parameter must be provided.
+#position_min: 0
+#   Minimum valid distance (in mm) the user may command the carriage to
+#   move to.  The default is 0mm.
+position_endstop:
+#   Location of the endstop (in mm). This parameter must be provided.
+position_max:
+#   Maximum valid distance (in mm) the user may command the stepper to
+#   move to. This parameter must be provided.
+#homing_speed: 5.0
+#   Maximum velocity (in mm/s) of the carriage when homing. The default
+#   is 5mm/s.
+#homing_retract_dist: 5.0
+#   Distance to backoff (in mm) before homing a second time during
+#   homing. Set this to zero to disable the second home. The default
+#   is 5mm.
+#homing_retract_speed:
+#   Speed to use on the retract move after homing in case this should
+#   be different from the homing speed, which is the default for this
+#   parameter
+#second_homing_speed:
+#   Velocity (in mm/s) of the carriage when performing the second home.
+#   The default is homing_speed/2.
+#homing_positive_dir:
+#   If true, homing will cause the carriage to move in a positive
+#   direction (away from zero); if false, home towards zero. It is
+#   better to use the default than to specify this parameter. The
+#   default is true if position_endstop is near position_max and false
+#   if near position_min.
+```
+
+Afterwards, a user specifies the stepper motors that move these carriages, for instance
+
+```
+[stepper my_stepper]
+carriages:
+#   A string describing the carriages the stepper moves. All defined
+#   carriages can be specified here, as well as their linear combinations,
+#   e.g. x, x+y, y-0.5*z, x-z, etc. This parameter must be provided.
+step_pin:
+dir_pin:
+enable_pin:
+rotation_distance:
+microsteps:
+#full_steps_per_rotation: 200
+#gear_ratio:
+#step_pulse_duration:
+```
+
+See [stepper](#stepper) section for more information on the regular stepper parameters. The `carriages` parameter defines how the stepper affects the motion of the carriages. For example, `x+y` indicates that the motion of the stepper in the positive direction by the distance `d` moves the carriages `x` and `y` by the same distance `d` in the positive direction, while `x-0.5*y` means the motion of the stepper in the positive direction by the distance `d` moves the carriage `x` by the distance `d` in the positive direction, but the carriage `y` will travel distance `d/2` in the negative direction.
+
+More than a single stepper motor can be defined to drive the same axis or belt. For example, on a CoreXY AWD setups two motors driving the same belt can be defined as
+
+```
+[carriage x]
+endstop_pin: ...
+...
+
+[carriage y]
+endstop_pin: ...
+...
+
+[stepper a0]
+carriages: x-y
+step_pin: ...
+dir_pin: ...
+enable_pin: ...
+rotation_distance: ...
+...
+
+[stepper a1]
+carriages: x-y
+step_pin: ...
+dir_pin: ...
+enable_pin: ...
+rotation_distance: ...
+...
+```
+
+with `a0` and `a1` steppers having their own control pins, but sharing the same `carriages` and corresponding endstops.
+
+There are situations when a user wants to have more than one endstop per axis. Examples of such configurations include Y axis driven by two independent stepper motors with belts attached to both ends of the X beam, with effectively two carriages on Y axis each having an independent endstop, and multi-stepper Z axis with each stepper having its own endstop (not to be confused with the configurations with multiple Z motors but only a single endstop). These configurations can be declared by specifying additional carriage(s) with their endstops:
+
+```
+[extra_carriage my_carriage]
+primary_carriage:
+#   The name of the primary carriage this carriage corresponds to.
+#   It also effectively defines the axis the carriage moves over.
+#   This parameter must be provided.
+endstop_pin:
+#   Endstop switch detection pin. This parameter must be provided.
+```
+
+and the corresponding stepper motors, for example:
+
+```
+[extra_carriage y1]
+primary_carriage: y
+endstop_pin: ...
+
+[stepper sy1]
+carriages: y1
+...
+```
+
+Notably, an `[extra_carriage]` does not define parameters such as `position_min`, `position_max`, and `position_endstop`, but instead inherits them from the specified `primary_carriage`, thus sharing the same range of motion with the primary carriage.
+
+For the references on how to configure IDEX setups, see the [dual carriage](#dual-carriage) section.
 
 ### 無機型
 
@@ -2003,11 +2140,11 @@ calibrate_x: ...
 
 ### [dual_carriage]
 
-Support for cartesian and hybrid_corexy/z printers with dual carriages on a single axis. The carriage mode can be set via the SET_DUAL_CARRIAGE extended g-code command. For example, "SET_DUAL_CARRIAGE CARRIAGE=1" command will activate the carriage defined in this section (CARRIAGE=0 will return activation to the primary carriage). Dual carriage support is typically combined with extra extruders - the SET_DUAL_CARRIAGE command is often called at the same time as the ACTIVATE_EXTRUDER command. Be sure to park the carriages during deactivation. Note that during G28 homing, typically the primary carriage is homed first followed by the carriage defined in the `[dual_carriage]` config section. However, the `[dual_carriage]` carriage will be homed first if both carriages home in a positive direction and the [dual_carriage] carriage has a `position_endstop` greater than the primary carriage, or if both carriages home in a negative direction and the `[dual_carriage]` carriage has a `position_endstop` less than the primary carriage.
+Support for cartesian, generic_cartesian and hybrid_corexy/z printers with dual carriages on a single axis. The carriage mode can be set via the SET_DUAL_CARRIAGE extended g-code command. For example, "SET_DUAL_CARRIAGE CARRIAGE=1" command will activate the carriage defined in this section (CARRIAGE=0 will return activation to the primary carriage). Dual carriage support is typically combined with extra extruders - the SET_DUAL_CARRIAGE command is often called at the same time as the ACTIVATE_EXTRUDER command. Be sure to park the carriages during deactivation. Note that during G28 homing, typically the primary carriage is homed first followed by the carriage defined in the `[dual_carriage]` config section. However, the `[dual_carriage]` carriage will be homed first if both carriages home in a positive direction and the [dual_carriage] carriage has a `position_endstop` greater than the primary carriage, or if both carriages home in a negative direction and the `[dual_carriage]` carriage has a `position_endstop` less than the primary carriage.
 
 Additionally, one could use "SET_DUAL_CARRIAGE CARRIAGE=1 MODE=COPY" or "SET_DUAL_CARRIAGE CARRIAGE=1 MODE=MIRROR" commands to activate either copying or mirroring mode of the dual carriage, in which case it will follow the motion of the carriage 0 accordingly. These commands can be used to print two parts simultaneously - either two identical parts (in COPY mode) or mirrored parts (in MIRROR mode). Note that COPY and MIRROR modes also require appropriate configuration of the extruder on the dual carriage, which can typically be achieved with "SYNC_EXTRUDER_MOTION MOTION_QUEUE=extruder EXTRUDER=<dual_carriage_extruder>" or a similar command.
 
-有關示例配置，請參閱 [sample-idex.cfg](../config/sample-idex.cfg)。
+See [sample-idex.cfg](../config/sample-idex.cfg) for an example configuration with a regular Cartesian kinematic.
 
 ```
 [dual_carriage]
@@ -2021,7 +2158,7 @@ axis:
 #   error. If safe_distance is not provided, it will be inferred from
 #   position_min and position_max for the dual and primary carriages. If set
 #   to 0 (or safe_distance is unset and position_min and position_max are
-#   identical for the primary and dual carraiges), the carriages proximity
+#   identical for the primary and dual carriages), the carriages proximity
 #   checks will be disabled.
 #step_pin:
 #dir_pin:
@@ -2034,6 +2171,74 @@ axis:
 #position_max:
 #   See the "stepper" section for the definition of the above parameters.
 ```
+
+For an example of dual carriage configuration with `generic_cartesian` kinematic, see the following configuration [sample](../config/example-generic-caretesian.cfg). Please note that in this case the `[dual_carriage]` configuration deviates from the configuration described above:
+
+```
+[dual_carriage my_dc_carriage]
+primary_carriage:
+#   Defines the matching primary carriage of this dual carriage and
+#   the corresponding IDEX axis. Valid choices are x, y, z.
+#   This parameter must be provided.
+#safe_distance:
+#   The minimum distance (in mm) to enforce between the dual and the primary
+#   carriages. If a G-Code command is executed that will bring the carriages
+#   closer than the specified limit, such a command will be rejected with an
+#   error. If safe_distance is not provided, it will be inferred from
+#   position_min and position_max for the dual and primary carriages. If set
+#   to 0 (or safe_distance is unset and position_min and position_max are
+#   identical for the primary and dual carriages), the carriages proximity
+#   checks will be disabled.
+endstop_pin:
+#position_min:
+position_endstop:
+position_max:
+#homing_speed:
+#homing_retract_dist:
+#homing_retract_speed:
+#second_homing_speed:
+#homing_positive_dir:
+...
+```
+
+Refer to [generic cartesian](#generic-cartesian) section for more information on the regular `carriage` parameters.
+
+Then a user must define one or more stepper motors moving the dual carriage (and other carriages as appropriate), for instance
+
+```
+[carriage x]
+...
+
+[carriage y]
+...
+
+[dual_carriage u]
+primary_carriage: x
+...
+
+[stepper dc_stepper]
+carriages: u-y
+...
+```
+
+`[dual_carriage]` requires special configuration for the input shaper. In general, it is necessary to run input shaper calibration twice - for the `dual_carriage` and its `primary_carriage` for the axis they share. Then the input shaper can be configured as follows, assuming the example above:
+
+```
+[input_shaper]
+# Intentionally empty
+
+[delayed_gcode init_shaper]
+initial_duration: 0.1
+gcode:
+  SET_DUAL_CARRIAGE CARRIAGE=u
+  SET_INPUT_SHAPER SHAPER_TYPE_X=<dual_carriage_x_shaper> SHAPER_FREQ_X=<dual_carriage_x_freq> SHAPER_TYPE_Y=<y_shaper> SHAPER_FREQ_Y=<y_freq>
+  SET_DUAL_CARRIAGE CARRIAGE=x
+  SET_INPUT_SHAPER SHAPER_TYPE_X=<primary_carriage_x_shaper> SHAPER_FREQ_X=<primary_carriage_x_freq> SHAPER_TYPE_Y=<y_shaper> SHAPER_FREQ_Y=<y_freq>
+```
+
+Note that `SHAPER_TYPE_Y` and `SHAPER_FREQ_Y` must be the same in both commands in this case, since the same motors drive Y axis when either of the `x` and `u` carriages are active.
+
+It is worth noting that `generic_cartesian` kinematic can support two dual carriages for X and Y axes. For reference, see for instance a [sample](../config/sample-corexyuv.cfg) of CoreXYUV configuration.
 
 ### [extruder_stepper]
 
@@ -2061,25 +2266,33 @@ extruder:
 手動步進器（可以使用“manual_stepper”前綴定義任意數量的部分）。這些是由 MANUAL_STEPPER g-code 命令控制的步進器。例如：“MANUAL_STEPPER STEPPER=my_stepper MOVE=10 SPEED=5”。有關 MANUAL_STEPPER 命令的說明，請參見 [G-Codes](G-Codes.md#manual_stepper) 文件。步進器未連接到正常的打印機運動學。
 
 ```
-[manual_stepper my_stepper]。
+[manual_stepper my_stepper]
 #step_pin:
 #dir_pin:
 #enable_pin:
 #microsteps:
 #rotation_distance:
-#   有關這些參數的描述請見"stepper"分段。
+#   See the "stepper" section for a description of these parameters.
 #velocity:
-#   設定步進電機的預設速度（單位：mm/s）。這個值會在 MANUAL_STEPPER
-#   命令沒有指定一個 SPEED 參數時會被使用。
-#   預設為 5 mm/s。
+#   Set the default velocity (in mm/s) for the stepper. This value
+#   will be used if a MANUAL_STEPPER command does not specify a SPEED
+#   parameter. The default is 5mm/s.
 #accel:
-#   設定步進電機的預設加速度（單位：mm/s^2）。設定加速度為零將導致
-#   沒有加速度。這個值會在 MANUAL_STEPPER 命令沒有指定 ACCEL 參數時
-#   會被使用。
-#   預設為 0。
+#   Set the default acceleration (in mm/s^2) for the stepper. An
+#   acceleration of zero will result in no acceleration. This value
+#   will be used if a MANUAL_STEPPER command does not specify an ACCEL
+#   parameter. The default is zero.
 #endstop_pin:
-#   限位開關檢測引腳。如果定義了這個參數，可以通過在 MANUAL_STEPPER
-#   運動命令中新增一個 STOP_ON_ENDSTOP 參數來執行 "歸位動作" 。
+#   Endstop switch detection pin. If specified, then one may perform
+#   "homing moves" by adding a STOP_ON_ENDSTOP parameter to
+#   MANUAL_STEPPER movement commands.
+#position_min:
+#position_max:
+#   The minimum and maximum position the stepper can be commanded to
+#   move to. If specified then one may not command the stepper to move
+#   past the given position. Note that these limits do not prevent
+#   setting an arbitrary position with the `MANUAL_STEPPER
+#   SET_POSITION=x` command. The default is to not enforce a limit.
 ```
 
 ## 自定義加熱器和感測器
@@ -4465,6 +4678,66 @@ data_ready_pin:
 #vref:
 #   The selected voltage reference. Valid values are: 'internal', 'REF0', 'REF1'
 #   and 'analog_supply'. Default is 'internal'.
+```
+
+### [load_cell_probe]
+
+Load Cell Probe. This combines the functionality of a [probe] and a [load_cell].
+
+```
+[load_cell_probe]
+sensor_type:
+#   This must be one of the supported bulk ADC sensor types and support
+#   load cell endstops on the mcu.
+#counts_per_gram:
+#reference_tare_counts:
+#sensor_orientation:
+#   These parameters must be configured before the probe will operate.
+#   See the [load_cell] section for further details.
+#force_safety_limit: 2000
+#   The safe limit for probing force relative to the reference_tare_counts on
+#   the load_cell. The default is +/-2Kg.
+#trigger_force: 75.0
+#   The force that the probe will trigger at. 75g is the default.
+#drift_filter_cutoff_frequency: 0.8
+#   Enable optional continuous taring while homing & probing to reject drift.
+#   The value is a frequency, in Hz, below which drift will be ignored. This
+#   option requires the SciPy library. Default: None
+#drift_filter_delay: 2
+#   The delay, or 'order', of the drift filter. This controls the number of
+#   samples required to make a trigger detection. Can be 1 or 2, the default
+#   is 2.
+#buzz_filter_cutoff_frequency: 100.0
+#   The value is a frequency, in Hz, above which high frequency noise in the
+#   load cell will be igfiltered outnored. This option requires the SciPy
+#   library. Default: None
+#buzz_filter_delay: 2
+#   The delay, or 'order', of the buzz filter. This controle the number of
+#   samples required to make a trigger detection. Can be 1 or 2, the default
+#   is 2.
+#notch_filter_frequencies: 50, 60
+#   1 or 2 frequencies, in Hz, to filter out of the load cell data. This is
+#   intended to reject power line noise. This option requires the SciPy
+#   library.  Default: None
+#notch_filter_quality: 2.0
+#   Controls how narrow the range of frequencies are that the notch filter
+#   removes. Larger numbers produce a narrower filter. Minimum value is 0.5 and
+#   maximum is 3.0. Default: 2.0
+#tare_time:
+#   The rime in seconds used for taring the load_cell before each probe. The
+#   default value is: 4 / 60 = 0.066. This collects samples from 4 cycles of
+#   60Hz mains power to cancel power line noise.
+#z_offset:
+#speed:
+#samples:
+#sample_retract_dist:
+#lift_speed:
+#samples_result:
+#samples_tolerance:
+#samples_tolerance_retries:
+#activate_gcode:
+#deactivate_gcode:
+#   See the "[probe]" section for a description of the above parameters.
 ```
 
 ## 控制板特定硬體支援

@@ -254,7 +254,7 @@ If no scan overshoot is configured then travel path optimization will not be app
 
 Inicia o procedimento de sondagem para a Calibração da Malha da Cama (Bed Mesh Calibration).
 
-The mesh will be saved into a profile specified by the `PROFILE` parameter, or `default` if unspecified. The `METHOD` parameter takes one of the following values:
+The mesh will be immediately ready to use when the command completes and saved into a profile specified by the `PROFILE` parameter, or `default` if unspecified. The `METHOD` parameter takes one of the following values:
 
 - `METHOD=manual`: enables manual probing using the nozzle and the paper test
 - `METHOD=automatic`: Automatic (standard) probing. This is the default.
@@ -298,6 +298,8 @@ Qualquer outro perfil salvo pode ser removido da mesma maneira, substituindo *de
 #### Carregando o perfil padrão
 
 Versões anteriores do `bed_mesh` sempre carregavam o perfil chamado *default* na inicialização, caso estivesse presente. Esse comportamento foi removido para permitir que o usuário determine quando um perfil é carregado. Se o usuário desejar carregar o perfil `default`, é recomendado adicionar `BED_MESH_PROFILE LOAD=default` no macro `START_PRINT` ou na configuração de "Start G-Code" do slicer, dependendo do que for aplicável.
+
+Note that this is not required if a new mesh is generated with `BED_MESH_CALIBRATE` in the `START_PRINT` macro or the slicer's "Start G-Code" and may produce unexpected results, especially with adaptive meshing.
 
 Alternativamente, o antigo comportamento de carregar um perfil na inicialização pode ser restaurado com `[delayed_gcode]`:
 

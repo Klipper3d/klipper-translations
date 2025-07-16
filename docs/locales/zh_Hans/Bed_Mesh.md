@@ -254,7 +254,7 @@ If no scan overshoot is configured then travel path optimization will not be app
 
 启动床网校准的探测程序。
 
-The mesh will be saved into a profile specified by the `PROFILE` parameter, or `default` if unspecified. The `METHOD` parameter takes one of the following values:
+The mesh will be immediately ready to use when the command completes and saved into a profile specified by the `PROFILE` parameter, or `default` if unspecified. The `METHOD` parameter takes one of the following values:
 
 - `METHOD=manual`: enables manual probing using the nozzle and the paper test
 - `METHOD=automatic`: Automatic (standard) probing. This is the default.
@@ -298,6 +298,8 @@ XY positions are automatically adjusted to include the X and/or Y offsets when a
 #### 加载默认配置文件
 
 以前版本的`bed_mesh`如果(default)默认配置存在，则始终在启动时加载名为*default*的配置文件。现已删除此行为，以允许用户确定何时加载配置文件。如果用户希望加载`default`配置文件，则建议将 `BED_MESH_PROFILE LOAD=default` 添加到其 `START_PRINT` 宏或其切片软件的“启动 G代码”配置中，视情况而定。
+
+Note that this is not required if a new mesh is generated with `BED_MESH_CALIBRATE` in the `START_PRINT` macro or the slicer's "Start G-Code" and may produce unexpected results, especially with adaptive meshing.
 
 或者可以通过添加`[delayed_gcode]`恢复在启动时加载配置文件的旧行为：
 

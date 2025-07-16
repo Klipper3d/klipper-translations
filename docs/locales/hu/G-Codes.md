@@ -104,7 +104,7 @@ A következő parancsok akkor érhetők el, ha a [bed_mesh konfigurációs szaka
 
 #### BED_MESH_CALIBRATE
 
-`BED_MESH_CALIBRATE [PROFILE=<name>] [METHOD=manual] [HORIZONTAL_MOVE_Z=<value>] [<probe_parameter>=<value>] [<mesh_parameter>=<value>] [ADAPTIVE=1] [ADAPTIVE_MARGIN=<value>]`: Ez a parancs a konfigban megadott paraméterek által generált pontok segítségével szondázza az ágyat. A szondázás után egy háló generálódik, és a Z elmozdulás a hálónak megfelelően kerül beállításra. A háló a `PROFILE` paraméter által megadott profilba kerül elmentésre, vagy `default`, ha nincs megadva. Az opcionális szondázó paraméterek részletes leírását lásd a PROBE parancsban. Ha a METHOD=manual meg van adva, akkor a kézi tapintás eszköze aktiválódik - lásd a fenti MANUAL_PROBE parancsot az ezen eszköz aktív állapotában elérhető további parancsok részleteiért. Az opcionális `HORIZONTAL_MOVE_Z` érték felülírja a konfigurációs fájlban megadott `horizontal_move_z` opciót. Ha az ADAPTIVE=1 érték van megadva, akkor a nyomtatás alatt álló G-Kód fájl által meghatározott objektumok lesznek használva a vizsgált terület meghatározásához. Az opcionális `ADAPTIVE_MARGIN` érték felülírja a konfigurációs fájlban megadott `adaptive_margin` opciót.
+`BED_MESH_CALIBRATE [PROFILE=<name>] [METHOD=manual] [HORIZONTAL_MOVE_Z=<value>] [<probe_parameter>=<value>] [<mesh_parameter>=<value>] [ADAPTIVE=1] [ADAPTIVE_MARGIN=<value>]`: This command probes the bed using generated points specified by the parameters in the config. After probing, a mesh is generated and z-movement is adjusted according to the mesh. The mesh is immediately active after successful completion of `BED_MESH_CALIBRATE`. The mesh will be saved into a profile specified by the `PROFILE` parameter, or `default` if unspecified. If ADAPTIVE=1 is specified then the profile name will begin with `adaptive-` and should not be saved for reuse. See the PROBE command for details on the optional probe parameters. If METHOD=manual is specified then the manual probing tool is activated - see the MANUAL_PROBE command above for details on the additional commands available while this tool is active. The optional `HORIZONTAL_MOVE_Z` value overrides the `horizontal_move_z` option specified in the config file. If ADAPTIVE=1 is specified then the objects defined by the Gcode file being printed will be used to define the probed area. The optional `ADAPTIVE_MARGIN` value overrides the `adaptive_margin` option specified in the config file.
 
 #### BED_MESH_OUTPUT
 
@@ -207,7 +207,7 @@ A következő parancs akkor érhető el, ha a [dual_carriage konfigurációs sza
 
 #### SET_DUAL_CARRIAGE
 
-`SET_DUAL_CARRIAGE CARRIAGE=[0|1] [MODE=[PRIMARY|COPY|MIRROR]]`: Ez a parancs megváltoztatja a megadott kocsi üzemmódját. Ha nincs megadva a `MODE`, akkor az alapértelmezett érték a `PRIMARY`. Az üzemmód `PRIMARY`-re állítása kikapcsolja a másik kocsit, és a megadott kocsi a következő G-kód parancsokat változatlanul végrehajtja. A `COPY` és a `MIRROR` üzemmódok csak a `CARRIAGE=1` esetén támogatottak. Ha az 1-es kocsi ezen üzemmódok valamelyikére van állítva, akkor az 1-es kocsi követi a 0 kocsi következő mozgásait, és vagy lemásolja annak relatív mozgásait (`COPY` üzemmódban), vagy ellenkező (tükör) irányban hajtja végre azokat (`MIRROR` üzemmódban).
+`SET_DUAL_CARRIAGE CARRIAGE=<carriage> [MODE=[PRIMARY|COPY|MIRROR]]`: This command will change the mode of the specified carriage. If no `MODE` is provided it defaults to `PRIMARY`. `<carriage>` must reference a defined primary or dual carriage for `generic_cartesian` kinematics or be 0 (for primary carriage) or 1 (for dual carriage) for all other kinematics supporting IDEX. Setting the mode to `PRIMARY` deactivates the other carriage and makes the specified carriage execute subsequent G-Code commands as-is. `COPY` and `MIRROR` modes are supported only for dual carriages. When set to either of these modes, dual carriage will then track the subsequent moves of its primary carriage and either copy relative movements of it (in `COPY` mode) or execute them in the opposite (mirror) direction (in `MIRROR` mode).
 
 #### SAVE_DUAL_CARRIAGE_STATE
 
@@ -397,6 +397,20 @@ A gcode_move modul automatikusan betöltődik.
 
 `RESTORE_GCODE_STATE [NAME=<state_name>] [MOVE=1 [MOVE_SPEED=<speed>]]`: A SAVE_GCODE_STATE segítségével korábban elmentett állapot visszaállítása. Ha "MOVE=1" van megadva, akkor a nyomtatófej mozgatása az előző XYZ-pozícióba való visszalépéshez történik. Ha "MOVE_SPEED" van megadva, akkor a nyomtatófej mozgatása a megadott sebességgel (mm/sec-ben) történik; egyébként a nyomtatófej mozgatása a visszaállított G-kód sebességét használja.
 
+### [generic_cartesian]
+
+The commands in this section become automatically available when `kinematics: generic_cartesian` is specified as the printer kinematics.
+
+#### SET_STEPPER_CARRIAGES
+
+`SET_STEPPER_CARRIAGES STEPPER=<stepper_name> CARRIAGES=<carriages> [DISABLE_CHECKS=[0|1]]`: Set or update the stepper carriages. `<stepper_name>` must reference an existing stepper defined in `printer.cfg`, and `<carriages>` describes the carriages the stepper moves. See [Generic Cartesian Kinematics](Config_Reference.md#generic-cartesian-kinematics) for a more detailed overview of the `carriages` parameter in the stepper configuration section. Note that it is only possible to change the coefficients or signs of the carriages with this command, but a user cannot add or remove the carriages that the stepper controls.
+
+`SET_STEPPER_CARRIAGES` is an advanced tool, and the user is advised to exercise an extreme caution using it, since specifying incorrect configuration may physically damage the printer.
+
+Note that `SET_STEPPER_CARRIAGES` performs certain internal validations of the new printer kinematics after the change. Keep in mind that if it detects an issue, it may leave printer kinematics in an invalid state. This means that if `SET_STEPPER_CARRIAGES` reports an error, it is unsafe to issue other GCode commands, and the user must inspect the error message and either fix the problem, or manually restore the previous stepper(s) configuration.
+
+Since `SET_STEPPER_CARRIAGES` can update a configuration of a single stepper at a time, some sequences of changes can lead to invalid intermediate kinematic configurations, even if the final configuration is valid. In such cases a user can pass `DISABLE_CHECKS=1` parameters to all but the last command to disable intermediate checks. For example, if `stepper a` and `stepper b` initially have `x-y` and `x+y` carriages correspondingly, then the following sequence of commands will let a user effectively swap the carriage controls: `SET_STEPPER_CARRIAGES STEPPER=a CARRIAGES=x+y DISABLE_CHECKS=1` and `SET_STEPPER_CARRIAGES STEPPER=b CARRIAGES=x-y`, while still validating the final kinematics state.
+
 ### [hall_filament_width_sensor]
 
 A következő parancsok akkor érhetők el, ha a [tsl1401cl szálszélesség érzékelő konfigurációs szakasz](Config_Reference.md#tsl1401cl_filament_width_sensor) vagy a [hall szálszélesség érzékelő konfigurációs szakasz](Config_Reference.md#hall_filament_width_sensor) engedélyezve van (lásd még [TSLll401CL Szálszélesség érzékelő](TSL1401CL_Filament_Width_Sensor.md) és a [Hall Szálszélesség érzékelő](Hall_Filament_Width_Sensor.md) dokumentumot):
@@ -493,11 +507,36 @@ You can cancel the calibration process at any time with `ABORT`.
 
 ### LOAD_CELL_TARE
 
-`LOAD_CELL_TARE [LOAD_CELL=<config_name>]`: This works just like the tare button on digital scale. It sets the current raw reading of the load cell to be the zero point reference value. The response is the percentage of the sensors range that was read and the raw value in counts.
+`LOAD_CELL_TARE [LOAD_CELL=<config_name>]`: This works just like the tare button on digital scale. It sets the current raw reading of the load cell to be the zero point reference value. The response is the percentage of the sensors range that was read and the raw value in counts. If the load cell is calibrated a force in grams is also reported.
 
 ### LOAD_CELL_READ load_cell="name"
 
 `LOAD_CELL_READ [LOAD_CELL=<config_name>]`: This command takes a reading from the load cell. The response is the percentage of the sensors range that was read and the raw value in counts. If the load cell is calibrated a force in grams is also reported.
+
+### [load_cell_probe]
+
+The following commands are enabled if a [load_cell config section](Config_Reference.md#load_cell_probe) has been enabled.
+
+### LOAD_CELL_TEST_TAP
+
+`LOAD_CELL_TEST_TAP [TAPS=<taps>] [TIMEOUT=<timeout>]`: Run a testing routine that reports taps on the load cell. The toolhead will not move but the load cell probe will sense taps just as if it was probing. This can be used as a sanity check to make sure that the probe works. This tool replaces QUERY_ENDSTOPS and QUERY_PROBE for load cell probes.
+
+- `TAPS`: the number of taps the tool expects
+- `TIMEOOUT`: the time, in seconds, that the tool waits for each tab before aborting.
+
+### Load Cell Command Extensions
+
+Commands that perform probes, such as [`PROBE`](#probe), [`PROBE_ACCURACY`](#probe_accuracy), [`BED_MESH_CALIBRATE`](#bed_mesh_calibrate) etc. will accept additional parameters if a `[load_cell_probe]` is defined. The parameters override the corresponding settings from the [`[load_cell_probe]`](./Config_Reference.md#load_cell_probe) configuration:
+
+- `FORCE_SAFETY_LIMIT=<grams>`
+- `TRIGGER_FORCE=<grams>`
+- `DRIFT_FILTER_CUTOFF_FREQUENCY=<frequency_hz>`
+- `DRIFT_FILTER_DELAY=<1|2>`
+- `BUZZ_FILTER_CUTOFF_FREQUENCY=<frequency_hz>`
+- `BUZZ_FILTER_DELAY=<1|2>`
+- `NOTCH_FILTER_FREQUENCIES=<list of frequency_hz>`
+- `NOTCH_FILTER_QUALITY=<quality>`
+- `TARE_TIME=<seconds>`
 
 ### [manual_probe]
 
@@ -526,6 +565,8 @@ A következő parancs akkor érhető el, ha a [manual_stepper konfigurációs sz
 #### MANUAL_STEPPER
 
 `MANUAL_STEPPER STEPPER=config_name [ENABLE=[0|1]] [SET_POSITION=<pos>] [SPEED=<speed>] [ACCEL=<accel>] [MOVE=<pos> [STOP_ON_ENDSTOP=[1|2|2|-1|-2]] [SYNC=0]]]`: Ez a parancs megváltoztatja a léptető állapotát. Az ENABLE paraméterrel engedélyezheted/letilthatod a léptetőt. A SET_POSITION paraméterrel kényszerítheted a léptetőt arra, hogy azt higgye, az adott helyzetben van. A MOVE paraméterrel kezdeményezhetsz mozgást egy adott pozícióba. Ha a SPEED és/vagy az ACCEL paraméter meg van adva, akkor a rendszer a megadott értékeket használja a konfigurációs fájlban megadott alapértelmezett értékek helyett. Ha nulla ACCEL-t ad meg, akkor nem történik gyorsítás. Ha STOP_ON_ENDSTOP=1 van megadva, akkor a lépés korán véget ér. Ha a végálláskapcsoló aktiválódik (a STOP_ON_ENDSTOP=2 paranccsal hiba nélkül befejezheted a mozgást, még akkor is, ha a végálláskapcsoló nem aktiválódott. Használd a -1 vagy a -2 jelölést, hogy leálljon, amikor a végálláskapcsoló még nem aktiválódott). Normális esetben a későbbi G-kód parancsok a léptetőmozgás befejezése után kerülnek ütemezésre, azonban ha a kézi léptetőmozgás parancs a SYNC=0 értéket használja, akkor a későbbi G-kód mozgatási parancsok a léptetőmozgással párhuzamosan is futhatnak.
+
+`MANUAL_STEPPER STEPPER=config_name GCODE_AXIS=[A-Z] [LIMIT_VELOCITY=<velocity>] [LIMIT_ACCEL=<accel>] [INSTANTANEOUS_CORNER_VELOCITY=<velocity>]`: If the `GCODE_AXIS` parameter is specified then it configures the stepper motor as an extra axis on `G1` move commands. For example, if one were to issue a `MANUAL_STEPPER ... GCODE_AXIS=R` command then one could issue commands like `G1 X10 Y20 R30` to move the stepper motor. The resulting moves will occur synchronously with the associated toolhead xyz movements. If the motor is associated with a `GCODE_AXIS` then one may no longer issue movements using the above `MANUAL_STEPPER` command - one may unregister the stepper with a `MANUAL_STEPPER ... GCODE_AXIS=` command to resume manual control of the motor. The `LIMIT_VELOCITY` and `LIMIT_ACCEL` parameters allow one to reduce the speed of `G1` moves if those moves would result in a velocity or acceleration above the specified limits. The `INSTANTANEOUS_CORNER_VELOCITY` specifies the maximum instantaneous velocity change (in mm/s) of the motor during the junction of two moves (the default is 1mm/s).
 
 ### [mcp4018]
 

@@ -254,7 +254,7 @@ scan_overshoot: 8
 
 Запускает процедуру зондирования для калибровки сетки кровати.
 
-Сетка будет сохранена в профиль, указанный параметром `ПРОФИЛЬ`, или `по умолчанию`, если он не указан. Параметр `МЕТОД` принимает одно из следующих значений:
+The mesh will be immediately ready to use when the command completes and saved into a profile specified by the `PROFILE` parameter, or `default` if unspecified. The `METHOD` parameter takes one of the following values:
 
 - `METHOD=manual`: включает ручное зондирование с помощью насадки и бумажного теста
 - `METHOD=автоматический`: Автоматическое (стандартное) зондирование. Используется по умолчанию.
@@ -298,6 +298,8 @@ scan_overshoot: 8
 #### Загрузка профиля по умолчанию
 
 Предыдущие версии `bed_mesh` при запуске всегда загружали профиль с именем *default*, если он присутствовал. Это поведение было удалено в пользу того, чтобы позволить пользователю определять, когда загружать профиль. Если пользователь хочет загружать профиль `default`, рекомендуется добавить `BED_MESH_PROFILE LOAD=default` либо в макрос `START_PRINT`, либо в конфигурацию "Start G-Code" слайсера, в зависимости от того, что применимо.
+
+Note that this is not required if a new mesh is generated with `BED_MESH_CALIBRATE` in the `START_PRINT` macro or the slicer's "Start G-Code" and may produce unexpected results, especially with adaptive meshing.
 
 В качестве альтернативы можно восстановить старое поведение загрузки профиля при запуске с помощью `[delayed_gcode]`:
 

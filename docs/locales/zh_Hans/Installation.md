@@ -73,6 +73,18 @@ For common micro-controllers with STM32 or clone chips, LPC chips and others, it
 
 When flashing with this method, it is important to make sure that the print board is not connected with USB to the host, due to some boards being able to feed power back to the board and stopping a flash from occurring.
 
+Please note, that most print boards that use SD cards for flash will implement some kind of flash loop protection for when the sd card is left in place. There are two common methods:
+
+Filename Change Required (usually "stock" print boards):
+
+These boards require the firmware file to have a different name each time you flash (for example, firmware1.bin, firmware2.bin, etc.). If you reuse the same filename, the board may ignore it and not update.
+
+Automatic File Renaming (usually aftermarket print boards:
+
+Other boards allow using the same filename, commonly firmware.bin, but after flashing, the board renames the file to firmware.cur. This helps indicate the firmware was successfully flashed and prevents it from flashing again on the next startup.
+
+Before flashing, make sure to check which behavior your board follows.
+
 对于使用 Atmega 芯片的常见微控制器，例如 2560，代码可以使用类似以下内容进行烧录：
 
 ```

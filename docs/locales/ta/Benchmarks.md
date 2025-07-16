@@ -252,6 +252,25 @@ The test was last run on commit `554ae78d` with gcc version `arm-none-eabi-gcc (
 | 1 ச்டெப்பர் | 58 |
 | 3 ச்டெப்பர் | 243 |
 
+### STM32G4 step rate benchmark
+
+The following configuration sequence is used on the STM32G431:
+
+```
+allocate_oids count=3
+config_stepper oid=0 step_pin=PA0 dir_pin=PB5 invert_step=-1 step_pulse_ticks=17
+config_stepper oid=1 step_pin=PB2 dir_pin=PB6 invert_step=-1 step_pulse_ticks=17
+config_stepper oid=2 step_pin=PB3 dir_pin=PB7 invert_step=-1 step_pulse_ticks=17
+finalize_config crc=0
+```
+
+The test was last run on commit `cfa48fe3` with gcc version `arm-none-eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0`.
+
+| stm32g431 | உண்ணி |
+| --- | --- |
+| 1 ச்டெப்பர் | 47 |
+| 3 ச்டெப்பர் | 208 |
+
 ### எல்பிசி 176 ஃச் படி வீத அளவுகோல்
 
 பின்வரும் உள்ளமைவு வரிசை LPC176X இல் பயன்படுத்தப்படுகிறது:
@@ -378,7 +397,7 @@ The test was last run on commit `14c105b8` with gcc version `arm-none-eabi-gcc (
 | 1 ச்டெப்பர் | 36 |
 | 3 ச்டெப்பர் | 169 |
 
-(*) Note that the reported rp2040 ticks are relative to a 12Mhz scheduling timer and do not correspond to its 200Mhz internal ARM processing rate. It is expected that 5 scheduling ticks corresponds to ~42 ARM core cycles and 14 scheduling ticks corresponds to ~225 ARM core cycles.
+(*) Note that the reported rp2040 ticks are relative to a 12Mhz scheduling timer and do not correspond to its 200Mhz internal ARM processing rate. It is expected that 3 scheduling ticks corresponds to ~42 ARM core cycles and 14 scheduling ticks corresponds to ~225 ARM core cycles.
 
 ### லினக்ச் எம்.சி.யு படி வீத அளவுகோல்
 
@@ -411,13 +430,15 @@ The test was last run on commit `14c105b8` with gcc version `arm-none-eabi-gcc (
 
 சோதனை முடிந்ததும், இரண்டு "கூடுதல் நேரம்" மறுமொழி செய்திகளில் தெரிவிக்கப்பட்ட கடிகாரங்களுக்கிடையிலான வேறுபாட்டை தீர்மானிக்கவும். நொடிக்கு மொத்த கட்டளைகளின் எண்ணிக்கை பின்னர் `100000 * MCU_FREQUENCY / COCROM_DIFF`.
 
-இந்த சோதனை ஒரு ராச்பெர்ரி பைவின் யூ.எச்.பி/சிபியு திறனை நிறைவு செய்யலாம் என்பதை நினைவில் கொள்க. ராச்பெர்ரி பை, பீகல்போன் அல்லது ஒத்த புரவலன் கணினியில் இயங்கினால், தாமதத்தை அதிகரிக்கவும் (எ.கா., `தாமதம் {கடிகாரம் + 20*ஃப்ரீக்} get_uptime`). பொருந்தக்கூடிய இடங்களில், கீழேயுள்ள வரையறைகள் கன்சோல்.பி உடன் டெச்க்டாப் வகுப்பு கணினியில் இயங்கும் சாதனத்துடன் அதிவேக மையத்தின் வழியாக இணைக்கப்பட்டுள்ளன.
+The USB tests may exceed the CPU capacity of a Raspberry Pi. If running on a Raspberry Pi, Beaglebone, or similar host computer then increase the delay (eg, `DELAY {clock + 20*freq} get_uptime`). Where applicable, the benchmarks below are with console.py running on a desktop class machine with the device connected via a super-speed hub.
+
+The CAN bus tests may saturate the USB host controller of a Raspberry Pi (when testing via a standard gs_usb USB to CAN bus adapter). Where applicable, the CAN bus benchmarks below are with console.py running on a desktop class machine with a USB to CAN bus adapter connected via a super-speed USB hub.
 
 | MCU | விகிதம் | உருவாக்கு | கம்பைலரை உருவாக்குங்கள் |
 | --- | --- | --- | --- |
-| STM32F042 (CAN) | 18 கே | C105ADC8 | ARM-NONE-EABI-GCC (GNU கருவிகள் 7-2018-Q3-UPDATE) 7.3.1 |
 | Atmega2560 (சீரியல்) | பசி | B161A69E | ஏ.வி.ஆர்-சி.சி.சி (சி.சி.சி) 4.8.1 |
 | sam3x8e (சீரியல்) | பசி | B161A69E | ARM-NONE-EABI-GCC (ஃபெடோரா 7.1.0-5.FC27) 7.1.0 |
+| rp2350 (CAN) | 59K | 17b8ce4c | arm-none-eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0 |
 | AT90USB1286 (USB) | உங்கள் கொள்ளை | 01D2183F | ஏ.வி.ஆர்-சி.சி.சி (சி.சி.சி) 5.4.0 |
 | AR100 (சீரியல்) | 138 கே | 08D037C6 | OR1K-LINUX-MUSL-GCC 9.3.0 |
 | SAMD21 (USB) | உங்கள் கீழே | 01D2183F | ARM-NONE-EABI-GCC (ஃபெடோரா 7.4.0-1.FC30) 7.4.0 |

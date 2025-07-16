@@ -190,6 +190,23 @@ A request may look like: `{"id": 123, "method":"load_cell/dump_force", "params":
 
 Поле "голова" в початковій відповіді запиту використовується для опису полів, знайдених в більш пізній "data".
 
+### load_cell_probe/dump_taps
+
+This endpoint is used to subscribe to details of probing "tap" events. Using this endpoint may increase Klipper's system load.
+
+A request may look like: `{"id": 123, "method":"load_cell/dump_force", "params": {"sensor": "load_cell", "response_template": {}}}` and might return: `{"id": 123,"result":{"header":["probe_tap_event"]}}` and might later produce asynchronous messages such as:
+
+```
+{"params":{"tap":'{
+   "time": [118032.28039, 118032.2834, ...],
+   "force": [-459.4213119680034, -458.1640702543264, ...],
+}}}
+```
+
+This data can be used to render:
+
+* The time/force graph
+
 ### пауза_resume/cancel
 
 Ця кінцева точка схожа на запуск "PRINT_CANCEL" G-Code команди. Наприклад: `{"id": 123, "метод": "pause_resume/cancel"}`

@@ -254,7 +254,7 @@ Ha nincs beállítva mérési túllövés, akkor az útvonal-optimalizálás nem
 
 Mérési eljárást indítása a tárgyasztal háló kalibrálásához.
 
-A háló a `PROFILE` paraméter által megadott profilba lesz mentve, vagy a `default`, ha nincs megadva. A `METHOD` paraméter a következő értékek egyikét veszi fel:
+The mesh will be immediately ready to use when the command completes and saved into a profile specified by the `PROFILE` parameter, or `default` if unspecified. The `METHOD` parameter takes one of the following values:
 
 - `METHOD=manual`: lehetővé teszi a kézi mérést a fúvókával és a papírlappal
 - `METHOD=automatic`: Automatikus (szabvány) mérés. Ez az alapértelmezett.
@@ -298,6 +298,8 @@ Bármely más elmentett profil ugyanígy eltávolítható, a *default* helyettes
 #### Az alapértelmezett profil betöltése
 
 A `bed_mesh` korábbi verziói indításkor mindig betöltötték az *alapértelmezett* nevű profilt, ha az jelen volt. Ezt a viselkedést megszüntettük annak érdekében, hogy a felhasználó határozhassa meg, mikor töltődik be egy profil. Ha a felhasználó az `alapértelmezett` profilt kívánja betölteni, ajánlott a `BED_MESH_PROFILE LOAD=default` hozzáadása a `START_PRINT` makróhoz vagy a szeletelő "Start G-Code" konfigurációjához, attól függően, hogy melyik alkalmazandó.
+
+Note that this is not required if a new mesh is generated with `BED_MESH_CALIBRATE` in the `START_PRINT` macro or the slicer's "Start G-Code" and may produce unexpected results, especially with adaptive meshing.
 
 Alternatívaként a `[delayed_gcode]` segítségével visszaállítható a profil indításkor történő betöltésének régi viselkedése:
 

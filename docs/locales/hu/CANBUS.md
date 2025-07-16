@@ -76,8 +76,6 @@ iface can0 can static
 
 * A "bridge mcu" valójában nem a CAN-buszon van. A híd mcu-nak küldött és onnan érkező üzeneteket a CAN-buszon lévő más adapterek nem látják.
 * A rendelkezésre álló sávszélességet mind a "híd mcu", mind a CAN-buszon lévő összes eszköz számára a CAN-busz frekvenciája korlátozza. Ennek eredményeképpen az "USB és CAN-busz közötti híd üzemmód" használatakor ajánlott 1000000-es CAN-busz frekvenciát használni.
-
-   Még 1000000-es CAN-busz frekvencia esetén sem biztos, hogy elegendő sávszélesség áll rendelkezésre a `SHAPER_CALIBRATE` teszt futtatásához, ha mind az XY-léptetők, mind a gyorsulásmérő egyetlen "USB és CAN-busz" interfészen keresztül kommunikálnak.
 * It is only valid to use USB to CAN bridge mode if there is a functioning CAN bus with at least one other node available (in addition to the bridge node itself). Use a standard USB configuration if the goal is to communicate only with the single USB device. Using USB to CAN bridge mode without a fully functioning CAN bus (including terminating resistors and an additional node) may result in sporadic errors even when communicating with the bridge node.
 * Az USB-CAN hídlap nem jelenik meg USB soros eszközként, nem jelenik meg az `ls /dev/serial/by-id` futtatásakor, és nem konfigurálható a Klipper printer.cfg fájljában a `serial:` paraméterrel. A hídlap "USB CAN adapter"-ként jelenik meg, és a printer.cfg fájlban [CAN node-ként](#configuring-klipper) van konfigurálva .
 
