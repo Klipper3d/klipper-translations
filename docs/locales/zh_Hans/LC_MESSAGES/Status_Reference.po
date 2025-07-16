@@ -1250,6 +1250,45 @@ msgid ""
 "`current_profile_name`: Returns the name of the currently loaded SKEW_PROFILE."
 msgstr ""
 
+#: docs/Status_Reference.md:block 73 (header)
+msgid "load_cell_probe"
+msgstr ""
+
+#: docs/Status_Reference.md:block 74 (paragraph)
+msgid "The following information is available for `[load_cell_probe]`:"
+msgstr ""
+
+#: docs/Status_Reference.md:block 75 (unordered list)
+msgid "all items from [load_cell](Status_Reference.md#load_cell)"
+msgstr ""
+
+#: docs/Status_Reference.md:block 75 (unordered list)
+msgid "all items from [probe](Status_Reference.md#probe)"
+msgstr ""
+
+#: docs/Status_Reference.md:block 75 (unordered list)
+msgid ""
+"'endstop_tare_counts': the load cell probe keeps a tare value independent of "
+"the load cell. This re-set at the start of each probe."
+msgstr ""
+
+#: docs/Status_Reference.md:block 75 (unordered list)
+msgid "'last_trigger_time': timestamp of the last homing trigger"
+msgstr ""
+
+#: docs/Status_Reference.md:block 143 (paragraph)
+msgid ""
+"On a `generic_cartesian` kinematic, the following information is available in "
+"`dual_carriage`:"
+msgstr ""
+
+#: docs/Status_Reference.md:block 144 (unordered list)
+msgid ""
+"`carriages[\"<carriage>\"]`: The mode of the carriage `<carriage>`. Possible "
+"values are \"INACTIVE\" and \"PRIMARY\" for the primary carriage and "
+"\"INACTIVE\", \"PRIMARY\", \"COPY\", and \"MIRROR\" for the dual carriage."
+msgstr ""
+
 #~ msgid ""
 #~ "The following information is available in the `Config_Reference.md#bed_screws`"
 #~ " object:"

@@ -241,20 +241,6 @@ msgstr ""
 "தெரிவிக்கப்பட்ட கடிகாரங்களுக்கிடையிலான வேறுபாட்டை தீர்மானிக்கவும். நொடிக்கு "
 "மொத்த கட்டளைகளின் எண்ணிக்கை பின்னர் `100000 * MCU_FREQUENCY / COCROM_DIFF`."
 
-msgid ""
-"Note that this test may saturate the USB/CPU capacity of a Raspberry Pi. If "
-"running on a Raspberry Pi, Beaglebone, or similar host computer then increase "
-"the delay (eg, `DELAY {clock + 20*freq} get_uptime`). Where applicable, the "
-"benchmarks below are with console.py running on a desktop class machine with "
-"the device connected via a high-speed hub."
-msgstr ""
-"இந்த சோதனை ஒரு ராச்பெர்ரி பைவின் யூ.எச்.பி/சிபியு திறனை நிறைவு செய்யலாம் "
-"என்பதை நினைவில் கொள்க. ராச்பெர்ரி பை, பீகல்போன் அல்லது ஒத்த புரவலன் கணினியில் "
-"இயங்கினால், தாமதத்தை அதிகரிக்கவும் (எ.கா., `தாமதம் {கடிகாரம் + 20*ஃப்ரீக்} "
-"get_uptime`). பொருந்தக்கூடிய இடங்களில், கீழேயுள்ள வரையறைகள் கன்சோல்.பி உடன் "
-"டெச்க்டாப் வகுப்பு கணினியில் இயங்கும் சாதனத்துடன் அதிவேக மையத்தின் வழியாக "
-"இணைக்கப்பட்டுள்ளன."
-
 msgid "MCU"
 msgstr "MCU"
 
@@ -266,18 +252,6 @@ msgstr "உருவாக்கு"
 
 msgid "Build compiler"
 msgstr "கம்பைலரை உருவாக்குங்கள்"
-
-msgid "stm32f042 (CAN)"
-msgstr "STM32F042 (CAN)"
-
-msgid "18K"
-msgstr "18 கே"
-
-msgid "c105adc8"
-msgstr "C105ADC8"
-
-msgid "arm-none-eabi-gcc (GNU Tools 7-2018-q3-update) 7.3.1"
-msgstr "ARM-NONE-EABI-GCC (GNU கருவிகள் 7-2018-Q3-UPDATE) 7.3.1"
 
 msgid "atmega2560 (serial)"
 msgstr "Atmega2560 (சீரியல்)"
@@ -808,13 +782,101 @@ msgstr ""
 msgid "14"
 msgstr ""
 
-#: docs/Benchmarks.md:block 101 (paragraph)
+#: docs/Benchmarks.md:block 69 (header)
+msgid "STM32G4 step rate benchmark"
+msgstr ""
+
+#: docs/Benchmarks.md:block 70 (paragraph)
+msgid "The following configuration sequence is used on the STM32G431:"
+msgstr ""
+
+#: docs/Benchmarks.md:block 72 (paragraph)
+msgid ""
+"The test was last run on commit `cfa48fe3` with gcc version `arm-none-eabi-gcc"
+" (Fedora 14.1.0-1.fc40) 14.1.0`."
+msgstr ""
+
+#: docs/Benchmarks.md:block 73 (table)
+msgid "stm32g431"
+msgstr ""
+
+#: docs/Benchmarks.md:block 73 (table)
+msgid "47"
+msgstr ""
+
+#: docs/Benchmarks.md:block 73 (table)
+msgid "208"
+msgstr ""
+
+#: docs/Benchmarks.md:block 106 (paragraph)
 msgid ""
 "(*) Note that the reported rp2040 ticks are relative to a 12Mhz scheduling "
 "timer and do not correspond to its 200Mhz internal ARM processing rate. It is "
-"expected that 5 scheduling ticks corresponds to ~42 ARM core cycles and 14 "
+"expected that 3 scheduling ticks corresponds to ~42 ARM core cycles and 14 "
 "scheduling ticks corresponds to ~225 ARM core cycles."
 msgstr ""
+
+#: docs/Benchmarks.md:block 116 (paragraph)
+msgid ""
+"The USB tests may exceed the CPU capacity of a Raspberry Pi. If running on a "
+"Raspberry Pi, Beaglebone, or similar host computer then increase the delay "
+"(eg, `DELAY {clock + 20*freq} get_uptime`). Where applicable, the benchmarks "
+"below are with console.py running on a desktop class machine with the device "
+"connected via a super-speed hub."
+msgstr ""
+
+#: docs/Benchmarks.md:block 117 (paragraph)
+msgid ""
+"The CAN bus tests may saturate the USB host controller of a Raspberry Pi (when"
+" testing via a standard gs_usb USB to CAN bus adapter). Where applicable, the "
+"CAN bus benchmarks below are with console.py running on a desktop class "
+"machine with a USB to CAN bus adapter connected via a super-speed USB hub."
+msgstr ""
+
+#: docs/Benchmarks.md:block 118 (table)
+msgid "rp2350 (CAN)"
+msgstr ""
+
+#: docs/Benchmarks.md:block 118 (table)
+msgid "59K"
+msgstr ""
+
+#: docs/Benchmarks.md:block 118 (table)
+msgid "17b8ce4c"
+msgstr ""
+
+#~ msgid ""
+#~ "Note that this test may saturate the USB/CPU capacity of a Raspberry Pi. If "
+#~ "running on a Raspberry Pi, Beaglebone, or similar host computer then increase "
+#~ "the delay (eg, `DELAY {clock + 20*freq} get_uptime`). Where applicable, the "
+#~ "benchmarks below are with console.py running on a desktop class machine with "
+#~ "the device connected via a high-speed hub."
+#~ msgstr ""
+#~ "இந்த சோதனை ஒரு ராச்பெர்ரி பைவின் யூ.எச்.பி/சிபியு திறனை நிறைவு செய்யலாம் "
+#~ "என்பதை நினைவில் கொள்க. ராச்பெர்ரி பை, பீகல்போன் அல்லது ஒத்த புரவலன் கணினியில் "
+#~ "இயங்கினால், தாமதத்தை அதிகரிக்கவும் (எ.கா., `தாமதம் {கடிகாரம் + 20*ஃப்ரீக்} "
+#~ "get_uptime`). பொருந்தக்கூடிய இடங்களில், கீழேயுள்ள வரையறைகள் கன்சோல்.பி உடன் "
+#~ "டெச்க்டாப் வகுப்பு கணினியில் இயங்கும் சாதனத்துடன் அதிவேக மையத்தின் வழியாக "
+#~ "இணைக்கப்பட்டுள்ளன."
+
+#~ msgid "stm32f042 (CAN)"
+#~ msgstr "STM32F042 (CAN)"
+
+#~ msgid "18K"
+#~ msgstr "18 கே"
+
+#~ msgid "c105adc8"
+#~ msgstr "C105ADC8"
+
+#~ msgid "arm-none-eabi-gcc (GNU Tools 7-2018-q3-update) 7.3.1"
+#~ msgstr "ARM-NONE-EABI-GCC (GNU கருவிகள் 7-2018-Q3-UPDATE) 7.3.1"
+
+#~ msgid ""
+#~ "(*) Note that the reported rp2040 ticks are relative to a 12Mhz scheduling "
+#~ "timer and do not correspond to its 200Mhz internal ARM processing rate. It is "
+#~ "expected that 5 scheduling ticks corresponds to ~42 ARM core cycles and 14 "
+#~ "scheduling ticks corresponds to ~225 ARM core cycles."
+#~ msgstr ""
 
 #~ msgid "5"
 #~ msgstr "5"

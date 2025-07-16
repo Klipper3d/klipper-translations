@@ -700,13 +700,6 @@ msgid ""
 " Adaptive: 0*  *Default Adaptive Margin: 0*"
 msgstr ""
 
-#: docs/Bed_Mesh.md:block 77 (paragraph)
-msgid ""
-"The mesh will be saved into a profile specified by the `PROFILE` parameter, or"
-" `default` if unspecified. The `METHOD` parameter takes one of the following "
-"values:"
-msgstr ""
-
 #: docs/Bed_Mesh.md:block 78 (unordered list)
 msgid ""
 "`METHOD=manual`: enables manual probing using the nozzle and the paper test"
@@ -1016,6 +1009,26 @@ msgid ""
 " performed. The bed_mesh module provides the `zero_reference_position` option "
 "for specifying this coordinate:"
 msgstr ""
+
+#: docs/Bed_Mesh.md:block 77 (paragraph)
+msgid ""
+"The mesh will be immediately ready to use when the command completes and saved"
+" into a profile specified by the `PROFILE` parameter, or `default` if "
+"unspecified. The `METHOD` parameter takes one of the following values:"
+msgstr ""
+
+#: docs/Bed_Mesh.md:block 92 (paragraph)
+msgid ""
+"Note that this is not required if a new mesh is generated with "
+"`BED_MESH_CALIBRATE` in the `START_PRINT` macro or the slicer's \"Start "
+"G-Code\" and may produce unexpected results, especially with adaptive meshing."
+msgstr ""
+
+#~ msgid ""
+#~ "The mesh will be saved into a profile specified by the `PROFILE` parameter, or"
+#~ " `default` if unspecified. The `METHOD` parameter takes one of the following "
+#~ "values:"
+#~ msgstr ""
 
 #~ msgid ""
 #~ "// bed_mesh: generated points\n"
