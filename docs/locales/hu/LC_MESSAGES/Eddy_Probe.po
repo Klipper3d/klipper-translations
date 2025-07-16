@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-05-03 07:49+0000\n"
+"PO-Revision-Date: 2025-07-22 09:13+0000\n"
 "Last-Translator: \"Zs.Antal\" <antonio092130@icloud.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
 "eddy_probe/hu/>\n"
@@ -10,7 +10,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.12-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: docs/Eddy_Probe.md:block 1 (header)
 msgid "Eddy Current Inductive probe"
