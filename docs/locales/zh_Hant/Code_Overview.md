@@ -76,6 +76,7 @@ Klippy上位機的主程式能對模組進行熱載入。如果設定檔案中�
    * klippy:connect - 該事件在所有 "printer objects" 實例化后發起。它通常用於查詢其他"printer objects"，覈實配置，並與mcu進行初始握手。
    * klippy:ready - 該事件在所有connect處理程式成功地完成後發起。它意味著印表機轉為等待常規指令的待命狀態。不應在該回調函式中拋出異常。
 * 如果使用者配置中存在錯誤，應在`load_config()`或連線事件（connect event）中拋出異常。使用 `raise config.error("my error")` 或 `raise printer.config_error("my error")` 進行告警。
+* Do not store a reference to the `config` object in a class member variable (nor in any similar location that may persist past initial module loading). The `config` object is a reference to a "config loading phase" class and it is not valid to invoke its methods after the "config loading phase" has completed.
 * 使用"pins"模組對微控制器的引腳進行定義，例如`printer.lookup_object("pins").setup_pin("pwm", config.get("my_pin"))`。此後，執行時，可通過返回的對象對針腳進行控制。
 * 如果印表機對像中定義了 `get_status()` 方法，則在模組中可以通過[宏](Command_Templates.md)或[API服務](API_Server.md)輸出[狀態資訊](Status_Reference.md)。 `get_status()` 必須返回一個Python字典對象，其鍵需要為字串，而值應為整形、浮點數、列表、字典、True、False或者None。元組（或命名元組）也可以作為值（它們在API服務中將被視為列表）。列表和字典的輸出值必須為「不可變的（immutable）」，即在函式內，如果 `get_status()` 需要輸出上述型別的實例，則需要新建或者進行深層複製，否則API服務會識別出輸出值中的內容變更。
 * 如果模組需要使用系統時鐘或外部檔案描述符，可通過`printer.get_reactor()`對獲取全域性事件反應器進行訪問（event reactor）。通過該反應器類可以部署定時器，等待檔案描述符輸入，或者「掛起」上位機程式。

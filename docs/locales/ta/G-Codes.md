@@ -104,7 +104,7 @@ Calibrates axis twist compensation by specifying the target axis or enabling aut
 
 #### Bed_mesh_calibrate
 
-`Bed_mesh_calibrate [சுயவிவரம் = <பெயர்>] [முறை = கையேடு] [கிடைமட்ட_மோவ்_செச் = <மதிப்பு>] [<probe_parameter> = <மதிப்பு>] [<mesh_parameter> = <மதிப்பு>] [தகவமைப்பு = 1] [தகவமைப்பு_மார்சின் = <மதிப்பு> ] `: இந்த கட்டளை கட்டமைப்பில் உள்ள அளவுருக்களால் குறிப்பிடப்பட்ட உருவாக்கப்பட்ட புள்ளிகளைப் பயன்படுத்தி படுக்கையை ஆராய்கிறது. ஆராய்ந்த பிறகு, ஒரு கண்ணி உருவாக்கப்பட்டு, கண்ணி படி z- இயக்கம் சரிசெய்யப்படுகிறது. குறிப்பிடப்படாவிட்டால் `சுயவிவரம்` அளவுருவால் குறிப்பிடப்பட்ட சுயவிவரத்தில் கண்ணி சேமிக்கப்படும். விருப்ப ஆய்வு அளவுருக்கள் குறித்த விவரங்களுக்கு ஆய்வு கட்டளையைப் பார்க்கவும். முறை = கையேடு குறிப்பிடப்பட்டால், கையேடு ஆய்வு கருவி செயல்படுத்தப்படுகிறது - இந்த கருவி செயலில் இருக்கும்போது கிடைக்கும் கூடுதல் கட்டளைகள் குறித்த விவரங்களுக்கு மேலே உள்ள கையேடு_பிரோப் கட்டளையைப் பார்க்கவும். விருப்பமான `கிடைமட்ட_மோவ்_செச்` மதிப்பு கட்டமைப்பு கோப்பில் குறிப்பிடப்பட்டுள்ள` கிடைமட்ட_மோவ்_செச்` விருப்பத்தை மீறுகிறது. தகவமைப்பு = 1 குறிப்பிடப்பட்டால், அச்சிடப்பட்ட GCODE கோப்பால் வரையறுக்கப்பட்ட பொருள்கள் ஆய்வு செய்யப்பட்ட பகுதியை வரையறுக்க பயன்படுத்தப்படும். விருப்ப `அடாப்டிவ்_மார்சின்` மதிப்பு கட்டமைப்பு கோப்பில் குறிப்பிடப்பட்டுள்ள` அடாப்டிவ்_மார்சின்` விருப்பத்தை மீறுகிறது.
+`BED_MESH_CALIBRATE [PROFILE=<name>] [METHOD=manual] [HORIZONTAL_MOVE_Z=<value>] [<probe_parameter>=<value>] [<mesh_parameter>=<value>] [ADAPTIVE=1] [ADAPTIVE_MARGIN=<value>]`: This command probes the bed using generated points specified by the parameters in the config. After probing, a mesh is generated and z-movement is adjusted according to the mesh. The mesh is immediately active after successful completion of `BED_MESH_CALIBRATE`. The mesh will be saved into a profile specified by the `PROFILE` parameter, or `default` if unspecified. If ADAPTIVE=1 is specified then the profile name will begin with `adaptive-` and should not be saved for reuse. See the PROBE command for details on the optional probe parameters. If METHOD=manual is specified then the manual probing tool is activated - see the MANUAL_PROBE command above for details on the additional commands available while this tool is active. The optional `HORIZONTAL_MOVE_Z` value overrides the `horizontal_move_z` option specified in the config file. If ADAPTIVE=1 is specified then the objects defined by the Gcode file being printed will be used to define the probed area. The optional `ADAPTIVE_MARGIN` value overrides the `adaptive_margin` option specified in the config file.
 
 #### Bed_mesh_output
 
@@ -207,7 +207,7 @@ Calibrates axis twist compensation by specifying the target axis or enabling aut
 
 #### Set_dual_carriage
 
-`Set_dual_carriage வண்டி = [0 | 1] [பயன்முறை = [முதன்மை | நகல் | கண்ணாடி]]`: இந்த கட்டளை குறிப்பிட்ட வண்டியின் பயன்முறையை மாற்றும். `பயன்முறை` வழங்கப்படாவிட்டால், அது` முதன்மை` இயல்புநிலையாகும். பயன்முறையை `முதன்மை` அமைப்பது மற்ற வண்டியை செயலிழக்கச் செய்கிறது மற்றும் குறிப்பிட்ட வண்டியை அடுத்தடுத்த சி-குறியீட்டு கட்டளைகளை இயக்குகிறது. `நகல்` மற்றும்` மிரர்` முறைகள் `வண்டி = 1` க்கு மட்டுமே ஆதரிக்கப்படுகின்றன. இந்த முறைகளில் ஏதேனும் அமைக்கப்படும்போது, வண்டி 1 பின்னர் வண்டி 0 இன் அடுத்தடுத்த நகர்வுகளைக் கண்காணிக்கும் மற்றும் அதன் தொடர்புடைய இயக்கங்களை (`நகல்` பயன்முறையில்) நகலெடுக்கும் அல்லது அவற்றை எதிர் (கண்ணாடி) திசையில் (` மிரர்` பயன்முறையில் இயக்கும் ).
+`SET_DUAL_CARRIAGE CARRIAGE=<carriage> [MODE=[PRIMARY|COPY|MIRROR]]`: This command will change the mode of the specified carriage. If no `MODE` is provided it defaults to `PRIMARY`. `<carriage>` must reference a defined primary or dual carriage for `generic_cartesian` kinematics or be 0 (for primary carriage) or 1 (for dual carriage) for all other kinematics supporting IDEX. Setting the mode to `PRIMARY` deactivates the other carriage and makes the specified carriage execute subsequent G-Code commands as-is. `COPY` and `MIRROR` modes are supported only for dual carriages. When set to either of these modes, dual carriage will then track the subsequent moves of its primary carriage and either copy relative movements of it (in `COPY` mode) or execute them in the opposite (mirror) direction (in `MIRROR` mode).
 
 #### Save_dual_carriage_state
 
@@ -397,6 +397,20 @@ GCODE_MOVE தொகுதி தானாக ஏற்றப்படும்.
 
 `Restore_gcode_state [name = <state_name>] [move = 1 [move_speed = <weotive>]]`: முன்னர் சேமிக்கப்பட்ட நிலையை Save_gcode_state வழியாக மீட்டெடுக்கவும். "நகர்வு = 1" குறிப்பிடப்பட்டால், முந்தைய XYZ நிலைக்கு திரும்புவதற்கு ஒரு கருவி நகர்வு வழங்கப்படும். "MOVE_SPEED" குறிப்பிடப்பட்டால், கருவிஎட் நகர்வு கொடுக்கப்பட்ட வேகத்துடன் (மிமீ/வி இல்) செய்யப்படும்; இல்லையெனில் கருவிஎட் நகர்வு மீட்டெடுக்கப்பட்ட சி-குறியீடு வேகத்தைப் பயன்படுத்தும்.
 
+### [generic_cartesian]
+
+The commands in this section become automatically available when `kinematics: generic_cartesian` is specified as the printer kinematics.
+
+#### SET_STEPPER_CARRIAGES
+
+`SET_STEPPER_CARRIAGES STEPPER=<stepper_name> CARRIAGES=<carriages> [DISABLE_CHECKS=[0|1]]`: Set or update the stepper carriages. `<stepper_name>` must reference an existing stepper defined in `printer.cfg`, and `<carriages>` describes the carriages the stepper moves. See [Generic Cartesian Kinematics](Config_Reference.md#generic-cartesian-kinematics) for a more detailed overview of the `carriages` parameter in the stepper configuration section. Note that it is only possible to change the coefficients or signs of the carriages with this command, but a user cannot add or remove the carriages that the stepper controls.
+
+`SET_STEPPER_CARRIAGES` is an advanced tool, and the user is advised to exercise an extreme caution using it, since specifying incorrect configuration may physically damage the printer.
+
+Note that `SET_STEPPER_CARRIAGES` performs certain internal validations of the new printer kinematics after the change. Keep in mind that if it detects an issue, it may leave printer kinematics in an invalid state. This means that if `SET_STEPPER_CARRIAGES` reports an error, it is unsafe to issue other GCode commands, and the user must inspect the error message and either fix the problem, or manually restore the previous stepper(s) configuration.
+
+Since `SET_STEPPER_CARRIAGES` can update a configuration of a single stepper at a time, some sequences of changes can lead to invalid intermediate kinematic configurations, even if the final configuration is valid. In such cases a user can pass `DISABLE_CHECKS=1` parameters to all but the last command to disable intermediate checks. For example, if `stepper a` and `stepper b` initially have `x-y` and `x+y` carriages correspondingly, then the following sequence of commands will let a user effectively swap the carriage controls: `SET_STEPPER_CARRIAGES STEPPER=a CARRIAGES=x+y DISABLE_CHECKS=1` and `SET_STEPPER_CARRIAGES STEPPER=b CARRIAGES=x-y`, while still validating the final kinematics state.
+
 ### [hall_filament_width_sensor]
 
 [TSL1401CL FILECT WIDTH உணரி கட்டமைப்பு பிரிவு] (config_reference.md#tsl1401cl_filament_width_sensor) அல்லது [ஆல் ஃபிலேமென்ட் அகல சென்சார் கட்டமைப்பு பிரிவு] (config_reference.md#hall_filament_width_salthalthalth) போது பின்வரும் கட்டளைகள் கிடைக்கின்றன. TSL1401CL_FILAMENT_WIDTH_SENSOR.MD) மற்றும் [ஆல் ஃபிலிமென்ட் அகல சென்சார்] (ஆல்_பிலமென்ட்_விட்_சென்சர்.மிடி)):
@@ -493,11 +507,36 @@ You can cancel the calibration process at any time with `ABORT`.
 
 ### LOAD_CELL_TARE
 
-`LOAD_CELL_TARE [LOAD_CELL=<config_name>]`: This works just like the tare button on digital scale. It sets the current raw reading of the load cell to be the zero point reference value. The response is the percentage of the sensors range that was read and the raw value in counts.
+`LOAD_CELL_TARE [LOAD_CELL=<config_name>]`: This works just like the tare button on digital scale. It sets the current raw reading of the load cell to be the zero point reference value. The response is the percentage of the sensors range that was read and the raw value in counts. If the load cell is calibrated a force in grams is also reported.
 
 ### LOAD_CELL_READ load_cell="name"
 
 `LOAD_CELL_READ [LOAD_CELL=<config_name>]`: This command takes a reading from the load cell. The response is the percentage of the sensors range that was read and the raw value in counts. If the load cell is calibrated a force in grams is also reported.
+
+### [load_cell_probe]
+
+The following commands are enabled if a [load_cell config section](Config_Reference.md#load_cell_probe) has been enabled.
+
+### LOAD_CELL_TEST_TAP
+
+`LOAD_CELL_TEST_TAP [TAPS=<taps>] [TIMEOUT=<timeout>]`: Run a testing routine that reports taps on the load cell. The toolhead will not move but the load cell probe will sense taps just as if it was probing. This can be used as a sanity check to make sure that the probe works. This tool replaces QUERY_ENDSTOPS and QUERY_PROBE for load cell probes.
+
+- `TAPS`: the number of taps the tool expects
+- `TIMEOOUT`: the time, in seconds, that the tool waits for each tab before aborting.
+
+### Load Cell Command Extensions
+
+Commands that perform probes, such as [`PROBE`](#probe), [`PROBE_ACCURACY`](#probe_accuracy), [`BED_MESH_CALIBRATE`](#bed_mesh_calibrate) etc. will accept additional parameters if a `[load_cell_probe]` is defined. The parameters override the corresponding settings from the [`[load_cell_probe]`](./Config_Reference.md#load_cell_probe) configuration:
+
+- `FORCE_SAFETY_LIMIT=<grams>`
+- `TRIGGER_FORCE=<grams>`
+- `DRIFT_FILTER_CUTOFF_FREQUENCY=<frequency_hz>`
+- `DRIFT_FILTER_DELAY=<1|2>`
+- `BUZZ_FILTER_CUTOFF_FREQUENCY=<frequency_hz>`
+- `BUZZ_FILTER_DELAY=<1|2>`
+- `NOTCH_FILTER_FREQUENCIES=<list of frequency_hz>`
+- `NOTCH_FILTER_QUALITY=<quality>`
+- `TARE_TIME=<seconds>`
 
 ### [கையேடு_ப்ரோப்]
 
@@ -526,6 +565,8 @@ You can cancel the calibration process at any time with `ABORT`.
 #### கையேடு_ச்டெப்பர்
 
 `Manual_stepper Stepper = config_name [enable = [0 | 1]] 1 | -2]]] [ஒத்திசைவு = 0]] `: இந்த கட்டளை ச்டெப்பரின் நிலையை மாற்றும். ச்டெப்பரை இயக்க/முடக்குவதற்கு இயக்க அளவுருவைப் பயன்படுத்தவும். STEPER கொடுக்கப்பட்ட நிலையில் இருப்பதாக நினைக்கும்படி கட்டாயப்படுத்த SET_POSITION அளவுருவைப் பயன்படுத்தவும். கொடுக்கப்பட்ட நிலைக்கு ஒரு இயக்கத்தைக் கோர நகர்வு அளவுருவைப் பயன்படுத்தவும். விரைவு மற்றும்/அல்லது முடி குறிப்பிடப்பட்டால், கட்டமைப்பு கோப்பில் குறிப்பிடப்பட்டுள்ள இயல்புநிலைகளுக்கு பதிலாக கொடுக்கப்பட்ட மதிப்புகள் பயன்படுத்தப்படும். பூச்சியத்தின் முடி குறிப்பிடப்பட்டால், முடுக்கம் எதுவும் செய்யப்படாது. STOP_ON_ENDSTOP = 1 குறிப்பிடப்பட்டால், எண்ட்ச்டாப் அறிக்கை தூண்டப்பட்டதாக இருக்க வேண்டும் (ச்டாப்_ஓஎன்_என்ச்டாப் = 2 ஐப் பயன்படுத்தவும், எண்ட்ச்டாப் தூண்டவில்லை என்றாலும், பிழையில்லாமல் நகர்வை முடிக்க, எண்ட்ச்டாப் அறிக்கைகள் இல்லாதபோது நிறுத்த -1 அல்லது -2 ஐப் பயன்படுத்தவும் தூண்டப்பட்டது). பொதுவாக எதிர்கால சி-கோட் கட்டளைகள் ச்டெப்பர் நகர்வு முடிந்ததும் இயங்க திட்டமிடப்படும், இருப்பினும் ஒரு கையேடு ச்டெப்பர் நகர்வு ஒத்திசைவு = 0 ஐப் பயன்படுத்தினால், எதிர்கால சி-கோட் இயக்கம் கட்டளைகள் ச்டெப்பர் இயக்கத்திற்கு இணையாக இயங்கக்கூடும்.
+
+`MANUAL_STEPPER STEPPER=config_name GCODE_AXIS=[A-Z] [LIMIT_VELOCITY=<velocity>] [LIMIT_ACCEL=<accel>] [INSTANTANEOUS_CORNER_VELOCITY=<velocity>]`: If the `GCODE_AXIS` parameter is specified then it configures the stepper motor as an extra axis on `G1` move commands. For example, if one were to issue a `MANUAL_STEPPER ... GCODE_AXIS=R` command then one could issue commands like `G1 X10 Y20 R30` to move the stepper motor. The resulting moves will occur synchronously with the associated toolhead xyz movements. If the motor is associated with a `GCODE_AXIS` then one may no longer issue movements using the above `MANUAL_STEPPER` command - one may unregister the stepper with a `MANUAL_STEPPER ... GCODE_AXIS=` command to resume manual control of the motor. The `LIMIT_VELOCITY` and `LIMIT_ACCEL` parameters allow one to reduce the speed of `G1` moves if those moves would result in a velocity or acceleration above the specified limits. The `INSTANTANEOUS_CORNER_VELOCITY` specifies the maximum instantaneous velocity change (in mm/s) of the motor during the junction of two moves (the default is 1mm/s).
 
 ### [mcp4018]
 

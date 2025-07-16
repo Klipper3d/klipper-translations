@@ -190,6 +190,23 @@ A request may look like: `{"id": 123, "method":"load_cell/dump_force", "params":
 
 Le champ "en-tête" dans la réponse initiale à la requête est utilisé pour décrire les champs présents dans les réponses "données" ultérieures.
 
+### load_cell_probe/dump_taps
+
+This endpoint is used to subscribe to details of probing "tap" events. Using this endpoint may increase Klipper's system load.
+
+A request may look like: `{"id": 123, "method":"load_cell/dump_force", "params": {"sensor": "load_cell", "response_template": {}}}` and might return: `{"id": 123,"result":{"header":["probe_tap_event"]}}` and might later produce asynchronous messages such as:
+
+```
+{"params":{"tap":'{
+   "time": [118032.28039, 118032.2834, ...],
+   "force": [-459.4213119680034, -458.1640702543264, ...],
+}}}
+```
+
+This data can be used to render:
+
+* The time/force graph
+
 ### pause_resume/cancel
 
 Ce point final est similaire à l'exécution de la commande G-Code "PRINT_CANCEL". Par exemple : `{"id": 123, "method": "pause_resume/cancel"}`

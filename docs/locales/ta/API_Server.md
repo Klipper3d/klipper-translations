@@ -190,6 +190,23 @@ A request may look like: `{"id": 123, "method":"load_cell/dump_force", "params":
 
 ஆரம்ப வினவல் பதிலில் "தலைப்பு" புலம் பிற்கால "தரவு" பதில்களில் காணப்படும் புலங்களை விவரிக்கப் பயன்படுகிறது.
 
+### load_cell_probe/dump_taps
+
+This endpoint is used to subscribe to details of probing "tap" events. Using this endpoint may increase Klipper's system load.
+
+A request may look like: `{"id": 123, "method":"load_cell/dump_force", "params": {"sensor": "load_cell", "response_template": {}}}` and might return: `{"id": 123,"result":{"header":["probe_tap_event"]}}` and might later produce asynchronous messages such as:
+
+```
+{"params":{"tap":'{
+   "time": [118032.28039, 118032.2834, ...],
+   "force": [-459.4213119680034, -458.1640702543264, ...],
+}}}
+```
+
+This data can be used to render:
+
+* The time/force graph
+
 ### pause_resume/ரத்துசெய்
 
 இந்த இறுதிப்புள்ளி "print_cancel" சி-குறியீட்டு கட்டளையை இயக்குவதற்கு ஒத்ததாகும். எடுத்துக்காட்டாக: `{" ஐடி ": 123," முறை ":" pause_resume/rancel "}`

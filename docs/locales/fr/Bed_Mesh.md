@@ -254,7 +254,7 @@ If no scan overshoot is configured then travel path optimization will not be app
 
 Lance la procédure de palpage de l'étalonnage du maillage du lit.
 
-The mesh will be saved into a profile specified by the `PROFILE` parameter, or `default` if unspecified. The `METHOD` parameter takes one of the following values:
+The mesh will be immediately ready to use when the command completes and saved into a profile specified by the `PROFILE` parameter, or `default` if unspecified. The `METHOD` parameter takes one of the following values:
 
 - `METHOD=manual`: enables manual probing using the nozzle and the paper test
 - `METHOD=automatic`: Automatic (standard) probing. This is the default.
@@ -298,6 +298,8 @@ Tout autre profil enregistré peut être supprimé de la même manière, en remp
 #### Chargement du profil par défaut
 
 Les versions précédentes de `bed_mesh` chargeaient toujours le profil nommé *default* au démarrage s'il était présent. Ce comportement a été supprimé afin de permettre à l'utilisateur de déterminer quand un profil est chargé. Si un utilisateur souhaite charger le profil par défaut, il est recommandé d'ajouter `BED_MESH_PROFILE LOAD=default` à sa macro `START_PRINT` ou à la configuration "Start G-Code" de son trancheur, selon ce qui est applicable.
+
+Note that this is not required if a new mesh is generated with `BED_MESH_CALIBRATE` in the `START_PRINT` macro or the slicer's "Start G-Code" and may produce unexpected results, especially with adaptive meshing.
 
 Alternativement, l'ancien comportement de chargement d'un profil au démarrage peut être restauré avec un `[delayed_gcode]` :
 

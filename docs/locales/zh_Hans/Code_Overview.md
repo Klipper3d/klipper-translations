@@ -76,6 +76,7 @@ Klippy上位机的主程序能对模块进行热加载。如果设置文件中�
    * klippy:connect - 该事件在所有 "printer objects" 实例化后发起。它通常用于查找其他"printer objects"，核实配置，并与mcu进行初始握手。
    * klippy:ready - 该事件在所有connect处理程序成功地完成后发起。它意味着打印机转为等待常规指令的待命状态。不应在该回调函数中抛出异常。
 * 如果用户配置中存在错误，应在`load_config()`或连接事件（connect event）中抛出异常。使用 `raise config.error("my error")` 或 `raise printer.config_error("my error")` 进行告警。
+* Do not store a reference to the `config` object in a class member variable (nor in any similar location that may persist past initial module loading). The `config` object is a reference to a "config loading phase" class and it is not valid to invoke its methods after the "config loading phase" has completed.
 * 使用"pins"模块对微控制器的引脚进行定义，例如`printer.lookup_object("pins").setup_pin("pwm", config.get("my_pin"))`。此后，运行时，可通过返回的对象对针脚进行控制。
 * 如果打印机对象中定义了 `get_status()` 方法，则在模块中可以通过[宏](Command_Templates.md)或[API服务](API_Server.md)输出[状态信息](Status_Reference.md)。 `get_status()` 必须返回一个Python字典对象，其键需要为字符串，而值应为整形、浮点数、列表、字典、True、False或者None。元组（或命名元组）也可以作为值（它们在API服务中将被视为列表）。列表和字典的输出值必须为“不可变的（immutable）”，即在函数内，如果 `get_status()` 需要输出上述类型的实例，则需要新建或者进行深层复制，否则API服务会识别出输出值中的内容变更。
 * 如果模块需要使用系统时钟或外部文件描述符，可通过`printer.get_reactor()`对获取全局事件反应器进行访问（event reactor）。通过该反应器类可以部署定时器，等待文件描述符输入，或者“挂起”上位机程序。

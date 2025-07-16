@@ -254,7 +254,7 @@ Bed Mesh намагатиметься оптимізувати шлях руху
 
 Ініціює процедуру зондування для калібрування сітки ліжка.
 
-Сітка буде збережена в профілі, визначеному параметром `PROFILE`, або `default`, якщо не вказано. Параметр `METHOD` приймає одне з таких значень:
+The mesh will be immediately ready to use when the command completes and saved into a profile specified by the `PROFILE` parameter, or `default` if unspecified. The `METHOD` parameter takes one of the following values:
 
 - `METHOD=manual`: дозволяє ручне зондування за допомогою насадки та паперового тесту
 - `METHOD=automatic`: Автоматичне (стандартне) зондування. Це значення за умовчанням.
@@ -298,6 +298,8 @@ Bed Mesh намагатиметься оптимізувати шлях руху
 #### Завантаження профілю за замовчуванням
 
 Попередні версії `bed_mesh` завжди завантажували профіль із назвою *default* під час запуску, якщо він був присутній. Цю поведінку було видалено, щоб користувач міг визначати, коли завантажується профіль. Якщо користувач бажає завантажити профіль `за замовчуванням`, рекомендується додати `BED_MESH_PROFILE LOAD=default` або до свого макросу `START_PRINT`, або до конфігурації «Почати G-код» слайсера, залежно від того, що застосовно.
+
+Note that this is not required if a new mesh is generated with `BED_MESH_CALIBRATE` in the `START_PRINT` macro or the slicer's "Start G-Code" and may produce unexpected results, especially with adaptive meshing.
 
 Крім того, стару поведінку завантаження профілю під час запуску можна відновити за допомогою `[delayed_gcode]`:
 

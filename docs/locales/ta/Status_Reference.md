@@ -209,6 +209,15 @@ The following information is available for each `[load_cell name]`:
 - 'min_force_g': The minimum force in grams, over the last polling period.
 - 'max_force_g': The maximum force in grams, over the last polling period.
 
+## load_cell_probe
+
+The following information is available for `[load_cell_probe]`:
+
+- all items from [load_cell](Status_Reference.md#load_cell)
+- all items from [probe](Status_Reference.md#probe)
+- 'endstop_tare_counts': the load cell probe keeps a tare value independent of the load cell. This re-set at the start of each probe.
+- 'last_trigger_time': timestamp of the last homing trigger
+
 ## கையேடு_ப்ரோப்
 
 பின்வரும் தகவல்கள் `கையேடு_ப்ரோப்` பொருளில் கிடைக்கின்றன:
@@ -377,6 +386,10 @@ The following information is available in the `skew_correction` object (this obj
 
 - `வண்டி_0`: வண்டியின் பயன்முறை 0. சாத்தியமான மதிப்புகள்:" செயலற்ற "மற்றும்" முதன்மை ".
 - `வண்டி_1`: வண்டியின் முறை 1. சாத்தியமான மதிப்புகள்:" செயலற்ற "," முதன்மை "," நகல் "மற்றும்" கண்ணாடி ".
+
+On a `generic_cartesian` kinematic, the following information is available in `dual_carriage`:
+
+- `carriages["<carriage>"]`: The mode of the carriage `<carriage>`. Possible values are "INACTIVE" and "PRIMARY" for the primary carriage and "INACTIVE", "PRIMARY", "COPY", and "MIRROR" for the dual carriage.
 
 ## மெய்நிகர்_ச்ட்கார்ட்
 

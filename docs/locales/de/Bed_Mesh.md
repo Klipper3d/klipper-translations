@@ -254,7 +254,7 @@ If no scan overshoot is configured then travel path optimization will not be app
 
 Initiates the probing procedure for Bed Mesh Calibration.
 
-The mesh will be saved into a profile specified by the `PROFILE` parameter, or `default` if unspecified. The `METHOD` parameter takes one of the following values:
+The mesh will be immediately ready to use when the command completes and saved into a profile specified by the `PROFILE` parameter, or `default` if unspecified. The `METHOD` parameter takes one of the following values:
 
 - `METHOD=manual`: enables manual probing using the nozzle and the paper test
 - `METHOD=automatic`: Automatic (standard) probing. This is the default.
@@ -298,6 +298,8 @@ Any other saved profile can be removed in the same fashion, replacing *default* 
 #### Laden des Standardprofils
 
 Previous versions of `bed_mesh` always loaded the profile named *default* on startup if it was present. This behavior has been removed in favor of allowing the user to determine when a profile is loaded. If a user wishes to load the `default` profile it is recommended to add `BED_MESH_PROFILE LOAD=default` to either their `START_PRINT` macro or their slicer's "Start G-Code" configuration, whichever is applicable.
+
+Note that this is not required if a new mesh is generated with `BED_MESH_CALIBRATE` in the `START_PRINT` macro or the slicer's "Start G-Code" and may produce unexpected results, especially with adaptive meshing.
 
 Alternatively the old behavior of loading a profile at startup can be restored with a `[delayed_gcode]`:
 
