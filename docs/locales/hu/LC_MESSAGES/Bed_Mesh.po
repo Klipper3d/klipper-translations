@@ -1017,16 +1017,6 @@ msgstr ""
 "egyébként manuális* *Alapértelmezett adaptív: 0* *Alapértelmezett adaptív "
 "margó: 0*"
 
-#: docs/Bed_Mesh.md:block 77 (paragraph)
-msgid ""
-"The mesh will be saved into a profile specified by the `PROFILE` parameter, or"
-" `default` if unspecified. The `METHOD` parameter takes one of the following "
-"values:"
-msgstr ""
-"A háló a `PROFILE` paraméter által megadott profilba lesz mentve, vagy a "
-"`default`, ha nincs megadva. A `METHOD` paraméter a következő értékek egyikét "
-"veszi fel:"
-
 #: docs/Bed_Mesh.md:block 78 (unordered list)
 msgid ""
 "`METHOD=manual`: enables manual probing using the nozzle and the paper test"
@@ -1431,6 +1421,29 @@ msgstr ""
 "[Z_ENDSTOP_CALIBRATE](./Manual_Level.md#calibrating-a-z-endstop) papírpróbát "
 "végzik. A bed_mesh modul biztosítja a `zero_reference_position` opciót e "
 "koordináta megadásához:"
+
+#: docs/Bed_Mesh.md:block 77 (paragraph)
+msgid ""
+"The mesh will be immediately ready to use when the command completes and saved"
+" into a profile specified by the `PROFILE` parameter, or `default` if "
+"unspecified. The `METHOD` parameter takes one of the following values:"
+msgstr ""
+
+#: docs/Bed_Mesh.md:block 92 (paragraph)
+msgid ""
+"Note that this is not required if a new mesh is generated with "
+"`BED_MESH_CALIBRATE` in the `START_PRINT` macro or the slicer's \"Start "
+"G-Code\" and may produce unexpected results, especially with adaptive meshing."
+msgstr ""
+
+#~ msgid ""
+#~ "The mesh will be saved into a profile specified by the `PROFILE` parameter, or"
+#~ " `default` if unspecified. The `METHOD` parameter takes one of the following "
+#~ "values:"
+#~ msgstr ""
+#~ "A háló a `PROFILE` paraméter által megadott profilba lesz mentve, vagy a "
+#~ "`default`, ha nincs megadva. A `METHOD` paraméter a következő értékek egyikét "
+#~ "veszi fel:"
 
 #~ msgid ""
 #~ "// bed_mesh: generated points\n"

@@ -542,10 +542,6 @@ msgstr ""
 msgid "[dual_carriage]"
 msgstr "[dual_carriage]"
 
-msgid ""
-"See [sample-idex.cfg](../config/sample-idex.cfg) for an example configuration."
-msgstr ""
-
 msgid "[extruder_stepper]"
 msgstr "[extruder_stepper]"
 
@@ -1691,25 +1687,6 @@ msgstr ""
 msgid "[axis_twist_compensation]"
 msgstr "[axis_twist_compensation]"
 
-#: docs/Config_Reference.md:block 212 (paragraph)
-msgid ""
-"Support for cartesian and hybrid_corexy/z printers with dual carriages on a "
-"single axis. The carriage mode can be set via the SET_DUAL_CARRIAGE extended "
-"g-code command. For example, \"SET_DUAL_CARRIAGE CARRIAGE=1\" command will "
-"activate the carriage defined in this section (CARRIAGE=0 will return "
-"activation to the primary carriage). Dual carriage support is typically "
-"combined with extra extruders - the SET_DUAL_CARRIAGE command is often called "
-"at the same time as the ACTIVATE_EXTRUDER command. Be sure to park the "
-"carriages during deactivation. Note that during G28 homing, typically the "
-"primary carriage is homed first followed by the carriage defined in the "
-"`[dual_carriage]` config section. However, the `[dual_carriage]` carriage will"
-" be homed first if both carriages home in a positive direction and the "
-"[dual_carriage] carriage has a `position_endstop` greater than the primary "
-"carriage, or if both carriages home in a negative direction and the "
-"`[dual_carriage]` carriage has a `position_endstop` less than the primary "
-"carriage."
-msgstr ""
-
 #: docs/Config_Reference.md:block 213 (paragraph)
 msgid ""
 "Additionally, one could use \"SET_DUAL_CARRIAGE CARRIAGE=1 MODE=COPY\" or "
@@ -1994,6 +1971,204 @@ msgid ""
 "start print on the Palette 2 and unpausing in Octoprint for your print to "
 "begin."
 msgstr ""
+
+#: docs/Config_Reference.md:block 69 (header)
+msgid "Generic Cartesian Kinematics"
+msgstr ""
+
+#: docs/Config_Reference.md:block 70 (paragraph)
+msgid ""
+"See [example-generic-cartesian.cfg](../config/example-generic-caretesian.cfg) "
+"for an example generic Cartesian kinematics config file."
+msgstr ""
+
+#: docs/Config_Reference.md:block 71 (paragraph)
+msgid ""
+"This printer kinematic class allows a user to define in a pretty flexible "
+"manner an arbitrary Cartesian-style kinematics. In principle, the regular "
+"cartesian, corexy, hybrid_corexy can be defined this way too. However, more "
+"importantly, various otherwise unsupported kinematics such as inverted "
+"hybrid_corexy or corexyuv can be defined using this kinematic."
+msgstr ""
+
+#: docs/Config_Reference.md:block 72 (paragraph)
+msgid ""
+"Notably, the definition of a generic Cartesian kinematic deviates "
+"significantly from the other kinematic types. It follows the following "
+"convention: a user defines a set of carriages with certain range of motion "
+"that can move independently from each other (they should move over the "
+"Cartesian axes X, Y, and Z, hence the name of the kinematic) and corresponding"
+" endstops that allow the firmware to determine the position of carriages "
+"during homing, as well as a set of steppers that move those carriages. The "
+"`[printer]` section must specify the kinematic and other printer-level "
+"settings same as the regular Cartesian kinematic:"
+msgstr ""
+
+#: docs/Config_Reference.md:block 74 (paragraph)
+msgid ""
+"Then a user must define the following three carriages: `[carriage x]`, "
+"`[carriage y]`, and `[carriage z]`, e.g."
+msgstr ""
+
+#: docs/Config_Reference.md:block 76 (paragraph)
+msgid ""
+"Afterwards, a user specifies the stepper motors that move these carriages, for"
+" instance"
+msgstr ""
+
+#: docs/Config_Reference.md:block 78 (paragraph)
+msgid ""
+"See [stepper](#stepper) section for more information on the regular stepper "
+"parameters. The `carriages` parameter defines how the stepper affects the "
+"motion of the carriages. For example, `x+y` indicates that the motion of the "
+"stepper in the positive direction by the distance `d` moves the carriages `x` "
+"and `y` by the same distance `d` in the positive direction, while `x-0.5*y` "
+"means the motion of the stepper in the positive direction by the distance `d` "
+"moves the carriage `x` by the distance `d` in the positive direction, but the "
+"carriage `y` will travel distance `d/2` in the negative direction."
+msgstr ""
+
+#: docs/Config_Reference.md:block 79 (paragraph)
+msgid ""
+"More than a single stepper motor can be defined to drive the same axis or "
+"belt. For example, on a CoreXY AWD setups two motors driving the same belt can"
+" be defined as"
+msgstr ""
+
+#: docs/Config_Reference.md:block 81 (paragraph)
+msgid ""
+"with `a0` and `a1` steppers having their own control pins, but sharing the "
+"same `carriages` and corresponding endstops."
+msgstr ""
+
+#: docs/Config_Reference.md:block 82 (paragraph)
+msgid ""
+"There are situations when a user wants to have more than one endstop per axis."
+" Examples of such configurations include Y axis driven by two independent "
+"stepper motors with belts attached to both ends of the X beam, with "
+"effectively two carriages on Y axis each having an independent endstop, and "
+"multi-stepper Z axis with each stepper having its own endstop (not to be "
+"confused with the configurations with multiple Z motors but only a single "
+"endstop). These configurations can be declared by specifying additional "
+"carriage(s) with their endstops:"
+msgstr ""
+
+#: docs/Config_Reference.md:block 84 (paragraph)
+msgid "and the corresponding stepper motors, for example:"
+msgstr ""
+
+#: docs/Config_Reference.md:block 86 (paragraph)
+msgid ""
+"Notably, an `[extra_carriage]` does not define parameters such as "
+"`position_min`, `position_max`, and `position_endstop`, but instead inherits "
+"them from the specified `primary_carriage`, thus sharing the same range of "
+"motion with the primary carriage."
+msgstr ""
+
+#: docs/Config_Reference.md:block 87 (paragraph)
+msgid ""
+"For the references on how to configure IDEX setups, see the [dual "
+"carriage](#dual-carriage) section."
+msgstr ""
+
+#: docs/Config_Reference.md:block 240 (paragraph)
+msgid ""
+"Support for cartesian, generic_cartesian and hybrid_corexy/z printers with "
+"dual carriages on a single axis. The carriage mode can be set via the "
+"SET_DUAL_CARRIAGE extended g-code command. For example, \"SET_DUAL_CARRIAGE "
+"CARRIAGE=1\" command will activate the carriage defined in this section "
+"(CARRIAGE=0 will return activation to the primary carriage). Dual carriage "
+"support is typically combined with extra extruders - the SET_DUAL_CARRIAGE "
+"command is often called at the same time as the ACTIVATE_EXTRUDER command. Be "
+"sure to park the carriages during deactivation. Note that during G28 homing, "
+"typically the primary carriage is homed first followed by the carriage defined"
+" in the `[dual_carriage]` config section. However, the `[dual_carriage]` "
+"carriage will be homed first if both carriages home in a positive direction "
+"and the [dual_carriage] carriage has a `position_endstop` greater than the "
+"primary carriage, or if both carriages home in a negative direction and the "
+"`[dual_carriage]` carriage has a `position_endstop` less than the primary "
+"carriage."
+msgstr ""
+
+#: docs/Config_Reference.md:block 242 (paragraph)
+msgid ""
+"See [sample-idex.cfg](../config/sample-idex.cfg) for an example configuration "
+"with a regular Cartesian kinematic."
+msgstr ""
+
+#: docs/Config_Reference.md:block 244 (paragraph)
+msgid ""
+"For an example of dual carriage configuration with `generic_cartesian` "
+"kinematic, see the following configuration [sample](../config/example-generic-"
+"caretesian.cfg). Please note that in this case the `[dual_carriage]` "
+"configuration deviates from the configuration described above:"
+msgstr ""
+
+#: docs/Config_Reference.md:block 246 (paragraph)
+msgid ""
+"Refer to [generic cartesian](#generic-cartesian) section for more information "
+"on the regular `carriage` parameters."
+msgstr ""
+
+#: docs/Config_Reference.md:block 247 (paragraph)
+msgid ""
+"Then a user must define one or more stepper motors moving the dual carriage "
+"(and other carriages as appropriate), for instance"
+msgstr ""
+
+#: docs/Config_Reference.md:block 249 (paragraph)
+msgid ""
+"`[dual_carriage]` requires special configuration for the input shaper. In "
+"general, it is necessary to run input shaper calibration twice - for the "
+"`dual_carriage` and its `primary_carriage` for the axis they share. Then the "
+"input shaper can be configured as follows, assuming the example above:"
+msgstr ""
+
+#: docs/Config_Reference.md:block 251 (paragraph)
+msgid ""
+"Note that `SHAPER_TYPE_Y` and `SHAPER_FREQ_Y` must be the same in both "
+"commands in this case, since the same motors drive Y axis when either of the "
+"`x` and `u` carriages are active."
+msgstr ""
+
+#: docs/Config_Reference.md:block 252 (paragraph)
+msgid ""
+"It is worth noting that `generic_cartesian` kinematic can support two dual "
+"carriages for X and Y axes. For reference, see for instance a "
+"[sample](../config/sample-corexyuv.cfg) of CoreXYUV configuration."
+msgstr ""
+
+#: docs/Config_Reference.md:block 486 (header)
+msgid "[load_cell_probe]"
+msgstr ""
+
+#: docs/Config_Reference.md:block 487 (paragraph)
+msgid ""
+"Load Cell Probe. This combines the functionality of a [probe] and a "
+"[load_cell]."
+msgstr ""
+
+#~ msgid ""
+#~ "See [sample-idex.cfg](../config/sample-idex.cfg) for an example configuration."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Support for cartesian and hybrid_corexy/z printers with dual carriages on a "
+#~ "single axis. The carriage mode can be set via the SET_DUAL_CARRIAGE extended "
+#~ "g-code command. For example, \"SET_DUAL_CARRIAGE CARRIAGE=1\" command will "
+#~ "activate the carriage defined in this section (CARRIAGE=0 will return "
+#~ "activation to the primary carriage). Dual carriage support is typically "
+#~ "combined with extra extruders - the SET_DUAL_CARRIAGE command is often called "
+#~ "at the same time as the ACTIVATE_EXTRUDER command. Be sure to park the "
+#~ "carriages during deactivation. Note that during G28 homing, typically the "
+#~ "primary carriage is homed first followed by the carriage defined in the "
+#~ "`[dual_carriage]` config section. However, the `[dual_carriage]` carriage will"
+#~ " be homed first if both carriages home in a positive direction and the "
+#~ "[dual_carriage] carriage has a `position_endstop` greater than the primary "
+#~ "carriage, or if both carriages home in a negative direction and the "
+#~ "`[dual_carriage]` carriage has a `position_endstop` less than the primary "
+#~ "carriage."
+#~ msgstr ""
 
 #, fuzzy
 #~ msgid ""

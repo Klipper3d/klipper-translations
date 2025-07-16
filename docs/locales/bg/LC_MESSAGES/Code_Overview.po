@@ -777,6 +777,15 @@ msgid ""
 " the start of development one can use boiler-plate code here."
 msgstr ""
 
+#: docs/Code_Overview.md:block 30 (unordered list)
+msgid ""
+"Do not store a reference to the `config` object in a class member variable "
+"(nor in any similar location that may persist past initial module loading). "
+"The `config` object is a reference to a \"config loading phase\" class and it "
+"is not valid to invoke its methods after the \"config loading phase\" has "
+"completed."
+msgstr ""
+
 #~ msgid ""
 #~ "Other methods. Implement the `check_move()`, `get_status()`, `get_steppers()`,"
 #~ " `home()`, and `set_position()` methods. These functions are typically used to"
