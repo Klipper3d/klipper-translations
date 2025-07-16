@@ -2,18 +2,19 @@
 # badpoi <a1635835119@gmail.com>, 2021, 2025.
 # "Neko.vecter" <Vecterfang@icloud.com>, 2023, 2024, 2025.
 # Petal <Petalzu@outlook.com>, 2023, 2025.
+# Temparo <temperacket@outlook.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-05-03 07:22+0000\n"
-"Last-Translator: \"Neko.vecter\" <Vecterfang@icloud.com>\n"
+"PO-Revision-Date: 2025-07-22 08:07+0000\n"
+"Last-Translator: Temparo <temperacket@outlook.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/klipper/config_checks/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.12-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 msgid ""
 "This document provides a list of steps to help confirm the pin settings in the"
@@ -33,8 +34,8 @@ msgid ""
 "loaded."
 msgstr ""
 "在执行此指南的过程中，可能需要修改 Klipper 的配置文件。"
-"请务必在每次修改配置文件后发送 RESTART 命令，以确保修改成功生效（在 "
-"Octoprint 终端标签中输入 \"RESTART\"（重启），然后点击 \"Send\"（发送））。"
+"请务必在每次修改配置文件后发送 RESTART（重启） 命令，以确保修改成功生效（在 "
+"Octoprint 终端页面中输入 \"RESTART\"（重启），然后点击 \"Send\"（发送））。"
 "在每次重启之后最好再发出一次 STATUS "
 "（状态）命令，以验证配置文件是否成功加载。"
 
