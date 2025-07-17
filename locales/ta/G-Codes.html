@@ -2028,6 +2028,26 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#generic_cartesian" class="md-nav__link">
+    [generic_cartesian]
+  </a>
+  
+    <nav class="md-nav" aria-label="[generic_cartesian]">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#set_stepper_carriages" class="md-nav__link">
+    SET_STEPPER_CARRIAGES
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#hall_filament_width_sensor" class="md-nav__link">
     [hall_filament_width_sensor]
   </a>
@@ -2221,6 +2241,27 @@
           <li class="md-nav__item">
   <a href="#load_cell_read-load_cellname" class="md-nav__link">
     LOAD_CELL_READ load_cell="name"
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load_cell_probe" class="md-nav__link">
+    [load_cell_probe]
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load_cell_test_tap" class="md-nav__link">
+    LOAD_CELL_TEST_TAP
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#load-cell-command-extensions" class="md-nav__link">
+    Load Cell Command Extensions
   </a>
   
 </li>
@@ -3154,7 +3195,7 @@ section</a> is enabled.</p>
 <h3 id="bed_mesh">[BED_MESH]<a class="headerlink" href="#bed_mesh" title="Permanent link">&para;</a></h3>
 <p>[BED_MESH கட்டமைப்பு பிரிவு] (config_reference.md#bed_mesh) இயக்கப்பட்டால் பின்வரும் கட்டளைகள் கிடைக்கும் ([படுக்கை கண்ணி வழிகாட்டி] (Bed_mesh.md) ஐயும் பார்க்கவும்).</p>
 <h4 id="bed_mesh_calibrate">Bed_mesh_calibrate<a class="headerlink" href="#bed_mesh_calibrate" title="Permanent link">&para;</a></h4>
-<p><code>Bed_mesh_calibrate [சுயவிவரம் = &lt;பெயர்&gt;] [முறை = கையேடு] [கிடைமட்ட_மோவ்_செச் = &lt;மதிப்பு&gt;] [&lt;probe_parameter&gt; = &lt;மதிப்பு&gt;] [&lt;mesh_parameter&gt; = &lt;மதிப்பு&gt;] [தகவமைப்பு = 1] [தகவமைப்பு_மார்சின் = &lt;மதிப்பு&gt; ]</code>: இந்த கட்டளை கட்டமைப்பில் உள்ள அளவுருக்களால் குறிப்பிடப்பட்ட உருவாக்கப்பட்ட புள்ளிகளைப் பயன்படுத்தி படுக்கையை ஆராய்கிறது. ஆராய்ந்த பிறகு, ஒரு கண்ணி உருவாக்கப்பட்டு, கண்ணி படி z- இயக்கம் சரிசெய்யப்படுகிறது. குறிப்பிடப்படாவிட்டால் <code>சுயவிவரம்</code> அளவுருவால் குறிப்பிடப்பட்ட சுயவிவரத்தில் கண்ணி சேமிக்கப்படும். விருப்ப ஆய்வு அளவுருக்கள் குறித்த விவரங்களுக்கு ஆய்வு கட்டளையைப் பார்க்கவும். முறை = கையேடு குறிப்பிடப்பட்டால், கையேடு ஆய்வு கருவி செயல்படுத்தப்படுகிறது - இந்த கருவி செயலில் இருக்கும்போது கிடைக்கும் கூடுதல் கட்டளைகள் குறித்த விவரங்களுக்கு மேலே உள்ள கையேடு_பிரோப் கட்டளையைப் பார்க்கவும். விருப்பமான <code>கிடைமட்ட_மோவ்_செச்</code> மதிப்பு கட்டமைப்பு கோப்பில் குறிப்பிடப்பட்டுள்ள<code>கிடைமட்ட_மோவ்_செச்</code> விருப்பத்தை மீறுகிறது. தகவமைப்பு = 1 குறிப்பிடப்பட்டால், அச்சிடப்பட்ட GCODE கோப்பால் வரையறுக்கப்பட்ட பொருள்கள் ஆய்வு செய்யப்பட்ட பகுதியை வரையறுக்க பயன்படுத்தப்படும். விருப்ப <code>அடாப்டிவ்_மார்சின்</code> மதிப்பு கட்டமைப்பு கோப்பில் குறிப்பிடப்பட்டுள்ள<code>அடாப்டிவ்_மார்சின்</code> விருப்பத்தை மீறுகிறது.</p>
+<p><code>BED_MESH_CALIBRATE [PROFILE=&lt;name&gt;] [METHOD=manual] [HORIZONTAL_MOVE_Z=&lt;value&gt;] [&lt;probe_parameter&gt;=&lt;value&gt;] [&lt;mesh_parameter&gt;=&lt;value&gt;] [ADAPTIVE=1] [ADAPTIVE_MARGIN=&lt;value&gt;]</code>: This command probes the bed using generated points specified by the parameters in the config. After probing, a mesh is generated and z-movement is adjusted according to the mesh. The mesh is immediately active after successful completion of <code>BED_MESH_CALIBRATE</code>. The mesh will be saved into a profile specified by the <code>PROFILE</code> parameter, or <code>default</code> if unspecified. If ADAPTIVE=1 is specified then the profile name will begin with <code>adaptive-</code> and should not be saved for reuse. See the PROBE command for details on the optional probe parameters. If METHOD=manual is specified then the manual probing tool is activated - see the MANUAL_PROBE command above for details on the additional commands available while this tool is active. The optional <code>HORIZONTAL_MOVE_Z</code> value overrides the <code>horizontal_move_z</code> option specified in the config file. If ADAPTIVE=1 is specified then the objects defined by the Gcode file being printed will be used to define the probed area. The optional <code>ADAPTIVE_MARGIN</code> value overrides the <code>adaptive_margin</code> option specified in the config file.</p>
 <h4 id="bed_mesh_output">Bed_mesh_output<a class="headerlink" href="#bed_mesh_output" title="Permanent link">&para;</a></h4>
 <p><code>BED_MESH_OUTPUT PGP = [&lt;0: 1&gt;]</code>: இந்த கட்டளை தற்போதைய ஆய்வு செய்யப்பட்ட சட் மதிப்புகள் மற்றும் தற்போதைய கண்ணி மதிப்புகளை முனையத்திற்கு வெளியிடுகிறது. PGP = 1 ஃச் ஐக் குறிப்பிடினால், BED_MESH ஆல் உருவாக்கப்படும் ஒய் ஆயத்தொகுப்புகள், அவற்றுடன் தொடர்புடைய குறியீடுகளுடன், முனையத்திற்கு வெளியீடாக இருக்கும்.</p>
 <h4 id="bed_mesh_map">Bed_mesh_map<a class="headerlink" href="#bed_mesh_map" title="Permanent link">&para;</a></h4>
@@ -3210,7 +3251,7 @@ section</a> is enabled.</p>
 <h3 id="dual_carriage">[dual_carriage]<a class="headerlink" href="#dual_carriage" title="Permanent link">&para;</a></h3>
 <p>[Buyal_carriage கட்டமைப்பு பிரிவு] (config_reference.md#dual_carriage) இயக்கப்பட்டால் பின்வரும் கட்டளை கிடைக்கும்.</p>
 <h4 id="set_dual_carriage">Set_dual_carriage<a class="headerlink" href="#set_dual_carriage" title="Permanent link">&para;</a></h4>
-<p><code>Set_dual_carriage வண்டி = [0 | 1] [பயன்முறை = [முதன்மை | நகல் | கண்ணாடி]]</code>: இந்த கட்டளை குறிப்பிட்ட வண்டியின் பயன்முறையை மாற்றும். <code>பயன்முறை</code> வழங்கப்படாவிட்டால், அது<code>முதன்மை</code> இயல்புநிலையாகும். பயன்முறையை <code>முதன்மை</code> அமைப்பது மற்ற வண்டியை செயலிழக்கச் செய்கிறது மற்றும் குறிப்பிட்ட வண்டியை அடுத்தடுத்த சி-குறியீட்டு கட்டளைகளை இயக்குகிறது. <code>நகல்</code> மற்றும்<code>மிரர்</code> முறைகள் <code>வண்டி = 1</code> க்கு மட்டுமே ஆதரிக்கப்படுகின்றன. இந்த முறைகளில் ஏதேனும் அமைக்கப்படும்போது, வண்டி 1 பின்னர் வண்டி 0 இன் அடுத்தடுத்த நகர்வுகளைக் கண்காணிக்கும் மற்றும் அதன் தொடர்புடைய இயக்கங்களை (<code>நகல்</code> பயன்முறையில்) நகலெடுக்கும் அல்லது அவற்றை எதிர் (கண்ணாடி) திசையில் (<code>மிரர்</code> பயன்முறையில் இயக்கும் ).</p>
+<p><code>SET_DUAL_CARRIAGE CARRIAGE=&lt;carriage&gt; [MODE=[PRIMARY|COPY|MIRROR]]</code>: This command will change the mode of the specified carriage. If no <code>MODE</code> is provided it defaults to <code>PRIMARY</code>. <code>&lt;carriage&gt;</code> must reference a defined primary or dual carriage for <code>generic_cartesian</code> kinematics or be 0 (for primary carriage) or 1 (for dual carriage) for all other kinematics supporting IDEX. Setting the mode to <code>PRIMARY</code> deactivates the other carriage and makes the specified carriage execute subsequent G-Code commands as-is. <code>COPY</code> and <code>MIRROR</code> modes are supported only for dual carriages. When set to either of these modes, dual carriage will then track the subsequent moves of its primary carriage and either copy relative movements of it (in <code>COPY</code> mode) or execute them in the opposite (mirror) direction (in <code>MIRROR</code> mode).</p>
 <h4 id="save_dual_carriage_state">Save_dual_carriage_state<a class="headerlink" href="#save_dual_carriage_state" title="Permanent link">&para;</a></h4>
 <p><code>Save_dual_carriage_state [பெயர் = &lt;state_name&gt;]</code>: இரட்டை வண்டிகளின் தற்போதைய நிலைகளையும் அவற்றின் முறைகளையும் சேமிக்கவும். டூயல்_ காரேச் நிலையைச் சேமிப்பது மற்றும் மீட்டமைப்பது ச்கிரிப்ட்கள் மற்றும் மேக்ரோக்களிலும், அதே போல் வழக்கமான மீறல் ஆகியவற்றிலும் பயனுள்ளதாக இருக்கும். பெயர் வழங்கப்பட்டால், சேமித்த நிலையை கொடுக்கப்பட்ட சரத்திற்கு பெயரிட ஒருவர் அனுமதிக்கிறது. பெயர் வழங்கப்படாவிட்டால் அது "இயல்புநிலை" க்கு இயல்புநிலையாகும்.</p>
 <h4 id="restore_dual_carriage_state">Restore_dual_carriage_state<a class="headerlink" href="#restore_dual_carriage_state" title="Permanent link">&para;</a></h4>
@@ -3313,6 +3354,13 @@ section</a> is enabled.</p>
 <p><code>Save_gcode_state [பெயர் = &lt;state_name&gt;]</code>: தற்போதைய சி-குறியீடு ஒருங்கிணைப்பு பாகுபடுத்தும் நிலையைச் சேமிக்கவும். சி-கோட் நிலையைச் சேமிப்பது மற்றும் மீட்டமைப்பது ச்கிரிப்டுகள் மற்றும் மேக்ரோக்களில் பயனுள்ளதாக இருக்கும். இந்த கட்டளை தற்போதைய சி-குறியீடு முழுமையான ஒருங்கிணைப்பு பயன்முறை (G90/G91), முழுமையான எக்ச்ட்ரூட் பயன்முறை (M82/M83), தோற்றம் (G92), ஆஃப்செட் (SET_GCODE_OFFSET), விரைவு மேலெழுதல் (M220), எக்ச்ட்ரூடர் ஓவர்ரைடு (M221), நகரும் வேகத்தை சேமிக்கிறது , தற்போதைய XYZ நிலை, மற்றும் உறவினர் எக்ச்ட்ரூடர் "இ" நிலை. பெயர் வழங்கப்பட்டால், சேமித்த நிலையை கொடுக்கப்பட்ட சரத்திற்கு பெயரிட ஒருவர் அனுமதிக்கிறது. பெயர் வழங்கப்படாவிட்டால் அது "இயல்புநிலை" க்கு இயல்புநிலையாகும்.</p>
 <h4 id="restore_gcode_state">Restore_gcode_state<a class="headerlink" href="#restore_gcode_state" title="Permanent link">&para;</a></h4>
 <p><code>Restore_gcode_state [name = &lt;state_name&gt;] [move = 1 [move_speed = &lt;weotive&gt;]]</code>: முன்னர் சேமிக்கப்பட்ட நிலையை Save_gcode_state வழியாக மீட்டெடுக்கவும். "நகர்வு = 1" குறிப்பிடப்பட்டால், முந்தைய XYZ நிலைக்கு திரும்புவதற்கு ஒரு கருவி நகர்வு வழங்கப்படும். "MOVE_SPEED" குறிப்பிடப்பட்டால், கருவிஎட் நகர்வு கொடுக்கப்பட்ட வேகத்துடன் (மிமீ/வி இல்) செய்யப்படும்; இல்லையெனில் கருவிஎட் நகர்வு மீட்டெடுக்கப்பட்ட சி-குறியீடு வேகத்தைப் பயன்படுத்தும்.</p>
+<h3 id="generic_cartesian">[generic_cartesian]<a class="headerlink" href="#generic_cartesian" title="Permanent link">&para;</a></h3>
+<p>The commands in this section become automatically available when <code>kinematics: generic_cartesian</code> is specified as the printer kinematics.</p>
+<h4 id="set_stepper_carriages">SET_STEPPER_CARRIAGES<a class="headerlink" href="#set_stepper_carriages" title="Permanent link">&para;</a></h4>
+<p><code>SET_STEPPER_CARRIAGES STEPPER=&lt;stepper_name&gt; CARRIAGES=&lt;carriages&gt; [DISABLE_CHECKS=[0|1]]</code>: Set or update the stepper carriages. <code>&lt;stepper_name&gt;</code> must reference an existing stepper defined in <code>printer.cfg</code>, and <code>&lt;carriages&gt;</code> describes the carriages the stepper moves. See <a href="Config_Reference.html#generic-cartesian-kinematics">Generic Cartesian Kinematics</a> for a more detailed overview of the <code>carriages</code> parameter in the stepper configuration section. Note that it is only possible to change the coefficients or signs of the carriages with this command, but a user cannot add or remove the carriages that the stepper controls.</p>
+<p><code>SET_STEPPER_CARRIAGES</code> is an advanced tool, and the user is advised to exercise an extreme caution using it, since specifying incorrect configuration may physically damage the printer.</p>
+<p>Note that <code>SET_STEPPER_CARRIAGES</code> performs certain internal validations of the new printer kinematics after the change. Keep in mind that if it detects an issue, it may leave printer kinematics in an invalid state. This means that if <code>SET_STEPPER_CARRIAGES</code> reports an error, it is unsafe to issue other GCode commands, and the user must inspect the error message and either fix the problem, or manually restore the previous stepper(s) configuration.</p>
+<p>Since <code>SET_STEPPER_CARRIAGES</code> can update a configuration of a single stepper at a time, some sequences of changes can lead to invalid intermediate kinematic configurations, even if the final configuration is valid. In such cases a user can pass <code>DISABLE_CHECKS=1</code> parameters to all but the last command to disable intermediate checks. For example, if <code>stepper a</code> and <code>stepper b</code> initially have <code>x-y</code> and <code>x+y</code> carriages correspondingly, then the following sequence of commands will let a user effectively swap the carriage controls: <code>SET_STEPPER_CARRIAGES STEPPER=a CARRIAGES=x+y DISABLE_CHECKS=1</code> and <code>SET_STEPPER_CARRIAGES STEPPER=b CARRIAGES=x-y</code>, while still validating the final kinematics state.</p>
 <h3 id="hall_filament_width_sensor">[hall_filament_width_sensor]<a class="headerlink" href="#hall_filament_width_sensor" title="Permanent link">&para;</a></h3>
 <p>[TSL1401CL FILECT WIDTH உணரி கட்டமைப்பு பிரிவு] (config_reference.md#tsl1401cl_filament_width_sensor) அல்லது [ஆல் ஃபிலேமென்ட் அகல சென்சார் கட்டமைப்பு பிரிவு] (config_reference.md#hall_filament_width_salthalthalth) போது பின்வரும் கட்டளைகள் கிடைக்கின்றன. TSL1401CL_FILAMENT_WIDTH_SENSOR.MD) மற்றும் [ஆல் ஃபிலிமென்ட் அகல சென்சார்] (ஆல்_பிலமென்ட்_விட்_சென்சர்.மிடி)):</p>
 <h4 id="query_filament_width">Query_filament_width<a class="headerlink" href="#query_filament_width" title="Permanent link">&para;</a></h4>
@@ -3364,9 +3412,30 @@ section</a> is enabled.</p>
 </ol>
 <p>You can cancel the calibration process at any time with <code>ABORT</code>.</p>
 <h3 id="load_cell_tare">LOAD_CELL_TARE<a class="headerlink" href="#load_cell_tare" title="Permanent link">&para;</a></h3>
-<p><code>LOAD_CELL_TARE [LOAD_CELL=&lt;config_name&gt;]</code>: This works just like the tare button on digital scale. It sets the current raw reading of the load cell to be the zero point reference value. The response is the percentage of the sensors range that was read and the raw value in counts.</p>
+<p><code>LOAD_CELL_TARE [LOAD_CELL=&lt;config_name&gt;]</code>: This works just like the tare button on digital scale. It sets the current raw reading of the load cell to be the zero point reference value. The response is the percentage of the sensors range that was read and the raw value in counts. If the load cell is calibrated a force in grams is also reported.</p>
 <h3 id="load_cell_read-load_cellname">LOAD_CELL_READ load_cell="name"<a class="headerlink" href="#load_cell_read-load_cellname" title="Permanent link">&para;</a></h3>
 <p><code>LOAD_CELL_READ [LOAD_CELL=&lt;config_name&gt;]</code>: This command takes a reading from the load cell. The response is the percentage of the sensors range that was read and the raw value in counts. If the load cell is calibrated a force in grams is also reported.</p>
+<h3 id="load_cell_probe">[load_cell_probe]<a class="headerlink" href="#load_cell_probe" title="Permanent link">&para;</a></h3>
+<p>The following commands are enabled if a <a href="Config_Reference.html#load_cell_probe">load_cell config section</a> has been enabled.</p>
+<h3 id="load_cell_test_tap">LOAD_CELL_TEST_TAP<a class="headerlink" href="#load_cell_test_tap" title="Permanent link">&para;</a></h3>
+<p><code>LOAD_CELL_TEST_TAP [TAPS=&lt;taps&gt;] [TIMEOUT=&lt;timeout&gt;]</code>: Run a testing routine that reports taps on the load cell. The toolhead will not move but the load cell probe will sense taps just as if it was probing. This can be used as a sanity check to make sure that the probe works. This tool replaces QUERY_ENDSTOPS and QUERY_PROBE for load cell probes.</p>
+<ul>
+<li><code>TAPS</code>: the number of taps the tool expects</li>
+<li><code>TIMEOOUT</code>: the time, in seconds, that the tool waits for each tab before aborting.</li>
+</ul>
+<h3 id="load-cell-command-extensions">Load Cell Command Extensions<a class="headerlink" href="#load-cell-command-extensions" title="Permanent link">&para;</a></h3>
+<p>Commands that perform probes, such as <a href="#probe"><code>PROBE</code></a>, <a href="#probe_accuracy"><code>PROBE_ACCURACY</code></a>, <a href="#bed_mesh_calibrate"><code>BED_MESH_CALIBRATE</code></a> etc. will accept additional parameters if a <code>[load_cell_probe]</code> is defined. The parameters override the corresponding settings from the <a href="Config_Reference.html#load_cell_probe"><code>[load_cell_probe]</code></a> configuration:</p>
+<ul>
+<li><code>FORCE_SAFETY_LIMIT=&lt;grams&gt;</code></li>
+<li><code>TRIGGER_FORCE=&lt;grams&gt;</code></li>
+<li><code>DRIFT_FILTER_CUTOFF_FREQUENCY=&lt;frequency_hz&gt;</code></li>
+<li><code>DRIFT_FILTER_DELAY=&lt;1|2&gt;</code></li>
+<li><code>BUZZ_FILTER_CUTOFF_FREQUENCY=&lt;frequency_hz&gt;</code></li>
+<li><code>BUZZ_FILTER_DELAY=&lt;1|2&gt;</code></li>
+<li><code>NOTCH_FILTER_FREQUENCIES=&lt;list of frequency_hz&gt;</code></li>
+<li><code>NOTCH_FILTER_QUALITY=&lt;quality&gt;</code></li>
+<li><code>TARE_TIME=&lt;seconds&gt;</code></li>
+</ul>
 <h3 id="__5">[கையேடு_ப்ரோப்]<a class="headerlink" href="#__5" title="Permanent link">&para;</a></h3>
 <p>கையேடு_பிரோப் தொகுதி தானாக ஏற்றப்படும்.</p>
 <h4 id="__6">கையேடு_ப்ரோப்<a class="headerlink" href="#__6" title="Permanent link">&para;</a></h4>
@@ -3384,6 +3453,7 @@ section</a> is enabled.</p>
 <p>[கையேடு_ச்டெப்பர் கட்டமைப்பு பிரிவு] (config_reference.md#manual_stepper) இயக்கப்பட்டால் பின்வரும் கட்டளை கிடைக்கும்.</p>
 <h4 id="__7">கையேடு_ச்டெப்பர்<a class="headerlink" href="#__7" title="Permanent link">&para;</a></h4>
 <p><code>Manual_stepper Stepper = config_name [enable = [0 | 1]] 1 | -2]]] [ஒத்திசைவு = 0]]</code>: இந்த கட்டளை ச்டெப்பரின் நிலையை மாற்றும். ச்டெப்பரை இயக்க/முடக்குவதற்கு இயக்க அளவுருவைப் பயன்படுத்தவும். STEPER கொடுக்கப்பட்ட நிலையில் இருப்பதாக நினைக்கும்படி கட்டாயப்படுத்த SET_POSITION அளவுருவைப் பயன்படுத்தவும். கொடுக்கப்பட்ட நிலைக்கு ஒரு இயக்கத்தைக் கோர நகர்வு அளவுருவைப் பயன்படுத்தவும். விரைவு மற்றும்/அல்லது முடி குறிப்பிடப்பட்டால், கட்டமைப்பு கோப்பில் குறிப்பிடப்பட்டுள்ள இயல்புநிலைகளுக்கு பதிலாக கொடுக்கப்பட்ட மதிப்புகள் பயன்படுத்தப்படும். பூச்சியத்தின் முடி குறிப்பிடப்பட்டால், முடுக்கம் எதுவும் செய்யப்படாது. STOP_ON_ENDSTOP = 1 குறிப்பிடப்பட்டால், எண்ட்ச்டாப் அறிக்கை தூண்டப்பட்டதாக இருக்க வேண்டும் (ச்டாப்_ஓஎன்_என்ச்டாப் = 2 ஐப் பயன்படுத்தவும், எண்ட்ச்டாப் தூண்டவில்லை என்றாலும், பிழையில்லாமல் நகர்வை முடிக்க, எண்ட்ச்டாப் அறிக்கைகள் இல்லாதபோது நிறுத்த -1 அல்லது -2 ஐப் பயன்படுத்தவும் தூண்டப்பட்டது). பொதுவாக எதிர்கால சி-கோட் கட்டளைகள் ச்டெப்பர் நகர்வு முடிந்ததும் இயங்க திட்டமிடப்படும், இருப்பினும் ஒரு கையேடு ச்டெப்பர் நகர்வு ஒத்திசைவு = 0 ஐப் பயன்படுத்தினால், எதிர்கால சி-கோட் இயக்கம் கட்டளைகள் ச்டெப்பர் இயக்கத்திற்கு இணையாக இயங்கக்கூடும்.</p>
+<p><code>MANUAL_STEPPER STEPPER=config_name GCODE_AXIS=[A-Z] [LIMIT_VELOCITY=&lt;velocity&gt;] [LIMIT_ACCEL=&lt;accel&gt;] [INSTANTANEOUS_CORNER_VELOCITY=&lt;velocity&gt;]</code>: If the <code>GCODE_AXIS</code> parameter is specified then it configures the stepper motor as an extra axis on <code>G1</code> move commands. For example, if one were to issue a <code>MANUAL_STEPPER ... GCODE_AXIS=R</code> command then one could issue commands like <code>G1 X10 Y20 R30</code> to move the stepper motor. The resulting moves will occur synchronously with the associated toolhead xyz movements. If the motor is associated with a <code>GCODE_AXIS</code> then one may no longer issue movements using the above <code>MANUAL_STEPPER</code> command - one may unregister the stepper with a <code>MANUAL_STEPPER ... GCODE_AXIS=</code> command to resume manual control of the motor. The <code>LIMIT_VELOCITY</code> and <code>LIMIT_ACCEL</code> parameters allow one to reduce the speed of <code>G1</code> moves if those moves would result in a velocity or acceleration above the specified limits. The <code>INSTANTANEOUS_CORNER_VELOCITY</code> specifies the maximum instantaneous velocity change (in mm/s) of the motor during the junction of two moves (the default is 1mm/s).</p>
 <h3 id="mcp4018">[mcp4018]<a class="headerlink" href="#mcp4018" title="Permanent link">&para;</a></h3>
 <p>ஒரு [MCP4018 கட்டமைப்பு பிரிவு] (config_reference.md#mcp4018) இயக்கப்பட்டால் பின்வரும் கட்டளை கிடைக்கும்.</p>
 <h4 id="set_digipot">Set_digipot<a class="headerlink" href="#set_digipot" title="Permanent link">&para;</a></h4>

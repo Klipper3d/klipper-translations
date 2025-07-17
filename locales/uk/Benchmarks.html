@@ -1427,6 +1427,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#stm32g4-step-rate-benchmark" class="md-nav__link">
+    STM32G4 step rate benchmark
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#lpc176x" class="md-nav__link">
     LPC176x покрокова оцінка
   </a>
@@ -1851,6 +1858,34 @@ JavaScript licenses API Веб-сайт Go1.13.8
 </tr>
 </tbody>
 </table>
+<h3 id="stm32g4-step-rate-benchmark">STM32G4 step rate benchmark<a class="headerlink" href="#stm32g4-step-rate-benchmark" title="Permanent link">&para;</a></h3>
+<p>The following configuration sequence is used on the STM32G431:</p>
+<div class="highlight"><pre><span></span><code>allocate_oids count=3
+config_stepper oid=0 step_pin=PA0 dir_pin=PB5 invert_step=-1 step_pulse_ticks=17
+config_stepper oid=1 step_pin=PB2 dir_pin=PB6 invert_step=-1 step_pulse_ticks=17
+config_stepper oid=2 step_pin=PB3 dir_pin=PB7 invert_step=-1 step_pulse_ticks=17
+finalize_config crc=0
+</code></pre></div>
+
+<p>The test was last run on commit <code>cfa48fe3</code> with gcc version <code>arm-none-eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0</code>.</p>
+<table>
+<thead>
+<tr>
+<th>stm32g431</th>
+<th>кліщі</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1 крок</td>
+<td>47</td>
+</tr>
+<tr>
+<td>3 крок</td>
+<td>208</td>
+</tr>
+</tbody>
+</table>
 <h3 id="lpc176x">LPC176x покрокова оцінка<a class="headerlink" href="#lpc176x" title="Permanent link">&para;</a></h3>
 <p>Далі конфігурація використовується на LPC176x:</p>
 <div class="highlight"><pre><span></span><code>сортувати_oids count=3
@@ -2063,7 +2098,7 @@ javascript licenses api веб-сайт go1.13.8
 </tr>
 </tbody>
 </table>
-<p>(*) Note that the reported rp2040 ticks are relative to a 12Mhz scheduling timer and do not correspond to its 200Mhz internal ARM processing rate. It is expected that 5 scheduling ticks corresponds to ~42 ARM core cycles and 14 scheduling ticks corresponds to ~225 ARM core cycles.</p>
+<p>(*) Note that the reported rp2040 ticks are relative to a 12Mhz scheduling timer and do not correspond to its 200Mhz internal ARM processing rate. It is expected that 3 scheduling ticks corresponds to ~42 ARM core cycles and 14 scheduling ticks corresponds to ~225 ARM core cycles.</p>
 <h3 id="linux-mcu">Linux MCU покрокова оцінка<a class="headerlink" href="#linux-mcu" title="Permanent link">&para;</a></h3>
 <p>Наступна послідовність конфігурації використовується на Raspberry Pi:</p>
 <div class="highlight"><pre><span></span><code>сортувати_oids count=3
@@ -2100,7 +2135,8 @@ FLOOD 100000 0.0 debug_nop
 </code></pre></div>
 
 <p>Коли тест завершується, визначте різницю між годинниками, які повідомляються в двох "часових" повідомленнях відповіді. Загальна кількість команд за секунду — <code>100000 * mcu_ Частота / годинник_diff</code>.</p>
-<p>Зауважте, що цей тест може наситити USB / CPU ємність Raspberry Pi. Якщо працює на Raspberry Pi, Beaglebone або аналогічний комп'ютер хосту, то збільшення затримки (наприклад, <code>DELAY {clock + 20*freq} get_uptime</code>). Де це можливо, бендикти нижче з консолі. py, що працює на машині настільного класу з пристроєм, підключеним через швидкісний вузол.</p>
+<p>The USB tests may exceed the CPU capacity of a Raspberry Pi. If running on a Raspberry Pi, Beaglebone, or similar host computer then increase the delay (eg, <code>DELAY {clock + 20*freq} get_uptime</code>). Where applicable, the benchmarks below are with console.py running on a desktop class machine with the device connected via a super-speed hub.</p>
+<p>The CAN bus tests may saturate the USB host controller of a Raspberry Pi (when testing via a standard gs_usb USB to CAN bus adapter). Where applicable, the CAN bus benchmarks below are with console.py running on a desktop class machine with a USB to CAN bus adapter connected via a super-speed USB hub.</p>
 <table>
 <thead>
 <tr>
@@ -2112,12 +2148,6 @@ FLOOD 100000 0.0 debug_nop
 </thead>
 <tbody>
 <tr>
-<td>стм32ф042 (CAN)</td>
-<td>18КХ</td>
-<td>c105adc8</td>
-<td>arm-on-eabi-gcc (GNU Tools 7-2018-q3-update) 7.3.1</td>
-</tr>
-<tr>
 <td>atmega2560 (серійне)</td>
 <td>23КХ</td>
 <td>б161а69e</td>
@@ -2128,6 +2158,12 @@ FLOOD 100000 0.0 debug_nop
 <td>23КХ</td>
 <td>б161а69e</td>
 <td>arm-on-eabi-gcc (Fedora 7.1.0-5.fc27) 7.1.0</td>
+</tr>
+<tr>
+<td>rp2350 (CAN)</td>
+<td>59K</td>
+<td>17b8ce4c</td>
+<td>arm-none-eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0</td>
 </tr>
 <tr>
 <td>в90усб1286 (USB)</td>

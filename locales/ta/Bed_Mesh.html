@@ -1801,7 +1801,7 @@
 <h3 id="_15">அளவுத்திருத்தம்<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
 <p><code>Bed_mesh_calibrate சுயவிவரம் = &lt;amane&gt; முறை = [கையேடு | தானியங்கி | ச்கேன் | rapid_scan] \ [&lt;probe_parameter&gt; = &lt;மதிப்பு&gt;] [&lt;mesh_parameter&gt; = &lt;மதிப்பு&gt;] [தகவமைப்பு = [0 | 1] \ [தகவமைப்பு_மார்சின் = &lt;மதிப்பு&gt;]</code> <em>இயல்புநிலை சுயவிவரம்: இயல்புநிலை * </em>இயல்புநிலை முறை: தானியங்கி என்றால் ஒரு ஆய்வு கண்டறியப்பட்டது, இல்லையெனில் கையேடு<strong> இயல்புநிலை தகவமைப்பு: 0</strong> இயல்புநிலை தகவமைப்பு விளிம்பு: 0*</p>
 <p>படுக்கை கண்ணி அளவுத்திருத்தத்திற்கான ஆய்வு நடைமுறையைத் தொடங்குகிறது.</p>
-<p>குறிப்பிடப்படாவிட்டால் <code>சுயவிவரம்</code> அளவுருவால் குறிப்பிடப்பட்ட சுயவிவரத்தில் கண்ணி சேமிக்கப்படும். <code>முறை</code> அளவுரு பின்வரும் மதிப்புகளில் ஒன்றை எடுக்கும்:</p>
+<p>The mesh will be immediately ready to use when the command completes and saved into a profile specified by the <code>PROFILE</code> parameter, or <code>default</code> if unspecified. The <code>METHOD</code> parameter takes one of the following values:</p>
 <ul>
 <li><code>முறை = கையேடு</code>: முனை மற்றும் காகித சோதனையைப் பயன்படுத்தி கையேடு ஆய்வை இயக்குகிறது</li>
 <li><code>முறை = தானியங்கி</code>: தானியங்கி (தரநிலை) ஆய்வு. இது இயல்புநிலை.</li>
@@ -1841,6 +1841,7 @@
 <p>சேமித்த வேறு எந்த சுயவிவரத்தையும் அதே பாணியில் அகற்றலாம், நீங்கள் அகற்ற விரும்பும் பெயரிடப்பட்ட சுயவிவரத்துடன் * இயல்புநிலை * ஐ மாற்றலாம்.</p>
 <h4 id="_17">இயல்புநிலை சுயவிவரத்தை ஏற்றுகிறது<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h4>
 <p><code>BED_MESH</code> இன் முந்தைய பதிப்புகள் தொடக்கத்தில் * இயல்புநிலை * என்ற சுயவிவரத்தை எப்போதும் ஏற்றின. ஒரு சுயவிவரம் ஏற்றப்படும் போது பயனரை தீர்மானிக்க அனுமதிப்பதற்கு ஆதரவாக இந்த நடத்தை அகற்றப்பட்டுள்ளது. ஒரு பயனர் <code>இயல்புநிலை</code> சுயவிவரத்தை ஏற்ற விரும்பினால்,<code>bed_mesh_profile load = இயல்புநிலை</code> அவற்றின் <code>start_print</code> மேக்ரோ அல்லது அவற்றின் ச்லைசரின்" தொடக்க சி-குறியீடு "உள்ளமைவுக்கு சேர்க்க பரிந்துரைக்கப்படுகிறது, எது பொருந்தினாலும்.</p>
+<p>Note that this is not required if a new mesh is generated with <code>BED_MESH_CALIBRATE</code> in the <code>START_PRINT</code> macro or the slicer's "Start G-Code" and may produce unexpected results, especially with adaptive meshing.</p>
 <p>மாற்றாக, தொடக்கத்தில் ஒரு சுயவிவரத்தை ஏற்றுவதற்கான பழைய நடத்தை <code>[தாமதமான_சி கோட்]</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="na">.</span>
 <span class="w"> </span><span class="na">ஆரம்ப_வாட்டு</span><span class="o">:</span><span class="w"> </span><span class="s">.01</span>

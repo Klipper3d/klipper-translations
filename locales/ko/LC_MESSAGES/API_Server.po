@@ -665,6 +665,32 @@ msgid ""
 "such as: `{\"params\":{\"data\":[[3292.432935, 40.65, 562534, -234467]]}}`"
 msgstr ""
 
+#: docs/API_Server.md:block 92 (header)
+msgid "load_cell_probe/dump_taps"
+msgstr ""
+
+#: docs/API_Server.md:block 93 (paragraph)
+msgid ""
+"This endpoint is used to subscribe to details of probing \"tap\" events. Using"
+" this endpoint may increase Klipper's system load."
+msgstr ""
+
+#: docs/API_Server.md:block 94 (paragraph)
+msgid ""
+"A request may look like: `{\"id\": 123, \"method\":\"load_cell/dump_force\", "
+"\"params\": {\"sensor\": \"load_cell\", \"response_template\": {}}}` and might"
+" return: `{\"id\": 123,\"result\":{\"header\":[\"probe_tap_event\"]}}` and "
+"might later produce asynchronous messages such as:"
+msgstr ""
+
+#: docs/API_Server.md:block 96 (paragraph)
+msgid "This data can be used to render:"
+msgstr ""
+
+#: docs/API_Server.md:block 97 (unordered list)
+msgid "The time/force graph"
+msgstr ""
+
 #~ msgid "hx71x/dump_hx71x"
 #~ msgstr ""
 

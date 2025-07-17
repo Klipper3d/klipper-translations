@@ -1801,7 +1801,7 @@
 <h3 id="_14">Калібрування<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
 <p><code>BED_MESH_CALIBRATE PROFILE=&lt;name&gt; METHOD=[посібник | автоматичний | скам | rapid_scan] \ [&lt;probe_parameter&gt;=&lt;value&gt;] [&lt;mesh_parameter&gt;=&lt;value&gt;] [ADAPTIVE=[0|1] \ [ADAPTIVE_MARGIN=&lt;value&gt;]</code> <em>Профіль за замовчуванням: за замовчуванням</em> <em>Методи за замовчуванням: автоматичний якщо виявлено зонд , інакше ручну</em>  <em>Адаптивний за замовчуванням: 0</em>  <em>Адаптивний поля за замовчуванням: 0</em></p>
 <p>Ініціює процедуру зондування для калібрування сітки ліжка.</p>
-<p>Сітка буде збережена в профілі, визначеному параметром <code>PROFILE</code>, або <code>default</code>, якщо не вказано. Параметр <code>METHOD</code> приймає одне з таких значень:</p>
+<p>The mesh will be immediately ready to use when the command completes and saved into a profile specified by the <code>PROFILE</code> parameter, or <code>default</code> if unspecified. The <code>METHOD</code> parameter takes one of the following values:</p>
 <ul>
 <li><code>METHOD=manual</code>: дозволяє ручне зондування за допомогою насадки та паперового тесту</li>
 <li><code>METHOD=automatic</code>: Автоматичне (стандартне) зондування. Це значення за умовчанням.</li>
@@ -1841,6 +1841,7 @@
 <p>Будь-який інший збережений профіль можна видалити таким же чином, замінивши <em>default</em> на названий профіль, який ви хочете видалити.</p>
 <h4 id="_16">Завантаження профілю за замовчуванням<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h4>
 <p>Попередні версії <code>bed_mesh</code> завжди завантажували профіль із назвою <em>default</em> під час запуску, якщо він був присутній. Цю поведінку було видалено, щоб користувач міг визначати, коли завантажується профіль. Якщо користувач бажає завантажити профіль <code>за замовчуванням</code>, рекомендується додати <code>BED_MESH_PROFILE LOAD=default</code> або до свого макросу <code>START_PRINT</code>, або до конфігурації «Почати G-код» слайсера, залежно від того, що застосовно.</p>
+<p>Note that this is not required if a new mesh is generated with <code>BED_MESH_CALIBRATE</code> in the <code>START_PRINT</code> macro or the slicer's "Start G-Code" and may produce unexpected results, especially with adaptive meshing.</p>
 <p>Крім того, стару поведінку завантаження профілю під час запуску можна відновити за допомогою <code>[delayed_gcode]</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="k">[delayed_gcode bed_mesh_init]</span>
 <span class="w"> </span><span class="na">початкова_тривалість</span><span class="o">:</span><span class="w"> </span><span class="s">.01</span>

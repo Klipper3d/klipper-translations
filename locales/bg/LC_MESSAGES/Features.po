@@ -521,6 +521,18 @@ msgstr ""
 msgid "8619K"
 msgstr ""
 
+#: docs/Features.md:block 10 (table)
+msgid "STM32G431"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "3617K"
+msgstr ""
+
+#: docs/Features.md:block 10 (table)
+msgid "2452K"
+msgstr ""
+
 #~ msgid ""
 #~ "Automatic bed leveling support. Klipper can be configured for basic bed tilt "
 #~ "detection or full mesh bed leveling. If the bed uses multiple Z steppers then "

@@ -1496,6 +1496,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#load_cell_probe" class="md-nav__link">
+    load_cell_probe
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#__1" class="md-nav__link">
     கையேடு_ப்ரோப்
   </a>
@@ -1880,6 +1887,14 @@
 <li>'min_force_g': The minimum force in grams, over the last polling period.</li>
 <li>'max_force_g': The maximum force in grams, over the last polling period.</li>
 </ul>
+<h2 id="load_cell_probe">load_cell_probe<a class="headerlink" href="#load_cell_probe" title="Permanent link">&para;</a></h2>
+<p>The following information is available for <code>[load_cell_probe]</code>:</p>
+<ul>
+<li>all items from <a href="Status_Reference.html#load_cell">load_cell</a></li>
+<li>all items from <a href="Status_Reference.html#probe">probe</a></li>
+<li>'endstop_tare_counts': the load cell probe keeps a tare value independent of the load cell. This re-set at the start of each probe.</li>
+<li>'last_trigger_time': timestamp of the last homing trigger</li>
+</ul>
 <h2 id="__1">கையேடு_ப்ரோப்<a class="headerlink" href="#__1" title="Permanent link">&para;</a></h2>
 <p>பின்வரும் தகவல்கள் <code>கையேடு_ப்ரோப்</code> பொருளில் கிடைக்கின்றன:</p>
 <ul>
@@ -2027,6 +2042,10 @@
 <ul>
 <li><code>வண்டி_0</code>: வண்டியின் பயன்முறை 0. சாத்தியமான மதிப்புகள்:" செயலற்ற "மற்றும்" முதன்மை ".</li>
 <li><code>வண்டி_1</code>: வண்டியின் முறை 1. சாத்தியமான மதிப்புகள்:" செயலற்ற "," முதன்மை "," நகல் "மற்றும்" கண்ணாடி ".</li>
+</ul>
+<p>On a <code>generic_cartesian</code> kinematic, the following information is available in <code>dual_carriage</code>:</p>
+<ul>
+<li><code>carriages["&lt;carriage&gt;"]</code>: The mode of the carriage <code>&lt;carriage&gt;</code>. Possible values are "INACTIVE" and "PRIMARY" for the primary carriage and "INACTIVE", "PRIMARY", "COPY", and "MIRROR" for the dual carriage.</li>
 </ul>
 <h2 id="__5">மெய்நிகர்_ச்ட்கார்ட்<a class="headerlink" href="#__5" title="Permanent link">&para;</a></h2>
 <p>பின்வரும் தகவல்கள் [மெய்நிகர்_ச்ட்கார்டு] (config_reference.md#virtual_sdcard) பொருளில் கிடைக்கின்றன:</p>
