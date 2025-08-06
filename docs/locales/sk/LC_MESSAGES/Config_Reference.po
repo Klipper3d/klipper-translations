@@ -1,17 +1,18 @@
 # Spravko <spravko@azet.sk>, 2023, 2025.
 # martin “reisin” Gerber <martinpantl8@gmail.com>, 2025.
+# Pavol Vrba <pvrba2000@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-07-22 09:02+0000\n"
-"Last-Translator: martin “reisin” Gerber <martinpantl8@gmail.com>\n"
+"PO-Revision-Date: 2025-08-15 11:02+0000\n"
+"Last-Translator: Pavol Vrba <pvrba2000@gmail.com>\n"
 "Language-Team: Slovak <https://hosted.weblate.org/projects/klipper/"
 "config_reference/sk/>\n"
 "Language: sk\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2);\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.13\n"
 
 msgid ""
 "This document is a reference for options available in the Klipper config file."
@@ -1900,6 +1901,7 @@ msgid "[axis_twist_compensation]"
 msgstr "[axis_twist_compensation]"
 
 #: docs/Config_Reference.md:block 212 (paragraph)
+#, fuzzy
 msgid ""
 "Support for cartesian and hybrid_corexy/z printers with dual carriages on a "
 "single axis. The carriage mode can be set via the SET_DUAL_CARRIAGE extended "
@@ -1917,6 +1919,21 @@ msgid ""
 "`[dual_carriage]` carriage has a `position_endstop` less than the primary "
 "carriage."
 msgstr ""
+"Podpora pre kartézske a hybrid_corexy/z tlačiarne s dvojitými vozíkmi na "
+"jednej osi. Režim vozíka je možné nastaviť pomocou rozšíreného príkazu G-"
+"kódu SET_DUAL_CARRIAGE. Napríklad príkaz „SET_DUAL_CARRIAGE CARRIAGE=1“ "
+"aktivuje vozík definovaný v tejto sekcii (CARRIAGE=0 vráti aktiváciu "
+"primárnemu vozíku). Podpora dvojitého vozíka sa zvyčajne kombinuje s extra "
+"extrudérmi – príkaz SET_DUAL_CARRIAGE sa často volá súčasne s príkazom "
+"ACTIVATE_EXTRUDER. Počas deaktivácie nezabudnite vozíky zaparkovať. "
+"Upozorňujeme, že počas nastavovania G28 sa zvyčajne najprv nastaví primárny "
+"vozík a potom vozík definovaný v konfiguračnej sekcii `[dual_carriage]`. "
+"Avšak vozík s premennou `[dual_carriage]` sa presunie do východiskovej "
+"polohy ako prvý, ak sa oba vozíky presunú do východiskovej polohy v kladnom "
+"smere a vozík s premennou `[dual_carriage]` má `position_endstop` väčšiu ako "
+"primárny vozík, alebo ak sa oba vozíky presunú do východiskovej polohy v "
+"zápornom smere a vozík s premennou `[dual_carriage]` má `position_endstop` "
+"menšiu ako primárny vozík."
 
 #: docs/Config_Reference.md:block 213 (paragraph)
 msgid ""
