@@ -3,14 +3,15 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-01-08 00:04+0000\n"
+"PO-Revision-Date: 2025-08-09 15:51+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
-"Language-Team: Tamil <https://hosted.weblate.org/projects/klipper/benchmarks/ta/>\n"
+"Language-Team: Tamil <https://hosted.weblate.org/projects/klipper/benchmarks/"
+"ta/>\n"
 "Language: ta\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 msgid "This document describes Klipper benchmarks."
 msgstr "இந்த ஆவணம் கிளிப்பர் வரையறைகளை விவரிக்கிறது."
@@ -369,10 +370,9 @@ msgid ""
 "below) and then the following is cut-and-paste into the console.py terminal "
 "window:"
 msgstr ""
-"சோதனை Console.py கருவியைப் பயன்படுத்தி செய்யப்படுகிறது (<பிழைத்திருத்தம். Md> "
-"இல் விவரிக்கப்பட்டுள்ளது). மைக்ரோ-கண்ட்ரோலர் குறிப்பிட்ட வன்பொருள் தளத்திற்காக"
-" கட்டமைக்கப்பட்டுள்ளது (கீழே காண்க) பின்னர் பின்வருபவை கன்சோலில் வெட்டப்பட்ட "
-"மற்றும் ஒட்டுதல்."
+"இந்தச் சோதனை console.py கருவியைப் பயன்படுத்தி செய்யப்படுகிறது (Debugging.md> இல் "
+"விவரிக்கப்பட்டுள்ளது). மைக்ரோ-கண்ட்ரோலர் குறிப்பிட்ட வன்பொருள் தளத்திற்கு (கீழே காண்க) "
+"உள்ளமைக்கப்பட்டுள்ளது, பின்னர் பின்வருபவை console.py முனையச் சாளரத்தில் வெட்டி ஒட்டப்படும்:"
 
 #: docs/Benchmarks.md:block 86 (paragraph)
 msgid ""
@@ -608,8 +608,10 @@ msgid ""
 " parameter. The results are rounded to the nearest K. For example, with three "
 "active steppers:"
 msgstr ""
-"[அம்சங்கள்] (அம்சங்கள்] (அம்சங்கள். முடிவுகள் அருகிலுள்ள கே. க்கு வட்டமானவை. "
-"எடுத்துக்காட்டாக, மூன்று செயலில் உள்ள ச்டெப்பர்களுடன்:"
+"[Features](Features.md) ஆவணத்தில் காணப்படும் அளவுகோல்களை உருவாக்க, செயலில் உள்ள "
+"ஸ்டெப்பர்களின் எண்ணிக்கையை பெயரளவு mcu அதிர்வெண்ணுடன் பெருக்கி இறுதி டிக்ஸ் அளவுருவால் "
+"வகுப்பதன் மூலம் வினாடிக்கு மொத்த படிகளின் எண்ணிக்கை கணக்கிடப்படுகிறது. முடிவுகள் "
+"அருகிலுள்ள K க்கு வட்டமிடப்படுகின்றன. எடுத்துக்காட்டாக, மூன்று செயலில் உள்ள ஸ்டெப்பர்களுடன்:"
 
 #: docs/Benchmarks.md:block 59 (header)
 msgid "STM32G0B1 step rate benchmark"
@@ -684,103 +686,113 @@ msgstr "OR1K-LINUX-MUSL-GCC 9.3.0"
 
 #: docs/Benchmarks.md:block 85 (header)
 msgid "SAME70 step rate benchmark"
-msgstr ""
+msgstr "சமமான 70 படி வீத அளவுகோல்"
 
 #: docs/Benchmarks.md:block 86 (paragraph)
 msgid "The following configuration sequence is used on the SAME70:"
-msgstr ""
+msgstr "பின்வரும் உள்ளமைவு வரிசை சமமான 70 இல் பயன்படுத்தப்படுகிறது:"
 
 #: docs/Benchmarks.md:block 88 (paragraph)
 msgid ""
 "The test was last run on commit `34e9ea55` with gcc version `arm-none-eabi-gcc"
 " (NixOS 10.3-2021.10) 10.3.1` on a SAME70Q20B micro-controller."
 msgstr ""
+"இந்த சோதனை கடைசியாக GCC பதிப்பு `ARM-NONE-EABI-GCC (NIXOS 10.3-2021.10) 10.3.1`"
+" உடன் ஒரே 70Q20B மைக்ரோ-கான்ட்ரோலரில் கமிட்` 34E9EA55` இல் இயக்கப்பட்டது."
 
 #: docs/Benchmarks.md:block 89 (table)
 msgid "same70"
-msgstr ""
+msgstr "சமி 0"
 
 #: docs/Benchmarks.md:block 89 (table)
 msgid "45"
-msgstr ""
+msgstr "௪௫"
 
 #: docs/Benchmarks.md:block 89 (table)
 msgid "190"
-msgstr ""
+msgstr "190"
 
 #: docs/Benchmarks.md:block 93 (paragraph)
 msgid ""
 "The test was last run on commit `b7978d37` with gcc version `or1k-linux-musl-"
 "gcc (GCC) 9.2.0` on an Allwinner A64-H micro-controller."
 msgstr ""
+"ஆலைனர் A64-H மைக்ரோ-கான்ட்ரோலரில் GCC பதிப்பு `OR1K-LINUX-MUSL-GCC (GCC) 9.2.0` "
+"உடன்` B7978D37` உடன் சோதனை கடைசியாக இயக்கப்பட்டது."
 
 #: docs/Benchmarks.md:block 95 (header)
 msgid "RPxxxx step rate benchmark"
-msgstr ""
+msgstr "RPXXXX படி வீத அளவுகோல்"
 
 #: docs/Benchmarks.md:block 96 (paragraph)
 msgid "The following configuration sequence is used on the RP2040 and RP2350:"
 msgstr ""
+"பின்வரும் உள்ளமைவு வரிசை RP2040 மற்றும் RP2350 இல் பயன்படுத்தப்படுகிறது:"
 
 #: docs/Benchmarks.md:block 99 (table)
 msgid "rp2040 (*)"
-msgstr ""
+msgstr "RP2040 (*)"
 
 #: docs/Benchmarks.md:block 100 (table)
 msgid "rp2350"
-msgstr ""
+msgstr "ரபா 0"
 
 #: docs/Benchmarks.md:block 100 (table)
 msgid "36"
-msgstr ""
+msgstr "36"
 
 #: docs/Benchmarks.md:block 100 (table)
 msgid "169"
-msgstr ""
+msgstr "169"
 
 #: docs/Benchmarks.md:block 112 (table)
 msgid "885K"
-msgstr ""
+msgstr "885 கே"
 
 #: docs/Benchmarks.md:block 112 (table)
 msgid "f6718291"
-msgstr ""
+msgstr "ஃபட்டா 18291"
 
 #: docs/Benchmarks.md:block 112 (table)
 msgid "arm-none-eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0"
-msgstr ""
+msgstr "ARM-NONE-EABI-GCC (ஃபெடோரா 14.1.0-1.FC40) 14.1.0"
 
 #: docs/Benchmarks.md:block 112 (table)
 msgid "rp2350 (USB)"
-msgstr ""
+msgstr "RP2350 (யூ.எச்.பி)"
 
 #: docs/Benchmarks.md:block 60 (paragraph)
 msgid "The following configuration sequence is used on STM32H723:"
-msgstr ""
+msgstr "பின்வரும் உள்ளமைவு வரிசை STM32H723 இல் பயன்படுத்தப்படுகிறது:"
 
 #: docs/Benchmarks.md:block 62 (paragraph)
 msgid ""
 "The test was last run on commit `554ae78d` with gcc version `arm-none-eabi-gcc"
 " (Fedora 14.1.0-1.fc40) 14.1.0`."
 msgstr ""
+"இந்த சோதனை கடைசியாக GCC பதிப்பு `ARM-NONE-EABI-GCC (ஃபெடோரா 14.1.0-1.FC40) "
+"14.1.0` உடன்` 554AE78D` இல் இயக்கப்பட்டது."
 
 #: docs/Benchmarks.md:block 63 (table)
 msgid "stm32h723"
-msgstr ""
+msgstr "நான் கேட்பேன்"
 
 #: docs/Benchmarks.md:block 98 (paragraph)
 msgid ""
 "The test was last run on commit `14c105b8` with gcc version `arm-none-eabi-gcc"
 " (Fedora 14.1.0-1.fc40) 14.1.0` on Raspberry Pi Pico and Pico 2 boards."
 msgstr ""
+"இந்த சோதனை கடைசியாக `14C105B8` இல் சி.சி.சி பதிப்பு` ARM-NONE-EABI-GCC (ஃபெடோரா "
+"14.1.0-1.FC40) 14.1.0` உடன் ராச்பெர்ரி பை பைக்கோ மற்றும் பைக்கோ 2 பலகைகளுடன் "
+"இயக்கப்பட்டது."
 
 #: docs/Benchmarks.md:block 99 (table)
 msgid "3"
-msgstr ""
+msgstr "௩"
 
 #: docs/Benchmarks.md:block 99 (table)
 msgid "14"
-msgstr ""
+msgstr "14"
 
 #: docs/Benchmarks.md:block 69 (header)
 msgid "STM32G4 step rate benchmark"
