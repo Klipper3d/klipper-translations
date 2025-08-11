@@ -1,11 +1,12 @@
 # Spravko <spravko@azet.sk>, 2023, 2025.
 # martin “reisin” Gerber <martinpantl8@gmail.com>, 2025.
 # Pavol Vrba <pvrba2000@gmail.com>, 2025.
+# Warder <ciksa@seznam.cz>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-08-15 11:02+0000\n"
-"Last-Translator: Pavol Vrba <pvrba2000@gmail.com>\n"
+"Last-Translator: Warder <ciksa@seznam.cz>\n"
 "Language-Team: Slovak <https://hosted.weblate.org/projects/klipper/"
 "config_reference/sk/>\n"
 "Language: sk\n"
