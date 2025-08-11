@@ -1,15 +1,25 @@
-#
+# Pavol Vrba <pvrba2000@gmail.com>, 2025.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2025-08-06 23:02+0000\n"
+"Last-Translator: Pavol Vrba <pvrba2000@gmail.com>\n"
+"Language-Team: Slovak <https://hosted.weblate.org/projects/klipper/"
+"config_changes/sk/>\n"
 "Language: sk\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 msgid ""
 "This document covers recent software changes to the config file that are not "
 "backwards compatible. It is a good idea to review this document when upgrading"
 " the Klipper software."
 msgstr ""
+"Tento dokument pokrýva nedávne zmeny softvéru v konfiguračnom súbore, ktoré "
+"nie sú spätne kompatibilné. Je vhodné si tento dokument preštudovať pri "
+"aktualizácii softvéru Klipper."
 
 msgid "All dates in this document are approximate."
 msgstr ""

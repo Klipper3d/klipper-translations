@@ -1,15 +1,25 @@
-#
+# Pavol Vrba <pvrba2000@gmail.com>, 2025.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2025-08-06 23:02+0000\n"
+"Last-Translator: Pavol Vrba <pvrba2000@gmail.com>\n"
+"Language-Team: Slovak <https://hosted.weblate.org/projects/klipper/packaging/"
+"sk/>\n"
 "Language: sk\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 msgid ""
 "Klipper is somewhat of a packaging anomaly among python programs, as it "
 "doesn't use setuptools to build and install. Some notes regarding how best to "
 "package it are as follows:"
 msgstr ""
+"Klipper je medzi programami v jazyku Python trochu anomáliou v oblasti "
+"balenia, pretože na zostavenie a inštaláciu nepoužíva setuptools. Niekoľko "
+"poznámok k tomu, ako ho najlepšie zabaliť, je nasledovné:"
 
 msgid "C modules"
 msgstr ""
