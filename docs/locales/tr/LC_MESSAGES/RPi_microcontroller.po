@@ -1,16 +1,17 @@
 # Kaan Özbilek <info@kaanozbilek.com>, 2023.
-# mustafa kaya <m.mkaya92@gmail.com>, 2024.
+# mustafa kaya <m.mkaya92@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-04-18 08:03+0000\n"
+"PO-Revision-Date: 2025-05-03 07:20+0000\n"
 "Last-Translator: mustafa kaya <m.mkaya92@gmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/rpi_microcontroller/tr/>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/"
+"rpi_microcontroller/tr/>\n"
 "Language: tr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 msgid ""
 "This document describes the process of running Klipper on a RPi and use the "
