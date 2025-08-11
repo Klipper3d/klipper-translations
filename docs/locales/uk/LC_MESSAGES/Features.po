@@ -1,16 +1,19 @@
 # Максим Горпиніч <mgorpinic2005@gmail.com>, 2024.
 # Максим Горпиніч <maksimgorpinic2005a@gmail.com>, 2025.
+# Максим Горпиніч <gorpinicmaksim5@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-02-20 08:20+0000\n"
-"Last-Translator: Максим Горпиніч <maksimgorpinic2005a@gmail.com>\n"
-"Language-Team: Ukrainian <https://hosted.weblate.org/projects/klipper/features/uk/>\n"
+"PO-Revision-Date: 2025-08-06 16:02+0000\n"
+"Last-Translator: Максим Горпиніч <gorpinicmaksim5@gmail.com>\n"
+"Language-Team: Ukrainian <https://hosted.weblate.org/projects/klipper/"
+"features/uk/>\n"
 "Language: uk\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.10.1-dev\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 msgid "Klipper has several compelling features:"
 msgstr "Кліппер має декілька функцій:"
@@ -574,6 +577,15 @@ msgid ""
 "probes. Probes may be calibrated for axis twist compensation. If using an "
 "\"eddy current probe\" then one can utilize fast bed mesh scanning,"
 msgstr ""
+"Підтримка автоматичного вирівнювання платформи. Klipper можна налаштувати "
+"для базового виявлення нахилу платформи або для повного вирівнювання сітки "
+"платформи. Сітку платформи можна налаштувати відповідно до розміру друку ("
+"адаптивна сітка платформи). Якщо платформа використовує кілька Z-крокових "
+"датчиків, Klipper також може вирівнювати, незалежно маніпулюючи Z-кроковими "
+"датчиками. Підтримується більшість датчиків висоти Z, включаючи датчики BL-"
+"Touch та датчики з сервоприводом. Датчики можна калібрувати для компенсації "
+"скручування осей. Якщо використовується \"вихрострумовий зонд\", можна "
+"використовувати швидке сканування сітки платформи"
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
@@ -584,6 +596,12 @@ msgid ""
 "micro-controller temperature sensor and the internal temperature sensor of a "
 "Raspberry Pi."
 msgstr ""
+"Підтримка поширених датчиків температури (наприклад, поширених термісторів, "
+"AD595, AD597, AD849x, PT100, PT1000, MAX6675, MAX31855, MAX31856, MAX31865, "
+"BME280, HTU21D, DS18B20, AHT10, SHT3x та LM75). Також можна налаштувати "
+"власні термістори та аналогові датчики температури. Можна контролювати "
+"внутрішній датчик температури мікроконтролера та внутрішній датчик "
+"температури Raspberry Pi."
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
@@ -592,32 +610,39 @@ msgid ""
 " on fans that have a tachometer. One can assign a \"math formula\" to a fan "
 "for automatic fan speed updating."
 msgstr ""
+"Підтримка стандартних вентиляторів, вентиляторів з соплами та вентиляторів з "
+"контролем температури. Немає потреби тримати вентилятори увімкненими, коли "
+"принтер не працює. Швидкість вентилятора можна контролювати на вентиляторах "
+"з тахометром. Вентилятору можна призначити «математичну формулу» для "
+"автоматичного оновлення швидкості вентилятора."
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
 "Support for measuring and recording acceleration using adxl345, mpu9250, "
 "mpu6050, lis2dw12, lis3dh, and icm20948 accelerometers."
 msgstr ""
+"Підтримка вимірювання та запису прискорення за допомогою акселерометрів "
+"adxl345, mpu9250, mpu6050, lis2dw12, lis3dh та icm20948."
 
 #: docs/Features.md:block 10 (table)
 msgid "4000K"
-msgstr ""
+msgstr "4000K"
 
 #: docs/Features.md:block 10 (table)
 msgid "2571K"
-msgstr ""
+msgstr "2571K"
 
 #: docs/Features.md:block 10 (table)
 msgid "STM32H723"
-msgstr ""
+msgstr "STM32H723"
 
 #: docs/Features.md:block 10 (table)
 msgid "7429K"
-msgstr ""
+msgstr "7429K"
 
 #: docs/Features.md:block 10 (table)
 msgid "8619K"
-msgstr ""
+msgstr "8619K"
 
 #: docs/Features.md:block 10 (table)
 msgid "STM32G431"

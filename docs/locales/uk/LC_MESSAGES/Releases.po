@@ -1,16 +1,19 @@
 # Владислав <vlad.marusenko2000@gmail.com>, 2024.
 # Максим Горпиніч <mgorpinic2005@gmail.com>, 2024.
+# Максим Горпиніч <gorpinicmaksim5@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-11-05 21:00+0000\n"
-"Last-Translator: Максим Горпиніч <mgorpinic2005@gmail.com>\n"
-"Language-Team: Ukrainian <https://hosted.weblate.org/projects/klipper/releases/uk/>\n"
+"PO-Revision-Date: 2025-08-06 16:02+0000\n"
+"Last-Translator: Максим Горпиніч <gorpinicmaksim5@gmail.com>\n"
+"Language-Team: Ukrainian <https://hosted.weblate.org/projects/klipper/"
+"releases/uk/>\n"
 "Language: uk\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.8.2\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 msgid ""
 "History of Klipper releases. Please see [installation](Installation.md) for "
@@ -743,138 +746,162 @@ msgstr ""
 
 #: docs/Releases.md:block 3 (header)
 msgid "Klipper 0.13.0"
-msgstr ""
+msgstr "Klipper 0.13.0"
 
 #: docs/Releases.md:block 4 (paragraph)
 msgid "Available on 20250411. Major changes in this release:"
-msgstr ""
+msgstr "Доступно з 20250411. Основні зміни в цьому випуску:"
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid "New \"sweeping vibrations\" resonance testing mechanism for input shaper."
 msgstr ""
+"Новий механізм резонансного тестування \"розгортаючих коливань\" для "
+"формувача вхідних даних."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid "Fans and GPIO pins can now be assigned a formula (via Jinja2 \"templates\")."
 msgstr ""
+"Вентиляторам та контактам GPIO тепер можна призначити формулу (через "
+"\"шаблони\" Jinja2)."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
 "The bed_mesh code now supports \"adaptive bed mesh\". The area probed can be "
 "adjusted for the size of the print."
 msgstr ""
+"Код bed_mesh тепер підтримує \"адаптивну сітку bed\". Площу, що "
+"досліджується, можна налаштувати відповідно до розміру друку."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
 "A new `minimum_cruise_ratio` kinematic parameter has been added (it replaces "
 "the previous `max_accel_to_decel` parameter)."
 msgstr ""
+"Додано новий кінематичний параметр `minimum_cruise_ratio` (він замінює "
+"попередній параметр `max_accel_to_decel`)."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid "Several new sensors added:"
-msgstr ""
+msgstr "Додано кілька нових датчиків:"
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
 "Support for ldc1612 \"eddy\" current sensors. This includes probing support, "
 "fast \"scan\" probing, and temperature calibration."
 msgstr ""
+"Підтримка датчиків \"вихрових\" струмів ldc1612. Це включає підтримку "
+"зондування, швидке сканування та калібрування температури."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
 "New support for \"load cell\" measurements. Support for connecting these load "
 "cells to hx71x and ads1220 ADC sensors."
 msgstr ""
+"Нова підтримка вимірювань \"тензодатчиків\". Підтримка підключення цих "
+"тензодатчиків до датчиків АЦП hx71x та ads1220."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
 "Support for BMP180, BMP388, and SHT3x temperature sensors. Support for "
 "measuring temperature with ADS1x1x ADC chips."
 msgstr ""
+"Підтримка датчиків температури BMP180, BMP388 та SHT3x. Підтримка "
+"вимірювання температури за допомогою мікросхем АЦП ADS1x1x."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid "New lis3dh and icm20948 accelerometer support."
-msgstr ""
+msgstr "Нова підтримка акселерометрів lis3dh та icm20948."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid "Support for mt6816 and mt6826s \"hall angle\" sensors."
-msgstr ""
+msgstr "Підтримка датчиків кута Холла mt6816 та mt6826s."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid "New micro-controller improvements:"
-msgstr ""
+msgstr "Нові покращення мікроконтролера:"
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid "New support for rp2350 micro-controllers."
-msgstr ""
+msgstr "Нова підтримка мікроконтролерів rp2350."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid "Existing rp2040 chips now run at 200MHz (up from 125Mhz)."
 msgstr ""
+"Існуючі мікросхеми rp2040 тепер працюють на частоті 200 МГц (збільшено з 125 "
+"МГц)."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
 "The micro-controller code can now define many more commands (up to 16384 from "
 "128)."
 msgstr ""
+"Код мікроконтролера тепер може визначати набагато більше команд (до 16384 зі "
+"128)."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
 "Other modules added: aip31068_spi, canbus_stats, error_mcu, "
 "garbage_collection, pwm_cycle_time, pwm_tool, garbage_collection."
 msgstr ""
+"Додано інші модулі: aip31068_spi, canbus_stats, error_mcu, "
+"garbage_collection, pwm_cycle_time, pwm_tool, garbage_collection."
 
 #: docs/Releases.md:block 6 (header)
 msgid "Klipper 0.12.0"
-msgstr ""
+msgstr "Klipper 0.12.0"
 
 #: docs/Releases.md:block 7 (paragraph)
 msgid "Available on 20231110. Major changes in this release:"
-msgstr ""
+msgstr "Доступно з 20231110. Основні зміни в цьому випуску:"
 
 #: docs/Releases.md:block 8 (unordered list)
 msgid "Support for COPY and MIRROR modes on IDEX printers."
-msgstr ""
+msgstr "Підтримка режимів КОПІЮВАННЯ та ДЗЕРКАЛУВАННЯ на принтерах IDEX."
 
 #: docs/Releases.md:block 8 (unordered list)
 msgid "Several micro-controller improvements:"
-msgstr ""
+msgstr "Кілька покращень мікроконтролера:"
 
 #: docs/Releases.md:block 8 (unordered list)
 msgid "Support for new ar100 and hc32f460 architectures."
-msgstr ""
+msgstr "Підтримка нових архітектур ar100 та hc32f460."
 
 #: docs/Releases.md:block 8 (unordered list)
 msgid ""
 "Support for stm32f7, stm32g0b0, stm32g07x, stm32g4, stm32h723, n32g45x, "
 "samc21, and samd21j18 chip variants."
 msgstr ""
+"Підтримка варіантів чіпів stm32f7, stm32g0b0, stm32g07x, stm32g4, stm32h723, "
+"n32g45x, samc21 та samd21j18."
 
 #: docs/Releases.md:block 8 (unordered list)
 msgid "Improved DFU and Katapult reboot handling."
-msgstr ""
+msgstr "Покращено обробку перезавантаження DFU та Katapult."
 
 #: docs/Releases.md:block 8 (unordered list)
 msgid "Improved performance on USB to CANbus bridge mode."
-msgstr ""
+msgstr "Покращена продуктивність у режимі мосту USB-CANbus."
 
 #: docs/Releases.md:block 8 (unordered list)
 msgid "Improved performance on \"linux mcu\"."
-msgstr ""
+msgstr "Покращена продуктивність на \"linux mcu\"."
 
 #: docs/Releases.md:block 8 (unordered list)
 msgid "New support for software based i2c."
-msgstr ""
+msgstr "Нова підтримка програмного забезпечення i2c."
 
 #: docs/Releases.md:block 8 (unordered list)
 msgid ""
 "New hardware support for tmc2240 stepper motor drivers, lis2dw12 "
 "accelerometers, and aht10 temperature sensors."
 msgstr ""
+"Нова апаратна підтримка драйверів крокових двигунів tmc2240, акселерометрів "
+"lis2dw12 та датчиків температури aht10."
 
 #: docs/Releases.md:block 8 (unordered list)
 msgid "New axis_twist_compensation and temperature_combined modules added."
-msgstr ""
+msgstr "Додано нові модулі axis_twist_compensation та temperature_combined."
 
 #: docs/Releases.md:block 8 (unordered list)
 msgid "New support for gcode arcs in XY, XZ, and YZ planes."
-msgstr ""
+msgstr "Нова підтримка дуг g-коду в площинах XY, XZ та YZ."

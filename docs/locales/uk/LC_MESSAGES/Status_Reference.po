@@ -1,15 +1,18 @@
 # Максим Горпиніч <mgorpinic2005@gmail.com>, 2024.
+# Максим Горпиніч <gorpinicmaksim5@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-11-07 00:00+0000\n"
-"Last-Translator: Максим Горпиніч <mgorpinic2005@gmail.com>\n"
-"Language-Team: Ukrainian <https://hosted.weblate.org/projects/klipper/status_reference/uk/>\n"
+"PO-Revision-Date: 2025-08-06 16:02+0000\n"
+"Last-Translator: Максим Горпиніч <gorpinicmaksim5@gmail.com>\n"
+"Language-Team: Ukrainian <https://hosted.weblate.org/projects/klipper/"
+"status_reference/uk/>\n"
 "Language: uk\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.8.2\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 msgid ""
 "This document is a reference of printer status information available in "
@@ -1373,10 +1376,12 @@ msgid ""
 "The following information is available in the "
 "[bed_screws](Config_Reference.md#bed_screws) object:"
 msgstr ""
+"Наступна інформація доступна в об'єкті [bed_screws]"
+"(Config_Reference.md#bed_screws):"
 
 #: docs/Status_Reference.md:block 13 (header)
 msgid "canbus_stats"
-msgstr ""
+msgstr "canbus_stats"
 
 #: docs/Status_Reference.md:block 14 (paragraph)
 msgid ""
@@ -1384,24 +1389,33 @@ msgid ""
 "object (this object is automatically available if an mcu is configured to use "
 "canbus):"
 msgstr ""
+"Наступна інформація доступна в об'єкті `canbus_stats some_mcu_name` (цей "
+"об'єкт автоматично доступний, якщо мікроконтролер налаштовано на "
+"використання canbus):"
 
 #: docs/Status_Reference.md:block 15 (unordered list)
 msgid ""
 "`rx_error`: The number of receive errors detected by the micro-controller "
 "canbus hardware."
 msgstr ""
+"`rx_error`: Кількість помилок прийому, виявлених апаратним забезпеченням "
+"мікроконтролера CANbus."
 
 #: docs/Status_Reference.md:block 15 (unordered list)
 msgid ""
 "`tx_error`: The number of transmit errors detected by the micro-controller "
 "canbus hardware."
 msgstr ""
+"`tx_error`: Кількість помилок передачі, виявлених апаратним забезпеченням "
+"мікроконтролера CANbus."
 
 #: docs/Status_Reference.md:block 15 (unordered list)
 msgid ""
 "`tx_retries`: The number of transmit attempts that were retried due to bus "
 "contention or errors."
 msgstr ""
+"`tx_retries`: Кількість спроб передачі, які були повторені через конфлікти з "
+"шиною або помилки."
 
 #: docs/Status_Reference.md:block 15 (unordered list)
 msgid ""
@@ -1410,6 +1424,10 @@ msgid ""
 " that will no longer transmit canbus error frames, or \"off\" for a bus that "
 "will no longer transmit or receive messages)."
 msgstr ""
+"`bus_state`: Стан інтерфейсу (зазвичай «active» для шини у нормальному "
+"режимі роботи, «warn» для шини з нещодавніми помилками, «passive» для шини, "
+"яка більше не передаватиме кадри помилок canbus, або «off» для шини, яка "
+"більше не передаватиме або отримуватиме повідомлення)."
 
 #: docs/Status_Reference.md:block 16 (paragraph)
 msgid ""
@@ -1417,65 +1435,78 @@ msgid ""
 "field and the rp2XXX micro-controllers always report `tx_error` as zero and "
 "`bus_state` as \"active\"."
 msgstr ""
+"Зверніть увагу, що лише мікроконтролери rp2XXX повідомляють про ненульове "
+"поле `tx_retries`, а мікроконтролери rp2XXX завжди повідомляють `tx_error` "
+"як нуль, а `bus_state` як \"active\"."
 
 #: docs/Status_Reference.md:block 57 (unordered list)
 msgid ""
 "all items from "
 "[filament_switch_sensor](Status_Reference.md#filament_switch_sensor)"
 msgstr ""
+"усі товари з [filament_switch_sensor]"
+"(Status_Reference.md#filament_switch_sensor)"
 
 #: docs/Status_Reference.md:block 70 (header)
 msgid "load_cell"
-msgstr ""
+msgstr "load_cell"
 
 #: docs/Status_Reference.md:block 71 (paragraph)
 msgid "The following information is available for each `[load_cell name]`:"
-msgstr ""
+msgstr "Для кожного `[ім'я тензодатчика]` доступна така інформація:"
 
 #: docs/Status_Reference.md:block 72 (unordered list)
 msgid "'is_calibrated': True/False is the load cell calibrated"
-msgstr ""
+msgstr "'is_calibrated': True/False – калібрований тензодатчик"
 
 #: docs/Status_Reference.md:block 72 (unordered list)
 msgid ""
 "'counts_per_gram': The number of raw sensor counts that equals 1 gram of force"
 msgstr ""
+"'counts_per_gram': Кількість необроблених показників датчика, що дорівнює 1 "
+"граму сили"
 
 #: docs/Status_Reference.md:block 72 (unordered list)
 msgid ""
 "'reference_tare_counts': The reference number of raw sensor counts for 0 force"
 msgstr ""
+"'reference_tare_counts': Довідкова кількість необроблених показників датчика "
+"для 0 сили"
 
 #: docs/Status_Reference.md:block 72 (unordered list)
 msgid "'tare_counts': The current number of raw sensor counts for 0 force"
 msgstr ""
+"'tare_counts': Поточна кількість необроблених показників датчика для 0 сили"
 
 #: docs/Status_Reference.md:block 72 (unordered list)
 msgid "'force_g': The force in grams, averaged over the last polling period."
-msgstr ""
+msgstr "'force_g': Сила в грамах, усереднена за останній період опитування."
 
 #: docs/Status_Reference.md:block 72 (unordered list)
 msgid "'min_force_g': The minimum force in grams, over the last polling period."
-msgstr ""
+msgstr "'min_force_g': Мінімальна сила в грамах за останній період опитування."
 
 #: docs/Status_Reference.md:block 72 (unordered list)
 msgid "'max_force_g': The maximum force in grams, over the last polling period."
-msgstr ""
+msgstr "'max_force_g': Максимальна сила в грамах за останній період опитування."
 
 #: docs/Status_Reference.md:block 112 (header)
 msgid "skew_correction.py"
-msgstr ""
+msgstr "skew_correction.py"
 
 #: docs/Status_Reference.md:block 113 (paragraph)
 msgid ""
 "The following information is available in the `skew_correction` object (this "
 "object is available if any skew_correction is defined):"
 msgstr ""
+"Наступна інформація доступна в об'єкті `skew_correction` (цей об'єкт "
+"доступний, якщо визначено будь-яку skew_correction):"
 
 #: docs/Status_Reference.md:block 114 (unordered list)
 msgid ""
 "`current_profile_name`: Returns the name of the currently loaded SKEW_PROFILE."
 msgstr ""
+"`current_profile_name`: Повертає назву поточного завантаженого SKEW_PROFILE."
 
 #: docs/Status_Reference.md:block 73 (header)
 msgid "load_cell_probe"
