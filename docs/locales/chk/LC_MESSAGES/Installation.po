@@ -1,9 +1,16 @@
 # Languages add-on <noreply-addon-languages@weblate.org>, 2024.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2025-08-06 11:05+0000\n"
+"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Language-Team: Chuukese <https://hosted.weblate.org/projects/klipper/"
+"installation/chk/>\n"
 "Language: chk\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 msgid "Building and flashing the micro-controller"
 msgstr ""
@@ -205,6 +212,7 @@ msgid ""
 msgstr ""
 
 #: docs/Installation.md:block 2 (paragraph)
+#, fuzzy
 msgid ""
 "These instructions assume the software will run on a Linux-based host running "
 "a Klipper-compatible front end. It is recommended that a SBC(Small Board "
@@ -214,6 +222,7 @@ msgid ""
 msgstr ""
 
 #: docs/Installation.md:block 3 (paragraph)
+#, fuzzy
 msgid ""
 "For the purposes of these instructions, host relates to the Linux device and "
 "mcu relates to the printer board. SBC relates to the term Small Board Computer"
@@ -221,6 +230,7 @@ msgid ""
 msgstr ""
 
 #: docs/Installation.md:block 14 (paragraph)
+#, fuzzy
 msgid ""
 "There are many ways to obtain an OS image for Klipper for SBC use, most depend"
 " on what front end you wish to use. Some manufacturers of these SBC boards "
@@ -228,6 +238,7 @@ msgid ""
 msgstr ""
 
 #: docs/Installation.md:block 15 (paragraph)
+#, fuzzy
 msgid ""
 "The two main Moonraker-based front ends are [Fluidd](https://docs.fluidd.xyz/)"
 " and [Mainsail](https://docs.mainsail.xyz/), the latter of which has a premade"
@@ -236,6 +247,7 @@ msgid ""
 msgstr ""
 
 #: docs/Installation.md:block 19 (paragraph)
+#, fuzzy
 msgid ""
 "Normally you would start with a base image for your SBC, RPiOS Lite for "
 "example, or in the case of an x86 Linux device, Ubuntu Server. Please note "
@@ -245,6 +257,7 @@ msgid ""
 msgstr ""
 
 #: docs/Installation.md:block 20 (paragraph)
+#, fuzzy
 msgid ""
 "KIAUH can be used to install Klipper and its associated programs on a variety "
 "of Linux-based systems that run a form of Debian. More information can be "
@@ -252,6 +265,7 @@ msgid ""
 msgstr ""
 
 #: docs/Installation.md:block 26 (paragraph)
+#, fuzzy
 msgid ""
 "If the comments at the top of the [printer configuration file](#obtain-a-"
 "klipper-configuration-file) describe custom steps for \"flashing\" the final "
@@ -260,12 +274,14 @@ msgid ""
 msgstr ""
 
 #: docs/Installation.md:block 32 (paragraph)
+#, fuzzy
 msgid ""
 "For common micro-controllers with STM32 or clone chips, LPC chips and others, "
 "it is usual that these need an initial Klipper flash via SD card."
 msgstr ""
 
 #: docs/Installation.md:block 33 (paragraph)
+#, fuzzy
 msgid ""
 "When flashing with this method, it is important to make sure that the print "
 "board is not connected with USB to the host, due to some boards being able to "
@@ -273,6 +289,7 @@ msgid ""
 msgstr ""
 
 #: docs/Installation.md:block 42 (paragraph)
+#, fuzzy
 msgid ""
 "Arguably the easiest way to set the Klipper configuration file is using the "
 "built-in editors in Mainsail or Fluidd. These will allow the user to open the "
@@ -280,6 +297,7 @@ msgid ""
 msgstr ""
 
 #: docs/Installation.md:block 44 (paragraph)
+#, fuzzy
 msgid ""
 "Alternatively, one can also copy and edit the file directly on the host via "
 "SSH. That may look something like the following (be sure to update the command"
@@ -287,6 +305,7 @@ msgid ""
 msgstr ""
 
 #: docs/Installation.md:block 52 (paragraph)
+#, fuzzy
 msgid ""
 "After creating and editing the file, it will be necessary to issue a "
 "\"restart\" command in the command console to load the config. A \"status\" "
@@ -296,6 +315,7 @@ msgid ""
 msgstr ""
 
 #: docs/Installation.md:block 54 (paragraph)
+#, fuzzy
 msgid ""
 "Klipper reports error messages via the command console and pop-ups in Fluidd "
 "and Mainsail. The \"status\" command can be used to re-report error messages. "

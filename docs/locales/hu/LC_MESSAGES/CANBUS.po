@@ -4,14 +4,15 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-09-07 07:09+0000\n"
-"Last-Translator: \"Zs.Antal\" <antonio092130@icloud.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/canbus/hu/>\n"
+"PO-Revision-Date: 2025-08-06 11:03+0000\n"
+"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/canbus/"
+"hu/>\n"
 "Language: hu\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.8-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 msgid "This document describes Klipper's CAN bus support."
 msgstr "Ez a dokumentum a Klipper CAN busz támogatását írja le."
@@ -260,6 +261,7 @@ msgstr ""
 "Lásd a [CAN-busz hibaelhárítás](CANBUS_Troubleshooting.md) dokumentumot."
 
 #: docs/CANBUS.md:block 30 (unordered list)
+#, fuzzy
 msgid ""
 "It is only valid to use USB to CAN bridge mode if there is a functioning CAN "
 "bus with at least one other node available (in addition to the bridge node "

@@ -1,9 +1,16 @@
 #
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2025-08-06 11:04+0000\n"
+"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Language-Team: Danish <https://hosted.weblate.org/projects/klipper/"
+"api_server/da/>\n"
 "Language: da\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 msgid ""
 "This document describes Klipper's Application Programmer Interface (API). This"
@@ -525,16 +532,19 @@ msgid ""
 msgstr ""
 
 #: docs/API_Server.md:block 88 (header)
+#, fuzzy
 msgid "load_cell/dump_force"
 msgstr ""
 
 #: docs/API_Server.md:block 89 (paragraph)
+#, fuzzy
 msgid ""
 "This endpoint is used to subscribe to force data produced by a load_cell. "
 "Using this endpoint may increase Klipper's system load."
 msgstr ""
 
 #: docs/API_Server.md:block 90 (paragraph)
+#, fuzzy
 msgid ""
 "A request may look like: `{\"id\": 123, \"method\":\"load_cell/dump_force\", "
 "\"params\": {\"sensor\": \"load_cell\", \"response_template\": {}}}` and might"
