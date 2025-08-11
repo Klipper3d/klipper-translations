@@ -1,10 +1,10 @@
-# Kaan Özbilek <info@kaanozbilek.com>, 2023.
+# Kaan Özbilek <info@kaanozbilek.com>, 2023, 2025.
 # Makers Lab <makerslab.tr@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-05-03 07:20+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Last-Translator: Kaan Özbilek <info@kaanozbilek.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/"
 "probe_calibrate/tr/>\n"
 "Language: tr\n"
