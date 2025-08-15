@@ -1,21 +1,21 @@
 # Overview
 
-Welcome to the Klipper documentation. If new to Klipper, start with the [features](Features.md) and [installation](Installation.md) documents.
+Vitajte v dokumentácii ku Klipperu. Ak s Klipperom začínate, začnite s dokumentmi [features](Features.md) a [installation](Installation.md).
 
-## Overview information
+## Prehľad informácií
 
-- [Features](Features.md): A high-level list of features in Klipper.
-- [FAQ](FAQ.md): Frequently asked questions.
-- [Releases](Releases.md): The history of Klipper releases.
-- [Config changes](Config_Changes.md): Recent software changes that may require users to update their printer config file.
-- [Contact](Contact.md): Information on bug reporting and general communication with the Klipper developers.
+- [Funkcie](Features.md): Zoznam funkcií v Klipperi na vysokej úrovni.
+- [FAQ](FAQ.md): Často kladené otázky.
+- [Vydania](Releases.md): História vydaní Klipper.
+- [Zmeny konfigurácie](Config_Changes.md): Nedávne zmeny softvéru, ktoré môžu vyžadovať od používateľov aktualizáciu konfiguračného súboru tlačiarne.
+- [Kontakt](Contact.md): Informácie o hlásení chýb a všeobecnej komunikácii s vývojármi Klipperu.
 
-## Installation and Configuration
+## Inštalácia a konfigurácia
 
-- [Installation](Installation.md): Guide to installing Klipper.
+- [Inštalácia](Installation.md): Sprievodca inštaláciou Klipperu.
    - [Octoprint](OctoPrint.md): Guide to installing Octoprint with Klipper.
-- [Config Reference](Config_Reference.md): Description of config parameters.
-   - [Rotation Distance](Rotation_Distance.md): Calculating the rotation_distance stepper parameter.
+- [Referencia konfigurácie](Config_Reference.md): Popis konfiguračných parametrov.
+   - [Rotation Distance](Rotation_Distance.md): Výpočet krokového parametra rotation_distance.
 - [Config checks](Config_checks.md): Verify basic pin settings in the config file.
 - [Bed level](Bed_Level.md): Information on "bed leveling" in Klipper.
    - [Delta calibrate](Delta_Calibrate.md): Calibration of delta kinematics.
@@ -38,7 +38,7 @@ Welcome to the Klipper documentation. If new to Klipper, start with the [feature
 - [PWM tools](Using_PWM_Tools.md): Guide on how to use PWM controlled tools such as lasers or spindles.
 - [Exclude Object](Exclude_Object.md): The guide to the Exclude Objects implementation.
 
-## Developer Documentation
+## Dokumentácia pre vývojárov
 
 - [Code overview](Code_Overview.md): Developers should read this first.
 - [Kinematics](Kinematics.md): Technical details on how Klipper implements motion.
@@ -51,7 +51,7 @@ Welcome to the Klipper documentation. If new to Klipper, start with the [feature
 - [Contributing](CONTRIBUTING.md): Information on how to submit improvements to Klipper.
 - [Packaging](Packaging.md): Information on building OS packages.
 
-## Device Specific Documents
+## Dokumenty špecifické pre zariadenie
 
 - [Example configs](Example_Configs.md): Information on adding an example config file to Klipper.
 - [SDCard Updates](SDCard_Updates.md): Flash a micro-controller by copying a binary to an sdcard in the micro-controller.

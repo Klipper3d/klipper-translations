@@ -1,8 +1,8 @@
 ***
 
-hide:
+skryť:
 
-- toc title: Welcome
+- názov obsahu: Vitajte
 
 ***
 

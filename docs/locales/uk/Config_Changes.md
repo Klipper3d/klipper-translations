@@ -6,17 +6,17 @@
 
 ## Зміни
 
-20250428: The maximum `cycle_time` for pwm `[output_pin]`, `[pwm_cycle_time]`, `[pwm_tool]`, and similar config sections is now 3 seconds (reduced from 5 seconds). The `maximum_mcu_duration` in `[pwm_tool]` is now also 3 seconds.
+20250428: Максимальний час циклу (`cycle_time`) для розділів конфігурації ШІМ `[output_pin]`, `[pwm_cycle_time]`, `[pwm_tool]` та подібних тепер становить 3 секунди (скорочено з 5 секунд). Значення `maximum_mcu_duration` у `[pwm_tool]` тепер також становить 3 секунди.
 
-20250418: The manual_stepper `STOP_ON_ENDSTOP` feature may now take less time to complete. Previously, the command would wait the entire time the move could possibly take even if the endstop triggered earlier. Now, the command finishes shortly after the endstop trigger.
+20250418: Функція manual_stepper `STOP_ON_ENDSTOP` тепер може виконуватися швидше. Раніше команда очікувала весь можливий час переміщення, навіть якщо кінцевий упор спрацював раніше. Тепер команда завершується невдовзі після спрацьовування кінцевого упора.
 
-20250417: SPI devices using "software SPI" are now rate limited. Previously, the `spi_speed` in the config was ignored and the transmission speed was only limited by the processing speed of the micro-controller. Now, speeds are limited by the `spi_speed` config parameter (actual hardware speeds are likely to be lower than the configured value due to software overhead).
+20250417: Пристрої SPI, що використовують "програмний SPI", тепер мають обмеження швидкості. Раніше параметр `spi_speed` у конфігурації ігнорувався, а швидкість передачі обмежувалася лише швидкістю обробки мікроконтролера. Тепер швидкість обмежується параметром конфігурації `spi_speed` (фактична швидкість обладнання, ймовірно, буде нижчою за налаштоване значення через програмні накладні витрати).
 
-20250411: Klipper v0.13.0 released.
+20250411: Випущено Klipper v0.13.0.
 
-20250308: The `AUTO` parameter of the `AXIS_TWIST_COMPENSATION_CALIBRATE` command has been removed.
+20250308: Параметр `AUTO` команди `AXIS_TWIST_COMPENSATION_CALIBRATE` видалено.
 
-20250131: Option `VARIABLE=<name>` in `SAVE_VARIABLE` requires lowercase value. For example, `extruder` instead of mixedcase `Extruder` or uppercase `EXTRUDER`. Using any uppercase letter will raise an error.
+20250131: Опція `VARIABLE=<назва>` у `SAVE_VARIABLE` вимагає значення в нижньому регістрі. Наприклад, `extruder` замість `Extruder` у змішаному регістрі або `EXTRUDER` у верхньому регістрі. Використання будь-якої великої літери призведе до помилки.
 
 20241203: перевірку резонансу було змінено, щоб включити повільні розгортаючі рухи. Ця зміна вимагає, щоб точки тестування мали певний зазор у площині X/Y (+/- 30 мм від точки тестування має бути достатньо, якщо використовуються налаштування за замовчуванням). Новий тест, як правило, повинен дати точніші та надійніші результати тестування. Однак, якщо потрібно, попередню поведінку тесту можна відновити, додавши параметри `sweeping_period: 0` і `accel_per_hz: 75` до розділу конфігурації `[resonance_tester]`.
 

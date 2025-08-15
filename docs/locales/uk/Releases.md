@@ -4,40 +4,40 @@
 
 ## Klipper 0.13.0
 
-Available on 20250411. Major changes in this release:
+Доступно з 20250411. Основні зміни в цьому випуску:
 
-* New "sweeping vibrations" resonance testing mechanism for input shaper.
-* Fans and GPIO pins can now be assigned a formula (via Jinja2 "templates").
-* The bed_mesh code now supports "adaptive bed mesh". The area probed can be adjusted for the size of the print.
-* A new `minimum_cruise_ratio` kinematic parameter has been added (it replaces the previous `max_accel_to_decel` parameter).
-* Several new sensors added:
-   * Support for ldc1612 "eddy" current sensors. This includes probing support, fast "scan" probing, and temperature calibration.
-   * New support for "load cell" measurements. Support for connecting these load cells to hx71x and ads1220 ADC sensors.
-   * Support for BMP180, BMP388, and SHT3x temperature sensors. Support for measuring temperature with ADS1x1x ADC chips.
-   * New lis3dh and icm20948 accelerometer support.
-   * Support for mt6816 and mt6826s "hall angle" sensors.
-* New micro-controller improvements:
-   * New support for rp2350 micro-controllers.
-   * Existing rp2040 chips now run at 200MHz (up from 125Mhz).
-   * The micro-controller code can now define many more commands (up to 16384 from 128).
-* Other modules added: aip31068_spi, canbus_stats, error_mcu, garbage_collection, pwm_cycle_time, pwm_tool, garbage_collection.
+* Новий механізм резонансного тестування "розгортаючих коливань" для формувача вхідних даних.
+* Вентиляторам та контактам GPIO тепер можна призначити формулу (через "шаблони" Jinja2).
+* Код bed_mesh тепер підтримує "адаптивну сітку bed". Площу, що досліджується, можна налаштувати відповідно до розміру друку.
+* Додано новий кінематичний параметр `minimum_cruise_ratio` (він замінює попередній параметр `max_accel_to_decel`).
+* Додано кілька нових датчиків:
+   * Підтримка датчиків "вихрових" струмів ldc1612. Це включає підтримку зондування, швидке сканування та калібрування температури.
+   * Нова підтримка вимірювань "тензодатчиків". Підтримка підключення цих тензодатчиків до датчиків АЦП hx71x та ads1220.
+   * Підтримка датчиків температури BMP180, BMP388 та SHT3x. Підтримка вимірювання температури за допомогою мікросхем АЦП ADS1x1x.
+   * Нова підтримка акселерометрів lis3dh та icm20948.
+   * Підтримка датчиків кута Холла mt6816 та mt6826s.
+* Нові покращення мікроконтролера:
+   * Нова підтримка мікроконтролерів rp2350.
+   * Існуючі мікросхеми rp2040 тепер працюють на частоті 200 МГц (збільшено з 125 МГц).
+   * Код мікроконтролера тепер може визначати набагато більше команд (до 16384 зі 128).
+* Додано інші модулі: aip31068_spi, canbus_stats, error_mcu, garbage_collection, pwm_cycle_time, pwm_tool, garbage_collection.
 * Кілька виправлення помилок і очищення коду.
 
 ## Klipper 0.12.0
 
-Available on 20231110. Major changes in this release:
+Доступно з 20231110. Основні зміни в цьому випуску:
 
-* Support for COPY and MIRROR modes on IDEX printers.
-* Several micro-controller improvements:
-   * Support for new ar100 and hc32f460 architectures.
-   * Support for stm32f7, stm32g0b0, stm32g07x, stm32g4, stm32h723, n32g45x, samc21, and samd21j18 chip variants.
-   * Improved DFU and Katapult reboot handling.
-   * Improved performance on USB to CANbus bridge mode.
-   * Improved performance on "linux mcu".
-   * New support for software based i2c.
-* New hardware support for tmc2240 stepper motor drivers, lis2dw12 accelerometers, and aht10 temperature sensors.
-* New axis_twist_compensation and temperature_combined modules added.
-* New support for gcode arcs in XY, XZ, and YZ planes.
+* Підтримка режимів КОПІЮВАННЯ та ДЗЕРКАЛУВАННЯ на принтерах IDEX.
+* Кілька покращень мікроконтролера:
+   * Підтримка нових архітектур ar100 та hc32f460.
+   * Підтримка варіантів чіпів stm32f7, stm32g0b0, stm32g07x, stm32g4, stm32h723, n32g45x, samc21 та samd21j18.
+   * Покращено обробку перезавантаження DFU та Katapult.
+   * Покращена продуктивність у режимі мосту USB-CANbus.
+   * Покращена продуктивність на "linux mcu".
+   * Нова підтримка програмного забезпечення i2c.
+* Нова апаратна підтримка драйверів крокових двигунів tmc2240, акселерометрів lis2dw12 та датчиків температури aht10.
+* Додано нові модулі axis_twist_compensation та temperature_combined.
+* Нова підтримка дуг g-коду в площинах XY, XZ та YZ.
 * Кілька виправлення помилок і очищення коду.
 
 ## Клиппер 0.11.0

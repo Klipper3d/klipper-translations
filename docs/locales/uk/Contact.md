@@ -74,10 +74,10 @@ Klipper є відкритим програмним забезпеченням і
 
 Нові внески (для обох кодів і документації) подаються через Github Pull запитів. Дивитися [CONTRIBUTING документ](CONTRIBUTING.md) за важливу інформацію.
 
-There are several [documents for developers](Overview.md#developer-documentation). If you have questions on the code then you can also ask in the [Klipper Discourse Forum](#discourse-forum) or on the [Klipper Discord Chat](#discord-chat).
+Існує кілька [документів для розробників](Overview.md#developer-documentation). Якщо у вас є запитання щодо коду, ви також можете задати їх на [форумі Klipper Discourse](#discourse-forum) або в [чаті Klipper Discord](#discord-chat).
 
-## Professional Services
+## Професійні послуги
 
-![](img/klipper-logo-small.png)
+![](img/klipper-logo-small.png)'
 
-Custom software development, software support, and solutions: <https://ko-fi.com/koconnor>
+Розробка програмного забезпечення на замовлення, підтримка програмного забезпечення та рішення: <https://ko-fi.com/koconnor>

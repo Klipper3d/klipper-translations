@@ -1,15 +1,15 @@
-Klipper documentation
+Klipper dokumentácia
 
-Installation and Configuration
+Inštalácia a konfigurácia
 
-Configuration Reference
+Referenčná príručka konfigurácie
 
-Bed Level
+Poschodová úroveň
 
-Resonance Compensation
+Kompenzácia rezonancie
 
-Command templates
+Šablóny príkazov
 
-Developer Documentation
+Dokumentácia pre vývojárov
 
-Device Specific Documents
+Dokumenty špecifické pre zariadenie

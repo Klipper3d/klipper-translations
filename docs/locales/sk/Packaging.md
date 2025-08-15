@@ -1,19 +1,19 @@
-# Packaging Klipper
+# Rezačka obalov
 
-Klipper is somewhat of a packaging anomaly among python programs, as it doesn't use setuptools to build and install. Some notes regarding how best to package it are as follows:
+Klipper je medzi programami v jazyku Python trochu anomáliou v oblasti balenia, pretože na zostavenie a inštaláciu nepoužíva setuptools. Niekoľko poznámok k tomu, ako ho najlepšie zabaliť, je nasledovné:
 
-## C modules
+## C moduly
 
-Klipper uses a C module to handle some kinematics calculations more quickly. This module needs to be compiled at packaging time to avoid introducing a runtime dependency on a compiler. To compile the C module, run `python2 klippy/chelper/__init__.py`.
+Klipper používa modul jazyka C na rýchlejšie spracovanie niektorých kinematických výpočtov. Tento modul je potrebné skompilovať počas balenia, aby sa predišlo závislosti od kompilátora počas behu. Na kompiláciu modulu jazyka C spustite príkaz `python2 klippy/chelper/__init__.py`.
 
-## Compiling python code
+## Kompilácia kódu v jazyku Python
 
-Many distributions have a policy of compiling all python code before packaging to improve startup time. You can do this by running `python2 -m compileall klippy`.
+Mnohé distribúcie majú zásadu kompilácie všetkého kódu Pythonu pred zabalením, aby sa skrátil čas spustenia. Môžete to urobiť spustením príkazu `python2 -m compileall klippy`.
 
-## Versioning
+## Tvorba verzií
 
-If you are building a package of Klipper from git, it is usual practice not to ship a .git directory, so the versioning must be handled without git. To do this, use the script shipped in `scripts/make_version.py` which should be run as follows: `python2 scripts/make_version.py YOURDISTRONAME > klippy/.version`.
+Ak zostavujete balík Klipperu z gitu, je bežnou praxou neposielať adresár .git, takže verzovanie musí byť riešené bez gitu. Na to použite skript dodávaný v súbore `scripts/make_version.py`, ktorý by sa mal spustiť nasledovne: `python2 scripts/make_version.py NÁZOV VAŠEJ DISPOZÍCIE > klippy/.version`.
 
-## Sample packaging script
+## Ukážkový skript balenia
 
-klipper-git is packaged for Arch Linux, and has a PKGBUILD (package build script) available at [Arch User Repository](https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper-git).
+klipper-git je zabalený pre Arch Linux a má PKGBUILD (skript na zostavenie balíčka) dostupný v [Arch User Repository](https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper-git).

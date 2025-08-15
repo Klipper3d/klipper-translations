@@ -19,7 +19,7 @@
 
 ## bed_screws
 
-The following information is available in the [bed_screws](Config_Reference.md#bed_screws) object:
+Наступна інформація доступна в об'єкті [bed_screws](Config_Reference.md#bed_screws):
 
 - `is_active`: Повернення Правда, якщо в даний час працює інструмент регулювання саморізів.
 - `state`: Регулювання шурупами стан інструменту. Він є одним з наступних рядків: "регулюйте", "fine".
@@ -28,14 +28,14 @@ The following information is available in the [bed_screws](Config_Reference.md#b
 
 ## canbus_stats
 
-The following information is available in the `canbus_stats some_mcu_name` object (this object is automatically available if an mcu is configured to use canbus):
+Наступна інформація доступна в об'єкті `canbus_stats some_mcu_name` (цей об'єкт автоматично доступний, якщо мікроконтролер налаштовано на використання canbus):
 
-- `rx_error`: The number of receive errors detected by the micro-controller canbus hardware.
-- `tx_error`: The number of transmit errors detected by the micro-controller canbus hardware.
-- `tx_retries`: The number of transmit attempts that were retried due to bus contention or errors.
-- `bus_state`: The status of the interface (typically "active" for a bus in normal operation, "warn" for a bus with recent errors, "passive" for a bus that will no longer transmit canbus error frames, or "off" for a bus that will no longer transmit or receive messages).
+- `rx_error`: Кількість помилок прийому, виявлених апаратним забезпеченням мікроконтролера CANbus.
+- `tx_error`: Кількість помилок передачі, виявлених апаратним забезпеченням мікроконтролера CANbus.
+- `tx_retries`: Кількість спроб передачі, які були повторені через конфлікти з шиною або помилки.
+- `bus_state`: Стан інтерфейсу (зазвичай «active» для шини у нормальному режимі роботи, «warn» для шини з нещодавніми помилками, «passive» для шини, яка більше не передаватиме кадри помилок canbus, або «off» для шини, яка більше не передаватиме або отримуватиме повідомлення).
 
-Note that only the rp2XXX micro-controllers report a non-zero `tx_retries` field and the rp2XXX micro-controllers always report `tx_error` as zero and `bus_state` as "active".
+Зверніть увагу, що лише мікроконтролери rp2XXX повідомляють про ненульове поле `tx_retries`, а мікроконтролери rp2XXX завжди повідомляють `tx_error` як нуль, а `bus_state` як "active".
 
 ## налаштування
 
@@ -162,7 +162,7 @@ Note that only the rp2XXX micro-controllers report a non-zero `tx_retries` field
 
 Наступна інформація доступна в об'єкті [hall_filament_width_sensor](Config_Reference.md#hall_filament_width_sensor):
 
-- all items from [filament_switch_sensor](Status_Reference.md#filament_switch_sensor)
+- усі товари з [filament_switch_sensor](Status_Reference.md#filament_switch_sensor)
 - `is_active`: Повернення Правда, якщо датчик в даний час активний.
 - `Diameter`: Останнє читання від датчика в мм.
 - `Raw`: Остання сира ADC читання від датчика.
@@ -199,15 +199,15 @@ Note that only the rp2XXX micro-controllers report a non-zero `tx_retries` field
 
 ## load_cell
 
-The following information is available for each `[load_cell name]`:
+Для кожного `[ім'я тензодатчика]` доступна така інформація:
 
-- 'is_calibrated': True/False is the load cell calibrated
-- 'counts_per_gram': The number of raw sensor counts that equals 1 gram of force
-- 'reference_tare_counts': The reference number of raw sensor counts for 0 force
-- 'tare_counts': The current number of raw sensor counts for 0 force
-- 'force_g': The force in grams, averaged over the last polling period.
-- 'min_force_g': The minimum force in grams, over the last polling period.
-- 'max_force_g': The maximum force in grams, over the last polling period.
+- 'is_calibrated': True/False – калібрований тензодатчик
+- 'counts_per_gram': Кількість необроблених показників датчика, що дорівнює 1 граму сили
+- 'reference_tare_counts': Довідкова кількість необроблених показників датчика для 0 сили
+- 'tare_counts': Поточна кількість необроблених показників датчика для 0 сили
+- 'force_g': Сила в грамах, усереднена за останній період опитування.
+- 'min_force_g': Мінімальна сила в грамах за останній період опитування.
+- 'max_force_g': Максимальна сила в грамах за останній період опитування.
 
 ## load_cell_probe
 
@@ -318,9 +318,9 @@ The following information is available for `[load_cell_probe]`:
 
 ## skew_correction.py
 
-The following information is available in the `skew_correction` object (this object is available if any skew_correction is defined):
+Наступна інформація доступна в об'єкті `skew_correction` (цей об'єкт доступний, якщо визначено будь-яку skew_correction):
 
-- `current_profile_name`: Returns the name of the currently loaded SKEW_PROFILE.
+- `current_profile_name`: Повертає назву поточного завантаженого SKEW_PROFILE.
 
 ## stepper_enable
 

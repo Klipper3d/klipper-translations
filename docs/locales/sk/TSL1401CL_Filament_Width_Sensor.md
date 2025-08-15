@@ -1,13 +1,13 @@
-# TSL1401CL filament width sensor
+# Senzor šírky filamentu TSL1401CL
 
-This document describes Filament Width Sensor host module. Hardware used for developing this host module is based on TSL1401CL linear sensor array but it can work with any sensor array that has analog output. You can find designs at [Thingiverse](https://www.thingiverse.com/search?q=filament%20width%20sensor).
+Tento dokument popisuje hostiteľský modul snímača šírky vlákna. Hardvér použitý na vývoj tohto hostiteľského modulu je založený na lineárnom senzorovom poli TSL1401CL, ale môže fungovať s akýmkoľvek senzorovým poľom, ktorý má analógový výstup. Návrhy nájdete na [Thingiverse](https://www.thingiverse.com/search?q=filament%20width%20sensor).
 
-To use a sensor array as a filament width sensor, read [Config Reference](Config_Reference.md#tsl1401cl_filament_width_sensor) and [G-Code documentation](G-Codes.md#hall_filament_width_sensor).
+Ak chcete použiť pole senzorov ako senzor šírky filamentu, prečítajte si [Referencia konfigurácie](Config_Reference.md#tsl1401cl_filament_width_sensor) a [Dokumentácia G-Code](G-Codes.md#hall_filament_width_sensor).
 
-## How does it work?
+## Ako to funguje?
 
-Sensor generates analog output based on calculated filament width. Output voltage always equals to detected filament width (Ex. 1.65v, 1.70v, 3.0v). Host module monitors voltage changes and adjusts extrusion multiplier.
+Senzor generuje analógový výstup na základe vypočítanej šírky filamentu. Výstupné napätie sa vždy rovná detekovanej šírke filamentu (napr. 1,65 V, 1,70 V, 3,0 V). Hostiteľský modul monitoruje zmeny napätia a upravuje multiplikátor extrúzie.
 
-## Note:
+## Poznámka:
 
-Sensor readings done with 10 mm intervals by default. If necessary you are free to change this setting by editing ***MEASUREMENT_INTERVAL_MM*** parameter in **filament_width_sensor.py** file.
+Hodnoty senzora sa štandardne odčítavajú v 10 mm intervaloch. V prípade potreby môžete toto nastavenie zmeniť úpravou parametra ***MEASUREMENT_INTERVAL_MM*** v súbore **filament_width_sensor.py**.
