@@ -2,17 +2,20 @@
 # Ruslan Kyba <kybargr@gmail.com>, 2024.
 # Максим Горпиніч <mgorpinic2005@gmail.com>, 2024.
 # Максим Горпиніч <maksimgorpinic2005a@gmail.com>, 2025.
+# Максим Горпиніч <gorpinicmaksim5@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-02-20 08:20+0000\n"
-"Last-Translator: Максим Горпиніч <maksimgorpinic2005a@gmail.com>\n"
-"Language-Team: Ukrainian <https://hosted.weblate.org/projects/klipper/measuring_resonances/uk/>\n"
+"PO-Revision-Date: 2025-08-06 16:02+0000\n"
+"Last-Translator: Максим Горпиніч <gorpinicmaksim5@gmail.com>\n"
+"Language-Team: Ukrainian <https://hosted.weblate.org/projects/klipper/"
+"measuring_resonances/uk/>\n"
 "Language: uk\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.10.1-dev\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 msgid "Measuring Resonances"
 msgstr "Вимірювання Резонансів"
@@ -1528,16 +1531,21 @@ msgid ""
 "there are also a variety of board designs and clones with different I2C pull-"
 "up resistors which will need supplementing."
 msgstr ""
+"Для MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500/ICM20948 та LIS2DW/LIS3DH "
+"також існує різноманітний дизайн плат та клонів з різними підтягуючими "
+"резисторами I2C, які потребують доповнення."
 
 #: docs/Measuring_Resonances.md:block 37 (header)
 msgid "MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500/ICM20948"
-msgstr ""
+msgstr "MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500/ICM20948"
 
 #: docs/Measuring_Resonances.md:block 90 (paragraph)
 msgid ""
 "If you are using the ICM20948, replace instances of \"mpu9250\" with "
 "\"icm20948\"."
 msgstr ""
+"Якщо ви використовуєте ICM20948, замініть екземпляри \"mpu9250\" на "
+"\"icm20948\"."
 
 #~ msgid "MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500"
 #~ msgstr "МПУ-9250/МПУ-9255/МПУ-6515/МПУ-6050/МПУ-6500"

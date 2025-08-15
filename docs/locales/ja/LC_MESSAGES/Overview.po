@@ -4,14 +4,15 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-07-03 21:12+0000\n"
-"Last-Translator: Haruhiro Obora <boraboraharuharu@outlook.com>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/klipper/overview/ja/>\n"
+"PO-Revision-Date: 2025-08-06 11:03+0000\n"
+"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/klipper/"
+"overview/ja/>\n"
 "Language: ja\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.7-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 msgid ""
 "Welcome to the Klipper documentation. If new to Klipper, start with the "
@@ -268,6 +269,7 @@ msgid "[Eddy Current Inductive probe](Eddy_Probe.md)"
 msgstr ""
 
 #: docs/Overview.md:block 10 (unordered list)
+#, fuzzy
 msgid "[Load Cells](Load_Cell.md)"
 msgstr ""
 

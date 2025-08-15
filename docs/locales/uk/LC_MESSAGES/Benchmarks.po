@@ -1,17 +1,20 @@
 # Владислав <vlad.marusenko2000@gmail.com>, 2024.
 # Максим Горпиніч <mgorpinic2005@gmail.com>, 2024.
 # Максим Горпиніч <maksimgorpinic2005a@gmail.com>, 2025.
+# Максим Горпиніч <gorpinicmaksim5@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-02-20 08:20+0000\n"
-"Last-Translator: Максим Горпиніч <maksimgorpinic2005a@gmail.com>\n"
-"Language-Team: Ukrainian <https://hosted.weblate.org/projects/klipper/benchmarks/uk/>\n"
+"PO-Revision-Date: 2025-08-06 16:02+0000\n"
+"Last-Translator: Максим Горпиніч <gorpinicmaksim5@gmail.com>\n"
+"Language-Team: Ukrainian <https://hosted.weblate.org/projects/klipper/"
+"benchmarks/uk/>\n"
 "Language: uk\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.10.1-dev\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 msgid "This document describes Klipper benchmarks."
 msgstr "Цей документ описує бендикти Klipper."
@@ -744,31 +747,36 @@ msgstr "rp2350 (USB)"
 
 #: docs/Benchmarks.md:block 60 (paragraph)
 msgid "The following configuration sequence is used on STM32H723:"
-msgstr ""
+msgstr "На STM32H723 використовується наступна послідовність конфігурації:"
 
 #: docs/Benchmarks.md:block 62 (paragraph)
 msgid ""
 "The test was last run on commit `554ae78d` with gcc version `arm-none-eabi-gcc"
 " (Fedora 14.1.0-1.fc40) 14.1.0`."
 msgstr ""
+"Тест востаннє було виконано на комміті `554ae78d` з версією gcc `arm-none-"
+"eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0`."
 
 #: docs/Benchmarks.md:block 63 (table)
 msgid "stm32h723"
-msgstr ""
+msgstr "stm32h723"
 
 #: docs/Benchmarks.md:block 98 (paragraph)
 msgid ""
 "The test was last run on commit `14c105b8` with gcc version `arm-none-eabi-gcc"
 " (Fedora 14.1.0-1.fc40) 14.1.0` on Raspberry Pi Pico and Pico 2 boards."
 msgstr ""
+"Тест востаннє було виконано на комміті `14c105b8` з версією gcc `arm-none-"
+"eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0` на платах Raspberry Pi Pico та Pico "
+"2."
 
 #: docs/Benchmarks.md:block 99 (table)
 msgid "3"
-msgstr ""
+msgstr "3"
 
 #: docs/Benchmarks.md:block 99 (table)
 msgid "14"
-msgstr ""
+msgstr "14"
 
 #: docs/Benchmarks.md:block 69 (header)
 msgid "STM32G4 step rate benchmark"

@@ -3,14 +3,15 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-01-08 00:04+0000\n"
+"PO-Revision-Date: 2025-08-11 03:02+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
-"Language-Team: Tamil <https://hosted.weblate.org/projects/klipper/features/ta/>\n"
+"Language-Team: Tamil <https://hosted.weblate.org/projects/klipper/features/"
+"ta/>\n"
 "Language: ta\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 msgid "Klipper has several compelling features:"
 msgstr "கிளிப்பரில் பல கட்டாய நற்பொருத்தங்கள் உள்ளன:"
@@ -189,9 +190,9 @@ msgid ""
 " vibration and noise. See the [kinematics](Kinematics.md) document for more "
 "information."
 msgstr ""
-"அச்சுப்பொறி அதிர்வு மற்றும் சத்தத்தைக் குறைக்க குறுகிய \"சிக்சாக்\" "
-"நகர்வுகளின் வேகத்தை கட்டுப்படுத்துவதற்கான உதவி. மேலும் தகவலுக்கு [இயக்கவியல்] "
-"(இயக்கவியல்] (இயக்கவியல். எம்.டி) ஆவணத்தைப் பார்க்கவும்."
+"அச்சுப்பொறி அதிர்வு மற்றும் சத்தத்தைக் குறைக்க குறுகிய \"சிக்சாக்\" நகர்வுகளின் வேகத்தைக் "
+"கட்டுப்படுத்துவதற்கான உதவி. மேலும் தகவலுக்கு [இயக்கவியல்](Kinematics.md) ஆவணத்தைப் "
+"பார்க்கவும்."
 
 msgid ""
 "Sample configuration files are available for many common printers. Check the "
@@ -203,7 +204,7 @@ msgstr ""
 msgid ""
 "To get started with Klipper, read the [installation](Installation.md) guide."
 msgstr ""
-"கிளிப்பருடன் தொடங்க, [நிறுவல்] (நிறுவல்.எம்டி) வழிகாட்டியைப் படியுங்கள்."
+"கிளிப்பருடன் தொடங்க, [நிறுவல்](Installation.md) வழிகாட்டியைப் படியுங்கள்."
 
 msgid "Step Benchmarks"
 msgstr "படி வரையறைகள்"
@@ -375,8 +376,7 @@ msgid ""
 "Further details on the benchmarks are available in the [Benchmarks "
 "document](Benchmarks.md)."
 msgstr ""
-"வரையறைகள் குறித்த கூடுதல் விவரங்கள் [பெஞ்ச்மார்க்ச் ஆவணம்] (pergenmarks.md) "
-"இல் கிடைக்கின்றன."
+"வரையறைகள்குறித்த கூடுதல் விவரங்கள் [பெஞ்ச்மார்க்ச் ஆவணம்](Benchmarks.md) இல் கிடைக்கின்றன."
 
 #: docs/Features.md:block 10 (table)
 msgid "STM32G0B1"
@@ -440,9 +440,9 @@ msgid ""
 "[config file](../config/), and look for the micro-controller name in the "
 "comments at the top of that file."
 msgstr ""
-"ஒரு குறிப்பிட்ட போர்டில் மைக்ரோ-கன்ட்ரோலரைப் பற்றி உறுதியாக தெரியவில்லை "
-"என்றால், பொருத்தமான [கட்டமைப்பு கோப்பு] (../ கட்டமைப்பு/) ஐக் கண்டுபிடித்து, "
-"அந்தக் கோப்பின் மேலே உள்ள கருத்துகளில் மைக்ரோ-கன்ட்ரோலர் பெயரைத் தேடுங்கள்."
+"ஒரு குறிப்பிட்ட போர்டில் மைக்ரோ-கன்ட்ரோலரைப் பற்றி உறுதியாகத் தெரியவில்லை என்றால், "
+"பொருத்தமான [கட்டமைப்புக் கோப்பு](../config/) ஐக் கண்டுபிடித்து, அந்தக் கோப்பின் மேலே உள்ள "
+"கருத்துகளில் மைக்ரோ-கன்ட்ரோலர் பெயரைத் தேடுங்கள்."
 
 #: docs/Features.md:block 3 (unordered list)
 msgid ""
@@ -558,27 +558,27 @@ msgstr "2507 கே"
 
 #: docs/Features.md:block 10 (table)
 msgid "RP2350"
-msgstr ""
+msgstr "ரபா 0"
 
 #: docs/Features.md:block 10 (table)
 msgid "4167K"
-msgstr ""
+msgstr "4167 கே"
 
 #: docs/Features.md:block 10 (table)
 msgid "2663K"
-msgstr ""
+msgstr "வெட்டு"
 
 #: docs/Features.md:block 10 (table)
 msgid "SAME70"
-msgstr ""
+msgstr "சமி 0"
 
 #: docs/Features.md:block 10 (table)
 msgid "6667K"
-msgstr ""
+msgstr "ச்கார்ட்"
 
 #: docs/Features.md:block 10 (table)
 msgid "4737K"
-msgstr ""
+msgstr "4737 கே"
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
@@ -590,6 +590,13 @@ msgid ""
 "probes. Probes may be calibrated for axis twist compensation. If using an "
 "\"eddy current probe\" then one can utilize fast bed mesh scanning,"
 msgstr ""
+"தானியங்கி படுக்கை நிலை உதவி. கிளிப்பரை அடிப்படை படுக்கை சாய்வு கண்டறிதல் அல்லது முழு "
+"கண்ணி படுக்கை சமநிலைக்கு கட்டமைக்க முடியும். படுக்கை கண்ணி அச்சு அளவிற்கு (தகவமைப்பு "
+"படுக்கை கண்ணி) தனிப்பயனாக்கலாம். படுக்கை பல சட் ச்டெப்பர்களைப் பயன்படுத்தினால், சட் "
+"ச்டெப்பர்களை சுயாதீனமாக கையாளுவதன் மூலம் கிளிப்பரும் சமன் செய்யலாம். பி.எல்-டச் ஆய்வுகள் "
+"மற்றும் சர்வோ செயல்படுத்தப்பட்ட ஆய்வுகள் உட்பட பெரும்பாலான சட் உயர ஆய்வுகள் ஆதரிக்கப்படுகின்"
+"றன. அச்சு திருப்ப இழப்பீட்டுக்கு ஆய்வுகள் அளவீடு செய்யப்படலாம். \"எடி நடப்பு ஆய்வு\" ஐப் "
+"பயன்படுத்தினால், ஒருவர் வேகமான படுக்கை கண்ணி ச்கேனிங்கைப் பயன்படுத்தலாம்,"
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
@@ -600,6 +607,11 @@ msgid ""
 "micro-controller temperature sensor and the internal temperature sensor of a "
 "Raspberry Pi."
 msgstr ""
+"பொதுவான வெப்பநிலை உணரிகளுக்கான ஆதரவு (எ.கா., பொதுவான தெர்மிஸ்டர்கள், AD595, AD597, "
+"AD849x, PT100, PT1000, MAX6675, MAX31855, MAX31856, MAX31865, BME280, "
+"HTU21D, DS18B20, AHT10, SHT3x, மற்றும் LM75). தனிப்பயன் தெர்மிஸ்டர்கள் மற்றும் தனிப்பயன் "
+"அனலாக் வெப்பநிலை உணரிகளையும் உள்ளமைக்க முடியும். ஒருவர் உள் மைக்ரோ-கண்ட்ரோலர் வெப்பநிலை "
+"சென்சார் மற்றும் ஒரு ராஸ்பெர்ரி பையின் உள் வெப்பநிலை உணரியைக் கண்காணிக்க முடியும்."
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
@@ -608,32 +620,38 @@ msgid ""
 " on fans that have a tachometer. One can assign a \"math formula\" to a fan "
 "for automatic fan speed updating."
 msgstr ""
+"நிலையான ரசிகர்கள், முனை ரசிகர்கள் மற்றும் வெப்பநிலை கட்டுப்படுத்தப்பட்ட ரசிகர்களுக்கான உதவி"
+". அச்சுப்பொறி சும்மா இருக்கும்போது ரசிகர்களை இயங்க வைக்க தேவையில்லை. டேகோமீட்டர் கொண்ட "
+"ரசிகர்கள் மீது ரசிகர்களின் வேகத்தை கண்காணிக்க முடியும். தானியங்கி விசிறி வேக "
+"புதுப்பிப்புக்காக ஒரு விசிறிக்கு \"கணித சூத்திரத்தை\" ஒருவர் ஒதுக்க முடியும்."
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
 "Support for measuring and recording acceleration using adxl345, mpu9250, "
 "mpu6050, lis2dw12, lis3dh, and icm20948 accelerometers."
 msgstr ""
+"ADXL345, MPU9250, MPU6050, LIS2DW12, LIS3DH, மற்றும் ICM20948 முடுக்கமானிகள் "
+"ஆகியவற்றைப் பயன்படுத்தி முடுக்கம் அளவிடுவதற்கும் பதிவு செய்வதற்கும் உதவி."
 
 #: docs/Features.md:block 10 (table)
 msgid "4000K"
-msgstr ""
+msgstr "4000 கே"
 
 #: docs/Features.md:block 10 (table)
 msgid "2571K"
-msgstr ""
+msgstr "2571 கே"
 
 #: docs/Features.md:block 10 (table)
 msgid "STM32H723"
-msgstr ""
+msgstr "நான் கேட்பேன்"
 
 #: docs/Features.md:block 10 (table)
 msgid "7429K"
-msgstr ""
+msgstr "7429 கே"
 
 #: docs/Features.md:block 10 (table)
 msgid "8619K"
-msgstr ""
+msgstr "8619 கே"
 
 #: docs/Features.md:block 10 (table)
 msgid "STM32G431"

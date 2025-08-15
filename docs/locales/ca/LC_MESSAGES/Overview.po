@@ -3,14 +3,15 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-03-03 19:00+0000\n"
-"Last-Translator: Aleia <aleiajou4@gmail.com>\n"
-"Language-Team: Catalan <https://hosted.weblate.org/projects/klipper/overview/ca/>\n"
+"PO-Revision-Date: 2025-08-06 11:04+0000\n"
+"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Language-Team: Catalan <https://hosted.weblate.org/projects/klipper/overview/"
+"ca/>\n"
 "Language: ca\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10.3-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 msgid ""
 "Welcome to the Klipper documentation. If new to Klipper, start with the "
@@ -336,6 +337,7 @@ msgid "[Eddy Current Inductive probe](Eddy_Probe.md)"
 msgstr ""
 
 #: docs/Overview.md:block 10 (unordered list)
+#, fuzzy
 msgid "[Load Cells](Load_Cell.md)"
 msgstr ""
 

@@ -1,6 +1,16 @@
 #
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2025-08-06 11:04+0000\n"
+"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Language-Team: Korean <https://hosted.weblate.org/projects/klipper/"
+"axis_twist_compensation/ko/>\n"
+"Language: ko\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.13-dev\n"
+"Content-Transfer-Encoding: 8bit\n"
 
 #: docs/Axis_Twist_Compensation.md:block 1 (header)
 msgid "Axis Twist Compensation"
@@ -104,38 +114,45 @@ msgid ""
 msgstr ""
 
 #: docs/Axis_Twist_Compensation.md:block 2 (paragraph)
+#, fuzzy
 msgid "This document describes the `[axis_twist_compensation]` module."
 msgstr ""
 
 #: docs/Axis_Twist_Compensation.md:block 11 (paragraph)
+#, fuzzy
 msgid "This command will calibrate the X-axis by default."
 msgstr ""
 
 #: docs/Axis_Twist_Compensation.md:block 12 (unordered list)
+#, fuzzy
 msgid ""
 "The calibration wizard will prompt you to measure the probe Z offset at "
 "several points along the bed."
 msgstr ""
 
 #: docs/Axis_Twist_Compensation.md:block 12 (unordered list)
+#, fuzzy
 msgid ""
 "By default, the calibration uses 3 points, but you can specify a different "
 "number with the option: `SAMPLE_COUNT=<value>`"
 msgstr ""
 
 #: docs/Axis_Twist_Compensation.md:block 13 (ordered list)
+#, fuzzy
 msgid ""
 "**Adjust Your Z Offset:** After completing the calibration, be sure to [adjust"
 " your Z offset](Probe_Calibrate.md#calibrating-probe-z-offset)."
 msgstr ""
 
 #: docs/Axis_Twist_Compensation.md:block 23 (paragraph)
+#, fuzzy
 msgid ""
 "Configuration options for `[axis_twist_compensation]` can be found in the "
 "[Configuration Reference](Config_Reference.md#axis_twist_compensation)."
 msgstr ""
 
 #: docs/Axis_Twist_Compensation.md:block 24 (paragraph)
+#, fuzzy
 msgid ""
 "Commands for `[axis_twist_compensation]` can be found in the [G-Codes "
 "Reference](G-Codes.md#axis_twist_compensation)"

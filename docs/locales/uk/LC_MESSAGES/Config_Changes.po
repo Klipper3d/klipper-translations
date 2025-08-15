@@ -1,16 +1,19 @@
 # Максим Горпиніч <mgorpinic2005@gmail.com>, 2024.
 # Максим Горпиніч <maksimgorpinic2005a@gmail.com>, 2025.
+# Максим Горпиніч <gorpinicmaksim5@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-02-20 08:20+0000\n"
-"Last-Translator: Максим Горпиніч <maksimgorpinic2005a@gmail.com>\n"
-"Language-Team: Ukrainian <https://hosted.weblate.org/projects/klipper/config_changes/uk/>\n"
+"PO-Revision-Date: 2025-08-06 13:03+0000\n"
+"Last-Translator: Максим Горпиніч <gorpinicmaksim5@gmail.com>\n"
+"Language-Team: Ukrainian <https://hosted.weblate.org/projects/klipper/"
+"config_changes/uk/>\n"
 "Language: uk\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.10.1-dev\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 msgid ""
 "This document covers recent software changes to the config file that are not "
@@ -1279,6 +1282,10 @@ msgid ""
 " `[pwm_tool]`, and similar config sections is now 3 seconds (reduced from 5 "
 "seconds). The `maximum_mcu_duration` in `[pwm_tool]` is now also 3 seconds."
 msgstr ""
+"20250428: Максимальний час циклу (`cycle_time`) для розділів конфігурації "
+"ШІМ `[output_pin]`, `[pwm_cycle_time]`, `[pwm_tool]` та подібних тепер "
+"становить 3 секунди (скорочено з 5 секунд). Значення `maximum_mcu_duration` "
+"у `[pwm_tool]` тепер також становить 3 секунди."
 
 #: docs/Config_Changes.md:block 6 (paragraph)
 msgid ""
@@ -1287,6 +1294,10 @@ msgid ""
 " possibly take even if the endstop triggered earlier. Now, the command "
 "finishes shortly after the endstop trigger."
 msgstr ""
+"20250418: Функція manual_stepper `STOP_ON_ENDSTOP` тепер може виконуватися "
+"швидше. Раніше команда очікувала весь можливий час переміщення, навіть якщо "
+"кінцевий упор спрацював раніше. Тепер команда завершується невдовзі після "
+"спрацьовування кінцевого упора."
 
 #: docs/Config_Changes.md:block 7 (paragraph)
 msgid ""
@@ -1296,16 +1307,24 @@ msgid ""
 "limited by the `spi_speed` config parameter (actual hardware speeds are likely"
 " to be lower than the configured value due to software overhead)."
 msgstr ""
+"20250417: Пристрої SPI, що використовують \"програмний SPI\", тепер мають "
+"обмеження швидкості. Раніше параметр `spi_speed` у конфігурації ігнорувався, "
+"а швидкість передачі обмежувалася лише швидкістю обробки мікроконтролера. "
+"Тепер швидкість обмежується параметром конфігурації `spi_speed` (фактична "
+"швидкість обладнання, ймовірно, буде нижчою за налаштоване значення через "
+"програмні накладні витрати)."
 
 #: docs/Config_Changes.md:block 8 (paragraph)
 msgid "20250411: Klipper v0.13.0 released."
-msgstr ""
+msgstr "20250411: Випущено Klipper v0.13.0."
 
 #: docs/Config_Changes.md:block 9 (paragraph)
 msgid ""
 "20250308: The `AUTO` parameter of the `AXIS_TWIST_COMPENSATION_CALIBRATE` "
 "command has been removed."
 msgstr ""
+"20250308: Параметр `AUTO` команди `AXIS_TWIST_COMPENSATION_CALIBRATE` "
+"видалено."
 
 #: docs/Config_Changes.md:block 10 (paragraph)
 msgid ""
@@ -1313,6 +1332,10 @@ msgid ""
 "value. For example, `extruder` instead of mixedcase `Extruder` or uppercase "
 "`EXTRUDER`. Using any uppercase letter will raise an error."
 msgstr ""
+"20250131: Опція `VARIABLE=<назва>` у `SAVE_VARIABLE` вимагає значення в "
+"нижньому регістрі. Наприклад, `extruder` замість `Extruder` у змішаному "
+"регістрі або `EXTRUDER` у верхньому регістрі. Використання будь-якої великої "
+"літери призведе до помилки."
 
 #~ msgid ""
 #~ "20211104: The \"step pulse duration\" option in \"make menuconfig\" has been "

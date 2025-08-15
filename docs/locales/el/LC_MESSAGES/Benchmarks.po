@@ -1,9 +1,16 @@
 # Languages add-on <noreply-addon-languages@weblate.org>, 2025.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2025-08-06 11:05+0000\n"
+"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Language-Team: Greek <https://hosted.weblate.org/projects/klipper/benchmarks/"
+"el/>\n"
 "Language: el\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 msgid "This document describes Klipper benchmarks."
 msgstr ""
@@ -661,30 +668,36 @@ msgid "rp2350 (USB)"
 msgstr ""
 
 #: docs/Benchmarks.md:block 60 (paragraph)
+#, fuzzy
 msgid "The following configuration sequence is used on STM32H723:"
 msgstr ""
 
 #: docs/Benchmarks.md:block 62 (paragraph)
+#, fuzzy
 msgid ""
 "The test was last run on commit `554ae78d` with gcc version `arm-none-eabi-gcc"
 " (Fedora 14.1.0-1.fc40) 14.1.0`."
 msgstr ""
 
 #: docs/Benchmarks.md:block 63 (table)
+#, fuzzy
 msgid "stm32h723"
 msgstr ""
 
 #: docs/Benchmarks.md:block 98 (paragraph)
+#, fuzzy
 msgid ""
 "The test was last run on commit `14c105b8` with gcc version `arm-none-eabi-gcc"
 " (Fedora 14.1.0-1.fc40) 14.1.0` on Raspberry Pi Pico and Pico 2 boards."
 msgstr ""
 
 #: docs/Benchmarks.md:block 99 (table)
+#, fuzzy
 msgid "3"
 msgstr ""
 
 #: docs/Benchmarks.md:block 99 (table)
+#, fuzzy
 msgid "14"
 msgstr ""
 

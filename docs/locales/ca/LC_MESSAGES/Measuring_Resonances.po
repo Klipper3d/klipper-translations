@@ -2,14 +2,15 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-01-13 10:11+0000\n"
-"Last-Translator: Oriol Tous Casadesús <otousc@gmail.com>\n"
-"Language-Team: Catalan <https://hosted.weblate.org/projects/klipper/measuring_resonances/ca/>\n"
+"PO-Revision-Date: 2025-08-06 11:04+0000\n"
+"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Language-Team: Catalan <https://hosted.weblate.org/projects/klipper/"
+"measuring_resonances/ca/>\n"
 "Language: ca\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.4-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 msgid "Measuring Resonances"
 msgstr ""
@@ -1177,6 +1178,7 @@ msgid ""
 msgstr ""
 
 #: docs/Measuring_Resonances.md:block 5 (paragraph)
+#, fuzzy
 msgid ""
 "For MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500/ICM20948s and LIS2DW/LIS3DH "
 "there are also a variety of board designs and clones with different I2C pull-"
@@ -1184,10 +1186,12 @@ msgid ""
 msgstr ""
 
 #: docs/Measuring_Resonances.md:block 37 (header)
+#, fuzzy
 msgid "MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500/ICM20948"
 msgstr ""
 
 #: docs/Measuring_Resonances.md:block 90 (paragraph)
+#, fuzzy
 msgid ""
 "If you are using the ICM20948, replace instances of \"mpu9250\" with "
 "\"icm20948\"."

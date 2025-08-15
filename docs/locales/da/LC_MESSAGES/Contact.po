@@ -2,14 +2,15 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-11-26 12:05+0000\n"
-"Last-Translator: Michael Landbo <dev@l4ndbo.com>\n"
-"Language-Team: Danish <https://hosted.weblate.org/projects/klipper/contact/da/>\n"
+"PO-Revision-Date: 2025-08-06 11:04+0000\n"
+"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Language-Team: Danish <https://hosted.weblate.org/projects/klipper/contact/"
+"da/>\n"
 "Language: da\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.2.1-rc\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 msgid "This document provides contact information for Klipper."
 msgstr ""
@@ -236,6 +237,7 @@ msgid ""
 msgstr ""
 
 #: docs/Contact.md:block 31 (paragraph)
+#, fuzzy
 msgid ""
 "There are several [documents for developers](Overview.md#developer-"
 "documentation). If you have questions on the code then you can also ask in the"
@@ -244,14 +246,17 @@ msgid ""
 msgstr ""
 
 #: docs/Contact.md:block 32 (header)
+#, fuzzy
 msgid "Professional Services"
 msgstr ""
 
 #: docs/Contact.md:block 33 (paragraph)
+#, fuzzy
 msgid "![](img/klipper-logo-small.png)"
 msgstr ""
 
 #: docs/Contact.md:block 34 (paragraph)
+#, fuzzy
 msgid ""
 "Custom software development, software support, and solutions: <https://ko-"
 "fi.com/koconnor>"

@@ -1,15 +1,16 @@
-# Tarık Yıldız <tariky113@gmail.com>, 2021.
+# Tarık Yıldız <tariky113@gmail.com>, 2021, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2021-07-22 11:32+0000\n"
+"PO-Revision-Date: 2025-05-03 07:20+0000\n"
 "Last-Translator: Tarık Yıldız <tariky113@gmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/readme/tr/>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/readme/"
+"tr/>\n"
 "Language: tr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.7.2-dev\n"
+"X-Generator: Weblate 5.12-dev\n"
 
 msgid ""
 "Welcome to the Klipper documentation. The [overview document](Overview.md) is "

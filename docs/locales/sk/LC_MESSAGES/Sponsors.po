@@ -1,15 +1,17 @@
 # Pavol Vrba <pvrba2000@gmail.com>, 2024.
+# Warder <ciksa@seznam.cz>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-11-17 00:00+0000\n"
-"Last-Translator: Pavol Vrba <pvrba2000@gmail.com>\n"
-"Language-Team: Slovak <https://hosted.weblate.org/projects/klipper/sponsors/sk/>\n"
+"PO-Revision-Date: 2025-08-09 08:02+0000\n"
+"Last-Translator: Warder <ciksa@seznam.cz>\n"
+"Language-Team: Slovak <https://hosted.weblate.org/projects/klipper/sponsors/"
+"sk/>\n"
 "Language: sk\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 5.9-dev\n"
+"Plural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2);\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: docs/Sponsors.md:block 1 (header)
 msgid "Sponsors"
@@ -115,6 +117,8 @@ msgid ""
 "style=\"margin:25px\" "
 "/>](https://obico.io/klipper.html?source=klipper_sponsor)"
 msgstr ""
+"[<img src=\"./img/sponsors/obico-light-horizontal.png\" width=\"200\" style="
+"\"margin:25px\" />](https://obico.io/klipper.html?source=klipper_sponsor)"
 
 #~ msgid ""
 #~ "[<img src=\"./img/sponsors/obico-light-horizontal.png\" width=\"200\" "

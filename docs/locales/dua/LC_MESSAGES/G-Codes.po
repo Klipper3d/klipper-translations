@@ -1,9 +1,16 @@
 #
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2025-08-06 11:02+0000\n"
+"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Language-Team: Duala <https://hosted.weblate.org/projects/klipper/g-codes/"
+"dua/>\n"
 "Language: dua\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 msgid ""
 "This document describes the commands that Klipper supports. These are commands"
@@ -2552,10 +2559,12 @@ msgid ""
 msgstr ""
 
 #: docs/G-Codes.md:block 36 (paragraph)
+#, fuzzy
 msgid "`AXIS_TWIST_COMPENSATION_CALIBRATE [AXIS=<X|Y>] [SAMPLE_COUNT=<value>]`"
 msgstr ""
 
 #: docs/G-Codes.md:block 155 (paragraph)
+#, fuzzy
 msgid ""
 "`SET_KINEMATIC_POSITION [X=<value>] [Y=<value>] [Z=<value>] "
 "[SET_HOMED=<[X][Y][Z]>] [CLEAR_HOMED=<[X][Y][Z]>]`: Force the low-level "
@@ -2566,6 +2575,7 @@ msgid ""
 msgstr ""
 
 #: docs/G-Codes.md:block 156 (paragraph)
+#, fuzzy
 msgid ""
 "The `X`, `Y`, and `Z` parameters are used to alter the low-level kinematic "
 "position tracking. If any of these parameters are not set then the position is"
@@ -2578,6 +2588,7 @@ msgid ""
 msgstr ""
 
 #: docs/G-Codes.md:block 157 (paragraph)
+#, fuzzy
 msgid ""
 "The `SET_HOMED` parameter defaults to `XYZ` which instructs the kinematics to "
 "consider all axes as homed. A bare `SET_KINEMATIC_POSITION` command will "
@@ -2591,6 +2602,7 @@ msgid ""
 msgstr ""
 
 #: docs/G-Codes.md:block 158 (paragraph)
+#, fuzzy
 msgid ""
 "The `CLEAR_HOMED` parameter instructs the kinematics to consider the given "
 "axes as not homed. For example, `CLEAR_HOMED=XYZ` would request all axes to be"
@@ -2609,20 +2621,24 @@ msgid ""
 msgstr ""
 
 #: docs/G-Codes.md:block 224 (header)
+#, fuzzy
 msgid "[load_cell]"
 msgstr ""
 
 #: docs/G-Codes.md:block 225 (paragraph)
+#, fuzzy
 msgid ""
 "The following commands are enabled if a [load_cell config "
 "section](Config_Reference.md#load_cell) has been enabled."
 msgstr ""
 
 #: docs/G-Codes.md:block 226 (header)
+#, fuzzy
 msgid "LOAD_CELL_DIAGNOSTIC"
 msgstr ""
 
 #: docs/G-Codes.md:block 227 (paragraph)
+#, fuzzy
 msgid ""
 "`LOAD_CELL_DIAGNOSTIC [LOAD_CELL=<config_name>]`: This command collects 10 "
 "seconds of load cell data and reports statistics that can help you verify "
@@ -2631,42 +2647,51 @@ msgid ""
 msgstr ""
 
 #: docs/G-Codes.md:block 228 (header)
+#, fuzzy
 msgid "LOAD_CELL_CALIBRATE"
 msgstr ""
 
 #: docs/G-Codes.md:block 229 (paragraph)
+#, fuzzy
 msgid ""
 "`LOAD_CELL_CALIBRATE [LOAD_CELL=<config_name>]`: Start the guided calibration "
 "utility. Calibration is a 3 step process:"
 msgstr ""
 
 #: docs/G-Codes.md:block 230 (ordered list)
+#, fuzzy
 msgid "First you remove all load from the load cell and run the `TARE` command"
 msgstr ""
 
 #: docs/G-Codes.md:block 230 (ordered list)
+#, fuzzy
 msgid ""
 "Next you apply a known load to the load cell and run the `CALIBRATE GRAMS=nnn`"
 " command"
 msgstr ""
 
 #: docs/G-Codes.md:block 230 (ordered list)
+#, fuzzy
 msgid "Finally use the `ACCEPT` command to save the results"
 msgstr ""
 
 #: docs/G-Codes.md:block 231 (paragraph)
+#, fuzzy
 msgid "You can cancel the calibration process at any time with `ABORT`."
 msgstr ""
 
 #: docs/G-Codes.md:block 232 (header)
+#, fuzzy
 msgid "LOAD_CELL_TARE"
 msgstr ""
 
 #: docs/G-Codes.md:block 234 (header)
+#, fuzzy
 msgid "LOAD_CELL_READ load_cell=\"name\""
 msgstr ""
 
 #: docs/G-Codes.md:block 235 (paragraph)
+#, fuzzy
 msgid ""
 "`LOAD_CELL_READ [LOAD_CELL=<config_name>]`: This command takes a reading from "
 "the load cell. The response is the percentage of the sensors range that was "
@@ -2675,6 +2700,7 @@ msgid ""
 msgstr ""
 
 #: docs/G-Codes.md:block 343 (paragraph)
+#, fuzzy
 msgid ""
 "`SAVE_VARIABLE VARIABLE=<name> VALUE=<value>`: Saves the variable to disk so "
 "that it can be used across restarts. The VARIABLE must be lowercase. All "

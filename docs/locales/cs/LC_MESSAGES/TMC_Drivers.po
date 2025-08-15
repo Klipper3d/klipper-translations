@@ -3,14 +3,15 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-05-11 07:45+0000\n"
-"Last-Translator: Miloslav Kos <kos.m@post.cz>\n"
-"Language-Team: Czech <https://hosted.weblate.org/projects/klipper/tmc_drivers/cs/>\n"
+"PO-Revision-Date: 2025-08-06 11:02+0000\n"
+"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/klipper/"
+"tmc_drivers/cs/>\n"
 "Language: cs\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2);\n"
-"X-Generator: Weblate 5.5.4\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 msgid ""
 "This document provides information on using Trinamic stepper motor drivers in "
@@ -725,6 +726,7 @@ msgid "TMC reports error: `... ShortToGND` OR `ShortToSupply`"
 msgstr ""
 
 #: docs/TMC_Drivers.md:block 18 (paragraph)
+#, fuzzy
 msgid ""
 "Note that the `stealthchop_threshold` config option does not impact sensorless"
 " homing as Klipper automatically switches the TMC driver to an appropriate "

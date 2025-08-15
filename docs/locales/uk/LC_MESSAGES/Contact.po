@@ -1,17 +1,20 @@
 # Dan <denqwerta@gmail.com>, 2022.
 # Владислав <vlad.marusenko2000@gmail.com>, 2024.
 # Максим Горпиніч <mgorpinic2005@gmail.com>, 2024.
+# Максим Горпиніч <gorpinicmaksim5@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-10-31 21:00+0000\n"
-"Last-Translator: Максим Горпиніч <mgorpinic2005@gmail.com>\n"
-"Language-Team: Ukrainian <https://hosted.weblate.org/projects/klipper/contact/uk/>\n"
+"PO-Revision-Date: 2025-08-06 16:02+0000\n"
+"Last-Translator: Максим Горпиніч <gorpinicmaksim5@gmail.com>\n"
+"Language-Team: Ukrainian <https://hosted.weblate.org/projects/klipper/"
+"contact/uk/>\n"
 "Language: uk\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.8.2-dev\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 msgid "This document provides contact information for Klipper."
 msgstr "Цей документ містить контактну інформацію Klipper."
@@ -322,20 +325,26 @@ msgid ""
 " [Klipper Discourse Forum](#discourse-forum) or on the [Klipper Discord "
 "Chat](#discord-chat)."
 msgstr ""
+"Існує кілька [документів для розробників](Overview.md#developer-"
+"documentation). Якщо у вас є запитання щодо коду, ви також можете задати їх "
+"на [форумі Klipper Discourse](#discourse-forum) або в [чаті Klipper Discord]"
+"(#discord-chat)."
 
 #: docs/Contact.md:block 32 (header)
 msgid "Professional Services"
-msgstr ""
+msgstr "Професійні послуги"
 
 #: docs/Contact.md:block 33 (paragraph)
 msgid "![](img/klipper-logo-small.png)"
-msgstr ""
+msgstr "![](img/klipper-logo-small.png)'"
 
 #: docs/Contact.md:block 34 (paragraph)
 msgid ""
 "Custom software development, software support, and solutions: <https://ko-"
 "fi.com/koconnor>"
 msgstr ""
+"Розробка програмного забезпечення на замовлення, підтримка програмного "
+"забезпечення та рішення: <https://ko-fi.com/koconnor>"
 
 #~ msgid ""
 #~ "There are several [documents for developers](Overview.md#developer-"
