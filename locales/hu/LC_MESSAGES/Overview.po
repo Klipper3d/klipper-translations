@@ -7,15 +7,16 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2024-09-08 09:09+0000\n"
-"Last-Translator: \"Zs.Antal\" <antonio092130@icloud.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/overview/hu/>\n"
+"PO-Revision-Date: 2025-08-06 11:03+0000\n"
+"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
+"overview/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.8-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 msgid ""
 "Welcome to the Klipper documentation. If new to Klipper, start with the "
@@ -335,6 +336,7 @@ msgid "[Eddy Current Inductive probe](Eddy_Probe.md)"
 msgstr "[Örvényáramú induktív szonda](Eddy_Probe.md)"
 
 #: docs/Overview.md:block 10 (unordered list)
+#, fuzzy
 msgid "[Load Cells](Load_Cell.md)"
 msgstr ""
 

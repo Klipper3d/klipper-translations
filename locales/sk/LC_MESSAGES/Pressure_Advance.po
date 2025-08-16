@@ -1,9 +1,16 @@
-#
+# Pavol Vrba <pvrba2000@gmail.com>, 2025.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2025-08-06 23:02+0000\n"
+"Last-Translator: Pavol Vrba <pvrba2000@gmail.com>\n"
+"Language-Team: Slovak <https://hosted.weblate.org/projects/klipper/"
+"pressure_advance/sk/>\n"
 "Language: sk\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 msgid ""
 "This document provides information on tuning the \"pressure advance\" "
@@ -11,6 +18,10 @@ msgid ""
 "advance feature can be helpful in reducing ooze. For more information on how "
 "pressure advance is implemented see the [kinematics](Kinematics.md) document."
 msgstr ""
+"Tento dokument poskytuje informácie o ladení konfiguračnej premennej „postup "
+"tlaku“ pre konkrétnu trysku a filament. Funkcia postupu tlaku môže byť "
+"užitočná pri znižovaní výtoku. Viac informácií o implementácii postupu tlaku "
+"nájdete v dokumente [kinematika](Kinematics.md)."
 
 msgid "Tuning pressure advance"
 msgstr ""

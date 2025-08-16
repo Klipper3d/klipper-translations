@@ -6,15 +6,16 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-02-23 13:01+0000\n"
-"Last-Translator: \"Zs.Antal\" <antonio092130@icloud.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/features/hu/>\n"
+"PO-Revision-Date: 2025-08-06 11:02+0000\n"
+"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
+"features/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10.1-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 msgid "Klipper has several compelling features:"
 msgstr "A Klipper számos lenyűgöző tulajdonsággal rendelkezik:"
@@ -575,6 +576,7 @@ msgid "4737K"
 msgstr "4737K"
 
 #: docs/Features.md:block 6 (unordered list)
+#, fuzzy
 msgid ""
 "Automatic bed leveling support. Klipper can be configured for basic bed tilt "
 "detection or full mesh bed leveling. The bed mesh can be customized to the "
@@ -586,6 +588,7 @@ msgid ""
 msgstr ""
 
 #: docs/Features.md:block 6 (unordered list)
+#, fuzzy
 msgid ""
 "Support for common temperature sensors (eg, common thermistors, AD595, AD597, "
 "AD849x, PT100, PT1000, MAX6675, MAX31855, MAX31856, MAX31865, BME280, HTU21D, "
@@ -596,6 +599,7 @@ msgid ""
 msgstr ""
 
 #: docs/Features.md:block 6 (unordered list)
+#, fuzzy
 msgid ""
 "Support for standard fans, nozzle fans, and temperature controlled fans. No "
 "need to keep fans running when the printer is idle. Fan speed can be monitored"
@@ -604,28 +608,34 @@ msgid ""
 msgstr ""
 
 #: docs/Features.md:block 6 (unordered list)
+#, fuzzy
 msgid ""
 "Support for measuring and recording acceleration using adxl345, mpu9250, "
 "mpu6050, lis2dw12, lis3dh, and icm20948 accelerometers."
 msgstr ""
 
 #: docs/Features.md:block 10 (table)
+#, fuzzy
 msgid "4000K"
 msgstr ""
 
 #: docs/Features.md:block 10 (table)
+#, fuzzy
 msgid "2571K"
 msgstr ""
 
 #: docs/Features.md:block 10 (table)
+#, fuzzy
 msgid "STM32H723"
 msgstr ""
 
 #: docs/Features.md:block 10 (table)
+#, fuzzy
 msgid "7429K"
 msgstr ""
 
 #: docs/Features.md:block 10 (table)
+#, fuzzy
 msgid "8619K"
 msgstr ""
 

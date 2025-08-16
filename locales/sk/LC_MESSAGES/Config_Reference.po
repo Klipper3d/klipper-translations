@@ -1,20 +1,24 @@
 # Spravko <spravko@azet.sk>, 2023.
 # martin “reisin” Gerber <martinpantl8@gmail.com>, 2025.
+# Pavol Vrba <pvrba2000@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-03-12 10:06+0000\n"
-"Last-Translator: martin “reisin” Gerber <martinpantl8@gmail.com>\n"
-"Language-Team: Slovak <https://hosted.weblate.org/projects/klipper/config_reference/sk/>\n"
+"PO-Revision-Date: 2025-08-06 23:02+0000\n"
+"Last-Translator: Pavol Vrba <pvrba2000@gmail.com>\n"
+"Language-Team: Slovak <https://hosted.weblate.org/projects/klipper/"
+"config_reference/sk/>\n"
 "Language: sk\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2);\n"
-"X-Generator: Weblate 5.10.3-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 msgid ""
 "This document is a reference for options available in the Klipper config file."
 msgstr ""
+"Tento dokument slúži ako referencia pre možnosti dostupné v konfiguračnom "
+"súbore Klipperu."
 
 msgid ""
 "The descriptions in this document are formatted so that it is possible to cut-"
@@ -22,6 +26,10 @@ msgid ""
 "document](Installation.md) for information on setting up Klipper and choosing "
 "an initial config file."
 msgstr ""
+"Popisy v tomto dokumente sú formátované tak, aby bolo možné ich vystrihnúť a "
+"vložiť do konfiguračného súboru tlačiarne. Informácie o nastavení Klipperu a "
+"výbere počiatočného konfiguračného súboru nájdete v [inštalačnom dokumente]"
+"(Installation.md)."
 
 msgid "Micro-controller configuration"
 msgstr "Konfigurácia mikrokontroléra"
@@ -93,7 +101,7 @@ msgid "[printer]"
 msgstr "[printer]"
 
 msgid "The printer section controls high level printer settings."
-msgstr ""
+msgstr "Sekcia tlačiarne ovláda nastavenia tlačiarne na najvyššej úrovni."
 
 msgid "[stepper]"
 msgstr ""
@@ -104,6 +112,10 @@ msgid ""
 " for the stepper (eg, `stepper_x` vs `stepper_a`). Below are common stepper "
 "definitions."
 msgstr ""
+"Definície krokových motorov. Rôzne typy tlačiarní (ako je určené možnosťou "
+"„kinematika“ v konfiguračnej sekcii [printer]) vyžadujú rôzne názvy pre "
+"krokový motor (napr. `stepper_x` vs `stepper_a`). Nižšie sú uvedené bežné "
+"definície krokových motorov."
 
 msgid "Cartesian Kinematics"
 msgstr "Kartézska kinematika"
@@ -192,7 +204,7 @@ msgstr ""
 "hybrid-corexy.cfg](../config/example-hybrid-corexy.cfg)."
 
 msgid "This kinematic is also known as Markforged kinematic."
-msgstr ""
+msgstr "Táto kinematika je tiež známa ako Markforgedova kinematika."
 
 msgid ""
 "Only parameters specific to hybrid corexy printers are described here see "
@@ -301,6 +313,8 @@ msgid ""
 "The heater_bed section describes a heated bed. It uses the same heater "
 "settings described in the \"extruder\" section."
 msgstr ""
+"Sekcia heater_bed popisuje vyhrievanú podložku. Používa rovnaké nastavenia "
+"ohrievača, aké sú opísané v sekcii „extruder“."
 
 msgid "Bed level support"
 msgstr "Podpora úrovne lôžka"
@@ -326,7 +340,7 @@ msgstr ""
 "printer.cfg smerom k stredu oblasti tlače."
 
 msgid "Visual Examples:"
-msgstr ""
+msgstr "Vizuálne príklady:"
 
 msgid "[bed_tilt]"
 msgstr "[bed_tilt]"
@@ -348,6 +362,9 @@ msgid ""
 "Tool to help adjust bed leveling screws. One may define a [bed_screws] config "
 "section to enable a BED_SCREWS_ADJUST g-code command."
 msgstr ""
+"Nástroj na nastavenie skrutiek na vyrovnanie lôžka. Je možné definovať "
+"konfiguračnú sekciu [bed_screws], aby sa povolil príkaz BED_SCREWS_ADJUST v "
+"G-kóde."
 
 msgid "[screws_tilt_adjust]"
 msgstr "[screws_tilt_adjust]"
@@ -357,9 +374,12 @@ msgid ""
 "screws_tilt_adjust config section to enable a SCREWS_TILT_CALCULATE g-code "
 "command."
 msgstr ""
+"Nástroj na nastavenie sklonu skrutiek lôžka pomocou Z-sondy. Je možné "
+"definovať konfiguračnú sekciu screws_tilt_adjust, aby sa povolil príkaz G-"
+"kódu SCREWS_TILT_CALCULATE."
 
 msgid "[z_tilt]"
-msgstr ""
+msgstr "[z_tilt]"
 
 msgid "[quad_gantry_level]"
 msgstr "[quad_gantry_level]"
@@ -410,6 +430,12 @@ msgid ""
 "feature can improve the accuracy of endstop switches. Add a bare "
 "\"[endstop_phase]\" declaration to enable the ENDSTOP_PHASE_CALIBRATE command."
 msgstr ""
+"Koncové spínače s nastavením fázy krokového motora. Ak chcete použiť túto "
+"funkciu, definujte konfiguračnú sekciu s predponou „endstop_phase“, za "
+"ktorou nasleduje názov zodpovedajúcej konfiguračnej sekcie krokového motora ("
+"napríklad „[endstop_phase stepper_z]“). Táto funkcia môže zlepšiť presnosť "
+"koncových spínačov. Pridajte holú deklaráciu „[endstop_phase]“, aby ste "
+"povolili príkaz ENDSTOP_PHASE_CALIBRATE."
 
 msgid "G-Code macros and events"
 msgstr "Makrá a udalosti G-Code"
@@ -447,7 +473,7 @@ msgid "Optional G-Code features"
 msgstr "Voliteľné funkcie G-Code"
 
 msgid "[virtual_sdcard]"
-msgstr ""
+msgstr "[virtual_sdcard]"
 
 msgid ""
 "A virtual sdcard may be useful if the host machine is not fast enough to run "
@@ -487,7 +513,7 @@ msgid "[gcode_arcs]"
 msgstr "[gcode_arcs]"
 
 msgid "Support for gcode arc (G2/G3) commands."
-msgstr ""
+msgstr "Podpora pre príkazy g-kódu arc (G2/G3)."
 
 msgid "[respond]"
 msgstr "[respond]"
@@ -525,9 +551,9 @@ msgid ""
 "Include file support. One may include additional config file from the main "
 "printer config file. Wildcards may also be used (eg, \"configs/*.cfg\")."
 msgstr ""
-"Zahrňte podporu súborov. Jeden môže obsahovať ďalší konfiguračný súbor z "
-"hlavného konfiguračného súboru tlačiarne. Môžu sa použiť aj zástupné znaky "
-"(napr. \"configs/*.cfg\")."
+"Zahrnúť podporu súborov. Je možné zahrnúť ďalší konfiguračný súbor z "
+"hlavného konfiguračného súboru tlačiarne. Môžu sa použiť aj zástupné znaky ("
+"napr. „configs/*.cfg“)."
 
 msgid "Bed probing hardware"
 msgstr "Hardvér na sondovanie postele"
@@ -545,6 +571,15 @@ msgid ""
 "endstop. If using \"probe:z_virtual_endstop\" then do not define a "
 "position_endstop in the stepper_z config section."
 msgstr ""
+"Sonda výšky Z. Túto sekciu je možné definovať na povolenie hardvéru na "
+"snímanie výšky Z. Keď je táto sekcia povolená, sprístupnia sa rozšírené "
+"príkazy [g-kódu] PROBE a QUERY_PROBE (G-Codes.md#probe). Pozrite si tiež "
+"[sprievodcu kalibráciou sondy] (Probe_Calibrate.md). Sekcia sondy tiež "
+"vytvára virtuálny pin „probe:z_virtual_endstop“. Na tento virtuálny pin je "
+"možné nastaviť stepper_z endstop_pin na tlačiarňach v karteziánskom štýle, "
+"ktoré používajú sondu namiesto z endstop. Ak používate "
+"„probe:z_virtual_endstop“, nedefinujte position_endstop v konfiguračnej "
+"sekcii stepper_z."
 
 msgid "[bltouch]"
 msgstr "[bltouch]"
@@ -566,7 +601,7 @@ msgid "Additional stepper motors and extruders"
 msgstr "Prídavné krokové motory a extrudéry"
 
 msgid "[stepper_z1]"
-msgstr ""
+msgstr "[stepper_z1]"
 
 msgid ""
 "Multi-stepper axes. On a cartesian style printer, the stepper controlling a "
@@ -612,6 +647,8 @@ msgid ""
 "Support for additional steppers synchronized to the movement of an extruder "
 "(one may define any number of sections with an \"extruder_stepper\" prefix)."
 msgstr ""
+"Podpora pre ďalšie krokové motory synchronizované s pohybom extrudéra (je "
+"možné definovať ľubovoľný počet sekcií s predponou „extruder_stepper“)."
 
 msgid "[manual_stepper]"
 msgstr "[manual_stepper]"
@@ -620,7 +657,7 @@ msgid "Custom heaters and sensors"
 msgstr "Vlastné ohrievače a senzory"
 
 msgid "[verify_heater]"
-msgstr ""
+msgstr "[verify_heater]"
 
 msgid ""
 "Heater and temperature sensor verification. Heater verification is "
@@ -635,10 +672,10 @@ msgid "[homing_heaters]"
 msgstr "[homing_heaters]"
 
 msgid "Tool to disable heaters when homing or probing an axis."
-msgstr ""
+msgstr "Nástroj na deaktiváciu ohrievačov pri homovaní alebo snímaní osi."
 
 msgid "[thermistor]"
-msgstr ""
+msgstr "[thermistor]"
 
 msgid ""
 "Custom thermistors (one may define any number of sections with a "
@@ -683,7 +720,7 @@ msgid "[heater_generic]"
 msgstr "[heater_generic]"
 
 msgid "[temperature_sensor]"
-msgstr ""
+msgstr "[temperature_sensor]"
 
 msgid ""
 "Generic temperature sensors. One can define any number of additional "
@@ -693,7 +730,7 @@ msgstr ""
 "snímačov teploty, ktoré sú hlásené príkazom M105."
 
 msgid "Temperature sensors"
-msgstr ""
+msgstr "Snímače teploty"
 
 msgid "Common thermistors"
 msgstr "Bežné termistory"
@@ -747,11 +784,12 @@ msgid ""
 "macros.cfg](../config/sample-macros.cfg) for a gcode_macro that may be used to"
 " report humidity in addition to temperature."
 msgstr ""
-"Senzor prostredia s dvojvodičovým rozhraním (I2C) rodiny HTU21D. Upozorňujeme,"
-" že tento snímač nie je určený na použitie s extrudérmi a ohrievačmi, ale skôr"
-" na monitorovanie okolitej teploty (C) a relatívnej vlhkosti. Pozrite si "
-"[sample-macros.cfg](../config/sample-macros.cfg), kde nájdete gcode_macro, "
-"ktoré možno použiť na hlásenie vlhkosti okrem teploty."
+"Dvojvodičový environmentálny senzor rodiny HTU21D s rozhraním I2C. "
+"Upozorňujeme, že tento senzor nie je určený na použitie s extrudérmi a "
+"vyhrievacími lôžkami, ale skôr na monitorovanie okolitej teploty (C) a "
+"relatívnej vlhkosti. Gcode_macro, ktoré možno použiť na hlásenie vlhkosti "
+"okrem teploty, nájdete v súbore [sample-macros.cfg](../config/sample-"
+"macros.cfg)."
 
 msgid "LM75 temperature sensor"
 msgstr "snímač teploty LM75"
@@ -764,6 +802,8 @@ msgid ""
 " sensor. One can use the \"temperature_mcu\" sensor to monitor these "
 "temperatures."
 msgstr ""
+"Mikrokontroléry atsam, atsamd a stm32 obsahujú interný teplotný senzor. Na "
+"monitorovanie týchto teplôt je možné použiť senzor „temperature_mcu“."
 
 msgid "Host temperature sensor"
 msgstr "Snímač teploty hostiteľa"
@@ -771,6 +811,7 @@ msgstr "Snímač teploty hostiteľa"
 msgid ""
 "Temperature from the machine (eg Raspberry Pi) running the host software."
 msgstr ""
+"Teplota zariadenia (napr. Raspberry Pi), na ktorom beží hostiteľský softvér."
 
 msgid "DS18B20 temperature sensor"
 msgstr "snímač teploty DS18B20"
@@ -819,7 +860,7 @@ msgid "[controller_fan]"
 msgstr "[controller_fan]"
 
 msgid "[temperature_fan]"
-msgstr ""
+msgstr "[temperature_fan]"
 
 msgid ""
 "Temperature-triggered cooling fans (one may define any number of sections with"
@@ -827,6 +868,11 @@ msgid ""
 "enabled whenever its associated sensor is above a set temperature. By default,"
 " a temperature_fan has a shutdown_speed equal to max_power."
 msgstr ""
+"Chladiace ventilátory spúšťané teplotou (možno definovať ľubovoľný počet "
+"sekcií s predponou „temperature_fan“). „Teplotný ventilátor“ je ventilátor, "
+"ktorý sa zapne vždy, keď je jeho priradený senzor nad nastavenou teplotou. "
+"Predvolene má teplotný ventilátor rýchlosť vypnutia rovnajúcu sa maximálnemu "
+"výkonu."
 
 msgid "[fan_generic]"
 msgstr "[fan_generic]"
@@ -859,7 +905,7 @@ msgid "[output_pin]"
 msgstr "[output_pin]"
 
 msgid "[static_digital_output]"
-msgstr ""
+msgstr "[static_digital_output]"
 
 msgid ""
 "Statically configured digital output pins (one may define any number of "
@@ -893,10 +939,10 @@ msgstr ""
 "používať s kolíkmi krokového motora."
 
 msgid "TMC stepper driver configuration"
-msgstr ""
+msgstr "Konfigurácia ovládača krokového motora TMC"
 
 msgid "[tmc2130]"
-msgstr ""
+msgstr "[tmc2130]"
 
 msgid ""
 "Configure a TMC2130 stepper motor driver via SPI bus. To use this feature, "
@@ -909,7 +955,7 @@ msgstr ""
 "(napríklad \"[tmc2130 stepper_x]\")."
 
 msgid "[tmc2208]"
-msgstr ""
+msgstr "[tmc2208]"
 
 msgid ""
 "Configure a TMC2208 (or TMC2224) stepper motor driver via single wire UART. To"
@@ -923,7 +969,7 @@ msgstr ""
 "konfiguračnej sekcie steppera (napríklad \"[tmc2208 stepper_x]\")."
 
 msgid "[tmc2209]"
-msgstr ""
+msgstr "[tmc2209]"
 
 msgid ""
 "Configure a TMC2209 stepper motor driver via single wire UART. To use this "
@@ -937,7 +983,7 @@ msgstr ""
 "sekcie steppera (napríklad \"[tmc2209 stepper_x]\")."
 
 msgid "[tmc2660]"
-msgstr ""
+msgstr "[tmc2660]"
 
 msgid ""
 "Configure a TMC2660 stepper motor driver via SPI bus. To use this feature, "
@@ -950,7 +996,7 @@ msgstr ""
 " \"[tmc2660 stepper_x]\")."
 
 msgid "[tmc5160]"
-msgstr ""
+msgstr "[tmc5160]"
 
 msgid ""
 "Configure a TMC5160 stepper motor driver via SPI bus. To use this feature, "
@@ -992,6 +1038,8 @@ msgid ""
 "Statically configured MCP4728 digital-to-analog converter connected via I2C "
 "bus (one may define any number of sections with an \"mcp4728\" prefix)."
 msgstr ""
+"Staticky konfigurovaný digitálno-analógový prevodník MCP4728 pripojený cez "
+"zbernicu I2C (možno definovať ľubovoľný počet sekcií s predponou „mcp4728“)."
 
 msgid "[mcp4018]"
 msgstr "[mcp4018]"
@@ -1010,7 +1058,7 @@ msgid "[display]"
 msgstr "[display]"
 
 msgid "Support for a display attached to the micro-controller."
-msgstr ""
+msgstr "Podpora displeja pripojeného k mikrokontroléru."
 
 msgid "hd44780 display"
 msgstr "hd44780 display"
@@ -1055,7 +1103,7 @@ msgstr ""
 "„2,4-palcových zariadeniach s dotykovou obrazovkou“ a podobne."
 
 msgid "uc1701 display"
-msgstr ""
+msgstr "uc1701 displej"
 
 msgid ""
 "Information on configuring uc1701 displays (which is used in \"MKS Mini "
@@ -1079,6 +1127,10 @@ msgid ""
 "display will show all the data items for a given group if the display_group "
 "option in the [display] section is set to the given group name."
 msgstr ""
+"Podpora zobrazovania vlastných údajov na LCD obrazovke. Je možné vytvoriť "
+"ľubovoľný počet skupín zobrazení a ľubovoľný počet dátových položiek v rámci "
+"týchto skupín. Displej zobrazí všetky dátové položky pre danú skupinu, ak je "
+"parameter display_group v sekcii [display] nastavený na daný názov skupiny."
 
 msgid ""
 "A [default set of display groups](../klippy/extras/display/display.cfg) are "
@@ -1173,12 +1225,14 @@ msgstr ""
 "kódovača, ktorý prepína výstupný kolík počas pohybu vlákna cez snímač."
 
 msgid "[tsl1401cl_filament_width_sensor]"
-msgstr ""
+msgstr "[tsl1401cl_filament_width_sensor]"
 
 msgid ""
 "TSLl401CL Based Filament Width Sensor. See the "
 "[guide](TSL1401CL_Filament_Width_Sensor.md) for more information."
 msgstr ""
+"Senzor šírky filamentu na báze TSLl401CL. Viac informácií nájdete v "
+"[sprievodcovi](TSL1401CL_Filament_Width_Sensor.md)."
 
 msgid "[hall_filament_width_sensor]"
 msgstr "[hall_filament_width_sensor]"
@@ -1187,7 +1241,7 @@ msgid "Board specific hardware support"
 msgstr "Hardvérová podpora špecifická pre dosku"
 
 msgid "[sx1509]"
-msgstr ""
+msgstr "[sx1509]"
 
 msgid ""
 "Configure an SX1509 I2C to GPIO expander. Due to the delay incurred by I2C "
@@ -1260,6 +1314,8 @@ msgid ""
 "This modules also requires `[virtual_sdcard]` and `[pause_resume]` for full "
 "functionality."
 msgstr ""
+"Tento modul tiež vyžaduje `[virtual_sdcard]` a `[pause_resume]` pre plnú "
+"funkčnosť."
 
 msgid ""
 "If you use this module, do not use the Palette 2 plugin for Octoprint as they "
@@ -1279,6 +1335,8 @@ msgstr "Bežné nastavenia SPI"
 msgid ""
 "The following parameters are generally available for devices using an SPI bus."
 msgstr ""
+"Nasledujúce parametre sú všeobecne dostupné pre zariadenia používajúce "
+"zbernicu SPI."
 
 msgid "Common I2C settings"
 msgstr "Bežné nastavenia I2C"
@@ -1286,6 +1344,8 @@ msgstr "Bežné nastavenia I2C"
 msgid ""
 "The following parameters are generally available for devices using an I2C bus."
 msgstr ""
+"Nasledujúce parametre sú všeobecne dostupné pre zariadenia používajúce "
+"zbernicu I2C."
 
 msgid "[duplicate_pin_override]"
 msgstr "[duplicate_pin_override]"
@@ -1297,6 +1357,11 @@ msgid ""
 "using the same pin multiple times, and using this override may cause confusing"
 " and unexpected results."
 msgstr ""
+"Tento nástroj umožňuje definovať jeden pin mikrokontroléra viackrát v "
+"konfiguračnom súbore bez bežnej kontroly chýb. Toto je určené na "
+"diagnostické a ladiace účely. Táto časť nie je potrebná, pretože Klipper "
+"podporuje viacnásobné použitie toho istého pinu a použitie tohto prepísania "
+"môže spôsobiť mätúce a neočakávané výsledky."
 
 msgid ""
 "SAMD SERCOM configuration to specify which pins to use on a given SERCOM. One "
@@ -1377,7 +1442,7 @@ msgstr ""
 
 #: docs/Config_Reference.md:block 100 (paragraph)
 msgid "Where x is the 0, 0 point on the bed"
-msgstr ""
+msgstr "Kde x je bod 0, 0 na posteli"
 
 #: docs/Config_Reference.md:block 107 (paragraph)
 msgid ""
@@ -1473,6 +1538,9 @@ msgid ""
 "See [command templates](Command_Templates.md#save-variables-to-disk) and "
 "[G-Code reference](G-Codes.md#save_variables) for further information."
 msgstr ""
+"Podpora ukladania premenných na disk, aby sa zachovali aj po reštartovaní. "
+"Ďalšie informácie nájdete v častiach [šablóny príkazov](Command_Templates.md"
+"#save-variables-to-disk) a [referencia G-kódu](G-Codes.md#save_variables)."
 
 #: docs/Config_Reference.md:block 135 (paragraph)
 msgid ""
@@ -1490,6 +1558,9 @@ msgid ""
 "this feature may place the printer in an invalid state - see the [command "
 "reference](G-Codes.md#force_move) for important details."
 msgstr ""
+"Podpora manuálne pohyblivé stepper motory na diagnostické účely. Poznámka, "
+"pomocou tejto funkcie môže umiestniť tlačiareň v neplatnom stave - pozri "
+"[príkazový odkaz](G-Codes.md#force_move) pre dôležité detaily."
 
 #: docs/Config_Reference.md:block 141 (paragraph)
 msgid ""
@@ -1533,6 +1604,11 @@ msgid ""
 "information). The default chip name is \"default\", but one may specify an "
 "explicit name (eg, [adxl345 my_chip_name])."
 msgstr ""
+"Podpora pre akcelerometre ADXL345. Táto podpora umožňuje vyhľadávať merania "
+"akcelerometra zo senzora. To umožňuje príkaz ACCELEROMETER_MEASURE (ďalšie "
+"informácie nájdete v [G-Codes](G-Codes.md#adxl345)). Predvolený názov čipu "
+"je „default“, ale je možné zadať explicitný názov (napr. "
+"[adxl345 my_chip_name])."
 
 #: docs/Config_Reference.md:block 160 (paragraph)
 msgid ""
@@ -1545,6 +1621,13 @@ msgid ""
 "resonances guide for more information on `max_smoothing` parameter and its "
 "use."
 msgstr ""
+"Podpora testovania rezonancií a automatickej kalibrácie vstupného tvarovača. "
+"Aby ste mohli využívať väčšinu funkcií tohto modulu, je potrebné "
+"nainštalovať ďalšie softvérové závislosti; ďalšie informácie nájdete v časti "
+"[Meranie rezonancií](Measuring_Resonances.md) a v časti [Referencia príkazu]"
+"(G-Codes.md#resonance_tester). Ďalšie informácie o parametri `max_smoothing` "
+"a jeho použití nájdete v časti [Maximálne vyhladenie](Measuring_Resonances.md"
+"#max-smoothing) v príručke Meranie rezonancií."
 
 #: docs/Config_Reference.md:block 193 (paragraph)
 msgid "See the [command reference](G-Codes.md#extruder) for more information."
@@ -1654,6 +1737,10 @@ msgid ""
 "advance guide](Pressure_Advance.md) for information on tuning pressure "
 "advance."
 msgstr ""
+"Sekcia extrudéra sa používa na popis parametrov ohrievača pre horúci koniec "
+"trysky spolu s krokovým motorom ovládajúcim extrudér. Ďalšie informácie "
+"nájdete v [referencii príkazov](G-Codes.md#extruder). Informácie o ladení "
+"posunu tlaku nájdete v [sprievodcovi posunom tlaku](Pressure_Advance.md)."
 
 #: docs/Config_Reference.md:block 280 (paragraph)
 msgid "PCA9632 LED support. The PCA9632 is used on the FlashForge Dreamer."
@@ -1673,6 +1760,9 @@ msgid ""
 "(one may define any number of sections with an \"led\" prefix). See the "
 "[command reference](G-Codes.md#led) for more information."
 msgstr ""
+"Podpora pre LED diódy (a LED pásiky) ovládané pomocou PWM pinov "
+"mikrokontroléra (je možné definovať ľubovoľný počet sekcií s predponou „led“)"
+". Viac informácií nájdete v [referencii príkazu](G-Codes.md#led)."
 
 #: docs/Config_Reference.md:block 271 (paragraph)
 msgid ""
@@ -1724,12 +1814,19 @@ msgid ""
 " my_template]` then one could use `{ render('my_template') }` in a "
 "display_data section."
 msgstr ""
+"Táto funkcia umožňuje znížiť počet opakujúcich sa definícií v sekciách "
+"display_data. Na vyhodnotenie šablóny je možné v sekciách display_data "
+"použiť vstavanú funkciu `render()`. Napríklad, ak by sa definovala `"
+"[display_template my_template]`, potom by sa v sekcii display_data dala "
+"použiť `{ render('my_template') }`."
 
 #: docs/Config_Reference.md:block 358 (paragraph)
 msgid ""
 "This feature can also be used for continuous LED updates using the "
 "[SET_LED_TEMPLATE](G-Codes.md#set_led_template) command."
 msgstr ""
+"Túto funkciu je možné použiť aj na nepretržitú aktualizáciu LED pomocou "
+"príkazu [SET_LED_TEMPLATE](G-Codes.md#set_led_template)."
 
 #: docs/Config_Reference.md:block 409 (header)
 msgid "[angle]"
@@ -1747,6 +1844,11 @@ msgid ""
 "commands](G-Codes.md#smart_effector) to adjust the parameters of the Smart "
 "Effector at run time."
 msgstr ""
+"„Inteligentný efektor“ od Duet3d implementuje Z-sondu pomocou senzora sily. "
+"Túto sekciu je možné definovať namiesto `[probe]`, aby sa povolili "
+"špecifické funkcie inteligentného efektora. To tiež umožňuje "
+"[runtime commands](G-Codes.md#smart_effector) upravovať parametre "
+"inteligentného efektora počas behu."
 
 #: docs/Config_Reference.md:block 275 (paragraph)
 msgid ""
@@ -1822,7 +1924,7 @@ msgstr ""
 
 #: docs/Config_Reference.md:block 109 (header)
 msgid "[z_thermal_adjust]"
-msgstr ""
+msgstr "[z_thermal_adjust]"
 
 #: docs/Config_Reference.md:block 110 (paragraph)
 msgid ""
@@ -1831,6 +1933,10 @@ msgid ""
 "time using a temperature sensor (typically coupled to a vertical section of "
 "frame)."
 msgstr ""
+"Nastavenie polohy Z hlavy nástroja v závislosti od teploty. Kompenzácia "
+"vertikálneho pohybu hlavy nástroja spôsobeného tepelnou rozťažnosťou rámu "
+"tlačiarne v reálnom čase pomocou teplotného senzora (zvyčajne pripojeného k "
+"vertikálnej časti rámu)."
 
 #: docs/Config_Reference.md:block 111 (paragraph)
 msgid "See also: [extended g-code commands](G-Codes.md#z_thermal_adjust)."
@@ -1842,10 +1948,12 @@ msgid ""
 "accelerometers (one may define any number of sections with an \"mpu9250\" "
 "prefix)."
 msgstr ""
+"Podpora akcelerometrov MPU-9250, MPU-9255, MPU-6515, MPU-6050 a MPU-6500 (je "
+"možné definovať ľubovoľný počet sekcií s predponou „mpu9250“)."
 
 #: docs/Config_Reference.md:block 331 (header)
 msgid "[tmc2240]"
-msgstr ""
+msgstr "[tmc2240]"
 
 #: docs/Config_Reference.md:block 439 (paragraph)
 msgid ""
@@ -1869,7 +1977,7 @@ msgstr "[lis2dw]"
 
 #: docs/Config_Reference.md:block 172 (paragraph)
 msgid "Support for LIS2DW accelerometers."
-msgstr ""
+msgstr "Podpora akcelerometrov LIS2DW."
 
 #: docs/Config_Reference.md:block 200 (header)
 msgid "[axis_twist_compensation]"
@@ -1944,7 +2052,7 @@ msgstr ""
 
 #: docs/Config_Reference.md:block 324 (header)
 msgid "[pwm_tool]"
-msgstr ""
+msgstr "[pwm_tool]"
 
 #: docs/Config_Reference.md:block 325 (paragraph)
 msgid ""
@@ -1954,10 +2062,15 @@ msgid ""
 "time using \"SET_PIN PIN=my_pin VALUE=.1\" type extended [g-code "
 "commands](G-Codes.md#output_pin)."
 msgstr ""
+"Digitálne výstupné piny s pulzno-šírkovou moduláciou umožňujúce "
+"vysokorýchlostné aktualizácie (je možné definovať ľubovoľný počet sekcií s "
+"predponou „output_pin“). Piny nakonfigurované tu budú nastavené ako výstupné "
+"piny a je možné ich upravovať za behu pomocou rozšírených [g-code príkazy] "
+"typu „SET_PIN PIN=my_pin VALUE=.1“ (G-Codes.md#output_pin)."
 
 #: docs/Config_Reference.md:block 327 (header)
 msgid "[pwm_cycle_time]"
-msgstr ""
+msgstr "[pwm_cycle_time]"
 
 #: docs/Config_Reference.md:block 328 (paragraph)
 msgid ""
@@ -1967,10 +2080,15 @@ msgid ""
 "time using \"SET_PIN PIN=my_pin VALUE=.1 CYCLE_TIME=0.100\" type extended "
 "[g-code commands](G-Codes.md#pwm_cycle_time)."
 msgstr ""
+"Výstupné piny konfigurovateľné za behu s dynamickým časovaním cyklu PWM ("
+"možno definovať ľubovoľný počet sekcií s predponou „pwm_cycle_time“). Piny "
+"nakonfigurované tu budú nastavené ako výstupné piny a je možné ich upravovať "
+"za behu pomocou rozšíreného typu „SET_PIN PIN=my_pin VALUE=.1 "
+"CYCLE_TIME=0.100“ [G-kód príkazy] (G-Codes.md#pwm_cycle_time)."
 
 #: docs/Config_Reference.md:block 200 (header)
 msgid "[probe_eddy_current]"
-msgstr ""
+msgstr "[probe_eddy_current]"
 
 #: docs/Config_Reference.md:block 201 (paragraph)
 msgid ""
@@ -1978,10 +2096,13 @@ msgid ""
 "(instead of a probe section) to enable this probe. See the [command "
 "reference](G-Codes.md#probe_eddy_current) for further information."
 msgstr ""
+"Podpora pre indukčné sondy s vírivým prúdom. Túto sekciu (namiesto sekcie "
+"sondy) je možné definovať na povolenie tejto sondy. Ďalšie informácie "
+"nájdete v [referencii príkazu](G-Codes.md#probe_eddy_current)."
 
 #: docs/Config_Reference.md:block 245 (header)
 msgid "[temperature_probe]"
-msgstr ""
+msgstr "[temperature_probe]"
 
 #: docs/Config_Reference.md:block 246 (paragraph)
 msgid ""
@@ -1989,10 +2110,13 @@ msgid ""
 "for eddy current based probes. A `[temperature_probe]` section may be linked "
 "to a `[probe_eddy_current]` by using the same postfix for both sections."
 msgstr ""
+"Hlási teplotu cievky sondy. Zahŕňa voliteľnú kalibráciu tepelného driftu pre "
+"sondy založené na vírivých prúdoch. Sekciu `[temperature_probe]` je možné "
+"prepojiť s `[probe_eddy_current]` použitím rovnakého postfixu pre obe sekcie."
 
 #: docs/Config_Reference.md:block 262 (header)
 msgid "BMP180/BMP280/BME280/BMP388/BME680 temperature sensor"
-msgstr ""
+msgstr "Snímač teploty BMP180/BMP280/BME280/BMP388/BME680"
 
 #: docs/Config_Reference.md:block 263 (paragraph)
 msgid ""
@@ -2003,10 +2127,17 @@ msgid ""
 "macros.cfg](../config/sample-macros.cfg) for a gcode_macro that may be used to"
 " report pressure and humidity in addition to temperature."
 msgstr ""
+"Dvojvodičové senzory prostredia BMP180/BMP280/BME280/BMP388/BME680 s "
+"rozhraním I2C. Upozorňujeme, že tieto senzory nie sú určené na použitie s "
+"extrudérmi a vyhrievacími lôžkami, ale skôr na monitorovanie okolitej "
+"teploty (C), tlaku (hPa), relatívnej vlhkosti a v prípade BME680 hladiny "
+"plynu. Makro gcode_macro, ktoré sa môže použiť na hlásenie tlaku a vlhkosti "
+"okrem teploty, nájdete v súbore [sample-macros.cfg](../config/sample-"
+"macros.cfg)."
 
 #: docs/Config_Reference.md:block 271 (header)
 msgid "SHT3X sensor"
-msgstr ""
+msgstr "SHT3X senzor"
 
 #: docs/Config_Reference.md:block 272 (paragraph)
 msgid ""
@@ -2014,26 +2145,33 @@ msgid ""
 " a range of -55~125 C, so are usable for e.g. chamber temperature monitoring. "
 "They can also function as simple fan/heater controllers."
 msgstr ""
+"Dvojvodičový senzor prostredia rodiny SHT3X s rozhraním I2C. Tieto senzory "
+"majú rozsah -55~125 °C, takže sú použiteľné napr. na monitorovanie teploty v "
+"komore. Môžu tiež fungovať ako jednoduché ovládače ventilátora/ohrievača."
 
 #: docs/Config_Reference.md:block 436 (header)
 msgid "Load Cells"
-msgstr ""
+msgstr "Snímače zaťaženia"
 
 #: docs/Config_Reference.md:block 437 (header)
 msgid "[load_cell]"
-msgstr ""
+msgstr "[load_cell]"
 
 #: docs/Config_Reference.md:block 438 (paragraph)
 msgid ""
 "Load Cell. Uses an ADC sensor attached to a load cell to create a digital "
 "scale."
 msgstr ""
+"Snímač zaťaženia. Používa ADC snímač pripojený k snímaču zaťaženia na "
+"vytvorenie digitálnej váhy."
 
 #: docs/Config_Reference.md:block 441 (paragraph)
 msgid ""
 "This is a 24 bit low sample rate chip using \"bit-bang\" communications. It is"
 " suitable for filament scales."
 msgstr ""
+"Ide o 24-bitový čip s nízkou vzorkovacou frekvenciou, ktorý využíva "
+"komunikáciu „bit-bang“. Je vhodný pre filamentové váhy."
 
 #: docs/Config_Reference.md:block 443 (header)
 msgid "HX717"
@@ -2043,6 +2181,8 @@ msgstr ""
 msgid ""
 "This is the 4x higher sample rate version of the HX711, suitable for probing."
 msgstr ""
+"Toto je verzia HX711 so 4x vyššou vzorkovacou frekvenciou, vhodná na "
+"sondovanie."
 
 #: docs/Config_Reference.md:block 446 (header)
 msgid "ADS1220"
@@ -2053,6 +2193,8 @@ msgid ""
 "The ADS1220 is a 24 bit ADC supporting up to a 2Khz sample rate configurable "
 "in software."
 msgstr ""
+"ADS1220 je 24-bitový ADC s podporou vzorkovacej frekvencie až 2 kHz, ktorú "
+"je možné softvérovo konfigurovať."
 
 #: docs/Config_Reference.md:block 174 (header)
 msgid "[lis3dh]"
@@ -2060,7 +2202,7 @@ msgstr ""
 
 #: docs/Config_Reference.md:block 175 (paragraph)
 msgid "Support for LIS3DH accelerometers."
-msgstr ""
+msgstr "Podpora akcelerometrov LIS3DH."
 
 #: docs/Config_Reference.md:block 207 (paragraph)
 msgid ""
@@ -2068,6 +2210,10 @@ msgid ""
 "gantry. See the [Axis Twist Compensation Guide](Axis_Twist_Compensation.md) "
 "for more detailed information regarding symptoms, configuration and setup."
 msgstr ""
+"Nástroj na kompenzáciu nepresných údajov sondy v dôsledku skrútenia v "
+"portáli X alebo Y. Podrobnejšie informácie o príznakoch, konfigurácii a "
+"nastavení nájdete v dokumente [Axis Twist Compensation Guide] "
+"(Axis_Twist_Compensation.md)."
 
 #: docs/Config_Reference.md:block 391 (header)
 msgid "aip31068_spi display"
@@ -2079,6 +2225,9 @@ msgid ""
 "hd44780_spi a 20x04 (20 symbols by 4 lines) display with slightly different "
 "internal protocol."
 msgstr ""
+"Informácie o konfigurácii displeja aip31068_spi – veľmi podobného displeju "
+"hd44780_spi s rozlíšením 20x04 (20 symbolov po 4 riadkoch) s mierne odlišným "
+"interným protokolom."
 
 #: docs/Config_Reference.md:block 446 (header)
 msgid "HX711"
@@ -2092,6 +2241,12 @@ msgid ""
 "analysis tool](Debugging.md#motion-analysis-and-data-logging). See the [G-Code"
 " reference](G-Codes.md#angle) for available commands."
 msgstr ""
+"Podpora magnetického snímača uhla Hallovej osi na odčítanie meraní uhlového "
+"hriadeľa krokového motora pomocou čipov SPI a1333, as5047d, mt6816, mt6826s "
+"alebo tle5012b. Merania sú dostupné prostredníctvom [API servera]"
+"(API_Server.md) a [motion analysis tool](Debugging.md#motion-analysis-and-"
+"data-logging). Dostupné príkazy nájdete v [G-Code reference]"
+"(G-Codes.md#angle)."
 
 #: docs/Config_Reference.md:block 487 (paragraph)
 msgid ""
@@ -2104,18 +2259,27 @@ msgid ""
 "support a rate of 400000 via the `i2c_speed` parameter. All other Klipper "
 "micro-controllers use a 100000 rate and ignore the `i2c_speed` parameter."
 msgstr ""
+"Väčšina Klipper implementácií mikrokontrolérov podporuje iba rýchlosť "
+"`i2c_speed` 100000 (*štandardný režim*, 100 kbit/s). Mikrokontrolér Klipper "
+"„Linux“ podporuje rýchlosť 400000 (*rýchly režim*, 400 kbit/s), ale musí byť "
+"[nastavená v operačnom systéme](RPi_microcontroller.md#optional-enabling-i2c)"
+" a parameter `i2c_speed` sa inak ignoruje. Mikrokontrolér Klipper „RP2040“ a "
+"rodina ATmega AVR a niektoré STM32 (F0, G0, G4, L4, F7, H7) podporujú "
+"rýchlosť 400000 prostredníctvom parametra `i2c_speed`. Všetky ostatné "
+"mikrokontroléry Klipper používajú rýchlosť 100000 a ignorujú parameter "
+"`i2c_speed`."
 
 #: docs/Config_Reference.md:block 171 (header)
 msgid "[icm20948]"
-msgstr ""
+msgstr "[icm20948]"
 
 #: docs/Config_Reference.md:block 172 (paragraph)
 msgid "Support for icm20948 accelerometers."
-msgstr ""
+msgstr "Podpora pre akcelerometre icm20948."
 
 #: docs/Config_Reference.md:block 470 (header)
 msgid "[ads1x1x]"
-msgstr ""
+msgstr "[ads1x1x]"
 
 #: docs/Config_Reference.md:block 471 (paragraph)
 msgid ""
@@ -2123,6 +2287,10 @@ msgid ""
 "to Digital Converters that can be used for temperature sensors. They provide 4"
 " analog input pins either as single line or as differential input."
 msgstr ""
+"ADS1013, ADS1014, ADS1015, ADS1113, ADS1114 a ADS1115 sú analógovo-digitálne "
+"prevodníky založené na I2C, ktoré možno použiť pre teplotné senzory. "
+"Poskytujú 4 analógové vstupné piny, buď ako jednofázový, alebo ako "
+"diferenciálny vstup."
 
 #: docs/Config_Reference.md:block 472 (paragraph)
 msgid ""
@@ -2132,10 +2300,16 @@ msgid ""
 " verify min_temp and max_temp within the micro-controller and do not require a"
 " working connection to the host.)"
 msgstr ""
+"Poznámka: Pri používaní tohto senzora na ovládanie ohrievačov buďte opatrní. "
+"Minimálna a maximálna teplota ohrievača sa overujú iba v hostiteľskom "
+"zariadení a iba v prípade, že hostiteľské zariadenie beží a funguje "
+"normálne. (Vstupy ADC priamo pripojené k mikrokontroléru overujú min. a max. "
+"teplotu v mikrokontroléri a nevyžadujú funkčné pripojenie k hostiteľskému "
+"prostrediu.)"
 
 #: docs/Config_Reference.md:block 474 (paragraph)
 msgid "The chip provides pins that can be used on other sensors."
-msgstr ""
+msgstr "Čip poskytuje piny, ktoré je možné použiť na iných senzoroch."
 
 #: docs/Config_Reference.md:block 484 (paragraph)
 msgid ""
@@ -2145,6 +2319,11 @@ msgid ""
 "start print on the Palette 2 and unpausing in Octoprint for your print to "
 "begin."
 msgstr ""
+"Ak používate Octoprint a streamujete gcode cez sériový port namiesto tlače z "
+"virtual_sd, odstránením **M1** a **M0** z *Pozastavovacích príkazov* v *"
+"Nastavenia > Sériové pripojenie > Firmvér a protokol* zabránite nutnosti "
+"spustiť tlač na Palette 2 a obnoviť pozastavenie v Octoprinte, aby sa tlač "
+"začala."
 
 #: docs/Config_Reference.md:block 69 (header)
 msgid "Generic Cartesian Kinematics"

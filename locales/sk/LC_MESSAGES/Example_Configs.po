@@ -1,15 +1,25 @@
-#
+# Pavol Vrba <pvrba2000@gmail.com>, 2025.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2025-08-06 23:02+0000\n"
+"Last-Translator: Pavol Vrba <pvrba2000@gmail.com>\n"
+"Language-Team: Slovak <https://hosted.weblate.org/projects/klipper/"
+"example_configs/sk/>\n"
 "Language: sk\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 msgid ""
 "This document contains guidelines for contributing an example Klipper "
 "configuration to the Klipper github repository (located in the [config "
 "directory](../config/))."
 msgstr ""
+"Tento dokument obsahuje pokyny pre pridanie vzorovej konfigurácie Klipperu "
+"do repozitára Klipper na GitHube (ktorý sa nachádza v adresári "
+"[config directory](../config/))."
 
 msgid ""
 "Note that the [Klipper Community Discourse "

@@ -1,9 +1,16 @@
 # Languages add-on <noreply-addon-languages@weblate.org>, 2024.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2025-08-06 11:05+0000\n"
+"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Language-Team: Chuukese <https://hosted.weblate.org/projects/klipper/"
+"config_changes/chk/>\n"
 "Language: chk\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 msgid ""
 "This document covers recent software changes to the config file that are not "
@@ -846,6 +853,7 @@ msgid ""
 msgstr ""
 
 #: docs/Config_Changes.md:block 5 (paragraph)
+#, fuzzy
 msgid ""
 "20250428: The maximum `cycle_time` for pwm `[output_pin]`, `[pwm_cycle_time]`,"
 " `[pwm_tool]`, and similar config sections is now 3 seconds (reduced from 5 "
@@ -853,6 +861,7 @@ msgid ""
 msgstr ""
 
 #: docs/Config_Changes.md:block 6 (paragraph)
+#, fuzzy
 msgid ""
 "20250418: The manual_stepper `STOP_ON_ENDSTOP` feature may now take less time "
 "to complete. Previously, the command would wait the entire time the move could"
@@ -861,6 +870,7 @@ msgid ""
 msgstr ""
 
 #: docs/Config_Changes.md:block 7 (paragraph)
+#, fuzzy
 msgid ""
 "20250417: SPI devices using \"software SPI\" are now rate limited. Previously,"
 " the `spi_speed` in the config was ignored and the transmission speed was only"
@@ -870,16 +880,19 @@ msgid ""
 msgstr ""
 
 #: docs/Config_Changes.md:block 8 (paragraph)
+#, fuzzy
 msgid "20250411: Klipper v0.13.0 released."
 msgstr ""
 
 #: docs/Config_Changes.md:block 9 (paragraph)
+#, fuzzy
 msgid ""
 "20250308: The `AUTO` parameter of the `AXIS_TWIST_COMPENSATION_CALIBRATE` "
 "command has been removed."
 msgstr ""
 
 #: docs/Config_Changes.md:block 10 (paragraph)
+#, fuzzy
 msgid ""
 "20250131: Option `VARIABLE=<name>` in `SAVE_VARIABLE` requires lowercase "
 "value. For example, `extruder` instead of mixedcase `Extruder` or uppercase "

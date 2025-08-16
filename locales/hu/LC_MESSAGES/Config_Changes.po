@@ -7,15 +7,16 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2025-02-23 13:01+0000\n"
-"Last-Translator: \"Zs.Antal\" <antonio092130@icloud.com>\n"
-"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/config_changes/hu/>\n"
+"PO-Revision-Date: 2025-08-06 11:02+0000\n"
+"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
+"config_changes/hu/>\n"
 "Language: hu\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10.1-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 msgid ""
 "This document covers recent software changes to the config file that are not "
@@ -1309,6 +1310,7 @@ msgstr ""
 "konfigurációs szakaszokban megszűnt. Ezek az opciók a 20240123 óta elavultak."
 
 #: docs/Config_Changes.md:block 5 (paragraph)
+#, fuzzy
 msgid ""
 "20250428: The maximum `cycle_time` for pwm `[output_pin]`, `[pwm_cycle_time]`,"
 " `[pwm_tool]`, and similar config sections is now 3 seconds (reduced from 5 "
@@ -1316,6 +1318,7 @@ msgid ""
 msgstr ""
 
 #: docs/Config_Changes.md:block 6 (paragraph)
+#, fuzzy
 msgid ""
 "20250418: The manual_stepper `STOP_ON_ENDSTOP` feature may now take less time "
 "to complete. Previously, the command would wait the entire time the move could"
@@ -1324,6 +1327,7 @@ msgid ""
 msgstr ""
 
 #: docs/Config_Changes.md:block 7 (paragraph)
+#, fuzzy
 msgid ""
 "20250417: SPI devices using \"software SPI\" are now rate limited. Previously,"
 " the `spi_speed` in the config was ignored and the transmission speed was only"
@@ -1333,16 +1337,19 @@ msgid ""
 msgstr ""
 
 #: docs/Config_Changes.md:block 8 (paragraph)
+#, fuzzy
 msgid "20250411: Klipper v0.13.0 released."
 msgstr ""
 
 #: docs/Config_Changes.md:block 9 (paragraph)
+#, fuzzy
 msgid ""
 "20250308: The `AUTO` parameter of the `AXIS_TWIST_COMPENSATION_CALIBRATE` "
 "command has been removed."
 msgstr ""
 
 #: docs/Config_Changes.md:block 10 (paragraph)
+#, fuzzy
 msgid ""
 "20250131: Option `VARIABLE=<name>` in `SAVE_VARIABLE` requires lowercase "
 "value. For example, `extruder` instead of mixedcase `Extruder` or uppercase "

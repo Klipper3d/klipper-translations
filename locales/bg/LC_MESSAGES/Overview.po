@@ -4,14 +4,15 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-10-15 06:16+0000\n"
-"Last-Translator: Niolay Danov <nikdan@abv.bg>\n"
-"Language-Team: Bulgarian <https://hosted.weblate.org/projects/klipper/overview/bg/>\n"
+"PO-Revision-Date: 2025-08-06 11:03+0000\n"
+"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Language-Team: Bulgarian <https://hosted.weblate.org/projects/klipper/"
+"overview/bg/>\n"
 "Language: bg\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.8-rc\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 msgid ""
 "Welcome to the Klipper documentation. If new to Klipper, start with the "
@@ -333,6 +334,7 @@ msgid "[Eddy Current Inductive probe](Eddy_Probe.md)"
 msgstr "[Индуктивна сонда за вихрови токове](Eddy_Probe.md)"
 
 #: docs/Overview.md:block 10 (unordered list)
+#, fuzzy
 msgid "[Load Cells](Load_Cell.md)"
 msgstr ""
 

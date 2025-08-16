@@ -1,21 +1,28 @@
-#
+# Warder <ciksa@seznam.cz>, 2025.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2025-08-09 08:02+0000\n"
+"Last-Translator: Warder <ciksa@seznam.cz>\n"
+"Language-Team: Slovak <https://hosted.weblate.org/projects/klipper/index/sk/>"
+"\n"
 "Language: sk\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: docs/index.md:block 1 (paragraph)
 msgid "hide:"
-msgstr ""
+msgstr "skryť:"
 
 #: docs/index.md:block 2 (unordered list)
 msgid "toc title: Welcome"
-msgstr ""
+msgstr "názov obsahu: Vitajte"
 
 #: docs/index.md:block 3 (paragraph)
 msgid "![](img/klipper-logo.png){ .center-image }"
-msgstr ""
+msgstr "![](img/klipper-logo.png){ .center-image }"
 
 #: docs/index.md:block 4 (paragraph)
 msgid ""

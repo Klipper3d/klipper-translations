@@ -1,9 +1,16 @@
 # Languages add-on <noreply-addon-languages@weblate.org>, 2024.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2025-08-06 11:05+0000\n"
+"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Language-Team: Esperanto <https://hosted.weblate.org/projects/klipper/"
+"canbus_troubleshooting/eo/>\n"
 "Language: eo\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: docs/CANBUS_Troubleshooting.md:block 1 (header)
 msgid "CANBUS Troubleshooting"
@@ -249,28 +256,33 @@ msgid ""
 msgstr ""
 
 #: docs/CANBUS_Troubleshooting.md:block 10 (paragraph)
+#, fuzzy
 msgid ""
 "Incrementing `bytes_invalid` on a CAN bus connection is a symptom of reordered"
 " messages on the CAN bus. If seen, make sure to:"
 msgstr ""
 
 #: docs/CANBUS_Troubleshooting.md:block 11 (unordered list)
+#, fuzzy
 msgid "Use a Linux kernel version 6.6.0 or later."
 msgstr ""
 
 #: docs/CANBUS_Troubleshooting.md:block 11 (unordered list)
+#, fuzzy
 msgid ""
 "If using a USB-to-CANBUS adapter running candlelight firmware, use v2.0 or "
 "later of candleLight_fw."
 msgstr ""
 
 #: docs/CANBUS_Troubleshooting.md:block 11 (unordered list)
+#, fuzzy
 msgid ""
 "If using Klipper's USB-to-CANBUS bridge mode, make sure the bridge node is "
 "flashed with Klipper v0.12.0 or later."
 msgstr ""
 
 #: docs/CANBUS_Troubleshooting.md:block 12 (paragraph)
+#, fuzzy
 msgid ""
 "Reordered messages is a severe problem that must be fixed. It will result in "
 "unstable behavior and can lead to confusing errors at any part of a print. An "
@@ -279,6 +291,7 @@ msgid ""
 msgstr ""
 
 #: docs/CANBUS_Troubleshooting.md:block 13 (paragraph)
+#, fuzzy
 msgid ""
 "Older versions of the Linux kernel had a bug in the gs_usb canbus driver code "
 "that could cause reordered canbus packets. The issue is thought to be fixed in"
@@ -290,6 +303,7 @@ msgid ""
 msgstr ""
 
 #: docs/CANBUS_Troubleshooting.md:block 14 (paragraph)
+#, fuzzy
 msgid ""
 "Older versions of candlelight firmware could reorder canbus packets, and the "
 "issue is thought to be fixed in [candlelight_fw commit "
@@ -298,6 +312,7 @@ msgid ""
 msgstr ""
 
 #: docs/CANBUS_Troubleshooting.md:block 15 (paragraph)
+#, fuzzy
 msgid ""
 "Older versions of Klipper's USB-to-CANBUS bridge code could incorrectly drop "
 "canbus messages. This is not as severe as reordering messages, but it should "
@@ -306,10 +321,12 @@ msgid ""
 msgstr ""
 
 #: docs/CANBUS_Troubleshooting.md:block 25 (header)
+#, fuzzy
 msgid "Use `canbus_query.py` only to identify nodes never previously seen"
 msgstr ""
 
 #: docs/CANBUS_Troubleshooting.md:block 26 (paragraph)
+#, fuzzy
 msgid ""
 "It is only valid to use the [`canbus_query.py` tool](CANBUS.md#finding-the-"
 "canbus_uuid-for-new-micro-controllers) to identify micro-controllers that have"
@@ -319,6 +336,7 @@ msgid ""
 msgstr ""
 
 #: docs/CANBUS_Troubleshooting.md:block 27 (paragraph)
+#, fuzzy
 msgid ""
 "The tool is implemented using a low-level mechanism that can cause nodes to "
 "internally observe bus errors. These internal errors may result in "
@@ -327,6 +345,7 @@ msgid ""
 msgstr ""
 
 #: docs/CANBUS_Troubleshooting.md:block 28 (paragraph)
+#, fuzzy
 msgid ""
 "It is not valid to use the tool to \"ping\" if a node is connected. Do not run"
 " the tool during an active print."

@@ -1,9 +1,16 @@
 # Languages add-on <noreply-addon-languages@weblate.org>, 2025.
 msgid ""
 msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2025-08-06 11:05+0000\n"
+"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Language-Team: Greek <https://hosted.weblate.org/projects/klipper/canbus/el/>"
+"\n"
 "Language: el\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 msgid "This document describes Klipper's CAN bus support."
 msgstr ""
@@ -179,6 +186,7 @@ msgid "See the [CAN bus troubleshooting](CANBUS_Troubleshooting.md) document."
 msgstr ""
 
 #: docs/CANBUS.md:block 30 (unordered list)
+#, fuzzy
 msgid ""
 "It is only valid to use USB to CAN bridge mode if there is a functioning CAN "
 "bus with at least one other node available (in addition to the bridge node "
