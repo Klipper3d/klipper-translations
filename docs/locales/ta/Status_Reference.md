@@ -1,62 +1,62 @@
 # நிலை குறிப்பு
 
-இந்த ஆவணம் கிளிப்பர் [மேக்ரோக்கள்] (கட்டளை_டெம்ப்ளேட்ச்.எம்டி), [காட்சி புலங்கள்] (config_reference.md#காட்சி), மற்றும் [API சேவையகம்] (API_SERVER.MD) வழியாக கிடைக்கும் அச்சுப்பொறி நிலை தகவல்களின் குறிப்பு ஆகும்.
+இந்த ஆவணம் Klipper [macros](Command_Templates.md), [display fields](Config_Reference.md#display), மற்றும் [API Server](API_Server.md) வழியாக கிடைக்கும் அச்சுப்பொறி நிலை தகவலின் குறிப்பாகும்.
 
-இந்த ஆவணத்தில் உள்ள புலங்கள் மாற்றத்திற்கு உட்பட்டவை - ஒரு பண்புக்கூறு பயன்படுத்தினால், கிளிப்பர் மென்பொருளை மேம்படுத்தும் போது [கட்டமைப்பு மாற்றங்கள் ஆவணத்தை] (config_changes.md) மதிப்பாய்வு செய்ய வேண்டும்.
+இந்த ஆவணத்தில் உள்ள புலங்கள் மாற்றத்திற்கு உட்பட்டவை - ஒரு பண்புக்கூறு பயன்படுத்தினால், கிளிப்பர் மென்பொருளை மேம்படுத்தும்போது [கட்டமைப்பு மாற்றங்கள் ஆவணத்தை](config_changes.md) மதிப்பாய்வு செய்ய வேண்டும்.
 
 ## கோணம்
 
-பின்வரும் தகவல்கள் [goll some_name] (config_reference.md#கோணம்) பொருள்களில் கிடைக்கின்றன:
+பின்வரும் தகவல்கள் [angle some_name](Config_Reference.md#angle) பொருட்களில் கிடைக்கின்றன:
 
 - `வெப்பநிலை`: TLE5012B காந்த மண்டப சென்சாரிலிருந்து கடைசி வெப்பநிலை வாசிப்பு (செல்சியசில்). கோண சென்சார் ஒரு TLE5012B சிப்பாக இருந்தால் மட்டுமே இந்த மதிப்பு கிடைக்கும் மற்றும் அளவீடுகள் செயலில் இருந்தால் (இல்லையெனில் அது `எதுவுமில்லை 'என்று புகாரளிக்கிறது).
 
 ## bed_mesh
 
-பின்வரும் தகவல்கள் [bed_mesh] (config_reference.md#bed_mesh) பொருளில் கிடைக்கின்றன:
+பின்வரும் தகவல்கள் [bed_mesh](config_reference.md#bed_mesh) பொருளில் கிடைக்கின்றன:
 
 - `சுயவிவரம்_நாம்`,` mesh_min`, `mesh_max`,` probed_matrix`, `mesh_matrix`: தற்போது செயலில் உள்ள படுக்கை_மெச் பற்றிய செய்தி.
 - `சுயவிவரங்கள்`: BED_MESH_PROFILE ஐப் பயன்படுத்தி தற்போது வரையறுக்கப்பட்ட சுயவிவரங்களின் தொகுப்பு.
 
 ## BED_SCREWS
 
-The following information is available in the [bed_screws](Config_Reference.md#bed_screws) object:
+பின்வரும் தகவல்கள் [bed_screws](Config_Reference.md#bed_screws) பொருளில் கிடைக்கின்றன:
 
 - `is_active`: படுக்கை திருகுகள் சரிசெய்தல் கருவி தற்போது செயலில் இருந்தால் உண்மை.
 - `மாநிலம்`: படுக்கை திருகுகள் சரிசெய்தல் கருவி நிலை. இது பின்வரும் சரங்களில் ஒன்றாகும்: "சரிசெய்யவும்", "நன்றாக".
 - `Current_screw`: தற்போதைய திருகு சரிசெய்யப்படும் குறியீடு.
 - `ஏற்றுக்கொள்ளப்பட்ட_சக்கிகள்`: ஏற்றுக்கொள்ளப்பட்ட திருகுகளின் எண்ணிக்கை.
 
-## canbus_stats
+## கேன்பஸ்_நிலைகள்
 
-The following information is available in the `canbus_stats some_mcu_name` object (this object is automatically available if an mcu is configured to use canbus):
+பின்வரும் தகவல்கள் `canbus_stats some_mcu_name` பொருளில் கிடைக்கின்றன (கேன்பசைப் பயன்படுத்த ஒரு MCU கட்டமைக்கப்பட்டிருந்தால் இந்த பொருள் தானாகவே கிடைக்கும்):
 
-- `rx_error`: The number of receive errors detected by the micro-controller canbus hardware.
-- `tx_error`: The number of transmit errors detected by the micro-controller canbus hardware.
-- `tx_retries`: The number of transmit attempts that were retried due to bus contention or errors.
-- `bus_state`: The status of the interface (typically "active" for a bus in normal operation, "warn" for a bus with recent errors, "passive" for a bus that will no longer transmit canbus error frames, or "off" for a bus that will no longer transmit or receive messages).
+- `ஆர்எக்ச் பிழை`: மைக்ரோகண்ட்ரோலரால் கண்டறியப்பட்ட பெறும் பிழைகளின் எண்ணிக்கை பச் வன்பொருள்.
+- `TX_ERROR`: மைக்ரோ-கன்ட்ரோலர் கான்பச் வன்பொருளால் கண்டறியப்பட்ட பரிமாற்ற பிழைகளின் எண்ணிக்கை.
+- `TX_RETRIES`: பச் சர்ச்சை அல்லது பிழைகள் காரணமாக மீண்டும் முயற்சிக்கப்பட்ட பரிமாற்ற முயற்சிகளின் எண்ணிக்கை.
+- `பச்_ச்டேட்`: இடைமுகத்தின் நிலை (பொதுவாக சாதாரண செயல்பாட்டில் ஒரு பச்சுக்கு" செயலில் ", அண்மைக் கால பிழைகள் கொண்ட பச்சுக்கு" முன்னறிவிப்பு ", கான்பச் பிழை பிரேம்களை இனி கடத்தாத பச்சுக்கு" செயலற்றது "அல்லது இனி செய்திகளை அனுப்பவோ அல்லது பெறவோ கூடாது) பச்சுக்கு" ஆஃப் "செய்யாது).
 
-Note that only the rp2XXX micro-controllers report a non-zero `tx_retries` field and the rp2XXX micro-controllers always report `tx_error` as zero and `bus_state` as "active".
+RP2XXX மைக்ரோ-கன்ட்ரோலர்கள் மட்டுமே பூச்சியமற்ற `TX_RETRIES` புலத்தையும், RP2XXX மைக்ரோ-கன்ட்ரோலர்கள் எப்போதும்` TX_ERROR` ஐ பூச்சியமாகவும், `பச்_ச்டேட்`" செயலில் "என்றும் தெரிவிக்கின்றன என்பதை நினைவில் கொள்க.
 
 ## கட்டமைப்பு
 
 பின்வரும் தகவல்கள் `கட்டமைப்பு` பொருளில் கிடைக்கின்றன (இந்த பொருள் எப்போதும் கிடைக்கும்):
 
-- `அமைப்புகள். <ction>. (ரன் நேரத்தில் மாற்றப்பட்ட எந்த அமைப்புகளும் இங்கே பிரதிபலிக்காது.)
-- `கட்டமைப்பு. <ction>. (ரன் நேரத்தில் மாற்றப்பட்ட எந்த அமைப்புகளும் இங்கே பிரதிபலிக்காது.) அனைத்து மதிப்புகளும் சரங்களாக திருப்பித் தரப்படுகின்றன.
+- `settings.<section>.<option>`: கடைசி மென்பொருள் தொடக்கம் அல்லது மறுதொடக்கத்தின் போது கொடுக்கப்பட்ட config கோப்பு அமைப்பை (அல்லது இயல்புநிலை மதிப்பை) வழங்குகிறது. (இயக்க நேரத்தில் மாற்றப்பட்ட எந்த அமைப்புகளும் இங்கே பிரதிபலிக்காது.)
+- `config.<section>.<option>`: கடைசி மென்பொருள் தொடக்கம் அல்லது மறுதொடக்கத்தின் போது Klipper ஆல் படிக்கப்பட்ட கொடுக்கப்பட்ட raw config கோப்பு அமைப்பை வழங்குகிறது. (இயக்க நேரத்தில் மாற்றப்பட்ட எந்த அமைப்புகளும் இங்கே பிரதிபலிக்காது.) அனைத்து மதிப்புகளும் சரங்களாகத் திரும்பப் பெறப்படுகின்றன.
 - `save_config_pending`:` save_config` கட்டளை வட்டுக்கு தொடரும் புதுப்பிப்புகள் இருந்தால் உண்மை என்பதைத் தருகிறது.
 - `save_config_pending_items`: மாற்றப்பட்ட பிரிவுகள் மற்றும் விருப்பங்கள் உள்ளன, மேலும் அவை` save_config` ஆல் தொடரப்படும்.
 - `எச்சரிக்கைகள்`: கட்டமைப்பு விருப்பங்களைப் பற்றிய எச்சரிக்கைகளின் பட்டியல். பட்டியலில் உள்ள ஒவ்வொரு நுழைவும் `வகை` மற்றும்` செய்தி` புலம் (இரண்டு சரங்களும்) கொண்ட அகராதியாக இருக்கும். எச்சரிக்கை வகையைப் பொறுத்து கூடுதல் புலங்கள் கிடைக்கக்கூடும்.
 
 ## display_status
 
-பின்வரும் தகவல்கள் `டிச்ப்ளே_ச்டேட்டச்` பொருளில் கிடைக்கின்றன (ஒரு [காட்சி] (config_reference.md#காட்சி) கட்டமைப்பு பிரிவு வரையறுக்கப்பட்டால் இந்த பொருள் தானாகவே கிடைக்கும்):
+`display_status` பொருளில் பின்வரும் தகவல்கள் கிடைக்கின்றன ([display](Config_Reference.md#display) config பிரிவு வரையறுக்கப்பட்டால் இந்த பொருள் தானாகவே கிடைக்கும்):
 
 - `முன்னேற்றம்`: கடைசி` M73` சி-குறியீட்டு கட்டளையின் முன்னேற்ற மதிப்பு (அல்லது `மெய்நிகர்_ச்ட்கார்ட்.பிரெச்` சமீபத்திய` எம் 73` பெறவில்லை என்றால்).
 - `செய்தி`: கடைசி` M117` சி-குறியீட்டு கட்டளையில் உள்ள செய்தி.
 
 ## endstop_phase
 
-பின்வரும் தகவல்கள் [endstop_phase] (config_reference.md#endstop_phase) பொருளில் கிடைக்கின்றன:
+பின்வரும் தகவல்கள் [endstop_phase](config_reference.md#endstop_phase) பொருளில் கிடைக்கின்றன:
 
 - `லாச்ட்_ஓம். <ச்டெப்பர் பெயர்> .பேச்`: கடைசி வீட்டு முயற்சியின் முடிவில் ச்டெப்பர் மோட்டரின் கட்டம்.
 - `லாச்ட்_ஓம். <ச்டெப்பர் பெயர்> .பேச்கள்`: ச்டெப்பர் மோட்டரில் கிடைக்கும் மொத்த கட்டங்களின் எண்ணிக்கை.
@@ -64,7 +64,7 @@ Note that only the rp2XXX micro-controllers report a non-zero `tx_retries` field
 
 ## விலக்கு_ஆப்செக்ட்
 
-பின்வரும் தகவல்கள் [excalude_object] (excolude_object.md) பொருளில் கிடைக்கின்றன:
+[exclude_object](Exclude_Object.md) பொருளில் பின்வரும் தகவல்கள் கிடைக்கின்றன:
 
 - `பொருள்கள்`:` விலக்கு_ஆப்செக்ட்_ டெஃபைன்` கட்டளையால் வழங்கப்பட்ட அறியப்பட்ட பொருள்களின் வரிசை. `விலக்கு_ஆப்செக்ட் VERBOSE = 1` கட்டளை வழங்கிய அதே செய்தி இது. அசல் `விலக்கு_ஆப்செக்ட்_ டிஃபைன்` இல் வழங்கப்பட்டால் மட்டுமே` மையம்` மற்றும் `பலகோணம்` புலங்கள் இருக்கும்
 
@@ -100,50 +100,50 @@ Note that only the rp2XXX micro-controllers report a non-zero `tx_retries` field
 
 ## எக்ச்ட்ரூடர் ச்டெப்பர்
 
-எக்ச்ட்ரூடர்_ச்டெப்பர் பொருள்களுக்கு (அத்துடன் [எக்ச்ட்ரூடர்] (config_reference.md#எக்ச்ட்ரூடர்) பொருள்களுக்கு பின்வரும் தகவல்கள் கிடைக்கின்றன):
+extruder_stepper பொருள்களுக்கும் ([extruder](Config_Reference.md#extruder) பொருள்களுக்கும்) பின்வரும் தகவல்கள் கிடைக்கின்றன:
 
-- `pression_advance`: தற்போதைய [அழுத்தம் அட்வான்ச்] (pression_advance.md) மதிப்பு.
+- `அழுத்தம்_முன்னேற்றம்`: மின்னோட்டம் [அழுத்தம் முன்னேற்றம்](Pressure_Advance.md) மதிப்பு.
 - `sley_time`: தற்போதைய அழுத்தம் மென்மையான நேரம்.
 - `மோசன்_க்யூ`: இந்த எக்ச்ட்ரூடர் ச்டெப்பர் தற்போது ஒத்திசைக்கப்பட்ட எக்ச்ட்ரூடரின் பெயர். எக்ச்ட்ரூடர் ச்டெப்பர் தற்போது ஒரு எக்ச்ட்ரூடருடன் தொடர்புடையதாக இல்லாவிட்டால் இது `எதுவுமில்லை 'என்று தெரிவிக்கப்படுகிறது.
 
 ## விசிறி
 
-பின்வரும் தகவல்கள் [fan] (config_reference.md#fan), [heter_fan சில_நேம்] (config_reference.md#heter_fan) மற்றும் [controlter_fan சில_நேம்] (config_reference.md#controlter_fan) பொருள்கள்:
+பின்வரும் தகவல்கள் [fan](config_reference.md#fan), [heter_fan சில_நேம்](config_reference.md#heter_fan) மற்றும் [controlter_fan சில_நேம்](config_reference.md#controlter_fan) பொருள்கள்:
 
 - `வேகம்`: சுவைஞர் விரைவு 0.0 முதல் 1.0 வரை மிதவையாக இருக்கும்.
-- `ஆர்.பி.எம்.
+- `rpm`: விசிறியில் டேகோமீட்டர்_பின் வரையறுக்கப்பட்டிருந்தால், நிமிடத்திற்கு சுழற்சிகளில் அளவிடப்பட்ட விசிறி வேகம்.
 
 ## Filament_switch_sensor
 
-பின்வரும் தகவல்கள் [Filament_switch_sensor some_name] (config_reference.md#filemation_switch_sensor) பொருள்கள்:
+பின்வரும் தகவல்கள் [Filament_switch_sensor some_name](config_reference.md#filemation_switch_sensor) பொருள்கள்:
 
 - `இயக்கப்பட்டது`: ச்விட்ச் சென்சார் தற்போது இயக்கப்பட்டிருந்தால் உண்மை.
 - `filemation_detected`: சென்சார் தூண்டப்பட்ட நிலையில் இருந்தால் உண்மை.
 
 ## Filament_motion_sensor
 
-பின்வரும் தகவல்கள் [Filament_motion_sensor some_name] (config_reference.md#filament_motion_sensor) பொருள்கள்:
+பின்வரும் தகவல்கள் [Filament_motion_sensor some_name](config_reference.md#filament_motion_sensor) பொருள்கள்:
 
 - `இயக்கப்பட்டது`: மோசன் சென்சார் தற்போது இயக்கப்பட்டிருந்தால் உண்மை.
 - `filemation_detected`: சென்சார் தூண்டப்பட்ட நிலையில் இருந்தால் உண்மை.
 
 ## firmware_retraction
 
-பின்வரும் தகவல்கள் [firmware_retraction] (config_reference.md#firmware_retraction) பொருளில் கிடைக்கின்றன:
+பின்வரும் தகவல்கள் [firmware_retraction](config_reference.md#firmware_retraction) பொருளில் கிடைக்கின்றன:
 
 - `retact_length`,` retact_speed`, `UnorRectact_extra_length`,` Unertract_speed`: firmware_retraction தொகுதிக்கான தற்போதைய அமைப்புகள். `Set_retraction` கட்டளை அவற்றை மாற்றினால் இந்த அமைப்புகள் கட்டமைப்பு கோப்பிலிருந்து வேறுபடலாம்.
 
-## gcode_button
+## சீகோடு_பொத்தான்
 
-பின்வரும் தகவல்கள் [gcode_button some_name] (config_reference.md#gcode_button) பொருள்கள்:
+பின்வரும் தகவல்கள் [gcode_button some_name](config_reference.md#gcode_button) பொருள்கள்:
 
 - `மாநிலம்`: தற்போதைய பொத்தான் நிலை" அழுத்தியது "அல்லது" வெளியிடப்பட்டது "என திரும்பியது
 
 ## gcode_macro
 
-பின்வரும் தகவல்கள் [gcode_macro some_name] (config_reference.md#gcode_macro) பொருள்கள்:
+பின்வரும் தகவல்கள் [gcode_macro some_name](config_reference.md#gcode_macro) பொருள்கள்:
 
-- `<yasion>`: ஒரு [gcode_macro மாறி] இன் தற்போதைய மதிப்பு (Command_templates.md#மாறிகள்).
+- `<மாறி>`: [gcode_macro மாறியின்](Command_Templates.md#variables) தற்போதைய மதிப்பு.
 
 ## gcode_move
 
@@ -160,21 +160,21 @@ Note that only the rp2XXX micro-controllers report a non-zero `tx_retries` field
 
 ## ஆல்_பிலமென்ட்_விட்_சென்சர்
 
-பின்வரும் தகவல்கள் [hall_filament_width_sensor] (config_reference.md#hall_filament_width_sensor) பொருள்:
+பின்வரும் தகவல்கள் [hall_filament_width_sensor](Config_Reference.md#hall_filament_width_sensor) பொருளில் கிடைக்கின்றன:
 
-- all items from [filament_switch_sensor](Status_Reference.md#filament_switch_sensor)
+- [filament_switch_sensor](Status_Reference.md#filament_switch_sensor) இலிருந்து அனைத்து உருப்படிகளும்
 - `is_active`: சென்சார் தற்போது செயலில் இருந்தால் உண்மை.
 - `விட்டம்`: மிமீ சென்சாரிலிருந்து கடைசி வாசிப்பு.
 - `ரா`: சென்சாரிலிருந்து கடைசி மூல ஏடிசி வாசிப்பு.
 
 ## ஈட்டர்
 
-[எக்ச்ட்ரூடர்] (config_reference.md#எக்ச்ட்ரூடர்), [ஈட்டர்_பெட்] (config_reference.md#heter_bed), மற்றும் [heter_generic] (config_reference.md#heter_generic) போன்ற ஈட்டர் பொருள்களுக்கு பின்வரும் தகவல்கள் கிடைக்கின்றன:
+[extruder](Config_Reference.md#extruder), [heater_bed](Config_Reference.md#heater_bed), மற்றும் [heater_generic](Config_Reference.md#heater_generic) போன்ற ஹீட்டர் பொருட்களுக்கு பின்வரும் தகவல்கள் கிடைக்கின்றன:
 
 - `வெப்பநிலை`: கொடுக்கப்பட்ட ஈட்டருக்கு கடைசியாக அறிவிக்கப்பட்ட வெப்பநிலை (செல்சியசில் ஒரு மிதவை).
 - `இலக்கு`: கொடுக்கப்பட்ட ஈட்டருக்கான தற்போதைய இலக்கு வெப்பநிலை (செல்சியசில் ஒரு மிதவை).
 - `பவர்`: ஈட்டருடன் தொடர்புடைய PWM முள் (0.0 மற்றும் 1.0 க்கு இடையிலான மதிப்பு) கடைசி அமைப்பு.
-- `can_extrude`: எக்ச்ட்ரூடர் எக்ச்ட்ரூட் செய்ய முடிந்தால் (` min_extrude_temp` ஆல் வரையறுக்கப்படுகிறது), [எக்ச்ட்ரூடர்] க்கு மட்டுமே கிடைக்கும் (config_reference.md#extruder)
+- `can_extrude`: எக்ஸ்ட்ரூடர் எக்ஸ்ட்ரூட் செய்ய முடியுமானால் (`min_extrude_temp` ஆல் வரையறுக்கப்படுகிறது), [extruder](Config_Reference.md#extruder) க்கு மட்டுமே கிடைக்கும்
 
 ## ஈட்டர்கள்
 
@@ -186,28 +186,28 @@ Note that only the rp2XXX micro-controllers report a non-zero `tx_retries` field
 
 ## idle_timeout
 
-பின்வரும் தகவல்கள் [idle_timeout] (config_reference.md#idle_timeout) பொருளில் கிடைக்கின்றன (இந்த பொருள் எப்போதும் கிடைக்கும்):
+பின்வரும் தகவல்கள் [idle_timeout](Config_Reference.md#idle_timeout) பொருளில் கிடைக்கின்றன (இந்தப் பொருள் எப்போதும் கிடைக்கும்):
 
 - `மாநிலம்`: idle_timeout தொகுதி மூலம் கண்காணிக்கப்பட்ட அச்சுப்பொறியின் தற்போதைய நிலை. இது பின்வரும் சரங்களில் ஒன்றாகும்: "செயலற்ற", "அச்சிடுதல்", "தயாராக".
 - `printing_time`: அச்சுப்பொறி" அச்சிடுதல் "நிலையில் உள்ளது (செயலற்ற_TIMEOUT தொகுதி மூலம் கண்காணிக்கப்பட்டபடி) அச்சுப்பொறி.
 
 ## எல்.ஈ.டி
 
-ஒவ்வொரு `[எல்.ஈ.டி எல்.ஈ.டி_நேம்]`, `[நியோபிக்சல் லெட்_நேம்]`, `[டாட்ச்டார் லெட்_நேம்]`, `[பி.சி.ஏ 9533 லெட்_நேம்]`, மற்றும் `[பி.சி.ஏ 9632 லெட்_நேம்]` அச்சுப்பொறி.
+printer.cfg இல் வரையறுக்கப்பட்ட ஒவ்வொரு `[led led_name]`, `[neopixel led_name]`, `[dotstar led_name]`, `[pca9533 led_name]` மற்றும் `[pca9632 led_name]` config பிரிவுக்கும் பின்வரும் தகவல்கள் கிடைக்கின்றன:
 
 - `color_data`: சங்கிலியில் ஒரு எல்.ஈ.டி க்கான RGBW மதிப்புகளைக் கொண்ட வண்ண பட்டியல்களின் பட்டியல். ஒவ்வொரு மதிப்பும் 0.0 முதல் 1.0 வரை மிதவை என குறிப்பிடப்படுகிறது. ஒவ்வொரு வண்ண பட்டியலிலும் 4 உருப்படிகள் (சிவப்பு, பச்சை, நீலம், வெள்ளை) உள்ளன, அவை அண்டரிலிங் எல்.ஈ.டி குறைவான வண்ண சேனல்களை ஆதரித்தாலும். எடுத்துக்காட்டாக, ஒரு சங்கிலியில் இரண்டாவது நியோபிக்சலின் நீல மதிப்பு (வண்ண பட்டியலில் 3 வது உருப்படி) `அச்சுப்பொறி [" நியோபிக்சல் <config_name> "] இல் அணுகப்படலாம். Color_data [1] [2]`.
 
-## load_cell
+## சுமை_கலம்
 
-The following information is available for each `[load_cell name]`:
+ஒவ்வொரு `[load_cell பெயருக்கும்] பின்வரும் தகவல்கள் கிடைக்கின்றன`:
 
-- 'is_calibrated': True/False is the load cell calibrated
-- 'counts_per_gram': The number of raw sensor counts that equals 1 gram of force
-- 'reference_tare_counts': The reference number of raw sensor counts for 0 force
-- 'tare_counts': The current number of raw sensor counts for 0 force
-- 'force_g': The force in grams, averaged over the last polling period.
-- 'min_force_g': The minimum force in grams, over the last polling period.
-- 'max_force_g': The maximum force in grams, over the last polling period.
+- 'is_calibreated': உண்மை/பொய் என்பது அளவீடு செய்யப்பட்ட சுமை செல்
+- 'couns_per_gram': 1 கிராம் சக்திக்கு சமமான மூல சென்சார் எண்ணிக்கையின் எண்ணிக்கை
+- 'குறிப்பு_டேர்_கவுண்ட்ச்': 0 சக்திக்கான மூல சென்சார் எண்ணிக்கையின் குறிப்பு எண்
+- 'TARE_COUNTS': மூல சென்சாரின் தற்போதைய எண்ணிக்கை 0 சக்திக்கான எண்ணிக்கைகள்
+- 'ஃபோர்ச்_சி': கிராம்சில் உள்ள ஆற்றல், கடைசி வாக்குப்பதிவு காலத்தில் சராசரியாக இருந்தது.
+- 'min_force_g': கடைசி வாக்குப்பதிவு காலத்தில் கிராம்சில் குறைந்தபட்ச ஆற்றல்.
+- 'MAX_FORCE_G': கடைசி வாக்குப்பதிவு காலத்தில், கிராம்சில் அதிகபட்ச ஆற்றல்.
 
 ## load_cell_probe
 
@@ -229,7 +229,7 @@ The following information is available for `[load_cell_probe]`:
 
 ## MCU
 
-பின்வரும் தகவல்கள் [MCU] (config_reference.md#mcu) மற்றும் [MCU some_name] (config_reference.md#mcu-my_extra_mcu) பொருள்களில் கிடைக்கின்றன:
+பின்வரும் தகவல்கள் [mcu](Config_Reference.md#mcu) மற்றும் [mcu some_name](Config_Reference.md#mcu-my_extra_mcu) பொருட்களில் கிடைக்கின்றன:
 
 - `MCU_VERSION`: மைக்ரோ-கன்ட்ரோலரால் அறிவிக்கப்பட்ட கிளிப்பர் குறியீடு பதிப்பு.
 - `mcu_build_versions`: மைக்ரோ-கன்ட்ரோலர் குறியீட்டை உருவாக்க பயன்படுத்தப்படும் உருவாக்க கருவிகள் பற்றிய தகவல்கள் (மைக்ரோ-கன்ட்ரோலரால் அறிவிக்கப்பட்டபடி).
@@ -240,19 +240,19 @@ The following information is available for `[load_cell_probe]`:
 
 பின்வரும் தகவல்கள் `Mation_Report` பொருளில் கிடைக்கின்றன (ஏதேனும் ச்டெப்பர் கட்டமைப்பு பிரிவு வரையறுக்கப்பட்டால் இந்த பொருள் தானாகவே கிடைக்கும்):
 
-- `லைவ்_போசிசன்`: கோரப்பட்ட கருவி நிலை நிலை தற்போதைய நேரத்திற்கு இடைக்கணித்தது.
+- `லைவ்_போசிசன்`: கோரப்பட்ட கருவி நிலை தற்போதைய நேரத்திற்கு இடைக்கணித்தது.
 - `லைவ்_வெலோசிட்டி`: தற்போதைய நேரத்தில் கோரப்பட்ட கருவி தலை விரைவு (மிமீ/வி இல்).
 - `லைவ்_எக்ச்ட்ரூடர்_வெலோசிட்டி`: தற்போதைய நேரத்தில் கோரப்பட்ட எக்ச்ட்ரூடர் விரைவு (மிமீ/வி இல்).
 
 ## output_pin
 
-பின்வரும் தகவல்கள் [output_pin some_name] (config_reference.md#output_pin) பொருள்களில் கிடைக்கின்றன:
+பின்வரும் தகவல்கள் [ஏதாவது_பெயரை output_pin செய்யவும்](Config_Reference.md#output_pin) objectகளில் கிடைக்கின்றன:
 
 - `மதிப்பு`: முள்" மதிப்பு ",` set_pin` கட்டளையால் அமைக்கப்பட்டுள்ளது.
 
 ## தட்டு 2
 
-பின்வரும் தகவல்கள் [தட்டு 2] (config_reference.md#தட்டு 2) பொருளில் கிடைக்கின்றன:
+பின்வரும் தகவல்கள் [palette2](Config_Reference.md#palette2) பொருளில் கிடைக்கின்றன:
 
 - `பிங்`: கடைசியாக அறிவிக்கப்பட்ட தட்டு 2 பிங் விழுக்காடு.
 - `மீதமுள்ள_ லோட்_எங்`: தட்டு 2 அச்சிடும்போது, இது எக்ச்ட்ரூடரில் ஏற்றப்படுவதற்கான இழைகளின் அளவு.
@@ -260,13 +260,13 @@ The following information is available for `[load_cell_probe]`:
 
 ## pause_resume
 
-பின்வரும் தகவல்கள் [pause_resume] (config_reference.md#pause_resume) பொருளில் கிடைக்கின்றன:
+பின்வரும் தகவல்கள் [pause_resume](Config_Reference.md#pause_resume) பொருளில் கிடைக்கின்றன:
 
 - `is_paused`: இடைநிறுத்த கட்டளை அதனுடன் தொடர்புடைய விண்ணப்பம் இல்லாமல் செயல்படுத்தப்பட்டால் உண்மை.
 
 ## print_stats
 
-பின்வரும் தகவல்கள் `print_stats` பொருளில் கிடைக்கின்றன (ஒரு [மெய்நிகர்_ச்ட்கார்டு] (config_reference.md#virtual_sdcard) கட்டமைப்பு பிரிவு வரையறுக்கப்பட்டால் இந்த பொருள் தானாகவே கிடைக்கும்):
+`print_stats` பொருளில் பின்வரும் தகவல்கள் கிடைக்கின்றன ([virtual_sdcard](Config_Reference.md#virtual_sdcard) கட்டமைப்புப் பிரிவு வரையறுக்கப்பட்டிருந்தால் இந்தப் பொருள் தானாகவே கிடைக்கும்):
 
 - `FileName`,` Total_duration`, `print_duration`,` filament_used`, `state`,` செய்தி`: மெய்நிகர்_ச்ட்கார்ட் அச்சு செயலில் இருக்கும்போது தற்போதைய அச்சு பற்றிய மதிப்பிடப்பட்ட தகவல்கள்.
 - `info.total_layer`: கடைசி` set_print_stats_info மொத்த_லேயர் = <மதிப்பு> `சி-குறியீட்டு கட்டளை.
@@ -274,7 +274,7 @@ The following information is available for `[load_cell_probe]`:
 
 ## தேட்டி
 
-பின்வரும் தகவல்கள் [ஆய்வு] (config_reference.md#ஆய்வு) பொருளில் கிடைக்கின்றன (ஒரு [bltouch] (config_reference.md#bltouch) கட்டமைப்பு பிரிவு வரையறுக்கப்பட்டால் இந்த பொருள் கிடைக்கும்):
+பின்வரும் தகவல்கள் [probe](Config_Reference.md#probe) பொருளில் கிடைக்கின்றன ([bltouch](Config_Reference.md#bltouch) config பிரிவு வரையறுக்கப்பட்டிருந்தால் இந்த பொருளும் கிடைக்கும்):
 
 - `பெயர்`: பயன்பாட்டில் உள்ள ஆய்வின் பெயரை வழங்குகிறது.
 - `last_query`: கடைசி வினவல்_ புரோப் கட்டளையின் போது ஆய்வு" தூண்டப்பட்டதாக "அறிவிக்கப்பட்டால் உண்மை. குறிப்பு, இது ஒரு மேக்ரோவில் பயன்படுத்தப்பட்டால், வார்ப்புரு விரிவாக்கத்தின் வரிசை காரணமாக, இந்த குறிப்பைக் கொண்ட மேக்ரோவுக்கு முன் வினவல்_பிரக கட்டளை இயக்கப்பட வேண்டும்.
@@ -282,7 +282,7 @@ The following information is available for `[load_cell_probe]`:
 
 ## PWM_CYCLE_TIME
 
-பின்வரும் தகவல்கள் [pwm_cycle_time some_name] (config_reference.md#pwm_cycle_time) பொருள்கள்:
+பின்வரும் தகவல்கள் [pwm_cycle_time some_name](config_reference.md#pwm_cycle_time) பொருள்கள்:
 
 - `மதிப்பு`: முள்" மதிப்பு ",` set_pin` கட்டளையால் அமைக்கப்பட்டுள்ளது.
 
@@ -312,15 +312,15 @@ The following information is available for `[load_cell_probe]`:
 
 ## சர்வோ
 
-பின்வரும் தகவல்கள் [servo some_name] (config_reference.md#servo) பொருள்களில் கிடைக்கின்றன:
+பின்வரும் தகவல்கள் [servo some_name](Config_Reference.md#servo) பொருட்களில் கிடைக்கின்றன:
 
 - `அச்சுப்பொறி [" சர்வோ <config_name> "]. மதிப்பு`: சர்வோவுடன் தொடர்புடைய PWM முள் (0.0 மற்றும் 1.0 க்கு இடையிலான மதிப்பு) கடைசி அமைப்பு.
 
 ## skew_correction.py
 
-The following information is available in the `skew_correction` object (this object is available if any skew_correction is defined):
+பின்வரும் தகவல்கள் `skew_correction` பொருளில் கிடைக்கின்றன (ஏதேனும் skew_correction வரையறுக்கப்பட்டால் இந்த பொருள் கிடைக்கும்):
 
-- `current_profile_name`: Returns the name of the currently loaded SKEW_PROFILE.
+- `Current_Profile_name`: தற்போது ஏற்றப்பட்ட SKEW_PROFILE இன் பெயரை வழங்குகிறது.
 
 ## stepper_enable
 
@@ -338,28 +338,28 @@ The following information is available in the `skew_correction` object (this obj
 
 பின்வரும் தகவல்கள் கிடைக்கின்றன
 
-. lm75 config_section_name] (config_reference .md#lm75-வெப்பநிலை-சென்சார்), [வெப்பநிலை_ஓச்ட் config_section_name] (config_reference.md#ஓச்ட்-டெம்பரேச்சர்-சென்சார்) மற்றும் [வெப்பநிலை_கம்ப் செய்யப்பட்ட config_section_name] (config_reference.md#ஒருங்கிணைந்த-செம்பரேச்சர்-சென்சார்) பொருள்கள்:
+[bme280 config_section_name](Config_Reference.md#bmp280bme280bme680-temperature-sensor), [htu21d config_section_name](Config_Reference.md#htu21d-sensor), [sht3x config_section_name](Config_Reference.md#sht31-sensor), [lm75 config_section_name](Config_Reference.md#lm75-temperature-sensor), [temperature_host config_section_name](Config_Reference.md#host-temperature-sensor) மற்றும் [temperature_combined config_section_name](Config_Reference.md#combined-temperature-sensor) பொருள்கள்:
 
 - `வெப்பநிலை`: சென்சாரிலிருந்து கடைசி வாசிப்பு வெப்பநிலை.
 - `ஈரப்பதம்`,` அழுத்தம்`, `வாயு`: சென்சாரிலிருந்து கடைசி வாசிப்பு மதிப்புகள் (BME280, HTU21D, SHT3X மற்றும் LM75 சென்சார்களில் மட்டுமே).
 
 ## வெப்பநிலை_பான்
 
-பின்வரும் தகவல்கள் [வெப்பநிலை_பான் சில_பெயர்] (config_reference.md#வெப்பநிலை_பான்) பொருள்களில் கிடைக்கின்றன:
+பின்வரும் தகவல்கள் [temperature_fan some_name](Config_Reference.md#temperature_fan) பொருட்களில் கிடைக்கின்றன:
 
 - `வெப்பநிலை`: சென்சாரிலிருந்து கடைசி வாசிப்பு வெப்பநிலை.
 - `இலக்கு`: விசிறியின் இலக்கு வெப்பநிலை.
 
 ## வெப்பநிலை_சென்சர்
 
-பின்வரும் தகவல்கள் [வெப்பநிலை_சென்சர் சில_பெயர்] (config_reference.md#வெப்பநிலை_சென்சர்) பொருள்களில் கிடைக்கின்றன:
+பின்வரும் தகவல்கள் [temperature_sensor some_name](Config_Reference.md#temperature_sensor) பொருட்களில் கிடைக்கின்றன:
 
 - `வெப்பநிலை`: சென்சாரிலிருந்து கடைசி வாசிப்பு வெப்பநிலை.
 - `அளவிடப்பட்ட_மின்_டெம்ப்`,` அளவிடப்பட்ட_மாக்ச்_டெம்ப்`: கிளிப்பர் புரவலன் மென்பொருள் கடைசியாக மறுதொடக்கம் செய்யப்பட்டதிலிருந்து சென்சார் பார்த்த மிகக் குறைந்த மற்றும் மிக உயர்ந்த வெப்பநிலை.
 
 ## டி.எம்.சி இயக்கிகள்
 
-பின்வரும் தகவல்கள் [TMC ச்டெப்பர் டிரைவர்] (config_reference.md#tmc- ச்டெப்பர்-டிரைவர்-உள்ளமைவு) பொருள்கள் (எ.கா.
+பின்வரும் தகவல்கள் [TMC ஸ்டெப்பர் டிரைவர்](Config_Reference.md#tmc-stepper-driver-configuration) பொருட்களில் (எ.கா., `[tmc2208 ஸ்டெப்பர்_x]`) கிடைக்கின்றன:
 
 - `MCU_PHASE_OFFSET`: டிரைவரின்" சுழிய "கட்டத்துடன் தொடர்புடைய மைக்ரோ-கன்ட்ரோலர் ச்டெப்பர் நிலை. கட்ட ஆஃப்செட் தெரியாவிட்டால் இந்த புலம் பூச்யமாக இருக்கலாம்.
 - `fack_offset_position`: ஓட்டுநரின்" பூச்சியம் "கட்டத்துடன் தொடர்புடைய" கட்டளையிடப்பட்ட நிலை ". கட்ட ஆஃப்செட் தெரியாவிட்டால் இந்த புலம் பூச்யமாக இருக்கலாம்.
@@ -382,7 +382,7 @@ The following information is available in the `skew_correction` object (this obj
 
 ## dual_carriage
 
-பின்வரும் தகவல்கள் ஒரு கார்ட்டீசியன், ஐப்ரிட்_கோரெக்சி அல்லது ஐப்ரிட்_கோரெக்ச் ரோபோவில் [டூயல்_ காரேச்] (config_reference.md#dual_carriage) இல் கிடைக்கின்றன
+பின்வரும் தகவல்கள் [dual_carriage](Config_Reference.md#dual_carriage) இல் ஒரு cartesian, hybrid_corexy அல்லது hybrid_corexz ரோபோவில் கிடைக்கின்றன
 
 - `வண்டி_0`: வண்டியின் பயன்முறை 0. சாத்தியமான மதிப்புகள்:" செயலற்ற "மற்றும்" முதன்மை ".
 - `வண்டி_1`: வண்டியின் முறை 1. சாத்தியமான மதிப்புகள்:" செயலற்ற "," முதன்மை "," நகல் "மற்றும்" கண்ணாடி ".
@@ -393,7 +393,7 @@ On a `generic_cartesian` kinematic, the following information is available in `d
 
 ## மெய்நிகர்_ச்ட்கார்ட்
 
-பின்வரும் தகவல்கள் [மெய்நிகர்_ச்ட்கார்டு] (config_reference.md#virtual_sdcard) பொருளில் கிடைக்கின்றன:
+பின்வரும் தகவல்கள் [மெய்நிகர்_எஸ்டி கார்டு](Config_Reference.md#virtual_sdcard) பொருளில் கிடைக்கின்றன:
 
 - `is_active`: கோப்பிலிருந்து ஒரு அச்சு தற்போது செயலில் இருந்தால் உண்மை.
 - `முன்னேற்றம்`: தற்போதைய அச்சு முன்னேற்றத்தின் மதிப்பீடு (கோப்பு அளவு மற்றும் கோப்பு நிலையின் அடிப்படையில்).
@@ -410,7 +410,7 @@ On a `generic_cartesian` kinematic, the following information is available in `d
 
 ## z_thermal_adjust
 
-பின்வரும் தகவல்கள் `z_thermal_adjust` பொருளில் கிடைக்கின்றன ([z_thermal_adjust] (config_reference.md#z_thermal_adjust) வரையறுக்கப்பட்டால் இந்த பொருள் கிடைக்கிறது).
+பின்வரும் தகவல்கள் `z_thermal_adjust` பொருளில் கிடைக்கின்றன ([z_thermal_adjust](config_reference.md#z_thermal_adjust) வரையறுக்கப்பட்டால் இந்தப் பொருள் கிடைக்கிறது).
 
 - `இயக்கப்பட்டது`: சரிசெய்தல் இயக்கப்பட்டிருந்தால் உண்மை.
 - `வெப்பநிலை`: வரையறுக்கப்பட்ட சென்சாரின் தற்போதைய (மென்மையான) வெப்பநிலை. [DEGC]

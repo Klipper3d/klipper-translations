@@ -14,7 +14,7 @@
 
 ### படி வீத அளவுகோல் சோதனை
 
-சோதனை Console.py கருவியைப் பயன்படுத்தி செய்யப்படுகிறது (<பிழைத்திருத்தம். Md> இல் விவரிக்கப்பட்டுள்ளது). மைக்ரோ-கண்ட்ரோலர் குறிப்பிட்ட வன்பொருள் தளத்திற்காக கட்டமைக்கப்பட்டுள்ளது (கீழே காண்க) பின்னர் பின்வருபவை கன்சோலில் வெட்டப்பட்ட மற்றும் ஒட்டுதல்.
+இந்தச் சோதனை console.py கருவியைப் பயன்படுத்தி செய்யப்படுகிறது (Debugging.md> இல் விவரிக்கப்பட்டுள்ளது). மைக்ரோ-கண்ட்ரோலர் குறிப்பிட்ட வன்பொருள் தளத்திற்கு (கீழே காண்க) உள்ளமைக்கப்பட்டுள்ளது, பின்னர் பின்வருபவை console.py முனையச் சாளரத்தில் வெட்டி ஒட்டப்படும்:
 
 ```
 START_CLOCK {CLACK+FREQ}
@@ -49,7 +49,7 @@ clear_shutdown
 
 ஒற்றை ச்டெப்பர் வரையறைகளைப் பெற, அதே உள்ளமைவு வரிசை பயன்படுத்தப்படுகிறது, ஆனால் மேலே உள்ள சோதனையின் முதல் தொகுதி மட்டுமே கன்சோல்.பை சாளரத்தில் வெட்டப்பட்டு ஒட்டுகிறது.
 
-[அம்சங்கள்] (அம்சங்கள்] (அம்சங்கள். முடிவுகள் அருகிலுள்ள கே. க்கு வட்டமானவை. எடுத்துக்காட்டாக, மூன்று செயலில் உள்ள ச்டெப்பர்களுடன்:
+[Features](Features.md) ஆவணத்தில் காணப்படும் அளவுகோல்களை உருவாக்க, செயலில் உள்ள ஸ்டெப்பர்களின் எண்ணிக்கையை பெயரளவு mcu அதிர்வெண்ணுடன் பெருக்கி இறுதி டிக்ஸ் அளவுருவால் வகுப்பதன் மூலம் வினாடிக்கு மொத்த படிகளின் எண்ணிக்கை கணக்கிடப்படுகிறது. முடிவுகள் அருகிலுள்ள K க்கு வட்டமிடப்படுகின்றன. எடுத்துக்காட்டாக, மூன்று செயலில் உள்ள ஸ்டெப்பர்களுடன்:
 
 ```
 எதிரொலி சோதனை முடிவு: {" % .0fk" % (3. * Freq / decks / 1000.)}
@@ -216,7 +216,7 @@ PRU இல் பின்வரும் உள்ளமைவு வரிச�
 
 ### STM32H7 படி வீத அளவுகோல்
 
-The following configuration sequence is used on STM32H723:
+பின்வரும் உள்ளமைவு வரிசை STM32H723 இல் பயன்படுத்தப்படுகிறது:
 
 ```
 allocate_oids count=3
@@ -226,9 +226,9 @@ config_stepper oid=2 step_pin=PB3 dir_pin=PB7 invert_step=-1 step_pulse_ticks=52
 finalize_config crc=0
 ```
 
-The test was last run on commit `554ae78d` with gcc version `arm-none-eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0`.
+இந்த சோதனை கடைசியாக GCC பதிப்பு `ARM-NONE-EABI-GCC (ஃபெடோரா 14.1.0-1.FC40) 14.1.0` உடன்` 554AE78D` இல் இயக்கப்பட்டது.
 
-| stm32h723 | உண்ணி |
+| நான் கேட்பேன் | உண்ணி |
 | --- | --- |
 | 1 ச்டெப்பர் | 70 |
 | 3 ச்டெப்பர் | 181 |
@@ -335,9 +335,9 @@ GCC பதிப்பு `ARM-NONE-EABI-GCC (ஃபெடோரா 10.2.0-4.FC3
 | 1 ச்டெப்பர் (200 மெகா எர்ட்ச்) | 39 |
 | 3 ச்டெப்பர் (200 மெகா எர்ட்ச்) | 181 |
 
-### SAME70 step rate benchmark
+### சமமான 70 படி வீத அளவுகோல்
 
-The following configuration sequence is used on the SAME70:
+பின்வரும் உள்ளமைவு வரிசை சமமான 70 இல் பயன்படுத்தப்படுகிறது:
 
 ```
 allocate_oids count=3
@@ -347,11 +347,11 @@ config_stepper oid=2 step_pin=PC28 dir_pin=PA4 invert_step=-1 step_pulse_ticks=0
 finalize_config crc=0
 ```
 
-The test was last run on commit `34e9ea55` with gcc version `arm-none-eabi-gcc (NixOS 10.3-2021.10) 10.3.1` on a SAME70Q20B micro-controller.
+இந்த சோதனை கடைசியாக GCC பதிப்பு `ARM-NONE-EABI-GCC (NIXOS 10.3-2021.10) 10.3.1` உடன் ஒரே 70Q20B மைக்ரோ-கான்ட்ரோலரில் கமிட்` 34E9EA55` இல் இயக்கப்பட்டது.
 
-| same70 | உண்ணி |
+| சமி 0 | உண்ணி |
 | --- | --- |
-| 1 ச்டெப்பர் | 45 |
+| 1 ச்டெப்பர் | ௪௫ |
 | 3 ச்டெப்பர் | 190 |
 
 ### AR100 படி வீத அளவுகோல்
@@ -366,16 +366,16 @@ The test was last run on commit `34e9ea55` with gcc version `arm-none-eabi-gcc (
  இறுதி_கான்ஃபிக் சி.ஆர்.சி = 0
 ```
 
-The test was last run on commit `b7978d37` with gcc version `or1k-linux-musl-gcc (GCC) 9.2.0` on an Allwinner A64-H micro-controller.
+ஆலைனர் A64-H மைக்ரோ-கான்ட்ரோலரில் GCC பதிப்பு `OR1K-LINUX-MUSL-GCC (GCC) 9.2.0` உடன்` B7978D37` உடன் சோதனை கடைசியாக இயக்கப்பட்டது.
 
 | AR100 R_PIO | உண்ணி |
 | --- | --- |
 | 1 ச்டெப்பர் | 85 |
 | 3 ச்டெப்பர் | 359 |
 
-### RPxxxx step rate benchmark
+### RPXXXX படி வீத அளவுகோல்
 
-The following configuration sequence is used on the RP2040 and RP2350:
+பின்வரும் உள்ளமைவு வரிசை RP2040 மற்றும் RP2350 இல் பயன்படுத்தப்படுகிறது:
 
 ```
 ஒதுக்கீடு_யிட்ச் எண்ணிக்கை = 3
@@ -385,14 +385,14 @@ The following configuration sequence is used on the RP2040 and RP2350:
  இறுதி_கான்ஃபிக் சி.ஆர்.சி = 0
 ```
 
-The test was last run on commit `14c105b8` with gcc version `arm-none-eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0` on Raspberry Pi Pico and Pico 2 boards.
+இந்த சோதனை கடைசியாக `14C105B8` இல் சி.சி.சி பதிப்பு` ARM-NONE-EABI-GCC (ஃபெடோரா 14.1.0-1.FC40) 14.1.0` உடன் ராச்பெர்ரி பை பைக்கோ மற்றும் பைக்கோ 2 பலகைகளுடன் இயக்கப்பட்டது.
 
-| rp2040 (*) | உண்ணி |
+| RP2040 (*) | உண்ணி |
 | --- | --- |
-| 1 ச்டெப்பர் | 3 |
+| 1 ச்டெப்பர் | ௩ |
 | 3 ச்டெப்பர் | 14 |
 
-| rp2350 | உண்ணி |
+| ரபா 0 | உண்ணி |
 | --- | --- |
 | 1 ச்டெப்பர் | 36 |
 | 3 ச்டெப்பர் | 169 |
@@ -438,7 +438,7 @@ The CAN bus tests may saturate the USB host controller of a Raspberry Pi (when t
 | --- | --- | --- | --- |
 | Atmega2560 (சீரியல்) | பசி | B161A69E | ஏ.வி.ஆர்-சி.சி.சி (சி.சி.சி) 4.8.1 |
 | sam3x8e (சீரியல்) | பசி | B161A69E | ARM-NONE-EABI-GCC (ஃபெடோரா 7.1.0-5.FC27) 7.1.0 |
-| rp2350 (CAN) | 59K | 17b8ce4c | arm-none-eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0 |
+| rp2350 (CAN) | 59K | 17b8ce4c | ARM-NONE-EABI-GCC (ஃபெடோரா 14.1.0-1.FC40) 14.1.0 |
 | AT90USB1286 (USB) | உங்கள் கொள்ளை | 01D2183F | ஏ.வி.ஆர்-சி.சி.சி (சி.சி.சி) 5.4.0 |
 | AR100 (சீரியல்) | 138 கே | 08D037C6 | OR1K-LINUX-MUSL-GCC 9.3.0 |
 | SAMD21 (USB) | உங்கள் கீழே | 01D2183F | ARM-NONE-EABI-GCC (ஃபெடோரா 7.4.0-1.FC30) 7.4.0 |
@@ -450,8 +450,8 @@ The CAN bus tests may saturate the USB host controller of a Raspberry Pi (when t
 | SAM4S8C (யூ.எச்.பி) | 650 கே | 8D4A5C16 | ARM-NONE-EABI-GCC (ஃபெடோரா 7.4.0-1.FC30) 7.4.0 |
 | SAMD51 (USB) | 864 கே | 01D2183F | ARM-NONE-EABI-GCC (ஃபெடோரா 7.4.0-1.FC30) 7.4.0 |
 | STM32F446 (USB) | 870 கே | 01D2183F | ARM-NONE-EABI-GCC (ஃபெடோரா 7.4.0-1.FC30) 7.4.0 |
-| RP2040 (யூ.எச்.பி) | 885K | f6718291 | arm-none-eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0 |
-| rp2350 (USB) | 885K | f6718291 | arm-none-eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0 |
+| RP2040 (யூ.எச்.பி) | 885 கே | ஃபட்டா 18291 | ARM-NONE-EABI-GCC (ஃபெடோரா 14.1.0-1.FC40) 14.1.0 |
+| RP2350 (யூ.எச்.பி) | 885 கே | ஃபட்டா 18291 | ARM-NONE-EABI-GCC (ஃபெடோரா 14.1.0-1.FC40) 14.1.0 |
 
 ## புரவலன் வரையறைகள்
 

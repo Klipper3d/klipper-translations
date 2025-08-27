@@ -1,4 +1,4 @@
-# CANBUS Troubleshooting
+# Riešenie problémov s CANBUS
 
 This document provides information on troubleshooting communication issues when using [Klipper with CAN bus](CANBUS.md).
 

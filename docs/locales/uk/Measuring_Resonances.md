@@ -6,7 +6,7 @@ Klipper має вбудовану підтримку сумісних аксел
 
 Для ADXL345 переконайтеся, що плата підтримує режим SPI (невелика кількість плат, здається, жорстко налаштована для I2C шляхом підтягування SDO до GND).
 
-For MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500/ICM20948s and LIS2DW/LIS3DH there are also a variety of board designs and clones with different I2C pull-up resistors which will need supplementing.
+Для MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500/ICM20948 та LIS2DW/LIS3DH також існує різноманітний дизайн плат та клонів з різними підтягуючими резисторами I2C, які потребують доповнення.
 
 ## MCU з Klipper I2C *fast-mode* Підтримка
 
@@ -300,7 +300,7 @@ accel_chip: mpu9250
 100, 100, 20 # приклад
 ```
 
-If you are using the ICM20948, replace instances of "mpu9250" with "icm20948".
+Якщо ви використовуєте ICM20948, замініть екземпляри "mpu9250" на "icm20948".
 
 #### Налаштування MPU-9520 Сумісний з Pico
 
@@ -323,7 +323,7 @@ accel_chip: mpu9250
 шпильки: pico:gpio23
 ```
 
-If you are using the ICM20948, replace instances of "mpu9250" with "icm20948".
+Якщо ви використовуєте ICM20948, замініть екземпляри "mpu9250" на "icm20948".
 
 #### Налаштування MPU-9520 Сумісний з AVR
 
@@ -342,7 +342,7 @@ accel_chip: mpu9250
 100, 100, 20 # приклад
 ```
 
-If you are using the ICM20948, replace instances of "mpu9250" with "icm20948".
+Якщо ви використовуєте ICM20948, замініть екземпляри "mpu9250" на "icm20948".
 
 Рештарт Кліппер через команду `RESTART`.
 

@@ -1,6 +1,6 @@
 # Frequently Asked Questions
 
-## How can I donate to the project?
+## Ako môžem prispieť na projekt?
 
 Thank you for your support. See the [Sponsors page](Sponsors.md) for information.
 

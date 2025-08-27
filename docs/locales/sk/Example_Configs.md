@@ -1,6 +1,6 @@
 # Example configurations
 
-This document contains guidelines for contributing an example Klipper configuration to the Klipper github repository (located in the [config directory](../config/)).
+Tento dokument obsahuje pokyny pre pridanie vzorovej konfigurácie Klipperu do repozitára Klipper na GitHube (ktorý sa nachádza v adresári [config directory](../config/)).
 
 Note that the [Klipper Community Discourse server](https://community.klipper3d.org) is also a useful resource for finding and sharing config files.
 

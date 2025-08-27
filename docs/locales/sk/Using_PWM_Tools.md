@@ -1,26 +1,26 @@
-# Using PWM tools
+# Používanie PWM nástrojov
 
-This document describes how to setup a PWM-controlled laser or spindle using `output_pin` and some macros.
+Tento dokument popisuje, ako nastaviť laser alebo vreteno riadené PWM pomocou `output_pin` a niektorých makier.
 
-## How does it work?
+## Ako to funguje?
 
-With re-purposing the printhead's fan pwm output, you can control lasers or spindles. This is useful if you use switchable print heads, for example the E3D toolchanger or a DIY solution. Usually, cam-tools such as LaserWeb can be configured to use `M3-M5` commands, which stand for *spindle speed CW* (`M3 S[0-255]`), *spindle speed CCW* (`M4 S[0-255]`) and *spindle stop* (`M5`).
+Zmenou účelu výstupu PWM ventilátora tlačovej hlavy môžete ovládať lasery alebo vretená. Toto je užitočné, ak používate prepínateľné tlačové hlavy, napríklad menič nástrojov E3D alebo riešenie svojpomocne. Vačkové nástroje, ako napríklad LaserWeb, je možné zvyčajne nakonfigurovať na používanie príkazov `M3-M5`, čo znamená *rýchlosť vretena v smere hodinových ručičiek* (`M3 S[0-255]`), *rýchlosť vretena proti smeru hodinových ručičiek* (`M4 S[0-255]`) a *zastavenie vretena* (`M5`).
 
-**Warning:** When driving a laser, keep all security precautions that you can think of! Diode lasers are usually inverted. This means, that when the MCU restarts, the laser will be *fully on* for the time it takes the MCU to start up again. For good measure, it is recommended to *always* wear appropriate laser-goggles of the right wavelength if the laser is powered; and to disconnect the laser when it is not needed. Also, you should configure a safety timeout, so that when your host or MCU encounters an error, the tool will stop.
+**Upozornenie:** Pri prevádzke lasera dodržujte všetky bezpečnostné opatrenia, ktoré vás napadnú! Diódové lasery sú zvyčajne invertované. To znamená, že po reštarte MCU bude laser *plne zapnutý* po dobu, ktorú MCU potrebuje na opätovné spustenie. Pre istotu sa odporúča *vždy* nosiť vhodné laserové okuliare so správnou vlnovou dĺžkou, ak je laser napájaný; a odpojiť laser, keď nie je potrebný. Taktiež by ste mali nakonfigurovať bezpečnostný časový limit, aby sa nástroj zastavil, keď váš hostiteľ alebo MCU narazí na chybu.
 
-For an example configuration, see [config/sample-pwm-tool.cfg](/config/sample-pwm-tool.cfg).
+Príklad konfigurácie nájdete v súbore [config/sample-pwm-tool.cfg](/config/sample-pwm-tool.cfg).
 
-## Current Limitations
+## Súčasné obmedzenia
 
-There is a limitation of how frequent PWM updates may occur. While being very precise, a PWM update may only occur every 0.1 seconds, rendering it almost useless for raster engraving. However, there exists an [experimental branch](https://github.com/Cirromulus/klipper/tree/laser_tool) with its own tradeoffs. In long term, it is planned to add this functionality to main-line klipper.
+Existuje obmedzenie, ako často sa môžu vyskytovať aktualizácie PWM. Hoci je aktualizácia PWM veľmi presná, môže sa vyskytnúť iba každých 0,1 sekundy, čo ju robí takmer nepoužiteľnou pre rastrové gravírovanie. Existuje však [experimentálna vetva](https://github.com/Cirromulus/klipper/tree/laser_tool) s vlastnými kompromismi. V dlhodobom horizonte sa plánuje pridať túto funkciu do hlavnej rady klipperu.
 
-## Commands
+## Príkazy
 
-`M3/M4 S<value>` : Set PWM duty-cycle. Values between 0 and 255. `M5` : Stop PWM output to shutdown value.
+`M3/M4 S<hodnota>`: Nastavenie pracovného cyklu PWM. Hodnoty medzi 0 a 255. `M5`: Zastavenie výstupu PWM na hodnotu vypnutia.
 
-## Laserweb Configuration
+## Konfigurácia Laserwebu
 
-If you use Laserweb, a working configuration would be:
+Ak používate Laserweb, funkčná konfigurácia by bola:
 
     GCODE START:
         M5            ; Disable Laser

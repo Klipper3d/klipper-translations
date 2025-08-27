@@ -1,4 +1,4 @@
-# Axis Twist Compensation
+# Kompenzácia skrútenia osi
 
 This document describes the `[axis_twist_compensation]` module.
 
