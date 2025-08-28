@@ -1716,7 +1716,7 @@
 <li><code>profiles</code>: Набір в даний час визначених профілів як налаштування за допомогою BED_ MESH_PROFILE.</li>
 </ul>
 <h2 id="bed_screws">bed_screws<a class="headerlink" href="#bed_screws" title="Permanent link">&para;</a></h2>
-<p>The following information is available in the <a href="Config_Reference.html#bed_screws">bed_screws</a> object:</p>
+<p>Наступна інформація доступна в об'єкті <a href="Config_Reference.html#bed_screws">bed_screws</a>:</p>
 <ul>
 <li><code>is_active</code>: Повернення Правда, якщо в даний час працює інструмент регулювання саморізів.</li>
 <li><code>state</code>: Регулювання шурупами стан інструменту. Він є одним з наступних рядків: "регулюйте", "fine".</li>
@@ -1724,14 +1724,14 @@
 <li><code>accepted_screws</code>: Кількість прийнятих шурупів.</li>
 </ul>
 <h2 id="canbus_stats">canbus_stats<a class="headerlink" href="#canbus_stats" title="Permanent link">&para;</a></h2>
-<p>The following information is available in the <code>canbus_stats some_mcu_name</code> object (this object is automatically available if an mcu is configured to use canbus):</p>
+<p>Наступна інформація доступна в об'єкті <code>canbus_stats some_mcu_name</code> (цей об'єкт автоматично доступний, якщо мікроконтролер налаштовано на використання canbus):</p>
 <ul>
-<li><code>rx_error</code>: The number of receive errors detected by the micro-controller canbus hardware.</li>
-<li><code>tx_error</code>: The number of transmit errors detected by the micro-controller canbus hardware.</li>
-<li><code>tx_retries</code>: The number of transmit attempts that were retried due to bus contention or errors.</li>
-<li><code>bus_state</code>: The status of the interface (typically "active" for a bus in normal operation, "warn" for a bus with recent errors, "passive" for a bus that will no longer transmit canbus error frames, or "off" for a bus that will no longer transmit or receive messages).</li>
+<li><code>rx_error</code>: Кількість помилок прийому, виявлених апаратним забезпеченням мікроконтролера CANbus.</li>
+<li><code>tx_error</code>: Кількість помилок передачі, виявлених апаратним забезпеченням мікроконтролера CANbus.</li>
+<li><code>tx_retries</code>: Кількість спроб передачі, які були повторені через конфлікти з шиною або помилки.</li>
+<li><code>bus_state</code>: Стан інтерфейсу (зазвичай «active» для шини у нормальному режимі роботи, «warn» для шини з нещодавніми помилками, «passive» для шини, яка більше не передаватиме кадри помилок canbus, або «off» для шини, яка більше не передаватиме або отримуватиме повідомлення).</li>
 </ul>
-<p>Note that only the rp2XXX micro-controllers report a non-zero <code>tx_retries</code> field and the rp2XXX micro-controllers always report <code>tx_error</code> as zero and <code>bus_state</code> as "active".</p>
+<p>Зверніть увагу, що лише мікроконтролери rp2XXX повідомляють про ненульове поле <code>tx_retries</code>, а мікроконтролери rp2XXX завжди повідомляють <code>tx_error</code> як нуль, а <code>bus_state</code> як "active".</p>
 <h2 id="_4">налаштування<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>Наступна інформація доступна в <code>configfile</code> об'єкт ( цей об'єкт завжди доступний):</p>
 <ul>
@@ -1845,7 +1845,7 @@
 <h2 id="hrefhttprealtorifua-title">href="<a href="http://realtor.if.ua/">http://realtor.if.ua/</a>" title="агентство нерухомості ріелтор"<a class="headerlink" href="#hrefhttprealtorifua-title" title="Permanent link">&para;</a></h2>
 <p>Наступна інформація доступна в об'єкті <a href="Config_Reference.html#hall_filament_width_sensor">hall_filament_width_sensor</a>:</p>
 <ul>
-<li>all items from <a href="Status_Reference.html#filament_switch_sensor">filament_switch_sensor</a></li>
+<li>усі товари з <a href="Status_Reference.html#filament_switch_sensor">filament_switch_sensor</a></li>
 <li><code>is_active</code>: Повернення Правда, якщо датчик в даний час активний.</li>
 <li><code>Diameter</code>: Останнє читання від датчика в мм.</li>
 <li><code>Raw</code>: Остання сира ADC читання від датчика.</li>
@@ -1877,15 +1877,15 @@
 <li><code>color_data</code>: список списків кольорів, що містять значення RGBW для світлодіода в ланцюжку. Кожне значення представлено у вигляді числа з плаваючою точкою від 0,0 до 1,0. Кожен список кольорів містить 4 елементи (червоний, зелений, синій, білий), навіть якщо базовий світлодіод підтримує менше кольорових каналів. Наприклад, синє значення (3-й елемент у списку кольорів) другого неопікселя в ланцюжку можна отримати за адресою <code>printer["neopixel &lt;config_name&gt;"].color_data[1][2]</code>.</li>
 </ul>
 <h2 id="load_cell">load_cell<a class="headerlink" href="#load_cell" title="Permanent link">&para;</a></h2>
-<p>The following information is available for each <code>[load_cell name]</code>:</p>
+<p>Для кожного <code>[ім'я тензодатчика]</code> доступна така інформація:</p>
 <ul>
-<li>'is_calibrated': True/False is the load cell calibrated</li>
-<li>'counts_per_gram': The number of raw sensor counts that equals 1 gram of force</li>
-<li>'reference_tare_counts': The reference number of raw sensor counts for 0 force</li>
-<li>'tare_counts': The current number of raw sensor counts for 0 force</li>
-<li>'force_g': The force in grams, averaged over the last polling period.</li>
-<li>'min_force_g': The minimum force in grams, over the last polling period.</li>
-<li>'max_force_g': The maximum force in grams, over the last polling period.</li>
+<li>'is_calibrated': True/False – калібрований тензодатчик</li>
+<li>'counts_per_gram': Кількість необроблених показників датчика, що дорівнює 1 граму сили</li>
+<li>'reference_tare_counts': Довідкова кількість необроблених показників датчика для 0 сили</li>
+<li>'tare_counts': Поточна кількість необроблених показників датчика для 0 сили</li>
+<li>'force_g': Сила в грамах, усереднена за останній період опитування.</li>
+<li>'min_force_g': Мінімальна сила в грамах за останній період опитування.</li>
+<li>'max_force_g': Максимальна сила в грамах за останній період опитування.</li>
 </ul>
 <h2 id="load_cell_probe">load_cell_probe<a class="headerlink" href="#load_cell_probe" title="Permanent link">&para;</a></h2>
 <p>The following information is available for <code>[load_cell_probe]</code>:</p>
@@ -1983,9 +1983,9 @@
 <li><code>printer["servo &lt;config_name&gt;"].value</code>: Останнє налаштування штифта PWM ( значення між 0.0 і 1,0) пов'язане з серво.</li>
 </ul>
 <h2 id="skew_correctionpy">skew_correction.py<a class="headerlink" href="#skew_correctionpy" title="Permanent link">&para;</a></h2>
-<p>The following information is available in the <code>skew_correction</code> object (this object is available if any skew_correction is defined):</p>
+<p>Наступна інформація доступна в об'єкті <code>skew_correction</code> (цей об'єкт доступний, якщо визначено будь-яку skew_correction):</p>
 <ul>
-<li><code>current_profile_name</code>: Returns the name of the currently loaded SKEW_PROFILE.</li>
+<li><code>current_profile_name</code>: Повертає назву поточного завантаженого SKEW_PROFILE.</li>
 </ul>
 <h2 id="stepper_enable">stepper_enable<a class="headerlink" href="#stepper_enable" title="Permanent link">&para;</a></h2>
 <p>Наступна інформація доступна в об'єкті <code>stepper_enable</code> ( цей об'єкт доступний, якщо будь-який stepper визначений):</p>

@@ -13,7 +13,7 @@
     
     
       
-        <title>Packaging Klipper - Klipper documentation</title>
+        <title>Rezačka obalov - Klipper documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#packaging-klipper" class="md-skip">
+        <a href="#rezacka-obalov" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Packaging Klipper
+              Rezačka obalov
             
           </span>
         </div>
@@ -1342,29 +1342,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#c-modules" class="md-nav__link">
-    C modules
+  <a href="#c-moduly" class="md-nav__link">
+    C moduly
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#compiling-python-code" class="md-nav__link">
-    Compiling python code
+  <a href="#kompilacia-kodu-v-jazyku-python" class="md-nav__link">
+    Kompilácia kódu v jazyku Python
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#versioning" class="md-nav__link">
-    Versioning
+  <a href="#tvorba-verzii" class="md-nav__link">
+    Tvorba verzií
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#sample-packaging-script" class="md-nav__link">
-    Sample packaging script
+  <a href="#ukazkovy-skript-balenia" class="md-nav__link">
+    Ukážkový skript balenia
   </a>
   
 </li>
@@ -1386,16 +1386,16 @@
 </a>
 
 
-<h1 id="packaging-klipper">Packaging Klipper<a class="headerlink" href="#packaging-klipper" title="Permanent link">&para;</a></h1>
-<p>Klipper is somewhat of a packaging anomaly among python programs, as it doesn't use setuptools to build and install. Some notes regarding how best to package it are as follows:</p>
-<h2 id="c-modules">C modules<a class="headerlink" href="#c-modules" title="Permanent link">&para;</a></h2>
-<p>Klipper uses a C module to handle some kinematics calculations more quickly. This module needs to be compiled at packaging time to avoid introducing a runtime dependency on a compiler. To compile the C module, run <code>python2 klippy/chelper/__init__.py</code>.</p>
-<h2 id="compiling-python-code">Compiling python code<a class="headerlink" href="#compiling-python-code" title="Permanent link">&para;</a></h2>
-<p>Many distributions have a policy of compiling all python code before packaging to improve startup time. You can do this by running <code>python2 -m compileall klippy</code>.</p>
-<h2 id="versioning">Versioning<a class="headerlink" href="#versioning" title="Permanent link">&para;</a></h2>
-<p>If you are building a package of Klipper from git, it is usual practice not to ship a .git directory, so the versioning must be handled without git. To do this, use the script shipped in <code>scripts/make_version.py</code> which should be run as follows: <code>python2 scripts/make_version.py YOURDISTRONAME &gt; klippy/.version</code>.</p>
-<h2 id="sample-packaging-script">Sample packaging script<a class="headerlink" href="#sample-packaging-script" title="Permanent link">&para;</a></h2>
-<p>klipper-git is packaged for Arch Linux, and has a PKGBUILD (package build script) available at <a href="https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper-git">Arch User Repository</a>.</p>
+<h1 id="rezacka-obalov">Rezačka obalov<a class="headerlink" href="#rezacka-obalov" title="Permanent link">&para;</a></h1>
+<p>Klipper je medzi programami v jazyku Python trochu anomáliou v oblasti balenia, pretože na zostavenie a inštaláciu nepoužíva setuptools. Niekoľko poznámok k tomu, ako ho najlepšie zabaliť, je nasledovné:</p>
+<h2 id="c-moduly">C moduly<a class="headerlink" href="#c-moduly" title="Permanent link">&para;</a></h2>
+<p>Klipper používa modul jazyka C na rýchlejšie spracovanie niektorých kinematických výpočtov. Tento modul je potrebné skompilovať počas balenia, aby sa predišlo závislosti od kompilátora počas behu. Na kompiláciu modulu jazyka C spustite príkaz <code>python2 klippy/chelper/__init__.py</code>.</p>
+<h2 id="kompilacia-kodu-v-jazyku-python">Kompilácia kódu v jazyku Python<a class="headerlink" href="#kompilacia-kodu-v-jazyku-python" title="Permanent link">&para;</a></h2>
+<p>Mnohé distribúcie majú zásadu kompilácie všetkého kódu Pythonu pred zabalením, aby sa skrátil čas spustenia. Môžete to urobiť spustením príkazu <code>python2 -m compileall klippy</code>.</p>
+<h2 id="tvorba-verzii">Tvorba verzií<a class="headerlink" href="#tvorba-verzii" title="Permanent link">&para;</a></h2>
+<p>Ak zostavujete balík Klipperu z gitu, je bežnou praxou neposielať adresár .git, takže verzovanie musí byť riešené bez gitu. Na to použite skript dodávaný v súbore <code>scripts/make_version.py</code>, ktorý by sa mal spustiť nasledovne: <code>python2 scripts/make_version.py NÁZOV VAŠEJ DISPOZÍCIE &gt; klippy/.version</code>.</p>
+<h2 id="ukazkovy-skript-balenia">Ukážkový skript balenia<a class="headerlink" href="#ukazkovy-skript-balenia" title="Permanent link">&para;</a></h2>
+<p>klipper-git je zabalený pre Arch Linux a má PKGBUILD (skript na zostavenie balíčka) dostupný v <a href="https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper-git">Arch User Repository</a>.</p>
 
               
             </article>

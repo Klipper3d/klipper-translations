@@ -1455,8 +1455,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#same70-step-rate-benchmark" class="md-nav__link">
-    SAME70 step rate benchmark
+  <a href="#70" class="md-nav__link">
+    சமமான 70 படி வீத அளவுகோல்
   </a>
   
 </li>
@@ -1469,8 +1469,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#rpxxxx-step-rate-benchmark" class="md-nav__link">
-    RPxxxx step rate benchmark
+  <a href="#rpxxxx" class="md-nav__link">
+    RPXXXX படி வீத அளவுகோல்
   </a>
   
 </li>
@@ -1526,7 +1526,7 @@
 <p>வன்பொருள் மற்றும் மென்பொருள் அடையக்கூடிய அதிகபட்ச படிநிலை விகிதத்தைக் கண்டறிய படி வீத அளவுகோல் வடிவமைக்கப்பட்டுள்ளது. எந்தவொரு நிச உலக பயன்பாட்டிலும் கிளிப்பர் பிற பணிகளை (எ.கா., எம்.சி.யு/ஓச்ட் செய்தி தொடர்பு, வெப்பநிலை வாசிப்பு, எண்ட்ச்டாப் சோதனை) செய்ய வேண்டியிருப்பதால் இந்த பெஞ்ச்மார்க் படிநிலை விகிதம் அன்றாட பயன்பாட்டில் அடைய முடியாது.</p>
 <p>பொதுவாக, பெஞ்ச்மார்க் சோதனைகளுக்கான ஊசிகள் ஃபிளாச் எல்.ஈ.டிக்கள் அல்லது பிற தீங்கற்ற ஊசிகளுக்கு தேர்ந்தெடுக்கப்படுகின்றன. <strong> ஒரு அளவுகோலை இயக்குவதற்கு முன்பு கட்டமைக்கப்பட்ட ஊசிகளை ஓட்டுவது பாதுகாப்பானது என்பதை எப்போதும் சரிபார்க்கவும். </strong> ஒரு அளவுகோலின் போது உண்மையான ச்டெப்பரை இயக்க பரிந்துரைக்கப்படவில்லை.</p>
 <h3 id="_2">படி வீத அளவுகோல் சோதனை<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<p>சோதனை Console.py கருவியைப் பயன்படுத்தி செய்யப்படுகிறது (&lt;பிழைத்திருத்தம். Md&gt; இல் விவரிக்கப்பட்டுள்ளது). மைக்ரோ-கண்ட்ரோலர் குறிப்பிட்ட வன்பொருள் தளத்திற்காக கட்டமைக்கப்பட்டுள்ளது (கீழே காண்க) பின்னர் பின்வருபவை கன்சோலில் வெட்டப்பட்ட மற்றும் ஒட்டுதல்.</p>
+<p>இந்தச் சோதனை console.py கருவியைப் பயன்படுத்தி செய்யப்படுகிறது (Debugging.md&gt; இல் விவரிக்கப்பட்டுள்ளது). மைக்ரோ-கண்ட்ரோலர் குறிப்பிட்ட வன்பொருள் தளத்திற்கு (கீழே காண்க) உள்ளமைக்கப்பட்டுள்ளது, பின்னர் பின்வருபவை console.py முனையச் சாளரத்தில் வெட்டி ஒட்டப்படும்:</p>
 <div class="highlight"><pre><span></span><code>START_CLOCK {CLACK+FREQ}
  உண்ணி 1000 ஐ அமைக்கவும்
 
@@ -1555,7 +1555,7 @@
 </code></pre></div>
 
 <p>ஒற்றை ச்டெப்பர் வரையறைகளைப் பெற, அதே உள்ளமைவு வரிசை பயன்படுத்தப்படுகிறது, ஆனால் மேலே உள்ள சோதனையின் முதல் தொகுதி மட்டுமே கன்சோல்.பை சாளரத்தில் வெட்டப்பட்டு ஒட்டுகிறது.</p>
-<p>[அம்சங்கள்] (அம்சங்கள்] (அம்சங்கள். முடிவுகள் அருகிலுள்ள கே. க்கு வட்டமானவை. எடுத்துக்காட்டாக, மூன்று செயலில் உள்ள ச்டெப்பர்களுடன்:</p>
+<p><a href="Features.html">Features</a> ஆவணத்தில் காணப்படும் அளவுகோல்களை உருவாக்க, செயலில் உள்ள ஸ்டெப்பர்களின் எண்ணிக்கையை பெயரளவு mcu அதிர்வெண்ணுடன் பெருக்கி இறுதி டிக்ஸ் அளவுருவால் வகுப்பதன் மூலம் வினாடிக்கு மொத்த படிகளின் எண்ணிக்கை கணக்கிடப்படுகிறது. முடிவுகள் அருகிலுள்ள K க்கு வட்டமிடப்படுகின்றன. எடுத்துக்காட்டாக, மூன்று செயலில் உள்ள ஸ்டெப்பர்களுடன்:</p>
 <div class="highlight"><pre><span></span><code>எதிரொலி சோதனை முடிவு: {&quot; % .0fk&quot; % (3. * Freq / decks / 1000.)}
 </code></pre></div>
 
@@ -1803,7 +1803,7 @@
 </tbody>
 </table>
 <h3 id="stm32h7">STM32H7 படி வீத அளவுகோல்<a class="headerlink" href="#stm32h7" title="Permanent link">&para;</a></h3>
-<p>The following configuration sequence is used on STM32H723:</p>
+<p>பின்வரும் உள்ளமைவு வரிசை STM32H723 இல் பயன்படுத்தப்படுகிறது:</p>
 <div class="highlight"><pre><span></span><code>allocate_oids count=3
 config_stepper oid=0 step_pin=PA13 dir_pin=PB5 invert_step=-1 step_pulse_ticks=52
 config_stepper oid=1 step_pin=PB2 dir_pin=PB6 invert_step=-1 step_pulse_ticks=52
@@ -1811,11 +1811,11 @@ config_stepper oid=2 step_pin=PB3 dir_pin=PB7 invert_step=-1 step_pulse_ticks=52
 finalize_config crc=0
 </code></pre></div>
 
-<p>The test was last run on commit <code>554ae78d</code> with gcc version <code>arm-none-eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0</code>.</p>
+<p>இந்த சோதனை கடைசியாக GCC பதிப்பு <code>ARM-NONE-EABI-GCC (ஃபெடோரா 14.1.0-1.FC40) 14.1.0</code> உடன்<code>554AE78D</code> இல் இயக்கப்பட்டது.</p>
 <table>
 <thead>
 <tr>
-<th>stm32h723</th>
+<th>நான் கேட்பேன்</th>
 <th>உண்ணி</th>
 </tr>
 </thead>
@@ -1996,8 +1996,8 @@ finalize_config crc=0
 </tr>
 </tbody>
 </table>
-<h3 id="same70-step-rate-benchmark">SAME70 step rate benchmark<a class="headerlink" href="#same70-step-rate-benchmark" title="Permanent link">&para;</a></h3>
-<p>The following configuration sequence is used on the SAME70:</p>
+<h3 id="70">சமமான 70 படி வீத அளவுகோல்<a class="headerlink" href="#70" title="Permanent link">&para;</a></h3>
+<p>பின்வரும் உள்ளமைவு வரிசை சமமான 70 இல் பயன்படுத்தப்படுகிறது:</p>
 <div class="highlight"><pre><span></span><code>allocate_oids count=3
 config_stepper oid=0 step_pin=PC18 dir_pin=PB5 invert_step=-1 step_pulse_ticks=0
 config_stepper oid=1 step_pin=PC16 dir_pin=PD10 invert_step=-1 step_pulse_ticks=0
@@ -2005,18 +2005,18 @@ config_stepper oid=2 step_pin=PC28 dir_pin=PA4 invert_step=-1 step_pulse_ticks=0
 finalize_config crc=0
 </code></pre></div>
 
-<p>The test was last run on commit <code>34e9ea55</code> with gcc version <code>arm-none-eabi-gcc (NixOS 10.3-2021.10) 10.3.1</code> on a SAME70Q20B micro-controller.</p>
+<p>இந்த சோதனை கடைசியாக GCC பதிப்பு <code>ARM-NONE-EABI-GCC (NIXOS 10.3-2021.10) 10.3.1</code> உடன் ஒரே 70Q20B மைக்ரோ-கான்ட்ரோலரில் கமிட்<code>34E9EA55</code> இல் இயக்கப்பட்டது.</p>
 <table>
 <thead>
 <tr>
-<th>same70</th>
+<th>சமி 0</th>
 <th>உண்ணி</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>1 ச்டெப்பர்</td>
-<td>45</td>
+<td>௪௫</td>
 </tr>
 <tr>
 <td>3 ச்டெப்பர்</td>
@@ -2033,7 +2033,7 @@ finalize_config crc=0
  இறுதி_கான்ஃபிக் சி.ஆர்.சி = 0
 </code></pre></div>
 
-<p>The test was last run on commit <code>b7978d37</code> with gcc version <code>or1k-linux-musl-gcc (GCC) 9.2.0</code> on an Allwinner A64-H micro-controller.</p>
+<p>ஆலைனர் A64-H மைக்ரோ-கான்ட்ரோலரில் GCC பதிப்பு <code>OR1K-LINUX-MUSL-GCC (GCC) 9.2.0</code> உடன்<code>B7978D37</code> உடன் சோதனை கடைசியாக இயக்கப்பட்டது.</p>
 <table>
 <thead>
 <tr>
@@ -2052,8 +2052,8 @@ finalize_config crc=0
 </tr>
 </tbody>
 </table>
-<h3 id="rpxxxx-step-rate-benchmark">RPxxxx step rate benchmark<a class="headerlink" href="#rpxxxx-step-rate-benchmark" title="Permanent link">&para;</a></h3>
-<p>The following configuration sequence is used on the RP2040 and RP2350:</p>
+<h3 id="rpxxxx">RPXXXX படி வீத அளவுகோல்<a class="headerlink" href="#rpxxxx" title="Permanent link">&para;</a></h3>
+<p>பின்வரும் உள்ளமைவு வரிசை RP2040 மற்றும் RP2350 இல் பயன்படுத்தப்படுகிறது:</p>
 <div class="highlight"><pre><span></span><code>ஒதுக்கீடு_யிட்ச் எண்ணிக்கை = 3
  config_stepper oid = 0 step_pin = gpio25 dir_pin = gpio3 invert_step = -1 step_pules_ticks = 0
  config_stepper oid = 1 step_pin = gpio26 dir_pin = gpio4 invert_step = -1 step_pules_ticks = 0
@@ -2061,18 +2061,18 @@ finalize_config crc=0
  இறுதி_கான்ஃபிக் சி.ஆர்.சி = 0
 </code></pre></div>
 
-<p>The test was last run on commit <code>14c105b8</code> with gcc version <code>arm-none-eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0</code> on Raspberry Pi Pico and Pico 2 boards.</p>
+<p>இந்த சோதனை கடைசியாக <code>14C105B8</code> இல் சி.சி.சி பதிப்பு<code>ARM-NONE-EABI-GCC (ஃபெடோரா 14.1.0-1.FC40) 14.1.0</code> உடன் ராச்பெர்ரி பை பைக்கோ மற்றும் பைக்கோ 2 பலகைகளுடன் இயக்கப்பட்டது.</p>
 <table>
 <thead>
 <tr>
-<th>rp2040 (*)</th>
+<th>RP2040 (*)</th>
 <th>உண்ணி</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>1 ச்டெப்பர்</td>
-<td>3</td>
+<td>௩</td>
 </tr>
 <tr>
 <td>3 ச்டெப்பர்</td>
@@ -2083,7 +2083,7 @@ finalize_config crc=0
 <table>
 <thead>
 <tr>
-<th>rp2350</th>
+<th>ரபா 0</th>
 <th>உண்ணி</th>
 </tr>
 </thead>
@@ -2163,7 +2163,7 @@ finalize_config crc=0
 <td>rp2350 (CAN)</td>
 <td>59K</td>
 <td>17b8ce4c</td>
-<td>arm-none-eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0</td>
+<td>ARM-NONE-EABI-GCC (ஃபெடோரா 14.1.0-1.FC40) 14.1.0</td>
 </tr>
 <tr>
 <td>AT90USB1286 (USB)</td>
@@ -2233,15 +2233,15 @@ finalize_config crc=0
 </tr>
 <tr>
 <td>RP2040 (யூ.எச்.பி)</td>
-<td>885K</td>
-<td>f6718291</td>
-<td>arm-none-eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0</td>
+<td>885 கே</td>
+<td>ஃபட்டா 18291</td>
+<td>ARM-NONE-EABI-GCC (ஃபெடோரா 14.1.0-1.FC40) 14.1.0</td>
 </tr>
 <tr>
-<td>rp2350 (USB)</td>
-<td>885K</td>
-<td>f6718291</td>
-<td>arm-none-eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0</td>
+<td>RP2350 (யூ.எச்.பி)</td>
+<td>885 கே</td>
+<td>ஃபட்டா 18291</td>
+<td>ARM-NONE-EABI-GCC (ஃபெடோரா 14.1.0-1.FC40) 14.1.0</td>
 </tr>
 </tbody>
 </table>

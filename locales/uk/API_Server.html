@@ -1651,8 +1651,8 @@
 <p>Запит може виглядати як: <code>{"id": 123, "метод":"кутник/dump_кутник", "params": "my_angle_sensor", "response_template": {contact</code> і може повернутися: <code>{"id": 123,"result":{"header":["time","angle"]}}</code> і може пізніше випускати асинхронні повідомлення, такі як: `{"params":{"tion_offset":3.1512,"errors:012[12]</p>
 <p>Поле "голова" в початковій відповіді запиту використовується для опису полів, знайдених в більш пізній "data".</p>
 <h3 id="load_celldump_force">load_cell/dump_force<a class="headerlink" href="#load_celldump_force" title="Permanent link">&para;</a></h3>
-<p>This endpoint is used to subscribe to force data produced by a load_cell. Using this endpoint may increase Klipper's system load.</p>
-<p>A request may look like: <code>{"id": 123, "method":"load_cell/dump_force", "params": {"sensor": "load_cell", "response_template": {}}}</code> and might return: <code>{"id": 123,"result":{"header":["time", "force (g)", "counts", "tare_counts"]}}</code> and might later produce asynchronous messages such as: <code>{"params":{"data":[[3292.432935, 40.65, 562534, -234467]]}}</code></p>
+<p>Ця кінцева точка використовується для підписки на примусове отримання даних, створених load_cell. Використання цієї кінцевої точки може збільшити системне навантаження Klipper.</p>
+<p>Запит може виглядати так: <code>{"id": 123, "method":"load_cell/dump_force", "params": {"sensor": "load_cell", "response_template": {}}}</code> та може повернути: <code>{"id": 123,"result":{"header":["time", "force (g)", "counts", "tare_counts"]}}</code>, а пізніше може генерувати асинхронні повідомлення, такі як: <code>{"params":{"data":[[3292.432935, 40.65, 562534, -234467]]}}</code></p>
 <p>Поле "голова" в початковій відповіді запиту використовується для опису полів, знайдених в більш пізній "data".</p>
 <h3 id="load_cell_probedump_taps">load_cell_probe/dump_taps<a class="headerlink" href="#load_cell_probedump_taps" title="Permanent link">&para;</a></h3>
 <p>This endpoint is used to subscribe to details of probing "tap" events. Using this endpoint may increase Klipper's system load.</p>
