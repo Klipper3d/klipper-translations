@@ -1,18 +1,21 @@
-# Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022.
+# Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022, 2025.
 # Evgeniy Khramov <thejenjagamertjg@gmail.com>, 2022.
-# VICTOR <subfyn@gmail.com>, 2023.
-# gfbdrgng <hnaofegnp@hldrive.com>, 2024.
+# VICTOR <subfyn@gmail.com>, 2023, 2025.
+# gfbdrgng <hnaofegnp@hldrive.com>, 2024, 2025.
+# Evgeniy Khramov <65224669+thejenja@users.noreply.github.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-12-30 05:00+0000\n"
-"Last-Translator: gfbdrgng <hnaofegnp@hldrive.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/features/ru/>\n"
+"PO-Revision-Date: 2025-07-22 08:38+0000\n"
+"Last-Translator: Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/features/"
+"ru/>\n"
 "Language: ru\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.10-dev\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 msgid "Klipper has several compelling features:"
 msgstr "Клиппер обладает несколькими привлекательными функциями:"
@@ -25,14 +28,14 @@ msgid ""
 "drift between micro-controllers. No special code is needed to enable multiple "
 "micro-controllers - it just requires a few extra lines in the config file."
 msgstr ""
-"Klipper поддерживает принтеры с несколькими микроконтроллерами. Например, один"
-" микроконтроллер может использоваться для управления экструдером, в то время "
-"как другой управляет нагревателями принтера, а третий управляет остальной "
-"частью принтера. Программное обеспечение хоста Klipper реализует синхронизацию"
-" тактовых импульсов для учета дрейфа тактовых импульсов между "
+"Klipper поддерживает принтеры с несколькими микроконтроллерами. Например, "
+"один микроконтроллер может использоваться для управления экструдером, в то "
+"время как другой управляет нагревателями принтера, а третий управляет "
+"остальной частью принтера. Программное обеспечение хоста Klipper реализует "
+"синхронизацию тактовых импульсов для учета дрейфа тактовых импульсов между "
 "микроконтроллерами. Для включения нескольких микроконтроллеров не требуется "
-"специального кода - для этого просто требуется несколько дополнительных строк "
-"в конфигурационном файле."
+"специального кода - для этого просто требуется несколько дополнительных "
+"строк в конфигурационном файле."
 
 msgid ""
 "Configuration via simple config file. There's no need to reflash the micro-"
@@ -54,9 +57,9 @@ msgid ""
 msgstr ""
 "Klipper поддерживает функцию \"Плавное регулировку давления \"PA\" \" - "
 "механизм, учитывающий влияние давления в экструдере. Это позволяет уменьшить "
-"\"сопливость\" экструдера и улучшить качество углов печати. Реализация Klipper"
-" не предусматривает мгновенного изменения скорости экструдера, что повышает "
-"общую стабильность и надежность."
+"\"сопливость\" экструдера и улучшить качество углов печати. Реализация "
+"Klipper не предусматривает мгновенного изменения скорости экструдера, что "
+"повышает общую стабильность и надежность."
 
 msgid ""
 "Klipper supports \"Input Shaping\" to reduce the impact of vibrations on print"
@@ -86,10 +89,11 @@ msgid ""
 "modification - just add a Raspberry Pi. Klipper's internal code layout makes "
 "it easier to support other micro-controller architectures as well."
 msgstr ""
-"Переносимый код. Klipper работает на микроконтроллерах на базе ARM, AVR и PRU."
-" Существующие принтеры типа \"reprap\" могут работать с Klipper без аппаратной"
-" модификации - достаточно добавить Raspberry Pi. Внутренняя компоновка кода "
-"Klipper облегчает поддержку и других архитектур микроконтроллеров."
+"Переносимый код. Klipper работает на микроконтроллерах на базе ARM, AVR и "
+"PRU. Существующие принтеры типа \"reprap\" могут работать с Klipper без "
+"аппаратной модификации - достаточно добавить Raspberry Pi. Внутренняя "
+"компоновка кода Klipper облегчает поддержку и других архитектур "
+"микроконтроллеров."
 
 msgid ""
 "Simpler code. Klipper uses a very high level language (Python) for most code. "
@@ -97,10 +101,10 @@ msgid ""
 "algorithms, etc. are all written in Python. This makes it easier to develop "
 "new functionality."
 msgstr ""
-"Более простой код. В Klipper используется язык очень высокого уровня (Python) "
-"для большей части кода. Алгоритмы кинематики, парсинг G-кода, алгоритмы "
-"нагрева и терморезисторов и т.д. написаны на Python. Это облегчает разработку "
-"новых функций."
+"Более простой код. В Klipper используется язык очень высокого уровня (Python)"
+" для большей части кода. Алгоритмы кинематики, парсинг G-кода, алгоритмы "
+"нагрева и терморезисторов и т.д. написаны на Python. Это облегчает "
+"разработку новых функций."
 
 msgid ""
 "Custom programmable macros. New G-Code commands can be defined in the printer "
@@ -136,6 +140,20 @@ msgstr ""
 "нагревателями и экструдеры на независимых каретках (IDEX)."
 
 msgid ""
+"Automatic bed leveling support. Klipper can be configured for basic bed tilt "
+"detection or full mesh bed leveling. If the bed uses multiple Z steppers then "
+"Klipper can also level by independently manipulating the Z steppers. Most Z "
+"height probes are supported, including BL-Touch probes and servo activated "
+"probes."
+msgstr ""
+"Поддержка автоматического выравнивания кровати. Klipper может быть настроен "
+"на базовое определение наклона станины или полное выравнивание станины по "
+"сетке. Если в станине используется несколько Z-шаговиков, Klipper также "
+"может выравнивать станину, независимо управляя Z-шаговиками. Поддерживается "
+"большинство датчиков высоты Z, включая датчики BL-Touch и датчики с "
+"сервоприводом."
+
+msgid ""
 "Automatic delta calibration support. The calibration tool can perform basic "
 "height calibration as well as an enhanced X and Y dimension calibration. The "
 "calibration can be done with a Z height probe or via manual probing."
@@ -167,10 +185,10 @@ msgid ""
 msgstr ""
 "Постоянное ускорение и поддержка \"опережения\". Все движения принтера "
 "постепенно ускоряются от остановки до крейсерской скорости, а затем "
-"замедляются до остановки. Поступающий поток команд движения G-кода ставится в "
-"очередь и анализируется - ускорение между движениями в одном направлении будет"
-" оптимизировано для уменьшения задержек печати и улучшения общего времени "
-"печати."
+"замедляются до остановки. Поступающий поток команд движения G-кода ставится "
+"в очередь и анализируется - ускорение между движениями в одном направлении "
+"будет оптимизировано для уменьшения задержек печати и улучшения общего "
+"времени печати."
 
 msgid ""
 "Klipper implements a \"stepper phase endstop\" algorithm that can improve the "
@@ -187,8 +205,8 @@ msgid ""
 "information."
 msgstr ""
 "Поддержка ограничения максимальной скорости коротких \"зигзагообразных\" "
-"движений для уменьшения вибрации и шума принтера. Дополнительные сведения см. "
-"в документе [кинематика ](Kinematics.md)."
+"движений для уменьшения вибрации и шума принтера. Дополнительные сведения "
+"см. в документе [кинематика ](Kinematics.md)."
 
 msgid ""
 "Sample configuration files are available for many common printers. Check the "
@@ -200,8 +218,8 @@ msgstr ""
 msgid ""
 "To get started with Klipper, read the [installation](Installation.md) guide."
 msgstr ""
-"Чтобы начать работу с Klipper, прочитайте руководство "
-"[установка](Installation.md)."
+"Чтобы начать работу с Klipper, прочитайте руководство [установка]"
+"(Installation.md)."
 
 msgid "Step Benchmarks"
 msgstr "Шаговые ориентиры"
@@ -210,8 +228,8 @@ msgid ""
 "Below are the results of stepper performance tests. The numbers shown "
 "represent total number of steps per second on the micro-controller."
 msgstr ""
-"Ниже приведены результаты тестов производительности степпера. Цифры показывают"
-" общее количество шагов в секунду на микроконтроллере."
+"Ниже приведены результаты тестов производительности степпера. Цифры "
+"показывают общее количество шагов в секунду на микроконтроллере."
 
 msgid "Micro-controller"
 msgstr "Микроконтроллер"
@@ -244,6 +262,32 @@ msgstr ""
 "Поддержка стандартного G-кода. Поддерживаются общие команды g-кода, которые "
 "производятся типичными \"слайсерами\" (SuperSlicer, Cura, PrusaSlicer и т. "
 "д.)."
+
+#: docs/Features.md:block 6 (unordered list)
+msgid ""
+"Support for common temperature sensors (eg, common thermistors, AD595, AD597, "
+"AD849x, PT100, PT1000, MAX6675, MAX31855, MAX31856, MAX31865, BME280, HTU21D, "
+"DS18B20, and LM75). Custom thermistors and custom analog temperature sensors "
+"can also be configured. One can monitor the internal micro-controller "
+"temperature sensor and the internal temperature sensor of a Raspberry Pi."
+msgstr ""
+"Поддержка распространенных датчиков температуры (например, обычных "
+"термисторов, AD595, AD597, AD849x, PT100, PT1000, MAX6675, MAX31855, "
+"MAX31856, MAX31865, BME280, HTU21D, DS18B20 и LM75). Также можно настроить "
+"пользовательские термисторы и аналоговые датчики температуры. Можно "
+"контролировать внутренний датчик температуры микроконтроллера и внутренний "
+"датчик температуры Raspberry Pi."
+
+#: docs/Features.md:block 6 (unordered list)
+msgid ""
+"Support for standard fans, nozzle fans, and temperature controlled fans. No "
+"need to keep fans running when the printer is idle. Fan speed can be monitored"
+" on fans that have a tachometer."
+msgstr ""
+"Поддержка стандартных вентиляторов, вентиляторов сопел и вентиляторов с "
+"контролем температуры. Нет необходимости держать вентиляторы включенными, "
+"когда принтер простаивает. Скорость вращения вентиляторов можно отслеживать "
+"на вентиляторах, оснащенных тахометром."
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
@@ -338,6 +382,14 @@ msgid "1622K"
 msgstr "1622 тыс."
 
 #: docs/Features.md:block 10 (table)
+msgid "2400K"
+msgstr "2400 тыс."
+
+#: docs/Features.md:block 10 (table)
+msgid "1636K"
+msgstr "1636 тыс."
+
+#: docs/Features.md:block 10 (table)
 msgid "2500K"
 msgstr "2500 тыс."
 
@@ -374,8 +426,8 @@ msgid ""
 "Further details on the benchmarks are available in the [Benchmarks "
 "document](Benchmarks.md)."
 msgstr ""
-"Более подробная информация о бенчмарках доступна в документе "
-"[Benchmarks](Benchmarks.md)."
+"Более подробная информация о бенчмарках доступна в документе [Benchmarks]"
+"(Benchmarks.md)."
 
 #: docs/Features.md:block 10 (table)
 #, fuzzy
@@ -456,6 +508,21 @@ msgstr ""
 "найдите соответствующий файл [config](../config/) и найдите название "
 "микроконтроллера в комментариях в верхней части этого файла."
 
+#: docs/Features.md:block 10 (table)
+#, fuzzy
+msgid "STM32H743"
+msgstr "STM32H743"
+
+#: docs/Features.md:block 10 (table)
+#, fuzzy
+msgid "9091K"
+msgstr "9091K"
+
+#: docs/Features.md:block 10 (table)
+#, fuzzy
+msgid "6061K"
+msgstr "6061K"
+
 #: docs/Features.md:block 3 (unordered list)
 msgid ""
 "High precision stepper movement. Klipper utilizes an application processor "
@@ -469,16 +536,16 @@ msgid ""
 " physics of the machine kinematics. More precise stepper movement provides "
 "quieter and more stable printer operation."
 msgstr ""
-"Высокоточное шаговое движение. Klipper использует прикладной процессор "
-"(например, недорогой Raspberry Pi) при расчете движений принтера. Прикладной "
+"Высокоточное шаговое движение. Klipper использует прикладной процессор ("
+"например, недорогой Raspberry Pi) при расчете движений принтера. Прикладной "
 "процессор определяет, когда нужно сделать шаг каждому шаговому двигателю, "
 "сжимает эти события, передает их микроконтроллеру, а затем микроконтроллер "
-"выполняет каждое событие в требуемое время. Каждое событие шагового двигателя "
-"запланировано с точностью 25 микросекунд или лучше. Программное обеспечение не"
-" использует кинематические оценки (такие как алгоритм Брезенхема) - вместо "
-"этого оно рассчитывает точное время шага, основываясь на физике ускорения и "
-"физике кинематики машины. Более точное движение шагового механизма "
-"обеспечивает более тихую и стабильную работу принтера."
+"выполняет каждое событие в требуемое время. Каждое событие шагового "
+"двигателя запланировано с точностью 25 микросекунд или лучше. Программное "
+"обеспечение не использует кинематические оценки (такие как алгоритм "
+"Брезенхема) - вместо этого оно рассчитывает точное время шага, основываясь "
+"на физике ускорения и физике кинематики машины. Более точное движение "
+"шагового механизма обеспечивает более тихую и стабильную работу принтера."
 
 #: docs/Features.md:block 3 (unordered list)
 msgid ""
@@ -503,9 +570,9 @@ msgid ""
 "The same Raspberry Pi that runs Klipper can also run the web interface."
 msgstr ""
 "Доступно несколько веб-интерфейсов. Работает с Mainsail, Fluidd, OctoPrint и "
-"другими. Это позволяет управлять принтером с помощью обычного веб-браузера. На"
-" том же Raspberry Pi, на котором работает Klipper, можно запустить веб-"
-"интерфейс."
+"другими. Это позволяет управлять принтером с помощью обычного веб-браузера. "
+"На том же Raspberry Pi, на котором работает Klipper, можно запустить "
+"веб-интерфейс."
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
@@ -521,9 +588,9 @@ msgid ""
 "Run-time \"exclude object\" support. When configured, this module may "
 "facilitate canceling of just one object in a multi-part print."
 msgstr ""
-"Поддержка функции \"исключить объект\" во время выполнения. При настройке этот"
-" модуль может облегчить отмену только одного объекта в печати, состоящей из "
-"нескольких частей."
+"Поддержка функции \"исключить объект\" во время выполнения. При настройке "
+"этот модуль может облегчить отмену только одного объекта в печати, состоящей "
+"из нескольких частей."
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
@@ -534,8 +601,16 @@ msgid ""
 msgstr ""
 "Поддержка конфигурирования во время выполнения драйверов шаговых двигателей "
 "TMC2130, TMC2208/TMC2224, TMC2209, TMC2660 и TMC5160. Также поддерживается "
-"управление током традиционных шаговых драйверов с помощью AD5206, DAC084S085, "
-"MCP4451, MCP4728, MCP4018 и выводов ШИМ."
+"управление током традиционных шаговых драйверов с помощью AD5206, "
+"DAC084S085, MCP4451, MCP4728, MCP4018 и выводов ШИМ."
+
+#: docs/Features.md:block 6 (unordered list)
+msgid ""
+"Support for measuring and recording acceleration using an adxl345, mpu9250, "
+"and mpu6050 accelerometers."
+msgstr ""
+"Поддержка измерения и регистрации ускорения с помощью акселерометров "
+"adxl345, mpu9250 и mpu6050."
 
 #: docs/Features.md:block 3 (unordered list)
 msgid ""
@@ -547,12 +622,12 @@ msgid ""
 " speeds which improves overall stability."
 msgstr ""
 "Лучшая в своем классе производительность. Klipper способен достичь высокой "
-"скорости шагов как на новых, так и на старых микроконтроллерах. Даже на старых"
-" 8-битных микроконтроллерах можно получить скорость более 175 тысяч шагов в "
-"секунду. На более современных микроконтроллерах возможно выполнение нескольких"
-" миллионов шагов в секунду. Более высокая частота шагов позволяет увеличить "
-"скорость печати. Временные характеристики шагового механизма остаются точными "
-"даже на высоких скоростях, что повышает общую стабильность."
+"скорости шагов как на новых, так и на старых микроконтроллерах. Даже на "
+"старых 8-битных микроконтроллерах можно получить скорость более 175 тысяч "
+"шагов в секунду. На более современных микроконтроллерах возможно выполнение "
+"нескольких миллионов шагов в секунду. Более высокая частота шагов позволяет "
+"увеличить скорость печати. Временные характеристики шагового механизма "
+"остаются точными даже на высоких скоростях, что повышает общую стабильность."
 
 #: docs/Features.md:block 10 (table)
 #, fuzzy
@@ -592,136 +667,6 @@ msgstr ""
 #: docs/Features.md:block 10 (table)
 msgid "4737K"
 msgstr ""
-
-#: docs/Features.md:block 6 (unordered list)
-msgid ""
-"Automatic bed leveling support. Klipper can be configured for basic bed tilt "
-"detection or full mesh bed leveling. The bed mesh can be customized to the "
-"print size (adaptive bed mesh). If the bed uses multiple Z steppers then "
-"Klipper can also level by independently manipulating the Z steppers. Most Z "
-"height probes are supported, including BL-Touch probes and servo activated "
-"probes. Probes may be calibrated for axis twist compensation. If using an "
-"\"eddy current probe\" then one can utilize fast bed mesh scanning,"
-msgstr ""
-
-#: docs/Features.md:block 6 (unordered list)
-msgid ""
-"Support for common temperature sensors (eg, common thermistors, AD595, AD597, "
-"AD849x, PT100, PT1000, MAX6675, MAX31855, MAX31856, MAX31865, BME280, HTU21D, "
-"DS18B20, AHT10, SHT3x, and LM75). Custom thermistors and custom analog "
-"temperature sensors can also be configured. One can monitor the internal "
-"micro-controller temperature sensor and the internal temperature sensor of a "
-"Raspberry Pi."
-msgstr ""
-
-#: docs/Features.md:block 6 (unordered list)
-msgid ""
-"Support for standard fans, nozzle fans, and temperature controlled fans. No "
-"need to keep fans running when the printer is idle. Fan speed can be monitored"
-" on fans that have a tachometer. One can assign a \"math formula\" to a fan "
-"for automatic fan speed updating."
-msgstr ""
-
-#: docs/Features.md:block 6 (unordered list)
-msgid ""
-"Support for measuring and recording acceleration using adxl345, mpu9250, "
-"mpu6050, lis2dw12, lis3dh, and icm20948 accelerometers."
-msgstr ""
-
-#: docs/Features.md:block 10 (table)
-msgid "4000K"
-msgstr ""
-
-#: docs/Features.md:block 10 (table)
-msgid "2571K"
-msgstr ""
-
-#: docs/Features.md:block 10 (table)
-msgid "STM32H723"
-msgstr ""
-
-#: docs/Features.md:block 10 (table)
-msgid "7429K"
-msgstr ""
-
-#: docs/Features.md:block 10 (table)
-msgid "8619K"
-msgstr ""
-
-#: docs/Features.md:block 10 (table)
-msgid "STM32G431"
-msgstr ""
-
-#: docs/Features.md:block 10 (table)
-msgid "3617K"
-msgstr ""
-
-#: docs/Features.md:block 10 (table)
-msgid "2452K"
-msgstr ""
-
-#~ msgid ""
-#~ "Automatic bed leveling support. Klipper can be configured for basic bed tilt "
-#~ "detection or full mesh bed leveling. If the bed uses multiple Z steppers then "
-#~ "Klipper can also level by independently manipulating the Z steppers. Most Z "
-#~ "height probes are supported, including BL-Touch probes and servo activated "
-#~ "probes."
-#~ msgstr ""
-#~ "Поддержка автоматического выравнивания кровати. Klipper может быть настроен на"
-#~ " базовое определение наклона станины или полное выравнивание станины по сетке."
-#~ " Если в станине используется несколько Z-шаговиков, Klipper также может "
-#~ "выравнивать станину, независимо управляя Z-шаговиками. Поддерживается "
-#~ "большинство датчиков высоты Z, включая датчики BL-Touch и датчики с "
-#~ "сервоприводом."
-
-#~ msgid ""
-#~ "Support for common temperature sensors (eg, common thermistors, AD595, AD597, "
-#~ "AD849x, PT100, PT1000, MAX6675, MAX31855, MAX31856, MAX31865, BME280, HTU21D, "
-#~ "DS18B20, and LM75). Custom thermistors and custom analog temperature sensors "
-#~ "can also be configured. One can monitor the internal micro-controller "
-#~ "temperature sensor and the internal temperature sensor of a Raspberry Pi."
-#~ msgstr ""
-#~ "Поддержка распространенных датчиков температуры (например, обычных "
-#~ "термисторов, AD595, AD597, AD849x, PT100, PT1000, MAX6675, MAX31855, MAX31856,"
-#~ " MAX31865, BME280, HTU21D, DS18B20 и LM75). Также можно настроить "
-#~ "пользовательские термисторы и аналоговые датчики температуры. Можно "
-#~ "контролировать внутренний датчик температуры микроконтроллера и внутренний "
-#~ "датчик температуры Raspberry Pi."
-
-#~ msgid ""
-#~ "Support for standard fans, nozzle fans, and temperature controlled fans. No "
-#~ "need to keep fans running when the printer is idle. Fan speed can be monitored"
-#~ " on fans that have a tachometer."
-#~ msgstr ""
-#~ "Поддержка стандартных вентиляторов, вентиляторов сопел и вентиляторов с "
-#~ "контролем температуры. Нет необходимости держать вентиляторы включенными, "
-#~ "когда принтер простаивает. Скорость вращения вентиляторов можно отслеживать на"
-#~ " вентиляторах, оснащенных тахометром."
-
-#~ msgid "2400K"
-#~ msgstr "2400 тыс."
-
-#~ msgid "1636K"
-#~ msgstr "1636 тыс."
-
-#, fuzzy
-#~ msgid "STM32H743"
-#~ msgstr "STM32H743"
-
-#, fuzzy
-#~ msgid "9091K"
-#~ msgstr "9091K"
-
-#, fuzzy
-#~ msgid "6061K"
-#~ msgstr "6061K"
-
-#~ msgid ""
-#~ "Support for measuring and recording acceleration using an adxl345, mpu9250, "
-#~ "and mpu6050 accelerometers."
-#~ msgstr ""
-#~ "Поддержка измерения и регистрации ускорения с помощью акселерометров adxl345, "
-#~ "mpu9250 и mpu6050."
 
 #~ msgid ""
 #~ "Best in class performance. Klipper is able to achieve high stepping rates on "

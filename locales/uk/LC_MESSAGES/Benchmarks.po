@@ -1,12 +1,13 @@
-# Владислав <vlad.marusenko2000@gmail.com>, 2024.
+# Владислав <vlad.marusenko2000@gmail.com>, 2024, 2025.
 # Максим Горпиніч <mgorpinic2005@gmail.com>, 2024.
 # Максим Горпиніч <maksimgorpinic2005a@gmail.com>, 2025.
-# Максим Горпиніч <gorpinicmaksim5@gmail.com>, 2025.
+# Deleted User <mgorpinic2005@gmail.com>, 2025.
+# Максим Горпиніч <maksimgorpinic4@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-08-06 16:02+0000\n"
-"Last-Translator: Максим Горпиніч <gorpinicmaksim5@gmail.com>\n"
+"PO-Revision-Date: 2025-07-22 08:41+0000\n"
+"Last-Translator: Владислав <vlad.marusenko2000@gmail.com>\n"
 "Language-Team: Ukrainian <https://hosted.weblate.org/projects/klipper/"
 "benchmarks/uk/>\n"
 "Language: uk\n"
@@ -35,10 +36,10 @@ msgid ""
 "is to provide high-level metrics for comparing the performance between chips "
 "and between software platforms."
 msgstr ""
-"Основною метою оцінки є забезпечення послідовного механізму вимірювання впливу"
-" змін кодування в програмному забезпеченні. Другою метою є забезпечення "
-"високорівневої метрики для порівняння продуктивності між чіпами та між "
-"програмними платформами."
+"Основною метою оцінки є забезпечення послідовного механізму вимірювання "
+"впливу змін кодування в програмному забезпеченні. Другою метою є "
+"забезпечення високорівневої метрики для порівняння продуктивності між чіпами "
+"та між програмними платформами."
 
 msgid ""
 "The step rate benchmark is designed to find the maximum stepping rate that the"
@@ -47,11 +48,12 @@ msgid ""
 "mcu/host communication, temperature reading, endstop checking) in any real-"
 "world usage."
 msgstr ""
-"Поетапний еталон призначений для пошуку максимальної швидкості крокування, яка"
-" може досягати обладнання та програмного забезпечення. Ця еталонна швидкість "
-"крокування не є обов'язковою в день-до дня використання як Klipper вимагає "
-"виконання інших завдань (наприклад, mcu/host спілкування, читання температури,"
-" перевірка кінцевих точок) в будь-якому режимі реального використання."
+"Поетапний еталон призначений для пошуку максимальної швидкості крокування, "
+"яка може досягати обладнання та програмного забезпечення. Ця еталонна "
+"швидкість крокування не є обов'язковою в день-до дня використання як Klipper "
+"вимагає виконання інших завдань (наприклад, mcu/host спілкування, читання "
+"температури, перевірка кінцевих точок) в будь-якому режимі реального "
+"використання."
 
 msgid ""
 "In general, the pins for the benchmark tests are chosen to flash LEDs or other"
@@ -59,10 +61,10 @@ msgid ""
 "prior to running a benchmark.** It is not recommended to drive an actual "
 "stepper during a benchmark."
 msgstr ""
-"В цілому, штифти для бендикційних тестів вибираються для спалаху світлодіодів "
-"або інших ненуклеозних штифтів. **Always Перевірте, що він безпечний для "
-"приводу налаштованих штифтів до запуску бенчмарка ** Не рекомендується "
-"приводити фактичний кроковий апарат під час бенчмарка."
+"В цілому, штифти для бендикційних тестів вибираються для спалаху "
+"світлодіодів або інших ненуклеозних штифтів. **Always Перевірте, що він "
+"безпечний для приводу налаштованих штифтів до запуску бенчмарка ** Не "
+"рекомендується приводити фактичний кроковий апарат під час бенчмарка."
 
 msgid "Step rate benchmark test"
 msgstr "Тест еталона кроку"
@@ -77,12 +79,12 @@ msgid ""
 "found."
 msgstr ""
 "Наведені тести три крокети одночасно крокові. Якщо запущено вищевказані "
-"результати в параметрі \"Попередня таймер в минулому\" або \"Степпер занадто "
-"далеко за минулі\" помилки, то він вказує на `ticks` занадто низький (це "
-"призводить до покрокової швидкості, яка занадто швидко). Мета полягає в тому, "
-"щоб знайти найнижчий параметр ticks, який надійно призводить до успішного "
-"завершення тесту. Щоб уникнути параметра ticks до знайденого стабільного "
-"значення."
+"результати в параметрі \"Попередня таймер в минулому\" або "
+"\"Степпер занадто далеко за минулі\" помилки, то він вказує на `ticks` "
+"занадто низький (це призводить до покрокової швидкості, яка занадто швидко). "
+"Мета полягає в тому, щоб знайти найнижчий параметр ticks, який надійно "
+"призводить до успішного завершення тесту. Щоб уникнути параметра ticks до "
+"знайденого стабільного значення."
 
 msgid ""
 "On a failure, one can copy-and-paste the following to clear the error in "
@@ -240,9 +242,22 @@ msgid ""
 "in the two \"uptime\" response messages. The total number of commands per "
 "second is then `100000 * mcu_frequency / clock_diff`."
 msgstr ""
-"Коли тест завершується, визначте різницю між годинниками, які повідомляються в"
-" двох \"часових\" повідомленнях відповіді. Загальна кількість команд за "
+"Коли тест завершується, визначте різницю між годинниками, які повідомляються "
+"в двох \"часових\" повідомленнях відповіді. Загальна кількість команд за "
 "секунду — `100000 * mcu_ Частота / годинник_diff`."
+
+msgid ""
+"Note that this test may saturate the USB/CPU capacity of a Raspberry Pi. If "
+"running on a Raspberry Pi, Beaglebone, or similar host computer then increase "
+"the delay (eg, `DELAY {clock + 20*freq} get_uptime`). Where applicable, the "
+"benchmarks below are with console.py running on a desktop class machine with "
+"the device connected via a high-speed hub."
+msgstr ""
+"Зауважте, що цей тест може наситити USB / CPU ємність Raspberry Pi. Якщо "
+"працює на Raspberry Pi, Beaglebone або аналогічний комп'ютер хосту, то "
+"збільшення затримки (наприклад, `DELAY {clock + 20*freq} get_uptime`). Де це "
+"можливо, бендикти нижче з консолі. py, що працює на машині настільного класу "
+"з пристроєм, підключеним через швидкісний вузол."
 
 msgid "MCU"
 msgstr "мікроконтролер"
@@ -255,6 +270,18 @@ msgstr "Почати"
 
 msgid "Build compiler"
 msgstr "Створити компілятор"
+
+msgid "stm32f042 (CAN)"
+msgstr "стм32ф042 (CAN)"
+
+msgid "18K"
+msgstr "18КХ"
+
+msgid "c105adc8"
+msgstr "c105adc8"
+
+msgid "arm-none-eabi-gcc (GNU Tools 7-2018-q3-update) 7.3.1"
+msgstr "arm-on-eabi-gcc (GNU Tools 7-2018-q3-update) 7.3.1"
 
 msgid "atmega2560 (serial)"
 msgstr "atmega2560 (серійне)"
@@ -358,6 +385,12 @@ msgstr "Хост Бенчмарки"
 msgid "66"
 msgstr "66"
 
+msgid "5"
+msgstr "5"
+
+msgid "22"
+msgstr "22"
+
 msgid "rp2040 (USB)"
 msgstr "rp2040 (USB)"
 
@@ -372,9 +405,9 @@ msgid ""
 "below) and then the following is cut-and-paste into the console.py terminal "
 "window:"
 msgstr ""
-"Тест виконується за допомогою консолі. py інструмент (опис в <Debugging.md>). "
-"Мікроконтролер налаштовується для конкретної апаратної платформи (див. нижче) "
-"і після чого на пульті ріжучих і пасти. вікно терміналу py:"
+"Тест виконується за допомогою консолі. py інструмент (опис в <Debugging.md>)"
+". Мікроконтролер налаштовується для конкретної апаратної платформи (див. "
+"нижче) і після чого на пульті ріжучих і пасти. вікно терміналу py:"
 
 #: docs/Benchmarks.md:block 86 (paragraph)
 msgid ""
@@ -396,10 +429,10 @@ msgid ""
 "done by choosing a large and complex G-Code file and timing how long it takes "
 "for the host software to process it. For example:"
 msgstr ""
-"Ви можете запустити тестові тести на програмне забезпечення хосту за допомогою"
-" механізму обробки «податковий режим» (описаний в <Debugging.md>). Це, як "
-"правило, робиться, вибираючи великий і складний G-Code файл і терміни, як "
-"довго він займає для хост-програми для обробки його. Наприклад:"
+"Ви можете запустити тестові тести на програмне забезпечення хосту за "
+"допомогою механізму обробки «податковий режим» (описаний в <Debugging.md>). "
+"Це, як правило, робиться, вибираючи великий і складний G-Code файл і "
+"терміни, як довго він займає для хост-програми для обробки його. Наприклад:"
 
 #: docs/Benchmarks.md:block 14 (paragraph)
 msgid ""
@@ -408,8 +441,8 @@ msgid ""
 "console.py window."
 msgstr ""
 "Для отримання одноступінкових бендиктів використовується однакова "
-"послідовність конфігурацій, але тільки перший блок вищевказаного тесту ріжучий"
-" і простий в консолі. py вікно."
+"послідовність конфігурацій, але тільки перший блок вищевказаного тесту "
+"ріжучий і простий в консолі. py вікно."
 
 #: docs/Benchmarks.md:block 17 (paragraph)
 msgid ""
@@ -421,8 +454,8 @@ msgid ""
 "100ns."
 msgstr ""
 "Для драйверів TMC працюють бендикти. Для мікроконтролерів, які підтримують "
-"`STEPPER_BOTH_EDGE=1` (як повідомляється в лінійці `MCU` при консолі. py first"
-" start) use `step_pulse_duration=0` і `invert_step=-1`, щоб увімкнути "
+"`STEPPER_BOTH_EDGE=1` (як повідомляється в лінійці `MCU` при консолі. py "
+"first start) use `step_pulse_duration=0` і `invert_step=-1`, щоб увімкнути "
 "оптимізований крок на обох краях степового імпульсу. Для інших "
 "мікроконтролерів використовують `step_pulse_duration`, відповідну 100ns."
 
@@ -512,10 +545,10 @@ msgid ""
 " (Fedora 10.2.0-4.fc34) 10.2.0`. The STM32F407 results were obtained by "
 "running an STM32F407 binary on an STM32F446 (and thus using a 168Mhz clock)."
 msgstr ""
-"Тест востаннє запускався на коміті `59314d99` з версією gcc `arm-none-eabi-gcc"
-" (Fedora 10.2.0-4.fc34) 10.2.0`. Результати STM32F407 були отримані шляхом "
-"запуску двійкового файлу STM32F407 на STM32F446 (і, отже, з використанням "
-"тактової частоти 168 МГц)."
+"Тест востаннє запускався на коміті `59314d99` з версією gcc `arm-none-eabi-"
+"gcc (Fedora 10.2.0-4.fc34) 10.2.0`. Результати STM32F407 були отримані "
+"шляхом запуску двійкового файлу STM32F407 на STM32F446 (і, отже, з "
+"використанням тактової частоти 168 МГц)."
 
 #: docs/Benchmarks.md:block 57 (table)
 msgid "46"
@@ -576,9 +609,9 @@ msgid ""
 "8.3.0-6+rpi1) 8.3.0` on a Raspberry Pi 3 (revision a02082). It was difficult "
 "to get stable results in this benchmark."
 msgstr ""
-"Тест був останній курс на комітування `59314d99` з версією Gcc `gcc (Raspbian "
-"8.3.0-6+rpi1) 8.3.0` на Малині Пі 3 (редагування a02082). Це важко отримати "
-"стабільні результати в цьому еталоні."
+"Тест був останній курс на комітування `59314d99` з версією Gcc `gcc ("
+"Raspbian 8.3.0-6+rpi1) 8.3.0` на Малині Пі 3 (редагування a02082). Це важко "
+"отримати стабільні результати в цьому еталоні."
 
 #: docs/Benchmarks.md:block 84 (table)
 msgid "160"
@@ -596,10 +629,11 @@ msgid ""
 " parameter. The results are rounded to the nearest K. For example, with three "
 "active steppers:"
 msgstr ""
-"Для отримання бендиктів, знайдених в документі [Особливості](Features.md) сума"
-" кроків на другий обчислюється шляхом розмноження кількості активних кроків з "
-"номінальною частотою mcu і поділу за кінцевими показниками ticks. Результати "
-"закруглені до найближчого К. Наприклад, з трьома активними кроками:"
+"Для отримання бендиктів, знайдених в документі [Особливості](Features.md) "
+"сума кроків на другий обчислюється шляхом розмноження кількості активних "
+"кроків з номінальною частотою mcu і поділу за кінцевими показниками ticks. "
+"Результати закруглені до найближчого К. Наприклад, з трьома активними "
+"кроками:"
 
 #: docs/Benchmarks.md:block 59 (header)
 msgid "STM32G0B1 step rate benchmark"
@@ -631,6 +665,31 @@ msgstr "stm32g0b1"
 #: docs/Benchmarks.md:block 59 (header)
 msgid "STM32H7 step rate benchmark"
 msgstr "STM32H7 покрокова оцінка"
+
+#: docs/Benchmarks.md:block 60 (paragraph)
+msgid "The following configuration sequence is used on a STM32H743VIT6:"
+msgstr "Далі конфігурація використовується на STM32H743VIT6:"
+
+#: docs/Benchmarks.md:block 62 (paragraph)
+msgid ""
+"The test was last run on commit `00191b5c` with gcc version `arm-none-eabi-gcc"
+" (15:8-2019-q3-1+b1) 8.3.1 20190703 (release) [gcc-8-branch revision 273027]`."
+msgstr ""
+"Тест був останній курс на комітування `00191b5c` з версією Gcc `arm-non-eabi-"
+"gcc (15:8-2019-q3-1+b1) 8.3.1 20190703 (випуск) [gcc-8-branch version 273027]"
+"`."
+
+#: docs/Benchmarks.md:block 63 (table)
+msgid "stm32h7"
+msgstr "стм32х7"
+
+#: docs/Benchmarks.md:block 63 (table)
+msgid "44"
+msgstr "44"
+
+#: docs/Benchmarks.md:block 63 (table)
+msgid "198"
+msgstr "198"
 
 #: docs/Benchmarks.md:block 85 (header)
 msgid "AR100 step rate benchmark"
@@ -682,8 +741,8 @@ msgid ""
 "The test was last run on commit `34e9ea55` with gcc version `arm-none-eabi-gcc"
 " (NixOS 10.3-2021.10) 10.3.1` on a SAME70Q20B micro-controller."
 msgstr ""
-"Тест востаннє запускався на коміті `34e9ea55` з версією gcc `arm-none-eabi-gcc"
-" (NixOS 10.3-2021.10) 10.3.1` на мікроконтролері SAME70Q20B."
+"Тест востаннє запускався на коміті `34e9ea55` з версією gcc `arm-none-eabi-"
+"gcc (NixOS 10.3-2021.10) 10.3.1` на мікроконтролері SAME70Q20B."
 
 #: docs/Benchmarks.md:block 89 (table)
 msgid "same70"
@@ -713,6 +772,14 @@ msgstr "RPxxxx контрольний показник швидкості кро
 msgid "The following configuration sequence is used on the RP2040 and RP2350:"
 msgstr "На RP2040 і RP2350 використовується така послідовність конфігурації:"
 
+#: docs/Benchmarks.md:block 98 (paragraph)
+msgid ""
+"The test was last run on commit `f6718291` with gcc version `arm-none-eabi-gcc"
+" (Fedora 14.1.0-1.fc40) 14.1.0` on Raspberry Pi Pico and Pico 2 boards."
+msgstr ""
+"Тест востаннє запускався на коміті `f6718291` з версією gcc `arm-none-eabi-"
+"gcc (Fedora 14.1.0-1.fc40) 14.1.0` на платах Raspberry Pi Pico та Pico 2."
+
 #: docs/Benchmarks.md:block 99 (table)
 msgid "rp2040 (*)"
 msgstr "rp2040 (*)"
@@ -729,6 +796,18 @@ msgstr "36"
 msgid "169"
 msgstr "169"
 
+#: docs/Benchmarks.md:block 101 (paragraph)
+msgid ""
+"(*) Note that the reported rp2040 ticks are relative to a 12Mhz scheduling "
+"timer and do not correspond to its 125Mhz internal ARM processing rate. It is "
+"expected that 5 scheduling ticks corresponds to ~47 ARM core cycles and 22 "
+"scheduling ticks corresponds to ~224 ARM core cycles."
+msgstr ""
+"(*) Зверніть увагу, що зареєстровані такти rp2040 відносяться до таймера "
+"планування 12 МГц і не відповідають його швидкості внутрішньої обробки ARM "
+"125 МГц. Очікується, що 5 тактів планування відповідає ~47 циклам ядра ARM, "
+"а 22 такти планування відповідають ~224 циклам ядра ARM."
+
 #: docs/Benchmarks.md:block 112 (table)
 msgid "885K"
 msgstr "885K"
@@ -744,178 +823,6 @@ msgstr "arm-none-eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0"
 #: docs/Benchmarks.md:block 112 (table)
 msgid "rp2350 (USB)"
 msgstr "rp2350 (USB)"
-
-#: docs/Benchmarks.md:block 60 (paragraph)
-msgid "The following configuration sequence is used on STM32H723:"
-msgstr "На STM32H723 використовується наступна послідовність конфігурації:"
-
-#: docs/Benchmarks.md:block 62 (paragraph)
-msgid ""
-"The test was last run on commit `554ae78d` with gcc version `arm-none-eabi-gcc"
-" (Fedora 14.1.0-1.fc40) 14.1.0`."
-msgstr ""
-"Тест востаннє було виконано на комміті `554ae78d` з версією gcc `arm-none-"
-"eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0`."
-
-#: docs/Benchmarks.md:block 63 (table)
-msgid "stm32h723"
-msgstr "stm32h723"
-
-#: docs/Benchmarks.md:block 98 (paragraph)
-msgid ""
-"The test was last run on commit `14c105b8` with gcc version `arm-none-eabi-gcc"
-" (Fedora 14.1.0-1.fc40) 14.1.0` on Raspberry Pi Pico and Pico 2 boards."
-msgstr ""
-"Тест востаннє було виконано на комміті `14c105b8` з версією gcc `arm-none-"
-"eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0` на платах Raspberry Pi Pico та Pico "
-"2."
-
-#: docs/Benchmarks.md:block 99 (table)
-msgid "3"
-msgstr "3"
-
-#: docs/Benchmarks.md:block 99 (table)
-msgid "14"
-msgstr "14"
-
-#: docs/Benchmarks.md:block 69 (header)
-msgid "STM32G4 step rate benchmark"
-msgstr ""
-
-#: docs/Benchmarks.md:block 70 (paragraph)
-msgid "The following configuration sequence is used on the STM32G431:"
-msgstr ""
-
-#: docs/Benchmarks.md:block 72 (paragraph)
-msgid ""
-"The test was last run on commit `cfa48fe3` with gcc version `arm-none-eabi-gcc"
-" (Fedora 14.1.0-1.fc40) 14.1.0`."
-msgstr ""
-
-#: docs/Benchmarks.md:block 73 (table)
-msgid "stm32g431"
-msgstr ""
-
-#: docs/Benchmarks.md:block 73 (table)
-msgid "47"
-msgstr ""
-
-#: docs/Benchmarks.md:block 73 (table)
-msgid "208"
-msgstr ""
-
-#: docs/Benchmarks.md:block 106 (paragraph)
-msgid ""
-"(*) Note that the reported rp2040 ticks are relative to a 12Mhz scheduling "
-"timer and do not correspond to its 200Mhz internal ARM processing rate. It is "
-"expected that 3 scheduling ticks corresponds to ~42 ARM core cycles and 14 "
-"scheduling ticks corresponds to ~225 ARM core cycles."
-msgstr ""
-
-#: docs/Benchmarks.md:block 116 (paragraph)
-msgid ""
-"The USB tests may exceed the CPU capacity of a Raspberry Pi. If running on a "
-"Raspberry Pi, Beaglebone, or similar host computer then increase the delay "
-"(eg, `DELAY {clock + 20*freq} get_uptime`). Where applicable, the benchmarks "
-"below are with console.py running on a desktop class machine with the device "
-"connected via a super-speed hub."
-msgstr ""
-
-#: docs/Benchmarks.md:block 117 (paragraph)
-msgid ""
-"The CAN bus tests may saturate the USB host controller of a Raspberry Pi (when"
-" testing via a standard gs_usb USB to CAN bus adapter). Where applicable, the "
-"CAN bus benchmarks below are with console.py running on a desktop class "
-"machine with a USB to CAN bus adapter connected via a super-speed USB hub."
-msgstr ""
-
-#: docs/Benchmarks.md:block 118 (table)
-msgid "rp2350 (CAN)"
-msgstr ""
-
-#: docs/Benchmarks.md:block 118 (table)
-msgid "59K"
-msgstr ""
-
-#: docs/Benchmarks.md:block 118 (table)
-msgid "17b8ce4c"
-msgstr ""
-
-#~ msgid ""
-#~ "Note that this test may saturate the USB/CPU capacity of a Raspberry Pi. If "
-#~ "running on a Raspberry Pi, Beaglebone, or similar host computer then increase "
-#~ "the delay (eg, `DELAY {clock + 20*freq} get_uptime`). Where applicable, the "
-#~ "benchmarks below are with console.py running on a desktop class machine with "
-#~ "the device connected via a high-speed hub."
-#~ msgstr ""
-#~ "Зауважте, що цей тест може наситити USB / CPU ємність Raspberry Pi. Якщо "
-#~ "працює на Raspberry Pi, Beaglebone або аналогічний комп'ютер хосту, то "
-#~ "збільшення затримки (наприклад, `DELAY {clock + 20*freq} get_uptime`). Де це "
-#~ "можливо, бендикти нижче з консолі. py, що працює на машині настільного класу з"
-#~ " пристроєм, підключеним через швидкісний вузол."
-
-#~ msgid "stm32f042 (CAN)"
-#~ msgstr "стм32ф042 (CAN)"
-
-#~ msgid "18K"
-#~ msgstr "18КХ"
-
-#~ msgid "c105adc8"
-#~ msgstr "c105adc8"
-
-#~ msgid "arm-none-eabi-gcc (GNU Tools 7-2018-q3-update) 7.3.1"
-#~ msgstr "arm-on-eabi-gcc (GNU Tools 7-2018-q3-update) 7.3.1"
-
-#~ msgid ""
-#~ "(*) Note that the reported rp2040 ticks are relative to a 12Mhz scheduling "
-#~ "timer and do not correspond to its 200Mhz internal ARM processing rate. It is "
-#~ "expected that 5 scheduling ticks corresponds to ~42 ARM core cycles and 14 "
-#~ "scheduling ticks corresponds to ~225 ARM core cycles."
-#~ msgstr ""
-
-#~ msgid "5"
-#~ msgstr "5"
-
-#~ msgid "22"
-#~ msgstr "22"
-
-#~ msgid "The following configuration sequence is used on a STM32H743VIT6:"
-#~ msgstr "Далі конфігурація використовується на STM32H743VIT6:"
-
-#~ msgid ""
-#~ "The test was last run on commit `00191b5c` with gcc version `arm-none-eabi-gcc"
-#~ " (15:8-2019-q3-1+b1) 8.3.1 20190703 (release) [gcc-8-branch revision 273027]`."
-#~ msgstr ""
-#~ "Тест був останній курс на комітування `00191b5c` з версією Gcc `arm-non-eabi-"
-#~ "gcc (15:8-2019-q3-1+b1) 8.3.1 20190703 (випуск) [gcc-8-branch version "
-#~ "273027]`."
-
-#~ msgid "stm32h7"
-#~ msgstr "стм32х7"
-
-#~ msgid "44"
-#~ msgstr "44"
-
-#~ msgid "198"
-#~ msgstr "198"
-
-#~ msgid ""
-#~ "The test was last run on commit `f6718291` with gcc version `arm-none-eabi-gcc"
-#~ " (Fedora 14.1.0-1.fc40) 14.1.0` on Raspberry Pi Pico and Pico 2 boards."
-#~ msgstr ""
-#~ "Тест востаннє запускався на коміті `f6718291` з версією gcc `arm-none-eabi-gcc"
-#~ " (Fedora 14.1.0-1.fc40) 14.1.0` на платах Raspberry Pi Pico та Pico 2."
-
-#~ msgid ""
-#~ "(*) Note that the reported rp2040 ticks are relative to a 12Mhz scheduling "
-#~ "timer and do not correspond to its 125Mhz internal ARM processing rate. It is "
-#~ "expected that 5 scheduling ticks corresponds to ~47 ARM core cycles and 22 "
-#~ "scheduling ticks corresponds to ~224 ARM core cycles."
-#~ msgstr ""
-#~ "(*) Зверніть увагу, що зареєстровані такти rp2040 відносяться до таймера "
-#~ "планування 12 МГц і не відповідають його швидкості внутрішньої обробки ARM 125"
-#~ " МГц. Очікується, що 5 тактів планування відповідає ~47 циклам ядра ARM, а 22 "
-#~ "такти планування відповідають ~224 циклам ядра ARM."
 
 #~ msgid ""
 #~ "SET start_clock {clock+freq}\n"

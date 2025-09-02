@@ -1,16 +1,17 @@
-# Matemática A3K <matematica.a3k@gmail.com>, 2021.
-# Francisco Javier Hoyos Arango <cofhal@gmail.com>, 2023.
+# Matemática A3K <matematica.a3k@gmail.com>, 2021, 2025.
+# Francisco Javier Hoyos Arango <cofhal@gmail.com>, 2023, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-10-17 04:11+0000\n"
-"Last-Translator: Francisco Javier Hoyos Arango <cofhal@gmail.com>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/kinematics/es/>\n"
+"PO-Revision-Date: 2025-07-22 08:03+0000\n"
+"Last-Translator: Matemática A3K <matematica.a3k@gmail.com>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/"
+"kinematics/es/>\n"
 "Language: es\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.1\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #, fuzzy
 msgid ""
@@ -20,12 +21,12 @@ msgid ""
 "as well as users interested in better understanding the mechanics of their "
 "machines."
 msgstr ""
-"Este documento proporciona una descripción general de cómo Klipper implementa "
-"el movimiento del robot (su [cinemática] "
-"(https://en.wikipedia.org/wiki/Kinematics)).  El contenido puede ser de "
-"interés tanto para los desarrolladores interesados en trabajar en el software "
-"Klipper como para los usuarios interesados en comprender mejor la mecánica de "
-"sus máquinas."
+"Este documento proporciona una descripción general de cómo Klipper "
+"implementa el movimiento del robot (su [cinemática] (https://"
+"en.wikipedia.org/wiki/Kinematics)).  El contenido puede ser de interés tanto "
+"para los desarrolladores interesados en trabajar en el software Klipper como "
+"para los usuarios interesados en comprender mejor la mecánica de sus "
+"máquinas."
 
 msgid "Acceleration"
 msgstr ""

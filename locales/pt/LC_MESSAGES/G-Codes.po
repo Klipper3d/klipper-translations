@@ -1,19 +1,20 @@
-# Luciano Moda <desenvolvimento@gtmax.com.br>, 2023.
-# Milton Miranda Neto <voidmmn@gmail.com>, 2023.
-# Matheus Mösken Diegues <dmosken2015@gmail.com>, 2024.
-# Emerson Jhones <ejhones@gmail.com>, 2024.
-# Thomas Martin Bueno de Moraes <thomasmbmoraes@gmail.com>, 2024.
+# Luciano Moda <desenvolvimento@gtmax.com.br>, 2023, 2025.
+# Milton Miranda Neto <voidmmn@gmail.com>, 2023, 2025.
+# Matheus Mösken Diegues <dmosken2015@gmail.com>, 2024, 2025.
+# Emerson Jhones <ejhones@gmail.com>, 2024, 2025.
+# Thomas Martin Bueno de Moraes <thomasmbmoraes@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-12-01 17:08+0000\n"
-"Last-Translator: Thomas Martin Bueno de Moraes <thomasmbmoraes@gmail.com>\n"
-"Language-Team: Portuguese <https://hosted.weblate.org/projects/klipper/g-codes/pt/>\n"
+"PO-Revision-Date: 2025-07-22 08:27+0000\n"
+"Last-Translator: Emerson Jhones <ejhones@gmail.com>\n"
+"Language-Team: Portuguese <https://hosted.weblate.org/projects/klipper/"
+"g-codes/pt/>\n"
 "Language: pt\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.9-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 msgid ""
 "This document describes the commands that Klipper supports. These are commands"
@@ -720,8 +721,9 @@ msgid ""
 msgstr ""
 "'ACCELEROMETER_DEBUG_WRITE [CHIP=<config_name>] REG=<register> VAL=<value>:' "
 "Grava o \"valor\" bruto em um \"registrador\". Tanto \"valor\" quanto "
-"\"registrador\" podem ser números inteiros em formato decimal ou hexadecimal. "
-"Use com cuidado e consulte a folha de dados do ADXL345 como referência."
+"\"registrador\" podem ser números inteiros em formato decimal ou "
+"hexadecimal. Use com cuidado e consulte a folha de dados do ADXL345 como "
+"referência."
 
 #: docs/G-Codes.md:block 22 (header)
 msgid "[bed_mesh]"
@@ -2413,8 +2415,8 @@ msgid ""
 "`ABORT`: Aborts the calibration process, discarding the current results. This "
 "command is only available during drift calibration."
 msgstr ""
-"'ABORTAR': Aborta o processo de calibração, descartando os resultados atuais. "
-"Este comando está disponível apenas durante a calibração de desvio."
+"'ABORTAR': Aborta o processo de calibração, descartando os resultados "
+"atuais. Este comando está disponível apenas durante a calibração de desvio."
 
 #: docs/G-Codes.md:block 403 (header)
 msgid "TEMPERATURE_PROBE_ENABLE"

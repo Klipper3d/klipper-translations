@@ -1,10 +1,9 @@
-# Pavol Vrba <pvrba2000@gmail.com>, 2025.
-# Warder <ciksa@seznam.cz>, 2025.
+#
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-08-09 08:02+0000\n"
-"Last-Translator: Warder <ciksa@seznam.cz>\n"
+"PO-Revision-Date: 2025-07-22 09:02+0000\n"
+"Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Slovak <https://hosted.weblate.org/projects/klipper/"
 "multi_mcu_homing/sk/>\n"
 "Language: sk\n"
@@ -15,7 +14,7 @@ msgstr ""
 
 #: docs/Multi_MCU_Homing.md:block 1 (header)
 msgid "Multiple Micro-controller Homing and Probing"
-msgstr "Viacnásobné mikrokontrolérové navádzanie a snímanie"
+msgstr ""
 
 #: docs/Multi_MCU_Homing.md:block 2 (paragraph)
 msgid ""
@@ -24,11 +23,6 @@ msgid ""
 "support is referred to as \"multi-mcu homing\". This feature is also used when"
 " a Z probe is on a different micro-controller than the Z stepper motors."
 msgstr ""
-"Klipper podporuje mechanizmus pre navigáciu do pôvodného bodu s koncovým "
-"dorazom pripojeným k jednému mikrokontroléru, zatiaľ čo jeho krokové motory "
-"sú na inom mikrokontroléri. Táto podpora sa označuje ako „navigácia do "
-"pôvodného bodu s viacerými mikrokontrolérmi“. Táto funkcia sa používa aj "
-"vtedy, keď je sonda Z na inom mikrokontroléri ako krokové motory Z."
 
 #: docs/Multi_MCU_Homing.md:block 3 (paragraph)
 msgid ""
@@ -37,10 +31,6 @@ msgid ""
 "feature may result in \"overshoot\" of the stepper motors during homing and "
 "probing operations."
 msgstr ""
-"Táto funkcia môže byť užitočná na zjednodušenie zapojenia, pretože môže byť "
-"pohodlnejšie pripojiť koncový doraz alebo sondu k mikrokontroléru zatvárača. "
-"Použitie tejto funkcie však môže viesť k „prekmitnutiu“ krokových motorov "
-"počas operácií navádzania a snímania."
 
 #: docs/Multi_MCU_Homing.md:block 4 (paragraph)
 msgid ""
@@ -51,12 +41,6 @@ msgid ""
 "periodic status messages and check that corresponding status messages are "
 "received within 25ms.)"
 msgstr ""
-"K prekročeniu dochádza v dôsledku možného oneskorenia prenosu správ medzi "
-"mikrokontrolérom monitorujúcim koncový doraz a mikrokontrolérmi pohybujúcimi "
-"krokovými motormi. Klipperov kód je navrhnutý tak, aby toto oneskorenie "
-"nepresiahlo 25 ms. (Keď je aktivované navádzanie viacerých mikrokontrolérov, "
-"mikrokontroléry odosielajú periodické stavové správy a kontrolujú, či sú "
-"zodpovedajúce stavové správy prijaté do 25 ms.)"
 
 #: docs/Multi_MCU_Homing.md:block 5 (paragraph)
 msgid ""
@@ -65,11 +49,6 @@ msgid ""
 "configuring multi-mcu homing to account for this type of overshoot. Using "
 "slower homing or probing speeds can reduce the overshoot."
 msgstr ""
-"Napríklad, ak sa navádzanie vykonáva rýchlosťou 10 mm/s, je možné "
-"prekročenie až o 0,250 mm (10 mm/s * 0,025 s == 0,250 mm). Pri konfigurácii "
-"navádzania s viacerými mikrokontrolérmi je potrebná opatrnosť, aby sa "
-"zohľadnil tento typ prekročenia. Použitie pomalších rýchlostí navádzania "
-"alebo snímania môže prekročenie znížiť."
 
 #: docs/Multi_MCU_Homing.md:block 6 (paragraph)
 msgid ""
@@ -79,10 +58,6 @@ msgid ""
 " design is capable of handling overshoot without causing damage to the "
 "machine."
 msgstr ""
-"Prekmit krokového motora by nemal mať nepriaznivý vplyv na presnosť postupu "
-"navádzania a snímania. Klipperov kód prekročenie zistí a zohľadní ho vo "
-"svojich výpočtoch. Je však dôležité, aby hardvérový návrh bol schopný "
-"zvládnuť prekročenie bez poškodenia stroja."
 
 #: docs/Multi_MCU_Homing.md:block 8 (paragraph)
 msgid ""
@@ -91,11 +66,6 @@ msgid ""
 "example, if an endstop is on a separate micro-controller from `stepper_z` then"
 " `stepper_z1` must be on the same micro-controller as `stepper_z`."
 msgstr ""
-"Upozorňujeme, že os s viacerými krokovými motormi (napr. `stepper_z` a "
-"`stepper_z1`) musí byť na rovnakom mikrokontroléri, aby sa dalo použiť "
-"navádzanie z viacerých MCU. Napríklad, ak je koncový doraz na inom "
-"mikrokontroléri ako `stepper_z`, potom `stepper_z1` musí byť na rovnakom "
-"mikrokontroléri ako `stepper_z`."
 
 #: docs/Multi_MCU_Homing.md:block 7 (paragraph)
 msgid ""
@@ -105,11 +75,6 @@ msgid ""
 "10ms. High latency (even for short periods) is likely to result in homing "
 "failures."
 msgstr ""
-"Aby bolo možné využiť túto schopnosť „homingu viacerých mikrokontrolérov“, "
-"hardvér musí mať predvídateľne nízku latenciu medzi hostiteľským počítačom a "
-"všetkými mikrokontrolérmi. Čas prenosu musí byť zvyčajne konzistentne kratší "
-"ako 10 ms. Vysoká latencia (aj na krátke obdobia) pravdepodobne povedie k "
-"zlyhaniu homingu."
 
 #: docs/Multi_MCU_Homing.md:block 8 (paragraph)
 msgid ""
@@ -117,9 +82,6 @@ msgid ""
 "is detected) then Klipper will raise a \"Communication timeout during homing\""
 " error."
 msgstr ""
-"Ak by vysoká latencia spôsobila zlyhanie (alebo ak sa zistí iný problém s "
-"komunikáciou), Klipper vyvolá chybu „Časový limit komunikácie počas "
-"navádzania“."
 
 #~ msgid ""
 #~ "Should Klipper detect a communication issue between micro-controllers during "

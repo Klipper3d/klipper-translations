@@ -1,17 +1,18 @@
 # Dex94 <Dasvaresu@dr.com>, 2022.
-# Yifei Ding <dingyifeiair@gmail.com>, 2022.
-# Ale Ale <ale.99.ale@gmail.com>, 2022, 2023.
+# Yifei Ding <dingyifeiair@gmail.com>, 2022, 2025.
+# Ale Ale <ale.99.ale@gmail.com>, 2022, 2023, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2023-09-14 18:54+0000\n"
-"Last-Translator: Ale Ale <ale.99.ale@gmail.com>\n"
-"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/benchmarks/it/>\n"
+"PO-Revision-Date: 2025-07-22 08:17+0000\n"
+"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
+"Language-Team: Italian <https://hosted.weblate.org/projects/klipper/"
+"benchmarks/it/>\n"
 "Language: it\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.0.1-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 msgid "This document describes Klipper benchmarks."
 msgstr "Questo documento descrive i benchmark di Klipper."
@@ -33,9 +34,9 @@ msgid ""
 "and between software platforms."
 msgstr ""
 "L'obiettivo principale dei benchmark è fornire un meccanismo coerente per "
-"misurare l'impatto delle modifiche alla codifica all'interno del software. Un "
-"obiettivo secondario è fornire metriche di alto livello per confrontare le "
-"prestazioni tra i chip e tra le piattaforme software."
+"misurare l'impatto delle modifiche alla codifica all'interno del software. "
+"Un obiettivo secondario è fornire metriche di alto livello per confrontare "
+"le prestazioni tra i chip e tra le piattaforme software."
 
 msgid ""
 "The step rate benchmark is designed to find the maximum stepping rate that the"
@@ -44,12 +45,12 @@ msgid ""
 "mcu/host communication, temperature reading, endstop checking) in any real-"
 "world usage."
 msgstr ""
-"Il benchmark dello step rate è progettato per trovare la velocità di stepping "
-"massima che l'hardware e il software possono raggiungere. Questa velocità di "
-"stepping del benchmark non è raggiungibile nell'uso quotidiano poiché Klipper "
-"ha bisogno di eseguire altre attività (ad esempio, comunicazione mcu/host, "
-"lettura della temperatura, controllo endstop) in qualsiasi utilizzo nel mondo "
-"reale."
+"Il benchmark dello step rate è progettato per trovare la velocità di "
+"stepping massima che l'hardware e il software possono raggiungere. Questa "
+"velocità di stepping del benchmark non è raggiungibile nell'uso quotidiano "
+"poiché Klipper ha bisogno di eseguire altre attività (ad esempio, "
+"comunicazione mcu/host, lettura della temperatura, controllo endstop) in "
+"qualsiasi utilizzo nel mondo reale."
 
 msgid ""
 "In general, the pins for the benchmark tests are chosen to flash LEDs or other"
@@ -57,10 +58,10 @@ msgid ""
 "prior to running a benchmark.** It is not recommended to drive an actual "
 "stepper during a benchmark."
 msgstr ""
-"In generale, i pin per i test di benchmark sono scelti per far lampeggiare LED"
-" o altri pin innocui. **Verifica sempre che sia sicuro guidare i pin "
-"configurati prima di eseguire un benchmark.** Non è consigliabile pilotare uno"
-" stepper reale durante un benchmark."
+"In generale, i pin per i test di benchmark sono scelti per far lampeggiare "
+"LED o altri pin innocui. **Verifica sempre che sia sicuro guidare i pin "
+"configurati prima di eseguire un benchmark.** Non è consigliabile pilotare "
+"uno stepper reale durante un benchmark."
 
 msgid "Step rate benchmark test"
 msgstr "Test di riferimento della frequenza di passi"
@@ -74,20 +75,21 @@ msgid ""
 " It should be possible to bisect the ticks parameter until a stable value is "
 "found."
 msgstr ""
-"Quanto sopra testa tre stepper che fanno un passo simultaneo. Se l'esecuzione "
-"di quanto sopra comporta un errore \"Rescheduled timer in the past\" o "
-"\"Stepper too far in past\", indica che il parametro `ticks` è troppo basso "
-"(risulta in una velocità di incremento troppo veloce). L'obiettivo è trovare "
-"l'impostazione più bassa del parametro tick che si traduca in modo affidabile "
-"in un completamento positivo del test. Dovrebbe essere possibile dividere in "
-"due il parametro tick fino a trovare un valore stabile."
+"Quanto sopra testa tre stepper che fanno un passo simultaneo. Se "
+"l'esecuzione di quanto sopra comporta un errore "
+"\"Rescheduled timer in the past\" o \"Stepper too far in past\", indica che "
+"il parametro `ticks` è troppo basso (risulta in una velocità di incremento "
+"troppo veloce). L'obiettivo è trovare l'impostazione più bassa del parametro "
+"tick che si traduca in modo affidabile in un completamento positivo del "
+"test. Dovrebbe essere possibile dividere in due il parametro tick fino a "
+"trovare un valore stabile."
 
 msgid ""
 "On a failure, one can copy-and-paste the following to clear the error in "
 "preparation for the next test:"
 msgstr ""
-"In caso di errore, è possibile copiare e incollare quanto segue per cancellare"
-" l'errore in preparazione per il test successivo:"
+"In caso di errore, è possibile copiare e incollare quanto segue per "
+"cancellare l'errore in preparazione per il test successivo:"
 
 msgid "AVR step rate benchmark"
 msgstr "Benchmark rateo passi AVR"
@@ -241,8 +243,22 @@ msgid ""
 "second is then `100000 * mcu_frequency / clock_diff`."
 msgstr ""
 "Al termine del test, determinare la differenza tra gli orologi riportati nei "
-"due messaggi di risposta \"uptime\". Il numero totale di comandi al secondo è "
-"quindi `100000 * mcu_frequency / clock_diff`."
+"due messaggi di risposta \"uptime\". Il numero totale di comandi al secondo "
+"è quindi `100000 * mcu_frequency / clock_diff`."
+
+msgid ""
+"Note that this test may saturate the USB/CPU capacity of a Raspberry Pi. If "
+"running on a Raspberry Pi, Beaglebone, or similar host computer then increase "
+"the delay (eg, `DELAY {clock + 20*freq} get_uptime`). Where applicable, the "
+"benchmarks below are with console.py running on a desktop class machine with "
+"the device connected via a high-speed hub."
+msgstr ""
+"Nota che questo test potrebbe saturare la capacità USB/CPU di un Raspberry "
+"Pi. Se è in esecuzione su un computer host Raspberry Pi, Beaglebone o "
+"simile, aumenta il ritardo (ad esempio, `DELAY {clock + 20*freq} get_uptime`)"
+". Ove applicabile, i benchmark seguenti riguardano console.py in esecuzione "
+"su una macchina di classe desktop con il dispositivo connesso tramite un hub "
+"ad alta velocità."
 
 msgid "MCU"
 msgstr "MCU"
@@ -255,6 +271,18 @@ msgstr "Build"
 
 msgid "Build compiler"
 msgstr "Build compiler"
+
+msgid "stm32f042 (CAN)"
+msgstr "stm32f042 (CAN)"
+
+msgid "18K"
+msgstr "18K"
+
+msgid "c105adc8"
+msgstr "c105adc8"
+
+msgid "arm-none-eabi-gcc (GNU Tools 7-2018-q3-update) 7.3.1"
+msgstr "arm-none-eabi-gcc (GNU Tools 7-2018-q3-update) 7.3.1"
 
 msgid "atmega2560 (serial)"
 msgstr "atmega2560 (serial)"
@@ -358,6 +386,12 @@ msgstr "Benchmark Host"
 msgid "66"
 msgstr "66"
 
+msgid "5"
+msgstr "5"
+
+msgid "22"
+msgstr "22"
+
 msgid "rp2040 (USB)"
 msgstr "rp2040 (USB)"
 
@@ -385,11 +419,11 @@ msgid ""
 "<Debugging.md>). The following is cut-and-paste into the console.py terminal "
 "window:"
 msgstr ""
-"Il benchmark di invio dei comandi verifica quanti comandi \"fittizi\" possono "
-"elaborare il microcontrollore. È principalmente un test del meccanismo di "
-"comunicazione hardware. Il test viene eseguito utilizzando lo strumento "
-"console.py (descritto in <Debugging.md>). Quanto segue è taglia e incolla "
-"nella finestra del terminale console.py:"
+"Il benchmark di invio dei comandi verifica quanti comandi \"fittizi\" "
+"possono elaborare il microcontrollore. È principalmente un test del "
+"meccanismo di comunicazione hardware. Il test viene eseguito utilizzando lo "
+"strumento console.py (descritto in <Debugging.md>). Quanto segue è taglia e "
+"incolla nella finestra del terminale console.py:"
 
 #: docs/Benchmarks.md:block 92 (paragraph)
 msgid ""
@@ -398,8 +432,8 @@ msgid ""
 "done by choosing a large and complex G-Code file and timing how long it takes "
 "for the host software to process it. For example:"
 msgstr ""
-"È possibile eseguire test di temporizzazione sul software host utilizzando il "
-"meccanismo di elaborazione \"batch mode\" (descritto in <Debugging.md>). "
+"È possibile eseguire test di temporizzazione sul software host utilizzando "
+"il meccanismo di elaborazione \"batch mode\" (descritto in <Debugging.md>). "
 "Questo viene in genere fatto scegliendo un file G-Code grande e complesso e "
 "calcolando il tempo impiegato dal software host per elaborarlo. Per esempio:"
 
@@ -410,8 +444,8 @@ msgid ""
 "console.py window."
 msgstr ""
 "Per ottenere i benchmark del singolo stepper, viene utilizzata la stessa "
-"sequenza di configurazione, ma solo il primo blocco del test precedente viene "
-"tagliato e incollato nella finestra di console.py."
+"sequenza di configurazione, ma solo il primo blocco del test precedente "
+"viene tagliato e incollato nella finestra di console.py."
 
 #: docs/Benchmarks.md:block 17 (paragraph)
 msgid ""
@@ -424,10 +458,10 @@ msgid ""
 msgstr ""
 "I benchmark vengono eseguiti con parametri adatti ai driver TMC. Per i "
 "microcontrollori che supportano `STEPPER_BOTH_EDGE=1` (come riportato nella "
-"riga `MCU config` al primo avvio di console.py) usa `step_pulse_duration=0` e "
-"`invert_step=-1` per abilitare lo stepping ottimizzato su entrambi i bordi del"
-" impulso di passo. Per altri microcontrollori usa un `step_pulse_duration` "
-"corrispondente a 100ns."
+"riga `MCU config` al primo avvio di console.py) usa `step_pulse_duration=0` "
+"e `invert_step=-1` per abilitare lo stepping ottimizzato su entrambi i bordi "
+"del impulso di passo. Per altri microcontrollori usa un `step_pulse_duration`"
+" corrispondente a 100ns."
 
 #: docs/Benchmarks.md:block 21 (paragraph)
 msgid ""
@@ -436,11 +470,11 @@ msgid ""
 "an atmega644p (previous tests have confirmed simulavr results match tests on "
 "both a 16Mhz at90usb and a 16Mhz atmega2560)."
 msgstr ""
-"Il test è stato eseguito l'ultima volta su commit `59314d99` con versione gcc "
-"`avr-gcc (GCC) 5.4.0`. Entrambi i test a 16Mhz e 20Mhz sono stati eseguiti "
-"utilizzando simulavr configurato per un atmega644p (i test precedenti hanno "
-"confermato i risultati del simulavr match test su entrambi un 16Mhz at90usb e "
-"un 16Mhz atmega2560)."
+"Il test è stato eseguito l'ultima volta su commit `59314d99` con versione "
+"gcc `avr-gcc (GCC) 5.4.0`. Entrambi i test a 16Mhz e 20Mhz sono stati "
+"eseguiti utilizzando simulavr configurato per un atmega644p (i test "
+"precedenti hanno confermato i risultati del simulavr match test su entrambi "
+"un 16Mhz at90usb e un 16Mhz atmega2560)."
 
 #: docs/Benchmarks.md:block 22 (table)
 msgid "102"
@@ -455,8 +489,8 @@ msgid ""
 "The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc"
 " (Fedora 10.2.0-4.fc34) 10.2.0`."
 msgstr ""
-"Il test è stato eseguito l'ultima volta su commit `59314d99` con versione gcc "
-"`arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`."
+"Il test è stato eseguito l'ultima volta su commit `59314d99` con versione "
+"gcc `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`."
 
 #: docs/Benchmarks.md:block 27 (table)
 msgid "257"
@@ -471,9 +505,9 @@ msgid ""
 "The test was last run on commit `59314d99` with gcc version `gcc version "
 "10.3.1 20210621 (release) (GNU Arm Embedded Toolchain 10.3-2021.07)`."
 msgstr ""
-"Il test è stato eseguito l'ultima volta su commit `59314d99` con gcc versione "
-"`gcc versione 10.3.1 20210621 (rilascio) (GNU Arm Embedded Toolchain "
-"10.3-2021.07)`."
+"Il test è stato eseguito l'ultima volta su commit `59314d99` con gcc "
+"versione `gcc versione 10.3.1 20210621 (rilascio) (GNU Arm Embedded "
+"Toolchain 10.3-2021.07)`."
 
 #: docs/Benchmarks.md:block 37 (table)
 msgid "48"
@@ -488,8 +522,8 @@ msgid ""
 "The test was last run on commit `59314d99` with gcc version `pru-gcc (GCC) "
 "8.0.0 20170530 (experimental)`."
 msgstr ""
-"Il test è stato eseguito l'ultima volta su commit `59314d99` con versione gcc "
-"`pru-gcc (GCC) 8.0.0 20170530 (sperimentale)`."
+"Il test è stato eseguito l'ultima volta su commit `59314d99` con versione "
+"gcc `pru-gcc (GCC) 8.0.0 20170530 (sperimentale)`."
 
 #: docs/Benchmarks.md:block 42 (table)
 msgid "231"
@@ -521,10 +555,10 @@ msgid ""
 " (Fedora 10.2.0-4.fc34) 10.2.0`. The STM32F407 results were obtained by "
 "running an STM32F407 binary on an STM32F446 (and thus using a 168Mhz clock)."
 msgstr ""
-"Il test è stato eseguito l'ultima volta su commit `59314d99` con versione gcc "
-"`arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`. I risultati dell'STM32F407 "
-"sono stati ottenuti eseguendo un binario STM32F407 su un STM32F446 (e quindi "
-"utilizzando un clock a 168 Mhz)."
+"Il test è stato eseguito l'ultima volta su commit `59314d99` con versione "
+"gcc `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`. I risultati "
+"dell'STM32F407 sono stati ottenuti eseguendo un binario STM32F407 su un "
+"STM32F446 (e quindi utilizzando un clock a 168 Mhz)."
 
 #: docs/Benchmarks.md:block 57 (table)
 msgid "46"
@@ -540,8 +574,8 @@ msgid ""
 " (Fedora 10.2.0-4.fc34) 10.2.0`. The 120Mhz LPC1769 results were obtained by "
 "overclocking an LPC1768 to 120Mhz."
 msgstr ""
-"Il test è stato eseguito l'ultima volta su commit `59314d99` con versione gcc "
-"`arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`. I risultati a 120 Mhz "
+"Il test è stato eseguito l'ultima volta su commit `59314d99` con versione "
+"gcc `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`. I risultati a 120 Mhz "
 "LPC1769 sono stati ottenuti overclockando un LPC1768 a 120 Mhz."
 
 #: docs/Benchmarks.md:block 63 (table)
@@ -553,8 +587,8 @@ msgid ""
 "The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc"
 " (Fedora 10.2.0-4.fc34) 10.2.0` on a SAMD21G18 micro-controller."
 msgstr ""
-"Il test è stato eseguito l'ultima volta su commit `59314d99` con versione gcc "
-"`arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0` su un microcontrollore "
+"Il test è stato eseguito l'ultima volta su commit `59314d99` con versione "
+"gcc `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0` su un microcontrollore "
 "SAMD21G18."
 
 #: docs/Benchmarks.md:block 69 (table)
@@ -566,8 +600,8 @@ msgid ""
 "The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc"
 " (Fedora 10.2.0-4.fc34) 10.2.0` on a SAMD51J19A micro-controller."
 msgstr ""
-"Il test è stato eseguito l'ultima volta su commit `59314d99` con versione gcc "
-"`arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0` su un microcontrollore "
+"Il test è stato eseguito l'ultima volta su commit `59314d99` con versione "
+"gcc `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0` su un microcontrollore "
 "SAMD51J19A."
 
 #: docs/Benchmarks.md:block 74 (table)
@@ -588,9 +622,9 @@ msgid ""
 "8.3.0-6+rpi1) 8.3.0` on a Raspberry Pi 3 (revision a02082). It was difficult "
 "to get stable results in this benchmark."
 msgstr ""
-"Il test è stato eseguito l'ultima volta su commit `59314d99` con versione gcc "
-"`gcc (Raspbian 8.3.0-6+rpi1) 8.3.0` su un Raspberry Pi 3 (revisione a02082). È"
-" stato difficile ottenere risultati stabili in questo benchmark."
+"Il test è stato eseguito l'ultima volta su commit `59314d99` con versione "
+"gcc `gcc (Raspbian 8.3.0-6+rpi1) 8.3.0` su un Raspberry Pi 3 (revisione "
+"a02082). È stato difficile ottenere risultati stabili in questo benchmark."
 
 #: docs/Benchmarks.md:block 84 (table)
 msgid "160"
@@ -610,9 +644,9 @@ msgid ""
 msgstr ""
 "Per produrre i benchmark trovati nel documento [Features](Features.md), il "
 "numero totale di passi al secondo viene calcolato moltiplicando il numero di "
-"stepper attivi per la frequenza nominale mcu e dividendo per il parametro tick"
-" finale. I risultati vengono arrotondati alla K più vicina. Ad esempio, con "
-"tre stepper attivi:"
+"stepper attivi per la frequenza nominale mcu e dividendo per il parametro "
+"tick finale. I risultati vengono arrotondati alla K più vicina. Ad esempio, "
+"con tre stepper attivi:"
 
 #: docs/Benchmarks.md:block 59 (header)
 msgid "STM32G0B1 step rate benchmark"
@@ -627,8 +661,8 @@ msgid ""
 "The test was last run on commit `247cd753` with gcc version `arm-none-eabi-gcc"
 " (Fedora 10.2.0-4.fc34) 10.2.0`."
 msgstr ""
-"Il test è stato eseguito l'ultima volta su commit `247cd753` con versione gcc "
-"`arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`."
+"Il test è stato eseguito l'ultima volta su commit `247cd753` con versione "
+"gcc `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`."
 
 #: docs/Benchmarks.md:block 63 (table)
 msgid "58"
@@ -646,6 +680,32 @@ msgstr "stm32g0b1"
 msgid "STM32H7 step rate benchmark"
 msgstr "STM32H7 benchmark della velocità di step"
 
+#: docs/Benchmarks.md:block 60 (paragraph)
+msgid "The following configuration sequence is used on a STM32H743VIT6:"
+msgstr ""
+"La seguente sequenza di configurazione viene utilizzata su un STM32H743VIT6:"
+
+#: docs/Benchmarks.md:block 62 (paragraph)
+msgid ""
+"The test was last run on commit `00191b5c` with gcc version `arm-none-eabi-gcc"
+" (15:8-2019-q3-1+b1) 8.3.1 20190703 (release) [gcc-8-branch revision 273027]`."
+msgstr ""
+"Il test è stato eseguito l'ultima volta su commit `00191b5c` con versione "
+"gcc `arm-none-eabi-gcc (15:8-2019-q3-1+b1) 8.3.1 20190703 (release) "
+"[gcc-8-branch revisione 273027] `."
+
+#: docs/Benchmarks.md:block 63 (table)
+msgid "stm32h7"
+msgstr "stm32h7"
+
+#: docs/Benchmarks.md:block 63 (table)
+msgid "44"
+msgstr "44"
+
+#: docs/Benchmarks.md:block 63 (table)
+msgid "198"
+msgstr "198"
+
 #: docs/Benchmarks.md:block 85 (header)
 msgid "AR100 step rate benchmark"
 msgstr "Benchmark della velocità di passo AR100"
@@ -654,8 +714,8 @@ msgstr "Benchmark della velocità di passo AR100"
 msgid ""
 "The following configuration sequence is used on AR100 CPU (Allwinner A64):"
 msgstr ""
-"La seguente sequenza di configurazione viene utilizzata sulla CPU AR100 "
-"(Allwinner A64):"
+"La seguente sequenza di configurazione viene utilizzata sulla CPU AR100 ("
+"Allwinner A64):"
 
 #: docs/Benchmarks.md:block 89 (table)
 msgid "AR100 R_PIO"
@@ -725,6 +785,12 @@ msgstr ""
 msgid "The following configuration sequence is used on the RP2040 and RP2350:"
 msgstr ""
 
+#: docs/Benchmarks.md:block 98 (paragraph)
+msgid ""
+"The test was last run on commit `f6718291` with gcc version `arm-none-eabi-gcc"
+" (Fedora 14.1.0-1.fc40) 14.1.0` on Raspberry Pi Pico and Pico 2 boards."
+msgstr ""
+
 #: docs/Benchmarks.md:block 99 (table)
 msgid "rp2040 (*)"
 msgstr ""
@@ -739,6 +805,14 @@ msgstr ""
 
 #: docs/Benchmarks.md:block 100 (table)
 msgid "169"
+msgstr ""
+
+#: docs/Benchmarks.md:block 101 (paragraph)
+msgid ""
+"(*) Note that the reported rp2040 ticks are relative to a 12Mhz scheduling "
+"timer and do not correspond to its 125Mhz internal ARM processing rate. It is "
+"expected that 5 scheduling ticks corresponds to ~47 ARM core cycles and 22 "
+"scheduling ticks corresponds to ~224 ARM core cycles."
 msgstr ""
 
 #: docs/Benchmarks.md:block 112 (table)
@@ -756,169 +830,6 @@ msgstr ""
 #: docs/Benchmarks.md:block 112 (table)
 msgid "rp2350 (USB)"
 msgstr ""
-
-#: docs/Benchmarks.md:block 60 (paragraph)
-msgid "The following configuration sequence is used on STM32H723:"
-msgstr ""
-
-#: docs/Benchmarks.md:block 62 (paragraph)
-msgid ""
-"The test was last run on commit `554ae78d` with gcc version `arm-none-eabi-gcc"
-" (Fedora 14.1.0-1.fc40) 14.1.0`."
-msgstr ""
-
-#: docs/Benchmarks.md:block 63 (table)
-msgid "stm32h723"
-msgstr ""
-
-#: docs/Benchmarks.md:block 98 (paragraph)
-msgid ""
-"The test was last run on commit `14c105b8` with gcc version `arm-none-eabi-gcc"
-" (Fedora 14.1.0-1.fc40) 14.1.0` on Raspberry Pi Pico and Pico 2 boards."
-msgstr ""
-
-#: docs/Benchmarks.md:block 99 (table)
-msgid "3"
-msgstr ""
-
-#: docs/Benchmarks.md:block 99 (table)
-msgid "14"
-msgstr ""
-
-#: docs/Benchmarks.md:block 69 (header)
-msgid "STM32G4 step rate benchmark"
-msgstr ""
-
-#: docs/Benchmarks.md:block 70 (paragraph)
-msgid "The following configuration sequence is used on the STM32G431:"
-msgstr ""
-
-#: docs/Benchmarks.md:block 72 (paragraph)
-msgid ""
-"The test was last run on commit `cfa48fe3` with gcc version `arm-none-eabi-gcc"
-" (Fedora 14.1.0-1.fc40) 14.1.0`."
-msgstr ""
-
-#: docs/Benchmarks.md:block 73 (table)
-msgid "stm32g431"
-msgstr ""
-
-#: docs/Benchmarks.md:block 73 (table)
-msgid "47"
-msgstr ""
-
-#: docs/Benchmarks.md:block 73 (table)
-msgid "208"
-msgstr ""
-
-#: docs/Benchmarks.md:block 106 (paragraph)
-msgid ""
-"(*) Note that the reported rp2040 ticks are relative to a 12Mhz scheduling "
-"timer and do not correspond to its 200Mhz internal ARM processing rate. It is "
-"expected that 3 scheduling ticks corresponds to ~42 ARM core cycles and 14 "
-"scheduling ticks corresponds to ~225 ARM core cycles."
-msgstr ""
-
-#: docs/Benchmarks.md:block 116 (paragraph)
-msgid ""
-"The USB tests may exceed the CPU capacity of a Raspberry Pi. If running on a "
-"Raspberry Pi, Beaglebone, or similar host computer then increase the delay "
-"(eg, `DELAY {clock + 20*freq} get_uptime`). Where applicable, the benchmarks "
-"below are with console.py running on a desktop class machine with the device "
-"connected via a super-speed hub."
-msgstr ""
-
-#: docs/Benchmarks.md:block 117 (paragraph)
-msgid ""
-"The CAN bus tests may saturate the USB host controller of a Raspberry Pi (when"
-" testing via a standard gs_usb USB to CAN bus adapter). Where applicable, the "
-"CAN bus benchmarks below are with console.py running on a desktop class "
-"machine with a USB to CAN bus adapter connected via a super-speed USB hub."
-msgstr ""
-
-#: docs/Benchmarks.md:block 118 (table)
-msgid "rp2350 (CAN)"
-msgstr ""
-
-#: docs/Benchmarks.md:block 118 (table)
-msgid "59K"
-msgstr ""
-
-#: docs/Benchmarks.md:block 118 (table)
-msgid "17b8ce4c"
-msgstr ""
-
-#~ msgid ""
-#~ "Note that this test may saturate the USB/CPU capacity of a Raspberry Pi. If "
-#~ "running on a Raspberry Pi, Beaglebone, or similar host computer then increase "
-#~ "the delay (eg, `DELAY {clock + 20*freq} get_uptime`). Where applicable, the "
-#~ "benchmarks below are with console.py running on a desktop class machine with "
-#~ "the device connected via a high-speed hub."
-#~ msgstr ""
-#~ "Nota che questo test potrebbe saturare la capacità USB/CPU di un Raspberry Pi."
-#~ " Se è in esecuzione su un computer host Raspberry Pi, Beaglebone o simile, "
-#~ "aumenta il ritardo (ad esempio, `DELAY {clock + 20*freq} get_uptime`). Ove "
-#~ "applicabile, i benchmark seguenti riguardano console.py in esecuzione su una "
-#~ "macchina di classe desktop con il dispositivo connesso tramite un hub ad alta "
-#~ "velocità."
-
-#~ msgid "stm32f042 (CAN)"
-#~ msgstr "stm32f042 (CAN)"
-
-#~ msgid "18K"
-#~ msgstr "18K"
-
-#~ msgid "c105adc8"
-#~ msgstr "c105adc8"
-
-#~ msgid "arm-none-eabi-gcc (GNU Tools 7-2018-q3-update) 7.3.1"
-#~ msgstr "arm-none-eabi-gcc (GNU Tools 7-2018-q3-update) 7.3.1"
-
-#~ msgid ""
-#~ "(*) Note that the reported rp2040 ticks are relative to a 12Mhz scheduling "
-#~ "timer and do not correspond to its 200Mhz internal ARM processing rate. It is "
-#~ "expected that 5 scheduling ticks corresponds to ~42 ARM core cycles and 14 "
-#~ "scheduling ticks corresponds to ~225 ARM core cycles."
-#~ msgstr ""
-
-#~ msgid "5"
-#~ msgstr "5"
-
-#~ msgid "22"
-#~ msgstr "22"
-
-#~ msgid "The following configuration sequence is used on a STM32H743VIT6:"
-#~ msgstr ""
-#~ "La seguente sequenza di configurazione viene utilizzata su un STM32H743VIT6:"
-
-#~ msgid ""
-#~ "The test was last run on commit `00191b5c` with gcc version `arm-none-eabi-gcc"
-#~ " (15:8-2019-q3-1+b1) 8.3.1 20190703 (release) [gcc-8-branch revision 273027]`."
-#~ msgstr ""
-#~ "Il test è stato eseguito l'ultima volta su commit `00191b5c` con versione gcc "
-#~ "`arm-none-eabi-gcc (15:8-2019-q3-1+b1) 8.3.1 20190703 (release) [gcc-8-branch "
-#~ "revisione 273027] `."
-
-#~ msgid "stm32h7"
-#~ msgstr "stm32h7"
-
-#~ msgid "44"
-#~ msgstr "44"
-
-#~ msgid "198"
-#~ msgstr "198"
-
-#~ msgid ""
-#~ "The test was last run on commit `f6718291` with gcc version `arm-none-eabi-gcc"
-#~ " (Fedora 14.1.0-1.fc40) 14.1.0` on Raspberry Pi Pico and Pico 2 boards."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "(*) Note that the reported rp2040 ticks are relative to a 12Mhz scheduling "
-#~ "timer and do not correspond to its 125Mhz internal ARM processing rate. It is "
-#~ "expected that 5 scheduling ticks corresponds to ~47 ARM core cycles and 22 "
-#~ "scheduling ticks corresponds to ~224 ARM core cycles."
-#~ msgstr ""
 
 #~ msgid ""
 #~ "SET start_clock {clock+freq}\n"

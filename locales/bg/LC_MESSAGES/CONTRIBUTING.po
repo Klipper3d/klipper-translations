@@ -1,16 +1,17 @@
-# Nikolai Danov <nikolaidanov67@gmail.com>, 2022.
-# Niolay Danov <nikdan@abv.bg>, 2024.
+# Nikolai Danov <nikolaidanov67@gmail.com>, 2022, 2025.
+# Niolay Danov <nikdan@abv.bg>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-10-31 21:00+0000\n"
-"Last-Translator: Niolay Danov <nikdan@abv.bg>\n"
-"Language-Team: Bulgarian <https://hosted.weblate.org/projects/klipper/contributing/bg/>\n"
+"PO-Revision-Date: 2025-07-22 08:43+0000\n"
+"Last-Translator: Nikolai Danov <nikolaidanov67@gmail.com>\n"
+"Language-Team: Bulgarian <https://hosted.weblate.org/projects/klipper/"
+"contributing/bg/>\n"
 "Language: bg\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.8.2-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 msgid "Contributing to Klipper"
 msgstr "Даване на принос към Klipper"
@@ -22,10 +23,10 @@ msgid ""
 "or anonymous contributions) and contain a current email address."
 msgstr ""
 "Важно е на всеки commit да има ред \"Signed-off-by\" (Подписано от) - той "
-"удостоверява, че сте съгласни със [сертификат за произход на "
-"разработчика](developer-certificate-of-origin). Той трябва да съдържа "
-"истинското ви име (съжаляваме, без псевдоними или анонимни приноси) и да "
-"съдържа актуален имейл адрес."
+"удостоверява, че сте съгласни със [сертификат за произход на разработчика]"
+"(developer-certificate-of-origin). Той трябва да съдържа истинското ви име ("
+"съжаляваме, без псевдоними или анонимни приноси) и да съдържа актуален имейл "
+"адрес."
 
 #: docs/CONTRIBUTING.md:block 9 (header)
 msgid "Contributing to Klipper Translations"

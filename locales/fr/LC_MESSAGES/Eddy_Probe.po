@@ -2,14 +2,15 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-02-23 21:32+0000\n"
+"PO-Revision-Date: 2025-07-22 09:13+0000\n"
 "Last-Translator: Pyroa Surtac <pyroa@orange.fr>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/klipper/eddy_probe/fr/>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/klipper/"
+"eddy_probe/fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.10.1-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: docs/Eddy_Probe.md:block 1 (header)
 msgid "Eddy Current Inductive probe"
@@ -21,9 +22,8 @@ msgid ""
 "current](https://en.wikipedia.org/wiki/Eddy_current) inductive probe in "
 "Klipper."
 msgstr ""
-"Ce document décrit comment utiliser une [sonde "
-"inductive](https://en.wikipedia.org/wiki/Eddy_current) à courants de Foucault "
-"dans Klipper."
+"Ce document décrit comment utiliser une [sonde inductive](https://"
+"en.wikipedia.org/wiki/Eddy_current) à courants de Foucault dans Klipper."
 
 #: docs/Eddy_Probe.md:block 3 (paragraph)
 #, fuzzy
@@ -31,8 +31,9 @@ msgid ""
 "Currently, an eddy current probe can not be used for Z homing. The sensor can "
 "only be used for Z probing."
 msgstr ""
-"Actuellement, une sonde à courants de Foucault ne peut pas être utilisée pour "
-"une mise à zéro du Z . Le capteur ne peut être utilisé que pour le palpage Z."
+"Actuellement, une sonde à courants de Foucault ne peut pas être utilisée "
+"pour une mise à zéro du Z . Le capteur ne peut être utilisé que pour le "
+"palpage Z."
 
 #: docs/Eddy_Probe.md:block 4 (paragraph)
 msgid ""

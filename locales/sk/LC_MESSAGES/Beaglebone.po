@@ -1,9 +1,9 @@
-# Pavol Vrba <pvrba2000@gmail.com>, 2025.
+#
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-08-06 23:02+0000\n"
-"Last-Translator: Pavol Vrba <pvrba2000@gmail.com>\n"
+"PO-Revision-Date: 2025-07-22 09:02+0000\n"
+"Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Slovak <https://hosted.weblate.org/projects/klipper/"
 "beaglebone/sk/>\n"
 "Language: sk\n"
@@ -14,7 +14,7 @@ msgstr ""
 
 #: docs/Beaglebone.md:block 1 (header)
 msgid "Beaglebone"
-msgstr "Beaglebone"
+msgstr ""
 
 #: docs/Beaglebone.md:block 2 (paragraph)
 msgid ""

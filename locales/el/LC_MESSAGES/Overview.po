@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-08-06 11:05+0000\n"
+"PO-Revision-Date: 2025-07-22 09:17+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Greek <https://hosted.weblate.org/projects/klipper/overview/"
 "el/>\n"
@@ -249,11 +249,6 @@ msgstr ""
 
 #: docs/Overview.md:block 10 (unordered list)
 msgid "[Eddy Current Inductive probe](Eddy_Probe.md)"
-msgstr ""
-
-#: docs/Overview.md:block 10 (unordered list)
-#, fuzzy
-msgid "[Load Cells](Load_Cell.md)"
 msgstr ""
 
 #~ msgid ""

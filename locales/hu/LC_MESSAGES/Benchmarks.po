@@ -4,8 +4,8 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-08-06 11:03+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2025-07-22 08:36+0000\n"
+"Last-Translator: \"Zs.Antal\" <antonio092130@icloud.com>\n"
 "Language-Team: Hungarian <https://hosted.weblate.org/projects/klipper/"
 "benchmarks/hu/>\n"
 "Language: hu\n"
@@ -48,8 +48,8 @@ msgstr ""
 "A lépésszám-összehasonlítás célja a hardver és a szoftver által elérhető "
 "maximális lépésszám meghatározása. Ez az összehasonlító lépési sebesség a "
 "mindennapi használat során nem érhető el, mivel a Klippernek más feladatokat "
-"is el kell látnia (pl. mcu/host kommunikáció, hőmérséklet leolvasás, végállás "
-"ellenőrzés) minden valós használat során."
+"is el kell látnia (pl. mcu/host kommunikáció, hőmérséklet leolvasás, "
+"végállás ellenőrzés) minden valós használat során."
 
 msgid ""
 "In general, the pins for the benchmark tests are chosen to flash LEDs or other"
@@ -76,18 +76,18 @@ msgid ""
 msgstr ""
 "A fentiekben három léptető egyidejű léptetését teszteljük. Ha a fentiek "
 "futtatása egy \"Rescheduled timer in the past\" a \"Stepper too far in pas\" "
-"hibát eredményez, akkor ez azt jelzi, hogy a `ticks` paraméter túl alacsony "
-"(túl gyors léptetési sebességet eredményez). A cél az, hogy megtaláljuk a "
+"hibát eredményez, akkor ez azt jelzi, hogy a `ticks` paraméter túl alacsony ("
+"túl gyors léptetési sebességet eredményez). A cél az, hogy megtaláljuk a "
 "ticks paraméter legalacsonyabb beállítását, amely megbízhatóan eredményezi a "
-"teszt sikeres befejezését. A ticks paramétert addig kell felezni, amíg stabil "
-"értéket nem találunk."
+"teszt sikeres befejezését. A ticks paramétert addig kell felezni, amíg "
+"stabil értéket nem találunk."
 
 msgid ""
 "On a failure, one can copy-and-paste the following to clear the error in "
 "preparation for the next test:"
 msgstr ""
-"Sikertelenség esetén az alábbiakat másolva és beillesztve törölheted a hibát a"
-" következő tesztre való felkészüléshez:"
+"Sikertelenség esetén az alábbiakat másolva és beillesztve törölheted a hibát "
+"a következő tesztre való felkészüléshez:"
 
 msgid "AVR step rate benchmark"
 msgstr "AVR lépési sebesség referenciaérték"
@@ -239,9 +239,23 @@ msgid ""
 "in the two \"uptime\" response messages. The total number of commands per "
 "second is then `100000 * mcu_frequency / clock_diff`."
 msgstr ""
-"A teszt befejezésekor határozd meg a két \"üzemidő\" válaszüzenetben jelentett"
-" órák közötti különbséget. A másodpercenkénti parancsok teljes száma ekkor "
-"`100000 * mcu_frequency / clock_diff`."
+"A teszt befejezésekor határozd meg a két \"üzemidő\" válaszüzenetben "
+"jelentett órák közötti különbséget. A másodpercenkénti parancsok teljes "
+"száma ekkor `100000 * mcu_frequency / clock_diff`."
+
+msgid ""
+"Note that this test may saturate the USB/CPU capacity of a Raspberry Pi. If "
+"running on a Raspberry Pi, Beaglebone, or similar host computer then increase "
+"the delay (eg, `DELAY {clock + 20*freq} get_uptime`). Where applicable, the "
+"benchmarks below are with console.py running on a desktop class machine with "
+"the device connected via a high-speed hub."
+msgstr ""
+"Vedd figyelembe, hogy ez a teszt telítheti a Raspberry Pi USB/CPU "
+"kapacitását. Ha Raspberry Pi, Beaglebone vagy hasonló gazdagépen fut, akkor "
+"növeld a késleltetést (pl. `DELAY {clock + 20*freq} get_uptime`). Ahol "
+"alkalmazható, az alábbi referenciák a console.py futtatásával készültek egy "
+"asztali számítógépen, ahol az eszköz egy nagy sebességű HUB-on keresztül van "
+"csatlakoztatva."
 
 msgid "MCU"
 msgstr "MCU"
@@ -254,6 +268,18 @@ msgstr "Gyári szám"
 
 msgid "Build compiler"
 msgstr "Fordító program"
+
+msgid "stm32f042 (CAN)"
+msgstr "stm32f042 (CAN)"
+
+msgid "18K"
+msgstr "18K"
+
+msgid "c105adc8"
+msgstr "c105adc8"
+
+msgid "arm-none-eabi-gcc (GNU Tools 7-2018-q3-update) 7.3.1"
+msgstr "arm-none-eabi-gcc (GNU Tools 7-2018-q3-update) 7.3.1"
 
 msgid "atmega2560 (serial)"
 msgstr "atmega2560 (serial)"
@@ -357,6 +383,12 @@ msgstr "Gazdagép referenciaértékei"
 msgid "66"
 msgstr "66"
 
+msgid "5"
+msgstr "5"
+
+msgid "22"
+msgstr "22"
+
 msgid "rp2040 (USB)"
 msgstr "rp2040 (USB)"
 
@@ -372,9 +404,9 @@ msgid ""
 "window:"
 msgstr ""
 "A teszt a console.py eszközzel történik (a <Debugging.md> című fejezetben "
-"leírtak szerint). A mikrokontrollert az adott hardverplatformhoz konfiguráljuk"
-" (lásd alább), majd a következőket vágjuk ki és illesszük be a console.py "
-"terminálablakba:"
+"leírtak szerint). A mikrokontrollert az adott hardverplatformhoz "
+"konfiguráljuk (lásd alább), majd a következőket vágjuk ki és illesszük be a "
+"console.py terminálablakba:"
 
 #: docs/Benchmarks.md:block 86 (paragraph)
 msgid ""
@@ -385,10 +417,10 @@ msgid ""
 "window:"
 msgstr ""
 "A parancskiadási referenciateszt azt teszteli, hogy a mikrokontroller hány "
-"\"dummy\" parancsot képes feldolgozni. Ez elsősorban a hardveres kommunikációs"
-" mechanizmus tesztje. A tesztet a console.py eszközzel futtatjuk (a "
-"<Debugging.md> című fejezetben leírtak szerint). Az alábbiakat másoljuk ki és "
-"illesszük be a console.py terminálablakba:"
+"\"dummy\" parancsot képes feldolgozni. Ez elsősorban a hardveres "
+"kommunikációs mechanizmus tesztje. A tesztet a console.py eszközzel "
+"futtatjuk (a <Debugging.md> című fejezetben leírtak szerint). Az alábbiakat "
+"másoljuk ki és illesszük be a console.py terminálablakba:"
 
 #: docs/Benchmarks.md:block 92 (paragraph)
 msgid ""
@@ -409,9 +441,9 @@ msgid ""
 "used, but only the first block of the above test is cut-and-paste into the "
 "console.py window."
 msgstr ""
-"Az egylépcsős referenciaértékek eléréséhez ugyanazt a konfigurációs sorrendet "
-"kell használni, de a fenti tesztnek csak az első blokkja a másolás és "
-"beillesztés a console.py ablakba."
+"Az egylépcsős referenciaértékek eléréséhez ugyanazt a konfigurációs "
+"sorrendet kell használni, de a fenti tesztnek csak az első blokkja a másolás "
+"és beillesztés a console.py ablakba."
 
 #: docs/Benchmarks.md:block 17 (paragraph)
 msgid ""
@@ -424,11 +456,11 @@ msgid ""
 msgstr ""
 "A referenciaértékeket a TMC vezérlők számára megfelelő paraméterekkel "
 "futtatjuk. Az olyan mikrovezérlők esetében, amelyek támogatják a "
-"`STEPPER_BOTH_EDGE=1` (amint azt az `MCU config` sorban a konzolnál console.py"
-" első indításakor) a `step_pulse_duration=0` és `invert_step=-1` használatával"
-" engedélyezzük az optimalizált lépést a lépésimpulzus mindkét élére. Más "
-"mikrovezérlők esetében használd a 100ns-nak megfelelő `step_pulse_duration` "
-"értéket."
+"`STEPPER_BOTH_EDGE=1` (amint azt az `MCU config` sorban a konzolnál "
+"console.py első indításakor) a `step_pulse_duration=0` és `invert_step=-1` "
+"használatával engedélyezzük az optimalizált lépést a lépésimpulzus mindkét "
+"élére. Más mikrovezérlők esetében használd a 100ns-nak megfelelő "
+"`step_pulse_duration` értéket."
 
 #: docs/Benchmarks.md:block 21 (paragraph)
 msgid ""
@@ -456,8 +488,8 @@ msgid ""
 "The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc"
 " (Fedora 10.2.0-4.fc34) 10.2.0`."
 msgstr ""
-"A tesztet utoljára a `59314d99` megbízási gcc verzióval `arm-none-eabi-gcc "
-"(Fedora 10.2.0-4.fc34) 10.2.0` futtatta."
+"A tesztet utoljára a `59314d99` megbízási gcc verzióval `arm-none-eabi-gcc ("
+"Fedora 10.2.0-4.fc34) 10.2.0` futtatta."
 
 #: docs/Benchmarks.md:block 27 (table)
 msgid "257"
@@ -521,10 +553,10 @@ msgid ""
 " (Fedora 10.2.0-4.fc34) 10.2.0`. The STM32F407 results were obtained by "
 "running an STM32F407 binary on an STM32F446 (and thus using a 168Mhz clock)."
 msgstr ""
-"A tesztet utoljára az `59314d99` megbízási gcc verzióval `arm-none-eabi-gcc "
-"(Fedora 10.2.0-4.fc34) 10.2.0` futtatta. Az STM32F407-es eredményeket úgy "
-"kaptuk, hogy egy STM32F407-es bináris programot futtattunk egy STM32F446-oson "
-"(és így 168 MHz-es órajelet használtunk)."
+"A tesztet utoljára az `59314d99` megbízási gcc verzióval `arm-none-eabi-gcc ("
+"Fedora 10.2.0-4.fc34) 10.2.0` futtatta. Az STM32F407-es eredményeket úgy "
+"kaptuk, hogy egy STM32F407-es bináris programot futtattunk egy STM32F446-"
+"oson (és így 168 MHz-es órajelet használtunk)."
 
 #: docs/Benchmarks.md:block 57 (table)
 msgid "46"
@@ -540,8 +572,8 @@ msgid ""
 " (Fedora 10.2.0-4.fc34) 10.2.0`. The 120Mhz LPC1769 results were obtained by "
 "overclocking an LPC1768 to 120Mhz."
 msgstr ""
-"A tesztet utoljára a `59314d99` megbízási gcc verzióval `arm-none-eabi-gcc "
-"(Fedora 10.2.0-4.fc34) 10.2.0` futtatta. A 120Mhz-es LPC1769-es eredményeket "
+"A tesztet utoljára a `59314d99` megbízási gcc verzióval `arm-none-eabi-gcc ("
+"Fedora 10.2.0-4.fc34) 10.2.0` futtatta. A 120Mhz-es LPC1769-es eredményeket "
 "egy LPC1768-as 120Mhz-re való túlhajtásával kaptuk."
 
 #: docs/Benchmarks.md:block 63 (table)
@@ -553,8 +585,8 @@ msgid ""
 "The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc"
 " (Fedora 10.2.0-4.fc34) 10.2.0` on a SAMD21G18 micro-controller."
 msgstr ""
-"A tesztet legutóbb a `59314d99` megbízási gcc verzióval `arm-none-eabi-gcc "
-"(Fedora 10.2.0-4.fc34) 10.2.0` futtatta egy SAMD21G18 mikrokontrollerrel."
+"A tesztet legutóbb a `59314d99` megbízási gcc verzióval `arm-none-eabi-gcc ("
+"Fedora 10.2.0-4.fc34) 10.2.0` futtatta egy SAMD21G18 mikrokontrollerrel."
 
 #: docs/Benchmarks.md:block 69 (table)
 msgid "306"
@@ -565,8 +597,8 @@ msgid ""
 "The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc"
 " (Fedora 10.2.0-4.fc34) 10.2.0` on a SAMD51J19A micro-controller."
 msgstr ""
-"A tesztet legutóbb a `59314d99` megbízási gcc verzióval `arm-none-eabi-gcc "
-"(Fedora 10.2.0-4.fc34) 10.2.0` futtatta egy SAMD51J19A mikrokontrollerrel."
+"A tesztet legutóbb a `59314d99` megbízási gcc verzióval `arm-none-eabi-gcc ("
+"Fedora 10.2.0-4.fc34) 10.2.0` futtatta egy SAMD51J19A mikrokontrollerrel."
 
 #: docs/Benchmarks.md:block 74 (table)
 msgid "39"
@@ -607,10 +639,10 @@ msgid ""
 "active steppers:"
 msgstr ""
 "A [Funkciók](Features.md) dokumentumban található referenciatesztek "
-"előállításához a másodpercenkénti lépések teljes számát úgy kell kiszámítani, "
-"hogy az aktív léptetők számát megszorozzuk a névleges MCU frekvenciával, és "
-"elosztjuk a végső \"ticks\" paraméterrel. Az eredményeket a legközelebbi K-ra "
-"kerekítjük. Például három aktív léptetővel:"
+"előállításához a másodpercenkénti lépések teljes számát úgy kell "
+"kiszámítani, hogy az aktív léptetők számát megszorozzuk a névleges MCU "
+"frekvenciával, és elosztjuk a végső \"ticks\" paraméterrel. Az eredményeket "
+"a legközelebbi K-ra kerekítjük. Például három aktív léptetővel:"
 
 #: docs/Benchmarks.md:block 59 (header)
 msgid "STM32G0B1 step rate benchmark"
@@ -625,8 +657,8 @@ msgid ""
 "The test was last run on commit `247cd753` with gcc version `arm-none-eabi-gcc"
 " (Fedora 10.2.0-4.fc34) 10.2.0`."
 msgstr ""
-"A tesztet utoljára a `247cd753` megbízási gcc verzióval `arm-none-eabi-gcc "
-"(Fedora 10.2.0-4.fc34) 10.2.0` futtatta."
+"A tesztet utoljára a `247cd753` megbízási gcc verzióval `arm-none-eabi-gcc ("
+"Fedora 10.2.0-4.fc34) 10.2.0` futtatta."
 
 #: docs/Benchmarks.md:block 63 (table)
 msgid "58"
@@ -643,6 +675,32 @@ msgstr "stm32g0b1"
 #: docs/Benchmarks.md:block 59 (header)
 msgid "STM32H7 step rate benchmark"
 msgstr "STM32H7 lépésszám referencia"
+
+#: docs/Benchmarks.md:block 60 (paragraph)
+msgid "The following configuration sequence is used on a STM32H743VIT6:"
+msgstr ""
+"A következő konfigurációs sorrendet egy STM32H743VIT6 esetében használjuk:"
+
+#: docs/Benchmarks.md:block 62 (paragraph)
+msgid ""
+"The test was last run on commit `00191b5c` with gcc version `arm-none-eabi-gcc"
+" (15:8-2019-q3-1+b1) 8.3.1 20190703 (release) [gcc-8-branch revision 273027]`."
+msgstr ""
+"A teszt utoljára `00191b5c` véglegesítéssel futott a gcc `arm-none-eabi-gcc "
+"(15:8-2019-q3-1+b1) 8.3.1 20190703 (release) [gcc-8-branch revision 273027]` "
+"véglegesítéssel."
+
+#: docs/Benchmarks.md:block 63 (table)
+msgid "stm32h7"
+msgstr "stm32h7"
+
+#: docs/Benchmarks.md:block 63 (table)
+msgid "44"
+msgstr "44"
+
+#: docs/Benchmarks.md:block 63 (table)
+msgid "198"
+msgstr "198"
 
 #: docs/Benchmarks.md:block 85 (header)
 msgid "AR100 step rate benchmark"
@@ -696,8 +754,8 @@ msgid ""
 "The test was last run on commit `34e9ea55` with gcc version `arm-none-eabi-gcc"
 " (NixOS 10.3-2021.10) 10.3.1` on a SAME70Q20B micro-controller."
 msgstr ""
-"A tesztet utoljára a `34e9ea55` kötelezően futtattuk az `arm-none-eabi-gcc "
-"(NixOS 10.3-2021.10) 10.3.1` gcc verzióval egy SAME70Q20B mikrokontrollerrel."
+"A tesztet utoljára a `34e9ea55` kötelezően futtattuk az `arm-none-eabi-gcc ("
+"NixOS 10.3-2021.10) 10.3.1` gcc verzióval egy SAME70Q20B mikrokontrollerrel."
 
 #: docs/Benchmarks.md:block 89 (table)
 msgid "same70"
@@ -729,6 +787,15 @@ msgstr ""
 "Az RP2040 és RP2350 készülékeken a következő konfigurációs sorrendet kell "
 "alkalmazni:"
 
+#: docs/Benchmarks.md:block 98 (paragraph)
+msgid ""
+"The test was last run on commit `f6718291` with gcc version `arm-none-eabi-gcc"
+" (Fedora 14.1.0-1.fc40) 14.1.0` on Raspberry Pi Pico and Pico 2 boards."
+msgstr ""
+"A tesztet utoljára az `f6718291` kötelezően futtattuk a `arm-none-eabi-gcc ("
+"Fedora 14.1.0-1.fc40) 14.1.0` gcc verzióval Raspberry Pi Pico és Pico 2 "
+"lapkákon."
+
 #: docs/Benchmarks.md:block 99 (table)
 msgid "rp2040 (*)"
 msgstr "rp2040 (*)"
@@ -745,6 +812,18 @@ msgstr "36"
 msgid "169"
 msgstr "169"
 
+#: docs/Benchmarks.md:block 101 (paragraph)
+msgid ""
+"(*) Note that the reported rp2040 ticks are relative to a 12Mhz scheduling "
+"timer and do not correspond to its 125Mhz internal ARM processing rate. It is "
+"expected that 5 scheduling ticks corresponds to ~47 ARM core cycles and 22 "
+"scheduling ticks corresponds to ~224 ARM core cycles."
+msgstr ""
+"(*) Megjegyzendő, hogy a bejelentett rp2040 tickek egy 12Mhz-es ütemező "
+"időzítőhöz viszonyítva vannak, és nem felelnek meg a 125Mhz-es belső ARM-"
+"feldolgozási sebességnek. Várhatóan 5 ütemezési tick megfelel ~47 ARM "
+"magciklusnak, 22 ütemezési tick pedig ~224 ARM magciklusnak."
+
 #: docs/Benchmarks.md:block 112 (table)
 msgid "885K"
 msgstr "885K"
@@ -760,182 +839,6 @@ msgstr "arm-none-eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0"
 #: docs/Benchmarks.md:block 112 (table)
 msgid "rp2350 (USB)"
 msgstr "rp2350 (USB)"
-
-#: docs/Benchmarks.md:block 60 (paragraph)
-#, fuzzy
-msgid "The following configuration sequence is used on STM32H723:"
-msgstr ""
-
-#: docs/Benchmarks.md:block 62 (paragraph)
-#, fuzzy
-msgid ""
-"The test was last run on commit `554ae78d` with gcc version `arm-none-eabi-gcc"
-" (Fedora 14.1.0-1.fc40) 14.1.0`."
-msgstr ""
-
-#: docs/Benchmarks.md:block 63 (table)
-#, fuzzy
-msgid "stm32h723"
-msgstr ""
-
-#: docs/Benchmarks.md:block 98 (paragraph)
-#, fuzzy
-msgid ""
-"The test was last run on commit `14c105b8` with gcc version `arm-none-eabi-gcc"
-" (Fedora 14.1.0-1.fc40) 14.1.0` on Raspberry Pi Pico and Pico 2 boards."
-msgstr ""
-
-#: docs/Benchmarks.md:block 99 (table)
-#, fuzzy
-msgid "3"
-msgstr ""
-
-#: docs/Benchmarks.md:block 99 (table)
-#, fuzzy
-msgid "14"
-msgstr ""
-
-#: docs/Benchmarks.md:block 69 (header)
-msgid "STM32G4 step rate benchmark"
-msgstr ""
-
-#: docs/Benchmarks.md:block 70 (paragraph)
-msgid "The following configuration sequence is used on the STM32G431:"
-msgstr ""
-
-#: docs/Benchmarks.md:block 72 (paragraph)
-msgid ""
-"The test was last run on commit `cfa48fe3` with gcc version `arm-none-eabi-gcc"
-" (Fedora 14.1.0-1.fc40) 14.1.0`."
-msgstr ""
-
-#: docs/Benchmarks.md:block 73 (table)
-msgid "stm32g431"
-msgstr ""
-
-#: docs/Benchmarks.md:block 73 (table)
-msgid "47"
-msgstr ""
-
-#: docs/Benchmarks.md:block 73 (table)
-msgid "208"
-msgstr ""
-
-#: docs/Benchmarks.md:block 106 (paragraph)
-msgid ""
-"(*) Note that the reported rp2040 ticks are relative to a 12Mhz scheduling "
-"timer and do not correspond to its 200Mhz internal ARM processing rate. It is "
-"expected that 3 scheduling ticks corresponds to ~42 ARM core cycles and 14 "
-"scheduling ticks corresponds to ~225 ARM core cycles."
-msgstr ""
-
-#: docs/Benchmarks.md:block 116 (paragraph)
-msgid ""
-"The USB tests may exceed the CPU capacity of a Raspberry Pi. If running on a "
-"Raspberry Pi, Beaglebone, or similar host computer then increase the delay "
-"(eg, `DELAY {clock + 20*freq} get_uptime`). Where applicable, the benchmarks "
-"below are with console.py running on a desktop class machine with the device "
-"connected via a super-speed hub."
-msgstr ""
-
-#: docs/Benchmarks.md:block 117 (paragraph)
-msgid ""
-"The CAN bus tests may saturate the USB host controller of a Raspberry Pi (when"
-" testing via a standard gs_usb USB to CAN bus adapter). Where applicable, the "
-"CAN bus benchmarks below are with console.py running on a desktop class "
-"machine with a USB to CAN bus adapter connected via a super-speed USB hub."
-msgstr ""
-
-#: docs/Benchmarks.md:block 118 (table)
-msgid "rp2350 (CAN)"
-msgstr ""
-
-#: docs/Benchmarks.md:block 118 (table)
-msgid "59K"
-msgstr ""
-
-#: docs/Benchmarks.md:block 118 (table)
-msgid "17b8ce4c"
-msgstr ""
-
-#~ msgid ""
-#~ "Note that this test may saturate the USB/CPU capacity of a Raspberry Pi. If "
-#~ "running on a Raspberry Pi, Beaglebone, or similar host computer then increase "
-#~ "the delay (eg, `DELAY {clock + 20*freq} get_uptime`). Where applicable, the "
-#~ "benchmarks below are with console.py running on a desktop class machine with "
-#~ "the device connected via a high-speed hub."
-#~ msgstr ""
-#~ "Vedd figyelembe, hogy ez a teszt telítheti a Raspberry Pi USB/CPU kapacitását."
-#~ " Ha Raspberry Pi, Beaglebone vagy hasonló gazdagépen fut, akkor növeld a "
-#~ "késleltetést (pl. `DELAY {clock + 20*freq} get_uptime`). Ahol alkalmazható, az"
-#~ " alábbi referenciák a console.py futtatásával készültek egy asztali "
-#~ "számítógépen, ahol az eszköz egy nagy sebességű HUB-on keresztül van "
-#~ "csatlakoztatva."
-
-#~ msgid "stm32f042 (CAN)"
-#~ msgstr "stm32f042 (CAN)"
-
-#~ msgid "18K"
-#~ msgstr "18K"
-
-#~ msgid "c105adc8"
-#~ msgstr "c105adc8"
-
-#~ msgid "arm-none-eabi-gcc (GNU Tools 7-2018-q3-update) 7.3.1"
-#~ msgstr "arm-none-eabi-gcc (GNU Tools 7-2018-q3-update) 7.3.1"
-
-#~ msgid ""
-#~ "(*) Note that the reported rp2040 ticks are relative to a 12Mhz scheduling "
-#~ "timer and do not correspond to its 200Mhz internal ARM processing rate. It is "
-#~ "expected that 5 scheduling ticks corresponds to ~42 ARM core cycles and 14 "
-#~ "scheduling ticks corresponds to ~225 ARM core cycles."
-#~ msgstr ""
-
-#~ msgid "5"
-#~ msgstr "5"
-
-#~ msgid "22"
-#~ msgstr "22"
-
-#~ msgid "The following configuration sequence is used on a STM32H743VIT6:"
-#~ msgstr ""
-#~ "A következő konfigurációs sorrendet egy STM32H743VIT6 esetében használjuk:"
-
-#~ msgid ""
-#~ "The test was last run on commit `00191b5c` with gcc version `arm-none-eabi-gcc"
-#~ " (15:8-2019-q3-1+b1) 8.3.1 20190703 (release) [gcc-8-branch revision 273027]`."
-#~ msgstr ""
-#~ "A teszt utoljára `00191b5c` véglegesítéssel futott a gcc `arm-none-eabi-gcc "
-#~ "(15:8-2019-q3-1+b1) 8.3.1 20190703 (release) [gcc-8-branch revision 273027]` "
-#~ "véglegesítéssel."
-
-#~ msgid "stm32h7"
-#~ msgstr "stm32h7"
-
-#~ msgid "44"
-#~ msgstr "44"
-
-#~ msgid "198"
-#~ msgstr "198"
-
-#~ msgid ""
-#~ "The test was last run on commit `f6718291` with gcc version `arm-none-eabi-gcc"
-#~ " (Fedora 14.1.0-1.fc40) 14.1.0` on Raspberry Pi Pico and Pico 2 boards."
-#~ msgstr ""
-#~ "A tesztet utoljára az `f6718291` kötelezően futtattuk a `arm-none-eabi-gcc "
-#~ "(Fedora 14.1.0-1.fc40) 14.1.0` gcc verzióval Raspberry Pi Pico és Pico 2 "
-#~ "lapkákon."
-
-#~ msgid ""
-#~ "(*) Note that the reported rp2040 ticks are relative to a 12Mhz scheduling "
-#~ "timer and do not correspond to its 125Mhz internal ARM processing rate. It is "
-#~ "expected that 5 scheduling ticks corresponds to ~47 ARM core cycles and 22 "
-#~ "scheduling ticks corresponds to ~224 ARM core cycles."
-#~ msgstr ""
-#~ "(*) Megjegyzendő, hogy a bejelentett rp2040 tickek egy 12Mhz-es ütemező "
-#~ "időzítőhöz viszonyítva vannak, és nem felelnek meg a 125Mhz-es belső ARM-"
-#~ "feldolgozási sebességnek. Várhatóan 5 ütemezési tick megfelel ~47 ARM "
-#~ "magciklusnak, 22 ütemezési tick pedig ~224 ARM magciklusnak."
 
 #~ msgid ""
 #~ "SET start_clock {clock+freq}\n"

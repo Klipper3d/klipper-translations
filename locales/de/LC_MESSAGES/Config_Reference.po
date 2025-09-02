@@ -1,30 +1,32 @@
-# Blackcoder_zed <blackc03r@gmail.com>, 2022.
+# Blackcoder_zed <blackc03r@gmail.com>, 2022, 2025.
 # Sebastian Fiedler <See1807@hotmail.de>, 2022.
-# Sven van Beckum <kontakt@partner-3d.de>, 2022.
-# Yifei Ding <dingyifeiair@gmail.com>, 2022.
-# Alexander Weiss <alexweiss@alexweiss.net>, 2023.
-# Ettore Atalan <atalanttore@googlemail.com>, 2023.
-# Haui <hauisminecraft@gmail.com>, 2023.
-# T1z3n <info@njbraun.de>, 2024.
-# Extrutex <w1indt@outlook.com>, 2024.
-# Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024.
-# Mæve Rey <mrey@users.noreply.hosted.weblate.org>, 2024.
+# Sven van Beckum <kontakt@partner-3d.de>, 2022, 2025.
+# Yifei Ding <dingyifeiair@gmail.com>, 2022, 2025.
+# Alexander Weiss <alexweiss@alexweiss.net>, 2023, 2025.
+# Ettore Atalan <atalanttore@googlemail.com>, 2023, 2025.
+# Haui <hauisminecraft@gmail.com>, 2023, 2025.
+# T1z3n <info@njbraun.de>, 2024, 2025.
+# Extrutex <w1indt@outlook.com>, 2024, 2025.
+# Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024, 2025.
+# Mæve Rey <mrey@users.noreply.hosted.weblate.org>, 2024, 2025.
 # LH2301 <bummbumm600@gmail.com>, 2024.
 # Patrick <patrick_bruell@web.de>, 2025.
+# Deleted User <noreply+100566@weblate.org>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:33+0200\n"
-"PO-Revision-Date: 2025-04-14 19:03+0000\n"
-"Last-Translator: Patrick <patrick_bruell@web.de>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/klipper/config_reference/de/>\n"
+"PO-Revision-Date: 2025-07-22 08:10+0000\n"
+"Last-Translator: T1z3n <info@njbraun.de>\n"
+"Language-Team: German <https://hosted.weblate.org/projects/klipper/"
+"config_reference/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.11-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 msgid ""
 "This document is a reference for options available in the Klipper config file."
@@ -38,10 +40,10 @@ msgid ""
 "document](Installation.md) for information on setting up Klipper and choosing "
 "an initial config file."
 msgstr ""
-"Die Beschreibungen in diesem Dokument sind so formatiert, dass es möglich ist,"
-" sie auszuschneiden und in eine Druckerkonfigurationsdatei einzufügen. Siehe "
-"das [Installationsdokument](Installation.md) für Informationen über die "
-"Einrichtung von Klipper und die Auswahl einer ersten Konfigurationsdatei."
+"Die Beschreibungen in diesem Dokument sind so formatiert, dass es möglich "
+"ist, sie auszuschneiden und in eine Druckerkonfigurationsdatei einzufügen. "
+"Siehe das [Installationsdokument](Installation.md) für Informationen über "
+"die Einrichtung von Klipper und die Auswahl einer ersten Konfigurationsdatei."
 
 msgid "Micro-controller configuration"
 msgstr "Mikrocontroller-Konfiguration"
@@ -88,13 +90,13 @@ msgid ""
 "then be used elsewhere in the config (where \"ar9\" is a hardware pin name or "
 "alias name on the given mcu)."
 msgstr ""
-"Zusätzliche Mikrocontroller (Jemand kann eine beliebige Anzahl an Abschnitten "
-"mit einer \"mcu\"-Präfix definieren). Zusätzliche Mikrocontroller fügen "
-"zusätzliche Pins hinzu die als Heizeinheiten, Schrittmotor, Lüfter etc.. "
-"konfiguriert werden können. Zum Beispiel, wenn ein Abschnitt \"[mcu "
-"extra_mcu]\" hinzugefügt wird, können Pins wie \"extra_mcu:ar9\" (wo \"ar9\" "
-"ein Hardware-Pin-Name oder Alias-Name von dem gegebenen mcu ist) woanders in "
-"der Konfiguration benutzt werden."
+"Zusätzliche Mikrocontroller (Jemand kann eine beliebige Anzahl an "
+"Abschnitten mit einer \"mcu\"-Präfix definieren). Zusätzliche "
+"Mikrocontroller fügen zusätzliche Pins hinzu die als Heizeinheiten, "
+"Schrittmotor, Lüfter etc.. konfiguriert werden können. Zum Beispiel, wenn "
+"ein Abschnitt \"[mcu extra_mcu]\" hinzugefügt wird, können Pins wie "
+"\"extra_mcu:ar9\" (wo \"ar9\" ein Hardware-Pin-Name oder Alias-Name von dem "
+"gegebenen mcu ist) woanders in der Konfiguration benutzt werden."
 
 msgid "Common kinematic settings"
 msgstr "Gebräuchliche Kinematik Einstellungen"
@@ -389,9 +391,9 @@ msgid ""
 "(eg, M24)."
 msgstr ""
 "Eine virtuelle SD Karte kann dann hilfreich sein, wenn der Host Computer  "
-"nicht schnell genug ist Octoprint flüssig auszuführen. Es erlaubt  der Klipper"
-" Software  direkt  Gcode aus einem Verzeichnis auf dem Host zu drucken bei "
-"Benutzung von Standard G-Code Kommandos (z.b. M24)"
+"nicht schnell genug ist Octoprint flüssig auszuführen. Es erlaubt  der "
+"Klipper Software  direkt  Gcode aus einem Verzeichnis auf dem Host zu "
+"drucken bei Benutzung von Standard G-Code Kommandos (z.b. M24)"
 
 msgid "[sdcard_loop]"
 msgstr "[sdcard_loop]"
@@ -508,11 +510,17 @@ msgid ""
 "See [sample-multi-extruder.cfg](../config/sample-multi-extruder.cfg) for an "
 "example configuration."
 msgstr ""
-"Siehe [sample-multi-extruder.cfg](./config/sample-multi-extruder.cfg) für eine"
-" Beispielkonfiguration."
+"Siehe [sample-multi-extruder.cfg](./config/sample-multi-extruder.cfg) für "
+"eine Beispielkonfiguration."
 
 msgid "[dual_carriage]"
 msgstr "[dual_carriage]"
+
+msgid ""
+"See [sample-idex.cfg](../config/sample-idex.cfg) for an example configuration."
+msgstr ""
+"Siehe [sample-idex.cfg](../config/sample-idex.cfg) für eine "
+"Beispielkonfiguration."
 
 msgid "[extruder_stepper]"
 msgstr "[extruder_stepper]"
@@ -999,8 +1007,8 @@ msgid ""
 "See the [generic-duet2-duex.cfg](../config/generic-duet2-duex.cfg) file for an"
 " example."
 msgstr ""
-"Siehe die Datei [generic-duet2-duex.cfg](../config/generic-duet2-duex.cfg) für"
-" ein Beispiel."
+"Siehe die Datei [generic-duet2-duex.cfg](../config/generic-duet2-duex.cfg) "
+"für ein Beispiel."
 
 msgid "[samd_sercom]"
 msgstr "[samd_sercom]"
@@ -1046,6 +1054,14 @@ msgid ""
 "If you use this module, do not use the Palette 2 plugin for Octoprint as they "
 "will conflict, and 1 will fail to initialize properly likely aborting your "
 "print."
+msgstr ""
+
+msgid ""
+"If you use Octoprint and stream gcode over the serial port instead of printing"
+" from virtual_sd, then remo **M1** and **M0** from *Pausing commands* in "
+"*Settings > Serial Connection > Firmware & protocol* will prevent the need to "
+"start print on the Palette 2 and unpausing in Octoprint for your print to "
+"begin."
 msgstr ""
 
 msgid "Common bus parameters"
@@ -1536,6 +1552,25 @@ msgstr "Unterstützung für LIS2DW Beschleunigungsmesser."
 msgid "[axis_twist_compensation]"
 msgstr "[axis_twist_compensation]"
 
+#: docs/Config_Reference.md:block 212 (paragraph)
+msgid ""
+"Support for cartesian and hybrid_corexy/z printers with dual carriages on a "
+"single axis. The carriage mode can be set via the SET_DUAL_CARRIAGE extended "
+"g-code command. For example, \"SET_DUAL_CARRIAGE CARRIAGE=1\" command will "
+"activate the carriage defined in this section (CARRIAGE=0 will return "
+"activation to the primary carriage). Dual carriage support is typically "
+"combined with extra extruders - the SET_DUAL_CARRIAGE command is often called "
+"at the same time as the ACTIVATE_EXTRUDER command. Be sure to park the "
+"carriages during deactivation. Note that during G28 homing, typically the "
+"primary carriage is homed first followed by the carriage defined in the "
+"`[dual_carriage]` config section. However, the `[dual_carriage]` carriage will"
+" be homed first if both carriages home in a positive direction and the "
+"[dual_carriage] carriage has a `position_endstop` greater than the primary "
+"carriage, or if both carriages home in a negative direction and the "
+"`[dual_carriage]` carriage has a `position_endstop` less than the primary "
+"carriage."
+msgstr ""
+
 #: docs/Config_Reference.md:block 213 (paragraph)
 msgid ""
 "Additionally, one could use \"SET_DUAL_CARRIAGE CARRIAGE=1 MODE=COPY\" or "
@@ -1555,10 +1590,10 @@ msgstr ""
 "Befehle können verwendet werden, um zwei Teile gleichzeitig zu drucken - "
 "entweder zwei identische Teile (im COPY-Modus) oder gespiegelte Teile (im "
 "MIRROR-Modus). Beachten Sie, dass die COPY- und MIRROR-Modi auch eine "
-"angemessene Konfiguration des Extruders auf dem doppelten Fahrwerk erfordern, "
-"die normalerweise mit \"SYNC_EXTRUDER_MOTION MOTION_QUEUE=extruder "
-"EXTRUDER=<dual_carriage_extruder>\" oder einem ähnlichen Befehl erreicht "
-"werden kann."
+"angemessene Konfiguration des Extruders auf dem doppelten Fahrwerk "
+"erfordern, die normalerweise mit \"SYNC_EXTRUDER_MOTION "
+"MOTION_QUEUE=extruder EXTRUDER=<dual_carriage_extruder>\" oder einem "
+"ähnlichen Befehl erreicht werden kann."
 
 #: docs/Config_Reference.md:block 259 (header)
 msgid "AHT10/AHT20/AHT21 temperature sensor"
@@ -1572,12 +1607,12 @@ msgid ""
 "[sample-macros.cfg](../config/sample-macros.cfg) for a gcode_macro that may be"
 " used to report humidity in addition to temperature."
 msgstr ""
-"AHT10/AHT20/AHT21 Zweidraht-Schnittstellen-Umweltsensoren (I2C). Beachten Sie,"
-" dass diese Sensoren nicht für den Einsatz mit Extrudern und Heizbetten "
-"gedacht sind, sondern vielmehr für die Überwachung der Umgebungstemperatur (C)"
-" und der relativen Luftfeuchtigkeit. Unter [sample-"
-"macros.cfg](../config/sample-macros.cfg) finden Sie ein gcode_macro, mit dem "
-"neben der Temperatur auch die Luftfeuchtigkeit gemeldet werden kann."
+"AHT10/AHT20/AHT21 Zweidraht-Schnittstellen-Umweltsensoren (I2C). Beachten "
+"Sie, dass diese Sensoren nicht für den Einsatz mit Extrudern und Heizbetten "
+"gedacht sind, sondern vielmehr für die Überwachung der Umgebungstemperatur "
+"(C) und der relativen Luftfeuchtigkeit. Unter [sample-macros.cfg](../config/"
+"sample-macros.cfg) finden Sie ein gcode_macro, mit dem neben der Temperatur "
+"auch die Luftfeuchtigkeit gemeldet werden kann."
 
 #: docs/Config_Reference.md:block 277 (header)
 msgid "Combined temperature sensor"
@@ -1760,255 +1795,6 @@ msgid ""
 "support a rate of 400000 via the `i2c_speed` parameter. All other Klipper "
 "micro-controllers use a 100000 rate and ignore the `i2c_speed` parameter."
 msgstr ""
-
-#: docs/Config_Reference.md:block 171 (header)
-msgid "[icm20948]"
-msgstr ""
-
-#: docs/Config_Reference.md:block 172 (paragraph)
-msgid "Support for icm20948 accelerometers."
-msgstr ""
-
-#: docs/Config_Reference.md:block 470 (header)
-msgid "[ads1x1x]"
-msgstr ""
-
-#: docs/Config_Reference.md:block 471 (paragraph)
-msgid ""
-"ADS1013, ADS1014, ADS1015, ADS1113, ADS1114 and ADS1115 are I2C based Analog "
-"to Digital Converters that can be used for temperature sensors. They provide 4"
-" analog input pins either as single line or as differential input."
-msgstr ""
-
-#: docs/Config_Reference.md:block 472 (paragraph)
-msgid ""
-"Note: Use caution if using this sensor to control heaters. The heater min_temp"
-" and max_temp are only verified in the host and only if the host is running "
-"and operating normally. (ADC inputs directly connected to the micro-controller"
-" verify min_temp and max_temp within the micro-controller and do not require a"
-" working connection to the host.)"
-msgstr ""
-
-#: docs/Config_Reference.md:block 474 (paragraph)
-msgid "The chip provides pins that can be used on other sensors."
-msgstr ""
-
-#: docs/Config_Reference.md:block 484 (paragraph)
-msgid ""
-"If you use Octoprint and stream gcode over the serial port instead of printing"
-" from virtual_sd, then remove **M1** and **M0** from *Pausing commands* in "
-"*Settings > Serial Connection > Firmware & protocol* will prevent the need to "
-"start print on the Palette 2 and unpausing in Octoprint for your print to "
-"begin."
-msgstr ""
-
-#: docs/Config_Reference.md:block 69 (header)
-msgid "Generic Cartesian Kinematics"
-msgstr ""
-
-#: docs/Config_Reference.md:block 70 (paragraph)
-msgid ""
-"See [example-generic-cartesian.cfg](../config/example-generic-caretesian.cfg) "
-"for an example generic Cartesian kinematics config file."
-msgstr ""
-
-#: docs/Config_Reference.md:block 71 (paragraph)
-msgid ""
-"This printer kinematic class allows a user to define in a pretty flexible "
-"manner an arbitrary Cartesian-style kinematics. In principle, the regular "
-"cartesian, corexy, hybrid_corexy can be defined this way too. However, more "
-"importantly, various otherwise unsupported kinematics such as inverted "
-"hybrid_corexy or corexyuv can be defined using this kinematic."
-msgstr ""
-
-#: docs/Config_Reference.md:block 72 (paragraph)
-msgid ""
-"Notably, the definition of a generic Cartesian kinematic deviates "
-"significantly from the other kinematic types. It follows the following "
-"convention: a user defines a set of carriages with certain range of motion "
-"that can move independently from each other (they should move over the "
-"Cartesian axes X, Y, and Z, hence the name of the kinematic) and corresponding"
-" endstops that allow the firmware to determine the position of carriages "
-"during homing, as well as a set of steppers that move those carriages. The "
-"`[printer]` section must specify the kinematic and other printer-level "
-"settings same as the regular Cartesian kinematic:"
-msgstr ""
-
-#: docs/Config_Reference.md:block 74 (paragraph)
-msgid ""
-"Then a user must define the following three carriages: `[carriage x]`, "
-"`[carriage y]`, and `[carriage z]`, e.g."
-msgstr ""
-
-#: docs/Config_Reference.md:block 76 (paragraph)
-msgid ""
-"Afterwards, a user specifies the stepper motors that move these carriages, for"
-" instance"
-msgstr ""
-
-#: docs/Config_Reference.md:block 78 (paragraph)
-msgid ""
-"See [stepper](#stepper) section for more information on the regular stepper "
-"parameters. The `carriages` parameter defines how the stepper affects the "
-"motion of the carriages. For example, `x+y` indicates that the motion of the "
-"stepper in the positive direction by the distance `d` moves the carriages `x` "
-"and `y` by the same distance `d` in the positive direction, while `x-0.5*y` "
-"means the motion of the stepper in the positive direction by the distance `d` "
-"moves the carriage `x` by the distance `d` in the positive direction, but the "
-"carriage `y` will travel distance `d/2` in the negative direction."
-msgstr ""
-
-#: docs/Config_Reference.md:block 79 (paragraph)
-msgid ""
-"More than a single stepper motor can be defined to drive the same axis or "
-"belt. For example, on a CoreXY AWD setups two motors driving the same belt can"
-" be defined as"
-msgstr ""
-
-#: docs/Config_Reference.md:block 81 (paragraph)
-msgid ""
-"with `a0` and `a1` steppers having their own control pins, but sharing the "
-"same `carriages` and corresponding endstops."
-msgstr ""
-
-#: docs/Config_Reference.md:block 82 (paragraph)
-msgid ""
-"There are situations when a user wants to have more than one endstop per axis."
-" Examples of such configurations include Y axis driven by two independent "
-"stepper motors with belts attached to both ends of the X beam, with "
-"effectively two carriages on Y axis each having an independent endstop, and "
-"multi-stepper Z axis with each stepper having its own endstop (not to be "
-"confused with the configurations with multiple Z motors but only a single "
-"endstop). These configurations can be declared by specifying additional "
-"carriage(s) with their endstops:"
-msgstr ""
-
-#: docs/Config_Reference.md:block 84 (paragraph)
-msgid "and the corresponding stepper motors, for example:"
-msgstr ""
-
-#: docs/Config_Reference.md:block 86 (paragraph)
-msgid ""
-"Notably, an `[extra_carriage]` does not define parameters such as "
-"`position_min`, `position_max`, and `position_endstop`, but instead inherits "
-"them from the specified `primary_carriage`, thus sharing the same range of "
-"motion with the primary carriage."
-msgstr ""
-
-#: docs/Config_Reference.md:block 87 (paragraph)
-msgid ""
-"For the references on how to configure IDEX setups, see the [dual "
-"carriage](#dual-carriage) section."
-msgstr ""
-
-#: docs/Config_Reference.md:block 240 (paragraph)
-msgid ""
-"Support for cartesian, generic_cartesian and hybrid_corexy/z printers with "
-"dual carriages on a single axis. The carriage mode can be set via the "
-"SET_DUAL_CARRIAGE extended g-code command. For example, \"SET_DUAL_CARRIAGE "
-"CARRIAGE=1\" command will activate the carriage defined in this section "
-"(CARRIAGE=0 will return activation to the primary carriage). Dual carriage "
-"support is typically combined with extra extruders - the SET_DUAL_CARRIAGE "
-"command is often called at the same time as the ACTIVATE_EXTRUDER command. Be "
-"sure to park the carriages during deactivation. Note that during G28 homing, "
-"typically the primary carriage is homed first followed by the carriage defined"
-" in the `[dual_carriage]` config section. However, the `[dual_carriage]` "
-"carriage will be homed first if both carriages home in a positive direction "
-"and the [dual_carriage] carriage has a `position_endstop` greater than the "
-"primary carriage, or if both carriages home in a negative direction and the "
-"`[dual_carriage]` carriage has a `position_endstop` less than the primary "
-"carriage."
-msgstr ""
-
-#: docs/Config_Reference.md:block 242 (paragraph)
-msgid ""
-"See [sample-idex.cfg](../config/sample-idex.cfg) for an example configuration "
-"with a regular Cartesian kinematic."
-msgstr ""
-
-#: docs/Config_Reference.md:block 244 (paragraph)
-msgid ""
-"For an example of dual carriage configuration with `generic_cartesian` "
-"kinematic, see the following configuration [sample](../config/example-generic-"
-"caretesian.cfg). Please note that in this case the `[dual_carriage]` "
-"configuration deviates from the configuration described above:"
-msgstr ""
-
-#: docs/Config_Reference.md:block 246 (paragraph)
-msgid ""
-"Refer to [generic cartesian](#generic-cartesian) section for more information "
-"on the regular `carriage` parameters."
-msgstr ""
-
-#: docs/Config_Reference.md:block 247 (paragraph)
-msgid ""
-"Then a user must define one or more stepper motors moving the dual carriage "
-"(and other carriages as appropriate), for instance"
-msgstr ""
-
-#: docs/Config_Reference.md:block 249 (paragraph)
-msgid ""
-"`[dual_carriage]` requires special configuration for the input shaper. In "
-"general, it is necessary to run input shaper calibration twice - for the "
-"`dual_carriage` and its `primary_carriage` for the axis they share. Then the "
-"input shaper can be configured as follows, assuming the example above:"
-msgstr ""
-
-#: docs/Config_Reference.md:block 251 (paragraph)
-msgid ""
-"Note that `SHAPER_TYPE_Y` and `SHAPER_FREQ_Y` must be the same in both "
-"commands in this case, since the same motors drive Y axis when either of the "
-"`x` and `u` carriages are active."
-msgstr ""
-
-#: docs/Config_Reference.md:block 252 (paragraph)
-msgid ""
-"It is worth noting that `generic_cartesian` kinematic can support two dual "
-"carriages for X and Y axes. For reference, see for instance a "
-"[sample](../config/sample-corexyuv.cfg) of CoreXYUV configuration."
-msgstr ""
-
-#: docs/Config_Reference.md:block 486 (header)
-msgid "[load_cell_probe]"
-msgstr ""
-
-#: docs/Config_Reference.md:block 487 (paragraph)
-msgid ""
-"Load Cell Probe. This combines the functionality of a [probe] and a "
-"[load_cell]."
-msgstr ""
-
-#~ msgid ""
-#~ "See [sample-idex.cfg](../config/sample-idex.cfg) for an example configuration."
-#~ msgstr ""
-#~ "Siehe [sample-idex.cfg](../config/sample-idex.cfg) für eine "
-#~ "Beispielkonfiguration."
-
-#~ msgid ""
-#~ "Support for cartesian and hybrid_corexy/z printers with dual carriages on a "
-#~ "single axis. The carriage mode can be set via the SET_DUAL_CARRIAGE extended "
-#~ "g-code command. For example, \"SET_DUAL_CARRIAGE CARRIAGE=1\" command will "
-#~ "activate the carriage defined in this section (CARRIAGE=0 will return "
-#~ "activation to the primary carriage). Dual carriage support is typically "
-#~ "combined with extra extruders - the SET_DUAL_CARRIAGE command is often called "
-#~ "at the same time as the ACTIVATE_EXTRUDER command. Be sure to park the "
-#~ "carriages during deactivation. Note that during G28 homing, typically the "
-#~ "primary carriage is homed first followed by the carriage defined in the "
-#~ "`[dual_carriage]` config section. However, the `[dual_carriage]` carriage will"
-#~ " be homed first if both carriages home in a positive direction and the "
-#~ "[dual_carriage] carriage has a `position_endstop` greater than the primary "
-#~ "carriage, or if both carriages home in a negative direction and the "
-#~ "`[dual_carriage]` carriage has a `position_endstop` less than the primary "
-#~ "carriage."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "If you use Octoprint and stream gcode over the serial port instead of printing"
-#~ " from virtual_sd, then remo **M1** and **M0** from *Pausing commands* in "
-#~ "*Settings > Serial Connection > Firmware & protocol* will prevent the need to "
-#~ "start print on the Palette 2 and unpausing in Octoprint for your print to "
-#~ "begin."
-#~ msgstr ""
 
 #~ msgid ""
 #~ "[mcu]\n"

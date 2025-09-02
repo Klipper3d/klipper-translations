@@ -1,22 +1,23 @@
-# Sebastian Fiedler <See1807@hotmail.de>, 2022.
-# Sven van Beckum <kontakt@partner-3d.de>, 2022.
+# Sebastian Fiedler <See1807@hotmail.de>, 2022, 2025.
+# Sven van Beckum <kontakt@partner-3d.de>, 2022, 2025.
 # Tobias Mohr <tobias_mohr_1991@gmx.de>, 2023.
-# Kev <leadustin@gmail.com>, 2024.
-# Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024.
+# Kev <leadustin@gmail.com>, 2024, 2025.
+# Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:35+0200\n"
-"PO-Revision-Date: 2024-04-19 15:03+0000\n"
-"Last-Translator: Niklas Tecklenborg <niklas.tecklenborg@gmail.com>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/klipper/protocol/de/>\n"
+"PO-Revision-Date: 2025-07-22 08:11+0000\n"
+"Last-Translator: Kev <leadustin@gmail.com>\n"
+"Language-Team: German <https://hosted.weblate.org/projects/klipper/protocol/"
+"de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 msgid ""
 "The Klipper messaging protocol is used for low-level communication between the"
@@ -26,12 +27,13 @@ msgid ""
 "side. An example series of commands in uncompressed human-readable format "
 "might look like:"
 msgstr ""
-"Das Klipper-Messaging-Protokoll wird für die Low-Level-Kommunikation zwischen "
-"der Klipper-Host-Software und der Klipper-Mikrocontroller-Software verwendet. "
-"Auf hoher Ebene kann man sich das Protokoll als eine Reihe von Befehls- und "
-"Antwortzeichenfolgen vorstellen, die komprimiert, übertragen und dann auf der "
-"Empfängerseite verarbeitet werden. Eine beispielhafte Reihe von Befehlen in "
-"unkomprimiertem, für Menschen lesbarem Format könnte folgendermaßen aussehen:"
+"Das Klipper-Messaging-Protokoll wird für die Low-Level-Kommunikation "
+"zwischen der Klipper-Host-Software und der Klipper-Mikrocontroller-Software "
+"verwendet. Auf hoher Ebene kann man sich das Protokoll als eine Reihe von "
+"Befehls- und Antwortzeichenfolgen vorstellen, die komprimiert, übertragen "
+"und dann auf der Empfängerseite verarbeitet werden. Eine beispielhafte Reihe "
+"von Befehlen in unkomprimiertem, für Menschen lesbarem Format könnte "
+"folgendermaßen aussehen:"
 
 msgid ""
 "See the [mcu commands](MCU_Commands.md) document for information on available "

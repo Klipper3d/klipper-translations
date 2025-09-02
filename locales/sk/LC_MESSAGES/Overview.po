@@ -1,9 +1,9 @@
-# Warder <ciksa@seznam.cz>, 2025.
+#
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-08-09 08:02+0000\n"
-"Last-Translator: Warder <ciksa@seznam.cz>\n"
+"PO-Revision-Date: 2025-07-22 09:10+0000\n"
+"Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Slovak <https://hosted.weblate.org/projects/klipper/overview/"
 "sk/>\n"
 "Language: sk\n"
@@ -16,50 +16,40 @@ msgid ""
 "Welcome to the Klipper documentation. If new to Klipper, start with the "
 "[features](Features.md) and [installation](Installation.md) documents."
 msgstr ""
-"Vitajte v dokumentácii ku Klipperu. Ak s Klipperom začínate, začnite s "
-"dokumentmi [features](Features.md) a [installation](Installation.md)."
 
 msgid "Overview information"
-msgstr "Prehľad informácií"
+msgstr ""
 
 msgid "[Features](Features.md): A high-level list of features in Klipper."
-msgstr "[Funkcie](Features.md): Zoznam funkcií v Klipperi na vysokej úrovni."
+msgstr ""
 
 msgid "[FAQ](FAQ.md): Frequently asked questions."
-msgstr "[FAQ](FAQ.md): Často kladené otázky."
+msgstr ""
 
 msgid "[Releases](Releases.md): The history of Klipper releases."
-msgstr "[Vydania](Releases.md): História vydaní Klipper."
+msgstr ""
 
 msgid ""
 "[Config changes](Config_Changes.md): Recent software changes that may require "
 "users to update their printer config file."
 msgstr ""
-"[Zmeny konfigurácie](Config_Changes.md): Nedávne zmeny softvéru, ktoré môžu "
-"vyžadovať od používateľov aktualizáciu konfiguračného súboru tlačiarne."
 
 msgid ""
 "[Contact](Contact.md): Information on bug reporting and general communication "
 "with the Klipper developers."
 msgstr ""
-"[Kontakt](Contact.md): Informácie o hlásení chýb a všeobecnej komunikácii s "
-"vývojármi Klipperu."
 
 msgid "[Installation](Installation.md): Guide to installing Klipper."
-msgstr "[Inštalácia](Installation.md): Sprievodca inštaláciou Klipperu."
+msgstr ""
 
 msgid ""
 "[Config Reference](Config_Reference.md): Description of config parameters."
 msgstr ""
-"[Referencia konfigurácie](Config_Reference.md): Popis konfiguračných "
-"parametrov."
 
 msgid ""
 "[Rotation Distance](Rotation_Distance.md): Calculating the rotation_distance "
 "stepper parameter."
 msgstr ""
-"[Rotation Distance](Rotation_Distance.md): Výpočet krokového parametra "
-"rotation_distance."
 
 msgid ""
 "[Config checks](Config_checks.md): Verify basic pin settings in the config "
@@ -130,7 +120,7 @@ msgid "[G-Codes](G-Codes.md): Information on commands supported by Klipper."
 msgstr ""
 
 msgid "Developer Documentation"
-msgstr "Dokumentácia pre vývojárov"
+msgstr ""
 
 msgid "[Code overview](Code_Overview.md): Developers should read this first."
 msgstr ""
@@ -173,7 +163,7 @@ msgid "[Packaging](Packaging.md): Information on building OS packages."
 msgstr ""
 
 msgid "Device Specific Documents"
-msgstr "Dokumenty špecifické pre zariadenie"
+msgstr ""
 
 msgid ""
 "[Example configs](Example_Configs.md): Information on adding an example config"
@@ -207,7 +197,7 @@ msgstr ""
 
 #: docs/Overview.md:block 5 (header)
 msgid "Installation and Configuration"
-msgstr "Inštalácia a konfigurácia"
+msgstr ""
 
 #: docs/Overview.md:block 6 (unordered list)
 msgid ""
@@ -259,10 +249,6 @@ msgstr ""
 
 #: docs/Overview.md:block 10 (unordered list)
 msgid "[Eddy Current Inductive probe](Eddy_Probe.md)"
-msgstr ""
-
-#: docs/Overview.md:block 10 (unordered list)
-msgid "[Load Cells](Load_Cell.md)"
 msgstr ""
 
 #~ msgid ""

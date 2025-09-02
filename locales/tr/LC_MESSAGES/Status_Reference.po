@@ -1,26 +1,27 @@
-# zafer yazkili <yazkili@hotmail.com>, 2023.
-# mustafa kaya <m.mkaya92@gmail.com>, 2024.
-# Sümer Okan <smr.okan@gmail.com>, 2024.
+# zafer yazkili <yazkili@hotmail.com>, 2023, 2025.
+# mustafa kaya <m.mkaya92@gmail.com>, 2024, 2025.
+# Sümer Okan <smr.okan@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-06-27 08:09+0000\n"
+"PO-Revision-Date: 2025-07-22 08:07+0000\n"
 "Last-Translator: Sümer Okan <smr.okan@gmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/status_reference/tr/>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/"
+"status_reference/tr/>\n"
 "Language: tr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.6-rc\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 msgid ""
 "This document is a reference of printer status information available in "
 "Klipper [macros](Command_Templates.md), [display "
 "fields](Config_Reference.md#display), and via the [API Server](API_Server.md)."
 msgstr ""
-"Bu belge, Klipper [makrolar](Command_Templates.md), [görüntü "
-"alanları](Config_Reference.md#display) ve [API Sunucusu](API_Server.md) "
-"aracılığıyla kullanılabilen yazıcı durumu bilgilerinin bir referansıdır."
+"Bu belge, Klipper [makrolar](Command_Templates.md), [görüntü alanları]"
+"(Config_Reference.md#display) ve [API Sunucusu](API_Server.md) aracılığıyla "
+"kullanılabilen yazıcı durumu bilgilerinin bir referansıdır."
 
 msgid ""
 "The fields in this document are subject to change - if using an attribute be "

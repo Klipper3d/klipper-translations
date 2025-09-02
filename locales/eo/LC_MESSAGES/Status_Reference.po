@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-08-06 11:05+0000\n"
+"PO-Revision-Date: 2025-07-22 09:15+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Esperanto <https://hosted.weblate.org/projects/klipper/"
 "status_reference/eo/>\n"
@@ -806,6 +806,12 @@ msgstr ""
 msgid "bed_screws"
 msgstr ""
 
+#: docs/Status_Reference.md:block 11 (paragraph)
+msgid ""
+"The following information is available in the `Config_Reference.md#bed_screws`"
+" object:"
+msgstr ""
+
 #: docs/Status_Reference.md:block 12 (unordered list)
 msgid ""
 "`is_active`: Returns True if the bed screws adjustment tool is currently "
@@ -1057,180 +1063,6 @@ msgid ""
 "`humidity`, `pressure`, `gas`: The last read values from the sensor (only on "
 "bme280, htu21d, sht3x and lm75 sensors)."
 msgstr ""
-
-#: docs/Status_Reference.md:block 11 (paragraph)
-#, fuzzy
-msgid ""
-"The following information is available in the "
-"[bed_screws](Config_Reference.md#bed_screws) object:"
-msgstr ""
-
-#: docs/Status_Reference.md:block 13 (header)
-#, fuzzy
-msgid "canbus_stats"
-msgstr ""
-
-#: docs/Status_Reference.md:block 14 (paragraph)
-#, fuzzy
-msgid ""
-"The following information is available in the `canbus_stats some_mcu_name` "
-"object (this object is automatically available if an mcu is configured to use "
-"canbus):"
-msgstr ""
-
-#: docs/Status_Reference.md:block 15 (unordered list)
-#, fuzzy
-msgid ""
-"`rx_error`: The number of receive errors detected by the micro-controller "
-"canbus hardware."
-msgstr ""
-
-#: docs/Status_Reference.md:block 15 (unordered list)
-#, fuzzy
-msgid ""
-"`tx_error`: The number of transmit errors detected by the micro-controller "
-"canbus hardware."
-msgstr ""
-
-#: docs/Status_Reference.md:block 15 (unordered list)
-#, fuzzy
-msgid ""
-"`tx_retries`: The number of transmit attempts that were retried due to bus "
-"contention or errors."
-msgstr ""
-
-#: docs/Status_Reference.md:block 15 (unordered list)
-#, fuzzy
-msgid ""
-"`bus_state`: The status of the interface (typically \"active\" for a bus in "
-"normal operation, \"warn\" for a bus with recent errors, \"passive\" for a bus"
-" that will no longer transmit canbus error frames, or \"off\" for a bus that "
-"will no longer transmit or receive messages)."
-msgstr ""
-
-#: docs/Status_Reference.md:block 16 (paragraph)
-#, fuzzy
-msgid ""
-"Note that only the rp2XXX micro-controllers report a non-zero `tx_retries` "
-"field and the rp2XXX micro-controllers always report `tx_error` as zero and "
-"`bus_state` as \"active\"."
-msgstr ""
-
-#: docs/Status_Reference.md:block 57 (unordered list)
-#, fuzzy
-msgid ""
-"all items from "
-"[filament_switch_sensor](Status_Reference.md#filament_switch_sensor)"
-msgstr ""
-
-#: docs/Status_Reference.md:block 70 (header)
-#, fuzzy
-msgid "load_cell"
-msgstr ""
-
-#: docs/Status_Reference.md:block 71 (paragraph)
-#, fuzzy
-msgid "The following information is available for each `[load_cell name]`:"
-msgstr ""
-
-#: docs/Status_Reference.md:block 72 (unordered list)
-#, fuzzy
-msgid "'is_calibrated': True/False is the load cell calibrated"
-msgstr ""
-
-#: docs/Status_Reference.md:block 72 (unordered list)
-#, fuzzy
-msgid ""
-"'counts_per_gram': The number of raw sensor counts that equals 1 gram of force"
-msgstr ""
-
-#: docs/Status_Reference.md:block 72 (unordered list)
-#, fuzzy
-msgid ""
-"'reference_tare_counts': The reference number of raw sensor counts for 0 force"
-msgstr ""
-
-#: docs/Status_Reference.md:block 72 (unordered list)
-#, fuzzy
-msgid "'tare_counts': The current number of raw sensor counts for 0 force"
-msgstr ""
-
-#: docs/Status_Reference.md:block 72 (unordered list)
-#, fuzzy
-msgid "'force_g': The force in grams, averaged over the last polling period."
-msgstr ""
-
-#: docs/Status_Reference.md:block 72 (unordered list)
-#, fuzzy
-msgid "'min_force_g': The minimum force in grams, over the last polling period."
-msgstr ""
-
-#: docs/Status_Reference.md:block 72 (unordered list)
-#, fuzzy
-msgid "'max_force_g': The maximum force in grams, over the last polling period."
-msgstr ""
-
-#: docs/Status_Reference.md:block 112 (header)
-#, fuzzy
-msgid "skew_correction.py"
-msgstr ""
-
-#: docs/Status_Reference.md:block 113 (paragraph)
-#, fuzzy
-msgid ""
-"The following information is available in the `skew_correction` object (this "
-"object is available if any skew_correction is defined):"
-msgstr ""
-
-#: docs/Status_Reference.md:block 114 (unordered list)
-#, fuzzy
-msgid ""
-"`current_profile_name`: Returns the name of the currently loaded SKEW_PROFILE."
-msgstr ""
-
-#: docs/Status_Reference.md:block 73 (header)
-msgid "load_cell_probe"
-msgstr ""
-
-#: docs/Status_Reference.md:block 74 (paragraph)
-msgid "The following information is available for `[load_cell_probe]`:"
-msgstr ""
-
-#: docs/Status_Reference.md:block 75 (unordered list)
-msgid "all items from [load_cell](Status_Reference.md#load_cell)"
-msgstr ""
-
-#: docs/Status_Reference.md:block 75 (unordered list)
-msgid "all items from [probe](Status_Reference.md#probe)"
-msgstr ""
-
-#: docs/Status_Reference.md:block 75 (unordered list)
-msgid ""
-"'endstop_tare_counts': the load cell probe keeps a tare value independent of "
-"the load cell. This re-set at the start of each probe."
-msgstr ""
-
-#: docs/Status_Reference.md:block 75 (unordered list)
-msgid "'last_trigger_time': timestamp of the last homing trigger"
-msgstr ""
-
-#: docs/Status_Reference.md:block 143 (paragraph)
-msgid ""
-"On a `generic_cartesian` kinematic, the following information is available in "
-"`dual_carriage`:"
-msgstr ""
-
-#: docs/Status_Reference.md:block 144 (unordered list)
-msgid ""
-"`carriages[\"<carriage>\"]`: The mode of the carriage `<carriage>`. Possible "
-"values are \"INACTIVE\" and \"PRIMARY\" for the primary carriage and "
-"\"INACTIVE\", \"PRIMARY\", \"COPY\", and \"MIRROR\" for the dual carriage."
-msgstr ""
-
-#~ msgid ""
-#~ "The following information is available in the `Config_Reference.md#bed_screws`"
-#~ " object:"
-#~ msgstr ""
 
 #~ msgid ""
 #~ "[\n"

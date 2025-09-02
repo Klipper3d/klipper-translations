@@ -1,16 +1,17 @@
-# zafer yazkili <yazkili@hotmail.com>, 2023.
-# Makers Lab <makerslab.tr@gmail.com>, 2024.
+# zafer yazkili <yazkili@hotmail.com>, 2023, 2025.
+# Makers Lab <makerslab.tr@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-05-07 11:07+0000\n"
+"PO-Revision-Date: 2025-07-22 08:06+0000\n"
 "Last-Translator: Makers Lab <makerslab.tr@gmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/rotation_distance/tr/>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/"
+"rotation_distance/tr/>\n"
 "Language: tr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5.4-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 msgid ""
 "Stepper motor drivers on Klipper require a `rotation_distance` parameter in "
@@ -19,8 +20,8 @@ msgid ""
 "full revolution of the stepper motor. This document describes how one can "
 "configure this value."
 msgstr ""
-"Klipper üzerindeki step motor sürücüleri, her [adım yapılandırma "
-"bölümünde](Config_Reference.md#stepper) bir \"rotation_distance\" parametresi "
+"Klipper üzerindeki step motor sürücüleri, her [adım yapılandırma bölümünde]"
+"(Config_Reference.md#stepper) bir \"rotation_distance\" parametresi "
 "gerektirir. \"rotation_distance\", step motorun bir tam dönüşünde eksenin "
 "hareket ettiği mesafe miktarıdır. Bu belge, bu değerin nasıl "
 "yapılandırılacağını açıklar."

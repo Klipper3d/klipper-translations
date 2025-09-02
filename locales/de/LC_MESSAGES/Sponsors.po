@@ -1,17 +1,19 @@
-# Yifei Ding <dingyifeiair@gmail.com>, 2022.
+# Yifei Ding <dingyifeiair@gmail.com>, 2022, 2025.
 # Mathis Mensing <gcmatmen@gmail.com>, 2022.
-# Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024.
+# Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024, 2025.
+# Mathis Mensing <github@matmen.dev>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-04-11 07:01+0000\n"
-"Last-Translator: Niklas Tecklenborg <niklas.tecklenborg@gmail.com>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/klipper/sponsors/de/>\n"
+"PO-Revision-Date: 2025-07-22 08:42+0000\n"
+"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Language-Team: German <https://hosted.weblate.org/projects/klipper/sponsors/"
+"de/>\n"
 "Language: de\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: docs/Sponsors.md:block 1 (header)
 msgid "Sponsors"
@@ -41,8 +43,8 @@ msgstr ""
 "BIGTREETECH ist der offizielle Mainboard Sponsor von Klipper. BIGTREETECH "
 "engagiert sich für die Entwicklung innovativer und wettbewerbsfähiger "
 "Produkte, um die 3D-Druck-Community besser zu unterstützen. Folgen Sie ihnen "
-"auf [Facebook](https://www.facebook.com/BIGTREETECH) oder "
-"[Twitter](https://twitter.com/BigTreeTech)."
+"auf [Facebook](https://www.facebook.com/BIGTREETECH) oder [Twitter](https://"
+"twitter.com/BigTreeTech)."
 
 #: docs/Sponsors.md:block 6 (header)
 msgid "Klipper Developers"
@@ -101,16 +103,17 @@ msgid ""
 "Kevin is the original author and current maintainer of Klipper. Donate at: "
 "<https://ko-fi.com/koconnor> or <https://www.patreon.com/koconnor>"
 msgstr ""
-"Kevin ist der ursprüngliche Autor und derzeitige Betreuer von Klipper. Donate "
-"at: <https://ko-fi.com/koconnor> oder <https://www.patreon.com/koconnor>"
+"Kevin ist der ursprüngliche Autor und derzeitige Betreuer von Klipper. "
+"Donate at: <https://ko-fi.com/koconnor> oder <https://www.patreon.com/"
+"koconnor>"
 
 #: docs/Sponsors.md:block 4 (paragraph)
 msgid ""
 "[<img src=\"./img/sponsors/BTT_BTT.png\" width=\"200\" "
 "style=\"margin:25px\"/>](https://bigtree-tech.com/collections/all-products)"
 msgstr ""
-"[<img src=\"./img/sponsors/BTT_BTT.png\" width=\"200\" "
-"style=\"margin:25px\"/>](https://bigtree-tech.com/collections/all-products)"
+"[<img src=\"./img/sponsors/BTT_BTT.png\" width=\"200\" style=\"margin:25px\""
+"/>](https://bigtree-tech.com/collections/all-products)"
 
 #: docs/Sponsors.md:block 7 (paragraph)
 msgid ""
