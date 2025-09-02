@@ -1,17 +1,19 @@
 # Pepe <ec288eb6-6bd6-473b-93a5-5c8fb60ceb16@simplelogin.fr>, 2022.
-# Adolfo Jayme Barrientos <fitojb@ubuntu.com>, 2022.
-# Cecilia Mora <cecilia-mora22@hotmail.com>, 2022.
+# Adolfo Jayme Barrientos <fitojb@ubuntu.com>, 2022, 2025.
+# Cecilia Mora <cecilia-mora22@hotmail.com>, 2022, 2025.
+# Pepe <bungeeranked@users.noreply.hosted.weblate.org>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2022-10-05 22:22+0000\n"
+"PO-Revision-Date: 2025-07-22 08:02+0000\n"
 "Last-Translator: Cecilia Mora <cecilia-mora22@hotmail.com>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/contributing/es/>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/"
+"contributing/es/>\n"
 "Language: es\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.14.1\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 msgid "Contributing to Klipper"
 msgstr "Contribuir a Klipper"
@@ -51,8 +53,8 @@ msgid ""
 "updates."
 msgstr ""
 "Si ya existe una traducción en el repositorio Klipper y ya no cumple con la "
-"lista de comprobación anterior, se marcará como obsoleta después de un mes sin"
-" actualizaciones."
+"lista de comprobación anterior, se marcará como obsoleta después de un mes "
+"sin actualizaciones."
 
 #: docs/CONTRIBUTING.md:block 2 (paragraph)
 msgid ""
@@ -178,9 +180,9 @@ msgid ""
 "comments."
 msgstr ""
 "Los comentarios en los envíos de código deben focalizarse en mejorar el "
-"mantenimiento del código. Los envíos no deben contener código comentarizado ni"
-" comentarios excesivos que describan elaboraciones pasadas. Tampoco debería "
-"haber comentarios sobre tareas pendientes en demasía."
+"mantenimiento del código. Los envíos no deben contener código comentarizado "
+"ni comentarios excesivos que describan elaboraciones pasadas. Tampoco "
+"debería haber comentarios sobre tareas pendientes en demasía."
 
 #: docs/CONTRIBUTING.md:block 13 (ordered list)
 msgid ""

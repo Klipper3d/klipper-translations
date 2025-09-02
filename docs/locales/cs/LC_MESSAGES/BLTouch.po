@@ -1,16 +1,17 @@
-# Vojtech Horvath <wojtas@email.cz>, 2022.
-# Pavel Šubík <wgspider@gmail.com>, 2024.
+# Vojtech Horvath <wojtas@email.cz>, 2022, 2025.
+# Pavel Šubík <wgspider@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-01-17 13:06+0000\n"
-"Last-Translator: Pavel Šubík <wgspider@gmail.com>\n"
-"Language-Team: Czech <https://hosted.weblate.org/projects/klipper/bltouch/cs/>\n"
+"PO-Revision-Date: 2025-07-22 08:28+0000\n"
+"Last-Translator: Vojtech Horvath <wojtas@email.cz>\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/klipper/bltouch/cs/"
+">\n"
 "Language: cs\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2;\n"
-"X-Generator: Weblate 5.4-dev\n"
+"Plural-Forms: nplurals=3; plural=((n==1) ? 0 : (n>=2 && n<=4) ? 1 : 2);\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 msgid "Connecting BL-Touch"
 msgstr "Připojení BL-Touch"
@@ -21,8 +22,9 @@ msgid ""
 "it, be very gentle, in order to not bend or push anything."
 msgstr ""
 "**Varování** předtím, než začnete: Vyvarujte se dotyku pinu BL-Touch svými "
-"holými prsty, protože je velmi citlivý na mastnotu z prstů. A pokud ho opravdu"
-" musíte dotknout, buďte velmi opatrní, aby nedošlo k ohnutí nebo poškození."
+"holými prsty, protože je velmi citlivý na mastnotu z prstů. A pokud ho "
+"opravdu musíte dotknout, buďte velmi opatrní, aby nedošlo k ohnutí nebo "
+"poškození."
 
 msgid ""
 "Hook up the BL-Touch \"servo\" connector to a `control_pin` according to the "

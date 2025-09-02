@@ -1,22 +1,23 @@
-# Sven van Beckum <kontakt@partner-3d.de>, 2022.
+# Sven van Beckum <kontakt@partner-3d.de>, 2022, 2025.
 # Mathis Mensing <gcmatmen@gmail.com>, 2022.
-# Kev <leadustin@gmail.com>, 2024.
-# Extrutex <w1indt@outlook.com>, 2024.
-# Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024.
+# Kev <leadustin@gmail.com>, 2024, 2025.
+# Extrutex <w1indt@outlook.com>, 2024, 2025.
+# Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:36+0200\n"
-"PO-Revision-Date: 2024-04-19 15:03+0000\n"
-"Last-Translator: Niklas Tecklenborg <niklas.tecklenborg@gmail.com>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/klipper/kinematics/de/>\n"
+"PO-Revision-Date: 2025-07-22 08:12+0000\n"
+"Last-Translator: Sven van Beckum <kontakt@partner-3d.de>\n"
+"Language-Team: German <https://hosted.weblate.org/projects/klipper/"
+"kinematics/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 msgid ""
 "This document provides an overview of how Klipper implements robot motion (its"
@@ -25,11 +26,11 @@ msgid ""
 "as well as users interested in better understanding the mechanics of their "
 "machines."
 msgstr ""
-"Dieses Dokument gibt einen Überblick darüber, wie Klipper die Roboterbewegung "
-"implementiert (seine [Kinematik](https://en.wikipedia.org/wiki/Kinematics)). "
-"Der Inhalt kann sowohl für Entwickler, die an der Klipper-Software arbeiten "
-"wollen, als auch für Benutzer, die die Mechanik ihrer Maschinen besser "
-"verstehen wollen, von Interesse sein."
+"Dieses Dokument gibt einen Überblick darüber, wie Klipper die "
+"Roboterbewegung implementiert (seine [Kinematik](https://en.wikipedia.org/"
+"wiki/Kinematics)). Der Inhalt kann sowohl für Entwickler, die an der Klipper-"
+"Software arbeiten wollen, als auch für Benutzer, die die Mechanik ihrer "
+"Maschinen besser verstehen wollen, von Interesse sein."
 
 msgid "Acceleration"
 msgstr "Beschleunigung"

@@ -1,16 +1,17 @@
-# zafer yazkili <yazkili@hotmail.com>, 2023.
-# mustafa kaya <m.mkaya92@gmail.com>, 2024.
+# zafer yazkili <yazkili@hotmail.com>, 2023, 2025.
+# mustafa kaya <m.mkaya92@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-04-18 08:03+0000\n"
-"Last-Translator: mustafa kaya <m.mkaya92@gmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/sdcard_updates/tr/>\n"
+"PO-Revision-Date: 2025-07-22 08:06+0000\n"
+"Last-Translator: zafer yazkili <yazkili@hotmail.com>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/"
+"sdcard_updates/tr/>\n"
 "Language: tr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 msgid ""
 "Many of today's popular controller boards ship with a bootloader capable of "
@@ -25,10 +26,10 @@ msgstr ""
 "yazılımını güncelleyebilen bir önyükleyici ile birlikte gelir. Bu birçok "
 "durumda uygun olsa da, bu önyükleyiciler tipik olarak aygıt yazılımını "
 "güncellemek için başka bir yol sağlamaz. Anakartınız erişimi zor bir yere "
-"monte edilmişse veya ürün yazılımını sık sık güncellemeniz gerekiyorsa bu can "
-"sıkıcı olabilir. Klipper başlangıçta bir denetleyiciye yüklendikten sonra, "
-"yeni ürün yazılımını SD Karta aktarmak ve ssh yoluyla yükleme prosedürünü "
-"başlatmak mümkündür."
+"monte edilmişse veya ürün yazılımını sık sık güncellemeniz gerekiyorsa bu "
+"can sıkıcı olabilir. Klipper başlangıçta bir denetleyiciye yüklendikten "
+"sonra, yeni ürün yazılımını SD Karta aktarmak ve ssh yoluyla yükleme "
+"prosedürünü başlatmak mümkündür."
 
 msgid "Typical Upgrade Procedure"
 msgstr "Tipik Yükseltme Prosedürü"

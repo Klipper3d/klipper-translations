@@ -1,31 +1,34 @@
-# Yusuf Yavuzyigit <yusufyavuzyigit25@gmail.com>, 2021.
-# Oguz <mustafa.oguz@live.com>, 2022.
-# Mustafa Said Ağca <m.said.agca@gmail.com>, 2022.
-# Kaan Özbilek <info@kaanozbilek.com>, 2023.
-# Kursat <sitting_1907@hotmail.com>, 2023.
-# Semih <semihbrn10@gmail.com>, 2024.
-# kasım atmaca <kasim.atmaca13@gmail.com>, 2024.
-# Sümer Okan <smr.okan@gmail.com>, 2024.
-# Murateba <robloxmurat5@gmail.com>, 2024.
-# Tuna Dinçer <hweord@gmail.com>, 2024.
+# Yusuf Yavuzyigit <yusufyavuzyigit25@gmail.com>, 2021, 2025.
+# Oguz <mustafa.oguz@live.com>, 2022, 2025.
+# Mustafa Said Ağca <m.said.agca@gmail.com>, 2022, 2025.
+# Kaan Özbilek <info@kaanozbilek.com>, 2023, 2025.
+# Kursat <sitting_1907@hotmail.com>, 2023, 2025.
+# Semih <semihbrn10@gmail.com>, 2024, 2025.
+# kasım atmaca <kasim.atmaca13@gmail.com>, 2024, 2025.
+# Sümer Okan <smr.okan@gmail.com>, 2024, 2025.
+# Murateba <robloxmurat5@gmail.com>, 2024, 2025.
+# Tuna Dinçer <hweord@gmail.com>, 2024, 2025.
+# Deleted User <noreply+98848@weblate.org>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-11-23 08:00+0000\n"
-"Last-Translator: Tuna Dinçer <hweord@gmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/overview/tr/>\n"
+"PO-Revision-Date: 2025-07-22 08:08+0000\n"
+"Last-Translator: Deleted User <noreply+98848@weblate.org>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/overview/"
+"tr/>\n"
 "Language: tr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.9-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 msgid ""
 "Welcome to the Klipper documentation. If new to Klipper, start with the "
 "[features](Features.md) and [installation](Installation.md) documents."
 msgstr ""
 "Klipper dökümantasyonuna hoş geldiniz. Eğer Klipper'de yeni iseniz , "
-"[özellikler](Features.md) ve [kurulum](Installation.md) ile başlayabilirsiniz."
+"[özellikler](Features.md) ve [kurulum](Installation.md) ile "
+"başlayabilirsiniz."
 
 msgid "Overview information"
 msgstr "Genel Bakış"
@@ -97,7 +100,8 @@ msgstr "[BL-Touch](BLTouch.md): Bir \"BL-Touch\" Z probu yapılandırın."
 msgid ""
 "[Manual level](Manual_Level.md): Calibration of Z endstops (and similar)."
 msgstr ""
-"[Manuel seviye](Manual_Level.md): Z uç duraklarının (ve benzeri) kalibrasyonu."
+"[Manuel seviye](Manual_Level.md): Z uç duraklarının (ve benzeri) "
+"kalibrasyonu."
 
 msgid "[Bed Mesh](Bed_Mesh.md): Bed height correction based on XY locations."
 msgstr ""
@@ -113,8 +117,8 @@ msgid ""
 "[Resonance compensation](Resonance_Compensation.md): A tool to reduce ringing "
 "in prints."
 msgstr ""
-"[Rezonans telafisi](Resonance_Compensation.md): Baskılardaki çınlamayı azaltan"
-" bir araç."
+"[Rezonans telafisi](Resonance_Compensation.md): Baskılardaki çınlamayı "
+"azaltan bir araç."
 
 msgid ""
 "[Measuring resonances](Measuring_Resonances.md): Information on using adxl345 "
@@ -183,8 +187,8 @@ msgid ""
 "[Protocol](Protocol.md): Information on the low-level messaging protocol "
 "between host and micro-controller."
 msgstr ""
-"[Protokol](Protocol.md): Ana bilgisayar ile mikro denetleyici arasındaki düşük"
-" düzey mesajlaşma protokolü hakkında bilgi."
+"[Protokol](Protocol.md): Ana bilgisayar ile mikro denetleyici arasındaki "
+"düşük düzey mesajlaşma protokolü hakkında bilgi."
 
 msgid ""
 "[API Server](API_Server.md): Information on Klipper's command and control API."
@@ -232,8 +236,8 @@ msgid ""
 "[Example configs](Example_Configs.md): Information on adding an example config"
 " file to Klipper."
 msgstr ""
-"[Örnek yapılandırmalar](Example_Configs.md): Klipper'a örnek bir yapılandırma "
-"dosyası ekleme üzerine bilgilendirme."
+"[Örnek yapılandırmalar](Example_Configs.md): Klipper'a örnek bir "
+"yapılandırma dosyası ekleme üzerine bilgilendirme."
 
 msgid ""
 "[SDCard Updates](SDCard_Updates.md): Flash a micro-controller by copying a "
@@ -246,8 +250,9 @@ msgid ""
 "[Raspberry Pi as Micro-controller](RPi_microcontroller.md): Details for "
 "controlling devices wired to the GPIO pins of a Raspberry Pi."
 msgstr ""
-"[Mikro denetleyici olarak Raspberry Pi](RPi_microcontroller.md): Bir Raspberry"
-" Pi üzerindeki GPIO pinlerine bağlı cihazları kontrol etmek için ayrıntılar."
+"[Mikro denetleyici olarak Raspberry Pi](RPi_microcontroller.md): Bir "
+"Raspberry Pi üzerindeki GPIO pinlerine bağlı cihazları kontrol etmek için "
+"ayrıntılar."
 
 msgid ""
 "[Bootloaders](Bootloaders.md): Developer information on micro-controller "

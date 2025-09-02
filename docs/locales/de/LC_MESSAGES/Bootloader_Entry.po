@@ -1,16 +1,17 @@
-# Ettore Atalan <atalanttore@googlemail.com>, 2023.
-# Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024.
+# Ettore Atalan <atalanttore@googlemail.com>, 2023, 2025.
+# Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-04-11 07:01+0000\n"
-"Last-Translator: Niklas Tecklenborg <niklas.tecklenborg@gmail.com>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/klipper/bootloader_entry/de/>\n"
+"PO-Revision-Date: 2025-07-22 08:59+0000\n"
+"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
+"Language-Team: German <https://hosted.weblate.org/projects/klipper/"
+"bootloader_entry/de/>\n"
 "Language: de\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: docs/Bootloader_Entry.md:block 1 (header)
 msgid "Bootloader Entry"
@@ -21,8 +22,8 @@ msgid ""
 "Klipper can be instructed to reboot into a [Bootloader](Bootloaders.md) in one"
 " of the following ways:"
 msgstr ""
-"Klipper kann auf eine der folgenden Arten zum Neustart in einen "
-"[Bootloader](Bootloaders.md) angewiesen werden:"
+"Klipper kann auf eine der folgenden Arten zum Neustart in einen [Bootloader]"
+"(Bootloaders.md) angewiesen werden:"
 
 #: docs/Bootloader_Entry.md:block 3 (header)
 msgid "Requesting the bootloader"

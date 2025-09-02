@@ -1,10 +1,9 @@
-# Pavol Vrba <pvrba2000@gmail.com>, 2024.
-# Warder <ciksa@seznam.cz>, 2025.
+# Pavol Vrba <pvrba2000@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-08-09 08:02+0000\n"
-"Last-Translator: Warder <ciksa@seznam.cz>\n"
+"PO-Revision-Date: 2025-07-22 09:10+0000\n"
+"Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Slovak <https://hosted.weblate.org/projects/klipper/sponsors/"
 "sk/>\n"
 "Language: sk\n"
@@ -38,10 +37,10 @@ msgid ""
 "[Twitter](https://twitter.com/BigTreeTech)."
 msgstr ""
 "BIGTREETECH je oficiálny sponzor základnej dosky Klipper. Spoločnosť "
-"BIGTREETECH sa zaviazala vyvíjať inovatívne a konkurencieschopné produkty, aby"
-" lepšie slúžili komunite 3D tlače. Sledujte ich na "
-"[Facebook](https://www.facebook.com/BIGTREETECH) alebo "
-"[Twitter](https://twitter.com/BigTreeTech)."
+"BIGTREETECH sa zaviazala vyvíjať inovatívne a konkurencieschopné produkty, "
+"aby lepšie slúžili komunite 3D tlače. Sledujte ich na [Facebook](https://"
+"www.facebook.com/BIGTREETECH) alebo [Twitter](https://twitter.com/"
+"BigTreeTech)."
 
 #: docs/Sponsors.md:block 6 (header)
 msgid "Klipper Developers"
@@ -100,16 +99,16 @@ msgid ""
 "Kevin is the original author and current maintainer of Klipper. Donate at: "
 "<https://ko-fi.com/koconnor> or <https://www.patreon.com/koconnor>"
 msgstr ""
-"Kevin je pôvodným autorom a súčasným správcom Klippera. Darujte na: "
-"<https://ko-fi.com/koconnor> alebo <https://www.patreon.com/koconnor>"
+"Kevin je pôvodným autorom a súčasným správcom Klippera. Darujte na: <https"
+"://ko-fi.com/koconnor> alebo <https://www.patreon.com/koconnor>"
 
 #: docs/Sponsors.md:block 4 (paragraph)
 msgid ""
 "[<img src=\"./img/sponsors/BTT_BTT.png\" width=\"200\" "
 "style=\"margin:25px\"/>](https://bigtree-tech.com/collections/all-products)"
 msgstr ""
-"[<img src=\"./img/sponsors/BTT_BTT.png\" width=\"200\" "
-"style=\"margin:25px\"/>](https://bigtree-tech.com/collections/all-products)"
+"[<img src=\"./img/sponsors/BTT_BTT.png\" width=\"200\" style=\"margin:25px\""
+"/>](https://bigtree-tech.com/collections/all-products)"
 
 #: docs/Sponsors.md:block 7 (paragraph)
 msgid ""
@@ -117,8 +116,6 @@ msgid ""
 "style=\"margin:25px\" "
 "/>](https://obico.io/klipper.html?source=klipper_sponsor)"
 msgstr ""
-"[<img src=\"./img/sponsors/obico-light-horizontal.png\" width=\"200\" style="
-"\"margin:25px\" />](https://obico.io/klipper.html?source=klipper_sponsor)"
 
 #~ msgid ""
 #~ "[<img src=\"./img/sponsors/obico-light-horizontal.png\" width=\"200\" "

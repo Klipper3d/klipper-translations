@@ -1,10 +1,9 @@
-# Pavol Vrba <pvrba2000@gmail.com>, 2025.
-# Warder <ciksa@seznam.cz>, 2025.
+#
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-08-09 08:02+0000\n"
-"Last-Translator: Warder <ciksa@seznam.cz>\n"
+"PO-Revision-Date: 2025-07-22 09:09+0000\n"
+"Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Slovak <https://hosted.weblate.org/projects/klipper/"
 "navigation/sk/>\n"
 "Language: sk\n"
@@ -14,25 +13,25 @@ msgstr ""
 "X-Generator: Weblate 5.13-dev\n"
 
 msgid "Klipper documentation"
-msgstr "Klipper dokumentácia"
+msgstr ""
 
 msgid "Installation and Configuration"
-msgstr "Inštalácia a konfigurácia"
+msgstr ""
 
 msgid "Configuration Reference"
-msgstr "Referenčná príručka konfigurácie"
+msgstr ""
 
 msgid "Bed Level"
-msgstr "Poschodová úroveň"
+msgstr ""
 
 msgid "Resonance Compensation"
-msgstr "Kompenzácia rezonancie"
+msgstr ""
 
 msgid "Command templates"
-msgstr "Šablóny príkazov"
+msgstr ""
 
 msgid "Developer Documentation"
-msgstr "Dokumentácia pre vývojárov"
+msgstr ""
 
 msgid "Device Specific Documents"
-msgstr "Dokumenty špecifické pre zariadenie"
+msgstr ""

@@ -1,17 +1,18 @@
-# Nicholas Suaterna Malloye <n.suaterna7@gmail.com>, 2023.
-# Francisco Javier Hoyos Arango <cofhal@gmail.com>, 2023.
-# Francisco Serrador <fserrador@gmail.com>, 2024.
+# Nicholas Suaterna Malloye <n.suaterna7@gmail.com>, 2023, 2025.
+# Francisco Javier Hoyos Arango <cofhal@gmail.com>, 2023, 2025.
+# Francisco Serrador <fserrador@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-10-16 22:36+0000\n"
-"Last-Translator: Francisco Serrador <fserrador@gmail.com>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/measuring_resonances/es/>\n"
+"PO-Revision-Date: 2025-07-22 08:07+0000\n"
+"Last-Translator: Francisco Javier Hoyos Arango <cofhal@gmail.com>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/"
+"measuring_resonances/es/>\n"
 "Language: es\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.8-rc\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 msgid "Measuring Resonances"
 msgstr "Midiendo las resonancias"
@@ -27,10 +28,10 @@ msgid ""
 "connection, which is suggested by ADXL345 documentation, has too low "
 "throughput and **will not work**. The recommended connection scheme:"
 msgstr ""
-"Se necesita conectar el ADXL345 a la Raspberry Pi vía el SPI. Hay que tener en"
-" cuenta que la conexión I2C, la cual es sugerida por la documentación ADXL345,"
-" tiene un rendimiento muy bajo y **no funcionará**. El esquema recomendado de "
-"conexión es:"
+"Se necesita conectar el ADXL345 a la Raspberry Pi vía el SPI. Hay que tener "
+"en cuenta que la conexión I2C, la cual es sugerida por la documentación "
+"ADXL345, tiene un rendimiento muy bajo y **no funcionará**. El esquema "
+"recomendado de conexión es:"
 
 msgid "ADXL345 pin"
 msgstr ""

@@ -1,16 +1,17 @@
-# Kaan Özbilek <info@kaanozbilek.com>, 2023.
-# Makers Lab <makerslab.tr@gmail.com>, 2024.
+# Kaan Özbilek <info@kaanozbilek.com>, 2023, 2025.
+# Makers Lab <makerslab.tr@gmail.com>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-05-07 11:07+0000\n"
-"Last-Translator: Makers Lab <makerslab.tr@gmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/protocol/tr/>\n"
+"PO-Revision-Date: 2025-07-22 08:06+0000\n"
+"Last-Translator: Kaan Özbilek <info@kaanozbilek.com>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/protocol/"
+"tr/>\n"
 "Language: tr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.5.4-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 msgid ""
 "The Klipper messaging protocol is used for low-level communication between the"
@@ -23,8 +24,9 @@ msgstr ""
 "Klipper mesajlaşma protokolü, Klipper ana bilgisayar yazılımı ile Klipper "
 "mikro denetleyici yazılımı arasındaki alçak düzey iletişim için kullanılır. "
 "Yüksek düzey protokol, sıkıştırılan, iletilen ve daha sonra alıcı tarafta "
-"işlenen bir dizi komut ve yanıt dizisi olarak düşünülebilir. Sıkıştırılmamış, "
-"okunabilir formatta örnek bir komut dizisi aşağıdaki gibi görünebilir:"
+"işlenen bir dizi komut ve yanıt dizisi olarak düşünülebilir. "
+"Sıkıştırılmamış, okunabilir formatta örnek bir komut dizisi aşağıdaki gibi "
+"görünebilir:"
 
 msgid ""
 "See the [mcu commands](MCU_Commands.md) document for information on available "

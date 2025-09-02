@@ -1,18 +1,21 @@
-# Comocen <Comoc_en@mail.ru>, 2022.
-# Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022.
+# Comocen <Comoc_en@mail.ru>, 2022, 2025.
+# Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022, 2025.
 # Evgeniy Khramov <thejenjagamertjg@gmail.com>, 2022.
-# gfbdrgng <hnaofegnp@hldrive.com>, 2024.
+# gfbdrgng <hnaofegnp@hldrive.com>, 2024, 2025.
+# Evgeniy Khramov <65224669+thejenja@users.noreply.github.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-12-31 06:00+0000\n"
-"Last-Translator: gfbdrgng <hnaofegnp@hldrive.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/benchmarks/ru/>\n"
+"PO-Revision-Date: 2025-07-22 08:37+0000\n"
+"Last-Translator: Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
+"benchmarks/ru/>\n"
 "Language: ru\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.10-dev\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 msgid "This document describes Klipper benchmarks."
 msgstr "В этом документе описываются эталонные тесты Klipper."
@@ -24,8 +27,8 @@ msgid ""
 "This section describes the mechanism used to generate the Klipper micro-"
 "controller step rate benchmarks."
 msgstr ""
-"В этом разделе описывается механизм, используемый для создания тестов скорости"
-" шага микроконтроллера Klipper."
+"В этом разделе описывается механизм, используемый для создания тестов "
+"скорости шага микроконтроллера Klipper."
 
 msgid ""
 "The primary goal of the benchmarks is to provide a consistent mechanism for "
@@ -33,8 +36,8 @@ msgid ""
 "is to provide high-level metrics for comparing the performance between chips "
 "and between software platforms."
 msgstr ""
-"Основная цель оценок состоит в том, чтобы обеспечить последовательный механизм"
-" для измерения влияния кодирования изменений в рамках программного "
+"Основная цель оценок состоит в том, чтобы обеспечить последовательный "
+"механизм для измерения влияния кодирования изменений в рамках программного "
 "обеспечения. Вторая цель — предоставить высокоуровневые показатели для "
 "сравнения производительности чипов и программных платформ."
 
@@ -45,10 +48,10 @@ msgid ""
 "mcu/host communication, temperature reading, endstop checking) in any real-"
 "world usage."
 msgstr ""
-"Эталон скорости шага предназначен для определения максимальной скорости шага, "
-"которую может достичь аппаратное и программное обеспечение. Эта эталонная "
-"пошаговая скорость недостижима при повседневном использовании, поскольку "
-"Klipper необходимо выполнять другие задачи (например, связь между "
+"Эталон скорости шага предназначен для определения максимальной скорости "
+"шага, которую может достичь аппаратное и программное обеспечение. Эта "
+"эталонная пошаговая скорость недостижима при повседневном использовании, "
+"поскольку Klipper необходимо выполнять другие задачи (например, связь между "
 "микроконтроллером и хостом, считывание температуры, проверка конечной "
 "остановки) при любом реальном использовании."
 
@@ -58,10 +61,10 @@ msgid ""
 "prior to running a benchmark.** It is not recommended to drive an actual "
 "stepper during a benchmark."
 msgstr ""
-"Обычно для эталонных тестов выбирают пины, на которых будут мигать светодиоды "
-"или другие безобидные пины. **Всегда проверяйте безопасность управления "
-"сконфигурированными контактами перед запуском эталонного теста.** Не "
-"рекомендуется управлять реальным степпером во время эталонного теста."
+"Обычно для эталонных тестов выбирают пины, на которых будут мигать "
+"светодиоды или другие безобидные пины. **Всегда проверяйте безопасность "
+"управления сконфигурированными контактами перед запуском эталонного теста.** "
+"Не рекомендуется управлять реальным степпером во время эталонного теста."
 
 msgid "Step rate benchmark test"
 msgstr "Эталонный тест скорости шага"
@@ -76,13 +79,13 @@ msgid ""
 "found."
 msgstr ""
 "Вышеуказанные испытания осуществляют одновременно трех шаговых двигателей. "
-"Если в результате выполнения вышеперечисленного возникает ошибка «Rescheduled "
-"timer in the past» или «Stepper too far in past», то это указывает на то, что "
-"параметр `ticks` слишком мал (это приводит к слишком быстрой скорости "
-"пошагового изменения). Цель состоит в том, чтобы найти наименьшее значение "
-"параметра засечки, которое надежно приводит к успешному завершению теста. "
-"Параметр засечек можно делить пополам до тех пор, пока не будет найдено "
-"стабильное значение."
+"Если в результате выполнения вышеперечисленного возникает ошибка «"
+"Rescheduled timer in the past» или «Stepper too far in past», то это "
+"указывает на то, что параметр `ticks` слишком мал (это приводит к слишком "
+"быстрой скорости пошагового изменения). Цель состоит в том, чтобы найти "
+"наименьшее значение параметра засечки, которое надежно приводит к успешному "
+"завершению теста. Параметр засечек можно делить пополам до тех пор, пока не "
+"будет найдено стабильное значение."
 
 msgid ""
 "On a failure, one can copy-and-paste the following to clear the error in "
@@ -248,8 +251,22 @@ msgid ""
 "second is then `100000 * mcu_frequency / clock_diff`."
 msgstr ""
 "По завершении теста определите разницу между часами, указанными в двух "
-"ответных сообщениях \"uptime\". Общее количество команд в секунду равно "
-"`100000 * mcu_frequency / clock_diff`."
+"ответных сообщениях \"uptime\". Общее количество команд в секунду равно `"
+"100000 * mcu_frequency / clock_diff`."
+
+msgid ""
+"Note that this test may saturate the USB/CPU capacity of a Raspberry Pi. If "
+"running on a Raspberry Pi, Beaglebone, or similar host computer then increase "
+"the delay (eg, `DELAY {clock + 20*freq} get_uptime`). Where applicable, the "
+"benchmarks below are with console.py running on a desktop class machine with "
+"the device connected via a high-speed hub."
+msgstr ""
+"Обратите внимание, что этот тест может насытить USB/CPU Raspberry Pi. Если "
+"тест выполняется на Raspberry Pi, Beaglebone или аналогичном хост-"
+"компьютере, увеличьте задержку (например, `DELAY {clock + 20*freq} "
+"get_uptime`). Там, где это применимо, ниже приведены контрольные показатели "
+"с запуском console.py на настольной машине класса с устройством, "
+"подключенным через высокоскоростной концентратор."
 
 #, fuzzy
 msgid "MCU"
@@ -263,6 +280,21 @@ msgstr "Сборка"
 
 msgid "Build compiler"
 msgstr "Сборка компилятора"
+
+#, fuzzy
+msgid "stm32f042 (CAN)"
+msgstr "stm32f042 (CAN)"
+
+#, fuzzy
+msgid "18K"
+msgstr "18K"
+
+#, fuzzy
+msgid "c105adc8"
+msgstr "c105adc8"
+
+msgid "arm-none-eabi-gcc (GNU Tools 7-2018-q3-update) 7.3.1"
+msgstr "arm-none-eabi-gcc (GNU Инструменты 7-2018-q3-обновление) 7.3.1"
 
 msgid "atmega2560 (serial)"
 msgstr "atmega2560 (серийный)"
@@ -395,6 +427,13 @@ msgstr "Контрольные показатели хоста"
 msgid "66"
 msgstr "66"
 
+msgid "5"
+msgstr "5"
+
+#, fuzzy
+msgid "22"
+msgstr "22"
+
 #, fuzzy
 msgid "rp2040 (USB)"
 msgstr "rp2040 (USB)"
@@ -435,10 +474,10 @@ msgid ""
 "done by choosing a large and complex G-Code file and timing how long it takes "
 "for the host software to process it. For example:"
 msgstr ""
-"Можно запустить тесты времени на хост-программе, используя механизм обработки "
-"в \"пакетном режиме\" (описан в <Debugging.md>). Обычно для этого выбирают "
-"большой и сложный файл G-кода и засекают время, которое требуется хост-"
-"программе для его обработки. Например:"
+"Можно запустить тесты времени на хост-программе, используя механизм "
+"обработки в \"пакетном режиме\" (описан в <Debugging.md>). Обычно для этого "
+"выбирают большой и сложный файл G-кода и засекают время, которое требуется "
+"хост-программе для его обработки. Например:"
 
 #: docs/Benchmarks.md:block 14 (paragraph)
 msgid ""
@@ -446,9 +485,9 @@ msgid ""
 "used, but only the first block of the above test is cut-and-paste into the "
 "console.py window."
 msgstr ""
-"Для получения бенчмарков одиночного шага используется та же последовательность"
-" конфигурации, но в окно console.py вырезается и вставляется только первый "
-"блок приведенного выше теста."
+"Для получения бенчмарков одиночного шага используется та же "
+"последовательность конфигурации, но в окно console.py вырезается и "
+"вставляется только первый блок приведенного выше теста."
 
 #: docs/Benchmarks.md:block 17 (paragraph)
 msgid ""
@@ -511,8 +550,8 @@ msgid ""
 "The test was last run on commit `59314d99` with gcc version `gcc version "
 "10.3.1 20210621 (release) (GNU Arm Embedded Toolchain 10.3-2021.07)`."
 msgstr ""
-"Последний раз тест выполнялся на коммите `59314d99` с версией gcc `gcc версии "
-"10.3.1 20210621 (release) (GNU Arm Embedded Toolchain 10.3-2021.07)`."
+"Последний раз тест выполнялся на коммите `59314d99` с версией gcc `gcc "
+"версии 10.3.1 20210621 (release) (GNU Arm Embedded Toolchain 10.3-2021.07)`."
 
 #: docs/Benchmarks.md:block 37 (table)
 #, fuzzy
@@ -640,8 +679,8 @@ msgid ""
 "8.3.0-6+rpi1) 8.3.0` on a Raspberry Pi 3 (revision a02082). It was difficult "
 "to get stable results in this benchmark."
 msgstr ""
-"Последний раз тест выполнялся на коммите `59314d99` с gcc версии `gcc "
-"(Raspbian 8.3.0-6+rpi1) 8.3.0` на Raspberry Pi 3 (ревизия a02082). В этом "
+"Последний раз тест выполнялся на коммите `59314d99` с gcc версии `gcc ("
+"Raspbian 8.3.0-6+rpi1) 8.3.0` на Raspberry Pi 3 (ревизия a02082). В этом "
 "бенчмарке было сложно получить стабильные результаты."
 
 #: docs/Benchmarks.md:block 84 (table)
@@ -662,10 +701,11 @@ msgid ""
 " parameter. The results are rounded to the nearest K. For example, with three "
 "active steppers:"
 msgstr ""
-"Для получения эталонов, приведенных в документе [Features](Features.md), общее"
-" количество шагов в секунду рассчитывается путем умножения числа активных "
-"степперов на номинальную частоту mcu и деления на параметр final ticks. "
-"Результаты округляются до ближайшего К. Например, при трех активных шаговиках:"
+"Для получения эталонов, приведенных в документе [Features](Features.md), "
+"общее количество шагов в секунду рассчитывается путем умножения числа "
+"активных степперов на номинальную частоту mcu и деления на параметр final "
+"ticks. Результаты округляются до ближайшего К. Например, при трех активных "
+"шаговиках:"
 
 #: docs/Benchmarks.md:block 59 (header)
 msgid "STM32G0B1 step rate benchmark"
@@ -703,6 +743,35 @@ msgstr "stm32g0b1"
 msgid "STM32H7 step rate benchmark"
 msgstr "Эталонный образец частоты шагов STM32H7"
 
+#: docs/Benchmarks.md:block 60 (paragraph)
+msgid "The following configuration sequence is used on a STM32H743VIT6:"
+msgstr ""
+"Для STM32H743VIT6 используется следующая последовательность конфигурирования:"
+
+#: docs/Benchmarks.md:block 62 (paragraph)
+msgid ""
+"The test was last run on commit `00191b5c` with gcc version `arm-none-eabi-gcc"
+" (15:8-2019-q3-1+b1) 8.3.1 20190703 (release) [gcc-8-branch revision 273027]`."
+msgstr ""
+"Последний раз тест был запущен на коммите `00191b5c` с gcc версии `arm-none-"
+"eabi-gcc (15:8-2019-q3-1+b1) 8.3.1 20190703 (release) "
+"[gcc-8-branch revision 273027]`."
+
+#: docs/Benchmarks.md:block 63 (table)
+#, fuzzy
+msgid "stm32h7"
+msgstr "stm32h7"
+
+#: docs/Benchmarks.md:block 63 (table)
+#, fuzzy
+msgid "44"
+msgstr "44"
+
+#: docs/Benchmarks.md:block 63 (table)
+#, fuzzy
+msgid "198"
+msgstr "198"
+
 #: docs/Benchmarks.md:block 85 (header)
 msgid "AR100 step rate benchmark"
 msgstr "Эталонный показатель скорости шага AR100"
@@ -711,8 +780,8 @@ msgstr "Эталонный показатель скорости шага AR100"
 msgid ""
 "The following configuration sequence is used on AR100 CPU (Allwinner A64):"
 msgstr ""
-"Для процессора AR100 (Allwinner A64) используется следующая последовательность"
-" конфигурирования:"
+"Для процессора AR100 (Allwinner A64) используется следующая "
+"последовательность конфигурирования:"
 
 #: docs/Benchmarks.md:block 89 (table)
 #, fuzzy
@@ -788,6 +857,12 @@ msgstr ""
 msgid "The following configuration sequence is used on the RP2040 and RP2350:"
 msgstr ""
 
+#: docs/Benchmarks.md:block 98 (paragraph)
+msgid ""
+"The test was last run on commit `f6718291` with gcc version `arm-none-eabi-gcc"
+" (Fedora 14.1.0-1.fc40) 14.1.0` on Raspberry Pi Pico and Pico 2 boards."
+msgstr ""
+
 #: docs/Benchmarks.md:block 99 (table)
 msgid "rp2040 (*)"
 msgstr ""
@@ -802,6 +877,14 @@ msgstr ""
 
 #: docs/Benchmarks.md:block 100 (table)
 msgid "169"
+msgstr ""
+
+#: docs/Benchmarks.md:block 101 (paragraph)
+msgid ""
+"(*) Note that the reported rp2040 ticks are relative to a 12Mhz scheduling "
+"timer and do not correspond to its 125Mhz internal ARM processing rate. It is "
+"expected that 5 scheduling ticks corresponds to ~47 ARM core cycles and 22 "
+"scheduling ticks corresponds to ~224 ARM core cycles."
 msgstr ""
 
 #: docs/Benchmarks.md:block 112 (table)
@@ -819,176 +902,6 @@ msgstr ""
 #: docs/Benchmarks.md:block 112 (table)
 msgid "rp2350 (USB)"
 msgstr ""
-
-#: docs/Benchmarks.md:block 60 (paragraph)
-msgid "The following configuration sequence is used on STM32H723:"
-msgstr ""
-
-#: docs/Benchmarks.md:block 62 (paragraph)
-msgid ""
-"The test was last run on commit `554ae78d` with gcc version `arm-none-eabi-gcc"
-" (Fedora 14.1.0-1.fc40) 14.1.0`."
-msgstr ""
-
-#: docs/Benchmarks.md:block 63 (table)
-msgid "stm32h723"
-msgstr ""
-
-#: docs/Benchmarks.md:block 98 (paragraph)
-msgid ""
-"The test was last run on commit `14c105b8` with gcc version `arm-none-eabi-gcc"
-" (Fedora 14.1.0-1.fc40) 14.1.0` on Raspberry Pi Pico and Pico 2 boards."
-msgstr ""
-
-#: docs/Benchmarks.md:block 99 (table)
-msgid "3"
-msgstr ""
-
-#: docs/Benchmarks.md:block 99 (table)
-msgid "14"
-msgstr ""
-
-#: docs/Benchmarks.md:block 69 (header)
-msgid "STM32G4 step rate benchmark"
-msgstr ""
-
-#: docs/Benchmarks.md:block 70 (paragraph)
-msgid "The following configuration sequence is used on the STM32G431:"
-msgstr ""
-
-#: docs/Benchmarks.md:block 72 (paragraph)
-msgid ""
-"The test was last run on commit `cfa48fe3` with gcc version `arm-none-eabi-gcc"
-" (Fedora 14.1.0-1.fc40) 14.1.0`."
-msgstr ""
-
-#: docs/Benchmarks.md:block 73 (table)
-msgid "stm32g431"
-msgstr ""
-
-#: docs/Benchmarks.md:block 73 (table)
-msgid "47"
-msgstr ""
-
-#: docs/Benchmarks.md:block 73 (table)
-msgid "208"
-msgstr ""
-
-#: docs/Benchmarks.md:block 106 (paragraph)
-msgid ""
-"(*) Note that the reported rp2040 ticks are relative to a 12Mhz scheduling "
-"timer and do not correspond to its 200Mhz internal ARM processing rate. It is "
-"expected that 3 scheduling ticks corresponds to ~42 ARM core cycles and 14 "
-"scheduling ticks corresponds to ~225 ARM core cycles."
-msgstr ""
-
-#: docs/Benchmarks.md:block 116 (paragraph)
-msgid ""
-"The USB tests may exceed the CPU capacity of a Raspberry Pi. If running on a "
-"Raspberry Pi, Beaglebone, or similar host computer then increase the delay "
-"(eg, `DELAY {clock + 20*freq} get_uptime`). Where applicable, the benchmarks "
-"below are with console.py running on a desktop class machine with the device "
-"connected via a super-speed hub."
-msgstr ""
-
-#: docs/Benchmarks.md:block 117 (paragraph)
-msgid ""
-"The CAN bus tests may saturate the USB host controller of a Raspberry Pi (when"
-" testing via a standard gs_usb USB to CAN bus adapter). Where applicable, the "
-"CAN bus benchmarks below are with console.py running on a desktop class "
-"machine with a USB to CAN bus adapter connected via a super-speed USB hub."
-msgstr ""
-
-#: docs/Benchmarks.md:block 118 (table)
-msgid "rp2350 (CAN)"
-msgstr ""
-
-#: docs/Benchmarks.md:block 118 (table)
-msgid "59K"
-msgstr ""
-
-#: docs/Benchmarks.md:block 118 (table)
-msgid "17b8ce4c"
-msgstr ""
-
-#~ msgid ""
-#~ "Note that this test may saturate the USB/CPU capacity of a Raspberry Pi. If "
-#~ "running on a Raspberry Pi, Beaglebone, or similar host computer then increase "
-#~ "the delay (eg, `DELAY {clock + 20*freq} get_uptime`). Where applicable, the "
-#~ "benchmarks below are with console.py running on a desktop class machine with "
-#~ "the device connected via a high-speed hub."
-#~ msgstr ""
-#~ "Обратите внимание, что этот тест может насытить USB/CPU Raspberry Pi. Если "
-#~ "тест выполняется на Raspberry Pi, Beaglebone или аналогичном хост-компьютере, "
-#~ "увеличьте задержку (например, `DELAY {clock + 20*freq} get_uptime`). Там, где "
-#~ "это применимо, ниже приведены контрольные показатели с запуском console.py на "
-#~ "настольной машине класса с устройством, подключенным через высокоскоростной "
-#~ "концентратор."
-
-#, fuzzy
-#~ msgid "stm32f042 (CAN)"
-#~ msgstr "stm32f042 (CAN)"
-
-#, fuzzy
-#~ msgid "18K"
-#~ msgstr "18K"
-
-#, fuzzy
-#~ msgid "c105adc8"
-#~ msgstr "c105adc8"
-
-#~ msgid "arm-none-eabi-gcc (GNU Tools 7-2018-q3-update) 7.3.1"
-#~ msgstr "arm-none-eabi-gcc (GNU Инструменты 7-2018-q3-обновление) 7.3.1"
-
-#~ msgid ""
-#~ "(*) Note that the reported rp2040 ticks are relative to a 12Mhz scheduling "
-#~ "timer and do not correspond to its 200Mhz internal ARM processing rate. It is "
-#~ "expected that 5 scheduling ticks corresponds to ~42 ARM core cycles and 14 "
-#~ "scheduling ticks corresponds to ~225 ARM core cycles."
-#~ msgstr ""
-
-#~ msgid "5"
-#~ msgstr "5"
-
-#, fuzzy
-#~ msgid "22"
-#~ msgstr "22"
-
-#~ msgid "The following configuration sequence is used on a STM32H743VIT6:"
-#~ msgstr ""
-#~ "Для STM32H743VIT6 используется следующая последовательность конфигурирования:"
-
-#~ msgid ""
-#~ "The test was last run on commit `00191b5c` with gcc version `arm-none-eabi-gcc"
-#~ " (15:8-2019-q3-1+b1) 8.3.1 20190703 (release) [gcc-8-branch revision 273027]`."
-#~ msgstr ""
-#~ "Последний раз тест был запущен на коммите `00191b5c` с gcc версии `arm-none-"
-#~ "eabi-gcc (15:8-2019-q3-1+b1) 8.3.1 20190703 (release) [gcc-8-branch revision "
-#~ "273027]`."
-
-#, fuzzy
-#~ msgid "stm32h7"
-#~ msgstr "stm32h7"
-
-#, fuzzy
-#~ msgid "44"
-#~ msgstr "44"
-
-#, fuzzy
-#~ msgid "198"
-#~ msgstr "198"
-
-#~ msgid ""
-#~ "The test was last run on commit `f6718291` with gcc version `arm-none-eabi-gcc"
-#~ " (Fedora 14.1.0-1.fc40) 14.1.0` on Raspberry Pi Pico and Pico 2 boards."
-#~ msgstr ""
-
-#~ msgid ""
-#~ "(*) Note that the reported rp2040 ticks are relative to a 12Mhz scheduling "
-#~ "timer and do not correspond to its 125Mhz internal ARM processing rate. It is "
-#~ "expected that 5 scheduling ticks corresponds to ~47 ARM core cycles and 22 "
-#~ "scheduling ticks corresponds to ~224 ARM core cycles."
-#~ msgstr ""
 
 #, fuzzy
 #~ msgid ""

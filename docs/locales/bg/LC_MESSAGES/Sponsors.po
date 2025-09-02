@@ -1,16 +1,17 @@
-# Nikolai Danov <nikolaidanov67@gmail.com>, 2022.
-# Niolay Danov <nikdan@abv.bg>, 2024.
+# Nikolai Danov <nikolaidanov67@gmail.com>, 2022, 2025.
+# Niolay Danov <nikdan@abv.bg>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-10-31 21:00+0000\n"
-"Last-Translator: Niolay Danov <nikdan@abv.bg>\n"
-"Language-Team: Bulgarian <https://hosted.weblate.org/projects/klipper/sponsors/bg/>\n"
+"PO-Revision-Date: 2025-07-22 08:43+0000\n"
+"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"Language-Team: Bulgarian <https://hosted.weblate.org/projects/klipper/"
+"sponsors/bg/>\n"
 "Language: bg\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.8.2-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 #: docs/Sponsors.md:block 1 (header)
 msgid "Sponsors"
@@ -21,9 +22,9 @@ msgid ""
 "Klipper is Free Software. We depend on the generous support from sponsors. "
 "Please consider sponsoring Klipper or supporting our sponsors."
 msgstr ""
-"Klipper е свободен софтуер. Разчитаме на щедрата подкрепа на спонсорите. Моля,"
-" обмислете възможността да спонсорирате Klipper или да подкрепите нашите "
-"спонсори."
+"Klipper е свободен софтуер. Разчитаме на щедрата подкрепа на спонсорите. "
+"Моля, обмислете възможността да спонсорирате Klipper или да подкрепите "
+"нашите спонсори."
 
 #: docs/Sponsors.md:block 3 (header)
 msgid "BIGTREETECH"
@@ -39,9 +40,8 @@ msgid ""
 msgstr ""
 "BIGTREETECH е официалният спонсор на Klipper. BIGTREETECH се ангажира да "
 "разработва иновативни и конкурентни продукти, които да служат по-добре на "
-"общността за 3D принтиране. Последвайте ги във "
-"[Facebook](https://www.facebook.com/BIGTREETECH) или "
-"[Twitter](https://twitter.com/BigTreeTech)."
+"общността за 3D принтиране. Последвайте ги във [Facebook](https://"
+"www.facebook.com/BIGTREETECH) или [Twitter](https://twitter.com/BigTreeTech)."
 
 #: docs/Sponsors.md:block 6 (header)
 msgid "Klipper Developers"
@@ -100,16 +100,17 @@ msgid ""
 "Kevin is the original author and current maintainer of Klipper. Donate at: "
 "<https://ko-fi.com/koconnor> or <https://www.patreon.com/koconnor>"
 msgstr ""
-"Кевин е първоначалният автор и настоящ поддържащ на Klipper. Направете дарение"
-" на адрес: <https://ko-fi.com/koconnor> или <https://www.patreon.com/koconnor>"
+"Кевин е първоначалният автор и настоящ поддържащ на Klipper. Направете "
+"дарение на адрес: <https://ko-fi.com/koconnor> или <https://www.patreon.com/"
+"koconnor>"
 
 #: docs/Sponsors.md:block 4 (paragraph)
 msgid ""
 "[<img src=\"./img/sponsors/BTT_BTT.png\" width=\"200\" "
 "style=\"margin:25px\"/>](https://bigtree-tech.com/collections/all-products)"
 msgstr ""
-"[<img src=\"./img/sponsors/BTT_BTT.png\" width=\"200\" "
-"style=\"margin:25px\"/>](https://bigtree-tech.com/collections/all-products)"
+"[<img src=\"./img/sponsors/BTT_BTT.png\" width=\"200\" style=\"margin:25px\""
+"/>](https://bigtree-tech.com/collections/all-products)"
 
 #: docs/Sponsors.md:block 7 (paragraph)
 msgid ""

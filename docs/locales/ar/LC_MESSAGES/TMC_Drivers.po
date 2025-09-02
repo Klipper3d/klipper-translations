@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-08-06 11:04+0000\n"
+"PO-Revision-Date: 2025-07-22 09:13+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/klipper/"
 "tmc_drivers/ar/>\n"
@@ -717,14 +717,6 @@ msgstr ""
 
 #: docs/TMC_Drivers.md:block 110 (header)
 msgid "TMC reports error: `... ShortToGND` OR `ShortToSupply`"
-msgstr ""
-
-#: docs/TMC_Drivers.md:block 18 (paragraph)
-#, fuzzy
-msgid ""
-"Note that the `stealthchop_threshold` config option does not impact sensorless"
-" homing as Klipper automatically switches the TMC driver to an appropriate "
-"mode during sensorless homing operations."
 msgstr ""
 
 #~ msgid ""

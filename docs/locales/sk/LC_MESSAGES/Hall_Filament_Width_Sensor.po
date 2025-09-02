@@ -1,9 +1,9 @@
-# Pavol Vrba <pvrba2000@gmail.com>, 2025.
+#
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-08-06 23:02+0000\n"
-"Last-Translator: Pavol Vrba <pvrba2000@gmail.com>\n"
+"PO-Revision-Date: 2025-07-22 09:09+0000\n"
+"Last-Translator: Anonymous <noreply@weblate.org>\n"
 "Language-Team: Slovak <https://hosted.weblate.org/projects/klipper/"
 "hall_filament_width_sensor/sk/>\n"
 "Language: sk\n"
@@ -14,11 +14,11 @@ msgstr ""
 
 #: docs/Hall_Filament_Width_Sensor.md:block 1 (header)
 msgid "Hall filament width sensor"
-msgstr "Hallov Senzor šírky vlákna"
+msgstr ""
 
 #: docs/Hall_Filament_Width_Sensor.md:block 4 (header)
 msgid "How does it work?"
-msgstr "Ako to funguje?"
+msgstr ""
 
 #: docs/Hall_Filament_Width_Sensor.md:block 20 (header)
 msgid "Template for menu variables"

@@ -1,27 +1,31 @@
-# ZiomaleQ <r.partyka30@gmail.com>, 2021.
-# Robert Jaroszewicz <mediagott1977@googlemail.com>, 2022.
+# ZiomaleQ <r.partyka30@gmail.com>, 2021, 2025.
+# Robert Jaroszewicz <mediagott1977@googlemail.com>, 2022, 2025.
 # gnu-ewm <gnu.ewm@protonmail.com>, 2022.
 # Daviteusz <imefiu3@gmail.com>, 2023.
-# Woo Cash <woocash87@gmail.com>, 2024.
-# Dawid <dawidgorski.m@gmail.com>, 2024.
+# Woo Cash <woocash87@gmail.com>, 2024, 2025.
+# Dawid <dawidgorski.m@gmail.com>, 2024, 2025.
+# Julia 🌸🏳️‍⚧️ <daviteusz0@gmail.com>, 2025.
+# Eryk Michalak <gnu.ewm@protonmail.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-12-15 06:11+0000\n"
+"PO-Revision-Date: 2025-07-22 08:19+0000\n"
 "Last-Translator: Dawid <dawidgorski.m@gmail.com>\n"
-"Language-Team: Polish <https://hosted.weblate.org/projects/klipper/overview/pl/>\n"
+"Language-Team: Polish <https://hosted.weblate.org/projects/klipper/overview/"
+"pl/>\n"
 "Language: pl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.9-rc\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 msgid ""
 "Welcome to the Klipper documentation. If new to Klipper, start with the "
 "[features](Features.md) and [installation](Installation.md) documents."
 msgstr ""
-"Witaj w dokumentacji Klipper. Jeśli jesteś nowy, zapoznaj się z "
-"[funkcjami](Features.md) i [instalacją](Installation.md)."
+"Witaj w dokumentacji Klipper. Jeśli jesteś nowy, zapoznaj się z [funkcjami]"
+"(Features.md) i [instalacją](Installation.md)."
 
 msgid "Overview information"
 msgstr "Ogólne informacje"
@@ -75,8 +79,8 @@ msgstr ""
 
 msgid "[Bed level](Bed_Level.md): Information on \"bed leveling\" in Klipper."
 msgstr ""
-"[Poziomowanie stołu](Bed_Level.md): Informacje na temat \"poziomowania stołu\""
-" w Klipperze."
+"[Poziomowanie stołu](Bed_Level.md): Informacje na temat "
+"\"poziomowania stołu\" w Klipperze."
 
 msgid "[Delta calibrate](Delta_Calibrate.md): Calibration of delta kinematics."
 msgstr "[Kalibracja delta](Delta_Calibrate.md): Kalibracja kinematyki delta."
@@ -96,14 +100,14 @@ msgstr ""
 
 msgid "[Bed Mesh](Bed_Mesh.md): Bed height correction based on XY locations."
 msgstr ""
-"[Siatka stołu](Bed_Mesh.md): Korekcja wysokości stołu na podstawie lokalizacji"
-" XY."
+"[Siatka stołu](Bed_Mesh.md): Korekcja wysokości stołu na podstawie "
+"lokalizacji XY."
 
 msgid ""
 "[Endstop phase](Endstop_Phase.md): Stepper assisted Z endstop positioning."
 msgstr ""
-"[Faza krańcówki](Endstop_Phase.md): Pozycjonowanie krańcówki Z ze wspomaganiem"
-" krokowym."
+"[Faza krańcówki](Endstop_Phase.md): Pozycjonowanie krańcówki Z ze "
+"wspomaganiem krokowym."
 
 msgid ""
 "[Resonance compensation](Resonance_Compensation.md): A tool to reduce ringing "
@@ -125,7 +129,8 @@ msgstr ""
 "filamentu."
 
 msgid "[Slicers](Slicers.md): Configure \"slicer\" software for Klipper."
-msgstr "[Slicery](Slicers.md): Konfiguracja oprogramowania \"slicer\" dla Klippera."
+msgstr ""
+"[Slicery](Slicers.md): Konfiguracja oprogramowania \"slicer\" dla Klippera."
 
 msgid ""
 "[Command Templates](Command_Templates.md): G-Code macros and conditional "
@@ -137,7 +142,8 @@ msgid ""
 "[Status Reference](Status_Reference.md): Information available to macros (and "
 "similar)."
 msgstr ""
-"[Referencje statusu](Status_Reference.md): Informacje o makrach (i podobnych)."
+"[Referencje statusu](Status_Reference.md): Informacje o makrach (i "
+"podobnych)."
 
 msgid ""
 "[TMC Drivers](TMC_Drivers.md): Using Trinamic stepper motor drivers with "
@@ -211,8 +217,8 @@ msgid ""
 "[Contributing](CONTRIBUTING.md): Information on how to submit improvements to "
 "Klipper."
 msgstr ""
-"[Współtworzenie](CONTRIBUTING.md): Informacje o tym, jak dodawać ulepszenia do"
-" Klippera."
+"[Współtworzenie](CONTRIBUTING.md): Informacje o tym, jak dodawać ulepszenia "
+"do Klippera."
 
 msgid "[Packaging](Packaging.md): Information on building OS packages."
 msgstr ""
@@ -226,8 +232,8 @@ msgid ""
 "[Example configs](Example_Configs.md): Information on adding an example config"
 " file to Klipper."
 msgstr ""
-"[Przykładowe konfiguracje](Example_Configs.md): Informacje na temat dodawania "
-"przykładowego pliku konfiguracyjnego do Klippera."
+"[Przykładowe konfiguracje](Example_Configs.md): Informacje na temat "
+"dodawania przykładowego pliku konfiguracyjnego do Klippera."
 
 msgid ""
 "[SDCard Updates](SDCard_Updates.md): Flash a micro-controller by copying a "
@@ -252,8 +258,8 @@ msgstr ""
 
 msgid "[CAN bus](CANBUS.md): Information on using CAN bus with Klipper."
 msgstr ""
-"[Magistrala CAN](CANBUS.md): Informacje na temat korzystania z magistrali CAN "
-"z Klipperem."
+"[Magistrala CAN](CANBUS.md): Informacje na temat korzystania z magistrali "
+"CAN z Klipperem."
 
 msgid "[TSL1401CL filament width sensor](TSL1401CL_Filament_Width_Sensor.md)"
 msgstr ""
@@ -272,8 +278,8 @@ msgid ""
 "[Multi-MCU Homing](Multi_MCU_Homing.md): Homing and probing using multiple "
 "micro-controllers."
 msgstr ""
-"[Bazowanie MultiMCU](Multi_MCU_Homing.md): Bazowanie i sondowanie przy użyciu "
-"wielu mikrokontrolerów."
+"[Bazowanie MultiMCU](Multi_MCU_Homing.md): Bazowanie i sondowanie przy "
+"użyciu wielu mikrokontrolerów."
 
 #: docs/Overview.md:block 6 (unordered list)
 msgid ""
@@ -308,8 +314,9 @@ msgid ""
 "[Axis Twist Compensation](Axis_Twist_Compensation.md): A tool to compensate "
 "for inaccurate probe readings due to twist in X gantry."
 msgstr ""
-"[Kompensacja skrętu osi](Axis_Twist_Compensation.md): Narzędzie do kompensacji"
-" niedokładnych odczytów sondy spowodowanych skręceniem suwnicy osi X."
+"[Kompensacja skrętu osi](Axis_Twist_Compensation.md): Narzędzie do "
+"kompensacji niedokładnych odczytów sondy spowodowanych skręceniem suwnicy "
+"osi X."
 
 #: docs/Overview.md:block 10 (unordered list)
 msgid "[Bootloader Entry](Bootloader_Entry.md): Requesting the bootloader."
@@ -320,8 +327,8 @@ msgid ""
 "[CAN bus troubleshooting](CANBUS_Troubleshooting.md): Tips for troubleshooting"
 " CAN bus."
 msgstr ""
-"[Rozwiązywanie problemów CAN](CANBUS_Troubleshooting.md): Wskazówki dotyczące "
-"rozwiązywania problemów z magistralą CAN."
+"[Rozwiązywanie problemów CAN](CANBUS_Troubleshooting.md): Wskazówki "
+"dotyczące rozwiązywania problemów z magistralą CAN."
 
 #: docs/Overview.md:block 6 (unordered list)
 msgid "[Octoprint](OctoPrint.md): Guide to installing Octoprint with Klipper."

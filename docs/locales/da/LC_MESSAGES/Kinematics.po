@@ -1,16 +1,17 @@
-# Michael Landbo <dev@l4ndbo.com>, 2023.
-# Lasse Kristensen <Lasse@lkristensen.dk>, 2024.
+# Michael Landbo <dev@l4ndbo.com>, 2023, 2025.
+# Lasse Kristensen <Lasse@lkristensen.dk>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-12-30 05:01+0000\n"
-"Last-Translator: Lasse Kristensen <Lasse@lkristensen.dk>\n"
-"Language-Team: Danish <https://hosted.weblate.org/projects/klipper/kinematics/da/>\n"
+"PO-Revision-Date: 2025-07-22 08:52+0000\n"
+"Last-Translator: Michael Landbo <dev@l4ndbo.com>\n"
+"Language-Team: Danish <https://hosted.weblate.org/projects/klipper/"
+"kinematics/da/>\n"
 "Language: da\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.10-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 msgid ""
 "This document provides an overview of how Klipper implements robot motion (its"

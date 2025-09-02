@@ -1,16 +1,16 @@
 # Tjalling Kaastra <tjalling@kaastra.net>, 2024.
-# Simon Tillema <shtillema@gomarus.nl>, 2024.
+# Simon Tillema <shtillema@gomarus.nl>, 2024, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2024-09-11 14:09+0000\n"
+"PO-Revision-Date: 2025-07-22 08:47+0000\n"
 "Last-Translator: Simon Tillema <shtillema@gomarus.nl>\n"
 "Language-Team: Dutch <https://hosted.weblate.org/projects/klipper/faq/nl/>\n"
 "Language: nl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.8-dev\n"
+"X-Generator: Weblate 5.13-dev\n"
 
 msgid "How can I donate to the project?"
 msgstr "Hoe kan ik aan dit project doneren?"
