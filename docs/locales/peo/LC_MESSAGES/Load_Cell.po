@@ -1,20 +1,16 @@
-# Ettore Atalan <atalanttore@googlemail.com>, 2025.
+# amin ahmadi <honestahmadi@gmail.com>, 2025.
 msgid ""
 msgstr ""
-"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-09-04 06:11+0000\n"
-"Last-Translator: Ettore Atalan <atalanttore@googlemail.com>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/klipper/load_cell/"
-"de/>\n"
-"Language: de\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: peo\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13.1-rc\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: docs/Load_Cell.md:block 1 (header)
 msgid "Load Cells"
-msgstr "Zellen laden"
+msgstr ""
 
 #: docs/Load_Cell.md:block 2 (paragraph)
 msgid ""
@@ -26,7 +22,7 @@ msgstr ""
 
 #: docs/Load_Cell.md:block 3 (header)
 msgid "Related Documentation"
-msgstr "Zugehörige Dokumentation"
+msgstr ""
 
 #: docs/Load_Cell.md:block 4 (unordered list)
 msgid "[load_cell Config Reference](Config_Reference.md#load_cell)"
