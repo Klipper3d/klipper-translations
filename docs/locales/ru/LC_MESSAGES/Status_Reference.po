@@ -2,11 +2,12 @@
 # Evgeniy Khramov <thejenjagamertjg@gmail.com>, 2022.
 # gfbdrgng <hnaofegnp@hldrive.com>, 2024, 2025.
 # Evgeniy Khramov <65224669+thejenja@users.noreply.github.com>, 2025.
+# gfbdrgn <erfvvgtyhbnjhyuu@wireconnected.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-07-22 08:39+0000\n"
-"Last-Translator: Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>\n"
+"PO-Revision-Date: 2025-09-09 04:02+0000\n"
+"Last-Translator: gfbdrgn <erfvvgtyhbnjhyuu@wireconnected.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
 "status_reference/ru/>\n"
 "Language: ru\n"
@@ -14,7 +15,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.14-dev\n"
 
 msgid ""
 "This document is a reference of printer status information available in "
@@ -165,7 +166,6 @@ msgstr ""
 "`rpm`: Измеренная скорость вращения вентилятора в оборотах в минуту, если у "
 "вентилятора определен контакт тахометра (tachometer_pin)."
 
-#, fuzzy
 msgid "filament_switch_sensor"
 msgstr "filament_switch_sensor"
 
@@ -186,7 +186,6 @@ msgstr ""
 "`filament_detected`: Возвращает истину, если датчик находится в состоянии "
 "срабатывания."
 
-#, fuzzy
 msgid "filament_motion_sensor"
 msgstr "filament_motion_sensor"
 
@@ -200,7 +199,6 @@ msgstr ""
 msgid "`enabled`: Returns True if the motion sensor is currently enabled."
 msgstr "`включен`: Возвращает истину, если датчик движения включен."
 
-#, fuzzy
 msgid "firmware_retraction"
 msgstr "firmware_retraction"
 

@@ -1,10 +1,21 @@
-#
+# gfbdrgn <erfvvgtyhbnjhyuu@wireconnected.com>, 2025.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2025-09-09 04:02+0000\n"
+"Last-Translator: gfbdrgn <erfvvgtyhbnjhyuu@wireconnected.com>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
+"load_cell/ru/>\n"
+"Language: ru\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.14-dev\n"
 
 #: docs/Load_Cell.md:block 1 (header)
 msgid "Load Cells"
-msgstr ""
+msgstr "Грузовые ячейки"
 
 #: docs/Load_Cell.md:block 2 (paragraph)
 msgid ""
@@ -13,26 +24,31 @@ msgid ""
 "filament. A calibrated force sensor is an important part of a load cell based "
 "probe."
 msgstr ""
+"Этот документ описывает поддержку Klipper для загрузочных ячеек. "
+"Функциональность загрузки может быть использована для чтения данных о силе и "
+"для взвешивания таких вещей, как нити накала. Калибрированный датчик силы "
+"является важной частью датчика нагрузки."
 
 #: docs/Load_Cell.md:block 3 (header)
 msgid "Related Documentation"
-msgstr ""
+msgstr "Связанные с этим документы"
 
 #: docs/Load_Cell.md:block 4 (unordered list)
 msgid "[load_cell Config Reference](Config_Reference.md#load_cell)"
 msgstr ""
+"[Справочник по настройке датчика нагрузки](Config_Reference.md#load_cell)"
 
 #: docs/Load_Cell.md:block 4 (unordered list)
 msgid "[load_cell G-Code Commands](G-Codes.md#load_cell)"
-msgstr ""
+msgstr "[Команды G-кода для датчика нагрузки](G-Codes.md#load_cell)"
 
 #: docs/Load_Cell.md:block 4 (unordered list)
 msgid "[load_cell Status Reference](Status_Reference.md#load_cell)"
-msgstr ""
+msgstr "[Справочник по состоянию тензодатчика](Status_Reference.md#load_cell)"
 
 #: docs/Load_Cell.md:block 5 (header)
 msgid "Using `LOAD_CELL_DIAGNOSTIC`"
-msgstr ""
+msgstr "Использование `LOAD_CELL_DIAGNOSTIC `"
 
 #: docs/Load_Cell.md:block 6 (paragraph)
 msgid ""
@@ -40,10 +56,13 @@ msgid ""
 "running `LOAD_CELL_DIAGNOSTIC`. This tool collects 10 seconds of data from the"
 " load cell and resport statistics:"
 msgstr ""
+"Когда вы впервые подключаете загрузочный элемент, его хорошая практика для "
+"проверки проблем путем запуска `LOAD_CELL_DIAGNOSTIC`. Этот инструмент "
+"собирает 10 секунд данных из загрузочной ячейки и статистики экспорта:"
 
 #: docs/Load_Cell.md:block 8 (paragraph)
 msgid "Things you can check with this data:"
-msgstr ""
+msgstr "Вещи, которые вы можете проверить с этими данными:"
 
 #: docs/Load_Cell.md:block 9 (unordered list)
 msgid ""
@@ -51,40 +70,55 @@ msgid ""
 "samples per second' value. If it is not you may have a configuration or wiring"
 " issue."
 msgstr ""
+"Настраиваемая скорость выборки датчика должна быть близка к значению «"
+"Измеренных образцов в секунду». Если это не так, у вас может быть проблема "
+"настройки или проводки."
 
 #: docs/Load_Cell.md:block 9 (unordered list)
 msgid ""
 "'Saturated samples' should be 0. If you have saturated samples it means the "
 "load sell is seeing more force than it can measure."
 msgstr ""
+"Если у вас есть насыщенные образцы, это означает, что продажа нагрузки видит "
+"больше силы, чем она может измерить."
 
 #: docs/Load_Cell.md:block 9 (unordered list)
 msgid ""
 "'Unique values' should be a large percentage of the 'Samples Collected' value."
 " If 'Unique values' is 1 it is very likely a wiring issue."
 msgstr ""
+"«Уникальные значения» должны быть большим процентом от стоимости «Samples "
+"Collected». Если «уникальные ценности» - 1, это, скорее всего, проблема "
+"проводки."
 
 #: docs/Load_Cell.md:block 9 (unordered list)
 msgid ""
 "Tap or push on the sensor while `LOAD_CELL_DIAGNOSTIC` runs. If things are "
 "working correctly ths should increase the 'Sample range'."
 msgstr ""
+"Нажмите или нажмите на датчик, пока `LOAD_CELL_DIAGNOSTIC ` работает. Если "
+"все работает правильно, то нужно увеличить «диапазон выборки»."
 
 #: docs/Load_Cell.md:block 10 (header)
 msgid "Calibrating a Load Cell"
-msgstr ""
+msgstr "Калибровка грузового элемента"
 
 #: docs/Load_Cell.md:block 11 (paragraph)
 msgid ""
 "Load cells are calibrated using the `LOAD_CELL_CALIBRATE` command. This is an "
 "interactive calibration utility that walks you though a 3 step process:"
 msgstr ""
+"Загрузочные элементы калибруются с помощью команды `LOAD_CELL_CALIBRATE`. "
+"Это интерактивная калибровочная утилита, которая проходит вас, хотя 3-"
+"ступенчатый процесс:"
 
 #: docs/Load_Cell.md:block 12 (ordered list)
 msgid ""
 "First use the `TARE` command to establish the zero force value. This is the "
 "`reference_tare_counts` config value."
 msgstr ""
+"Сначала используйте команду `TARE`, чтобы установить нулевое значение силы. "
+"Это `reference_tare_counts ` config value."
 
 #: docs/Load_Cell.md:block 12 (ordered list)
 msgid ""
@@ -93,18 +127,22 @@ msgid ""
 "[the next section](#applying-a-known-force-or-load) for some suggestions on "
 "how to do this."
 msgstr ""
+"Затем вы применяете известную нагрузку или силу к грузовому элементу и "
+"запускаете команду `CALIBRATE GRAMS=nnn`. Из этого рассчитывается значение "
+"`counts_per_gram`. См. [ следующий раздел](#applying-a-known-force-or-load) "
+"для некоторых предложений о том, как это сделать."
 
 #: docs/Load_Cell.md:block 12 (ordered list)
 msgid "Finally, use the `ACCEPT` command to save the results."
-msgstr ""
+msgstr "Наконец, используйте команду `ACCEPT ` для сохранения результатов."
 
 #: docs/Load_Cell.md:block 13 (paragraph)
 msgid "You can cancel the calibration process at any time with `ABORT`."
-msgstr ""
+msgstr "Вы можете отменить процесс калибровки в любое время с `ABORT`."
 
 #: docs/Load_Cell.md:block 14 (header)
 msgid "Applying a Known Force or Load"
-msgstr ""
+msgstr "Применение известной силы или нагрузки"
 
 #: docs/Load_Cell.md:block 15 (paragraph)
 msgid ""
@@ -113,6 +151,10 @@ msgid ""
 "easiest to put a known mass on the platform. E.g. you could use a couple of "
 "1KG filament spools."
 msgstr ""
+"`CALIBRATE GRAMS=nnn ` Шаг может быть выполнен несколькими способами. Если "
+"ваша загрузочная камера находится под платформой, такой как кровать или "
+"держатель нити накала, может быть проще поставить известную массу на "
+"платформу. Например, вы могли бы использовать пару пулов накаливания 1KG."
 
 #: docs/Load_Cell.md:block 16 (paragraph)
 msgid ""
@@ -123,6 +165,12 @@ msgid ""
 "to manually moving the z axis with the motors off until the toolhead presses "
 "on the scale."
 msgstr ""
+"Если ваша загрузочная ячейка находится в головке принтера, другой подход "
+"проще. Положите цифровую шкалу на кровать принтеров и мягко опустите головку "
+"инструмента на вес (или поднимите кровать в головку инструмента, если ваша "
+"кровать движется). Вы можете сделать это с помощью команды `FORCE_MOVE`. Но, "
+"более вероятно, вам придется вручную перемещать ось z с двигателями, пока "
+"головка инструмента не нажимает на вес."
 
 #: docs/Load_Cell.md:block 17 (paragraph)
 msgid ""
@@ -133,10 +181,18 @@ msgid ""
 "that your printer bed or toolhead can tolerate without damage. Do try to use "
 "at least 1Kg of force, most printers should tolerate this without issue."
 msgstr ""
+"Хорошее калибровочное усилие в идеале было бы большим процентом от "
+"номинальной мощности грузовой клетки. Например, если у вас есть грузовой "
+"элемент 5Kg, вы идеально калибруете его массой 5 кг. Это может хорошо "
+"работать с датчиками, которые должны поддерживать большой вес. Для "
+"пластового зонда это не может быть нагрузка, которую ваша кровать принтера "
+"или головка инструмента может терпеть без повреждения. Попробуйте "
+"использовать по крайней мере 1 кг силы, большинство принтеров должны терпеть "
+"это без проблем."
 
 #: docs/Load_Cell.md:block 18 (paragraph)
 msgid "When calibrating make careful note of the values reported:"
-msgstr ""
+msgstr "При калибровке следует внимательно учитывать указанные значения:"
 
 #: docs/Load_Cell.md:block 20 (paragraph)
 msgid ""
@@ -146,30 +202,39 @@ msgid ""
 "as critical for 32bit and 24bit sensors but is much more critical for low bit "
 "width sensors."
 msgstr ""
+"` Общая мощность ` должна быть близка к теоретическому рейтингу загрузочного "
+"элемента на основе мощности датчика. Если он намного больше, вы могли бы "
+"использовать более высокую настройку в датчике или более чувствительную "
+"нагрузку. Это не так важно для 32-битных и 24-битных датчиков, но гораздо "
+"более важно для датчиков низкой ширины."
 
 #: docs/Load_Cell.md:block 21 (header)
 msgid "Reading Force Data"
-msgstr ""
+msgstr "Чтение данных"
 
 #: docs/Load_Cell.md:block 22 (paragraph)
 msgid "Force data can be read with a GCode command:"
-msgstr ""
+msgstr "Силовые данные можно прочитать с помощью команды GCode:"
 
 #: docs/Load_Cell.md:block 24 (paragraph)
 msgid ""
 "Data is also continuously read and can be consumed from the load_cell printer "
 "object in a macro:"
 msgstr ""
+"Данные также непрерывно считываются и могут быть использованы из объекта "
+"принтера загрузки_клетки в макросах:"
 
 #: docs/Load_Cell.md:block 26 (paragraph)
 msgid ""
 "This provides an average force over the last 1 second, similar to how "
 "temperature sensors work."
 msgstr ""
+"Это обеспечивает среднюю силу за последние 1 секунду, похожую на то, как "
+"работают датчики температуры."
 
 #: docs/Load_Cell.md:block 27 (header)
 msgid "Taring a Load Cell"
-msgstr ""
+msgstr "Тарировка грузовой ячейки"
 
 #: docs/Load_Cell.md:block 28 (paragraph)
 msgid ""
@@ -179,6 +244,11 @@ msgid ""
 "Then as filament is printed the load_cell will report the weight of the "
 "filament used."
 msgstr ""
+"Таринг, иногда называемый нулевым, устанавливает текущий вес, сообщаемый "
+"нагрузкой_клеткой до 0. Это полезно для измерения относительно известного "
+"веса. Например, при измерении пула накаливания, используя `LOAD_CELL_TARE` "
+"устанавливает вес до 0. Затем, когда нить накала будет напечатана, ячейка "
+"загрузки будет сообщать о весе используемой нити накала."
 
 #: docs/Load_Cell.md:block 30 (paragraph)
 msgid ""
