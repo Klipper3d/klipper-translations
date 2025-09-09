@@ -2,11 +2,12 @@
 # VICTOR <subfyn@gmail.com>, 2023, 2025.
 # Saveliy <jitropolit@gmail.com>, 2024, 2025.
 # gfbdrgng <hnaofegnp@hldrive.com>, 2024, 2025.
+# gfbdrgn <erfvvgtyhbnjhyuu@wireconnected.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-07-22 08:38+0000\n"
-"Last-Translator: Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>\n"
+"PO-Revision-Date: 2025-09-09 04:01+0000\n"
+"Last-Translator: gfbdrgn <erfvvgtyhbnjhyuu@wireconnected.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
 "kinematics/ru/>\n"
 "Language: ru\n"
@@ -14,7 +15,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.14-dev\n"
 
 msgid ""
 "This document provides an overview of how Klipper implements robot motion (its"
@@ -198,11 +199,9 @@ msgstr ""
 "В Klipper также реализован механизм сглаживания движений при коротких "
 "\"зигзагообразных\" перемещениях. Рассмотрим следующие ходы:"
 
-#, fuzzy
 msgid "![zigzag](img/zigzag.svg.png)"
 msgstr "![zigzag](img/zigzag.svg.png)"
 
-#, fuzzy
 msgid "![smoothed](img/smoothed.svg.png)"
 msgstr "![smoothed](img/smoothed.svg.png)"
 

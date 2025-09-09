@@ -4,11 +4,12 @@
 # xXx <xxx_xxx_xxxxxxxxx@mail.ru>, 2023, 2025.
 # gfbdrgng <hnaofegnp@hldrive.com>, 2024, 2025.
 # Evgeniy Khramov <65224669+thejenja@users.noreply.github.com>, 2025.
+# gfbdrgn <erfvvgtyhbnjhyuu@wireconnected.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-07-22 08:37+0000\n"
-"Last-Translator: VICTOR <subfyn@gmail.com>\n"
+"PO-Revision-Date: 2025-09-09 04:01+0000\n"
+"Last-Translator: gfbdrgn <erfvvgtyhbnjhyuu@wireconnected.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
 "measuring_resonances/ru/>\n"
 "Language: ru\n"
@@ -16,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.14-dev\n"
 
 msgid "Measuring Resonances"
 msgstr "Изменения Резонансов"
@@ -49,7 +50,6 @@ msgstr "Название выводов RPi"
 msgid "3V3 (or VCC)"
 msgstr "3V3 (или VCC)"
 
-#, fuzzy
 msgid "01"
 msgstr "01"
 
@@ -59,7 +59,6 @@ msgstr "Питание 3,3 В постоянного тока"
 msgid "GND"
 msgstr "GND"
 
-#, fuzzy
 msgid "06"
 msgstr "06"
 
@@ -69,54 +68,42 @@ msgstr "Земля"
 msgid "CS"
 msgstr "CS"
 
-#, fuzzy
 msgid "24"
 msgstr "24"
 
-#, fuzzy
 msgid "GPIO08 (SPI0_CE0_N)"
 msgstr "GPIO08 (SPI0_CE0_N)"
 
-#, fuzzy
 msgid "SDO"
 msgstr "SDO"
 
-#, fuzzy
 msgid "21"
 msgstr "21"
 
-#, fuzzy
 msgid "GPIO09 (SPI0_MISO)"
 msgstr "GPIO09 (SPI0_MISO)"
 
-#, fuzzy
 msgid "SDA"
 msgstr "SDA"
 
-#, fuzzy
 msgid "19"
 msgstr "19"
 
-#, fuzzy
 msgid "GPIO10 (SPI0_MOSI)"
 msgstr "GPIO10 (SPI0_MOSI)"
 
-#, fuzzy
 msgid "SCL"
 msgstr "SCL"
 
-#, fuzzy
 msgid "23"
 msgstr "23"
 
-#, fuzzy
 msgid "GPIO11 (SPI0_SCLK)"
 msgstr "GPIO11 (SPI0_SCLK)"
 
 msgid "Fritzing wiring diagrams for some of the ADXL345 boards:"
 msgstr "Схемы подключения некоторых плат ADXL345:"
 
-#, fuzzy
 msgid "![ADXL345-Rpi](img/adxl345-fritzing.png)"
 msgstr "![ADXL345-Rpi](img/adxl345-fritzing.png)"
 
@@ -141,7 +128,6 @@ msgstr ""
 msgid "An example of mounting ADXL345 on the SmartEffector:"
 msgstr "Пример установки ADXL345 на SmartEffector:"
 
-#, fuzzy
 msgid "![ADXL345 on SmartEffector](img/adxl345-mount.jpg)"
 msgstr "![ADXL345 on SmartEffector](img/adxl345-mount.jpg)"
 

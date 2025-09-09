@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-07-22 09:16+0000\n"
+"PO-Revision-Date: 2025-09-08 13:02+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/klipper/canbus/ta/>"
 "\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.14-dev\n"
 
 msgid "This document describes Klipper's CAN bus support."
 msgstr "இந்த ஆவணம் கிளிப்பரின் கேன் பச் ஆதரவை விவரிக்கிறது."
@@ -94,12 +94,12 @@ msgid ""
 "Update the Klipper [mcu configuration](Config_Reference.md#mcu) to use the CAN"
 " bus to communicate with the device - for example:"
 msgstr ""
-"சாதனத்துடன் தொடர்பு கொள்ள CAN பச்சைப் பயன்படுத்த கிளிப்பர் [MCU உள்ளமைவு] "
+"சாதனத்துடன் தொடர்பு கொள்ள CAN பச்சைப் பயன்படுத்த கிளிப்பர் [MCU உள்ளமைவு]"
 "(config_reference.md#mcu) ஐப் புதுப்பிக்கவும் - எடுத்துக்காட்டாக:"
 
 #: docs/CANBUS.md:block 1 (header)
 msgid "CANBUS"
-msgstr ""
+msgstr "கான்பச்"
 
 #: docs/CANBUS.md:block 5 (paragraph)
 msgid ""
@@ -107,8 +107,8 @@ msgid ""
 "communication interface. Finally, compile the micro-controller code and flash "
 "it to the target board."
 msgstr ""
-"CAN க்கு தொகுக்க, `மெனுகான்ஃபிக் தயாரிக்கவும், தகவல்தொடர்பு இடைமுகமாக\" கேன் பச் \"ஐத் "
-"தேர்ந்தெடுக்கவும். இறுதியாக, மைக்ரோ-கன்ட்ரோலர் குறியீட்டை தொகுத்து இலக்கு பலகையில் ஒளிரச் "
+"CAN க்கு தொகுக்க, `make menuconfig`இயக்கவும், தகவல்தொடர்பு இடைமுகமாக\" கேன் பச் \"ஐத் "
+"தேர்ந்தெடுக்கவும். இறுதியாக, மைக்ரோ-கன்ட்ரோலர் குறியீட்டைத் தொகுத்து இலக்கு பலகையில் ஒளிரச் "
 "செய்யுங்கள்."
 
 #: docs/CANBUS.md:block 26 (header)
@@ -154,10 +154,10 @@ msgid ""
 "firmware](https://github.com/candle-usb/candleLight_fw)."
 msgstr ""
 "கேன் பச்சைப் பயன்படுத்த, புரவலன் அடாப்டர் வைத்திருப்பது தேவை. "
-"\"யூ.எச்.பி டு கேன் அடாப்டர்\" ஐப் பயன்படுத்த பரிந்துரைக்கப்படுகிறது. வெவ்வேறு "
+"\"யூ.எச்.பி டு கேன் அடாப்டர்\" ஐப் பயன்படுத்தப் பரிந்துரைக்கப்படுகிறது. வெவ்வேறு "
 "உற்பத்தியாளர்களிடமிருந்து கிடைக்கக்கூடிய அடாப்டர்கள் பல வேறுபட்ட யூ.எச்.பி உள்ளன. ஒன்றைத் "
 "தேர்ந்தெடுக்கும்போது, ஃபார்ம்வேரைப் புதுப்பிக்க முடியுமா என்பதை சரிபார்க்க பரிந்துரைக்கிறோம்"
-". . ] (https://github.com/candle-usb/candlelight_fw)."
+". [candlelight firmware](https://github.com/candle-usb/candlelight_fw)."
 
 #: docs/CANBUS.md:block 12 (paragraph)
 msgid ""
@@ -246,10 +246,11 @@ msgid ""
 "appears as a \"USB CAN adapter\" and it is configured in the printer.cfg as a "
 "[CAN node](#configuring-klipper)."
 msgstr ""
-"ஒரு யூ.எச்.பி டு பிரிட்ச் போர்டு ஒரு யூ.எச்.பி சீரியல் சாதனமாக தோன்றாது, `ls/dev/"
-"serial/by-id` ஐ இயக்கும் போது அது காண்பிக்கப்படாது, மேலும் அதை` சீரியல் மூலம் klipper "
+"ஒரு யூ.எச்.பி டு பிரிட்ச் போர்டு ஒரு யூ.எச்.பி சீரியல் சாதனமாகத் தோன்றாது, `ls/dev/"
+"serial/by-id` ஐ இயக்கும்போது அது காண்பிக்கப்படாது, மேலும் அதை` சீரியல் மூலம் klipper "
 "இன் printel.cfg கோப்பில் கட்டமைக்க முடியாது : `அளவுரு. பிரிட்ச் போர்டு "
-"\"யூ.எச்.பி கேன் அடாப்டர்\" ஆகத் தோன்றுகிறது, மேலும் இது அச்சுப்பொறி."
+"\"யூ.எச்.பி கேன் அடாப்டர்\" ஆகத் தோன்றுகிறது, மேலும் இது அச்சுப்பொறி.[கேன் முனை]"
+"(#configuring-klipper)."
 
 #: docs/CANBUS.md:block 31 (header)
 msgid "Tips for troubleshooting"
@@ -257,8 +258,7 @@ msgstr "சரிசெய்தலுக்கான உதவிக்கு�
 
 #: docs/CANBUS.md:block 32 (paragraph)
 msgid "See the [CAN bus troubleshooting](CANBUS_Troubleshooting.md) document."
-msgstr ""
-"[கேன் பச் சரிசெய்தல்] (canbus_troubleshooting.md) ஆவணத்தைப் பார்க்கவும்."
+msgstr "[கேன் பச் சரிசெய்தல்](canbus_troubleshooting.md) ஆவணத்தைப் பார்க்கவும்."
 
 #~ msgid "~/klippy-env/bin/python ~/klipper/scripts/canbus_query.py can0\n"
 #~ msgstr "~/klippy-env/bin/python ~/klipper/scripts/canbus_query.py can0\n"
