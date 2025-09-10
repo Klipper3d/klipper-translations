@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-07-22 09:16+0000\n"
+"PO-Revision-Date: 2025-09-08 13:02+0000\n"
 "Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/klipper/"
 "sdcard_updates/ta/>\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.14-dev\n"
 
 msgid ""
 "Many of today's popular controller boards ship with a bootloader capable of "
@@ -62,8 +62,8 @@ msgid ""
 "If you do not see your board listed it may be necessary to add a new board "
 "definition as [described below](#board-definitions)."
 msgstr ""
-"உங்கள் வாரியம் பட்டியலிடப்பட்டதை நீங்கள் காணவில்லை என்றால், [கீழே விவரிக்கப்பட்டுள்ள] "
-"(#போர்டு-வரையறைகள்) புதிய போர்டு வரையறையைச் சேர்க்க வேண்டியது தேவை."
+"உங்கள் வாரியம் பட்டியலிடப்பட்டதை நீங்கள் காணவில்லை என்றால், [கீழே விவரிக்கப்பட்டுள்ள](#board-"
+"definitions) புதிய போர்டு வரையறையைச் சேர்க்க வேண்டியது தேவை."
 
 msgid "Advanced Usage"
 msgstr "மேம்பட்ட பயன்பாடு"
@@ -174,8 +174,8 @@ msgid ""
 "[Klipper Community Discord](Contact.md#discord)."
 msgstr ""
 "உங்களுக்கு ஒரு புதிய போர்டு வரையறை தேவைப்பட்டால், மேலே குறிப்பிட்டுள்ள நடைமுறையில் "
-"உங்களுக்கு சங்கடமாக இருந்தால், [கிளிப்பர் சமூக டிச்கார்ட்] (தொடர்பு. எம்.டி#முரண்பாடு) இல் "
-"ஒன்றை நீங்கள் கோர பரிந்துரைக்கப்படுகிறது."
+"உங்களுக்குச் சங்கடமாக இருந்தால், [கிளிப்பர் சமூக டிச்கார்ட்](Contact.md#discord) இல் ஒன்றை"
+" நீங்கள் கோர பரிந்துரைக்கப்படுகிறது."
 
 #: docs/SDCard_Updates.md:block 1 (header)
 msgid "SDCard updates"
@@ -213,15 +213,15 @@ msgid ""
 msgstr ""
 "எச்டி அட்டை தகவல்தொடர்புக்கு SPI ஐப் பயன்படுத்தும் பலகைகள் மட்டுமே ஆதரிக்கப்படுகின்றன. "
 "ஃப்ளைமேக்கர் ஃப்ளைபோர்டு மற்றும் எம்.கே.எச் ராபின் நானோ வி 1/வி 2 போன்ற SDIO ஐப் "
-"பயன்படுத்தும் பலகைகள் SDIO பயன்முறையில் வேலை செய்யாது. இருப்பினும், அதற்கு பதிலாக "
-"மென்பொருள் SPI பயன்முறையைப் பயன்படுத்தி இதுபோன்ற பலகைகளை ஒளிரச் செய்வது சாத்தியமாகும். "
+"பயன்படுத்தும் பலகைகள் SDIO பயன்முறையில் வேலை செய்யாது. இருப்பினும், அதற்குப் பதிலாக "
+"மென்பொருள் SPI பயன்முறையைப் பயன்படுத்தி இது போன்ற பலகைகளை ஒளிரச் செய்வது சாத்தியமாகும். "
 "எச்டி கார்டை அணுக போர்டின் துவக்க ஏற்றி SDIO பயன்முறையை மட்டுமே பயன்படுத்தினால், போர்டு "
 "மற்றும் எச்டி கார்டின் ஆற்றல் சுழற்சி அவசியமாக இருக்கும், இதனால் பயன்முறை SDIO க்கு மீண்டும் "
 "SDIO க்கு மாற முடியும். இத்தகைய பலகைகள் ஒளிரும் உடனேயே சரிபார்க்கும் படிநிலையைத் தவிர்க்"
 "க `Skip_verify` உடன் வரையறுக்கப்பட வேண்டும். கையேடு சக்தி-சுழற்சிக்குப் பிறகு, நீங்கள் "
 "அதே `/ச்கிரிப்டுகள்/ஃப்ளாச்-Sdcard.sh` கட்டளையை மீண்டும் இயக்கலாம், ஆனால் காசோலை/சரிபார்க்"
 "க செயல்பாட்டை முடிக்க` -c` விருப்பத்தைச் சேர்க்கவும். எடுத்துக்காட்டுகளுக்கு "
-"[SDIO ஐப் பயன்படுத்தும் ஒளிரும் பலகைகள்] (#ஒளிரும்-போர்டுகள்-அந்த பயன்பாட்டு-Sdio) ஐப் "
+"[SDIO ஐப் பயன்படுத்தும் ஒளிரும் பலகைகள்](#flashing-boards-that-use-sdio) ஐப் "
 "பார்க்கவும்."
 
 #: docs/SDCard_Updates.md:block 25 (unordered list)
@@ -241,11 +241,11 @@ msgid ""
 "with the `-c` option to perform the verification step. [See caveats with SDIO "
 "cards](#caveats)"
 msgstr ""
-"`Skip_verify`: இது ஒரு பூலியன் மதிப்பை வரையறுக்கிறது, இது ஒளிரும் செயல்பாட்டின் போது"
-" ஃபார்ம்வேர் சரிபார்ப்பு படியைத் தவிர்க்க ச்கிரிப்ட்களைச் சொல்கிறது. இயல்புநிலை `பொய்`. "
+"`Skip_verify`: இது ஒரு பூலியன் மதிப்பை வரையறுக்கிறது, இது ஒளிரும் செயல்பாட்டின்போது "
+"ஃபார்ம்வேர் சரிபார்ப்பு படியைத் தவிர்க்க ச்கிரிப்ட்களைச் சொல்கிறது. இயல்புநிலை `பொய்`. "
 "ஒளிரும் முடிக்க ஒரு கையேடு ஆற்றல் சுழற்சி தேவைப்படும் பலகைகளுக்கு இது `உண்மை` என "
 "அமைக்கப்படலாம். பின்னர் ஃபார்ம்வேரை சரிபார்க்க, சரிபார்ப்பு படி செய்ய `-c` விருப்பத்துடன் "
-"ச்கிரிப்டை மீண்டும் இயக்கவும். [SDIO அட்டைகளுடன் எச்சரிக்கைகள் காண்க] (#எச்சரிக்கைகள்)"
+"ச்கிரிப்டை மீண்டும் இயக்கவும். [SDIO அட்டைகளுடன் எச்சரிக்கைகள் காண்க](#caveats)"
 
 #: docs/SDCard_Updates.md:block 26 (paragraph)
 msgid ""
@@ -283,10 +283,11 @@ msgid ""
 "SD Card so that the board can be manually power-cycled and the verification "
 "step deferred until that's complete."
 msgstr ""
-". எச்டி கார்டுக்கான கோப்பு துவக்க ஏற்றி பலகையில் ஒளிரும். இந்த போர்டு வரையறைகள் "
-"`SKIP_VERIFY` கொடியைப் பயன்படுத்தும், இது எச்டி கார்டுக்கு ஃபார்ம்வேரை எழுதிய பிறகு "
-"நிறுத்தும்படி ஒளிரும் கருவியைக் கூறுகிறது, இதனால் வாரியத்தை கைமுறையாக சக்தி-சைக்கிள் "
-"ஓட்டவும், அது முடியும் வரை சரிபார்ப்பு படி ஒத்திவைக்கப்படலாம்."
+"[As mentioned in the Caveats](#caveats). எச்டி கார்டுக்கான கோப்பு துவக்க ஏற்றிப் "
+"பலகையில் ஒளிரும். இந்தப் போர்டு வரையறைகள் `SKIP_VERIFY` கொடியைப் பயன்படுத்தும், இது "
+"எச்டி கார்டுக்கு ஃபார்ம்வேரை எழுதியபிறகு நிறுத்தும்படி ஒளிரும் கருவியைக் கூறுகிறது, "
+"இதனால் வாரியத்தை கைமுறையாக சக்தி-சைக்கிள் ஓட்டவும், அது முடியும் வரை சரிபார்ப்பு படி "
+"ஒத்திவைக்கப்படலாம்."
 
 #: docs/SDCard_Updates.md:block 34 (paragraph)
 msgid ""
@@ -375,7 +376,7 @@ msgstr "9"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "1"
-msgstr ""
+msgstr "1"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "DATA2"
@@ -387,7 +388,7 @@ msgstr "எதுவுமில்லை (பு)*"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "2"
-msgstr ""
+msgstr "2"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "CD/DATA3"
@@ -395,11 +396,11 @@ msgstr "குறுவட்டு/தேதி 3"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "CS"
-msgstr ""
+msgstr "சி.எச்"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "3"
-msgstr ""
+msgstr "3"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "CMD"
@@ -411,7 +412,7 @@ msgstr "மொசி"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "4"
-msgstr ""
+msgstr "4"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "+3.3V (VDD)"
@@ -419,7 +420,7 @@ msgstr "+3.3 வி (வி.டி.டி)"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "5"
-msgstr ""
+msgstr "5"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "CLK"
@@ -459,7 +460,7 @@ msgstr "தரவு 1"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "N/A"
-msgstr ""
+msgstr "இதற்கில்லை"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "Card Detect (CD)"
@@ -471,7 +472,7 @@ msgstr "10"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "GND"
-msgstr ""
+msgstr "Gnd"
 
 #: docs/SDCard_Updates.md:block 45 (paragraph)
 msgid "\\* None (PU) indicates an unused pin with a pull-up resistor"

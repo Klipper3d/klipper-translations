@@ -3,15 +3,15 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-07-22 09:16+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2025-09-08 13:02+0000\n"
+"Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/klipper/g-codes/ta/"
 ">\n"
 "Language: ta\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.14-dev\n"
 
 msgid ""
 "This document describes the commands that Klipper supports. These are commands"
@@ -1240,7 +1240,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 71 (header)
 msgid "[dual_carriage]"
-msgstr ""
+msgstr "[dual_carriage]"
 
 #: docs/G-Codes.md:block 72 (paragraph)
 msgid ""
@@ -1256,7 +1256,7 @@ msgstr "Set_dual_carriage"
 
 #: docs/G-Codes.md:block 75 (header)
 msgid "[endstop_phase]"
-msgstr ""
+msgstr "[endstop_phase]"
 
 #: docs/G-Codes.md:block 76 (paragraph)
 msgid ""
@@ -1302,7 +1302,7 @@ msgstr "Sync_extruder_motion"
 
 #: docs/G-Codes.md:block 93 (header)
 msgid "[fan_generic]"
-msgstr ""
+msgstr "[fan_generic]"
 
 #: docs/G-Codes.md:block 94 (paragraph)
 msgid ""
@@ -1326,7 +1326,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 97 (header)
 msgid "[firmware_retraction]"
-msgstr ""
+msgstr "[firmware_retraction]"
 
 #: docs/G-Codes.md:block 98 (paragraph)
 msgid ""
@@ -1358,7 +1358,7 @@ msgstr "Get_retraction"
 
 #: docs/G-Codes.md:block 105 (header)
 msgid "[filament_switch_sensor]"
-msgstr ""
+msgstr "[Filament_switch_sensor]"
 
 #: docs/G-Codes.md:block 106 (paragraph)
 msgid ""
@@ -1391,7 +1391,7 @@ msgstr "Set_filament_sensor"
 
 #: docs/G-Codes.md:block 114 (header)
 msgid "[force_move]"
-msgstr ""
+msgstr "[forse_move]"
 
 #: docs/G-Codes.md:block 116 (header)
 msgid "STEPPER_BUZZ"
@@ -1431,11 +1431,11 @@ msgstr "உதவி"
 
 #: docs/G-Codes.md:block 132 (header)
 msgid "[gcode_arcs]"
-msgstr ""
+msgstr "[gcode_arcs]"
 
 #: docs/G-Codes.md:block 135 (header)
 msgid "[gcode_macro]"
-msgstr ""
+msgstr "[gcode_macro]"
 
 #: docs/G-Codes.md:block 136 (paragraph)
 msgid ""
@@ -1477,7 +1477,7 @@ msgstr "Restore_gcode_state"
 
 #: docs/G-Codes.md:block 149 (header)
 msgid "[hall_filament_width_sensor]"
-msgstr ""
+msgstr "[hall_filament_width_sensor]"
 
 #: docs/G-Codes.md:block 150 (paragraph)
 msgid ""
@@ -1593,7 +1593,7 @@ msgstr "Set_heater_temperature"
 
 #: docs/G-Codes.md:block 173 (header)
 msgid "[idle_timeout]"
-msgstr ""
+msgstr "[idle_timeout]"
 
 #: docs/G-Codes.md:block 174 (paragraph)
 msgid "The idle_timeout module is automatically loaded."
@@ -1605,7 +1605,7 @@ msgstr "Set_idle_timeout"
 
 #: docs/G-Codes.md:block 177 (header)
 msgid "[input_shaper]"
-msgstr ""
+msgstr "[input_shaper]"
 
 #: docs/G-Codes.md:block 178 (paragraph)
 msgid ""
@@ -1643,7 +1643,7 @@ msgstr "Z_offset_apply_endstop"
 
 #: docs/G-Codes.md:block 190 (header)
 msgid "[manual_stepper]"
-msgstr ""
+msgstr "[கையேடு_ச்டெப்பர்]"
 
 #: docs/G-Codes.md:block 191 (paragraph)
 msgid ""
@@ -1663,7 +1663,7 @@ msgstr "Set_led"
 
 #: docs/G-Codes.md:block 198 (header)
 msgid "[output_pin]"
-msgstr ""
+msgstr "[output_pin]"
 
 #: docs/G-Codes.md:block 199 (paragraph)
 msgid ""
@@ -1679,7 +1679,7 @@ msgstr "Set_pin"
 
 #: docs/G-Codes.md:block 202 (header)
 msgid "[palette2]"
-msgstr ""
+msgstr "[தட்டு 2]"
 
 #: docs/G-Codes.md:block 203 (paragraph)
 msgid ""
@@ -1726,7 +1726,7 @@ msgstr "Pid_calibrate"
 
 #: docs/G-Codes.md:block 221 (header)
 msgid "[pause_resume]"
-msgstr ""
+msgstr "[pause_resume]"
 
 #: docs/G-Codes.md:block 223 (header)
 msgid "PAUSE"
@@ -1746,7 +1746,7 @@ msgstr "Reancel_print"
 
 #: docs/G-Codes.md:block 231 (header)
 msgid "[probe]"
-msgstr ""
+msgstr "[ஆய்வு]"
 
 #: docs/G-Codes.md:block 232 (paragraph)
 msgid ""
@@ -1806,7 +1806,7 @@ msgstr "Query_endstops"
 
 #: docs/G-Codes.md:block 252 (header)
 msgid "[resonance_tester]"
-msgstr ""
+msgstr "[அதிர்வு_டெச்டர்]"
 
 #: docs/G-Codes.md:block 253 (paragraph)
 msgid ""
@@ -1832,7 +1832,7 @@ msgstr "Shaper_calibrate"
 
 #: docs/G-Codes.md:block 260 (header)
 msgid "[respond]"
-msgstr ""
+msgstr "[பதிலளிக்கவும்]"
 
 #: docs/G-Codes.md:block 261 (paragraph)
 msgid ""
@@ -1858,7 +1858,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 266 (header)
 msgid "[save_variables]"
-msgstr ""
+msgstr "[save_variables]"
 
 #: docs/G-Codes.md:block 267 (paragraph)
 msgid ""
@@ -1874,7 +1874,7 @@ msgstr "Save_variable"
 
 #: docs/G-Codes.md:block 270 (header)
 msgid "[screws_tilt_adjust]"
-msgstr ""
+msgstr "[ச்க்ரூச்_பில்ட்_அட்சச்ட்]"
 
 #: docs/G-Codes.md:block 271 (paragraph)
 msgid ""
@@ -1893,7 +1893,7 @@ msgstr "திருகுகள்_TILT_CALCULATE"
 
 #: docs/G-Codes.md:block 274 (header)
 msgid "[sdcard_loop]"
-msgstr ""
+msgstr "[Sdcard_loop]"
 
 #: docs/G-Codes.md:block 275 (paragraph)
 msgid ""
@@ -1925,7 +1925,7 @@ msgstr "SDCARD_LOOP_DESIST"
 
 #: docs/G-Codes.md:block 282 (header)
 msgid "[servo]"
-msgstr ""
+msgstr "[சர்வோ]"
 
 #: docs/G-Codes.md:block 283 (paragraph)
 msgid ""
@@ -1941,7 +1941,7 @@ msgstr "Set_servo"
 
 #: docs/G-Codes.md:block 286 (header)
 msgid "[skew_correction]"
-msgstr ""
+msgstr "[SKEW_CORRECTION]"
 
 #: docs/G-Codes.md:block 287 (paragraph)
 msgid ""
@@ -2001,7 +2001,7 @@ msgstr "Set_stepper_enable"
 
 #: docs/G-Codes.md:block 300 (header)
 msgid "[temperature_fan]"
-msgstr ""
+msgstr "[வெப்பநிலை_பான்]"
 
 #: docs/G-Codes.md:block 301 (paragraph)
 msgid ""
@@ -2126,7 +2126,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 323 (header)
 msgid "[virtual_sdcard]"
-msgstr ""
+msgstr "[மெய்நிகர்_ச்ட்கார்ட்]"
 
 #: docs/G-Codes.md:block 324 (paragraph)
 msgid ""
@@ -2165,7 +2165,7 @@ msgstr "`SDCARD_RESET_FILE`: கோப்பை இறக்கி எச்ட�
 
 #: docs/G-Codes.md:block 331 (header)
 msgid "[z_tilt]"
-msgstr ""
+msgstr "[z_tilt]"
 
 #: docs/G-Codes.md:block 332 (paragraph)
 msgid ""
@@ -2220,7 +2220,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 22 (header)
 msgid "[angle]"
-msgstr ""
+msgstr "[கோணம்]"
 
 #: docs/G-Codes.md:block 23 (paragraph)
 msgid ""
@@ -2293,7 +2293,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 199 (header)
 msgid "[led]"
-msgstr ""
+msgstr "[எல்.ஈ.டி]"
 
 #: docs/G-Codes.md:block 200 (paragraph)
 msgid ""
@@ -2375,7 +2375,7 @@ msgstr "Query_ADC தொகுதி தானாக ஏற்றப்படு
 
 #: docs/G-Codes.md:block 303 (header)
 msgid "[smart_effector]"
-msgstr ""
+msgstr "[ச்மார்ட்_ஃபெக்டர்]"
 
 #: docs/G-Codes.md:block 304 (paragraph)
 msgid ""
@@ -2450,7 +2450,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 87 (header)
 msgid "[exclude_object]"
-msgstr ""
+msgstr "[விலக்கு_ஆப்செக்ட்]"
 
 #: docs/G-Codes.md:block 88 (paragraph)
 msgid ""
@@ -2674,7 +2674,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 218 (header)
 msgid "[mcp4018]"
-msgstr ""
+msgstr "[MCP4018]"
 
 #: docs/G-Codes.md:block 219 (paragraph)
 msgid ""
@@ -2728,7 +2728,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 371 (header)
 msgid "[z_thermal_adjust]"
-msgstr ""
+msgstr "[z_thermal_adjust]"
 
 #: docs/G-Codes.md:block 372 (paragraph)
 msgid ""
@@ -3036,7 +3036,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 281 (header)
 msgid "[pwm_cycle_time]"
-msgstr ""
+msgstr "[PWM_CYCLE_TIME]"
 
 #: docs/G-Codes.md:block 282 (paragraph)
 msgid ""
@@ -3080,7 +3080,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 281 (header)
 msgid "[probe_eddy_current]"
-msgstr ""
+msgstr "[probe_eddy_current]"
 
 #: docs/G-Codes.md:block 282 (paragraph)
 msgid ""
@@ -3127,7 +3127,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 393 (header)
 msgid "[temperature_probe]"
-msgstr ""
+msgstr "[வெப்பநிலை_ப்ரோப்]"
 
 #: docs/G-Codes.md:block 394 (paragraph)
 msgid ""
@@ -3218,13 +3218,15 @@ msgstr ""
 
 #: docs/G-Codes.md:block 26 (header)
 msgid "ANGLE_CHIP_CALIBRATE"
-msgstr ""
+msgstr "Angin_chip_calibrate"
 
 #: docs/G-Codes.md:block 27 (paragraph)
 msgid ""
 "`ANGLE_CHIP_CALIBRATE CHIP=<chip_name>`: Perform internal sensor calibration, "
 "if implemented (MT6826S/MT6835)."
 msgstr ""
+"`Anglan_chip_calibrate chip = <iph_name>`: செயல்படுத்தப்பட்டால் (MT6826S/MT6835) "
+"உள் சென்சார் அளவுத்திருத்தத்தை செய்யுங்கள்."
 
 #: docs/G-Codes.md:block 28 (unordered list)
 msgid ""
@@ -3232,6 +3234,9 @@ msgid ""
 "performing calibration. After calibration, the sensor should be reset by "
 "disconnecting the power."
 msgstr ""
+"** MT68XX **: அளவுத்திருத்தத்தை செய்வதற்கு முன் எந்த அச்சுப்பொறி வண்டியிலிருந்தும் "
+"மின்னோடி துண்டிக்கப்பட வேண்டும். அளவுத்திருத்தத்திற்குப் பிறகு, சக்தியைத் துண்டிப்பதன் மூலம் "
+"சென்சார் மீட்டமைக்கப்பட வேண்டும்."
 
 #: docs/G-Codes.md:block 36 (paragraph)
 msgid ""
@@ -3244,12 +3249,16 @@ msgid ""
 "Calibrates axis twist compensation by specifying the target axis or enabling "
 "automatic calibration."
 msgstr ""
+"இலக்கு அச்சைக் குறிப்பிடுவதன் மூலம் அல்லது தானியங்கி அளவுத்திருத்தத்தை செயல்படுத்துவதன் "
+"மூலம் அச்சு திருப்ப இழப்பீட்டை அளவீடு செய்கிறது."
 
 #: docs/G-Codes.md:block 38 (unordered list)
 msgid ""
 "**AXIS:** Define the axis (`X` or `Y`) for which the twist compensation will "
 "be calibrated. If not specified, the axis defaults to `'X'`."
 msgstr ""
+"** அச்சு: ** திருப்பம் இழப்பீடு அளவீடு செய்யப்படும் அச்சை (`x` அல்லது` y`) வரையறுக்கவும். "
+"குறிப்பிடப்படாவிட்டால், அச்சு `'x'` க்கு இயல்புநிலையாகிறது."
 
 #: docs/G-Codes.md:block 38 (unordered list)
 msgid ""
@@ -3273,6 +3282,17 @@ msgid ""
 "any previous template assigned to the pin (one can then use `SET_FAN_SPEED` "
 "commands to manage the values directly)."
 msgstr ""
+"`Set_fan_speed முள் = config_name வார்ப்புரு = <emmatual_name> "
+"[<carm_x> = <iteral>]`: `வார்ப்புரு` குறிப்பிடப்பட்டால், அது கொடுக்கப்பட்ட விசிறிக்கு "
+"[config_reference.md#display_template) ஒதுக்குகிறது. எடுத்துக்காட்டாக, ஒருவர் `"
+"[display_template my_fan_template]` கட்டமைப்பு பிரிவை வரையறுத்தால், ஒருவர் "
+"`வார்ப்புரு = my_fan_template` ஐ இங்கே ஒதுக்கலாம். டிச்ப்ளே_டெம்ப்ளேட் விரும்பிய "
+"மதிப்புடன் மிதக்கும் புள்ளி எண்ணைக் கொண்ட ஒரு சரத்தை உருவாக்க வேண்டும். வார்ப்புரு தொடர்ந்து "
+"மதிப்பீடு செய்யப்படும், மேலும் விசிறி தானாகவே அதன் விளைவாக வரும் வேகத்திற்கு அமைக்கப்படும்"
+". வார்ப்புரு மதிப்பீட்டின் போது பயன்படுத்த வேண்டிய காட்சி_டெம்ப்ளேட் அளவுருக்களை ஒருவர் "
+"அமைக்கலாம் (அளவுருக்கள் பைதான் லிட்டரர்களாக பாகுபடுத்தப்படும்). வார்ப்புரு ஒரு வெற்று சரம் "
+"என்றால், இந்த கட்டளை முள் ஒதுக்கப்பட்ட முந்தைய வார்ப்புருவை அழிக்கும் (ஒன்று மதிப்புகளை "
+"நேரடியாக நிர்வகிக்க `set_fan_speed` கட்டளைகளைப் பயன்படுத்தலாம்)."
 
 #: docs/G-Codes.md:block 155 (paragraph)
 msgid ""
@@ -3304,20 +3324,32 @@ msgid ""
 "any previous template assigned to the pin (one can then use `SET_PIN` commands"
 " to manage the values directly)."
 msgstr ""
+"`Set_pin முள் = config_name வார்ப்புரு = <emplatue_name> [<carm_x> = <iteral>]`:"
+" `வார்ப்புரு` குறிப்பிடப்பட்டால், அது கொடுக்கப்பட்ட முள். எடுத்துக்காட்டாக, ஒருவர் `"
+"[display_template my_pin_template]` கட்டமைப்பு பிரிவை வரையறுத்தால், ஒருவர் "
+"`வார்ப்புரு = my_pin_template` ஐ இங்கே ஒதுக்கலாம். டிச்ப்ளே_டெம்ப்ளேட் விரும்பிய "
+"மதிப்புடன் மிதக்கும் புள்ளி எண்ணைக் கொண்ட ஒரு சரத்தை உருவாக்க வேண்டும். வார்ப்புரு தொடர்ந்து "
+"மதிப்பீடு செய்யப்படும் மற்றும் முள் தானாகவே அதன் விளைவாக வரும் மதிப்புக்கு அமைக்கப்படும். "
+"வார்ப்புரு மதிப்பீட்டின் போது பயன்படுத்த வேண்டிய காட்சி_டெம்ப்ளேட் அளவுருக்களை ஒருவர் "
+"அமைக்கலாம் (அளவுருக்கள் பைதான் லிட்டரர்களாக பாகுபடுத்தப்படும்). வார்ப்புரு ஒரு வெற்று சரம் "
+"என்றால், இந்த கட்டளை முள் ஒதுக்கப்பட்ட முந்தைய வார்ப்புருவை அழிக்கும் (ஒன்று மதிப்புகளை "
+"நேரடியாக நிர்வகிக்க `set_pin` கட்டளைகளைப் பயன்படுத்தலாம்)."
 
 #: docs/G-Codes.md:block 298 (header)
 msgid "[quad_gantry_level]"
-msgstr ""
+msgstr "[குவாட்_கான்ட்ரி_லெவல்]"
 
 #: docs/G-Codes.md:block 299 (paragraph)
 msgid ""
 "The following commands are available when the [quad_gantry_level config "
 "section](Config_Reference.md#quad_gantry_level) is enabled."
 msgstr ""
+"[Qual_gantry_level கட்டமைப்பு பிரிவு] (config_reference.md#qual_gantry_level) "
+"இயக்கப்பட்டிருக்கும் போது பின்வரும் கட்டளைகள் கிடைக்கும்."
 
 #: docs/G-Codes.md:block 300 (header)
 msgid "QUAD_GANTRY_LEVEL"
-msgstr ""
+msgstr "குவாட்_கான்ட்ரி_லெவல்"
 
 #: docs/G-Codes.md:block 301 (paragraph)
 msgid ""
@@ -3329,6 +3361,13 @@ msgid ""
 "and `HORIZONTAL_MOVE_Z` values override those options specified in the config "
 "file."
 msgstr ""
+"`Qual_gantry_level [retires = <மதிப்பு>] [retry_tolerance = <value>] "
+"[கிடைமட்ட_மோவ்_செச் = <மதிப்பு>] [<probe_parameter> = <மதிப்பு>]`: இந்த கட்டளை "
+"கட்டமைப்பில் குறிப்பிடப்பட்டுள்ள புள்ளிகளை ஆய்வு செய்து, பின்னர் ஒவ்வொரு சட் ச்டெப்பருக்கும் "
+"சுயாதீனமான மாற்றங்களைச் செய்யும். விருப்ப ஆய்வு அளவுருக்கள் குறித்த விவரங்களுக்கு ஆய்வு "
+"கட்டளையைப் பார்க்கவும். விருப்பமான `முயற்சிகள்`,` RETRY_TOLERANCE`, மற்றும் "
+"`கிடைமட்ட_மோவ்_இச்` மதிப்புகள் கட்டமைப்பு கோப்பில் குறிப்பிடப்பட்டுள்ள அந்த விருப்பங்களை "
+"மேலெழுதும்."
 
 #: docs/G-Codes.md:block 316 (paragraph)
 msgid ""
@@ -3357,6 +3396,24 @@ msgid ""
 "`resonances`, and NAME defaults to the current time in \"YYYYMMDD_HHMMSS\" "
 "format."
 msgstr ""
+"`Test_resonances அச்சு = <six> [வெளியீடு = <அதிர்வுகள், RAW_DATA>] "
+"[பெயர் = <பெயர்>] [Freq_start = <min_freq>] . \"அச்சு\" ஃச் அல்லது ஒய் ஆக இருக்கலாம்"
+", அல்லது ஒரு தன்னிச்சையான திசையை `அச்சு = dx, dy` எனக் குறிப்பிடலாம், அங்கு dx மற்றும் "
+"dy ஆகியவை ஒரு திசை திசையனை வரையறுக்கும் புள்ளி எண்களை மிதக்கின்றன (எ.கா. `அச்சு = "
+"dx, dy` மற்றும்` அச்சு = -dx, -dy` சமம் என்பதை நினைவில் கொள்க. `CHIP_NAME` ஒன்று "
+"அல்லது அதற்கு மேற்பட்ட கட்டமைக்கப்பட்ட முடி சில்லுகளாக இருக்கலாம், இது கமாவுடன் "
+"பிரிக்கப்பட்டுள்ளது, எடுத்துக்காட்டாக` சிப்ச் = \"ADXL345, ADXL345 RPI\" `. புள்ளி "
+"குறிப்பிடப்பட்டால், அது `[அதிர்வு_டெச்டர்]` இல் கட்டமைக்கப்பட்ட புள்ளி (களை) மேலெழுதும். "
+"`உள்ளீடு_சேப்பிங் = 0` அல்லது அமைக்கப்படாவிட்டால் (இயல்புநிலை), அதிர்வு சோதனைக்கு உள்ளீட்டு "
+"வடிவமைப்பை முடக்குகிறது, ஏனெனில் இயக்கப்பட்ட உள்ளீட்டு வடிவத்துடன் அதிர்வு சோதனையை "
+"இயக்குவது செல்லுபடியாகாது. `வெளியீடு` அளவுரு என்பது கமாவால் பிரிக்கப்பட்ட பட்டியலாகும்"
+", இதன் வெளியீடுகள் எழுதப்படும். `RAW_DATA` கோரப்பட்டால், மூல முடுக்கமானி தரவு ஒரு "
+"கோப்பில் அல்லது தொடர்ச்சியான கோப்புகளில் எழுதப்பட்டுள்ளது`/tmp/raw_data_ <inx> _ "
+"[<chic_name> _] [<point> _] <amane> .csv` உடன் (`<புள்ளி> _ _ _ _ _ _ _ _ _ _ "
+"_ _ _ _ _ _ ' `அதிர்வுகள்` குறிப்பிடப்பட்டால், அதிர்வெண் பதில் கணக்கிடப்படுகிறது (எல்லா "
+"ஆய்வு புள்ளிகளிலும்) மற்றும்`/tmp/அதிர்வு_ <inx> _ <aname> .csv` கோப்பில் "
+"எழுதப்பட்டுள்ளது. அமைக்கப்படாவிட்டால், வெளியீடு இயல்புநிலையாக `அதிர்வுகளுக்கு`, மற்றும் "
+"பெயர் இயல்புநிலை தற்போதைய நேரத்திற்கு\" yyyymmdd_hhmmss \"வடிவத்தில் உள்ளது."
 
 #: docs/G-Codes.md:block 318 (paragraph)
 msgid ""
@@ -3377,6 +3434,17 @@ msgid ""
 "`SAVE_CONFIG` command, and if `[input_shaper]` was already enabled previously,"
 " these parameters take effect immediately."
 msgstr ""
+"`Shaper_calibrate [அச்சு = <six>] [பெயர் = <பெயர்>] [freq_start = <min_freq>] "
+"[freq_end = <ax_freq>] . `Max_smoothing` அமைக்கப்படவில்லை என்றால், அதன் மதிப்பு` "
+"[அதிர்வு_டெச்டர்] `பிரிவில் இருந்து எடுக்கப்படுகிறது, இயல்புநிலை அமைக்கப்படாதது. இந்த "
+"அம்சத்தைப் பயன்படுத்துவது குறித்த கூடுதல் தகவலுக்கு அளவீட்டு அதிர்வு வழிகாட்டியின் "
+"[அதிகபட்ச மென்மையான] (அளவீட்டு_ரெசோனன்ச். ட்யூனிங்கின் முடிவுகள் கன்சோலுக்கு அச்சிடப்படுகின்"
+"றன, மேலும் அதிர்வெண் பதில்கள் மற்றும் வெவ்வேறு உள்ளீட்டு சேப்பர்ச் மதிப்புகள் ஒரு காபிம கோப்பு"
+" (கள்) `/TMP/அளவுத்திருத்த_டேட்டா_ <inx> _ <amen> .csv` க்கு எழுதப்பட்டுள்ளன. "
+"குறிப்பிடப்படாவிட்டால், பெயர் \"YYYYMMDD_HHMMS\" வடிவத்தில் தற்போதைய நேரத்திற்கு "
+"இயல்புநிலை. பரிந்துரைக்கப்பட்ட உள்ளீட்டு சேப்பர் அளவுருக்கள் `Save_config` கட்டளையை "
+"வழங்குவதன் மூலம் கட்டமைப்பில் தொடரலாம், மேலும்` [INPUT_SHAPER] `முன்பு ஏற்கனவே "
+"இயக்கப்பட்டிருந்தால், இந்த அளவுருக்கள் உடனடியாக நடைமுறைக்கு வரும்."
 
 #: docs/G-Codes.md:block 403 (paragraph)
 msgid ""
@@ -3388,6 +3456,9 @@ msgid ""
 "and `HORIZONTAL_MOVE_Z` values override those options specified in the config "
 "file."
 msgstr ""
+". விருப்ப ஆய்வு அளவுருக்கள் குறித்த விவரங்களுக்கு ஆய்வு கட்டளையைப் பார்க்கவும். விருப்பமான "
+"`முயற்சிகள்`,` RETRY_TOLERANCE`, மற்றும் `கிடைமட்ட_மோவ்_இச்` மதிப்புகள் கட்டமைப்பு "
+"கோப்பில் குறிப்பிடப்பட்டுள்ள அந்த விருப்பங்களை மேலெழுதும்."
 
 #~ msgid ""
 #~ "`SET_KINEMATIC_POSITION [X=<value>] [Y=<value>] [Z=<value>]`: Force the low-"
