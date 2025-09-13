@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-09-09 04:02+0000\n"
+"PO-Revision-Date: 2025-09-10 09:02+0000\n"
 "Last-Translator: gfbdrgn <erfvvgtyhbnjhyuu@wireconnected.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
 "delta_calibrate/ru/>\n"
@@ -311,11 +311,9 @@ msgstr ""
 "производятся для самих колонн. Измерьте размер центральной стойки вдоль "
 "спицы A, затем спицы B, а затем спицы C."
 
-#, fuzzy
 msgid "![delta-a-pillar](img/delta-a-pillar.jpg)"
 msgstr "![delta-a-pillar](img/delta-a-pillar.jpg)"
 
-#, fuzzy
 msgid "![delta_cal_e_step3](img/delta_cal_e_step3.png)"
 msgstr "![delta_cal_e_step3](img/delta_cal_e_step3.png)"
 
@@ -329,7 +327,6 @@ msgstr ""
 "Окончательные измерения производятся для внешних опор. Начните с измерения "
 "расстояния от столба A по линии от A до столба напротив C."
 
-#, fuzzy
 msgid "![delta-ab-pillar](img/delta-outer-pillar.jpg)"
 msgstr "![delta-ab-pillar](img/delta-outer-pillar.jpg)"
 
@@ -342,7 +339,6 @@ msgstr ""
 "стойка напротив C вдоль линии до B, стойка B вдоль линии до стойки напротив "
 "A и т.д.)."
 
-#, fuzzy
 msgid "![delta_cal_e_step4](img/delta_cal_e_step4.png)"
 msgstr "![delta_cal_e_step4](img/delta_cal_e_step4.png)"
 

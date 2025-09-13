@@ -1,11 +1,12 @@
 # Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022, 2025.
 # VICTOR <subfyn@gmail.com>, 2023, 2025.
 # gfbdrgng <hnaofegnp@hldrive.com>, 2024, 2025.
+# gfbdrgn <erfvvgtyhbnjhyuu@wireconnected.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-07-22 08:36+0000\n"
-"Last-Translator: Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>\n"
+"PO-Revision-Date: 2025-09-10 11:02+0000\n"
+"Last-Translator: gfbdrgn <erfvvgtyhbnjhyuu@wireconnected.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
 "api_server/ru/>\n"
 "Language: ru\n"
@@ -13,7 +14,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.14-dev\n"
 
 msgid ""
 "This document describes Klipper's Application Programmer Interface (API). This"
@@ -273,7 +274,6 @@ msgstr ""
 "указывать имя клиента и версию его программного обеспечения при первом "
 "подключении к серверу Klipper API."
 
-#, fuzzy
 msgid "emergency_stop"
 msgstr "emergency_stop"
 
@@ -286,7 +286,6 @@ msgstr ""
 "в состояние \"выключения\". Она ведет себя аналогично команде G-кода `M112`. "
 "Например: `{\" идентификатор\": 123, \"метод\": \"emergency_stop\"}}"
 
-#, fuzzy
 msgid "register_remote_method"
 msgstr "register_remote_method"
 
@@ -419,7 +418,6 @@ msgstr ""
 "\" статус\": {\" Вебхуки\": {\" состояние\": \" отключение\"}}, "
 "\" время событий\": 3052165.418815847}}`"
 
-#, fuzzy
 msgid "gcode/help"
 msgstr "gcode/help"
 
@@ -438,7 +436,6 @@ msgstr ""
 "\"Запустить тест калибровки ПИД\", \"QUERY_ADC\": "
 "\"Сообщить последнее значение аналогового пина\", ...}}`"
 
-#, fuzzy
 msgid "gcode/script"
 msgstr "gcode/script"
 
@@ -474,7 +471,6 @@ msgstr ""
 ". Ответное сообщение JSON отправляется, когда обработка сценария полностью "
 "завершена."
 
-#, fuzzy
 msgid "gcode/restart"
 msgstr "gcode/restart"
 
@@ -494,7 +490,6 @@ msgstr ""
 "Как и в случае с конечной точкой \"gcode/script\", эта конечная точка "
 "завершается только после выполнения всех ожидающих команд G-Code."
 
-#, fuzzy
 msgid "gcode/firmware_restart"
 msgstr "gcode/firmware_restart"
 
@@ -507,7 +502,6 @@ msgstr ""
 "кода \"FIRMWARE_RESTART\". Например: `{\"id\": 123, \"method\": "
 "\"gcode/firmware_restart\"}`"
 
-#, fuzzy
 msgid "gcode/subscribe_output"
 msgstr "gcode/subscribe_output"
 
@@ -535,7 +529,6 @@ msgstr ""
 "G-Code не рекомендуется. Используйте конечную точку \"objects/subscribe\" "
 "для получения обновлений о состоянии Klipper."
 
-#, fuzzy
 msgid "pause_resume/cancel"
 msgstr "pause_resume/cancel"
 
@@ -546,7 +539,6 @@ msgstr ""
 "Эта конечная точка аналогична выполнению команды G-кода \"PRINT_CANCEL\". "
 "Например: `{\"id\": 123, \"method\": \"pause_resume/cancel\"}`"
 
-#, fuzzy
 msgid "pause_resume/pause"
 msgstr "pause_resume/pause"
 
@@ -557,7 +549,6 @@ msgstr ""
 "Эта конечная точка аналогична выполнению команды G-кода \"PAUSE\". Например: "
 "`{\"id\": 123, \"method\": \"pause_resume/pause\"}`"
 
-#, fuzzy
 msgid "pause_resume/resume"
 msgstr "pause_resume/resume"
 
@@ -568,7 +559,6 @@ msgstr ""
 "Эта конечная точка аналогична выполнению команды G-кода \"RESUME\". Например:"
 " `{\"id\": 123, \"method\": \"pause_resume/resume\"}`"
 
-#, fuzzy
 msgid "query_endstops/status"
 msgstr "query_endstops/status"
 
@@ -588,7 +578,6 @@ msgid "API server"
 msgstr "Сервер API"
 
 #: docs/API_Server.md:block 71 (header)
-#, fuzzy
 msgid "motion_report/dump_stepper"
 msgstr "motion_report/dump_stepper"
 
@@ -638,7 +627,6 @@ msgstr ""
 "описания полей, содержащихся в последующих ответах \"данные\"."
 
 #: docs/API_Server.md:block 75 (header)
-#, fuzzy
 msgid "motion_report/dump_trapq"
 msgstr "motion_report/dump_trapq"
 
@@ -677,7 +665,6 @@ msgstr ""
 "[5.054, 0.001, 0.0, 3000.0, [300.0, 0.0, 0.0], [-1.0, 0.0, 0.0]]]}}`"
 
 #: docs/API_Server.md:block 79 (header)
-#, fuzzy
 msgid "adxl345/dump_adxl345"
 msgstr "adxl345/dump_adxl345"
 
@@ -712,7 +699,6 @@ msgstr ""
 "[3292.433256,-382.45935,-1606.32927,9561.48375]]}}`"
 
 #: docs/API_Server.md:block 83 (header)
-#, fuzzy
 msgid "angle/dump_angle"
 msgstr "angle/dump_angle"
 
@@ -755,7 +741,6 @@ msgstr ""
 "сервер Klipper's Unix Domain Socket."
 
 #: docs/API_Server.md:block 88 (header)
-#, fuzzy
 msgid "hx71x/dump_hx71x"
 msgstr "hx71x/dump_hx71x"
 
@@ -787,7 +772,6 @@ msgstr ""
 "[[3292.432935, 562534, 0.067059278], [3292.4394937, 5625322, 0.670590639]]}}`"
 
 #: docs/API_Server.md:block 91 (header)
-#, fuzzy
 msgid "ads1220/dump_ads1220"
 msgstr "ads1220/dump_ads1220"
 
@@ -819,7 +803,6 @@ msgstr ""
 "[[3292.432935, 562534, 0.067059278], [3292.4394937, 5625322, 0.670590639]]}}`"
 
 #: docs/API_Server.md:block 106 (header)
-#, fuzzy
 msgid "bed_mesh/dump_mesh"
 msgstr "bed_mesh/dump_mesh"
 

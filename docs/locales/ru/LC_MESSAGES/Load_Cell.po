@@ -2,7 +2,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-09-09 04:02+0000\n"
+"PO-Revision-Date: 2025-09-10 14:02+0000\n"
 "Last-Translator: gfbdrgn <erfvvgtyhbnjhyuu@wireconnected.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
 "load_cell/ru/>\n"
@@ -255,26 +255,28 @@ msgid ""
 "The current tare value is reported in the printers status and can be read in a"
 " macro:"
 msgstr ""
+"Текущее значение тары сообщается в статусе принтеров и может быть прочитано "
+"на макросе:"
 
 #: docs/Load_Cell.md:block 32 (header)
 msgid "Load Cell Probes"
-msgstr ""
+msgstr "Пробы загрузки"
 
 #: docs/Load_Cell.md:block 34 (unordered list)
 msgid "[load_cell_probe Config Reference](Config_Reference.md#load_cell_probe)"
-msgstr ""
+msgstr "[load_cell_probe Config Reference](Config_Reference.md#load_cell_probe)"
 
 #: docs/Load_Cell.md:block 34 (unordered list)
 msgid "[load_cell_probe G-Code Commands](G-Codes.md#load_cell_probe)"
-msgstr ""
+msgstr "[load_cell_probe G-Code Commands](G-Codes.md#load_cell_probe)"
 
 #: docs/Load_Cell.md:block 34 (unordered list)
 msgid "[load_cell_probe Statuc Reference](Status_Reference.md#load_cell_probe)"
-msgstr ""
+msgstr "[load_cell_probe Statuc Reference](Status_Reference.md#load_cell_probe)"
 
 #: docs/Load_Cell.md:block 35 (header)
 msgid "Load Cell Probe Safety"
-msgstr ""
+msgstr "Безопасность"
 
 #: docs/Load_Cell.md:block 36 (paragraph)
 msgid ""
@@ -285,10 +287,16 @@ msgid ""
 "and how they work as you can defeat most of them with poorly chosen config "
 "values."
 msgstr ""
+"Поскольку загрузочные элементы являются прямым контактным зондом сопла, "
+"существует риск повреждения вашего принтера, если используется слишком много "
+"сил. Система проверки загрузочных ячеек включает в себя ряд проверок "
+"безопасности, которые пытаются защитить вашу машину от чрезмерной силы к "
+"плацдарму. Важно понимать, что они такое и как они работают, как вы можете "
+"победить большинство из них с плохо выбранными значениями конфигурации."
 
 #: docs/Load_Cell.md:block 37 (header)
 msgid "Calibration Check"
-msgstr ""
+msgstr "Проверка калибровки"
 
 #: docs/Load_Cell.md:block 38 (paragraph)
 msgid ""
@@ -296,10 +304,13 @@ msgid ""
 "calibrated. If not it will stop the move with an error: `!! Load Cell not "
 "calibrated`."
 msgstr ""
+"Каждый раз, когда запускается ход, load_cell_probe проверяет, что "
+"загрузка_клеток калибруется. Если это не остановит ход с ошибкой: `!! "
+"Загрузка Ячейка не калибрована`."
 
 #: docs/Load_Cell.md:block 39 (header)
 msgid "`counts_per_gram`"
-msgstr ""
+msgstr "`counts_per_gram`"
 
 #: docs/Load_Cell.md:block 40 (paragraph)
 msgid ""
@@ -309,10 +320,16 @@ msgid ""
 "You should never guess this value. Use `LOAD_CELL_CALIBRATE` to find your load"
 " cells actual `counts_per_gram`."
 msgstr ""
+"Эта настройка используется для преобразования первичных датчиков в граммы. "
+"Все ограничения безопасности в граммах для вашего удобства. Если параметр `"
+"counts_per_gram ` не точен, вы можете легко превысить безопасную силу на "
+"головке инструмента. Вы никогда не должны угадать эту ценность. Используйте `"
+"LOAD_CELL_CALIBRATE `, чтобы найти ваши загрузочные камеры фактически "
+"`counts_per_gram`."
 
 #: docs/Load_Cell.md:block 41 (header)
 msgid "`trigger_force`"
-msgstr ""
+msgstr "`trigger_force`"
 
 #: docs/Load_Cell.md:block 42 (paragraph)
 msgid ""
@@ -324,10 +341,19 @@ msgid ""
 "before the toolhead stops. This overshoot will increase with faster probing "
 "`speed`, a low ADC sample rate or [multi MCU homing](Multi_MCU_Homing.md)."
 msgstr ""
+"Это сила в граммах, которая запускает конечную остановку, чтобы остановить "
+"ход хоминга. Когда движение хоминга начинается, конечная остановка "
+"заслоняется с текущим чтением от грузовой ячейки. `trigger_force ` "
+"измеряется от этого значения тары. Всегда есть какая-то перестрелка этого "
+"значения, когда зонд сталкивается с кроватью, поэтому будьте консервативны. "
+"Например, установка 100 г может привести к 350 г пиковой силы, прежде чем "
+"инструмент закончится. Эта перестрелка увеличится с более быстрой скоростью `"
+" `, низкой скоростью выборки ADC или [мульти MCU homing]"
+"(Multi_MCU_Homing.md)."
 
 #: docs/Load_Cell.md:block 43 (header)
 msgid "`reference_tare_counts`"
-msgstr ""
+msgstr "`reference_tare_counts`"
 
 #: docs/Load_Cell.md:block 44 (paragraph)
 msgid ""
@@ -335,10 +361,13 @@ msgid ""
 "value works with `force_safety_limit` to limit the maximum force on the "
 "toolhead."
 msgstr ""
+"Это базовое значение тары, установленное `LOAD_CELL_CALIBRATE`. Это значение "
+"работает с `force_safety_limit[X11X] для ограничения максимальной силы на "
+"головке инструмента."
 
 #: docs/Load_Cell.md:block 45 (header)
 msgid "`force_safety_limit`"
-msgstr ""
+msgstr "`force_safety_limit`"
 
 #: docs/Load_Cell.md:block 46 (paragraph)
 msgid ""
@@ -347,6 +376,11 @@ msgid ""
 "exceeded it will shut down the printer with the error `!! Load cell endstop: "
 "too much force!`. There are a number of ways this can be triggered:"
 msgstr ""
+"Это максимальная абсолютная сила, по сравнению с `reference_tare_counts `, "
+"что зонд позволит во время оттаивания или пробирования. Если MCU увидит, что "
+"эта сила превышена, он выключит принтер с ошибкой `! Загрузить сотовую "
+"остановку: слишком много силы! `. Существует ряд способов, которыми это "
+"может быть вызвано:"
 
 #: docs/Load_Cell.md:block 47 (paragraph)
 msgid ""
@@ -355,6 +389,10 @@ msgid ""
 " a probe event and continue the homing move. If this happens the "
 "`force_safety_limit` acts as a backup protection."
 msgstr ""
+"Первый риск, от которого это защищает, - это сбор слишком большого значения "
+"для `drift_filter_cutoff_ frequency`. Это может привести к тому, что дрейф-"
+"фильтр отфильтрует событие зонда и продолжит движение хромирования. Если это "
+"происходит, то `force_safety_limit ` действует как резервная защита."
 
 #: docs/Load_Cell.md:block 48 (paragraph)
 msgid ""
@@ -367,6 +405,15 @@ msgid ""
 " this will result in ever-increasing force on the toolhead. "
 "`force_safety_limit` stops this cycle from running out of control."
 msgstr ""
+"Вторая проблема состоит в том, чтобы многократно просачиваться в одном "
+"месте. Klipper не втягивает зонд при выполнении одной команды `PROBE`. Это "
+"может привести к вступлению в силу, применяемую к плацдарму в конце "
+"испытательного цикла. Поскольку внешние силы могут сильно различаться между "
+"поиском местоположения, `load_cell_probe ` выполняет тару перед началом "
+"каждого зонда. Если вы повторите команду `PROBE`, то загрузка_cell_probe "
+"привлечет конечную остановку при нынешней силе. Множественные циклы этого "
+"приведут к постоянно возрастающей силе на головке инструмента. `"
+"force_safety_limit ` останавливает этот цикл от выхода из-под контроля."
 
 #: docs/Load_Cell.md:block 49 (paragraph)
 msgid ""
@@ -376,6 +423,12 @@ msgid ""
 "more likely to be violated. You want to be notified if this is happening "
 "because your hardware has been permanently damaged."
 msgstr ""
+"Другой способ, которым может произойти это бегство, - это повреждение "
+"манометра. Если металлическая часть постоянно наклонена, она изменит `"
+"reference_tare_counts ` устройства. Это ставит стартовое значение намного "
+"ближе к пределу, что делает его более склонным к нарушению. Вы хотите быть "
+"уведомлены, если это происходит, потому что ваше оборудование было постоянно "
+"повреждено."
 
 #: docs/Load_Cell.md:block 50 (paragraph)
 msgid ""
@@ -384,10 +437,16 @@ msgid ""
 "at ambient temperature vs operating temperature. In this case you may need to "
 "increase the `force_safety_limit` to allow for thermal changes."
 msgstr ""
+"Последний способ, которым это может быть спровоцировано, связан с "
+"изменениями температуры. Если ваши датчики напряжения нагреваются, их `"
+"reference_tare_counts ` могут быть очень разными при температуре окружающей "
+"среды по сравнению с рабочей температурой. В этом случае вам может "
+"понадобиться увеличить `force_safety_limit `, чтобы обеспечить термические "
+"изменения."
 
 #: docs/Load_Cell.md:block 51 (header)
 msgid "Load Cell Endstop Watchdog Task"
-msgstr ""
+msgstr "Загрузка ячейка"
 
 #: docs/Load_Cell.md:block 52 (paragraph)
 msgid ""
@@ -396,6 +455,10 @@ msgid ""
 "measurements for 2 sample periods the watchdog will shut down the printer with"
 " an error `!! LoadCell Endstop timed out waiting on ADC data`."
 msgstr ""
+"При оттачивании загрузки_cell_endstop начинается задача на MCU для измерения "
+"скорости, поступающей от датчика. Если датчик не может отправлять измерения "
+"в течение 2 периодов отбора проб, сторожевой щит закроет принтер с ошибкой `"
+"! LoadCell Endstop таймировал ожидание данных ADC `."
 
 #: docs/Load_Cell.md:block 53 (paragraph)
 msgid ""
@@ -406,18 +469,26 @@ msgid ""
 "electricity well. You might need to sand the area where the grounding wire is "
 "attached to make good electrical contact."
 msgstr ""
+"Если это происходит, наиболее вероятной причиной является ошибка от ADC. "
+"Неадекватное заземление вашего принтера может быть основной причиной. Рамка, "
+"корпус питания и пинта-кровать должны быть подключены к земле. Возможно, вам "
+"придется заземлять раму в нескольких местах. Анодированные алюминиевые "
+"экструзии не хорошо проводят электричество. Вам, возможно, придется "
+"застегнуть область, где заземляющий провод прикреплен, чтобы сделать хороший "
+"электрический контакт."
 
 #: docs/Load_Cell.md:block 54 (header)
 msgid "Load Cell Probe Setup"
-msgstr ""
+msgstr "Настройка пробы загрузки"
 
 #: docs/Load_Cell.md:block 55 (paragraph)
 msgid "This section covers the process for commissioning a load cell probe."
 msgstr ""
+"Этот раздел охватывает процесс ввода в эксплуатацию зонда нагрузочных ячеек."
 
 #: docs/Load_Cell.md:block 56 (header)
 msgid "Verify the Load Cell First"
-msgstr ""
+msgstr "Проверка первой загрузки"
 
 #: docs/Load_Cell.md:block 57 (paragraph)
 msgid ""
@@ -427,10 +498,15 @@ msgid ""
 "cell](Load_Cell.md#calibrating-a-load-cell) with `CALIBRATE_LOAD_CELL` and "
 "checking its operation with `LOAD_CELL_DIAGNOSTIC`."
 msgstr ""
+"`[load_cell_probe]` - это также `[load_cell]` и команды G-кода, связанные с `"
+"[load_cell]` работой с `[load_cell_probe][X19X]. Прежде чем пытаться "
+"использовать зонд нагрузочных ячеек, следуйте указаниям для "
+"[калибрации нагрузочного элемента](Load_Cell.md#calibrating-a-load-cell) с `"
+"CALIBRATE_LOAD_CELL ` и проверяя его работу с `LOAD_CELL_DIAGNOSTIC[X38X]."
 
 #: docs/Load_Cell.md:block 58 (header)
 msgid "Verify Probe Operation With LOAD_CELL_TEST_TAP"
-msgstr ""
+msgstr "Проверка работы с LOAD_CELL_TEST_TAP"
 
 #: docs/Load_Cell.md:block 59 (paragraph)
 msgid ""
@@ -440,22 +516,32 @@ msgid ""
 "listens for 3 taps before ending the test. You have 30 seconds to do each tap,"
 " if no taps are detected the command will time out."
 msgstr ""
+"Используйте команду `LOAD_CELL_TEST_TAP `, чтобы проверить работу датчика "
+"нагрузки, прежде чем пытаться его исследовать. Эта команда обнаруживает "
+"краны, как и команда PROBE, но не перемещает ось z. По умолчанию он "
+"прослушивает 3 крана перед окончанием теста. У вас есть 30 секунд, чтобы "
+"сделать каждый кран, если нет кранов, команда будет время."
 
 #: docs/Load_Cell.md:block 60 (paragraph)
 msgid ""
 "If this test fails, check your configuration and `LOAD_CELL_DIAGNOSTIC` "
 "carefully to look for issues."
 msgstr ""
+"Если этот тест терпит неудачу, проверьте вашу конфигурацию и `"
+"LOAD_CELL_DIAGNOSTIC ` внимательно, чтобы искать проблемы."
 
 #: docs/Load_Cell.md:block 61 (paragraph)
 msgid ""
 "Load cell probes don't support the `QUERY_ENDSTOPS` or `QUERY_PROBE` commands."
 " Use `LOAD_CELL_TEST_TAP` for testing functionality before probing."
 msgstr ""
+"Зонды загрузки не поддерживают команды `QUERY_ENDSTOPS ` или `QUERY_PROBE`. "
+"Используйте `LOAD_CELL_TEST_TAP ` для тестирования функциональности перед "
+"прохождением."
 
 #: docs/Load_Cell.md:block 62 (header)
 msgid "Homing Macros"
-msgstr ""
+msgstr "Homing Macros"
 
 #: docs/Load_Cell.md:block 63 (paragraph)
 msgid ""
@@ -464,6 +550,10 @@ msgid ""
 "axis with an MCU pin as its endstop. You won't actually be using the pin but "
 "for the time being you have to configure something."
 msgstr ""
+"Зонд загрузки не является остановкой и не поддерживает `endstop: "
+"prove:z_virtual_endstop`. В настоящее время вам нужно настроить ось z с "
+"помощью MCU-пина в качестве его конечной остановки. На самом деле вы не "
+"будете использовать значок, но пока вам нужно что-то настроить."
 
 #: docs/Load_Cell.md:block 64 (paragraph)
 msgid ""
@@ -471,6 +561,9 @@ msgid ""
 " This requires setting up "
 "[homing_override](Config_Reference.md#homing_override)."
 msgstr ""
+"Чтобы обустроить ось с помощью только зонда, нужно настроить настраиваемый "
+"хромирующий макрос. Это требует настройки [homing_override]"
+"(Config_Reference.md#homing_override)."
 
 #: docs/Load_Cell.md:block 65 (paragraph)
 msgid ""
@@ -479,10 +572,14 @@ msgid ""
 "work. The sub-call is needed so that the `_HOME_Z_FROM_LAST_PROBE` macro can "
 "see the result of the probe in `printer.probe.last_z_result`."
 msgstr ""
+"Вот простой макрос, который может достичь этого. `_ HOME_Z_FROM_LAST_PROBE` "
+"макрос должен быть отдельным из-за того, как работают макросы. Подзапрос "
+"необходим для того, чтобы макрос `_HOME_Z_FROM_LAST_PROBE` мог видеть "
+"результат зонда в `printer.probe.last_z_result`."
 
 #: docs/Load_Cell.md:block 67 (header)
 msgid "Suggested Probing Temperature"
-msgstr ""
+msgstr "Предлагаемая температура"
 
 #: docs/Load_Cell.md:block 68 (paragraph)
 msgid ""
@@ -490,6 +587,10 @@ msgid ""
 "causes the filament to ooze while homing and probing. 140C is a good starting "
 "point. This temperature is also low enough not to scar PEI build surfaces."
 msgstr ""
+"В настоящее время мы предлагаем сохранить температуру сопла ниже уровня, "
+"который заставляет нить накала во время рытья и просачивать. 140C - хорошая "
+"отправная точка. Эта температура также достаточно низкая, чтобы не рубить "
+"поверхности PEI."
 
 #: docs/Load_Cell.md:block 69 (paragraph)
 msgid ""
@@ -499,6 +600,12 @@ msgid ""
 "code may decide that a tap is valid when it is of poor quality. Classifying "
 "these poor quality taps is an area of active research."
 msgstr ""
+"Разрушение сопла и печатной кровати из-за обесцвечивания нити накала "
+"является источником #1 ошибки при испытании пробоотборника. Klipper пока не "
+"имеет универсального способа обнаружения некачественных кранов из-за огни "
+"нити накала. Существующий код может решить, что кран действителен, когда он "
+"низкого качества. Классификация этих низкокачественных кранов является "
+"областью активных исследований."
 
 #: docs/Load_Cell.md:block 70 (paragraph)
 msgid ""
@@ -506,15 +613,21 @@ msgid ""
 "become fouled by filament ooze. Modules like `quad_gantry_level` will "
 "repeatedly probe the same coordinates even if a probe previously failed there."
 msgstr ""
+"Klipper также не имеет поддержки для повторного размещения точки зонда, если "
+"местоположение стало загрязнено нитью накала. Модули, такие как "
+"`quad_gantry_level`, будут неоднократно исследовать те же координаты, даже "
+"если зонд ранее потерпел неудачу."
 
 #: docs/Load_Cell.md:block 71 (paragraph)
 msgid ""
 "Give the above it is strongly suggested not to probe at printing temperatures."
 msgstr ""
+"Дайте вышесказанное настоятельно рекомендуется не исследовать при "
+"температурах печати."
 
 #: docs/Load_Cell.md:block 72 (header)
 msgid "Hot Nozzle Protection"
-msgstr ""
+msgstr "Горячая защита сопла"
 
 #: docs/Load_Cell.md:block 73 (paragraph)
 msgid ""
@@ -523,14 +636,18 @@ msgid ""
 "`activate_gcode`](https://github.com/VoronDesign/Voron-"
 "Tap/blob/main/config/tap_klipper_instructions.md)"
 msgstr ""
+"В проекте Voron есть отличный макрос для защиты поверхности печати от "
+"горячего сопла. См. [Voron Tap's `activate_gcode`](https://github.com/"
+"VoronDesign/Voron-Tap/blob/main/config/tap_klipper_instructions.md)"
 
 #: docs/Load_Cell.md:block 74 (paragraph)
 msgid "It is highly suggested to add something like this to your config."
 msgstr ""
+"Настоятельно рекомендуется добавить что-то подобное в вашу конфигурацию."
 
 #: docs/Load_Cell.md:block 75 (header)
 msgid "Nozzle Cleaning"
-msgstr ""
+msgstr "Очистка сопла"
 
 #: docs/Load_Cell.md:block 76 (paragraph)
 msgid ""
@@ -538,30 +655,36 @@ msgid ""
 "every print. You can also implement a nozzle scrubber and automate the "
 "process. Here is a suggested sequence:"
 msgstr ""
+"Перед зондированием сопло должно быть чистым. Вы можете делать это вручную "
+"перед каждой печатью. Вы также можете установить устройство для очистки "
+"сопла и автоматизировать этот процесс. Вот рекомендуемая последовательность "
+"действий:"
 
 #: docs/Load_Cell.md:block 77 (ordered list)
 msgid "Wait for the nozzle to heat up to probing temp (e.g. `M109 S140`)"
 msgstr ""
+"Дождитесь, пока сопло нагреется до температуры зондирования (например, `M109 "
+"S140`)"
 
 #: docs/Load_Cell.md:block 77 (ordered list)
 msgid "Home the machine (`G28`)"
-msgstr ""
+msgstr "Возврат машины в исходное положение (`G28`)"
 
 #: docs/Load_Cell.md:block 77 (ordered list)
 msgid "Scrub the nozzle on a brush"
-msgstr ""
+msgstr "Скраб сопла на кисть"
 
 #: docs/Load_Cell.md:block 77 (ordered list)
 msgid "Heat soak the print bed"
-msgstr ""
+msgstr "Жара впитывает печатную кровать"
 
 #: docs/Load_Cell.md:block 77 (ordered list)
 msgid "Perform probing tasks: QGL, bed mesh etc."
-msgstr ""
+msgstr "Выполнять задачи по прохождению: QGL, сетка для кровати и т.д."
 
 #: docs/Load_Cell.md:block 78 (header)
 msgid "Temperature Compensation for Nozzle Growth"
-msgstr ""
+msgstr "Температурная компенсация за рост сопла"
 
 #: docs/Load_Cell.md:block 79 (paragraph)
 msgid ""
@@ -571,10 +694,16 @@ msgid ""
 "[[z_thermal_adjust]](Config_Reference.md#z_thermal_adjust). This adjustment "
 "will work across a range of printing temperatures from PLA to PC."
 msgstr ""
+"Если вы пробуете при безопасной температуре, сопла будет расширяться после "
+"нагрева до температуры печати. Это приведет к тому, что сопла будет "
+"становиться все длиннее и ближе к поверхности печати. Вы можете "
+"компенсировать это с помощью [[z_thermal_adjust]"
+"](Config_Reference.md#z_thermal_adjust). Эта корректировка будет работать в "
+"диапазоне температур печати от PLA до ПК."
 
 #: docs/Load_Cell.md:block 80 (header)
 msgid "Calculating the `temp_coeff` for `[z_thermal_adjust]`"
-msgstr ""
+msgstr "Расчет `temp_coeff ` для `[z_thermal_adjust]`"
 
 #: docs/Load_Cell.md:block 81 (paragraph)
 msgid ""
@@ -583,12 +712,18 @@ msgid ""
 "E.g. 180C and 290C. You can perform a `PROBE_ACCURACY` at both temperatures "
 "and then calculate the difference of the `average z` at both."
 msgstr ""
+"Самый простой способ сделать это - измерить при 2 различных температурах. В "
+"идеале это должны быть верхние и нижние пределы диапазона температуры "
+"печати. E.g. 180C и 290C. Вы можете выполнить `PROBE_ACCURACY ` при обеих "
+"температурах, а затем вычислить разницу `среднего z ` в обоих случаях."
 
 #: docs/Load_Cell.md:block 82 (paragraph)
 msgid ""
 "The adjustment value is the change in nozzle length divided by the change in "
 "temperature. e.g."
 msgstr ""
+"Значением регулировки является изменение длины сопла, разделенное на "
+"изменение температуры. Например."
 
 #: docs/Load_Cell.md:block 84 (paragraph)
 msgid ""
@@ -596,20 +731,26 @@ msgid ""
 "move the nozzle closer to the bed and negative values move it further away. "
 "Expect to have to move the nozzle further away as it gets longer when hot."
 msgstr ""
+"Ожидаемый результат - отрицательное число. Положительные значения для `"
+"temp_coeff ` приближают сопла к кровати, а отрицательные значения перемещают "
+"его дальше. Ожидайте, что придется переместить сопла дальше, когда он "
+"становится больше, когда жарко."
 
 #: docs/Load_Cell.md:block 85 (header)
 msgid "Configure `[z_thermal_adjust]`"
-msgstr ""
+msgstr "Настройка `[z_thermal_adjust]`"
 
 #: docs/Load_Cell.md:block 86 (paragraph)
 msgid ""
 "Set up z_thermal_adjust to reference the `extruder` as the source of "
 "temperature data. E.g.:"
 msgstr ""
+"Настройте z_thermal_adjust, чтобы использовать `extruder` в качестве "
+"источника данных о температуре. Например:"
 
 #: docs/Load_Cell.md:block 88 (header)
 msgid "Continuous Tare Filters for Toolhead Load Cells"
-msgstr ""
+msgstr "Непрерывные тарные фильтры для тензодатчиков инструментальной головки"
 
 #: docs/Load_Cell.md:block 89 (paragraph)
 msgid ""
@@ -619,10 +760,17 @@ msgid ""
 "changes. This is aimed at toolhead sensors and moving beds that experience "
 "lots of external forces that change while probing."
 msgstr ""
+"Klipper реализует настраиваемый IIR-фильтр на микроконтроллере для "
+"обеспечения непрерывного тарирования тензодатчика во время зондирования. "
+"Непрерывное тарирование означает, что значение 0 смещается под воздействием "
+"внешних факторов, таких как трубки Боудена и тепловые изменения. Это "
+"предназначено для датчиков инструментальной головки и подвижных столов, "
+"которые подвергаются воздействию множества внешних сил, изменяющихся во "
+"время зондирования."
 
 #: docs/Load_Cell.md:block 90 (header)
 msgid "Installing SciPy"
-msgstr ""
+msgstr "Установка SciPy"
 
 #: docs/Load_Cell.md:block 91 (paragraph)
 msgid ""
@@ -630,6 +778,9 @@ msgid ""
 "compute the filter coefficients based on the values your enter into the "
 "config."
 msgstr ""
+"Код фильтрации использует отличную библиотеку [SciPy](https://scipy.org/) "
+"для вычисления коэффициентов фильтра на основе значений, которые вы вводите "
+"в конфигурацию."
 
 #: docs/Load_Cell.md:block 92 (paragraph)
 msgid ""
@@ -638,10 +789,15 @@ msgid ""
 "your installation experience. It does work with Python 2 but installation can "
 "take 30+ minutes and require installing additional tools."
 msgstr ""
+"Предварительно скомпилированные сборки SciPi доступны для Python 3 на 32-"
+"разрядных системах Raspberry Pi. Настоятельно рекомендуется использовать 32-"
+"разрядную версию + Python 3, так как это упростит процесс установки. "
+"Программа работает и с Python 2, но установка может занять более 30 минут и "
+"потребовать установки дополнительных инструментов."
 
 #: docs/Load_Cell.md:block 94 (header)
 msgid "Filter Workbench"
-msgstr ""
+msgstr "Фильтр Workbench"
 
 #: docs/Load_Cell.md:block 95 (paragraph)
 msgid ""
@@ -650,14 +806,21 @@ msgid ""
 "[filter_workbench.ipynb](../scripts/filter_workbench.ipynb), to perform a "
 "detailed investigation with real captured data and FFTs."
 msgstr ""
+"Параметры фильтра следует выбирать на основе дрейфа, наблюдаемого на "
+"принтере во время нормальной работы. В скриптах предоставляется блокнот "
+"Jupyter, [filter_workbench.ipynb](../scripts/filter_workbench.ipynb), для "
+"проведения подробного исследования с использованием реальных захваченных "
+"данных и FFT."
 
 #: docs/Load_Cell.md:block 96 (header)
 msgid "Filtering Suggestions"
-msgstr ""
+msgstr "Предложения по фильтрации"
 
 #: docs/Load_Cell.md:block 97 (paragraph)
 msgid "For those just trying to get a filter working follow these suggestions:"
 msgstr ""
+"Для тех, кто просто пытается заставить фильтр работать, следуйте этим "
+"рекомендациям:"
 
 #: docs/Load_Cell.md:block 98 (unordered list)
 msgid ""
@@ -668,12 +831,23 @@ msgid ""
 "eliminated. Setting this value too high will result in slow triggering and "
 "excess force going through the toolhead."
 msgstr ""
+"Единственной важной опцией является `drift_filter_cutoff_frequency`. "
+"Консервативное начальное значение составляет `0,5` Гц. Prusa поставляет MK4 "
+"с настройкой `0,8` Гц, а XL — с настройкой `11,2` Гц. Вероятно, это "
+"безопасный диапазон для экспериментов. Это значение следует увеличивать "
+"только до тех пор, пока не будет устранено нормальное отклонение, вызванное "
+"силой трубки Боудена. Слишком высокое значение приведет к медленному "
+"срабатыванию и избыточному усилию, проходящему через инструментальную "
+"головку."
 
 #: docs/Load_Cell.md:block 98 (unordered list)
 msgid ""
 "Keep `trigger_force` low. The default is `75`g. The drift filter keeps the "
 "internal grams value very close to 0 so a large trigger force is not needed."
 msgstr ""
+"Держите значение `trigger_force` на низком уровне. По умолчанию оно "
+"составляет `75` г. Фильтр дрейфа поддерживает внутреннее значение в граммах "
+"очень близким к 0, поэтому большая сила срабатывания не требуется."
 
 #: docs/Load_Cell.md:block 98 (unordered list)
 msgid ""
@@ -681,32 +855,38 @@ msgid ""
 "and should keep your toolhead safe while experimenting. If you hit this limit "
 "the `drift_filter_cutoff_frequency` value may be too high."
 msgstr ""
+"Удерживайте значение `force_safety_limit` на консервативном уровне. Значение "
+"по умолчанию составляет 2 кг и должно обеспечить безопасность "
+"инструментальной головки во время экспериментов. Если вы достигли этого "
+"предела, возможно, значение `drift_filter_cutoff_frequency` слишком высокое."
 
 #: docs/Load_Cell.md:block 99 (header)
 msgid "Suggestions for Load Cell Tool Boards"
-msgstr ""
+msgstr "Предложения по платам для тензодатчиков"
 
 #: docs/Load_Cell.md:block 100 (paragraph)
 msgid ""
 "This section covers suggestions for those developing toolhead boards that want"
 " to support [load_cell_probe]"
 msgstr ""
+"В этом разделе приведены рекомендации для разработчиков плат "
+"инструментальных головок, которые хотят поддерживать [load_cell_probe]"
 
 #: docs/Load_Cell.md:block 101 (header)
 msgid "ADC Sensor Selection & Board Development Hints"
-msgstr ""
+msgstr "Выбор датчиков ADC и советы по разработке плат"
 
 #: docs/Load_Cell.md:block 102 (paragraph)
 msgid "Ideally a sensor would meet these criteria:"
-msgstr ""
+msgstr "В идеале датчик должен соответствовать следующим критериям:"
 
 #: docs/Load_Cell.md:block 103 (unordered list)
 msgid "At least 24 bits wide"
-msgstr ""
+msgstr "Ширина не менее 24 бит"
 
 #: docs/Load_Cell.md:block 103 (unordered list)
 msgid "Use SPI communications"
-msgstr ""
+msgstr "Использование SPI-связи"
 
 #: docs/Load_Cell.md:block 103 (unordered list)
 msgid ""
@@ -714,12 +894,18 @@ msgid ""
 "This is often called the \"data ready\" or \"DRDY\" pin. Checking a pin is "
 "much faster than running an SPI query."
 msgstr ""
+"Имеет контакт, который можно использовать для указания готовности образца "
+"без использования SPI-связи. Его часто называют контактом «готовость данных» "
+"или «DRDY». Проверка контакта происходит гораздо быстрее, чем выполнение "
+"SPI-запроса."
 
 #: docs/Load_Cell.md:block 103 (unordered list)
 msgid ""
 "Has a programmable gain amplifier gain setting of 128. This should eliminate "
 "the need for a separate amplifier."
 msgstr ""
+"Имеет настраиваемый коэффициент усиления усилителя 128. Это должно устранить "
+"необходимость в отдельном усилителе."
 
 #: docs/Load_Cell.md:block 103 (unordered list)
 msgid ""
@@ -727,6 +913,10 @@ msgid ""
 " errors in homing and using noisy data at startup. It can also help users "
 "track down wiring and grounding issues."
 msgstr ""
+"Указывает через SPI, был ли датчик сброшен. Обнаружение сбросов позволяет "
+"избежать ошибок синхронизации при возврате в исходное положение и "
+"использования шумовых данных при запуске. Это также может помочь "
+"пользователям отслеживать проблемы с проводкой и заземлением."
 
 #: docs/Load_Cell.md:block 103 (unordered list)
 msgid ""
@@ -737,6 +927,13 @@ msgid ""
 "between measurements. E.g. a 500Hz sensor moving at 5mm/s has the same safety "
 "factor as a 100Hz sensor moving at only 1mm/s."
 msgstr ""
+"Выбираемая скорость выборки между 350 Гц и 2 Кхц. Очень высокие показатели "
+"выборки не оказываются полезными в наших 3D-принтерах, потому что они "
+"производят так много шума при быстром движении. Для отбора проб ниже 250 Гц "
+"потребуются более медленные скорости. Они также увеличивают силу на головке "
+"инструмента из-за более длительных задержек между измерениями. Например, "
+"датчик 500 Гц, движущийся на 5 мм/с, имеет тот же коэффициент безопасности, "
+"что и датчик 100 Гц, движущийся только на 1 мм/с."
 
 #: docs/Load_Cell.md:block 103 (unordered list)
 msgid ""
@@ -745,16 +942,23 @@ msgid ""
 "ADCs that require switching channels have a settling of several samples after "
 "each channel switch making them unsuitable for probing applications."
 msgstr ""
+"Если вы проектируете для приложений под кроватью, и вы хотите чувствовать "
+"несколько несущих клеток, используйте чип, который может одновременно "
+"отобразить все его входы. Несколько ADC, которые требуют коммутационных "
+"каналов, имеют урегулирование нескольких образцов после того, как каждый "
+"канал переключается, что делает их непригодными для проверки приложений."
 
 #: docs/Load_Cell.md:block 104 (paragraph)
 msgid ""
 "Implementing support for a new sensor chip is not particularly difficult with "
 "Klipper's `bulk_sensor` and `load_cell_endstop` infrastructure."
 msgstr ""
+"Реализация поддержки нового сенсорного чипа не особенно сложна с "
+"инфраструктурой Klipper `bulk_sensor` и `load_cell_endstop`."
 
 #: docs/Load_Cell.md:block 105 (header)
 msgid "5V Power Filtering"
-msgstr ""
+msgstr "5В фильтрация мощности"
 
 #: docs/Load_Cell.md:block 106 (paragraph)
 msgid ""
@@ -764,6 +968,12 @@ msgid ""
 " generally assume a quiet power supply. Treat their suggested capacitor values"
 " as minimums."
 msgstr ""
+"Настоятельно рекомендуется использовать более крупные конденсаторы, чем "
+"указано производителем чипов ADC. чипы ADC обычно ориентированы на низкие "
+"шумовые среды, такие как устройства с питанием от батареи. Производители "
+"датчиков предположили, что прикладные заметки обычно предполагают тихий "
+"источник питания. Рассматривайте их предлагаемые значения конденсатора как "
+"минимумы."
 
 #: docs/Load_Cell.md:block 107 (paragraph)
 msgid ""
@@ -772,10 +982,14 @@ msgid ""
 "power supply and active stepper drivers before deciding on smoothing capacitor"
 " sizes."
 msgstr ""
+"3D-принтеры ставят огромное количество шума на автобусе 5V, и это может "
+"разрушить точность датчика. Испытайте датчик на доске с типичным 3D-"
+"принтером питания и активными степными драйверами, прежде чем принимать "
+"решение о сглаживании размеров конденсатора."
 
 #: docs/Load_Cell.md:block 108 (header)
 msgid "Grounding & Ground Planes"
-msgstr ""
+msgstr "Наземные планировки"
 
 #: docs/Load_Cell.md:block 109 (paragraph)
 msgid ""
@@ -784,16 +998,22 @@ msgid ""
 "noise. Keep the chip away from power sections and DC to DC converters. The "
 "board should have proper grounding back to the DC supply."
 msgstr ""
+"Аналоговые чипы ADC содержат компоненты, которые очень уязвимы для шума и "
+"ОУР. Большая наземная плоскость на первом доске под чипом может помочь с "
+"шумом. Держите чип подальше от разделов питания и DC до DC конвертеров. "
+"Совет директоров должен иметь надлежащее заземление обратно к поставке DC."
 
 #: docs/Load_Cell.md:block 110 (header)
 msgid "HX711 and HX717 Notes"
-msgstr ""
+msgstr "HX711 и HX717"
 
 #: docs/Load_Cell.md:block 111 (paragraph)
 msgid ""
 "This sensor is popular because of its low cost and availability in the supply "
 "chain. However, this is a sensor with some drawbacks:"
 msgstr ""
+"Этот датчик популярен из-за его низкой стоимости и доступности в цепочке "
+"поставок. Однако это датчик с некоторыми недостатками:"
 
 #: docs/Load_Cell.md:block 112 (unordered list)
 msgid ""
@@ -801,6 +1021,9 @@ msgid ""
 "MCU. Using a sensor that communicates via SPI would save resources on the tool"
 " board's CPU."
 msgstr ""
+"Датчики HX71x используют бит-банг-связь, которая имеет высокую накладку на "
+"MCU. Использование датчика, который общается через SPI, позволит сэкономить "
+"ресурсы на процессоре панели инструментов."
 
 #: docs/Load_Cell.md:block 112 (unordered list)
 msgid ""
@@ -808,6 +1031,9 @@ msgid ""
 "resets with a timing heuristic but this is not ideal. Resets indicate a "
 "problem with wiring or grounding."
 msgstr ""
+"HX71x не имеет способа передать события сброса в MCU. Klipper обнаруживает "
+"смолы с эвристикой времени, но это не идеально. Сбросы указывают на проблему "
+"с проводкой или заземлением."
 
 #: docs/Load_Cell.md:block 112 (unordered list)
 msgid ""
@@ -815,6 +1041,9 @@ msgid ""
 "its higher sample rate (320 vs 80). Probing speed on the HX711 should be "
 "limited to less than 2mm/s."
 msgstr ""
+"Для исследования приложений версия HX717 сильно предпочтительна из-за ее "
+"более высокой скорости выборки (320 против 80). Скорость подачи на HX711 "
+"должна быть ограничена менее чем 2 мм/с."
 
 #: docs/Load_Cell.md:block 112 (unordered list)
 msgid ""
@@ -822,3 +1051,6 @@ msgid ""
 "the 10SPS version of the sensor (which is widely distributed) it needs to be "
 "physically re-wired to run at 80SPS."
 msgstr ""
+"Скорость выборки на HX71x не может быть установлена из конфигурации Klipper. "
+"Если у вас есть 10SPS-версия датчика (который широко распространен), он "
+"должен быть физически перенастроен, чтобы работать на 80SPS."

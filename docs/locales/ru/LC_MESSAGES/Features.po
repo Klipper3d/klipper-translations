@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-09-09 04:01+0000\n"
+"PO-Revision-Date: 2025-09-10 11:02+0000\n"
 "Last-Translator: gfbdrgn <erfvvgtyhbnjhyuu@wireconnected.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/features/"
 "ru/>\n"
@@ -430,7 +430,6 @@ msgstr ""
 "(Benchmarks.md)."
 
 #: docs/Features.md:block 10 (table)
-#, fuzzy
 msgid "STM32G0B1"
 msgstr "STM32G0B1"
 
@@ -439,62 +438,50 @@ msgid "1103K"
 msgstr "1103 тыс."
 
 #: docs/Features.md:block 10 (table)
-#, fuzzy
 msgid "790K"
 msgstr "790K"
 
 #: docs/Features.md:block 10 (table)
-#, fuzzy
 msgid "SAMD21"
 msgstr "SAMD21"
 
 #: docs/Features.md:block 10 (table)
-#, fuzzy
 msgid "STM32F103"
 msgstr "STM32F103"
 
 #: docs/Features.md:block 10 (table)
-#, fuzzy
 msgid "SAM3X8E"
 msgstr "SAM3X8E"
 
 #: docs/Features.md:block 10 (table)
-#, fuzzy
 msgid "SAM4S8C"
 msgstr "SAM4S8C"
 
 #: docs/Features.md:block 10 (table)
-#, fuzzy
 msgid "LPC1768"
 msgstr "LPC1768"
 
 #: docs/Features.md:block 10 (table)
-#, fuzzy
 msgid "LPC1769"
 msgstr "LPC1769"
 
 #: docs/Features.md:block 10 (table)
-#, fuzzy
 msgid "RP2040"
 msgstr "RP2040"
 
 #: docs/Features.md:block 10 (table)
-#, fuzzy
 msgid "SAM4E8E"
 msgstr "SAM4E8E"
 
 #: docs/Features.md:block 10 (table)
-#, fuzzy
 msgid "SAMD51"
 msgstr "SAMD51"
 
 #: docs/Features.md:block 10 (table)
-#, fuzzy
 msgid "STM32F407"
 msgstr "STM32F407"
 
 #: docs/Features.md:block 10 (table)
-#, fuzzy
 msgid "STM32F446"
 msgstr "STM32F446"
 
@@ -509,17 +496,14 @@ msgstr ""
 "микроконтроллера в комментариях в верхней части этого файла."
 
 #: docs/Features.md:block 10 (table)
-#, fuzzy
 msgid "STM32H743"
 msgstr "STM32H743"
 
 #: docs/Features.md:block 10 (table)
-#, fuzzy
 msgid "9091K"
 msgstr "9091K"
 
 #: docs/Features.md:block 10 (table)
-#, fuzzy
 msgid "6061K"
 msgstr "6061K"
 
@@ -630,43 +614,40 @@ msgstr ""
 "остаются точными даже на высоких скоростях, что повышает общую стабильность."
 
 #: docs/Features.md:block 10 (table)
-#, fuzzy
 msgid "AR100"
 msgstr "AR100"
 
 #: docs/Features.md:block 10 (table)
-#, fuzzy
 msgid "3529K"
 msgstr "3529K"
 
 #: docs/Features.md:block 10 (table)
-#, fuzzy
 msgid "2507K"
 msgstr "2507K"
 
 #: docs/Features.md:block 10 (table)
 msgid "RP2350"
-msgstr ""
+msgstr "RP2350"
 
 #: docs/Features.md:block 10 (table)
 msgid "4167K"
-msgstr ""
+msgstr "4167K"
 
 #: docs/Features.md:block 10 (table)
 msgid "2663K"
-msgstr ""
+msgstr "2663K"
 
 #: docs/Features.md:block 10 (table)
 msgid "SAME70"
-msgstr ""
+msgstr "SAME70"
 
 #: docs/Features.md:block 10 (table)
 msgid "6667K"
-msgstr ""
+msgstr "6667K"
 
 #: docs/Features.md:block 10 (table)
 msgid "4737K"
-msgstr ""
+msgstr "4737K"
 
 #~ msgid ""
 #~ "Best in class performance. Klipper is able to achieve high stepping rates on "

@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-09-09 04:01+0000\n"
+"PO-Revision-Date: 2025-09-11 15:02+0000\n"
 "Last-Translator: gfbdrgn <erfvvgtyhbnjhyuu@wireconnected.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/bed_mesh/"
 "ru/>\n"
@@ -321,30 +321,24 @@ msgstr ""
 msgid "Rectangular beds (cartesian):"
 msgstr "Прямоугольные кровати (картезианские):"
 
-#, fuzzy
 msgid "`MESH_MIN`"
 msgstr "`MESH_MIN`"
 
-#, fuzzy
 msgid "`MESH_MAX`"
 msgstr "`MESH_MAX`"
 
-#, fuzzy
 msgid "`PROBE_COUNT`"
 msgstr "`PROBE_COUNT`"
 
 msgid "Round beds (delta):"
 msgstr "Круглые кровати (дельта):"
 
-#, fuzzy
 msgid "`MESH_RADIUS`"
 msgstr "`MESH_RADIUS`"
 
-#, fuzzy
 msgid "`MESH_ORIGIN`"
 msgstr "`MESH_ORIGIN`"
 
-#, fuzzy
 msgid "`ROUND_PROBE_COUNT`"
 msgstr "`ROUND_PROBE_COUNT`"
 
@@ -367,7 +361,6 @@ msgstr ""
 msgid "Output"
 msgstr "Выход"
 
-#, fuzzy
 msgid "`BED_MESH_OUTPUT PGP=[0 | 1]`"
 msgstr "`BED_MESH_OUTPUT PGP=[0 | 1]`"
 
@@ -398,7 +391,6 @@ msgstr ""
 msgid "Clear Mesh State"
 msgstr "Очистить состояние сетки"
 
-#, fuzzy
 msgid "`BED_MESH_CLEAR`"
 msgstr "`BED_MESH_CLEAR`"
 
@@ -453,7 +445,6 @@ msgstr ""
 "смотрите в документации по конфигурации выше."
 
 #: docs/Bed_Mesh.md:block 55 (paragraph)
-#, fuzzy
 msgid "`BED_MESH_PROFILE SAVE=<name> LOAD=<name> REMOVE=<name>`"
 msgstr "`BED_MESH_PROFILE SAVE=<name> LOAD=<name> REMOVE=<name>`"
 
@@ -781,7 +772,6 @@ msgstr ""
 "0.5 с округлением вверх)."
 
 #: docs/Bed_Mesh.md:block 55 (paragraph)
-#, fuzzy
 msgid "![adaptive_bedmesh](img/adaptive_bed_mesh.svg)"
 msgstr "![adaptive_bedmesh](img/adaptive_bed_mesh.svg)"
 
@@ -801,7 +791,6 @@ msgstr ""
 "цветом) плюс определенная маржа."
 
 #: docs/Bed_Mesh.md:block 57 (unordered list)
-#, fuzzy
 msgid "![adaptive_bedmesh_margin](img/adaptive_bed_mesh_margin.svg)"
 msgstr "![adaptive_bedmesh_margin](img/adaptive_bed_mesh_margin.svg)"
 
@@ -845,7 +834,6 @@ msgid "`ADAPTIVE`"
 msgstr "`АДАПТИВНОСТЬ`"
 
 #: docs/Bed_Mesh.md:block 66 (unordered list)
-#, fuzzy
 msgid "`ADAPTIVE_MARGIN`"
 msgstr "`ADAPTIVE_MARGIN`"
 
@@ -1073,7 +1061,6 @@ msgstr ""
 "выбран метод зондирования, отличный от `ручного`."
 
 #: docs/Bed_Mesh.md:block 81 (unordered list)
-#, fuzzy
 msgid "`MESH_PPS`"
 msgstr "`MESH_PPS`"
 
@@ -1093,6 +1080,8 @@ msgstr "`{\" идентификатор\": 123, \"метод\": \"bed_mesh/dump_
 msgid ""
 "Dumps the configuration and state for the current mesh and all saved profiles."
 msgstr ""
+"Сбрасывает конфигурацию и состояние для текущей сетки и всех сохраненных "
+"профилей."
 
 #: docs/Bed_Mesh.md:block 111 (paragraph)
 msgid ""
@@ -1104,6 +1093,14 @@ msgid ""
 "desired to visualize the probe points and/or travel path before performing "
 "`BED_MESH_CALIBRATE`."
 msgstr ""
+"Конечная точка `dump_mesh` принимает один необязательный параметр, "
+"`mesh_args`. Этот параметр должен быть объектом, где ключами и значениями "
+"являются параметры, доступные для [BED_MESH_CALIBRATE](#bed_mesh_calibrate). "
+"Перед возвратом результата будет обновлена конфигурация сетки и точки "
+"зондирования с использованием предоставленных параметров. Рекомендуется "
+"опустить параметры сетки, если не требуется визуализировать точки "
+"зондирования и/или траекторию движения перед выполнением "
+"`BED_MESH_CALIBRATE`."
 
 #: docs/Bed_Mesh.md:block 112 (header)
 msgid "Visualization and analysis"
@@ -1413,9 +1410,8 @@ msgstr ""
 "рабочем каталоге с именем в следующем формате:"
 
 #: docs/Bed_Mesh.md:block 142 (paragraph)
-#, fuzzy
 msgid "`klipper-bedmesh-{year}{month}{day}{hour}{minute}{second}.json`"
-msgstr "`klipper-bedmesh-{year}{month}{day}{hour}{minute}{second}.json`"
+msgstr "`klipper-bedmesh-{год}{месяц}{день}{час}{минута}{секунда}.json`"
 
 #: docs/Bed_Mesh.md:block 35 (paragraph)
 msgid ""
@@ -1430,6 +1426,16 @@ msgid ""
 " performed. The bed_mesh module provides the `zero_reference_position` option "
 "for specifying this coordinate:"
 msgstr ""
+"Многие датчики подвержены \"дрейфу\", т. е. неточностям в измерениях, "
+"вызванным нагревом или помехами. Это может затруднить расчет смещения "
+"датчика по оси Z, особенно при различных температурах станины. Поэтому в "
+"некоторых принтерах используется концевой упор для наведения оси Z и датчик "
+"для калибровки сетки. При такой конфигурации можно сместить сетку так, чтобы "
+"в `опорном положении` (X, Y) применялась нулевая корректировка. В качестве `"
+"опорного положения` должно выступать место на станине, где выполняется тест "
+"бумаги [Z_ENDSTOP_CALIBRATE](./Manual_Level#calibrating-a-z-endstop). Модуль "
+"bed_mesh предоставляет опцию `zero_reference_position` для указания этой "
+"координаты:"
 
 #: docs/Bed_Mesh.md:block 77 (paragraph)
 msgid ""
@@ -1437,6 +1443,9 @@ msgid ""
 " into a profile specified by the `PROFILE` parameter, or `default` if "
 "unspecified. The `METHOD` parameter takes one of the following values:"
 msgstr ""
+"Сетка будет немедленно готова к использованию, когда команда завершится и "
+"будет сохранена в профиле, указанном параметром [X11X]PROFILE `, или `"
+"default `, если не указано. `METHOD` имеет одно из следующих значений:"
 
 #: docs/Bed_Mesh.md:block 92 (paragraph)
 msgid ""
@@ -1444,6 +1453,9 @@ msgid ""
 "`BED_MESH_CALIBRATE` in the `START_PRINT` macro or the slicer's \"Start "
 "G-Code\" and may produce unexpected results, especially with adaptive meshing."
 msgstr ""
+"Обратите внимание, что это не требуется, если новая сетка генерируется с "
+"помощью `BED_MESH_CALIBRATE ` в `START_PRINT ` макрос или «Start G-Code» и "
+"может привести к неожиданным результатам, особенно при адаптивном стирке."
 
 #~ msgid ""
 #~ "The mesh will be saved into a profile specified by the `PROFILE` parameter, or"

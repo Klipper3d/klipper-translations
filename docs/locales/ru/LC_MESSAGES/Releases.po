@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-09-08 13:02+0000\n"
+"PO-Revision-Date: 2025-09-11 11:02+0000\n"
 "Last-Translator: gfbdrgn <erfvvgtyhbnjhyuu@wireconnected.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/releases/"
 "ru/>\n"
@@ -227,7 +227,6 @@ msgstr ""
 "SAVE_GCODE_STATE, SET_GCODE_VARIABLE, SET_HEATER_TEMPERATURE, "
 "SET_IDLE_TIMEOUT, SET_TEMPERATURE_FAN_TARGET"
 
-#, fuzzy
 msgid "Klipper 0.7.0"
 msgstr "Klipper 0.7.0"
 
@@ -328,7 +327,6 @@ msgstr ""
 msgid "Several bug fixes and code cleanups"
 msgstr "Несколько исправлений ошибок и чистка кода"
 
-#, fuzzy
 msgid "Klipper 0.6.0"
 msgstr "Klipper 0.6.0"
 
@@ -419,7 +417,6 @@ msgstr ""
 "Начальная поддержка непрерывного интеграционного тестирования всех коммитов "
 "на github"
 
-#, fuzzy
 msgid "Klipper 0.5.0"
 msgstr "Klipper 0.5.0"
 
@@ -465,7 +462,6 @@ msgstr ""
 "Поддержка управления сервоприводами и поддержка определения вентиляторов "
 "охлаждения сопел."
 
-#, fuzzy
 msgid "Klipper 0.4.0"
 msgstr "Klipper 0.4.0"
 
@@ -517,7 +513,6 @@ msgstr ""
 msgid "Support for AD595 sensors"
 msgstr "Поддержка датчиков AD595"
 
-#, fuzzy
 msgid "Klipper 0.3.0"
 msgstr "Klipper 0.3.0"
 
@@ -573,7 +568,6 @@ msgstr ""
 "Улучшено отображение ошибок. Большинство ошибок теперь отображается через "
 "терминал вместе с подсказкой по их устранению."
 
-#, fuzzy
 msgid "Klipper 0.2.0"
 msgstr "Klipper 0.2.0"
 
@@ -609,7 +603,6 @@ msgid "Releases"
 msgstr "Релизы"
 
 #: docs/Releases.md:block 3 (header)
-#, fuzzy
 msgid "Klipper 0.10.0"
 msgstr "Klipper 0.10.0"
 
@@ -708,7 +701,6 @@ msgstr ""
 "save_variables, sdcard_loop, temperature_host, temperature_mcu"
 
 #: docs/Releases.md:block 3 (header)
-#, fuzzy
 msgid "Klipper 0.11.0"
 msgstr "Klipper 0.11.0"
 
@@ -787,138 +779,162 @@ msgstr ""
 
 #: docs/Releases.md:block 3 (header)
 msgid "Klipper 0.13.0"
-msgstr ""
+msgstr "Klipper 0.13.0"
 
 #: docs/Releases.md:block 4 (paragraph)
 msgid "Available on 20250411. Major changes in this release:"
-msgstr ""
+msgstr "Доступен на 20250411 год. Основные изменения в этом выпуске:"
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid "New \"sweeping vibrations\" resonance testing mechanism for input shaper."
 msgstr ""
+"Новый механизм резонансных испытаний для входного форматора "
+"\"вспыхивающих вибраций\"."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid "Fans and GPIO pins can now be assigned a formula (via Jinja2 \"templates\")."
 msgstr ""
+"Поклонникам и GPIO-пинам теперь может быть назначена формула (через Jinja2 "
+"«шаблоны»)."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
 "The bed_mesh code now supports \"adaptive bed mesh\". The area probed can be "
 "adjusted for the size of the print."
 msgstr ""
+"Код «Bal_mesh» теперь поддерживает «адаптивную сетку». Пробоотборная площадь "
+"может быть скорректирована на размер печати."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
 "A new `minimum_cruise_ratio` kinematic parameter has been added (it replaces "
 "the previous `max_accel_to_decel` parameter)."
 msgstr ""
+"Добавлен новый `minimum_cruise_ratio` кинематический параметр (он заменяет "
+"предыдущий `max_accel_to_decel` параметр)."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid "Several new sensors added:"
-msgstr ""
+msgstr "Добавлено несколько новых датчиков:"
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
 "Support for ldc1612 \"eddy\" current sensors. This includes probing support, "
 "fast \"scan\" probing, and temperature calibration."
 msgstr ""
+"Поддержка ldc1612 «реди» датчиков тока. Это включает в себя поддержку зонда, "
+"быстрое «сканирование» и калибровку температуры."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
 "New support for \"load cell\" measurements. Support for connecting these load "
 "cells to hx71x and ads1220 ADC sensors."
 msgstr ""
+"Новая поддержка измерений «грузовой ячейки». Поддержка подключения этих "
+"несущих элементов к датчикам hx71x и рекламным 1220 ADC."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
 "Support for BMP180, BMP388, and SHT3x temperature sensors. Support for "
 "measuring temperature with ADS1x1x ADC chips."
 msgstr ""
+"Поддержка датчиков температуры BMP180, BMP388 и SHT3x. Поддержка измерения "
+"температуры с помощью чипов ADS1x1x ADC."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid "New lis3dh and icm20948 accelerometer support."
-msgstr ""
+msgstr "Поддержка акселерометра lis3dh и icm20948."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid "Support for mt6816 and mt6826s \"hall angle\" sensors."
-msgstr ""
+msgstr "Поддержка датчиков mt6816 и mt6826 «под углом»."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid "New micro-controller improvements:"
-msgstr ""
+msgstr "Новые улучшения микроконтроллера:"
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid "New support for rp2350 micro-controllers."
-msgstr ""
+msgstr "Новая поддержка микроконтроллеров rp2350."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid "Existing rp2040 chips now run at 200MHz (up from 125Mhz)."
 msgstr ""
+"Существующий rp2040 чипы в настоящее время работают на 200 МГц (до 125 МГц)."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
 "The micro-controller code can now define many more commands (up to 16384 from "
 "128)."
 msgstr ""
+"Микроконтроллерный код теперь может определить гораздо больше команд (до "
+"16384 от 128)."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
 "Other modules added: aip31068_spi, canbus_stats, error_mcu, "
 "garbage_collection, pwm_cycle_time, pwm_tool, garbage_collection."
 msgstr ""
+"Добавлены другие модули: aip31068_spi, canbus_stats, error_mcu, waste_ "
+"collection, pwm_cycle_time, pwm_tool, waste_ collection."
 
 #: docs/Releases.md:block 6 (header)
 msgid "Klipper 0.12.0"
-msgstr ""
+msgstr "Klipper 0.12.0"
 
 #: docs/Releases.md:block 7 (paragraph)
 msgid "Available on 20231110. Major changes in this release:"
-msgstr ""
+msgstr "Доступно на 20231110. Основные изменения в этом выпуске:"
 
 #: docs/Releases.md:block 8 (unordered list)
 msgid "Support for COPY and MIRROR modes on IDEX printers."
-msgstr ""
+msgstr "Поддержка режимов COPY и MIRROR на принтерах IDEX."
 
 #: docs/Releases.md:block 8 (unordered list)
 msgid "Several micro-controller improvements:"
-msgstr ""
+msgstr "Несколько улучшений микроконтроллера:"
 
 #: docs/Releases.md:block 8 (unordered list)
 msgid "Support for new ar100 and hc32f460 architectures."
-msgstr ""
+msgstr "Поддержка новых архитектур ar100 и hc32f460."
 
 #: docs/Releases.md:block 8 (unordered list)
 msgid ""
 "Support for stm32f7, stm32g0b0, stm32g07x, stm32g4, stm32h723, n32g45x, "
 "samc21, and samd21j18 chip variants."
 msgstr ""
+"Поддержка stm32f7, stm32g0b0, stm32g07x, stm32g4, stm32h723, n32g45x, samc21 "
+"и samd21j18 чипов."
 
 #: docs/Releases.md:block 8 (unordered list)
 msgid "Improved DFU and Katapult reboot handling."
-msgstr ""
+msgstr "Улучшена обработка перезагрузок DFU и Katapult."
 
 #: docs/Releases.md:block 8 (unordered list)
 msgid "Improved performance on USB to CANbus bridge mode."
-msgstr ""
+msgstr "Улучшена производительность на USB к CANbus мост режим."
 
 #: docs/Releases.md:block 8 (unordered list)
 msgid "Improved performance on \"linux mcu\"."
-msgstr ""
+msgstr "Улучшено исполнение на \"linux mcu\"."
 
 #: docs/Releases.md:block 8 (unordered list)
 msgid "New support for software based i2c."
-msgstr ""
+msgstr "Новая поддержка программного обеспечения i2c."
 
 #: docs/Releases.md:block 8 (unordered list)
 msgid ""
 "New hardware support for tmc2240 stepper motor drivers, lis2dw12 "
 "accelerometers, and aht10 temperature sensors."
 msgstr ""
+"Новая аппаратная поддержка tmc2240 степных драйверов, акселерометров "
+"lis2dw12 и датчиков температуры aht10."
 
 #: docs/Releases.md:block 8 (unordered list)
 msgid "New axis_twist_compensation and temperature_combined modules added."
 msgstr ""
+"Добавлены новые ось_twist_компенсации и температурные_комбинированные модули."
 
 #: docs/Releases.md:block 8 (unordered list)
 msgid "New support for gcode arcs in XY, XZ, and YZ planes."
-msgstr ""
+msgstr "Новая поддержка gcode arc в самолетах XY, XZ и YZ."
