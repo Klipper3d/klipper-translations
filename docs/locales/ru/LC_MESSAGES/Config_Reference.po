@@ -13,7 +13,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-09-09 04:01+0000\n"
+"PO-Revision-Date: 2025-09-11 15:02+0000\n"
 "Last-Translator: gfbdrgn <erfvvgtyhbnjhyuu@wireconnected.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
 "config_reference/ru/>\n"
@@ -377,7 +377,6 @@ msgstr ""
 "секцию конфигурации [bed_screws], чтобы включить команду g-кода "
 "BED_SCREWS_ADJUST."
 
-#, fuzzy
 msgid "[screws_tilt_adjust]"
 msgstr "[screws_tilt_adjust]"
 
@@ -390,11 +389,9 @@ msgstr ""
 "определить секцию конфигурации screws_tilt_adjust, чтобы включить команду g-"
 "кода SCREWS_TILT_CALCULATE."
 
-#, fuzzy
 msgid "[z_tilt]"
 msgstr "[z_tilt]"
 
-#, fuzzy
 msgid "[quad_gantry_level]"
 msgstr "[quad_gantry_level]"
 
@@ -413,14 +410,12 @@ msgstr ""
 "доступной расширенная команда G-кода QUAD_GANTRY_LEVEL. Эта процедура "
 "предполагает следующую конфигурацию двигателя Z:"
 
-#, fuzzy
 msgid "[skew_correction]"
 msgstr "[skew_correction]"
 
 msgid "Customized homing"
 msgstr "Индивидуальная наводка"
 
-#, fuzzy
 msgid "[safe_z_home]"
 msgstr "[safe_z_home]"
 
@@ -437,7 +432,6 @@ msgstr ""
 "быть полезно для принтеров, которые требуют специальной процедуры для "
 "установки машины в исходное положение."
 
-#, fuzzy
 msgid "[endstop_phase]"
 msgstr "[endstop_phase]"
 
@@ -471,11 +465,9 @@ msgstr ""
 "\"gcode_macro\"). Дополнительную информацию см. в руководстве "
 "[Шаблоны команд] (Command_Templates.md)."
 
-#, fuzzy
 msgid "[delayed_gcode]"
 msgstr "[delayed_gcode]"
 
-#, fuzzy
 msgid "[save_variables]"
 msgstr "[save_variables]"
 
@@ -490,9 +482,8 @@ msgstr ""
 "секцию конфигурации idle_timeout, чтобы изменить настройки по умолчанию."
 
 msgid "Optional G-Code features"
-msgstr ""
+msgstr "Дополнительные функции G-кода"
 
-#, fuzzy
 msgid "[virtual_sdcard]"
 msgstr "[virtual_sdcard]"
 
@@ -507,7 +498,6 @@ msgstr ""
 "печатать файлы gcode, хранящиеся в каталоге на хосте, используя стандартные "
 "команды sdcard G-Code (например, M24)."
 
-#, fuzzy
 msgid "[sdcard_loop]"
 msgstr "[sdcard_loop]"
 
@@ -526,11 +516,9 @@ msgstr ""
 msgid "[force_move]"
 msgstr "[force_move]"
 
-#, fuzzy
 msgid "[pause_resume]"
 msgstr "[pause_resume]"
 
-#, fuzzy
 msgid "[firmware_retraction]"
 msgstr "[firmware_retraction]"
 
@@ -540,9 +528,8 @@ msgstr "[gcode_arcs]"
 msgid "Support for gcode arc (G2/G3) commands."
 msgstr "Поддержка команд gcode arc (G2/G3)."
 
-#, fuzzy
 msgid "[respond]"
-msgstr "[respond]"
+msgstr "[ответ]"
 
 msgid "Resonance compensation"
 msgstr "Компенсация резонанса"
@@ -553,7 +540,6 @@ msgstr "[input_shaper]"
 msgid "[adxl345]"
 msgstr "[adxl345]"
 
-#, fuzzy
 msgid "[resonance_tester]"
 msgstr "[resonance_tester]"
 
@@ -586,7 +572,7 @@ msgid "Bed probing hardware"
 msgstr "Оборудование для зондирования кровати"
 
 msgid "[probe]"
-msgstr "[зонд]"
+msgstr "[probe]"
 
 msgid ""
 "Z height probe. One may define this section to enable Z height probing "
@@ -628,7 +614,6 @@ msgstr ""
 msgid "Additional stepper motors and extruders"
 msgstr "Дополнительные шаговые двигатели и экструдеры"
 
-#, fuzzy
 msgid "[stepper_z1]"
 msgstr "[stepper_z1]"
 
@@ -666,7 +651,6 @@ msgstr ""
 "Пример конфигурации смотрите в [sample-multi-extruder.cfg](../config/sample-"
 "multi-extruder.cfg)."
 
-#, fuzzy
 msgid "[dual_carriage]"
 msgstr "[dual_carriage]"
 
@@ -675,7 +659,6 @@ msgid ""
 msgstr ""
 "Пример конфигурации смотрите в [sample-idex.cfg](../config/sample-idex.cfg)."
 
-#, fuzzy
 msgid "[extruder_stepper]"
 msgstr "[extruder_stepper]"
 
@@ -687,14 +670,12 @@ msgstr ""
 "экструдера (можно определить любое количество секций с префиксом "
 "\"extruder_stepper\")."
 
-#, fuzzy
 msgid "[manual_stepper]"
 msgstr "[manual_stepper]"
 
 msgid "Custom heaters and sensors"
 msgstr "Индивидуальные нагреватели и датчики"
 
-#, fuzzy
 msgid "[verify_heater]"
 msgstr "[verify_heater]"
 
@@ -733,7 +714,6 @@ msgstr ""
 "поместите секцию термистора в конфигурационный файл выше ее первого "
 "использования в секции нагревателя."
 
-#, fuzzy
 msgid "[adc_temperature]"
 msgstr "[adc_temperature]"
 
@@ -763,7 +743,6 @@ msgstr ""
 msgid "[heater_generic]"
 msgstr "[heater_generic]"
 
-#, fuzzy
 msgid "[temperature_sensor]"
 msgstr "[temperature_sensor]"
 
@@ -905,11 +884,9 @@ msgstr ""
 "активен. По умолчанию вентилятор_нагревателя имеет скорость выключения, "
 "равную max_power."
 
-#, fuzzy
 msgid "[controller_fan]"
 msgstr "[controller_fan]"
 
-#, fuzzy
 msgid "[temperature_fan]"
 msgstr "[temperature_fan]"
 
@@ -925,17 +902,15 @@ msgstr ""
 "температура соответствующего датчика будет выше заданной. По умолчанию у "
 "вентилятора temperature_fan скорость выключения равна max_power."
 
-#, fuzzy
 msgid "[fan_generic]"
 msgstr "[fan_generic]"
 
 msgid "[servo]"
-msgstr "[сервопривод]"
+msgstr "[servo]"
 
 msgid "[neopixel]"
 msgstr "[неопиксель]"
 
-#, fuzzy
 msgid "[dotstar]"
 msgstr "[dotstar]"
 
@@ -955,11 +930,9 @@ msgstr ""
 "состояния пина). Вы можете проверить состояние кнопки, используя `"
 "QUERY_BUTTON button=my_gcode_button`."
 
-#, fuzzy
 msgid "[output_pin]"
 msgstr "[output_pin]"
 
-#, fuzzy
 msgid "[static_digital_output]"
 msgstr "[static_digital_output]"
 
@@ -974,7 +947,6 @@ msgstr ""
 "здесь выводы будут установлены как выводы GPIO во время конфигурирования "
 "MCU. Они не могут быть изменены во время выполнения программы."
 
-#, fuzzy
 msgid "[multi_pin]"
 msgstr "[multi_pin]"
 
@@ -998,7 +970,6 @@ msgstr ""
 msgid "TMC stepper driver configuration"
 msgstr "Конфигурация шагового драйвера TMC"
 
-#, fuzzy
 msgid "[tmc2130]"
 msgstr "[tmc2130]"
 
@@ -1012,7 +983,6 @@ msgstr ""
 "\"tmc2130\", за которым следует имя соответствующей секции конфигурации "
 "шагового двигателя (например, \"[tmc2130 stepper_x]\")."
 
-#, fuzzy
 msgid "[tmc2208]"
 msgstr "[tmc2208]"
 
@@ -1027,7 +997,6 @@ msgstr ""
 "конфигурации с префиксом \"tmc2208\", за которым следует имя соответствующей "
 "секции конфигурации шагового двигателя (например, \"[tmc2208 stepper_x]\")."
 
-#, fuzzy
 msgid "[tmc2209]"
 msgstr "[tmc2209]"
 
@@ -1042,7 +1011,6 @@ msgstr ""
 "\"tmc2209\", за которым следует имя соответствующей секции конфигурации "
 "шагового двигателя (например, \"[tmc2209 stepper_x]\")."
 
-#, fuzzy
 msgid "[tmc2660]"
 msgstr "[tmc2660]"
 
@@ -1056,7 +1024,6 @@ msgstr ""
 "tmc2660, за которым следует имя соответствующей секции конфигурации шагового "
 "двигателя (например, \"[tmc2660 stepper_x]\")."
 
-#, fuzzy
 msgid "[tmc5160]"
 msgstr "[tmc5160]"
 
@@ -1083,7 +1050,6 @@ msgstr ""
 "Статически сконфигурированные дигипоты AD5206, подключенные через шину SPI ("
 "можно задать любое количество секций с префиксом \"ad5206\")."
 
-#, fuzzy
 msgid "[mcp4451]"
 msgstr "[mcp4451]"
 
@@ -1094,7 +1060,6 @@ msgstr ""
 "Статически сконфигурированный дигипот MCP4451, подключенный по шине I2C ("
 "можно задать любое количество секций с префиксом \"mcp4451\")."
 
-#, fuzzy
 msgid "[mcp4728]"
 msgstr "[mcp4728]"
 
@@ -1106,7 +1071,6 @@ msgstr ""
 "подключенный по шине I2C (можно задать любое количество секций с префиксом "
 "\"mcp4728\")."
 
-#, fuzzy
 msgid "[mcp4018]"
 msgstr "[mcp4018]"
 
@@ -1122,7 +1086,7 @@ msgid "Display support"
 msgstr "Поддержка дисплея"
 
 msgid "[display]"
-msgstr ""
+msgstr "[display]"
 
 msgid "Support for a display attached to the micro-controller."
 msgstr "Поддержка дисплея, подключенного к микроконтроллеру."
@@ -1137,7 +1101,6 @@ msgstr ""
 "Информация о настройке дисплеев hd44780 (используется в дисплеях типа "
 "\"RepRapDiscount 2004 Smart Controller\")."
 
-#, fuzzy
 msgid "hd44780_spi display"
 msgstr "hd44780_spi display"
 
@@ -1160,7 +1123,6 @@ msgstr ""
 "Информация о настройке дисплеев st7920 (используется в дисплеях типа "
 "\"RepRapDiscount 12864 Full Graphic Smart Controller\")."
 
-#, fuzzy
 msgid "emulated_st7920 display"
 msgstr "emulated_st7920 display"
 
@@ -1187,7 +1149,6 @@ msgstr "ssd1306 и sh1106 дисплеи"
 msgid "Information on configuring ssd1306 and sh1106 displays."
 msgstr "Информация о настройке дисплеев ssd1306 и sh1106."
 
-#, fuzzy
 msgid "[display_data]"
 msgstr "[display_data]"
 
@@ -1213,11 +1174,9 @@ msgstr ""
 "display_data, переопределив значения по умолчанию в основном файле "
 "конфигурации printer.cfg."
 
-#, fuzzy
 msgid "[display_template]"
 msgstr "[display_template]"
 
-#, fuzzy
 msgid "[display_glyph]"
 msgstr "[display_glyph]"
 
@@ -1235,7 +1194,6 @@ msgstr ""
 msgid "See [sample-glyphs.cfg](../config/sample-glyphs.cfg) for some examples."
 msgstr "Примеры смотрите в [sample-glyphs.cfg](../config/sample-glyphs.cfg)."
 
-#, fuzzy
 msgid "[display my_extra_display]"
 msgstr "[display my_extra_display]"
 
@@ -1277,7 +1235,7 @@ msgid "Filament sensors"
 msgstr "Датчики нити"
 
 msgid "[filament_switch_sensor]"
-msgstr ""
+msgstr "[filament_switch_sensor]"
 
 msgid ""
 "Filament Switch Sensor. Support for filament insert and runout detection using"
@@ -1286,7 +1244,6 @@ msgstr ""
 "Датчик переключения нити. Поддержка обнаружения вставки и выбега нити с "
 "помощью датчика-переключателя, например, концевого выключателя."
 
-#, fuzzy
 msgid "[filament_motion_sensor]"
 msgstr "[filament_motion_sensor]"
 
@@ -1299,7 +1256,6 @@ msgstr ""
 "энкодера, который переключает выходной контакт во время движения нити через "
 "датчик."
 
-#, fuzzy
 msgid "[tsl1401cl_filament_width_sensor]"
 msgstr "[tsl1401cl_filament_width_sensor]"
 
@@ -1316,7 +1272,6 @@ msgstr ""
 msgid "Board specific hardware support"
 msgstr "Поддержка аппаратного обеспечения для конкретной платы"
 
-#, fuzzy
 msgid "[sx1509]"
 msgstr "[sx1509]"
 
@@ -1346,11 +1301,9 @@ msgstr ""
 "Пример смотрите в файле [generic-duet2-duex.cfg](../config/generic-"
 "duet2-duex.cfg)."
 
-#, fuzzy
 msgid "[samd_sercom]"
 msgstr "[samd_sercom]"
 
-#, fuzzy
 msgid "[adc_scaled]"
 msgstr "[adc_scaled]"
 
@@ -1382,7 +1335,7 @@ msgid "Other Custom Modules"
 msgstr "Другие пользовательские модули"
 
 msgid "[palette2]"
-msgstr "[палитра2]"
+msgstr "[palette2]"
 
 msgid ""
 "Palette 2 multimaterial support - provides a tighter integration supporting "
@@ -1439,7 +1392,6 @@ msgid ""
 msgstr ""
 "Следующие параметры обычно доступны для устройств, использующих шину I2C."
 
-#, fuzzy
 msgid "[duplicate_pin_override]"
 msgstr "[duplicate_pin_override]"
 
@@ -1855,7 +1807,6 @@ msgstr ""
 "Поддержка светодиодов PCA9632. PCA9632 используется в FlashForge Dreamer."
 
 #: docs/Config_Reference.md:block 266 (header)
-#, fuzzy
 msgid "LEDs"
 msgstr "LEDs"
 
@@ -1894,12 +1845,10 @@ msgstr ""
 "[справочнике команд](G-Codes.md#led)."
 
 #: docs/Config_Reference.md:block 277 (header)
-#, fuzzy
 msgid "[pca9533]"
 msgstr "[pca9533]"
 
 #: docs/Config_Reference.md:block 280 (header)
-#, fuzzy
 msgid "[pca9632]"
 msgstr "[pca9632]"
 
@@ -1942,11 +1891,11 @@ msgstr ""
 
 #: docs/Config_Reference.md:block 409 (header)
 msgid "[angle]"
-msgstr ""
+msgstr "[угл]"
 
 #: docs/Config_Reference.md:block 179 (header)
 msgid "[smart_effector]"
-msgstr ""
+msgstr "[smart_effector]"
 
 #: docs/Config_Reference.md:block 180 (paragraph)
 msgid ""
@@ -1977,7 +1926,7 @@ msgstr ""
 
 #: docs/Config_Reference.md:block 152 (header)
 msgid "[exclude_object]"
-msgstr ""
+msgstr "[exclude_object]"
 
 #: docs/Config_Reference.md:block 153 (paragraph)
 msgid ""
@@ -2000,7 +1949,6 @@ msgstr ""
 "кода M486, совместимого с Marlin/RepRapFirmware."
 
 #: docs/Config_Reference.md:block 163 (header)
-#, fuzzy
 msgid "[mpu9250]"
 msgstr "[mpu9250]"
 
@@ -2038,7 +1986,7 @@ msgstr ""
 
 #: docs/Config_Reference.md:block 109 (header)
 msgid "[z_thermal_adjust]"
-msgstr ""
+msgstr "[z_thermal_adjust]"
 
 #: docs/Config_Reference.md:block 110 (paragraph)
 msgid ""
@@ -2067,7 +2015,6 @@ msgstr ""
 "можно задать любое количество секций с префиксом \"mpu9250\")."
 
 #: docs/Config_Reference.md:block 331 (header)
-#, fuzzy
 msgid "[tmc2240]"
 msgstr "[tmc2240]"
 
@@ -2203,7 +2150,6 @@ msgstr ""
 "конфигурации шагового двигателя (например, \"[tmc2240 stepper_x]\")."
 
 #: docs/Config_Reference.md:block 324 (header)
-#, fuzzy
 msgid "[pwm_tool]"
 msgstr "[pwm_tool]"
 
@@ -2243,7 +2189,7 @@ msgstr ""
 
 #: docs/Config_Reference.md:block 200 (header)
 msgid "[probe_eddy_current]"
-msgstr ""
+msgstr "[probe_eddy_current]"
 
 #: docs/Config_Reference.md:block 201 (paragraph)
 msgid ""
@@ -2257,7 +2203,7 @@ msgstr ""
 
 #: docs/Config_Reference.md:block 245 (header)
 msgid "[temperature_probe]"
-msgstr ""
+msgstr "[temperature_probe]"
 
 #: docs/Config_Reference.md:block 246 (paragraph)
 msgid ""
@@ -2311,7 +2257,6 @@ msgid "Load Cells"
 msgstr "Датчики нагрузки"
 
 #: docs/Config_Reference.md:block 437 (header)
-#, fuzzy
 msgid "[load_cell]"
 msgstr "[load_cell]"
 
@@ -2343,7 +2288,6 @@ msgstr ""
 "для измерений."
 
 #: docs/Config_Reference.md:block 446 (header)
-#, fuzzy
 msgid "ADS1220"
 msgstr "ADS1220"
 
@@ -2361,7 +2305,7 @@ msgstr ""
 
 #: docs/Config_Reference.md:block 175 (paragraph)
 msgid "Support for LIS3DH accelerometers."
-msgstr ""
+msgstr "Поддержка акселерометров LIS3DH."
 
 #: docs/Config_Reference.md:block 207 (paragraph)
 msgid ""
@@ -2369,10 +2313,13 @@ msgid ""
 "gantry. See the [Axis Twist Compensation Guide](Axis_Twist_Compensation.md) "
 "for more detailed information regarding symptoms, configuration and setup."
 msgstr ""
+"Инструмент для компенсации неточных показаний зонда из-за поворота в X или "
+"Y. См. [Axis Twist Compensation Guide] (Axis_Twist_Compensation.md) для "
+"более подробной информации о симптомах, конфигурации и настройке."
 
 #: docs/Config_Reference.md:block 391 (header)
 msgid "aip31068_spi display"
-msgstr ""
+msgstr "aip31068_spi display"
 
 #: docs/Config_Reference.md:block 392 (paragraph)
 msgid ""
@@ -2380,6 +2327,8 @@ msgid ""
 "hd44780_spi a 20x04 (20 symbols by 4 lines) display with slightly different "
 "internal protocol."
 msgstr ""
+"Информация о настройке дисплея aip31068_spi - очень похожая на hd44780_spi "
+"20x04 (20 символов на 4 строки) с немного другим внутренним протоколом."
 
 #: docs/Config_Reference.md:block 446 (header)
 msgid "HX711"
@@ -2393,6 +2342,11 @@ msgid ""
 "analysis tool](Debugging.md#motion-analysis-and-data-logging). See the [G-Code"
 " reference](G-Codes.md#angle) for available commands."
 msgstr ""
+"Магнитный угловой датчик поддержки для чтения степенных измерений угла "
+"поворота двигателя с помощью чипов SPI 1333, 1337d, mt6816, mt6826 или "
+"tle5012b. Измерения доступны через [API Server] (API_Server.md) и "
+"[инструмент анализа эмоций](Debugging.md#motion-analysis-and-data-logging). "
+"[G-Code reference](G-Codes.md#angle) для доступных команд."
 
 #: docs/Config_Reference.md:block 487 (paragraph)
 msgid ""
@@ -2405,6 +2359,15 @@ msgid ""
 "support a rate of 400000 via the `i2c_speed` parameter. All other Klipper "
 "micro-controllers use a 100000 rate and ignore the `i2c_speed` parameter."
 msgstr ""
+"Большинство микроконтроллеров Klipper поддерживают только `i2c_speed` 10000 "
+"(* стандартный режим*, 100kbit/s). Микроконтроллер Klipper «Linux» "
+"поддерживает скорость 40000 (*быстрый режим *, 400кбит/с), но он должен быть "
+"[установлен в операционной системе](RPi_microcontroller.md# Опционно-"
+"поддерживающий i2c) и параметр `i2c_speed` в противном случае игнорируется. "
+"Микроконтроллер Klipper «RP2040» и семейство ATmega AVR и некоторые STM32 ("
+"F0, G0, G4, L4, F7, H7) поддерживают скорость 40000 через параметр "
+"`i2c_speed`. Все остальные микроконтроллеры Klipper используют скорость "
+"100000 и игнорируют параметр `i2c_speed`."
 
 #~ msgid ""
 #~ "[mcu]\n"

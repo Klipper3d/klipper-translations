@@ -8,7 +8,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-09-09 04:01+0000\n"
+"PO-Revision-Date: 2025-09-11 15:02+0000\n"
 "Last-Translator: gfbdrgn <erfvvgtyhbnjhyuu@wireconnected.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
 "measuring_resonances/ru/>\n"
@@ -265,7 +265,6 @@ msgstr ""
 "предлагаемые частоты для каждого входного формирователя, а также то, какой "
 "входной формирователь рекомендуется для вашей установки. Например:"
 
-#, fuzzy
 msgid "![Resonances](img/calibrate-y.png)"
 msgstr "![Resonances](img/calibrate-y.png)"
 
@@ -332,7 +331,6 @@ msgstr ""
 msgid "Let's consider the following results from the automatic tuning:"
 msgstr "Рассмотрим следующие результаты автоматической настройки:"
 
-#, fuzzy
 msgid "![Resonances](img/calibrate-x.png)"
 msgstr "![Resonances](img/calibrate-x.png)"
 
@@ -369,7 +367,6 @@ msgstr ""
 "что ограничивает сглаживание до 0,2 балла. Теперь вы можете получить "
 "следующий результат:"
 
-#, fuzzy
 msgid "![Resonances](img/calibrate-x-max-smoothing.png)"
 msgstr "![Resonances](img/calibrate-x-max-smoothing.png)"
 
@@ -425,7 +422,7 @@ msgstr ""
 "эталона."
 
 msgid "Selecting max_accel"
-msgstr ""
+msgstr "Выбор max_accel"
 
 msgid ""
 "Since the input shaper can create some smoothing in parts, especially at high "
@@ -780,32 +777,26 @@ msgstr ""
 "Более подробную информацию см. в [G-Codes](G-Codes.md#adxl345)."
 
 #: docs/Measuring_Resonances.md:block 9 (table)
-#, fuzzy
 msgid "MPU-9250 pin"
 msgstr "MPU-9250 pin"
 
 #: docs/Measuring_Resonances.md:block 9 (table)
-#, fuzzy
 msgid "09"
 msgstr "09"
 
 #: docs/Measuring_Resonances.md:block 9 (table)
-#, fuzzy
 msgid "03"
 msgstr "03"
 
 #: docs/Measuring_Resonances.md:block 9 (table)
-#, fuzzy
 msgid "GPIO02 (SDA1)"
 msgstr "GPIO02 (SDA1)"
 
 #: docs/Measuring_Resonances.md:block 9 (table)
-#, fuzzy
 msgid "05"
 msgstr "05"
 
 #: docs/Measuring_Resonances.md:block 9 (table)
-#, fuzzy
 msgid "GPIO03 (SCL1)"
 msgstr "GPIO03 (SCL1)"
 
@@ -837,7 +828,6 @@ msgid "SPI Accelerometers"
 msgstr "Акселерометры SPI"
 
 #: docs/Measuring_Resonances.md:block 12 (header)
-#, fuzzy
 msgid "ADXL345"
 msgstr "ADXL345"
 
@@ -850,42 +840,34 @@ msgid "Recommended connection scheme for I2C on the Raspberry Pi:"
 msgstr "Рекомендуемая схема подключения I2C на Raspberry Pi:"
 
 #: docs/Measuring_Resonances.md:block 24 (table)
-#, fuzzy
 msgid "VCC"
 msgstr "VCC"
 
 #: docs/Measuring_Resonances.md:block 27 (table)
-#, fuzzy
 msgid "RP2040 pin"
 msgstr "RP2040 pin"
 
 #: docs/Measuring_Resonances.md:block 27 (table)
-#, fuzzy
 msgid "39"
 msgstr "39"
 
 #: docs/Measuring_Resonances.md:block 27 (table)
-#, fuzzy
 msgid "3v3"
 msgstr "3v3"
 
 #: docs/Measuring_Resonances.md:block 27 (table)
-#, fuzzy
 msgid "38"
 msgstr "38"
 
 #: docs/Measuring_Resonances.md:block 27 (table)
-#, fuzzy
 msgid "GP0 (I2C0 SDA)"
 msgstr "GP0 (I2C0 SDA)"
 
 #: docs/Measuring_Resonances.md:block 27 (table)
-#, fuzzy
 msgid "02"
 msgstr "02"
 
 #: docs/Measuring_Resonances.md:block 27 (table)
-#, fuzzy
 msgid "GP1 (I2C0 SCL)"
 msgstr "GP1 (I2C0 SCL)"
 
@@ -950,7 +932,6 @@ msgstr ""
 "уровней, что сделает 5 В опасным для вашей RPi."
 
 #: docs/Measuring_Resonances.md:block 22 (table)
-#, fuzzy
 msgid "Pico pin"
 msgstr "Pico pin"
 
@@ -959,7 +940,6 @@ msgid "Pico pin name"
 msgstr "Название вывода Pico"
 
 #: docs/Measuring_Resonances.md:block 22 (table)
-#, fuzzy
 msgid "36"
 msgstr "36"
 
@@ -968,7 +948,6 @@ msgid "2"
 msgstr "2"
 
 #: docs/Measuring_Resonances.md:block 22 (table)
-#, fuzzy
 msgid "GP1 (SPI0_CSn)"
 msgstr "GP1 (SPI0_CSn)"
 
@@ -977,7 +956,6 @@ msgid "1"
 msgstr "1"
 
 #: docs/Measuring_Resonances.md:block 22 (table)
-#, fuzzy
 msgid "GP0 (SPI0_RX)"
 msgstr "GP0 (SPI0_RX)"
 
@@ -986,7 +964,6 @@ msgid "5"
 msgstr "5"
 
 #: docs/Measuring_Resonances.md:block 22 (table)
-#, fuzzy
 msgid "GP3 (SPI0_TX)"
 msgstr "GP3 (SPI0_TX)"
 
@@ -995,7 +972,6 @@ msgid "4"
 msgstr "4"
 
 #: docs/Measuring_Resonances.md:block 22 (table)
-#, fuzzy
 msgid "GP2 (SPI0_SCK)"
 msgstr "GP2 (SPI0_SCK)"
 
@@ -1004,7 +980,6 @@ msgid "Wiring diagrams for some of the ADXL345 boards:"
 msgstr "Схемы подключения некоторых плат ADXL345:"
 
 #: docs/Measuring_Resonances.md:block 24 (paragraph)
-#, fuzzy
 msgid "![ADXL345-Pico](img/adxl345-pico.png)"
 msgstr "![ADXL345-Pico](img/adxl345-pico.png)"
 
@@ -1021,7 +996,6 @@ msgid "On your Raspberry Pi, compile the firmware for the Pico."
 msgstr "На вашем Raspberry Pi скомпилируйте прошивку для Pico."
 
 #: docs/Measuring_Resonances.md:block 58 (paragraph)
-#, fuzzy
 msgid "![Pico menuconfig](img/klipper_pico_menuconfig.png)"
 msgstr "![Pico menuconfig](img/klipper_pico_menuconfig.png)"
 
@@ -1144,32 +1118,26 @@ msgid "MCU(s) with Support"
 msgstr "MCU с поддержкой"
 
 #: docs/Measuring_Resonances.md:block 7 (table)
-#, fuzzy
 msgid "Raspberry Pi"
 msgstr "Raspberry Pi"
 
 #: docs/Measuring_Resonances.md:block 7 (table)
-#, fuzzy
 msgid "3B+, Pico"
 msgstr "3B+, Pico"
 
 #: docs/Measuring_Resonances.md:block 7 (table)
-#, fuzzy
 msgid "3A, 3A+, 3B, 4"
 msgstr "3A, 3A+, 3B, 4"
 
 #: docs/Measuring_Resonances.md:block 7 (table)
-#, fuzzy
 msgid "AVR ATmega"
 msgstr "AVR ATmega"
 
 #: docs/Measuring_Resonances.md:block 7 (table)
-#, fuzzy
 msgid "ATmega328p"
 msgstr "ATmega328p"
 
 #: docs/Measuring_Resonances.md:block 7 (table)
-#, fuzzy
 msgid ""
 "ATmega32u4, ATmega128, ATmega168, ATmega328, ATmega644p, ATmega1280, "
 "ATmega1284, ATmega2560"
@@ -1178,17 +1146,14 @@ msgstr ""
 "ATmega1284, ATmega2560"
 
 #: docs/Measuring_Resonances.md:block 7 (table)
-#, fuzzy
 msgid "AVR AT90"
 msgstr "AVR AT90"
 
 #: docs/Measuring_Resonances.md:block 7 (table)
-#, fuzzy
 msgid "-"
 msgstr "-"
 
 #: docs/Measuring_Resonances.md:block 7 (table)
-#, fuzzy
 msgid "AT90usb646, AT90usb1286"
 msgstr "AT90usb646, AT90usb1286"
 
@@ -1324,7 +1289,6 @@ msgstr ""
 "Рекомендуемая схема подключения I2C(TWI) на AVR ATmega328P Arduino Nano:"
 
 #: docs/Measuring_Resonances.md:block 48 (table)
-#, fuzzy
 msgid "Atmega328P TQFP32 pin"
 msgstr "Atmega328P TQFP32 pin"
 
@@ -1333,27 +1297,22 @@ msgid "Atmega328P pin name"
 msgstr "Название выводов Atmega328P"
 
 #: docs/Measuring_Resonances.md:block 48 (table)
-#, fuzzy
 msgid "Arduino Nano pin"
 msgstr "Arduino Nano pin"
 
 #: docs/Measuring_Resonances.md:block 48 (table)
-#, fuzzy
 msgid "27"
 msgstr "27"
 
 #: docs/Measuring_Resonances.md:block 48 (table)
-#, fuzzy
 msgid "A4"
 msgstr "A4"
 
 #: docs/Measuring_Resonances.md:block 48 (table)
-#, fuzzy
 msgid "28"
 msgstr "28"
 
 #: docs/Measuring_Resonances.md:block 48 (table)
-#, fuzzy
 msgid "A5"
 msgstr "A5"
 
@@ -1499,26 +1458,42 @@ msgid ""
 "400kbit/s *fast mode* in Klipper. The LIS2DW and LIS3DH can be connected to "
 "either SPI or I2C with the same considerations as above."
 msgstr ""
+"Klipper имеет встроенную поддержку ADXL345, MPU-9250, LIS2DW и LIS3DH "
+"совместимых акселерометров, которые могут быть использованы для измерения "
+"резонансных частот принтера для различных осей, и авто-тюн "
+"[образующих элементов](Resonance_Compensation.md) для компенсации "
+"резонансов. Обратите внимание, что использование акселерометров требует "
+"некоторого пайки и обжимания. ADXL345 может быть подключен к SPI-интерфейсу "
+"Raspberry Pi или MCU-доски (это должно быть достаточно быстро). Семейство "
+"MPU может быть подключено к I2C-интерфейсу Raspberry Pi непосредственно, или "
+"к I2C-интерфейсу MCU-панель, который поддерживает 400kbit/s *быстрый режим * "
+"в Klipper. LIS2DW и LIS3DH могут быть связаны с SPI или I2C с теми же "
+"соображениями, что и выше."
 
 #: docs/Measuring_Resonances.md:block 4 (paragraph)
 msgid ""
 "For ADXL345s, make sure that the board supports SPI mode (a small number of "
 "boards appear to be hard-configured for I2C by pulling SDO to GND)."
 msgstr ""
+"Для ADXL345s убедитесь, что доска поддерживает режим SPI (небольшое "
+"количество досок, по-видимому, жестко настроено для I2C, притягивая SDO к "
+"GND)."
 
 #: docs/Measuring_Resonances.md:block 7 (table)
 msgid "SAMD"
-msgstr ""
+msgstr "SAMD"
 
 #: docs/Measuring_Resonances.md:block 7 (table)
 msgid "SAMC21G18"
-msgstr ""
+msgstr "SAMC21G18"
 
 #: docs/Measuring_Resonances.md:block 7 (table)
 msgid ""
 "SAMC21G18, SAMD21G18, SAMD21E18, SAMD21J18, SAMD21E15, SAMD51G19, SAMD51J19, "
 "SAMD51N19, SAMD51P20, SAME51J19, SAME51N19, SAME54P20"
 msgstr ""
+"SAMC21G18, SAMD21G18, SAMD21E18, SAMD21J18, SAMD21E15, SAMD51G19, SAMD51J19, "
+"SAMD51N19, SAMD51P20, SAME51J19, SAME51N19, SAME54P20"
 
 #: docs/Measuring_Resonances.md:block 61 (paragraph)
 msgid ""
@@ -1529,22 +1504,31 @@ msgid ""
 "version, due to newer versions of NumPY having requirements that may not be "
 "satisfied in some klipper python environments."
 msgstr ""
+"Обратите внимание, что, в зависимости от производительности процессора, это "
+"может *занять * много времени, до 10-20 минут. Будьте терпеливы и ждите "
+"завершения установки. В некоторых случаях, если доска имеет слишком мало "
+"RAM, установка может потерпеть неудачу, и вам нужно будет включить обмен. "
+"Также обратите внимание на принудительную версию, из-за более новых версий "
+"NumPY, имеющих требования, которые могут не быть удовлетворены в некоторых "
+"средах клиппера python."
 
 #: docs/Measuring_Resonances.md:block 62 (paragraph)
 msgid "Once installed please check that no errors show from the command:"
 msgstr ""
+"После установки, пожалуйста, проверьте, что никаких ошибок не видно из "
+"команды:"
 
 #: docs/Measuring_Resonances.md:block 64 (paragraph)
 msgid "The correct output should simply be a new line."
-msgstr ""
+msgstr "Правильный вывод должен быть просто новой линией."
 
 #: docs/Measuring_Resonances.md:block 85 (header)
 msgid "Configure LIS2DW series over SPI"
-msgstr ""
+msgstr "Настройка серии LIS2DW над SPI"
 
 #: docs/Measuring_Resonances.md:block 155 (header)
 msgid "Unreliable measurements of resonance frequencies"
-msgstr ""
+msgstr "Ненадежные измерения резонансных частот"
 
 #: docs/Measuring_Resonances.md:block 156 (paragraph)
 msgid ""
@@ -1563,6 +1547,22 @@ msgid ""
 " If none of that helps, a user may try the other shapers from the produced "
 "list besides the one recommended by default."
 msgstr ""
+"Иногда резонансные измерения могут давать фиктивные результаты, что приводит "
+"к неправильным предложениям для входных форматоров. Это может быть вызвано "
+"различными причинами, включая запуск вентиляторов на головке инструмента, "
+"неправильное положение или нежесткую установку акселерометра или "
+"механические проблемы, такие как рыхлые ремни или связывающая или шишка. "
+"Имейте в виду, что все вентиляторы должны быть отключены для резонансного "
+"тестирования, особенно шумных, и что акселерометр должен быть жестко "
+"установлен на соответствующей подвижной части (например, на самой кровати "
+"для стропе кровати, или на экструдере самого принтера, а не на карете, и "
+"некоторые люди получают лучшие результаты, установив акселерометр на самом "
+"сопло. Что касается механических проблем, то пользователь должен проверить, "
+"есть ли какая-либо неисправность, которая может быть исправлена с помощью "
+"движущейся оси (например, линейные направляющие рельсы очищены и смазаны, а "
+"напряжение V-слота скорректировано правильно). Если это не помогает, "
+"пользователь может попробовать другие форматоры из списка, кроме "
+"рекомендованного по умолчанию."
 
 #: docs/Measuring_Resonances.md:block 5 (paragraph)
 msgid ""
@@ -1570,16 +1570,20 @@ msgid ""
 "there are also a variety of board designs and clones with different I2C pull-"
 "up resistors which will need supplementing."
 msgstr ""
+"Для MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500/ICM20948s и LIS2DW/LIS3DH "
+"существуют также различные конструкции и клоны с различными резистентами "
+"I2C, которые будут нуждаться в дополнении."
 
 #: docs/Measuring_Resonances.md:block 37 (header)
 msgid "MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500/ICM20948"
-msgstr ""
+msgstr "MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500/ICM20948"
 
 #: docs/Measuring_Resonances.md:block 90 (paragraph)
 msgid ""
 "If you are using the ICM20948, replace instances of \"mpu9250\" with "
 "\"icm20948\"."
 msgstr ""
+"Если вы используете ICM20948, замените экземпляры «mpu9250» на «icm20948»."
 
 #, fuzzy
 #~ msgid "MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500"

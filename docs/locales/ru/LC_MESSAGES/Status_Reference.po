@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-09-09 04:02+0000\n"
+"PO-Revision-Date: 2025-09-11 15:02+0000\n"
 "Last-Translator: gfbdrgn <erfvvgtyhbnjhyuu@wireconnected.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
 "status_reference/ru/>\n"
@@ -220,7 +220,6 @@ msgstr ""
 "настройки могут отличаться от настроек в файле конфигурации, если команда "
 "`SET_RETRACTION` изменит их."
 
-#, fuzzy
 msgid "gcode_macro"
 msgstr "gcode_macro"
 
@@ -238,7 +237,6 @@ msgstr ""
 "`<переменная>`: Текущее значение переменной [gcode_macro]"
 "(Command_Templates.md#variables)."
 
-#, fuzzy
 msgid "gcode_move"
 msgstr "gcode_move"
 
@@ -317,7 +315,6 @@ msgstr ""
 "выдавливания `M82`, или False, если используется режим относительного "
 "выдавливания `M83`."
 
-#, fuzzy
 msgid "hall_filament_width_sensor"
 msgstr "hall_filament_width_sensor"
 
@@ -405,7 +402,6 @@ msgstr ""
 "\"extruder\", \"heater_bed\", \"heater_generic my_custom_heater\", "
 "\"temperature_sensor electronics_temp\"]`."
 
-#, fuzzy
 msgid "idle_timeout"
 msgstr "idle_timeout"
 
@@ -431,7 +427,6 @@ msgstr ""
 "`printing_time`: Количество времени (в секундах), в течение которого принтер "
 "находился в состоянии \"Печать\" (отслеживается модулем idle_timeout)."
 
-#, fuzzy
 msgid "mcu"
 msgstr "mcu"
 
@@ -469,7 +464,6 @@ msgstr ""
 "`last_stats.<statistics_name>`: Статистическая информация о подключении "
 "микроконтроллера."
 
-#, fuzzy
 msgid "output_pin"
 msgstr "output_pin"
 
@@ -483,7 +477,6 @@ msgstr ""
 msgid "`value`: The \"value\" of the pin, as set by a `SET_PIN` command."
 msgstr "`value`: \"Значение\" пина, заданное командой `SET_PIN`."
 
-#, fuzzy
 msgid "palette2"
 msgstr "palette2"
 
@@ -508,7 +501,6 @@ msgstr ""
 msgid "`is_splicing`: True when the Palette 2 is splicing filament."
 msgstr "`is_splicing`: Истина, если палитра 2 сращивает нити."
 
-#, fuzzy
 msgid "pause_resume"
 msgstr "pause_resume"
 
@@ -526,7 +518,6 @@ msgstr ""
 "`is_paused`: Возвращает true, если была выполнена команда PAUSE без "
 "соответствующего RESUME."
 
-#, fuzzy
 msgid "print_stats"
 msgstr "print_stats"
 
@@ -549,9 +540,8 @@ msgstr ""
 "`message`: Оценочная информация о текущем отпечатке, если активен отпечаток "
 "virtual_sdcard."
 
-#, fuzzy
 msgid "probe"
-msgstr "probe"
+msgstr "зонд"
 
 msgid ""
 "The following information is available in the "
@@ -583,7 +573,6 @@ msgstr ""
 "расширения шаблона команда PROBE (или аналогичная) должна быть запущена до "
 "макроса, содержащего эту ссылку."
 
-#, fuzzy
 msgid "quad_gantry_level"
 msgstr "quad_gantry_level"
 
@@ -601,7 +590,6 @@ msgstr ""
 "`применено`: True, если процесс выравнивания порталов был запущен и успешно "
 "завершен."
 
-#, fuzzy
 msgid "query_endstops"
 msgstr "query_endstops"
 
@@ -641,7 +629,6 @@ msgstr ""
 "`printer[\"servo <config_name>\"].value`: Последняя настройка вывода ШИМ ("
 "значение между 0.0 и 1.0), связанного с сервоприводом."
 
-#, fuzzy
 msgid "system_stats"
 msgstr "system_stats"
 
@@ -668,7 +655,6 @@ msgstr "Следующая информация доступна в"
 msgid "`temperature`: The last read temperature from the sensor."
 msgstr "`температура`: Последнее значение температуры, считанное с датчика."
 
-#, fuzzy
 msgid "temperature_fan"
 msgstr "temperature_fan"
 
@@ -682,7 +668,6 @@ msgstr ""
 msgid "`target`: The target temperature for the fan."
 msgstr "`Цель`: Целевая температура для вентилятора."
 
-#, fuzzy
 msgid "temperature_sensor"
 msgstr "temperature_sensor"
 
@@ -755,7 +740,6 @@ msgstr ""
 "принтер был приостановлен из-за того, что головка инструмента двигалась "
 "быстрее, чем можно было считать перемещения из G-кода."
 
-#, fuzzy
 msgid "virtual_sdcard"
 msgstr "virtual_sdcard"
 
@@ -804,7 +788,6 @@ msgstr ""
 "`state_message`: Человекочитаемая строка, дающая дополнительный контекст о "
 "текущем состоянии Klipper."
 
-#, fuzzy
 msgid "z_tilt"
 msgstr "z_tilt"
 
@@ -822,7 +805,6 @@ msgstr ""
 "`applied`: True, если процесс выравнивания наклона был запущен и успешно "
 "завершен."
 
-#, fuzzy
 msgid "dual_carriage"
 msgstr "dual_carriage"
 
@@ -837,7 +819,6 @@ msgid "Status reference"
 msgstr "Ссылка на статус"
 
 #: docs/Status_Reference.md:block 49 (header)
-#, fuzzy
 msgid "motion_report"
 msgstr "motion_report"
 
@@ -1024,7 +1005,6 @@ msgstr ""
 "и будут сохранены при `SAVE_CONFIG`."
 
 #: docs/Status_Reference.md:block 19 (header)
-#, fuzzy
 msgid "exclude_object"
 msgstr "exclude_object"
 
@@ -1064,7 +1044,6 @@ msgid "`current_object`: The name of the object currently being printed."
 msgstr "`current_object`: Имя объекта, который печатается в данный момент."
 
 #: docs/Status_Reference.md:block 57 (header)
-#, fuzzy
 msgid "manual_probe"
 msgstr "manual_probe"
 
@@ -1099,7 +1078,6 @@ msgstr ""
 "высоту."
 
 #: docs/Status_Reference.md:block 10 (header)
-#, fuzzy
 msgid "bed_screws"
 msgstr "bed_screws"
 
@@ -1128,7 +1106,6 @@ msgid "`accepted_screws`: The number of accepted screws."
 msgstr "`accepted_screws`: Количество принимаемых винтов."
 
 #: docs/Status_Reference.md:block 27 (header)
-#, fuzzy
 msgid "extruder_stepper"
 msgstr "extruder_stepper"
 
@@ -1176,7 +1153,6 @@ msgstr ""
 "CURRENT_LAYER=<значение>`."
 
 #: docs/Status_Reference.md:block 124 (header)
-#, fuzzy
 msgid "z_thermal_adjust"
 msgstr "z_thermal_adjust"
 
@@ -1221,7 +1197,6 @@ msgstr ""
 "расчета Z `current_z_adjust` [degC]."
 
 #: docs/Status_Reference.md:block 93 (header)
-#, fuzzy
 msgid "screws_tilt_adjust"
 msgstr "screws_tilt_adjust"
 
@@ -1289,7 +1264,6 @@ msgid "`is_base`: Returns True if this is the base screw."
 msgstr "`is_base`: Возвращает True, если это базовый винт."
 
 #: docs/Status_Reference.md:block 99 (header)
-#, fuzzy
 msgid "stepper_enable"
 msgstr "stepper_enable"
 
@@ -1307,7 +1281,6 @@ msgstr ""
 "`steppers[\"<stepper>\"]`: Возвращает True, если указанный степпер включен."
 
 #: docs/Status_Reference.md:block 42 (header)
-#, fuzzy
 msgid "gcode_button"
 msgstr "gcode_button"
 
@@ -1383,7 +1356,6 @@ msgstr ""
 "\"ПЕРВИЧНЫЙ\", \"КОПИРОВАНИЕ\" и \"ЗЕРКАЛО\"."
 
 #: docs/Status_Reference.md:block 90 (header)
-#, fuzzy
 msgid "pwm_cycle_time"
 msgstr "pwm_cycle_time"
 
@@ -1408,7 +1380,6 @@ msgstr ""
 "(или `M204`) изменит их во время выполнения."
 
 #: docs/Status_Reference.md:block 113 (paragraph)
-#, fuzzy
 msgid ""
 "[bme280 "
 "config_section_name](Config_Reference.md#bmp280bme280bme680-temperature-"
@@ -1421,12 +1392,12 @@ msgid ""
 msgstr ""
 "[bme280 config_section_name](Config_Reference.md#bmp280bme280bme680"
 "-temperature-sensor), [htu21d config_section_name](Config_Reference.md"
-"#htu21d-sensor), [sht3x config_section_name]"
-"(Config_Reference.md#sht31-sensor), [lm75 config_section_name]"
-"(Config_Reference.md#lm75-temperature-sensor), "
-"[temperature_host config_section_name](Config_Reference.md#host-temperature-"
-"sensor) and [temperature_combined config_section_name](Config_Reference.md"
-"#combined-temperature-sensor) objects:"
+"#htu21d-sensor), [sht3x config_section_name](Config_Reference.md# "
+"sht31-sensor), [lm75 config_section_name](Config_Reference.md#lm75"
+"-temperature-sensor), [temperature_host config_section_name]"
+"(Config_Reference.md#host-temperature-sensor) и "
+"[temperature_combined config_section_name](Config_Reference.md#combined-"
+"temperature-sensor):"
 
 #: docs/Status_Reference.md:block 114 (unordered list)
 msgid ""
@@ -1441,10 +1412,11 @@ msgid ""
 "The following information is available in the "
 "[bed_screws](Config_Reference.md#bed_screws) object:"
 msgstr ""
+"Следующая информация доступна в объекте `Config_Reference.md#{bed_screws}`:"
 
 #: docs/Status_Reference.md:block 13 (header)
 msgid "canbus_stats"
-msgstr ""
+msgstr "canbus_stats"
 
 #: docs/Status_Reference.md:block 14 (paragraph)
 msgid ""
@@ -1452,24 +1424,31 @@ msgid ""
 "object (this object is automatically available if an mcu is configured to use "
 "canbus):"
 msgstr ""
+"Следующая информация доступна в объекте `canbus_stats some_mcu_name ` (этот "
+"объект автоматически доступен, если mcu настроен для использования canbus):"
 
 #: docs/Status_Reference.md:block 15 (unordered list)
 msgid ""
 "`rx_error`: The number of receive errors detected by the micro-controller "
 "canbus hardware."
 msgstr ""
+"`rx_error`: Количество ошибок, обнаруженных микроконтроллерным оборудованием."
 
 #: docs/Status_Reference.md:block 15 (unordered list)
 msgid ""
 "`tx_error`: The number of transmit errors detected by the micro-controller "
 "canbus hardware."
 msgstr ""
+"`tx_error`: Количество ошибок передачи, обнаруженных аппаратным обеспечением "
+"микроконтроллера."
 
 #: docs/Status_Reference.md:block 15 (unordered list)
 msgid ""
 "`tx_retries`: The number of transmit attempts that were retried due to bus "
 "contention or errors."
 msgstr ""
+"`tx_retries`: Количество попыток передачи, которые были повторно испытаны из-"
+"за разногласий или ошибок."
 
 #: docs/Status_Reference.md:block 15 (unordered list)
 msgid ""
@@ -1478,6 +1457,11 @@ msgid ""
 " that will no longer transmit canbus error frames, or \"off\" for a bus that "
 "will no longer transmit or receive messages)."
 msgstr ""
+"`bus_state`: Статус интерфейса (как правило, «активный» для автобуса в "
+"нормальной эксплуатации, «огненный» для автобуса с недавними ошибками, "
+"«пассивный» для автобуса, который больше не будет передавать рамы ошибок "
+"каннаба или «выключен» для автобуса, который больше не будет передавать или "
+"получать сообщения)."
 
 #: docs/Status_Reference.md:block 16 (paragraph)
 msgid ""
@@ -1485,97 +1469,117 @@ msgid ""
 "field and the rp2XXX micro-controllers always report `tx_error` as zero and "
 "`bus_state` as \"active\"."
 msgstr ""
+"Обратите внимание, что только rp2XXX микроконтроллеры сообщают ненулевую ` "
+"tx_retries` поле и rp2XXX микроконтроллеры всегда сообщают `tx_error` как "
+"ноль и `bus_state` как «активные»."
 
 #: docs/Status_Reference.md:block 57 (unordered list)
 msgid ""
 "all items from "
 "[filament_switch_sensor](Status_Reference.md#filament_switch_sensor)"
 msgstr ""
+"все элементы из[filament_switch_sensor]"
+"(Status_Reference.md#filament_switch_sensor)"
 
 #: docs/Status_Reference.md:block 70 (header)
 msgid "load_cell"
-msgstr ""
+msgstr "load_cell"
 
 #: docs/Status_Reference.md:block 71 (paragraph)
 msgid "The following information is available for each `[load_cell name]`:"
-msgstr ""
+msgstr "Для каждого `[load_cell name]` доступна следующая информация:"
 
 #: docs/Status_Reference.md:block 72 (unordered list)
 msgid "'is_calibrated': True/False is the load cell calibrated"
-msgstr ""
+msgstr "'is_calibrated': True/False - это откалиброванный грузовой элемент"
 
 #: docs/Status_Reference.md:block 72 (unordered list)
 msgid ""
 "'counts_per_gram': The number of raw sensor counts that equals 1 gram of force"
 msgstr ""
+"'counts_per_gram': Количество необработанных датчиков составляет 1 грамм силы"
 
 #: docs/Status_Reference.md:block 72 (unordered list)
 msgid ""
 "'reference_tare_counts': The reference number of raw sensor counts for 0 force"
 msgstr ""
+"'reference_tare_counts': Исходное число первичных датчиков рассчитывается на "
+"0 силу"
 
 #: docs/Status_Reference.md:block 72 (unordered list)
 msgid "'tare_counts': The current number of raw sensor counts for 0 force"
 msgstr ""
+"'tare_counts': Текущее количество первичных датчиков рассчитывает на 0 силу"
 
 #: docs/Status_Reference.md:block 72 (unordered list)
 msgid "'force_g': The force in grams, averaged over the last polling period."
-msgstr ""
+msgstr "'force_g': Сила в граммах, в среднем за последний период голосования."
 
 #: docs/Status_Reference.md:block 72 (unordered list)
 msgid "'min_force_g': The minimum force in grams, over the last polling period."
 msgstr ""
+"'min_force_g': Минимальная сила в граммах, за последний период голосования."
 
 #: docs/Status_Reference.md:block 72 (unordered list)
 msgid "'max_force_g': The maximum force in grams, over the last polling period."
 msgstr ""
+"'max_force_g': Максимальная сила в граммах за последний период голосования."
 
 #: docs/Status_Reference.md:block 112 (header)
 msgid "skew_correction.py"
-msgstr ""
+msgstr "skew_correction.py"
 
 #: docs/Status_Reference.md:block 113 (paragraph)
 msgid ""
 "The following information is available in the `skew_correction` object (this "
 "object is available if any skew_correction is defined):"
 msgstr ""
+"Следующая информация доступна в объекте `skew_correction ` (этот объект "
+"доступен, если какой-либо skew_correction определен):"
 
 #: docs/Status_Reference.md:block 114 (unordered list)
 msgid ""
 "`current_profile_name`: Returns the name of the currently loaded SKEW_PROFILE."
 msgstr ""
+"`current_profile_name`: Возвращает имя текущего загруженного SKEW_PROFILE."
 
 #: docs/Status_Reference.md:block 73 (header)
 msgid "load_cell_probe"
-msgstr ""
+msgstr "load_cell_probe"
 
 #: docs/Status_Reference.md:block 74 (paragraph)
 msgid "The following information is available for `[load_cell_probe]`:"
-msgstr ""
+msgstr "Для `[load_cell_probe]` доступна следующая информация:"
 
 #: docs/Status_Reference.md:block 75 (unordered list)
 msgid "all items from [load_cell](Status_Reference.md#load_cell)"
-msgstr ""
+msgstr "все элементы из [load_cell](Status_Reference.md#load_cell)"
 
 #: docs/Status_Reference.md:block 75 (unordered list)
 msgid "all items from [probe](Status_Reference.md#probe)"
-msgstr ""
+msgstr "все товары из [проекта](Status_Reference.md#probe)"
 
 #: docs/Status_Reference.md:block 75 (unordered list)
 msgid ""
 "'endstop_tare_counts': the load cell probe keeps a tare value independent of "
 "the load cell. This re-set at the start of each probe."
 msgstr ""
+"'endstop_tare_counts': пробоотборник несущей клетки сохраняет значение тары, "
+"независимо от несущей клетки. Эта перезагрузка в начале каждого зонда."
 
 #: docs/Status_Reference.md:block 75 (unordered list)
 msgid "'last_trigger_time': timestamp of the last homing trigger"
 msgstr ""
+"«last_trigger_time»: временная метка последнего триггера возвращения в "
+"исходное положение"
 
 #: docs/Status_Reference.md:block 143 (paragraph)
 msgid ""
 "On a `generic_cartesian` kinematic, the following information is available in "
 "`dual_carriage`:"
 msgstr ""
+"В кинематике `generic_cartesian` в `dual_carriage` доступна следующая "
+"информация:"
 
 #: docs/Status_Reference.md:block 144 (unordered list)
 msgid ""
@@ -1583,6 +1587,10 @@ msgid ""
 "values are \"INACTIVE\" and \"PRIMARY\" for the primary carriage and "
 "\"INACTIVE\", \"PRIMARY\", \"COPY\", and \"MIRROR\" for the dual carriage."
 msgstr ""
+"` бракосочетания [\"<переговор>\"]`: Режим перевозки `<перевозка>`. "
+"Возможными значениями являются \"ИНАКТИВНЫЕ\" и \"ПРАВИТЕЛЬНЫЕ\" для "
+"первичной перевозки и \"ИНАКТИВНЫЕ\", \"ПРАВИТЕЛЬНЫЕ\", \"КОПИ\" и \"МИРОР\" "
+"для двойной перевозки."
 
 #~ msgid ""
 #~ "The following information is available in the `Config_Reference.md#bed_screws`"

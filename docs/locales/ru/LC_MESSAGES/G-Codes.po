@@ -14,11 +14,12 @@
 # Arseniy <arseniy@neburalis.space>, 2024, 2025.
 # gfbdrgng <hnaofegnp@hldrive.com>, 2024, 2025.
 # Evgeniy Khramov <65224669+thejenja@users.noreply.github.com>, 2025.
+# gfbdrgn <erfvvgtyhbnjhyuu@wireconnected.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-07-22 08:36+0000\n"
-"Last-Translator: Ворон Stars <voronstars1255@gmail.com>\n"
+"PO-Revision-Date: 2025-09-12 06:02+0000\n"
+"Last-Translator: gfbdrgn <erfvvgtyhbnjhyuu@wireconnected.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/g-codes/"
 "ru/>\n"
 "Language: ru\n"
@@ -26,7 +27,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.14-dev\n"
 
 msgid ""
 "This document describes the commands that Klipper supports. These are commands"
@@ -1295,7 +1296,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 71 (header)
 msgid "[dual_carriage]"
-msgstr ""
+msgstr "[dual_carriage]"
 
 #: docs/G-Codes.md:block 72 (paragraph)
 msgid ""
@@ -1311,7 +1312,7 @@ msgstr "SET_DUAL_CARRIAGE"
 
 #: docs/G-Codes.md:block 75 (header)
 msgid "[endstop_phase]"
-msgstr ""
+msgstr "[endstop_phase]"
 
 #: docs/G-Codes.md:block 76 (paragraph)
 msgid ""
@@ -1340,28 +1341,24 @@ msgstr ""
 "(Config_Reference.md#extruder):"
 
 #: docs/G-Codes.md:block 81 (header)
-#, fuzzy
 msgid "ACTIVATE_EXTRUDER"
 msgstr "ACTIVATE_EXTRUDER"
 
 #: docs/G-Codes.md:block 83 (header)
-#, fuzzy
 msgid "SET_PRESSURE_ADVANCE"
 msgstr "SET_PRESSURE_ADVANCE"
 
 #: docs/G-Codes.md:block 85 (header)
-#, fuzzy
 msgid "SET_EXTRUDER_ROTATION_DISTANCE"
 msgstr "SET_EXTRUDER_ROTATION_DISTANCE"
 
 #: docs/G-Codes.md:block 87 (header)
-#, fuzzy
 msgid "SYNC_EXTRUDER_MOTION"
 msgstr "SYNC_EXTRUDER_MOTION"
 
 #: docs/G-Codes.md:block 93 (header)
 msgid "[fan_generic]"
-msgstr ""
+msgstr "[fan_generic]"
 
 #: docs/G-Codes.md:block 94 (paragraph)
 msgid ""
@@ -1372,7 +1369,6 @@ msgstr ""
 "[fan_generic config](Config_Reference.md#fan_generic)."
 
 #: docs/G-Codes.md:block 95 (header)
-#, fuzzy
 msgid "SET_FAN_SPEED"
 msgstr "SET_FAN_SPEED"
 
@@ -1387,7 +1383,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 97 (header)
 msgid "[firmware_retraction]"
-msgstr ""
+msgstr "[firmware_retraction]"
 
 #: docs/G-Codes.md:block 98 (paragraph)
 msgid ""
@@ -1411,17 +1407,14 @@ msgid "The following additional commands are also available."
 msgstr "Также доступны следующие дополнительные команды."
 
 #: docs/G-Codes.md:block 101 (header)
-#, fuzzy
 msgid "SET_RETRACTION"
 msgstr "SET_RETRACTION"
 
 #: docs/G-Codes.md:block 103 (header)
-#, fuzzy
 msgid "GET_RETRACTION"
 msgstr "GET_RETRACTION"
 
 #: docs/G-Codes.md:block 105 (header)
-#, fuzzy
 msgid "[filament_switch_sensor]"
 msgstr "[filament_switch_sensor]"
 
@@ -1451,31 +1444,26 @@ msgstr ""
 "определенного в конфигурации."
 
 #: docs/G-Codes.md:block 109 (header)
-#, fuzzy
 msgid "SET_FILAMENT_SENSOR"
 msgstr "SET_FILAMENT_SENSOR"
 
 #: docs/G-Codes.md:block 114 (header)
 msgid "[force_move]"
-msgstr ""
+msgstr "[force_move]"
 
 #: docs/G-Codes.md:block 116 (header)
-#, fuzzy
 msgid "STEPPER_BUZZ"
 msgstr "STEPPER_BUZZ"
 
 #: docs/G-Codes.md:block 118 (header)
-#, fuzzy
 msgid "FORCE_MOVE"
 msgstr "FORCE_MOVE"
 
 #: docs/G-Codes.md:block 120 (header)
-#, fuzzy
 msgid "SET_KINEMATIC_POSITION"
 msgstr "SET_KINEMATIC_POSITION"
 
 #: docs/G-Codes.md:block 122 (header)
-#, fuzzy
 msgid "[gcode]"
 msgstr "[gcode]"
 
@@ -1488,12 +1476,10 @@ msgid "RESTART"
 msgstr "ПЕРЕЗАПУСК"
 
 #: docs/G-Codes.md:block 126 (header)
-#, fuzzy
 msgid "FIRMWARE_RESTART"
 msgstr "FIRMWARE_RESTART"
 
 #: docs/G-Codes.md:block 128 (header)
-#, fuzzy
 msgid "STATUS"
 msgstr "STATUS"
 
@@ -1503,11 +1489,11 @@ msgstr "ПОМОЩЬ"
 
 #: docs/G-Codes.md:block 132 (header)
 msgid "[gcode_arcs]"
-msgstr ""
+msgstr "[gcode_arcs]"
 
 #: docs/G-Codes.md:block 135 (header)
 msgid "[gcode_macro]"
-msgstr ""
+msgstr "[gcode_macro]"
 
 #: docs/G-Codes.md:block 136 (paragraph)
 msgid ""
@@ -1520,12 +1506,10 @@ msgstr ""
 "(Command_Templates.md))."
 
 #: docs/G-Codes.md:block 137 (header)
-#, fuzzy
 msgid "SET_GCODE_VARIABLE"
 msgstr "SET_GCODE_VARIABLE"
 
 #: docs/G-Codes.md:block 139 (header)
-#, fuzzy
 msgid "[gcode_move]"
 msgstr "[gcode_move]"
 
@@ -1534,27 +1518,22 @@ msgid "The gcode_move module is automatically loaded."
 msgstr "Модуль gcode_move загружается автоматически."
 
 #: docs/G-Codes.md:block 141 (header)
-#, fuzzy
 msgid "GET_POSITION"
 msgstr "GET_POSITION"
 
 #: docs/G-Codes.md:block 143 (header)
-#, fuzzy
 msgid "SET_GCODE_OFFSET"
 msgstr "SET_GCODE_OFFSET"
 
 #: docs/G-Codes.md:block 145 (header)
-#, fuzzy
 msgid "SAVE_GCODE_STATE"
 msgstr "SAVE_GCODE_STATE"
 
 #: docs/G-Codes.md:block 147 (header)
-#, fuzzy
 msgid "RESTORE_GCODE_STATE"
 msgstr "RESTORE_GCODE_STATE"
 
 #: docs/G-Codes.md:block 149 (header)
-#, fuzzy
 msgid "[hall_filament_width_sensor]"
 msgstr "[hall_filament_width_sensor]"
 
@@ -1584,7 +1563,6 @@ msgid "`QUERY_FILAMENT_WIDTH`: Return the current measured filament width."
 msgstr "`QUERY_FILAMENT_WIDTH`: Возвращает текущую измеренную ширину нити."
 
 #: docs/G-Codes.md:block 153 (header)
-#, fuzzy
 msgid "RESET_FILAMENT_WIDTH_SENSOR"
 msgstr "RESET_FILAMENT_WIDTH_SENSOR"
 
@@ -1597,7 +1575,6 @@ msgstr ""
 "замены нити."
 
 #: docs/G-Codes.md:block 155 (header)
-#, fuzzy
 msgid "DISABLE_FILAMENT_WIDTH_SENSOR"
 msgstr "DISABLE_FILAMENT_WIDTH_SENSOR"
 
@@ -1610,7 +1587,6 @@ msgstr ""
 "использовать его для управления потоком."
 
 #: docs/G-Codes.md:block 157 (header)
-#, fuzzy
 msgid "ENABLE_FILAMENT_WIDTH_SENSOR"
 msgstr "ENABLE_FILAMENT_WIDTH_SENSOR"
 
@@ -1623,7 +1599,6 @@ msgstr ""
 "использовать его для управления потоком."
 
 #: docs/G-Codes.md:block 159 (header)
-#, fuzzy
 msgid "QUERY_RAW_FILAMENT_WIDTH"
 msgstr "QUERY_RAW_FILAMENT_WIDTH"
 
@@ -1636,7 +1611,6 @@ msgstr ""
 "значение датчика в формате RAW для точек калибровки."
 
 #: docs/G-Codes.md:block 161 (header)
-#, fuzzy
 msgid "ENABLE_FILAMENT_WIDTH_LOG"
 msgstr "ENABLE_FILAMENT_WIDTH_LOG"
 
@@ -1645,7 +1619,6 @@ msgid "`ENABLE_FILAMENT_WIDTH_LOG`: Turn on diameter logging."
 msgstr "`ENABLE_FILAMENT_WIDTH_LOG`: Включите ведение журнала диаметра."
 
 #: docs/G-Codes.md:block 163 (header)
-#, fuzzy
 msgid "DISABLE_FILAMENT_WIDTH_LOG"
 msgstr "DISABLE_FILAMENT_WIDTH_LOG"
 
@@ -1666,36 +1639,32 @@ msgstr ""
 "определен нагреватель."
 
 #: docs/G-Codes.md:block 167 (header)
-#, fuzzy
 msgid "TURN_OFF_HEATERS"
 msgstr "TURN_OFF_HEATERS"
 
 #: docs/G-Codes.md:block 169 (header)
-#, fuzzy
 msgid "TEMPERATURE_WAIT"
 msgstr "TEMPERATURE_WAIT"
 
 #: docs/G-Codes.md:block 171 (header)
-#, fuzzy
 msgid "SET_HEATER_TEMPERATURE"
 msgstr "SET_HEATER_TEMPERATURE"
 
 #: docs/G-Codes.md:block 173 (header)
 msgid "[idle_timeout]"
-msgstr ""
+msgstr "[idle_timeout]"
 
 #: docs/G-Codes.md:block 174 (paragraph)
 msgid "The idle_timeout module is automatically loaded."
 msgstr "Модуль idle_timeout загружается автоматически."
 
 #: docs/G-Codes.md:block 175 (header)
-#, fuzzy
 msgid "SET_IDLE_TIMEOUT"
 msgstr "SET_IDLE_TIMEOUT"
 
 #: docs/G-Codes.md:block 177 (header)
 msgid "[input_shaper]"
-msgstr ""
+msgstr "[input_shaper]"
 
 #: docs/G-Codes.md:block 178 (paragraph)
 msgid ""
@@ -1708,12 +1677,10 @@ msgstr ""
 "[resonance compensation](Resonance_Compensation.md))."
 
 #: docs/G-Codes.md:block 179 (header)
-#, fuzzy
 msgid "SET_INPUT_SHAPER"
 msgstr "SET_INPUT_SHAPER"
 
 #: docs/G-Codes.md:block 181 (header)
-#, fuzzy
 msgid "[manual_probe]"
 msgstr "[manual_probe]"
 
@@ -1722,23 +1689,20 @@ msgid "The manual_probe module is automatically loaded."
 msgstr "Модуль manual_probe загружается автоматически."
 
 #: docs/G-Codes.md:block 183 (header)
-#, fuzzy
 msgid "MANUAL_PROBE"
 msgstr "MANUAL_PROBE"
 
 #: docs/G-Codes.md:block 186 (header)
-#, fuzzy
 msgid "Z_ENDSTOP_CALIBRATE"
 msgstr "Z_ENDSTOP_CALIBRATE"
 
 #: docs/G-Codes.md:block 188 (header)
-#, fuzzy
 msgid "Z_OFFSET_APPLY_ENDSTOP"
 msgstr "Z_OFFSET_APPLY_ENDSTOP"
 
 #: docs/G-Codes.md:block 190 (header)
 msgid "[manual_stepper]"
-msgstr ""
+msgstr "[manual_stepper]"
 
 #: docs/G-Codes.md:block 191 (paragraph)
 msgid ""
@@ -1749,18 +1713,16 @@ msgstr ""
 "(Config_Reference.md#manual_stepper)."
 
 #: docs/G-Codes.md:block 192 (header)
-#, fuzzy
 msgid "MANUAL_STEPPER"
 msgstr "MANUAL_STEPPER"
 
 #: docs/G-Codes.md:block 196 (header)
-#, fuzzy
 msgid "SET_LED"
 msgstr "SET_LED"
 
 #: docs/G-Codes.md:block 198 (header)
 msgid "[output_pin]"
-msgstr ""
+msgstr "[output_pin]"
 
 #: docs/G-Codes.md:block 199 (paragraph)
 msgid ""
@@ -1771,13 +1733,12 @@ msgstr ""
 "(Config_Reference.md#output_pin)."
 
 #: docs/G-Codes.md:block 200 (header)
-#, fuzzy
 msgid "SET_PIN"
 msgstr "SET_PIN"
 
 #: docs/G-Codes.md:block 202 (header)
 msgid "[palette2]"
-msgstr ""
+msgstr "[palette2]"
 
 #: docs/G-Codes.md:block 203 (paragraph)
 msgid ""
@@ -1788,32 +1749,26 @@ msgstr ""
 "(Config_Reference.md#palette2)."
 
 #: docs/G-Codes.md:block 207 (header)
-#, fuzzy
 msgid "PALETTE_CONNECT"
 msgstr "PALETTE_CONNECT"
 
 #: docs/G-Codes.md:block 209 (header)
-#, fuzzy
 msgid "PALETTE_DISCONNECT"
 msgstr "PALETTE_DISCONNECT"
 
 #: docs/G-Codes.md:block 211 (header)
-#, fuzzy
 msgid "PALETTE_CLEAR"
 msgstr "PALETTE_CLEAR"
 
 #: docs/G-Codes.md:block 213 (header)
-#, fuzzy
 msgid "PALETTE_CUT"
 msgstr "PALETTE_CUT"
 
 #: docs/G-Codes.md:block 215 (header)
-#, fuzzy
 msgid "PALETTE_SMART_LOAD"
 msgstr "PALETTE_SMART_LOAD"
 
 #: docs/G-Codes.md:block 217 (header)
-#, fuzzy
 msgid "[pid_calibrate]"
 msgstr "[pid_calibrate]"
 
@@ -1826,13 +1781,12 @@ msgstr ""
 "файле задан нагреватель."
 
 #: docs/G-Codes.md:block 219 (header)
-#, fuzzy
 msgid "PID_CALIBRATE"
 msgstr "PID_CALIBRATE"
 
 #: docs/G-Codes.md:block 221 (header)
 msgid "[pause_resume]"
-msgstr ""
+msgstr "[pause_resume]"
 
 #: docs/G-Codes.md:block 223 (header)
 msgid "PAUSE"
@@ -1843,18 +1797,16 @@ msgid "RESUME"
 msgstr "РЕЗЮМЕ"
 
 #: docs/G-Codes.md:block 227 (header)
-#, fuzzy
 msgid "CLEAR_PAUSE"
 msgstr "CLEAR_PAUSE"
 
 #: docs/G-Codes.md:block 229 (header)
-#, fuzzy
 msgid "CANCEL_PRINT"
 msgstr "CANCEL_PRINT"
 
 #: docs/G-Codes.md:block 231 (header)
 msgid "[probe]"
-msgstr ""
+msgstr "[probe]"
 
 #: docs/G-Codes.md:block 232 (paragraph)
 msgid ""
@@ -1872,7 +1824,6 @@ msgid "PROBE"
 msgstr "Проба"
 
 #: docs/G-Codes.md:block 235 (header)
-#, fuzzy
 msgid "QUERY_PROBE"
 msgstr "QUERY_PROBE"
 
@@ -1885,17 +1836,14 @@ msgid "PROBE_CALIBRATE"
 msgstr "Калибровка пробы"
 
 #: docs/G-Codes.md:block 241 (header)
-#, fuzzy
 msgid "Z_OFFSET_APPLY_PROBE"
 msgstr "Z_OFFSET_APPLY_PROBE"
 
 #: docs/G-Codes.md:block 243 (header)
-#, fuzzy
 msgid "[query_adc]"
 msgstr "[query_adc]"
 
 #: docs/G-Codes.md:block 245 (header)
-#, fuzzy
 msgid "QUERY_ADC"
 msgstr "QUERY_ADC"
 
@@ -1917,7 +1865,7 @@ msgstr "Запрос концевиков"
 
 #: docs/G-Codes.md:block 252 (header)
 msgid "[resonance_tester]"
-msgstr ""
+msgstr "[resonance_tester]"
 
 #: docs/G-Codes.md:block 253 (paragraph)
 msgid ""
@@ -1930,23 +1878,20 @@ msgstr ""
 "руководство по [измерению резонансов](Measuring_Resonances.md))."
 
 #: docs/G-Codes.md:block 254 (header)
-#, fuzzy
 msgid "MEASURE_AXES_NOISE"
 msgstr "MEASURE_AXES_NOISE"
 
 #: docs/G-Codes.md:block 256 (header)
-#, fuzzy
 msgid "TEST_RESONANCES"
 msgstr "TEST_RESONANCES"
 
 #: docs/G-Codes.md:block 258 (header)
-#, fuzzy
 msgid "SHAPER_CALIBRATE"
 msgstr "SHAPER_CALIBRATE"
 
 #: docs/G-Codes.md:block 260 (header)
 msgid "[respond]"
-msgstr "[ответить]"
+msgstr "[ответ]"
 
 #: docs/G-Codes.md:block 261 (paragraph)
 msgid ""
@@ -1972,7 +1917,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 266 (header)
 msgid "[save_variables]"
-msgstr ""
+msgstr "[save_variables]"
 
 #: docs/G-Codes.md:block 267 (paragraph)
 msgid ""
@@ -1983,13 +1928,12 @@ msgstr ""
 "(Config_Reference.md#save_variables)."
 
 #: docs/G-Codes.md:block 268 (header)
-#, fuzzy
 msgid "SAVE_VARIABLE"
 msgstr "SAVE_VARIABLE"
 
 #: docs/G-Codes.md:block 270 (header)
 msgid "[screws_tilt_adjust]"
-msgstr ""
+msgstr "[screws_tilt_adjust]"
 
 #: docs/G-Codes.md:block 271 (paragraph)
 msgid ""
@@ -2004,13 +1948,12 @@ msgstr ""
 "screws-using-the bed-probe))."
 
 #: docs/G-Codes.md:block 272 (header)
-#, fuzzy
 msgid "SCREWS_TILT_CALCULATE"
 msgstr "SCREWS_TILT_CALCULATE"
 
 #: docs/G-Codes.md:block 274 (header)
 msgid "[sdcard_loop]"
-msgstr ""
+msgstr "[sdcard_loop]"
 
 #: docs/G-Codes.md:block 275 (paragraph)
 msgid ""
@@ -2021,7 +1964,6 @@ msgstr ""
 "доступны следующие расширенные команды."
 
 #: docs/G-Codes.md:block 276 (header)
-#, fuzzy
 msgid "SDCARD_LOOP_BEGIN"
 msgstr "SDCARD_LOOP_BEGIN"
 
@@ -2035,18 +1977,16 @@ msgstr ""
 "бесконечно."
 
 #: docs/G-Codes.md:block 278 (header)
-#, fuzzy
 msgid "SDCARD_LOOP_END"
 msgstr "SDCARD_LOOP_END"
 
 #: docs/G-Codes.md:block 280 (header)
-#, fuzzy
 msgid "SDCARD_LOOP_DESIST"
 msgstr "SDCARD_LOOP_DESIST"
 
 #: docs/G-Codes.md:block 282 (header)
 msgid "[servo]"
-msgstr ""
+msgstr "[servo]"
 
 #: docs/G-Codes.md:block 283 (paragraph)
 msgid ""
@@ -2057,13 +1997,12 @@ msgstr ""
 "(Config_Reference.md#servo)."
 
 #: docs/G-Codes.md:block 284 (header)
-#, fuzzy
 msgid "SET_SERVO"
 msgstr "SET_SERVO"
 
 #: docs/G-Codes.md:block 286 (header)
 msgid "[skew_correction]"
-msgstr ""
+msgstr "[skew_correction]"
 
 #: docs/G-Codes.md:block 287 (paragraph)
 msgid ""
@@ -2076,22 +2015,18 @@ msgstr ""
 "руководство [Skew Correction](Skew_Correction.md))."
 
 #: docs/G-Codes.md:block 288 (header)
-#, fuzzy
 msgid "SET_SKEW"
 msgstr "SET_SKEW"
 
 #: docs/G-Codes.md:block 290 (header)
-#, fuzzy
 msgid "GET_CURRENT_SKEW"
 msgstr "GET_CURRENT_SKEW"
 
 #: docs/G-Codes.md:block 292 (header)
-#, fuzzy
 msgid "CALC_MEASURED_SKEW"
 msgstr "CALC_MEASURED_SKEW"
 
 #: docs/G-Codes.md:block 294 (header)
-#, fuzzy
 msgid "SKEW_PROFILE"
 msgstr "SKEW_PROFILE"
 
@@ -2114,7 +2049,6 @@ msgstr ""
 "SAVE_CONFIG, чтобы изменения в постоянной памяти стали постоянными."
 
 #: docs/G-Codes.md:block 296 (header)
-#, fuzzy
 msgid "[stepper_enable]"
 msgstr "[stepper_enable]"
 
@@ -2123,13 +2057,12 @@ msgid "The stepper_enable module is automatically loaded."
 msgstr "Модуль stepper_enable загружается автоматически."
 
 #: docs/G-Codes.md:block 298 (header)
-#, fuzzy
 msgid "SET_STEPPER_ENABLE"
 msgstr "SET_STEPPER_ENABLE"
 
 #: docs/G-Codes.md:block 300 (header)
 msgid "[temperature_fan]"
-msgstr ""
+msgstr "[temperature_fan]"
 
 #: docs/G-Codes.md:block 301 (paragraph)
 msgid ""
@@ -2140,7 +2073,6 @@ msgstr ""
 "(Config_Reference.md#temperature_fan)."
 
 #: docs/G-Codes.md:block 302 (header)
-#, fuzzy
 msgid "SET_TEMPERATURE_FAN_TARGET"
 msgstr "SET_TEMPERATURE_FAN_TARGET"
 
@@ -2159,7 +2091,6 @@ msgstr ""
 "в файле конфигурации. Если скорость не указана, изменения не применяются."
 
 #: docs/G-Codes.md:block 304 (header)
-#, fuzzy
 msgid "[tmcXXXX]"
 msgstr "[tmcXXXX]"
 
@@ -2172,12 +2103,10 @@ msgstr ""
 "(Config_Reference.md#tmc-stepper-driver-configuration)."
 
 #: docs/G-Codes.md:block 306 (header)
-#, fuzzy
 msgid "DUMP_TMC"
 msgstr "DUMP_TMC"
 
 #: docs/G-Codes.md:block 308 (header)
-#, fuzzy
 msgid "INIT_TMC"
 msgstr "INIT_TMC"
 
@@ -2192,12 +2121,10 @@ msgstr ""
 "отключается, а затем снова включается."
 
 #: docs/G-Codes.md:block 310 (header)
-#, fuzzy
 msgid "SET_TMC_CURRENT"
 msgstr "SET_TMC_CURRENT"
 
 #: docs/G-Codes.md:block 312 (header)
-#, fuzzy
 msgid "SET_TMC_FIELD"
 msgstr "SET_TMC_FIELD"
 
@@ -2210,12 +2137,10 @@ msgid "The toolhead module is automatically loaded."
 msgstr "Модуль инструментальной головки загружается автоматически."
 
 #: docs/G-Codes.md:block 316 (header)
-#, fuzzy
 msgid "SET_VELOCITY_LIMIT"
 msgstr "SET_VELOCITY_LIMIT"
 
 #: docs/G-Codes.md:block 318 (header)
-#, fuzzy
 msgid "[tuning_tower]"
 msgstr "[tuning_tower]"
 
@@ -2224,7 +2149,6 @@ msgid "The tuning_tower module is automatically loaded."
 msgstr "Модуль tuning_tower загружается автоматически."
 
 #: docs/G-Codes.md:block 320 (header)
-#, fuzzy
 msgid "TUNING_TOWER"
 msgstr "TUNING_TOWER"
 
@@ -2266,7 +2190,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 323 (header)
 msgid "[virtual_sdcard]"
-msgstr ""
+msgstr "[virtual_sdcard]"
 
 #: docs/G-Codes.md:block 324 (paragraph)
 msgid ""
@@ -2285,7 +2209,6 @@ msgstr ""
 "конфигурации \"virtual_sdcard\"."
 
 #: docs/G-Codes.md:block 327 (header)
-#, fuzzy
 msgid "SDCARD_PRINT_FILE"
 msgstr "SDCARD_PRINT_FILE"
 
@@ -2295,7 +2218,6 @@ msgstr ""
 "`SDCARD_PRINT_FILE FILENAME=<filename>`: Загрузка файла и запуск SD-печати."
 
 #: docs/G-Codes.md:block 329 (header)
-#, fuzzy
 msgid "SDCARD_RESET_FILE"
 msgstr "SDCARD_RESET_FILE"
 
@@ -2305,7 +2227,7 @@ msgstr "`SDCARD_RESET_FILE`: Выгружает файл и очищает со�
 
 #: docs/G-Codes.md:block 331 (header)
 msgid "[z_tilt]"
-msgstr ""
+msgstr "[z_tilt]"
 
 #: docs/G-Codes.md:block 332 (paragraph)
 msgid ""
@@ -2316,7 +2238,6 @@ msgstr ""
 "(Config_Reference.md#z_tilt)."
 
 #: docs/G-Codes.md:block 333 (header)
-#, fuzzy
 msgid "Z_TILT_ADJUST"
 msgstr "Z_TILT_ADJUST"
 
@@ -2361,7 +2282,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 22 (header)
 msgid "[angle]"
-msgstr "[угол]"
+msgstr "[угл]"
 
 #: docs/G-Codes.md:block 23 (paragraph)
 msgid ""
@@ -2406,7 +2327,6 @@ msgstr ""
 "[Измерение резонансов](Measuring_Resonances.md#software-installation))."
 
 #: docs/G-Codes.md:block 26 (header)
-#, fuzzy
 msgid "ANGLE_DEBUG_READ"
 msgstr "ANGLE_DEBUG_READ"
 
@@ -2421,7 +2341,6 @@ msgstr ""
 "отладки. Эта функция доступна только для чипов tle5012b."
 
 #: docs/G-Codes.md:block 28 (header)
-#, fuzzy
 msgid "ANGLE_DEBUG_WRITE"
 msgstr "ANGLE_DEBUG_WRITE"
 
@@ -2439,7 +2358,6 @@ msgstr ""
 "Эта функция доступна только для чипов tle5012b."
 
 #: docs/G-Codes.md:block 199 (header)
-#, fuzzy
 msgid "[led]"
 msgstr "[led]"
 
@@ -2488,7 +2406,6 @@ msgstr ""
 "изменения без сброса таймаута простоя."
 
 #: docs/G-Codes.md:block 203 (header)
-#, fuzzy
 msgid "SET_LED_TEMPLATE"
 msgstr "SET_LED_TEMPLATE"
 
@@ -2533,7 +2450,6 @@ msgid "The query_adc module is automatically loaded."
 msgstr "Модуль query_adc загружается автоматически."
 
 #: docs/G-Codes.md:block 303 (header)
-#, fuzzy
 msgid "[smart_effector]"
 msgstr "[smart_effector]"
 
@@ -2554,7 +2470,6 @@ msgstr ""
 "с руководством по калибровке [Probe calibration guide](Probe_Calibrate.md)."
 
 #: docs/G-Codes.md:block 305 (header)
-#, fuzzy
 msgid "SET_SMART_EFFECTOR"
 msgstr "SET_SMART_EFFECTOR"
 
@@ -2590,7 +2505,6 @@ msgstr ""
 "[config](Config_Reference.md#smart_effector) Smart Effector."
 
 #: docs/G-Codes.md:block 307 (header)
-#, fuzzy
 msgid "RESET_SMART_EFFECTOR"
 msgstr "RESET_SMART_EFFECTOR"
 
@@ -2614,7 +2528,6 @@ msgstr ""
 "автоматически."
 
 #: docs/G-Codes.md:block 87 (header)
-#, fuzzy
 msgid "[exclude_object]"
 msgstr "[exclude_object]"
 
@@ -2629,7 +2542,6 @@ msgstr ""
 "[exclude object](Exclude_Object.md)):"
 
 #: docs/G-Codes.md:block 89 (header)
-#, fuzzy
 msgid "`EXCLUDE_OBJECT`"
 msgstr "`EXCLUDE_OBJECT`"
 
@@ -2666,7 +2578,6 @@ msgstr ""
 "**может** привести к сбоям печати, если слои уже были пропущены."
 
 #: docs/G-Codes.md:block 94 (header)
-#, fuzzy
 msgid "`EXCLUDE_OBJECT_DEFINE`"
 msgstr "`EXCLUDE_OBJECT_DEFINE`"
 
@@ -2720,7 +2631,6 @@ msgstr ""
 "модуль `[exclude_object]` будет сброшен."
 
 #: docs/G-Codes.md:block 100 (header)
-#, fuzzy
 msgid "`EXCLUDE_OBJECT_START`"
 msgstr "`EXCLUDE_OBJECT_START`"
 
@@ -2733,7 +2643,6 @@ msgstr ""
 "`НАЗВАНИЕ` и обозначает начало g-кода для объекта на текущем слое."
 
 #: docs/G-Codes.md:block 102 (header)
-#, fuzzy
 msgid "`EXCLUDE_OBJECT_END`"
 msgstr "`EXCLUDE_OBJECT_END`"
 
@@ -2850,7 +2759,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 218 (header)
 msgid "[mcp4018]"
-msgstr ""
+msgstr "[mcp4018]"
 
 #: docs/G-Codes.md:block 219 (paragraph)
 msgid ""
@@ -2861,7 +2770,6 @@ msgstr ""
 "(Config_Reference.md#mcp4018)."
 
 #: docs/G-Codes.md:block 220 (header)
-#, fuzzy
 msgid "SET_DIGIPOT"
 msgstr "SET_DIGIPOT"
 
@@ -2878,7 +2786,6 @@ msgstr ""
 "значение должно быть между 0.0 и 'scale'."
 
 #: docs/G-Codes.md:block 261 (header)
-#, fuzzy
 msgid "[print_stats]"
 msgstr "[print_stats]"
 
@@ -2887,7 +2794,6 @@ msgid "The print_stats module is automatically loaded."
 msgstr "Модуль print_stats загружается автоматически."
 
 #: docs/G-Codes.md:block 263 (header)
-#, fuzzy
 msgid "SET_PRINT_STATS_INFO"
 msgstr "SET_PRINT_STATS_INFO"
 
@@ -2908,7 +2814,6 @@ msgstr ""
 "изменения слоя, чтобы передать информацию о слоях из слайсера в Klipper."
 
 #: docs/G-Codes.md:block 371 (header)
-#, fuzzy
 msgid "[z_thermal_adjust]"
 msgstr "[z_thermal_adjust]"
 
@@ -2921,7 +2826,6 @@ msgstr ""
 "(Config_Reference.md#z_thermal_adjust)."
 
 #: docs/G-Codes.md:block 373 (header)
-#, fuzzy
 msgid "SET_Z_THERMAL_ADJUST"
 msgstr "SET_Z_THERMAL_ADJUST"
 
@@ -3108,7 +3012,6 @@ msgstr ""
 "(в режиме `MIRROR`)."
 
 #: docs/G-Codes.md:block 85 (header)
-#, fuzzy
 msgid "SAVE_DUAL_CARRIAGE_STATE"
 msgstr "SAVE_DUAL_CARRIAGE_STATE"
 
@@ -3128,7 +3031,6 @@ msgstr ""
 "умолчанию используется значение \"default\"."
 
 #: docs/G-Codes.md:block 87 (header)
-#, fuzzy
 msgid "RESTORE_DUAL_CARRIAGE_STATE"
 msgstr "RESTORE_DUAL_CARRIAGE_STATE"
 
@@ -3170,7 +3072,6 @@ msgstr ""
 "(Config_Reference.md#axis_twist_compensation)."
 
 #: docs/G-Codes.md:block 378 (header)
-#, fuzzy
 msgid "AXIS_TWIST_COMPENSATION_CALIBRATE"
 msgstr "AXIS_TWIST_COMPENSATION_CALIBRATE"
 
@@ -3284,7 +3185,6 @@ msgstr ""
 "(Config_Reference.md#printer)."
 
 #: docs/G-Codes.md:block 281 (header)
-#, fuzzy
 msgid "[probe_eddy_current]"
 msgstr "[probe_eddy_current]"
 
@@ -3297,7 +3197,6 @@ msgstr ""
 "[probe_eddy_current](Config_Reference.md#probe_eddy_current)."
 
 #: docs/G-Codes.md:block 283 (header)
-#, fuzzy
 msgid "PROBE_EDDY_CURRENT_CALIBRATE"
 msgstr "PROBE_EDDY_CURRENT_CALIBRATE"
 
@@ -3315,7 +3214,6 @@ msgstr ""
 "файле printer.cfg."
 
 #: docs/G-Codes.md:block 285 (header)
-#, fuzzy
 msgid "LDC_CALIBRATE_DRIVE_CURRENT"
 msgstr "LDC_CALIBRATE_DRIVE_CURRENT"
 
@@ -3337,7 +3235,6 @@ msgstr ""
 "настройку в файле конфигурации printer.cfg."
 
 #: docs/G-Codes.md:block 393 (header)
-#, fuzzy
 msgid "[temperature_probe]"
 msgstr "[temperature_probe]"
 
@@ -3350,7 +3247,6 @@ msgstr ""
 "(Config_Reference.md#temperature_probe)."
 
 #: docs/G-Codes.md:block 395 (header)
-#, fuzzy
 msgid "TEMPERATURE_PROBE_CALIBRATE"
 msgstr "TEMPERATURE_PROBE_CALIBRATE"
 
@@ -3374,7 +3270,6 @@ msgstr ""
 "2."
 
 #: docs/G-Codes.md:block 397 (header)
-#, fuzzy
 msgid "TEMPERATURE_PROBE_NEXT"
 msgstr "TEMPERATURE_PROBE_NEXT"
 
@@ -3393,7 +3288,6 @@ msgstr ""
 "время калибровки."
 
 #: docs/G-Codes.md:block 399 (header)
-#, fuzzy
 msgid "TEMPERATURE_PROBE_COMPLETE:"
 msgstr "TEMPERATURE_PROBE_COMPLETE:"
 
@@ -3420,7 +3314,6 @@ msgstr ""
 "команда доступна только во время калибровки дрейфа."
 
 #: docs/G-Codes.md:block 403 (header)
-#, fuzzy
 msgid "TEMPERATURE_PROBE_ENABLE"
 msgstr "TEMPERATURE_PROBE_ENABLE"
 
@@ -3436,13 +3329,15 @@ msgstr ""
 
 #: docs/G-Codes.md:block 26 (header)
 msgid "ANGLE_CHIP_CALIBRATE"
-msgstr ""
+msgstr "ANGLE_CHIP_CALIBRATE"
 
 #: docs/G-Codes.md:block 27 (paragraph)
 msgid ""
 "`ANGLE_CHIP_CALIBRATE CHIP=<chip_name>`: Perform internal sensor calibration, "
 "if implemented (MT6826S/MT6835)."
 msgstr ""
+"`ANGLE_CHIP_CALIBRATE CHIP=<chip_name>`: Выполнять внутреннюю калибровку "
+"датчиков, если она реализована (MT6826S/MT6835)."
 
 #: docs/G-Codes.md:block 28 (unordered list)
 msgid ""
@@ -3450,6 +3345,9 @@ msgid ""
 "performing calibration. After calibration, the sensor should be reset by "
 "disconnecting the power."
 msgstr ""
+"**MT68XX**: Двигатель должен быть отсоединен от любой перевозки принтера до "
+"проведения калибровки. После калибровки датчик должен быть сброшен путем "
+"отключения питания."
 
 #: docs/G-Codes.md:block 36 (paragraph)
 msgid ""
@@ -3462,12 +3360,16 @@ msgid ""
 "Calibrates axis twist compensation by specifying the target axis or enabling "
 "automatic calibration."
 msgstr ""
+"Калибрирует ось поворота путем указания оси цели или включения "
+"автоматической калибровки."
 
 #: docs/G-Codes.md:block 38 (unordered list)
 msgid ""
 "**AXIS:** Define the axis (`X` or `Y`) for which the twist compensation will "
 "be calibrated. If not specified, the axis defaults to `'X'`."
 msgstr ""
+"**AXIS:** Определите ось (`X` или `Y`), для которой будет калибрована "
+"компенсация поворота. Если не указано, ось по умолчанию `'X'`."
 
 #: docs/G-Codes.md:block 38 (unordered list)
 msgid ""
@@ -3491,6 +3393,19 @@ msgid ""
 "any previous template assigned to the pin (one can then use `SET_FAN_SPEED` "
 "commands to manage the values directly)."
 msgstr ""
+"`SET_FAN_SPEED PIN=config_name TEMPLATE=<template_name> [<param_x>=<libal>]`:"
+" Если `TEMPLATE ` указан, то он присваивает [display_template] "
+"(Config_Reference.md#display_template) данному вентилятору. Например, если "
+"один определил ` [display_template my_fan_template]` раздел конфигурации, то "
+"можно было бы назначить `TEMPLATE=my_fan_template ` здесь. Шаблоны "
+"Display_template должны создавать строку, содержащую плавающий номер точки с "
+"желаемым значением. Шаблон будет постоянно оцениваться, и вентилятор будет "
+"автоматически установлен на результирующую скорость. Можно настроить "
+"параметры отображения_ Шаблона для использования во время оценки шаблона ("
+"параметры будут рассматриваться как литералы Python). Если TEMPLATE является "
+"пустой строкой, то эта команда очистит любой предыдущий шаблон, назначенный "
+"на значок (можно затем использовать команды `SET_FAN_SPEED` для "
+"непосредственного управления значениями)."
 
 #: docs/G-Codes.md:block 155 (paragraph)
 msgid ""
@@ -3522,20 +3437,35 @@ msgid ""
 "any previous template assigned to the pin (one can then use `SET_PIN` commands"
 " to manage the values directly)."
 msgstr ""
+"`SET_PIN PIN=config_name TEMPLATE=<template_name> [<param_x>=<libal>]`: Если "
+"`TEMPLATE ` указан, то он присваивает [display_template] "
+"(Config_Reference.md#display_template) заданному значку. Например, если один "
+"определил ` [display_template my_pin_template]` раздел конфигурации, то "
+"можно было бы назначить `TEMPLATE=my_pin_template ` здесь. Шаблоны "
+"Display_template должны создавать строку, содержащую плавающий номер точки с "
+"желаемым значением. Шаблон будет постоянно оцениваться, и значок будет "
+"автоматически установлен на полученное значение. Можно настроить параметры "
+"отображения_ Шаблона для использования во время оценки шаблона (параметры "
+"будут рассматриваться как литералы Python). Если TEMPLATE является пустой "
+"строкой, то эта команда очистит любой предыдущий шаблон, назначенный на "
+"значок (можно затем использовать команды `SET_PIN ` для непосредственного "
+"управления значениями)."
 
 #: docs/G-Codes.md:block 298 (header)
 msgid "[quad_gantry_level]"
-msgstr ""
+msgstr "[quad_gantry_level]"
 
 #: docs/G-Codes.md:block 299 (paragraph)
 msgid ""
 "The following commands are available when the [quad_gantry_level config "
 "section](Config_Reference.md#quad_gantry_level) is enabled."
 msgstr ""
+"Следующие команды доступны, когда включен раздел "
+"[quad_gantry_level config section] (Config_Reference.md#quad_gantry_level)."
 
 #: docs/G-Codes.md:block 300 (header)
 msgid "QUAD_GANTRY_LEVEL"
-msgstr ""
+msgstr "QUAD_GANTRY_LEVEL"
 
 #: docs/G-Codes.md:block 301 (paragraph)
 msgid ""
@@ -3547,6 +3477,13 @@ msgid ""
 "and `HORIZONTAL_MOVE_Z` values override those options specified in the config "
 "file."
 msgstr ""
+"`QUAD_ GANTRY_LEVEL [ReTRIES=< value] [RETRY_TOLERANCE=< value] "
+"[HORIZONTAL_MOVE_Z=< value] [<probe_parameter>=< value>]`: Эта команда будет "
+"исследовать точки, указанные в настройке, а затем вносить независимые "
+"корректировки на каждый Z stepper, чтобы компенсировать наклон. Подробную "
+"информацию о дополнительных параметрах зонда см. в команде PROBE. "
+"Дополнительные значения `RETRIES`, `RETRY_TOLERANCE` и `HORIZONTAL_MOVE_Z` "
+"перекрывают параметры, указанные в файле конфигурации."
 
 #: docs/G-Codes.md:block 316 (paragraph)
 msgid ""
@@ -3575,6 +3512,31 @@ msgid ""
 "`resonances`, and NAME defaults to the current time in \"YYYYMMDD_HHMMSS\" "
 "format."
 msgstr ""
+"`TEST_ RESONANCES AXIS=<axis> [OUTPUT=<Резонансы,raw_data>] [NAME=<name] "
+"[FREQ_START=<min_freq] [FREQ_END=<max_freq] [ACCEL_PER_HZ=<accel_per_hz] "
+"[HZ_PER_SEC=<hz_per_sec] [CHIPS=<chip_name] [POINT=x,y,z] "
+"[INPUT_SHAPING=<0:1] `: Испытывается резонанс во всех настраиваемых точках "
+"зонда для запрошенной «оси» и измеряет ускорение с помощью чипов "
+"акселерометра, настроенных для соответствующей оси. «axis» может быть X или "
+"Y, или указать произвольное направление как `AXIS=dx,dy`, где dx и dy - это "
+"плавающие числа точек, определяющие вектор направления (например `AXIS=X`, "
+"`AXIS=Y`, или `AXIS=1,-1` для определения диагонального направления. "
+"Обратите внимание, что `AXIS=dx,dy` и `AXIS=-dx,-dy` эквивалентны. "
+"`chip_name` может быть одним или более настраиваемыми чипами accel, "
+"разделенными коммой, например `CHIPS=\"adxl345, adxl345 rpi\"`. Если указан "
+"POINT, он переназначит точку (точки), настроенную в `[Резонанс_tester]`. "
+"Если `INPUT_SHAPING=0` или не установлен(по умолчанию), отключает ввод для "
+"резонансного тестирования, поскольку не является действительным запуск "
+"резонансного тестирования с включенным составителем. `OUTPUT ` - это список, "
+"по которому будут написаны результаты. Если `raw_data ` затребован, то "
+"данные необработанного акселерометра записываются в файл или серию файлов `/"
+"tmp/raw_data_<axis>_ [<chip_name>_][<point>_]<name>.csv ` с (`<point>_` "
+"частью имени, полученного только в том случае, если настроено более 1 точки "
+"зонда или указана POINT). Если ` указаны резонансы `, то частотный ответ "
+"рассчитывается (по всем точкам зонда) и записывается в файл `/tmp/"
+"resonances_<axis>_<name>.csv`. Если не установлено, OUTPUT по умолчанию для `"
+" резонансов `, и NAME по умолчанию в текущем времени в формате "
+"«YYYYMMDD_HMMSS»."
 
 #: docs/G-Codes.md:block 318 (paragraph)
 msgid ""
@@ -3595,6 +3557,23 @@ msgid ""
 "`SAVE_CONFIG` command, and if `[input_shaper]` was already enabled previously,"
 " these parameters take effect immediately."
 msgstr ""
+"`SHAPER_CALIBRATE [AXIS=<axis] [NAME=<name] [FREQ_START=<min_freq] "
+"[FREQ_END=<max_freq] [ACCEL_PER_HZ=<accel_per_hz] [HZ_PER_SEC=<hz_per_sec] "
+"[CHIPS=<chip_name] [MAX_SMOOTHING=<max_smoothing] [INPUT_SHAPING=<0:1>]`: "
+"Аналогично `TEST_RESONANCES `, проводит резонансный тест в виде "
+"настраиваемого, и пытается найти оптимальные параметры для входного "
+"форматора для запрашиваемой оси (или как X, так и Y осей, если параметр "
+"`AXIS` не установлен). Если `MAX_SMOOTHING ` не установлен, его значение "
+"взято из раздела `[resonance_tester]`, причем по умолчанию он не установлен. "
+"См. [Max сглаживание] (Measuring_Resonances.md#max-smoothing) измерительного "
+"резонанса для получения дополнительной информации об использовании этой "
+"функции. Результаты настройки печатаются на консоли, а частотные ответы и "
+"различные значения входных форматоров пишутся в файл (ы) CSV `/tmp/"
+"calibration_data_<axis>_<name>.csv`. Если не указано, NAME по умолчанию в "
+"текущем времени в формате «YYYYMMDD_HMMSS». Обратите внимание, что "
+"предлагаемые параметры входного форматора могут быть сохранены в "
+"конфигурации путем выдачи ` команды SAVE_CONFIG`, и если `[input_shaper]` "
+"уже был включен ранее, эти параметры вступают в силу сразу."
 
 #: docs/G-Codes.md:block 403 (paragraph)
 msgid ""
@@ -3606,6 +3585,13 @@ msgid ""
 "and `HORIZONTAL_MOVE_Z` values override those options specified in the config "
 "file."
 msgstr ""
+"`Z_TILT_ADJUST [ReTRIES=< value] [RETRY_TOLERANCE=< value] "
+"[HORIZONTAL_MOVE_Z=< value] [<probe_parameter>=< value>]`: Эта команда будет "
+"исследовать точки, указанные в настройке, а затем вносить независимые "
+"корректировки на каждый Z stepper, чтобы компенсировать наклон. Подробную "
+"информацию о дополнительных параметрах зонда см. в команде PROBE. "
+"Дополнительные значения `RETRIES`, `RETRY_TOLERANCE` и `HORIZONTAL_MOVE_Z` "
+"перекрывают параметры, указанные в файле конфигурации."
 
 #~ msgid ""
 #~ "`SET_KINEMATIC_POSITION [X=<value>] [Y=<value>] [Z=<value>]`: Force the low-"

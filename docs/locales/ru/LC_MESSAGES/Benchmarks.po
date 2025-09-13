@@ -7,7 +7,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-09-09 04:01+0000\n"
+"PO-Revision-Date: 2025-09-11 11:02+0000\n"
 "Last-Translator: gfbdrgn <erfvvgtyhbnjhyuu@wireconnected.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
 "benchmarks/ru/>\n"
@@ -198,11 +198,9 @@ msgstr "Тест скорости шага LPC176x"
 msgid "The following configuration sequence is used on the LPC176x:"
 msgstr "В LPC176x используется следующая последовательность конфигурации:"
 
-#, fuzzy
 msgid "lpc1768"
 msgstr "lpc1768"
 
-#, fuzzy
 msgid "lpc1769"
 msgstr "lpc1769"
 
@@ -212,7 +210,6 @@ msgstr "Контрольный показатель скорости шага SA
 msgid "The following configuration sequence is used on the SAMD21:"
 msgstr "Для SAMD21 используется следующая последовательность настройки:"
 
-#, fuzzy
 msgid "samd21"
 msgstr "samd21"
 
@@ -222,7 +219,6 @@ msgstr "Эталонный показатель частоты шагов SAMD51
 msgid "The following configuration sequence is used on the SAMD51:"
 msgstr "Для SAMD51 используется следующая последовательность настройки:"
 
-#, fuzzy
 msgid "samd51"
 msgstr "samd51"
 
@@ -238,7 +234,6 @@ msgstr "Эталонный образец частоты шагов для Linux
 msgid "The following configuration sequence is used on a Raspberry Pi:"
 msgstr "Следующая последовательность конфигурации используется на Raspberry Pi:"
 
-#, fuzzy
 msgid "Linux (RPi3)"
 msgstr "Linux (RPi3)"
 
@@ -268,7 +263,6 @@ msgstr ""
 "с запуском console.py на настольной машине класса с устройством, "
 "подключенным через высокоскоростной концентратор."
 
-#, fuzzy
 msgid "MCU"
 msgstr "MCU"
 
@@ -299,131 +293,102 @@ msgstr "arm-none-eabi-gcc (GNU Инструменты 7-2018-q3-обновлен
 msgid "atmega2560 (serial)"
 msgstr "atmega2560 (серийный)"
 
-#, fuzzy
 msgid "23K"
 msgstr "23K"
 
-#, fuzzy
 msgid "b161a69e"
 msgstr "b161a69e"
 
-#, fuzzy
 msgid "avr-gcc (GCC) 4.8.1"
 msgstr "avr-gcc (GCC) 4.8.1"
 
 msgid "sam3x8e (serial)"
 msgstr "sam3x8e (серийный)"
 
-#, fuzzy
 msgid "arm-none-eabi-gcc (Fedora 7.1.0-5.fc27) 7.1.0"
 msgstr "arm-none-eabi-gcc (Fedora 7.1.0-5.fc27) 7.1.0"
 
-#, fuzzy
 msgid "at90usb1286 (USB)"
 msgstr "at90usb1286 (USB)"
 
-#, fuzzy
 msgid "75K"
 msgstr "75K"
 
-#, fuzzy
 msgid "01d2183f"
 msgstr "01d2183f"
 
-#, fuzzy
 msgid "avr-gcc (GCC) 5.4.0"
 msgstr "avr-gcc (GCC) 5.4.0"
 
-#, fuzzy
 msgid "samd21 (USB)"
 msgstr "samd21 (USB)"
 
-#, fuzzy
 msgid "223K"
 msgstr "223K"
 
-#, fuzzy
 msgid "arm-none-eabi-gcc (Fedora 7.4.0-1.fc30) 7.4.0"
 msgstr "arm-none-eabi-gcc (Fedora 7.4.0-1.fc30) 7.4.0"
 
 msgid "pru (shared memory)"
 msgstr "pru (общая память)"
 
-#, fuzzy
 msgid "260K"
 msgstr "260K"
 
-#, fuzzy
 msgid "c5968a08"
 msgstr "c5968a08"
 
 msgid "pru-gcc (GCC) 8.0.0 20170530 (experimental)"
 msgstr "pru-gcc (GCC) 8.0.0 20170530 (экспериментальный)"
 
-#, fuzzy
 msgid "stm32f103 (USB)"
 msgstr "stm32f103 (USB)"
 
-#, fuzzy
 msgid "355K"
 msgstr "355K"
 
-#, fuzzy
 msgid "sam3x8e (USB)"
 msgstr "sam3x8e (USB)"
 
-#, fuzzy
 msgid "418K"
 msgstr "418K"
 
-#, fuzzy
 msgid "lpc1768 (USB)"
 msgstr "lpc1768 (USB)"
 
-#, fuzzy
 msgid "534K"
 msgstr "534K"
 
-#, fuzzy
 msgid "lpc1769 (USB)"
 msgstr "lpc1769 (USB)"
 
-#, fuzzy
 msgid "628K"
 msgstr "628K"
 
-#, fuzzy
 msgid "sam4s8c (USB)"
 msgstr "sam4s8c (USB)"
 
-#, fuzzy
 msgid "650K"
 msgstr "650K"
 
-#, fuzzy
 msgid "8d4a5c16"
 msgstr "8d4a5c16"
 
-#, fuzzy
 msgid "samd51 (USB)"
 msgstr "samd51 (USB)"
 
-#, fuzzy
 msgid "864K"
 msgstr "864K"
 
-#, fuzzy
 msgid "stm32f446 (USB)"
 msgstr "stm32f446 (USB)"
 
-#, fuzzy
 msgid "870K"
 msgstr "870K"
 
 msgid "Host Benchmarks"
 msgstr "Контрольные показатели хоста"
 
-#, fuzzy
 msgid "66"
 msgstr "66"
 
@@ -434,7 +399,6 @@ msgstr "5"
 msgid "22"
 msgstr "22"
 
-#, fuzzy
 msgid "rp2040 (USB)"
 msgstr "rp2040 (USB)"
 
@@ -518,12 +482,10 @@ msgstr ""
 "simulavr совпадают с тестами на 16 МГц at90usb и 16 МГц atmega2560)."
 
 #: docs/Benchmarks.md:block 22 (table)
-#, fuzzy
 msgid "102"
 msgstr "102"
 
 #: docs/Benchmarks.md:block 22 (table)
-#, fuzzy
 msgid "486"
 msgstr "486"
 
@@ -536,12 +498,10 @@ msgstr ""
 "eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`."
 
 #: docs/Benchmarks.md:block 27 (table)
-#, fuzzy
 msgid "257"
 msgstr "257"
 
 #: docs/Benchmarks.md:block 32 (table)
-#, fuzzy
 msgid "260"
 msgstr "260"
 
@@ -554,12 +514,10 @@ msgstr ""
 "версии 10.3.1 20210621 (release) (GNU Arm Embedded Toolchain 10.3-2021.07)`."
 
 #: docs/Benchmarks.md:block 37 (table)
-#, fuzzy
 msgid "48"
 msgstr "48"
 
 #: docs/Benchmarks.md:block 37 (table)
-#, fuzzy
 msgid "215"
 msgstr "215"
 
@@ -572,32 +530,26 @@ msgstr ""
 "(GCC) 8.0.0 20170530 (experimental)`."
 
 #: docs/Benchmarks.md:block 42 (table)
-#, fuzzy
 msgid "231"
 msgstr "231"
 
 #: docs/Benchmarks.md:block 42 (table)
-#, fuzzy
 msgid "847"
 msgstr "847"
 
 #: docs/Benchmarks.md:block 47 (table)
-#, fuzzy
 msgid "59"
 msgstr "59"
 
 #: docs/Benchmarks.md:block 47 (table)
-#, fuzzy
 msgid "249"
 msgstr "249"
 
 #: docs/Benchmarks.md:block 52 (table)
-#, fuzzy
 msgid "61"
 msgstr "61"
 
 #: docs/Benchmarks.md:block 52 (table)
-#, fuzzy
 msgid "264"
 msgstr "264"
 
@@ -613,12 +565,10 @@ msgstr ""
 "образом, с использованием тактовой частоты 168 МГц)."
 
 #: docs/Benchmarks.md:block 57 (table)
-#, fuzzy
 msgid "46"
 msgstr "46"
 
 #: docs/Benchmarks.md:block 57 (table)
-#, fuzzy
 msgid "205"
 msgstr "205"
 
@@ -633,7 +583,6 @@ msgstr ""
 "получены путем разгона LPC1768 до 120 МГц."
 
 #: docs/Benchmarks.md:block 63 (table)
-#, fuzzy
 msgid "222"
 msgstr "222"
 
@@ -646,7 +595,6 @@ msgstr ""
 "eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0` на микроконтроллере SAMD21G18."
 
 #: docs/Benchmarks.md:block 69 (table)
-#, fuzzy
 msgid "306"
 msgstr "306"
 
@@ -659,17 +607,14 @@ msgstr ""
 "eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0` на микроконтроллере SAMD51J19A."
 
 #: docs/Benchmarks.md:block 74 (table)
-#, fuzzy
 msgid "39"
 msgstr "39"
 
 #: docs/Benchmarks.md:block 74 (table)
-#, fuzzy
 msgid "191"
 msgstr "191"
 
 #: docs/Benchmarks.md:block 74 (table)
-#, fuzzy
 msgid "181"
 msgstr "181"
 
@@ -684,12 +629,10 @@ msgstr ""
 "бенчмарке было сложно получить стабильные результаты."
 
 #: docs/Benchmarks.md:block 84 (table)
-#, fuzzy
 msgid "160"
 msgstr "160"
 
 #: docs/Benchmarks.md:block 84 (table)
-#, fuzzy
 msgid "380"
 msgstr "380"
 
@@ -725,17 +668,14 @@ msgstr ""
 "eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`."
 
 #: docs/Benchmarks.md:block 63 (table)
-#, fuzzy
 msgid "58"
 msgstr "58"
 
 #: docs/Benchmarks.md:block 63 (table)
-#, fuzzy
 msgid "243"
 msgstr "243"
 
 #: docs/Benchmarks.md:block 63 (table)
-#, fuzzy
 msgid "stm32g0b1"
 msgstr "stm32g0b1"
 
@@ -784,17 +724,14 @@ msgstr ""
 "последовательность конфигурирования:"
 
 #: docs/Benchmarks.md:block 89 (table)
-#, fuzzy
 msgid "AR100 R_PIO"
 msgstr "AR100 R_PIO"
 
 #: docs/Benchmarks.md:block 89 (table)
-#, fuzzy
 msgid "85"
 msgstr "85"
 
 #: docs/Benchmarks.md:block 89 (table)
-#, fuzzy
 msgid "359"
 msgstr "359"
 
@@ -803,59 +740,61 @@ msgid "ar100 (serial)"
 msgstr "ar100 (серийный)"
 
 #: docs/Benchmarks.md:block 105 (table)
-#, fuzzy
 msgid "138K"
 msgstr "138K"
 
 #: docs/Benchmarks.md:block 105 (table)
-#, fuzzy
 msgid "08d037c6"
 msgstr "08d037c6"
 
 #: docs/Benchmarks.md:block 105 (table)
-#, fuzzy
 msgid "or1k-linux-musl-gcc 9.3.0"
 msgstr "or1k-linux-musl-gcc 9.3.0"
 
 #: docs/Benchmarks.md:block 85 (header)
 msgid "SAME70 step rate benchmark"
-msgstr ""
+msgstr "Сравнительный тест скорости SAME70"
 
 #: docs/Benchmarks.md:block 86 (paragraph)
 msgid "The following configuration sequence is used on the SAME70:"
-msgstr ""
+msgstr "На SAME70 используется следующая последовательность конфигурации:"
 
 #: docs/Benchmarks.md:block 88 (paragraph)
 msgid ""
 "The test was last run on commit `34e9ea55` with gcc version `arm-none-eabi-gcc"
 " (NixOS 10.3-2021.10) 10.3.1` on a SAME70Q20B micro-controller."
 msgstr ""
+"Последний раз тест был запущен на фиксации `34e9ea55` с gcc-версией `arm-"
+"none-eabi-gcc (NixOS 10.3-2021.10) 10.3.1` на микроконтроллере SAME70Q20B."
 
 #: docs/Benchmarks.md:block 89 (table)
 msgid "same70"
-msgstr ""
+msgstr "same70"
 
 #: docs/Benchmarks.md:block 89 (table)
 msgid "45"
-msgstr ""
+msgstr "45"
 
 #: docs/Benchmarks.md:block 89 (table)
 msgid "190"
-msgstr ""
+msgstr "190"
 
 #: docs/Benchmarks.md:block 93 (paragraph)
 msgid ""
 "The test was last run on commit `b7978d37` with gcc version `or1k-linux-musl-"
 "gcc (GCC) 9.2.0` on an Allwinner A64-H micro-controller."
 msgstr ""
+"В последний раз тест был запущен на фиксации `b7978d37` с gcc-версией `or1k-"
+"linux-musl-gcc (GCC) 9.2.0` на микроконтроллере Allwinner A64-H."
 
 #: docs/Benchmarks.md:block 95 (header)
 msgid "RPxxxx step rate benchmark"
-msgstr ""
+msgstr "RPxxxx ступенчатая норма"
 
 #: docs/Benchmarks.md:block 96 (paragraph)
 msgid "The following configuration sequence is used on the RP2040 and RP2350:"
 msgstr ""
+"Следующая последовательность конфигурации используется на RP2040 и RP2350:"
 
 #: docs/Benchmarks.md:block 98 (paragraph)
 msgid ""
@@ -865,19 +804,19 @@ msgstr ""
 
 #: docs/Benchmarks.md:block 99 (table)
 msgid "rp2040 (*)"
-msgstr ""
+msgstr "rp2040 (*)"
 
 #: docs/Benchmarks.md:block 100 (table)
 msgid "rp2350"
-msgstr ""
+msgstr "rp2350"
 
 #: docs/Benchmarks.md:block 100 (table)
 msgid "36"
-msgstr ""
+msgstr "36"
 
 #: docs/Benchmarks.md:block 100 (table)
 msgid "169"
-msgstr ""
+msgstr "169"
 
 #: docs/Benchmarks.md:block 101 (paragraph)
 msgid ""
@@ -889,19 +828,19 @@ msgstr ""
 
 #: docs/Benchmarks.md:block 112 (table)
 msgid "885K"
-msgstr ""
+msgstr "885K"
 
 #: docs/Benchmarks.md:block 112 (table)
 msgid "f6718291"
-msgstr ""
+msgstr "f6718291"
 
 #: docs/Benchmarks.md:block 112 (table)
 msgid "arm-none-eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0"
-msgstr ""
+msgstr "arm-none-eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0"
 
 #: docs/Benchmarks.md:block 112 (table)
 msgid "rp2350 (USB)"
-msgstr ""
+msgstr "rp2350 (USB)"
 
 #, fuzzy
 #~ msgid ""
