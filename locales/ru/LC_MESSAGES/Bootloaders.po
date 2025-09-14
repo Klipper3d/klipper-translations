@@ -5,7 +5,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-09-08 13:02+0000\n"
+"PO-Revision-Date: 2025-09-10 13:02+0000\n"
 "Last-Translator: gfbdrgn <erfvvgtyhbnjhyuu@wireconnected.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
 "bootloaders/ru/>\n"
@@ -912,6 +912,9 @@ msgid ""
 "OpenOCD. It should display something like:After which you can release the "
 "reset button."
 msgstr ""
+"Возможно, вам придется задержать кнопку сброса на доске при запуске OpenOCD. "
+"Он должен показать что-то вроде: После чего вы можете выпустить кнопку "
+"сброса."
 
 #, fuzzy
 #~ msgid ""

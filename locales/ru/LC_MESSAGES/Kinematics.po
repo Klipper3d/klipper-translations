@@ -6,7 +6,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-09-09 04:01+0000\n"
+"PO-Revision-Date: 2025-09-10 09:02+0000\n"
 "Last-Translator: gfbdrgn <erfvvgtyhbnjhyuu@wireconnected.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
 "kinematics/ru/>\n"
@@ -379,7 +379,6 @@ msgstr ""
 "слишком мало филамента, а после окончания экструзии выдавливается избыток "
 "филамента. Это часто называют \"сочиться\"."
 
-#, fuzzy
 msgid "![ooze](img/ooze.svg.png)"
 msgstr "![ooze](img/ooze.svg.png)"
 
@@ -422,7 +421,6 @@ msgstr ""
 "скорости двигателя экструдера. Чтобы избежать этого, в Klipper реализовано "
 "\"сглаживание\" движения экструдера."
 
-#, fuzzy
 msgid "![pressure-advance](img/pressure-velocity.png)"
 msgstr "![pressure-advance](img/pressure-velocity.png)"
 
