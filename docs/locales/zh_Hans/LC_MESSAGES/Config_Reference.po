@@ -9,13 +9,14 @@
 # Arda <pengfei.fu@gmail.com>, 2024, 2025.
 # Core Shot <shotcore4@gmail.com>, 2025.
 # LuckeyMouse <qq2429865423@163.com>, 2025.
+# Eagle Jin <eaglejin0@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-06-28 08:28+0200\n"
-"PO-Revision-Date: 2025-09-15 04:01+0000\n"
-"Last-Translator: LuckeyMouse <qq2429865423@163.com>\n"
+"PO-Revision-Date: 2025-09-17 09:01+0000\n"
+"Last-Translator: Eagle Jin <eaglejin0@gmail.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/klipper/config_reference/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -1957,7 +1958,7 @@ msgstr ""
 
 #: docs/Config_Reference.md:block 436 (header)
 msgid "Load Cells"
-msgstr "负荷传感器"
+msgstr "压力传感器"
 
 #: docs/Config_Reference.md:block 437 (header)
 msgid "[load_cell]"

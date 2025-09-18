@@ -1,17 +1,18 @@
 # Hosted Weblate <mfvotmjhcj@iubridge.com>, 2024, 2025.
 # hani-lengxi <2836842270@qq.com>, 2024, 2025.
+# Eagle Jin <eaglejin0@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-07-22 09:02+0000\n"
-"Last-Translator: hani-lengxi <2836842270@qq.com>\n"
+"PO-Revision-Date: 2025-09-18 09:02+0000\n"
+"Last-Translator: Eagle Jin <eaglejin0@gmail.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/klipper/canbus_troubleshooting/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.14-dev\n"
 
 #: docs/CANBUS_Troubleshooting.md:block 1 (header)
 msgid "CANBUS Troubleshooting"
@@ -234,7 +235,7 @@ msgstr ""
 
 #: docs/CANBUS_Troubleshooting.md:block 29 (paragraph)
 msgid "![pulseview-canbus](img/pulseview-canbus.png)"
-msgstr "![pulseview-canbus](img/pulseview-canbus.png)"
+msgstr "![CANbus脉冲视图](img/pulseview-canbus.png)"
 
 #: docs/CANBUS_Troubleshooting.md:block 30 (paragraph)
 msgid ""
@@ -324,9 +325,9 @@ msgid ""
 " If one sees something like `qlen 10` then it indicates the CAN device has not"
 " been properly configured."
 msgstr ""
-"可以通过运行 Linux 命令“ip link show "
-"can0”来检查当前队列大小。它应该会报告一堆文本，包括代码片段“qlen "
-"128”。如果看到类似“qlen 10”的内容，则表明 CAN 设备尚未正确配置。"
+"可以通过运行 Linux 命令`ip link show "
+"can0`来检查当前队列大小。它应该会报告一堆文本，包括代码片段`qlen "
+"128`。如果看到类似`qlen 10`的内容，则表明 CAN 设备尚未正确配置。"
 
 #: docs/CANBUS_Troubleshooting.md:block 20 (paragraph)
 msgid ""

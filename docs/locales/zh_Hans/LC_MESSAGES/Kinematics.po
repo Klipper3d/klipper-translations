@@ -2,18 +2,19 @@
 # Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022, 2025.
 # Neko.vecter <Vecterfang@icloud.com>, 2022.
 # "Neko.vecter" <Vecterfang@icloud.com>, 2025.
+# Eagle Jin <eaglejin0@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-07-22 08:03+0000\n"
-"Last-Translator: \"Neko.vecter\" <Vecterfang@icloud.com>\n"
+"PO-Revision-Date: 2025-09-18 09:01+0000\n"
+"Last-Translator: Eagle Jin <eaglejin0@gmail.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/klipper/kinematics/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.14-dev\n"
 
 msgid ""
 "This document provides an overview of how Klipper implements robot motion (its"
@@ -391,7 +392,7 @@ msgstr "运动学"
 
 #: docs/Kinematics.md:block 26 (header)
 msgid "Minimum cruise ratio"
-msgstr ""
+msgstr "最小巡航比"
 
 #: docs/Kinematics.md:block 29 (paragraph)
 msgid ""
@@ -403,12 +404,16 @@ msgid ""
 " a minimum distance traveled at cruising speed relative to the distance "
 "traveled during acceleration and deceleration."
 msgstr ""
+"在以上情况中，频繁的加速和减速会导致机器震动，加剧机器的压力和噪音。Klipper引"
+"入了一个机制，保证移动中总有一部分是达到巡航速度的。这是通过减少部分移动的最"
+"高速度（或运动序列）来确保有一个以巡航速度移动的最小距离，相对于加速与减速过"
+"程中的移动距离。"
 
 #: docs/Kinematics.md:block 30 (paragraph)
 msgid ""
 "Klipper implements this feature by tracking both a regular move acceleration "
 "as well as a virtual \"acceleration to deceleration\" rate:"
-msgstr ""
+msgstr "Klipper通过监控正常移动的加速度以及一个虚拟的“减速度”来实现："
 
 #: docs/Kinematics.md:block 32 (paragraph)
 msgid ""
@@ -419,6 +424,10 @@ msgid ""
 " virtual acceleration rate then its top speed is reduced to the maximum speed "
 "it could obtain at this virtual acceleration rate."
 msgstr ""
+"具体来说，代码计算每次移动的速度是否被这个虚拟的“减速度”限制。在上面的图片中"
+"，有间隙的灰色线表现了第一次运动中这个虚拟的“减速度”的值。如果一次移动在使用"
+"这个虚拟的值时无法达到最高巡航速度，则这个速度会被减少，以确保他可以在这个虚"
+"拟的值下获得最高速度。"
 
 #: docs/Kinematics.md:block 33 (paragraph)
 msgid ""
@@ -428,6 +437,10 @@ msgid ""
 "within the move - the move continues to use the normal acceleration scheme up "
 "to its adjusted top-speed."
 msgstr ""
+"对于大部分运动，这个限制都会与现有的限制（G1/"
+"G0命令中要求的）相同或更高，也就是没有变化。对于短距的来回运动，则这个机制会"
+"限制它的最高速度。注意这不会改变实际的加速度 - "
+"运动将持续使用正常的加速度，直到到达调整后的最高速度。"
 
 #~ msgid "velocity(time) = start_velocity + accel*time\n"
 #~ msgstr "velocity(time) = start_velocity + accel*time\n"
