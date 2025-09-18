@@ -1,10 +1,20 @@
-#
+# LuckeyMouse <qq2429865423@163.com>, 2025.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2025-09-15 04:02+0000\n"
+"Last-Translator: LuckeyMouse <qq2429865423@163.com>\n"
+"Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
+"projects/klipper/load_cell/zh_Hans/>\n"
+"Language: zh_Hans\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 5.14-dev\n"
 
 #: docs/Load_Cell.md:block 1 (header)
 msgid "Load Cells"
-msgstr ""
+msgstr "负荷传感器"
 
 #: docs/Load_Cell.md:block 2 (paragraph)
 msgid ""
@@ -16,7 +26,7 @@ msgstr ""
 
 #: docs/Load_Cell.md:block 3 (header)
 msgid "Related Documentation"
-msgstr ""
+msgstr "相关文档"
 
 #: docs/Load_Cell.md:block 4 (unordered list)
 msgid "[load_cell Config Reference](Config_Reference.md#load_cell)"

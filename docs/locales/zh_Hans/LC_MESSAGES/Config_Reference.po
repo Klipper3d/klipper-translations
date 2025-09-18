@@ -8,13 +8,14 @@
 # Xpol Wan <xpolife@gmail.com>, 2024, 2025.
 # Arda <pengfei.fu@gmail.com>, 2024, 2025.
 # Core Shot <shotcore4@gmail.com>, 2025.
+# LuckeyMouse <qq2429865423@163.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-06-28 08:28+0200\n"
-"PO-Revision-Date: 2025-07-22 08:05+0000\n"
-"Last-Translator: Xpol Wan <xpolife@gmail.com>\n"
+"PO-Revision-Date: 2025-09-15 04:01+0000\n"
+"Last-Translator: LuckeyMouse <qq2429865423@163.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/klipper/config_reference/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -22,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.14-dev\n"
 
 msgid ""
 "This document is a reference for options available in the Klipper config file."
@@ -1956,7 +1957,7 @@ msgstr ""
 
 #: docs/Config_Reference.md:block 436 (header)
 msgid "Load Cells"
-msgstr ""
+msgstr "负荷传感器"
 
 #: docs/Config_Reference.md:block 437 (header)
 msgid "[load_cell]"
@@ -1966,7 +1967,7 @@ msgstr ""
 msgid ""
 "Load Cell. Uses an ADC sensor attached to a load cell to create a digital "
 "scale."
-msgstr ""
+msgstr "负荷传感器. 使用ADC传感器相连接来创造一个电子秤"
 
 #: docs/Config_Reference.md:block 441 (paragraph)
 msgid ""
