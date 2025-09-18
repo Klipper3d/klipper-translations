@@ -1,10 +1,9 @@
 # LuckeyMouse <qq2429865423@163.com>, 2025.
-# Eagle Jin <eaglejin0@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-09-18 11:01+0000\n"
-"Last-Translator: Eagle Jin <eaglejin0@gmail.com>\n"
+"PO-Revision-Date: 2025-09-15 04:02+0000\n"
+"Last-Translator: LuckeyMouse <qq2429865423@163.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/klipper/load_cell/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -15,7 +14,7 @@ msgstr ""
 
 #: docs/Load_Cell.md:block 1 (header)
 msgid "Load Cells"
-msgstr "压力传感器"
+msgstr "负荷传感器"
 
 #: docs/Load_Cell.md:block 2 (paragraph)
 msgid ""
