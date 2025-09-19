@@ -3,13 +3,14 @@
 # Hosted Weblate <mfvotmjhcj@iubridge.com>, 2024, 2025.
 # "Neko.vecter" <Vecterfang@icloud.com>, 2024, 2025.
 # 云line <yunline@foxmail.com>, 2024, 2025.
+# Eagle Jin <eaglejin0@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-06-28 08:28+0200\n"
-"PO-Revision-Date: 2025-07-22 08:05+0000\n"
-"Last-Translator: 云line <yunline@foxmail.com>\n"
+"PO-Revision-Date: 2025-09-17 10:01+0000\n"
+"Last-Translator: Eagle Jin <eaglejin0@gmail.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/klipper/bed_mesh/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -17,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.14-dev\n"
 
 msgid "Basic Configuration"
 msgstr "基本配置"
@@ -631,7 +632,7 @@ msgstr ""
 
 #: docs/Bed_Mesh.md:block 50 (header)
 msgid "Adaptive Meshes"
-msgstr ""
+msgstr "自适应网床"
 
 #: docs/Bed_Mesh.md:block 51 (paragraph)
 msgid ""
@@ -639,7 +640,8 @@ msgid ""
 "probing the area of the bed used by the objects being printed. When used, the "
 "method will automatically adjust the mesh parameters based on the area "
 "occupied by the defined print objects."
-msgstr ""
+msgstr "自适应网床是一种可以加速床网探测的方法，它只探测物品打印的热床部分。这个方法"
+"会通过定义的打印区域来自动调整床网参数。"
 
 #: docs/Bed_Mesh.md:block 52 (paragraph)
 msgid ""
@@ -650,6 +652,8 @@ msgid ""
 "area and the adapted mesh area. To illustrate this consider the following "
 "example:"
 msgstr ""
+"自适应床网会通过打印物品的边界来计算需要探测的区域，来覆盖所有的物品。在探测"
+"区域计算完成后，探测点数量会使用默认的床网设置成比例计算。可以参考以下示例："
 
 #: docs/Bed_Mesh.md:block 53 (paragraph)
 msgid ""
@@ -658,12 +662,16 @@ msgid ""
 " of `50,50` means a ratio of `0.5x0.5` between the adapted area and default "
 "mesh area."
 msgstr ""
+"在一个150mmx150mm的热床上，`mesh_min`为`25,25`，`mesh_max`为`125,125`，默认的"
+"探测面积为100mmx100mm。如果自适应床网的面积为`50,50`，意味着自适应床网与默认"
+"床网的比例为`0.5,0.5`。"
 
 #: docs/Bed_Mesh.md:block 54 (paragraph)
 msgid ""
 "If the `bed_mesh` configuration specified `probe_count` as `7x7`, the adapted "
 "bed mesh will use 4x4 probe points (7 * 0.5 rounded up)."
-msgstr ""
+msgstr "如果`bed_mesh`配置文件中的 `probe_count`设置为 "
+"`7x7`，自适应床网将会使用4x4的探测点（7*0.5并向上取整）。"
 
 #: docs/Bed_Mesh.md:block 55 (paragraph)
 msgid "![adaptive_bedmesh](img/adaptive_bed_mesh.svg)"
@@ -677,6 +685,10 @@ msgid ""
 " green) is computed as the used bed area (area in blue) plus the defined "
 "margin."
 msgstr ""
+"设置`adaptive_margin`（*默认值：0*）（单位：mm）以在自适应床网的边界外额外探"
+"测一些面积。下方的图例展示了一个自适应床网的面积（设置了5mm的`adaptive_margin"
+"`）。自适应床网面积（绿色区域）是通过实际打印面积（蓝色区域）加上额外设置的偏"
+"移来计算的。"
 
 #: docs/Bed_Mesh.md:block 57 (unordered list)
 msgid "![adaptive_bedmesh_margin](img/adaptive_bed_mesh_margin.svg)"
@@ -701,6 +713,10 @@ msgid ""
 "a variance greater than 1 layer height, caution must be taken when using "
 "adaptive bed meshes and attempting print moves outside of the meshed area."
 msgstr ""
+"自适应床网在无法探测整个热床的打印机上尤为有效，大部分时候这允许这些打印机在"
+"床网探测中获得小于一倍层高的误差。在有机械问题的打印机上，一个无法覆盖整床的"
+"床网可能会导致在探测区域**外**打印时获得不理想的结果。如果整床床网有大于一倍"
+"层高的落差，要小心使用自适应床网，以及在探测区域外打印。"
 
 #: docs/Bed_Mesh.md:block 66 (unordered list)
 msgid "`ADAPTIVE`"

@@ -1,16 +1,17 @@
 # "Neko.vecter" <Vecterfang@icloud.com>, 2024, 2025.
+# Eagle Jin <eaglejin0@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-07-22 09:13+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2025-09-18 09:02+0000\n"
+"Last-Translator: Eagle Jin <eaglejin0@gmail.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/klipper/eddy_probe/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.14-dev\n"
 
 #: docs/Eddy_Probe.md:block 1 (header)
 msgid "Eddy Current Inductive probe"
@@ -315,6 +316,12 @@ msgid ""
 "enclosed, it is strongly recommended to set the `max_validation_temp` option "
 "to a value between 100 and 120."
 msgstr ""
+"参见[配置参考]"
+"(Config_Reference.md#temperature_probe)以获取更多有关`temperature_probe`的信"
+"息。建议配置 `calibration_position`, `calibration_extruder_temp`, "
+"`extruder_heating_z`, 以及 "
+"`calibration_bed_temp`选项，因为这样可以自动化某些以下步骤。如果将被校准的打"
+"印机是封闭的，极度推荐将`max_validation_temp`选项设置到100和120之间。"
 
 #~ msgid ""
 #~ "[probe_eddy_current my_probe]\n"

@@ -3,13 +3,14 @@
 # hani-lengxi <2836842270@qq.com>, 2024, 2025.
 # SiHengTang <tang142857dev@163.com>, 2025.
 # "Neko.vecter" <Vecterfang@icloud.com>, 2025.
+# Eagle Jin <eaglejin0@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-06-28 08:28+0200\n"
-"PO-Revision-Date: 2025-07-22 08:08+0000\n"
-"Last-Translator: \"Neko.vecter\" <Vecterfang@icloud.com>\n"
+"PO-Revision-Date: 2025-09-17 11:02+0000\n"
+"Last-Translator: Eagle Jin <eaglejin0@gmail.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/klipper/installation/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -17,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.14-dev\n"
 
 msgid "Building and flashing the micro-controller"
 msgstr "构建和刷写微控制器"
@@ -329,13 +330,13 @@ msgstr "对于使用 RP2040 芯片的常见微控制器，代码可以使用类�
 msgid ""
 "It is important to note that RP2040 chips may need to be put into Boot mode "
 "before this operation."
-msgstr ""
+msgstr "注意RP2040芯片可能需要在进行操作前进入Boot模式。"
 
 #: docs/Installation.md:block 41 (paragraph)
 msgid ""
 "The next step is to copy the [printer configuration file](#obtain-a-klipper-"
 "configuration-file) to the host."
-msgstr ""
+msgstr "下一步是复制[打印机配置文件](#obtain-a-klipper-configuration-file)到上位机。"
 
 #: docs/Installation.md:block 42 (paragraph)
 msgid ""
@@ -343,6 +344,8 @@ msgid ""
 "built in editors in Mainsail or Fluidd. These will allow the user to open the "
 "configuration examples and save them to be printer.cfg."
 msgstr ""
+"更改Klipper配置的最简单办法可能是使用Mainsail或Fluidd中自带的文本编辑器。这将"
+"允许用户打开示例配置并将它们保存为printer.cfg。"
 
 #: docs/Installation.md:block 43 (paragraph)
 msgid ""
@@ -352,13 +355,17 @@ msgid ""
 "file in the editor and then save it as a file named \"printer.cfg\" in the "
 "home directory of the pi user (ie, /home/pi/printer.cfg)."
 msgstr ""
+"另一个选项是使用支持SCP和/或SFTP协议的桌面文本编辑器。有一些免费的工具支持这"
+"些功能（比如Notepad++，WinSCP，或Cyberduck）。在编辑器中加载打印机配置文件，"
+"然后将它另存为pi用户目录下的\"printer.cfg\"（比如，/home/pi/printer.cfg）。"
 
 #: docs/Installation.md:block 44 (paragraph)
 msgid ""
 "Alternatively, one can also copy and edit the file directly on the host via "
 "ssh. That may look something like the following (be sure to update the command"
 " to use the appropriate printer config filename):"
-msgstr ""
+msgstr "另外，也可以通过SSH复制和编辑文件。这大概会看起来像接下来的一些操作（记得修改"
+"命令为正确的打印机配置文件名）："
 
 #: docs/Installation.md:block 52 (paragraph)
 msgid ""
@@ -368,6 +375,9 @@ msgid ""
 "successfully read and the micro-controller is successfully found and "
 "configured."
 msgstr ""
+"在创建和修改配置文件后，必须在终端中发送\"RESTART\"命令来加载配置文件。\""
+"STATUS\"会汇报打印机已就绪"
+"。这标志着Klipper配置文件已经被成功读取，并且微控制器已经正确配置并连接。"
 
 #: docs/Installation.md:block 54 (paragraph)
 msgid ""
@@ -376,6 +386,8 @@ msgid ""
 "messages. A log is available and usually located in ~/printer_data/logs this "
 "is named klippy.log"
 msgstr ""
+"Klipper使用终端输出和Fluuid/Mainsail的消息弹窗来报告错误。\"STATUS\""
+"命令可以重新输出错误信息。日志通常可以在~/printer_data/logs找到（klippy.log）"
 
 #~ msgid ""
 #~ "cd ~/klipper/\n"
