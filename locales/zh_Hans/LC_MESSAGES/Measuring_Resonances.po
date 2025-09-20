@@ -6,18 +6,19 @@
 # Hosted Weblate <mfvotmjhcj@iubridge.com>, 2023, 2024, 2025.
 # Dayong Wang <wuyoutech@gmail.com>, 2023, 2025.
 # "Neko.vecter" <Vecterfang@icloud.com>, 2025.
+# Eagle Jin <eaglejin0@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-07-22 08:07+0000\n"
-"Last-Translator: Dayong Wang <wuyoutech@gmail.com>\n"
+"PO-Revision-Date: 2025-09-18 09:02+0000\n"
+"Last-Translator: Eagle Jin <eaglejin0@gmail.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/klipper/measuring_resonances/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.14-dev\n"
 
 msgid "Measuring Resonances"
 msgstr "共振值测量"
@@ -781,7 +782,7 @@ msgstr "在printer.cfg中添加以下内容："
 
 #: docs/Measuring_Resonances.md:block 47 (header)
 msgid "Configure MPU-6000/9000 series With RPi"
-msgstr ""
+msgstr "配置MPU-6000/9000系列在RPi上使用"
 
 #: docs/Measuring_Resonances.md:block 48 (paragraph)
 msgid ""
@@ -789,18 +790,21 @@ msgid ""
 "(see [Enabling I2C](RPi_microcontroller.md#optional-enabling-i2c) section for "
 "more details). Then, add the following to the printer.cfg:"
 msgstr ""
+"确保Linux的I2C驱动已经启用，并且比特率已经设置为400000（参见[启用I2C]"
+"(RPi_microcontroller.md#optional-enabling-"
+"i2c)）。然后，添加如下内容到printer.cfg："
 
 #: docs/Measuring_Resonances.md:block 13 (header)
 msgid "Direct to Raspberry Pi"
-msgstr ""
+msgstr "直连Raspberry Pi"
 
 #: docs/Measuring_Resonances.md:block 16 (table)
 msgid "3.3V DC power"
-msgstr ""
+msgstr "3.3V DC电源"
 
 #: docs/Measuring_Resonances.md:block 19 (header)
 msgid "Using Raspberry Pi Pico"
-msgstr ""
+msgstr "使用Raspberry Pi Pico"
 
 #: docs/Measuring_Resonances.md:block 20 (paragraph)
 msgid ""
@@ -810,6 +814,9 @@ msgid ""
 "GPIO. The Pico does not have much processing power, so make sure it is only "
 "running the accelerometer and not performing any other duties."
 msgstr ""
+"你可以将ADXL345连接到Raspberry Pi Pico，然后通过USB连接到Raspberry "
+"Pi。这对于在其他Klipper设备上使用这个加速度计会更加容易，因为你使用USB连接而"
+"不是GPIO。Pico并没有什么计算能力，保证它只运行加速度计而没有任何其他功能。"
 
 #: docs/Measuring_Resonances.md:block 21 (paragraph)
 msgid ""
@@ -817,14 +824,16 @@ msgid ""
 "only. Depending on the board's layout, a level shifter may be present, which "
 "makes 5V dangerous for your RPi."
 msgstr ""
+"为了避免损坏你的RPi，确保只将ADXL345连接到3.3V。取决于不同的电路板布局，可能"
+"会有一些板子集成电平转换器。这导致输入5V信号对你的RPi变得危险。"
 
 #: docs/Measuring_Resonances.md:block 22 (table)
 msgid "Pico pin"
-msgstr ""
+msgstr "Pico引脚说明"
 
 #: docs/Measuring_Resonances.md:block 22 (table)
 msgid "Pico pin name"
-msgstr ""
+msgstr "Pico引脚名"
 
 #: docs/Measuring_Resonances.md:block 22 (table)
 msgid "36"
@@ -865,7 +874,7 @@ msgstr ""
 
 #: docs/Measuring_Resonances.md:block 23 (paragraph)
 msgid "Wiring diagrams for some of the ADXL345 boards:"
-msgstr ""
+msgstr "对于部分ADXL345模块的接线图："
 
 #: docs/Measuring_Resonances.md:block 24 (paragraph)
 msgid "![ADXL345-Pico](img/adxl345-pico.png)"
@@ -873,15 +882,15 @@ msgstr ""
 
 #: docs/Measuring_Resonances.md:block 54 (header)
 msgid "Configure ADXL345 With Pi Pico"
-msgstr ""
+msgstr "配置ADXL345在Pi Pico上使用"
 
 #: docs/Measuring_Resonances.md:block 55 (header)
 msgid "Flash the Pico Firmware"
-msgstr ""
+msgstr "刷写Pico固件"
 
 #: docs/Measuring_Resonances.md:block 56 (paragraph)
 msgid "On your Raspberry Pi, compile the firmware for the Pico."
-msgstr ""
+msgstr "在你的Raspberry Pi上，编译Pico的固件。"
 
 #: docs/Measuring_Resonances.md:block 58 (paragraph)
 msgid "![Pico menuconfig](img/klipper_pico_menuconfig.png)"
@@ -891,7 +900,8 @@ msgstr ""
 msgid ""
 "Now, while holding down the `BOOTSEL` button on the Pico, connect the Pico to "
 "the Raspberry Pi via USB. Compile and flash the firmware."
-msgstr ""
+msgstr "现在，在按住`BOOTSEL`按钮时，将Pico通过USB连接至Raspberry "
+"Pi。编译并刷写固件。"
 
 #: docs/Measuring_Resonances.md:block 61 (paragraph)
 msgid ""
@@ -899,10 +909,13 @@ msgid ""
 "that's `make flash FLASH_DEVICE=2e8a:0003`. ![Determine flash "
 "device](img/flash_rp2040_FLASH_DEVICE.png)"
 msgstr ""
+"如果失败，程序会告诉你使用哪个`FLASH_DEVICE`。在此例中，应该是`make flash "
+"FLASH_DEVICE=2e8a:0003`。![Determine flash device](img/"
+"flash_rp2040_FLASH_DEVICE.png)"
 
 #: docs/Measuring_Resonances.md:block 62 (header)
 msgid "Configure the Connection"
-msgstr ""
+msgstr "配置连接"
 
 #: docs/Measuring_Resonances.md:block 63 (paragraph)
 msgid ""
@@ -910,12 +923,15 @@ msgid ""
 "device. Find the pico serial device with `ls /dev/serial/by-id/*`. You can now"
 " add an `adxl.cfg` file with the following settings:"
 msgstr ""
+"Pico会在刷写完成后自动重启并启动为串口设备。使用`ls /dev/serial/by-id/"
+"*`来获取Pico的硬件地址。你现在可以添加一个 `adxl.cfg`，带有以下设置："
 
 #: docs/Measuring_Resonances.md:block 65 (paragraph)
 msgid ""
 "If setting up the ADXL345 configuration in a separate file, as shown above, "
 "you'll also want to modify your `printer.cfg` file to include this:"
-msgstr ""
+msgstr "如果ADXL345配置时一个单独的文件（就像上main一样），你会需要修改你的`printer.c"
+"fg`，以包含该配置文件："
 
 #: docs/Measuring_Resonances.md:block 81 (paragraph)
 msgid ""
@@ -926,6 +942,10 @@ msgid ""
 " (that it matches the schematics, no wire is broken or loose, etc.), and "
 "soldering quality."
 msgstr ""
+"如果你得到类似于`Invalid adxl345 id (got xx vs "
+"e5)`的报错，而`xx`为其他ID，立即重试，这可能与SPI初始化有关。如果你持续得到报"
+"错，这可能与接线问题有关，或者传感器模块损坏。再次检查电源，接线（是否符合接"
+"线图，是否有断线等），以及焊接质量。"
 
 #: docs/Measuring_Resonances.md:block 100 (paragraph)
 msgid ""
@@ -934,6 +954,9 @@ msgid ""
 "for example, for the input shaper [re-calibration](#input-shaper-re-"
 "calibration)."
 msgstr ""
+"注意你也可以方便地[直接](#input-shaper-auto-"
+"calibration)从Klipper中运行自动校准程序。比如，对于输入整形[重新校准](#input-"
+"shaper-re-calibration)。"
 
 #: docs/Measuring_Resonances.md:block 152 (paragraph)
 msgid ""
@@ -947,6 +970,11 @@ msgid ""
 "all parts of the printer (including the ones that may normally not move) are "
 "securely fixed in place after each auto-tuning."
 msgstr ""
+"**警告！**不推荐经常运行自动校准工具（比如每次打印前或每天）。为了确定共振频"
+"率，自动校准会在每个轴上创造较大的震动。一般来说，3D打印机的设计没有考虑过长"
+"时间暴露在共振频率下的情况。如果过于频繁的测量共振，可能会加剧部件磨损，缩短"
+"寿命，并伴有螺丝松脱，部件松动的风险。每次校准完后，总是检查打印机的各个部件"
+"（包括非移动部件）是否仍然固定。"
 
 #: docs/Measuring_Resonances.md:block 3 (paragraph)
 msgid ""
@@ -954,14 +982,16 @@ msgid ""
 "PCB board designs and different clones of them. If it is going to be connected"
 " to a 5V printer MCU ensure it has a voltage regulator and level shifters."
 msgstr ""
+"在采购加速度计时，PCB板可能会有各种不同的设计，以及各种不同的克隆。如果计划将"
+"加速度计连接至微控制器的5V针脚，需要保证加速度计带有稳压器和电平转换器。"
 
 #: docs/Measuring_Resonances.md:block 6 (header)
 msgid "MCUs with Klipper I2C *fast-mode* Support"
-msgstr ""
+msgstr "带有Klipper I2C*“快速模式”*支持的微处理器"
 
 #: docs/Measuring_Resonances.md:block 7 (table)
 msgid "MCU Family"
-msgstr ""
+msgstr "微控制器系列"
 
 #: docs/Measuring_Resonances.md:block 7 (table)
 msgid "MCU(s) Tested"
@@ -1140,7 +1170,7 @@ msgstr "Atmega 328P端号名称"
 
 #: docs/Measuring_Resonances.md:block 48 (table)
 msgid "Arduino Nano pin"
-msgstr "Arduino纳米针"
+msgstr "Arduino Nano针脚"
 
 #: docs/Measuring_Resonances.md:block 48 (table)
 #, fuzzy
@@ -1179,7 +1209,7 @@ msgstr ""
 
 #: docs/Measuring_Resonances.md:block 87 (header)
 msgid "Configure MPU-9520 Compatibles With Pico"
-msgstr "配置与Pico兼容的MPU-9520"
+msgstr "在Pico上配置MPU-9520兼容加速度计"
 
 #: docs/Measuring_Resonances.md:block 88 (paragraph)
 msgid ""
@@ -1189,19 +1219,20 @@ msgstr "默认情况下，Pico I2C设置为400000。只需将以下内容添加�
 
 #: docs/Measuring_Resonances.md:block 90 (header)
 msgid "Configure MPU-9520 Compatibles with AVR"
-msgstr ""
+msgstr "在AVR上配置MPU-9520兼容加速度计"
 
 #: docs/Measuring_Resonances.md:block 91 (paragraph)
 msgid ""
 "AVR I2C will be set to 400000 by the mpu9250 option. Simply add the following "
 "to the printer.cfg:"
-msgstr ""
+msgstr "AVR的I2C速率会被mpu9250配置设置为400000。只需要添加以下配置到printer.cfg："
 
 #: docs/Measuring_Resonances.md:block 101 (paragraph)
 msgid ""
 "**If you are using a MPU-9250 compatible accelerometer and it shows up as "
 "`mpu-unknown`, use with caution! They are probably refurbished chips!**"
-msgstr ""
+msgstr "**如果使用MPU-9250兼容加速度计的时候被识别为‘mpu-"
+"unknow‘，小心使用！它们可能是二手（翻新）芯片！**"
 
 #: docs/Measuring_Resonances.md:block 122 (paragraph)
 msgid ""
@@ -1210,6 +1241,9 @@ msgid ""
 "board), or to two different physical SPI interfaces on the same board (rarely "
 "available). Then they can be configured in the following manner:"
 msgstr ""
+"然而，也可以同时连接两个加速度计。不过需要将两个ADXL345分别连接至不同的控制板"
+"（比如，一个连接至RPi，另一个连接至主控板），或者同一控制板上的不同SPI接口（"
+"很少见）。它们可以通过以下的方式配置："
 
 #: docs/Measuring_Resonances.md:block 124 (paragraph)
 msgid ""
@@ -1218,12 +1252,15 @@ msgid ""
 "down to 0V (address 104) and the other its AD0 pin pulled-up to 3.3V (address "
 "105):"
 msgstr ""
+"两个MPU可以共享一条I2C总线，但是由于I2C速率限制，它们**不可以**同时以400kbit/"
+"s测量。其中一个（MPU）必须将AD0针脚下拉致0V（地址104），另一个则必须将AD0针脚"
+"上拉致3.3V（地址105）："
 
 #: docs/Measuring_Resonances.md:block 126 (paragraph)
 msgid ""
 "[Test with each MPU individually before connecting both to the bus for easy "
 "debugging.]"
-msgstr ""
+msgstr "[在将它们连接至总线前，独立测试两个MPU更方便。]"
 
 #: docs/Measuring_Resonances.md:block 148 (paragraph)
 msgid ""
@@ -1233,6 +1270,10 @@ msgid ""
 "`calibrate_shaper.py` script. If you did change it though, you should inform "
 "the script about it by passing `--square_corner_velocity=...` parameter, e.g."
 msgstr ""
+"注意，不造成过度平滑的最大推荐加速度取决于`square_corner_velocity`（转角离心"
+"速度）。一般的推荐是保持默认值（5.0），这也是`calibrate_shaper.py`采用的默认"
+"数值。如果你更改了`square_corner_velocity`，则应该通过向脚本传递`--square_cor"
+"ner_velocity=...`参数来注明。"
 
 #: docs/Measuring_Resonances.md:block 150 (paragraph)
 msgid ""
@@ -1241,6 +1282,8 @@ msgid ""
 "`square_corner_velocity` parameter into account, and there is no need to "
 "specify it explicitly."
 msgstr ""
+"这样，脚本才能正确计算最大推荐加速度。不过，`SHAPER_CALIBRATE`命令会自动读取"
+"配置文件中的`square_corner_velocity`，所以不需要手动注明这个参数。"
 
 #: docs/Measuring_Resonances.md:block 111 (paragraph)
 msgid ""
@@ -1252,6 +1295,11 @@ msgid ""
 "example, if resonance tests were done at multiple test points. Delete the "
 "extra CSV files if you do not desire to average them."
 msgstr ""
+"这将会生成两份CSV文件(`/tmp/resonances_x_*.csv` 和 `/tmp/"
+"resonances_y_*.csv`)。这些文件可以通过Raspberry "
+"Pi上的独立脚本来处理。脚本被设计为同时处理一份CSV文件，不过它也可以同时接受两"
+"份CSV文件，脚本会基于两份文件的平均值来处理。平均值有时会很有用，比如，如果共"
+"振测试是在同个轴的不同点进行的。删除额外的CSV文件如果你不需要平均值。"
 
 #: docs/Measuring_Resonances.md:block 2 (paragraph)
 msgid ""
@@ -1266,12 +1314,21 @@ msgid ""
 "400kbit/s *fast mode* in Klipper. The LIS2DW and LIS3DH can be connected to "
 "either SPI or I2C with the same considerations as above."
 msgstr ""
+"Klipper对于ADXL345、MPU9250、LIS2DW、LIS3DH（以及他们的兼容产品）有原生支持。"
+"你可以使用这些加速度计来测量打印机在不同轴上的共振，并且自动校准"
+"[input shapers]"
+"(Resonance_Compensation.md)来补偿共振。注意，使用加速度计需要一些焊接和压接技"
+"巧。ADXL345可以通过Raspberry Pi或主控板（需要足够快的微控制器）来连接。"
+"MPU系列则可以直连Raspberry Pi的I2C总线，或者可以连接至主控板的I2C总线（"
+"其的微控制器必须支持Klipper 400kbit/s的*快速模式*）。 "
+"LIS2DW和LIS3DH则可以通过SPI或I2C连接（方式同上）。"
 
 #: docs/Measuring_Resonances.md:block 4 (paragraph)
 msgid ""
 "For ADXL345s, make sure that the board supports SPI mode (a small number of "
 "boards appear to be hard-configured for I2C by pulling SDO to GND)."
-msgstr ""
+msgstr "对于ADXL345，确保主板支持SPI模式（一小部分主板疑似被硬件配置为I2C模式，SDO和G"
+"ND存在上拉）。"
 
 #: docs/Measuring_Resonances.md:block 5 (paragraph)
 msgid ""
@@ -1279,6 +1336,8 @@ msgid ""
 "also a variety of board designs and clones with different I2C pull-up "
 "resistors which will need supplementing."
 msgstr ""
+"对于MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500系列和LIS2DW/"
+"LIS3DH，也存在很多种有着不同I2C上拉电阻设计的电路板和复制品，需要多加留意。"
 
 #: docs/Measuring_Resonances.md:block 7 (table)
 msgid "SAMD"
@@ -1303,22 +1362,25 @@ msgid ""
 "version, due to newer versions of NumPY having requirements that may not be "
 "satisfied in some klipper python environments."
 msgstr ""
+"注意，取决于CPU的性能，这可能需要*很多*的时间。耐心一些，并等待安装的完成。如"
+"果你的SBC没有足够的RAM，安装可能会失败，你需要启用SWAP并重试。同时，对于强制"
+"安装的版本，注意新版的numpy存在一些Klipper无法满足的python依赖。"
 
 #: docs/Measuring_Resonances.md:block 62 (paragraph)
 msgid "Once installed please check that no errors show from the command:"
-msgstr ""
+msgstr "安装完成后，请使用一下指令检查是否有错误："
 
 #: docs/Measuring_Resonances.md:block 64 (paragraph)
 msgid "The correct output should simply be a new line."
-msgstr ""
+msgstr "输出结果应该仅仅是一个换行。"
 
 #: docs/Measuring_Resonances.md:block 85 (header)
 msgid "Configure LIS2DW series over SPI"
-msgstr ""
+msgstr "在SPI上配置LIS2DW系列"
 
 #: docs/Measuring_Resonances.md:block 155 (header)
 msgid "Unreliable measurements of resonance frequencies"
-msgstr ""
+msgstr "不可靠的共振频率测量"
 
 #: docs/Measuring_Resonances.md:block 156 (paragraph)
 msgid ""
@@ -1337,6 +1399,14 @@ msgid ""
 " If none of that helps, a user may try the other shapers from the produced "
 "list besides the one recommended by default."
 msgstr ""
+"有些时候，共振测量可能会输出错误的结果，导致输入整形的推荐错误。这可能由多种"
+"原因导致，包括工具头上运行的风扇、加速度计安装不正确或不稳定、或者机械问题（"
+"比如皮带过松、卡阻、不平整的轴轨道等）。注意所有风扇在共振测试时都应关闭，尤"
+"其是噪音大的风扇，加速度计也应牢固的安装在对应运动部件上（比如，对于动床式的"
+"打印机，或者在打印机的挤出机上而不是滑车，以及某些人发现将加速度计直接固定在"
+"喷嘴上可以获得更好的结果）。对于机械问题，用户应首先观察各轴是否有可以修复的"
+"问题（比如线性导轨是否清理干净并正确润滑，V-slot滑轮的张力是否正确）。如果这"
+"些都没有改善，尝试使用其他的输入整形器（而不止推荐的那个）。"
 
 #, fuzzy
 #~ msgid "~/klippy-env/bin/pip install -v numpy\n"
