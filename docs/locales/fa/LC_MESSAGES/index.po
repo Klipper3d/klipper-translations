@@ -1,16 +1,18 @@
 # Languages add-on <noreply-addon-languages@weblate.org>, 2025.
 # sajad Soltani <zeoos328@gmail.com>, 2025.
+# mostafa <m-visioner@users.noreply.hosted.weblate.org>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-07-22 09:21+0000\n"
-"Last-Translator: sajad Soltani <zeoos328@gmail.com>\n"
-"Language-Team: Persian <https://hosted.weblate.org/projects/klipper/index/fa/>\n"
+"PO-Revision-Date: 2025-10-30 17:03+0000\n"
+"Last-Translator: mostafa <m-visioner@users.noreply.hosted.weblate.org>\n"
+"Language-Team: Persian <https://hosted.weblate.org/projects/klipper/index/fa/"
+">\n"
 "Language: fa\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.14.1-dev\n"
 
 #: docs/index.md:block 1 (paragraph)
 msgid "hide:"
@@ -31,10 +33,14 @@ msgid ""
 "document](Features.md) for more information on why you should use the Klipper "
 "software."
 msgstr ""
+"فریمور Klipper چاپگرهای سه‌بعدی را کنترل می‌کند. این فریمور قدرت یک کامپیوتر "
+"همه‌کاره را با یک یا چند میکروکنترلر ترکیب می‌کند. برای اطلاعات بیشتر در مورد "
+"اینکه چرا باید از نرم‌افزار Klipper استفاده کنید، به [سند ویژگی‌ها]"
+"(Features.md) مراجعه کنید."
 
 #: docs/index.md:block 5 (paragraph)
 msgid "Start by [installing Klipper software](Installation.md)."
-msgstr ""
+msgstr "با [نصب نرم افزار Klipper] (Installation.md) شروع کنید."
 
 #: docs/index.md:block 6 (paragraph)
 msgid ""
@@ -43,6 +49,10 @@ msgid ""
 " the software. We depend on the generous support from our "
 "[sponsors](Sponsors.md)."
 msgstr ""
+"نرم‌افزار کلیپر یک نرم‌افزار آزاد است. [مستندات](Overview.md) را بخوانید، "
+"[مجوز](../COPYING) را ببینید، یا نرم‌افزار را [دانلود]"
+"(https://github.com/Klipper3d/Klipper) کنید. ما به حمایت سخاوتمندانه "
+"[حامیان مالی] خود (Sponsors.md) وابسته هستیم."
 
 #~ msgid ""
 #~ "The Klipper firmware controls 3d-Printers. It combines the power of a general "
