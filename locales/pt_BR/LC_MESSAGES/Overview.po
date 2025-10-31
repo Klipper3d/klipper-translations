@@ -8,18 +8,19 @@
 # Jose Delvani <jsdelvani@users.noreply.hosted.weblate.org>, 2024.
 # Deleted User <jsdelvani@users.noreply.hosted.weblate.org>, 2025.
 # Deleted User <inavleb@users.noreply.hosted.weblate.org>, 2025.
+# Elyan Mouzinho Santana <elyanmouzinho@live.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-07-22 08:24+0000\n"
-"Last-Translator: Wagner Reck <wagner.reck@gmail.com>\n"
+"PO-Revision-Date: 2025-10-30 17:02+0000\n"
+"Last-Translator: Elyan Mouzinho Santana <elyanmouzinho@live.com>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "klipper/overview/pt_BR/>\n"
 "Language: pt_BR\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.14.1-dev\n"
 
 msgid ""
 "Welcome to the Klipper documentation. If new to Klipper, start with the "
@@ -345,7 +346,7 @@ msgstr "[Sonda indutiva de corrente parasita](Eddy_Probe.md)"
 
 #: docs/Overview.md:block 10 (unordered list)
 msgid "[Load Cells](Load_Cell.md)"
-msgstr ""
+msgstr "[Carregar células](Load_Cell.md)"
 
 #~ msgid ""
 #~ "[Exclude Object](Exclude_Object.md): The guide to the Exclude Objecs "

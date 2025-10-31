@@ -1,22 +1,25 @@
 # Languages add-on <noreply-addon-languages@weblate.org>, 2025.
+# mostafa <m-visioner@users.noreply.hosted.weblate.org>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-07-22 09:20+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2025-10-30 17:03+0000\n"
+"Last-Translator: mostafa <m-visioner@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Persian <https://hosted.weblate.org/projects/klipper/"
 "example_configs/fa/>\n"
 "Language: fa\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.14.1-dev\n"
 
 msgid ""
 "This document contains guidelines for contributing an example Klipper "
 "configuration to the Klipper github repository (located in the [config "
 "directory](../config/))."
 msgstr ""
+"این سند شامل دستورالعمل‌هایی برای افزودن یک نمونه پیکربندی Klipper به مخزن گیت‌"
+"هاب Klipper (واقع در [دایرکتوری پیکربندی](../config/)) است."
 
 msgid ""
 "Note that the [Klipper Community Discourse "

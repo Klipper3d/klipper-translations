@@ -6,13 +6,14 @@
 # aaron oelschlegel <aaron.oelschlegel@web.de>, 2023, 2025.
 # Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024, 2025.
 # Mathis Mensing <github@matmen.dev>, 2025.
+# Ümit Ci <umitinsan@protonmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:32+0200\n"
-"PO-Revision-Date: 2025-07-22 08:10+0000\n"
-"Last-Translator: aaron oelschlegel <aaron.oelschlegel@web.de>\n"
+"PO-Revision-Date: 2025-10-30 17:02+0000\n"
+"Last-Translator: Ümit Ci <umitinsan@protonmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/g-codes/"
 "de/>\n"
 "Language: de\n"
@@ -20,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.14.1-dev\n"
 
 msgid ""
 "This document describes the commands that Klipper supports. These are commands"
@@ -33,7 +34,7 @@ msgid "G-Code commands"
 msgstr "G-code Befehle"
 
 msgid "Klipper supports the following standard G-Code commands:"
-msgstr "Klipper unterstützt die folgenden Standard- G-Code-Befehle:"
+msgstr "Klipper unterstützt die unten aufgelisteten G-Code Befehle:"
 
 msgid "Move (G0 or G1): `G1 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>]`"
 msgstr ""
@@ -326,8 +327,9 @@ msgstr ""
 msgid "`STATUS`: Report the Klipper host software status."
 msgstr "`STATUS`: Bericht über den Status der Klipper-Hostsoftware."
 
+#, fuzzy
 msgid "`HELP`: Report the list of available extended G-Code commands."
-msgstr ""
+msgstr "`HELP`: Zeigt die Liste der verfügbaren G-Code Befehle."
 
 msgid ""
 "`SET_GCODE_VARIABLE MACRO=<macro_name> VARIABLE=<name> VALUE=<value>`: This "
@@ -1698,12 +1700,16 @@ msgid ""
 "Klipper supports the following standard G-Code commands if the [virtual_sdcard"
 " config section](Config_Reference.md#virtual_sdcard) is enabled:"
 msgstr ""
+"[virtual_sdcard config section](Config_Reference.md#virtual_sdcard) wenn das "
+"eingerichtet ist unterstützt Klipper die festen G-Code Befehle:"
 
 #: docs/G-Codes.md:block 326 (paragraph)
 msgid ""
 "In addition, the following extended commands are available when the "
 "\"virtual_sdcard\" config section is enabled."
 msgstr ""
+"Zusätzlich stehen die weiteren Befehle zur Verfügung wenn der "
+"Konfigurationsabschnitt \"virtual_sdcard\" aktiviert ist."
 
 #: docs/G-Codes.md:block 327 (header)
 msgid "SDCARD_PRINT_FILE"
@@ -2425,10 +2431,13 @@ msgid "ABORT"
 msgstr ""
 
 #: docs/G-Codes.md:block 402 (paragraph)
+#, fuzzy
 msgid ""
 "`ABORT`: Aborts the calibration process, discarding the current results. This "
 "command is only available during drift calibration."
 msgstr ""
+"`ABBRUCH`Bricht den Kalibrierungsprozess ab und verwirft die aktuellen "
+"Ergebnisse. Dieser Befehl ist nur während der Driftkalibrierung verfügbar."
 
 #: docs/G-Codes.md:block 403 (header)
 msgid "TEMPERATURE_PROBE_ENABLE"
@@ -2824,7 +2833,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 243 (header)
 msgid "[load_cell_probe]"
-msgstr ""
+msgstr "[load_cell_probe]"
 
 #: docs/G-Codes.md:block 244 (paragraph)
 msgid ""
@@ -2857,7 +2866,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 248 (header)
 msgid "Load Cell Command Extensions"
-msgstr ""
+msgstr "Lade Zelle Befehle Eweiterungen"
 
 #: docs/G-Codes.md:block 249 (paragraph)
 msgid ""
