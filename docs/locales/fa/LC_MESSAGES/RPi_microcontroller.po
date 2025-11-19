@@ -1,21 +1,24 @@
 # Languages add-on <noreply-addon-languages@weblate.org>, 2025.
+# Ebrahim Siami <eb.siami1361@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-07-22 09:20+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2025-11-09 21:51+0000\n"
+"Last-Translator: Ebrahim Siami <eb.siami1361@gmail.com>\n"
 "Language-Team: Persian <https://hosted.weblate.org/projects/klipper/"
 "rpi_microcontroller/fa/>\n"
 "Language: fa\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.15-dev\n"
 
 msgid ""
 "This document describes the process of running Klipper on a RPi and use the "
 "same RPi as secondary mcu."
 msgstr ""
+"این سند فرآیند اجرای Klipper روی یک Raspberry Pi و استفاده از همان Raspberry "
+"Pi به‌عنوان MCU ثانویه را توضیح می‌دهد."
 
 msgid "Why use RPi as a secondary MCU?"
 msgstr ""
