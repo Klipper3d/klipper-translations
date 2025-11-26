@@ -7,18 +7,19 @@
 # Francisco Serrador <fserrador@gmail.com>, 2024, 2025.
 # Alberto <alberto.robles.gomez@aruzeta.com>, 2025.
 # Juan Benites <benitesjn@gmail.com>, 2025.
+# Andrés Eloy Bracho Sarcos <andresbracho@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-07-22 08:08+0000\n"
-"Last-Translator: paco avendaño <pacoavendano13@gmail.com>\n"
+"PO-Revision-Date: 2025-11-14 15:51+0000\n"
+"Last-Translator: Andrés Eloy Bracho Sarcos <andresbracho@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/overview/"
 "es/>\n"
 "Language: es\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.15-dev\n"
 
 msgid ""
 "Welcome to the Klipper documentation. If new to Klipper, start with the "
@@ -350,7 +351,7 @@ msgstr "[Prueba Eddy Inductivo Actual](Eddy_Probe.md)"
 
 #: docs/Overview.md:block 10 (unordered list)
 msgid "[Load Cells](Load_Cell.md)"
-msgstr ""
+msgstr "[Celdas Cargadas](Load_Cell.md)"
 
 #~ msgid ""
 #~ "[Exclude Object](Exclude_Object.md): The guide to the Exclude Objecs "

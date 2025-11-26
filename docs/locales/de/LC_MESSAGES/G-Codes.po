@@ -7,13 +7,14 @@
 # Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024, 2025.
 # Mathis Mensing <github@matmen.dev>, 2025.
 # Ümit Ci <umitinsan@protonmail.com>, 2025.
+# Norah-14 <norah.nygard14@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:32+0200\n"
-"PO-Revision-Date: 2025-10-30 17:02+0000\n"
-"Last-Translator: Ümit Ci <umitinsan@protonmail.com>\n"
+"PO-Revision-Date: 2025-11-05 13:51+0000\n"
+"Last-Translator: Norah-14 <norah.nygard14@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/g-codes/"
 "de/>\n"
 "Language: de\n"
@@ -2431,12 +2432,11 @@ msgid "ABORT"
 msgstr ""
 
 #: docs/G-Codes.md:block 402 (paragraph)
-#, fuzzy
 msgid ""
 "`ABORT`: Aborts the calibration process, discarding the current results. This "
 "command is only available during drift calibration."
 msgstr ""
-"`ABBRUCH`Bricht den Kalibrierungsprozess ab und verwirft die aktuellen "
+"`ABBRUCH`: Bricht den Kalibrierungsprozess ab und verwirft die aktuellen "
 "Ergebnisse. Dieser Befehl ist nur während der Driftkalibrierung verfügbar."
 
 #: docs/G-Codes.md:block 403 (header)

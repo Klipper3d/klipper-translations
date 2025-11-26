@@ -6,18 +6,19 @@
 # Jhonny Rosa <jh0nny.rosa@gmail.com>, 2024, 2025.
 # Caio Henrique Dos Santos Carvalho <estudantecaiohsc@gmail.com>, 2024, 2025.
 # Rodrigo Altendorf Bernordi <risrdg@gmail.com>, 2024, 2025.
+# Projetos Tech YouX <projetos.tech@youxgroup.com.br>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-07-22 08:22+0000\n"
-"Last-Translator: Zeldazul <b.ferreirargs@gmail.com>\n"
+"PO-Revision-Date: 2025-11-13 13:51+0000\n"
+"Last-Translator: Projetos Tech YouX <projetos.tech@youxgroup.com.br>\n"
 "Language-Team: Portuguese (Brazil) <https://hosted.weblate.org/projects/"
 "klipper/config_reference/pt_BR/>\n"
 "Language: pt_BR\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.15-dev\n"
 
 msgid ""
 "This document is a reference for options available in the Klipper config file."
@@ -1647,6 +1648,9 @@ msgid ""
 "other sensors. This sensor can be used with extruders, heater_generic and "
 "heater beds."
 msgstr ""
+"O sensor de temperatura combinado é um sensor de temperatura virtual baseado "
+"em vários outros sensores. Este sensor pode ser utilizado com extrusoras, "
+"heater_generic e heater beds."
 
 #: docs/Config_Reference.md:block 345 (paragraph)
 msgid ""

@@ -1,21 +1,24 @@
 # Languages add-on <noreply-addon-languages@weblate.org>, 2025.
+# Ebrahim Siami <eb.siami1361@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-07-22 09:21+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2025-11-09 21:51+0000\n"
+"Last-Translator: Ebrahim Siami <eb.siami1361@gmail.com>\n"
 "Language-Team: Persian <https://hosted.weblate.org/projects/klipper/"
 "tmc_drivers/fa/>\n"
 "Language: fa\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.15-dev\n"
 
 msgid ""
 "This document provides information on using Trinamic stepper motor drivers in "
 "SPI/UART mode on Klipper."
 msgstr ""
+"این سند اطلاعاتی درباره‌ی استفاده از درایورهای موتور پله‌ای Trinamic در حالت "
+"SPI/UART در Klipper ارائه می‌دهد."
 
 msgid ""
 "Klipper can also use Trinamic drivers in their \"standalone mode\". However, "
