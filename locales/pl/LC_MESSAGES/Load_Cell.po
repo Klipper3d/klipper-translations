@@ -1,10 +1,21 @@
-#
+# Damian Jasinski <flasch44@gmail.com>, 2025.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2025-11-16 22:51+0000\n"
+"Last-Translator: Damian Jasinski <flasch44@gmail.com>\n"
+"Language-Team: Polish <https://hosted.weblate.org/projects/klipper/load_cell/"
+"pl/>\n"
+"Language: pl\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && "
+"(n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 5.15-dev\n"
+"Content-Transfer-Encoding: 8bit\n"
 
 #: docs/Load_Cell.md:block 1 (header)
 msgid "Load Cells"
-msgstr ""
+msgstr "Tensometr"
 
 #: docs/Load_Cell.md:block 2 (paragraph)
 msgid ""
@@ -13,26 +24,32 @@ msgid ""
 "filament. A calibrated force sensor is an important part of a load cell based "
 "probe."
 msgstr ""
+"W tym dokumencie opisano obsługę czujników tensometrycznych w systemie "
+"Klipper. Podstawowe funkcje czujników tensometrycznych mogą służyć do "
+"odczytu danych siły i ważenia przedmiotów, takich jak filament. Skalibrowany "
+"czujnik siły jest ważną częścią sondy opartej na czujnikach tensometrycznych."
 
 #: docs/Load_Cell.md:block 3 (header)
 msgid "Related Documentation"
-msgstr ""
+msgstr "Powiązana dokumentacja"
 
 #: docs/Load_Cell.md:block 4 (unordered list)
 msgid "[load_cell Config Reference](Config_Reference.md#load_cell)"
-msgstr ""
+msgstr "[load_cell Config Reference](Config_Reference.md#load_cell)"
 
 #: docs/Load_Cell.md:block 4 (unordered list)
+#, fuzzy
 msgid "[load_cell G-Code Commands](G-Codes.md#load_cell)"
-msgstr ""
+msgstr "[load_cell G-Code Commands](G-Codes.md#load_cell)"
 
 #: docs/Load_Cell.md:block 4 (unordered list)
+#, fuzzy
 msgid "[load_cell Status Reference](Status_Reference.md#load_cell)"
-msgstr ""
+msgstr "[load_cell Status Reference](Status_Reference.md#load_cell)"
 
 #: docs/Load_Cell.md:block 5 (header)
 msgid "Using `LOAD_CELL_DIAGNOSTIC`"
-msgstr ""
+msgstr "Użyj  `LOAD_CELL_DIAGNOSTIC`"
 
 #: docs/Load_Cell.md:block 6 (paragraph)
 msgid ""
@@ -40,10 +57,13 @@ msgid ""
 "running `LOAD_CELL_DIAGNOSTIC`. This tool collects 10 seconds of data from the"
 " load cell and resport statistics:"
 msgstr ""
+"Po pierwszym podłączeniu ogniwa wagowego warto sprawdzić, czy nie występują "
+"jakieś problemy, uruchamiając narzędzie `LOAD_CELL_DIAGNOSTIC`. To narzędzie "
+"zbiera dane z ogniwa wagowego przez 10 sekund i generuje statystyki:"
 
 #: docs/Load_Cell.md:block 8 (paragraph)
 msgid "Things you can check with this data:"
-msgstr ""
+msgstr "Rzeczy, które możesz sprawdzić przy pomocy tych danych:"
 
 #: docs/Load_Cell.md:block 9 (unordered list)
 msgid ""
@@ -51,40 +71,55 @@ msgid ""
 "samples per second' value. If it is not you may have a configuration or wiring"
 " issue."
 msgstr ""
+"Skonfigurowana częstotliwość próbkowania czujnika powinna być zbliżona do "
+"wartości „Liczba próbek zmierzonych na sekundę”. Jeśli tak nie jest, może to "
+"oznaczać problem z konfiguracją lub okablowaniem."
 
 #: docs/Load_Cell.md:block 9 (unordered list)
 msgid ""
 "'Saturated samples' should be 0. If you have saturated samples it means the "
 "load sell is seeing more force than it can measure."
 msgstr ""
+"„Próbki nasycone” powinny być równe 0. Jeżeli próbki są nasycone, oznacza "
+"to, że obciążenie jest większe, niż jest w stanie zmierzyć."
 
 #: docs/Load_Cell.md:block 9 (unordered list)
 msgid ""
 "'Unique values' should be a large percentage of the 'Samples Collected' value."
 " If 'Unique values' is 1 it is very likely a wiring issue."
 msgstr ""
+"„Unikalne wartości” powinny stanowić duży procent wartości „Zebranych próbek”"
+". Jeśli „Unikalne wartości” wynoszą 1, najprawdopodobniej jest to problem z "
+"okablowaniem."
 
 #: docs/Load_Cell.md:block 9 (unordered list)
 msgid ""
 "Tap or push on the sensor while `LOAD_CELL_DIAGNOSTIC` runs. If things are "
 "working correctly ths should increase the 'Sample range'."
 msgstr ""
+"Stuknij lub naciśnij czujnik podczas działania funkcji `LOAD_CELL_DIAGNOSTIC`"
+". Jeśli wszystko działa poprawnie, powinno to zwiększyć zakres próbki."
 
 #: docs/Load_Cell.md:block 10 (header)
 msgid "Calibrating a Load Cell"
-msgstr ""
+msgstr "Kalibracja ogniwa wagowego"
 
 #: docs/Load_Cell.md:block 11 (paragraph)
 msgid ""
 "Load cells are calibrated using the `LOAD_CELL_CALIBRATE` command. This is an "
 "interactive calibration utility that walks you though a 3 step process:"
 msgstr ""
+"Kalibracja ogniw wagowych odbywa się za pomocą polecenia "
+"`LOAD_CELL_CALIBRATE`. To interaktywne narzędzie do kalibracji prowadzi "
+"użytkownika przez 3-etapowy proces:"
 
 #: docs/Load_Cell.md:block 12 (ordered list)
 msgid ""
 "First use the `TARE` command to establish the zero force value. This is the "
 "`reference_tare_counts` config value."
 msgstr ""
+"Najpierw użyj polecenia `TARE`, aby ustalić wartość siły zerowej. To jest "
+"wartość konfiguracyjna `reference_tare_counts`."
 
 #: docs/Load_Cell.md:block 12 (ordered list)
 msgid ""

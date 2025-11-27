@@ -5,19 +5,20 @@
 # Bartosz Trojan <51444728+ethylowy@users.noreply.github.com>, 2024, 2025.
 # Dawid <dawidgorski.m@gmail.com>, 2024, 2025.
 # Mateusz <account.srrr3@slmail.me>, 2025.
+# lordkaczuha <lordkaczuha@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-07-22 08:18+0000\n"
-"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
+"PO-Revision-Date: 2025-11-09 21:51+0000\n"
+"Last-Translator: lordkaczuha <lordkaczuha@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/klipper/g-codes/"
 "pl/>\n"
 "Language: pl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
-"|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.13-dev\n"
+"Plural-Forms: nplurals=3; plural="
+"(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 5.15-dev\n"
 
 msgid ""
 "This document describes the commands that Klipper supports. These are commands"
@@ -862,7 +863,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 22 (header)
 msgid "[bed_mesh]"
-msgstr ""
+msgstr "[bed_mesh]"
 
 #: docs/G-Codes.md:block 23 (paragraph)
 msgid ""
@@ -2336,6 +2337,8 @@ msgstr ""
 #: docs/G-Codes.md:block 158 (unordered list)
 msgid "Arc Plane Select: G17 (XY plane), G18 (XZ plane), G19 (YZ plane)"
 msgstr ""
+"Wybór  płaszczyzny  zakrzywienia: G17 (płaszczyzna XY ), G18 (płaszczyzna XZ)"
+", G19 (płaszczyzna YZ)"
 
 #: docs/G-Codes.md:block 51 (paragraph)
 msgid ""
@@ -2479,7 +2482,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 378 (header)
 msgid "AXIS_TWIST_COMPENSATION_CALIBRATE"
-msgstr ""
+msgstr "AXIS_TWIST_COMPENSATION_CALIBRATE"
 
 #: docs/G-Codes.md:block 37 (paragraph)
 msgid ""
@@ -2658,13 +2661,15 @@ msgstr ""
 
 #: docs/G-Codes.md:block 26 (header)
 msgid "ANGLE_CHIP_CALIBRATE"
-msgstr ""
+msgstr "ANGLE_CHIP_CALIBRATE"
 
 #: docs/G-Codes.md:block 27 (paragraph)
 msgid ""
 "`ANGLE_CHIP_CALIBRATE CHIP=<chip_name>`: Perform internal sensor calibration, "
 "if implemented (MT6826S/MT6835)."
 msgstr ""
+"`ANGLE_CHIP_CALIBRATE CHIP=<chip_name>`:Wykonaj kalibracje wewnętrznego "
+"czujnika, jeśli jest zaimplementowany (MT6826S/MT6835)."
 
 #: docs/G-Codes.md:block 28 (unordered list)
 msgid ""
@@ -2678,6 +2683,8 @@ msgid ""
 "`AXIS_TWIST_COMPENSATION_CALIBRATE [AXIS=<X|Y>] [AUTO=<True|False>] "
 "[SAMPLE_COUNT=<value>]`"
 msgstr ""
+"`AXIS_TWIST_COMPENSATION_CALIBRATE [AXIS=<X|Y>] [AUTO=<True|False>] "
+"[SAMPLE_COUNT=<value>]`"
 
 #: docs/G-Codes.md:block 37 (paragraph)
 msgid ""
@@ -2690,6 +2697,8 @@ msgid ""
 "**AXIS:** Define the axis (`X` or `Y`) for which the twist compensation will "
 "be calibrated. If not specified, the axis defaults to `'X'`."
 msgstr ""
+"**AXIS:** Zdefiniuj oś (`X` lub `Y`) dla której zostanie skalibrowana "
+"kompensacja skręcenia. Jeśli nie zostanie podana, domyślną osią jest `'X'`"
 
 #: docs/G-Codes.md:block 38 (unordered list)
 msgid ""
@@ -2697,6 +2706,9 @@ msgid ""
 "calibration will run for both the X and Y axes. In this mode, `AXIS` cannot be"
 " specified. If both `AXIS` and `AUTO` are provided, an error will be raised."
 msgstr ""
+"**AUTO:** Załącza tryb automatycznej kalibracji. Gdy `AUTO=True`, kalibracja "
+"będzie  wykonana dla osi X i Y. W tym trybie `AXIS` nie może zostać podane. "
+"Jeżeli `AXIS` i `AUTO` są podane, wyskoczy błąd"
 
 #: docs/G-Codes.md:block 133 (paragraph)
 msgid ""

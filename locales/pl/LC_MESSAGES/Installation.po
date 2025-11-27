@@ -1,19 +1,20 @@
 # Robert Jaroszewicz <mediagott1977@googlemail.com>, 2022, 2025.
 # Woo Cash <woocash87@gmail.com>, 2024.
 # Tomasz Matuszewski <garage.make.zone@gmail.com>, 2024, 2025.
+# Damian Jasinski <flasch44@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-07-22 08:19+0000\n"
-"Last-Translator: Robert Jaroszewicz <mediagott1977@googlemail.com>\n"
+"PO-Revision-Date: 2025-11-16 22:51+0000\n"
+"Last-Translator: Damian Jasinski <flasch44@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/klipper/"
 "installation/pl/>\n"
 "Language: pl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
-"|| n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.13-dev\n"
+"Plural-Forms: nplurals=3; plural="
+"(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 5.15-dev\n"
 
 msgid "Building and flashing the micro-controller"
 msgstr "Tworzenie zawartości i programowanie mikrokontrolera"
@@ -315,12 +316,15 @@ msgid ""
 "It is important to note that RP2040 chips may need to be put into Boot mode "
 "before this operation."
 msgstr ""
+"Należy pamiętać, że przed wykonaniem tej operacji może być konieczne "
+"przełączenie układów RP2040 w tryb rozruchowy."
 
 #: docs/Installation.md:block 41 (paragraph)
 msgid ""
 "The next step is to copy the [printer configuration file](#obtain-a-klipper-"
 "configuration-file) to the host."
 msgstr ""
+"Następnym krokiem jest skopiowanie [pliku konfiguracji drukarki] na hosta."
 
 #: docs/Installation.md:block 42 (paragraph)
 msgid ""
@@ -328,6 +332,10 @@ msgid ""
 "built in editors in Mainsail or Fluidd. These will allow the user to open the "
 "configuration examples and save them to be printer.cfg."
 msgstr ""
+"Prawdopodobnie najłatwiejszym sposobem na skonfigurowanie pliku "
+"konfiguracyjnego Klippera jest skorzystanie z wbudowanych edytorów w "
+"Mainsail lub Fluidd. Umożliwią one użytkownikowi otwarcie przykładów "
+"konfiguracji i zapisanie ich w pliku printer.cfg."
 
 #: docs/Installation.md:block 43 (paragraph)
 msgid ""
@@ -337,6 +345,11 @@ msgid ""
 "file in the editor and then save it as a file named \"printer.cfg\" in the "
 "home directory of the pi user (ie, /home/pi/printer.cfg)."
 msgstr ""
+"Inną opcją jest użycie edytora desktopowego obsługującego edycję plików za "
+"pośrednictwem protokołów „scp” i/lub „sftp”. Dostępne są darmowe narzędzia, "
+"które to umożliwiają (np. Notepad++, WinSCP i Cyberduck). Załaduj plik "
+"konfiguracyjny drukarki do edytora, a następnie zapisz go jako plik o nazwie "
+"„printer.cfg” w katalogu domowym użytkownika pi (np. /home/pi/printer.cfg)."
 
 #: docs/Installation.md:block 44 (paragraph)
 msgid ""
@@ -344,6 +357,9 @@ msgid ""
 "ssh. That may look something like the following (be sure to update the command"
 " to use the appropriate printer config filename):"
 msgstr ""
+"Alternatywnie, można również skopiować i edytować plik bezpośrednio na "
+"hoście przez SSH. Może to wyglądać mniej więcej tak (należy zaktualizować "
+"polecenie, aby używało odpowiedniej nazwy pliku konfiguracyjnego drukarki):"
 
 #: docs/Installation.md:block 52 (paragraph)
 msgid ""
@@ -353,6 +369,10 @@ msgid ""
 "successfully read and the micro-controller is successfully found and "
 "configured."
 msgstr ""
+"Po utworzeniu i edycji pliku konieczne będzie wydanie polecenia „restart” w "
+"konsoli poleceń, aby załadować konfigurację. Polecenie „status” zgłosi, że "
+"drukarka jest gotowa, jeśli plik konfiguracyjny Klippera zostanie pomyślnie "
+"odczytany, a mikrokontroler zostanie pomyślnie znaleziony i skonfigurowany."
 
 #: docs/Installation.md:block 54 (paragraph)
 msgid ""
@@ -361,6 +381,10 @@ msgid ""
 "messages. A log is available and usually located in ~/printer_data/logs this "
 "is named klippy.log"
 msgstr ""
+"Klipper zgłasza komunikaty o błędach za pośrednictwem konsoli poleceń oraz w "
+"okienkach w Fluidd i Mainsail. Polecenie „status” umożliwia ponowne "
+"zgłoszenie komunikatów o błędach. Dostępny jest dziennik, zazwyczaj "
+"znajdujący się w katalogu ~/printer_data/logs, o nazwie klippy.log."
 
 #~ msgid ""
 #~ "cd ~/klipper/\n"
