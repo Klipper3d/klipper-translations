@@ -1,0 +1,33 @@
+# Vugar Rasulov <rasuloffvgr@gmail.com>, 2025.
+msgid ""
+msgstr ""
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: az\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+msgid "Klipper documentation"
+msgstr ""
+
+msgid "Installation and Configuration"
+msgstr ""
+
+msgid "Configuration Reference"
+msgstr ""
+
+msgid "Bed Level"
+msgstr ""
+
+msgid "Resonance Compensation"
+msgstr ""
+
+msgid "Command templates"
+msgstr ""
+
+msgid "Developer Documentation"
+msgstr ""
+
+msgid "Device Specific Documents"
+msgstr ""
