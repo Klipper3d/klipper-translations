@@ -1,16 +1,17 @@
 # Emerson Jhones <ejhones@gmail.com>, 2024, 2025.
+# DaVinci21031 <figueiredoanac@outlook.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-07-22 08:27+0000\n"
-"Last-Translator: Emerson Jhones <ejhones@gmail.com>\n"
+"PO-Revision-Date: 2025-12-10 01:00+0000\n"
+"Last-Translator: DaVinci21031 <figueiredoanac@outlook.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/klipper/"
 "canbus/pt/>\n"
 "Language: pt\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.15-dev\n"
 
 msgid "This document describes Klipper's CAN bus support."
 msgstr "Este documento descreve suporte Klipper para CAN bus."
@@ -68,7 +69,7 @@ msgid ""
 msgstr ""
 
 msgid "Configuring Klipper"
-msgstr ""
+msgstr "Configurar o Klipper"
 
 msgid ""
 "Update the Klipper [mcu configuration](Config_Reference.md#mcu) to use the CAN"
