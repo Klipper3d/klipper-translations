@@ -8,13 +8,14 @@
 # Mathis Mensing <github@matmen.dev>, 2025.
 # Ümit Ci <umitinsan@protonmail.com>, 2025.
 # Norah-14 <norah.nygard14@gmail.com>, 2025.
+# M-M90 <m.musel@protonmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:32+0200\n"
-"PO-Revision-Date: 2025-11-05 13:51+0000\n"
-"Last-Translator: Norah-14 <norah.nygard14@gmail.com>\n"
+"PO-Revision-Date: 2026-01-04 09:01+0000\n"
+"Last-Translator: M-M90 <m.musel@protonmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/g-codes/"
 "de/>\n"
 "Language: de\n"
@@ -22,7 +23,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.14.1-dev\n"
+"X-Generator: Weblate 5.15.1\n"
 
 msgid ""
 "This document describes the commands that Klipper supports. These are commands"
@@ -328,9 +329,8 @@ msgstr ""
 msgid "`STATUS`: Report the Klipper host software status."
 msgstr "`STATUS`: Bericht über den Status der Klipper-Hostsoftware."
 
-#, fuzzy
 msgid "`HELP`: Report the list of available extended G-Code commands."
-msgstr "`HELP`: Zeigt die Liste der verfügbaren G-Code Befehle."
+msgstr "`HELP`: Zeigt die Liste der verfügbaren erweiterten G-Code Befehle."
 
 msgid ""
 "`SET_GCODE_VARIABLE MACRO=<macro_name> VARIABLE=<name> VALUE=<value>`: This "
@@ -2513,7 +2513,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 298 (header)
 msgid "[quad_gantry_level]"
-msgstr ""
+msgstr "[quad_gantry_level]"
 
 #: docs/G-Codes.md:block 299 (paragraph)
 msgid ""

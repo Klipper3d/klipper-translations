@@ -1,12 +1,13 @@
 # Sven van Beckum <kontakt@partner-3d.de>, 2022, 2025.
 # Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024, 2025.
+# M-M90 <m.musel@protonmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:37+0200\n"
-"PO-Revision-Date: 2025-07-22 08:12+0000\n"
-"Last-Translator: Sven van Beckum <kontakt@partner-3d.de>\n"
+"PO-Revision-Date: 2026-01-04 09:02+0000\n"
+"Last-Translator: M-M90 <m.musel@protonmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/"
 "probe_calibrate/de/>\n"
 "Language: de\n"
@@ -14,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.15.1\n"
 
 msgid "Calibrating probe X and Y offsets"
 msgstr "Kalibrierung des X- und Y-Offsets zwischen Z Probe und Düse"
@@ -192,7 +193,6 @@ msgid ""
 "document](Bed_Level.md) for manual probe alternatives."
 msgstr ""
 
-#, fuzzy
 msgid "Temperature Bias"
 msgstr "Temperaturverzerrung"
 

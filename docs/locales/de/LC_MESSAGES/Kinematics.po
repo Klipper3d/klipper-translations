@@ -3,13 +3,14 @@
 # Kev <leadustin@gmail.com>, 2024, 2025.
 # Extrutex <w1indt@outlook.com>, 2024, 2025.
 # Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024, 2025.
+# M-M90 <m.musel@protonmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:36+0200\n"
-"PO-Revision-Date: 2025-07-22 08:12+0000\n"
-"Last-Translator: Sven van Beckum <kontakt@partner-3d.de>\n"
+"PO-Revision-Date: 2026-01-04 09:02+0000\n"
+"Last-Translator: M-M90 <m.musel@protonmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/"
 "kinematics/de/>\n"
 "Language: de\n"
@@ -17,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.15.1\n"
 
 msgid ""
 "This document provides an overview of how Klipper implements robot motion (its"
@@ -29,7 +30,7 @@ msgstr ""
 "Dieses Dokument gibt einen Überblick darüber, wie Klipper die "
 "Roboterbewegung implementiert (seine [Kinematik](https://en.wikipedia.org/"
 "wiki/Kinematics)). Der Inhalt kann sowohl für Entwickler, die an der Klipper-"
-"Software arbeiten wollen, als auch für Benutzer, die die Mechanik ihrer "
+"Software arbeiten wollen, als auch für Benutzer, die jene Mechanik ihrer "
 "Maschinen besser verstehen wollen, von Interesse sein."
 
 msgid "Acceleration"
@@ -60,9 +61,8 @@ msgid ""
 "acceleration is:"
 msgstr ""
 
-#, fuzzy
 msgid "Trapezoid generator"
-msgstr "Trapezförmiger Generator"
+msgstr "Trapezform Generator"
 
 msgid ""
 "Klipper uses a traditional \"trapezoid generator\" to model the motion of each"

@@ -3,13 +3,14 @@
 # Sascha Petersen <zarrsito@gmail.com>, 2023, 2025.
 # Extrutex <w1indt@outlook.com>, 2024, 2025.
 # Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024, 2025.
+# M-M90 <m.musel@protonmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:34+0200\n"
-"PO-Revision-Date: 2025-07-22 08:11+0000\n"
-"Last-Translator: Sebastian Fiedler <See1807@hotmail.de>\n"
+"PO-Revision-Date: 2026-01-04 09:01+0000\n"
+"Last-Translator: M-M90 <m.musel@protonmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/"
 "measuring_resonances/de/>\n"
 "Language: de\n"
@@ -17,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.15.1\n"
 
 msgid "Measuring Resonances"
 msgstr "Resonanzen messen"
@@ -922,9 +923,8 @@ msgid "Correct connections when turned off (continuity)"
 msgstr "Korrekte Verbindungen im ausgeschalteten Zustand (Durchgang)"
 
 #: docs/Measuring_Resonances.md:block 11 (unordered list)
-#, fuzzy
 msgid "Correct power and ground voltages"
-msgstr "Korrekte Strom und Erdspannung"
+msgstr "Korrekte Versorgungsspannung und Erdung"
 
 #: docs/Measuring_Resonances.md:block 11 (unordered list)
 msgid "I2C only:"

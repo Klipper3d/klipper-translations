@@ -2,20 +2,21 @@
 # Kenny Kropp <kenny@bitgr.id>, 2022, 2025.
 # Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024, 2025.
 # Mathieu Graf <mathieu.graf@proton.me>, 2024, 2025.
+# M-M90 <m.musel@protonmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:36+0200\n"
-"PO-Revision-Date: 2025-07-22 08:12+0000\n"
-"Last-Translator: Kenny Kropp <kenny@bitgr.id>\n"
+"PO-Revision-Date: 2026-01-04 09:01+0000\n"
+"Last-Translator: M-M90 <m.musel@protonmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/faq/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.15.1\n"
 
 msgid "How can I donate to the project?"
 msgstr "Wie kann ich für das Projekt spenden?"
@@ -29,7 +30,6 @@ msgstr "Siehe das Dokument [rotation distance document](Rotation_Distance.md)."
 msgid "Where's my serial port?"
 msgstr "Wo ist meine serielle Schnittstelle?"
 
-#, fuzzy
 msgid ""
 "The general way to find a USB serial port is to run `ls /dev/serial/by-id/*` "
 "from an ssh terminal on the host machine. It will likely produce output "
@@ -60,7 +60,6 @@ msgstr ""
 "ausgeführt haben, kopieren und einfügen, da der Name für jeden Drucker "
 "anders ist."
 
-#, fuzzy
 msgid ""
 "If you are using multiple micro-controllers and they do not have unique ids "
 "(common on boards with a CH340 USB chip) then follow the directions above "
@@ -71,7 +70,6 @@ msgstr ""
 "Anweisungen und verwenden Sie stattdessen den Befehl `ls /dev/serial/by-path/"
 "*`."
 
-#, fuzzy
 msgid "When the micro-controller restarts the device changes to /dev/ttyUSB1"
 msgstr ""
 "Wenn der Mikrocontroller neu startet, wechselt das Gerät zu /dev/ttyUSB1"

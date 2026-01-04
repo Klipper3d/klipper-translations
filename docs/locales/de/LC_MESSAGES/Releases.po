@@ -6,13 +6,14 @@
 # Extrutex <w1indt@outlook.com>, 2024, 2025.
 # Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024, 2025.
 # Mathis Mensing <github@matmen.dev>, 2025.
+# M-M90 <m.musel@protonmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:32+0200\n"
-"PO-Revision-Date: 2025-07-22 08:09+0000\n"
-"Last-Translator: Sven van Beckum <kontakt@partner-3d.de>\n"
+"PO-Revision-Date: 2026-01-04 09:01+0000\n"
+"Last-Translator: M-M90 <m.musel@protonmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/releases/"
 "de/>\n"
 "Language: de\n"
@@ -20,7 +21,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.15.1\n"
 
 msgid ""
 "History of Klipper releases. Please see [installation](Installation.md) for "
@@ -145,7 +146,7 @@ msgid "New support for TMC2209 and TMC5160 drivers."
 msgstr "Neue Unterstützung für TMC2209 und TMC5160 Treiber."
 
 msgid "Improved DUMP_TMC, SET_TMC_CURRENT, and INIT_TMC G-Code commands."
-msgstr "Verbesserte  DUMP_TMC, SET_TMC_CURRENT, und INIT_TMC G-Code Befehle."
+msgstr "Verbesserte DUMP_TMC, SET_TMC_CURRENT, und INIT_TMC G-Code Befehle."
 
 msgid "Improved support for TMC UART handling with an analog mux."
 msgstr ""
@@ -316,7 +317,7 @@ msgstr "Leistungsverbesserungen auf ARM-Prozessoren"
 msgid "The kinematics code was rewritten to use an \"iterative solver\""
 msgstr ""
 "Der Kinematik Code wurde umgeschrieben, um einen \"iterativen Problemlöser\" "
-"zu verwenden."
+"zu verwenden"
 
 msgid "New automatic test cases for the Klipper host software"
 msgstr "Neue automatische Testverfahren für die Klipper-Host-Software"
