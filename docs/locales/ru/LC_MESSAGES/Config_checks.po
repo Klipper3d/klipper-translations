@@ -6,19 +6,21 @@
 # John Titor <utkin2007@gmail.com>, 2024, 2025.
 # Тихон Титовец <titovetstixon@gmail.com>, 2024, 2025.
 # Vin <k3kelm4vw@mozmail.com>, 2025.
+# Vugar Rasulov <rasuloffvgr@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-07-22 08:36+0000\n"
-"Last-Translator: Vin <k3kelm4vw@mozmail.com>\n"
+"PO-Revision-Date: 2025-11-27 01:36+0000\n"
+"Last-Translator: Vugar Rasulov <rasuloffvgr@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
 "config_checks/ru/>\n"
 "Language: ru\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.13-dev\n"
+"Plural-Forms: nplurals=3; plural="
+"(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? "
+"1 : 2);\n"
+"X-Generator: Weblate 5.15-dev\n"
 
 msgid ""
 "This document provides a list of steps to help confirm the pin settings in the"
@@ -26,8 +28,8 @@ msgid ""
 "following the steps in the [installation document](Installation.md)."
 msgstr ""
 "В этом документе приведен список действий, которые помогут подтвердить "
-"настройки выводов (pin) в файле Klipper printer.cfg. Рекомендуется выполнить "
-"эти шаги после выполнения шагов, описанных в [документе по установке]"
+"настройки выводов pin в файле Klipper printer.cfg. Рекомендуется выполнить "
+"эти шаги после выполнения шагов, описанных в [документе по установке] "
 "(Installation.md)."
 
 msgid ""

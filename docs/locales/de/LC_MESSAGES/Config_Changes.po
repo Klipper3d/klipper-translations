@@ -4,13 +4,14 @@
 # Mathis Mensing <gcmatmen@gmail.com>, 2022.
 # Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024, 2025.
 # Mathis Mensing <github@matmen.dev>, 2025.
+# M-M90 <m.musel@protonmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:32+0200\n"
-"PO-Revision-Date: 2025-07-22 08:09+0000\n"
-"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
+"PO-Revision-Date: 2026-01-04 09:02+0000\n"
+"Last-Translator: M-M90 <m.musel@protonmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/"
 "config_changes/de/>\n"
 "Language: de\n"
@@ -18,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.15.1\n"
 
 msgid ""
 "This document covers recent software changes to the config file that are not "
@@ -314,7 +315,7 @@ msgid ""
 msgstr ""
 
 msgid "20191021: Klipper v0.8.0 released"
-msgstr "21.10.2019: Klipper v0.8.0 veröffentlicht."
+msgstr "21.10.2019: Klipper v0.8.0 veröffentlicht"
 
 msgid ""
 "20191003: The move_to_previous option in [safe_z_homing] now defaults to "
@@ -436,7 +437,7 @@ msgid ""
 msgstr ""
 
 msgid "20181220: Klipper v0.7.0 released"
-msgstr "20.12.2018: Klipper v0.7.0 veröffentlicht."
+msgstr "20.12.2018: Klipper v0.7.0 veröffentlicht"
 
 msgid ""
 "20210703: A `samd_sercom` config section must now specify the sercom bus it is"

@@ -4,19 +4,21 @@
 # gfbdrgng <hnaofegnp@hldrive.com>, 2024, 2025.
 # Evgeniy Khramov <65224669+thejenja@users.noreply.github.com>, 2025.
 # gfbdrgn <erfvvgtyhbnjhyuu@wireconnected.com>, 2025.
+# Vugar Rasulov <rasuloffvgr@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-09-11 11:02+0000\n"
-"Last-Translator: gfbdrgn <erfvvgtyhbnjhyuu@wireconnected.com>\n"
+"PO-Revision-Date: 2025-11-27 01:35+0000\n"
+"Last-Translator: Vugar Rasulov <rasuloffvgr@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
 "benchmarks/ru/>\n"
 "Language: ru\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.14-dev\n"
+"Plural-Forms: nplurals=3; plural="
+"(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? "
+"1 : 2);\n"
+"X-Generator: Weblate 5.15-dev\n"
 
 msgid "This document describes Klipper benchmarks."
 msgstr "В этом документе описываются эталонные тесты Klipper."
@@ -279,7 +281,6 @@ msgstr "Сборка компилятора"
 msgid "stm32f042 (CAN)"
 msgstr "stm32f042 (CAN)"
 
-#, fuzzy
 msgid "18K"
 msgstr "18K"
 
@@ -703,7 +704,6 @@ msgid "stm32h7"
 msgstr "stm32h7"
 
 #: docs/Benchmarks.md:block 63 (table)
-#, fuzzy
 msgid "44"
 msgstr "44"
 
@@ -801,6 +801,8 @@ msgid ""
 "The test was last run on commit `f6718291` with gcc version `arm-none-eabi-gcc"
 " (Fedora 14.1.0-1.fc40) 14.1.0` on Raspberry Pi Pico and Pico 2 boards."
 msgstr ""
+"Последний тест был запущен на коммите `f6718291` с версией gcc `arm-none-"
+"eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0` на платах Raspberry Pi Pico и Pico 2."
 
 #: docs/Benchmarks.md:block 99 (table)
 msgid "rp2040 (*)"

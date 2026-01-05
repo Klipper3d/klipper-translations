@@ -3,13 +3,14 @@
 # Jannik Renfordt <jannikrenfordt@gmx.de>, 2023, 2025.
 # Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024, 2025.
 # Xfox20 <136956349+Xfox20@users.noreply.github.com>, 2024, 2025.
+# M-M90 <m.musel@protonmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:33+0200\n"
-"PO-Revision-Date: 2025-07-22 08:10+0000\n"
-"Last-Translator: Niklas Tecklenborg <niklas.tecklenborg@gmail.com>\n"
+"PO-Revision-Date: 2026-01-04 09:01+0000\n"
+"Last-Translator: M-M90 <m.musel@protonmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/bed_level/"
 "de/>\n"
 "Language: de\n"
@@ -17,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.15.1\n"
 
 msgid ""
 "Bed leveling (sometimes also referred to as \"bed tramming\") is critical to "
@@ -352,7 +353,6 @@ msgid ""
 msgstr ""
 
 #: docs/Bed_Level.md:block 1 (header)
-#, fuzzy
 msgid "Bed leveling"
 msgstr "Bett Nivellierung"
 

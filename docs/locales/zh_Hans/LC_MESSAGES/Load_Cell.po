@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-09-18 11:01+0000\n"
+"PO-Revision-Date: 2025-12-16 13:00+0000\n"
 "Last-Translator: Eagle Jin <eaglejin0@gmail.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/klipper/load_cell/zh_Hans/>\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.14-dev\n"
+"X-Generator: Weblate 5.15.1-dev\n"
 
 #: docs/Load_Cell.md:block 1 (header)
 msgid "Load Cells"
@@ -784,12 +784,14 @@ msgid ""
 "This is often called the \"data ready\" or \"DRDY\" pin. Checking a pin is "
 "much faster than running an SPI query."
 msgstr ""
+"有一根可以不通过SPI通信就可以确认准备就绪的引脚。这根引脚经常被称为\"Data "
+"Ready\"或者\"DRDY\"引脚。检查一根引脚比发送一次SPI闻询快得多。"
 
 #: docs/Load_Cell.md:block 103 (unordered list)
 msgid ""
 "Has a programmable gain amplifier gain setting of 128. This should eliminate "
 "the need for a separate amplifier."
-msgstr ""
+msgstr "有一个可编程的128级增益放大器。这样就无需单独的放大器了。"
 
 #: docs/Load_Cell.md:block 103 (unordered list)
 msgid ""
@@ -797,6 +799,8 @@ msgid ""
 " errors in homing and using noisy data at startup. It can also help users "
 "track down wiring and grounding issues."
 msgstr ""
+"通过SPI来指示传感器是否重置。检测重置可以避免归位时的错误，并且在一开始就避免"
+"嘈杂的数据。这也可以帮助用户检测接地和接线问题。"
 
 #: docs/Load_Cell.md:block 103 (unordered list)
 msgid ""
@@ -807,6 +811,10 @@ msgid ""
 "between measurements. E.g. a 500Hz sensor moving at 5mm/s has the same safety "
 "factor as a 100Hz sensor moving at only 1mm/s."
 msgstr ""
+"一个可以在350Hz和2Khz之间选择的采样率。太高的采样率对于3D打印机并没有好处，因"
+"为打印头在高速移动的时候就能产生很多噪音。250hz以下的采样率需要更低的探测速率"
+"。这也会增加打印头的受力，因为在低采样率时触发延迟较高。比如，一个100Hz的压力"
+"传感器在1mm/s探测的时候，安全余量和一个500Hz在5mm/s探测的时候一样。"
 
 #: docs/Load_Cell.md:block 103 (unordered list)
 msgid ""
@@ -815,16 +823,21 @@ msgid ""
 "ADCs that require switching channels have a settling of several samples after "
 "each channel switch making them unsuitable for probing applications."
 msgstr ""
+"如果准备将压力传感器安装在床下，并且期望使用多个压力传感器，则应使用一款可以"
+"同时采样所有传感器的芯片。“多通道切换式”的多ADC实现方式需要一点时间来稳定读数"
+"，所以这类芯片在多传感器布置下不适用于探测用途。"
 
 #: docs/Load_Cell.md:block 104 (paragraph)
 msgid ""
 "Implementing support for a new sensor chip is not particularly difficult with "
 "Klipper's `bulk_sensor` and `load_cell_endstop` infrastructure."
 msgstr ""
+"在Klipper的 `bulk_sensor` 和 `load_cell_endstop`架构下，引入新传感器芯片的支"
+"持不是特别难。"
 
 #: docs/Load_Cell.md:block 105 (header)
 msgid "5V Power Filtering"
-msgstr ""
+msgstr "5V电源滤波"
 
 #: docs/Load_Cell.md:block 106 (paragraph)
 msgid ""
@@ -834,6 +847,9 @@ msgid ""
 " generally assume a quiet power supply. Treat their suggested capacitor values"
 " as minimums."
 msgstr ""
+"强烈建议在ADC芯片上使用比制造商建议规格更大的电容。ADC芯片是为了低电气噪音环"
+"境设计的（比如电池供电）。传感器的制造商推荐的规格一般假定了一个纯净的电源环"
+"境。将他们推荐的电容规格视为下限。"
 
 #: docs/Load_Cell.md:block 107 (paragraph)
 msgid ""
@@ -842,10 +858,13 @@ msgid ""
 "power supply and active stepper drivers before deciding on smoothing capacitor"
 " sizes."
 msgstr ""
+"3D打印机会在5V电源总线上产生大量电气噪音，这会严重影响传感器的精度。在一块由"
+"标准3D打印机电源供电的主板上测试压力传感器，保持步进电机激活，以模拟真实环境"
+"。测试之后再决定需要的滤波电容大小。"
 
 #: docs/Load_Cell.md:block 108 (header)
 msgid "Grounding & Ground Planes"
-msgstr ""
+msgstr "接地与接地层"
 
 #: docs/Load_Cell.md:block 109 (paragraph)
 msgid ""
@@ -854,16 +873,21 @@ msgid ""
 "noise. Keep the chip away from power sections and DC to DC converters. The "
 "board should have proper grounding back to the DC supply."
 msgstr ""
+"模拟ADC芯片的部分组件对于电气噪音和静电极度敏感。放置在第一版层的较大接地层可"
+"以缓解噪声问题。将芯片安装在远离电源以及DCDC转换器的地方。电路板应有恰当的接"
+"地返回主DC电源。"
 
 #: docs/Load_Cell.md:block 110 (header)
 msgid "HX711 and HX717 Notes"
-msgstr ""
+msgstr "对于HX711和HX717的额外提示"
 
 #: docs/Load_Cell.md:block 111 (paragraph)
 msgid ""
 "This sensor is popular because of its low cost and availability in the supply "
 "chain. However, this is a sensor with some drawbacks:"
 msgstr ""
+"这些传感器因为低成本及其良好的供应链可得性而受欢迎。然而，这款传感器拥有一些"
+"缺点："
 
 #: docs/Load_Cell.md:block 112 (unordered list)
 msgid ""
@@ -871,6 +895,8 @@ msgid ""
 "MCU. Using a sensor that communicates via SPI would save resources on the tool"
 " board's CPU."
 msgstr ""
+"HX71x传感器系列使用bit-bang通信，这会造成较高的MCU负载开销。使用SPI通信的传感"
+"器可以节省工具板CPU的运算资源。"
 
 #: docs/Load_Cell.md:block 112 (unordered list)
 msgid ""
@@ -878,6 +904,8 @@ msgid ""
 "resets with a timing heuristic but this is not ideal. Resets indicate a "
 "problem with wiring or grounding."
 msgstr ""
+"HX71x系列传感器没有与MCU通信重置事件的能力。Klipper 采用一种时序启发式方法来"
+"检测复位，但这并非理想方案。重置通常意味着线路连接或接地存在问题。"
 
 #: docs/Load_Cell.md:block 112 (unordered list)
 msgid ""
@@ -885,6 +913,8 @@ msgid ""
 "its higher sample rate (320 vs 80). Probing speed on the HX711 should be "
 "limited to less than 2mm/s."
 msgstr ""
+"对于探测，强烈推荐HX717，由于它的采样率更高（320 vs HX711仅有80）。在使用"
+"HX711进行探测时，探测速度应限制为2mm/s。"
 
 #: docs/Load_Cell.md:block 112 (unordered list)
 msgid ""
@@ -892,3 +922,5 @@ msgid ""
 "the 10SPS version of the sensor (which is widely distributed) it needs to be "
 "physically re-wired to run at 80SPS."
 msgstr ""
+"HX71x系列的采样率无法使用Klipper配置来设置。如果你有一个每秒10采样的传感器（"
+"极其常见），它需要更改物理配置（如配置电阻）才能以每秒80采样运行。"

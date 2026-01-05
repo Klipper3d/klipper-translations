@@ -1,13 +1,14 @@
 # Sebastian Fiedler <See1807@hotmail.de>, 2022, 2025.
 # Sven van Beckum <kontakt@partner-3d.de>, 2022, 2025.
 # Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024, 2025.
+# M-M90 <m.musel@protonmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:34+0200\n"
-"PO-Revision-Date: 2025-07-22 08:11+0000\n"
-"Last-Translator: Sven van Beckum <kontakt@partner-3d.de>\n"
+"PO-Revision-Date: 2026-01-04 09:02+0000\n"
+"Last-Translator: M-M90 <m.musel@protonmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/"
 "rotation_distance/de/>\n"
 "Language: de\n"
@@ -15,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.15.1\n"
 
 msgid ""
 "Stepper motor drivers on Klipper require a `rotation_distance` parameter in "
@@ -38,6 +39,10 @@ msgid ""
 "rotation distance. If you know the steps_per_mm then it is possible to use "
 "this general formula to obtain that original rotation distance:"
 msgstr ""
+"Die Designer Ihres 3D-Druckers haben ursprünglich `steps_per_mm` aus einer "
+"Rotationsdistanz (rotation distance) berechnet. Wenn Sie die "
+"\"steps_per_mm\" kennen, ist es möglich, diese allgemeine Formel zu "
+"verwenden, um diese ursprüngliche Rotationsdistanz zu erhalten:"
 
 msgid ""
 "Or, if you have an older Klipper configuration and know the `step_distance` "
