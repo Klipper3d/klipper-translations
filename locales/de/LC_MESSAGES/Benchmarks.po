@@ -1,12 +1,13 @@
 # Sven van Beckum <kontakt@partner-3d.de>, 2022, 2025.
 # Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024, 2025.
+# M-M90 <m.musel@protonmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:35+0200\n"
-"PO-Revision-Date: 2025-07-22 08:12+0000\n"
-"Last-Translator: Sven van Beckum <kontakt@partner-3d.de>\n"
+"PO-Revision-Date: 2026-01-04 09:02+0000\n"
+"Last-Translator: M-M90 <m.musel@protonmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/"
 "benchmarks/de/>\n"
 "Language: de\n"
@@ -14,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.15.1\n"
 
 msgid "This document describes Klipper benchmarks."
 msgstr "Dieses Dokument beschreibt die Klipper-Benchmarks."
@@ -26,6 +27,8 @@ msgid ""
 "This section describes the mechanism used to generate the Klipper micro-"
 "controller step rate benchmarks."
 msgstr ""
+"Dieser Abschnitt beschreibt den genutzten Mechanismus für die Ermittlung der "
+"maximalen Schrittrate der Mikrocontroller."
 
 msgid ""
 "The primary goal of the benchmarks is to provide a consistent mechanism for "
@@ -33,6 +36,10 @@ msgid ""
 "is to provide high-level metrics for comparing the performance between chips "
 "and between software platforms."
 msgstr ""
+"Das primäre Ziel des Benchmarks ist, einen gleichbleibenden Mechanismus zur "
+"Ermittlung der Einflüsse durch Codeänderungen in der Software. Das sekundäre "
+"Ziel ist, High-Level Messdaten zum Vergleich der Performance zwischen "
+"verschiedenen Chips und Software Plattformen zu ermitteln."
 
 msgid ""
 "The step rate benchmark is designed to find the maximum stepping rate that the"
@@ -41,6 +48,11 @@ msgid ""
 "mcu/host communication, temperature reading, endstop checking) in any real-"
 "world usage."
 msgstr ""
+"Der Schrittraten Benchmark ist designed um die maximalen Schrittraten der "
+"Hard und Software zu ermitteln. Der Schrittraten Benchmark ist nicht für den "
+"täglichen Gebrauch vorgesehen da Klipper auch andere Vorgänge (z.B. MCU/Host "
+"Kommunikation, Temperatur Erfassung, überprüfung der Endschalter etc) ver- "
+"bzw bearbeitet."
 
 msgid ""
 "In general, the pins for the benchmark tests are chosen to flash LEDs or other"
@@ -48,9 +60,14 @@ msgid ""
 "prior to running a benchmark.** It is not recommended to drive an actual "
 "stepper during a benchmark."
 msgstr ""
+"Grundsätzlich sind die Pins des Benchmark Tests für die Ansteuerung von z.B "
+"LED's oder anderen nicht kritischen Vorgängen gedacht. ** Vergewissern Sie "
+"sich, dass es sicher ist die konfigurierten Pins im Benchmark zu benutzen "
+"bevor der Benchmark gestartet wird.** Es ist nicht empfehlenswert einen "
+"Schrittmotor mit dem Benchmarks zu betreiben."
 
 msgid "Step rate benchmark test"
-msgstr ""
+msgstr "Schrittraten Benchmark Test"
 
 msgid ""
 "The above tests three steppers simultaneously stepping. If running the above "
@@ -61,20 +78,29 @@ msgid ""
 " It should be possible to bisect the ticks parameter until a stable value is "
 "found."
 msgstr ""
+"Der obige Vorgang testet 3 Schrittmotoren gleichzeitig. Wenn der Test in "
+"Meldungen wie \"Rescheduled timer in the past\" oder \"Stepper too far in "
+"past\" endet, dann deutet dies auf einen zu tiefen 'ticks' Parameter hin "
+"(resultiert in eine zu hohe Schrittrate). Das Ziel ist einen passenden ticks "
+"Parameter zu finden, der nachvollziehbar den Tests erfolgreich abschließt. "
+"Es sollte möglich sein den Ticks Wert zu halbieren bis ein stabiler Wert "
+"gefunden ist."
 
 msgid ""
 "On a failure, one can copy-and-paste the following to clear the error in "
 "preparation for the next test:"
 msgstr ""
+"Bei Fehlschlagen, fügen Sie das folgende ein um den Error zu bestätigen und "
+"zu löschen um den Test erneut durchzuführen:"
 
 msgid "AVR step rate benchmark"
-msgstr ""
+msgstr "AVR Schrittraten Benchmark"
 
 msgid "The following configuration sequence is used on AVR chips:"
-msgstr ""
+msgstr "Die nachfolgende Konfiguration wird bei AVR Chips verwendet:"
 
 msgid "avr"
-msgstr "avr"
+msgstr "AVR"
 
 msgid "ticks"
 msgstr "ticks"
@@ -86,124 +112,124 @@ msgid "3 stepper"
 msgstr "3 Schrittmotoren"
 
 msgid "Arduino Due step rate benchmark"
-msgstr ""
+msgstr "Arduino Due Schrittraten Benchmark"
 
 msgid "The following configuration sequence is used on the Due:"
-msgstr ""
+msgstr "Die nachfolgende Konfiguration wird bei Due verwendet:"
 
 msgid "sam3x8e"
-msgstr "sam3x8e"
+msgstr "SAM3x8e"
 
 msgid "Duet Maestro step rate benchmark"
-msgstr ""
+msgstr "Duet Maestro Schrittraten Benchmark"
 
 msgid "The following configuration sequence is used on the Duet Maestro:"
-msgstr ""
+msgstr "Die nachfolgende Konfiguration wird bei Duet Maestro verwendet:"
 
 msgid "sam4s8c"
-msgstr "sam4s8c"
+msgstr "SAM4s8c"
 
 msgid "70"
 msgstr "70"
 
 msgid "Duet Wifi step rate benchmark"
-msgstr ""
+msgstr "Duet Wifi Schrittraten Benchmark"
 
 msgid "The following configuration sequence is used on the Duet Wifi:"
-msgstr ""
+msgstr "Die nachfolgende Konfiguration wird bei Duet WiFi verwendet:"
 
 msgid "sam4e8e"
-msgstr "sam4e8e"
+msgstr "SAM4e8e"
 
 msgid "Beaglebone PRU step rate benchmark"
-msgstr ""
+msgstr "Beaglebone PRU Schrittraten Benchmark"
 
 msgid "The following configuration sequence is used on the PRU:"
-msgstr ""
+msgstr "Die nachfolgende Konfiguration wird bei PRU verwendet:"
 
 msgid "pru"
-msgstr "pru"
+msgstr "PRU"
 
 msgid "STM32F042 step rate benchmark"
-msgstr ""
+msgstr "STM32F042 Schrittraten Benchmark"
 
 msgid "The following configuration sequence is used on the STM32F042:"
-msgstr ""
+msgstr "Die nachfolgende Konfiguration wird bei STM32F042 verwendet:"
 
 msgid "stm32f042"
-msgstr "stm32f042"
+msgstr "STM32F042"
 
 msgid "STM32F103 step rate benchmark"
-msgstr ""
+msgstr "STM32F103 Schrittraten Benchmark"
 
 msgid "The following configuration sequence is used on the STM32F103:"
-msgstr ""
+msgstr "Die nachfolgende Konfiguration wird bei STM32F103 verwendet:"
 
 msgid "stm32f103"
-msgstr "stm32f103"
+msgstr "STM32F103"
 
 msgid "71"
 msgstr "71"
 
 msgid "STM32F4 step rate benchmark"
-msgstr ""
+msgstr "STM32F4 Schrittraten Benchmark"
 
 msgid "The following configuration sequence is used on the STM32F4:"
-msgstr ""
+msgstr "Die nachfolgende Konfiguration wird bei STM32F4 verwendet:"
 
 msgid "stm32f446"
-msgstr "stm32f446"
+msgstr "STM32F446"
 
 msgid "51"
 msgstr "51"
 
 msgid "stm32f407"
-msgstr "stm32f407"
+msgstr "STM32F407"
 
 msgid "52"
 msgstr "52"
 
 msgid "LPC176x step rate benchmark"
-msgstr ""
+msgstr "LPC176x Schrittraten Benchmark"
 
 msgid "The following configuration sequence is used on the LPC176x:"
-msgstr ""
+msgstr "Die nachfolgende Konfiguration wird bei LPC176x verwendet:"
 
 msgid "lpc1768"
-msgstr "lpc1768"
+msgstr "LPC1768"
 
 msgid "lpc1769"
-msgstr "lpc1769"
+msgstr "LPC1769"
 
 msgid "SAMD21 step rate benchmark"
-msgstr ""
+msgstr "SAMD21 Schrittraten Benchmark"
 
 msgid "The following configuration sequence is used on the SAMD21:"
-msgstr ""
+msgstr "Die nachfolgende Konfiguration wird bei SAMD21 verwendet:"
 
 msgid "samd21"
-msgstr "samd21"
+msgstr "SAMD21"
 
 msgid "SAMD51 step rate benchmark"
-msgstr ""
+msgstr "SAMD51 Schrittraten Benchmark"
 
 msgid "The following configuration sequence is used on the SAMD51:"
-msgstr ""
+msgstr "Die nachfolgende Konfiguration wird bei SAMD51 verwendet:"
 
 msgid "samd51"
-msgstr "samd51"
+msgstr "SAMD51"
 
 msgid "1 stepper (200Mhz)"
-msgstr "1 stepper (200Mhz)"
+msgstr "1 Schrittmotor (200Mhz)"
 
 msgid "3 stepper (200Mhz)"
-msgstr "3 stepper (200Mhz)"
+msgstr "3 Schrittmotoren (200Mhz)"
 
 msgid "Linux MCU step rate benchmark"
-msgstr ""
+msgstr "Linux MCU Schrittraten Benchmark"
 
 msgid "The following configuration sequence is used on a Raspberry Pi:"
-msgstr ""
+msgstr "Die nachfolgende Konfiguration wird bei einem Raspberry Pi verwendet:"
 
 msgid "Linux (RPi3)"
 msgstr "Linux (RPi3)"
@@ -216,6 +242,10 @@ msgid ""
 "in the two \"uptime\" response messages. The total number of commands per "
 "second is then `100000 * mcu_frequency / clock_diff`."
 msgstr ""
+"Ist der Test abgeschlossen, berechnen Sie die Differenz zwischen den beiden "
+"clocks in den \"uptime\" Antwortnachrichten `clock_diff`. Die Gesamt "
+"Nachrichtenanzahl pro Sekunde wird wie folgt berechnet `100000 * "
+"mcu_frequency / clock_diff`."
 
 msgid "MCU"
 msgstr "MCU"
@@ -224,13 +254,13 @@ msgid "Rate"
 msgstr "Rate"
 
 msgid "Build"
-msgstr "Build"
+msgstr "Bau"
 
 msgid "Build compiler"
-msgstr "Build compiler"
+msgstr "Build Compiler"
 
 msgid "atmega2560 (serial)"
-msgstr "atmega2560 (serial)"
+msgstr "ATMEGA2560 (serial)"
 
 msgid "23K"
 msgstr "23K"
@@ -242,7 +272,7 @@ msgid "avr-gcc (GCC) 4.8.1"
 msgstr "avr-gcc (GCC) 4.8.1"
 
 msgid "sam3x8e (serial)"
-msgstr "sam3x8e (serial)"
+msgstr "SAM3x8e (serial)"
 
 msgid "arm-none-eabi-gcc (Fedora 7.1.0-5.fc27) 7.1.0"
 msgstr "arm-none-eabi-gcc (Fedora 7.1.0-5.fc27) 7.1.0"
@@ -278,7 +308,7 @@ msgid "c5968a08"
 msgstr "c5968a08"
 
 msgid "pru-gcc (GCC) 8.0.0 20170530 (experimental)"
-msgstr "pru-gcc (GCC) 8.0.0 20170530 (experimental)"
+msgstr "pru-gcc (GCC) 8.0.0 20170530 (experimentel)"
 
 msgid "stm32f103 (USB)"
 msgstr "stm32f103 (USB)"
@@ -326,7 +356,7 @@ msgid "870K"
 msgstr "870K"
 
 msgid "Host Benchmarks"
-msgstr ""
+msgstr "Host Benchmarks"
 
 msgid "66"
 msgstr "66"
@@ -336,7 +366,7 @@ msgstr "rp2040 (USB)"
 
 #: docs/Benchmarks.md:block 1 (header)
 msgid "Benchmarks"
-msgstr ""
+msgstr "Benchmarks"
 
 #: docs/Benchmarks.md:block 9 (paragraph)
 msgid ""
@@ -369,6 +399,9 @@ msgid ""
 "used, but only the first block of the above test is cut-and-paste into the "
 "console.py window."
 msgstr ""
+"Um den Einzel Schrittmotor Benchmark durchzuführen, wird die selbe "
+"Konfigurations Sequenz verwendet und nur der erste Block des obigen Tests in "
+"das console.py Fenster eingefügt."
 
 #: docs/Benchmarks.md:block 17 (paragraph)
 msgid ""
@@ -585,7 +618,7 @@ msgstr "359"
 
 #: docs/Benchmarks.md:block 105 (table)
 msgid "ar100 (serial)"
-msgstr "ar100 (serial)"
+msgstr "AR100 (serial)"
 
 #: docs/Benchmarks.md:block 105 (table)
 msgid "138K"
@@ -649,7 +682,7 @@ msgstr ""
 
 #: docs/Benchmarks.md:block 100 (table)
 msgid "36"
-msgstr ""
+msgstr "36"
 
 #: docs/Benchmarks.md:block 100 (table)
 msgid "169"
@@ -693,7 +726,7 @@ msgstr ""
 
 #: docs/Benchmarks.md:block 99 (table)
 msgid "3"
-msgstr ""
+msgstr "3"
 
 #: docs/Benchmarks.md:block 99 (table)
 msgid "14"

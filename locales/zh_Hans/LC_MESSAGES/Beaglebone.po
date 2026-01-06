@@ -1,13 +1,14 @@
 # Neko.vecter <Vecterfang@icloud.com>, 2021.
 # Yifei Ding <dingyifeiair@gmail.com>, 2021, 2025.
 # hani-lengxi <2836842270@qq.com>, 2024, 2025.
+# Eagle Jin <eaglejin0@gmail.com>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-10 16:29+0200\n"
-"PO-Revision-Date: 2025-07-22 08:25+0000\n"
-"Last-Translator: Yifei Ding <dingyifeiair@gmail.com>\n"
+"PO-Revision-Date: 2025-12-16 13:00+0000\n"
+"Last-Translator: Eagle Jin <eaglejin0@gmail.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/klipper/beaglebone/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -15,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.15.1-dev\n"
 
 msgid ""
 "This document describes the process of running Klipper on a Beaglebone PRU."
@@ -247,13 +248,13 @@ msgstr ""
 
 #: docs/Beaglebone.md:block 44 (header)
 msgid "Building and installing Linux host micro-controller code"
-msgstr ""
+msgstr "构建及安装Linux微控制器代码"
 
 #: docs/Beaglebone.md:block 45 (paragraph)
 msgid ""
 "This section is required for \"Use case 2\" and optional for \"Use case 3\" "
 "mentioned above"
-msgstr ""
+msgstr "上述的“用例2”需要本分区的操作，本分区对于上述的“用例3”则是可选的"
 
 #: docs/Beaglebone.md:block 50 (paragraph)
 msgid ""

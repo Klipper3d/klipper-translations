@@ -1,18 +1,18 @@
 # Gabriel Brandão Machado <0LB-i@users.noreply.hosted.weblate.org>, 2024, 2025.
 # Emerson Jhones <ejhones@gmail.com>, 2024, 2025.
+# DaVinci21031 <figueiredoanac@outlook.com>, 2025.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-07-22 08:27+0000\n"
-"Last-Translator: Gabriel Brandão Machado "
-"<0LB-i@users.noreply.hosted.weblate.org>\n"
+"PO-Revision-Date: 2025-12-10 01:00+0000\n"
+"Last-Translator: DaVinci21031 <figueiredoanac@outlook.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/klipper/"
 "installation/pt/>\n"
 "Language: pt\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.15-dev\n"
 
 msgid "Building and flashing the micro-controller"
 msgstr "Construindo e atualizando o micro controlador"
@@ -23,9 +23,11 @@ msgstr "Deve relatar algo semelhante ao seguinte:"
 msgid ""
 "Be sure to update the FLASH_DEVICE with the printer's unique serial port name."
 msgstr ""
+"Certifica-te de atualizar o FLASH_DEVICE com o nome da porta serial único da "
+"tua impressora."
 
 msgid "Configuring Klipper"
-msgstr ""
+msgstr "Configurar o Klipper"
 
 #: docs/Installation.md:block 1 (header)
 msgid "Installation"
@@ -33,7 +35,7 @@ msgstr "Instalação"
 
 #: docs/Installation.md:block 3 (header)
 msgid "Obtain a Klipper Configuration File"
-msgstr ""
+msgstr "Obter um ficheiro de configuração de Klipper"
 
 #: docs/Installation.md:block 5 (paragraph)
 msgid ""
@@ -41,6 +43,10 @@ msgid ""
 " directory then try searching the printer manufacturer's website to see if "
 "they have an appropriate Klipper configuration file."
 msgstr ""
+"Se não houver um ficheiro de configuração apropriado para a tua impressora "
+"no diretório de configurações do Klipper, então tenta procurar no website do "
+"fabricante da impressora se eles têm uma configuração apropriada para "
+"Klipper."
 
 #: docs/Installation.md:block 6 (paragraph)
 msgid ""
@@ -51,6 +57,12 @@ msgid ""
 "installation, but will require some customization to obtain full printer "
 "functionality."
 msgstr ""
+"Se não encontrares qualquer ficheiro de configuração específico para a tua "
+"impressora, mas o tipo de placa-mãe for conhecida, então procura pela "
+"configuração mais apropriada que comece com o prefixo \"generic-\". Esses "
+"ficheiros de exemplo para a placa-mãe devem permitir concluir a Instalação "
+"inicial, mas irão requerer alguma customização para desbloquear a total "
+"funcionalidade da impressora.Instalação."
 
 #: docs/Installation.md:block 7 (paragraph)
 msgid ""
@@ -61,6 +73,13 @@ msgid ""
 "start with the closest example [config file](../config/) and use the Klipper "
 "[config reference](Config_Reference.md) for further information."
 msgstr ""
+"É também possível criar uma configuração para a impressora de raiz. No "
+"entanto, isto requer um grande conhecimento técnico sobre a impressora e "
+"sobre os seus componentes. É recomendado que a maioria dos utilizadores "
+"comecem com um ficheiro de configuração apropriado. Se fores criar um "
+"ficheiro de configuração desde a raiz, então começa com o exemplo mais "
+"próximo possível [config file](../config/) e usa o Klipper [config reference]"
+"(Config_Reference.md) para mais informações."
 
 #: docs/Installation.md:block 16 (paragraph)
 msgid ""
@@ -71,6 +90,12 @@ msgid ""
 "\"menuconfig\" settings have been configured, press \"Q\" to exit, and then "
 "\"Y\" to save. Then run:"
 msgstr ""
+"Os comentários no topo do ficheiro de configuração da impressora "
+"(printer.cfg)(#obtain-a-klipper-configuration-file) devem explicar as "
+"definições que deves colocar durante o \"make menuconfig\". Abre o ficheiro "
+"num browser ou editor de texto e procura pelas instruções no início do "
+"texto. Quando as definições corretas do \"menuconfig\" estiverem colocadas, "
+"pressiona \"Q\" para sair e, depois, \"Y\" para salvar. Depois coloca:"
 
 #: docs/Installation.md:block 19 (paragraph)
 msgid ""
@@ -78,6 +103,9 @@ msgid ""
 " board. First, it is necessary to determine the serial port connected to the "
 "micro-controller. Run the following:"
 msgstr ""
+"Caso contrário, os seguintes passos são usados frequentemente para gravar na "
+"placa controladora da impressora. Primeiro, é necessário descobrir a porta "
+"serial conectada ao micro-controlador. Executa o seguinte:"
 
 #: docs/Installation.md:block 40 (paragraph)
 msgid ""
@@ -85,12 +113,18 @@ msgid ""
 "controller. The name may change after flashing Klipper, so rerun these steps "
 "again even if they were already done when flashing. Run:"
 msgstr ""
+"É comum que cada impressora tenha um nome único para o micro-controlador. O "
+"nome poderá ser alterado depois de o Klipper ser gravado, então reexecuta "
+"estes passos outra vez, mesmo que eles já tenham sido feitos quando gravou. "
+"Executa:"
 
 #: docs/Installation.md:block 44 (paragraph)
 msgid ""
 "Then update the config file with the unique name. For example, update the "
 "`[mcu]` section to look something similar to:"
 msgstr ""
+"Depois atualiza o ficheiro de configuração com o nome único da impressora. "
+"Por exemplo, atualiza a secção `MCU`, de forma a se parecer algo como:"
 
 #: docs/Installation.md:block 47 (paragraph)
 msgid ""
@@ -99,6 +133,10 @@ msgid ""
 "corrections to the printer config file and issue \"restart\" until \"status\" "
 "reports the printer is ready."
 msgstr ""
+"Quando se costumiza um ficheiro de configuração de impressora, não é pouco "
+"comum que o Klipper reporte um erro de configuração- Se ocorrer um erro, faz "
+"qualquer correção necessária ao ficheiro de configuração e depois clica em "
+"\"restart\" até o \"status\" dizer que a impressora está pronta."
 
 #: docs/Installation.md:block 49 (paragraph)
 msgid ""
@@ -107,6 +145,10 @@ msgid ""
 " the config file. See the main [documentation reference](Overview.md) for "
 "other information."
 msgstr ""
+"Depois de o Klipper detectar que a impressora está pronta, segue para o "
+"[config check document](Config_checks.md) para realizar algumas verificações "
+"básicas nas definições do ficheiro de configuração. Vê a principal "
+"[documentation reference](Overview.md) para outras informações."
 
 #: docs/Installation.md:block 5 (paragraph)
 msgid ""
@@ -118,16 +160,25 @@ msgid ""
 "technical information about the printer that will be needed during the "
 "installation."
 msgstr ""
+"A maioria das definições do Klipper são determinadas pelo \"ficheiro de "
+"configuração da impressora\" printer.cfg, que irá ser guardado no host/"
+"anfitrião. Uma configuração apropriada pode ser frequentemente encontrada "
+"procurando no Klipper [config directory](../config/) por um ficheiro que "
+"começa com o prefixo \"printer-\" que corresponda à impressora alvo. O "
+"ficheiro de configuração do Klipper contèm informação técnica sobre a "
+"impressora que será preciso durante a Instalação."
 
 #: docs/Installation.md:block 9 (header)
 msgid "Interacting with Klipper"
-msgstr ""
+msgstr "Interação com o Klipper"
 
 #: docs/Installation.md:block 10 (paragraph)
 msgid ""
 "Klipper is a 3d printer firmware, so it needs some way for the user to "
 "interact with it."
 msgstr ""
+"O Klipper é um firmware para impressoras 3d, então precisa de alguma maneira "
+"do utilizador interagir com ele."
 
 #: docs/Installation.md:block 11 (paragraph)
 msgid ""
@@ -135,6 +186,10 @@ msgid ""
 "the [Moonraker web API](https://moonraker.readthedocs.io/) and there is also "
 "the option to use [Octoprint](https://octoprint.org/) to control Klipper."
 msgstr ""
+"Atualmente, as melhores escolhas são as interfaces que buscam informação "
+"através do [Moonraker web API](https://moonraker.readthedocs.io/) e também "
+"há a opção de usar o [Octoprint](https://octoprint.org/) para controlar o "
+"Klipper."
 
 #: docs/Installation.md:block 12 (paragraph)
 msgid ""
@@ -142,32 +197,42 @@ msgid ""
 " same in all cases. We encourage users to research the options available and "
 "make an informed decision."
 msgstr ""
+"A escolha é do utilizador em qual usar, mas as bases do Klipper são as "
+"mesmas em todos os casos. Nós encorajamos os utilizadores a investigar as "
+"opções disponíveis e a fazer uma decisão informada."
 
 #: docs/Installation.md:block 13 (header)
 msgid "Obtaining an OS image for SBC's"
-msgstr ""
+msgstr "Obter uma imagem de Sistema Operativo (OS) para SBC"
 
 #: docs/Installation.md:block 16 (paragraph)
 msgid ""
 "Fluidd can be installed via KIAUH(Klipper Install And Update Helper), which is"
 " explained below and is a 3rd party installer for all things Klipper."
 msgstr ""
+"O Fluidd pode ser instalado através do KIAUH (o ajudante de instalação e "
+"atualização do Klipper), o qual é explicado abaixo e é um instalador de "
+"terceiros para todas as coisas relacionadas com o Klipper."
 
 #: docs/Installation.md:block 17 (paragraph)
 msgid ""
 "OctoPrint can be installed via the popular OctoPi image or via KIAUH, this "
 "process is explained in <OctoPrint.md>"
 msgstr ""
+"O OctoPrint pode ser instalado através da popular imagem Octopi ou através "
+"do KIAUH, sendo este processo explicado em <OctoPrint.md>"
 
 #: docs/Installation.md:block 18 (header)
 msgid "Installing via KIAUH"
-msgstr ""
+msgstr "Instalar através do KIAUH"
 
 #: docs/Installation.md:block 22 (paragraph)
 msgid ""
 "To compile the micro-controller code, start by running these commands on your "
 "host device:"
 msgstr ""
+"Para compilar o código do Micro-controlador, começa por executar os "
+"seguintes comandos no seus dispositivo host/anfitrião:"
 
 #: docs/Installation.md:block 31 (paragraph)
 msgid ""
@@ -179,30 +244,45 @@ msgid ""
 "will be your print board(see the [FAQ](FAQ.md#wheres-my-serial-port) for more "
 "information)."
 msgstr ""
+"É comum para cada impressora ter um nome único de porta serial. Este nome "
+"único será usado quando estiver a gravar no Micro-controlador. É possível "
+"que existam múltiplas linhas no output - caso seja esse o caso, escolhe a "
+"linha que corresponde ao Micro-controlador. Se existirem diversas linhas e a "
+"escolha for ambígua, desconecta a placa e executa o comando novamente, a "
+"linha que desaparecer será a placa da impressora (vê o [FAQ](FAQ.md#wheres-"
+"my-serial-port) para mais informação)."
 
 #: docs/Installation.md:block 34 (paragraph)
 msgid ""
 "For common micro-controllers using Atmega chips, for example the 2560, the "
 "code can be flashed with something similar to:"
 msgstr ""
+"Para Micro-controladores comuns que usem os chips Atmega. por exemplo o "
+"2560, o código pode ser gravado em algo similar a:"
 
 #: docs/Installation.md:block 37 (paragraph)
 msgid ""
 "For common micro-controllers using RP2040 chips, the code can be flashed with "
 "something similar to:"
 msgstr ""
+"Para Micro-controladores comuns que usem os chips RP2040, o código pode ser "
+"gravado como algo similar a:"
 
 #: docs/Installation.md:block 39 (paragraph)
 msgid ""
 "It is important to note that RP2040 chips may need to be put into Boot mode "
 "before this operation."
 msgstr ""
+"É importante notar que os chips RP2040 podem precisar de ser colocados em "
+"modo de Boot antes desta operação."
 
 #: docs/Installation.md:block 41 (paragraph)
 msgid ""
 "The next step is to copy the [printer configuration file](#obtain-a-klipper-"
 "configuration-file) to the host."
 msgstr ""
+"O próximo passo é copiar o [ficheiro de configuração da impressora](#obtain-"
+"a-klipper-configuration-file) para o Host/anfitrião."
 
 #: docs/Installation.md:block 43 (paragraph)
 msgid ""
@@ -212,6 +292,11 @@ msgid ""
 "file in the editor and then save it as a file named \"printer.cfg\" in the "
 "home directory of the pi user (ie, /home/pi/printer.cfg)."
 msgstr ""
+"Outra opção será usar um editor que suporta a edição de ficheiros \"scp\" e/"
+"ou protocolos \"sftp\". Existem ferramentas gratuitas que suportam isso (p.e "
+"Notepad++, WinSCP, e Cyberduck). Carrega o ficheiro de configuração no "
+"editor e depois salva o ficheiro como \"printer.cfg\" no diretório principal "
+"do utilizador PI (p.e /home/pi/printer.cfg)."
 
 #: docs/Installation.md:block 2 (paragraph)
 msgid ""
@@ -221,6 +306,12 @@ msgid ""
 "host machine (see the [FAQ](FAQ.md#can-i-run-klipper-on-something-other-than-"
 "a-raspberry-pi-3) for other options)."
 msgstr ""
+"Estas instruções assumem que o o software irá correr num anfitrião/host "
+"linux que esteja a executar uma interface compatível com Klipper. É "
+"recomendado que seja usado um minicomputador, tal como uma Raspberry Pi ou "
+"um dispositivo Linux baseado em Debian, como host/anfitrião (ver o [FAQ]"
+"(FAQ.md#can-i-run-klipper-on-something-other-than-a-raspberry-pi-3) para "
+"mais opções)."
 
 #: docs/Installation.md:block 3 (paragraph)
 msgid ""
@@ -228,6 +319,10 @@ msgid ""
 "mcu relates to the printer board. SBC relates to the term Small Board Computer"
 " such as the Raspberry Pi."
 msgstr ""
+"Para o propósito destas instruções, host/anfitrião relaciona-se com o "
+"dispositivo Linux e MCU relaciona-se com a placa da impressora. "
+"Minicomputador relaciona-se com pequenos computadores, tais como Raspberry "
+"Pi."
 
 #: docs/Installation.md:block 14 (paragraph)
 msgid ""
@@ -235,6 +330,10 @@ msgid ""
 " on what front end you wish to use. Some manufacturers of these SBC boards "
 "also provide their own Klipper-centric images."
 msgstr ""
+"Existem diversas maneiras de obter uma imagem de SO para o Klipper para usar "
+"eum minicomputador, a maioria depende da interface que prefiras usar. Alguns "
+"fabricantes de minicomputadores também disponibilizam as suas próprias "
+"imagens de Klipper."
 
 #: docs/Installation.md:block 15 (paragraph)
 msgid ""
@@ -243,6 +342,11 @@ msgid ""
 " install image [\"MainsailOS\"](https://docs-os.mainsail.xyz/), this has the "
 "option for Raspberry Pi and some OrangePi variants."
 msgstr ""
+"Existem duas interfaces baseadas em Moonraker, o [Fluidd](https://"
+"docs.fluidd.xyz/) e o [Mainsail](https://docs.mainsail.xyz/), sendo que este "
+"último tem uma imagem de instalação pré-feita, o [\"MainsailOS\"](https://"
+"docs-os.mainsail.xyz/), isto tem a opção para Raspberry Pi e para algumas "
+"variantes de OrangePI."
 
 #: docs/Installation.md:block 19 (paragraph)
 msgid ""
@@ -252,6 +356,11 @@ msgid ""
 "can stop some Klipper functions from working and even mask access to some "
 "printer boards."
 msgstr ""
+"Normalmente começarias com a imagem base do minicomputador, RPiOS Lite por "
+"exemplo, ou no caso de um dispositivo Linux x86, Ubuntu Server. Por favor, "
+"nota que essas variantes de desktop não são recomendadas devido a "
+"determinados programas de ajudantes que podem impedir algumas funções do "
+"Klipper de funcionar e até mascarar o acesso a placas de algumas impressoras."
 
 #: docs/Installation.md:block 20 (paragraph)
 msgid ""
@@ -259,6 +368,10 @@ msgid ""
 "of Linux-based systems that run a form of Debian. More information can be "
 "found at https://github.com/dw-0/kiauh"
 msgstr ""
+"O KIAUH pode ser usado para instalar o Klipper e os seus programas "
+"associados numas variada de sistemas baseados em Linux que executam alguma "
+"versão de Debian. Mais informações podem ser encontradas em https://"
+"github.com/dw-0/kiauh"
 
 #: docs/Installation.md:block 26 (paragraph)
 msgid ""
@@ -267,12 +380,19 @@ msgid ""
 "image to the printer control board, then follow those steps and then proceed "
 "to [configuring OctoPrint](#configuring-octoprint-to-use-klipper)."
 msgstr ""
+"Se os comentários no topo do [printer configuration file](#obtain-a-klipper-"
+"configuration-file) mostrarem passos especificos para gravar a imagem final "
+"na placa da impressora, então segue esses passos e depois procede para "
+"[configuring OctoPrint](#configuring-octoprint-to-use-klipper)."
 
 #: docs/Installation.md:block 32 (paragraph)
 msgid ""
 "For common micro-controllers with STM32 or clone chips, LPC chips and others, "
 "it is usual that these need an initial Klipper flash via SD card."
 msgstr ""
+"Para micro-controladores comuns com STM32 ou chips clones, chips LPC e "
+"outros, é frequente que eles precisem de que a gravação inicial do Klipper "
+"seja feita através de cartão SD."
 
 #: docs/Installation.md:block 33 (paragraph)
 msgid ""
@@ -280,6 +400,10 @@ msgid ""
 "board is not connected with USB to the host, due to some boards being able to "
 "feed power back to the board and stopping a flash from occurring."
 msgstr ""
+"Ao gravar através deste método, é importante que te certifiques que a placa "
+"da impressora não esteja conectada com USB ao host/anfitrião, visto que "
+"algumas placas são capazes de devolver corrente e interromper a gravação de "
+"ser concluida."
 
 #: docs/Installation.md:block 42 (paragraph)
 msgid ""
@@ -287,6 +411,10 @@ msgid ""
 "built-in editors in Mainsail or Fluidd. These will allow the user to open the "
 "configuration examples and save them to be printer.cfg."
 msgstr ""
+"Discutivelmente, o método mais de colocar o ficheiro de configuração do "
+"Klipper é através dos editores integrados no Mainsail e Fluidd. Esses "
+"permitem ao utilizador abrir os exemplos de configuração e salvá-los para "
+"serem o printer.cfg."
 
 #: docs/Installation.md:block 44 (paragraph)
 msgid ""
@@ -294,6 +422,10 @@ msgid ""
 "SSH. That may look something like the following (be sure to update the command"
 " to use the appropriate printer config filename):"
 msgstr ""
+"Em alternativa, também podes copiar e editar o ficheiro diretamente para o "
+"host/anfitrião por SSH. Isso poderá se parecer algo como o seguinte "
+"(certifica-te de alterar o comando para usar o nome de ficheiro de "
+"configuração da impressora):"
 
 #: docs/Installation.md:block 52 (paragraph)
 msgid ""
@@ -303,6 +435,11 @@ msgid ""
 "successfully read and the micro-controller is successfully found and "
 "configured."
 msgstr ""
+"Depois de criar e editar o ficheiro, será necessário enviar um comando de "
+"\"restart\" na consola de comandos para carregar a configuração. Um comando "
+"de \"status\" irá dizer se a impressora está pronta (\"ready\"), se o "
+"ficheiro de configuração foi lido com sucesso e se o micro-controlador foi "
+"encontrado com sucesso e configurado."
 
 #: docs/Installation.md:block 54 (paragraph)
 msgid ""
@@ -310,6 +447,10 @@ msgid ""
 "and Mainsail. The \"status\" command can be used to re-report error messages. "
 "A log is available and usually located at `~/printer_data/logs/klippy.log`."
 msgstr ""
+"O Klipper irá reportar mensagens de erro através da consola de comandos e "
+"pop-ups no Fluidd e Mainsail. O comando de \"status\" poderá ser usado para "
+"voltar a emitir as mensagens de erro. Um arquivo de log está disponível e é "
+"localizado em `~/printer_data/logs/klippy.log`."
 
 #: docs/Installation.md:block 34 (paragraph)
 msgid ""
@@ -317,10 +458,15 @@ msgid ""
 " some kind of flash loop protection for when the sd card is left in place. "
 "There are two common methods:"
 msgstr ""
+"Por favor, nota que a maioria das impressoras que usa cartão SD para gravar, "
+"irá implementar algum tipo de proteção para loops de gravação para quando o "
+"cartão é deixado. Estes são os dois métodos mais comuns:"
 
 #: docs/Installation.md:block 35 (paragraph)
 msgid "Filename Change Required (usually \"stock\" print boards):"
 msgstr ""
+"Mudança de nome de ficheiro é necessária (normalmente nas placas das "
+"impressoras originais/stock):"
 
 #: docs/Installation.md:block 36 (paragraph)
 msgid ""
@@ -328,10 +474,14 @@ msgid ""
 "flash (for example, firmware1.bin, firmware2.bin, etc.). If you reuse the same"
 " filename, the board may ignore it and not update."
 msgstr ""
+"Estas placas precisam de um ficheiro de firmware que tenha um nome diferente "
+"cada vez que gravas (p.e firmware1.bin, firmware2.bin, etc...). Se tu "
+"reutilizares o mesmo nome, a placa pode apenas ignorar e não irá atualizar."
 
 #: docs/Installation.md:block 37 (paragraph)
 msgid "Automatic File Renaming (usually aftermarket print boards:"
 msgstr ""
+"Mudança de nome automática (normalmente nas placas do mercado de acessórios):"
 
 #: docs/Installation.md:block 38 (paragraph)
 msgid ""
@@ -340,10 +490,15 @@ msgid ""
 "firmware was successfully flashed and prevents it from flashing again on the "
 "next startup."
 msgstr ""
+"Outras placas permitem usar o mesmo nome de ficheiro, comummente "
+"firmware.bin, mas depois de gravar, a placa muda o nome do ficheiro para "
+"firmware.cur. Isto ajuda a saber se o firmware foi gravado com sucesso e "
+"previne que grave novamente na próxima inicialização."
 
 #: docs/Installation.md:block 39 (paragraph)
 msgid "Before flashing, make sure to check which behavior your board follows."
 msgstr ""
+"Antes de gravar, certifica-te de verificar qual o comportamento da tua placa."
 
 #~ msgid ""
 #~ "If the comments at the top of the [printer configuration file](#obtain-a-"

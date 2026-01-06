@@ -1,16 +1,17 @@
 # Xfox20 <136956349+Xfox20@users.noreply.github.com>, 2024, 2025.
+# M-M90 <m.musel@protonmail.com>, 2026.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-07-22 09:13+0000\n"
-"Last-Translator: Xfox20 <136956349+Xfox20@users.noreply.github.com>\n"
+"PO-Revision-Date: 2026-01-04 09:02+0000\n"
+"Last-Translator: M-M90 <m.musel@protonmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/octoprint/"
 "de/>\n"
 "Language: de\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.15.1\n"
 
 #: docs/OctoPrint.md:block 1 (header)
 msgid "OctoPrint for Klipper"
@@ -112,7 +113,6 @@ msgstr ""
 "OctoPrint-Website ein und konfigurieren Sie die folgenden Einträge:"
 
 #: docs/OctoPrint.md:block 17 (paragraph)
-#, fuzzy
 msgid ""
 "Navigate to the Settings tab (the wrench icon at the top of the page). Under "
 "\"Serial Connection\" in \"Additional serial ports\" add:"
@@ -121,7 +121,6 @@ msgstr ""
 "Fügen Sie unter „Serial Connection“ in „Additional serial ports“ hinzu:"
 
 #: docs/OctoPrint.md:block 19 (paragraph)
-#, fuzzy
 msgid "Then click \"Save\"."
 msgstr "Dann drücken Sie „Save“."
 
@@ -130,13 +129,12 @@ msgid "*In some older setups this address may be `/tmp/printer`*"
 msgstr "*In einigen älteren Setups kann diese Adresse `/tmp/printer` sein*"
 
 #: docs/OctoPrint.md:block 21 (paragraph)
-#, fuzzy
 msgid ""
 "Enter the Settings tab again and under \"Serial Connection\" change the "
 "\"Serial Port\" setting to the one added above."
 msgstr ""
-"Öffnen Sie den Einstellungstab erneut und ändern Sie unter „Serial "
-"Connection“ den „Serial Port“ zum oben hinzugefügten."
+"Öffnen Sie den Einstellungstab erneut und ändern Sie unter „Serial Connection"
+"“ den „Serial Port“ zum oben hinzugefügten."
 
 #: docs/OctoPrint.md:block 22 (paragraph)
 msgid ""
@@ -149,15 +147,14 @@ msgstr ""
 "Klicken Sie „Speichern“."
 
 #: docs/OctoPrint.md:block 23 (paragraph)
-#, fuzzy
 msgid ""
 "From the main page, under the \"Connection\" section (at the top left of the "
 "page) make sure the \"Serial Port\" is set to the new additional one added and"
 " click \"Connect\". (If it is not in the available selection then try "
 "reloading the page.)"
 msgstr ""
-"Von der Hauptseite aus, stellen sie sicher, dass unter der Sektion "
-"„Connection“ (oben links auf der Seite) der „Serial Port“ zum neuen, "
+"Von der Hauptseite aus, stellen sie sicher, dass unter der Sektion „"
+"Connection“ (oben links auf der Seite) der „Serial Port“ zum neuen, "
 "zusätzlichen gesetzt ist und klicken Sie „Connect“. (Wenn es nicht in der "
 "Auswahl verfügbar ist, versuchen Sie, die Seite neu zu laden.)"
 

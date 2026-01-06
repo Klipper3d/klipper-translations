@@ -2,13 +2,14 @@
 # Mathis Mensing <gcmatmen@gmail.com>, 2022.
 # Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024, 2025.
 # Mathis Mensing <github@matmen.dev>, 2025.
+# M-M90 <m.musel@protonmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:36+0200\n"
-"PO-Revision-Date: 2025-07-22 08:12+0000\n"
-"Last-Translator: Sven van Beckum <kontakt@partner-3d.de>\n"
+"PO-Revision-Date: 2026-01-04 09:02+0000\n"
+"Last-Translator: M-M90 <m.musel@protonmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/"
 "canbus_protocol/de/>\n"
 "Language: de\n"
@@ -16,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.15.1\n"
 
 msgid "Micro-controller id assignment"
 msgstr "Mikrocontroller-ID-Zuweisung"
@@ -45,6 +46,10 @@ msgid ""
 "packet, so a hash function is used to generate a unique 6-byte id "
 "(`canbus_uuid`) from the factory id."
 msgstr ""
+"Jeder Mikro-Kontroller hat eine vom Hersteller eindeutige "
+"Chipidentifizierung, die bei der Vergabe der Id genutzt wird. Diese "
+"Chipidentifizierung kann länger als ein CAN Packet sein, weshalb diese "
+"gehasht wird um eine 6 byte lange (`canbus_uuid`) aus der Chipid zu erhalten."
 
 msgid "Admin messages"
 msgstr "Admin Nachrichten"
@@ -57,7 +62,7 @@ msgid ""
 msgstr ""
 
 msgid "CMD_QUERY_UNASSIGNED message"
-msgstr "CMD_QUERY_UNASSIGNED message"
+msgstr "CMD_QUERY_UNASSIGNED Nachricht"
 
 msgid ""
 "This command queries all micro-controllers that have not yet been assigned a "
@@ -77,7 +82,7 @@ msgstr ""
 "eine`canbus_nodeid` zu."
 
 msgid "RESP_NEED_NODEID message"
-msgstr "RESP_NEED_NODEID message"
+msgstr "RESP_NEED_NODEID Nachricht"
 
 msgid "Data Packets"
 msgstr "Datenpakete"
@@ -110,7 +115,7 @@ msgstr ""
 
 #: docs/CANBUS_protocol.md:block 11 (header)
 msgid "CMD_SET_KLIPPER_NODEID message"
-msgstr "CMD_SET_KLIPPER_NODEID message"
+msgstr "CMD_SET_KLIPPER_NODEID Nachricht"
 
 #: docs/CANBUS_protocol.md:block 13 (paragraph)
 msgid ""

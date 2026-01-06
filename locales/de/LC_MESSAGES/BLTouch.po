@@ -2,13 +2,14 @@
 # Mathis Mensing <gcmatmen@gmail.com>, 2022.
 # Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024, 2025.
 # Mathis Mensing <github@matmen.dev>, 2025.
+# M-M90 <m.musel@protonmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:36+0200\n"
-"PO-Revision-Date: 2025-07-22 08:12+0000\n"
-"Last-Translator: Mathis Mensing <github@matmen.dev>\n"
+"PO-Revision-Date: 2026-01-04 09:02+0000\n"
+"Last-Translator: M-M90 <m.musel@protonmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/bltouch/"
 "de/>\n"
 "Language: de\n"
@@ -16,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.15.1\n"
 
 msgid "Connecting BL-Touch"
 msgstr "Verbindung zum BL Touch"
@@ -65,7 +66,7 @@ msgid ""
 msgstr ""
 "Bevor Sie fortfahren, vergewissern Sie sich, dass der BL-Touch in der "
 "richtigen Höhe montiert ist. Der Stift sollte sich im eingefahrenen Zustand "
-"etwa 2 mm über der Düse befinden."
+"etwa 2 mm über der Düse befinden"
 
 msgid ""
 "When you turn on the printer, the BL-Touch probe should perform a self-test "
