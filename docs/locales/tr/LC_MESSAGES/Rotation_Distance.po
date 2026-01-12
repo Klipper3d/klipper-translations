@@ -1,17 +1,18 @@
 # zafer yazkili <yazkili@hotmail.com>, 2023, 2025.
 # Makers Lab <makerslab.tr@gmail.com>, 2024, 2025.
+# Ege <egetokatli2012@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-07-22 08:06+0000\n"
-"Last-Translator: Makers Lab <makerslab.tr@gmail.com>\n"
+"PO-Revision-Date: 2026-01-12 21:01+0000\n"
+"Last-Translator: Ege <egetokatli2012@gmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/"
 "rotation_distance/tr/>\n"
 "Language: tr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.15.2-dev\n"
 
 msgid ""
 "Stepper motor drivers on Klipper require a `rotation_distance` parameter in "
@@ -40,6 +41,8 @@ msgid ""
 "Or, if you have an older Klipper configuration and know the `step_distance` "
 "parameter you can use this formula:"
 msgstr ""
+"Eğer eski bir klipper konfigürasyonunuz varsa ve `step_distance` "
+"parametresini biliyorsanız bu formülü kullanabilirsiniz:"
 
 msgid ""
 "The `<full_steps_per_rotation>` setting is determined from the type of stepper"
