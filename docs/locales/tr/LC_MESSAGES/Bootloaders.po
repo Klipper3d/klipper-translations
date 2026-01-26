@@ -1,16 +1,17 @@
 # zafer yazkili <yazkili@hotmail.com>, 2023, 2025.
+# Ege <egetokatli2012@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-07-22 08:09+0000\n"
-"Last-Translator: zafer yazkili <yazkili@hotmail.com>\n"
+"PO-Revision-Date: 2026-01-12 21:02+0000\n"
+"Last-Translator: Ege <egetokatli2012@gmail.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/"
 "bootloaders/tr/>\n"
 "Language: tr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.15.2-dev\n"
 
 msgid ""
 "This document provides information on common bootloaders found on micro-"
@@ -380,7 +381,7 @@ msgstr ""
 
 #: docs/Bootloaders.md:block 1 (header)
 msgid "Bootloaders"
-msgstr ""
+msgstr "Önyükleyiciler"
 
 #: docs/Bootloaders.md:block 7 (paragraph)
 msgid ""
