@@ -1,17 +1,18 @@
 # Hosted Weblate <mfvotmjhcj@iubridge.com>, 2024, 2025.
 # Eagle Jin <eaglejin0@gmail.com>, 2025.
+# GJRstone <gjrstone@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-09-18 09:02+0000\n"
-"Last-Translator: Eagle Jin <eaglejin0@gmail.com>\n"
+"PO-Revision-Date: 2026-02-02 04:34+0000\n"
+"Last-Translator: GJRstone <gjrstone@gmail.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/klipper/axis_twist_compensation/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.14-dev\n"
+"X-Generator: Weblate 5.16-dev\n"
 
 #: docs/Axis_Twist_Compensation.md:block 1 (header)
 msgid "Axis Twist Compensation"
@@ -131,7 +132,7 @@ msgstr "[Screws Tilt Adjust](G-Codes.md#screws_tilt_adjust)"
 
 #: docs/Axis_Twist_Compensation.md:block 12 (ordered list)
 msgid "[Z Tilt Adjust](G-Codes.md#z_tilt_adjust)"
-msgstr ""
+msgstr "[Z轴倾斜校正](G-Codes.md#z_tilt_adjust)"
 
 #: docs/Axis_Twist_Compensation.md:block 12 (ordered list)
 msgid "**Finalize the Setup:**"

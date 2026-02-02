@@ -1,13 +1,14 @@
 # Neko.vecter <Vecterfang@icloud.com>, 2021, 2023.
 # Yifei Ding <dingyifeiair@gmail.com>, 2021, 2022, 2023, 2025.
 # "Neko.vecter" <Vecterfang@icloud.com>, 2025.
+# GJRstone <gjrstone@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-10 16:29+0200\n"
-"PO-Revision-Date: 2025-07-22 08:02+0000\n"
-"Last-Translator: \"Neko.vecter\" <Vecterfang@icloud.com>\n"
+"PO-Revision-Date: 2026-02-02 04:34+0000\n"
+"Last-Translator: GJRstone <gjrstone@gmail.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/klipper/rpi_microcontroller/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -15,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.16-dev\n"
 
 msgid ""
 "This document describes the process of running Klipper on a RPi and use the "
@@ -285,6 +286,8 @@ msgid ""
 "This will add hardware pwm control to gpio12 and gpio13 on the Pi (because the"
 " overlay was configured to route pwm0 to pin=12 and pwm1 to pin=13)."
 msgstr ""
+"这会为树莓派上的GPIO12和GPIO13添加硬件PWM控制功能（因为我们在配置里把pwm0指向"
+"了12引脚、把pwm1指向了13引脚）。"
 
 #~ msgid ""
 #~ "cd ~/klipper/\n"
