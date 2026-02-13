@@ -2,13 +2,14 @@
 # Yifei Ding <dingyifeiair@gmail.com>, 2021, 2025.
 # hani-lengxi <2836842270@qq.com>, 2024, 2025.
 # Eagle Jin <eaglejin0@gmail.com>, 2025.
+# GJRstone <gjrstone@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-10 16:29+0200\n"
-"PO-Revision-Date: 2025-12-16 13:00+0000\n"
-"Last-Translator: Eagle Jin <eaglejin0@gmail.com>\n"
+"PO-Revision-Date: 2026-02-02 04:42+0000\n"
+"Last-Translator: GJRstone <gjrstone@gmail.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/klipper/beaglebone/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -16,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.15.1-dev\n"
+"X-Generator: Weblate 5.16-dev\n"
 
 msgid ""
 "This document describes the process of running Klipper on a Beaglebone PRU."
@@ -222,22 +223,26 @@ msgid ""
 "inside the \"Optional features\" because they will not fit in 8Kb PRU firmware"
 " memory, then exit and save config:"
 msgstr ""
+"编译Klipper微控制器代码时，选择为“Beaglebone PRU”配置（选用“BeagleBone Black”"
+"配置时，因PRU框架内存仅8KB不兼容，应额外关闭“Optional features”【可选特性】里"
+"“Support GPIO Bit-banging devices”【支持GPIO模拟协议通信设备】和“Support LCD "
+"devices”【支持LCD设备】），然后保存退出配置："
 
 #: docs/Beaglebone.md:block 37 (paragraph)
 msgid "To build and install the new PRU micro-controller code, run:"
-msgstr ""
+msgstr "为构建安装新的PRU微控制器代码，执行以下命令："
 
 #: docs/Beaglebone.md:block 39 (paragraph)
 msgid ""
 "After previous commands was executed your PRU firmware should be ready and "
 "started to check if everything was fine you can execute following command"
-msgstr ""
+msgstr "执行前述命令后，你的PRU平台应已就绪并开始自检是否正常。你可以运行以下指令"
 
 #: docs/Beaglebone.md:block 41 (paragraph)
 msgid ""
 "and compare last messages with sample one which indicate that everything "
 "started properly:"
-msgstr ""
+msgstr "并比较回显的最后输出和如上正常的示例输出是否一致："
 
 #: docs/Beaglebone.md:block 43 (paragraph)
 msgid ""
@@ -245,6 +250,8 @@ msgid ""
 "main mcu configuration this device is required to be present, if it's absent -"
 " your PRU cores did not start properly."
 msgstr ""
+"注意\"/dev/rpmsg_pru30\"相关内容，这是你在主控制器配置时需要使用的串行设备号"
+"。如果没显示对应设备号，你的PRU核心就没有正常启动。"
 
 #: docs/Beaglebone.md:block 44 (header)
 msgid "Building and installing Linux host micro-controller code"
@@ -326,6 +333,14 @@ msgid ""
 "i2c2_scl/can0_rx/spi1_cs1/gpio0_13/uart1_rtsn P9_24 - "
 "i2c1_scl/can1_rx/gpio0_15/uart1_tx P9_26 - i2c1_sda/can1_tx/gpio0_14/uart1_rx"
 msgstr ""
+"BeagleBone 在引脚功能上非常灵活，同一引脚可以配置为不同功能，相同功能也可以配"
+"置在不同引脚上，但运行中同一引脚只执行一个功能。你不能在单个引脚上复用多个功"
+"能，也不能把一个功能赋予多个引脚。\n"
+"示例：（配置P9_20为gpio0_12时，它不能承担i2c2_sda的功能）\n"
+"P9_20 - i2c2_sda/can0_tx/spi1_cs0/gpio0_12/uart1_ctsn \n"
+"P9_19 - i2c2_scl/can0_rx/spi1_cs1/gpio0_13/uart1_rtsn \n"
+"P9_24 - i2c1_scl/can1_rx/gpio0_15/uart1_tx \n"
+"P9_26 - i2c1_sda/can1_tx/gpio0_14/uart1_rx"
 
 #: docs/Beaglebone.md:block 63 (paragraph)
 msgid ""
@@ -333,12 +348,14 @@ msgid ""
 "during linux boot they are configured by editing file /boot/uEnv.txt with "
 "elevated permissions"
 msgstr ""
+"引脚功能是在Linux启动时通过专门覆写的文件定义的，需要使用特权编辑/boot/"
+"uEnv.txt来配置"
 
 #: docs/Beaglebone.md:block 65 (paragraph)
 msgid ""
 "and defining which functionality to load, for example to enable CAN1 you need "
 "to define overlay for it"
-msgstr ""
+msgstr "并具体定义引脚采用什么功能，比如你可以定义overlay覆写来启用CAN1"
 
 #: docs/Beaglebone.md:block 67 (paragraph)
 msgid ""
@@ -348,10 +365,14 @@ msgid ""
 "overlay - you can analyze source files in this location: /opt/sources/bb.org-"
 "overlays/src/arm/ or search info in BeagleBone forums."
 msgstr ""
+"以上覆写BB-CAN1-00A0.dtbo会重新配置所有CAN1所需引脚，并在Linux内创建CAN设备。"
+"改变覆写需要重启系统以生效。如果你想要知道覆写影响、占用了哪些引脚，你可以分"
+"析源文件或到BeagleBone论坛查找信息，源文件在：/opt/sources/bb.org-overlays/"
+"src/arm/ 。"
 
 #: docs/Beaglebone.md:block 68 (header)
 msgid "Enabling hardware SPI"
-msgstr ""
+msgstr "启用硬件SPI"
 
 #: docs/Beaglebone.md:block 69 (paragraph)
 msgid ""
@@ -362,20 +383,26 @@ msgid ""
 " you need to disable HDMI Audio and enable SPI1 To do that edit file "
 "/boot/uEnv.txt with elevated permissions"
 msgstr ""
+"BeagleBone一般有多个硬件SPI总线（比如BeagleBone Black有2条最高48MHz的硬件SPI"
+"，虽然它们一般会被内核设备树限制到16MHz）。默认情况下，BeagleBone Black的部分"
+"SPI1引脚被配置为HDMI音频输出。如要使用完整4线SPI1，你需要用特权编辑/boot/"
+"uEnv.txt以禁用HDMI音频并启用SPI1"
 
 #: docs/Beaglebone.md:block 71 (paragraph)
 msgid "uncomment variable"
-msgstr ""
+msgstr "去除注释掉变量的#"
 
 #: docs/Beaglebone.md:block 73 (paragraph)
 msgid "next uncomment variable and define it this way"
-msgstr ""
+msgstr "再去除到对应变量的注释，并如下定义"
 
 #: docs/Beaglebone.md:block 75 (paragraph)
 msgid ""
 "Save changes in /boot/uEnv.txt and reboot the board. Now you have SPI1 "
 "Enabled, to verify its presence execute command"
 msgstr ""
+"保存/boot/uEnv.txt的变更并重启板子。现在SPI1已启用，执行以下命令检查SPI是否已"
+"启用"
 
 #: docs/Beaglebone.md:block 77 (paragraph)
 msgid ""
@@ -385,10 +412,14 @@ msgid ""
 "Level-Shifting chip and SPI1 pins will become available on P503 port, and they"
 " can accept 5v hardware, check CRAMPS board Schematics for pin references."
 msgstr ""
+"注意BeagleBone硬件电压是3.3V，使用5V SPI设备时需要电平转换芯片，比如"
+"SN74CBTD3861, SN74LVC1G34或类似物。如果你使用了CRAMPS板，那么它已经自带了电平"
+"转换芯片，把SPI1发布于P503端口并支持5V硬件。查看CRAMPS板原理图以获取引脚定义"
+"。"
 
 #: docs/Beaglebone.md:block 78 (header)
 msgid "Enabling hardware I2C"
-msgstr ""
+msgstr "启用硬件I2C"
 
 #: docs/Beaglebone.md:block 79 (paragraph)
 msgid ""
