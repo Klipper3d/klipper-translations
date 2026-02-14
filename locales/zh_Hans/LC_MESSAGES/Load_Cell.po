@@ -1,17 +1,18 @@
 # LuckeyMouse <qq2429865423@163.com>, 2025.
 # Eagle Jin <eaglejin0@gmail.com>, 2025.
+# GJRstone <gjrstone@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-12-16 13:00+0000\n"
-"Last-Translator: Eagle Jin <eaglejin0@gmail.com>\n"
+"PO-Revision-Date: 2026-02-02 04:34+0000\n"
+"Last-Translator: GJRstone <gjrstone@gmail.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/klipper/load_cell/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.15.1-dev\n"
+"X-Generator: Weblate 5.16-dev\n"
 
 #: docs/Load_Cell.md:block 1 (header)
 msgid "Load Cells"
@@ -331,7 +332,7 @@ msgstr ""
 
 #: docs/Load_Cell.md:block 45 (header)
 msgid "`force_safety_limit`"
-msgstr ""
+msgstr "`force_safety_limit（力安全限值）`"
 
 #: docs/Load_Cell.md:block 46 (paragraph)
 msgid ""
