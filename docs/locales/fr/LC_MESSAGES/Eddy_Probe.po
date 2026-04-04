@@ -1,16 +1,17 @@
 # Pyroa Surtac <pyroa@orange.fr>, 2025.
+# Momossim <nassim_yet@outlook.fr>, 2026.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-07-22 09:13+0000\n"
-"Last-Translator: Pyroa Surtac <pyroa@orange.fr>\n"
+"PO-Revision-Date: 2026-02-16 07:09+0000\n"
+"Last-Translator: Momossim <nassim_yet@outlook.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/klipper/"
 "eddy_probe/fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.16-dev\n"
 
 #: docs/Eddy_Probe.md:block 1 (header)
 msgid "Eddy Current Inductive probe"
@@ -26,7 +27,6 @@ msgstr ""
 "en.wikipedia.org/wiki/Eddy_current) à courants de Foucault dans Klipper."
 
 #: docs/Eddy_Probe.md:block 3 (paragraph)
-#, fuzzy
 msgid ""
 "Currently, an eddy current probe can not be used for Z homing. The sensor can "
 "only be used for Z probing."
@@ -36,6 +36,7 @@ msgstr ""
 "palpage Z."
 
 #: docs/Eddy_Probe.md:block 4 (paragraph)
+#, fuzzy
 msgid ""
 "Start by declaring a [probe_eddy_current config "
 "section](Config_Reference.md#probe_eddy_current) in the printer.cfg file. It "
@@ -43,6 +44,12 @@ msgid ""
 " require an `x_offset` and `y_offset`. If these values are not known, one "
 "should estimate the values during initial calibration."
 msgstr ""
+"Commencez par déclarer une [probe_eddy_current config section]"
+"(Config_Reference.md#probe_eddy_current) dans le fichier printer.cfg . Il "
+"est recommandé de définir le décalage z [`z_offset`] à 0.5 mm. Le capteur "
+"nécessite généralement des décalages x [`x_offset`] et y [`y_offset`]. Si "
+"ces valeurs sont inconnues, il est conseillé de les estimer lors de "
+"l'étalonnage initial."
 
 #: docs/Eddy_Probe.md:block 5 (paragraph)
 msgid ""
