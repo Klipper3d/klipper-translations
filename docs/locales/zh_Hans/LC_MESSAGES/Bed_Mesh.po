@@ -4,13 +4,14 @@
 # "Neko.vecter" <Vecterfang@icloud.com>, 2024, 2025.
 # 云line <yunline@foxmail.com>, 2024, 2025.
 # Eagle Jin <eaglejin0@gmail.com>, 2025.
+# GJRstone <gjrstone@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-06-28 08:28+0200\n"
-"PO-Revision-Date: 2025-09-17 10:01+0000\n"
-"Last-Translator: Eagle Jin <eaglejin0@gmail.com>\n"
+"PO-Revision-Date: 2026-03-11 22:09+0000\n"
+"Last-Translator: GJRstone <gjrstone@gmail.com>\n"
 "Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
 "projects/klipper/bed_mesh/zh_Hans/>\n"
 "Language: zh_Hans\n"
@@ -18,7 +19,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.14-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 msgid "Basic Configuration"
 msgstr "基本配置"
@@ -675,7 +676,7 @@ msgstr "如果`bed_mesh`配置文件中的 `probe_count`设置为 "
 
 #: docs/Bed_Mesh.md:block 55 (paragraph)
 msgid "![adaptive_bedmesh](img/adaptive_bed_mesh.svg)"
-msgstr ""
+msgstr "![自适应床网](img/adaptive_bed_mesh.svg)"
 
 #: docs/Bed_Mesh.md:block 57 (unordered list)
 msgid ""
