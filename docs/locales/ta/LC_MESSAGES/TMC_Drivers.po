@@ -1,17 +1,18 @@
 # Languages add-on <noreply-addon-languages@weblate.org>, 2025.
 # தமிழ்நேரம் <anishprabu.t@gmail.com>, 2025.
+# தமிழ்நேரம் <tamilneram247@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-09-08 13:02+0000\n"
-"Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
+"PO-Revision-Date: 2026-03-21 16:09+0000\n"
+"Last-Translator: தமிழ்நேரம் <tamilneram247@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/klipper/"
 "tmc_drivers/ta/>\n"
 "Language: ta\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.14-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 msgid ""
 "This document provides information on using Trinamic stepper motor drivers in "
@@ -226,8 +227,8 @@ msgid ""
 "initial \"stallguard\" settings. A tmc2209 example configuration for an X axis"
 " might look like:"
 msgstr ""
-"சென்சார்லெச் ஓமிங் ஊசிகளை உள்ளமைக்கவும், ஆரம்ப \"ச்டால்கார்ட்\" அமைப்புகளை உள்ளமைக்கவும் தேவை"
-". ஒரு ஃச் அச்சுக்கான ஒரு TMC2209 எடுத்துக்காட்டு உள்ளமைவு போல் இருக்கலாம்:"
+"சென்சார்லெச் ஓமிங் ஊசிகளை உள்ளமைக்கவும், ஆரம்ப \"ச்டால்கார்ட்\" அமைப்புகளை உள்ளமைக்கவும் தேவை. "
+"ஒரு ஃச் அச்சுக்கான ஒரு டிஎம்சி2209 எடுத்துக்காட்டு உள்ளமைவு போல் இருக்கலாம்:"
 
 msgid "An example tmc2130 or tmc5160 config might look like:"
 msgstr "ஒரு எடுத்துக்காட்டு TMC2130 அல்லது TMC5160 கட்டமைப்பு போல இருக்கலாம்:"
