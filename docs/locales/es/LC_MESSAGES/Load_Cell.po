@@ -1,6 +1,16 @@
-#
+# Pajoer Pa <pajoer@gmail.com>, 2026.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2026-03-07 09:10+0000\n"
+"Last-Translator: Pajoer Pa <pajoer@gmail.com>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/"
+"load_cell/es/>\n"
+"Language: es\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.17-dev\n"
+"Content-Transfer-Encoding: 8bit\n"
 
 #: docs/Load_Cell.md:block 1 (header)
 msgid "Load Cells"
@@ -13,10 +23,15 @@ msgid ""
 "filament. A calibrated force sensor is an important part of a load cell based "
 "probe."
 msgstr ""
+"Este documento describe la compatibilidad de Klipper con las células de "
+"carga. La funcionalidad básica de las células de carga se puede utilizar "
+"para leer datos de fuerza y pesar elementos como filamentos. Un sensor de "
+"fuerza calibrado es una parte importante de una sonda basada en una célula "
+"de carga."
 
 #: docs/Load_Cell.md:block 3 (header)
 msgid "Related Documentation"
-msgstr ""
+msgstr "Documentación relacionada"
 
 #: docs/Load_Cell.md:block 4 (unordered list)
 msgid "[load_cell Config Reference](Config_Reference.md#load_cell)"
@@ -29,6 +44,7 @@ msgstr ""
 #: docs/Load_Cell.md:block 4 (unordered list)
 msgid "[load_cell Status Reference](Status_Reference.md#load_cell)"
 msgstr ""
+"[Referencia de estado de la célula de carga](Status_Reference.md#load_cell)"
 
 #: docs/Load_Cell.md:block 5 (header)
 msgid "Using `LOAD_CELL_DIAGNOSTIC`"

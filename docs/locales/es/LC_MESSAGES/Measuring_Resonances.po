@@ -1,18 +1,19 @@
 # Nicholas Suaterna Malloye <n.suaterna7@gmail.com>, 2023, 2025.
 # Francisco Javier Hoyos Arango <cofhal@gmail.com>, 2023, 2025.
 # Francisco Serrador <fserrador@gmail.com>, 2024, 2025.
+# Pajoer Pa <pajoer@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-07-22 08:07+0000\n"
-"Last-Translator: Francisco Javier Hoyos Arango <cofhal@gmail.com>\n"
+"PO-Revision-Date: 2026-03-07 09:10+0000\n"
+"Last-Translator: Pajoer Pa <pajoer@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/"
 "measuring_resonances/es/>\n"
 "Language: es\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 msgid "Measuring Resonances"
 msgstr "Midiendo las resonancias"
@@ -21,7 +22,7 @@ msgid "Installation instructions"
 msgstr "Instrucciones de instalación"
 
 msgid "Wiring"
-msgstr ""
+msgstr "Cableado"
 
 msgid ""
 "You need to connect ADXL345 to your Raspberry Pi via SPI. Note that the I2C "
@@ -40,7 +41,7 @@ msgid "RPi pin"
 msgstr ""
 
 msgid "RPi pin name"
-msgstr ""
+msgstr "Nombre del pin RPi"
 
 msgid "3V3 (or VCC)"
 msgstr ""

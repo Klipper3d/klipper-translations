@@ -1,36 +1,40 @@
-#
+# Pajoer Pa <pajoer@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-07-22 08:58+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2026-03-07 09:10+0000\n"
+"Last-Translator: Pajoer Pa <pajoer@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/"
 "canbus_troubleshooting/es/>\n"
 "Language: es\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 #: docs/CANBUS_Troubleshooting.md:block 1 (header)
 msgid "CANBUS Troubleshooting"
-msgstr ""
+msgstr "Solución de problemas de CANBUS"
 
 #: docs/CANBUS_Troubleshooting.md:block 2 (paragraph)
 msgid ""
 "This document provides information on troubleshooting communication issues "
 "when using [Klipper with CAN bus](CANBUS.md)."
 msgstr ""
+"Este documento proporciona información sobre la resolución de problemas de "
+"comunicación al utilizar [Klipper con bus CAN](CANBUS.md)."
 
 #: docs/CANBUS_Troubleshooting.md:block 3 (header)
 msgid "Verify CAN bus wiring"
-msgstr ""
+msgstr "Verificar el cableado del bus CAN."
 
 #: docs/CANBUS_Troubleshooting.md:block 4 (paragraph)
 msgid ""
 "The first step in troubleshooting communication issues is to verify the CAN "
 "bus wiring."
 msgstr ""
+"El primer paso para solucionar los problemas de comunicación es verificar el "
+"cableado del bus CAN."
 
 #: docs/CANBUS_Troubleshooting.md:block 5 (paragraph)
 msgid ""
@@ -39,6 +43,11 @@ msgid ""
 "are not properly installed then messages may not be able to be sent at all or "
 "the connection may have sporadic instability."
 msgstr ""
+"Asegúrese de que haya exactamente dos resistencias de terminación de 120 "
+"ohmios [resistencias de terminación](CANBUS.md#terminating-resistors) en el "
+"bus CAN. Si las resistencias no están instaladas correctamente, es posible "
+"que no se puedan enviar mensajes o que la conexión presente inestabilidad "
+"esporádica."
 
 #: docs/CANBUS_Troubleshooting.md:block 6 (paragraph)
 msgid ""
@@ -48,6 +57,11 @@ msgid ""
 "travel parallel to the CANH and CANL wires do not have the same amount of "
 "twists."
 msgstr ""
+"El cableado de los buses CANH y CANL debe estar trenzado entre sí. Como "
+"mínimo, el cableado debe tener un trenzado cada pocos centímetros. Evite "
+"trenzar el cableado CANH y CANL alrededor de los cables de alimentación y "
+"asegúrese de que los cables de alimentación que discurren en paralelo a los "
+"cables CANH y CANL no tengan la misma cantidad de trenzados."
 
 #: docs/CANBUS_Troubleshooting.md:block 7 (paragraph)
 msgid ""

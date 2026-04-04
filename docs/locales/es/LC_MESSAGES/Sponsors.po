@@ -1,17 +1,18 @@
 # Juan <benitesjn@gmail.com>, 2023.
 # Juan Benites <benitesjn@gmail.com>, 2025.
+# Pajoer Pa <pajoer@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-07-22 08:42+0000\n"
-"Last-Translator: Juan Benites <benitesjn@gmail.com>\n"
+"PO-Revision-Date: 2026-03-07 09:10+0000\n"
+"Last-Translator: Pajoer Pa <pajoer@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/sponsors/"
 "es/>\n"
 "Language: es\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 #: docs/Sponsors.md:block 1 (header)
 msgid "Sponsors"
@@ -22,6 +23,9 @@ msgid ""
 "Klipper is Free Software. We depend on the generous support from sponsors. "
 "Please consider sponsoring Klipper or supporting our sponsors."
 msgstr ""
+"Klipper es un software libre. Dependemos del generoso apoyo de nuestros "
+"patrocinadores. Por favor, considere patrocinar a Klipper o apoyar a "
+"nuestros patrocinadores."
 
 #: docs/Sponsors.md:block 3 (header)
 msgid "BIGTREETECH"
@@ -35,10 +39,15 @@ msgid ""
 "[Facebook](https://www.facebook.com/BIGTREETECH) or "
 "[Twitter](https://twitter.com/BigTreeTech)."
 msgstr ""
+"BIGTREETECH es el patrocinador oficial de placas base de Klipper. "
+"BIGTREETECH se compromete a desarrollar productos innovadores y competitivos "
+"para servir mejor a la comunidad de la impresión 3D. Síguelos en [Facebook]"
+"(https://www.facebook.com/BIGTREETECH) o [Twitter](https://twitter.com/"
+"BigTreeTech)."
 
 #: docs/Sponsors.md:block 6 (header)
 msgid "Klipper Developers"
-msgstr ""
+msgstr "Desarrolladores de Klipper"
 
 #: docs/Sponsors.md:block 7 (header)
 msgid "Kevin O'Connor"

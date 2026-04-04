@@ -1,20 +1,20 @@
-#
+# Pajoer Pa <pajoer@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-07-22 08:40+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2026-03-07 09:10+0000\n"
+"Last-Translator: Pajoer Pa <pajoer@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/"
 "exclude_object/es/>\n"
 "Language: es\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 #: docs/Exclude_Object.md:block 1 (header)
 msgid "Exclude Objects"
-msgstr ""
+msgstr "Excluir objetos"
 
 #: docs/Exclude_Object.md:block 2 (paragraph)
 msgid ""
@@ -25,6 +25,13 @@ msgid ""
 "macros.cfg](../config/sample-macros.cfg) file for a Marlin/RepRapFirmware "
 "compatible M486 G-Code macro.)"
 msgstr ""
+"El módulo `[exclude_object]` permite a Klipper excluir objetos mientras se "
+"está realizando una impresión. Para habilitar esta función, incluya una "
+"sección de configuración [exclude_object]"
+"(Config_Reference.md#exclude_object) (consulte también la [referencia de "
+"comandos](G-Codes.md#exclude-object) y el archivo [sample-macros.cfg](../"
+"config/sample-macros.cfg) para obtener una macro M486 G-Code compatible con "
+"Marlin/RepRapFirmware)."
 
 #: docs/Exclude_Object.md:block 3 (paragraph)
 msgid ""
@@ -35,14 +42,22 @@ msgid ""
 "contents of the gcode file, how the internal state of the module is "
 "controlled, and how that state is provided to clients."
 msgstr ""
+"A diferencia de otras opciones de firmware para impresoras 3D, una impresora "
+"que utiliza Klipper emplea un conjunto de componentes y los usuarios tienen "
+"muchas opciones entre las que elegir. Por lo tanto, con el fin de "
+"proporcionar una experiencia de usuario coherente, el módulo "
+"`[exclude_object]` establecerá una especie de contrato o API. El contrato "
+"abarca el contenido del archivo gcode, cómo se controla el estado interno "
+"del módulo y cómo se proporciona ese estado a los clientes."
 
 #: docs/Exclude_Object.md:block 4 (header)
 msgid "Workflow Overview"
-msgstr ""
+msgstr "Descripción general del flujo de trabajo"
 
 #: docs/Exclude_Object.md:block 5 (paragraph)
 msgid "A typical workflow for printing a file might look like this:"
 msgstr ""
+"Un flujo de trabajo típico para imprimir un archivo podría ser el siguiente:"
 
 #: docs/Exclude_Object.md:block 6 (ordered list)
 msgid ""
@@ -51,6 +66,11 @@ msgid ""
 "Alternately, slicers may be configured to prepare object exclusion markers "
 "natively, or in it's own pre-processing step."
 msgstr ""
+"El corte se ha completado y el archivo se ha cargado para su impresión. "
+"Durante la carga, el archivo se procesa y se añaden marcadores "
+"`[exclude_object]` al archivo. Alternativamente, los cortadores pueden "
+"configurarse para preparar marcadores de exclusión de objetos de forma "
+"nativa o en su propio paso de preprocesamiento."
 
 #: docs/Exclude_Object.md:block 6 (ordered list)
 msgid ""

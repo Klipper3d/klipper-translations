@@ -1,17 +1,18 @@
 # Alberto <aru_hackZ.official@zohomail.eu>, 2022.
 # Alberto <alberto.robles.gomez@aruzeta.com>, 2025.
+# Pajoer Pa <pajoer@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-07-22 08:03+0000\n"
-"Last-Translator: Alberto <alberto.robles.gomez@aruzeta.com>\n"
+"PO-Revision-Date: 2026-03-07 09:10+0000\n"
+"Last-Translator: Pajoer Pa <pajoer@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/"
 "example_configs/es/>\n"
 "Language: es\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 msgid ""
 "This document contains guidelines for contributing an example Klipper "
@@ -46,6 +47,10 @@ msgid ""
 "used specification. These \"kit\" printers are generally distinct from normal "
 "\"printers\" in that they are not sold by a manufacturer."
 msgstr ""
+"El prefijo «kit» se utiliza para las impresoras 3D que se montan según una "
+"especificación ampliamente utilizada. Estas impresoras «kit» se diferencian "
+"generalmente de las «impresoras» normales en que no son vendidas por un "
+"fabricante."
 
 msgid ""
 "The `sample` prefix is used for config \"snippets\" that one may copy-and-"

@@ -7,18 +7,19 @@
 # Pablo Casado <lu6mdm@gmail.com>, 2025.
 # Ramiro Luna boca <lunabocaramiro@gmail.com>, 2025.
 # Alberto <alberto.robles.gomez@aruzeta.com>, 2025.
+# Pajoer Pa <pajoer@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-07-22 08:07+0000\n"
-"Last-Translator: Francisco Javier Hoyos Arango <cofhal@gmail.com>\n"
+"PO-Revision-Date: 2026-03-07 09:10+0000\n"
+"Last-Translator: Pajoer Pa <pajoer@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/g-codes/"
 "es/>\n"
 "Language: es\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 #, fuzzy
 msgid ""
@@ -36,12 +37,13 @@ msgstr ""
 
 msgid "Move (G0 or G1): `G1 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>]`"
 msgstr ""
+"Movimiento (G0 o G1): `G1 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>]`"
 
 msgid "Dwell: `G4 P<milliseconds>`"
 msgstr ""
 
 msgid "Move to origin: `G28 [X] [Y] [Z]`"
-msgstr ""
+msgstr "Mover al inicio: `G28 [X] [Y] [Z]`"
 
 msgid "Turn off motors: `M18` or `M84`"
 msgstr ""
