@@ -9,18 +9,19 @@
 # Murateba <robloxmurat5@gmail.com>, 2024, 2025.
 # Tuna Dinçer <hweord@gmail.com>, 2024, 2025.
 # Deleted User <noreply+98848@weblate.org>, 2025.
+# Kehribar <103407696+dpentx@users.noreply.github.com>, 2026.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-07-22 08:08+0000\n"
-"Last-Translator: Deleted User <noreply+98848@weblate.org>\n"
+"PO-Revision-Date: 2026-02-16 07:09+0000\n"
+"Last-Translator: Kehribar <103407696+dpentx@users.noreply.github.com>\n"
 "Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/overview/"
 "tr/>\n"
 "Language: tr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.16-dev\n"
 
 msgid ""
 "Welcome to the Klipper documentation. If new to Klipper, start with the "
@@ -283,6 +284,8 @@ msgid ""
 "[Multi-MCU Homing](Multi_MCU_Homing.md): Homing and probing using multiple "
 "micro-controllers."
 msgstr ""
+"[Çoklu-MCU hedef araması](Multi_MCU_Homing): Birden çok denetleyici ile "
+"hedefi ve yönü belirle."
 
 #: docs/Overview.md:block 6 (unordered list)
 msgid ""
@@ -302,7 +305,7 @@ msgstr ""
 
 #: docs/Overview.md:block 10 (unordered list)
 msgid "[Hall filament width sensor](Hall_Filament_Width_Sensor.md)"
-msgstr ""
+msgstr "[Hall, filament ve genişlik sensörü](Hall_Filament_Width_Sensor.md)"
 
 #: docs/Overview.md:block 6 (unordered list)
 msgid ""
