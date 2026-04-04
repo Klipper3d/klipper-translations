@@ -1,17 +1,18 @@
 # Pyroa Surtac <pyroa@orange.fr>, 2025.
 # Momossim <nassim_yet@outlook.fr>, 2026.
+# Posemartonis <weblate.drainage895@passmail.net>, 2026.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2026-02-16 07:09+0000\n"
-"Last-Translator: Momossim <nassim_yet@outlook.fr>\n"
+"PO-Revision-Date: 2026-03-07 09:10+0000\n"
+"Last-Translator: Posemartonis <weblate.drainage895@passmail.net>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/klipper/"
 "eddy_probe/fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.16-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 #: docs/Eddy_Probe.md:block 1 (header)
 msgid "Eddy Current Inductive probe"
@@ -36,7 +37,6 @@ msgstr ""
 "palpage Z."
 
 #: docs/Eddy_Probe.md:block 4 (paragraph)
-#, fuzzy
 msgid ""
 "Start by declaring a [probe_eddy_current config "
 "section](Config_Reference.md#probe_eddy_current) in the printer.cfg file. It "

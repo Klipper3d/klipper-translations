@@ -1,18 +1,19 @@
 # Thomas Fournier <thomas@artivain.com>, 2023, 2025.
 # Pyroa Surtac <pyroa@orange.fr>, 2025.
 # Momossim <nassim_yet@outlook.fr>, 2026.
+# Posemartonis <weblate.drainage895@passmail.net>, 2026.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2026-02-16 07:09+0000\n"
-"Last-Translator: Momossim <nassim_yet@outlook.fr>\n"
+"PO-Revision-Date: 2026-03-07 09:10+0000\n"
+"Last-Translator: Posemartonis <weblate.drainage895@passmail.net>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/klipper/"
 "axis_twist_compensation/fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.16-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 #: docs/Axis_Twist_Compensation.md:block 1 (header)
 msgid "Axis Twist Compensation"
@@ -33,14 +34,15 @@ msgid ""
 "Adjust](G-Codes.md#z_tilt_adjust) etc returning inaccurate representations of "
 "the bed."
 msgstr ""
-"Certaines imprimantes peuvent avoir une petite torsion dans leur rail X qui "
-"peut fausser les résultats d’une sonde fixée au chariot X. Ceci est courant "
-"dans les imprimantes avec des conceptions comme la Prusa MK3, la Sovol SV06, "
-"etc. et est décrit plus en détail dans [biais de localisation de la sonde]"
-"(Probe_Calibrate.md#location-bias-check). Cela peut entraîner des opérations "
-"de sonde telles que [Bed Mesh](Bed_Mesh.md), [Screw Tilt Adjust](G-"
-"Codes.md#screws_tilt_adjust), [Z Tilt Adjust](G-Codes.md#z_tilt_adjust) etc. "
-"renvoyant des représentations inexactes du lit."
+"Certaines imprimantes peuvent avoir une petite torsion dans leur rail X, ce "
+"qui peut fausser les résultats d'une sonde fixée au chariot X. Ceci est "
+"courant dans les imprimantes avec des conceptions telles que la Prusa MK3, "
+"la Sovol SV06, etc. et est décrit plus en détail sous [biais d'emplacement "
+"de la sonde](Probe_Calibrate.md#location-bias-check). Cela peut entraîner "
+"des opérations de sonde telles que [Bed Mesh](Bed_Mesh.md), [Screws Tilt "
+"Adjust](G-Codes.md#screws_tilt_adjust), [Z Tilt Adjust](G-"
+"Codes.md#z_tilt_adjust), etc. renvoyant des valeurs inexactes. "
+"représentations du lit."
 
 #: docs/Axis_Twist_Compensation.md:block 4 (paragraph)
 msgid ""
