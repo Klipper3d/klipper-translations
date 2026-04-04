@@ -1,11 +1,12 @@
 # 이정희 <daemul72@gmail.com>, 2022, 2025.
+# clearstripe <sakurasan000510@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2022-03-06 16:54+0200\n"
-"PO-Revision-Date: 2025-07-22 08:33+0000\n"
-"Last-Translator: 이정희 <daemul72@gmail.com>\n"
+"PO-Revision-Date: 2026-02-27 17:09+0000\n"
+"Last-Translator: clearstripe <sakurasan000510@gmail.com>\n"
 "Language-Team: Korean <https://hosted.weblate.org/projects/klipper/"
 "navigation/ko/>\n"
 "Language: ko\n"
@@ -13,13 +14,13 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.16.1-dev\n"
 
 msgid "Klipper documentation"
 msgstr "Klipper 문서"
 
 msgid "Installation and Configuration"
-msgstr "설치 및 구성"
+msgstr "설치 및 구성설정"
 
 msgid "Configuration Reference"
 msgstr "구성 참조"
