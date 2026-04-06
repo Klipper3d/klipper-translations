@@ -1,18 +1,20 @@
-#
+# "พันตํารวจโทวิศิษฎ์ ทองโม้ (สํานักงานตํารวจแห่งชาติ)" <bellnolimit5492@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-07-22 08:56+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2026-03-15 08:09+0000\n"
+"Last-Translator: \"พันตํารวจโทวิศิษฎ์ ทองโม้ (สํานักงานตํารวจแห่งชาติ)\" "
+"<bellnolimit5492@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/klipper/readme/th/>"
 "\n"
 "Language: th\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
+#, fuzzy
 msgid ""
 "Welcome to the Klipper documentation. The [overview document](Overview.md) is "
 "a good starting point."
-msgstr ""
+msgstr "พันตำรวจโทวิศิษฎ์ ทองโม้"

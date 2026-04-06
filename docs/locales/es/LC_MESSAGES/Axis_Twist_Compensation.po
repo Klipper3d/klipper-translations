@@ -1,24 +1,24 @@
-#
+# Pajoer Pa <pajoer@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-07-22 08:57+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2026-03-07 09:10+0000\n"
+"Last-Translator: Pajoer Pa <pajoer@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/"
 "axis_twist_compensation/es/>\n"
 "Language: es\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 #: docs/Axis_Twist_Compensation.md:block 1 (header)
 msgid "Axis Twist Compensation"
-msgstr ""
+msgstr "Compensación de torsión del eje"
 
 #: docs/Axis_Twist_Compensation.md:block 2 (paragraph)
 msgid "This document describes the [axis_twist_compensation] module."
-msgstr ""
+msgstr "Este documento describe el módulo [axis_twist_compensation]."
 
 #: docs/Axis_Twist_Compensation.md:block 3 (paragraph)
 msgid ""
@@ -31,6 +31,14 @@ msgid ""
 "Adjust](G-Codes.md#z_tilt_adjust) etc returning inaccurate representations of "
 "the bed."
 msgstr ""
+"Algunas impresoras pueden tener una pequeña torsión en su riel X que puede "
+"sesgar los resultados de una sonda conectada al carro X. Esto es común en "
+"impresoras con diseños como la Prusa MK3, Sovol SV06, etc., y se describe "
+"con más detalle en [sesgo de ubicación de la sonda]"
+"(Probe_Calibrate.md#location-bias-check). Esto puede dar lugar a que "
+"operaciones de la sonda como [Bed Mesh](Bed_Mesh.md), [Screws Tilt Adjust](G-"
+"Codes.md#screws_tilt_adjust), [Z Tilt Adjust](G-Codes.md#z_tilt_adjust), "
+"etc. devuelvan representaciones inexactas de la cama."
 
 #: docs/Axis_Twist_Compensation.md:block 4 (paragraph)
 msgid ""
@@ -39,16 +47,22 @@ msgid ""
 "recommended to first use mechanical means to fix it prior to applying software"
 " corrections."
 msgstr ""
+"Este módulo utiliza mediciones manuales realizadas por el usuario para "
+"corregir los resultados de la sonda. Tenga en cuenta que si su eje está "
+"significativamente torcido, se recomienda encarecidamente utilizar primero "
+"medios mecánicos para fijarlo antes de aplicar correcciones de software."
 
 #: docs/Axis_Twist_Compensation.md:block 5 (paragraph)
 msgid ""
 "**Warning**: This module is not compatible with dockable probes yet and will "
 "try to probe the bed without attaching the probe if you use it."
 msgstr ""
+"**Advertencia**: Este módulo aún no es compatible con sondas acoplables e "
+"intentará sondear la cama sin conectar la sonda si lo utiliza."
 
 #: docs/Axis_Twist_Compensation.md:block 6 (header)
 msgid "Overview of compensation usage"
-msgstr ""
+msgstr "Resumen del uso de la compensación"
 
 #: docs/Axis_Twist_Compensation.md:block 7 (quote)
 msgid ""

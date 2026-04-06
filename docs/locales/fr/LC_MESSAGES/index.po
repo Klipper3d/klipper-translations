@@ -2,18 +2,19 @@
 # Francis Poulizac <francis@poulizac.fr>, 2023.
 # jean-luc MATTEI <jlucm@free.fr>, 2023, 2025.
 # Sébastien Thieury <dev.sebthieu@serendip-it.fr>, 2025.
+# Posemartonis <weblate.drainage895@passmail.net>, 2026.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-11-27 21:53+0000\n"
-"Last-Translator: Sébastien Thieury <dev.sebthieu@serendip-it.fr>\n"
+"PO-Revision-Date: 2026-03-07 09:10+0000\n"
+"Last-Translator: Posemartonis <weblate.drainage895@passmail.net>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/klipper/index/fr/>"
 "\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.15-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 #: docs/index.md:block 1 (paragraph)
 msgid "hide:"
@@ -25,7 +26,7 @@ msgstr "toc title: Bienvenue"
 
 #: docs/index.md:block 3 (paragraph)
 msgid "![](img/klipper-logo.png){ .center-image }"
-msgstr "![](img/klipper-logo.png){ .center-image }"
+msgstr "![](img/klipper-logo.png){ .centre-image }"
 
 #: docs/index.md:block 4 (paragraph)
 msgid ""

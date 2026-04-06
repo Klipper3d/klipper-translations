@@ -1,15 +1,17 @@
 # Chip <itsjustchipoverhere@gmail.com>, 2025.
+# Ngô Quang Đại <thanglinh868686@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-07-22 08:35+0000\n"
-"Last-Translator: Chip <itsjustchipoverhere@gmail.com>\n"
-"Language-Team: Vietnamese <https://hosted.weblate.org/projects/klipper/overview/vi/>\n"
+"PO-Revision-Date: 2026-02-23 16:09+0000\n"
+"Last-Translator: Ngô Quang Đại <thanglinh868686@gmail.com>\n"
+"Language-Team: Vietnamese <https://hosted.weblate.org/projects/klipper/"
+"overview/vi/>\n"
 "Language: vi\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.16.1-dev\n"
 
 msgid ""
 "Welcome to the Klipper documentation. If new to Klipper, start with the "
@@ -49,7 +51,7 @@ msgstr "[Tải](Installation.md): Hướng dẫn tải Klipper."
 
 msgid ""
 "[Config Reference](Config_Reference.md): Description of config parameters."
-msgstr ""
+msgstr "[Tham chiếu cấu hình](Config_Reference.md): Mô tả các tham số cấu hình."
 
 msgid ""
 "[Rotation Distance](Rotation_Distance.md): Calculating the rotation_distance "

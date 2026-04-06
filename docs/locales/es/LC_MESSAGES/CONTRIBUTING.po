@@ -2,18 +2,19 @@
 # Adolfo Jayme Barrientos <fitojb@ubuntu.com>, 2022, 2025.
 # Cecilia Mora <cecilia-mora22@hotmail.com>, 2022, 2025.
 # Pepe <bungeeranked@users.noreply.hosted.weblate.org>, 2025.
+# Pajoer Pa <pajoer@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-07-22 08:02+0000\n"
-"Last-Translator: Cecilia Mora <cecilia-mora22@hotmail.com>\n"
+"PO-Revision-Date: 2026-03-07 09:10+0000\n"
+"Last-Translator: Pajoer Pa <pajoer@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/"
 "contributing/es/>\n"
 "Language: es\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 msgid "Contributing to Klipper"
 msgstr "Contribuir a Klipper"
@@ -24,10 +25,15 @@ msgid ""
 "certificate-of-origin). It must contain your real name (sorry, no pseudonyms "
 "or anonymous contributions) and contain a current email address."
 msgstr ""
+"Es importante incluir una línea «Signed-off-by» en cada confirmación, ya que "
+"certifica que aceptas el [certificado de origen del desarrollador](developer-"
+"certificate-of-origin). Debe contener tu nombre real (lo sentimos, no se "
+"admiten seudónimos ni contribuciones anónimas) y una dirección de correo "
+"electrónico actual."
 
 #: docs/CONTRIBUTING.md:block 9 (header)
 msgid "Contributing to Klipper Translations"
-msgstr ""
+msgstr "Contribuir a Klipper Translations"
 
 #: docs/CONTRIBUTING.md:block 11 (unordered list)
 msgid "75% Total coverage"
@@ -35,7 +41,7 @@ msgstr "75% de cobertura total"
 
 #: docs/CONTRIBUTING.md:block 11 (unordered list)
 msgid "An updated navigation hierarchy PR in klipper-translations."
-msgstr ""
+msgstr "Una jerarquía de navegación actualizada PR en klipper-translations."
 
 #: docs/CONTRIBUTING.md:block 13 (paragraph)
 msgid ""
@@ -45,6 +51,12 @@ msgid ""
 "translations) `readme.md`. Once a translation is ready, the corresponding "
 "modification to the Klipper project can be made."
 msgstr ""
+"Para reducir la frustración que supone traducir términos específicos del "
+"dominio y estar al tanto de las traducciones en curso, puedes enviar una "
+"solicitud de incorporación de cambios modificando el archivo `readme.md` del "
+"[Proyecto Klipper-translations](https://github.com/Klipper3d/klipper-"
+"translations). Una vez que la traducción esté lista, se podrá realizar la "
+"modificación correspondiente en el proyecto Klipper."
 
 #: docs/CONTRIBUTING.md:block 14 (paragraph)
 msgid ""

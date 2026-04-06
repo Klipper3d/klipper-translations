@@ -1,10 +1,21 @@
-#
+# Momossim <nassim_yet@outlook.fr>, 2026.
+# Posemartonis <weblate.drainage895@passmail.net>, 2026.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2026-03-23 12:09+0000\n"
+"Last-Translator: Posemartonis <weblate.drainage895@passmail.net>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/klipper/load_cell/"
+"fr/>\n"
+"Language: fr\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 #: docs/Load_Cell.md:block 1 (header)
 msgid "Load Cells"
-msgstr ""
+msgstr "Cellules de charge"
 
 #: docs/Load_Cell.md:block 2 (paragraph)
 msgid ""
@@ -13,10 +24,14 @@ msgid ""
 "filament. A calibrated force sensor is an important part of a load cell based "
 "probe."
 msgstr ""
+"Ce document décris le support de Klipper pour les cellules de charge. Les "
+"fonctionnalités d'une cellule de charge basique peut-être utilisée pour lire "
+"les données de force et pour peser des choses comme du filament. Un capteur "
+"de force calibré est un composant important d'une sonde à cellule de charge."
 
 #: docs/Load_Cell.md:block 3 (header)
 msgid "Related Documentation"
-msgstr ""
+msgstr "Documentation connexe"
 
 #: docs/Load_Cell.md:block 4 (unordered list)
 msgid "[load_cell Config Reference](Config_Reference.md#load_cell)"

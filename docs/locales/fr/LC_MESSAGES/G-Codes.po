@@ -4,18 +4,19 @@
 # Francis Poulizac <francis@poulizac.fr>, 2022, 2023, 2025.
 # jean-luc MATTEI <jlucm@free.fr>, 2023, 2024, 2025.
 # Thibaud <thibaud.perso@proton.me>, 2025.
+# Posemartonis <weblate.drainage895@passmail.net>, 2026.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-07-22 08:13+0000\n"
-"Last-Translator: Thibaud <thibaud.perso@proton.me>\n"
+"PO-Revision-Date: 2026-03-23 12:09+0000\n"
+"Last-Translator: Posemartonis <weblate.drainage895@passmail.net>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/klipper/g-codes/"
 "fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 msgid ""
 "This document describes the commands that Klipper supports. These are commands"
@@ -3353,7 +3354,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 298 (header)
 msgid "[quad_gantry_level]"
-msgstr ""
+msgstr "[quad_gantry_level]"
 
 #: docs/G-Codes.md:block 299 (paragraph)
 msgid ""
