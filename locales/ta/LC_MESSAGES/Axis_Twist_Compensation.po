@@ -1,17 +1,18 @@
 # Languages add-on <noreply-addon-languages@weblate.org>, 2025.
 # தமிழ்நேரம் <anishprabu.t@gmail.com>, 2025.
+# தமிழ்நேரம் <tamilneram247@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-09-08 13:02+0000\n"
-"Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
+"PO-Revision-Date: 2026-03-21 16:09+0000\n"
+"Last-Translator: தமிழ்நேரம் <tamilneram247@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/klipper/"
 "axis_twist_compensation/ta/>\n"
 "Language: ta\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.14-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 #: docs/Axis_Twist_Compensation.md:block 1 (header)
 msgid "Axis Twist Compensation"
@@ -19,7 +20,7 @@ msgstr "அச்சு திருப்ப இழப்பீடு"
 
 #: docs/Axis_Twist_Compensation.md:block 2 (paragraph)
 msgid "This document describes the [axis_twist_compensation] module."
-msgstr "இந்த ஆவணம் [AXIS_TWIST_COMPENSATION] தொகுதியை விவரிக்கிறது."
+msgstr "இந்த ஆவணம் [axis_twist_compensation] தொகுதியை விவரிக்கிறது."
 
 #: docs/Axis_Twist_Compensation.md:block 3 (paragraph)
 msgid ""
@@ -82,14 +83,14 @@ msgstr ""
 
 #: docs/Axis_Twist_Compensation.md:block 12 (header)
 msgid "[axis_twist_compensation] setup and commands"
-msgstr "[AXIS_TWIST_COMPENSATION] அமைப்பு மற்றும் கட்டளைகள்"
+msgstr "[axis_twist_compensation] அமைப்பு மற்றும் கட்டளைகள்"
 
 #: docs/Axis_Twist_Compensation.md:block 13 (paragraph)
 msgid ""
 "Configuration options for [axis_twist_compensation] can be found in the "
 "[Configuration Reference](Config_Reference.md#axis_twist_compensation)."
 msgstr ""
-"[AXIS_TWIST_COMPENSATION] க்கான உள்ளமைவு விருப்பங்கள் [உள்ளமைவு குறிப்பு]"
+"[axis_twist_compensation] க்கான உள்ளமைவு விருப்பங்கள் [உள்ளமைவு குறிப்பு]"
 "(Config_Reference.md#axis_twist_compensation) இல் காணலாம்."
 
 #: docs/Axis_Twist_Compensation.md:block 14 (paragraph)
@@ -97,8 +98,8 @@ msgid ""
 "Commands for [axis_twist_compensation] can be found in the [G-Codes "
 "Reference](G-Codes.md#axis_twist_compensation)"
 msgstr ""
-"[AXIS_TWIST_COMPENSATION] க்கான கட்டளைகளை [G- குறியீடுகள்]"
-"(G-Codes.md#axis_twist_compensation) இல் காணலாம்)"
+"[axis_twist_compensation] க்கான கட்டளைகளை [G- குறியீடுகள்](G-"
+"Codes.md#axis_twist_compensation) இல் காணலாம்)"
 
 #: docs/Axis_Twist_Compensation.md:block 8 (header)
 msgid "Basic Usage: X-Axis Calibration"
@@ -106,7 +107,7 @@ msgstr "அடிப்படை பயன்பாடு: எக்ச்-அ�
 
 #: docs/Axis_Twist_Compensation.md:block 9 (ordered list)
 msgid "After setting up the `[axis_twist_compensation]` module, run:"
-msgstr "`[AXIS_TWIST_COMPENSATION]` தொகுதியை அமைத்த பிறகு, இயக்கவும்:"
+msgstr "`[axis_twist_compensation]` தொகுதியை அமைத்தபிறகு, இயக்கவும்:"
 
 #: docs/Axis_Twist_Compensation.md:block 11 (paragraph)
 msgid ""
@@ -151,7 +152,7 @@ msgstr "** அமைப்பை இறுதி செய்யுங்கள�
 #: docs/Axis_Twist_Compensation.md:block 12 (ordered list)
 msgid "Home all axes, and perform a [Bed Mesh](Bed_Mesh.md) if necessary."
 msgstr ""
-"அனைத்து அச்சுகளையும் வீட்டிலேயே, தேவைப்பட்டால் [படுக்கை கண்ணி](BED_MESH.MD) செய்யுங்கள்."
+"அனைத்து அச்சுகளையும் வீட்டிலேயே, தேவைப்பட்டால் [படுக்கை கண்ணி](Bed_Mesh.md) செய்யுங்கள்."
 
 #: docs/Axis_Twist_Compensation.md:block 12 (ordered list)
 msgid ""

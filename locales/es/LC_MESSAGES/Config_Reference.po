@@ -7,18 +7,19 @@
 # Jesus Barba <jesbm1g2@gmail.com>, 2024, 2025.
 # Ars_Codicis <cto@piruxinc.com>, 2024, 2025.
 # Alberto <alberto.robles.gomez@aruzeta.com>, 2025.
+# Pajoer Pa <pajoer@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-07-22 08:04+0000\n"
-"Last-Translator: Francisco Javier Hoyos Arango <cofhal@gmail.com>\n"
+"PO-Revision-Date: 2026-03-07 09:10+0000\n"
+"Last-Translator: Pajoer Pa <pajoer@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/"
 "config_reference/es/>\n"
 "Language: es\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 #, fuzzy
 msgid ""
@@ -33,22 +34,33 @@ msgid ""
 "document](Installation.md) for information on setting up Klipper and choosing "
 "an initial config file."
 msgstr ""
+"Las descripciones de este documento están formateadas de manera que sea "
+"posible copiarlas y pegarlas en un archivo de configuración de la impresora. "
+"Consulte el [documento de instalación](Installation.md) para obtener "
+"información sobre cómo configurar Klipper y elegir un archivo de "
+"configuración inicial."
 
 msgid "Micro-controller configuration"
 msgstr ""
 
 msgid "Format of micro-controller pin names"
-msgstr ""
+msgstr "Formato de los nombres de los pines del microcontrolador"
 
 msgid ""
 "Many config options require the name of a micro-controller pin. Klipper uses "
 "the hardware names for these pins - for example `PA4`."
 msgstr ""
+"Muchas opciones de configuración requieren el nombre de un pin del "
+"microcontrolador. Klipper utiliza los nombres de hardware para estos pines, "
+"por ejemplo, «PA4»."
 
 msgid ""
 "Pin names may be preceded by `!` to indicate that a reverse polarity should be"
 " used (eg, trigger on low instead of high)."
 msgstr ""
+"Los nombres de los pines pueden ir precedidos de «!» para indicar que se "
+"debe utilizar una polaridad inversa (por ejemplo, activación en bajo en "
+"lugar de en alto)."
 
 msgid ""
 "Input pins may be preceded by `^` to indicate that a hardware pull-up resistor"

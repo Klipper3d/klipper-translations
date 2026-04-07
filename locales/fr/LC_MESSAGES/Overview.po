@@ -2,22 +2,23 @@
 # Nathan <bonnemainsnathan@gmail.com>, 2021, 2025.
 # Rhenaud Dubois <rhen33390@gmail.com>, 2021, 2025.
 # Francis Poulizac <fpoulizac@vivaldi.net>, 2021.
-# Linda 'linigrhf' Ayasing <linigrhf@gmail.com>, 2022, 2025.
+# Linda 'linigrhf' Ayasing <linigrhf@gmail.com>, 2022, 2025, 2026.
 # Francis Poulizac <francis@poulizac.fr>, 2022, 2023, 2025.
 # jean-luc MATTEI <jlucm@free.fr>, 2023, 2025.
 # Thomas Fournier <thomas@artivain.com>, 2023, 2025.
+# Posemartonis <weblate.drainage895@passmail.net>, 2026.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-07-22 08:14+0000\n"
-"Last-Translator: Thomas Fournier <thomas@artivain.com>\n"
+"PO-Revision-Date: 2026-04-04 09:09+0000\n"
+"Last-Translator: Posemartonis <weblate.drainage895@passmail.net>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/klipper/overview/"
 "fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 msgid ""
 "Welcome to the Klipper documentation. If new to Klipper, start with the "
@@ -298,15 +299,15 @@ msgid ""
 "[Skew correction](Skew_Correction.md): Adjustments for axes not perfectly "
 "square."
 msgstr ""
-"[Correction d'obliquité](Skew_Correction.md) : Ajustements des axes qui ne "
-"sont pas parfaitement d'équerre."
+"[Correction de l'inclinaison](Skew_Correction.md) : Ajustements pour les "
+"axes non parfaitement carrés."
 
 #: docs/Overview.md:block 10 (unordered list)
 msgid ""
 "[Beaglebone](Beaglebone.md): Details for running Klipper on the Beaglebone "
 "PRU."
 msgstr ""
-"[Beaglebone](Beaglebone.md) : Détails pour l'exécution de Klipper sur le SBC "
+"[Beaglebone](Beaglebone.md) : Détails pour utiliser Klipper sur le PRU "
 "Beaglebone."
 
 #: docs/Overview.md:block 10 (unordered list)
@@ -326,6 +327,9 @@ msgid ""
 "[Axis Twist Compensation](Axis_Twist_Compensation.md): A tool to compensate "
 "for inaccurate probe readings due to twist in X gantry."
 msgstr ""
+"[Axis Twist Compensation](Axis_Twist_Compensation.md): Un outil pour "
+"compenser les lectures inexactes de sonde en raison de la torsion en "
+"ganterie X."
 
 #: docs/Overview.md:block 10 (unordered list)
 msgid "[Bootloader Entry](Bootloader_Entry.md): Requesting the bootloader."
@@ -336,18 +340,21 @@ msgid ""
 "[CAN bus troubleshooting](CANBUS_Troubleshooting.md): Tips for troubleshooting"
 " CAN bus."
 msgstr ""
+"[CAN bus troubleshooting](CANBUS_Troubleshooting.md) : Conseils pour "
+"dépanner le bus CAN."
 
 #: docs/Overview.md:block 6 (unordered list)
 msgid "[Octoprint](OctoPrint.md): Guide to installing Octoprint with Klipper."
 msgstr ""
+"[Octoprint](OctoPrint.md) : Guide pour installer Octoprint avec Klipper."
 
 #: docs/Overview.md:block 10 (unordered list)
 msgid "[Eddy Current Inductive probe](Eddy_Probe.md)"
-msgstr ""
+msgstr "[Eddy Current Inductive probe](Eddy_Probe.md)"
 
 #: docs/Overview.md:block 10 (unordered list)
 msgid "[Load Cells](Load_Cell.md)"
-msgstr ""
+msgstr "[Load Cells](Load_Cell.md)"
 
 #~ msgid ""
 #~ "[Exclude Object](Exclude_Object.md): The guide to the Exclude Objecs "

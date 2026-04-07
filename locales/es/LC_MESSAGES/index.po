@@ -1,24 +1,25 @@
 # Alvaro <alvaro@null.net>, 2022, 2025.
+# Pajoer Pa <pajoer@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-07-22 08:14+0000\n"
-"Last-Translator: Alvaro <alvaro@null.net>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/index/es/"
-">\n"
+"PO-Revision-Date: 2026-03-07 09:09+0000\n"
+"Last-Translator: Pajoer Pa <pajoer@gmail.com>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/index/"
+"es/>\n"
 "Language: es\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 #: docs/index.md:block 1 (paragraph)
 msgid "hide:"
-msgstr ""
+msgstr "ocultar:"
 
 #: docs/index.md:block 2 (unordered list)
 msgid "toc title: Welcome"
-msgstr ""
+msgstr "Título del índice: Bienvenido"
 
 #: docs/index.md:block 3 (paragraph)
 msgid "![](img/klipper-logo.png){ .center-image }"
@@ -31,10 +32,14 @@ msgid ""
 "document](Features.md) for more information on why you should use the Klipper "
 "software."
 msgstr ""
+"El firmware Klipper controla impresoras 3D. Combina la potencia de un "
+"ordenador de uso general con uno o más microcontroladores. Consulte el "
+"[documento de características](Features.md) para obtener más información "
+"sobre por qué debería utilizar el software Klipper."
 
 #: docs/index.md:block 5 (paragraph)
 msgid "Start by [installing Klipper software](Installation.md)."
-msgstr ""
+msgstr "Comience por [instalar el software Klipper](Installation.md)."
 
 #: docs/index.md:block 6 (paragraph)
 msgid ""
@@ -43,6 +48,10 @@ msgid ""
 " the software. We depend on the generous support from our "
 "[sponsors](Sponsors.md)."
 msgstr ""
+"El software Klipper es software libre. Lea la [documentación](Overview.md), "
+"consulte la [licencia](../COPYING) o [descargue](https://github.com/"
+"Klipper3d/Klipper) el software. Dependemos del generoso apoyo de nuestros "
+"[patrocinadores](Sponsors.md)."
 
 #~ msgid ""
 #~ "The Klipper firmware controls 3d-Printers. It combines the power of a general "

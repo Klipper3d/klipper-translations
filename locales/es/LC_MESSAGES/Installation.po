@@ -3,13 +3,14 @@
 # Pepe <ec288eb6-6bd6-473b-93a5-5c8fb60ceb16@simplelogin.fr>, 2023.
 # gallegonovato <fran-carro@hotmail.es>, 2024.
 # Alberto <alberto.robles.gomez@aruzeta.com>, 2025.
+# Pajoer Pa <pajoer@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-05-20 19:33+0200\n"
-"PO-Revision-Date: 2025-07-22 08:07+0000\n"
-"Last-Translator: Alberto <alberto.robles.gomez@aruzeta.com>\n"
+"PO-Revision-Date: 2026-03-07 09:10+0000\n"
+"Last-Translator: Pajoer Pa <pajoer@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/"
 "installation/es/>\n"
 "Language: es\n"
@@ -17,13 +18,13 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 msgid "Building and flashing the micro-controller"
-msgstr ""
+msgstr "Compilación y flasheo del microcontrolador"
 
 msgid "It should report something similar to the following:"
-msgstr ""
+msgstr "Debería mostrar algo similar a lo siguiente:"
 
 msgid ""
 "Be sure to update the FLASH_DEVICE with the printer's unique serial port name."
@@ -40,7 +41,7 @@ msgstr "Instalación"
 
 #: docs/Installation.md:block 3 (header)
 msgid "Obtain a Klipper Configuration File"
-msgstr ""
+msgstr "Obtener un archivo de configuración de Klipper"
 
 #: docs/Installation.md:block 5 (paragraph)
 msgid ""

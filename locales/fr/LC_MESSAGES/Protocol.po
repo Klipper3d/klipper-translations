@@ -2,18 +2,19 @@
 # Jonathan <jonathanhav09@sfr.fr>, 2022.
 # Francis Poulizac <francis@poulizac.fr>, 2022, 2025.
 # jean-luc MATTEI <jlucm@free.fr>, 2023, 2025.
+# Posemartonis <weblate.drainage895@passmail.net>, 2026.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-07-22 08:13+0000\n"
-"Last-Translator: Nathan <bonnemainsnathan@gmail.com>\n"
+"PO-Revision-Date: 2026-03-23 12:09+0000\n"
+"Last-Translator: Posemartonis <weblate.drainage895@passmail.net>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/klipper/protocol/"
 "fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 msgid ""
 "The Klipper messaging protocol is used for low-level communication between the"
@@ -36,10 +37,10 @@ msgid ""
 " translate a G-Code file into its corresponding human-readable micro-"
 "controller commands."
 msgstr ""
-"Voir le document [commandes mcu](MCU_Commands.md) pour plus d'informations "
-"sur les commandes disponibles. Voir le document [deboguage](Debugging.md) "
-"pour plus d'informations sur la façon de traduire un fichier G-Code en "
-"commandes de microcontrôleur lisibles (par l'homme)."
+"Voir le document [mcu commands](MCU_Commands.md) pour des informations sur "
+"les commandes disponibles. Voir le document [debugging](Debugging.md) pour "
+"des informations sur la façon de traduire un fichier G-Code en commandes de "
+"micro-contrôleur lisibles par l'homme."
 
 msgid ""
 "This page provides a high-level description of the Klipper messaging protocol "

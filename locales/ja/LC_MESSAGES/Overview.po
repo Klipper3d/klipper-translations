@@ -1,25 +1,26 @@
 # 京都タラレバ息子 <japan100@gmail.com>, 2023, 2025.
 # ktyubeshi <kt.yubeshi@gmail.com>, 2023, 2025.
 # Haruhiro Obora <boraboraharuharu@outlook.com>, 2024, 2025.
+# Yutaro Urata <yutarourata04@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-07-22 08:50+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2026-03-11 22:09+0000\n"
+"Last-Translator: Yutaro Urata <yutarourata04@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/klipper/"
 "overview/ja/>\n"
 "Language: ja\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 msgid ""
 "Welcome to the Klipper documentation. If new to Klipper, start with the "
 "[features](Features.md) and [installation](Installation.md) documents."
 msgstr ""
-"Klipperドキュメントへようこそ。Klipperが初めての方は [機能一覧](Features.md)"
-"と [インストール](Installation.md)からご覧ください。"
+"Klipperのドキュメンテーションへようこそ。Klipperが初めての方は [機能一覧]"
+"(Features.md)と [インストール](Installation.md)からご覧ください。"
 
 msgid "Overview information"
 msgstr "概要情報"
@@ -28,7 +29,7 @@ msgid "[Features](Features.md): A high-level list of features in Klipper."
 msgstr "[機能一覧](Features.md): Klipperの各機能に関する詳細なリストです。"
 
 msgid "[FAQ](FAQ.md): Frequently asked questions."
-msgstr "[FAQ](FAQ.md): よくある質問と回答です。"
+msgstr "[よくある質問](FAQ.md): よくある質問と回答です。"
 
 msgid "[Releases](Releases.md): The history of Klipper releases."
 msgstr "[リリース](Releases.md): Klipperのリリース履歴です。"
@@ -36,9 +37,9 @@ msgstr "[リリース](Releases.md): Klipperのリリース履歴です。"
 msgid ""
 "[Config changes](Config_Changes.md): Recent software changes that may require "
 "users to update their printer config file."
-msgstr "[Config更新情報]"
-"(Config_Changes.md):Configの変更が必要な可能性のある直近のソフトウェアの仕様"
-"変更情報です。"
+msgstr ""
+"[コンフィグ更新情報](Config_Changes.md):コンフィグの変更が必要な可能性のある"
+"直近のソフトウェアの仕様変更情報です。"
 
 msgid ""
 "[Contact](Contact.md): Information on bug reporting and general communication "
@@ -287,11 +288,11 @@ msgstr ""
 
 #: docs/Overview.md:block 6 (unordered list)
 msgid "[Octoprint](OctoPrint.md): Guide to installing Octoprint with Klipper."
-msgstr ""
+msgstr "[Octoprint](OctoPrint.md): KlipperでOctoprintをインストールする方法。"
 
 #: docs/Overview.md:block 10 (unordered list)
 msgid "[Eddy Current Inductive probe](Eddy_Probe.md)"
-msgstr ""
+msgstr "[Eddy Current Inductive probe](Eddy_Probe.md)"
 
 #~ msgid ""
 #~ "[Exclude Object](Exclude_Object.md): The guide to the Exclude Objecs "

@@ -1,18 +1,19 @@
 # Jonathan <jonathanhav09@sfr.fr>, 2022, 2025.
 # jean-luc MATTEI <jlucm@free.fr>, 2023, 2025.
 # Alfredo Monclus <alfredomonclus@gmail.com>, 2023.
+# Posemartonis <weblate.drainage895@passmail.net>, 2026.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-07-22 08:13+0000\n"
-"Last-Translator: Jonathan <jonathanhav09@sfr.fr>\n"
+"PO-Revision-Date: 2026-03-23 12:10+0000\n"
+"Last-Translator: Posemartonis <weblate.drainage895@passmail.net>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/klipper/"
 "tmc_drivers/fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 msgid ""
 "This document provides information on using Trinamic stepper motor drivers in "
@@ -825,7 +826,7 @@ msgid ""
 "TMC reports error: `... reset=1(Reset)` OR `CS_ACTUAL=0(Reset?)` OR "
 "`SE=0(Reset?)`"
 msgstr ""
-"TMC signale une erreur : `... reset=1(Reset)` OR `CS_ACTUAL=0(Reset ?)` OR "
+"TMC signale une erreur : `... reset=1(Reset)` OR `CS_ACTUAL=0(Reset ?)` OR "
 "`SE=0(Reset?)`"
 
 #: docs/TMC_Drivers.md:block 98 (paragraph)
@@ -1112,6 +1113,9 @@ msgid ""
 " homing as Klipper automatically switches the TMC driver to an appropriate "
 "mode during sensorless homing operations."
 msgstr ""
+"Notez que l'option de configuration `stealthchop_threshold` n'a pas d'impact "
+"sur l'enroulement sensoriel puisque Klipper commute automatiquement le "
+"pilote TMC en mode approprié lors d'opérations d'enroulement sans capteur."
 
 #~ msgid ""
 #~ "[stepper_x]\n"

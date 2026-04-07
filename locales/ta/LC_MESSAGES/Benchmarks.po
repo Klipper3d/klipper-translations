@@ -1,17 +1,18 @@
 # Languages add-on <noreply-addon-languages@weblate.org>, 2025.
 # தமிழ்நேரம் <anishprabu.t@gmail.com>, 2025.
+# தமிழ்நேரம் <tamilneram247@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-09-08 13:02+0000\n"
-"Last-Translator: தமிழ்நேரம் <anishprabu.t@gmail.com>\n"
+"PO-Revision-Date: 2026-03-21 16:09+0000\n"
+"Last-Translator: தமிழ்நேரம் <tamilneram247@gmail.com>\n"
 "Language-Team: Tamil <https://hosted.weblate.org/projects/klipper/benchmarks/"
 "ta/>\n"
 "Language: ta\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.14-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 msgid "This document describes Klipper benchmarks."
 msgstr "இந்த ஆவணம் கிளிப்பர் வரையறைகளை விவரிக்கிறது."
@@ -110,7 +111,7 @@ msgid "The following configuration sequence is used on the Due:"
 msgstr "பின்வரும் உள்ளமைவு வரிசை வரவிருப்பதில் பயன்படுத்தப்படுகிறது:"
 
 msgid "sam3x8e"
-msgstr "SAM3X8E"
+msgstr "சம்3ஃ8இ"
 
 msgid "Duet Maestro step rate benchmark"
 msgstr "டூயட் மேச்ட்ரோ படி வீத அளவுகோல்"
@@ -119,7 +120,7 @@ msgid "The following configuration sequence is used on the Duet Maestro:"
 msgstr "டூயட் மேச்ட்ரோவில் பின்வரும் உள்ளமைவு வரிசை பயன்படுத்தப்படுகிறது:"
 
 msgid "sam4s8c"
-msgstr "SAM4S8C"
+msgstr "சம்4எச்8சி"
 
 msgid "70"
 msgstr "70"
@@ -149,7 +150,7 @@ msgid "The following configuration sequence is used on the STM32F042:"
 msgstr "பின்வரும் உள்ளமைவு வரிசை STM32F042 இல் பயன்படுத்தப்படுகிறது:"
 
 msgid "stm32f042"
-msgstr "STM32F042"
+msgstr "எச்டிஎம்32எப்042"
 
 msgid "STM32F103 step rate benchmark"
 msgstr "STM32F103 படி வீத அளவுகோல்"
@@ -158,7 +159,7 @@ msgid "The following configuration sequence is used on the STM32F103:"
 msgstr "பின்வரும் உள்ளமைவு வரிசை STM32F103 இல் பயன்படுத்தப்படுகிறது:"
 
 msgid "stm32f103"
-msgstr "STM32F103"
+msgstr "எச்டிஎம்32எப்0103"
 
 msgid "71"
 msgstr "71"
@@ -170,7 +171,7 @@ msgid "The following configuration sequence is used on the STM32F4:"
 msgstr "பின்வரும் உள்ளமைவு வரிசை STM32F4 இல் பயன்படுத்தப்படுகிறது:"
 
 msgid "stm32f446"
-msgstr "STM32F446"
+msgstr "எச்டிஎம்32எப்446"
 
 msgid "51"
 msgstr "51"
@@ -200,7 +201,7 @@ msgid "The following configuration sequence is used on the SAMD21:"
 msgstr "பின்வரும் உள்ளமைவு வரிசை SAMD21 இல் பயன்படுத்தப்படுகிறது:"
 
 msgid "samd21"
-msgstr "SAMD21"
+msgstr "சம்டி21"
 
 msgid "SAMD51 step rate benchmark"
 msgstr "SAMD51 படி வீத அளவுகோல்"
@@ -209,7 +210,7 @@ msgid "The following configuration sequence is used on the SAMD51:"
 msgstr "பின்வரும் உள்ளமைவு வரிசை SAMD51 இல் பயன்படுத்தப்படுகிறது:"
 
 msgid "samd51"
-msgstr "SAMD51"
+msgstr "சம்டி51"
 
 msgid "1 stepper (200Mhz)"
 msgstr "1 ச்டெப்பர் (200 மெகா எர்ட்ச்)"
@@ -235,8 +236,8 @@ msgid ""
 "second is then `100000 * mcu_frequency / clock_diff`."
 msgstr ""
 "சோதனை முடிந்ததும், இரண்டு \"கூடுதல் நேரம்\" மறுமொழி செய்திகளில் தெரிவிக்கப்பட்ட "
-"கடிகாரங்களுக்கிடையிலான வேறுபாட்டை தீர்மானிக்கவும். நொடிக்கு மொத்த கட்டளைகளின் எண்ணிக்கை "
-"பின்னர் `100000 * MCU_FREQUENCY / COCROM_DIFF`."
+"கடிகாரங்களுக்கிடையிலான வேறுபாட்டைத் தீர்மானிக்கவும். நொடிக்கு மொத்த கட்டளைகளின் எண்ணிக்கை "
+"பின்னர் `100000 * mcu_frequency / clock_diff`."
 
 msgid ""
 "Note that this test may saturate the USB/CPU capacity of a Raspberry Pi. If "
@@ -270,7 +271,7 @@ msgid "18K"
 msgstr "18 கே"
 
 msgid "c105adc8"
-msgstr "C105ADC8"
+msgstr "சி105எடிசி8"
 
 msgid "arm-none-eabi-gcc (GNU Tools 7-2018-q3-update) 7.3.1"
 msgstr "ARM-NONE-EABI-GCC (GNU கருவிகள் 7-2018-Q3-UPDATE) 7.3.1"
@@ -291,7 +292,7 @@ msgid "sam3x8e (serial)"
 msgstr "sam3x8e (சீரியல்)"
 
 msgid "arm-none-eabi-gcc (Fedora 7.1.0-5.fc27) 7.1.0"
-msgstr "ARM-NONE-EABI-GCC (ஃபெடோரா 7.1.0-5.FC27) 7.1.0"
+msgstr "arm-none-eabi-gcc (ஃபெடோரா 7.1.0-5.fc27) 7.1.0"
 
 msgid "at90usb1286 (USB)"
 msgstr "AT90USB1286 (USB)"
@@ -312,7 +313,7 @@ msgid "223K"
 msgstr "உங்கள் கீழே"
 
 msgid "arm-none-eabi-gcc (Fedora 7.4.0-1.fc30) 7.4.0"
-msgstr "ARM-NONE-EABI-GCC (ஃபெடோரா 7.4.0-1.FC30) 7.4.0"
+msgstr "arm-none-eabi-gcc (ஃபெடோரா 7.4.0-1.fc30) 7.4.0"
 
 msgid "pru (shared memory)"
 msgstr "ப்ரூ (பகிரப்பட்ட நினைவகம்)"
@@ -476,8 +477,8 @@ msgid ""
 "The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc"
 " (Fedora 10.2.0-4.fc34) 10.2.0`."
 msgstr ""
-"இந்த சோதனை கடைசியாக GCC பதிப்பு `ARM-NONE-EABI-GCC (ஃபெடோரா 10.2.0-4.FC34) "
-"10.2.0` உடன்` 59314D99` இல் இயக்கப்பட்டது."
+"இந்தச் சோதனை கடைசியாகச் சீசிசி பதிப்பு `arm-none-eabi-gcc (ஃபெடோரா 10.2.0-4.fc34) "
+"10.2.0` உடன்` 59314d99` இல் இயக்கப்பட்டது."
 
 #: docs/Benchmarks.md:block 27 (table)
 msgid "257"
@@ -643,8 +644,8 @@ msgid ""
 "The test was last run on commit `247cd753` with gcc version `arm-none-eabi-gcc"
 " (Fedora 10.2.0-4.fc34) 10.2.0`."
 msgstr ""
-"இந்த சோதனை கடைசியாக GCC பதிப்பு `ARM-NONE-EABI-GCC (ஃபெடோரா 10.2.0-4.FC34) "
-"10.2.0` உடன்` 247 சிடி 753` இல் இயக்கப்பட்டது."
+"இந்தச் சோதனை கடைசியாகச் சீசிசி பதிப்பு `arm-none-eabi-gcc (ஃபெடோரா 10.2.0-4.fc34) "
+"10.2.0` உடன்` 247சிடி753` இல் இயக்கப்பட்டது."
 
 #: docs/Benchmarks.md:block 63 (table)
 msgid "58"
@@ -656,7 +657,7 @@ msgstr "243"
 
 #: docs/Benchmarks.md:block 63 (table)
 msgid "stm32g0b1"
-msgstr "STM32G0B1"
+msgstr "எச்டிஎம்32சீ0பி1"
 
 #: docs/Benchmarks.md:block 59 (header)
 msgid "STM32H7 step rate benchmark"
@@ -710,7 +711,7 @@ msgstr "359"
 
 #: docs/Benchmarks.md:block 105 (table)
 msgid "ar100 (serial)"
-msgstr "AR100 (சீரியல்)"
+msgstr "எஆர்100 (சீரியல்)"
 
 #: docs/Benchmarks.md:block 105 (table)
 msgid "138K"
@@ -722,7 +723,7 @@ msgstr "08D037C6"
 
 #: docs/Benchmarks.md:block 105 (table)
 msgid "or1k-linux-musl-gcc 9.3.0"
-msgstr "OR1K-LINUX-MUSL-GCC 9.3.0"
+msgstr "or1k-லினக்சு-musl-gcc 9.3.0"
 
 #: docs/Benchmarks.md:block 85 (header)
 msgid "SAME70 step rate benchmark"
@@ -774,13 +775,12 @@ msgid ""
 "The test was last run on commit `f6718291` with gcc version `arm-none-eabi-gcc"
 " (Fedora 14.1.0-1.fc40) 14.1.0` on Raspberry Pi Pico and Pico 2 boards."
 msgstr ""
-"இந்த சோதனை கடைசியாக `F6718291` சி.சி.சி பதிப்பு` ARM-NONE-EABI-GCC (ஃபெடோரா "
-"14.1.0-1.FC40) 14.1.0` உடன் ராச்பெர்ரி பை பைக்கோ மற்றும் பைக்கோ 2 போர்டுகளுடன் "
-"இயக்கப்பட்டது."
+"இந்தச் சோதனை கடைசியாக `f6718291` சீசிசி பதிப்பு `arm-none-eabi-gcc (ஃபெடோரா 14.1.0-"
+"1.fc40) 14.1.0` உடன் ராச்பெர்ரி பை பைக்கோ மற்றும் பைக்கோ 2 போர்டுகளுடன் இயக்கப்பட்டது."
 
 #: docs/Benchmarks.md:block 99 (table)
 msgid "rp2040 (*)"
-msgstr "RP2040 (*)"
+msgstr "ஆர்பி2040 (*)"
 
 #: docs/Benchmarks.md:block 100 (table)
 msgid "rp2350"
@@ -815,7 +815,7 @@ msgstr "ஃபட்டா 18291"
 
 #: docs/Benchmarks.md:block 112 (table)
 msgid "arm-none-eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0"
-msgstr "ARM-NONE-EABI-GCC (ஃபெடோரா 14.1.0-1.FC40) 14.1.0"
+msgstr "arm-none-eabi-gcc (ஃபெடோரா 14.1.0-1.fc40) 14.1.0"
 
 #: docs/Benchmarks.md:block 112 (table)
 msgid "rp2350 (USB)"

@@ -1,16 +1,17 @@
 # jean-luc MATTEI <jlucm@free.fr>, 2022, 2025.
+# Posemartonis <weblate.drainage895@passmail.net>, 2026.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-07-22 08:42+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2026-03-23 12:10+0000\n"
+"Last-Translator: Posemartonis <weblate.drainage895@passmail.net>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/klipper/sponsors/"
 "fr/>\n"
 "Language: fr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 #: docs/Sponsors.md:block 1 (header)
 msgid "Sponsors"
@@ -107,6 +108,8 @@ msgid ""
 "[<img src=\"./img/sponsors/BTT_BTT.png\" width=\"200\" "
 "style=\"margin:25px\"/>](https://bigtree-tech.com/collections/all-products)"
 msgstr ""
+"[<img src=\"./img/sponsors/BTT_BTT.png\" width=\"200\" "
+"style=\"margin:25px\"/>](https://bigtree-tech.com/collections/all-products)"
 
 #: docs/Sponsors.md:block 7 (paragraph)
 msgid ""
@@ -114,6 +117,9 @@ msgid ""
 "style=\"margin:25px\" "
 "/>](https://obico.io/klipper.html?source=klipper_sponsor)"
 msgstr ""
+"[<img src=\"./img/sponsors/obico-light-horizontal.png\" width=\"200\" "
+"style=\"margin:25px\" />](https://obico.io/"
+"klipper.html?source=klipper_sponsor)"
 
 #~ msgid ""
 #~ "[<img src=\"./img/sponsors/obico-light-horizontal.png\" width=\"200\" "

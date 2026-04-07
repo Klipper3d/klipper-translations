@@ -1,16 +1,16 @@
-#
+# Pajoer Pa <pajoer@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-07-22 09:00+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
+"PO-Revision-Date: 2026-03-07 09:11+0000\n"
+"Last-Translator: Pajoer Pa <pajoer@gmail.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/"
 "bootloader_entry/es/>\n"
 "Language: es\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 5.17-dev\n"
 
 #: docs/Bootloader_Entry.md:block 1 (header)
 msgid "Bootloader Entry"
@@ -21,10 +21,12 @@ msgid ""
 "Klipper can be instructed to reboot into a [Bootloader](Bootloaders.md) in one"
 " of the following ways:"
 msgstr ""
+"Se puede indicar a Klipper que se reinicie en un [Bootloader]"
+"(Bootloaders.md) de una de las siguientes maneras:"
 
 #: docs/Bootloader_Entry.md:block 3 (header)
 msgid "Requesting the bootloader"
-msgstr ""
+msgstr "Solicitud del gestor de arranque(bootloader)"
 
 #: docs/Bootloader_Entry.md:block 4 (header)
 msgid "Virtual Serial"
@@ -35,10 +37,12 @@ msgid ""
 "If a virtual (USB-ACM) serial port is in use, pulsing DTR while at 1200 baud "
 "will request the bootloader."
 msgstr ""
+"Si se está utilizando un puerto serie virtual (USB-ACM), pulsar DTR a 1200 "
+"baudios solicitará el gestor de arranque."
 
 #: docs/Bootloader_Entry.md:block 6 (header)
 msgid "Python (with `flash_usb`)"
-msgstr ""
+msgstr "Python (con `flash_usb`)"
 
 #: docs/Bootloader_Entry.md:block 7 (paragraph)
 msgid "To enter the bootloader using python (using `flash_usb`):"
