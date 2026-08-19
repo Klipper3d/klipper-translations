@@ -2,9 +2,9 @@
 
 இந்த ஆவணம் இழை அகல சென்சார் புரவலன் தொகுதியை விவரிக்கிறது. இந்த புரவலன் தொகுதியை உருவாக்கப் பயன்படுத்தப்படும் வன்பொருள் இரண்டு ஆல் நேரியல் சென்சார்களை அடிப்படையாகக் கொண்டது (எடுத்துக்காட்டாக SS49E). உடலில் உள்ள சென்சார்கள் எதிர் பக்கங்களில் அமைந்துள்ளன. செயல்பாட்டின் கொள்கை: இரண்டு ஆல் சென்சார்கள் வேறுபட்ட பயன்முறையில் வேலை செய்கின்றன, சென்சாருக்கு வெப்பநிலை சறுக்கல். சிறப்பு வெப்பநிலை இழப்பீடு தேவையில்லை.
 
-நீங்கள் [Thingiverse](https://www.thingiverse.com/thing:4138933) இல் வடிவமைப்புகளைக் காணலாம், [Youtube](https://www.youtube.com/watch?v=TDO9tME8vp4) இல் ஒரு அசெம்பிளி வீடியோவும் கிடைக்கிறது
+[Inceverse] (https://www.thingiverse.com/thing:4138933) இல் நீங்கள் வடிவமைப்புகளைக் காணலாம், ஒரு பேரவை வீடியோ [YouTube] (https://www.youtube.com/watch?v=tdo9tme8vp4 இல் கிடைக்கிறது )
 
-ஹால் ஃபிலமென்ட் அகல சென்சாரைப் பயன்படுத்த, [கட்டமைப்புக் குறிப்பு](Config_Reference.md#hall_filament_width_sensor) மற்றும் [G-Code documentation](G-Codes.md#hall_filament_width_sensor) ஆகியவற்றைப் படிக்கவும்.
+ஆல் ஃபிலமென்ட் அகலம் சென்சார் பயன்படுத்த, [கட்டமைப்பு குறிப்பு] (config_reference.md#hall_filament_width_sensor) மற்றும் [g-code ஆவணம்] (g- codes.md#hall_filament_width_sensor) படிக்கவும்.
 
 ## இது எவ்வாறு செயல்படுகிறது?
 
@@ -39,6 +39,20 @@
 இயல்பாக, சென்சார் பவர்-ஆன் முடக்கப்பட்டுள்ளது.
 
 சென்சாரை இயக்க, வெளியீடு ** enable_filament_width_sensor ** கட்டளை அல்லது `இயக்கு` அளவுருவை` உண்மை` என அமைக்கவும்.
+
+## Use as a runout switch only
+
+By default, the sensor measures filament diameter and adjusts the extrusion multiplier to compensate for variations.
+
+If you want to use the sensor as a runout switch only, set the `enable_flow_compensation` config parameter to `false`. In this mode, the sensor will only trigger runout events when filament is not detected, it will not modify the extrusion multiplier.
+
+This is useful for printers where the filament sensor is not accurate enough for flow compensation but can reliably detect filament runout, or when printing with flexible filaments which have unstable diameter characteristics.
+
+Issue **ENABLE_FILAMENT_WIDTH_SENSOR FLOW_COMPENSATION=1** to enable flow compensation or **ENABLE_FILAMENT_WIDTH_SENSOR FLOW_COMPENSATION=0** to disable it.
+
+Note that disabling filament width compensation automatically resets the extrusion multiplier to 100%.
+
+**QUERY_FILAMENT_WIDTH** includes the current state of flow compensation in its output.
 
 ## பதிவு
 

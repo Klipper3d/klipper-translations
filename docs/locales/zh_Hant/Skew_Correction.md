@@ -16,7 +16,7 @@ The `[skew_correction]` module requires 3 measurements for each plane you want t
 
 ## 配置偏斜
 
-確保 `[skew_correction]` 已經在 printer.cfg 中。現在可以使用`SET_SKEW` G-Code 來配置 skew_correcton。例如，如果對 XY 平面測量的距離結果如下：
+Make sure `[skew_correction]` is in printer.cfg. You may now use the `SET_SKEW` gcode to configure skew_correction. For example, if your measured lengths along XY are as follows:
 
 ```
 Length AC = 140.4

@@ -35,7 +35,7 @@ picocom -b 1200 <DEVICE>
 
 ### Физическа серия
 
-Ако се използва физически сериен порт на MCU (дори ако се използва USB сериен адаптер за свързване към него), изпратете символния низ `<SPACE><FS><SPACE>Запитване за сериен буутлоудър!!<SPACE>~``.
+If a physical serial port is being used on the MCU (even if a USB serial adapter is being used to connect to it), sending the string `<SPACE><FS><SPACE>Request Serial Bootloader!!<SPACE>~` requests the bootloader.
 
 `<SPACE>` е буквален интервал ASCII, 0x20.
 

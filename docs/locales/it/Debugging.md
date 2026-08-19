@@ -65,7 +65,7 @@ Klipper supporta la registrazione della cronologia dei movimenti interni, che pu
 La registrazione dei dati è abilitata con lo strumento `data_logger.py`. Per esempio:
 
 ```
-~/klipper/scripts/motan/data_logger.py /tmp/klippy_uds mylog
+~/klipper/scripts/motan/data_logger.py /tmp/klippy_uds mylog -s '*'
 ```
 
 Questo comando si collegherà al Klipper API Server, sottoscriverà le informazioni sullo stato e sul movimento e registrerà i risultati. Vengono generati due file: un file di dati compresso e un file di indice (ad esempio, `mylog.json.gz` e `mylog.index.gz`). Dopo aver avviato la registrazione, è possibile completare le stampe e altre azioni: la registrazione continuerà in background. Al termine della registrazione, premi `ctrl-c` per uscire dallo strumento `data_logger.py`.

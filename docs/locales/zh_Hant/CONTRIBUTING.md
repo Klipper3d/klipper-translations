@@ -158,7 +158,7 @@ Signed-off-by: 姓名< myemail@example.org >
 
 Once the requirements are met, you need to:
 
-1. update klipper-tranlations repository [active_translations](https://github.com/Klipper3d/klipper-translations/blob/translations/active_translations)
+1. update klipper-translations repository [active_translations](https://github.com/Klipper3d/klipper-translations/blob/translations/active_translations)
 1. Optional: add a manual-index.md file in klipper-translations repository's `docs\locals\<lang>` folder to replace the language specific index.md (generated index.md does not render correctly).
 
 Known Issues:

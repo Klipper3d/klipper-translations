@@ -69,4 +69,4 @@ M104 S0
 
 在宏调用之前。还要注意的是，SuperSlicer有一个 "仅包含定制G代码"的按钮选项，可以达到同样的效果。
 
-在config/sample-macros.cfg中可以找到一个使用这些参数的START_PRINT宏的例子
+An example of a START_PRINT macro using these parameters can be found in config/sample-macros.cfg

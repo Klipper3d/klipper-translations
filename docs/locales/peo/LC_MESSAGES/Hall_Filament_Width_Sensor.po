@@ -108,6 +108,50 @@ msgid ""
 "pins and different boards."
 msgstr ""
 
+#: docs/Hall_Filament_Width_Sensor.md:block 15 (header)
+msgid "Use as a runout switch only"
+msgstr ""
+
+#: docs/Hall_Filament_Width_Sensor.md:block 16 (paragraph)
+msgid ""
+"By default, the sensor measures filament diameter and adjusts the extrusion "
+"multiplier to compensate for variations."
+msgstr ""
+
+#: docs/Hall_Filament_Width_Sensor.md:block 17 (paragraph)
+msgid ""
+"If you want to use the sensor as a runout switch only, set the "
+"`enable_flow_compensation` config parameter to `false`. In this mode, the "
+"sensor will only trigger runout events when filament is not detected, it will "
+"not modify the extrusion multiplier."
+msgstr ""
+
+#: docs/Hall_Filament_Width_Sensor.md:block 18 (paragraph)
+msgid ""
+"This is useful for printers where the filament sensor is not accurate enough "
+"for flow compensation but can reliably detect filament runout, or when "
+"printing with flexible filaments which have unstable diameter characteristics."
+msgstr ""
+
+#: docs/Hall_Filament_Width_Sensor.md:block 19 (paragraph)
+msgid ""
+"Issue **ENABLE_FILAMENT_WIDTH_SENSOR FLOW_COMPENSATION=1** to enable flow "
+"compensation or **ENABLE_FILAMENT_WIDTH_SENSOR FLOW_COMPENSATION=0** to "
+"disable it."
+msgstr ""
+
+#: docs/Hall_Filament_Width_Sensor.md:block 20 (paragraph)
+msgid ""
+"Note that disabling filament width compensation automatically resets the "
+"extrusion multiplier to 100%."
+msgstr ""
+
+#: docs/Hall_Filament_Width_Sensor.md:block 21 (paragraph)
+msgid ""
+"**QUERY_FILAMENT_WIDTH** includes the current state of flow compensation in "
+"its output."
+msgstr ""
+
 #~ msgid ""
 #~ "[menu __main __filament __width_current]\n"
 #~ "type: command\n"

@@ -2,9 +2,9 @@
 
 ## Conectando BL-Touch
 
-A **warning** before you start: Avoid touching the BL-Touch pin with your bare fingers, since it is quite sensitive to finger grease. And if you do touch it, be very gentle, in order to not bend or push anything.
+Una **advertencia** antes de empezar: evite tocar el pin BL-Touch con los dedos desnudos, ya que es muy sensible a la grasa de los dedos. Y si lo toca, hágalo con mucho cuidado, para no doblar ni empujar nada.
 
-Hook up the BL-Touch "servo" connector to a `control_pin` according to the BL-Touch documentation or your MCU documentation. Using the original wiring, the yellow wire from the triple is the `control_pin` and the white wire from the pair is the `sensor_pin`. You need to configure these pins according to your wiring. Most BL-Touch devices require a pullup on the sensor pin (prefix the pin name with "^"). For example:
+Conecte el conector «servo» del BL-Touch a un «control_pin» según la documentación del BL-Touch o la documentación de su MCU. Utilizando el cableado original, el cable amarillo del triple es el «control_pin» y el cable blanco del par es el «sensor_pin». Debe configurar estos pines según su cableado. La mayoría de los dispositivos BL-Touch requieren un pullup en el pin del sensor (anteponga «^» al nombre del pin). Por ejemplo:
 
 ```
 [bltouch]
@@ -22,11 +22,11 @@ z_hop: 10                 # Move up 10mm
 z_hop_speed: 5
 ```
 
-It's important that the z_hop movement in safe_z_home is high enough that the probe doesn't hit anything even if the probe pin happens to be in its lowest state.
+Es importante que el movimiento z_hop en safe_z_home sea lo suficientemente alto como para que la sonda no golpee nada, incluso si el pin de la sonda se encuentra en su estado más bajo.
 
 ## Pruebas iniciales
 
-Before moving on, verify that the BL-Touch is mounted at the correct height, the pin should be roughly 2 mm above the nozzle when retracted
+Antes de continuar, comprueba que el BL-Touch esté montado a la altura correcta; el pasador debe estar aproximadamente 2 mm por encima de la boquilla cuando está retraído.
 
 When you turn on the printer, the BL-Touch probe should perform a self-test and move the pin up and down a couple of times. Once the self-test is completed, the pin should be retracted and the red LED on the probe should be lit. If there are any errors, for example the probe is flashing red or the pin is down instead of up, please turn off the printer and check the wiring and configuration.
 

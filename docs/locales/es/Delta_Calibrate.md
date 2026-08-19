@@ -2,15 +2,15 @@
 
 Este documento describe el sistema de calibración automática de Klipper para impresoras de estilo "delta".
 
-Delta calibration involves finding the tower endstop positions, tower angles, delta radius, and delta arm lengths. These settings control printer motion on a delta printer. Each one of these parameters has a non-obvious and non-linear impact and it is difficult to calibrate them manually. In contrast, the software calibration code can provide excellent results with just a few minutes of time. No special probing hardware is necessary.
+La calibración delta consiste en encontrar las posiciones finales de la torre, los ángulos de la torre, el radio delta y las longitudes de los brazos delta. Estos ajustes controlan el movimiento de la impresora en una impresora delta. Cada uno de estos parámetros tiene un impacto no evidente y no lineal, y es difícil calibrarlos manualmente. Por el contrario, el código de calibración del software puede proporcionar excelentes resultados en solo unos minutos. No se necesita ningún hardware de sondeo especial.
 
-Ultimately, the delta calibration is dependent on the precision of the tower endstop switches. If one is using Trinamic stepper motor drivers then consider enabling [endstop phase](Endstop_Phase.md) detection to improve the accuracy of those switches.
+En última instancia, la calibración delta depende de la precisión de los interruptores de fin de carrera de la torre. Si se utilizan controladores de motor paso a paso Trinamic, se recomienda habilitar la detección de [fase de fin de carrera](Endstop_Phase.md) para mejorar la precisión de dichos interruptores.
 
-## Automatic vs manual probing
+## Sondeo automático frente a manual
 
-Klipper supports calibrating the delta parameters via a manual probing method or via an automatic Z probe.
+Klipper admite la calibración de los parámetros delta mediante un método de sondeo manual o mediante una sonda Z automática.
 
-A number of delta printer kits come with automatic Z probes that are not sufficiently accurate (specifically, small differences in arm length can cause effector tilt which can skew an automatic probe). If using an automatic probe then first [calibrate the probe](Probe_Calibrate.md) and then check for a [probe location bias](Probe_Calibrate.md#location-bias-check). If the automatic probe has a bias of more than 25 microns (.025mm) then use manual probing instead. Manual probing only takes a few minutes and it eliminates error introduced by the probe.
+Varios kits de impresoras delta incluyen sondas Z automáticas que no son lo suficientemente precisas (concretamente, pequeñas diferencias en la longitud del brazo pueden provocar una inclinación del efector que puede sesgar una sonda automática). Si utiliza una sonda automática, primero [calibre la sonda](Probe_Calibrate.md) y, a continuación, compruebe si hay un [sesgo en la ubicación de la sonda](Probe_Calibrate.md#location-bias-check). Si la sonda automática tiene un sesgo de más de 25 micras (0,025 mm), utilice la sonda manual. La sonda manual solo tarda unos minutos y elimina el error introducido por la sonda.
 
 If using a probe that is mounted on the side of the hotend (that is, it has an X or Y offset) then note that performing delta calibration will invalidate the results of probe calibration. These types of probes are rarely suitable for use on a delta (because minor effector tilt will result in a probe location bias). If using the probe anyway, then be sure to rerun probe calibration after any delta calibration.
 

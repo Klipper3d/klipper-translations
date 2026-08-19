@@ -143,7 +143,7 @@ bossac --port=/dev/ttyACM0 -b -U -e -w -v -R out/klipper.bin
 
 A SAMC21 égetése az ARM Serial Wire Debug (SWD) interfészen keresztül történik. Ez általában egy dedikált SWD hardver dongle segítségével történik. Alternatívaként használhatunk egy [Raspberry Pi-t az OpenOCD-vel](#running-openocd-on-the-raspberry-pi).
 
-Ha az OpenOCD-t a SAMC21-gyel együtt használjuk, extra lépéseket kell tenni, hogy a chipet először Cold Plugging üzemmódba helyezzük, ha a kártya az SWD-tüskéket más célokra használja. Ha az OpenOCD-t Rasberry Pi-n használjuk, akkor ezt az OpenOCD meghívása előtt a következő parancsok futtatásával tehetjük meg.
+When using OpenOCD with the SAMC21, extra steps must be taken to first put the chip into Cold Plugging mode if the board makes use of the SWD pins for other purposes. If using OpenOCD on a Raspberry Pi, this can be done by running the following commands before invoking OpenOCD.
 
 ```
 SWCLK=25
@@ -376,7 +376,7 @@ A CanBoot égetéséhez ajánlott ST-Link programozót használni, azonban STM32
 
 A CanBoot első égetésénél észlelned kell, hogy nincs jelen alkalmazás, és be kell lépned a bootloaderbe. Ha ez nem történik meg, akkor a reset gomb kétszer egymás utáni megnyomásával lehet belépni a bootloaderbe.
 
-A Klipper firmware feltöltéséhez a `flash_can.py` segédprogram használható, amely a `lib/canboot` mappában található. Az égetéshez szükséges az eszköz UUID azonosítója. Ha nincs meg az UUID, akkor a bootloadert jelenleg futtató csomópontok lekérdezése lehetséges:
+The `flashtool.py` utility supplied in the `lib/katapult` folder may be used to upload Klipper firmware. The device UUID is necessary to flash. If you do not have a UUID it is possible to query nodes currently running the bootloader:
 
 ```
 python3 flash_can.py -q

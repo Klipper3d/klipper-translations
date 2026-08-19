@@ -1,6 +1,6 @@
 # Protocolo
 
-El protocolo de mensajes de Klipper se utiliza para la comunicación de bajo nivel entre el software host Klipper y el software del microcontrolador Klipper.  En un nivel alto, se puede considerar el protocolo como una serie de cadenas de comando y respuesta que se comprimen, transmiten y luego procesan en el lado receptor.  Una serie de ejemplos de comandos en formato legible por humanos sin comprimir podría verse así:
+El protocolo de mensajería Klipper se utiliza para la comunicación de bajo nivel entre el software host Klipper y el software del microcontrolador Klipper. A alto nivel, el protocolo puede considerarse como una serie de cadenas de comandos y respuestas que se comprimen, transmiten y luego se procesan en el lado receptor. Una serie de comandos de ejemplo en formato legible por humanos sin comprimir podría tener el siguiente aspecto:
 
 ```
 set_digital_out pin=PA3 value=1
@@ -10,17 +10,17 @@ queue_step oid=7 interval=7458 count=10 add=331
 queue_step oid=7 interval=11717 count=4 add=1281
 ```
 
-See the [mcu commands](MCU_Commands.md) document for information on available commands. See the [debugging](Debugging.md) document for information on how to translate a G-Code file into its corresponding human-readable micro-controller commands.
+Consulte el documento [comandos mcu](MCU_Commands.md) para obtener información sobre los comandos disponibles. Consulte el documento [depuración](Debugging.md) para obtener información sobre cómo traducir un archivo G-Code a los comandos del microcontrolador correspondientes legibles por humanos.
 
 Esta página proporciona una descripción de alto nivel del mismo protocolo de mensajería Klipper. Describe como los mensajes se declaran, codificados en formato binario (el esquema «compresión»), y transmitido.
 
-The goal of the protocol is to enable an error-free communication channel between the host and micro-controller that is low-latency, low-bandwidth, and low-complexity for the micro-controller.
+El objetivo del protocolo es habilitar un canal de comunicación sin errores entre el host y el microcontrolador que sea de baja latencia, bajo ancho de banda y baja complejidad para el microcontrolador.
 
-## Micro-controller Interface
+## Interfaz del microcontrolador
 
-The Klipper transmission protocol can be thought of as a [RPC](https://en.wikipedia.org/wiki/Remote_procedure_call) mechanism between micro-controller and host. The micro-controller software declares the commands that the host may invoke along with the response messages that it can generate. The host uses that information to command the micro-controller to perform actions and to interpret the results.
+El protocolo de transmisión Klipper puede considerarse como un mecanismo [RPC](https://en.wikipedia.org/wiki/Remote_procedure_call) entre el microcontrolador y el host. El software del microcontrolador declara los comandos que el host puede invocar junto con los mensajes de respuesta que puede generar. El host utiliza esa información para ordenar al microcontrolador que realice acciones e interprete los resultados.
 
-### Declaring commands
+### Declaración de comandos
 
 The micro-controller software declares a "command" by using the DECL_COMMAND() macro in the C code. For example:
 

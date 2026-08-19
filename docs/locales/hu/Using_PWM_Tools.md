@@ -1,6 +1,6 @@
 # PWM eszközök használata
 
-Ez a dokumentum leírja, hogyan állíthatsz be egy PWM-vezérelt lézert vagy orsót az `output_pin` és néhány makró segítségével.
+This document describes how to setup a PWM-controlled laser or spindle using `pwm_tool` and some macros.
 
 ## Hogyan működik?
 
@@ -9,10 +9,6 @@ A nyomtatófej ventilátor PWM kimenetének felhasználásával lézereket vagy 
 **Figyelmeztetés:** A lézer használatakor tarts be minden biztonsági óvintézkedést, amit csak lehet! A diódalézerek általában invertáltak. Ez azt jelenti, hogy amikor az MCU újraindul, a lézer *teljesen be lesz kapcsolva* arra az időre. A biztonság kedvéért ajánlott *mindig* megfelelő hullámhosszúságú lézerszemüveget viselni, ha a lézer be van kapcsolva, és a lézert le kell kapcsolni, ha nincs rá szükség. Emellett be kell állítani egy biztonsági időkorlátot, hogy ha a gazdagép vagy az MCU hibát észlel, a szerszám leálljon.
 
 Egy példakonfigurációért lásd [config/sample-pwm-tool.cfg](/config/sample-pwm-tool.cfg).
-
-## Jelenlegi korlátozások
-
-Korlátozott, hogy milyen gyakoriak lehetnek a PWM-frissítések. Bár nagyon pontos, a PWM frissítés csak 0,1 másodpercenként fordulhat elő, így szinte használhatatlanná válik a rasztergravírozáshoz. Létezik azonban egy [kísérleti ág](https://github.com/Cirromulus/klipper/tree/laser_tool), amelynek saját kompromisszumai vannak. Hosszú távon azt tervezik, hogy ezt a funkciót hozzáadják a fővonali klipperhez.
 
 ## Parancsok
 

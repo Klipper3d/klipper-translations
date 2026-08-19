@@ -2,7 +2,7 @@
 
 gizle:
 
-- toc title: Welcome
+- içerik başlığı: Hoş geldiniz
 
 ***
 

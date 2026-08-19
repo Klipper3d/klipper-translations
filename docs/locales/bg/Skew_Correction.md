@@ -16,7 +16,7 @@
 
 ## Конфигуриране на изкривяването
 
-Уверете се, че `[skew_correction]` е в printer.cfg. Сега можете да използвате gcode `SET_SKEW`, за да конфигурирате skew_correcton. Например, ако измерените дължини по XY са следните:
+Make sure `[skew_correction]` is in printer.cfg. You may now use the `SET_SKEW` gcode to configure skew_correction. For example, if your measured lengths along XY are as follows:
 
 ```
 Length AC = 140.4

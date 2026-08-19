@@ -1,6 +1,6 @@
 # Commands templates
 
-This document provides information on implementing G-Code command sequences in gcode_macro (and similar) config sections.
+این سند اطلاعاتی درباره‌ی پیاده‌سازی توالی‌های دستور G-Code در بخش‌های پیکربندی gcode_macro (و بخش‌های مشابه) ارائه می‌دهد.
 
 ## G-Code Macro Naming
 

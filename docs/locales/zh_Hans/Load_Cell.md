@@ -1,16 +1,16 @@
-# Load Cells
+# 压力传感器
 
-This document describes Klipper's support for load cells. Basic load cell functionality can be used to read force data and to weigh things like filament. A calibrated force sensor is an important part of a load cell based probe.
+这份文档描述了Klipper对于压力传感器的支持。压力传感器的基础功能包括读取受力数据，并且用于称量耗材等的物品。校准过的压力传感器是压力传感器探针的重要部分。
 
-## Related Documentation
+## 相关文档
 
-* [load_cell Config Reference](Config_Reference.md#load_cell)
-* [load_cell G-Code Commands](G-Codes.md#load_cell)
-* [load_cell Status Reference](Status_Reference.md#load_cell)
+* [load_cell 配置参考](Config_Reference.md#load_cell)
+* [load_cellG-code命令](G-Codes.md#load_cell)
+* [load_cell状态参考](Status_Reference.md#load_cell)
 
-## Using `LOAD_CELL_DIAGNOSTIC`
+## 使用 `LOAD_CELL_DIAGNOSTIC`
 
-When you first connect a load cell its good practice to check for issues by running `LOAD_CELL_DIAGNOSTIC`. This tool collects 10 seconds of data from the load cell and resport statistics:
+当你第一次连接好压力传感器的时候，最好使用`LOAD_CELL_DIAGNOSTIC`来检测压力传感器的状态。这个工具会收集压力传感器10秒钟内的数据并且报告状态。
 
 ```
 $ LOAD_CELL_DIAGNOSTIC
@@ -22,32 +22,32 @@ $ LOAD_CELL_DIAGNOSTIC
 // Sample range / sensor capacity: 0.00524%
 ```
 
-Things you can check with this data:
+你可以检查这些数据：
 
-* The configured sample rate of the sensor should be close to the 'Measured samples per second' value. If it is not you may have a configuration or wiring issue.
-* 'Saturated samples' should be 0. If you have saturated samples it means the load sell is seeing more force than it can measure.
-* 'Unique values' should be a large percentage of the 'Samples Collected' value. If 'Unique values' is 1 it is very likely a wiring issue.
-* Tap or push on the sensor while `LOAD_CELL_DIAGNOSTIC` runs. If things are working correctly ths should increase the 'Sample range'.
+* 配置中的采样率应该接近'Measured samples per second'的值；否则，可能存在配置或接线问题。
+* 'Saturated samples'的值应该为0。如果样本饱和，这意味着压力传感器检测到了超出量程的力。
+* 'Unique values'应该等于'Samples Collected'的很大一部分。如果'Unique values'为1，这很有可能是接线问题。
+* Tap or push on the sensor while `LOAD_CELL_DIAGNOSTIC` runs. If things are working correctly this should increase the 'Sample range'.
 
-## Calibrating a Load Cell
+## 校准压力传感器
 
-Load cells are calibrated using the `LOAD_CELL_CALIBRATE` command. This is an interactive calibration utility that walks you though a 3 step process:
+压力传感器是通过 `LOAD_CELL_CALIBRATE`校准的。这是一个交互式的校准工具，有三个步骤：
 
-1. First use the `TARE` command to establish the zero force value. This is the `reference_tare_counts` config value.
-1. Next you apply a known load or force to the load cell and run the `CALIBRATE GRAMS=nnn` command. From this the `counts_per_gram` value is calculated. See [the next section](#applying-a-known-force-or-load) for some suggestions on how to do this.
-1. Finally, use the `ACCEPT` command to save the results.
+1. 首先，使用`TARE`命令来获得零点受力值。这是稍后应填入配置文件中`reference_tare_counts`的值。
+1. 然后，向压力传感器施加一个已知大小的力（比如砝码），然后运行`CALIBRATE GRAMS=nnn`。在这步，将会计算得出`counts_per_gram`的值。参见[the next section](#applying-a-known-force-or-load)以获得更多建议。
+1. 最后，使用 `ACCEPT`以保存结果。
 
-You can cancel the calibration process at any time with `ABORT`.
+你可以在校准中的任何时候使用 `ABORT`来取消校准流程。
 
-### Applying a Known Force or Load
+### 施加一个已知的力
 
-The `CALIBRATE GRAMS=nnn` step can be accomplished in a number of ways. If your load cell is under a platform like a bed or filament holder it might be easiest to put a known mass on the platform. E.g. you could use a couple of 1KG filament spools.
+`CALIBRATE GRAMS=nnn`可以通过多种方式完成。如果你的压力传感器是在一个平台下（如热床或耗材架），最简单的做法是放置一个已知重量的物体，比如若干卷1KG的耗材。
 
-If your load cell is in the printer's toolhead a different approach is easier. Put a digital scale on the printers bed and gently lower the toolhead onto the scale (or raise the bed into the toolhead if your bed moves). You may be able to do this using the `FORCE_MOVE` command. But more likely you will have to manually moving the z axis with the motors off until the toolhead presses on the scale.
+如果你的压力传感器在工具头上，另一个方法可能更简单：将一个电子秤放在热床上，并缓慢降低工具头（或者升上热床，取决于你的打印机架构）来跟秤接触。你可以需要使用 `FORCE_MOVE`来实现。但是你也可能需要在电机关闭的情况下手动移动Z轴，直到工具头与电子秤接触。
 
-A good calibration force would ideally be a large percentage of the load cell's rated capacity. E.g. if you have a 5Kg load cell you would ideally calibrate it with a 5kg mass. This might work well with under-bed sensors that have to support a lot of weight. For toolhead probes this may not be a load that your printer bed or toolhead can tolerate without damage. Do try to use at least 1Kg of force, most printers should tolerate this without issue.
+一个较好的校准力度应该是接近压力传感器的最大标称值。 比如，如果你有一个5KG的压力传感器，使用一个5KG的负载来校准效果会比较好。这个方法对于床下的传感器更有效，因为有可以支撑重物的结构。对于工具头而言，这个负载数值可能无法在不损坏结构的前提下承受。但是，至少使用1KG的压力，大部分打印机都可以完美承受这个压力。
 
-When calibrating make careful note of the values reported:
+校准时，请留意回报的数值：
 
 ```
 $ CALIBRATE GRAMS=555
@@ -55,262 +55,230 @@ $ CALIBRATE GRAMS=555
 Total capacity: +/- 29.14Kg
 ```
 
-The `Total capacity` should be close to the theoretical rating of the load cell based on the sensor's capacity. If it is much larger you could have used a higher gain setting in the sensor or a more sensitive load cell. This isn't as critical for 32bit and 24bit sensors but is much more critical for low bit width sensors.
+`Total capacity`应该接近压力传感器的标称最大负载。如果这个数值比标称值大很多，可能设置了错误的增益或者传感器过于敏感。对于24位和32位的传感器，这不是一个关键问题，但是对于低位宽的传感器，这个问题会更重要。
 
-## Reading Force Data
+## 读取受力数据
 
-Force data can be read with a GCode command:
+受力数据可以使用一个G-code命令来读取：
 
 ```
 LOAD_CELL_READ
 // 10.6g (1.94%)
 ```
 
-Data is also continuously read and can be consumed from the load_cell printer object in a macro:
+数据是连续的，所以可以在宏中使用load_cell对象来读取：
 
 ```
 {% set grams = printer.load_cell.force_g %}
 ```
 
-This provides an average force over the last 1 second, similar to how temperature sensors work.
+这将提供过去一秒的平均受力数值，与温度传感器的原理类似。
 
-## Taring a Load Cell
+## 给压力传感器归零（俗称去皮）
 
-Taring, sometimes called zeroing, sets the current weight reported by the load_cell to 0. This is useful for measuring relative to a known weight. e.g. when measuring a filament spool, using `LOAD_CELL_TARE` sets the weight to 0. Then as filament is printed the load_cell will report the weight of the filament used.
+归零，有时称为去皮，会将当前压力传感器回报的数值设置为0。这在测量相对质量的时候较为有用，比如，在测量耗材质量时，使用 `LOAD_CELL_TARE`来将重量设置为0。这样，打印时，压力传感器会回报耗材被使用的重量（而不是整卷耗材的重量）。
 
 ```
 LOAD_CELL_TARE
 // Load cell tare value: 5.32% (445903)
 ```
 
-The current tare value is reported in the printers status and can be read in a macro:
+目前的归零值会在打印机状态中回报，并可以在宏中读取。
 
 ```
 {% set tare_counts = printer.load_cell.tare_counts %}
 ```
 
-# Load Cell Probes
+# 压力传感器探针
 
-## Related Documentation
+## 相关文档
 
-* [load_cell_probe Config Reference](Config_Reference.md#load_cell_probe)
-* [load_cell_probe G-Code Commands](G-Codes.md#load_cell_probe)
-* [load_cell_probe Statuc Reference](Status_Reference.md#load_cell_probe)
+* [load_cell_probe配置参考](Config_Reference.md#load_cell_probe)
+* [load_cell_probe G-code命令](G-Codes.md#load_cell_probe)
+* [load_cell_probe状态参考](Status_Reference.md#load_cell_probe)
 
-## Load Cell Probe Safety
+## 压力传感器探针的安全问题
 
-Because load cells are a direct nozzle contact probe there is a risk of damage to your printer if too much force is used. The load cell probing system includes a number of safety checks that try to keep your machine safe from excessive force to the toolhead. It's important to understand what they are and how they work as you can defeat most of them with poorly chosen config values.
+因为压力传感器使用喷嘴直接接触，所以当施加的力过于多，会有损坏打印机的风险。压力传感器探测系统有一系列的安全措施，来保证打印机不会由于工具头施加过多的力而损坏。理解这些安全措施很重要，因为大部分安全措施都会被错误的配置值而被规避。
 
-#### Calibration Check
+#### 校准检查
 
-Every time a homing move starts, load_cell_probe checks that the load_cell is calibrated. If not it will stop the move with an error: `!! Load Cell not calibrated`.
+每次归位时，load_cell_probe对象都会检查load_cell是否以校准。如果没有，归位将被停止并汇报错误：`!! Load Cell not calibrated`。
 
 #### `counts_per_gram`
 
-This setting is used to convert raw sensor counts into grams. All the safety limits are in gram units for your convenience. If the `counts_per_gram` setting is not accurate you can easily exceed the safe force on the toolhead. You should never guess this value. Use `LOAD_CELL_CALIBRATE` to find your load cells actual `counts_per_gram`.
+这个设置用于将原始传感器数据转换为克（g）。所有的安全限制数值都是克，对于使用者更方便。如果`counts_per_gram`设置不准确，可以轻易对工具头施加超过安全值的力。您永远都不应该猜测这个值。使用`LOAD_CELL_CALIBRATE` 来找到对于您的压力传感器的实际`counts_per_gram`数值。
 
 #### `trigger_force`
 
-This is the force in grams that triggers the endstop to halt the homing move. When a homing move starts the endstop tares itself with the current reading from the load cell. `trigger_force` is measured from that tare value. There is always some overshoot of this value when the probe collides with the bed, so be conservative. e.g. a setting of 100g could result in 350g of peak force before the toolhead stops. This overshoot will increase with faster probing `speed`, a low ADC sample rate or [multi MCU homing](Multi_MCU_Homing.md).
+这是归位过程中触发限位所需要的力。当归位时，限位会使用当前的读数进行归零操作。`trigger_force`是从这个归零后的值测量的。当探针与热床接触时，这个值总是会有部分超出，所以请设置相对保守的值，比如，100g的设置可能会导致工具头停止前最高350g的受力。这个“超出值”会随着探测时的`speed`（速度），较低的ADC采样率，或者[多MCU归位](Multi_MCU_Homing.md)而增长。
 
 #### `reference_tare_counts`
 
-This is the baseline tare value that is set by `LOAD_CELL_CALIBRATE`. This value works with `force_safety_limit` to limit the maximum force on the toolhead.
+这是在`LOAD_CELL_CALIBRATE`时设置的参考归零值。这个数值与`force_safety_limit`一起工作，用于限制工具头的最大受力。
 
-#### `force_safety_limit`
+#### `force_safety_limit（力安全限值）`
 
-This is the maximum absolute force, relative to `reference_tare_counts`, that the probe will allow while homing or probing. If the MCU sees this force exceeded it will shut down the printer with the error `!! Load cell endstop: too much force!`. There are a number of ways this can be triggered:
+这是在探测过程中允许的，相对于`reference_tare_counts`的最大绝对受力。如果MCU发现这个受力大于这个值，打印机会被停止并报错`!! Load cell endstop: too much force!`。由多种方式可以出发这个保护措施：
 
-The first risk this protects against is picking too large of a value for `drift_filter_cutoff_frequency`. This can cause the drift filter to filter out a probe event and continue the homing move. If this happens the `force_safety_limit` acts as a backup protection.
+第一个风险是选择过大的 `drift_filter_cutoff_frequency`值。这可能会导致偏移过滤器错误的过滤掉一个探针事件并继续归位移动。在这种情况下，`force_safety_limit`将会作为最后保护措施。
 
-The second problem is probing repeatedly in one place. Klipper does not retract the probe when doing a single `PROBE` command. This can result in force applied to the toolhead at the end of a probing cycle. Because external forces can vary greatly between probing locations, `load_cell_probe` performs a tare before beginning each probe. If you repeat the `PROBE` command, load_cell_probe will tare the endstop at the current force. Multiple cycles of this will result in ever-increasing force on the toolhead. `force_safety_limit` stops this cycle from running out of control.
+第二种情况是在一个位置重复探测。Klipper不会在单独的`PROBE`命令中收回探针。这可能导致探测结束时对工具头的受力。由于外部力在探测过程中可以非常大，`load_cell_probe`对象会在每次探测时归零受力值。如果您重复`PROBE`指令，load_cell_probe对象会将限位触发的力归零。多次循环这个过程会导致工具头上不断增加的力。 `force_safety_limit`会在这种情况不受控制时停止循环。
 
-Another way this run-away can happen is damage to a strain gauge. If the metal part is permanently bent it wil change the `reference_tare_counts` of the device. This puts the starting tare value much closer to the limit making it more likely to be violated. You want to be notified if this is happening because your hardware has been permanently damaged.
+Another way this run-away can happen is damage to a strain gauge. If the metal part is permanently bent it will change the `reference_tare_counts` of the device. This puts the starting tare value much closer to the limit making it more likely to be violated. You want to be notified if this is happening because your hardware has been permanently damaged.
 
-The final way this can be triggered is due to temperature changes. If your strain gauges are heated their `reference_tare_counts` may be very different at ambient temperature vs operating temperature. In this case you may need to increase the `force_safety_limit` to allow for thermal changes.
+最后一种触发方式是温度变化。如果你的应变片被加热，它们的`reference_tare_counts`可能与室温下不同。这种情况下，适度增加`force_safety_limit`以允许温度变化。
 
-#### Load Cell Endstop Watchdog Task
+#### 压力传感器限位的看门狗
 
-When homing the load_cell_endstop starts a task on the MCU to trac measurements arriving from the sensor. If the sensor fails to send measurements for 2 sample periods the watchdog will shut down the printer with an error `!! LoadCell Endstop timed out waiting on ADC data`.
+当归位时，load_cell_endstop对象会在MCU上启动一个看门狗任务以监控传感器的读数。如果传感器在两个连续的采样周期中都没有发送数据，看门狗将会停止打印机并报错`!! LoadCell Endstop timed out waiting on ADC data`。
 
-If this happens, the most likely cause is a fault from the ADC. Inadequate grounding of your printer can be the root cause. The frame, power supply case and pint bed should all be connected to ground. You may need to ground the frame in multiple places. Anodized aluminum extrusions do not conduct electricity well. You might need to sand the area where the grounding wire is attached to make good electrical contact.
+如果这发生了，很有可能ADC有问题。不可靠的打印机接地可能会导致问题。框架，电源外壳，以及打印机热床都应可靠地接地。你可能需要在框架的不同部位接地。阳极氧化的铝型材导电性能不佳，你可能需要打磨一个区域来连接地线以获得良好的电气接触。
 
-## Load Cell Probe Setup
+#### Interpolation
 
-This section covers the process for commissioning a load cell probe.
+To increase the precision of the probing result, the position of the first contact between nozzle and bed can be estimated by fitting a piecewise function to the measured data. The data will consist of two regions: while the nozzle is above the bed, the force will be constant (at the tare value). When the nozzle is in contact with the bed, the force will increase linearly with decreasing z position. A piecewise function is fitted to the data and the optimal z position of the split point is found by minimising the error squared. This enables a resolution finer than the distance between the sampling points and will also be less sensitive to noise.
 
-### Verify the Load Cell First
+Due to both physical and technical reasons, the interpolation uses data collected during an additional ascending movement after the initial descending move. The first 300ms of data collected during the ascending move will be used for the fit (this minimises the influence of tare drifts). The collected data must contain enough samples for the fit: at least 3 samples each below and above the contact point are required.
 
-A `[load_cell_probe]` is also a `[load_cell]` and G-code commands related to `[load_cell]` work with `[load_cell_probe]`. Before attempting to use a load cell probe, follow the directions for [calibrating the load cell](Load_Cell.md#calibrating-a-load-cell) with `CALIBRATE_LOAD_CELL` and checking its operation with `LOAD_CELL_DIAGNOSTIC`.
+It is recommended to use a relatively high trigger force for the probe to have a strong enough signal. If you have too few samples below the contact point, try increasing the `trigger_force` or reducing the `lift_speed`. However, if the `lift_speed` is too small, there will be too few samples above the contact point due to the 300ms window.
 
-### Verify Probe Operation With LOAD_CELL_TEST_TAP
+The distance of the ascending move can be configured through the `sample_retract_dist` parameter.
 
-Use the command `LOAD_CELL_TEST_TAP` to test the operation of the load cell probe before actually trying to probe with it. This command detects taps, just like the PROBE command, but it does not move the z axis. By default, it listens for 3 taps before ending the test. You have 30 seconds to do each tap, if no taps are detected the command will time out.
+## 压力传感器探针设置流程
 
-If this test fails, check your configuration and `LOAD_CELL_DIAGNOSTIC` carefully to look for issues.
+这个部分覆盖了设置一个压力传感器探针的流程。
 
-Load cell probes don't support the `QUERY_ENDSTOPS` or `QUERY_PROBE` commands. Use `LOAD_CELL_TEST_TAP` for testing functionality before probing.
+### 首先确认压力传感器
 
-### Homing Macros
+一个 `[load_cell_probe]`同时也是一个`[load_cell]`，与 `[load_cell]`有关的G-code命令同时都适用于 `[load_cell_probe]`。在尝试使用压力传感器探针前，先根据[校准压力传感器](Load_Cell.md#calibrating-a-load-cell)章节关于`CALIBRATE_LOAD_CELL` 的指引校准压力出啊干起，并使用`LOAD_CELL_DIAGNOSTIC`检查它的状态。
 
-Load cell probe is not an endstop and doesn't support `endstop: prove:z_virtual_endstop`. For the time being you'll need to configure your z axis with an MCU pin as its endstop. You won't actually be using the pin but for the time being you have to configure something.
+### 使用LOAD_CELL_TEST_TAP验证探针工作
 
-To home the axis with just the probe you need to set up a custom homing macro. This requires setting up [homing_override](Config_Reference.md#homing_override).
+在实际使用压力传感器用于探测前，使用`LOAD_CELL_TEST_TAP`指令来测试压力传感器探针的工作。这个命令检测轻触，就像PROBE命令，但是不移动Z轴。默认情况下，它会在测试结束前检测3次轻触。你有30秒的时间来进行每次轻触，如果没有检测到轻触，命令会超时结束。
 
-Here is a simple macro that can accomplish this. Note that the `_HOME_Z_FROM_LAST_PROBE` macro has to be separate because of the way macros work. The sub-call is needed so that the `_HOME_Z_FROM_LAST_PROBE` macro can see the result of the probe in `printer.probe.last_z_result`.
+如果测试失败，检查你的配置并运行 `LOAD_CELL_DIAGNOSTIC`来寻找问题。
 
-```gcode
-[gcode_macro _HOME_Z_FROM_LAST_PROBE]
-gcode:
-    {% set z_probed = printer.probe.last_z_result %}
-    {% set z_position = printer.toolhead.position[2] %}
-    {% set z_actual = z_position - z_probed %}
-    SET_KINEMATIC_POSITION Z={z_actual}
+压力传感器不支持`QUERY_ENDSTOPS`或 `QUERY_PROBE`指令。使用`LOAD_CELL_TEST_TAP`来在探测前测试功能。
 
-[gcode_macro _HOME_Z]
-gcode:
-    SET_GCODE_OFFSET Z=0  # load cell probes dont need a Z offset
-    # position toolhead for homing Z, edit for your printers size
-    #G90  # absolute move
-    #G1 Y50 X50 F{5 * 60}  # move to X/Y position for homing
+### 建议探测温度
 
-    # soft home the z axis to its limit so it can be moved:
-    SET_KINEMATIC_POSITION Z={printer.toolhead.axis_maximum[2]}
+目前，我们推荐在归位和探测时将喷嘴温度保持在耗材会溢料的温度下。140摄氏度是一个不错的起始点。这个温度同时也不会伤害PEI构件表面。
 
-    # Fast approach and tap
-    PROBE PROBE_SPEED={5 * 60}  # override the speed for faster homing
-    _HOME_Z_FROM_LAST_PROBE
+溢料导致的喷嘴及热床污染是压力传感器探测错误的头号原因。Klipper目前没有检测低质量结果的通用解决方案。现有的代码会将低质量的探测结果作为有效的探测点。识别这些低质量结果是目前的研究方向。
 
-    # lift z to 2mm
-    G91  # relative move
-    G1 Z2 F{5 * 60}
+目前，由于溢料污染，自动更换探测位置的功能还没有被Klipper支持。类似于`quad_gantry_level`的模块会反复在同一个坐标探测，即使前一次探测失败。
 
-    # probe at standard speed
-    PROBE
-    _HOME_Z_FROM_LAST_PROBE
+由于以上这些原因，极度不推荐在打印温度探测。
 
-    # lift z to 10mm for clearance
-    G91  # relative move
-    G1 Z10 F{5 * 60}
-```
-
-### Suggested Probing Temperature
-
-Currently, we suggest keeping the nozzle temperature below the level that causes the filament to ooze while homing and probing. 140C is a good starting point. This temperature is also low enough not to scar PEI build surfaces.
-
-Fouling of the nozzle and the print bed due to oozing filament is the #1 source of probing error with the load cell probe. Klipper does not yet have a universal way to detect poor quality taps due to filament ooze. The existing code may decide that a tap is valid when it is of poor quality. Classifying these poor quality taps is an area of active research.
-
-Klipper also lacks support for re-locating a probe point if the location has become fouled by filament ooze. Modules like `quad_gantry_level` will repeatedly probe the same coordinates even if a probe previously failed there.
-
-Give the above it is strongly suggested not to probe at printing temperatures.
-
-### Hot Nozzle Protection
+### 高温喷嘴保护
 
 The Voron project has a great macro for protecting your print surface from the hot nozzle. See [Voron Tap's
 `activate_gcode`](https://github.com/VoronDesign/Voron-Tap/blob/main/config/tap_klipper_instructions.md)
 
-It is highly suggested to add something like this to your config.
+极度推荐在你的配置中使用类似的东西。
 
-### Nozzle Cleaning
+### 清理喷嘴
 
-Before probing the nozzle should be clean. You could do this manually before every print. You can also implement a nozzle scrubber and automate the process. Here is a suggested sequence:
+在探测前喷嘴应该是干净的。你可以手动清洁，你也可以安装一个喷嘴清洁器，并自动化这个流程。以下是一个推荐的序列：
 
-1. Wait for the nozzle to heat up to probing temp (e.g. `M109 S140`)
-1. Home the machine (`G28`)
-1. Scrub the nozzle on a brush
-1. Heat soak the print bed
-1. Perform probing tasks: QGL, bed mesh etc.
+1. 等到喷嘴加热到探测温度（比如`M109 S140`）
+1. 归位机器(`G28`)
+1. 在一个刷子上刮净喷嘴
+1. 充分加热热床（使热床均热）
+1. 进行探测任务（QGL，床网等）。
 
-### Temperature Compensation for Nozzle Growth
+### 喷嘴热胀冷缩的温度补偿
 
-If you are probing at a safe temperature, the nozzle will expand after heating to printing temperatures. This will cause the nozzle to get longer and closer to the print surface. You can compensate for this with [[z_thermal_adjust]](Config_Reference.md#z_thermal_adjust). This adjustment will work across a range of printing temperatures from PLA to PC.
+如果在安全温度探测，喷嘴会在到达打印温度时略微膨胀。这将会导致喷嘴距离构件表面更近。可以使用[\[z_thermal_adjust\]](Config_Reference.md#z_thermal_adjust)来补偿。该补偿工具会补偿一系列打印温度，从PLA到PC。
 
-#### Calculating the `temp_coeff` for `[z_thermal_adjust]`
+#### 计算 `[z_thermal_adjust]`的`temp_coeff`
 
-The easiest way to do this is to measure at 2 different temperatures. Ideally these should be the upper and lower limits of the printing temperature range. E.g. 180C and 290C. You can perform a `PROBE_ACCURACY` at both temperatures and then calculate the difference of the `average z` at both.
+最简单的方法是在两个不同的温度测量。理想情况下，这应该涵盖打印温度的下限和上限（比如，180C和290C）。你可以在两个温度分别执行`PROBE_ACCURACY`并计算 `average z`的差值。
 
-The adjustment value is the change in nozzle length divided by the change in temperature. e.g.
+调整值即是喷嘴长度除以温度变化。比如。
 
 ```
 temp_coeff = -0.05 / (290 - 180) = -0.00045455
 ```
 
-The expected result is a negative number. Positive values for `temp_coeff` move the nozzle closer to the bed and negative values move it further away. Expect to have to move the nozzle further away as it gets longer when hot.
+预期的值应该是负值。正的`temp_coeff`会在加热时将喷嘴移的更近，而负值会将喷嘴移远。预期的行为是加热时将喷嘴移的更远。
 
-#### Configure `[z_thermal_adjust]`
+#### 配置`[z_thermal_adjust]`
 
-Set up z_thermal_adjust to reference the `extruder` as the source of temperature data. E.g.:
+设置z_thermal_adjust使用 `extruder`作为温度来源。比如：
 
 ```
-[z_thermal_adjust nozzle]
+[z_thermal_adjust]
 temp_coeff=-0.00045455
 sensor_type: temperature_combined
 sensor_list: extruder
 combination_method: max
+maximum_deviation: 999
 min_temp: 0
 max_temp: 400
 max_z_adjustment: 0.1
 ```
 
-## Continuous Tare Filters for Toolhead Load Cells
+## 对工具头压力传感器的连续归零过滤器
 
-Klipper implements a configurable IIR filter on the MCU to provide continuous tareing of the load cell while probing. Continuous taring means the 0 value moves with drift caused by external factors like bowden tubes and thermal changes. This is aimed at toolhead sensors and moving beds that experience lots of external forces that change while probing.
+Klipper在MCU上实现了一个可配置的IIR过滤器来预防在探测时连续的归零。连续归零指的是0值随着外部因素（比如进料管或者温度变化）而变化。这是瞄准工具头传感器和动床结构开发的，这种结构会遭受大量外部因素的影响。
 
-### Installing SciPy
+### 安装SciPy
 
-The filtering code uses the excellent [SciPy](https://scipy.org/) library to compute the filter coefficients based on the values your enter into the config.
+过滤器的代码使用绝佳的[SciPy](https://scipy.org/)库基于配置值来计算过滤器的参数。
 
-Pre-compiled SciPi builds are available for Python 3 on 32 bit Raspberry Pi systems. 32 bit + Python 3 is strongly recommended because it will streamline your installation experience. It does work with Python 2 but installation can take 30+ minutes and require installing additional tools.
+预编译的SciPi构建在32位Raspberry Pi上的Python 3可用。极度推荐32位+Python 3的组合，因为这可以流水线化你的安装流程。可以使用Python 2，但是安装过程将话费30+分钟，并且需要安装额外工具。
 
 ```bash
 ~/klippy-env/bin/pip install scipy
 ```
 
-### Filter Workbench
+### 过滤器配置
 
-The filter parameters should be selected based on drift seen on the printer during normal operation. A Jupyter notebook is provided in scripts, [filter_workbench.ipynb](../scripts/filter_workbench.ipynb), to perform a detailed investigation with real captured data and FFTs.
+过滤器的参数必须根据打印机正常工作时的偏移来决定。脚本中提供Jupyter Notebook，[filter_workbench.ipynb](../scripts/filter_workbench.ipynb)，用于提供详细的调查数据，基于真实数据和FFT。
 
-### Filtering Suggestions
+### 过滤建议
 
-For those just trying to get a filter working follow these suggestions:
+对于那些只想要一个能用的过滤器的人，建议：
 
-* The only essential option is `drift_filter_cutoff_frequency`. A conservative starting value is `0.5`Hz. Prusa shipped the MK4 with a setting of `0.8`Hz and the XL with `11.2`Hz. This is probably a safe range to experiment with. This value should be increased only until normal drift due to bowden tube force is eliminated. Setting this value too high will result in slow triggering and excess force going through the toolhead.
-* Keep `trigger_force` low. The default is `75`g. The drift filter keeps the internal grams value very close to 0 so a large trigger force is not needed.
-* Keep `force_safety_limit` to a conservative value. The default value is 2Kg and should keep your toolhead safe while experimenting. If you hit this limit the `drift_filter_cutoff_frequency` value may be too high.
+* 真正必须的选项是`drift_filter_cutoff_frequency`。一个保守的起始值是 `0.5`Hz。Prusa MK4在发货时使用`0.8`hz，Prusa XL发货时使用`11.2`hz。这可能是一个安全的实验范围。将这个值设置的过高会导致延迟触发，进而导致工具头受力过大。
+* 将`trigger_fouce`保持在低位。过滤器的内部计数器将触发值接近0，所以较大的触发力度是不必须的。
+* 将 `force_safety_limit`保持在保守的值。默认是2KG，应该可以保证工具头在实验时安全。如果你触发了这个限制，则`drift_filter_cutoff_frequency`可能过高。
 
-## Suggestions for Load Cell Tool Boards
+## 对于压力传感器工具头板的建议
 
-This section covers suggestions for those developing toolhead boards that want to support [load_cell_probe]
+该部分讲述关于想要在工具头板上使用[load_cell_probe]的建议
 
-### ADC Sensor Selection & Board Development Hints
+### ADC传感器选择&工具头板开发建议
 
-Ideally a sensor would meet these criteria:
+理想情况下，一个传感器应该满足以下要求：
 
-* At least 24 bits wide
-* Use SPI communications
-* Has a pin can be used to indicate sample ready without SPI communications. This is often called the "data ready" or "DRDY" pin. Checking a pin is much faster than running an SPI query.
-* Has a programmable gain amplifier gain setting of 128. This should eliminate the need for a separate amplifier.
-* Indicates via SPI if the sensor has been reset. Detecting resets avoids timing errors in homing and using noisy data at startup. It can also help users track down wiring and grounding issues.
-* A selectable sample rate between 350Hz and 2Khz. Very high sample rates don't turn out to be beneficial in our 3D printers because they produce so much noise when moving fast. Sample rates below 250Hz will require slower probing speeds. They also increase the force on the toolhead due to longer delays between measurements. E.g. a 500Hz sensor moving at 5mm/s has the same safety factor as a 100Hz sensor moving at only 1mm/s.
-* If designing for under-bed applications, and you want to sense multiple load cells, use a chip that can sample all of its inputs simultaneously. Multiplex ADCs that require switching channels have a settling of several samples after each channel switch making them unsuitable for probing applications.
+* 至少24位带宽
+* 使用SPI通信
+* 有一根可以不通过SPI通信就可以确认准备就绪的引脚。这根引脚经常被称为"Data Ready"或者"DRDY"引脚。检查一根引脚比发送一次SPI闻询快得多。
+* 有一个可编程的128级增益放大器。这样就无需单独的放大器了。
+* 通过SPI来指示传感器是否重置。检测重置可以避免归位时的错误，并且在一开始就避免嘈杂的数据。这也可以帮助用户检测接地和接线问题。
+* 一个可以在350Hz和2Khz之间选择的采样率。太高的采样率对于3D打印机并没有好处，因为打印头在高速移动的时候就能产生很多噪音。250hz以下的采样率需要更低的探测速率。这也会增加打印头的受力，因为在低采样率时触发延迟较高。比如，一个100Hz的压力传感器在1mm/s探测的时候，安全余量和一个500Hz在5mm/s探测的时候一样。
+* 如果准备将压力传感器安装在床下，并且期望使用多个压力传感器，则应使用一款可以同时采样所有传感器的芯片。“多通道切换式”的多ADC实现方式需要一点时间来稳定读数，所以这类芯片在多传感器布置下不适用于探测用途。
 
-Implementing support for a new sensor chip is not particularly difficult with Klipper's `bulk_sensor` and `load_cell_endstop` infrastructure.
+在Klipper的 `bulk_sensor` 和 `load_cell_endstop`架构下，引入新传感器芯片的支持不是特别难。
 
-### 5V Power Filtering
+### 5V电源滤波
 
-It is strongly suggested to use larger capacitors than specified by the ADC chip manufacturer. ADC chips are usually targeted at low noise environments, like battery powered devices. Sensor manufacturers suggested application notes generally assume a quiet power supply. Treat their suggested capacitor values as minimums.
+强烈建议在ADC芯片上使用比制造商建议规格更大的电容。ADC芯片是为了低电气噪音环境设计的（比如电池供电）。传感器的制造商推荐的规格一般假定了一个纯净的电源环境。将他们推荐的电容规格视为下限。
 
-3D printers put huge amounts of noise onto the 5V bus and this can ruin the sensor's accuracy. Test the sensor on the board with a typical 3D printer power supply and active stepper drivers before deciding on smoothing capacitor sizes.
+3D打印机会在5V电源总线上产生大量电气噪音，这会严重影响传感器的精度。在一块由标准3D打印机电源供电的主板上测试压力传感器，保持步进电机激活，以模拟真实环境。测试之后再决定需要的滤波电容大小。
 
-### Grounding & Ground Planes
+### 接地与接地层
 
-Analog ADC chips contain components that are very vulnerable to noise and ESD. A large ground plane on the first board layer under the chip can help with noise. Keep the chip away from power sections and DC to DC converters. The board should have proper grounding back to the DC supply.
+模拟ADC芯片的部分组件对于电气噪音和静电极度敏感。放置在第一版层的较大接地层可以缓解噪声问题。将芯片安装在远离电源以及DCDC转换器的地方。电路板应有恰当的接地返回主DC电源。
 
-### HX711 and HX717 Notes
+### 对于HX711和HX717的额外提示
 
-This sensor is popular because of its low cost and availability in the supply chain. However, this is a sensor with some drawbacks:
+这些传感器因为低成本及其良好的供应链可得性而受欢迎。然而，这款传感器拥有一些缺点：
 
-* The HX71x sensors use bit-bang communication which has a high overhead on the MCU. Using a sensor that communicates via SPI would save resources on the tool board's CPU.
-* The HX71x lacks a way to communicate reset events to the MCU. Klipper detects resets with a timing heuristic but this is not ideal. Resets indicate a problem with wiring or grounding.
-* For probing applications the HX717 version is strongly preferred because of its higher sample rate (320 vs 80). Probing speed on the HX711 should be limited to less than 2mm/s.
-* The sample rate on the HX71x cannot be set from klipper's config. If you have the 10SPS version of the sensor (which is widely distributed) it needs to be physically re-wired to run at 80SPS.
+* HX71x传感器系列使用bit-bang通信，这会造成较高的MCU负载开销。使用SPI通信的传感器可以节省工具板CPU的运算资源。
+* HX71x系列传感器没有与MCU通信重置事件的能力。Klipper 采用一种时序启发式方法来检测复位，但这并非理想方案。重置通常意味着线路连接或接地存在问题。
+* 对于探测，强烈推荐HX717，由于它的采样率更高（320 vs HX711仅有80）。在使用HX711进行探测时，探测速度应限制为2mm/s。
+* HX71x系列的采样率无法使用Klipper配置来设置。如果你有一个每秒10采样的传感器（极其常见），它需要更改物理配置（如配置电阻）才能以每秒80采样运行。

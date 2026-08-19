@@ -69,4 +69,4 @@ M104 S0
 
 a makróhívás előtt. Vedd figyelembe, hogy a SuperSlicer rendelkezik egy "egyéni G-kód" gomb opcióval, amely ugyanezt az eredményt éri el.
 
-Egy példát a START_PRINT makróra, amely ezeket a paramétereket használja, az alábbi fájlban találhatsz config/sample-macros.cfg
+An example of a START_PRINT macro using these parameters can be found in config/sample-macros.cfg

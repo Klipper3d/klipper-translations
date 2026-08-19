@@ -127,7 +127,7 @@ gcode:
     M117 Temp:{sensor.temperature} Humidity:{sensor.humidity}
 ```
 
-## Actions
+## Aksiyonlar
 
 There are some commands available that can alter the state of the printer. For example, `{ action_emergency_stop() }` would cause the printer to go into a shutdown state. Note that these actions are taken at the time that the macro is evaluated, which may be a significant amount of time before the generated g-code commands are executed.
 
@@ -138,7 +138,7 @@ Available "action" commands:
 - `action_emergency_stop(msg)`: Transition the printer to a shutdown state. The `msg` parameter is optional, it may be useful to describe the reason for the shutdown.
 - `action_call_remote_method(method_name)`: Calls a method registered by a remote client. If the method takes parameters they should be provided via keyword arguments, ie: `action_call_remote_method("print_stuff", my_arg="hello_world")`
 
-## Variables
+## Değişkenler
 
 The SET_GCODE_VARIABLE command may be useful for saving state between macro calls. Variable names may not contain any upper case characters. For example:
 

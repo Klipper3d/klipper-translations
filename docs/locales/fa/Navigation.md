@@ -1,15 +1,15 @@
-Klipper documentation
+مستندات کلیپر
 
-Installation and Configuration
+نصب و پیکربندی
 
-Configuration Reference
+مرجع پیکربندی
 
-Bed Level
+همسطح سازی
 
-Resonance Compensation
+جبران رزونانس
 
-Command templates
+قالب های فرمان
 
-Developer Documentation
+مستندات توسعه‌دهنده
 
-Device Specific Documents
+اسناد خاص دستگاه

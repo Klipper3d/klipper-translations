@@ -4,8 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-07-22 08:52+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Danish <https://hosted.weblate.org/projects/klipper/"
-"skew_correction/da/>\n"
+"Language-Team: Danish <https://hosted.weblate.org/projects/klipper/skew_correction/da/>\n"
 "Language: da\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -56,13 +55,6 @@ msgstr ""
 
 #: docs/Skew_Correction.md:block 9 (header)
 msgid "Configure your skew"
-msgstr ""
-
-#: docs/Skew_Correction.md:block 10 (paragraph)
-msgid ""
-"Make sure `[skew_correction]` is in printer.cfg. You may now use the "
-"`SET_SKEW` gcode to configure skew_correcton. For example, if your measured "
-"lengths along XY are as follows:"
 msgstr ""
 
 #: docs/Skew_Correction.md:block 12 (paragraph)
@@ -141,6 +133,19 @@ msgid ""
 " Corner D, and the length from Corner A to Corner D. When measuring length AD "
 "do not include the flats on the corners that some test objects provide."
 msgstr ""
+
+#: docs/Skew_Correction.md:block 10 (paragraph)
+msgid ""
+"Make sure `[skew_correction]` is in printer.cfg. You may now use the "
+"`SET_SKEW` gcode to configure skew_correction. For example, if your measured "
+"lengths along XY are as follows:"
+msgstr ""
+
+#~ msgid ""
+#~ "Make sure `[skew_correction]` is in printer.cfg. You may now use the "
+#~ "`SET_SKEW` gcode to configure skew_correcton. For example, if your measured "
+#~ "lengths along XY are as follows:"
+#~ msgstr ""
 
 #~ msgid ""
 #~ "Length AC = 140.4\n"

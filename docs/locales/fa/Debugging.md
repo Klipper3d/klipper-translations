@@ -1,6 +1,6 @@
 # Debugging
 
-This document describes some of the Klipper debugging tools.
+این سند، برخی از ابزارهای اشکال‌زدایی (Debugging) کلیپر را تشریح می‌کند.
 
 ## Running the regression tests
 
@@ -65,7 +65,7 @@ Klipper supports logging its internal motion history, which can be later analyze
 Data logging is enabled with the `data_logger.py` tool. For example:
 
 ```
-~/klipper/scripts/motan/data_logger.py /tmp/klippy_uds mylog
+~/klipper/scripts/motan/data_logger.py /tmp/klippy_uds mylog -s '*'
 ```
 
 This command will connect to the Klipper API Server, subscribe to status and motion information, and log the results. Two files are generated - a compressed data file and an index file (eg, `mylog.json.gz` and `mylog.index.gz`). After starting the logging, it is possible to complete prints and other actions - the logging will continue in the background. When done logging, hit `ctrl-c` to exit from the `data_logger.py` tool.

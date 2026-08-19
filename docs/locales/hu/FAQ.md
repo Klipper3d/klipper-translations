@@ -64,9 +64,9 @@ A Klipper mikrovezérlő átviteli sebessége nem függ a mikrovezérlő bootloa
 
 ## Futtathatom a Klippert a Raspberry Pi 3-on kívül máson is?
 
-Az ajánlott hardver egy Raspberry Pi 2, Raspberry Pi 3 vagy Raspberry Pi 4.
+The recommended hardware is a Raspberry Pi Zero2w, Raspberry Pi 3, Raspberry Pi 4 or Raspberry Pi 5. Klipper will also run on other SBC devices as well as x86 hardware, as described below.
 
-A Klipper fut a Raspberry Pi 1-en és a Raspberry Pi Zero-n, de ezek a lapok nem tartalmaznak elegendő feldolgozási teljesítményt az OctoPrint jó futtatásához. Gyakori, hogy ezeken a lassabb gépeken a nyomtatás akadozik, amikor közvetlenül az OctoPrint-ből nyomtatsz. (Előfordulhat, hogy a nyomtató gyorsabban mozog, mint ahogy az OctoPrint a mozgásparancsokat el tudja küldeni.) Ha mindenképpen ezek közül a lassabb lapok közül valamelyiket szeretnéd használni, fontold meg a "virtual_sdcard" funkció használatát nyomtatáskor (a részletekért lásd a [konfigurációs hivatkozást](Config_Reference.md#virtual_sdcard)).
+Klipper will run on a Raspberry Pi 1, 2 and on the Raspberry Pi Zero1, but these boards don't have enough processing power to run Klipper well. It is common for print stalls to occur on these slower machines when printing (The printer may move faster than Klipper can send movement commands.) It is not reccomended to run Klipper on these older machines.
 
 A Beaglebone-on való futtatáshoz lásd a [Beaglebone-specifikus telepítési utasításokat](Beaglebone.md).
 
@@ -146,7 +146,7 @@ A megoldás a "command" -tól eltérő restart_method használata, vagy egy fris
 
 ## A fűtőelemek bekapcsolva maradnak, ha a Raspberry Pi összeomlik?
 
-A szoftvert úgy tervezték, hogy ezt megakadályozza. Ha a gazdagép egyszer engedélyezi a fűtőberendezést, a szoftverének 5 másodpercenként meg kell erősítenie az engedélyezést. Ha a mikrokontroller nem kap 5 másodpercenként megerősítést, akkor "leállítás" állapotba kerül, amelynek célja, hogy kikapcsolja az összes fűtőberendezést és léptetőmotort.
+The software has been designed to prevent that. Once the host enables a heater, the host software needs to confirm that enablement every 3 seconds. If the micro-controller does not receive a confirmation every 3 seconds it goes into a "shutdown" state which is designed to turn off all heaters and stepper motors.
 
 További részletekért lásd az [MCU-parancsok](MCU_Commands.md) dokumentumban található "config_digital_out" parancsot.
 

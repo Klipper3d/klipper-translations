@@ -4,8 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-07-22 08:31+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
-"projects/klipper/benchmarks/zh_Hant/>\n"
+"Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/projects/klipper/benchmarks/zh_Hant/>\n"
 "Language: zh_Hant\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -28,8 +27,7 @@ msgid ""
 "measuring the impact of coding changes within the software. A secondary goal "
 "is to provide high-level metrics for comparing the performance between chips "
 "and between software platforms."
-msgstr "基準的主要目標是提供一個一致的機制，用於測量軟體中編碼更改的影響。次要目標是"
-"提供高級別指標，用於比較晶片和軟件平臺之間的效能。"
+msgstr "基準的主要目標是提供一個一致的機制，用於測量軟體中編碼更改的影響。次要目標是提供高級別指標，用於比較晶片和軟件平臺之間的效能。"
 
 msgid ""
 "The step rate benchmark is designed to find the maximum stepping rate that the"
@@ -39,9 +37,7 @@ msgid ""
 "world usage."
 msgstr ""
 "步進率(stepping "
-"rate)基準是爲了找到硬體和軟體可以達到的最大步進率。這個基準步進率在日常使用中"
-"是無法實現的，因為Klipper在任何實際使用中都需要執行其他任務（例如，MCU/"
-"主機通訊、溫度讀取、限位檢查）。"
+"rate)基準是爲了找到硬體和軟體可以達到的最大步進率。這個基準步進率在日常使用中是無法實現的，因為Klipper在任何實際使用中都需要執行其他任務（例如，MCU/主機通訊、溫度讀取、限位檢查）。"
 
 msgid ""
 "In general, the pins for the benchmark tests are chosen to flash LEDs or other"
@@ -49,8 +45,7 @@ msgid ""
 "prior to running a benchmark.** It is not recommended to drive an actual "
 "stepper during a benchmark."
 msgstr ""
-"一般而言，基準測試的引腳被選擇用於閃爍 LED 或其他安全引腳。 ** "
-"在執行基準測試之前，始終驗證驅動配置的引腳是安全的。** "
+"一般而言，基準測試的引腳被選擇用於閃爍 LED 或其他安全引腳。 ** 在執行基準測試之前，始終驗證驅動配置的引腳是安全的。** "
 "不建議在基準測試期間驅動實際的步進器。"
 
 msgid "Step rate benchmark test"
@@ -65,11 +60,8 @@ msgid ""
 " It should be possible to bisect the ticks parameter until a stable value is "
 "found."
 msgstr ""
-"以上測試三個步進器同時步進。如果執行上述程式的結果是 "
-"\"重新安排定時器在過去 \"或 \"步進器在過去太遠 \""
-"的錯誤，則表明`ticks`參數太低（它導致步進速度太快）。我們的目標是找到能夠可靠"
-"地導致成功完成測試的最低的ticks參數設定。應該可以將ticks參數一分為二，直到找"
-"到一個穩定的值。"
+"以上測試三個步進器同時步進。如果執行上述程式的結果是 \"重新安排定時器在過去 \"或 \"步進器在過去太遠 "
+"\"的錯誤，則表明`ticks`參數太低（它導致步進速度太快）。我們的目標是找到能夠可靠地導致成功完成測試的最低的ticks參數設定。應該可以將ticks參數一分為二，直到找到一個穩定的值。"
 
 msgid ""
 "On a failure, one can copy-and-paste the following to clear the error in "
@@ -225,22 +217,8 @@ msgid ""
 "in the two \"uptime\" response messages. The total number of commands per "
 "second is then `100000 * mcu_frequency / clock_diff`."
 msgstr ""
-"當測試完成後，確定兩個 \"正常執行時間 \""
-"響應資訊中報告的時鐘之間的差異。然後，每秒鐘的總命令數是`100000 * "
-"mcu_frequency / clock_diff`。"
-
-msgid ""
-"Note that this test may saturate the USB/CPU capacity of a Raspberry Pi. If "
-"running on a Raspberry Pi, Beaglebone, or similar host computer then increase "
-"the delay (eg, `DELAY {clock + 20*freq} get_uptime`). Where applicable, the "
-"benchmarks below are with console.py running on a desktop class machine with "
-"the device connected via a high-speed hub."
-msgstr ""
-"注意，這個測試可能會使Raspberry Pi的USB/CPU容量達到飽和。如果在Raspberry "
-"Pi、Beaglebone或類似的主機上執行，那麼要增加延遲（例如，`DELAY {clock + "
-"20*freq} "
-"get_uptime`）。在適用的情況下，下面的基準是用控制檯.py在桌面類機器上執行，裝"
-"置通過高速集線器連線。"
+"當測試完成後，確定兩個 \"正常執行時間 \"響應資訊中報告的時鐘之間的差異。然後，每秒鐘的總命令數是`100000 * mcu_frequency / "
+"clock_diff`。"
 
 msgid "MCU"
 msgstr "MCU"
@@ -253,18 +231,6 @@ msgstr "Build"
 
 msgid "Build compiler"
 msgstr "Build compiler"
-
-msgid "stm32f042 (CAN)"
-msgstr "stm32f042 (CAN)"
-
-msgid "18K"
-msgstr "18K"
-
-msgid "c105adc8"
-msgstr "c105adc8"
-
-msgid "arm-none-eabi-gcc (GNU Tools 7-2018-q3-update) 7.3.1"
-msgstr "arm-none-eabi-gcc (GNU Tools 7-2018-q3-update) 7.3.1"
 
 msgid "atmega2560 (serial)"
 msgstr "atmega2560 (序列匯流排)"
@@ -368,12 +334,6 @@ msgstr "Host 基準測試"
 msgid "66"
 msgstr "66"
 
-msgid "5"
-msgstr "5"
-
-msgid "22"
-msgstr "22"
-
 msgid "rp2040 (USB)"
 msgstr "rp2040 (USB)"
 
@@ -388,8 +348,7 @@ msgid ""
 "below) and then the following is cut-and-paste into the console.py terminal "
 "window:"
 msgstr ""
-"測試是使用console.py工具進行的（在<Debugging.md>中描述）。為特定的硬件平臺配"
-"置微控制器（見下文），然後將以下內容剪下並貼上到console.py終端視窗:"
+"測試是使用console.py工具進行的（在<Debugging.md>中描述）。為特定的硬件平臺配置微控制器（見下文），然後將以下內容剪下並貼上到console.py終端視窗:"
 
 #: docs/Benchmarks.md:block 86 (paragraph)
 msgid ""
@@ -399,9 +358,8 @@ msgid ""
 "<Debugging.md>). The following is cut-and-paste into the console.py terminal "
 "window:"
 msgstr ""
-"命令排程基準測試微控制器可以處理多少個 \"dummy\""
-"命令。它主要是對硬體通訊機制的測試。該測試使用console.py工具（在<Debugging.md"
-">中描述）執行。以下是剪下並貼上到console.py終端視窗的內容:"
+"命令排程基準測試微控制器可以處理多少個 "
+"\"dummy\"命令。它主要是對硬體通訊機制的測試。該測試使用console.py工具（在<Debugging.md>中描述）執行。以下是剪下並貼上到console.py終端視窗的內容:"
 
 #: docs/Benchmarks.md:block 92 (paragraph)
 msgid ""
@@ -410,8 +368,7 @@ msgid ""
 "done by choosing a large and complex G-Code file and timing how long it takes "
 "for the host software to process it. For example:"
 msgstr ""
-"可以使用「批處理模式」處理機制（在 <Debugging.md> "
-"中描述）在主機軟體上執行時序測試。這通常是通過選擇一個大而複雜的 G "
+"可以使用「批處理模式」處理機制（在 <Debugging.md> 中描述）在主機軟體上執行時序測試。這通常是通過選擇一個大而複雜的 G "
 "程式碼檔案並計時主機軟體處理它所需的時間來完成的。例如："
 
 #: docs/Benchmarks.md:block 14 (paragraph)
@@ -419,8 +376,7 @@ msgid ""
 "To obtain the single stepper benchmarks, the same configuration sequence is "
 "used, but only the first block of the above test is cut-and-paste into the "
 "console.py window."
-msgstr "爲了獲得單一步進電機的基準測試，使用了相同的配置序列，"
-"但只將上述測試的第一塊剪下並貼上到 console.py 視窗。"
+msgstr "爲了獲得單一步進電機的基準測試，使用了相同的配置序列，但只將上述測試的第一塊剪下並貼上到 console.py 視窗。"
 
 #: docs/Benchmarks.md:block 17 (paragraph)
 msgid ""
@@ -431,10 +387,9 @@ msgid ""
 " For other micro-controllers use a `step_pulse_duration` corresponding to "
 "100ns."
 msgstr ""
-"基準的執行參數必須和 TMC 驅動相匹配。對於支援 `STEPPER_BOTH_EDGE=1` "
-"的微控制器（控制檯啟動時`MCU config`行中會報告）使用 `step_pulse_duration=0` "
-"和 `invert_step=-1` 來啟用步進脈衝的兩邊上的優化。對於其他微控制器，使用對應 "
-"100ns 的 `step_pulse_duration`。"
+"基準的執行參數必須和 TMC 驅動相匹配。對於支援 `STEPPER_BOTH_EDGE=1` 的微控制器（控制檯啟動時`MCU "
+"config`行中會報告）使用 `step_pulse_duration=0` 和 `invert_step=-1` "
+"來啟用步進脈衝的兩邊上的優化。對於其他微控制器，使用對應 100ns 的 `step_pulse_duration`。"
 
 #: docs/Benchmarks.md:block 21 (paragraph)
 msgid ""
@@ -443,10 +398,9 @@ msgid ""
 "an atmega644p (previous tests have confirmed simulavr results match tests on "
 "both a 16Mhz at90usb and a 16Mhz atmega2560)."
 msgstr ""
-"該測試最後一次執行使用了提交 `59314d99` 與 gcc 版本 `avr-gcc （GCC） 5.4.0`。"
-"16Mhz 和 20Mhz 測試都使用了按 atmega644p 配置的 simulavr 執行（"
-"以前的測試已經確認了16Mhz at90usb 和16Mhz atmega2560 的實際效能與 simulavr "
-"結果相似）。"
+"該測試最後一次執行使用了提交 `59314d99` 與 gcc 版本 `avr-gcc （GCC） 5.4.0`。16Mhz 和 20Mhz 測試都使用了按"
+" atmega644p 配置的 simulavr 執行（以前的測試已經確認了16Mhz at90usb 和16Mhz atmega2560 的實際效能與 "
+"simulavr 結果相似）。"
 
 #: docs/Benchmarks.md:block 22 (table)
 msgid "102"
@@ -461,8 +415,8 @@ msgid ""
 "The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc"
 " (Fedora 10.2.0-4.fc34) 10.2.0`."
 msgstr ""
-"測試最後在提交 `59314d99` 上執行，gcc 版本為 `arm-none-eabi-gcc (Fedora "
-"10.2.0-4.fc34) 10.2.0`。"
+"測試最後在提交 `59314d99` 上執行，gcc 版本為 `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) "
+"10.2.0`。"
 
 #: docs/Benchmarks.md:block 27 (table)
 msgid "257"
@@ -477,8 +431,8 @@ msgid ""
 "The test was last run on commit `59314d99` with gcc version `gcc version "
 "10.3.1 20210621 (release) (GNU Arm Embedded Toolchain 10.3-2021.07)`."
 msgstr ""
-"測試最後在提交 `59314d99` 上執行，gcc 版本 `gcc 版本 10.3.1 "
-"20210621（發佈版） (GNU Arm Embedded Toolchain 10.3-2021.07)`。"
+"測試最後在提交 `59314d99` 上執行，gcc 版本 `gcc 版本 10.3.1 20210621（發佈版） (GNU Arm Embedded "
+"Toolchain 10.3-2021.07)`。"
 
 #: docs/Benchmarks.md:block 37 (table)
 msgid "48"
@@ -492,8 +446,7 @@ msgstr "215"
 msgid ""
 "The test was last run on commit `59314d99` with gcc version `pru-gcc (GCC) "
 "8.0.0 20170530 (experimental)`."
-msgstr "測試最後在提交 `59314d99` 上執行，gcc 版本為 `pru-gcc (GCC) 8.0.0 "
-"20170530（實驗版）`。"
+msgstr "測試最後在提交 `59314d99` 上執行，gcc 版本為 `pru-gcc (GCC) 8.0.0 20170530（實驗版）`。"
 
 #: docs/Benchmarks.md:block 42 (table)
 msgid "231"
@@ -525,9 +478,8 @@ msgid ""
 " (Fedora 10.2.0-4.fc34) 10.2.0`. The STM32F407 results were obtained by "
 "running an STM32F407 binary on an STM32F446 (and thus using a 168Mhz clock)."
 msgstr ""
-"該測試最後一次執行使用了提交`59314d99`，gcc版本`arm-none-eabi-gcc (Fedora "
-"10.2.0-4.fc34) 10.2.0`。STM32F407 的結果是通過在 STM32F446 上執行 STM32F407 "
-"二進制檔案得到的（因此時鐘是 168Mhz ）。"
+"該測試最後一次執行使用了提交`59314d99`，gcc版本`arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) "
+"10.2.0`。STM32F407 的結果是通過在 STM32F446 上執行 STM32F407 二進制檔案得到的（因此時鐘是 168Mhz ）。"
 
 #: docs/Benchmarks.md:block 57 (table)
 msgid "46"
@@ -543,9 +495,8 @@ msgid ""
 " (Fedora 10.2.0-4.fc34) 10.2.0`. The 120Mhz LPC1769 results were obtained by "
 "overclocking an LPC1768 to 120Mhz."
 msgstr ""
-"該測試最後一次執行使用了提交 `59314d99`，gcc 版本 `arm-none-eabi-gcc （"
-"Fedora 10.2.0-4.fc34） 10.2.0`。120Mhz LPC1769 的結果是通過將 LPC1768 超頻到 "
-"120Mhz 而獲得的。"
+"該測試最後一次執行使用了提交 `59314d99`，gcc 版本 `arm-none-eabi-gcc （Fedora 10.2.0-4.fc34） "
+"10.2.0`。120Mhz LPC1769 的結果是通過將 LPC1768 超頻到 120Mhz 而獲得的。"
 
 #: docs/Benchmarks.md:block 63 (table)
 msgid "222"
@@ -556,8 +507,8 @@ msgid ""
 "The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc"
 " (Fedora 10.2.0-4.fc34) 10.2.0` on a SAMD21G18 micro-controller."
 msgstr ""
-"該測試最後一次執行使用了提交 `59314d99`，gcc 版本 `arm-none-eabi-gcc （"
-"Fedora 10.2.0-4.fc34） 10.2.0` 在 SAMD21G18 微控制器上。"
+"該測試最後一次執行使用了提交 `59314d99`，gcc 版本 `arm-none-eabi-gcc （Fedora 10.2.0-4.fc34） "
+"10.2.0` 在 SAMD21G18 微控制器上。"
 
 #: docs/Benchmarks.md:block 69 (table)
 msgid "306"
@@ -568,8 +519,8 @@ msgid ""
 "The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc"
 " (Fedora 10.2.0-4.fc34) 10.2.0` on a SAMD51J19A micro-controller."
 msgstr ""
-"該測試最後一次執行使用了提交 `59314d99` 與 gcc 版本 `arm-none-eabi-gcc （"
-"Fedora 10.2.0-4.fc34） 10.2.0` 在 SAMD51J19A 微控制器上執行的。"
+"該測試最後一次執行使用了提交 `59314d99` 與 gcc 版本 `arm-none-eabi-gcc （Fedora 10.2.0-4.fc34） "
+"10.2.0` 在 SAMD51J19A 微控制器上執行的。"
 
 #: docs/Benchmarks.md:block 74 (table)
 msgid "39"
@@ -589,9 +540,8 @@ msgid ""
 "8.3.0-6+rpi1) 8.3.0` on a Raspberry Pi 3 (revision a02082). It was difficult "
 "to get stable results in this benchmark."
 msgstr ""
-"該測試最後一次執行使用了提交 `59314d99` 與 gcc 版本 `gcc （Raspbian "
-"8.3.0-6+rpi1） 8.3.0` 在 Raspberry Pi 3 （修訂版 a02082） "
-"上執行。在這個基準測試中很難獲得穩定的結果。"
+"該測試最後一次執行使用了提交 `59314d99` 與 gcc 版本 `gcc （Raspbian 8.3.0-6+rpi1） 8.3.0` 在 "
+"Raspberry Pi 3 （修訂版 a02082） 上執行。在這個基準測試中很難獲得穩定的結果。"
 
 #: docs/Benchmarks.md:block 84 (table)
 msgid "160"
@@ -609,8 +559,7 @@ msgid ""
 " parameter. The results are rounded to the nearest K. For example, with three "
 "active steppers:"
 msgstr ""
-"爲了產生 [功能](Features.md) 文件中的基準測試結果，"
-"每秒總步數的計算方法是將活動步進器的數量與標稱 mcu 頻率相乘，然後除以最終的 "
+"爲了產生 [功能](Features.md) 文件中的基準測試結果，每秒總步數的計算方法是將活動步進器的數量與標稱 mcu 頻率相乘，然後除以最終的 "
 "ticks 參數。結果四捨五入到最接近的 K。例如，使用三個活動步進器："
 
 #: docs/Benchmarks.md:block 59 (header)
@@ -626,8 +575,8 @@ msgid ""
 "The test was last run on commit `247cd753` with gcc version `arm-none-eabi-gcc"
 " (Fedora 10.2.0-4.fc34) 10.2.0`."
 msgstr ""
-"測試最後在提交 `247cd753` 上執行，gcc 版本為 `arm-none-eabi-gcc (Fedora "
-"10.2.0-4.fc34) 10.2.0`。"
+"測試最後在提交 `247cd753` 上執行，gcc 版本為 `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) "
+"10.2.0`。"
 
 #: docs/Benchmarks.md:block 63 (table)
 msgid "58"
@@ -643,28 +592,6 @@ msgstr "stm32g0b1"
 
 #: docs/Benchmarks.md:block 59 (header)
 msgid "STM32H7 step rate benchmark"
-msgstr ""
-
-#: docs/Benchmarks.md:block 60 (paragraph)
-msgid "The following configuration sequence is used on a STM32H743VIT6:"
-msgstr ""
-
-#: docs/Benchmarks.md:block 62 (paragraph)
-msgid ""
-"The test was last run on commit `00191b5c` with gcc version `arm-none-eabi-gcc"
-" (15:8-2019-q3-1+b1) 8.3.1 20190703 (release) [gcc-8-branch revision 273027]`."
-msgstr ""
-
-#: docs/Benchmarks.md:block 63 (table)
-msgid "stm32h7"
-msgstr ""
-
-#: docs/Benchmarks.md:block 63 (table)
-msgid "44"
-msgstr ""
-
-#: docs/Benchmarks.md:block 63 (table)
-msgid "198"
 msgstr ""
 
 #: docs/Benchmarks.md:block 85 (header)
@@ -744,12 +671,6 @@ msgstr ""
 msgid "The following configuration sequence is used on the RP2040 and RP2350:"
 msgstr ""
 
-#: docs/Benchmarks.md:block 98 (paragraph)
-msgid ""
-"The test was last run on commit `f6718291` with gcc version `arm-none-eabi-gcc"
-" (Fedora 14.1.0-1.fc40) 14.1.0` on Raspberry Pi Pico and Pico 2 boards."
-msgstr ""
-
 #: docs/Benchmarks.md:block 99 (table)
 msgid "rp2040 (*)"
 msgstr ""
@@ -764,14 +685,6 @@ msgstr ""
 
 #: docs/Benchmarks.md:block 100 (table)
 msgid "169"
-msgstr ""
-
-#: docs/Benchmarks.md:block 101 (paragraph)
-msgid ""
-"(*) Note that the reported rp2040 ticks are relative to a 12Mhz scheduling "
-"timer and do not correspond to its 125Mhz internal ARM processing rate. It is "
-"expected that 5 scheduling ticks corresponds to ~47 ARM core cycles and 22 "
-"scheduling ticks corresponds to ~224 ARM core cycles."
 msgstr ""
 
 #: docs/Benchmarks.md:block 112 (table)
@@ -789,6 +702,155 @@ msgstr ""
 #: docs/Benchmarks.md:block 112 (table)
 msgid "rp2350 (USB)"
 msgstr ""
+
+#: docs/Benchmarks.md:block 60 (paragraph)
+msgid "The following configuration sequence is used on STM32H723:"
+msgstr ""
+
+#: docs/Benchmarks.md:block 62 (paragraph)
+msgid ""
+"The test was last run on commit `554ae78d` with gcc version `arm-none-eabi-gcc"
+" (Fedora 14.1.0-1.fc40) 14.1.0`."
+msgstr ""
+
+#: docs/Benchmarks.md:block 63 (table)
+msgid "stm32h723"
+msgstr ""
+
+#: docs/Benchmarks.md:block 69 (header)
+msgid "STM32G4 step rate benchmark"
+msgstr ""
+
+#: docs/Benchmarks.md:block 70 (paragraph)
+msgid "The following configuration sequence is used on the STM32G431:"
+msgstr ""
+
+#: docs/Benchmarks.md:block 72 (paragraph)
+msgid ""
+"The test was last run on commit `cfa48fe3` with gcc version `arm-none-eabi-gcc"
+" (Fedora 14.1.0-1.fc40) 14.1.0`."
+msgstr ""
+
+#: docs/Benchmarks.md:block 73 (table)
+msgid "stm32g431"
+msgstr ""
+
+#: docs/Benchmarks.md:block 73 (table)
+msgid "47"
+msgstr ""
+
+#: docs/Benchmarks.md:block 73 (table)
+msgid "208"
+msgstr ""
+
+#: docs/Benchmarks.md:block 103 (paragraph)
+msgid ""
+"The test was last run on commit `14c105b8` with gcc version `arm-none-eabi-gcc"
+" (Fedora 14.1.0-1.fc40) 14.1.0` on Raspberry Pi Pico and Pico 2 boards."
+msgstr ""
+
+#: docs/Benchmarks.md:block 104 (table)
+msgid "3"
+msgstr ""
+
+#: docs/Benchmarks.md:block 104 (table)
+msgid "14"
+msgstr ""
+
+#: docs/Benchmarks.md:block 106 (paragraph)
+msgid ""
+"(*) Note that the reported rp2040 ticks are relative to a 12Mhz scheduling "
+"timer and do not correspond to its 200Mhz internal ARM processing rate. It is "
+"expected that 3 scheduling ticks corresponds to ~42 ARM core cycles and 14 "
+"scheduling ticks corresponds to ~225 ARM core cycles."
+msgstr ""
+
+#: docs/Benchmarks.md:block 116 (paragraph)
+msgid ""
+"The USB tests may exceed the CPU capacity of a Raspberry Pi. If running on a "
+"Raspberry Pi, Beaglebone, or similar host computer then increase the delay "
+"(eg, `DELAY {clock + 20*freq} get_uptime`). Where applicable, the benchmarks "
+"below are with console.py running on a desktop class machine with the device "
+"connected via a super-speed hub."
+msgstr ""
+
+#: docs/Benchmarks.md:block 117 (paragraph)
+msgid ""
+"The CAN bus tests may saturate the USB host controller of a Raspberry Pi (when"
+" testing via a standard gs_usb USB to CAN bus adapter). Where applicable, the "
+"CAN bus benchmarks below are with console.py running on a desktop class "
+"machine with a USB to CAN bus adapter connected via a super-speed USB hub."
+msgstr ""
+
+#: docs/Benchmarks.md:block 118 (table)
+msgid "rp2350 (CAN)"
+msgstr ""
+
+#: docs/Benchmarks.md:block 118 (table)
+msgid "59K"
+msgstr ""
+
+#: docs/Benchmarks.md:block 118 (table)
+msgid "17b8ce4c"
+msgstr ""
+
+#~ msgid ""
+#~ "Note that this test may saturate the USB/CPU capacity of a Raspberry Pi. If "
+#~ "running on a Raspberry Pi, Beaglebone, or similar host computer then increase "
+#~ "the delay (eg, `DELAY {clock + 20*freq} get_uptime`). Where applicable, the "
+#~ "benchmarks below are with console.py running on a desktop class machine with "
+#~ "the device connected via a high-speed hub."
+#~ msgstr ""
+#~ "注意，這個測試可能會使Raspberry Pi的USB/CPU容量達到飽和。如果在Raspberry "
+#~ "Pi、Beaglebone或類似的主機上執行，那麼要增加延遲（例如，`DELAY {clock + 20*freq} "
+#~ "get_uptime`）。在適用的情況下，下面的基準是用控制檯.py在桌面類機器上執行，裝置通過高速集線器連線。"
+
+#~ msgid "stm32f042 (CAN)"
+#~ msgstr "stm32f042 (CAN)"
+
+#~ msgid "18K"
+#~ msgstr "18K"
+
+#~ msgid "c105adc8"
+#~ msgstr "c105adc8"
+
+#~ msgid "arm-none-eabi-gcc (GNU Tools 7-2018-q3-update) 7.3.1"
+#~ msgstr "arm-none-eabi-gcc (GNU Tools 7-2018-q3-update) 7.3.1"
+
+#~ msgid "5"
+#~ msgstr "5"
+
+#~ msgid "22"
+#~ msgstr "22"
+
+#~ msgid "The following configuration sequence is used on a STM32H743VIT6:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The test was last run on commit `00191b5c` with gcc version `arm-none-eabi-gcc"
+#~ " (15:8-2019-q3-1+b1) 8.3.1 20190703 (release) [gcc-8-branch revision 273027]`."
+#~ msgstr ""
+
+#~ msgid "stm32h7"
+#~ msgstr ""
+
+#~ msgid "44"
+#~ msgstr ""
+
+#~ msgid "198"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The test was last run on commit `f6718291` with gcc version `arm-none-eabi-gcc"
+#~ " (Fedora 14.1.0-1.fc40) 14.1.0` on Raspberry Pi Pico and Pico 2 boards."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "(*) Note that the reported rp2040 ticks are relative to a 12Mhz scheduling "
+#~ "timer and do not correspond to its 125Mhz internal ARM processing rate. It is "
+#~ "expected that 5 scheduling ticks corresponds to ~47 ARM core cycles and 22 "
+#~ "scheduling ticks corresponds to ~224 ARM core cycles."
+#~ msgstr ""
 
 #~ msgid ""
 #~ "SET start_clock {clock+freq}\n"

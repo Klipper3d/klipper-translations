@@ -2,22 +2,13 @@
 
 В этом документе содержится контактная информация Klipper.
 
-1. [Форум сообщества](#community-forum)
-1. [Чат Discord](#discord-chat)
-1. [У меня есть вопрос о Klipper](#i-have-a-question-about-klipper)
-1. [У меня есть запрос на функцию](#i-have-a-feature-request)
-1. [Помогите! Это не работает!](#help-it-doesnt-work)
-1. [Я нашел ошибку в программном обеспечении Klipper](#i-found-a-bug-in-the-klipper-software)
-1. [Я вношу изменения, которые хотел бы включить в Klipper](#i-am-making-changes-that-id-like-to-include-in-klipper)
-1. [Klipper github](#klipper-github)
+## Discourse Forum
 
-## форум сообщества
-
-Существует [Klipper Community Discourse server](https://community.klipper3d.org) для обсуждения Клиппера.
+There is a [Klipper Community Discourse server](https://community.klipper3d.org) for "forum" style discussions on Klipper. Note that Discourse is not Discord.
 
 ## Чат Discord
 
-Существует сервер Discord, посвященный Клипперу, по адресу: <https://discord.klipper3d.org>.
+There is a Discord server dedicated to Klipper at: <https://discord.klipper3d.org>. Note that Discord is not Discourse.
 
 Этот сервер управляется сообществом энтузиастов Клиппера, посвященным обсуждениям Клиппера. Он позволяет пользователям общаться с другими пользователями в режиме реального времени.
 
@@ -25,54 +16,48 @@
 
 Ответы на многие вопросы, которые мы получаем, уже есть в [документации Klipper](Overview.md). Пожалуйста, обязательно прочитайте документацию и следуйте приведенным в ней указаниям.
 
-Также можно поискать похожие вопросы в [Форуме сообщества Klipper](#community-forum).
+It is also possible to search for similar questions in the [Klipper Discourse Forum](#discourse-forum).
 
-Если вы хотите поделиться своими знаниями и опытом с другими пользователями Klipper, то вы можете присоединиться к [Klipper Community Forum](#community-forum) или [Klipper Discord Chat](#discord-chat). Оба сообщества - это сообщества, где пользователи Klipper могут обсуждать Klipper с другими пользователями.
+If you are interested in sharing your knowledge and experience with other Klipper users then you can join the [Klipper Discourse Forum](#discourse-forum) or [Klipper Discord Chat](#discord-chat). Both are communities where Klipper users can discuss Klipper with other users.
 
-Многие вопросы, которые мы получаем, являются общими вопросами 3d-печати, не относящимися к Klipper. Если у вас есть общий вопрос или вы испытываете общие проблемы с печатью, то, скорее всего, вы получите лучший ответ, задав вопрос на общем форуме по 3d-печати или на форуме, посвященном оборудованию вашего принтера.
+If you have a general question or are experiencing general printing problems, then also consider a general 3d-printing forum or a forum dedicated to the printer hardware.
 
 ## У меня есть просьба о возможности
 
-Для всех новых функций требуется кто-то заинтересованный и способный реализовать эту функцию. Если вы заинтересованы в помощи во внедрении или тестировании новой функции, вы можете ознакомиться с текущими разработками на [Форуме сообщества Klipper](#форум‐сообщества). Существует также [Klipper Discord Chat](#discord-чат) для обсуждений между сотрудниками.
+All new features require someone interested and able to implement that feature. If you are interested in helping to implement or test a new feature, you can search for ongoing developments in the [Klipper Discourse Forum](#discourse-forum). There is also [Klipper Discord Chat](#discord-chat) for discussions between collaborators.
 
 ## Помогите! Не работает!
 
-К сожалению, мы получаем гораздо больше запросов о помощи, чем можем ответить. Большинство сообщений о проблемах, которые мы видим, в конечном итоге сводятся к следующему:
-
-1. Незначительные ошибки в оборудовании, или
-1. Невыполнение всех шагов, описанных в документации Klipper.
-
 Если у вас возникли проблемы, мы рекомендуем внимательно прочитать документацию [Klipper documentation](Overview.md) и еще раз проверить, все ли шаги были выполнены.
 
-Если у вас возникли проблемы с печатью, мы рекомендуем внимательно осмотреть аппаратную часть принтера (все соединения, провода, винты и т.д.) и убедиться в отсутствии каких-либо отклонений от нормы. Мы обнаружили, что большинство проблем с печатью не связано с программным обеспечением Klipper. Если же проблема связана с аппаратной частью принтера, то, скорее всего, вы получите лучший ответ, обратившись на общий форум по 3d-печати или на форум, посвященный аппаратной части вашего принтера.
+If you are experiencing a printing problem, then we recommend carefully inspecting the printer hardware (all joints, wires, screws, etc.) and verify nothing is abnormal. We find most printing problems are not related to the Klipper software. If you do find a problem with the printer hardware then consider searching general 3d-printing forums or forums dedicated to the printer hardware.
 
-Также можно поискать похожие вопросы в [Klipper Community Forum](#community-forum).
+It is also possible to search for similar issues in the [Klipper Discourse Forum](#discourse-forum).
 
-Если вы хотите поделиться своими знаниями и опытом с другими пользователями Klipper, то вы можете присоединиться к [Klipper Community Forum](#community-forum) или [Klipper Discord Chat](#discord-chat). Оба сообщества - это сообщества, где пользователи Klipper могут обсуждать Klipper с другими пользователями.
+If you are interested in sharing your knowledge and experience with other Klipper users then you can join the [Klipper Discourse Forum](#discourse-forum) or [Klipper Discord Chat](#discord-chat). Both are communities where Klipper users can discuss Klipper with other users.
 
 ## Я нашел ошибку в программном обеспечении Klipper
 
 Klipper - это проект с открытым исходным кодом, и мы ценим, когда соавторы диагностируют ошибки в программном обеспечении.
 
-О проблемах следует сообщать на [Форуме сообщества Klipper](#community-forum).
+Problems should be reported in the [Klipper Discourse Forum](#discourse-forum).
 
 Для исправления ошибки потребуется важная информация. Пожалуйста, выполните следующие действия:
 
 1. Убедитесь, что вы выполняете немодифицированный код из <https://github.com/Klipper3d/klipper>. Если код был модифицирован или получен из другого источника, то перед сообщением о проблеме следует воспроизвести ее на немодифицированном коде из <https://github.com/Klipper3d/klipper>.
 1. Если есть возможность, сразу после наступления нежелательного события выполните команду `M112`. Это заставит Klipper перейти в "состояние выключения" и приведет к записи дополнительной отладочной информации в файл журнала.
 1. Получите файл журнала Klipper по данному событию. В журнале содержатся ответы на часто задаваемые разработчиками Klipper вопросы о программе и ее окружении (версия программы, тип оборудования, конфигурация, время наступления события и сотни других вопросов).
-   1. Файл журнала Klipper находится в папке `/tmp/klippy.log` на "хост"-компьютере Klipper (Raspberry Pi).
-   1. Для копирования этого лог-файла на настольный компьютер необходима утилита "scp" или "sftp". Утилита "scp" входит в стандартный комплект поставки настольных компьютеров Linux и MacOS. Существуют свободно распространяемые утилиты scp для других настольных компьютеров (например, WinSCP). Если вы используете графическую утилиту scp, которая не может напрямую скопировать `/tmp/klippy.log`, то несколько раз щелкните на `...` или `parent folder`, пока не доберетесь до корневого каталога, щелкните на папке `tmp`, а затем выберите файл `klippy.log`.
+   1. Dedicated Klipper web interfaces have the ability to directly obtain the Klipper log file. It's the easiest way to obtain the log when using one of these interfaces. Otherwise, an "scp" or "sftp" utility is needed to copy the log file to your desktop computer. The "scp" utility comes standard with Linux and MacOS desktops. There are freely available scp utilities for other desktops (eg, WinSCP). The log file may be located in the `~/printer_data/logs/klippy.log` file (if using a graphical scp utility, look for the "printer_data" folder, then the "logs" folder under that, then the `klippy.log` file). The log file may alternatively be located in the `/tmp/klippy.log` file (if using a graphical scp utility that can not directly copy `/tmp/klippy.log` then repeatedly click on `..` or "parent folder" until reaching the root directory, click on the `tmp` folder, and then select the `klippy.log` file).
    1. Скопируйте файл журнала на рабочий стол, чтобы его можно было прикрепить к отчету о проблеме.
    1. Не модифицируйте файл журнала каким-либо образом; не предоставляйте фрагмент журнала. Только полный немодифицированный файл журнала содержит необходимую информацию.
    1. Неплохо сжать файл журнала с помощью zip или gzip.
-1. Откройте новую тему на [Форуме сообщества Klipper](#community-forum) и дайте четкое описание проблемы. Другие участники Klipper должны понять, какие шаги были предприняты, каков был желаемый результат и какой результат произошел на самом деле. Сжатый файл журнала Klipper должен быть прикреплен к этой теме.
+1. Open a new topic on the [Klipper Discourse Forum](#discourse-forum) and provide a clear description of the problem. Other Klipper contributors will need to understand what steps were taken, what the desired outcome was, and what outcome actually occurred. The compressed Klipper log file should be attached to that topic.
 
 ## Я вношу изменения, которые хотел бы включить в Klipper
 
 Klipper - это программное обеспечение с открытым исходным кодом, и мы ценим новые вклады.
 
-Новые материалы (как код, так и документация) подаются через Github Pull Requests. Важную информацию см. в документе [CONTRIBUTING](CONTRIBUTING.md).
+See the [CONTRIBUTING document](CONTRIBUTING.md) for information.
 
 There are several [documents for developers](Overview.md#developer-documentation). If you have questions on the code then you can also ask in the [Klipper Discourse Forum](#discourse-forum) or on the [Klipper Discord Chat](#discord-chat).
 

@@ -8,8 +8,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2026-03-07 09:10+0000\n"
 "Last-Translator: Pajoer Pa <pajoer@gmail.com>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/"
-"contributing/es/>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/contributing/es/>\n"
 "Language: es\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -65,8 +64,8 @@ msgid ""
 "updates."
 msgstr ""
 "Si ya existe una traducción en el repositorio Klipper y ya no cumple con la "
-"lista de comprobación anterior, se marcará como obsoleta después de un mes "
-"sin actualizaciones."
+"lista de comprobación anterior, se marcará como obsoleta después de un mes sin"
+" actualizaciones."
 
 #: docs/CONTRIBUTING.md:block 2 (paragraph)
 msgid ""
@@ -192,9 +191,9 @@ msgid ""
 "comments."
 msgstr ""
 "Los comentarios en los envíos de código deben focalizarse en mejorar el "
-"mantenimiento del código. Los envíos no deben contener código comentarizado "
-"ni comentarios excesivos que describan elaboraciones pasadas. Tampoco "
-"debería haber comentarios sobre tareas pendientes en demasía."
+"mantenimiento del código. Los envíos no deben contener código comentarizado ni"
+" comentarios excesivos que describan elaboraciones pasadas. Tampoco debería "
+"haber comentarios sobre tareas pendientes en demasía."
 
 #: docs/CONTRIBUTING.md:block 13 (ordered list)
 msgid ""
@@ -547,13 +546,6 @@ msgstr ""
 
 #: docs/CONTRIBUTING.md:block 38 (ordered list)
 msgid ""
-"update klipper-tranlations repository "
-"[active_translations](https://github.com/Klipper3d/klipper-"
-"translations/blob/translations/active_translations)"
-msgstr ""
-
-#: docs/CONTRIBUTING.md:block 38 (ordered list)
-msgid ""
 "Optional: add a manual-index.md file in klipper-translations repository's "
 "`docs\\locals\\<lang>` folder to replace the language specific index.md "
 "(generated index.md does not render correctly)."
@@ -607,6 +599,19 @@ msgstr ""
 #: docs/CONTRIBUTING.md:block 23 (table)
 msgid "Configuration files"
 msgstr ""
+
+#: docs/CONTRIBUTING.md:block 38 (ordered list)
+msgid ""
+"update klipper-translations repository "
+"[active_translations](https://github.com/Klipper3d/klipper-"
+"translations/blob/translations/active_translations)"
+msgstr ""
+
+#~ msgid ""
+#~ "update klipper-tranlations repository "
+#~ "[active_translations](https://github.com/Klipper3d/klipper-"
+#~ "translations/blob/translations/active_translations)"
+#~ msgstr ""
 
 #~ msgid ""
 #~ "module: Capitalized, short (50 chars or less) summary\n"

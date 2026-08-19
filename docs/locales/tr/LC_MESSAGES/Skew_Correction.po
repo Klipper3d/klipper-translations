@@ -5,8 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-07-22 08:26+0000\n"
 "Last-Translator: Sümer Okan <smr.okan@gmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/"
-"skew_correction/tr/>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/skew_correction/tr/>\n"
 "Language: tr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -102,13 +101,6 @@ msgid ""
 "issuing a `SET_SKEW CLEAR=1` gcode."
 msgstr ""
 
-#: docs/skew_correction.md:block 10 (paragraph)
-msgid ""
-"Make sure `[skew_correction]` is in printer.cfg. You may now use the "
-"`SET_SKEW` gcode to configure skew_correcton. For example, if your measured "
-"lengths along XY are as follows:"
-msgstr ""
-
 #: docs/skew_correction.md:block 16 (paragraph)
 msgid ""
 "The `[skew_correction]` module also supports profile management in a manner "
@@ -131,6 +123,19 @@ msgid ""
 " Corner D, and the length from Corner A to Corner D. When measuring length AD "
 "do not include the flats on the corners that some test objects provide."
 msgstr ""
+
+#: docs/Skew_Correction.md:block 10 (paragraph)
+msgid ""
+"Make sure `[skew_correction]` is in printer.cfg. You may now use the "
+"`SET_SKEW` gcode to configure skew_correction. For example, if your measured "
+"lengths along XY are as follows:"
+msgstr ""
+
+#~ msgid ""
+#~ "Make sure `[skew_correction]` is in printer.cfg. You may now use the "
+#~ "`SET_SKEW` gcode to configure skew_correcton. For example, if your measured "
+#~ "lengths along XY are as follows:"
+#~ msgstr ""
 
 #~ msgid ""
 #~ "Length AC = 140.4\n"

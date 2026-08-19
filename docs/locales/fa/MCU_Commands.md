@@ -1,6 +1,6 @@
 # MCU commands
 
-This document provides information on the low-level micro-controller commands that are sent from the Klipper "host" software and processed by the Klipper micro-controller software. This document is not an authoritative reference for these commands, nor is it an exclusive list of all available commands.
+این سند، اطلاعاتی را در مورد فرمان‌های میکروکنترلر سطح پایین ارائه می‌دهد که از نرم‌افزار "میزبان" (Host) کلیپر ارسال شده و توسط نرم‌افزار میکروکنترلر کلیپر پردازش می‌شوند. این سند نه یک مرجع معتبر برای این فرمان‌هاست و نه یک فهرست انحصاری از تمام فرمان‌های موجود.
 
 This document may be useful for developers interested in understanding the low-level micro-controller commands.
 

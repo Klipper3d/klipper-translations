@@ -2,17 +2,17 @@
 
 This document describes the protocol Klipper uses to communicate over [CAN bus](https://en.wikipedia.org/wiki/CAN_bus). See <CANBUS.md> for information on configuring Klipper with CAN bus.
 
-## Micro-controller id assignment
+## Asignación de identificadores de microcontroladores
 
-Klipper uses only CAN 2.0A standard size CAN bus packets, which are limited to 8 data bytes and an 11-bit CAN bus identifier. In order to support efficient communication, each micro-controller is assigned at run-time a unique 1-byte CAN bus nodeid (`canbus_nodeid`) for general Klipper command and response traffic. Klipper command messages going from host to micro-controller use the CAN bus id of `canbus_nodeid * 2 + 256`, while Klipper response messages from micro-controller to host use `canbus_nodeid * 2 + 256 + 1`.
+Klipper utiliza únicamente paquetes de bus CAN de tamaño estándar CAN 2.0A, que están limitados a 8 bytes de datos y un identificador de bus CAN de 11 bits. Para permitir una comunicación eficiente, a cada microcontrolador se le asigna en tiempo de ejecución un identificador de nodo de bus CAN único de 1 byte (`canbus_nodeid`) para el tráfico general de comandos y respuestas de Klipper. Los mensajes de comando de Klipper que van del host al microcontrolador utilizan el identificador de bus CAN de `canbus_nodeid * 2 + 256`, mientras que los mensajes de respuesta de Klipper del microcontrolador al host utilizan `canbus_nodeid * 2 + 256 + 1`.
 
-Each micro-controller has a factory assigned unique chip identifier that is used during id assignment. This identifier can exceed the length of one CAN packet, so a hash function is used to generate a unique 6-byte id (`canbus_uuid`) from the factory id.
+Cada microcontrolador tiene un identificador de chip único asignado de fábrica que se utiliza durante la asignación de identificadores. Este identificador puede superar la longitud de un paquete CAN, por lo que se utiliza una función hash para generar un identificador único de 6 bytes (`canbus_uuid`) a partir del identificador de fábrica.
 
-## Admin messages
+## Mensajes del administrador
 
-Admin messages are used for id assignment. Admin messages sent from host to micro-controller use the CAN bus id `0x3f0` and messages sent from micro-controller to host use the CAN bus id `0x3f1`. All micro-controllers listen to messages on id `0x3f0`; that id can be thought of as a "broadcast address".
+Los mensajes de administración se utilizan para la asignación de identificadores. Los mensajes de administración enviados desde el host al microcontrolador utilizan el identificador de bus CAN «0x3f0», y los mensajes enviados desde el microcontrolador al host utilizan el identificador de bus CAN «0x3f1». Todos los microcontroladores escuchan los mensajes con el identificador «0x3f0», que puede considerarse como una «dirección de difusión».
 
-### CMD_QUERY_UNASSIGNED message
+### Mensaje CMD_QUERY_UNASSIGNED
 
 This command queries all micro-controllers that have not yet been assigned a `canbus_nodeid`. Unassigned micro-controllers will respond with a RESP_NEED_NODEID response message.
 

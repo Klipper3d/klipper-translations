@@ -158,7 +158,7 @@ Si une traduction existe déjà dans le référentiel Klipper et ne répond plus
 
 Une fois que les conditions sont remplies, vous devez :
 
-1. mettre à jour le fichier [active_translations](https://github.com/Klipper3d/klipper-translations/blob/translations/active_translations) du dépôt de klipper-tranlations
+1. update klipper-translations repository [active_translations](https://github.com/Klipper3d/klipper-translations/blob/translations/active_translations)
 1. Facultatif : ajouter un fichier manual-index.md dans le dossier `docs\locals\<lang>` du dépôt klipper-translations pour remplacer l'index.md spécifique à la langue (l'index.md généré ne s'affiche pas correctement).
 
 Problèmes connus :

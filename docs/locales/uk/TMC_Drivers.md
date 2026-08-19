@@ -32,7 +32,7 @@
 
 Рекомендовано завжди використовувати режим "спредКікле" (за умови `stealthchop_threshold`) або завжди використовувати режим "stealthChop" (встановивши `stealthchop_threshold` до 999999). На жаль, драйвери часто виробляють погані і переконливі результати, якщо зміни режиму, коли двигун знаходиться на неоднорідній швидкості.
 
-Зверніть увагу, що параметр конфігурації `stealthchop_threshold` не впливає на безсенсорне самонаведення, оскільки Klipper автоматично перемикає драйвер TMC у відповідний режим під час операцій безсенсорного самонаведення.
+Note that the `stealthchop_threshold` config option does not impact sensorless homing as Klipper automatically switches the TMC driver to an appropriate mode during sensorless homing operations.
 
 ## Налаштування інтерполяції TMC вводить невелике відхилення позиції
 

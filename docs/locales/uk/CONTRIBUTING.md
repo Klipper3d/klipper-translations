@@ -158,7 +158,7 @@
 
 Після виконання вимог необхідно:
 
-1. [active_translations](https://github.com/Klipper3d/klipper-translations/blob/translations/active_translations)
+1. update klipper-translations repository [active_translations](https://github.com/Klipper3d/klipper-translations/blob/translations/active_translations)
 1. Додатково: додати ручний індекс. md файл в klipper-translations repository `docs\locals\<lang>` папка для заміни певного індексу мови.md (генерований індекс.md не дає права).
 
 Знанні питання:

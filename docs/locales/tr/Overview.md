@@ -32,7 +32,7 @@ Klipper dökümantasyonuna hoş geldiniz. Eğer Klipper'de yeni iseniz , [özell
 - [Komut Şablonları](Command_Templates.md): G Kodu makroları ve koşullu değerlendirme.
    - [Durum Referansı](Status_Reference.md): Makrolar (ve benzerleri) tarafından kullanılabilen bilgiler.
 - [TMC Drivers](TMC_Drivers.md): Klipper ile Trinamic step motor sürücülerini kullanma.
-- [Multi-MCU Homing](Multi_MCU_Homing.md): Homing and probing using multiple micro-controllers.
+- [Çoklu-MCU hedef araması](Multi_MCU_Homing): Birden çok denetleyici ile hedefi ve yönü belirle.
 - [Dilimleyiciler](Slicers.md): Klipper için "dilimleyici" yazılımını yapılandırın.
 - [Eğim düzetme](Skew_Correction.md): Tamamen kare olmayan eksenler için ayarlamalar.
 - [PWM araçları](Using_PWM_Tools.md): Lazerler veya iş milleri gibi PWM kontrollü araçların nasıl kullanılacağına ilişkin kılavuz.
@@ -62,6 +62,6 @@ Klipper dökümantasyonuna hoş geldiniz. Eğer Klipper'de yeni iseniz , [özell
 - [CAN veri yolu](CANBUS.md): Klipper ile CAN veri yolu kullanımı üzerine bilgilendirme.
    - [CAN bus troubleshooting](CANBUS_Troubleshooting.md): Tips for troubleshooting CAN bus.
 - [TSL1401CL filament genişlik sensörü](TSL1401CL_Filament_Width_Sensor.md)
-- [Hall filament width sensor](Hall_Filament_Width_Sensor.md)
+- [Hall, filament ve genişlik sensörü](Hall_Filament_Width_Sensor.md)
 - [Eddy Current Inductive probe](Eddy_Probe.md)
 - [Load Cells](Load_Cell.md)

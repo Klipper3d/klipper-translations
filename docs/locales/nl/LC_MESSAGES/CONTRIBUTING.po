@@ -4,8 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-07-22 08:47+0000\n"
 "Last-Translator: Simon Tillema <shtillema@gomarus.nl>\n"
-"Language-Team: Dutch <https://hosted.weblate.org/projects/klipper/"
-"contributing/nl/>\n"
+"Language-Team: Dutch <https://hosted.weblate.org/projects/klipper/contributing/nl/>\n"
 "Language: nl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -520,13 +519,6 @@ msgstr ""
 
 #: docs/CONTRIBUTING.md:block 38 (ordered list)
 msgid ""
-"update klipper-tranlations repository "
-"[active_translations](https://github.com/Klipper3d/klipper-"
-"translations/blob/translations/active_translations)"
-msgstr ""
-
-#: docs/CONTRIBUTING.md:block 38 (ordered list)
-msgid ""
 "Optional: add a manual-index.md file in klipper-translations repository's "
 "`docs\\locals\\<lang>` folder to replace the language specific index.md "
 "(generated index.md does not render correctly)."
@@ -580,6 +572,19 @@ msgstr ""
 #: docs/CONTRIBUTING.md:block 23 (table)
 msgid "Configuration files"
 msgstr ""
+
+#: docs/CONTRIBUTING.md:block 38 (ordered list)
+msgid ""
+"update klipper-translations repository "
+"[active_translations](https://github.com/Klipper3d/klipper-"
+"translations/blob/translations/active_translations)"
+msgstr ""
+
+#~ msgid ""
+#~ "update klipper-tranlations repository "
+#~ "[active_translations](https://github.com/Klipper3d/klipper-"
+#~ "translations/blob/translations/active_translations)"
+#~ msgstr ""
 
 #~ msgid ""
 #~ "module: Capitalized, short (50 chars or less) summary\n"

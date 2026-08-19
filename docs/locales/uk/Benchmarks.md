@@ -216,7 +216,7 @@ JavaScript licenses API Веб-сайт Go1.13.8
 
 ### STM32H7 покрокова оцінка
 
-На STM32H723 використовується наступна послідовність конфігурації:
+The following configuration sequence is used on STM32H723:
 
 ```
 allocate_oids count=3
@@ -226,7 +226,7 @@ config_stepper oid=2 step_pin=PB3 dir_pin=PB7 invert_step=-1 step_pulse_ticks=52
 finalize_config crc=0
 ```
 
-Тест востаннє було виконано на комміті `554ae78d` з версією gcc `arm-none-eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0`.
+The test was last run on commit `554ae78d` with gcc version `arm-none-eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0`.
 
 | stm32h723 | кліщі |
 | --- | --- |
@@ -385,7 +385,7 @@ config_stepper oid=2 step_pin=gpio27 dir_pin=gpio5 invert_step=-1 step_pulse_tic
 javascript licenses api веб-сайт go1.13.8
 ```
 
-Тест востаннє було виконано на комміті `14c105b8` з версією gcc `arm-none-eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0` на платах Raspberry Pi Pico та Pico 2.
+The test was last run on commit `14c105b8` with gcc version `arm-none-eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0` on Raspberry Pi Pico and Pico 2 boards.
 
 | rp2040 (*) | кліщі |
 | --- | --- |

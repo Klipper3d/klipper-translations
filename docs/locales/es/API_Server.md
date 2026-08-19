@@ -2,27 +2,27 @@
 
 Este documento describe la interfaz de programación de aplicaciones (API, por sus siglas en inglés) de Klipper. Esta interfaz permite que aplicaciones externas efectúen consultas y controlen el sóftwer de anfitrión de Klipper.
 
-## Enabling the API socket
+## Habilitar el socket API
 
-In order to use the API server, the klippy.py host software must be started with the `-a` parameter. For example:
+Para utilizar el servidor API, el software host klippy.py debe iniciarse con el parámetro `-a`. Por ejemplo:
 
 ```
 ~/klippy-env/bin/python ~/klipper/klippy/klippy.py ~/printer.cfg -a /tmp/klippy_uds -l /tmp/klippy.log
 ```
 
-This causes the host software to create a Unix Domain Socket. A client can then open a connection on that socket and send commands to Klipper.
+Esto hace que el software host cree un socket de dominio Unix. A continuación, un cliente puede abrir una conexión en ese socket y enviar comandos a Klipper.
 
 See the [Moonraker](https://github.com/Arksine/moonraker) project for a popular tool that can forward HTTP requests to Klipper's API Server Unix Domain Socket.
 
-## Request format
+## Formato de solicitud
 
-Messages sent and received on the socket are JSON encoded strings terminated by an ASCII 0x03 character:
+Los mensajes enviados y recibidos en el socket son cadenas codificadas en JSON que terminan con un carácter ASCII 0x03:
 
 ```
 <json_object_1><0x03><json_object_2><0x03>...
 ```
 
-Klipper contains a `scripts/whconsole.py` tool that can perform the above message framing. For example:
+Klipper contiene una herramienta `scripts/whconsole.py` que puede realizar el encuadre de mensajes anterior. Por ejemplo:
 
 ```
 ~/klipper/scripts/whconsole.py /tmp/klippy_uds

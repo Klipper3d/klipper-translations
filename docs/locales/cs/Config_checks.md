@@ -26,7 +26,7 @@ Zkontrolujte, zda se všechny osy tiskárny mohou volně pohybovat (krokové mot
 
 Ručně přesuňte všechny osy tiskárny tak, aby se žádná z nich nedotýkala koncového dorazu. Odešlete příkaz QUERY_ENDSTOPS prostřednictvím příkazové konzoly. Měla by odpovědět s aktuálním stavem všech nakonfigurovaných koncových dorazů a všechny by měly hlásit stav „otevřeno“. Pro každý koncový uzávěr znovu spusťte příkaz QUERY_ENDSTOPS a zároveň ručně spusťte koncový uzávěr. Příkaz QUERY_ENDSTOPS by měl hlásit koncovou zarážku jako „TRIGGERED“.
 
-Pokud se endstop jeví jako invertovaný (při spuštění hlásí „open“ a naopak), přidejte do definice pinu znak „!“ (například „endstop_pin: ^PA2“) nebo odstraňte znak „!“, pokud je již přítomen.
+If the endstop appears inverted (it reports "open" when triggered and vice-versa) then add a "!" to the pin definition (for example, "endstop_pin: ^!PA2"), or remove the "!" if there is already one present.
 
 Pokud se koncová zarážka vůbec nezmění, obecně to znamená, že koncová zarážka je připojena k jinému kolíku. Může však také vyžadovat změnu nastavení pullup pinu ('^' na začátku názvu endstop_pin - většina tiskáren bude používat pullup rezistor a '^' by mělo být přítomno).
 

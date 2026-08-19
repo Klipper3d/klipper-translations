@@ -70,7 +70,7 @@ algorithm: bicubic
 bicubic_tension: 0.2
 ```
 
-- `mesh_pps: 2, 3` *Valor padrão: 2, 2* A opção `mesh_pps` é uma abreviação para "Mesh Points Per Segment" (Pontos de Malha por Segmento). Essa opção especifica quantos pontos serão interpolados para cada segmento ao longo dos eixos X e Y. Um 'segmento' é o espaço entre cada ponto sondado. Assim como `probe_count`, `mesh_pps` é especificado como um par de números inteiros X, Y, e também pode ser especificado como um único número inteiro que se aplica a ambos os eixos.
+- `mesh_pps: 2, 3` *Default Value: 2, 2* The `mesh_pps` option is shorthand for Mesh Points Per Segment. This option specifies how many points to interpolate for each segment along the X and Y axes. Consider a 'segment' to be the space between each probed point. Like `probe_count`, `mesh_pps` is specified as an X, Y integer pair, and also may be specified a single integer that is applied to both axes. In this example there are 4 segments along the X axis and 2 segments along the Y axis. This evaluates to 8 interpolated points along X, 6 interpolated points along Y, which results in a 13x9 mesh. Note that if mesh_pps is set to 0 then mesh interpolation is disabled and the probed matrix will be sampled directly.
 - `algorithm: lagrange` *Valor padrão: lagrange* O algoritmo usado para interpolar a malha. Pode ser `lagrange` ou `bicubic`. A interpolação de Lagrange é limitada a 6 pontos sondados, pois a oscilação tende a ocorrer com um número maior de amostras. A interpolação bicúbica requer um mínimo de 4 pontos sondados ao longo de cada eixo; se menos de 4 pontos forem especificados, a amostragem de Lagrange será forçada. Se mesh_pps estiver definido como 0, este valor será ignorado, pois nenhuma interpolação de malha será realizada.
 - `bicubic_tension: 0.2` *Valor padrão: 0.2* Se a opção `algorithm` for definida como bicubic, é possível especificar o valor de tensão (tension). Quanto maior a tensão, mais inclinação é interpolada. Tome cuidado ao ajustar esse valor, pois valores mais altos também criam mais overshoot (sobressinal), o que resultará em valores interpolados mais altos ou mais baixos do que seus pontos sondados.
 
@@ -120,7 +120,7 @@ fade_target: 0
 
 ### Configurando a posição de referência zero
 
-Many probes are susceptible to "drift", ie: inaccuracies in probing introduced by heat or interference. This can make calculating the probe's z-offset challenging, particularly at different bed temperatures. As such, some printers use an endstop for homing the Z axis and a probe for calibrating the mesh. In this configuration it is possible offset the mesh so that the (X, Y) `reference position` applies zero adjustment. The `reference postion` should be the location on the bed where a [Z_ENDSTOP_CALIBRATE](./Manual_Level.md#calibrating-a-z-endstop) paper test is performed. The bed_mesh module provides the `zero_reference_position` option for specifying this coordinate:
+Many probes are susceptible to "drift", ie: inaccuracies in probing introduced by heat or interference. This can make calculating the probe's z-offset challenging, particularly at different bed temperatures. As such, some printers use an endstop for homing the Z axis and a probe for calibrating the mesh. In this configuration it is possible offset the mesh so that the (X, Y) `reference position` applies zero adjustment. The `reference position` should be the location on the bed where a [Z_ENDSTOP_CALIBRATE](./Manual_Level.md#calibrating-a-z-endstop) paper test is performed. The bed_mesh module provides the `zero_reference_position` option for specifying this coordinate:
 
 ```
 [bed_mesh]
@@ -133,25 +133,6 @@ probe_count: 5, 3
 ```
 
 - `zero_reference_position: ` *Valor padrão: Nenhum (desabilitado)* A `zero_reference_position` espera uma coordenada (X, Y) correspondente à `reference position` descrita acima. Se a coordenada estiver dentro da malha, então a malha será deslocada para que a posição de referência aplique ajuste zero. Se a coordenada estiver fora da malha, então a coordenada será sondada após a calibração, com o z-value resultante usado como z-offset. Observe que esta coordenada NÃO deve estar em um local especificado como `faulty_region` se uma sonda for necessária.
-
-#### Obsoleto relative_reference_index
-
-As configurações existentes que usam a opção `relative_reference_index` devem ser atualizadas para usar a `zero_reference_position`. A resposta ao comando gcode [BED_MESH_OUTPUT PGP=1](#output) incluirá a coordenada (X, Y) associada ao índice; esta posição pode ser usada como o valor para `zero_reference_position`. A saída será semelhante à seguinte:
-
-```
-// bed_mesh: generated points
-// Index | Tool Adjusted | Probe
-// 0 | (1.0, 1.0) | (24.0, 6.0)
-// 1 | (36.7, 1.0) | (59.7, 6.0)
-// 2 | (72.3, 1.0) | (95.3, 6.0)
-// 3 | (108.0, 1.0) | (131.0, 6.0)
-... (additional generated points)
-// bed_mesh: relative_reference_index 24 is (131.5, 108.0)
-```
-
-*Nota: A saída acima também é impressa em `klippy.log` durante a inicialização.*
-
-Usando o exemplo acima, vemos que o `relative_reference_index` é impresso junto com sua coordenada. Portanto, a `zero_reference_position` é `131,5, 108`.
 
 ### Regiões defeituosas
 

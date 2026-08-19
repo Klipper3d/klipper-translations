@@ -19,7 +19,7 @@
 
 ## bed_screws
 
-Наступна інформація доступна в об'єкті [bed_screws](Config_Reference.md#bed_screws):
+The following information is available in the [bed_screws](Config_Reference.md#bed_screws) object:
 
 - `is_active`: Повернення Правда, якщо в даний час працює інструмент регулювання саморізів.
 - `state`: Регулювання шурупами стан інструменту. Він є одним з наступних рядків: "регулюйте", "fine".
@@ -28,14 +28,14 @@
 
 ## canbus_stats
 
-Наступна інформація доступна в об'єкті `canbus_stats some_mcu_name` (цей об'єкт автоматично доступний, якщо мікроконтролер налаштовано на використання canbus):
+The following information is available in the `canbus_stats some_mcu_name` object (this object is automatically available if an mcu is configured to use canbus):
 
-- `rx_error`: Кількість помилок прийому, виявлених апаратним забезпеченням мікроконтролера CANbus.
-- `tx_error`: Кількість помилок передачі, виявлених апаратним забезпеченням мікроконтролера CANbus.
-- `tx_retries`: Кількість спроб передачі, які були повторені через конфлікти з шиною або помилки.
-- `bus_state`: Стан інтерфейсу (зазвичай «active» для шини у нормальному режимі роботи, «warn» для шини з нещодавніми помилками, «passive» для шини, яка більше не передаватиме кадри помилок canbus, або «off» для шини, яка більше не передаватиме або отримуватиме повідомлення).
+- `rx_error`: The number of receive errors detected by the micro-controller canbus hardware.
+- `tx_error`: The number of transmit errors detected by the micro-controller canbus hardware.
+- `tx_retries`: The number of transmit attempts that were retried due to bus contention or errors.
+- `bus_state`: The status of the interface (typically "active" for a bus in normal operation, "warn" for a bus with recent errors, "passive" for a bus that will no longer transmit canbus error frames, or "off" for a bus that will no longer transmit or receive messages).
 
-Зверніть увагу, що лише мікроконтролери rp2XXX повідомляють про ненульове поле `tx_retries`, а мікроконтролери rp2XXX завжди повідомляють `tx_error` як нуль, а `bus_state` як "active".
+Note that only the rp2XXX micro-controllers report a non-zero `tx_retries` field and the rp2XXX micro-controllers always report `tx_error` as zero and `bus_state` as "active".
 
 ## налаштування
 
@@ -133,6 +133,12 @@
 
 - `retract_length`, `retract_speed`, `unretract_extra_length`, `unretract_speed`: Поточні налаштування для модуля прошивки_відновлення. Ці налаштування можуть відрізнятися від файла конфігурації, якщо `SET_RETRACTION` команди змінює їх.
 
+## gcode
+
+The following information is available in the `gcode` object:
+
+- `commands`: Returns a list of all currently available commands. For each command, if a help string is defined it will also be provided.
+
 ## g code_button
 
 У розділі [gcode_button some_name](Config_Reference.md#gcode_button) об'єкти:
@@ -149,22 +155,24 @@
 
 Наступна інформація доступна в об'єкті `gcode_move` ( цей об'єкт завжди доступний):
 
-- `gcode_position`: Поточна позиція керма відносно струму G-Code походження. Це, позиції, які можна безпосередньо надсилати на команду `G1`. Доступ до x, y, z і e компонентів цієї позиції (наприклад, `gcode_position.x`).
-- `позиція`: Остання командована позиція на панелі інструментів, що використовується в координатному файлі. Можливий доступ до x, y, z, і електронних компонентів цієї позиції (наприклад, `position.x`).
-- `homing_origin`: Походження координатної системи gcode (відносно до координатної системи, зазначеної в файлі конфігурацій) для використання після команди `G28`. `SET_GCODE_OFFSET` команда може змінити цю позицію. Доступ до x, y, z компонентів цієї позиції (наприклад, `homing_origin.x`).
+- `gcode_position`: The current position of the toolhead relative to the current G-Code origin. That is, positions that one might directly send to a `G1` command. This value is encoded as a [coordinate](#accessing-coordinates).
+- `position`: The last commanded position of the toolhead using the coordinate system specified in the config file. This value is encoded as a [coordinate](#accessing-coordinates).
+- `homing_origin`: The origin of the gcode coordinate system (relative to the coordinate system specified in the config file) to use after a `G28` command. The `SET_GCODE_OFFSET` command can alter this position. This value is encoded as a [coordinate](#accessing-coordinates).
 - `speed`: Останній набір швидкості в `G1` команди (в мм / с).
 - `speed_фактор`: "швидкий фактор перенареченості" в комплекті команди `M220`. Це плаваючою точкою значення, таким чином, 1,0 означає, що не перейди і, наприклад, 2.0 буде подвійний запитаний швидкість.
 - `extrude_фактор`: "надійний фактор перенареченого" як набір `M221` команди. Це плаваючою точкою значення, наприклад, 1,0 означає, що не перенаречена і, наприклад, 2.0 буде подвійний запитаний екструзії.
 - `absolute_координати`: Це повертає Правда, якщо в `G90` абсолютний координатний режим або False, якщо в `G91` відносний режим.
 - `absolute_extrude`: Це повертає Правда, якщо в `M82` абсолютний вихідний режим або False, якщо в `M83` відносний режим.
+- `axis_map`: Provides a mechanism for finding the coordinate component for a given G-Code id that is used in `G1` commands. See the [Accessing Coordinates](#accessing-coordinates) section for details.
 
 ## href="http://realtor.if.ua/" title="агентство нерухомості ріелтор"
 
 Наступна інформація доступна в об'єкті [hall_filament_width_sensor](Config_Reference.md#hall_filament_width_sensor):
 
-- усі товари з [filament_switch_sensor](Status_Reference.md#filament_switch_sensor)
+- all items from [filament_switch_sensor](Status_Reference.md#filament_switch_sensor)
 - `is_active`: Повернення Правда, якщо датчик в даний час активний.
-- `Diameter`: Останнє читання від датчика в мм.
+- `flow_compensation_enabled`: Returns True if flow compensation is enabled.
+- `Diameter`: Returns the last width reading in mm if the sensor is active or the nominal filament diameter if it is not.
 - `Raw`: Остання сира ADC читання від датчика.
 
 ## нагрівач
@@ -190,24 +198,28 @@
 
 - `state`: Поточний стан принтера як відстежується модулем idle_timeout. Він є одним з наступних рядків: "Попередження", "Читання".
 - `printing_time`: Сума часу (в секундах) принтера була в стані "припинення" (як відстежити модуль idle_timeout).
+- `idle_timeout`: The current 'timeout' (in seconds) to wait for the gcode to be triggered. (as set by [SET_IDLE_TIMEOUT](G-Codes.md#set_idle_timeout))
 
 ## під керівництвом
 
 Наступна інформація доступна для кожного `[led led_name]`, `[neoпіксель Led_name]`, `[dotstar led_name]`, `[pca9533 led_name]`, і `[pca9632 led_name]` config розділ, визначений у принтері.cfg:
 
-- `color_data`: список списків кольорів, що містять значення RGBW для світлодіода в ланцюжку. Кожне значення представлено у вигляді числа з плаваючою точкою від 0,0 до 1,0. Кожен список кольорів містить 4 елементи (червоний, зелений, синій, білий), навіть якщо базовий світлодіод підтримує менше кольорових каналів. Наприклад, синє значення (3-й елемент у списку кольорів) другого неопікселя в ланцюжку можна отримати за адресою `printer["neopixel <config_name>"].color_data[1][2]`.
+- `color_data`: A list of color lists containing the RGBW values for a led in the chain. Each value is represented as a float from 0.0 to 1.0. Each color list contains 4 items (red, green, blue, white) even if the underlying LED supports fewer color channels. For example, the blue value (3rd item in color list) of the second neopixel in a chain could be accessed at `printer["neopixel <config_name>"].color_data[1][2]`.
 
 ## load_cell
 
-Для кожного `[ім'я тензодатчика]` доступна така інформація:
+The following information is available for each `[load_cell name]`:
 
-- 'is_calibrated': True/False – калібрований тензодатчик
-- 'counts_per_gram': Кількість необроблених показників датчика, що дорівнює 1 граму сили
-- 'reference_tare_counts': Довідкова кількість необроблених показників датчика для 0 сили
-- 'tare_counts': Поточна кількість необроблених показників датчика для 0 сили
-- 'force_g': Сила в грамах, усереднена за останній період опитування.
-- 'min_force_g': Мінімальна сила в грамах за останній період опитування.
-- 'max_force_g': Максимальна сила в грамах за останній період опитування.
+- `is_calibrated`: True/False whether the load cell is calibrated.
+- `counts_per_gram`: The number of raw sensor counts that equals 1 gram of force.
+- `reference_tare_counts`: The reference number of raw sensor counts for 0 force.
+- `tare_counts`: The current number of raw sensor counts for 0 force.
+- `force_g`: The force in grams, averaged over the last polling period.
+- `min_force_g`: The minimum force in grams, over the last polling period.
+- `max_force_g`: The maximum force in grams, over the last polling period.
+- `errors`: The number of sensor errors detected since the last start of measurements.
+- `overflows`: The number of data buffer overflows detected since the last start of measurements.
+- `sample_rate`: The sensor's sample rate in samples per second.
 
 ## load_cell_probe
 
@@ -215,8 +227,10 @@ The following information is available for `[load_cell_probe]`:
 
 - all items from [load_cell](Status_Reference.md#load_cell)
 - all items from [probe](Status_Reference.md#probe)
-- 'endstop_tare_counts': the load cell probe keeps a tare value independent of the load cell. This re-set at the start of each probe.
-- 'last_trigger_time': timestamp of the last homing trigger
+- `endstop_tare_counts`: The load cell probe keeps a tare value independent of the load cell. This is re-set at the start of each probe.
+- `last_trigger_time`: Timestamp of the last homing trigger.
+- `last_z_result`: The Z position result of the last tap.
+- `is_last_tap_valid`: True if the last tap result is valid.
 
 ## manual_probe
 
@@ -240,13 +254,13 @@ The following information is available for `[load_cell_probe]`:
 
 Наступна інформація доступна в об'єкті `motion_report` (цей об'єкт автоматично доступний, якщо визначено розділ налаштування кроку):
 
-- `live_position`: Запропонована посада інструменту, що переноситься на поточний час.
+- `live_position`: The requested toolhead position interpolated to the current time. This value is encoded as a [coordinate](#accessing-coordinates).
 - `live_velocity`: Вимагажена швидкість інструменту (в мм/с) в поточний час.
 - `live_extruder_velocity`: Випробувано швидкість екструдера (в мм/с) в поточний час.
 
 ## output_pin
 
-Наступна інформація доступна в об’єктах [output_pin some_name](Config_Reference.md#output_pin):
+The following information is available in [output_pin some_name](Config_Reference.md#output_pin) and [pwm_tool some_name](Config_Reference.md#pwm_tool) objects:
 
 - `value`: "значення" шпильки, як встановити `SET_PIN` команди.
 
@@ -278,7 +292,8 @@ The following information is available for `[load_cell_probe]`:
 
 - `name`: Повертає ім'я зонду у використанні.
 - `last_query`: Повернення Правда, якщо зонд був повідомлений як "підготовлений" під час останнього команди QUERY_PROBE. Примітка, якщо це використовується в макросі, через порядок розширення шаблону, команда QUERY_PROBE повинна працювати до макрос, що містить цю посилання.
-- `last_z_result`: повертає значення результату Z останнього команди PROBE. Примітка, якщо це використовується в макросі, через порядок розширення шаблону, Команда PROBE (або аналогічний) повинна працювати до макрос, що містить цей посилання.
+- `last_probe_position`: The results of the last `PROBE` command. This value is encoded as a [coordinate](#accessing-coordinates). The probe hardware estimates that if one were to command the toolhead to XY position `last_probe_position.x`,`last_probe_position.y` and descend then the tip of the toolhead would first contact the bed at a Z height of `last_probe_position.z`. These coordinates are relative to the frame (that is, they use the coordinate system specified in the config file). Note, if this is used in a macro, due to the order of template expansion, the `PROBE` command must be run prior to the macro containing this reference.
+- `last_z_result`: This value is deprecated; it will be removed in the near future.
 
 ## pwm_cycle_time
 
@@ -318,9 +333,9 @@ The following information is available for `[load_cell_probe]`:
 
 ## skew_correction.py
 
-Наступна інформація доступна в об'єкті `skew_correction` (цей об'єкт доступний, якщо визначено будь-яку skew_correction):
+The following information is available in the `skew_correction` object (this object is available if any skew_correction is defined):
 
-- `current_profile_name`: Повертає назву поточного завантаженого SKEW_PROFILE.
+- `current_profile_name`: Returns the name of the currently loaded SKEW_PROFILE.
 
 ## stepper_enable
 
@@ -372,13 +387,14 @@ The following information is available for `[load_cell_probe]`:
 
 Наступна інформація доступна в об'єкті `toolhead` ( цей об'єкт завжди доступний):
 
-- `позиція`: Остання командована позиція інструментального керівника відносно координаційної системи, зазначеної в файлі конфігурації. Можливий доступ до x, y, z, і електронних компонентів цієї позиції (наприклад, `position.x`).
+- `position`: The last commanded position of the toolhead relative to the coordinate system specified in the config file. This value is encoded as a [coordinate](#accessing-coordinates).
 - `extruder`: Назва діючого екструдера. Наприклад, в макросі можна використовувати `принтер[printer.toolhead.extruder].target`, щоб отримати цільову температуру поточного екструдера.
 - `homed_axes`: Поточні кошики Це рядок, що містить один або більше "x", "y", "z".
-- ` вісь_minimum`, ` вісь_maximum`: Вісь обмеження (мм) після гоління. Доступ до x, y, z компонентів цього граничного значення (наприклад, `axis_minimum.x`, `axis_maximum.z`).
+- `axis_minimum`, `axis_maximum`: The axis travel limits (mm) after homing. This value is encoded as a [coordinate](#accessing-coordinates).
 - Для принтерів Delta `cone_start_z` є максимальною висотою z при максимальному радіусі (`printer.toolhead.cone_start_z`).
 - `max_velocity`, `max_accel`, `minimum_cruise_ratio`, `square_corner_velocity`: Поточні ліміти друку, які впливають на ефект. Це може відрізнятися від налаштувань конфігураційного файлу, якщо `SET_VELOCITY_LIMIT` (або `M204`) команда змінює їх на run-time.
 - `stalls`: Загальна кількість разів (з останнього перезаряджання), що принтер повинен бути виловлений, тому що накладний інструмент переміщається швидше, ніж переміщення можна читати з входу G-Code.
+- `extra_axes`: Provides a mechanism for finding the coordinate component for extra axes available in standard `G1` type move commands. See the [Accessing Coordinates](#accessing-coordinates) section for details.
 
 ## подвійний_кар'єр
 
@@ -424,3 +440,13 @@ On a `generic_cartesian` kinematic, the following information is available in `d
 Наступна інформація доступна в об'єкті `z_tilt` ( цей об'єкт доступний, якщо z_tilt визначено):
 
 - `applied`: Правда, якщо процес вирівнювання захвату успішно завершено.
+
+## Accessing Coordinates
+
+Some status fields provide a "coordinate". For macro users these fields may be accessed by component name (eg,`{printer.toolhead.position.x}`), where the component name may be "x", "y", or "z".
+
+For developers using the Klipper API Server these fields are transmitted as a list - for example: `{"toolhead": {"position": [1.0, 2.0, 3.0, 7.3, 19.2]}}` . The first three components of the list correspond with the x, y, and z axes.
+
+A coordinate will typically have at least 3 components (x, y, and z), however there may also be additional components. Care should be taken when accessing any of these additional components as the ordering and number of components may change at run-time.
+
+One may use `{printer.gcode_move.axis_map}` and/or `{printer.toolhead.extra_axes}` to determine the number of components and the ordering of components. For example, to access the "E" component one could use `{printer.toolhead.position[printer.gcode_move.axis_map.E]}`. Or, if one wanted to find the component associated with the "extruder" object, one could use `{printer.toolhead.position[printer.toolhead.extra_axes.extruder]}`.

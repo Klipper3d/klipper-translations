@@ -70,7 +70,7 @@ algorithm: bicubic
 bicubic_tension: 0.2
 ```
 
-- `mesh_pps: 2, 3` *Valore predefinito: 2, 2* L'opzione `mesh_pps` è un'abbreviazione per Mesh Points Per Segment. Questa opzione specifica quanti punti interpolare per ciascun segmento lungo gli assi X e Y. Considera un "segmento" come lo spazio tra ogni punto sondato. Come `probe_count`, `mesh_pps` è specificato come una coppia di interi X, Y e può anche essere specificato un singolo intero che viene applicato a entrambi gli assi. In questo esempio ci sono 4 segmenti lungo l'asse X e 2 segmenti lungo l'asse Y. Questo restituisce 8 punti interpolati lungo X, 6 punti interpolati lungo Y, che si traduce in una mesh 13x8. Si noti che se mesh_pps è impostato su 0, l'interpolazione della mesh è disabilitata e la matrice sondata verrà campionata direttamente.
+- `mesh_pps: 2, 3` *Default Value: 2, 2* The `mesh_pps` option is shorthand for Mesh Points Per Segment. This option specifies how many points to interpolate for each segment along the X and Y axes. Consider a 'segment' to be the space between each probed point. Like `probe_count`, `mesh_pps` is specified as an X, Y integer pair, and also may be specified a single integer that is applied to both axes. In this example there are 4 segments along the X axis and 2 segments along the Y axis. This evaluates to 8 interpolated points along X, 6 interpolated points along Y, which results in a 13x9 mesh. Note that if mesh_pps is set to 0 then mesh interpolation is disabled and the probed matrix will be sampled directly.
 - `algoritmo: lagrange` *Valore predefinito: lagrange* L'algoritmo utilizzato per interpolare la mesh. Può essere "lagrange" o "bicubico". L'interpolazione Lagrange è limitata a 6 punti sondati poiché tende a verificarsi l'oscillazione con un numero maggiore di campioni. L'interpolazione bicubica richiede un minimo di 4 punti sondati lungo ciascun asse, se vengono specificati meno di 4 punti, viene forzato il campionamento lagrange. Se `mesh_pps` è impostato su 0, questo valore viene ignorato poiché non viene eseguita alcuna interpolazione della mesh.
 - `bicubic_tension: 0.2` *Valore predefinito: 0.2* Se l'opzione `algorithm` è impostata su bicubic è possibile specificare il valore della tensione. Maggiore è la tensione, maggiore è la pendenza interpolata. Prestare attenzione durante la regolazione, poiché valori più elevati creano anche una maggiore sovraelongazione, che risulterà in valori interpolati superiori o inferiori rispetto ai punti rilevati.
 
@@ -120,7 +120,7 @@ fade_target: 0
 
 ### Configuring the zero reference position
 
-Many probes are susceptible to "drift", ie: inaccuracies in probing introduced by heat or interference. This can make calculating the probe's z-offset challenging, particularly at different bed temperatures. As such, some printers use an endstop for homing the Z axis and a probe for calibrating the mesh. In this configuration it is possible offset the mesh so that the (X, Y) `reference position` applies zero adjustment. The `reference postion` should be the location on the bed where a [Z_ENDSTOP_CALIBRATE](./Manual_Level.md#calibrating-a-z-endstop) paper test is performed. The bed_mesh module provides the `zero_reference_position` option for specifying this coordinate:
+Many probes are susceptible to "drift", ie: inaccuracies in probing introduced by heat or interference. This can make calculating the probe's z-offset challenging, particularly at different bed temperatures. As such, some printers use an endstop for homing the Z axis and a probe for calibrating the mesh. In this configuration it is possible offset the mesh so that the (X, Y) `reference position` applies zero adjustment. The `reference position` should be the location on the bed where a [Z_ENDSTOP_CALIBRATE](./Manual_Level.md#calibrating-a-z-endstop) paper test is performed. The bed_mesh module provides the `zero_reference_position` option for specifying this coordinate:
 
 ```
 [bed_mesh]
@@ -133,25 +133,6 @@ probe_count: 5, 3
 ```
 
 - `zero_reference_position: ` *Default Value: None (disabled)* The `zero_reference_position` expects an (X, Y) coordinate matching that of the `reference position` described above. If the coordinate lies within the mesh then the mesh will be offset so the reference position applies zero adjustment. If the coordinate lies outside of the mesh then the coordinate will be probed after calibration, with the resulting z-value used as the z-offset. Note that this coordinate must NOT be in a location specified as a `faulty_region` if a probe is necessary.
-
-#### The deprecated relative_reference_index
-
-Existing configurations using the `relative_reference_index` option must be updated to use the `zero_reference_position`. The response to the [BED_MESH_OUTPUT PGP=1](#output) gcode command will include the (X, Y) coordinate associated with the index; this position may be used as the value for the `zero_reference_position`. The output will look similar to the following:
-
-```
-// bed_mesh: generated points
-// Index | Tool Adjusted | Probe
-// 0 | (1.0, 1.0) | (24.0, 6.0)
-// 1 | (36.7, 1.0) | (59.7, 6.0)
-// 2 | (72.3, 1.0) | (95.3, 6.0)
-// 3 | (108.0, 1.0) | (131.0, 6.0)
-... (additional generated points)
-// bed_mesh: relative_reference_index 24 is (131.5, 108.0)
-```
-
-*Note: The above output is also printed in `klippy.log` during initialization.*
-
-Using the example above we see that the `relative_reference_index` is printed along with its coordinate. Thus the `zero_reference_position` is `131.5, 108`.
 
 ### Regioni difettose
 

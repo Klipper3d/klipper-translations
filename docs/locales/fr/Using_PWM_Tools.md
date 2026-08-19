@@ -1,6 +1,6 @@
 # Utilisation des outils PWM
 
-Ce document décrit comment configurer un laser ou une broche contrôlée par PWM en utilisant `output_pin` et quelques macros.
+This document describes how to setup a PWM-controlled laser or spindle using `pwm_tool` and some macros.
 
 ## Comment cela fonctionne-t-il ?
 
@@ -9,10 +9,6 @@ En ré-utilisant la sortie pwm du ventilateur de la tête d'impression, vous pou
 **Avertissement :** Lorsque vous pilotez un laser, prenez toutes les précautions de sécurité auxquelles vous pouvez penser ! Les lasers à diodes sont généralement inversés. Cela signifie que lorsque l'unité centrale redémarre, le laser sera *complètement allumé* pendant le temps nécessaire à l'unité centrale pour redémarrer. Pour faire bonne mesure, il est recommandé de *toujours* porter des lunettes laser appropriées de la bonne longueur d'onde si le laser est alimenté ; et de déconnecter le laser lorsqu'il n'est pas nécessaire. Vous devriez également configurer un délai de sécurité, de sorte que lorsque votre hôte ou votre MCU rencontre une erreur, l'outil s'arrête.
 
 Pour un exemple de configuration, voir [config/sample-pwm-tool.cfg](/config/sample-pwm-tool.cfg).
-
-## Limites actuelles
-
-La fréquence des mises à jour PWM est limitée. Bien qu'elle soit très précise, une mise à jour PWM ne peut se produire que toutes les 0,1 seconde, ce qui la rend presque inutile pour la gravure tramée. Cependant, il existe une [branche expérimentale](https://github.com/Cirromulus/klipper/tree/laser_tool) avec ses propres compromis. A long terme, il est prévu d'ajouter cette fonctionnalité au klipper principal.
 
 ## Commandes
 

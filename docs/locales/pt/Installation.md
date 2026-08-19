@@ -1,61 +1,61 @@
 # Instalação
 
-These instructions assume the software will run on a Linux-based host running a Klipper-compatible front end. It is recommended that a SBC(Small Board Computer) such as a Raspberry Pi or Debian-based Linux device be used as the host machine (see the [FAQ](FAQ.md#can-i-run-klipper-on-something-other-than-a-raspberry-pi-3) for other options).
+Estas instruções assumem que o o software irá correr num anfitrião/host linux que esteja a executar uma interface compatível com Klipper. É recomendado que seja usado um minicomputador, tal como uma Raspberry Pi ou um dispositivo Linux baseado em Debian, como host/anfitrião (ver o [FAQ](FAQ.md#can-i-run-klipper-on-something-other-than-a-raspberry-pi-3) para mais opções).
 
-For the purposes of these instructions, host relates to the Linux device and mcu relates to the printer board. SBC relates to the term Small Board Computer such as the Raspberry Pi.
+Para o propósito destas instruções, host/anfitrião relaciona-se com o dispositivo Linux e MCU relaciona-se com a placa da impressora. Minicomputador relaciona-se com pequenos computadores, tais como Raspberry Pi.
 
-## Obtain a Klipper Configuration File
+## Obter um ficheiro de configuração de Klipper
 
-Most Klipper settings are determined by a "printer configuration file" printer.cfg, that will be stored on the host. An appropriate configuration file can often be found by looking in the Klipper [config directory](../config/) for a file starting with a "printer-" prefix that corresponds to the target printer. The Klipper configuration file contains technical information about the printer that will be needed during the installation.
+A maioria das definições do Klipper são determinadas pelo "ficheiro de configuração da impressora" printer.cfg, que irá ser guardado no host/anfitrião. Uma configuração apropriada pode ser frequentemente encontrada procurando no Klipper [config directory](../config/) por um ficheiro que começa com o prefixo "printer-" que corresponda à impressora alvo. O ficheiro de configuração do Klipper contèm informação técnica sobre a impressora que será preciso durante a Instalação.
 
-If there isn't an appropriate printer configuration file in the Klipper config directory then try searching the printer manufacturer's website to see if they have an appropriate Klipper configuration file.
+Se não houver um ficheiro de configuração apropriado para a tua impressora no diretório de configurações do Klipper, então tenta procurar no website do fabricante da impressora se eles têm uma configuração apropriada para Klipper.
 
-If no configuration file for the printer can be found, but the type of printer control board is known, then look for an appropriate [config file](../config/) starting with a "generic-" prefix. These example printer board files should allow one to successfully complete the initial installation, but will require some customization to obtain full printer functionality.
+Se não encontrares qualquer ficheiro de configuração específico para a tua impressora, mas o tipo de placa-mãe for conhecida, então procura pela configuração mais apropriada que comece com o prefixo "generic-". Esses ficheiros de exemplo para a placa-mãe devem permitir concluir a Instalação inicial, mas irão requerer alguma customização para desbloquear a total funcionalidade da impressora.Instalação.
 
-It is also possible to define a new printer configuration from scratch. However, this requires significant technical knowledge about the printer and its electronics. It is recommended that most users start with an appropriate configuration file. If creating a new custom printer configuration file, then start with the closest example [config file](../config/) and use the Klipper [config reference](Config_Reference.md) for further information.
+É também possível criar uma configuração para a impressora de raiz. No entanto, isto requer um grande conhecimento técnico sobre a impressora e sobre os seus componentes. É recomendado que a maioria dos utilizadores comecem com um ficheiro de configuração apropriado. Se fores criar um ficheiro de configuração desde a raiz, então começa com o exemplo mais próximo possível [config file](../config/) e usa o Klipper [config reference](Config_Reference.md) para mais informações.
 
-## Interacting with Klipper
+## Interação com o Klipper
 
-Klipper is a 3d printer firmware, so it needs some way for the user to interact with it.
+O Klipper é um firmware para impressoras 3d, então precisa de alguma maneira do utilizador interagir com ele.
 
-Currently the best choices are front ends that retrieve information through the [Moonraker web API](https://moonraker.readthedocs.io/) and there is also the option to use [Octoprint](https://octoprint.org/) to control Klipper.
+Atualmente, as melhores escolhas são as interfaces que buscam informação através do [Moonraker web API](https://moonraker.readthedocs.io/) e também há a opção de usar o [Octoprint](https://octoprint.org/) para controlar o Klipper.
 
-The choice is up to the user on what to use, but the underlying Klipper is the same in all cases. We encourage users to research the options available and make an informed decision.
+A escolha é do utilizador em qual usar, mas as bases do Klipper são as mesmas em todos os casos. Nós encorajamos os utilizadores a investigar as opções disponíveis e a fazer uma decisão informada.
 
-## Obtaining an OS image for SBC's
+## Obter uma imagem de Sistema Operativo (OS) para SBC
 
-There are many ways to obtain an OS image for Klipper for SBC use, most depend on what front end you wish to use. Some manufacturers of these SBC boards also provide their own Klipper-centric images.
+Existem diversas maneiras de obter uma imagem de SO para o Klipper para usar eum minicomputador, a maioria depende da interface que prefiras usar. Alguns fabricantes de minicomputadores também disponibilizam as suas próprias imagens de Klipper.
 
-The two main Moonraker-based front ends are [Fluidd](https://docs.fluidd.xyz/) and [Mainsail](https://docs.mainsail.xyz/), the latter of which has a premade install image ["MainsailOS"](https://docs-os.mainsail.xyz/), this has the option for Raspberry Pi and some OrangePi variants.
+Existem duas interfaces baseadas em Moonraker, o [Fluidd](https://docs.fluidd.xyz/) e o [Mainsail](https://docs.mainsail.xyz/), sendo que este último tem uma imagem de instalação pré-feita, o ["MainsailOS"](https://docs-os.mainsail.xyz/), isto tem a opção para Raspberry Pi e para algumas variantes de OrangePI.
 
-Fluidd can be installed via KIAUH(Klipper Install And Update Helper), which is explained below and is a 3rd party installer for all things Klipper.
+O Fluidd pode ser instalado através do KIAUH (o ajudante de instalação e atualização do Klipper), o qual é explicado abaixo e é um instalador de terceiros para todas as coisas relacionadas com o Klipper.
 
-OctoPrint can be installed via the popular OctoPi image or via KIAUH, this process is explained in <OctoPrint.md>
+O OctoPrint pode ser instalado através da popular imagem Octopi ou através do KIAUH, sendo este processo explicado em <OctoPrint.md>
 
-## Installing via KIAUH
+## Instalar através do KIAUH
 
-Normally you would start with a base image for your SBC, RPiOS Lite for example, or in the case of an x86 Linux device, Ubuntu Server. Please note that Desktop variants are not recommended due to certain helper programs that can stop some Klipper functions from working and even mask access to some printer boards.
+Normalmente começarias com a imagem base do minicomputador, RPiOS Lite por exemplo, ou no caso de um dispositivo Linux x86, Ubuntu Server. Por favor, nota que essas variantes de desktop não são recomendadas devido a determinados programas de ajudantes que podem impedir algumas funções do Klipper de funcionar e até mascarar o acesso a placas de algumas impressoras.
 
-KIAUH can be used to install Klipper and its associated programs on a variety of Linux-based systems that run a form of Debian. More information can be found at https://github.com/dw-0/kiauh
+O KIAUH pode ser usado para instalar o Klipper e os seus programas associados numas variada de sistemas baseados em Linux que executam alguma versão de Debian. Mais informações podem ser encontradas em https://github.com/dw-0/kiauh
 
 ## Construindo e atualizando o micro controlador
 
-To compile the micro-controller code, start by running these commands on your host device:
+Para compilar o código do Micro-controlador, começa por executar os seguintes comandos no seus dispositivo host/anfitrião:
 
 ```
 cd ~/klipper/
 make menuconfig
 ```
 
-The comments at the top of the [printer configuration file](#obtain-a-klipper-configuration-file) should describe the settings that need to be set during "make menuconfig". Open the file in a web browser or text editor and look for these instructions near the top of the file. Once the appropriate "menuconfig" settings have been configured, press "Q" to exit, and then "Y" to save. Then run:
+Os comentários no topo do ficheiro de configuração da impressora (printer.cfg)(#obtain-a-klipper-configuration-file) devem explicar as definições que deves colocar durante o "make menuconfig". Abre o ficheiro num browser ou editor de texto e procura pelas instruções no início do texto. Quando as definições corretas do "menuconfig" estiverem colocadas, pressiona "Q" para sair e, depois, "Y" para salvar. Depois coloca:
 
 ```
 make
 ```
 
-If the comments at the top of the [printer configuration file](#obtain-a-klipper-configuration-file) describe custom steps for "flashing" the final image to the printer control board, then follow those steps and then proceed to [configuring OctoPrint](#configuring-octoprint-to-use-klipper).
+Se os comentários no topo do [printer configuration file](#obtain-a-klipper-configuration-file) mostrarem passos especificos para gravar a imagem final na placa da impressora, então segue esses passos e depois procede para [configuring OctoPrint](#configuring-octoprint-to-use-klipper).
 
-Otherwise, the following steps are often used to "flash" the printer control board. First, it is necessary to determine the serial port connected to the micro-controller. Run the following:
+Caso contrário, os seguintes passos são usados frequentemente para gravar na placa controladora da impressora. Primeiro, é necessário descobrir a porta serial conectada ao micro-controlador. Executa o seguinte:
 
 ```
 ls /dev/serial/by-id/*
@@ -67,25 +67,25 @@ Deve relatar algo semelhante ao seguinte:
 /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 ```
 
-It's common for each printer to have its own unique serial port name. This unique name will be used when flashing the micro-controller. It's possible there may be multiple lines in the above output - if so, choose the line corresponding to the micro-controller. If many items are listed and the choice is ambiguous, unplug the board and run the command again, the missing item will be your print board(see the [FAQ](FAQ.md#wheres-my-serial-port) for more information).
+É comum para cada impressora ter um nome único de porta serial. Este nome único será usado quando estiver a gravar no Micro-controlador. É possível que existam múltiplas linhas no output - caso seja esse o caso, escolhe a linha que corresponde ao Micro-controlador. Se existirem diversas linhas e a escolha for ambígua, desconecta a placa e executa o comando novamente, a linha que desaparecer será a placa da impressora (vê o [FAQ](FAQ.md#wheres-my-serial-port) para mais informação).
 
-For common micro-controllers with STM32 or clone chips, LPC chips and others, it is usual that these need an initial Klipper flash via SD card.
+Para micro-controladores comuns com STM32 ou chips clones, chips LPC e outros, é frequente que eles precisem de que a gravação inicial do Klipper seja feita através de cartão SD.
 
-When flashing with this method, it is important to make sure that the print board is not connected with USB to the host, due to some boards being able to feed power back to the board and stopping a flash from occurring.
+Ao gravar através deste método, é importante que te certifiques que a placa da impressora não esteja conectada com USB ao host/anfitrião, visto que algumas placas são capazes de devolver corrente e interromper a gravação de ser concluida.
 
-Please note, that most print boards that use SD cards for flash will implement some kind of flash loop protection for when the sd card is left in place. There are two common methods:
+Por favor, nota que a maioria das impressoras que usa cartão SD para gravar, irá implementar algum tipo de proteção para loops de gravação para quando o cartão é deixado. Estes são os dois métodos mais comuns:
 
-Filename Change Required (usually "stock" print boards):
+Mudança de nome de ficheiro é necessária (normalmente nas placas das impressoras originais/stock):
 
-These boards require the firmware file to have a different name each time you flash (for example, firmware1.bin, firmware2.bin, etc.). If you reuse the same filename, the board may ignore it and not update.
+Estas placas precisam de um ficheiro de firmware que tenha um nome diferente cada vez que gravas (p.e firmware1.bin, firmware2.bin, etc...). Se tu reutilizares o mesmo nome, a placa pode apenas ignorar e não irá atualizar.
 
-Automatic File Renaming (usually aftermarket print boards:
+Mudança de nome automática (normalmente nas placas do mercado de acessórios):
 
-Other boards allow using the same filename, commonly firmware.bin, but after flashing, the board renames the file to firmware.cur. This helps indicate the firmware was successfully flashed and prevents it from flashing again on the next startup.
+Outras placas permitem usar o mesmo nome de ficheiro, comummente firmware.bin, mas depois de gravar, a placa muda o nome do ficheiro para firmware.cur. Isto ajuda a saber se o firmware foi gravado com sucesso e previne que grave novamente na próxima inicialização.
 
-Before flashing, make sure to check which behavior your board follows.
+Antes de gravar, certifica-te de verificar qual o comportamento da tua placa.
 
-For common micro-controllers using Atmega chips, for example the 2560, the code can be flashed with something similar to:
+Para Micro-controladores comuns que usem os chips Atmega. por exemplo o 2560, o código pode ser gravado em algo similar a:
 
 ```
 sudo service klipper stop
@@ -93,9 +93,9 @@ make flash FLASH_DEVICE=/dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 sudo service klipper start
 ```
 
-Be sure to update the FLASH_DEVICE with the printer's unique serial port name.
+Certifica-te de atualizar o FLASH_DEVICE com o nome da porta serial único da tua impressora.
 
-For common micro-controllers using RP2040 chips, the code can be flashed with something similar to:
+Para Micro-controladores comuns que usem os chips RP2040, o código pode ser gravado como algo similar a:
 
 ```
 sudo service klipper stop
@@ -103,24 +103,24 @@ make flash FLASH_DEVICE=first
 sudo service klipper start
 ```
 
-It is important to note that RP2040 chips may need to be put into Boot mode before this operation.
+É importante notar que os chips RP2040 podem precisar de ser colocados em modo de Boot antes desta operação.
 
-## Configuring Klipper
+## Configurar o Klipper
 
-The next step is to copy the [printer configuration file](#obtain-a-klipper-configuration-file) to the host.
+O próximo passo é copiar o [ficheiro de configuração da impressora](#obtain-a-klipper-configuration-file) para o Host/anfitrião.
 
-Arguably the easiest way to set the Klipper configuration file is using the built-in editors in Mainsail or Fluidd. These will allow the user to open the configuration examples and save them to be printer.cfg.
+Discutivelmente, o método mais de colocar o ficheiro de configuração do Klipper é através dos editores integrados no Mainsail e Fluidd. Esses permitem ao utilizador abrir os exemplos de configuração e salvá-los para serem o printer.cfg.
 
-Another option is to use a desktop editor that supports editing files over the "scp" and/or "sftp" protocols. There are freely available tools that support this (eg, Notepad++, WinSCP, and Cyberduck). Load the printer config file in the editor and then save it as a file named "printer.cfg" in the home directory of the pi user (ie, /home/pi/printer.cfg).
+Outra opção será usar um editor que suporta a edição de ficheiros "scp" e/ou protocolos "sftp". Existem ferramentas gratuitas que suportam isso (p.e Notepad++, WinSCP, e Cyberduck). Carrega o ficheiro de configuração no editor e depois salva o ficheiro como "printer.cfg" no diretório principal do utilizador PI (p.e /home/pi/printer.cfg).
 
-Alternatively, one can also copy and edit the file directly on the host via SSH. That may look something like the following (be sure to update the command to use the appropriate printer config filename):
+Em alternativa, também podes copiar e editar o ficheiro diretamente para o host/anfitrião por SSH. Isso poderá se parecer algo como o seguinte (certifica-te de alterar o comando para usar o nome de ficheiro de configuração da impressora):
 
 ```
 cp ~/klipper/config/example-cartesian.cfg ~/printer.cfg
 nano ~/printer.cfg
 ```
 
-It's common for each printer to have its own unique name for the micro-controller. The name may change after flashing Klipper, so rerun these steps again even if they were already done when flashing. Run:
+É comum que cada impressora tenha um nome único para o micro-controlador. O nome poderá ser alterado depois de o Klipper ser gravado, então reexecuta estes passos outra vez, mesmo que eles já tenham sido feitos quando gravou. Executa:
 
 ```
 ls /dev/serial/by-id/*
@@ -132,17 +132,17 @@ Deve relatar algo semelhante ao seguinte:
 /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 ```
 
-Then update the config file with the unique name. For example, update the `[mcu]` section to look something similar to:
+Depois atualiza o ficheiro de configuração com o nome único da impressora. Por exemplo, atualiza a secção `MCU`, de forma a se parecer algo como:
 
 ```
 [mcu]
 serial: /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 ```
 
-After creating and editing the file, it will be necessary to issue a "restart" command in the command console to load the config. A "status" command will report that the printer is ready if the Klipper config file is successfully read and the micro-controller is successfully found and configured.
+Depois de criar e editar o ficheiro, será necessário enviar um comando de "restart" na consola de comandos para carregar a configuração. Um comando de "status" irá dizer se a impressora está pronta ("ready"), se o ficheiro de configuração foi lido com sucesso e se o micro-controlador foi encontrado com sucesso e configurado.
 
-When customizing the printer config file, it is not uncommon for Klipper to report a configuration error. If an error occurs, make any necessary corrections to the printer config file and issue "restart" until "status" reports the printer is ready.
+Quando se costumiza um ficheiro de configuração de impressora, não é pouco comum que o Klipper reporte um erro de configuração- Se ocorrer um erro, faz qualquer correção necessária ao ficheiro de configuração e depois clica em "restart" até o "status" dizer que a impressora está pronta.
 
-Klipper reports error messages via the command console and pop-ups in Fluidd and Mainsail. The "status" command can be used to re-report error messages. A log is available and usually located at `~/printer_data/logs/klippy.log`.
+O Klipper irá reportar mensagens de erro através da consola de comandos e pop-ups no Fluidd e Mainsail. O comando de "status" poderá ser usado para voltar a emitir as mensagens de erro. Um arquivo de log está disponível e é localizado em `~/printer_data/logs/klippy.log`.
 
-After Klipper reports that the printer is ready, proceed to the [config check document](Config_checks.md) to perform some basic checks on the definitions in the config file. See the main [documentation reference](Overview.md) for other information.
+Depois de o Klipper detectar que a impressora está pronta, segue para o [config check document](Config_checks.md) para realizar algumas verificações básicas nas definições do ficheiro de configuração. Vê a principal [documentation reference](Overview.md) para outras informações.

@@ -4,13 +4,11 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-07-22 09:12+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Arabic <https://hosted.weblate.org/projects/klipper/"
-"sdcard_updates/ar/>\n"
+"Language-Team: Arabic <https://hosted.weblate.org/projects/klipper/sdcard_updates/ar/>\n"
 "Language: ar\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
-"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
 "X-Generator: Weblate 5.13-dev\n"
 
 msgid ""
@@ -119,12 +117,6 @@ msgid ""
 "this is the case, a `BOARD_ALIAS` may be specified. For example, the following"
 " alias may be added to specify `my-new-board` as an alias for `generic-"
 "lpc1768`:"
-msgstr ""
-
-msgid ""
-"If you need a new board definition and you are uncomfortable with the "
-"procedure outlined above it is recommended that you request one in the "
-"[Klipper Community Discord](Contact.md#discord)."
 msgstr ""
 
 #: docs/SDCard_Updates.md:block 1 (header)
@@ -396,6 +388,50 @@ msgid ""
 "`cs_pin`: The Chip Select Pin connected to the SD Card. This should be "
 "retrieved from the board schematic. This field is required."
 msgstr ""
+
+#: docs/SDCard_Updates.md:block 19 (header)
+msgid "Failure to Initialize"
+msgstr ""
+
+#: docs/SDCard_Updates.md:block 20 (paragraph)
+msgid ""
+"Some SD cards may fail to initialize at the default SPI speed of 400KHz. In "
+"this situation it is possible to use `-s` to drive the SPI peripheral at 4MHz."
+" For example:"
+msgstr ""
+
+#: docs/SDCard_Updates.md:block 22 (paragraph)
+msgid ""
+"If the device still fails to initialize then cause of the failure is unrelated"
+" to the speed and likely a result of one of the following conditions:"
+msgstr ""
+
+#: docs/SDCard_Updates.md:block 23 (unordered list)
+msgid "The SD card is improperly formatted. Must be `fat` or `fat32`."
+msgstr ""
+
+#: docs/SDCard_Updates.md:block 23 (unordered list)
+msgid ""
+"Attempt to initialize a card using the SPI interface that has already been "
+"initialized over SDIO."
+msgstr ""
+
+#: docs/SDCard_Updates.md:block 23 (unordered list)
+msgid "The SD card has failed or is corrupt."
+msgstr ""
+
+#: docs/SDCard_Updates.md:block 36 (paragraph)
+msgid ""
+"If you need a new board definition and you are uncomfortable with the "
+"procedure outlined above it is recommended that you request one in the "
+"[Klipper Discord](Contact.md)."
+msgstr ""
+
+#~ msgid ""
+#~ "If you need a new board definition and you are uncomfortable with the "
+#~ "procedure outlined above it is recommended that you request one in the "
+#~ "[Klipper Community Discord](Contact.md#discord)."
+#~ msgstr ""
 
 #~ msgid ""
 #~ "sudo service klipper stop\n"

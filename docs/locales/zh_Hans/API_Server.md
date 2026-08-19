@@ -235,7 +235,7 @@ This data can be used to render:
 
 Dumps the configuration and state for the current mesh and all saved profiles.
 
-For example: `{"id": 123, "method": "bed_mesh/dump_mesh"}`
+示例: `{"id": 123, "method": "bed_mesh/dump_mesh"}`
 
 might return:
 

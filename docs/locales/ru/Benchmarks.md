@@ -335,9 +335,9 @@ finalize_config crc=0
 | 1 шаговый механизм (200 МГц) | 39 |
 | 3 шаговика (200 МГц) | 181 |
 
-### SAME70 step rate benchmark
+### Сравнительный тест скорости SAME70
 
-The following configuration sequence is used on the SAME70:
+На SAME70 используется следующая последовательность конфигурации:
 
 ```
 allocate_oids count=3
@@ -347,7 +347,7 @@ config_stepper oid=2 step_pin=PC28 dir_pin=PA4 invert_step=-1 step_pulse_ticks=0
 finalize_config crc=0
 ```
 
-The test was last run on commit `34e9ea55` with gcc version `arm-none-eabi-gcc (NixOS 10.3-2021.10) 10.3.1` on a SAME70Q20B micro-controller.
+Последний раз тест был запущен на фиксации `34e9ea55` с gcc-версией `arm-none-eabi-gcc (NixOS 10.3-2021.10) 10.3.1` на микроконтроллере SAME70Q20B.
 
 | same70 | клещи |
 | --- | --- |
@@ -366,16 +366,16 @@ config_stepper oid=2 step_pin=PL12 dir_pin=PE16 invert_step=-1 step_pulse_ticks=
 finalize_config crc=0
 ```
 
-The test was last run on commit `b7978d37` with gcc version `or1k-linux-musl-gcc (GCC) 9.2.0` on an Allwinner A64-H micro-controller.
+В последний раз тест был запущен на фиксации `b7978d37` с gcc-версией `or1k-linux-musl-gcc (GCC) 9.2.0` на микроконтроллере Allwinner A64-H.
 
 | AR100 R_PIO | клещи |
 | --- | --- |
 | 1 шаговый двигатель | 85 |
 | 3 шаговых двигателя | 359 |
 
-### RPxxxx step rate benchmark
+### RPxxxx ступенчатая норма
 
-The following configuration sequence is used on the RP2040 and RP2350:
+Следующая последовательность конфигурации используется на RP2040 и RP2350:
 
 ```
 allocate_oids count=3

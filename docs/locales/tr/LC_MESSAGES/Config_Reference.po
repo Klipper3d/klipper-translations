@@ -6,8 +6,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2026-01-12 21:01+0000\n"
 "Last-Translator: Ege <egetokatli2012@gmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/"
-"config_reference/tr/>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/config_reference/tr/>\n"
 "Language: tr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -605,12 +604,6 @@ msgstr ""
 msgid "Builtin micro-controller temperature sensor"
 msgstr ""
 
-msgid ""
-"The atsam, atsamd, and stm32 micro-controllers contain an internal temperature"
-" sensor. One can use the \"temperature_mcu\" sensor to monitor these "
-"temperatures."
-msgstr ""
-
 msgid "Host temperature sensor"
 msgstr ""
 
@@ -791,11 +784,6 @@ msgid ""
 msgstr ""
 
 msgid "[mcp4018]"
-msgstr ""
-
-msgid ""
-"Statically configured MCP4018 digipot connected via two gpio \"bit banging\" "
-"pins (one may define any number of sections with an \"mcp4018\" prefix)."
 msgstr ""
 
 msgid "Display support"
@@ -1506,15 +1494,6 @@ msgstr ""
 msgid "AHT10/AHT20/AHT21 temperature sensor"
 msgstr ""
 
-#: docs/Config_Reference.md:block 260 (paragraph)
-msgid ""
-"AHT10/AHT20/AHT21 two wire interface (I2C) environmental sensors. Note that "
-"these sensors are not intended for use with extruders and heater beds, but "
-"rather for monitoring ambient temperature (C) and relative humidity. See "
-"[sample-macros.cfg](../config/sample-macros.cfg) for a gcode_macro that may be"
-" used to report humidity in addition to temperature."
-msgstr ""
-
 #: docs/Config_Reference.md:block 277 (header)
 msgid "Combined temperature sensor"
 msgstr ""
@@ -1770,28 +1749,10 @@ msgid ""
 "settings same as the regular Cartesian kinematic:"
 msgstr ""
 
-#: docs/Config_Reference.md:block 74 (paragraph)
-msgid ""
-"Then a user must define the following three carriages: `[carriage x]`, "
-"`[carriage y]`, and `[carriage z]`, e.g."
-msgstr ""
-
 #: docs/Config_Reference.md:block 76 (paragraph)
 msgid ""
 "Afterwards, a user specifies the stepper motors that move these carriages, for"
 " instance"
-msgstr ""
-
-#: docs/Config_Reference.md:block 78 (paragraph)
-msgid ""
-"See [stepper](#stepper) section for more information on the regular stepper "
-"parameters. The `carriages` parameter defines how the stepper affects the "
-"motion of the carriages. For example, `x+y` indicates that the motion of the "
-"stepper in the positive direction by the distance `d` moves the carriages `x` "
-"and `y` by the same distance `d` in the positive direction, while `x-0.5*y` "
-"means the motion of the stepper in the positive direction by the distance `d` "
-"moves the carriage `x` by the distance `d` in the positive direction, but the "
-"carriage `y` will travel distance `d/2` in the negative direction."
 msgstr ""
 
 #: docs/Config_Reference.md:block 79 (paragraph)
@@ -1805,18 +1766,6 @@ msgstr ""
 msgid ""
 "with `a0` and `a1` steppers having their own control pins, but sharing the "
 "same `carriages` and corresponding endstops."
-msgstr ""
-
-#: docs/Config_Reference.md:block 82 (paragraph)
-msgid ""
-"There are situations when a user wants to have more than one endstop per axis."
-" Examples of such configurations include Y axis driven by two independent "
-"stepper motors with belts attached to both ends of the X beam, with "
-"effectively two carriages on Y axis each having an independent endstop, and "
-"multi-stepper Z axis with each stepper having its own endstop (not to be "
-"confused with the configurations with multiple Z motors but only a single "
-"endstop). These configurations can be declared by specifying additional "
-"carriage(s) with their endstops:"
 msgstr ""
 
 #: docs/Config_Reference.md:block 84 (paragraph)
@@ -1890,13 +1839,6 @@ msgid ""
 "input shaper can be configured as follows, assuming the example above:"
 msgstr ""
 
-#: docs/Config_Reference.md:block 251 (paragraph)
-msgid ""
-"Note that `SHAPER_TYPE_Y` and `SHAPER_FREQ_Y` must be the same in both "
-"commands in this case, since the same motors drive Y axis when either of the "
-"`x` and `u` carriages are active."
-msgstr ""
-
 #: docs/Config_Reference.md:block 252 (paragraph)
 msgid ""
 "It is worth noting that `generic_cartesian` kinematic can support two dual "
@@ -1913,6 +1855,175 @@ msgid ""
 "Load Cell Probe. This combines the functionality of a [probe] and a "
 "[load_cell]."
 msgstr ""
+
+#: docs/Config_Reference.md:block 74 (paragraph)
+msgid ""
+"Then a user must define three primary carriages for X, Y, and Z axes, e.g.:"
+msgstr ""
+
+#: docs/Config_Reference.md:block 78 (paragraph)
+msgid ""
+"See [stepper](#stepper) section for more information on the regular stepper "
+"parameters. The `carriages` parameter defines how the stepper affects the "
+"motion of the carriages. For example, `carriage_x+carriage_y` indicates that "
+"the motion of the stepper in the positive direction by the distance `d` moves "
+"the carriages `carriage_x` and `carriage_y` by the same distance `d` in the "
+"positive direction, while `carriage_x-0.5*carriage_y` means the motion of the "
+"stepper in the positive direction by the distance `d` moves the carriage "
+"`carriage_x` by the distance `d` in the positive direction, but the carriage "
+"`carriage_y` will travel distance `d/2` in the negative direction."
+msgstr ""
+
+#: docs/Config_Reference.md:block 82 (paragraph)
+msgid ""
+"There are situations when a user wants to have more than one endstop per axis."
+" Examples of such configurations include Y axis driven by two independent "
+"stepper motors with belts attached to both ends of the X gantry, with "
+"effectively two carriages on Y axis each having an independent endstop, and "
+"multi-stepper Z axis with each stepper having its own endstop (not to be "
+"confused with the configurations with multiple Z motors but only a single "
+"endstop). These configurations can be declared by specifying additional "
+"carriage(s) with their endstops:"
+msgstr ""
+
+#: docs/Config_Reference.md:block 199 (header)
+msgid "[bmi160]"
+msgstr ""
+
+#: docs/Config_Reference.md:block 200 (paragraph)
+msgid "BMI160 accelerometer. This sensor can be queried via I2C or SPI bus."
+msgstr ""
+
+#: docs/Config_Reference.md:block 202 (paragraph)
+msgid "**Important:** Many BMI160 modules use ambiguous pin labels. For SPI:"
+msgstr ""
+
+#: docs/Config_Reference.md:block 203 (unordered list)
+msgid "Use **SCL** for clock (not SCX)"
+msgstr ""
+
+#: docs/Config_Reference.md:block 203 (unordered list)
+msgid "Use **SDA** for MOSI (not SDX)"
+msgstr ""
+
+#: docs/Config_Reference.md:block 203 (unordered list)
+msgid "Use **SA0** for MISO"
+msgstr ""
+
+#: docs/Config_Reference.md:block 203 (unordered list)
+msgid "Use **CS** for chip select"
+msgstr ""
+
+#: docs/Config_Reference.md:block 204 (paragraph)
+msgid "The pins labeled SCX/SDX are for the auxiliary magnetometer bus."
+msgstr ""
+
+#: docs/Config_Reference.md:block 257 (paragraph)
+msgid ""
+"Note that `SHAPER_TYPE_Y` and `SHAPER_FREQ_Y` must be the same in both "
+"commands in this case, since the same motors drive Y axis when either of the "
+"`carriage_x` and `carriage_u` carriages are active."
+msgstr ""
+
+#: docs/Config_Reference.md:block 306 (paragraph)
+msgid ""
+"AHT10/AHT15/AHT20/AHT21/AHT30 two wire interface (I2C) environmental sensors. "
+"Note that these sensors are not intended for use with extruders and heater "
+"beds, but rather for monitoring ambient temperature (C) and relative humidity."
+" See [sample-macros.cfg](../config/sample-macros.cfg) for a gcode_macro that "
+"may be used to report humidity in addition to temperature."
+msgstr ""
+
+#: docs/Config_Reference.md:block 318 (paragraph)
+msgid ""
+"The atsam, atsamd, stm32 and rp2040 micro-controllers contain an internal "
+"temperature sensor. One can use the \"temperature_mcu\" sensor to monitor "
+"these temperatures."
+msgstr ""
+
+#: docs/Config_Reference.md:block 373 (header)
+msgid "[static_pwm_clock]"
+msgstr ""
+
+#: docs/Config_Reference.md:block 374 (paragraph)
+msgid ""
+"Static configurable output pin (one may define any number of sections with an "
+"\"static_pwm_clock\" prefix). Pins configured here will be set up as clock "
+"output pins. Generally used to provide clock input to other hardware on the "
+"board."
+msgstr ""
+
+#: docs/Config_Reference.md:block 419 (paragraph)
+msgid ""
+"Statically configured MCP4018 digipot connected via i2c (one may define any "
+"number of sections with an \"mcp4018\" prefix)."
+msgstr ""
+
+#: docs/Config_Reference.md:block 495 (header)
+msgid "ADS131M0x"
+msgstr ""
+
+#: docs/Config_Reference.md:block 496 (paragraph)
+msgid ""
+"The ADS131M0x is a family of fast, 24-bit, delta-sigma ADCs. Two sensors are "
+"supported from this family: ADS131M02 with two simultaneously-sampling "
+"differential channels and ADS131M04 with four channels. They feature a "
+"programmable gain amplifier (PGA) with gains up to 128, configurable sampling "
+"rates up to 64000 samples per second, and require an external clock input (300"
+" kHz to 8.4 MHz, 8.192 MHz nominal)."
+msgstr ""
+
+#~ msgid ""
+#~ "The atsam, atsamd, and stm32 micro-controllers contain an internal temperature"
+#~ " sensor. One can use the \"temperature_mcu\" sensor to monitor these "
+#~ "temperatures."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Statically configured MCP4018 digipot connected via two gpio \"bit banging\" "
+#~ "pins (one may define any number of sections with an \"mcp4018\" prefix)."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "AHT10/AHT20/AHT21 two wire interface (I2C) environmental sensors. Note that "
+#~ "these sensors are not intended for use with extruders and heater beds, but "
+#~ "rather for monitoring ambient temperature (C) and relative humidity. See "
+#~ "[sample-macros.cfg](../config/sample-macros.cfg) for a gcode_macro that may be"
+#~ " used to report humidity in addition to temperature."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Then a user must define the following three carriages: `[carriage x]`, "
+#~ "`[carriage y]`, and `[carriage z]`, e.g."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "See [stepper](#stepper) section for more information on the regular stepper "
+#~ "parameters. The `carriages` parameter defines how the stepper affects the "
+#~ "motion of the carriages. For example, `x+y` indicates that the motion of the "
+#~ "stepper in the positive direction by the distance `d` moves the carriages `x` "
+#~ "and `y` by the same distance `d` in the positive direction, while `x-0.5*y` "
+#~ "means the motion of the stepper in the positive direction by the distance `d` "
+#~ "moves the carriage `x` by the distance `d` in the positive direction, but the "
+#~ "carriage `y` will travel distance `d/2` in the negative direction."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "There are situations when a user wants to have more than one endstop per axis."
+#~ " Examples of such configurations include Y axis driven by two independent "
+#~ "stepper motors with belts attached to both ends of the X beam, with "
+#~ "effectively two carriages on Y axis each having an independent endstop, and "
+#~ "multi-stepper Z axis with each stepper having its own endstop (not to be "
+#~ "confused with the configurations with multiple Z motors but only a single "
+#~ "endstop). These configurations can be declared by specifying additional "
+#~ "carriage(s) with their endstops:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Note that `SHAPER_TYPE_Y` and `SHAPER_FREQ_Y` must be the same in both "
+#~ "commands in this case, since the same motors drive Y axis when either of the "
+#~ "`x` and `u` carriages are active."
+#~ msgstr ""
 
 #~ msgid ""
 #~ "See [sample-idex.cfg](../config/sample-idex.cfg) for an example configuration."

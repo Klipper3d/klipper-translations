@@ -26,7 +26,7 @@ eComproveu manualment que tots els eixos de la impressora es puguin moure lliure
 
 Moure manualment tots els eixos de la impressora de manera que cap d'ells estigui en contacte amb un sensor de final. Envieu una ordre QUERY_ENDSTOPS mitjançant la consola d'ordres. Hauria de respondre amb l'estat actual de tots els extrems configurats i tots haurien d'informar d'un estat "obert". Per a cadascun dels sensors, torneu a executar l'ordre QUERY_ENDSTOPS mentre l'aactiveu manualment. L'ordre QUERY_ENDSTOPS hauria d'indicar que el sensor està "Activat" o tancat.
 
-Si l'estat del sensor apareix invertit (informa "obert" quan s'activa i viceversa), afegiu un "!" a la definició del pin (per exemple, "endstop_pin: ^PA2"), o traieu el "!" si ja n'hi ha un present.
+If the endstop appears inverted (it reports "open" when triggered and vice-versa) then add a "!" to the pin definition (for example, "endstop_pin: ^!PA2"), or remove the "!" if there is already one present.
 
 Si l’estat del sensor no canvia mai, normalment indica que el sensor donat s’ha connectat a un altre pin. Tant mateix , cal tenir present que moltes impressores fan servir una resistència “PullUp” que implica que el valor de endstop_pin ha d’estar precedit pel caràcter ‘^' per canviar el valor d’aquest paràmetre.
 

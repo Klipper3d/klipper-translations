@@ -5,8 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-07-22 08:07+0000\n"
 "Last-Translator: Hosted Weblate <mfvotmjhcj@iubridge.com>\n"
-"Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
-"projects/klipper/status_reference/zh_Hans/>\n"
+"Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/projects/klipper/status_reference/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -18,17 +17,16 @@ msgid ""
 "Klipper [macros](Command_Templates.md), [display "
 "fields](Config_Reference.md#display), and via the [API Server](API_Server.md)."
 msgstr ""
-"本文档是可用于 Klipper [宏](Command_Templates.md)、[显示字段]"
-"(Config_Reference.md#display)以及[API服务器](API_Server.md) "
-"的打印机状态信息的参考。"
+"本文档是可用于 Klipper "
+"[宏](Command_Templates.md)、[显示字段](Config_Reference.md#display)以及[API服务器](API_Server.md)"
+" 的打印机状态信息的参考。"
 
 msgid ""
 "The fields in this document are subject to change - if using an attribute be "
 "sure to review the [Config Changes document](Config_Changes.md) when upgrading"
 " the Klipper software."
 msgstr ""
-"本文档中的字段可能会发生变化 - 如果使用了任何字段，在更新 Klipper "
-"时，请务必查看[配置变化文档](Config_Changes.md)。"
+"本文档中的字段可能会发生变化 - 如果使用了任何字段，在更新 Klipper 时，请务必查看[配置变化文档](Config_Changes.md)。"
 
 msgid "bed_mesh"
 msgstr "bed_mesh"
@@ -42,8 +40,8 @@ msgid ""
 "`profile_name`, `mesh_min`, `mesh_max`, `probed_matrix`, `mesh_matrix`: "
 "Information on the currently active bed_mesh."
 msgstr ""
-"`profile_name`、`mesh_min`、`mesh_max`、`probed_matrix`、`mesh_matrix`："
-"关于当前活跃的 bed_mesh 配置信息。"
+"`profile_name`、`mesh_min`、`mesh_max`、`probed_matrix`、`mesh_matrix`：关于当前活跃的 "
+"bed_mesh 配置信息。"
 
 msgid "configfile"
 msgstr "configfile"
@@ -57,16 +55,14 @@ msgid ""
 "`settings.<section>.<option>`: Returns the given config file setting (or "
 "default value) during the last software start or restart. (Any settings "
 "changed at run-time will not be reflected here.)"
-msgstr "`settings.<分段>.<选项>`：返回最后一次软件启动或重启时给定的配置文件设置（或"
-"默认值）。(不会反映运行时的修改。）"
+msgstr "`settings.<分段>.<选项>`：返回最后一次软件启动或重启时给定的配置文件设置（或默认值）。(不会反映运行时的修改。）"
 
 msgid ""
 "`config.<section>.<option>`: Returns the given raw config file setting as read"
 " by Klipper during the last software start or restart. (Any settings changed "
 "at run-time will not be reflected here.) All values are returned as strings."
 msgstr ""
-"`config.<分段>.<选项>`：返回Klipper在上次软件启动或重启时读取的原始配置文件设"
-"置。(不会反映运行时的修改。)所有值都以字符串形式返回。"
+"`config.<分段>.<选项>`：返回Klipper在上次软件启动或重启时读取的原始配置文件设置。(不会反映运行时的修改。)所有值都以字符串形式返回。"
 
 msgid "display_status"
 msgstr "display_status"
@@ -76,16 +72,14 @@ msgid ""
 "object is automatically available if a [display](Config_Reference.md#display) "
 "config section is defined):"
 msgstr ""
-"`display_status` 对象中提供以下信息（如果定义了 [display]"
-"(Config_Reference.md#display) 配置分段，则该对象自动可用）："
+"`display_status` 对象中提供以下信息（如果定义了 [display](Config_Reference.md#display) "
+"配置分段，则该对象自动可用）："
 
 msgid ""
 "`progress`: The progress value of the last `M73` G-Code command (or "
 "`virtual_sdcard.progress` if no recent `M73` received)."
 msgstr ""
-"`progress`：最后一个 `M73` "
-"G代码命令报告的进度（如果没有收到`M73`，则会用`virtual_sdcard.progress`替代）"
-"。"
+"`progress`：最后一个 `M73` G代码命令报告的进度（如果没有收到`M73`，则会用`virtual_sdcard.progress`替代）。"
 
 msgid "`message`: The message contained in the last `M117` G-Code command."
 msgstr "`message`：最后一条 `M117` G代码命令中包含的消息。"
@@ -115,9 +109,7 @@ msgid ""
 "the total number of steps taken in the reverse direction since the micro-"
 "controller was last restarted."
 msgstr ""
-"`last_home.<步进电机名称>.mcu_position`：步进电机在上次归位尝试结束时的位置（"
-"由微控制器跟踪）。该位置是自微控制器最后一次重启以来，向前走的总步数减去反向"
-"走的总步数。"
+"`last_home.<步进电机名称>.mcu_position`：步进电机在上次归位尝试结束时的位置（由微控制器跟踪）。该位置是自微控制器最后一次重启以来，向前走的总步数减去反向走的总步数。"
 
 msgid "fan"
 msgstr "fan"
@@ -127,9 +119,9 @@ msgid ""
 "[heater_fan some_name](Config_Reference.md#heater_fan) and [controller_fan "
 "some_name](Config_Reference.md#controller_fan) objects:"
 msgstr ""
-"[fan](Config_Reference.md#fan)、[heater_fan some_name]"
-"(Config_Reference.md#heater_fan)和[controller_fan some_name]"
-"(Config_Reference.md#controller_fan)对象提供了以下信息："
+"[fan](Config_Reference.md#fan)、[heater_fan "
+"some_name](Config_Reference.md#heater_fan)和[controller_fan "
+"some_name](Config_Reference.md#controller_fan)对象提供了以下信息："
 
 msgid "`speed`: The fan speed as a float between 0.0 and 1.0."
 msgstr "`speed`：风扇速度，0.0和1.0之间的浮点数。"
@@ -146,8 +138,8 @@ msgid ""
 "The following information is available in [filament_switch_sensor "
 "some_name](Config_Reference.md#filament_switch_sensor) objects:"
 msgstr ""
-"[filament_switch_sensor some_name]"
-"(Config_Reference.md#filament_switch_sensor) 对象提供了以下信息："
+"[filament_switch_sensor some_name](Config_Reference.md#filament_switch_sensor)"
+" 对象提供了以下信息："
 
 msgid "`enabled`: Returns True if the switch sensor is currently enabled."
 msgstr "`enabled`：如果开关传感器当前已启用，则返回True。"
@@ -162,8 +154,8 @@ msgid ""
 "The following information is available in [filament_motion_sensor "
 "some_name](Config_Reference.md#filament_motion_sensor) objects:"
 msgstr ""
-"[filament_motion_sensor 传感器名](Config_Reference.md#filament_motion_sensor)"
-" 对象提供了以下信息："
+"[filament_motion_sensor 传感器名](Config_Reference.md#filament_motion_sensor) "
+"对象提供了以下信息："
 
 msgid "`enabled`: Returns True if the motion sensor is currently enabled."
 msgstr "`enabled`：如果当前启用了运动传感器，则返回 True。"
@@ -175,8 +167,7 @@ msgid ""
 "The following information is available in the "
 "[firmware_retraction](Config_Reference.md#firmware_retraction) object:"
 msgstr ""
-"[firmware_retraction](Config_Reference.md#firmware_retraction) "
-"对象提供了以下信息："
+"[firmware_retraction](Config_Reference.md#firmware_retraction) 对象提供了以下信息："
 
 msgid ""
 "`retract_length`, `retract_speed`, `unretract_extra_length`, "
@@ -184,9 +175,8 @@ msgid ""
 "These settings may differ from the config file if a `SET_RETRACTION` command "
 "alters them."
 msgstr ""
-"`retract_length`、`retract_speed`、`unretract_extra_length`、`unretract_speed"
-"`：firmware_retraction 模块的当前设置。如果 `SET_RETRACTION` "
-"命令改变它们，这些设置可能与配置文件不同。"
+"`retract_length`、`retract_speed`、`unretract_extra_length`、`unretract_speed`：firmware_retraction"
+" 模块的当前设置。如果 `SET_RETRACTION` 命令改变它们，这些设置可能与配置文件不同。"
 
 msgid "gcode_macro"
 msgstr "gcode_macro"
@@ -209,34 +199,6 @@ msgid ""
 " is always available):"
 msgstr "`gcode_move` 对象中提供了以下信息（该对象始终可用）："
 
-msgid ""
-"`gcode_position`: The current position of the toolhead relative to the current"
-" G-Code origin. That is, positions that one might directly send to a `G1` "
-"command. It is possible to access the x, y, z, and e components of this "
-"position (eg, `gcode_position.x`)."
-msgstr ""
-"`gcode_position`：工具头相对于当前 G "
-"代码原点的当前位置。也就是可以直接被发送到`G1`命令的位置。可以分别访问这个位"
-"置的x、y、z和e分量（例如，`gcode_position.x`）。"
-
-msgid ""
-"`position`: The last commanded position of the toolhead using the coordinate "
-"system specified in the config file. It is possible to access the x, y, z, and"
-" e components of this position (eg, `position.x`)."
-msgstr "`position`：打印头在配置文件中定义的坐标系中的最后指令位置。可以访问这个位置"
-"的x、y、z和e分量（例如，`position.x`）。"
-
-msgid ""
-"`homing_origin`: The origin of the gcode coordinate system (relative to the "
-"coordinate system specified in the config file) to use after a `G28` command. "
-"The `SET_GCODE_OFFSET` command can alter this position. It is possible to "
-"access the x, y, and z components of this position (eg, `homing_origin.x`)."
-msgstr ""
-"`homing_origin`：在`G28`命令之后要使用的 G-Code "
-"坐标系的原点（相对于配置文件中定义的坐标系）。`SET_GCODE_OFFSET` "
-"命令可以改变这个位置。可以分别访问这个位置的x、y和z分量（例如，`homing_origin"
-".x`）。"
-
 msgid "`speed`: The last speed set in a `G1` command (in mm/s)."
 msgstr "`speed`：在`G1`命令中最后一次设定的速度（单位：mm/s）。"
 
@@ -245,29 +207,25 @@ msgid ""
 "This is a floating point value such that 1.0 means no override and, for "
 "example, 2.0 would double requested speed."
 msgstr ""
-"`speed_factor`：通过 `M220` 命令设置的\"速度因子覆盖\"。这是一个浮点值，1.0 "
-"意味着没有覆盖，例如，2.0 将请求的速度翻倍。"
+"`speed_factor`：通过 `M220` 命令设置的\"速度因子覆盖\"。这是一个浮点值，1.0 意味着没有覆盖，例如，2.0 将请求的速度翻倍。"
 
 msgid ""
 "`extrude_factor`: The \"extrude factor override\" as set by an `M221` command."
 " This is a floating point value such that 1.0 means no override and, for "
 "example, 2.0 would double requested extrusions."
 msgstr ""
-"`extrude_factor`：由`M221`命令设置的\"挤出倍率覆盖\" "
-"。这是一个浮点值，1.0意味着没有覆盖，例如，2.0将使要求的挤出量翻倍。"
+"`extrude_factor`：由`M221`命令设置的\"挤出倍率覆盖\" 。这是一个浮点值，1.0意味着没有覆盖，例如，2.0将使要求的挤出量翻倍。"
 
 msgid ""
 "`absolute_coordinates`: This returns True if in `G90` absolute coordinate mode"
 " or False if in `G91` relative mode."
 msgstr ""
-"`absolute_coordinates`：如果在 `G90` 绝对坐标模式下，则返回 True；如果在 "
-"`G91` 相对模式下，则返回 False。"
+"`absolute_coordinates`：如果在 `G90` 绝对坐标模式下，则返回 True；如果在 `G91` 相对模式下，则返回 False。"
 
 msgid ""
 "`absolute_extrude`: This returns True if in `M82` absolute extrude mode or "
 "False if in `M83` relative mode."
-msgstr "`absolute_extrude`：如果在`M82`绝对挤出模式，则返回True；如果在`M83`相对模式"
-"，则返回False。"
+msgstr "`absolute_extrude`：如果在`M82`绝对挤出模式，则返回True；如果在`M83`相对模式，则返回False。"
 
 msgid "hall_filament_width_sensor"
 msgstr "hall_filament_width_sensor"
@@ -292,9 +250,7 @@ msgid ""
 "[heater_bed](Config_Reference.md#heater_bed), and "
 "[heater_generic](Config_Reference.md#heater_generic):"
 msgstr ""
-"加热器对象，如[extruder](Config_Reference.md#extruder)、[heater_bed]"
-"(Config_Reference.md#heater_bed)和[heater_generic]"
-"(Config_Reference.md#heater_generic)，提供了以下信息："
+"加热器对象，如[extruder](Config_Reference.md#extruder)、[heater_bed](Config_Reference.md#heater_bed)和[heater_generic](Config_Reference.md#heater_generic)，提供了以下信息："
 
 msgid ""
 "`temperature`: The last reported temperature (in Celsius as a float) for the "
@@ -315,8 +271,7 @@ msgid ""
 "`can_extrude`: If extruder can extrude (defined by `min_extrude_temp`), "
 "available only for [extruder](Config_Reference.md#extruder)"
 msgstr ""
-"`can_extrude`：挤出机是否可以挤出（由`min_extrude_temp`定义），仅可用于"
-"[extruder](Config_Reference.md#extruder)"
+"`can_extrude`：挤出机是否可以挤出（由`min_extrude_temp`定义），仅可用于[extruder](Config_Reference.md#extruder)"
 
 msgid "heaters"
 msgstr "heaters"
@@ -331,8 +286,8 @@ msgid ""
 "their full config section names, e.g. `[\"extruder\", \"heater_bed\", "
 "\"heater_generic my_custom_heater\"]`."
 msgstr ""
-"`available_heaters`：返回所有当前可用加热器的完整配置分段名称，例如 `"
-"[\"extruder\"、\"heater_bed\"、\"heater_generic my_custom_heater\"]`。"
+"`available_heaters`：返回所有当前可用加热器的完整配置分段名称，例如 "
+"`[\"extruder\"、\"heater_bed\"、\"heater_generic my_custom_heater\"]`。"
 
 msgid ""
 "`available_sensors`: Returns a list of all currently available temperature "
@@ -340,9 +295,9 @@ msgid ""
 "\"heater_bed\", \"heater_generic my_custom_heater\", \"temperature_sensor "
 "electronics_temp\"]`."
 msgstr ""
-"`available_sensors`：返回所有当前可用的温度传感器的完整配置分段名称列表，例如"
-"：`[\"extruder\", \"heater_bed\", \"heater_generic my_custom_heater\", "
-"\"temperature_sensor electronics_temp\"] `。"
+"`available_sensors`：返回所有当前可用的温度传感器的完整配置分段名称列表，例如：`[\"extruder\", "
+"\"heater_bed\", \"heater_generic my_custom_heater\", \"temperature_sensor "
+"electronics_temp\"] `。"
 
 msgid "idle_timeout"
 msgstr "idle_timeout"
@@ -351,21 +306,17 @@ msgid ""
 "The following information is available in the "
 "[idle_timeout](Config_Reference.md#idle_timeout) object (this object is always"
 " available):"
-msgstr "[idle_timeout](Config_Reference.md#idle_timeout) "
-"对象中提供了以下信息（该对象始终可用）："
+msgstr "[idle_timeout](Config_Reference.md#idle_timeout) 对象中提供了以下信息（该对象始终可用）："
 
 msgid ""
 "`state`: The current state of the printer as tracked by the idle_timeout "
 "module. It is one of the following strings: \"Idle\", \"Printing\", \"Ready\"."
-msgstr ""
-"`state`：由 idle_timeout 模块跟踪的打印机的当前状态。它可以是以下字符串之一："
-"\"Idle\", \"Printing\", \"Ready\"。"
+msgstr "`state`：由 idle_timeout 模块跟踪的打印机的当前状态。它可以是以下字符串之一：\"Idle\", \"Printing\", \"Ready\"。"
 
 msgid ""
 "`printing_time`: The amount of time (in seconds) the printer has been in the "
 "\"Printing\" state (as tracked by the idle_timeout module)."
-msgstr "`printing_time`：打印机处于“Printing”状态的时间（以秒为单位）（由 "
-"idle_timeout 模块跟踪）。"
+msgstr "`printing_time`：打印机处于“Printing”状态的时间（以秒为单位）（由 idle_timeout 模块跟踪）。"
 
 msgid "mcu"
 msgstr "mcu"
@@ -384,15 +335,13 @@ msgstr "`mcu_version`：由微控制器报告的 Klipper 代码版本。"
 msgid ""
 "`mcu_build_versions`: Information on the build tools used to generate the "
 "micro-controller code (as reported by the micro-controller)."
-msgstr "`mcu_build_versions`：有关用于生成微控制器代码的构建工具的信息（由微控制器报"
-"告）。"
+msgstr "`mcu_build_versions`：有关用于生成微控制器代码的构建工具的信息（由微控制器报告）。"
 
 msgid ""
 "`mcu_constants.<constant_name>`: Compile time constants reported by the micro-"
 "controller. The available constants may differ between micro-controller "
 "architectures and with each code revision."
-msgstr "`mcu_constants.<常量名>`：由微控制器报告编译时使用的常量。可用的常量在不同的"
-"微控制器架构和每个代码修订版中可能有所不同。"
+msgstr "`mcu_constants.<常量名>`：由微控制器报告编译时使用的常量。可用的常量在不同的微控制器架构和每个代码修订版中可能有所不同。"
 
 msgid ""
 "`last_stats.<statistics_name>`: Statistics information on the micro-controller"
@@ -401,11 +350,6 @@ msgstr "`last_stats.<统计信息名>`：关于微控制器连接的统计信息
 
 msgid "output_pin"
 msgstr "output_pin"
-
-msgid ""
-"The following information is available in [output_pin "
-"some_name](Config_Reference.md#output_pin) objects:"
-msgstr "[output_pin <配置名称>](Config_Reference.md#output_pin) 对象提供以下信息："
 
 msgid "`value`: The \"value\" of the pin, as set by a `SET_PIN` command."
 msgstr "`value`：由`SET_PIN`指令设置的引脚“值”。"
@@ -424,8 +368,7 @@ msgstr "`ping`。最后一次报告的Palette 2 ping值（百分比）。"
 msgid ""
 "`remaining_load_length`: When starting a Palette 2 print, this will be the "
 "amount of filament to load into the extruder."
-msgstr "`remaining_load_length`：当开始一个使用 Palette 2 "
-"的打印时，这是需要加载到挤出机中的耗材长度。"
+msgstr "`remaining_load_length`：当开始一个使用 Palette 2 的打印时，这是需要加载到挤出机中的耗材长度。"
 
 msgid "`is_splicing`: True when the Palette 2 is splicing filament."
 msgstr "`is_splicing`：当Palette 2正在拼接耗材时为 True。"
@@ -452,16 +395,16 @@ msgid ""
 "[virtual_sdcard](Config_Reference.md#virtual_sdcard) config section is "
 "defined):"
 msgstr ""
-"`print_stats` 对象提供了以下信息（如果定义了 [virtual_sdcard]"
-"(Config_Reference.md#virtual_sdcard) 配置分段，则此对象自动可用）："
+"`print_stats` 对象提供了以下信息（如果定义了 "
+"[virtual_sdcard](Config_Reference.md#virtual_sdcard) 配置分段，则此对象自动可用）："
 
 msgid ""
 "`filename`, `total_duration`, `print_duration`, `filament_used`, `state`, "
 "`message`: Estimated information about the current print when a virtual_sdcard"
 " print is active."
 msgstr ""
-"`filename`、`total_duration`、`print_duration`、`filament_used`、`state`、`me"
-"ssage`：virtual_sdcard 打印处于活动状态时有关当前打印的估测。"
+"`filename`、`total_duration`、`print_duration`、`filament_used`、`state`、`message`：virtual_sdcard"
+" 打印处于活动状态时有关当前打印的估测。"
 
 msgid "probe"
 msgstr "probe"
@@ -471,8 +414,8 @@ msgid ""
 "[probe](Config_Reference.md#probe) object (this object is also available if a "
 "[bltouch](Config_Reference.md#bltouch) config section is defined):"
 msgstr ""
-"[probe](Config_Reference.md#probe) 对象中提供了以下信息（如果定义了 [bltouch]"
-"(Config_Reference.md#bltouch) 配置分段，则此对象也可用）："
+"[probe](Config_Reference.md#probe) 对象中提供了以下信息（如果定义了 "
+"[bltouch](Config_Reference.md#bltouch) 配置分段，则此对象也可用）："
 
 msgid ""
 "`last_query`: Returns True if the probe was reported as \"triggered\" during "
@@ -481,17 +424,7 @@ msgid ""
 "macro containing this reference."
 msgstr ""
 "`last_query`：如果探针在上一个 QUERY_PROBE 命令期间报告为\"已触发\"，则返回 "
-"True。请注意，如果在宏中使用它，根据模板展开的顺序，"
-"必须在包含此引用的宏之前运行 QUERY_PROBE 命令。"
-
-msgid ""
-"`last_z_result`: Returns the Z result value of the last PROBE command. Note, "
-"if this is used in a macro, due to the order of template expansion, the PROBE "
-"(or similar) command must be run prior to the macro containing this reference."
-msgstr ""
-"`last_z_result`：返回上一次 PROBE 命令的结果 Z "
-"值。请注意，由于模板展开的顺序，在宏中使用时必须在包含此引用的宏之前运行 "
-"PROBE（或类似）命令。"
+"True。请注意，如果在宏中使用它，根据模板展开的顺序，必须在包含此引用的宏之前运行 QUERY_PROBE 命令。"
 
 msgid "quad_gantry_level"
 msgstr "quad_gantry_level"
@@ -499,8 +432,7 @@ msgstr "quad_gantry_level"
 msgid ""
 "The following information is available in the `quad_gantry_level` object (this"
 " object is available if quad_gantry_level is defined):"
-msgstr "`quad_gantry_level` 对象提供了以下信息（如果定义了 "
-"quad_gantry_level，则该对象可用）："
+msgstr "`quad_gantry_level` 对象提供了以下信息（如果定义了 quad_gantry_level，则该对象可用）："
 
 msgid ""
 "`applied`: True if the gantry leveling process has been run and completed "
@@ -521,10 +453,8 @@ msgid ""
 " a macro, due to the order of template expansion, the QUERY_ENDSTOP command "
 "must be run prior to the macro containing this reference."
 msgstr ""
-"`last_query[\"<限位>\"]`：如果在最后一次 QUERY_ENDSTOP 命令中，给定的 "
-"endstop 处于“触发”状态，则返回 "
-"True。注意，如果在宏中使用，由于模板扩展的顺序，QUERY_ENDSTOP "
-"命令必须在包含这个引用的宏之前运行。"
+"`last_query[\"<限位>\"]`：如果在最后一次 QUERY_ENDSTOP 命令中，给定的 endstop 处于“触发”状态，则返回 "
+"True。注意，如果在宏中使用，由于模板扩展的顺序，QUERY_ENDSTOP 命令必须在包含这个引用的宏之前运行。"
 
 msgid "servo"
 msgstr "servo"
@@ -537,9 +467,7 @@ msgstr "[servo some_name](Config_Reference.md#servo) 对象提供了以下信息
 msgid ""
 "`printer[\"servo <config_name>\"].value`: The last setting of the PWM pin (a "
 "value between 0.0 and 1.0) associated with the servo."
-msgstr ""
-"`printer[\"servo <配置名>\"].value`：与指定伺服相关 PWM "
-"引脚的上一次设置的值（0.0 和 1.0 之间的值）。"
+msgstr "`printer[\"servo <配置名>\"].value`：与指定伺服相关 PWM 引脚的上一次设置的值（0.0 和 1.0 之间的值）。"
 
 msgid "system_stats"
 msgstr "system_stats"
@@ -570,8 +498,7 @@ msgid ""
 "The following information is available in [temperature_fan "
 "some_name](Config_Reference.md#temperature_fan) objects:"
 msgstr ""
-"[temperature_fan some_name](Config_Reference.md#temperature_fan) "
-"对象提供了以下信息："
+"[temperature_fan some_name](Config_Reference.md#temperature_fan) 对象提供了以下信息："
 
 msgid "`target`: The target temperature for the fan."
 msgstr "`target`：风扇目标温度。"
@@ -590,8 +517,7 @@ msgid ""
 "`measured_min_temp`, `measured_max_temp`: The lowest and highest temperature "
 "seen by the sensor since the Klipper host software was last restarted."
 msgstr ""
-"`measured_min_temp`和`measured_max_temp`：自Klipper主机软件上次重新启动以来，"
-"传感器测量的最低和最高温度。"
+"`measured_min_temp`和`measured_max_temp`：自Klipper主机软件上次重新启动以来，传感器测量的最低和最高温度。"
 
 msgid "toolhead"
 msgstr "toolhead"
@@ -602,41 +528,22 @@ msgid ""
 msgstr "`toolhead` 对象提供了以下信息（该对象始终可用）："
 
 msgid ""
-"`position`: The last commanded position of the toolhead relative to the "
-"coordinate system specified in the config file. It is possible to access the "
-"x, y, z, and e components of this position (eg, `position.x`)."
-msgstr ""
-"`position`：打印头相对于配置文件中指定的坐标系的最后命令位置。"
-"可以访问该位置的 x、y、z 和 e 分量（例如，`position.x`）。"
-
-msgid ""
 "`extruder`: The name of the currently active extruder. For example, in a macro"
 " one could use `printer[printer.toolhead.extruder].target` to get the target "
 "temperature of the current extruder."
 msgstr ""
-"`extruder`：当前活跃的挤出机的名称。例如，在宏中可以使用`printer"
-"[printer.toolhead.extruder].target`来获取当前挤出机的目标温度。"
+"`extruder`：当前活跃的挤出机的名称。例如，在宏中可以使用`printer[printer.toolhead.extruder].target`来获取当前挤出机的目标温度。"
 
 msgid ""
 "`homed_axes`: The current cartesian axes considered to be in a \"homed\" "
 "state. This is a string containing one or more of \"x\", \"y\", \"z\"."
-msgstr "`homed_axes`：当前被认为处于“已归位”状态的车轴。这是一个包含一个或多个\"x"
-"\"、\"y\"、\"z\"的字符串。"
-
-msgid ""
-"`axis_minimum`, `axis_maximum`: The axis travel limits (mm) after homing. It "
-"is possible to access the x, y, z components of this limit value (eg, "
-"`axis_minimum.x`, `axis_maximum.z`)."
-msgstr ""
-"`axis_minimum`、`axis_maximum`：归位后的轴的行程限制（毫米）。"
-"可以访问此极限值的 x、y、z 分量（例如，`axis_minimum.x`、`axis_maximum.z`）。"
+msgstr "`homed_axes`：当前被认为处于“已归位”状态的车轴。这是一个包含一个或多个\"x\"、\"y\"、\"z\"的字符串。"
 
 msgid ""
 "`stalls`: The total number of times (since the last restart) that the printer "
 "had to be paused because the toolhead moved faster than moves could be read "
 "from the G-Code input."
-msgstr "`stalls`：由于工具头移动速度快于从 G "
-"代码输入读取的移动速度，因此打印机必须暂停的总次数（自上次重新启动以来）。"
+msgstr "`stalls`：由于工具头移动速度快于从 G 代码输入读取的移动速度，因此打印机必须暂停的总次数（自上次重新启动以来）。"
 
 msgid "virtual_sdcard"
 msgstr "virtual_sdcard"
@@ -668,9 +575,7 @@ msgstr "`system_stats` 对象提供了以下信息（该对象始终可用）：
 msgid ""
 "`state`: Returns a string indicating the current Klipper state. Possible "
 "values are: \"ready\", \"startup\", \"shutdown\", \"error\"."
-msgstr ""
-"`state`：返回一个表示当前 Klipper 状态的字符串。可能的值为：\"ready\"、"
-"\"startup\"、\"shutdown\"和\"error\"。"
+msgstr "`state`：返回一个表示当前 Klipper 状态的字符串。可能的值为：\"ready\"、\"startup\"、\"shutdown\"和\"error\"。"
 
 msgid ""
 "`state_message`: A human readable string giving additional context on the "
@@ -711,14 +616,7 @@ msgstr "motion_report"
 msgid ""
 "The following information is available in the `motion_report` object (this "
 "object is automatically available if any stepper config section is defined):"
-msgstr "`motion_report` "
-"对象提供了以下信息（如果定义了任何步进器配置分段，则该对象自动可用）："
-
-#: docs/Status_Reference.md:block 51 (unordered list)
-msgid ""
-"`live_position`: The requested toolhead position interpolated to the current "
-"time."
-msgstr "`live_position`：请求的打印头位置插值到当前时间后的位置。"
+msgstr "`motion_report` 对象提供了以下信息（如果定义了任何步进器配置分段，则该对象自动可用）："
 
 #: docs/Status_Reference.md:block 51 (unordered list)
 msgid ""
@@ -736,8 +634,7 @@ msgstr "`live_extruder_velocity`：当前请求的挤出机速度（单位：mm/
 msgid ""
 "`save_config_pending`: Returns true if there are updates that a `SAVE_CONFIG` "
 "command may persist to disk."
-msgstr "`save_config_pending`：如果存在可以通过 `SAVE_CONFIG` "
-"命令保存到配置文件的更新，则返回 True。"
+msgstr "`save_config_pending`：如果存在可以通过 `SAVE_CONFIG` 命令保存到配置文件的更新，则返回 True。"
 
 #: docs/Status_Reference.md:block 9 (unordered list)
 msgid ""
@@ -745,8 +642,7 @@ msgid ""
 "will be a dictionary containing a `type` and `message` field (both strings). "
 "Additional fields may be available depending on the type of warning."
 msgstr ""
-"`warnings`：有关配置选项的警告列表。列表中的每个条目都将是一个 dictionary，"
-"其中包含 ` type` 和 `message` "
+"`warnings`：有关配置选项的警告列表。列表中的每个条目都将是一个 dictionary，其中包含 ` type` 和 `message` "
 "字段（都是字符串）。根据警告类型，可能还有其他可用字段。"
 
 #: docs/Status_Reference.md:block 89 (header)
@@ -767,24 +663,21 @@ msgid ""
 "`mcu_phase_offset`: The micro-controller stepper position corresponding with "
 "the driver's \"zero\" phase. This field may be null if the phase offset is not"
 " known."
-msgstr "`mcu_phase_offset`：微控制器步进位置与驱动器的\"零\"相位的相对位置"
-"。如果相位偏移未知，则此字段可能为空。"
+msgstr "`mcu_phase_offset`：微控制器步进位置与驱动器的\"零\"相位的相对位置。如果相位偏移未知，则此字段可能为空。"
 
 #: docs/Status_Reference.md:block 91 (unordered list)
 msgid ""
 "`phase_offset_position`: The \"commanded position\" corresponding to the "
 "driver's \"zero\" phase. This field may be null if the phase offset is not "
 "known."
-msgstr "`phase_offset_position`：对应电机“零”相位的“指令位置”。如果相位偏移未知，则该"
-"字段可以为空。"
+msgstr "`phase_offset_position`：对应电机“零”相位的“指令位置”。如果相位偏移未知，则该字段可以为空。"
 
 #: docs/Status_Reference.md:block 91 (unordered list)
 msgid ""
 "`drv_status`: The results of the last driver status query. (Only non-zero "
 "fields are reported.) This field will be null if the driver is not enabled "
 "(and thus is not periodically queried)."
-msgstr "`drv_status`：上次驱动状态查询结果。（仅报告非零字段。如果驱动没有被启用（因"
-"此没有轮询），则此字段将为 null。"
+msgstr "`drv_status`：上次驱动状态查询结果。（仅报告非零字段。如果驱动没有被启用（因此没有轮询），则此字段将为 null。"
 
 #: docs/Status_Reference.md:block 91 (unordered list)
 msgid "`run_current`: The currently set run current."
@@ -793,10 +686,6 @@ msgstr "`run_current`：当前设置的运行电流。"
 #: docs/Status_Reference.md:block 91 (unordered list)
 msgid "`hold_current`: The currently set hold current."
 msgstr "`hold_current`：当前设置的保持电流。"
-
-#: docs/Status_Reference.md:block 36 (unordered list)
-msgid "`Diameter`: The last reading from the sensor in mm."
-msgstr "`Diameter`：上一次传感器读数，单位为 mm。"
 
 #: docs/Status_Reference.md:block 36 (unordered list)
 msgid "`Raw`: The last raw ADC reading from the sensor."
@@ -825,9 +714,8 @@ msgid ""
 "tle5012b chip and if measurements are in progress (otherwise it reports "
 "`None`)."
 msgstr ""
-"`temperature`：tle5012b 磁性霍尔传感器的最后一次温度读数（以摄氏度为单位）。"
-"该值仅在角度传感器是 tle5012b 芯片并且正在进行测量时可用（否则它会报告 "
-"`None`）。"
+"`temperature`：tle5012b 磁性霍尔传感器的最后一次温度读数（以摄氏度为单位）。该值仅在角度传感器是 tle5012b "
+"芯片并且正在进行测量时可用（否则它会报告 `None`）。"
 
 #: docs/Status_Reference.md:block 49 (header)
 msgid "led"
@@ -839,30 +727,14 @@ msgid ""
 "led_name]`, `[dotstar led_name]`, `[pca9533 led_name]`, and `[pca9632 "
 "led_name]` config section defined in printer.cfg:"
 msgstr ""
-"以下信息适用于每个在printer.cfg中定义了的 `[led led_name]`、`"
-"[neopixel led_name]`、`[dotstar led_name]`、`[pca9533 led_name]` , 和 `"
-"[pca9632 led_name]` 配置分段："
-
-#: docs/Status_Reference.md:block 51 (unordered list)
-msgid ""
-"`color_data`: A list of color lists containing the RGBW values for a led in "
-"the chain. Each value is represented as a float from 0.0 to 1.0. Each color "
-"list contains 4 items (red, green, blue, white) even if the underyling LED "
-"supports fewer color channels. For example, the blue value (3rd item in color "
-"list) of the second neopixel in a chain could be accessed at "
-"`printer[\"neopixel <config_name>\"].color_data[1][2]`."
-msgstr ""
-"`color_data`：一个包含链中每个LED的RGBW值的颜色列表的列表。每个值都以0.0到1.0"
-"的浮点数表示。每个颜色列表包含4个项目（红、绿、蓝、白），即使底层的LED支持较"
-"少的颜色通道。例如，可以通过`printer[\"neopixel <配置名>\"].color_data[1][2]"
-"`访问链中第二个neopixel的蓝色值（颜色列表中的第三项）。"
+"以下信息适用于每个在printer.cfg中定义了的 `[led led_name]`、`[neopixel led_name]`、`[dotstar "
+"led_name]`、`[pca9533 led_name]` , 和 `[pca9632 led_name]` 配置分段："
 
 #: docs/Status_Reference.md:block 12 (unordered list)
 msgid ""
 "`save_config_pending_items`: Contains the sections and options that were "
 "changed and would be persisted by a `SAVE_CONFIG`."
-msgstr "`save_config_pending_items`：包含已更改并可以由 `SAVE_CONFIG ` "
-"保存的分段和选项。"
+msgstr "`save_config_pending_items`：包含已更改并可以由 `SAVE_CONFIG ` 保存的分段和选项。"
 
 #: docs/Status_Reference.md:block 19 (header)
 msgid "exclude_object"
@@ -881,9 +753,8 @@ msgid ""
 "`EXCLUDE_OBJECT VERBOSE=1` command. The `center` and `polygon` fields will "
 "only be present if provided in the original `EXCLUDE_OBJECT_DEFINE`"
 msgstr ""
-"`objects`：`EXCLUDE_OBJECT_DEFINE` 命令提供的已知对象数组。这与 `"
-"EXCLUDE_OBJECT VERBOSE=1` 命令提供的信息相同。 `center` 和 `polygon` "
-"字段只有在原始 `EXCLUDE_OBJECT_DEFINE` 中提供时才会出现"
+"`objects`：`EXCLUDE_OBJECT_DEFINE` 命令提供的已知对象数组。这与 `EXCLUDE_OBJECT VERBOSE=1` "
+"命令提供的信息相同。 `center` 和 `polygon` 字段只有在原始 `EXCLUDE_OBJECT_DEFINE` 中提供时才会出现"
 
 #: docs/Status_Reference.md:block 21 (unordered list)
 msgid "Here is a JSON sample:"
@@ -942,8 +813,7 @@ msgstr "`is_active`：如果床调平螺丝调整工具当前处于活动状态�
 msgid ""
 "`state`: The bed screws adjustment tool state. It is one of the following "
 "strings: \"adjust\", \"fine\"."
-msgstr "`state`：床调平螺丝调整工具状态。它可以是以下字符串之一：\"adjust\", \"fine\""
-"。"
+msgstr "`state`：床调平螺丝调整工具状态。它可以是以下字符串之一：\"adjust\", \"fine\"。"
 
 #: docs/Status_Reference.md:block 12 (unordered list)
 msgid "`current_screw`: The index for the current screw being adjusted."
@@ -961,8 +831,7 @@ msgstr "extruder_stepper"
 msgid ""
 "The following information is available for extruder_stepper objects (as well "
 "as [extruder](Config_Reference.md#extruder) objects):"
-msgstr "以下信息在extruder_stepper对象以及[extruder]"
-"(Config_Reference.md#extruder)对象中可用："
+msgstr "以下信息在extruder_stepper对象以及[extruder](Config_Reference.md#extruder)对象中可用："
 
 #: docs/Status_Reference.md:block 29 (unordered list)
 msgid ""
@@ -977,24 +846,21 @@ msgstr "`smooth_time`：当前压力提前平滑时间。"
 msgid ""
 "For Delta printers the `cone_start_z` is the max z height at maximum radius "
 "(`printer.toolhead.cone_start_z`)."
-msgstr "对于三角洲打印机，`cone_start_z` "
-"是最大半径时的最大z高度(`printer.toolhead.cone_start_z`)。"
+msgstr "对于三角洲打印机，`cone_start_z` 是最大半径时的最大z高度(`printer.toolhead.cone_start_z`)。"
 
 #: docs/Status_Reference.md:block 83 (unordered list)
 msgid ""
 "`info.total_layer`: The total layer value of the last `SET_PRINT_STATS_INFO "
 "TOTAL_LAYER=<value>` G-Code command."
 msgstr ""
-"`info.total_layer`：最后一条`SET_PRINT_STATS_INFO TOTAL_LAYER=<值>` "
-"G-Code命令的总层值。"
+"`info.total_layer`：最后一条`SET_PRINT_STATS_INFO TOTAL_LAYER=<值>` G-Code命令的总层值。"
 
 #: docs/Status_Reference.md:block 83 (unordered list)
 msgid ""
 "`info.current_layer`: The current layer value of the last "
 "`SET_PRINT_STATS_INFO CURRENT_LAYER=<value>` G-Code command."
 msgstr ""
-"`info.current_layer`: 上一条 `SET_PRINT_STATS_INFO CURRENT_LAYER=<值>` "
-"G代码命令的当前层值。"
+"`info.current_layer`: 上一条 `SET_PRINT_STATS_INFO CURRENT_LAYER=<值>` G代码命令的当前层值。"
 
 #: docs/Status_Reference.md:block 124 (header)
 msgid "z_thermal_adjust"
@@ -1006,8 +872,8 @@ msgid ""
 "object is available if "
 "[z_thermal_adjust](Config_Reference.md#z_thermal_adjust) is defined)."
 msgstr ""
-"`z_thermal_adjust` 对象提供以下信息（如果定义了[z_thermal_adjust]"
-"(Config_Reference.md#z_thermal_adjust)配置分段，该对象就可用）。"
+"`z_thermal_adjust` "
+"对象提供以下信息（如果定义了[z_thermal_adjust](Config_Reference.md#z_thermal_adjust)配置分段，该对象就可用）。"
 
 #: docs/Status_Reference.md:block 126 (unordered list)
 msgid "`enabled`: Returns True if adjustment is enabled."
@@ -1034,8 +900,7 @@ msgstr "`current_z_adjust`：上次计算的z调整[mm]。"
 msgid ""
 "`z_adjust_ref_temperature`: Current reference temperature used for calculation"
 " of Z `current_z_adjust` [degC]."
-msgstr "`z_adjust_ref_temperature`：用于计算Z `current_z_adjust`的当前参考温度[degC]"
-"。"
+msgstr "`z_adjust_ref_temperature`：用于计算Z `current_z_adjust`的当前参考温度[degC]。"
 
 #: docs/Status_Reference.md:block 93 (header)
 msgid "screws_tilt_adjust"
@@ -1052,8 +917,8 @@ msgid ""
 "included the `MAX_DEVIATION` parameter and any of the probed screw points "
 "exceeded the specified `MAX_DEVIATION`."
 msgstr ""
-"`error`: 如果最近的 `SCREWS_TILT_CALCULATE` 命令包含了 `MAX_DEVIATION` 参数，"
-"并且任何一个已探测的螺丝坐标超过了指定的 `MAX_DEVIATION`，则返回 True。"
+"`error`: 如果最近的 `SCREWS_TILT_CALCULATE` 命令包含了 `MAX_DEVIATION` "
+"参数，并且任何一个已探测的螺丝坐标超过了指定的 `MAX_DEVIATION`，则返回 True。"
 
 #: docs/Status_Reference.md:block 95 (unordered list)
 msgid "`z`: The measured Z height of the screw location."
@@ -1066,17 +931,15 @@ msgid ""
 "number of \"minutes of a clock face\" representing a partial screw turn. (E.g."
 " \"01:15\" would mean to turn the screw one and a quarter revolutions.)"
 msgstr ""
-"`adjust`: 调整螺丝的圈数，格式为 \"HH:MM\"，其中 \"HH\" 表示完整螺丝圈数，"
-"\"MM\" 表示代表部分螺丝圈数的 \"时钟面的分钟数\""
-"。（例如，“01:15”表示旋转螺丝一圈和四分之一圈。）"
+"`adjust`: 调整螺丝的圈数，格式为 \"HH:MM\"，其中 \"HH\" 表示完整螺丝圈数，\"MM\" 表示代表部分螺丝圈数的 "
+"\"时钟面的分钟数\"。（例如，“01:15”表示旋转螺丝一圈和四分之一圈。）"
 
 #: docs/Status_Reference.md:block 29 (unordered list)
 msgid ""
 "`motion_queue`: The name of the extruder that this extruder stepper is "
 "currently synchronized to. This is reported as `None` if the extruder stepper "
 "is not currently associated with an extruder."
-msgstr "`motion_queue`：当前与该挤出机步进电机同步的挤出机名称。如果该挤出机步进电机"
-"目前未与任何挤出机相关联，则报告为`None`。"
+msgstr "`motion_queue`：当前与该挤出机步进电机同步的挤出机名称。如果该挤出机步进电机目前未与任何挤出机相关联，则报告为`None`。"
 
 #: docs/Status_Reference.md:block 86 (unordered list)
 msgid "`name`: Returns the name of the probe in use."
@@ -1090,8 +953,7 @@ msgstr "`results[\"<螺丝>\"]`：包含以下键的字典："
 msgid ""
 "`sign`: A string specifying the direction to turn to screw for the necessary "
 "adjustment. Either \"CW\" for clockwise or \"CCW\" for counterclockwise."
-msgstr "`sign`：一个字符串，指定进行必要的调整时旋转螺丝的方向。“CW”表示顺时针，“CCW”"
-"表示逆时针。"
+msgstr "`sign`：一个字符串，指定进行必要的调整时旋转螺丝的方向。“CW”表示顺时针，“CCW”表示逆时针。"
 
 #: docs/Status_Reference.md:block 95 (unordered list)
 msgid "`is_base`: Returns True if this is the base screw."
@@ -1105,8 +967,7 @@ msgstr "stepper_enable"
 msgid ""
 "The following information is available in the `stepper_enable` object (this "
 "object is available if any stepper is defined):"
-msgstr "以下信息可在`stepper_enable` "
-"对象中获得（这个对象在定义了任何步进电机后可用）："
+msgstr "以下信息可在`stepper_enable` 对象中获得（这个对象在定义了任何步进电机后可用）："
 
 #: docs/Status_Reference.md:block 101 (unordered list)
 msgid "`steppers[\"<stepper>\"]`: Returns True if the given stepper is enabled."
@@ -1120,8 +981,7 @@ msgstr "gcode_button"
 msgid ""
 "The following information is available in [gcode_button "
 "some_name](Config_Reference.md#gcode_button) objects:"
-msgstr "在[Gcode_Button Some_NAME]"
-"(Config_Reference.md#gcode_Button)对象中提供了以下信息："
+msgstr "在[Gcode_Button Some_NAME](Config_Reference.md#gcode_Button)对象中提供了以下信息："
 
 #: docs/Status_Reference.md:block 44 (unordered list)
 msgid "`state`: The current button state returned as \"PRESSED\" or \"RELEASED\""
@@ -1134,26 +994,21 @@ msgid ""
 "While a temperature sensor is always available to read, a temperature monitor "
 "may not be available and will return null in such case."
 msgstr ""
-"`available_monitor "
-"ors`：按配置节全名返回当前所有可用的温度监视器的列表，例如`"
-"[“tmc2240 Steper_x”]"
-"`。虽然温度传感器始终可用于读取，但温度监视器可能不可用，在这种情况下将返回NU"
-"LL。"
+"`available_monitor ors`：按配置节全名返回当前所有可用的温度监视器的列表，例如`[“tmc2240 "
+"Steper_x”]`。虽然温度传感器始终可用于读取，但温度监视器可能不可用，在这种情况下将返回NULL。"
 
 #: docs/Status_Reference.md:block 98 (unordered list)
 msgid ""
 "`max_deviation`: Return the last `MAX_DEVIATION` value of the most recent "
 "`SCREWS_TILT_CALCULATE` command."
-msgstr "`MAX_DEVERATION`：返回最新的`SPRWS_TILT_CALCULATE`命令的最后一个`MAX_DEVIATIO"
-"N`值。"
+msgstr "`MAX_DEVERATION`：返回最新的`SPRWS_TILT_CALCULATE`命令的最后一个`MAX_DEVIATION`值。"
 
 #: docs/Status_Reference.md:block 120 (unordered list)
 msgid ""
 "`temperature`: The internal temperature reported by the driver. This field "
 "will be null if the driver is not enabled or if the driver does not support "
 "temperature reporting."
-msgstr "`temperature`：司机上报的车内温度。如果驱动程序未启用或驱动程序不支持温度报告"
-"，则此字段为空。"
+msgstr "`temperature`：司机上报的车内温度。如果驱动程序未启用或驱动程序不支持温度报告，则此字段为空。"
 
 #: docs/Status_Reference.md:block 125 (paragraph)
 msgid ""
@@ -1161,8 +1016,7 @@ msgid ""
 "[dual_carriage](Config_Reference.md#dual_carriage) on a cartesian, "
 "hybrid_corexy or hybrid_corexz robot"
 msgstr ""
-"关于笛卡尔机器人、混合核心机器人或混合核心机器人，[dual_carriage]"
-"(Config_Reference.md#dual_carriage)中提供了以下信息"
+"关于笛卡尔机器人、混合核心机器人或混合核心机器人，[dual_carriage](Config_Reference.md#dual_carriage)中提供了以下信息"
 
 #: docs/Status_Reference.md:block 126 (unordered list)
 msgid ""
@@ -1276,36 +1130,6 @@ msgstr ""
 msgid "The following information is available for each `[load_cell name]`:"
 msgstr ""
 
-#: docs/Status_Reference.md:block 72 (unordered list)
-msgid "'is_calibrated': True/False is the load cell calibrated"
-msgstr ""
-
-#: docs/Status_Reference.md:block 72 (unordered list)
-msgid ""
-"'counts_per_gram': The number of raw sensor counts that equals 1 gram of force"
-msgstr ""
-
-#: docs/Status_Reference.md:block 72 (unordered list)
-msgid ""
-"'reference_tare_counts': The reference number of raw sensor counts for 0 force"
-msgstr ""
-
-#: docs/Status_Reference.md:block 72 (unordered list)
-msgid "'tare_counts': The current number of raw sensor counts for 0 force"
-msgstr ""
-
-#: docs/Status_Reference.md:block 72 (unordered list)
-msgid "'force_g': The force in grams, averaged over the last polling period."
-msgstr ""
-
-#: docs/Status_Reference.md:block 72 (unordered list)
-msgid "'min_force_g': The minimum force in grams, over the last polling period."
-msgstr ""
-
-#: docs/Status_Reference.md:block 72 (unordered list)
-msgid "'max_force_g': The maximum force in grams, over the last polling period."
-msgstr ""
-
 #: docs/Status_Reference.md:block 112 (header)
 msgid "skew_correction.py"
 msgstr ""
@@ -1337,16 +1161,6 @@ msgstr ""
 msgid "all items from [probe](Status_Reference.md#probe)"
 msgstr ""
 
-#: docs/Status_Reference.md:block 75 (unordered list)
-msgid ""
-"'endstop_tare_counts': the load cell probe keeps a tare value independent of "
-"the load cell. This re-set at the start of each probe."
-msgstr ""
-
-#: docs/Status_Reference.md:block 75 (unordered list)
-msgid "'last_trigger_time': timestamp of the last homing trigger"
-msgstr ""
-
 #: docs/Status_Reference.md:block 143 (paragraph)
 msgid ""
 "On a `generic_cartesian` kinematic, the following information is available in "
@@ -1359,6 +1173,334 @@ msgid ""
 "values are \"INACTIVE\" and \"PRIMARY\" for the primary carriage and "
 "\"INACTIVE\", \"PRIMARY\", \"COPY\", and \"MIRROR\" for the dual carriage."
 msgstr ""
+
+#: docs/Status_Reference.md:block 46 (header)
+msgid "gcode"
+msgstr ""
+
+#: docs/Status_Reference.md:block 47 (paragraph)
+msgid "The following information is available in the `gcode` object:"
+msgstr ""
+
+#: docs/Status_Reference.md:block 48 (unordered list)
+msgid ""
+"`commands`: Returns a list of all currently available commands. For each "
+"command, if a help string is defined it will also be provided."
+msgstr ""
+
+#: docs/Status_Reference.md:block 57 (unordered list)
+msgid ""
+"`gcode_position`: The current position of the toolhead relative to the current"
+" G-Code origin. That is, positions that one might directly send to a `G1` "
+"command. This value is encoded as a [coordinate](#accessing-coordinates)."
+msgstr ""
+
+#: docs/Status_Reference.md:block 57 (unordered list)
+msgid ""
+"`position`: The last commanded position of the toolhead using the coordinate "
+"system specified in the config file. This value is encoded as a "
+"[coordinate](#accessing-coordinates)."
+msgstr ""
+
+#: docs/Status_Reference.md:block 57 (unordered list)
+msgid ""
+"`homing_origin`: The origin of the gcode coordinate system (relative to the "
+"coordinate system specified in the config file) to use after a `G28` command. "
+"The `SET_GCODE_OFFSET` command can alter this position. This value is encoded "
+"as a [coordinate](#accessing-coordinates)."
+msgstr ""
+
+#: docs/Status_Reference.md:block 57 (unordered list)
+msgid ""
+"`axis_map`: Provides a mechanism for finding the coordinate component for a "
+"given G-Code id that is used in `G1` commands. See the [Accessing "
+"Coordinates](#accessing-coordinates) section for details."
+msgstr ""
+
+#: docs/Status_Reference.md:block 60 (unordered list)
+msgid ""
+"`flow_compensation_enabled`: Returns True if flow compensation is enabled."
+msgstr ""
+
+#: docs/Status_Reference.md:block 60 (unordered list)
+msgid ""
+"`Diameter`: Returns the last width reading in mm if the sensor is active or "
+"the nominal filament diameter if it is not."
+msgstr ""
+
+#: docs/Status_Reference.md:block 69 (unordered list)
+msgid ""
+"`idle_timeout`: The current 'timeout' (in seconds) to wait for the gcode to be"
+" triggered. (as set by [SET_IDLE_TIMEOUT](G-Codes.md#set_idle_timeout))"
+msgstr ""
+
+#: docs/Status_Reference.md:block 72 (unordered list)
+msgid ""
+"`color_data`: A list of color lists containing the RGBW values for a led in "
+"the chain. Each value is represented as a float from 0.0 to 1.0. Each color "
+"list contains 4 items (red, green, blue, white) even if the underlying LED "
+"supports fewer color channels. For example, the blue value (3rd item in color "
+"list) of the second neopixel in a chain could be accessed at "
+"`printer[\"neopixel <config_name>\"].color_data[1][2]`."
+msgstr ""
+
+#: docs/Status_Reference.md:block 75 (unordered list)
+msgid "`is_calibrated`: True/False whether the load cell is calibrated."
+msgstr ""
+
+#: docs/Status_Reference.md:block 75 (unordered list)
+msgid ""
+"`counts_per_gram`: The number of raw sensor counts that equals 1 gram of "
+"force."
+msgstr ""
+
+#: docs/Status_Reference.md:block 75 (unordered list)
+msgid ""
+"`reference_tare_counts`: The reference number of raw sensor counts for 0 "
+"force."
+msgstr ""
+
+#: docs/Status_Reference.md:block 75 (unordered list)
+msgid "`tare_counts`: The current number of raw sensor counts for 0 force."
+msgstr ""
+
+#: docs/Status_Reference.md:block 75 (unordered list)
+msgid "`force_g`: The force in grams, averaged over the last polling period."
+msgstr ""
+
+#: docs/Status_Reference.md:block 75 (unordered list)
+msgid "`min_force_g`: The minimum force in grams, over the last polling period."
+msgstr ""
+
+#: docs/Status_Reference.md:block 75 (unordered list)
+msgid "`max_force_g`: The maximum force in grams, over the last polling period."
+msgstr ""
+
+#: docs/Status_Reference.md:block 75 (unordered list)
+msgid ""
+"`errors`: The number of sensor errors detected since the last start of "
+"measurements."
+msgstr ""
+
+#: docs/Status_Reference.md:block 75 (unordered list)
+msgid ""
+"`overflows`: The number of data buffer overflows detected since the last start"
+" of measurements."
+msgstr ""
+
+#: docs/Status_Reference.md:block 75 (unordered list)
+msgid "`sample_rate`: The sensor's sample rate in samples per second."
+msgstr ""
+
+#: docs/Status_Reference.md:block 78 (unordered list)
+msgid ""
+"`endstop_tare_counts`: The load cell probe keeps a tare value independent of "
+"the load cell. This is re-set at the start of each probe."
+msgstr ""
+
+#: docs/Status_Reference.md:block 78 (unordered list)
+msgid "`last_trigger_time`: Timestamp of the last homing trigger."
+msgstr ""
+
+#: docs/Status_Reference.md:block 78 (unordered list)
+msgid "`last_z_result`: The Z position result of the last tap."
+msgstr ""
+
+#: docs/Status_Reference.md:block 78 (unordered list)
+msgid "`is_last_tap_valid`: True if the last tap result is valid."
+msgstr ""
+
+#: docs/Status_Reference.md:block 87 (unordered list)
+msgid ""
+"`live_position`: The requested toolhead position interpolated to the current "
+"time. This value is encoded as a [coordinate](#accessing-coordinates)."
+msgstr ""
+
+#: docs/Status_Reference.md:block 89 (paragraph)
+msgid ""
+"The following information is available in [output_pin "
+"some_name](Config_Reference.md#output_pin) and [pwm_tool "
+"some_name](Config_Reference.md#pwm_tool) objects:"
+msgstr ""
+
+#: docs/Status_Reference.md:block 102 (unordered list)
+msgid ""
+"`last_probe_position`: The results of the last `PROBE` command. This value is "
+"encoded as a [coordinate](#accessing-coordinates). The probe hardware "
+"estimates that if one were to command the toolhead to XY position "
+"`last_probe_position.x`,`last_probe_position.y` and descend then the tip of "
+"the toolhead would first contact the bed at a Z height of "
+"`last_probe_position.z`. These coordinates are relative to the frame (that is,"
+" they use the coordinate system specified in the config file). Note, if this "
+"is used in a macro, due to the order of template expansion, the `PROBE` "
+"command must be run prior to the macro containing this reference."
+msgstr ""
+
+#: docs/Status_Reference.md:block 102 (unordered list)
+msgid ""
+"`last_z_result`: This value is deprecated; it will be removed in the near "
+"future."
+msgstr ""
+
+#: docs/Status_Reference.md:block 142 (unordered list)
+msgid ""
+"`position`: The last commanded position of the toolhead relative to the "
+"coordinate system specified in the config file. This value is encoded as a "
+"[coordinate](#accessing-coordinates)."
+msgstr ""
+
+#: docs/Status_Reference.md:block 142 (unordered list)
+msgid ""
+"`axis_minimum`, `axis_maximum`: The axis travel limits (mm) after homing. This"
+" value is encoded as a [coordinate](#accessing-coordinates)."
+msgstr ""
+
+#: docs/Status_Reference.md:block 142 (unordered list)
+msgid ""
+"`extra_axes`: Provides a mechanism for finding the coordinate component for "
+"extra axes available in standard `G1` type move commands. See the [Accessing "
+"Coordinates](#accessing-coordinates) section for details."
+msgstr ""
+
+#: docs/Status_Reference.md:block 160 (header)
+msgid "Accessing Coordinates"
+msgstr ""
+
+#: docs/Status_Reference.md:block 161 (paragraph)
+msgid ""
+"Some status fields provide a \"coordinate\". For macro users these fields may "
+"be accessed by component name (eg,`{printer.toolhead.position.x}`), where the "
+"component name may be \"x\", \"y\", or \"z\"."
+msgstr ""
+
+#: docs/Status_Reference.md:block 162 (paragraph)
+msgid ""
+"For developers using the Klipper API Server these fields are transmitted as a "
+"list - for example: `{\"toolhead\": {\"position\": [1.0, 2.0, 3.0, 7.3, "
+"19.2]}}` . The first three components of the list correspond with the x, y, "
+"and z axes."
+msgstr ""
+
+#: docs/Status_Reference.md:block 163 (paragraph)
+msgid ""
+"A coordinate will typically have at least 3 components (x, y, and z), however "
+"there may also be additional components. Care should be taken when accessing "
+"any of these additional components as the ordering and number of components "
+"may change at run-time."
+msgstr ""
+
+#: docs/Status_Reference.md:block 164 (paragraph)
+msgid ""
+"One may use `{printer.gcode_move.axis_map}` and/or "
+"`{printer.toolhead.extra_axes}` to determine the number of components and the "
+"ordering of components. For example, to access the \"E\" component one could "
+"use `{printer.toolhead.position[printer.gcode_move.axis_map.E]}`. Or, if one "
+"wanted to find the component associated with the \"extruder\" object, one "
+"could use `{printer.toolhead.position[printer.toolhead.extra_axes.extruder]}`."
+msgstr ""
+
+#~ msgid ""
+#~ "`gcode_position`: The current position of the toolhead relative to the current"
+#~ " G-Code origin. That is, positions that one might directly send to a `G1` "
+#~ "command. It is possible to access the x, y, z, and e components of this "
+#~ "position (eg, `gcode_position.x`)."
+#~ msgstr ""
+#~ "`gcode_position`：工具头相对于当前 G "
+#~ "代码原点的当前位置。也就是可以直接被发送到`G1`命令的位置。可以分别访问这个位置的x、y、z和e分量（例如，`gcode_position.x`）。"
+
+#~ msgid ""
+#~ "`position`: The last commanded position of the toolhead using the coordinate "
+#~ "system specified in the config file. It is possible to access the x, y, z, and"
+#~ " e components of this position (eg, `position.x`)."
+#~ msgstr "`position`：打印头在配置文件中定义的坐标系中的最后指令位置。可以访问这个位置的x、y、z和e分量（例如，`position.x`）。"
+
+#~ msgid ""
+#~ "`homing_origin`: The origin of the gcode coordinate system (relative to the "
+#~ "coordinate system specified in the config file) to use after a `G28` command. "
+#~ "The `SET_GCODE_OFFSET` command can alter this position. It is possible to "
+#~ "access the x, y, and z components of this position (eg, `homing_origin.x`)."
+#~ msgstr ""
+#~ "`homing_origin`：在`G28`命令之后要使用的 G-Code "
+#~ "坐标系的原点（相对于配置文件中定义的坐标系）。`SET_GCODE_OFFSET` "
+#~ "命令可以改变这个位置。可以分别访问这个位置的x、y和z分量（例如，`homing_origin.x`）。"
+
+#~ msgid ""
+#~ "The following information is available in [output_pin "
+#~ "some_name](Config_Reference.md#output_pin) objects:"
+#~ msgstr "[output_pin <配置名称>](Config_Reference.md#output_pin) 对象提供以下信息："
+
+#~ msgid ""
+#~ "`last_z_result`: Returns the Z result value of the last PROBE command. Note, "
+#~ "if this is used in a macro, due to the order of template expansion, the PROBE "
+#~ "(or similar) command must be run prior to the macro containing this reference."
+#~ msgstr ""
+#~ "`last_z_result`：返回上一次 PROBE 命令的结果 Z 值。请注意，由于模板展开的顺序，在宏中使用时必须在包含此引用的宏之前运行 "
+#~ "PROBE（或类似）命令。"
+
+#~ msgid ""
+#~ "`position`: The last commanded position of the toolhead relative to the "
+#~ "coordinate system specified in the config file. It is possible to access the "
+#~ "x, y, z, and e components of this position (eg, `position.x`)."
+#~ msgstr ""
+#~ "`position`：打印头相对于配置文件中指定的坐标系的最后命令位置。可以访问该位置的 x、y、z 和 e 分量（例如，`position.x`）。"
+
+#~ msgid ""
+#~ "`axis_minimum`, `axis_maximum`: The axis travel limits (mm) after homing. It "
+#~ "is possible to access the x, y, z components of this limit value (eg, "
+#~ "`axis_minimum.x`, `axis_maximum.z`)."
+#~ msgstr ""
+#~ "`axis_minimum`、`axis_maximum`：归位后的轴的行程限制（毫米）。可以访问此极限值的 x、y、z "
+#~ "分量（例如，`axis_minimum.x`、`axis_maximum.z`）。"
+
+#~ msgid ""
+#~ "`live_position`: The requested toolhead position interpolated to the current "
+#~ "time."
+#~ msgstr "`live_position`：请求的打印头位置插值到当前时间后的位置。"
+
+#~ msgid "`Diameter`: The last reading from the sensor in mm."
+#~ msgstr "`Diameter`：上一次传感器读数，单位为 mm。"
+
+#~ msgid ""
+#~ "`color_data`: A list of color lists containing the RGBW values for a led in "
+#~ "the chain. Each value is represented as a float from 0.0 to 1.0. Each color "
+#~ "list contains 4 items (red, green, blue, white) even if the underyling LED "
+#~ "supports fewer color channels. For example, the blue value (3rd item in color "
+#~ "list) of the second neopixel in a chain could be accessed at "
+#~ "`printer[\"neopixel <config_name>\"].color_data[1][2]`."
+#~ msgstr ""
+#~ "`color_data`：一个包含链中每个LED的RGBW值的颜色列表的列表。每个值都以0.0到1.0的浮点数表示。每个颜色列表包含4个项目（红、绿、蓝、白），即使底层的LED支持较少的颜色通道。例如，可以通过`printer[\"neopixel"
+#~ " <配置名>\"].color_data[1][2]`访问链中第二个neopixel的蓝色值（颜色列表中的第三项）。"
+
+#~ msgid "'is_calibrated': True/False is the load cell calibrated"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "'counts_per_gram': The number of raw sensor counts that equals 1 gram of force"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "'reference_tare_counts': The reference number of raw sensor counts for 0 force"
+#~ msgstr ""
+
+#~ msgid "'tare_counts': The current number of raw sensor counts for 0 force"
+#~ msgstr ""
+
+#~ msgid "'force_g': The force in grams, averaged over the last polling period."
+#~ msgstr ""
+
+#~ msgid "'min_force_g': The minimum force in grams, over the last polling period."
+#~ msgstr ""
+
+#~ msgid "'max_force_g': The maximum force in grams, over the last polling period."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "'endstop_tare_counts': the load cell probe keeps a tare value independent of "
+#~ "the load cell. This re-set at the start of each probe."
+#~ msgstr ""
+
+#~ msgid "'last_trigger_time': timestamp of the last homing trigger"
+#~ msgstr ""
 
 #~ msgid ""
 #~ "The following information is available in the `Config_Reference.md#bed_screws`"

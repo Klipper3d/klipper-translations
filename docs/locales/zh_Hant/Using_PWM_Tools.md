@@ -1,6 +1,6 @@
 # 使用 PWM 工具
 
-該文件介紹如何配置 `output_pin` 和宏命令以實現使用 PWM 訊號對鐳射器或主軸進行控制。
+This document describes how to setup a PWM-controlled laser or spindle using `pwm_tool` and some macros.
 
 ## 它如何運作？
 
@@ -9,10 +9,6 @@
 **警告：** 在驅動鐳射器時，應採用一切可能的預防措施。二極管鐳射一般是使用反訊號的，即當微控制器重啟時，鐳射將會*全功率輸出*，直至微處理器恢復正常運作。 慎重而言，建議在鐳射器上電期間*始終*佩戴合適波長的護目鏡；並在不使用鐳射時對鐳射器斷電。同時，應該為鐳射器設定安全定時，保證在上位機和微控制器發生錯誤時，鐳射器能自動停止。
 
 有關示例配置，請參閱 [config/sample-pwm-tool.cfg](/config/sample-pwm-tool.cfg)。
-
-## 電流限制
-
-PWM脈衝發生的頻率存在上限。儘管相當精確，但每隔0.1秒才能產生一個PWM脈衝，因而幾乎無法用作光柵蝕刻。相對地，可使用以下[測試分支](https://github.com/Cirromulus/klipper/tree/laser_tool) 。它與主分支各有考量。長期計劃中將上述功能加入到 Klipper 的主分支中。
 
 ## 命令
 

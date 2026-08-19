@@ -8,7 +8,7 @@ Klipper kann auf eine der folgenden Arten zum Neustart in einen [Bootloader](Boo
 
 If a virtual (USB-ACM) serial port is in use, pulsing DTR while at 1200 baud will request the bootloader.
 
-#### Python (with `flash_usb`)
+#### Python (mit `flash_usb`)
 
 To enter the bootloader using python (using `flash_usb`):
 
@@ -35,7 +35,7 @@ Where `<DEVICE>` is your serial device, such as `/dev/serial.by-id/usb-Klipper[.
 
 ### Physisch Seriell
 
-If a physical serial port is being used on the MCU (even if a USB serial adapter is being used to connect to it), sending the string `<SPACE><FS><SPACE>Request Serial Bootloader!!<SPACE>~`.
+If a physical serial port is being used on the MCU (even if a USB serial adapter is being used to connect to it), sending the string `<SPACE><FS><SPACE>Request Serial Bootloader!!<SPACE>~` requests the bootloader.
 
 `<SPACE>` is an ASCII literal space, 0x20.
 

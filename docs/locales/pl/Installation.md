@@ -103,15 +103,15 @@ make flash FLASH_DEVICE=first
 sudo service klipper start
 ```
 
-It is important to note that RP2040 chips may need to be put into Boot mode before this operation.
+Należy pamiętać, że przed wykonaniem tej operacji może być konieczne przełączenie układów RP2040 w tryb rozruchowy.
 
 ## Konfiguracja Klippera
 
-The next step is to copy the [printer configuration file](#obtain-a-klipper-configuration-file) to the host.
+Następnym krokiem jest skopiowanie [pliku konfiguracji drukarki] na hosta.
 
 Arguably the easiest way to set the Klipper configuration file is using the built-in editors in Mainsail or Fluidd. These will allow the user to open the configuration examples and save them to be printer.cfg.
 
-Another option is to use a desktop editor that supports editing files over the "scp" and/or "sftp" protocols. There are freely available tools that support this (eg, Notepad++, WinSCP, and Cyberduck). Load the printer config file in the editor and then save it as a file named "printer.cfg" in the home directory of the pi user (ie, /home/pi/printer.cfg).
+Inną opcją jest użycie edytora desktopowego obsługującego edycję plików za pośrednictwem protokołów „scp” i/lub „sftp”. Dostępne są darmowe narzędzia, które to umożliwiają (np. Notepad++, WinSCP i Cyberduck). Załaduj plik konfiguracyjny drukarki do edytora, a następnie zapisz go jako plik o nazwie „printer.cfg” w katalogu domowym użytkownika pi (np. /home/pi/printer.cfg).
 
 Alternatively, one can also copy and edit the file directly on the host via SSH. That may look something like the following (be sure to update the command to use the appropriate printer config filename):
 

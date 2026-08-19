@@ -1,28 +1,28 @@
 # Overview
 
-Welcome to the Klipper documentation. If new to Klipper, start with the [features](Features.md) and [installation](Installation.md) documents.
+به مستندات کلیپر خوش آمدید. اگر با کلیپر تازه آشنا شده‌اید، با مستندات [features](Features.md) و [installation](Installation.md) شروع کنید.
 
-## Overview information
+## اطلاعات اجمالی
 
-- [Features](Features.md): A high-level list of features in Klipper.
-- [FAQ](FAQ.md): Frequently asked questions.
-- [Releases](Releases.md): The history of Klipper releases.
-- [Config changes](Config_Changes.md): Recent software changes that may require users to update their printer config file.
-- [Contact](Contact.md): Information on bug reporting and general communication with the Klipper developers.
+- [Features](Features.md): فهرستی سطح بالا از ویژگی‌های Klipper.
+- [FAQ](FAQ.md): سوالات متداول.
+- [Releases](Releases.md): تاریخچه‌ی انتشارات Klipper.
+- [Config changes](Config_Changes.md): تغییرات نرم‌افزاری اخیر که ممکن است کاربران را ملزم به به‌روزرسانی فایل پیکربندی چاپگر خود کند.
+- [Contact](Contact.md): اطلاعات مربوط به گزارش اشکال و ارتباط کلی با توسعه‌دهندگان Klipper.
 
-## Installation and Configuration
+## نصب و پیکربندی
 
-- [Installation](Installation.md): Guide to installing Klipper.
+- [Installation](Installation.md): راهنمای نصب Klipper.
    - [Octoprint](OctoPrint.md): Guide to installing Octoprint with Klipper.
-- [Config Reference](Config_Reference.md): Description of config parameters.
-   - [Rotation Distance](Rotation_Distance.md): Calculating the rotation_distance stepper parameter.
-- [Config checks](Config_checks.md): Verify basic pin settings in the config file.
-- [Bed level](Bed_Level.md): Information on "bed leveling" in Klipper.
-   - [Delta calibrate](Delta_Calibrate.md): Calibration of delta kinematics.
-   - [Probe calibrate](Probe_Calibrate.md): Calibration of automatic Z probes.
-   - [BL-Touch](BLTouch.md): Configure a "BL-Touch" Z probe.
-   - [Manual level](Manual_Level.md): Calibration of Z endstops (and similar).
-   - [Bed Mesh](Bed_Mesh.md): Bed height correction based on XY locations.
+- [مرجع پیکربندی](Config_Reference.md): شرح پارامترهای پیکربندی.
+   - [فاصله چرخش](Rotation_Distance.md): محاسبه پارامتر پله‌ای چرخش_فاصله.
+- [بررسی‌های پیکربندی](Config_checks.md): تنظیمات پایه پین را در فایل پیکربندی بررسی کنید.
+- [همسطح‌سازی](Bed_Level.md): اطلاعات مربوط به «همسطح‌سازی تخت» در کلیپر.
+   - [Delta calibrate](Delta_Calibrate.md): کالیبراسیون سینماتیک دلتا.
+   - [کالیبراسیون پروب](Probe_Calibrate.md): کالیبراسیون پروب‌های Z خودکار.
+   - [BL-Touch](BLTouch.md): یک پروب Z از نوع "BL-Touch" پیکربندی کنید.
+   - [سطح دستی](Manual_Level.md): کالیبراسیون نقاط انتهایی Z (و موارد مشابه).
+   - [Bed Mesh](Bed_Mesh.md): اصلاح ارتفاع بستر بر اساس موقعیت‌های XY.
    - [Endstop phase](Endstop_Phase.md): Stepper assisted Z endstop positioning.
    - [Axis Twist Compensation](Axis_Twist_Compensation.md): A tool to compensate for inaccurate probe readings due to twist in X gantry.
 - [Resonance compensation](Resonance_Compensation.md): A tool to reduce ringing in prints.
@@ -38,7 +38,7 @@ Welcome to the Klipper documentation. If new to Klipper, start with the [feature
 - [PWM tools](Using_PWM_Tools.md): Guide on how to use PWM controlled tools such as lasers or spindles.
 - [Exclude Object](Exclude_Object.md): The guide to the Exclude Objects implementation.
 
-## Developer Documentation
+## مستندات توسعه‌دهنده
 
 - [Code overview](Code_Overview.md): Developers should read this first.
 - [Kinematics](Kinematics.md): Technical details on how Klipper implements motion.
@@ -51,7 +51,7 @@ Welcome to the Klipper documentation. If new to Klipper, start with the [feature
 - [Contributing](CONTRIBUTING.md): Information on how to submit improvements to Klipper.
 - [Packaging](Packaging.md): Information on building OS packages.
 
-## Device Specific Documents
+## اسناد خاص دستگاه
 
 - [Example configs](Example_Configs.md): Information on adding an example config file to Klipper.
 - [SDCard Updates](SDCard_Updates.md): Flash a micro-controller by copying a binary to an sdcard in the micro-controller.

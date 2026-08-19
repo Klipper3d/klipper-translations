@@ -64,9 +64,9 @@ sudo сервіс klipper старт
 
 ## Чи можу я запустити Klipper на щось інше, ніж Raspberry Pi 3?
 
-Рекомендоване обладнання - Малина Пі 2, Малина Пі 3, або Малина Пі 4.
+The recommended hardware is a Raspberry Pi Zero2w, Raspberry Pi 3, Raspberry Pi 4 or Raspberry Pi 5. Klipper will also run on other SBC devices as well as x86 hardware, as described below.
 
-Klipper буде курсувати на Малина Пі 1 і на Малина Пі Зеро, але ці дошки не мають достатньої потужності обробки, щоб запустити OctoPrint добре. Зазвичай для друку конструкцій, які відбуваються на цих повільних машинах при друку безпосередньо з OctoPrint. (Принтер може рухатися швидше, ніж OctoPrint може надсилати команди руху.) Якщо ви хочете запустити на одному з цих повільних дощок в будь-який час, розгляньте за допомогою функції "virtual_sdcard" при друку (див. [посилання на налаштування](Config_Reference.md#virtual_sdcard) для деталей).
+Klipper will run on a Raspberry Pi 1, 2 and on the Raspberry Pi Zero1, but these boards don't have enough processing power to run Klipper well. It is common for print stalls to occur on these slower machines when printing (The printer may move faster than Klipper can send movement commands.) It is not reccomended to run Klipper on these older machines.
 
 Для запуску на Beaglebone див. в розділі [Налаштування конкретної інсталяції](Beaglebone.md).
 
@@ -146,7 +146,7 @@ Klipper створює "віртуальний серійний порт" чер
 
 ## Чи залишаться нагрівачі, якщо збитки малини?
 
-Програма призначена для запобігання цього. Після того, як хост дозволяє нагрівачу, хостове програмне забезпечення необхідно підтвердити, що увімкнення кожні 5 секунд. Якщо мікроконтролер не отримує підтвердження кожні 5 секунд, він переходить в стан "повороту", який призначений для виключення всіх нагрівачів і крокових двигунів.
+The software has been designed to prevent that. Once the host enables a heater, the host software needs to confirm that enablement every 3 seconds. If the micro-controller does not receive a confirmation every 3 seconds it goes into a "shutdown" state which is designed to turn off all heaters and stepper motors.
 
 Дивитися команду "config_digital_out" в [MCU команди](MCU_Commands.md) для подальших деталей.
 

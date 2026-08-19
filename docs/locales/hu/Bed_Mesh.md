@@ -70,7 +70,7 @@ algorithm: bicubic
 bicubic_tension: 0.2
 ```
 
-- `mesh_pps: 2, 3` *Alapértelmezett érték: 2, 2* A `mesh_pps` opció a Hálópontok szegmensenkénti rövidítése. Ez az opció azt adja meg, hogy hány pontot interpoláljon minden egyes szegmenshez az X és Y tengely mentén. Tekintsük egy 'szegmensnek' az egyes mért pontok közötti teret. A `probe_count`-hoz hasonlóan a `mesh_pps` is X, Y egész számpárként adható meg, de megadható egyetlen egész szám is, amely mindkét tengelyre vonatkozik. Ebben a példában 4 szegmens van az X tengely mentén és 2 szegmens az Y tengely mentén. Ez 8 interpolált pontot jelent az X mentén, 6 interpolált pontot az Y mentén, ami egy 13x8-as hálót eredményez. Vedd figyelembe, hogy ha a mesh_pps értéke 0, akkor a hálóinterpoláció le van tiltva, és a mért mátrixot közvetlenül mintavételezi a rendszer.
+- `mesh_pps: 2, 3` *Default Value: 2, 2* The `mesh_pps` option is shorthand for Mesh Points Per Segment. This option specifies how many points to interpolate for each segment along the X and Y axes. Consider a 'segment' to be the space between each probed point. Like `probe_count`, `mesh_pps` is specified as an X, Y integer pair, and also may be specified a single integer that is applied to both axes. In this example there are 4 segments along the X axis and 2 segments along the Y axis. This evaluates to 8 interpolated points along X, 6 interpolated points along Y, which results in a 13x9 mesh. Note that if mesh_pps is set to 0 then mesh interpolation is disabled and the probed matrix will be sampled directly.
 - `algorithm: lagrange` * Alapértelmezett érték: lagrange* A háló interpolálásához használt algoritmus. Lehet `lagrange` vagy `bicubic`. A Lagrange-interpoláció 6 szondázott pontnál van korlátozva, mivel nagyobb számú minta esetén oszcilláció lép fel. A bikubik interpolációhoz mindkét tengely mentén legalább 4 szondázott pont szükséges, ha 4 pontnál kevesebb van megadva, akkor a Lagrange mintavételezés kikényszerül. Ha a `mesh_pps` 0-ra van állítva, akkor ez az érték figyelmen kívül marad, mivel nem történik hálóinterpoláció.
 - `bicubic_tension: 0.2` *Alapértelmezett érték: 0.2* Ha az `algorithm` opció bicubic-ra van állítva, akkor lehet megadni a feszültség értékét. Minél nagyobb a feszültség, annál nagyobb meredekséget interpolál. Legyél óvatos ennek beállításakor, mivel a magasabb értékek több túlhúzást is eredményeznek, ami a mért pontoknál magasabb vagy alacsonyabb interpolált értékeket eredményez.
 
@@ -120,7 +120,7 @@ fade_target: 0
 
 ### A nulla referenciapozíció beállítása
 
-Sok szonda hajlamos a „csúszásra”, azaz: a hő vagy interferencia által okozott pontatlanságokra. Ez kihívássá teheti a szonda Z-eltolásának kiszámítását, különösen különböző ágyhőmérsékleteken. Ezért egyes nyomtatók a Z tengely beállításához végállást, a háló kalibrálásához pedig szondát használnak. Ebben a konfigurációban lehetséges a háló eltolása úgy, hogy az (X, Y) `referenciapozíció` nullpontbeállításra vonatkozik. A `referenciapozíciónak` az ágyon annak a helynek kell lennie, ahol a [Z_ENDSTOP_CALIBRATE](./Manual_Level.md#calibrating-a-z-endstop) papírpróbát végzik. A bed_mesh modul biztosítja a `zero_reference_position` opciót e koordináta megadásához:
+Many probes are susceptible to "drift", ie: inaccuracies in probing introduced by heat or interference. This can make calculating the probe's z-offset challenging, particularly at different bed temperatures. As such, some printers use an endstop for homing the Z axis and a probe for calibrating the mesh. In this configuration it is possible offset the mesh so that the (X, Y) `reference position` applies zero adjustment. The `reference position` should be the location on the bed where a [Z_ENDSTOP_CALIBRATE](./Manual_Level.md#calibrating-a-z-endstop) paper test is performed. The bed_mesh module provides the `zero_reference_position` option for specifying this coordinate:
 
 ```
 [bed_mesh]
@@ -133,25 +133,6 @@ probe_count: 5, 3
 ```
 
 - `zero_reference_position: ` *Alapértelmezett érték: A `zero_reference_position` egy olyan (X, Y) koordinátát vár el, amely megfelel a fent leírt `reference position` koordinátának. Ha a koordináta a hálóban van, akkor a háló eltolódik, így a referenciapozíció nulla korrekciót alkalmaz. Ha a koordináta a hálón kívül esik, akkor a koordinátát a kalibrálás után meg kell vizsgálni, és az így kapott Z-értéket kell Z-eltolásként használni. Vedd figyelembe, hogy ez a koordináta NEM lehet olyan helyen, amelyet `faulty_region`-ként határoztak meg, ahol mérésre van szükség.
-
-#### Az elavult relative_reference_index
-
-A `relative_reference_index` opciót használó meglévő konfigurációkat frissíteni kell a `zero_reference_position` használatához. A [BED_MESH_OUTPUT PGP=1](#output) G-kód parancsra adott válasz tartalmazza az indexhez tartozó (X, Y) koordinátát; ez a pozíció használható a `zero_reference_position` értékeként. A kimenet az alábbiakhoz hasonlóan fog kinézni:
-
-```
-// bed_mesh: generált pontok
-// Index | Szerszámbeállítás | Szonda
-// 0 | (1.0, 1.0) | (24.0, 6.0)
-// 1 | (36.7, 1.0) | (59.7, 6.0)
-// 2 | (72.3, 1.0) | (95.3, 6.0)
-// 3 | (108.0, 1.0) | (131.0, 6.0)
-... (további generált pontok)
-// bed_mesh: relative_reference_index 24 is (131.5, 108.0)
-```
-
-*Figyelem: A fenti kimenet az inicializálás során a `klippy.log`-ban is megjelenik.*
-
-A fenti példa alapján láthatjuk, hogy a `relative_reference_index` a koordinátával együtt kerül kiírásra. Így a `zero_reference_position` a `131.5, 108`.
 
 ### Hibás régiók
 

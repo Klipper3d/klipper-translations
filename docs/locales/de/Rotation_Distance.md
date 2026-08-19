@@ -4,7 +4,7 @@ Schrittmotortreiber auf Klipper benötigen einen `rotation_distance`-Parameter i
 
 ## Ermitteln der Rotationsdistanz aus steps_per_mm (oder step_distance)
 
-The designers of your 3d printer originally calculated `steps_per_mm` from a rotation distance. If you know the steps_per_mm then it is possible to use this general formula to obtain that original rotation distance:
+Die Designer Ihres 3D-Druckers haben ursprünglich `steps_per_mm` aus einer Rotationsdistanz (rotation distance) berechnet. Wenn Sie die "steps_per_mm" kennen, ist es möglich, diese allgemeine Formel zu verwenden, um diese ursprüngliche Rotationsdistanz zu erhalten:
 
 ```
 rotation_distance = <full_steps_per_rotation> * <microsteps> / <steps_per_mm>

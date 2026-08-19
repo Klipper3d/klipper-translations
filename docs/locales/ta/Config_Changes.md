@@ -6,37 +6,73 @@
 
 ## மாற்றங்கள்
 
-20250428: pwm `[output_pin]`, `[pwm_cycle_time]`, `[pwm_tool]` மற்றும் இதே போன்ற கட்டமைப்பு பிரிவுகளுக்கான அதிகபட்ச `cycle_time` இப்போது 3 வினாடிகள் (5 வினாடிகளில் இருந்து குறைக்கப்பட்டது). `[pwm_tool]` இல் `maximum_mcu_duration` இப்போது 3 வினாடிகள் ஆகும்.
+20260525: The internal implementation of "probe:z_virtual_endstop" has changed. Most users will not observe a change in behavior. Previously it was technically possible to mix "probe:z_virtual_endstop" with other types of Z endstops and this behavior is no longer valid.
 
-20250418: கையேடு_ஸ்டெப்பர் `STOP_ON_ENDSTOP` அம்சம் இப்போது முடிவடைய குறைந்த நேரத்தையே எடுக்கக்கூடும். முன்பு, எண்ட்ஸ்டாப் முன்னதாகவே தூண்டப்பட்டாலும், நகர்வு எடுக்கக்கூடிய முழு நேரத்தையும் கட்டளை காத்திருக்கும். இப்போது, எண்ட்ஸ்டாப் தூண்டுதலுக்குப் பிறகு கட்டளை விரைவில் முடிகிறது.
+20260501: The handling of the `[probe_eddy_current]` `tap_threshold` config option and associated `TAP_THRESHOLD` G-Code parameter has changed. It will be necessary to recalibrate the value. See the [eddy probe documentation](Eddy_Probe.md) for calibration directions.
 
-20250417: "மென்பொருள் SPI" ஐப் பயன்படுத்தும் SPI சாதனங்கள் இப்போது வரம்புக்குட்பட்டவை. முன்பு, config இல் உள்ள `spi_speed` புறக்கணிக்கப்பட்டது மற்றும் பரிமாற்ற வேகம் மைக்ரோ-கட்டுப்படுத்தியின் செயலாக்க வேகத்தால் மட்டுமே வரையறுக்கப்பட்டது. இப்போது, வேகங்கள் `spi_speed` config அளவுருவால் வரையறுக்கப்பட்டுள்ளன (உண்மையான வன்பொருள் வேகம் மென்பொருள் மேல்நிலை காரணமாக உள்ளமைக்கப்பட்ட மதிப்பை விட குறைவாக இருக்க வாய்ப்புள்ளது).
+20260408: The script `lib/canboot/flash_can.py` has been updated to the most current version from [Katapult](https://github.com/Arksine/katapult) and as such renamed to `lib/katapult/flashtool.py`. If you call this script directly instead of using the existing Makefiles, you will need to change the path to the script to `lib/katapult/flashtool.py`.
 
-20250411: கிளிப்பர் v0.13.0 வெளியிடப்பட்டது.
+20260318: The `[probe_eddy_current]` config options `speed`, `lift_speed`, `samples`, `sample_retract_dist`, `samples_result`, `samples_tolerance`, and `samples_tolerance_retries` no longer apply to probe commands using `METHOD=scan`, `METHOD=rapid_scan`, nor `METHOD=tap`. To use different settings, supply the equivalent `PROBE_SPEED`, `LIFT_SPEED`, `SAMPLES`, `SAMPLE_RETRACT_DIST`, `SAMPLES_RESULT`, `SAMPLES_TOLERANCE`, or `SAMPLES_TOLERANCE_RETRIES` parameter with the probe command.
 
-20250308: `AXIS_TWIST_COMPENSATION_CALIBRATE` கட்டளையின் `AUTO` அளவுரு நீக்கப்பட்டது.
+20260318: The `[probe_eddy_current]` config option `z_offset` has been renamed to `descend_z`. Using the old name is deprecated and it will be removed in the near future.
 
-20250131: `SAVE_VARIABLE` இல் உள்ள `VARIABLE=<name>` விருப்பத்திற்கு சிறிய எழுத்து மதிப்புத் தேவை. எடுத்துக்காட்டாக, கலப்பு எழுத்து `Extruder` அல்லது பெரிய எழுத்து `EXTRUDER` க்கு பதிலாக `extruder`. ஏதேனும் பெரிய எழுத்தைப் பயன்படுத்துவது பிழையை ஏற்படுத்தும்.
+20260214: The `MANUAL_STEPPER` G-Code command `STOP_ON_ENDSTOP` parameter has changed. See the [MANUAL_STEPPER](G-Codes.md#manual_stepper) documentation for details. Using the previous integer values (-2, -1, 1, 2) is deprecated and support will be removed in the near future.
 
-20241203: மெதுவான துடைக்கும் நகர்வுகளைச் சேர்க்க ஒத்ததிர்வு சோதனை மாற்றப்பட்டுள்ளது. இந்த மாற்றத்திற்கு சோதனைப் புள்ளி(கள்) X/Y தளத்தில் சில இடைவெளியைக் கொண்டிருக்க வேண்டும் (இயல்புநிலை அமைப்புகளைப் பயன்படுத்தும் போது சோதனைப் புள்ளியிலிருந்து +/- 30 மிமீ போதுமானதாக இருக்க வேண்டும்). புதிய சோதனை பொதுவாக மிகவும் துல்லியமான மற்றும் நம்பகமான சோதனை முடிவுகளை உருவாக்க வேண்டும். இருப்பினும், தேவைப்பட்டால், `[resonance_tester]` config பிரிவில் `sweeping_period: 0` மற்றும் `accel_per_hz: 75` விருப்பங்களைச் சேர்ப்பதன் மூலம் முந்தைய சோதனை நடத்தையை மீட்டெடுக்கலாம்.
+20260207: The low-level i2c behavior of sx1509 and uc1701 devices has changed. Previously an i2c error would result in a shutdown, and now i2c errors when communicating with these devices will only generate warnings in the log file.
 
-20241201: சில சந்தர்ப்பங்களில், பாரம்பரிய G-Code கட்டளையில் முன்னணி எழுத்துக்கள் அல்லது இடைவெளிகளை Klipper புறக்கணித்திருக்கலாம். எடுத்துக்காட்டாக, "99M123" என்பது "M123" என்றும் "M 321" என்பது "M321" என்றும் விளக்கப்பட்டிருக்கலாம். Klipper இப்போது இந்த நிகழ்வுகளை "தெரியாத கட்டளை" எச்சரிக்கையுடன் புகாரளிக்கும்.
+20260109: The status value `{printer.probe.last_z_result}` is deprecated; it will be removed in the near future. Use `{printer.probe.last_probe_position}` instead, and note that this new value already has the probe's configured xyz offsets applied.
 
-20241112: `TEST_RESONANCES` மற்றும் `SHAPER_CALIBRATE` இல் உள்ள `CHIPS=<chip_name>` விருப்பத்திற்கு accel சிப்(களின்) முழுப் பெயர்(களை) குறிப்பிட வேண்டும். எடுத்துக்காட்டாக, `rpi` என்ற குறுகிய பெயருக்குப் பதிலாக `adxl345 rpi`.
+20260109: The g-code console text output from the `PROBE`, `PROBE_ACCURACY`, and similar commands has changed. Now Z heights are reported relative to the nominal bed Z position instead of relative to the probe's configured `z_offset`. Similarly, intermediate probe x and y console reports will also have the probe's configured `x_offset` and `y_offset` applied.
 
-20240912: `SET_PIN`, `SET_SERVO`, `SET_FAN_SPEED`, `M106`, மற்றும் `M107` கட்டளைகள் இப்போது தொகுக்கப்பட்டுள்ளன. முன்பு, ஒரே பொருளுக்கு பல புதுப்பிப்புகள் குறைந்தபட்ச திட்டமிடல் நேரத்தை விட (பொதுவாக 100ms) வேகமாக வழங்கப்பட்டிருந்தால், உண்மையான புதுப்பிப்புகள் எதிர்காலத்தில் நீண்ட காலத்திற்கு வரிசைப்படுத்தப்படலாம். இப்போது பல புதுப்பிப்புகள் விரைவான தொடர்ச்சியாக வழங்கப்பட்டால், சமீபத்திய கோரிக்கை மட்டுமே பயன்படுத்தப்படும். முந்தைய நடத்தை தேவைப்பட்டால், புதுப்பிப்புகளுக்கு இடையில் வெளிப்படையான `G4` தாமத கட்டளைகளைச் சேர்ப்பதைக் கருத்தில் கொள்ளுங்கள்.
+20260109: The `[screws_tilt_adjust]` module now reports the status variable `{printer.screws_tilt_adjust.result.screw1.z}` with the probe's `z_offset` applied. That is, one would previously need to subtract the probe's configured `z_offset` to find the absolute Z deviation at the given screw location and now one must not apply the `z_offset`.
 
-20240912: `[output_pin]` config பிரிவுகளில் `maximum_mcu_duration` மற்றும் `static_value` அளவுருக்களுக்கான ஆதரவு நீக்கப்பட்டது. இந்த விருப்பங்கள் 20240123 முதல் நிறுத்தப்பட்டுள்ளன.
+20251122: An option `axis` has been added to `[carriage <name>]` sections for `generic_cartesian` kinematics, allowing arbitrary names for primary carriages. Users are encouraged to explicitly specify `axis` option now.
+
+20251106: The status fields `{printer.toolhead.position}`, `{printer.gcode_move.position}`, `{printer.gcode_move.gcode_position}`, and `{printer.motion_report.live_position}` are changing. These coordinates used to always contain four components, but now may contain additional components. The ordering and number of components may change at run-time - see the [status reference](Status_Reference.md#accessing-coordinates) for important details. Accessing any of these coordinates in macros using the ".e" accessor is deprecated - use something like `{printer.toolhead.position[printer.gcode_move.axis_map.E]}` as an alternative.
+
+20251106: The status fields `{printer.gcode_move.homing_origin}`, `{printer.toolhead.axis_min}`, and `{printer.toolhead.axis_max}` currently contain four components where the fourth component is always zero. This behavior is deprecated. In the future these coordinates may contain only three components. For additional information see the [status reference](Status_Reference.md#accessing-coordinates).
+
+20251010: During normal printing the command processing will now attempt to stay one second ahead of printer movement (reduced from two seconds previously).
+
+20251003: Support for the undocumented `max_stepper_error` option in the `[printer]` config section has been removed.
+
+20250916: The definitions of EI, 2HUMP_EI, and 3HUMP_EI input shapers were updated. For best performance it is recommended to recalibrate input shapers, especially if some of these shapers are currently used.
+
+20250811: Support for the `max_accel_to_decel` parameter in the `[printer]` config section has been removed and support for the `ACCEL_TO_DECEL` parameter in the `SET_VELOCITY_LIMIT` command has been removed. These capabilities were deprecated on 20240313.
+
+20250721: The `[pca9632]` and `[mcp4018]` modules no longer accept the `scl_pin` and `sda_pin` options. Use `i2c_software_scl_pin` and `i2c_software_sda_pin` instead.
+
+20250428: The maximum `cycle_time` for pwm `[output_pin]`, `[pwm_cycle_time]`, `[pwm_tool]`, and similar config sections is now 3 seconds (reduced from 5 seconds). The `maximum_mcu_duration` in `[pwm_tool]` is now also 3 seconds.
+
+20250418: The manual_stepper `STOP_ON_ENDSTOP` feature may now take less time to complete. Previously, the command would wait the entire time the move could possibly take even if the endstop triggered earlier. Now, the command finishes shortly after the endstop trigger.
+
+20250417: SPI devices using "software SPI" are now rate limited. Previously, the `spi_speed` in the config was ignored and the transmission speed was only limited by the processing speed of the micro-controller. Now, speeds are limited by the `spi_speed` config parameter (actual hardware speeds are likely to be lower than the configured value due to software overhead).
+
+20250411: Klipper v0.13.0 released.
+
+20250308: The `AUTO` parameter of the `AXIS_TWIST_COMPENSATION_CALIBRATE` command has been removed.
+
+20250131: Option `VARIABLE=<name>` in `SAVE_VARIABLE` requires lowercase value. For example, `extruder` instead of mixedcase `Extruder` or uppercase `EXTRUDER`. Using any uppercase letter will raise an error.
+
+20241203: மெதுவான வேகமான நகர்வுகளைச் சேர்க்க அதிர்வு சோதனை மாற்றப்பட்டுள்ளது. இந்த மாற்றத்திற்கு சோதனை புள்ளி (கள்) x/y விமானத்தில் சில இசைவு இருக்க வேண்டும் (இயல்புநிலை அமைப்புகளைப் பயன்படுத்தும் போது சோதனை புள்ளியிலிருந்து +/- 30 மிமீ போதுமானதாக இருக்க வேண்டும்). புதிய சோதனை பொதுவாக மிகவும் துல்லியமான மற்றும் நம்பகமான சோதனை முடிவுகளை உருவாக்க வேண்டும். இருப்பினும், தேவைப்பட்டால், `ச்வீப்பிங்_பெரியோட்: 0` மற்றும்` ACT_PER_HZ: 75` ஆகியவற்றை `[அதிர்வு_டெச்டர்]` கட்டமைப்பு பிரிவில் சேர்ப்பதன் மூலம் முந்தைய சோதனை நடத்தை மீட்டமைக்கப்படலாம்.
+
+20241201: சில சந்தர்ப்பங்களில் கிளிப்பர் ஒரு பாரம்பரிய சி-கோட் கட்டளையில் முன்னணி கதாபாத்திரங்கள் அல்லது இடைவெளிகளை புறக்கணித்திருக்கலாம். எடுத்துக்காட்டாக, "99M123" "M123" மற்றும் "M 321" என்று விளக்கப்பட்டிருக்கலாம், "M321" என்று விளக்கப்பட்டிருக்கலாம். கிளிப்பர் இப்போது இந்த வழக்குகளை "அறியப்படாத கட்டளை" எச்சரிக்கையுடன் தெரிவிப்பார்.
+
+20241112: விருப்பம் `சிப்ச் = <சிப்_பேம்>` `டெச்ட்_ரெசோனன்ச்` மற்றும்` சேப்பர்_லிபிரேட்` ஆகியவற்றில் முடி சிப் (கள்) முழு பெயரை (கள்) குறிப்பிட வேண்டும். எடுத்துக்காட்டாக, குறுகிய பெயருக்கு பதிலாக `adxl345 rpi` -` rpi`.
+
+20240912: `SET_PIN`, `SET_SERVO`, `SET_FAN_SPEED`, `M106`, and `M107` commands are now collated. Previously, if many updates to the same object were issued faster than the minimum scheduling time (typically 100ms) then actual updates could be queued far into the future. Now if many updates are issued in rapid succession then it is possible that only the latest request will be applied. If the previous behavior is required then consider adding explicit `G4` delay commands between updates.
+
+20240912: `[வெளியீடு_பின்]` உள்ளமைவு பிரிவுகளில் `அதிகபட்ச_எம்சி_டரேசன்` மற்றும்` ச்டாடிக்_வல்யூ` அளவுருக்களுக்கான உதவி அகற்றப்பட்டுள்ளது. இந்த விருப்பங்கள் 20240123 முதல் நீக்கப்பட்டுள்ளன.
 
 20240415: `[மெய்நிகர்_ச்ட்கார்டு]` கட்டமைப்பு பிரிவில் உள்ள `on_error_gcode` அளவுரு இப்போது இயல்புநிலையைக் கொண்டுள்ளது. இந்த அளவுரு குறிப்பிடப்படாவிட்டால், இப்போது இயல்புநிலையாக `டர்ன்_ஆஃப்_ஈட்டர்கள்`. முந்தைய நடத்தை விரும்பினால் (மெய்நிகர்_ச்ட்கார்டு அச்சின் போது பிழையில் இயல்புநிலை நடவடிக்கை எடுக்க வேண்டாம்) பின்னர் `on_error_gcode` ஐ வெற்று மதிப்புடன் வரையறுக்கவும்.
 
-20240313: `[printer]` config பிரிவில் உள்ள `max_accel_to_decel` அளவுரு நீக்கப்பட்டது. `SET_VELOCITY_LIMIT` கட்டளையின் `ACCEL_TO_DECEL` அளவுரு நீக்கப்பட்டது. `printer.toolhead.max_accel_to_decel` நிலை நீக்கப்பட்டது. அதற்கு பதிலாக [minimum_cruise_ratio அளவுரு](./Config_Reference.md#printer) ஐப் பயன்படுத்தவும். நீக்கப்பட்ட அம்சங்கள் விரைவில் அகற்றப்படும், மேலும் இடைக்காலத்தில் அவற்றைப் பயன்படுத்துவது நுட்பமாக வேறுபட்ட நடத்தைக்கு வழிவகுக்கும்.
+20240313: `[அச்சுப்பொறி]` கட்டமைப்பு பிரிவில் உள்ள `MAX_ACCEL_TO_DECEL` அளவுரு நீக்கப்பட்டது. `Set_velocity_limit` கட்டளையின்` Act_to_decel` அளவுரு நீக்கப்பட்டது. `Printor.toolhead.max_accel_to_decel` நிலை அகற்றப்பட்டுள்ளது. அதற்குப் பதிலாக [MINER_CRUISE_RATIO அளவுரு](./Config_Reference.md#printer) பயன்படுத்தவும். நீக்கப்பட்ட நற்பொருத்தங்கள் எதிர்காலத்தில் அகற்றப்படும், மேலும் அவற்றை இடைக்காலத்தில் பயன்படுத்துவது நுட்பமான மாறுபட்ட நடத்தைக்கு வழிவகுக்கும்.
 
 20240215: பல நீக்கப்பட்ட நற்பொருத்தங்கள் அகற்றப்பட்டுள்ளன. "என்.டி.சி 100 கே பீட்டா 3950" ஐப் பயன்படுத்துவது தெர்மோச்டர் பெயராக அகற்றப்பட்டுள்ளது (20211110 அன்று நீக்கப்பட்டது). `Sync_stepper_to_extruder` மற்றும்` set_extruder_step_distance` கட்டளைகள் அகற்றப்பட்டுள்ளன, மேலும் எக்ச்ட்ரூடர் `பகிரப்பட்ட_ஈட்டர்` கட்டமைப்பு விருப்பம் அகற்றப்பட்டுள்ளது (20220210 அன்று நீக்கப்பட்டது). BED_MESH `உறவினர்_ரொஃபென்ச்_இண்டெக்ச்` விருப்பம் அகற்றப்பட்டது (20230619 அன்று நீக்கப்பட்டது).
 
-20240123: output_pin SET_PIN CYCLE_TIME அளவுரு நீக்கப்பட்டது. ஒரு pwm pin இன் சுழற்சி நேரத்தை மாறும் வகையில் மாற்ற வேண்டிய அவசியம் ஏற்பட்டால், புதிய [pwm_cycle_time](Config_Reference.md#pwm_cycle_time) தொகுதியைப் பயன்படுத்தவும்.
+20240123: output_pin set_pin cycol_time அளவுரு அகற்றப்பட்டது. PWM முள் சுழற்சி நேரத்தை மாறும் வகையில் மாற்ற வேண்டியது தேவை என்றால் புதிய [PWM_CYCLE_TIME](config_reference.md#pwm_cycle_time) தொகுதியைப் பயன்படுத்தவும்.
 
-20240123: output_pin `maximum_mcu_duration` அளவுரு நீக்கப்பட்டது. அதற்குப் பதிலாக [pwm_tool config பிரிவைப்](Config_Reference.md#pwm_tool) பயன்படுத்தவும். இந்த விருப்பம் விரைவில் அகற்றப்படும்.
+20240123: output_pin `macice_mcu_duration` அளவுரு நீக்கப்பட்டது. அதற்குப் பதிலாக [pwm_tool கட்டமைப்புப் பிரிவு](config_reference.md#pwm_tool) ஐப் பயன்படுத்தவும். இந்த விருப்பம் எதிர்காலத்தில் அகற்றப்படும்.
 
 20240123: output_pin `static_value` அளவுரு நீக்கப்பட்டது. `மதிப்பு` மற்றும்` பணிநிறுத்தம்_ மதிப்பு` அளவுருக்கள் மூலம் மாற்றவும். இந்த விருப்பம் எதிர்காலத்தில் அகற்றப்படும்.
 
@@ -47,13 +83,13 @@ reference](./Config_Reference.md#hall_filament_width_sensor) for more details.
 
 20231110: வெட்டுக்கள் V0.12.0 வெளியிடப்பட்டது.
 
-20230826: `[இரட்டை_வண்டி]` இல் `பாதுகாப்பான_தூரம்` 0 ஆக அமைக்கப்பட்டாலோ அல்லது கணக்கிடப்பட்டாலோ, ஆவணங்களின்படி வண்டிகளின் அருகாமைச் சோதனைகள் முடக்கப்படும். வண்டிகள் ஒன்றுக்கொன்று தற்செயலாக மோதுவதைத் தடுக்க, ஒரு பயனர் `பாதுகாப்பான_தூரம்` என்பதை வெளிப்படையாக உள்ளமைக்க விரும்பலாம். கூடுதலாக, முதன்மை மற்றும் இரட்டை வண்டியின் ஹோமிங் வரிசை சில உள்ளமைவுகளில் மாற்றப்படுகிறது (இரண்டு வண்டிகளும் ஒரே திசையில் வீட்டிற்கு வரும்போது சில உள்ளமைவுகள், மேலும் விவரங்களுக்கு [[இரட்டை_வண்டி] உள்ளமைவு குறிப்பு](./Config_Reference.md#dual_carriage) ஐப் பார்க்கவும்).
+20230826: `[டூயல்_ காரேச்]` இல் `SAFE_DISTANCE` அமைக்கப்பட்டால் அல்லது கணக்கிடப்பட்டால், ஆவணங்களின் படி வண்டிகள் அருகாமையில் காசோலைகள் முடக்கப்படும். ஒரு பயனர் ஒருவருக்கொருவர் வண்டிகளின் தற்செயலான செயலிழப்புகளைத் தடுக்க `SAFE_DISTANCE 'ஐ வெளிப்படையாக உள்ளமைக்க விரும்பலாம். கூடுதலாக, முதன்மை மற்றும் இரட்டை வண்டியின் ஓமிங் ஆர்டர் சில உள்ளமைவுகளில் மாற்றப்படுகிறது (இருவரும் ஒரே திசையில் வீட்டைக் கொண்டு செல்லும்போது சில உள்ளமைவுகள், மேலும் விவரங்களுக்கு [[டூயல்_காரேச்] உள்ளமைவு குறிப்பு](./Config_Reference.md#dual_carriage)).
 
 20230810: ஃபிளாச்-SDCARD.SH ச்கிரிப்ட் இப்போது பிக் ட்ரீட்எக் எச்.கே.ஆர் -3, எச்.டி.எம் 32 எச் 743 மற்றும் எச்.டி.எம் 32 எச் 723 ஆகியவற்றின் இரு வகைகளையும் ஆதரிக்கிறது. இதற்காக, BTT-SKR-3 இன் அசல் குறிச்சொல் இப்போது BTT-SKR-3-H743 அல்லது BTT-SKR-3-H723 ஆக மாறிவிட்டது.
 
 20230729: `டூயல்_ காரேச்` க்கான ஏற்றுமதி நிலை மாற்றப்பட்டுள்ளது. `பயன்முறை` மற்றும்` ஆக்டிவ்_காரேச்` ஆகியவற்றை ஏற்றுமதி செய்வதற்கு பதிலாக, ஒவ்வொரு வண்டிக்கும் தனிப்பட்ட முறைகள் `அச்சுப்பொறி.
 
-20230619: `relative_reference_index` விருப்பம் `zero_reference_position` விருப்பத்தால் நிராகரிக்கப்பட்டு, மேலோங்கியுள்ளது. உள்ளமைவை எவ்வாறு புதுப்பிப்பது என்பது குறித்த விவரங்களுக்கு [Bed Mesh Documentation](./Bed_Mesh.md#the-deprecated-relative_reference_index) ஐப் பார்க்கவும். இந்த நீக்கத்துடன் `RELATIVE_REFERENCE_INDEX` இனி `BED_MESH_CALIBRATE` gcode கட்டளைக்கான அளவுருவாகக் கிடைக்காது.
+20230619: The `relative_reference_index` option has been deprecated and superseded by the `zero_reference_position` option. Refer to the [Bed Mesh Documentation](./Bed_Mesh.md#the-deprecated-relative_reference_index) for details on how to update the configuration. With this deprecation the `RELATIVE_REFERENCE_INDEX` is no longer available as a parameter for the `BED_MESH_CALIBRATE` gcode command.
 
 20230530: "மேக் மெனுகான்ஃபிக்" இல் இயல்புநிலை கான்பச் அதிர்வெண் இப்போது 1000000 ஆக உள்ளது. கான்பசைப் பயன்படுத்தி வேறு சில அதிர்வெண்ணுடன் கான்பசைப் பயன்படுத்தினால், "கூடுதல் குறைந்த-நிலை உள்ளமைவு விருப்பங்களை இயக்கவும்" மற்றும் விரும்பியதை குறிப்பிடவும் "பச் வேகத்தை குறிப்பிடலாம்" மைக்ரோ-கன்ட்ரோலரை தொகுத்து ஒளிரும் போது "மெனுகான்ஃபிக் உருவாக்கு" இல்.
 
@@ -65,7 +101,7 @@ reference](./Config_Reference.md#hall_filament_width_sensor) for more details.
 
 20230304: `set_tmc_current` கட்டளை இப்போது அதை வைத்திருக்கும் டிரைவர்களுக்கான குளோபல்ச்கேலர் பதிவேட்டை சரியாக சரிசெய்கிறது. இது ஒரு வரம்பை நீக்குகிறது, அங்கு TMC5160 இல், கட்டமைப்பு கோப்பில் அமைக்கப்பட்ட `ரன்_கரண்ட்` மதிப்பை விட` Set_tmc_current` உடன் நீரோட்டங்களை உயர்த்த முடியாது. இருப்பினும், இது ஒரு பக்க விளைவைக் கொண்டுள்ளது: `set_tmc_current` ஐ இயக்கிய பிறகு, ச்டெப்பப்பர் 2 ஐப் பயன்படுத்தினால், ச்டெப்பரை> 130ms க்கு நிறுத்த வேண்டும், இதனால்#1 அளவுத்திருத்தம் இயக்கி செயல்படுத்தப்படுகிறது.
 
-20230202: `printer.screws_tilt_adjust` நிலைத் தகவலின் வடிவம் மாறிவிட்டது. இந்தத் தகவல் இப்போது விளைந்த அளவீடுகளுடன் திருகுகளின் அகராதியாகச் சேமிக்கப்படுகிறது. விவரங்களுக்கு [நிலை குறிப்பு](Status_Reference.md#screws_tilt_adjust) ஐப் பார்க்கவும்.
+20230202: `printel.screws_tilt_adjust` நிலை தகவல்களின் வடிவம் மாறிவிட்டது. இதன் விளைவாக அளவீடுகளுடன் திருகுகளின் அகராதியாகச் செய்தி இப்போது சேமிக்கப்படுகிறது. விவரங்களுக்கு [நிலை குறிப்பு](Status_Reference.md#screws_tilt_adjust) ஐப் பார்க்கவும்.
 
 20230201: `[BED_MESH]` தொகுதி இனி தொடக்கத்தில் `இயல்புநிலை` சுயவிவரத்தை ஏற்றாது. `இயல்புநிலை` சுயவிவரத்தைப் பயன்படுத்தும் பயனர்கள்` BED_MESH_PROFILE LOAD = இயல்புநிலை` அவர்களின் `START_PRINT` மேக்ரோவுக்கு (அல்லது அவற்றின் ச்லைசரின்" தொடக்க சி-குறியீடு "உள்ளமைவுக்கு பொருந்தும் போது) சேர்க்க பரிந்துரைக்கப்படுகிறது.
 
@@ -89,21 +125,21 @@ reference](./Config_Reference.md#hall_filament_width_sensor) for more details.
 
 20220304: [எக்ச்ட்ரூடர்_ச்டெப்பர்](config_reference.md#extruder_stepper) கட்டமைப்பு பிரிவுகளின் `எக்ச்ட்ரூடர்` அளவுருவுக்கு இனி இயல்புநிலை இல்லை. விரும்பினால், ச்டெப்பர் மோட்டாரைத் தொடக்கத்தில் "எக்ச்ட்ரூடர்" மோசன் வரிசையுடன் இணைக்க `எக்ச்ட்ரூடர்: எக்ச்ட்ரூடர்` ஐ வெளிப்படையாகக் குறிப்பிடவும்.
 
-20220210: `SYNC_STEPPER_TO_EXTRUDER` கட்டளை நிறுத்தப்பட்டது; `SET_EXTRUDER_STEP_DISTANCE` கட்டளை நிறுத்தப்பட்டது; [extruder](Config_Reference.md#extruder) `shared_heater` config விருப்பம் நிறுத்தப்பட்டது. இந்த அம்சங்கள் விரைவில் அகற்றப்படும். `SET_EXTRUDER_STEP_DISTANCE` ஐ `SET_EXTRUDER_ROTATION_DISTANCE` உடன் மாற்றவும். `SYNC_STEPPER_TO_EXTRUDER` ஐ `SYNC_EXTRUDER_MOTION` உடன் மாற்றவும். `shared_heater` ஐப் பயன்படுத்தி எக்ஸ்ட்ரூடர் கட்டமைப்புப் பிரிவுகளை [extruder_stepper](Config_Reference.md#extruder_stepper) கட்டமைப்பு பிரிவுகளுடன் மாற்றவும், மேலும் [SYNC_EXTRUDER_MOTION](G-Codes.md#sync_extruder_motion) ஐப் பயன்படுத்த எந்தச் செயல்படுத்தல் மேக்ரோக்களையும் புதுப்பிக்கவும்.
+20220210: `sync_stepper_to_extruder` கட்டளை நீக்கப்பட்டது; `set_extruder_step_distance` கட்டளை நீக்கப்பட்டது; [எக்ச்ட்ரூடர்](Config_Reference.md#extruder) `பகிரப்பட்ட_ஈட்டர்` கட்டமைப்பு விருப்பம் நீக்கப்பட்டது. இந்த நற்பொருத்தங்கள் எதிர்காலத்தில் அகற்றப்படும். `Set_extruder_step_distance` ஐ` set_extruder_rotation_distance` உடன் மாற்றவும். `Sync_stepper_to_extruder` ஐ` sync_extruder_motion` உடன் மாற்றவும். [எக்ச்ட்ரூடர்_ச்டெப்பர்](config_reference.md#extruder_stepper) உடன் `செரேட்_ஈட்டர்` ஐப் பயன்படுத்தி எக்ச்ட்ரூடர் கட்டமைப்புப் பிரிவுகளை மாற்றி, [Sync_extruder_motion](g-codes.md#sync_extruder_motion) பயன்படுத்த எந்தச் செயல்படுத்தல் மேக்ரோக்களையும் புதுப்பிக்கவும்.
 
 20220116: TMC2130, TMC2208, TMC2209, மற்றும் TMC2660 `RUN_CURRENT` கணக்கீட்டு குறியீடு மாறிவிட்டது. சில `ரன்_கரண்ட்` அமைப்புகளுக்கு இயக்கிகள் இப்போது வித்தியாசமாக கட்டமைக்கப்படலாம். இந்த புதிய உள்ளமைவு மிகவும் துல்லியமாக இருக்க வேண்டும், ஆனால் இது முந்தைய டிஎம்சி டிரைவர் ட்யூனிங்கை செல்லாது.
 
-20211230: உள்ளீட்டு வடிவத்தை மாற்றுவதற்கான ஸ்கிரிப்டுகள் (`scripts/calibrate_shaper.py` மற்றும் `scripts/graph_accelerometer.py`) முன்னிருப்பாக Python3 ஐப் பயன்படுத்த நகர்த்தப்பட்டன. இதன் விளைவாக, பயனர்கள் இந்த ஸ்கிரிப்ட்களைத் தொடர்ந்து பயன்படுத்தச் சில தொகுப்புகளின் Python3 பதிப்புகளை (எ.கா. `sudo apt install python3-numpy python3-matplotlib`) நிறுவ வேண்டும். மேலும் விவரங்களுக்கு, [Software installation](Measuring_Resonances.md#software-installation) ஐப் பார்க்கவும். மாற்றாக, பயனர்கள் கன்சோலில் Python2 interpreter ஐ வெளிப்படையாக அழைப்பதன் மூலம் Python 2 இன் கீழ் இந்த ஸ்கிரிப்ட்களை செயல்படுத்துவதை தற்காலிகமாகக் கட்டாயப்படுத்தலாம்: `python2 ~/klipper/scripts/calibrate_shaper.py ...`
+20211230: உள்ளீட்டு வடிவத்தை மாற்றுவதற்கான கைஉரைகள் (`scripts/calibrate_shaper.py` மற்றும் `scripts/graph_accelerometer.py`) முன்னிருப்பாக Python3 ஐப் பயன்படுத்த நகர்த்தப்பட்டன. இதன் விளைவாக, பயனர்கள் இந்த ஸ்கிரிப்ட்களைத் தொடர்ந்து பயன்படுத்தச் சில தொகுப்புகளின் Python3 பதிப்புகளை (எ.கா. `sudo apt install python3-numpy python3-matplotlib`) நிறுவ வேண்டும். மேலும் விவரங்களுக்கு, [Software installation](Measuring_Resonances.md#software-installation) ஐப் பார்க்கவும். மாற்றாக, பயனர்கள் கன்சோலில் Python2 interpreter ஐ வெளிப்படையாக அழைப்பதன் மூலம் Python 2 இன் கீழ் இந்த ஸ்கிரிப்ட்களை செயல்படுத்த தற்காலிகமாகக் கட்டாயப்படுத்தலாம்: `python2 ~/klipper/scripts/calibrate_shaper.py ...`
 
-20211110: "NTC 100K பீட்டா 3950" வெப்பநிலை சென்சார் நிறுத்தப்பட்டது. இந்தச் சென்சார் விரைவில் எதிர்காலத்தில் அகற்றப்படும். பெரும்பாலான பயனர்கள் "ஜெனரிக் 3950" வெப்பநிலை சென்சார் மிகவும் துல்லியமாக இருப்பதைக் காண்பார்கள். பழைய (பொதுவாகக் குறைவான துல்லியமான) வரையறையைத் தொடர்ந்து பயன்படுத்த, `temperature1: 25`, `resistance1: 100000` மற்றும் `beta: 3950` உடன் தனிப்பயன் [thermistor](Config_Reference.md#thermistor) ஐ வரையறுக்கவும்.
+20211110: "NTC 100K பீட்டா 3950" வெப்பநிலை சென்சார் நிறுத்தப்பட்டது. இந்த சென்சார் விரைவில் எதிர்காலத்தில் அகற்றப்படும். பெரும்பாலான பயனர்கள் "ஜெனரிக் 3950" வெப்பநிலை சென்சார் மிகவும் துல்லியமாக இருப்பதைக் காண்பார்கள். பழைய (பொதுவாக குறைவான துல்லியமான) வரையறையைத் தொடர்ந்து பயன்படுத்த, `temperature1: 25`, `resistance1: 100000` மற்றும் `beta: 3950` உடன் தனிப்பயன் [thermistor](Config_Reference.md#thermistor) ஐ வரையறுக்கவும்.
 
-20211104: "make menuconfig" இல் உள்ள "step pulse duration" விருப்பம் நீக்கப்பட்டது. UART அல்லது SPI பயன்முறையில் உள்ளமைக்கப்பட்ட TMC இயக்கிகளுக்கான இயல்புநிலை படி கால அளவு இப்போது 100ns ஆகும். [stepper config பிரிவில்](Config_Reference.md#stepper) ஒரு புதிய `step_pulse_duration` அமைப்பைத் தனிப்பயன் பல்ஸ் கால அளவு தேவைப்படும் அனைத்து ஸ்டெப்பர்களுக்கும் அமைக்க வேண்டும்.
+20211104: "மேக் மெனுகான்ஃபிக்" இல் உள்ள "படி துடிப்பு காலம்" விருப்பம் அகற்றப்பட்டுள்ளது. UART அல்லது SPI பயன்முறையில் கட்டமைக்கப்பட்ட TMC இயக்கிகளுக்கான இயல்புநிலை படி காலம் இப்போது 100ns ஆகும். தனிப்பயன் துடிப்பு காலம் தேவைப்படும் அனைத்து ச்டெப்பர்களுக்கும் [STEPPER கட்டமைப்புப் பிரிவு](Config_Reference.md#stepper) ஒரு புதிய `step_pulse_duration` அமைப்பு அமைக்கப்பட வேண்டும்.
 
 20211102: பல நீக்கப்பட்ட நற்பொருத்தங்கள் அகற்றப்பட்டுள்ளன. ச்டெப்பர் `Step_distance` விருப்பம் அகற்றப்பட்டது (20201222 அன்று நீக்கப்பட்டது). `Rpi_temperature` சென்சார் மாற்றுப்பெயர் அகற்றப்பட்டது (20210219 அன்று நீக்கப்பட்டது). MCU `PIN_MAP` விருப்பம் அகற்றப்பட்டது (20210325 அன்று நீக்கப்பட்டது). Gcode_macro `default_parameter_ <aname>` மற்றும் `அளவுருக்கள்` போலி-வருங்கால வழியாகத் தவிர வேறு கட்டளை அளவுருக்களுக்கான மேக்ரோ அணுகல் அகற்றப்பட்டது (20210503 அன்று நீக்கப்பட்டது). ஈட்டர் `PID_INTEGRAL_MAX` விருப்பம் அகற்றப்பட்டது (20210612 அன்று நீக்கப்பட்டது).
 
 20210929: வெட்டுக்கள் V0.10.0 வெளியிடப்பட்டது.
 
-20210903: ஈட்டர்களுக்கான இயல்புநிலை [`sempig_time`](config_reference.md#எக்ச்ட்ரூடர்) 1 வினாடியாக (2 வினாடிகளிலிருந்து) மாறிவிட்டது. பெரும்பாலான அச்சுப்பொறிகளுக்கு இது மிகவும் நிலையான வெப்பநிலை கட்டுப்பாட்டை ஏற்படுத்தும்.
+20210903: ஈட்டர்களுக்கான இயல்புநிலை [`smooth_time`](Config_Reference.md#extruder) 1 வினாடியாக (2 வினாடிகளிலிருந்து) மாறிவிட்டது. பெரும்பாலான அச்சுப்பொறிகளுக்கு இது மிகவும் நிலையான வெப்பநிலை கட்டுப்பாட்டை ஏற்படுத்தும்.
 
 20210830: இயல்புநிலை ADXL345 பெயர் இப்போது "ADXL345". `முடுக்கமானி_மெய்சர்` மற்றும்` முடுக்கமானி_க்யூரி` ஆகியவற்றிற்கான இயல்புநிலை சிப் அளவுரு இப்போது "ADXL345" ஆகும்.
 
@@ -115,7 +151,7 @@ reference](./Config_Reference.md#hall_filament_width_sensor) for more details.
 
 20210814: ATMEGA168 மற்றும் ATMEGA328 இல் உள்ள அனலாக் மட்டும் போலி-பின்ச் PE0/PE1 இலிருந்து PE2/PE3 க்கு மறுபெயரிடப்பட்டுள்ளது.
 
-20210720: ஒரு கட்டுப்படுத்தி_பான் பிரிவு இப்போது அனைத்து ச்டெப்பர் மோட்டார்களையும் இயல்பாகவே கண்காணிக்கிறது (இயக்கவியல் ச்டெப்பர் மோட்டார்கள் மட்டுமல்ல). முந்தைய நடத்தை விரும்பினால், [கட்டமைப்புக் குறிப்பு](config_reference.md#controler_fan) இல் `ச்டெப்பர்` கட்டமைப்பு விருப்பத்தைப் பார்க்கவும்.
+20210720: ஒரு கட்டுப்படுத்தி_பான் பிரிவு இப்போது அனைத்து ச்டெப்பர் மோட்டார்களையும் இயல்பாகவே கண்காணிக்கிறது (இயக்கவியல் ச்டெப்பர் மோட்டார்கள் மட்டுமல்ல). முந்தைய நடத்தை விரும்பினால், [கட்டமைப்புக் குறிப்பு](Config_Reference.md#controller_fan) இல் `ச்டெப்பர்` கட்டமைப்பு விருப்பத்தைப் பார்க்கவும்.
 
 20210703: ஒரு `SAMD_SERCOM` கட்டமைப்பு பிரிவு இப்போது` செர்காம்` விருப்பம் வழியாக கட்டமைக்கும் செர்காம் பச்சைக் குறிப்பிட வேண்டும்.
 
@@ -126,9 +162,9 @@ document](Command_Templates.md#macro-parameters) for examples.
 
 20210430: set_velocity_limit (மற்றும் M204) கட்டளை இப்போது கட்டமைப்பு கோப்பில் குறிப்பிட்ட மதிப்புகளை விட பெரிய விரைவு, முடுக்கம் மற்றும் சதுர_கார்னர்_வெலோசிட்டி ஆகியவற்றை அமைக்கலாம்.
 
-20210325: `pin_map` config விருப்பத்திற்கான ஆதரவு நிறுத்தப்பட்டது. உண்மையான மைக்ரோ-கண்ட்ரோலர் பின் பெயர்களுக்கு மொழிபெயர்க்க [sample-aliases.cfg](../config/sample-aliases.cfg) கோப்பைப் பயன்படுத்தவும். `pin_map` config விருப்பம் விரைவில் அகற்றப்படும்.
+20210325: `பின்_மாப்` கட்டமைப்பு விருப்பத்திற்கான உதவி நீக்கப்பட்டது. உண்மையான மைக்ரோ-கன்ட்ரோலர் முள் பெயர்களுக்கு மொழிபெயர்க்க [மாதிரி-மாற்றுகள்.cfg](../config/sample-aliases.cfg) கோப்பைப் பயன்படுத்தவும். `பின்_மாப்` கட்டமைப்பு விருப்பம் எதிர்காலத்தில் அகற்றப்படும்.
 
-20210313: CAN பஸ்ஸுடன் தொடர்பு கொள்ளும் மைக்ரோ-கண்ட்ரோலர்களுக்கான கிளிப்பரின் ஆதரவு மாறிவிட்டது. CAN பஸ்ஸைப் பயன்படுத்தினால், அனைத்து மைக்ரோ-கண்ட்ரோலர்களும் மீண்டும் ஃபிளாஷ் செய்யப்பட வேண்டும் மற்றும் [கிளிப்பர் உள்ளமைவு புதுப்பிக்கப்பட வேண்டும்](CANBUS.md).
+20210313: கேன் பச்சுடன் தொடர்பு கொள்ளும் மைக்ரோ-கன்ட்ரோலர்களுக்கு கிளிப்பரின் உதவி மாறிவிட்டது. CAN பச் பயன்படுத்தினால், அனைத்து மைக்ரோ-கன்ட்ரோலர்களும் மறுசீரமைக்கப்பட வேண்டும், மேலும் [கிளிப்பர் உள்ளமைவு புதுப்பிக்கப்பட வேண்டும்](CANBUS.md).
 
 20210310: டிரைவர்_பில்ட்டுக்கான டிஎம்சி 2660 இயல்புநிலை 1 முதல் 0 வரை மாற்றப்பட்டுள்ளது.
 
@@ -140,15 +176,15 @@ document](Command_Templates.md#macro-parameters) for examples.
 
 20210201: `முடுக்கமானி_மீசூர்` கட்டளை இப்போது அச்சுப்பொறியின் தொடர்புடைய ADXL345 பிரிவில் சிப்புக்கு ஒரு பெயர் வழங்கப்பட்டால், முடுக்கமானி சிப்பின் பெயரை வெளியீட்டு கோப்பு பெயருடன் சேர்க்கும்.
 
-20201222: ஸ்டெப்பர் கட்டமைப்புப் பிரிவுகளில் உள்ள `படி_தூரம்` அமைப்பு நிறுத்தப்பட்டது. [`rotation_distance`](Rotation_Distance.md) அமைப்பைப் பயன்படுத்தக் கட்டமைப்பைப் புதுப்பிக்க அறிவுறுத்தப்படுகிறது. `படி_தூரம்` க்கான ஆதரவு விரைவில் அகற்றப்படும்.
+20201222: ச்டெப்பர் கட்டமைப்பு பிரிவுகளில் `STEP_DISTANCE` அமைப்பு நீக்கப்பட்டது. [`சுழற்சி_டிச்டன்ச்`](Rotation_Distance.md) அமைப்பைப் பயன்படுத்தக் கட்டமைப்பைப் புதுப்பிக்க அறிவுறுத்தப்படுகிறது. `Step_distance` க்கான உதவி எதிர்காலத்தில் அகற்றப்படும்.
 
-20201218: endstop_phase தொகுதியில் உள்ள `endstop_phase` அமைப்பு `trigger_phase` உடன் மாற்றப்பட்டுள்ளது. endstop கட்டங்கள் தொகுதியைப் பயன்படுத்தினால், அதை [`rotation_distance`](Rotation_Distance.md)ஆக மாற்றுவதும், ENDSTOP_PHASE_CALIBRATE கட்டளையை இயக்குவதன் மூலம் எந்த எண்ட்ஸ்டாப் கட்டங்களையும் மீண்டும் அளவீடு செய்வதும் அவசியம்.
+20201218: EndStop_Phase தொகுதியில் `EndStop_Phase` அமைப்பு` Trigger_Phase` உடன் மாற்றப்பட்டுள்ளது. எண்ட்ச்டாப் கட்ட தொகுதிகள் தொகுதியைப் பயன்படுத்தினால், [`சுழற்சி_டிச்டன்ச்`](Rotation_Distance.md) and recalibrate any endstop phases by running the ENDSTOP_PHASE_CALIBRATE command.
 
-20201218: ரோட்டரி டெல்டா மற்றும் போலார் பிரிண்டர்கள் இப்போது அவற்றின் ரோட்டரி ஸ்டெப்பர்களுக்கு `கியர்_ரேஷியோ`வைக் குறிப்பிட வேண்டும், மேலும் அவை இனி `படி_தூரம்` அளவுருவைக் குறிப்பிடாமல் போகலாம். புதிய கியர்_ரேஷியோ அளவுருவின் வடிவமைப்பிற்கு [config reference](Config_Reference.md#stepper) ஐப் பார்க்கவும்.
+20201218: Rotary delta and polar printers must now specify a `gear_ratio` for their rotary steppers, and they may no longer specify a `step_distance` parameter. See the [config reference](Config_Reference.md#stepper) for the format of the new gear_ratio parameter.
 
 20201213: "ஆய்வு: z_virtual_endstop" ஐப் பயன்படுத்தும் போது ஒரு சட் "pasition_endstop" ஐக் குறிப்பிடுவது செல்லுபடியாகாது. ஒரு சட் "pasition_endstop" "ஆய்வு: Z_Virtual_endstop" உடன் குறிப்பிடப்பட்டால் பிழை இப்போது உயர்த்தப்படும். பிழையை சரிசெய்ய சட் "pasition_endstop" வரையறையை அகற்று.
 
-20201120: `[board_pins]` config பிரிவு இப்போது ஒரு வெளிப்படையான `mcu:` அளவுருவில் mcu பெயரைக் குறிப்பிடுகிறது. இரண்டாம் நிலை mcu க்கு board_pins ஐப் பயன்படுத்தினால், அந்த பெயரைக் குறிப்பிட config புதுப்பிக்கப்பட வேண்டும். மேலும் விவரங்களுக்கு [config reference](Config_Reference.md#board_pins) ஐப் பார்க்கவும்.
+20201120: `[போர்டு_பின்ச்]` கட்டமைப்புப் பிரிவு இப்போது MCU பெயரை வெளிப்படையான `MCU:` அளவுருவில் குறிப்பிடுகிறது. இரண்டாம் நிலை MCU க்கு போர்டு_பின்களைப் பயன்படுத்தினால், அந்தப் பெயரைக் குறிப்பிட கட்டமைப்பு புதுப்பிக்கப்பட வேண்டும். மேலும் விவரங்களுக்குக் [கட்டமைப்புக் குறிப்பு](config_reference.md#board_pins) ஐப் பார்க்கவும்.
 
 20201112: `print_stats.print_duration` ஆல் அறிவிக்கப்பட்ட நேரம் மாறிவிட்டது. முதலில் கண்டறியப்பட்ட வெளியேற்றத்திற்கு முந்தைய காலம் இப்போது விலக்கப்பட்டுள்ளது.
 
@@ -202,7 +238,7 @@ document](Command_Templates.md#macro-parameters) for examples.
 
 20191121: PRESSER_ADVANCE_LOOKAHEAD_TIME அளவுரு அகற்றப்பட்டது. மாற்று உள்ளமைவு அமைப்புகளுக்கு example.cfg ஐப் பார்க்கவும்.
 
-20191112: ஸ்டெப்பரில் பிரத்யேக ஸ்டெப்பர் இயக்கப் பின் இல்லையென்றால் tmc ஸ்டெப்பர் இயக்கி மெய்நிகர் இயக்கத் திறன் இப்போது தானாகவே இயக்கப்படும். config இலிருந்து tmcXXXX:virtual_enable க்கான குறிப்புகளை அகற்று. stepper enable_pin config இல் பல பின்களைக் கட்டுப்படுத்தும் திறன் நீக்கப்பட்டுள்ளது. பல பின்கள் தேவைப்பட்டால், multi_pin config பிரிவைப் பயன்படுத்தவும்.
+20191112: டிஎம்சி ச்டெப்பர் டிரைவர் மெய்நிகர் திறனை இப்போது தானாகவே இயக்கப்படுகிறது, ச்டெப்பருக்கு பிரத்யேக ச்டெப்பர் இயக்குநர் முள் இல்லை என்றால். TMCXXXX க்கான குறிப்புகளை அகற்று: கட்டமைப்பிலிருந்து மெய்நிகர்_இன் செய்யக்கூடியது. ச்டெப்பரில் பல ஊசிகளைக் கட்டுப்படுத்தும் திறன் Enable_pin கட்டமைப்பை அகற்றியது. பல ஊசிகள் தேவைப்பட்டால், மல்டி_பின் கட்டமைப்பு பகுதியைப் பயன்படுத்தவும்.
 
 20191107: முதன்மை எக்ச்ட்ரூடர் கட்டமைப்பு பிரிவு "எக்ச்ட்ரூடர்" என்று குறிப்பிடப்பட வேண்டும், மேலும் இனி "எக்ச்ட்ரூடர் 0" என்று குறிப்பிடப்படாது. எக்ச்ட்ரூடர் நிலையை வினவும் GCODE கட்டளை வார்ப்புருக்கள் இப்போது "{printer.extruder}" வழியாக அணுகப்படுகின்றன.
 
@@ -220,7 +256,7 @@ document](Command_Templates.md#macro-parameters) for examples.
 
 20190710: ஆய்வு_சூரசி கட்டளையின் விருப்ப அளவுருக்கள் மாறிவிட்டன. அந்த கட்டளையைப் பயன்படுத்தும் எந்த மேக்ரோக்கள் அல்லது ச்கிரிப்ட்களையும் புதுப்பிக்க வேண்டியது தேவை.
 
-20190628: [skew_correction] பிரிவிலிருந்து அனைத்து உள்ளமைவு விருப்பங்களும் அகற்றப்பட்டுள்ளன. skew_correction க்கான உள்ளமைவு இப்போது SET_SKEW gcode வழியாகச் செய்யப்படுகிறது. பரிந்துரைக்கப்பட்ட பயன்பாட்டிற்கு [Skew Correction](Skew_Correction.md) ஐப் பார்க்கவும்.
+20190628: அனைத்து உள்ளமைவு விருப்பங்களும் [SKEW_CORRECTION] பிரிவிலிருந்து அகற்றப்பட்டுள்ளன. SKEW_CORRECTION க்கான உள்ளமைவு இப்போது SET_SKEW GCODE வழியாகச் செய்யப்படுகிறது. பரிந்துரைக்கப்பட்ட பயன்பாட்டிற்கு [SKEW திருத்தம்](SKEW_CORRECTION.MD) ஐப் பார்க்கவும்.
 
 20190607: GCODE_MACRO இன் "மாறி_எக்ச்" அளவுருக்கள் (SET_GCODE_VARIABLE இன் மதிப்பு அளவுருவுடன்) இப்போது பைதான் லிட்டரர்களாக பாகுபடுத்தப்பட்டுள்ளன. ஒரு மதிப்பை ஒரு சரம் ஒதுக்க வேண்டும் என்றால், மதிப்பை மேற்கோள்களில் மடிக்கவும், இதனால் அது ஒரு சரமாக மதிப்பிடப்படும்.
 
@@ -240,9 +276,9 @@ document](Command_Templates.md#macro-parameters) for examples.
 
 20190322: [TMC2660] கட்டமைப்பு பிரிவுகளில் "டிரைவர்_எண்ட்" க்கான இயல்புநிலை மதிப்பு 6 முதல் 3 வரை மாற்றப்பட்டது. "டிரைவர்_வ்சென்ச்" புலம் அகற்றப்பட்டது (இது இப்போது தானாகவே ரன்_கரண்டிலிருந்து கணக்கிடப்படுகிறது).
 
-20190310: [controller_fan] config பிரிவு இப்போது எப்போதும் ஒரு பெயரை எடுக்கும் (எ.கா. [controller_fan my_controller_fan]).
+20190310: [கட்டுப்படுத்தி_ஃபான்] கட்டமைப்புப் பிரிவு இப்போது எப்போதும் ஒரு பெயரை எடுக்கும் ([controller_fan my_controller_fan] போன்றவை).
 
-20190308: [tmc2130] மற்றும் [tmc2208] கட்டமைப்பு பிரிவுகளில் உள்ள "driver_BLANK_TIME_SELECT" புலம் "driver_TBL" என மறுபெயரிடப்பட்டது.
+20190308: [tmc2130] மற்றும் [tmc2208] கட்டமைப்பில் உள்ள "driver_BLANK_TIME_SELECT" புலம் "driver_TBL" என மறுபெயரிடப்பட்டது.
 
 20190308: [TMC2660] கட்டமைப்பு பிரிவு மாறிவிட்டது. ஒரு புதிய சென்ச்_ரெசிச்டர் கட்டமைப்பு அளவுரு இப்போது வழங்கப்பட வேண்டும். பல இயக்கி_எக்ச்எக்ச் அளவுருக்களின் பொருள் மாறிவிட்டது.
 

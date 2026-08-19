@@ -26,7 +26,7 @@ Ellenőrizd, hogy a nyomtató minden tengelye manuálisan szabadon mozog-e (a l�
 
 Kézzel mozgasd az összes nyomtatótengelyt úgy, hogy egyikük se érintkezzen végállással. Küldj QUERY_ENDSTOPS parancsot a parancskonzolon keresztül. Válaszul meg kell kapnod az összes konfigurált végállás aktuális állapotát, és mindegyiknek "nyitott" állapotot kell jeleznie. Minden egyes végállás esetében futtasd újra a QUERY_ENDSTOPS parancsot, miközben kézzel kezdeményezed a végállást. A QUERY_ENDSTOPS parancsnak a végállást "TRIGGERED"-ként kell jeleznie.
 
-Ha a végállás invertáltnak tűnik ("nyitott" jelzést ad, amikor kivált, és fordítva), akkor adjunk hozzá egy "!"-t a pin-definícióhoz (például "endstop_pin: ^PA2"), vagy távolítsuk el a "!"-t, ha már van benne egy.
+If the endstop appears inverted (it reports "open" when triggered and vice-versa) then add a "!" to the pin definition (for example, "endstop_pin: ^!PA2"), or remove the "!" if there is already one present.
 
 Ha a végállás egyáltalán nem változik, akkor ez általában azt jelzi, hogy a végállás egy másik tűhöz van csatlakoztatva. Azonban az is előfordulhat, hogy a tű "pullup" beállításának megváltoztatására van szükség (a '^' az endstop_pin név elején, a legtöbb nyomtató "pullup" ellenállást használ, és a '^' -nek jelen kell lennie).
 

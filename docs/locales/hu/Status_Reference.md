@@ -133,6 +133,12 @@ A következő információk a [firmware_retraction](Config_Reference.md#firmware
 
 - `retract_length`, `retract_speed`, `unretract_extra_length`, `unretract_speed`: A firmware_retraction modul aktuális beállításai. Ezek a beállítások eltérhetnek a konfigurációs állománytól, ha a `SET_RETRACTION` parancs megváltoztatja őket.
 
+## gcode
+
+The following information is available in the `gcode` object:
+
+- `commands`: Returns a list of all currently available commands. For each command, if a help string is defined it will also be provided.
+
 ## gcode_button
 
 A következő információk a [gcode_button some_name](Config_Reference.md#gcode_button) objektumokban érhetők el:
@@ -149,14 +155,15 @@ A következő információk a [gcode_macro some_name](Config_Reference.md#gcode_
 
 A következő információk a `gcode_move` objektumban érhetők el (ez az objektum mindig elérhető):
 
-- `gcode_position`: A nyomtatófej aktuális pozíciója az aktuális G-kód origóhoz képest. Vagyis olyan pozíciók, amelyeket közvetlenül egy `G1` parancsnak küldhetünk. Lehetőség van e pozíció X, Y, Z és az E, komponensének elérésére (pl. `gcode_position.x`).
-- `position`: A nyomtatófej utolsó kiadott pozíciója a konfigurációs fájlban megadott koordináta rendszerrel. Lehetőség van ennek a pozíciónak az X, Y, Z és az E, komponenséhez hozzáférni (pl. `position.x`).
-- `homing_origin`: A G-kód koordináta rendszer origója (a config fájlban megadott koordináta rendszerhez képest), amelyet a `G28` parancs után használni kell. A `SET_GCODE_OFFSET` parancs megváltoztathatja ezt a pozíciót. Lehetőség van ennek a pozíciónak az X, Y és Z komponenséhez hozzáférni (pl. `homing_origin.x`).
+- `gcode_position`: The current position of the toolhead relative to the current G-Code origin. That is, positions that one might directly send to a `G1` command. This value is encoded as a [coordinate](#accessing-coordinates).
+- `position`: The last commanded position of the toolhead using the coordinate system specified in the config file. This value is encoded as a [coordinate](#accessing-coordinates).
+- `homing_origin`: The origin of the gcode coordinate system (relative to the coordinate system specified in the config file) to use after a `G28` command. The `SET_GCODE_OFFSET` command can alter this position. This value is encoded as a [coordinate](#accessing-coordinates).
 - `speed`: Az utolsó, `G1` parancsban beállított sebesség (mm/sec-ben).
 - `speed_factor`: Az `M220` parancs által beállított "sebességtényező felülbírálása". Ez egy lebegőpontos érték, így 1.0 azt jelenti, hogy nincs felülbírálat, és például a 2.0 megduplázza a kért sebességet.
 - `extrude_factor`: Az `M221` parancs által beállított "extrude factor override". Ez egy lebegőpontos érték, így 1.0 azt jelenti, hogy nincs felülbírálat, és például a 2.0 megduplázza a kért extrudálásokat.
 - `absolute_coordinates`: True értéket ad, ha a `G90` abszolút koordináta módban van, vagy False értéket, ha a `G91` relatív módban van.
 - `absolute_extrude`: True értéket ad, ha az `M82` abszolút extrude módban van, vagy False értéket, ha az `M83` relatív módban van.
+- `axis_map`: Provides a mechanism for finding the coordinate component for a given G-Code id that is used in `G1` commands. See the [Accessing Coordinates](#accessing-coordinates) section for details.
 
 ## hall_filament_width_sensor
 
@@ -164,7 +171,8 @@ A következő információk a [hall_filament_width_sensor](Config_Reference.md#h
 
 - all items from [filament_switch_sensor](Status_Reference.md#filament_switch_sensor)
 - `is_active`: True értéket ad, ha az érzékelő jelenleg aktív.
-- `Diameter`: Az érzékelő utolsó leolvasása mm-ben.
+- `flow_compensation_enabled`: Returns True if flow compensation is enabled.
+- `Diameter`: Returns the last width reading in mm if the sensor is active or the nominal filament diameter if it is not.
 - `Raw`: Az érzékelő utolsó nyers ADC-olvasása.
 
 ## heater
@@ -190,24 +198,28 @@ A következő információk az [idle_timeout](Config_Reference.md#idle_timeout) 
 
 - `state`: A nyomtató aktuális állapota, amelyet az idle_timeout modul követ. A következő karakterláncok egyike: "Idle", "Printing", "Ready".
 - `printing_time`: Az az idő (másodpercben), amíg a nyomtató "nyomtatás" állapotban volt (ahogyan azt az idle_timeout modul követi).
+- `idle_timeout`: The current 'timeout' (in seconds) to wait for the gcode to be triggered. (as set by [SET_IDLE_TIMEOUT](G-Codes.md#set_idle_timeout))
 
 ## led
 
 A következő információk állnak rendelkezésre minden egyes `[led led_name]`, `[neopixel led_name` esetében, `[dotstar led_name]`, `[pca9533 led_name]`, és `[pca9632 led_name]` a nyomtatóban meghatározott printer.cfg fájlban:
 
-- `color_data`: A láncban lévő ledek RGBW értékeit tartalmazó színlisták listája. Minden értéket 0,0 és 1,0 közötti lebegőértékben ábrázolunk. Minden színlista 4 elemet tartalmaz (piros, zöld, kék, fehér), még akkor is, ha az alatta lévő LED kevesebb színcsatornát támogat. Például a lánc második neopixelének kék értéke (a színlista 3. eleme) a `printer["neopixel <config_name>"].color_data[1][2]` címen érhető el.
+- `color_data`: A list of color lists containing the RGBW values for a led in the chain. Each value is represented as a float from 0.0 to 1.0. Each color list contains 4 items (red, green, blue, white) even if the underlying LED supports fewer color channels. For example, the blue value (3rd item in color list) of the second neopixel in a chain could be accessed at `printer["neopixel <config_name>"].color_data[1][2]`.
 
 ## load_cell
 
 The following information is available for each `[load_cell name]`:
 
-- 'is_calibrated': True/False is the load cell calibrated
-- 'counts_per_gram': The number of raw sensor counts that equals 1 gram of force
-- 'reference_tare_counts': The reference number of raw sensor counts for 0 force
-- 'tare_counts': The current number of raw sensor counts for 0 force
-- 'force_g': The force in grams, averaged over the last polling period.
-- 'min_force_g': The minimum force in grams, over the last polling period.
-- 'max_force_g': The maximum force in grams, over the last polling period.
+- `is_calibrated`: True/False whether the load cell is calibrated.
+- `counts_per_gram`: The number of raw sensor counts that equals 1 gram of force.
+- `reference_tare_counts`: The reference number of raw sensor counts for 0 force.
+- `tare_counts`: The current number of raw sensor counts for 0 force.
+- `force_g`: The force in grams, averaged over the last polling period.
+- `min_force_g`: The minimum force in grams, over the last polling period.
+- `max_force_g`: The maximum force in grams, over the last polling period.
+- `errors`: The number of sensor errors detected since the last start of measurements.
+- `overflows`: The number of data buffer overflows detected since the last start of measurements.
+- `sample_rate`: The sensor's sample rate in samples per second.
 
 ## load_cell_probe
 
@@ -215,8 +227,10 @@ The following information is available for `[load_cell_probe]`:
 
 - all items from [load_cell](Status_Reference.md#load_cell)
 - all items from [probe](Status_Reference.md#probe)
-- 'endstop_tare_counts': the load cell probe keeps a tare value independent of the load cell. This re-set at the start of each probe.
-- 'last_trigger_time': timestamp of the last homing trigger
+- `endstop_tare_counts`: The load cell probe keeps a tare value independent of the load cell. This is re-set at the start of each probe.
+- `last_trigger_time`: Timestamp of the last homing trigger.
+- `last_z_result`: The Z position result of the last tap.
+- `is_last_tap_valid`: True if the last tap result is valid.
 
 ## manual_probe
 
@@ -240,13 +254,13 @@ A következő információk az [mcu](Config_Reference.md#mcu) és [mcu some_name
 
 A következő információk a `motion_report` objektumban érhetők el (ez az objektum automatikusan elérhető, ha bármilyen stepper konfigurációs szakasz definiálva van):
 
-- `live_position`: A nyomtatófej kért pozíciója az aktuális időre interpolálva.
+- `live_position`: The requested toolhead position interpolated to the current time. This value is encoded as a [coordinate](#accessing-coordinates).
 - `live_velocity`: A nyomtatófej kért sebessége (mm/sec-ben) az aktuális időpontban.
 - `live_extruder_velocity`: A kért extruder sebesség (mm/sec-ben) az aktuális időpontban.
 
 ## output_pin
 
-A következő információk a [output_pin some_name](Config_Reference.md#output_pin) objektumokban érhetők el:
+The following information is available in [output_pin some_name](Config_Reference.md#output_pin) and [pwm_tool some_name](Config_Reference.md#pwm_tool) objects:
 
 - `value`: A `SET_PIN` paranccsal beállított "value" a tű értéke.
 
@@ -278,7 +292,8 @@ A következő információk a [szonda](Config_Reference.md#probe) objektumban é
 
 - `name`: Visszaadja a használt szonda nevét.
 - `last_query`: True értéket ad vissza, ha a szondát az utolsó QUERY_PROBE parancs során "triggered" -ként jelentették. Megjegyzés: ha ezt egy makróban használjuk, a sablon bővítési sorrendje miatt a QUERY_PROBE parancsot akkor ezt a hivatkozást tartalmazó makró előtt kell lefuttatni.
-- `last_z_result`: Az utolsó PROBE parancs Z eredményének értékét adja vissza. Figyelem, ha ezt egy makróban használjuk, a sablon bővítési sorrendje miatt a PROBE (vagy hasonló) parancsot akkor ezt a hivatkozást tartalmazó makró előtt kell lefuttatni.
+- `last_probe_position`: The results of the last `PROBE` command. This value is encoded as a [coordinate](#accessing-coordinates). The probe hardware estimates that if one were to command the toolhead to XY position `last_probe_position.x`,`last_probe_position.y` and descend then the tip of the toolhead would first contact the bed at a Z height of `last_probe_position.z`. These coordinates are relative to the frame (that is, they use the coordinate system specified in the config file). Note, if this is used in a macro, due to the order of template expansion, the `PROBE` command must be run prior to the macro containing this reference.
+- `last_z_result`: This value is deprecated; it will be removed in the near future.
 
 ## pwm_cycle_time
 
@@ -372,13 +387,14 @@ A következő információk a [TMC léptető motorvezérlők](Config_Reference.m
 
 A következő információk a `toolhead` objektumban érhetők el (ez az objektum mindig elérhető):
 
-- `position`: A nyomtatófej utolsó parancsolt pozíciója a konfigurációs fájlban megadott koordináta rendszerhez képest. Lehetőség van ennek a pozíciónak az X, Y, Z és az E, komponenséhez hozzáférni (pl. `position.x`).
+- `position`: The last commanded position of the toolhead relative to the coordinate system specified in the config file. This value is encoded as a [coordinate](#accessing-coordinates).
 - `extruder`: A jelenleg aktív extruder neve. Például egy makróban használhatjuk a `printer[printer.toolhead.extruder].target` parancsot, hogy megkapjuk az aktuális extruder célhőmérsékletét.
 - `homed_axes`: Az aktuálisan "homed" állapotban lévőnek tekintett cartesian tengelyek. Ez egy karakterlánc, amely egy vagy több "X", "Y", "Z" értéket tartalmaz.
-- `axis_minimum`, `axis_maximum`: A tengely mozgásának határai (mm) a kezdőpont felvétel után. Lehetőség van e határérték X, Y, Z összetevőinek elérésére (pl. `axis_minimum.x`, `axis_maximum.z`).
+- `axis_minimum`, `axis_maximum`: The axis travel limits (mm) after homing. This value is encoded as a [coordinate](#accessing-coordinates).
 - A Delta nyomtatók esetében a `cone_start_z` a maximális sugaraknál mért maximális Z magasság (`printer.toolhead.cone_start_z`).
 - `max_velocity`, `max_accel`, `minimum_cruise_ratio`, `square_corner_velocity`: Az aktuálisan érvényben lévő nyomtatási korlátok. Ez eltérhet a konfigurációs fájl beállításaitól, ha a `SET_VELOCITY_LIMIT` (vagy az `M204`) parancs futás közben módosítja azokat.
 - `stalls`: Az összes alkalom száma (az utolsó újraindítás óta), amikor a nyomtatót szüneteltetni kellett, mert a nyomtatófej gyorsabban mozgott, mint ahány mozdulatot a G-kód bemenetről be lehetett olvasni.
+- `extra_axes`: Provides a mechanism for finding the coordinate component for extra axes available in standard `G1` type move commands. See the [Accessing Coordinates](#accessing-coordinates) section for details.
 
 ## dual_carriage
 
@@ -424,3 +440,13 @@ A következő információk a `z_thermal_adjust` parancsal érhetők el (ez a pa
 A következő információk a `z_tilt` objektumban érhetők el (ez az objektum akkor érhető el, ha a z_tilt definiálva van):
 
 - `applied`: True, ha a Z végállás kiegyenlítési folyamat lefutott és sikeresen befejeződött.
+
+## Accessing Coordinates
+
+Some status fields provide a "coordinate". For macro users these fields may be accessed by component name (eg,`{printer.toolhead.position.x}`), where the component name may be "x", "y", or "z".
+
+For developers using the Klipper API Server these fields are transmitted as a list - for example: `{"toolhead": {"position": [1.0, 2.0, 3.0, 7.3, 19.2]}}` . The first three components of the list correspond with the x, y, and z axes.
+
+A coordinate will typically have at least 3 components (x, y, and z), however there may also be additional components. Care should be taken when accessing any of these additional components as the ordering and number of components may change at run-time.
+
+One may use `{printer.gcode_move.axis_map}` and/or `{printer.toolhead.extra_axes}` to determine the number of components and the ordering of components. For example, to access the "E" component one could use `{printer.toolhead.position[printer.gcode_move.axis_map.E]}`. Or, if one wanted to find the component associated with the "extruder" object, one could use `{printer.toolhead.position[printer.toolhead.extra_axes.extruder]}`.

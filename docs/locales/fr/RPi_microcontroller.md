@@ -73,7 +73,7 @@ Pour vérifier la puce gpio disponible exécutez :
 gpiodetect
 ```
 
-Pour vérifier la numérotation des broches du connecteur GPIO et leur disponibilité, exécutez :
+Pour vérifier la numérotation des broches du connecteur GPIO et leur disponibilité, exécutez :
 
 ```
 gpioinfo

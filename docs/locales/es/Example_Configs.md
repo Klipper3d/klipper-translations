@@ -9,7 +9,7 @@ Nótese que el [servidor de discusión de la comunidad de Klipper](https://commu
 1. Selecciona el prefijo del nombre del archivo de configuración apropiado:
    1. El prefijo `printer` es usado para impresoras comunes vendidas por los fabricantes principales.
    1. El prefijo `generic`es usado para una placa de impresión 3d que puede ser utilizada en varios tipos de impresoras.
-   1. The `kit` prefix is for 3d printers that are assembled according to a widely used specification. These "kit" printers are generally distinct from normal "printers" in that they are not sold by a manufacturer.
+   1. El prefijo «kit» se utiliza para las impresoras 3D que se montan según una especificación ampliamente utilizada. Estas impresoras «kit» se diferencian generalmente de las «impresoras» normales en que no son vendidas por un fabricante.
    1. El prefijo `sample` es usado para "cachos" de configuración que uno puede copiar y pegar en el archivo de configuración principal.
    1. El prefijo `example` es usado para describir la cinemática de impresoras. Este tipo de configuración es típicamente añadido solamente junto a código para un nuevo tipo de cinemática de impresoras.
 1. All configuration files must end in a `.cfg` suffix. The `printer` config files must end in a year followed by `.cfg` (eg, `-2019.cfg`). In this case, the year is an approximate year the given printer was sold.

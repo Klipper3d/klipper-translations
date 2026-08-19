@@ -1,8 +1,8 @@
-# OctoPrint for Klipper
+# Klipper için OctoPrint
 
 Klipper has a few options for its front ends, Octoprint was the first and original front end for Klipper. This document will give a brief overview of installing with this option.
 
-## Install with OctoPi
+## OctoPi ile yükle
 
 Start by installing [OctoPi](https://github.com/guysoft/OctoPi) on the Raspberry Pi computer. Use OctoPi v0.17.0 or later - see the [OctoPi releases](https://github.com/guysoft/OctoPi/releases) for release information.
 

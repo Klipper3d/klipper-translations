@@ -1,15 +1,15 @@
-# CANBUS Troubleshooting
+# Solución de problemas de CANBUS
 
-This document provides information on troubleshooting communication issues when using [Klipper with CAN bus](CANBUS.md).
+Este documento proporciona información sobre la resolución de problemas de comunicación al utilizar [Klipper con bus CAN](CANBUS.md).
 
-## Verify CAN bus wiring
+## Verificar el cableado del bus CAN.
 
-The first step in troubleshooting communication issues is to verify the CAN bus wiring.
+El primer paso para solucionar los problemas de comunicación es verificar el cableado del bus CAN.
 
 Be sure there are exactly two 120 Ohm [terminating
 resistors](CANBUS.md#terminating-resistors) on the CAN bus. If the resistors are not properly installed then messages may not be able to be sent at all or the connection may have sporadic instability.
 
-The CANH and CANL bus wiring should be twisted around each other. At a minimum, the wiring should have a twist every few centimeters. Avoid twisting the CANH and CANL wiring around power wires and ensure that power wires that travel parallel to the CANH and CANL wires do not have the same amount of twists.
+El cableado de los buses CANH y CANL debe estar trenzado entre sí. Como mínimo, el cableado debe tener un trenzado cada pocos centímetros. Evite trenzar el cableado CANH y CANL alrededor de los cables de alimentación y asegúrese de que los cables de alimentación que discurren en paralelo a los cables CANH y CANL no tengan la misma cantidad de trenzados.
 
 Verify that all plugs and wire crimps on the CAN bus wiring are fully secured. Movement of the printer toolhead may jostle the CAN bus wiring causing a bad wire crimp or unsecured plug to result in intermittent communication errors.
 

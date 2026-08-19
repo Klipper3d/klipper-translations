@@ -133,6 +133,12 @@ Note that only the rp2XXX micro-controllers report a non-zero `tx_retries` field
 
 - `retract_length`、`retract_speed`、`unretract_extra_length`、`unretract_speed`：firmware_retraction 模块的当前设置。如果 `SET_RETRACTION` 命令改变它们，这些设置可能与配置文件不同。
 
+## gcode
+
+The following information is available in the `gcode` object:
+
+- `commands`: Returns a list of all currently available commands. For each command, if a help string is defined it will also be provided.
+
 ## gcode_button
 
 在[Gcode_Button Some_NAME](Config_Reference.md#gcode_Button)对象中提供了以下信息：
@@ -149,14 +155,15 @@ Note that only the rp2XXX micro-controllers report a non-zero `tx_retries` field
 
 `gcode_move` 对象中提供了以下信息（该对象始终可用）：
 
-- `gcode_position`：工具头相对于当前 G 代码原点的当前位置。也就是可以直接被发送到`G1`命令的位置。可以分别访问这个位置的x、y、z和e分量（例如，`gcode_position.x`）。
-- `position`：打印头在配置文件中定义的坐标系中的最后指令位置。可以访问这个位置的x、y、z和e分量（例如，`position.x`）。
-- `homing_origin`：在`G28`命令之后要使用的 G-Code 坐标系的原点（相对于配置文件中定义的坐标系）。`SET_GCODE_OFFSET` 命令可以改变这个位置。可以分别访问这个位置的x、y和z分量（例如，`homing_origin.x`）。
+- `gcode_position`: The current position of the toolhead relative to the current G-Code origin. That is, positions that one might directly send to a `G1` command. This value is encoded as a [coordinate](#accessing-coordinates).
+- `position`: The last commanded position of the toolhead using the coordinate system specified in the config file. This value is encoded as a [coordinate](#accessing-coordinates).
+- `homing_origin`: The origin of the gcode coordinate system (relative to the coordinate system specified in the config file) to use after a `G28` command. The `SET_GCODE_OFFSET` command can alter this position. This value is encoded as a [coordinate](#accessing-coordinates).
 - `speed`：在`G1`命令中最后一次设定的速度（单位：mm/s）。
 - `speed_factor`：通过 `M220` 命令设置的"速度因子覆盖"。这是一个浮点值，1.0 意味着没有覆盖，例如，2.0 将请求的速度翻倍。
 - `extrude_factor`：由`M221`命令设置的"挤出倍率覆盖" 。这是一个浮点值，1.0意味着没有覆盖，例如，2.0将使要求的挤出量翻倍。
 - `absolute_coordinates`：如果在 `G90` 绝对坐标模式下，则返回 True；如果在 `G91` 相对模式下，则返回 False。
 - `absolute_extrude`：如果在`M82`绝对挤出模式，则返回True；如果在`M83`相对模式，则返回False。
+- `axis_map`: Provides a mechanism for finding the coordinate component for a given G-Code id that is used in `G1` commands. See the [Accessing Coordinates](#accessing-coordinates) section for details.
 
 ## hall_filament_width_sensor
 
@@ -164,7 +171,8 @@ Note that only the rp2XXX micro-controllers report a non-zero `tx_retries` field
 
 - all items from [filament_switch_sensor](Status_Reference.md#filament_switch_sensor)
 - `is_active`：如果传感器当前处于活动状态，返回True。
-- `Diameter`：上一次传感器读数，单位为 mm。
+- `flow_compensation_enabled`: Returns True if flow compensation is enabled.
+- `Diameter`: Returns the last width reading in mm if the sensor is active or the nominal filament diameter if it is not.
 - `Raw`：上一次传感器原始 ADC 读数。
 
 ## heater
@@ -190,24 +198,28 @@ Note that only the rp2XXX micro-controllers report a non-zero `tx_retries` field
 
 - `state`：由 idle_timeout 模块跟踪的打印机的当前状态。它可以是以下字符串之一："Idle", "Printing", "Ready"。
 - `printing_time`：打印机处于“Printing”状态的时间（以秒为单位）（由 idle_timeout 模块跟踪）。
+- `idle_timeout`: The current 'timeout' (in seconds) to wait for the gcode to be triggered. (as set by [SET_IDLE_TIMEOUT](G-Codes.md#set_idle_timeout))
 
 ## led
 
 以下信息适用于每个在printer.cfg中定义了的 `[led led_name]`、`[neopixel led_name]`、`[dotstar led_name]`、`[pca9533 led_name]` , 和 `[pca9632 led_name]` 配置分段：
 
-- `color_data`：一个包含链中每个LED的RGBW值的颜色列表的列表。每个值都以0.0到1.0的浮点数表示。每个颜色列表包含4个项目（红、绿、蓝、白），即使底层的LED支持较少的颜色通道。例如，可以通过`printer["neopixel <配置名>"].color_data[1][2]`访问链中第二个neopixel的蓝色值（颜色列表中的第三项）。
+- `color_data`: A list of color lists containing the RGBW values for a led in the chain. Each value is represented as a float from 0.0 to 1.0. Each color list contains 4 items (red, green, blue, white) even if the underlying LED supports fewer color channels. For example, the blue value (3rd item in color list) of the second neopixel in a chain could be accessed at `printer["neopixel <config_name>"].color_data[1][2]`.
 
 ## load_cell
 
 The following information is available for each `[load_cell name]`:
 
-- 'is_calibrated': True/False is the load cell calibrated
-- 'counts_per_gram': The number of raw sensor counts that equals 1 gram of force
-- 'reference_tare_counts': The reference number of raw sensor counts for 0 force
-- 'tare_counts': The current number of raw sensor counts for 0 force
-- 'force_g': The force in grams, averaged over the last polling period.
-- 'min_force_g': The minimum force in grams, over the last polling period.
-- 'max_force_g': The maximum force in grams, over the last polling period.
+- `is_calibrated`: True/False whether the load cell is calibrated.
+- `counts_per_gram`: The number of raw sensor counts that equals 1 gram of force.
+- `reference_tare_counts`: The reference number of raw sensor counts for 0 force.
+- `tare_counts`: The current number of raw sensor counts for 0 force.
+- `force_g`: The force in grams, averaged over the last polling period.
+- `min_force_g`: The minimum force in grams, over the last polling period.
+- `max_force_g`: The maximum force in grams, over the last polling period.
+- `errors`: The number of sensor errors detected since the last start of measurements.
+- `overflows`: The number of data buffer overflows detected since the last start of measurements.
+- `sample_rate`: The sensor's sample rate in samples per second.
 
 ## load_cell_probe
 
@@ -215,8 +227,10 @@ The following information is available for `[load_cell_probe]`:
 
 - all items from [load_cell](Status_Reference.md#load_cell)
 - all items from [probe](Status_Reference.md#probe)
-- 'endstop_tare_counts': the load cell probe keeps a tare value independent of the load cell. This re-set at the start of each probe.
-- 'last_trigger_time': timestamp of the last homing trigger
+- `endstop_tare_counts`: The load cell probe keeps a tare value independent of the load cell. This is re-set at the start of each probe.
+- `last_trigger_time`: Timestamp of the last homing trigger.
+- `last_z_result`: The Z position result of the last tap.
+- `is_last_tap_valid`: True if the last tap result is valid.
 
 ## manual_probe
 
@@ -240,13 +254,13 @@ The following information is available for `[load_cell_probe]`:
 
 `motion_report` 对象提供了以下信息（如果定义了任何步进器配置分段，则该对象自动可用）：
 
-- `live_position`：请求的打印头位置插值到当前时间后的位置。
+- `live_position`: The requested toolhead position interpolated to the current time. This value is encoded as a [coordinate](#accessing-coordinates).
 - `live_velocity`：当前请求的打印头速度（以毫米/秒为单位）。
 - `live_extruder_velocity`：当前请求的挤出机速度（单位：mm/s）。
 
 ## output_pin
 
-[output_pin <配置名称>](Config_Reference.md#output_pin) 对象提供以下信息：
+The following information is available in [output_pin some_name](Config_Reference.md#output_pin) and [pwm_tool some_name](Config_Reference.md#pwm_tool) objects:
 
 - `value`：由`SET_PIN`指令设置的引脚“值”。
 
@@ -278,7 +292,8 @@ The following information is available for `[load_cell_probe]`:
 
 - `name`：返回正在使用的探针的名称。
 - `last_query`：如果探针在上一个 QUERY_PROBE 命令期间报告为"已触发"，则返回 True。请注意，如果在宏中使用它，根据模板展开的顺序，必须在包含此引用的宏之前运行 QUERY_PROBE 命令。
-- `last_z_result`：返回上一次 PROBE 命令的结果 Z 值。请注意，由于模板展开的顺序，在宏中使用时必须在包含此引用的宏之前运行 PROBE（或类似）命令。
+- `last_probe_position`: The results of the last `PROBE` command. This value is encoded as a [coordinate](#accessing-coordinates). The probe hardware estimates that if one were to command the toolhead to XY position `last_probe_position.x`,`last_probe_position.y` and descend then the tip of the toolhead would first contact the bed at a Z height of `last_probe_position.z`. These coordinates are relative to the frame (that is, they use the coordinate system specified in the config file). Note, if this is used in a macro, due to the order of template expansion, the `PROBE` command must be run prior to the macro containing this reference.
+- `last_z_result`: This value is deprecated; it will be removed in the near future.
 
 ## pwm_cycle_time
 
@@ -372,13 +387,14 @@ The following information is available in the `skew_correction` object (this obj
 
 `toolhead` 对象提供了以下信息（该对象始终可用）：
 
-- `position`：打印头相对于配置文件中指定的坐标系的最后命令位置。可以访问该位置的 x、y、z 和 e 分量（例如，`position.x`）。
+- `position`: The last commanded position of the toolhead relative to the coordinate system specified in the config file. This value is encoded as a [coordinate](#accessing-coordinates).
 - `extruder`：当前活跃的挤出机的名称。例如，在宏中可以使用`printer[printer.toolhead.extruder].target`来获取当前挤出机的目标温度。
 - `homed_axes`：当前被认为处于“已归位”状态的车轴。这是一个包含一个或多个"x"、"y"、"z"的字符串。
-- `axis_minimum`、`axis_maximum`：归位后的轴的行程限制（毫米）。可以访问此极限值的 x、y、z 分量（例如，`axis_minimum.x`、`axis_maximum.z`）。
+- `axis_minimum`, `axis_maximum`: The axis travel limits (mm) after homing. This value is encoded as a [coordinate](#accessing-coordinates).
 - 对于三角洲打印机，`cone_start_z` 是最大半径时的最大z高度(`printer.toolhead.cone_start_z`)。
 - `max_velocity`, `max_accel`, `minimum_cruise_ratio`, `square_corner_velocity`: The current printing limits that are in effect. This may differ from the config file settings if a `SET_VELOCITY_LIMIT` (or `M204`) command alters them at run-time.
 - `stalls`：由于工具头移动速度快于从 G 代码输入读取的移动速度，因此打印机必须暂停的总次数（自上次重新启动以来）。
+- `extra_axes`: Provides a mechanism for finding the coordinate component for extra axes available in standard `G1` type move commands. See the [Accessing Coordinates](#accessing-coordinates) section for details.
 
 ## dual_carriage
 
@@ -424,3 +440,13 @@ On a `generic_cartesian` kinematic, the following information is available in `d
 `z_tilt` 对象提供了以下信息（如果定义了 z_tilt，则该对象可用）：
 
 - `applied`：如果 z 倾斜调平过程已运行并成功完成，则为 True。
+
+## Accessing Coordinates
+
+Some status fields provide a "coordinate". For macro users these fields may be accessed by component name (eg,`{printer.toolhead.position.x}`), where the component name may be "x", "y", or "z".
+
+For developers using the Klipper API Server these fields are transmitted as a list - for example: `{"toolhead": {"position": [1.0, 2.0, 3.0, 7.3, 19.2]}}` . The first three components of the list correspond with the x, y, and z axes.
+
+A coordinate will typically have at least 3 components (x, y, and z), however there may also be additional components. Care should be taken when accessing any of these additional components as the ordering and number of components may change at run-time.
+
+One may use `{printer.gcode_move.axis_map}` and/or `{printer.toolhead.extra_axes}` to determine the number of components and the ordering of components. For example, to access the "E" component one could use `{printer.toolhead.position[printer.gcode_move.axis_map.E]}`. Or, if one wanted to find the component associated with the "extruder" object, one could use `{printer.toolhead.position[printer.toolhead.extra_axes.extruder]}`.

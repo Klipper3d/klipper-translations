@@ -1,15 +1,15 @@
 ***
 
-hide:
+ocultar:
 
-- toc title: Welcome
+- Título del índice: Bienvenido
 
 ***
 
 ![](img/klipper-logo.png){ .center-image }
 
-The Klipper firmware controls 3d-Printers. It combines the power of a general purpose computer with one or more micro-controllers. See the [features document](Features.md) for more information on why you should use the Klipper software.
+El firmware Klipper controla impresoras 3D. Combina la potencia de un ordenador de uso general con uno o más microcontroladores. Consulte el [documento de características](Features.md) para obtener más información sobre por qué debería utilizar el software Klipper.
 
-Start by [installing Klipper software](Installation.md).
+Comience por [instalar el software Klipper](Installation.md).
 
-Klipper software is Free Software. Read the [documentation](Overview.md), see the [license](../COPYING), or [download](https://github.com/Klipper3d/Klipper) the software. We depend on the generous support from our [sponsors](Sponsors.md).
+El software Klipper es software libre. Lea la [documentación](Overview.md), consulte la [licencia](../COPYING) o [descargue](https://github.com/Klipper3d/Klipper) el software. Dependemos del generoso apoyo de nuestros [patrocinadores](Sponsors.md).

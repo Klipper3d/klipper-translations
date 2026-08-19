@@ -1,4 +1,4 @@
-# Bootloaders
+# Önyükleyiciler
 
 Bu belge, Klipper'ın desteklediği mikro denetleyicilerde bulunan yaygın önyükleyiciler hakkında bilgi sağlar.
 
@@ -143,7 +143,7 @@ bossac --port=/dev/ttyACM0 -b -U -e -w -v -R out/klipper.bin
 
 The SAMC21 is flashed via the ARM Serial Wire Debug (SWD) interface. This is commonly done with a dedicated SWD hardware dongle. Alternatively, one can use a [Raspberry Pi with OpenOCD](#running-openocd-on-the-raspberry-pi).
 
-When using OpenOCD with the SAMC21, extra steps must be taken to first put the chip into Cold Plugging mode if the board makes use of the SWD pins for other purposes. If using OpenOCD on a Rasberry Pi, this can be done by running the following commands before invoking OpenOCD.
+When using OpenOCD with the SAMC21, extra steps must be taken to first put the chip into Cold Plugging mode if the board makes use of the SWD pins for other purposes. If using OpenOCD on a Raspberry Pi, this can be done by running the following commands before invoking OpenOCD.
 
 ```
 SWCLK=25
@@ -376,7 +376,7 @@ It is recommended to use a ST-Link Programmer to flash CanBoot, however it shoul
 
 The first time CanBoot has been flashed it should detect that no application is present and enter the bootloader. If this doesn't occur it is possible to enter the bootloader by pressing the reset button twice in succession.
 
-The `flash_can.py` utility supplied in the `lib/canboot` folder may be used to upload Klipper firmware. The device UUID is necessary to flash. If you do not have a UUID it is possible to query nodes currently running the bootloader:
+The `flashtool.py` utility supplied in the `lib/katapult` folder may be used to upload Klipper firmware. The device UUID is necessary to flash. If you do not have a UUID it is possible to query nodes currently running the bootloader:
 
 ```
 python3 flash_can.py -q

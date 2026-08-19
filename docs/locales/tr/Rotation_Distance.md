@@ -10,7 +10,7 @@ The designers of your 3d printer originally calculated `steps_per_mm` from a rot
 rotation_distance = <full_steps_per_rotation> * <microsteps> / <steps_per_mm>
 ```
 
-Or, if you have an older Klipper configuration and know the `step_distance` parameter you can use this formula:
+Eğer eski bir klipper konfigürasyonunuz varsa ve `step_distance` parametresini biliyorsanız bu formülü kullanabilirsiniz:
 
 ```
 rotation_distance = <full_steps_per_rotation> * <microsteps> * <step_distance>

@@ -111,14 +111,14 @@ pkg:[bb-wl18xx-firmware]:[1.20230414.0-0~bullseye+20230414]
 .............
 ```
 
-To compile the Klipper micro-controller code, start by configuring it for the "Beaglebone PRU", for "BeagleBone Black" additionally disable options "Support GPIO Bit-banging devices" and disable "Support LCD devices" inside the "Optional features" because they will not fit in 8Kb PRU firmware memory, then exit and save config:
+编译Klipper微控制器代码时，选择为“Beaglebone PRU”配置（选用“BeagleBone Black”配置时，因PRU框架内存仅8KB不兼容，应额外关闭“Optional features”【可选特性】里“Support GPIO Bit-banging devices”【支持GPIO模拟协议通信设备】和“Support LCD devices”【支持LCD设备】），然后保存退出配置：
 
 ```
 cd ~/klipper/
 make menuconfig
 ```
 
-To build and install the new PRU micro-controller code, run:
+为构建安装新的PRU微控制器代码，执行以下命令：
 
 ```
 sudo service klipper stop
@@ -126,13 +126,13 @@ make flash
 sudo service klipper start
 ```
 
-After previous commands was executed your PRU firmware should be ready and started to check if everything was fine you can execute following command
+执行前述命令后，你的PRU平台应已就绪并开始自检是否正常。你可以运行以下指令
 
 ```
 dmesg
 ```
 
-and compare last messages with sample one which indicate that everything started properly:
+并比较回显的最后输出和如上正常的示例输出是否一致：
 
 ```
 [   71.105499] remoteproc remoteproc1: 4a334000.pru is available
@@ -152,11 +152,11 @@ and compare last messages with sample one which indicate that everything started
 [   73.540993] rpmsg_pru virtio0.rpmsg-pru.-1.30: new rpmsg_pru device: /dev/rpmsg_pru30
 ```
 
-take a note about "/dev/rpmsg_pru30" - it's your future serial device for main mcu configuration this device is required to be present, if it's absent - your PRU cores did not start properly.
+注意"/dev/rpmsg_pru30"相关内容，这是你在主控制器配置时需要使用的串行设备号。如果没显示对应设备号，你的PRU核心就没有正常启动。
 
-## Building and installing Linux host micro-controller code
+## 构建及安装Linux微控制器代码
 
-This section is required for "Use case 2" and optional for "Use case 3" mentioned above
+上述的“用例2”需要本分区的操作，本分区对于上述的“用例3”则是可选的
 
 还需要编译和安装用于 Linux 主机进程的微控制器代码。再次修改编译配置为"Linux process"：
 
@@ -202,51 +202,56 @@ sudo apt-get install gcc-pru
 
 ## Hardware Pin designation
 
-BeagleBone is very flexible in terms of pin designation, same pin can be configured for different function but always single function for single pin, same function can be present on different pins. So you can't have multiple functions on single pin or have same function on multiple pins. Example: P9_20 - i2c2_sda/can0_tx/spi1_cs0/gpio0_12/uart1_ctsn P9_19 - i2c2_scl/can0_rx/spi1_cs1/gpio0_13/uart1_rtsn P9_24 - i2c1_scl/can1_rx/gpio0_15/uart1_tx P9_26 - i2c1_sda/can1_tx/gpio0_14/uart1_rx
+BeagleBone 在引脚功能上非常灵活，同一引脚可以配置为不同功能，相同功能也可以配置在不同引脚上，但运行中同一引脚只执行一个功能。你不能在单个引脚上复用多个功能，也不能把一个功能赋予多个引脚。
+示例：（配置P9_20为gpio0_12时，它不能承担i2c2_sda的功能）
+P9_20 - i2c2_sda/can0_tx/spi1_cs0/gpio0_12/uart1_ctsn 
+P9_19 - i2c2_scl/can0_rx/spi1_cs1/gpio0_13/uart1_rtsn 
+P9_24 - i2c1_scl/can1_rx/gpio0_15/uart1_tx 
+P9_26 - i2c1_sda/can1_tx/gpio0_14/uart1_rx
 
-Pin designation is defined by using special "overlays" which will be loaded during linux boot they are configured by editing file /boot/uEnv.txt with elevated permissions
+引脚功能是在Linux启动时通过专门覆写的文件定义的，需要使用特权编辑/boot/uEnv.txt来配置
 
 ```
 sudo editor /boot/uEnv.txt
 ```
 
-and defining which functionality to load, for example to enable CAN1 you need to define overlay for it
+并具体定义引脚采用什么功能，比如你可以定义overlay覆写来启用CAN1
 
 ```
 uboot_overlay_addr4=/lib/firmware/BB-CAN1-00A0.dtbo
 ```
 
-This overlay BB-CAN1-00A0.dtbo will reconfigure all required pins for CAN1 and create CAN device in Linux. Any change in overlays will require system reboot to be applied. If you need to understand which pins are involved in some overlay - you can analyze source files in this location: /opt/sources/bb.org-overlays/src/arm/ or search info in BeagleBone forums.
+以上覆写BB-CAN1-00A0.dtbo会重新配置所有CAN1所需引脚，并在Linux内创建CAN设备。改变覆写需要重启系统以生效。如果你想要知道覆写影响、占用了哪些引脚，你可以分析源文件或到BeagleBone论坛查找信息，源文件在：/opt/sources/bb.org-overlays/src/arm/ 。
 
-## Enabling hardware SPI
+## 启用硬件SPI
 
-BeagleBone usually have multiple hardware SPI buses, for example BeagleBone Black can have 2 of them, they can work up to 48Mhz, but usually they are limited to 16Mhz by Kernel Device-tree. By default, in BeagleBone Black some of SPI1 pins are configured for HDMI-Audio output, to fully enable 4-wire SPI1 you need to disable HDMI Audio and enable SPI1 To do that edit file /boot/uEnv.txt with elevated permissions
+BeagleBone一般有多个硬件SPI总线（比如BeagleBone Black有2条最高48MHz的硬件SPI，虽然它们一般会被内核设备树限制到16MHz）。默认情况下，BeagleBone Black的部分SPI1引脚被配置为HDMI音频输出。如要使用完整4线SPI1，你需要用特权编辑/boot/uEnv.txt以禁用HDMI音频并启用SPI1
 
 ```
 sudo editor /boot/uEnv.txt
 ```
 
-uncomment variable
+去除注释掉变量的#
 
 ```
 disable_uboot_overlay_audio=1
 ```
 
-next uncomment variable and define it this way
+再去除到对应变量的注释，并如下定义
 
 ```
 uboot_overlay_addr4=/lib/firmware/BB-SPIDEV1-00A0.dtbo
 ```
 
-Save changes in /boot/uEnv.txt and reboot the board. Now you have SPI1 Enabled, to verify its presence execute command
+保存/boot/uEnv.txt的变更并重启板子。现在SPI1已启用，执行以下命令检查SPI是否已启用
 
 ```
 ls /dev/spidev1.*
 ```
 
-Take a note that BeagleBone usually is 3.3v based hardware and to use 5V SPI devices you need to add Level-Shifting chip, for example SN74CBTD3861, SN74LVC1G34 or similar. If you are using CRAMPS board - it already contains Level-Shifting chip and SPI1 pins will become available on P503 port, and they can accept 5v hardware, check CRAMPS board Schematics for pin references.
+注意BeagleBone硬件电压是3.3V，使用5V SPI设备时需要电平转换芯片，比如SN74CBTD3861, SN74LVC1G34或类似物。如果你使用了CRAMPS板，那么它已经自带了电平转换芯片，把SPI1发布于P503端口并支持5V硬件。查看CRAMPS板原理图以获取引脚定义。
 
-## Enabling hardware I2C
+## 启用硬件I2C
 
 BeagleBone usually have multiple hardware I2C buses, for example BeagleBone Black can have 3 of them, they support speed up-to 400Kbit Fast mode. By default, in BeagleBone Black there are two of them (i2c-1 and i2c-2) usually both are already configured and present on P9, third ic2-0 usually reserved for internal use. If you are using CRAMPS board then i2c-2 is present on P303 port with 3.3v level, If you want to obtain I2c-1 in CRAMPS board - you can get them on Extruder1.Step, Extruder1.Dir pins, they also are 3.3v based, check CRAMPS board Schematics for pin references. Related overlays, for [Hardware Pin designation](#hardware-pin-designation): I2C1(100Kbit): BB-I2C1-00A0.dtbo I2C1(400Kbit): BB-I2C1-FAST-00A0.dtbo I2C2(100Kbit): BB-I2C2-00A0.dtbo I2C2(400Kbit): BB-I2C2-FAST-00A0.dtbo
 
