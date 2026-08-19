@@ -1,10 +1,10 @@
 # Support for reading acceleration data from an adxl345 chip
 #
-# Copyright (C) 2020-2021  Kevin O'Connor <kevin@koconnor.net>
+# Copyright (C) 2020-2023  Kevin O'Connor <kevin@koconnor.net>
 #
 # This file may be distributed under the terms of the GNU GPLv3 license.
-import logging, time, collections, threading, multiprocessing, os
-from . import bus, motion_report
+import logging, time, collections, multiprocessing, os
+from . import bus, bulk_sensor
 
 # ADXL345 registers
 REG_DEVID = 0x00
@@ -32,26 +32,29 @@ Accel_Measurement = collections.namedtuple(
 
 # Helper class to obtain measurements
 class AccelQueryHelper:
-    def __init__(self, printer, cconn):
+    def __init__(self, printer):
         self.printer = printer
-        self.cconn = cconn
+        self.is_finished = False
         print_time = printer.lookup_object('toolhead').get_last_move_time()
         self.request_start_time = self.request_end_time = print_time
-        self.samples = self.raw_samples = []
+        self.msgs = []
+        self.samples = []
     def finish_measurements(self):
         toolhead = self.printer.lookup_object('toolhead')
         self.request_end_time = toolhead.get_last_move_time()
         toolhead.wait_moves()
-        self.cconn.finalize()
-    def _get_raw_samples(self):
-        raw_samples = self.cconn.get_messages()
-        if raw_samples:
-            self.raw_samples = raw_samples
-        return self.raw_samples
+        self.is_finished = True
+    def handle_batch(self, msg):
+        if self.is_finished:
+            return False
+        if len(self.msgs) >= 10000:
+            # Avoid filling up memory with too many samples
+            return False
+        self.msgs.append(msg)
+        return True
     def has_valid_samples(self):
-        raw_samples = self._get_raw_samples()
-        for msg in raw_samples:
-            data = msg['params']['data']
+        for msg in self.msgs:
+            data = msg['data']
             first_sample_time = data[0][0]
             last_sample_time = data[-1][0]
             if (first_sample_time > self.request_end_time
@@ -60,21 +63,20 @@ class AccelQueryHelper:
             # The time intervals [first_sample_time, last_sample_time]
             # and [request_start_time, request_end_time] have non-zero
             # intersection. It is still theoretically possible that none
-            # of the samples from raw_samples fall into the time interval
+            # of the samples from msgs fall into the time interval
             # [request_start_time, request_end_time] if it is too narrow
             # or on very heavy data losses. In practice, that interval
             # is at least 1 second, so this possibility is negligible.
             return True
         return False
     def get_samples(self):
-        raw_samples = self._get_raw_samples()
-        if not raw_samples:
+        if not self.msgs:
             return self.samples
-        total = sum([len(m['params']['data']) for m in raw_samples])
+        total = sum([len(m['data']) for m in self.msgs])
         count = 0
         self.samples = samples = [None] * total
-        for msg in raw_samples:
-            for samp_time, x, y, z in msg['params']['data']:
+        for msg in self.msgs:
+            for samp_time, x, y, z in msg['data']:
                 if samp_time < self.request_start_time:
                     continue
                 if samp_time > self.request_end_time:
@@ -110,10 +112,22 @@ class AccelCommandHelper:
         name_parts = config.get_name().split()
         self.base_name = name_parts[0]
         self.name = name_parts[-1]
-        self.register_commands(self.name)
+        try:
+            self.register_commands(self.name)
+        except config.error:
+            raise config.error("Accelerometer with name '%s' already defined"
+                               % self.name)
         if len(name_parts) == 1:
-            if self.name == "adxl345" or not config.has_section("adxl345"):
+            # Try to register default mux commands for the accelerometer
+            # without explicit name. If default accelerometer has already
+            # been registered, raise an error.
+            try:
                 self.register_commands(None)
+            except config.error:
+                raise config.error(
+                    "Default accelerometer already defined; section '%s' must "
+                    "include an additional name, e.g. '%s second_accelerometer'"
+                    % (self.base_name, self.base_name))
     def register_commands(self, name):
         # Register commands
         gcode = self.printer.lookup_object('gcode')
@@ -193,9 +207,6 @@ class ADXL345:
         self.data_rate = config.getint('rate', 3200)
         if self.data_rate not in QUERY_RATES:
             raise config.error("Invalid rate parameter: %d" % (self.data_rate,))
-        # Measurement storage (accessed from background thread)
-        self.lock = threading.Lock()
-        self.raw_samples = []
         # Setup mcu sensor_adxl345 bulk query code
         self.spi = bus.MCU_SPI_from_config(config, 3, default_speed=5000000)
         self.mcu = mcu = self.spi.get_mcu()
@@ -215,9 +226,9 @@ class ADXL345:
             self.printer, self._process_batch,
             self._start_measurements, self._finish_measurements, BATCH_UPDATES)
         self.name = config.get_name().split()[-1]
-        wh = self.printer.lookup_object('webhooks')
-        wh.register_mux_endpoint("adxl345/dump_adxl345", "sensor", self.name,
-                                 self._handle_dump_adxl345)
+        hdr = ('time', 'x_acceleration', 'y_acceleration', 'z_acceleration')
+        self.batch_bulk.add_mux_endpoint("adxl345/dump_adxl345", "sensor",
+                                         self.name, {'header': hdr})
     def _build_config(self):
         cmdqueue = self.spi.get_command_queue()
         self.query_adxl345_cmd = self.mcu.lookup_command(
@@ -262,8 +273,6 @@ class ADXL345:
         del samples[count:]
     # Start, stop, and process message batches
     def _start_measurements(self):
-        if self.is_measuring():
-            return
         # In case of miswiring, testing ADXL345 device ID prevents treating
         # noise or wrong signal as a correctly initialized device
         dev_id = self.read_reg(REG_DEVID)
@@ -279,9 +288,6 @@ class ADXL345:
         self.set_reg(REG_FIFO_CTL, 0x00)
         self.set_reg(REG_BW_RATE, QUERY_RATES[self.data_rate])
         self.set_reg(REG_FIFO_CTL, SET_FIFO_CTL)
-        # Setup samples
-        with self.lock:
-            self.raw_samples = []
         # Start bulk reading
         rest_ticks = self.mcu.seconds_to_clock(4. / self.data_rate)
         self.query_adxl345_cmd.send([self.oid, rest_ticks])
@@ -291,8 +297,6 @@ class ADXL345:
         self.ffreader.note_start()
         self.last_error_count = 0
     def _finish_measurements(self):
-        if not self.is_measuring():
-            return
         # Halt bulk reading
         self.set_reg(REG_POWER_CTL, 0x00)
         self.query_adxl345_cmd.send_wait_ack([self.oid, 0])

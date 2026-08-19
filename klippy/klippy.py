@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # Main code for host side printer firmware
 #
-# Copyright (C) 2016-2024  Kevin O'Connor <kevin@koconnor.net>
+# Copyright (C) 2016-2026  Kevin O'Connor <kevin@koconnor.net>
 #
 # This file may be distributed under the terms of the GNU GPLv3 license.
 import sys, os, gc, optparse, logging, time, collections, importlib
@@ -158,10 +158,11 @@ class Printer:
             return
         try:
             self._set_state(message_ready)
-            for cb in self.event_handlers.get("klippy:ready", []):
-                if self.state_message is not message_ready:
-                    return
-                cb()
+            with self.reactor.assert_no_pause():
+                for cb in self.event_handlers.get("klippy:ready", []):
+                    if self.state_message is not message_ready:
+                        return
+                    cb()
         except Exception as e:
             logging.exception("Unhandled exception during ready callback")
             self.invoke_shutdown("Internal error during ready callback: %s"
@@ -206,14 +207,17 @@ class Printer:
         logging.error("Transition to shutdown state: %s", msg)
         self.in_shutdown_state = True
         self._set_state(msg)
-        for cb in self.event_handlers.get("klippy:shutdown", []):
-            try:
-                cb()
-            except:
-                logging.exception("Exception during shutdown handler")
-        logging.info("Reactor garbage collection: %s",
-                     self.reactor.get_gc_stats())
-        self.send_event("klippy:notify_mcu_shutdown", msg, details)
+        with self.reactor.assert_no_pause():
+            for cb in self.event_handlers.get("klippy:shutdown", []):
+                try:
+                    cb()
+                except:
+                    logging.exception("Exception during shutdown handler")
+            for cb in self.event_handlers.get("klippy:analyze_shutdown", []):
+                try:
+                    cb(msg, details)
+                except:
+                    logging.exception("Exception in analyze_shutdown handler")
     def invoke_async_shutdown(self, msg, details={}):
         self.reactor.register_async_callback(
             (lambda e: self.invoke_shutdown(msg, details)))
@@ -305,8 +309,11 @@ def main():
     logging.info("Starting Klippy...")
     git_info = util.get_git_version()
     git_vers = git_info["version"]
+    repo = os.path.join(os.path.dirname(__file__), '..')
     extra_files = [fname for code, fname in git_info["file_status"]
-                   if (code in ('??', '!!') and fname.endswith('.py')
+                   if (code in ('??', '!!')
+                       and (fname.endswith('.py')
+                            or os.path.islink(os.path.join(repo, fname)))
                        and (fname.startswith('klippy/kinematics/')
                             or fname.startswith('klippy/extras/')))]
     modified_files = [fname for code, fname in git_info["file_status"]
@@ -327,18 +334,21 @@ def main():
     extra_git_desc += "\nTracked URL: %s" % (git_info["url"])
     start_args['software_version'] = git_vers
     start_args['cpu_info'] = util.get_cpu_info()
+    start_args['device'] = util.get_device_info()
+    start_args['linux_version'] = util.get_linux_version()
     if bglogger is not None:
         versions = "\n".join([
             "Args: %s" % (sys.argv,),
             "Git version: %s%s" % (repr(start_args['software_version']),
                                    extra_git_desc),
             "CPU: %s" % (start_args['cpu_info'],),
+            "Device: %s" % (start_args['device']),
+            "Linux: %s" % (start_args['linux_version']),
             "Python: %s" % (repr(sys.version),)])
         logging.info(versions)
     elif not options.debugoutput:
         logging.warning("No log file specified!"
                         " Severe timing issues may result!")
-    gc.disable()
 
     # Start Printer() class
     while 1:
@@ -346,7 +356,7 @@ def main():
             bglogger.clear_rollover_info()
             bglogger.set_rollover_info('versions', versions)
         gc.collect()
-        main_reactor = reactor.Reactor(gc_checking=True)
+        main_reactor = reactor.Reactor()
         printer = Printer(main_reactor, bglogger, start_args)
         res = printer.run()
         if res in ['exit', 'error_exit']:

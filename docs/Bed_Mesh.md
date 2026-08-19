@@ -141,7 +141,7 @@ bicubic_tension: 0.2
   integer pair, and also may be specified a single integer that is applied
   to both axes.  In this example there are 4 segments along the X axis
   and 2 segments along the Y axis.  This evaluates to 8 interpolated
-  points along X, 6 interpolated points along Y, which results in a 13x8
+  points along X, 6 interpolated points along Y, which results in a 13x9
   mesh.  Note that if mesh_pps is set to 0 then mesh interpolation is
   disabled and the probed matrix will be sampled directly.
 
@@ -267,7 +267,7 @@ by heat or interference.  This can make calculating the probe's z-offset
 challenging, particularly at different bed temperatures.  As such, some
 printers use an endstop for homing the Z axis and a probe for calibrating the
 mesh. In this configuration it is possible offset the mesh so that the (X, Y)
-`reference position` applies zero adjustment.  The `reference postion` should
+`reference position` applies zero adjustment.  The `reference position` should
 be the location on the bed where a
 [Z_ENDSTOP_CALIBRATE](./Manual_Level.md#calibrating-a-z-endstop)
 paper test is performed.  The bed_mesh module provides the
@@ -291,33 +291,6 @@ probe_count: 5, 3
   will be probed after calibration, with the resulting z-value used as the
   z-offset.  Note that this coordinate must NOT be in a location specified as
   a `faulty_region` if a probe is necessary.
-
-#### The deprecated relative_reference_index
-
-Existing configurations using the `relative_reference_index` option must be
-updated to use the `zero_reference_position`.  The response to the
-[BED_MESH_OUTPUT PGP=1](#output) gcode command will include the (X, Y)
-coordinate associated with the index;  this position may be used as the value for
-the `zero_reference_position`. The output will look similar to the following:
-
-```
-// bed_mesh: generated points
-// Index | Tool Adjusted | Probe
-// 0 | (1.0, 1.0) | (24.0, 6.0)
-// 1 | (36.7, 1.0) | (59.7, 6.0)
-// 2 | (72.3, 1.0) | (95.3, 6.0)
-// 3 | (108.0, 1.0) | (131.0, 6.0)
-... (additional generated points)
-// bed_mesh: relative_reference_index 24 is (131.5, 108.0)
-```
-
-_Note:  The above output is also printed in `klippy.log` during initialization._
-
-Using the example above we see that the `relative_reference_index` is
-printed along with its coordinate.  Thus the `zero_reference_position`
-is `131.5, 108`.
-
-
 
 ### Faulty Regions
 

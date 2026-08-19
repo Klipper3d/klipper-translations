@@ -1,6 +1,6 @@
 # Support for button detection and callbacks
 #
-# Copyright (C) 2018  Kevin O'Connor <kevin@koconnor.net>
+# Copyright (C) 2018-2023  Kevin O'Connor <kevin@koconnor.net>
 #
 # This file may be distributed under the terms of the GNU GPLv3 license.
 import logging
@@ -52,15 +52,15 @@ class MCU_buttons:
             " rest_ticks=%d retransmit_count=%d invert=%d" % (
                 self.oid, clock, rest_ticks, RETRANSMIT_COUNT,
                 self.invert), is_init=True)
-        self.mcu.register_response(self.handle_buttons_state,
-                                   "buttons_state", self.oid)
+        self.mcu.register_serial_response(
+            self.handle_buttons_state,
+            "buttons_state oid=%c ack_count=%c state=%*s", self.oid)
     def handle_buttons_state(self, params):
         # Expand the message ack_count from 8-bit
         ack_count = self.ack_count
-        ack_diff = (ack_count - params['ack_count']) & 0xff
-        if ack_diff & 0x80:
-            ack_diff -= 0x100
-        msg_ack_count = ack_count - ack_diff
+        ack_diff = (params['ack_count'] - ack_count) & 0xff
+        ack_diff -= (ack_diff & 0x80) << 1
+        msg_ack_count = ack_count + ack_diff
         # Determine new buttons
         buttons = bytearray(params['state'])
         new_count = msg_ack_count + len(buttons) - self.ack_count
@@ -70,27 +70,28 @@ class MCU_buttons:
         # Send ack to MCU
         self.ack_cmd.send([self.oid, new_count])
         self.ack_count += new_count
-        # Call self.handle_button() with this event in main thread
-        for nb in new_buttons:
-            self.reactor.register_async_callback(
-                (lambda e, s=self, b=nb: s.handle_button(e, b)))
-    def handle_button(self, eventtime, button):
-        button ^= self.invert
-        changed = button ^ self.last_button
-        for mask, shift, callback in self.callbacks:
-            if changed & mask:
-                callback(eventtime, (button & mask) >> shift)
-        self.last_button = button
+        # Invoke callbacks with this event in main thread
+        btime = params['#receive_time']
+        for button in new_buttons:
+            button ^= self.invert
+            changed = button ^ self.last_button
+            self.last_button = button
+            for mask, shift, callback in self.callbacks:
+                if changed & mask:
+                    state = (button & mask) >> shift
+                    self.reactor.register_async_callback(
+                        (lambda et, c=callback, bt=btime, s=state: c(bt, s)))
 
 
 ######################################################################
 # ADC button tracking
 ######################################################################
 
-ADC_REPORT_TIME = 0.015
+ADC_REPORT_TIME = 0.010
 ADC_DEBOUNCE_TIME = 0.025
 ADC_SAMPLE_TIME = 0.001
 ADC_SAMPLE_COUNT = 6
+ADC_BATCH_COUNT = 5
 
 class MCU_ADC_buttons:
     def __init__(self, printer, pin, pullup):
@@ -105,8 +106,10 @@ class MCU_ADC_buttons:
         self.max_value = 0.
         ppins = printer.lookup_object('pins')
         self.mcu_adc = ppins.setup_pin('adc', self.pin)
-        self.mcu_adc.setup_adc_sample(ADC_SAMPLE_TIME, ADC_SAMPLE_COUNT)
-        self.mcu_adc.setup_adc_callback(ADC_REPORT_TIME, self.adc_callback)
+        self.mcu_adc.setup_adc_sample(ADC_REPORT_TIME,
+                                      ADC_SAMPLE_TIME, ADC_SAMPLE_COUNT,
+                                      batch_num=ADC_BATCH_COUNT)
+        self.mcu_adc.setup_adc_callback(self.adc_callback)
         query_adc = printer.lookup_object('query_adc')
         query_adc.register_adc('adc_button:' + pin.strip(), self.mcu_adc)
 
@@ -115,35 +118,36 @@ class MCU_ADC_buttons:
         self.max_value = max(self.max_value, max_value)
         self.buttons.append((min_value, max_value, callback))
 
-    def adc_callback(self, read_time, read_value):
-        adc = max(.00001, min(.99999, read_value))
-        value = self.pullup * adc / (1.0 - adc)
+    def adc_callback(self, samples):
+        for read_time, read_value in samples:
+            adc = max(.00001, min(.99999, read_value))
+            value = self.pullup * adc / (1.0 - adc)
 
-        # Determine button pressed
-        btn = None
-        if self.min_value <= value <= self.max_value:
-            for i, (min_value, max_value, cb) in enumerate(self.buttons):
-                if min_value < value < max_value:
-                    btn = i
-                    break
+            # Determine button pressed
+            btn = None
+            if self.min_value <= value <= self.max_value:
+                for i, (min_value, max_value, cb) in enumerate(self.buttons):
+                    if min_value < value < max_value:
+                        btn = i
+                        break
 
-        # If the button changed, due to noise or pressing:
-        if btn != self.last_button:
-            # reset the debouncing timer
-            self.last_debouncetime = read_time
+            # If the button changed, due to noise or pressing:
+            if btn != self.last_button:
+                # reset the debouncing timer
+                self.last_debouncetime = read_time
 
-        # button debounce check & new button pressed
-        if ((read_time - self.last_debouncetime) >= ADC_DEBOUNCE_TIME
-            and self.last_button == btn and self.last_pressed != btn):
-            # release last_pressed
-            if self.last_pressed is not None:
-                self.call_button(self.last_pressed, False)
-                self.last_pressed = None
-            if btn is not None:
-                self.call_button(btn, True)
-                self.last_pressed = btn
+            # button debounce check & new button pressed
+            if ((read_time - self.last_debouncetime) >= ADC_DEBOUNCE_TIME
+                and self.last_button == btn and self.last_pressed != btn):
+                # release last_pressed
+                if self.last_pressed is not None:
+                    self.call_button(self.last_pressed, False)
+                    self.last_pressed = None
+                if btn is not None:
+                    self.call_button(btn, True)
+                    self.last_pressed = btn
 
-        self.last_button = btn
+            self.last_button = btn
 
     def call_button(self, button, state):
         minval, maxval, callback = self.buttons[button]

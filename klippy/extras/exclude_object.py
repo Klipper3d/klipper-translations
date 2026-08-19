@@ -89,7 +89,7 @@ class ExcludeObject:
             offset = [0.] * num_coord
             self.extrusion_offsets[ename] = offset
         if len(offset) < num_coord:
-            offset.extend([0.] * (len(num_coord) - len(offset)))
+            offset.extend([0.] * (num_coord - len(offset)))
         return offset
 
     def get_position(self):
@@ -236,7 +236,7 @@ class ExcludeObject:
 
         elif current:
             if not self.current_object:
-                gcmd.respond_error('There is no current object to cancel')
+                raise self.gcode.error('There is no current object to cancel')
 
             else:
                 self._exclude_object(self.current_object)

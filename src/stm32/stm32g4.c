@@ -6,6 +6,7 @@
 
 #include "autoconf.h" // CONFIG_CLOCK_REF_FREQ
 #include "board/armcm_boot.h" // VectorTable
+#include "board/armcm_reset.h" // try_request_canboot
 #include "board/irq.h" // irq_disable
 #include "board/misc.h" // bootloader_request
 #include "command.h" // DECL_CONSTANT_STR
@@ -113,6 +114,9 @@ enable_clock_stm32g4(void)
         enable_pclock(CRS_BASE);
         CRS->CR |= CRS_CR_AUTOTRIMEN | CRS_CR_CEN;
     }
+
+    // Use PCLK for FDCAN
+    RCC->CCIPR = 2 << RCC_CCIPR_FDCANSEL_Pos;
 }
 
 // Main clock setup called at chip startup
@@ -159,6 +163,7 @@ clock_setup(void)
 void
 bootloader_request(void)
 {
+    try_request_canboot();
     dfu_reboot();
 }
 

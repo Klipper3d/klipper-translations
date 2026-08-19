@@ -9,7 +9,8 @@
 #define BACKGROUND_PRIORITY_CLOCK 0x7fffffff00000000LL
 
 struct fastreader;
-typedef void (*fastreader_cb)(struct fastreader *fr, uint8_t *data, int len);
+typedef void (*fastreader_cb)(struct fastreader *fr, double eventtime
+                              , uint8_t *data, int len);
 
 struct fastreader {
     struct list_node node;
@@ -27,7 +28,7 @@ struct pull_queue_message {
 
 struct serialqueue;
 struct serialqueue *serialqueue_alloc(int serial_fd, char serial_fd_type
-                                      , int client_id);
+                                      , int client_id, char name[16]);
 void serialqueue_exit(struct serialqueue *sq);
 void serialqueue_free(struct serialqueue *sq);
 struct command_queue *serialqueue_alloc_commandqueue(void);
@@ -45,8 +46,7 @@ void serialqueue_pull(struct serialqueue *sq, struct pull_queue_message *pqm);
 void serialqueue_set_wire_frequency(struct serialqueue *sq, double frequency);
 void serialqueue_set_receive_window(struct serialqueue *sq, int receive_window);
 void serialqueue_set_clock_est(struct serialqueue *sq, double est_freq
-                               , double conv_time, uint64_t conv_clock
-                               , uint64_t last_clock);
+                               , double conv_time, uint64_t conv_clock);
 void serialqueue_get_clock_est(struct serialqueue *sq
                                , struct clock_estimate *ce);
 void serialqueue_get_stats(struct serialqueue *sq, char *buf, int len);

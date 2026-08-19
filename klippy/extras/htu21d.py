@@ -135,13 +135,13 @@ class HTU21D:
         rdevId |= response[1]
         checksum = response[2]
         if self._chekCRC8(rdevId) != checksum:
-            logging.warn("htu21d: Reading deviceId !Checksum error!")
+            logging.warning("htu21d: Reading deviceId !Checksum error!")
         rdevId = rdevId >> 8
         guess_dev = ID_MAP.get(rdevId, "Unknown")
         if guess_dev == self.deviceId:
             logging.info("htu21d: Found Device Type %s" % guess_dev)
         else:
-            logging.warn("htu21d: Unknown Device ID %#x " % rdevId)
+            logging.warning("htu21d: Unknown Device ID %#x " % rdevId)
 
         if self.deviceId != guess_dev:
             logging.warning(
@@ -158,7 +158,7 @@ class HTU21D:
 
     def _sample_htu21d(self, eventtime):
         try:
-            # Read Temeprature
+            # Read Temperature
             if self.hold_master_mode:
                 params = self.i2c.i2c_write([HTU21D_COMMANDS['HTU21D_TEMP']])
             else:
@@ -175,7 +175,9 @@ class HTU21D:
             rtemp  = response[0] << 8
             rtemp |= response[1]
             if self._chekCRC8(rtemp) != response[2]:
-                logging.warn("htu21d: Checksum error on Temperature reading!")
+                logging.warning(
+                    "htu21d: Checksum error on Temperature reading!"
+                )
             else:
                 self.temp = (0.002681 * float(rtemp) - 46.85)
                 logging.debug("htu21d: Temperature %.2f " % self.temp)
@@ -196,7 +198,7 @@ class HTU21D:
             rhumid = response[0] << 8
             rhumid|= response[1]
             if self._chekCRC8(rhumid) != response[2]:
-                logging.warn("htu21d: Checksum error on Humidity reading!")
+                logging.warning("htu21d: Checksum error on Humidity reading!")
             else:
                 #clear status bits,
                 # humidity always returns xxxxxx10 in the LSB field

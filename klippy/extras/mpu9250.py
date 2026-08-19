@@ -63,9 +63,6 @@ class MPU9250:
         self.data_rate = config.getint('rate', 4000)
         if self.data_rate not in SAMPLE_RATE_DIVS:
             raise config.error("Invalid rate parameter: %d" % (self.data_rate,))
-        # Measurement storage (accessed from background thread)
-        self.lock = threading.Lock()
-        self.raw_samples = []
         # Setup mcu sensor_mpu9250 bulk query code
         self.i2c = bus.MCU_I2C_from_config(config,
                                            default_addr=MPU9250_ADDR,
@@ -83,9 +80,9 @@ class MPU9250:
             self.printer, self._process_batch,
             self._start_measurements, self._finish_measurements, BATCH_UPDATES)
         self.name = config.get_name().split()[-1]
-        wh = self.printer.lookup_object('webhooks')
-        wh.register_mux_endpoint("mpu9250/dump_mpu9250", "sensor", self.name,
-                                 self._handle_dump_mpu9250)
+        hdr = ('time', 'x_acceleration', 'y_acceleration', 'z_acceleration')
+        self.batch_bulk.add_mux_endpoint("mpu9250/dump_mpu9250", "sensor",
+                                         self.name, {'header': hdr})
     def _build_config(self):
         cmdqueue = self.i2c.get_command_queue()
         self.mcu.add_config_cmd("config_mpu9250 oid=%d i2c_oid=%d"
@@ -99,7 +96,6 @@ class MPU9250:
     def read_reg(self, reg):
         params = self.i2c.i2c_read([reg], 1)
         return bytearray(params['response'])[0]
-
     def set_reg(self, reg, val, minclock=0):
         self.i2c.i2c_write([reg, val & 0xFF], minclock=minclock)
     def start_internal_client(self):
@@ -119,8 +115,6 @@ class MPU9250:
             count += 1
     # Start, stop, and process message batches
     def _start_measurements(self):
-        if self.is_measuring():
-            return
         # In case of miswiring, testing MPU9250 device ID prevents treating
         # noise or wrong signal as a correctly initialized device
         dev_id = self.read_reg(REG_DEVID)
@@ -150,9 +144,6 @@ class MPU9250:
         self.set_reg(REG_USER_CTRL, SET_USER_FIFO_EN)
         self.read_reg(REG_INT_STATUS) # clear FIFO overflow flag
 
-        # Setup samples
-        with self.lock:
-            self.raw_samples = []
         # Start bulk reading
         rest_ticks = self.mcu.seconds_to_clock(4. / self.data_rate)
         self.query_mpu9250_cmd.send([self.oid, rest_ticks])
@@ -162,8 +153,6 @@ class MPU9250:
         self.ffreader.note_start()
         self.last_error_count = 0
     def _finish_measurements(self):
-        if not self.is_measuring():
-            return
         # Halt bulk reading
         self.set_reg(REG_FIFO_EN, SET_DISABLE_FIFO)
         self.query_mpu9250_cmd.send_wait_ack([self.oid, 0])

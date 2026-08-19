@@ -3,8 +3,8 @@
 # Copyright (C) 2021,2022  Kevin O'Connor <kevin@koconnor.net>
 #
 # This file may be distributed under the terms of the GNU GPLv3 license.
-import logging, math, threading
-from . import bus, motion_report
+import logging, math
+from . import bus, bulk_sensor
 
 MIN_MSG_TIME = 0.100
 TCODE_ERROR = 0xff
@@ -85,9 +85,9 @@ class AngleCalibration:
             cal2 = calibration[bucket + 1]
             adj = (angle & interp_mask) * (cal2 - cal1)
             adj = cal1 + ((adj + interp_round) >> interp_bits)
-            angle_diff = (angle - adj) & 0xffff
+            angle_diff = (adj - angle) & 0xffff
             angle_diff -= (angle_diff & 0x8000) << 1
-            new_angle = angle - angle_diff
+            new_angle = angle + angle_diff
             if calibration_reversed:
                 new_angle = -new_angle
             samples[i] = (samp_time, new_angle)
@@ -97,7 +97,7 @@ class AngleCalibration:
                 return None
         return self.mcu_stepper.mcu_to_commanded_position(self.mcu_pos_offset)
     def load_calibration(self, angles):
-        # Calculate linear intepolation calibration buckets by solving
+        # Calculate linear interpolation calibration buckets by solving
         # linear equations
         angle_max = 1 << ANGLE_BITS
         calibration_count = 1 << CALIBRATION_BITS
@@ -157,8 +157,14 @@ class AngleCalibration:
     def do_calibration_moves(self):
         move = self.printer.lookup_object('force_move').manual_move
         # Start data collection
-        angle_sensor = self.printer.lookup_object(self.name)
-        cconn = angle_sensor.start_internal_client()
+        msgs = []
+        is_finished = False
+        def handle_batch(msg):
+            if is_finished:
+                return False
+            msgs.append(msg)
+            return True
+        self.printer.lookup_object(self.name).add_client(handle_batch)
         # Move stepper several turns (to allow internal sensor calibration)
         microsteps, full_steps = self.get_microsteps()
         mcu_stepper = self.mcu_stepper
@@ -190,13 +196,12 @@ class AngleCalibration:
         move(mcu_stepper, .5*rotation_dist + align_dist, move_speed)
         toolhead.wait_moves()
         # Finish data collection
-        cconn.finalize()
-        msgs = cconn.get_messages()
+        is_finished = True
         # Correlate query responses
         cal = {}
         step = 0
         for msg in msgs:
-            for query_time, pos in msg['params']['data']:
+            for query_time, pos in msg['data']:
                 # Add to step tracking
                 while step < len(times) and query_time > times[step][1]:
                     step += 1
@@ -375,9 +380,9 @@ class HelperTLE5012B:
         mcu_clock, chip_clock = self._query_clock()
         mdiff = mcu_clock - self.last_chip_mcu_clock
         chip_mclock = self.last_chip_clock + int(mdiff * self.chip_freq + .5)
-        cdiff = (chip_mclock - chip_clock) & 0xffff
+        cdiff = (chip_clock - chip_mclock) & 0xffff
         cdiff -= (cdiff & 0x8000) << 1
-        new_chip_clock = chip_mclock - cdiff
+        new_chip_clock = chip_mclock + cdiff
         self.chip_freq = float(new_chip_clock - self.last_chip_clock) / mdiff
         self.last_chip_clock = new_chip_clock
         self.last_chip_mcu_clock = mcu_clock
@@ -590,7 +595,7 @@ class HelperMT6826S:
             gcmd.respond_info("AUTOCAL_FREQ = %i" % (val >> 4 & 0x7))
         elif reg == 0x113:
             val = self._read_reg(reg)
-            gcmd.respond_info("Status: %s" % (self.cal_status[val >> 6]))
+            gcmd.respond_info("Status: %s" % (self.status_map[val >> 6]))
         else:
             val = self._read_reg(reg)
             gcmd.respond_info("REG[0x%04x] = 0x%02x" % (reg, val))
@@ -600,6 +605,7 @@ BYTES_PER_SAMPLE = 3
 SAMPLES_PER_BLOCK = bulk_sensor.MAX_BULK_MSG_SIZE // BYTES_PER_SAMPLE
 
 SAMPLE_PERIOD = 0.000400
+BATCH_UPDATES = 0.100
 
 class Angle:
     def __init__(self, config):
@@ -610,9 +616,6 @@ class Angle:
         # Measurement conversion
         self.start_clock = self.time_shift = self.sample_ticks = 0
         self.last_sequence = self.last_angle = 0
-        # Measurement storage (accessed from background thread)
-        self.lock = threading.Lock()
-        self.raw_samples = []
         # Sensor type
         sensors = { "a1333": HelperA1333,
                     "as5047d": HelperAS5047D,
@@ -641,9 +644,9 @@ class Angle:
             self.printer, self._process_batch,
             self._start_measurements, self._finish_measurements, BATCH_UPDATES)
         self.name = config.get_name().split()[1]
-        wh = self.printer.lookup_object('webhooks')
-        wh.register_mux_endpoint("angle/dump_angle", "sensor", self.name,
-                                 self._handle_dump_angle)
+        api_resp = {'header': ('time', 'angle')}
+        self.batch_bulk.add_mux_endpoint("angle/dump_angle",
+                                         "sensor", self.name, api_resp)
     def _build_config(self):
         freq = self.mcu.seconds_to_clock(1.)
         while float(TCODE_ERROR << self.time_shift) / freq < 0.002:
@@ -654,12 +657,9 @@ class Angle:
             cq=cmdqueue)
     def get_status(self, eventtime=None):
         return {'temperature': self.sensor_helper.last_temperature}
-    # Measurement collection
-    def is_measuring(self):
-        return self.start_clock != 0
-    def _handle_spi_angle_data(self, params):
-        with self.lock:
-            self.raw_samples.append(params)
+    def add_client(self, client_cb):
+        self.batch_bulk.add_client(client_cb)
+    # Measurement decoding
     def _extract_samples(self, raw_samples):
         # Load variables to optimize inner loop below
         sample_ticks = self.sample_ticks
@@ -680,23 +680,23 @@ class Angle:
             static_delay = self.sensor_helper.get_static_delay()
         # Process every message in raw_samples
         count = error_count = 0
-        samples = [None] * (len(raw_samples) * 16)
+        samples = [None] * (len(raw_samples) * SAMPLES_PER_BLOCK)
         for params in raw_samples:
-            seq = (last_sequence & ~0xffff) | params['sequence']
-            if seq < last_sequence:
-                seq += 0x10000
-            last_sequence = seq
+            seq_diff = (params['sequence'] - last_sequence) & 0xffff
+            last_sequence += seq_diff
+            samp_count = last_sequence * SAMPLES_PER_BLOCK
+            msg_mclock = start_clock + samp_count*sample_ticks
             d = bytearray(params['data'])
-            msg_mclock = start_clock + seq*16*sample_ticks
-            for i in range(len(d) // 3):
-                tcode = d[i*3]
+            for i in range(len(d) // BYTES_PER_SAMPLE):
+                d_ta = d[i*BYTES_PER_SAMPLE:(i+1)*BYTES_PER_SAMPLE]
+                tcode = d_ta[0]
                 if tcode == TCODE_ERROR:
                     error_count += 1
                     continue
-                raw_angle = d[i*3 + 1] | (d[i*3 + 2] << 8)
-                angle_diff = (last_angle - raw_angle) & 0xffff
+                raw_angle = d_ta[1] | (d_ta[2] << 8)
+                angle_diff = (raw_angle - last_angle) & 0xffff
                 angle_diff -= (angle_diff & 0x8000) << 1
-                last_angle -= angle_diff
+                last_angle += angle_diff
                 mclock = msg_mclock + i*sample_ticks
                 if is_tcode_absolute:
                     # tcode is tle5012b frame counter
@@ -715,24 +715,10 @@ class Angle:
         self.last_angle = last_angle
         del samples[count:]
         return samples, error_count
-    # API interface
-    def _api_update(self, eventtime):
-        if self.sensor_helper.is_tcode_absolute:
-            self.sensor_helper.update_clock()
-        with self.lock:
-            raw_samples = self.raw_samples
-            self.raw_samples = []
-        if not raw_samples:
-            return {}
-        samples, error_count = self._extract_samples(raw_samples)
-        if not samples:
-            return {}
-        offset = self.calibration.apply_calibration(samples)
-        return {'data': samples, 'errors': error_count,
-                'position_offset': offset}
+    # Start, stop, and process message batches
+    def _is_measuring(self):
+        return self.start_clock != 0
     def _start_measurements(self):
-        if self.is_measuring():
-            return
         logging.info("Starting angle '%s' measurements", self.name)
         self.sensor_helper.start()
         # Start bulk reading
@@ -746,8 +732,6 @@ class Angle:
         self.query_spi_angle_cmd.send([self.oid, reqclock, rest_ticks,
                                        self.time_shift], reqclock=reqclock)
     def _finish_measurements(self):
-        if not self.is_measuring():
-            return
         # Halt bulk reading
         self.query_spi_angle_cmd.send_wait_ack([self.oid, 0, 0, 0])
         self.bulk_queue.clear_queue()

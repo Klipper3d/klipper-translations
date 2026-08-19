@@ -15,7 +15,7 @@ class Thermistor:
         self.inline_resistor = inline_resistor
         self.c1 = self.c2 = self.c3 = 0.
     def setup_coefficients(self, t1, r1, t2, r2, t3, r3, name=""):
-        # Calculate Steinhart-Hart coefficents from temp measurements.
+        # Calculate Steinhart-Hart coefficients from temp measurements.
         # Arrange samples as 3 linear equations and solve for c1, c2, and c3.
         inv_t1 = 1. / (t1 - KELVIN_TO_CELSIUS)
         inv_t2 = 1. / (t2 - KELVIN_TO_CELSIUS)
@@ -33,13 +33,14 @@ class Thermistor:
                    / (ln3_r12 - ln3_r13 * ln_r12 / ln_r13))
         if self.c3 <= 0.:
             beta = ln_r13 / inv_t13
-            logging.warn("Using thermistor beta %.3f in heater %s", beta, name)
+            logging.warning("Using thermistor beta %.3f in heater %s",
+                            beta, name)
             self.setup_coefficients_beta(t1, r1, beta)
             return
         self.c2 = (inv_t12 - self.c3 * ln3_r12) / ln_r12
         self.c1 = inv_t1 - self.c2 * ln_r1 - self.c3 * ln3_r1
     def setup_coefficients_beta(self, t1, r1, beta):
-        # Calculate equivalent Steinhart-Hart coefficents from beta
+        # Calculate equivalent Steinhart-Hart coefficients from beta
         inv_t1 = 1. / (t1 - KELVIN_TO_CELSIUS)
         ln_r1 = math.log(r1)
         self.c3 = 0.

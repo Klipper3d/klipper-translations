@@ -49,6 +49,7 @@ trapq_alloc(void)
     list_init(&tq->moves);
     list_init(&tq->history);
     struct move *head_sentinel = move_alloc(), *tail_sentinel = move_alloc();
+    head_sentinel->print_time = -1.0;
     tail_sentinel->print_time = tail_sentinel->move_t = NEVER_TIME;
     list_add_head(&head_sentinel->node, &tq->moves);
     list_add_tail(&tail_sentinel->node, &tq->moves);
@@ -103,7 +104,7 @@ trapq_add_move(struct trapq *tq, struct move *m)
         // Add a null move to fill time gap
         struct move *null_move = move_alloc();
         null_move->start_pos = m->start_pos;
-        if (!prev->print_time && m->print_time > MAX_NULL_MOVE)
+        if (prev->print_time <= 0. && m->print_time > MAX_NULL_MOVE)
             // Limit the first null move to improve numerical stability
             null_move->print_time = m->print_time - MAX_NULL_MOVE;
         else
@@ -163,11 +164,10 @@ trapq_append(struct trapq *tq, double print_time
     }
 }
 
-#define HISTORY_EXPIRE (30.0)
-
 // Expire any moves older than `print_time` from the trapezoid velocity queue
 void __visible
-trapq_finalize_moves(struct trapq *tq, double print_time)
+trapq_finalize_moves(struct trapq *tq, double print_time
+                     , double clear_history_time)
 {
     struct move *head_sentinel = list_first_entry(&tq->moves, struct move,node);
     struct move *tail_sentinel = list_last_entry(&tq->moves, struct move, node);
@@ -190,10 +190,9 @@ trapq_finalize_moves(struct trapq *tq, double print_time)
     if (list_empty(&tq->history))
         return;
     struct move *latest = list_first_entry(&tq->history, struct move, node);
-    double expire_time = latest->print_time + latest->move_t - HISTORY_EXPIRE;
     for (;;) {
         struct move *m = list_last_entry(&tq->history, struct move, node);
-        if (m == latest || m->print_time + m->move_t > expire_time)
+        if (m == latest || m->print_time + m->move_t > clear_history_time)
             break;
         list_del(&m->node);
         free(m);
@@ -206,7 +205,7 @@ trapq_set_position(struct trapq *tq, double print_time
                    , double pos_x, double pos_y, double pos_z)
 {
     // Flush all moves from trapq
-    trapq_finalize_moves(tq, NEVER_TIME);
+    trapq_finalize_moves(tq, NEVER_TIME, 0);
 
     // Prune any moves in the trapq history that were interrupted
     while (!list_empty(&tq->history)) {
@@ -229,6 +228,22 @@ trapq_set_position(struct trapq *tq, double print_time
     list_add_head(&m->node, &tq->history);
 }
 
+// Copy the info in a 'struct move' to a 'struct pull_move'
+static void
+copy_pull_move(struct pull_move *p, struct move *m)
+{
+    p->print_time = m->print_time;
+    p->move_t = m->move_t;
+    p->start_v = m->start_v;
+    p->accel = 2. * m->half_accel;
+    p->start_x = m->start_pos.x;
+    p->start_y = m->start_pos.y;
+    p->start_z = m->start_pos.z;
+    p->x_r = m->axes_r.x;
+    p->y_r = m->axes_r.y;
+    p->z_r = m->axes_r.z;
+}
+
 // Return history of movement queue
 int __visible
 trapq_extract_old(struct trapq *tq, struct pull_move *p, int max
@@ -236,21 +251,21 @@ trapq_extract_old(struct trapq *tq, struct pull_move *p, int max
 {
     int res = 0;
     struct move *m;
+    list_for_each_entry_reverse(m, &tq->moves, node) {
+        if (start_time >= m->print_time + m->move_t || res >= max)
+            break;
+        if (end_time <= m->print_time || (!m->start_v && !m->half_accel))
+            continue;
+        copy_pull_move(p, m);
+        p++;
+        res++;
+    }
     list_for_each_entry(m, &tq->history, node) {
         if (start_time >= m->print_time + m->move_t || res >= max)
             break;
         if (end_time <= m->print_time)
             continue;
-        p->print_time = m->print_time;
-        p->move_t = m->move_t;
-        p->start_v = m->start_v;
-        p->accel = 2. * m->half_accel;
-        p->start_x = m->start_pos.x;
-        p->start_y = m->start_pos.y;
-        p->start_z = m->start_pos.z;
-        p->x_r = m->axes_r.x;
-        p->y_r = m->axes_r.y;
-        p->z_r = m->axes_r.z;
+        copy_pull_move(p, m);
         p++;
         res++;
     }

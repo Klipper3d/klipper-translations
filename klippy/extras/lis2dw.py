@@ -4,8 +4,8 @@
 # Copyright (C) 2020-2023  Kevin O'Connor <kevin@koconnor.net>
 #
 # This file may be distributed under the terms of the GNU GPLv3 license.
-import logging, time, collections, threading, multiprocessing, os
-from . import bus, motion_report, adxl345
+import logging
+from . import bus, adxl345, bulk_sensor
 
 # LIS2DW registers
 REG_LIS2DW_WHO_AM_I_ADDR = 0x0F
@@ -134,12 +134,10 @@ class LIS2DW:
             count += 1
     # Start, stop, and process message batches
     def _start_measurements(self):
-        if self.is_measuring():
-            return
         # In case of miswiring, testing LIS2DW device ID prevents treating
         # noise or wrong signal as a correctly initialized device
         dev_id = self.read_reg(REG_LIS2DW_WHO_AM_I_ADDR)
-        logging.info("lis2dw_dev_id: %x", dev_id)
+        logging.info("%s_dev_id: %x", self.lis_type, dev_id)
         if self.lis_type == LIS2DW_TYPE:
             if dev_id != LIS2DW_DEV_ID:
                 raise self.printer.command_error(
@@ -185,18 +183,16 @@ class LIS2DW:
             self.set_reg(REG_LIS2DW_FIFO_CTRL, 0xC0)
         else:
             self.set_reg(REG_LIS2DW_FIFO_CTRL, 0x80)
-        logging.info("LIS2DW starting '%s' measurements", self.name)
+        logging.info("%s starting '%s' measurements", self.lis_type, self.name)
         # Initialize clock tracking
         self.ffreader.note_start()
         self.last_error_count = 0
     def _finish_measurements(self):
-        if not self.is_measuring():
-            return
         # Halt bulk reading
         self.set_reg(REG_LIS2DW_FIFO_CTRL, 0x00)
         self.query_lis2dw_cmd.send_wait_ack([self.oid, 0])
         self.ffreader.note_end()
-        logging.info("LIS2DW finished '%s' measurements", self.name)
+        logging.info("%s finished '%s' measurements", self.lis_type, self.name)
         self.set_reg(REG_LIS2DW_FIFO_CTRL, 0x00)
     def _process_batch(self, eventtime):
         samples = self.ffreader.pull_samples()
