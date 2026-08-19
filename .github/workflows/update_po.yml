@@ -3,23 +3,35 @@ name: Update GetText
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+  pull-requests: write
+
 jobs:
   build:
 
     runs-on: ubuntu-latest
+    timeout-minutes: 20
 
     steps:
-    - uses: actions/checkout@v2
-    - name: install mdpo dependency
-      run: sudo apt-get install libmd4c-dev libmd4c-html0 libmd4c-html0-dev
+    - uses: actions/checkout@v5
+    - name: Setup python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+    # mdpo's md4c binding (pymd4c) ships manylinux wheels, so the
+    # libmd4c-dev apt packages this job used to install are no longer
+    # needed - and apt-get intermittently hung the runner.
     - name: install mdpo
-      run: pip install mdpo
+      run: pip install mdpo==2.1.4
     - name: run update-po.py
       run: python ./scripts/update-po.py
     - name: Create Pull Request
-      uses: peter-evans/create-pull-request@v3
+      uses: peter-evans/create-pull-request@v7
       with:
         commit-message: "locales: Automated Gettext Update(Manually Triggered)"
-        committer: GitHub <noreply@github.com> 
+        title: "locales: Automated Gettext Update"
+        branch: create-pull-request/gettext
+        committer: GitHub <noreply@github.com>
         signoff: true
-        author: GitHub <noreply@github.com> 
+        author: GitHub <noreply@github.com>
