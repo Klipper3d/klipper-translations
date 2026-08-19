@@ -4,6 +4,9 @@ on: [push, pull_request]
 
 jobs:
   build:
+    # Firmware CI is only meaningful in the main Klipper repository;
+    # this fork carries the tree solely to translate docs/.
+    if: github.repository == 'Klipper3d/klipper'
     runs-on: ubuntu-22.04
     steps:
     - uses: actions/checkout@v5
