@@ -7,8 +7,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2026-03-07 09:10+0000\n"
 "Last-Translator: Pajoer Pa <pajoer@gmail.com>\n"
-"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/"
-"measuring_resonances/es/>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/klipper/measuring_resonances/es/>\n"
 "Language: es\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -29,10 +28,10 @@ msgid ""
 "connection, which is suggested by ADXL345 documentation, has too low "
 "throughput and **will not work**. The recommended connection scheme:"
 msgstr ""
-"Se necesita conectar el ADXL345 a la Raspberry Pi vía el SPI. Hay que tener "
-"en cuenta que la conexión I2C, la cual es sugerida por la documentación "
-"ADXL345, tiene un rendimiento muy bajo y **no funcionará**. El esquema "
-"recomendado de conexión es:"
+"Se necesita conectar el ADXL345 a la Raspberry Pi vía el SPI. Hay que tener en"
+" cuenta que la conexión I2C, la cual es sugerida por la documentación ADXL345,"
+" tiene un rendimiento muy bajo y **no funcionará**. El esquema recomendado de "
+"conexión es:"
 
 msgid "ADXL345 pin"
 msgstr ""
@@ -531,12 +530,6 @@ msgstr ""
 msgid "which will generate `/tmp/resonances.png` comparing the resonances."
 msgstr ""
 
-#: docs/Measuring_Resonances.md:block 87 (paragraph)
-msgid ""
-"For Delta printers with the default tower placement (tower A ~= 210 degrees, B"
-" ~= 330 degrees, and C ~= 90 degrees), execute"
-msgstr ""
-
 #: docs/Measuring_Resonances.md:block 89 (paragraph)
 msgid "and then use the same command"
 msgstr ""
@@ -963,10 +956,6 @@ msgid ""
 "supplemented by smaller parallel resistors."
 msgstr ""
 
-#: docs/Measuring_Resonances.md:block 41 (paragraph)
-msgid "The RPi has buit-in 1.8K pull-ups on both SCL and SDA."
-msgstr ""
-
 #: docs/Measuring_Resonances.md:block 42 (paragraph)
 msgid "![MPU-9250 connected to Pi](img/mpu9250-PI-fritzing.png)"
 msgstr ""
@@ -1203,6 +1192,122 @@ msgid ""
 "If you are using the ICM20948, replace instances of \"mpu9250\" with "
 "\"icm20948\"."
 msgstr ""
+
+#: docs/Measuring_Resonances.md:block 41 (paragraph)
+msgid "The RPi has built-in 1.8K pull-ups on both SCL and SDA."
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 158 (header)
+msgid "Measuring the resonances of Z axis"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 159 (paragraph)
+msgid ""
+"Measuring the resonances of Z axis is similar in many aspects to measuring "
+"resonances of X and Y axes, with some subtle differences. Similarly to other "
+"axes measurements, you will need to have an accelerometer mounted on the "
+"moving parts of Z axis - either the bed itself (if the bed moves over Z axis),"
+" or the toolhead (if the toolhead/gantry moves over Z). You will need to add "
+"the appropriate chip configuration to `printer.cfg` and also add it to "
+"`[resonance_tester]` section, e.g."
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 161 (paragraph)
+msgid ""
+"Also make sure that `probe_points` configured in `[resonance_tester]` allow "
+"sufficient clearance for Z axis movements (20 mm above bed surface should "
+"provide enough clearance with the default test parameters)."
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 162 (paragraph)
+msgid ""
+"The next consideration is that Z axis can typically reach lower maximum speeds"
+" and accelerations that X and Y axes. Default parameters of the test take that"
+" into consideration and are much less agressive, but it may still be necessary"
+" to increase `max_z_accel` and `max_z_velocity`. If you have them configured "
+"in `[printer]` section, make sure to set them to at least"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 164 (paragraph)
+msgid ""
+"but only for the duration of the test, afterwards you can revert them back to "
+"their original values if necessary. And if you use custom test parameters for "
+"Z axis, `TEST_RESONANCES` and `SHAPER_CALIBRATE` will provide the minimum "
+"required limits if necessary for your specific case."
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 165 (paragraph)
+msgid ""
+"After all changes to `printer.cfg` have been made, restart Klipper and run "
+"either"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 167 (paragraph)
+msgid "or"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 169 (paragraph)
+msgid ""
+"and proceed from there accordingly how you would for other axes. For example, "
+"after `TEST_RESONANCES` command you can run `calibrate_shaper.py` script and "
+"get shaper recommendations and the chart of resonance response:"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 170 (paragraph)
+msgid "![Resonances](img/calibrate-z.png)"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 171 (paragraph)
+msgid ""
+"After the calibration, the shaper parameters can be stored in the "
+"`printer.cfg`, e.g. from the example above:"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 173 (paragraph)
+msgid ""
+"Also, given the movements of Z axis are slow, you can easily consider more "
+"aggressive input shapers, e.g."
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 175 (paragraph)
+msgid ""
+"If the test produces bogus results, you may try to increase `accel_per_hz_z` "
+"parameter in `[resonance_tester]` from its default value 15 to a larger value "
+"in the range of 20-30, e.g."
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 177 (paragraph)
+msgid ""
+"and repeat the test. Increasing this value will likely require increasing "
+"`max_z_accel` and `max_z_velocity` parameters as well. You can run "
+"`TEST_RESONANCES AXIS=Z` command to get the required minimum values."
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 178 (paragraph)
+msgid ""
+"However, if you are unable to measure the resonances of Z axis, you can "
+"consider just using"
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 180 (paragraph)
+msgid ""
+"as an acceptable all-round choice, given that the smoothing of Z axis "
+"movements is not of particular concerns."
+msgstr ""
+
+#: docs/Measuring_Resonances.md:block 190 (paragraph)
+msgid ""
+"For Delta printers with the default tower placement (tower A ~= 210 degrees, B"
+" ~= 330 degrees, and C ~= 90 degrees), execute"
+msgstr ""
+
+#~ msgid ""
+#~ "For Delta printers with the default tower placement (tower A ~~= 210 degrees, "
+#~ "B ~~= 330 degrees, and C ~= 90 degrees), execute"
+#~ msgstr ""
+
+#~ msgid "The RPi has buit-in 1.8K pull-ups on both SCL and SDA."
+#~ msgstr ""
 
 #~ msgid "MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500"
 #~ msgstr ""

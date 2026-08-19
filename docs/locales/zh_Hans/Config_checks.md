@@ -26,7 +26,7 @@
 
 手动移动所有打印机轴，使其不与端挡接触。通过命令控制台发送QUERY_ENDSTOPS命令。它应该以所有配置的端站的当前状态进行响应，并且它们都应该报告“打开”状态。对于每个endstop，在手动触发endstop的同时重新运行QUERY_endstops命令。QUERY_ENDSTOPS命令应将endstop报告为“TRIGGERED”。
 
-如果endstop出现反转（触发时报告“打开”，反之亦然），则在端号定义中添加一个“！”（例如，“endstop_pin:^PA2”），或者如果已经存在“！”，则删除该“！”。
+If the endstop appears inverted (it reports "open" when triggered and vice-versa) then add a "!" to the pin definition (for example, "endstop_pin: ^!PA2"), or remove the "!" if there is already one present.
 
 如果限位状态根本没有变化，则通常表示限位器连接到不同的引脚。 但是，它也可能表示需要更改引脚的上拉设置（endstop_pin 名称开头的“^” - 大多数打印机需要使用上拉电阻并且应该存在“^”）。
 

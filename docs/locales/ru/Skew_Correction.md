@@ -16,7 +16,7 @@
 
 ## Настройка перекоса
 
-Убедитесь, что `[skew_correction]` находится в файле print.cfg. Теперь вы можете использовать gcode `SET_SKEW` для настройки skew_correton. Например, если ваши измеренные длины по XY следующие:
+Make sure `[skew_correction]` is in printer.cfg. You may now use the `SET_SKEW` gcode to configure skew_correction. For example, if your measured lengths along XY are as follows:
 
 ```
 Длина АС = 140,4

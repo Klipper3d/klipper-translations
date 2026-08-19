@@ -14,7 +14,7 @@ Chào mứng đến với hướng dẫn sử dụng Klipper. Nếu bạn mới 
 
 - [Tải](Installation.md): Hướng dẫn tải Klipper.
    - [Octoprint](OctoPrint.md): Guide to installing Octoprint with Klipper.
-- [Config Reference](Config_Reference.md): Description of config parameters.
+- [Tham chiếu cấu hình](Config_Reference.md): Mô tả các tham số cấu hình.
    - [Rotation Distance](Rotation_Distance.md): Calculating the rotation_distance stepper parameter.
 - [Config checks](Config_checks.md): Verify basic pin settings in the config file.
 - [Bed level](Bed_Level.md): Information on "bed leveling" in Klipper.

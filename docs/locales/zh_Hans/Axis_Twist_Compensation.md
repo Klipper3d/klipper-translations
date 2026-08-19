@@ -13,9 +13,9 @@ bias](Probe_Calibrate.md#location-bias-check). It may result in probe operations
 
 > **提示：**请确保正确设置[Probe X和Y Offset](Config_Reference.md#Probe)，因为它们对校准影响很大。
 
-### Basic Usage: X-Axis Calibration
+### 基础用途：X轴校准
 
-1. After setting up the `[axis_twist_compensation]` module, run:
+1. 在设置完毕`[axis_twist_compensation]`模块后，运行：
 
 ```
 AXIS_TWIST_COMPENSATION_CALIBRATE
@@ -27,25 +27,25 @@ This command will calibrate the X-axis by default.
 - By default, the calibration uses 3 points, but you can specify a different number with the option: `SAMPLE_COUNT=<value>`
 
 1. **Adjust Your Z Offset:** After completing the calibration, be sure to [adjust your Z offset](Probe_Calibrate.md#calibrating-probe-z-offset).
-1. **Perform Bed Leveling Operations:** Use probe-based operations as needed, such as:
+1. **进行打印床调平操作：**使用基于探针的操作（如果需要），如下：
 
 - [Screws Tilt Adjust](G-Codes.md#screws_tilt_adjust)
-- [Z Tilt Adjust](G-Codes.md#z_tilt_adjust)
+- [Z轴倾斜校正](G-Codes.md#z_tilt_adjust)
 
-1. **Finalize the Setup:**
+1. **结束设置：**
 
-- Home all axes, and perform a [Bed Mesh](Bed_Mesh.md) if necessary.
-- Run a test print, followed by any [fine-tuning](Axis_Twist_Compensation.md#fine-tuning) if needed.
+- 归零所有轴，并进行一次[床网](Bed_Mesh.md)（如果需要）。
+- 进行测试打印，并进行[精细调整](Axis_Twist_Compensation.md#fine-tuning)如果需要。
 
-### For Y-Axis Calibration
+### 对于Y轴校准
 
-The calibration process for the Y-axis is similar to the X-axis. To calibrate the Y-axis, use:
+Y轴的校准流程与X轴接近。如果要校准Y轴，使用一下方法：
 
 ```
 AXIS_TWIST_COMPENSATION_CALIBRATE AXIS=Y
 ```
 
-This will guide you through the same measuring process as for the X-axis.
+这将会进行与X轴相同的测量流程。
 
 > **提示：**床温、喷嘴温度和尺寸似乎对校准过程没有影响。
 

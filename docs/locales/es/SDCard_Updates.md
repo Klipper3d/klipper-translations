@@ -4,7 +4,7 @@ Muchas de las placas controladoras más populares de la actualidad se entregan c
 
 ## Procedimiento de Modernización Típico
 
-The procedure for updating MCU firmware using the SD Card is similar to that of other methods. Instead of using `make flash` it is necessary to run a helper script, `flash-sdcard.sh`. Updating a BigTreeTech SKR 1.3 might look like the following:
+El procedimiento para actualizar el firmware de la MCU utilizando la tarjeta SD es similar al de otros métodos. En lugar de utilizar «make flash», es necesario ejecutar un script auxiliar, «flash-sdcard.sh». La actualización de un BigTreeTech SKR 1.3 podría ser similar a la siguiente:
 
 ```
 sudo service klipper stop
@@ -17,7 +17,7 @@ make
 sudo service klipper start
 ```
 
-It is up to the user to determine the device location and board name. If a user needs to flash multiple boards, `flash-sdcard.sh` (or `make flash` if appropriate) should be run for each board prior to restarting the Klipper service.
+Es el usuario quien debe determinar la ubicación del dispositivo y el nombre de la placa. Si un usuario necesita flashear varias placas, debe ejecutar `flash-sdcard.sh` (o `make flash`, si procede) para cada placa antes de reiniciar el servicio Klipper.
 
 Las placas soportadas se pueden listar con el siguiente comando:
 
@@ -25,7 +25,7 @@ Las placas soportadas se pueden listar con el siguiente comando:
 ./scripts/flash-sdcard.sh -l
 ```
 
-If you do not see your board listed it may be necessary to add a new board definition as [described below](#board-definitions).
+Si no ves tu tablero en la lista, puede que tengas que añadir una nueva definición de tablero como [se describe a continuación](#definiciones-de-tablero).
 
 ## Uso Avanzado
 
@@ -33,21 +33,22 @@ The above commands assume that your MCU connects at the default baud rate of 250
 
 ```
 ./scripts/flash-sdcard.sh -h
-Utilidad de subida de la Tarjeta SD para Klipper
+SD Card upload utility for Klipper
 
-Modo de empleo: flash_sdcard.sh [-h] [-l] [-c] [-b <baud>] [-f <firmware>]
-                       <dispositivo> <placa>
+usage: flash_sdcard.sh [-h] [-l] [-c] [-s] [-b <baud>] [-f <firmware>]
+                       <device> <board>
 
-argumentos posicionales:
-  <dispositivo>        puerto seria del dispositivo
-  <tarjeta>         tipo de tarjeta
+positional arguments:
+  <device>        device serial port
+  <board>         board type
 
-argumentos opcionales:
-  -h              muestra este mensaje
-  -l              enumera las tarjetas disponibles
-  -c              ejecuta solamente la comprobación/verificación del flash (omite cargar)
-  -b <baudio>       proporción del ancho de baudios serie (predet es 250.000)
-  -f <firmware>   ruta para klipper.bin
+optional arguments:
+  -h              show this message
+  -l              list available boards
+  -c              run flash check/verify only (skip upload)
+  -s              use fast SPI speed (4MHz)
+  -b <baud>       serial baud rate (default is 250000)
+  -f <firmware>   path to klipper.bin
 ```
 
 If your board is flashed with firmware that connects at a custom baud rate it is possible to upgrade by specifying the `-b` option:
@@ -65,6 +66,20 @@ If you wish to flash a build of Klipper located somewhere other than the default
 Note that when upgrading a MKS Robin E3 it is not necessary to manually run `update_mks_robin.py` and supply the resulting binary to `flash-sdcard.sh`. This procedure is automated during the upload process.
 
 The `-c` option is used to perform a check or verify-only operation to test if the board is running the specified firmware correctly. This option is primarily intended for cases where a manual power-cycle is necessary to complete the flashing procedure, such as with bootloaders that use SDIO mode instead of SPI to access their SD Cards. (See Caveats below) But, it can also be used anytime to verify if the code flashed into the board matches the version in your build folder on any supported board.
+
+## Failure to Initialize
+
+Some SD cards may fail to initialize at the default SPI speed of 400KHz. In this situation it is possible to use `-s` to drive the SPI peripheral at 4MHz. For example:
+
+```
+./scripts/flash-sdcard.sh -s /dev/ttyACM0 btt-skr-v1.3
+```
+
+If the device still fails to initialize then cause of the failure is unrelated to the speed and likely a result of one of the following conditions:
+
+- The SD card is improperly formatted. Must be `fat` or `fat32`.
+- Attempt to initialize a card using the SPI interface that has already been initialized over SDIO.
+- The SD card has failed or is corrupt.
 
 ## Advertencias
 
@@ -111,7 +126,7 @@ BOARD_ALIASES = {
 }
 ```
 
-If you need a new board definition and you are uncomfortable with the procedure outlined above it is recommended that you request one in the [Klipper Community Discord](Contact.md#discord).
+If you need a new board definition and you are uncomfortable with the procedure outlined above it is recommended that you request one in the [Klipper Discord](Contact.md).
 
 ## Flashing Boards that use SDIO
 

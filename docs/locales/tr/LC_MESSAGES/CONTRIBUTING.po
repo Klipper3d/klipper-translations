@@ -5,8 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2026-03-16 04:50+0000\n"
 "Last-Translator: DeltaXLR <h3r0xlr@gmail.com>\n"
-"Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/"
-"contributing/tr/>\n"
+"Language-Team: Turkish <https://hosted.weblate.org/projects/klipper/contributing/tr/>\n"
 "Language: tr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -56,8 +55,8 @@ msgid ""
 "Thank you for contributing to Klipper! This document describes the process for"
 " contributing changes to Klipper."
 msgstr ""
-"Klipper'a katkıda bulunduğunuz için teşekkürler! Bu döküman Klipper'a "
-"katkıda bulunan değişikliklerin işlenmesini anlatmaktadır."
+"Klipper'a katkıda bulunduğunuz için teşekkürler! Bu döküman Klipper'a katkıda "
+"bulunan değişikliklerin işlenmesini anlatmaktadır."
 
 #: docs/CONTRIBUTING.md:block 3 (paragraph)
 msgid ""
@@ -523,13 +522,6 @@ msgstr ""
 
 #: docs/CONTRIBUTING.md:block 38 (ordered list)
 msgid ""
-"update klipper-tranlations repository "
-"[active_translations](https://github.com/Klipper3d/klipper-"
-"translations/blob/translations/active_translations)"
-msgstr ""
-
-#: docs/CONTRIBUTING.md:block 38 (ordered list)
-msgid ""
 "Optional: add a manual-index.md file in klipper-translations repository's "
 "`docs\\locals\\<lang>` folder to replace the language specific index.md "
 "(generated index.md does not render correctly)."
@@ -583,6 +575,19 @@ msgstr ""
 #: docs/CONTRIBUTING.md:block 23 (table)
 msgid "Configuration files"
 msgstr ""
+
+#: docs/CONTRIBUTING.md:block 38 (ordered list)
+msgid ""
+"update klipper-translations repository "
+"[active_translations](https://github.com/Klipper3d/klipper-"
+"translations/blob/translations/active_translations)"
+msgstr ""
+
+#~ msgid ""
+#~ "update klipper-tranlations repository "
+#~ "[active_translations](https://github.com/Klipper3d/klipper-"
+#~ "translations/blob/translations/active_translations)"
+#~ msgstr ""
 
 #~ msgid ""
 #~ "module: Capitalized, short (50 chars or less) summary\n"

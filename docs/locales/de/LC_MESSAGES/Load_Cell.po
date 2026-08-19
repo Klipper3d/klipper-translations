@@ -5,8 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2026-01-04 09:02+0000\n"
 "Last-Translator: M-M90 <m.musel@protonmail.com>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/klipper/load_cell/"
-"de/>\n"
+"Language-Team: German <https://hosted.weblate.org/projects/klipper/load_cell/de/>\n"
 "Language: de\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -25,10 +24,10 @@ msgid ""
 "probe."
 msgstr ""
 "Dieses Dokument beschreibt die Unterstützung von Wägezellen in Klipper. "
-"Grundlegender Funktionsumfang kann das erfassen einer statischen "
-"Gewichtskraft sein, oder als Beispiel das erfassen des aktuellen Gewichts "
-"der Filament Spule. Der richtig kalibrierte Kraftsensor ist die Grundlage "
-"für die korrekte Funktion und Erfassung der Wägezelle."
+"Grundlegender Funktionsumfang kann das erfassen einer statischen Gewichtskraft"
+" sein, oder als Beispiel das erfassen des aktuellen Gewichts der Filament "
+"Spule. Der richtig kalibrierte Kraftsensor ist die Grundlage für die korrekte "
+"Funktion und Erfassung der Wägezelle."
 
 #: docs/Load_Cell.md:block 3 (header)
 msgid "Related Documentation"
@@ -78,12 +77,6 @@ msgstr ""
 msgid ""
 "'Unique values' should be a large percentage of the 'Samples Collected' value."
 " If 'Unique values' is 1 it is very likely a wiring issue."
-msgstr ""
-
-#: docs/Load_Cell.md:block 9 (unordered list)
-msgid ""
-"Tap or push on the sensor while `LOAD_CELL_DIAGNOSTIC` runs. If things are "
-"working correctly ths should increase the 'Sample range'."
 msgstr ""
 
 #: docs/Load_Cell.md:block 10 (header)
@@ -314,15 +307,6 @@ msgid ""
 "`force_safety_limit` stops this cycle from running out of control."
 msgstr ""
 
-#: docs/Load_Cell.md:block 49 (paragraph)
-msgid ""
-"Another way this run-away can happen is damage to a strain gauge. If the metal"
-" part is permanently bent it wil change the `reference_tare_counts` of the "
-"device. This puts the starting tare value much closer to the limit making it "
-"more likely to be violated. You want to be notified if this is happening "
-"because your hardware has been permanently damaged."
-msgstr ""
-
 #: docs/Load_Cell.md:block 50 (paragraph)
 msgid ""
 "The final way this can be triggered is due to temperature changes. If your "
@@ -397,33 +381,6 @@ msgstr ""
 msgid ""
 "Load cell probes don't support the `QUERY_ENDSTOPS` or `QUERY_PROBE` commands."
 " Use `LOAD_CELL_TEST_TAP` for testing functionality before probing."
-msgstr ""
-
-#: docs/Load_Cell.md:block 62 (header)
-msgid "Homing Macros"
-msgstr ""
-
-#: docs/Load_Cell.md:block 63 (paragraph)
-msgid ""
-"Load cell probe is not an endstop and doesn't support `endstop: "
-"prove:z_virtual_endstop`. For the time being you'll need to configure your z "
-"axis with an MCU pin as its endstop. You won't actually be using the pin but "
-"for the time being you have to configure something."
-msgstr ""
-
-#: docs/Load_Cell.md:block 64 (paragraph)
-msgid ""
-"To home the axis with just the probe you need to set up a custom homing macro."
-" This requires setting up "
-"[homing_override](Config_Reference.md#homing_override)."
-msgstr ""
-
-#: docs/Load_Cell.md:block 65 (paragraph)
-msgid ""
-"Here is a simple macro that can accomplish this. Note that the "
-"`_HOME_Z_FROM_LAST_PROBE` macro has to be separate because of the way macros "
-"work. The sub-call is needed so that the `_HOME_Z_FROM_LAST_PROBE` macro can "
-"see the result of the probe in `printer.probe.last_z_result`."
 msgstr ""
 
 #: docs/Load_Cell.md:block 67 (header)
@@ -768,3 +725,96 @@ msgid ""
 "the 10SPS version of the sensor (which is widely distributed) it needs to be "
 "physically re-wired to run at 80SPS."
 msgstr ""
+
+#: docs/Load_Cell.md:block 9 (unordered list)
+msgid ""
+"Tap or push on the sensor while `LOAD_CELL_DIAGNOSTIC` runs. If things are "
+"working correctly this should increase the 'Sample range'."
+msgstr ""
+
+#: docs/Load_Cell.md:block 49 (paragraph)
+msgid ""
+"Another way this run-away can happen is damage to a strain gauge. If the metal"
+" part is permanently bent it will change the `reference_tare_counts` of the "
+"device. This puts the starting tare value much closer to the limit making it "
+"more likely to be violated. You want to be notified if this is happening "
+"because your hardware has been permanently damaged."
+msgstr ""
+
+#: docs/Load_Cell.md:block 54 (header)
+msgid "Interpolation"
+msgstr ""
+
+#: docs/Load_Cell.md:block 55 (paragraph)
+msgid ""
+"To increase the precision of the probing result, the position of the first "
+"contact between nozzle and bed can be estimated by fitting a piecewise "
+"function to the measured data. The data will consist of two regions: while the"
+" nozzle is above the bed, the force will be constant (at the tare value). When"
+" the nozzle is in contact with the bed, the force will increase linearly with "
+"decreasing z position. A piecewise function is fitted to the data and the "
+"optimal z position of the split point is found by minimising the error "
+"squared. This enables a resolution finer than the distance between the "
+"sampling points and will also be less sensitive to noise."
+msgstr ""
+
+#: docs/Load_Cell.md:block 56 (paragraph)
+msgid ""
+"Due to both physical and technical reasons, the interpolation uses data "
+"collected during an additional ascending movement after the initial descending"
+" move. The first 300ms of data collected during the ascending move will be "
+"used for the fit (this minimises the influence of tare drifts). The collected "
+"data must contain enough samples for the fit: at least 3 samples each below "
+"and above the contact point are required."
+msgstr ""
+
+#: docs/Load_Cell.md:block 57 (paragraph)
+msgid ""
+"It is recommended to use a relatively high trigger force for the probe to have"
+" a strong enough signal. If you have too few samples below the contact point, "
+"try increasing the `trigger_force` or reducing the `lift_speed`. However, if "
+"the `lift_speed` is too small, there will be too few samples above the contact"
+" point due to the 300ms window."
+msgstr ""
+
+#: docs/Load_Cell.md:block 58 (paragraph)
+msgid ""
+"The distance of the ascending move can be configured through the "
+"`sample_retract_dist` parameter."
+msgstr ""
+
+#~ msgid ""
+#~ "Tap or push on the sensor while `LOAD_CELL_DIAGNOSTIC` runs. If things are "
+#~ "working correctly ths should increase the 'Sample range'."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Another way this run-away can happen is damage to a strain gauge. If the metal"
+#~ " part is permanently bent it wil change the `reference_tare_counts` of the "
+#~ "device. This puts the starting tare value much closer to the limit making it "
+#~ "more likely to be violated. You want to be notified if this is happening "
+#~ "because your hardware has been permanently damaged."
+#~ msgstr ""
+
+#~ msgid "Homing Macros"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Load cell probe is not an endstop and doesn't support `endstop: "
+#~ "prove:z_virtual_endstop`. For the time being you'll need to configure your z "
+#~ "axis with an MCU pin as its endstop. You won't actually be using the pin but "
+#~ "for the time being you have to configure something."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "To home the axis with just the probe you need to set up a custom homing macro."
+#~ " This requires setting up "
+#~ "[homing_override](Config_Reference.md#homing_override)."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Here is a simple macro that can accomplish this. Note that the "
+#~ "`_HOME_Z_FROM_LAST_PROBE` macro has to be separate because of the way macros "
+#~ "work. The sub-call is needed so that the `_HOME_Z_FROM_LAST_PROBE` macro can "
+#~ "see the result of the probe in `printer.probe.last_z_result`."
+#~ msgstr ""

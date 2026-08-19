@@ -158,7 +158,7 @@ Signed-off-by: 姓名< myemail@example.org >
 
 满足要求后，您需要：
 
-1. 更新KLIPPER-翻译库[active_translations](https://github.com/Klipper3d/klipper-translations/blob/translations/active_translations)
+1. update klipper-translations repository [active_translations](https://github.com/Klipper3d/klipper-translations/blob/translations/active_translations)
 1. 可选：在Klipper-Translations存储库的`docs\Locals\<lang>`文件夹中添加手动index.md文件，以替换特定语言的index.md(生成的index.md无法正确呈现)。
 
 已知问题：

@@ -35,7 +35,7 @@ Where `<DEVICE>` is your serial device, such as `/dev/serial.by-id/usb-Klipper[.
 
 ### Physical serial
 
-If a physical serial port is being used on the MCU (even if a USB serial adapter is being used to connect to it), sending the string `<SPACE><FS><SPACE>Request Serial Bootloader!!<SPACE>~`.
+If a physical serial port is being used on the MCU (even if a USB serial adapter is being used to connect to it), sending the string `<SPACE><FS><SPACE>Request Serial Bootloader!!<SPACE>~` requests the bootloader.
 
 `<SPACE>`はASCIIコードのスペース、 0x20 です。
 

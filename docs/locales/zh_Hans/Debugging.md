@@ -65,7 +65,7 @@ Klipper支持记录其内部运动历史，稍后可以对其进行分析。若�
 使用 `data_logger.py` 工具启用数据日志记录。例如：
 
 ```
-~/klipper/scripts/motan/data_logger.py /tmp/klippy_uds mylog
+~/klipper/scripts/motan/data_logger.py /tmp/klippy_uds mylog -s '*'
 ```
 
 此命令将连接到Klipper API服务器，订阅状态和运动信息，并记录结果。生成两个文件-一个压缩数据文件和一个索引文件（例如`mylog.json.gz`和`mylog.index.gz`）。启动日志记录后，可以完成打印和其他操作-日志记录将在后台继续。完成日志记录后，点击 `ctrl-c`退出 `data_logger.py` 工具。

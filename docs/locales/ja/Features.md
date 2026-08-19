@@ -10,7 +10,7 @@ Klipper にはいくつかの魅力的な機能があります:
 * Klipper は、印刷品質への振動の影響を軽減する "Input Shaping" をサポートしています。これにより、印刷の "リンギング"（"ゴースト"、"エコー"、"リップリング"とも呼ばれる）を低減または除去することができます。また、高い印刷品質を維持しながら、より速い印刷速度を得ることができます。
 * Klipper ーは "反復ソルバー" を使って、シンプルな運動方程式から正確なステップタイムを計算します。これにより、新しいタイプのロボットへのクリッパーの移植が容易になり、複雑な運動学でも正確なタイミングを保つことができます（"ラインセグメンテーション" は必要ありません）。
 * Klipper はハードウェアにとらわれません。ローレベルのエレクトロニクス・ハードウェアとは無関係に、同じ正確なタイミングを得ることができるはずです。Klipper マイクロコントローラーのコードは、Klipper ホスト・ソフトウェアが提供するスケジュールに忠実に従うように設計されています。これにより、利用可能なハードウェアの使用や、新しいハードウェアへのアップグレードが容易になり、ハードウェアへの信頼が高まります。
-* ポータブルコード。 Klipper はARM、AVR、PRUベースのマイクロコントローラーで動作します。既存の "reprap" スタイルのプリンターは、ハードウェアを変更することなく、Raspberry Piを追加するだけでKlipperを動かすことができます。Klipperの内部コードレイアウトは、他のマイクロコントローラ・アーキテクチャのサポートも容易にしています。
+* Portable code. Klipper works on ARM, AVR, PRU, and other micro-controllers. Existing "reprap" style printers can run Klipper without hardware modification - just add a Raspberry Pi. Klipper's internal code layout makes it easier to support other micro-controller architectures as well.
 * よりシンプルなコード。Klipper は、ほとんどのコードに非常に高度な言語（Python）を使用しています。運動学アルゴリズム、Gコード解析、加熱とサーミスタのアルゴリズムなど、すべてがPythonで書かれています。これにより、新機能の開発が容易になります。
 * カスタムのプログラマブルなマクロ。 新しいGコードコマンドをプリンタの設定ファイルで定義できます（コードの変更は不要です）。 これらのコマンドはプログラマブルで、プリンタの状態に応じて異なるアクションを生成できます。
 * ビルトイン API サーバー。標準的なGコードインターフェースに加え、Klipper はリッチなJSONベースのアプリケーションインターフェースをサポートしています。 これにより、プログラマーはプリンターを詳細に制御できる外部アプリケーションを構築できます。
@@ -26,10 +26,10 @@ Klipperは多くの標準的な3dプリンター機能をサポートしてい�
 * Automatic bed leveling support. Klipper can be configured for basic bed tilt detection or full mesh bed leveling. The bed mesh can be customized to the print size (adaptive bed mesh). If the bed uses multiple Z steppers then Klipper can also level by independently manipulating the Z steppers. Most Z height probes are supported, including BL-Touch probes and servo activated probes. Probes may be calibrated for axis twist compensation. If using an "eddy current probe" then one can utilize fast bed mesh scanning,
 * 自動デルタキャリブレーションをサポート。キャリブレーションツールは、基本的な高さのキャリブレーションだけでなく、XおよびY寸法の拡張キャリブレーションも実行できます。キャリブレーションは、Z高さプローブまたは手動プローブを使用して行うことができます。
 * 印刷中の "exclude object" サポート。 このモジュールが設定されている場合、マルチパート印刷の1つのオブジェクトだけをキャンセルすることができます。
-* Support for common temperature sensors (eg, common thermistors, AD595, AD597, AD849x, PT100, PT1000, MAX6675, MAX31855, MAX31856, MAX31865, BME280, HTU21D, DS18B20, AHT10, SHT3x, and LM75). Custom thermistors and custom analog temperature sensors can also be configured. One can monitor the internal micro-controller temperature sensor and the internal temperature sensor of a Raspberry Pi.
+* Support for common temperature sensors (eg, common thermistors, AD595, AD597, AD849x, PT100, PT1000, MAX6675, MAX31855, MAX31856, MAX31865, BME280, HTU21D, DS18B20, AHT1X, AHT2X, AHT3X, SHT3x, and LM75). Custom thermistors and custom analog temperature sensors can also be configured. One can monitor the internal micro-controller temperature sensor and the internal temperature sensor of a Raspberry Pi.
 * 基本的なサーマルヒーター保護はデフォルトで有効。
 * Support for standard fans, nozzle fans, and temperature controlled fans. No need to keep fans running when the printer is idle. Fan speed can be monitored on fans that have a tachometer. One can assign a "math formula" to a fan for automatic fan speed updating.
-* TMC2130、TMC2208/TMC2224、TMC2209、TMC2660、およびTMC5160ステッパ・モータ・ドライバのランタイム・コンフィギュレーションをサポートします。また、AD5206、DAC084S085、MCP4451、MCP4728、MCP4018、PWMピンを介した従来のステッパ・ドライバの電流制御もサポートしています。
+* Support for run-time configuration of TMC2130, TMC2208/TMC2224, TMC2209, TMC2240, TMC2660, and TMC5160 stepper motor drivers. There is also support for current control of traditional stepper drivers via AD5206, DAC084S085, MCP4451, MCP4728, MCP4018, and PWM pins.
 * プリンタに直接取り付けられた一般的なLCDディスプレイをサポート。デフォルトメニューも用意されています。ディスプレイとメニューの内容は、Configファイルで完全にカスタマイズできます。
 * 定加速と "look-ahead" (先読み) サポート。すべてのプリンター動作は、停止状態から巡航速度まで徐々に加速し、その後減速して停止状態に戻ります。入力されるGコード移動コマンドのストリームはキューに入れられ、分析されます。同じ方向の移動間の加速は、印刷ストールを減らし、全体的な印刷時間を改善するために最適化されます。
 * Klipper は、一般的なエンドストップスイッチの精度を向上させる "stepper phase endstop" アルゴリズムを実装しています。適切に調整された場合、印刷の1層目のベッド密着性を向上させることができます。

@@ -35,7 +35,7 @@ Ahol `<DEVICE>` a soros eszköz, például `/dev/serial.by-id/usb-Klipper[...]` 
 
 ### Fizikai sorszám
 
-Ha az MCU-n fizikai soros portot használunk (még akkor is, ha USB soros adaptert használunk a csatlakozáshoz), akkor a `<SPACE><FS><SPACE>Request Serial Bootloader!!<SPACE>~` karakterlánc elküldése szükséges.
+If a physical serial port is being used on the MCU (even if a USB serial adapter is being used to connect to it), sending the string `<SPACE><FS><SPACE>Request Serial Bootloader!!<SPACE>~` requests the bootloader.
 
 A `<SPACE>` egy ASCII szóköz, 0x20.
 

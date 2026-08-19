@@ -4,11 +4,11 @@ Este documento proporciona información sobre G-Code y implementando  las secuen
 
 ## El nombrado macro de G-Code
 
-Case is not important for the G-Code macro name - MY_MACRO and my_macro will evaluate the same and may be called in either upper or lower case. If any numbers are used in the macro name then they must all be at the end of the name (eg, TEST_MACRO25 is valid, but MACRO25_TEST3 is not).
+Las mayúsculas y minúsculas no son importantes para el nombre de la macro del G-code: MY_MACRO y my_macro se evaluarán de la misma manera y se pueden llamar tanto en mayúsculas como en minúsculas. Si se utilizan números en el nombre de la macro, todos deben estar al final del nombre (por ejemplo, TEST_MACRO25 es válido, pero MACRO25_TEST3 no lo es).
 
-## Formatting of G-Code in the config
+## Formato del G-code en la configuración
 
-Indentation is important when defining a macro in the config file. To specify a multi-line G-Code sequence it is important for each line to have proper indentation. For example:
+La sangría es importante al definir una macro en el archivo de configuración. Para especificar una secuencia de G-code de varias líneas, es importante que cada línea tenga la sangría adecuada. Por ejemplo:
 
 ```
 [gcode_macro blink_led]
@@ -18,7 +18,7 @@ gcode:
   SET_PIN PIN=my_led VALUE=0
 ```
 
-Note how the `gcode:` config option always starts at the beginning of the line and subsequent lines in the G-Code macro never start at the beginning.
+Observe cómo la opción de configuración «gcode:» siempre comienza al principio de la línea y las líneas siguientes de la macro G-Code nunca comienzan al principio.
 
 ## Add a description to your macro
 

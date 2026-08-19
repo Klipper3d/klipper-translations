@@ -1,6 +1,6 @@
 # Using PWM tools
 
-Ten dokument opisuje jak skonfigurować laser lub wrzeciono sterowane PWM używając `output_pin` i kilku makr.
+This document describes how to setup a PWM-controlled laser or spindle using `pwm_tool` and some macros.
 
 ## Jak to działa?
 
@@ -9,10 +9,6 @@ Wykorzystując wyjście pwm wentylatora głowicy drukującej, można sterować l
 **Uwaga:** Podczas używania lasera należy zachować wszelkie środki ostrożności, jakie tylko przychodzą na myśl! Lasery diodowe są zwykle odwrócone. Oznacza to, że po ponownym uruchomieniu MCU laser będzie *w pełni włączony* przez cały czas potrzebny do ponownego uruchomienia MCU. Dla pewności zaleca się *zawsze* noszenie odpowiednich okularów ochronnych dostosowanych do długości fal jeżeli laser jest uruchomiony, oraz do odłączania lasera, gdy nie jest on potrzebny. Powinieneś także skonfigurować limit czasu bezpieczeństwa, aby narzędzie zatrzymało się, gdy host lub MCU napotka błąd.
 
 For an example configuration, see [config/sample-pwm-tool.cfg](/config/sample-pwm-tool.cfg).
-
-## Current Limitations
-
-There is a limitation of how frequent PWM updates may occur. While being very precise, a PWM update may only occur every 0.1 seconds, rendering it almost useless for raster engraving. However, there exists an [experimental branch](https://github.com/Cirromulus/klipper/tree/laser_tool) with its own tradeoffs. In long term, it is planned to add this functionality to main-line klipper.
 
 ## Commands
 

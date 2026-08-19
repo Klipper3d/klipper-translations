@@ -4,8 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-07-22 09:21+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Persian <https://hosted.weblate.org/projects/klipper/"
-"bootloader_entry/fa/>\n"
+"Language-Team: Persian <https://hosted.weblate.org/projects/klipper/bootloader_entry/fa/>\n"
 "Language: fa\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -68,13 +67,6 @@ msgstr ""
 
 #: docs/Bootloader_Entry.md:block 15 (header)
 msgid "Physical serial"
-msgstr ""
-
-#: docs/Bootloader_Entry.md:block 16 (paragraph)
-msgid ""
-"If a physical serial port is being used on the MCU (even if a USB serial "
-"adapter is being used to connect to it), sending the string "
-"`<SPACE><FS><SPACE>Request Serial Bootloader!!<SPACE>~`."
 msgstr ""
 
 #: docs/Bootloader_Entry.md:block 17 (paragraph)
@@ -200,6 +192,20 @@ msgid ""
 "when using DFU mode. Consult the documentation for your board for more "
 "details."
 msgstr ""
+
+#: docs/Bootloader_Entry.md:block 16 (paragraph)
+msgid ""
+"If a physical serial port is being used on the MCU (even if a USB serial "
+"adapter is being used to connect to it), sending the string "
+"`<SPACE><FS><SPACE>Request Serial Bootloader!!<SPACE>~` requests the "
+"bootloader."
+msgstr ""
+
+#~ msgid ""
+#~ "If a physical serial port is being used on the MCU (even if a USB serial "
+#~ "adapter is being used to connect to it), sending the string "
+#~ "`<SPACE><FS><SPACE>Request Serial Bootloader!!<SPACE>~`."
+#~ msgstr ""
 
 #~ msgid ""
 #~ "> cd klipper/scripts\n"

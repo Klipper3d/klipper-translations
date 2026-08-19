@@ -1,8 +1,8 @@
 # CANBUS
 
-This document describes Klipper's CAN bus support.
+Este documento describe la compatibilidad de Klipper con el bus CAN.
 
-## Device Hardware
+## Hardware del dispositivo
 
 Klipper currently supports CAN on stm32, SAME5x, and rp2040 chips. In addition, the micro-controller chip must be on a board that has a CAN transceiver.
 
@@ -12,7 +12,7 @@ To compile for CAN, run `make menuconfig` and select "CAN bus" as the communicat
 
 In order to use a CAN bus, it is necessary to have a host adapter. It is recommended to use a "USB to CAN adapter". There are many different USB to CAN adapters available from different manufacturers. When choosing one, we recommend verifying that the firmware can be updated on it. (Unfortunately, we've found some USB adapters run defective firmware and are locked down, so verify before purchasing.) Look for adapters that can run Klipper directly (in its "USB to CAN bridge mode") or that run the [candlelight firmware](https://github.com/candle-usb/candleLight_fw).
 
-It is also necessary to configure the host operating system to use the adapter. This is typically done by creating a new file named `/etc/network/interfaces.d/can0` with the following contents:
+También es necesario configurar el sistema operativo del host para utilizar el adaptador. Esto se suele hacer creando un nuevo archivo llamado `/etc/network/interfaces.d/can0` con el siguiente contenido:
 
 ```
 allow-hotplug can0
@@ -21,9 +21,9 @@ iface can0 can static
     up ip link set $IFACE txqueuelen 128
 ```
 
-## Terminating Resistors
+## Resistencias de terminación
 
-A CAN bus should have two 120 ohm resistors between the CANH and CANL wires. Ideally, one resistor located at each the end of the bus.
+Un bus CAN debe tener dos resistencias de 120 ohmios entre los cables CANH y CANL. Lo ideal es que haya una resistencia en cada extremo del bus.
 
 Note that some devices have a builtin 120 ohm resistor that can not be easily removed. Some devices do not include a resistor at all. Other devices have a mechanism to select the resistor (typically by connecting a "pin jumper"). Be sure to check the schematics of all devices on the CAN bus to verify that there are two and only two 120 Ohm resistors on the bus.
 

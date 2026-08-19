@@ -158,7 +158,7 @@ Ha egy fordítás már létezik a Klipper adattárban, és már nem felel meg a 
 
 Ha a követelmények teljesülnek, akkor:
 
-1. klipper-fordítási adattár frissítése [active_translations](https://github.com/Klipper3d/klipper-translations/blob/translations/active_translations)
+1. update klipper-translations repository [active_translations](https://github.com/Klipper3d/klipper-translations/blob/translations/active_translations)
 1. Opcionális: adjunk hozzá egy manual-index.md fájlt a klipper-translations repository's `docs\locals\<lang>` mappába a nyelvspecifikus index.md helyett (a generált index.md nem renderelhető helyesen).
 
 Ismert problémák:

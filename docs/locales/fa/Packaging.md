@@ -1,19 +1,19 @@
-# Packaging Klipper
+# بسته بندی کلیپر
 
-Klipper is somewhat of a packaging anomaly among python programs, as it doesn't use setuptools to build and install. Some notes regarding how best to package it are as follows:
+Klipper تا حدودی یک ناهنجاری در بسته‌بندی برنامه‌های پایتون است، زیرا از setuptools برای ساخت و نصب استفاده نمی‌کند. برخی از نکات در مورد بهترین روش بسته‌بندی آن به شرح زیر است:
 
-## C modules
+## ماژول های C
 
-Klipper uses a C module to handle some kinematics calculations more quickly. This module needs to be compiled at packaging time to avoid introducing a runtime dependency on a compiler. To compile the C module, run `python2 klippy/chelper/__init__.py`.
+کلیپر از یک ماژول C برای مدیریت سریع‌تر برخی محاسبات سینماتیک استفاده می‌کند. این ماژول باید در زمان بسته‌بندی کامپایل شود تا از ایجاد وابستگی زمان اجرا به کامپایلر جلوگیری شود. برای کامپایل ماژول C، دستور `python2 klippy/chelper/__init__.py` را اجرا کنید.
 
-## Compiling python code
+## کامپایل کردن کد پایتون
 
-Many distributions have a policy of compiling all python code before packaging to improve startup time. You can do this by running `python2 -m compileall klippy`.
+بسیاری از توزیع‌ها سیاستی دارند که تمام کدهای پایتون را قبل از بسته‌بندی کامپایل می‌کنند تا زمان راه‌اندازی بهبود یابد. می‌توانید این کار را با اجرای `python2 -m compileall klippy` انجام دهید.
 
-## Versioning
+## نسخه سازی
 
-If you are building a package of Klipper from git, it is usual practice not to ship a .git directory, so the versioning must be handled without git. To do this, use the script shipped in `scripts/make_version.py` which should be run as follows: `python2 scripts/make_version.py YOURDISTRONAME > klippy/.version`.
+اگر در حال ساخت بسته‌ای از Klipper از طریق گیت هستید، معمولاً پوشه .git را ارسال نمی‌کنید، بنابراین نسخه‌بندی باید بدون گیت انجام شود. برای انجام این کار، از اسکریپتی که در `scripts/make_version.py` ارسال شده است استفاده کنید که باید به صورت زیر اجرا شود: `python2 scripts/make_version.py YOURDISTRONAME > klippy/.version`.
 
-## Sample packaging script
+## نمونه اسکریپت بسته بندی
 
-klipper-git is packaged for Arch Linux, and has a PKGBUILD (package build script) available at [Arch User Repository](https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper-git).
+klipper-git برای آرچ لینوکس بسته‌بندی شده است و دارای یک PKGBUILD (اسکریپت ساخت بسته) است که در [مخزن کاربران آرچ](https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper-git) موجود است.

@@ -26,7 +26,7 @@ Yazıcının tüm eksenlerinin elle hareket edebildiğini doğrulayın (step mot
 
 Yazıcının tüm eksenlerini elle hareket ettirerek hiçbirinin endstop ile temas kurmadığından emin olun. Komut konsolundan QUERY_ENDSTOPS (Endstopları sorgulama) komutu gönderin. Tüm yapılandırılmış endstopların mevcut durumunu bildiren bir yanıt vermelidir ve hepsinin "açık" durumu bildirilmelidir. Her bir endstop için, QUERY_ENDSTOPS komutunu manuel olarak endstop'u tetikleyerek tekrar çalıştırın. QUERY_ENDSTOPS komutu endstop'u "TRIGGERED" (Tetiklendi) olarak bildirmelidir.
 
-Eğer endstop ters çevrilmiş gibi görünüyorsa (tetiklendiğinde "açık" olarak rapor veriyorsa veya tam tersi) pin tanımına bir "!" ekleyin (örneğin, "endstop_pin: ^!PA2") veya zaten varsa "!" ifadesini kaldırın.
+If the endstop appears inverted (it reports "open" when triggered and vice-versa) then add a "!" to the pin definition (for example, "endstop_pin: ^!PA2"), or remove the "!" if there is already one present.
 
 Sonlandırıcıda hiçbir değişiklik olmuyorsa bu genellikle sonlandırıcının başka bir pine bağlı olduğunu işaret eder. Ancak bu, pine ait pullup ayarının değiştirilmesini de gerektirebilir (endstop_pin isminin başındaki '^' - çoğu yazıcı bir pullup direnci kullanır ve '^' zaten bulunmalıdır).
 

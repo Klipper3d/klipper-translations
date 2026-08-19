@@ -64,9 +64,9 @@ Klipper 微控制器的波特率与微控制器启动引导程序的波特率无
 
 ## 我可以在 Raspberry Pi 3 以外的其他设备上运行 Klipper 吗？
 
-推荐的硬件是 Raspberry Pi 2、Raspberry Pi 3 或 Raspberry Pi 4。
+The recommended hardware is a Raspberry Pi Zero2w, Raspberry Pi 3, Raspberry Pi 4 or Raspberry Pi 5. Klipper will also run on other SBC devices as well as x86 hardware, as described below.
 
-Klipper 可以在 Raspberry Pi 1和Raspberry Pi Zero上运行，但这些板子没有足够的处理能力来运行 OctoPrint。在这些较慢的机器上直接从 OctoPrint 打印时，经常会出现打印停滞。(打印机的移动速度可能比 OctoPrint 发送移动命令的速度快。)如果你希望在这些较慢的板子上运行，请考虑在打印时使用 "virtual_sdcard "功能(详情请参见[配置参考](Config_Reference.md#virtual_sdcard))。
+Klipper will run on a Raspberry Pi 1, 2 and on the Raspberry Pi Zero1, but these boards don't have enough processing power to run Klipper well. It is common for print stalls to occur on these slower machines when printing (The printer may move faster than Klipper can send movement commands.) It is not reccomended to run Klipper on these older machines.
 
 要在Beaglebone上运行，请参阅[Beaglebone特别安装说明](Beaglebone.md)。
 
@@ -146,7 +146,7 @@ Klipper 通过 “/tmp/printer” 文件创建了一个“虚拟串口”，该�
 
 ## 如果 Raspberry Pi 崩溃了，加热器会一直加热吗？
 
-Klipper 的设计防止了这种情况。一旦主机启用了一个加热器，主机软件需要每 5 秒钟确认一次启用状态。如果微控制器没有收到每 5 秒的确认，它就会进入"关闭"状态，该状态会关闭所有加热器和步进电机。
+The software has been designed to prevent that. Once the host enables a heater, the host software needs to confirm that enablement every 3 seconds. If the micro-controller does not receive a confirmation every 3 seconds it goes into a "shutdown" state which is designed to turn off all heaters and stepper motors.
 
 详情请见[MCU 命令](MCU_Commands.md)文档中的 "config_digital_out" 命令。
 

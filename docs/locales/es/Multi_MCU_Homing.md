@@ -1,14 +1,14 @@
-# Multiple Micro-controller Homing and Probing
+# Posicionamiento y sondeo con múltiples microcontroladores
 
-Klipper supports a mechanism for homing with an endstop attached to one micro-controller while its stepper motors are on a different micro-controller. This support is referred to as "multi-mcu homing". This feature is also used when a Z probe is on a different micro-controller than the Z stepper motors.
+Klipper admite un mecanismo para el retorno al origen con un final de carrera conectado a un microcontrolador, mientras que sus motores paso a paso se encuentran en un microcontrolador diferente. Esta compatibilidad se denomina «retorno al origen multimcu». Esta función también se utiliza cuando una sonda Z se encuentra en un microcontrolador diferente al de los motores paso a paso Z.
 
-This feature can be useful to simplify wiring, as it may be more convenient to attach an endstop or probe to a closer micro-controller. However, using this feature may result in "overshoot" of the stepper motors during homing and probing operations.
+Esta función puede ser útil para simplificar el cableado, ya que puede resultar más conveniente conectar un final de carrera o una sonda a un microcontrolador más cercano. Sin embargo, el uso de esta función puede provocar un «exceso de velocidad(overshoot)» de los motores paso a paso durante las operaciones de retorno al origen y sondeo.
 
-The overshoot occurs due to possible message transmission delays between the micro-controller monitoring the endstop and the micro-controllers moving the stepper motors. The Klipper code is designed to limit this delay to no more than 25ms. (When multi-mcu homing is activated, the micro-controllers send periodic status messages and check that corresponding status messages are received within 25ms.)
+El sobrepasamiento se produce debido a posibles retrasos en la transmisión de mensajes entre el microcontrolador que supervisa el final de carrera y los microcontroladores que mueven los motores paso a paso. El código Klipper está diseñado para limitar este retraso a no más de 25 ms. (Cuando se activa el retorno al origen multi-mcu, los microcontroladores envían mensajes de estado periódicos y comprueban que los mensajes de estado correspondientes se reciben en un plazo de 25 ms).
 
-So, for example, if homing at 10mm/s then it is possible for an overshoot of up to 0.250mm (10mm/s * .025s == 0.250mm). Care should be taken when configuring multi-mcu homing to account for this type of overshoot. Using slower homing or probing speeds can reduce the overshoot.
+Así, por ejemplo, si el retorno al origen se realiza a 10 mm/s, es posible que se produzca un sobreimpulso de hasta 0,250 mm (10 mm/s * 0,025 s == 0,250 mm). Se debe tener cuidado al configurar el retorno al origen con múltiples MCU para tener en cuenta este tipo de sobreimpulso. El uso de velocidades de retorno al origen o de sondeo más lentas puede reducir el sobreimpulso.
 
-Stepper motor overshoot should not adversely impact the precision of the homing and probing procedure. The Klipper code will detect the overshoot and account for it in its calculations. However, it is important that the hardware design is capable of handling overshoot without causing damage to the machine.
+El sobreimpulso del motor paso a paso no debería afectar negativamente a la precisión del procedimiento de retorno al origen y sondeo. El código Klipper detectará el sobreimpulso y lo tendrá en cuenta en sus cálculos. Sin embargo, es importante que el diseño del hardware sea capaz de gestionar el sobreimpulso sin causar daños a la máquina.
 
 In order to use this "multi-mcu homing" capability the hardware must have predictably low latency between the host computer and all of the micro-controllers. Typically the round-trip time must be consistently less than 10ms. High latency (even for short periods) is likely to result in homing failures.
 

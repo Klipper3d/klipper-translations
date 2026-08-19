@@ -1,13 +1,13 @@
-# TSL1401CL filament width sensor
+# TSL1401CLسنسور عرض فیلامنت
 
-This document describes Filament Width Sensor host module. Hardware used for developing this host module is based on TSL1401CL linear sensor array but it can work with any sensor array that has analog output. You can find designs at [Thingiverse](https://www.thingiverse.com/search?q=filament%20width%20sensor).
+این سند ماژول میزبان حسگر پهنای رشته را شرح می‌دهد. سخت‌افزار مورد استفاده برای توسعه این ماژول میزبان مبتنی بر آرایه حسگر خطی TSL1401CL است، اما می‌تواند با هر آرایه حسگری که خروجی آنالوگ دارد کار کند. می‌توانید طرح‌ها را در [Thingiverse](https://www.thingiverse.com/search?q=filament%20width%20sensor) پیدا کنید.
 
-To use a sensor array as a filament width sensor, read [Config Reference](Config_Reference.md#tsl1401cl_filament_width_sensor) and [G-Code documentation](G-Codes.md#hall_filament_width_sensor).
+برای استفاده از یک آرایه حسگر به عنوان حسگر پهنای رشته، [مرجع پیکربندی](Config_Reference.md#tsl1401cl_filament_width_sensor) و [مستندات G-Code](G-Codes.md#hall_filament_width_sensor) را مطالعه کنید.
 
-## How does it work?
+## چگونه کار می‌کند؟
 
-Sensor generates analog output based on calculated filament width. Output voltage always equals to detected filament width (Ex. 1.65v, 1.70v, 3.0v). Host module monitors voltage changes and adjusts extrusion multiplier.
+سنسور بر اساس عرض فیلامنت محاسبه شده، خروجی آنالوگ تولید می‌کند. ولتاژ خروجی همیشه برابر با عرض فیلامنت شناسایی شده است (مثلاً ۱.۶۵ ولت، ۱.۷۰ ولت، ۳.۰ ولت). ماژول میزبان تغییرات ولتاژ را رصد کرده و ضریب اکستروژن را تنظیم می‌کند.
 
-## Note:
+## توجه:
 
-Sensor readings done with 10 mm intervals by default. If necessary you are free to change this setting by editing ***MEASUREMENT_INTERVAL_MM*** parameter in **filament_width_sensor.py** file.
+قرائت‌های حسگر به طور پیش‌فرض با فواصل ۱۰ میلی‌متری انجام می‌شود. در صورت لزوم، می‌توانید با ویرایش پارامتر ***MEASUREMENT_INTERVAL_MM*** در فایل **filament_width_sensor.py** این تنظیم را تغییر دهید.

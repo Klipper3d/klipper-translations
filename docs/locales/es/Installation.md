@@ -4,7 +4,7 @@ These instructions assume the software will run on a Linux-based host running a 
 
 For the purposes of these instructions, host relates to the Linux device and mcu relates to the printer board. SBC relates to the term Small Board Computer such as the Raspberry Pi.
 
-## Obtain a Klipper Configuration File
+## Obtener un archivo de configuración de Klipper
 
 Most Klipper settings are determined by a "printer configuration file" printer.cfg, that will be stored on the host. An appropriate configuration file can often be found by looking in the Klipper [config directory](../config/) for a file starting with a "printer-" prefix that corresponds to the target printer. The Klipper configuration file contains technical information about the printer that will be needed during the installation.
 
@@ -38,7 +38,7 @@ Normally you would start with a base image for your SBC, RPiOS Lite for example,
 
 KIAUH can be used to install Klipper and its associated programs on a variety of Linux-based systems that run a form of Debian. More information can be found at https://github.com/dw-0/kiauh
 
-## Building and flashing the micro-controller
+## Compilación y flasheo del microcontrolador
 
 To compile the micro-controller code, start by running these commands on your host device:
 
@@ -61,7 +61,7 @@ Otherwise, the following steps are often used to "flash" the printer control boa
 ls /dev/serial/by-id/*
 ```
 
-It should report something similar to the following:
+Debería mostrar algo similar a lo siguiente:
 
 ```
 /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
@@ -126,7 +126,7 @@ It's common for each printer to have its own unique name for the micro-controlle
 ls /dev/serial/by-id/*
 ```
 
-It should report something similar to the following:
+Debería mostrar algo similar a lo siguiente:
 
 ```
 /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0

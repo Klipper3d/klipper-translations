@@ -1,18 +1,18 @@
 # Patrocinadores
 
-Klipper is Free Software. We depend on the generous support from sponsors. Please consider sponsoring Klipper or supporting our sponsors.
+Klipper es un software libre. Dependemos del generoso apoyo de nuestros patrocinadores. Por favor, considere patrocinar a Klipper o apoyar a nuestros patrocinadores.
 
 ## BIGTREETECH
 
 [<img src="./img/sponsors/BTT_BTT.png" width="200" style="margin:25px"/>](https://bigtree-tech.com/collections/all-products)
 
-BIGTREETECH is the official mainboard sponsor of Klipper. BIGTREETECH is committed to developing innovative and competitive products to serve the 3D printing community better. Follow them on [Facebook](https://www.facebook.com/BIGTREETECH) or [Twitter](https://twitter.com/BigTreeTech).
+BIGTREETECH es el patrocinador oficial de placas base de Klipper. BIGTREETECH se compromete a desarrollar productos innovadores y competitivos para servir mejor a la comunidad de la impresión 3D. Síguelos en [Facebook](https://www.facebook.com/BIGTREETECH) o [Twitter](https://twitter.com/BigTreeTech).
 
 ## Patrocinadores
 
 [<img src="./img/sponsors/obico-light-horizontal.png" width="200" style="margin:25px" />](https://obico.io/klipper.html?source=klipper_sponsor)
 
-## Klipper Developers
+## Desarrolladores de Klipper
 
 ### Kevin O'Connor
 

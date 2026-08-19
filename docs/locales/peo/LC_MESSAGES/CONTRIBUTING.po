@@ -516,13 +516,6 @@ msgstr ""
 
 #: docs/CONTRIBUTING.md:block 38 (ordered list)
 msgid ""
-"update klipper-tranlations repository "
-"[active_translations](https://github.com/Klipper3d/klipper-"
-"translations/blob/translations/active_translations)"
-msgstr ""
-
-#: docs/CONTRIBUTING.md:block 38 (ordered list)
-msgid ""
 "Optional: add a manual-index.md file in klipper-translations repository's "
 "`docs\\locals\\<lang>` folder to replace the language specific index.md "
 "(generated index.md does not render correctly)."
@@ -576,6 +569,19 @@ msgstr ""
 #: docs/CONTRIBUTING.md:block 23 (table)
 msgid "Configuration files"
 msgstr ""
+
+#: docs/CONTRIBUTING.md:block 38 (ordered list)
+msgid ""
+"update klipper-translations repository "
+"[active_translations](https://github.com/Klipper3d/klipper-"
+"translations/blob/translations/active_translations)"
+msgstr ""
+
+#~ msgid ""
+#~ "update klipper-tranlations repository "
+#~ "[active_translations](https://github.com/Klipper3d/klipper-"
+#~ "translations/blob/translations/active_translations)"
+#~ msgstr ""
 
 #~ msgid ""
 #~ "module: Capitalized, short (50 chars or less) summary\n"

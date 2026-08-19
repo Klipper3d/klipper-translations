@@ -19,7 +19,7 @@
 
 ## bed_screws
 
-The following information is available in the [bed_screws](Config_Reference.md#bed_screws) object:
+Следующая информация доступна в объекте `Config_Reference.md#{bed_screws}`:
 
 - `is_active`: Возвращает True, если инструмент регулировки винтов станины активен в данный момент.
 - `Состояние`: Состояние инструмента для регулировки винтов кровати. Это одна из следующих строк: " регулировать", "тонкий".
@@ -28,14 +28,14 @@ The following information is available in the [bed_screws](Config_Reference.md#b
 
 ## canbus_stats
 
-The following information is available in the `canbus_stats some_mcu_name` object (this object is automatically available if an mcu is configured to use canbus):
+Следующая информация доступна в объекте `canbus_stats some_mcu_name ` (этот объект автоматически доступен, если mcu настроен для использования canbus):
 
-- `rx_error`: The number of receive errors detected by the micro-controller canbus hardware.
-- `tx_error`: The number of transmit errors detected by the micro-controller canbus hardware.
-- `tx_retries`: The number of transmit attempts that were retried due to bus contention or errors.
-- `bus_state`: The status of the interface (typically "active" for a bus in normal operation, "warn" for a bus with recent errors, "passive" for a bus that will no longer transmit canbus error frames, or "off" for a bus that will no longer transmit or receive messages).
+- `rx_error`: Количество ошибок, обнаруженных микроконтроллерным оборудованием.
+- `tx_error`: Количество ошибок передачи, обнаруженных аппаратным обеспечением микроконтроллера.
+- `tx_retries`: Количество попыток передачи, которые были повторно испытаны из-за разногласий или ошибок.
+- `bus_state`: Статус интерфейса (как правило, «активный» для автобуса в нормальной эксплуатации, «огненный» для автобуса с недавними ошибками, «пассивный» для автобуса, который больше не будет передавать рамы ошибок каннаба или «выключен» для автобуса, который больше не будет передавать или получать сообщения).
 
-Note that only the rp2XXX micro-controllers report a non-zero `tx_retries` field and the rp2XXX micro-controllers always report `tx_error` as zero and `bus_state` as "active".
+Обратите внимание, что только rp2XXX микроконтроллеры сообщают ненулевую ` tx_retries` поле и rp2XXX микроконтроллеры всегда сообщают `tx_error` как ноль и `bus_state` как «активные».
 
 ## configfile
 
@@ -133,6 +133,12 @@ Note that only the rp2XXX micro-controllers report a non-zero `tx_retries` field
 
 - `retract_length`, `retract_speed`, `unretract_extra_length`, `unretract_speed`: Текущие настройки для модуля firmware_retraction. Эти настройки могут отличаться от настроек в файле конфигурации, если команда `SET_RETRACTION` изменит их.
 
+## gcode
+
+The following information is available in the `gcode` object:
+
+- `commands`: Returns a list of all currently available commands. For each command, if a help string is defined it will also be provided.
+
 ## gcode_button
 
 Следующая информация доступна в объектах [gcode_button some_name](Config_Reference.md#gcode_button):
@@ -149,22 +155,24 @@ Note that only the rp2XXX micro-controllers report a non-zero `tx_retries` field
 
 Следующая информация доступна в объекте `gcode_move` (этот объект всегда доступен):
 
-- `gcode_position`: Текущее положение головки инструмента относительно текущего начала G-кода. То есть, позиция, которую можно напрямую передать в команду `G1`. Можно получить доступ к компонентам x, y, z и e этой позиции (например, `gcode_position.x`).
-- `позиция`: Последнее заданное положение головки инструмента в системе координат, указанной в файле конфигурации. Можно получить доступ к компонентам x, y, z и e этой позиции (например, `position.x`).
-- `homing_origin`: Начало системы координат gcode (относительно системы координат, указанной в файле конфигурации), которую следует использовать после команды `G28`. Команда `SET_GCODE_OFFSET` может изменить это положение. Можно получить доступ к компонентам x, y и z этой позиции (например, `homing_origin.x`).
+- `gcode_position`: The current position of the toolhead relative to the current G-Code origin. That is, positions that one might directly send to a `G1` command. This value is encoded as a [coordinate](#accessing-coordinates).
+- `position`: The last commanded position of the toolhead using the coordinate system specified in the config file. This value is encoded as a [coordinate](#accessing-coordinates).
+- `homing_origin`: The origin of the gcode coordinate system (relative to the coordinate system specified in the config file) to use after a `G28` command. The `SET_GCODE_OFFSET` command can alter this position. This value is encoded as a [coordinate](#accessing-coordinates).
 - `скорость`: Последняя скорость, установленная в команде `G1` (в мм/с).
 - `speed_factor`: "Переопределение коэффициента скорости", установленное командой `M220`. Это значение с плавающей точкой: 1.0 означает отсутствие переопределения, а, например, 2.0 удваивает запрашиваемую скорость.
 - `extrude_factor`: "Переопределение коэффициента выдавливания", задаваемое командой `M221`. Это значение с плавающей точкой: 1.0 означает отсутствие переопределения, а, например, 2.0 удваивает требуемые экструзии.
 - `абсолютные_координаты`: Возвращает True, если в режиме абсолютных координат `G90`, или False, если в режиме относительных координат `G91`.
 - `absolute_extrude`: Возвращает True, если используется режим абсолютного выдавливания `M82`, или False, если используется режим относительного выдавливания `M83`.
+- `axis_map`: Provides a mechanism for finding the coordinate component for a given G-Code id that is used in `G1` commands. See the [Accessing Coordinates](#accessing-coordinates) section for details.
 
 ## hall_filament_width_sensor
 
 Следующая информация доступна в объекте [hall_filament_width_sensor](Config_Reference.md#hall_filament_width_sensor):
 
-- all items from [filament_switch_sensor](Status_Reference.md#filament_switch_sensor)
+- все элементы из[filament_switch_sensor](Status_Reference.md#filament_switch_sensor)
 - `is_active`: Возвращает True, если датчик в данный момент активен.
-- `Диаметр`: Последнее показание датчика в мм.
+- `flow_compensation_enabled`: Returns True if flow compensation is enabled.
+- `Diameter`: Returns the last width reading in mm if the sensor is active or the nominal filament diameter if it is not.
 - `Сырой`: Последнее необработанное показание АЦП с датчика.
 
 ## нагреватель
@@ -190,33 +198,39 @@ Note that only the rp2XXX micro-controllers report a non-zero `tx_retries` field
 
 - `состояние`: Текущее состояние принтера, отслеживаемое модулем idle_timeout. Это одна из следующих строк: " простаивает", "печатает", "готов".
 - `printing_time`: Количество времени (в секундах), в течение которого принтер находился в состоянии "Печать" (отслеживается модулем idle_timeout).
+- `idle_timeout`: The current 'timeout' (in seconds) to wait for the gcode to be triggered. (as set by [SET_IDLE_TIMEOUT](G-Codes.md#set_idle_timeout))
 
 ## светодиод
 
 Следующая информация доступна для каждого раздела конфигурации `[led led_name]`, `[neopixel led_name]`, `[dotstar led_name]`, `[pca9533 led_name]` и `[pca9632 led_name]`, определенного в файле printer.cfg:
 
-- `color_data`: Список списков цветов, содержащих значения RGBW для светодиода в цепочке. Каждое значение представлено в виде float от 0.0 до 1.0. Каждый список цветов содержит 4 элемента (красный, зеленый, синий, белый), даже если подстроечный светодиод поддерживает меньшее количество цветовых каналов. Например, значение синего цвета (3-й элемент в списке цветов) второго неопикселя в цепочке может быть доступно по адресу `printer["neopixel <config_name>"].color_data[1][2]`.
+- `color_data`: A list of color lists containing the RGBW values for a led in the chain. Each value is represented as a float from 0.0 to 1.0. Each color list contains 4 items (red, green, blue, white) even if the underlying LED supports fewer color channels. For example, the blue value (3rd item in color list) of the second neopixel in a chain could be accessed at `printer["neopixel <config_name>"].color_data[1][2]`.
 
 ## load_cell
 
-The following information is available for each `[load_cell name]`:
+Для каждого `[load_cell name]` доступна следующая информация:
 
-- 'is_calibrated': True/False is the load cell calibrated
-- 'counts_per_gram': The number of raw sensor counts that equals 1 gram of force
-- 'reference_tare_counts': The reference number of raw sensor counts for 0 force
-- 'tare_counts': The current number of raw sensor counts for 0 force
-- 'force_g': The force in grams, averaged over the last polling period.
-- 'min_force_g': The minimum force in grams, over the last polling period.
-- 'max_force_g': The maximum force in grams, over the last polling period.
+- `is_calibrated`: True/False whether the load cell is calibrated.
+- `counts_per_gram`: The number of raw sensor counts that equals 1 gram of force.
+- `reference_tare_counts`: The reference number of raw sensor counts for 0 force.
+- `tare_counts`: The current number of raw sensor counts for 0 force.
+- `force_g`: The force in grams, averaged over the last polling period.
+- `min_force_g`: The minimum force in grams, over the last polling period.
+- `max_force_g`: The maximum force in grams, over the last polling period.
+- `errors`: The number of sensor errors detected since the last start of measurements.
+- `overflows`: The number of data buffer overflows detected since the last start of measurements.
+- `sample_rate`: The sensor's sample rate in samples per second.
 
 ## load_cell_probe
 
-The following information is available for `[load_cell_probe]`:
+Для `[load_cell_probe]` доступна следующая информация:
 
-- all items from [load_cell](Status_Reference.md#load_cell)
-- all items from [probe](Status_Reference.md#probe)
-- 'endstop_tare_counts': the load cell probe keeps a tare value independent of the load cell. This re-set at the start of each probe.
-- 'last_trigger_time': timestamp of the last homing trigger
+- все элементы из [load_cell](Status_Reference.md#load_cell)
+- все товары из [проекта](Status_Reference.md#probe)
+- `endstop_tare_counts`: The load cell probe keeps a tare value independent of the load cell. This is re-set at the start of each probe.
+- `last_trigger_time`: Timestamp of the last homing trigger.
+- `last_z_result`: The Z position result of the last tap.
+- `is_last_tap_valid`: True if the last tap result is valid.
 
 ## manual_probe
 
@@ -240,13 +254,13 @@ The following information is available for `[load_cell_probe]`:
 
 Следующая информация доступна в объекте `motion_report` (этот объект автоматически доступен, если определена любая секция конфигурации степпера):
 
-- `live_position`: Запрашиваемая позиция головки инструмента, интерполированная к текущему времени.
+- `live_position`: The requested toolhead position interpolated to the current time. This value is encoded as a [coordinate](#accessing-coordinates).
 - `live_velocity`: Запрашиваемая скорость головки инструмента (в мм/с) в текущий момент времени.
 - `live_extruder_velocity`: Запрашиваемая скорость экструдера (в мм/с) в текущий момент времени.
 
 ## output_pin
 
-Следующая информация доступна в объектах [output_pin some_name](Config_Reference.md#output_pin):
+The following information is available in [output_pin some_name](Config_Reference.md#output_pin) and [pwm_tool some_name](Config_Reference.md#pwm_tool) objects:
 
 - `value`: "Значение" пина, заданное командой `SET_PIN`.
 
@@ -272,13 +286,14 @@ The following information is available for `[load_cell_probe]`:
 - `info.total_layer`: Значение общего слоя, полученное в результате выполнения последней команды G-кода `SET_PRINT_STATS_INFO TOTAL_LAYER=<значение>`.
 - `info.current_layer`: Значение текущего слоя, полученное в результате выполнения последней команды G-кода `SET_PRINT_STATS_INFO CURRENT_LAYER=<значение>`.
 
-## probe
+## зонд
 
 Следующая информация доступна в объекте [probe](Config_Reference.md#probe) (этот объект также доступен, если определен раздел конфигурации [bltouch](Config_Reference.md#bltouch)):
 
 - `name`: Возвращает имя используемого зонда.
 - `last_query`: Возвращает True, если во время последней команды QUERY_PROBE зонд был признан "сработавшим". Обратите внимание, если это используется в макросе, то из-за порядка расширения шаблона команда QUERY_PROBE должна быть запущена до макроса, содержащего эту ссылку.
-- `last_z_result`: Возвращает значение Z-результата последней команды PROBE. Обратите внимание, если это используется в макросе, то из-за порядка расширения шаблона команда PROBE (или аналогичная) должна быть запущена до макроса, содержащего эту ссылку.
+- `last_probe_position`: The results of the last `PROBE` command. This value is encoded as a [coordinate](#accessing-coordinates). The probe hardware estimates that if one were to command the toolhead to XY position `last_probe_position.x`,`last_probe_position.y` and descend then the tip of the toolhead would first contact the bed at a Z height of `last_probe_position.z`. These coordinates are relative to the frame (that is, they use the coordinate system specified in the config file). Note, if this is used in a macro, due to the order of template expansion, the `PROBE` command must be run prior to the macro containing this reference.
+- `last_z_result`: This value is deprecated; it will be removed in the near future.
 
 ## pwm_cycle_time
 
@@ -318,9 +333,9 @@ The following information is available for `[load_cell_probe]`:
 
 ## skew_correction.py
 
-The following information is available in the `skew_correction` object (this object is available if any skew_correction is defined):
+Следующая информация доступна в объекте `skew_correction ` (этот объект доступен, если какой-либо skew_correction определен):
 
-- `current_profile_name`: Returns the name of the currently loaded SKEW_PROFILE.
+- `current_profile_name`: Возвращает имя текущего загруженного SKEW_PROFILE.
 
 ## stepper_enable
 
@@ -338,7 +353,7 @@ The following information is available in the `skew_correction` object (this obj
 
 Следующая информация доступна в
 
-[bme280 config_section_name](Config_Reference.md#bmp280bme280bme680-temperature-sensor), [htu21d config_section_name](Config_Reference.md#htu21d-sensor), [sht3x config_section_name](Config_Reference.md#sht31-sensor), [lm75 config_section_name](Config_Reference.md#lm75-temperature-sensor), [temperature_host config_section_name](Config_Reference.md#host-temperature-sensor) and [temperature_combined config_section_name](Config_Reference.md#combined-temperature-sensor) objects:
+[bme280 config_section_name](Config_Reference.md#bmp280bme280bme680-temperature-sensor), [htu21d config_section_name](Config_Reference.md#htu21d-sensor), [sht3x config_section_name](Config_Reference.md# sht31-sensor), [lm75 config_section_name](Config_Reference.md#lm75-temperature-sensor), [temperature_host config_section_name](Config_Reference.md#host-temperature-sensor) и [temperature_combined config_section_name](Config_Reference.md#combined-temperature-sensor):
 
 - `температура`: Последнее значение температуры, считанное с датчика.
 - `влажность`, `давление`, `газ`: Последние считанные значения с датчика (только для датчиков bme280, htu21d, sht3x и lm75).
@@ -372,13 +387,14 @@ The following information is available in the `skew_correction` object (this obj
 
 Следующая информация доступна в объекте `toolhead` (этот объект всегда доступен):
 
-- `позиция`: Последнее заданное положение головки инструмента относительно системы координат, указанной в файле конфигурации. Можно получить доступ к компонентам x, y, z и e этой позиции (например, `position.x`).
+- `position`: The last commanded position of the toolhead relative to the coordinate system specified in the config file. This value is encoded as a [coordinate](#accessing-coordinates).
 - `экструдер`: Имя активного в данный момент экструдера. Например, в макросе можно использовать `принтер[printer.toolhead.extruder].target`, чтобы получить целевую температуру текущего экструдера.
 - `homed_axes`: Текущие декартовы оси, которые считаются находящимися в состоянии ""дома"". Это строка, содержащая одно или несколько значений "x", "y", "z".
-- `axis_minimum`, `axis_maximum`: Предельные значения перемещения оси (мм) после наведения. Можно получить доступ к компонентам x, y, z этого предельного значения (например, `axis_minimum.x`, `axis_maximum.z`).
+- `axis_minimum`, `axis_maximum`: The axis travel limits (mm) after homing. This value is encoded as a [coordinate](#accessing-coordinates).
 - Для принтеров Delta значение `cone_start_z` - это максимальная высота по оси z при максимальном радиусе (`printer.toolhead.cone_start_z`).
 - `max_velocity`, `max_accel`, `minimum_cruise_ratio`, `square_corner_velocity`: Текущие действующие ограничения печати. Они могут отличаться от настроек файла конфигурации, если команда `SET_VELOCITY_LIMIT` (или `M204`) изменит их во время выполнения.
 - `stalls`: Общее количество раз (с момента последнего перезапуска), когда принтер был приостановлен из-за того, что головка инструмента двигалась быстрее, чем можно было считать перемещения из G-кода.
+- `extra_axes`: Provides a mechanism for finding the coordinate component for extra axes available in standard `G1` type move commands. See the [Accessing Coordinates](#accessing-coordinates) section for details.
 
 ## dual_carriage
 
@@ -387,9 +403,9 @@ The following information is available in the `skew_correction` object (this obj
 - `carriage_0`: Режим работы каретки 0. Возможные значения: " ИНАКТИВНЫЙ" и "ПЕРВИЧНЫЙ".
 - `Карета_1`: Режим работы каретки 1. Возможные значения: " ИНАКТИВНЫЙ", "ПЕРВИЧНЫЙ", "КОПИРОВАНИЕ" и "ЗЕРКАЛО".
 
-On a `generic_cartesian` kinematic, the following information is available in `dual_carriage`:
+В кинематике `generic_cartesian` в `dual_carriage` доступна следующая информация:
 
-- `carriages["<carriage>"]`: The mode of the carriage `<carriage>`. Possible values are "INACTIVE" and "PRIMARY" for the primary carriage and "INACTIVE", "PRIMARY", "COPY", and "MIRROR" for the dual carriage.
+- ` бракосочетания ["<переговор>"]`: Режим перевозки `<перевозка>`. Возможными значениями являются "ИНАКТИВНЫЕ" и "ПРАВИТЕЛЬНЫЕ" для первичной перевозки и "ИНАКТИВНЫЕ", "ПРАВИТЕЛЬНЫЕ", "КОПИ" и "МИРОР" для двойной перевозки.
 
 ## virtual_sdcard
 
@@ -424,3 +440,13 @@ On a `generic_cartesian` kinematic, the following information is available in `d
 Следующая информация доступна в объекте `z_tilt` (этот объект доступен, если определено z_tilt):
 
 - `applied`: True, если процесс выравнивания наклона был запущен и успешно завершен.
+
+## Accessing Coordinates
+
+Some status fields provide a "coordinate". For macro users these fields may be accessed by component name (eg,`{printer.toolhead.position.x}`), where the component name may be "x", "y", or "z".
+
+For developers using the Klipper API Server these fields are transmitted as a list - for example: `{"toolhead": {"position": [1.0, 2.0, 3.0, 7.3, 19.2]}}` . The first three components of the list correspond with the x, y, and z axes.
+
+A coordinate will typically have at least 3 components (x, y, and z), however there may also be additional components. Care should be taken when accessing any of these additional components as the ordering and number of components may change at run-time.
+
+One may use `{printer.gcode_move.axis_map}` and/or `{printer.toolhead.extra_axes}` to determine the number of components and the ordering of components. For example, to access the "E" component one could use `{printer.toolhead.position[printer.gcode_move.axis_map.E]}`. Or, if one wanted to find the component associated with the "extruder" object, one could use `{printer.toolhead.position[printer.toolhead.extra_axes.extruder]}`.

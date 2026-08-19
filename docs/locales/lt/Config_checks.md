@@ -26,7 +26,7 @@ Patikrinkite, ar visos spausdintuvo ašys gali laisvai judėti rankiniu būdu (�
 
 Rankiniu būdu pajudinkite visas spausdintuvo ašis taip, kad nė viena iš jų nebūtų kontakte su galiniu jungikliu. Išsiųskite QUERY_ENDSTOPS komandą per komandų konsolę. Ji turėtų atsakyti su visų sukonfigūruotų galinių jungiklių esama būsena ir jie visi turėtų pranešti apie "atvirą" būseną. Kiekvienam iš galinių jungiklių pakartokite QUERY_ENDSTOPS komandą, rankiniu būdu aktyvuodami galinį jungiklį. QUERY_ENDSTOPS komanda turėtų pranešti apie galinį jungiklį kaip "SUVEIKĘS".
 
-Jei galinis jungiklis atrodo invertuotas (jis praneša "atvirą", kai suveikia, ir atvirkščiai), pridėkite "!" prie kaiščio apibrėžimo (pavyzdžiui, "endstop_pin: ^PA2") arba pašalinkite "!", jei jis jau yra.
+If the endstop appears inverted (it reports "open" when triggered and vice-versa) then add a "!" to the pin definition (for example, "endstop_pin: ^!PA2"), or remove the "!" if there is already one present.
 
 Jei galinis jungiklis visai nesikeičia, tai paprastai rodo, kad galinis jungiklis yra prijungtas prie kito kaiščio. Tačiau taip pat gali prireikti pakeisti kaiščio ištraukimo nustatymą ('^' ženklas endstop_pin pavadinimo pradžioje - dauguma spausdintuvų naudos ištraukimo rezistorių ir '^' turėtų būti).
 

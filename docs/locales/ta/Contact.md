@@ -2,82 +2,67 @@
 
 இந்த ஆவணம் கிளிப்பருக்கான தொடர்பு தகவல்களை வழங்குகிறது.
 
-1. [சமூக மன்றம்](#community-forum)
-1. [டிச்கார்ட் அரட்டை](#discord-chat)
-1. [I have a கேள்வி பற்றி Klipper](#i-have-a-question-about-klipper)
-1. [எனக்கு ஒரு நற்பண்பு கோரிக்கை உள்ளது](#i-have-a-feature-request)
-1. [உதவி! இது வேலை செய்யாது!](#help-it-doesnt-work)
-1. [கிளிப்பர் மென்பொருளில் நான் ஒரு பிழையைக் கண்டேன்](#i-found-a-bug-in-the-klipper-software)
-1. [நான் கிளிப்பரில் சேர்க்க விரும்பும் மாற்றங்களைச் செய்கிறேன்](#i-am-making-changes-that-id-like-to-include-in-klipper)
-1. [மோவர் கிதுப்](#klipper-github)
+## Discourse Forum
 
-## சமூக மன்றம்
-
-கிளிப்பர் பற்றிய விவாதங்களுக்குக் [கிளிப்பர் சமூக சொற்பொழிவுச் சேவையகம்](https://community.klipper3d.org) உள்ளது.
+There is a [Klipper Community Discourse server](https://community.klipper3d.org) for "forum" style discussions on Klipper. Note that Discourse is not Discord.
 
 ## முரண்பாடு அரட்டை
 
-கிளிப்பருக்கு அர்ப்பணிக்கப்பட்ட ஒரு டிச்கார்ட் சேவையகம் உள்ளது: <https://discord.klipper3d.org>.
+There is a Discord server dedicated to Klipper at: <https://discord.klipper3d.org>. Note that Discord is not Discourse.
 
 இந்த சேவையகம் கிளிப்பர் பற்றிய விவாதங்களுக்கு அர்ப்பணிக்கப்பட்ட கிளிப்பர் ஆர்வலர்களின் சமூகத்தால் இயக்கப்படுகிறது. நிகழ்நேரத்தில் மற்ற பயனர்களுடன் அரட்டையடிக்க பயனர்களை இது அனுமதிக்கிறது.
 
 ## கிளிப்பர் பற்றி எனக்கு ஒரு கேள்வி உள்ளது
 
-நாங்கள் பெறும் பல கேள்விகள் ஏற்கனவே [கிளிப்பர் ஆவணம்](Overview.md) இல் பதிலளிக்கப்பட்டுள்ளன. தயவுசெய்து ஆவணங்களைப் படித்து, அங்கு வழங்கப்பட்ட திசைகளைப் பின்பற்றவும்.
+நாங்கள் பெறும் பல கேள்விகள் ஏற்கனவே [கிளிப்பர் ஆவணம்] (கண்ணோட்டம். எம்.டி) இல் பதிலளிக்கப்பட்டுள்ளன. தயவுசெய்து ஆவணங்களைப் படித்து, அங்கு வழங்கப்பட்ட திசைகளைப் பின்பற்றவும்.
 
-[கிளிப்பர் சமூக மன்றம்](#community-forum) இல் இதே போன்ற கேள்விகளைத் தேடவும் முடியும்.
+It is also possible to search for similar questions in the [Klipper Discourse Forum](#discourse-forum).
 
-உங்கள் அறிவையும் அனுபவத்தையும் மற்ற கிளிப்பர் பயனர்களுடன் பகிர்ந்து கொள்வதில் நீங்கள் ஆர்வமாக இருந்தால், நீங்கள் [கிளிப்பர் சமூக மன்றம்](#community-forum) அல்லது [கிளிப்பர் டிச்கார்ட் அரட்டை](#discord-chat) சேரலாம். கிளிப்பர் பயனர்கள் கிளிப்பரைப் பற்றி மற்ற பயனர்களுடன் விவாதிக்கக்கூடிய சமூகங்கள் இரண்டும்.
+If you are interested in sharing your knowledge and experience with other Klipper users then you can join the [Klipper Discourse Forum](#discourse-forum) or [Klipper Discord Chat](#discord-chat). Both are communities where Klipper users can discuss Klipper with other users.
 
-நாங்கள் பெறும் பல கேள்விகள் கிளிப்பருக்கு குறிப்பிட்டதல்ல பொதுவான 3D- அச்சிடும் கேள்விகள். உங்களிடம் ஒரு பொதுவான கேள்வி இருந்தால் அல்லது பொது அச்சிடும் சிக்கல்களை அனுபவிக்கிறீர்கள் என்றால், பொது 3D-அச்சிடும் மன்றத்தில் அல்லது உங்கள் அச்சுப்பொறி வன்பொருளுக்கு அர்ப்பணிக்கப்பட்ட ஒரு மன்றத்தில் கேட்பதன் மூலம் நீங்கள் சிறந்த பதிலைப் பெறுவீர்கள்.
+If you have a general question or are experiencing general printing problems, then also consider a general 3d-printing forum or a forum dedicated to the printer hardware.
 
 ## எனக்கு ஒரு அம்ச கோரிக்கை உள்ளது
 
-அனைத்து புதிய அம்சங்களுக்கும் ஆர்வமுள்ள மற்றும் அந்த அம்சத்தைச் செயல்படுத்தக்கூடிய ஒருவர் தேவைப்படுகிறது. புதிய அம்சத்தைச் செயல்படுத்த அல்லது சோதிக்க உதவுவதில் நீங்கள் ஆர்வமாக இருந்தால், [கிளிப்பர் சமூக மன்றம்](#community-forum) இல் நடந்த முன்னேற்றங்களை நீங்கள் தேடலாம். ஒத்துழைப்பாளர்களிடையே கலந்துரையாடல்களுக்குக் [கிளிப்பர் டிச்கார்ட் அரட்டை](#discord-chat) உள்ளது.
+All new features require someone interested and able to implement that feature. If you are interested in helping to implement or test a new feature, you can search for ongoing developments in the [Klipper Discourse Forum](#discourse-forum). There is also [Klipper Discord Chat](#discord-chat) for discussions between collaborators.
 
 ## உதவி! இது வேலை செய்யாது!
 
-துரதிர்ச்டவசமாக, நாங்கள் பதிலளிக்கக்கூடியதை விட உதவிக்காக இன்னும் பல கோரிக்கைகளைப் பெறுகிறோம். நாம் காணும் பெரும்பாலான சிக்கல் அறிக்கைகள் இறுதியில் கண்காணிக்கப்படுகின்றன:
+நீங்கள் சிக்கல்களைச் சந்தித்தால், [கிளிப்பர் ஆவணம்] (கண்ணோட்டம். எம்.டி) கவனமாகப் படித்து, அனைத்து நடவடிக்கைகளும் பின்பற்றப்பட்டுள்ளதா என்பதை இருமுறை சரிபார்க்கவும்.
 
-1. வன்பொருளில் நுட்பமான பிழைகள், அல்லது
-1. கிளிப்பர் ஆவணத்தில் விவரிக்கப்பட்டுள்ள அனைத்து படிகளையும் பின்பற்றவில்லை.
+If you are experiencing a printing problem, then we recommend carefully inspecting the printer hardware (all joints, wires, screws, etc.) and verify nothing is abnormal. We find most printing problems are not related to the Klipper software. If you do find a problem with the printer hardware then consider searching general 3d-printing forums or forums dedicated to the printer hardware.
 
-நீங்கள் சிக்கல்களைச் சந்தித்தால், [கிளிப்பர் ஆவணம்](Overview.md) கவனமாகப் படித்து, அனைத்து நடவடிக்கைகளும் பின்பற்றப்பட்டுள்ளதா என்பதை இருமுறை சரிபார்க்கவும்.
+It is also possible to search for similar issues in the [Klipper Discourse Forum](#discourse-forum).
 
-நீங்கள் அச்சிடும் சிக்கலை அனுபவிக்கிறீர்கள் என்றால், அச்சுப்பொறி வன்பொருளை (அனைத்து மூட்டுகள், கம்பிகள், திருகுகள் போன்றவை) கவனமாக ஆய்வு செய்ய பரிந்துரைக்கிறோம், மேலும் எதுவும் அசாதாரணமானது என்பதை சரிபார்க்கவும். பெரும்பாலான அச்சிடும் சிக்கல்கள் கிளிப்பர் மென்பொருளுடன் தொடர்புடையவை அல்ல என்பதை நாங்கள் காண்கிறோம். அச்சுப்பொறி வன்பொருளில் நீங்கள் ஒரு சிக்கலைக் கண்டால், பொது 3D-அச்சிடும் மன்றத்தில் அல்லது உங்கள் அச்சுப்பொறி வன்பொருளுக்கு அர்ப்பணிக்கப்பட்ட ஒரு மன்றத்தில் தேடுவதன் மூலம் சிறந்த பதிலைப் பெறுவீர்கள்.
-
-[கிளிப்பர் சமூக மன்றம்](#community-forum) இல் இதே போன்ற சிக்கல்களைத் தேடவும் முடியும்.
-
-உங்கள் அறிவையும் அனுபவத்தையும் மற்ற கிளிப்பர் பயனர்களுடன் பகிர்ந்து கொள்வதில் நீங்கள் ஆர்வமாக இருந்தால், நீங்கள் [கிளிப்பர் சமூக மன்றம்](#community-forum) அல்லது [கிளிப்பர் டிச்கார்ட் அரட்டை](#discord-chat) சேரலாம். கிளிப்பர் பயனர்கள் கிளிப்பரைப் பற்றி மற்ற பயனர்களுடன் விவாதிக்கக்கூடிய சமூகங்கள் இரண்டும்.
+If you are interested in sharing your knowledge and experience with other Klipper users then you can join the [Klipper Discourse Forum](#discourse-forum) or [Klipper Discord Chat](#discord-chat). Both are communities where Klipper users can discuss Klipper with other users.
 
 ## கிளிப்பர் மென்பொருளில் ஒரு பிழையைக் கண்டேன்
 
 கிளிப்பர் ஒரு திறந்த மூல திட்டமாகும், மேலும் ஒத்துழைப்பாளர்கள் மென்பொருளில் பிழைகள் கண்டறியும்போது நாங்கள் பாராட்டுகிறோம்.
 
-[கிளிப்பர் சமூக மன்றம்](#community-forum) இல் சிக்கல்கள் தெரிவிக்கப்பட வேண்டும்.
+Problems should be reported in the [Klipper Discourse Forum](#discourse-forum).
 
 பிழையை சரிசெய்ய முக்கியமான தகவல்கள் தேவைப்படும். தயவுசெய்து இந்த படிகளைப் பின்பற்றவும்:
 
-1. <https://github.com/klipper3d/klipper> இலிருந்து மாற்றப்படாத குறியீட்டை இயக்குகிறீர்கள் என்பதை உறுதிப்படுத்திக் கொள்ளுங்கள். குறியீடு மாற்றியமைக்கப்பட்டிருந்தால் அல்லது வேறொரு மூலத்திலிருந்து பெறப்பட்டிருந்தால், நீங்கள் <https://github.com/klipper3d/klipper> இலிருந்து மாற்றப்படாத குறியீட்டில் சிக்கலை மீண்டும் உருவாக்க வேண்டும்.
+1. <Https://github.com/klipper3d/klipper> இலிருந்து மாற்றப்படாத குறியீட்டை இயக்குகிறீர்கள் என்பதை உறுதிப்படுத்திக் கொள்ளுங்கள். குறியீடு மாற்றியமைக்கப்பட்டிருந்தால் அல்லது வேறொரு மூலத்திலிருந்து பெறப்பட்டிருந்தால், நீங்கள் <https://github.com/klipper3d/klipper> இலிருந்து மாற்றப்படாத குறியீட்டில் சிக்கலை மீண்டும் உருவாக்க வேண்டும்.
 1. முடிந்தால், விரும்பத்தகாத நிகழ்வு ஏற்பட்ட உடனேயே `M112` கட்டளையை இயக்கவும். இது கிளிப்பர் ஒரு "பணிநிறுத்தம் நிலைக்கு" செல்ல காரணமாகிறது, மேலும் இது கூடுதல் பிழைத்திருத்த தகவல்களை பதிவு கோப்பில் எழுதும்.
 1. நிகழ்விலிருந்து கிளிப்பர் பதிவு கோப்பைப் பெறுங்கள். மென்பொருள் மற்றும் அதன் சூழல் (மென்பொருள் பதிப்பு, வன்பொருள் வகை, உள்ளமைவு, நிகழ்வு நேரம் மற்றும் நூற்றுக்கணக்கான பிற கேள்விகள்) பற்றி கிளிப்பர் உருவாக்குபவர்கள் வைத்திருக்கும் பொதுவான கேள்விகளுக்கு பதிலளிக்க பதிவு கோப்பு வடிவமைக்கப்பட்டுள்ளது.
-   1. கிளிப்பர் பதிவு கோப்பு கிளிப்பர் "புரவலன்" கணினியில் (ராச்பெர்ரி பை) `/tmp/klippy.log` இல் அமைந்துள்ளது.
-   1. இந்தப் பதிவுக் கோப்பை உங்கள் டெஸ்க்டாப் கணினியில் நகலெடுக்க "scp" அல்லது "sftp" பயன்பாடு தேவை. "scp" பயன்பாடு Linux மற்றும் MacOS டெஸ்க்டாப்களுடன் தரநிலையாக வருகிறது. பிற டெஸ்க்டாப்களுக்கு (எ.கா., WinSCP) இலவசமாகக் கிடைக்கும் scp பயன்பாடுகள் உள்ளன. `/tmp/klippy.log` ஐ நேரடியாக நகலெடுக்க முடியாத ஒரு வரைகலை scp பயன்பாட்டைப் பயன்படுத்தினால், நீங்கள் ரூட் கோப்பகத்தை அடையும் வரை `..` அல்லது `parent folder` ஐ மறுநிகழ்வு கிளிக் செய்து, `tmp` கோப்புறையைக் கிளிக் செய்து, பின்னர் `klippy.log` கோப்பைத் தேர்ந்தெடுக்கவும்.
+   1. Dedicated Klipper web interfaces have the ability to directly obtain the Klipper log file. It's the easiest way to obtain the log when using one of these interfaces. Otherwise, an "scp" or "sftp" utility is needed to copy the log file to your desktop computer. The "scp" utility comes standard with Linux and MacOS desktops. There are freely available scp utilities for other desktops (eg, WinSCP). The log file may be located in the `~/printer_data/logs/klippy.log` file (if using a graphical scp utility, look for the "printer_data" folder, then the "logs" folder under that, then the `klippy.log` file). The log file may alternatively be located in the `/tmp/klippy.log` file (if using a graphical scp utility that can not directly copy `/tmp/klippy.log` then repeatedly click on `..` or "parent folder" until reaching the root directory, click on the `tmp` folder, and then select the `klippy.log` file).
    1. பதிவு கோப்பை உங்கள் டெச்க்டாப்பில் நகலெடுக்கவும், இதன் மூலம் அது வெளியீட்டு அறிக்கையுடன் இணைக்கப்படலாம்.
    1. பதிவு கோப்பை எந்த வகையிலும் மாற்ற வேண்டாம்; பதிவின் துணுக்கை வழங்க வேண்டாம். முழு மாற்றப்படாத பதிவு கோப்பு மட்டுமே தேவையான தகவல்களை வழங்குகிறது.
    1. பதிவு கோப்பை ZIP அல்லது GZIP உடன் சுருக்குவது நல்லது.
-1. [கிளிப்பர் சமூக மன்றம்](#community-forum) இல் ஒரு புதிய தலைப்பைத் திறந்து பிரச்சினையின் தெளிவான விளக்கத்தை வழங்கவும். மற்ற கிளிப்பர் பங்களிப்பாளர்கள் என்ன நடவடிக்கை எடுக்கப்பட்டனர், விரும்பிய விளைவு என்ன, உண்மையில் என்ன விளைவு நிகழ்ந்தது என்பதை புரிந்து கொள்ள வேண்டும். சுருக்கப்பட்ட கிளிப்பர் பதிவுக் கோப்பு அந்தத் தலைப்பில் இணைக்கப்பட வேண்டும்.
+1. Open a new topic on the [Klipper Discourse Forum](#discourse-forum) and provide a clear description of the problem. Other Klipper contributors will need to understand what steps were taken, what the desired outcome was, and what outcome actually occurred. The compressed Klipper log file should be attached to that topic.
 
 ## நான் கிளிப்பரில் சேர்க்க விரும்பும் மாற்றங்களைச் செய்கிறேன்
 
 கிளிப்பர் திறந்த மூல மென்பொருள் மற்றும் புதிய பங்களிப்புகளை நாங்கள் பாராட்டுகிறோம்.
 
-புதிய பங்களிப்புகள் (குறியீடு மற்றும் ஆவணங்கள் இரண்டிற்கும்) அறிவிலிமையம் புல் கோரிக்கைகள் வழியாகச் சமர்ப்பிக்கப்படுகின்றன. முக்கியமான தகவல்களுக்குப் [பங்களிப்பு ஆவணம்](CONTRIBUTING.md) ஐப் பார்க்கவும்.
+See the [CONTRIBUTING document](CONTRIBUTING.md) for information.
 
-[டெவலப்பர்களுக்கான ஆவணங்கள்](Overview.md#developer-documentation) பல உள்ளன. குறியீட்டில் உங்களுக்கு ஏதேனும் கேள்விகள் இருந்தால், [Klipper Discourse Forum](#discourse-forum) அல்லது [Klipper Discord Chat](#discord-chat) இல் கேட்கலாம்.
+There are several [documents for developers](Overview.md#developer-documentation). If you have questions on the code then you can also ask in the [Klipper Discourse Forum](#discourse-forum) or on the [Klipper Discord Chat](#discord-chat).
 
-## தொழில்முறை சேவைகள்
+## Professional Services
 
 ![](img/klipper-logo-small.png)
 
-தனிப்பயன் மென்பொருள் மேம்பாடு, மென்பொருள் ஆதரவு மற்றும் தீர்வுகள்: <https://ko-fi.com/koconnor>
+Custom software development, software support, and solutions: <https://ko-fi.com/koconnor>

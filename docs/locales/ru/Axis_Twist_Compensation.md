@@ -13,9 +13,9 @@ bias](Probe_Calibrate.md#location-bias-check). It may result in probe operations
 
 > **Совет:** Убедитесь, что параметры [смещения зонда по X и Y](Config_Reference.md#probe) установлены правильно, так как они сильно влияют на калибровку.
 
-### Basic Usage: X-Axis Calibration
+### Базовое использование: калибровка оси X
 
-1. After setting up the `[axis_twist_compensation]` module, run:
+1. После установки модуля `[axis_twist_compensation]` запустите:
 
 ```
 AXIS_TWIST_COMPENSATION_CALIBRATE
@@ -27,25 +27,25 @@ This command will calibrate the X-axis by default.
 - By default, the calibration uses 3 points, but you can specify a different number with the option: `SAMPLE_COUNT=<value>`
 
 1. **Adjust Your Z Offset:** After completing the calibration, be sure to [adjust your Z offset](Probe_Calibrate.md#calibrating-probe-z-offset).
-1. **Perform Bed Leveling Operations:** Use probe-based operations as needed, such as:
+1. **Передельные операции по уравниванию кровати: ** Использовать операции на основе зондов по мере необходимости, такие как:
 
 - [Screws Tilt Adjust](G-Codes.md#screws_tilt_adjust)
 - [Z Tilt Adjust](G-Codes.md#z_tilt_adjust)
 
-1. **Finalize the Setup:**
+1. **Финализируйте настройку: **
 
-- Home all axes, and perform a [Bed Mesh](Bed_Mesh.md) if necessary.
-- Run a test print, followed by any [fine-tuning](Axis_Twist_Compensation.md#fine-tuning) if needed.
+- Домой все топоры, и выполнить [Bed Mesh](Bed_Mesh.md) при необходимости.
+- Проведите тест-печать, за которым следует любая [настройка](Axis_Twist_Compensation.md#fine-tuning), если это необходимо.
 
-### For Y-Axis Calibration
+### Для калибровки Y-Axis
 
-The calibration process for the Y-axis is similar to the X-axis. To calibrate the Y-axis, use:
+Процесс калибровки для Y-оси похож на X-оси. Для калибровки Y-оси используются:
 
 ```
 AXIS_TWIST_COMPENSATION_CALIBRATE AXIS=Y
 ```
 
-This will guide you through the same measuring process as for the X-axis.
+Это будет направлять вас через тот же процесс измерения, что и для X-оси.
 
 > **Совет: ** Температура слоя, температура и размер сопла не оказывают влияния на процесс калибровки.
 

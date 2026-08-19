@@ -133,6 +133,12 @@ Le seguenti informazioni sono disponibili nell'oggetto [firmware_retraction](Con
 
 - `retract_length`, `retract_speed`, `unretract_extra_length`, `unretract_speed`: le impostazioni correnti per il modulo firmware_retraction. Queste impostazioni possono differire dal file di configurazione se un comando `SET_RETRACTION` le altera.
 
+## gcode
+
+The following information is available in the `gcode` object:
+
+- `commands`: Returns a list of all currently available commands. For each command, if a help string is defined it will also be provided.
+
 ## gcode_button
 
 The following information is available in [gcode_button some_name](Config_Reference.md#gcode_button) objects:
@@ -149,14 +155,15 @@ Le seguenti informazioni sono disponibili negli oggetti [gcode_macro some_name](
 
 Le seguenti informazioni sono disponibili nell'oggetto `gcode_move` (questo oggetto è sempre disponibile):
 
-- `gcode_position`: la posizione corrente della testa di stampa rispetto all'origine del Gcode corrente. Cioè, posizioni che si potrebbero inviare direttamente a un comando `G1`. È possibile accedere ai componenti x, y, z ed e di questa posizione (ad esempio, `gcode_position.x`).
-- `position`: l'ultima posizione comandata della testina utilizzando il sistema di coordinate specificato nel file di configurazione. È possibile accedere alle componenti x, y, z ed e di questa posizione (ad esempio, `position.x`).
-- `homing_origin`: l'origine del sistema di coordinate gcode (relativo al sistema di coordinate specificato nel file di configurazione) da utilizzare dopo un comando `G28`. Il comando `SET_GCODE_OFFSET` può alterare questa posizione. È possibile accedere ai componenti x, y e z di questa posizione (ad esempio, `homing_origin.x`).
+- `gcode_position`: The current position of the toolhead relative to the current G-Code origin. That is, positions that one might directly send to a `G1` command. This value is encoded as a [coordinate](#accessing-coordinates).
+- `position`: The last commanded position of the toolhead using the coordinate system specified in the config file. This value is encoded as a [coordinate](#accessing-coordinates).
+- `homing_origin`: The origin of the gcode coordinate system (relative to the coordinate system specified in the config file) to use after a `G28` command. The `SET_GCODE_OFFSET` command can alter this position. This value is encoded as a [coordinate](#accessing-coordinates).
 - `speed`: l'ultima velocità impostata in un comando `G1` (in mm/s).
 - `speed_factor`: La"speed factor override" come impostato da un comando `M220`. Questo è un valore in virgola mobile tale che 1,0 significa nessun override e, ad esempio, 2,0 raddoppierebbe la velocità richiesta.
 - `extrude_factor`: L'"extrude factor override" come impostato da un comando `M221`. Questo è un valore in virgola mobile tale che 1,0 significa nessun override ad esempio 2,0 raddoppierebbe le estrusioni richieste.
 - `absolute_coordinates`: restituisce True se in modalità coordinate assolute `G90` o False se in modalità relativa `G91`.
 - `absolute_extrude`: restituisce True se in modalità di estrusione assoluta `M82` o False se in modalità relativa `M83`.
+- `axis_map`: Provides a mechanism for finding the coordinate component for a given G-Code id that is used in `G1` commands. See the [Accessing Coordinates](#accessing-coordinates) section for details.
 
 ## hall_filament_width_sensor
 
@@ -164,7 +171,8 @@ Le seguenti informazioni sono disponibili nell'oggetto [hall_filament_width_sens
 
 - all items from [filament_switch_sensor](Status_Reference.md#filament_switch_sensor)
 - `is_active`: Restituisce True se il sensore è attualmente attivo.
-- `Diameter`: l'ultima lettura dal sensore in mm.
+- `flow_compensation_enabled`: Returns True if flow compensation is enabled.
+- `Diameter`: Returns the last width reading in mm if the sensor is active or the nominal filament diameter if it is not.
 - `Raw`: l'ultima lettura grezza dell'ADC dal sensore.
 
 ## Riscaldatore
@@ -190,24 +198,28 @@ Le seguenti informazioni sono disponibili nell'oggetto [idle_timeout](Config_Ref
 
 - `state`: lo stato corrente della stampante monitorato dal modulo idle_timeout. È una delle seguenti stringhe: "Idle", "Printing", "Ready".
 - `printing_time`: la quantità di tempo (in secondi) in cui la stampante è rimasta nello stato "Printing" (come tracciato dal modulo idle_timeout).
+- `idle_timeout`: The current 'timeout' (in seconds) to wait for the gcode to be triggered. (as set by [SET_IDLE_TIMEOUT](G-Codes.md#set_idle_timeout))
 
 ## led
 
 Le seguenti informazioni sono disponibili per ogni sezione di configurazione `[led led_name]`, `[neopixel led_name]`, `[dotstar led_name]`, `[pca9533 led_name]` e `[pca9632 led_name]` definita in printer.cfg:
 
-- `color_data`: un elenco di lista di colori contenenti i valori RGBW per ogni led nella catena. Ogni valore è rappresentato come un float da 0,0 a 1,0. Ciascuna lista di colori contiene 4 voci (rosso, verde, blu, bianco) anche se il LED sottostante supporta meno canali di colore. Ad esempio, è possibile accedere al valore blu (3° elemento nell'elenco dei colori) del secondo neopixel in una catena in `printer["neopixel <config_name>"].color_data[1][2]`.
+- `color_data`: A list of color lists containing the RGBW values for a led in the chain. Each value is represented as a float from 0.0 to 1.0. Each color list contains 4 items (red, green, blue, white) even if the underlying LED supports fewer color channels. For example, the blue value (3rd item in color list) of the second neopixel in a chain could be accessed at `printer["neopixel <config_name>"].color_data[1][2]`.
 
 ## load_cell
 
 The following information is available for each `[load_cell name]`:
 
-- 'is_calibrated': True/False is the load cell calibrated
-- 'counts_per_gram': The number of raw sensor counts that equals 1 gram of force
-- 'reference_tare_counts': The reference number of raw sensor counts for 0 force
-- 'tare_counts': The current number of raw sensor counts for 0 force
-- 'force_g': The force in grams, averaged over the last polling period.
-- 'min_force_g': The minimum force in grams, over the last polling period.
-- 'max_force_g': The maximum force in grams, over the last polling period.
+- `is_calibrated`: True/False whether the load cell is calibrated.
+- `counts_per_gram`: The number of raw sensor counts that equals 1 gram of force.
+- `reference_tare_counts`: The reference number of raw sensor counts for 0 force.
+- `tare_counts`: The current number of raw sensor counts for 0 force.
+- `force_g`: The force in grams, averaged over the last polling period.
+- `min_force_g`: The minimum force in grams, over the last polling period.
+- `max_force_g`: The maximum force in grams, over the last polling period.
+- `errors`: The number of sensor errors detected since the last start of measurements.
+- `overflows`: The number of data buffer overflows detected since the last start of measurements.
+- `sample_rate`: The sensor's sample rate in samples per second.
 
 ## load_cell_probe
 
@@ -215,8 +227,10 @@ The following information is available for `[load_cell_probe]`:
 
 - all items from [load_cell](Status_Reference.md#load_cell)
 - all items from [probe](Status_Reference.md#probe)
-- 'endstop_tare_counts': the load cell probe keeps a tare value independent of the load cell. This re-set at the start of each probe.
-- 'last_trigger_time': timestamp of the last homing trigger
+- `endstop_tare_counts`: The load cell probe keeps a tare value independent of the load cell. This is re-set at the start of each probe.
+- `last_trigger_time`: Timestamp of the last homing trigger.
+- `last_z_result`: The Z position result of the last tap.
+- `is_last_tap_valid`: True if the last tap result is valid.
 
 ## manual_probe
 
@@ -240,13 +254,13 @@ Le seguenti informazioni sono disponibili negli oggetti [mcu](Config_Reference.m
 
 Le seguenti informazioni sono disponibili nell'oggetto `motion_report` (questo oggetto è automaticamente disponibile se è definita una sezione di configurazione stepper):
 
-- `live_position`: la posizione richiesta della testa di stampa interpolata all'ora corrente.
+- `live_position`: The requested toolhead position interpolated to the current time. This value is encoded as a [coordinate](#accessing-coordinates).
 - `live_velocity`: la velocità della testa di stampa richiesta (in mm/s) al momento attuale.
 - `live_extruder_velocity`: la velocità dell'estrusore richiesta (in mm/s) al momento attuale.
 
 ## output_pin
 
-Le seguenti informazioni sono disponibili negli oggetti [output_pin some_name](Config_Reference.md#output_pin):
+The following information is available in [output_pin some_name](Config_Reference.md#output_pin) and [pwm_tool some_name](Config_Reference.md#pwm_tool) objects:
 
 - `value`: Il "valore" del pin, come impostato da un comando `SET_PIN`.
 
@@ -278,7 +292,8 @@ Le seguenti informazioni sono disponibili nell'oggetto [probe](Config_Reference.
 
 - `name`: restituisce il nome della sonda in uso.
 - `last_query`: Restituisce True se il probe è stato segnalato come "attivato" durante l'ultimo comando QUERY_PROBE. Nota, se questo viene utilizzato in una macro, a causa dell'ordine di espansione del modello, il comando QUERY_PROBE deve essere eseguito prima della macro contenente questo riferimento.
-- `last_z_result`: Restituisce il valore del risultato Z dell'ultimo comando PROBE. Nota, se questo viene utilizzato in una macro, a causa dell'ordine di espansione del modello, il comando PROBE (o simile) deve essere eseguito prima della macro contenente questo riferimento.
+- `last_probe_position`: The results of the last `PROBE` command. This value is encoded as a [coordinate](#accessing-coordinates). The probe hardware estimates that if one were to command the toolhead to XY position `last_probe_position.x`,`last_probe_position.y` and descend then the tip of the toolhead would first contact the bed at a Z height of `last_probe_position.z`. These coordinates are relative to the frame (that is, they use the coordinate system specified in the config file). Note, if this is used in a macro, due to the order of template expansion, the `PROBE` command must be run prior to the macro containing this reference.
+- `last_z_result`: This value is deprecated; it will be removed in the near future.
 
 ## pwm_cycle_time
 
@@ -372,13 +387,14 @@ Le seguenti informazioni sono disponibili negli oggetti [TMC stepper driver](Con
 
 Le seguenti informazioni sono disponibili nell'oggetto `toolhead` (questo oggetto è sempre disponibile):
 
-- `position`: l'ultima posizione comandata della testa di stampa relativa al sistema di coordinate specificato nel file di configurazione. È possibile accedere alle componenti x, y, z di questa posizione (ad esempio, `position.x`).
+- `position`: The last commanded position of the toolhead relative to the coordinate system specified in the config file. This value is encoded as a [coordinate](#accessing-coordinates).
 - `extruder`: il nome dell'estrusore attualmente attivo. Ad esempio, in una macro si potrebbe usare `printer[printer.toolhead.extruder].target` per ottenere la temperatura target dell'estrusore corrente.
 - `homed_axes`: Gli assi cartesiani correnti considerati in uno stato "homed". Questa è una stringa contenente uno o più di "x", "y", "z".
-- `axis_minimum`, `axis_maximum`: i limiti di corsa dell'asse (mm) dopo la corsa di homing. È possibile accedere alle componenti x, y, z di questo valore limite (ad es. `axis_minimum.x`, `axis_minimum.z`).
+- `axis_minimum`, `axis_maximum`: The axis travel limits (mm) after homing. This value is encoded as a [coordinate](#accessing-coordinates).
 - Per le stampanti Delta, `cone_start_z` è l'altezza z massima al raggio massimo (`printer.toolhead.cone_start_z`).
 - `max_velocity`, `max_accel`, `minimum_cruise_ratio`, `square_corner_velocity`: The current printing limits that are in effect. This may differ from the config file settings if a `SET_VELOCITY_LIMIT` (or `M204`) command alters them at run-time.
 - `stalls`: il numero totale di volte (dall'ultimo riavvio) che la stampante ha dovuto essere messa in pausa perché la testina si muoveva più velocemente di quanto fosse possibile leggere i movimenti dall'input del G-code.
+- `extra_axes`: Provides a mechanism for finding the coordinate component for extra axes available in standard `G1` type move commands. See the [Accessing Coordinates](#accessing-coordinates) section for details.
 
 ## dual_carriage
 
@@ -424,3 +440,13 @@ Le seguenti informazioni sono disponibili nell'oggetto `z_thermal_adjust` (quest
 Le seguenti informazioni sono disponibili nell'oggetto `z_tilt` (questo oggetto è disponibile se z_tilt è definito):
 
 - `applied`: Vero se il processo di livellamento z-tilt è stato eseguito e completato con successo.
+
+## Accessing Coordinates
+
+Some status fields provide a "coordinate". For macro users these fields may be accessed by component name (eg,`{printer.toolhead.position.x}`), where the component name may be "x", "y", or "z".
+
+For developers using the Klipper API Server these fields are transmitted as a list - for example: `{"toolhead": {"position": [1.0, 2.0, 3.0, 7.3, 19.2]}}` . The first three components of the list correspond with the x, y, and z axes.
+
+A coordinate will typically have at least 3 components (x, y, and z), however there may also be additional components. Care should be taken when accessing any of these additional components as the ordering and number of components may change at run-time.
+
+One may use `{printer.gcode_move.axis_map}` and/or `{printer.toolhead.extra_axes}` to determine the number of components and the ordering of components. For example, to access the "E" component one could use `{printer.toolhead.position[printer.gcode_move.axis_map.E]}`. Or, if one wanted to find the component associated with the "extruder" object, one could use `{printer.toolhead.position[printer.toolhead.extra_axes.extruder]}`.

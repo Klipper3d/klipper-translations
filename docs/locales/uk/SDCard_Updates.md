@@ -32,22 +32,23 @@ javascript licenses api веб-сайт go1.13.8 -л
 Наведені вище команди припускають, що ваш MCU з'єднується з частотою за замовчуванням 250000 і прошивкою знаходиться на ` ~/klipper/out/klipper.bin`. `flash-sdcard.sh` скрипт надає параметри для зміни цих за замовчуванням. Всі варіанти можна переглянути за допомогою екрана:
 
 ```
-JavaScript licenses API Веб-сайт Go1.13.8 -час
-SD Card завантажити утиліту для Klipper
+./scripts/flash-sdcard.sh -h
+SD Card upload utility for Klipper
 
-Використання: flash_sdcard.sh [-h] [-l] [-c] [-b <baud>] [-f <firmware>]
-<device> <board>> <device> <board> <board>><device>>> <board>>>><device>> <board>>>><device>>><device>>> <board>>>>>>>>>>>>>>>>>><device>>>>>>>>>>>>>>>>><device>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>><>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+usage: flash_sdcard.sh [-h] [-l] [-c] [-s] [-b <baud>] [-f <firmware>]
+                       <device> <board>
 
-позиціональні аргументи:
-<device> пристрій серійного порту
-<board> тип дошки
+positional arguments:
+  <device>        device serial port
+  <board>         board type
 
-додаткові аргументи:
--h показати це повідомлення
--l список доступних плат
--c запустіть флеш-перевірку/перевірити тільки (завантажити)
--b <baud> серійний курс шнура (за замовчуванням 250000)
--f <firmware> шлях до клиппера. бін
+optional arguments:
+  -h              show this message
+  -l              list available boards
+  -c              run flash check/verify only (skip upload)
+  -s              use fast SPI speed (4MHz)
+  -b <baud>       serial baud rate (default is 250000)
+  -f <firmware>   path to klipper.bin
 ```
 
 Якщо ваша дошка миготливий з прошивкою, яка з'єднує в користувацькій швидкості baud, можна оновити, вказавши параметр `-b`:
@@ -65,6 +66,20 @@ JavaScript licenses API Веб-сайт Go1.13.8 JavaScript licenses API Веб-
 Зауважте, що при модернізації MKS Robin E3 не потрібно вручну запустити `update_mks_robin.py` і постачання отриманого бінарного до `flash-sdcard.sh`. Ця процедура автоматизована в процесі завантаження.
 
 Варіант `-c` використовується для виконання перевірки або перевірки операції для тестування, якщо дошка працює правильно зазначена прошивка. Ця опція призначена для випадків, коли ручна електростанція повинна завершити процедуру миття, такі як завантажувачі, які використовують режим SDIO замість SPI для доступу до своїх SD-карт. (Ше Печери нижче) Але також можна використовувати будь-який час, щоб переконатися, що код, що спалахнув в дошку, відповідає версії в папці вашого будівництва на будь-якій підтриманій дошці.
+
+## Failure to Initialize
+
+Some SD cards may fail to initialize at the default SPI speed of 400KHz. In this situation it is possible to use `-s` to drive the SPI peripheral at 4MHz. For example:
+
+```
+./scripts/flash-sdcard.sh -s /dev/ttyACM0 btt-skr-v1.3
+```
+
+If the device still fails to initialize then cause of the failure is unrelated to the speed and likely a result of one of the following conditions:
+
+- The SD card is improperly formatted. Must be `fat` or `fat32`.
+- Attempt to initialize a card using the SPI interface that has already been initialized over SDIO.
+- The SD card has failed or is corrupt.
 
 ## Печера
 
@@ -111,7 +126,7 @@ BOARD_ALIASES = {
 Про нас
 ```
 
-Якщо вам потрібна нова дошка визначення, і ви некомфортний з процедурою, зазначеною вище, рекомендується запитати один в [Klipper Community Discord](Контакт.md#discord).
+If you need a new board definition and you are uncomfortable with the procedure outlined above it is recommended that you request one in the [Klipper Discord](Contact.md).
 
 ## Флеш-дошки, які використовують SDIO
 

@@ -16,7 +16,7 @@ The `[skew_correction]` module requires 3 measurements for each plane you want t
 
 ## Konfigurieren Sie Ihre Schräglage
 
-Make sure `[skew_correction]` is in printer.cfg. You may now use the `SET_SKEW` gcode to configure skew_correcton. For example, if your measured lengths along XY are as follows:
+Make sure `[skew_correction]` is in printer.cfg. You may now use the `SET_SKEW` gcode to configure skew_correction. For example, if your measured lengths along XY are as follows:
 
 ```
 Length AC = 140.4

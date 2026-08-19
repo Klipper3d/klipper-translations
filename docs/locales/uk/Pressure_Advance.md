@@ -8,7 +8,7 @@
 
 Для того, щоб збалансувати тиск заздалегідь принтер повинен бути налаштований і операційний, як тест на тюнінг передбачає друк і огляд тестового об'єкта. Це гарна ідея, щоб прочитати цей документ у повному обсязі до запуску тесту.
 
-Використайте зріз для генерації G-коду для великого порожнистого квадрата, знайденого в [docs/prints/square_tower.stl](prints/square_tower.stl). Використовуйте високу швидкість (наприклад, 100 мм/с), нульове заповнення та грубу висоту шару (висота шару повинна бути близько 75% від діаметра сопла). Переконайтеся, що будь-які шви "динамічного керування прискоренням" та "укосного з'єднання" вимкнено в зрізі.
+Use a slicer to generate g-code for the large hollow square found in [docs/prints/square_tower.stl](prints/square_tower.stl). Use a high speed (eg, 100mm/s), zero infill, and a coarse layer height (the layer height should be around 75% of the nozzle diameter). Make sure any "dynamic acceleration control" and "scarf joint" seams are disabled in the slicer.
 
 Підготуйтеся до тесту, видавши наступний G-Code команду:
 

@@ -1,16 +1,16 @@
 # 共振值测量
 
-Klipper has built-in support for the ADXL345, MPU-9250, LIS2DW and LIS3DH compatible accelerometers which can be used to measure resonance frequencies of the printer for different axes, and auto-tune [input shapers](Resonance_Compensation.md) to compensate for resonances. Note that using accelerometers requires some soldering and crimping. The ADXL345 can be connected to the SPI interface of a Raspberry Pi or MCU board (it needs to be reasonably fast). The MPU family can be connected to the I2C interface of a Raspberry Pi directly, or to an I2C interface of an MCU board that supports 400kbit/s *fast mode* in Klipper. The LIS2DW and LIS3DH can be connected to either SPI or I2C with the same considerations as above.
+Klipper对于ADXL345、MPU9250、LIS2DW、LIS3DH（以及他们的兼容产品）有原生支持。你可以使用这些加速度计来测量打印机在不同轴上的共振，并且自动校准[input shapers](Resonance_Compensation.md)来补偿共振。注意，使用加速度计需要一些焊接和压接技巧。ADXL345可以通过Raspberry Pi或主控板（需要足够快的微控制器）来连接。MPU系列则可以直连Raspberry Pi的I2C总线，或者可以连接至主控板的I2C总线（其的微控制器必须支持Klipper 400kbit/s的*快速模式*）。 LIS2DW和LIS3DH则可以通过SPI或I2C连接（方式同上）。
 
-When sourcing accelerometers, be aware that there are a variety of different PCB board designs and different clones of them. If it is going to be connected to a 5V printer MCU ensure it has a voltage regulator and level shifters.
+在采购加速度计时，PCB板可能会有各种不同的设计，以及各种不同的克隆。如果计划将加速度计连接至微控制器的5V针脚，需要保证加速度计带有稳压器和电平转换器。
 
-For ADXL345s, make sure that the board supports SPI mode (a small number of boards appear to be hard-configured for I2C by pulling SDO to GND).
+对于ADXL345，确保主板支持SPI模式（一小部分主板疑似被硬件配置为I2C模式，SDO和GND存在上拉）。
 
 For MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500/ICM20948s and LIS2DW/LIS3DH there are also a variety of board designs and clones with different I2C pull-up resistors which will need supplementing.
 
-## MCUs with Klipper I2C *fast-mode* Support
+## 带有Klipper I2C*“快速模式”*支持的微处理器
 
-| MCU Family | 微控制器(S)测试 | 支持的微控制器(S) |
+| 微控制器系列 | 微控制器(S)测试 | 支持的微控制器(S) |
 | :-: | :-- | :-- |
 | Raspberry Pi | 3B+, Pico | 3A, 3A+, 3B, 4 |
 | AVR解锁 | ATmega328p | ATmega32u4, ATmega128, ATmega168, ATmega328, ATmega644p, ATmega1280, ATmega1284, ATmega2560 |
@@ -49,7 +49,7 @@ SCLK +CS
 
 #### ADXL345
 
-##### Direct to Raspberry Pi
+##### 直连Raspberry Pi
 
 **注：许多MCU将在SPI模式下使用ADXL345(例如PI Pico)，布线和配置将根据您的特定主板和可用的引脚而有所不同。**
 
@@ -57,7 +57,7 @@ SCLK +CS
 
 | ADXL345引脚 | 树莓派引脚 | 树莓派引脚名称 |
 | :-: | :-: | :-: |
-| 3V3 或 VCC | 01 | 3.3V DC power |
+| 3V3 或 VCC | 01 | 3.3V DC电源 |
 | GND | 06 | 地（GND） |
 | CS | 24 | GPIO08 (SPI0_CE0_N) |
 | SDO | 21 | GPIO09 (SPI0_MISO) |
@@ -68,22 +68,22 @@ SCLK +CS
 
 ![ADXL345-树莓派](img/adxl345-fritzing.png)
 
-##### Using Raspberry Pi Pico
+##### 使用Raspberry Pi Pico
 
-You may connect the ADXL345 to your Raspberry Pi Pico and then connect the Pico to your Raspberry Pi via USB. This makes it easy to reuse the accelerometer on other Klipper devices, as you can connect via USB instead of GPIO. The Pico does not have much processing power, so make sure it is only running the accelerometer and not performing any other duties.
+你可以将ADXL345连接到Raspberry Pi Pico，然后通过USB连接到Raspberry Pi。这对于在其他Klipper设备上使用这个加速度计会更加容易，因为你使用USB连接而不是GPIO。Pico并没有什么计算能力，保证它只运行加速度计而没有任何其他功能。
 
-In order to avoid damage to your RPi make sure to connect the ADXL345 to 3.3V only. Depending on the board's layout, a level shifter may be present, which makes 5V dangerous for your RPi.
+为了避免损坏你的RPi，确保只将ADXL345连接到3.3V。取决于不同的电路板布局，可能会有一些板子集成电平转换器。这导致输入5V信号对你的RPi变得危险。
 
-| ADXL345引脚 | Pico pin | Pico pin name |
+| ADXL345引脚 | Pico引脚说明 | Pico引脚名 |
 | :-: | :-: | :-: |
-| 3V3 或 VCC | 36 | 3.3V DC power |
+| 3V3 或 VCC | 36 | 3.3V DC电源 |
 | GND | 388 | 地（GND） |
 | CS | 2 | GP1 (SPI0_CSn) |
 | SDO | 1 | GP0 (SPI0_RX) |
 | SDA | 5 | GP3 (SPI0_TX) |
 | SCL | 4 | GP2 (SPI0_SCK) |
 
-Wiring diagrams for some of the ADXL345 boards:
+对于部分ADXL345模块的接线图：
 
 ![ADXL345-Pico](img/adxl345-pico.png)
 
@@ -119,7 +119,7 @@ GND+SCL
 | SDA | 03 | GPIO02(SDA1) |
 | SCL | 05 | GPIO03 (SCL1) |
 
-RPI在SCL和SDA上都有1.8k的Bit-in引体向上。
+The RPi has built-in 1.8K pull-ups on both SCL and SDA.
 
 ！[MPU-9250接入PI](img/mpu9250-Pi-fritzing.png)
 
@@ -138,7 +138,7 @@ Pico不包括任何内置I2C上拉电阻。
 
 ##### AVR ATmega328P Arduino Nano上I2C(TWI)的建议连接方案：
 
-| MPU-9250引脚 | Atmega 328P TQFP 32针脚 | Atmega 328P端号名称 | Arduino纳米针 |
+| MPU-9250引脚 | Atmega 328P TQFP 32针脚 | Atmega 328P端号名称 | Arduino Nano针脚 |
 | :-: | :-: | :-: | :-: |
 | VCC | 39 | - | - |
 | GND | 388 | 地（GND） | GND |
@@ -174,15 +174,15 @@ sudo apt install python3-numpy python3-matplotlib libatlas-base-dev libopenblas-
 ~/klippy-env/bin/pip install -v "numpy<1.26"
 ```
 
-Note that, depending on the performance of the CPU, it may take *a lot* of time, up to 10-20 minutes. Be patient and wait for the completion of the installation. On some occasions, if the board has too little RAM the installation may fail and you will need to enable swap. Also note the forced version, due to newer versions of NumPY having requirements that may not be satisfied in some klipper python environments.
+注意，取决于CPU的性能，这可能需要*很多*的时间。耐心一些，并等待安装的完成。如果你的SBC没有足够的RAM，安装可能会失败，你需要启用SWAP并重试。同时，对于强制安装的版本，注意新版的numpy存在一些Klipper无法满足的python依赖。
 
-Once installed please check that no errors show from the command:
+安装完成后，请使用一下指令检查是否有错误：
 
 ```
 ~/klippy-env/bin/python -c 'import numpy;'
 ```
 
-The correct output should simply be a new line.
+输出结果应该仅仅是一个换行。
 
 #### 使用RPI配置ADXL345
 
@@ -207,11 +207,11 @@ CS_PIN：RPI：无。
 
 建议在测试开始前，用探针在热床中央进行一次探测，触发后稍微上移。
 
-#### Configure ADXL345 With Pi Pico
+#### 配置ADXL345在Pi Pico上使用
 
-##### Flash the Pico Firmware
+##### 刷写Pico固件
 
-On your Raspberry Pi, compile the firmware for the Pico.
+在你的Raspberry Pi上，编译Pico的固件。
 
 ```
 cd ~/klipper
@@ -221,17 +221,17 @@ make menuconfig
 
 ![Pico menuconfig](img/klipper_pico_menuconfig.png)
 
-Now, while holding down the `BOOTSEL` button on the Pico, connect the Pico to the Raspberry Pi via USB. Compile and flash the firmware.
+现在，在按住`BOOTSEL`按钮时，将Pico通过USB连接至Raspberry Pi。编译并刷写固件。
 
 ```
 make flash FLASH_DEVICE=first
 ```
 
-If that fails, you will be told which `FLASH_DEVICE` to use. In this example, that's `make flash FLASH_DEVICE=2e8a:0003`. ![Determine flash device](img/flash_rp2040_FLASH_DEVICE.png)
+如果失败，程序会告诉你使用哪个`FLASH_DEVICE`。在此例中，应该是`make flash FLASH_DEVICE=2e8a:0003`。![Determine flash device](img/flash_rp2040_FLASH_DEVICE.png)
 
-##### Configure the Connection
+##### 配置连接
 
-The Pico will now reboot with the new firmware and should show up as a serial device. Find the pico serial device with `ls /dev/serial/by-id/*`. You can now add an `adxl.cfg` file with the following settings:
+Pico会在刷写完成后自动重启并启动为串口设备。使用`ls /dev/serial/by-id/*`来获取Pico的硬件地址。你现在可以添加一个 `adxl.cfg`，带有以下设置：
 
 ```
 [mcu adxl]
@@ -254,7 +254,7 @@ probe_points:
 pin: adxl:gpio23
 ```
 
-If setting up the ADXL345 configuration in a separate file, as shown above, you'll also want to modify your `printer.cfg` file to include this:
+如果ADXL345配置时一个单独的文件（就像上main一样），你会需要修改你的`printer.cfg`，以包含该配置文件：
 
 ```
 [include adxl.cfg] # Comment this out when you disconnect the accelerometer
@@ -262,7 +262,7 @@ If setting up the ADXL345 configuration in a separate file, as shown above, you'
 
 通过`RESTART`命令重启Klipper。
 
-#### Configure LIS2DW series over SPI
+#### 在SPI上配置LIS2DW系列
 
 ```
 [MCU列表]。
@@ -282,9 +282,9 @@ AXES_MAP：x、z、y。
 147,154，20
 ```
 
-#### Configure MPU-6000/9000 series With RPi
+#### 配置MPU-6000/9000系列在RPi上使用
 
-Make sure the Linux I2C driver is enabled and the baud rate is set to 400000 (see [Enabling I2C](RPi_microcontroller.md#optional-enabling-i2c) section for more details). Then, add the following to the printer.cfg:
+确保Linux的I2C驱动已经启用，并且比特率已经设置为400000（参见[启用I2C](RPi_microcontroller.md#optional-enabling-i2c)）。然后，添加如下内容到printer.cfg：
 
 ```
 [MCU RPI]。
@@ -302,7 +302,7 @@ I2C_BUS：I2c.1。
 
 If you are using the ICM20948, replace instances of "mpu9250" with "icm20948".
 
-#### 配置与Pico兼容的MPU-9520
+#### 在Pico上配置MPU-9520兼容加速度计
 
 默认情况下，Pico I2C设置为400000。只需将以下内容添加到printer.cfg：
 
@@ -325,9 +325,9 @@ pins: pico:gpio23
 
 If you are using the ICM20948, replace instances of "mpu9250" with "icm20948".
 
-#### Configure MPU-9520 Compatibles with AVR
+#### 在AVR上配置MPU-9520兼容加速度计
 
-AVR I2C will be set to 400000 by the mpu9250 option. Simply add the following to the printer.cfg:
+AVR的I2C速率会被mpu9250配置设置为400000。只需要添加以下配置到printer.cfg：
 
 ```
 [mcu nano]
@@ -361,9 +361,9 @@ If you are using the ICM20948, replace instances of "mpu9250" with "icm20948".
 Recv: // adxl345 values (x, y, z): 470.719200, 941.438400, 9728.196800
 ```
 
-If you get an error like `Invalid adxl345 id (got xx vs e5)`, where `xx` is some other ID, immediately try again. There's an issue with SPI initialization. If you still get an error, it is indicative of the connection problem with ADXL345, or the faulty sensor. Double-check the power, the wiring (that it matches the schematics, no wire is broken or loose, etc.), and soldering quality.
+如果你得到类似于`Invalid adxl345 id (got xx vs e5)`的报错，而`xx`为其他ID，立即重试，这可能与SPI初始化有关。如果你持续得到报错，这可能与接线问题有关，或者传感器模块损坏。再次检查电源，接线（是否符合接线图，是否有断线等），以及焊接质量。
 
-**If you are using a MPU-9250 compatible accelerometer and it shows up as `mpu-unknown`, use with caution! They are probably refurbished chips!**
+**如果使用MPU-9250兼容加速度计的时候被识别为‘mpu-unknow‘，小心使用！它们可能是二手（翻新）芯片！**
 
 下一步，在Octoprint中输入 `MEASURE_AXES_NOISE`，之后将会显示各个轴的基准测量噪声（其值应在1-100之间）。如果轴的噪声极高（例如 1000 或更高）可能意味着3D打印机上存在传感器问题、电源问题或不平衡的风扇。
 
@@ -392,7 +392,7 @@ Accel_PER_HZ：50#默认为75。
 TEST_RESONANCES AXIS=Y
 ```
 
-This will generate 2 CSV files (`/tmp/resonances_x_*.csv` and `/tmp/resonances_y_*.csv`). These files can be processed with the stand-alone script on a Raspberry Pi. This script is intended to be run with a single CSV file for each axis measured, although it can be used with multiple CSV files if you desire to average the results. Averaging results can be useful, for example, if resonance tests were done at multiple test points. Delete the extra CSV files if you do not desire to average them.
+这将会生成两份CSV文件(`/tmp/resonances_x_*.csv` 和 `/tmp/resonances_y_*.csv`)。这些文件可以通过Raspberry Pi上的独立脚本来处理。脚本被设计为同时处理一份CSV文件，不过它也可以同时接受两份CSV文件，脚本会基于两份文件的平均值来处理。平均值有时会很有用，比如，如果共振测试是在同个轴的不同点进行的。删除额外的CSV文件如果你不需要平均值。
 
 ```
 ~/klipper/scripts/calibrate_shaper.py /tmp/resonances_x_*.csv -o /tmp/shaper_calibrate_x.png
@@ -432,13 +432,13 @@ Max_Accel：3000#不应超过X和Y轴的估计max_Accel
 
 也可以根据生成的图表自己选择一些其他配置：图表上的功率谱密度的峰值对应于打印机的共振频率。
 
-Note that alternatively you can run the input shaper auto-calibration from Klipper [directly](#input-shaper-auto-calibration), which can be convenient, for example, for the input shaper [re-calibration](#input-shaper-re-calibration).
+注意你也可以方便地[直接](#input-shaper-auto-calibration)从Klipper中运行自动校准程序。比如，对于输入整形[重新校准](#input-shaper-re-calibration)。
 
 ### 平行于喷嘴移动打印床的打印机
 
 如果打印机的打印床可以平行于喷嘴移动，测量X和Y轴时需要改变加速度计的安装位置。安装加速度计到打印头以测量X轴共振，安装到打印床以测量Y轴（该类打印机的常见配置）。
 
-However, you can also connect two accelerometers simultaneously, though the ADXL345 must be connected to different boards (say, to an RPi and printer MCU board), or to two different physical SPI interfaces on the same board (rarely available). Then they can be configured in the following manner:
+然而，也可以同时连接两个加速度计。不过需要将两个ADXL345分别连接至不同的控制板（比如，一个连接至RPi，另一个连接至主控板），或者同一控制板上的不同SPI接口（很少见）。它们可以通过以下的方式配置：
 
 ```
 [adx1345 HOTEND]。
@@ -456,7 +456,7 @@ Accel芯片y：adx1345床。
 探测点：...
 ```
 
-Two MPUs can share one I2C bus, but they **cannot** measure simultaneously as the 400kbit/s I2C bus is not fast enough. One must have its AD0 pin pulled-down to 0V (address 104) and the other its AD0 pin pulled-up to 3.3V (address 105):
+两个MPU可以共享一条I2C总线，但是由于I2C速率限制，它们**不可以**同时以400kbit/s测量。其中一个（MPU）必须将AD0针脚下拉致0V（地址104），另一个则必须将AD0针脚上拉致3.3V（地址105）：
 
 ```
 [mpu9250 hotend]
@@ -476,7 +476,7 @@ accel_chip_y: mpu9250 bed
 probe_points: ...
 ```
 
-[Test with each MPU individually before connecting both to the bus for easy debugging.]
+[在将它们连接至总线前，独立测试两个MPU更方便。]
 
 然后，命令`TEST_RESONANCES AXIS=X`和`TEST_RESONANCES AXIS=Y`会使用每个轴相应的加速度计。
 
@@ -551,19 +551,94 @@ max_smoothing: 0.25  # an example
 
 同样的通知也适用于带有`SHAPER_CALIBRATE` 命令的输入整形器[自动校准](#input-shaper-auto-calibration)：在自动校准后仍需选择正确的`max_accel` 值，建议的加速度限制将不会被自动应用。
 
-Keep in mind that the maximum acceleration without too much smoothing depends on the `square_corner_velocity`. The general recommendation is not to change it from its default value 5.0, and this is the value used by default by the `calibrate_shaper.py` script. If you did change it though, you should inform the script about it by passing `--square_corner_velocity=...` parameter, e.g.
+注意，不造成过度平滑的最大推荐加速度取决于`square_corner_velocity`（转角离心速度）。一般的推荐是保持默认值（5.0），这也是`calibrate_shaper.py`采用的默认数值。如果你更改了`square_corner_velocity`，则应该通过向脚本传递`--square_corner_velocity=...`参数来注明。
 
 ```
 ~/klipper/scripts/calibrate_shaper.py /tmp/resonances_x_*.csv -o /tmp/shaper_calibrate_x.png --square_corner_velocity=10.0
 ```
 
-so that it can calculate the maximum acceleration recommendations correctly. Note that the `SHAPER_CALIBRATE` command already takes the configured `square_corner_velocity` parameter into account, and there is no need to specify it explicitly.
+这样，脚本才能正确计算最大推荐加速度。不过，`SHAPER_CALIBRATE`命令会自动读取配置文件中的`square_corner_velocity`，所以不需要手动注明这个参数。
 
 如果重新校准一个整形器，并且建议的整形器配置的报告平滑度与你在以前的校准中得到的几乎相同，这个步骤可以被跳过。
 
-### Unreliable measurements of resonance frequencies
+### Measuring the resonances of Z axis
 
-Sometimes the resonance measurements can produce bogus results, leading to the incorrect suggestions for the input shapers. This can be caused by a variety of reasons, including running fans on the toolhead, incorrect position or non-rigid mounting of the accelerometer, or mechanical problems such as loose belts or binding or bumpy axis. Keep in mind that all fans should be disabled for resonance testing, especially the noisy ones, and that the accelerometer should be rigidly mounted on the corresponding moving part (e.g. on the bed itself for the bed slinger, or on the extruder of the printer itself and not the carriage, and some people get better results by mounting the accelerometer on the nozzle itself). As for mechanical problems, the user should inspect if there is any fault that can be fixed with a moving axis (e.g. linear guide rails cleaned up and lubricated and V-slot wheels tension adjusted correctly). If none of that helps, a user may try the other shapers from the produced list besides the one recommended by default.
+Measuring the resonances of Z axis is similar in many aspects to measuring resonances of X and Y axes, with some subtle differences. Similarly to other axes measurements, you will need to have an accelerometer mounted on the moving parts of Z axis - either the bed itself (if the bed moves over Z axis), or the toolhead (if the toolhead/gantry moves over Z). You will need to add the appropriate chip configuration to `printer.cfg` and also add it to `[resonance_tester]` section, e.g.
+
+```
+[resonance_tester]
+accel_chip_z: <accelerometer full name>
+```
+
+Also make sure that `probe_points` configured in `[resonance_tester]` allow sufficient clearance for Z axis movements (20 mm above bed surface should provide enough clearance with the default test parameters).
+
+The next consideration is that Z axis can typically reach lower maximum speeds and accelerations that X and Y axes. Default parameters of the test take that into consideration and are much less agressive, but it may still be necessary to increase `max_z_accel` and `max_z_velocity`. If you have them configured in `[printer]` section, make sure to set them to at least
+
+```
+[printer]
+max_z_velocity: 20
+max_z_accel: 1550
+```
+
+but only for the duration of the test, afterwards you can revert them back to their original values if necessary. And if you use custom test parameters for Z axis, `TEST_RESONANCES` and `SHAPER_CALIBRATE` will provide the minimum required limits if necessary for your specific case.
+
+After all changes to `printer.cfg` have been made, restart Klipper and run either
+
+```
+TEST_RESONANCES AXIS=Z
+```
+
+or
+
+```
+SHAPER_CALIBRATE AXIS=Z
+```
+
+and proceed from there accordingly how you would for other axes. For example, after `TEST_RESONANCES` command you can run `calibrate_shaper.py` script and get shaper recommendations and the chart of resonance response:
+
+![Resonances](img/calibrate-z.png)
+
+After the calibration, the shaper parameters can be stored in the `printer.cfg`, e.g. from the example above:
+
+```
+[input_shaper]
+...
+shaper_type_z: mzv
+shaper_freq_z: 42.6
+```
+
+Also, given the movements of Z axis are slow, you can easily consider more aggressive input shapers, e.g.
+
+```
+[input_shaper]
+...
+shaper_type_z: 2hump_ei
+shaper_freq_z: 63.0
+```
+
+If the test produces bogus results, you may try to increase `accel_per_hz_z` parameter in `[resonance_tester]` from its default value 15 to a larger value in the range of 20-30, e.g.
+
+```
+[resonance_tester]
+accel_per_hz_z: 25
+```
+
+and repeat the test. Increasing this value will likely require increasing `max_z_accel` and `max_z_velocity` parameters as well. You can run `TEST_RESONANCES AXIS=Z` command to get the required minimum values.
+
+However, if you are unable to measure the resonances of Z axis, you can consider just using
+
+```
+[input_shaper]
+...
+shaper_type_z: 3hump_ei
+shaper_freq_z: 65
+```
+
+as an acceptable all-round choice, given that the smoothing of Z axis movements is not of particular concerns.
+
+### 不可靠的共振频率测量
+
+有些时候，共振测量可能会输出错误的结果，导致输入整形的推荐错误。这可能由多种原因导致，包括工具头上运行的风扇、加速度计安装不正确或不稳定、或者机械问题（比如皮带过松、卡阻、不平整的轴轨道等）。注意所有风扇在共振测试时都应关闭，尤其是噪音大的风扇，加速度计也应牢固的安装在对应运动部件上（比如，对于动床式的打印机，或者在打印机的挤出机上而不是滑车，以及某些人发现将加速度计直接固定在喷嘴上可以获得更好的结果）。对于机械问题，用户应首先观察各轴是否有可以修复的问题（比如线性导轨是否清理干净并正确润滑，V-slot滑轮的张力是否正确）。如果这些都没有改善，尝试使用其他的输入整形器（而不止推荐的那个）。
 
 ### 自定义测试轴
 
@@ -645,7 +720,7 @@ SHAPER_CALIBRATE AXIS=Y
 SHAPER_CALIBRATE AXIS=X
 ```
 
-**Warning!** It is not advisable to run the shaper auto-calibration very frequently (e.g. before every print, or every day). In order to determine resonance frequencies, auto-calibration creates intensive vibrations on each of the axes. Generally, 3D printers are not designed to withstand a prolonged exposure to vibrations near the resonance frequencies. Doing so may increase wear of the printer components and reduce their lifespan. There is also an increased risk of some parts unscrewing or becoming loose. Always check that all parts of the printer (including the ones that may normally not move) are securely fixed in place after each auto-tuning.
+**警告！**不推荐经常运行自动校准工具（比如每次打印前或每天）。为了确定共振频率，自动校准会在每个轴上创造较大的震动。一般来说，3D打印机的设计没有考虑过长时间暴露在共振频率下的情况。如果过于频繁的测量共振，可能会加剧部件磨损，缩短寿命，并伴有螺丝松脱，部件松动的风险。每次校准完后，总是检查打印机的各个部件（包括非移动部件）是否仍然固定。
 
 此外，由于测量中的一些噪音，每次校准得到的调谐结果会略有不同。不过，这些噪音一般不会对打印质量产生太大影响。然而，我们仍然建议仔细检查建议的参数，并在使用前打印一些测试件以确认它们是正确的。
 

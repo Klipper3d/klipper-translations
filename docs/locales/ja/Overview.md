@@ -1,19 +1,19 @@
 # 概要
 
-Klipperドキュメントへようこそ。Klipperが初めての方は [機能一覧](Features.md)と [インストール](Installation.md)からご覧ください。
+Klipperのドキュメンテーションへようこそ。Klipperが初めての方は [機能一覧](Features.md)と [インストール](Installation.md)からご覧ください。
 
 ## 概要情報
 
 - [機能一覧](Features.md): Klipperの各機能に関する詳細なリストです。
-- [FAQ](FAQ.md): よくある質問と回答です。
+- [よくある質問](FAQ.md): よくある質問と回答です。
 - [リリース](Releases.md): Klipperのリリース履歴です。
-- [Config更新情報](Config_Changes.md):Configの変更が必要な可能性のある直近のソフトウェアの仕様変更情報です。
+- [コンフィグ更新情報](Config_Changes.md):コンフィグの変更が必要な可能性のある直近のソフトウェアの仕様変更情報です。
 - [問い合わせ先](Contact.md): Klipper開発者へのバグ報告と一般的な連絡先について。
 
 ## インストールと設定
 
 - [インストール](Installation.md): Klipperのインストールガイドです。
-   - [Octoprint](OctoPrint.md): Guide to installing Octoprint with Klipper.
+   - [Octoprint](OctoPrint.md): KlipperでOctoprintをインストールする方法。
 - [Config参照情報](Config_Reference.md): Configの各種パラメータの説明です。
    - [Rotation Distance](Rotation_Distance.md): ステッパーモーターの設定で必要な rotation_distanceの計算について。
 - [設定確認](Config_checks.md): Configファイルのピン設定の基本的な確認方法について。

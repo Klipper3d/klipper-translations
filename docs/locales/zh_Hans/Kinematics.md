@@ -52,21 +52,21 @@ Klipper 使用传统的"梯形发生器"来产生每个动作的运动--每个�
 end_velocity^2 = start_velocity^2 + 2*accel*move_distance
 ```
 
-### Minimum cruise ratio
+### 最小巡航比
 
 Klipper 实现了一种用于平滑短距离之字形移动的机制。参考以下移动：
 
 ![zigzag](img/zigzag.svg.png)
 
-In the above, the frequent changes from acceleration to deceleration can cause the machine to vibrate which causes stress on the machine and increases the noise. Klipper implements a mechanism to ensure there is always some movement at a cruising speed between acceleration and deceleration. This is done by reducing the top speed of some moves (or sequence of moves) to ensure there is a minimum distance traveled at cruising speed relative to the distance traveled during acceleration and deceleration.
+在以上情况中，频繁的加速和减速会导致机器震动，加剧机器的压力和噪音。Klipper引入了一个机制，保证移动中总有一部分是达到巡航速度的。这是通过减少部分移动的最高速度（或运动序列）来确保有一个以巡航速度移动的最小距离，相对于加速与减速过程中的移动距离。
 
-Klipper implements this feature by tracking both a regular move acceleration as well as a virtual "acceleration to deceleration" rate:
+Klipper通过监控正常移动的加速度以及一个虚拟的“减速度”来实现：
 
 ![smoothed](img/smoothed.svg.png)
 
-Specifically, the code calculates what the velocity of each move would be if it were limited to this virtual "acceleration to deceleration" rate. In the above picture the dashed gray lines represent this virtual acceleration rate for the first move. If a move can not reach its full cruising speed using this virtual acceleration rate then its top speed is reduced to the maximum speed it could obtain at this virtual acceleration rate.
+具体来说，代码计算每次移动的速度是否被这个虚拟的“减速度”限制。在上面的图片中，有间隙的灰色线表现了第一次运动中这个虚拟的“减速度”的值。如果一次移动在使用这个虚拟的值时无法达到最高巡航速度，则这个速度会被减少，以确保他可以在这个虚拟的值下获得最高速度。
 
-For most moves the limit will be at or above the move's existing limits and no change in behavior is induced. For short zigzag moves, however, this limit reduces the top speed. Note that it does not change the actual acceleration within the move - the move continues to use the normal acceleration scheme up to its adjusted top-speed.
+对于大部分运动，这个限制都会与现有的限制（G1/G0命令中要求的）相同或更高，也就是没有变化。对于短距的来回运动，则这个机制会限制它的最高速度。注意这不会改变实际的加速度 - 运动将持续使用正常的加速度，直到到达调整后的最高速度。
 
 ## 生成步数（Generating steps）
 

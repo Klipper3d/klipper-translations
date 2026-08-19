@@ -143,7 +143,7 @@ bossac --port=/dev/ttyACM0 -b -U -e -w -v -R out/klipper.bin
 
 Прошивка SAMC21 осуществляется через интерфейс ARM Serial Wire Debug (SWD). Обычно для этого используется специальный аппаратный SWD-ключ. В качестве альтернативы можно использовать [Raspberry Pi with OpenOCD](#running-openocd-on-the-raspberry-pi).
 
-При использовании OpenOCD с SAMC21 необходимо предпринять дополнительные шаги, чтобы сначала перевести микросхему в режим Cold Plugging, если плата использует выводы SWD для других целей. При использовании OpenOCD на Rasberry Pi это можно сделать, выполнив следующие команды перед вызовом OpenOCD.
+When using OpenOCD with the SAMC21, extra steps must be taken to first put the chip into Cold Plugging mode if the board makes use of the SWD pins for other purposes. If using OpenOCD on a Raspberry Pi, this can be done by running the following commands before invoking OpenOCD.
 
 ```
 SWCLK=25
@@ -376,7 +376,7 @@ make flash FLASH_DEVICE=/dev/ttyACM0
 
 При первой прошивке CanBoot должен обнаружить отсутствие приложения и войти в загрузчик. Если этого не происходит, можно войти в загрузчик, нажав кнопку сброса два раза подряд.
 
-Для загрузки прошивки Klipper можно использовать утилиту `flash_can.py`, находящуюся в папке `lib/canboot`. Для прошивки необходим UUID устройства. Если у вас нет UUID, можно запросить узлы, на которых в данный момент работает загрузчик:
+The `flashtool.py` utility supplied in the `lib/katapult` folder may be used to upload Klipper firmware. The device UUID is necessary to flash. If you do not have a UUID it is possible to query nodes currently running the bootloader:
 
 ```
 python3 flash_can.py -q

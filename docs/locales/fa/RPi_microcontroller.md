@@ -1,6 +1,6 @@
 # RPi microcontroller
 
-This document describes the process of running Klipper on a RPi and use the same RPi as secondary mcu.
+این سند فرآیند اجرای Klipper روی یک Raspberry Pi و استفاده از همان Raspberry Pi به‌عنوان MCU ثانویه را توضیح می‌دهد.
 
 ## Why use RPi as a secondary MCU?
 

@@ -4,7 +4,7 @@ Dieses Dokument enthält Informationen zur Einstellung der Konfigurationsvariabl
 
 ## Einstellung des "Pressure Advance" Feature's
 
-Pressure advance does two useful things - it reduces ooze during non-extrude moves and it reduces blobbing during cornering. This guide uses the second feature (reducing blobbing during cornering) as a mechanism for tuning.
+Druckvorschub (Pressure Advance) hat zwei nützliche Funktionen - es reduziert das Auslaufen (Ooze) während der Bewegungen ohne Extrusion und verringert das Blobbing (Verklumpen) in Kurven. Diese Anleitung verwendet die zweite Funktion (Verringerung von Blobbing in Kurven) als Mechanismus zum Einstellen.
 
 In order to calibrate pressure advance the printer must be configured and operational as the tuning test involves printing and inspecting a test object. It is a good idea to read this document in full prior to running the test.
 

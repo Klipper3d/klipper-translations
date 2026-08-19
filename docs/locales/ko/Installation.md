@@ -1,91 +1,91 @@
 # 설치
 
-These instructions assume the software will run on a Linux-based host running a Klipper-compatible front end. It is recommended that a SBC(Small Board Computer) such as a Raspberry Pi or Debian-based Linux device be used as the host machine (see the [FAQ](FAQ.md#can-i-run-klipper-on-something-other-than-a-raspberry-pi-3) for other options).
+이 지침은 소프트웨어가 Klipper 호환 프런트 엔드를 실행하는 Linux 기반 호스트에서 실행됩니다. RSPC (Debian 기반 Linux 장치와 같은 SBC (작은 보드 컴퓨터) 호스트 시스템으로 사용됩니다 ([FAQ.MD # CAN-I-Run-Klipper-On-Ither-AT Raspberry-PI-3) 다른 옵션에 대해서는.
 
-For the purposes of these instructions, host relates to the Linux device and mcu relates to the printer board. SBC relates to the term Small Board Computer such as the Raspberry Pi.
+이 가이드 라인의 경우 호스트는 Linux 장치와 관련이 있으며 MCU는 프린터 보드에 관한 것입니다. SBC는 라즈베리 PI와 같은 소형 보드 컴퓨터의 용어입니다.
 
-## Obtain a Klipper Configuration File
+## lplper 구성 파일 가져 오기
 
-Most Klipper settings are determined by a "printer configuration file" printer.cfg, that will be stored on the host. An appropriate configuration file can often be found by looking in the Klipper [config directory](../config/) for a file starting with a "printer-" prefix that corresponds to the target printer. The Klipper configuration file contains technical information about the printer that will be needed during the installation.
+대부분의 klipper 설정은 "프린터 구성 파일"프린터 .cfg에 의해 결정됩니다.이 호스트는 저장소입니다. 즉, LPPEPP [Config Directory] (./ config /)을 찾을 수 있습니다. 대상 프린터의 대상 프린터의 "프린터"접두사로 시작하는 파일의 파일을 찾을 수 있습니다. LPLPer 구성 파일에는 설치 중에 필요한 프린터에 대한 기술 정보가 들어 있습니다.
 
-If there isn't an appropriate printer configuration file in the Klipper config directory then try searching the printer manufacturer's website to see if they have an appropriate Klipper configuration file.
+Klipper Config 디렉토리에 적절한 프린터 구성 파일이 없으면 프린터 제조업체의 웹 사이트를 검색하고 적절한 Klipper 구성 파일이 있는지 확인하십시오.
 
-If no configuration file for the printer can be found, but the type of printer control board is known, then look for an appropriate [config file](../config/) starting with a "generic-" prefix. These example printer board files should allow one to successfully complete the initial installation, but will require some customization to obtain full printer functionality.
+프린터에 대한 구성 파일이 없지만 프린터 제어 보드의 유형이 알려지고 적절한 [Config File] (Sigh / Change)이 시작됩니다. "일반"접두사로 시작하십시오.이 예제 프린터 보드 파일은 초기 설치를 성공적으로 완료 할 수 있으므로 전체 프린터 기능을 사용자 정의해야합니다.
 
-It is also possible to define a new printer configuration from scratch. However, this requires significant technical knowledge about the printer and its electronics. It is recommended that most users start with an appropriate configuration file. If creating a new custom printer configuration file, then start with the closest example [config file](../config/) and use the Klipper [config reference](Config_Reference.md) for further information.
+또한 처음부터 새 프린터 구성을 정의 할 수도 있습니다. 그러나 이것은 프린터와 전자 제품에 대한 중요한 기술적 지식을 필요로합니다. 대부분의 사용자가 적절한 구성 파일로 시작하는 것이 좋습니다. 새 사용자 정의 프린터 구성 파일을 작성한 경우 가장 가까운 예제 [COPNAL FILE] (STUNG /)을 시작하고 lppper [Config Reference] (Config_Reference.md)를 사용하여 자세한 내용은 "only.reference.md를 사용하십시오.
 
-## Interacting with Klipper
+## lpipper와 상호 작용
 
-Klipper is a 3d printer firmware, so it needs some way for the user to interact with it.
+Klipper는 3D 프린터 펌웨어이므로 상호 작용할 수있는 방법이 필요합니다.
 
-Currently the best choices are front ends that retrieve information through the [Moonraker web API](https://moonraker.readthedocs.io/) and there is also the option to use [Octoprint](https://octoprint.org/) to control Klipper.
+현재 최상의 선택은 [Moonraker Web API](https://moonraker.readthedocs.io/)를 통해 정보를 검색하는 프런트 엔드이며 [opToprint](https://octoprint.org/)을 사용하여 lpipper를 제어 할 수 있습니다.
 
-The choice is up to the user on what to use, but the underlying Klipper is the same in all cases. We encourage users to research the options available and make an informed decision.
+선택은 사용하는 최대 값이지만 기본값은 모든 경우에 동일합니다. 정보와 연구 정보에 사용할 수있는 옵션을 공부할 수 있습니다.
 
-## Obtaining an OS image for SBC's
+## SBC의 OS 이미지 가져 오기
 
-There are many ways to obtain an OS image for Klipper for SBC use, most depend on what front end you wish to use. Some manufacturers of these SBC boards also provide their own Klipper-centric images.
+SBC 사용을 위해 Klipper에 대한 OS 이미지를 얻는 방법에는 여러 가지가 있습니다. 그것은 가장 끝없는 프런트 엔드의 의도에 달려 있습니다.이 SBC 보드의 일부 제조업체는 자신의 klipper center 이미지를 제공합니다.
 
-The two main Moonraker-based front ends are [Fluidd](https://docs.fluidd.xyz/) and [Mainsail](https://docs.mainsail.xyz/), the latter of which has a premade install image ["MainsailOS"](https://docs-os.mainsail.xyz/), this has the option for Raspberry Pi and some OrangePi variants.
+두 개의 주 Moonracer 기반 프런트 엔드는 [FoudiD] (https://docs.fluidd.xyz/) 및 [MainSail] (https://docs.mainsail.xyz/) 이후에 후자가 설치된 이미지가 있습니다. "MainSailos"] (https://docs-os.mainsail.xyz/), 이는 Raspberry PI 및 일부 Orangepi 변형에 대한 옵션을 갖습니다.
 
-Fluidd can be installed via KIAUH(Klipper Install And Update Helper), which is explained below and is a 3rd party installer for all things Klipper.
+흐름은 키아프 설치 및 업데이트 도우미 (Kiauh) (아래 지침의 조건 목록)을 통해 설치할 수 있습니다.
 
-OctoPrint can be installed via the popular OctoPi image or via KIAUH, this process is explained in <OctoPrint.md>
+OcToprint는 인기있는 Octopi 이미지 또는 Kiaih를 통해 설치할 수 있습니다.이 프로세스는 <octoprint.md>에 설명되어 있습니다.
 
-## Installing via KIAUH
+## 기아를 통해 설치
 
-Normally you would start with a base image for your SBC, RPiOS Lite for example, or in the case of an x86 Linux device, Ubuntu Server. Please note that Desktop variants are not recommended due to certain helper programs that can stop some Klipper functions from working and even mask access to some printer boards.
+일반적으로 SBC, 예를 들어 UxUntu Server의 x86 리눅스 장치에서 기본 이미지로 시작됩니다. Klipper 함수를 중지 할 수있는 특정 도우미 프로그램에 따라 데스크탑 변형이 권장되지 않고 일부 프린터 보드에 대한 마스킹을 마스킹합니다.
 
-KIAUH can be used to install Klipper and its associated programs on a variety of Linux-based systems that run a form of Debian. More information can be found at https://github.com/dw-0/kiauh
+Kiaih는 데비안의 형태를 작동시키는 다양한 Linux 기반 시스템에 연결된 프로그램을 연결하는 데 사용할 수 있습니다. 자세한 내용은 https://github.com/dw-0/kiauhh에서 찾을 수 있습니다
 
-## 마이크로 컨트롤러 빌드 및 플래싱
+## 건물과 번쩍이는 마이크로 제어기
 
-To compile the micro-controller code, start by running these commands on your host device:
+마이크로 컨트롤러 코드를 컴파일하려면 호스트 장치에서 이러한 명령을 실행하십시오:
 
 ```
 cd ~/klipper/
 make menuconfig
 ```
 
-The comments at the top of the [printer configuration file](#obtain-a-klipper-configuration-file) should describe the settings that need to be set during "make menuconfig". Open the file in a web browser or text editor and look for these instructions near the top of the file. Once the appropriate "menuconfig" settings have been configured, press "Q" to exit, and then "Y" to save. Then run:
+[프린터 구성 파일] (#44-klipper-configuration-file)의 맨 위에있는 의견은 "ManueCenfigf"메서드 중에 설정 해야하는 설정을 설명해야합니다. 웹 브라우저 또는 텍스트 편집기에서 파일을 열고 파일의 맨 위로 지침을 찾으십시오. 적절한 "menuconfig"설정이 구성되면 "Q"를 눌러 저장하고 "Y"를 저장하려면 "QUEND를 누릅니다.
 
 ```
 make
 ```
 
-If the comments at the top of the [printer configuration file](#obtain-a-klipper-configuration-file) describe custom steps for "flashing" the final image to the printer control board, then follow those steps and then proceed to [configuring OctoPrint](#configuring-octoprint-to-use-klipper).
+[프린터 구성 파일] (#4-klipper-configuration-file)의 상단의 주석이 "프랑스 제어 보드"에 최종 이미지를 깜박임을 맞춤 설정 한 경우 사용자를 수행 한 다음 해당 단계를 수행 한 다음 [OcToprint] 구성 (# 구성) oCToprint-use-lpipper를 참조하십시오.
 
-Otherwise, the following steps are often used to "flash" the printer control board. First, it is necessary to determine the serial port connected to the micro-controller. Run the following:
+그렇지 않으면 다음 단계가 프린터 제어 보드를 "플래시"로 사용하는 데 사용됩니다. 먼저 마이크로 컨트롤러에 연결된 직렬 포트를 결정해야합니다. 다음을 실행하십시오:
 
 ```
 ls /dev/serial/by-id/*
 ```
 
-그럼 다음과 비슷한 결과물을 얻을 수 있습니다:
+다음과 같은 것을보고해야합니다 :
 
 ```
 /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 ```
 
-It's common for each printer to have its own unique serial port name. This unique name will be used when flashing the micro-controller. It's possible there may be multiple lines in the above output - if so, choose the line corresponding to the micro-controller. If many items are listed and the choice is ambiguous, unplug the board and run the command again, the missing item will be your print board(see the [FAQ](FAQ.md#wheres-my-serial-port) for more information).
+각 프린터는 고유 한 직렬 포트 이름을 갖는 것에 공통적입니다.이 고유 한 이름은 마이크로 컨트롤러를 깜박일 때 사용할 것입니다. 위의 출력 위의 여러 줄이 있습니다. 그렇다면 마이크로 컨트롤러에 해당하는 행을 선택하십시오. 많은 항목이 나열되고 선택하면 항목을 해제 한 다음 명령을 해제 한 다음 명령을 해제 한 다음 파일을 인쇄 보드 (예 : FAQ.MD # 내 직렬 포트를 제공 해야하는 경우)를 보내려면 명령을 해제 한 다음 파일을 보낸 다음 FAQ.MD # 내 위치를 사용하십시오.) 자세한 내용은 메일 요청을 참조하십시오.
 
-For common micro-controllers with STM32 or clone chips, LPC chips and others, it is usual that these need an initial Klipper flash via SD card.
+STM32 또는 클론 칩이있는 일반 마이크로 컨트롤러의 경우 LPC 칩 및 기타 SD 카드를 통해 특정 필드 플래시가 필요합니다.
 
-When flashing with this method, it is important to make sure that the print board is not connected with USB to the host, due to some boards being able to feed power back to the board and stopping a flash from occurring.
+이 방법을 가진 번쩍이는 때, 인쇄 널이 주인에 USB도 연결되지 않다는 것을 확인하는 것이 중요합니다, 몇몇 널이 널에 힘 뒤를 먹이고 사건에서 섬광을 멈출 수 있기 때문에.
 
-Please note, that most print boards that use SD cards for flash will implement some kind of flash loop protection for when the sd card is left in place. There are two common methods:
+SD 카드를 사용하는 대부분의 인쇄 보드는 SD 카드가 제자리에있을 때 신성한 플래시 루프 보호를 구현합니다. 두 가지 일반적인 방법이 있습니다.
 
-Filename Change Required (usually "stock" print boards):
+파일 이름 (보통 "재고) : 필요 :"
 
-These boards require the firmware file to have a different name each time you flash (for example, firmware1.bin, firmware2.bin, etc.). If you reuse the same filename, the board may ignore it and not update.
+이 보드는 플래시가 깜박이기 때문에 동일한 파일의 재생을 업데이트하고 업데이트하지 않습니다 (예 : firmware1.bin, firmware2.bin 등).
 
-Automatic File Renaming (usually aftermarket print boards:
+자동 파일 이름 (대개 시장 시장 인쇄 보드)을 교체하십시오.
 
-Other boards allow using the same filename, commonly firmware.bin, but after flashing, the board renames the file to firmware.cur. This helps indicate the firmware was successfully flashed and prevents it from flashing again on the next startup.
+다른 보드는 일반적으로 Firmare.bin과 함께 사용되지만 Firmare와 동일한 파일 이름을 사용할 수 있지만 깜박이는 보드가 파일을 firmware.cur로 변경하기 전에 펌웨어가 성공적으로 깜박이고 다음 시작에서 다시 깜박입니다.
 
-Before flashing, make sure to check which behavior your board follows.
+깜박이기 전에 보드가 있는지 확인하십시오.
 
-For common micro-controllers using Atmega chips, for example the 2560, the code can be flashed with something similar to:
+Atmega 칩을 사용하는 일반적인 마이크로 컨트롤러의 경우, 예를 들어 2560으로 코드는 다음과 유사한 것으로 깜박일 수 있습니다.
 
 ```
 sudo service klipper stop
@@ -95,7 +95,7 @@ sudo service klipper start
 
 반드시 프린터의 고유한 시리얼 포트 이름으로 FLASH_DEVICE를 업데이트해야 합니다.
 
-For common micro-controllers using RP2040 chips, the code can be flashed with something similar to:
+RP2040 칩을 사용하는 일반적인 마이크로 컨트롤러의 경우 코드는 다음과 같은 무언가로 깜박일 수 있습니다
 
 ```
 sudo service klipper stop
@@ -103,46 +103,46 @@ make flash FLASH_DEVICE=first
 sudo service klipper start
 ```
 
-It is important to note that RP2040 chips may need to be put into Boot mode before this operation.
+이 작동 전에 RP2040 칩을 부팅 모드로 넣어야하는 것이 중요합니다.
 
 ## Klipper 구성 중
 
-The next step is to copy the [printer configuration file](#obtain-a-klipper-configuration-file) to the host.
+다음 단계는 [프린터 구성 파일](#4-klipper-configuration-file)을 호스트에 복사하는 것입니다.
 
-Arguably the easiest way to set the Klipper configuration file is using the built-in editors in Mainsail or Fluidd. These will allow the user to open the configuration examples and save them to be printer.cfg.
+압축 된 Concavelent 커넥터 파일은 Mainsail 또는 Futualded 내부 편집기를 사용하는 것입니다. 이렇게하면 구성 예제 및 프린터를 열 수 있습니다.
 
-Another option is to use a desktop editor that supports editing files over the "scp" and/or "sftp" protocols. There are freely available tools that support this (eg, Notepad++, WinSCP, and Cyberduck). Load the printer config file in the editor and then save it as a file named "printer.cfg" in the home directory of the pi user (ie, /home/pi/printer.cfg).
+다른 옵션은 "SCP"및 / 또는 SFTP "프로토콜을 통해 파일 편집을 지원하는 데스크탑 편집기를 사용합니다. 이것은 예를 들어 메모장 ++, WinSCP 및 사이버 듀크를 지원하는 자유롭게 사용 가능한 도구입니다. 프린터 구성 파일을 편집기에로드하고 PI 사용자의 홈 디렉토리의"printer.cfg "라는 파일로 저장하십시오.
 
-Alternatively, one can also copy and edit the file directly on the host via SSH. That may look something like the following (be sure to update the command to use the appropriate printer config filename):
+또는 하나의 SSH를 통해 호스트에서 파일을 복사하고 편집 할 수 있습니다. 프린터 구성 파일 이름을 명령하는 데 다음을 수집 할 수 있습니다.
 
 ```
 cp ~/klipper/config/example-cartesian.cfg ~/printer.cfg
 nano ~/printer.cfg
 ```
 
-It's common for each printer to have its own unique name for the micro-controller. The name may change after flashing Klipper, so rerun these steps again even if they were already done when flashing. Run:
+각 프린터에는 마이크로 컨트롤러의 고유 한 이름이 있으므로 깜박임이 깜박일 수 있으면 다시 변경할 수 있으므로 이미 깜박일 때 수행 한 경우이 단계를 다시 실행할 수 있습니다. 실행 :
 
 ```
 ls /dev/serial/by-id/*
 ```
 
-그럼 다음과 비슷한 결과물을 얻을 수 있습니다:
+다음과 같은 것을보고해야합니다 :
 
 ```
 /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 ```
 
-Then update the config file with the unique name. For example, update the `[mcu]` section to look something similar to:
+그런 다음 구성 파일을 고유 한 이름으로 업데이트하십시오. 예를 들어, "MCU] 섹션을 업데이트하고 다음을 참조하십시오.
 
 ```
 [mcu]
 serial: /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 ```
 
-After creating and editing the file, it will be necessary to issue a "restart" command in the command console to load the config. A "status" command will report that the printer is ready if the Klipper config file is successfully read and the micro-controller is successfully found and configured.
+파일을 만들고 편집 한 후 명령 콘솔에서 "restart"명령을 실행하여 구성을로드해야합니다. "상태"명령은 Klipper Config 파일이 성공적으로 읽고 프린터가 성공적으로 읽고 구성된 경우 프린터가 준비됩니다.
 
-When customizing the printer config file, it is not uncommon for Klipper to report a configuration error. If an error occurs, make any necessary corrections to the printer config file and issue "restart" until "status" reports the printer is ready.
+프린터 구성 파일을 사용자 정의 할 때 Klipper는 구성 오류를보고하기 위해 희소하지 않습니다. 오류가 발생하면 프린터 구성 파일에 필요한 수정을 수행하고 "프롬프트"를 준비 할 때까지 "다시 시작"을 실행하십시오.
 
-Klipper reports error messages via the command console and pop-ups in Fluidd and Mainsail. The "status" command can be used to re-report error messages. A log is available and usually located at `~/printer_data/logs/klippy.log`.
+Klipper는 명령 콘솔 및 원활한 및 마우스 팝업을 통해 오류 메시지를보고합니다. "상태"명령을 사용하여 오류 메시지를 다시 열 수 있습니다. 논리적으로`~ / printer_data / logs / klippy.log '를 로그온합니다.
 
-After Klipper reports that the printer is ready, proceed to the [config check document](Config_checks.md) to perform some basic checks on the definitions in the config file. See the main [documentation reference](Overview.md) for other information.
+Klipper가 프린터가 준비되었음을보고하면 [Config Check Document] (Config_checks.md)로 진행하여 구성 파일의 정의에 대한 기본 검사를 수행하십시오. 기본적인 [설명서 참조 (overview.md)를 참조하십시오.

@@ -8,8 +8,8 @@
 
 ![](img/klipper-logo.png){ .center-image }
 
-The Klipper firmware controls 3d-Printers. It combines the power of a general purpose computer with one or more micro-controllers. See the [features document](Features.md) for more information on why you should use the Klipper software.
+فریمور Klipper چاپگرهای سه‌بعدی را کنترل می‌کند. این فریمور قدرت یک کامپیوتر همه‌کاره را با یک یا چند میکروکنترلر ترکیب می‌کند. برای اطلاعات بیشتر در مورد اینکه چرا باید از نرم‌افزار Klipper استفاده کنید، به [سند ویژگی‌ها](Features.md) مراجعه کنید.
 
-Start by [installing Klipper software](Installation.md).
+با [نصب نرم افزار Klipper] (Installation.md) شروع کنید.
 
-Klipper software is Free Software. Read the [documentation](Overview.md), see the [license](../COPYING), or [download](https://github.com/Klipper3d/Klipper) the software. We depend on the generous support from our [sponsors](Sponsors.md).
+نرم‌افزار کلیپر یک نرم‌افزار آزاد است. [مستندات](Overview.md) را بخوانید، [مجوز](../COPYING) را ببینید، یا نرم‌افزار را [دانلود](https://github.com/Klipper3d/Klipper) کنید. ما به حمایت سخاوتمندانه [حامیان مالی] خود (Sponsors.md) وابسته هستیم.

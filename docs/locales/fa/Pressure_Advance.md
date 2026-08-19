@@ -1,6 +1,6 @@
 # Pressure advance
 
-This document provides information on tuning the "pressure advance" configuration variable for a particular nozzle and filament. The pressure advance feature can be helpful in reducing ooze. For more information on how pressure advance is implemented see the [kinematics](Kinematics.md) document.
+این سند، اطلاعاتی را در مورد تنظیم متغیر پیکربندی "پیشروی فشار" (pressure advance) برای یک نازل و فیلامنت خاص ارائه می‌دهد. قابلیت پیشروی فشار می‌تواند در کاهش نشت مواد (ooze) مفید باشد. برای کسب اطلاعات بیشتر در مورد نحوه پیاده‌سازی پیشروی فشار، به سند سینماتیک (Kinematics.md) مراجعه کنید.
 
 ## Tuning pressure advance
 

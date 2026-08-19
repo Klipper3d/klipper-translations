@@ -1,18 +1,18 @@
 # Arrancadores
 
-This document provides information on common bootloaders found on micro-controllers that Klipper supports.
+Este documento proporciona información sobre los bootloaders de arranque comunes que se encuentran en los microcontroladores compatibles con Klipper.
 
-The bootloader is 3rd-party software that runs on the micro-controller when it is first powered on. It is typically used to flash a new application (eg, Klipper) to the micro-controller without requiring specialized hardware. Unfortunately, there is no industry wide standard for flashing a micro-controller, nor is there a standard bootloader that works across all micro-controllers. Worse, it is common for each bootloader to require a different set of steps to flash an application.
+El gestor de arranque(bootloader) es un software de terceros que se ejecuta en el microcontrolador cuando se enciende por primera vez. Se utiliza normalmente para grabar una nueva aplicación (por ejemplo, Klipper) en el microcontrolador sin necesidad de hardware especializado. Desafortunadamente, no existe un estándar industrial para flashear un microcontrolador, ni tampoco existe un bootloader estándar que funcione en todos los microcontroladores. Peor aún, es común que cada bootloader requiera un conjunto diferente de pasos para flashear una aplicación.
 
-If one can flash a bootloader to a micro-controller then one can generally also use that mechanism to flash an application, but care should be taken when doing this as one may inadvertently remove the bootloader. In contrast, a bootloader will generally only permit a user to flash an application. It is therefore recommended to use a bootloader to flash an application where possible.
+Si se puede flashear un gestor de arranque en un microcontrolador, por lo general también se puede utilizar ese mecanismo para flashear una aplicación, pero hay que tener cuidado al hacerlo, ya que se puede eliminar inadvertidamente el gestor de arranque. Por el contrario, un gestor de arranque solo permite al usuario flashear una aplicación. Por lo tanto, se recomienda utilizar un gestor de arranque para flashear una aplicación siempre que sea posible.
 
-This document attempts to describe common bootloaders, the steps needed to flash a bootloader, and the steps needed to flash an application. This document is not an authoritative reference; it is intended as a collection of useful information that the Klipper developers have accumulated.
+Este documento pretende describir los gestores de arranque(bootloaders) más comunes, los pasos necesarios para flashear un gestor de arranque y los pasos necesarios para flashear una aplicación. Este documento no es una referencia oficial, sino una recopilación de información útil que han acumulado los desarrolladores de Klipper.
 
 ## AVR micro-controllers
 
 In general, the Arduino project is a good reference for bootloaders and flashing procedures on the 8-bit Atmel Atmega micro-controllers. In particular, the "boards.txt" file: <https://github.com/arduino/Arduino/blob/1.8.5/hardware/arduino/avr/boards.txt> is a useful reference.
 
-To flash a bootloader itself, the AVR chips require an external hardware flashing tool (which communicates with the chip using SPI). This tool can be purchased (for example, do a web search for "avr isp", "arduino isp", or "usb tiny isp"). It is also possible to use another Arduino or Raspberry Pi to flash an AVR bootloader (for example, do a web search for "program an avr using raspberry pi"). The examples below are written assuming an "AVR ISP Mk2" type device is in use.
+Para flashear un bootloader, los chips AVR requieren una herramienta de flasheo de hardware externa (que se comunica con el chip mediante SPI). Esta herramienta se puede comprar (por ejemplo, busque en Internet «avr isp», «arduino isp» o «usb tiny isp»). También es posible utilizar otro Arduino o Raspberry Pi para flashear un bootloader AVR (por ejemplo, busque en Internet «programar un avr con raspberry pi»). Los ejemplos siguientes se han escrito suponiendo que se utiliza un dispositivo del tipo «AVR ISP Mk2».
 
 The "avrdude" program is the most common tool used to flash atmega chips (both bootloader flashing and application flashing).
 
@@ -143,7 +143,7 @@ bossac --port=/dev/ttyACM0 -b -U -e -w -v -R out/klipper.bin
 
 The SAMC21 is flashed via the ARM Serial Wire Debug (SWD) interface. This is commonly done with a dedicated SWD hardware dongle. Alternatively, one can use a [Raspberry Pi with OpenOCD](#running-openocd-on-the-raspberry-pi).
 
-When using OpenOCD with the SAMC21, extra steps must be taken to first put the chip into Cold Plugging mode if the board makes use of the SWD pins for other purposes. If using OpenOCD on a Rasberry Pi, this can be done by running the following commands before invoking OpenOCD.
+When using OpenOCD with the SAMC21, extra steps must be taken to first put the chip into Cold Plugging mode if the board makes use of the SWD pins for other purposes. If using OpenOCD on a Raspberry Pi, this can be done by running the following commands before invoking OpenOCD.
 
 ```
 SWCLK=25
@@ -376,7 +376,7 @@ It is recommended to use a ST-Link Programmer to flash CanBoot, however it shoul
 
 The first time CanBoot has been flashed it should detect that no application is present and enter the bootloader. If this doesn't occur it is possible to enter the bootloader by pressing the reset button twice in succession.
 
-The `flash_can.py` utility supplied in the `lib/canboot` folder may be used to upload Klipper firmware. The device UUID is necessary to flash. If you do not have a UUID it is possible to query nodes currently running the bootloader:
+The `flashtool.py` utility supplied in the `lib/katapult` folder may be used to upload Klipper firmware. The device UUID is necessary to flash. If you do not have a UUID it is possible to query nodes currently running the bootloader:
 
 ```
 python3 flash_can.py -q

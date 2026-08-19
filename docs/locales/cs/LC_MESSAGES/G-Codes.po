@@ -7,8 +7,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-07-22 08:30+0000\n"
 "Last-Translator: Vlastimil Dědek <dedekvlastimil@gmail.com>\n"
-"Language-Team: Czech <https://hosted.weblate.org/projects/klipper/g-codes/cs/"
-">\n"
+"Language-Team: Czech <https://hosted.weblate.org/projects/klipper/g-codes/cs/>\n"
 "Language: cs\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -19,8 +18,8 @@ msgid ""
 "This document describes the commands that Klipper supports. These are commands"
 " that one may enter into the OctoPrint terminal tab."
 msgstr ""
-"Tento dokument popisuje příkazy, které Klipper podporuje. Jedná se o "
-"příkazy, které lze zadat na kartě terminálu OctoPrint."
+"Tento dokument popisuje příkazy, které Klipper podporuje. Jedná se o příkazy, "
+"které lze zadat na kartě terminálu OctoPrint."
 
 msgid "G-Code commands"
 msgstr "Příkazy G-Code"
@@ -329,24 +328,6 @@ msgid ""
 msgstr ""
 
 msgid ""
-"`MANUAL_STEPPER STEPPER=config_name [ENABLE=[0|1]] [SET_POSITION=<pos>] "
-"[SPEED=<speed>] [ACCEL=<accel>] [MOVE=<pos> [STOP_ON_ENDSTOP=[1|2|-1|-2]] "
-"[SYNC=0]]`: This command will alter the state of the stepper. Use the ENABLE "
-"parameter to enable/disable the stepper. Use the SET_POSITION parameter to "
-"force the stepper to think it is at the given position. Use the MOVE parameter"
-" to request a movement to the given position. If SPEED and/or ACCEL is "
-"specified then the given values will be used instead of the defaults specified"
-" in the config file. If an ACCEL of zero is specified then no acceleration "
-"will be performed. If STOP_ON_ENDSTOP=1 is specified then the move will end "
-"early should the endstop report as triggered (use STOP_ON_ENDSTOP=2 to "
-"complete the move without error even if the endstop does not trigger, use -1 "
-"or -2 to stop when the endstop reports not triggered). Normally future G-Code "
-"commands will be scheduled to run after the stepper move completes, however if"
-" a manual stepper move uses SYNC=0 then future G-Code movement commands may "
-"run in parallel with the stepper movement."
-msgstr ""
-
-msgid ""
 "`PROBE [PROBE_SPEED=<mm/s>] [LIFT_SPEED=<mm/s>] [SAMPLES=<count>] "
 "[SAMPLE_RETRACT_DIST=<mm>] [SAMPLES_TOLERANCE=<mm>] "
 "[SAMPLES_TOLERANCE_RETRIES=<count>] [SAMPLES_RESULT=median|average]`: Move the"
@@ -536,26 +517,6 @@ msgid ""
 "`UPDATE_DELAYED_GCODE [ID=<name>] [DURATION=<seconds>]`: Updates the delay "
 "duration for the identified [delayed_gcode] and starts the timer for gcode "
 "execution. A value of 0 will cancel a pending delayed gcode from executing."
-msgstr ""
-
-msgid ""
-"`SAVE_VARIABLE VARIABLE=<name> VALUE=<value>`: Saves the variable to disk so "
-"that it can be used across restarts. All stored variables are loaded into the "
-"`printer.save_variables.variables` dict at startup and can be used in gcode "
-"macros. The provided VALUE is parsed as a Python literal."
-msgstr ""
-
-msgid ""
-"`SET_INPUT_SHAPER [SHAPER_FREQ_X=<shaper_freq_x>] "
-"[SHAPER_FREQ_Y=<shaper_freq_y>] [DAMPING_RATIO_X=<damping_ratio_x>] "
-"[DAMPING_RATIO_Y=<damping_ratio_y>] [SHAPER_TYPE=<shaper>] "
-"[SHAPER_TYPE_X=<shaper_type_x>] [SHAPER_TYPE_Y=<shaper_type_y>]`: Modify input"
-" shaper parameters. Note that SHAPER_TYPE parameter resets input shaper for "
-"both X and Y axes even if different shaper types have been configured in "
-"[input_shaper] section. SHAPER_TYPE cannot be used together with either of "
-"SHAPER_TYPE_X and SHAPER_TYPE_Y parameters. See [config "
-"reference](Config_Reference.md#input_shaper) for more details on each of these"
-" parameters."
 msgstr ""
 
 msgid ""
@@ -1125,38 +1086,16 @@ msgstr ""
 msgid "QUERY_FILAMENT_WIDTH"
 msgstr ""
 
-#: docs/G-Codes.md:block 152 (paragraph)
-msgid "`QUERY_FILAMENT_WIDTH`: Return the current measured filament width."
-msgstr ""
-
 #: docs/G-Codes.md:block 153 (header)
 msgid "RESET_FILAMENT_WIDTH_SENSOR"
-msgstr ""
-
-#: docs/G-Codes.md:block 154 (paragraph)
-msgid ""
-"`RESET_FILAMENT_WIDTH_SENSOR`: Clear all sensor readings. Helpful after "
-"filament change."
 msgstr ""
 
 #: docs/G-Codes.md:block 155 (header)
 msgid "DISABLE_FILAMENT_WIDTH_SENSOR"
 msgstr ""
 
-#: docs/G-Codes.md:block 156 (paragraph)
-msgid ""
-"`DISABLE_FILAMENT_WIDTH_SENSOR`: Turn off the filament width sensor and stop "
-"using it for flow control."
-msgstr ""
-
 #: docs/G-Codes.md:block 157 (header)
 msgid "ENABLE_FILAMENT_WIDTH_SENSOR"
-msgstr ""
-
-#: docs/G-Codes.md:block 158 (paragraph)
-msgid ""
-"`ENABLE_FILAMENT_WIDTH_SENSOR`: Turn on the filament width sensor and start "
-"using it for flow control."
 msgstr ""
 
 #: docs/G-Codes.md:block 159 (header)
@@ -1274,12 +1213,6 @@ msgstr ""
 
 #: docs/G-Codes.md:block 198 (header)
 msgid "[output_pin]"
-msgstr ""
-
-#: docs/G-Codes.md:block 199 (paragraph)
-msgid ""
-"The following command is available when an [output_pin config "
-"section](Config_Reference.md#output_pin) is enabled."
 msgstr ""
 
 #: docs/G-Codes.md:block 200 (header)
@@ -2227,18 +2160,6 @@ msgid ""
 "the VELOCITY argument for fields that represent velocities."
 msgstr ""
 
-#: docs/G-Codes.md:block 84 (paragraph)
-msgid ""
-"`SET_DUAL_CARRIAGE CARRIAGE=[0|1] [MODE=[PRIMARY|COPY|MIRROR]]`: This command "
-"will change the mode of the specified carriage. If no `MODE` is provided it "
-"defaults to `PRIMARY`. Setting the mode to `PRIMARY` deactivates the other "
-"carriage and makes the specified carriage execute subsequent G-Code commands "
-"as-is. `COPY` and `MIRROR` modes are supported only for `CARRIAGE=1`. When set"
-" to either of these modes, carriage 1 will then track the subsequent moves of "
-"the carriage 0 and either copy relative movements of it (in `COPY` mode) or "
-"execute them in the opposite (mirror) direction (in `MIRROR` mode)."
-msgstr ""
-
 #: docs/G-Codes.md:block 85 (header)
 msgid "SAVE_DUAL_CARRIAGE_STATE"
 msgstr ""
@@ -2256,19 +2177,6 @@ msgstr ""
 msgid "RESTORE_DUAL_CARRIAGE_STATE"
 msgstr ""
 
-#: docs/G-Codes.md:block 88 (paragraph)
-msgid ""
-"`RESTORE_DUAL_CARRIAGE_STATE [NAME=<state_name>] [MOVE=[0|1] "
-"[MOVE_SPEED=<speed>]]`: Restore the previously saved positions of the dual "
-"carriages and their modes, unless \"MOVE=0\" is specified, in which case only "
-"the saved modes will be restored, but not the positions of the carriages. If "
-"positions are being restored and \"MOVE_SPEED\" is specified, then the "
-"toolhead moves will be performed with the given speed (in mm/s); otherwise the"
-" toolhead move will use the rail homing speed. Note that the carriages restore"
-" their positions only over their own axis, which may be necessary to correctly"
-" restore COPY and MIRROR mode of the dual carraige."
-msgstr ""
-
 #: docs/G-Codes.md:block 376 (header)
 msgid "[axis_twist_compensation]"
 msgstr ""
@@ -2281,25 +2189,6 @@ msgstr ""
 
 #: docs/G-Codes.md:block 378 (header)
 msgid "AXIS_TWIST_COMPENSATION_CALIBRATE"
-msgstr ""
-
-#: docs/G-Codes.md:block 37 (paragraph)
-msgid ""
-"`BED_MESH_CALIBRATE [PROFILE=<name>] [METHOD=manual] "
-"[HORIZONTAL_MOVE_Z=<value>] [<probe_parameter>=<value>] "
-"[<mesh_parameter>=<value>] [ADAPTIVE=1] [ADAPTIVE_MARGIN=<value>]`: This "
-"command probes the bed using generated points specified by the parameters in "
-"the config. After probing, a mesh is generated and z-movement is adjusted "
-"according to the mesh. The mesh will be saved into a profile specified by the "
-"`PROFILE` parameter, or `default` if unspecified. See the PROBE command for "
-"details on the optional probe parameters. If METHOD=manual is specified then "
-"the manual probing tool is activated - see the MANUAL_PROBE command above for "
-"details on the additional commands available while this tool is active. The "
-"optional `HORIZONTAL_MOVE_Z` value overrides the `horizontal_move_z` option "
-"specified in the config file. If ADAPTIVE=1 is specified then the objects "
-"defined by the Gcode file being printed will be used to define the probed "
-"area. The optional `ADAPTIVE_MARGIN` value overrides the `adaptive_margin` "
-"option specified in the config file."
 msgstr ""
 
 #: docs/G-Codes.md:block 47 (paragraph)
@@ -2354,12 +2243,6 @@ msgstr ""
 msgid "[probe_eddy_current]"
 msgstr ""
 
-#: docs/G-Codes.md:block 282 (paragraph)
-msgid ""
-"The following commands are available when a [probe_eddy_current config "
-"section](Config_Reference.md#probe_eddy_current) is enabled."
-msgstr ""
-
 #: docs/G-Codes.md:block 283 (header)
 msgid "PROBE_EDDY_CURRENT_CALIBRATE"
 msgstr ""
@@ -2398,17 +2281,6 @@ msgstr ""
 
 #: docs/G-Codes.md:block 395 (header)
 msgid "TEMPERATURE_PROBE_CALIBRATE"
-msgstr ""
-
-#: docs/G-Codes.md:block 396 (paragraph)
-msgid ""
-"`TEMPERATURE_PROBE_CALIBRATE [PROBE=<probe name>] [TARGET=<value>] "
-"[STEP=<value>]`: Initiates probe drift calibration for eddy current based "
-"probes. The `TARGET` is a target temperature for the last sample. When the "
-"temperature recorded during a sample exceeds the `TARGET` calibration will "
-"complete. The `STEP` parameter sets temperature delta (in C) between samples. "
-"After a sample has been taken, this delta is used to schedule a call to "
-"`TEMPERATURE_PROBE_NEXT`. The default `STEP` is 2."
 msgstr ""
 
 #: docs/G-Codes.md:block 397 (header)
@@ -2473,12 +2345,6 @@ msgid ""
 "disconnecting the power."
 msgstr ""
 
-#: docs/G-Codes.md:block 36 (paragraph)
-msgid ""
-"`AXIS_TWIST_COMPENSATION_CALIBRATE [AXIS=<X|Y>] [AUTO=<True|False>] "
-"[SAMPLE_COUNT=<value>]`"
-msgstr ""
-
 #: docs/G-Codes.md:block 37 (paragraph)
 msgid ""
 "Calibrates axis twist compensation by specifying the target axis or enabling "
@@ -2489,44 +2355,6 @@ msgstr ""
 msgid ""
 "**AXIS:** Define the axis (`X` or `Y`) for which the twist compensation will "
 "be calibrated. If not specified, the axis defaults to `'X'`."
-msgstr ""
-
-#: docs/G-Codes.md:block 38 (unordered list)
-msgid ""
-"**AUTO:** Enables automatic calibration mode. When `AUTO=True`, the "
-"calibration will run for both the X and Y axes. In this mode, `AXIS` cannot be"
-" specified. If both `AXIS` and `AUTO` are provided, an error will be raised."
-msgstr ""
-
-#: docs/G-Codes.md:block 133 (paragraph)
-msgid ""
-"`SET_FAN_SPEED PIN=config_name TEMPLATE=<template_name> "
-"[<param_x>=<literal>]`: If `TEMPLATE` is specified then it assigns a "
-"[display_template](Config_Reference.md#display_template) to the given fan. For"
-" example, if one defined a `[display_template my_fan_template]` config section"
-" then one could assign `TEMPLATE=my_fan_template` here. The display_template "
-"should produce a string containing a floating point number with the desired "
-"value. The template will be continuously evaluated and the fan will be "
-"automatically set to the resulting speed. One may set display_template "
-"parameters to use during template evaluation (parameters will be parsed as "
-"Python literals). If TEMPLATE is an empty string then this command will clear "
-"any previous template assigned to the pin (one can then use `SET_FAN_SPEED` "
-"commands to manage the values directly)."
-msgstr ""
-
-#: docs/G-Codes.md:block 155 (paragraph)
-msgid ""
-"`SET_KINEMATIC_POSITION [X=<value>] [Y=<value>] [Z=<value>] "
-"[CLEAR=<[X][Y][Z]>]`: Force the low-level kinematic code to believe the "
-"toolhead is at the given cartesian position. This is a diagnostic and "
-"debugging command; use SET_GCODE_OFFSET and/or G92 for regular axis "
-"transformations. If an axis is not specified then it will default to the "
-"position that the head was last commanded to. Setting an incorrect or invalid "
-"position may lead to internal software errors. Use the CLEAR parameter to "
-"forget the homing state for the given axes. Note that CLEAR will not override "
-"the previous functionality; if an axis is not specified to CLEAR it will have "
-"its kinematic position set as per above. This command may invalidate future "
-"boundary checks; issue a G28 afterwards to reset the kinematics."
 msgstr ""
 
 #: docs/G-Codes.md:block 242 (paragraph)
@@ -2570,34 +2398,6 @@ msgid ""
 "file."
 msgstr ""
 
-#: docs/G-Codes.md:block 316 (paragraph)
-msgid ""
-"`TEST_RESONANCES AXIS=<axis> [OUTPUT=<resonances,raw_data>] [NAME=<name>] "
-"[FREQ_START=<min_freq>] [FREQ_END=<max_freq>] [ACCEL_PER_HZ=<accel_per_hz>] "
-"[HZ_PER_SEC=<hz_per_sec>] [CHIPS=<chip_name>] [POINT=x,y,z] "
-"[INPUT_SHAPING=<0:1>]`: Runs the resonance test in all configured probe points"
-" for the requested \"axis\" and measures the acceleration using the "
-"accelerometer chips configured for the respective axis. \"axis\" can either be"
-" X or Y, or specify an arbitrary direction as `AXIS=dx,dy`, where dx and dy "
-"are floating point numbers defining a direction vector (e.g. `AXIS=X`, "
-"`AXIS=Y`, or `AXIS=1,-1` to define a diagonal direction). Note that "
-"`AXIS=dx,dy` and `AXIS=-dx,-dy` is equivalent. `chip_name` can be one or more "
-"configured accel chips, delimited with comma, for example `CHIPS=\"adxl345, "
-"adxl345 rpi\"`. If POINT is specified it will override the point(s) configured"
-" in `[resonance_tester]`. If `INPUT_SHAPING=0` or not set(default), disables "
-"input shaping for the resonance testing, because it is not valid to run the "
-"resonance testing with the input shaper enabled. `OUTPUT` parameter is a "
-"comma-separated list of which outputs will be written. If `raw_data` is "
-"requested, then the raw accelerometer data is written into a file or a series "
-"of files `/tmp/raw_data_<axis>_[<chip_name>_][<point>_]<name>.csv` with "
-"(`<point>_` part of the name generated only if more than 1 probe point is "
-"configured or POINT is specified). If `resonances` is specified, the frequency"
-" response is calculated (across all probe points) and written into "
-"`/tmp/resonances_<axis>_<name>.csv` file. If unset, OUTPUT defaults to "
-"`resonances`, and NAME defaults to the current time in \"YYYYMMDD_HHMMSS\" "
-"format."
-msgstr ""
-
 #: docs/G-Codes.md:block 318 (paragraph)
 msgid ""
 "`SHAPER_CALIBRATE [AXIS=<axis>] [NAME=<name>] [FREQ_START=<min_freq>] "
@@ -2628,6 +2428,786 @@ msgid ""
 "and `HORIZONTAL_MOVE_Z` values override those options specified in the config "
 "file."
 msgstr ""
+
+#: docs/G-Codes.md:block 36 (paragraph)
+msgid "`AXIS_TWIST_COMPENSATION_CALIBRATE [AXIS=<X|Y>] [SAMPLE_COUNT=<value>]`"
+msgstr ""
+
+#: docs/G-Codes.md:block 42 (paragraph)
+msgid ""
+"`BED_MESH_CALIBRATE [PROFILE=<name>] [METHOD=manual] "
+"[HORIZONTAL_MOVE_Z=<value>] [<probe_parameter>=<value>] "
+"[<mesh_parameter>=<value>] [ADAPTIVE=1] [ADAPTIVE_MARGIN=<value>]`: This "
+"command probes the bed using generated points specified by the parameters in "
+"the config. After probing, a mesh is generated and z-movement is adjusted "
+"according to the mesh. The mesh is immediately active after successful "
+"completion of `BED_MESH_CALIBRATE`. The mesh will be saved into a profile "
+"specified by the `PROFILE` parameter, or `default` if unspecified. If "
+"ADAPTIVE=1 is specified then the profile name will begin with `adaptive-` and "
+"should not be saved for reuse. See the PROBE command for details on the "
+"optional probe parameters. If METHOD=manual is specified then the manual "
+"probing tool is activated - see the MANUAL_PROBE command above for details on "
+"the additional commands available while this tool is active. The optional "
+"`HORIZONTAL_MOVE_Z` value overrides the `horizontal_move_z` option specified "
+"in the config file. If ADAPTIVE=1 is specified then the objects defined by the"
+" Gcode file being printed will be used to define the probed area. The optional"
+" `ADAPTIVE_MARGIN` value overrides the `adaptive_margin` option specified in "
+"the config file."
+msgstr ""
+
+#: docs/G-Codes.md:block 93 (paragraph)
+msgid ""
+"`SET_DUAL_CARRIAGE CARRIAGE=<carriage> [MODE=[PRIMARY|COPY|MIRROR|INACTIVE]]`:"
+" This command will change the mode of the specified carriage. If no `MODE` is "
+"provided it defaults to `PRIMARY`. `<carriage>` must reference a defined "
+"primary or dual carriage for `generic_cartesian` kinematics or be 0 (for "
+"primary carriage) or 1 (for dual carriage) for all other kinematics supporting"
+" IDEX. Setting the mode to `PRIMARY` deactivates all other carriages on the "
+"same axis and makes the specified carriage execute subsequent G-Code movement "
+"commands as-is. Before activating `COPY` or `MIRROR` mode for a carriage, a "
+"different one must be activated as `PRIMARY` on the same axis. When set to "
+"either of these two modes, the carriage will track the subsequent G-Code moves"
+" and either copy relative movements (in `COPY` mode) or execute them in the "
+"opposite (mirror) direction (in `MIRROR` mode). Setting the mode to `INACTIVE`"
+" deactivates the carriage and makes it ignore further G-Code moves. Note that "
+"deactivating the primary carriage on the axis does not disable other carriages"
+" working in `COPY` or `MIRROR` mode, which can be used to disable printing a "
+"failed part by any of the tools and park that tool to prevent collisions with "
+"an unfinished part, see this [sample configuration](../config/sample-"
+"corexyuv.cfg) for macros examples."
+msgstr ""
+
+#: docs/G-Codes.md:block 97 (paragraph)
+msgid ""
+"`RESTORE_DUAL_CARRIAGE_STATE [NAME=<state_name>] [MOVE=[0|1] "
+"[MOVE_SPEED=<speed>]]`: Restore the previously saved states of all dual and "
+"their primary carriages. This command restores the modes of the carriages and "
+"moves them to their previously saved positions, unless \"MOVE=0\" is "
+"specified. If positions are being restored and \"MOVE_SPEED\" is specified, "
+"then the carriages will move with at most the provided speed (in mm/s); "
+"otherwise the homing speeds of the corresponding carriages will be used as a "
+"reference. Note that the carriages restore their positions only over their own"
+" axes, which may be necessary to correctly restore COPY and MIRROR mode of the"
+" dual carriage. In addition, this command updates the Klipper toolhead "
+"position for each axis that has some dual carriages: it is set to match the "
+"actual position of the activated primary carriage of an axis or, if an axis "
+"does not have a saved primary carriage, to the axis position when "
+"`SAVE_DUAL_CARRIAGE_STATE` command was called."
+msgstr ""
+
+#: docs/G-Codes.md:block 133 (paragraph)
+msgid ""
+"`SET_FAN_SPEED FAN=config_name TEMPLATE=<template_name> "
+"[<param_x>=<literal>]`: If `TEMPLATE` is specified then it assigns a "
+"[display_template](Config_Reference.md#display_template) to the given fan. For"
+" example, if one defined a `[display_template my_fan_template]` config section"
+" then one could assign `TEMPLATE=my_fan_template` here. The display_template "
+"should produce a string containing a floating point number with the desired "
+"value. The template will be continuously evaluated and the fan will be "
+"automatically set to the resulting speed. One may set display_template "
+"parameters to use during template evaluation (parameters will be parsed as "
+"Python literals). If TEMPLATE is an empty string then this command will clear "
+"any previous template assigned to the pin (one can then use `SET_FAN_SPEED` "
+"commands to manage the values directly)."
+msgstr ""
+
+#: docs/G-Codes.md:block 155 (paragraph)
+msgid ""
+"`SET_KINEMATIC_POSITION [X=<value>] [Y=<value>] [Z=<value>] "
+"[SET_HOMED=<[X][Y][Z]>] [CLEAR_HOMED=<[X][Y][Z]>]`: Force the low-level "
+"kinematic code to believe the toolhead is at the given cartesian position and "
+"set/clear homed status. This is a diagnostic and debugging command; use "
+"SET_GCODE_OFFSET and/or G92 for regular axis transformations. Setting an "
+"incorrect or invalid position may lead to internal software errors."
+msgstr ""
+
+#: docs/G-Codes.md:block 156 (paragraph)
+msgid ""
+"The `X`, `Y`, and `Z` parameters are used to alter the low-level kinematic "
+"position tracking. If any of these parameters are not set then the position is"
+" not changed - for example `SET_KINEMATIC_POSITION Z=10` would set all axes as"
+" homed, set the internal Z position to 10, and leave the X and Y positions "
+"unchanged. Changing the internal position tracking is not dependent on the "
+"internal homing state - one may alter the position for both homed and not "
+"homed axes, and similarly one may set or clear the homing state of an axis "
+"without altering its internal position."
+msgstr ""
+
+#: docs/G-Codes.md:block 157 (paragraph)
+msgid ""
+"The `SET_HOMED` parameter defaults to `XYZ` which instructs the kinematics to "
+"consider all axes as homed. A bare `SET_KINEMATIC_POSITION` command will "
+"result in all axes being considered homed (and not change its current "
+"position). If it is not desired to change the state of homed axes then assign "
+"`SET_HOMED` to an empty string - for example: `SET_KINEMATIC_POSITION "
+"SET_HOMED= X=10`. It is also possible to request an individual axis be "
+"considered homed (eg, `SET_HOMED=X`), but note that non-cartesian style "
+"kinematics (such as delta kinematics) may not support setting an individual "
+"axis as homed."
+msgstr ""
+
+#: docs/G-Codes.md:block 158 (paragraph)
+msgid ""
+"The `CLEAR_HOMED` parameter instructs the kinematics to consider the given "
+"axes as not homed. For example, `CLEAR_HOMED=XYZ` would request all axes to be"
+" considered not homed (and thus require homing prior to movement on those "
+"axes). The default is `SET_HOMED=XYZ` even if `CLEAR_HOMED` is present, so the"
+" command `SET_KINEMATIC_POSITION CLEAR_HOMED=Z` will set X and Y as homed and "
+"clear the homing state for Z. Use `SET_KINEMATIC_POSITION SET_HOMED= "
+"CLEAR_HOMED=Z` if the goal is to clear only the Z homing state. If an axis is "
+"specified in neither `SET_HOMED` nor `CLEAR_HOMED` then its homing state is "
+"not changed and if it is specified in both then `CLEAR_HOMED` has precedence. "
+"It is possible to request clearing of an individual axis, but on non-cartesian"
+" style kinematics (such as delta kinematics) doing so may result in clearing "
+"the homing state of additional axes. Note the `CLEAR` parameter is currently "
+"an alias for the `CLEAR_HOMED` parameter, but this alias will be removed in "
+"the future."
+msgstr ""
+
+#: docs/G-Codes.md:block 186 (header)
+msgid "[generic_cartesian]"
+msgstr ""
+
+#: docs/G-Codes.md:block 187 (paragraph)
+msgid ""
+"The commands in this section become automatically available when `kinematics: "
+"generic_cartesian` is specified as the printer kinematics."
+msgstr ""
+
+#: docs/G-Codes.md:block 188 (header)
+msgid "SET_STEPPER_CARRIAGES"
+msgstr ""
+
+#: docs/G-Codes.md:block 189 (paragraph)
+msgid ""
+"`SET_STEPPER_CARRIAGES STEPPER=<stepper_name> CARRIAGES=<carriages> "
+"[DISABLE_CHECKS=[0|1]]`: Set or update the stepper carriages. `<stepper_name>`"
+" must reference an existing stepper defined in `printer.cfg`, and "
+"`<carriages>` describes the carriages the stepper moves. See [Generic "
+"Cartesian Kinematics](Config_Reference.md#generic-cartesian-kinematics) for a "
+"more detailed overview of the `carriages` parameter in the stepper "
+"configuration section. Note that it is only possible to change the "
+"coefficients or signs of the carriages with this command, but a user cannot "
+"add or remove the carriages that the stepper controls."
+msgstr ""
+
+#: docs/G-Codes.md:block 190 (paragraph)
+msgid ""
+"`SET_STEPPER_CARRIAGES` is an advanced tool, and the user is advised to "
+"exercise an extreme caution using it, since specifying incorrect configuration"
+" may physically damage the printer."
+msgstr ""
+
+#: docs/G-Codes.md:block 191 (paragraph)
+msgid ""
+"Note that `SET_STEPPER_CARRIAGES` performs certain internal validations of the"
+" new printer kinematics after the change. Keep in mind that if it detects an "
+"issue, it may leave printer kinematics in an invalid state. This means that if"
+" `SET_STEPPER_CARRIAGES` reports an error, it is unsafe to issue other GCode "
+"commands, and the user must inspect the error message and either fix the "
+"problem, or manually restore the previous stepper(s) configuration."
+msgstr ""
+
+#: docs/G-Codes.md:block 192 (paragraph)
+msgid ""
+"Since `SET_STEPPER_CARRIAGES` can update a configuration of a single stepper "
+"at a time, some sequences of changes can lead to invalid intermediate "
+"kinematic configurations, even if the final configuration is valid. In such "
+"cases a user can pass `DISABLE_CHECKS=1` parameters to all but the last "
+"command to disable intermediate checks. For example, if `stepper a` and "
+"`stepper b` initially have `carriage_x-carriage_y` and `carriage_x+carriage_y`"
+" carriages correspondingly, then the following sequence of commands will let a"
+" user effectively swap the carriage controls: `SET_STEPPER_CARRIAGES STEPPER=a"
+" CARRIAGES=carriage_x+carriage_y DISABLE_CHECKS=1` and `SET_STEPPER_CARRIAGES "
+"STEPPER=b CARRIAGES=carriage_x-carriage_y`, while still validating the final "
+"kinematics state."
+msgstr ""
+
+#: docs/G-Codes.md:block 196 (paragraph)
+msgid ""
+"`QUERY_FILAMENT_WIDTH`: Return the current measured filament width, the state "
+"of the width sensor, the state of the filament sensor and the state of flow "
+"compensation."
+msgstr ""
+
+#: docs/G-Codes.md:block 198 (paragraph)
+msgid ""
+"`RESET_FILAMENT_WIDTH_SENSOR`: Clear all sensor readings. Helpful after "
+"filament change. Resets flow rate to 100%."
+msgstr ""
+
+#: docs/G-Codes.md:block 200 (paragraph)
+msgid ""
+"`DISABLE_FILAMENT_WIDTH_SENSOR`: Turn off the filament width sensor and stop "
+"using it for flow compensation. Resets flow rate to 100%."
+msgstr ""
+
+#: docs/G-Codes.md:block 202 (paragraph)
+msgid ""
+"`ENABLE_FILAMENT_WIDTH_SENSOR [FLOW_COMPENSATION=[0|1]`: Turn on the filament "
+"width sensor and enable or disable flow compensation. If `FLOW_COMPENSATION` "
+"is not specified, the current flow compensation state is preserved."
+msgstr ""
+
+#: docs/G-Codes.md:block 224 (paragraph)
+msgid ""
+"`SET_INPUT_SHAPER [SHAPER_FREQ_X=<shaper_freq_x>] "
+"[SHAPER_FREQ_Y=<shaper_freq_y>] [SHAPER_FREQ_Y=<shaper_freq_z>] "
+"[DAMPING_RATIO_X=<damping_ratio_x>] [DAMPING_RATIO_Y=<damping_ratio_y>] "
+"[DAMPING_RATIO_Z=<damping_ratio_z>] [SHAPER_TYPE=<shaper>] "
+"[SHAPER_TYPE_X=<shaper_type_x>] [SHAPER_TYPE_Y=<shaper_type_y>] "
+"[SHAPER_TYPE_Z=<shaper_type_z>]`: Modify input shaper parameters. Note that "
+"SHAPER_TYPE parameter resets input shaper for all axes even if different "
+"shaper types have been configured in [input_shaper] section. SHAPER_TYPE "
+"cannot be used together with any of SHAPER_TYPE_X, SHAPER_TYPE_Y, and "
+"SHAPER_TYPE_Z parameters. See [config "
+"reference](Config_Reference.md#input_shaper) for more details on each of these"
+" parameters."
+msgstr ""
+
+#: docs/G-Codes.md:block 231 (header)
+msgid "[load_cell]"
+msgstr ""
+
+#: docs/G-Codes.md:block 232 (paragraph)
+msgid ""
+"The following commands are enabled if a [load_cell config "
+"section](Config_Reference.md#load_cell) has been enabled."
+msgstr ""
+
+#: docs/G-Codes.md:block 233 (header)
+msgid "LOAD_CELL_DIAGNOSTIC"
+msgstr ""
+
+#: docs/G-Codes.md:block 234 (paragraph)
+msgid ""
+"`LOAD_CELL_DIAGNOSTIC [LOAD_CELL=<config_name>]`: This command collects 10 "
+"seconds of load cell data and reports statistics that can help you verify "
+"proper operation of the load cell. This command can be run on both calibrated "
+"and uncalibrated load cells."
+msgstr ""
+
+#: docs/G-Codes.md:block 235 (header)
+msgid "LOAD_CELL_CALIBRATE"
+msgstr ""
+
+#: docs/G-Codes.md:block 236 (paragraph)
+msgid ""
+"`LOAD_CELL_CALIBRATE [LOAD_CELL=<config_name>]`: Start the guided calibration "
+"utility. Calibration is a 3 step process:"
+msgstr ""
+
+#: docs/G-Codes.md:block 237 (ordered list)
+msgid "First you remove all load from the load cell and run the `TARE` command"
+msgstr ""
+
+#: docs/G-Codes.md:block 237 (ordered list)
+msgid ""
+"Next you apply a known load to the load cell and run the `CALIBRATE GRAMS=nnn`"
+" command"
+msgstr ""
+
+#: docs/G-Codes.md:block 237 (ordered list)
+msgid "Finally use the `ACCEPT` command to save the results"
+msgstr ""
+
+#: docs/G-Codes.md:block 238 (paragraph)
+msgid "You can cancel the calibration process at any time with `ABORT`."
+msgstr ""
+
+#: docs/G-Codes.md:block 239 (header)
+msgid "LOAD_CELL_TARE"
+msgstr ""
+
+#: docs/G-Codes.md:block 240 (paragraph)
+msgid ""
+"`LOAD_CELL_TARE [LOAD_CELL=<config_name>]`: This works just like the tare "
+"button on digital scale. It sets the current raw reading of the load cell to "
+"be the zero point reference value. The response is the percentage of the "
+"sensors range that was read and the raw value in counts. If the load cell is "
+"calibrated a force in grams is also reported."
+msgstr ""
+
+#: docs/G-Codes.md:block 241 (header)
+msgid "LOAD_CELL_READ load_cell=\"name\""
+msgstr ""
+
+#: docs/G-Codes.md:block 242 (paragraph)
+msgid ""
+"`LOAD_CELL_READ [LOAD_CELL=<config_name>]`: This command takes a reading from "
+"the load cell. The response is the percentage of the sensors range that was "
+"read and the raw value in counts. If the load cell is calibrated a force in "
+"grams is also reported."
+msgstr ""
+
+#: docs/G-Codes.md:block 243 (header)
+msgid "[load_cell_probe]"
+msgstr ""
+
+#: docs/G-Codes.md:block 244 (paragraph)
+msgid ""
+"The commands below are enabled if a [load_cell config "
+"section](Config_Reference.md#load_cell_probe) has been enabled."
+msgstr ""
+
+#: docs/G-Codes.md:block 245 (paragraph)
+msgid ""
+"In addition, commands that perform probes, such as [`PROBE`](#probe), "
+"[`PROBE_ACCURACY`](#probe_accuracy), "
+"[`BED_MESH_CALIBRATE`](#bed_mesh_calibrate) etc. will accept additional "
+"parameters if a `[load_cell_probe]` is defined. The parameters override the "
+"corresponding settings from the "
+"[`[load_cell_probe]`](./Config_Reference.md#load_cell_probe) configuration:"
+msgstr ""
+
+#: docs/G-Codes.md:block 246 (unordered list)
+msgid "`FORCE_SAFETY_LIMIT=<grams>`"
+msgstr ""
+
+#: docs/G-Codes.md:block 246 (unordered list)
+msgid "`TRIGGER_FORCE=<grams>`"
+msgstr ""
+
+#: docs/G-Codes.md:block 246 (unordered list)
+msgid "`DRIFT_FILTER_CUTOFF_FREQUENCY=<frequency_hz>`"
+msgstr ""
+
+#: docs/G-Codes.md:block 246 (unordered list)
+msgid "`DRIFT_FILTER_DELAY=<1|2>`"
+msgstr ""
+
+#: docs/G-Codes.md:block 246 (unordered list)
+msgid "`BUZZ_FILTER_CUTOFF_FREQUENCY=<frequency_hz>`"
+msgstr ""
+
+#: docs/G-Codes.md:block 246 (unordered list)
+msgid "`BUZZ_FILTER_DELAY=<1|2>`"
+msgstr ""
+
+#: docs/G-Codes.md:block 246 (unordered list)
+msgid "`NOTCH_FILTER_FREQUENCIES=<list of frequency_hz>`"
+msgstr ""
+
+#: docs/G-Codes.md:block 246 (unordered list)
+msgid "`NOTCH_FILTER_QUALITY=<quality>`"
+msgstr ""
+
+#: docs/G-Codes.md:block 246 (unordered list)
+msgid "`TARE_TIME=<seconds>`"
+msgstr ""
+
+#: docs/G-Codes.md:block 247 (header)
+msgid "LOAD_CELL_TEST_TAP"
+msgstr ""
+
+#: docs/G-Codes.md:block 248 (paragraph)
+msgid ""
+"`LOAD_CELL_TEST_TAP [TAPS=<taps>] [TIMEOUT=<timeout>]`: Run a testing routine "
+"that reports taps on the load cell. The toolhead will not move but the load "
+"cell probe will sense taps just as if it was probing. This can be used as a "
+"sanity check to make sure that the probe works. This tool replaces "
+"QUERY_ENDSTOPS and QUERY_PROBE for load cell probes."
+msgstr ""
+
+#: docs/G-Codes.md:block 249 (unordered list)
+msgid "`TAPS`: the number of taps the tool expects"
+msgstr ""
+
+#: docs/G-Codes.md:block 249 (unordered list)
+msgid ""
+"`TIMEOOUT`: the time, in seconds, that the tool waits for each tab before "
+"aborting."
+msgstr ""
+
+#: docs/G-Codes.md:block 262 (paragraph)
+msgid ""
+"`MANUAL_STEPPER STEPPER=config_name [ENABLE=[0|1]] [SET_POSITION=<pos>] "
+"[SPEED=<speed>] [ACCEL=<accel>] [MOVE=<pos>] [SYNC=0]]`: This command will "
+"alter the state of the stepper. Use the ENABLE parameter to enable/disable the"
+" stepper. Use the SET_POSITION parameter to force the stepper to think it is "
+"at the given position. Use the MOVE parameter to request a movement to the "
+"given position. If SPEED and/or ACCEL is specified then the given values will "
+"be used instead of the defaults specified in the config file. If an ACCEL of "
+"zero is specified then no acceleration will be performed. Normally future "
+"G-Code commands will be scheduled to run after the stepper move completes, "
+"however if a manual stepper move uses SYNC=0 then future G-Code movement "
+"commands may run in parallel with the stepper movement."
+msgstr ""
+
+#: docs/G-Codes.md:block 263 (paragraph)
+msgid ""
+"`MANUAL_STEPPER STEPPER=config_name [SPEED=<speed>] [ACCEL=<accel>] MOVE=<pos>"
+" STOP_ON_ENDSTOP=<check_type>`: If STOP_ON_ENDSTOP is specified then the move "
+"will end early if an endstop event occurs. The `STOP_ON_ENDSTOP` parameter may"
+" be set to one of the following values:"
+msgstr ""
+
+#: docs/G-Codes.md:block 264 (unordered list)
+msgid "`probe`: The movement will stop when the endstop reports triggered."
+msgstr ""
+
+#: docs/G-Codes.md:block 264 (unordered list)
+msgid ""
+"`home`: The movement will stop when the endstop reports triggered and the "
+"final position of the manual_stepper will be set such that the trigger "
+"position matches the position specified in the `MOVE` parameter."
+msgstr ""
+
+#: docs/G-Codes.md:block 264 (unordered list)
+msgid ""
+"`inverted_probe`, `inverted_home`: As above, however, the movement will stop "
+"when the endstop reports it is in a non-triggered state."
+msgstr ""
+
+#: docs/G-Codes.md:block 264 (unordered list)
+msgid ""
+"`try_probe`, `try_inverted_probe`, `try_home`, `try_inverted_home`: As above, "
+"but no error will be reported if the movement fully completes without an "
+"endstop event stopping the move early."
+msgstr ""
+
+#: docs/G-Codes.md:block 265 (paragraph)
+msgid ""
+"`MANUAL_STEPPER STEPPER=config_name GCODE_AXIS=[A-Z] "
+"[LIMIT_VELOCITY=<velocity>] [LIMIT_ACCEL=<accel>] "
+"[INSTANTANEOUS_CORNER_VELOCITY=<velocity>]`: If the `GCODE_AXIS` parameter is "
+"specified then it configures the stepper motor as an extra axis on `G1` move "
+"commands. For example, if one were to issue a `MANUAL_STEPPER ... "
+"GCODE_AXIS=R` command then one could issue commands like `G1 X10 Y20 R30` to "
+"move the stepper motor. The resulting moves will occur synchronously with the "
+"associated toolhead xyz movements. If the motor is associated with a "
+"`GCODE_AXIS` then one may no longer issue movements using the above "
+"`MANUAL_STEPPER` command - one may unregister the stepper with a "
+"`MANUAL_STEPPER ... GCODE_AXIS=` command to resume manual control of the "
+"motor. The `LIMIT_VELOCITY` and `LIMIT_ACCEL` parameters allow one to reduce "
+"the speed of `G1` moves if those moves would result in a velocity or "
+"acceleration above the specified limits. The `INSTANTANEOUS_CORNER_VELOCITY` "
+"specifies the maximum instantaneous velocity change (in mm/s) of the motor "
+"during the junction of two moves (the default is 1mm/s)."
+msgstr ""
+
+#: docs/G-Codes.md:block 271 (paragraph)
+msgid ""
+"The following command is available when an [output_pin config "
+"section](Config_Reference.md#output_pin) or [pwm_tool config "
+"section](Config_Reference.md#pwm_tool) is enabled."
+msgstr ""
+
+#: docs/G-Codes.md:block 321 (paragraph)
+msgid ""
+"The commands below are available when a [probe_eddy_current config "
+"section](Config_Reference.md#probe_eddy_current) is enabled."
+msgstr ""
+
+#: docs/G-Codes.md:block 322 (paragraph)
+msgid ""
+"In addition, commands that perform probes, such as [`PROBE`](#probe), "
+"[`PROBE_ACCURACY`](#probe_accuracy), "
+"[`BED_MESH_CALIBRATE`](#bed_mesh_calibrate) etc. will accept additional "
+"parameters if a `[probe_eddy_current]` section is defined:"
+msgstr ""
+
+#: docs/G-Codes.md:block 323 (unordered list)
+msgid "`METHOD=<scan|rapid_scan|tap>`: This alters the probing mechanism:"
+msgstr ""
+
+#: docs/G-Codes.md:block 323 (unordered list)
+msgid ""
+"`METHOD=scan`: The toolhead does not descend. Instead the toolhead will pause "
+"briefly above each target location and return the measured height at that "
+"position."
+msgstr ""
+
+#: docs/G-Codes.md:block 323 (unordered list)
+msgid ""
+"`METHOD=rapid_scan`: The toolhead does not descend and does not pause at each "
+"target location. The value returned is the measured height around the time "
+"that the toolhead was near each target position."
+msgstr ""
+
+#: docs/G-Codes.md:block 323 (unordered list)
+msgid ""
+"`METHOD=tap`: The toolhead will descend until the nozzle makes contact with "
+"the bed. This method is only available if `tap_threshold` is specified in the "
+"`[probe_eddy_current]` config section."
+msgstr ""
+
+#: docs/G-Codes.md:block 323 (unordered list)
+msgid ""
+"default: If no `METHOD` parameter is specified then the default behavior is "
+"for the toolhead to descend until the sensor detects that the distance to the "
+"bed is at or below the `z_offset` parameter specified in the "
+"`[probe_eddy_current]` config section."
+msgstr ""
+
+#: docs/G-Codes.md:block 323 (unordered list)
+msgid ""
+"`SAMPLE_TIME=<time>`: When using `METHOD=scan` probing, this specifies the "
+"time (in seconds) to pause at each target point. When using "
+"`METHOD=rapid_scan` this specifies the measurement time window at each target."
+" If not specified, the default is 0.100 (which is 100ms)."
+msgstr ""
+
+#: docs/G-Codes.md:block 323 (unordered list)
+msgid ""
+"`TAP_THRESHOLD=<value>`: This overrides the `tap_threshold` specified in the "
+"`[probe_eddy_current]` config section when probing using `METHOD=tap`."
+msgstr ""
+
+#: docs/G-Codes.md:block 324 (paragraph)
+msgid ""
+"The `Z_OFFSET_APPLY_PROBE` command is also extended to support a `METHOD=tap` "
+"parameter. When no METHOD parameter is provided, the `Z_OFFSET_APPLY_PROBE` "
+"command alters the probe calibration to apply the current Z G-Code offset to "
+"future `scan`, `rapid_scan`, and default probes. If `METHOD=tap` is specified "
+"then the command instead applies the change to `tap_z_offset` so that future "
+"`tap` probes are updated to use the current Z G-Code offset."
+msgstr ""
+
+#: docs/G-Codes.md:block 327 (header)
+msgid "PROBE_EDDY_CURRENT_TAP_CALIBRATE"
+msgstr ""
+
+#: docs/G-Codes.md:block 328 (paragraph)
+msgid ""
+"`PROBE_EDDY_CURRENT_TAP_CALIBRATE [TAP=guess|refine|verify]`: This starts a "
+"tool that can calibrate the probe's \"tap_threshold\" parameter. See the [eddy"
+" probe documentation](Eddy_Probe.md#tap-calibration) for details."
+msgstr ""
+
+#: docs/G-Codes.md:block 353 (paragraph)
+msgid ""
+"`TEST_RESONANCES AXIS=<axis> [OUTPUT=<resonances,raw_data>] [NAME=<name>] "
+"[FREQ_START=<min_freq>] [FREQ_END=<max_freq>] [ACCEL_PER_HZ=<accel_per_hz>] "
+"[HZ_PER_SEC=<hz_per_sec>] [CHIPS=<chip_name>] [POINT=x,y,z] "
+"[INPUT_SHAPING=<0:1>]`: Runs the resonance test in all configured probe points"
+" for the requested \"axis\" and measures the acceleration using the "
+"accelerometer chips configured for the respective axis. \"axis\" can either be"
+" X, Y or Z, or specify an arbitrary direction as `AXIS=dx,dy[,dz]`, where dx, "
+"dy, dz are floating point numbers defining a direction vector (e.g. `AXIS=X`, "
+"`AXIS=Y`, or `AXIS=1,-1` to define a diagonal direction in XY plane, or "
+"`AXIS=0,1,1` to define a direction in YZ plane). Note that `AXIS=dx,dy` and "
+"`AXIS=-dx,-dy` is equivalent. `chip_name` can be one or more configured accel "
+"chips, delimited with comma, for example `CHIPS=\"adxl345, adxl345 rpi\"`. If "
+"POINT is specified it will override the point(s) configured in "
+"`[resonance_tester]`. If `INPUT_SHAPING=0` or not set(default), disables input"
+" shaping for the resonance testing, because it is not valid to run the "
+"resonance testing with the input shaper enabled. `OUTPUT` parameter is a "
+"comma-separated list of which outputs will be written. If `raw_data` is "
+"requested, then the raw accelerometer data is written into a file or a series "
+"of files `/tmp/raw_data_<axis>_[<chip_name>_][<point>_]<name>.csv` with "
+"(`<point>_` part of the name generated only if more than 1 probe point is "
+"configured or POINT is specified). If `resonances` is specified, the frequency"
+" response is calculated (across all probe points) and written into "
+"`/tmp/resonances_<axis>_<name>.csv` file. If unset, OUTPUT defaults to "
+"`resonances`, and NAME defaults to the current time in \"YYYYMMDD_HHMMSS\" "
+"format."
+msgstr ""
+
+#: docs/G-Codes.md:block 365 (paragraph)
+msgid ""
+"`SAVE_VARIABLE VARIABLE=<name> VALUE=<value>`: Saves the variable to disk so "
+"that it can be used across restarts. The VARIABLE must be lowercase. All "
+"stored variables are loaded into the `printer.save_variables.variables` dict "
+"at startup and can be used in gcode macros. The provided VALUE is parsed as a "
+"Python literal."
+msgstr ""
+
+#: docs/G-Codes.md:block 409 (paragraph)
+msgid ""
+"`TEMPERATURE_PROBE_CALIBRATE [PROBE=<probe name>] [TARGET=<value>] "
+"[STEP=<value>] [METHOD=<method>]`: Initiates probe drift calibration for eddy "
+"current based probes. The `TARGET` is a target temperature for the last "
+"sample. When the temperature recorded during a sample exceeds the `TARGET` "
+"calibration will complete. The `STEP` parameter sets temperature delta (in C) "
+"between samples. After a sample has been taken, this delta is used to schedule"
+" a call to `TEMPERATURE_PROBE_NEXT`. The default `STEP` is 2. The `METHOD` "
+"only supports `tap` as an option, if specified, probing will be automated."
+msgstr ""
+
+#~ msgid ""
+#~ "`MANUAL_STEPPER STEPPER=config_name [ENABLE=[0|1]] [SET_POSITION=<pos>] "
+#~ "[SPEED=<speed>] [ACCEL=<accel>] [MOVE=<pos> [STOP_ON_ENDSTOP=[1|2|-1|-2]] "
+#~ "[SYNC=0]]`: This command will alter the state of the stepper. Use the ENABLE "
+#~ "parameter to enable/disable the stepper. Use the SET_POSITION parameter to "
+#~ "force the stepper to think it is at the given position. Use the MOVE parameter"
+#~ " to request a movement to the given position. If SPEED and/or ACCEL is "
+#~ "specified then the given values will be used instead of the defaults specified"
+#~ " in the config file. If an ACCEL of zero is specified then no acceleration "
+#~ "will be performed. If STOP_ON_ENDSTOP=1 is specified then the move will end "
+#~ "early should the endstop report as triggered (use STOP_ON_ENDSTOP=2 to "
+#~ "complete the move without error even if the endstop does not trigger, use -1 "
+#~ "or -2 to stop when the endstop reports not triggered). Normally future G-Code "
+#~ "commands will be scheduled to run after the stepper move completes, however if"
+#~ " a manual stepper move uses SYNC=0 then future G-Code movement commands may "
+#~ "run in parallel with the stepper movement."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`SAVE_VARIABLE VARIABLE=<name> VALUE=<value>`: Saves the variable to disk so "
+#~ "that it can be used across restarts. All stored variables are loaded into the "
+#~ "`printer.save_variables.variables` dict at startup and can be used in gcode "
+#~ "macros. The provided VALUE is parsed as a Python literal."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`SET_INPUT_SHAPER [SHAPER_FREQ_X=<shaper_freq_x>] "
+#~ "[SHAPER_FREQ_Y=<shaper_freq_y>] [DAMPING_RATIO_X=<damping_ratio_x>] "
+#~ "[DAMPING_RATIO_Y=<damping_ratio_y>] [SHAPER_TYPE=<shaper>] "
+#~ "[SHAPER_TYPE_X=<shaper_type_x>] [SHAPER_TYPE_Y=<shaper_type_y>]`: Modify input"
+#~ " shaper parameters. Note that SHAPER_TYPE parameter resets input shaper for "
+#~ "both X and Y axes even if different shaper types have been configured in "
+#~ "[input_shaper] section. SHAPER_TYPE cannot be used together with either of "
+#~ "SHAPER_TYPE_X and SHAPER_TYPE_Y parameters. See [config "
+#~ "reference](Config_Reference.md#input_shaper) for more details on each of these"
+#~ " parameters."
+#~ msgstr ""
+
+#~ msgid "`QUERY_FILAMENT_WIDTH`: Return the current measured filament width."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`RESET_FILAMENT_WIDTH_SENSOR`: Clear all sensor readings. Helpful after "
+#~ "filament change."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`DISABLE_FILAMENT_WIDTH_SENSOR`: Turn off the filament width sensor and stop "
+#~ "using it for flow control."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`ENABLE_FILAMENT_WIDTH_SENSOR`: Turn on the filament width sensor and start "
+#~ "using it for flow control."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The following command is available when an [output_pin config "
+#~ "section](Config_Reference.md#output_pin) is enabled."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`SET_DUAL_CARRIAGE CARRIAGE=[0|1] [MODE=[PRIMARY|COPY|MIRROR]]`: This command "
+#~ "will change the mode of the specified carriage. If no `MODE` is provided it "
+#~ "defaults to `PRIMARY`. Setting the mode to `PRIMARY` deactivates the other "
+#~ "carriage and makes the specified carriage execute subsequent G-Code commands "
+#~ "as-is. `COPY` and `MIRROR` modes are supported only for `CARRIAGE=1`. When set"
+#~ " to either of these modes, carriage 1 will then track the subsequent moves of "
+#~ "the carriage 0 and either copy relative movements of it (in `COPY` mode) or "
+#~ "execute them in the opposite (mirror) direction (in `MIRROR` mode)."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`RESTORE_DUAL_CARRIAGE_STATE [NAME=<state_name>] [MOVE=[0|1] "
+#~ "[MOVE_SPEED=<speed>]]`: Restore the previously saved positions of the dual "
+#~ "carriages and their modes, unless \"MOVE=0\" is specified, in which case only "
+#~ "the saved modes will be restored, but not the positions of the carriages. If "
+#~ "positions are being restored and \"MOVE_SPEED\" is specified, then the "
+#~ "toolhead moves will be performed with the given speed (in mm/s); otherwise the"
+#~ " toolhead move will use the rail homing speed. Note that the carriages restore"
+#~ " their positions only over their own axis, which may be necessary to correctly"
+#~ " restore COPY and MIRROR mode of the dual carraige."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`BED_MESH_CALIBRATE [PROFILE=<name>] [METHOD=manual] "
+#~ "[HORIZONTAL_MOVE_Z=<value>] [<probe_parameter>=<value>] "
+#~ "[<mesh_parameter>=<value>] [ADAPTIVE=1] [ADAPTIVE_MARGIN=<value>]`: This "
+#~ "command probes the bed using generated points specified by the parameters in "
+#~ "the config. After probing, a mesh is generated and z-movement is adjusted "
+#~ "according to the mesh. The mesh will be saved into a profile specified by the "
+#~ "`PROFILE` parameter, or `default` if unspecified. See the PROBE command for "
+#~ "details on the optional probe parameters. If METHOD=manual is specified then "
+#~ "the manual probing tool is activated - see the MANUAL_PROBE command above for "
+#~ "details on the additional commands available while this tool is active. The "
+#~ "optional `HORIZONTAL_MOVE_Z` value overrides the `horizontal_move_z` option "
+#~ "specified in the config file. If ADAPTIVE=1 is specified then the objects "
+#~ "defined by the Gcode file being printed will be used to define the probed "
+#~ "area. The optional `ADAPTIVE_MARGIN` value overrides the `adaptive_margin` "
+#~ "option specified in the config file."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The following commands are available when a [probe_eddy_current config "
+#~ "section](Config_Reference.md#probe_eddy_current) is enabled."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`TEMPERATURE_PROBE_CALIBRATE [PROBE=<probe name>] [TARGET=<value>] "
+#~ "[STEP=<value>]`: Initiates probe drift calibration for eddy current based "
+#~ "probes. The `TARGET` is a target temperature for the last sample. When the "
+#~ "temperature recorded during a sample exceeds the `TARGET` calibration will "
+#~ "complete. The `STEP` parameter sets temperature delta (in C) between samples. "
+#~ "After a sample has been taken, this delta is used to schedule a call to "
+#~ "`TEMPERATURE_PROBE_NEXT`. The default `STEP` is 2."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`AXIS_TWIST_COMPENSATION_CALIBRATE [AXIS=<X|Y>] [AUTO=<True|False>] "
+#~ "[SAMPLE_COUNT=<value>]`"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "**AUTO:** Enables automatic calibration mode. When `AUTO=True`, the "
+#~ "calibration will run for both the X and Y axes. In this mode, `AXIS` cannot be"
+#~ " specified. If both `AXIS` and `AUTO` are provided, an error will be raised."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`SET_FAN_SPEED PIN=config_name TEMPLATE=<template_name> "
+#~ "[<param_x>=<literal>]`: If `TEMPLATE` is specified then it assigns a "
+#~ "[display_template](Config_Reference.md#display_template) to the given fan. For"
+#~ " example, if one defined a `[display_template my_fan_template]` config section"
+#~ " then one could assign `TEMPLATE=my_fan_template` here. The display_template "
+#~ "should produce a string containing a floating point number with the desired "
+#~ "value. The template will be continuously evaluated and the fan will be "
+#~ "automatically set to the resulting speed. One may set display_template "
+#~ "parameters to use during template evaluation (parameters will be parsed as "
+#~ "Python literals). If TEMPLATE is an empty string then this command will clear "
+#~ "any previous template assigned to the pin (one can then use `SET_FAN_SPEED` "
+#~ "commands to manage the values directly)."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`SET_KINEMATIC_POSITION [X=<value>] [Y=<value>] [Z=<value>] "
+#~ "[CLEAR=<[X][Y][Z]>]`: Force the low-level kinematic code to believe the "
+#~ "toolhead is at the given cartesian position. This is a diagnostic and "
+#~ "debugging command; use SET_GCODE_OFFSET and/or G92 for regular axis "
+#~ "transformations. If an axis is not specified then it will default to the "
+#~ "position that the head was last commanded to. Setting an incorrect or invalid "
+#~ "position may lead to internal software errors. Use the CLEAR parameter to "
+#~ "forget the homing state for the given axes. Note that CLEAR will not override "
+#~ "the previous functionality; if an axis is not specified to CLEAR it will have "
+#~ "its kinematic position set as per above. This command may invalidate future "
+#~ "boundary checks; issue a G28 afterwards to reset the kinematics."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "`TEST_RESONANCES AXIS=<axis> [OUTPUT=<resonances,raw_data>] [NAME=<name>] "
+#~ "[FREQ_START=<min_freq>] [FREQ_END=<max_freq>] [ACCEL_PER_HZ=<accel_per_hz>] "
+#~ "[HZ_PER_SEC=<hz_per_sec>] [CHIPS=<chip_name>] [POINT=x,y,z] "
+#~ "[INPUT_SHAPING=<0:1>]`: Runs the resonance test in all configured probe points"
+#~ " for the requested \"axis\" and measures the acceleration using the "
+#~ "accelerometer chips configured for the respective axis. \"axis\" can either be"
+#~ " X or Y, or specify an arbitrary direction as `AXIS=dx,dy`, where dx and dy "
+#~ "are floating point numbers defining a direction vector (e.g. `AXIS=X`, "
+#~ "`AXIS=Y`, or `AXIS=1,-1` to define a diagonal direction). Note that "
+#~ "`AXIS=dx,dy` and `AXIS=-dx,-dy` is equivalent. `chip_name` can be one or more "
+#~ "configured accel chips, delimited with comma, for example `CHIPS=\"adxl345, "
+#~ "adxl345 rpi\"`. If POINT is specified it will override the point(s) configured"
+#~ " in `[resonance_tester]`. If `INPUT_SHAPING=0` or not set(default), disables "
+#~ "input shaping for the resonance testing, because it is not valid to run the "
+#~ "resonance testing with the input shaper enabled. `OUTPUT` parameter is a "
+#~ "comma-separated list of which outputs will be written. If `raw_data` is "
+#~ "requested, then the raw accelerometer data is written into a file or a series "
+#~ "of files `/tmp/raw_data_<axis>_[<chip_name>_][<point>_]<name>.csv` with "
+#~ "(`<point>_` part of the name generated only if more than 1 probe point is "
+#~ "configured or POINT is specified). If `resonances` is specified, the frequency"
+#~ " response is calculated (across all probe points) and written into "
+#~ "`/tmp/resonances_<axis>_<name>.csv` file. If unset, OUTPUT defaults to "
+#~ "`resonances`, and NAME defaults to the current time in \"YYYYMMDD_HHMMSS\" "
+#~ "format."
+#~ msgstr ""
 
 #~ msgid ""
 #~ "`SET_KINEMATIC_POSITION [X=<value>] [Y=<value>] [Z=<value>]`: Force the low-"

@@ -69,4 +69,4 @@ START_PRINT EXTRUDER_TEMP=[перший_шаровий_температурни�
 
 перед макрозв'язком. Також зверніть увагу, що SuperSlicer має параметр кнопка "схема gcode тільки", що досягається того ж результату.
 
-Приклад макросу START_PRINT за допомогою цих параматерів можна знайти в конфігурації / sample-macros.cfg
+An example of a START_PRINT macro using these parameters can be found in config/sample-macros.cfg

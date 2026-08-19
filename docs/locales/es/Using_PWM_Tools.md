@@ -1,20 +1,16 @@
 # Using PWM tools
 
-Este documento describe como configurar un laser controlado por PWM o un husillo usando `output_pin` y algunas macros.
+This document describes how to setup a PWM-controlled laser or spindle using `pwm_tool` and some macros.
 
 ## Cómo funciona?
 
-With re-purposing the printhead's fan pwm output, you can control lasers or spindles. This is useful if you use switchable print heads, for example the E3D toolchanger or a DIY solution. Usually, cam-tools such as LaserWeb can be configured to use `M3-M5` commands, which stand for *spindle speed CW* (`M3 S[0-255]`), *spindle speed CCW* (`M4 S[0-255]`) and *spindle stop* (`M5`).
+Al reutilizar la salida pwm del ventilador del cabezal de impresión, se pueden controlar láseres o husillos. Esto resulta útil si se utilizan cabezales de impresión intercambiables, por ejemplo, el cambiador de herramientas E3D o una solución DIY. Por lo general, las herramientas de levas como LaserWeb se pueden configurar para utilizar los comandos «M3-M5», que significan *velocidad del husillo CW* («M3 S[0-255]»), *velocidad del husillo CCW* («M4 S[0-255]») y *parada del husillo* («M5»).
 
-**Warning:** When driving a laser, keep all security precautions that you can think of! Diode lasers are usually inverted. This means, that when the MCU restarts, the laser will be *fully on* for the time it takes the MCU to start up again. For good measure, it is recommended to *always* wear appropriate laser-goggles of the right wavelength if the laser is powered; and to disconnect the laser when it is not needed. Also, you should configure a safety timeout, so that when your host or MCU encounters an error, the tool will stop.
+**Advertencia:** Cuando utilice un láser, tome todas las precauciones de seguridad que se le ocurran. Los láseres de diodo suelen estar invertidos. Esto significa que, cuando la MCU se reinicie, el láser estará *totalmente encendido* durante el tiempo que tarde la MCU en volver a arrancar. Por precaución, se recomienda llevar *siempre* gafas protectoras adecuadas para la longitud de onda correcta cuando el láser esté encendido, y desconectarlo cuando no se necesite. Además, debe configurar un tiempo de espera de seguridad para que, cuando el host o la MCU detecten un error, la herramienta se detenga.
 
 For an example configuration, see [config/sample-pwm-tool.cfg](/config/sample-pwm-tool.cfg).
 
-## Current Limitations
-
-There is a limitation of how frequent PWM updates may occur. While being very precise, a PWM update may only occur every 0.1 seconds, rendering it almost useless for raster engraving. However, there exists an [experimental branch](https://github.com/Cirromulus/klipper/tree/laser_tool) with its own tradeoffs. In long term, it is planned to add this functionality to main-line klipper.
-
-## Commands
+## Comandos
 
 `M3/M4 S<value>` : Set PWM duty-cycle. Values between 0 and 255. `M5` : Stop PWM output to shutdown value.
 

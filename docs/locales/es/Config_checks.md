@@ -26,7 +26,7 @@ Compruebe que todos los ejes de la impresora pueden moverse manualmente con libe
 
 Mueva manualmente todos los ejes de la impresora para que ninguno de ellos esté en contacto con un endstop. Envíe un comando QUERY_ENDSTOPS a través de la consola de comandos. Deberá responder con el estado actual de todos los endstops configurados y todos deberán reportar un estado de "abierto". Para cada una de las paradas finales, vuelva a ejecutar el comando QUERY_ENDSTOPS mientras activa manualmente la parada final. El comando QUERY_ENDSTOPS debe reportar el endstop como "TRIGGERED".
 
-Si el endstop aparece invertido (indica "abierto" cuando se dispara y viceversa), añada un "!" a la definición del pin (por ejemplo, "endstop_pin: ^PA2"), o elimine el "!" si ya hay uno presente.
+If the endstop appears inverted (it reports "open" when triggered and vice-versa) then add a "!" to the pin definition (for example, "endstop_pin: ^!PA2"), or remove the "!" if there is already one present.
 
 Si el endstop no cambia en absoluto, generalmente indica que el endstop está conectado a un pin diferente. Sin embargo, también puede requerir un cambio en la configuración pullup del pin (el '^' al principio del nombre endstop_pin - la mayoría de las impresoras usarán una resistencia pullup y el '^' debería estar presente).
 

@@ -6,17 +6,53 @@
 
 ## Зміни
 
-20250428: Максимальний час циклу (`cycle_time`) для розділів конфігурації ШІМ `[output_pin]`, `[pwm_cycle_time]`, `[pwm_tool]` та подібних тепер становить 3 секунди (скорочено з 5 секунд). Значення `maximum_mcu_duration` у `[pwm_tool]` тепер також становить 3 секунди.
+20260525: The internal implementation of "probe:z_virtual_endstop" has changed. Most users will not observe a change in behavior. Previously it was technically possible to mix "probe:z_virtual_endstop" with other types of Z endstops and this behavior is no longer valid.
 
-20250418: Функція manual_stepper `STOP_ON_ENDSTOP` тепер може виконуватися швидше. Раніше команда очікувала весь можливий час переміщення, навіть якщо кінцевий упор спрацював раніше. Тепер команда завершується невдовзі після спрацьовування кінцевого упора.
+20260501: The handling of the `[probe_eddy_current]` `tap_threshold` config option and associated `TAP_THRESHOLD` G-Code parameter has changed. It will be necessary to recalibrate the value. See the [eddy probe documentation](Eddy_Probe.md) for calibration directions.
 
-20250417: Пристрої SPI, що використовують "програмний SPI", тепер мають обмеження швидкості. Раніше параметр `spi_speed` у конфігурації ігнорувався, а швидкість передачі обмежувалася лише швидкістю обробки мікроконтролера. Тепер швидкість обмежується параметром конфігурації `spi_speed` (фактична швидкість обладнання, ймовірно, буде нижчою за налаштоване значення через програмні накладні витрати).
+20260408: The script `lib/canboot/flash_can.py` has been updated to the most current version from [Katapult](https://github.com/Arksine/katapult) and as such renamed to `lib/katapult/flashtool.py`. If you call this script directly instead of using the existing Makefiles, you will need to change the path to the script to `lib/katapult/flashtool.py`.
 
-20250411: Випущено Klipper v0.13.0.
+20260318: The `[probe_eddy_current]` config options `speed`, `lift_speed`, `samples`, `sample_retract_dist`, `samples_result`, `samples_tolerance`, and `samples_tolerance_retries` no longer apply to probe commands using `METHOD=scan`, `METHOD=rapid_scan`, nor `METHOD=tap`. To use different settings, supply the equivalent `PROBE_SPEED`, `LIFT_SPEED`, `SAMPLES`, `SAMPLE_RETRACT_DIST`, `SAMPLES_RESULT`, `SAMPLES_TOLERANCE`, or `SAMPLES_TOLERANCE_RETRIES` parameter with the probe command.
 
-20250308: Параметр `AUTO` команди `AXIS_TWIST_COMPENSATION_CALIBRATE` видалено.
+20260318: The `[probe_eddy_current]` config option `z_offset` has been renamed to `descend_z`. Using the old name is deprecated and it will be removed in the near future.
 
-20250131: Опція `VARIABLE=<назва>` у `SAVE_VARIABLE` вимагає значення в нижньому регістрі. Наприклад, `extruder` замість `Extruder` у змішаному регістрі або `EXTRUDER` у верхньому регістрі. Використання будь-якої великої літери призведе до помилки.
+20260214: The `MANUAL_STEPPER` G-Code command `STOP_ON_ENDSTOP` parameter has changed. See the [MANUAL_STEPPER](G-Codes.md#manual_stepper) documentation for details. Using the previous integer values (-2, -1, 1, 2) is deprecated and support will be removed in the near future.
+
+20260207: The low-level i2c behavior of sx1509 and uc1701 devices has changed. Previously an i2c error would result in a shutdown, and now i2c errors when communicating with these devices will only generate warnings in the log file.
+
+20260109: The status value `{printer.probe.last_z_result}` is deprecated; it will be removed in the near future. Use `{printer.probe.last_probe_position}` instead, and note that this new value already has the probe's configured xyz offsets applied.
+
+20260109: The g-code console text output from the `PROBE`, `PROBE_ACCURACY`, and similar commands has changed. Now Z heights are reported relative to the nominal bed Z position instead of relative to the probe's configured `z_offset`. Similarly, intermediate probe x and y console reports will also have the probe's configured `x_offset` and `y_offset` applied.
+
+20260109: The `[screws_tilt_adjust]` module now reports the status variable `{printer.screws_tilt_adjust.result.screw1.z}` with the probe's `z_offset` applied. That is, one would previously need to subtract the probe's configured `z_offset` to find the absolute Z deviation at the given screw location and now one must not apply the `z_offset`.
+
+20251122: An option `axis` has been added to `[carriage <name>]` sections for `generic_cartesian` kinematics, allowing arbitrary names for primary carriages. Users are encouraged to explicitly specify `axis` option now.
+
+20251106: The status fields `{printer.toolhead.position}`, `{printer.gcode_move.position}`, `{printer.gcode_move.gcode_position}`, and `{printer.motion_report.live_position}` are changing. These coordinates used to always contain four components, but now may contain additional components. The ordering and number of components may change at run-time - see the [status reference](Status_Reference.md#accessing-coordinates) for important details. Accessing any of these coordinates in macros using the ".e" accessor is deprecated - use something like `{printer.toolhead.position[printer.gcode_move.axis_map.E]}` as an alternative.
+
+20251106: The status fields `{printer.gcode_move.homing_origin}`, `{printer.toolhead.axis_min}`, and `{printer.toolhead.axis_max}` currently contain four components where the fourth component is always zero. This behavior is deprecated. In the future these coordinates may contain only three components. For additional information see the [status reference](Status_Reference.md#accessing-coordinates).
+
+20251010: During normal printing the command processing will now attempt to stay one second ahead of printer movement (reduced from two seconds previously).
+
+20251003: Support for the undocumented `max_stepper_error` option in the `[printer]` config section has been removed.
+
+20250916: The definitions of EI, 2HUMP_EI, and 3HUMP_EI input shapers were updated. For best performance it is recommended to recalibrate input shapers, especially if some of these shapers are currently used.
+
+20250811: Support for the `max_accel_to_decel` parameter in the `[printer]` config section has been removed and support for the `ACCEL_TO_DECEL` parameter in the `SET_VELOCITY_LIMIT` command has been removed. These capabilities were deprecated on 20240313.
+
+20250721: The `[pca9632]` and `[mcp4018]` modules no longer accept the `scl_pin` and `sda_pin` options. Use `i2c_software_scl_pin` and `i2c_software_sda_pin` instead.
+
+20250428: The maximum `cycle_time` for pwm `[output_pin]`, `[pwm_cycle_time]`, `[pwm_tool]`, and similar config sections is now 3 seconds (reduced from 5 seconds). The `maximum_mcu_duration` in `[pwm_tool]` is now also 3 seconds.
+
+20250418: The manual_stepper `STOP_ON_ENDSTOP` feature may now take less time to complete. Previously, the command would wait the entire time the move could possibly take even if the endstop triggered earlier. Now, the command finishes shortly after the endstop trigger.
+
+20250417: SPI devices using "software SPI" are now rate limited. Previously, the `spi_speed` in the config was ignored and the transmission speed was only limited by the processing speed of the micro-controller. Now, speeds are limited by the `spi_speed` config parameter (actual hardware speeds are likely to be lower than the configured value due to software overhead).
+
+20250411: Klipper v0.13.0 released.
+
+20250308: The `AUTO` parameter of the `AXIS_TWIST_COMPENSATION_CALIBRATE` command has been removed.
+
+20250131: Option `VARIABLE=<name>` in `SAVE_VARIABLE` requires lowercase value. For example, `extruder` instead of mixedcase `Extruder` or uppercase `EXTRUDER`. Using any uppercase letter will raise an error.
 
 20241203: перевірку резонансу було змінено, щоб включити повільні розгортаючі рухи. Ця зміна вимагає, щоб точки тестування мали певний зазор у площині X/Y (+/- 30 мм від точки тестування має бути достатньо, якщо використовуються налаштування за замовчуванням). Новий тест, як правило, повинен дати точніші та надійніші результати тестування. Однак, якщо потрібно, попередню поведінку тесту можна відновити, додавши параметри `sweeping_period: 0` і `accel_per_hz: 75` до розділу конфігурації `[resonance_tester]`.
 
@@ -24,7 +60,7 @@
 
 20241112: параметр `CHIPS=<назва_чіпа>` в `TEST_RESONANCES` і `SHAPER_CALIBRATE` вимагає вказувати повну назву(на) чіпа(ів) прискорення. Наприклад, `adxl345 rpi` замість короткого імені - `rpi`.
 
-20240912: команди `SET_PIN`, `SET_SERVO`, `SET_FAN_SPEED`, `M106` і `M107` тепер упорядковано. Раніше, якщо багато оновлень для того самого об’єкта видавалися швидше, ніж мінімальний час планування (зазвичай 100 мс), тоді фактичні оновлення могли ставитися в чергу далеко в майбутнє. Тепер, якщо багато оновлень видано у швидкій послідовності, можливо, буде застосовано лише останній запит. Якщо потрібна попередня поведінка, розгляньте можливість додавання явних команд затримки `G4` між оновленнями.
+20240912: `SET_PIN`, `SET_SERVO`, `SET_FAN_SPEED`, `M106`, and `M107` commands are now collated. Previously, if many updates to the same object were issued faster than the minimum scheduling time (typically 100ms) then actual updates could be queued far into the future. Now if many updates are issued in rapid succession then it is possible that only the latest request will be applied. If the previous behavior is required then consider adding explicit `G4` delay commands between updates.
 
 20240912: вилучено підтримку параметрів `maximum_mcu_duration` і `static_value` у розділах конфігурації `[output_pin]`. Ці параметри застаріли з 2024 0123.
 
@@ -53,7 +89,7 @@ reference](./Config_Reference.md#hall_filament_width_sensor) for more details.
 
 20230729: Змінено експортований статус `dual_carriage`. замість експорту `mode` і `active_carriage`, окремі режими для кожного перевезення експортуються як `printer.dual_carriage.carriage_0` і `printer.dual_carriage.carriage_1`.
 
-20230619: параметр `relative_reference_index` застарів і замінений параметром `zero_reference_position`. Зверніться до [документації Bed Mesh](./Bed_Mesh.md#the-deprecated-relative_reference_index), щоб дізнатися, як оновити конфігурацію. Після цього припинення підтримки `RELATIVE_REFERENCE_INDEX` більше не доступний як параметр для команди gcode `BED_MESH_CALIBRATE`.
+20230619: The `relative_reference_index` option has been deprecated and superseded by the `zero_reference_position` option. Refer to the [Bed Mesh Documentation](./Bed_Mesh.md#the-deprecated-relative_reference_index) for details on how to update the configuration. With this deprecation the `RELATIVE_REFERENCE_INDEX` is no longer available as a parameter for the `BED_MESH_CALIBRATE` gcode command.
 
 20230530: Частота за замовчуванням в "зробити налаштування меню" тепер 1000000. Якщо використовувати канбус і за допомогою канбуса з деякими іншими частотами, то обов'язково виберіть «Включені додаткові опції конфігурації низького рівня» і вкажіть бажану «CAN автобусну швидкість» в «зробити меню налаштування», коли компіляція і миготливий мікроконтролер.
 
@@ -144,7 +180,7 @@ document](Command_Templates.md#macro-parameters) for examples.
 
 20201218: параметр endstop_phase у модулі endstop_phase замінено на trigger_phase. Якщо використовується модуль фаз кінцевої зупинки, тоді потрібно буде перетворити на [`rotation_distance`](Rotation_Distance.md) і повторно відкалібрувати будь-які фази кінцевої зупинки, виконавши команду ENDSTOP_PHASE_CALIBRATE.
 
-20201218: Ротаційні дельта- та полярні принтери тепер повинні вказувати `gear_ratio` для своїх обертових крокових кроків, і вони більше не можуть вказувати параметр `step_distance`. Формат нового параметра gear_ratio див. у [довідці конфігурації](Config_Reference.md#stepper).
+20201218: Rotary delta and polar printers must now specify a `gear_ratio` for their rotary steppers, and they may no longer specify a `step_distance` parameter. See the [config reference](Config_Reference.md#stepper) for the format of the new gear_ratio parameter.
 
 20201213: Неможливо вказати Z "position_endstop" під час використання "probe:z_virtual_endstop". Тепер виникне помилка, якщо Z "position_endstop" указано з "probe:z_virtual_endstop". Видаліть визначення Z "position_endstop", щоб виправити помилку.
 

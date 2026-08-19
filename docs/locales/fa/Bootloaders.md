@@ -1,6 +1,6 @@
 # Bootloaders
 
-This document provides information on common bootloaders found on micro-controllers that Klipper supports.
+این سند، اطلاعاتی را در مورد بوت‌لودرهای رایج موجود بر روی میکروکنترلرهایی که کلیپر پشتیبانی می‌کند، ارائه می‌دهد.
 
 The bootloader is 3rd-party software that runs on the micro-controller when it is first powered on. It is typically used to flash a new application (eg, Klipper) to the micro-controller without requiring specialized hardware. Unfortunately, there is no industry wide standard for flashing a micro-controller, nor is there a standard bootloader that works across all micro-controllers. Worse, it is common for each bootloader to require a different set of steps to flash an application.
 
@@ -143,7 +143,7 @@ bossac --port=/dev/ttyACM0 -b -U -e -w -v -R out/klipper.bin
 
 The SAMC21 is flashed via the ARM Serial Wire Debug (SWD) interface. This is commonly done with a dedicated SWD hardware dongle. Alternatively, one can use a [Raspberry Pi with OpenOCD](#running-openocd-on-the-raspberry-pi).
 
-When using OpenOCD with the SAMC21, extra steps must be taken to first put the chip into Cold Plugging mode if the board makes use of the SWD pins for other purposes. If using OpenOCD on a Rasberry Pi, this can be done by running the following commands before invoking OpenOCD.
+When using OpenOCD with the SAMC21, extra steps must be taken to first put the chip into Cold Plugging mode if the board makes use of the SWD pins for other purposes. If using OpenOCD on a Raspberry Pi, this can be done by running the following commands before invoking OpenOCD.
 
 ```
 SWCLK=25
@@ -376,7 +376,7 @@ It is recommended to use a ST-Link Programmer to flash CanBoot, however it shoul
 
 The first time CanBoot has been flashed it should detect that no application is present and enter the bootloader. If this doesn't occur it is possible to enter the bootloader by pressing the reset button twice in succession.
 
-The `flash_can.py` utility supplied in the `lib/canboot` folder may be used to upload Klipper firmware. The device UUID is necessary to flash. If you do not have a UUID it is possible to query nodes currently running the bootloader:
+The `flashtool.py` utility supplied in the `lib/katapult` folder may be used to upload Klipper firmware. The device UUID is necessary to flash. If you do not have a UUID it is possible to query nodes currently running the bootloader:
 
 ```
 python3 flash_can.py -q

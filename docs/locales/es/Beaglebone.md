@@ -164,7 +164,7 @@ It is also necessary to compile and install the micro-controller code for a Linu
 make menuconfig
 ```
 
-Then install this micro-controller code as well:
+A continuación, instale también este código del microcontrolador:
 
 ```
 sudo service klipper stop

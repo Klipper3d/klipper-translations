@@ -35,7 +35,7 @@ pico com -b 1200 <DEVICE>
 
 ### Фізична послідовність
 
-Якщо на MCU використовується фізичний серійний порт (навіть, якщо USB серійний адаптер використовується для підключення до нього), відправивши рядок `<SPACE><FS><SPACE><SPACE>Запит серійного завантаження!<SPACE>~`.
+If a physical serial port is being used on the MCU (even if a USB serial adapter is being used to connect to it), sending the string `<SPACE><FS><SPACE>Request Serial Bootloader!!<SPACE>~` requests the bootloader.
 
 `<SPACE>` - ASCII літровий простір, 0x20.
 

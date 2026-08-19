@@ -6,27 +6,63 @@
 
 ## Изменение
 
-20250428: The maximum `cycle_time` for pwm `[output_pin]`, `[pwm_cycle_time]`, `[pwm_tool]`, and similar config sections is now 3 seconds (reduced from 5 seconds). The `maximum_mcu_duration` in `[pwm_tool]` is now also 3 seconds.
+20260525: The internal implementation of "probe:z_virtual_endstop" has changed. Most users will not observe a change in behavior. Previously it was technically possible to mix "probe:z_virtual_endstop" with other types of Z endstops and this behavior is no longer valid.
 
-20250418: The manual_stepper `STOP_ON_ENDSTOP` feature may now take less time to complete. Previously, the command would wait the entire time the move could possibly take even if the endstop triggered earlier. Now, the command finishes shortly after the endstop trigger.
+20260501: The handling of the `[probe_eddy_current]` `tap_threshold` config option and associated `TAP_THRESHOLD` G-Code parameter has changed. It will be necessary to recalibrate the value. See the [eddy probe documentation](Eddy_Probe.md) for calibration directions.
 
-20250417: SPI devices using "software SPI" are now rate limited. Previously, the `spi_speed` in the config was ignored and the transmission speed was only limited by the processing speed of the micro-controller. Now, speeds are limited by the `spi_speed` config parameter (actual hardware speeds are likely to be lower than the configured value due to software overhead).
+20260408: The script `lib/canboot/flash_can.py` has been updated to the most current version from [Katapult](https://github.com/Arksine/katapult) and as such renamed to `lib/katapult/flashtool.py`. If you call this script directly instead of using the existing Makefiles, you will need to change the path to the script to `lib/katapult/flashtool.py`.
 
-20250411: Klipper v0.13.0 released.
+20260318: The `[probe_eddy_current]` config options `speed`, `lift_speed`, `samples`, `sample_retract_dist`, `samples_result`, `samples_tolerance`, and `samples_tolerance_retries` no longer apply to probe commands using `METHOD=scan`, `METHOD=rapid_scan`, nor `METHOD=tap`. To use different settings, supply the equivalent `PROBE_SPEED`, `LIFT_SPEED`, `SAMPLES`, `SAMPLE_RETRACT_DIST`, `SAMPLES_RESULT`, `SAMPLES_TOLERANCE`, or `SAMPLES_TOLERANCE_RETRIES` parameter with the probe command.
 
-20250308: The `AUTO` parameter of the `AXIS_TWIST_COMPENSATION_CALIBRATE` command has been removed.
+20260318: The `[probe_eddy_current]` config option `z_offset` has been renamed to `descend_z`. Using the old name is deprecated and it will be removed in the near future.
 
-20250131: Option `VARIABLE=<name>` in `SAVE_VARIABLE` requires lowercase value. For example, `extruder` instead of mixedcase `Extruder` or uppercase `EXTRUDER`. Using any uppercase letter will raise an error.
+20260214: The `MANUAL_STEPPER` G-Code command `STOP_ON_ENDSTOP` parameter has changed. See the [MANUAL_STEPPER](G-Codes.md#manual_stepper) documentation for details. Using the previous integer values (-2, -1, 1, 2) is deprecated and support will be removed in the near future.
 
-20241203: The resonance test has been changed to include slow sweeping moves. This change requires that testing point(s) have some clearance in X/Y plane (+/- 30 mm from the test point should suffice when using the default settings). The new test should generally produce more accurate and reliable test results. However, if required, the previous test behavior can be restored by adding options `sweeping_period: 0` and `accel_per_hz: 75` to the `[resonance_tester]` config section.
+20260207: The low-level i2c behavior of sx1509 and uc1701 devices has changed. Previously an i2c error would result in a shutdown, and now i2c errors when communicating with these devices will only generate warnings in the log file.
 
-20241201: In some cases Klipper may have ignored leading characters or spaces in a traditional G-Code command. For example, "99M123" may have been interpreted as "M123" and "M 321" may have been interpreted as "M321". Klipper will now report these cases with an "Unknown command" warning.
+20260109: The status value `{printer.probe.last_z_result}` is deprecated; it will be removed in the near future. Use `{printer.probe.last_probe_position}` instead, and note that this new value already has the probe's configured xyz offsets applied.
 
-20241112: Option `CHIPS=<chip_name>` in `TEST_RESONANCES` and `SHAPER_CALIBRATE` requires specifying the full name(s) of the accel chip(s). For example, `adxl345 rpi` instead of short name - `rpi`.
+20260109: The g-code console text output from the `PROBE`, `PROBE_ACCURACY`, and similar commands has changed. Now Z heights are reported relative to the nominal bed Z position instead of relative to the probe's configured `z_offset`. Similarly, intermediate probe x and y console reports will also have the probe's configured `x_offset` and `y_offset` applied.
 
-20240912: `SET_PIN`, `SET_SERVO`, `SET_FAN_SPEED`, `M106`, and `M107` commands are now collated. Previously, if many updates to the same object were issued faster than the minimum scheduling time (typically 100ms) then actual updates could be queued far into the future. Now if many updates are issued in rapid succession then it is possible that only the latest request will be applied. If the previous behavior is requried then consider adding explicit `G4` delay commands between updates.
+20260109: The `[screws_tilt_adjust]` module now reports the status variable `{printer.screws_tilt_adjust.result.screw1.z}` with the probe's `z_offset` applied. That is, one would previously need to subtract the probe's configured `z_offset` to find the absolute Z deviation at the given screw location and now one must not apply the `z_offset`.
 
-20240912: Support for `maximum_mcu_duration` and `static_value` parameters in `[output_pin]` config sections have been removed. These options have been deprecated since 20240123.
+20251122: An option `axis` has been added to `[carriage <name>]` sections for `generic_cartesian` kinematics, allowing arbitrary names for primary carriages. Users are encouraged to explicitly specify `axis` option now.
+
+20251106: The status fields `{printer.toolhead.position}`, `{printer.gcode_move.position}`, `{printer.gcode_move.gcode_position}`, and `{printer.motion_report.live_position}` are changing. These coordinates used to always contain four components, but now may contain additional components. The ordering and number of components may change at run-time - see the [status reference](Status_Reference.md#accessing-coordinates) for important details. Accessing any of these coordinates in macros using the ".e" accessor is deprecated - use something like `{printer.toolhead.position[printer.gcode_move.axis_map.E]}` as an alternative.
+
+20251106: The status fields `{printer.gcode_move.homing_origin}`, `{printer.toolhead.axis_min}`, and `{printer.toolhead.axis_max}` currently contain four components where the fourth component is always zero. This behavior is deprecated. In the future these coordinates may contain only three components. For additional information see the [status reference](Status_Reference.md#accessing-coordinates).
+
+20251010: During normal printing the command processing will now attempt to stay one second ahead of printer movement (reduced from two seconds previously).
+
+20251003: Support for the undocumented `max_stepper_error` option in the `[printer]` config section has been removed.
+
+20250916: The definitions of EI, 2HUMP_EI, and 3HUMP_EI input shapers were updated. For best performance it is recommended to recalibrate input shapers, especially if some of these shapers are currently used.
+
+20250811: Support for the `max_accel_to_decel` parameter in the `[printer]` config section has been removed and support for the `ACCEL_TO_DECEL` parameter in the `SET_VELOCITY_LIMIT` command has been removed. These capabilities were deprecated on 20240313.
+
+20250721: The `[pca9632]` and `[mcp4018]` modules no longer accept the `scl_pin` and `sda_pin` options. Use `i2c_software_scl_pin` and `i2c_software_sda_pin` instead.
+
+20250428: Максимальный ` цикл_время ` для pwm `[output_pin]`, `[pwm_cycle_time]`, `[pwm_tool]`, и аналогичные настраиваемые разделы сейчас 3 секунды (сокращены с 5 секунд). `maximum_mcu_duration ` в ` [pwm_tool] ` сейчас также 3 секунды.
+
+20250418: Функция manual_stepper `STOP_ON_ENDSTOP` может теперь занять меньше времени. Ранее команда ждала бы все время, когда ход мог бы занять, даже если бы конечник сработал раньше. Теперь, команда заканчивается вскоре после запуска конечной остановки.
+
+20250417: Устройства SPI, использующие «программное обеспечение SPI», теперь ограничены. Ранее `spi_скорость ` в конфигурации была проигнорирована, и скорость передачи была ограничена только скоростью обработки микроконтроллера. Теперь скорости ограничены параметром настройки `spi_speed ` (фактические аппаратные скорости, вероятно, будут ниже заданного значения из-за накладных расходов программного обеспечения).
+
+20250411: Klipper v0.13.0 выпущен.
+
+20250308: `AUTO` параметр `AXIS_TWIST_COMPENSATION_CALIBRATE` был удален.
+
+20250131: Option `VARIABLE=<name>` в `SAVE_VARIABLE` требует более низкой величины. Например, `extruder ` вместо смешанного `Extruder ` или верхняя `EXTRUDER`. Использование любого верхняя буква вызовет ошибку.
+
+20241203: Резонно-резонансный тест был изменен на включение медленных ходов. Это изменение требует, чтобы точка(ы) тестирования имела некоторое разрешение в плоскости X/Y (+/-30 мм от точки испытания должно быть достаточно при использовании параметров по умолчанию). Новое испытание должно, как правило, давать более точные и надежные результаты испытаний. Однако, при необходимости, предыдущее тестовое поведение может быть восстановлено путем добавления опций `sweeping_ period: 0` и `accel_per_hz: 75` к `[resonance_tester]` настраиваемому разделу.
+
+20241201: В некоторых случаях Клиппер, возможно, игнорировал ведущих персонажей или пространств в традиционной команде G-Code. Например, «99M123» можно было интерпретировать как «M123», а «M 321» - как «M321». Теперь Клиппер сообщит об этих случаях с предупреждением «Неизвестного командования».
+
+2024112: Опция `CHIPS=<chip_name>` в `TEST_RESONANCES ` и `SHAPER_CALIBRATE` требует указания полного имени(ов) акселевого чипа(ов). Например, `adxl345 rpi` вместо короткого названия - `rpi`.
+
+20240912: `SET_PIN`, `SET_SERVO`, `SET_FAN_SPEED`, `M106`, and `M107` commands are now collated. Previously, if many updates to the same object were issued faster than the minimum scheduling time (typically 100ms) then actual updates could be queued far into the future. Now if many updates are issued in rapid succession then it is possible that only the latest request will be applied. If the previous behavior is required then consider adding explicit `G4` delay commands between updates.
+
+20240912: Поддержка параметров `maximum_mcu_duration` и `static_value` в `[output_pin]` настройка разделов была удалена. Эти варианты были обесценены с 20240123 года.
 
 20240415: Параметр `on_error_gcode` в секции конфигурации `[virtual_sdcard]` теперь имеет значение по умолчанию. Если этот параметр не указан, то по умолчанию теперь устанавливается значение `TURN_OFF_HEATERS`. Если требуется прежнее поведение (не предпринимать никаких действий по умолчанию при ошибке во время печати virtual_sdcard), задайте параметр `on_error_gcode` с пустым значением.
 
@@ -53,7 +89,7 @@ reference](./Config_Reference.md#hall_filament_width_sensor) for more details.
 
 20230729: Изменен экспортируемый статус для `dual_carriage`. Вместо экспорта `mode` и `active_carriage`, отдельные режимы для каждой каретки экспортируются как `printer.dual_carriage.carriage_0` и `printer.dual_carriage.carriage_1`.
 
-20230619: Опция `relative_reference_index` была устаревшей и заменена опцией `zero_reference_position`. Обратитесь к документации [Bed Mesh Documentation](./Bed_Mesh.md#the-deprecated-relative_reference_index) для получения подробной информации о том, как обновить конфигурацию. В связи с этим `RELATIVE_REFERENCE_INDEX` больше не доступен в качестве параметра для gcode-команды `BED_MESH_CALIBRATE`.
+20230619: The `relative_reference_index` option has been deprecated and superseded by the `zero_reference_position` option. Refer to the [Bed Mesh Documentation](./Bed_Mesh.md#the-deprecated-relative_reference_index) for details on how to update the configuration. With this deprecation the `RELATIVE_REFERENCE_INDEX` is no longer available as a parameter for the `BED_MESH_CALIBRATE` gcode command.
 
 20230530: Частота canbus по умолчанию в "make menuconfig" теперь равна 1000000. Если требуется использование canbus и использование canbus с другой частотой, то обязательно выберите " Включить дополнительные низкоуровневые опции конфигурации" и укажите желаемую "Скорость шины CAN" в "make menuconfig" при компиляции и прошивке микроконтроллера.
 
@@ -144,7 +180,7 @@ document](Command_Templates.md#macro-parameters) for examples.
 
 20201218: Настройка `endstop_phase` в модуле endstop_phase была заменена на `trigger_phase`. При использовании модуля endstop phases необходимо преобразовать в [`вращательное_расстояние`](Rotation_Distance.md) и откалибровать все endstop фазы, выполнив команду ENDSTOP_PHASE_CALIBRATE.
 
-20201218: Поворотные дельта- и полярные принтеры теперь должны указывать `gear_ratio` для своих поворотных степперов, и они больше не могут указывать параметр `step_distance`. Формат нового параметра gear_ratio см. в [ ссылка на конфигурацию ](Config_Reference.md#stepper).
+20201218: Rotary delta and polar printers must now specify a `gear_ratio` for their rotary steppers, and they may no longer specify a `step_distance` parameter. See the [config reference](Config_Reference.md#stepper) for the format of the new gear_ratio parameter.
 
 20201213: Недопустимо указывать Z "position_endstop" при использовании "probe:z_virtual_endstop". Теперь будет возникать ошибка, если Z "position_endstop" указывается с помощью "probe:z_virtual_endstop". Удалите определение Z "position_endstop", чтобы исправить ошибку.
 

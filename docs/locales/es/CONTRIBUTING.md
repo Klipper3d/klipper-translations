@@ -142,23 +142,23 @@ Signed-off-by: My Name <myemail@example.org>
 
 In the above example, `module` should be the name of a file or directory in the repository (without a file extension). For example, `clocksync: Fix typo in pause() call at connect time`. The purpose of specifying a module name in the commit message is to help provide context for the commit comments.
 
-It is important to have a "Signed-off-by" line on each commit - it certifies that you agree to the [developer certificate of origin](developer-certificate-of-origin). It must contain your real name (sorry, no pseudonyms or anonymous contributions) and contain a current email address.
+Es importante incluir una línea «Signed-off-by» en cada confirmación, ya que certifica que aceptas el [certificado de origen del desarrollador](developer-certificate-of-origin). Debe contener tu nombre real (lo sentimos, no se admiten seudónimos ni contribuciones anónimas) y una dirección de correo electrónico actual.
 
-## Contributing to Klipper Translations
+## Contribuir a Klipper Translations
 
 [Klipper-translations Project](https://github.com/Klipper3d/klipper-translations) is a project dedicated to translating Klipper to different languages. [Weblate](https://hosted.weblate.org/projects/klipper/) hosts all the Gettext strings for translating and reviewing. Locales can be displayed on [klipper3d.org](https://www.klipper3d.org) once they satisfy the following requirements:
 
 - [ ] 75% de cobertura total
 - [ ] All titles (H1) are translated
-- [ ] An updated navigation hierarchy PR in klipper-translations.
+- [ ] Una jerarquía de navegación actualizada PR en klipper-translations.
 
-To reduce the frustration of translating domain-specific terms and gain awareness of the ongoing translations, you can submit a PR modifying the [Klipper-translations Project](https://github.com/Klipper3d/klipper-translations) `readme.md`. Once a translation is ready, the corresponding modification to the Klipper project can be made.
+Para reducir la frustración que supone traducir términos específicos del dominio y estar al tanto de las traducciones en curso, puedes enviar una solicitud de incorporación de cambios modificando el archivo `readme.md` del [Proyecto Klipper-translations](https://github.com/Klipper3d/klipper-translations). Una vez que la traducción esté lista, se podrá realizar la modificación correspondiente en el proyecto Klipper.
 
 Si ya existe una traducción en el repositorio Klipper y ya no cumple con la lista de comprobación anterior, se marcará como obsoleta después de un mes sin actualizaciones.
 
 Once the requirements are met, you need to:
 
-1. update klipper-tranlations repository [active_translations](https://github.com/Klipper3d/klipper-translations/blob/translations/active_translations)
+1. update klipper-translations repository [active_translations](https://github.com/Klipper3d/klipper-translations/blob/translations/active_translations)
 1. Optional: add a manual-index.md file in klipper-translations repository's `docs\locals\<lang>` folder to replace the language specific index.md (generated index.md does not render correctly).
 
 Known Issues:

@@ -26,7 +26,7 @@ Verify that all of the printer axes can manually move freely (the stepper motors
 
 Manually move all the printer axes so that none of them are in contact with an endstop. Send a QUERY_ENDSTOPS command via the command console. It should respond with the current state of all of the configured endstops and they should all report a state of "open". For each of the endstops, rerun the QUERY_ENDSTOPS command while manually triggering the endstop. The QUERY_ENDSTOPS command should report the endstop as "TRIGGERED".
 
-If the endstop appears inverted (it reports "open" when triggered and vice-versa) then add a "!" to the pin definition (for example, "endstop_pin: ^PA2"), or remove the "!" if there is already one present.
+If the endstop appears inverted (it reports "open" when triggered and vice-versa) then add a "!" to the pin definition (for example, "endstop_pin: ^!PA2"), or remove the "!" if there is already one present.
 
 endstop이 전혀 변경되지 않으면 일반적으로 endstop이 다른 핀에 연결되었음을 나타냅니다. 핀의 풀업 설정을 변경해야 할 수도 있습니다. (endstop_pin 이름 시작 부분의 '^' - 대부분의 프린터는 풀업 저항을 사용하며 '^'이 있어야 함).
 

@@ -64,9 +64,9 @@ serial: /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 
 ## Можно ли запустить Klipper на чем-то другом, кроме Raspberry Pi 3?
 
-Рекомендуемое оборудование - Raspberry Pi 2, Raspberry Pi 3 или Raspberry Pi 4.
+The recommended hardware is a Raspberry Pi Zero2w, Raspberry Pi 3, Raspberry Pi 4 or Raspberry Pi 5. Klipper will also run on other SBC devices as well as x86 hardware, as described below.
 
-Klipper будет работать на Raspberry Pi 1 и на Raspberry Pi Zero, но эти платы не обладают достаточной вычислительной мощностью для работы OctoPrint. На этих медленных машинах часто возникают задержки печати при печати непосредственно из OctoPrint. (Принтер может двигаться быстрее, чем OctoPrint может посылать команды перемещения). Если вы хотите работать на одной из этих медленных плат, рассмотрите возможность использования функции "virtual_sdcard" при печати (подробности смотрите в [ссылка на конфигурацию](Config_Reference.md#virtual_sdcard)).
+Klipper will run on a Raspberry Pi 1, 2 and on the Raspberry Pi Zero1, but these boards don't have enough processing power to run Klipper well. It is common for print stalls to occur on these slower machines when printing (The printer may move faster than Klipper can send movement commands.) It is not reccomended to run Klipper on these older machines.
 
 Для запуска на Beaglebone см. инструкцию по установке [Beaglebone specific installation instructions](Beaglebone.md).
 
@@ -146,7 +146,7 @@ Klipper создает "виртуальный последовательный 
 
 ## Останутся ли обогреватели включенными, если Raspberry Pi сломается?
 
-Программное обеспечение разработано таким образом, чтобы предотвратить это. Как только хост включает нагреватель, программное обеспечение хоста должно подтверждать это включение каждые 5 секунд. Если микроконтроллер не получает подтверждения каждые 5 секунд, он переходит в состояние "выключения", которое предназначено для отключения всех нагревателей и шаговых двигателей.
+The software has been designed to prevent that. Once the host enables a heater, the host software needs to confirm that enablement every 3 seconds. If the micro-controller does not receive a confirmation every 3 seconds it goes into a "shutdown" state which is designed to turn off all heaters and stepper motors.
 
 Дополнительные сведения смотрите в команде "config_digital_out" в документе [MCU commands](MCU_Commands.md).
 
