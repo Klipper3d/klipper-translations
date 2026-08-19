@@ -73,13 +73,13 @@ Pour vérifier la puce gpio disponible exécutez :
 gpiodetect
 ```
 
-Pour vérifier la numérotation des broches du connecteur GPIO et leur disponibilité, exécutez :
+Pour vérifier la numérotation des broches du connecteur GPIO et leur disponibilité, exécutez :
 
 ```
 gpioinfo
 ```
 
-La broche choisie peut donc être utilisée dans la configuration comme `gpiochip<n>/gpio<o>` où **n** est le numéro de puce tel qu'il est vu par la commande `gpiodetect` et **o** est le numéro de ligne vu par la commande `gpioinfo`.
+The chosen pin can thus be used within the configuration as `gpiochip<n>/gpio<o>` where **n** is the chip number as seen by the `gpiodetect` command and **o** is the line number seen by the` gpioinfo` command.
 
 ***Avertissement :*** seul les broches gpio marquées comme `inutilisées` peuvent être utilisées. Il n'est pas possible qu'une *ligne* soit utilisée par plusieurs processus simultanément.
 

@@ -14,7 +14,7 @@ Dans la console du terminal, tapez une commande M112. Cette commande demande à 
 
 ## Vérifier la cartouche chauffante
 
-Naviguez vers la section du graphique de température et tapez 50 puis appuyez sur Entrée dans la boîte de température de l'extrudeur/Boîte à outil des températures. La température de l'extrudeuse dans le graphique devrait commencer à augmenter (environ 30 secondes). Ensuite, allez dans le menu déroulant de la température de l'extrudeuse et sélectionnez "Off". Après plusieurs minutes, la température devrait commencer à revenir à sa valeur initiale de température ambiante. Si la température n'augmente pas, vérifiez le paramètre "heater_pin" dans la config.
+Accédez à la section du graphique de température et tapez 50, puis entrez dans la zone de température de l'extrudeuse/de l'outil. La température de l'extrudeuse indiquée sur le graphique devrait commencer à augmenter (dans un délai d'environ 30 secondes). Accédez ensuite à la liste déroulante de la température de l'extrudeuse et sélectionnez « Désactivé ». Après quelques minutes, la température devrait commencer à revenir à sa valeur initiale de température ambiante. Si la température n'augmente pas, vérifiez le paramètre "heater_pin" dans la configuration.
 
 Si l'imprimante est équipée d'un plateau chauffant, effectuez à nouveau le test ci-dessus avec le plateau.
 
@@ -26,7 +26,7 @@ Vérifiez que tous les axes de l'imprimante peuvent se déplacer librement manue
 
 Déplacez manuellement tous les axes de l'imprimante pour qu'aucun d'entre eux ne soit en contact avec un capteur de fin de course. Envoyez une commande QUERY_ENDSTOPS via la console de commande. La réponse devrait indiquer l'état actuel de tous les fins de course configurés et ils devraient tous indiquer un état "ouvert". Pour chacun des fins de course, relancez la commande QUERY_ENDSTOPS en déclenchant manuellement le fin de course. La commande QUERY_ENDSTOPS devrait indiquer que le fin de course est "TRIGGERED".
 
-Si le fin de course semble inversé (il indique "ouvert" lorsqu'il est déclenché et vice-versa), ajoutez un "!" à la définition de la broche (par exemple, "endstop_pin : ^PA2"), ou retirez le "!" s'il y en a déjà un.
+If the endstop appears inverted (it reports "open" when triggered and vice-versa) then add a "!" to the pin definition (for example, "endstop_pin: ^!PA2"), or remove the "!" if there is already one present.
 
 Si la fin de course ne change pas du tout, cela indique généralement que la fin de course est connectée à une autre broche. Cependant, cela peut également nécessiter une modification du paramètre de pullup de la broche (le '^' au début du nom endstop_pin - la plupart des imprimantes utilisent une résistance pullup et le '^' doit être présent).
 

@@ -1,22 +1,22 @@
 # Skew correction
 
-Software based skew correction can help resolve dimensional inaccuracies resulting from a printer assembly that is not perfectly square. Note that if your printer is significantly skewed it is strongly recommended to first use mechanical means to get your printer as square as possible prior to applying software based correction.
+La corrección de la inclinación basada en software puede ayudar a resolver las imprecisiones dimensionales resultantes de un montaje de la impresora que no es perfectamente cuadrado. Tenga en cuenta que si su impresora está significativamente inclinada, se recomienda encarecidamente utilizar primero medios mecánicos para que la impresora quede lo más cuadrada posible antes de aplicar la corrección basada en software.
 
-## Print a Calibration Object
+## Imprimir un objeto de calibración
 
-The first step in correcting skew is to print a [calibration object](https://www.thingiverse.com/thing:2563185/files) along the plane you want to correct. There is also a [calibration object](https://www.thingiverse.com/thing:2972743) that includes all planes in one model. You want the object oriented so that corner A is toward the origin of the plane.
+El primer paso para corregir la inclinación es imprimir un [calibration object](https://www.thingiverse.com/thing:2563185/files) a lo largo del plano que desea corregir. También hay un [calibration object](https://www.thingiverse.com/thing:2972743) que incluye todos los planos en un solo modelo. Debe orientar el objeto de manera que la esquina A quede hacia el origen del plano.
 
 Make sure that no skew correction is applied during this print. You may do this by either removing the `[skew_correction]` module from printer.cfg or by issuing a `SET_SKEW CLEAR=1` gcode.
 
-## Take your measurements
+## Toma tus medidas.
 
 The `[skew_correction]` module requires 3 measurements for each plane you want to correct; the length from Corner A to Corner C, the length from Corner B to Corner D, and the length from Corner A to Corner D. When measuring length AD do not include the flats on the corners that some test objects provide.
 
 ![skew_lengths](img/skew_lengths.png)
 
-## Configure your skew
+## Configure su inclinación
 
-Make sure `[skew_correction]` is in printer.cfg. You may now use the `SET_SKEW` gcode to configure skew_correcton. For example, if your measured lengths along XY are as follows:
+Make sure `[skew_correction]` is in printer.cfg. You may now use the `SET_SKEW` gcode to configure skew_correction. For example, if your measured lengths along XY are as follows:
 
 ```
 Length AC = 140.4

@@ -1,12 +1,12 @@
 # Overview
 
-Welcome to the Klipper documentation. If new to Klipper, start with the [features](Features.md) and [installation](Installation.md) documents.
+Sveiki atvykę į „Klipper“ dokumentaciją. Jei „Klipper“ esate nauji, pradėkite nuo [Funkcijų](Features.md) ir [Atsisiuntimo](Installation.md) dokumentų.
 
-## Overview information
+## Apžvalginė informacija
 
-- [Features](Features.md): A high-level list of features in Klipper.
-- [FAQ](FAQ.md): Frequently asked questions.
-- [Releases](Releases.md): The history of Klipper releases.
+- [Funkcijos](Features.md): „Klipper“ programos aukšto lygio funkcijų sąrašas.
+- [DUK](FAQ.md): Dažnai užduoti Klausymai.
+- [Leidimai](Releases.md): „Klipper“ laidų istorija.
 - [Config changes](Config_Changes.md): Recent software changes that may require users to update their printer config file.
 - [Contact](Contact.md): Information on bug reporting and general communication with the Klipper developers.
 

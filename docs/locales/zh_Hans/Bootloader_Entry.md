@@ -35,7 +35,7 @@ picocom -b 1200 <DEVICE>
 
 ### 物理序列
 
-如果MCU上正在使用物理串口(即使使用USB串口适配器连接)，则发送字符串`<space><FS><space>RequestSerial BootLoader！！<space>~`。
+If a physical serial port is being used on the MCU (even if a USB serial adapter is being used to connect to it), sending the string `<SPACE><FS><SPACE>Request Serial Bootloader!!<SPACE>~` requests the bootloader.
 
 `<space>`是ASCII文字空格，0x20。
 

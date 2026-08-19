@@ -65,7 +65,7 @@ Klipper prend en charge la journalisation de l'historique des mouvement, qui peu
 L'enregistrement des données est activé avec l'outil `data_logger.py`. Par example :
 
 ```
-~/klipper/scripts/motan/data_logger.py /tmp/klippy_uds mylog
+~/klipper/scripts/motan/data_logger.py /tmp/klippy_uds mylog -s '*'
 ```
 
 Cette commande se connectera au serveur API de Klipper, s'abonnera aux informations d'état et de mouvement et consignera les résultats. Deux fichiers sont générés : un fichier de données compressées et un fichier d'index (par exemple, `mylog.json.gz` et `mylog.index.gz`). Après avoir démarré la journalisation, il est possible d'effectuer des impressions et d'autres actions - la journalisation se poursuivra en arrière-plan. Une fois la journalisation terminée, appuyez sur `ctrl-c` pour quitter l'outil `data_logger.py`.

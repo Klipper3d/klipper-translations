@@ -69,4 +69,4 @@ M104 S0
 
 перед вызовом макроса. Также отметим, что в SuperSlicer есть опция кнопки "только пользовательский gcode", которая позволяет добиться того же результата.
 
-Пример макроса START_PRINT с этими параметрами можно найти в файле config/sample-macros.cfg
+An example of a START_PRINT macro using these parameters can be found in config/sample-macros.cfg

@@ -10,7 +10,7 @@ queue_step oid=7 interval=7458 count=10 add=331
 queue_step oid=7 interval=11717 count=4 add=1281
 ```
 
-Voir le document [commandes mcu](MCU_Commands.md) pour plus d'informations sur les commandes disponibles. Voir le document [deboguage](Debugging.md) pour plus d'informations sur la façon de traduire un fichier G-Code en commandes de microcontrôleur lisibles (par l'homme).
+Voir le document [mcu commands](MCU_Commands.md) pour des informations sur les commandes disponibles. Voir le document [debugging](Debugging.md) pour des informations sur la façon de traduire un fichier G-Code en commandes de micro-contrôleur lisibles par l'homme.
 
 Cette page fournit une description de haut niveau du protocole de communication de Klipper. Elle décrit comment les messages sont déclarés, encodés au format binaire (le format de "compression") et transmis.
 

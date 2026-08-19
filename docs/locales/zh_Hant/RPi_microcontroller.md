@@ -79,7 +79,7 @@ gpiodetect
 gpioinfo
 ```
 
-因此，所選引腳可以在配置中可以通過 `gpiochip<n>/gpio<o>`引用，其中 **n** 是由 `gpiodetect` 命令看到的晶片編號**o** 是 ` gpioinfo` 命令看到的行號。
+The chosen pin can thus be used within the configuration as `gpiochip<n>/gpio<o>` where **n** is the chip number as seen by the `gpiodetect` command and **o** is the line number seen by the` gpioinfo` command.
 
 ***警告：***只有標記為`unused`的 gpio 才可以被使用。一條*線路*不可能被多個程序同時使用。
 

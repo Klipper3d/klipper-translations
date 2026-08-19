@@ -2,17 +2,17 @@
 
 Este documento provee algunas sugerencias para configurar una aplicación "slicer" para usar con Klipper. Algunos de los slicers mas comúnmente usados con Klipper son Slic3r, Cura, Simplify3D, etc.
 
-## Set the G-Code flavor to Marlin
+## Establecer el tipo de código G en Marlin.
 
-Many slicers have an option to configure the "G-Code flavor". The default is frequently "Marlin" and that works well with Klipper. The "Smoothieware" setting also works well with Klipper.
+Muchas cortadoras tienen una opción para configurar el «G-Code flavor». El valor predeterminado suele ser «Marlin», que funciona bien con Klipper. La configuración «Smoothieware» también funciona bien con Klipper, Ahora ya se puede indicar «Klipper» como valor en diferentes laminadores.
 
 ## Klipper gcode_macro
 
-Slicers will often allow one to configure "Start G-Code" and "End G-Code" sequences. It is often convenient to define custom macros in the Klipper config file instead - such as: `[gcode_macro START_PRINT]` and `[gcode_macro END_PRINT]`. Then one can just run START_PRINT and END_PRINT in the slicer's configuration. Defining these actions in the Klipper configuration may make it easier to tweak the printer's start and end steps as changes do not require re-slicing.
+Los cortadores suelen permitir configurar secuencias de «G-Code de inicio» y «G-Code de fin». A menudo resulta conveniente definir macros personalizadas en el archivo de configuración de Klipper, como por ejemplo: `[gcode_macro START_PRINT]` y `[gcode_macro END_PRINT]`. De este modo, basta con ejecutar START_PRINT y END_PRINT en la configuración del cortador. Definir estas acciones en la configuración de Klipper puede facilitar el ajuste de los pasos de inicio y finalización de la impresora, ya que los cambios no requieren volver a cortar.
 
-See [sample-macros.cfg](../config/sample-macros.cfg) for example START_PRINT and END_PRINT macros.
+Consulte [sample-macros.cfg](../config/sample-macros.cfg) para ver ejemplos de las macros START_PRINT y END_PRINT.
 
-See the [config reference](Config_Reference.md#gcode_macro) for details on defining a gcode_macro.
+Consulte la [referencia de configuración](Config_Reference.md#gcode_macro) para obtener más información sobre cómo definir una macro gcode_macro.
 
 ## Large retraction settings may require tuning Klipper
 
@@ -69,4 +69,4 @@ M104 S0
 
 before the macro call. Also note that SuperSlicer has a "custom gcode only" button option, which achieves the same outcome.
 
-An example of a START_PRINT macro using these paramaters can be found in config/sample-macros.cfg
+An example of a START_PRINT macro using these parameters can be found in config/sample-macros.cfg

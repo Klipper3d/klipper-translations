@@ -40,7 +40,7 @@ Commencez par mettre l'imprimante à l'origine, puis déplacez la tête vers une
 
 Cet outil effectuera un sondage automatique, puis soulèvera la tête, déplacera la buse sur l'emplacement du point de sonde et démarrera l'outil de sondage manuel. Si la buse ne se déplace pas vers une position au-dessus du point de sonde automatique, tapez `ABORT ` pour annuler le sondage manuel et effectuez l'étalonnage de décalage de sonde XY décrit ci-dessus.
 
-Once the manual probe tool starts, follow the steps described at ["the paper test"](Bed_Level.md#the-paper-test) to determine the actual distance between the nozzle and bed at the given location. Once those steps are complete one can `ACCEPT` the position and save the results to the config file with:
+Une fois l'outil de sonde manuelle lancé, suivez les étapes décrites à ["l'essai papier"](Bed_Level.md#the-paper-test) pour déterminer la distance réelle entre la buse et le lit à l'emplacement donné. Une fois ces étapes terminées on peut `ACCEPTER` la position et enregistrer les résultats dans le fichier de configuration avec :
 
 ```
 SAVE_CONFIG

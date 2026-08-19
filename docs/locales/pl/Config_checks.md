@@ -26,7 +26,7 @@ Zweryfikuj, czy wszystkie osie mogą się poruszać swobodnie (silniki krokowe s
 
 Manualnie przesuń wszystkie osie, aby żadna z nich nie zwierała czujnika krańcowego. Wywołaj komendę QUERY_ENDSTOPS poprzez konsolę. Powinna ona zwrócić status wszystkich skonfigurowanych krańcówek, a status każdej z nich powinien być wskazany jako "OTWARTA". Dla każdej krańcówki wywołaj ponownie komendę QUERY_ENDSTOPS jednocześnie wyzwalając ją ręcznie. Komenda QUERY_ENDSTOPS powinna zwrócić wartość "ZWARTA".
 
-Jeżeli krańcówka wydaje się być odwrócona (zwraca status "OTWARTA" w momencie, kiedy powinna być wyzwolona,i odwrotnie) dodaj znak "!" w konfiguracji pin'u (np. "endstop_pin: ^PA2") lub usuń znak "!" jeżeli jest już dodany.
+If the endstop appears inverted (it reports "open" when triggered and vice-versa) then add a "!" to the pin definition (for example, "endstop_pin: ^!PA2"), or remove the "!" if there is already one present.
 
 Jeżeli stan krańcówki nie zmienia się, to oznacza to, że jest ona podłączona do innego pinu. Jednak może również być wymagana zmiana ustawienia pullup dla tego pinu ('^' na początku nazwy endstop_pin - większość drukarek będzie używać rezystora pullup i '^' powinno to być zdefiniowane).
 

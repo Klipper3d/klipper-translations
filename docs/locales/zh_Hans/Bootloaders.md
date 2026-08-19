@@ -143,7 +143,7 @@ bossac --port=/dev/ttyACM0 -b -U -e -w -v -R out/klipper.bin
 
 SAMC21通过ARM串行线调试(SWD)接口进行刷新。这通常是通过专用的社署硬件加密狗来完成的。或者，人们可以使用带有[Raspberry Pi的 OpenOCD](#running-openocd-on-the-raspberry-pi).
 
-当将OpenOCD与SAMC21一起使用时，如果主板将SWD引脚用于其他目的，则必须采取额外步骤，首先将芯片置于冷插拔模式。如果在Rasberry PI上使用OpenOCD，可以通过在调用OpenOCD之前运行以下命令来完成。
+When using OpenOCD with the SAMC21, extra steps must be taken to first put the chip into Cold Plugging mode if the board makes use of the SWD pins for other purposes. If using OpenOCD on a Raspberry Pi, this can be done by running the following commands before invoking OpenOCD.
 
 ```
 SWCLK=25
@@ -376,7 +376,7 @@ STM32F072板也可以通过USB（通过DFU）刷写引导程序，如下所示�
 
 在CanBoot第一次被写入时，应该检测到没有应用程序，并进入引导程序。如果没有出现这种情况，可以通过连续按两次复位按钮进入引导程序。
 
-`flash_can.py`在`lib/canboot`文件夹中提供的工具可以用来上传Klipper固件。设备的UUID对于写入固件来说是必要的。如果你没有UUID可以查询当前运行引导程序的节点：
+The `flashtool.py` utility supplied in the `lib/katapult` folder may be used to upload Klipper firmware. The device UUID is necessary to flash. If you do not have a UUID it is possible to query nodes currently running the bootloader:
 
 ```
 python3 flash_can.py -q

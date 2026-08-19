@@ -16,7 +16,7 @@
 
 ## உங்கள் வளைவை உள்ளமைக்கவும்
 
-`[Skew_correction]` printur.cfg இல் இருப்பதை உறுதிப்படுத்திக் கொள்ளுங்கள். Skew_correcton ஐ உள்ளமைக்க இப்போது `set_skew` gcode ஐப் பயன்படுத்தலாம். எடுத்துக்காட்டாக, XY உடன் உங்கள் அளவிடப்பட்ட நீளங்கள் பின்வருமாறு இருந்தால்:
+Make sure `[skew_correction]` is in printer.cfg. You may now use the `SET_SKEW` gcode to configure skew_correction. For example, if your measured lengths along XY are as follows:
 
 ```
 நீளம் AC = 140.4

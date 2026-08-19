@@ -1,14 +1,14 @@
 # Bootloader Entry
 
-Klipper can be instructed to reboot into a [Bootloader](Bootloaders.md) in one of the following ways:
+Se puede indicar a Klipper que se reinicie en un [Bootloader](Bootloaders.md) de una de las siguientes maneras:
 
-## Requesting the bootloader
+## Solicitud del gestor de arranque(bootloader)
 
 ### Virtual Serial
 
-If a virtual (USB-ACM) serial port is in use, pulsing DTR while at 1200 baud will request the bootloader.
+Si se está utilizando un puerto serie virtual (USB-ACM), pulsar DTR a 1200 baudios solicitará el gestor de arranque.
 
-#### Python (with `flash_usb`)
+#### Python (con `flash_usb`)
 
 To enter the bootloader using python (using `flash_usb`):
 
@@ -35,7 +35,7 @@ Where `<DEVICE>` is your serial device, such as `/dev/serial.by-id/usb-Klipper[.
 
 ### Physical serial
 
-If a physical serial port is being used on the MCU (even if a USB serial adapter is being used to connect to it), sending the string `<SPACE><FS><SPACE>Request Serial Bootloader!!<SPACE>~`.
+If a physical serial port is being used on the MCU (even if a USB serial adapter is being used to connect to it), sending the string `<SPACE><FS><SPACE>Request Serial Bootloader!!<SPACE>~` requests the bootloader.
 
 `<SPACE>` is an ASCII literal space, 0x20.
 

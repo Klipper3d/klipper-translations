@@ -33,21 +33,22 @@ A fenti parancsok feltételezik, hogy az MCU az alapértelmezett 250000-es átvi
 
 ```
 ./scripts/flash-sdcard.sh -h
-SD-kártya feltöltő segédprogram Klipperhez
+SD Card upload utility for Klipper
 
-használat: flash_sdcard.sh [-h] [-l] [-c] [-b <baud>] [-f <firmware>]
+usage: flash_sdcard.sh [-h] [-l] [-c] [-s] [-b <baud>] [-f <firmware>]
                        <device> <board>
 
-pozicionális argumentumok:
-  <device>         eszköz soros port
-  <board>          alaplap típus
+positional arguments:
+  <device>        device serial port
+  <board>         board type
 
-opcionális argumentumok:
-  -h              mutatja az üzenetet
-  -l              listázza a rendelkezésre álló kártyákat
-  -c              csak a flash ellenőrzés/ellenőrzés futtatása (a feltöltést kihagyja)
-  -b <baud>       soros átviteli sebesség (alapértelmezett 250000)
-  -f <firmware>   a klipper.bin elérési útja
+optional arguments:
+  -h              show this message
+  -l              list available boards
+  -c              run flash check/verify only (skip upload)
+  -s              use fast SPI speed (4MHz)
+  -b <baud>       serial baud rate (default is 250000)
+  -f <firmware>   path to klipper.bin
 ```
 
 Ha az alaplapod olyan firmware-el égetted, amely egyéni átviteli sebesség mellett csatlakozik, akkor a `-b` opció megadásával frissítheted:
@@ -65,6 +66,20 @@ Ha a Klipper alapértelmezett helytől eltérő helyen található készletét s
 Ne feledd, hogy az MKS Robin E3 frissítésekor nem szükséges manuálisan futtatni az `update_mks_robin.py` fájlt, és az így kapott bináris állományt a `flash-sdcard.sh` fájlba táplálni. Ez az eljárás a feltöltési folyamat során automatikusan megtörténik.
 
 A `-c` opcióval egy ellenőrző vagy csak ellenőrzésre szolgáló műveletet végezhetsz, amellyel tesztelheted, hogy a kártya helyesen futtatja-e a megadott firmware-t. Ezt az opciót elsősorban olyan esetekre szánjuk, amikor kézi bekapcsolás szükséges az égetési eljárás befejezéséhez, például olyan bootloaderek esetében, amelyek SDIO módot használnak SPI helyett az SD-kártyák elérésekor. (Lásd a figyelmeztetéseket alább.) De bármikor használható annak ellenőrzésére is, hogy a kártyára égetett kód megegyezik-e a build mappában lévő verzióval bármely támogatott kártyán.
+
+## Failure to Initialize
+
+Some SD cards may fail to initialize at the default SPI speed of 400KHz. In this situation it is possible to use `-s` to drive the SPI peripheral at 4MHz. For example:
+
+```
+./scripts/flash-sdcard.sh -s /dev/ttyACM0 btt-skr-v1.3
+```
+
+If the device still fails to initialize then cause of the failure is unrelated to the speed and likely a result of one of the following conditions:
+
+- The SD card is improperly formatted. Must be `fat` or `fat32`.
+- Attempt to initialize a card using the SPI interface that has already been initialized over SDIO.
+- The SD card has failed or is corrupt.
 
 ## Óvintézkedések
 
@@ -111,7 +126,7 @@ BOARD_ALIASES = {
 }
 ```
 
-Ha új alaplap definícióra van szükséged, és nem tetszik a fent leírt eljárás, akkor ajánlott, hogy a [Klipper Közösségi Discord](Contact.md#discord) segítségével kérj egyet.
+If you need a new board definition and you are uncomfortable with the procedure outlined above it is recommended that you request one in the [Klipper Discord](Contact.md).
 
 ## SDIO-val égető alaplapok
 

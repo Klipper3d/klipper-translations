@@ -1,6 +1,6 @@
 # Manual leveling
 
-This document describes tools for calibrating a Z endstop and for performing adjustments to bed leveling screws.
+این سند، ابزارهایی برای کالیبره کردن انداستاپ Z و انجام تنظیمات بر روی پیچ‌های تسطیح بستر (Bed Leveling) را تشریح می‌کند.
 
 ## Calibrating a Z endstop
 

@@ -56,7 +56,7 @@ virtualenv venv
 ./venv/bin/python setup.py install
 ```
 
-And setup OctoPrint to start at bootup:
+Następnie skonfiguruj OctoPrint tak, aby uruchamiał się przy starcie systemu:
 
 ```
 sudo cp ~/OctoPrint/scripts/octoprint.init /etc/init.d/octoprint
@@ -71,7 +71,7 @@ It is necessary to modify OctoPrint's **/etc/default/octoprint** configuration f
 sudo nano /etc/default/octoprint
 ```
 
-Then start the Octoprint service:
+Następnie uruchom usługę Octoprint:
 
 ```
 sudo systemctl start octoprint

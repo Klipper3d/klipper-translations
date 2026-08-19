@@ -26,7 +26,7 @@ Verificar se todos os eixos da impressora podem mover-se livremente (os motores 
 
 Deslocar manualmente todos os eixos da impressora de modo a que nenhum deles esteja em contacto com um fim de curso. Enviar um comando QUERY_ENDSTOPS através da consola de comando. Deve responder com o estado atual de todos os fins de curso configurados e todos eles devem reportar um estado de "aberto". Para cada uma das paragens finais, execute novamente o comando QUERY_ENDSTOPS enquanto acciona manualmente a paragem final. O comando QUERY_ENDSTOPS deve reportar o fim de curso como "TRIGGERED".
 
-Se o fim de curso aparecer invertido (reporta "aberto" quando acionado e vice-versa), adicione um "!" à definição do pino (por exemplo, "endstop_pin: ^PA2"), ou remova o "!" se já existir um.
+If the endstop appears inverted (it reports "open" when triggered and vice-versa) then add a "!" to the pin definition (for example, "endstop_pin: ^!PA2"), or remove the "!" if there is already one present.
 
 Se o fim de curso não mudar, geralmente indica que o fim de curso está conectado a um pino diferente. No entanto, também pode exigir uma alteração na configuração de pullup do pino (o '^' no início do nome do endstop_pin - a maioria das impressoras usará um resistor de pullup e o '^' deve estar presente).
 

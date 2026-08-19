@@ -1,16 +1,16 @@
 # Benchmarks
 
-This document describes Klipper benchmarks.
+Este documento describe los puntos de referencia de Klipper.
 
-## Micro-controller Benchmarks
+## Pruebas de rendimiento de microcontroladores
 
-This section describes the mechanism used to generate the Klipper micro-controller step rate benchmarks.
+En esta sección se describe el mecanismo utilizado para generar los puntos de referencia de velocidad de paso del microcontrolador Klipper.
 
-The primary goal of the benchmarks is to provide a consistent mechanism for measuring the impact of coding changes within the software. A secondary goal is to provide high-level metrics for comparing the performance between chips and between software platforms.
+El objetivo principal de los puntos de referencia es proporcionar un mecanismo coherente para medir el impacto de los cambios de codificación dentro del software. Un objetivo secundario es proporcionar métricas de alto nivel para comparar el rendimiento entre chips y entre plataformas de software.
 
-The step rate benchmark is designed to find the maximum stepping rate that the hardware and software can reach. This benchmark stepping rate is not achievable in day-to-day use as Klipper needs to perform other tasks (eg, mcu/host communication, temperature reading, endstop checking) in any real-world usage.
+El punto de referencia de la velocidad de escalado está diseñado para encontrar la velocidad máxima que pueden alcanzar el hardware y el software. Esta velocidad de escalado de referencia no se puede alcanzar en el uso diario, ya que Klipper necesita realizar otras tareas (por ejemplo, comunicación mcu/host, lectura de temperatura, comprobación de fin de carrera) en cualquier uso real.
 
-In general, the pins for the benchmark tests are chosen to flash LEDs or other innocuous pins. **Always verify that it is safe to drive the configured pins prior to running a benchmark.** It is not recommended to drive an actual stepper during a benchmark.
+En general, los pines para las pruebas de referencia se eligen para encender LED u otros pines inocuos. **Compruebe siempre que sea seguro accionar los pines configurados antes de ejecutar una prueba de referencia.** No se recomienda accionar un motor paso a paso real durante una prueba de referencia.
 
 ### Step rate benchmark test
 

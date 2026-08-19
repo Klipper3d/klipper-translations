@@ -33,21 +33,22 @@ sudo service klipper start
 
 ```
 ./scripts/flash-sdcard.sh -h
-Klipper SD卡上传工具
+SD Card upload utility for Klipper
 
-usage: flash_sdcard.sh [-h] [-l] [-c] [-b <波特率>] [-f <固件>]
-                       <设备> <控制板>
+usage: flash_sdcard.sh [-h] [-l] [-c] [-s] [-b <baud>] [-f <firmware>]
+                       <device> <board>
 
-位置参数：
-  <设备>        设备串口
-  <控制板>         控制板类型
+positional arguments:
+  <device>        device serial port
+  <board>         board type
 
-可选参数：
-  -h              显示此信息
-  -l              列出可用控制板
-  -c              进行闪存检查/仅验证（跳过上传）
-  -b <波特率>      串口波特率 (默认为250000)
-  -f <firmware>   klipper.bin文件路径
+optional arguments:
+  -h              show this message
+  -l              list available boards
+  -c              run flash check/verify only (skip upload)
+  -s              use fast SPI speed (4MHz)
+  -b <baud>       serial baud rate (default is 250000)
+  -f <firmware>   path to klipper.bin
 ```
 
 如果您的电路板使用以自定义波特率连接的固件刷新，则可以通过指定 `-b` 选项进行升级：
@@ -65,6 +66,20 @@ usage: flash_sdcard.sh [-h] [-l] [-c] [-b <波特率>] [-f <固件>]
 请注意，升级 MKS Robin E3 时，无需手动运行 `update_mks_robin.py` 并将生成的二进制文件提供给 `flash-sdcard.sh`。 此过程在上传过程中自动执行。
 
 `-c` 选项用于执行检查或只验证的操作，以测试控制板是否正确运行指定的固件。这个选项主要是针对需要手动断电来完成刷写程序的情况，比如使用SDIO模式而不是SPI来访问SD卡的引导程序。(见下面的注意事项）但是，它也可以在任何时候用来验证在任何支持的板子上刷入板子的固件是否与你的构建文件夹中的版本一致。
+
+## Failure to Initialize
+
+Some SD cards may fail to initialize at the default SPI speed of 400KHz. In this situation it is possible to use `-s` to drive the SPI peripheral at 4MHz. For example:
+
+```
+./scripts/flash-sdcard.sh -s /dev/ttyACM0 btt-skr-v1.3
+```
+
+If the device still fails to initialize then cause of the failure is unrelated to the speed and likely a result of one of the following conditions:
+
+- The SD card is improperly formatted. Must be `fat` or `fat32`.
+- Attempt to initialize a card using the SPI interface that has already been initialized over SDIO.
+- The SD card has failed or is corrupt.
 
 ## 注意事项
 
@@ -111,7 +126,7 @@ BOARD_ALIASES = {
 }
 ```
 
-如果您需要一个新的电路板定义并且您对上述过程感到不舒服，建议您在 [Klipper Community Discord](Contact.md#discord) 中请求一个。
+If you need a new board definition and you are uncomfortable with the procedure outlined above it is recommended that you request one in the [Klipper Discord](Contact.md).
 
 ## 刷写使用SDIO的控制板
 

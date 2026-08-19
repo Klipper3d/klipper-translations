@@ -1,6 +1,6 @@
 # Kinematik
 
-Dieses Dokument gibt einen Überblick darüber, wie Klipper die Roboterbewegung implementiert (seine [Kinematik](https://en.wikipedia.org/wiki/Kinematics)). Der Inhalt kann sowohl für Entwickler, die an der Klipper-Software arbeiten wollen, als auch für Benutzer, die die Mechanik ihrer Maschinen besser verstehen wollen, von Interesse sein.
+Dieses Dokument gibt einen Überblick darüber, wie Klipper die Roboterbewegung implementiert (seine [Kinematik](https://en.wikipedia.org/wiki/Kinematics)). Der Inhalt kann sowohl für Entwickler, die an der Klipper-Software arbeiten wollen, als auch für Benutzer, die jene Mechanik ihrer Maschinen besser verstehen wollen, von Interesse sein.
 
 ## Beschleunigung
 
@@ -14,7 +14,7 @@ Klipper implements constant acceleration. The key formula for constant accelerat
 velocity(time) = start_velocity + accel*time
 ```
 
-## Trapezförmiger Generator
+## Trapezform Generator
 
 Klipper uses a traditional "trapezoid generator" to model the motion of each move - each move has a start speed, it accelerates to a cruising speed at constant acceleration, it cruises at a constant speed, and then decelerates to the end speed using constant acceleration.
 

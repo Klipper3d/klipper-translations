@@ -133,6 +133,12 @@ The following information is available for extruder_stepper objects (as well as 
 
 - `retract_length`, `retract_speed`, `unretract_extra_length`, `unretract_speed`: Firmware_retraction 모듈의 현재 설정입니다. 이 설정은 `SET_RETRACTION` 명령이 변경하는 경우 구성 파일과 다를 수 있습니다.
 
+## gcode
+
+The following information is available in the `gcode` object:
+
+- `commands`: Returns a list of all currently available commands. For each command, if a help string is defined it will also be provided.
+
 ## gcode_button
 
 The following information is available in [gcode_button some_name](Config_Reference.md#gcode_button) objects:
@@ -149,14 +155,15 @@ The following information is available in [gcode_button some_name](Config_Refere
 
 `gcode_move` 개체에서 다음 정보를 사용할 수 있습니다(이 개체는 항상 사용 가능):
 
-- `gcode_position`: 현재 G-Code 원점을 기준으로 한 툴헤드의 현재 위치입니다. 즉, `G1` 명령에 직접 보낼 수 있는 위치입니다. 이 위치의 x, y, z, e 구성요소에 액세스하는 것이 가능합니다 (예: `gcode_position.x`).
-- `position`: 구성 파일에 지정된 좌표계를 사용하여 도구 헤드의 마지막으로 명령된 위치입니다. 이 위치의 x, y, z 및 e 구성요소에 액세스하는 것이 가능합니다(예: `position.x`).
-- `homing_origin`: `G28` 명령 이후에 사용할 gcode 좌표계(구성 파일에 지정된 좌표계에 상대적)의 원점입니다. `SET_GCODE_OFFSET` 명령은 이 위치를 변경할 수 있습니다. 이 위치의 x, y 및 z 구성요소(예: `homing_origin.x`)에 액세스할 수 있습니다.
+- `gcode_position`: The current position of the toolhead relative to the current G-Code origin. That is, positions that one might directly send to a `G1` command. This value is encoded as a [coordinate](#accessing-coordinates).
+- `position`: The last commanded position of the toolhead using the coordinate system specified in the config file. This value is encoded as a [coordinate](#accessing-coordinates).
+- `homing_origin`: The origin of the gcode coordinate system (relative to the coordinate system specified in the config file) to use after a `G28` command. The `SET_GCODE_OFFSET` command can alter this position. This value is encoded as a [coordinate](#accessing-coordinates).
 - `speed`: `G1` 명령에서 마지막으로 설정한 속도(mm/s)입니다.
 - `speed_factor`: `M220` 명령으로 설정한 "speed factor override"입니다. 1.0은 재정의가 없음을 의미하고 예를 들어 2.0은 요청된 속도의 두 배인 부동 소수점 값입니다.
 - `extrude_factor`: `M221` 명령으로 설정한 "extrude factor override"입니다. 1.0은 재정의가 없음을 의미하고 예를 들어 2.0은 요청된 돌출을 두 배로 만드는 부동 소수점 값입니다.
 - `absolute_coordinates`: 이것은 `G90` 절대 좌표 모드에 있으면 True를 반환하고 `G91` 상대 모드에 있으면 False를 반환합니다.
 - `absolute_extrude`: 이것은 `M82` 절대 돌출 모드인 경우 True를 반환하고 `M83` 상대 모드인 경우 False를 반환합니다.
+- `axis_map`: Provides a mechanism for finding the coordinate component for a given G-Code id that is used in `G1` commands. See the [Accessing Coordinates](#accessing-coordinates) section for details.
 
 ## hall_filament_width_sensor
 
@@ -164,7 +171,8 @@ The following information is available in [gcode_button some_name](Config_Refere
 
 - all items from [filament_switch_sensor](Status_Reference.md#filament_switch_sensor)
 - `is_active`: 센서가 현재 활성 상태이면 True를 반환합니다.
-- `Diameter`: The last reading from the sensor in mm.
+- `flow_compensation_enabled`: Returns True if flow compensation is enabled.
+- `Diameter`: Returns the last width reading in mm if the sensor is active or the nominal filament diameter if it is not.
 - `Raw`: The last raw ADC reading from the sensor.
 
 ## heater
@@ -190,24 +198,28 @@ The following information is available in [gcode_button some_name](Config_Refere
 
 - `state`: idle_timeout 모듈에서 추적한 프린터의 현재 상태입니다. "Idle", "Printing", "Ready" 문자열 중 하나입니다.
 - `printing_time`: 프린터가 "인쇄 중" 상태에 있었던 시간(초)입니다 (idle_timeout 모듈에 의해 추적됨).
+- `idle_timeout`: The current 'timeout' (in seconds) to wait for the gcode to be triggered. (as set by [SET_IDLE_TIMEOUT](G-Codes.md#set_idle_timeout))
 
 ## led
 
 The following information is available for each `[led led_name]`, `[neopixel led_name]`, `[dotstar led_name]`, `[pca9533 led_name]`, and `[pca9632 led_name]` config section defined in printer.cfg:
 
-- `color_data`: A list of color lists containing the RGBW values for a led in the chain. Each value is represented as a float from 0.0 to 1.0. Each color list contains 4 items (red, green, blue, white) even if the underyling LED supports fewer color channels. For example, the blue value (3rd item in color list) of the second neopixel in a chain could be accessed at `printer["neopixel <config_name>"].color_data[1][2]`.
+- `color_data`: A list of color lists containing the RGBW values for a led in the chain. Each value is represented as a float from 0.0 to 1.0. Each color list contains 4 items (red, green, blue, white) even if the underlying LED supports fewer color channels. For example, the blue value (3rd item in color list) of the second neopixel in a chain could be accessed at `printer["neopixel <config_name>"].color_data[1][2]`.
 
 ## load_cell
 
 The following information is available for each `[load_cell name]`:
 
-- 'is_calibrated': True/False is the load cell calibrated
-- 'counts_per_gram': The number of raw sensor counts that equals 1 gram of force
-- 'reference_tare_counts': The reference number of raw sensor counts for 0 force
-- 'tare_counts': The current number of raw sensor counts for 0 force
-- 'force_g': The force in grams, averaged over the last polling period.
-- 'min_force_g': The minimum force in grams, over the last polling period.
-- 'max_force_g': The maximum force in grams, over the last polling period.
+- `is_calibrated`: True/False whether the load cell is calibrated.
+- `counts_per_gram`: The number of raw sensor counts that equals 1 gram of force.
+- `reference_tare_counts`: The reference number of raw sensor counts for 0 force.
+- `tare_counts`: The current number of raw sensor counts for 0 force.
+- `force_g`: The force in grams, averaged over the last polling period.
+- `min_force_g`: The minimum force in grams, over the last polling period.
+- `max_force_g`: The maximum force in grams, over the last polling period.
+- `errors`: The number of sensor errors detected since the last start of measurements.
+- `overflows`: The number of data buffer overflows detected since the last start of measurements.
+- `sample_rate`: The sensor's sample rate in samples per second.
 
 ## load_cell_probe
 
@@ -215,8 +227,10 @@ The following information is available for `[load_cell_probe]`:
 
 - all items from [load_cell](Status_Reference.md#load_cell)
 - all items from [probe](Status_Reference.md#probe)
-- 'endstop_tare_counts': the load cell probe keeps a tare value independent of the load cell. This re-set at the start of each probe.
-- 'last_trigger_time': timestamp of the last homing trigger
+- `endstop_tare_counts`: The load cell probe keeps a tare value independent of the load cell. This is re-set at the start of each probe.
+- `last_trigger_time`: Timestamp of the last homing trigger.
+- `last_z_result`: The Z position result of the last tap.
+- `is_last_tap_valid`: True if the last tap result is valid.
 
 ## manual_probe
 
@@ -240,13 +254,13 @@ The following information is available in the `manual_probe` object:
 
 `motion_report` 개체에서 다음 정보를 사용할 수 있습니다 (이 개체는 스테퍼 구성 섹션이 정의된 경우 자동으로 사용할 수 있음):
 
-- `live_position`: 현재 시간으로 보간된 요청된 toolhead 위치입니다.
+- `live_position`: The requested toolhead position interpolated to the current time. This value is encoded as a [coordinate](#accessing-coordinates).
 - `live_velocity`: 현재 시간에 요청된 toolhead 속도(mm/s)입니다.
 - `live_extruder_velocity`: 현재 시간에 요청된 압출기 속도(mm/s)입니다.
 
 ## output_pin
 
-다음 정보는 [output_pin some_name](Config_Reference.md#output_pin) 개체에서 사용할 수 있습니다:
+The following information is available in [output_pin some_name](Config_Reference.md#output_pin) and [pwm_tool some_name](Config_Reference.md#pwm_tool) objects:
 
 - `value`: `SET_PIN` 명령에 의해 설정된 핀의 "값".
 
@@ -278,7 +292,8 @@ The following information is available in the `manual_probe` object:
 
 - `name`: Returns the name of the probe in use.
 - `last_query`: 마지막 QUERY_PROBE 명령 동안 프로브가 "트리거된" 것으로 보고된 경우 True를 반환합니다. 이것이 매크로에서 사용되는 경우 템플릿 확장 순서로 인해 QUERY_PROBE 명령이 이 참조를 포함하는 매크로보다 먼저 실행되어야 합니다.
-- `last_z_result`: 마지막 PROBE 명령의 Z 결과 값을 반환합니다. 이것이 매크로에서 사용되는 경우 템플릿 확장 순서로 인해 PROBE(또는 유사한) 명령이 이 참조를 포함하는 매크로보다 먼저 실행되어야 합니다.
+- `last_probe_position`: The results of the last `PROBE` command. This value is encoded as a [coordinate](#accessing-coordinates). The probe hardware estimates that if one were to command the toolhead to XY position `last_probe_position.x`,`last_probe_position.y` and descend then the tip of the toolhead would first contact the bed at a Z height of `last_probe_position.z`. These coordinates are relative to the frame (that is, they use the coordinate system specified in the config file). Note, if this is used in a macro, due to the order of template expansion, the `PROBE` command must be run prior to the macro containing this reference.
+- `last_z_result`: This value is deprecated; it will be removed in the near future.
 
 ## pwm_cycle_time
 
@@ -372,13 +387,14 @@ The following information is available in [TMC stepper driver](Config_Reference.
 
 `toolhead` 개체에서 다음 정보를 사용할 수 있습니다(이 개체는 항상 사용 가능):
 
-- `position`: 구성 파일에 지정된 좌표계에 상대적인 toolhead의 마지막 명령 위치입니다. 이 위치의 x, y, z 및 e 구성요소에 액세스하는 것이 가능합니다(예: `position.x`).
+- `position`: The last commanded position of the toolhead relative to the coordinate system specified in the config file. This value is encoded as a [coordinate](#accessing-coordinates).
 - `extruder`: 현재 활성 압출기의 이름입니다. 예를 들어 매크로에서 `printer[printer.toolhead.extruder].target`을 사용하여 현재 압출기의 목표 온도를 얻을 수 있습니다.
 - `homed_axes`: "homed" 상태에 있는 것으로 간주되는 현재 직교 축입니다. "x", "y", "z" 중 하나 이상을 포함하는 문자열입니다.
-- `axis_minimum`, `axis_maximum`: 원점 복귀 후 축 이동 한계(mm). 이 제한 값의 x, y, z 구성 요소에 액세스할 수 있습니다 (예: `axis_minimum.x`, `axis_maximum.z`).
+- `axis_minimum`, `axis_maximum`: The axis travel limits (mm) after homing. This value is encoded as a [coordinate](#accessing-coordinates).
 - For Delta printers the `cone_start_z` is the max z height at maximum radius (`printer.toolhead.cone_start_z`).
 - `max_velocity`, `max_accel`, `minimum_cruise_ratio`, `square_corner_velocity`: The current printing limits that are in effect. This may differ from the config file settings if a `SET_VELOCITY_LIMIT` (or `M204`) command alters them at run-time.
 - `stalls`: toolhead가 G-Code 입력에서 읽을 수 있는 것보다 빠르게 이동하여 프린터를 일시 중지해야 했던 총 횟수(마지막 다시 시작한 이후).
+- `extra_axes`: Provides a mechanism for finding the coordinate component for extra axes available in standard `G1` type move commands. See the [Accessing Coordinates](#accessing-coordinates) section for details.
 
 ## dual_carriage
 
@@ -424,3 +440,13 @@ The following information is available in the `z_thermal_adjust` object (this ob
 다음 정보는 `z_tilt` 개체에서 사용할 수 있습니다(이 개체는 z_tilt가 정의된 경우 사용할 수 있음):
 
 - `applied`: z-tilt 레벨링 프로세스가 성공적으로 실행되고 완료된 경우 True 입니다.
+
+## Accessing Coordinates
+
+Some status fields provide a "coordinate". For macro users these fields may be accessed by component name (eg,`{printer.toolhead.position.x}`), where the component name may be "x", "y", or "z".
+
+For developers using the Klipper API Server these fields are transmitted as a list - for example: `{"toolhead": {"position": [1.0, 2.0, 3.0, 7.3, 19.2]}}` . The first three components of the list correspond with the x, y, and z axes.
+
+A coordinate will typically have at least 3 components (x, y, and z), however there may also be additional components. Care should be taken when accessing any of these additional components as the ordering and number of components may change at run-time.
+
+One may use `{printer.gcode_move.axis_map}` and/or `{printer.toolhead.extra_axes}` to determine the number of components and the ordering of components. For example, to access the "E" component one could use `{printer.toolhead.position[printer.gcode_move.axis_map.E]}`. Or, if one wanted to find the component associated with the "extruder" object, one could use `{printer.toolhead.position[printer.toolhead.extra_axes.extruder]}`.

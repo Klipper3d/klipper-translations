@@ -16,7 +16,7 @@
 
 ## Налаштуйте свій шашлик
 
-Переконайтеся, що `[skew_correction]` знаходиться в принтері.cfg. Ви можете використовувати `SET_SKEW` gcode для налаштування skew_correcton. Наприклад, якщо виміряні довжини вздовж XY є наступним чином:
+Make sure `[skew_correction]` is in printer.cfg. You may now use the `SET_SKEW` gcode to configure skew_correction. For example, if your measured lengths along XY are as follows:
 
 ```
 Довжина AC = 140.4

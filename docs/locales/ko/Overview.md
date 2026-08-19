@@ -1,67 +1,67 @@
 # 개요
 
-Klipper 에 오신것을 환영합니다. Klipper를 처음 사용하는 경우라면 [features](Features.md) 및 [installation](Installation.md) 문서부터 시작하십시오.
+클리퍼에 오신것을 환영합니다. 만약 클리퍼를 위해 새롭다면, [기능들](Features.md) 및 [설치](Installation.md) 문서들을 시작하십시오.
 
 ## 개요 정보
 
-- [특징들](Features.md): Klipper의 상위 수준 기능 목록.
+- [특징들](Features.md): 클리퍼의 높은단계 기능들 목록 하나.
 - [자주하는 질문](FAQ.md): 자주 묻는 질문.
-- [릴리즈 정보](Releases.md): 클리퍼 릴리즈 히스토리.
-- [Config changes](Config_Changes.md): 사용자가 프린터 config 파일을 업데이트해야 할 수 있는 최근 소프트웨어 변경 사항.
-- [연락처](Contact.md): 버그 보고 및 Klipper 개발자와의 일반적인 커뮤니케이션에 대한 정보.
+- [재임차들](Releases.md): 클리퍼 재임차들의 역사.
+- [변경들 설정하십시오](Config_Changes.md): 사용자가 종이출력기 구성설정 파일을 갱신해야 할 수 있는 최근 계산묶음장치 변경 사항.
+- [연락처](Contact.md): 벌레신고 및 클리퍼개발자와의 일반적인 소통창구에 대한 정보.
 
-## 설치 및 구성
+## 설치 및 구성설정
 
 - [설치](Installation.md): 클리퍼 설치 안내입니다.
-   - [Octoprint](OctoPrint.md): Guide to installing Octoprint with Klipper.
-- [Config Reference](Config_Reference.md): config 매개변수에 대한 설명.
-   - [Rotation Distance](Rotation_Distance.md): rotation_distance 스테퍼 모터 매개변수 계산.
-- [Config checks](Config_checks.md): cofnig 파일에서 기본 핀 설정 확인.
-- [베드 레벨링](Bed_Level.md): Klipper의 "베드 레벨링"에 대한 정보.
-   - [델타 캘리브레이션](Delta_Calibrate.md): 델타 방식 프린터 교정.
-   - [프로브 캘리브레이션](Probe_Calibrate.md): 자동 Z 프로브 교정.
-   - [BL-Touch](BLTouch.md): "BL-Touch" Z 프로브를 구성합니다.
-   - [수동 레벨링](Manual_Level.md): Z 엔드스톱(및 유사)의 보정.
-   - [베드 메쉬](Bed_Mesh.md): XY 위치를 기반으로 한 BED 높이 보정.
-   - [Endstop phase](Endstop_Phase.md): 스테퍼 지원 Z 엔드스톱 포지셔닝.
-   - [Axis Twist Compensation](Axis_Twist_Compensation.md): A tool to compensate for inaccurate probe readings due to twist in X gantry.
-- [Resonance compensation](Resonance_Compensation.md): 인쇄물에서 물결을 줄이는 도구.
-   - [Measuring resonances](Measuring_Resonances.md): 공진을 측정하기 위해 adxl345 가속도계 하드웨어를 사용하는 방법에 대한 정보.
-- [Pressure advance](Pressure_Advance.md): 익스트루더 압출 보정.
-- [G-Codes](G-Codes.md): Klipper에서 지원하는 G-Code 대한 정보.
-- [Command Templates](Command_Templates.md): G-Code 매크로 및 조건부 평가.
-   - [Status Reference](Status_Reference.md): 매크로(및 유사)에 사용할 수 있는 정보.
-- [TMC 드라이버](TMC_Drivers.md): Klipper와 함께 Trinamic 스테퍼 모터 드라이버 사용.
-- [멀티 MCU 호밍](멀티_MCU_Homing.md): 여러 마이크로 컨트롤러를 사용한 호밍 및 프로빙.
-- [슬라이서](Slicers.md): Klipper용 "슬라이서" 소프트웨어 구성.
+   - [십월출력](OctoPrint.md): 클리퍼와함께 십월출력을 설치하기위한 도움말글.
+- [참조사항을 구성설정하십시오](Config_Reference.md): 구성설정매개변수에 대한 설명이다.
+   - [빙빙돌리기 거리](Rotation_Distance.md): 빙빙_돌리기_거리 발걸음자 돌개 매개변수 계산.
+- [확인들 구성설정](Config_checks.md): 구성설정 서류에서 기본 철사 설정 확인.
+- [침대 단계](Bed_Level.md): 클리퍼의 "침대 단계"에 대한 정보.
+   - [차이 보정하십시오](Delta_Calibrate.md): 차이 방식 종이출력기 교정.
+   - [교정검사하십시오](Probe_Calibrate.md): 자동 지 검사 교정.
+   - [비 앨- 만지십시오](BLTouch.md): "비 앨-만지십시오" 지 검사를 구성설정합니다.
+   - [수동 단계](Manual_Level.md): Z 끝멈춤(및 유사)의 보정.
+   - [침대 망사](Bed_Mesh.md): 액스 와이 위치들을 기반으로 한 침대 높이를 정확하게합니다.
+   - [끝멈춤 단계](Endstop_Phase.md): 발걸음자는 지 끝멈춤 위치하는것을 돕습니다.
+   - [꼬인축 보상](Axis_Twist_Compensation.md): 액스 받침대가꼬인것때문에 부정확한읽기조사를 위해 보상하는도구 하나.
+- [공명보상](Resonance_Compensation.md): 출력들안에있는 웅웅 울리는것들을 줄이기위 한 도구 하나.
+   - [공명측정](Measuring_Resonances.md): 공진을 측정하기 위해 adxl345 가속도계 딱딱판를 사용하는 방법에 대한 정보.
+- [진보층을 압박하십시오](Pressure_Advance.md): 압출기 압력보정하다.
+- [지-암호들](G-Codes.md): 키플러에서 지원하는 지-암호 대한 정보.
+- [명령도마들](Command_Templates.md): 지-암호 매크로들과 조건부 평가.
+   - [참조상태](Status_Reference.md): 매크로들(및 유사)에 사용할 수 있는 정보.
+- [티 앰 씨 운전자들](TMC_Drivers.md): 클리퍼와 함께 삼중이름자적 발걸음자 돌개 운전자들 사용하고있으십시오.
+- [다중 작은제어자 단위의 귀환](멀티_MCU_Homing.md): 작은제어자 여러개를 사용하여 친구를 귀환시키고 검증하십시오.
+- [자르개](Slicers.md): 클리퍼용 "자르개" 계산묶음장치구성.
 - [꼬임 보정](꼬임 보정.md): 축의 조정은 완전히 정사각형이 아닙니다.
-- [PWM tools](Using_PWM_Tools.md): 레이저 또는 스핀들과 같은 PWM 제어 도구를 사용하는 방법에 대한 안내.
-- [Exclude Object](Exclude_Object.md): The guide to the Exclude Objects implementation.
+- [피 더블유 앰 도구들](Using_PWM_Tools.md): 일자빛들 또는 방적기축들처럼 피 더블유 앰 제어했는 도구들을 사용하는 방법에 대한 안내서다.
+- [객체제외](Exclude_Object.md): 객체들제외 구현하기위한 도우미글.
 
 ## 개발자 문서
 
-- [코딩 개요](Code_Overview.md): 개발자라면 읽어야 하는 문서.
-- [Kinematics](Kinematics.md): Klipper가 모션을 구현하는 방법에 대한 기술 세부 정보.
-- [프로토콜](Protocol.md): 호스트와 마이크로 컨트롤러 간의 저수준 메시징 프로토콜에 대한 정보.
-- [API 서버](API_Server.md): Klipper의 명령 및 제어 API에 대한 정보.
-- [MCU 명령어](MCU_Commands.md): 마이크로 컨트롤러 소프트웨어에 구현된 저수준 명령에 대한 설명.
-- [캔버스 프로토콜](CANBUS_protocol.md): Klipper CAN 버스 메시지 형식.
-- [디버깅](Debugging.md): Klipper를 테스트하고 디버그하는 방법에 대한 정보.
-- [벤치마크](Benchmarks.md): Klipper 벤치마크 방법에 대한 정보.
-- [기여](CONTRIBUTING.md): 개선 사항을 Klipper에 제출하는 방법에 대한 정보.
-- [패키징](Packaging.md): OS 패키지 빌드에 대한 정보.
+- [암호하는것 개요](Code_Overview.md): 개발자들은 반드시 이 처음을 익으십시오.
+- [운동학들](Kinematics.md): 클리퍼가 움직을 구현하는 방법에 대한 기술 세부 정보.
+- [통신방법](Protocol.md): 숙주와 작은제어자 사이 낮은단계 응답말 통신방법에 대한정보.
+- [신청자 계산묶음장치하는것 대강적인틀 제공자](API_Server.md): 클리퍼의 명령 및 제어 신청자 계산묶음장치하는것 대강적인틀에 대한 정보.
+- [작은제어자 단위 명령어](MCU_Commands.md): 작은제어자 계산묶음장치 구현된 저수준 명령에 대한 설명.
+- [씨 애이 앤 공용승합차 통신방법](CANBUS_protocol.md): 클리퍼 씨 애이 앤 공용승합차 응답말 형식.
+- [벌레싫으십시오](Debugging.md): 클리퍼를 시험하고 벌레싫어하는 방법에 대한 정보.
+- [성능측정](Benchmarks.md): 클리퍼 성능측정방법에 대한 정보.
+- [기여](CONTRIBUTING.md): 개선 사항을 클리퍼에 제출하는 방법에 대한 정보.
+- [꾸러미하는것](Packaging.md): 운영체제 꾸러미 쌓기에 대한 정보.
 
 ## 장치 관련 문서
 
-- [config 예제](Example_Configs.md): 예제 config 파일을 Klipper에 추가하는 방법에 대한 정보.
-- [SDCard 업데이트](SDCard_Updates.md): sdcard 에 바이너리를 복사하여 마이크로 컨트롤러 펌웨어 업데이르 하는 방법.
-- [Raspberry Pi as Micro-controller](RPi_microcontroller.md): Raspberry Pi의 GPIO 핀에 연결된 장치 제어에 대한 세부 정보.
-- [Beaglebone](Beaglebone.md): Beaglebone PRU에서 Klipper를 실행하기 위한 세부 정보입니다.
-- [브트로더](Bootloaders.md): 마이크로 컨트롤러 펌업에 대한 개발자 정보.
-- [Bootloader Entry](Bootloader_Entry.md): Requesting the bootloader.
-- [캔버스](CANBUS.md): Klipper에서 CAN 버스를 사용하는 방법에 대한 정보.
-   - [CAN bus troubleshooting](CANBUS_Troubleshooting.md): Tips for troubleshooting CAN bus.
-- [TSL1401CL 필라멘트 폭 센서](TSL1401CL_Filament_Width_Sensor.md)
-- [홀 필라멘트 폭 센서](Hall_Filament_Width_Sensor.md)
-- [Eddy Current Inductive probe](Eddy_Probe.md)
-- [Load Cells](Load_Cell.md)
+- [구성설정예제](Example_Configs.md): 예제 구성설정서류를 클리퍼에 추가하는 방법에 대한 정보.
+- [작은저장장치갱신](SDCard_Updates.md): 작은저장장치가배치될수있는서류철모음집에 이진자료를 복사하여 작은제어자를 깜박이십시오.
+- [작은제어자처럼 산딸기 달콤한것이발라진빵덩어리](RPi_microcontroller.md): 산딸기 달콤한것이발라진빵덩어리의 쥐 피 아이 오 철사에 연결된 장치 제어에 대한 세부 정보.
+- [비글본](Beaglebone.md): 비글본 피 알 유에서 클리퍼를 실행하기 위한 세부 정보입니다.
+- [신병짐꾼들](Bootloaders.md): 개발자는 작은제어자 깜박임 위에 있다고 알려줍니다.
+- [신병짐꾼입구](Bootloader_Entry.md): 신병짐꾼 요청중임.
+- [씨 애이 앤 공용승합차](CANBUS.md): 클리퍼에서 씨 애이 앤 공용승합차 를 사용하는 방법에 대한 정보.
+   - [씨 애이 앤 공용승합차 문제발사기](CANBUS_Troubleshooting.md): 씨 애이 앤 공용승합차를 문제발사하기위한 조각들.
+- [TSL1401CL 초창기전구원재료 폭 감지기](TSL1401CL_Filament_Width_Sensor.md)
+- [여관 초창기전구원재료 폭 감지기](Hall_Filament_Width_Sensor.md)
+- [에따이 현재 귀잡적조사](Eddy_Probe.md)
+- [짐의 세포들](Load_Cell.md)

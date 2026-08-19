@@ -32,7 +32,7 @@ Klipper также может использовать драйверы Trinamic
 
 Рекомендуется всегда использовать режим "spreadCycle" (не указывая `stealthchop_threshold`) или всегда использовать режим "stealthChop" (устанавливая `stealthchop_threshold` в 999999). К сожалению, драйверы часто выдают плохие и запутанные результаты, если режим меняется, когда двигатель имеет ненулевую скорость.
 
-Note that the `stealthchop_threshold` config option does not impact sensorless homing as Klipper automatically switches the TMC driver to an appropriate mode during sensorless homing operations.
+Обратите внимание, что опция настройки `stealthchop_threshold ` не влияет на без датчиков, поскольку Klipper автоматически переключает драйвер TMC в соответствующий режим во время операций без датчиков.
 
 ## Настройка интерполяции TMC приводит к небольшому отклонению положения
 

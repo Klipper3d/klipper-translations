@@ -184,9 +184,9 @@ Klipper містить `scripts/whconsole.py` інструмент, який м�
 
 ### load_cell/dump_force
 
-Ця кінцева точка використовується для підписки на примусове отримання даних, створених load_cell. Використання цієї кінцевої точки може збільшити системне навантаження Klipper.
+This endpoint is used to subscribe to force data produced by a load_cell. Using this endpoint may increase Klipper's system load.
 
-Запит може виглядати так: `{"id": 123, "method":"load_cell/dump_force", "params": {"sensor": "load_cell", "response_template": {}}}` та може повернути: `{"id": 123,"result":{"header":["time", "force (g)", "counts", "tare_counts"]}}`, а пізніше може генерувати асинхронні повідомлення, такі як: `{"params":{"data":[[3292.432935, 40.65, 562534, -234467]]}}`
+A request may look like: `{"id": 123, "method":"load_cell/dump_force", "params": {"sensor": "load_cell", "response_template": {}}}` and might return: `{"id": 123,"result":{"header":["time", "force (g)", "counts", "tare_counts"]}}` and might later produce asynchronous messages such as: `{"params":{"data":[[3292.432935, 40.65, 562534, -234467]]}}`
 
 Поле "голова" в початковій відповіді запиту використовується для опису полів, знайдених в більш пізній "data".
 

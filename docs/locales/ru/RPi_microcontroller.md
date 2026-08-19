@@ -79,7 +79,7 @@ gpiodetect
 gpioinfo
 ```
 
-Таким образом, выбранный вывод может использоваться в конфигурации как `gpiochip<n>/gpio<o>`, где **n** - номер чипа, отображаемый командой `gpiodetect`, а **o** - номер строки, отображаемый командой 'gpioinfo`.
+The chosen pin can thus be used within the configuration as `gpiochip<n>/gpio<o>` where **n** is the chip number as seen by the `gpiodetect` command and **o** is the line number seen by the` gpioinfo` command.
 
 ***Внимание:*** можно использовать только gpio, помеченный как `неиспользуемый`. Невозможно, чтобы *строка* использовалась несколькими процессами одновременно.
 

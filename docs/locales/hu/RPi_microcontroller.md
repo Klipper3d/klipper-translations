@@ -79,7 +79,7 @@ A tű számának és a tű elérhetőségének ellenőrzésére futtasd:
 gpioinfo
 ```
 
-A kiválasztott tű így a konfiguráción belül `gpiochip<n>/gpio<o> néven használható;` ahol **n** a `gpiodetect` által látott chipszám parancs által látott sorszám, és **o** a`gpioinfo` parancs által látott sorszám.
+The chosen pin can thus be used within the configuration as `gpiochip<n>/gpio<o>` where **n** is the chip number as seen by the `gpiodetect` command and **o** is the line number seen by the` gpioinfo` command.
 
 **Figyelmeztetés:** csak `unused` jelöléssel rendelkező GPIO használható. A *line* nem használható egyszerre több folyamatban.
 

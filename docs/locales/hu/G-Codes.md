@@ -207,7 +207,7 @@ A következő parancs akkor érhető el, ha a [dual_carriage konfigurációs sza
 
 #### SET_DUAL_CARRIAGE
 
-`SET_DUAL_CARRIAGE CARRIAGE=<carriage> [MODE=[PRIMARY|COPY|MIRROR]]`: This command will change the mode of the specified carriage. If no `MODE` is provided it defaults to `PRIMARY`. `<carriage>` must reference a defined primary or dual carriage for `generic_cartesian` kinematics or be 0 (for primary carriage) or 1 (for dual carriage) for all other kinematics supporting IDEX. Setting the mode to `PRIMARY` deactivates the other carriage and makes the specified carriage execute subsequent G-Code commands as-is. `COPY` and `MIRROR` modes are supported only for dual carriages. When set to either of these modes, dual carriage will then track the subsequent moves of its primary carriage and either copy relative movements of it (in `COPY` mode) or execute them in the opposite (mirror) direction (in `MIRROR` mode).
+`SET_DUAL_CARRIAGE CARRIAGE=<carriage> [MODE=[PRIMARY|COPY|MIRROR|INACTIVE]]`: This command will change the mode of the specified carriage. If no `MODE` is provided it defaults to `PRIMARY`. `<carriage>` must reference a defined primary or dual carriage for `generic_cartesian` kinematics or be 0 (for primary carriage) or 1 (for dual carriage) for all other kinematics supporting IDEX. Setting the mode to `PRIMARY` deactivates all other carriages on the same axis and makes the specified carriage execute subsequent G-Code movement commands as-is. Before activating `COPY` or `MIRROR` mode for a carriage, a different one must be activated as `PRIMARY` on the same axis. When set to either of these two modes, the carriage will track the subsequent G-Code moves and either copy relative movements (in `COPY` mode) or execute them in the opposite (mirror) direction (in `MIRROR` mode). Setting the mode to `INACTIVE` deactivates the carriage and makes it ignore further G-Code moves. Note that deactivating the primary carriage on the axis does not disable other carriages working in `COPY` or `MIRROR` mode, which can be used to disable printing a failed part by any of the tools and park that tool to prevent collisions with an unfinished part, see this [sample configuration](../config/sample-corexyuv.cfg) for macros examples.
 
 #### SAVE_DUAL_CARRIAGE_STATE
 
@@ -215,7 +215,7 @@ A következő parancs akkor érhető el, ha a [dual_carriage konfigurációs sza
 
 #### RESTORE_DUAL_CARRIAGE_STATE
 
-`RESTORE_DUAL_CARRIAGE_STATE [NAME=<state_name>] [MOVE=[0|1] [MOVE_SPEED=<speed>]]`: Visszaállítja a kettős kocsik korábban elmentett pozícióit és üzemmódjait, hacsak nincs megadva a "MOVE=0" ebben az esetben csak a mentett módok állnak vissza, de a kocsik pozíciói nem. Ha a pozíciók visszaállításra kerülnek, és a "MOVE_SPEED" van megadva, akkor a szerszámfej mozgások a megadott sebességgel (mm/s-ban) történnek; ellenkező esetben a nyomtatófej-mozgatás a sínbeállítási sebességet használja. Vedd figyelembe, hogy a kocsik csak a saját tengelyük felett állítják vissza pozíciójukat, ami szükséges lehet a kettős kocsi MÁSOLÁS és TÜKÖR üzemmódjának helyes visszaállításához.
+`RESTORE_DUAL_CARRIAGE_STATE [NAME=<state_name>] [MOVE=[0|1] [MOVE_SPEED=<speed>]]`: Restore the previously saved states of all dual and their primary carriages. This command restores the modes of the carriages and moves them to their previously saved positions, unless "MOVE=0" is specified. If positions are being restored and "MOVE_SPEED" is specified, then the carriages will move with at most the provided speed (in mm/s); otherwise the homing speeds of the corresponding carriages will be used as a reference. Note that the carriages restore their positions only over their own axes, which may be necessary to correctly restore COPY and MIRROR mode of the dual carriage. In addition, this command updates the Klipper toolhead position for each axis that has some dual carriages: it is set to match the actual position of the activated primary carriage of an axis or, if an axis does not have a saved primary carriage, to the axis position when `SAVE_DUAL_CARRIAGE_STATE` command was called.
 
 ### [endstop_phase]
 
@@ -289,7 +289,7 @@ A következő parancs akkor érhető el, ha a [fan_generic konfigurációs szaka
 
 `SET_FAN_SPEED FAN=config_name SPEED=<speed>` Ez a parancs beállítja a ventilátor sebességét. "speed" 0.0 és 1.0 között kell lennie.
 
-`SET_FAN_SPEED PIN=config_name TEMPLATE=<template_name> [<param_x>=<literal>]`: Ha `TEMPLATE` van megadva, akkor egy [display_template](Config_Reference.md#display_template)-t rendel a megadott ventilátorhoz. Például, ha definiálnánk egy `[display_template my_fan_template]` konfigurációs részt, akkor a `TEMPLATE=my_fan_template`-t rendelhetnénk ide. A display_template-nek egy olyan karakterláncot kell létrehoznia, amely egy lebegőpontos számot tartalmaz a kívánt értékkel. A sablon folyamatosan kiértékelésre kerül, és a ventilátor automatikusan az így kapott sebességre lesz állítva. A sablon kiértékelése során használandó display_template paramétereket lehet beállítani (a paraméterek Python literálokként lesznek elemezve). Ha a TEMPLATE üres karakterlánc, akkor ez a parancs törli a tűhöz rendelt korábbi sablonokat (ezután az értékek közvetlen kezeléséhez a `SET_FAN_SPEED` parancsokat használhatjuk).
+`SET_FAN_SPEED FAN=config_name TEMPLATE=<template_name> [<param_x>=<literal>]`: If `TEMPLATE` is specified then it assigns a [display_template](Config_Reference.md#display_template) to the given fan. For example, if one defined a `[display_template my_fan_template]` config section then one could assign `TEMPLATE=my_fan_template` here. The display_template should produce a string containing a floating point number with the desired value. The template will be continuously evaluated and the fan will be automatically set to the resulting speed. One may set display_template parameters to use during template evaluation (parameters will be parsed as Python literals). If TEMPLATE is an empty string then this command will clear any previous template assigned to the pin (one can then use `SET_FAN_SPEED` commands to manage the values directly).
 
 ### [filament_switch_sensor]
 
@@ -409,7 +409,7 @@ The commands in this section become automatically available when `kinematics: ge
 
 Note that `SET_STEPPER_CARRIAGES` performs certain internal validations of the new printer kinematics after the change. Keep in mind that if it detects an issue, it may leave printer kinematics in an invalid state. This means that if `SET_STEPPER_CARRIAGES` reports an error, it is unsafe to issue other GCode commands, and the user must inspect the error message and either fix the problem, or manually restore the previous stepper(s) configuration.
 
-Since `SET_STEPPER_CARRIAGES` can update a configuration of a single stepper at a time, some sequences of changes can lead to invalid intermediate kinematic configurations, even if the final configuration is valid. In such cases a user can pass `DISABLE_CHECKS=1` parameters to all but the last command to disable intermediate checks. For example, if `stepper a` and `stepper b` initially have `x-y` and `x+y` carriages correspondingly, then the following sequence of commands will let a user effectively swap the carriage controls: `SET_STEPPER_CARRIAGES STEPPER=a CARRIAGES=x+y DISABLE_CHECKS=1` and `SET_STEPPER_CARRIAGES STEPPER=b CARRIAGES=x-y`, while still validating the final kinematics state.
+Since `SET_STEPPER_CARRIAGES` can update a configuration of a single stepper at a time, some sequences of changes can lead to invalid intermediate kinematic configurations, even if the final configuration is valid. In such cases a user can pass `DISABLE_CHECKS=1` parameters to all but the last command to disable intermediate checks. For example, if `stepper a` and `stepper b` initially have `carriage_x-carriage_y` and `carriage_x+carriage_y` carriages correspondingly, then the following sequence of commands will let a user effectively swap the carriage controls: `SET_STEPPER_CARRIAGES STEPPER=a CARRIAGES=carriage_x+carriage_y DISABLE_CHECKS=1` and `SET_STEPPER_CARRIAGES STEPPER=b CARRIAGES=carriage_x-carriage_y`, while still validating the final kinematics state.
 
 ### [hall_filament_width_sensor]
 
@@ -417,19 +417,19 @@ A következő parancsok akkor érhetők el, ha a [tsl1401cl szálszélesség ér
 
 #### QUERY_FILAMENT_WIDTH
 
-`QUERY_FILAMENT_WIDTH`: Visszaadja az aktuálisan mért izzószál szélességet.
+`QUERY_FILAMENT_WIDTH`: Return the current measured filament width, the state of the width sensor, the state of the filament sensor and the state of flow compensation.
 
 #### RESET_FILAMENT_WIDTH_SENSOR
 
-`RESET_FILAMENT_WIDTH_SENSOR`: Törli az összes érzékelő leolvasását. Hasznos nyomtatószál csere után.
+`RESET_FILAMENT_WIDTH_SENSOR`: Clear all sensor readings. Helpful after filament change. Resets flow rate to 100%.
 
 #### DISABLE_FILAMENT_WIDTH_SENSOR
 
-`DISABLE_FILAMENT_WIDTH_SENSOR`: Kapcsold ki a szálszélesség érzékelőt, és ne használd áramlásszabályozáshoz.
+`DISABLE_FILAMENT_WIDTH_SENSOR`: Turn off the filament width sensor and stop using it for flow compensation. Resets flow rate to 100%.
 
 #### ENABLE_FILAMENT_WIDTH_SENSOR
 
-`ENABLE_FILAMENT_WIDTH_SENSOR`: Kapcsold be a szálszélesség érzékelőt, és kezd el használni az áramlásszabályozáshoz.
+`ENABLE_FILAMENT_WIDTH_SENSOR [FLOW_COMPENSATION=[0|1]`: Turn on the filament width sensor and enable or disable flow compensation. If `FLOW_COMPENSATION` is not specified, the current flow compensation state is preserved.
 
 #### QUERY_RAW_FILAMENT_WIDTH
 
@@ -473,7 +473,7 @@ A következő parancs akkor engedélyezett, ha az [input_shaper konfigurációs 
 
 #### SET_INPUT_SHAPER
 
-`SET_INPUT_SHAPER [SHAPER_FREQ_X=<shaper_freq_x>] [SHAPER_FREQ_Y=<shaper_freq_y>] [DAMPING_RATIO_X=<damping_ratio_x>] [DAMPING_RATIO_Y=<damping_ratio_y>] [SHAPER_TYPE=<shaper>] [SHAPER_TYPE_X=<shaper_type_x>] [SHAPER_TYPE_Y=<shaper_type_y>]`: A bemeneti formáló paraméterek módosítása. Vedd figyelembe, hogy a SHAPER_TYPE paraméter visszaállítja a bemeneti formálót mind az X, mind az Y tengelyre, még akkor is, ha az [input_shaper] szakaszban különböző formálótípusok lettek beállítva. A SHAPER_TYPE nem használható együtt a SHAPER_TYPE_X és SHAPER_TYPE_Y paraméterekkel. Az egyes paraméterekkel kapcsolatos további részletekért lásd a [konfigurációs hivatkozást](Config_Reference.md#input_shaper).
+`SET_INPUT_SHAPER [SHAPER_FREQ_X=<shaper_freq_x>] [SHAPER_FREQ_Y=<shaper_freq_y>] [SHAPER_FREQ_Y=<shaper_freq_z>] [DAMPING_RATIO_X=<damping_ratio_x>] [DAMPING_RATIO_Y=<damping_ratio_y>] [DAMPING_RATIO_Z=<damping_ratio_z>] [SHAPER_TYPE=<shaper>] [SHAPER_TYPE_X=<shaper_type_x>] [SHAPER_TYPE_Y=<shaper_type_y>] [SHAPER_TYPE_Z=<shaper_type_z>]`: Modify input shaper parameters. Note that SHAPER_TYPE parameter resets input shaper for all axes even if different shaper types have been configured in [input_shaper] section. SHAPER_TYPE cannot be used together with any of SHAPER_TYPE_X, SHAPER_TYPE_Y, and SHAPER_TYPE_Z parameters. See [config reference](Config_Reference.md#input_shaper) for more details on each of these parameters.
 
 ### [led]
 
@@ -515,18 +515,9 @@ You can cancel the calibration process at any time with `ABORT`.
 
 ### [load_cell_probe]
 
-The following commands are enabled if a [load_cell config section](Config_Reference.md#load_cell_probe) has been enabled.
+The commands below are enabled if a [load_cell config section](Config_Reference.md#load_cell_probe) has been enabled.
 
-### LOAD_CELL_TEST_TAP
-
-`LOAD_CELL_TEST_TAP [TAPS=<taps>] [TIMEOUT=<timeout>]`: Run a testing routine that reports taps on the load cell. The toolhead will not move but the load cell probe will sense taps just as if it was probing. This can be used as a sanity check to make sure that the probe works. This tool replaces QUERY_ENDSTOPS and QUERY_PROBE for load cell probes.
-
-- `TAPS`: the number of taps the tool expects
-- `TIMEOOUT`: the time, in seconds, that the tool waits for each tab before aborting.
-
-### Load Cell Command Extensions
-
-Commands that perform probes, such as [`PROBE`](#probe), [`PROBE_ACCURACY`](#probe_accuracy), [`BED_MESH_CALIBRATE`](#bed_mesh_calibrate) etc. will accept additional parameters if a `[load_cell_probe]` is defined. The parameters override the corresponding settings from the [`[load_cell_probe]`](./Config_Reference.md#load_cell_probe) configuration:
+In addition, commands that perform probes, such as [`PROBE`](#probe), [`PROBE_ACCURACY`](#probe_accuracy), [`BED_MESH_CALIBRATE`](#bed_mesh_calibrate) etc. will accept additional parameters if a `[load_cell_probe]` is defined. The parameters override the corresponding settings from the [`[load_cell_probe]`](./Config_Reference.md#load_cell_probe) configuration:
 
 - `FORCE_SAFETY_LIMIT=<grams>`
 - `TRIGGER_FORCE=<grams>`
@@ -537,6 +528,13 @@ Commands that perform probes, such as [`PROBE`](#probe), [`PROBE_ACCURACY`](#pro
 - `NOTCH_FILTER_FREQUENCIES=<list of frequency_hz>`
 - `NOTCH_FILTER_QUALITY=<quality>`
 - `TARE_TIME=<seconds>`
+
+### LOAD_CELL_TEST_TAP
+
+`LOAD_CELL_TEST_TAP [TAPS=<taps>] [TIMEOUT=<timeout>]`: Run a testing routine that reports taps on the load cell. The toolhead will not move but the load cell probe will sense taps just as if it was probing. This can be used as a sanity check to make sure that the probe works. This tool replaces QUERY_ENDSTOPS and QUERY_PROBE for load cell probes.
+
+- `TAPS`: the number of taps the tool expects
+- `TIMEOOUT`: the time, in seconds, that the tool waits for each tab before aborting.
 
 ### [manual_probe]
 
@@ -564,7 +562,14 @@ A következő parancs akkor érhető el, ha a [manual_stepper konfigurációs sz
 
 #### MANUAL_STEPPER
 
-`MANUAL_STEPPER STEPPER=config_name [ENABLE=[0|1]] [SET_POSITION=<pos>] [SPEED=<speed>] [ACCEL=<accel>] [MOVE=<pos> [STOP_ON_ENDSTOP=[1|2|2|-1|-2]] [SYNC=0]]]`: Ez a parancs megváltoztatja a léptető állapotát. Az ENABLE paraméterrel engedélyezheted/letilthatod a léptetőt. A SET_POSITION paraméterrel kényszerítheted a léptetőt arra, hogy azt higgye, az adott helyzetben van. A MOVE paraméterrel kezdeményezhetsz mozgást egy adott pozícióba. Ha a SPEED és/vagy az ACCEL paraméter meg van adva, akkor a rendszer a megadott értékeket használja a konfigurációs fájlban megadott alapértelmezett értékek helyett. Ha nulla ACCEL-t ad meg, akkor nem történik gyorsítás. Ha STOP_ON_ENDSTOP=1 van megadva, akkor a lépés korán véget ér. Ha a végálláskapcsoló aktiválódik (a STOP_ON_ENDSTOP=2 paranccsal hiba nélkül befejezheted a mozgást, még akkor is, ha a végálláskapcsoló nem aktiválódott. Használd a -1 vagy a -2 jelölést, hogy leálljon, amikor a végálláskapcsoló még nem aktiválódott). Normális esetben a későbbi G-kód parancsok a léptetőmozgás befejezése után kerülnek ütemezésre, azonban ha a kézi léptetőmozgás parancs a SYNC=0 értéket használja, akkor a későbbi G-kód mozgatási parancsok a léptetőmozgással párhuzamosan is futhatnak.
+`MANUAL_STEPPER STEPPER=config_name [ENABLE=[0|1]] [SET_POSITION=<pos>] [SPEED=<speed>] [ACCEL=<accel>] [MOVE=<pos>] [SYNC=0]]`: This command will alter the state of the stepper. Use the ENABLE parameter to enable/disable the stepper. Use the SET_POSITION parameter to force the stepper to think it is at the given position. Use the MOVE parameter to request a movement to the given position. If SPEED and/or ACCEL is specified then the given values will be used instead of the defaults specified in the config file. If an ACCEL of zero is specified then no acceleration will be performed. Normally future G-Code commands will be scheduled to run after the stepper move completes, however if a manual stepper move uses SYNC=0 then future G-Code movement commands may run in parallel with the stepper movement.
+
+`MANUAL_STEPPER STEPPER=config_name [SPEED=<speed>] [ACCEL=<accel>] MOVE=<pos> STOP_ON_ENDSTOP=<check_type>`: If STOP_ON_ENDSTOP is specified then the move will end early if an endstop event occurs. The `STOP_ON_ENDSTOP` parameter may be set to one of the following values:
+
+* `probe`: The movement will stop when the endstop reports triggered.
+* `home`: The movement will stop when the endstop reports triggered and the final position of the manual_stepper will be set such that the trigger position matches the position specified in the `MOVE` parameter.
+* `inverted_probe`, `inverted_home`: As above, however, the movement will stop when the endstop reports it is in a non-triggered state.
+* `try_probe`, `try_inverted_probe`, `try_home`, `try_inverted_home`: As above, but no error will be reported if the movement fully completes without an endstop event stopping the move early.
 
 `MANUAL_STEPPER STEPPER=config_name GCODE_AXIS=[A-Z] [LIMIT_VELOCITY=<velocity>] [LIMIT_ACCEL=<accel>] [INSTANTANEOUS_CORNER_VELOCITY=<velocity>]`: If the `GCODE_AXIS` parameter is specified then it configures the stepper motor as an extra axis on `G1` move commands. For example, if one were to issue a `MANUAL_STEPPER ... GCODE_AXIS=R` command then one could issue commands like `G1 X10 Y20 R30` to move the stepper motor. The resulting moves will occur synchronously with the associated toolhead xyz movements. If the motor is associated with a `GCODE_AXIS` then one may no longer issue movements using the above `MANUAL_STEPPER` command - one may unregister the stepper with a `MANUAL_STEPPER ... GCODE_AXIS=` command to resume manual control of the motor. The `LIMIT_VELOCITY` and `LIMIT_ACCEL` parameters allow one to reduce the speed of `G1` moves if those moves would result in a velocity or acceleration above the specified limits. The `INSTANTANEOUS_CORNER_VELOCITY` specifies the maximum instantaneous velocity change (in mm/s) of the motor during the junction of two moves (the default is 1mm/s).
 
@@ -578,7 +583,7 @@ A következő parancs akkor érhető el, ha az [mcp4018 config szekció](Config_
 
 ### [output_pin]
 
-A következő parancs akkor érhető el, ha az [output_pin konfigurációs szakasz](Config_Reference.md#output_pin) engedélyezve van.
+The following command is available when an [output_pin config section](Config_Reference.md#output_pin) or [pwm_tool config section](Config_Reference.md#pwm_tool) is enabled.
 
 #### SET_PIN
 
@@ -678,11 +683,27 @@ A következő parancsok akkor érhetők el, ha a [szonda konfigurációs szakasz
 
 ### [probe_eddy_current]
 
-A következő parancsok akkor érhetők el, ha a [probe_eddy_current konfigurációs szekció](Config_Reference.md#probe_eddy_current) engedélyezve van.
+The commands below are available when a [probe_eddy_current config section](Config_Reference.md#probe_eddy_current) is enabled.
+
+In addition, commands that perform probes, such as [`PROBE`](#probe), [`PROBE_ACCURACY`](#probe_accuracy), [`BED_MESH_CALIBRATE`](#bed_mesh_calibrate) etc. will accept additional parameters if a `[probe_eddy_current]` section is defined:
+
+- `METHOD=<scan|rapid_scan|tap>`: This alters the probing mechanism:
+   - `METHOD=scan`: The toolhead does not descend. Instead the toolhead will pause briefly above each target location and return the measured height at that position.
+   - `METHOD=rapid_scan`: The toolhead does not descend and does not pause at each target location. The value returned is the measured height around the time that the toolhead was near each target position.
+   - `METHOD=tap`: The toolhead will descend until the nozzle makes contact with the bed. This method is only available if `tap_threshold` is specified in the `[probe_eddy_current]` config section.
+   - default: If no `METHOD` parameter is specified then the default behavior is for the toolhead to descend until the sensor detects that the distance to the bed is at or below the `z_offset` parameter specified in the `[probe_eddy_current]` config section.
+- `SAMPLE_TIME=<time>`: When using `METHOD=scan` probing, this specifies the time (in seconds) to pause at each target point. When using `METHOD=rapid_scan` this specifies the measurement time window at each target. If not specified, the default is 0.100 (which is 100ms).
+- `TAP_THRESHOLD=<value>`: This overrides the `tap_threshold` specified in the `[probe_eddy_current]` config section when probing using `METHOD=tap`.
+
+The `Z_OFFSET_APPLY_PROBE` command is also extended to support a `METHOD=tap` parameter. When no METHOD parameter is provided, the `Z_OFFSET_APPLY_PROBE` command alters the probe calibration to apply the current Z G-Code offset to future `scan`, `rapid_scan`, and default probes. If `METHOD=tap` is specified then the command instead applies the change to `tap_z_offset` so that future `tap` probes are updated to use the current Z G-Code offset.
 
 #### PROBE_EDDY_CURRENT_CALIBRATE
 
 `PROBE_EDDY_CURRENT_CALIBRATE CHIP=<config_name>`: Ez elindít egy eszközt, amely kalibrálja az érzékelő rezonancia frekvenciáit a megfelelő Z magasságokhoz. Az eszköz elkészítése néhány percet vesz igénybe. A befejezés után a SAVE_CONFIG paranccsal tárold az eredményeket a printer.cfg fájlban.
+
+#### PROBE_EDDY_CURRENT_TAP_CALIBRATE
+
+`PROBE_EDDY_CURRENT_TAP_CALIBRATE [TAP=guess|refine|verify]`: This starts a tool that can calibrate the probe's "tap_threshold" parameter. See the [eddy probe documentation](Eddy_Probe.md#tap-calibration) for details.
 
 #### LDC_CALIBRATE_DRIVE_CURRENT
 
@@ -732,7 +753,7 @@ A következő parancsok akkor érhetők el, ha a [resonance_tester konfiguráci�
 
 #### TEST_RESONANCES
 
-`TEST_RESONANCES AXIS=<axis> [OUTPUT=<resonances,raw_data>] [NAME=<name>] [FREQ_START=<min_freq>] [FREQ_END=<max_freq>] [ACCEL_PER_HZ=<accel_per_hz>] [HZ_PER_SEC=<hz_per_sec>] [CHIPS=<chip_name>] [POINT=x,y,z] [INPUT_SHAPING=<0:1>]`: Lefuttatja a rezonanciatesztet a kért "tengely" összes konfigurált mérőpontján, és méri a gyorsulást a megfelelő tengelyhez konfigurált gyorsulásmérő chipek segítségével. A "tengely" lehet X vagy Y, vagy megadhat egy tetszőleges irányt a következőképpen: "AXIS=dx,dy", ahol a dx és a dy lebegőpontos számok, amelyek egy irányvektort határoznak meg (például "AXIS=X", "AXIS=Y" vagy "AXIS=1,-1" az átlós irány meghatározásához). Vedd figyelembe, hogy az "AXIS=dx,dy" és az "AXIS=-dx,-dy" egyenértékűek. A `chip_name` egy vagy több konfigurált gyorsulásmérő lehet, vesszővel elválasztva, például `CHIPS="adxl345, adxl345 rpi"`. Ha a POINT meg van adva, az felülbírálja a [rezonancia-teszter]-ben konfigurált pontokat. Ha `INPUT_SHAPING=0`, vagy nincs beállítva (alapértelmezett), letiltja a bemeneti formázást a rezonanciateszthez, mert nem érvényes a rezonanciateszt futtatása a bemeneti alakítóval. Az `OUTPUT` paraméter egy vesszővel elválasztott lista, amelyen a kimenetek íródnak. Ha a `raw_data` kérésre kerül, akkor a nyers gyorsulásmérő adatok egy fájlba vagy egy fájlsorozatba íródnak `/tmp/raw_data_<axis>_[<chip_name>_][<point>_]<name>.csv` a (`<point>_` a név egy része csak akkor jön létre, ha 1-nél több vizsgálópont van megadva vagy konfigurálva). Ha a "rezonanciák" meg van adva, akkor a rendszer kiszámítja a frekvenciaválaszt (az összes mérőponton), és beírja a `/tmp/resonances_<axis>_<name>.csv` fájlba. Ha nincs beállítva, az OUTPUT alapértelmezés szerint a „rezonanciákat”, a NAME pedig az aktuális időt „ÉÉÉÉHHNN_ÓÓPP” formátumban adja meg.
+`TEST_RESONANCES AXIS=<axis> [OUTPUT=<resonances,raw_data>] [NAME=<name>] [FREQ_START=<min_freq>] [FREQ_END=<max_freq>] [ACCEL_PER_HZ=<accel_per_hz>] [HZ_PER_SEC=<hz_per_sec>] [CHIPS=<chip_name>] [POINT=x,y,z] [INPUT_SHAPING=<0:1>]`: Runs the resonance test in all configured probe points for the requested "axis" and measures the acceleration using the accelerometer chips configured for the respective axis. "axis" can either be X, Y or Z, or specify an arbitrary direction as `AXIS=dx,dy[,dz]`, where dx, dy, dz are floating point numbers defining a direction vector (e.g. `AXIS=X`, `AXIS=Y`, or `AXIS=1,-1` to define a diagonal direction in XY plane, or `AXIS=0,1,1` to define a direction in YZ plane). Note that `AXIS=dx,dy` and `AXIS=-dx,-dy` is equivalent. `chip_name` can be one or more configured accel chips, delimited with comma, for example `CHIPS="adxl345, adxl345 rpi"`. If POINT is specified it will override the point(s) configured in `[resonance_tester]`. If `INPUT_SHAPING=0` or not set(default), disables input shaping for the resonance testing, because it is not valid to run the resonance testing with the input shaper enabled. `OUTPUT` parameter is a comma-separated list of which outputs will be written. If `raw_data` is requested, then the raw accelerometer data is written into a file or a series of files `/tmp/raw_data_<axis>_[<chip_name>_][<point>_]<name>.csv` with (`<point>_` part of the name generated only if more than 1 probe point is configured or POINT is specified). If `resonances` is specified, the frequency response is calculated (across all probe points) and written into `/tmp/resonances_<axis>_<name>.csv` file. If unset, OUTPUT defaults to `resonances`, and NAME defaults to the current time in "YYYYMMDD_HHMMSS" format.
 
 #### SHAPER_CALIBRATE
 
@@ -849,7 +870,7 @@ A következő parancsok akkor érhetők el, ha a [temperature_probe konfiguráci
 
 #### TEMPERATURE_PROBE_CALIBRATE
 
-`TEMPERATURE_PROBE_CALIBRATE [PROBE=<probe name>] [TARGET=<value>] [STEP=<value>]`: Elindítja a szonda sodródásának kalibrálását örvényáram alapú szondákhoz. A `TARGET` az utolsó mérés célhőmérséklete. Ha a mérés során rögzített hőmérséklet meghaladja a `TARGET` kalibrációt, akkor a kalibráció befejeződik. A `STEP` paraméter beállítja a hőmérséklet-deltát (C-ban) a mérések között. A mérések után ez a delta a `TEMPERATURE_PROBE_NEXT` hívás ütemezésére szolgál. Az alapértelmezett `STEP` a 2.
+`TEMPERATURE_PROBE_CALIBRATE [PROBE=<probe name>] [TARGET=<value>] [STEP=<value>] [METHOD=<method>]`: Initiates probe drift calibration for eddy current based probes. The `TARGET` is a target temperature for the last sample. When the temperature recorded during a sample exceeds the `TARGET` calibration will complete. The `STEP` parameter sets temperature delta (in C) between samples. After a sample has been taken, this delta is used to schedule a call to `TEMPERATURE_PROBE_NEXT`. The default `STEP` is 2. The `METHOD` only supports `tap` as an option, if specified, probing will be automated.
 
 #### TEMPERATURE_PROBE_NEXT
 

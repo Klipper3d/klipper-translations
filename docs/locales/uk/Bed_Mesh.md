@@ -70,7 +70,7 @@
  бікубічний_натяг: 0,2
 ```
 
-- `mesh_pps: 2, 3` *Значення за замовчуванням: 2, 2* Параметр `mesh_pps` є скороченням для точок сітки на сегмент. Цей параметр визначає, скільки точок інтерполювати для кожного сегмента вздовж осей X і Y. Вважайте «сегмент» простором між кожною досліджуваною точкою. Як і `probe_count`, `mesh_pps` вказується як пара цілих чисел X, Y, а також може бути вказано одне ціле число, яке застосовується до обох осей. У цьому прикладі є 4 сегменти вздовж осі X і 2 сегменти вздовж осі Y. Це означає 8 інтерпольованих точок уздовж X, 6 інтерпольованих точок уздовж Y, що призводить до сітки 13x8. Зауважте, що якщо mesh_pps встановлено на 0, то інтерполяція сітки вимкнена, а досліджувана матриця буде взята безпосередньо.
+- `mesh_pps: 2, 3` *Default Value: 2, 2* The `mesh_pps` option is shorthand for Mesh Points Per Segment. This option specifies how many points to interpolate for each segment along the X and Y axes. Consider a 'segment' to be the space between each probed point. Like `probe_count`, `mesh_pps` is specified as an X, Y integer pair, and also may be specified a single integer that is applied to both axes. In this example there are 4 segments along the X axis and 2 segments along the Y axis. This evaluates to 8 interpolated points along X, 6 interpolated points along Y, which results in a 13x9 mesh. Note that if mesh_pps is set to 0 then mesh interpolation is disabled and the probed matrix will be sampled directly.
 - `algorithm: lagrange` *Значення за замовчуванням: lagrange* Алгоритм, який використовується для інтерполяції сітки. Може бути «лагранжа» або «бікубічного». Інтерполяція Лагранжа обмежена 6 досліджуваними точками, оскільки коливання мають тенденцію відбуватися з більшою кількістю зразків. Бікубічна інтерполяція потребує мінімум 4 досліджуваних точок уздовж кожної осі, якщо вказано менше 4 точок, то вибірка Лагранжа виконується примусово. Якщо `mesh_pps` має значення 0, це значення ігнорується, оскільки інтерполяція сітки не виконується.
 - `bicubic_tension: 0,2` *Значення за замовчуванням: 0,2* Якщо для параметра `algorithm` встановлено значення bicubic, можна вказати значення натягу. Чим вище натяг, тим більший нахил інтерполюється. Будьте обережні, регулюючи це, оскільки вищі значення також створюють більше перевищення, що призведе до того, що інтерпольовані значення будуть вищими або нижчими, ніж ваші вимірювані точки.
 
@@ -120,7 +120,7 @@ Bed Mesh працює, перехоплюючи команди переміще�
 
 ### Налаштування нульової позиції відліку
 
-Багато зондів сприйнятливі до «дрейфу», тобто до неточностей зондування, викликаних теплом або перешкодами. Це може ускладнити обчислення z-зміщення зонда, особливо при різних температурах шару. Таким чином, деякі принтери використовують кінцевий упор для наведення осі Z і зонд для калібрування сітки. У цій конфігурації можна зміщувати сітку таким чином, щоб «еталонна позиція» (X, Y) застосовувала коригування нуля. «Еталонною позицією» має бути місце на платформі, де виконується тестування паперу [Z_ENDSTOP_CALIBRATE](./Manual_Level.md#calibrating-a-z-endstop). Модуль bed_mesh надає параметр `zero_reference_position` для визначення цієї координати:
+Many probes are susceptible to "drift", ie: inaccuracies in probing introduced by heat or interference. This can make calculating the probe's z-offset challenging, particularly at different bed temperatures. As such, some printers use an endstop for homing the Z axis and a probe for calibrating the mesh. In this configuration it is possible offset the mesh so that the (X, Y) `reference position` applies zero adjustment. The `reference position` should be the location on the bed where a [Z_ENDSTOP_CALIBRATE](./Manual_Level.md#calibrating-a-z-endstop) paper test is performed. The bed_mesh module provides the `zero_reference_position` option for specifying this coordinate:
 
 ```
 [bed_mesh]
@@ -133,25 +133,6 @@ Bed Mesh працює, перехоплюючи команди переміще�
 ```
 
 - `zero_reference_position:` *Значення за замовчуванням: Немає (вимкнено)* `zero_reference_position` очікує, що координата (X, Y) відповідає координаті `еталонної позиції`, описаної вище. Якщо координата лежить у межах сітки, тоді сітка буде зміщена, тому опорна позиція застосовує коригування нуля. Якщо координата лежить за межами сітки, то координата буде досліджена після калібрування, а результуюче значення z використовуватиметься як зсув по z. Зауважте, що ця координата НЕ має бути в місці, зазначеному як `faulty_region`, якщо потрібен зонд.
-
-#### Застарілий relative_reference_index
-
-Існуючі конфігурації, що використовують параметр `relative_reference_index`, необхідно оновити, щоб використовувати `zero_reference_position`. Відповідь на команду gcode [BED_MESH_OUTPUT PGP=1](#output) включатиме координату (X, Y), пов’язану з індексом; цю позицію можна використовувати як значення для `zero_reference_position`. Результат виглядатиме приблизно так:
-
-```
-// bed_mesh: згенеровані точки
- // Індекс | Інструмент налаштований | Зонд
- // 0 | (1,0, 1,0) | (24,0, 6,0)
- // 1 | (36,7, 1,0) | (59,7, 6,0)
- // 2 | (72,3, 1,0) | (95,3, 6,0)
- // 3 | (108,0, 1,0) | (131,0, 6,0)
- ... (додаткові згенеровані бали)
- // bed_mesh: relative_reference_index 24 дорівнює (131,5, 108,0)
-```
-
-*Примітка. Наведені вище результати також друкуються в `klippy.log` під час ініціалізації.*
-
-Використовуючи наведений вище приклад, ми бачимо, що `relative_reference_index` друкується разом із його координатою. Таким чином, `zero_reference_position` становить `131,5, 108`.
 
 ### Несправні регіони
 

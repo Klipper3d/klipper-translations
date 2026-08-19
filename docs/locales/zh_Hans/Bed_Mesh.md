@@ -70,7 +70,7 @@ algorithm: bicubic
 bicubic_tension: 0.2
 ```
 
-- `mesh_pps: 2,3` *默认值：2,2*`mesh_pps` 选项是每段的网格点数的简写。 此选项指定沿 x 轴和 y 轴为每个线段插值的点数。 “段”被视为每个探测点之间的间隔。 与 `probe_count` 一样，`mesh_pps` 可以是 X, Y 整数对，也可以是同时应用于两个轴的单个整数。 在此示例中，沿 X 轴有 4 个线段，沿 Y 轴有 2 个线段。 这计算为沿 X 的 8 个插值点，沿 Y 的 6 个插值点，从而产生 13x8 网格。 请注意，如果 mesh_pps 设置为 0，则禁用网格插值，并且将直接对探测网格进行采样。
+- `mesh_pps: 2, 3` *Default Value: 2, 2* The `mesh_pps` option is shorthand for Mesh Points Per Segment. This option specifies how many points to interpolate for each segment along the X and Y axes. Consider a 'segment' to be the space between each probed point. Like `probe_count`, `mesh_pps` is specified as an X, Y integer pair, and also may be specified a single integer that is applied to both axes. In this example there are 4 segments along the X axis and 2 segments along the Y axis. This evaluates to 8 interpolated points along X, 6 interpolated points along Y, which results in a 13x9 mesh. Note that if mesh_pps is set to 0 then mesh interpolation is disabled and the probed matrix will be sampled directly.
 - `algorithm: lagrange` *默认值：lagrange* 用于插入网格的算法。 可能是 `lagrange` or `bicubic`。 拉格朗日插值最多为 6 个探测点，因为大量样本容易发生振荡。 双三次插值要求沿每个轴至少有 4 个探测点，如果指定的点少于 4 个，则强制拉格朗日采样。 如果 `mesh_pps` 设置为 0，则该值将被忽略，因为没有进行网格插值。
 - `bicubic_tension: 0.2` *默认值：0.2* 双三次插值的张力值。如果`algorithm` 选项设置为双三次，则可以指定张力值。 张力越高，内插的斜率越大。 调整时要小心，因为较高的值也会产生更多的过冲，这将导致插值高于或低于探测点。
 
@@ -120,7 +120,7 @@ fade_target: 0
 
 ### 配置零点参考位置
 
-Many probes are susceptible to "drift", ie: inaccuracies in probing introduced by heat or interference. This can make calculating the probe's z-offset challenging, particularly at different bed temperatures. As such, some printers use an endstop for homing the Z axis and a probe for calibrating the mesh. In this configuration it is possible offset the mesh so that the (X, Y) `reference position` applies zero adjustment. The `reference postion` should be the location on the bed where a [Z_ENDSTOP_CALIBRATE](./Manual_Level.md#calibrating-a-z-endstop) paper test is performed. The bed_mesh module provides the `zero_reference_position` option for specifying this coordinate:
+Many probes are susceptible to "drift", ie: inaccuracies in probing introduced by heat or interference. This can make calculating the probe's z-offset challenging, particularly at different bed temperatures. As such, some printers use an endstop for homing the Z axis and a probe for calibrating the mesh. In this configuration it is possible offset the mesh so that the (X, Y) `reference position` applies zero adjustment. The `reference position` should be the location on the bed where a [Z_ENDSTOP_CALIBRATE](./Manual_Level.md#calibrating-a-z-endstop) paper test is performed. The bed_mesh module provides the `zero_reference_position` option for specifying this coordinate:
 
 ```
 [bed_mesh]
@@ -133,25 +133,6 @@ probe_count: 5, 3
 ```
 
 - `ZERO_REFERENCE_POSITION：`*默认值：无(禁用)*`ZERO_REFERENCE_POSITION`期望(X，Y)坐标与上面描述的`参考位置`匹配。如果坐标位于网格内，则网格将偏移，因此参考位置应用零点调整。如果坐标位于网格之外，则将在校准后探测该坐标，并将生成的z值用作z偏移。请注意，如果需要探测，则此坐标不能位于指定为`FAULTY_REGION`的位置。
-
-#### 不推荐使用的Relative_Reference_Index
-
-使用`Relative_Reference_index`选项的现有配置必须更新为使用`ZERO_REFERENCE_Position`。对[BED_MESH_OUTPUT PGP=1](#output)GCODE命令的响应将包括与索引相关的(X，Y)坐标；该位置可用`ZERO_REFERENCE_POSITION`的值。输出将如下所示：
-
-```
-// bed_mesh: generated points
-// Index | Tool Adjusted | Probe
-// 0 | (1.0, 1.0) | (24.0, 6.0)
-// 1 | (36.7, 1.0) | (59.7, 6.0)
-// 2 | (72.3, 1.0) | (95.3, 6.0)
-// 3 | (108.0, 1.0) | (131.0, 6.0)
-... (additional generated points)
-// bed_mesh: relative_reference_index 24 is (131.5, 108.0)
-```
-
-*注意：上述输出在初始化时也会打印在`klippy.log`中。*
-
-在上面的例子中，我们看到`Relative_Reference_index`与它的坐标一起打印。因此，`ZERO_REFERENCE_Position`是`131.5,108`。
 
 ### 故障区域
 
@@ -182,17 +163,17 @@ faulty_region_4_max: 45.0, 210.0
 
 ![bedmesh_interpolated](img/bedmesh_faulty_regions.svg)
 
-### Adaptive Meshes
+### 自适应网床
 
-Adaptive bed meshing is a way to speed up the bed mesh generation by only probing the area of the bed used by the objects being printed. When used, the method will automatically adjust the mesh parameters based on the area occupied by the defined print objects.
+自适应网床是一种可以加速床网探测的方法，它只探测物品打印的热床部分。这个方法会通过定义的打印区域来自动调整床网参数。
 
-The adapted mesh area will be computed from the area defined by the boundaries of all the defined print objects so it covers every object, including any margins defined in the configuration. After the area is computed, the number of probe points will be scaled down based on the ratio of the default mesh area and the adapted mesh area. To illustrate this consider the following example:
+自适应床网会通过打印物品的边界来计算需要探测的区域，来覆盖所有的物品。在探测区域计算完成后，探测点数量会使用默认的床网设置成比例计算。可以参考以下示例：
 
-For a 150mmx150mm bed with `mesh_min` set to `25,25` and `mesh_max` set to `125,125`, the default mesh area is a 100mmx100mm square. An adapted mesh area of `50,50` means a ratio of `0.5x0.5` between the adapted area and default mesh area.
+在一个150mmx150mm的热床上，`mesh_min`为`25,25`，`mesh_max`为`125,125`，默认的探测面积为100mmx100mm。如果自适应床网的面积为`50,50`，意味着自适应床网与默认床网的比例为`0.5,0.5`。
 
-If the `bed_mesh` configuration specified `probe_count` as `7x7`, the adapted bed mesh will use 4x4 probe points (7 * 0.5 rounded up).
+如果`bed_mesh`配置文件中的 `probe_count`设置为 `7x7`，自适应床网将会使用4x4的探测点（7*0.5并向上取整）。
 
-![adaptive_bedmesh](img/adaptive_bed_mesh.svg)
+![自适应床网](img/adaptive_bed_mesh.svg)
 
 ```
 [bed_mesh]
@@ -204,13 +185,13 @@ probe_count: 5, 3
 adaptive_margin: 5
 ```
 
-- `adaptive_margin`  *Default Value: 0*  Margin (in mm) to add around the area of the bed used by the defined objects. The diagram below shows the adapted bed mesh area with an `adaptive_margin` of 5mm. The adapted mesh area (area in green) is computed as the used bed area (area in blue) plus the defined margin.
+- 设置`adaptive_margin`（*默认值：0*）（单位：mm）以在自适应床网的边界外额外探测一些面积。下方的图例展示了一个自适应床网的面积（设置了5mm的`adaptive_margin`）。自适应床网面积（绿色区域）是通过实际打印面积（蓝色区域）加上额外设置的偏移来计算的。
 
    ![adaptive_bedmesh_margin](img/adaptive_bed_mesh_margin.svg)
 
 By nature, adaptive bed meshes use the objects defined by the Gcode file being printed. Therefore, it is expected that each Gcode file will generate a mesh that probes a different area of the print bed. Therefore, adapted bed meshes should not be re-used. The expectation is that a new mesh will be generated for each print if adaptive meshing is used.
 
-It is also important to consider that adaptive bed meshing is best used on machines that can normally probe the entire bed and achieve a maximum variance less than or equal to 1 layer height. Machines with mechanical issues that a full bed mesh normally compensates for may have undesirable results when attempting print moves **outside** of the probed area. If a full bed mesh has a variance greater than 1 layer height, caution must be taken when using adaptive bed meshes and attempting print moves outside of the meshed area.
+自适应床网在无法探测整个热床的打印机上尤为有效，大部分时候这允许这些打印机在床网探测中获得小于一倍层高的误差。在有机械问题的打印机上，一个无法覆盖整床的床网可能会导致在探测区域**外**打印时获得不理想的结果。如果整床床网有大于一倍层高的落差，要小心使用自适应床网，以及在探测区域外打印。
 
 ## Surface Scans
 

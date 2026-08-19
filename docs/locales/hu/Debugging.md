@@ -65,7 +65,7 @@ A Klipper támogatja a belső mozgástörténet naplózását, amely később el
 Az adatnaplózást a `data_logger.py` eszközzel lehet engedélyezni. Például:
 
 ```
-~/klipper/scripts/motan/data_logger.py /tmp/klippy_uds mylog
+~/klipper/scripts/motan/data_logger.py /tmp/klippy_uds mylog -s '*'
 ```
 
 Ez a parancs csatlakozik a Klipper API-kiszolgálóhoz, feliratkozik az állapot- és mozgásinformációkra, és naplózza az eredményeket. Két fájl jön létre. Egy tömörített adatfájl és egy indexfájl (pl. `mylog.json.gz` és `mylog.index.gz`). A naplózás elindítása után lehetőség van nyomtatások és egyéb műveletek elvégzésére. A naplózás a háttérben folytatódik. Ha befejeztük a naplózást, nyomjuk meg a `ctrl-c` billentyűkombinációt a `data_logger.py` eszközből való kilépéshez.

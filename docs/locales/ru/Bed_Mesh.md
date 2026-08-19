@@ -27,7 +27,7 @@ probe_count: 5, 3
 
 На рисунке ниже показано, как опции `mesh_min`, `mesh_max` и `probe_count` используются для генерации точек зондирования. Стрелки указывают направление процедуры зондирования, начиная с точки `mesh_min`. Для примера, когда зонд находится в точке `mesh_min`, сопло будет находиться в точке (11, 1), а когда зонд находится в точке `mesh_max`, сопло будет находиться в точке (206, 193).
 
-![bedmesh_rect_basic](img/bedmesh_rect_basic.svg)
+![кровать_прямая_базовая](img/bedmesh_rect_basic.svg)
 
 ### Круглые лежаки
 
@@ -48,7 +48,7 @@ round_probe_count: 5
 
 На рисунке ниже показано, как генерируются точки зондирования. Как видите, установка `mesh_origin` в (-10, 0) позволяет нам задать больший радиус сетки - 85.
 
-![bedmesh_round_basic](img/bedmesh_round_basic.svg)
+![кровать_круглая_базовая](img/bedmesh_round_basic.svg)
 
 ## Расширенная конфигурация
 
@@ -70,7 +70,7 @@ mesh_pps: 2, 3
 bicubic_tension: 0.2
 ```
 
-- `mesh_pps: 2, 3` *Значение по умолчанию: 2, 2* Параметр `mesh_pps` - это сокращение от Mesh Points Per Segment. Эта опция указывает, сколько точек интерполировать для каждого сегмента по осям X и Y. Считайте, что "сегмент" - это пространство между каждой точкой зондирования. Как и `probe_count`, `mesh_pps` задается как пара целых чисел X, Y, а также может быть задано одно целое число, которое применяется к обеим осям. В данном примере имеется 4 сегмента по оси X и 2 сегмента по оси Y. В результате получается 8 интерполированных точек по оси X, 6 интерполированных точек по оси Y, что дает сетку 13x8. Обратите внимание, что если значение mesh_pps равно 0, то интерполяция сетки отключается и матрица зондирования будет сэмплироваться напрямую.
+- `mesh_pps: 2, 3` *Default Value: 2, 2* The `mesh_pps` option is shorthand for Mesh Points Per Segment. This option specifies how many points to interpolate for each segment along the X and Y axes. Consider a 'segment' to be the space between each probed point. Like `probe_count`, `mesh_pps` is specified as an X, Y integer pair, and also may be specified a single integer that is applied to both axes. In this example there are 4 segments along the X axis and 2 segments along the Y axis. This evaluates to 8 interpolated points along X, 6 interpolated points along Y, which results in a 13x9 mesh. Note that if mesh_pps is set to 0 then mesh interpolation is disabled and the probed matrix will be sampled directly.
 - `алгоритм: lagrange` *Значение по умолчанию: lagrange* Алгоритм, используемый для интерполяции сетки. Может быть `lagrange` или `bicubic`. Интерполяция Лагранжа ограничена 6 точками зондирования, так как при большем количестве выборок возникают колебания. Бикубическая интерполяция требует минимум 4 точки вдоль каждой оси, если указано менее 4 точек, то выборка по Лагранжу будет принудительной. Если `mesh_pps` установлено в 0, то это значение игнорируется, так как интерполяция сетки не выполняется.
 - `bicubic_tension: 0.2` *Значение по умолчанию: 0.2* Если опция `алгоритм` установлена на bicubic, то можно указать значение натяжения. Чем выше натяжение, тем больше наклон интерполируется. Будьте осторожны при настройке этого параметра, так как более высокие значения также создают большую перегрузку, что приведет к тому, что интерполированные значения будут выше или ниже, чем ваши измеренные точки.
 
@@ -120,7 +120,7 @@ fade_target: 0
 
 ### Настройка нулевого опорного положения
 
-Many probes are susceptible to "drift", ie: inaccuracies in probing introduced by heat or interference. This can make calculating the probe's z-offset challenging, particularly at different bed temperatures. As such, some printers use an endstop for homing the Z axis and a probe for calibrating the mesh. In this configuration it is possible offset the mesh so that the (X, Y) `reference position` applies zero adjustment. The `reference postion` should be the location on the bed where a [Z_ENDSTOP_CALIBRATE](./Manual_Level.md#calibrating-a-z-endstop) paper test is performed. The bed_mesh module provides the `zero_reference_position` option for specifying this coordinate:
+Many probes are susceptible to "drift", ie: inaccuracies in probing introduced by heat or interference. This can make calculating the probe's z-offset challenging, particularly at different bed temperatures. As such, some printers use an endstop for homing the Z axis and a probe for calibrating the mesh. In this configuration it is possible offset the mesh so that the (X, Y) `reference position` applies zero adjustment. The `reference position` should be the location on the bed where a [Z_ENDSTOP_CALIBRATE](./Manual_Level.md#calibrating-a-z-endstop) paper test is performed. The bed_mesh module provides the `zero_reference_position` option for specifying this coordinate:
 
 ```
 [bed_mesh]
@@ -133,25 +133,6 @@ probe_count: 5, 3
 ```
 
 - `zero_reference_position: ` *Значение по умолчанию: None (отключено)* Функция `zero_reference_position` ожидает координату (X, Y), совпадающую с координатой `reference position`, описанной выше. Если координата находится внутри сетки, то сетка будет смещена, так что к опорной позиции будет применена нулевая корректировка. Если координата лежит вне сетки, то она будет измерена после калибровки, а полученное значение z будет использовано в качестве z-смещения. Обратите внимание, что эта координата НЕ должна находиться в месте, указанном как `faulty_region`, если необходимо выполнить зондирование.
-
-#### Устаревший индекс relative_reference_index
-
-Существующие конфигурации, использующие опцию `relative_reference_index`, должны быть обновлены для использования `zero_reference_position`. Ответ на команду [BED_MESH_OUTPUT PGP=1](#output) gcode будет включать координату (X, Y), связанную с индексом; эта позиция может быть использована в качестве значения для `нулевой позиции_ссылки`. Вывод будет выглядеть следующим образом:
-
-```
-// bed_mesh: сгенерированные точки
-// Индекс | Настроенный инструмент | Зонд
-// 0 | (1.0, 1.0) | (24.0, 6.0)
-// 1 | (36.7, 1.0) | (59.7, 6.0)
-// 2 | (72.3, 1.0) | (95.3, 6.0)
-// 3 | (108.0, 1.0) | (131.0, 6.0)
-... (дополнительные сгенерированные точки)
-// bed_mesh: relative_reference_index 24 is (131.5, 108.0)
-```
-
-*Примечание: Вышеприведенный вывод также выводится в `klippy.log` во время инициализации.*
-
-На примере выше мы видим, что `относительный_индекс_ссылки` выводится вместе с его координатой. Таким образом, `нулевая_позиция_ссылки` равна `131.5, 108`.
 
 ### Неисправные регионы
 
@@ -254,7 +235,7 @@ scan_overshoot: 8
 
 Запускает процедуру зондирования для калибровки сетки кровати.
 
-The mesh will be immediately ready to use when the command completes and saved into a profile specified by the `PROFILE` parameter, or `default` if unspecified. The `METHOD` parameter takes one of the following values:
+Сетка будет немедленно готова к использованию, когда команда завершится и будет сохранена в профиле, указанном параметром [X11X]PROFILE `, или `default `, если не указано. `METHOD` имеет одно из следующих значений:
 
 - `METHOD=manual`: включает ручное зондирование с помощью насадки и бумажного теста
 - `METHOD=автоматический`: Автоматическое (стандартное) зондирование. Используется по умолчанию.
@@ -299,7 +280,7 @@ The mesh will be immediately ready to use when the command completes and saved i
 
 Предыдущие версии `bed_mesh` при запуске всегда загружали профиль с именем *default*, если он присутствовал. Это поведение было удалено в пользу того, чтобы позволить пользователю определять, когда загружать профиль. Если пользователь хочет загружать профиль `default`, рекомендуется добавить `BED_MESH_PROFILE LOAD=default` либо в макрос `START_PRINT`, либо в конфигурацию "Start G-Code" слайсера, в зависимости от того, что применимо.
 
-Note that this is not required if a new mesh is generated with `BED_MESH_CALIBRATE` in the `START_PRINT` macro or the slicer's "Start G-Code" and may produce unexpected results, especially with adaptive meshing.
+Обратите внимание, что это не требуется, если новая сетка генерируется с помощью `BED_MESH_CALIBRATE ` в `START_PRINT ` макрос или «Start G-Code» и может привести к неожиданным результатам, особенно при адаптивном стирке.
 
 В качестве альтернативы можно восстановить старое поведение загрузки профиля при запуске с помощью `[delayed_gcode]`:
 
@@ -360,9 +341,9 @@ gcode:
 
 `{" идентификатор": 123, "метод": "bed_mesh/dump_mesh"}`.
 
-Dumps the configuration and state for the current mesh and all saved profiles.
+Сбрасывает конфигурацию и состояние для текущей сетки и всех сохраненных профилей.
 
-The `dump_mesh` endpoint takes one optional parameter, `mesh_args`. This parameter must be an object, where the keys and values are parameters available to [BED_MESH_CALIBRATE](#bed_mesh_calibrate). This will update the mesh configuration and probe points using the supplied parameters prior to returning the result. It is recommended to omit mesh parameters unless it is desired to visualize the probe points and/or travel path before performing `BED_MESH_CALIBRATE`.
+Конечная точка `dump_mesh` принимает один необязательный параметр, `mesh_args`. Этот параметр должен быть объектом, где ключами и значениями являются параметры, доступные для [BED_MESH_CALIBRATE](#bed_mesh_calibrate). Перед возвратом результата будет обновлена конфигурация сетки и точки зондирования с использованием предоставленных параметров. Рекомендуется опустить параметры сетки, если не требуется визуализировать точки зондирования и/или траекторию движения перед выполнением `BED_MESH_CALIBRATE`.
 
 ## Визуализация и анализ
 
@@ -490,4 +471,4 @@ graph_mesh.py dump -o <output file name> <input>
 
 Параметр `<input>` должен представлять собой путь к unix-сокету Klipper или URL-адрес экземпляра Moonraker. Опция `-o` может быть использована для указания пути к выходному файлу. Если опция опущена, файл будет сохранен в рабочем каталоге с именем в следующем формате:
 
-`klipper-bedmesh-{year}{month}{day}{hour}{minute}{second}.json`
+`klipper-bedmesh-{год}{месяц}{день}{час}{минута}{секунда}.json`

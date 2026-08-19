@@ -76,7 +76,7 @@ ip посилання набір $IFACE txqueuelen 128
 
 * На автобусі CAN не існує жодних труднощів. Повідомлень і з мостового маку не будуть бачити інші адаптери, які можуть бути на автобусі CAN.
 * Доступна пропускна здатність як до «місто-мку» і всіх пристроїв на автобусі CAN ефективно обмежена частотою автобуса CAN. В результаті рекомендується використовувати автобусну частоту CAN 1000000 при використанні "USB в CAN режимом мосту".
-* Використання режиму мосту USB-CAN допустиме лише за наявності функціонуючої шини CAN з принаймні одним доступним вузлом (окрім самого вузла мосту). Використовуйте стандартну конфігурацію USB, якщо метою є зв'язок лише з одним USB-пристроєм. Використання режиму мосту USB-CAN без повністю функціонуючої шини CAN (включаючи кінцеві резистори та додатковий вузол) може призвести до спорадичних помилок навіть під час зв'язку з вузлом мосту.
+* It is only valid to use USB to CAN bridge mode if there is a functioning CAN bus with at least one other node available (in addition to the bridge node itself). Use a standard USB configuration if the goal is to communicate only with the single USB device. Using USB to CAN bridge mode without a fully functioning CAN bus (including terminating resistors and an additional node) may result in sporadic errors even when communicating with the bridge node.
 * USB до CAN мостової дошки не з'явиться як послідовний пристрій USB, він не покаже при роботі `ls /dev/serial/by-id`, і він не може бути налаштований у принтері Klipper.cfg з параметром `серіал:`. Мостова дошка з'являється як "USB CAN адаптер" і налаштовується в принтері.cfg як [CAN node](#configuring-klipper).
 
 ## Поради щодо усунення несправностей

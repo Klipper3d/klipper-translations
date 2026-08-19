@@ -4,25 +4,25 @@ This document describes the method for calibrating the X, Y, and Z offsets of an
 
 ## Calibrando los desfaces X y Y de la sonda
 
-To calibrate the X and Y offset, navigate to the OctoPrint "Control" tab, home the printer, and then use the OctoPrint jogging buttons to move the head to a position near the center of the bed.
+Para calibrar el desplazamiento X e Y, vaya a la pestaña «Control» de OctoPrint, coloque la impresora en su posición inicial y, a continuación, utilice los botones de desplazamiento de OctoPrint para mover el cabezal a una posición cercana al centro de la plataforma.
 
-Place a piece of blue painters tape (or similar) on the bed underneath the probe. Navigate to the OctoPrint "Terminal" tab and issue a PROBE command:
+Coloque un trozo de cinta azul de pintor (o similar) en la cama debajo de la sonda. Vaya a la pestaña «Terminal» de Mainsail/Fluidd y ejecute el comando PROBE:
 
 ```
 PROBE
 ```
 
-Place a mark on the tape directly under where the probe is (or use a similar method to note the location on the bed).
+Coloque una marca en la cinta directamente debajo de donde se encuentra la sonda (o utilice un método similar para señalar la ubicación en la cama).
 
-Issue a `GET_POSITION` command and record the toolhead XY location reported by that command. For example if one sees:
+Emita un comando `GET_POSITION` y registre la ubicación XY del cabezal de la herramienta indicada por ese comando. Por ejemplo, si se ve:
 
 ```
 Recv: // toolhead: X:46.500000 Y:27.000000 Z:15.000000 E:0.000000
 ```
 
-then one would record a probe X position of 46.5 and probe Y position of 27.
+entonces se registraría una posición X de la sonda de 46,5 y una posición Y de la sonda de 27.
 
-After recording the probe position, issue a series of G1 commands until the nozzle is directly above the mark on the bed. For example, one might issue:
+Después de registrar la posición de la sonda, emita una serie de comandos G1 hasta que la boquilla se encuentre directamente sobre la marca de la base. Por ejemplo, se podría emitir:
 
 ```
 G1 F300 X57 Y30 Z15

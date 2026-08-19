@@ -26,7 +26,7 @@ Verify that all of the printer axes can manually move freely (the stepper motors
 
 Manually move all the printer axes so that none of them are in contact with an endstop. Send a QUERY_ENDSTOPS command via the command console. It should respond with the current state of all of the configured endstops and they should all report a state of "open". For each of the endstops, rerun the QUERY_ENDSTOPS command while manually triggering the endstop. The QUERY_ENDSTOPS command should report the endstop as "TRIGGERED".
 
-If the endstop appears inverted (it reports "open" when triggered and vice-versa) then add a "!" to the pin definition (for example, "endstop_pin: ^PA2"), or remove the "!" if there is already one present.
+If the endstop appears inverted (it reports "open" when triggered and vice-versa) then add a "!" to the pin definition (for example, "endstop_pin: ^!PA2"), or remove the "!" if there is already one present.
 
 如果限位狀態根本沒有變化，則通常表示限位器連線到不同的引腳。 但是，它也可能表示需要更改引腳的上拉設定（endstop_pin 名稱開頭的「^」 - 大多數印表機需要使用上拉電阻並且應該存在「^」）。
 

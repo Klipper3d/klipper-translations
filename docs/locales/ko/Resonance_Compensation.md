@@ -240,7 +240,9 @@ gcode:
   SET_INPUT_SHAPER SHAPER_TYPE_X=<primary_carriage_shaper> SHAPER_FREQ_X=<primary_carriage_freq> SHAPER_TYPE_Y=<y_shaper> SHAPER_FREQ_Y=<y_freq>
 ```
 
-Note that `SHAPER_TYPE_Y` and `SHAPER_FREQ_Y` should be the same in both commands. It is also possible to put a similar snippet into the start g-code in the slicer, however then the shaper will not be enabled until any print is started.
+However, users of `generic_cartesian` kinematics should specify carriage names in `CARRIAGE=` parameters of `SET_DUAL_CARRIAGE` instead of their numbers. Note that `SHAPER_TYPE_Y` and `SHAPER_FREQ_Y` should be the same in both commands. If you need to configure an input shaper for Z axis, include its parameters in both `SET_INPUT_SHAPER` commands.
+
+Besides `delayed_gcode`, it is also possible to put a similar snippet into the start g-code in the slicer, however then the shaper will not be enabled until any print is started.
 
 Note that the input shaper only needs to be configured once. Subsequent changes of the carriages or their modes via `SET_DUAL_CARRIAGE` command will preserve the configured input shaper parameters.
 
@@ -248,11 +250,19 @@ Note that the input shaper only needs to be configured once. Subsequent changes 
 
 아니요, 'input_shaper' 기능 자체는 인쇄 시간에 거의 영향을 미치지 않습니다. 그러나 `max_accel`의 값은 확실히 영향을 미칩니다.([이 섹션](#selecting-max_accel)에 설명된 이 매개변수의 조정).
 
+### Should I enable and tune input shaper for Z axis?
+
+Most of the users are not likely to see improvements in the quality of the prints directly, much unlike X and Y shapers. However, users of delta printers, printers with flying gantry, or printers with heavy moving beds may be able to increase the `max_z_accel` and `max_z_velocity` kinematics limits and thus get faster Z movements. This can be especially useful e.g. for toolchangers, but also when Z-hops are enabled in slicer. And in general, after enabling Z input shaper many users will hear that Z axis operates more smoothly, which may increase the comfort of printer operation, and may somewhat extend lifespan of Z axis parts.
+
 ## 기술적 세부 사항
 
 ### Input shapers
 
-Klipper에서 사용되는 input shapers는 다소 표준적이며 해당 shapers를 설명하는 문서에서 더 자세한 개요를 찾을 수 있습니다. 이 섹션에는 지원되는 input shapers의 일부 기술적인 측면에 대한 간략한 개요가 포함되어 있습니다. 아래 표는 각 shpaer의 일부(대개 대략적인) 매개변수를 보여줍니다.
+This section contains a brief overview of some technical aspects of the supported input shapers. Input shapers used in Klipper are rather standard, with the exception of MZV, and one can find more in-depth overview in the articles describing the corresponding shapers.
+
+MZV stands for a Modified-ZV input shaper. The classic definition of ZV shaper assumes two pulses and the total duration `t` equal to 1/2 of the damped period of oscillations `Td`. However, it is possible to construct a generalized form of ZV input shaper with `n >= 3` pulses and an arbitrary total duration `t >= 0.5 * Td` (with the maximum of `t` depending on `n` value), see for instance SNA-ZV and MIS-ZV input shapers, which can be seen as special cases of a more generalized implementation of MZV input shaper in Klipper. The default MZV parameters in Klipper are `n=3`, `t=0.75` (of `Td`), and this shaper was designed to serve as an intermediate shaper between ZV and ZVD, offering better vibrations suppression than ZV when the determined (measured) shaper parameters deviate from the ones actually required by the printer, and smaller smoothing than ZVD. Effectively, its specific duration `t=0.75`, exactly between ZV (with `t=0.5` of `Td`) and ZVD (`t=1` of `Td`), and it happens to work well for many real-life 3D printers. However, experienced users can modify the default parameters of the MZV input shaper and try other variations that may work better for their specific printers (with these non-default variations specified as, e.g. `mzv(n=3,t=0.8)` or `mzv(n=5,t=1.1)` in the `[input_shaper]` section or as a parameter to `SET_INPUT_SHAPER` command, as well as in a parameter to `~/klipper/scripts/calibrate_shaper.py` script, e.g. as `--shapers='2hump_ei,3hump_ei,mzv(n=6,t=1.0)'`. These custom parameters of the shapers are supported by `~/klipper/scripts/graph_shaper.py` scripts via e.g. `--shaper='mzv(n=3,t=0.6666666666)'` parameter.
+
+The table below shows some (usually approximate) parameters of each shaper with their default parameters.
 
 | Input <br> shaper | Shaper <br> duration | Vibration reduction 20x <br> (5% vibration tolerance) | Vibration reduction 10x <br> (10% vibration tolerance) |
 | :-: | :-: | :-: | :-: |
@@ -260,16 +270,16 @@ Klipper에서 사용되는 input shapers는 다소 표준적이며 해당 shaper
 | MZV | 0.75 / shaper_freq | ± 4% shaper_freq | -10%...+15% shaper_freq |
 | ZVD | 1 / shaper_freq | ± 15% shaper_freq | ± 22% shaper_freq |
 | EI | 1 / shaper_freq | ± 20% shaper_freq | ± 25% shaper_freq |
-| 2HUMP_EI | 1.5 / shaper_freq | ± 35% shaper_freq | ± 40 shaper_freq |
-| 3HUMP_EI | 2 / shaper_freq | -45...+50% shaper_freq | -50%...+55% shaper_freq |
+| 2HUMP_EI | 1.5 / shaper_freq | -40...+45% shaper_freq | -45..+50% shaper_freq |
+| 3HUMP_EI | 2 / shaper_freq | -50...+60% shaper_freq | -55%...+65% shaper_freq |
 
-진동 감소에 대한 참고 사항: 위 표의 값은 대략적인 값입니다. 프린터의 감쇠비가 각 축에 대해 알려지면 shaper를 더 정확하게 구성할 수 있으며 그러면 좀 더 넓은 범위의 주파수에서 공진을 줄일 수 있습니다. 그러나 감쇠비는 일반적으로 알려지지 않고 특별한 장비 없이는 추정하기 어렵기 때문에 Klipper는 기본적으로 0.1 값을 사용하며 이는 좋은 만능 값입니다. 표의 주파수 범위는 해당 값(약 0.05 ~ 0.2) 주변에서 가능한 다양한 감쇠비를 포함합니다.
+A note on vibration reduction: the values in the table above are approximate. If the damping ratio of the printer is known for each axis, the shaper can be configured more precisely and it will then reduce the resonances in a bit wider range of frequencies. However, the damping ratio is usually unknown and is hard to estimate without a special equipment, so Klipper uses 0.1 value by default, which is a good all-round value. The frequency ranges in the table cover a number of different possible damping ratios around that value (approx. from 0.075 to 0.15).
 
-또한 EI, 2HUMP_EI 및 3HUMP_EI는 진동을 5%로 줄이도록 조정되었으며,따라서 10% 진동 허용 오차 값은 참고용으로만 제공됩니다.
+Also note that EI, 2HUMP_EI, and 3HUMP_EI are tuned to reduce vibrations to 5%, so the values for 10% vibration tolerance are provided only for the reference. However, a user can force a desired vibration tolerance for EI input shaper in a manner similar to MZV input shaper as, e.g. `ei(v_tol=0.02)` or `ei(v_tol=0.1)`, in which case the vibration reduction range will be different.
 
 **이 표를 사용하는 방법:**
 
 * Shaper 지속 시간은 부품의 smoothing에 영향을 줍니다. 크기가 클수록 부품이 더 부드러워집니다. 이 종속성은 선형이 아니지만 동일한 주파수에 대해 어떤 shapers가 더 '매끄러운' 느낌을 줄 수 있습니다. Smoothing에 의한 순서는 다음과 같습니다: ZV < MZV < ZVD ≈ EI < 2HUMP_EI < 3HUMP_EI. 또한 shapers 2HUMP_EI 및 3HUMP_EI에 대해 shaper_freq = 공진 주파수를 설정하는 것은 거의 실용적이지 않습니다(여러 주파수에 대한 진동을 줄이는 데 사용해야 함).
 * Shaper가 진동을 줄이는 주파수 범위를 추정할 수 있습니다. 예를 들어 shaper_freq = 35Hz인 MZV는 주파수 [33.6, 36.4]Hz에 대해 진동을 5%로 줄입니다. shaper_freq = 50Hz인 3HUMP_EI는 [27.5, 75]Hz 범위에서 진동을 5%로 줄입니다.
-* 이 표를 사용하여 여러 주파수에서 진동을 줄여야 하는 경우 사용해야 하는 shaper를 확인할 수 있습니다. 예를 들어, 동일한 축에서 35Hz와 60Hz에서 공진이 있는 경우: a) EI shaper는 shaper_freq = 35 / (1 - 0.2) = 43.75Hz를 가져야 하며 43.75 * (1 + 0.2) = 52.5Hz까지 공진을 감소시키므로 충분하지 않습니다; b) 2HUMP_EI shaper는 shaper_freq = 35 / (1 - 0.35) = 53.85Hz를 가져야 하며 53.85 * (1 + 0.35) = 72.7Hz까지 진동을 감소시키므로 이것이 허용되는 구성입니다. 항상 주어진 shaper에 대해 가능한 한 높은 shaper_freq를 사용하려고 시도하고 (아마도 약간의 안전 여유가 있으므로 이 예에서는 shaper_freq ≈ 50-52Hz가 가장 잘 작동함) shaper 지속 시간이 가능한 짧은 shaper를 사용하려고 합니다.
+* One can use this table to check which shaper they should be using if they need to reduce vibrations at several frequencies. For example, if one has resonances at 35 Hz and 60 Hz on the same axis: a) EI shaper needs to have shaper_freq = 35 / (1 - 0.2) = 43.75 Hz, and it will reduce resonances until 43.75 * (1 + 0.2) = 52.5 Hz, so it is not sufficient; b) 2HUMP_EI shaper needs to have shaper_freq = 35 / (1 - 0.4) = 58.3 Hz and will reduce vibrations until 58.3 * (1 + 0.45) = 84.5 Hz - so this is an acceptable configuration. Always try to use as high shaper_freq as possible for a given shaper (perhaps with some safety margin, so in this example shaper_freq ≈ 55 Hz would work best), and try to use a shaper with as small shaper duration as possible.
 * 매우 다른 여러 주파수(예: 30Hz 및 100Hz)에서 진동을 줄여야 하는 경우 위의 표가 충분한 정보를 제공하지 않는다는 것을 알 수 있습니다. 이 경우 더 유연한 [scripts/graph_shaper.py](../scripts/graph_shaper.py) 스크립트를 사용하면 더 운이 좋을 수 있습니다.

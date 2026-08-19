@@ -1,6 +1,6 @@
 # Klipper'a Katkıda Bulunmak
 
-Thank you for contributing to Klipper! This document describes the process for contributing changes to Klipper.
+Klipper'a katkıda bulunduğunuz için teşekkürler! Bu döküman Klipper'a katkıda bulunan değişikliklerin işlenmesini anlatmaktadır.
 
 Please see the [contact page](Contact.md) for information on reporting an issue or for details on contacting the developers.
 
@@ -144,11 +144,11 @@ In the above example, `module` should be the name of a file or directory in the 
 
 It is important to have a "Signed-off-by" line on each commit - it certifies that you agree to the [developer certificate of origin](developer-certificate-of-origin). It must contain your real name (sorry, no pseudonyms or anonymous contributions) and contain a current email address.
 
-## Contributing to Klipper Translations
+## Klipper'ın Tercümesine Katkıda Bulunmak
 
 [Klipper-translations Project](https://github.com/Klipper3d/klipper-translations) is a project dedicated to translating Klipper to different languages. [Weblate](https://hosted.weblate.org/projects/klipper/) hosts all the Gettext strings for translating and reviewing. Locales can be displayed on [klipper3d.org](https://www.klipper3d.org) once they satisfy the following requirements:
 
-- [ ] 75% Total coverage
+- [ ] %75 Toplam kapsam
 - [ ] All titles (H1) are translated
 - [ ] An updated navigation hierarchy PR in klipper-translations.
 
@@ -158,7 +158,7 @@ If a translation already exists in the Klipper repository and no longer meets th
 
 Once the requirements are met, you need to:
 
-1. update klipper-tranlations repository [active_translations](https://github.com/Klipper3d/klipper-translations/blob/translations/active_translations)
+1. update klipper-translations repository [active_translations](https://github.com/Klipper3d/klipper-translations/blob/translations/active_translations)
 1. Optional: add a manual-index.md file in klipper-translations repository's `docs\locals\<lang>` folder to replace the language specific index.md (generated index.md does not render correctly).
 
 Known Issues:

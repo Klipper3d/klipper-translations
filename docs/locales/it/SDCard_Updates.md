@@ -35,7 +35,7 @@ I comandi precedenti presuppongono che l'MCU si connetta alla velocità di trasm
 ./scripts/flash-sdcard.sh -h
 SD Card upload utility for Klipper
 
-usage: flash_sdcard.sh [-h] [-l] [-c] [-b <baud>] [-f <firmware>]
+usage: flash_sdcard.sh [-h] [-l] [-c] [-s] [-b <baud>] [-f <firmware>]
                        <device> <board>
 
 positional arguments:
@@ -46,6 +46,7 @@ optional arguments:
   -h              show this message
   -l              list available boards
   -c              run flash check/verify only (skip upload)
+  -s              use fast SPI speed (4MHz)
   -b <baud>       serial baud rate (default is 250000)
   -f <firmware>   path to klipper.bin
 ```
@@ -65,6 +66,20 @@ Se desideri eseguire il flashing di una build di Klipper situata in un luogo div
 Nota che quando si aggiorna un MKS Robin E3 non è necessario eseguire manualmente `update_mks_robin.py` e fornire il binario risultante a `flash-sdcard.sh`. Questa procedura è automatizzata durante il processo di caricamento.
 
 L'opzione `-c` viene utilizzata per eseguire un controllo o un'operazione di sola verifica per testare se la scheda esegue correttamente il firmware specificato. Questa opzione è destinata principalmente ai casi in cui è necessario un ciclo di alimentazione manuale per completare la procedura di flashing, ad esempio con i bootloader che utilizzano la modalità SDIO anziché SPI per accedere alle proprie schede SD. (Vedi avvertenze di seguito) Ma può anche essere utilizzato in qualsiasi momento per verificare se il codice visualizzato nella scheda corrisponde alla versione nella cartella build su qualsiasi scheda supportata.
+
+## Failure to Initialize
+
+Some SD cards may fail to initialize at the default SPI speed of 400KHz. In this situation it is possible to use `-s` to drive the SPI peripheral at 4MHz. For example:
+
+```
+./scripts/flash-sdcard.sh -s /dev/ttyACM0 btt-skr-v1.3
+```
+
+If the device still fails to initialize then cause of the failure is unrelated to the speed and likely a result of one of the following conditions:
+
+- The SD card is improperly formatted. Must be `fat` or `fat32`.
+- Attempt to initialize a card using the SPI interface that has already been initialized over SDIO.
+- The SD card has failed or is corrupt.
 
 ## Avvertenze
 
@@ -111,7 +126,7 @@ BOARD_ALIASES = {
 }
 ```
 
-Se hai bisogno di una nuova definizione di scheda e ti senti a disagio con la procedura descritta sopra, ti consigliamo di rivolgerti a [Klipper Community Discord](Contact.md#discord).
+If you need a new board definition and you are uncomfortable with the procedure outlined above it is recommended that you request one in the [Klipper Discord](Contact.md).
 
 ## Flashing di schede che utilizzano SDIO
 

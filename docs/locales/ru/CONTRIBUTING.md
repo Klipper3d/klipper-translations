@@ -158,7 +158,7 @@ Klipper не использует строгое "руководство по с
 
 После того как требования будут выполнены, вам необходимо:
 
-1. обновить репозиторий klipper-tranlations [active_translations](https://github.com/Klipper3d/klipper-translations/blob/translations/active_translations)
+1. update klipper-translations repository [active_translations](https://github.com/Klipper3d/klipper-translations/blob/translations/active_translations)
 1. Дополнительно: добавьте файл manual-index.md в папку `docs\locals\<lang>` репозитория klipper-translations, чтобы заменить специфичный для каждого языка index.md (сгенерированный index.md отображается некорректно).
 
 Известные проблемы:

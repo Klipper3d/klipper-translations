@@ -4,7 +4,7 @@ Dieses Dokument beschreibt den Prozess, Klipper auf einem Raspberry Pi laufen zu
 
 ## Warum sollte man den Raspberry Pi als zweite MCU verwenden?
 
-Often the MCUs dedicated to controlling 3D printers have a limited and pre-configured number of exposed pins to manage the main printing functions (thermal resistors, extruders, steppers ...). Using the RPi where Klipper is installed as a secondary MCU gives the possibility to directly use the GPIOs and the buses (i2c, spi) of the RPi inside klipper without using Octoprint plugins (if used) or external programs giving the ability to control everything within the print GCODE.
+Oft haben die MCU's der 3D Drucker nur eine begrenzte Anzahl an Ein und Ausgängen um die grundlegenden Funktionalitäten (Thermistoren, Extruder, Schrittmotor...) dieser zu steuern. Den Raspberry pi als sekundäre MCU zu nutzen erlaubt es die GPIOs und verwendbaren Buse wie (i2c, spi) direkt in Klipper zu verwenden ohne auf Plugins in Octoprint (falls verwendet) Zurückgreifen zu müssen, oder andere Programme über GCODE befehle diese zu verwenden.
 
 **Warnung**: Wenn Ihre Plattform ein *Beaglebone* ist und Sie die Installationsschritte korrekt befolgt haben, ist die Linux-MCU bereits installiert und für Ihr System konfiguriert.
 
@@ -79,7 +79,7 @@ gpiodetect
 gpioinfo
 ```
 
-Der gewählte Pin kann also in der Konfiguration als `gpiochip<n>/gpio<o>` verwendet werden, wobei **n** die Chipnummer ist, die der Befehl `gpiodetect` anzeigt und **o** die Leitungsnummer, die der Befehl `gpioinfo` anzeigt.
+The chosen pin can thus be used within the configuration as `gpiochip<n>/gpio<o>` where **n** is the chip number as seen by the `gpiodetect` command and **o** is the line number seen by the` gpioinfo` command.
 
 ***Warnung:*** nur als `unused` markierte gpio können verwendet werden. Es ist nicht möglich, dass eine *Leitung* von mehreren Prozessen gleichzeitig verwendet wird.
 
@@ -175,7 +175,7 @@ dtoverlay=pwm-2chan,pin=12,func=4,pin2=13,func2=4
 
 In diesem Beispiel wird zusätzlich PWM1 aktiviert und an gpio13 geleitet.
 
-Das Overlay legt die pwm Zeile auf sysfs beim Booten nicht frei und muss durch Echo'ing der Nummer des pwm Kanals nach '/sys/class/pwm/pwmchip0/export' exportiert werden. Dadurch wird das Gerät '/sys/class/pwm/pwmchip0/pwm0' im Dateisystem erstellt. Der einfachste Weg, dies zu tun, ist, indem Folgendes, vor die Zeile 'exit 0' in der datei '/etc/rc.local' eingefügt wird:
+Das Overlay legt die pwm Zeile auf sysfs beim Booten nicht frei und muss durch Echo'ing der Nummer des pwm Kanals nach '/sys/class/pwm/pwmchip0/export' exportiert werden. Dadurch wird das Gerät '/sys/class/pwm/pwmchip0/pwm0' im Dateisystem erstellt. Der einfachste Weg dies zu tun ist, indem Folgendes, vor die Zeile 'exit 0' in der datei '/etc/rc.local' eingefügt wird:
 
 ```
 # Aktivieren der pwmchip sysfs Schnittstelle
@@ -212,7 +212,7 @@ Dies fügt Hardware Pwm-Steuerung zu gpio12 und gpio13 auf dem Pi hinzu (weil da
 
 PWM0 kann auf gpio12 und gpio18 geroutet werden, PWM1 kann auf gpio13 und gpio19 geroutet werden:
 
-| PWM | gpio PIN | Func |
+| PWM | gpio PIN | Funktion |
 | --- | --- | --- |
 | 0 | 12 | 4 |
 | 0 | 18 | 2 |

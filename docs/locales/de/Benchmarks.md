@@ -4,15 +4,15 @@ Dieses Dokument beschreibt die Klipper-Benchmarks.
 
 ## Mikrocontroller-Benchmarks
 
-This section describes the mechanism used to generate the Klipper micro-controller step rate benchmarks.
+Dieser Abschnitt beschreibt den genutzten Mechanismus für die Ermittlung der maximalen Schrittrate der Mikrocontroller.
 
-The primary goal of the benchmarks is to provide a consistent mechanism for measuring the impact of coding changes within the software. A secondary goal is to provide high-level metrics for comparing the performance between chips and between software platforms.
+Das primäre Ziel des Benchmarks ist, einen gleichbleibenden Mechanismus zur Ermittlung der Einflüsse durch Codeänderungen in der Software. Das sekundäre Ziel ist, High-Level Messdaten zum Vergleich der Performance zwischen verschiedenen Chips und Software Plattformen zu ermitteln.
 
-The step rate benchmark is designed to find the maximum stepping rate that the hardware and software can reach. This benchmark stepping rate is not achievable in day-to-day use as Klipper needs to perform other tasks (eg, mcu/host communication, temperature reading, endstop checking) in any real-world usage.
+Der Schrittraten Benchmark ist designed um die maximalen Schrittraten der Hard und Software zu ermitteln. Der Schrittraten Benchmark ist nicht für den täglichen Gebrauch vorgesehen da Klipper auch andere Vorgänge (z.B. MCU/Host Kommunikation, Temperatur Erfassung, überprüfung der Endschalter etc) ver- bzw bearbeitet.
 
-In general, the pins for the benchmark tests are chosen to flash LEDs or other innocuous pins. **Always verify that it is safe to drive the configured pins prior to running a benchmark.** It is not recommended to drive an actual stepper during a benchmark.
+Grundsätzlich sind die Pins des Benchmark Tests für die Ansteuerung von z.B LED's oder anderen nicht kritischen Vorgängen gedacht. ** Vergewissern Sie sich, dass es sicher ist die konfigurierten Pins im Benchmark zu benutzen bevor der Benchmark gestartet wird.** Es ist nicht empfehlenswert einen Schrittmotor mit dem Benchmarks zu betreiben.
 
-### Step rate benchmark test
+### Schrittraten Benchmark Test
 
 The test is performed using the console.py tool (described in <Debugging.md>). The micro-controller is configured for the particular hardware platform (see below) and then the following is cut-and-paste into the console.py terminal window:
 
@@ -39,15 +39,15 @@ set_next_step_dir oid=2 dir=1
 queue_step oid=2 interval=3000 count=1 add=0
 ```
 
-The above tests three steppers simultaneously stepping. If running the above results in a "Rescheduled timer in the past" or "Stepper too far in past" error then it indicates the `ticks` parameter is too low (it results in a stepping rate that is too fast). The goal is to find the lowest setting of the ticks parameter that reliably results in a successful completion of the test. It should be possible to bisect the ticks parameter until a stable value is found.
+Der obige Vorgang testet 3 Schrittmotoren gleichzeitig. Wenn der Test in Meldungen wie "Rescheduled timer in the past" oder "Stepper too far in past" endet, dann deutet dies auf einen zu tiefen 'ticks' Parameter hin (resultiert in eine zu hohe Schrittrate). Das Ziel ist einen passenden ticks Parameter zu finden, der nachvollziehbar den Tests erfolgreich abschließt. Es sollte möglich sein den Ticks Wert zu halbieren bis ein stabiler Wert gefunden ist.
 
-On a failure, one can copy-and-paste the following to clear the error in preparation for the next test:
+Bei Fehlschlagen, fügen Sie das folgende ein um den Error zu bestätigen und zu löschen um den Test erneut durchzuführen:
 
 ```
 clear_shutdown
 ```
 
-To obtain the single stepper benchmarks, the same configuration sequence is used, but only the first block of the above test is cut-and-paste into the console.py window.
+Um den Einzel Schrittmotor Benchmark durchzuführen, wird die selbe Konfigurations Sequenz verwendet und nur der erste Block des obigen Tests in das console.py Fenster eingefügt.
 
 To produce the benchmarks found in the [Features](Features.md) document, the total number of steps per second is calculated by multiplying the number of active steppers with the nominal mcu frequency and dividing by the final ticks parameter. The results are rounded to the nearest K. For example, with three active steppers:
 
@@ -57,9 +57,9 @@ ECHO Test result is: {"%.0fK" % (3. * freq / ticks / 1000.)}
 
 The benchmarks are run with parameters suitable for TMC Drivers. For micro-controllers that support `STEPPER_BOTH_EDGE=1` (as reported in the `MCU config` line when console.py first starts) use `step_pulse_duration=0` and `invert_step=-1` to enable optimized stepping on both edges of the step pulse. For other micro-controllers use a `step_pulse_duration` corresponding to 100ns.
 
-### AVR step rate benchmark
+### AVR Schrittraten Benchmark
 
-The following configuration sequence is used on AVR chips:
+Die nachfolgende Konfiguration wird bei AVR Chips verwendet:
 
 ```
 allocate_oids count=3
@@ -71,14 +71,14 @@ finalize_config crc=0
 
 The test was last run on commit `59314d99` with gcc version `avr-gcc (GCC) 5.4.0`. Both the 16Mhz and 20Mhz tests were run using simulavr configured for an atmega644p (previous tests have confirmed simulavr results match tests on both a 16Mhz at90usb and a 16Mhz atmega2560).
 
-| avr | ticks |
+| AVR | ticks |
 | --- | --- |
 | 1 Schrittmotor | 102 |
 | 3 Schrittmotoren | 486 |
 
-### Arduino Due step rate benchmark
+### Arduino Due Schrittraten Benchmark
 
-The following configuration sequence is used on the Due:
+Die nachfolgende Konfiguration wird bei Due verwendet:
 
 ```
 allocate_oids count=3
@@ -90,14 +90,14 @@ finalize_config crc=0
 
 The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`.
 
-| sam3x8e | ticks |
+| SAM3x8e | ticks |
 | --- | --- |
 | 1 Schrittmotor | 66 |
 | 3 Schrittmotoren | 257 |
 
-### Duet Maestro step rate benchmark
+### Duet Maestro Schrittraten Benchmark
 
-The following configuration sequence is used on the Duet Maestro:
+Die nachfolgende Konfiguration wird bei Duet Maestro verwendet:
 
 ```
 allocate_oids count=3
@@ -109,14 +109,14 @@ finalize_config crc=0
 
 The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`.
 
-| sam4s8c | ticks |
+| SAM4s8c | ticks |
 | --- | --- |
 | 1 Schrittmotor | 71 |
 | 3 Schrittmotoren | 260 |
 
-### Duet Wifi step rate benchmark
+### Duet Wifi Schrittraten Benchmark
 
-The following configuration sequence is used on the Duet Wifi:
+Die nachfolgende Konfiguration wird bei Duet WiFi verwendet:
 
 ```
 allocate_oids count=3
@@ -128,14 +128,14 @@ finalize_config crc=0
 
 The test was last run on commit `59314d99` with gcc version `gcc version 10.3.1 20210621 (release) (GNU Arm Embedded Toolchain 10.3-2021.07)`.
 
-| sam4e8e | ticks |
+| SAM4e8e | ticks |
 | --- | --- |
 | 1 Schrittmotor | 48 |
 | 3 Schrittmotoren | 215 |
 
-### Beaglebone PRU step rate benchmark
+### Beaglebone PRU Schrittraten Benchmark
 
-The following configuration sequence is used on the PRU:
+Die nachfolgende Konfiguration wird bei PRU verwendet:
 
 ```
 allocate_oids count=3
@@ -147,14 +147,14 @@ finalize_config crc=0
 
 The test was last run on commit `59314d99` with gcc version `pru-gcc (GCC) 8.0.0 20170530 (experimental)`.
 
-| pru | ticks |
+| PRU | ticks |
 | --- | --- |
 | 1 Schrittmotor | 231 |
 | 3 Schrittmotoren | 847 |
 
-### STM32F042 step rate benchmark
+### STM32F042 Schrittraten Benchmark
 
-The following configuration sequence is used on the STM32F042:
+Die nachfolgende Konfiguration wird bei STM32F042 verwendet:
 
 ```
 allocate_oids count=3
@@ -166,14 +166,14 @@ finalize_config crc=0
 
 The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`.
 
-| stm32f042 | ticks |
+| STM32F042 | ticks |
 | --- | --- |
 | 1 Schrittmotor | 59 |
 | 3 Schrittmotoren | 249 |
 
-### STM32F103 step rate benchmark
+### STM32F103 Schrittraten Benchmark
 
-The following configuration sequence is used on the STM32F103:
+Die nachfolgende Konfiguration wird bei STM32F103 verwendet:
 
 ```
 allocate_oids count=3
@@ -185,14 +185,14 @@ finalize_config crc=0
 
 The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`.
 
-| stm32f103 | ticks |
+| STM32F103 | ticks |
 | --- | --- |
 | 1 Schrittmotor | 61 |
 | 3 Schrittmotoren | 264 |
 
-### STM32F4 step rate benchmark
+### STM32F4 Schrittraten Benchmark
 
-The following configuration sequence is used on the STM32F4:
+Die nachfolgende Konfiguration wird bei STM32F4 verwendet:
 
 ```
 allocate_oids count=3
@@ -204,12 +204,12 @@ finalize_config crc=0
 
 The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`. The STM32F407 results were obtained by running an STM32F407 binary on an STM32F446 (and thus using a 168Mhz clock).
 
-| stm32f446 | ticks |
+| STM32F446 | ticks |
 | --- | --- |
 | 1 Schrittmotor | 46 |
 | 3 Schrittmotoren | 205 |
 
-| stm32f407 | ticks |
+| STM32F407 | ticks |
 | --- | --- |
 | 1 Schrittmotor | 46 |
 | 3 Schrittmotoren | 205 |
@@ -271,9 +271,9 @@ The test was last run on commit `cfa48fe3` with gcc version `arm-none-eabi-gcc (
 | 1 Schrittmotor | 47 |
 | 3 Schrittmotoren | 208 |
 
-### LPC176x step rate benchmark
+### LPC176x Schrittraten Benchmark
 
-The following configuration sequence is used on the LPC176x:
+Die nachfolgende Konfiguration wird bei LPC176x verwendet:
 
 ```
 allocate_oids count=3
@@ -285,19 +285,19 @@ finalize_config crc=0
 
 The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`. The 120Mhz LPC1769 results were obtained by overclocking an LPC1768 to 120Mhz.
 
-| lpc1768 | ticks |
+| LPC1768 | ticks |
 | --- | --- |
 | 1 Schrittmotor | 52 |
 | 3 Schrittmotoren | 222 |
 
-| lpc1769 | ticks |
+| LPC1769 | ticks |
 | --- | --- |
 | 1 Schrittmotor | 51 |
 | 3 Schrittmotoren | 222 |
 
-### SAMD21 step rate benchmark
+### SAMD21 Schrittraten Benchmark
 
-The following configuration sequence is used on the SAMD21:
+Die nachfolgende Konfiguration wird bei SAMD21 verwendet:
 
 ```
 allocate_oids count=3
@@ -309,14 +309,14 @@ finalize_config crc=0
 
 The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0` on a SAMD21G18 micro-controller.
 
-| samd21 | ticks |
+| SAMD21 | ticks |
 | --- | --- |
 | 1 Schrittmotor | 70 |
 | 3 Schrittmotoren | 306 |
 
-### SAMD51 step rate benchmark
+### SAMD51 Schrittraten Benchmark
 
-The following configuration sequence is used on the SAMD51:
+Die nachfolgende Konfiguration wird bei SAMD51 verwendet:
 
 ```
 allocate_oids count=3
@@ -328,12 +328,12 @@ finalize_config crc=0
 
 The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0` on a SAMD51J19A micro-controller.
 
-| samd51 | ticks |
+| SAMD51 | ticks |
 | --- | --- |
 | 1 Schrittmotor | 39 |
 | 3 Schrittmotoren | 191 |
-| 1 stepper (200Mhz) | 39 |
-| 3 stepper (200Mhz) | 181 |
+| 1 Schrittmotor (200Mhz) | 39 |
+| 3 Schrittmotoren (200Mhz) | 181 |
 
 ### SAME70 step rate benchmark
 
@@ -399,9 +399,9 @@ The test was last run on commit `14c105b8` with gcc version `arm-none-eabi-gcc (
 
 (*) Note that the reported rp2040 ticks are relative to a 12Mhz scheduling timer and do not correspond to its 200Mhz internal ARM processing rate. It is expected that 3 scheduling ticks corresponds to ~42 ARM core cycles and 14 scheduling ticks corresponds to ~225 ARM core cycles.
 
-### Linux MCU step rate benchmark
+### Linux MCU Schrittraten Benchmark
 
-The following configuration sequence is used on a Raspberry Pi:
+Die nachfolgende Konfiguration wird bei einem Raspberry Pi verwendet:
 
 ```
 allocate_oids count=3
@@ -428,21 +428,21 @@ FLOOD 100000 0.0 debug_nop
 get_uptime
 ```
 
-When the test completes, determine the difference between the clocks reported in the two "uptime" response messages. The total number of commands per second is then `100000 * mcu_frequency / clock_diff`.
+Ist der Test abgeschlossen, berechnen Sie die Differenz zwischen den beiden clocks in den "uptime" Antwortnachrichten `clock_diff`. Die Gesamt Nachrichtenanzahl pro Sekunde wird wie folgt berechnet `100000 * mcu_frequency / clock_diff`.
 
 The USB tests may exceed the CPU capacity of a Raspberry Pi. If running on a Raspberry Pi, Beaglebone, or similar host computer then increase the delay (eg, `DELAY {clock + 20*freq} get_uptime`). Where applicable, the benchmarks below are with console.py running on a desktop class machine with the device connected via a super-speed hub.
 
 The CAN bus tests may saturate the USB host controller of a Raspberry Pi (when testing via a standard gs_usb USB to CAN bus adapter). Where applicable, the CAN bus benchmarks below are with console.py running on a desktop class machine with a USB to CAN bus adapter connected via a super-speed USB hub.
 
-| MCU | Rate | Build | Build compiler |
+| MCU | Rate | Bau | Build Compiler |
 | --- | --- | --- | --- |
-| atmega2560 (serial) | 23K | b161a69e | avr-gcc (GCC) 4.8.1 |
-| sam3x8e (serial) | 23K | b161a69e | arm-none-eabi-gcc (Fedora 7.1.0-5.fc27) 7.1.0 |
+| ATMEGA2560 (serial) | 23K | b161a69e | avr-gcc (GCC) 4.8.1 |
+| SAM3x8e (serial) | 23K | b161a69e | arm-none-eabi-gcc (Fedora 7.1.0-5.fc27) 7.1.0 |
 | rp2350 (CAN) | 59K | 17b8ce4c | arm-none-eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0 |
 | at90usb1286 (USB) | 75K | 01d2183f | avr-gcc (GCC) 5.4.0 |
-| ar100 (serial) | 138K | 08d037c6 | or1k-linux-musl-gcc 9.3.0 |
+| AR100 (serial) | 138K | 08d037c6 | or1k-linux-musl-gcc 9.3.0 |
 | samd21 (USB) | 223K | 01d2183f | arm-none-eabi-gcc (Fedora 7.4.0-1.fc30) 7.4.0 |
-| pru (gemeinsam genutzter Speicher) | 260K | c5968a08 | pru-gcc (GCC) 8.0.0 20170530 (experimental) |
+| pru (gemeinsam genutzter Speicher) | 260K | c5968a08 | pru-gcc (GCC) 8.0.0 20170530 (experimentel) |
 | stm32f103 (USB) | 355K | 01d2183f | arm-none-eabi-gcc (Fedora 7.4.0-1.fc30) 7.4.0 |
 | sam3x8e (USB) | 418K | 01d2183f | arm-none-eabi-gcc (Fedora 7.4.0-1.fc30) 7.4.0 |
 | lpc1768 (USB) | 534K | 01d2183f | arm-none-eabi-gcc (Fedora 7.4.0-1.fc30) 7.4.0 |

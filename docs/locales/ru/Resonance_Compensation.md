@@ -240,7 +240,9 @@ gcode:
   SET_INPUT_SHAPER SHAPER_TYPE_X=<основная_каретка_шапера> SHAPER_FREQ_X=<основная_каретка_фрека> SHAPER_TYPE_Y=<y_shaper> SHAPER_FREQ_Y=<y_freq>
 ```
 
-Обратите внимание, что `SHAPER_TYPE_Y` и `SHAPER_FREQ_Y` должны быть одинаковыми в обеих командах. Можно также поместить аналогичный фрагмент в g-код запуска слайсера, однако тогда шейпер не будет включен до тех пор, пока не будет запущена печать.
+However, users of `generic_cartesian` kinematics should specify carriage names in `CARRIAGE=` parameters of `SET_DUAL_CARRIAGE` instead of their numbers. Note that `SHAPER_TYPE_Y` and `SHAPER_FREQ_Y` should be the same in both commands. If you need to configure an input shaper for Z axis, include its parameters in both `SET_INPUT_SHAPER` commands.
+
+Besides `delayed_gcode`, it is also possible to put a similar snippet into the start g-code in the slicer, however then the shaper will not be enabled until any print is started.
 
 Обратите внимание, что входной формирователь должен быть настроен только один раз. Последующие изменения кареток или их режимов с помощью команды `SET_DUAL_CARRIAGE` сохранят настроенные параметры входного формирователя.
 
@@ -248,11 +250,19 @@ gcode:
 
 Нет, функция `input_shaper` сама по себе практически не влияет на время печати. Однако значение параметра `max_accel`, безусловно, влияет (настройка этого параметра описана в [этом разделе](#selecting-max_accel)).
 
+### Should I enable and tune input shaper for Z axis?
+
+Most of the users are not likely to see improvements in the quality of the prints directly, much unlike X and Y shapers. However, users of delta printers, printers with flying gantry, or printers with heavy moving beds may be able to increase the `max_z_accel` and `max_z_velocity` kinematics limits and thus get faster Z movements. This can be especially useful e.g. for toolchangers, but also when Z-hops are enabled in slicer. And in general, after enabling Z input shaper many users will hear that Z axis operates more smoothly, which may increase the comfort of printer operation, and may somewhat extend lifespan of Z axis parts.
+
 ## Технические детали
 
 ### Входные формирователи
 
-Формирователи ввода, используемые в Klipper, довольно стандартны, и более подробный обзор можно найти в статьях, описывающих соответствующие формирователи. Этот раздел содержит краткий обзор некоторых технических аспектов поддерживаемых входных формирователей. В таблице ниже приведены некоторые (обычно приблизительные) параметры каждого формирователя.
+This section contains a brief overview of some technical aspects of the supported input shapers. Input shapers used in Klipper are rather standard, with the exception of MZV, and one can find more in-depth overview in the articles describing the corresponding shapers.
+
+MZV stands for a Modified-ZV input shaper. The classic definition of ZV shaper assumes two pulses and the total duration `t` equal to 1/2 of the damped period of oscillations `Td`. However, it is possible to construct a generalized form of ZV input shaper with `n >= 3` pulses and an arbitrary total duration `t >= 0.5 * Td` (with the maximum of `t` depending on `n` value), see for instance SNA-ZV and MIS-ZV input shapers, which can be seen as special cases of a more generalized implementation of MZV input shaper in Klipper. The default MZV parameters in Klipper are `n=3`, `t=0.75` (of `Td`), and this shaper was designed to serve as an intermediate shaper between ZV and ZVD, offering better vibrations suppression than ZV when the determined (measured) shaper parameters deviate from the ones actually required by the printer, and smaller smoothing than ZVD. Effectively, its specific duration `t=0.75`, exactly between ZV (with `t=0.5` of `Td`) and ZVD (`t=1` of `Td`), and it happens to work well for many real-life 3D printers. However, experienced users can modify the default parameters of the MZV input shaper and try other variations that may work better for their specific printers (with these non-default variations specified as, e.g. `mzv(n=3,t=0.8)` or `mzv(n=5,t=1.1)` in the `[input_shaper]` section or as a parameter to `SET_INPUT_SHAPER` command, as well as in a parameter to `~/klipper/scripts/calibrate_shaper.py` script, e.g. as `--shapers='2hump_ei,3hump_ei,mzv(n=6,t=1.0)'`. These custom parameters of the shapers are supported by `~/klipper/scripts/graph_shaper.py` scripts via e.g. `--shaper='mzv(n=3,t=0.6666666666)'` parameter.
+
+The table below shows some (usually approximate) parameters of each shaper with their default parameters.
 
 | Входной <br> формирователь | Формирователь <br> продолжительность | Снижение вибрации 20x <br> (допустимая вибрация 5%) | Снижение вибрации в 10 раз <br> (допустимая вибрация 10%) |
 | :-: | :-: | :-: | :-: |
@@ -260,16 +270,16 @@ gcode:
 | MZV | 0.75 / shaper_freq | ± 4% shaper_freq | -10%...+15% shaper_freq |
 | ZVD | 1 / shaper_freq | ± 15% shaper_freq | ± 22% shaper_freq |
 | EI | 1 / shaper_freq | ± 20% shaper_freq | ± 25% shaper_freq |
-| 2HUMP_EI | 1.5 / shaper_freq | ± 35% shaper_freq | ± 40 shaper_freq |
-| 3HUMP_EI | 2 / shaper_freq | -45...+50% shaper_freq | -50%...+55% shaper_freq |
+| 2HUMP_EI | 1.5 / shaper_freq | -40...+45% shaper_freq | -45..+50% shaper_freq |
+| 3HUMP_EI | 2 / shaper_freq | -50...+60% shaper_freq | -55%...+65% shaper_freq |
 
-Примечание по снижению вибраций: значения в таблице выше являются приблизительными. Если известен коэффициент демпфирования принтера для каждой оси, шейпер можно настроить более точно, и тогда он будет уменьшать резонансы в более широком диапазоне частот. Однако коэффициент демпфирования обычно неизвестен, и его трудно оценить без специального оборудования, поэтому Klipper по умолчанию использует значение 0,1, которое является хорошим универсальным значением. Диапазоны частот в таблице охватывают несколько различных возможных коэффициентов демпфирования вокруг этого значения (примерно от 0,05 до 0,2).
+A note on vibration reduction: the values in the table above are approximate. If the damping ratio of the printer is known for each axis, the shaper can be configured more precisely and it will then reduce the resonances in a bit wider range of frequencies. However, the damping ratio is usually unknown and is hard to estimate without a special equipment, so Klipper uses 0.1 value by default, which is a good all-round value. The frequency ranges in the table cover a number of different possible damping ratios around that value (approx. from 0.075 to 0.15).
 
-Также обратите внимание, что EI, 2HUMP_EI и 3HUMP_EI настроены на снижение вибраций до 5 %, поэтому значения для 10 % допустимых вибраций приведены только для справки.
+Also note that EI, 2HUMP_EI, and 3HUMP_EI are tuned to reduce vibrations to 5%, so the values for 10% vibration tolerance are provided only for the reference. However, a user can force a desired vibration tolerance for EI input shaper in a manner similar to MZV input shaper as, e.g. `ei(v_tol=0.02)` or `ei(v_tol=0.1)`, in which case the vibration reduction range will be different.
 
 **Как использовать эту таблицу:**
 
 * Длительность шейпера влияет на сглаживание в частях - чем она больше, тем более сглаженными получаются части. Эта зависимость не линейна, но может дать представление о том, какие шейперы "сглаживают" больше для одной и той же частоты. Упорядочивание по сглаживанию выглядит следующим образом: ZV < MZV < ZVD ≈ EI < 2HUMP_EI < 3HUMP_EI. Кроме того, для формирователей 2HUMP_EI и 3HUMP_EI редко бывает целесообразно устанавливать shaper_freq = resonance freq (их следует использовать для уменьшения колебаний на нескольких частотах).
 * Можно оценить диапазон частот, на которых шейпер снижает вибрации. Например, MZV с shaper_freq = 35 Гц снижает вибрации до 5 % для частот [33,6, 36,4] Гц. 3HUMP_EI с shaper_freq = 50 Гц снижает вибрации до 5 % в диапазоне [27,5, 75] Гц.
-* С помощью этой таблицы можно проверить, какой формирователь следует использовать, если нужно уменьшить вибрации на нескольких частотах. Например, если на одной оси есть резонансы на 35 и 60 Гц: a) формирователь EI должен иметь shaper_freq = 35 / (1 - 0,2) = 43,75 Гц, и он будет уменьшать резонансы до 43,75 * (1 + 0,2) = 52. 5 Гц, так что этого недостаточно; б) шейпер 2HUMP_EI должен иметь shaper_freq = 35 / (1 - 0,35) = 53,85 Гц и будет уменьшать колебания до 53,85 * (1 + 0,35) = 72,7 Гц - так что это приемлемая конфигурация. Всегда старайтесь использовать как можно более высокий shaper_freq для данного шейпера (возможно, с некоторым запасом прочности, так что в данном примере лучше всего подойдет shaper_freq ≈ 50-52 Гц), и старайтесь использовать шейпер с как можно меньшей длительностью шейпера.
+* One can use this table to check which shaper they should be using if they need to reduce vibrations at several frequencies. For example, if one has resonances at 35 Hz and 60 Hz on the same axis: a) EI shaper needs to have shaper_freq = 35 / (1 - 0.2) = 43.75 Hz, and it will reduce resonances until 43.75 * (1 + 0.2) = 52.5 Hz, so it is not sufficient; b) 2HUMP_EI shaper needs to have shaper_freq = 35 / (1 - 0.4) = 58.3 Hz and will reduce vibrations until 58.3 * (1 + 0.45) = 84.5 Hz - so this is an acceptable configuration. Always try to use as high shaper_freq as possible for a given shaper (perhaps with some safety margin, so in this example shaper_freq ≈ 55 Hz would work best), and try to use a shaper with as small shaper duration as possible.
 * Если нужно уменьшить вибрации на нескольких очень разных частотах (скажем, 30 Гц и 100 Гц), может оказаться, что приведенная выше таблица не дает достаточно информации. В этом случае удачнее использовать скрипт [scripts/graph_shaper.py](../scripts/graph_shaper.py), который является более гибким.

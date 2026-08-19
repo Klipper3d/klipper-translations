@@ -1,16 +1,16 @@
-# Exclude Objects
+# Excluir objetos
 
 The `[exclude_object]` module allows Klipper to exclude objects while a print is in progress. To enable this feature include an [exclude_object config
 section](Config_Reference.md#exclude_object) (also see the [command
 reference](G-Codes.md#exclude-object) and [sample-macros.cfg](../config/sample-macros.cfg) file for a Marlin/RepRapFirmware compatible M486 G-Code macro.)
 
-Unlike other 3D printer firmware options, a printer running Klipper utilizes a suite of components and users have many options to choose from. Therefore, in order to provide a a consistent user experience, the `[exclude_object]` module will establish a contract or API of sorts. The contract covers the contents of the gcode file, how the internal state of the module is controlled, and how that state is provided to clients.
+A diferencia de otras opciones de firmware para impresoras 3D, una impresora que utiliza Klipper emplea un conjunto de componentes y los usuarios tienen muchas opciones entre las que elegir. Por lo tanto, con el fin de proporcionar una experiencia de usuario coherente, el módulo `[exclude_object]` establecerá una especie de contrato o API. El contrato abarca el contenido del archivo gcode, cómo se controla el estado interno del módulo y cómo se proporciona ese estado a los clientes.
 
-## Workflow Overview
+## Descripción general del flujo de trabajo
 
-A typical workflow for printing a file might look like this:
+Un flujo de trabajo típico para imprimir un archivo podría ser el siguiente:
 
-1. Slicing is completed and the file is uploaded for printing. During the upload, the file is processed and `[exclude_object]` markers are added to the file. Alternately, slicers may be configured to prepare object exclusion markers natively, or in it's own pre-processing step.
+1. El corte se ha completado y el archivo se ha cargado para su impresión. Durante la carga, el archivo se procesa y se añaden marcadores `[exclude_object]` al archivo. Alternativamente, los cortadores pueden configurarse para preparar marcadores de exclusión de objetos de forma nativa o en su propio paso de preprocesamiento.
 1. When printing starts, Klipper will reset the `[exclude_object]` [status](Status_Reference.md#exclude_object).
 1. When Klipper processes the `EXCLUDE_OBJECT_DEFINE` block, it will update the status with the known objects and pass it on to clients.
 1. The client may use that information to present a UI to the user so that progress can be tracked. Klipper will update the status to include the currently printing object which the client can use for display purposes.

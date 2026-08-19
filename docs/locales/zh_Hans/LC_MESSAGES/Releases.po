@@ -9,8 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-07-22 08:05+0000\n"
 "Last-Translator: Arda <pengfei.fu@gmail.com>\n"
-"Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
-"projects/klipper/releases/zh_Hans/>\n"
+"Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/projects/klipper/releases/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -31,8 +30,7 @@ msgstr "发布于2020年10月20日，此版本更新内容:"
 msgid ""
 "Support for \"Input Shaping\" - a mechanism to counteract printer resonance. "
 "It can reduce or eliminate \"ringing\" in prints."
-msgstr "支持使用“输入整形”功能 - "
-"此功能主要作用是抵消打印机共振。它可以减少甚至消除打印中产生的“ringing”振纹。"
+msgstr "支持使用“输入整形”功能 - 此功能主要作用是抵消打印机共振。它可以减少甚至消除打印中产生的“ringing”振纹。"
 
 msgid ""
 "New \"Smooth Pressure Advance\" system. This implements \"Pressure Advance\" "
@@ -40,8 +38,8 @@ msgid ""
 " tune pressure advance using a \"Tuning Tower\" method."
 msgstr ""
 "“Smooth Pressure Advance”全新的挤出算法机制。这实现了“Pressure "
-"Advance”(打印挤出）同时不会引起挤出速度瞬间的改变，相反会变得更加平滑。现在也"
-"可以使用“Tuning Tower”方法来调整“Pressure Advance”(打印挤出）。"
+"Advance”(打印挤出）同时不会引起挤出速度瞬间的改变，相反会变得更加平滑。现在也可以使用“Tuning Tower”方法来调整“Pressure "
+"Advance”(打印挤出）。"
 
 msgid ""
 "New \"webhooks\" API server. This provides a programmable JSON interface to "
@@ -65,8 +63,7 @@ msgid ""
 "Improved USB identification. Klipper now has its own USB identification code "
 "and micro-controllers can now report their unique serial numbers during USB "
 "identification."
-msgstr "改进了USB识别。Klipper现在有自己的USB识别代码，微控制器现在可以在USB识别期间"
-"报告其唯一的序列号。"
+msgstr "改进了USB识别。Klipper现在有自己的USB识别代码，微控制器现在可以在USB识别期间报告其唯一的序列号。"
 
 msgid "New kinematic support for \"Rotary Delta\" and \"CoreXZ\" printers."
 msgstr "对 \"Rotary Delta \"和 \"CoreXZ \"打印机的新运动学支持。"
@@ -76,9 +73,8 @@ msgid ""
 "support for GPIO pins on \"Linux MCU\", stm32 \"HID bootloader\" support, "
 "Chitu bootloader support, MKS Robin bootloader support."
 msgstr ""
-"微控制器的改进：支持stm32f070，支持stm32f207，支持 \"Linux MCU \"的GPIO引脚，"
-"支持stm32 \"HID启动引导程序\"，支持Chitu启动引导程序，支持MKS "
-"Robin启动引导程序。"
+"微控制器的改进：支持stm32f070，支持stm32f207，支持 \"Linux MCU \"的GPIO引脚，支持stm32 "
+"\"HID启动引导程序\"，支持Chitu启动引导程序，支持MKS Robin启动引导程序。"
 
 msgid "Improved handling of Python \"garbage collection\" events."
 msgstr "改进了对Python \"垃圾收集 \"事件的处理。"
@@ -90,11 +86,11 @@ msgid ""
 "shaper_calibrate, query_adc, graph_accelerometer, graph_extruder, "
 "graph_motion, graph_shaper, graph_temp_sensor, whconsole"
 msgstr ""
-"增加了许多额外的模块：adc_scaled, adxl345, bme280, display_status, "
-"extruder_stepper, fan_generic, hall_filament_width_sensor, htu21d, "
-"homing_heaters, input_shaper, lm75, print_stats, resonance_tester, "
-"shaper_calibrate, query_adc, graph_accelerometer, graph_extruder, "
-"graph_motion, graph_shaper, graph_temp_sensor, whconsole"
+"增加了许多额外的模块：adc_scaled, adxl345, bme280, display_status, extruder_stepper, "
+"fan_generic, hall_filament_width_sensor, htu21d, homing_heaters, input_shaper,"
+" lm75, print_stats, resonance_tester, shaper_calibrate, query_adc, "
+"graph_accelerometer, graph_extruder, graph_motion, graph_shaper, "
+"graph_temp_sensor, whconsole"
 
 msgid "Several bug fixes and code cleanups."
 msgstr "几个错误的修复和代码的清理。"
@@ -135,8 +131,8 @@ msgid ""
 "New manual_probe, bed_screws, screws_tilt_adjust, skew_correction, safe_z_home"
 " modules added."
 msgstr ""
-"新增 manual_probe, bed_screws, screws_tilt_adjust, skew_correction, "
-"safe_z_home 模块。"
+"新增 manual_probe, bed_screws, screws_tilt_adjust, skew_correction, safe_z_home "
+"模块。"
 
 msgid "Enhanced multi-sample probing with median, average, and retry logic."
 msgstr "通过使用中位数、平均值和重试逻辑改进了多样本探测。"
@@ -144,8 +140,7 @@ msgstr "通过使用中位数、平均值和重试逻辑改进了多样本探测
 msgid ""
 "Improved documentation for BL-Touch, probe calibration, endstop calibration, "
 "delta calibration, sensorless homing, and endstop phase calibration."
-msgstr "改进了 BL-"
-"Touch、探针校准、限位校准、三角洲校准、无传感器归位和限位相位校准的文档。"
+msgstr "改进了 BL-Touch、探针校准、限位校准、三角洲校准、无传感器归位和限位相位校准的文档。"
 
 msgid "Improved homing support on a large Z axis."
 msgstr "改进了长 Z 轴上的归位支持。"
@@ -190,18 +185,16 @@ msgid ""
 "pause_resume, respond, temperature_sensor tsl1401cl_filament_width_sensor, "
 "tuning_tower"
 msgstr ""
-"添加了许多新的模块：board_pins，controller_fan，delayed_gcode，dotstar，filam"
-"ent_switch_sensor，firmware_retraction，gcode_arcs，gcode_button，heater_gene"
-"ric，manual_stepper，mcp4018，mcp4728，neopixel，pause_resume，响应，"
-"temperature_sensor tsl1401cl_filament_width_sensor，tuning_tower"
+"添加了许多新的模块：board_pins，controller_fan，delayed_gcode，dotstar，filament_switch_sensor，firmware_retraction，gcode_arcs，gcode_button，heater_generic，manual_stepper，mcp4018，mcp4728，neopixel，pause_resume，响应，temperature_sensor"
+" tsl1401cl_filament_width_sensor，tuning_tower"
 
 msgid ""
 "Many additional commands added: RESTORE_GCODE_STATE, SAVE_GCODE_STATE, "
 "SET_GCODE_VARIABLE, SET_HEATER_TEMPERATURE, SET_IDLE_TIMEOUT, "
 "SET_TEMPERATURE_FAN_TARGET"
 msgstr ""
-"增加了许多命令：RESTORE_GCODE_STATE、SAVE_GCODE_STATE、SET_GCODE_VARIABLE、SE"
-"T_HEATER_TEMPERATURE、SET_IDLE_TIMEOUT SET_TEMPERATURE_FAN_TARGET"
+"增加了许多命令：RESTORE_GCODE_STATE、SAVE_GCODE_STATE、SET_GCODE_VARIABLE、SET_HEATER_TEMPERATURE、SET_IDLE_TIMEOUT"
+" SET_TEMPERATURE_FAN_TARGET"
 
 msgid "Klipper 0.7.0"
 msgstr "Klipper 0.7.0"
@@ -225,23 +218,21 @@ msgstr "支持运行时配置 Trinamic 步进电机驱动（tmc2130, tmc2208, tm
 msgid ""
 "Improved temperature sensor support: MAX6675, MAX31855, MAX31856, MAX31865, "
 "custom thermistors, common pt100 style sensors"
-msgstr "改进的温度传感器支持：MAX6675、MAX31855、MAX31856、MAX31865、定制热敏电阻、"
-"common pt100类传感器"
+msgstr "改进的温度传感器支持：MAX6675、MAX31855、MAX31856、MAX31865、定制热敏电阻、common pt100类传感器"
 
 msgid ""
 "Several new modules: temperature_fan, sx1509, force_move, mcp4451, z_tilt, "
 "quad_gantry_level, endstop_phase, bltouch"
 msgstr ""
-"几个新模块：temperature_fan, sx1509, force_move, mcp4451, z_tilt, "
-"quad_gantry_level, endstop_phase, bltouch"
+"几个新模块：temperature_fan, sx1509, force_move, mcp4451, z_tilt, quad_gantry_level,"
+" endstop_phase, bltouch"
 
 msgid ""
 "Several new commands added: SAVE_CONFIG, SET_PRESSURE_ADVANCE, "
 "SET_GCODE_OFFSET, SET_VELOCITY_LIMIT, STEPPER_BUZZ, TURN_OFF_HEATERS, M204, "
 "custom g-code macros"
 msgstr ""
-"添加了几个新命令：SAVE_CONFIG、SET_PRESSURE_ADVANCE、SET_GCODE_OFFSET、SET_VE"
-"LOCITY_LIMIT、STEPPER_BUZZ、TURN_OFF_HEATERS、M204、自定义G代码宏"
+"添加了几个新命令：SAVE_CONFIG、SET_PRESSURE_ADVANCE、SET_GCODE_OFFSET、SET_VELOCITY_LIMIT、STEPPER_BUZZ、TURN_OFF_HEATERS、M204、自定义G代码宏"
 
 msgid "Expanded LCD display support:"
 msgstr "扩展 LCD 显示支持："
@@ -262,8 +253,8 @@ msgid ""
 "Klipper ported to: LPC176x (Smoothieboards), SAM4E8E (Duet2), SAMD21 (Arduino "
 "Zero), STM32F103 (\"Blue pill\" devices), atmega32u4"
 msgstr ""
-"Klipper被移植到：LPC176x (Smoothieboards), SAM4E8E (Duet2), SAMD21 (Arduino "
-"Zero), STM32F103 (\"Blue pill\" devices), atmega32u4"
+"Klipper被移植到：LPC176x (Smoothieboards), SAM4E8E (Duet2), SAMD21 (Arduino Zero), "
+"STM32F103 (\"Blue pill\" devices), atmega32u4"
 
 msgid ""
 "New Generic USB CDC driver implemented on AVR, LPC176x, SAMD21, and STM32F103"
@@ -284,8 +275,7 @@ msgstr "为常见的商品打印机提供了许多新的配置文件范例"
 msgid ""
 "Documentation updates for bootloaders, benchmarking, micro-controller porting,"
 " config checks, pin mapping, slicer settings, packaging, and more"
-msgstr "更新了引导加载程序、基准测试、微控制器移植、配置检查、引脚映射、切片设置、打"
-"包等的文档"
+msgstr "更新了引导加载程序、基准测试、微控制器移植、配置检查、引脚映射、切片设置、打包等的文档"
 
 msgid "Several bug fixes and code cleanups"
 msgstr "修复了几个错误并整理了代码"
@@ -338,8 +328,7 @@ msgstr "支持自定义数字和PWM输出引脚（使用新的 SET_PIN 命令）
 msgid ""
 "Initial support for a \"virtual sdcard\" that allows printing directly from "
 "Klipper (helps on machines too slow to run OctoPrint well)"
-msgstr "初步支持Klipper从“虚拟SDCard”直接开始打印（有助于在由于机器速度太慢而无法运行"
-"OctoPrint的情况）"
+msgstr "初步支持Klipper从“虚拟SDCard”直接开始打印（有助于在由于机器速度太慢而无法运行OctoPrint的情况）"
 
 msgid "Support for setting different arm lengths on each tower of a delta"
 msgstr "支持在三角洲机型上每个柱上设置不同的打印臂长度"
@@ -388,8 +377,7 @@ msgid ""
 "extruder with one micro-controller and the rest of the printer with another.) "
 "Software clock synchronization is implemented to coordinate actions between "
 "micro-controllers."
-msgstr "支持多个微控制器。（例如，可以在一个微控制器控制挤出机，而用另外一个微控制器"
-"控制打印机的其他部分）实现软件时钟同步用来协调微控制器之间的动作。"
+msgstr "支持多个微控制器。（例如，可以在一个微控制器控制挤出机，而用另外一个微控制器控制打印机的其他部分）实现软件时钟同步用来协调微控制器之间的动作。"
 
 msgid ""
 "Stepper performance improvements (20Mhz AVRs up to 189K steps per second)."
@@ -431,8 +419,7 @@ msgstr "支持自动微控制器复位。支持在树莓派上切换USB电源进
 msgid ""
 "The pressure advance algorithm now works with look-ahead to reduce pressure "
 "changes during cornering."
-msgstr "压力提前算法现在与前瞻（look-"
-"ahead）算法一起使用，以减少转弯过程中的压力变化。"
+msgstr "压力提前算法现在与前瞻（look-ahead）算法一起使用，以减少转弯过程中的压力变化。"
 
 msgid "Support for limiting the top speed of short zigzag moves"
 msgstr "支持限制短之字形移动的最高速度"
@@ -523,16 +510,15 @@ msgid ""
 "Support for \"Multi-MCU Homing\". It is now possible for a stepper motor and "
 "its endstop to be wired to separate micro-controllers. This simplifies wiring "
 "of Z probes on \"toolhead boards\"."
-msgstr "支持“多微控制器归位”。现在可以将步进电机和限位连接到单独的微控制器上。此举简"
-"化了“工具板”上的Z探头的接线。"
+msgstr "支持“多微控制器归位”。现在可以将步进电机和限位连接到单独的微控制器上。此举简化了“工具板”上的Z探头的接线。"
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
 "Klipper now has a [Community Discord Server](https://discord.klipper3d.org) "
 "and a [Community Discourse Server](https://community.klipper3d.org)."
 msgstr ""
-"klipper 现在有[社区Discord 服务器](https://discord.klipper3d.org)和[社区论坛]"
-"(https://community.klipper3d.org)."
+"klipper 现在有[社区Discord "
+"服务器](https://discord.klipper3d.org)和[社区论坛](https://community.klipper3d.org)."
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
@@ -540,8 +526,8 @@ msgid ""
 "infrastructure. There is also a [Klipper "
 "Translations](https://github.com/Klipper3d/klipper-translations) project."
 msgstr ""
-"[Klipper官网](https://www.klipper3d.org)现在使用“mkdocs”基础架构。还有一个"
-"[翻译Klipper](https://github.com/Klipper3d/klipper-translations)项目。"
+"[Klipper官网](https://www.klipper3d.org)现在使用“mkdocs”基础架构。还有一个[翻译Klipper](https://github.com/Klipper3d/klipper-"
+"translations)项目。"
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid "Automated support for flashing firmware via sdcard on many boards."
@@ -589,9 +575,9 @@ msgid ""
 "filament_motion_sensor, palette2, motion_report, pca9533, pulse_counter, "
 "save_variables, sdcard_loop, temperature_host, temperature_mcu"
 msgstr ""
-"添加了许多附加模块：ds18b20, duplicate_pin_override, filament_motion_sensor, "
-"palette2, motion_report, pca9533, pulse_counter, save_variables, "
-"sdcard_loop, temperature_host, temperature_mcu"
+"添加了许多附加模块：ds18b20, duplicate_pin_override, filament_motion_sensor, palette2, "
+"motion_report, pca9533, pulse_counter, save_variables, sdcard_loop, "
+"temperature_host, temperature_mcu"
 
 #: docs/Releases.md:block 3 (header)
 msgid "Klipper 0.11.0"
@@ -616,8 +602,8 @@ msgid ""
 "Enhanced CAN bus support. Support for CAN bus on rp2040, stm32g0, stm32h7, "
 "same51, and same54 chips. Support for \"USB to CAN bus bridge\" mode."
 msgstr ""
-"改进了CAN Bus 支持。在rp2040 stm32g0 stm32h7 same51 以及 same54 "
-"芯片上支持了CAN Bus。并支持了\"USB to CAN bus bridge\" 模式。"
+"改进了CAN Bus 支持。在rp2040 stm32g0 stm32h7 same51 以及 same54 芯片上支持了CAN Bus。并支持了\"USB"
+" to CAN bus bridge\" 模式。"
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid "Support for CanBoot bootloader."
@@ -647,10 +633,9 @@ msgid ""
 "event dispatch. New rp2040 support for \"make flash\", i2c, and rp2040-e5 USB "
 "errata."
 msgstr ""
-"多项微控制器改进。 新增对 stm32h743 stm32h750 stm32l412 stm32g0b1 same70 "
-"same51 same54 芯片的支持。在 atsamd 和 stm32f0 上支持 i2c 读取。在 stm32 "
-"上支持硬件 pwm。基于 Linux mcu 信号的事件分派。 新的 rp2040 支持 "
-"\"make flash\" i2c 以及 rp2040-e5 USB 勘误。"
+"多项微控制器改进。 新增对 stm32h743 stm32h750 stm32l412 stm32g0b1 same70 same51 same54 "
+"芯片的支持。在 atsamd 和 stm32f0 上支持 i2c 读取。在 stm32 上支持硬件 pwm。基于 Linux mcu 信号的事件分派。 新的"
+" rp2040 支持 \"make flash\" i2c 以及 rp2040-e5 USB 勘误。"
 
 #: docs/Releases.md:block 5 (unordered list)
 msgid ""
@@ -658,5 +643,142 @@ msgid ""
 "smart_effector, z_thermal_adjust. New deltesian kinematics added. New dump_mcu"
 " tool added."
 msgstr ""
-"新增模块：ANGLE、DAC084S085、EXCLUDE_OBJECT、LED、mpu9250、pca9632、SMART_EFE"
-"CTOR、Z_HEARTER_ADJUST。添加了新的Deltesian运动学。添加了新的Dump_MCU工具。"
+"新增模块：ANGLE、DAC084S085、EXCLUDE_OBJECT、LED、mpu9250、pca9632、SMART_EFECTOR、Z_HEARTER_ADJUST。添加了新的Deltesian运动学。添加了新的Dump_MCU工具。"
+
+#: docs/Releases.md:block 3 (header)
+msgid "Klipper 0.13.0"
+msgstr ""
+
+#: docs/Releases.md:block 4 (paragraph)
+msgid "Available on 20250411. Major changes in this release:"
+msgstr ""
+
+#: docs/Releases.md:block 5 (unordered list)
+msgid "New \"sweeping vibrations\" resonance testing mechanism for input shaper."
+msgstr ""
+
+#: docs/Releases.md:block 5 (unordered list)
+msgid "Fans and GPIO pins can now be assigned a formula (via Jinja2 \"templates\")."
+msgstr ""
+
+#: docs/Releases.md:block 5 (unordered list)
+msgid ""
+"The bed_mesh code now supports \"adaptive bed mesh\". The area probed can be "
+"adjusted for the size of the print."
+msgstr ""
+
+#: docs/Releases.md:block 5 (unordered list)
+msgid ""
+"A new `minimum_cruise_ratio` kinematic parameter has been added (it replaces "
+"the previous `max_accel_to_decel` parameter)."
+msgstr ""
+
+#: docs/Releases.md:block 5 (unordered list)
+msgid "Several new sensors added:"
+msgstr ""
+
+#: docs/Releases.md:block 5 (unordered list)
+msgid ""
+"Support for ldc1612 \"eddy\" current sensors. This includes probing support, "
+"fast \"scan\" probing, and temperature calibration."
+msgstr ""
+
+#: docs/Releases.md:block 5 (unordered list)
+msgid ""
+"New support for \"load cell\" measurements. Support for connecting these load "
+"cells to hx71x and ads1220 ADC sensors."
+msgstr ""
+
+#: docs/Releases.md:block 5 (unordered list)
+msgid ""
+"Support for BMP180, BMP388, and SHT3x temperature sensors. Support for "
+"measuring temperature with ADS1x1x ADC chips."
+msgstr ""
+
+#: docs/Releases.md:block 5 (unordered list)
+msgid "New lis3dh and icm20948 accelerometer support."
+msgstr ""
+
+#: docs/Releases.md:block 5 (unordered list)
+msgid "Support for mt6816 and mt6826s \"hall angle\" sensors."
+msgstr ""
+
+#: docs/Releases.md:block 5 (unordered list)
+msgid "New micro-controller improvements:"
+msgstr ""
+
+#: docs/Releases.md:block 5 (unordered list)
+msgid "New support for rp2350 micro-controllers."
+msgstr ""
+
+#: docs/Releases.md:block 5 (unordered list)
+msgid "Existing rp2040 chips now run at 200MHz (up from 125Mhz)."
+msgstr ""
+
+#: docs/Releases.md:block 5 (unordered list)
+msgid ""
+"The micro-controller code can now define many more commands (up to 16384 from "
+"128)."
+msgstr ""
+
+#: docs/Releases.md:block 5 (unordered list)
+msgid ""
+"Other modules added: aip31068_spi, canbus_stats, error_mcu, "
+"garbage_collection, pwm_cycle_time, pwm_tool, garbage_collection."
+msgstr ""
+
+#: docs/Releases.md:block 6 (header)
+msgid "Klipper 0.12.0"
+msgstr ""
+
+#: docs/Releases.md:block 7 (paragraph)
+msgid "Available on 20231110. Major changes in this release:"
+msgstr ""
+
+#: docs/Releases.md:block 8 (unordered list)
+msgid "Support for COPY and MIRROR modes on IDEX printers."
+msgstr ""
+
+#: docs/Releases.md:block 8 (unordered list)
+msgid "Several micro-controller improvements:"
+msgstr ""
+
+#: docs/Releases.md:block 8 (unordered list)
+msgid "Support for new ar100 and hc32f460 architectures."
+msgstr ""
+
+#: docs/Releases.md:block 8 (unordered list)
+msgid ""
+"Support for stm32f7, stm32g0b0, stm32g07x, stm32g4, stm32h723, n32g45x, "
+"samc21, and samd21j18 chip variants."
+msgstr ""
+
+#: docs/Releases.md:block 8 (unordered list)
+msgid "Improved DFU and Katapult reboot handling."
+msgstr ""
+
+#: docs/Releases.md:block 8 (unordered list)
+msgid "Improved performance on USB to CANbus bridge mode."
+msgstr ""
+
+#: docs/Releases.md:block 8 (unordered list)
+msgid "Improved performance on \"linux mcu\"."
+msgstr ""
+
+#: docs/Releases.md:block 8 (unordered list)
+msgid "New support for software based i2c."
+msgstr ""
+
+#: docs/Releases.md:block 8 (unordered list)
+msgid ""
+"New hardware support for tmc2240 stepper motor drivers, lis2dw12 "
+"accelerometers, and aht10 temperature sensors."
+msgstr ""
+
+#: docs/Releases.md:block 8 (unordered list)
+msgid "New axis_twist_compensation and temperature_combined modules added."
+msgstr ""
+
+#: docs/Releases.md:block 8 (unordered list)
+msgid "New support for gcode arcs in XY, XZ, and YZ planes."
+msgstr ""

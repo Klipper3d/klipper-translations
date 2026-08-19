@@ -2,19 +2,19 @@
 
 Este documento proporciona una descripción general de cómo Klipper implementa el movimiento del robot (su [cinemática] (https://en.wikipedia.org/wiki/Kinematics)).  El contenido puede ser de interés tanto para los desarrolladores interesados en trabajar en el software Klipper como para los usuarios interesados en comprender mejor la mecánica de sus máquinas.
 
-## Acceleration
+## Aceleración
 
-Klipper implements a constant acceleration scheme whenever the print head changes velocity - the velocity is gradually changed to the new speed instead of suddenly jerking to it. Klipper always enforces acceleration between the tool head and the print. The filament leaving the extruder can be quite fragile - rapid jerks and/or extruder flow changes lead to poor quality and poor bed adhesion. Even when not extruding, if the print head is at the same level as the print then rapid jerking of the head can cause disruption of recently deposited filament. Limiting speed changes of the print head (relative to the print) reduces risks of disrupting the print.
+Klipper implementa un esquema de aceleración constante cada vez que el cabezal de impresión cambia de velocidad: la velocidad se cambia gradualmente a la nueva velocidad en lugar de hacerlo de forma brusca. Klipper siempre aplica la aceleración entre el cabezal de la herramienta y la impresión. El filamento que sale del extrusor puede ser bastante frágil: los movimientos bruscos y/o los cambios en el flujo del extrusor provocan una mala calidad y una mala adhesión a la cama. Incluso cuando no se está extruyendo, si el cabezal de impresión está al mismo nivel que la impresión, un movimiento brusco del cabezal puede provocar la interrupción del filamento recién depositado. Limitar los cambios de velocidad del cabezal de impresión (en relación con la impresión) reduce el riesgo de interrumpir la impresión.
 
-It is also important to limit acceleration so that the stepper motors do not skip or put excessive stress on the machine. Klipper limits the torque on each stepper by virtue of limiting the acceleration of the print head. Enforcing acceleration at the print head naturally also limits the torque of the steppers that move the print head (the inverse is not always true).
+También es importante limitar la aceleración para que los motores paso a paso no se salten pasos ni ejerzan una tensión excesiva sobre la máquina. Klipper limita el par motor de cada motor paso a paso mediante la limitación de la aceleración del cabezal de impresión. Al imponer la aceleración en el cabezal de impresión, se limita naturalmente también el par motor de los motores paso a paso que mueven el cabezal de impresión (lo contrario no siempre es cierto).
 
-Klipper implements constant acceleration. The key formula for constant acceleration is:
+Klipper implementa una aceleración constante. La fórmula clave para la aceleración constante es:
 
 ```
 velocity(time) = start_velocity + accel*time
 ```
 
-## Trapezoid generator
+## Generador de trapecios
 
 Klipper uses a traditional "trapezoid generator" to model the motion of each move - each move has a start speed, it accelerates to a cruising speed at constant acceleration, it cruises at a constant speed, and then decelerates to the end speed using constant acceleration.
 

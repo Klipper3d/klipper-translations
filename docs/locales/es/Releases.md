@@ -77,10 +77,10 @@ Available on 20210929. Major changes in this release:
 
 Disponible en 20201020. Principales cambios en esta versión:
 
-* Support for "Input Shaping" - a mechanism to counteract printer resonance. It can reduce or eliminate "ringing" in prints.
-* New "Smooth Pressure Advance" system. This implements "Pressure Advance" without introducing instantaneous velocity changes. It is also now possible to tune pressure advance using a "Tuning Tower" method.
-* New "webhooks" API server. This provides a programmable JSON interface to Klipper.
-* The LCD display and menu are now configurable using the Jinja2 template language.
+* Compatibilidad con «Input Shaping», un mecanismo para contrarrestar la resonancia de la impresora. Puede reducir o eliminar el «zumbido» en las impresiones.
+* Nuevo sistema «Smooth Pressure Advance». Este sistema implementa el «Pressure Advance» sin introducir cambios instantáneos de velocidad. Ahora también es posible ajustar el avance de presión utilizando un método denominado «Tuning Tower».
+* Nuevo servidor API «webhooks». Proporciona una interfaz JSON programable para Klipper.
+* La pantalla LCD y el menú ahora se pueden configurar utilizando el lenguaje de plantillas Jinja2.
 * The TMC2208 stepper motor drivers can now be used in "standalone" mode with Klipper.
 * Soporte para BL-Touch v3 mejorado.
 * Improved USB identification. Klipper now has its own USB identification code and micro-controllers can now report their unique serial numbers during USB identification.

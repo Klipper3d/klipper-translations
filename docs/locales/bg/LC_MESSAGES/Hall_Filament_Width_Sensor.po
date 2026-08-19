@@ -5,8 +5,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-07-22 08:43+0000\n"
 "Last-Translator: Nikolai Danov <nikolaidanov67@gmail.com>\n"
-"Language-Team: Bulgarian <https://hosted.weblate.org/projects/klipper/"
-"hall_filament_width_sensor/bg/>\n"
+"Language-Team: Bulgarian <https://hosted.weblate.org/projects/klipper/hall_filament_width_sensor/bg/>\n"
 "Language: bg\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -89,9 +88,10 @@ msgid ""
 "[Thingiverse](https://www.thingiverse.com/thing:4138933), an assembly video is"
 " also available on [Youtube](https://www.youtube.com/watch?v=TDO9tME8vp4)"
 msgstr ""
-"Проектите можете да намерите в [Thingiverse](https://www.thingiverse.com/"
-"thing:4138933), а видеоклип за сглобяване е достъпен в [Youtube](https://"
-"www.youtube.com/watch?v=TDO9tME8vp4)."
+"Проектите можете да намерите в "
+"[Thingiverse](https://www.thingiverse.com/thing:4138933), а видеоклип за "
+"сглобяване е достъпен в "
+"[Youtube](https://www.youtube.com/watch?v=TDO9tME8vp4)."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 10 (paragraph)
 msgid ""
@@ -107,9 +107,9 @@ msgid ""
 "Reference](Config_Reference.md#hall_filament_width_sensor) and [G-Code "
 "documentation](G-Codes.md#hall_filament_width_sensor)."
 msgstr ""
-"За да използвате сензора на Хол за широчина на влакното, прочетете "
-"[Config Reference](Config_Reference.md#hall_filament_width_sensor) и "
-"[G-Code documentation](G-Codes.md#hall_filament_width_sensor)."
+"За да използвате сензора на Хол за широчина на влакното, прочетете [Config "
+"Reference](Config_Reference.md#hall_filament_width_sensor) и [G-Code "
+"documentation](G-Codes.md#hall_filament_width_sensor)."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 14 (paragraph)
 msgid ""
@@ -131,8 +131,8 @@ msgstr ""
 "използван за разработването на този хост модул, се основава на два линейни "
 "сензора на Хол (например ss49e). Сензорите в тялото са разположени на "
 "противоположни страни. Принцип на работа: два сензора на Хол работят в "
-"диференциален режим, температурата се променя по един и същ начин за "
-"сензора. Не е необходима специална температурна компенсация."
+"диференциален режим, температурата се променя по един и същ начин за сензора. "
+"Не е необходима специална температурна компенсация."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 6 (paragraph)
 msgid ""
@@ -143,11 +143,55 @@ msgid ""
 "pins and different boards."
 msgstr ""
 "Сензорът генерира два аналогови изхода въз основа на изчислената ширина на "
-"нишката. Сумата на изходното напрежение винаги е равна на откритата ширина "
-"на нишката. Приемащият модул следи промените в напрежението и регулира "
-"множителя на екструдиране. Използвам конектора aux2 на платка, подобна на "
-"рампа, с изводите analog11 и analog12. Можете да използвате различни щифтове "
-"и различни платки."
+"нишката. Сумата на изходното напрежение винаги е равна на откритата ширина на "
+"нишката. Приемащият модул следи промените в напрежението и регулира множителя "
+"на екструдиране. Използвам конектора aux2 на платка, подобна на рампа, с "
+"изводите analog11 и analog12. Можете да използвате различни щифтове и различни"
+" платки."
+
+#: docs/Hall_Filament_Width_Sensor.md:block 15 (header)
+msgid "Use as a runout switch only"
+msgstr ""
+
+#: docs/Hall_Filament_Width_Sensor.md:block 16 (paragraph)
+msgid ""
+"By default, the sensor measures filament diameter and adjusts the extrusion "
+"multiplier to compensate for variations."
+msgstr ""
+
+#: docs/Hall_Filament_Width_Sensor.md:block 17 (paragraph)
+msgid ""
+"If you want to use the sensor as a runout switch only, set the "
+"`enable_flow_compensation` config parameter to `false`. In this mode, the "
+"sensor will only trigger runout events when filament is not detected, it will "
+"not modify the extrusion multiplier."
+msgstr ""
+
+#: docs/Hall_Filament_Width_Sensor.md:block 18 (paragraph)
+msgid ""
+"This is useful for printers where the filament sensor is not accurate enough "
+"for flow compensation but can reliably detect filament runout, or when "
+"printing with flexible filaments which have unstable diameter characteristics."
+msgstr ""
+
+#: docs/Hall_Filament_Width_Sensor.md:block 19 (paragraph)
+msgid ""
+"Issue **ENABLE_FILAMENT_WIDTH_SENSOR FLOW_COMPENSATION=1** to enable flow "
+"compensation or **ENABLE_FILAMENT_WIDTH_SENSOR FLOW_COMPENSATION=0** to "
+"disable it."
+msgstr ""
+
+#: docs/Hall_Filament_Width_Sensor.md:block 20 (paragraph)
+msgid ""
+"Note that disabling filament width compensation automatically resets the "
+"extrusion multiplier to 100%."
+msgstr ""
+
+#: docs/Hall_Filament_Width_Sensor.md:block 21 (paragraph)
+msgid ""
+"**QUERY_FILAMENT_WIDTH** includes the current state of flow compensation in "
+"its output."
+msgstr ""
 
 #~ msgid ""
 #~ "[menu __main __filament __width_current]\n"

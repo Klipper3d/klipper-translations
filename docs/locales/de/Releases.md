@@ -101,7 +101,7 @@ Verfügbar ab 21.10.2019. Wichtige Änderungen in dieser Version:
 * Neue Unterstützung für G-Code Befehlsvorlagen. G-Code in der Konfigurationsdatei wird jetzt mit der Jinja2 Vorlagensprache ausgewertet.
 * Verbesserungen an Trinamic Schritttreibern:
    * Neue Unterstützung für TMC2209 und TMC5160 Treiber.
-   * Verbesserte  DUMP_TMC, SET_TMC_CURRENT, und INIT_TMC G-Code Befehle.
+   * Verbesserte DUMP_TMC, SET_TMC_CURRENT, und INIT_TMC G-Code Befehle.
    * Verbesserte Unterstützung für die Handhabung von TMC UART mit einem analogen mux.
 * Verbessertes "homing", "probing", und "bed leveling" unterstützung :
    * Neue Module manual_probe, bed_screws, screws_tilt_adjust, skew_correction, safe_z_home hinzugefügt.
@@ -141,7 +141,7 @@ Verfügbar ab 20.12.2018. Wichtige Änderungen in dieser Version:
    * Klipper portiert auf: LPC176x (Smoothieboards), SAM4E8E (Duet2), SAMD21 (Arduino Zero), STM32F103 ("Blue pill" Geräte), atmega32u4
    * Neue generische USB CDC Treiber implementiert auf AVR, LPC176x, SAMD21 und STM32F103
    * Leistungsverbesserungen auf ARM-Prozessoren
-* Der Kinematik Code wurde umgeschrieben, um einen "iterativen Problemlöser" zu verwenden.
+* Der Kinematik Code wurde umgeschrieben, um einen "iterativen Problemlöser" zu verwenden
 * Neue automatische Testverfahren für die Klipper-Host-Software
 * Viele neue Beispiel Konfigurationsdateien für handelsübliche Drucker
 * Aktualisierte Dokumentation für Bootloader, Benchmarking, Portierung von Mikrocontrollern, Konfigurationsprüfungen, Pin Mapping, Slicer-Einstellungen, "packaging" und mehr

@@ -158,7 +158,7 @@ Signed-off-by: My Name <myemail@example.org>
 
 要件を満たしたら次のことが必要です :
 
-1. klipper-tranlations リポジトリの [active_translations](https://github.com/Klipper3d/klipper-translations/blob/translations/active_translations) を更新
+1. update klipper-translations repository [active_translations](https://github.com/Klipper3d/klipper-translations/blob/translations/active_translations)
 1. オプション: klipper-translations リポジトリの `docs\locals\<lang>` フォルダに、言語固有の index.md を置き換えるための manual-index.md ファイルを追加してください (生成された index.md は正しくレンダリングされません)。
 
 既知の問題:

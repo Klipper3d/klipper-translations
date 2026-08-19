@@ -6,6 +6,42 @@ A dokumentumban szereplő valamennyi dátum hozzávetőleges.
 
 ## Változások
 
+20260525: The internal implementation of "probe:z_virtual_endstop" has changed. Most users will not observe a change in behavior. Previously it was technically possible to mix "probe:z_virtual_endstop" with other types of Z endstops and this behavior is no longer valid.
+
+20260501: The handling of the `[probe_eddy_current]` `tap_threshold` config option and associated `TAP_THRESHOLD` G-Code parameter has changed. It will be necessary to recalibrate the value. See the [eddy probe documentation](Eddy_Probe.md) for calibration directions.
+
+20260408: The script `lib/canboot/flash_can.py` has been updated to the most current version from [Katapult](https://github.com/Arksine/katapult) and as such renamed to `lib/katapult/flashtool.py`. If you call this script directly instead of using the existing Makefiles, you will need to change the path to the script to `lib/katapult/flashtool.py`.
+
+20260318: The `[probe_eddy_current]` config options `speed`, `lift_speed`, `samples`, `sample_retract_dist`, `samples_result`, `samples_tolerance`, and `samples_tolerance_retries` no longer apply to probe commands using `METHOD=scan`, `METHOD=rapid_scan`, nor `METHOD=tap`. To use different settings, supply the equivalent `PROBE_SPEED`, `LIFT_SPEED`, `SAMPLES`, `SAMPLE_RETRACT_DIST`, `SAMPLES_RESULT`, `SAMPLES_TOLERANCE`, or `SAMPLES_TOLERANCE_RETRIES` parameter with the probe command.
+
+20260318: The `[probe_eddy_current]` config option `z_offset` has been renamed to `descend_z`. Using the old name is deprecated and it will be removed in the near future.
+
+20260214: The `MANUAL_STEPPER` G-Code command `STOP_ON_ENDSTOP` parameter has changed. See the [MANUAL_STEPPER](G-Codes.md#manual_stepper) documentation for details. Using the previous integer values (-2, -1, 1, 2) is deprecated and support will be removed in the near future.
+
+20260207: The low-level i2c behavior of sx1509 and uc1701 devices has changed. Previously an i2c error would result in a shutdown, and now i2c errors when communicating with these devices will only generate warnings in the log file.
+
+20260109: The status value `{printer.probe.last_z_result}` is deprecated; it will be removed in the near future. Use `{printer.probe.last_probe_position}` instead, and note that this new value already has the probe's configured xyz offsets applied.
+
+20260109: The g-code console text output from the `PROBE`, `PROBE_ACCURACY`, and similar commands has changed. Now Z heights are reported relative to the nominal bed Z position instead of relative to the probe's configured `z_offset`. Similarly, intermediate probe x and y console reports will also have the probe's configured `x_offset` and `y_offset` applied.
+
+20260109: The `[screws_tilt_adjust]` module now reports the status variable `{printer.screws_tilt_adjust.result.screw1.z}` with the probe's `z_offset` applied. That is, one would previously need to subtract the probe's configured `z_offset` to find the absolute Z deviation at the given screw location and now one must not apply the `z_offset`.
+
+20251122: An option `axis` has been added to `[carriage <name>]` sections for `generic_cartesian` kinematics, allowing arbitrary names for primary carriages. Users are encouraged to explicitly specify `axis` option now.
+
+20251106: The status fields `{printer.toolhead.position}`, `{printer.gcode_move.position}`, `{printer.gcode_move.gcode_position}`, and `{printer.motion_report.live_position}` are changing. These coordinates used to always contain four components, but now may contain additional components. The ordering and number of components may change at run-time - see the [status reference](Status_Reference.md#accessing-coordinates) for important details. Accessing any of these coordinates in macros using the ".e" accessor is deprecated - use something like `{printer.toolhead.position[printer.gcode_move.axis_map.E]}` as an alternative.
+
+20251106: The status fields `{printer.gcode_move.homing_origin}`, `{printer.toolhead.axis_min}`, and `{printer.toolhead.axis_max}` currently contain four components where the fourth component is always zero. This behavior is deprecated. In the future these coordinates may contain only three components. For additional information see the [status reference](Status_Reference.md#accessing-coordinates).
+
+20251010: During normal printing the command processing will now attempt to stay one second ahead of printer movement (reduced from two seconds previously).
+
+20251003: Support for the undocumented `max_stepper_error` option in the `[printer]` config section has been removed.
+
+20250916: The definitions of EI, 2HUMP_EI, and 3HUMP_EI input shapers were updated. For best performance it is recommended to recalibrate input shapers, especially if some of these shapers are currently used.
+
+20250811: Support for the `max_accel_to_decel` parameter in the `[printer]` config section has been removed and support for the `ACCEL_TO_DECEL` parameter in the `SET_VELOCITY_LIMIT` command has been removed. These capabilities were deprecated on 20240313.
+
+20250721: The `[pca9632]` and `[mcp4018]` modules no longer accept the `scl_pin` and `sda_pin` options. Use `i2c_software_scl_pin` and `i2c_software_sda_pin` instead.
+
 20250428: The maximum `cycle_time` for pwm `[output_pin]`, `[pwm_cycle_time]`, `[pwm_tool]`, and similar config sections is now 3 seconds (reduced from 5 seconds). The `maximum_mcu_duration` in `[pwm_tool]` is now also 3 seconds.
 
 20250418: The manual_stepper `STOP_ON_ENDSTOP` feature may now take less time to complete. Previously, the command would wait the entire time the move could possibly take even if the endstop triggered earlier. Now, the command finishes shortly after the endstop trigger.
@@ -24,7 +60,7 @@ A dokumentumban szereplő valamennyi dátum hozzávetőleges.
 
 20241112: A `CHIPS=<chip_name>` opció a `TEST_RESONANCES` és a `SHAPER_CALIBRATE` műveletekben megköveteli a gyorsítóchipek teljes nevének megadását. Például `adxl345 rpi` a rövid név - `rpi` helyett.
 
-20240912: A `SET_PIN`, `SET_SERVO`, `SET_FAN_SPEED`, `M106` és `M107` parancsok mostantól összeválogatottak. Korábban, ha ugyanannak az objektumnak a minimális ütemezési időnél (jellemzően 100 ms) gyorsabban adtak ki sok frissítést, akkor a tényleges frissítések messze a jövőbe sorolódhattak. Most, ha sok frissítést adnak ki gyors egymásutánban, akkor lehetséges, hogy csak a legutolsó kérés kerül alkalmazásra. Ha az előző viselkedés szükséges, akkor fontold meg explicit „G4” késleltetési parancsok hozzáadását a frissítések között.
+20240912: `SET_PIN`, `SET_SERVO`, `SET_FAN_SPEED`, `M106`, and `M107` commands are now collated. Previously, if many updates to the same object were issued faster than the minimum scheduling time (typically 100ms) then actual updates could be queued far into the future. Now if many updates are issued in rapid succession then it is possible that only the latest request will be applied. If the previous behavior is required then consider adding explicit `G4` delay commands between updates.
 
 20240912: és `static_value` paraméterek támogatása az `[output_pin]` konfigurációs szakaszokban megszűnt. Ezek az opciók a 20240123 óta elavultak.
 
@@ -53,7 +89,7 @@ reference](./Config_Reference.md#hall_filament_width_sensor) for more details.
 
 20230729: A `dual_carriage` exportált állapota megváltozott. A `mode` és az `active_carriage` exportálása helyett az egyes kocsik egyedi üzemmódjai `printer.dual_carriage.carriage_0` és `printer.dual_carriage.carriage_1` néven kerülnek exportálásra.
 
-20230619: A `relative_reference_index` opció elavult, és helyébe a `zero_reference_position` opció lépett. A konfiguráció frissítésének részleteiért olvasd el az [Ágyháló](./Bed_Mesh.md#the-deprecated-relative_reference_index) című dokumentumot. Ezzel a deprecationnel a `RELATIVE_REFERENCE_INDEX` már nem áll rendelkezésre a `BED_MESH_CALIBRATE` G-kód parancs paramétereként.
+20230619: The `relative_reference_index` option has been deprecated and superseded by the `zero_reference_position` option. Refer to the [Bed Mesh Documentation](./Bed_Mesh.md#the-deprecated-relative_reference_index) for details on how to update the configuration. With this deprecation the `RELATIVE_REFERENCE_INDEX` is no longer available as a parameter for the `BED_MESH_CALIBRATE` gcode command.
 
 20230530: A "make menuconfig" alapértelmezett canbus frekvenciája mostantól 1000000. Ha a canbus használata és a canbus valamilyen más frekvenciával történő használata szükséges, akkor a mikrokontroller fordításakor és égetésekor mindenképpen válaszd az "Enable extra low-level configuration options" opciót, és add meg a kívánt "CAN bus speed" értéket a "make menuconfig"-ben.
 
@@ -144,7 +180,7 @@ document](Command_Templates.md#macro-parameters) for examples.
 
 20201218: Az endstop_phase modulban az `endstop_phase` beállítás helyébe a `trigger_phase` beállítás lépett. Ha az endstop phase modult használod, akkor át kell konvertálni a [`rotation_distance`](Rotation_Distance.md) értékre, és az ENDSTOP_PHASE_CALIBRATE parancs futtatásával újra kell kalibrálni az esetleges endstop fázisokat.
 
-20201218: A forgó delta- és polárnyomtatóknak mostantól meg kell adniuk egy `gear_ratio` paramétert a forgó léptetőikhez, és többé nem adhatnak meg `step_distance` paramétert. Az új gear_ratio paraméter formátumát lásd a [konfigurációs hivatkozás](Config_Reference.md#stepper) dokumentumban.
+20201218: Rotary delta and polar printers must now specify a `gear_ratio` for their rotary steppers, and they may no longer specify a `step_distance` parameter. See the [config reference](Config_Reference.md#stepper) for the format of the new gear_ratio parameter.
 
 20201213: A "probe:z_virtual_endstop" használatakor nem érvényes a Z "position_endstop" megadása. Mostantól hibaüzenet jelenik meg, ha Z "position_endstop" van megadva a "probe:z_virtual_endstop" használatával. A hiba kijavításához távolítsd el a Z "position_endstop" meghatározást.
 

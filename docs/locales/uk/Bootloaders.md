@@ -143,7 +143,7 @@ Bssac -U -p /dev/ttyACM0 -R
 
 SAMC21 миготливий через інтерфейс серійного дроту ARM (SWD). Це зазвичай робиться з виділеним SWD апаратним донголом. Крім того, можна скористатися [Равесняний Пі з OpenOCD](#running-openocd-on-the-raspberry-pi).
 
-При використанні OpenOCD з SAMC21 додаткові кроки повинні бути прийняті, щоб спочатку покласти чіп в режим холодного роз'єму, якщо дошка використовує SWD шпильки для інших цілей. Якщо використовувати OpenOCD на Rasberry Pi, це можна зробити, використовуючи команду, перш ніж викликати OpenOCD.
+When using OpenOCD with the SAMC21, extra steps must be taken to first put the chip into Cold Plugging mode if the board makes use of the SWD pins for other purposes. If using OpenOCD on a Raspberry Pi, this can be done by running the following commands before invoking OpenOCD.
 
 ```
 СКЛК=25
@@ -376,7 +376,7 @@ javascript licenses api веб-сайт go1.13.8
 
 У перший раз CanBoot був спалахований, він повинен виявити, що немає програми присутні і ввести завантажувач. Якщо це не відбувається, можна ввести завантажувача, натиснувши кнопку скидання двічі у спадку.
 
-`flash_can.py` утиліта поставляється в папці `lib/canboot` може бути використана для завантаження прошивки Klipper. Пристрої UUID необхідно спалахувати. Якщо ви не маєте UUID, це можливо для запиту вузлів, які наразі працюють завантажувачем:
+The `flashtool.py` utility supplied in the `lib/katapult` folder may be used to upload Klipper firmware. The device UUID is necessary to flash. If you do not have a UUID it is possible to query nodes currently running the bootloader:
 
 ```
 python3 flash_can.py -q

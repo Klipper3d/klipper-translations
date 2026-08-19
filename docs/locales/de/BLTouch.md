@@ -26,7 +26,7 @@ Es ist wichtig, dass die z_hop-Bewegung in safe_z_home hoch genug ist, damit die
 
 ## Erste Tests
 
-Bevor Sie fortfahren, vergewissern Sie sich, dass der BL-Touch in der richtigen Höhe montiert ist. Der Stift sollte sich im eingefahrenen Zustand etwa 2 mm über der Düse befinden.
+Bevor Sie fortfahren, vergewissern Sie sich, dass der BL-Touch in der richtigen Höhe montiert ist. Der Stift sollte sich im eingefahrenen Zustand etwa 2 mm über der Düse befinden
 
 Wenn Sie den Drucker einschalten, sollte die BL-Touch-Sonde einen Selbsttest durchführen und den Stift ein paar Mal auf und ab bewegen. Sobald der Selbsttest abgeschlossen ist, sollte der Stift zurückgezogen werden und die rote LED an der Sonde dauerhaft leuchten. Sollten Fehler auftreten, z. B. wenn die Sonde rot blinkt oder der Stift nach unten statt nach oben zeigt, schalten Sie den Drucker aus und überprüfen Sie die Verkabelung und Konfiguration.
 

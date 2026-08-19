@@ -1,6 +1,6 @@
 # Example configurations
 
-This document contains guidelines for contributing an example Klipper configuration to the Klipper github repository (located in the [config directory](../config/)).
+این سند شامل دستورالعمل‌هایی برای افزودن یک نمونه پیکربندی Klipper به مخزن گیت‌هاب Klipper (واقع در [دایرکتوری پیکربندی](../config/)) است.
 
 Note that the [Klipper Community Discourse server](https://community.klipper3d.org) is also a useful resource for finding and sharing config files.
 

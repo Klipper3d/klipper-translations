@@ -38,7 +38,7 @@ Normally you would start with a base image for your SBC, RPiOS Lite for example,
 
 KIAUH can be used to install Klipper and its associated programs on a variety of Linux-based systems that run a form of Debian. More information can be found at https://github.com/dw-0/kiauh
 
-## Building and flashing the micro-controller
+## ساخت (Build) و فلش کردن میکروکنترلر
 
 To compile the micro-controller code, start by running these commands on your host device:
 

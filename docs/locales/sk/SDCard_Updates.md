@@ -33,9 +33,9 @@ Vyššie uvedené príkazy predpokladajú, že váš MCU sa pripája predvolenou
 
 ```
 ./scripts/flash-sdcard.sh -h
-Nástroj na nahrávanie SD karty pre Klipper
+SD Card upload utility for Klipper
 
-usage: flash_sdcard.sh [-h] [-l] [-c] [-b <baud>] [-f <firmware>]
+usage: flash_sdcard.sh [-h] [-l] [-c] [-s] [-b <baud>] [-f <firmware>]
                        <device> <board>
 
 positional arguments:
@@ -46,6 +46,7 @@ optional arguments:
   -h              show this message
   -l              list available boards
   -c              run flash check/verify only (skip upload)
+  -s              use fast SPI speed (4MHz)
   -b <baud>       serial baud rate (default is 250000)
   -f <firmware>   path to klipper.bin
 ```
@@ -65,6 +66,20 @@ Ak chcete flashovať zostavu Klipper umiestnenú niekde inde, ako je predvolené
 Upozorňujeme, že pri aktualizácii MKS Robin E3 nie je potrebné manuálne spúšťať `update_mks_robin.py` a dodávať výsledný binárny súbor do `flash-sdcard.sh`. Tento postup je automatizovaný počas procesu nahrávania.
 
 Voľba `-c` sa používa na vykonanie operácie iba na kontrolu alebo overenie, aby sa otestovalo, či doska správne beží špecifikovaný firmvér. Táto možnosť je primárne určená pre prípady, keď je potrebné manuálne zapnutie a vypnutie na dokončenie postupu blikania, ako napríklad pri zavádzacích zariadeniach, ktoré na prístup k svojim kartám SD používajú režim SDIO namiesto SPI. (Pozrite si upozornenia nižšie) Dá sa však kedykoľvek použiť aj na overenie, či sa kód vložený do dosky zhoduje s verziou v priečinku zostavy na akejkoľvek podporovanej doske.
+
+## Failure to Initialize
+
+Some SD cards may fail to initialize at the default SPI speed of 400KHz. In this situation it is possible to use `-s` to drive the SPI peripheral at 4MHz. For example:
+
+```
+./scripts/flash-sdcard.sh -s /dev/ttyACM0 btt-skr-v1.3
+```
+
+If the device still fails to initialize then cause of the failure is unrelated to the speed and likely a result of one of the following conditions:
+
+- The SD card is improperly formatted. Must be `fat` or `fat32`.
+- Attempt to initialize a card using the SPI interface that has already been initialized over SDIO.
+- The SD card has failed or is corrupt.
 
 ## Výstrahy
 
@@ -111,7 +126,7 @@ BOARD_ALIASES = {
 }
 ```
 
-Ak potrebujete novú definíciu dosky a nie je vám vyhovujúci postup načrtnutý vyššie, odporúča sa, aby ste si ju vyžiadali v [Klipper Community Discord](Contact.md#discord).
+If you need a new board definition and you are uncomfortable with the procedure outlined above it is recommended that you request one in the [Klipper Discord](Contact.md).
 
 ## Flashing dosky, ktoré používajú SDIO
 

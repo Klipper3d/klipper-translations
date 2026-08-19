@@ -17,19 +17,19 @@ resistors](CANBUS.md#terminating-resistors) on the CAN bus. If the resistors are
 
 Файл журналу Klipper буде звітувати `Stats` рядок один раз, коли принтер активний. Ці лінійки «Стати» мають `байти_invalid` лічильник для кожного мікроконтролера. Цей лічильник не повинен підходити під час нормальної роботи принтера (це нормально для лічильника, щоб бути незеро після RESTART, і це не стосується, якщо протипоказання один раз на місяць або так). Якщо це протипоказання на мікроконтролері CAN на мікроконтролері CAN під час нормального друку (приблизні кожні кілька годин або частіше), то це індикація важкої проблеми.
 
-Збільшення значення `bytes_invalid` на з'єднанні шини CAN є симптомом перевпорядкованих повідомлень на шині CAN. Якщо це спостерігається, переконайтеся, що:
+Incrementing `bytes_invalid` on a CAN bus connection is a symptom of reordered messages on the CAN bus. If seen, make sure to:
 
-* Використовуйте ядро Linux версії 6.6.0 або пізнішої.
-* Якщо ви використовуєте адаптер USB-CANBUS з прошивкою candlelight, використовуйте candleLight_fw версії 2.0 або пізнішої.
-* Якщо ви використовуєте режим мосту USB-CANBUS від Klipper, переконайтеся, що вузол мосту прошитий за допомогою Klipper версії 0.12.0 або пізнішої.
+* Use a Linux kernel version 6.6.0 or later.
+* If using a USB-to-CANBUS adapter running candlelight firmware, use v2.0 or later of candleLight_fw.
+* If using Klipper's USB-to-CANBUS bridge mode, make sure the bridge node is flashed with Klipper v0.12.0 or later.
 
-Зміна порядку повідомлень – це серйозна проблема, яку необхідно виправити. Це призведе до нестабільної поведінки та може призвести до помилок, що викликають плутанину, на будь-якій ділянці друку. Збільшення значення `bytes_invalid` не спричинене проблемами з проводкою чи подібними апаратними проблемами та може бути виправлено лише шляхом виявлення та оновлення несправного програмного забезпечення.
+Reordered messages is a severe problem that must be fixed. It will result in unstable behavior and can lead to confusing errors at any part of a print. An incrementing `bytes_invalid` is not caused by wiring or similar hardware issues and can only be fixed by identifying and updating the faulty software.
 
-У старіших версіях ядра Linux була помилка в коді драйвера canbus gs_usb, яка могла призводити до зміни порядку пакетів canbus. Вважається, що цю проблему виправлено в [Linux commit 24bc41b4](https://github.com/torvalds/linux/commit/24bc41b4558347672a3db61009c339b1f5692169), який був випущений у версії 6.6.0. У деяких випадках старі версії Linux можуть не показувати проблему (через те, як налаштовані апаратні переривання), проте, якщо проблеми виникають, рекомендованим рішенням є оновлення до новішого ядра.
+Older versions of the Linux kernel had a bug in the gs_usb canbus driver code that could cause reordered canbus packets. The issue is thought to be fixed in [Linux commit 24bc41b4](https://github.com/torvalds/linux/commit/24bc41b4558347672a3db61009c339b1f5692169) which was released in v6.6.0. In some cases, older Linux versions may not show the problem (due to how hardware interrupts are configured), however if problems are seen the recommended solution is to upgrade to a newer kernel.
 
-Старіші версії прошивки Candlelight могли змінювати порядок пакетів CANbus, і вважається, що ця проблема виправлена в [candlelight_fw commit 8b3a7b45](https://github.com/candle-usb/candleLight_fw/commit/8b3a7b4565a3c9521b762b154c94c72c5acb2bcf).
+Older versions of candlelight firmware could reorder canbus packets, and the issue is thought to be fixed in [candlelight_fw commit 8b3a7b45](https://github.com/candle-usb/candleLight_fw/commit/8b3a7b4565a3c9521b762b154c94c72c5acb2bcf).
 
-Старіші версії коду мосту Klipper USB-to-CANBUS могли неправильно втрачати повідомлення canbus. Це не так серйозно, як зміна порядку повідомлень, але все одно має бути виправлено. Вважається, що це виправлено за допомогою [Klipper PR #6175](https://github.com/Klipper3d/klipper/pull/6175).
+Older versions of Klipper's USB-to-CANBUS bridge code could incorrectly drop canbus messages. This is not as severe as reordering messages, but it should still be fixed. It is thought to be fixed with [Klipper PR #6175](https://github.com/Klipper3d/klipper/pull/6175).
 
 ## Використовуйте відповідні налаштування txqueuelen
 
@@ -51,13 +51,13 @@ Klipper автоматично перетворить втрачені пові�
 
 При нормальних обставинах Klipper може використовувати ~25 черги слотів для MCU - зазвичай тільки використовуючи більше слотів під час переадресації. (Своїсно, хост Кліппер може передавати до 192 байтів до кожного Кліппера МКУ перед отриманням відступу від цього МКУ.) Якщо один автобус CAN має 5 або більше Klipper MCUs на ньому, то це може знадобитися для збільшення `txqueuelen` над рекомендованою вартістю 128. Однак, як і вище, догляд слід приймати при виборі нового значення, щоб уникнути зайвої затримки часу.
 
-## Використовуйте `canbus_query.py` лише для ідентифікації вузлів, які раніше ніколи не бачили
+## Use `canbus_query.py` only to identify nodes never previously seen
 
-Використовувати інструмент [`canbus_query.py`](CANBUS.md#finding-the-canbus_uuid-for-new-micro-controllers) можна лише для ідентифікації мікроконтролерів, які ніколи раніше не були ідентифіковані. Після ідентифікації всіх вузлів на шині запишіть отримані UUID у файл printer.cfg та уникайте непотрібного запуску інструменту.
+It is only valid to use the [`canbus_query.py` tool](CANBUS.md#finding-the-canbus_uuid-for-new-micro-controllers) to identify micro-controllers that have never been previously identified. Once all nodes on a bus are identified, record the resulting uuids in the printer.cfg, and avoid running the tool unnecessarily.
 
-Інструмент реалізовано за допомогою низькорівневого механізму, який може змусити вузли внутрішньо спостерігати помилки шини. Ці внутрішні помилки можуть призвести до переривань зв'язку та відключення деяких вузлів від шини.
+The tool is implemented using a low-level mechanism that can cause nodes to internally observe bus errors. These internal errors may result in communication interruptions and may result is some nodes disconnecting from the bus.
 
-Не можна використовувати інструмент для "ping", якщо вузол підключено. Не запускайте інструмент під час активного друку.
+It is not valid to use the tool to "ping" if a node is connected. Do not run the tool during an active print.
 
 ## Зберігаючі колоди
 

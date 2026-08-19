@@ -79,7 +79,7 @@ Para comprobar el número de pin y la disponibilidad de pin ejecute:
 gpioinfo
 ```
 
-The chosen pin can thus be used within the configuration as `gpiochip<n>/gpio<o>` where **n** is the chip number as seen by the `gpiodetect` command and **o** is the line number seen by the`gpioinfo` command.
+The chosen pin can thus be used within the configuration as `gpiochip<n>/gpio<o>` where **n** is the chip number as seen by the `gpiodetect` command and **o** is the line number seen by the` gpioinfo` command.
 
 ***Atención:*** sólo se pueden utilizar las gpio marcadas como `unused`. No es posible que una *pista* sea utilizada por múltiples procesos simultáneamente.
 

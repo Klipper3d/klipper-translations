@@ -64,9 +64,9 @@ Klipper のマイクロコントローラのボーレートは、マイクロコ
 
 ## Raspberry Pi 3以外でKlipperを動かすことはできますか？
 
-推奨ハードウェアは、Raspberry Pi 2、Raspberry Pi 3、またはRaspberry Pi 4です。
+The recommended hardware is a Raspberry Pi Zero2w, Raspberry Pi 3, Raspberry Pi 4 or Raspberry Pi 5. Klipper will also run on other SBC devices as well as x86 hardware, as described below.
 
-KlipperはRaspberry Pi 1やRaspberry Pi Zeroでも動作しますが、これらのボードにはOctoPrintをうまく動作させるのに十分な処理能力がありません。OctoPrintから直接プリントする場合、これらの遅いマシンではプリントストールが発生することがよくあります。(プリンターは OctoPrint が動作コマンドを送るよりも速く動くかもしれません。) もし、これらの遅いボードで動作させたい場合は、印刷時に "virtual_sdcard" 機能を使うことを検討してください (詳しくは [config reference](Config_Reference.md#virtual_sdcard) を参照してください)。
+Klipper will run on a Raspberry Pi 1, 2 and on the Raspberry Pi Zero1, but these boards don't have enough processing power to run Klipper well. It is common for print stalls to occur on these slower machines when printing (The printer may move faster than Klipper can send movement commands.) It is not reccomended to run Klipper on these older machines.
 
 Beaglebone上での動作については、[Beaglebone固有のインストール手順](Beaglebone.md)を参照してください。
 
@@ -146,7 +146,7 @@ TMC2208（またはTMC2224）ドライバーを "スタンドアローンモー�
 
 ## Raspberry Pi がクラッシュした場合、ヒーターはつけっぱなしになりますか？
 
-ソフトウェアはそれを防ぐように設計されています。ホストがヒーターを有効にすると、ホスト側のソフトウェアは5秒ごとにその有効化の確認する必要があります。マイクロコントローラーが5秒ごとに確認を受けなかった場合、すべてのヒーターとステッピングモーターをオフにするように設計された "シャットダウン" ステートに移行します。
+The software has been designed to prevent that. Once the host enables a heater, the host software needs to confirm that enablement every 3 seconds. If the micro-controller does not receive a confirmation every 3 seconds it goes into a "shutdown" state which is designed to turn off all heaters and stepper motors.
 
 詳細は[MCU commands](MCU_Commands.md)の "config_digital_out" コマンドを参照。
 

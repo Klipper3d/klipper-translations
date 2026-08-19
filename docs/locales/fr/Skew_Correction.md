@@ -10,13 +10,13 @@ Assurez-vous qu'aucune correction d'équerrage n'est appliquée pendant cette im
 
 ## Prenez vos mesures
 
-The `[skew_correction]` module requires 3 measurements for each plane you want to correct; the length from Corner A to Corner C, the length from Corner B to Corner D, and the length from Corner A to Corner D. When measuring length AD do not include the flats on the corners that some test objects provide.
+Le module `[skew_correction]` nécessite 3 mesures pour chaque plan que vous souhaitez corriger ; la longueur du coin A au coin C, la longueur du coin B au coin D et la longueur du coin A au coin D. Lorsque l'on mesure la longueur AD il ne faut pas inclure les surfaces sur les coins que certains objets de test fournissent.
 
 ![skew_lengths](img/skew_lengths.png)
 
 ## Configurez votre équerrage
 
-Assurez-vous que `[skew_correction]` est bien dans le fichier printer.cfg. Vous pouvez maintenant utiliser le gcode `SET_SKEW` pour configurer skew_correcton. Par exemple, si vos longueurs mesurées le long de XY sont les suivantes :
+Make sure `[skew_correction]` is in printer.cfg. You may now use the `SET_SKEW` gcode to configure skew_correction. For example, if your measured lengths along XY are as follows:
 
 ```
 Length AC = 140.4

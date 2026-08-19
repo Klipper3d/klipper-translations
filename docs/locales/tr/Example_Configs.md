@@ -2,9 +2,9 @@
 
 Bu belge, Klipper github deposuna ([config dizini](../config/) içinde bulunur) örnek bir Klipper yapılandırması eklemek için yönergeler içerir.
 
-Note that the [Klipper Community Discourse server](https://community.klipper3d.org) is also a useful resource for finding and sharing config files.
+Dikkatinize, [Klipper Topluluğu Forum sunucusu](https://community.klipper3d.org) ayrıca config dosyalarını bulmak ve paylaşmak için yararlı bir kaynaktır.
 
-## Guidelines
+## Rehberler
 
 1. Select the appropriate config filename prefix:
    1. The `printer` prefix is used for stock printers sold by a mainstream manufacturer.

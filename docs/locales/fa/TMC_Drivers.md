@@ -1,6 +1,6 @@
 # TMC drivers
 
-This document provides information on using Trinamic stepper motor drivers in SPI/UART mode on Klipper.
+این سند اطلاعاتی درباره‌ی استفاده از درایورهای موتور پله‌ای Trinamic در حالت SPI/UART در Klipper ارائه می‌دهد.
 
 Klipper can also use Trinamic drivers in their "standalone mode". However, when the drivers are in this mode, no special Klipper configuration is needed and the advanced Klipper features discussed in this document are not available.
 

@@ -37,7 +37,7 @@ picocom -b 1200 <Устройство>
 
 ### Физическая серия
 
-Если на MCU используется физический последовательный порт (даже если для подключения к нему используется последовательный USB-адаптер), отправьте строку `<SPACE><FS><SPACE>Запрос последовательного загрузчика!!<SPACE>~`.
+If a physical serial port is being used on the MCU (even if a USB serial adapter is being used to connect to it), sending the string `<SPACE><FS><SPACE>Request Serial Bootloader!!<SPACE>~` requests the bootloader.
 
 `<SPACE>` - это буквенный пробел ASCII, 0x20.
 
@@ -64,7 +64,7 @@ echo $'~ \x1c Запрос последовательного загрузчик
 
 Этот метод также применим к устройствам, работающим в режиме [CANBridge](CANBUS.md#usb-to-can-bus-bridge-mode).
 
-#### Katapult's flashtool.py
+#### Вспышка Катапулта. py
 
 ```shell
 python3 ./katapult/scripts/flashtool.py -i <CAN_IFACE> -u <UUID> -r

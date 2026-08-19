@@ -32,22 +32,23 @@ sudo service klipper start
 В приведенных выше командах предполагается, что MCU подключается со скоростью 250000 бод по умолчанию, а прошивка находится по адресу `~/klipper/out/klipper.bin`. Сценарий `flash-sdcard.sh` предоставляет опции для изменения этих значений по умолчанию. Все опции можно просмотреть с помощью экрана справки:
 
 ```
-./scripts/flash-sdcard.sh -ч
-Утилита загрузки SD-карт для Klipper
+./scripts/flash-sdcard.sh -h
+SD Card upload utility for Klipper
 
-использование: flash_sdcard.sh [-h] [-l] [-c] [-b <бод>] [-f <прошивка>]
-                       <устройство> <плата>
+usage: flash_sdcard.sh [-h] [-l] [-c] [-s] [-b <baud>] [-f <firmware>]
+                       <device> <board>
 
-позиционные аргументы:
-  <устройство> последовательный порт устройства
-  <плата> тип платы
+positional arguments:
+  <device>        device serial port
+  <board>         board type
 
-необязательные аргументы:
-  -h показать это сообщение
-  -l список доступных плат
-  -c запускать только проверку flash/верификацию (пропустить загрузку)
-  -b <скорость передачи данных в бодах> последовательная скорость передачи данных в бодах (по умолчанию - 250000)
-  -f <прошивка> путь к klipper.bin
+optional arguments:
+  -h              show this message
+  -l              list available boards
+  -c              run flash check/verify only (skip upload)
+  -s              use fast SPI speed (4MHz)
+  -b <baud>       serial baud rate (default is 250000)
+  -f <firmware>   path to klipper.bin
 ```
 
 Если на плате прошита микропрограмма, которая подключается с пользовательской скоростью передачи данных, то ее можно обновить, указав опцию `-b`:
@@ -65,6 +66,20 @@ sudo service klipper start
 Обратите внимание, что при обновлении MKS Robin E3 нет необходимости вручную запускать файл `update_mks_robin.py` и передавать полученный двоичный файл в файл `flash-sdcard.sh`. Эта процедура автоматизирована в процессе загрузки.
 
 Опция `-c` используется для выполнения операции проверки или только для проверки корректности работы платы с указанной микропрограммой. Эта опция предназначена, в первую очередь, для случаев, когда для завершения процедуры прошивки требуется ручное отключение питания, например, для загрузчиков, использующих для доступа к SD картам режим SDIO вместо SPI. (См. раздел "Оговорки" ниже), но ее также можно использовать в любое время для проверки соответствия прошитого в плату кода версии, находящейся в папке сборки, на любой поддерживаемой плате.
+
+## Failure to Initialize
+
+Some SD cards may fail to initialize at the default SPI speed of 400KHz. In this situation it is possible to use `-s` to drive the SPI peripheral at 4MHz. For example:
+
+```
+./scripts/flash-sdcard.sh -s /dev/ttyACM0 btt-skr-v1.3
+```
+
+If the device still fails to initialize then cause of the failure is unrelated to the speed and likely a result of one of the following conditions:
+
+- The SD card is improperly formatted. Must be `fat` or `fat32`.
+- Attempt to initialize a card using the SPI interface that has already been initialized over SDIO.
+- The SD card has failed or is corrupt.
 
 ## Оговорки
 
@@ -111,7 +126,7 @@ BOARD_ALIASES = {
 }
 ```
 
-Если вам необходимо новое определение платы и вас не устраивает описанная выше процедура, рекомендуется запросить его в [Klipper Community Discord](Contact.md#discord).
+If you need a new board definition and you are uncomfortable with the procedure outlined above it is recommended that you request one in the [Klipper Discord](Contact.md).
 
 ## Прошивка плат, использующих SDIO
 

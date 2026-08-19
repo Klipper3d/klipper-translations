@@ -1,8 +1,8 @@
-# Load Cells
+# Cellules de charge
 
-This document describes Klipper's support for load cells. Basic load cell functionality can be used to read force data and to weigh things like filament. A calibrated force sensor is an important part of a load cell based probe.
+Ce document décris le support de Klipper pour les cellules de charge. Les fonctionnalités d'une cellule de charge basique peut-être utilisée pour lire les données de force et pour peser des choses comme du filament. Un capteur de force calibré est un composant important d'une sonde à cellule de charge.
 
-## Related Documentation
+## Documentation connexe
 
 * [load_cell Config Reference](Config_Reference.md#load_cell)
 * [load_cell G-Code Commands](G-Codes.md#load_cell)
@@ -27,7 +27,7 @@ Things you can check with this data:
 * The configured sample rate of the sensor should be close to the 'Measured samples per second' value. If it is not you may have a configuration or wiring issue.
 * 'Saturated samples' should be 0. If you have saturated samples it means the load sell is seeing more force than it can measure.
 * 'Unique values' should be a large percentage of the 'Samples Collected' value. If 'Unique values' is 1 it is very likely a wiring issue.
-* Tap or push on the sensor while `LOAD_CELL_DIAGNOSTIC` runs. If things are working correctly ths should increase the 'Sample range'.
+* Tap or push on the sensor while `LOAD_CELL_DIAGNOSTIC` runs. If things are working correctly this should increase the 'Sample range'.
 
 ## Calibrating a Load Cell
 
@@ -91,7 +91,7 @@ The current tare value is reported in the printers status and can be read in a m
 
 # Load Cell Probes
 
-## Related Documentation
+## Documentation connexe
 
 * [load_cell_probe Config Reference](Config_Reference.md#load_cell_probe)
 * [load_cell_probe G-Code Commands](G-Codes.md#load_cell_probe)
@@ -125,7 +125,7 @@ The first risk this protects against is picking too large of a value for `drift_
 
 The second problem is probing repeatedly in one place. Klipper does not retract the probe when doing a single `PROBE` command. This can result in force applied to the toolhead at the end of a probing cycle. Because external forces can vary greatly between probing locations, `load_cell_probe` performs a tare before beginning each probe. If you repeat the `PROBE` command, load_cell_probe will tare the endstop at the current force. Multiple cycles of this will result in ever-increasing force on the toolhead. `force_safety_limit` stops this cycle from running out of control.
 
-Another way this run-away can happen is damage to a strain gauge. If the metal part is permanently bent it wil change the `reference_tare_counts` of the device. This puts the starting tare value much closer to the limit making it more likely to be violated. You want to be notified if this is happening because your hardware has been permanently damaged.
+Another way this run-away can happen is damage to a strain gauge. If the metal part is permanently bent it will change the `reference_tare_counts` of the device. This puts the starting tare value much closer to the limit making it more likely to be violated. You want to be notified if this is happening because your hardware has been permanently damaged.
 
 The final way this can be triggered is due to temperature changes. If your strain gauges are heated their `reference_tare_counts` may be very different at ambient temperature vs operating temperature. In this case you may need to increase the `force_safety_limit` to allow for thermal changes.
 
@@ -134,6 +134,16 @@ The final way this can be triggered is due to temperature changes. If your strai
 When homing the load_cell_endstop starts a task on the MCU to trac measurements arriving from the sensor. If the sensor fails to send measurements for 2 sample periods the watchdog will shut down the printer with an error `!! LoadCell Endstop timed out waiting on ADC data`.
 
 If this happens, the most likely cause is a fault from the ADC. Inadequate grounding of your printer can be the root cause. The frame, power supply case and pint bed should all be connected to ground. You may need to ground the frame in multiple places. Anodized aluminum extrusions do not conduct electricity well. You might need to sand the area where the grounding wire is attached to make good electrical contact.
+
+#### Interpolation
+
+To increase the precision of the probing result, the position of the first contact between nozzle and bed can be estimated by fitting a piecewise function to the measured data. The data will consist of two regions: while the nozzle is above the bed, the force will be constant (at the tare value). When the nozzle is in contact with the bed, the force will increase linearly with decreasing z position. A piecewise function is fitted to the data and the optimal z position of the split point is found by minimising the error squared. This enables a resolution finer than the distance between the sampling points and will also be less sensitive to noise.
+
+Due to both physical and technical reasons, the interpolation uses data collected during an additional ascending movement after the initial descending move. The first 300ms of data collected during the ascending move will be used for the fit (this minimises the influence of tare drifts). The collected data must contain enough samples for the fit: at least 3 samples each below and above the contact point are required.
+
+It is recommended to use a relatively high trigger force for the probe to have a strong enough signal. If you have too few samples below the contact point, try increasing the `trigger_force` or reducing the `lift_speed`. However, if the `lift_speed` is too small, there will be too few samples above the contact point due to the 300ms window.
+
+The distance of the ascending move can be configured through the `sample_retract_dist` parameter.
 
 ## Load Cell Probe Setup
 
@@ -150,49 +160,6 @@ Use the command `LOAD_CELL_TEST_TAP` to test the operation of the load cell prob
 If this test fails, check your configuration and `LOAD_CELL_DIAGNOSTIC` carefully to look for issues.
 
 Load cell probes don't support the `QUERY_ENDSTOPS` or `QUERY_PROBE` commands. Use `LOAD_CELL_TEST_TAP` for testing functionality before probing.
-
-### Homing Macros
-
-Load cell probe is not an endstop and doesn't support `endstop: prove:z_virtual_endstop`. For the time being you'll need to configure your z axis with an MCU pin as its endstop. You won't actually be using the pin but for the time being you have to configure something.
-
-To home the axis with just the probe you need to set up a custom homing macro. This requires setting up [homing_override](Config_Reference.md#homing_override).
-
-Here is a simple macro that can accomplish this. Note that the `_HOME_Z_FROM_LAST_PROBE` macro has to be separate because of the way macros work. The sub-call is needed so that the `_HOME_Z_FROM_LAST_PROBE` macro can see the result of the probe in `printer.probe.last_z_result`.
-
-```gcode
-[gcode_macro _HOME_Z_FROM_LAST_PROBE]
-gcode:
-    {% set z_probed = printer.probe.last_z_result %}
-    {% set z_position = printer.toolhead.position[2] %}
-    {% set z_actual = z_position - z_probed %}
-    SET_KINEMATIC_POSITION Z={z_actual}
-
-[gcode_macro _HOME_Z]
-gcode:
-    SET_GCODE_OFFSET Z=0  # load cell probes dont need a Z offset
-    # position toolhead for homing Z, edit for your printers size
-    #G90  # absolute move
-    #G1 Y50 X50 F{5 * 60}  # move to X/Y position for homing
-
-    # soft home the z axis to its limit so it can be moved:
-    SET_KINEMATIC_POSITION Z={printer.toolhead.axis_maximum[2]}
-
-    # Fast approach and tap
-    PROBE PROBE_SPEED={5 * 60}  # override the speed for faster homing
-    _HOME_Z_FROM_LAST_PROBE
-
-    # lift z to 2mm
-    G91  # relative move
-    G1 Z2 F{5 * 60}
-
-    # probe at standard speed
-    PROBE
-    _HOME_Z_FROM_LAST_PROBE
-
-    # lift z to 10mm for clearance
-    G91  # relative move
-    G1 Z10 F{5 * 60}
-```
 
 ### Suggested Probing Temperature
 
@@ -242,11 +209,12 @@ The expected result is a negative number. Positive values for `temp_coeff` move 
 Set up z_thermal_adjust to reference the `extruder` as the source of temperature data. E.g.:
 
 ```
-[z_thermal_adjust nozzle]
+[z_thermal_adjust]
 temp_coeff=-0.00045455
 sensor_type: temperature_combined
 sensor_list: extruder
 combination_method: max
+maximum_deviation: 999
 min_temp: 0
 max_temp: 400
 max_z_adjustment: 0.1

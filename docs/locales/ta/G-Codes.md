@@ -63,7 +63,7 @@
 
 `முடுக்கமானி_டெபக்_ரைட் [CHIP = <config_name>] reg = <பதிவு> VAL = <மதிப்பு>`: மூல "மதிப்பு" ஒரு பதிவேட்டில் "பதிவு" என்று எழுதுகிறார். "மதிப்பு" மற்றும் "பதிவு" இரண்டும் ஒரு தசம அல்லது எக்சாடெசிமல் முழு எண்ணாக இருக்கலாம். கவனத்துடன் பயன்படுத்தவும், குறிப்புக்கு ADXL345 தரவு தாளைப் பார்க்கவும்.
 
-### [angle]
+### [கோணம்]
 
 [கோண கட்டமைப்பு பிரிவு] (config_reference.md#கோணம்) இயக்கப்பட்டால் பின்வரும் கட்டளைகள் கிடைக்கும்.
 
@@ -71,11 +71,11 @@
 
 `Anglage_calibrate chip = <iph_name>`: கொடுக்கப்பட்ட சென்சாரில் கோண அளவுத்திருத்தத்தை செய்யுங்கள் (`ச்டெப்பர்` அளவுருவைக் குறிப்பிட்டுள்ள ஒரு` [கோண சிப்_பேம்] `கட்டமைப்பு பிரிவு இருக்க வேண்டும்). முக்கியமானது - இந்த கருவி சாதாரண இயக்கவியல் எல்லை வரம்புகளைச் சரிபார்க்காமல் நகர்த்துவதற்கு ச்டெப்பர் மோட்டாருக்கு கட்டளையிடும். அளவுத்திருத்தத்தை செய்வதற்கு முன் எந்த அச்சுப்பொறி வண்டியிலிருந்தும் மின்னோடி துண்டிக்கப்பட வேண்டும். அச்சுப்பொறியில் இருந்து ச்டெப்பரை துண்டிக்க முடியாவிட்டால், அளவுத்திருத்தத்தைத் தொடங்குவதற்கு முன் வண்டி அதன் ரயிலின் மையத்திற்கு அருகில் இருப்பதை உறுதிப்படுத்திக் கொள்ளுங்கள். . இந்த கருவியைப் பயன்படுத்த, பைதான் "நம்பி" தொகுப்பு நிறுவப்பட வேண்டும் (மேலும் தகவலுக்கு [அளவீட்டு அதிர்வு ஆவணம்] (அளவிடுதல்_ரேசனன்ச்.ம்டி#மென்பொருள்-நிறுவல்) ஐப் பார்க்கவும்).
 
-#### ANGLE_CHIP_CALIBRATE
+#### Angin_chip_calibrate
 
-`ANGLE_CHIP_CALIBRATE CHIP=<chip_name>`: Perform internal sensor calibration, if implemented (MT6826S/MT6835).
+`Anglan_chip_calibrate chip = <iph_name>`: செயல்படுத்தப்பட்டால் (MT6826S/MT6835) உள் சென்சார் அளவுத்திருத்தத்தை செய்யுங்கள்.
 
-- **MT68XX**: The motor should be disconnected from any printer carriage before performing calibration. After calibration, the sensor should be reset by disconnecting the power.
+- ** MT68XX **: அளவுத்திருத்தத்தை செய்வதற்கு முன் எந்த அச்சுப்பொறி வண்டியிலிருந்தும் மின்னோடி துண்டிக்கப்பட வேண்டும். அளவுத்திருத்தத்திற்குப் பிறகு, சக்தியைத் துண்டிப்பதன் மூலம் சென்சார் மீட்டமைக்கப்பட வேண்டும்.
 
 #### ஆங்கிள்_டெபக்_ரெட்
 
@@ -94,9 +94,9 @@ section](Config_Reference.md#axis_twist_compensation) is enabled.
 
 `AXIS_TWIST_COMPENSATION_CALIBRATE [AXIS=<X|Y>] [SAMPLE_COUNT=<value>]`
 
-Calibrates axis twist compensation by specifying the target axis or enabling automatic calibration.
+இலக்கு அச்சைக் குறிப்பிடுவதன் மூலம் அல்லது தானியங்கி அளவுத்திருத்தத்தை செயல்படுத்துவதன் மூலம் அச்சு திருப்ப இழப்பீட்டை அளவீடு செய்கிறது.
 
-- **AXIS:** Define the axis (`X` or `Y`) for which the twist compensation will be calibrated. If not specified, the axis defaults to `'X'`.
+- ** அச்சு: ** திருப்பம் இழப்பீடு அளவீடு செய்யப்படும் அச்சை (`x` அல்லது` y`) வரையறுக்கவும். குறிப்பிடப்படாவிட்டால், அச்சு `'x'` க்கு இயல்புநிலையாகிறது.
 
 ### [BED_MESH]
 
@@ -207,7 +207,7 @@ Calibrates axis twist compensation by specifying the target axis or enabling aut
 
 #### Set_dual_carriage
 
-`SET_DUAL_CARRIAGE CARRIAGE=<carriage> [MODE=[PRIMARY|COPY|MIRROR]]`: This command will change the mode of the specified carriage. If no `MODE` is provided it defaults to `PRIMARY`. `<carriage>` must reference a defined primary or dual carriage for `generic_cartesian` kinematics or be 0 (for primary carriage) or 1 (for dual carriage) for all other kinematics supporting IDEX. Setting the mode to `PRIMARY` deactivates the other carriage and makes the specified carriage execute subsequent G-Code commands as-is. `COPY` and `MIRROR` modes are supported only for dual carriages. When set to either of these modes, dual carriage will then track the subsequent moves of its primary carriage and either copy relative movements of it (in `COPY` mode) or execute them in the opposite (mirror) direction (in `MIRROR` mode).
+`SET_DUAL_CARRIAGE CARRIAGE=<carriage> [MODE=[PRIMARY|COPY|MIRROR|INACTIVE]]`: This command will change the mode of the specified carriage. If no `MODE` is provided it defaults to `PRIMARY`. `<carriage>` must reference a defined primary or dual carriage for `generic_cartesian` kinematics or be 0 (for primary carriage) or 1 (for dual carriage) for all other kinematics supporting IDEX. Setting the mode to `PRIMARY` deactivates all other carriages on the same axis and makes the specified carriage execute subsequent G-Code movement commands as-is. Before activating `COPY` or `MIRROR` mode for a carriage, a different one must be activated as `PRIMARY` on the same axis. When set to either of these two modes, the carriage will track the subsequent G-Code moves and either copy relative movements (in `COPY` mode) or execute them in the opposite (mirror) direction (in `MIRROR` mode). Setting the mode to `INACTIVE` deactivates the carriage and makes it ignore further G-Code moves. Note that deactivating the primary carriage on the axis does not disable other carriages working in `COPY` or `MIRROR` mode, which can be used to disable printing a failed part by any of the tools and park that tool to prevent collisions with an unfinished part, see this [sample configuration](../config/sample-corexyuv.cfg) for macros examples.
 
 #### Save_dual_carriage_state
 
@@ -215,7 +215,7 @@ Calibrates axis twist compensation by specifying the target axis or enabling aut
 
 #### Restore_dual_carriage_state
 
-`Restore_dual_carriage_state [name = <state_name>] [mov = [0 | 1] [move_speed = <speed> சேமிக்கப்பட்ட முறைகள் மட்டுமே மீட்டெடுக்கப்படும், ஆனால் வண்டிகளின் நிலைகள் அல்ல. நிலைகள் மீட்டெடுக்கப்பட்டு, "MOVE_SPEED" குறிப்பிடப்பட்டால், கருவிஎட் நகர்வுகள் கொடுக்கப்பட்ட வேகத்துடன் (மிமீ/வி இல்) செய்யப்படும்; இல்லையெனில் கருவித்தொகை நகர்வு ரயில் ஓமிங் வேகத்தைப் பயன்படுத்தும். வண்டிகள் தங்கள் நிலைகளை அவற்றின் சொந்த அச்சில் மட்டுமே மீட்டெடுக்கின்றன என்பதை நினைவில் கொள்க, இது இரட்டை கேரிசின் நகல் மற்றும் கண்ணாடி பயன்முறையை சரியாக மீட்டெடுக்க அவசியமாக இருக்கலாம்.
+`RESTORE_DUAL_CARRIAGE_STATE [NAME=<state_name>] [MOVE=[0|1] [MOVE_SPEED=<speed>]]`: Restore the previously saved states of all dual and their primary carriages. This command restores the modes of the carriages and moves them to their previously saved positions, unless "MOVE=0" is specified. If positions are being restored and "MOVE_SPEED" is specified, then the carriages will move with at most the provided speed (in mm/s); otherwise the homing speeds of the corresponding carriages will be used as a reference. Note that the carriages restore their positions only over their own axes, which may be necessary to correctly restore COPY and MIRROR mode of the dual carriage. In addition, this command updates the Klipper toolhead position for each axis that has some dual carriages: it is set to match the actual position of the activated primary carriage of an axis or, if an axis does not have a saved primary carriage, to the axis position when `SAVE_DUAL_CARRIAGE_STATE` command was called.
 
 ### [endstop_phase]
 
@@ -225,7 +225,7 @@ Calibrates axis twist compensation by specifying the target axis or enabling aut
 
 `Endstop_phase_calibrate [stepper = <config_name>]`: ச்டெப்பர் அளவுரு எதுவும் வழங்கப்படவில்லை என்றால், இந்த கட்டளை கடந்த கால செயல்பாடுகளின் போது எண்ட்ச்டாப் ச்டெப்பர் கட்டங்களில் புள்ளிவிவரங்களைப் புகாரளிக்கும். ஒரு ச்டெபர் அளவுரு வழங்கப்படும்போது, கொடுக்கப்பட்ட எண்ட்ச்டாப் கட்ட அமைப்பை கட்டமைப்பு கோப்பில் எழுத ஏற்பாடு செய்கிறது (Save_config கட்டளையுடன் இணைந்து).
 
-### [exclude_object]
+### [விலக்கு_ஆப்செக்ட்]
 
 ஒரு [விலக்கு_ஆப்செக்ட் கட்டமைப்பு பிரிவு] (config_reference.md#excoude_object) இயக்கப்பட்டிருக்கும் போது பின்வரும் கட்டளைகள் கிடைக்கும் ([விலக்கு பொருள் வழிகாட்டியை விலக்கு] (விலக்கு_ஆப்செக்ட்.எம்டி) ஐப் பார்க்கவும்):
 
@@ -289,9 +289,9 @@ Calibrates axis twist compensation by specifying the target axis or enabling aut
 
 `Set_fan_speed fan = config_name விரைவு = <weotive>` இந்த கட்டளை விசிறியின் வேகத்தை அமைக்கிறது. "விரைவு" 0.0 முதல் 1.0 வரை இருக்க வேண்டும்.
 
-`SET_FAN_SPEED PIN=config_name TEMPLATE=<template_name> [<param_x>=<literal>]`: If `TEMPLATE` is specified then it assigns a [display_template](Config_Reference.md#display_template) to the given fan. For example, if one defined a `[display_template my_fan_template]` config section then one could assign `TEMPLATE=my_fan_template` here. The display_template should produce a string containing a floating point number with the desired value. The template will be continuously evaluated and the fan will be automatically set to the resulting speed. One may set display_template parameters to use during template evaluation (parameters will be parsed as Python literals). If TEMPLATE is an empty string then this command will clear any previous template assigned to the pin (one can then use `SET_FAN_SPEED` commands to manage the values directly).
+`SET_FAN_SPEED FAN=config_name TEMPLATE=<template_name> [<param_x>=<literal>]`: If `TEMPLATE` is specified then it assigns a [display_template](Config_Reference.md#display_template) to the given fan. For example, if one defined a `[display_template my_fan_template]` config section then one could assign `TEMPLATE=my_fan_template` here. The display_template should produce a string containing a floating point number with the desired value. The template will be continuously evaluated and the fan will be automatically set to the resulting speed. One may set display_template parameters to use during template evaluation (parameters will be parsed as Python literals). If TEMPLATE is an empty string then this command will clear any previous template assigned to the pin (one can then use `SET_FAN_SPEED` commands to manage the values directly).
 
-### [filament_switch_sensor]
+### [Filament_switch_sensor]
 
 ஒரு [Filament_switch_sensor] (config_reference.md#filemament_switch_sensor) அல்லது [Filament_motion_sensor] (config_reference.md#filemation_motion_sensor) கட்டமைப்பு பிரிவு இயக்கப்பட்டிருக்கும் போது பின்வரும் கட்டளை கிடைக்கும்.
 
@@ -320,7 +320,7 @@ Calibrates axis twist compensation by specifying the target axis or enabling aut
 
 `Get_retraction`: ஃபார்ம்வேர் பின்வாங்கினால் பயன்படுத்தப்படும் தற்போதைய அளவுருக்களை வினவுகிறது மற்றும் அவற்றை முனையத்தில் காண்பிக்கும்.
 
-### [force_move]
+### [forse_move]
 
 ஃபோர்ச்_மோவ் தொகுதி தானாகவே ஏற்றப்படும், இருப்பினும் சில கட்டளைகளுக்கு [அச்சுப்பொறி கட்டமைப்பில்] `enable_force_move` ஐ அமைக்க வேண்டும் (config_reference.md#force_move).
 
@@ -409,7 +409,7 @@ The commands in this section become automatically available when `kinematics: ge
 
 Note that `SET_STEPPER_CARRIAGES` performs certain internal validations of the new printer kinematics after the change. Keep in mind that if it detects an issue, it may leave printer kinematics in an invalid state. This means that if `SET_STEPPER_CARRIAGES` reports an error, it is unsafe to issue other GCode commands, and the user must inspect the error message and either fix the problem, or manually restore the previous stepper(s) configuration.
 
-Since `SET_STEPPER_CARRIAGES` can update a configuration of a single stepper at a time, some sequences of changes can lead to invalid intermediate kinematic configurations, even if the final configuration is valid. In such cases a user can pass `DISABLE_CHECKS=1` parameters to all but the last command to disable intermediate checks. For example, if `stepper a` and `stepper b` initially have `x-y` and `x+y` carriages correspondingly, then the following sequence of commands will let a user effectively swap the carriage controls: `SET_STEPPER_CARRIAGES STEPPER=a CARRIAGES=x+y DISABLE_CHECKS=1` and `SET_STEPPER_CARRIAGES STEPPER=b CARRIAGES=x-y`, while still validating the final kinematics state.
+Since `SET_STEPPER_CARRIAGES` can update a configuration of a single stepper at a time, some sequences of changes can lead to invalid intermediate kinematic configurations, even if the final configuration is valid. In such cases a user can pass `DISABLE_CHECKS=1` parameters to all but the last command to disable intermediate checks. For example, if `stepper a` and `stepper b` initially have `carriage_x-carriage_y` and `carriage_x+carriage_y` carriages correspondingly, then the following sequence of commands will let a user effectively swap the carriage controls: `SET_STEPPER_CARRIAGES STEPPER=a CARRIAGES=carriage_x+carriage_y DISABLE_CHECKS=1` and `SET_STEPPER_CARRIAGES STEPPER=b CARRIAGES=carriage_x-carriage_y`, while still validating the final kinematics state.
 
 ### [hall_filament_width_sensor]
 
@@ -417,19 +417,19 @@ Since `SET_STEPPER_CARRIAGES` can update a configuration of a single stepper at 
 
 #### Query_filament_width
 
-`Query_filament_width`: தற்போதைய அளவிடப்பட்ட இழை அகலத்தைத் திருப்பி விடுங்கள்.
+`QUERY_FILAMENT_WIDTH`: Return the current measured filament width, the state of the width sensor, the state of the filament sensor and the state of flow compensation.
 
 #### Reset_filament_width_sensor
 
-`மீட்டமை_பிலமென்ட்_விட்_சென்சர்`: அனைத்து சென்சார் வாசிப்புகளையும் அழிக்கவும். இழை மாற்றத்திற்குப் பிறகு உதவியாக இருக்கும்.
+`RESET_FILAMENT_WIDTH_SENSOR`: Clear all sensor readings. Helpful after filament change. Resets flow rate to 100%.
 
 #### முடக்கு_பிலமென்ட்_விட்_சென்சர்
 
-`முடக்கு_பிலமென்ட்_விட்_சென்சர்`: இழை அகல சென்சாரை அணைத்து, ஓட்டக் கட்டுப்பாட்டுக்கு அதைப் பயன்படுத்துவதை நிறுத்துங்கள்.
+`DISABLE_FILAMENT_WIDTH_SENSOR`: Turn off the filament width sensor and stop using it for flow compensation. Resets flow rate to 100%.
 
 #### Enable_filament_width_sensor
 
-`Enable_filament_width_sensor`: இழை அகல சென்சாரை இயக்கி, ஓட்டக் கட்டுப்பாட்டுக்கு அதைப் பயன்படுத்தத் தொடங்குங்கள்.
+`ENABLE_FILAMENT_WIDTH_SENSOR [FLOW_COMPENSATION=[0|1]`: Turn on the filament width sensor and enable or disable flow compensation. If `FLOW_COMPENSATION` is not specified, the current flow compensation state is preserved.
 
 #### Query_raw_filament_width
 
@@ -473,9 +473,9 @@ Idle_timeout தொகுதி தானாக ஏற்றப்படும�
 
 #### Set_input_shaper
 
-`Set_input_shaper [shaper_freq_x = <shaper_freq_x>] x>] [சேப்பர்_ டைப்_ஒய் = <சேப்பர்_ டைப்_ஒய்> ] `: உள்ளீட்டு சேப்பர் அளவுருக்களை மாற்றவும். [Input_shaper] பிரிவில் வெவ்வேறு சேப்பர் வகைகள் கட்டமைக்கப்பட்டிருந்தாலும் கூட, ஃச் மற்றும் ஒய் அச்சுகள் இரண்டிற்கும் உள்ளீட்டு சேப்பரை சேப்பர்_ டைப் அளவுரு மீட்டமைக்கிறது என்பதை நினைவில் கொள்க. சேப்பர்_பீ_எக்ச் மற்றும் சேப்பர்_ டைப்_ஒய் அளவுருக்கள் ஆகியவற்றுடன் சேப்பர்_ டைப்பைப் பயன்படுத்த முடியாது. இந்த ஒவ்வொரு அளவுருக்கள் பற்றிய கூடுதல் விவரங்களுக்கு [கட்டமைப்பு குறிப்பு] (config_reference.md#input_shaper) ஐப் பார்க்கவும்.
+`SET_INPUT_SHAPER [SHAPER_FREQ_X=<shaper_freq_x>] [SHAPER_FREQ_Y=<shaper_freq_y>] [SHAPER_FREQ_Y=<shaper_freq_z>] [DAMPING_RATIO_X=<damping_ratio_x>] [DAMPING_RATIO_Y=<damping_ratio_y>] [DAMPING_RATIO_Z=<damping_ratio_z>] [SHAPER_TYPE=<shaper>] [SHAPER_TYPE_X=<shaper_type_x>] [SHAPER_TYPE_Y=<shaper_type_y>] [SHAPER_TYPE_Z=<shaper_type_z>]`: Modify input shaper parameters. Note that SHAPER_TYPE parameter resets input shaper for all axes even if different shaper types have been configured in [input_shaper] section. SHAPER_TYPE cannot be used together with any of SHAPER_TYPE_X, SHAPER_TYPE_Y, and SHAPER_TYPE_Z parameters. See [config reference](Config_Reference.md#input_shaper) for more details on each of these parameters.
 
-### [led]
+### [எல்.ஈ.டி]
 
 [எல்.ஈ.டி கட்டமைப்பு பிரிவுகள்] (config_reference.md#LED கள்) இயக்கப்படும்போது பின்வரும் கட்டளை கிடைக்கும்.
 
@@ -515,18 +515,9 @@ You can cancel the calibration process at any time with `ABORT`.
 
 ### [load_cell_probe]
 
-The following commands are enabled if a [load_cell config section](Config_Reference.md#load_cell_probe) has been enabled.
+The commands below are enabled if a [load_cell config section](Config_Reference.md#load_cell_probe) has been enabled.
 
-### LOAD_CELL_TEST_TAP
-
-`LOAD_CELL_TEST_TAP [TAPS=<taps>] [TIMEOUT=<timeout>]`: Run a testing routine that reports taps on the load cell. The toolhead will not move but the load cell probe will sense taps just as if it was probing. This can be used as a sanity check to make sure that the probe works. This tool replaces QUERY_ENDSTOPS and QUERY_PROBE for load cell probes.
-
-- `TAPS`: the number of taps the tool expects
-- `TIMEOOUT`: the time, in seconds, that the tool waits for each tab before aborting.
-
-### Load Cell Command Extensions
-
-Commands that perform probes, such as [`PROBE`](#probe), [`PROBE_ACCURACY`](#probe_accuracy), [`BED_MESH_CALIBRATE`](#bed_mesh_calibrate) etc. will accept additional parameters if a `[load_cell_probe]` is defined. The parameters override the corresponding settings from the [`[load_cell_probe]`](./Config_Reference.md#load_cell_probe) configuration:
+In addition, commands that perform probes, such as [`PROBE`](#probe), [`PROBE_ACCURACY`](#probe_accuracy), [`BED_MESH_CALIBRATE`](#bed_mesh_calibrate) etc. will accept additional parameters if a `[load_cell_probe]` is defined. The parameters override the corresponding settings from the [`[load_cell_probe]`](./Config_Reference.md#load_cell_probe) configuration:
 
 - `FORCE_SAFETY_LIMIT=<grams>`
 - `TRIGGER_FORCE=<grams>`
@@ -537,6 +528,13 @@ Commands that perform probes, such as [`PROBE`](#probe), [`PROBE_ACCURACY`](#pro
 - `NOTCH_FILTER_FREQUENCIES=<list of frequency_hz>`
 - `NOTCH_FILTER_QUALITY=<quality>`
 - `TARE_TIME=<seconds>`
+
+### LOAD_CELL_TEST_TAP
+
+`LOAD_CELL_TEST_TAP [TAPS=<taps>] [TIMEOUT=<timeout>]`: Run a testing routine that reports taps on the load cell. The toolhead will not move but the load cell probe will sense taps just as if it was probing. This can be used as a sanity check to make sure that the probe works. This tool replaces QUERY_ENDSTOPS and QUERY_PROBE for load cell probes.
+
+- `TAPS`: the number of taps the tool expects
+- `TIMEOOUT`: the time, in seconds, that the tool waits for each tab before aborting.
 
 ### [கையேடு_ப்ரோப்]
 
@@ -558,17 +556,24 @@ Commands that perform probes, such as [`PROBE`](#probe), [`PROBE_ACCURACY`](#pro
 
 `Z_offset_apply_endstop`: தற்போதைய சட் gcode ஆஃப்செட்டை (அக்கா, பேபிச்டெப்பிங்) எடுத்து, அதை ச்டெப்பர்_இச் எண்ட்ச்டாப்_போசிசனில் இருந்து கழிக்கவும். இது அடிக்கடி பயன்படுத்தப்படும் பேபிச்டெப்பிங் மதிப்பை எடுக்கவும், "அதை நிரந்தரமாக்கவும்" செயல்படுகிறது. நடைமுறைக்கு வர `save_config` தேவை.
 
-### [manual_stepper]
+### [கையேடு_ச்டெப்பர்]
 
 [கையேடு_ச்டெப்பர் கட்டமைப்பு பிரிவு] (config_reference.md#manual_stepper) இயக்கப்பட்டால் பின்வரும் கட்டளை கிடைக்கும்.
 
 #### கையேடு_ச்டெப்பர்
 
-`Manual_stepper Stepper = config_name [enable = [0 | 1]] 1 | -2]]] [ஒத்திசைவு = 0]] `: இந்த கட்டளை ச்டெப்பரின் நிலையை மாற்றும். ச்டெப்பரை இயக்க/முடக்குவதற்கு இயக்க அளவுருவைப் பயன்படுத்தவும். STEPER கொடுக்கப்பட்ட நிலையில் இருப்பதாக நினைக்கும்படி கட்டாயப்படுத்த SET_POSITION அளவுருவைப் பயன்படுத்தவும். கொடுக்கப்பட்ட நிலைக்கு ஒரு இயக்கத்தைக் கோர நகர்வு அளவுருவைப் பயன்படுத்தவும். விரைவு மற்றும்/அல்லது முடி குறிப்பிடப்பட்டால், கட்டமைப்பு கோப்பில் குறிப்பிடப்பட்டுள்ள இயல்புநிலைகளுக்கு பதிலாக கொடுக்கப்பட்ட மதிப்புகள் பயன்படுத்தப்படும். பூச்சியத்தின் முடி குறிப்பிடப்பட்டால், முடுக்கம் எதுவும் செய்யப்படாது. STOP_ON_ENDSTOP = 1 குறிப்பிடப்பட்டால், எண்ட்ச்டாப் அறிக்கை தூண்டப்பட்டதாக இருக்க வேண்டும் (ச்டாப்_ஓஎன்_என்ச்டாப் = 2 ஐப் பயன்படுத்தவும், எண்ட்ச்டாப் தூண்டவில்லை என்றாலும், பிழையில்லாமல் நகர்வை முடிக்க, எண்ட்ச்டாப் அறிக்கைகள் இல்லாதபோது நிறுத்த -1 அல்லது -2 ஐப் பயன்படுத்தவும் தூண்டப்பட்டது). பொதுவாக எதிர்கால சி-கோட் கட்டளைகள் ச்டெப்பர் நகர்வு முடிந்ததும் இயங்க திட்டமிடப்படும், இருப்பினும் ஒரு கையேடு ச்டெப்பர் நகர்வு ஒத்திசைவு = 0 ஐப் பயன்படுத்தினால், எதிர்கால சி-கோட் இயக்கம் கட்டளைகள் ச்டெப்பர் இயக்கத்திற்கு இணையாக இயங்கக்கூடும்.
+`MANUAL_STEPPER STEPPER=config_name [ENABLE=[0|1]] [SET_POSITION=<pos>] [SPEED=<speed>] [ACCEL=<accel>] [MOVE=<pos>] [SYNC=0]]`: This command will alter the state of the stepper. Use the ENABLE parameter to enable/disable the stepper. Use the SET_POSITION parameter to force the stepper to think it is at the given position. Use the MOVE parameter to request a movement to the given position. If SPEED and/or ACCEL is specified then the given values will be used instead of the defaults specified in the config file. If an ACCEL of zero is specified then no acceleration will be performed. Normally future G-Code commands will be scheduled to run after the stepper move completes, however if a manual stepper move uses SYNC=0 then future G-Code movement commands may run in parallel with the stepper movement.
+
+`MANUAL_STEPPER STEPPER=config_name [SPEED=<speed>] [ACCEL=<accel>] MOVE=<pos> STOP_ON_ENDSTOP=<check_type>`: If STOP_ON_ENDSTOP is specified then the move will end early if an endstop event occurs. The `STOP_ON_ENDSTOP` parameter may be set to one of the following values:
+
+* `probe`: The movement will stop when the endstop reports triggered.
+* `home`: The movement will stop when the endstop reports triggered and the final position of the manual_stepper will be set such that the trigger position matches the position specified in the `MOVE` parameter.
+* `inverted_probe`, `inverted_home`: As above, however, the movement will stop when the endstop reports it is in a non-triggered state.
+* `try_probe`, `try_inverted_probe`, `try_home`, `try_inverted_home`: As above, but no error will be reported if the movement fully completes without an endstop event stopping the move early.
 
 `MANUAL_STEPPER STEPPER=config_name GCODE_AXIS=[A-Z] [LIMIT_VELOCITY=<velocity>] [LIMIT_ACCEL=<accel>] [INSTANTANEOUS_CORNER_VELOCITY=<velocity>]`: If the `GCODE_AXIS` parameter is specified then it configures the stepper motor as an extra axis on `G1` move commands. For example, if one were to issue a `MANUAL_STEPPER ... GCODE_AXIS=R` command then one could issue commands like `G1 X10 Y20 R30` to move the stepper motor. The resulting moves will occur synchronously with the associated toolhead xyz movements. If the motor is associated with a `GCODE_AXIS` then one may no longer issue movements using the above `MANUAL_STEPPER` command - one may unregister the stepper with a `MANUAL_STEPPER ... GCODE_AXIS=` command to resume manual control of the motor. The `LIMIT_VELOCITY` and `LIMIT_ACCEL` parameters allow one to reduce the speed of `G1` moves if those moves would result in a velocity or acceleration above the specified limits. The `INSTANTANEOUS_CORNER_VELOCITY` specifies the maximum instantaneous velocity change (in mm/s) of the motor during the junction of two moves (the default is 1mm/s).
 
-### [mcp4018]
+### [MCP4018]
 
 ஒரு [MCP4018 கட்டமைப்பு பிரிவு] (config_reference.md#mcp4018) இயக்கப்பட்டால் பின்வரும் கட்டளை கிடைக்கும்.
 
@@ -578,15 +583,15 @@ Commands that perform probes, such as [`PROBE`](#probe), [`PROBE_ACCURACY`](#pro
 
 ### [output_pin]
 
-[வெளியீடு_பின் கட்டமைப்பு பிரிவு] (config_reference.md#output_pin) இயக்கப்பட்டால் பின்வரும் கட்டளை கிடைக்கும்.
+The following command is available when an [output_pin config section](Config_Reference.md#output_pin) or [pwm_tool config section](Config_Reference.md#pwm_tool) is enabled.
 
 #### Set_pin
 
 `Set_pin முள் = config_name மதிப்பு = <மதிப்பு>`: கொடுக்கப்பட்ட வெளியீட்டிற்கு முள் அமைக்கவும் `மதிப்பு`. "டிசிட்டல்" வெளியீட்டு ஊசிகளுக்கு மதிப்பு 0 அல்லது 1 ஆக இருக்க வேண்டும். PWM ஊசிகளுக்கு, 0.0 மற்றும் 1.0 க்கு இடையில் ஒரு மதிப்புக்கு அமைக்கவும், அல்லது 0.0 மற்றும் `அளவுகோல்` க்கு இடையில் ஒரு அளவு கட்டமைக்கப்பட்டிருந்தால்.
 
-`SET_PIN PIN=config_name TEMPLATE=<template_name> [<param_x>=<literal>]`: If `TEMPLATE` is specified then it assigns a [display_template](Config_Reference.md#display_template) to the given pin. For example, if one defined a `[display_template my_pin_template]` config section then one could assign `TEMPLATE=my_pin_template` here. The display_template should produce a string containing a floating point number with the desired value. The template will be continuously evaluated and the pin will be automatically set to the resulting value. One may set display_template parameters to use during template evaluation (parameters will be parsed as Python literals). If TEMPLATE is an empty string then this command will clear any previous template assigned to the pin (one can then use `SET_PIN` commands to manage the values directly).
+`Set_pin முள் = config_name வார்ப்புரு = <emplatue_name> [<carm_x> = <iteral>]`: `வார்ப்புரு` குறிப்பிடப்பட்டால், அது கொடுக்கப்பட்ட முள். எடுத்துக்காட்டாக, ஒருவர் `[display_template my_pin_template]` கட்டமைப்பு பிரிவை வரையறுத்தால், ஒருவர் `வார்ப்புரு = my_pin_template` ஐ இங்கே ஒதுக்கலாம். டிச்ப்ளே_டெம்ப்ளேட் விரும்பிய மதிப்புடன் மிதக்கும் புள்ளி எண்ணைக் கொண்ட ஒரு சரத்தை உருவாக்க வேண்டும். வார்ப்புரு தொடர்ந்து மதிப்பீடு செய்யப்படும் மற்றும் முள் தானாகவே அதன் விளைவாக வரும் மதிப்புக்கு அமைக்கப்படும். வார்ப்புரு மதிப்பீட்டின் போது பயன்படுத்த வேண்டிய காட்சி_டெம்ப்ளேட் அளவுருக்களை ஒருவர் அமைக்கலாம் (அளவுருக்கள் பைதான் லிட்டரர்களாக பாகுபடுத்தப்படும்). வார்ப்புரு ஒரு வெற்று சரம் என்றால், இந்த கட்டளை முள் ஒதுக்கப்பட்ட முந்தைய வார்ப்புருவை அழிக்கும் (ஒன்று மதிப்புகளை நேரடியாக நிர்வகிக்க `set_pin` கட்டளைகளைப் பயன்படுத்தலாம்).
 
-### [palette2]
+### [தட்டு 2]
 
 [தட்டு 2 கட்டமைப்பு பிரிவு] (config_reference.md#plate2) இயக்கப்பட்டால் பின்வரும் கட்டளைகள் கிடைக்கும்.
 
@@ -652,7 +657,7 @@ Print_stats தொகுதி தானாக ஏற்றப்படும்
 
 `Set_print_stats_info [மொத்தம்_லேயர் = <மொத்தம்_லேர்_சவுண்ட்>]] `Set_print_stats_info [மொத்தம்_லேயர் = <மொத்த_லேயர்_சவுண்ட்>]` உங்கள் ச்லைசர் தொடக்க GCODE பிரிவு மற்றும் `set_print_stats_info [நடப்பு_லேயர் = <aruntry_layer>]` `set_print_stats_info இல் சேர்க்கவும்.
 
-### [probe]
+### [ஆய்வு]
 
 [ஆய்வு கட்டமைப்பு பிரிவு] (config_reference.md#probe) அல்லது [bltouch கட்டமைப்பு பிரிவு] (config_reference.md#bltouch) இயக்கப்பட்டிருக்கும் போது பின்வரும் கட்டளைகள் கிடைக்கின்றன ([ஆய்வு அளவீடு வழிகாட்டி] (probe_calibrate.md) ஐப் பார்க்கவும்).
 
@@ -678,17 +683,33 @@ Print_stats தொகுதி தானாக ஏற்றப்படும்
 
 ### [probe_eddy_current]
 
-[Probe_eddy_current கட்டமைப்பு பிரிவு] (config_reference.md#probe_eddy_current) இயக்கப்பட்டால் பின்வரும் கட்டளைகள் கிடைக்கும்.
+The commands below are available when a [probe_eddy_current config section](Config_Reference.md#probe_eddy_current) is enabled.
+
+In addition, commands that perform probes, such as [`PROBE`](#probe), [`PROBE_ACCURACY`](#probe_accuracy), [`BED_MESH_CALIBRATE`](#bed_mesh_calibrate) etc. will accept additional parameters if a `[probe_eddy_current]` section is defined:
+
+- `METHOD=<scan|rapid_scan|tap>`: This alters the probing mechanism:
+   - `METHOD=scan`: The toolhead does not descend. Instead the toolhead will pause briefly above each target location and return the measured height at that position.
+   - `METHOD=rapid_scan`: The toolhead does not descend and does not pause at each target location. The value returned is the measured height around the time that the toolhead was near each target position.
+   - `METHOD=tap`: The toolhead will descend until the nozzle makes contact with the bed. This method is only available if `tap_threshold` is specified in the `[probe_eddy_current]` config section.
+   - default: If no `METHOD` parameter is specified then the default behavior is for the toolhead to descend until the sensor detects that the distance to the bed is at or below the `z_offset` parameter specified in the `[probe_eddy_current]` config section.
+- `SAMPLE_TIME=<time>`: When using `METHOD=scan` probing, this specifies the time (in seconds) to pause at each target point. When using `METHOD=rapid_scan` this specifies the measurement time window at each target. If not specified, the default is 0.100 (which is 100ms).
+- `TAP_THRESHOLD=<value>`: This overrides the `tap_threshold` specified in the `[probe_eddy_current]` config section when probing using `METHOD=tap`.
+
+The `Z_OFFSET_APPLY_PROBE` command is also extended to support a `METHOD=tap` parameter. When no METHOD parameter is provided, the `Z_OFFSET_APPLY_PROBE` command alters the probe calibration to apply the current Z G-Code offset to future `scan`, `rapid_scan`, and default probes. If `METHOD=tap` is specified then the command instead applies the change to `tap_z_offset` so that future `tap` probes are updated to use the current Z G-Code offset.
 
 #### Probe_eddy_current_calibrate
 
 `Probe_eddy_current_calibrate chip = <config_name>`: இது சென்சார் அதிர்வு அதிர்வெண்களை தொடர்புடைய சட் உயரங்களுக்கு அளவீடு செய்யும் ஒரு கருவியைத் தொடங்குகிறது. கருவி முடிக்க இரண்டு நிமிடங்கள் ஆகும். முடிந்ததும், save_config கட்டளையைப் பயன்படுத்தவும்.
 
+#### PROBE_EDDY_CURRENT_TAP_CALIBRATE
+
+`PROBE_EDDY_CURRENT_TAP_CALIBRATE [TAP=guess|refine|verify]`: This starts a tool that can calibrate the probe's "tap_threshold" parameter. See the [eddy probe documentation](Eddy_Probe.md#tap-calibration) for details.
+
 #### LDC_CALIBRATE_DRIVE_CURRENT
 
 `LDC_CALIBRATE_DRIVE_CURRENT CHIP = <CONTIG_NAME>` இந்த கருவி LDC1612 டிரைவ்_கரண்ட் 0 பதிவேட்டை அளவீடு செய்யும். இந்த கருவியைப் பயன்படுத்துவதற்கு முன்பு, சென்சார் படுக்கையின் மையத்திற்கு அருகிலும், படுக்கை மேற்பரப்பில் சுமார் 20 மி.மீ. சென்சாருக்கு பொருத்தமான டிரைவ்_கரண்ட் தீர்மானிக்க இந்த கட்டளையை இயக்கவும். இந்த கட்டளையை இயக்கிய பிறகு, அந்த புதிய அமைப்பை அச்சுப்பொறியில் சேமிக்க SAVE_CONFIG கட்டளையைப் பயன்படுத்தவும்.
 
-### [pwm_cycle_time]
+### [PWM_CYCLE_TIME]
 
 ஒரு [PWM_CYCLE_TIME கட்டமைப்பு பிரிவு] (config_reference.md#pwm_cycle_time) இயக்கப்பட்டால் பின்வரும் கட்டளை கிடைக்கும்.
 
@@ -696,13 +717,13 @@ Print_stats தொகுதி தானாக ஏற்றப்படும்
 
 `Set_pin முள் = config_name மதிப்பு = <value> [cycol_time = <ycoly_time>]`: இந்த கட்டளை [output_pin] (#output_pin) set_pin கட்டளைகளுக்கு ஒத்ததாக செயல்படுகிறது. சுழற்சி_ நேர அளவுருவைப் பயன்படுத்தி வெளிப்படையான சுழற்சி நேரத்தை அமைப்பதை இங்கே கட்டளை ஆதரிக்கிறது (விநாடிகளில் குறிப்பிடப்பட்டுள்ளது). Sycl_pin கட்டளை Set_Pin கட்டளைகளுக்கு இடையில் சேமிக்கப்படவில்லை என்பதை நினைவில் கொள்க (வெளிப்படையான சுழற்சி_ நேர அளவுரு இல்லாமல் எந்த SET_PIN கட்டளையும் PWM_CYCLE_TIME கட்டமைப்பு பிரிவில் குறிப்பிடப்பட்டுள்ள `சுழற்சி_ நேரம்` ஐப் பயன்படுத்தும்).
 
-### [quad_gantry_level]
+### [குவாட்_கான்ட்ரி_லெவல்]
 
-The following commands are available when the [quad_gantry_level config section](Config_Reference.md#quad_gantry_level) is enabled.
+[Qual_gantry_level கட்டமைப்பு பிரிவு] (config_reference.md#qual_gantry_level) இயக்கப்பட்டிருக்கும் போது பின்வரும் கட்டளைகள் கிடைக்கும்.
 
-#### QUAD_GANTRY_LEVEL
+#### குவாட்_கான்ட்ரி_லெவல்
 
-`QUAD_GANTRY_LEVEL [RETRIES=<value>] [RETRY_TOLERANCE=<value>] [HORIZONTAL_MOVE_Z=<value>] [<probe_parameter>=<value>]`: This command will probe the points specified in the config and then make independent adjustments to each Z stepper to compensate for tilt. See the PROBE command for details on the optional probe parameters. The optional `RETRIES`, `RETRY_TOLERANCE`, and `HORIZONTAL_MOVE_Z` values override those options specified in the config file.
+`Qual_gantry_level [retires = <மதிப்பு>] [retry_tolerance = <value>] [கிடைமட்ட_மோவ்_செச் = <மதிப்பு>] [<probe_parameter> = <மதிப்பு>]`: இந்த கட்டளை கட்டமைப்பில் குறிப்பிடப்பட்டுள்ள புள்ளிகளை ஆய்வு செய்து, பின்னர் ஒவ்வொரு சட் ச்டெப்பருக்கும் சுயாதீனமான மாற்றங்களைச் செய்யும். விருப்ப ஆய்வு அளவுருக்கள் குறித்த விவரங்களுக்கு ஆய்வு கட்டளையைப் பார்க்கவும். விருப்பமான `முயற்சிகள்`,` RETRY_TOLERANCE`, மற்றும் `கிடைமட்ட_மோவ்_இச்` மதிப்புகள் கட்டமைப்பு கோப்பில் குறிப்பிடப்பட்டுள்ள அந்த விருப்பங்களை மேலெழுதும்.
 
 ### [query_adc]
 
@@ -722,7 +743,7 @@ Query_endstops தொகுதி தானாக ஏற்றப்படும
 
 `Query_endstops`: அச்சு எண்ட்ச்டாப்புகளை ஆராய்ந்து அவை" தூண்டப்பட்டால் "அல்லது" திறந்த "நிலையில் இருந்தால் புகாரளிக்கவும். ஒரு எண்ட்ச்டாப் சரியாக வேலை செய்கிறது என்பதை சரிபார்க்க இந்த கட்டளை பொதுவாக பயன்படுத்தப்படுகிறது.
 
-### [resonance_tester]
+### [அதிர்வு_டெச்டர்]
 
 ஒரு [அதிர்வு_டெச்டர் கட்டமைப்பு பிரிவு] (config_reference.md#reconance_tester) இயக்கப்பட்டால் பின்வரும் கட்டளைகள் கிடைக்கின்றன ([அளவீட்டு அதிர்வு வழிகாட்டி] (meaturing_resonances.md) ஐயும் பார்க்கவும்).
 
@@ -732,13 +753,13 @@ Query_endstops தொகுதி தானாக ஏற்றப்படும
 
 #### Test_resonances
 
-`TEST_RESONANCES AXIS=<axis> [OUTPUT=<resonances,raw_data>] [NAME=<name>] [FREQ_START=<min_freq>] [FREQ_END=<max_freq>] [ACCEL_PER_HZ=<accel_per_hz>] [HZ_PER_SEC=<hz_per_sec>] [CHIPS=<chip_name>] [POINT=x,y,z] [INPUT_SHAPING=<0:1>]`: Runs the resonance test in all configured probe points for the requested "axis" and measures the acceleration using the accelerometer chips configured for the respective axis. "axis" can either be X or Y, or specify an arbitrary direction as `AXIS=dx,dy`, where dx and dy are floating point numbers defining a direction vector (e.g. `AXIS=X`, `AXIS=Y`, or `AXIS=1,-1` to define a diagonal direction). Note that `AXIS=dx,dy` and `AXIS=-dx,-dy` is equivalent. `chip_name` can be one or more configured accel chips, delimited with comma, for example `CHIPS="adxl345, adxl345 rpi"`. If POINT is specified it will override the point(s) configured in `[resonance_tester]`. If `INPUT_SHAPING=0` or not set(default), disables input shaping for the resonance testing, because it is not valid to run the resonance testing with the input shaper enabled. `OUTPUT` parameter is a comma-separated list of which outputs will be written. If `raw_data` is requested, then the raw accelerometer data is written into a file or a series of files `/tmp/raw_data_<axis>_[<chip_name>_][<point>_]<name>.csv` with (`<point>_` part of the name generated only if more than 1 probe point is configured or POINT is specified). If `resonances` is specified, the frequency response is calculated (across all probe points) and written into `/tmp/resonances_<axis>_<name>.csv` file. If unset, OUTPUT defaults to `resonances`, and NAME defaults to the current time in "YYYYMMDD_HHMMSS" format.
+`TEST_RESONANCES AXIS=<axis> [OUTPUT=<resonances,raw_data>] [NAME=<name>] [FREQ_START=<min_freq>] [FREQ_END=<max_freq>] [ACCEL_PER_HZ=<accel_per_hz>] [HZ_PER_SEC=<hz_per_sec>] [CHIPS=<chip_name>] [POINT=x,y,z] [INPUT_SHAPING=<0:1>]`: Runs the resonance test in all configured probe points for the requested "axis" and measures the acceleration using the accelerometer chips configured for the respective axis. "axis" can either be X, Y or Z, or specify an arbitrary direction as `AXIS=dx,dy[,dz]`, where dx, dy, dz are floating point numbers defining a direction vector (e.g. `AXIS=X`, `AXIS=Y`, or `AXIS=1,-1` to define a diagonal direction in XY plane, or `AXIS=0,1,1` to define a direction in YZ plane). Note that `AXIS=dx,dy` and `AXIS=-dx,-dy` is equivalent. `chip_name` can be one or more configured accel chips, delimited with comma, for example `CHIPS="adxl345, adxl345 rpi"`. If POINT is specified it will override the point(s) configured in `[resonance_tester]`. If `INPUT_SHAPING=0` or not set(default), disables input shaping for the resonance testing, because it is not valid to run the resonance testing with the input shaper enabled. `OUTPUT` parameter is a comma-separated list of which outputs will be written. If `raw_data` is requested, then the raw accelerometer data is written into a file or a series of files `/tmp/raw_data_<axis>_[<chip_name>_][<point>_]<name>.csv` with (`<point>_` part of the name generated only if more than 1 probe point is configured or POINT is specified). If `resonances` is specified, the frequency response is calculated (across all probe points) and written into `/tmp/resonances_<axis>_<name>.csv` file. If unset, OUTPUT defaults to `resonances`, and NAME defaults to the current time in "YYYYMMDD_HHMMSS" format.
 
 #### Shaper_calibrate
 
-`SHAPER_CALIBRATE [AXIS=<axis>] [NAME=<name>] [FREQ_START=<min_freq>] [FREQ_END=<max_freq>] [ACCEL_PER_HZ=<accel_per_hz>][HZ_PER_SEC=<hz_per_sec>] [CHIPS=<chip_name>] [MAX_SMOOTHING=<max_smoothing>] [INPUT_SHAPING=<0:1>]`: Similarly to `TEST_RESONANCES`, runs the resonance test as configured, and tries to find the optimal parameters for the input shaper for the requested axis (or both X and Y axes if `AXIS` parameter is unset). If `MAX_SMOOTHING` is unset, its value is taken from `[resonance_tester]` section, with the default being unset. See the [Max smoothing](Measuring_Resonances.md#max-smoothing) of the measuring resonances guide for more information on the use of this feature. The results of the tuning are printed to the console, and the frequency responses and the different input shapers values are written to a CSV file(s) `/tmp/calibration_data_<axis>_<name>.csv`. Unless specified, NAME defaults to the current time in "YYYYMMDD_HHMMSS" format. Note that the suggested input shaper parameters can be persisted in the config by issuing `SAVE_CONFIG` command, and if `[input_shaper]` was already enabled previously, these parameters take effect immediately.
+`Shaper_calibrate [அச்சு = <six>] [பெயர் = <பெயர்>] [freq_start = <min_freq>] [freq_end = <ax_freq>] . `Max_smoothing` அமைக்கப்படவில்லை என்றால், அதன் மதிப்பு` [அதிர்வு_டெச்டர்] `பிரிவில் இருந்து எடுக்கப்படுகிறது, இயல்புநிலை அமைக்கப்படாதது. இந்த அம்சத்தைப் பயன்படுத்துவது குறித்த கூடுதல் தகவலுக்கு அளவீட்டு அதிர்வு வழிகாட்டியின் [அதிகபட்ச மென்மையான] (அளவீட்டு_ரெசோனன்ச். ட்யூனிங்கின் முடிவுகள் கன்சோலுக்கு அச்சிடப்படுகின்றன, மேலும் அதிர்வெண் பதில்கள் மற்றும் வெவ்வேறு உள்ளீட்டு சேப்பர்ச் மதிப்புகள் ஒரு காபிம கோப்பு (கள்) `/TMP/அளவுத்திருத்த_டேட்டா_ <inx> _ <amen> .csv` க்கு எழுதப்பட்டுள்ளன. குறிப்பிடப்படாவிட்டால், பெயர் "YYYYMMDD_HHMMS" வடிவத்தில் தற்போதைய நேரத்திற்கு இயல்புநிலை. பரிந்துரைக்கப்பட்ட உள்ளீட்டு சேப்பர் அளவுருக்கள் `Save_config` கட்டளையை வழங்குவதன் மூலம் கட்டமைப்பில் தொடரலாம், மேலும்` [INPUT_SHAPER] `முன்பு ஏற்கனவே இயக்கப்பட்டிருந்தால், இந்த அளவுருக்கள் உடனடியாக நடைமுறைக்கு வரும்.
 
-### [respond]
+### [பதிலளிக்கவும்]
 
 [பதிலளிக்கும் கட்டமைப்பு பிரிவு] (config_reference.md#பதில்) இயக்கப்பட்டால் பின்வரும் நிலையான சி-குறியீடு கட்டளைகள் கிடைக்கின்றன:
 
@@ -763,7 +784,7 @@ Query_endstops தொகுதி தானாக ஏற்றப்படும
 
 `SAVE_VARIABLE VARIABLE=<name> VALUE=<value>`: Saves the variable to disk so that it can be used across restarts. The VARIABLE must be lowercase. All stored variables are loaded into the `printer.save_variables.variables` dict at startup and can be used in gcode macros. The provided VALUE is parsed as a Python literal.
 
-### [screws_tilt_adjust]
+### [ச்க்ரூச்_பில்ட்_அட்சச்ட்]
 
 [ச்க்ரூச்_பில்ட்_ஆட்சச்ட் கட்டமைப்பு பிரிவு] (config_reference.md#திருகு_tilt_adjust) இயக்கப்பட்டிருக்கும் போது பின்வரும் கட்டளைகள் கிடைக்கின்றன ([கையேடு நிலை வழிகாட்டி] (கையேடு_லெவல். )).
 
@@ -771,7 +792,7 @@ Query_endstops தொகுதி தானாக ஏற்றப்படும
 
 `ச்க்ரூச்_பில்ட்_காலிகேட் [திசை = சி.டபிள்யூ | இது சட் உயரத்தை ஆய்வு செய்யும் வெவ்வேறு இடங்களுக்கு (கட்டமைப்பு கோப்பில் வரையறுக்கப்பட்டுள்ளபடி) முனை கட்டளையிடும் மற்றும் படுக்கை அளவை சரிசெய்ய குமிழ் திருப்பங்களின் எண்ணிக்கையைக் கணக்கிடும். திசை குறிப்பிடப்பட்டால், குமிழ் திருப்பங்கள் அனைத்தும் ஒரே திசையில், கடிகார திசையில் (சி.டபிள்யூ) அல்லது எதிரெதிர் திசையில் (சி.சி.டபிள்யூ) இருக்கும். விருப்ப ஆய்வு அளவுருக்கள் குறித்த விவரங்களுக்கு ஆய்வு கட்டளையைப் பார்க்கவும். முக்கியமானது: இந்த கட்டளையைப் பயன்படுத்துவதற்கு முன்பு நீங்கள் எப்போதும் G28 செய்ய வேண்டும். MAX_DEVIATION குறிப்பிடப்பட்டால், அடிப்படை திருகு உயரத்துடன் தொடர்புடைய திருகு உயரத்தில் ஏதேனும் வேறுபாடு வழங்கப்பட்ட மதிப்பை விட அதிகமாக இருந்தால் கட்டளை GCODE பிழையை உயர்த்தும். விருப்பமான `கிடைமட்ட_மோவ்_செச்` மதிப்பு கட்டமைப்பு கோப்பில் குறிப்பிடப்பட்டுள்ள` கிடைமட்ட_மோவ்_செச்` விருப்பத்தை மீறுகிறது.
 
-### [sdcard_loop]
+### [Sdcard_loop]
 
 [SDCARD_LOOP கட்டமைப்பு பிரிவு] (config_reference.md#sdcard_loop) இயக்கப்பட்டால், பின்வரும் நீட்டிக்கப்பட்ட கட்டளைகள் கிடைக்கின்றன.
 
@@ -787,7 +808,7 @@ Query_endstops தொகுதி தானாக ஏற்றப்படும
 
 `SDCARD_LOOP_DESIST`: மேலும் மறு செய்கைகள் இல்லாமல் இருக்கும் சுழல்களை முடிக்கவும்.
 
-### [servo]
+### [சர்வோ]
 
 [SERVO கட்டமைப்பு பிரிவு] (config_reference.md#servo) இயக்கப்பட்டால் பின்வரும் கட்டளைகள் கிடைக்கும்.
 
@@ -795,7 +816,7 @@ Query_endstops தொகுதி தானாக ஏற்றப்படும
 
 `Set_servo servo = config_name [கோணம் = <டிகிரி> | அகலம் = <விநாடிகள்>] `: சேவையக நிலையை கொடுக்கப்பட்ட கோணத்திற்கு (டிகிரிகளில்) அல்லது துடிப்பு அகலம் (விநாடிகளில்) அமைக்கவும். சர்வோ வெளியீட்டை முடக்க `அகலம் = 0` ஐப் பயன்படுத்தவும்.
 
-### [skew_correction]
+### [SKEW_CORRECTION]
 
 [SKEW_CORRECTION கட்டமைப்பு பிரிவு] (config_reference.md#skew_correction) இயக்கப்பட்டிருக்கும் போது பின்வரும் கட்டளைகள் கிடைக்கின்றன ([SKEW திருத்தம்] (skew_correction.md) வழிகாட்டியையும் பார்க்கவும்).
 
@@ -815,7 +836,7 @@ Query_endstops தொகுதி தானாக ஏற்றப்படும
 
 `Skew_profile [load = <amen>] [சேமி = <amen>] [அகற்று = <amen>]`: skew_correction க்கான சுயவிவர மேலாண்மை. வழங்கப்பட்ட பெயருடன் பொருந்தக்கூடிய சுயவிவரத்திலிருந்து சுமை வளைவு நிலையை மீட்டெடுக்கும். சேமிப்பு தற்போதைய வளைவு நிலையை வழங்கப்பட்ட பெயருடன் பொருந்தக்கூடிய சுயவிவரத்திற்கு சேமிக்கும். தொடர்ச்சியான நினைவகத்திலிருந்து வழங்கப்பட்ட பெயருடன் பொருந்தக்கூடிய சுயவிவரத்தை அகற்று நீக்கிவிடும். சேமிப்பு அல்லது அகற்றப்பட்ட செயல்பாடுகள் இயக்கப்பட்ட பிறகு, தொடர்ச்சியான நினைவகத்திற்கான மாற்றங்களை நிரந்தரமாக்குவதற்கு Save_config Gcode இயக்க வேண்டும் என்பதை நினைவில் கொள்க.
 
-### [smart_effector]
+### [ச்மார்ட்_ஃபெக்டர்]
 
 [ச்மார்ட்_ஃபெக்டர் கட்டமைப்பு பிரிவு] (config_reference.md#stard_effector) இயக்கப்பட்டால் பல கட்டளைகள் கிடைக்கின்றன. அறிவுள்ள செயல்திறன் அளவுருக்களை மாற்றுவதற்கு முன் [டூய்ட் 3 டி விக்கி] (https://duet3d.dozuki.com/wiki/smart_effector_andapters_for_delta_printer) அறிவுள்ள செயல்திறனுக்கான அதிகாரப்பூர்வ ஆவணங்களை சரிபார்க்கவும். [ஆய்வு அளவுத்திருத்த வழிகாட்டி] (probe_calibrate.md) ஐயும் சரிபார்க்கவும்.
 
@@ -835,7 +856,7 @@ Query_endstops தொகுதி தானாக ஏற்றப்படும
 
 `Set_stepper_enable ச்டெபர் = <config_name> இயக்கு = [0 | 1]`: கொடுக்கப்பட்ட ச்டெப்பரை மட்டும் இயக்கவும் அல்லது முடக்கவும். இது ஒரு கண்டறியும் மற்றும் பிழைத்திருத்த கருவியாகும், மேலும் கவனத்துடன் பயன்படுத்தப்பட வேண்டும். ஒரு அச்சு மோட்டாரை முடக்குவது ஓமிங் தகவல்களை மீட்டமைக்காது. ஒரு ஊனமுற்ற ச்டெப்பரை கைமுறையாக நகர்த்துவது இயந்திரத்தை பாதுகாப்பான வரம்புகளுக்கு வெளியே மின்னோடி இயக்க காரணமாக இருக்கலாம். இது அச்சு கூறுகள், சூடான முனைகள் மற்றும் அச்சு மேற்பரப்பு ஆகியவற்றிற்கு சேதம் விளைவிக்கும்.
 
-### [temperature_fan]
+### [வெப்பநிலை_பான்]
 
 [வெப்பநிலை_பான் கட்டமைப்பு பிரிவு] (config_reference.md#வெப்பநிலை_ஃபான்) இயக்கப்பட்டால் பின்வரும் கட்டளை கிடைக்கும்.
 
@@ -843,13 +864,13 @@ Query_endstops தொகுதி தானாக ஏற்றப்படும
 
 `Set_temperature_fan_target வெப்பநிலை_பான் = <வெப்பநிலை_பான்_நாம்> [இலக்கு = <target_temperature>] [min_speed = <min_speed>] [max_speed = <ax_speed>]`: வெப்பநிலை_பானுக்கான இலக்கு வெப்பநிலையை அமைக்கிறது. ஒரு இலக்கு வழங்கப்படாவிட்டால், அது கட்டமைப்பு கோப்பில் குறிப்பிட்ட வெப்பநிலைக்கு அமைக்கப்பட்டுள்ளது. விரைவு வழங்கப்படாவிட்டால், எந்த மாற்றமும் பயன்படுத்தப்படாது.
 
-### [temperature_probe]
+### [வெப்பநிலை_ப்ரோப்]
 
 [வெப்பநிலை_பிரோப் கட்டமைப்பு பிரிவு] (config_reference.md#வெப்பநிலை_பிரோப்) இயக்கப்பட்டால் பின்வரும் கட்டளைகள் கிடைக்கும்.
 
 #### வெப்பநிலை_பிரோப்_கலிபிரேட்
 
-`வெப்பநிலை_பிரோப்_கலிப்ரேட் [ஆய்வு = <ஆய்வு பெயர்>] [இலக்கு = <மதிப்பு>] [படி = <மதிப்பு>]`: எடி தற்போதைய அடிப்படையிலான ஆய்வுகளுக்கான ஆய்வு சறுக்கல் அளவுத்திருத்தத்தைத் தொடங்குகிறது. `இலக்கு` என்பது கடைசி மாதிரியின் இலக்கு வெப்பநிலை. ஒரு மாதிரியின் போது பதிவுசெய்யப்பட்ட வெப்பநிலை `இலக்கு` அளவுத்திருத்தத்தை மீறும் போது. `படி` அளவுரு மாதிரிகளுக்கு இடையில் வெப்பநிலை டெல்டாவை (சி இல்) அமைக்கிறது. ஒரு மாதிரி எடுக்கப்பட்ட பிறகு, இந்த டெல்டா `வெப்பநிலை_பிரோப்_நெக்ச்ட்` என்ற அழைப்பை திட்டமிடப் பயன்படுகிறது. இயல்புநிலை `படி` 2.
+`TEMPERATURE_PROBE_CALIBRATE [PROBE=<probe name>] [TARGET=<value>] [STEP=<value>] [METHOD=<method>]`: Initiates probe drift calibration for eddy current based probes. The `TARGET` is a target temperature for the last sample. When the temperature recorded during a sample exceeds the `TARGET` calibration will complete. The `STEP` parameter sets temperature delta (in C) between samples. After a sample has been taken, this delta is used to schedule a call to `TEMPERATURE_PROBE_NEXT`. The default `STEP` is 2. The `METHOD` only supports `tap` as an option, if specified, probing will be automated.
 
 #### வெப்பநிலை_பிரோப்_நெக்ச்ட்
 
@@ -907,7 +928,7 @@ Query_endstops தொகுதி தானாக ஏற்றப்படும
 - `காரணி` மற்றும்` பேண்ட்`: மதிப்பு ஒரு மில்லிமீட்டருக்கு சராசரியாக `காரணி` விகிதத்தில் மாறுகிறது, ஆனால் சரிசெய்தல் ஒவ்வொரு` பேண்ட்` மில்லிமீட்டர் சட் உயரமும் மட்டுமே செய்யப்படும். பயன்படுத்தப்படும் சூத்திரம்: `மதிப்பு = தொடக்க + காரணி * ((தளம் (z_height / band) + .5) * band)`.
 - `Step_delta` மற்றும்` step_height`: மதிப்பு `step_delta` ஒவ்வொரு` step_height` மில்லிமீட்டர்களால் மாறுகிறது. பயன்படுத்தப்படும் சூத்திரம்: `மதிப்பு = தொடங்கு + step_delta * தளம் (z_height / step_height)`. உகந்த மதிப்பைத் தீர்மானிக்க நீங்கள் வெறுமனே பட்டைகள் எண்ணலாம் அல்லது ட்யூனிங் டவர் லேபிள்களைப் படிக்கலாம்.
 
-### [virtual_sdcard]
+### [மெய்நிகர்_ச்ட்கார்ட்]
 
 Klipper supports the following தரநிலை G-Code கட்டளைகள் if the [virtual_sdcard கட்டமைப்பு section](Config_Reference.md#virtual_sdcard) is enabled:
 
@@ -943,4 +964,4 @@ Klipper supports the following தரநிலை G-Code கட்டளைக�
 
 #### Z_tilt_adjust
 
-`Z_TILT_ADJUST [RETRIES=<value>] [RETRY_TOLERANCE=<value>] [HORIZONTAL_MOVE_Z=<value>] [<probe_parameter>=<value>]`: This command will probe the points specified in the config and then make independent adjustments to each Z stepper to compensate for tilt. See the PROBE command for details on the optional probe parameters. The optional `RETRIES`, `RETRY_TOLERANCE`, and `HORIZONTAL_MOVE_Z` values override those options specified in the config file.
+. விருப்ப ஆய்வு அளவுருக்கள் குறித்த விவரங்களுக்கு ஆய்வு கட்டளையைப் பார்க்கவும். விருப்பமான `முயற்சிகள்`,` RETRY_TOLERANCE`, மற்றும் `கிடைமட்ட_மோவ்_இச்` மதிப்புகள் கட்டமைப்பு கோப்பில் குறிப்பிடப்பட்டுள்ள அந்த விருப்பங்களை மேலெழுதும்.

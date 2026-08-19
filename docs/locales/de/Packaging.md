@@ -4,7 +4,7 @@ Klipper ist so etwas wie eine Paketierungsanomalie unter den Python-Programmen, 
 
 ## C-Module
 
-Klipper uses a C module to handle some kinematics calculations more quickly. This module needs to be compiled at packaging time to avoid introducing a runtime dependency on a compiler. To compile the C module, run `python2 klippy/chelper/__init__.py`.
+Klipper verwendet ein C-Modul, um einige Kinematikberechnungen schneller zu handhaben. Dieses Modul muss zur Vermeidung einer Laufzeitabhängigkeit zur Paketierungszeit kompiliert werden. Um das C-Modul zu kompilieren, führen Sie `python2 klippy/chelper/__init__.py` aus.
 
 ## Python Code kompilieren
 

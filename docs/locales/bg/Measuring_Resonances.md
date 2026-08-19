@@ -119,7 +119,7 @@ Recommended connection scheme for I2C on the Raspberry Pi:
 | SDA | 03 | GPIO02 (SDA1) |
 | SCL | 05 | GPIO03 (SCL1) |
 
-The RPi has buit-in 1.8K pull-ups on both SCL and SDA.
+The RPi has built-in 1.8K pull-ups on both SCL and SDA.
 
 ![MPU-9250 connected to Pi](img/mpu9250-PI-fritzing.png)
 
@@ -561,6 +561,81 @@ so that it can calculate the maximum acceleration recommendations correctly. Not
 
 Ако извършвате повторно калибриране на формирователя и отчетеното изглаждане за предложената конфигурация на формирователя е почти същото като полученото при предишното калибриране, тази стъпка може да бъде пропусната.
 
+### Measuring the resonances of Z axis
+
+Measuring the resonances of Z axis is similar in many aspects to measuring resonances of X and Y axes, with some subtle differences. Similarly to other axes measurements, you will need to have an accelerometer mounted on the moving parts of Z axis - either the bed itself (if the bed moves over Z axis), or the toolhead (if the toolhead/gantry moves over Z). You will need to add the appropriate chip configuration to `printer.cfg` and also add it to `[resonance_tester]` section, e.g.
+
+```
+[resonance_tester]
+accel_chip_z: <accelerometer full name>
+```
+
+Also make sure that `probe_points` configured in `[resonance_tester]` allow sufficient clearance for Z axis movements (20 mm above bed surface should provide enough clearance with the default test parameters).
+
+The next consideration is that Z axis can typically reach lower maximum speeds and accelerations that X and Y axes. Default parameters of the test take that into consideration and are much less agressive, but it may still be necessary to increase `max_z_accel` and `max_z_velocity`. If you have them configured in `[printer]` section, make sure to set them to at least
+
+```
+[printer]
+max_z_velocity: 20
+max_z_accel: 1550
+```
+
+but only for the duration of the test, afterwards you can revert them back to their original values if necessary. And if you use custom test parameters for Z axis, `TEST_RESONANCES` and `SHAPER_CALIBRATE` will provide the minimum required limits if necessary for your specific case.
+
+After all changes to `printer.cfg` have been made, restart Klipper and run either
+
+```
+TEST_RESONANCES AXIS=Z
+```
+
+or
+
+```
+SHAPER_CALIBRATE AXIS=Z
+```
+
+and proceed from there accordingly how you would for other axes. For example, after `TEST_RESONANCES` command you can run `calibrate_shaper.py` script and get shaper recommendations and the chart of resonance response:
+
+![Resonances](img/calibrate-z.png)
+
+After the calibration, the shaper parameters can be stored in the `printer.cfg`, e.g. from the example above:
+
+```
+[input_shaper]
+...
+shaper_type_z: mzv
+shaper_freq_z: 42.6
+```
+
+Also, given the movements of Z axis are slow, you can easily consider more aggressive input shapers, e.g.
+
+```
+[input_shaper]
+...
+shaper_type_z: 2hump_ei
+shaper_freq_z: 63.0
+```
+
+If the test produces bogus results, you may try to increase `accel_per_hz_z` parameter in `[resonance_tester]` from its default value 15 to a larger value in the range of 20-30, e.g.
+
+```
+[resonance_tester]
+accel_per_hz_z: 25
+```
+
+and repeat the test. Increasing this value will likely require increasing `max_z_accel` and `max_z_velocity` parameters as well. You can run `TEST_RESONANCES AXIS=Z` command to get the required minimum values.
+
+However, if you are unable to measure the resonances of Z axis, you can consider just using
+
+```
+[input_shaper]
+...
+shaper_type_z: 3hump_ei
+shaper_freq_z: 65
+```
+
+as an acceptable all-round choice, given that the smoothing of Z axis movements is not of particular concerns.
+
 ### Unreliable measurements of resonance frequencies
 
 Sometimes the resonance measurements can produce bogus results, leading to the incorrect suggestions for the input shapers. This can be caused by a variety of reasons, including running fans on the toolhead, incorrect position or non-rigid mounting of the accelerometer, or mechanical problems such as loose belts or binding or bumpy axis. Keep in mind that all fans should be disabled for resonance testing, especially the noisy ones, and that the accelerometer should be rigidly mounted on the corresponding moving part (e.g. on the bed itself for the bed slinger, or on the extruder of the printer itself and not the carriage, and some people get better results by mounting the accelerometer on the nozzle itself). As for mechanical problems, the user should inspect if there is any fault that can be fixed with a moving axis (e.g. linear guide rails cleaned up and lubricated and V-slot wheels tension adjusted correctly). If none of that helps, a user may try the other shapers from the produced list besides the one recommended by default.
@@ -584,7 +659,7 @@ and use `graph_accelerometer.py` to process the generated files, e.g.
 
 which will generate `/tmp/resonances.png` comparing the resonances.
 
-For Delta printers with the default tower placement (tower A ~= 210 degrees, B ~= 330 degrees, and C ~= 90 degrees), execute
+For Delta printers with the default tower placement (tower A = 210 degrees, B = 330 degrees, and C ~= 90 degrees), execute
 
 ```
 TEST_RESONANCES AXIS=0,1 OUTPUT=raw_data

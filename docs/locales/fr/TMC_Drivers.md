@@ -32,7 +32,7 @@ Les tests comparant les modes ont montré un "décalage de position" accru d'env
 
 Il est recommandé de toujours utiliser le mode "spreadCycle" (en ne spécifiant pas `stealthchop_threshold`) ou de toujours utiliser le mode "stealthChop" (en réglant `stealthchop_threshold` sur 999999). Malheureusement, les pilotes produisent souvent des résultats médiocres et erronés si le mode est changé alors que le moteur tourne.
 
-Note that the `stealthchop_threshold` config option does not impact sensorless homing as Klipper automatically switches the TMC driver to an appropriate mode during sensorless homing operations.
+Notez que l'option de configuration `stealthchop_threshold` n'a pas d'impact sur l'enroulement sensoriel puisque Klipper commute automatiquement le pilote TMC en mode approprié lors d'opérations d'enroulement sans capteur.
 
 ## Le réglage d'interpolation TMC introduit un petit écart de position
 
@@ -303,7 +303,7 @@ Cela indique que le pilote s'est désactivé car il a détecté un courant très
 
 Cette erreur peut également se produire si vous utilisez le mode StealthChop et que le pilote TMC n'est pas en mesure de prédire avec précision la charge mécanique du moteur. (Si le pilote fait une mauvaise prédiction, il peut envoyer trop de courant à travers le moteur et déclencher sa propre détection de surintensité.) Pour tester cela, désactivez le mode StealthChop et vérifiez si les erreurs continuent de se produire.
 
-#### TMC signale une erreur : `... reset=1(Reset)` OR `CS_ACTUAL=0(Reset ?)` OR `SE=0(Reset?)`
+#### TMC signale une erreur : `... reset=1(Reset)` OR `CS_ACTUAL=0(Reset ?)` OR `SE=0(Reset?)`
 
 Cela indique que le pilote s'est réinitialisé en cours d'impression. Cela peut être dû à des problèmes de tension ou de câblage.
 

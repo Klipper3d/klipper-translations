@@ -79,7 +79,7 @@ gpiodetect
 gpioinfo
 ```
 
-因此，所选引脚可以在配置中可以通过 `gpiochip<n>/gpio<o>`引用，其中 **n** 是由 `gpiodetect` 命令看到的芯片编号**o** 是 ` gpioinfo` 命令看到的行号。
+因此，所选引脚可以在配置中用 `gpiochip<n>/gpio<o>`引用，其中 **n** 是由 `gpiodetect` 命令看到的芯片编号**o** 是 ` gpioinfo` 命令看到的行号。
 
 ***警告：***只有标记为`unused`的 gpio 才可以被使用。一条*线路*不可能被多个进程同时使用。
 
@@ -208,7 +208,7 @@ shutdown_value: 0
 cycle_time: 0.0005
 ```
 
-This will add hardware pwm control to gpio12 and gpio13 on the Pi (because the overlay was configured to route pwm0 to pin=12 and pwm1 to pin=13).
+这会为树莓派上的GPIO12和GPIO13添加硬件PWM控制功能（因为我们在配置里把pwm0指向了12引脚、把pwm1指向了13引脚）。
 
 PWM0 可以被路由到 gpio12 和 gpio18，PWM1 可以被路由到 gpio13 和 gpio19：
 

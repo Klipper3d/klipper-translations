@@ -45,7 +45,7 @@ Got error -1 in can write: (105)No buffer space available
 
 如果发生 CAN 总线完全故障（例如 CAN 线路断线），则 Linux 将无法在 CAN 总线上传输任何消息，并且通常会在 Klipper 日志中找到上述消息。在这种情况下，日志消息是更大问题的征兆（无法传输任何消息），与 Linux `txqueuelen` 没有直接关系。
 
-可以通过运行 Linux 命令“ip link show can0”来检查当前队列大小。它应该会报告一堆文本，包括代码片段“qlen 128”。如果看到类似“qlen 10”的内容，则表明 CAN 设备尚未正确配置。
+可以通过运行 Linux 命令`ip link show can0`来检查当前队列大小。它应该会报告一堆文本，包括代码片段`qlen 128`。如果看到类似`qlen 10`的内容，则表明 CAN 设备尚未正确配置。
 
 不建议使用明显大于 128 的 `txqueuelen`。以 1000000 频率运行的 CAN 总线通常需要大约 120us 来传输 CAN 数据包。因此，128 个数据包的队列可能需要大约 15-20ms 才能耗尽。大得多的队列可能会导致消息往返时间出现过度峰值，从而导致无法恢复的错误。换句话说，如果 Klipper 的应用程序重传系统不必等待 Linux 耗尽可能过时的过大队列，它会更加强大。这类似于互联网路由器上的 [bufferbloat](https://en.wikipedia.org/wiki/Bufferbloat) 问题。
 
@@ -99,7 +99,7 @@ id](CANBUS_protocol.md#micro-controller-id-assignment). It is a hexadecimal numb
 
 人们经常可以找到价格低于15美元的“USB逻辑分析仪”(截至2023年美国定价)。这些设备通常被列为“Saleae逻辑克隆”或“24 MHz 8通道USB逻辑分析仪”。
 
-![pulseview-canbus](img/pulseview-canbus.png)
+![CANbus脉冲视图](img/pulseview-canbus.png)
 
 上图是在使用Pulseview和“Saleae Clone”逻辑分析仪时拍摄的。Sigrok和Pulseview软件安装在台式计算机上(如果单独打包，还应安装“fx2lafw”固件)。逻辑分析仪上的CH0引脚被布线到CAN Rx线路，CH1引脚被布线到CAN Tx引脚，GND被布线到GND。Pulseview配置为仅显示D0和D1线(红色“探头”图标中央顶部工具栏)。采样数设置为500万(顶部工具栏)，采样率设置为24 Mhz(顶部工具栏)。添加了CAN解码器(右上工具栏黄绿相间的“气泡图标”)。D0通道被标记为RX并设置为在下降沿触发(点击左侧的黑色D0标签)。将d1通道标记为Tx(点击左侧棕色的d1标签)。CAN解码器配置为1Mbit速率(点击左侧绿色的CAN标签)。CAN解码器被移到显示屏顶部(单击并拖动绿色的CAN标签)。最后，开始捕获(点击左上角的“Run”(运行))，并在CAN总线上传输一个包(`cansend can0 123#121212121212`)。
 
