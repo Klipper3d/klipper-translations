@@ -1284,13 +1284,13 @@ msgstr ""
 
 #: docs/Measuring_Resonances.md:block 190 (paragraph)
 msgid ""
-"For Delta printers with the default tower placement (tower A ~~= 210 degrees, "
-"B ~~= 330 degrees, and C ~= 90 degrees), execute"
+"For Delta printers with the default tower placement (tower A ~= 210 degrees, B"
+" ~= 330 degrees, and C ~= 90 degrees), execute"
 msgstr ""
 
 #~ msgid ""
-#~ "For Delta printers with the default tower placement (tower A ~= 210 degrees, B"
-#~ " ~= 330 degrees, and C ~= 90 degrees), execute"
+#~ "For Delta printers with the default tower placement (tower A ~~= 210 degrees, "
+#~ "B ~~= 330 degrees, and C ~= 90 degrees), execute"
 #~ msgstr ""
 
 #~ msgid "The RPi has buit-in 1.8K pull-ups on both SCL and SDA."

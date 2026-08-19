@@ -1633,16 +1633,16 @@ msgstr ""
 
 #: docs/Measuring_Resonances.md:block 190 (paragraph)
 msgid ""
-"For Delta printers with the default tower placement (tower A ~~= 210 degrees, "
-"B ~~= 330 degrees, and C ~= 90 degrees), execute"
+"For Delta printers with the default tower placement (tower A ~= 210 degrees, B"
+" ~= 330 degrees, and C ~= 90 degrees), execute"
 msgstr ""
+"Для принтерів Delta з розміщенням за замовчуванням (підтримка A ~= 210 "
+"градусів, B ~=330 градусів, а C ~= 90 градусів), виконання"
 
 #~ msgid ""
-#~ "For Delta printers with the default tower placement (tower A ~= 210 degrees, B"
-#~ " ~= 330 degrees, and C ~= 90 degrees), execute"
+#~ "For Delta printers with the default tower placement (tower A ~~= 210 degrees, "
+#~ "B ~~= 330 degrees, and C ~= 90 degrees), execute"
 #~ msgstr ""
-#~ "Для принтерів Delta з розміщенням за замовчуванням (підтримка A ~= 210 "
-#~ "градусів, B ~=330 градусів, а C ~= 90 градусів), виконання"
 
 #~ msgid "MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500"
 #~ msgstr "МПУ-9250/МПУ-9255/МПУ-6515/МПУ-6050/МПУ-6500"

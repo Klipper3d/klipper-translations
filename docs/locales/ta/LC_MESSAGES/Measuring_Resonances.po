@@ -1686,16 +1686,16 @@ msgstr ""
 
 #: docs/Measuring_Resonances.md:block 190 (paragraph)
 msgid ""
-"For Delta printers with the default tower placement (tower A ~~= 210 degrees, "
-"B ~~= 330 degrees, and C ~= 90 degrees), execute"
+"For Delta printers with the default tower placement (tower A ~= 210 degrees, B"
+" ~= 330 degrees, and C ~= 90 degrees), execute"
 msgstr ""
+"இயல்புநிலை கோபுர வேலைவாய்ப்புடன் டெல்டா அச்சுப்பொறிகளுக்கு (கோபுரம் A ~ = 210 "
+"டிகிரி, பி ~ = 330 டிகிரி மற்றும் சி ~ = 90 டிகிரி), இயக்கவும்"
 
 #~ msgid ""
-#~ "For Delta printers with the default tower placement (tower A ~= 210 degrees, B"
-#~ " ~= 330 degrees, and C ~= 90 degrees), execute"
+#~ "For Delta printers with the default tower placement (tower A ~~= 210 degrees, "
+#~ "B ~~= 330 degrees, and C ~= 90 degrees), execute"
 #~ msgstr ""
-#~ "இயல்புநிலை கோபுர வேலைவாய்ப்புடன் டெல்டா அச்சுப்பொறிகளுக்கு (கோபுரம் A ~ = 210 "
-#~ "டிகிரி, பி ~ = 330 டிகிரி மற்றும் சி ~ = 90 டிகிரி), இயக்கவும்"
 
 #~ msgid "MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500"
 #~ msgstr "MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500"

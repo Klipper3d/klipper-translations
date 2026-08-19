@@ -1669,16 +1669,16 @@ msgstr ""
 
 #: docs/Measuring_Resonances.md:block 190 (paragraph)
 msgid ""
-"For Delta printers with the default tower placement (tower A ~~= 210 degrees, "
-"B ~~= 330 degrees, and C ~= 90 degrees), execute"
+"For Delta printers with the default tower placement (tower A ~= 210 degrees, B"
+" ~= 330 degrees, and C ~= 90 degrees), execute"
 msgstr ""
+"Az alapértelmezett toronyelhelyezésű Delta nyomtatók esetében (A torony ~= 210"
+" fok, B ~= 330 fok és C ~= 90 fok), hajtsd végre a következőt"
 
 #~ msgid ""
-#~ "For Delta printers with the default tower placement (tower A ~= 210 degrees, B"
-#~ " ~= 330 degrees, and C ~= 90 degrees), execute"
+#~ "For Delta printers with the default tower placement (tower A ~~= 210 degrees, "
+#~ "B ~~= 330 degrees, and C ~= 90 degrees), execute"
 #~ msgstr ""
-#~ "Az alapértelmezett toronyelhelyezésű Delta nyomtatók esetében (A torony ~= 210"
-#~ " fok, B ~= 330 fok és C ~= 90 fok), hajtsd végre a következőt"
 
 #~ msgid "MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500"
 #~ msgstr "MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500"

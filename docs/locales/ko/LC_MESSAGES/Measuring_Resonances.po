@@ -1394,15 +1394,15 @@ msgstr ""
 
 #: docs/Measuring_Resonances.md:block 190 (paragraph)
 msgid ""
-"For Delta printers with the default tower placement (tower A ~~= 210 degrees, "
-"B ~~= 330 degrees, and C ~= 90 degrees), execute"
+"For Delta printers with the default tower placement (tower A ~= 210 degrees, B"
+" ~= 330 degrees, and C ~= 90 degrees), execute"
 msgstr ""
+"기본 타워 배치(타워 A ~= 210도, B ~= 330도 및 C ~= 90도)가 있는 Delta 프린터의 경우 다음을 실행합니다"
 
 #~ msgid ""
-#~ "For Delta printers with the default tower placement (tower A ~= 210 degrees, B"
-#~ " ~= 330 degrees, and C ~= 90 degrees), execute"
+#~ "For Delta printers with the default tower placement (tower A ~~= 210 degrees, "
+#~ "B ~~= 330 degrees, and C ~= 90 degrees), execute"
 #~ msgstr ""
-#~ "기본 타워 배치(타워 A ~= 210도, B ~= 330도 및 C ~= 90도)가 있는 Delta 프린터의 경우 다음을 실행합니다"
 
 #~ msgid "The RPi has buit-in 1.8K pull-ups on both SCL and SDA."
 #~ msgstr ""
