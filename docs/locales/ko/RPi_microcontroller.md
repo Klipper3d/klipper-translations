@@ -79,7 +79,7 @@ gpiodetect
 gpioinfo
 ```
 
-따라서 선택한 핀은 구성 내에서 `gpiochip<n>/gpio<o>`로 사용할 수 있습니다. 여기서 **n**은 `gpiodetect` 명령으로 볼 수 있는 칩 번호이고 **o**는 `gpioinfo` 명령으로 볼 수 라인 번호입니다.
+The chosen pin can thus be used within the configuration as `gpiochip<n>/gpio<o>` where **n** is the chip number as seen by the `gpiodetect` command and **o** is the line number seen by the`gpioinfo` command.
 
 **경고:** `unused` 로 표시된 gpio만 사용할 수 있습니다. 여러 프로세스에서 동시에 *line* 을 사용할 수 없습니다.
 

@@ -79,7 +79,7 @@ sudo apt-get встановити gpiod
 gpioinfo
 ```
 
-The chosen pin can thus be used within the configuration as `gpiochip<n>/gpio<o>` where **n** is the chip number as seen by the `gpiodetect` command and **o** is the line number seen by the` gpioinfo` command.
+Вибраний шпилька може використовуватися в конфігурації, як `gpiochip<n>/gpio<o>`, де **n** є номер чіпа, як видно `gpiodetect` команди і **o** є номер лінії, виданий`gpioinfo`.
 
 ***Попередня:*** тільки gpio позначений як `unused`. Не можна використовувати для *line* для одночасного використання декількох процесів.
 

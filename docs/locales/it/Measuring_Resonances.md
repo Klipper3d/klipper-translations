@@ -659,7 +659,7 @@ e usa `graph_accelerometer.py` per elaborare i file generati, ad es.
 
 che genererà `/tmp/resonances.png` confrontando le risonanze.
 
-For Delta printers with the default tower placement (tower A = 210 degrees, B = 330 degrees, and C ~= 90 degrees), execute
+Per le stampanti Delta con la posizione della torre predefinita (torre A ~= 210 gradi, B ~= 330 gradi e C ~= 90 gradi), eseguire
 
 ```
 TEST_RESONANCES AXIS=0,1 OUTPUT=raw_data

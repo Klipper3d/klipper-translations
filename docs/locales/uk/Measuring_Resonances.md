@@ -659,7 +659,7 @@ TEST_RESONANCES AXIS=1,-1 OUT PUT=raw_data
 
 `/tmp/resonances.png` порівняння резонансів.
 
-For Delta printers with the default tower placement (tower A = 210 degrees, B = 330 degrees, and C ~= 90 degrees), execute
+Для принтерів Delta з розміщенням за замовчуванням (підтримка A ~= 210 градусів, B ~=330 градусів, а C ~= 90 градусів), виконання
 
 ```
 TEST_RESONANCES AXIS=0,1 OUTPUT=raw_data

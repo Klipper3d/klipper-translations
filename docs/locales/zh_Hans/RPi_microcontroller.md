@@ -79,7 +79,7 @@ gpiodetect
 gpioinfo
 ```
 
-因此，所选引脚可以在配置中用 `gpiochip<n>/gpio<o>`引用，其中 **n** 是由 `gpiodetect` 命令看到的芯片编号**o** 是 ` gpioinfo` 命令看到的行号。
+因此，所选引脚可以在配置中可以通过 `gpiochip<n>/gpio<o>`引用，其中 **n** 是由 `gpiodetect` 命令看到的芯片编号**o** 是 ` gpioinfo` 命令看到的行号。
 
 ***警告：***只有标记为`unused`的 gpio 才可以被使用。一条*线路*不可能被多个进程同时使用。
 

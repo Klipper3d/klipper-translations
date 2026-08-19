@@ -659,7 +659,7 @@ TEST_RESONANCES AXIS=1,-1 OUTPUT=raw_data
 
 以生成`/tmp/resonances.png`，对比共振的数据。
 
-For Delta printers with the default tower placement (tower A = 210 degrees, B = 330 degrees, and C ~= 90 degrees), execute
+对标准构型的三角洲打印机（A塔~210°，B塔~330°，C塔~90°），执行
 
 ```
 TEST_RESONANCES AXIS=0,1 OUTPUT=raw_data

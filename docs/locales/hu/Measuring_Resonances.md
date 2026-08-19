@@ -659,7 +659,7 @@ TEST_RESONANCES AXIS=1,-1 OUTPUT=raw_data
 
 amely a rezonanciákat összehasonlítva `/tmp/resonances.png` képet hoz létre.
 
-For Delta printers with the default tower placement (tower A = 210 degrees, B = 330 degrees, and C ~= 90 degrees), execute
+Az alapértelmezett toronyelhelyezésű Delta nyomtatók esetében (A torony ~= 210 fok, B ~= 330 fok és C ~= 90 fok), hajtsd végre a következőt
 
 ```
 TEST_RESONANCES AXIS=0,1 OUTPUT=raw_data

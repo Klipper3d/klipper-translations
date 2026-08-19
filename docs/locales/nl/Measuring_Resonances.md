@@ -659,7 +659,7 @@ and use `graph_accelerometer.py` to process the generated files, e.g.
 
 which will generate `/tmp/resonances.png` comparing the resonances.
 
-For Delta printers with the default tower placement (tower A = 210 degrees, B = 330 degrees, and C ~= 90 degrees), execute
+For Delta printers with the default tower placement (tower A ~= 210 degrees, B ~= 330 degrees, and C ~= 90 degrees), execute
 
 ```
 TEST_RESONANCES AXIS=0,1 OUTPUT=raw_data

@@ -79,7 +79,7 @@ gpiodetect
 gpioinfo
 ```
 
-The chosen pin can thus be used within the configuration as `gpiochip<n>/gpio<o>` where **n** is the chip number as seen by the `gpiodetect` command and **o** is the line number seen by the` gpioinfo` command.
+தேர்ந்தெடுக்கப்பட்ட முள் உள்ளமைவுக்குள் `gpiochip <n>/gpio <o>` எங்கே ** n ** என்பது சிப் எண் `gpiodetect` கட்டளை மற்றும் ** o ** வரி எண் `Gpioinfo` கட்டளையால் பார்த்தது.
 
 *** எச்சரிக்கை: *** `பயன்படுத்தப்படாத` எனக் குறிக்கப்பட்ட GPIO மட்டுமே பயன்படுத்தப்படலாம். ஒரே நேரத்தில் பல செயல்முறைகளால் ஒரு * வரி * பயன்படுத்த முடியாது.
 

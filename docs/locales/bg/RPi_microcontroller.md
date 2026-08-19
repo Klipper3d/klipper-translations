@@ -79,7 +79,7 @@ gpiodetect
 gpioinfo
 ```
 
-The chosen pin can thus be used within the configuration as `gpiochip<n>/gpio<o>` where **n** is the chip number as seen by the `gpiodetect` command and **o** is the line number seen by the` gpioinfo` command.
+Така избраният пин може да се използва в конфигурацията като `gpiochip<n>/gpio<o>`, където **n** е номерът на чипа, видян от командата `gpiodetect`, а **o** е номерът на линията, видян от командата `gpioinfo`.
 
 ***Предупреждение:*** могат да се използват само gpio, маркирани като `unused`. Не е възможно една *линия* да се използва от няколко процеса едновременно.
 

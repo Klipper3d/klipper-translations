@@ -659,7 +659,7 @@ TEST_RESONANCES AXIS=1,-1 OUTPUT=raw_data
 
 이것은 공명을 비교하는 `/tmp/resonances.png`를 생성합니다.
 
-For Delta printers with the default tower placement (tower A = 210 degrees, B = 330 degrees, and C ~= 90 degrees), execute
+기본 타워 배치(타워 A ~= 210도, B ~= 330도 및 C ~= 90도)가 있는 Delta 프린터의 경우 다음을 실행합니다
 
 ```
 TEST_RESONANCES AXIS=0,1 OUTPUT=raw_data

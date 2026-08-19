@@ -659,7 +659,7 @@ Test_resonances அச்சு = 1,1 வெளியீடு = RAW_DATA
 
 இது அதிர்வுகளை ஒப்பிடுகையில் `/tmp/அதிர்வுகள்.png` உருவாக்கும்.
 
-For Delta printers with the default tower placement (tower A = 210 degrees, B = 330 degrees, and C ~= 90 degrees), execute
+இயல்புநிலை கோபுர வேலைவாய்ப்புடன் டெல்டா அச்சுப்பொறிகளுக்கு (கோபுரம் A ~ = 210 டிகிரி, பி ~ = 330 டிகிரி மற்றும் சி ~ = 90 டிகிரி), இயக்கவும்
 
 ```
 Test_resonances அச்சு = 0,1 வெளியீடு = RAW_DATA
