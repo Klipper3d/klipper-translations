@@ -1486,8 +1486,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#configure-lis2dw-series-over-spi" class="md-nav__link">
-    Configure LIS2DW series over SPI
+  <a href="#lis2dw-spi" class="md-nav__link">
+    Настройка серии LIS2DW над SPI
   </a>
   
 </li>
@@ -1560,21 +1560,28 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#selecting-max_accel" class="md-nav__link">
-    Selecting max_accel
+  <a href="#max_accel" class="md-nav__link">
+    Выбор max_accel
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#unreliable-measurements-of-resonance-frequencies" class="md-nav__link">
-    Unreliable measurements of resonance frequencies
+  <a href="#measuring-the-resonances-of-z-axis" class="md-nav__link">
+    Measuring the resonances of Z axis
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#_12" class="md-nav__link">
+    Ненадежные измерения резонансных частот
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_13" class="md-nav__link">
     Тестирование пользовательских осей
   </a>
   
@@ -1586,7 +1593,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_13" class="md-nav__link">
+  <a href="#_14" class="md-nav__link">
     Автоматическая калибровка входного формирователя
   </a>
   
@@ -1594,7 +1601,7 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#_14" class="md-nav__link">
+  <a href="#_15" class="md-nav__link">
     Повторная калибровка входного формирователя
   </a>
   
@@ -1606,7 +1613,7 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#_15" class="md-nav__link">
+  <a href="#_16" class="md-nav__link">
     Обработка данных акселерометра в автономном режиме
   </a>
   
@@ -1630,10 +1637,10 @@
 
 
 <h1 id="_1">Изменения Резонансов<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>Klipper has built-in support for the ADXL345, MPU-9250, LIS2DW and LIS3DH compatible accelerometers which can be used to measure resonance frequencies of the printer for different axes, and auto-tune <a href="Resonance_Compensation.html">input shapers</a> to compensate for resonances. Note that using accelerometers requires some soldering and crimping. The ADXL345 can be connected to the SPI interface of a Raspberry Pi or MCU board (it needs to be reasonably fast). The MPU family can be connected to the I2C interface of a Raspberry Pi directly, or to an I2C interface of an MCU board that supports 400kbit/s <em>fast mode</em> in Klipper. The LIS2DW and LIS3DH can be connected to either SPI or I2C with the same considerations as above.</p>
+<p>Klipper имеет встроенную поддержку ADXL345, MPU-9250, LIS2DW и LIS3DH совместимых акселерометров, которые могут быть использованы для измерения резонансных частот принтера для различных осей, и авто-тюн <a href="Resonance_Compensation.html">образующих элементов</a> для компенсации резонансов. Обратите внимание, что использование акселерометров требует некоторого пайки и обжимания. ADXL345 может быть подключен к SPI-интерфейсу Raspberry Pi или MCU-доски (это должно быть достаточно быстро). Семейство MPU может быть подключено к I2C-интерфейсу Raspberry Pi непосредственно, или к I2C-интерфейсу MCU-панель, который поддерживает 400kbit/s *быстрый режим * в Klipper. LIS2DW и LIS3DH могут быть связаны с SPI или I2C с теми же соображениями, что и выше.</p>
 <p>При поиске акселерометров имейте в виду, что существует множество различных конструкций печатных плат и их клонов. Если акселерометр будет подключен к MCU принтера с напряжением 5 В, убедитесь, что он оснащен стабилизатором напряжения и переключателями уровней.</p>
-<p>For ADXL345s, make sure that the board supports SPI mode (a small number of boards appear to be hard-configured for I2C by pulling SDO to GND).</p>
-<p>For MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500/ICM20948s and LIS2DW/LIS3DH there are also a variety of board designs and clones with different I2C pull-up resistors which will need supplementing.</p>
+<p>Для ADXL345s убедитесь, что доска поддерживает режим SPI (небольшое количество досок, по-видимому, жестко настроено для I2C, притягивая SDO к GND).</p>
+<p>Для MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500/ICM20948s и LIS2DW/LIS3DH существуют также различные конструкции и клоны с различными резистентами I2C, которые будут нуждаться в дополнении.</p>
 <h2 id="mcu-i2c-klipper">MCU с поддержкой <em>быстрого режима</em> I2C от Klipper<a class="headerlink" href="#mcu-i2c-klipper" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -1832,7 +1839,7 @@ GND+SCL
 </tr>
 </tbody>
 </table>
-<p>RPi имеет встроенные подтяжки 1,8K на SCL и SDA.</p>
+<p>The RPi has built-in 1.8K pull-ups on both SCL and SDA.</p>
 <p><img alt="MPU-9250 подключен к Pi" src="img/mpu9250-PI-fritzing.png" /></p>
 <p>Рекомендуемая схема подключения I2C (i2c0a) на RP2040:</p>
 <table>
@@ -1922,12 +1929,12 @@ sudo apt install python3-numpy python3-matplotlib libatlas-base-dev libopenblas-
 <div class="highlight"><pre><span></span><code>~/klippy-env/bin/pip install -v &quot;numpy&lt;1.26&quot;
 </code></pre></div>
 
-<p>Note that, depending on the performance of the CPU, it may take <em>a lot</em> of time, up to 10-20 minutes. Be patient and wait for the completion of the installation. On some occasions, if the board has too little RAM the installation may fail and you will need to enable swap. Also note the forced version, due to newer versions of NumPY having requirements that may not be satisfied in some klipper python environments.</p>
-<p>Once installed please check that no errors show from the command:</p>
+<p>Обратите внимание, что, в зависимости от производительности процессора, это может *занять * много времени, до 10-20 минут. Будьте терпеливы и ждите завершения установки. В некоторых случаях, если доска имеет слишком мало RAM, установка может потерпеть неудачу, и вам нужно будет включить обмен. Также обратите внимание на принудительную версию, из-за более новых версий NumPY, имеющих требования, которые могут не быть удовлетворены в некоторых средах клиппера python.</p>
+<p>После установки, пожалуйста, проверьте, что никаких ошибок не видно из команды:</p>
 <div class="highlight"><pre><span></span><code>~/klippy-env/bin/python -c &#39;import numpy;&#39;
 </code></pre></div>
 
-<p>The correct output should simply be a new line.</p>
+<p>Правильный вывод должен быть просто новой линией.</p>
 <h4 id="adxl345-rpi">Настройка ADXL345 с помощью RPi<a class="headerlink" href="#adxl345-rpi" title="Permanent link">&para;</a></h4>
 <p>Сначала проверьте и следуйте инструкциям в документе <a href="RPi_microcontroller.html">RPi Microcontroller</a>, чтобы настроить "linux mcu" на Raspberry Pi. Это позволит настроить второй экземпляр Klipper, который будет работать на вашем Pi.</p>
 <p>Убедитесь, что драйвер Linux SPI включен, запустив <code>sudo raspi-config</code> и включив SPI в меню "Параметры взаимодействия".</p>
@@ -1986,7 +1993,7 @@ probe_points:
 </code></pre></div>
 
 <p>Перезапустите Klipper с помощью команды <code>RESTART</code>.</p>
-<h4 id="configure-lis2dw-series-over-spi">Configure LIS2DW series over SPI<a class="headerlink" href="#configure-lis2dw-series-over-spi" title="Permanent link">&para;</a></h4>
+<h4 id="lis2dw-spi">Настройка серии LIS2DW над SPI<a class="headerlink" href="#lis2dw-spi" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code>[mcu lis]
 # Измените &lt;mySerial&gt; на то, что вы нашли выше. Например,
 # usb-Klipper_rp2040_E661640843545B2E-if00
@@ -2019,7 +2026,7 @@ probe_points:
     100, 100, 20 # пример
 </code></pre></div>
 
-<p>If you are using the ICM20948, replace instances of "mpu9250" with "icm20948".</p>
+<p>Если вы используете ICM20948, замените экземпляры «mpu9250» на «icm20948».</p>
 <h4 id="mpu-9520-pico">Настройка совместимости MPU-9520 с Pico<a class="headerlink" href="#mpu-9520-pico" title="Permanent link">&para;</a></h4>
 <p>По умолчанию для Pico I2C установлено значение 400000. Просто добавьте следующее в файл printer.cfg:</p>
 <div class="highlight"><pre><span></span><code>[mcu pico]
@@ -2038,7 +2045,7 @@ probe_points:
 выводы: pico:gpio23
 </code></pre></div>
 
-<p>If you are using the ICM20948, replace instances of "mpu9250" with "icm20948".</p>
+<p>Если вы используете ICM20948, замените экземпляры «mpu9250» на «icm20948».</p>
 <h4 id="mpu-9520-avr">Настройка совместимости MPU-9520 с AVR<a class="headerlink" href="#mpu-9520-avr" title="Permanent link">&para;</a></h4>
 <p>Для AVR I2C будет установлено значение 400000 с помощью опции mpu9250. Просто добавьте следующее в файл printer.cfg:</p>
 <div class="highlight"><pre><span></span><code>[mcu nano]
@@ -2053,7 +2060,7 @@ probe_points:
     100, 100, 20   # пример
 </code></pre></div>
 
-<p>If you are using the ICM20948, replace instances of "mpu9250" with "icm20948".</p>
+<p>Если вы используете ICM20948, замените экземпляры «mpu9250» на «icm20948».</p>
 <p>Перезапустите Klipper с помощью команды <code>RESTART</code>.</p>
 <h2 id="_7">Измерение резонанса<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
 <h3 id="_8">Проверка установки<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
@@ -2204,7 +2211,7 @@ max_smoothing: 0.25 # пример
 </code></pre></div>
 
 <p>Тогда, если в будущем вы <a href="#input-shaper-re-calibration">повторно</a> запустите автонастройку входного шейпера с помощью команды <code>SHAPER_CALIBRATE</code> Klipper, он будет использовать сохраненное значение <code>max_smoothing</code> в качестве эталона.</p>
-<h3 id="selecting-max_accel">Selecting max_accel<a class="headerlink" href="#selecting-max_accel" title="Permanent link">&para;</a></h3>
+<h3 id="max_accel">Выбор max_accel<a class="headerlink" href="#max_accel" title="Permanent link">&para;</a></h3>
 <p>Поскольку входной формирователь может создавать некоторое сглаживание деталей, особенно при высоких ускорениях, вам все равно придется выбрать значение <code>max_accel</code>, которое не будет создавать слишком сильного сглаживания на отпечатанных деталях. Сценарий калибровки предоставляет оценку параметра <code>max_accel</code>, который не должен создавать слишком сильного сглаживания. Обратите внимание, что значение <code>max_accel</code>, отображаемое калибровочным скриптом, является лишь теоретическим максимумом, при котором соответствующий формирователь еще способен работать, не создавая слишком сильного сглаживания. Ни в коем случае не рекомендуется устанавливать это ускорение для печати. Максимальное ускорение, которое способен выдержать ваш принтер, зависит от его механических свойств и максимального крутящего момента используемых шаговых двигателей. Поэтому рекомендуется установить <code>max_accel</code> в секции <code>[принтер]</code>, не превышающее расчетных значений для осей X и Y, скорее всего, с некоторым консервативным запасом прочности.</p>
 <p>В качестве альтернативы, следуйте <a href="Resonance_Compensation.html#selecting-max_accel">this</a> части руководства по настройке входного формирователя и распечатайте тестовую модель для экспериментального выбора параметра <code>max_accel</code>.</p>
 <p>Это же замечание относится и к входному шейперу <a href="#input-shaper-auto-calibration">автокалибровка</a> с командой <code>SHAPER_CALIBRATE</code>: после автокалибровки по-прежнему необходимо выбрать правильное значение <code>max_accel</code>, и предложенные ограничения ускорения не будут применяться автоматически.</p>
@@ -2214,9 +2221,61 @@ max_smoothing: 0.25 # пример
 
 <p>чтобы правильно рассчитать рекомендации по максимальному ускорению. Обратите внимание, что команда <code>SHAPER_CALIBRATE</code> уже учитывает настроенный параметр <code>square_corner_velocity</code>, и нет необходимости указывать его явно.</p>
 <p>Если вы выполняете повторную калибровку формирователя и полученное значение сглаживания для предложенной конфигурации формирователя почти такое же, как и при предыдущей калибровке, этот шаг можно пропустить.</p>
-<h3 id="unreliable-measurements-of-resonance-frequencies">Unreliable measurements of resonance frequencies<a class="headerlink" href="#unreliable-measurements-of-resonance-frequencies" title="Permanent link">&para;</a></h3>
-<p>Sometimes the resonance measurements can produce bogus results, leading to the incorrect suggestions for the input shapers. This can be caused by a variety of reasons, including running fans on the toolhead, incorrect position or non-rigid mounting of the accelerometer, or mechanical problems such as loose belts or binding or bumpy axis. Keep in mind that all fans should be disabled for resonance testing, especially the noisy ones, and that the accelerometer should be rigidly mounted on the corresponding moving part (e.g. on the bed itself for the bed slinger, or on the extruder of the printer itself and not the carriage, and some people get better results by mounting the accelerometer on the nozzle itself). As for mechanical problems, the user should inspect if there is any fault that can be fixed with a moving axis (e.g. linear guide rails cleaned up and lubricated and V-slot wheels tension adjusted correctly). If none of that helps, a user may try the other shapers from the produced list besides the one recommended by default.</p>
-<h3 id="_12">Тестирование пользовательских осей<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<h3 id="measuring-the-resonances-of-z-axis">Measuring the resonances of Z axis<a class="headerlink" href="#measuring-the-resonances-of-z-axis" title="Permanent link">&para;</a></h3>
+<p>Measuring the resonances of Z axis is similar in many aspects to measuring resonances of X and Y axes, with some subtle differences. Similarly to other axes measurements, you will need to have an accelerometer mounted on the moving parts of Z axis - either the bed itself (if the bed moves over Z axis), or the toolhead (if the toolhead/gantry moves over Z). You will need to add the appropriate chip configuration to <code>printer.cfg</code> and also add it to <code>[resonance_tester]</code> section, e.g.</p>
+<div class="highlight"><pre><span></span><code>[resonance_tester]
+accel_chip_z: &lt;accelerometer full name&gt;
+</code></pre></div>
+
+<p>Also make sure that <code>probe_points</code> configured in <code>[resonance_tester]</code> allow sufficient clearance for Z axis movements (20 mm above bed surface should provide enough clearance with the default test parameters).</p>
+<p>The next consideration is that Z axis can typically reach lower maximum speeds and accelerations that X and Y axes. Default parameters of the test take that into consideration and are much less agressive, but it may still be necessary to increase <code>max_z_accel</code> and <code>max_z_velocity</code>. If you have them configured in <code>[printer]</code> section, make sure to set them to at least</p>
+<div class="highlight"><pre><span></span><code>[printer]
+max_z_velocity: 20
+max_z_accel: 1550
+</code></pre></div>
+
+<p>but only for the duration of the test, afterwards you can revert them back to their original values if necessary. And if you use custom test parameters for Z axis, <code>TEST_RESONANCES</code> and <code>SHAPER_CALIBRATE</code> will provide the minimum required limits if necessary for your specific case.</p>
+<p>After all changes to <code>printer.cfg</code> have been made, restart Klipper and run either</p>
+<div class="highlight"><pre><span></span><code>TEST_RESONANCES AXIS=Z
+</code></pre></div>
+
+<p>or</p>
+<div class="highlight"><pre><span></span><code>SHAPER_CALIBRATE AXIS=Z
+</code></pre></div>
+
+<p>and proceed from there accordingly how you would for other axes. For example, after <code>TEST_RESONANCES</code> command you can run <code>calibrate_shaper.py</code> script and get shaper recommendations and the chart of resonance response:</p>
+<p><img alt="Resonances" src="img/calibrate-z.png" /></p>
+<p>After the calibration, the shaper parameters can be stored in the <code>printer.cfg</code>, e.g. from the example above:</p>
+<div class="highlight"><pre><span></span><code>[input_shaper]
+...
+shaper_type_z: mzv
+shaper_freq_z: 42.6
+</code></pre></div>
+
+<p>Also, given the movements of Z axis are slow, you can easily consider more aggressive input shapers, e.g.</p>
+<div class="highlight"><pre><span></span><code>[input_shaper]
+...
+shaper_type_z: 2hump_ei
+shaper_freq_z: 63.0
+</code></pre></div>
+
+<p>If the test produces bogus results, you may try to increase <code>accel_per_hz_z</code> parameter in <code>[resonance_tester]</code> from its default value 15 to a larger value in the range of 20-30, e.g.</p>
+<div class="highlight"><pre><span></span><code>[resonance_tester]
+accel_per_hz_z: 25
+</code></pre></div>
+
+<p>and repeat the test. Increasing this value will likely require increasing <code>max_z_accel</code> and <code>max_z_velocity</code> parameters as well. You can run <code>TEST_RESONANCES AXIS=Z</code> command to get the required minimum values.</p>
+<p>However, if you are unable to measure the resonances of Z axis, you can consider just using</p>
+<div class="highlight"><pre><span></span><code>[input_shaper]
+...
+shaper_type_z: 3hump_ei
+shaper_freq_z: 65
+</code></pre></div>
+
+<p>as an acceptable all-round choice, given that the smoothing of Z axis movements is not of particular concerns.</p>
+<h3 id="_12">Ненадежные измерения резонансных частот<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h3>
+<p>Иногда резонансные измерения могут давать фиктивные результаты, что приводит к неправильным предложениям для входных форматоров. Это может быть вызвано различными причинами, включая запуск вентиляторов на головке инструмента, неправильное положение или нежесткую установку акселерометра или механические проблемы, такие как рыхлые ремни или связывающая или шишка. Имейте в виду, что все вентиляторы должны быть отключены для резонансного тестирования, особенно шумных, и что акселерометр должен быть жестко установлен на соответствующей подвижной части (например, на самой кровати для стропе кровати, или на экструдере самого принтера, а не на карете, и некоторые люди получают лучшие результаты, установив акселерометр на самом сопло. Что касается механических проблем, то пользователь должен проверить, есть ли какая-либо неисправность, которая может быть исправлена с помощью движущейся оси (например, линейные направляющие рельсы очищены и смазаны, а напряжение V-слота скорректировано правильно). Если это не помогает, пользователь может попробовать другие форматоры из списка, кроме рекомендованного по умолчанию.</p>
+<h3 id="_13">Тестирование пользовательских осей<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
 <p>Команда <code>TEST_RESONANCES</code> поддерживает пользовательские оси. Хотя это не очень полезно для калибровки входного формирователя, ее можно использовать для углубленного изучения резонансов принтера и, например, для проверки натяжения ремня.</p>
 <p>Чтобы проверить натяжение ремня на принтерах CoreXY, выполните команду</p>
 <div class="highlight"><pre><span></span><code>TEST_RESONANCES AXIS=1,1 OUTPUT=raw_data
@@ -2239,7 +2298,7 @@ TEST_RESONANCES AXIS=0.866025404,-0.5 OUTPUT=raw_data
 </code></pre></div>
 
 <p>чтобы создать файл <code>/tmp/resonances.png</code>, сравнивающий резонансы.</p>
-<h2 id="_13">Автоматическая калибровка входного формирователя<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h2>
+<h2 id="_14">Автоматическая калибровка входного формирователя<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
 <p>Помимо ручного выбора подходящих параметров для функции входного формирователя, можно также запустить автонастройку входного формирователя непосредственно из Klipper. Выполните следующую команду через терминал Octoprint:</p>
 <div class="highlight"><pre><span></span><code>SHAPER_CALIBRATE
 </code></pre></div>
@@ -2266,14 +2325,14 @@ TEST_RESONANCES AXIS=0.866025404,-0.5 OUTPUT=raw_data
 
 <p>Вы можете выполнить <code>SAVE_CONFIG</code> дважды - после калибровки каждой оси.</p>
 <p>Однако если вы подключили два акселерометра одновременно, достаточно запустить <code>SHAPER_CALIBRATE</code> без указания оси, чтобы откалибровать входной формирователь для обеих осей за один раз.</p>
-<h3 id="_14">Повторная калибровка входного формирователя<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<h3 id="_15">Повторная калибровка входного формирователя<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
 <p>Команда <code>SHAPER_CALIBRATE</code> может также использоваться для повторной калибровки входного формирователя в будущем, особенно если в принтер были внесены некоторые изменения, которые могут повлиять на его кинематику. Можно либо повторно выполнить полную калибровку с помощью команды <code>SHAPER_CALIBRATE</code>, либо ограничить автокалибровку одной осью, указав параметр <code>AXIS=</code>, например</p>
 <div class="highlight"><pre><span></span><code>SHAPER_CALIBRATE AXIS=X
 </code></pre></div>
 
 <p><strong>Предупреждение!</strong> Не рекомендуется выполнять автокалибровку шейпера очень часто (например, перед каждой печатью или каждый день). Для определения резонансных частот автокалибровка создает интенсивные вибрации по каждой из осей. Как правило, 3D-принтеры не рассчитаны на длительное воздействие вибраций, близких к резонансным частотам. Это может увеличить износ компонентов принтера и сократить срок их службы. Также повышается риск откручивания или ослабления некоторых деталей. Всегда проверяйте, чтобы все детали принтера (включая те, которые обычно не двигаются) были надежно закреплены на месте после каждой автонастройки.</p>
 <p>Кроме того, из-за некоторого шума при измерениях возможно, что результаты настройки будут немного отличаться от одного прогона калибровки к другому. Тем не менее, не ожидается, что шум сильно повлияет на качество печати. Тем не менее, рекомендуется перепроверить предложенные параметры и напечатать несколько пробных отпечатков перед использованием, чтобы убедиться в их правильности.</p>
-<h2 id="_15">Обработка данных акселерометра в автономном режиме<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
+<h2 id="_16">Обработка данных акселерометра в автономном режиме<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h2>
 <p>Можно сгенерировать необработанные данные акселерометра и обработать их в автономном режиме (например, на хост-машине), например, для поиска резонансов. Для этого выполните следующие команды через терминал Octoprint:</p>
 <div class="highlight"><pre><span></span><code>SET_INPUT_SHAPER SHAPER_FREQ_X=0 SHAPER_FREQ_Y=0
 TEST_RESONANCES AXIS=X OUTPUT=raw_data

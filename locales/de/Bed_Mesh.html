@@ -1402,19 +1402,6 @@
     Konfigurieren der Nullpunktposition
   </a>
   
-    <nav class="md-nav" aria-label="Konfigurieren der Nullpunktposition">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#der-veraltete-relative_reference_index" class="md-nav__link">
-    Der veraltete relative_reference_index
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
           <li class="md-nav__item">
@@ -1658,7 +1645,7 @@ bicubic_tension: 0.2
 </code></pre></div>
 
 <ul>
-<li><code>mesh_pps: 2, 3</code> <em>Default Value: 2, 2</em> The <code>mesh_pps</code> option is shorthand for Mesh Points Per Segment. This option specifies how many points to interpolate for each segment along the X and Y axes. Consider a 'segment' to be the space between each probed point. Like <code>probe_count</code>, <code>mesh_pps</code> is specified as an X, Y integer pair, and also may be specified a single integer that is applied to both axes. In this example there are 4 segments along the X axis and 2 segments along the Y axis. This evaluates to 8 interpolated points along X, 6 interpolated points along Y, which results in a 13x8 mesh. Note that if mesh_pps is set to 0 then mesh interpolation is disabled and the probed matrix will be sampled directly.</li>
+<li><code>mesh_pps: 2, 3</code> <em>Default Value: 2, 2</em> The <code>mesh_pps</code> option is shorthand for Mesh Points Per Segment. This option specifies how many points to interpolate for each segment along the X and Y axes. Consider a 'segment' to be the space between each probed point. Like <code>probe_count</code>, <code>mesh_pps</code> is specified as an X, Y integer pair, and also may be specified a single integer that is applied to both axes. In this example there are 4 segments along the X axis and 2 segments along the Y axis. This evaluates to 8 interpolated points along X, 6 interpolated points along Y, which results in a 13x9 mesh. Note that if mesh_pps is set to 0 then mesh interpolation is disabled and the probed matrix will be sampled directly.</li>
 <li><code>algorithm: lagrange</code> <em>Default Value: lagrange</em> The algorithm used to interpolate the mesh. May be <code>lagrange</code> or <code>bicubic</code>. Lagrange interpolation is capped at 6 probed points as oscillation tends to occur with a larger number of samples. Bicubic interpolation requires a minimum of 4 probed points along each axis, if less than 4 points are specified then lagrange sampling is forced. If <code>mesh_pps</code> is set to 0 then this value is ignored as no mesh interpolation is done.</li>
 <li><code>bicubic_tension: 0.2</code> <em>Default Value: 0.2</em> If the <code>algorithm</code> option is set to bicubic it is possible to specify the tension value. The higher the tension the more slope is interpolated. Be careful when adjusting this, as higher values also create more overshoot, which will result in interpolated values higher or lower than your probed points.</li>
 </ul>
@@ -1700,7 +1687,7 @@ fade_target: 0
 <li><code>fade_target: 0</code> <em>Default Value: The average Z value of the mesh</em> The <code>fade_target</code> can be thought of as an additional Z offset applied to the entire bed after fade completes. Generally speaking we would like this value to be 0, however there are circumstances where it should not be. For example, lets assume your homing position on the bed is an outlier, its .2 mm lower than the average probed height of the bed. If the <code>fade_target</code> is 0, fade will shrink the print by an average of .2 mm across the bed. By setting the <code>fade_target</code> to .2, the homed area will expand by .2 mm, however, the rest of the bed will be accurately sized. Generally its a good idea to leave <code>fade_target</code> out of the configuration so the average height of the mesh is used, however it may be desirable to manually adjust the fade target if one wants to print on a specific portion of the bed.</li>
 </ul>
 <h3 id="konfigurieren-der-nullpunktposition">Konfigurieren der Nullpunktposition<a class="headerlink" href="#konfigurieren-der-nullpunktposition" title="Permanent link">&para;</a></h3>
-<p>Many probes are susceptible to "drift", ie: inaccuracies in probing introduced by heat or interference. This can make calculating the probe's z-offset challenging, particularly at different bed temperatures. As such, some printers use an endstop for homing the Z axis and a probe for calibrating the mesh. In this configuration it is possible offset the mesh so that the (X, Y) <code>reference position</code> applies zero adjustment. The <code>reference postion</code> should be the location on the bed where a <a href="Manual_Level.html#calibrating-a-z-endstop">Z_ENDSTOP_CALIBRATE</a> paper test is performed. The bed_mesh module provides the <code>zero_reference_position</code> option for specifying this coordinate:</p>
+<p>Many probes are susceptible to "drift", ie: inaccuracies in probing introduced by heat or interference. This can make calculating the probe's z-offset challenging, particularly at different bed temperatures. As such, some printers use an endstop for homing the Z axis and a probe for calibrating the mesh. In this configuration it is possible offset the mesh so that the (X, Y) <code>reference position</code> applies zero adjustment. The <code>reference position</code> should be the location on the bed where a <a href="Manual_Level.html#calibrating-a-z-endstop">Z_ENDSTOP_CALIBRATE</a> paper test is performed. The bed_mesh module provides the <code>zero_reference_position</code> option for specifying this coordinate:</p>
 <div class="highlight"><pre><span></span><code>[bed_mesh]
 speed: 120
 horizontal_move_z: 5
@@ -1713,20 +1700,6 @@ probe_count: 5, 3
 <ul>
 <li><code>zero_reference_position:</code> <em>Default Value: None (disabled)</em> The <code>zero_reference_position</code> expects an (X, Y) coordinate matching that of the <code>reference position</code> described above. If the coordinate lies within the mesh then the mesh will be offset so the reference position applies zero adjustment. If the coordinate lies outside of the mesh then the coordinate will be probed after calibration, with the resulting z-value used as the z-offset. Note that this coordinate must NOT be in a location specified as a <code>faulty_region</code> if a probe is necessary.</li>
 </ul>
-<h4 id="der-veraltete-relative_reference_index">Der veraltete relative_reference_index<a class="headerlink" href="#der-veraltete-relative_reference_index" title="Permanent link">&para;</a></h4>
-<p>Existing configurations using the <code>relative_reference_index</code> option must be updated to use the <code>zero_reference_position</code>. The response to the <a href="#output">BED_MESH_OUTPUT PGP=1</a> gcode command will include the (X, Y) coordinate associated with the index; this position may be used as the value for the <code>zero_reference_position</code>. The output will look similar to the following:</p>
-<div class="highlight"><pre><span></span><code>// bed_mesh: generated points
-// Index | Tool Adjusted | Probe
-// 0 | (1.0, 1.0) | (24.0, 6.0)
-// 1 | (36.7, 1.0) | (59.7, 6.0)
-// 2 | (72.3, 1.0) | (95.3, 6.0)
-// 3 | (108.0, 1.0) | (131.0, 6.0)
-... (additional generated points)
-// bed_mesh: relative_reference_index 24 is (131.5, 108.0)
-</code></pre></div>
-
-<p><em>Note: The above output is also printed in <code>klippy.log</code> during initialization.</em></p>
-<p>Using the example above we see that the <code>relative_reference_index</code> is printed along with its coordinate. Thus the <code>zero_reference_position</code> is <code>131.5, 108</code>.</p>
 <h3 id="fehlerhafte-regionen">Fehlerhafte Regionen<a class="headerlink" href="#fehlerhafte-regionen" title="Permanent link">&para;</a></h3>
 <p>It is possible for some areas of a bed to report inaccurate results when probing due to a "fault" at specific locations. The best example of this are beds with series of integrated magnets used to retain removable steel sheets. The magnetic field at and around these magnets may cause an inductive probe to trigger at a distance higher or lower than it would otherwise, resulting in a mesh that does not accurately represent the surface at these locations. <strong>Note: This should not be confused with probe location bias, which produces inaccurate results across the entire bed.</strong></p>
 <p>The <code>faulty_region</code> options may be configured to compensate for this affect. If a generated point lies within a faulty region bed mesh will attempt to probe up to 4 points at the boundaries of this region. These probed values will be averaged and inserted in the mesh as the Z value at the generated (X, Y) coordinate.</p>
@@ -1837,7 +1810,7 @@ scan_overshoot: 8
 <p>After a BED_MESH_CALIBRATE has been performed, it is possible to save the current mesh state into a named profile. This makes it possible to load a mesh without re-probing the bed. After a profile has been saved using <code>BED_MESH_PROFILE SAVE=&lt;name&gt;</code> the <code>SAVE_CONFIG</code> gcode may be executed to write the profile to printer.cfg.</p>
 <p>Profile können durch Ausführen von <code>BED_MESH_PROFILE LOAD=&lt;name&gt;</code> geladen werden.</p>
 <p>It should be noted that each time a BED_MESH_CALIBRATE occurs, the current state is automatically saved to the <em>default</em> profile. The <em>default</em> profile can be removed as follows:</p>
-<p>BETT_MESH_PROFIL ENTFERNEN=standard</p>
+<p><code>BETT_MESH_PROFIL ENTFERNEN=standard</code></p>
 <p>Any other saved profile can be removed in the same fashion, replacing <em>default</em> with the named profile you wish to remove.</p>
 <h4 id="laden-des-standardprofils">Laden des Standardprofils<a class="headerlink" href="#laden-des-standardprofils" title="Permanent link">&para;</a></h4>
 <p>Previous versions of <code>bed_mesh</code> always loaded the profile named <em>default</em> on startup if it was present. This behavior has been removed in favor of allowing the user to determine when a profile is loaded. If a user wishes to load the <code>default</code> profile it is recommended to add <code>BED_MESH_PROFILE LOAD=default</code> to either their <code>START_PRINT</code> macro or their slicer's "Start G-Code" configuration, whichever is applicable.</p>

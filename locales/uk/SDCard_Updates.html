@@ -1356,6 +1356,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#failure-to-initialize" class="md-nav__link">
+    Failure to Initialize
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     Печера
   </a>
@@ -1442,22 +1449,23 @@ sudo сервіс klipper старт
 <p>Якщо ви не бачите вашу дошку, вказану вона може бути обов'язково, щоб додати нову дошку, як <a href="#board-definitions">описаний нижче</a>.</p>
 <h2 id="_2">Розширене використання<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>Наведені вище команди припускають, що ваш MCU з'єднується з частотою за замовчуванням 250000 і прошивкою знаходиться на <code>~/klipper/out/klipper.bin</code>. <code>flash-sdcard.sh</code> скрипт надає параметри для зміни цих за замовчуванням. Всі варіанти можна переглянути за допомогою екрана:</p>
-<div class="highlight"><pre><span></span><code>JavaScript licenses API Веб-сайт Go1.13.8 -час
-SD Card завантажити утиліту для Klipper
+<div class="highlight"><pre><span></span><code>./scripts/flash-sdcard.sh -h
+SD Card upload utility for Klipper
 
-Використання: flash_sdcard.sh [-h] [-l] [-c] [-b &lt;baud&gt;] [-f &lt;firmware&gt;]
-&lt;device&gt; &lt;board&gt;&gt; &lt;device&gt; &lt;board&gt; &lt;board&gt;&gt;&lt;device&gt;&gt;&gt; &lt;board&gt;&gt;&gt;&gt;&lt;device&gt;&gt; &lt;board&gt;&gt;&gt;&gt;&lt;device&gt;&gt;&gt;&lt;device&gt;&gt;&gt; &lt;board&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&lt;device&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&lt;device&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&lt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;&gt;
+usage: flash_sdcard.sh [-h] [-l] [-c] [-s] [-b &lt;baud&gt;] [-f &lt;firmware&gt;]
+                       &lt;device&gt; &lt;board&gt;
 
-позиціональні аргументи:
-&lt;device&gt; пристрій серійного порту
-&lt;board&gt; тип дошки
+positional arguments:
+  &lt;device&gt;        device serial port
+  &lt;board&gt;         board type
 
-додаткові аргументи:
--h показати це повідомлення
--l список доступних плат
--c запустіть флеш-перевірку/перевірити тільки (завантажити)
--b &lt;baud&gt; серійний курс шнура (за замовчуванням 250000)
--f &lt;firmware&gt; шлях до клиппера. бін
+optional arguments:
+  -h              show this message
+  -l              list available boards
+  -c              run flash check/verify only (skip upload)
+  -s              use fast SPI speed (4MHz)
+  -b &lt;baud&gt;       serial baud rate (default is 250000)
+  -f &lt;firmware&gt;   path to klipper.bin
 </code></pre></div>
 
 <p>Якщо ваша дошка миготливий з прошивкою, яка з'єднує в користувацькій швидкості baud, можна оновити, вказавши параметр <code>-b</code>:</p>
@@ -1470,6 +1478,17 @@ SD Card завантажити утиліту для Klipper
 
 <p>Зауважте, що при модернізації MKS Robin E3 не потрібно вручну запустити <code>update_mks_robin.py</code> і постачання отриманого бінарного до <code>flash-sdcard.sh</code>. Ця процедура автоматизована в процесі завантаження.</p>
 <p>Варіант <code>-c</code> використовується для виконання перевірки або перевірки операції для тестування, якщо дошка працює правильно зазначена прошивка. Ця опція призначена для випадків, коли ручна електростанція повинна завершити процедуру миття, такі як завантажувачі, які використовують режим SDIO замість SPI для доступу до своїх SD-карт. (Ше Печери нижче) Але також можна використовувати будь-який час, щоб переконатися, що код, що спалахнув в дошку, відповідає версії в папці вашого будівництва на будь-якій підтриманій дошці.</p>
+<h2 id="failure-to-initialize">Failure to Initialize<a class="headerlink" href="#failure-to-initialize" title="Permanent link">&para;</a></h2>
+<p>Some SD cards may fail to initialize at the default SPI speed of 400KHz. In this situation it is possible to use <code>-s</code> to drive the SPI peripheral at 4MHz. For example:</p>
+<div class="highlight"><pre><span></span><code>./scripts/flash-sdcard.sh -s /dev/ttyACM0 btt-skr-v1.3
+</code></pre></div>
+
+<p>If the device still fails to initialize then cause of the failure is unrelated to the speed and likely a result of one of the following conditions:</p>
+<ul>
+<li>The SD card is improperly formatted. Must be <code>fat</code> or <code>fat32</code>.</li>
+<li>Attempt to initialize a card using the SPI interface that has already been initialized over SDIO.</li>
+<li>The SD card has failed or is corrupt.</li>
+</ul>
 <h2 id="_3">Печера<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Як зазначено в впровадженні цей метод працює тільки для оновлення прошивки. Початкова процедура миготіння повинна бути виконана вручну за вказівкою, яка застосовується до вашої плати контролера.</li>
@@ -1509,7 +1528,7 @@ SD Card завантажити утиліту для Klipper
 <span class="n">Про</span> <span class="n">нас</span>
 </code></pre></div>
 
-<p>Якщо вам потрібна нова дошка визначення, і ви некомфортний з процедурою, зазначеною вище, рекомендується запитати один в <a href="Контакт.md#discord">Klipper Community Discord</a>.</p>
+<p>If you need a new board definition and you are uncomfortable with the procedure outlined above it is recommended that you request one in the <a href="Contact.html">Klipper Discord</a>.</p>
 <h2 id="-sdio">Флеш-дошки, які використовують SDIO<a class="headerlink" href="#-sdio" title="Permanent link">&para;</a></h2>
 <p><a href="#caveats">Згадані в печериці</a>, дошки, чиї завантажувач використовує режим SDIO для доступу до своєї SD-карти, що вимагає енергетичного циклу дошки, а особливо самої SD-карти, для того, щоб перейти від SPI-режиму, який використовується при написанні файлу до SD-карти назад в режим SDIO для завантажувача, щоб спалахнути його в дошку. Ці визначення дошки будуть використовувати прапор <code>скіп_verify</code>, який розповідає про миготливий інструмент, щоб зупинитися після написання прошивки SD-карт так, щоб дошка може бути ручним зарядом і кроком перевірки відкладається до завершення.</p>
 <p>Є два сценарії - один з RPi Хост, що працює на окремому електроживленні та інших при RPi Хост працює на одному електропостачанні, як і на головній дошці. Відмінність полягає в тому, чи не потрібно також вимкнути RPi, а потім <code>ssh</code> знову після завершення флешки, щоб зробити крок перевірки, або якщо перевірка може бути зроблено відразу. Ось приклади двох сценаріїв:</p>

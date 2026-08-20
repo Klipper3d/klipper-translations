@@ -1342,11 +1342,11 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#requesting-the-bootloader" class="md-nav__link">
-    Requesting the bootloader
+  <a href="#solicitud-del-gestor-de-arranquebootloader" class="md-nav__link">
+    Solicitud del gestor de arranque(bootloader)
   </a>
   
-    <nav class="md-nav" aria-label="Requesting the bootloader">
+    <nav class="md-nav" aria-label="Solicitud del gestor de arranque(bootloader)">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -1358,8 +1358,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#python-with-flash_usb" class="md-nav__link">
-    Python (with flash_usb)
+  <a href="#python-con-flash_usb" class="md-nav__link">
+    Python (con flash_usb)
   </a>
   
 </li>
@@ -1466,11 +1466,11 @@
 
 
 <h1 id="bootloader-entry">Bootloader Entry<a class="headerlink" href="#bootloader-entry" title="Permanent link">&para;</a></h1>
-<p>Klipper can be instructed to reboot into a <a href="Bootloaders.html">Bootloader</a> in one of the following ways:</p>
-<h2 id="requesting-the-bootloader">Requesting the bootloader<a class="headerlink" href="#requesting-the-bootloader" title="Permanent link">&para;</a></h2>
+<p>Se puede indicar a Klipper que se reinicie en un <a href="Bootloaders.html">Bootloader</a> de una de las siguientes maneras:</p>
+<h2 id="solicitud-del-gestor-de-arranquebootloader">Solicitud del gestor de arranque(bootloader)<a class="headerlink" href="#solicitud-del-gestor-de-arranquebootloader" title="Permanent link">&para;</a></h2>
 <h3 id="virtual-serial">Virtual Serial<a class="headerlink" href="#virtual-serial" title="Permanent link">&para;</a></h3>
-<p>If a virtual (USB-ACM) serial port is in use, pulsing DTR while at 1200 baud will request the bootloader.</p>
-<h4 id="python-with-flash_usb">Python (with <code>flash_usb</code>)<a class="headerlink" href="#python-with-flash_usb" title="Permanent link">&para;</a></h4>
+<p>Si se está utilizando un puerto serie virtual (USB-ACM), pulsar DTR a 1200 baudios solicitará el gestor de arranque.</p>
+<h4 id="python-con-flash_usb">Python (con <code>flash_usb</code>)<a class="headerlink" href="#python-con-flash_usb" title="Permanent link">&para;</a></h4>
 <p>To enter the bootloader using python (using <code>flash_usb</code>):</p>
 <div class="highlight"><pre><span></span><code>&gt;<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>klipper/scripts
 &gt;<span class="w"> </span>python3<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;import flash_usb as u; u.enter_bootloader(&quot;&lt;DEVICE&gt;&quot;)&#39;</span>
@@ -1487,7 +1487,7 @@ Entering<span class="w"> </span>bootloader<span class="w"> </span>on<span class=
 <p>Where <code>&lt;DEVICE&gt;</code> is your serial device, such as <code>/dev/serial.by-id/usb-Klipper[...]</code> or <code>/dev/ttyACM0</code></p>
 <p><code>&lt;Ctrl-A&gt;&lt;Ctrl-P&gt;</code> means holding <code>Ctrl</code>, pressing and releasing <code>a</code>, pressing and releasing <code>p</code>, then releasing <code>Ctrl</code></p>
 <h3 id="physical-serial">Physical serial<a class="headerlink" href="#physical-serial" title="Permanent link">&para;</a></h3>
-<p>If a physical serial port is being used on the MCU (even if a USB serial adapter is being used to connect to it), sending the string <code>&lt;SPACE&gt;&lt;FS&gt;&lt;SPACE&gt;Request Serial Bootloader!!&lt;SPACE&gt;~</code>.</p>
+<p>If a physical serial port is being used on the MCU (even if a USB serial adapter is being used to connect to it), sending the string <code>&lt;SPACE&gt;&lt;FS&gt;&lt;SPACE&gt;Request Serial Bootloader!!&lt;SPACE&gt;~</code> requests the bootloader.</p>
 <p><code>&lt;SPACE&gt;</code> is an ASCII literal space, 0x20.</p>
 <p><code>&lt;FS&gt;</code> is the ASCII File Separator, 0x1c.</p>
 <p>Note that this is not a valid message as per the <a href="Protocol.html#micro-controller-interface">MCU Protocol</a>, but sync characters(<code>~</code>) are still respected.</p>

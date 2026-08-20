@@ -54,13 +54,6 @@ msgstr ""
 msgid "Configure your skew"
 msgstr ""
 
-#: docs/Skew_Correction.md:block 10 (paragraph)
-msgid ""
-"Make sure `[skew_correction]` is in printer.cfg. You may now use the "
-"`SET_SKEW` gcode to configure skew_correcton. For example, if your measured "
-"lengths along XY are as follows:"
-msgstr ""
-
 #: docs/Skew_Correction.md:block 12 (paragraph)
 msgid "`SET_SKEW` can be used to configure skew correction for the XY plane."
 msgstr ""
@@ -137,6 +130,19 @@ msgid ""
 " Corner D, and the length from Corner A to Corner D. When measuring length AD "
 "do not include the flats on the corners that some test objects provide."
 msgstr ""
+
+#: docs/Skew_Correction.md:block 10 (paragraph)
+msgid ""
+"Make sure `[skew_correction]` is in printer.cfg. You may now use the "
+"`SET_SKEW` gcode to configure skew_correction. For example, if your measured "
+"lengths along XY are as follows:"
+msgstr ""
+
+#~ msgid ""
+#~ "Make sure `[skew_correction]` is in printer.cfg. You may now use the "
+#~ "`SET_SKEW` gcode to configure skew_correcton. For example, if your measured "
+#~ "lengths along XY are as follows:"
+#~ msgstr ""
 
 #~ msgid ""
 #~ "Length AC = 140.4\n"

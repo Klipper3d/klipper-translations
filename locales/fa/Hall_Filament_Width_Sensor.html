@@ -13,7 +13,7 @@
     
     
       
-        <title>Hall filament width sensor - Klipper documentation</title>
+        <title>حسگر عرض فیلامنت هال - Klipper documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#hall-filament-width-sensor" class="md-skip">
+        <a href="#_1" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Hall filament width sensor
+              حسگر عرض فیلامنت هال
             
           </span>
         </div>
@@ -1342,8 +1342,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#how-does-it-work" class="md-nav__link">
-    How does it work?
+  <a href="#_2" class="md-nav__link">
+    چگونه کار می‌کند؟
   </a>
   
 </li>
@@ -1365,6 +1365,13 @@
         <li class="md-nav__item">
   <a href="#how-to-enable-sensor" class="md-nav__link">
     How to enable sensor
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#use-as-a-runout-switch-only" class="md-nav__link">
+    Use as a runout switch only
   </a>
   
 </li>
@@ -1393,11 +1400,11 @@
 </a>
 
 
-<h1 id="hall-filament-width-sensor">Hall filament width sensor<a class="headerlink" href="#hall-filament-width-sensor" title="Permanent link">&para;</a></h1>
+<h1 id="_1">حسگر عرض فیلامنت هال<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>This document describes Filament Width Sensor host module. Hardware used for developing this host module is based on two Hall linear sensors (ss49e for example). Sensors in the body are located on opposite sides. Principle of operation: two hall sensors work in differential mode, temperature drift same for sensor. Special temperature compensation not needed.</p>
 <p>You can find designs at <a href="https://www.thingiverse.com/thing:4138933">Thingiverse</a>, an assembly video is also available on <a href="https://www.youtube.com/watch?v=TDO9tME8vp4">Youtube</a></p>
 <p>To use Hall filament width sensor, read <a href="Config_Reference.html#hall_filament_width_sensor">Config Reference</a> and <a href="G-Codes.html#hall_filament_width_sensor">G-Code documentation</a>.</p>
-<h2 id="how-does-it-work">How does it work?<a class="headerlink" href="#how-does-it-work" title="Permanent link">&para;</a></h2>
+<h2 id="_2">چگونه کار می‌کند؟<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>Sensor generates two analog output based on calculated filament width. Sum of output voltage always equals to detected filament width. Host module monitors voltage changes and adjusts extrusion multiplier. I use the aux2 connector on a ramps-like board with the analog11 and analog12 pins. You can use different pins and different boards.</p>
 <h2 id="template-for-menu-variables">Template for menu variables<a class="headerlink" href="#template-for-menu-variables" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code>[menu __main __filament __width_current]
@@ -1423,6 +1430,13 @@ index: 1
 <h2 id="how-to-enable-sensor">How to enable sensor<a class="headerlink" href="#how-to-enable-sensor" title="Permanent link">&para;</a></h2>
 <p>By default, the sensor is disabled at power-on.</p>
 <p>To enable the sensor, issue <strong>ENABLE_FILAMENT_WIDTH_SENSOR</strong> command or set the <code>enable</code> parameter to <code>true</code>.</p>
+<h2 id="use-as-a-runout-switch-only">Use as a runout switch only<a class="headerlink" href="#use-as-a-runout-switch-only" title="Permanent link">&para;</a></h2>
+<p>By default, the sensor measures filament diameter and adjusts the extrusion multiplier to compensate for variations.</p>
+<p>If you want to use the sensor as a runout switch only, set the <code>enable_flow_compensation</code> config parameter to <code>false</code>. In this mode, the sensor will only trigger runout events when filament is not detected, it will not modify the extrusion multiplier.</p>
+<p>This is useful for printers where the filament sensor is not accurate enough for flow compensation but can reliably detect filament runout, or when printing with flexible filaments which have unstable diameter characteristics.</p>
+<p>Issue <strong>ENABLE_FILAMENT_WIDTH_SENSOR FLOW_COMPENSATION=1</strong> to enable flow compensation or <strong>ENABLE_FILAMENT_WIDTH_SENSOR FLOW_COMPENSATION=0</strong> to disable it.</p>
+<p>Note that disabling filament width compensation automatically resets the extrusion multiplier to 100%.</p>
+<p><strong>QUERY_FILAMENT_WIDTH</strong> includes the current state of flow compensation in its output.</p>
 <h2 id="logging">Logging<a class="headerlink" href="#logging" title="Permanent link">&para;</a></h2>
 <p>By default, diameter logging is disabled at power-on.</p>
 <p>Issue <strong>ENABLE_FILAMENT_WIDTH_LOG</strong> command to start logging and issue <strong>DISABLE_FILAMENT_WIDTH_LOG</strong> command to stop logging. To enable logging at power-on, set the <code>logging</code> parameter to <code>true</code>.</p>

@@ -1389,7 +1389,7 @@
 <h1 id="packaging-klipper">Packaging Klipper<a class="headerlink" href="#packaging-klipper" title="Permanent link">&para;</a></h1>
 <p>Klipper ist so etwas wie eine Paketierungsanomalie unter den Python-Programmen, da es setuptools nicht zum Bauen und Installieren verwendet. Einige Hinweise, wie man es am besten verpackt, sind wie folgt:</p>
 <h2 id="c-module">C-Module<a class="headerlink" href="#c-module" title="Permanent link">&para;</a></h2>
-<p>Klipper uses a C module to handle some kinematics calculations more quickly. This module needs to be compiled at packaging time to avoid introducing a runtime dependency on a compiler. To compile the C module, run <code>python2 klippy/chelper/__init__.py</code>.</p>
+<p>Klipper verwendet ein C-Modul, um einige Kinematikberechnungen schneller zu handhaben. Dieses Modul muss zur Vermeidung einer Laufzeitabhängigkeit zur Paketierungszeit kompiliert werden. Um das C-Modul zu kompilieren, führen Sie <code>python2 klippy/chelper/__init__.py</code> aus.</p>
 <h2 id="python-code-kompilieren">Python Code kompilieren<a class="headerlink" href="#python-code-kompilieren" title="Permanent link">&para;</a></h2>
 <p>Many distributions have a policy of compiling all python code before packaging to improve startup time. You can do this by running <code>python2 -m compileall klippy</code>.</p>
 <h2 id="versioning">Versioning<a class="headerlink" href="#versioning" title="Permanent link">&para;</a></h2>

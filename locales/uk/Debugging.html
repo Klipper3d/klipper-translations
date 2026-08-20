@@ -1460,7 +1460,7 @@
 <h2 id="_4">Аналіз та аналіз даних<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>Кліппер зберігає історію внутрішнього руху, яка може бути пізніше проаналізована. Щоб скористатися цією функцією, Klipper повинен бути запущений з <a href="API_Server.html">API сервер</a> включений.</p>
 <p>Увімкнення даних увімкнено <code>data_logger.py</code> інструментом. Наприклад:</p>
-<div class="highlight"><pre><span></span><code>javascript licenses api веб-сайт go1.13.8 /tmp/klippy_uds mylog
+<div class="highlight"><pre><span></span><code>~/klipper/scripts/motan/data_logger.py /tmp/klippy_uds mylog -s &#39;*&#39;
 </code></pre></div>
 
 <p>Ця команда буде підключена до сервера Klipper API, підписатися на інформацію про стан та рух, а також записувати результати. Два файли створюються - стиснений файл даних і індексний файл (наприклад, <code>mylog.json.gz</code> і <code>mylog.index.gz</code>. Після запуску залоги можна завершити друку і інші дії - заправка буде продовжуватися на фоні. Коли це зроблено журнал, натисніть <code>ctrl-c</code>, щоб вийти з <code>data_logger.py</code> інструмент.</p>

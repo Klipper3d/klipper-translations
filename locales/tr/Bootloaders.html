@@ -13,7 +13,7 @@
     
     
       
-        <title>Bootloaders - Klipper documentation</title>
+        <title>Önyükleyiciler - Klipper documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#bootloaders" class="md-skip">
+        <a href="#onyukleyiciler" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Bootloaders
+              Önyükleyiciler
             
           </span>
         </div>
@@ -1537,7 +1537,7 @@
 </a>
 
 
-<h1 id="bootloaders">Bootloaders<a class="headerlink" href="#bootloaders" title="Permanent link">&para;</a></h1>
+<h1 id="onyukleyiciler">Önyükleyiciler<a class="headerlink" href="#onyukleyiciler" title="Permanent link">&para;</a></h1>
 <p>Bu belge, Klipper'ın desteklediği mikro denetleyicilerde bulunan yaygın önyükleyiciler hakkında bilgi sağlar.</p>
 <p>The bootloader is 3rd-party software that runs on the micro-controller when it is first powered on. It is typically used to flash a new application (eg, Klipper) to the micro-controller without requiring specialized hardware. Unfortunately, there is no industry wide standard for flashing a micro-controller, nor is there a standard bootloader that works across all micro-controllers. Worse, it is common for each bootloader to require a different set of steps to flash an application.</p>
 <p>If one can flash a bootloader to a micro-controller then one can generally also use that mechanism to flash an application, but care should be taken when doing this as one may inadvertently remove the bootloader. In contrast, a bootloader will generally only permit a user to flash an application. It is therefore recommended to use a bootloader to flash an application where possible.</p>
@@ -1630,7 +1630,7 @@ bossac -U -p /dev/ttyACM0 -R
 
 <h2 id="samdc21-micro-controllers-duet3d-toolboard-1lc">SAMDC21 micro-controllers (Duet3D Toolboard 1LC)<a class="headerlink" href="#samdc21-micro-controllers-duet3d-toolboard-1lc" title="Permanent link">&para;</a></h2>
 <p>The SAMC21 is flashed via the ARM Serial Wire Debug (SWD) interface. This is commonly done with a dedicated SWD hardware dongle. Alternatively, one can use a <a href="#running-openocd-on-the-raspberry-pi">Raspberry Pi with OpenOCD</a>.</p>
-<p>When using OpenOCD with the SAMC21, extra steps must be taken to first put the chip into Cold Plugging mode if the board makes use of the SWD pins for other purposes. If using OpenOCD on a Rasberry Pi, this can be done by running the following commands before invoking OpenOCD.</p>
+<p>When using OpenOCD with the SAMC21, extra steps must be taken to first put the chip into Cold Plugging mode if the board makes use of the SWD pins for other purposes. If using OpenOCD on a Raspberry Pi, this can be done by running the following commands before invoking OpenOCD.</p>
 <div class="highlight"><pre><span></span><code>SWCLK=25
 SWDIO=24
 SRST=18
@@ -1792,7 +1792,7 @@ make
 <p>The <a href="https://github.com/Arksine/CanBoot">CanBoot</a> bootloader provides an option for uploading Klipper firmware over the CANBUS. The bootloader itself is derived from Klipper's source code. Currently CanBoot supports the STM32F103, STM32F042, and STM32F072 models.</p>
 <p>It is recommended to use a ST-Link Programmer to flash CanBoot, however it should be possible to flash using <code>stm32flash</code> on STM32F103 devices, and <code>dfu-util</code> on STM32F042/STM32F072 devices. See the previous sections in this document for instructions on these flashing methods, substituting <code>canboot.bin</code> for the file name where appropriate. The CanBoot repository linked above provides instructions for building the bootloader.</p>
 <p>The first time CanBoot has been flashed it should detect that no application is present and enter the bootloader. If this doesn't occur it is possible to enter the bootloader by pressing the reset button twice in succession.</p>
-<p>The <code>flash_can.py</code> utility supplied in the <code>lib/canboot</code> folder may be used to upload Klipper firmware. The device UUID is necessary to flash. If you do not have a UUID it is possible to query nodes currently running the bootloader:</p>
+<p>The <code>flashtool.py</code> utility supplied in the <code>lib/katapult</code> folder may be used to upload Klipper firmware. The device UUID is necessary to flash. If you do not have a UUID it is possible to query nodes currently running the bootloader:</p>
 <div class="highlight"><pre><span></span><code>python3 flash_can.py -q
 </code></pre></div>
 

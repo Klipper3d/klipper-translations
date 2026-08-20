@@ -1350,15 +1350,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#x-" class="md-nav__link">
-    அடிப்படை பயன்பாடு: X-அச்சு அளவுத்திருத்தம்
+  <a href="#-" class="md-nav__link">
+    அடிப்படை பயன்பாடு: எக்ச்-அச்சு அளவுத்திருத்தம்
   </a>
   
 </li>
         
           <li class="md-nav__item">
   <a href="#y-" class="md-nav__link">
-    Y-அச்சு அளவுத்திருத்தத்திற்கு
+    Y- அச்சு அளவுத்திருத்தத்திற்கு
   </a>
   
 </li>
@@ -1370,7 +1370,7 @@
       
         <li class="md-nav__item">
   <a href="#axis_twist_compensation" class="md-nav__link">
-    [AXIS_TWIST_COMPENSATION] அமைப்பு மற்றும் கட்டளைகள்
+    [axis_twist_compensation] அமைப்பு மற்றும் கட்டளைகள்
   </a>
   
 </li>
@@ -1393,54 +1393,54 @@
 
 
 <h1 id="_1">அச்சு திருப்ப இழப்பீடு<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
-<p>இந்த ஆவணம் <code>[axis_twist_compensation]</code> தொகுதியை விவரிக்கிறது.</p>
+<p>This document describes the <code>[axis_twist_compensation]</code> module.</p>
 <p>Some printers may have a small twist in their X rail which can skew the results of a probe attached to the X carriage. This is common in printers with designs like the Prusa MK3, Sovol SV06 etc and is further described under <a href="Probe_Calibrate.html#location-bias-check">probe location
 bias</a>. It may result in probe operations such as <a href="Bed_Mesh.html">Bed Mesh</a>, <a href="G-Codes.html#screws_tilt_adjust">Screws Tilt Adjust</a>, <a href="G-Codes.html#z_tilt_adjust">Z Tilt Adjust</a> etc returning inaccurate representations of the bed.</p>
 <p>இந்த தொகுதி ஆய்வின் முடிவுகளை சரிசெய்ய பயனரின் கையேடு அளவீடுகளைப் பயன்படுத்துகிறது. உங்கள் அச்சு கணிசமாக முறுக்கப்பட்டால், மென்பொருள் திருத்தங்களைப் பயன்படுத்துவதற்கு முன்பு அதை சரிசெய்ய முதலில் இயந்திர வழிமுறைகளைப் பயன்படுத்த பரிந்துரைக்கப்படுகிறது என்பதை நினைவில் கொள்க.</p>
 <p><strong> எச்சரிக்கை </strong>: இந்த தொகுதி இன்னும் கப்பல்துறை ஆய்வுகளுடன் பொருந்தவில்லை, மேலும் நீங்கள் அதைப் பயன்படுத்தினால் அதை இணைக்காமல் படுக்கையை ஆய்வு செய்ய முயற்சிக்கும்.</p>
 <h2 id="_2">இழப்பீட்டு பயன்பாட்டின் கண்ணோட்டம்<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p><strong> உதவிக்குறிப்பு: </strong> <a href="Config_Reference.html#probe">ஆய்வு ஃச் மற்றும் ஒய் ஆஃப்செட்டுகள்</a> அளவுத்திருத்தத்தை பெரிதும் பாதிக்கும்போது சரியாக அமைக்கப்படுவதை உறுதிசெய்க.</p>
+<p><strong>உதவிக்குறிப்பு:</strong> <a href="Config_Reference.html#probe">ஆய்வு ஃச் மற்றும் ஒய் ஆஃப்செட்டுகள்</a> அளவுத்திருத்தத்தை பெரிதும் பாதிக்கும்போது சரியாக அமைக்கப்படுவதை உறுதிசெய்க.</p>
 </blockquote>
-<h3 id="x-">அடிப்படை பயன்பாடு: X-அச்சு அளவுத்திருத்தம்<a class="headerlink" href="#x-" title="Permanent link">&para;</a></h3>
+<h3 id="-">அடிப்படை பயன்பாடு: எக்ச்-அச்சு அளவுத்திருத்தம்<a class="headerlink" href="#-" title="Permanent link">&para;</a></h3>
 <ol>
 <li><code>[axis_twist_compensation]</code> தொகுதியை அமைத்தபிறகு, இயக்கவும்:</li>
 </ol>
 <div class="highlight"><pre><span></span><code>AXIS_TWIST_COMPENSATION_CALIBRATE
 </code></pre></div>
 
-<p>இந்தக் கட்டளை முன்னிருப்பாக X- அச்சை அளவீடு செய்யும்.</p>
+<p>This command will calibrate the X-axis by default.</p>
 <ul>
-<li>அளவுத்திருத்த வழிகாட்டி, படுக்கையில் பல புள்ளிகளில் ஆய்வு Z ஆஃப்செட்டை அளவிட உங்களைத் தூண்டும்.</li>
-<li>இயல்பாக, அளவுத்திருத்தம் 3 புள்ளிகளைப் பயன்படுத்துகிறது, ஆனால் நீங்கள் <code>SAMPLE_COUNT=&lt;value&gt;</code> என்ற விருப்பத்துடன் வேறு எண்ணைக் குறிப்பிடலாம்</li>
+<li>The calibration wizard will prompt you to measure the probe Z offset at several points along the bed.</li>
+<li>By default, the calibration uses 3 points, but you can specify a different number with the option: <code>SAMPLE_COUNT=&lt;value&gt;</code></li>
 </ul>
 <ol>
-<li><strong>உங்கள் Z ஆஃப்செட்டை சரிசெய்யவும்:</strong> அளவுத்திருத்தத்தை முடித்த பிறகு, <a href="Probe_Calibrate.html#calibrating-probe-z-offset">உங்கள் Z ஆஃப்செட்டை சரிசெய்யவும்</a> என்பதை உறுதிப்படுத்திக் கொள்ளுங்கள்.</li>
-<li><strong>படுக்கை சமன்படுத்தும் செயல்பாடுகளைச் செய்யுங்கள்:</strong> தேவைக்கேற்ப ஆய்வு அடிப்படையிலான செயல்பாடுகளைப் பயன்படுத்தவும், அவை:</li>
+<li><strong>Adjust Your Z Offset:</strong> After completing the calibration, be sure to <a href="Probe_Calibrate.html#calibrating-probe-z-offset">adjust your Z offset</a>.</li>
+<li><strong> படுக்கை நிலை செயல்பாடுகளைச் செய்யுங்கள்: </strong> தேவைக்கேற்ப ஆய்வு அடிப்படையிலான செயல்பாடுகளைப் பயன்படுத்துங்கள்:</li>
 </ol>
 <ul>
 <li><a href="G-Codes.html#screws_tilt_adjust">திருகுகள் சாய்வு சரிசெய்தல்</a></li>
 <li><a href="G-Codes.html#z_tilt_adjust">Z சாய்வு சரிசெய்தல்</a></li>
 </ul>
 <ol>
-<li><strong>அமைப்பை முடிக்கவும்:</strong></li>
+<li><strong> அமைப்பை இறுதி செய்யுங்கள்: </strong></li>
 </ol>
 <ul>
-<li>தேவைப்பட்டால், அனைத்து அச்சுகளையும் முகப்பு செய்து, <a href="Bed_Mesh.html">Bed Mesh</a> செய்யவும்.</li>
-<li>தேவைப்பட்டால், ஒரு சோதனை அச்சை இயக்கவும், அதைத் தொடர்ந்து ஏதேனும் <a href="Axis_Twist_Compensation.html#fine-tuning">fine-tuning</a> செய்யவும்.</li>
+<li>அனைத்து அச்சுகளையும் வீட்டிலேயே, தேவைப்பட்டால் <a href="Bed_Mesh.html">படுக்கை கண்ணி</a> செய்யுங்கள்.</li>
+<li>ஒரு சோதனை அச்சிடலை இயக்கவும், அதைத் தொடர்ந்து தேவைப்பட்டால் ஏதேனும் <a href="Axis_Twist_Compensation.html#fine-tuning">நன்றாக-ட்யூனிங்</a>.</li>
 </ul>
-<h3 id="y-">Y-அச்சு அளவுத்திருத்தத்திற்கு<a class="headerlink" href="#y-" title="Permanent link">&para;</a></h3>
-<p>Y-அச்சுக்கான அளவுத்திருத்த செயல்முறை X-அச்சுக்கு ஒத்ததாகும். Y-அச்சை அளவீடு செய்ய, பயன்படுத்தவும்:</p>
+<h3 id="y-">Y- அச்சு அளவுத்திருத்தத்திற்கு<a class="headerlink" href="#y-" title="Permanent link">&para;</a></h3>
+<p>Y- அச்சுக்கான அளவுத்திருத்த செயல்முறை எக்ச்-அச்சுக்கு ஒத்ததாகும். Y- அச்சை அளவீடு செய்ய, பயன்படுத்தவும்:</p>
 <div class="highlight"><pre><span></span><code>AXIS_TWIST_COMPENSATION_CALIBRATE AXIS=Y
 </code></pre></div>
 
-<p>இது X- அச்சைப் போலவே அதே அளவீட்டு செயல்முறையின் மூலம் உங்களை வழிநடத்தும்.</p>
+<p>இது எக்ச்-அச்சுக்கு அதே அளவீட்டு செயல்முறையின் மூலம் உங்களுக்கு வழிகாட்டும்.</p>
 <blockquote>
 <p><strong> உதவிக்குறிப்பு: </strong> படுக்கை வெப்பநிலை மற்றும் முனை வெப்பநிலை மற்றும் அளவு அளவுத்திருத்த செயல்முறைக்கு செல்வாக்கு இருப்பதாகத் தெரியவில்லை.</p>
 </blockquote>
-<h2 id="axis_twist_compensation">[AXIS_TWIST_COMPENSATION] அமைப்பு மற்றும் கட்டளைகள்<a class="headerlink" href="#axis_twist_compensation" title="Permanent link">&para;</a></h2>
-<p><code>[axis_twist_compensation]</code> க்கான உள்ளமைவு விருப்பங்களை <a href="Configuration_Reference.md#axis_twist_compensation">உள்ளமைவு குறிப்பு</a> இல் காணலாம்.</p>
-<p><code>[axis_twist_compensation]</code> க்கான கட்டளைகளை <a href="G-Codes.html#axis_twist_compensation">G-Codes Reference</a> இல் காணலாம்</p>
+<h2 id="axis_twist_compensation">[axis_twist_compensation] அமைப்பு மற்றும் கட்டளைகள்<a class="headerlink" href="#axis_twist_compensation" title="Permanent link">&para;</a></h2>
+<p>Configuration options for <code>[axis_twist_compensation]</code> can be found in the <a href="Config_Reference.html#axis_twist_compensation">Configuration Reference</a>.</p>
+<p>Commands for <code>[axis_twist_compensation]</code> can be found in the <a href="G-Codes.html#axis_twist_compensation">G-Codes Reference</a></p>
 
               
             </article>

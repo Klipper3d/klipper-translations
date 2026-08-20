@@ -1526,7 +1526,7 @@
 <p>வன்பொருள் மற்றும் மென்பொருள் அடையக்கூடிய அதிகபட்ச படிநிலை விகிதத்தைக் கண்டறிய படி வீத அளவுகோல் வடிவமைக்கப்பட்டுள்ளது. எந்தவொரு நிச உலக பயன்பாட்டிலும் கிளிப்பர் பிற பணிகளை (எ.கா., எம்.சி.யு/ஓச்ட் செய்தி தொடர்பு, வெப்பநிலை வாசிப்பு, எண்ட்ச்டாப் சோதனை) செய்ய வேண்டியிருப்பதால் இந்த பெஞ்ச்மார்க் படிநிலை விகிதம் அன்றாட பயன்பாட்டில் அடைய முடியாது.</p>
 <p>பொதுவாக, பெஞ்ச்மார்க் சோதனைகளுக்கான ஊசிகள் ஃபிளாச் எல்.ஈ.டிக்கள் அல்லது பிற தீங்கற்ற ஊசிகளுக்கு தேர்ந்தெடுக்கப்படுகின்றன. <strong> ஒரு அளவுகோலை இயக்குவதற்கு முன்பு கட்டமைக்கப்பட்ட ஊசிகளை ஓட்டுவது பாதுகாப்பானது என்பதை எப்போதும் சரிபார்க்கவும். </strong> ஒரு அளவுகோலின் போது உண்மையான ச்டெப்பரை இயக்க பரிந்துரைக்கப்படவில்லை.</p>
 <h3 id="_2">படி வீத அளவுகோல் சோதனை<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
-<p>இந்தச் சோதனை console.py கருவியைப் பயன்படுத்தி செய்யப்படுகிறது (Debugging.md&gt; இல் விவரிக்கப்பட்டுள்ளது). மைக்ரோ-கண்ட்ரோலர் குறிப்பிட்ட வன்பொருள் தளத்திற்கு (கீழே காண்க) உள்ளமைக்கப்பட்டுள்ளது, பின்னர் பின்வருபவை console.py முனையச் சாளரத்தில் வெட்டி ஒட்டப்படும்:</p>
+<p>இந்தச் சோதனை console.py கருவியைப் பயன்படுத்தி செய்யப்படுகிறது (Debugging.md&gt; இல் விவரிக்கப்பட்டுள்ளது). மைக்ரோ-கண்ட்ரோலர் குறிப்பிட்ட வன்பொருள் தளத்திற்கு (கீழே காண்க) உள்ளமைக்கப்பட்டுள்ளது, பின்னர் பின்வருபவை console.py முனைய சாளரத்தில் வெட்டி ஒட்டப்படும்:</p>
 <div class="highlight"><pre><span></span><code>START_CLOCK {CLACK+FREQ}
  உண்ணி 1000 ஐ அமைக்கவும்
 
@@ -1555,7 +1555,7 @@
 </code></pre></div>
 
 <p>ஒற்றை ச்டெப்பர் வரையறைகளைப் பெற, அதே உள்ளமைவு வரிசை பயன்படுத்தப்படுகிறது, ஆனால் மேலே உள்ள சோதனையின் முதல் தொகுதி மட்டுமே கன்சோல்.பை சாளரத்தில் வெட்டப்பட்டு ஒட்டுகிறது.</p>
-<p><a href="Features.html">Features</a> ஆவணத்தில் காணப்படும் அளவுகோல்களை உருவாக்க, செயலில் உள்ள ஸ்டெப்பர்களின் எண்ணிக்கையை பெயரளவு mcu அதிர்வெண்ணுடன் பெருக்கி இறுதி டிக்ஸ் அளவுருவால் வகுப்பதன் மூலம் வினாடிக்கு மொத்த படிகளின் எண்ணிக்கை கணக்கிடப்படுகிறது. முடிவுகள் அருகிலுள்ள K க்கு வட்டமிடப்படுகின்றன. எடுத்துக்காட்டாக, மூன்று செயலில் உள்ள ஸ்டெப்பர்களுடன்:</p>
+<p><a href="Features.html">அம்சங்கள்</a> முடிவுகள் அருகில் உள்ள கே. க்கு வட்டமானவை. எடுத்துக்காட்டாக, மூன்று செயலில் உள்ள ச்டெப்பர்களுடன்:</p>
 <div class="highlight"><pre><span></span><code>எதிரொலி சோதனை முடிவு: {&quot; % .0fk&quot; % (3. * Freq / decks / 1000.)}
 </code></pre></div>
 
@@ -1597,11 +1597,11 @@
  இறுதி_கான்ஃபிக் சி.ஆர்.சி = 0
 </code></pre></div>
 
-<p>இந்த சோதனை கடைசியாக GCC பதிப்பு <code>ARM-NONE-EABI-GCC (ஃபெடோரா 10.2.0-4.FC34) 10.2.0</code> உடன்<code>59314D99</code> இல் இயக்கப்பட்டது.</p>
+<p>இந்தச் சோதனை கடைசியாகச் சீசிசி பதிப்பு <code>arm-none-eabi-gcc (ஃபெடோரா 10.2.0-4.fc34) 10.2.0</code> உடன்<code>59314d99</code> இல் இயக்கப்பட்டது.</p>
 <table>
 <thead>
 <tr>
-<th>SAM3X8E</th>
+<th>சம்3ஃ8இ</th>
 <th>உண்ணி</th>
 </tr>
 </thead>
@@ -1625,11 +1625,11 @@
  இறுதி_கான்ஃபிக் சி.ஆர்.சி = 0
 </code></pre></div>
 
-<p>இந்த சோதனை கடைசியாக GCC பதிப்பு <code>ARM-NONE-EABI-GCC (ஃபெடோரா 10.2.0-4.FC34) 10.2.0</code> உடன்<code>59314D99</code> இல் இயக்கப்பட்டது.</p>
+<p>இந்தச் சோதனை கடைசியாகச் சீசிசி பதிப்பு <code>arm-none-eabi-gcc (ஃபெடோரா 10.2.0-4.fc34) 10.2.0</code> உடன்<code>59314d99</code> இல் இயக்கப்பட்டது.</p>
 <table>
 <thead>
 <tr>
-<th>SAM4S8C</th>
+<th>சம்4எச்8சி</th>
 <th>உண்ணி</th>
 </tr>
 </thead>
@@ -1709,11 +1709,11 @@
  இறுதி_கான்ஃபிக் சி.ஆர்.சி = 0
 </code></pre></div>
 
-<p>இந்த சோதனை கடைசியாக GCC பதிப்பு <code>ARM-NONE-EABI-GCC (ஃபெடோரா 10.2.0-4.FC34) 10.2.0</code> உடன்<code>59314D99</code> இல் இயக்கப்பட்டது.</p>
+<p>இந்தச் சோதனை கடைசியாகச் சீசிசி பதிப்பு <code>arm-none-eabi-gcc (ஃபெடோரா 10.2.0-4.fc34) 10.2.0</code> உடன்<code>59314d99</code> இல் இயக்கப்பட்டது.</p>
 <table>
 <thead>
 <tr>
-<th>STM32F042</th>
+<th>எச்டிஎம்32எப்042</th>
 <th>உண்ணி</th>
 </tr>
 </thead>
@@ -1737,11 +1737,11 @@
  இறுதி_கான்ஃபிக் சி.ஆர்.சி = 0
 </code></pre></div>
 
-<p>இந்த சோதனை கடைசியாக GCC பதிப்பு <code>ARM-NONE-EABI-GCC (ஃபெடோரா 10.2.0-4.FC34) 10.2.0</code> உடன்<code>59314D99</code> இல் இயக்கப்பட்டது.</p>
+<p>இந்தச் சோதனை கடைசியாகச் சீசிசி பதிப்பு <code>arm-none-eabi-gcc (ஃபெடோரா 10.2.0-4.fc34) 10.2.0</code> உடன்<code>59314d99</code> இல் இயக்கப்பட்டது.</p>
 <table>
 <thead>
 <tr>
-<th>STM32F103</th>
+<th>எச்டிஎம்32எப்0103</th>
 <th>உண்ணி</th>
 </tr>
 </thead>
@@ -1769,7 +1769,7 @@
 <table>
 <thead>
 <tr>
-<th>STM32F446</th>
+<th>எச்டிஎம்32எப்446</th>
 <th>உண்ணி</th>
 </tr>
 </thead>
@@ -1803,7 +1803,7 @@
 </tbody>
 </table>
 <h3 id="stm32h7">STM32H7 படி வீத அளவுகோல்<a class="headerlink" href="#stm32h7" title="Permanent link">&para;</a></h3>
-<p>பின்வரும் உள்ளமைவு வரிசை STM32H723 இல் பயன்படுத்தப்படுகிறது:</p>
+<p>The following configuration sequence is used on STM32H723:</p>
 <div class="highlight"><pre><span></span><code>allocate_oids count=3
 config_stepper oid=0 step_pin=PA13 dir_pin=PB5 invert_step=-1 step_pulse_ticks=52
 config_stepper oid=1 step_pin=PB2 dir_pin=PB6 invert_step=-1 step_pulse_ticks=52
@@ -1811,11 +1811,11 @@ config_stepper oid=2 step_pin=PB3 dir_pin=PB7 invert_step=-1 step_pulse_ticks=52
 finalize_config crc=0
 </code></pre></div>
 
-<p>இந்த சோதனை கடைசியாக GCC பதிப்பு <code>ARM-NONE-EABI-GCC (ஃபெடோரா 14.1.0-1.FC40) 14.1.0</code> உடன்<code>554AE78D</code> இல் இயக்கப்பட்டது.</p>
+<p>The test was last run on commit <code>554ae78d</code> with gcc version <code>arm-none-eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0</code>.</p>
 <table>
 <thead>
 <tr>
-<th>நான் கேட்பேன்</th>
+<th>stm32h723</th>
 <th>உண்ணி</th>
 </tr>
 </thead>
@@ -1839,11 +1839,11 @@ finalize_config crc=0
  இறுதி_கான்ஃபிக் சி.ஆர்.சி = 0
 </code></pre></div>
 
-<p>இந்த சோதனை கடைசியாக GCC பதிப்பு <code>ARM-NONE-EABI-GCC (ஃபெடோரா 10.2.0-4.FC34) 10.2.0</code> உடன்<code>247 சிடி 753</code> இல் இயக்கப்பட்டது.</p>
+<p>இந்தச் சோதனை கடைசியாகச் சீசிசி பதிப்பு <code>arm-none-eabi-gcc (ஃபெடோரா 10.2.0-4.fc34) 10.2.0</code> உடன்<code>247சிடி753</code> இல் இயக்கப்பட்டது.</p>
 <table>
 <thead>
 <tr>
-<th>STM32G0B1</th>
+<th>எச்டிஎம்32சீ0பி1</th>
 <th>உண்ணி</th>
 </tr>
 </thead>
@@ -1945,7 +1945,7 @@ finalize_config crc=0
 <table>
 <thead>
 <tr>
-<th>SAMD21</th>
+<th>சம்டி21</th>
 <th>உண்ணி</th>
 </tr>
 </thead>
@@ -1973,7 +1973,7 @@ finalize_config crc=0
 <table>
 <thead>
 <tr>
-<th>SAMD51</th>
+<th>சம்டி51</th>
 <th>உண்ணி</th>
 </tr>
 </thead>
@@ -2016,7 +2016,7 @@ finalize_config crc=0
 <tbody>
 <tr>
 <td>1 ச்டெப்பர்</td>
-<td>௪௫</td>
+<td>45</td>
 </tr>
 <tr>
 <td>3 ச்டெப்பர்</td>
@@ -2061,18 +2061,18 @@ finalize_config crc=0
  இறுதி_கான்ஃபிக் சி.ஆர்.சி = 0
 </code></pre></div>
 
-<p>இந்த சோதனை கடைசியாக <code>14C105B8</code> இல் சி.சி.சி பதிப்பு<code>ARM-NONE-EABI-GCC (ஃபெடோரா 14.1.0-1.FC40) 14.1.0</code> உடன் ராச்பெர்ரி பை பைக்கோ மற்றும் பைக்கோ 2 பலகைகளுடன் இயக்கப்பட்டது.</p>
+<p>The test was last run on commit <code>14c105b8</code> with gcc version <code>arm-none-eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0</code> on Raspberry Pi Pico and Pico 2 boards.</p>
 <table>
 <thead>
 <tr>
-<th>RP2040 (*)</th>
+<th>ஆர்பி2040 (*)</th>
 <th>உண்ணி</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>1 ச்டெப்பர்</td>
-<td>௩</td>
+<td>3</td>
 </tr>
 <tr>
 <td>3 ச்டெப்பர்</td>
@@ -2134,7 +2134,7 @@ finalize_config crc=0
  get_uptime
 </code></pre></div>
 
-<p>சோதனை முடிந்ததும், இரண்டு "கூடுதல் நேரம்" மறுமொழி செய்திகளில் தெரிவிக்கப்பட்ட கடிகாரங்களுக்கிடையிலான வேறுபாட்டை தீர்மானிக்கவும். நொடிக்கு மொத்த கட்டளைகளின் எண்ணிக்கை பின்னர் <code>100000 * MCU_FREQUENCY / COCROM_DIFF</code>.</p>
+<p>சோதனை முடிந்ததும், இரண்டு "கூடுதல் நேரம்" மறுமொழி செய்திகளில் தெரிவிக்கப்பட்ட கடிகாரங்களுக்கிடையிலான வேறுபாட்டைத் தீர்மானிக்கவும். நொடிக்கு மொத்த கட்டளைகளின் எண்ணிக்கை பின்னர் <code>100000 * mcu_frequency / clock_diff</code>.</p>
 <p>The USB tests may exceed the CPU capacity of a Raspberry Pi. If running on a Raspberry Pi, Beaglebone, or similar host computer then increase the delay (eg, <code>DELAY {clock + 20*freq} get_uptime</code>). Where applicable, the benchmarks below are with console.py running on a desktop class machine with the device connected via a super-speed hub.</p>
 <p>The CAN bus tests may saturate the USB host controller of a Raspberry Pi (when testing via a standard gs_usb USB to CAN bus adapter). Where applicable, the CAN bus benchmarks below are with console.py running on a desktop class machine with a USB to CAN bus adapter connected via a super-speed USB hub.</p>
 <table>
@@ -2157,13 +2157,13 @@ finalize_config crc=0
 <td>sam3x8e (சீரியல்)</td>
 <td>பசி</td>
 <td>B161A69E</td>
-<td>ARM-NONE-EABI-GCC (ஃபெடோரா 7.1.0-5.FC27) 7.1.0</td>
+<td>arm-none-eabi-gcc (ஃபெடோரா 7.1.0-5.fc27) 7.1.0</td>
 </tr>
 <tr>
 <td>rp2350 (CAN)</td>
 <td>59K</td>
 <td>17b8ce4c</td>
-<td>ARM-NONE-EABI-GCC (ஃபெடோரா 14.1.0-1.FC40) 14.1.0</td>
+<td>arm-none-eabi-gcc (ஃபெடோரா 14.1.0-1.fc40) 14.1.0</td>
 </tr>
 <tr>
 <td>AT90USB1286 (USB)</td>
@@ -2172,16 +2172,16 @@ finalize_config crc=0
 <td>ஏ.வி.ஆர்-சி.சி.சி (சி.சி.சி) 5.4.0</td>
 </tr>
 <tr>
-<td>AR100 (சீரியல்)</td>
+<td>எஆர்100 (சீரியல்)</td>
 <td>138 கே</td>
 <td>08D037C6</td>
-<td>OR1K-LINUX-MUSL-GCC 9.3.0</td>
+<td>or1k-லினக்சு-musl-gcc 9.3.0</td>
 </tr>
 <tr>
 <td>SAMD21 (USB)</td>
 <td>உங்கள் கீழே</td>
 <td>01D2183F</td>
-<td>ARM-NONE-EABI-GCC (ஃபெடோரா 7.4.0-1.FC30) 7.4.0</td>
+<td>arm-none-eabi-gcc (ஃபெடோரா 7.4.0-1.fc30) 7.4.0</td>
 </tr>
 <tr>
 <td>ப்ரூ (பகிரப்பட்ட நினைவகம்)</td>
@@ -2193,55 +2193,55 @@ finalize_config crc=0
 <td>STM32F103 (USB)</td>
 <td>உங்கள்</td>
 <td>01D2183F</td>
-<td>ARM-NONE-EABI-GCC (ஃபெடோரா 7.4.0-1.FC30) 7.4.0</td>
+<td>arm-none-eabi-gcc (ஃபெடோரா 7.4.0-1.fc30) 7.4.0</td>
 </tr>
 <tr>
 <td>SAM3X8E (USB)</td>
 <td>418 கே</td>
 <td>01D2183F</td>
-<td>ARM-NONE-EABI-GCC (ஃபெடோரா 7.4.0-1.FC30) 7.4.0</td>
+<td>arm-none-eabi-gcc (ஃபெடோரா 7.4.0-1.fc30) 7.4.0</td>
 </tr>
 <tr>
 <td>எல்பிசி 1768 (யூ.எச்.பி)</td>
 <td>534 கே</td>
 <td>01D2183F</td>
-<td>ARM-NONE-EABI-GCC (ஃபெடோரா 7.4.0-1.FC30) 7.4.0</td>
+<td>arm-none-eabi-gcc (ஃபெடோரா 7.4.0-1.fc30) 7.4.0</td>
 </tr>
 <tr>
 <td>எல்பிசி 1769 (யூ.எச்.பி)</td>
 <td>628 கே</td>
 <td>01D2183F</td>
-<td>ARM-NONE-EABI-GCC (ஃபெடோரா 7.4.0-1.FC30) 7.4.0</td>
+<td>arm-none-eabi-gcc (ஃபெடோரா 7.4.0-1.fc30) 7.4.0</td>
 </tr>
 <tr>
 <td>SAM4S8C (யூ.எச்.பி)</td>
 <td>650 கே</td>
 <td>8D4A5C16</td>
-<td>ARM-NONE-EABI-GCC (ஃபெடோரா 7.4.0-1.FC30) 7.4.0</td>
+<td>arm-none-eabi-gcc (ஃபெடோரா 7.4.0-1.fc30) 7.4.0</td>
 </tr>
 <tr>
 <td>SAMD51 (USB)</td>
 <td>864 கே</td>
 <td>01D2183F</td>
-<td>ARM-NONE-EABI-GCC (ஃபெடோரா 7.4.0-1.FC30) 7.4.0</td>
+<td>arm-none-eabi-gcc (ஃபெடோரா 7.4.0-1.fc30) 7.4.0</td>
 </tr>
 <tr>
 <td>STM32F446 (USB)</td>
 <td>870 கே</td>
 <td>01D2183F</td>
-<td>ARM-NONE-EABI-GCC (ஃபெடோரா 7.4.0-1.FC30) 7.4.0</td>
+<td>arm-none-eabi-gcc (ஃபெடோரா 7.4.0-1.fc30) 7.4.0</td>
 </tr>
 <tr>
 <td>RP2040 (யூ.எச்.பி)</td>
 <td>885 கே</td>
 <td>ஃபட்டா 18291</td>
-<td>ARM-NONE-EABI-GCC (ஃபெடோரா 14.1.0-1.FC40) 14.1.0</td>
+<td>arm-none-eabi-gcc (ஃபெடோரா 14.1.0-1.fc40) 14.1.0</td>
 </tr>
 <tr>
 <td>RP2350 (யூ.எச்.பி)</td>
 <td>885 கே</td>
 <td>ஃபட்டா 18291</td>
-<td>ARM-NONE-EABI-GCC (ஃபெடோரா 14.1.0-1.FC40) 14.1.0</td>
+<td>arm-none-eabi-gcc (ஃபெடோரா 14.1.0-1.fc40) 14.1.0</td>
 </tr>
 </tbody>
 </table>

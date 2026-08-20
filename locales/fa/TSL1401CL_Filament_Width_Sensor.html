@@ -13,7 +13,7 @@
     
     
       
-        <title>TSL1401CL filament width sensor - Klipper documentation</title>
+        <title>TSL1401CLسنسور عرض فیلامنت - Klipper documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#tsl1401cl-filament-width-sensor" class="md-skip">
+        <a href="#tsl1401cl" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              TSL1401CL filament width sensor
+              TSL1401CLسنسور عرض فیلامنت
             
           </span>
         </div>
@@ -1342,15 +1342,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#how-does-it-work" class="md-nav__link">
-    How does it work?
+  <a href="#_1" class="md-nav__link">
+    چگونه کار می‌کند؟
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#note" class="md-nav__link">
-    Note:
+  <a href="#_2" class="md-nav__link">
+    توجه:
   </a>
   
 </li>
@@ -1372,13 +1372,13 @@
 </a>
 
 
-<h1 id="tsl1401cl-filament-width-sensor">TSL1401CL filament width sensor<a class="headerlink" href="#tsl1401cl-filament-width-sensor" title="Permanent link">&para;</a></h1>
-<p>This document describes Filament Width Sensor host module. Hardware used for developing this host module is based on TSL1401CL linear sensor array but it can work with any sensor array that has analog output. You can find designs at <a href="https://www.thingiverse.com/search?q=filament%20width%20sensor">Thingiverse</a>.</p>
-<p>To use a sensor array as a filament width sensor, read <a href="Config_Reference.html#tsl1401cl_filament_width_sensor">Config Reference</a> and <a href="G-Codes.html#hall_filament_width_sensor">G-Code documentation</a>.</p>
-<h2 id="how-does-it-work">How does it work?<a class="headerlink" href="#how-does-it-work" title="Permanent link">&para;</a></h2>
-<p>Sensor generates analog output based on calculated filament width. Output voltage always equals to detected filament width (Ex. 1.65v, 1.70v, 3.0v). Host module monitors voltage changes and adjusts extrusion multiplier.</p>
-<h2 id="note">Note:<a class="headerlink" href="#note" title="Permanent link">&para;</a></h2>
-<p>Sensor readings done with 10 mm intervals by default. If necessary you are free to change this setting by editing <strong><em>MEASUREMENT_INTERVAL_MM</em></strong> parameter in <strong>filament_width_sensor.py</strong> file.</p>
+<h1 id="tsl1401cl">TSL1401CLسنسور عرض فیلامنت<a class="headerlink" href="#tsl1401cl" title="Permanent link">&para;</a></h1>
+<p>این سند ماژول میزبان حسگر پهنای رشته را شرح می‌دهد. سخت‌افزار مورد استفاده برای توسعه این ماژول میزبان مبتنی بر آرایه حسگر خطی TSL1401CL است، اما می‌تواند با هر آرایه حسگری که خروجی آنالوگ دارد کار کند. می‌توانید طرح‌ها را در <a href="https://www.thingiverse.com/search?q=filament%20width%20sensor">Thingiverse</a> پیدا کنید.</p>
+<p>برای استفاده از یک آرایه حسگر به عنوان حسگر پهنای رشته، <a href="Config_Reference.html#tsl1401cl_filament_width_sensor">مرجع پیکربندی</a> و <a href="G-Codes.html#hall_filament_width_sensor">مستندات G-Code</a> را مطالعه کنید.</p>
+<h2 id="_1">چگونه کار می‌کند؟<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>سنسور بر اساس عرض فیلامنت محاسبه شده، خروجی آنالوگ تولید می‌کند. ولتاژ خروجی همیشه برابر با عرض فیلامنت شناسایی شده است (مثلاً ۱.۶۵ ولت، ۱.۷۰ ولت، ۳.۰ ولت). ماژول میزبان تغییرات ولتاژ را رصد کرده و ضریب اکستروژن را تنظیم می‌کند.</p>
+<h2 id="_2">توجه:<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>قرائت‌های حسگر به طور پیش‌فرض با فواصل ۱۰ میلی‌متری انجام می‌شود. در صورت لزوم، می‌توانید با ویرایش پارامتر <strong><em>MEASUREMENT_INTERVAL_MM</em></strong> در فایل <strong>filament_width_sensor.py</strong> این تنظیم را تغییر دهید.</p>
 
               
             </article>

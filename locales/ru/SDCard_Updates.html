@@ -1356,6 +1356,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#failure-to-initialize" class="md-nav__link">
+    Failure to Initialize
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     Оговорки
   </a>
@@ -1442,22 +1449,23 @@ sudo service klipper start
 <p>Если вы не видите свою плату в списке, возможно, необходимо добавить новое определение платы, как <a href="#board-definitions">описано ниже</a>.</p>
 <h2 id="_2">Продвинутое использование<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>В приведенных выше командах предполагается, что MCU подключается со скоростью 250000 бод по умолчанию, а прошивка находится по адресу <code>~/klipper/out/klipper.bin</code>. Сценарий <code>flash-sdcard.sh</code> предоставляет опции для изменения этих значений по умолчанию. Все опции можно просмотреть с помощью экрана справки:</p>
-<div class="highlight"><pre><span></span><code>./scripts/flash-sdcard.sh -ч
-Утилита загрузки SD-карт для Klipper
+<div class="highlight"><pre><span></span><code>./scripts/flash-sdcard.sh -h
+SD Card upload utility for Klipper
 
-использование: flash_sdcard.sh [-h] [-l] [-c] [-b &lt;бод&gt;] [-f &lt;прошивка&gt;]
-                       &lt;устройство&gt; &lt;плата&gt;
+usage: flash_sdcard.sh [-h] [-l] [-c] [-s] [-b &lt;baud&gt;] [-f &lt;firmware&gt;]
+                       &lt;device&gt; &lt;board&gt;
 
-позиционные аргументы:
-  &lt;устройство&gt; последовательный порт устройства
-  &lt;плата&gt; тип платы
+positional arguments:
+  &lt;device&gt;        device serial port
+  &lt;board&gt;         board type
 
-необязательные аргументы:
-  -h показать это сообщение
-  -l список доступных плат
-  -c запускать только проверку flash/верификацию (пропустить загрузку)
-  -b &lt;скорость передачи данных в бодах&gt; последовательная скорость передачи данных в бодах (по умолчанию - 250000)
-  -f &lt;прошивка&gt; путь к klipper.bin
+optional arguments:
+  -h              show this message
+  -l              list available boards
+  -c              run flash check/verify only (skip upload)
+  -s              use fast SPI speed (4MHz)
+  -b &lt;baud&gt;       serial baud rate (default is 250000)
+  -f &lt;firmware&gt;   path to klipper.bin
 </code></pre></div>
 
 <p>Если на плате прошита микропрограмма, которая подключается с пользовательской скоростью передачи данных, то ее можно обновить, указав опцию <code>-b</code>:</p>
@@ -1470,6 +1478,17 @@ sudo service klipper start
 
 <p>Обратите внимание, что при обновлении MKS Robin E3 нет необходимости вручную запускать файл <code>update_mks_robin.py</code> и передавать полученный двоичный файл в файл <code>flash-sdcard.sh</code>. Эта процедура автоматизирована в процессе загрузки.</p>
 <p>Опция <code>-c</code> используется для выполнения операции проверки или только для проверки корректности работы платы с указанной микропрограммой. Эта опция предназначена, в первую очередь, для случаев, когда для завершения процедуры прошивки требуется ручное отключение питания, например, для загрузчиков, использующих для доступа к SD картам режим SDIO вместо SPI. (См. раздел "Оговорки" ниже), но ее также можно использовать в любое время для проверки соответствия прошитого в плату кода версии, находящейся в папке сборки, на любой поддерживаемой плате.</p>
+<h2 id="failure-to-initialize">Failure to Initialize<a class="headerlink" href="#failure-to-initialize" title="Permanent link">&para;</a></h2>
+<p>Some SD cards may fail to initialize at the default SPI speed of 400KHz. In this situation it is possible to use <code>-s</code> to drive the SPI peripheral at 4MHz. For example:</p>
+<div class="highlight"><pre><span></span><code>./scripts/flash-sdcard.sh -s /dev/ttyACM0 btt-skr-v1.3
+</code></pre></div>
+
+<p>If the device still fails to initialize then cause of the failure is unrelated to the speed and likely a result of one of the following conditions:</p>
+<ul>
+<li>The SD card is improperly formatted. Must be <code>fat</code> or <code>fat32</code>.</li>
+<li>Attempt to initialize a card using the SPI interface that has already been initialized over SDIO.</li>
+<li>The SD card has failed or is corrupt.</li>
+</ul>
 <h2 id="_3">Оговорки<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Как уже говорилось во введении, этот метод применим только для обновления микропрограммного обеспечения. Процедура начальной прошивки должна выполняться вручную в соответствии с инструкциями, применимыми к плате контроллера.</li>
@@ -1509,7 +1528,7 @@ sudo service klipper start
 <span class="p">}</span>
 </code></pre></div>
 
-<p>Если вам необходимо новое определение платы и вас не устраивает описанная выше процедура, рекомендуется запросить его в <a href="Contact.html#discord">Klipper Community Discord</a>.</p>
+<p>If you need a new board definition and you are uncomfortable with the procedure outlined above it is recommended that you request one in the <a href="Contact.html">Klipper Discord</a>.</p>
 <h2 id="sdio">Прошивка плат, использующих SDIO<a class="headerlink" href="#sdio" title="Permanent link">&para;</a></h2>
 <p><a href="#caveats">Как указано в разделе Caveats</a>, платы, загрузчик которых использует режим SDIO для доступа к SD-карте, требуют отключения питания платы и, в частности, самой SD-карты, для перехода из режима SPI, используемого при записи файла на SD-карту, обратно в режим SDIO, чтобы загрузчик смог прошить ее в плату. В этих определениях плат будет использоваться флаг <code>skip_verify</code>, который указывает программе прошивки остановиться после записи прошивки на SD-карту, чтобы можно было вручную перевести плату в режим питания и отложить этап проверки до его завершения.</p>
 <p>Существует два сценария - один, когда RPi Host работает от отдельного блока питания, и другой, когда RPi Host работает от того же блока питания, что и основная плата, которую прошивают. Разница заключается в том, нужно ли после завершения прошивки выключать RPi и снова подключаться по <code>ssh</code>, чтобы выполнить этап проверки, или же проверку можно выполнить сразу. Вот примеры двух сценариев:</p>

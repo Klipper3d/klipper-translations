@@ -1770,6 +1770,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#bmi160" class="md-nav__link">
+    [bmi160]
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#mpu9250" class="md-nav__link">
     [mpu9250]
   </a>
@@ -1981,11 +1988,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#snimace-teploty" class="md-nav__link">
-    Snímače teploty
+  <a href="#temperature-sensors" class="md-nav__link">
+    Temperature sensors
   </a>
   
-    <nav class="md-nav" aria-label="Snímače teploty">
+    <nav class="md-nav" aria-label="Temperature sensors">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2017,8 +2024,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#snimac-teploty-bmp180bmp280bme280bmp388bme680" class="md-nav__link">
-    Snímač teploty BMP180/BMP280/BME280/BMP388/BME680
+  <a href="#bmp180bmp280bme280bmp388bme680-temperature-sensor" class="md-nav__link">
+    BMP180/BMP280/BME280/BMP388/BME680 temperature sensor
   </a>
   
 </li>
@@ -2038,8 +2045,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#sht3x-senzor" class="md-nav__link">
-    SHT3X senzor
+  <a href="#sht3x-sensor" class="md-nav__link">
+    SHT3X sensor
   </a>
   
 </li>
@@ -2210,6 +2217,13 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#static_pwm_clock" class="md-nav__link">
+    [static_pwm_clock]
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#pwm_tool" class="md-nav__link">
     [pwm_tool]
   </a>
@@ -2243,11 +2257,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#konfiguracia-ovladaca-krokoveho-motora-tmc" class="md-nav__link">
-    Konfigurácia ovládača krokového motora TMC
+  <a href="#tmc-stepper-driver-configuration" class="md-nav__link">
+    TMC stepper driver configuration
   </a>
   
-    <nav class="md-nav" aria-label="Konfigurácia ovládača krokového motora TMC">
+    <nav class="md-nav" aria-label="TMC stepper driver configuration">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2390,8 +2404,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#uc1701-displej" class="md-nav__link">
-    uc1701 displej
+  <a href="#uc1701-display" class="md-nav__link">
+    uc1701 display
   </a>
   
 </li>
@@ -2490,11 +2504,11 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#snimace-zatazenia" class="md-nav__link">
-    Snímače zaťaženia
+  <a href="#load-cells" class="md-nav__link">
+    Load Cells
   </a>
   
-    <nav class="md-nav" aria-label="Snímače zaťaženia">
+    <nav class="md-nav" aria-label="Load Cells">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
@@ -2522,6 +2536,13 @@
           <li class="md-nav__item">
   <a href="#ads1220" class="md-nav__link">
     ADS1220
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ads131m0x" class="md-nav__link">
+    ADS131M0x
   </a>
   
 </li>
@@ -2663,8 +2684,8 @@
 
 
 <h1 id="odkaz-na-konfiguraciu">Odkaz na konfiguráciu<a class="headerlink" href="#odkaz-na-konfiguraciu" title="Permanent link">&para;</a></h1>
-<p>Tento dokument slúži ako referencia pre možnosti dostupné v konfiguračnom súbore Klipperu.</p>
-<p>Popisy v tomto dokumente sú formátované tak, aby bolo možné ich vystrihnúť a vložiť do konfiguračného súboru tlačiarne. Informácie o nastavení Klipperu a výbere počiatočného konfiguračného súboru nájdete v <a href="Installation.html">inštalačnom dokumente</a>.</p>
+<p>This document is a reference for options available in the Klipper config file.</p>
+<p>The descriptions in this document are formatted so that it is possible to cut-and-paste them into a printer config file. See the <a href="Installation.html">installation document</a> for information on setting up Klipper and choosing an initial config file.</p>
 <h2 id="konfiguracia-mikrokontrolera">Konfigurácia mikrokontroléra<a class="headerlink" href="#konfiguracia-mikrokontrolera" title="Permanent link">&para;</a></h2>
 <h3 id="format-of-micro-controller-pin-names">Format of micro-controller pin names<a class="headerlink" href="#format-of-micro-controller-pin-names" title="Permanent link">&para;</a></h3>
 <p>Mnoho možností konfigurácie vyžaduje názov kolíka mikroovládača. Klipper používa názvy hardvéru pre tieto piny - napríklad <code>PA4</code>.</p>
@@ -2709,7 +2730,7 @@ seriál:
 
 <h2 id="bezne-kinematicke-nastavenia">Bežné kinematické nastavenia<a class="headerlink" href="#bezne-kinematicke-nastavenia" title="Permanent link">&para;</a></h2>
 <h3 id="printer">[printer]<a class="headerlink" href="#printer" title="Permanent link">&para;</a></h3>
-<p>Sekcia tlačiarne ovláda nastavenia tlačiarne na najvyššej úrovni.</p>
+<p>The printer section controls high level printer settings.</p>
 <div class="highlight"><pre><span></span><code>[printer]
 kinematics:
 #   The type of printer in use. This option may be one of: cartesian,
@@ -2718,7 +2739,8 @@ kinematics:
 #   This parameter must be specified.
 max_velocity:
 #   Maximum velocity (in mm/s) of the toolhead (relative to the
-#   print). This parameter must be specified.
+#   print). This value may be changed at runtime using the
+#   SET_VELOCITY_LIMIT command. This parameter must be specified.
 max_accel:
 #   Maximum acceleration (in mm/s^2) of the toolhead (relative to the
 #   print). Although this parameter is described as a &quot;maximum&quot;
@@ -2754,12 +2776,10 @@ max_accel:
 #   decelerate to zero at each corner. The value specified here may be
 #   changed at runtime using the SET_VELOCITY_LIMIT command. The
 #   default is 5mm/s.
-#max_accel_to_decel:
-#   This parameter is deprecated and should no longer be used.
 </code></pre></div>
 
 <h3 id="stepper">[stepper]<a class="headerlink" href="#stepper" title="Permanent link">&para;</a></h3>
-<p>Definície krokových motorov. Rôzne typy tlačiarní (ako je určené možnosťou „kinematika“ v konfiguračnej sekcii [printer]) vyžadujú rôzne názvy pre krokový motor (napr. <code>stepper_x</code> vs <code>stepper_a</code>). Nižšie sú uvedené bežné definície krokových motorov.</p>
+<p>Stepper motor definitions. Different printer types (as specified by the "kinematics" option in the [printer] config section) require different names for the stepper (eg, <code>stepper_x</code> vs <code>stepper_a</code>). Below are common stepper definitions.</p>
 <p>Informácie o výpočte parametra <code>rotation_distance</code> nájdete v <a href="Rotation_Distance.html">dokumente o vzdialenosti rotácie</a>. Informácie o navádzaní pomocou viacerých mikroovládačov nájdete v dokumente [Multi-MCU_Homing.md].</p>
 <div class="highlight"><pre><span></span><code>[stepper_x]
 step_pin:
@@ -3062,7 +3082,7 @@ max_z_accel:
 
 <h3 id="hybrid-corexy-kinematika">Hybrid-CoreXY kinematika<a class="headerlink" href="#hybrid-corexy-kinematika" title="Permanent link">&para;</a></h3>
 <p>Príklad konfiguračného súboru hybridnej kinematiky Corexy nájdete v <a href="https://github.com/Klipper3d/klipper/blob/master/config/example-hybrid-corexy.cfg">example-hybrid-corexy.cfg</a>.</p>
-<p>Táto kinematika je tiež známa ako Markforgedova kinematika.</p>
+<p>This kinematic is also known as Markforged kinematic.</p>
 <p>Tu sú popísané iba parametre špecifické pre hybridné tlačiarne Corexy, kde nájdete dostupné parametre v časti <a href="#common-kinematic-settings">bežné kinematické nastavenia</a>.</p>
 <div class="highlight"><pre><span></span><code>[printer]
 kinematics: hybrid_corexy
@@ -3088,7 +3108,7 @@ max_z_accel:
 
 <h3 id="hybrid-corexz-kinematika">Hybrid-CoreXZ kinematika<a class="headerlink" href="#hybrid-corexz-kinematika" title="Permanent link">&para;</a></h3>
 <p>Príklad konfiguračného súboru hybridnej kinematiky corexz nájdete v <a href="https://github.com/Klipper3d/klipper/blob/master/config/example-hybrid-corexz.cfg">example-hybrid-corexz.cfg</a>.</p>
-<p>Táto kinematika je tiež známa ako Markforgedova kinematika.</p>
+<p>This kinematic is also known as Markforged kinematic.</p>
 <p>Tu sú popísané iba parametre špecifické pre hybridné tlačiarne Corexy, kde nájdete dostupné parametre v časti <a href="#common-kinematic-settings">bežné kinematické nastavenia</a>.</p>
 <div class="highlight"><pre><span></span><code>[tlačiareň]
 kinematika: hybrid_corexz
@@ -3116,33 +3136,38 @@ max_z_accel:
 <p>Príklad konfiguračného súboru polárnej kinematiky nájdete v <a href="https://github.com/Klipper3d/klipper/blob/master/config/example-polar.cfg">example-polar.cfg</a>.</p>
 <p>Tu sú popísané iba parametre špecifické pre polárne tlačiarne – dostupné parametre nájdete v časti <a href="#common-kinematic-settings">bežné kinematické nastavenia</a>.</p>
 <p>POLÁRNA KINEMATIKA PREBIEHA. Je známe, že pohyby okolo polohy 0, 0 nefungujú správne.</p>
-<div class="highlight"><pre><span></span><code>[tlačiareň]
-kinematika: polárna
+<div class="highlight"><pre><span></span><code>[printer]
+kinematics: polar
 max_z_velocity:
-# Toto nastavuje maximálnu rýchlosť (v mm/s) pohybu pozdĺž z
-# os. Toto nastavenie možno použiť na obmedzenie maximálnej rýchlosti
-# krokový motor z. Predvolené je použitie max_velocity pre
-# max_z_velocity.
+#   This sets the maximum velocity (in mm/s) of movement along the z
+#   axis. This setting can be used to restrict the maximum speed of
+#   the z stepper motor. The default is to use max_velocity for
+#   max_z_velocity.
 max_z_accel:
-# Toto nastavuje maximálne zrýchlenie (v mm/s^2) pohybu pozdĺž
-# os z. Obmedzuje zrýchlenie krokového motora z. The
-# predvolené je použitie max_accel pre max_z_accel.
+#   This sets the maximum acceleration (in mm/s^2) of movement along
+#   the z axis. It limits the acceleration of the z stepper motor. The
+#   default is to use max_accel for max_z_accel.
+# max_angular_velocity: 0
+#   This limits the maximum angular velocity (in rad/s) of a move.
+#   Lower values will result in longer print times, but prevents too
+#   fast motions near the center. A value of 0 deactivates the
+#   scaling. The default is to not apply maximum angular velocity limits.
 
-# Časť stepper_bed sa používa na popis ovládania steppera
-# lôžko.
+# The stepper_bed section is used to describe the stepper controlling
+# the bed.
 [stepper_bed]
-prevodový pomer:
-# Musí byť špecifikovaný gear_ratio a rotácia nesmie byť
-# špecifikované. Napríklad, ak má posteľ poháňanú 80 ozubenú kladku
-# stepperom so 16 ozubenou kladkou, potom by sa dalo špecifikovať a
-# prevodový pomer &quot;80:16&quot;. Tento parameter je potrebné zadať.
+gear_ratio:
+#   A gear_ratio must be specified and rotation_distance may not be
+#   specified. For example, if the bed has an 80 toothed pulley driven
+#   by a stepper with a 16 toothed pulley then one would specify a
+#   gear ratio of &quot;80:16&quot;. This parameter must be provided.
 
-# Časť stepper_arm sa používa na popis ovládania steppera
-# kočiar na ramene.
+# The stepper_arm section is used to describe the stepper controlling
+# the carriage on the arm.
 [stepper_arm]
 
-# Časť stepper_z sa používa na popis ovládania steppera
-# os Z.
+# The stepper_z section is used to describe the stepper controlling
+# the Z axis.
 [stepper_z]
 </code></pre></div>
 
@@ -3259,13 +3284,15 @@ max_velocity:
 max_accel:
 #minimum_cruise_ratio:
 #square_corner_velocity:
-#max_accel_to_decel:
 #max_z_velocity:
 #max_z_accel:
 </code></pre></div>
 
-<p>Then a user must define the following three carriages: <code>[carriage x]</code>, <code>[carriage y]</code>, and <code>[carriage z]</code>, e.g.</p>
-<div class="highlight"><pre><span></span><code>[carriage x]
+<p>Then a user must define three primary carriages for X, Y, and Z axes, e.g.:</p>
+<div class="highlight"><pre><span></span><code>[carriage carriage_x]
+axis:
+#   Axis of a carriage, either x, y, or z. This parameter must be provided,
+#   unless a carriage name is x, y, or z itself.
 endstop_pin:
 #   Endstop switch detection pin. If this endstop pin is on a
 #   different mcu than the stepper motor(s) moving this carriage,
@@ -3305,7 +3332,8 @@ position_max:
 carriages:
 #   A string describing the carriages the stepper moves. All defined
 #   carriages can be specified here, as well as their linear combinations,
-#   e.g. x, x+y, y-0.5*z, x-z, etc. This parameter must be provided.
+#   e.g. carriage_x, carriage_x+carriage_y, carriage_y-0.5*carriage_z,
+#   carriage_x-carriage_z, etc. This parameter must be provided.
 step_pin:
 dir_pin:
 enable_pin:
@@ -3316,18 +3344,18 @@ microsteps:
 #step_pulse_duration:
 </code></pre></div>
 
-<p>See <a href="#stepper">stepper</a> section for more information on the regular stepper parameters. The <code>carriages</code> parameter defines how the stepper affects the motion of the carriages. For example, <code>x+y</code> indicates that the motion of the stepper in the positive direction by the distance <code>d</code> moves the carriages <code>x</code> and <code>y</code> by the same distance <code>d</code> in the positive direction, while <code>x-0.5*y</code> means the motion of the stepper in the positive direction by the distance <code>d</code> moves the carriage <code>x</code> by the distance <code>d</code> in the positive direction, but the carriage <code>y</code> will travel distance <code>d/2</code> in the negative direction.</p>
+<p>See <a href="#stepper">stepper</a> section for more information on the regular stepper parameters. The <code>carriages</code> parameter defines how the stepper affects the motion of the carriages. For example, <code>carriage_x+carriage_y</code> indicates that the motion of the stepper in the positive direction by the distance <code>d</code> moves the carriages <code>carriage_x</code> and <code>carriage_y</code> by the same distance <code>d</code> in the positive direction, while <code>carriage_x-0.5*carriage_y</code> means the motion of the stepper in the positive direction by the distance <code>d</code> moves the carriage <code>carriage_x</code> by the distance <code>d</code> in the positive direction, but the carriage <code>carriage_y</code> will travel distance <code>d/2</code> in the negative direction.</p>
 <p>More than a single stepper motor can be defined to drive the same axis or belt. For example, on a CoreXY AWD setups two motors driving the same belt can be defined as</p>
-<div class="highlight"><pre><span></span><code>[carriage x]
+<div class="highlight"><pre><span></span><code>[carriage carriage_x]
 endstop_pin: ...
 ...
 
-[carriage y]
+[carriage carriage_y]
 endstop_pin: ...
 ...
 
 [stepper a0]
-carriages: x-y
+carriages: carriage_x-carriage_y
 step_pin: ...
 dir_pin: ...
 enable_pin: ...
@@ -3335,7 +3363,7 @@ rotation_distance: ...
 ...
 
 [stepper a1]
-carriages: x-y
+carriages: carriage_x-carriage_y
 step_pin: ...
 dir_pin: ...
 enable_pin: ...
@@ -3344,7 +3372,7 @@ rotation_distance: ...
 </code></pre></div>
 
 <p>with <code>a0</code> and <code>a1</code> steppers having their own control pins, but sharing the same <code>carriages</code> and corresponding endstops.</p>
-<p>There are situations when a user wants to have more than one endstop per axis. Examples of such configurations include Y axis driven by two independent stepper motors with belts attached to both ends of the X beam, with effectively two carriages on Y axis each having an independent endstop, and multi-stepper Z axis with each stepper having its own endstop (not to be confused with the configurations with multiple Z motors but only a single endstop). These configurations can be declared by specifying additional carriage(s) with their endstops:</p>
+<p>There are situations when a user wants to have more than one endstop per axis. Examples of such configurations include Y axis driven by two independent stepper motors with belts attached to both ends of the X gantry, with effectively two carriages on Y axis each having an independent endstop, and multi-stepper Z axis with each stepper having its own endstop (not to be confused with the configurations with multiple Z motors but only a single endstop). These configurations can be declared by specifying additional carriage(s) with their endstops:</p>
 <div class="highlight"><pre><span></span><code>[extra_carriage my_carriage]
 primary_carriage:
 #   The name of the primary carriage this carriage corresponds to.
@@ -3355,12 +3383,12 @@ endstop_pin:
 </code></pre></div>
 
 <p>and the corresponding stepper motors, for example:</p>
-<div class="highlight"><pre><span></span><code>[extra_carriage y1]
-primary_carriage: y
+<div class="highlight"><pre><span></span><code>[extra_carriage carriage_y1]
+primary_carriage: carriage_y
 endstop_pin: ...
 
 [stepper sy1]
-carriages: y1
+carriages: carriage_y1
 ...
 </code></pre></div>
 
@@ -3378,7 +3406,7 @@ max_accel: 1
 
 <h2 id="spolocny-extruder-a-podpora-vyhrievaneho-lozka">Spoločný extrudér a podpora vyhrievaného lôžka<a class="headerlink" href="#spolocny-extruder-a-podpora-vyhrievaneho-lozka" title="Permanent link">&para;</a></h2>
 <h3 id="extruder">[extruder]<a class="headerlink" href="#extruder" title="Permanent link">&para;</a></h3>
-<p>Sekcia extrudéra sa používa na popis parametrov ohrievača pre horúci koniec trysky spolu s krokovým motorom ovládajúcim extrudér. Ďalšie informácie nájdete v <a href="G-Codes.html#extruder">referencii príkazov</a>. Informácie o ladení posunu tlaku nájdete v <a href="Pressure_Advance.html">sprievodcovi posunom tlaku</a>.</p>
+<p>The extruder section is used to describe the heater parameters for the nozzle hotend along with the stepper controlling the extruder. See the <a href="G-Codes.html#extruder">command reference</a> for additional information. See the <a href="Pressure_Advance.html">pressure advance guide</a> for information on tuning pressure advance.</p>
 <div class="highlight"><pre><span></span><code>[extrudér]
 step_pin:
 dir_pin:
@@ -3504,7 +3532,7 @@ Vnútri musí zostať # ohrievač. Toto ovláda bezpečnostný prvok
 </code></pre></div>
 
 <h3 id="heater_bed">[heater_bed]<a class="headerlink" href="#heater_bed" title="Permanent link">&para;</a></h3>
-<p>Sekcia heater_bed popisuje vyhrievanú podložku. Používa rovnaké nastavenia ohrievača, aké sú opísané v sekcii „extruder“.</p>
+<p>The heater_bed section describes a heated bed. It uses the same heater settings described in the "extruder" section.</p>
 <div class="highlight"><pre><span></span><code>[heat_bed]
 ohrievač_pin:
 senzor_typ:
@@ -3519,7 +3547,7 @@ max_temp:
 <h3 id="bed_mesh">[bed_mesh]<a class="headerlink" href="#bed_mesh" title="Permanent link">&para;</a></h3>
 <p>Vyrovnávanie sieťového lôžka. Je možné definovať konfiguračnú sekciu bed_mesh na umožnenie transformácií pohybu, ktoré odsadzujú os z na základe siete vygenerovanej zo snímaných bodov. Pri použití sondy na umiestnenie osi z sa odporúča definovať sekciu safe_z_home v súbore printer.cfg smerom k stredu oblasti tlače.Vyrovnávanie sieťového lôžka. Je možné definovať konfiguračnú sekciu bed_mesh na umožnenie transformácií pohybu, ktoré odsadzujú os z na základe siete vygenerovanej zo snímaných bodov. Pri použití sondy na umiestnenie osi z sa odporúča definovať sekciu safe_z_home v súbore printer.cfg smerom k stredu oblasti tlače.</p>
 <p>Ďalšie informácie nájdete v [sprievodcovi sieťkou postele] (Bed_Mesh.md) a [odkaz na príkaz] (G-Codes.md#bed_mesh).</p>
-<p>Vizuálne príklady:</p>
+<p>Visual Examples:</p>
 <div class="highlight"><pre><span></span><code> obdĺžnikové lôžko, počet sond = 3, 3:
               x---x---x (max_point)
               |
@@ -3665,7 +3693,7 @@ max_temp:
 </code></pre></div>
 
 <h3 id="bed_screws">[bed_screws]<a class="headerlink" href="#bed_screws" title="Permanent link">&para;</a></h3>
-<p>Nástroj na nastavenie skrutiek na vyrovnanie lôžka. Je možné definovať konfiguračnú sekciu [bed_screws], aby sa povolil príkaz BED_SCREWS_ADJUST v G-kóde.</p>
+<p>Tool to help adjust bed leveling screws. One may define a [bed_screws] config section to enable a BED_SCREWS_ADJUST g-code command.</p>
 <p>Ďalšie informácie nájdete v <a href="Manual_Level.html#adjusting-bed-leveling-screws">príručke na vyrovnávanie</a> a <a href="G-Codes.html#bed_screws">referencia príkazu</a>.</p>
 <div class="highlight"><pre><span></span><code>[posteľné_skrutky]
 #skrutka1:
@@ -3702,7 +3730,7 @@ max_temp:
 </code></pre></div>
 
 <h3 id="screws_tilt_adjust">[screws_tilt_adjust]<a class="headerlink" href="#screws_tilt_adjust" title="Permanent link">&para;</a></h3>
-<p>Nástroj na nastavenie sklonu skrutiek lôžka pomocou Z-sondy. Je možné definovať konfiguračnú sekciu screws_tilt_adjust, aby sa povolil príkaz G-kódu SCREWS_TILT_CALCULATE.</p>
+<p>Tool to help adjust bed screws tilt using Z probe. One may define a screws_tilt_adjust config section to enable a SCREWS_TILT_CALCULATE g-code command.</p>
 <p>Ďalšie informácie nájdete v <a href="Manual_Level.html#adjusting-bed-leveling-screws-using-the-bed-probe">príručke na vyrovnávanie</a> a <a href="G-Codes.html#screws_tilt_adjust">referencia príkazu</a>.</p>
 <div class="highlight"><pre><span></span><code>[screws_tilt_adjust]
 #skrutka1:
@@ -3782,7 +3810,7 @@ Musíte zadať # parameter.
  ----------------
 </code></pre></div>
 
-<p>Kde x je bod 0, 0 na posteli</p>
+<p>Where x is the 0, 0 point on the bed</p>
 <div class="highlight"><pre><span></span><code>[quad_gantry_level]
 #gantry_corners:
 # Novým riadkom oddelený zoznam súradníc X, Y, ktoré ich opisujú
@@ -3817,7 +3845,7 @@ Musíte zadať # parameter.
 </code></pre></div>
 
 <h3 id="z_thermal_adjust">[z_thermal_adjust]<a class="headerlink" href="#z_thermal_adjust" title="Permanent link">&para;</a></h3>
-<p>Nastavenie polohy Z hlavy nástroja v závislosti od teploty. Kompenzácia vertikálneho pohybu hlavy nástroja spôsobeného tepelnou rozťažnosťou rámu tlačiarne v reálnom čase pomocou teplotného senzora (zvyčajne pripojeného k vertikálnej časti rámu).</p>
+<p>Temperature-dependant toolhead Z position adjustment. Compensate for vertical toolhead movement caused by thermal expansion of the printer's frame in real-time using a temperature sensor (typically coupled to a vertical section of frame).</p>
 <p>Pozri tiež: <a href="G-Codes.html#z_thermal_adjust">rozšírené príkazy g-kódu</a>.</p>
 <div class="highlight"><pre><span></span><code>[z_thermal_adjust]
 #temp_coeff:
@@ -3900,7 +3928,7 @@ gcode:
 </code></pre></div>
 
 <h3 id="endstop_phase">[endstop_phase]<a class="headerlink" href="#endstop_phase" title="Permanent link">&para;</a></h3>
-<p>Koncové spínače s nastavením fázy krokového motora. Ak chcete použiť túto funkciu, definujte konfiguračnú sekciu s predponou „endstop_phase“, za ktorou nasleduje názov zodpovedajúcej konfiguračnej sekcie krokového motora (napríklad „[endstop_phase stepper_z]“). Táto funkcia môže zlepšiť presnosť koncových spínačov. Pridajte holú deklaráciu „[endstop_phase]“, aby ste povolili príkaz ENDSTOP_PHASE_CALIBRATE.</p>
+<p>Stepper phase adjusted endstops. To use this feature, define a config section with an "endstop_phase" prefix followed by the name of the corresponding stepper config section (for example, "[endstop_phase stepper_z]"). This feature can improve the accuracy of endstop switches. Add a bare "[endstop_phase]" declaration to enable the ENDSTOP_PHASE_CALIBRATE command.</p>
 <p>Ďalšie informácie nájdete v <a href="Endstop_Phase.html">príručke koncových fáz</a> a <a href="G-Codes.html#endstop_phase">odkaz na príkaz</a>.</p>
 <div class="highlight"><pre><span></span><code>[endstop_phase stepper_z]
 #endstop_accuracy:
@@ -3971,7 +3999,7 @@ gcode:
 </code></pre></div>
 
 <h3 id="save_variables">[save_variables]<a class="headerlink" href="#save_variables" title="Permanent link">&para;</a></h3>
-<p>Podpora ukladania premenných na disk, aby sa zachovali aj po reštartovaní. Ďalšie informácie nájdete v častiach <a href="Command_Templates.html#save-variables-to-disk">šablóny príkazov</a> a <a href="G-Codes.html#save_variables">referencia G-kódu</a>.</p>
+<p>Support saving variables to disk so that they are retained across restarts. See <a href="Command_Templates.html#save-variables-to-disk">command templates</a> and <a href="G-Codes.html#save_variables">G-Code reference</a> for further information.</p>
 <div class="highlight"><pre><span></span><code>[save_variables]
 názov súboru:
 # Povinné - zadajte názov súboru, ktorý sa použije na uloženie súboru
@@ -4013,7 +4041,7 @@ path:
 </code></pre></div>
 
 <h3 id="force_move">[force_move]<a class="headerlink" href="#force_move" title="Permanent link">&para;</a></h3>
-<p>Podpora manuálne pohyblivé stepper motory na diagnostické účely. Poznámka, pomocou tejto funkcie môže umiestniť tlačiareň v neplatnom stave - pozri <a href="G-Codes.html#force_move">príkazový odkaz</a> pre dôležité detaily.</p>
+<p>Support manually moving stepper motors for diagnostic purposes. Note, using this feature may place the printer in an invalid state - see the <a href="G-Codes.html#force_move">command reference</a> for important details.</p>
 <div class="highlight"><pre><span></span><code>[force_move]
 #enable_force_move: Nepravda
 # Ak chcete povoliť FORCE_MOVE a SET_KINEMATIC_POSITION, nastavte na hodnotu true
@@ -4045,7 +4073,7 @@ path:
 </code></pre></div>
 
 <h3 id="gcode_arcs">[gcode_arcs]<a class="headerlink" href="#gcode_arcs" title="Permanent link">&para;</a></h3>
-<p>Podpora pre príkazy g-kódu arc (G2/G3).</p>
+<p>Support for gcode arc (G2/G3) commands.</p>
 <div class="highlight"><pre><span></span><code>[gcode_arcs]
 #rozlíšenie: 1.0
 # Oblúk bude rozdelený na segmenty. Dĺžka každého segmentu bude
@@ -4080,38 +4108,44 @@ path:
 <p>Povolí <a href="Resonance_Compensation.html">kompenzáciu rezonancie</a>. Pozri tiež <a href="G-Codes.html#input_shaper">odkaz na príkaz</a>.</p>
 <div class="highlight"><pre><span></span><code>[input_shaper]
 #shaper_freq_x: 0
-# Frekvencia (v Hz) vstupného tvarovača pre os X. Toto je
-# zvyčajne rezonančná frekvencia osi X, ktorá je vstupným tvarovačom
-# by mal potlačiť. Pre zložitejšie tvarovače, ako sú 2- a 3-hrbové EI
-# vstupné tvarovače, tento parameter je možné nastaviť z rôznych
-# úvah. Predvolená hodnota je 0, čo deaktivuje vstup
-# tvarovanie pre os X.
+#   A frequency (in Hz) of the input shaper for X axis. This is
+#   usually a resonance frequency of X axis that the input shaper
+#   should suppress. For more complex shapers, like 2- and 3-hump EI
+#   input shapers, this parameter can be set from different
+#   considerations. The default value is 0, which disables input
+#   shaping for X axis.
 #shaper_freq_y: 0
-# Frekvencia (v Hz) vstupného tvarovača pre os Y. Toto je
-# zvyčajne rezonančná frekvencia osi Y, ktorá je vstupným tvarovačom
-# by mal potlačiť. Pre zložitejšie tvarovače, ako sú 2- a 3-hrbové EI
-# vstupné tvarovače, tento parameter je možné nastaviť z rôznych
-# úvah. Predvolená hodnota je 0, čo deaktivuje vstup
-# tvarovanie pre os Y.
+#   A frequency (in Hz) of the input shaper for Y axis. This is
+#   usually a resonance frequency of Y axis that the input shaper
+#   should suppress. For more complex shapers, like 2- and 3-hump EI
+#   input shapers, this parameter can be set from different
+#   considerations. The default value is 0, which disables input
+#   shaping for Y axis.
+#shaper_freq_z: 0
+#   A frequency (in Hz) of the input shaper for Z axis. The default
+#   value is 0, which disables input shaping for Z axis.
 #shaper_type: mzv
-# Typ vstupného tvarovača, ktorý sa má použiť pre osi X aj Y. Podporované
-# shapers sú zv, mzv, zvd, ei, 2hump_ei a 3hump_ei. Predvolená hodnota
-# je tvarovač vstupu mzv.
+#   A type of the input shaper to use for all axes. Supported
+#   shapers are zv, mzv, zvd, ei, 2hump_ei, and 3hump_ei. Some shapers
+#   support optional additional parameters, e.g. mzv(n=4,t=0.9) or
+#   ei(v_tol=0.1). The default is mzv input shaper (without parameters).
 #shaper_type_x:
 #shaper_type_y:
-# Ak nie je nastavený shaper_type, možno použiť tieto dva parametre
-# nakonfigurujte rôzne vstupné tvarovače pre osi X a Y. Rovnaký
-# hodnoty sú podporované ako pre parameter shaper_type.
-#damping_ratio_x: 0,1
-#damping_ratio_y: 0,1
-# Pomery tlmenia vibrácií osí X a Y používané vstupnými tvarovačmi
-# na zlepšenie potláčania vibrácií. Predvolená hodnota je 0,1, čo je a
-# dobrá všestranná hodnota pre väčšinu tlačiarní. Vo väčšine prípadov toto
-# parameter nevyžaduje žiadne ladenie a nemal by sa meniť.
+#shaper_type_z:
+#   If shaper_type is not set, these parameters can be used to
+#   configure different input shapers for X, Y, and Z axes. The same
+#   values are supported as for shaper_type parameter.
+#damping_ratio_x: 0.1
+#damping_ratio_y: 0.1
+#damping_ratio_z: 0.1
+#   Damping ratios of vibrations of X and Y axes used by input shapers
+#   to improve vibration suppression. Default value is 0.1 which is a
+#   good all-round value for most printers. In most circumstances this
+#   parameter requires no tuning and should not be changed.
 </code></pre></div>
 
 <h3 id="adxl345">[adxl345]<a class="headerlink" href="#adxl345" title="Permanent link">&para;</a></h3>
-<p>Podpora pre akcelerometre ADXL345. Táto podpora umožňuje vyhľadávať merania akcelerometra zo senzora. To umožňuje príkaz ACCELEROMETER_MEASURE (ďalšie informácie nájdete v <a href="G-Codes.html#adxl345">G-Codes</a>). Predvolený názov čipu je „default“, ale je možné zadať explicitný názov (napr. [adxl345 my_chip_name]).</p>
+<p>Support for ADXL345 accelerometers. This support allows one to query accelerometer measurements from the sensor. This enables an ACCELEROMETER_MEASURE command (see <a href="G-Codes.html#adxl345">G-Codes</a> for more information). The default chip name is "default", but one may specify an explicit name (eg, [adxl345 my_chip_name]).</p>
 <div class="highlight"><pre><span></span><code>[adxl345]
 cs_pin:
 #      Pin aktivácie SPI pre senzor. Tento parameter je potrebné zadať.
@@ -4140,7 +4174,7 @@ cs_pin:
 </code></pre></div>
 
 <h3 id="icm20948">[icm20948]<a class="headerlink" href="#icm20948" title="Permanent link">&para;</a></h3>
-<p>Podpora pre akcelerometre icm20948.</p>
+<p>Support for icm20948 accelerometers.</p>
 <div class="highlight"><pre><span></span><code>[icm20948]
 #i2c_address:
 #   Default is 104 (0x68). If AD0 is high, it would be 0x69 instead.
@@ -4156,7 +4190,7 @@ cs_pin:
 </code></pre></div>
 
 <h3 id="lis2dw">[lis2dw]<a class="headerlink" href="#lis2dw" title="Permanent link">&para;</a></h3>
-<p>Podpora akcelerometrov LIS2DW.</p>
+<p>Support for LIS2DW accelerometers.</p>
 <div class="highlight"><pre><span></span><code>[lis2dw]
 #cs_pin:
 #   The SPI enable pin for the sensor. This parameter must be provided
@@ -4184,7 +4218,7 @@ cs_pin:
 </code></pre></div>
 
 <h3 id="lis3dh">[lis3dh]<a class="headerlink" href="#lis3dh" title="Permanent link">&para;</a></h3>
-<p>Podpora akcelerometrov LIS3DH.</p>
+<p>Support for LIS3DH accelerometers.</p>
 <div class="highlight"><pre><span></span><code>[lis3dh]
 #cs_pin:
 #   The SPI enable pin for the sensor. This parameter must be provided
@@ -4211,8 +4245,39 @@ cs_pin:
 #   See the &quot;adxl345&quot; section for information on this parameter.
 </code></pre></div>
 
+<h3 id="bmi160">[bmi160]<a class="headerlink" href="#bmi160" title="Permanent link">&para;</a></h3>
+<p>BMI160 accelerometer. This sensor can be queried via I2C or SPI bus.</p>
+<div class="highlight"><pre><span></span><code>[bmi160]
+#i2c_address:
+#   Default is 105 (0x69). If SA0 is tied to GND, use 104 (0x68).
+#   Only used for I2C.
+#i2c_mcu:
+#i2c_bus:
+#i2c_speed:
+#   See the &quot;common I2C settings&quot; section for a description of the
+#   above parameters. Only used for I2C.
+#cs_pin:
+#spi_speed:
+#spi_bus:
+#spi_software_sclk_pin:
+#spi_software_mosi_pin:
+#spi_software_miso_pin:
+#   See the &quot;common SPI settings&quot; section for a description of the
+#   above parameters. Only used for SPI.
+#axes_map: x, y, z
+#   See the &quot;adxl345&quot; section for information on this parameter.
+</code></pre></div>
+
+<p><strong>Important:</strong> Many BMI160 modules use ambiguous pin labels. For SPI:</p>
+<ul>
+<li>Use <strong>SCL</strong> for clock (not SCX)</li>
+<li>Use <strong>SDA</strong> for MOSI (not SDX)</li>
+<li>Use <strong>SA0</strong> for MISO</li>
+<li>Use <strong>CS</strong> for chip select</li>
+</ul>
+<p>The pins labeled SCX/SDX are for the auxiliary magnetometer bus.</p>
 <h3 id="mpu9250">[mpu9250]<a class="headerlink" href="#mpu9250" title="Permanent link">&para;</a></h3>
-<p>Podpora akcelerometrov MPU-9250, MPU-9255, MPU-6515, MPU-6050 a MPU-6500 (je možné definovať ľubovoľný počet sekcií s predponou „mpu9250“).</p>
+<p>Support for MPU-9250, MPU-9255, MPU-6515, MPU-6050, and MPU-6500 accelerometers (one may define any number of sections with an "mpu9250" prefix).</p>
 <div class="highlight"><pre><span></span><code>[mpu9250 môj_akcelerometer]
 #i2c_address:
 # Predvolená hodnota je 104 (0x68). Ak je AD0 vysoké, bude to namiesto toho 0x69.
@@ -4228,7 +4293,7 @@ cs_pin:
 </code></pre></div>
 
 <h3 id="resonance_tester">[resonance_tester]<a class="headerlink" href="#resonance_tester" title="Permanent link">&para;</a></h3>
-<p>Podpora testovania rezonancií a automatickej kalibrácie vstupného tvarovača. Aby ste mohli využívať väčšinu funkcií tohto modulu, je potrebné nainštalovať ďalšie softvérové závislosti; ďalšie informácie nájdete v časti <a href="Measuring_Resonances.html">Meranie rezonancií</a> a v časti <a href="G-Codes.html#resonance_tester">Referencia príkazu</a>. Ďalšie informácie o parametri <code>max_smoothing</code> a jeho použití nájdete v časti <a href="Measuring_Resonances.html#max-smoothing">Maximálne vyhladenie</a> v príručke Meranie rezonancií.</p>
+<p>Support for resonance testing and automatic input shaper calibration. In order to use most of the functionality of this module, additional software dependencies must be installed; refer to <a href="Measuring_Resonances.html">Measuring Resonances</a> and the <a href="G-Codes.html#resonance_tester">command reference</a> for more information. See the <a href="Measuring_Resonances.html#max-smoothing">Max smoothing</a> section of the measuring resonances guide for more information on <code>max_smoothing</code> parameter and its use.</p>
 <div class="highlight"><pre><span></span><code>[resonance_tester]
 #probe_points:
 #   A list of X, Y, Z coordinates of points (one point per line) to test
@@ -4237,11 +4302,10 @@ cs_pin:
 #   are reachable by the toolhead.
 #accel_chip:
 #   A name of the accelerometer chip to use for measurements. If
-#   adxl345 chip was defined without an explicit name, this parameter
-#   can simply reference it as &quot;accel_chip: adxl345&quot;, otherwise an
-#   explicit name must be supplied as well, e.g. &quot;accel_chip: adxl345
-#   my_chip_name&quot;. Either this, or the next two parameters must be
-#   set.
+#   an accelerometer was defined without an explicit name, this parameter
+#   can simply reference it by type, e.g. &quot;accel_chip: adxl345&quot;, otherwise
+#   a full name must be supplied, e.g. &quot;accel_chip: adxl345 my_chip_name&quot;.
+#   Either this, or the next two parameters must be set.
 #accel_chip_x:
 #accel_chip_y:
 #   Names of the accelerometer chips to use for measurements for each
@@ -4250,6 +4314,10 @@ cs_pin:
 #   and on the toolhead (for X axis). These parameters have the same
 #   format as &#39;accel_chip&#39; parameter. Only &#39;accel_chip&#39; or these two
 #   parameters must be provided.
+#accel_chip_z:
+#   A name of the accelerometer chip to use for measurements of Z axis.
+#   This parameter has the same format as &#39;accel_chip&#39;. The default is
+#   not to configure an accelerometer for Z axis.
 #max_smoothing:
 #   Maximum input shaper smoothing to allow for each axis during shaper
 #   auto-calibration (with &#39;SHAPER_CALIBRATE&#39; command). By default no
@@ -4260,16 +4328,20 @@ cs_pin:
 #   during the calibration. The default is 50.
 #min_freq: 5
 #   Minimum frequency to test for resonances. The default is 5 Hz.
-#max_freq: 133.33
-#   Maximum frequency to test for resonances. The default is 133.33 Hz.
+#max_freq: 135
+#   Maximum frequency to test for resonances. The default is 135 Hz.
+#max_freq_z: 100
+#   Maximum frequency to test Z axis for resonances. The default is 100 Hz.
 #accel_per_hz: 60
 #   This parameter is used to determine which acceleration to use to
 #   test a specific frequency: accel = accel_per_hz * freq. Higher the
 #   value, the higher is the energy of the oscillations. Can be set to
 #   a lower than the default value if the resonances get too strong on
-#   the printer. However, lower values make measurements of
-#   high-frequency resonances less precise. The default value is 75
-#   (mm/sec).
+#   the printer. However, lower values make measurements of high-frequency
+#   resonances less precise. The default value is 60 (mm/sec).
+#accel_per_hz_z: 15
+#   This parameter has the same meaning as accel_per_hz, but applies to
+#   Z axis specifically. The default is 15 (mm/sec).
 #hz_per_sec: 1
 #   Determines the speed of the test. When testing all frequencies in
 #   range [min_freq, max_freq], each second the frequency increases by
@@ -4278,6 +4350,8 @@ cs_pin:
 #   (Hz/sec == sec^-2).
 #sweeping_accel: 400
 #   An acceleration of slow sweeping moves. The default is 400 mm/sec^2.
+#sweeping_accel_z: 50
+#   Same as sweeping_accel above, but for Z axis. The default is 50 mm/sec^2.
 #sweeping_period: 1.2
 #   A period of slow sweeping moves. Setting this parameter to 0
 #   disables slow sweeping moves. Avoid setting it to a too small
@@ -4303,12 +4377,12 @@ Môže byť špecifikované # začínajúce na &quot;aliases_&quot;.
 </code></pre></div>
 
 <h3 id="include">[include]<a class="headerlink" href="#include" title="Permanent link">&para;</a></h3>
-<p>Zahrnúť podporu súborov. Je možné zahrnúť ďalší konfiguračný súbor z hlavného konfiguračného súboru tlačiarne. Môžu sa použiť aj zástupné znaky (napr. „configs/*.cfg“).</p>
+<p>Zahrňte podporu súborov. Jeden môže obsahovať ďalší konfiguračný súbor z hlavného konfiguračného súboru tlačiarne. Môžu sa použiť aj zástupné znaky (napr. "configs/*.cfg").</p>
 <div class="highlight"><pre><span></span><code>[include my_other_config.cfg]
 </code></pre></div>
 
 <h3 id="duplicate_pin_override">[duplicate_pin_override]<a class="headerlink" href="#duplicate_pin_override" title="Permanent link">&para;</a></h3>
-<p>Tento nástroj umožňuje definovať jeden pin mikrokontroléra viackrát v konfiguračnom súbore bez bežnej kontroly chýb. Toto je určené na diagnostické a ladiace účely. Táto časť nie je potrebná, pretože Klipper podporuje viacnásobné použitie toho istého pinu a použitie tohto prepísania môže spôsobiť mätúce a neočakávané výsledky.</p>
+<p>This tool allows a single micro-controller pin to be defined multiple times in a config file without normal error checking. This is intended for diagnostic and debugging purposes. This section is not needed where Klipper supports using the same pin multiple times, and using this override may cause confusing and unexpected results.</p>
 <div class="highlight"><pre><span></span><code>[duplicate_pin_override]
 špendlíky:
 # Čiarkami oddelený zoznam pinov, ktoré možno použiť viackrát
@@ -4318,63 +4392,75 @@ Môže byť špecifikované # začínajúce na &quot;aliases_&quot;.
 
 <h2 id="hardver-na-sondovanie-postele">Hardvér na sondovanie postele<a class="headerlink" href="#hardver-na-sondovanie-postele" title="Permanent link">&para;</a></h2>
 <h3 id="probe">[probe]<a class="headerlink" href="#probe" title="Permanent link">&para;</a></h3>
-<p>Sonda výšky Z. Túto sekciu je možné definovať na povolenie hardvéru na snímanie výšky Z. Keď je táto sekcia povolená, sprístupnia sa rozšírené príkazy [g-kódu] PROBE a QUERY_PROBE (G-Codes.md#probe). Pozrite si tiež [sprievodcu kalibráciou sondy] (Probe_Calibrate.md). Sekcia sondy tiež vytvára virtuálny pin „probe:z_virtual_endstop“. Na tento virtuálny pin je možné nastaviť stepper_z endstop_pin na tlačiarňach v karteziánskom štýle, ktoré používajú sondu namiesto z endstop. Ak používate „probe:z_virtual_endstop“, nedefinujte position_endstop v konfiguračnej sekcii stepper_z.</p>
-<div class="highlight"><pre><span></span><code>[sonda]
-pripnúť:
-# Detekčný kolík sondy. Ak je kolík na inom mikrokontroléri
-# než steppery Z potom umožňuje &quot;multi-mcu navádzanie&quot;. Toto
-Musíte zadať # parameter.
-#deactivate_on_each_sample: Pravda
-# Toto určuje, či má Klipper vykonať deaktiváciu gcode
-# medzi každým pokusom o sondu pri vykonávaní viacerých sond
-# sekvencia. Predvolená hodnota je True.
-#x_offset: 0,0
-# Vzdialenosť (v mm) medzi sondou a tryskou pozdĺž
-# os x. Predvolená hodnota je 0.
-#y_offset: 0,0
-# Vzdialenosť (v mm) medzi sondou a tryskou pozdĺž
-# os y. Predvolená hodnota je 0.
+<p>Z height probe. One may define this section to enable Z height probing hardware. When this section is enabled, PROBE and QUERY_PROBE extended <a href="G-Codes.html#probe">g-code commands</a> become available. Also, see the <a href="Probe_Calibrate.html">probe calibrate guide</a>. The probe section also creates a virtual "probe:z_virtual_endstop" pin. One may set the stepper_z endstop_pin to this virtual pin on cartesian style printers that use the probe in place of a z endstop. If using "probe:z_virtual_endstop" then do not define a position_endstop in the stepper_z config section.</p>
+<div class="highlight"><pre><span></span><code>[probe]
+pin:
+#   Probe detection pin. If the pin is on a different microcontroller
+#   than the Z steppers then it enables &quot;multi-mcu homing&quot;. This
+#   parameter must be provided.
+#deactivate_on_each_sample: True
+#   This determines if Klipper should execute deactivation gcode
+#   between each probe attempt when performing a multiple probe
+#   sequence. The default is True.
+#x_offset: 0.0
+#   The distance (in mm) between the probe and the nozzle along the
+#   x-axis. The default is 0.
+#y_offset: 0.0
+#   The distance (in mm) between the probe and the nozzle along the
+#   y-axis. The default is 0.
 z_offset:
-# Vzdialenosť (v mm) medzi lôžkom a tryskou pri sonde
-# spúšťačov. Tento parameter je potrebné zadať.
-#rýchlosť: 5,0
-# Rýchlosť (v mm/s) osi Z pri snímaní. Predvolená hodnota je 5 mm/s.
-#vzorky: 1
-# Počet testov každého bodu. Skúšané z-hodnoty budú
-# byť spriemerovaný. Štandardne je sonda 1 krát.
+#   The distance (in mm) between the bed and the nozzle when the probe
+#   triggers. This parameter must be provided.
+#speed: 5.0
+#   Speed (in mm/s) of the Z axis when probing. It may be possible to
+#   change this value at runtime via a &quot;PROBE_SPEED&quot; command
+#   parameter. The default is 5mm/s.
+#samples: 1
+#   The number of times to probe each point. The probed z-values will
+#   be averaged. It may be possible to change this value at runtime
+#   via a &quot;SAMPLES&quot; command parameter. The default is to probe 1 time.
 #sample_retract_dist: 2.0
-# Vzdialenosť (v mm) na zdvihnutie nástrojovej hlavy medzi každou vzorkou (ak
-# odber vzoriek viac ako raz). Predvolená hodnota je 2 mm.
+#   The distance (in mm) to lift the toolhead between each sample (if
+#   sampling more than once). It may be possible to change this value
+#   at runtime via a &quot;SAMPLE_RETRACT_DIST&quot; command parameter. The
+#   default is 2mm.
 #lift_speed:
-# Rýchlosť (v mm/s) osi Z pri zdvíhaní sondy medzi
-# vzorky. Predvolená hodnota je použiť rovnakú hodnotu ako „rýchlosť“
-# parameter.
-#samples_result: priemer
-# Metóda výpočtu pri odbere vzoriek viac ako raz - buď
-# &quot;medián&quot; alebo &quot;priemer&quot;. Predvolená hodnota je priemerná.
-#tolerancia_vzorkov: 0,100
-# Maximálna vzdialenosť Z (v mm), ktorou sa vzorka môže líšiť od ostatných
-# vzorky. Ak je táto tolerancia prekročená, ide buď o chybu
-# hlásené alebo sa pokus reštartuje (pozri
-# sample_tolerance_retries). Predvolená hodnota je 0,100 mm.
+#   Speed (in mm/s) of the Z axis when lifting the probe between
+#   samples. It may be possible to change this value at runtime via a
+#   &quot;LIFT_SPEED&quot; command parameter. The default is to use the same
+#   value as the &#39;speed&#39; parameter.
+#samples_result: average
+#   The calculation method when sampling more than once - either
+#   &quot;median&quot; or &quot;average&quot;. It may be possible to change this value at
+#   runtime via a &quot;SAMPLES_RESULT&quot; command parameter. The default is
+#   average.
+#samples_tolerance: 0.100
+#   The maximum Z distance (in mm) that a sample may differ from other
+#   samples. If this tolerance is exceeded then either an error is
+#   reported or the attempt is restarted (see
+#   samples_tolerance_retries). It may be possible to change this
+#   value at runtime via a &quot;SAMPLES_TOLERANCE&quot; command parameter. The
+#   default is 0.100mm.
 #samples_tolerance_retries: 0
-# Počet opakovaní, ak sa nájde vzorka, ktorá presahuje hodnotu
-# vzorky_tolerancia. Pri opätovnom pokuse sa všetky aktuálne vzorky zahodia
-# a pokus o sondu sa reštartuje. Ak je platný súbor vzoriek
-# sa nedosiahne v danom počte opakovaní, potom je chyba
-# nahlásených. Predvolená hodnota je nula, čo spôsobí hlásenie chyby
-# na prvej vzorke, ktorá presahuje toleranciu vzoriek.
+#   The number of times to retry if a sample is found that exceeds
+#   samples_tolerance. On a retry, all current samples are discarded
+#   and the probe attempt is restarted. If a valid set of samples are
+#   not obtained in the given number of retries then an error is
+#   reported. It may be possible to change this value at runtime via a
+#   &quot;SAMPLES_TOLERANCE_RETRIES&quot; command parameter. The default is zero
+#   which causes an error to be reported on the first sample that
+#   exceeds samples_tolerance.
 #activate_gcode:
-# Zoznam príkazov G-kódu, ktoré sa majú vykonať pred každým pokusom o sondu.
-# Formát G-kódu nájdete na stránke docs/Command_Templates.md. Toto môže byť
-# užitočné, ak treba sondu nejakým spôsobom aktivovať. nie
-# tu zadajte akékoľvek príkazy, ktoré pohybujú hlavou nástroja (napr. G1). The
-# predvolené je nespúšťať žiadne špeciálne príkazy G-kódu pri aktivácii.
+#   A list of G-Code commands to execute prior to each probe attempt.
+#   See docs/Command_Templates.md for G-Code format. This may be
+#   useful if the probe needs to be activated in some way. Do not
+#   issue any commands here that move the toolhead (eg, G1). The
+#   default is to not run any special G-Code commands on activation.
 #deactivate_gcode:
-# Zoznam príkazov G-kódu, ktoré sa majú vykonať po každom pokuse o sondu
-# dokončení. Formát G-kódu nájdete na stránke docs/Command_Templates.md. nie
-# tu zadajte akékoľvek príkazy, ktoré posunú hlavu nástroja. Predvolená hodnota je
-# pri deaktivácii nespúšťajte žiadne špeciálne príkazy G-kódu.
+#   A list of G-Code commands to execute after each probe attempt
+#   completes. See docs/Command_Templates.md for G-Code format. Do not
+#   issue any commands here that move the toolhead. The default is to
+#   not run any special G-Code commands on deactivation.
 </code></pre></div>
 
 <h3 id="bltouch">[bltouch]<a class="headerlink" href="#bltouch" title="Permanent link">&para;</a></h3>
@@ -4429,7 +4515,7 @@ control_pin:
 </code></pre></div>
 
 <h3 id="smart_effector">[smart_effector]<a class="headerlink" href="#smart_effector" title="Permanent link">&para;</a></h3>
-<p>„Inteligentný efektor“ od Duet3d implementuje Z-sondu pomocou senzora sily. Túto sekciu je možné definovať namiesto <code>[probe]</code>, aby sa povolili špecifické funkcie inteligentného efektora. To tiež umožňuje <a href="G-Codes.html#smart_effector">runtime commands</a> upravovať parametre inteligentného efektora počas behu.</p>
+<p>The "Smart Effector" from Duet3d implements a Z probe using a force sensor. One may define this section instead of <code>[probe]</code> to enable the Smart Effector specific features. This also enables <a href="G-Codes.html#smart_effector">runtime commands</a> to adjust the parameters of the Smart Effector at run time.</p>
 <div class="highlight"><pre><span></span><code>[smart_effector]
 pripnúť:
 # Kolík pripojený k výstupnému kolíku sondy Smart Effector Z (kolík 5). Poznač si to
@@ -4476,7 +4562,7 @@ z_offset:
 </code></pre></div>
 
 <h3 id="probe_eddy_current">[probe_eddy_current]<a class="headerlink" href="#probe_eddy_current" title="Permanent link">&para;</a></h3>
-<p>Podpora pre indukčné sondy s vírivým prúdom. Túto sekciu (namiesto sekcie sondy) je možné definovať na povolenie tejto sondy. Ďalšie informácie nájdete v <a href="G-Codes.html#probe_eddy_current">referencii príkazu</a>.</p>
+<p>Support for eddy current inductive probes. One may define this section (instead of a probe section) to enable this probe. See the <a href="G-Codes.html#probe_eddy_current">command reference</a> for further information.</p>
 <div class="highlight"><pre><span></span><code>[probe_eddy_current my_eddy_probe]
 sensor_type: ldc1612
 #   The sensor chip used to perform eddy current measurements. This
@@ -4487,7 +4573,13 @@ sensor_type: ldc1612
 #intb_pin:
 #   MCU gpio pin connected to the ldc1612 sensor&#39;s INTB pin (if
 #   available). The default is to not use the INTB pin.
-#z_offset:
+#max_sensor_hz:
+#   Maximum expected resonant frequency reported by the sensor (in
+#   Hz). This is used during internal clock rate configuration. This
+#   value is typically only configured if the software reports a
+#   warning suggesting the value should be increased. The default is
+#   5000000.
+#descend_z:
 #   The nominal distance (in mm) between the nozzle and bed that a
 #   probing attempt should stop at. This parameter must be provided.
 #i2c_address:
@@ -4500,6 +4592,8 @@ sensor_type: ldc1612
 #   settings&quot; section for a description of the above parameters.
 #x_offset:
 #y_offset:
+#   The distance (in mm) between the probe and the nozzle along the
+#   x and y axes. The default is 0.
 #speed:
 #lift_speed:
 #samples:
@@ -4507,11 +4601,28 @@ sensor_type: ldc1612
 #samples_result:
 #samples_tolerance:
 #samples_tolerance_retries:
-#   See the &quot;probe&quot; section for information on these parameters.
+#   See the &quot;probe&quot; section for information on these parameters. Note
+#   that the settings here apply only to regular probe commands. These
+#   settings do not have an effect if using a probe &quot;METHOD&quot; of
+#   &quot;scan&quot;, &quot;rapid_scan&quot;, or &quot;tap&quot;.
+#tap_threshold:
+#   Descent stop threshold (in Hz/mm) for &quot;tap&quot; probing. Larger values
+#   reduce the chance of the toolhead incorrectly stopping early due
+#   to noise, while increasing the risk of the toolhead not correctly
+#   stopping when it first contacts the bed. See Eddy_Probe.md for
+#   more information. This value may be overridden at run-time using
+#   the &quot;TAP_THRESHOLD&quot; parameter on probe commands.  The default is
+#   to not enable &quot;tap&quot; probing.
+#tap_z_offset: 0.0
+#   The Z height (in mm) of the nozzle relative to the bed at the
+#   contact point detected during &quot;tap&quot; probing. Nominally this would
+#   be 0.0 to indicate the contact point has zero distance, but one
+#   may set this to account for backlash, thermal expansion, a
+#   systemic probing bias, or similar. The default is zero.
 </code></pre></div>
 
 <h3 id="axis_twist_compensation">[axis_twist_compensation]<a class="headerlink" href="#axis_twist_compensation" title="Permanent link">&para;</a></h3>
-<p>Nástroj na kompenzáciu nepresných údajov sondy v dôsledku skrútenia v portáli X alebo Y. Podrobnejšie informácie o príznakoch, konfigurácii a nastavení nájdete v dokumente [Axis Twist Compensation Guide] (Axis_Twist_Compensation.md).</p>
+<p>A tool to compensate for inaccurate probe readings due to twist in X or Y gantry. See the <a href="Axis_Twist_Compensation.html">Axis Twist Compensation Guide</a> for more detailed information regarding symptoms, configuration and setup.</p>
 <div class="highlight"><pre><span></span><code>[axis_twist_compensation]
 #speed: 50
 #   The speed (in mm/s) of non-probing moves during the calibration.
@@ -4612,10 +4723,16 @@ axis:
 
 <p>For an example of dual carriage configuration with <code>generic_cartesian</code> kinematic, see the following configuration <a href="https://github.com/Klipper3d/klipper/blob/master/config/example-generic-caretesian.cfg">sample</a>. Please note that in this case the <code>[dual_carriage]</code> configuration deviates from the configuration described above:</p>
 <div class="highlight"><pre><span></span><code>[dual_carriage my_dc_carriage]
-primary_carriage:
-#   Defines the matching primary carriage of this dual carriage and
-#   the corresponding IDEX axis. Valid choices are x, y, z.
-#   This parameter must be provided.
+#primary_carriage:
+#   Defines the matching carriage on the same gantry as this dual carriage and
+#   the corresponding dual axis. Must match a name of a defined `[carriage]` or
+#   another independent `[dual_carriage]`. If not set, which is a default,
+#   defines a dual carriage independent of a `[carriage]` with the same axis
+#   as this one (e.g. on a different gantry).
+#axis:
+#   Axis of a carriage, either x or y. If &#39;primary_carriage&#39; is defined, then
+#   this parameter defaults to the &#39;axis&#39; parameter of that primary carriage,
+#   otherwise this parameter must be defined.
 #safe_distance:
 #   The minimum distance (in mm) to enforce between the dual and the primary
 #   carriages. If a G-Code command is executed that will bring the carriages
@@ -4624,7 +4741,8 @@ primary_carriage:
 #   position_min and position_max for the dual and primary carriages. If set
 #   to 0 (or safe_distance is unset and position_min and position_max are
 #   identical for the primary and dual carriages), the carriages proximity
-#   checks will be disabled.
+#   checks will be disabled. Only valid for a dual_carriage with a defined
+#   &#39;primary_carriage&#39;.
 endstop_pin:
 #position_min:
 position_endstop:
@@ -4639,18 +4757,18 @@ position_max:
 
 <p>Refer to <a href="#generic-cartesian">generic cartesian</a> section for more information on the regular <code>carriage</code> parameters.</p>
 <p>Then a user must define one or more stepper motors moving the dual carriage (and other carriages as appropriate), for instance</p>
-<div class="highlight"><pre><span></span><code>[carriage x]
+<div class="highlight"><pre><span></span><code>[carriage carriage_x]
 ...
 
-[carriage y]
+[carriage carriage_y]
 ...
 
-[dual_carriage u]
-primary_carriage: x
+[dual_carriage carriage_u]
+primary_carriage: carriage_x
 ...
 
 [stepper dc_stepper]
-carriages: u-y
+carriages: carriage_u-carriage_y
 ...
 </code></pre></div>
 
@@ -4661,16 +4779,16 @@ carriages: u-y
 [delayed_gcode init_shaper]
 initial_duration: 0.1
 gcode:
-  SET_DUAL_CARRIAGE CARRIAGE=u
-  SET_INPUT_SHAPER SHAPER_TYPE_X=&lt;dual_carriage_x_shaper&gt; SHAPER_FREQ_X=&lt;dual_carriage_x_freq&gt; SHAPER_TYPE_Y=&lt;y_shaper&gt; SHAPER_FREQ_Y=&lt;y_freq&gt;
-  SET_DUAL_CARRIAGE CARRIAGE=x
-  SET_INPUT_SHAPER SHAPER_TYPE_X=&lt;primary_carriage_x_shaper&gt; SHAPER_FREQ_X=&lt;primary_carriage_x_freq&gt; SHAPER_TYPE_Y=&lt;y_shaper&gt; SHAPER_FREQ_Y=&lt;y_freq&gt;
+  SET_DUAL_CARRIAGE CARRIAGE=carriage_u
+  SET_INPUT_SHAPER SHAPER_TYPE_X=&lt;carriage_u_shaper&gt; SHAPER_FREQ_X=&lt;carriage_x_freq&gt; SHAPER_TYPE_Y=&lt;carriage_y_shaper&gt; SHAPER_FREQ_Y=&lt;carriage_y_freq&gt;
+  SET_DUAL_CARRIAGE CARRIAGE=carriage_x
+  SET_INPUT_SHAPER SHAPER_TYPE_X=&lt;carriage_x_shaper&gt; SHAPER_FREQ_X=&lt;carriage_x_freq&gt; SHAPER_TYPE_Y=&lt;carriage_y_shaper&gt; SHAPER_FREQ_Y=&lt;carriage_y_freq&gt;
 </code></pre></div>
 
-<p>Note that <code>SHAPER_TYPE_Y</code> and <code>SHAPER_FREQ_Y</code> must be the same in both commands in this case, since the same motors drive Y axis when either of the <code>x</code> and <code>u</code> carriages are active.</p>
+<p>Note that <code>SHAPER_TYPE_Y</code> and <code>SHAPER_FREQ_Y</code> must be the same in both commands in this case, since the same motors drive Y axis when either of the <code>carriage_x</code> and <code>carriage_u</code> carriages are active.</p>
 <p>It is worth noting that <code>generic_cartesian</code> kinematic can support two dual carriages for X and Y axes. For reference, see for instance a <a href="https://github.com/Klipper3d/klipper/blob/master/config/sample-corexyuv.cfg">sample</a> of CoreXYUV configuration.</p>
 <h3 id="extruder_stepper">[extruder_stepper]<a class="headerlink" href="#extruder_stepper" title="Permanent link">&para;</a></h3>
-<p>Podpora pre ďalšie krokové motory synchronizované s pohybom extrudéra (je možné definovať ľubovoľný počet sekcií s predponou „extruder_stepper“).</p>
+<p>Support for additional steppers synchronized to the movement of an extruder (one may define any number of sections with an "extruder_stepper" prefix).</p>
 <p>Ďalšie informácie nájdete v <a href="G-Codes.html#extruder">odkaz na príkaz</a>.</p>
 <div class="highlight"><pre><span></span><code>[extruder_stepper my_extra_stepper]
 extrudér:
@@ -4752,7 +4870,7 @@ extrudér:
 </code></pre></div>
 
 <h3 id="homing_heaters">[homing_heaters]<a class="headerlink" href="#homing_heaters" title="Permanent link">&para;</a></h3>
-<p>Nástroj na deaktiváciu ohrievačov pri homovaní alebo snímaní osi.</p>
+<p>Tool to disable heaters when homing or probing an axis.</p>
 <div class="highlight"><pre><span></span><code>[homing_heaters]
 #steppers:
 # Čiarkami oddelený zoznam stepperov, ktoré by mali spôsobiť, že ohrievače budú
@@ -4848,7 +4966,7 @@ extrudér:
 </code></pre></div>
 
 <h3 id="temperature_probe">[temperature_probe]<a class="headerlink" href="#temperature_probe" title="Permanent link">&para;</a></h3>
-<p>Hlási teplotu cievky sondy. Zahŕňa voliteľnú kalibráciu tepelného driftu pre sondy založené na vírivých prúdoch. Sekciu <code>[temperature_probe]</code> je možné prepojiť s <code>[probe_eddy_current]</code> použitím rovnakého postfixu pre obe sekcie.</p>
+<p>Reports probe coil temperature. Includes optional thermal drift calibration for eddy current based probes. A <code>[temperature_probe]</code> section may be linked to a <code>[probe_eddy_current]</code> by using the same postfix for both sections.</p>
 <div class="highlight"><pre><span></span><code>[temperature_probe my_probe]
 #sensor_type:
 #sensor_pin:
@@ -4904,7 +5022,7 @@ extrudér:
 #   printers.  The default is 60.
 </code></pre></div>
 
-<h2 id="snimace-teploty">Snímače teploty<a class="headerlink" href="#snimace-teploty" title="Permanent link">&para;</a></h2>
+<h2 id="temperature-sensors">Temperature sensors<a class="headerlink" href="#temperature-sensors" title="Permanent link">&para;</a></h2>
 <p>Klipper obsahuje definície pre mnoho typov snímačov teploty. Tieto senzory je možné použiť v akejkoľvek konfiguračnej sekcii, ktorá vyžaduje teplotný senzor (ako je sekcia <code>[extruder]</code> alebo <code>[heater_bed]</code>).</p>
 <h3 id="bezne-termistory">Bežné termistory<a class="headerlink" href="#bezne-termistory" title="Permanent link">&para;</a></h3>
 <p>Bežné termistory. Nasledujúce parametre sú dostupné v sekciách ohrievača, ktoré používajú jeden z týchto snímačov.</p>
@@ -4981,8 +5099,8 @@ senzor_pin:
 # meno vo vyššie uvedenom zozname.
 </code></pre></div>
 
-<h3 id="snimac-teploty-bmp180bmp280bme280bmp388bme680">Snímač teploty BMP180/BMP280/BME280/BMP388/BME680<a class="headerlink" href="#snimac-teploty-bmp180bmp280bme280bmp388bme680" title="Permanent link">&para;</a></h3>
-<p>Dvojvodičové senzory prostredia BMP180/BMP280/BME280/BMP388/BME680 s rozhraním I2C. Upozorňujeme, že tieto senzory nie sú určené na použitie s extrudérmi a vyhrievacími lôžkami, ale skôr na monitorovanie okolitej teploty (C), tlaku (hPa), relatívnej vlhkosti a v prípade BME680 hladiny plynu. Makro gcode_macro, ktoré sa môže použiť na hlásenie tlaku a vlhkosti okrem teploty, nájdete v súbore <a href="https://github.com/Klipper3d/klipper/blob/master/config/sample-macros.cfg">sample-macros.cfg</a>.</p>
+<h3 id="bmp180bmp280bme280bmp388bme680-temperature-sensor">BMP180/BMP280/BME280/BMP388/BME680 temperature sensor<a class="headerlink" href="#bmp180bmp280bme280bmp388bme680-temperature-sensor" title="Permanent link">&para;</a></h3>
+<p>BMP180/BMP280/BME280/BMP388/BME680 two wire interface (I2C) environmental sensors. Note that these sensors are not intended for use with extruders and heater beds, but rather for monitoring ambient temperature (C), pressure (hPa), relative humidity and in case of the BME680 gas level. See <a href="https://github.com/Klipper3d/klipper/blob/master/config/sample-macros.cfg">sample-macros.cfg</a> for a gcode_macro that may be used to report pressure and humidity in addition to temperature.</p>
 <div class="highlight"><pre><span></span><code>sensor_type: BME280
 #i2c_address:
 #   Default is 118 (0x76). The BMP180, BMP388 and some BME280 sensors
@@ -4997,23 +5115,24 @@ senzor_pin:
 </code></pre></div>
 
 <h3 id="aht10aht20aht21-teplotny-sensor">AHT10/AHT20/AHT21 teplotný sensor<a class="headerlink" href="#aht10aht20aht21-teplotny-sensor" title="Permanent link">&para;</a></h3>
-<p>Senzory prostredia AHT10/AHT20/AHT21 s dvojvodičovým rozhraním (I2C). Upozorňujeme, že tieto snímače nie sú určené na použitie s extrudérmi a ohrievačmi, ale skôr na monitorovanie okolitej teploty (C) a relatívnej vlhkosti. Pozrite si <a href="https://github.com/Klipper3d/klipper/blob/master/config/sample-macros.cfg">sample-macros.cfg</a>, kde nájdete gcode_macro, ktoré možno použiť na hlásenie vlhkosti okrem teploty.</p>
-<div class="highlight"><pre><span></span><code>typ_senzora: AHT10
-# AHT10 používajte aj pre snímače AHT20 a AHT21.
+<p>AHT10/AHT15/AHT20/AHT21/AHT30 two wire interface (I2C) environmental sensors. Note that these sensors are not intended for use with extruders and heater beds, but rather for monitoring ambient temperature (C) and relative humidity. See <a href="https://github.com/Klipper3d/klipper/blob/master/config/sample-macros.cfg">sample-macros.cfg</a> for a gcode_macro that may be used to report humidity in addition to temperature.</p>
+<div class="highlight"><pre><span></span><code>sensor_type: AHT1X
+#   Must be &quot;AHT1X&quot; , &quot;AHT2X&quot;, &quot;AHT3X&quot;
+#   Some AHT20 sensors can use &quot;AHT1X&quot;
 #i2c_address:
-# Predvolená hodnota je 56 (0x38). Niektoré snímače AHT10 poskytujú možnosť použitia
-# 57 (0x39) pohybom odporu.
+#   Default is 56 (0x38). Some AHT10 sensors give the option to use
+#   57 (0x39) by moving a resistor.
 #i2c_mcu:
 #i2c_bus:
 #i2c_speed:
-# Popis nájdete v časti „bežné nastavenia I2C“.
-# vyššie uvedené parametre.
+#   See the &quot;common I2C settings&quot; section for a description of the
+#   above parameters.
 #aht10_report_time:
-# Interval v sekundách medzi odčítaniami. Predvolená hodnota je 30, minimum je 5
+#   Interval in seconds between readings. Default is 30, minimum is 5
 </code></pre></div>
 
 <h3 id="htu21d-sensor">HTU21D sensor<a class="headerlink" href="#htu21d-sensor" title="Permanent link">&para;</a></h3>
-<p>Dvojvodičový environmentálny senzor rodiny HTU21D s rozhraním I2C. Upozorňujeme, že tento senzor nie je určený na použitie s extrudérmi a vyhrievacími lôžkami, ale skôr na monitorovanie okolitej teploty (C) a relatívnej vlhkosti. Gcode_macro, ktoré možno použiť na hlásenie vlhkosti okrem teploty, nájdete v súbore <a href="https://github.com/Klipper3d/klipper/blob/master/config/sample-macros.cfg">sample-macros.cfg</a>.</p>
+<p>Senzor prostredia s dvojvodičovým rozhraním (I2C) rodiny HTU21D. Upozorňujeme, že tento snímač nie je určený na použitie s extrudérmi a ohrievačmi, ale skôr na monitorovanie okolitej teploty (C) a relatívnej vlhkosti. Pozrite si <a href="https://github.com/Klipper3d/klipper/blob/master/config/sample-macros.cfg">sample-macros.cfg</a>, kde nájdete gcode_macro, ktoré možno použiť na hlásenie vlhkosti okrem teploty.</p>
 <div class="highlight"><pre><span></span><code>senzor_typ:
 # Musí byť &quot;HTU21D&quot;, &quot;SI7013&quot;, &quot;SI7020&quot;, &quot;SI7021&quot; alebo &quot;SHT21&quot;
 #i2c_address:
@@ -5041,8 +5160,8 @@ senzor_pin:
 # Interval v sekundách medzi odčítaniami. Predvolená hodnota je 30
 </code></pre></div>
 
-<h3 id="sht3x-senzor">SHT3X senzor<a class="headerlink" href="#sht3x-senzor" title="Permanent link">&para;</a></h3>
-<p>Dvojvodičový senzor prostredia rodiny SHT3X s rozhraním I2C. Tieto senzory majú rozsah -55~125 °C, takže sú použiteľné napr. na monitorovanie teploty v komore. Môžu tiež fungovať ako jednoduché ovládače ventilátora/ohrievača.</p>
+<h3 id="sht3x-sensor">SHT3X sensor<a class="headerlink" href="#sht3x-sensor" title="Permanent link">&para;</a></h3>
+<p>SHT3X family two wire interface (I2C) environmental sensor. These sensors have a range of -55~125 C, so are usable for e.g. chamber temperature monitoring. They can also function as simple fan/heater controllers.</p>
 <div class="highlight"><pre><span></span><code>sensor_type: SHT3X
 #i2c_address:
 #   Default is 68 (0x44).
@@ -5075,7 +5194,7 @@ senzor_pin:
 </code></pre></div>
 
 <h3 id="zabudovany-snimac-teploty-mikrokontrolera">Zabudovaný snímač teploty mikrokontroléra<a class="headerlink" href="#zabudovany-snimac-teploty-mikrokontrolera" title="Permanent link">&para;</a></h3>
-<p>Mikrokontroléry atsam, atsamd a stm32 obsahujú interný teplotný senzor. Na monitorovanie týchto teplôt je možné použiť senzor „temperature_mcu“.</p>
+<p>The atsam, atsamd, stm32 and rp2040 micro-controllers contain an internal temperature sensor. One can use the "temperature_mcu" sensor to monitor these temperatures.</p>
 <div class="highlight"><pre><span></span><code>typ_senzora: teplota_mcu
 #sensor_mcu: mcu
 # Mikroovládač na čítanie. Predvolená hodnota je &quot;mcu&quot;.
@@ -5104,7 +5223,7 @@ senzor_pin:
 </code></pre></div>
 
 <h3 id="snimac-teploty-hostitela">Snímač teploty hostiteľa<a class="headerlink" href="#snimac-teploty-hostitela" title="Permanent link">&para;</a></h3>
-<p>Teplota zariadenia (napr. Raspberry Pi), na ktorom beží hostiteľský softvér.</p>
+<p>Temperature from the machine (eg Raspberry Pi) running the host software.</p>
 <div class="highlight"><pre><span></span><code>sensor_type: teplotný_hostiteľ
 #sensor_path:
 # Cesta k systémovému súboru teploty. Predvolená hodnota je
@@ -5276,7 +5395,7 @@ Je povolených # ohrievačov/krokov. Predvolený ohrievač je &quot;extruder&quo
 </code></pre></div>
 
 <h3 id="temperature_fan">[temperature_fan]<a class="headerlink" href="#temperature_fan" title="Permanent link">&para;</a></h3>
-<p>Chladiace ventilátory spúšťané teplotou (možno definovať ľubovoľný počet sekcií s predponou „temperature_fan“). „Teplotný ventilátor“ je ventilátor, ktorý sa zapne vždy, keď je jeho priradený senzor nad nastavenou teplotou. Predvolene má teplotný ventilátor rýchlosť vypnutia rovnajúcu sa maximálnemu výkonu.</p>
+<p>Temperature-triggered cooling fans (one may define any number of sections with a "temperature_fan" prefix). A "temperature fan" is a fan that will be enabled whenever its associated sensor is above a set temperature. By default, a temperature_fan has a shutdown_speed equal to max_power.</p>
 <p>Ďalšie informácie nájdete v <a href="G-Codes.html#temperature_fan">odkaz na príkaz</a>.</p>
 <div class="highlight"><pre><span></span><code>[temperature_fan my_temp_fan]
 #pin:
@@ -5348,7 +5467,7 @@ Je povolených # ohrievačov/krokov. Predvolený ohrievač je &quot;extruder&quo
 
 <h2 id="leds">LEDs<a class="headerlink" href="#leds" title="Permanent link">&para;</a></h2>
 <h3 id="led">[led]<a class="headerlink" href="#led" title="Permanent link">&para;</a></h3>
-<p>Podpora pre LED diódy (a LED pásiky) ovládané pomocou PWM pinov mikrokontroléra (je možné definovať ľubovoľný počet sekcií s predponou „led“). Viac informácií nájdete v <a href="G-Codes.html#led">referencii príkazu</a>.</p>
+<p>Support for LEDs (and LED strips) controlled via micro-controller PWM pins (one may define any number of sections with an "led" prefix). See the <a href="G-Codes.html#led">command reference</a> for more information.</p>
 <div class="highlight"><pre><span></span><code>[viedol my_led]
 #red_pin:
 #green_pin:
@@ -5437,28 +5556,23 @@ clock_pin:
 <p>Podpora LED PCA9632. PCA9632 sa používa na FlashForge Dreamer.</p>
 <div class="highlight"><pre><span></span><code>[pca9632 my_pca9632]
 #i2c_address: 98
-# Adresa i2c, ktorú čip používa na zbernici i2c. Toto môže byť
-# 96, 97, 98 alebo 99. Predvolená hodnota je 98.
+#   The i2c address that the chip is using on the i2c bus. This may be
+#   96, 97, 98, or 99.  The default is 98.
 #i2c_mcu:
 #i2c_bus:
 #i2c_software_scl_pin:
 #i2c_software_sda_pin:
 #i2c_speed:
-# Popis nájdete v časti „bežné nastavenia I2C“.
-# vyššie uvedené parametre.
-#scl_pin:
-#sda_pin:
-# Prípadne, ak pca9632 nie je pripojený k hardvérovému I2C
-# autobus, potom je možné zadať „hodiny“ (scl_pin) a „data“
-# (sda_pin) pinov. Predvolené je použitie hardvérového I2C.
+#   See the &quot;common I2C settings&quot; section for a description of the
+#   above parameters.
 #color_order: RGBW
-# Nastavte poradie pixelov LED (pomocou reťazca obsahujúceho
-# písmen R, G, B, W). Predvolená hodnota je RGBW.
-#initial_RED: 0,0
-#initial_GREEN: 0,0
-#initial_BLUE: 0,0
-#initial_WHITE: 0,0
-# Informácie o týchto parametroch nájdete v časti „LED“.
+#   Set the pixel order of the LED (using a string containing the
+#   letters R, G, B, W). The default is RGBW.
+#initial_RED: 0.0
+#initial_GREEN: 0.0
+#initial_BLUE: 0.0
+#initial_WHITE: 0.0
+#   See the &quot;led&quot; section for information on these parameters.
 </code></pre></div>
 
 <h2 id="dalsie-serva-tlacidla-a-dalsie-koliky">Ďalšie servá, tlačidlá a ďalšie kolíky<a class="headerlink" href="#dalsie-serva-tlacidla-a-dalsie-koliky" title="Permanent link">&para;</a></h2>
@@ -5555,8 +5669,17 @@ pin:
 #   These options are deprecated and should no longer be specified.
 </code></pre></div>
 
+<h3 id="static_pwm_clock">[static_pwm_clock]<a class="headerlink" href="#static_pwm_clock" title="Permanent link">&para;</a></h3>
+<p>Static configurable output pin (one may define any number of sections with an "static_pwm_clock" prefix). Pins configured here will be set up as clock output pins. Generally used to provide clock input to other hardware on the board.</p>
+<div class="highlight"><pre><span></span><code>[static_pwm_clock my_pin]
+pin:
+#   The pin to configure as an output. This parameter must be provided.
+#frequency: 100
+#   Target output frequency.
+</code></pre></div>
+
 <h3 id="pwm_tool">[pwm_tool]<a class="headerlink" href="#pwm_tool" title="Permanent link">&para;</a></h3>
-<p>Digitálne výstupné piny s pulzno-šírkovou moduláciou umožňujúce vysokorýchlostné aktualizácie (je možné definovať ľubovoľný počet sekcií s predponou „output_pin“). Piny nakonfigurované tu budú nastavené ako výstupné piny a je možné ich upravovať za behu pomocou rozšírených [g-code príkazy] typu „SET_PIN PIN=my_pin VALUE=.1“ (G-Codes.md#output_pin).</p>
+<p>Pulse width modulation digital output pins capable of high speed updates (one may define any number of sections with an "output_pin" prefix). Pins configured here will be setup as output pins and one may modify them at run-time using "SET_PIN PIN=my_pin VALUE=.1" type extended <a href="G-Codes.html#output_pin">g-code commands</a>.</p>
 <div class="highlight"><pre><span></span><code>[pwm_tool my_tool]
 pin:
 #   The pin to configure as an output. This parameter must be provided.
@@ -5576,7 +5699,7 @@ pin:
 </code></pre></div>
 
 <h3 id="pwm_cycle_time">[pwm_cycle_time]<a class="headerlink" href="#pwm_cycle_time" title="Permanent link">&para;</a></h3>
-<p>Výstupné piny konfigurovateľné za behu s dynamickým časovaním cyklu PWM (možno definovať ľubovoľný počet sekcií s predponou „pwm_cycle_time“). Piny nakonfigurované tu budú nastavené ako výstupné piny a je možné ich upravovať za behu pomocou rozšíreného typu „SET_PIN PIN=my_pin VALUE=.1 CYCLE_TIME=0.100“ [G-kód príkazy] (G-Codes.md#pwm_cycle_time).</p>
+<p>Run-time configurable output pins with dynamic pwm cycle timing (one may define any number of sections with an "pwm_cycle_time" prefix). Pins configured here will be setup as output pins and one may modify them at run-time using "SET_PIN PIN=my_pin VALUE=.1 CYCLE_TIME=0.100" type extended <a href="G-Codes.html#pwm_cycle_time">g-code commands</a>.</p>
 <div class="highlight"><pre><span></span><code>[pwm_cycle_time my_pin]
 pin:
 #value:
@@ -5603,7 +5726,7 @@ pins:
 Musíte zadať # parameter.
 </code></pre></div>
 
-<h2 id="konfiguracia-ovladaca-krokoveho-motora-tmc">Konfigurácia ovládača krokového motora TMC<a class="headerlink" href="#konfiguracia-ovladaca-krokoveho-motora-tmc" title="Permanent link">&para;</a></h2>
+<h2 id="tmc-stepper-driver-configuration">TMC stepper driver configuration<a class="headerlink" href="#tmc-stepper-driver-configuration" title="Permanent link">&para;</a></h2>
 <p>Konfigurácia ovládačov krokového motora Trinamic v režime UART/SPI. Ďalšie informácie sú v <a href="TMC_Drivers.html">Sprievodca ovládačmi TMC</a> a v <a href="G-Codes.html#tmcxxxx">odkaz na príkaz</a>.</p>
 <h3 id="tmc2130">[tmc2130]<a class="headerlink" href="#tmc2130" title="Permanent link">&para;</a></h3>
 <p>Nakonfigurujte ovládač krokového motora TMC2130 cez zbernicu SPI. Ak chcete použiť túto funkciu, definujte konfiguračnú sekciu s predponou "tmc2130", za ktorou bude nasledovať názov zodpovedajúcej konfiguračnej sekcie steppera (napríklad "[tmc2130 stepper_x]").</p>
@@ -6015,6 +6138,7 @@ run_current:
 #driver_SEDN: 0
 #driver_SEIMIN: 0
 #driver_SFILT: 0
+#driver_SG4_THRS: 0
 #driver_SG4_ANGLE_OFFSET: 1
 #driver_SLOPE_CONTROL: 0
 #   Set the given register during the configuration of the TMC2240
@@ -6028,8 +6152,8 @@ run_current:
 #   is &quot;active low&quot; and is thus normally prefaced with &quot;^!&quot;. Setting
 #   this creates a &quot;tmc2240_stepper_x:virtual_endstop&quot; virtual pin
 #   which may be used as the stepper&#39;s endstop_pin. Doing this enables
-#   &quot;sensorless homing&quot;. (Be sure to also set driver_SGT to an
-#   appropriate sensitivity value.) The default is to not enable
+#   &quot;sensorless homing&quot;. (Be sure to also set driver_SGT OR driver_SG4_THRS
+#   to an appropriate sensitivity value.) The default is to not enable
 #   sensorless homing.
 </code></pre></div>
 
@@ -6229,7 +6353,7 @@ Musíte zadať # parameter.
 </code></pre></div>
 
 <h3 id="mcp4728">[mcp4728]<a class="headerlink" href="#mcp4728" title="Permanent link">&para;</a></h3>
-<p>Staticky konfigurovaný digitálno-analógový prevodník MCP4728 pripojený cez zbernicu I2C (možno definovať ľubovoľný počet sekcií s predponou „mcp4728“).</p>
+<p>Statically configured MCP4728 digital-to-analog converter connected via I2C bus (one may define any number of sections with an "mcp4728" prefix).</p>
 <div class="highlight"><pre><span></span><code>[mcp4728 my_dac]
 #i2c_address: 96
 # Adresa i2c, ktorú čip používa na zbernici i2c. Predvolená hodnota
@@ -6263,32 +6387,38 @@ Musíte zadať # parameter.
 </code></pre></div>
 
 <h3 id="mcp4018">[mcp4018]<a class="headerlink" href="#mcp4018" title="Permanent link">&para;</a></h3>
-<p>Staticky nakonfigurovaný MCP4018 digipot pripojený cez dva gpio kolíky „bit banging“ (jeden môže definovať ľubovoľný počet sekcií s predponou „mcp4018“).</p>
+<p>Statically configured MCP4018 digipot connected via i2c (one may define any number of sections with an "mcp4018" prefix).</p>
 <div class="highlight"><pre><span></span><code>[mcp4018 my_digipot]
-scl_pin:
-# Pin &quot;hodiny&quot; SCL. Tento parameter je potrebné zadať.
-sda_pin:
-# Dátový kolík SDA. Tento parameter je potrebné zadať.
-stierač:
-# Hodnota, na ktorú sa má staticky nastaviť daný „stierač“ MCP4018. Toto je
-# sa zvyčajne nastavuje na číslo medzi 0,0 a 1,0, pričom 1,0 je
-# najvyšší odpor a 0,0 je najnižší odpor. však
-# rozsah je možné zmeniť pomocou parametra &#39;scale&#39; (pozri nižšie).
-# Tento parameter musí byť zadaný.
-#mierka:
-# Tento parameter možno použiť na zmenu parametra „stierača“.
-#   vykladané. Ak je k dispozícii, potom by mal byť parameter „stierač“.
-# medzi 0,0 a &#39;scale&#39;. To môže byť užitočné, keď je MCP4018
-# slúži na nastavenie krokových referencií napätia. „Mierka“ sa dá nastaviť na
-# ekvivalentná kroková intenzita prúdu, ak je MCP4018 na najvyššej úrovni
-# odpor a potom je možné zadať parameter &#39;stierač&#39; pomocou
-# požadovaná hodnota prúdu pre stepper. Predvolená hodnota je nie
-# škálovať parameter &#39;stierač&#39;.
+#i2c_address: 47
+#   The i2c address that the chip is using on the i2c bus. The default
+#   is 47.
+#i2c_mcu:
+#i2c_bus:
+#i2c_software_scl_pin:
+#i2c_software_sda_pin:
+#i2c_speed:
+#   See the &quot;common I2C settings&quot; section for a description of the
+#   above parameters.
+wiper:
+#   The value to statically set the given MCP4018 &quot;wiper&quot; to. This is
+#   typically set to a number between 0.0 and 1.0 with 1.0 being the
+#   highest resistance and 0.0 being the lowest resistance. However,
+#   the range may be changed with the &#39;scale&#39; parameter (see below).
+#   This parameter must be provided.
+#scale:
+#   This parameter can be used to alter how the &#39;wiper&#39; parameter is
+#   interpreted. If provided, then the &#39;wiper&#39; parameter should be
+#   between 0.0 and &#39;scale&#39;. This may be useful when the MCP4018 is
+#   used to set stepper voltage references. The &#39;scale&#39; can be set to
+#   the equivalent stepper amperage if the MCP4018 is at its highest
+#   resistance, and then the &#39;wiper&#39; parameter can be specified using
+#   the desired amperage value for the stepper. The default is to not
+#   scale the &#39;wiper&#39; parameter.
 </code></pre></div>
 
 <h2 id="podpora-displeja">Podpora displeja<a class="headerlink" href="#podpora-displeja" title="Permanent link">&para;</a></h2>
 <h3 id="display">[display]<a class="headerlink" href="#display" title="Permanent link">&para;</a></h3>
-<p>Podpora displeja pripojeného k mikrokontroléru.</p>
+<p>Support for a display attached to the micro-controller.</p>
 <div class="highlight"><pre><span></span><code>[display]
 lcd_type:
 #   The type of LCD chip in use. This may be &quot;hd44780&quot;, &quot;hd44780_spi&quot;,
@@ -6419,7 +6549,7 @@ spi_software_miso_pin:
 </code></pre></div>
 
 <h4 id="aip31068_spi-displej">aip31068_spi displej<a class="headerlink" href="#aip31068_spi-displej" title="Permanent link">&para;</a></h4>
-<p>Informácie o konfigurácii displeja aip31068_spi – veľmi podobného displeju hd44780_spi s rozlíšením 20x04 (20 symbolov po 4 riadkoch) s mierne odlišným interným protokolom.</p>
+<p>Information on configuring an aip31068_spi display - a very similar to hd44780_spi a 20x04 (20 symbols by 4 lines) display with slightly different internal protocol.</p>
 <div class="highlight"><pre><span></span><code>[display]
 lcd_type: aip31068_spi
 latch_pin:
@@ -6470,7 +6600,7 @@ spi_software_miso_pin:
 ...
 </code></pre></div>
 
-<h4 id="uc1701-displej">uc1701 displej<a class="headerlink" href="#uc1701-displej" title="Permanent link">&para;</a></h4>
+<h4 id="uc1701-display">uc1701 display<a class="headerlink" href="#uc1701-display" title="Permanent link">&para;</a></h4>
 <p>Informácie o konfigurácii displejov uc1701 (ktoré sa používajú v displejoch typu „MKS Mini 12864“).</p>
 <div class="highlight"><pre><span></span><code>[zobraziť]
 lcd_type: uc1701
@@ -6534,7 +6664,7 @@ lcd_type:
 </code></pre></div>
 
 <h3 id="display_data">[display_data]<a class="headerlink" href="#display_data" title="Permanent link">&para;</a></h3>
-<p>Podpora zobrazovania vlastných údajov na LCD obrazovke. Je možné vytvoriť ľubovoľný počet skupín zobrazení a ľubovoľný počet dátových položiek v rámci týchto skupín. Displej zobrazí všetky dátové položky pre danú skupinu, ak je parameter display_group v sekcii [display] nastavený na daný názov skupiny.</p>
+<p>Support for displaying custom data on an lcd screen. One may create any number of display groups and any number of data items under those groups. The display will show all the data items for a given group if the display_group option in the [display] section is set to the given group name.</p>
 <p>Automaticky sa vytvorí [predvolená sada skupín displejov] (../klippy/extras/display/display.cfg). Tieto položky display_data je možné nahradiť alebo rozšíriť prepísaním predvolených nastavení v hlavnom konfiguračnom súbore printer.cfg.</p>
 <div class="highlight"><pre><span></span><code>[display_data my_group_name my_data_name]
 pozícia:
@@ -6549,8 +6679,8 @@ Musíte zadať # parameter.
 
 <h3 id="display_template">[display_template]<a class="headerlink" href="#display_template" title="Permanent link">&para;</a></h3>
 <p>Zobraziť dátový text "makrá" (možno definovať ľubovoľný počet sekcií s predponou display_template). Informácie o vyhodnocovaní šablón nájdete v dokumente <a href="Command_Templates.html">šablóny príkazov</a>.</p>
-<p>Táto funkcia umožňuje znížiť počet opakujúcich sa definícií v sekciách display_data. Na vyhodnotenie šablóny je možné v sekciách display_data použiť vstavanú funkciu <code>render()</code>. Napríklad, ak by sa definovala <code>[display_template my_template]</code>, potom by sa v sekcii display_data dala použiť <code>{ render('my_template') }</code>.</p>
-<p>Túto funkciu je možné použiť aj na nepretržitú aktualizáciu LED pomocou príkazu <a href="G-Codes.html#set_led_template">SET_LED_TEMPLATE</a>.</p>
+<p>This feature allows one to reduce repetitive definitions in display_data sections. One may use the builtin <code>render()</code> function in display_data sections to evaluate a template. For example, if one were to define <code>[display_template my_template]</code> then one could use <code>{ render('my_template') }</code> in a display_data section.</p>
+<p>This feature can also be used for continuous LED updates using the <a href="G-Codes.html#set_led_template">SET_LED_TEMPLATE</a> command.</p>
 <div class="highlight"><pre><span></span><code>[display_template my_template_name]
 #param_&lt;meno&gt;:
 # Môžete zadať ľubovoľný počet možností s predponou &quot;param_&quot;. The
@@ -6709,25 +6839,25 @@ text:
 <p>Snímač pohybu vlákna. Podpora pre detekciu vloženia vlákna a hádzania pomocou kódovača, ktorý prepína výstupný kolík počas pohybu vlákna cez snímač.</p>
 <p>Ďalšie informácie nájdete v <a href="G-Codes.html#filament_switch_sensor">odkaz na príkaz</a>.</p>
 <div class="highlight"><pre><span></span><code>[filament_motion_sensor my_sensor]
-dĺžka_detekcie: 7,0
-# Minimálna dĺžka vlákna pretiahnutého cez snímač na spustenie
-# zmena stavu na prepínači
-# Predvolená hodnota je 7 mm.
-extrudér:
-# Názov sekcie extrudéra, s ktorou je tento senzor spojený.
-# Tento parameter musí byť zadaný.
-prepínač:
+detection_length: 7.0
+#   The minimum length of filament pulled through the sensor to trigger
+#   a state change on the switch_pin
+#   Default is 7 mm.
+extruder:
+#   The name of the extruder or extruder_stepper section this sensor
+#   is associated with. This parameter must be provided.
+switch_pin:
 #pause_on_runout:
 #runout_gcode:
 #insert_gcode:
 #event_delay:
 #pause_delay:
-# Pozrite si časť &quot;filament_switch_sensor&quot; pre popis
-# vyššie uvedené parametre.
+#   See the &quot;filament_switch_sensor&quot; section for a description of the
+#   above parameters.
 </code></pre></div>
 
 <h3 id="tsl1401cl_filament_width_sensor">[tsl1401cl_filament_width_sensor]<a class="headerlink" href="#tsl1401cl_filament_width_sensor" title="Permanent link">&para;</a></h3>
-<p>Senzor šírky filamentu na báze TSLl401CL. Viac informácií nájdete v <a href="TSL1401CL_Filament_Width_Sensor.html">sprievodcovi</a>.</p>
+<p>TSLl401CL Based Filament Width Sensor. See the <a href="TSL1401CL_Filament_Width_Sensor.html">guide</a> for more information.</p>
 <div class="highlight"><pre><span></span><code>[tsl1401cl_filament_width_sensor]
 #pin:
 #default_nominal_filament_diameter: 1.75 # (mm)
@@ -6742,56 +6872,64 @@ prepínač:
 <div class="highlight"><pre><span></span><code>[hall_filament_width_sensor]
 adc1:
 adc2:
-# Analógové vstupné kolíky pripojené k senzoru. Tieto parametre musia
-#   byť poskytovaný.
-#cal_dia1: 1,50
-#cal_dia2: 2,00
-# Kalibračné hodnoty (v mm) pre snímače. Predvolená hodnota je
-# 1,50 pre cal_dia1 a 2,00 pre cal_dia2.
+#   Analog input pins connected to the sensor. These parameters must
+#   be provided.
+#cal_dia1: 1.50
+#cal_dia2: 2.00
+#   The calibration values (in mm) for the sensors. The default is
+#   1.50 for cal_dia1 and 2.00 for cal_dia2.
 #raw_dia1: 9500
 #raw_dia2: 10500
-# Hrubé kalibračné hodnoty pre senzory. Predvolená hodnota je 9500
-# pre raw_dia1 a 10500 pre raw_dia2.
-#default_nominal_filament_diameter: 1,75
-# Menovitý priemer vlákna. Tento parameter je potrebné zadať.
-#max_difference: 0,200
-# Maximálny povolený rozdiel priemeru vlákna v milimetroch (mm).
-# Ak je rozdiel medzi menovitým priemerom vlákna a výstupom snímača
-# je viac ako +- max_difference, multiplikátor vytláčania je nastavený späť
-# až %100. Predvolená hodnota je 0,200.
+#   The raw calibration values for the sensors. The values must be
+#   different. The default is 9500 for raw_dia1 and 10500 for raw_dia2.
+#default_nominal_filament_diameter: 1.75
+#   The nominal filament diameter. This parameter must be provided.
+#max_difference: 0.200
+#   Maximum allowed filament diameter difference in millimeters (mm).
+#   If difference between nominal filament diameter and sensor output
+#   is more than +- max_difference, extrusion multiplier is set back
+#   to 100%. Must be less than default_nominal_filament_diameter.
+#   The default is 0.200.
 #measurement_delay: 70
-# Vzdialenosť od snímača k taviacej komore/horúcej časti
-# milimetrov (mm). Vlákno medzi snímačom a horúcim koncom
-# sa bude považovať za default_nominal_filament_diameter. Hostiteľ
-# modul pracuje s logikou FIFO. Zachováva hodnotu každého snímača a
-# pozíciu v poli a POP ich späť na správnu pozíciu. Toto
-Musíte zadať # parameter.
+#   The distance from sensor to the melting chamber/hot-end in
+#   millimeters (mm). The filament between the sensor and the hot-end
+#   will be treated as the default_nominal_filament_diameter. Host
+#   module works with FIFO logic. It keeps each sensor value and
+#   position in an array and POP them back in correct position. This
+#   parameter must be provided.
 #enable: False
-# Senzor aktivovaný alebo zakázaný po zapnutí. Predvolená hodnota je
-# zakázať.
-#interval_merania: 10
-# Približná vzdialenosť (v mm) medzi hodnotami snímača. The
-# predvolená hodnota je 10 mm.
-#logging: Nepravda
-# Výstupný priemer do terminálu a klipper.log je možné zapnúť|z
-# príkaz.
-#min_diameter: 1,0
-# Minimálny priemer pre spúšťací virtuálny filament_switch_sensor.
-#use_current_dia_while_delay: Nesprávne
-# Použite aktuálny priemer namiesto menovitého priemeru
-# oneskorenie merania neprebehlo.
+#   Sensor enabled or disabled after power on. The default is to
+#   disable.
+#enable_flow_compensation: True
+#   Flow compensation enabled or disabled. If set to False, the sensor
+#   will not modify the extrusion multiplier and will only trigger
+#   runout events. The default is True.
+#measurement_interval: 10
+#   The approximate distance (in mm) between sensor readings. The
+#   default is 10mm.
+#logging: False
+#   Out diameter to terminal and klipper.log can be turn on|of by
+#   command.
+#min_diameter: 1.0
+#   Minimal diameter for trigger virtual filament_switch_sensor.
+#max_diameter:
+#   Maximum diameter for triggering virtual filament_switch_sensor.
+#   The default is default_nominal_filament_diameter + max_difference.
+#use_current_dia_while_delay: False
+#   Use the current diameter instead of the nominal diameter while
+#   the measurement delay has not run through.
 #pause_on_runout:
 #runout_gcode:
 #insert_gcode:
 #event_delay:
 #pause_delay:
-# Pozrite si časť &quot;filament_switch_sensor&quot; pre popis
-# vyššie uvedené parametre.
+#   See the &quot;filament_switch_sensor&quot; section for a description of the
+#   above parameters.
 </code></pre></div>
 
-<h2 id="snimace-zatazenia">Snímače zaťaženia<a class="headerlink" href="#snimace-zatazenia" title="Permanent link">&para;</a></h2>
+<h2 id="load-cells">Load Cells<a class="headerlink" href="#load-cells" title="Permanent link">&para;</a></h2>
 <h3 id="load_cell">[load_cell]<a class="headerlink" href="#load_cell" title="Permanent link">&para;</a></h3>
-<p>Snímač zaťaženia. Používa ADC snímač pripojený k snímaču zaťaženia na vytvorenie digitálnej váhy.</p>
+<p>Load Cell. Uses an ADC sensor attached to a load cell to create a digital scale.</p>
 <div class="highlight"><pre><span></span><code>[load_cell]
 sensor_type:
 #   This must be one of the supported sensor types, see below.
@@ -6808,7 +6946,7 @@ sensor_type:
 </code></pre></div>
 
 <h4 id="hx711">HX711<a class="headerlink" href="#hx711" title="Permanent link">&para;</a></h4>
-<p>Ide o 24-bitový čip s nízkou vzorkovacou frekvenciou, ktorý využíva komunikáciu „bit-bang“. Je vhodný pre filamentové váhy.</p>
+<p>This is a 24 bit low sample rate chip using "bit-bang" communications. It is suitable for filament scales.</p>
 <div class="highlight"><pre><span></span><code>[load_cell]
 sensor_type: hx711
 sclk_pin:
@@ -6828,7 +6966,7 @@ dout_pin:
 </code></pre></div>
 
 <h4 id="hx717">HX717<a class="headerlink" href="#hx717" title="Permanent link">&para;</a></h4>
-<p>Toto je verzia HX711 so 4x vyššou vzorkovacou frekvenciou, vhodná na sondovanie.</p>
+<p>This is the 4x higher sample rate version of the HX711, suitable for probing.</p>
 <div class="highlight"><pre><span></span><code>[load_cell]
 sensor_type: hx717
 sclk_pin:
@@ -6848,7 +6986,7 @@ dout_pin:
 </code></pre></div>
 
 <h4 id="ads1220">ADS1220<a class="headerlink" href="#ads1220" title="Permanent link">&para;</a></h4>
-<p>ADS1220 je 24-bitový ADC s podporou vzorkovacej frekvencie až 2 kHz, ktorú je možné softvérovo konfigurovať.</p>
+<p>The ADS1220 is a 24 bit ADC supporting up to a 2Khz sample rate configurable in software.</p>
 <div class="highlight"><pre><span></span><code>[load_cell]
 sensor_type: ads1220
 cs_pin:
@@ -6896,6 +7034,58 @@ data_ready_pin:
 #   and &#39;analog_supply&#39;. Default is &#39;internal&#39;.
 </code></pre></div>
 
+<h4 id="ads131m0x">ADS131M0x<a class="headerlink" href="#ads131m0x" title="Permanent link">&para;</a></h4>
+<p>The ADS131M0x is a family of fast, 24-bit, delta-sigma ADCs. Two sensors are supported from this family: ADS131M02 with two simultaneously-sampling differential channels and ADS131M04 with four channels. They feature a programmable gain amplifier (PGA) with gains up to 128, configurable sampling rates up to 64000 samples per second, and require an external clock input (300 kHz to 8.4 MHz, 8.192 MHz nominal).</p>
+<div class="highlight"><pre><span></span><code>[load_cell]
+sensor_type: ads131m02
+#   Select &#39;ads131m02&#39; for the 2-channel variant or &#39;ads131m04&#39; for the
+#   4-channel variant. This parameter must be provided.
+cs_pin:
+#   The pin connected to the chip select line. This parameter must be
+#   provided.
+#spi_speed: 4000000
+#   The SPI bus speed. The default is 4 MHz.
+#spi_bus:
+#spi_software_sclk_pin:
+#spi_software_mosi_pin:
+#spi_software_miso_pin:
+#   See the &quot;common SPI settings&quot; section for a description of the
+#   above parameters.
+data_ready_pin:
+#   Pin connected to the data ready (DRDY) line. This parameter must be
+#   provided.
+#adc_channel: 0
+#   The ADC channel to read. For the ADS131M02, valid values are 0 and 1.
+#   For the ADS131M04, valid values are 0, 1, 2, and 3. The default is 0.
+#clock_freq:
+#   The external clock frequency (fCLKIN) in Hz supplied to the CLKIN pin.
+#   The valid range is 300000 to 8400000. The nominal clock frequency for the
+#   ADS131M0x is 8192000 Hz; it is recommended to use a clock source near
+#   this frequency. Either clock_freq or pwm_clock must be provided.
+#pwm_clock:
+#   Reference to a [static_pwm_clock] section that generates the clock signal
+#   for the CLKIN pin. The frequency of this clock is used as fCLKIN.
+#   Either clock_freq or pwm_clock must be provided.
+#sample_rate: 500.0
+#   The desired output sampling rate in samples per second. The firmware will
+#   select the closest available rate, if possible. When the nominal clock
+#   frequency of 8192000 Hz is used and global-chop mode is disabled, the
+#   following rates are available: 250, 500, 1000, 2000, 4000, 8000, 16000,
+#   32000, and 64000. The actual effective sampling rate can be checked via
+#   the LOAD_CELL_DIAGNOSTIC command. The default is 500.
+#gain: 128
+#   The PGA gain setting. Valid values are: 1, 2, 4, 8, 16, 32, 64, and
+#   128. The default is 128.
+#enable_global_chop: False
+#   Enable global-chop mode to reduce internal system offset errors by averaging
+#   two conversions with opposite input polarities. The default is False.
+#global_chop_delay: 16
+#   The global-chop delay in modulator clock periods, only used when
+#   enable_global_chop is True. Higher values allow more settling time
+#   between input swaps. Valid values are all powers of 2 from 2 to 65536.
+#   The default is 16.
+</code></pre></div>
+
 <h3 id="load_cell_probe">[load_cell_probe]<a class="headerlink" href="#load_cell_probe" title="Permanent link">&para;</a></h3>
 <p>Load Cell Probe. This combines the functionality of a [probe] and a [load_cell].</p>
 <div class="highlight"><pre><span></span><code>[load_cell_probe]
@@ -6925,7 +7115,7 @@ sensor_type:
 #   load cell will be igfiltered outnored. This option requires the SciPy
 #   library. Default: None
 #buzz_filter_delay: 2
-#   The delay, or &#39;order&#39;, of the buzz filter. This controle the number of
+#   The delay, or &#39;order&#39;, of the buzz filter. This controls the number of
 #   samples required to make a trigger detection. Can be 1 or 2, the default
 #   is 2.
 #notch_filter_frequencies: 50, 60
@@ -7010,8 +7200,8 @@ vssa_pin:
 </code></pre></div>
 
 <h3 id="ads1x1x">[ads1x1x]<a class="headerlink" href="#ads1x1x" title="Permanent link">&para;</a></h3>
-<p>ADS1013, ADS1014, ADS1015, ADS1113, ADS1114 a ADS1115 sú analógovo-digitálne prevodníky založené na I2C, ktoré možno použiť pre teplotné senzory. Poskytujú 4 analógové vstupné piny, buď ako jednofázový, alebo ako diferenciálny vstup.</p>
-<p>Poznámka: Pri používaní tohto senzora na ovládanie ohrievačov buďte opatrní. Minimálna a maximálna teplota ohrievača sa overujú iba v hostiteľskom zariadení a iba v prípade, že hostiteľské zariadenie beží a funguje normálne. (Vstupy ADC priamo pripojené k mikrokontroléru overujú min. a max. teplotu v mikrokontroléri a nevyžadujú funkčné pripojenie k hostiteľskému prostrediu.)</p>
+<p>ADS1013, ADS1014, ADS1015, ADS1113, ADS1114 and ADS1115 are I2C based Analog to Digital Converters that can be used for temperature sensors. They provide 4 analog input pins either as single line or as differential input.</p>
+<p>Note: Use caution if using this sensor to control heaters. The heater min_temp and max_temp are only verified in the host and only if the host is running and operating normally. (ADC inputs directly connected to the micro-controller verify min_temp and max_temp within the micro-controller and do not require a working connection to the host.)</p>
 <div class="highlight"><pre><span></span><code>[ads1x1x my_ads1x1x]
 chip: ADS1115
 #pga: 4.096V
@@ -7019,7 +7209,7 @@ chip: ADS1115
 #   scales all values read from the ADC. Options are: 6.144V, 4.096V, 2.048V,
 #   1.024V, 0.512V, 0.256V
 #adc_voltage: 3.3
-#   The suppy voltage for the device. This allows additional software scaling
+#   The supply voltage for the device. This allows additional software scaling
 #   for all values read from the ADC.
 i2c_mcu: host
 i2c_bus: i2c.1
@@ -7029,14 +7219,14 @@ i2c_bus: i2c.1
 #   can be specified directly instead of using the address_pin.
 </code></pre></div>
 
-<p>Čip poskytuje piny, ktoré je možné použiť na iných senzoroch.</p>
+<p>The chip provides pins that can be used on other sensors.</p>
 <div class="highlight"><pre><span></span><code>sensor_type: ...
 #   Can be any thermistor or adc_temperature.
 sensor_pin: my_ads1x1x:AIN0
 #   A combination of the name of the ads1x1x chip and the pin. Possible
 #   pin values are AIN0, AIN1, AIN2 and AIN3 for single ended lines and
 #   DIFF01, DIFF03, DIFF13 and DIFF23 for differential between their
-#   correspoding lines. For example
+#   corresponding lines. For example
 #   DIFF03 measures the differential between line 0 and 3. Only specific
 #   combinations for the differentials are allowed.
 </code></pre></div>
@@ -7105,9 +7295,9 @@ host_mcu:
 <h2 id="dalsie-vlastne-moduly">Ďalšie vlastné moduly<a class="headerlink" href="#dalsie-vlastne-moduly" title="Permanent link">&para;</a></h2>
 <h3 id="palette2">[palette2]<a class="headerlink" href="#palette2" title="Permanent link">&para;</a></h3>
 <p>Multimateriálová podpora Palette 2 - poskytuje užšiu integráciu podporujúcu zariadenia Palette 2 v prepojenom režime.</p>
-<p>Tento modul tiež vyžaduje <code>[virtual_sdcard]</code> a <code>[pause_resume]</code> pre plnú funkčnosť.</p>
+<p>This modules also requires <code>[virtual_sdcard]</code> and <code>[pause_resume]</code> for full functionality.</p>
 <p>Ak použijete tento modul, nepoužívajte doplnok Palette 2 pre Octoprint, pretože budú v konflikte a modul 1 sa nepodarí správne inicializovať, čo pravdepodobne spôsobí prerušenie tlače.</p>
-<p>Ak používate Octoprint a streamujete gcode cez sériový port namiesto tlače z virtual_sd, odstránením <strong>M1</strong> a <strong>M0</strong> z <em>Pozastavovacích príkazov</em> v <em>Nastavenia &gt; Sériové pripojenie &gt; Firmvér a protokol</em> zabránite nutnosti spustiť tlač na Palette 2 a obnoviť pozastavenie v Octoprinte, aby sa tlač začala.</p>
+<p>If you use Octoprint and stream gcode over the serial port instead of printing from virtual_sd, then remove <strong>M1</strong> and <strong>M0</strong> from <em>Pausing commands</em> in <em>Settings &gt; Serial Connection &gt; Firmware &amp; protocol</em> will prevent the need to start print on the Palette 2 and unpausing in Octoprint for your print to begin.</p>
 <div class="highlight"><pre><span></span><code>[palette2]
 seriál:
 # Sériový port na pripojenie k palete 2.
@@ -7124,7 +7314,7 @@ seriál:
 </code></pre></div>
 
 <h3 id="angle">[angle]<a class="headerlink" href="#angle" title="Permanent link">&para;</a></h3>
-<p>Podpora magnetického snímača uhla Hallovej osi na odčítanie meraní uhlového hriadeľa krokového motora pomocou čipov SPI a1333, as5047d, mt6816, mt6826s alebo tle5012b. Merania sú dostupné prostredníctvom <a href="API_Server.html">API servera</a> a <a href="Debugging.html#motion-analysis-and-data-logging">motion analysis tool</a>. Dostupné príkazy nájdete v <a href="G-Codes.html#angle">G-Code reference</a>.</p>
+<p>Magnetic hall angle sensor support for reading stepper motor angle shaft measurements using a1333, as5047d, mt6816, mt6826s, or tle5012b SPI chips. The measurements are available via the <a href="API_Server.html">API Server</a> and <a href="Debugging.html#motion-analysis-and-data-logging">motion analysis tool</a>. See the <a href="G-Codes.html#angle">G-Code reference</a> for available commands.</p>
 <div class="highlight"><pre><span></span><code>[angle my_angle_sensor]
 sensor_type:
 #   The type of the magnetic hall sensor chip. Available choices are
@@ -7152,7 +7342,7 @@ cs_pin:
 
 <h2 id="spolocne-parametre-zbernice">Spoločné parametre zbernice<a class="headerlink" href="#spolocne-parametre-zbernice" title="Permanent link">&para;</a></h2>
 <h3 id="bezne-nastavenia-spi">Bežné nastavenia SPI<a class="headerlink" href="#bezne-nastavenia-spi" title="Permanent link">&para;</a></h3>
-<p>Nasledujúce parametre sú všeobecne dostupné pre zariadenia používajúce zbernicu SPI.</p>
+<p>The following parameters are generally available for devices using an SPI bus.</p>
 <div class="highlight"><pre><span></span><code>#spi_speed:
 # Rýchlosť SPI (v Hz), ktorá sa má použiť pri komunikácii so zariadením.
 # Predvolené nastavenie závisí od typu zariadenia.
@@ -7170,9 +7360,9 @@ Režim # nevyžaduje hardvérovú podporu mikrokontroléra (zvyčajne
 </code></pre></div>
 
 <h3 id="bezne-nastavenia-i2c">Bežné nastavenia I2C<a class="headerlink" href="#bezne-nastavenia-i2c" title="Permanent link">&para;</a></h3>
-<p>Nasledujúce parametre sú všeobecne dostupné pre zariadenia používajúce zbernicu I2C.</p>
+<p>The following parameters are generally available for devices using an I2C bus.</p>
 <p>Všimnite si, že súčasná podpora mikrokontroléra Klipper pre I2C vo všeobecnosti nie je tolerantná k šumu linky. Neočakávané chyby na I2C vodičoch môžu spôsobiť, že Klipper vyvolá chybu behu. Podpora Klipper pre obnovu chýb sa líši medzi jednotlivými typmi mikrokontroléra. Vo všeobecnosti sa odporúča používať iba I2C zariadenia, ktoré sú na rovnakej doske s plošnými spojmi ako mikrokontrolér.</p>
-<p>Väčšina Klipper implementácií mikrokontrolérov podporuje iba rýchlosť <code>i2c_speed</code> 100000 (<em>štandardný režim</em>, 100 kbit/s). Mikrokontrolér Klipper „Linux“ podporuje rýchlosť 400000 (<em>rýchly režim</em>, 400 kbit/s), ale musí byť <a href="RPi_microcontroller.html#optional-enabling-i2c">nastavená v operačnom systéme</a> a parameter <code>i2c_speed</code> sa inak ignoruje. Mikrokontrolér Klipper „RP2040“ a rodina ATmega AVR a niektoré STM32 (F0, G0, G4, L4, F7, H7) podporujú rýchlosť 400000 prostredníctvom parametra <code>i2c_speed</code>. Všetky ostatné mikrokontroléry Klipper používajú rýchlosť 100000 a ignorujú parameter <code>i2c_speed</code>.</p>
+<p>Most Klipper micro-controller implementations only support an <code>i2c_speed</code> of 100000 (<em>standard mode</em>, 100kbit/s). The Klipper "Linux" micro-controller supports a 400000 speed (<em>fast mode</em>, 400kbit/s), but it must be <a href="RPi_microcontroller.html#optional-enabling-i2c">set in the operating system</a> and the <code>i2c_speed</code> parameter is otherwise ignored. The Klipper "RP2040" micro-controller and ATmega AVR family and some STM32 (F0, G0, G4, L4, F7, H7) support a rate of 400000 via the <code>i2c_speed</code> parameter. All other Klipper micro-controllers use a 100000 rate and ignore the <code>i2c_speed</code> parameter.</p>
 <div class="highlight"><pre><span></span><code>#i2c_address:
 # Adresa i2c zariadenia. Toto musí byť uvedené ako desatinné číslo
 # číslo (nie v hex). Predvolená hodnota závisí od typu zariadenia.

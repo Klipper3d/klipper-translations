@@ -13,7 +13,7 @@
     
     
       
-        <title>Load Cells - Klipper documentation</title>
+        <title>செல்களை ஏற்றவும் - Klipper documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#load-cells" class="md-skip">
+        <a href="#_1" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Load Cells
+              செல்களை ஏற்றவும்
             
           </span>
         </div>
@@ -1342,30 +1342,30 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#related-documentation" class="md-nav__link">
-    Related Documentation
+  <a href="#_2" class="md-nav__link">
+    தொடர்புடைய ஆவணங்கள்
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#using-load_cell_diagnostic" class="md-nav__link">
-    Using LOAD_CELL_DIAGNOSTIC
+  <a href="#load_cell_diagnostic" class="md-nav__link">
+    Load_cell_diagnostic ஐப் பயன்படுத்துதல்
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#calibrating-a-load-cell" class="md-nav__link">
-    Calibrating a Load Cell
+  <a href="#_3" class="md-nav__link">
+    ஒரு சுமை கலத்தை அளவீடு செய்தல்
   </a>
   
-    <nav class="md-nav" aria-label="Calibrating a Load Cell">
+    <nav class="md-nav" aria-label="ஒரு சுமை கலத்தை அளவீடு செய்தல்">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#applying-a-known-force-or-load" class="md-nav__link">
-    Applying a Known Force or Load
+  <a href="#_4" class="md-nav__link">
+    அறியப்பட்ட ஆற்றல் அல்லது சுமைகளைப் பயன்படுத்துதல்
   </a>
   
 </li>
@@ -1376,15 +1376,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#reading-force-data" class="md-nav__link">
-    Reading Force Data
+  <a href="#_5" class="md-nav__link">
+    படைப்பு படிப்பு தரவைப் படித்தல்
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#taring-a-load-cell" class="md-nav__link">
-    Taring a Load Cell
+  <a href="#_6" class="md-nav__link">
+    ஒரு சுமை கலத்தை திணறடிப்பது
   </a>
   
 </li>
@@ -1406,16 +1406,16 @@
 </a>
 
 
-<h1 id="load-cells">Load Cells<a class="headerlink" href="#load-cells" title="Permanent link">&para;</a></h1>
-<p>This document describes Klipper's support for load cells. Basic load cell functionality can be used to read force data and to weigh things like filament. A calibrated force sensor is an important part of a load cell based probe.</p>
-<h2 id="related-documentation">Related Documentation<a class="headerlink" href="#related-documentation" title="Permanent link">&para;</a></h2>
+<h1 id="_1">செல்களை ஏற்றவும்<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>இந்த ஆவணம் சுமை கலங்களுக்கு கிளிப்பரின் ஆதரவை விவரிக்கிறது. ஆற்றல் தரவைப் படிக்கவும், இழை போன்றவற்றை எடைபோடவும் அடிப்படை சுமை செல் செயல்பாட்டைப் பயன்படுத்தலாம். அளவீடு செய்யப்பட்ட படை சென்சார் ஒரு சுமை செல் அடிப்படையிலான ஆய்வின் முக்கிய பகுதியாகும்.</p>
+<h2 id="_2">தொடர்புடைய ஆவணங்கள்<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="Config_Reference.html#load_cell">load_cell Config Reference</a></li>
-<li><a href="G-Codes.html#load_cell">load_cell G-Code Commands</a></li>
-<li><a href="Status_Reference.html#load_cell">load_cell Status Reference</a></li>
+<li><a href="Config_Reference.html#load_cell">load_cell கட்டமைப்பு Reference</a></li>
+<li><a href="G-Codes.html#load_cell">load_cell G-குறியீடு கட்டளைகள்</a></li>
+<li><a href="Status_Reference.html#load_cell">load_cell நிலை Reference</a></li>
 </ul>
-<h2 id="using-load_cell_diagnostic">Using <code>LOAD_CELL_DIAGNOSTIC</code><a class="headerlink" href="#using-load_cell_diagnostic" title="Permanent link">&para;</a></h2>
-<p>When you first connect a load cell its good practice to check for issues by running <code>LOAD_CELL_DIAGNOSTIC</code>. This tool collects 10 seconds of data from the load cell and resport statistics:</p>
+<h2 id="load_cell_diagnostic"><code>Load_cell_diagnostic</code> ஐப் பயன்படுத்துதல்<a class="headerlink" href="#load_cell_diagnostic" title="Permanent link">&para;</a></h2>
+<p><code>Load_cell_diagnostic</code> ஐ இயக்குவதன் மூலம் சிக்கல்களைச் சரிபார்க்க அதன் நல்ல நடைமுறையை நீங்கள் முதலில் இணைக்கும்போது. இந்த கருவி சுமை கலத்திலிருந்து 10 விநாடிகள் தரவைச் சேகரித்து புள்ளிவிவரங்களைத் தூண்டுகிறது:</p>
 <div class="highlight"><pre><span></span><code>$ LOAD_CELL_DIAGNOSTIC
 // Collecting load cell data for 10 seconds...
 // Samples Collected: 3211
@@ -1425,207 +1425,175 @@
 // Sample range / sensor capacity: 0.00524%
 </code></pre></div>
 
-<p>Things you can check with this data:</p>
+<p>இந்தத் தரவைக் கொண்டு நீங்கள் சரிபார்க்கக்கூடிய விசயங்கள்:</p>
 <ul>
-<li>The configured sample rate of the sensor should be close to the 'Measured samples per second' value. If it is not you may have a configuration or wiring issue.</li>
-<li>'Saturated samples' should be 0. If you have saturated samples it means the load sell is seeing more force than it can measure.</li>
-<li>'Unique values' should be a large percentage of the 'Samples Collected' value. If 'Unique values' is 1 it is very likely a wiring issue.</li>
-<li>Tap or push on the sensor while <code>LOAD_CELL_DIAGNOSTIC</code> runs. If things are working correctly ths should increase the 'Sample range'.</li>
+<li>சென்சாரின் கட்டமைக்கப்பட்ட மாதிரி வீதம் 'நொடிக்கு அளவிடப்பட்ட மாதிரிகள்' மதிப்புக்கு நெருக்கமாக இருக்க வேண்டும். அது இல்லையென்றால் உங்களுக்கு உள்ளமைவு அல்லது வயரிங் சிக்கல் இருக்கலாம்.</li>
+<li>'நிறைவுற்ற மாதிரிகள்' 0 ஆக இருக்க வேண்டும். உங்களிடம் நிறைவுற்ற மாதிரிகள் இருந்தால், சுமை விற்பனை அளவிடக்கூடியதை விட அதிக சக்தியைக் காண்கிறது.</li>
+<li>'தனித்துவமான மதிப்புகள்' 'சேகரிக்கப்பட்ட மாதிரிகள்' மதிப்பில் ஒரு பெரிய சதவீதமாக இருக்க வேண்டும். 'தனித்துவமான மதிப்புகள்' 1 என்றால் அது ஒரு வயரிங் சிக்கல்.</li>
+<li>Tap or push on the sensor while <code>LOAD_CELL_DIAGNOSTIC</code> runs. If things are working correctly this should increase the 'Sample range'.</li>
 </ul>
-<h2 id="calibrating-a-load-cell">Calibrating a Load Cell<a class="headerlink" href="#calibrating-a-load-cell" title="Permanent link">&para;</a></h2>
-<p>Load cells are calibrated using the <code>LOAD_CELL_CALIBRATE</code> command. This is an interactive calibration utility that walks you though a 3 step process:</p>
+<h2 id="_3">ஒரு சுமை கலத்தை அளவீடு செய்தல்<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p><code>Load_cell_calibrate</code> கட்டளையைப் பயன்படுத்தி சுமை செல்கள் அளவீடு செய்யப்படுகின்றன. இது ஒரு ஊடாடும் அளவுத்திருத்த பயன்பாடாகும், இது 3 படி செயல்முறை என்றாலும் உங்களை அழைத்துச் செல்கிறது:</p>
 <ol>
-<li>First use the <code>TARE</code> command to establish the zero force value. This is the <code>reference_tare_counts</code> config value.</li>
-<li>Next you apply a known load or force to the load cell and run the <code>CALIBRATE GRAMS=nnn</code> command. From this the <code>counts_per_gram</code> value is calculated. See <a href="#applying-a-known-force-or-load">the next section</a> for some suggestions on how to do this.</li>
-<li>Finally, use the <code>ACCEPT</code> command to save the results.</li>
+<li>சுழிய ஆற்றல் மதிப்பை நிறுவ முதலில் <code>tare</code> கட்டளையைப் பயன்படுத்தவும். இது <code>குறிப்பு_டேர்_சவுண்ட்ச்</code> கட்டமைப்பு மதிப்பு.</li>
+<li>அடுத்து நீங்கள் சுமை கலத்திற்கு அறியப்பட்ட சுமை அல்லது சக்தியைப் பயன்படுத்துங்கள் மற்றும் <code>அளவீடு கிராம் = என்.என்.என்</code> கட்டளையை இயக்கவும். இதிலிருந்து <code>couns_per_gram</code> மதிப்பு கணக்கிடப்படுகிறது. இதை எவ்வாறு செய்வது என்பது குறித்த சில பரிந்துரைகளுக்கு <a href="#applying-a-known-force-or-load">அடுத்த பகுதி</a> ஐப் பார்க்கவும்.</li>
+<li>இறுதியாக, முடிவுகளைச் சேமிக்க <code>ஏற்றுக்கொள்</code> கட்டளையைப் பயன்படுத்தவும்.</li>
 </ol>
-<p>You can cancel the calibration process at any time with <code>ABORT</code>.</p>
-<h3 id="applying-a-known-force-or-load">Applying a Known Force or Load<a class="headerlink" href="#applying-a-known-force-or-load" title="Permanent link">&para;</a></h3>
-<p>The <code>CALIBRATE GRAMS=nnn</code> step can be accomplished in a number of ways. If your load cell is under a platform like a bed or filament holder it might be easiest to put a known mass on the platform. E.g. you could use a couple of 1KG filament spools.</p>
-<p>If your load cell is in the printer's toolhead a different approach is easier. Put a digital scale on the printers bed and gently lower the toolhead onto the scale (or raise the bed into the toolhead if your bed moves). You may be able to do this using the <code>FORCE_MOVE</code> command. But more likely you will have to manually moving the z axis with the motors off until the toolhead presses on the scale.</p>
-<p>A good calibration force would ideally be a large percentage of the load cell's rated capacity. E.g. if you have a 5Kg load cell you would ideally calibrate it with a 5kg mass. This might work well with under-bed sensors that have to support a lot of weight. For toolhead probes this may not be a load that your printer bed or toolhead can tolerate without damage. Do try to use at least 1Kg of force, most printers should tolerate this without issue.</p>
-<p>When calibrating make careful note of the values reported:</p>
+<p>நீங்கள் எந்த நேரத்திலும் அளவுத்திருத்த செயல்முறையை <code>` abort</code> உடன் ரத்து செய்யலாம்.</p>
+<h3 id="_4">அறியப்பட்ட ஆற்றல் அல்லது சுமைகளைப் பயன்படுத்துதல்<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p><code>அளவீடு கிராம் = என்.என்.என்</code> படி பல வழிகளில் நிறைவேற்றப்படலாம். உங்கள் சுமை செல் ஒரு படுக்கை அல்லது இழை வைத்திருப்பவர் போன்ற ஒரு தளத்தின் கீழ் இருந்தால், அறியப்பட்ட வெகுசனத்தை மேடையில் வைப்பது எளிதானது. எ.கா. நீங்கள் 1 கிலோ இழை ச்பூல்களைப் பயன்படுத்தலாம்.</p>
+<p>உங்கள் சுமை செல் அச்சுப்பொறியின் கருவித்தடத்தில் இருந்தால் வேறு அணுகுமுறை எளிதானது. அச்சுப்பொறிகள் படுக்கையில் டிசிட்டல் அளவை வைத்து, கருவித்தொகையை அளவில் மெதுவாகக் குறைக்கவும் (அல்லது உங்கள் படுக்கை நகர்ந்தால் படுக்கையை கருவித்தடத்திற்கு உயர்த்தவும்). <code>Force_move</code> கட்டளையைப் பயன்படுத்தி இதை நீங்கள் செய்ய முடியும். ஆனால் கருவியின் அளவு அழுத்தும் வரை மோட்டார்கள் மூலம் சட் அச்சை கைமுறையாக நகர்த்த வேண்டியிருக்கும்.</p>
+<p>ஒரு நல்ல அளவுத்திருத்த ஆற்றல் சுமை கலத்தின் மதிப்பிடப்பட்ட திறனில் ஒரு பெரிய சதவீதமாக இருக்கும். எ.கா. உங்களிடம் 5 கிலோ சுமை செல் இருந்தால், அதை 5 கிலோ வெகுசனத்துடன் அளவீடு செய்வீர்கள். இது அதிக எடையை ஆதரிக்க வேண்டிய படுக்கைக்கு கீழ் சென்சார்களுடன் நன்றாக வேலை செய்யக்கூடும். கருவி எட் ஆய்வுகளுக்கு இது உங்கள் அச்சுப்பொறி படுக்கை அல்லது கருவித்தளம் சேதமின்றி பொறுத்துக்கொள்ளக்கூடிய ஒரு சுமையாக இருக்காது. குறைந்தது 1 கிலோ சக்தியைப் பயன்படுத்த முயற்சிக்கவும், பெரும்பாலான அச்சுப்பொறிகள் இதை சிக்கல் இல்லாமல் பொறுத்துக்கொள்ள வேண்டும்.</p>
+<p>அளவீடு செய்யும் போது அறிக்கையிடப்பட்ட மதிப்புகளை கவனமாக கவனிக்கவும்:</p>
 <div class="highlight"><pre><span></span><code>$ CALIBRATE GRAMS=555
 // Calibration value: -2.78% (-59803108), Counts/gram: 73039.78739,
 Total capacity: +/- 29.14Kg
 </code></pre></div>
 
-<p>The <code>Total capacity</code> should be close to the theoretical rating of the load cell based on the sensor's capacity. If it is much larger you could have used a higher gain setting in the sensor or a more sensitive load cell. This isn't as critical for 32bit and 24bit sensors but is much more critical for low bit width sensors.</p>
-<h2 id="reading-force-data">Reading Force Data<a class="headerlink" href="#reading-force-data" title="Permanent link">&para;</a></h2>
-<p>Force data can be read with a GCode command:</p>
+<p><code>மொத்த திறன்</code> சென்சாரின் திறனின் அடிப்படையில் சுமை கலத்தின் தத்துவார்த்த மதிப்பீட்டிற்கு நெருக்கமாக இருக்க வேண்டும். இது மிகப் பெரியதாக இருந்தால், நீங்கள் சென்சாரில் அதிக ஆதாய அமைப்பைப் பயன்படுத்தலாம் அல்லது அதிக உணர்திறன் கொண்ட சுமை கலத்தைப் பயன்படுத்தலாம். இது 32 பிட் மற்றும் 24 பிட் சென்சார்களுக்கு மிகவும் முக்கியமானதல்ல, ஆனால் குறைந்த பிட் அகல சென்சார்களுக்கு இது மிகவும் முக்கியமானது.</p>
+<h2 id="_5">படைப்பு படிப்பு தரவைப் படித்தல்<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>Gcode கட்டளையுடன் படை தரவை படிக்கலாம்:</p>
 <div class="highlight"><pre><span></span><code>LOAD_CELL_READ
 // 10.6g (1.94%)
 </code></pre></div>
 
-<p>Data is also continuously read and can be consumed from the load_cell printer object in a macro:</p>
+<p>தரவுகளும் தொடர்ந்து படிக்கப்படுகின்றன, மேலும் மேக்ரோவில் உள்ள சுமை_செல் அச்சுப்பொறி பொருளிலிருந்து நுகரலாம்:</p>
 <div class="highlight"><pre><span></span><code>{% set grams = printer.load_cell.force_g %}
 </code></pre></div>
 
-<p>This provides an average force over the last 1 second, similar to how temperature sensors work.</p>
-<h2 id="taring-a-load-cell">Taring a Load Cell<a class="headerlink" href="#taring-a-load-cell" title="Permanent link">&para;</a></h2>
-<p>Taring, sometimes called zeroing, sets the current weight reported by the load_cell to 0. This is useful for measuring relative to a known weight. e.g. when measuring a filament spool, using <code>LOAD_CELL_TARE</code> sets the weight to 0. Then as filament is printed the load_cell will report the weight of the filament used.</p>
+<p>வெப்பநிலை சென்சார்கள் எவ்வாறு செயல்படுகின்றன என்பதைப் போலவே இது கடைசி 1 நொடிக்கு சராசரி சக்தியை வழங்குகிறது.</p>
+<h2 id="_6">ஒரு சுமை கலத்தை திணறடிப்பது<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>டாரிங், சில நேரங்களில் சீரோயிங் என்று அழைக்கப்படுகிறது, சுமை_செல் மூலம் புகாரளிக்கப்பட்ட தற்போதைய எடையை 0 ஆக அமைக்கிறது. இது அறியப்பட்ட எடையுடன் ஒப்பிடும்போது அளவிட பயனுள்ளதாக இருக்கும். எ.கா. ஒரு இழை ச்பூலை அளவிடும்போது, <code>load_cell_tare</code> ஐப் பயன்படுத்தி எடையை 0 ஆக அமைக்கிறது. பின்னர் இழை அச்சிடப்படுவதால் சுமை_செல் பயன்படுத்தப்படும் இழைகளின் எடையை புகாரளிக்கும்.</p>
 <div class="highlight"><pre><span></span><code>LOAD_CELL_TARE
 // Load cell tare value: 5.32% (445903)
 </code></pre></div>
 
-<p>The current tare value is reported in the printers status and can be read in a macro:</p>
+<p>தற்போதைய TARE மதிப்பு அச்சுப்பொறிகளின் நிலையில் தெரிவிக்கப்பட்டுள்ளது மற்றும் ஒரு மேக்ரோவில் படிக்கலாம்:</p>
 <div class="highlight"><pre><span></span><code>{% set tare_counts = printer.load_cell.tare_counts %}
 </code></pre></div>
 
-<h1 id="load-cell-probes">Load Cell Probes<a class="headerlink" href="#load-cell-probes" title="Permanent link">&para;</a></h1>
-<h2 id="related-documentation_1">Related Documentation<a class="headerlink" href="#related-documentation_1" title="Permanent link">&para;</a></h2>
+<h1 id="_7">செல் ஆய்வுகளை ஏற்றவும்<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h1>
+<h2 id="_8">தொடர்புடைய ஆவணங்கள்<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="Config_Reference.html#load_cell_probe">load_cell_probe Config Reference</a></li>
-<li><a href="G-Codes.html#load_cell_probe">load_cell_probe G-Code Commands</a></li>
-<li><a href="Status_Reference.html#load_cell_probe">load_cell_probe Statuc Reference</a></li>
+<li><a href="Config_Reference.html#load_cell_probe">load_cell_probe கட்டமைப்பு Reference</a></li>
+<li><a href="G-Codes.html#load_cell_probe">load_cell_probe G-குறியீடு கட்டளைகள்</a></li>
+<li><a href="Status_Reference.html#load_cell_probe">load_cell_probe நிலையான குறிப்பு</a></li>
 </ul>
-<h2 id="load-cell-probe-safety">Load Cell Probe Safety<a class="headerlink" href="#load-cell-probe-safety" title="Permanent link">&para;</a></h2>
-<p>Because load cells are a direct nozzle contact probe there is a risk of damage to your printer if too much force is used. The load cell probing system includes a number of safety checks that try to keep your machine safe from excessive force to the toolhead. It's important to understand what they are and how they work as you can defeat most of them with poorly chosen config values.</p>
-<h4 id="calibration-check">Calibration Check<a class="headerlink" href="#calibration-check" title="Permanent link">&para;</a></h4>
-<p>Every time a homing move starts, load_cell_probe checks that the load_cell is calibrated. If not it will stop the move with an error: <code>!! Load Cell not calibrated</code>.</p>
-<h4 id="counts_per_gram"><code>counts_per_gram</code><a class="headerlink" href="#counts_per_gram" title="Permanent link">&para;</a></h4>
-<p>This setting is used to convert raw sensor counts into grams. All the safety limits are in gram units for your convenience. If the <code>counts_per_gram</code> setting is not accurate you can easily exceed the safe force on the toolhead. You should never guess this value. Use <code>LOAD_CELL_CALIBRATE</code> to find your load cells actual <code>counts_per_gram</code>.</p>
-<h4 id="trigger_force"><code>trigger_force</code><a class="headerlink" href="#trigger_force" title="Permanent link">&para;</a></h4>
-<p>This is the force in grams that triggers the endstop to halt the homing move. When a homing move starts the endstop tares itself with the current reading from the load cell. <code>trigger_force</code> is measured from that tare value. There is always some overshoot of this value when the probe collides with the bed, so be conservative. e.g. a setting of 100g could result in 350g of peak force before the toolhead stops. This overshoot will increase with faster probing <code>speed</code>, a low ADC sample rate or <a href="Multi_MCU_Homing.html">multi MCU homing</a>.</p>
-<h4 id="reference_tare_counts"><code>reference_tare_counts</code><a class="headerlink" href="#reference_tare_counts" title="Permanent link">&para;</a></h4>
-<p>This is the baseline tare value that is set by <code>LOAD_CELL_CALIBRATE</code>. This value works with <code>force_safety_limit</code> to limit the maximum force on the toolhead.</p>
+<h2 id="_9">செல் ஆய்வு பாதுகாப்பை ஏற்றவும்<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<p>சுமை செல்கள் ஒரு நேரடி முனை தொடர்பு ஆய்வாக இருப்பதால், அதிக ஆற்றல் பயன்படுத்தப்பட்டால் உங்கள் அச்சுப்பொறிக்கு சேதம் ஏற்படும் இடர் உள்ளது. சுமை செல் ஆய்வு முறை பல பாதுகாப்பு சோதனைகளை உள்ளடக்கியது, அவை உங்கள் இயந்திரத்தை அதிகப்படியான சக்தியிலிருந்து கருவித்தடத்திற்கு பாதுகாப்பாக வைத்திருக்க முயற்சிக்கின்றன. மோசமாக தேர்ந்தெடுக்கப்பட்ட கட்டமைப்பு மதிப்புகளுடன் அவர்களில் பெரும்பாலோரை நீங்கள் தோற்கடிக்க முடியும் என்பதால் அவை என்ன, அவை எவ்வாறு செயல்படுகின்றன என்பதைப் புரிந்துகொள்வது முதன்மை.</p>
+<h4 id="_10">அளவுத்திருத்த சோதனை<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h4>
+<p>ஒவ்வொரு முறையும் ஒரு ஓமிங் நகர்வு தொடங்கும் போது, சுமை_செல் அளவீடு செய்யப்படுவதை load_cell_probe சரிபார்க்கிறது. இல்லையென்றால் அது பிழையுடன் நகர்வதை நிறுத்திவிடும்: <code>!! செல் அளவீடு செய்யப்படவில்லை</code>.</p>
+<h4 id="couns_per_gram"><code>couns_per_gram</code><a class="headerlink" href="#couns_per_gram" title="Permanent link">&para;</a></h4>
+<p>மூல சென்சார் எண்ணிக்கையை கிராம் ஆக மாற்ற இந்த அமைப்பு பயன்படுத்தப்படுகிறது. அனைத்து பாதுகாப்பு வரம்புகளும் உங்கள் வசதிக்காக கிராம் அலகுகளில் உள்ளன. <code>Couns_per_gram</code> அமைப்பு துல்லியமாக இல்லாவிட்டால், நீங்கள் கருவியின் பாதுகாப்பான சக்தியை எளிதாக மீறலாம். இந்த மதிப்பை நீங்கள் ஒருபோதும் யூகிக்கக்கூடாது. உங்கள் சுமை கலங்களை உண்மையான <code>counts_per_gram</code> கண்டுபிடிக்க<code>load_cell_calibrate</code> ஐப் பயன்படுத்தவும்.</p>
+<h4 id="_"><code>தூண்டுதல்_ஃபோர்ச்</code><a class="headerlink" href="#_" title="Permanent link">&para;</a></h4>
+<p>கிராம்சில் உள்ள ஆற்றல் இது எண்ட்ச்டாப்பைத் தூண்டுகிறது. ஒரு ஓமிங் நடவடிக்கை எண்ட்ச்டாப் சுமை கலத்திலிருந்து தற்போதைய வாசிப்புடன் தன்னைத் தொடங்கும்போது. <code>TRIGGER_FORCE</code> அந்த மோசமான மதிப்பிலிருந்து அளவிடப்படுகிறது. ஆய்வு படுக்கையுடன் மோதுகையில் இந்த மதிப்பின் சில ஓவர்சூட் எப்போதும் இருக்கும், எனவே பழமைவாதமாக இருங்கள். எ.கா. 100 கிராம் அமைப்பானது கருவிக்காட்டி நிறுத்தப்படுவதற்கு முன்பு 350 கிராம் உச்ச சக்தியை ஏற்படுத்தும். இந்த ஓவர்சூட் <code>வேகம்</code>, குறைந்த ஏடிசி மாதிரி வீதம் அல்லது <a href="Multi_MCU_Homing.html">மல்டி எம்.சி.யு ஓமிங்</a> மூலம் அதிகரிக்கும்.</p>
+<h4 id="__"><code>குறிப்பு_டேர்_கவுண்ட்ச்</code><a class="headerlink" href="#__" title="Permanent link">&para;</a></h4>
+<p>இது <code>load_cell_calibrate</code> ஆல் அமைக்கப்பட்ட அடிப்படை TARE மதிப்பு. இந்த மதிப்பு கருவியின் தலையில் அதிகபட்ச சக்தியைக் கட்டுப்படுத்த <code>force_safety_limit</code> உடன் செயல்படுகிறது.</p>
 <h4 id="force_safety_limit"><code>force_safety_limit</code><a class="headerlink" href="#force_safety_limit" title="Permanent link">&para;</a></h4>
-<p>This is the maximum absolute force, relative to <code>reference_tare_counts</code>, that the probe will allow while homing or probing. If the MCU sees this force exceeded it will shut down the printer with the error <code>!! Load cell endstop: too much force!</code>. There are a number of ways this can be triggered:</p>
-<p>The first risk this protects against is picking too large of a value for <code>drift_filter_cutoff_frequency</code>. This can cause the drift filter to filter out a probe event and continue the homing move. If this happens the <code>force_safety_limit</code> acts as a backup protection.</p>
-<p>The second problem is probing repeatedly in one place. Klipper does not retract the probe when doing a single <code>PROBE</code> command. This can result in force applied to the toolhead at the end of a probing cycle. Because external forces can vary greatly between probing locations, <code>load_cell_probe</code> performs a tare before beginning each probe. If you repeat the <code>PROBE</code> command, load_cell_probe will tare the endstop at the current force. Multiple cycles of this will result in ever-increasing force on the toolhead. <code>force_safety_limit</code> stops this cycle from running out of control.</p>
-<p>Another way this run-away can happen is damage to a strain gauge. If the metal part is permanently bent it wil change the <code>reference_tare_counts</code> of the device. This puts the starting tare value much closer to the limit making it more likely to be violated. You want to be notified if this is happening because your hardware has been permanently damaged.</p>
-<p>The final way this can be triggered is due to temperature changes. If your strain gauges are heated their <code>reference_tare_counts</code> may be very different at ambient temperature vs operating temperature. In this case you may need to increase the <code>force_safety_limit</code> to allow for thermal changes.</p>
-<h4 id="load-cell-endstop-watchdog-task">Load Cell Endstop Watchdog Task<a class="headerlink" href="#load-cell-endstop-watchdog-task" title="Permanent link">&para;</a></h4>
-<p>When homing the load_cell_endstop starts a task on the MCU to trac measurements arriving from the sensor. If the sensor fails to send measurements for 2 sample periods the watchdog will shut down the printer with an error <code>!! LoadCell Endstop timed out waiting on ADC data</code>.</p>
-<p>If this happens, the most likely cause is a fault from the ADC. Inadequate grounding of your printer can be the root cause. The frame, power supply case and pint bed should all be connected to ground. You may need to ground the frame in multiple places. Anodized aluminum extrusions do not conduct electricity well. You might need to sand the area where the grounding wire is attached to make good electrical contact.</p>
-<h2 id="load-cell-probe-setup">Load Cell Probe Setup<a class="headerlink" href="#load-cell-probe-setup" title="Permanent link">&para;</a></h2>
-<p>This section covers the process for commissioning a load cell probe.</p>
-<h3 id="verify-the-load-cell-first">Verify the Load Cell First<a class="headerlink" href="#verify-the-load-cell-first" title="Permanent link">&para;</a></h3>
-<p>A <code>[load_cell_probe]</code> is also a <code>[load_cell]</code> and G-code commands related to <code>[load_cell]</code> work with <code>[load_cell_probe]</code>. Before attempting to use a load cell probe, follow the directions for <a href="Load_Cell.html#calibrating-a-load-cell">calibrating the load cell</a> with <code>CALIBRATE_LOAD_CELL</code> and checking its operation with <code>LOAD_CELL_DIAGNOSTIC</code>.</p>
-<h3 id="verify-probe-operation-with-load_cell_test_tap">Verify Probe Operation With LOAD_CELL_TEST_TAP<a class="headerlink" href="#verify-probe-operation-with-load_cell_test_tap" title="Permanent link">&para;</a></h3>
-<p>Use the command <code>LOAD_CELL_TEST_TAP</code> to test the operation of the load cell probe before actually trying to probe with it. This command detects taps, just like the PROBE command, but it does not move the z axis. By default, it listens for 3 taps before ending the test. You have 30 seconds to do each tap, if no taps are detected the command will time out.</p>
-<p>If this test fails, check your configuration and <code>LOAD_CELL_DIAGNOSTIC</code> carefully to look for issues.</p>
-<p>Load cell probes don't support the <code>QUERY_ENDSTOPS</code> or <code>QUERY_PROBE</code> commands. Use <code>LOAD_CELL_TEST_TAP</code> for testing functionality before probing.</p>
-<h3 id="homing-macros">Homing Macros<a class="headerlink" href="#homing-macros" title="Permanent link">&para;</a></h3>
-<p>Load cell probe is not an endstop and doesn't support <code>endstop: prove:z_virtual_endstop</code>. For the time being you'll need to configure your z axis with an MCU pin as its endstop. You won't actually be using the pin but for the time being you have to configure something.</p>
-<p>To home the axis with just the probe you need to set up a custom homing macro. This requires setting up <a href="Config_Reference.html#homing_override">homing_override</a>.</p>
-<p>Here is a simple macro that can accomplish this. Note that the <code>_HOME_Z_FROM_LAST_PROBE</code> macro has to be separate because of the way macros work. The sub-call is needed so that the <code>_HOME_Z_FROM_LAST_PROBE</code> macro can see the result of the probe in <code>printer.probe.last_z_result</code>.</p>
-<div class="highlight"><pre><span></span><code>[gcode_macro _HOME_Z_FROM_LAST_PROBE]
-gcode:
-<span class="w">    </span>{% set z_probed = printer.probe.last_z_result %}
-<span class="w">    </span>{% set z_position = printer.toolhead.position[2] %}
-<span class="w">    </span>{% set z_actual = z_position - z_probed %}
-<span class="w">    </span>SET_KINEMATIC_POSITION Z={z_actual}
-
-[gcode_macro _HOME_Z]
-gcode:
-<span class="w">    </span>SET_GCODE_OFFSET Z=0  # load cell probes dont need a Z offset
-<span class="w">    </span># position toolhead for homing Z, edit for your printers size
-<span class="w">    </span>#G90  # absolute move
-<span class="w">    </span>#G1 Y50 X50 F{5 * 60}  # move to X/Y position for homing
-
-<span class="w">    </span># soft home the z axis to its limit so it can be moved:
-<span class="w">    </span>SET_KINEMATIC_POSITION Z={printer.toolhead.axis_maximum[2]}
-
-<span class="w">    </span># Fast approach and tap
-<span class="w">    </span>PROBE PROBE_SPEED={5 * 60}  # override the speed for faster homing
-<span class="w">    </span>_HOME_Z_FROM_LAST_PROBE
-
-<span class="w">    </span># lift z to 2mm
-<span class="w">    </span>G91  # relative move
-<span class="w">    </span>G1 Z2 F{5 * 60}
-
-<span class="w">    </span># probe at standard speed
-<span class="w">    </span>PROBE
-<span class="w">    </span>_HOME_Z_FROM_LAST_PROBE
-
-<span class="w">    </span># lift z to 10mm for clearance
-<span class="w">    </span>G91  # relative move
-<span class="w">    </span>G1 Z10 F{5 * 60}
-</code></pre></div>
-
-<h3 id="suggested-probing-temperature">Suggested Probing Temperature<a class="headerlink" href="#suggested-probing-temperature" title="Permanent link">&para;</a></h3>
-<p>Currently, we suggest keeping the nozzle temperature below the level that causes the filament to ooze while homing and probing. 140C is a good starting point. This temperature is also low enough not to scar PEI build surfaces.</p>
-<p>Fouling of the nozzle and the print bed due to oozing filament is the #1 source of probing error with the load cell probe. Klipper does not yet have a universal way to detect poor quality taps due to filament ooze. The existing code may decide that a tap is valid when it is of poor quality. Classifying these poor quality taps is an area of active research.</p>
-<p>Klipper also lacks support for re-locating a probe point if the location has become fouled by filament ooze. Modules like <code>quad_gantry_level</code> will repeatedly probe the same coordinates even if a probe previously failed there.</p>
-<p>Give the above it is strongly suggested not to probe at printing temperatures.</p>
-<h3 id="hot-nozzle-protection">Hot Nozzle Protection<a class="headerlink" href="#hot-nozzle-protection" title="Permanent link">&para;</a></h3>
+<p>இது <code>குறிப்பு_டேர்_கவுண்ட்ச்</code> உடன் ஒப்பிடும்போது, அதிகபட்ச முழுமையான சக்தியாகும், இது ஆய்வு அல்லது ஆய்வு செய்யும் போது ஆய்வு அனுமதிக்கும். MCU இந்த சக்தியை தாண்டிவிட்டால், அது பிழையுடன் அச்சுப்பொறியை மூடிவிடும் <code>!! செல் எண்ட்ச்டாப்பை ஏற்றவும்: அதிக சக்தி!</code>. இதைத் தூண்டக்கூடிய பல வழிகள் உள்ளன:</p>
+<p>இது பாதுகாக்கும் முதல் இடர் <code>STRIFT_FILTER_CUTOFF_FREQUENCY</code> க்கான மதிப்பை மிகப் பெரியதாக எடுப்பதாகும். இது சறுக்கல் வடிகட்டி ஒரு ஆய்வு நிகழ்வை வடிகட்டவும், ஓமிங் நகர்வைத் தொடரவும் காரணமாகிறது. இது நடந்தால் <code>force_safety_limit</code> காப்புப்பிரதி பாதுகாப்பாக செயல்படுகிறது.</p>
+<p>இரண்டாவது சிக்கல் ஒரே இடத்தில் மறுநிகழ்வு ஆராய்கிறது. ஒற்றை <code>ஆய்வு</code> கட்டளையைச் செய்யும்போது கிளிப்பர் விசாரணையைத் திரும்பப் பெறுவதில்லை. இது ஒரு ஆய்வு சுழற்சியின் முடிவில் கருவிக்குத் தலையில் பயன்படுத்தப்படும். வெளிப்புற சக்திகள் இருப்பிடங்களுக்கு இடையில் பெரிதும் மாறுபடும் என்பதால், ஒவ்வொரு ஆய்வையும் தொடங்குவதற்கு முன்பு <code>load_cell_probe 'ஒரு செயல்களைச் செய்கிறது. நீங்கள்</code>ஆய்வு<code>கட்டளையை மீண்டும் செய்தால், load_cell_probe தற்போதைய சக்தியில் எண்ட்ச்டாப்பைக் கவரும். இதன் பல சுழற்சிகள் கருவி தலையில் தொடர்ந்து அதிகரித்து வரும் சக்தியை ஏற்படுத்தும்.</code>force_safety_limit` இந்த சுழற்சியை கட்டுப்பாட்டை மீறி நிறுத்துகிறது.</p>
+<p>Another way this run-away can happen is damage to a strain gauge. If the metal part is permanently bent it will change the <code>reference_tare_counts</code> of the device. This puts the starting tare value much closer to the limit making it more likely to be violated. You want to be notified if this is happening because your hardware has been permanently damaged.</p>
+<p>இதைத் தூண்டக்கூடிய இறுதி வழி வெப்பநிலை மாற்றங்கள் காரணமாகும். உங்கள் திரிபு அளவீடுகள் சூடேற்றப்பட்டால், அவற்றின் <code>குறிப்பு_டேர்_கவுண்ட்ச்</code> சுற்றுப்புற வெப்பநிலைக்கு எதிராக இயக்க வெப்பநிலையில் மிகவும் வித்தியாசமாக இருக்கலாம். இந்த விசயத்தில் நீங்கள் வெப்ப மாற்றங்களை அனுமதிக்க <code>force_safety_limit</code> ஐ அதிகரிக்க வேண்டியிருக்கலாம்.</p>
+<h4 id="_11">செல் எண்ட்ச்டாப் வாட்ச் டாக் பணியை ஏற்றவும்<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h4>
+<p>சுமை_செல்_இண்ட்ச்டாப் சென்சாரிலிருந்து வரும் டி.ஆர்.ஏ.சி அளவீடுகளுக்கு எம்.சி.யுவில் ஒரு பணியைத் தொடங்குகிறது. சென்சார் 2 மாதிரிக் காலங்களுக்கு அளவீடுகளை அனுப்பத் தவறினால், வாட்ச் டாக் ஒரு பிழையுடன் அச்சுப்பொறியை மூடிவிடும் <code>!! லோட்செல் எண்ட்ச்டாப் ஏடிசி தரவைக்</code> காத்திருந்தது.</p>
+<p>இது நடந்தால், பெரும்பாலும் காரணம் ADC இன் தவறு. உங்கள் அச்சுப்பொறியின் போதிய அடித்தளம் மூல காரணமாக இருக்கலாம். சட்டகம், மின்சாரம் வழங்கல் வழக்கு மற்றும் பைண்ட் படுக்கை அனைத்தும் தரையில் இணைக்கப்பட வேண்டும். நீங்கள் பல இடங்களில் சட்டகத்தை தரையிறக்க வேண்டியிருக்கலாம். அனோடைச் அலுமினிய வெளியேற்றங்கள் மின்சாரத்தை நன்கு நடத்துவதில்லை. நல்ல மின் தொடர்பு கொள்ள தரையிறக்கும் கம்பி இணைக்கப்பட்டுள்ள பகுதியை நீங்கள் மணல் அள்ள வேண்டும்.</p>
+<h4 id="interpolation">Interpolation<a class="headerlink" href="#interpolation" title="Permanent link">&para;</a></h4>
+<p>To increase the precision of the probing result, the position of the first contact between nozzle and bed can be estimated by fitting a piecewise function to the measured data. The data will consist of two regions: while the nozzle is above the bed, the force will be constant (at the tare value). When the nozzle is in contact with the bed, the force will increase linearly with decreasing z position. A piecewise function is fitted to the data and the optimal z position of the split point is found by minimising the error squared. This enables a resolution finer than the distance between the sampling points and will also be less sensitive to noise.</p>
+<p>Due to both physical and technical reasons, the interpolation uses data collected during an additional ascending movement after the initial descending move. The first 300ms of data collected during the ascending move will be used for the fit (this minimises the influence of tare drifts). The collected data must contain enough samples for the fit: at least 3 samples each below and above the contact point are required.</p>
+<p>It is recommended to use a relatively high trigger force for the probe to have a strong enough signal. If you have too few samples below the contact point, try increasing the <code>trigger_force</code> or reducing the <code>lift_speed</code>. However, if the <code>lift_speed</code> is too small, there will be too few samples above the contact point due to the 300ms window.</p>
+<p>The distance of the ascending move can be configured through the <code>sample_retract_dist</code> parameter.</p>
+<h2 id="_12">செல் ஆய்வு அமைப்பை ஏற்றவும்<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<p>இந்த பிரிவு ஒரு சுமை செல் ஆய்வை ஆணையிடுவதற்கான செயல்முறையை உள்ளடக்கியது.</p>
+<h3 id="_13">முதலில் சுமை கலத்தை சரிபார்க்கவும்<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<p>ஒரு <code>[load_cell_probe]</code> என்பது <code>[load_cell]</code> மற்றும் <code>[load_cell]</code> [load_cell_probe] <code>உடன் தொடர்புடைய சி-குறியீட்டு கட்டளைகள். சுமை செல் ஆய்வைப் பயன்படுத்த முயற்சிக்கும் முன்,</code>அளவீடு_ லோட்_செல்<code>உடன் [சுமை கலத்தை அளவீடு செய்வதற்கான](load_cell.md#அளவீடு-ஒரு-சுமை-செல்) மற்றும் அதன் செயல்பாட்டை</code> load_cell_diagnostic` உடன் சரிபார்க்கும் திசைகளைப் பின்பற்றவும்.</p>
+<h3 id="load_cell_test_tap">LOAD_CELL_TEST_TAP உடன் ஆய்வு செயல்பாட்டை சரிபார்க்கவும்<a class="headerlink" href="#load_cell_test_tap" title="Permanent link">&para;</a></h3>
+<p>சுமை செல் ஆய்வின் செயல்பாட்டை உண்மையில் ஆய்வு செய்ய முயற்சிக்கும் முன் <code>load_cell_test_tap</code> கட்டளையைப் பயன்படுத்தவும். இந்த கட்டளை ஆய்வு கட்டளையைப் போலவே குழாய்களையும் கண்டறிகிறது, ஆனால் அது சட் அச்சை நகர்த்தாது. இயல்பாக, இது சோதனையை முடிப்பதற்கு முன் 3 குழாய்களைக் கேட்கிறது. ஒவ்வொரு குழாய் செய்ய உங்களுக்கு 30 வினாடிகள் உள்ளன, குழாய்கள் எதுவும் கண்டறியப்படாவிட்டால் கட்டளை நேரம் வெளியேறும்.</p>
+<p>இந்த சோதனை தோல்வியுற்றால், உங்கள் உள்ளமைவை சரிபார்க்கவும் மற்றும் சிக்கல்களைத் தேடுவதற்கு <code>load_cell_diagnostic</code> கவனமாக.</p>
+<p>செல் ஆய்வுகள் <code>Query_endstops</code> அல்லது<code>Query_probe</code> கட்டளைகளை ஆதரிக்காது. ஆராய்வதற்கு முன் செயல்பாட்டைச் சோதிக்க <code>load_cell_test_tap</code> ஐப் பயன்படுத்தவும்.</p>
+<h3 id="_14">பரிந்துரைக்கப்பட்ட வெப்பநிலை<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<p>தற்போது, முனை வெப்பநிலையை அளவிற்கு கீழே வைத்திருக்க பரிந்துரைக்கிறோம், இது இழை மற்றும் ஆய்வு செய்யும் போது இழைகளைத் தூண்டுகிறது. 140 சி ஒரு நல்ல தொடக்க புள்ளி. இந்த வெப்பநிலை பெய் உருவாக்க மேற்பரப்புகளை வடிக்காத அளவுக்கு குறைவாக உள்ளது.</p>
+<p>சுமை செல் ஆய்வுடன் பிழையை ஆராய்வதற்கான #1 மூலமாக முனை மற்றும் அச்சு படுக்கை ஆகியவற்றைக் கறைபடுத்துவது. ஃபிலிமென்ட் ஓச் காரணமாக மோசமான தரமான குழாய்களைக் கண்டறிய கிளிப்பருக்கு இன்னும் உலகளாவிய வழி இல்லை. ஒரு குழாய் தரமற்றதாக இருக்கும்போது அது செல்லுபடியாகும் என்று தற்போதுள்ள குறியீடு தீர்மானிக்கலாம். இந்த மோசமான தரமான குழாய்களை வகைப்படுத்துவது செயலில் உள்ள ஆராய்ச்சியின் ஒரு பகுதியாகும்.</p>
+<p>ஃபிலிமென்ட் ஓச் மூலம் இருப்பிடம் கறைபட்டுள்ளிருந்தால், ஒரு ஆய்வு புள்ளியை மீண்டும் வைப்பதற்கான ஆதரவும் கிளிப்பருக்கு இல்லை. <code>Quat_gantry_level</code> போன்ற தொகுதிகள் முன்னர் ஒரு ஆய்வு தோல்வியுற்றாலும் அதே ஆயங்களை மறுநிகழ்வு ஆராயும்.</p>
+<p>மேலே கொடுங்கள், அச்சிடும் வெப்பநிலையை ஆராய வேண்டாம் என்று வலுவாக பரிந்துரைக்கப்படுகிறது.</p>
+<h3 id="_15">சூடான முனை பாதுகாப்பு<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
 <p>The Voron project has a great macro for protecting your print surface from the hot nozzle. See <a href="https://github.com/VoronDesign/Voron-Tap/blob/main/config/tap_klipper_instructions.md">Voron Tap's
 <code>activate_gcode</code></a></p>
-<p>It is highly suggested to add something like this to your config.</p>
-<h3 id="nozzle-cleaning">Nozzle Cleaning<a class="headerlink" href="#nozzle-cleaning" title="Permanent link">&para;</a></h3>
-<p>Before probing the nozzle should be clean. You could do this manually before every print. You can also implement a nozzle scrubber and automate the process. Here is a suggested sequence:</p>
+<p>உங்கள் உள்ளமைவில் இதுபோன்ற ஒன்றைச் சேர்க்க மிகவும் பரிந்துரைக்கப்படுகிறது.</p>
+<h3 id="_16">முனை தூய்மை<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<p>முனை ஆராய்வதற்கு முன் சுத்தமாக இருக்க வேண்டும். ஒவ்வொரு அச்சுக்கும் முன் இதை கைமுறையாக செய்யலாம். நீங்கள் ஒரு முனை ச்க்ரப்பரை செயல்படுத்தலாம் மற்றும் செயல்முறையை தானியக்கமாக்கலாம். பரிந்துரைக்கப்பட்ட வரிசை இங்கே:</p>
 <ol>
-<li>Wait for the nozzle to heat up to probing temp (e.g. <code>M109 S140</code>)</li>
-<li>Home the machine (<code>G28</code>)</li>
-<li>Scrub the nozzle on a brush</li>
-<li>Heat soak the print bed</li>
-<li>Perform probing tasks: QGL, bed mesh etc.</li>
+<li>தற்காலிக ஆய்வு செய்ய முனை வெப்பமடையும் வரை காத்திருங்கள் (எ.கா. <code>M109 S140</code>)</li>
+<li>வீட்டிற்கு இயந்திரம் (<code>சி 28</code>)</li>
+<li>ஒரு தூரிகையில் முனை துடைக்கவும்</li>
+<li>வெப்பம் அச்சு படுக்கையை ஊறவைக்கவும்</li>
+<li>ஆய்வு பணிகளைச் செய்யுங்கள்: QGL, BED MESH போன்றவை.</li>
 </ol>
-<h3 id="temperature-compensation-for-nozzle-growth">Temperature Compensation for Nozzle Growth<a class="headerlink" href="#temperature-compensation-for-nozzle-growth" title="Permanent link">&para;</a></h3>
-<p>If you are probing at a safe temperature, the nozzle will expand after heating to printing temperatures. This will cause the nozzle to get longer and closer to the print surface. You can compensate for this with <a href="Config_Reference.html#z_thermal_adjust">[z_thermal_adjust]</a>. This adjustment will work across a range of printing temperatures from PLA to PC.</p>
-<h4 id="calculating-the-temp_coeff-for-z_thermal_adjust">Calculating the <code>temp_coeff</code> for <code>[z_thermal_adjust]</code><a class="headerlink" href="#calculating-the-temp_coeff-for-z_thermal_adjust" title="Permanent link">&para;</a></h4>
-<p>The easiest way to do this is to measure at 2 different temperatures. Ideally these should be the upper and lower limits of the printing temperature range. E.g. 180C and 290C. You can perform a <code>PROBE_ACCURACY</code> at both temperatures and then calculate the difference of the <code>average z</code> at both.</p>
-<p>The adjustment value is the change in nozzle length divided by the change in temperature. e.g.</p>
+<h3 id="_17">முனை வளர்ச்சிக்கான வெப்பநிலை இழப்பீடு<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<p>நீங்கள் பாதுகாப்பான வெப்பநிலையில் ஆய்வு செய்கிறீர்கள் என்றால், வெப்பநிலையை அச்சிட்டபிறகு முனை விரிவடையும். இது முனை அச்சு மேற்பரப்புக்கு நீண்ட மற்றும் நெருக்கமாக இருக்கும். <a href="config_reference.md#z_thermal_adjust">[Z_thermal_adjust]</a> மூலம் இதை நீங்கள் ஈடுசெய்யலாம். இந்தச் சரிசெய்தல் பி.எல்.ஏ முதல் பிசி வரை அச்சிடும் வெப்பநிலையில் செயல்படும்.</p>
+<h4 id="z_thermal_adjust-temp_coeff"><code>[Z_thermal_adjust]</code> <code>temp_coeff</code> ஐக் கணக்கிடுகிறது<a class="headerlink" href="#z_thermal_adjust-temp_coeff" title="Permanent link">&para;</a></h4>
+<p>இதைச் செய்வதற்கான எளிதான வழி 2 வெவ்வேறு வெப்பநிலையை அளவிடுவதாகும். வெறுமனே இவை அச்சிடும் வெப்பநிலை வரம்பின் மேல் மற்றும் கீழ் வரம்புகளாக இருக்க வேண்டும். எ.கா. 180 சி மற்றும் 290 சி. இரண்டு வெப்பநிலையிலும் நீங்கள் ஒரு <code>ஆய்வு_அக்யூரசி</code> செய்ய முடியும், பின்னர் இரண்டிலும்<code>சராசரி Z</code> இன் வேறுபாட்டைக் கணக்கிடலாம்.</p>
+<p>சரிசெய்தல் மதிப்பு என்பது வெப்பநிலையின் மாற்றத்தால் வகுக்கப்பட்ட முனை நீளத்தின் மாற்றம். எ.கா.</p>
 <div class="highlight"><pre><span></span><code>temp_coeff = -0.05 / (290 - 180) = -0.00045455
 </code></pre></div>
 
-<p>The expected result is a negative number. Positive values for <code>temp_coeff</code> move the nozzle closer to the bed and negative values move it further away. Expect to have to move the nozzle further away as it gets longer when hot.</p>
-<h4 id="configure-z_thermal_adjust">Configure <code>[z_thermal_adjust]</code><a class="headerlink" href="#configure-z_thermal_adjust" title="Permanent link">&para;</a></h4>
-<p>Set up z_thermal_adjust to reference the <code>extruder</code> as the source of temperature data. E.g.:</p>
-<div class="highlight"><pre><span></span><code>[z_thermal_adjust nozzle]
+<p>எதிர்பார்க்கப்படும் முடிவு எதிர்மறை எண். <code>Temp_coeff</code> க்கான நேர்மறையான மதிப்புகள் முனை படுக்கைக்கு நெருக்கமாக நகர்த்தவும், எதிர்மறை மதிப்புகள் அதை மேலும் தொலைவில் நகர்த்தவும். சூடாக இருக்கும்போது முனை மேலும் நகர்த்த வேண்டும் என்று எதிர்பார்க்கலாம்.</p>
+<h4 id="z_thermal_adjust"><code>[Z_thermal_adjust]</code> உள்ளமைக்கவும்<a class="headerlink" href="#z_thermal_adjust" title="Permanent link">&para;</a></h4>
+<p><code>எக்ச்ட்ரூடர்</code> வெப்பநிலை தரவின் மூலமாகக் குறிப்பிட Z_Thermal_adjust ஐ அமைக்கவும். எ.கா .:</p>
+<div class="highlight"><pre><span></span><code>[z_thermal_adjust]
 temp_coeff=-0.00045455
 sensor_type: temperature_combined
 sensor_list: extruder
 combination_method: max
+maximum_deviation: 999
 min_temp: 0
 max_temp: 400
 max_z_adjustment: 0.1
 </code></pre></div>
 
-<h2 id="continuous-tare-filters-for-toolhead-load-cells">Continuous Tare Filters for Toolhead Load Cells<a class="headerlink" href="#continuous-tare-filters-for-toolhead-load-cells" title="Permanent link">&para;</a></h2>
-<p>Klipper implements a configurable IIR filter on the MCU to provide continuous tareing of the load cell while probing. Continuous taring means the 0 value moves with drift caused by external factors like bowden tubes and thermal changes. This is aimed at toolhead sensors and moving beds that experience lots of external forces that change while probing.</p>
-<h3 id="installing-scipy">Installing SciPy<a class="headerlink" href="#installing-scipy" title="Permanent link">&para;</a></h3>
-<p>The filtering code uses the excellent <a href="https://scipy.org/">SciPy</a> library to compute the filter coefficients based on the values your enter into the config.</p>
-<p>Pre-compiled SciPi builds are available for Python 3 on 32 bit Raspberry Pi systems. 32 bit + Python 3 is strongly recommended because it will streamline your installation experience. It does work with Python 2 but installation can take 30+ minutes and require installing additional tools.</p>
+<h2 id="tare">கருவிஎட் சுமை கலங்களுக்கான தொடர்ச்சியான TARE வடிப்பான்கள்<a class="headerlink" href="#tare" title="Permanent link">&para;</a></h2>
+<p>க்ளிப்பர் எம்.சி.யுவில் கட்டமைக்கக்கூடிய ஐ.ஐ.ஆர் வடிப்பானை செயல்படுத்துகிறார். தொடர்ச்சியான தரிங் என்பது 0 மதிப்பு போடன் குழாய்கள் மற்றும் வெப்ப மாற்றங்கள் போன்ற வெளிப்புற காரணிகளால் ஏற்படும் சறுக்கலுடன் நகர்கிறது. இது கருவி எட் சென்சார்கள் மற்றும் நகரும் படுக்கைகளை நோக்கமாகக் கொண்டுள்ளது, இது ஆராயும் போது மாறும் நிறைய வெளிப்புற சக்திகளை அனுபவிக்கிறது.</p>
+<h3 id="scipy">SCIPY ஐ நிறுவுதல்<a class="headerlink" href="#scipy" title="Permanent link">&para;</a></h3>
+<p>வடிகட்டுதல் குறியீடு நீங்கள் உள்ளமைவில் உள்ளிடுவதற்கு மதிப்புகளின் அடிப்படையில் வடிகட்டிக் குணகங்களை கணக்கிட சிறந்த <a href="https://scipy.org/">SCIPY</a> நூலகத்தைப் பயன்படுத்துகிறது.</p>
+<p>32 பிட் ராச்பெர்ரி பை அமைப்புகளில் பைதான் 3 க்கு முன் தொகுக்கப்பட்ட SCIPI கட்டடங்கள் கிடைக்கின்றன. 32 பிட் + பைதான் 3 கடுமையாக பரிந்துரைக்கப்படுகிறது, ஏனெனில் இது உங்கள் நிறுவல் அனுபவத்தை நெறிப்படுத்தும். இது பைதான் 2 உடன் வேலை செய்கிறது, ஆனால் நிறுவல் 30+ நிமிடங்கள் ஆகலாம் மற்றும் கூடுதல் கருவிகளை நிறுவ வேண்டும்.</p>
 <div class="highlight"><pre><span></span><code>~/klippy-env/bin/pip<span class="w"> </span>install<span class="w"> </span>scipy
 </code></pre></div>
 
-<h3 id="filter-workbench">Filter Workbench<a class="headerlink" href="#filter-workbench" title="Permanent link">&para;</a></h3>
-<p>The filter parameters should be selected based on drift seen on the printer during normal operation. A Jupyter notebook is provided in scripts, <a href="https://github.com/Klipper3d/klipper/blob/master/scripts/filter_workbench.ipynb">filter_workbench.ipynb</a>, to perform a detailed investigation with real captured data and FFTs.</p>
-<h3 id="filtering-suggestions">Filtering Suggestions<a class="headerlink" href="#filtering-suggestions" title="Permanent link">&para;</a></h3>
-<p>For those just trying to get a filter working follow these suggestions:</p>
+<h3 id="_18">வொர்க் பெஞ்சை வடிகட்டவும்<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h3>
+<p>சாதாரண செயல்பாட்டின்போது அச்சுப்பொறியில் காணப்படும் சறுக்கலின் அடிப்படையில் வடிகட்டி அளவுருக்கள் தேர்ந்தெடுக்கப்பட வேண்டும். உண்மையான கைப்பற்றப்பட்ட தரவு மற்றும் FFT களுடன் விரிவான விசாரணையைச் செய்ய ச்கிரிப்ட்கள், <a href="https://github.com/Klipper3d/klipper/blob/master/scripts/filter_workbench.ipynb">filter_workbench.ipynb</a> இல் ஒரு சூபிட்டர் நோட்புக் வழங்கப்பட்டுள்ளது.</p>
+<h3 id="_19">பரிந்துரைகள் வடிகட்டுதல்<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
+<p>ஒரு வடிகட்டியைப் பெற முயற்சிப்பவர்களுக்கு இந்த பரிந்துரைகளைப் பின்பற்றவும்:</p>
 <ul>
-<li>The only essential option is <code>drift_filter_cutoff_frequency</code>. A conservative starting value is <code>0.5</code>Hz. Prusa shipped the MK4 with a setting of <code>0.8</code>Hz and the XL with <code>11.2</code>Hz. This is probably a safe range to experiment with. This value should be increased only until normal drift due to bowden tube force is eliminated. Setting this value too high will result in slow triggering and excess force going through the toolhead.</li>
-<li>Keep <code>trigger_force</code> low. The default is <code>75</code>g. The drift filter keeps the internal grams value very close to 0 so a large trigger force is not needed.</li>
-<li>Keep <code>force_safety_limit</code> to a conservative value. The default value is 2Kg and should keep your toolhead safe while experimenting. If you hit this limit the <code>drift_filter_cutoff_frequency</code> value may be too high.</li>
+<li>ஒரே அத்தியாவசிய விருப்பம் <code>STRIFT_FILTER_CUTOFF_FREQUENCY</code>. ஒரு பழமைவாத தொடக்க மதிப்பு <code>0.5</code>hz. ப்ரூசா எம்.கே 4 ஐ <code>0.8</code> எச்.இசட் மற்றும் எக்ச்எல் அமைப்புடன்<code>11.2</code> எச்.இசட் மூலம் அனுப்பினார். இது ஆய்வு செய்ய ஒரு பாதுகாப்பான வரம்பாகும். போடன் குழாய் ஆற்றல் காரணமாக சாதாரண சறுக்கல் அகற்றப்படும் வரை மட்டுமே இந்த மதிப்பு அதிகரிக்கப்பட வேண்டும். இந்த மதிப்பை மிக அதிகமாக அமைப்பதன் மூலம் மெதுவான தூண்டுதல் மற்றும் கருவியின் வழியாக அதிகப்படியான ஆற்றல் ஏற்படும்.</li>
+<li><code>தூண்டுதல்_ஃபோர்ச்</code> குறைவாக வைத்திருங்கள். இயல்புநிலை <code>75</code> சி. சறுக்கல் வடிகட்டி உள் கிராம் மதிப்பை 0 க்கு மிக அருகில் வைத்திருக்கிறது, எனவே ஒரு பெரிய தூண்டுதல் ஆற்றல் தேவையில்லை.</li>
+<li>பழமைவாத மதிப்புக்கு <code>force_safety_limit</code> ஐ வைத்திருங்கள். இயல்புநிலை மதிப்பு 2 கிலோ மற்றும் ஆய்வு செய்யும் போது உங்கள் கருவித்தொகையை பாதுகாப்பாக வைத்திருக்க வேண்டும். நீங்கள் இந்த வரம்பைத் தாக்கினால், <code>child_filter_cutoff_frequency</code> மதிப்பு மிக அதிகமாக இருக்கலாம்.</li>
 </ul>
-<h2 id="suggestions-for-load-cell-tool-boards">Suggestions for Load Cell Tool Boards<a class="headerlink" href="#suggestions-for-load-cell-tool-boards" title="Permanent link">&para;</a></h2>
-<p>This section covers suggestions for those developing toolhead boards that want to support [load_cell_probe]</p>
-<h3 id="adc-sensor-selection-board-development-hints">ADC Sensor Selection &amp; Board Development Hints<a class="headerlink" href="#adc-sensor-selection-board-development-hints" title="Permanent link">&para;</a></h3>
-<p>Ideally a sensor would meet these criteria:</p>
+<h2 id="_20">சுமை செல் கருவி பலகைகளுக்கான பரிந்துரைகள்<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h2>
+<p>[LOAD_CELL_PROBE] ஐ ஆதரிக்க விரும்பும் கருவிஎட் பலகைகளுக்கான பரிந்துரைகளை இந்த பிரிவு உள்ளடக்கியது</p>
+<h3 id="_21">ஏடிசி சென்சார் தேர்வு மற்றும் போர்டு மேம்பாட்டு குறிப்புகள்<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h3>
+<p>வெறுமனே ஒரு சென்சார் இந்த அளவுகோல்களை நிறைவு செய்யும்:</p>
 <ul>
-<li>At least 24 bits wide</li>
-<li>Use SPI communications</li>
-<li>Has a pin can be used to indicate sample ready without SPI communications. This is often called the "data ready" or "DRDY" pin. Checking a pin is much faster than running an SPI query.</li>
-<li>Has a programmable gain amplifier gain setting of 128. This should eliminate the need for a separate amplifier.</li>
-<li>Indicates via SPI if the sensor has been reset. Detecting resets avoids timing errors in homing and using noisy data at startup. It can also help users track down wiring and grounding issues.</li>
-<li>A selectable sample rate between 350Hz and 2Khz. Very high sample rates don't turn out to be beneficial in our 3D printers because they produce so much noise when moving fast. Sample rates below 250Hz will require slower probing speeds. They also increase the force on the toolhead due to longer delays between measurements. E.g. a 500Hz sensor moving at 5mm/s has the same safety factor as a 100Hz sensor moving at only 1mm/s.</li>
-<li>If designing for under-bed applications, and you want to sense multiple load cells, use a chip that can sample all of its inputs simultaneously. Multiplex ADCs that require switching channels have a settling of several samples after each channel switch making them unsuitable for probing applications.</li>
+<li>குறைந்தது 24 பிட்கள் அகலம்</li>
+<li>SPI தகவல்தொடர்புகளைப் பயன்படுத்தவும்</li>
+<li>SPI தகவல்தொடர்புகள் இல்லாமல் மாதிரி தயாராக இருப்பதைக் குறிக்க ஒரு முள் பயன்படுத்தப்படலாம். இது பெரும்பாலும் "டேட்டா ரெடி" அல்லது "டி.ஆர்.டி" முள் என்று அழைக்கப்படுகிறது. ஒரு SPI வினவலை இயக்குவதை விட முள் சரிபார்ப்பது மிக வேகமாக உள்ளது.</li>
+<li>128 இன் நிரல்படுத்தக்கூடிய ஆதாய பெருக்கி ஆதாய அமைப்பைக் கொண்டுள்ளது. இது ஒரு தனி பெருக்கியின் தேவையை அகற்ற வேண்டும்.</li>
+<li>சென்சார் மீட்டமைக்கப்பட்டிருந்தால் SPI வழியாக குறிக்கிறது. மீட்டமைப்புகளைக் கண்டறிதல் தொடக்கத்தில் நேர பிழைகளைத் தவிர்க்கிறது மற்றும் சத்தமில்லாத தரவைப் பயன்படுத்துகிறது. வயரிங் மற்றும் அடித்தள சிக்கல்களைக் கண்டறிய பயனர்களுக்கு இது உதவும்.</li>
+<li>350 எர்ட்ச் மற்றும் 2 கிஎர்ட்ச் இடையே தேர்ந்தெடுக்கப்பட்ட மாதிரி வீதம். மிக உயர்ந்த மாதிரி விகிதங்கள் எங்கள் 3D அச்சுப்பொறிகளில் பயனளிக்கும், ஏனெனில் அவை வேகமாக நகரும் போது அதிக சத்தத்தை உருவாக்குகின்றன. 250 எர்ட்சுக்கு கீழே உள்ள மாதிரி விகிதங்களுக்கு மெதுவான ஆய்வு விரைவு தேவைப்படும். அளவீடுகளுக்கு இடையில் நீண்ட தாமதங்கள் காரணமாக அவை கருவியின் சக்தியை அதிகரிக்கின்றன. எ.கா. 5 மிமீ/வி வேகத்தில் நகரும் 500 எர்ட்ச் சென்சார் 100 எர்ட்ச் சென்சார் 1 மிமீ/வி மட்டுமே நகரும் அதே பாதுகாப்பு காரணியைக் கொண்டுள்ளது.</li>
+<li>BED இன் கீழ் பயன்பாடுகளை வடிவமைத்து, பல சுமை கலங்களை நீங்கள் உணர விரும்பினால், அதன் அனைத்து உள்ளீடுகளையும் ஒரே நேரத்தில் மாதிரி செய்யக்கூடிய ஒரு சிப்பைப் பயன்படுத்தவும். மாறுதல் சேனல்கள் தேவைப்படும் மல்டிபிளக்ச் ஏடிசிக்கள் ஒவ்வொரு சேனல் சுவிட்சிற்கும் பிறகு பல மாதிரிகளைத் தீர்ப்பதைக் கொண்டுள்ளன, அவை பயன்பாடுகளை ஆராய்வதற்கு பொருத்தமற்றவை.</li>
 </ul>
-<p>Implementing support for a new sensor chip is not particularly difficult with Klipper's <code>bulk_sensor</code> and <code>load_cell_endstop</code> infrastructure.</p>
-<h3 id="5v-power-filtering">5V Power Filtering<a class="headerlink" href="#5v-power-filtering" title="Permanent link">&para;</a></h3>
-<p>It is strongly suggested to use larger capacitors than specified by the ADC chip manufacturer. ADC chips are usually targeted at low noise environments, like battery powered devices. Sensor manufacturers suggested application notes generally assume a quiet power supply. Treat their suggested capacitor values as minimums.</p>
-<p>3D printers put huge amounts of noise onto the 5V bus and this can ruin the sensor's accuracy. Test the sensor on the board with a typical 3D printer power supply and active stepper drivers before deciding on smoothing capacitor sizes.</p>
-<h3 id="grounding-ground-planes">Grounding &amp; Ground Planes<a class="headerlink" href="#grounding-ground-planes" title="Permanent link">&para;</a></h3>
-<p>Analog ADC chips contain components that are very vulnerable to noise and ESD. A large ground plane on the first board layer under the chip can help with noise. Keep the chip away from power sections and DC to DC converters. The board should have proper grounding back to the DC supply.</p>
-<h3 id="hx711-and-hx717-notes">HX711 and HX717 Notes<a class="headerlink" href="#hx711-and-hx717-notes" title="Permanent link">&para;</a></h3>
-<p>This sensor is popular because of its low cost and availability in the supply chain. However, this is a sensor with some drawbacks:</p>
+<p>புதிய சென்சார் சிப்பிற்கான ஆதரவை செயல்படுத்துவது கிளிப்பரின் <code>மொத்த_சென்சர்</code> மற்றும்<code>load_cell_endstop</code> உள்கட்டமைப்புடன் குறிப்பாக கடினம் அல்ல.</p>
+<h3 id="5">5 வி ஆற்றல் வடிகட்டுதல்<a class="headerlink" href="#5" title="Permanent link">&para;</a></h3>
+<p>ஏடிசி சிப் உற்பத்தியாளரால் குறிப்பிடப்பட்டதை விட பெரிய மின்தேக்கிகளைப் பயன்படுத்துவது வலுவாக பரிந்துரைக்கப்படுகிறது. ஏடிசி சில்லுகள் பொதுவாக பேட்டரி மூலம் இயங்கும் சாதனங்கள் போன்ற குறைந்த இரைச்சல் சூழல்களை இலக்காகக் கொண்டுள்ளன. சென்சார் உற்பத்தியாளர்கள் விண்ணப்பக் குறிப்புகள் பொதுவாக அமைதியான மின்சாரம் என்று கருதுகின்றனர். அவர்கள் பரிந்துரைத்த மின்தேக்கி மதிப்புகளை குறைந்தபட்சமாக கருதுங்கள்.</p>
+<p>3 டி அச்சுப்பொறிகள் 5 வி பச் மீது அதிக அளவு சத்தத்தை வைக்கிறது, இது சென்சாரின் துல்லியத்தை அழிக்கக்கூடும். மின்தேக்கி அளவுகளை மென்மையாக்குவதற்கு முன் ஒரு பொதுவான 3D அச்சுப்பொறி மின்சாரம் மற்றும் செயலில் உள்ள ச்டெப்பர் இயக்கிகள் மூலம் பலகையில் சென்சாரை சோதிக்கவும்.</p>
+<h3 id="_22">நிலத்தடி மற்றும் தரை விமானங்கள்<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
+<p>அனலாக் ஏடிசி சில்லுகளில் ஒலி மற்றும் ஈ.எச்.டி ஆகியவற்றிற்கு மிகவும் பாதிக்கப்படக்கூடிய கூறுகள் உள்ளன. சிப்பின் கீழ் முதல் பலகை அடுக்கில் ஒரு பெரிய தரை வானூர்தி சத்தத்திற்கு உதவும். பவர் பிரிவுகள் மற்றும் டி.சி முதல் டிசி மாற்றிகள் வரை சிப்பை விலக்கி வைக்கவும். வாரியத்தில் டி.சி விநியோகத்திற்கு சரியான தரையிறக்கம் இருக்க வேண்டும்.</p>
+<h3 id="hx711-hx717">HX711 மற்றும் HX717 குறிப்புகள்<a class="headerlink" href="#hx711-hx717" title="Permanent link">&para;</a></h3>
+<p>இந்த சென்சார் அதன் குறைந்த செலவு மற்றும் விநியோகச் சங்கிலியில் கிடைப்பதால் பிரபலமானது. இருப்பினும், இது சில குறைபாடுகளைக் கொண்ட ஒரு சென்சார்:</p>
 <ul>
-<li>The HX71x sensors use bit-bang communication which has a high overhead on the MCU. Using a sensor that communicates via SPI would save resources on the tool board's CPU.</li>
-<li>The HX71x lacks a way to communicate reset events to the MCU. Klipper detects resets with a timing heuristic but this is not ideal. Resets indicate a problem with wiring or grounding.</li>
-<li>For probing applications the HX717 version is strongly preferred because of its higher sample rate (320 vs 80). Probing speed on the HX711 should be limited to less than 2mm/s.</li>
-<li>The sample rate on the HX71x cannot be set from klipper's config. If you have the 10SPS version of the sensor (which is widely distributed) it needs to be physically re-wired to run at 80SPS.</li>
+<li>HX71X சென்சார்கள் பிட்-பேங் தகவல்தொடர்புகளைப் பயன்படுத்துகின்றன, இது MCU இல் அதிக மேல்நிலை கொண்டது. SPI வழியாக தொடர்பு கொள்ளும் சென்சாரைப் பயன்படுத்துவது கருவி வாரியத்தின் சிபியு இல் வளங்களை மிச்சப்படுத்தும்.</li>
+<li>MCU உடன் நிகழ்வுகளை மீட்டமைத்தல் ஆகியவற்றைத் தொடர்புகொள்வதற்கான வழி HX71X இல் இல்லை. கிளிப்பர் ஒரு நேர ஊரிச்டிக் உடன் மீட்டமைப்பைக் கண்டறிந்துள்ளார், ஆனால் இது சிறந்ததல்ல. மீட்டமைப்புகள் வயரிங் அல்லது தரையில் சிக்கலைக் குறிக்கின்றன.</li>
+<li>பயன்பாடுகளை ஆராய்வதற்கு HX717 பதிப்பு அதன் அதிக மாதிரி வீதத்தின் காரணமாக வலுவாக விரும்பப்படுகிறது (320 vs 80). HX711 இல் விரைவு 2 மிமீ/வி க்கும் குறைவாக இருக்க வேண்டும்.</li>
+<li>HX71X இல் உள்ள மாதிரி வீதத்தை கிளிப்பரின் உள்ளமைவிலிருந்து அமைக்க முடியாது. உங்களிடம் சென்சாரின் 10SPS பதிப்பு இருந்தால் (இது பரவலாக விநியோகிக்கப்படுகிறது) 80SPS இல் இயங்க உடல் ரீதியாக மீண்டும் கம்பி செய்யப்பட வேண்டும்.</li>
 </ul>
 
               

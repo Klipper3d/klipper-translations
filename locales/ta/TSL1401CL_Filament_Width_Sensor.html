@@ -13,7 +13,7 @@
     
     
       
-        <title>TSL1401CL இழை அகல சென்சார் - Klipper documentation</title>
+        <title>TSL1401CL ஃபிலமென்ட் அகல உணரி - Klipper documentation</title>
       
     
     
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              TSL1401CL இழை அகல சென்சார்
+              TSL1401CL ஃபிலமென்ட் அகல உணரி
             
           </span>
         </div>
@@ -1342,14 +1342,14 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#how-does-it-work" class="md-nav__link">
-    How does it work?
+  <a href="#_1" class="md-nav__link">
+    இது எவ்வாறு செயல்படுகிறது?
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#_1" class="md-nav__link">
+  <a href="#_2" class="md-nav__link">
     குறிப்பு:
   </a>
   
@@ -1372,12 +1372,12 @@
 </a>
 
 
-<h1 id="tsl1401cl">TSL1401CL இழை அகல சென்சார்<a class="headerlink" href="#tsl1401cl" title="Permanent link">&para;</a></h1>
-<p>இந்த ஆவணம் ஃபிலமென்ட் அகல சென்சார் புரவலன் தொகுதியை விவரிக்கிறது. இந்த ஹோஸ்ட் தொகுதியை உருவாக்கப் பயன்படுத்தப்படும் வன்பொருள் TSL1401CL நேரியல் சென்சார் வரிசையை அடிப்படையாகக் கொண்டது, ஆனால் இது அனலாக் வெளியீட்டைக் கொண்ட எந்த உணரி வரிசையுடனும் வேலை செய்ய முடியும். <a href="https://www.thingiverse.com/search?q=filament%20width%20sensor">Thingiverse</a> இல் வடிவமைப்புகளைக் காணலாம்.</p>
-<p>ஒரு சென்சார் வரிசையை இழை அகல சென்சாராகப் பயன்படுத்த, <a href="Config_Reference.html#tsl1401cl_filament_width_sensor">கட்டமைப்புக் குறிப்பு</a> மற்றும் <a href="G-Codes.html#hall_filament_width_sensor">G-Code documentation</a> ஆகியவற்றைப் படிக்கவும்.</p>
-<h2 id="how-does-it-work">How does it work?<a class="headerlink" href="#how-does-it-work" title="Permanent link">&para;</a></h2>
+<h1 id="tsl1401cl">TSL1401CL ஃபிலமென்ட் அகல உணரி<a class="headerlink" href="#tsl1401cl" title="Permanent link">&para;</a></h1>
+<p>இந்த ஆவணம் இழை அகல சென்சார் புரவலன் தொகுதியை விவரிக்கிறது. இந்தப் புரவலன் தொகுதியை உருவாக்கப் பயன்படுத்தப்படும் வன்பொருள் TSL1401CL நேரியல் சென்சார் வரிசையை அடிப்படையாகக் கொண்டது, ஆனால் இது அனலாக் வெளியீட்டைக் கொண்ட எந்தச் சென்சார் வரிசையிலும் வேலை செய்ய முடியும். நீங்கள் <a href="https://www.thingivers.com/search?q=filament%20WIDTH%20Sensor">tangiverse</a> இல் வடிவமைப்புகளைக் காணலாம்.</p>
+<p>ஒரு சென்சார் வரிசையை ஒரு இழை அகல சென்சாராகப் பயன்படுத்த, <a href="config_reference.md#tsl1401cl_filament_width_sensor">கட்டமைப்புக் குறிப்பு</a> மற்றும் <a href="g-codes.md#hall_filament_width_sensor">g-code ஆவணம்</a> படிக்கவும்.</p>
+<h2 id="_1">இது எவ்வாறு செயல்படுகிறது?<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
 <p>கணக்கிடப்பட்ட இழை அகலத்தின் அடிப்படையில் சென்சார் அனலாக் வெளியீட்டை உருவாக்குகிறது. வெளியீட்டு மின்னழுத்தம் எப்போதும் கண்டறியப்பட்ட இழை அகலத்திற்கு சமம் (எ.கா. 1.65 வி, 1.70 வி, 3.0 வி). புரவலன் தொகுதி மின்னழுத்த மாற்றங்களை கண்காணிக்கிறது மற்றும் வெளியேற்ற பெருக்கியை சரிசெய்கிறது.</p>
-<h2 id="_1">குறிப்பு:<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<h2 id="_2">குறிப்பு:<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>முன்னிருப்பாக 10 மிமீ இடைவெளியுடன் செய்யப்படும் சென்சார் அளவீடுகள். தேவைப்பட்டால், <strong> filemance_width_sensor.py </strong> கோப்பில் உள்ள அளவுரு <strong><em> அளவீட்டு_ இன்டர்வால்_எம் </em></strong> அளவுரு திருத்துவதன் மூலம் இந்த அமைப்பை மாற்ற நீங்கள் சுதந்திரமாக இருக்கிறீர்கள்.</p>
 
               

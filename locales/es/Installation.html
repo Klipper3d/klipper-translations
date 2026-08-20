@@ -1342,8 +1342,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#obtain-a-klipper-configuration-file" class="md-nav__link">
-    Obtain a Klipper Configuration File
+  <a href="#obtener-un-archivo-de-configuracion-de-klipper" class="md-nav__link">
+    Obtener un archivo de configuración de Klipper
   </a>
   
 </li>
@@ -1370,8 +1370,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#building-and-flashing-the-micro-controller" class="md-nav__link">
-    Building and flashing the micro-controller
+  <a href="#compilacion-y-flasheo-del-microcontrolador" class="md-nav__link">
+    Compilación y flasheo del microcontrolador
   </a>
   
 </li>
@@ -1403,7 +1403,7 @@
 <h1 id="instalacion">Instalación<a class="headerlink" href="#instalacion" title="Permanent link">&para;</a></h1>
 <p>These instructions assume the software will run on a Linux-based host running a Klipper-compatible front end. It is recommended that a SBC(Small Board Computer) such as a Raspberry Pi or Debian-based Linux device be used as the host machine (see the <a href="FAQ.html#can-i-run-klipper-on-something-other-than-a-raspberry-pi-3">FAQ</a> for other options).</p>
 <p>For the purposes of these instructions, host relates to the Linux device and mcu relates to the printer board. SBC relates to the term Small Board Computer such as the Raspberry Pi.</p>
-<h2 id="obtain-a-klipper-configuration-file">Obtain a Klipper Configuration File<a class="headerlink" href="#obtain-a-klipper-configuration-file" title="Permanent link">&para;</a></h2>
+<h2 id="obtener-un-archivo-de-configuracion-de-klipper">Obtener un archivo de configuración de Klipper<a class="headerlink" href="#obtener-un-archivo-de-configuracion-de-klipper" title="Permanent link">&para;</a></h2>
 <p>Most Klipper settings are determined by a "printer configuration file" printer.cfg, that will be stored on the host. An appropriate configuration file can often be found by looking in the Klipper <a href="https://github.com/Klipper3d/klipper/blob/master/config/">config directory</a> for a file starting with a "printer-" prefix that corresponds to the target printer. The Klipper configuration file contains technical information about the printer that will be needed during the installation.</p>
 <p>If there isn't an appropriate printer configuration file in the Klipper config directory then try searching the printer manufacturer's website to see if they have an appropriate Klipper configuration file.</p>
 <p>If no configuration file for the printer can be found, but the type of printer control board is known, then look for an appropriate <a href="https://github.com/Klipper3d/klipper/blob/master/config/">config file</a> starting with a "generic-" prefix. These example printer board files should allow one to successfully complete the initial installation, but will require some customization to obtain full printer functionality.</p>
@@ -1420,7 +1420,7 @@
 <h2 id="installing-via-kiauh">Installing via KIAUH<a class="headerlink" href="#installing-via-kiauh" title="Permanent link">&para;</a></h2>
 <p>Normally you would start with a base image for your SBC, RPiOS Lite for example, or in the case of an x86 Linux device, Ubuntu Server. Please note that Desktop variants are not recommended due to certain helper programs that can stop some Klipper functions from working and even mask access to some printer boards.</p>
 <p>KIAUH can be used to install Klipper and its associated programs on a variety of Linux-based systems that run a form of Debian. More information can be found at <a href="https://github.com/dw-0/kiauh">https://github.com/dw-0/kiauh</a></p>
-<h2 id="building-and-flashing-the-micro-controller">Building and flashing the micro-controller<a class="headerlink" href="#building-and-flashing-the-micro-controller" title="Permanent link">&para;</a></h2>
+<h2 id="compilacion-y-flasheo-del-microcontrolador">Compilación y flasheo del microcontrolador<a class="headerlink" href="#compilacion-y-flasheo-del-microcontrolador" title="Permanent link">&para;</a></h2>
 <p>To compile the micro-controller code, start by running these commands on your host device:</p>
 <div class="highlight"><pre><span></span><code>cd ~/klipper/
 make menuconfig
@@ -1435,7 +1435,7 @@ make menuconfig
 <div class="highlight"><pre><span></span><code>ls /dev/serial/by-id/*
 </code></pre></div>
 
-<p>It should report something similar to the following:</p>
+<p>Debería mostrar algo similar a lo siguiente:</p>
 <div class="highlight"><pre><span></span><code>/dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 </code></pre></div>
 
@@ -1475,7 +1475,7 @@ nano ~/printer.cfg
 <div class="highlight"><pre><span></span><code>ls /dev/serial/by-id/*
 </code></pre></div>
 
-<p>It should report something similar to the following:</p>
+<p>Debería mostrar algo similar a lo siguiente:</p>
 <div class="highlight"><pre><span></span><code>/dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 </code></pre></div>
 

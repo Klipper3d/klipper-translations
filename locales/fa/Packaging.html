@@ -13,7 +13,7 @@
     
     
       
-        <title>Packaging Klipper - Klipper documentation</title>
+        <title>بسته بندی کلیپر - Klipper documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#packaging-klipper" class="md-skip">
+        <a href="#_1" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Packaging Klipper
+              بسته بندی کلیپر
             
           </span>
         </div>
@@ -1342,29 +1342,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#c-modules" class="md-nav__link">
-    C modules
+  <a href="#c" class="md-nav__link">
+    ماژول های C
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#compiling-python-code" class="md-nav__link">
-    Compiling python code
+  <a href="#_2" class="md-nav__link">
+    کامپایل کردن کد پایتون
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#versioning" class="md-nav__link">
-    Versioning
+  <a href="#_3" class="md-nav__link">
+    نسخه سازی
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#sample-packaging-script" class="md-nav__link">
-    Sample packaging script
+  <a href="#_4" class="md-nav__link">
+    نمونه اسکریپت بسته بندی
   </a>
   
 </li>
@@ -1386,16 +1386,16 @@
 </a>
 
 
-<h1 id="packaging-klipper">Packaging Klipper<a class="headerlink" href="#packaging-klipper" title="Permanent link">&para;</a></h1>
-<p>Klipper is somewhat of a packaging anomaly among python programs, as it doesn't use setuptools to build and install. Some notes regarding how best to package it are as follows:</p>
-<h2 id="c-modules">C modules<a class="headerlink" href="#c-modules" title="Permanent link">&para;</a></h2>
-<p>Klipper uses a C module to handle some kinematics calculations more quickly. This module needs to be compiled at packaging time to avoid introducing a runtime dependency on a compiler. To compile the C module, run <code>python2 klippy/chelper/__init__.py</code>.</p>
-<h2 id="compiling-python-code">Compiling python code<a class="headerlink" href="#compiling-python-code" title="Permanent link">&para;</a></h2>
-<p>Many distributions have a policy of compiling all python code before packaging to improve startup time. You can do this by running <code>python2 -m compileall klippy</code>.</p>
-<h2 id="versioning">Versioning<a class="headerlink" href="#versioning" title="Permanent link">&para;</a></h2>
-<p>If you are building a package of Klipper from git, it is usual practice not to ship a .git directory, so the versioning must be handled without git. To do this, use the script shipped in <code>scripts/make_version.py</code> which should be run as follows: <code>python2 scripts/make_version.py YOURDISTRONAME &gt; klippy/.version</code>.</p>
-<h2 id="sample-packaging-script">Sample packaging script<a class="headerlink" href="#sample-packaging-script" title="Permanent link">&para;</a></h2>
-<p>klipper-git is packaged for Arch Linux, and has a PKGBUILD (package build script) available at <a href="https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper-git">Arch User Repository</a>.</p>
+<h1 id="_1">بسته بندی کلیپر<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>Klipper تا حدودی یک ناهنجاری در بسته‌بندی برنامه‌های پایتون است، زیرا از setuptools برای ساخت و نصب استفاده نمی‌کند. برخی از نکات در مورد بهترین روش بسته‌بندی آن به شرح زیر است:</p>
+<h2 id="c">ماژول های C<a class="headerlink" href="#c" title="Permanent link">&para;</a></h2>
+<p>کلیپر از یک ماژول C برای مدیریت سریع‌تر برخی محاسبات سینماتیک استفاده می‌کند. این ماژول باید در زمان بسته‌بندی کامپایل شود تا از ایجاد وابستگی زمان اجرا به کامپایلر جلوگیری شود. برای کامپایل ماژول C، دستور <code>python2 klippy/chelper/__init__.py</code> را اجرا کنید.</p>
+<h2 id="_2">کامپایل کردن کد پایتون<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>بسیاری از توزیع‌ها سیاستی دارند که تمام کدهای پایتون را قبل از بسته‌بندی کامپایل می‌کنند تا زمان راه‌اندازی بهبود یابد. می‌توانید این کار را با اجرای <code>python2 -m compileall klippy</code> انجام دهید.</p>
+<h2 id="_3">نسخه سازی<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>اگر در حال ساخت بسته‌ای از Klipper از طریق گیت هستید، معمولاً پوشه .git را ارسال نمی‌کنید، بنابراین نسخه‌بندی باید بدون گیت انجام شود. برای انجام این کار، از اسکریپتی که در <code>scripts/make_version.py</code> ارسال شده است استفاده کنید که باید به صورت زیر اجرا شود: <code>python2 scripts/make_version.py YOURDISTRONAME &gt; klippy/.version</code>.</p>
+<h2 id="_4">نمونه اسکریپت بسته بندی<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<p>klipper-git برای آرچ لینوکس بسته‌بندی شده است و دارای یک PKGBUILD (اسکریپت ساخت بسته) است که در <a href="https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper-git">مخزن کاربران آرچ</a> موجود است.</p>
 
               
             </article>

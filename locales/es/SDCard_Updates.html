@@ -1356,6 +1356,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#failure-to-initialize" class="md-nav__link">
+    Failure to Initialize
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#advertencias" class="md-nav__link">
     Advertencias
   </a>
@@ -1423,7 +1430,7 @@
 <h1 id="sdcard-updates">SDCard updates<a class="headerlink" href="#sdcard-updates" title="Permanent link">&para;</a></h1>
 <p>Muchas de las placas controladoras más populares de la actualidad se entregan con un gestor de arranque capaz de actualizar el firmware mediante una tarjeta SD.  Si bien esto es conveniente en muchas circunstancias, estos cargadores de arranque generalmente no ofrecen otra forma de actualizar el firmware.  Esto puede ser una molestia si su placa está montada en un lugar de difícil acceso o si necesita actualizar el firmware con frecuencia.  Después de que Klipper se haya actualizado inicialmente a un controlador, es posible transferir el nuevo firmware a la tarjeta SD e iniciar el procedimiento de actualización a través de ssh.</p>
 <h2 id="procedimiento-de-modernizacion-tipico">Procedimiento de Modernización Típico<a class="headerlink" href="#procedimiento-de-modernizacion-tipico" title="Permanent link">&para;</a></h2>
-<p>The procedure for updating MCU firmware using the SD Card is similar to that of other methods. Instead of using <code>make flash</code> it is necessary to run a helper script, <code>flash-sdcard.sh</code>. Updating a BigTreeTech SKR 1.3 might look like the following:</p>
+<p>El procedimiento para actualizar el firmware de la MCU utilizando la tarjeta SD es similar al de otros métodos. En lugar de utilizar «make flash», es necesario ejecutar un script auxiliar, «flash-sdcard.sh». La actualización de un BigTreeTech SKR 1.3 podría ser similar a la siguiente:</p>
 <div class="highlight"><pre><span></span><code>sudo service klipper stop
 cd ~/klipper
 git pull
@@ -1434,30 +1441,31 @@ make
 sudo service klipper start
 </code></pre></div>
 
-<p>It is up to the user to determine the device location and board name. If a user needs to flash multiple boards, <code>flash-sdcard.sh</code> (or <code>make flash</code> if appropriate) should be run for each board prior to restarting the Klipper service.</p>
+<p>Es el usuario quien debe determinar la ubicación del dispositivo y el nombre de la placa. Si un usuario necesita flashear varias placas, debe ejecutar <code>flash-sdcard.sh</code> (o <code>make flash</code>, si procede) para cada placa antes de reiniciar el servicio Klipper.</p>
 <p>Las placas soportadas se pueden listar con el siguiente comando:</p>
 <div class="highlight"><pre><span></span><code>./scripts/flash-sdcard.sh -l
 </code></pre></div>
 
-<p>If you do not see your board listed it may be necessary to add a new board definition as <a href="#board-definitions">described below</a>.</p>
+<p>Si no ves tu tablero en la lista, puede que tengas que añadir una nueva definición de tablero como <a href="#definiciones-de-tablero">se describe a continuación</a>.</p>
 <h2 id="uso-avanzado">Uso Avanzado<a class="headerlink" href="#uso-avanzado" title="Permanent link">&para;</a></h2>
 <p>The above commands assume that your MCU connects at the default baud rate of 250000 and the firmware is located at <code>~/klipper/out/klipper.bin</code>. The <code>flash-sdcard.sh</code> script provides options for changing these defaults. All options can be viewed by the help screen:</p>
 <div class="highlight"><pre><span></span><code>./scripts/flash-sdcard.sh -h
-Utilidad de subida de la Tarjeta SD para Klipper
+SD Card upload utility for Klipper
 
-Modo de empleo: flash_sdcard.sh [-h] [-l] [-c] [-b &lt;baud&gt;] [-f &lt;firmware&gt;]
-                       &lt;dispositivo&gt; &lt;placa&gt;
+usage: flash_sdcard.sh [-h] [-l] [-c] [-s] [-b &lt;baud&gt;] [-f &lt;firmware&gt;]
+                       &lt;device&gt; &lt;board&gt;
 
-argumentos posicionales:
-  &lt;dispositivo&gt;        puerto seria del dispositivo
-  &lt;tarjeta&gt;         tipo de tarjeta
+positional arguments:
+  &lt;device&gt;        device serial port
+  &lt;board&gt;         board type
 
-argumentos opcionales:
-  -h              muestra este mensaje
-  -l              enumera las tarjetas disponibles
-  -c              ejecuta solamente la comprobación/verificación del flash (omite cargar)
-  -b &lt;baudio&gt;       proporción del ancho de baudios serie (predet es 250.000)
-  -f &lt;firmware&gt;   ruta para klipper.bin
+optional arguments:
+  -h              show this message
+  -l              list available boards
+  -c              run flash check/verify only (skip upload)
+  -s              use fast SPI speed (4MHz)
+  -b &lt;baud&gt;       serial baud rate (default is 250000)
+  -f &lt;firmware&gt;   path to klipper.bin
 </code></pre></div>
 
 <p>If your board is flashed with firmware that connects at a custom baud rate it is possible to upgrade by specifying the <code>-b</code> option:</p>
@@ -1470,6 +1478,17 @@ argumentos opcionales:
 
 <p>Note that when upgrading a MKS Robin E3 it is not necessary to manually run <code>update_mks_robin.py</code> and supply the resulting binary to <code>flash-sdcard.sh</code>. This procedure is automated during the upload process.</p>
 <p>The <code>-c</code> option is used to perform a check or verify-only operation to test if the board is running the specified firmware correctly. This option is primarily intended for cases where a manual power-cycle is necessary to complete the flashing procedure, such as with bootloaders that use SDIO mode instead of SPI to access their SD Cards. (See Caveats below) But, it can also be used anytime to verify if the code flashed into the board matches the version in your build folder on any supported board.</p>
+<h2 id="failure-to-initialize">Failure to Initialize<a class="headerlink" href="#failure-to-initialize" title="Permanent link">&para;</a></h2>
+<p>Some SD cards may fail to initialize at the default SPI speed of 400KHz. In this situation it is possible to use <code>-s</code> to drive the SPI peripheral at 4MHz. For example:</p>
+<div class="highlight"><pre><span></span><code>./scripts/flash-sdcard.sh -s /dev/ttyACM0 btt-skr-v1.3
+</code></pre></div>
+
+<p>If the device still fails to initialize then cause of the failure is unrelated to the speed and likely a result of one of the following conditions:</p>
+<ul>
+<li>The SD card is improperly formatted. Must be <code>fat</code> or <code>fat32</code>.</li>
+<li>Attempt to initialize a card using the SPI interface that has already been initialized over SDIO.</li>
+<li>The SD card has failed or is corrupt.</li>
+</ul>
 <h2 id="advertencias">Advertencias<a class="headerlink" href="#advertencias" title="Permanent link">&para;</a></h2>
 <ul>
 <li>Como mencioné en la introducción, este método solo funciona para modernización del firmware. El procedimiento de flaseado inicial debe ser hecho manualmente por las instrucciones que aplicar a su placa del controlador.</li>
@@ -1509,7 +1528,7 @@ argumentos opcionales:
 <span class="p">}</span>
 </code></pre></div>
 
-<p>If you need a new board definition and you are uncomfortable with the procedure outlined above it is recommended that you request one in the <a href="Contact.html#discord">Klipper Community Discord</a>.</p>
+<p>If you need a new board definition and you are uncomfortable with the procedure outlined above it is recommended that you request one in the <a href="Contact.html">Klipper Discord</a>.</p>
 <h2 id="flashing-boards-that-use-sdio">Flashing Boards that use SDIO<a class="headerlink" href="#flashing-boards-that-use-sdio" title="Permanent link">&para;</a></h2>
 <p><a href="#caveats">As mentioned in the Caveats</a>, boards whose bootloader uses SDIO mode to access their SD Card require a power-cycle of the board, and specifically the SD Card itself, in order to switch from the SPI Mode used while writing the file to the SD Card back to SDIO mode for the bootloader to flash it into the board. These board definitions will use the <code>skip_verify</code> flag, which tells the flashing tool to stop after writing the firmware to the SD Card so that the board can be manually power-cycled and the verification step deferred until that's complete.</p>
 <p>There are two scenarios -- one with the RPi Host running on a separate power supply and the other when the RPi Host is running on the same power supply as the main board being flashed. The difference is whether or not it's necessary to also shutdown the RPi and then <code>ssh</code> again after the flashing is complete in order to do the verification step, or if the verification can be done immediately. Here's examples of the two scenarios:</p>

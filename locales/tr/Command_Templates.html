@@ -1404,15 +1404,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#actions" class="md-nav__link">
-    Actions
+  <a href="#aksiyonlar" class="md-nav__link">
+    Aksiyonlar
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#variables" class="md-nav__link">
-    Variables
+  <a href="#degiskenler" class="md-nav__link">
+    Değişkenler
   </a>
   
 </li>
@@ -1545,7 +1545,7 @@ gcode:
     M117 Temp:{sensor.temperature} Humidity:{sensor.humidity}
 </code></pre></div>
 
-<h2 id="actions">Actions<a class="headerlink" href="#actions" title="Permanent link">&para;</a></h2>
+<h2 id="aksiyonlar">Aksiyonlar<a class="headerlink" href="#aksiyonlar" title="Permanent link">&para;</a></h2>
 <p>There are some commands available that can alter the state of the printer. For example, <code>{ action_emergency_stop() }</code> would cause the printer to go into a shutdown state. Note that these actions are taken at the time that the macro is evaluated, which may be a significant amount of time before the generated g-code commands are executed.</p>
 <p>Available "action" commands:</p>
 <ul>
@@ -1554,7 +1554,7 @@ gcode:
 <li><code>action_emergency_stop(msg)</code>: Transition the printer to a shutdown state. The <code>msg</code> parameter is optional, it may be useful to describe the reason for the shutdown.</li>
 <li><code>action_call_remote_method(method_name)</code>: Calls a method registered by a remote client. If the method takes parameters they should be provided via keyword arguments, ie: <code>action_call_remote_method("print_stuff", my_arg="hello_world")</code></li>
 </ul>
-<h2 id="variables">Variables<a class="headerlink" href="#variables" title="Permanent link">&para;</a></h2>
+<h2 id="degiskenler">Değişkenler<a class="headerlink" href="#degiskenler" title="Permanent link">&para;</a></h2>
 <p>The SET_GCODE_VARIABLE command may be useful for saving state between macro calls. Variable names may not contain any upper case characters. For example:</p>
 <div class="highlight"><pre><span></span><code>[gcode_macro start_probe]
 variable_bed_temp: 0

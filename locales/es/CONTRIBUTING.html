@@ -1383,8 +1383,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#contributing-to-klipper-translations" class="md-nav__link">
-    Contributing to Klipper Translations
+  <a href="#contribuir-a-klipper-translations" class="md-nav__link">
+    Contribuir a Klipper Translations
   </a>
   
 </li>
@@ -1549,19 +1549,19 @@ Signed-off-by: My Name &lt;myemail@example.org&gt;
 </code></pre></div>
 
 <p>In the above example, <code>module</code> should be the name of a file or directory in the repository (without a file extension). For example, <code>clocksync: Fix typo in pause() call at connect time</code>. The purpose of specifying a module name in the commit message is to help provide context for the commit comments.</p>
-<p>It is important to have a "Signed-off-by" line on each commit - it certifies that you agree to the <a href="developer-certificate-of-origin">developer certificate of origin</a>. It must contain your real name (sorry, no pseudonyms or anonymous contributions) and contain a current email address.</p>
-<h2 id="contributing-to-klipper-translations">Contributing to Klipper Translations<a class="headerlink" href="#contributing-to-klipper-translations" title="Permanent link">&para;</a></h2>
+<p>Es importante incluir una línea «Signed-off-by» en cada confirmación, ya que certifica que aceptas el <a href="developer-certificate-of-origin">certificado de origen del desarrollador</a>. Debe contener tu nombre real (lo sentimos, no se admiten seudónimos ni contribuciones anónimas) y una dirección de correo electrónico actual.</p>
+<h2 id="contribuir-a-klipper-translations">Contribuir a Klipper Translations<a class="headerlink" href="#contribuir-a-klipper-translations" title="Permanent link">&para;</a></h2>
 <p><a href="https://github.com/Klipper3d/klipper-translations">Klipper-translations Project</a> is a project dedicated to translating Klipper to different languages. <a href="https://hosted.weblate.org/projects/klipper/">Weblate</a> hosts all the Gettext strings for translating and reviewing. Locales can be displayed on <a href="https://www.klipper3d.org">klipper3d.org</a> once they satisfy the following requirements:</p>
 <ul>
 <li><input disabled="disabled" type="checkbox" /> 75% de cobertura total</li>
 <li><input disabled="disabled" type="checkbox" /> All titles (H1) are translated</li>
-<li><input disabled="disabled" type="checkbox" /> An updated navigation hierarchy PR in klipper-translations.</li>
+<li><input disabled="disabled" type="checkbox" /> Una jerarquía de navegación actualizada PR en klipper-translations.</li>
 </ul>
-<p>To reduce the frustration of translating domain-specific terms and gain awareness of the ongoing translations, you can submit a PR modifying the <a href="https://github.com/Klipper3d/klipper-translations">Klipper-translations Project</a> <code>readme.md</code>. Once a translation is ready, the corresponding modification to the Klipper project can be made.</p>
+<p>Para reducir la frustración que supone traducir términos específicos del dominio y estar al tanto de las traducciones en curso, puedes enviar una solicitud de incorporación de cambios modificando el archivo <code>readme.md</code> del <a href="https://github.com/Klipper3d/klipper-translations">Proyecto Klipper-translations</a>. Una vez que la traducción esté lista, se podrá realizar la modificación correspondiente en el proyecto Klipper.</p>
 <p>Si ya existe una traducción en el repositorio Klipper y ya no cumple con la lista de comprobación anterior, se marcará como obsoleta después de un mes sin actualizaciones.</p>
 <p>Once the requirements are met, you need to:</p>
 <ol>
-<li>update klipper-tranlations repository <a href="https://github.com/Klipper3d/klipper-translations/blob/translations/active_translations">active_translations</a></li>
+<li>update klipper-translations repository <a href="https://github.com/Klipper3d/klipper-translations/blob/translations/active_translations">active_translations</a></li>
 <li>Optional: add a manual-index.md file in klipper-translations repository's <code>docs\locals\&lt;lang&gt;</code> folder to replace the language specific index.md (generated index.md does not render correctly).</li>
 </ol>
 <p>Known Issues:</p>

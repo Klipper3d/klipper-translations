@@ -1349,13 +1349,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#current-limitations" class="md-nav__link">
-    Current Limitations
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#commands" class="md-nav__link">
     Commands
   </a>
@@ -1387,13 +1380,11 @@
 
 
 <h1 id="using-pwm-tools">Using PWM tools<a class="headerlink" href="#using-pwm-tools" title="Permanent link">&para;</a></h1>
-<p>Ten dokument opisuje jak skonfigurować laser lub wrzeciono sterowane PWM używając <code>output_pin</code> i kilku makr.</p>
+<p>This document describes how to setup a PWM-controlled laser or spindle using <code>pwm_tool</code> and some macros.</p>
 <h2 id="jak-to-dziaa">Jak to działa?<a class="headerlink" href="#jak-to-dziaa" title="Permanent link">&para;</a></h2>
 <p>Wykorzystując wyjście pwm wentylatora głowicy drukującej, można sterować laserami lub wrzecionami. Jest to przydatne, jeśli używasz przełączalnych głowic drukujących, na przykład E3D toolchanger lub rozwiązania DIY. Zazwyczaj, narzędzia krzywkowe takie jak LaserWeb mogą być skonfigurowane do używania komend <code>M3-M5</code>, które oznaczają <em>spindle speed CW</em> (<code>M3 S[0-255]</code>), <em>spindle speed CCW</em> (<code>M4 S[0-255]</code>) i <em>spindle stop</em> (<code>M5</code>).</p>
 <p><strong>Uwaga:</strong> Podczas używania lasera należy zachować wszelkie środki ostrożności, jakie tylko przychodzą na myśl! Lasery diodowe są zwykle odwrócone. Oznacza to, że po ponownym uruchomieniu MCU laser będzie <em>w pełni włączony</em> przez cały czas potrzebny do ponownego uruchomienia MCU. Dla pewności zaleca się <em>zawsze</em> noszenie odpowiednich okularów ochronnych dostosowanych do długości fal jeżeli laser jest uruchomiony, oraz do odłączania lasera, gdy nie jest on potrzebny. Powinieneś także skonfigurować limit czasu bezpieczeństwa, aby narzędzie zatrzymało się, gdy host lub MCU napotka błąd.</p>
 <p>For an example configuration, see <a href="/config/sample-pwm-tool.cfg">config/sample-pwm-tool.cfg</a>.</p>
-<h2 id="current-limitations">Current Limitations<a class="headerlink" href="#current-limitations" title="Permanent link">&para;</a></h2>
-<p>There is a limitation of how frequent PWM updates may occur. While being very precise, a PWM update may only occur every 0.1 seconds, rendering it almost useless for raster engraving. However, there exists an <a href="https://github.com/Cirromulus/klipper/tree/laser_tool">experimental branch</a> with its own tradeoffs. In long term, it is planned to add this functionality to main-line klipper.</p>
 <h2 id="commands">Commands<a class="headerlink" href="#commands" title="Permanent link">&para;</a></h2>
 <p><code>M3/M4 S&lt;value&gt;</code> : Set PWM duty-cycle. Values between 0 and 255. <code>M5</code> : Stop PWM output to shutdown value.</p>
 <h2 id="laserweb-configuration">Laserweb Configuration<a class="headerlink" href="#laserweb-configuration" title="Permanent link">&para;</a></h2>

@@ -1405,8 +1405,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#katapults-flashtoolpy" class="md-nav__link">
-    Katapult's flashtool.py
+  <a href="#py" class="md-nav__link">
+    Вспышка Катапулта. py
   </a>
   
 </li>
@@ -1489,7 +1489,7 @@ Entering<span class="w"> </span>bootloader<span class="w"> </span>on<span class=
 <p>Где <code>&lt;DEVICE&gt;</code> - это ваше последовательное устройство, например <code>/dev/serial.by-id/usb-Klipper[...]</code> или <code>/dev/ttyACM0</code></p>
 <p><code>&lt;Ctrl-A&gt;&lt;Ctrl-P&gt;</code> означает удерживание <code>Ctrl</code>, нажатие и отпускание <code>a</code>, нажатие и отпускание <code>p</code>, затем отпускание <code>Ctrl</code></p>
 <h3 id="_4">Физическая серия<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<p>Если на MCU используется физический последовательный порт (даже если для подключения к нему используется последовательный USB-адаптер), отправьте строку <code>&lt;SPACE&gt;&lt;FS&gt;&lt;SPACE&gt;Запрос последовательного загрузчика!!&lt;SPACE&gt;~</code>.</p>
+<p>If a physical serial port is being used on the MCU (even if a USB serial adapter is being used to connect to it), sending the string <code>&lt;SPACE&gt;&lt;FS&gt;&lt;SPACE&gt;Request Serial Bootloader!!&lt;SPACE&gt;~</code> requests the bootloader.</p>
 <p><code>&lt;SPACE&gt;</code> - это буквенный пробел ASCII, 0x20.</p>
 <p><code>&lt;FS&gt;</code> - это разделитель файлов ASCII, 0x1c.</p>
 <p>Обратите внимание, что это не является корректным сообщением согласно <a href="Protocol.html#micro-controller-interface">MCU протокола</a>, но символы синхронизации (<code>~</code>) по-прежнему соблюдаются.</p>
@@ -1504,7 +1504,7 @@ Entering<span class="w"> </span>bootloader<span class="w"> </span>on<span class=
 <h3 id="canbus">CANBUS<a class="headerlink" href="#canbus" title="Permanent link">&para;</a></h3>
 <p>Если используется CANBUS, специальное сообщение <a href="CANBUS_protocol.html#admin-messages">сообщение администратора</a> запросит загрузчик. Это сообщение будет принято, даже если устройство уже имеет nodeid, а также будет обработано, если mcu выключен.</p>
 <p>Этот метод также применим к устройствам, работающим в режиме <a href="CANBUS.html#usb-to-can-bus-bridge-mode">CANBridge</a>.</p>
-<h4 id="katapults-flashtoolpy">Katapult's flashtool.py<a class="headerlink" href="#katapults-flashtoolpy" title="Permanent link">&para;</a></h4>
+<h4 id="py">Вспышка Катапулта. py<a class="headerlink" href="#py" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code>python3<span class="w"> </span>./katapult/scripts/flashtool.py<span class="w"> </span>-i<span class="w"> </span>&lt;CAN_IFACE&gt;<span class="w"> </span>-u<span class="w"> </span>&lt;UUID&gt;<span class="w"> </span>-r
 </code></pre></div>
 

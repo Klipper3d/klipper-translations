@@ -1421,7 +1421,7 @@
 
 
 <h1 id="debugging">Debugging<a class="headerlink" href="#debugging" title="Permanent link">&para;</a></h1>
-<p>This document describes some of the Klipper debugging tools.</p>
+<p>این سند، برخی از ابزارهای اشکال‌زدایی (Debugging) کلیپر را تشریح می‌کند.</p>
 <h2 id="running-the-regression-tests">Running the regression tests<a class="headerlink" href="#running-the-regression-tests" title="Permanent link">&para;</a></h2>
 <p>The main Klipper GitHub repository uses "github actions" to run a series of regression tests. It can be useful to run some of these tests locally.</p>
 <p>The source code "whitespace check" can be run with:</p>
@@ -1460,7 +1460,7 @@ make
 <h2 id="motion-analysis-and-data-logging">Motion analysis and data logging<a class="headerlink" href="#motion-analysis-and-data-logging" title="Permanent link">&para;</a></h2>
 <p>Klipper supports logging its internal motion history, which can be later analyzed. To use this feature, Klipper must be started with the <a href="API_Server.html">API Server</a> enabled.</p>
 <p>Data logging is enabled with the <code>data_logger.py</code> tool. For example:</p>
-<div class="highlight"><pre><span></span><code>~/klipper/scripts/motan/data_logger.py /tmp/klippy_uds mylog
+<div class="highlight"><pre><span></span><code>~/klipper/scripts/motan/data_logger.py /tmp/klippy_uds mylog -s &#39;*&#39;
 </code></pre></div>
 
 <p>This command will connect to the Klipper API Server, subscribe to status and motion information, and log the results. Two files are generated - a compressed data file and an index file (eg, <code>mylog.json.gz</code> and <code>mylog.index.gz</code>). After starting the logging, it is possible to complete prints and other actions - the logging will continue in the background. When done logging, hit <code>ctrl-c</code> to exit from the <code>data_logger.py</code> tool.</p>

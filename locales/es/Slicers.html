@@ -1342,8 +1342,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#set-the-g-code-flavor-to-marlin" class="md-nav__link">
-    Set the G-Code flavor to Marlin
+  <a href="#establecer-el-tipo-de-codigo-g-en-marlin" class="md-nav__link">
+    Establecer el tipo de código G en Marlin.
   </a>
   
 </li>
@@ -1416,12 +1416,12 @@
 
 <h1 id="rebanadores">Rebanadores<a class="headerlink" href="#rebanadores" title="Permanent link">&para;</a></h1>
 <p>Este documento provee algunas sugerencias para configurar una aplicación "slicer" para usar con Klipper. Algunos de los slicers mas comúnmente usados con Klipper son Slic3r, Cura, Simplify3D, etc.</p>
-<h2 id="set-the-g-code-flavor-to-marlin">Set the G-Code flavor to Marlin<a class="headerlink" href="#set-the-g-code-flavor-to-marlin" title="Permanent link">&para;</a></h2>
-<p>Many slicers have an option to configure the "G-Code flavor". The default is frequently "Marlin" and that works well with Klipper. The "Smoothieware" setting also works well with Klipper.</p>
+<h2 id="establecer-el-tipo-de-codigo-g-en-marlin">Establecer el tipo de código G en Marlin.<a class="headerlink" href="#establecer-el-tipo-de-codigo-g-en-marlin" title="Permanent link">&para;</a></h2>
+<p>Muchas cortadoras tienen una opción para configurar el «G-Code flavor». El valor predeterminado suele ser «Marlin», que funciona bien con Klipper. La configuración «Smoothieware» también funciona bien con Klipper, Ahora ya se puede indicar «Klipper» como valor en diferentes laminadores.</p>
 <h2 id="klipper-gcode_macro">Klipper gcode_macro<a class="headerlink" href="#klipper-gcode_macro" title="Permanent link">&para;</a></h2>
-<p>Slicers will often allow one to configure "Start G-Code" and "End G-Code" sequences. It is often convenient to define custom macros in the Klipper config file instead - such as: <code>[gcode_macro START_PRINT]</code> and <code>[gcode_macro END_PRINT]</code>. Then one can just run START_PRINT and END_PRINT in the slicer's configuration. Defining these actions in the Klipper configuration may make it easier to tweak the printer's start and end steps as changes do not require re-slicing.</p>
-<p>See <a href="https://github.com/Klipper3d/klipper/blob/master/config/sample-macros.cfg">sample-macros.cfg</a> for example START_PRINT and END_PRINT macros.</p>
-<p>See the <a href="Config_Reference.html#gcode_macro">config reference</a> for details on defining a gcode_macro.</p>
+<p>Los cortadores suelen permitir configurar secuencias de «G-Code de inicio» y «G-Code de fin». A menudo resulta conveniente definir macros personalizadas en el archivo de configuración de Klipper, como por ejemplo: <code>[gcode_macro START_PRINT]</code> y <code>[gcode_macro END_PRINT]</code>. De este modo, basta con ejecutar START_PRINT y END_PRINT en la configuración del cortador. Definir estas acciones en la configuración de Klipper puede facilitar el ajuste de los pasos de inicio y finalización de la impresora, ya que los cambios no requieren volver a cortar.</p>
+<p>Consulte <a href="https://github.com/Klipper3d/klipper/blob/master/config/sample-macros.cfg">sample-macros.cfg</a> para ver ejemplos de las macros START_PRINT y END_PRINT.</p>
+<p>Consulte la <a href="Config_Reference.html#gcode_macro">referencia de configuración</a> para obtener más información sobre cómo definir una macro gcode_macro.</p>
 <h2 id="large-retraction-settings-may-require-tuning-klipper">Large retraction settings may require tuning Klipper<a class="headerlink" href="#large-retraction-settings-may-require-tuning-klipper" title="Permanent link">&para;</a></h2>
 <p>The maximum speed and acceleration of retraction moves are controlled in Klipper by the <code>max_extrude_only_velocity</code> and <code>max_extrude_only_accel</code> config settings. These settings have a default value that should work well on many printers. However, if one has configured a large retraction in the slicer (eg, 5mm or greater) then one may find they limit the desired speed of retractions.</p>
 <p>If using a large retraction, consider tuning Klipper's <a href="Pressure_Advance.html">pressure advance</a> instead. Otherwise, if one finds the toolhead seems to "pause" during retraction and priming, then consider explicitly defining <code>max_extrude_only_velocity</code> and <code>max_extrude_only_accel</code> in the Klipper config file.</p>
@@ -1453,7 +1453,7 @@ M104 S0
 </code></pre></div>
 
 <p>before the macro call. Also note that SuperSlicer has a "custom gcode only" button option, which achieves the same outcome.</p>
-<p>An example of a START_PRINT macro using these paramaters can be found in config/sample-macros.cfg</p>
+<p>An example of a START_PRINT macro using these parameters can be found in config/sample-macros.cfg</p>
 
               
             </article>

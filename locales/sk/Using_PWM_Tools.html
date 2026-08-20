@@ -13,7 +13,7 @@
     
     
       
-        <title>Používanie PWM nástrojov - Klipper documentation</title>
+        <title>Using PWM tools - Klipper documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#pouzivanie-pwm-nastrojov" class="md-skip">
+        <a href="#using-pwm-tools" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Používanie PWM nástrojov
+              Using PWM tools
             
           </span>
         </div>
@@ -1342,29 +1342,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#ako-to-funguje" class="md-nav__link">
-    Ako to funguje?
+  <a href="#how-does-it-work" class="md-nav__link">
+    How does it work?
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#sucasne-obmedzenia" class="md-nav__link">
-    Súčasné obmedzenia
+  <a href="#commands" class="md-nav__link">
+    Commands
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#prikazy" class="md-nav__link">
-    Príkazy
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#konfiguracia-laserwebu" class="md-nav__link">
-    Konfigurácia Laserwebu
+  <a href="#laserweb-configuration" class="md-nav__link">
+    Laserweb Configuration
   </a>
   
 </li>
@@ -1386,18 +1379,16 @@
 </a>
 
 
-<h1 id="pouzivanie-pwm-nastrojov">Používanie PWM nástrojov<a class="headerlink" href="#pouzivanie-pwm-nastrojov" title="Permanent link">&para;</a></h1>
-<p>Tento dokument popisuje, ako nastaviť laser alebo vreteno riadené PWM pomocou <code>output_pin</code> a niektorých makier.</p>
-<h2 id="ako-to-funguje">Ako to funguje?<a class="headerlink" href="#ako-to-funguje" title="Permanent link">&para;</a></h2>
-<p>Zmenou účelu výstupu PWM ventilátora tlačovej hlavy môžete ovládať lasery alebo vretená. Toto je užitočné, ak používate prepínateľné tlačové hlavy, napríklad menič nástrojov E3D alebo riešenie svojpomocne. Vačkové nástroje, ako napríklad LaserWeb, je možné zvyčajne nakonfigurovať na používanie príkazov <code>M3-M5</code>, čo znamená <em>rýchlosť vretena v smere hodinových ručičiek</em> (<code>M3 S[0-255]</code>), <em>rýchlosť vretena proti smeru hodinových ručičiek</em> (<code>M4 S[0-255]</code>) a <em>zastavenie vretena</em> (<code>M5</code>).</p>
-<p><strong>Upozornenie:</strong> Pri prevádzke lasera dodržujte všetky bezpečnostné opatrenia, ktoré vás napadnú! Diódové lasery sú zvyčajne invertované. To znamená, že po reštarte MCU bude laser <em>plne zapnutý</em> po dobu, ktorú MCU potrebuje na opätovné spustenie. Pre istotu sa odporúča <em>vždy</em> nosiť vhodné laserové okuliare so správnou vlnovou dĺžkou, ak je laser napájaný; a odpojiť laser, keď nie je potrebný. Taktiež by ste mali nakonfigurovať bezpečnostný časový limit, aby sa nástroj zastavil, keď váš hostiteľ alebo MCU narazí na chybu.</p>
-<p>Príklad konfigurácie nájdete v súbore <a href="/config/sample-pwm-tool.cfg">config/sample-pwm-tool.cfg</a>.</p>
-<h2 id="sucasne-obmedzenia">Súčasné obmedzenia<a class="headerlink" href="#sucasne-obmedzenia" title="Permanent link">&para;</a></h2>
-<p>Existuje obmedzenie, ako často sa môžu vyskytovať aktualizácie PWM. Hoci je aktualizácia PWM veľmi presná, môže sa vyskytnúť iba každých 0,1 sekundy, čo ju robí takmer nepoužiteľnou pre rastrové gravírovanie. Existuje však <a href="https://github.com/Cirromulus/klipper/tree/laser_tool">experimentálna vetva</a> s vlastnými kompromismi. V dlhodobom horizonte sa plánuje pridať túto funkciu do hlavnej rady klipperu.</p>
-<h2 id="prikazy">Príkazy<a class="headerlink" href="#prikazy" title="Permanent link">&para;</a></h2>
-<p><code>M3/M4 S&lt;hodnota&gt;</code>: Nastavenie pracovného cyklu PWM. Hodnoty medzi 0 a 255. <code>M5</code>: Zastavenie výstupu PWM na hodnotu vypnutia.</p>
-<h2 id="konfiguracia-laserwebu">Konfigurácia Laserwebu<a class="headerlink" href="#konfiguracia-laserwebu" title="Permanent link">&para;</a></h2>
-<p>Ak používate Laserweb, funkčná konfigurácia by bola:</p>
+<h1 id="using-pwm-tools">Using PWM tools<a class="headerlink" href="#using-pwm-tools" title="Permanent link">&para;</a></h1>
+<p>This document describes how to setup a PWM-controlled laser or spindle using <code>pwm_tool</code> and some macros.</p>
+<h2 id="how-does-it-work">How does it work?<a class="headerlink" href="#how-does-it-work" title="Permanent link">&para;</a></h2>
+<p>With re-purposing the printhead's fan pwm output, you can control lasers or spindles. This is useful if you use switchable print heads, for example the E3D toolchanger or a DIY solution. Usually, cam-tools such as LaserWeb can be configured to use <code>M3-M5</code> commands, which stand for <em>spindle speed CW</em> (<code>M3 S[0-255]</code>), <em>spindle speed CCW</em> (<code>M4 S[0-255]</code>) and <em>spindle stop</em> (<code>M5</code>).</p>
+<p><strong>Warning:</strong> When driving a laser, keep all security precautions that you can think of! Diode lasers are usually inverted. This means, that when the MCU restarts, the laser will be <em>fully on</em> for the time it takes the MCU to start up again. For good measure, it is recommended to <em>always</em> wear appropriate laser-goggles of the right wavelength if the laser is powered; and to disconnect the laser when it is not needed. Also, you should configure a safety timeout, so that when your host or MCU encounters an error, the tool will stop.</p>
+<p>For an example configuration, see <a href="/config/sample-pwm-tool.cfg">config/sample-pwm-tool.cfg</a>.</p>
+<h2 id="commands">Commands<a class="headerlink" href="#commands" title="Permanent link">&para;</a></h2>
+<p><code>M3/M4 S&lt;value&gt;</code> : Set PWM duty-cycle. Values between 0 and 255. <code>M5</code> : Stop PWM output to shutdown value.</p>
+<h2 id="laserweb-configuration">Laserweb Configuration<a class="headerlink" href="#laserweb-configuration" title="Permanent link">&para;</a></h2>
+<p>If you use Laserweb, a working configuration would be:</p>
 <pre><code>GCODE START:
     M5            ; Disable Laser
     G21           ; Set units to mm

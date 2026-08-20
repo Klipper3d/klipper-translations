@@ -1433,6 +1433,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#gcode" class="md-nav__link">
+    gcode
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#gcode_button" class="md-nav__link">
     gcode_button
   </a>
@@ -1684,6 +1691,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#accessing-coordinates" class="md-nav__link">
+    Accessing Coordinates
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1820,6 +1834,11 @@
 <ul>
 <li><code>retract_length</code>, <code>retract_speed</code>, <code>unretract_extra_length</code>, <code>unretract_speed</code>: Firmware_retraction 모듈의 현재 설정입니다. 이 설정은 <code>SET_RETRACTION</code> 명령이 변경하는 경우 구성 파일과 다를 수 있습니다.</li>
 </ul>
+<h2 id="gcode">gcode<a class="headerlink" href="#gcode" title="Permanent link">&para;</a></h2>
+<p>The following information is available in the <code>gcode</code> object:</p>
+<ul>
+<li><code>commands</code>: Returns a list of all currently available commands. For each command, if a help string is defined it will also be provided.</li>
+</ul>
 <h2 id="gcode_button">gcode_button<a class="headerlink" href="#gcode_button" title="Permanent link">&para;</a></h2>
 <p>The following information is available in <a href="Config_Reference.html#gcode_button">gcode_button some_name</a> objects:</p>
 <ul>
@@ -1833,21 +1852,23 @@
 <h2 id="gcode_move">gcode_move<a class="headerlink" href="#gcode_move" title="Permanent link">&para;</a></h2>
 <p><code>gcode_move</code> 개체에서 다음 정보를 사용할 수 있습니다(이 개체는 항상 사용 가능):</p>
 <ul>
-<li><code>gcode_position</code>: 현재 G-Code 원점을 기준으로 한 툴헤드의 현재 위치입니다. 즉, <code>G1</code> 명령에 직접 보낼 수 있는 위치입니다. 이 위치의 x, y, z, e 구성요소에 액세스하는 것이 가능합니다 (예: <code>gcode_position.x</code>).</li>
-<li><code>position</code>: 구성 파일에 지정된 좌표계를 사용하여 도구 헤드의 마지막으로 명령된 위치입니다. 이 위치의 x, y, z 및 e 구성요소에 액세스하는 것이 가능합니다(예: <code>position.x</code>).</li>
-<li><code>homing_origin</code>: <code>G28</code> 명령 이후에 사용할 gcode 좌표계(구성 파일에 지정된 좌표계에 상대적)의 원점입니다. <code>SET_GCODE_OFFSET</code> 명령은 이 위치를 변경할 수 있습니다. 이 위치의 x, y 및 z 구성요소(예: <code>homing_origin.x</code>)에 액세스할 수 있습니다.</li>
+<li><code>gcode_position</code>: The current position of the toolhead relative to the current G-Code origin. That is, positions that one might directly send to a <code>G1</code> command. This value is encoded as a <a href="#accessing-coordinates">coordinate</a>.</li>
+<li><code>position</code>: The last commanded position of the toolhead using the coordinate system specified in the config file. This value is encoded as a <a href="#accessing-coordinates">coordinate</a>.</li>
+<li><code>homing_origin</code>: The origin of the gcode coordinate system (relative to the coordinate system specified in the config file) to use after a <code>G28</code> command. The <code>SET_GCODE_OFFSET</code> command can alter this position. This value is encoded as a <a href="#accessing-coordinates">coordinate</a>.</li>
 <li><code>speed</code>: <code>G1</code> 명령에서 마지막으로 설정한 속도(mm/s)입니다.</li>
 <li><code>speed_factor</code>: <code>M220</code> 명령으로 설정한 "speed factor override"입니다. 1.0은 재정의가 없음을 의미하고 예를 들어 2.0은 요청된 속도의 두 배인 부동 소수점 값입니다.</li>
 <li><code>extrude_factor</code>: <code>M221</code> 명령으로 설정한 "extrude factor override"입니다. 1.0은 재정의가 없음을 의미하고 예를 들어 2.0은 요청된 돌출을 두 배로 만드는 부동 소수점 값입니다.</li>
 <li><code>absolute_coordinates</code>: 이것은 <code>G90</code> 절대 좌표 모드에 있으면 True를 반환하고 <code>G91</code> 상대 모드에 있으면 False를 반환합니다.</li>
 <li><code>absolute_extrude</code>: 이것은 <code>M82</code> 절대 돌출 모드인 경우 True를 반환하고 <code>M83</code> 상대 모드인 경우 False를 반환합니다.</li>
+<li><code>axis_map</code>: Provides a mechanism for finding the coordinate component for a given G-Code id that is used in <code>G1</code> commands. See the <a href="#accessing-coordinates">Accessing Coordinates</a> section for details.</li>
 </ul>
 <h2 id="hall_filament_width_sensor">hall_filament_width_sensor<a class="headerlink" href="#hall_filament_width_sensor" title="Permanent link">&para;</a></h2>
 <p><a href="Config_Reference.html#hall_filament_width_sensor">hall_filament_width_sensor</a> 개체에서 다음 정보를 사용할 수 있습니다:</p>
 <ul>
 <li>all items from <a href="Status_Reference.html#filament_switch_sensor">filament_switch_sensor</a></li>
 <li><code>is_active</code>: 센서가 현재 활성 상태이면 True를 반환합니다.</li>
-<li><code>Diameter</code>: The last reading from the sensor in mm.</li>
+<li><code>flow_compensation_enabled</code>: Returns True if flow compensation is enabled.</li>
+<li><code>Diameter</code>: Returns the last width reading in mm if the sensor is active or the nominal filament diameter if it is not.</li>
 <li><code>Raw</code>: The last raw ADC reading from the sensor.</li>
 </ul>
 <h2 id="heater">heater<a class="headerlink" href="#heater" title="Permanent link">&para;</a></h2>
@@ -1870,30 +1891,36 @@
 <ul>
 <li><code>state</code>: idle_timeout 모듈에서 추적한 프린터의 현재 상태입니다. "Idle", "Printing", "Ready" 문자열 중 하나입니다.</li>
 <li><code>printing_time</code>: 프린터가 "인쇄 중" 상태에 있었던 시간(초)입니다 (idle_timeout 모듈에 의해 추적됨).</li>
+<li><code>idle_timeout</code>: The current 'timeout' (in seconds) to wait for the gcode to be triggered. (as set by <a href="G-Codes.html#set_idle_timeout">SET_IDLE_TIMEOUT</a>)</li>
 </ul>
 <h2 id="led">led<a class="headerlink" href="#led" title="Permanent link">&para;</a></h2>
 <p>The following information is available for each <code>[led led_name]</code>, <code>[neopixel led_name]</code>, <code>[dotstar led_name]</code>, <code>[pca9533 led_name]</code>, and <code>[pca9632 led_name]</code> config section defined in printer.cfg:</p>
 <ul>
-<li><code>color_data</code>: A list of color lists containing the RGBW values for a led in the chain. Each value is represented as a float from 0.0 to 1.0. Each color list contains 4 items (red, green, blue, white) even if the underyling LED supports fewer color channels. For example, the blue value (3rd item in color list) of the second neopixel in a chain could be accessed at <code>printer["neopixel &lt;config_name&gt;"].color_data[1][2]</code>.</li>
+<li><code>color_data</code>: A list of color lists containing the RGBW values for a led in the chain. Each value is represented as a float from 0.0 to 1.0. Each color list contains 4 items (red, green, blue, white) even if the underlying LED supports fewer color channels. For example, the blue value (3rd item in color list) of the second neopixel in a chain could be accessed at <code>printer["neopixel &lt;config_name&gt;"].color_data[1][2]</code>.</li>
 </ul>
 <h2 id="load_cell">load_cell<a class="headerlink" href="#load_cell" title="Permanent link">&para;</a></h2>
 <p>The following information is available for each <code>[load_cell name]</code>:</p>
 <ul>
-<li>'is_calibrated': True/False is the load cell calibrated</li>
-<li>'counts_per_gram': The number of raw sensor counts that equals 1 gram of force</li>
-<li>'reference_tare_counts': The reference number of raw sensor counts for 0 force</li>
-<li>'tare_counts': The current number of raw sensor counts for 0 force</li>
-<li>'force_g': The force in grams, averaged over the last polling period.</li>
-<li>'min_force_g': The minimum force in grams, over the last polling period.</li>
-<li>'max_force_g': The maximum force in grams, over the last polling period.</li>
+<li><code>is_calibrated</code>: True/False whether the load cell is calibrated.</li>
+<li><code>counts_per_gram</code>: The number of raw sensor counts that equals 1 gram of force.</li>
+<li><code>reference_tare_counts</code>: The reference number of raw sensor counts for 0 force.</li>
+<li><code>tare_counts</code>: The current number of raw sensor counts for 0 force.</li>
+<li><code>force_g</code>: The force in grams, averaged over the last polling period.</li>
+<li><code>min_force_g</code>: The minimum force in grams, over the last polling period.</li>
+<li><code>max_force_g</code>: The maximum force in grams, over the last polling period.</li>
+<li><code>errors</code>: The number of sensor errors detected since the last start of measurements.</li>
+<li><code>overflows</code>: The number of data buffer overflows detected since the last start of measurements.</li>
+<li><code>sample_rate</code>: The sensor's sample rate in samples per second.</li>
 </ul>
 <h2 id="load_cell_probe">load_cell_probe<a class="headerlink" href="#load_cell_probe" title="Permanent link">&para;</a></h2>
 <p>The following information is available for <code>[load_cell_probe]</code>:</p>
 <ul>
 <li>all items from <a href="Status_Reference.html#load_cell">load_cell</a></li>
 <li>all items from <a href="Status_Reference.html#probe">probe</a></li>
-<li>'endstop_tare_counts': the load cell probe keeps a tare value independent of the load cell. This re-set at the start of each probe.</li>
-<li>'last_trigger_time': timestamp of the last homing trigger</li>
+<li><code>endstop_tare_counts</code>: The load cell probe keeps a tare value independent of the load cell. This is re-set at the start of each probe.</li>
+<li><code>last_trigger_time</code>: Timestamp of the last homing trigger.</li>
+<li><code>last_z_result</code>: The Z position result of the last tap.</li>
+<li><code>is_last_tap_valid</code>: True if the last tap result is valid.</li>
 </ul>
 <h2 id="manual_probe">manual_probe<a class="headerlink" href="#manual_probe" title="Permanent link">&para;</a></h2>
 <p>The following information is available in the <code>manual_probe</code> object:</p>
@@ -1914,12 +1941,12 @@
 <h2 id="motion_report">motion_report<a class="headerlink" href="#motion_report" title="Permanent link">&para;</a></h2>
 <p><code>motion_report</code> 개체에서 다음 정보를 사용할 수 있습니다 (이 개체는 스테퍼 구성 섹션이 정의된 경우 자동으로 사용할 수 있음):</p>
 <ul>
-<li><code>live_position</code>: 현재 시간으로 보간된 요청된 toolhead 위치입니다.</li>
+<li><code>live_position</code>: The requested toolhead position interpolated to the current time. This value is encoded as a <a href="#accessing-coordinates">coordinate</a>.</li>
 <li><code>live_velocity</code>: 현재 시간에 요청된 toolhead 속도(mm/s)입니다.</li>
 <li><code>live_extruder_velocity</code>: 현재 시간에 요청된 압출기 속도(mm/s)입니다.</li>
 </ul>
 <h2 id="output_pin">output_pin<a class="headerlink" href="#output_pin" title="Permanent link">&para;</a></h2>
-<p>다음 정보는 <a href="Config_Reference.html#output_pin">output_pin some_name</a> 개체에서 사용할 수 있습니다:</p>
+<p>The following information is available in <a href="Config_Reference.html#output_pin">output_pin some_name</a> and <a href="Config_Reference.html#pwm_tool">pwm_tool some_name</a> objects:</p>
 <ul>
 <li><code>value</code>: <code>SET_PIN</code> 명령에 의해 설정된 핀의 "값".</li>
 </ul>
@@ -1947,7 +1974,8 @@
 <ul>
 <li><code>name</code>: Returns the name of the probe in use.</li>
 <li><code>last_query</code>: 마지막 QUERY_PROBE 명령 동안 프로브가 "트리거된" 것으로 보고된 경우 True를 반환합니다. 이것이 매크로에서 사용되는 경우 템플릿 확장 순서로 인해 QUERY_PROBE 명령이 이 참조를 포함하는 매크로보다 먼저 실행되어야 합니다.</li>
-<li><code>last_z_result</code>: 마지막 PROBE 명령의 Z 결과 값을 반환합니다. 이것이 매크로에서 사용되는 경우 템플릿 확장 순서로 인해 PROBE(또는 유사한) 명령이 이 참조를 포함하는 매크로보다 먼저 실행되어야 합니다.</li>
+<li><code>last_probe_position</code>: The results of the last <code>PROBE</code> command. This value is encoded as a <a href="#accessing-coordinates">coordinate</a>. The probe hardware estimates that if one were to command the toolhead to XY position <code>last_probe_position.x</code>,<code>last_probe_position.y</code> and descend then the tip of the toolhead would first contact the bed at a Z height of <code>last_probe_position.z</code>. These coordinates are relative to the frame (that is, they use the coordinate system specified in the config file). Note, if this is used in a macro, due to the order of template expansion, the <code>PROBE</code> command must be run prior to the macro containing this reference.</li>
+<li><code>last_z_result</code>: This value is deprecated; it will be removed in the near future.</li>
 </ul>
 <h2 id="pwm_cycle_time">pwm_cycle_time<a class="headerlink" href="#pwm_cycle_time" title="Permanent link">&para;</a></h2>
 <p>The following information is available in <a href="Config_Reference.html#pwm_cycle_time">pwm_cycle_time some_name</a> objects:</p>
@@ -2029,13 +2057,14 @@
 <h2 id="toolhead">toolhead<a class="headerlink" href="#toolhead" title="Permanent link">&para;</a></h2>
 <p><code>toolhead</code> 개체에서 다음 정보를 사용할 수 있습니다(이 개체는 항상 사용 가능):</p>
 <ul>
-<li><code>position</code>: 구성 파일에 지정된 좌표계에 상대적인 toolhead의 마지막 명령 위치입니다. 이 위치의 x, y, z 및 e 구성요소에 액세스하는 것이 가능합니다(예: <code>position.x</code>).</li>
+<li><code>position</code>: The last commanded position of the toolhead relative to the coordinate system specified in the config file. This value is encoded as a <a href="#accessing-coordinates">coordinate</a>.</li>
 <li><code>extruder</code>: 현재 활성 압출기의 이름입니다. 예를 들어 매크로에서 <code>printer[printer.toolhead.extruder].target</code>을 사용하여 현재 압출기의 목표 온도를 얻을 수 있습니다.</li>
 <li><code>homed_axes</code>: "homed" 상태에 있는 것으로 간주되는 현재 직교 축입니다. "x", "y", "z" 중 하나 이상을 포함하는 문자열입니다.</li>
-<li><code>axis_minimum</code>, <code>axis_maximum</code>: 원점 복귀 후 축 이동 한계(mm). 이 제한 값의 x, y, z 구성 요소에 액세스할 수 있습니다 (예: <code>axis_minimum.x</code>, <code>axis_maximum.z</code>).</li>
+<li><code>axis_minimum</code>, <code>axis_maximum</code>: The axis travel limits (mm) after homing. This value is encoded as a <a href="#accessing-coordinates">coordinate</a>.</li>
 <li>For Delta printers the <code>cone_start_z</code> is the max z height at maximum radius (<code>printer.toolhead.cone_start_z</code>).</li>
 <li><code>max_velocity</code>, <code>max_accel</code>, <code>minimum_cruise_ratio</code>, <code>square_corner_velocity</code>: The current printing limits that are in effect. This may differ from the config file settings if a <code>SET_VELOCITY_LIMIT</code> (or <code>M204</code>) command alters them at run-time.</li>
 <li><code>stalls</code>: toolhead가 G-Code 입력에서 읽을 수 있는 것보다 빠르게 이동하여 프린터를 일시 중지해야 했던 총 횟수(마지막 다시 시작한 이후).</li>
+<li><code>extra_axes</code>: Provides a mechanism for finding the coordinate component for extra axes available in standard <code>G1</code> type move commands. See the <a href="#accessing-coordinates">Accessing Coordinates</a> section for details.</li>
 </ul>
 <h2 id="dual_carriage">dual_carriage<a class="headerlink" href="#dual_carriage" title="Permanent link">&para;</a></h2>
 <p>The following information is available in <a href="Config_Reference.html#dual_carriage">dual_carriage</a> on a cartesian, hybrid_corexy or hybrid_corexz robot</p>
@@ -2077,6 +2106,11 @@
 <ul>
 <li><code>applied</code>: z-tilt 레벨링 프로세스가 성공적으로 실행되고 완료된 경우 True 입니다.</li>
 </ul>
+<h2 id="accessing-coordinates">Accessing Coordinates<a class="headerlink" href="#accessing-coordinates" title="Permanent link">&para;</a></h2>
+<p>Some status fields provide a "coordinate". For macro users these fields may be accessed by component name (eg,<code>{printer.toolhead.position.x}</code>), where the component name may be "x", "y", or "z".</p>
+<p>For developers using the Klipper API Server these fields are transmitted as a list - for example: <code>{"toolhead": {"position": [1.0, 2.0, 3.0, 7.3, 19.2]}}</code> . The first three components of the list correspond with the x, y, and z axes.</p>
+<p>A coordinate will typically have at least 3 components (x, y, and z), however there may also be additional components. Care should be taken when accessing any of these additional components as the ordering and number of components may change at run-time.</p>
+<p>One may use <code>{printer.gcode_move.axis_map}</code> and/or <code>{printer.toolhead.extra_axes}</code> to determine the number of components and the ordering of components. For example, to access the "E" component one could use <code>{printer.toolhead.position[printer.gcode_move.axis_map.E]}</code>. Or, if one wanted to find the component associated with the "extruder" object, one could use <code>{printer.toolhead.position[printer.toolhead.extra_axes.extruder]}</code>.</p>
 
               
             </article>

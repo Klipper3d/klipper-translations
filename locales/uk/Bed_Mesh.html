@@ -1402,19 +1402,6 @@
     Налаштування нульової позиції відліку
   </a>
   
-    <nav class="md-nav" aria-label="Налаштування нульової позиції відліку">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#relative_reference_index" class="md-nav__link">
-    Застарілий relative_reference_index
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
           <li class="md-nav__item">
@@ -1658,7 +1645,7 @@
 </code></pre></div>
 
 <ul>
-<li><code>mesh_pps: 2, 3</code> <em>Значення за замовчуванням: 2, 2</em> Параметр <code>mesh_pps</code> є скороченням для точок сітки на сегмент. Цей параметр визначає, скільки точок інтерполювати для кожного сегмента вздовж осей X і Y. Вважайте «сегмент» простором між кожною досліджуваною точкою. Як і <code>probe_count</code>, <code>mesh_pps</code> вказується як пара цілих чисел X, Y, а також може бути вказано одне ціле число, яке застосовується до обох осей. У цьому прикладі є 4 сегменти вздовж осі X і 2 сегменти вздовж осі Y. Це означає 8 інтерпольованих точок уздовж X, 6 інтерпольованих точок уздовж Y, що призводить до сітки 13x8. Зауважте, що якщо mesh_pps встановлено на 0, то інтерполяція сітки вимкнена, а досліджувана матриця буде взята безпосередньо.</li>
+<li><code>mesh_pps: 2, 3</code> <em>Default Value: 2, 2</em> The <code>mesh_pps</code> option is shorthand for Mesh Points Per Segment. This option specifies how many points to interpolate for each segment along the X and Y axes. Consider a 'segment' to be the space between each probed point. Like <code>probe_count</code>, <code>mesh_pps</code> is specified as an X, Y integer pair, and also may be specified a single integer that is applied to both axes. In this example there are 4 segments along the X axis and 2 segments along the Y axis. This evaluates to 8 interpolated points along X, 6 interpolated points along Y, which results in a 13x9 mesh. Note that if mesh_pps is set to 0 then mesh interpolation is disabled and the probed matrix will be sampled directly.</li>
 <li><code>algorithm: lagrange</code> <em>Значення за замовчуванням: lagrange</em> Алгоритм, який використовується для інтерполяції сітки. Може бути «лагранжа» або «бікубічного». Інтерполяція Лагранжа обмежена 6 досліджуваними точками, оскільки коливання мають тенденцію відбуватися з більшою кількістю зразків. Бікубічна інтерполяція потребує мінімум 4 досліджуваних точок уздовж кожної осі, якщо вказано менше 4 точок, то вибірка Лагранжа виконується примусово. Якщо <code>mesh_pps</code> має значення 0, це значення ігнорується, оскільки інтерполяція сітки не виконується.</li>
 <li><code>bicubic_tension: 0,2</code> <em>Значення за замовчуванням: 0,2</em> Якщо для параметра <code>algorithm</code> встановлено значення bicubic, можна вказати значення натягу. Чим вище натяг, тим більший нахил інтерполюється. Будьте обережні, регулюючи це, оскільки вищі значення також створюють більше перевищення, що призведе до того, що інтерпольовані значення будуть вищими або нижчими, ніж ваші вимірювані точки.</li>
 </ul>
@@ -1700,7 +1687,7 @@
 <li><code>fade_target: 0</code> <em>Значення за замовчуванням: середнє значення Z сітки</em> <code>fade_target</code> можна розглядати як додаткове зміщення Z, застосоване до всього ліжка після завершення згасання. Загалом ми хотіли б, щоб це значення було 0, однак є обставини, коли воно не повинно бути. Наприклад, припустимо, що ваше початкове положення на станині є викидом, воно на 0,2 мм нижче, ніж середня досліджувана висота станини. Якщо <code>fade_target</code> дорівнює 0, зникнення зменшить відбиток у середньому на 0,2 мм по всій поверхні. Встановивши для параметра <code>fade_target</code> значення .2, ділянка фіксації розшириться на .2 мм, однак решта ліжка матиме точний розмір. Загалом доцільно залишити <code>fade_target</code> поза конфігурацією, щоб використовувати середню висоту сітки, однак може бути бажано вручну налаштувати ціль зникнення, якщо потрібно друкувати на певній частині ліжка.</li>
 </ul>
 <h3 id="_8">Налаштування нульової позиції відліку<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h3>
-<p>Багато зондів сприйнятливі до «дрейфу», тобто до неточностей зондування, викликаних теплом або перешкодами. Це може ускладнити обчислення z-зміщення зонда, особливо при різних температурах шару. Таким чином, деякі принтери використовують кінцевий упор для наведення осі Z і зонд для калібрування сітки. У цій конфігурації можна зміщувати сітку таким чином, щоб «еталонна позиція» (X, Y) застосовувала коригування нуля. «Еталонною позицією» має бути місце на платформі, де виконується тестування паперу <a href="Manual_Level.html#calibrating-a-z-endstop">Z_ENDSTOP_CALIBRATE</a>. Модуль bed_mesh надає параметр <code>zero_reference_position</code> для визначення цієї координати:</p>
+<p>Many probes are susceptible to "drift", ie: inaccuracies in probing introduced by heat or interference. This can make calculating the probe's z-offset challenging, particularly at different bed temperatures. As such, some printers use an endstop for homing the Z axis and a probe for calibrating the mesh. In this configuration it is possible offset the mesh so that the (X, Y) <code>reference position</code> applies zero adjustment. The <code>reference position</code> should be the location on the bed where a <a href="Manual_Level.html#calibrating-a-z-endstop">Z_ENDSTOP_CALIBRATE</a> paper test is performed. The bed_mesh module provides the <code>zero_reference_position</code> option for specifying this coordinate:</p>
 <div class="highlight"><pre><span></span><code>[bed_mesh]
  швидкість: 120
  horizontal_move_z: 5
@@ -1713,20 +1700,6 @@
 <ul>
 <li><code>zero_reference_position:</code> <em>Значення за замовчуванням: Немає (вимкнено)</em> <code>zero_reference_position</code> очікує, що координата (X, Y) відповідає координаті <code>еталонної позиції</code>, описаної вище. Якщо координата лежить у межах сітки, тоді сітка буде зміщена, тому опорна позиція застосовує коригування нуля. Якщо координата лежить за межами сітки, то координата буде досліджена після калібрування, а результуюче значення z використовуватиметься як зсув по z. Зауважте, що ця координата НЕ має бути в місці, зазначеному як <code>faulty_region</code>, якщо потрібен зонд.</li>
 </ul>
-<h4 id="relative_reference_index">Застарілий relative_reference_index<a class="headerlink" href="#relative_reference_index" title="Permanent link">&para;</a></h4>
-<p>Існуючі конфігурації, що використовують параметр <code>relative_reference_index</code>, необхідно оновити, щоб використовувати <code>zero_reference_position</code>. Відповідь на команду gcode <a href="#output">BED_MESH_OUTPUT PGP=1</a> включатиме координату (X, Y), пов’язану з індексом; цю позицію можна використовувати як значення для <code>zero_reference_position</code>. Результат виглядатиме приблизно так:</p>
-<div class="highlight"><pre><span></span><code>// bed_mesh: згенеровані точки
- // Індекс | Інструмент налаштований | Зонд
- // 0 | (1,0, 1,0) | (24,0, 6,0)
- // 1 | (36,7, 1,0) | (59,7, 6,0)
- // 2 | (72,3, 1,0) | (95,3, 6,0)
- // 3 | (108,0, 1,0) | (131,0, 6,0)
- ... (додаткові згенеровані бали)
- // bed_mesh: relative_reference_index 24 дорівнює (131,5, 108,0)
-</code></pre></div>
-
-<p><em>Примітка. Наведені вище результати також друкуються в <code>klippy.log</code> під час ініціалізації.</em></p>
-<p>Використовуючи наведений вище приклад, ми бачимо, що <code>relative_reference_index</code> друкується разом із його координатою. Таким чином, <code>zero_reference_position</code> становить <code>131,5, 108</code>.</p>
 <h3 id="_9">Несправні регіони<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
 <p>Деякі ділянки ліжка можуть повідомляти про неточні результати під час зондування через «несправність» у певних місцях. Найкращим прикладом цього є ліжка з рядом інтегрованих магнітів, які використовуються для утримання знімних сталевих листів. Магнітне поле на цих магнітах і навколо них може призвести до спрацьовування індуктивного зонда на відстані, вищій або нижчій, ніж це було б у іншому випадку, що призведе до сітки, яка не точно представляє поверхню в цих місцях. <strong>Примітка: це не слід плутати зі зміщенням розташування датчика, яке дає неточні результати по всьому ліжку.</strong></p>
 <p>Параметри <code>faulty_region</code> можуть бути налаштовані для компенсації цього впливу. Якщо згенерована точка лежить у несправній області, сітка ліжка намагатиметься дослідити до 4 точок на межах цієї області. Ці досліджувані значення будуть усереднені та вставлені в сітку як значення Z у створеній (X, Y) координаті.</p>

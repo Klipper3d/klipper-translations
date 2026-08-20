@@ -4,13 +4,11 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-07-22 08:46+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Slovenian <https://hosted.weblate.org/projects/klipper/"
-"bootloaders/sl/>\n"
+"Language-Team: Slovenian <https://hosted.weblate.org/projects/klipper/bootloaders/sl/>\n"
 "Language: sl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
-"n%100==4 ? 2 : 3;\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3;\n"
 "X-Generator: Weblate 5.13-dev\n"
 
 msgid ""
@@ -522,13 +520,6 @@ msgid ""
 "enter the bootloader by pressing the reset button twice in succession."
 msgstr ""
 
-#: docs/Bootloaders.md:block 116 (paragraph)
-msgid ""
-"The `flash_can.py` utility supplied in the `lib/canboot` folder may be used to"
-" upload Klipper firmware. The device UUID is necessary to flash. If you do not"
-" have a UUID it is possible to query nodes currently running the bootloader:"
-msgstr ""
-
 #: docs/Bootloaders.md:block 118 (paragraph)
 msgid ""
 "This will return UUIDs for all connected nodes not currently assigned a UUID. "
@@ -618,14 +609,6 @@ msgid ""
 " a [Raspberry Pi with OpenOCD](#running-openocd-on-the-raspberry-pi)."
 msgstr ""
 
-#: docs/Bootloaders.md:block 53 (paragraph)
-msgid ""
-"When using OpenOCD with the SAMC21, extra steps must be taken to first put the"
-" chip into Cold Plugging mode if the board makes use of the SWD pins for other"
-" purposes. If using OpenOCD on a Rasberry Pi, this can be done by running the "
-"following commands before invoking OpenOCD."
-msgstr ""
-
 #: docs/Bootloaders.md:block 55 (paragraph)
 msgid "To flash a program with OpenOCD use the following chip config:"
 msgstr ""
@@ -642,6 +625,35 @@ msgid ""
 "OpenOCD. It should display something like:After which you can release the "
 "reset button."
 msgstr ""
+
+#: docs/Bootloaders.md:block 53 (paragraph)
+msgid ""
+"When using OpenOCD with the SAMC21, extra steps must be taken to first put the"
+" chip into Cold Plugging mode if the board makes use of the SWD pins for other"
+" purposes. If using OpenOCD on a Raspberry Pi, this can be done by running the"
+" following commands before invoking OpenOCD."
+msgstr ""
+
+#: docs/Bootloaders.md:block 124 (paragraph)
+msgid ""
+"The `flashtool.py` utility supplied in the `lib/katapult` folder may be used "
+"to upload Klipper firmware. The device UUID is necessary to flash. If you do "
+"not have a UUID it is possible to query nodes currently running the "
+"bootloader:"
+msgstr ""
+
+#~ msgid ""
+#~ "The `flash_can.py` utility supplied in the `lib/canboot` folder may be used to"
+#~ " upload Klipper firmware. The device UUID is necessary to flash. If you do not"
+#~ " have a UUID it is possible to query nodes currently running the bootloader:"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "When using OpenOCD with the SAMC21, extra steps must be taken to first put the"
+#~ " chip into Cold Plugging mode if the board makes use of the SWD pins for other"
+#~ " purposes. If using OpenOCD on a Rasberry Pi, this can be done by running the "
+#~ "following commands before invoking OpenOCD."
+#~ msgstr ""
 
 #~ msgid ""
 #~ "wget 'https://github.com/arduino/Arduino/raw/1.8.5/hardware/arduino/avr/bootloaders/stk500v2/stk500boot_v2_mega2560.hex'\n"

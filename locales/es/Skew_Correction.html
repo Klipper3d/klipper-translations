@@ -1342,22 +1342,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#print-a-calibration-object" class="md-nav__link">
-    Print a Calibration Object
+  <a href="#imprimir-un-objeto-de-calibracion" class="md-nav__link">
+    Imprimir un objeto de calibración
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#take-your-measurements" class="md-nav__link">
-    Take your measurements
+  <a href="#toma-tus-medidas" class="md-nav__link">
+    Toma tus medidas.
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#configure-your-skew" class="md-nav__link">
-    Configure your skew
+  <a href="#configure-su-inclinacion" class="md-nav__link">
+    Configure su inclinación
   </a>
   
 </li>
@@ -1394,15 +1394,15 @@
 
 
 <h1 id="skew-correction">Skew correction<a class="headerlink" href="#skew-correction" title="Permanent link">&para;</a></h1>
-<p>Software based skew correction can help resolve dimensional inaccuracies resulting from a printer assembly that is not perfectly square. Note that if your printer is significantly skewed it is strongly recommended to first use mechanical means to get your printer as square as possible prior to applying software based correction.</p>
-<h2 id="print-a-calibration-object">Print a Calibration Object<a class="headerlink" href="#print-a-calibration-object" title="Permanent link">&para;</a></h2>
-<p>The first step in correcting skew is to print a <a href="https://www.thingiverse.com/thing:2563185/files">calibration object</a> along the plane you want to correct. There is also a <a href="https://www.thingiverse.com/thing:2972743">calibration object</a> that includes all planes in one model. You want the object oriented so that corner A is toward the origin of the plane.</p>
+<p>La corrección de la inclinación basada en software puede ayudar a resolver las imprecisiones dimensionales resultantes de un montaje de la impresora que no es perfectamente cuadrado. Tenga en cuenta que si su impresora está significativamente inclinada, se recomienda encarecidamente utilizar primero medios mecánicos para que la impresora quede lo más cuadrada posible antes de aplicar la corrección basada en software.</p>
+<h2 id="imprimir-un-objeto-de-calibracion">Imprimir un objeto de calibración<a class="headerlink" href="#imprimir-un-objeto-de-calibracion" title="Permanent link">&para;</a></h2>
+<p>El primer paso para corregir la inclinación es imprimir un <a href="https://www.thingiverse.com/thing:2563185/files">calibration object</a> a lo largo del plano que desea corregir. También hay un <a href="https://www.thingiverse.com/thing:2972743">calibration object</a> que incluye todos los planos en un solo modelo. Debe orientar el objeto de manera que la esquina A quede hacia el origen del plano.</p>
 <p>Make sure that no skew correction is applied during this print. You may do this by either removing the <code>[skew_correction]</code> module from printer.cfg or by issuing a <code>SET_SKEW CLEAR=1</code> gcode.</p>
-<h2 id="take-your-measurements">Take your measurements<a class="headerlink" href="#take-your-measurements" title="Permanent link">&para;</a></h2>
+<h2 id="toma-tus-medidas">Toma tus medidas.<a class="headerlink" href="#toma-tus-medidas" title="Permanent link">&para;</a></h2>
 <p>The <code>[skew_correction]</code> module requires 3 measurements for each plane you want to correct; the length from Corner A to Corner C, the length from Corner B to Corner D, and the length from Corner A to Corner D. When measuring length AD do not include the flats on the corners that some test objects provide.</p>
 <p><img alt="skew_lengths" src="img/skew_lengths.png" /></p>
-<h2 id="configure-your-skew">Configure your skew<a class="headerlink" href="#configure-your-skew" title="Permanent link">&para;</a></h2>
-<p>Make sure <code>[skew_correction]</code> is in printer.cfg. You may now use the <code>SET_SKEW</code> gcode to configure skew_correcton. For example, if your measured lengths along XY are as follows:</p>
+<h2 id="configure-su-inclinacion">Configure su inclinación<a class="headerlink" href="#configure-su-inclinacion" title="Permanent link">&para;</a></h2>
+<p>Make sure <code>[skew_correction]</code> is in printer.cfg. You may now use the <code>SET_SKEW</code> gcode to configure skew_correction. For example, if your measured lengths along XY are as follows:</p>
 <div class="highlight"><pre><span></span><code>Length AC = 140.4
 Length BD = 142.8
 Length AD = 99.8

@@ -1630,7 +1630,7 @@ bossac -U -p /dev/ttyACM0 -R
 
 <h2 id="samdc21-duet3d-toolboard-1lc">Микроконтроллеры SAMDC21 (Duet3D Toolboard 1LC)<a class="headerlink" href="#samdc21-duet3d-toolboard-1lc" title="Permanent link">&para;</a></h2>
 <p>Прошивка SAMC21 осуществляется через интерфейс ARM Serial Wire Debug (SWD). Обычно для этого используется специальный аппаратный SWD-ключ. В качестве альтернативы можно использовать <a href="#running-openocd-on-the-raspberry-pi">Raspberry Pi with OpenOCD</a>.</p>
-<p>При использовании OpenOCD с SAMC21 необходимо предпринять дополнительные шаги, чтобы сначала перевести микросхему в режим Cold Plugging, если плата использует выводы SWD для других целей. При использовании OpenOCD на Rasberry Pi это можно сделать, выполнив следующие команды перед вызовом OpenOCD.</p>
+<p>When using OpenOCD with the SAMC21, extra steps must be taken to first put the chip into Cold Plugging mode if the board makes use of the SWD pins for other purposes. If using OpenOCD on a Raspberry Pi, this can be done by running the following commands before invoking OpenOCD.</p>
 <div class="highlight"><pre><span></span><code>SWCLK=25
 SWDIO=24
 SRST=18
@@ -1792,7 +1792,7 @@ make
 <p>Загрузчик <a href="https://github.com/Arksine/CanBoot">CanBoot</a> предоставляет возможность загрузки прошивки Klipper по шине CANBUS. Сам загрузчик получен из исходного кода Klipper. В настоящее время CanBoot поддерживает модели STM32F103, STM32F042 и STM32F072.</p>
 <p>Для прошивки CanBoot рекомендуется использовать программатор ST-Link, однако для устройств STM32F103 можно использовать <code>stm32flash</code>, а для устройств STM32F042/STM32F072 - <code>dfu-util</code>. Инструкции по этим методам прошивки см. в предыдущих разделах этого документа, заменяя <code>canboot.bin</code> в имени файла, где это необходимо. В репозитории CanBoot, ссылка на который приведена выше, содержатся инструкции по сборке загрузчика.</p>
 <p>При первой прошивке CanBoot должен обнаружить отсутствие приложения и войти в загрузчик. Если этого не происходит, можно войти в загрузчик, нажав кнопку сброса два раза подряд.</p>
-<p>Для загрузки прошивки Klipper можно использовать утилиту <code>flash_can.py</code>, находящуюся в папке <code>lib/canboot</code>. Для прошивки необходим UUID устройства. Если у вас нет UUID, можно запросить узлы, на которых в данный момент работает загрузчик:</p>
+<p>The <code>flashtool.py</code> utility supplied in the <code>lib/katapult</code> folder may be used to upload Klipper firmware. The device UUID is necessary to flash. If you do not have a UUID it is possible to query nodes currently running the bootloader:</p>
 <div class="highlight"><pre><span></span><code>python3 flash_can.py -q
 </code></pre></div>
 

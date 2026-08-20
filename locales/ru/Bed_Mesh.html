@@ -1402,19 +1402,6 @@
     Настройка нулевого опорного положения
   </a>
   
-    <nav class="md-nav" aria-label="Настройка нулевого опорного положения">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#relative_reference_index" class="md-nav__link">
-    Устаревший индекс relative_reference_index
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
 </li>
         
           <li class="md-nav__item">
@@ -1624,7 +1611,7 @@ probe_count: 5, 3
 <li><code>probe_count: 5, 3</code> <em>Значение по умолчанию: 3, 3</em> Количество точек для зондирования по каждой оси, заданное как целочисленные значения X, Y. В этом примере по оси X будет прощупано 5 точек, а по оси Y - 3 точки, итого 15 точек. Обратите внимание, что если вам нужна квадратная сетка, например 3x3, это можно указать как одно целое значение, которое будет использоваться для обеих осей, то есть <code>probe_count: 3</code>. Обратите внимание, что для сетки требуется минимальное количество зондов (probe_count) по 3 вдоль каждой оси.</li>
 </ul>
 <p>На рисунке ниже показано, как опции <code>mesh_min</code>, <code>mesh_max</code> и <code>probe_count</code> используются для генерации точек зондирования. Стрелки указывают направление процедуры зондирования, начиная с точки <code>mesh_min</code>. Для примера, когда зонд находится в точке <code>mesh_min</code>, сопло будет находиться в точке (11, 1), а когда зонд находится в точке <code>mesh_max</code>, сопло будет находиться в точке (206, 193).</p>
-<p><img alt="bedmesh_rect_basic" src="img/bedmesh_rect_basic.svg" /></p>
+<p><img alt="кровать_прямая_базовая" src="img/bedmesh_rect_basic.svg" /></p>
 <h3 id="_4">Круглые лежаки<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
 <p>В этом примере предполагается, что принтер оснащен круглой станиной радиусом 100 мм. Мы будем использовать те же смещения датчиков, что и в прямоугольном примере: 24 мм по оси X и 5 мм по оси Y.</p>
 <div class="highlight"><pre><span></span><code>[bed_mesh]
@@ -1641,7 +1628,7 @@ round_probe_count: 5
 <li><code>round_probe_count: 5</code> <em>Значение по умолчанию: 5</em> Это целочисленное значение, определяющее максимальное количество точек, прощупываемых по осям X и Y. Под "максимальным" подразумевается количество точек, прощупываемых вдоль начала сетки. Это значение должно быть нечетным, так как требуется, чтобы центр сетки был прозондирован.</li>
 </ul>
 <p>На рисунке ниже показано, как генерируются точки зондирования. Как видите, установка <code>mesh_origin</code> в (-10, 0) позволяет нам задать больший радиус сетки - 85.</p>
-<p><img alt="bedmesh_round_basic" src="img/bedmesh_round_basic.svg" /></p>
+<p><img alt="кровать_круглая_базовая" src="img/bedmesh_round_basic.svg" /></p>
 <h2 id="_5">Расширенная конфигурация<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <p>Ниже подробно описаны более сложные варианты конфигурации. Каждый пример основан на базовой конфигурации прямоугольной кровати, показанной выше. Все дополнительные опции аналогичным образом применяются к круглым кроватям.</p>
 <h3 id="_6">Интерполяция сетки<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
@@ -1658,7 +1645,7 @@ bicubic_tension: 0.2
 </code></pre></div>
 
 <ul>
-<li><code>mesh_pps: 2, 3</code> <em>Значение по умолчанию: 2, 2</em> Параметр <code>mesh_pps</code> - это сокращение от Mesh Points Per Segment. Эта опция указывает, сколько точек интерполировать для каждого сегмента по осям X и Y. Считайте, что "сегмент" - это пространство между каждой точкой зондирования. Как и <code>probe_count</code>, <code>mesh_pps</code> задается как пара целых чисел X, Y, а также может быть задано одно целое число, которое применяется к обеим осям. В данном примере имеется 4 сегмента по оси X и 2 сегмента по оси Y. В результате получается 8 интерполированных точек по оси X, 6 интерполированных точек по оси Y, что дает сетку 13x8. Обратите внимание, что если значение mesh_pps равно 0, то интерполяция сетки отключается и матрица зондирования будет сэмплироваться напрямую.</li>
+<li><code>mesh_pps: 2, 3</code> <em>Default Value: 2, 2</em> The <code>mesh_pps</code> option is shorthand for Mesh Points Per Segment. This option specifies how many points to interpolate for each segment along the X and Y axes. Consider a 'segment' to be the space between each probed point. Like <code>probe_count</code>, <code>mesh_pps</code> is specified as an X, Y integer pair, and also may be specified a single integer that is applied to both axes. In this example there are 4 segments along the X axis and 2 segments along the Y axis. This evaluates to 8 interpolated points along X, 6 interpolated points along Y, which results in a 13x9 mesh. Note that if mesh_pps is set to 0 then mesh interpolation is disabled and the probed matrix will be sampled directly.</li>
 <li><code>алгоритм: lagrange</code> <em>Значение по умолчанию: lagrange</em> Алгоритм, используемый для интерполяции сетки. Может быть <code>lagrange</code> или <code>bicubic</code>. Интерполяция Лагранжа ограничена 6 точками зондирования, так как при большем количестве выборок возникают колебания. Бикубическая интерполяция требует минимум 4 точки вдоль каждой оси, если указано менее 4 точек, то выборка по Лагранжу будет принудительной. Если <code>mesh_pps</code> установлено в 0, то это значение игнорируется, так как интерполяция сетки не выполняется.</li>
 <li><code>bicubic_tension: 0.2</code> <em>Значение по умолчанию: 0.2</em> Если опция <code>алгоритм</code> установлена на bicubic, то можно указать значение натяжения. Чем выше натяжение, тем больше наклон интерполируется. Будьте осторожны при настройке этого параметра, так как более высокие значения также создают большую перегрузку, что приведет к тому, что интерполированные значения будут выше или ниже, чем ваши измеренные точки.</li>
 </ul>
@@ -1700,7 +1687,7 @@ fade_target: 0
 <li><code>fade_target: 0</code> <em>Значение по умолчанию: Среднее значение Z сетки</em> Значение <code>fade_target</code> можно рассматривать как дополнительное смещение Z, применяемое ко всему слою после завершения затухания. Вообще говоря, мы хотели бы, чтобы это значение было равно 0, однако есть обстоятельства, при которых оно не должно быть таким. Например, предположим, что ваше положение самонаведения на кровати - это выброс, оно на 0,2 мм ниже, чем средняя измеренная высота кровати. Если <code>fade_target</code> равно 0, fade уменьшит отпечаток в среднем на .2 мм по всей станине. Если задать <code>fade_target</code> равным .2, то область, в которую попадает отпечаток, расширится на .2 мм, однако остальная часть ложа будет иметь точные размеры. Обычно рекомендуется не задавать <code>fade_target</code> в конфигурации, чтобы использовалась средняя высота сетки, однако может быть желательно вручную настроить цель затухания, если требуется печать на определенной части ложа.</li>
 </ul>
 <h3 id="_9">Настройка нулевого опорного положения<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h3>
-<p>Many probes are susceptible to "drift", ie: inaccuracies in probing introduced by heat or interference. This can make calculating the probe's z-offset challenging, particularly at different bed temperatures. As such, some printers use an endstop for homing the Z axis and a probe for calibrating the mesh. In this configuration it is possible offset the mesh so that the (X, Y) <code>reference position</code> applies zero adjustment. The <code>reference postion</code> should be the location on the bed where a <a href="Manual_Level.html#calibrating-a-z-endstop">Z_ENDSTOP_CALIBRATE</a> paper test is performed. The bed_mesh module provides the <code>zero_reference_position</code> option for specifying this coordinate:</p>
+<p>Many probes are susceptible to "drift", ie: inaccuracies in probing introduced by heat or interference. This can make calculating the probe's z-offset challenging, particularly at different bed temperatures. As such, some printers use an endstop for homing the Z axis and a probe for calibrating the mesh. In this configuration it is possible offset the mesh so that the (X, Y) <code>reference position</code> applies zero adjustment. The <code>reference position</code> should be the location on the bed where a <a href="Manual_Level.html#calibrating-a-z-endstop">Z_ENDSTOP_CALIBRATE</a> paper test is performed. The bed_mesh module provides the <code>zero_reference_position</code> option for specifying this coordinate:</p>
 <div class="highlight"><pre><span></span><code>[bed_mesh]
 скорость: 120
 horizontal_move_z: 5
@@ -1713,20 +1700,6 @@ probe_count: 5, 3
 <ul>
 <li><code>zero_reference_position:</code> <em>Значение по умолчанию: None (отключено)</em> Функция <code>zero_reference_position</code> ожидает координату (X, Y), совпадающую с координатой <code>reference position</code>, описанной выше. Если координата находится внутри сетки, то сетка будет смещена, так что к опорной позиции будет применена нулевая корректировка. Если координата лежит вне сетки, то она будет измерена после калибровки, а полученное значение z будет использовано в качестве z-смещения. Обратите внимание, что эта координата НЕ должна находиться в месте, указанном как <code>faulty_region</code>, если необходимо выполнить зондирование.</li>
 </ul>
-<h4 id="relative_reference_index">Устаревший индекс relative_reference_index<a class="headerlink" href="#relative_reference_index" title="Permanent link">&para;</a></h4>
-<p>Существующие конфигурации, использующие опцию <code>relative_reference_index</code>, должны быть обновлены для использования <code>zero_reference_position</code>. Ответ на команду <a href="#output">BED_MESH_OUTPUT PGP=1</a> gcode будет включать координату (X, Y), связанную с индексом; эта позиция может быть использована в качестве значения для <code>нулевой позиции_ссылки</code>. Вывод будет выглядеть следующим образом:</p>
-<div class="highlight"><pre><span></span><code>// bed_mesh: сгенерированные точки
-// Индекс | Настроенный инструмент | Зонд
-// 0 | (1.0, 1.0) | (24.0, 6.0)
-// 1 | (36.7, 1.0) | (59.7, 6.0)
-// 2 | (72.3, 1.0) | (95.3, 6.0)
-// 3 | (108.0, 1.0) | (131.0, 6.0)
-... (дополнительные сгенерированные точки)
-// bed_mesh: relative_reference_index 24 is (131.5, 108.0)
-</code></pre></div>
-
-<p><em>Примечание: Вышеприведенный вывод также выводится в <code>klippy.log</code> во время инициализации.</em></p>
-<p>На примере выше мы видим, что <code>относительный_индекс_ссылки</code> выводится вместе с его координатой. Таким образом, <code>нулевая_позиция_ссылки</code> равна <code>131.5, 108</code>.</p>
 <h3 id="_10">Неисправные регионы<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h3>
 <p>Некоторые участки кровати могут показывать неточные результаты при зондировании из-за "неисправности" в определенных местах. Лучшим примером этого являются кровати с рядом встроенных магнитов, используемых для удержания съемных стальных листов. Магнитное поле на этих магнитах и вокруг них может заставить индуктивный датчик сработать на расстоянии выше или ниже, чем в противном случае, что приведет к получению сетки, которая неточно отображает поверхность в этих местах. <strong>Примечание: Не следует путать это со смещением местоположения датчика, которое приводит к неточным результатам по всему слою</strong></p>
 <p>Опции <code>faulty_region</code> могут быть настроены для компенсации этого влияния. Если сгенерированная точка находится в неисправной области, сетка попытается прощупать до 4 точек на границах этой области. Эти значения будут усреднены и вставлены в сетку как значение Z в сгенерированной координате (X, Y).</p>
@@ -1801,7 +1774,7 @@ scan_overshoot: 8
 <h3 id="_15">Калибровка<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
 <p><code>BED_MESH_CALIBRATE PROFILE=&lt;имя&gt; METHOD=[ ручное | автоматическое | сканирование | rapid_scan] \ [&lt;probe_parameter&gt;=&lt;значение&gt;] [&lt;mesh_parameter&gt;=&lt;значение&gt;] [ADAPTIVE=[0|1] \ [ADAPTIVE_MARGIN=&lt;значение&gt;]</code> * Профиль по умолчанию: по умолчанию<em> * Метод по умолчанию: автоматический, если обнаружен зонд, иначе ручной</em> * Адаптивный по умолчанию: 0<em> * Адаптивный маржа по умолчанию: 0</em></p>
 <p>Запускает процедуру зондирования для калибровки сетки кровати.</p>
-<p>The mesh will be immediately ready to use when the command completes and saved into a profile specified by the <code>PROFILE</code> parameter, or <code>default</code> if unspecified. The <code>METHOD</code> parameter takes one of the following values:</p>
+<p>Сетка будет немедленно готова к использованию, когда команда завершится и будет сохранена в профиле, указанном параметром [X11X]PROFILE <code>, или</code>default <code>, если не указано.</code>METHOD` имеет одно из следующих значений:</p>
 <ul>
 <li><code>METHOD=manual</code>: включает ручное зондирование с помощью насадки и бумажного теста</li>
 <li><code>METHOD=автоматический</code>: Автоматическое (стандартное) зондирование. Используется по умолчанию.</li>
@@ -1841,7 +1814,7 @@ scan_overshoot: 8
 <p>Любой другой сохраненный профиль можно удалить таким же образом, заменив * по умолчанию* на именованный профиль, который вы хотите удалить.</p>
 <h4 id="_17">Загрузка профиля по умолчанию<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h4>
 <p>Предыдущие версии <code>bed_mesh</code> при запуске всегда загружали профиль с именем <em>default</em>, если он присутствовал. Это поведение было удалено в пользу того, чтобы позволить пользователю определять, когда загружать профиль. Если пользователь хочет загружать профиль <code>default</code>, рекомендуется добавить <code>BED_MESH_PROFILE LOAD=default</code> либо в макрос <code>START_PRINT</code>, либо в конфигурацию "Start G-Code" слайсера, в зависимости от того, что применимо.</p>
-<p>Note that this is not required if a new mesh is generated with <code>BED_MESH_CALIBRATE</code> in the <code>START_PRINT</code> macro or the slicer's "Start G-Code" and may produce unexpected results, especially with adaptive meshing.</p>
+<p>Обратите внимание, что это не требуется, если новая сетка генерируется с помощью <code>BED_MESH_CALIBRATE</code> в <code>START_PRINT</code> макрос или «Start G-Code» и может привести к неожиданным результатам, особенно при адаптивном стирке.</p>
 <p>В качестве альтернативы можно восстановить старое поведение загрузки профиля при запуске с помощью <code>[delayed_gcode]</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="k">[delayed_gcode bed_mesh_init]</span>
 <span class="na">initial_duration</span><span class="o">:</span><span class="w"> </span><span class="s">.01</span>
@@ -1883,8 +1856,8 @@ scan_overshoot: 8
 <h2 id="api-bed-mesh-webhooks">API-интерфейсы Bed Mesh Webhooks<a class="headerlink" href="#api-bed-mesh-webhooks" title="Permanent link">&para;</a></h2>
 <h3 id="_20">Выгрузка данных о сетке<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
 <p><code>{" идентификатор": 123, "метод": "bed_mesh/dump_mesh"}</code>.</p>
-<p>Dumps the configuration and state for the current mesh and all saved profiles.</p>
-<p>The <code>dump_mesh</code> endpoint takes one optional parameter, <code>mesh_args</code>. This parameter must be an object, where the keys and values are parameters available to <a href="#bed_mesh_calibrate">BED_MESH_CALIBRATE</a>. This will update the mesh configuration and probe points using the supplied parameters prior to returning the result. It is recommended to omit mesh parameters unless it is desired to visualize the probe points and/or travel path before performing <code>BED_MESH_CALIBRATE</code>.</p>
+<p>Сбрасывает конфигурацию и состояние для текущей сетки и всех сохраненных профилей.</p>
+<p>Конечная точка <code>dump_mesh</code> принимает один необязательный параметр, <code>mesh_args</code>. Этот параметр должен быть объектом, где ключами и значениями являются параметры, доступные для <a href="#bed_mesh_calibrate">BED_MESH_CALIBRATE</a>. Перед возвратом результата будет обновлена конфигурация сетки и точки зондирования с использованием предоставленных параметров. Рекомендуется опустить параметры сетки, если не требуется визуализировать точки зондирования и/или траекторию движения перед выполнением <code>BED_MESH_CALIBRATE</code>.</p>
 <h2 id="_21">Визуализация и анализ<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h2>
 <p>Большинство пользователей, скорее всего, сочтут, что визуализаторов, входящих в состав таких приложений, как Mainsail, Fluidd и Octoprint, достаточно для базового анализа. Однако в папке scripts Klipper находится скрипт <code>graph_mesh.py</code>, который можно использовать для дополнительной визуализации и более детального анализа, особенно полезного для отладки оборудования или результатов, полученных с помощью <code>bed_mesh</code>:</p>
 <div class="highlight"><pre><span></span><code>Использование: graph_mesh.py [-h] {list,plot,analyze,dump} ...
@@ -1991,7 +1964,7 @@ delta      Показывает дельту между текущей зонд�
 </code></pre></div>
 
 <p>Параметр <code>&lt;input&gt;</code> должен представлять собой путь к unix-сокету Klipper или URL-адрес экземпляра Moonraker. Опция <code>-o</code> может быть использована для указания пути к выходному файлу. Если опция опущена, файл будет сохранен в рабочем каталоге с именем в следующем формате:</p>
-<p><code>klipper-bedmesh-{year}{month}{day}{hour}{minute}{second}.json</code></p>
+<p><code>klipper-bedmesh-{год}{месяц}{день}{час}{минута}{секунда}.json</code></p>
 
               
             </article>

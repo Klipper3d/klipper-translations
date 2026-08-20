@@ -1565,8 +1565,8 @@ baud: 250000
 <p>OctoPrint のウェブページに表示されているボーレートはKlipper のマイクロコントローラー内部のボーレートに影響 はありません。Klipper を使用するときは OctoPrint のボーレートを常に 250000 に設定してください。</p>
 <p>Klipper のマイクロコントローラのボーレートは、マイクロコントローラのブートローダのボーレートとは関係ありません。ブートローダに関する追加情報については、<a href="Bootloaders.html">ブートローダ・ドキュメント</a> を参照してください。</p>
 <h2 id="raspberry-pi-3klipper">Raspberry Pi 3以外でKlipperを動かすことはできますか？<a class="headerlink" href="#raspberry-pi-3klipper" title="Permanent link">&para;</a></h2>
-<p>推奨ハードウェアは、Raspberry Pi 2、Raspberry Pi 3、またはRaspberry Pi 4です。</p>
-<p>KlipperはRaspberry Pi 1やRaspberry Pi Zeroでも動作しますが、これらのボードにはOctoPrintをうまく動作させるのに十分な処理能力がありません。OctoPrintから直接プリントする場合、これらの遅いマシンではプリントストールが発生することがよくあります。(プリンターは OctoPrint が動作コマンドを送るよりも速く動くかもしれません。) もし、これらの遅いボードで動作させたい場合は、印刷時に "virtual_sdcard" 機能を使うことを検討してください (詳しくは <a href="Config_Reference.html#virtual_sdcard">config reference</a> を参照してください)。</p>
+<p>The recommended hardware is a Raspberry Pi Zero2w, Raspberry Pi 3, Raspberry Pi 4 or Raspberry Pi 5. Klipper will also run on other SBC devices as well as x86 hardware, as described below.</p>
+<p>Klipper will run on a Raspberry Pi 1, 2 and on the Raspberry Pi Zero1, but these boards don't have enough processing power to run Klipper well. It is common for print stalls to occur on these slower machines when printing (The printer may move faster than Klipper can send movement commands.) It is not reccomended to run Klipper on these older machines.</p>
 <p>Beaglebone上での動作については、<a href="Beaglebone.html">Beaglebone固有のインストール手順</a>を参照してください。</p>
 <p>Klipperは他のマシンでも動作します。Klipperのホストソフトウエアは、Linux (または類似のOS) のコンピュータ上でPythonが動作している必要があります。ただし、異なるマシンで実行する場合は、その特定のマシンにシステムの必要条件を満たすための Linux 管理者の知識が必要になります。 必要な Linux 管理手順の詳細については、<a href="https://github.com/Klipper3d/klipper/blob/master/scripts/install-octopi.sh">install-octopi.sh</a> スクリプトを参照してください。</p>
 <p>ローエンドのチップ上でKlipper ホストソフトウェアを動かしたいのであれば、最低でも"倍精度浮動小数点"演算器を搭載したマシンが必要であることに注意してください。</p>
@@ -1612,7 +1612,7 @@ baud: 250000
 <p>いくつかの古いバージョンのAVRブートローダには、ウォッチドッグイベント処理に関する既知のバグがあります。これは通常 printer.cfg ファイルで restart_method が "command" に設定されている時に現れます。このバグが発生すると、AVRデバイスは電源を再投入するまで無反応になります。（電源をOFFするまで、電源またはステータスLEDが繰り返し点滅することもあります。）</p>
 <p>回避策は "command" 以外の restart_method を使用するか、更新されたブートローダをAVRデバイスにフラッシュすることです。新しいブートローダのフラッシュは一般的に外部プログラマを必要とする1回限りのステップです - 更なる詳細については<a href="Bootloaders.html">Bootloaders</a>を参照してください。</p>
 <h2 id="raspberry-pi_1">Raspberry Pi がクラッシュした場合、ヒーターはつけっぱなしになりますか？<a class="headerlink" href="#raspberry-pi_1" title="Permanent link">&para;</a></h2>
-<p>ソフトウェアはそれを防ぐように設計されています。ホストがヒーターを有効にすると、ホスト側のソフトウェアは5秒ごとにその有効化の確認する必要があります。マイクロコントローラーが5秒ごとに確認を受けなかった場合、すべてのヒーターとステッピングモーターをオフにするように設計された "シャットダウン" ステートに移行します。</p>
+<p>The software has been designed to prevent that. Once the host enables a heater, the host software needs to confirm that enablement every 3 seconds. If the micro-controller does not receive a confirmation every 3 seconds it goes into a "shutdown" state which is designed to turn off all heaters and stepper motors.</p>
 <p>詳細は<a href="MCU_Commands.html">MCU commands</a>の "config_digital_out" コマンドを参照。</p>
 <p>さらに、マイクロコントローラーのソフトウェアには、起動時に各ヒーターの最低温度範囲と最高温度範囲が設定されています。（詳細は<a href="Config_Reference.html#extruder">config reference</a>のmin_tempとmax_tempパラメータを参照）マイクロコントローラーが温度がその範囲外であることを検出すると、「シャットダウン」状態にもなります。</p>
 <p>これとは別に、ホスト・ソフトウェアには、ヒーターと温度センサーが正しく機能しているかどうかをチェックするコードも実装されています。詳細は<a href="Config_Reference.html#verify_heater">config reference</a>を参照。</p>

@@ -11,8 +11,7 @@ msgstr ""
 "POT-Creation-Date: 2021-07-07 01:32+0200\n"
 "PO-Revision-Date: 2025-07-22 08:09+0000\n"
 "Last-Translator: Sven van Beckum <kontakt@partner-3d.de>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/klipper/"
-"installation/de/>\n"
+"Language-Team: German <https://hosted.weblate.org/projects/klipper/installation/de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -51,8 +50,7 @@ msgid ""
 msgstr ""
 "Wenn es keine passende Druckerkonfigurationsdatei im Klipper-"
 "Konfigurationsverzeichnis gibt, versuchen Sie auf der Website des "
-"Druckerherstellers nach einer passenden Klipper-Konfigurationsdatei zu "
-"suchen."
+"Druckerherstellers nach einer passenden Klipper-Konfigurationsdatei zu suchen."
 
 #: docs/Installation.md:block 6 (paragraph)
 msgid ""
@@ -63,13 +61,12 @@ msgid ""
 "installation, but will require some customization to obtain full printer "
 "functionality."
 msgstr ""
-"Wenn keine Konfigurationsdatei für den Drucker gefunden werden kann, aber "
-"der Typ der Druckerplatine bekannt ist, dann suchen Sie nach einer "
-"entsprechenden [config-Datei](../config/), die mit einem \"generic-\"-Präfix "
-"beginnt. Mit diesen Beispieldateien für die Druckerkarte sollte die "
-"Erstinstallation erfolgreich abgeschlossen werden können, es sind jedoch "
-"einige Anpassungen erforderlich, um die volle Druckerfunktionalität zu "
-"erhalten."
+"Wenn keine Konfigurationsdatei für den Drucker gefunden werden kann, aber der "
+"Typ der Druckerplatine bekannt ist, dann suchen Sie nach einer entsprechenden "
+"[config-Datei](../config/), die mit einem \"generic-\"-Präfix beginnt. Mit "
+"diesen Beispieldateien für die Druckerkarte sollte die Erstinstallation "
+"erfolgreich abgeschlossen werden können, es sind jedoch einige Anpassungen "
+"erforderlich, um die volle Druckerfunktionalität zu erhalten."
 
 #: docs/Installation.md:block 7 (paragraph)
 msgid ""
@@ -82,11 +79,11 @@ msgid ""
 msgstr ""
 "Es ist auch möglich, eine neue Druckerkonfiguration von Grund auf zu "
 "definieren. Dies erfordert jedoch erhebliche technische Kenntnisse über den "
-"Drucker und seine Elektronik. Es wird empfohlen, dass die meisten Benutzer "
-"mit einer geeigneten Konfigurationsdatei beginnen. Wenn Sie eine neue "
-"benutzerdefinierte Druckerkonfigurationsdatei erstellen, beginnen Sie mit "
-"der nächstgelegenen Beispiel-[Konfigurationsdatei](../config/) und verwenden "
-"Sie die Klipper-[Konfigurationsreferenz](Config_Reference.md) für weitere "
+"Drucker und seine Elektronik. Es wird empfohlen, dass die meisten Benutzer mit"
+" einer geeigneten Konfigurationsdatei beginnen. Wenn Sie eine neue "
+"benutzerdefinierte Druckerkonfigurationsdatei erstellen, beginnen Sie mit der "
+"nächstgelegenen Beispiel-[Konfigurationsdatei](../config/) und verwenden Sie "
+"die Klipper-[Konfigurationsreferenz](Config_Reference.md) für weitere "
 "Informationen."
 
 #: docs/Installation.md:block 16 (paragraph)
@@ -99,25 +96,12 @@ msgid ""
 "\"Y\" to save. Then run:"
 msgstr ""
 "Die Kommentare am Anfang der [Druckerkonfigurationsdatei](#obtain-a-klipper-"
-"configuration-file) sollten die Einstellungen beschreiben, die während "
-"\"make menuconfig\" gesetzt werden müssen. Öffnen Sie die Datei in einem "
-"Webbrowser oder Texteditor und suchen Sie nach diesen Anweisungen am Anfang "
-"der Datei. Sobald Sie die entsprechenden \"menuconfig\"-Einstellungen "
-"vorgenommen haben, drücken Sie \"Q\" zum Beenden und dann \"Y\" zum "
-"Speichern. Führen Sie dann aus:"
-
-#: docs/Installation.md:block 18 (paragraph)
-msgid ""
-"If the comments at the top of the [printer configuration file](#obtain-a-"
-"klipper-configuration-file) describe custom steps for \"flashing\" the final "
-"image to the printer control board then follow those steps and then proceed to"
-" [configuring OctoPrint](#configuring-octoprint-to-use-klipper)."
-msgstr ""
-"Wenn die Kommentare am Anfang der [Druckerkonfigurationsdatei](#obtain-a"
-"-klipper-configuration-file) benutzerdefinierte Schritte zum \"Flashen\" des "
-"endgültigen images auf die Druckerkontrollkarte beschreiben, dann befolgen "
-"Sie diese Schritte und fahren Sie dann mit der [Konfiguration von OctoPrint]"
-"(#configuring-octoprint-to-use-klipper) fort."
+"configuration-file) sollten die Einstellungen beschreiben, die während \"make "
+"menuconfig\" gesetzt werden müssen. Öffnen Sie die Datei in einem Webbrowser "
+"oder Texteditor und suchen Sie nach diesen Anweisungen am Anfang der Datei. "
+"Sobald Sie die entsprechenden \"menuconfig\"-Einstellungen vorgenommen haben, "
+"drücken Sie \"Q\" zum Beenden und dann \"Y\" zum Speichern. Führen Sie dann "
+"aus:"
 
 #: docs/Installation.md:block 19 (paragraph)
 msgid ""
@@ -138,8 +122,8 @@ msgid ""
 msgstr ""
 "Es ist üblich, dass jeder Drucker seinen eigenen, eindeutigen Namen für den "
 "Mikrocontroller hat. Der Name kann sich nach dem Flashen von Klipper ändern, "
-"also führen Sie diese Schritte erneut aus, auch wenn sie bereits beim "
-"Flashen durchgeführt wurden. Ausführen:"
+"also führen Sie diese Schritte erneut aus, auch wenn sie bereits beim Flashen "
+"durchgeführt wurden. Ausführen:"
 
 #: docs/Installation.md:block 44 (paragraph)
 msgid ""
@@ -175,22 +159,6 @@ msgstr ""
 "grundlegende Prüfungen der Definitionen in der Konfigurationsdatei "
 "durchzuführen. Weitere Informationen finden Sie in der "
 "[Dokumentationsreferenz](Overview.md)."
-
-#: docs/Installation.md:block 2 (paragraph)
-msgid ""
-"These instructions assume the software will run on a linux based host running "
-"a Klipper compatible front end. It is recommended that a SBC(Small Board "
-"Computer) such as a Raspberry Pi or Debian based Linux device be used as the "
-"host machine (see the [FAQ](FAQ.md#can-i-run-klipper-on-something-other-than-"
-"a-raspberry-pi-3) for other options)."
-msgstr ""
-
-#: docs/Installation.md:block 3 (paragraph)
-msgid ""
-"For the purposes of these instructions host relates to the Linux device and "
-"mcu relates to the printboard. SBC relates to the term Small Board Computer "
-"such as the Raspberry Pi."
-msgstr ""
 
 #: docs/Installation.md:block 5 (paragraph)
 msgid ""
@@ -231,21 +199,6 @@ msgstr ""
 msgid "Obtaining an OS image for SBC's"
 msgstr ""
 
-#: docs/Installation.md:block 14 (paragraph)
-msgid ""
-"There are many ways to obtain an OS image for Klipper for SBC use, most depend"
-" on what front end you wish to use. Some manafactures of these SBC boards also"
-" provide their own Klipper-centric images."
-msgstr ""
-
-#: docs/Installation.md:block 15 (paragraph)
-msgid ""
-"The two main Moonraker based front ends are [Fluidd](https://docs.fluidd.xyz/)"
-" and [Mainsail](https://docs.mainsail.xyz/), the latter of which has a premade"
-" install image [\"MainsailOS\"](http://docs.mainsailOS.xyz), this has the "
-"option for Raspberry Pi and some OrangePi varianta."
-msgstr ""
-
 #: docs/Installation.md:block 16 (paragraph)
 msgid ""
 "Fluidd can be installed via KIAUH(Klipper Install And Update Helper), which is"
@@ -260,21 +213,6 @@ msgstr ""
 
 #: docs/Installation.md:block 18 (header)
 msgid "Installing via KIAUH"
-msgstr ""
-
-#: docs/Installation.md:block 19 (paragraph)
-msgid ""
-"Normally you would start with a base image for your SBC, RPiOS Lite for "
-"example, or in the case of a x86 Linux device, Ubuntu Server. Please note that"
-" Desktop variants are not recommended due to certain helper programs that can "
-"stop some Klipper functions working and even mask access to some print boards."
-msgstr ""
-
-#: docs/Installation.md:block 20 (paragraph)
-msgid ""
-"KIAUH can be used to install Klipper and its associated programs on a variety "
-"of Linux based systems that run a form of Debian. More information can be "
-"found at https://github.com/dw-0/kiauh"
 msgstr ""
 
 #: docs/Installation.md:block 22 (paragraph)
@@ -292,19 +230,6 @@ msgid ""
 " is ambiguous, unplug the board and run the command again, the missing item "
 "will be your print board(see the [FAQ](FAQ.md#wheres-my-serial-port) for more "
 "information)."
-msgstr ""
-
-#: docs/Installation.md:block 32 (paragraph)
-msgid ""
-"For common micro-controllers with STM32 or clone chips, LPC chips and others "
-"it is usual that these need an initial Klipper flash via SD card."
-msgstr ""
-
-#: docs/Installation.md:block 33 (paragraph)
-msgid ""
-"When flashing with this method, it is important to make sure that the print "
-"board is not connected with USB to the host, due to some boards being able to "
-"feed power back to the board and stopping a flash from occuring."
 msgstr ""
 
 #: docs/Installation.md:block 34 (paragraph)
@@ -331,13 +256,6 @@ msgid ""
 "configuration-file) to the host."
 msgstr ""
 
-#: docs/Installation.md:block 42 (paragraph)
-msgid ""
-"Arguably the easiest way to set the Klipper configuration file is using the "
-"built in editors in Mainsail or Fluidd. These will allow the user to open the "
-"configuration examples and save them to be printer.cfg."
-msgstr ""
-
 #: docs/Installation.md:block 43 (paragraph)
 msgid ""
 "Another option is to use a desktop editor that supports editing files over the"
@@ -347,29 +265,227 @@ msgid ""
 "home directory of the pi user (ie, /home/pi/printer.cfg)."
 msgstr ""
 
-#: docs/Installation.md:block 44 (paragraph)
+#: docs/Installation.md:block 2 (paragraph)
+msgid ""
+"These instructions assume the software will run on a Linux-based host running "
+"a Klipper-compatible front end. It is recommended that a SBC(Small Board "
+"Computer) such as a Raspberry Pi or Debian-based Linux device be used as the "
+"host machine (see the [FAQ](FAQ.md#can-i-run-klipper-on-something-other-than-"
+"a-raspberry-pi-3) for other options)."
+msgstr ""
+
+#: docs/Installation.md:block 3 (paragraph)
+msgid ""
+"For the purposes of these instructions, host relates to the Linux device and "
+"mcu relates to the printer board. SBC relates to the term Small Board Computer"
+" such as the Raspberry Pi."
+msgstr ""
+
+#: docs/Installation.md:block 14 (paragraph)
+msgid ""
+"There are many ways to obtain an OS image for Klipper for SBC use, most depend"
+" on what front end you wish to use. Some manufacturers of these SBC boards "
+"also provide their own Klipper-centric images."
+msgstr ""
+
+#: docs/Installation.md:block 15 (paragraph)
+msgid ""
+"The two main Moonraker-based front ends are [Fluidd](https://docs.fluidd.xyz/)"
+" and [Mainsail](https://docs.mainsail.xyz/), the latter of which has a premade"
+" install image [\"MainsailOS\"](https://docs-os.mainsail.xyz/), this has the "
+"option for Raspberry Pi and some OrangePi variants."
+msgstr ""
+
+#: docs/Installation.md:block 19 (paragraph)
+msgid ""
+"Normally you would start with a base image for your SBC, RPiOS Lite for "
+"example, or in the case of an x86 Linux device, Ubuntu Server. Please note "
+"that Desktop variants are not recommended due to certain helper programs that "
+"can stop some Klipper functions from working and even mask access to some "
+"printer boards."
+msgstr ""
+
+#: docs/Installation.md:block 20 (paragraph)
+msgid ""
+"KIAUH can be used to install Klipper and its associated programs on a variety "
+"of Linux-based systems that run a form of Debian. More information can be "
+"found at https://github.com/dw-0/kiauh"
+msgstr ""
+
+#: docs/Installation.md:block 26 (paragraph)
+msgid ""
+"If the comments at the top of the [printer configuration file](#obtain-a-"
+"klipper-configuration-file) describe custom steps for \"flashing\" the final "
+"image to the printer control board, then follow those steps and then proceed "
+"to [configuring OctoPrint](#configuring-octoprint-to-use-klipper)."
+msgstr ""
+
+#: docs/Installation.md:block 32 (paragraph)
+msgid ""
+"For common micro-controllers with STM32 or clone chips, LPC chips and others, "
+"it is usual that these need an initial Klipper flash via SD card."
+msgstr ""
+
+#: docs/Installation.md:block 33 (paragraph)
+msgid ""
+"When flashing with this method, it is important to make sure that the print "
+"board is not connected with USB to the host, due to some boards being able to "
+"feed power back to the board and stopping a flash from occurring."
+msgstr ""
+
+#: docs/Installation.md:block 34 (paragraph)
+msgid ""
+"Please note, that most print boards that use SD cards for flash will implement"
+" some kind of flash loop protection for when the sd card is left in place. "
+"There are two common methods:"
+msgstr ""
+
+#: docs/Installation.md:block 35 (paragraph)
+msgid "Filename Change Required (usually \"stock\" print boards):"
+msgstr ""
+
+#: docs/Installation.md:block 36 (paragraph)
+msgid ""
+"These boards require the firmware file to have a different name each time you "
+"flash (for example, firmware1.bin, firmware2.bin, etc.). If you reuse the same"
+" filename, the board may ignore it and not update."
+msgstr ""
+
+#: docs/Installation.md:block 37 (paragraph)
+msgid "Automatic File Renaming (usually aftermarket print boards:"
+msgstr ""
+
+#: docs/Installation.md:block 38 (paragraph)
+msgid ""
+"Other boards allow using the same filename, commonly firmware.bin, but after "
+"flashing, the board renames the file to firmware.cur. This helps indicate the "
+"firmware was successfully flashed and prevents it from flashing again on the "
+"next startup."
+msgstr ""
+
+#: docs/Installation.md:block 39 (paragraph)
+msgid "Before flashing, make sure to check which behavior your board follows."
+msgstr ""
+
+#: docs/Installation.md:block 48 (paragraph)
+msgid ""
+"Arguably the easiest way to set the Klipper configuration file is using the "
+"built-in editors in Mainsail or Fluidd. These will allow the user to open the "
+"configuration examples and save them to be printer.cfg."
+msgstr ""
+
+#: docs/Installation.md:block 50 (paragraph)
 msgid ""
 "Alternatively, one can also copy and edit the file directly on the host via "
-"ssh. That may look something like the following (be sure to update the command"
+"SSH. That may look something like the following (be sure to update the command"
 " to use the appropriate printer config filename):"
 msgstr ""
 
-#: docs/Installation.md:block 52 (paragraph)
+#: docs/Installation.md:block 58 (paragraph)
 msgid ""
-"After creating and editing the file it will be necessary to issue a "
+"After creating and editing the file, it will be necessary to issue a "
 "\"restart\" command in the command console to load the config. A \"status\" "
-"command will report the printer is ready if the Klipper config file is "
+"command will report that the printer is ready if the Klipper config file is "
 "successfully read and the micro-controller is successfully found and "
 "configured."
 msgstr ""
 
-#: docs/Installation.md:block 54 (paragraph)
+#: docs/Installation.md:block 60 (paragraph)
 msgid ""
-"Klipper reports error messages via the command console and via pop up in "
-"Fluidd and Mainsail. The \"status\" command can be used to re-report error "
-"messages. A log is available and usually located in ~/printer_data/logs this "
-"is named klippy.log"
+"Klipper reports error messages via the command console and pop-ups in Fluidd "
+"and Mainsail. The \"status\" command can be used to re-report error messages. "
+"A log is available and usually located at `~/printer_data/logs/klippy.log`."
 msgstr ""
+
+#~ msgid ""
+#~ "If the comments at the top of the [printer configuration file](#obtain-a-"
+#~ "klipper-configuration-file) describe custom steps for \"flashing\" the final "
+#~ "image to the printer control board then follow those steps and then proceed to"
+#~ " [configuring OctoPrint](#configuring-octoprint-to-use-klipper)."
+#~ msgstr ""
+#~ "Wenn die Kommentare am Anfang der [Druckerkonfigurationsdatei](#obtain-a-"
+#~ "klipper-configuration-file) benutzerdefinierte Schritte zum \"Flashen\" des "
+#~ "endgültigen images auf die Druckerkontrollkarte beschreiben, dann befolgen Sie"
+#~ " diese Schritte und fahren Sie dann mit der [Konfiguration von "
+#~ "OctoPrint](#configuring-octoprint-to-use-klipper) fort."
+
+#~ msgid ""
+#~ "These instructions assume the software will run on a linux based host running "
+#~ "a Klipper compatible front end. It is recommended that a SBC(Small Board "
+#~ "Computer) such as a Raspberry Pi or Debian based Linux device be used as the "
+#~ "host machine (see the [FAQ](FAQ.md#can-i-run-klipper-on-something-other-than-"
+#~ "a-raspberry-pi-3) for other options)."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "For the purposes of these instructions host relates to the Linux device and "
+#~ "mcu relates to the printboard. SBC relates to the term Small Board Computer "
+#~ "such as the Raspberry Pi."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "There are many ways to obtain an OS image for Klipper for SBC use, most depend"
+#~ " on what front end you wish to use. Some manafactures of these SBC boards also"
+#~ " provide their own Klipper-centric images."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "The two main Moonraker based front ends are [Fluidd](https://docs.fluidd.xyz/)"
+#~ " and [Mainsail](https://docs.mainsail.xyz/), the latter of which has a premade"
+#~ " install image [\"MainsailOS\"](http://docs.mainsailOS.xyz), this has the "
+#~ "option for Raspberry Pi and some OrangePi varianta."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Normally you would start with a base image for your SBC, RPiOS Lite for "
+#~ "example, or in the case of a x86 Linux device, Ubuntu Server. Please note that"
+#~ " Desktop variants are not recommended due to certain helper programs that can "
+#~ "stop some Klipper functions working and even mask access to some print boards."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "KIAUH can be used to install Klipper and its associated programs on a variety "
+#~ "of Linux based systems that run a form of Debian. More information can be "
+#~ "found at https://github.com/dw-0/kiauh"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "For common micro-controllers with STM32 or clone chips, LPC chips and others "
+#~ "it is usual that these need an initial Klipper flash via SD card."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "When flashing with this method, it is important to make sure that the print "
+#~ "board is not connected with USB to the host, due to some boards being able to "
+#~ "feed power back to the board and stopping a flash from occuring."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Arguably the easiest way to set the Klipper configuration file is using the "
+#~ "built in editors in Mainsail or Fluidd. These will allow the user to open the "
+#~ "configuration examples and save them to be printer.cfg."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Alternatively, one can also copy and edit the file directly on the host via "
+#~ "ssh. That may look something like the following (be sure to update the command"
+#~ " to use the appropriate printer config filename):"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "After creating and editing the file it will be necessary to issue a "
+#~ "\"restart\" command in the command console to load the config. A \"status\" "
+#~ "command will report the printer is ready if the Klipper config file is "
+#~ "successfully read and the micro-controller is successfully found and "
+#~ "configured."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Klipper reports error messages via the command console and via pop up in "
+#~ "Fluidd and Mainsail. The \"status\" command can be used to re-report error "
+#~ "messages. A log is available and usually located in ~/printer_data/logs this "
+#~ "is named klippy.log"
+#~ msgstr ""
 
 #~ msgid ""
 #~ "cd ~/klipper/\n"

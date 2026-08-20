@@ -1356,6 +1356,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#failure-to-initialize" class="md-nav__link">
+    Failure to Initialize
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#_3" class="md-nav__link">
     எச்சரிக்கைகள்
   </a>
@@ -1439,25 +1446,26 @@
 <div class="highlight"><pre><span></span><code>./scripts/flash-sdcard.sh -l
 </code></pre></div>
 
-<p>உங்கள் பலகை பட்டியலிடப்படவில்லை எனில், <a href="#board-definitions">கீழே விவரிக்கப்பட்டுள்ளது</a> என ஒரு புதிய பலகை வரையறையைச் சேர்க்க வேண்டியிருக்கலாம்.</p>
+<p>உங்கள் வாரியம் பட்டியலிடப்பட்டதை நீங்கள் காணவில்லை என்றால், <a href="#board-definitions">கீழே விவரிக்கப்பட்டுள்ள</a> புதிய போர்டு வரையறையைச் சேர்க்க வேண்டியது தேவை.</p>
 <h2 id="_2">மேம்பட்ட பயன்பாடு<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <p>மேலே உள்ள கட்டளைகள் உங்கள் எம்.சி.யு இயல்புநிலை பாட் விகிதத்தில் 250000 மற்றும் ஃபார்ம்வேர் <code>~/klipper/out/klipper.bin</code> இல் அமைந்துள்ளது என்று கருதுகின்றன. <code>Flash-sdcard.sh</code> ச்கிரிப்ட் இந்த இயல்புநிலைகளை மாற்றுவதற்கான விருப்பங்களை வழங்குகிறது. அனைத்து விருப்பங்களையும் உதவித் திரை மூலம் பார்க்கலாம்:</p>
 <div class="highlight"><pre><span></span><code>./scripts/flash-sdcard.sh -h
- எச்டி அட்டை கிளிப்பருக்கான பயன்பாடு பதிவேற்றும் பயன்பாடு
+SD Card upload utility for Klipper
 
- பயன்பாடு: flash_sdcard.sh [-h] [-l] [-c] [-b &lt;baud&gt;] [-f &lt;firmware&gt;]
- &lt;device&gt; &lt;board&gt;
+usage: flash_sdcard.sh [-h] [-l] [-c] [-s] [-b &lt;baud&gt;] [-f &lt;firmware&gt;]
+                       &lt;device&gt; &lt;board&gt;
 
- நிலை வாதங்கள்:
- &lt;சாதனம்&gt; சாதன சீரியல் துறைமுகம்
- &lt;board&gt; பலகை வகை
+positional arguments:
+  &lt;device&gt;        device serial port
+  &lt;board&gt;         board type
 
- விருப்ப வாதங்கள்:
- -h இந்த செய்தியைக் காட்டுங்கள்
- -எல் பட்டியல் கிடைக்கும் பலகைகள்
- -c ரன் ஃப்ளாச் சோதனை/சரிபார்க்கவும் (பதிவேற்றத்தைத் தவிர்க்கவும்)
- -B &lt;பாட்&gt; சீரியல் பாட் வீதம் (இயல்புநிலை 250000)
- -f &lt;firmware&gt; klipper.bin க்கு பாதை
+optional arguments:
+  -h              show this message
+  -l              list available boards
+  -c              run flash check/verify only (skip upload)
+  -s              use fast SPI speed (4MHz)
+  -b &lt;baud&gt;       serial baud rate (default is 250000)
+  -f &lt;firmware&gt;   path to klipper.bin
 </code></pre></div>
 
 <p>தனிப்பயன் பாட் விகிதத்தில் இணைக்கும் ஃபார்ம்வேருடன் உங்கள் பலகை ஒளிரும் என்றால், <code>-B</code> விருப்பத்தைக் குறிப்பிடுவதன் மூலம் மேம்படுத்த முடியும்:</p>
@@ -1470,6 +1478,17 @@
 
 <p>ஒரு எம்.கே.எச் ராபின் இ 3 ஐ மேம்படுத்தும் போது <code>Update_mks_robin.py</code> ஐ கைமுறையாக இயக்கவும், இதன் விளைவாக வரும் பைனரி<code>ஃப்ளாச்-Sdcard.sh</code> க்கு வழங்கவும் தேவையில்லை என்பதை நினைவில் கொள்க. பதிவேற்றும் செயல்பாட்டின் போது இந்த செயல்முறை தானியங்கி செய்யப்படுகிறது.</p>
 <p>குறிப்பிட்ட ஃபார்ம்வேரை சரியாக இயக்குகிறதா என்பதை சோதிக்க காசோலை அல்லது சரிபார்க்க மட்டுமே செயல்பாட்டுக்கு <code>-c</code> விருப்பம் பயன்படுத்தப்படுகிறது. இந்த விருப்பம் முதன்மையாக ஒளிரும் நடைமுறையை முடிக்க ஒரு கையேடு சக்தி-சுழற்சி தேவையான நிகழ்வுகளுக்கு நோக்கமாக உள்ளது, அதாவது தங்கள் எச்டி கார்டுகளை அணுக SPI க்கு பதிலாக SDIO பயன்முறையைப் பயன்படுத்தும் துவக்க ஏற்றிகள் போன்றவை. .</p>
+<h2 id="failure-to-initialize">Failure to Initialize<a class="headerlink" href="#failure-to-initialize" title="Permanent link">&para;</a></h2>
+<p>Some SD cards may fail to initialize at the default SPI speed of 400KHz. In this situation it is possible to use <code>-s</code> to drive the SPI peripheral at 4MHz. For example:</p>
+<div class="highlight"><pre><span></span><code>./scripts/flash-sdcard.sh -s /dev/ttyACM0 btt-skr-v1.3
+</code></pre></div>
+
+<p>If the device still fails to initialize then cause of the failure is unrelated to the speed and likely a result of one of the following conditions:</p>
+<ul>
+<li>The SD card is improperly formatted. Must be <code>fat</code> or <code>fat32</code>.</li>
+<li>Attempt to initialize a card using the SPI interface that has already been initialized over SDIO.</li>
+<li>The SD card has failed or is corrupt.</li>
+</ul>
 <h2 id="_3">எச்சரிக்கைகள்<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
 <ul>
 <li>அறிமுகத்தில் குறிப்பிட்டுள்ளபடி, இந்த முறை ஃபார்ம்வேரை மேம்படுத்த மட்டுமே வேலை செய்கிறது. உங்கள் கட்டுப்பாட்டு வாரியத்திற்கு பொருந்தும் வழிமுறைகளுக்குள் ஆரம்ப ஒளிரும் செயல்முறை கைமுறையாக செய்யப்பட வேண்டும்.</li>
@@ -1509,9 +1528,9 @@
  <span class="p">}</span>
 </code></pre></div>
 
-<p>உங்களுக்கு ஒரு புதிய போர்டு வரையறை தேவைப்பட்டால், மேலே குறிப்பிட்டுள்ள நடைமுறையில் உங்களுக்குச் சங்கடமாக இருந்தால், <a href="Contact.html#discord">கிளிப்பர் சமூக டிச்கார்ட்</a> இல் ஒன்றை நீங்கள் கோர பரிந்துரைக்கப்படுகிறது.</p>
+<p>If you need a new board definition and you are uncomfortable with the procedure outlined above it is recommended that you request one in the <a href="Contact.html">Klipper Discord</a>.</p>
 <h2 id="sdio">SDIO ஐப் பயன்படுத்தும் ஒளிரும் பலகைகள்<a class="headerlink" href="#sdio" title="Permanent link">&para;</a></h2>
-<p><a href="#caveats">கேவியட்ஸ்</a> இல் குறிப்பிடப்பட்டுள்ளபடி, SD கார்டை அணுக SDIO பயன்முறையைப் பயன்படுத்தும் பூட்லோடர் கொண்ட பலகைகளுக்கு, கோப்பை எழுதும்போது பயன்படுத்தப்படும் SPI பயன்முறையிலிருந்து SD கார்டுக்கு SDIO பயன்முறைக்கு மாற, பூட்லோடர் அதைப் போர்டில் ஃபிளாஷ் செய்ய, பலகையின் ஒரு பவர்-சைக்கிள் தேவைப்படுகிறது, குறிப்பாக SD கார்டுக்கு தானே. இந்தப் பலகை வரையறைகள் <code>skip_verify</code> கொடியைப் பயன்படுத்தும், இது ஃபார்ம்வேரை SD கார்டுக்கு எழுதியபிறகு ஃபிளாஷிங் கருவியை நிறுத்தச் சொல்கிறது, இதனால் பலகையைக் கைமுறையாக பவர்-சைக்கிள் செய்து சரிபார்ப்பு படி முடியும் வரை ஒத்திவைக்க முடியும்.</p>
+<p><a href="#caveats">As mentioned in the Caveats</a>. எச்டி கார்டுக்கான கோப்பு துவக்க ஏற்றிப் பலகையில் ஒளிரும். இந்தப் போர்டு வரையறைகள் <code>SKIP_VERIFY</code> கொடியைப் பயன்படுத்தும், இது எச்டி கார்டுக்கு ஃபார்ம்வேரை எழுதியபிறகு நிறுத்தும்படி ஒளிரும் கருவியைக் கூறுகிறது, இதனால் வாரியத்தை கைமுறையாக சக்தி-சைக்கிள் ஓட்டவும், அது முடியும் வரை சரிபார்ப்பு படி ஒத்திவைக்கப்படலாம்.</p>
 <p>இரண்டு காட்சிகள் உள்ளன - ஒன்று ஆர்.பி.ஐ புரவலன் ஒரு தனி மின்சக்தியில் இயங்குகிறது, மற்றொன்று முதன்மையான வாரியம் ஒளிரும் அதே மின்சார விநியோகத்தில் ஆர்.பி.ஐ புரவலன் இயங்கும்போது. சரிபார்ப்பு படிநிலையைச் செய்வதற்காக ஒளிரும் முடிந்ததும், அல்லது சரிபார்ப்பை உடனடியாக செய்ய முடியுமா என்பதையும் <code>Ssh</code> மீண்டும்<code>Ssh</code> க்கும் அவசியமா இல்லையா என்பதுதான் வேறுபாடு. இரண்டு காட்சிகளின் எடுத்துக்காட்டுகள் இங்கே:</p>
 <h3 id="rpi-sdio">தனி மின்சாரம் குறித்து RPI உடன் SDIO நிரலாக்க<a class="headerlink" href="#rpi-sdio" title="Permanent link">&para;</a></h3>
 <p>ஒரு தனி மின்சக்தியில் RPI உடன் ஒரு பொதுவான அமர்வு பின்வருவது போல் தெரிகிறது. நிச்சயமாக, நீங்கள் உங்கள் சரியான சாதன பாதை மற்றும் போர்டு பெயரைப் பயன்படுத்த வேண்டும்:</p>
@@ -1559,36 +1578,36 @@
 <tbody>
 <tr>
 <td align="center">9</td>
-<td align="center">௧</td>
+<td align="center">1</td>
 <td align="center">தரவு</td>
 <td align="center">எதுவுமில்லை (பு)*</td>
 </tr>
 <tr>
-<td align="center">௧</td>
-<td align="center">௨</td>
+<td align="center">1</td>
+<td align="center">2</td>
 <td align="center">குறுவட்டு/தேதி 3</td>
 <td align="center">சி.எச்</td>
 </tr>
 <tr>
-<td align="center">௨</td>
-<td align="center">௩</td>
+<td align="center">2</td>
+<td align="center">3</td>
 <td align="center">சி.எம்.டி.</td>
 <td align="center">மொசி</td>
 </tr>
 <tr>
-<td align="center">௪</td>
-<td align="center">௪</td>
+<td align="center">4</td>
+<td align="center">4</td>
 <td align="center">+3.3 வி (வி.டி.டி)</td>
 <td align="center">+3.3 வி (வி.டி.டி)</td>
 </tr>
 <tr>
-<td align="center">௫</td>
-<td align="center">௫</td>
+<td align="center">5</td>
+<td align="center">5</td>
 <td align="center">Clk</td>
 <td align="center">Sclk</td>
 </tr>
 <tr>
-<td align="center">௩</td>
+<td align="center">3</td>
 <td align="center">6</td>
 <td align="center">சி.என்.டி (வி.எச்.எச்)</td>
 <td align="center">சி.என்.டி (வி.எச்.எச்)</td>
@@ -1614,8 +1633,8 @@
 <tr>
 <td align="center">6</td>
 <td align="center">10</td>
-<td align="center">நிலம்</td>
-<td align="center">நிலம்</td>
+<td align="center">Gnd</td>
+<td align="center">Gnd</td>
 </tr>
 </tbody>
 </table>

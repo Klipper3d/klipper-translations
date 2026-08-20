@@ -13,7 +13,7 @@
     
     
       
-        <title>Exclude Objects - Klipper documentation</title>
+        <title>Excluir objetos - Klipper documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#exclude-objects" class="md-skip">
+        <a href="#excluir-objetos" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Exclude Objects
+              Excluir objetos
             
           </span>
         </div>
@@ -1342,8 +1342,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#workflow-overview" class="md-nav__link">
-    Workflow Overview
+  <a href="#descripcion-general-del-flujo-de-trabajo" class="md-nav__link">
+    Descripción general del flujo de trabajo
   </a>
   
 </li>
@@ -1392,15 +1392,15 @@
 </a>
 
 
-<h1 id="exclude-objects">Exclude Objects<a class="headerlink" href="#exclude-objects" title="Permanent link">&para;</a></h1>
+<h1 id="excluir-objetos">Excluir objetos<a class="headerlink" href="#excluir-objetos" title="Permanent link">&para;</a></h1>
 <p>The <code>[exclude_object]</code> module allows Klipper to exclude objects while a print is in progress. To enable this feature include an <a href="Config_Reference.html#exclude_object">exclude_object config
 section</a> (also see the <a href="G-Codes.html#exclude-object">command
 reference</a> and <a href="https://github.com/Klipper3d/klipper/blob/master/config/sample-macros.cfg">sample-macros.cfg</a> file for a Marlin/RepRapFirmware compatible M486 G-Code macro.)</p>
-<p>Unlike other 3D printer firmware options, a printer running Klipper utilizes a suite of components and users have many options to choose from. Therefore, in order to provide a a consistent user experience, the <code>[exclude_object]</code> module will establish a contract or API of sorts. The contract covers the contents of the gcode file, how the internal state of the module is controlled, and how that state is provided to clients.</p>
-<h2 id="workflow-overview">Workflow Overview<a class="headerlink" href="#workflow-overview" title="Permanent link">&para;</a></h2>
-<p>A typical workflow for printing a file might look like this:</p>
+<p>A diferencia de otras opciones de firmware para impresoras 3D, una impresora que utiliza Klipper emplea un conjunto de componentes y los usuarios tienen muchas opciones entre las que elegir. Por lo tanto, con el fin de proporcionar una experiencia de usuario coherente, el módulo <code>[exclude_object]</code> establecerá una especie de contrato o API. El contrato abarca el contenido del archivo gcode, cómo se controla el estado interno del módulo y cómo se proporciona ese estado a los clientes.</p>
+<h2 id="descripcion-general-del-flujo-de-trabajo">Descripción general del flujo de trabajo<a class="headerlink" href="#descripcion-general-del-flujo-de-trabajo" title="Permanent link">&para;</a></h2>
+<p>Un flujo de trabajo típico para imprimir un archivo podría ser el siguiente:</p>
 <ol>
-<li>Slicing is completed and the file is uploaded for printing. During the upload, the file is processed and <code>[exclude_object]</code> markers are added to the file. Alternately, slicers may be configured to prepare object exclusion markers natively, or in it's own pre-processing step.</li>
+<li>El corte se ha completado y el archivo se ha cargado para su impresión. Durante la carga, el archivo se procesa y se añaden marcadores <code>[exclude_object]</code> al archivo. Alternativamente, los cortadores pueden configurarse para preparar marcadores de exclusión de objetos de forma nativa o en su propio paso de preprocesamiento.</li>
 <li>When printing starts, Klipper will reset the <code>[exclude_object]</code> <a href="Status_Reference.html#exclude_object">status</a>.</li>
 <li>When Klipper processes the <code>EXCLUDE_OBJECT_DEFINE</code> block, it will update the status with the known objects and pass it on to clients.</li>
 <li>The client may use that information to present a UI to the user so that progress can be tracked. Klipper will update the status to include the currently printing object which the client can use for display purposes.</li>

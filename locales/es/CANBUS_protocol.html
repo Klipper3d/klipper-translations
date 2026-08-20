@@ -1342,23 +1342,23 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#micro-controller-id-assignment" class="md-nav__link">
-    Micro-controller id assignment
+  <a href="#asignacion-de-identificadores-de-microcontroladores" class="md-nav__link">
+    Asignación de identificadores de microcontroladores
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#admin-messages" class="md-nav__link">
-    Admin messages
+  <a href="#mensajes-del-administrador" class="md-nav__link">
+    Mensajes del administrador
   </a>
   
-    <nav class="md-nav" aria-label="Admin messages">
+    <nav class="md-nav" aria-label="Mensajes del administrador">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#cmd_query_unassigned-message" class="md-nav__link">
-    CMD_QUERY_UNASSIGNED message
+  <a href="#mensaje-cmd_query_unassigned" class="md-nav__link">
+    Mensaje CMD_QUERY_UNASSIGNED
   </a>
   
 </li>
@@ -1408,12 +1408,12 @@
 
 <h1 id="canbus-protocol">CANBUS protocol<a class="headerlink" href="#canbus-protocol" title="Permanent link">&para;</a></h1>
 <p>This document describes the protocol Klipper uses to communicate over <a href="https://en.wikipedia.org/wiki/CAN_bus">CAN bus</a>. See <CANBUS.md> for information on configuring Klipper with CAN bus.</p>
-<h2 id="micro-controller-id-assignment">Micro-controller id assignment<a class="headerlink" href="#micro-controller-id-assignment" title="Permanent link">&para;</a></h2>
-<p>Klipper uses only CAN 2.0A standard size CAN bus packets, which are limited to 8 data bytes and an 11-bit CAN bus identifier. In order to support efficient communication, each micro-controller is assigned at run-time a unique 1-byte CAN bus nodeid (<code>canbus_nodeid</code>) for general Klipper command and response traffic. Klipper command messages going from host to micro-controller use the CAN bus id of <code>canbus_nodeid * 2 + 256</code>, while Klipper response messages from micro-controller to host use <code>canbus_nodeid * 2 + 256 + 1</code>.</p>
-<p>Each micro-controller has a factory assigned unique chip identifier that is used during id assignment. This identifier can exceed the length of one CAN packet, so a hash function is used to generate a unique 6-byte id (<code>canbus_uuid</code>) from the factory id.</p>
-<h2 id="admin-messages">Admin messages<a class="headerlink" href="#admin-messages" title="Permanent link">&para;</a></h2>
-<p>Admin messages are used for id assignment. Admin messages sent from host to micro-controller use the CAN bus id <code>0x3f0</code> and messages sent from micro-controller to host use the CAN bus id <code>0x3f1</code>. All micro-controllers listen to messages on id <code>0x3f0</code>; that id can be thought of as a "broadcast address".</p>
-<h3 id="cmd_query_unassigned-message">CMD_QUERY_UNASSIGNED message<a class="headerlink" href="#cmd_query_unassigned-message" title="Permanent link">&para;</a></h3>
+<h2 id="asignacion-de-identificadores-de-microcontroladores">Asignación de identificadores de microcontroladores<a class="headerlink" href="#asignacion-de-identificadores-de-microcontroladores" title="Permanent link">&para;</a></h2>
+<p>Klipper utiliza únicamente paquetes de bus CAN de tamaño estándar CAN 2.0A, que están limitados a 8 bytes de datos y un identificador de bus CAN de 11 bits. Para permitir una comunicación eficiente, a cada microcontrolador se le asigna en tiempo de ejecución un identificador de nodo de bus CAN único de 1 byte (<code>canbus_nodeid</code>) para el tráfico general de comandos y respuestas de Klipper. Los mensajes de comando de Klipper que van del host al microcontrolador utilizan el identificador de bus CAN de <code>canbus_nodeid * 2 + 256</code>, mientras que los mensajes de respuesta de Klipper del microcontrolador al host utilizan <code>canbus_nodeid * 2 + 256 + 1</code>.</p>
+<p>Cada microcontrolador tiene un identificador de chip único asignado de fábrica que se utiliza durante la asignación de identificadores. Este identificador puede superar la longitud de un paquete CAN, por lo que se utiliza una función hash para generar un identificador único de 6 bytes (<code>canbus_uuid</code>) a partir del identificador de fábrica.</p>
+<h2 id="mensajes-del-administrador">Mensajes del administrador<a class="headerlink" href="#mensajes-del-administrador" title="Permanent link">&para;</a></h2>
+<p>Los mensajes de administración se utilizan para la asignación de identificadores. Los mensajes de administración enviados desde el host al microcontrolador utilizan el identificador de bus CAN «0x3f0», y los mensajes enviados desde el microcontrolador al host utilizan el identificador de bus CAN «0x3f1». Todos los microcontroladores escuchan los mensajes con el identificador «0x3f0», que puede considerarse como una «dirección de difusión».</p>
+<h3 id="mensaje-cmd_query_unassigned">Mensaje CMD_QUERY_UNASSIGNED<a class="headerlink" href="#mensaje-cmd_query_unassigned" title="Permanent link">&para;</a></h3>
 <p>This command queries all micro-controllers that have not yet been assigned a <code>canbus_nodeid</code>. Unassigned micro-controllers will respond with a RESP_NEED_NODEID response message.</p>
 <p>The CMD_QUERY_UNASSIGNED message format is: <code>&lt;1-byte message_id = 0x00&gt;</code></p>
 <h3 id="cmd_set_klipper_nodeid-message">CMD_SET_KLIPPER_NODEID message<a class="headerlink" href="#cmd_set_klipper_nodeid-message" title="Permanent link">&para;</a></h3>

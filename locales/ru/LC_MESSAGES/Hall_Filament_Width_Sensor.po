@@ -9,13 +9,11 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-07-22 08:38+0000\n"
 "Last-Translator: VICTOR <subfyn@gmail.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
-"hall_filament_width_sensor/ru/>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/hall_filament_width_sensor/ru/>\n"
 "Language: ru\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
-"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Generator: Weblate 5.13-dev\n"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 1 (header)
@@ -49,8 +47,8 @@ msgstr ""
 #: docs/Hall_Filament_Width_Sensor.md:block 24 (ordered list)
 msgid "Save raw sensor values in config parameter `Raw_dia1` and `Raw_dia2`"
 msgstr ""
-"Сохранять необработанные значения датчиков в параметре конфигурации "
-"`Raw_dia1` и `Raw_dia2`"
+"Сохранять необработанные значения датчиков в параметре конфигурации `Raw_dia1`"
+" и `Raw_dia2`"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 25 (header)
 msgid "How to enable sensor"
@@ -74,8 +72,8 @@ msgid ""
 "**DISABLE_FILAMENT_WIDTH_LOG** command to stop logging. To enable logging at "
 "power-on, set the `logging` parameter to `true`."
 msgstr ""
-"Для запуска протоколирования выполните команду **ENABLE_FILAMENT_WIDTH_LOG**"
-", а для остановки протоколирования - команду **DISABLE_FILAMENT_WIDTH_LOG**. "
+"Для запуска протоколирования выполните команду **ENABLE_FILAMENT_WIDTH_LOG**, "
+"а для остановки протоколирования - команду **DISABLE_FILAMENT_WIDTH_LOG**. "
 "Чтобы включить ведение журнала при включении питания, установите параметр "
 "`logging` в значение `true`."
 
@@ -92,9 +90,9 @@ msgid ""
 "[Thingiverse](https://www.thingiverse.com/thing:4138933), an assembly video is"
 " also available on [Youtube](https://www.youtube.com/watch?v=TDO9tME8vp4)"
 msgstr ""
-"Вы можете найти примеры на [Thingiverse](https://www.thingiverse.com/"
-"thing:4138933), также доступно видео на [Youtube](https://www.youtube.com/"
-"watch?v=TDO9tME8vp4)"
+"Вы можете найти примеры на "
+"[Thingiverse](https://www.thingiverse.com/thing:4138933), также доступно видео"
+" на [Youtube](https://www.youtube.com/watch?v=TDO9tME8vp4)"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 10 (paragraph)
 msgid ""
@@ -110,17 +108,17 @@ msgid ""
 "Reference](Config_Reference.md#hall_filament_width_sensor) and [G-Code "
 "documentation](G-Codes.md#hall_filament_width_sensor)."
 msgstr ""
-"Для использования датчика ширины нити Холла необходимо ознакомиться с "
-"[Config Reference](Config_Reference.md#hall_filament_width_sensor) и "
-"[G-Code documentation](G-Codes.md#hall_filament_width_sensor)."
+"Для использования датчика ширины нити Холла необходимо ознакомиться с [Config "
+"Reference](Config_Reference.md#hall_filament_width_sensor) и [G-Code "
+"documentation](G-Codes.md#hall_filament_width_sensor)."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 14 (paragraph)
 msgid ""
 "To enable the sensor, issue **ENABLE_FILAMENT_WIDTH_SENSOR** command or set "
 "the `enable` parameter to `true`."
 msgstr ""
-"Чтобы включить датчик, выполните команду **ENABLE_FILAMENT_WIDTH_SENSOR** "
-"или установите параметр `enable` в значение `true`."
+"Чтобы включить датчик, выполните команду **ENABLE_FILAMENT_WIDTH_SENSOR** или "
+"установите параметр `enable` в значение `true`."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 2 (paragraph)
 msgid ""
@@ -146,10 +144,54 @@ msgid ""
 "pins and different boards."
 msgstr ""
 "Датчик формирует два аналоговых выхода в зависимости от рассчитанной ширины "
-"нити накала. Сумма выходных напряжений всегда равна обнаруженной ширине "
-"нити. Хост-модуль отслеживает изменения напряжения и регулирует множитель "
-"экструзии. Я использую разъем aux2 на плате типа ramps с выводами analog11 и "
-"analog12. Можно использовать другие контакты и другие платы."
+"нити накала. Сумма выходных напряжений всегда равна обнаруженной ширине нити. "
+"Хост-модуль отслеживает изменения напряжения и регулирует множитель экструзии."
+" Я использую разъем aux2 на плате типа ramps с выводами analog11 и analog12. "
+"Можно использовать другие контакты и другие платы."
+
+#: docs/Hall_Filament_Width_Sensor.md:block 15 (header)
+msgid "Use as a runout switch only"
+msgstr ""
+
+#: docs/Hall_Filament_Width_Sensor.md:block 16 (paragraph)
+msgid ""
+"By default, the sensor measures filament diameter and adjusts the extrusion "
+"multiplier to compensate for variations."
+msgstr ""
+
+#: docs/Hall_Filament_Width_Sensor.md:block 17 (paragraph)
+msgid ""
+"If you want to use the sensor as a runout switch only, set the "
+"`enable_flow_compensation` config parameter to `false`. In this mode, the "
+"sensor will only trigger runout events when filament is not detected, it will "
+"not modify the extrusion multiplier."
+msgstr ""
+
+#: docs/Hall_Filament_Width_Sensor.md:block 18 (paragraph)
+msgid ""
+"This is useful for printers where the filament sensor is not accurate enough "
+"for flow compensation but can reliably detect filament runout, or when "
+"printing with flexible filaments which have unstable diameter characteristics."
+msgstr ""
+
+#: docs/Hall_Filament_Width_Sensor.md:block 19 (paragraph)
+msgid ""
+"Issue **ENABLE_FILAMENT_WIDTH_SENSOR FLOW_COMPENSATION=1** to enable flow "
+"compensation or **ENABLE_FILAMENT_WIDTH_SENSOR FLOW_COMPENSATION=0** to "
+"disable it."
+msgstr ""
+
+#: docs/Hall_Filament_Width_Sensor.md:block 20 (paragraph)
+msgid ""
+"Note that disabling filament width compensation automatically resets the "
+"extrusion multiplier to 100%."
+msgstr ""
+
+#: docs/Hall_Filament_Width_Sensor.md:block 21 (paragraph)
+msgid ""
+"**QUERY_FILAMENT_WIDTH** includes the current state of flow compensation in "
+"its output."
+msgstr ""
 
 #~ msgid ""
 #~ "[menu __main __filament __width_current]\n"

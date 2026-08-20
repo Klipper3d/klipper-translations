@@ -1487,7 +1487,7 @@ Entering<span class="w"> </span>bootloader<span class="w"> </span>on<span class=
 <p>Където <code>&lt;DEVICE&gt;</code> е вашето серийно устройство, например <code>/dev/serial.by-id/usb-Klipper[...]</code> или <code>/dev/ttyACM0</code>.</p>
 <p><code>```&lt;Ctrl-A&gt;&lt;Ctrl-P&gt;</code> означава задържане на <code>Ctrl</code>, натискане и освобождаване на <code>a</code>, натискане и освобождаване на <code>p</code>, след което освобождаване на <code>Ctrl</code></p>
 <h3 id="_4">Физическа серия<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
-<p>Ако се използва физически сериен порт на MCU (дори ако се използва USB сериен адаптер за свързване към него), изпратете символния низ `<SPACE><FS><SPACE>Запитване за сериен буутлоудър!!<SPACE>~``.</p>
+<p>If a physical serial port is being used on the MCU (even if a USB serial adapter is being used to connect to it), sending the string <code>&lt;SPACE&gt;&lt;FS&gt;&lt;SPACE&gt;Request Serial Bootloader!!&lt;SPACE&gt;~</code> requests the bootloader.</p>
 <p><code>&lt;SPACE&gt;</code> е буквален интервал ASCII, 0x20.</p>
 <p><code>&lt;FS&gt;</code> е ASCII файловият разделител, 0x1c.</p>
 <p>Имайте предвид, че това не е валидно съобщение съгласно <a href="Protocol.html#micro-controller-interface">MCU Protocol</a>, но символите за синхронизация (`~``) все още се спазват.</p>

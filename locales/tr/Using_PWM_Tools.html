@@ -1349,13 +1349,6 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#mevcut-snrlamalar" class="md-nav__link">
-    Mevcut Sınırlamalar
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
   <a href="#komutlar" class="md-nav__link">
     Komutlar
   </a>
@@ -1387,13 +1380,11 @@
 
 
 <h1 id="pwm-araclarn-kullanmak">PWM Araçlarını Kullanmak<a class="headerlink" href="#pwm-araclarn-kullanmak" title="Permanent link">&para;</a></h1>
-<p>Bu doküman, <code>output_pin</code> ve bazı makrolar kullanılarak PWM kontrollü bir lazerin veya spindle (freze) motorunun nasıl kurulacağını açıklar.</p>
+<p>This document describes how to setup a PWM-controlled laser or spindle using <code>pwm_tool</code> and some macros.</p>
 <h2 id="nasl-calsyor">Nasıl çalışıyor?<a class="headerlink" href="#nasl-calsyor" title="Permanent link">&para;</a></h2>
 <p>3D baskı kafasının fan pwm çıkışını yeniden kullanarak lazerleri veya spindle (freze) motorunu kontrol edebilirsiniz. Bu, örneğin E3D takım değiştirici veya kendi tasarımınız olan bir değiştirilebilir baskı kafası kullanıyorsanız kullanışlıdır. Genellikle, LaserWeb gibi CAM araçları, <em>spinde speed CW</em> (<code>M3 S[0-255]</code>), <em>spindle speed CCW</em> (<code>M4 S[0-255]</code>) ve <em>spindle stop</em> (<code>M5</code>) anlamına gelen <code>M3-M5</code> komutlarını kullanacak şekilde yapılandırılabilir.</p>
 <p><strong>Uyarı:</strong> Lazer kullanırken aklınıza gelebilecek tüm güvenlik önlemlerini alınız! Diyot lazerler genellikle ters bağlantılıdır. Bu, MCU yeniden başlatıldığında, MCU'nun yeniden başlaması için gereken süre boyunca lazerin <em>tamamen açık</em> olacağı anlamına gelir. İyi bir ölçüm için, lazere güç veriliyorsa gerekmedikçe lazerin bağlantısını kesmemeniz ve <em>her zaman</em> kullandığınız lazerin dalga boyuna uygun lazer gözlüğü takmanız önerilir. Ayrıca, ana makineniz veya MCU'nuz bir hatayla karşılaştığında aracın durması için bir güvenlik zaman aşımı süresi yapılandırmanız gerekmektedir.</p>
 <p>Örnek ayarlar için, <a href="/config/sample-pwm-tool.cfg">config/sample-pwm-tool.cfg</a>'u ziyaret ediniz.</p>
-<h2 id="mevcut-snrlamalar">Mevcut Sınırlamalar<a class="headerlink" href="#mevcut-snrlamalar" title="Permanent link">&para;</a></h2>
-<p>PWM güncellemelerinin ne sıklıkta gerçekleşebileceği konusunda bir sınır mevcuttur. Çok kesin olmakla birlikte, bir PWM güncellemesi yalnızca her 0,1 saniyede bir gerçekleşebilir ve raster gravür işleriniz için kullanılması imkansız bir değerdir. Ancak, bazı konularda ödün vermeniz gerekebilen bir <a href="https://github.com/Cirromulus/klipper/tree/laser_tool">deneysel branch (dal)</a> mevcuttur. Uzun vadede bu özelliğin main-line Klipper'a entegre edilmesi planlanmaktadır.</p>
 <h2 id="komutlar">Komutlar<a class="headerlink" href="#komutlar" title="Permanent link">&para;</a></h2>
 <p><code>M3/M4 S&lt;value&gt;</code> : PWM döngüsünü ayarlar. Kullanabileceğiniz değerler 0 ve 255 arasındadır. <code>M5</code> : PWM çıkışını kapalı konumdaki değere eşitler.</p>
 <h2 id="laserweb-ayarlar">Laserweb Ayarları<a class="headerlink" href="#laserweb-ayarlar" title="Permanent link">&para;</a></h2>

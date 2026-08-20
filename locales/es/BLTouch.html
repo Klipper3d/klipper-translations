@@ -1416,8 +1416,8 @@
 
 <h1 id="bl-touch">BL-Touch<a class="headerlink" href="#bl-touch" title="Permanent link">&para;</a></h1>
 <h2 id="conectando-bl-touch">Conectando BL-Touch<a class="headerlink" href="#conectando-bl-touch" title="Permanent link">&para;</a></h2>
-<p>A <strong>warning</strong> before you start: Avoid touching the BL-Touch pin with your bare fingers, since it is quite sensitive to finger grease. And if you do touch it, be very gentle, in order to not bend or push anything.</p>
-<p>Hook up the BL-Touch "servo" connector to a <code>control_pin</code> according to the BL-Touch documentation or your MCU documentation. Using the original wiring, the yellow wire from the triple is the <code>control_pin</code> and the white wire from the pair is the <code>sensor_pin</code>. You need to configure these pins according to your wiring. Most BL-Touch devices require a pullup on the sensor pin (prefix the pin name with "^"). For example:</p>
+<p>Una <strong>advertencia</strong> antes de empezar: evite tocar el pin BL-Touch con los dedos desnudos, ya que es muy sensible a la grasa de los dedos. Y si lo toca, hágalo con mucho cuidado, para no doblar ni empujar nada.</p>
+<p>Conecte el conector «servo» del BL-Touch a un «control_pin» según la documentación del BL-Touch o la documentación de su MCU. Utilizando el cableado original, el cable amarillo del triple es el «control_pin» y el cable blanco del par es el «sensor_pin». Debe configurar estos pines según su cableado. La mayoría de los dispositivos BL-Touch requieren un pullup en el pin del sensor (anteponga «^» al nombre del pin). Por ejemplo:</p>
 <div class="highlight"><pre><span></span><code>[bltouch]
 sensor_pin: ^P1.24
 control_pin: P1.26
@@ -1431,9 +1431,9 @@ z_hop: 10                 # Move up 10mm
 z_hop_speed: 5
 </code></pre></div>
 
-<p>It's important that the z_hop movement in safe_z_home is high enough that the probe doesn't hit anything even if the probe pin happens to be in its lowest state.</p>
+<p>Es importante que el movimiento z_hop en safe_z_home sea lo suficientemente alto como para que la sonda no golpee nada, incluso si el pin de la sonda se encuentra en su estado más bajo.</p>
 <h2 id="pruebas-iniciales">Pruebas iniciales<a class="headerlink" href="#pruebas-iniciales" title="Permanent link">&para;</a></h2>
-<p>Before moving on, verify that the BL-Touch is mounted at the correct height, the pin should be roughly 2 mm above the nozzle when retracted</p>
+<p>Antes de continuar, comprueba que el BL-Touch esté montado a la altura correcta; el pasador debe estar aproximadamente 2 mm por encima de la boquilla cuando está retraído.</p>
 <p>When you turn on the printer, the BL-Touch probe should perform a self-test and move the pin up and down a couple of times. Once the self-test is completed, the pin should be retracted and the red LED on the probe should be lit. If there are any errors, for example the probe is flashing red or the pin is down instead of up, please turn off the printer and check the wiring and configuration.</p>
 <p>If the above is looking good, it's time to test that the control pin is working correctly. First run <code>BLTOUCH_DEBUG COMMAND=pin_down</code> in your printer terminal. Verify that the pin moves down and that the red LED on the probe turns off. If not, check your wiring and configuration again. Next issue a <code>BLTOUCH_DEBUG COMMAND=pin_up</code>, verify that the pin moves up, and that the red light turns on again. If it's flashing then there's some problem.</p>
 <p>The next step is to confirm that the sensor pin is working correctly. Run <code>BLTOUCH_DEBUG COMMAND=pin_down</code>, verify that the pin moves down, run <code>BLTOUCH_DEBUG COMMAND=touch_mode</code>, run <code>QUERY_PROBE</code>, and verify that command reports "probe: open". Then while gently pushing the pin up slightly with the nail of your finger run <code>QUERY_PROBE</code> again. Verify the command reports "probe: TRIGGERED". If either query does not report the correct message then it usually indicates an incorrect wiring or configuration (though some <a href="#bl-touch-clones">clones</a> may require special handling). At the completion of this test run <code>BLTOUCH_DEBUG COMMAND=pin_up</code> and verify that the pin moves up.</p>

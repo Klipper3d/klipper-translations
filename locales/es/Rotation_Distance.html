@@ -1342,15 +1342,15 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#obtaining-rotation_distance-from-steps_per_mm-or-step_distance" class="md-nav__link">
-    Obtaining rotation_distance from steps_per_mm (or step_distance)
+  <a href="#como-obtener-la-distancia-de-rotacion-a-partir-de-los-pasos-por-milimetro-o-distancia-de-paso" class="md-nav__link">
+    Cómo obtener la distancia de rotación a partir de los pasos por milímetro (o distancia de paso)
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#calibrating-rotation_distance-on-extruders" class="md-nav__link">
-    Calibrating rotation_distance on extruders
+  <a href="#calibracion-de-rotation_distance-en-extrusores" class="md-nav__link">
+    Calibración de rotation_distance en extrusores
   </a>
   
 </li>
@@ -1414,20 +1414,20 @@
 
 
 <h1 id="rotation-distance">Rotation distance<a class="headerlink" href="#rotation-distance" title="Permanent link">&para;</a></h1>
-<p>Stepper motor drivers on Klipper require a <code>rotation_distance</code> parameter in each <a href="Config_Reference.html#stepper">stepper config section</a>. The <code>rotation_distance</code> is the amount of distance that the axis moves with one full revolution of the stepper motor. This document describes how one can configure this value.</p>
-<h2 id="obtaining-rotation_distance-from-steps_per_mm-or-step_distance">Obtaining rotation_distance from steps_per_mm (or step_distance)<a class="headerlink" href="#obtaining-rotation_distance-from-steps_per_mm-or-step_distance" title="Permanent link">&para;</a></h2>
-<p>The designers of your 3d printer originally calculated <code>steps_per_mm</code> from a rotation distance. If you know the steps_per_mm then it is possible to use this general formula to obtain that original rotation distance:</p>
+<p>Los controladores de motores paso a paso en Klipper requieren un parámetro <code>rotation_distance</code> en cada sección <a href="Config_Reference.html#stepper">de configuración del motor paso a paso</a>. El <code>rotation_distance</code> es la distancia que recorre el eje con una revolución completa del motor paso a paso. Este documento describe cómo se puede configurar este valor.</p>
+<h2 id="como-obtener-la-distancia-de-rotacion-a-partir-de-los-pasos-por-milimetro-o-distancia-de-paso">Cómo obtener la distancia de rotación a partir de los pasos por milímetro (o distancia de paso)<a class="headerlink" href="#como-obtener-la-distancia-de-rotacion-a-partir-de-los-pasos-por-milimetro-o-distancia-de-paso" title="Permanent link">&para;</a></h2>
+<p>Los diseñadores de su impresora 3D calcularon originalmente «steps_per_mm» a partir de una distancia de rotación. Si conoce el valor de steps_per_mm, es posible utilizar esta fórmula general para obtener la distancia de rotación original:</p>
 <div class="highlight"><pre><span></span><code>rotation_distance = &lt;full_steps_per_rotation&gt; * &lt;microsteps&gt; / &lt;steps_per_mm&gt;
 </code></pre></div>
 
-<p>Or, if you have an older Klipper configuration and know the <code>step_distance</code> parameter you can use this formula:</p>
+<p>O, si tienes una configuración Klipper más antigua y conoces el parámetro <code>step_distance</code>, puedes utilizar esta fórmula:</p>
 <div class="highlight"><pre><span></span><code>rotation_distance = &lt;full_steps_per_rotation&gt; * &lt;microsteps&gt; * &lt;step_distance&gt;
 </code></pre></div>
 
-<p>The <code>&lt;full_steps_per_rotation&gt;</code> setting is determined from the type of stepper motor. Most stepper motors are "1.8 degree steppers" and therefore have 200 full steps per rotation (360 divided by 1.8 is 200). Some stepper motors are "0.9 degree steppers" and thus have 400 full steps per rotation. Other stepper motors are rare. If unsure, do not set full_steps_per_rotation in the config file and use 200 in the formula above.</p>
-<p>The <code>&lt;microsteps&gt;</code> setting is determined by the stepper motor driver. Most drivers use 16 microsteps. If unsure, set <code>microsteps: 16</code> in the config and use 16 in the formula above.</p>
+<p>El ajuste <code>&lt;full_steps_per_rotation&gt;</code> se determina a partir del tipo de motor paso a paso. La mayoría de los motores paso a paso son «motores de 1,8 grados» y, por lo tanto, tienen 200 pasos completos por rotación (360 dividido por 1,8 es 200). Algunos motores paso a paso son «motores de 0,9 grados» y, por lo tanto, tienen 400 pasos completos por rotación. Otros motores paso a paso son poco comunes. Si no está seguro, no establezca full_steps_per_rotation en el archivo de configuración y utilice 200 en la fórmula anterior.</p>
+<p>La configuración <code>&lt;microsteps&gt;</code> viene determinada por el controlador del motor paso a paso. La mayoría de los controladores utilizan 16 micropasos. Si no está seguro, establezca <code>microsteps: 16</code> en la configuración y utilice 16 en la fórmula anterior.</p>
 <p>Almost all printers should have a whole number for <code>rotation_distance</code> on X, Y, and Z type axes. If the above formula results in a rotation_distance that is within .01 of a whole number then round the final value to that whole_number.</p>
-<h2 id="calibrating-rotation_distance-on-extruders">Calibrating rotation_distance on extruders<a class="headerlink" href="#calibrating-rotation_distance-on-extruders" title="Permanent link">&para;</a></h2>
+<h2 id="calibracion-de-rotation_distance-en-extrusores">Calibración de rotation_distance en extrusores<a class="headerlink" href="#calibracion-de-rotation_distance-en-extrusores" title="Permanent link">&para;</a></h2>
 <p>On an extruder, the <code>rotation_distance</code> is the amount of distance the filament travels for one full rotation of the stepper motor. The best way to get an accurate value for this setting is to use a "measure and trim" procedure.</p>
 <p>First start with an initial guess for the rotation distance. This may be obtained from <a href="#obtaining-rotation_distance-from-steps_per_mm-or-step_distance">steps_per_mm</a> or by <a href="#extruder">inspecting the hardware</a>.</p>
 <p>Then use the following procedure to "measure and trim":</p>

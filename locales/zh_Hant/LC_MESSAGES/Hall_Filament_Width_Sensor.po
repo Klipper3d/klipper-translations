@@ -4,8 +4,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "PO-Revision-Date: 2025-07-22 08:31+0000\n"
 "Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/"
-"projects/klipper/hall_filament_width_sensor/zh_Hant/>\n"
+"Language-Team: Chinese (Traditional Han script) <https://hosted.weblate.org/projects/klipper/hall_filament_width_sensor/zh_Hant/>\n"
 "Language: zh_Hant\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -62,9 +61,7 @@ msgid ""
 "**DISABLE_FILAMENT_WIDTH_LOG** command to stop logging. To enable logging at "
 "power-on, set the `logging` parameter to `true`."
 msgstr ""
-"發送**ENABLE_FILAMENT_WIDTH_LOG**命令開始記錄，發送**DISABLE_FILAMENT_WIDTH_L"
-"OG**命令停止記錄。如果想在開機時啟用日誌記錄，請將`logging`配置參數設定為`tru"
-"e`。"
+"發送**ENABLE_FILAMENT_WIDTH_LOG**命令開始記錄，發送**DISABLE_FILAMENT_WIDTH_LOG**命令停止記錄。如果想在開機時啟用日誌記錄，請將`logging`配置參數設定為`true`。"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 31 (paragraph)
 msgid ""
@@ -77,16 +74,13 @@ msgid ""
 "[Thingiverse](https://www.thingiverse.com/thing:4138933), an assembly video is"
 " also available on [Youtube](https://www.youtube.com/watch?v=TDO9tME8vp4)"
 msgstr ""
-"你可以在[Thingiverse](https://www.thingiverse.com/"
-"thing:4138933)上找到設計，在[Youtube](https://www.youtube.com/"
-"watch?v=TDO9tME8vp4)上也有一個裝配視訊"
+"你可以在[Thingiverse](https://www.thingiverse.com/thing:4138933)上找到設計，在[Youtube](https://www.youtube.com/watch?v=TDO9tME8vp4)上也有一個裝配視訊"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 10 (paragraph)
 msgid ""
 "To get raw sensor value you can use menu item or **QUERY_RAW_FILAMENT_WIDTH** "
 "command in terminal."
-msgstr "要獲得原始感測器值，你可以使用菜單中的選項或在終端發送**QUERY_RAW_FILAMENT_WI"
-"DTH**命令。"
+msgstr "要獲得原始感測器值，你可以使用菜單中的選項或在終端發送**QUERY_RAW_FILAMENT_WIDTH**命令。"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 4 (paragraph)
 msgid ""
@@ -94,16 +88,14 @@ msgid ""
 "Reference](Config_Reference.md#hall_filament_width_sensor) and [G-Code "
 "documentation](G-Codes.md#hall_filament_width_sensor)."
 msgstr ""
-"要使用霍爾耗材線徑感測器，請閱讀[配置參考]"
-"(Config_Reference.md#hall_filament_width_sensor)和[G-Code 文件]"
-"(G-Codes.md#hall_filament_width_sensor)。"
+"要使用霍爾耗材線徑感測器，請閱讀[配置參考](Config_Reference.md#hall_filament_width_sensor)和[G-Code"
+" 文件](G-Codes.md#hall_filament_width_sensor)。"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 14 (paragraph)
 msgid ""
 "To enable the sensor, issue **ENABLE_FILAMENT_WIDTH_SENSOR** command or set "
 "the `enable` parameter to `true`."
-msgstr "要啟用感測器，發送**ENABLE_FILAMENT_WIDTH_SENSOR**命令或將`enable`參數改為`tr"
-"ue`。"
+msgstr "要啟用感測器，發送**ENABLE_FILAMENT_WIDTH_SENSOR**命令或將`enable`參數改為`true`。"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 2 (paragraph)
 msgid ""
@@ -121,6 +113,50 @@ msgid ""
 "voltage changes and adjusts extrusion multiplier. I use the aux2 connector on "
 "a ramps-like board with the analog11 and analog12 pins. You can use different "
 "pins and different boards."
+msgstr ""
+
+#: docs/Hall_Filament_Width_Sensor.md:block 15 (header)
+msgid "Use as a runout switch only"
+msgstr ""
+
+#: docs/Hall_Filament_Width_Sensor.md:block 16 (paragraph)
+msgid ""
+"By default, the sensor measures filament diameter and adjusts the extrusion "
+"multiplier to compensate for variations."
+msgstr ""
+
+#: docs/Hall_Filament_Width_Sensor.md:block 17 (paragraph)
+msgid ""
+"If you want to use the sensor as a runout switch only, set the "
+"`enable_flow_compensation` config parameter to `false`. In this mode, the "
+"sensor will only trigger runout events when filament is not detected, it will "
+"not modify the extrusion multiplier."
+msgstr ""
+
+#: docs/Hall_Filament_Width_Sensor.md:block 18 (paragraph)
+msgid ""
+"This is useful for printers where the filament sensor is not accurate enough "
+"for flow compensation but can reliably detect filament runout, or when "
+"printing with flexible filaments which have unstable diameter characteristics."
+msgstr ""
+
+#: docs/Hall_Filament_Width_Sensor.md:block 19 (paragraph)
+msgid ""
+"Issue **ENABLE_FILAMENT_WIDTH_SENSOR FLOW_COMPENSATION=1** to enable flow "
+"compensation or **ENABLE_FILAMENT_WIDTH_SENSOR FLOW_COMPENSATION=0** to "
+"disable it."
+msgstr ""
+
+#: docs/Hall_Filament_Width_Sensor.md:block 20 (paragraph)
+msgid ""
+"Note that disabling filament width compensation automatically resets the "
+"extrusion multiplier to 100%."
+msgstr ""
+
+#: docs/Hall_Filament_Width_Sensor.md:block 21 (paragraph)
+msgid ""
+"**QUERY_FILAMENT_WIDTH** includes the current state of flow compensation in "
+"its output."
 msgstr ""
 
 #~ msgid ""

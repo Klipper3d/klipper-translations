@@ -13,7 +13,7 @@
     
     
       
-        <title>CANBUS Troubleshooting - Klipper documentation</title>
+        <title>Solución de problemas de CANBUS - Klipper documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#canbus-troubleshooting" class="md-skip">
+        <a href="#solucion-de-problemas-de-canbus" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              CANBUS Troubleshooting
+              Solución de problemas de CANBUS
             
           </span>
         </div>
@@ -1342,8 +1342,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#verify-can-bus-wiring" class="md-nav__link">
-    Verify CAN bus wiring
+  <a href="#verificar-el-cableado-del-bus-can" class="md-nav__link">
+    Verificar el cableado del bus CAN.
   </a>
   
 </li>
@@ -1413,13 +1413,13 @@
 </a>
 
 
-<h1 id="canbus-troubleshooting">CANBUS Troubleshooting<a class="headerlink" href="#canbus-troubleshooting" title="Permanent link">&para;</a></h1>
-<p>This document provides information on troubleshooting communication issues when using <a href="CANBUS.html">Klipper with CAN bus</a>.</p>
-<h2 id="verify-can-bus-wiring">Verify CAN bus wiring<a class="headerlink" href="#verify-can-bus-wiring" title="Permanent link">&para;</a></h2>
-<p>The first step in troubleshooting communication issues is to verify the CAN bus wiring.</p>
+<h1 id="solucion-de-problemas-de-canbus">Solución de problemas de CANBUS<a class="headerlink" href="#solucion-de-problemas-de-canbus" title="Permanent link">&para;</a></h1>
+<p>Este documento proporciona información sobre la resolución de problemas de comunicación al utilizar <a href="CANBUS.html">Klipper con bus CAN</a>.</p>
+<h2 id="verificar-el-cableado-del-bus-can">Verificar el cableado del bus CAN.<a class="headerlink" href="#verificar-el-cableado-del-bus-can" title="Permanent link">&para;</a></h2>
+<p>El primer paso para solucionar los problemas de comunicación es verificar el cableado del bus CAN.</p>
 <p>Be sure there are exactly two 120 Ohm <a href="CANBUS.html#terminating-resistors">terminating
 resistors</a> on the CAN bus. If the resistors are not properly installed then messages may not be able to be sent at all or the connection may have sporadic instability.</p>
-<p>The CANH and CANL bus wiring should be twisted around each other. At a minimum, the wiring should have a twist every few centimeters. Avoid twisting the CANH and CANL wiring around power wires and ensure that power wires that travel parallel to the CANH and CANL wires do not have the same amount of twists.</p>
+<p>El cableado de los buses CANH y CANL debe estar trenzado entre sí. Como mínimo, el cableado debe tener un trenzado cada pocos centímetros. Evite trenzar el cableado CANH y CANL alrededor de los cables de alimentación y asegúrese de que los cables de alimentación que discurren en paralelo a los cables CANH y CANL no tengan la misma cantidad de trenzados.</p>
 <p>Verify that all plugs and wire crimps on the CAN bus wiring are fully secured. Movement of the printer toolhead may jostle the CAN bus wiring causing a bad wire crimp or unsecured plug to result in intermittent communication errors.</p>
 <h2 id="check-for-incrementing-bytes_invalid-counter">Check for incrementing bytes_invalid counter<a class="headerlink" href="#check-for-incrementing-bytes_invalid-counter" title="Permanent link">&para;</a></h2>
 <p>The Klipper log file will report a <code>Stats</code> line once a second when the printer is active. These "Stats" lines will have a <code>bytes_invalid</code> counter for each micro-controller. This counter should not increment during normal printer operation (it is normal for the counter to be non-zero after a RESTART and it is not a concern if the counter increments once a month or so). If this counter increments on a CAN bus micro-controller during normal printing (it increments every few hours or more frequently) then it is an indication of a severe problem.</p>

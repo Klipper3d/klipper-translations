@@ -1433,6 +1433,13 @@
 </li>
       
         <li class="md-nav__item">
+  <a href="#gcode" class="md-nav__link">
+    gcode
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
   <a href="#g-code_button" class="md-nav__link">
     g code_button
   </a>
@@ -1684,6 +1691,13 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#accessing-coordinates" class="md-nav__link">
+    Accessing Coordinates
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1716,7 +1730,7 @@
 <li><code>profiles</code>: Набір в даний час визначених профілів як налаштування за допомогою BED_ MESH_PROFILE.</li>
 </ul>
 <h2 id="bed_screws">bed_screws<a class="headerlink" href="#bed_screws" title="Permanent link">&para;</a></h2>
-<p>Наступна інформація доступна в об'єкті <a href="Config_Reference.html#bed_screws">bed_screws</a>:</p>
+<p>The following information is available in the <a href="Config_Reference.html#bed_screws">bed_screws</a> object:</p>
 <ul>
 <li><code>is_active</code>: Повернення Правда, якщо в даний час працює інструмент регулювання саморізів.</li>
 <li><code>state</code>: Регулювання шурупами стан інструменту. Він є одним з наступних рядків: "регулюйте", "fine".</li>
@@ -1724,14 +1738,14 @@
 <li><code>accepted_screws</code>: Кількість прийнятих шурупів.</li>
 </ul>
 <h2 id="canbus_stats">canbus_stats<a class="headerlink" href="#canbus_stats" title="Permanent link">&para;</a></h2>
-<p>Наступна інформація доступна в об'єкті <code>canbus_stats some_mcu_name</code> (цей об'єкт автоматично доступний, якщо мікроконтролер налаштовано на використання canbus):</p>
+<p>The following information is available in the <code>canbus_stats some_mcu_name</code> object (this object is automatically available if an mcu is configured to use canbus):</p>
 <ul>
-<li><code>rx_error</code>: Кількість помилок прийому, виявлених апаратним забезпеченням мікроконтролера CANbus.</li>
-<li><code>tx_error</code>: Кількість помилок передачі, виявлених апаратним забезпеченням мікроконтролера CANbus.</li>
-<li><code>tx_retries</code>: Кількість спроб передачі, які були повторені через конфлікти з шиною або помилки.</li>
-<li><code>bus_state</code>: Стан інтерфейсу (зазвичай «active» для шини у нормальному режимі роботи, «warn» для шини з нещодавніми помилками, «passive» для шини, яка більше не передаватиме кадри помилок canbus, або «off» для шини, яка більше не передаватиме або отримуватиме повідомлення).</li>
+<li><code>rx_error</code>: The number of receive errors detected by the micro-controller canbus hardware.</li>
+<li><code>tx_error</code>: The number of transmit errors detected by the micro-controller canbus hardware.</li>
+<li><code>tx_retries</code>: The number of transmit attempts that were retried due to bus contention or errors.</li>
+<li><code>bus_state</code>: The status of the interface (typically "active" for a bus in normal operation, "warn" for a bus with recent errors, "passive" for a bus that will no longer transmit canbus error frames, or "off" for a bus that will no longer transmit or receive messages).</li>
 </ul>
-<p>Зверніть увагу, що лише мікроконтролери rp2XXX повідомляють про ненульове поле <code>tx_retries</code>, а мікроконтролери rp2XXX завжди повідомляють <code>tx_error</code> як нуль, а <code>bus_state</code> як "active".</p>
+<p>Note that only the rp2XXX micro-controllers report a non-zero <code>tx_retries</code> field and the rp2XXX micro-controllers always report <code>tx_error</code> as zero and <code>bus_state</code> as "active".</p>
 <h2 id="_4">налаштування<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>Наступна інформація доступна в <code>configfile</code> об'єкт ( цей об'єкт завжди доступний):</p>
 <ul>
@@ -1820,6 +1834,11 @@
 <ul>
 <li><code>retract_length</code>, <code>retract_speed</code>, <code>unretract_extra_length</code>, <code>unretract_speed</code>: Поточні налаштування для модуля прошивки_відновлення. Ці налаштування можуть відрізнятися від файла конфігурації, якщо <code>SET_RETRACTION</code> команди змінює їх.</li>
 </ul>
+<h2 id="gcode">gcode<a class="headerlink" href="#gcode" title="Permanent link">&para;</a></h2>
+<p>The following information is available in the <code>gcode</code> object:</p>
+<ul>
+<li><code>commands</code>: Returns a list of all currently available commands. For each command, if a help string is defined it will also be provided.</li>
+</ul>
 <h2 id="g-code_button">g code_button<a class="headerlink" href="#g-code_button" title="Permanent link">&para;</a></h2>
 <p>У розділі <a href="Config_Reference.html#gcode_button">gcode_button some_name</a> об'єкти:</p>
 <ul>
@@ -1833,21 +1852,23 @@
 <h2 id="gcode_move">gcode_move<a class="headerlink" href="#gcode_move" title="Permanent link">&para;</a></h2>
 <p>Наступна інформація доступна в об'єкті <code>gcode_move</code> ( цей об'єкт завжди доступний):</p>
 <ul>
-<li><code>gcode_position</code>: Поточна позиція керма відносно струму G-Code походження. Це, позиції, які можна безпосередньо надсилати на команду <code>G1</code>. Доступ до x, y, z і e компонентів цієї позиції (наприклад, <code>gcode_position.x</code>).</li>
-<li><code>позиція</code>: Остання командована позиція на панелі інструментів, що використовується в координатному файлі. Можливий доступ до x, y, z, і електронних компонентів цієї позиції (наприклад, <code>position.x</code>).</li>
-<li><code>homing_origin</code>: Походження координатної системи gcode (відносно до координатної системи, зазначеної в файлі конфігурацій) для використання після команди <code>G28</code>. <code>SET_GCODE_OFFSET</code> команда може змінити цю позицію. Доступ до x, y, z компонентів цієї позиції (наприклад, <code>homing_origin.x</code>).</li>
+<li><code>gcode_position</code>: The current position of the toolhead relative to the current G-Code origin. That is, positions that one might directly send to a <code>G1</code> command. This value is encoded as a <a href="#accessing-coordinates">coordinate</a>.</li>
+<li><code>position</code>: The last commanded position of the toolhead using the coordinate system specified in the config file. This value is encoded as a <a href="#accessing-coordinates">coordinate</a>.</li>
+<li><code>homing_origin</code>: The origin of the gcode coordinate system (relative to the coordinate system specified in the config file) to use after a <code>G28</code> command. The <code>SET_GCODE_OFFSET</code> command can alter this position. This value is encoded as a <a href="#accessing-coordinates">coordinate</a>.</li>
 <li><code>speed</code>: Останній набір швидкості в <code>G1</code> команди (в мм / с).</li>
 <li><code>speed_фактор</code>: "швидкий фактор перенареченості" в комплекті команди <code>M220</code>. Це плаваючою точкою значення, таким чином, 1,0 означає, що не перейди і, наприклад, 2.0 буде подвійний запитаний швидкість.</li>
 <li><code>extrude_фактор</code>: "надійний фактор перенареченого" як набір <code>M221</code> команди. Це плаваючою точкою значення, наприклад, 1,0 означає, що не перенаречена і, наприклад, 2.0 буде подвійний запитаний екструзії.</li>
 <li><code>absolute_координати</code>: Це повертає Правда, якщо в <code>G90</code> абсолютний координатний режим або False, якщо в <code>G91</code> відносний режим.</li>
 <li><code>absolute_extrude</code>: Це повертає Правда, якщо в <code>M82</code> абсолютний вихідний режим або False, якщо в <code>M83</code> відносний режим.</li>
+<li><code>axis_map</code>: Provides a mechanism for finding the coordinate component for a given G-Code id that is used in <code>G1</code> commands. See the <a href="#accessing-coordinates">Accessing Coordinates</a> section for details.</li>
 </ul>
 <h2 id="hrefhttprealtorifua-title">href="<a href="http://realtor.if.ua/">http://realtor.if.ua/</a>" title="агентство нерухомості ріелтор"<a class="headerlink" href="#hrefhttprealtorifua-title" title="Permanent link">&para;</a></h2>
 <p>Наступна інформація доступна в об'єкті <a href="Config_Reference.html#hall_filament_width_sensor">hall_filament_width_sensor</a>:</p>
 <ul>
-<li>усі товари з <a href="Status_Reference.html#filament_switch_sensor">filament_switch_sensor</a></li>
+<li>all items from <a href="Status_Reference.html#filament_switch_sensor">filament_switch_sensor</a></li>
 <li><code>is_active</code>: Повернення Правда, якщо датчик в даний час активний.</li>
-<li><code>Diameter</code>: Останнє читання від датчика в мм.</li>
+<li><code>flow_compensation_enabled</code>: Returns True if flow compensation is enabled.</li>
+<li><code>Diameter</code>: Returns the last width reading in mm if the sensor is active or the nominal filament diameter if it is not.</li>
 <li><code>Raw</code>: Остання сира ADC читання від датчика.</li>
 </ul>
 <h2 id="_7">нагрівач<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h2>
@@ -1870,30 +1891,36 @@
 <ul>
 <li><code>state</code>: Поточний стан принтера як відстежується модулем idle_timeout. Він є одним з наступних рядків: "Попередження", "Читання".</li>
 <li><code>printing_time</code>: Сума часу (в секундах) принтера була в стані "припинення" (як відстежити модуль idle_timeout).</li>
+<li><code>idle_timeout</code>: The current 'timeout' (in seconds) to wait for the gcode to be triggered. (as set by <a href="G-Codes.html#set_idle_timeout">SET_IDLE_TIMEOUT</a>)</li>
 </ul>
 <h2 id="_9">під керівництвом<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
 <p>Наступна інформація доступна для кожного <code>[led led_name]</code>, <code>[neoпіксель Led_name]</code>, <code>[dotstar led_name]</code>, <code>[pca9533 led_name]</code>, і <code>[pca9632 led_name]</code> config розділ, визначений у принтері.cfg:</p>
 <ul>
-<li><code>color_data</code>: список списків кольорів, що містять значення RGBW для світлодіода в ланцюжку. Кожне значення представлено у вигляді числа з плаваючою точкою від 0,0 до 1,0. Кожен список кольорів містить 4 елементи (червоний, зелений, синій, білий), навіть якщо базовий світлодіод підтримує менше кольорових каналів. Наприклад, синє значення (3-й елемент у списку кольорів) другого неопікселя в ланцюжку можна отримати за адресою <code>printer["neopixel &lt;config_name&gt;"].color_data[1][2]</code>.</li>
+<li><code>color_data</code>: A list of color lists containing the RGBW values for a led in the chain. Each value is represented as a float from 0.0 to 1.0. Each color list contains 4 items (red, green, blue, white) even if the underlying LED supports fewer color channels. For example, the blue value (3rd item in color list) of the second neopixel in a chain could be accessed at <code>printer["neopixel &lt;config_name&gt;"].color_data[1][2]</code>.</li>
 </ul>
 <h2 id="load_cell">load_cell<a class="headerlink" href="#load_cell" title="Permanent link">&para;</a></h2>
-<p>Для кожного <code>[ім'я тензодатчика]</code> доступна така інформація:</p>
+<p>The following information is available for each <code>[load_cell name]</code>:</p>
 <ul>
-<li>'is_calibrated': True/False – калібрований тензодатчик</li>
-<li>'counts_per_gram': Кількість необроблених показників датчика, що дорівнює 1 граму сили</li>
-<li>'reference_tare_counts': Довідкова кількість необроблених показників датчика для 0 сили</li>
-<li>'tare_counts': Поточна кількість необроблених показників датчика для 0 сили</li>
-<li>'force_g': Сила в грамах, усереднена за останній період опитування.</li>
-<li>'min_force_g': Мінімальна сила в грамах за останній період опитування.</li>
-<li>'max_force_g': Максимальна сила в грамах за останній період опитування.</li>
+<li><code>is_calibrated</code>: True/False whether the load cell is calibrated.</li>
+<li><code>counts_per_gram</code>: The number of raw sensor counts that equals 1 gram of force.</li>
+<li><code>reference_tare_counts</code>: The reference number of raw sensor counts for 0 force.</li>
+<li><code>tare_counts</code>: The current number of raw sensor counts for 0 force.</li>
+<li><code>force_g</code>: The force in grams, averaged over the last polling period.</li>
+<li><code>min_force_g</code>: The minimum force in grams, over the last polling period.</li>
+<li><code>max_force_g</code>: The maximum force in grams, over the last polling period.</li>
+<li><code>errors</code>: The number of sensor errors detected since the last start of measurements.</li>
+<li><code>overflows</code>: The number of data buffer overflows detected since the last start of measurements.</li>
+<li><code>sample_rate</code>: The sensor's sample rate in samples per second.</li>
 </ul>
 <h2 id="load_cell_probe">load_cell_probe<a class="headerlink" href="#load_cell_probe" title="Permanent link">&para;</a></h2>
 <p>The following information is available for <code>[load_cell_probe]</code>:</p>
 <ul>
 <li>all items from <a href="Status_Reference.html#load_cell">load_cell</a></li>
 <li>all items from <a href="Status_Reference.html#probe">probe</a></li>
-<li>'endstop_tare_counts': the load cell probe keeps a tare value independent of the load cell. This re-set at the start of each probe.</li>
-<li>'last_trigger_time': timestamp of the last homing trigger</li>
+<li><code>endstop_tare_counts</code>: The load cell probe keeps a tare value independent of the load cell. This is re-set at the start of each probe.</li>
+<li><code>last_trigger_time</code>: Timestamp of the last homing trigger.</li>
+<li><code>last_z_result</code>: The Z position result of the last tap.</li>
+<li><code>is_last_tap_valid</code>: True if the last tap result is valid.</li>
 </ul>
 <h2 id="manual_probe">manual_probe<a class="headerlink" href="#manual_probe" title="Permanent link">&para;</a></h2>
 <p>В об’єкті <code>manual_probe</code> доступна така інформація:</p>
@@ -1914,12 +1941,12 @@
 <h2 id="_11">транспорт<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
 <p>Наступна інформація доступна в об'єкті <code>motion_report</code> (цей об'єкт автоматично доступний, якщо визначено розділ налаштування кроку):</p>
 <ul>
-<li><code>live_position</code>: Запропонована посада інструменту, що переноситься на поточний час.</li>
+<li><code>live_position</code>: The requested toolhead position interpolated to the current time. This value is encoded as a <a href="#accessing-coordinates">coordinate</a>.</li>
 <li><code>live_velocity</code>: Вимагажена швидкість інструменту (в мм/с) в поточний час.</li>
 <li><code>live_extruder_velocity</code>: Випробувано швидкість екструдера (в мм/с) в поточний час.</li>
 </ul>
 <h2 id="output_pin">output_pin<a class="headerlink" href="#output_pin" title="Permanent link">&para;</a></h2>
-<p>Наступна інформація доступна в об’єктах <a href="Config_Reference.html#output_pin">output_pin some_name</a>:</p>
+<p>The following information is available in <a href="Config_Reference.html#output_pin">output_pin some_name</a> and <a href="Config_Reference.html#pwm_tool">pwm_tool some_name</a> objects:</p>
 <ul>
 <li><code>value</code>: "значення" шпильки, як встановити <code>SET_PIN</code> команди.</li>
 </ul>
@@ -1947,7 +1974,8 @@
 <ul>
 <li><code>name</code>: Повертає ім'я зонду у використанні.</li>
 <li><code>last_query</code>: Повернення Правда, якщо зонд був повідомлений як "підготовлений" під час останнього команди QUERY_PROBE. Примітка, якщо це використовується в макросі, через порядок розширення шаблону, команда QUERY_PROBE повинна працювати до макрос, що містить цю посилання.</li>
-<li><code>last_z_result</code>: повертає значення результату Z останнього команди PROBE. Примітка, якщо це використовується в макросі, через порядок розширення шаблону, Команда PROBE (або аналогічний) повинна працювати до макрос, що містить цей посилання.</li>
+<li><code>last_probe_position</code>: The results of the last <code>PROBE</code> command. This value is encoded as a <a href="#accessing-coordinates">coordinate</a>. The probe hardware estimates that if one were to command the toolhead to XY position <code>last_probe_position.x</code>,<code>last_probe_position.y</code> and descend then the tip of the toolhead would first contact the bed at a Z height of <code>last_probe_position.z</code>. These coordinates are relative to the frame (that is, they use the coordinate system specified in the config file). Note, if this is used in a macro, due to the order of template expansion, the <code>PROBE</code> command must be run prior to the macro containing this reference.</li>
+<li><code>last_z_result</code>: This value is deprecated; it will be removed in the near future.</li>
 </ul>
 <h2 id="pwm_cycle_time">pwm_cycle_time<a class="headerlink" href="#pwm_cycle_time" title="Permanent link">&para;</a></h2>
 <p>Наступна інформація доступна в <a href="Config_Reference.html#pwm_cycle_time">pwm_cycle_time some_name</a> об'єкти:</p>
@@ -1983,9 +2011,9 @@
 <li><code>printer["servo &lt;config_name&gt;"].value</code>: Останнє налаштування штифта PWM ( значення між 0.0 і 1,0) пов'язане з серво.</li>
 </ul>
 <h2 id="skew_correctionpy">skew_correction.py<a class="headerlink" href="#skew_correctionpy" title="Permanent link">&para;</a></h2>
-<p>Наступна інформація доступна в об'єкті <code>skew_correction</code> (цей об'єкт доступний, якщо визначено будь-яку skew_correction):</p>
+<p>The following information is available in the <code>skew_correction</code> object (this object is available if any skew_correction is defined):</p>
 <ul>
-<li><code>current_profile_name</code>: Повертає назву поточного завантаженого SKEW_PROFILE.</li>
+<li><code>current_profile_name</code>: Returns the name of the currently loaded SKEW_PROFILE.</li>
 </ul>
 <h2 id="stepper_enable">stepper_enable<a class="headerlink" href="#stepper_enable" title="Permanent link">&para;</a></h2>
 <p>Наступна інформація доступна в об'єкті <code>stepper_enable</code> ( цей об'єкт доступний, якщо будь-який stepper визначений):</p>
@@ -2029,13 +2057,14 @@
 <h2 id="_15">головна<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h2>
 <p>Наступна інформація доступна в об'єкті <code>toolhead</code> ( цей об'єкт завжди доступний):</p>
 <ul>
-<li><code>позиція</code>: Остання командована позиція інструментального керівника відносно координаційної системи, зазначеної в файлі конфігурації. Можливий доступ до x, y, z, і електронних компонентів цієї позиції (наприклад, <code>position.x</code>).</li>
+<li><code>position</code>: The last commanded position of the toolhead relative to the coordinate system specified in the config file. This value is encoded as a <a href="#accessing-coordinates">coordinate</a>.</li>
 <li><code>extruder</code>: Назва діючого екструдера. Наприклад, в макросі можна використовувати <code>принтер[printer.toolhead.extruder].target</code>, щоб отримати цільову температуру поточного екструдера.</li>
 <li><code>homed_axes</code>: Поточні кошики Це рядок, що містить один або більше "x", "y", "z".</li>
-<li><code>вісь_minimum</code>, <code>вісь_maximum</code>: Вісь обмеження (мм) після гоління. Доступ до x, y, z компонентів цього граничного значення (наприклад, <code>axis_minimum.x</code>, <code>axis_maximum.z</code>).</li>
+<li><code>axis_minimum</code>, <code>axis_maximum</code>: The axis travel limits (mm) after homing. This value is encoded as a <a href="#accessing-coordinates">coordinate</a>.</li>
 <li>Для принтерів Delta <code>cone_start_z</code> є максимальною висотою z при максимальному радіусі (<code>printer.toolhead.cone_start_z</code>).</li>
 <li><code>max_velocity</code>, <code>max_accel</code>, <code>minimum_cruise_ratio</code>, <code>square_corner_velocity</code>: Поточні ліміти друку, які впливають на ефект. Це може відрізнятися від налаштувань конфігураційного файлу, якщо <code>SET_VELOCITY_LIMIT</code> (або <code>M204</code>) команда змінює їх на run-time.</li>
 <li><code>stalls</code>: Загальна кількість разів (з останнього перезаряджання), що принтер повинен бути виловлений, тому що накладний інструмент переміщається швидше, ніж переміщення можна читати з входу G-Code.</li>
+<li><code>extra_axes</code>: Provides a mechanism for finding the coordinate component for extra axes available in standard <code>G1</code> type move commands. See the <a href="#accessing-coordinates">Accessing Coordinates</a> section for details.</li>
 </ul>
 <h2 id="__6">подвійний_кар'єр<a class="headerlink" href="#__6" title="Permanent link">&para;</a></h2>
 <p>Наступна інформація доступна в <a href="Config_Reference.html#dual_carriage">dual_carriage</a> на візках, гібрид_corexy або гібрид_corexz robot</p>
@@ -2077,6 +2106,11 @@
 <ul>
 <li><code>applied</code>: Правда, якщо процес вирівнювання захвату успішно завершено.</li>
 </ul>
+<h2 id="accessing-coordinates">Accessing Coordinates<a class="headerlink" href="#accessing-coordinates" title="Permanent link">&para;</a></h2>
+<p>Some status fields provide a "coordinate". For macro users these fields may be accessed by component name (eg,<code>{printer.toolhead.position.x}</code>), where the component name may be "x", "y", or "z".</p>
+<p>For developers using the Klipper API Server these fields are transmitted as a list - for example: <code>{"toolhead": {"position": [1.0, 2.0, 3.0, 7.3, 19.2]}}</code> . The first three components of the list correspond with the x, y, and z axes.</p>
+<p>A coordinate will typically have at least 3 components (x, y, and z), however there may also be additional components. Care should be taken when accessing any of these additional components as the ordering and number of components may change at run-time.</p>
+<p>One may use <code>{printer.gcode_move.axis_map}</code> and/or <code>{printer.toolhead.extra_axes}</code> to determine the number of components and the ordering of components. For example, to access the "E" component one could use <code>{printer.toolhead.position[printer.gcode_move.axis_map.E]}</code>. Or, if one wanted to find the component associated with the "extruder" object, one could use <code>{printer.toolhead.position[printer.toolhead.extra_axes.extruder]}</code>.</p>
 
               
             </article>

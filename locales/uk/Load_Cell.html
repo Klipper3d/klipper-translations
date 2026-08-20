@@ -13,7 +13,7 @@
     
     
       
-        <title>Load Cells - Klipper documentation</title>
+        <title>Датчики навантаження - Klipper documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#load-cells" class="md-skip">
+        <a href="#_1" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Load Cells
+              Датчики навантаження
             
           </span>
         </div>
@@ -1342,30 +1342,30 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#related-documentation" class="md-nav__link">
-    Related Documentation
+  <a href="#_2" class="md-nav__link">
+    Пов'язана документація
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#using-load_cell_diagnostic" class="md-nav__link">
-    Using LOAD_CELL_DIAGNOSTIC
+  <a href="#load_cell_diagnostic" class="md-nav__link">
+    Використання LOAD_CELL_DIAGNOSTIC
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#calibrating-a-load-cell" class="md-nav__link">
-    Calibrating a Load Cell
+  <a href="#_3" class="md-nav__link">
+    Калібрування тензодатчика
   </a>
   
-    <nav class="md-nav" aria-label="Calibrating a Load Cell">
+    <nav class="md-nav" aria-label="Калібрування тензодатчика">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#applying-a-known-force-or-load" class="md-nav__link">
-    Applying a Known Force or Load
+  <a href="#_4" class="md-nav__link">
+    Прикладання відомої сили або навантаження
   </a>
   
 </li>
@@ -1376,15 +1376,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#reading-force-data" class="md-nav__link">
-    Reading Force Data
+  <a href="#_5" class="md-nav__link">
+    Дані про силу читання
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#taring-a-load-cell" class="md-nav__link">
-    Taring a Load Cell
+  <a href="#_6" class="md-nav__link">
+    Тарування тензодатчика
   </a>
   
 </li>
@@ -1406,16 +1406,16 @@
 </a>
 
 
-<h1 id="load-cells">Load Cells<a class="headerlink" href="#load-cells" title="Permanent link">&para;</a></h1>
-<p>This document describes Klipper's support for load cells. Basic load cell functionality can be used to read force data and to weigh things like filament. A calibrated force sensor is an important part of a load cell based probe.</p>
-<h2 id="related-documentation">Related Documentation<a class="headerlink" href="#related-documentation" title="Permanent link">&para;</a></h2>
+<h1 id="_1">Датчики навантаження<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<p>Цей документ описує підтримку Klipper для тензодатчиків. Основні функції тензодатчика можуть використовуватися для зчитування даних про силу та зважування таких речей, як нитка. Калібрований датчик сили є важливою частиною зонда на основі тензодатчика.</p>
+<h2 id="_2">Пов'язана документація<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="Config_Reference.html#load_cell">load_cell Config Reference</a></li>
-<li><a href="G-Codes.html#load_cell">load_cell G-Code Commands</a></li>
-<li><a href="Status_Reference.html#load_cell">load_cell Status Reference</a></li>
+<li><a href="Config_Reference.html#load_cell">Довідник конфігурації load_cell</a></li>
+<li><a href="G-Codes.html#load_cell">Команди G-коду load_cell</a></li>
+<li><a href="Status_Reference.html#load_cell">Довідка про стан load_cell</a></li>
 </ul>
-<h2 id="using-load_cell_diagnostic">Using <code>LOAD_CELL_DIAGNOSTIC</code><a class="headerlink" href="#using-load_cell_diagnostic" title="Permanent link">&para;</a></h2>
-<p>When you first connect a load cell its good practice to check for issues by running <code>LOAD_CELL_DIAGNOSTIC</code>. This tool collects 10 seconds of data from the load cell and resport statistics:</p>
+<h2 id="load_cell_diagnostic">Використання <code>LOAD_CELL_DIAGNOSTIC</code><a class="headerlink" href="#load_cell_diagnostic" title="Permanent link">&para;</a></h2>
+<p>Під час першого підключення тензодатчика рекомендується перевірити наявність проблем, запустивши команду <code>LOAD_CELL_DIAGNOSTIC</code>. Цей інструмент збирає дані з тензодатчика протягом 10 секунд та звітує про статистику:</p>
 <div class="highlight"><pre><span></span><code>$ LOAD_CELL_DIAGNOSTIC
 // Collecting load cell data for 10 seconds...
 // Samples Collected: 3211
@@ -1425,207 +1425,175 @@
 // Sample range / sensor capacity: 0.00524%
 </code></pre></div>
 
-<p>Things you can check with this data:</p>
+<p>Що ви можете перевірити за допомогою цих даних:</p>
 <ul>
-<li>The configured sample rate of the sensor should be close to the 'Measured samples per second' value. If it is not you may have a configuration or wiring issue.</li>
-<li>'Saturated samples' should be 0. If you have saturated samples it means the load sell is seeing more force than it can measure.</li>
-<li>'Unique values' should be a large percentage of the 'Samples Collected' value. If 'Unique values' is 1 it is very likely a wiring issue.</li>
-<li>Tap or push on the sensor while <code>LOAD_CELL_DIAGNOSTIC</code> runs. If things are working correctly ths should increase the 'Sample range'.</li>
+<li>Налаштована частота дискретизації датчика має бути близькою до значення «Виміряні зразки за секунду». Якщо це не так, можливо, у вас проблеми з конфігурацією або проводкою.</li>
+<li>«Насичені зразки» повинні дорівнювати 0. Якщо у вас є насичені зразки, це означає, що на навантажувальний пристрій діє більше сили, ніж він може виміряти.</li>
+<li>«Унікальні значення» повинні становити великий відсоток від значення «Зібраних зразків». Якщо «Унікальні значення» дорівнюють 1, дуже ймовірно, що проблема з проводкою.</li>
+<li>Tap or push on the sensor while <code>LOAD_CELL_DIAGNOSTIC</code> runs. If things are working correctly this should increase the 'Sample range'.</li>
 </ul>
-<h2 id="calibrating-a-load-cell">Calibrating a Load Cell<a class="headerlink" href="#calibrating-a-load-cell" title="Permanent link">&para;</a></h2>
-<p>Load cells are calibrated using the <code>LOAD_CELL_CALIBRATE</code> command. This is an interactive calibration utility that walks you though a 3 step process:</p>
+<h2 id="_3">Калібрування тензодатчика<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>Калібрування датчиків навантаження здійснюється за допомогою команди <code>LOAD_CELL_CALIBRATE</code>. Це інтерактивна утиліта калібрування, яка проведе вас через 3-етапний процес:</p>
 <ol>
-<li>First use the <code>TARE</code> command to establish the zero force value. This is the <code>reference_tare_counts</code> config value.</li>
-<li>Next you apply a known load or force to the load cell and run the <code>CALIBRATE GRAMS=nnn</code> command. From this the <code>counts_per_gram</code> value is calculated. See <a href="#applying-a-known-force-or-load">the next section</a> for some suggestions on how to do this.</li>
-<li>Finally, use the <code>ACCEPT</code> command to save the results.</li>
+<li>Спочатку скористайтеся командою <code>TARE</code>, щоб встановити значення нульової сили. Це значення конфігурації <code>reference_tare_counts</code>.</li>
+<li>Далі ви застосовуєте відоме навантаження або силу до тензодатчика і виконуєте команду <code>CALIBRATE GRAMS=nnn</code>. На основі цього обчислюється значення <code>counts_per_gram</code>. Дивіться <a href="#applying-a-known-force-or-load">наступний розділ</a> для деяких пропозицій щодо того, як це зробити.</li>
+<li>Нарешті, скористайтеся командою <code>ACCEPT</code>, щоб зберегти результати.</li>
 </ol>
-<p>You can cancel the calibration process at any time with <code>ABORT</code>.</p>
-<h3 id="applying-a-known-force-or-load">Applying a Known Force or Load<a class="headerlink" href="#applying-a-known-force-or-load" title="Permanent link">&para;</a></h3>
-<p>The <code>CALIBRATE GRAMS=nnn</code> step can be accomplished in a number of ways. If your load cell is under a platform like a bed or filament holder it might be easiest to put a known mass on the platform. E.g. you could use a couple of 1KG filament spools.</p>
-<p>If your load cell is in the printer's toolhead a different approach is easier. Put a digital scale on the printers bed and gently lower the toolhead onto the scale (or raise the bed into the toolhead if your bed moves). You may be able to do this using the <code>FORCE_MOVE</code> command. But more likely you will have to manually moving the z axis with the motors off until the toolhead presses on the scale.</p>
-<p>A good calibration force would ideally be a large percentage of the load cell's rated capacity. E.g. if you have a 5Kg load cell you would ideally calibrate it with a 5kg mass. This might work well with under-bed sensors that have to support a lot of weight. For toolhead probes this may not be a load that your printer bed or toolhead can tolerate without damage. Do try to use at least 1Kg of force, most printers should tolerate this without issue.</p>
-<p>When calibrating make careful note of the values reported:</p>
+<p>Ви можете скасувати процес калібрування будь-коли за допомогою <code>ABORT</code>.</p>
+<h3 id="_4">Прикладання відомої сили або навантаження<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<p>Крок <code>CALIBRATE GRAMS=nnn</code> можна виконати декількома способами. Якщо ваша тензометрична комірка знаходиться під платформою, такою як ліжко або тримач нитки, найпростіше буде покласти на платформу відому масу. Наприклад, ви можете використовувати кілька котушок нитки вагою 1 кг.</p>
+<p>Якщо ваша тензометрична комірка знаходиться в інструментальній головці принтера, простіше застосувати інший підхід. Поставте цифрові ваги на платформу принтера і обережно опустіть інструментальну головку на ваги (або підніміть платформу до інструментальної головки, якщо ваша платформа рухається). Ви можете зробити це за допомогою команди <code>FORCE_MOVE</code>. Але, швидше за все, вам доведеться вручну переміщати вісь Z з вимкненими двигунами, поки інструментальна головка не натисне на ваги.</p>
+<p>В ідеалі, хороша калібрувальна сила повинна становити значний відсоток від номінальної потужності тензодатчика. Наприклад, якщо у вас є тензодатчик на 5 кг, в ідеалі його слід калібрувати за допомогою маси 5 кг. Це може добре працювати з датчиками під платформою, які повинні витримувати велику вагу. Для датчиків інструментальної головки це може бути навантаження, яке ваша платформа принтера або інструментальна головка не витримають без пошкодження. Спробуйте використовувати силу принаймні 1 кг, більшість принтерів повинні витримати це без проблем.</p>
+<p>Під час калібрування уважно записуйте отримані значення:</p>
 <div class="highlight"><pre><span></span><code>$ CALIBRATE GRAMS=555
 // Calibration value: -2.78% (-59803108), Counts/gram: 73039.78739,
 Total capacity: +/- 29.14Kg
 </code></pre></div>
 
-<p>The <code>Total capacity</code> should be close to the theoretical rating of the load cell based on the sensor's capacity. If it is much larger you could have used a higher gain setting in the sensor or a more sensitive load cell. This isn't as critical for 32bit and 24bit sensors but is much more critical for low bit width sensors.</p>
-<h2 id="reading-force-data">Reading Force Data<a class="headerlink" href="#reading-force-data" title="Permanent link">&para;</a></h2>
-<p>Force data can be read with a GCode command:</p>
+<p><code>Загальна ємність</code> повинна бути близькою до теоретичної номінальної величини тензодатчика, виходячи з ємності датчика. Якщо вона значно більша, можна було б використовувати більш високе значення коефіцієнта підсилення в датчику або більш чутливий тензодатчик. Це не так критично для 32-бітних і 24-бітних датчиків, але набагато важливіше для датчиків з низькою розрядністю.</p>
+<h2 id="_5">Дані про силу читання<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>Дані примусового зчитування можна виконати за допомогою команди G-коду:</p>
 <div class="highlight"><pre><span></span><code>LOAD_CELL_READ
 // 10.6g (1.94%)
 </code></pre></div>
 
-<p>Data is also continuously read and can be consumed from the load_cell printer object in a macro:</p>
+<p>Дані також безперервно зчитуються та можуть бути використані з об'єкта принтера load_cell у макросі:</p>
 <div class="highlight"><pre><span></span><code>{% set grams = printer.load_cell.force_g %}
 </code></pre></div>
 
-<p>This provides an average force over the last 1 second, similar to how temperature sensors work.</p>
-<h2 id="taring-a-load-cell">Taring a Load Cell<a class="headerlink" href="#taring-a-load-cell" title="Permanent link">&para;</a></h2>
-<p>Taring, sometimes called zeroing, sets the current weight reported by the load_cell to 0. This is useful for measuring relative to a known weight. e.g. when measuring a filament spool, using <code>LOAD_CELL_TARE</code> sets the weight to 0. Then as filament is printed the load_cell will report the weight of the filament used.</p>
+<p>Це забезпечує середню силу за останню 1 секунду, подібно до того, як працюють датчики температури.</p>
+<h2 id="_6">Тарування тензодатчика<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h2>
+<p>Тарування, яке іноді називають обнуленням, встановлює поточну вагу, повідомлену load_cell, на 0. Це корисно для вимірювання відносно відомої ваги. Наприклад, під час вимірювання котушки нитки, використання <code>LOAD_CELL_TARE</code> встановлює вагу на 0. Потім, під час друку нитки, load_cell повідомить вагу використаної нитки.</p>
 <div class="highlight"><pre><span></span><code>LOAD_CELL_TARE
 // Load cell tare value: 5.32% (445903)
 </code></pre></div>
 
-<p>The current tare value is reported in the printers status and can be read in a macro:</p>
+<p>Поточне значення ваги тари відображається у статусі принтера та може бути зчитане за допомогою макросу:</p>
 <div class="highlight"><pre><span></span><code>{% set tare_counts = printer.load_cell.tare_counts %}
 </code></pre></div>
 
-<h1 id="load-cell-probes">Load Cell Probes<a class="headerlink" href="#load-cell-probes" title="Permanent link">&para;</a></h1>
-<h2 id="related-documentation_1">Related Documentation<a class="headerlink" href="#related-documentation_1" title="Permanent link">&para;</a></h2>
+<h1 id="_7">Зонди тензодатчиків<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h1>
+<h2 id="_8">Пов'язана документація<a class="headerlink" href="#_8" title="Permanent link">&para;</a></h2>
 <ul>
-<li><a href="Config_Reference.html#load_cell_probe">load_cell_probe Config Reference</a></li>
-<li><a href="G-Codes.html#load_cell_probe">load_cell_probe G-Code Commands</a></li>
-<li><a href="Status_Reference.html#load_cell_probe">load_cell_probe Statuc Reference</a></li>
+<li><a href="Config_Reference.html#load_cell_probe">Довідник конфігурації load_cell_probe</a></li>
+<li><a href="G-Codes.html#load_cell_probe">Команди G-коду load_cell_probe</a></li>
+<li><a href="Status_Reference.html#load_cell_probe">Довідка про стан load_cell_probe</a></li>
 </ul>
-<h2 id="load-cell-probe-safety">Load Cell Probe Safety<a class="headerlink" href="#load-cell-probe-safety" title="Permanent link">&para;</a></h2>
-<p>Because load cells are a direct nozzle contact probe there is a risk of damage to your printer if too much force is used. The load cell probing system includes a number of safety checks that try to keep your machine safe from excessive force to the toolhead. It's important to understand what they are and how they work as you can defeat most of them with poorly chosen config values.</p>
-<h4 id="calibration-check">Calibration Check<a class="headerlink" href="#calibration-check" title="Permanent link">&para;</a></h4>
-<p>Every time a homing move starts, load_cell_probe checks that the load_cell is calibrated. If not it will stop the move with an error: <code>!! Load Cell not calibrated</code>.</p>
+<h2 id="_9">Безпека використання зонда тензодатчика<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h2>
+<p>Оскільки тензодатчики є зондами, що безпосередньо контактують з соплом, існує ризик пошкодження принтера, якщо застосовувати надмірну силу. Система зондування тензодатчиків включає в себе ряд перевірок безпеки, які намагаються захистити вашу машину від надмірного навантаження на інструментальну головку. Важливо розуміти, що це за перевірки і як вони працюють, оскільки більшість з них можна обійти, неправильно вибравши значення конфігурації.</p>
+<h4 id="_10">Перевірка калібрування<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h4>
+<p>Щоразу, коли починається рух до початкового положення, load_cell_probe перевіряє, чи калібровано load_cell. Якщо ні, рух зупиниться з помилкою: <code>!! Load Cell not calibrated</code>.</p>
 <h4 id="counts_per_gram"><code>counts_per_gram</code><a class="headerlink" href="#counts_per_gram" title="Permanent link">&para;</a></h4>
-<p>This setting is used to convert raw sensor counts into grams. All the safety limits are in gram units for your convenience. If the <code>counts_per_gram</code> setting is not accurate you can easily exceed the safe force on the toolhead. You should never guess this value. Use <code>LOAD_CELL_CALIBRATE</code> to find your load cells actual <code>counts_per_gram</code>.</p>
+<p>Це налаштування використовується для перетворення необроблених значень датчика в грами. Для вашої зручності всі межі безпеки вказані в грамах. Якщо налаштування <code>counts_per_gram</code> не є точним, ви можете легко перевищити безпечне навантаження на інструментальну головку. Ніколи не слід вгадувати це значення. Використовуйте <code>LOAD_CELL_CALIBRATE</code>, щоб визначити фактичне значення <code>counts_per_gram</code> ваших тензодатчиків.</p>
 <h4 id="trigger_force"><code>trigger_force</code><a class="headerlink" href="#trigger_force" title="Permanent link">&para;</a></h4>
-<p>This is the force in grams that triggers the endstop to halt the homing move. When a homing move starts the endstop tares itself with the current reading from the load cell. <code>trigger_force</code> is measured from that tare value. There is always some overshoot of this value when the probe collides with the bed, so be conservative. e.g. a setting of 100g could result in 350g of peak force before the toolhead stops. This overshoot will increase with faster probing <code>speed</code>, a low ADC sample rate or <a href="Multi_MCU_Homing.html">multi MCU homing</a>.</p>
+<p>Це сила в грамах, яка запускає кінцевий вимикач для зупинки руху повернення в початкове положення. Коли починається рух повернення в початкове положення, кінцевий вимикач тарується за допомогою поточного показання тензодатчика. <code>trigger_force</code> вимірюється від цього значення тарування. Завжди відбувається деяке перевищення цього значення, коли зонд стикається з платформою, тому будьте обережні. Наприклад, налаштування 100 г може призвести до пікового значення сили 350 г перед зупинкою інструментальної головки. Це перевищення збільшиться при більш швидкій швидкості зондування, низькій частоті дискретизації АЦП або <a href="Multi_MCU_Homing.html">багатопроцесорному поверненні до вихідної позиції</a>.</p>
 <h4 id="reference_tare_counts"><code>reference_tare_counts</code><a class="headerlink" href="#reference_tare_counts" title="Permanent link">&para;</a></h4>
-<p>This is the baseline tare value that is set by <code>LOAD_CELL_CALIBRATE</code>. This value works with <code>force_safety_limit</code> to limit the maximum force on the toolhead.</p>
+<p>Це базове значення тари, яке встановлюється параметром <code>LOAD_CELL_CALIBRATE</code>. Це значення працює разом із <code>force_safety_limit</code> для обмеження максимального зусилля на різальній головці.</p>
 <h4 id="force_safety_limit"><code>force_safety_limit</code><a class="headerlink" href="#force_safety_limit" title="Permanent link">&para;</a></h4>
-<p>This is the maximum absolute force, relative to <code>reference_tare_counts</code>, that the probe will allow while homing or probing. If the MCU sees this force exceeded it will shut down the printer with the error <code>!! Load cell endstop: too much force!</code>. There are a number of ways this can be triggered:</p>
-<p>The first risk this protects against is picking too large of a value for <code>drift_filter_cutoff_frequency</code>. This can cause the drift filter to filter out a probe event and continue the homing move. If this happens the <code>force_safety_limit</code> acts as a backup protection.</p>
-<p>The second problem is probing repeatedly in one place. Klipper does not retract the probe when doing a single <code>PROBE</code> command. This can result in force applied to the toolhead at the end of a probing cycle. Because external forces can vary greatly between probing locations, <code>load_cell_probe</code> performs a tare before beginning each probe. If you repeat the <code>PROBE</code> command, load_cell_probe will tare the endstop at the current force. Multiple cycles of this will result in ever-increasing force on the toolhead. <code>force_safety_limit</code> stops this cycle from running out of control.</p>
-<p>Another way this run-away can happen is damage to a strain gauge. If the metal part is permanently bent it wil change the <code>reference_tare_counts</code> of the device. This puts the starting tare value much closer to the limit making it more likely to be violated. You want to be notified if this is happening because your hardware has been permanently damaged.</p>
-<p>The final way this can be triggered is due to temperature changes. If your strain gauges are heated their <code>reference_tare_counts</code> may be very different at ambient temperature vs operating temperature. In this case you may need to increase the <code>force_safety_limit</code> to allow for thermal changes.</p>
-<h4 id="load-cell-endstop-watchdog-task">Load Cell Endstop Watchdog Task<a class="headerlink" href="#load-cell-endstop-watchdog-task" title="Permanent link">&para;</a></h4>
-<p>When homing the load_cell_endstop starts a task on the MCU to trac measurements arriving from the sensor. If the sensor fails to send measurements for 2 sample periods the watchdog will shut down the printer with an error <code>!! LoadCell Endstop timed out waiting on ADC data</code>.</p>
-<p>If this happens, the most likely cause is a fault from the ADC. Inadequate grounding of your printer can be the root cause. The frame, power supply case and pint bed should all be connected to ground. You may need to ground the frame in multiple places. Anodized aluminum extrusions do not conduct electricity well. You might need to sand the area where the grounding wire is attached to make good electrical contact.</p>
-<h2 id="load-cell-probe-setup">Load Cell Probe Setup<a class="headerlink" href="#load-cell-probe-setup" title="Permanent link">&para;</a></h2>
-<p>This section covers the process for commissioning a load cell probe.</p>
-<h3 id="verify-the-load-cell-first">Verify the Load Cell First<a class="headerlink" href="#verify-the-load-cell-first" title="Permanent link">&para;</a></h3>
-<p>A <code>[load_cell_probe]</code> is also a <code>[load_cell]</code> and G-code commands related to <code>[load_cell]</code> work with <code>[load_cell_probe]</code>. Before attempting to use a load cell probe, follow the directions for <a href="Load_Cell.html#calibrating-a-load-cell">calibrating the load cell</a> with <code>CALIBRATE_LOAD_CELL</code> and checking its operation with <code>LOAD_CELL_DIAGNOSTIC</code>.</p>
-<h3 id="verify-probe-operation-with-load_cell_test_tap">Verify Probe Operation With LOAD_CELL_TEST_TAP<a class="headerlink" href="#verify-probe-operation-with-load_cell_test_tap" title="Permanent link">&para;</a></h3>
-<p>Use the command <code>LOAD_CELL_TEST_TAP</code> to test the operation of the load cell probe before actually trying to probe with it. This command detects taps, just like the PROBE command, but it does not move the z axis. By default, it listens for 3 taps before ending the test. You have 30 seconds to do each tap, if no taps are detected the command will time out.</p>
-<p>If this test fails, check your configuration and <code>LOAD_CELL_DIAGNOSTIC</code> carefully to look for issues.</p>
-<p>Load cell probes don't support the <code>QUERY_ENDSTOPS</code> or <code>QUERY_PROBE</code> commands. Use <code>LOAD_CELL_TEST_TAP</code> for testing functionality before probing.</p>
-<h3 id="homing-macros">Homing Macros<a class="headerlink" href="#homing-macros" title="Permanent link">&para;</a></h3>
-<p>Load cell probe is not an endstop and doesn't support <code>endstop: prove:z_virtual_endstop</code>. For the time being you'll need to configure your z axis with an MCU pin as its endstop. You won't actually be using the pin but for the time being you have to configure something.</p>
-<p>To home the axis with just the probe you need to set up a custom homing macro. This requires setting up <a href="Config_Reference.html#homing_override">homing_override</a>.</p>
-<p>Here is a simple macro that can accomplish this. Note that the <code>_HOME_Z_FROM_LAST_PROBE</code> macro has to be separate because of the way macros work. The sub-call is needed so that the <code>_HOME_Z_FROM_LAST_PROBE</code> macro can see the result of the probe in <code>printer.probe.last_z_result</code>.</p>
-<div class="highlight"><pre><span></span><code>[gcode_macro _HOME_Z_FROM_LAST_PROBE]
-gcode:
-<span class="w">    </span>{% set z_probed = printer.probe.last_z_result %}
-<span class="w">    </span>{% set z_position = printer.toolhead.position[2] %}
-<span class="w">    </span>{% set z_actual = z_position - z_probed %}
-<span class="w">    </span>SET_KINEMATIC_POSITION Z={z_actual}
-
-[gcode_macro _HOME_Z]
-gcode:
-<span class="w">    </span>SET_GCODE_OFFSET Z=0  # load cell probes dont need a Z offset
-<span class="w">    </span># position toolhead for homing Z, edit for your printers size
-<span class="w">    </span>#G90  # absolute move
-<span class="w">    </span>#G1 Y50 X50 F{5 * 60}  # move to X/Y position for homing
-
-<span class="w">    </span># soft home the z axis to its limit so it can be moved:
-<span class="w">    </span>SET_KINEMATIC_POSITION Z={printer.toolhead.axis_maximum[2]}
-
-<span class="w">    </span># Fast approach and tap
-<span class="w">    </span>PROBE PROBE_SPEED={5 * 60}  # override the speed for faster homing
-<span class="w">    </span>_HOME_Z_FROM_LAST_PROBE
-
-<span class="w">    </span># lift z to 2mm
-<span class="w">    </span>G91  # relative move
-<span class="w">    </span>G1 Z2 F{5 * 60}
-
-<span class="w">    </span># probe at standard speed
-<span class="w">    </span>PROBE
-<span class="w">    </span>_HOME_Z_FROM_LAST_PROBE
-
-<span class="w">    </span># lift z to 10mm for clearance
-<span class="w">    </span>G91  # relative move
-<span class="w">    </span>G1 Z10 F{5 * 60}
-</code></pre></div>
-
-<h3 id="suggested-probing-temperature">Suggested Probing Temperature<a class="headerlink" href="#suggested-probing-temperature" title="Permanent link">&para;</a></h3>
-<p>Currently, we suggest keeping the nozzle temperature below the level that causes the filament to ooze while homing and probing. 140C is a good starting point. This temperature is also low enough not to scar PEI build surfaces.</p>
-<p>Fouling of the nozzle and the print bed due to oozing filament is the #1 source of probing error with the load cell probe. Klipper does not yet have a universal way to detect poor quality taps due to filament ooze. The existing code may decide that a tap is valid when it is of poor quality. Classifying these poor quality taps is an area of active research.</p>
-<p>Klipper also lacks support for re-locating a probe point if the location has become fouled by filament ooze. Modules like <code>quad_gantry_level</code> will repeatedly probe the same coordinates even if a probe previously failed there.</p>
-<p>Give the above it is strongly suggested not to probe at printing temperatures.</p>
-<h3 id="hot-nozzle-protection">Hot Nozzle Protection<a class="headerlink" href="#hot-nozzle-protection" title="Permanent link">&para;</a></h3>
+<p>Це максимальна абсолютна сила, відносно <code>reference_tare_counts</code>, яку зонд допускає під час повернення в початкове положення або зондування. Якщо мікроконтролер виявить перевищення цієї сили, він вимкне принтер з помилкою <code>!! Load cell endstop: too much force!</code>. Це може бути викликано кількома причинами:</p>
+<p>Перший ризик, від якого це захищає, — це вибір занадто великого значення для <code>drift_filter_cutoff_frequency</code>. Це може призвести до того, що фільтр дрейфу відфільтрує подію зонда і продовжить рух додому. Якщо це трапиться, <code>force_safety_limit</code> діє як резервний захист.</p>
+<p>Друга проблема полягає в багаторазовому зондуванні в одному місці. Klipper не втягує зонд при виконанні однієї команди <code>PROBE</code>. Це може призвести до прикладання сили до інструментальної головки в кінці циклу зондування. Оскільки зовнішні сили можуть сильно відрізнятися між місцями зондування, <code>load_cell_probe</code> виконує тарування перед початком кожного зондування. Якщо ви повторите команду <code>PROBE</code>, load_cell_probe виконає тарування кінцевого вимикача при поточній силі. Кілька циклів цього призведуть до постійного збільшення сили на інструментальній головці. <code>force_safety_limit</code> зупиняє цей цикл, щоб він не вийшов з-під контролю.</p>
+<p>Another way this run-away can happen is damage to a strain gauge. If the metal part is permanently bent it will change the <code>reference_tare_counts</code> of the device. This puts the starting tare value much closer to the limit making it more likely to be violated. You want to be notified if this is happening because your hardware has been permanently damaged.</p>
+<p>Останній спосіб, яким це може бути викликано, пов'язаний зі змінами температури. Якщо ваші тензометричні датчики нагріваються, їхні значення <code>reference_tare_counts</code> можуть сильно відрізнятися при температурі навколишнього середовища та робочій температурі. У цьому випадку може знадобитися збільшити значення <code>force_safety_limit</code>, щоб врахувати термічні зміни.</p>
+<h4 id="_11">Завдання сторожового таймера кінцевого упору тензодатчика<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h4>
+<p>При поверненні в початкове положення load_cell_endstop запускає завдання на мікроконтролері для відстеження вимірювань, що надходять від датчика. Якщо датчик не надсилає вимірювання протягом 2 періодів вибірки, сторожовий таймер вимкне принтер з помилкою <code>!! LoadCell Endstop timed out waiting on ADC data</code> (Закінчився час очікування даних ADC від LoadCell Endstop).</p>
+<p>Якщо це відбувається, найімовірнішою причиною є несправність АЦП. Основною причиною може бути неналежне заземлення принтера. Рама, корпус блоку живлення та платформа для друку повинні бути підключені до заземлення. Можливо, доведеться заземлити раму в декількох місцях. Екструдований анодований алюміній погано проводить електрику. Можливо, доведеться відшліфувати ділянку, де прикріплений заземлювальний провід, щоб забезпечити хороший електричний контакт.</p>
+<h4 id="interpolation">Interpolation<a class="headerlink" href="#interpolation" title="Permanent link">&para;</a></h4>
+<p>To increase the precision of the probing result, the position of the first contact between nozzle and bed can be estimated by fitting a piecewise function to the measured data. The data will consist of two regions: while the nozzle is above the bed, the force will be constant (at the tare value). When the nozzle is in contact with the bed, the force will increase linearly with decreasing z position. A piecewise function is fitted to the data and the optimal z position of the split point is found by minimising the error squared. This enables a resolution finer than the distance between the sampling points and will also be less sensitive to noise.</p>
+<p>Due to both physical and technical reasons, the interpolation uses data collected during an additional ascending movement after the initial descending move. The first 300ms of data collected during the ascending move will be used for the fit (this minimises the influence of tare drifts). The collected data must contain enough samples for the fit: at least 3 samples each below and above the contact point are required.</p>
+<p>It is recommended to use a relatively high trigger force for the probe to have a strong enough signal. If you have too few samples below the contact point, try increasing the <code>trigger_force</code> or reducing the <code>lift_speed</code>. However, if the <code>lift_speed</code> is too small, there will be too few samples above the contact point due to the 300ms window.</p>
+<p>The distance of the ascending move can be configured through the <code>sample_retract_dist</code> parameter.</p>
+<h2 id="_12">Налаштування зонда тензодатчика<a class="headerlink" href="#_12" title="Permanent link">&para;</a></h2>
+<p>У цьому розділі описано процес введення в експлуатацію зонда тензодатчика.</p>
+<h3 id="_13">Спочатку перевірте датчик навантаження<a class="headerlink" href="#_13" title="Permanent link">&para;</a></h3>
+<p><code>[load_cell_probe]</code> також є <code>[load_cell]</code>, і команди G-коду, пов'язані з <code>[load_cell]</code>, працюють з <code>[load_cell_probe]</code>. Перш ніж спробувати використовувати датчик тензодатчика, дотримуйтесь інструкцій щодо <a href="Load_Cell.html#calibrating-a-load-cell">калібрування тензодатчика</a> за допомогою <code>CALIBRATE_LOAD_CELL</code> та перевірки його роботи за допомогою <code>LOAD_CELL_DIAGNOSTIC</code>.</p>
+<h3 id="load_cell_test_tap">Перевірте роботу зонда за допомогою LOAD_CELL_TEST_TAP<a class="headerlink" href="#load_cell_test_tap" title="Permanent link">&para;</a></h3>
+<p>Використовуйте команду <code>LOAD_CELL_TEST_TAP</code>, щоб перевірити роботу датчика навантаження перед тим, як почати з ним працювати. Ця команда виявляє натискання, так само як і команда PROBE, але не рухає вісь z. За замовчуванням вона чекає 3 натискання, перш ніж закінчити тест. У вас є 30 секунд, щоб зробити кожне натискання. Якщо натискання не виявлено, команда закінчить роботу.</p>
+<p>Якщо цей тест не вдався, ретельно перевірте свою конфігурацію та <code>LOAD_CELL_DIAGNOSTIC</code>, щоб знайти проблеми.</p>
+<p>Тензометричні зонди не підтримують команди <code>QUERY_ENDSTOPS</code> або <code>QUERY_PROBE</code>. Використовуйте <code>LOAD_CELL_TEST_TAP</code> для перевірки функціональності перед зондуванням.</p>
+<h3 id="_14">Рекомендована температура зондування<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
+<p>Наразі ми рекомендуємо підтримувати температуру сопла нижче рівня, який спричиняє витікання філаменту під час повернення в початкове положення та зондування. 140 °C — це хороший початковий показник. Ця температура також є достатньо низькою, щоб не пошкодити поверхні PEI.</p>
+<p>Забруднення сопла та друкарської платформи внаслідок витікання нитки є основною причиною помилок зондування зондом тензодатчика. Klipper ще не має універсального способу виявлення неякісних натискань, спричинених витіканням нитки. Існуючий код може визнати натискання дійсним, навіть якщо воно є неякісним. Класифікація таких неякісних натискань є предметом активних досліджень.</p>
+<p>Klipper також не підтримує перенесення точки зондування, якщо місце розташування забруднилося витіканням філаменту. Модулі, такі як <code>quad_gantry_level</code>, будуть повторно зондувати ті самі координати, навіть якщо попереднє зондування там не вдалося.</p>
+<p>З огляду на вищезазначене, наполегливо не рекомендується проводити вимірювання за температури друку.</p>
+<h3 id="_15">Захист від гарячого сопла<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
 <p>The Voron project has a great macro for protecting your print surface from the hot nozzle. See <a href="https://github.com/VoronDesign/Voron-Tap/blob/main/config/tap_klipper_instructions.md">Voron Tap's
 <code>activate_gcode</code></a></p>
-<p>It is highly suggested to add something like this to your config.</p>
-<h3 id="nozzle-cleaning">Nozzle Cleaning<a class="headerlink" href="#nozzle-cleaning" title="Permanent link">&para;</a></h3>
-<p>Before probing the nozzle should be clean. You could do this manually before every print. You can also implement a nozzle scrubber and automate the process. Here is a suggested sequence:</p>
+<p>Наполегливо рекомендується додати щось подібне до вашої конфігурації.</p>
+<h3 id="_16">Очищення сопел<a class="headerlink" href="#_16" title="Permanent link">&para;</a></h3>
+<p>Перед зондуванням сопло слід очистити. Ви можете робити це вручну перед кожним друком. Ви також можете використовувати очищувач сопел та автоматизувати процес. Ось запропонована послідовність дій:</p>
 <ol>
-<li>Wait for the nozzle to heat up to probing temp (e.g. <code>M109 S140</code>)</li>
-<li>Home the machine (<code>G28</code>)</li>
-<li>Scrub the nozzle on a brush</li>
-<li>Heat soak the print bed</li>
-<li>Perform probing tasks: QGL, bed mesh etc.</li>
+<li>Зачекайте, поки сопло нагріється до температури зондування (наприклад, <code>M109 S140</code>)</li>
+<li>Повернути машину в початкове положення (<code>G28</code>)</li>
+<li>Потріть сопло щіткою</li>
+<li>Нагрівання друкованої платформи</li>
+<li>Виконання зондування: QGL, сітка пласта тощо.</li>
 </ol>
-<h3 id="temperature-compensation-for-nozzle-growth">Temperature Compensation for Nozzle Growth<a class="headerlink" href="#temperature-compensation-for-nozzle-growth" title="Permanent link">&para;</a></h3>
-<p>If you are probing at a safe temperature, the nozzle will expand after heating to printing temperatures. This will cause the nozzle to get longer and closer to the print surface. You can compensate for this with <a href="Config_Reference.html#z_thermal_adjust">[z_thermal_adjust]</a>. This adjustment will work across a range of printing temperatures from PLA to PC.</p>
-<h4 id="calculating-the-temp_coeff-for-z_thermal_adjust">Calculating the <code>temp_coeff</code> for <code>[z_thermal_adjust]</code><a class="headerlink" href="#calculating-the-temp_coeff-for-z_thermal_adjust" title="Permanent link">&para;</a></h4>
-<p>The easiest way to do this is to measure at 2 different temperatures. Ideally these should be the upper and lower limits of the printing temperature range. E.g. 180C and 290C. You can perform a <code>PROBE_ACCURACY</code> at both temperatures and then calculate the difference of the <code>average z</code> at both.</p>
-<p>The adjustment value is the change in nozzle length divided by the change in temperature. e.g.</p>
+<h3 id="_17">Температурна компенсація для росту сопел<a class="headerlink" href="#_17" title="Permanent link">&para;</a></h3>
+<p>Якщо ви проводите зондування при безпечній температурі, сопло розшириться після нагрівання до температури друку. Це призведе до того, що сопло стане довшим і наблизиться до поверхні друку. Ви можете компенсувати це за допомогою <a href="Config_Reference.html#z_thermal_adjust">[z_thermal_adjust]</a>. Це регулювання буде працювати в діапазоні температур друку від PLA до PC.</p>
+<h4 id="temp_coeff-z_thermal_adjust">Обчислення <code>temp_coeff</code> для <code>[z_thermal_adjust]</code><a class="headerlink" href="#temp_coeff-z_thermal_adjust" title="Permanent link">&para;</a></h4>
+<p>Найпростіший спосіб зробити це — виміряти при 2 різних температурах. В ідеалі це повинні бути верхня і нижня межі діапазону температур друку. Наприклад, 180 °C і 290 °C. Ви можете виконати <code>PROBE_ACCURACY</code> при обох температурах, а потім обчислити різницю <code>середнього z</code> при обох.</p>
+<p>Значення коригування – це зміна довжини сопла, поділена на зміну температури. Наприклад.</p>
 <div class="highlight"><pre><span></span><code>temp_coeff = -0.05 / (290 - 180) = -0.00045455
 </code></pre></div>
 
-<p>The expected result is a negative number. Positive values for <code>temp_coeff</code> move the nozzle closer to the bed and negative values move it further away. Expect to have to move the nozzle further away as it gets longer when hot.</p>
-<h4 id="configure-z_thermal_adjust">Configure <code>[z_thermal_adjust]</code><a class="headerlink" href="#configure-z_thermal_adjust" title="Permanent link">&para;</a></h4>
-<p>Set up z_thermal_adjust to reference the <code>extruder</code> as the source of temperature data. E.g.:</p>
-<div class="highlight"><pre><span></span><code>[z_thermal_adjust nozzle]
+<p>Очікуваний результат — від'ємне число. Позитивні значення для <code>temp_coeff</code> наближають сопло до платформи, а від'ємні — віддаляють його. Очікуйте, що сопло доведеться віддалити, оскільки воно подовжується під час нагрівання.</p>
+<h4 id="z_thermal_adjust">Налаштувати <code>[z_thermal_adjust]</code><a class="headerlink" href="#z_thermal_adjust" title="Permanent link">&para;</a></h4>
+<p>Налаштуйте z_thermal_adjust для посилання на <code>екструдер</code> як джерело даних про температуру. Наприклад:</p>
+<div class="highlight"><pre><span></span><code>[z_thermal_adjust]
 temp_coeff=-0.00045455
 sensor_type: temperature_combined
 sensor_list: extruder
 combination_method: max
+maximum_deviation: 999
 min_temp: 0
 max_temp: 400
 max_z_adjustment: 0.1
 </code></pre></div>
 
-<h2 id="continuous-tare-filters-for-toolhead-load-cells">Continuous Tare Filters for Toolhead Load Cells<a class="headerlink" href="#continuous-tare-filters-for-toolhead-load-cells" title="Permanent link">&para;</a></h2>
-<p>Klipper implements a configurable IIR filter on the MCU to provide continuous tareing of the load cell while probing. Continuous taring means the 0 value moves with drift caused by external factors like bowden tubes and thermal changes. This is aimed at toolhead sensors and moving beds that experience lots of external forces that change while probing.</p>
-<h3 id="installing-scipy">Installing SciPy<a class="headerlink" href="#installing-scipy" title="Permanent link">&para;</a></h3>
-<p>The filtering code uses the excellent <a href="https://scipy.org/">SciPy</a> library to compute the filter coefficients based on the values your enter into the config.</p>
-<p>Pre-compiled SciPi builds are available for Python 3 on 32 bit Raspberry Pi systems. 32 bit + Python 3 is strongly recommended because it will streamline your installation experience. It does work with Python 2 but installation can take 30+ minutes and require installing additional tools.</p>
+<h2 id="_18">Фільтри безперервної тарування для тензодатчиків інструментальної головки<a class="headerlink" href="#_18" title="Permanent link">&para;</a></h2>
+<p>Klipper реалізує настроюваний фільтр IIR на мікроконтролері для забезпечення безперервного тарування тензодатчика під час зондування. Безперервне тарування означає, що значення 0 змінюється під впливом зовнішніх факторів, таких як трубки Боудена та термічні зміни. Це призначено для датчиків інструментальної головки та рухомих платформ, які під час зондування зазнають значного впливу зовнішніх сил, що змінюються.</p>
+<h3 id="scipy">Встановлення SciPy<a class="headerlink" href="#scipy" title="Permanent link">&para;</a></h3>
+<p>Код фільтрації використовує чудову бібліотеку <a href="https://scipy.org/">SciPy</a> для обчислення коефіцієнтів фільтра на основі значень, які ви вводите в конфігурацію.</p>
+<p>Попередньо скомпільовані збірки SciPi доступні для Python 3 на 32-бітних системах Raspberry Pi. Настійно рекомендується використовувати 32-бітну версію + Python 3, оскільки це спростить процес інсталяції. Програма працює і з Python 2, але інсталяція може зайняти понад 30 хвилин і вимагати встановлення додаткових інструментів.</p>
 <div class="highlight"><pre><span></span><code>~/klippy-env/bin/pip<span class="w"> </span>install<span class="w"> </span>scipy
 </code></pre></div>
 
-<h3 id="filter-workbench">Filter Workbench<a class="headerlink" href="#filter-workbench" title="Permanent link">&para;</a></h3>
-<p>The filter parameters should be selected based on drift seen on the printer during normal operation. A Jupyter notebook is provided in scripts, <a href="https://github.com/Klipper3d/klipper/blob/master/scripts/filter_workbench.ipynb">filter_workbench.ipynb</a>, to perform a detailed investigation with real captured data and FFTs.</p>
-<h3 id="filtering-suggestions">Filtering Suggestions<a class="headerlink" href="#filtering-suggestions" title="Permanent link">&para;</a></h3>
-<p>For those just trying to get a filter working follow these suggestions:</p>
+<h3 id="_19">Робочий стіл фільтрів<a class="headerlink" href="#_19" title="Permanent link">&para;</a></h3>
+<p>Параметри фільтра слід вибирати на основі дрейфу, що спостерігається на принтері під час нормальної роботи. У скриптах надається ноутбук Jupyter, <a href="https://github.com/Klipper3d/klipper/blob/master/scripts/filter_workbench.ipynb">filter_workbench.ipynb</a>, для проведення детального дослідження з використанням реальних даних, що були зібрані, та FFT.</p>
+<h3 id="_20">Пропозиції щодо фільтрації<a class="headerlink" href="#_20" title="Permanent link">&para;</a></h3>
+<p>Для тих, хто тільки намагається налаштувати фільтр, дотримуйтесь цих порад:</p>
 <ul>
-<li>The only essential option is <code>drift_filter_cutoff_frequency</code>. A conservative starting value is <code>0.5</code>Hz. Prusa shipped the MK4 with a setting of <code>0.8</code>Hz and the XL with <code>11.2</code>Hz. This is probably a safe range to experiment with. This value should be increased only until normal drift due to bowden tube force is eliminated. Setting this value too high will result in slow triggering and excess force going through the toolhead.</li>
-<li>Keep <code>trigger_force</code> low. The default is <code>75</code>g. The drift filter keeps the internal grams value very close to 0 so a large trigger force is not needed.</li>
-<li>Keep <code>force_safety_limit</code> to a conservative value. The default value is 2Kg and should keep your toolhead safe while experimenting. If you hit this limit the <code>drift_filter_cutoff_frequency</code> value may be too high.</li>
+<li>Єдиною необхідною опцією є <code>drift_filter_cutoff_frequency</code>. Консервативне початкове значення становить <code>0,5</code> Гц. Prusa постачала MK4 з налаштуванням <code>0,8</code> Гц, а XL — з налаштуванням <code>11,2</code> Гц. Це, ймовірно, безпечний діапазон для експериментів. Це значення слід збільшувати лише доти, доки не буде усунуто нормальний дрейф, спричинений силою трубки Боудена. Занадто високе значення призведе до повільного спрацьовування і надмірного зусилля, що проходить через інструментальну головку.</li>
+<li>Тримайте низьким значення <code>trigger_force</code>. Значення за замовчуванням — <code>75</code>g. Фільтр дрейфу утримує внутрішнє значення грамів дуже близьким до 0, тому велика сила спрацьовування не потрібна.</li>
+<li>Зберігайте значення <code>force_safety_limit</code> на консервативному рівні. Значення за замовчуванням становить 2 кг і повинно забезпечити безпеку інструментальної головки під час експериментів. Якщо ви досягли цього обмеження, значення <code>drift_filter_cutoff_frequency</code> може бути занадто високим.</li>
 </ul>
-<h2 id="suggestions-for-load-cell-tool-boards">Suggestions for Load Cell Tool Boards<a class="headerlink" href="#suggestions-for-load-cell-tool-boards" title="Permanent link">&para;</a></h2>
-<p>This section covers suggestions for those developing toolhead boards that want to support [load_cell_probe]</p>
-<h3 id="adc-sensor-selection-board-development-hints">ADC Sensor Selection &amp; Board Development Hints<a class="headerlink" href="#adc-sensor-selection-board-development-hints" title="Permanent link">&para;</a></h3>
-<p>Ideally a sensor would meet these criteria:</p>
+<h2 id="_21">Рекомендації щодо інструментальних дощок для тензодатчиків<a class="headerlink" href="#_21" title="Permanent link">&para;</a></h2>
+<p>У цьому розділі наведено пропозиції для тих, хто розробляє плати інструментальних головок, що хочуть підтримувати [load_cell_probe]</p>
+<h3 id="_22">Вибір датчика АЦП та поради щодо розробки плати<a class="headerlink" href="#_22" title="Permanent link">&para;</a></h3>
+<p>В ідеалі датчик повинен відповідати таким критеріям:</p>
 <ul>
-<li>At least 24 bits wide</li>
-<li>Use SPI communications</li>
-<li>Has a pin can be used to indicate sample ready without SPI communications. This is often called the "data ready" or "DRDY" pin. Checking a pin is much faster than running an SPI query.</li>
-<li>Has a programmable gain amplifier gain setting of 128. This should eliminate the need for a separate amplifier.</li>
-<li>Indicates via SPI if the sensor has been reset. Detecting resets avoids timing errors in homing and using noisy data at startup. It can also help users track down wiring and grounding issues.</li>
-<li>A selectable sample rate between 350Hz and 2Khz. Very high sample rates don't turn out to be beneficial in our 3D printers because they produce so much noise when moving fast. Sample rates below 250Hz will require slower probing speeds. They also increase the force on the toolhead due to longer delays between measurements. E.g. a 500Hz sensor moving at 5mm/s has the same safety factor as a 100Hz sensor moving at only 1mm/s.</li>
-<li>If designing for under-bed applications, and you want to sense multiple load cells, use a chip that can sample all of its inputs simultaneously. Multiplex ADCs that require switching channels have a settling of several samples after each channel switch making them unsuitable for probing applications.</li>
+<li>Щонайменше 24 біти завширшки</li>
+<li>Використовуйте SPI-зв'язок</li>
+<li>Має контакт, який можна використовувати для індикації готовності зразка без зв'язку SPI. Його часто називають контактом «готовність до даних» або «DRDY». Перевірка контакту набагато швидша, ніж виконання запиту SPI.</li>
+<li>Має програмований підсилювач з коефіцієнтом посилення 128. Це має усунути необхідність використання окремого підсилювача.</li>
+<li>Через SPI вказує, чи було скинуто налаштування датчика. Виявлення скидань дозволяє уникнути помилок синхронізації під час самонаведення та використання шумних даних під час запуску. Це також може допомогти користувачам відстежувати проблеми з проводкою та заземленням.</li>
+<li>Вибіркова частота дискретизації від 350 Гц до 2 кГц. Дуже високі частоти дискретизації не є вигідними для наших 3D-принтерів, оскільки вони створюють багато шуму під час швидкого руху. Частота дискретизації нижче 250 Гц вимагає повільнішої швидкості зондування. Вона також збільшує навантаження на інструментальну головку через більші затримки між вимірюваннями. Наприклад, датчик з частотою 500 Гц, що рухається зі швидкістю 5 мм/с, має такий самий коефіцієнт безпеки, як датчик з частотою 100 Гц, що рухається зі швидкістю лише 1 мм/с.</li>
+<li>Якщо ви проектуєте пристрій для використання під ліжком і хочете вимірювати кілька тензодатчиків, використовуйте мікросхему, яка може одночасно зчитувати всі вхідні сигнали. Мультиплексні АЦП, які вимагають перемикання каналів, мають стабілізацію декількох зразків після кожного перемикання каналів, що робить їх непридатними для зондувальних застосувань.</li>
 </ul>
-<p>Implementing support for a new sensor chip is not particularly difficult with Klipper's <code>bulk_sensor</code> and <code>load_cell_endstop</code> infrastructure.</p>
-<h3 id="5v-power-filtering">5V Power Filtering<a class="headerlink" href="#5v-power-filtering" title="Permanent link">&para;</a></h3>
-<p>It is strongly suggested to use larger capacitors than specified by the ADC chip manufacturer. ADC chips are usually targeted at low noise environments, like battery powered devices. Sensor manufacturers suggested application notes generally assume a quiet power supply. Treat their suggested capacitor values as minimums.</p>
-<p>3D printers put huge amounts of noise onto the 5V bus and this can ruin the sensor's accuracy. Test the sensor on the board with a typical 3D printer power supply and active stepper drivers before deciding on smoothing capacitor sizes.</p>
-<h3 id="grounding-ground-planes">Grounding &amp; Ground Planes<a class="headerlink" href="#grounding-ground-planes" title="Permanent link">&para;</a></h3>
-<p>Analog ADC chips contain components that are very vulnerable to noise and ESD. A large ground plane on the first board layer under the chip can help with noise. Keep the chip away from power sections and DC to DC converters. The board should have proper grounding back to the DC supply.</p>
-<h3 id="hx711-and-hx717-notes">HX711 and HX717 Notes<a class="headerlink" href="#hx711-and-hx717-notes" title="Permanent link">&para;</a></h3>
-<p>This sensor is popular because of its low cost and availability in the supply chain. However, this is a sensor with some drawbacks:</p>
+<p>Реалізація підтримки нового сенсорного чіпа не є особливо складною з інфраструктурою Klipper <code>bulk_sensor</code> та <code>load_cell_endstop</code>.</p>
+<h3 id="5">Фільтрація живлення 5 В<a class="headerlink" href="#5" title="Permanent link">&para;</a></h3>
+<p>Настійно рекомендується використовувати конденсатори більшої ємності, ніж зазначено виробником мікросхеми АЦП. Мікросхеми АЦП зазвичай призначені для використання в умовах з низьким рівнем шуму, наприклад, в пристроях, що живляться від батарей. Виробники датчиків у своїх рекомендаціях щодо застосування зазвичай припускають наявність тихого джерела живлення. Вважайте запропоновані ними значення ємності конденсаторів мінімальними.</p>
+<p>3D-принтери створюють величезний шум на шині 5 В, що може зіпсувати точність датчика. Перед тим, як визначитися з розмірами згладжувальних конденсаторів, протестуйте датчик на платі з типовим джерелом живлення 3D-принтера та активними кроковими драйверами.</p>
+<h3 id="_23">Заземлення та заземлюючі площини<a class="headerlink" href="#_23" title="Permanent link">&para;</a></h3>
+<p>Аналогові мікросхеми АЦП містять компоненти, які дуже чутливі до шуму та електростатичного розряду. Велика заземлююча площина на першому шарі плати під мікросхемою може допомогти усунути шум. Тримайте мікросхему подалі від блоків живлення та перетворювачів постійного струму. Плата повинна мати належне заземлення до джерела постійного струму.</p>
+<h3 id="hx711-hx717">Примітки щодо HX711 та HX717<a class="headerlink" href="#hx711-hx717" title="Permanent link">&para;</a></h3>
+<p>Цей датчик популярний завдяки своїй низькій вартості та доступності в ланцюжку поставок. Однак, цей датчик має деякі недоліки:</p>
 <ul>
-<li>The HX71x sensors use bit-bang communication which has a high overhead on the MCU. Using a sensor that communicates via SPI would save resources on the tool board's CPU.</li>
-<li>The HX71x lacks a way to communicate reset events to the MCU. Klipper detects resets with a timing heuristic but this is not ideal. Resets indicate a problem with wiring or grounding.</li>
-<li>For probing applications the HX717 version is strongly preferred because of its higher sample rate (320 vs 80). Probing speed on the HX711 should be limited to less than 2mm/s.</li>
-<li>The sample rate on the HX71x cannot be set from klipper's config. If you have the 10SPS version of the sensor (which is widely distributed) it needs to be physically re-wired to run at 80SPS.</li>
+<li>Датчики HX71x використовують бітовий зв'язок, що створює значне навантаження на мікроконтролер. Використання датчика, який зв'язується через SPI, заощадить ресурси процесора плати інструментів.</li>
+<li>У HX71x відсутній спосіб передачі подій скидання до мікроконтролера. Klipper виявляє скидання за допомогою евристики синхронізації, але це не ідеально. Скидання вказують на проблему з проводкою або заземленням.</li>
+<li>Для зондування перевага надається версії HX717 через вищу частоту дискретизації (320 проти 80). Швидкість зондування на HX711 має бути обмежена значенням менше 2 мм/с.</li>
+<li>Частоту дискретизації на HX71x неможливо встановити з конфігурації klipper. Якщо у вас версія датчика 10SPS (яка широко розповсюджена), його потрібно фізично переналаштувати для роботи на 80SPS.</li>
 </ul>
 
               

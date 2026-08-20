@@ -1350,15 +1350,15 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#basic-usage-x-axis-calibration" class="md-nav__link">
-    Basic Usage: X-Axis Calibration
+  <a href="#x" class="md-nav__link">
+    Базовое использование: калибровка оси X
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#for-y-axis-calibration" class="md-nav__link">
-    For Y-Axis Calibration
+  <a href="#y-axis" class="md-nav__link">
+    Для калибровки Y-Axis
   </a>
   
 </li>
@@ -1402,9 +1402,9 @@ bias</a>. It may result in probe operations such as <a href="Bed_Mesh.html">Bed 
 <blockquote>
 <p><strong>Совет:</strong> Убедитесь, что параметры <a href="Config_Reference.html#probe">смещения зонда по X и Y</a> установлены правильно, так как они сильно влияют на калибровку.</p>
 </blockquote>
-<h3 id="basic-usage-x-axis-calibration">Basic Usage: X-Axis Calibration<a class="headerlink" href="#basic-usage-x-axis-calibration" title="Permanent link">&para;</a></h3>
+<h3 id="x">Базовое использование: калибровка оси X<a class="headerlink" href="#x" title="Permanent link">&para;</a></h3>
 <ol>
-<li>After setting up the <code>[axis_twist_compensation]</code> module, run:</li>
+<li>После установки модуля <code>[axis_twist_compensation]</code> запустите:</li>
 </ol>
 <div class="highlight"><pre><span></span><code>AXIS_TWIST_COMPENSATION_CALIBRATE
 </code></pre></div>
@@ -1416,25 +1416,25 @@ bias</a>. It may result in probe operations such as <a href="Bed_Mesh.html">Bed 
 </ul>
 <ol>
 <li><strong>Adjust Your Z Offset:</strong> After completing the calibration, be sure to <a href="Probe_Calibrate.html#calibrating-probe-z-offset">adjust your Z offset</a>.</li>
-<li><strong>Perform Bed Leveling Operations:</strong> Use probe-based operations as needed, such as:</li>
+<li><strong>Передельные операции по уравниванию кровати: </strong> Использовать операции на основе зондов по мере необходимости, такие как:</li>
 </ol>
 <ul>
 <li><a href="G-Codes.html#screws_tilt_adjust">Screws Tilt Adjust</a></li>
 <li><a href="G-Codes.html#z_tilt_adjust">Z Tilt Adjust</a></li>
 </ul>
 <ol>
-<li><strong>Finalize the Setup:</strong></li>
+<li><strong>Финализируйте настройку: </strong></li>
 </ol>
 <ul>
-<li>Home all axes, and perform a <a href="Bed_Mesh.html">Bed Mesh</a> if necessary.</li>
-<li>Run a test print, followed by any <a href="Axis_Twist_Compensation.html#fine-tuning">fine-tuning</a> if needed.</li>
+<li>Домой все топоры, и выполнить <a href="Bed_Mesh.html">Bed Mesh</a> при необходимости.</li>
+<li>Проведите тест-печать, за которым следует любая <a href="Axis_Twist_Compensation.html#fine-tuning">настройка</a>, если это необходимо.</li>
 </ul>
-<h3 id="for-y-axis-calibration">For Y-Axis Calibration<a class="headerlink" href="#for-y-axis-calibration" title="Permanent link">&para;</a></h3>
-<p>The calibration process for the Y-axis is similar to the X-axis. To calibrate the Y-axis, use:</p>
+<h3 id="y-axis">Для калибровки Y-Axis<a class="headerlink" href="#y-axis" title="Permanent link">&para;</a></h3>
+<p>Процесс калибровки для Y-оси похож на X-оси. Для калибровки Y-оси используются:</p>
 <div class="highlight"><pre><span></span><code>AXIS_TWIST_COMPENSATION_CALIBRATE AXIS=Y
 </code></pre></div>
 
-<p>This will guide you through the same measuring process as for the X-axis.</p>
+<p>Это будет направлять вас через тот же процесс измерения, что и для X-оси.</p>
 <blockquote>
 <p><strong>Совет: </strong> Температура слоя, температура и размер сопла не оказывают влияния на процесс калибровки.</p>
 </blockquote>

@@ -1342,8 +1342,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#startup-commands" class="md-nav__link">
-    Startup Commands
+  <a href="#comandos-de-inicio" class="md-nav__link">
+    Comandos de inicio
   </a>
   
 </li>
@@ -1421,13 +1421,13 @@
 
 <h1 id="comandos-mcu">Comandos MCU<a class="headerlink" href="#comandos-mcu" title="Permanent link">&para;</a></h1>
 <p>Este documento proporciona información sobre los comandos del microcontrolador de bajo nivel que se envían desde el software "host" de Klipper y son procesados por el software del microcontrolador de Klipper.  Este documento no es una referencia autorizada para estos comandos, ni es una lista exclusiva de todos los comandos disponibles.</p>
-<p>This document may be useful for developers interested in understanding the low-level micro-controller commands.</p>
-<p>See the <a href="Protocol.html">protocol</a> document for more information on the format of commands and their transmission. The commands here are described using their "printf" style syntax - for those unfamiliar with that format, just note that where a '%...' sequence is seen it should be replaced with an actual integer. For example, a description with "count=%c" could be replaced with the text "count=10". Note that parameters that are considered "enumerations" (see the above protocol document) take a string value which is automatically converted to an integer value for the micro-controller. This is common with parameters named "pin" (or that have a suffix of "_pin").</p>
-<h2 id="startup-commands">Startup Commands<a class="headerlink" href="#startup-commands" title="Permanent link">&para;</a></h2>
-<p>It may be necessary to take certain one-time actions to configure the micro-controller and its peripherals. This section lists common commands available for that purpose. Unlike most micro-controller commands, these commands run as soon as they are received and they do not require any particular setup.</p>
-<p>Common startup commands:</p>
+<p>Este documento puede ser útil para los desarrolladores interesados en comprender los comandos de bajo nivel del microcontrolador.</p>
+<p>Consulte el documento <a href="Protocol.html">protocolo</a> para obtener más información sobre el formato de los comandos y su transmisión. Los comandos aquí se describen utilizando su sintaxis de estilo «printf»; para aquellos que no estén familiarizados con ese formato, solo hay que tener en cuenta que donde se vea una secuencia «%...», debe sustituirse por un número entero real. Por ejemplo, una descripción con «count=%c» podría sustituirse por el texto «count=10». Tenga en cuenta que los parámetros que se consideran «enumeraciones» (consulte el documento de protocolo anterior) toman un valor de cadena que se convierte automáticamente en un valor entero para el microcontrolador. Esto es común con los parámetros denominados «pin» (o que tienen el sufijo «_pin»).</p>
+<h2 id="comandos-de-inicio">Comandos de inicio<a class="headerlink" href="#comandos-de-inicio" title="Permanent link">&para;</a></h2>
+<p>Puede que tengas que hacer algunas cosas una sola vez para configurar el microcontrolador y sus periféricos. En esta sección te mostramos los comandos más comunes que puedes usar para eso. A diferencia de la mayoría de los comandos de microcontroladores, estos se ejecutan en cuanto los recibes y no necesitan ninguna configuración especial.</p>
+<p>Comandos comunes de inicio:</p>
 <ul>
-<li><code>set_digital_out pin=%u value=%c</code> : This command immediately configures the given pin as a digital out GPIO and it sets it to either a low level (value=0) or a high level (value=1). This command may be useful for configuring the initial value of LEDs and for configuring the initial value of stepper driver micro-stepping pins.</li>
+<li><code>set_digital_out pin=%u value=%c</code> : Este comando configura inmediatamente el pin dado como una salida digital GPIO y lo establece en un nivel bajo (valor=0) o alto (valor=1). Este comando puede ser útil para configurar el valor inicial de los LED y para configurar el valor inicial de los pines de micropasos del controlador paso a paso.</li>
 <li><code>set_pwm_out pin=%u cycle_ticks=%u value=%hu</code> : This command will immediately configure the given pin to use hardware based pulse-width-modulation (PWM) with the given number of cycle_ticks. The "cycle_ticks" is the number of MCU clock ticks each power on and power off cycle should last. A cycle_ticks value of 1 can be used to request the fastest possible cycle time. The "value" parameter is between 0 and 255 with 0 indicating a full off state and 255 indicating a full on state. This command may be useful for enabling CPU and nozzle cooling fans.</li>
 </ul>
 <h2 id="low-level-micro-controller-configuration">Low-level micro-controller configuration<a class="headerlink" href="#low-level-micro-controller-configuration" title="Permanent link">&para;</a></h2>

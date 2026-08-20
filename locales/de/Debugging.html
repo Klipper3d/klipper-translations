@@ -1460,7 +1460,7 @@ make
 <h2 id="bewegungsanalyse-und-datenerfassung">Bewegungsanalyse und Datenerfassung<a class="headerlink" href="#bewegungsanalyse-und-datenerfassung" title="Permanent link">&para;</a></h2>
 <p>Klipper supports logging its internal motion history, which can be later analyzed. To use this feature, Klipper must be started with the <a href="API_Server.html">API Server</a> enabled.</p>
 <p>Data logging is enabled with the <code>data_logger.py</code> tool. For example:</p>
-<div class="highlight"><pre><span></span><code>~/klipper/scripts/motan/data_logger.py /tmp/klippy_uds mylog
+<div class="highlight"><pre><span></span><code>~/klipper/scripts/motan/data_logger.py /tmp/klippy_uds mylog -s &#39;*&#39;
 </code></pre></div>
 
 <p>This command will connect to the Klipper API Server, subscribe to status and motion information, and log the results. Two files are generated - a compressed data file and an index file (eg, <code>mylog.json.gz</code> and <code>mylog.index.gz</code>). After starting the logging, it is possible to complete prints and other actions - the logging will continue in the background. When done logging, hit <code>ctrl-c</code> to exit from the <code>data_logger.py</code> tool.</p>

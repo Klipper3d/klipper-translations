@@ -1460,7 +1460,7 @@ make
 <h2 id="_4">Анализ движений и регистрация данных<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>Klipper поддерживает запись в журнал внутренней истории движения, которую впоследствии можно проанализировать. Чтобы использовать эту функцию, Klipper должен быть запущен с включенным <a href="API_Server.html">API Server</a>.</p>
 <p>Регистрация данных включается с помощью инструмента <code>data_logger.py</code>. Например:</p>
-<div class="highlight"><pre><span></span><code>~/klipper/scripts/motan/data_logger.py /tmp/klippy_uds mylog
+<div class="highlight"><pre><span></span><code>~/klipper/scripts/motan/data_logger.py /tmp/klippy_uds mylog -s &#39;*&#39;
 </code></pre></div>
 
 <p>Эта команда подключается к API-серверу Klipper, подписывается на информацию о состоянии и движении и записывает результаты в журнал. При этом генерируются два файла - сжатый файл данных и индексный файл (например, <code>mylog.json.gz</code> и <code>mylog.index.gz</code>). После запуска логирования можно завершить печать и другие действия - логирование будет продолжаться в фоновом режиме. После завершения протоколирования нажмите <code>ctrl-c</code> для выхода из инструмента <code>data_logger.py</code>.</p>

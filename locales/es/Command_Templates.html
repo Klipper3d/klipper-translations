@@ -1349,8 +1349,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#formatting-of-g-code-in-the-config" class="md-nav__link">
-    Formatting of G-Code in the config
+  <a href="#formato-del-g-code-en-la-configuracion" class="md-nav__link">
+    Formato del G-code en la configuración
   </a>
   
 </li>
@@ -1458,9 +1458,9 @@
 <h1 id="commands-templates">Commands templates<a class="headerlink" href="#commands-templates" title="Permanent link">&para;</a></h1>
 <p>Este documento proporciona información sobre G-Code y implementando  las secuencias de comandes  en gcode_macro (y lo similar) secciones de configuración</p>
 <h2 id="el-nombrado-macro-de-g-code">El nombrado macro de G-Code<a class="headerlink" href="#el-nombrado-macro-de-g-code" title="Permanent link">&para;</a></h2>
-<p>Case is not important for the G-Code macro name - MY_MACRO and my_macro will evaluate the same and may be called in either upper or lower case. If any numbers are used in the macro name then they must all be at the end of the name (eg, TEST_MACRO25 is valid, but MACRO25_TEST3 is not).</p>
-<h2 id="formatting-of-g-code-in-the-config">Formatting of G-Code in the config<a class="headerlink" href="#formatting-of-g-code-in-the-config" title="Permanent link">&para;</a></h2>
-<p>Indentation is important when defining a macro in the config file. To specify a multi-line G-Code sequence it is important for each line to have proper indentation. For example:</p>
+<p>Las mayúsculas y minúsculas no son importantes para el nombre de la macro del G-code: MY_MACRO y my_macro se evaluarán de la misma manera y se pueden llamar tanto en mayúsculas como en minúsculas. Si se utilizan números en el nombre de la macro, todos deben estar al final del nombre (por ejemplo, TEST_MACRO25 es válido, pero MACRO25_TEST3 no lo es).</p>
+<h2 id="formato-del-g-code-en-la-configuracion">Formato del G-code en la configuración<a class="headerlink" href="#formato-del-g-code-en-la-configuracion" title="Permanent link">&para;</a></h2>
+<p>La sangría es importante al definir una macro en el archivo de configuración. Para especificar una secuencia de G-code de varias líneas, es importante que cada línea tenga la sangría adecuada. Por ejemplo:</p>
 <div class="highlight"><pre><span></span><code>[gcode_macro blink_led]
 gcode:
   SET_PIN PIN=my_led VALUE=1
@@ -1468,7 +1468,7 @@ gcode:
   SET_PIN PIN=my_led VALUE=0
 </code></pre></div>
 
-<p>Note how the <code>gcode:</code> config option always starts at the beginning of the line and subsequent lines in the G-Code macro never start at the beginning.</p>
+<p>Observe cómo la opción de configuración «gcode:» siempre comienza al principio de la línea y las líneas siguientes de la macro G-Code nunca comienzan al principio.</p>
 <h2 id="add-a-description-to-your-macro">Add a description to your macro<a class="headerlink" href="#add-a-description-to-your-macro" title="Permanent link">&para;</a></h2>
 <p>To help identify the functionality a short description can be added. Add <code>description:</code> with a short text to describe the functionality. Default is "G-Code macro" if not specified. For example:</p>
 <div class="highlight"><pre><span></span><code>[gcode_macro blink_led]

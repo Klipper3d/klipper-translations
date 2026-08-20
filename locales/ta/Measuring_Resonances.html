@@ -1561,7 +1561,14 @@
         
           <li class="md-nav__item">
   <a href="#max_accel" class="md-nav__link">
-    max_accel ஐத் தேர்ந்தெடுக்கிறது
+    Max_accel ஐத் தேர்ந்தெடுக்கும்
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#measuring-the-resonances-of-z-axis" class="md-nav__link">
+    Measuring the resonances of Z axis
   </a>
   
 </li>
@@ -1633,7 +1640,7 @@
 <p>கிளிப்பர் ADXL345, MPU-9250, LIS2DW மற்றும் LIS3DH இணக்கமான முடுக்கமானிகளுக்கான உள்ளமைக்கப்பட்ட ஆதரவைக் கொண்டுள்ளது, இவை வெவ்வேறு அச்சுகளுக்கான அச்சுப்பொறியின் அதிர்வு அதிர்வெண்களை அளவிடவும், அதிர்வுகளை ஈடுசெய்ய தானியங்கி-டியூன் <a href="Resonance_Compensation.html">உள்ளீட்டு வடிவங்கள்</a> செய்யவும் பயன்படுத்தப்படலாம். முடுக்கமானிகளைப் பயன்படுத்துவதற்கு சில சாலிடரிங் மற்றும் கிரிம்பிங் தேவை என்பதை நினைவில் கொள்ளவும். ADXL345 ஐ ஒரு ராஸ்பெர்ரி பை அல்லது MCU போர்டின் SPI இடைமுகத்துடன் இணைக்க முடியும் (இது நியாயமான வேகத்தில் இருக்க வேண்டும்). MPU குடும்பத்தை ஒரு ராஸ்பெர்ரி பையின் I2C இடைமுகத்துடன் நேரடியாக இணைக்க முடியும், அல்லது கிளிப்பரில் 400kbit/s <em>வேக பயன்முறையை</em> ஆதரிக்கும் MCU போர்டின் I2C இடைமுகத்துடன் இணைக்க முடியும். மேலே உள்ள அதே பரிசீலனைகளுடன் LIS2DW மற்றும் LIS3DH ஐ SPI அல்லது I2C உடன் இணைக்க முடியும்.</p>
 <p>முடுக்கமானிகளை வளர்க்கும் போது, பல்வேறு வகையான பிசிபி போர்டு வடிவமைப்புகள் மற்றும் அவற்றில் வெவ்வேறு குளோன்கள் உள்ளன என்பதை அறிந்து கொள்ளுங்கள். இது 5 வி அச்சுப்பொறி எம்.சி.யுவுடன் இணைக்கப் போகிறது என்றால், அதில் மின்னழுத்த சீராக்கி மற்றும் நிலை மாற்றிகள் இருப்பதை உறுதிசெய்க.</p>
 <p>ADXL345S க்கு, வாரியம் SPI பயன்முறையை ஆதரிக்கிறது என்பதை உறுதிப்படுத்திக் கொள்ளுங்கள் (SDO ஐ GND க்கு இழுப்பதன் மூலம் I2C க்கு ஒரு சிறிய எண்ணிக்கையிலான பலகைகள் கடுமையாக கட்டமைக்கப்பட்டதாகத் தெரிகிறது).</p>
-<p>MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500/ICM20948S மற்றும் LIS2DW/LIS3DH க்கு பலவிதமான பலகை வடிவமைப்புகள் மற்றும் வெவ்வேறு I2C புல்-அப் மின்தடையங்களுடன் கூடிய குளோன்களும் உள்ளன.</p>
+<p>For MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500/ICM20948s and LIS2DW/LIS3DH there are also a variety of board designs and clones with different I2C pull-up resistors which will need supplementing.</p>
 <h2 id="i2c-mcu">கிளிப்பர் I2C * வேகமான முறை * ஆதரவுடன் MCU கள்<a class="headerlink" href="#i2c-mcu" title="Permanent link">&para;</a></h2>
 <table>
 <thead>
@@ -1662,7 +1669,7 @@
 <tr>
 <td align="center">முதலியன.</td>
 <td align="left">SAMC21G18</td>
-<td align="left">SAMC21G18, SAMD21G18, SAMD21E18, SAMD21J18, SAMD21E15, SAMD51G19, SAMD51J19, SAMD51N19, SAMD51P20, SIME51J19, Soe51N19, Some54P20</td>
+<td align="left">SAMC21G18, SAMD21G18, SAMD21E18, SAMD21J18, SAMD21E15, SAMD51G19, SAMD51J19, SAMD51N19, SAMD51P20, SAME51J19, SAME51N19, SAME54P20</td>
 </tr>
 </tbody>
 </table>
@@ -1711,7 +1718,7 @@
 <td align="center">3.3 வி டிசி ஆற்றல்</td>
 </tr>
 <tr>
-<td align="center">நிலம்</td>
+<td align="center">Gnd</td>
 <td align="center">06</td>
 <td align="center">மைதானம்</td>
 </tr>
@@ -1727,7 +1734,7 @@
 </tr>
 <tr>
 <td align="center">எச்.டி.ஏ.</td>
-<td align="center">௧௯</td>
+<td align="center">19</td>
 <td align="center">GPIO10 (SPI0_MOSI)</td>
 </tr>
 <tr>
@@ -1738,7 +1745,7 @@
 </tbody>
 </table>
 <p>சில ADXL345 பலகைகளுக்கான வயரிங் வரைபடங்களை உருவாக்குதல்:</p>
-<p><img alt="ஏடிஎக்ஸ்எல்345-ஆர்பிஐ" src="img/adxl345-fritzing.png" /></p>
+<p><img alt="எடிஃல்345-ஆர்பிஐ" src="img/adxl345-fritzing.png" /></p>
 <h5 id="_5">ராச்பெர்ரி பை பிக்கோவைப் பயன்படுத்துதல்<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h5>
 <p>நீங்கள் ADXL345 ஐ உங்கள் ராச்பெர்ரி பை பைக்கோவுடன் இணைக்கலாம், பின்னர் பிக்கோவை உங்கள் ராச்பெர்ரி பைவுடன் யூ.எச்.பி வழியாக இணைக்கலாம். இது மற்ற கிளிப்பர் சாதனங்களில் முடுக்கமானியை மீண்டும் பயன்படுத்துவதை எளிதாக்குகிறது, ஏனெனில் நீங்கள் GPIO க்கு பதிலாக யூ.எச்.பி வழியாக இணைக்க முடியும். பிக்கோவுக்கு அதிக செயலாக்க ஆற்றல் இல்லை, எனவே இது முடுக்கமானியை மட்டுமே இயக்குகிறது மற்றும் வேறு எந்த கடமைகளையும் செய்யாது என்பதை உறுதிப்படுத்திக் கொள்ளுங்கள்.</p>
 <p>உங்கள் RPI க்கு சேதம் ஏற்படுவதைத் தவிர்ப்பதற்காக, ADXL345 ஐ 3.3V உடன் மட்டுமே இணைக்கவும். வாரியத்தின் தளவமைப்பைப் பொறுத்து, ஒரு நிலை சிஃப்ட்டர் இருக்கலாம், இது உங்கள் RPI க்கு 5V ஆபத்தானது.</p>
@@ -1757,28 +1764,28 @@
 <td align="center">3.3 வி டிசி ஆற்றல்</td>
 </tr>
 <tr>
-<td align="center">நிலம்</td>
+<td align="center">Gnd</td>
 <td align="center">38</td>
 <td align="center">மைதானம்</td>
 </tr>
 <tr>
 <td align="center">சி.எச்</td>
-<td align="center">௨</td>
+<td align="center">2</td>
 <td align="center">Gp1 (spi0_csn)</td>
 </tr>
 <tr>
 <td align="center">எச்.டி.ஓ</td>
-<td align="center">௧</td>
+<td align="center">1</td>
 <td align="center">Gp0 (spi0_rx)</td>
 </tr>
 <tr>
 <td align="center">எச்.டி.ஏ.</td>
-<td align="center">௫</td>
+<td align="center">5</td>
 <td align="center">Gp3 (spi0_tx)</td>
 </tr>
 <tr>
 <td align="center">எச்.சி.எல்</td>
-<td align="center">௪</td>
+<td align="center">4</td>
 <td align="center">Gp2 (spi0_sck)</td>
 </tr>
 </tbody>
@@ -1816,7 +1823,7 @@
 <td align="center">3.3 வி டிசி ஆற்றல்</td>
 </tr>
 <tr>
-<td align="center">நிலம்</td>
+<td align="center">Gnd</td>
 <td align="center">09</td>
 <td align="center">மைதானம்</td>
 </tr>
@@ -1832,7 +1839,7 @@
 </tr>
 </tbody>
 </table>
-<p>ரிசர்வ் வங்கி SCL மற்றும் SDA இரண்டிலும் 1.8K புல்-அப்களை உள்ளமைக்கப்பட்டுள்ளது.</p>
+<p>The RPi has built-in 1.8K pull-ups on both SCL and SDA.</p>
 <p><img alt="MPU-9250 பை உடன் இணைக்கப்பட்டுள்ளது" src="img/mpu9250-PI-fritzing.png" /></p>
 <p>RP2040 இல் I2C (I2C0A) க்கான பரிந்துரைக்கப்பட்ட இணைப்புத் திட்டம்:</p>
 <table>
@@ -1850,7 +1857,7 @@
 <td align="center">மருத்தீடு</td>
 </tr>
 <tr>
-<td align="center">நிலம்</td>
+<td align="center">Gnd</td>
 <td align="center">38</td>
 <td align="center">மைதானம்</td>
 </tr>
@@ -1867,7 +1874,7 @@
 </tbody>
 </table>
 <p>பைக்கோவில் எந்த உள்ளமைக்கப்பட்ட I2C புல்-அப் மின்தடையங்களும் இல்லை.</p>
-<p><img alt="MPU-9250 பைக்கோவுடன் இணைக்கப்பட்டுள்ளது" src="img/mpu9250-PICO-fritzing.png" /></p>
+<p><img alt="MPU-9250 பிக்கோ உடன் இணைக்கப்பட்டுள்ளது" src="img/mpu9250-PICO-fritzing.png" /></p>
 <h5 id="avr-atmega328p-arduino-i2c-twi">AVR ATMEGA328P Arduino நானோவில் I2C (TWI) க்கான பரிந்துரைக்கப்பட்ட இணைப்பு திட்டம்:<a class="headerlink" href="#avr-atmega328p-arduino-i2c-twi" title="Permanent link">&para;</a></h5>
 <table>
 <thead>
@@ -1886,10 +1893,10 @@
 <td align="center">-</td>
 </tr>
 <tr>
-<td align="center">நிலம்</td>
+<td align="center">Gnd</td>
 <td align="center">38</td>
 <td align="center">மைதானம்</td>
-<td align="center">நிலம்</td>
+<td align="center">Gnd</td>
 </tr>
 <tr>
 <td align="center">எச்.டி.ஏ.</td>
@@ -1909,8 +1916,8 @@
 <h3 id="_6">முடுக்கமானியை ஏற்றுவது<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
 <p>முடுக்கமானி கருவித்தடத்துடன் இணைக்கப்பட வேண்டும். ஒருவர் தங்கள் சொந்த 3D அச்சுப்பொறிக்கு பொருந்தக்கூடிய சரியான ஏற்றத்தை வடிவமைக்க வேண்டும். அச்சுப்பொறியின் அச்சுகளுடன் முடுக்கமானியின் அச்சுகளை சீரமைப்பது நல்லது (ஆனால் அது மிகவும் வசதியானதாக இருந்தால், அச்சுகளை மாற்றலாம் - அதாவது ஃச் அச்சை ஃச் உடன் சீரமைக்க தேவையில்லை - சட் அச்சு என்றாலும் கூட நன்றாக இருக்க வேண்டும் முடுக்கமானி என்பது அச்சுப்பொறியின் ஃச் அச்சு, முதலியன).</p>
 <p>ச்மார்ட்ஃபெக்டரில் ADXL345 ஐ ஏற்றுவதற்கான எடுத்துக்காட்டு:</p>
-<p><img alt="ஸ்மார்ட் எஃபெக்டரில் ஏடிஎக்ஸ்எல்345" src="img/adxl345-mount.jpg" /></p>
-<p>ஒரு படுக்கை ஸ்லிங்கர் பிரிண்டரில் ஒருவர் 2 மவுண்ட்களை வடிவமைக்க வேண்டும் என்பதை நினைவில் கொள்க: ஒன்று கருவித் தலைக்கும் மற்றொன்று படுக்கைக்கும், மேலும் அளவீடுகளை இரண்டு முறை இயக்கவும். மேலும் விவரங்களுக்குத் தொடர்புடைய <a href="#bed-slinger-printers">பிரிவு</a> ஐப் பார்க்கவும்.</p>
+<p><img alt="SmartEffector இல் ADXL345" src="img/adxl345-mount.jpg" /></p>
+<p>ஒரு படுக்கை ச்லிங்கர் அச்சுப்பொறியில் ஒருவர் 2 ஏற்றங்களை வடிவமைக்க வேண்டும் என்பதை நினைவில் கொள்க: ஒன்று கருவிக்கு மற்றும் படுக்கைக்கு ஒன்று, மற்றும் இரண்டு முறை அளவீடுகளை இயக்கவும். மேலும் விவரங்களுக்குத் தொடர்புடைய <a href="#bed-slinger-printers">பிரிவு</a> ஐப் பார்க்கவும்.</p>
 <p><strong> கவனம்: </strong> முடுக்கமானி மற்றும் அதை வைத்திருக்கும் எந்த திருகுகளும் அச்சுப்பொறியின் எந்த உலோக பகுதிகளையும் தொடாது என்பதை உறுதிப்படுத்திக் கொள்ளுங்கள். அடிப்படையில், அச்சுப்பொறி சட்டகத்திலிருந்து முடுக்கமானியின் மின் தனிமைப்படுத்தலை உறுதி செய்வதற்காக மவுண்ட் வடிவமைக்கப்பட வேண்டும். மின்னணுவியல் சேதப்படுத்தக்கூடிய கணினியில் ஒரு தரை வளையத்தை உருவாக்க முடியும் என்பதை உறுதிப்படுத்தத் தவறியது.</p>
 <h3 id="_7">மென்பொருள் நிறுவல்<a class="headerlink" href="#_7" title="Permanent link">&para;</a></h3>
 <p>அதிர்வு அளவீடுகள் மற்றும் சேப்பர் ஆட்டோ-அளவுத்திருத்தத்திற்கு இயல்புநிலையாக நிறுவப்படாத கூடுதல் மென்பொருள் சார்புகள் தேவை என்பதை நினைவில் கொள்க. முதலில், உங்கள் ராச்பெர்ரி பையில் பின்வரும் கட்டளைகளை இயக்கவும்:</p>
@@ -1929,8 +1936,8 @@
 
 <p>சரியான வெளியீடு வெறுமனே ஒரு புதிய வரியாக இருக்க வேண்டும்.</p>
 <h4 id="rpi-adxl345">RPI உடன் ADXL345 ஐ உள்ளமைக்கவும்<a class="headerlink" href="#rpi-adxl345" title="Permanent link">&para;</a></h4>
-<p>முதலில், ராஸ்பெர்ரி பையில் "linux mcu" ஐ அமைக்க <a href="RPi_microcontroller.html">RPi மைக்ரோகண்ட்ரோலர் ஆவணத்தில்</a> உள்ள வழிமுறைகளைச் சரிபார்த்து பின்பற்றவும். இது உங்கள் பையில் இயங்கும் இரண்டாவது கிளிப்பர் நிகழ்வை உள்ளமைக்கும்.</p>
-<p><code>sudo raspi-config</code> ஐ இயக்கி "இடைமுக விருப்பங்கள்" மெனுவின் கீழ் SPI ஐ இயக்குவதன் மூலம் Linux SPI இயக்கி இயக்கப்பட்டுள்ளதா என்பதை உறுதிப்படுத்தவும்.</p>
+<p>முதலில், ராச்பெர்ரி பை மீது "லினக்ச் எம்.சி.யு" ஐ அமைக்க <a href="RPi_microcontroller.html">RPI மைக்ரோகண்ட்ரோலர் ஆவணம்</a> இல் உள்ள வழிமுறைகளைச் சரிபார்த்து பின்பற்றவும். இது உங்கள் பை மீது இயங்கும் இரண்டாவது கிளிப்பர் நிகழ்வை உள்ளமைக்கும்.</p>
+<p><code>சுடோ ராச்பி-கான்ஃபிக்</code> ஐ இயக்குவதன் மூலமும்," இடைமுக விருப்பங்கள் "மெனுவின் கீழ் SPI ஐ இயக்குவதன் மூலமும் லினக்ச் எச்பிஐ இயக்கி இயக்கப்பட்டிருப்பதை உறுதிசெய்க.</p>
 <p>Printur.cfg கோப்பில் பின்வருவனவற்றைச் சேர்க்கவும்:</p>
 <div class="highlight"><pre><span></span><code>[MCU RPI]
  சீரியல்: /tmp /klipper_host_mcu
@@ -1953,12 +1960,12 @@
  மெனுகான்ஃபிக் செய்யுங்கள்
 </code></pre></div>
 
-<p><img alt="பைக்கோ மெனுகான்ஃபிக்" src="img/klipper_pico_menuconfig.png" /></p>
+<p><img alt="பிகோ பட்டியல்கட்டமைப்பு" src="img/klipper_pico_menuconfig.png" /></p>
 <p>இப்போது, பிக்கோவில் <code>பூட்சல்</code> பொத்தானை அழுத்திப் பிடிக்கும்போது, பிக்கோவை யூ.எச்.பி வழியாக ராச்பெர்ரி பைக்கு இணைக்கவும். ஃபார்ம்வேரை தொகுத்து ஒளிரச் செய்யுங்கள்.</p>
 <div class="highlight"><pre><span></span><code>ஃப்ளாச் ஃப்ளாச்_டெவிச் = முதலில் செய்யுங்கள்
 </code></pre></div>
 
-<p>அது தோல்வியடைந்தால், எந்த <code>FLASH_DEVICE</code> ஐப் பயன்படுத்த வேண்டும் என்று உங்களுக்குச் சொல்லப்படும். இந்த எடுத்துக்காட்டில், அது <code>make flash FLASH_DEVICE=2e8a:0003</code>. <img alt="ஃபிளாஷ் சாதனத்தைத் தீர்மானிக்கவும்" src="img/flash_rp2040_FLASH_DEVICE.png" /></p>
+<p>அது தோல்வியுற்றால், எந்த <code>ஃப்ளாச்_டெவிச்</code> பயன்படுத்த வேண்டும் என்று உங்களுக்குத் தெரிவிக்கப்படும். இந்த எடுத்துக்காட்டில், இது <code>ஃப்ளாச் ஃப்ளாச்_டெவிச் = 2e8a: 0003</code> ஐ உருவாக்குங்கள். <img alt="மின்னல் இயக்கியைக் கண்டுபிடி" src="img/flash_rp2040_FLASH_DEVICE.png" /></p>
 <h5 id="_9">இணைப்பை உள்ளமைக்கவும்<a class="headerlink" href="#_9" title="Permanent link">&para;</a></h5>
 <p>PICO இப்போது புதிய ஃபார்ம்வேருடன் மறுதொடக்கம் செய்யும், மேலும் இது ஒரு தொடர் சாதனமாகக் காண்பிக்கப்பட வேண்டும். <code>Ls/dev/serial/by-id/*</code> உடன் பைக்கோ தொடர் சாதனத்தைக் கண்டறியவும். நீங்கள் இப்போது பின்வரும் அமைப்புகளுடன் <code>adxl.cfg</code> கோப்பைச் சேர்க்கலாம்:</p>
 <div class="highlight"><pre><span></span><code>[MCU ADXL]
@@ -2005,7 +2012,7 @@
 </code></pre></div>
 
 <h4 id="rpi-mpu-60009000">RPI உடன் MPU-6000/9000 தொடரை உள்ளமைக்கவும்<a class="headerlink" href="#rpi-mpu-60009000" title="Permanent link">&para;</a></h4>
-<p>Linux I2C இயக்கி இயக்கப்பட்டிருப்பதையும், பாட் விகிதம் 400000 ஆக அமைக்கப்பட்டுள்ளதையும் உறுதிசெய்து கொள்ளுங்கள் (மேலும் விவரங்களுக்கு <a href="RPi_microcontroller.html#optional-enabling-i2c">I2C ஐ இயக்குதல்</a> பகுதியைப் பார்க்கவும்). பின்னர், printer.cfg இல் பின்வருவனவற்றைச் சேர்க்கவும்:</p>
+<p>Linux I2C இயக்கி இயக்கப்பட்டிருப்பதையும், பாட் விகிதம் 400000 ஆக அமைக்கப்பட்டுள்ளதையும் உறுதிசெய்து கொள்ளுங்கள் (மேலும் விவரங்களுக்கு <a href="RPi_microcontroller.html#optional-enabling-i2c">I2C ஐ இயக்குதல்</a> பகுதியைப் பார்க்கவும்). பின்னர், printer.cfg இல் பின்வருவனவற்றைச் சேர்:</p>
 <div class="highlight"><pre><span></span><code>[MCU RPI]
  சீரியல்: /tmp /klipper_host_mcu
 
@@ -2019,7 +2026,7 @@
  100, 100, 20 # ஒரு எடுத்துக்காட்டு
 </code></pre></div>
 
-<p>நீங்கள் ICM20948 ஐப் பயன்படுத்துகிறீர்கள் என்றால், "MPU9250" இன் நிகழ்வுகளை "ICM20948" உடன் மாற்றவும்.</p>
+<p>If you are using the ICM20948, replace instances of "mpu9250" with "icm20948".</p>
 <h4 id="mpu-9520">MPU-9520 ஐ பைக்கோவுடன் இணக்கமாக உள்ளமைக்கவும்<a class="headerlink" href="#mpu-9520" title="Permanent link">&para;</a></h4>
 <p>பிக்கோ ஐ 2 சி இயல்புநிலையாக 400000 ஆக அமைக்கப்பட்டுள்ளது. அச்சுப்பொறியில் பின்வருவனவற்றைச் சேர்க்கவும். Cfg:</p>
 <div class="highlight"><pre><span></span><code>[MCU பைக்கோ]
@@ -2038,7 +2045,7 @@
  பின்ச்: பிக்கோ: GPIO23
 </code></pre></div>
 
-<p>நீங்கள் ICM20948 ஐப் பயன்படுத்துகிறீர்கள் என்றால், "MPU9250" இன் நிகழ்வுகளை "ICM20948" உடன் மாற்றவும்.</p>
+<p>If you are using the ICM20948, replace instances of "mpu9250" with "icm20948".</p>
 <h4 id="avr-mpu-9520">AVR உடன் இணக்கமான MPU-9520 ஐ உள்ளமைக்கவும்<a class="headerlink" href="#avr-mpu-9520" title="Permanent link">&para;</a></h4>
 <p>AVR I2C MPU9250 விருப்பத்தால் 400000 ஆக அமைக்கப்படும். அச்சுப்பொறியில் பின்வருவனவற்றைச் சேர்க்கவும். Cfg:</p>
 <div class="highlight"><pre><span></span><code>[MCU நானோ]
@@ -2053,14 +2060,14 @@
  100, 100, 20 # ஒரு எடுத்துக்காட்டு
 </code></pre></div>
 
-<p>நீங்கள் ICM20948 ஐப் பயன்படுத்துகிறீர்கள் என்றால், "MPU9250" இன் நிகழ்வுகளை "ICM20948" உடன் மாற்றவும்.</p>
+<p>If you are using the ICM20948, replace instances of "mpu9250" with "icm20948".</p>
 <p><code>மறுதொடக்கம்</code> கட்டளை வழியாக கிளிப்பரை மறுதொடக்கம் செய்யுங்கள்.</p>
 <h2 id="_10">அதிர்வுகளை அளவிடுதல்<a class="headerlink" href="#_10" title="Permanent link">&para;</a></h2>
 <h3 id="_11">அமைப்பைச் சரிபார்க்கிறது<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h3>
 <p>இப்போது நீங்கள் ஒரு இணைப்பை சோதிக்கலாம்.</p>
 <ul>
 <li>"படுக்கை-ச்லிங்கர்ச் அல்லாதவர்கள்" (எ.கா. ஒரு முடுக்கமானி), ஆக்டோப்ரின்ட்டில், <code>முடுக்கமானி_ குவேரி</code> ஐ உள்ளிடவும்</li>
-<li>"bed-slingers" (எ.கா. ஒன்றுக்கு மேற்பட்ட முடுக்கமானி) என்பதற்கு, <code>ACCELEROMETER_QUERY CHIP=&lt;chip&gt;</code> ஐ உள்ளிடவும், இங்கு <code>&lt;chip&gt;</code> என்பது உள்ளிடப்பட்ட சிப்பின் பெயர், எ.கா. நிறுவப்பட்ட அனைத்து முடுக்கமானி சில்லுகளுக்கும் <code>CHIP=bed</code> (பார்க்க: <a href="#bed-slinger-printers">bed-slinger</a>).</li>
+<li>"படுக்கையில் தூங்குபவர்கள்" (எ.கா. ஒன்றுக்கு மேற்பட்ட முடுக்கமானி) என்பதற்கு, <code>ACCELEROMETER_QUERY CHIP=&lt;chip&gt;</code> ஐ உள்ளிடவும், இங்கு <code>&lt;chip&gt;</code> என்பது உள்ளிடப்பட்ட சிப்பின் பெயர், எ.கா. நிறுவப்பட்ட அனைத்து முடுக்கமானி சில்லுகளுக்கும் <code>CHIP=bed</code> (பார்க்க: <a href="#bed-slinger-printers">படுக்கையில் தூங்குபவர்</a>).</li>
 </ul>
 <p>ஃப்ரீ-வீழ்ச்சி முடுக்கம் உட்பட முடுக்கமானிலிருந்து தற்போதைய அளவீடுகளை நீங்கள் காண வேண்டும், எ.கா.</p>
 <div class="highlight"><pre><span></span><code>Recv: // adxl345 மதிப்புகள் (x, ஒய், z): 470.719200, 941.438400, 9728.196800
@@ -2075,7 +2082,7 @@
 </code></pre></div>
 
 <p>இது ஃச் அச்சில் அதிர்வுகளை உருவாக்கும் என்பதை நினைவில் கொள்க. இது முன்னர் இயக்கப்பட்டிருந்தால் உள்ளீட்டு வடிவமைப்பை முடக்கிவிடும், ஏனெனில் உள்ளீட்டு சேப்பருடன் அதிர்வு சோதனையை இயக்குவது செல்லுபடியாகாது.</p>
-<p><strong>கவனம்!</strong> அதிர்வுகள் மிகவும் வன்முறையாக மாறாமல் இருக்க, முதல் முறையாக அச்சுப்பொறியைக் கவனிக்க மறக்காதீர்கள் (அவசரகாலத்தில் சோதனையை நிறுத்த <code>M112</code> கட்டளையைப் பயன்படுத்தலாம்; இருப்பினும் இது வராது என்று நம்புகிறேன்). அதிர்வுகள் மிகவும் வலுவாக இருந்தால், <code>[resonance_tester]</code> பிரிவில் <code>accel_per_hz</code> அளவுருவுக்கு இயல்புநிலை மதிப்பை விடக் குறைவானதைக் குறிப்பிட முயற்சி செய்யலாம், எ.கா.</p>
+<p><strong>கவனம்!</strong> அதிர்வுகள் மிகவும் வன்முறையாக மாறாமல் இருக்க, முதல் முறையாக அச்சுப்பொறியைக் கவனிக்க மறக்காதீர்கள் (அவசரகாலத்தில் சோதனையை நிறுத்த <code>M112</code> கட்டளையைப் பயன்படுத்தலாம்; இருப்பினும் இது வராது என்று நம்புகிறேன்). அதிர்வுகள் மிகவும் வலுவாக இருந்தால், <code>accel_per_hz</code> அளவுருவுக்கு <code>[resonance_tester]</code> பிரிவில் இயல்புநிலை மதிப்பைவிடக் குறைவானதைக் குறிப்பிட முயற்சி செய்யலாம், எ.கா.</p>
 <div class="highlight"><pre><span></span><code>[அதிர்வு_டெச்டர்]
  Act_chip: ADXL345
  Act_per_HZ: 50 # இயல்புநிலை 75 ஆகும்
@@ -2137,7 +2144,7 @@
  probet_points: ...
 </code></pre></div>
 
-<p>இரண்டு MPUக்கள் ஒரு I2C பஸ்ஸைப் பகிர்ந்து கொள்ளலாம், ஆனால் 400kbit/s I2C பஸ் போதுமான வேகத்தில் <strong>இல்லாததால்</strong> அவை ஒரே நேரத்தில் அளவிட முடியாது. ஒன்றின் AD0 பின்னை 0V (முகவரி 104) ஆகவும், மற்றொன்றின் AD0 பின்னை 3.3V (முகவரி 105) ஆகவும் இழுக்க வேண்டும்:</p>
+<p>இரண்டு MPUக்கள் ஒரு I2C பச்சைப் பகிர்ந்து கொள்ளலாம், ஆனால் 400kbit/s I2C பஸ் போதுமான வேகத்தில் இல்லாததால் அவை ஒரே நேரத்தில் அளவிட <strong>முடியாது</strong>. ஒன்றின் AD0 பின்னை 0V (முகவரி 104) ஆகவும், மற்றொன்றின் AD0 பின்னை 3.3V (முகவரி 105) ஆகவும் இழுக்க வேண்டும்:</p>
 <div class="highlight"><pre><span></span><code>[MPU9250 HOTEND]
  I2C_MCU: RPI
  I2C_BUS: I2C.1
@@ -2174,7 +2181,7 @@
  பரிந்துரைக்கப்பட்ட சேப்பர் 2hump_ei @ 45.2 எர்ட்ச்
 </code></pre></div>
 
-<p>அறிக்கையிடப்பட்ட <code>மென்மையான</code> மதிப்புகள் சில சுருக்கமான திட்டமிடப்பட்ட மதிப்புகள் என்பதை நினைவில் கொள்க. வெவ்வேறு உள்ளமைவுகளை ஒப்பிட்டுப் பார்க்க இந்த மதிப்புகள் பயன்படுத்தப்படலாம்: அதிக மதிப்பு, ஒரு சேப்பரை மிகவும் மென்மையாக்கும். இருப்பினும், இந்த மென்மையான மதிப்பெண்கள் எந்தவொரு உண்மையான அளவையும் குறிக்கவில்லை, ஏனெனில் உண்மையான மென்மையானது <a href="#selecting-max-accel"><code>Max_accel</code></a> மற்றும் <code>ச்கொயர்_கார்னர்_வெலோசிட்டி</code> அளவுருக்களைப் பொறுத்தது. ஆகையால், தேர்ந்தெடுக்கப்பட்ட உள்ளமைவு எவ்வளவு மென்மையாக்குகிறது என்பதைக் காண சில சோதனை அச்சிட்டுகளை அச்சிட வேண்டும்.</p>
+<p>அறிக்கையிடப்பட்ட <code>மென்மையான</code> மதிப்புகள் சில சுருக்கமான திட்டமிடப்பட்ட மதிப்புகள் என்பதை நினைவில் கொள்க. வெவ்வேறு உள்ளமைவுகளை ஒப்பிட்டுப் பார்க்க இந்த மதிப்புகள் பயன்படுத்தப்படலாம்: அதிக மதிப்பு, ஒரு சேப்பரை மிகவும் மென்மையாக்கும். இருப்பினும், இந்த மென்மையான மதிப்பெண்கள் எந்தவொரு உண்மையான அளவையும் குறிக்கவில்லை, ஏனெனில் உண்மையான மென்மையானது <a href="#selecting-max-accel"><code>Max_accel</code></a> மற்றும்<code>ச்கொயர்_கார்னர்_வெலோசிட்டி</code> அளவுருக்களைப் பொறுத்தது. ஆகையால், தேர்ந்தெடுக்கப்பட்ட உள்ளமைவு எவ்வளவு மென்மையாக்குகிறது என்பதைக் காண சில சோதனை அச்சிட்டுகளை அச்சிட வேண்டும்.</p>
 <p>பரிந்துரைக்கப்பட்ட சேப்பர் அளவுருக்கள் மோசமானவை அல்ல, ஆனால் ஃச் அச்சில் குறைவாக மென்மையாக்க விரும்பினால் என்ன செய்வது? பின்வரும் கட்டளையைப் பயன்படுத்தி அதிகபட்ச சேப்பர் மென்மையாக்கலை கட்டுப்படுத்த முயற்சி செய்யலாம்:</p>
 <div class="highlight"><pre><span></span><code>~/klipper/scripts/அளவீடுகள்_சேப்பர்
 </code></pre></div>
@@ -2204,9 +2211,9 @@
 </code></pre></div>
 
 <p>பின்னர், எதிர்காலத்தில் <code>SHAPER_CALIBRATE</code> Klipper கட்டளையைப் பயன்படுத்தி உள்ளீட்டு வடிவிலான தானியங்கி-சரிப்படுத்தும் முறையை <a href="#input-shaper-re-calibration">மீண்டும் இயக்கினால்</a>, அது சேமிக்கப்பட்ட <code>max_smoothing</code> மதிப்பை ஒரு குறிப்பாகப் பயன்படுத்தும்.</p>
-<h3 id="max_accel">max_accel ஐத் தேர்ந்தெடுக்கிறது<a class="headerlink" href="#max_accel" title="Permanent link">&para;</a></h3>
+<h3 id="max_accel">Max_accel ஐத் தேர்ந்தெடுக்கும்<a class="headerlink" href="#max_accel" title="Permanent link">&para;</a></h3>
 <p>உள்ளீட்டு சேப்பர் பகுதிகளில் சில மென்மையாக்கத்தை உருவாக்க முடியும் என்பதால், குறிப்பாக அதிக முடுக்கம் கொண்ட நிலையில், அச்சிடப்பட்ட பகுதிகளில் அதிக மென்மையாக்கப்படாத <code>மேக்ச்_செல்</code> மதிப்பை நீங்கள் இன்னும் தேர்வு செய்ய வேண்டும். ஒரு அளவுத்திருத்த ச்கிரிப்ட் <code>max_accel</code> அளவுருவுக்கான மதிப்பீட்டை வழங்குகிறது, இது அதிக மென்மையாக்கக்கூடாது. அளவுத்திருத்த ச்கிரிப்டால் காட்டப்படும் <code>மேக்ச்_செல்</code> ஒரு தத்துவார்த்த அதிகபட்சம் மட்டுமே என்பதை நினைவில் கொள்க, அந்தந்த சேப்பர் இன்னும் அதிக மென்மையாக்காமல் வேலை செய்ய முடிகிறது. அச்சிடுவதற்கு இந்த முடுக்கம் அமைப்பதற்கான பரிந்துரை இல்லை. உங்கள் அச்சுப்பொறி தக்கவைக்கக்கூடிய அதிகபட்ச முடுக்கம் அதன் இயந்திர பண்புகள் மற்றும் பயன்படுத்தப்பட்ட ச்டெப்பர் மோட்டார்கள் அதிகபட்ச முறுக்கு ஆகியவற்றைப் பொறுத்தது. ஆகையால், <code>Max_accel`` [அச்சுப்பொறி]</code>எக்ச் மற்றும் ஒய் அச்சுகளுக்கான மதிப்பிடப்பட்ட மதிப்புகளைத் தாண்டாத பிரிவில் அமைக்க பரிந்துரைக்கப்படுகிறது, இது சில பழமைவாத பாதுகாப்பு விளிம்புடன் இருக்கலாம்.</p>
-<p>மாற்றாக, உள்ளீட்டு வடிவ சரிப்படுத்தும் வழிகாட்டியின் <a href="Resonance_Compensation.html#selecting-max_accel">இந்த</a> பகுதியைப் பின்பற்றி, <code>max_accel</code> அளவுருவை சோதனை ரீதியாகத் தேர்வுசெய்ய சோதனை மாதிரியை அச்சிடவும்.</p>
+<p>மாற்றாக, உள்ளீட்டு வடிவ சரிப்படுத்தும் வழிகாட்டியின் <a href="Resonance_Compensation.html#selecting-max_accel">இந்தப்</a> பகுதியைப் பின்பற்றி, <code>max_accel</code> அளவுருவைச் சோதனை ரீதியாகத் தேர்வுசெய்ய சோதனை மாதிரியை அச்சிடவும்.</p>
 <p><code>SHAPER_CALIBRATE</code> கட்டளையுடன் உள்ளீட்டு வடிவிலான <a href="#input-shaper-auto-calibration">தானியங்கி-அளவீட்டு</a> க்கும் இதே அறிவிப்பு பொருந்தும்: தானியங்கி-அளவீட்டுக்குப் பிறகு சரியான <code>max_accel</code> மதிப்பைத் தேர்ந்தெடுப்பது இன்னும் அவசியம், மேலும் பரிந்துரைக்கப்பட்ட முடுக்க வரம்புகள் தானாகவே பயன்படுத்தப்படாது.</p>
 <p>அதிக மென்மையாக்காமல் அதிகபட்ச முடுக்கம் <code>சதுர_கார்னர்_வெலோசிட்டி</code> ஐப் பொறுத்தது என்பதை நினைவில் கொள்ளுங்கள். பொதுவான பரிந்துரை அதன் இயல்புநிலை மதிப்பு 5.0 இலிருந்து அதை மாற்றக்கூடாது, இது இயல்புநிலையாக <code>அளவீடுகள்_சேப்பர்.பி</code> ச்கிரிப்ட் மூலம் பயன்படுத்தப்படும் மதிப்பு. நீங்கள் அதை மாற்றினால், <code>--சதுர_கார்ன்_வெலோசிட்டி = ...</code> அளவுரு, எ.கா.</p>
 <div class="highlight"><pre><span></span><code>~/klipper/scripts/அளவீடுகள்_சேப்பர்
@@ -2214,6 +2221,58 @@
 
 <p>இதனால் அதிகபட்ச முடுக்கம் பரிந்துரைகளை சரியாக கணக்கிட முடியும். <code>சேப்பர்_லிபிரேட்</code> கட்டளை ஏற்கனவே கட்டமைக்கப்பட்ட<code>சதுர_கார்ன்_வெலோசிட்டி</code> அளவுருவை கணக்கில் எடுத்துக்கொள்கிறது, அதை வெளிப்படையாகக் குறிப்பிட வேண்டிய அவசியமில்லை என்பதை நினைவில் கொள்க.</p>
 <p>நீங்கள் ஒரு சேப்பர் மறு அளவுத்திருத்தத்தை செய்கிறீர்கள் மற்றும் பரிந்துரைக்கப்பட்ட சேப்பர் உள்ளமைவுக்கு மென்மையாக்கப்படுவது முந்தைய அளவுத்திருத்தத்தின் போது உங்களுக்கு கிடைத்ததைப் போலவே இருக்கும் என்றால், இந்த நடவடிக்கையைத் தவிர்க்கலாம்.</p>
+<h3 id="measuring-the-resonances-of-z-axis">Measuring the resonances of Z axis<a class="headerlink" href="#measuring-the-resonances-of-z-axis" title="Permanent link">&para;</a></h3>
+<p>Measuring the resonances of Z axis is similar in many aspects to measuring resonances of X and Y axes, with some subtle differences. Similarly to other axes measurements, you will need to have an accelerometer mounted on the moving parts of Z axis - either the bed itself (if the bed moves over Z axis), or the toolhead (if the toolhead/gantry moves over Z). You will need to add the appropriate chip configuration to <code>printer.cfg</code> and also add it to <code>[resonance_tester]</code> section, e.g.</p>
+<div class="highlight"><pre><span></span><code>[resonance_tester]
+accel_chip_z: &lt;accelerometer full name&gt;
+</code></pre></div>
+
+<p>Also make sure that <code>probe_points</code> configured in <code>[resonance_tester]</code> allow sufficient clearance for Z axis movements (20 mm above bed surface should provide enough clearance with the default test parameters).</p>
+<p>The next consideration is that Z axis can typically reach lower maximum speeds and accelerations that X and Y axes. Default parameters of the test take that into consideration and are much less agressive, but it may still be necessary to increase <code>max_z_accel</code> and <code>max_z_velocity</code>. If you have them configured in <code>[printer]</code> section, make sure to set them to at least</p>
+<div class="highlight"><pre><span></span><code>[printer]
+max_z_velocity: 20
+max_z_accel: 1550
+</code></pre></div>
+
+<p>but only for the duration of the test, afterwards you can revert them back to their original values if necessary. And if you use custom test parameters for Z axis, <code>TEST_RESONANCES</code> and <code>SHAPER_CALIBRATE</code> will provide the minimum required limits if necessary for your specific case.</p>
+<p>After all changes to <code>printer.cfg</code> have been made, restart Klipper and run either</p>
+<div class="highlight"><pre><span></span><code>TEST_RESONANCES AXIS=Z
+</code></pre></div>
+
+<p>or</p>
+<div class="highlight"><pre><span></span><code>SHAPER_CALIBRATE AXIS=Z
+</code></pre></div>
+
+<p>and proceed from there accordingly how you would for other axes. For example, after <code>TEST_RESONANCES</code> command you can run <code>calibrate_shaper.py</code> script and get shaper recommendations and the chart of resonance response:</p>
+<p><img alt="Resonances" src="img/calibrate-z.png" /></p>
+<p>After the calibration, the shaper parameters can be stored in the <code>printer.cfg</code>, e.g. from the example above:</p>
+<div class="highlight"><pre><span></span><code>[input_shaper]
+...
+shaper_type_z: mzv
+shaper_freq_z: 42.6
+</code></pre></div>
+
+<p>Also, given the movements of Z axis are slow, you can easily consider more aggressive input shapers, e.g.</p>
+<div class="highlight"><pre><span></span><code>[input_shaper]
+...
+shaper_type_z: 2hump_ei
+shaper_freq_z: 63.0
+</code></pre></div>
+
+<p>If the test produces bogus results, you may try to increase <code>accel_per_hz_z</code> parameter in <code>[resonance_tester]</code> from its default value 15 to a larger value in the range of 20-30, e.g.</p>
+<div class="highlight"><pre><span></span><code>[resonance_tester]
+accel_per_hz_z: 25
+</code></pre></div>
+
+<p>and repeat the test. Increasing this value will likely require increasing <code>max_z_accel</code> and <code>max_z_velocity</code> parameters as well. You can run <code>TEST_RESONANCES AXIS=Z</code> command to get the required minimum values.</p>
+<p>However, if you are unable to measure the resonances of Z axis, you can consider just using</p>
+<div class="highlight"><pre><span></span><code>[input_shaper]
+...
+shaper_type_z: 3hump_ei
+shaper_freq_z: 65
+</code></pre></div>
+
+<p>as an acceptable all-round choice, given that the smoothing of Z axis movements is not of particular concerns.</p>
 <h3 id="_14">அதிர்வு அதிர்வெண்களின் நம்பமுடியாத அளவீடுகள்<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h3>
 <p>சில நேரங்களில் அதிர்வு அளவீடுகள் போலி முடிவுகளை உருவாக்கக்கூடும், இது உள்ளீட்டு வடிவங்களுக்கான தவறான பரிந்துரைகளுக்கு வழிவகுக்கும். கருவித்தொகுப்பில் ரசிகர்களை இயக்குவது, தவறான நிலை அல்லது முடுக்கமானியின் கடுமையான அல்லாத பெருகுவது அல்லது தளர்வான பெல்ட்கள் அல்லது பிணைப்பு அல்லது சமதளம் கொண்ட அச்சு போன்ற இயந்திர சிக்கல்கள் உள்ளிட்ட பல்வேறு காரணங்களால் இது ஏற்படலாம். அனைத்து ரசிகர்களும் அதிர்வு சோதனைக்கு முடக்கப்பட வேண்டும் என்பதை நினைவில் கொள்ளுங்கள், குறிப்பாக சத்தமில்லாதவை, மற்றும் அதனுடன் தொடர்புடைய நகரும் பகுதியில் (எ.கா. படுக்கையில் படுக்கையில், அல்லது அச்சுப்பொறியின் எக்ச்ட்ரூடரில் படுக்கையில், மற்றும் சில நபர்கள் அச்சுறுத்தலை அச்சுறுத்துவதன் மூலம் சிறந்த முடிவுகளைப் பெறுகிறார்கள்). இயந்திர சிக்கல்களைப் பொறுத்தவரை, நகரும் அச்சுடன் சரி செய்யக்கூடிய ஏதேனும் தவறு இருந்தால் பயனர் ஆய்வு செய்ய வேண்டும் (எ.கா. நேரியல் வழிகாட்டி தண்டவாளங்கள் தூய்மை செய்யப்பட்டு உயவூட்டப்பட்ட மற்றும் வி-ச்லாட் சக்கரங்கள் பதற்றம் சரியாக சரிசெய்யப்படுகின்றன). அது எதுவும் உதவவில்லை என்றால், ஒரு பயனர் இயல்புநிலையாக பரிந்துரைக்கப்பட்டதைத் தவிர தயாரிக்கப்பட்ட பட்டியலிலிருந்து மற்ற சேப்பர்களை முயற்சி செய்யலாம்.</p>
 <h3 id="_15">தனிப்பயன் அச்சுகளை சோதித்தல்<a class="headerlink" href="#_15" title="Permanent link">&para;</a></h3>
@@ -2227,7 +2286,7 @@
 <div class="highlight"><pre><span></span><code>~/klipper/scripts/brack_acceleromer.py -c /tmp/raw_data_axis*.csv -o /tmp/resonances.png
 </code></pre></div>
 
-<p>இது ஒத்ததிர்வுகளை ஒப்பிட்டு <code>/tmp/resonances.png</code> ஐ உருவாக்கும்.</p>
+<p>இது அதிர்வுகளை ஒப்பிடுகையில் <code>/tmp/அதிர்வுகள்.png</code> உருவாக்கும்.</p>
 <p>இயல்புநிலை கோபுர வேலைவாய்ப்புடன் டெல்டா அச்சுப்பொறிகளுக்கு (கோபுரம் A ~ = 210 டிகிரி, பி ~ = 330 டிகிரி மற்றும் சி ~ = 90 டிகிரி), இயக்கவும்</p>
 <div class="highlight"><pre><span></span><code>Test_resonances அச்சு = 0,1 வெளியீடு = RAW_DATA
  Test_resonances அச்சு = -0.866025404, -0.5 வெளியீடு = RAW_DATA
@@ -2259,7 +2318,7 @@
  பரிந்துரைக்கப்பட்ட Shaper_type_y = MZV, சேப்பர்_ஃப்ரெக்_ஒய் = 36.8 எர்ட்ச்
 </code></pre></div>
 
-<p>பரிந்துரைக்கப்பட்ட அளவுருக்களுடன் நீங்கள் உடன்பட்டால், அவற்றைச் சேமித்து கிளிப்பரை மறுதொடக்கம் செய்ய நீங்கள் இப்போது <code>SAVE_CONFIG</code> ஐ இயக்கலாம். இது <code>[printer]</code> பிரிவில் <code>max_accel</code> மதிப்பைப் புதுப்பிக்காது என்பதை நினைவில் கொள்ளவும். <a href="#selecting-max_accel">Selecting max_accel</a> பிரிவில் உள்ள பரிசீலனைகளைப் பின்பற்றி நீங்கள் அதைக் கைமுறையாகப் புதுப்பிக்க வேண்டும்.</p>
+<p>பரிந்துரைக்கப்பட்ட அளவுருக்களுடன் நீங்கள் உடன்பட்டால், அவற்றைச் சேமித்து கிளிப்பரை மறுதொடக்கம் செய்ய நீங்கள் இப்போது <code>SAVE_CONFIG</code> ஐ இயக்கலாம். இது <code>[printer]</code> பிரிவில் <code>max_accel</code> மதிப்பைப் புதுப்பிக்காது என்பதை நினைவில் கொள்ளவும். <a href="#selecting-max_accel">Selecting max_accel</a> பிரிவில் உள்ள பரிசீலனைகளைப் பின்பற்றி நீங்கள் அதை கைமுறையாகப் புதுப்பிக்க வேண்டும்.</p>
 <p>உங்கள் அச்சுப்பொறி ஒரு படுக்கை ச்லிங்கர் அச்சுப்பொறியாக இருந்தால், எந்த அச்சை சோதிக்க வேண்டும் என்பதை நீங்கள் குறிப்பிடலாம், இதன் மூலம் சோதனைகளுக்கு இடையில் முடுக்கமானி பெருகிவரும் புள்ளியை மாற்றலாம் (இயல்புநிலையாக இரண்டு அச்சுகளுக்கும் சோதனை செய்யப்படுகிறது):</p>
 <div class="highlight"><pre><span></span><code>Shaper_calibrate அச்சு = ஒய்
 </code></pre></div>
@@ -2280,7 +2339,7 @@
 </code></pre></div>
 
 <p><code>set_input_shaper</code> கட்டளைக்கான ஏதேனும் பிழைகள் புறக்கணித்தல். <code>Test_resonances</code> கட்டளைக்கு, விரும்பிய சோதனை அச்சைக் குறிப்பிடவும். மூல தரவு RPI இல் <code>/tmp</code> கோப்பகத்தில் எழுதப்படும்.</p>
-<p>சில சாதாரண அச்சுப்பொறி செயல்பாட்டின் போது <code>ACCELEROMETER_MEASURE</code> கட்டளையை இரண்டு முறை இயக்குவதன் மூலமும் மூலத் தரவைப் பெறலாம் - முதலில் அளவீடுகளைத் தொடங்கவும், பின்னர் அவற்றை நிறுத்தி வெளியீட்டு கோப்பை எழுதவும். மேலும் விவரங்களுக்கு <a href="G-Codes.html#adxl345">G-Codes</a> ஐப் பார்க்கவும்.</p>
+<p>சில சாதாரண அச்சுப்பொறி செயல்பாட்டின்போது <code>முடுக்கமானி_மேசர்</code> கட்டளையை இரண்டு முறை இயக்குவதன் மூலமும் மூல தரவைப் பெறலாம் - முதலில் அளவீடுகளைத் தொடங்கவும், பின்னர் அவற்றை நிறுத்தி வெளியீட்டு கோப்பை எழுதவும். மேலும் விவரங்களுக்கு <a href="G-Codes.html#adxl345">சி-குறியீடுகள்</a> ஐப் பார்க்கவும்.</p>
 <p>பின்வரும் ச்கிரிப்ட்களால் தரவை பின்னர் செயலாக்க முடியும்: <code>ச்கிரிப்ட்கள்/வரைபடம்_சிலெரோமீட்டர்.பை</code> மற்றும்<code>ச்கிரிப்டுகள்/அளவீடு_சேப்பர்.பை</code>. அவை இரண்டும் ஒன்று அல்லது பல மூல சி.எச்.வி கோப்புகளை பயன்முறையைப் பொறுத்து உள்ளீடாக ஏற்றுக்கொள்கின்றன. வரைபடம்_சிலெரோமீட்டர்.பி ச்கிரிப்ட் பல செயல்பாட்டு முறைகளை ஆதரிக்கிறது:</p>
 <ul>
 <li>மூல முடுக்கமானி தரவைத் திட்டமிடுவது (<code>-r</code> அளவுருவைப் பயன்படுத்தவும்), 1 உள்ளீடு மட்டுமே ஆதரிக்கப்படுகிறது;</li>
@@ -2288,7 +2347,7 @@
 <li>பல உள்ளீடுகளுக்கு இடையிலான அதிர்வெண் பதிலின் ஒப்பீடு (<code>-c</code> அளவுருவைப் பயன்படுத்தவும்); <code>-a x</code>,<code>-a y</code> அல்லது <code>-a Z</code> அளவுரு வழியாக எந்த முடுக்கமானி அச்சு கருத்தில் கொள்ள வேண்டும் என்பதை நீங்கள் கூடுதலாக குறிப்பிடலாம் (எதுவும் குறிப்பிடப்படவில்லை என்றால், எல்லா அச்சுகளுக்கும் அதிர்வுகளின் தொகை பயன்படுத்தப்படுகிறது);</li>
 <li>ச்பெக்ட்ரோகிராம் சூழ்ச்சி (<code>-s</code> அளவுருவைப் பயன்படுத்தவும்), 1 உள்ளீடு மட்டுமே ஆதரிக்கப்படுகிறது; <code>-a x</code>,<code>-a y</code> அல்லது <code>-a Z</code> அளவுரு வழியாக எந்த முடுக்கமானி அச்சு கருத்தில் கொள்ள வேண்டும் என்பதை நீங்கள் கூடுதலாக குறிப்பிடலாம் (எதுவும் குறிப்பிடப்படவில்லை என்றால், எல்லா அச்சுகளுக்கும் அதிர்வுகளின் தொகை பயன்படுத்தப்படுகிறது).</li>
 </ul>
-<p>graph_accelerometer.py ஸ்கிரிப்ட் raw_data*.csv கோப்புகளை மட்டுமே ஆதரிக்கிறது, resonances*.csv அல்லது calibration_data*.csv கோப்புகளை ஆதரிக்காது என்பதை நினைவில் கொள்ளவும்.</p>
+<p>graph_accelerometer.py கைஉரை raw_data*.csv கோப்புகளை மட்டுமே ஆதரிக்கிறது, resonances*.csv அல்லது calibration_data*.csv கோப்புகளை ஆதரிக்காது என்பதை நினைவில் கொள்ளவும்.</p>
 <p>உதாரணமாக,</p>
 <div class="highlight"><pre><span></span><code>~/klipper/scripts/brack_accelerometer.py /tmp/raw_data_x_*.csv -o /tmp/resonances_x.png -c -a சட்
 </code></pre></div>
