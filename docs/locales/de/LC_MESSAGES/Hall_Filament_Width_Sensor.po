@@ -29,9 +29,13 @@ msgstr "Kalibrierungs Prozedur"
 
 msgid "Insert first calibration rod (1.5 mm size) get first raw sensor value"
 msgstr ""
+"Setzen Sie den ersten Kalibrierstab (Größe 1,5 mm) ein und ermitteln Sie den "
+"ersten Sensor-Rohwert"
 
 msgid "Insert second calibration rod (2.0 mm size) get second raw sensor value"
 msgstr ""
+"Setzen Sie den zweiten Kalibrierstab (Größe 2,0 mm) ein und ermitteln Sie "
+"den zweiten Sensor-Rohwert"
 
 msgid "How to enable sensor"
 msgstr "So aktivieren Sie den Sensor"
@@ -46,6 +50,8 @@ msgstr "Filament-Dicken Hallsensor"
 #: docs/HallFilamentWidthSensor.md:block 24 (ordered list)
 msgid "Save raw sensor values in config parameter `Raw_dia1` and `Raw_dia2`"
 msgstr ""
+"Speichern Sie die Sensor-Rohwerte in den Konfigurationsparametern `Raw_dia1` "
+"und `Raw_dia2`"
 
 #: docs/HallFilamentWidthSensor.md:block 26 (paragraph)
 msgid "By default, the sensor is disabled at power-on."
@@ -62,11 +68,17 @@ msgid ""
 "**DISABLE_FILAMENT_WIDTH_LOG** command to stop logging. To enable logging at "
 "power-on, set the `logging` parameter to `true`."
 msgstr ""
+"Setzen Sie den Befehl **ENABLE_FILAMENT_WIDTH_LOG** ab, um die "
+"Protokollierung zu starten, und den Befehl **DISABLE_FILAMENT_WIDTH_LOG**, "
+"um sie zu beenden. Um die Protokollierung beim Einschalten zu aktivieren, "
+"setzen Sie den Parameter `logging` auf `true`."
 
 #: docs/HallFilamentWidthSensor.md:block 31 (paragraph)
 msgid ""
 "Filament diameter is logged on every measurement interval (10 mm by default)."
 msgstr ""
+"Der Filamentdurchmesser wird bei jedem Messintervall protokolliert "
+"(standardmäßig 10 mm)."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 3 (paragraph)
 msgid ""
@@ -74,12 +86,17 @@ msgid ""
 "[Thingiverse](https://www.thingiverse.com/thing:4138933), an assembly video is"
 " also available on [Youtube](https://www.youtube.com/watch?v=TDO9tME8vp4)"
 msgstr ""
+"Konstruktionen finden Sie auf [Thingiverse](https://www.thingiverse.com/"
+"thing:4138933), ein Montagevideo ist außerdem auf [Youtube](https://"
+"www.youtube.com/watch?v=TDO9tME8vp4) verfügbar"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 10 (paragraph)
 msgid ""
 "To get raw sensor value you can use menu item or **QUERY_RAW_FILAMENT_WIDTH** "
 "command in terminal."
 msgstr ""
+"Um den Sensor-Rohwert zu erhalten, können Sie den Menüpunkt oder den Befehl "
+"**QUERY_RAW_FILAMENT_WIDTH** im Terminal verwenden."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 4 (paragraph)
 msgid ""
@@ -87,12 +104,18 @@ msgid ""
 "Reference](Config_Reference.md#hall_filament_width_sensor) and [G-Code "
 "documentation](G-Codes.md#hall_filament_width_sensor)."
 msgstr ""
+"Um den Hall-Filamentbreitensensor zu verwenden, lesen Sie die "
+"[Konfigurationsreferenz](Config_Reference.md#hall_filament_width_sensor) und "
+"die [G-Code-Dokumentation](G-Codes.md#hall_filament_width_sensor)."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 14 (paragraph)
 msgid ""
 "To enable the sensor, issue **ENABLE_FILAMENT_WIDTH_SENSOR** command or set "
 "the `enable` parameter to `true`."
 msgstr ""
+"Um den Sensor zu aktivieren, setzen Sie den Befehl "
+"**ENABLE_FILAMENT_WIDTH_SENSOR** ab oder setzen Sie den Parameter `enable` "
+"auf `true`."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 2 (paragraph)
 msgid ""
@@ -102,6 +125,12 @@ msgid ""
 "operation: two hall sensors work in differential mode, temperature drift same "
 "for sensor. Special temperature compensation not needed."
 msgstr ""
+"Dieses Dokument beschreibt das Host-Modul für den Filamentbreitensensor. Die "
+"für die Entwicklung dieses Host-Moduls verwendete Hardware basiert auf zwei "
+"linearen Hall-Sensoren (zum Beispiel ss49e). Die Sensoren sind im Gehäuse "
+"auf gegenüberliegenden Seiten angeordnet. Funktionsprinzip: Zwei Hall-"
+"Sensoren arbeiten im Differenzmodus, die Temperaturdrift ist für beide "
+"Sensoren gleich. Eine besondere Temperaturkompensation ist nicht nötig."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 6 (paragraph)
 msgid ""
@@ -111,16 +140,24 @@ msgid ""
 "a ramps-like board with the analog11 and analog12 pins. You can use different "
 "pins and different boards."
 msgstr ""
+"Der Sensor erzeugt zwei analoge Ausgangssignale auf Basis der berechneten "
+"Filamentbreite. Die Summe der Ausgangsspannungen entspricht immer der "
+"erkannten Filamentbreite. Das Host-Modul überwacht die Spannungsänderungen "
+"und passt den Extrusionsmultiplikator an. Ich verwende den aux2-Anschluss "
+"auf einer RAMPS-ähnlichen Platine mit den Pins analog11 und analog12. Sie "
+"können andere Pins und andere Platinen verwenden."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 15 (header)
 msgid "Use as a runout switch only"
-msgstr ""
+msgstr "Nur als Filamentende-Schalter verwenden"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 16 (paragraph)
 msgid ""
 "By default, the sensor measures filament diameter and adjusts the extrusion "
 "multiplier to compensate for variations."
 msgstr ""
+"Standardmäßig misst der Sensor den Filamentdurchmesser und passt den "
+"Extrusionsmultiplikator an, um Schwankungen auszugleichen."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 17 (paragraph)
 msgid ""
@@ -129,6 +166,10 @@ msgid ""
 "sensor will only trigger runout events when filament is not detected, it will "
 "not modify the extrusion multiplier."
 msgstr ""
+"Wenn Sie den Sensor nur als Filamentende-Schalter verwenden möchten, setzen "
+"Sie den Konfigurationsparameter `enable_flow_compensation` auf `false`. In "
+"diesem Modus löst der Sensor nur Runout-Ereignisse aus, wenn kein Filament "
+"erkannt wird; er verändert den Extrusionsmultiplikator nicht."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 18 (paragraph)
 msgid ""
@@ -136,6 +177,10 @@ msgid ""
 "for flow compensation but can reliably detect filament runout, or when "
 "printing with flexible filaments which have unstable diameter characteristics."
 msgstr ""
+"Das ist nützlich bei Druckern, bei denen der Filamentsensor für die "
+"Flusskompensation nicht genau genug ist, aber ein Filamentende zuverlässig "
+"erkennen kann, oder beim Drucken mit flexiblen Filamenten, die instabile "
+"Durchmessereigenschaften haben."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 19 (paragraph)
 msgid ""
@@ -143,18 +188,25 @@ msgid ""
 "compensation or **ENABLE_FILAMENT_WIDTH_SENSOR FLOW_COMPENSATION=0** to "
 "disable it."
 msgstr ""
+"Setzen Sie **ENABLE_FILAMENT_WIDTH_SENSOR FLOW_COMPENSATION=1** ab, um die "
+"Flusskompensation zu aktivieren, oder **ENABLE_FILAMENT_WIDTH_SENSOR "
+"FLOW_COMPENSATION=0**, um sie zu deaktivieren."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 20 (paragraph)
 msgid ""
 "Note that disabling filament width compensation automatically resets the "
 "extrusion multiplier to 100%."
 msgstr ""
+"Beachten Sie, dass das Deaktivieren der Filamentbreiten-Kompensation den "
+"Extrusionsmultiplikator automatisch auf 100 % zurücksetzt."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 21 (paragraph)
 msgid ""
 "**QUERY_FILAMENT_WIDTH** includes the current state of flow compensation in "
 "its output."
 msgstr ""
+"**QUERY_FILAMENT_WIDTH** gibt in seiner Ausgabe auch den aktuellen Zustand "
+"der Flusskompensation aus."
 
 #~ msgid ""
 #~ "[menu __main __filament __width_current]\n"

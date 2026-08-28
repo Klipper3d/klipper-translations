@@ -134,6 +134,10 @@ msgid ""
 "height calibration as well as an enhanced X and Y dimension calibration. The "
 "calibration can be done with a Z height probe or via manual probing."
 msgstr ""
+"Unterstützung für die automatische Delta-Kalibrierung. Das Kalibrierwerkzeug "
+"kann sowohl eine grundlegende Höhenkalibrierung als auch eine erweiterte "
+"Kalibrierung der X- und Y-Abmessungen durchführen. Die Kalibrierung kann mit "
+"einer Z-Sonde oder durch manuelles Antasten erfolgen."
 
 msgid "Basic thermal heater protection enabled by default."
 msgstr "Einfache Schutzfunktion für Heizelemente, standardmäßig aktiviert."
@@ -156,6 +160,13 @@ msgid ""
 "direction will be optimized to reduce print stalls and improve overall print "
 "time."
 msgstr ""
+"Unterstützung für konstante Beschleunigung und \"Look-ahead\". Alle "
+"Druckerbewegungen beschleunigen allmählich vom Stillstand auf "
+"Reisegeschwindigkeit und bremsen dann wieder bis zum Stillstand ab. Der "
+"eingehende Strom von G-Code-Bewegungsbefehlen wird in eine Warteschlange "
+"eingereiht und analysiert - die Beschleunigung zwischen Bewegungen in "
+"ähnlicher Richtung wird optimiert, um Druckstockungen zu reduzieren und die "
+"Gesamtdruckzeit zu verbessern."
 
 msgid ""
 "Klipper implements a \"stepper phase endstop\" algorithm that can improve the "
@@ -236,6 +247,8 @@ msgid ""
 "Support for filament presence sensors, filament motion sensors, and filament "
 "width sensors."
 msgstr ""
+"Unterstützung für Filament-Anwesenheitssensoren, Filament-Bewegungssensoren "
+"und Filament-Durchmessersensoren."
 
 #: docs/Features.md:block 10 (table)
 msgid "1 stepper active"
@@ -441,6 +454,17 @@ msgid ""
 " physics of the machine kinematics. More precise stepper movement provides "
 "quieter and more stable printer operation."
 msgstr ""
+"Hochpräzise Schrittmotorbewegung. Klipper nutzt zur Berechnung der "
+"Druckerbewegungen einen Anwendungsprozessor (etwa einen günstigen Raspberry "
+"Pi). Der Anwendungsprozessor bestimmt, wann jeder Schrittmotor einen Schritt "
+"ausführen soll, komprimiert diese Ereignisse, überträgt sie an den "
+"Mikrocontroller, und der Mikrocontroller führt dann jedes Ereignis zum "
+"angeforderten Zeitpunkt aus. Jedes Schrittereignis wird mit einer "
+"Genauigkeit von 25 Mikrosekunden oder besser geplant. Die Software verwendet "
+"keine kinematischen Näherungen (wie den Bresenham-Algorithmus) - stattdessen "
+"berechnet sie präzise Schrittzeiten auf Basis der Physik der Beschleunigung "
+"und der Physik der Maschinenkinematik. Eine präzisere Schrittmotorbewegung "
+"sorgt für einen leiseren und stabileren Druckerbetrieb."
 
 #: docs/Features.md:block 3 (unordered list)
 msgid ""
@@ -451,6 +475,13 @@ msgid ""
 " makes it easier to use available hardware, to upgrade to new hardware, and to"
 " have confidence in the hardware."
 msgstr ""
+"Klipper ist hardwareunabhängig. Man sollte unabhängig von der zugrunde "
+"liegenden Elektronik dasselbe präzise Timing erhalten. Der Mikrocontroller-"
+"Code von Klipper ist darauf ausgelegt, dem von der Klipper-Host-Software "
+"vorgegebenen Zeitplan getreu zu folgen (oder den Benutzer deutlich zu "
+"warnen, wenn ihm das nicht möglich ist). Das erleichtert es, vorhandene "
+"Hardware zu nutzen, auf neue Hardware umzusteigen und der Hardware zu "
+"vertrauen."
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
@@ -476,6 +507,9 @@ msgid ""
 "Run-time \"exclude object\" support. When configured, this module may "
 "facilitate canceling of just one object in a multi-part print."
 msgstr ""
+"Laufzeit-Unterstützung für \"exclude object\". Wenn konfiguriert, kann "
+"dieses Modul das Abbrechen nur eines einzelnen Objekts in einem mehrteiligen "
+"Druck ermöglichen."
 
 #: docs/Features.md:block 3 (unordered list)
 msgid ""
@@ -486,6 +520,13 @@ msgid ""
 "higher print velocities. The stepper event timing remains precise even at high"
 " speeds which improves overall stability."
 msgstr ""
+"Führende Leistung. Klipper erreicht sowohl auf neuen als auch auf alten "
+"Mikrocontrollern hohe Schrittraten. Selbst alte 8-Bit-Mikrocontroller können "
+"Raten von über 175K Schritten pro Sekunde erreichen. Auf neueren "
+"Mikrocontrollern sind mehrere Millionen Schritte pro Sekunde möglich. Höhere "
+"Schrittraten ermöglichen höhere Druckgeschwindigkeiten. Das Timing der "
+"Schrittereignisse bleibt auch bei hohen Geschwindigkeiten präzise, was die "
+"Gesamtstabilität verbessert."
 
 #: docs/Features.md:block 10 (table)
 msgid "AR100"
@@ -501,27 +542,27 @@ msgstr "2507K"
 
 #: docs/Features.md:block 10 (table)
 msgid "RP2350"
-msgstr ""
+msgstr "RP2350"
 
 #: docs/Features.md:block 10 (table)
 msgid "4167K"
-msgstr ""
+msgstr "4167K"
 
 #: docs/Features.md:block 10 (table)
 msgid "2663K"
-msgstr ""
+msgstr "2663K"
 
 #: docs/Features.md:block 10 (table)
 msgid "SAME70"
-msgstr ""
+msgstr "SAME70"
 
 #: docs/Features.md:block 10 (table)
 msgid "6667K"
-msgstr ""
+msgstr "6667K"
 
 #: docs/Features.md:block 10 (table)
 msgid "4737K"
-msgstr ""
+msgstr "4737K"
 
 #: docs/Features.md:block 3 (unordered list)
 msgid ""
@@ -530,6 +571,11 @@ msgid ""
 "modification - just add a Raspberry Pi. Klipper's internal code layout makes "
 "it easier to support other micro-controller architectures as well."
 msgstr ""
+"Portabler Code. Klipper läuft auf ARM-, AVR-, PRU- und anderen "
+"Mikrocontrollern. Bestehende Drucker im \"reprap\"-Stil können Klipper ohne "
+"Hardwareänderung ausführen - man ergänzt lediglich einen Raspberry Pi. Der "
+"interne Code-Aufbau von Klipper erleichtert es außerdem, weitere "
+"Mikrocontroller-Architekturen zu unterstützen."
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
@@ -541,6 +587,16 @@ msgid ""
 "probes. Probes may be calibrated for axis twist compensation. If using an "
 "\"eddy current probe\" then one can utilize fast bed mesh scanning,"
 msgstr ""
+"Unterstützung für automatische Bettnivellierung. Klipper kann für eine "
+"einfache Erkennung der Bettneigung oder für eine vollständige "
+"Bettnivellierung per Mesh konfiguriert werden. Das Bett-Mesh kann an die "
+"Druckgröße angepasst werden (adaptives Bett-Mesh). Wenn das Druckbett "
+"mehrere Z-Schrittmotoren verwendet, kann Klipper auch durch unabhängiges "
+"Ansteuern der Z-Schrittmotoren nivellieren. Die meisten Z-Sonden werden "
+"unterstützt, einschließlich BL-Touch-Sonden und servobetätigter Sonden. "
+"Sonden können für die Achsverwindungskompensation kalibriert werden. Bei "
+"Verwendung einer \"Wirbelstromsonde\" kann man das schnelle Scannen des Bett-"
+"Meshs nutzen,"
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
@@ -551,6 +607,13 @@ msgid ""
 "internal micro-controller temperature sensor and the internal temperature "
 "sensor of a Raspberry Pi."
 msgstr ""
+"Unterstützung für gängige Temperatursensoren (z. B. gängige Thermistoren, "
+"AD595, AD597, AD849x, PT100, PT1000, MAX6675, MAX31855, MAX31856, MAX31865, "
+"BME280, HTU21D, DS18B20, AHT1X, AHT2X, AHT3X, SHT3x und LM75). Auch "
+"benutzerdefinierte Thermistoren und benutzerdefinierte analoge "
+"Temperatursensoren können konfiguriert werden. Man kann den internen "
+"Temperatursensor des Mikrocontrollers und den internen Temperatursensor "
+"eines Raspberry Pi überwachen."
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
@@ -559,6 +622,11 @@ msgid ""
 " on fans that have a tachometer. One can assign a \"math formula\" to a fan "
 "for automatic fan speed updating."
 msgstr ""
+"Unterstützung für Standardlüfter, Düsenlüfter und temperaturgeregelte "
+"Lüfter. Lüfter müssen nicht weiterlaufen, wenn der Drucker im Leerlauf ist. "
+"Bei Lüftern mit Tachosignal kann die Lüfterdrehzahl überwacht werden. Man "
+"kann einem Lüfter eine \"mathematische Formel\" zuweisen, um die "
+"Lüfterdrehzahl automatisch zu aktualisieren."
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
@@ -567,44 +635,51 @@ msgid ""
 " current control of traditional stepper drivers via AD5206, DAC084S085, "
 "MCP4451, MCP4728, MCP4018, and PWM pins."
 msgstr ""
+"Unterstützung für die Konfiguration der Schrittmotortreiber TMC2130, TMC2208/"
+"TMC2224, TMC2209, TMC2240, TMC2660 und TMC5160 zur Laufzeit. Außerdem wird "
+"die Stromregelung herkömmlicher Schrittmotortreiber über AD5206, DAC084S085, "
+"MCP4451, MCP4728, MCP4018 und PWM-Pins unterstützt."
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
 "Support for measuring and recording acceleration using adxl345, mpu9250, "
 "mpu6050, lis2dw12, lis3dh, and icm20948 accelerometers."
 msgstr ""
+"Unterstützung für das Messen und Aufzeichnen von Beschleunigung mit den "
+"Beschleunigungssensoren adxl345, mpu9250, mpu6050, lis2dw12, lis3dh und "
+"icm20948."
 
 #: docs/Features.md:block 10 (table)
 msgid "STM32G431"
-msgstr ""
+msgstr "STM32G431"
 
 #: docs/Features.md:block 10 (table)
 msgid "3617K"
-msgstr ""
+msgstr "3617K"
 
 #: docs/Features.md:block 10 (table)
 msgid "2452K"
-msgstr ""
+msgstr "2452K"
 
 #: docs/Features.md:block 10 (table)
 msgid "4000K"
-msgstr ""
+msgstr "4000K"
 
 #: docs/Features.md:block 10 (table)
 msgid "2571K"
-msgstr ""
+msgstr "2571K"
 
 #: docs/Features.md:block 10 (table)
 msgid "STM32H723"
-msgstr ""
+msgstr "STM32H723"
 
 #: docs/Features.md:block 10 (table)
 msgid "7429K"
-msgstr ""
+msgstr "7429K"
 
 #: docs/Features.md:block 10 (table)
 msgid "8619K"
-msgstr ""
+msgstr "8619K"
 
 #~ msgid ""
 #~ "Portable code. Klipper works on ARM, AVR, and PRU based micro-controllers. "

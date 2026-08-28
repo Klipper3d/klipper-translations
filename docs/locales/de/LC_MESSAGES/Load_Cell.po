@@ -35,19 +35,19 @@ msgstr "Zugehörige Dokumentation"
 
 #: docs/Load_Cell.md:block 4 (unordered list)
 msgid "[load_cell Config Reference](Config_Reference.md#load_cell)"
-msgstr ""
+msgstr "[load_cell Konfigurationsreferenz](Config_Reference.md#load_cell)"
 
 #: docs/Load_Cell.md:block 4 (unordered list)
 msgid "[load_cell G-Code Commands](G-Codes.md#load_cell)"
-msgstr ""
+msgstr "[load_cell G-Code-Befehle](G-Codes.md#load_cell)"
 
 #: docs/Load_Cell.md:block 4 (unordered list)
 msgid "[load_cell Status Reference](Status_Reference.md#load_cell)"
-msgstr ""
+msgstr "[load_cell Statusreferenz](Status_Reference.md#load_cell)"
 
 #: docs/Load_Cell.md:block 5 (header)
 msgid "Using `LOAD_CELL_DIAGNOSTIC`"
-msgstr ""
+msgstr "Verwendung von `LOAD_CELL_DIAGNOSTIC`"
 
 #: docs/Load_Cell.md:block 6 (paragraph)
 msgid ""
@@ -55,10 +55,13 @@ msgid ""
 "running `LOAD_CELL_DIAGNOSTIC`. This tool collects 10 seconds of data from the"
 " load cell and resport statistics:"
 msgstr ""
+"Wenn Sie eine Wägezelle zum ersten Mal anschließen, ist es empfehlenswert, "
+"mit `LOAD_CELL_DIAGNOSTIC` auf Probleme zu prüfen. Dieses Werkzeug erfasst "
+"10 Sekunden lang Daten von der Wägezelle und gibt Statistiken aus:"
 
 #: docs/Load_Cell.md:block 8 (paragraph)
 msgid "Things you can check with this data:"
-msgstr ""
+msgstr "Was Sie anhand dieser Daten prüfen können:"
 
 #: docs/Load_Cell.md:block 9 (unordered list)
 msgid ""
@@ -66,34 +69,47 @@ msgid ""
 "samples per second' value. If it is not you may have a configuration or wiring"
 " issue."
 msgstr ""
+"Die konfigurierte Abtastrate des Sensors sollte nahe am Wert „Measured "
+"samples per second\" liegen. Ist das nicht der Fall, liegt möglicherweise "
+"ein Konfigurations- oder Verkabelungsproblem vor."
 
 #: docs/Load_Cell.md:block 9 (unordered list)
 msgid ""
 "'Saturated samples' should be 0. If you have saturated samples it means the "
 "load sell is seeing more force than it can measure."
 msgstr ""
+"„Saturated samples\" sollte 0 sein. Gesättigte Messwerte bedeuten, dass auf "
+"die Wägezelle mehr Kraft wirkt, als sie messen kann."
 
 #: docs/Load_Cell.md:block 9 (unordered list)
 msgid ""
 "'Unique values' should be a large percentage of the 'Samples Collected' value."
 " If 'Unique values' is 1 it is very likely a wiring issue."
 msgstr ""
+"„Unique values\" sollte einen großen Prozentsatz des Werts „Samples "
+"Collected\" ausmachen. Beträgt „Unique values\" 1, handelt es sich sehr "
+"wahrscheinlich um ein Verkabelungsproblem."
 
 #: docs/Load_Cell.md:block 10 (header)
 msgid "Calibrating a Load Cell"
-msgstr ""
+msgstr "Eine Wägezelle kalibrieren"
 
 #: docs/Load_Cell.md:block 11 (paragraph)
 msgid ""
 "Load cells are calibrated using the `LOAD_CELL_CALIBRATE` command. This is an "
 "interactive calibration utility that walks you though a 3 step process:"
 msgstr ""
+"Wägezellen werden mit dem Befehl `LOAD_CELL_CALIBRATE` kalibriert. Dies ist "
+"ein interaktives Kalibrierwerkzeug, das Sie durch einen dreistufigen Prozess "
+"führt:"
 
 #: docs/Load_Cell.md:block 12 (ordered list)
 msgid ""
 "First use the `TARE` command to establish the zero force value. This is the "
 "`reference_tare_counts` config value."
 msgstr ""
+"Verwenden Sie zuerst den Befehl `TARE`, um den Nullkraftwert zu bestimmen. "
+"Das ist der Konfigurationswert `reference_tare_counts`."
 
 #: docs/Load_Cell.md:block 12 (ordered list)
 msgid ""
@@ -102,18 +118,22 @@ msgid ""
 "[the next section](#applying-a-known-force-or-load) for some suggestions on "
 "how to do this."
 msgstr ""
+"Als Nächstes bringen Sie eine bekannte Last bzw. Kraft auf die Wägezelle auf "
+"und führen den Befehl `CALIBRATE GRAMS=nnn` aus. Daraus wird der Wert "
+"`counts_per_gram` berechnet. Vorschläge zur Durchführung finden Sie im "
+"[nächsten Abschnitt](#applying-a-known-force-or-load)."
 
 #: docs/Load_Cell.md:block 12 (ordered list)
 msgid "Finally, use the `ACCEPT` command to save the results."
-msgstr ""
+msgstr "Speichern Sie die Ergebnisse abschließend mit dem Befehl `ACCEPT`."
 
 #: docs/Load_Cell.md:block 13 (paragraph)
 msgid "You can cancel the calibration process at any time with `ABORT`."
-msgstr ""
+msgstr "Sie können den Kalibriervorgang jederzeit mit `ABORT` abbrechen."
 
 #: docs/Load_Cell.md:block 14 (header)
 msgid "Applying a Known Force or Load"
-msgstr ""
+msgstr "Eine bekannte Kraft oder Last aufbringen"
 
 #: docs/Load_Cell.md:block 15 (paragraph)
 msgid ""
@@ -122,6 +142,11 @@ msgid ""
 "easiest to put a known mass on the platform. E.g. you could use a couple of "
 "1KG filament spools."
 msgstr ""
+"Der Schritt `CALIBRATE GRAMS=nnn` lässt sich auf verschiedene Weise "
+"durchführen. Sitzt Ihre Wägezelle unter einer Plattform wie einem Druckbett "
+"oder einem Filamenthalter, ist es am einfachsten, eine bekannte Masse auf "
+"die Plattform zu legen. Sie könnten z. B. ein paar 1-kg-Filamentspulen "
+"verwenden."
 
 #: docs/Load_Cell.md:block 16 (paragraph)
 msgid ""
@@ -132,6 +157,13 @@ msgid ""
 "to manually moving the z axis with the motors off until the toolhead presses "
 "on the scale."
 msgstr ""
+"Sitzt Ihre Wägezelle im Werkzeugkopf des Druckers, ist ein anderes Vorgehen "
+"einfacher. Legen Sie eine digitale Waage auf das Druckbett und senken Sie "
+"den Werkzeugkopf vorsichtig auf die Waage ab (oder fahren Sie das Bett zum "
+"Werkzeugkopf hoch, falls sich Ihr Bett bewegt). Möglicherweise gelingt das "
+"mit dem Befehl `FORCE_MOVE`. Wahrscheinlicher ist jedoch, dass Sie die Z-"
+"Achse bei ausgeschalteten Motoren von Hand bewegen müssen, bis der "
+"Werkzeugkopf auf die Waage drückt."
 
 #: docs/Load_Cell.md:block 17 (paragraph)
 msgid ""
@@ -142,10 +174,17 @@ msgid ""
 "that your printer bed or toolhead can tolerate without damage. Do try to use "
 "at least 1Kg of force, most printers should tolerate this without issue."
 msgstr ""
+"Eine gute Kalibrierkraft sollte idealerweise einen großen Prozentsatz der "
+"Nennkapazität der Wägezelle betragen. Bei einer 5-kg-Wägezelle würden Sie "
+"idealerweise mit einer Masse von 5 kg kalibrieren. Das funktioniert gut bei "
+"Sensoren unter dem Bett, die viel Gewicht tragen müssen. Bei Sonden im "
+"Werkzeugkopf ist das unter Umständen eine Last, die Ihr Druckbett oder "
+"Werkzeugkopf nicht ohne Schaden verträgt. Versuchen Sie, mindestens 1 kg "
+"Kraft zu verwenden; die meisten Drucker sollten das problemlos aushalten."
 
 #: docs/Load_Cell.md:block 18 (paragraph)
 msgid "When calibrating make careful note of the values reported:"
-msgstr ""
+msgstr "Achten Sie beim Kalibrieren genau auf die ausgegebenen Werte:"
 
 #: docs/Load_Cell.md:block 20 (paragraph)
 msgid ""
@@ -155,30 +194,40 @@ msgid ""
 "as critical for 32bit and 24bit sensors but is much more critical for low bit "
 "width sensors."
 msgstr ""
+"Die `Total capacity` sollte nahe an der theoretischen Nennkapazität der "
+"Wägezelle liegen, bezogen auf die Kapazität des Sensors. Ist sie deutlich "
+"größer, hätten Sie eine höhere Verstärkungseinstellung im Sensor oder eine "
+"empfindlichere Wägezelle verwenden können. Bei 32-Bit- und 24-Bit-Sensoren "
+"ist das weniger kritisch, bei Sensoren mit geringer Bitbreite jedoch sehr "
+"viel kritischer."
 
 #: docs/Load_Cell.md:block 21 (header)
 msgid "Reading Force Data"
-msgstr ""
+msgstr "Kraftdaten auslesen"
 
 #: docs/Load_Cell.md:block 22 (paragraph)
 msgid "Force data can be read with a GCode command:"
-msgstr ""
+msgstr "Kraftdaten können mit einem G-Code-Befehl ausgelesen werden:"
 
 #: docs/Load_Cell.md:block 24 (paragraph)
 msgid ""
 "Data is also continuously read and can be consumed from the load_cell printer "
 "object in a macro:"
 msgstr ""
+"Die Daten werden außerdem laufend gelesen und können in einem Makro aus dem "
+"Druckerobjekt load_cell abgerufen werden:"
 
 #: docs/Load_Cell.md:block 26 (paragraph)
 msgid ""
 "This provides an average force over the last 1 second, similar to how "
 "temperature sensors work."
 msgstr ""
+"Dies liefert eine mittlere Kraft über die letzte Sekunde, ähnlich wie bei "
+"Temperatursensoren."
 
 #: docs/Load_Cell.md:block 27 (header)
 msgid "Taring a Load Cell"
-msgstr ""
+msgstr "Eine Wägezelle tarieren"
 
 #: docs/Load_Cell.md:block 28 (paragraph)
 msgid ""
@@ -188,32 +237,40 @@ msgid ""
 "Then as filament is printed the load_cell will report the weight of the "
 "filament used."
 msgstr ""
+"Das Tarieren, manchmal auch Nullstellen genannt, setzt das aktuell von "
+"load_cell gemeldete Gewicht auf 0. Das ist nützlich, um relativ zu einem "
+"bekannten Gewicht zu messen. Beim Messen einer Filamentspule setzt z. B. "
+"`LOAD_CELL_TARE` das Gewicht auf 0. Während dann Filament verdruckt wird, "
+"meldet load_cell das Gewicht des verbrauchten Filaments."
 
 #: docs/Load_Cell.md:block 30 (paragraph)
 msgid ""
 "The current tare value is reported in the printers status and can be read in a"
 " macro:"
 msgstr ""
+"Der aktuelle Tarawert wird im Status des Druckers gemeldet und kann in einem "
+"Makro ausgelesen werden:"
 
 #: docs/Load_Cell.md:block 32 (header)
 msgid "Load Cell Probes"
-msgstr ""
+msgstr "Wägezellen-Sonden"
 
 #: docs/Load_Cell.md:block 34 (unordered list)
 msgid "[load_cell_probe Config Reference](Config_Reference.md#load_cell_probe)"
 msgstr ""
+"[load_cell_probe Konfigurationsreferenz](Config_Reference.md#load_cell_probe)"
 
 #: docs/Load_Cell.md:block 34 (unordered list)
 msgid "[load_cell_probe G-Code Commands](G-Codes.md#load_cell_probe)"
-msgstr ""
+msgstr "[load_cell_probe G-Code-Befehle](G-Codes.md#load_cell_probe)"
 
 #: docs/Load_Cell.md:block 34 (unordered list)
 msgid "[load_cell_probe Statuc Reference](Status_Reference.md#load_cell_probe)"
-msgstr ""
+msgstr "[load_cell_probe Statusreferenz](Status_Reference.md#load_cell_probe)"
 
 #: docs/Load_Cell.md:block 35 (header)
 msgid "Load Cell Probe Safety"
-msgstr ""
+msgstr "Sicherheit der Wägezellen-Sonde"
 
 #: docs/Load_Cell.md:block 36 (paragraph)
 msgid ""
@@ -224,10 +281,16 @@ msgid ""
 "and how they work as you can defeat most of them with poorly chosen config "
 "values."
 msgstr ""
+"Da Wägezellen eine Sonde mit direktem Düsenkontakt darstellen, besteht die "
+"Gefahr, den Drucker zu beschädigen, wenn zu viel Kraft aufgebracht wird. Das "
+"Wägezellen-Sondensystem enthält mehrere Sicherheitsprüfungen, die die "
+"Maschine vor übermäßiger Kraft auf den Werkzeugkopf schützen sollen. Es ist "
+"wichtig zu verstehen, welche das sind und wie sie funktionieren, da Sie die "
+"meisten davon durch schlecht gewählte Konfigurationswerte aushebeln können."
 
 #: docs/Load_Cell.md:block 37 (header)
 msgid "Calibration Check"
-msgstr ""
+msgstr "Kalibrierprüfung"
 
 #: docs/Load_Cell.md:block 38 (paragraph)
 msgid ""
@@ -235,10 +298,13 @@ msgid ""
 "calibrated. If not it will stop the move with an error: `!! Load Cell not "
 "calibrated`."
 msgstr ""
+"Jedes Mal, wenn eine Referenzfahrt beginnt, prüft load_cell_probe, ob die "
+"load_cell kalibriert ist. Ist sie es nicht, wird die Bewegung mit einem "
+"Fehler abgebrochen: `!! Load Cell not calibrated`."
 
 #: docs/Load_Cell.md:block 39 (header)
 msgid "`counts_per_gram`"
-msgstr ""
+msgstr "`counts_per_gram`"
 
 #: docs/Load_Cell.md:block 40 (paragraph)
 msgid ""
@@ -248,10 +314,16 @@ msgid ""
 "You should never guess this value. Use `LOAD_CELL_CALIBRATE` to find your load"
 " cells actual `counts_per_gram`."
 msgstr ""
+"Diese Einstellung dient dazu, rohe Sensorzählwerte in Gramm umzurechnen. "
+"Alle Sicherheitsgrenzen sind der Einfachheit halber in Gramm angegeben. Ist "
+"die Einstellung `counts_per_gram` nicht genau, können Sie die sichere Kraft "
+"auf den Werkzeugkopf leicht überschreiten. Sie sollten diesen Wert niemals "
+"schätzen. Ermitteln Sie mit `LOAD_CELL_CALIBRATE` den tatsächlichen "
+"`counts_per_gram`-Wert Ihrer Wägezelle."
 
 #: docs/Load_Cell.md:block 41 (header)
 msgid "`trigger_force`"
-msgstr ""
+msgstr "`trigger_force`"
 
 #: docs/Load_Cell.md:block 42 (paragraph)
 msgid ""
@@ -263,10 +335,19 @@ msgid ""
 "before the toolhead stops. This overshoot will increase with faster probing "
 "`speed`, a low ADC sample rate or [multi MCU homing](Multi_MCU_Homing.md)."
 msgstr ""
+"Dies ist die Kraft in Gramm, die den Endschalter auslöst und die "
+"Referenzfahrt anhält. Wenn eine Referenzfahrt beginnt, tariert sich der "
+"Endschalter mit dem aktuellen Messwert der Wägezelle. `trigger_force` wird "
+"ab diesem Tarawert gemessen. Beim Aufsetzen der Sonde auf das Bett kommt es "
+"immer zu einer gewissen Überschreitung dieses Werts, wählen Sie ihn daher "
+"konservativ. Eine Einstellung von 100 g kann z. B. zu 350 g Spitzenkraft "
+"führen, bevor der Werkzeugkopf anhält. Diese Überschreitung nimmt mit "
+"höherer Abtast-`speed`, einer niedrigen ADC-Abtastrate oder [Multi-MCU-"
+"Referenzfahrt](Multi_MCU_Homing.md) zu."
 
 #: docs/Load_Cell.md:block 43 (header)
 msgid "`reference_tare_counts`"
-msgstr ""
+msgstr "`reference_tare_counts`"
 
 #: docs/Load_Cell.md:block 44 (paragraph)
 msgid ""
@@ -274,10 +355,13 @@ msgid ""
 "value works with `force_safety_limit` to limit the maximum force on the "
 "toolhead."
 msgstr ""
+"Dies ist der Basis-Tarawert, der von `LOAD_CELL_CALIBRATE` gesetzt wird. "
+"Dieser Wert wirkt zusammen mit `force_safety_limit`, um die maximale Kraft "
+"auf den Werkzeugkopf zu begrenzen."
 
 #: docs/Load_Cell.md:block 45 (header)
 msgid "`force_safety_limit`"
-msgstr ""
+msgstr "`force_safety_limit`"
 
 #: docs/Load_Cell.md:block 46 (paragraph)
 msgid ""
@@ -286,6 +370,11 @@ msgid ""
 "exceeded it will shut down the printer with the error `!! Load cell endstop: "
 "too much force!`. There are a number of ways this can be triggered:"
 msgstr ""
+"Dies ist die maximale absolute Kraft relativ zu `reference_tare_counts`, die "
+"die Sonde während einer Referenzfahrt oder beim Abtasten zulässt. Stellt der "
+"Mikrocontroller fest, dass diese Kraft überschritten wird, fährt er den "
+"Drucker mit dem Fehler `!! Load cell endstop: too much force!` herunter. "
+"Dies kann auf mehrere Arten ausgelöst werden:"
 
 #: docs/Load_Cell.md:block 47 (paragraph)
 msgid ""
@@ -294,6 +383,10 @@ msgid ""
 " a probe event and continue the homing move. If this happens the "
 "`force_safety_limit` acts as a backup protection."
 msgstr ""
+"Das erste Risiko, gegen das dies schützt, ist ein zu groß gewählter Wert für "
+"`drift_filter_cutoff_frequency`. Dadurch kann der Driftfilter ein "
+"Sondenereignis herausfiltern und die Referenzfahrt fortsetzen. In diesem "
+"Fall wirkt `force_safety_limit` als Rückfallschutz."
 
 #: docs/Load_Cell.md:block 48 (paragraph)
 msgid ""
@@ -306,6 +399,15 @@ msgid ""
 " this will result in ever-increasing force on the toolhead. "
 "`force_safety_limit` stops this cycle from running out of control."
 msgstr ""
+"Das zweite Problem ist wiederholtes Abtasten an derselben Stelle. Klipper "
+"fährt die Sonde bei einem einzelnen `PROBE`-Befehl nicht ein. Dadurch kann "
+"am Ende eines Abtastzyklus Kraft auf den Werkzeugkopf wirken. Da äußere "
+"Kräfte zwischen den Abtastpunkten stark schwanken können, führt "
+"`load_cell_probe` vor jedem Abtastvorgang eine Tarierung durch. Wiederholen "
+"Sie den `PROBE`-Befehl, tariert load_cell_probe den Endschalter bei der "
+"aktuellen Kraft. Mehrere solcher Zyklen führen zu immer größerer Kraft auf "
+"den Werkzeugkopf. `force_safety_limit` verhindert, dass dieser Kreislauf "
+"außer Kontrolle gerät."
 
 #: docs/Load_Cell.md:block 50 (paragraph)
 msgid ""
@@ -314,10 +416,15 @@ msgid ""
 "at ambient temperature vs operating temperature. In this case you may need to "
 "increase the `force_safety_limit` to allow for thermal changes."
 msgstr ""
+"Die letzte mögliche Ursache sind Temperaturänderungen. Werden Ihre "
+"Dehnungsmessstreifen erwärmt, können sich ihre `reference_tare_counts` bei "
+"Umgebungstemperatur und bei Betriebstemperatur stark unterscheiden. In "
+"diesem Fall müssen Sie `force_safety_limit` möglicherweise erhöhen, um "
+"thermische Änderungen zuzulassen."
 
 #: docs/Load_Cell.md:block 51 (header)
 msgid "Load Cell Endstop Watchdog Task"
-msgstr ""
+msgstr "Watchdog-Task des Wägezellen-Endschalters"
 
 #: docs/Load_Cell.md:block 52 (paragraph)
 msgid ""
@@ -326,6 +433,11 @@ msgid ""
 "measurements for 2 sample periods the watchdog will shut down the printer with"
 " an error `!! LoadCell Endstop timed out waiting on ADC data`."
 msgstr ""
+"Bei einer Referenzfahrt startet load_cell_endstop eine Task auf dem "
+"Mikrocontroller, die die vom Sensor eintreffenden Messwerte verfolgt. Sendet "
+"der Sensor über 2 Abtastperioden hinweg keine Messwerte, fährt der Watchdog "
+"den Drucker mit dem Fehler `!! LoadCell Endstop timed out waiting on ADC "
+"data` herunter."
 
 #: docs/Load_Cell.md:block 53 (paragraph)
 msgid ""
@@ -336,18 +448,27 @@ msgid ""
 "electricity well. You might need to sand the area where the grounding wire is "
 "attached to make good electrical contact."
 msgstr ""
+"Tritt dies auf, ist die wahrscheinlichste Ursache ein Fehler des ADC. Eine "
+"unzureichende Erdung Ihres Druckers kann die Grundursache sein. Rahmen, "
+"Netzteilgehäuse und Druckbett sollten alle mit Masse verbunden sein. "
+"Möglicherweise müssen Sie den Rahmen an mehreren Stellen erden. Eloxierte "
+"Aluminiumprofile leiten Strom schlecht. Unter Umständen müssen Sie die "
+"Stelle, an der das Erdungskabel befestigt wird, abschleifen, um guten "
+"elektrischen Kontakt herzustellen."
 
 #: docs/Load_Cell.md:block 54 (header)
 msgid "Load Cell Probe Setup"
-msgstr ""
+msgstr "Einrichtung der Wägezellen-Sonde"
 
 #: docs/Load_Cell.md:block 55 (paragraph)
 msgid "This section covers the process for commissioning a load cell probe."
 msgstr ""
+"Dieser Abschnitt beschreibt den Ablauf zur Inbetriebnahme einer Wägezellen-"
+"Sonde."
 
 #: docs/Load_Cell.md:block 56 (header)
 msgid "Verify the Load Cell First"
-msgstr ""
+msgstr "Zuerst die Wägezelle überprüfen"
 
 #: docs/Load_Cell.md:block 57 (paragraph)
 msgid ""
@@ -357,10 +478,15 @@ msgid ""
 "cell](Load_Cell.md#calibrating-a-load-cell) with `CALIBRATE_LOAD_CELL` and "
 "checking its operation with `LOAD_CELL_DIAGNOSTIC`."
 msgstr ""
+"Eine `[load_cell_probe]` ist zugleich eine `[load_cell]`, und die G-Code-"
+"Befehle rund um `[load_cell]` funktionieren auch mit `[load_cell_probe]`. "
+"Bevor Sie eine Wägezellen-Sonde verwenden, folgen Sie der Anleitung zum "
+"[Kalibrieren der Wägezelle](Load_Cell.md#calibrating-a-load-cell) mit "
+"`CALIBRATE_LOAD_CELL` und zur Funktionsprüfung mit `LOAD_CELL_DIAGNOSTIC`."
 
 #: docs/Load_Cell.md:block 58 (header)
 msgid "Verify Probe Operation With LOAD_CELL_TEST_TAP"
-msgstr ""
+msgstr "Funktion der Sonde mit LOAD_CELL_TEST_TAP überprüfen"
 
 #: docs/Load_Cell.md:block 59 (paragraph)
 msgid ""
@@ -370,22 +496,33 @@ msgid ""
 "listens for 3 taps before ending the test. You have 30 seconds to do each tap,"
 " if no taps are detected the command will time out."
 msgstr ""
+"Verwenden Sie den Befehl `LOAD_CELL_TEST_TAP`, um die Funktion der "
+"Wägezellen-Sonde zu testen, bevor Sie tatsächlich damit abtasten. Dieser "
+"Befehl erkennt Antippen (Taps) genau wie der PROBE-Befehl, bewegt aber die Z-"
+"Achse nicht. Standardmäßig wartet er auf 3 Taps, bevor der Test endet. Sie "
+"haben für jeden Tap 30 Sekunden Zeit; werden keine Taps erkannt, läuft der "
+"Befehl in eine Zeitüberschreitung."
 
 #: docs/Load_Cell.md:block 60 (paragraph)
 msgid ""
 "If this test fails, check your configuration and `LOAD_CELL_DIAGNOSTIC` "
 "carefully to look for issues."
 msgstr ""
+"Schlägt dieser Test fehl, prüfen Sie Ihre Konfiguration und "
+"`LOAD_CELL_DIAGNOSTIC` sorgfältig auf Probleme."
 
 #: docs/Load_Cell.md:block 61 (paragraph)
 msgid ""
 "Load cell probes don't support the `QUERY_ENDSTOPS` or `QUERY_PROBE` commands."
 " Use `LOAD_CELL_TEST_TAP` for testing functionality before probing."
 msgstr ""
+"Wägezellen-Sonden unterstützen die Befehle `QUERY_ENDSTOPS` und "
+"`QUERY_PROBE` nicht. Verwenden Sie `LOAD_CELL_TEST_TAP`, um die Funktion vor "
+"dem Abtasten zu testen."
 
 #: docs/Load_Cell.md:block 67 (header)
 msgid "Suggested Probing Temperature"
-msgstr ""
+msgstr "Empfohlene Abtasttemperatur"
 
 #: docs/Load_Cell.md:block 68 (paragraph)
 msgid ""
@@ -393,6 +530,10 @@ msgid ""
 "causes the filament to ooze while homing and probing. 140C is a good starting "
 "point. This temperature is also low enough not to scar PEI build surfaces."
 msgstr ""
+"Derzeit empfehlen wir, die Düsentemperatur während Referenzfahrt und "
+"Abtastung unterhalb des Werts zu halten, bei dem Filament austritt. 140 °C "
+"sind ein guter Ausgangspunkt. Diese Temperatur ist außerdem niedrig genug, "
+"um PEI-Druckoberflächen nicht zu beschädigen."
 
 #: docs/Load_Cell.md:block 69 (paragraph)
 msgid ""
@@ -402,6 +543,12 @@ msgid ""
 "code may decide that a tap is valid when it is of poor quality. Classifying "
 "these poor quality taps is an area of active research."
 msgstr ""
+"Verschmutzung von Düse und Druckbett durch austretendes Filament ist die "
+"häufigste Fehlerquelle beim Abtasten mit der Wägezellen-Sonde. Klipper "
+"verfügt noch über keine allgemeingültige Methode, um Taps schlechter "
+"Qualität aufgrund von Filamentaustritt zu erkennen. Der vorhandene Code kann "
+"einen Tap als gültig einstufen, obwohl er von schlechter Qualität ist. Die "
+"Klassifizierung solcher Taps ist Gegenstand aktiver Forschung."
 
 #: docs/Load_Cell.md:block 70 (paragraph)
 msgid ""
@@ -409,15 +556,21 @@ msgid ""
 "become fouled by filament ooze. Modules like `quad_gantry_level` will "
 "repeatedly probe the same coordinates even if a probe previously failed there."
 msgstr ""
+"Klipper unterstützt außerdem nicht das Verschieben eines Abtastpunktes, wenn "
+"die Stelle durch austretendes Filament verschmutzt ist. Module wie "
+"`quad_gantry_level` tasten wiederholt dieselben Koordinaten ab, selbst wenn "
+"ein Abtastvorgang dort zuvor fehlgeschlagen ist."
 
 #: docs/Load_Cell.md:block 71 (paragraph)
 msgid ""
 "Give the above it is strongly suggested not to probe at printing temperatures."
 msgstr ""
+"Angesichts dessen wird dringend empfohlen, nicht bei Drucktemperaturen "
+"abzutasten."
 
 #: docs/Load_Cell.md:block 72 (header)
 msgid "Hot Nozzle Protection"
-msgstr ""
+msgstr "Schutz vor heißer Düse"
 
 #: docs/Load_Cell.md:block 73 (paragraph)
 msgid ""
@@ -426,14 +579,20 @@ msgid ""
 "`activate_gcode`](https://github.com/VoronDesign/Voron-"
 "Tap/blob/main/config/tap_klipper_instructions.md)"
 msgstr ""
+"Das Voron-Projekt bietet ein sehr gutes Makro, um Ihre Druckoberfläche vor "
+"der heißen Düse zu schützen. Siehe [`activate_gcode` von Voron Tap](https://"
+"github.com/VoronDesign/Voron-Tap/blob/main/config/"
+"tap_klipper_instructions.md)"
 
 #: docs/Load_Cell.md:block 74 (paragraph)
 msgid "It is highly suggested to add something like this to your config."
 msgstr ""
+"Es wird dringend empfohlen, etwas Vergleichbares in Ihre Konfiguration "
+"aufzunehmen."
 
 #: docs/Load_Cell.md:block 75 (header)
 msgid "Nozzle Cleaning"
-msgstr ""
+msgstr "Düsenreinigung"
 
 #: docs/Load_Cell.md:block 76 (paragraph)
 msgid ""
@@ -441,30 +600,34 @@ msgid ""
 "every print. You can also implement a nozzle scrubber and automate the "
 "process. Here is a suggested sequence:"
 msgstr ""
+"Vor dem Abtasten sollte die Düse sauber sein. Sie können das vor jedem Druck "
+"von Hand erledigen. Sie können auch eine Düsenbürste einbauen und den "
+"Vorgang automatisieren. Hier ein Vorschlag für den Ablauf:"
 
 #: docs/Load_Cell.md:block 77 (ordered list)
 msgid "Wait for the nozzle to heat up to probing temp (e.g. `M109 S140`)"
 msgstr ""
+"Warten, bis die Düse auf Abtasttemperatur aufgeheizt ist (z. B. `M109 S140`)"
 
 #: docs/Load_Cell.md:block 77 (ordered list)
 msgid "Home the machine (`G28`)"
-msgstr ""
+msgstr "Die Maschine referenzieren (`G28`)"
 
 #: docs/Load_Cell.md:block 77 (ordered list)
 msgid "Scrub the nozzle on a brush"
-msgstr ""
+msgstr "Die Düse an einer Bürste abstreifen"
 
 #: docs/Load_Cell.md:block 77 (ordered list)
 msgid "Heat soak the print bed"
-msgstr ""
+msgstr "Das Druckbett durchheizen lassen"
 
 #: docs/Load_Cell.md:block 77 (ordered list)
 msgid "Perform probing tasks: QGL, bed mesh etc."
-msgstr ""
+msgstr "Abtastaufgaben durchführen: QGL, Bett-Mesh usw."
 
 #: docs/Load_Cell.md:block 78 (header)
 msgid "Temperature Compensation for Nozzle Growth"
-msgstr ""
+msgstr "Temperaturkompensation für die Längenausdehnung der Düse"
 
 #: docs/Load_Cell.md:block 79 (paragraph)
 msgid ""
@@ -474,10 +637,15 @@ msgid ""
 "[[z_thermal_adjust]](Config_Reference.md#z_thermal_adjust). This adjustment "
 "will work across a range of printing temperatures from PLA to PC."
 msgstr ""
+"Wenn Sie bei einer sicheren Temperatur abtasten, dehnt sich die Düse nach "
+"dem Aufheizen auf Drucktemperatur aus. Dadurch wird die Düse länger und "
+"kommt der Druckoberfläche näher. Sie können das mit [[z_thermal_adjust]]"
+"(Config_Reference.md#z_thermal_adjust) kompensieren. Diese Anpassung "
+"funktioniert über einen Drucktemperaturbereich von PLA bis PC."
 
 #: docs/Load_Cell.md:block 80 (header)
 msgid "Calculating the `temp_coeff` for `[z_thermal_adjust]`"
-msgstr ""
+msgstr "Berechnung von `temp_coeff` für `[z_thermal_adjust]`"
 
 #: docs/Load_Cell.md:block 81 (paragraph)
 msgid ""
@@ -486,12 +654,19 @@ msgid ""
 "E.g. 180C and 290C. You can perform a `PROBE_ACCURACY` at both temperatures "
 "and then calculate the difference of the `average z` at both."
 msgstr ""
+"Am einfachsten ist es, bei 2 verschiedenen Temperaturen zu messen. "
+"Idealerweise sollten das die untere und obere Grenze des "
+"Drucktemperaturbereichs sein, z. B. 180 °C und 290 °C. Sie können bei beiden "
+"Temperaturen ein `PROBE_ACCURACY` durchführen und anschließend die Differenz "
+"der jeweiligen `average z` berechnen."
 
 #: docs/Load_Cell.md:block 82 (paragraph)
 msgid ""
 "The adjustment value is the change in nozzle length divided by the change in "
 "temperature. e.g."
 msgstr ""
+"Der Anpassungswert ist die Änderung der Düsenlänge geteilt durch die "
+"Temperaturänderung. Zum Beispiel:"
 
 #: docs/Load_Cell.md:block 84 (paragraph)
 msgid ""
@@ -499,20 +674,26 @@ msgid ""
 "move the nozzle closer to the bed and negative values move it further away. "
 "Expect to have to move the nozzle further away as it gets longer when hot."
 msgstr ""
+"Das erwartete Ergebnis ist eine negative Zahl. Positive Werte für "
+"`temp_coeff` bewegen die Düse näher zum Bett, negative Werte weiter davon "
+"weg. Rechnen Sie damit, die Düse weiter entfernen zu müssen, da sie im "
+"heißen Zustand länger wird."
 
 #: docs/Load_Cell.md:block 85 (header)
 msgid "Configure `[z_thermal_adjust]`"
-msgstr ""
+msgstr "`[z_thermal_adjust]` konfigurieren"
 
 #: docs/Load_Cell.md:block 86 (paragraph)
 msgid ""
 "Set up z_thermal_adjust to reference the `extruder` as the source of "
 "temperature data. E.g.:"
 msgstr ""
+"Richten Sie z_thermal_adjust so ein, dass es den `extruder` als Quelle der "
+"Temperaturdaten verwendet. Zum Beispiel:"
 
 #: docs/Load_Cell.md:block 88 (header)
 msgid "Continuous Tare Filters for Toolhead Load Cells"
-msgstr ""
+msgstr "Filter zur kontinuierlichen Tarierung für Wägezellen im Werkzeugkopf"
 
 #: docs/Load_Cell.md:block 89 (paragraph)
 msgid ""
@@ -522,10 +703,17 @@ msgid ""
 "changes. This is aimed at toolhead sensors and moving beds that experience "
 "lots of external forces that change while probing."
 msgstr ""
+"Klipper implementiert einen konfigurierbaren IIR-Filter auf dem "
+"Mikrocontroller, um die Wägezelle während des Abtastens kontinuierlich zu "
+"tarieren. Kontinuierliches Tarieren bedeutet, dass der Nullwert der Drift "
+"folgt, die durch äußere Einflüsse wie Bowdenschläuche und thermische "
+"Änderungen entsteht. Dies zielt auf Sensoren im Werkzeugkopf und bewegte "
+"Betten ab, auf die viele äußere Kräfte wirken, die sich während des "
+"Abtastens ändern."
 
 #: docs/Load_Cell.md:block 90 (header)
 msgid "Installing SciPy"
-msgstr ""
+msgstr "SciPy installieren"
 
 #: docs/Load_Cell.md:block 91 (paragraph)
 msgid ""
@@ -533,6 +721,9 @@ msgid ""
 "compute the filter coefficients based on the values your enter into the "
 "config."
 msgstr ""
+"Der Filtercode verwendet die hervorragende Bibliothek [SciPy](https://"
+"scipy.org/), um die Filterkoeffizienten anhand der Werte zu berechnen, die "
+"Sie in der Konfiguration eintragen."
 
 #: docs/Load_Cell.md:block 92 (paragraph)
 msgid ""
@@ -541,10 +732,15 @@ msgid ""
 "your installation experience. It does work with Python 2 but installation can "
 "take 30+ minutes and require installing additional tools."
 msgstr ""
+"Vorkompilierte SciPy-Builds sind für Python 3 auf 32-Bit-Raspberry-Pi-"
+"Systemen verfügbar. 32 Bit + Python 3 wird dringend empfohlen, da dies die "
+"Installation deutlich vereinfacht. Es funktioniert auch mit Python 2, dort "
+"kann die Installation jedoch mehr als 30 Minuten dauern und die Installation "
+"zusätzlicher Werkzeuge erfordern."
 
 #: docs/Load_Cell.md:block 94 (header)
 msgid "Filter Workbench"
-msgstr ""
+msgstr "Filter-Workbench"
 
 #: docs/Load_Cell.md:block 95 (paragraph)
 msgid ""
@@ -553,14 +749,21 @@ msgid ""
 "[filter_workbench.ipynb](../scripts/filter_workbench.ipynb), to perform a "
 "detailed investigation with real captured data and FFTs."
 msgstr ""
+"Die Filterparameter sollten anhand der Drift gewählt werden, die am Drucker "
+"im Normalbetrieb auftritt. Unter scripts wird ein Jupyter-Notebook "
+"bereitgestellt, [filter_workbench.ipynb](../scripts/filter_workbench.ipynb), "
+"um eine detaillierte Untersuchung mit real aufgezeichneten Daten und FFTs "
+"durchzuführen."
 
 #: docs/Load_Cell.md:block 96 (header)
 msgid "Filtering Suggestions"
-msgstr ""
+msgstr "Empfehlungen zur Filterung"
 
 #: docs/Load_Cell.md:block 97 (paragraph)
 msgid "For those just trying to get a filter working follow these suggestions:"
 msgstr ""
+"Wenn Sie einen Filter einfach nur zum Laufen bringen wollen, folgen Sie "
+"diesen Empfehlungen:"
 
 #: docs/Load_Cell.md:block 98 (unordered list)
 msgid ""
@@ -571,12 +774,22 @@ msgid ""
 "eliminated. Setting this value too high will result in slow triggering and "
 "excess force going through the toolhead."
 msgstr ""
+"Die einzige zwingend erforderliche Option ist "
+"`drift_filter_cutoff_frequency`. Ein konservativer Startwert ist `0.5` Hz. "
+"Prusa lieferte die MK4 mit einer Einstellung von `0.8` Hz und die XL mit "
+"`11.2` Hz aus. Das ist vermutlich ein sicherer Bereich zum Experimentieren. "
+"Dieser Wert sollte nur so weit erhöht werden, bis die normale Drift durch "
+"die Kraft des Bowdenschlauchs beseitigt ist. Ein zu hoher Wert führt zu "
+"spätem Auslösen und übermäßiger Kraft auf den Werkzeugkopf."
 
 #: docs/Load_Cell.md:block 98 (unordered list)
 msgid ""
 "Keep `trigger_force` low. The default is `75`g. The drift filter keeps the "
 "internal grams value very close to 0 so a large trigger force is not needed."
 msgstr ""
+"Halten Sie `trigger_force` niedrig. Der Standardwert ist `75` g. Der "
+"Driftfilter hält den internen Grammwert sehr nahe bei 0, sodass keine große "
+"Auslösekraft nötig ist."
 
 #: docs/Load_Cell.md:block 98 (unordered list)
 msgid ""
@@ -584,32 +797,38 @@ msgid ""
 "and should keep your toolhead safe while experimenting. If you hit this limit "
 "the `drift_filter_cutoff_frequency` value may be too high."
 msgstr ""
+"Belassen Sie `force_safety_limit` auf einem konservativen Wert. Der "
+"Standardwert beträgt 2 kg und sollte Ihren Werkzeugkopf beim Experimentieren "
+"schützen. Wenn Sie an dieses Limit stoßen, ist der Wert von "
+"`drift_filter_cutoff_frequency` möglicherweise zu hoch."
 
 #: docs/Load_Cell.md:block 99 (header)
 msgid "Suggestions for Load Cell Tool Boards"
-msgstr ""
+msgstr "Empfehlungen für Wägezellen-Toolboards"
 
 #: docs/Load_Cell.md:block 100 (paragraph)
 msgid ""
 "This section covers suggestions for those developing toolhead boards that want"
 " to support [load_cell_probe]"
 msgstr ""
+"Dieser Abschnitt enthält Empfehlungen für alle, die Werkzeugkopf-Platinen "
+"entwickeln und [load_cell_probe] unterstützen möchten"
 
 #: docs/Load_Cell.md:block 101 (header)
 msgid "ADC Sensor Selection & Board Development Hints"
-msgstr ""
+msgstr "Auswahl des ADC-Sensors & Hinweise zur Platinenentwicklung"
 
 #: docs/Load_Cell.md:block 102 (paragraph)
 msgid "Ideally a sensor would meet these criteria:"
-msgstr ""
+msgstr "Im Idealfall erfüllt ein Sensor diese Kriterien:"
 
 #: docs/Load_Cell.md:block 103 (unordered list)
 msgid "At least 24 bits wide"
-msgstr ""
+msgstr "Mindestens 24 Bit breit"
 
 #: docs/Load_Cell.md:block 103 (unordered list)
 msgid "Use SPI communications"
-msgstr ""
+msgstr "Verwendet SPI zur Kommunikation"
 
 #: docs/Load_Cell.md:block 103 (unordered list)
 msgid ""
@@ -617,12 +836,17 @@ msgid ""
 "This is often called the \"data ready\" or \"DRDY\" pin. Checking a pin is "
 "much faster than running an SPI query."
 msgstr ""
+"Besitzt einen Pin, der ohne SPI-Kommunikation anzeigt, dass ein Messwert "
+"bereitsteht. Er wird oft „data ready\"- oder „DRDY\"-Pin genannt. Das Prüfen "
+"eines Pins ist viel schneller als eine SPI-Abfrage."
 
 #: docs/Load_Cell.md:block 103 (unordered list)
 msgid ""
 "Has a programmable gain amplifier gain setting of 128. This should eliminate "
 "the need for a separate amplifier."
 msgstr ""
+"Besitzt einen programmierbaren Verstärker mit einer Verstärkungseinstellung "
+"von 128. Damit sollte ein separater Verstärker überflüssig sein."
 
 #: docs/Load_Cell.md:block 103 (unordered list)
 msgid ""
@@ -630,6 +854,10 @@ msgid ""
 " errors in homing and using noisy data at startup. It can also help users "
 "track down wiring and grounding issues."
 msgstr ""
+"Meldet über SPI, ob der Sensor zurückgesetzt wurde. Das Erkennen von Resets "
+"vermeidet Timing-Fehler bei der Referenzfahrt und die Verwendung "
+"verrauschter Daten beim Start. Es hilft Anwendern außerdem, Verkabelungs- "
+"und Erdungsprobleme aufzuspüren."
 
 #: docs/Load_Cell.md:block 103 (unordered list)
 msgid ""
@@ -640,6 +868,13 @@ msgid ""
 "between measurements. E.g. a 500Hz sensor moving at 5mm/s has the same safety "
 "factor as a 100Hz sensor moving at only 1mm/s."
 msgstr ""
+"Eine wählbare Abtastrate zwischen 350 Hz und 2 kHz. Sehr hohe Abtastraten "
+"erweisen sich in unseren 3D-Druckern nicht als vorteilhaft, da diese bei "
+"schnellen Bewegungen sehr viel Rauschen erzeugen. Abtastraten unter 250 Hz "
+"erfordern langsamere Abtastgeschwindigkeiten. Sie erhöhen zudem die Kraft "
+"auf den Werkzeugkopf, da die Abstände zwischen den Messungen länger sind. "
+"Ein 500-Hz-Sensor bei 5 mm/s hat z. B. denselben Sicherheitsfaktor wie ein "
+"100-Hz-Sensor bei nur 1 mm/s."
 
 #: docs/Load_Cell.md:block 103 (unordered list)
 msgid ""
@@ -648,16 +883,24 @@ msgid ""
 "ADCs that require switching channels have a settling of several samples after "
 "each channel switch making them unsuitable for probing applications."
 msgstr ""
+"Wenn Sie für Anwendungen unter dem Bett entwickeln und mehrere Wägezellen "
+"erfassen möchten, verwenden Sie einen Chip, der alle Eingänge gleichzeitig "
+"abtasten kann. Multiplex-ADCs, die Kanäle umschalten müssen, benötigen nach "
+"jedem Kanalwechsel mehrere Messwerte zum Einschwingen und sind damit für "
+"Abtastanwendungen ungeeignet."
 
 #: docs/Load_Cell.md:block 104 (paragraph)
 msgid ""
 "Implementing support for a new sensor chip is not particularly difficult with "
 "Klipper's `bulk_sensor` and `load_cell_endstop` infrastructure."
 msgstr ""
+"Die Unterstützung für einen neuen Sensorchip zu implementieren ist mit "
+"Klippers Infrastruktur `bulk_sensor` und `load_cell_endstop` nicht besonders "
+"schwierig."
 
 #: docs/Load_Cell.md:block 105 (header)
 msgid "5V Power Filtering"
-msgstr ""
+msgstr "Filterung der 5-V-Versorgung"
 
 #: docs/Load_Cell.md:block 106 (paragraph)
 msgid ""
@@ -667,6 +910,11 @@ msgid ""
 " generally assume a quiet power supply. Treat their suggested capacitor values"
 " as minimums."
 msgstr ""
+"Es wird dringend empfohlen, größere Kondensatoren zu verwenden, als der "
+"Hersteller des ADC-Chips angibt. ADC-Chips sind üblicherweise auf rauscharme "
+"Umgebungen wie batteriebetriebene Geräte ausgelegt. Die Applikationshinweise "
+"der Sensorhersteller gehen in der Regel von einer störungsarmen Versorgung "
+"aus. Behandeln Sie die dort empfohlenen Kondensatorwerte als Mindestwerte."
 
 #: docs/Load_Cell.md:block 107 (paragraph)
 msgid ""
@@ -675,10 +923,15 @@ msgid ""
 "power supply and active stepper drivers before deciding on smoothing capacitor"
 " sizes."
 msgstr ""
+"3D-Drucker bringen sehr viel Rauschen auf die 5-V-Schiene, was die "
+"Genauigkeit des Sensors zunichtemachen kann. Testen Sie den Sensor auf der "
+"Platine mit einem typischen 3D-Drucker-Netzteil und aktiven "
+"Schrittmotortreibern, bevor Sie sich für die Größe der "
+"Glättungskondensatoren entscheiden."
 
 #: docs/Load_Cell.md:block 108 (header)
 msgid "Grounding & Ground Planes"
-msgstr ""
+msgstr "Erdung & Masseflächen"
 
 #: docs/Load_Cell.md:block 109 (paragraph)
 msgid ""
@@ -687,16 +940,23 @@ msgid ""
 "noise. Keep the chip away from power sections and DC to DC converters. The "
 "board should have proper grounding back to the DC supply."
 msgstr ""
+"Analoge ADC-Chips enthalten Bauteile, die sehr anfällig für Rauschen und ESD "
+"sind. Eine große Massefläche auf der ersten Platinenlage unter dem Chip kann "
+"gegen Rauschen helfen. Halten Sie den Chip von Leistungsbereichen und DC-DC-"
+"Wandlern fern. Die Platine sollte eine ordentliche Masseanbindung zurück zur "
+"Gleichspannungsversorgung haben."
 
 #: docs/Load_Cell.md:block 110 (header)
 msgid "HX711 and HX717 Notes"
-msgstr ""
+msgstr "Hinweise zu HX711 und HX717"
 
 #: docs/Load_Cell.md:block 111 (paragraph)
 msgid ""
 "This sensor is popular because of its low cost and availability in the supply "
 "chain. However, this is a sensor with some drawbacks:"
 msgstr ""
+"Dieser Sensor ist wegen seines niedrigen Preises und seiner guten "
+"Verfügbarkeit beliebt. Er hat allerdings einige Nachteile:"
 
 #: docs/Load_Cell.md:block 112 (unordered list)
 msgid ""
@@ -704,6 +964,9 @@ msgid ""
 "MCU. Using a sensor that communicates via SPI would save resources on the tool"
 " board's CPU."
 msgstr ""
+"Die HX71x-Sensoren verwenden Bit-Banging zur Kommunikation, was den "
+"Mikrocontroller stark belastet. Ein Sensor mit SPI-Kommunikation würde "
+"Ressourcen der CPU des Toolboards sparen."
 
 #: docs/Load_Cell.md:block 112 (unordered list)
 msgid ""
@@ -711,6 +974,9 @@ msgid ""
 "resets with a timing heuristic but this is not ideal. Resets indicate a "
 "problem with wiring or grounding."
 msgstr ""
+"Dem HX71x fehlt eine Möglichkeit, Reset-Ereignisse an den Mikrocontroller zu "
+"melden. Klipper erkennt Resets über eine zeitbasierte Heuristik, was nicht "
+"ideal ist. Resets weisen auf ein Problem mit der Verkabelung oder Erdung hin."
 
 #: docs/Load_Cell.md:block 112 (unordered list)
 msgid ""
@@ -718,6 +984,9 @@ msgid ""
 "its higher sample rate (320 vs 80). Probing speed on the HX711 should be "
 "limited to less than 2mm/s."
 msgstr ""
+"Für Abtastanwendungen ist die Variante HX717 wegen ihrer höheren Abtastrate "
+"(320 statt 80) klar vorzuziehen. Die Abtastgeschwindigkeit beim HX711 sollte "
+"auf weniger als 2 mm/s begrenzt werden."
 
 #: docs/Load_Cell.md:block 112 (unordered list)
 msgid ""
@@ -725,12 +994,19 @@ msgid ""
 "the 10SPS version of the sensor (which is widely distributed) it needs to be "
 "physically re-wired to run at 80SPS."
 msgstr ""
+"Die Abtastrate des HX71x lässt sich nicht über Klippers Konfiguration "
+"einstellen. Wenn Sie die 10-SPS-Version des Sensors besitzen (die weit "
+"verbreitet ist), muss sie physisch umverdrahtet werden, um mit 80 SPS zu "
+"laufen."
 
 #: docs/Load_Cell.md:block 9 (unordered list)
 msgid ""
 "Tap or push on the sensor while `LOAD_CELL_DIAGNOSTIC` runs. If things are "
 "working correctly this should increase the 'Sample range'."
 msgstr ""
+"Tippen oder drücken Sie auf den Sensor, während `LOAD_CELL_DIAGNOSTIC` "
+"läuft. Wenn alles korrekt funktioniert, sollte dadurch die „Sample range\" "
+"größer werden."
 
 #: docs/Load_Cell.md:block 49 (paragraph)
 msgid ""
@@ -740,10 +1016,15 @@ msgid ""
 "more likely to be violated. You want to be notified if this is happening "
 "because your hardware has been permanently damaged."
 msgstr ""
+"Ein weiterer Grund für dieses Aufschaukeln ist ein beschädigter "
+"Dehnungsmessstreifen. Ist das Metallteil dauerhaft verbogen, ändert das die "
+"`reference_tare_counts` des Geräts. Dadurch liegt der anfängliche Tarawert "
+"viel näher am Grenzwert, sodass dieser eher überschritten wird. Sie möchten "
+"darüber informiert werden, denn Ihre Hardware wurde dauerhaft beschädigt."
 
 #: docs/Load_Cell.md:block 54 (header)
 msgid "Interpolation"
-msgstr ""
+msgstr "Interpolation"
 
 #: docs/Load_Cell.md:block 55 (paragraph)
 msgid ""
@@ -757,6 +1038,16 @@ msgid ""
 "squared. This enables a resolution finer than the distance between the "
 "sampling points and will also be less sensitive to noise."
 msgstr ""
+"Um die Genauigkeit des Abtastergebnisses zu erhöhen, kann die Position des "
+"ersten Kontakts zwischen Düse und Bett geschätzt werden, indem eine "
+"stückweise definierte Funktion an die Messdaten angepasst wird. Die Daten "
+"bestehen aus zwei Bereichen: Solange sich die Düse über dem Bett befindet, "
+"ist die Kraft konstant (auf dem Tarawert). Sobald die Düse das Bett berührt, "
+"steigt die Kraft mit abnehmender Z-Position linear an. Eine stückweise "
+"definierte Funktion wird an die Daten angepasst und die optimale Z-Position "
+"des Knickpunkts durch Minimierung des quadratischen Fehlers bestimmt. Das "
+"ermöglicht eine feinere Auflösung als der Abstand zwischen den Abtastpunkten "
+"und ist zudem weniger empfindlich gegenüber Rauschen."
 
 #: docs/Load_Cell.md:block 56 (paragraph)
 msgid ""
@@ -767,6 +1058,13 @@ msgid ""
 "data must contain enough samples for the fit: at least 3 samples each below "
 "and above the contact point are required."
 msgstr ""
+"Aus physikalischen wie technischen Gründen verwendet die Interpolation "
+"Daten, die während einer zusätzlichen Aufwärtsbewegung nach der anfänglichen "
+"Abwärtsbewegung erfasst werden. Für die Anpassung werden die ersten 300 ms "
+"der während der Aufwärtsbewegung erfassten Daten verwendet (das minimiert "
+"den Einfluss von Taradriften). Die erfassten Daten müssen genügend Messwerte "
+"für die Anpassung enthalten: Es sind jeweils mindestens 3 Messwerte "
+"unterhalb und oberhalb des Kontaktpunkts erforderlich."
 
 #: docs/Load_Cell.md:block 57 (paragraph)
 msgid ""
@@ -776,12 +1074,19 @@ msgid ""
 "the `lift_speed` is too small, there will be too few samples above the contact"
 " point due to the 300ms window."
 msgstr ""
+"Es wird empfohlen, eine relativ hohe Auslösekraft für die Sonde zu "
+"verwenden, damit das Signal stark genug ist. Wenn Sie zu wenige Messwerte "
+"unterhalb des Kontaktpunkts haben, erhöhen Sie `trigger_force` oder "
+"verringern Sie `lift_speed`. Ist `lift_speed` jedoch zu klein, gibt es wegen "
+"des 300-ms-Fensters zu wenige Messwerte oberhalb des Kontaktpunkts."
 
 #: docs/Load_Cell.md:block 58 (paragraph)
 msgid ""
 "The distance of the ascending move can be configured through the "
 "`sample_retract_dist` parameter."
 msgstr ""
+"Die Länge der Aufwärtsbewegung lässt sich über den Parameter "
+"`sample_retract_dist` konfigurieren."
 
 #~ msgid ""
 #~ "Tap or push on the sensor while `LOAD_CELL_DIAGNOSTIC` runs. If things are "

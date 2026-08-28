@@ -41,6 +41,7 @@ msgstr "75 % Gesamtdeckung"
 #: docs/CONTRIBUTING.md:block 11 (unordered list)
 msgid "An updated navigation hierarchy PR in klipper-translations."
 msgstr ""
+"Ein PR mit aktualisierter Navigationshierarchie in klipper-translations."
 
 #: docs/CONTRIBUTING.md:block 13 (paragraph)
 msgid ""
@@ -50,6 +51,12 @@ msgid ""
 "translations) `readme.md`. Once a translation is ready, the corresponding "
 "modification to the Klipper project can be made."
 msgstr ""
+"Um die Frustration beim Übersetzen fachspezifischer Begriffe zu verringern "
+"und einen Überblick über die laufenden Übersetzungen zu erhalten, können Sie "
+"einen PR einreichen, der die `readme.md` des [Klipper-translations-Projekts]"
+"(https://github.com/Klipper3d/klipper-translations) ändert. Sobald eine "
+"Übersetzung fertig ist, kann die entsprechende Änderung am Klipper-Projekt "
+"vorgenommen werden."
 
 #: docs/CONTRIBUTING.md:block 14 (paragraph)
 msgid ""
@@ -57,18 +64,25 @@ msgid ""
 "the checklist above, it will be marked out-of-date after a month without "
 "updates."
 msgstr ""
+"Wenn eine Übersetzung bereits im Klipper-Repository existiert und die obige "
+"Checkliste nicht mehr erfüllt, wird sie nach einem Monat ohne Aktualisierung "
+"als veraltet markiert."
 
 #: docs/CONTRIBUTING.md:block 2 (paragraph)
 msgid ""
 "Thank you for contributing to Klipper! This document describes the process for"
 " contributing changes to Klipper."
 msgstr ""
+"Vielen Dank für Ihren Beitrag zu Klipper! Dieses Dokument beschreibt den "
+"Prozess, um Änderungen zu Klipper beizutragen."
 
 #: docs/CONTRIBUTING.md:block 3 (paragraph)
 msgid ""
 "Please see the [contact page](Contact.md) for information on reporting an "
 "issue or for details on contacting the developers."
 msgstr ""
+"Informationen zum Melden eines Problems sowie Details zur Kontaktaufnahme "
+"mit den Entwicklern finden Sie auf der [Kontaktseite](Contact.md)."
 
 #: docs/CONTRIBUTING.md:block 4 (header)
 msgid "Overview of Contribution Process"
@@ -85,6 +99,9 @@ msgid ""
 "Request](https://github.com/Klipper3d/klipper/pulls) when a submission is "
 "ready for widespread deployment."
 msgstr ""
+"Ein Einreicher beginnt damit, einen [GitHub Pull Request](https://github.com/"
+"Klipper3d/klipper/pulls) zu erstellen, sobald eine Einreichung für den "
+"breiten Einsatz bereit ist."
 
 #: docs/CONTRIBUTING.md:block 6 (ordered list)
 msgid ""
@@ -93,6 +110,10 @@ msgid ""
 "GitHub. The goal of the review is to look for defects and to check that the "
 "submission follows documented guidelines."
 msgstr ""
+"Wenn ein [Reviewer](#reviewers) verfügbar ist, um die Einreichung zu [prüfen]"
+"(#what-to-expect-in-a-review), weist er sich selbst dem Pull Request auf "
+"GitHub zu. Ziel der Prüfung ist es, nach Mängeln zu suchen und zu "
+"kontrollieren, ob die Einreichung den dokumentierten Richtlinien folgt."
 
 #: docs/CONTRIBUTING.md:block 6 (ordered list)
 msgid ""
@@ -100,6 +121,9 @@ msgid ""
 "and a [maintainer](#reviewers) will commit the change to the Klipper master "
 "branch."
 msgstr ""
+"Nach einer erfolgreichen Prüfung wird der Reviewer die Prüfung auf GitHub „"
+"freigeben“ und ein [Maintainer](#reviewers) übernimmt die Änderung in den "
+"master-Branch von Klipper."
 
 #: docs/CONTRIBUTING.md:block 7 (paragraph)
 msgid ""
@@ -108,6 +132,10 @@ msgid ""
 "improve visibility of development work and may attract others interested in "
 "testing new work."
 msgstr ""
+"Wenn Sie an Erweiterungen arbeiten, erwägen Sie, ein Thema im [Klipper "
+"Discourse](Contact.md) zu starten (oder zu einem beizutragen). Eine laufende "
+"Diskussion im Forum kann die Sichtbarkeit der Entwicklungsarbeit erhöhen und "
+"weitere Interessenten anziehen, die neue Arbeiten testen möchten."
 
 #: docs/CONTRIBUTING.md:block 8 (header)
 msgid "What to expect in a review"
@@ -119,6 +147,10 @@ msgid ""
 "review process is to check for defects and to check that the submission "
 "follows guidelines specified in the Klipper documentation."
 msgstr ""
+"Beiträge zu Klipper werden vor dem Zusammenführen geprüft. Das primäre Ziel "
+"des Prüfprozesses ist es, nach Mängeln zu suchen und zu kontrollieren, ob "
+"die Einreichung den in der Klipper-Dokumentation festgelegten Richtlinien "
+"folgt."
 
 #: docs/CONTRIBUTING.md:block 10 (paragraph)
 msgid ""
@@ -126,6 +158,9 @@ msgid ""
 "intent of the review to discuss the \"best\" implementation. Where possible, "
 "review discussions focused on facts and measurements are preferable."
 msgstr ""
+"Es ist bekannt, dass es viele Wege gibt, eine Aufgabe zu lösen; es ist nicht "
+"Absicht der Prüfung, die „beste“ Implementierung zu diskutieren. Wo möglich, "
+"sind Prüfdiskussionen vorzuziehen, die sich auf Fakten und Messungen stützen."
 
 #: docs/CONTRIBUTING.md:block 11 (paragraph)
 msgid ""
@@ -133,14 +168,18 @@ msgid ""
 " to obtain feedback, provide further details, and to update the submission if "
 "needed."
 msgstr ""
+"Die Mehrzahl der Einreichungen führt zu Rückmeldungen aus einer Prüfung. "
+"Seien Sie darauf vorbereitet, Feedback zu erhalten, weitere Details zu "
+"liefern und die Einreichung bei Bedarf zu aktualisieren."
 
 #: docs/CONTRIBUTING.md:block 12 (paragraph)
 msgid "Common things a reviewer will look for:"
-msgstr ""
+msgstr "Häufige Punkte, auf die ein Reviewer achtet:"
 
 #: docs/CONTRIBUTING.md:block 13 (ordered list)
 msgid "Is the submission free of defects and is it ready to be widely deployed?"
 msgstr ""
+"Ist die Einreichung frei von Mängeln und bereit für den breiten Einsatz?"
 
 #: docs/CONTRIBUTING.md:block 13 (ordered list)
 msgid ""
@@ -150,6 +189,11 @@ msgid ""
 "weeks of acceptance. Quality of submissions is therefore considered a "
 "priority."
 msgstr ""
+"Von Einreichern wird erwartet, dass sie ihre Änderungen vor der Einreichung "
+"testen. Die Reviewer suchen nach Fehlern, testen Einreichungen aber im "
+"Allgemeinen nicht. Eine angenommene Einreichung wird oft innerhalb weniger "
+"Wochen nach der Annahme auf Tausenden von Druckern eingesetzt. Die Qualität "
+"der Einreichungen hat daher Priorität."
 
 #: docs/CONTRIBUTING.md:block 13 (ordered list)
 msgid ""
@@ -159,6 +203,12 @@ msgid ""
 "[Klipper Discourse](Contact.md) server is a good place to raise awareness of "
 "new work and to find users interested in providing real-world feedback."
 msgstr ""
+"Das Haupt-GitHub-Repository [Klipper3d/klipper](https://github.com/Klipper3d/"
+"klipper) nimmt keine experimentellen Arbeiten an. Einreicher sollten "
+"Experimente, Fehlersuche und Tests in ihren eigenen Repositories "
+"durchführen. Der [Klipper Discourse](Contact.md)-Server ist ein guter Ort, "
+"um auf neue Arbeiten aufmerksam zu machen und Anwender zu finden, die an "
+"praxisnahem Feedback interessiert sind."
 
 #: docs/CONTRIBUTING.md:block 13 (ordered list)
 msgid "Submissions must pass all [regression test cases](Debugging.md)."
@@ -170,6 +220,8 @@ msgid ""
 "Code submissions should not contain excessive debugging code, debugging "
 "options, nor run-time debug logging."
 msgstr ""
+"Code-Einreichungen sollten keinen übermäßigen Debugging-Code, keine "
+"Debugging-Optionen und kein Debug-Logging zur Laufzeit enthalten."
 
 #: docs/CONTRIBUTING.md:block 13 (ordered list)
 msgid ""
@@ -178,17 +230,23 @@ msgid ""
 "describing past implementations. There should not be excessive \"todo\" "
 "comments."
 msgstr ""
+"Kommentare in Code-Einreichungen sollten darauf abzielen, die Wartbarkeit "
+"des Codes zu verbessern. Einreichungen sollten keinen „auskommentierten Code"
+"“ und keine übermäßigen Kommentare zu früheren Implementierungen enthalten. "
+"Es sollten keine übermäßig vielen „todo“-Kommentare vorhanden sein."
 
 #: docs/CONTRIBUTING.md:block 13 (ordered list)
 msgid ""
 "Updates to documentation should not declare that they are a \"work in "
 "progress\"."
 msgstr ""
+"Aktualisierungen der Dokumentation sollten nicht erklären, dass sie „in "
+"Arbeit“ sind."
 
 #: docs/CONTRIBUTING.md:block 13 (ordered list)
 msgid ""
 "Is the copyright of the submission clear, non-gratuitous, and compatible?"
-msgstr ""
+msgstr "Ist das Copyright der Einreichung eindeutig, angemessen und kompatibel?"
 
 #: docs/CONTRIBUTING.md:block 13 (ordered list)
 msgid ""
@@ -196,6 +254,10 @@ msgid ""
 "See the existing files for the preferred format. Declaring a copyright on an "
 "existing file when making minor changes to that file is discouraged."
 msgstr ""
+"Neue C-Dateien und Python-Dateien sollten einen eindeutigen Copyright-"
+"Vermerk haben. Das bevorzugte Format zeigen die bestehenden Dateien. Ein "
+"Copyright an einer bestehenden Datei zu beanspruchen, wenn nur geringfügige "
+"Änderungen daran vorgenommen werden, ist unerwünscht."
 
 #: docs/CONTRIBUTING.md:block 13 (ordered list)
 msgid ""
@@ -203,6 +265,10 @@ msgid ""
 "(GNU GPLv3). Large 3rd party code additions should be added to the `lib/` "
 "directory (and follow the format described in [lib/README](../lib/README))."
 msgstr ""
+"Code aus Drittquellen muss mit der Klipper-Lizenz (GNU GPLv3) kompatibel "
+"sein. Große Ergänzungen von Drittcode sollten in das Verzeichnis `lib/` "
+"aufgenommen werden (und dem in [lib/README](../lib/README) beschriebenen "
+"Format folgen)."
 
 #: docs/CONTRIBUTING.md:block 13 (ordered list)
 msgid ""
@@ -210,71 +276,100 @@ msgid ""
 "using their full real name. It indicates the submitter agrees with the "
 "[developer certificate of origin](developer-certificate-of-origin)."
 msgstr ""
+"Einreicher müssen eine [Signed-off-by-Zeile](#format-of-commit-messages) mit "
+"ihrem vollständigen echten Namen angeben. Sie zeigt an, dass der Einreicher "
+"dem [Developer Certificate of Origin](developer-certificate-of-origin) "
+"zustimmt."
 
 #: docs/CONTRIBUTING.md:block 13 (ordered list)
 msgid ""
 "Does the submission follow guidelines specified in the Klipper documentation?"
 msgstr ""
+"Folgt die Einreichung den in der Klipper-Dokumentation festgelegten "
+"Richtlinien?"
 
 #: docs/CONTRIBUTING.md:block 13 (ordered list)
 msgid ""
 "In particular, code should follow the guidelines in <Code_Overview.md> and "
 "config files should follow the guidelines in <Example_Configs.md>."
 msgstr ""
+"Insbesondere sollte Code den Richtlinien in <Code_Overview.md> folgen und "
+"Konfigurationsdateien sollten den Richtlinien in <Example_Configs.md> folgen."
 
 #: docs/CONTRIBUTING.md:block 13 (ordered list)
 msgid "Is the Klipper documentation updated to reflect new changes?"
 msgstr ""
+"Wurde die Klipper-Dokumentation aktualisiert, um die neuen Änderungen "
+"abzubilden?"
 
 #: docs/CONTRIBUTING.md:block 13 (ordered list)
 msgid ""
 "At a minimum, the reference documentation must be updated with corresponding "
 "changes to the code:"
 msgstr ""
+"Mindestens die Referenzdokumentation muss entsprechend den Änderungen am "
+"Code aktualisiert werden:"
 
 #: docs/CONTRIBUTING.md:block 13 (ordered list)
 msgid "All commands and command parameters must be documented in <G-Codes.md>."
 msgstr ""
+"Alle Befehle und Befehlsparameter müssen in <G-Codes.md> dokumentiert werden."
 
 #: docs/CONTRIBUTING.md:block 13 (ordered list)
 msgid ""
 "All user facing modules and their config parameters must be documented in "
 "<Config_Reference.md>."
 msgstr ""
+"Alle nutzerseitigen Module und ihre Konfigurationsparameter müssen in "
+"<Config_Reference.md> dokumentiert werden."
 
 #: docs/CONTRIBUTING.md:block 13 (ordered list)
 msgid ""
 "All exported \"status variables\" must be documented in <Status_Reference.md>."
 msgstr ""
+"Alle exportierten „Statusvariablen“ müssen in <Status_Reference.md> "
+"dokumentiert werden."
 
 #: docs/CONTRIBUTING.md:block 13 (ordered list)
 msgid ""
 "All new \"webhooks\" and their parameters must be documented in "
 "<API_Server.md>."
 msgstr ""
+"Alle neuen „Webhooks“ und ihre Parameter müssen in <API_Server.md> "
+"dokumentiert werden."
 
 #: docs/CONTRIBUTING.md:block 13 (ordered list)
 msgid ""
 "Any change that makes a non-backwards compatible change to a command or config"
 " file setting must be documented in <Config_Changes.md>."
 msgstr ""
+"Jede Änderung, die eine nicht abwärtskompatible Änderung an einem Befehl "
+"oder an einer Einstellung in der Konfigurationsdatei bewirkt, muss in "
+"<Config_Changes.md> dokumentiert werden."
 
 #: docs/CONTRIBUTING.md:block 13 (ordered list)
 msgid ""
 "New documents should be added to <Overview.md> and be added to the website "
 "index [docs/_klipper3d/mkdocs.yml](../docs/_klipper3d/mkdocs.yml)."
 msgstr ""
+"Neue Dokumente sollten in <Overview.md> aufgenommen und dem Website-Index "
+"[docs/_klipper3d/mkdocs.yml](../docs/_klipper3d/mkdocs.yml) hinzugefügt "
+"werden."
 
 #: docs/CONTRIBUTING.md:block 13 (ordered list)
 msgid ""
 "Are commits well formed, address a single topic per commit, and independent?"
 msgstr ""
+"Sind die Commits gut geformt, behandeln sie je Commit ein einzelnes Thema "
+"und sind sie unabhängig?"
 
 #: docs/CONTRIBUTING.md:block 13 (ordered list)
 msgid ""
 "Commit messages should follow the [preferred format](#format-of-commit-"
 "messages)."
 msgstr ""
+"Commit-Nachrichten sollten dem [bevorzugten Format](#format-of-commit-"
+"messages) folgen."
 
 #: docs/CONTRIBUTING.md:block 13 (ordered list)
 msgid ""
@@ -285,6 +380,12 @@ msgid ""
 "conflict, then submitters are recommended to use `git rebase` to address the "
 "conflict."
 msgstr ""
+"Commits dürfen keinen Merge-Konflikt aufweisen. Neue Ergänzungen des master-"
+"Branches von Klipper erfolgen immer per „rebase“ oder „squash and rebase“. "
+"Es ist im Allgemeinen nicht nötig, dass Einreicher ihre Einreichung bei "
+"jeder Aktualisierung des Klipper-master-Repositories erneut zusammenführen. "
+"Bei einem Merge-Konflikt wird Einreichern jedoch empfohlen, `git rebase` zu "
+"verwenden, um den Konflikt zu beheben."
 
 #: docs/CONTRIBUTING.md:block 13 (ordered list)
 msgid ""
@@ -292,6 +393,10 @@ msgid ""
 " broken up into multiple independent commits. Each commit should \"stand on "
 "its own\" so that tools like `git bisect` and `git revert` work reliably."
 msgstr ""
+"Jeder Commit sollte eine einzelne übergeordnete Änderung behandeln. Große "
+"Änderungen sollten in mehrere unabhängige Commits aufgeteilt werden. Jeder "
+"Commit sollte „für sich stehen“, damit Werkzeuge wie `git bisect` und `git "
+"revert` zuverlässig funktionieren."
 
 #: docs/CONTRIBUTING.md:block 13 (ordered list)
 msgid ""
@@ -299,12 +404,18 @@ msgid ""
 "gratuitous whitespace changes are not accepted unless they are from the "
 "established \"owner\" of the code being modified."
 msgstr ""
+"Whitespace-Änderungen sollten nicht mit funktionalen Änderungen vermischt "
+"werden. Grundlose Whitespace-Änderungen werden im Allgemeinen nicht "
+"akzeptiert, es sei denn, sie stammen vom etablierten „Eigentümer“ des "
+"geänderten Codes."
 
 #: docs/CONTRIBUTING.md:block 13 (ordered list)
 msgid ""
 "Does the submission provide a \"high impact\" benefit to real-world users "
 "performing real-world tasks?"
 msgstr ""
+"Bietet die Einreichung einen Nutzen mit „hoher Wirkung“ für reale Anwender "
+"bei realen Aufgaben?"
 
 #: docs/CONTRIBUTING.md:block 13 (ordered list)
 msgid ""
@@ -315,6 +426,12 @@ msgid ""
 "both the submitter and the reviewer, and it is not explicitly stated during a "
 "review."
 msgstr ""
+"Reviewer müssen — zumindest für sich selbst — grob bestimmen, „wer die "
+"Zielgruppe ist“, wie groß „diese Zielgruppe ungefähr ist“, welchen „Nutzen“ "
+"sie erhält, wie der „Nutzen gemessen wird“ und welche „Ergebnisse diese "
+"Messungen liefern“. In den meisten Fällen ist dies sowohl für den Einreicher "
+"als auch für den Reviewer offensichtlich und wird während einer Prüfung "
+"nicht ausdrücklich erwähnt."
 
 #: docs/CONTRIBUTING.md:block 13 (ordered list)
 msgid ""
@@ -322,6 +439,10 @@ msgid ""
 "target audience. As a general \"rule of thumb\", submissions should target a "
 "user base of at least a 100 real-world users."
 msgstr ""
+"Von Einreichungen in den master-Branch von Klipper wird erwartet, dass sie "
+"eine nennenswerte Zielgruppe haben. Als grobe „Faustregel“ sollten "
+"Einreichungen eine Nutzerbasis von mindestens 100 realen Anwendern "
+"ansprechen."
 
 #: docs/CONTRIBUTING.md:block 13 (ordered list)
 msgid ""
@@ -329,6 +450,9 @@ msgid ""
 "don't consider it criticism. Being able to understand the real-world benefits "
 "of a change is a natural part of a review."
 msgstr ""
+"Wenn ein Reviewer nach Details zum „Nutzen“ einer Einreichung fragt, "
+"betrachten Sie dies bitte nicht als Kritik. Die realen Vorteile einer "
+"Änderung nachvollziehen zu können, ist ein natürlicher Teil einer Prüfung."
 
 #: docs/CONTRIBUTING.md:block 13 (ordered list)
 msgid ""
@@ -337,6 +461,10 @@ msgid ""
 "they can not reasonably configure nor do we want to burden them with options "
 "that don't provide a notable benefit."
 msgstr ""
+"Alle neuen Module, Konfigurationsoptionen, Befehle, Befehlsparameter und "
+"Dokumente sollten „hohe Wirkung“ haben. Wir wollen Anwender weder mit "
+"Optionen belasten, die sie nicht sinnvoll konfigurieren können, noch mit "
+"Optionen, die keinen nennenswerten Nutzen bringen."
 
 #: docs/CONTRIBUTING.md:block 13 (ordered list)
 msgid ""
@@ -345,12 +473,18 @@ msgid ""
 "of the MegaX500 are expected to set option X to 99.3 while users of the "
 "Elite100Y are expected to calibrate option X using procedure ...\"."
 msgstr ""
+"Ein Reviewer kann um Klarstellung bitten, wie ein Anwender eine Option "
+"konfigurieren soll — eine ideale Antwort enthält Details zum Vorgehen, zum "
+"Beispiel: „Anwender des MegaX500 sollen Option X auf 99.3 setzen, während "
+"Anwender des Elite100Y Option X mit dem Verfahren ... kalibrieren sollen“."
 
 #: docs/CONTRIBUTING.md:block 13 (ordered list)
 msgid ""
 "If the goal of an option is to make the code more modular then prefer using "
 "code constants instead of user facing config options."
 msgstr ""
+"Wenn das Ziel einer Option darin besteht, den Code modularer zu machen, sind "
+"Code-Konstanten gegenüber nutzerseitigen Konfigurationsoptionen vorzuziehen."
 
 #: docs/CONTRIBUTING.md:block 13 (ordered list)
 msgid ""
@@ -358,6 +492,10 @@ msgid ""
 "functionality to existing modules - if the differences are arbitrary than it's"
 " preferable to utilize the existing system or refactor the existing code."
 msgstr ""
+"Neue Module, neue Optionen und neue Parameter sollten keine Funktionalität "
+"bieten, die bestehenden Modulen ähnelt — sind die Unterschiede willkürlich, "
+"ist es vorzuziehen, das bestehende System zu nutzen oder den bestehenden "
+"Code umzustrukturieren."
 
 #: docs/CONTRIBUTING.md:block 14 (paragraph)
 msgid ""
@@ -368,6 +506,12 @@ msgid ""
 "new code to follow an internally consistent style and to generally follow "
 "industry wide coding norms."
 msgstr ""
+"Klipper setzt keinen strikten „Coding Style Guide“ um, aber Änderungen an "
+"bestehendem Code sollten dem übergeordneten Codeablauf, dem Einrückungsstil "
+"und dem Format dieses bestehenden Codes folgen. Einreichungen neuer Module "
+"und Systeme haben mehr Freiheit im Codierstil, es ist jedoch vorzuziehen, "
+"dass dieser neue Code einem in sich konsistenten Stil folgt und sich "
+"generell an branchenweit üblichen Codierkonventionen orientiert."
 
 #: docs/CONTRIBUTING.md:block 15 (paragraph)
 msgid ""
@@ -377,6 +521,12 @@ msgid ""
 "particular, if reviewers can not convince themselves that a submission is free"
 " of defects then changes may be necessary."
 msgstr ""
+"Es ist kein Ziel einer Prüfung, „bessere Implementierungen“ zu diskutieren. "
+"Wenn ein Reviewer jedoch Schwierigkeiten hat, die Implementierung einer "
+"Einreichung zu verstehen, kann er Änderungen verlangen, die die "
+"Implementierung nachvollziehbarer machen. Insbesondere können Änderungen "
+"nötig sein, wenn Reviewer sich nicht davon überzeugen können, dass eine "
+"Einreichung frei von Mängeln ist."
 
 #: docs/CONTRIBUTING.md:block 16 (paragraph)
 msgid ""
@@ -387,6 +537,13 @@ msgid ""
 "implementation. Both situations are a normal result of a review and should not"
 " be considered criticism of the original submission."
 msgstr ""
+"Als Teil einer Prüfung kann ein Reviewer einen alternativen Pull Request zu "
+"einem Thema erstellen. Dies kann geschehen, um übermäßiges „Hin und Her“ bei "
+"kleineren formalen Punkten zu vermeiden und so den Einreichungsprozess zu "
+"straffen. Es kann auch geschehen, weil die Diskussion einen Reviewer zu "
+"einer alternativen Implementierung anregt. Beide Situationen sind ein "
+"normales Ergebnis einer Prüfung und sollten nicht als Kritik an der "
+"ursprünglichen Einreichung verstanden werden."
 
 #: docs/CONTRIBUTING.md:block 17 (header)
 msgid "Helping with reviews"
@@ -398,6 +555,10 @@ msgid ""
 "reviewer](#reviewers) to perform a review. Submitters of GitHub Pull Requests "
 "are also encouraged to review their own submissions."
 msgstr ""
+"Wir freuen uns über Hilfe bei Prüfungen! Es ist nicht nötig, ein [gelisteter "
+"Reviewer](#reviewers) zu sein, um eine Prüfung durchzuführen. Auch "
+"Einreicher von GitHub Pull Requests sind ermutigt, ihre eigenen "
+"Einreichungen zu prüfen."
 
 #: docs/CONTRIBUTING.md:block 19 (paragraph)
 msgid ""
@@ -412,6 +573,18 @@ msgid ""
 "- for example something like \"I didn't check the code for defects, but I "
 "reviewed everything else in the CONTRIBUTING document and it looks good\"."
 msgstr ""
+"Um bei einer Prüfung zu helfen, folgen Sie den unter [was bei einer Prüfung "
+"zu erwarten ist](#what-to-expect-in-a-review) beschriebenen Schritten, um "
+"die Einreichung zu überprüfen. Fügen Sie nach Abschluss der Prüfung einen "
+"Kommentar mit Ihren Ergebnissen zum GitHub Pull Request hinzu. Wenn die "
+"Einreichung die Prüfung besteht, geben Sie dies bitte ausdrücklich im "
+"Kommentar an — zum Beispiel etwa so: „Ich habe diese Änderung gemäß den "
+"Schritten im CONTRIBUTING-Dokument geprüft und alles sieht für mich gut aus"
+"“. Falls Sie einige Schritte der Prüfung nicht abschließen konnten, geben "
+"Sie bitte ausdrücklich an, welche Schritte geprüft wurden und welche nicht — "
+"zum Beispiel etwa so: „Ich habe den Code nicht auf Mängel geprüft, aber ich "
+"habe alles Übrige aus dem CONTRIBUTING-Dokument geprüft und es sieht gut aus"
+"“."
 
 #: docs/CONTRIBUTING.md:block 20 (paragraph)
 msgid ""
@@ -421,10 +594,16 @@ msgid ""
 "results - for example something like \"I tested this code on my Acme900Z "
 "printer with a vase print and the results were good\"."
 msgstr ""
+"Wir freuen uns auch über das Testen von Einreichungen. Wenn der Code "
+"getestet wurde, fügen Sie bitte einen Kommentar mit den Ergebnissen Ihres "
+"Tests zum GitHub Pull Request hinzu — Erfolg oder Misserfolg. Geben Sie "
+"bitte ausdrücklich an, dass der Code getestet wurde, und nennen Sie die "
+"Ergebnisse — zum Beispiel etwa so: „Ich habe diesen Code auf meinem Acme900Z-"
+"Drucker mit einem Vasendruck getestet und die Ergebnisse waren gut“."
 
 #: docs/CONTRIBUTING.md:block 21 (header)
 msgid "Reviewers"
-msgstr ""
+msgstr "Reviewer"
 
 #: docs/CONTRIBUTING.md:block 22 (paragraph)
 msgid "The Klipper \"reviewers\" are:"
@@ -452,7 +631,7 @@ msgstr "@dmbutyugin"
 
 #: docs/CONTRIBUTING.md:block 23 (table)
 msgid "Input shaping, resonance testing, kinematics"
-msgstr ""
+msgstr "Input Shaping, Resonanztests, Kinematik"
 
 #: docs/CONTRIBUTING.md:block 23 (table)
 msgid "Eric Callahan"
@@ -464,7 +643,7 @@ msgstr "@Arksine"
 
 #: docs/CONTRIBUTING.md:block 23 (table)
 msgid "Bed leveling, MCU flashing"
-msgstr ""
+msgstr "Bettnivellierung, Flashen des Mikrocontrollers"
 
 #: docs/CONTRIBUTING.md:block 23 (table)
 msgid "Kevin O'Connor"
@@ -476,7 +655,7 @@ msgstr "@KevinOConnor"
 
 #: docs/CONTRIBUTING.md:block 23 (table)
 msgid "Core motion system, Micro-controller code"
-msgstr ""
+msgstr "Kern-Bewegungssystem, Mikrocontroller-Code"
 
 #: docs/CONTRIBUTING.md:block 24 (paragraph)
 msgid ""
@@ -484,6 +663,9 @@ msgid ""
 "submissions at them. All of the reviewers monitor the forums and PRs, and will"
 " take on reviews when they have time to."
 msgstr ""
+"Bitte „pingen“ Sie keinen der Reviewer an und richten Sie Einreichungen "
+"nicht direkt an sie. Alle Reviewer beobachten die Foren und PRs und "
+"übernehmen Prüfungen, sobald sie Zeit dafür haben."
 
 #: docs/CONTRIBUTING.md:block 25 (paragraph)
 msgid "The Klipper \"maintainers\" are:"
@@ -501,6 +683,8 @@ msgstr "Format der Commit Nachrichten"
 msgid ""
 "Each commit should have a commit message formatted similar to the following:"
 msgstr ""
+"Jeder Commit sollte eine Commit-Nachricht haben, die etwa wie folgt "
+"formatiert ist:"
 
 #: docs/CONTRIBUTING.md:block 30 (paragraph)
 msgid ""
@@ -509,6 +693,11 @@ msgid ""
 "in pause() call at connect time`. The purpose of specifying a module name in "
 "the commit message is to help provide context for the commit comments."
 msgstr ""
+"Im obigen Beispiel sollte `module` der Name einer Datei oder eines "
+"Verzeichnisses im Repository sein (ohne Dateiendung). Zum Beispiel "
+"`clocksync: Fix typo in pause() call at connect time`. Der Zweck der Angabe "
+"eines Modulnamens in der Commit-Nachricht besteht darin, Kontext für die "
+"Commit-Kommentare zu liefern."
 
 #: docs/CONTRIBUTING.md:block 33 (paragraph)
 msgid ""
@@ -519,6 +708,12 @@ msgid ""
 " [klipper3d.org](https://www.klipper3d.org) once they satisfy the following "
 "requirements:"
 msgstr ""
+"Das [Klipper-translations-Projekt](https://github.com/Klipper3d/klipper-"
+"translations) ist ein Projekt, das sich der Übersetzung von Klipper in "
+"verschiedene Sprachen widmet. [Weblate](https://hosted.weblate.org/projects/"
+"klipper/) hostet alle Gettext-Strings zum Übersetzen und Prüfen. "
+"Sprachversionen können auf [klipper3d.org](https://www.klipper3d.org) "
+"angezeigt werden, sobald sie die folgenden Anforderungen erfüllen:"
 
 #: docs/CONTRIBUTING.md:block 34 (unordered list)
 msgid "All titles (H1) are translated"
@@ -534,6 +729,10 @@ msgid ""
 "`docs\\locals\\<lang>` folder to replace the language specific index.md "
 "(generated index.md does not render correctly)."
 msgstr ""
+"Optional: Fügen Sie eine Datei manual-index.md im Ordner `docs\\locals\\"
+"<lang>` des klipper-translations-Repositories hinzu, um die "
+"sprachspezifische index.md zu ersetzen (die generierte index.md wird nicht "
+"korrekt dargestellt)."
 
 #: docs/CONTRIBUTING.md:block 39 (paragraph)
 msgid "Known Issues:"
@@ -544,6 +743,8 @@ msgid ""
 "Currently, there isn't a method for correctly translating pictures in the "
 "documentation"
 msgstr ""
+"Derzeit gibt es keine Methode, um Bilder in der Dokumentation korrekt zu "
+"übersetzen"
 
 #: docs/CONTRIBUTING.md:block 40 (ordered list)
 msgid "It is impossible to translate titles in mkdocs.yml."
@@ -564,6 +765,19 @@ msgid ""
 "most notable features took months of discussion, rework, testing, and "
 "documentation prior to being merged into the master branch."
 msgstr ""
+"Bei der Erörterung des Nutzens ist es vorzuziehen, über „Fakten und Messungen"
+"“ zu sprechen. Im Allgemeinen suchen Reviewer weder nach Antworten der Form „"
+"jemand könnte Option X nützlich finden“ noch nach Antworten der Form „diese "
+"Einreichung ergänzt eine Funktion, die Firmware X umsetzt“. Stattdessen ist "
+"es in der Regel vorzuziehen, Details dazu zu erörtern, wie die "
+"Qualitätsverbesserung gemessen wurde und welche Ergebnisse diese Messungen "
+"lieferten — zum Beispiel „Tests auf Acme-X1000-Druckern zeigen verbesserte "
+"Ecken, wie im Bild ... zu sehen“, oder zum Beispiel „die Druckzeit des "
+"realen Objekts X auf einem Foomatic-X900-Drucker sank von 4 Stunden auf 3,5 "
+"Stunden“. Es ist bekannt, dass Tests dieser Art erheblichen Zeit- und "
+"Arbeitsaufwand erfordern können. Einige der bemerkenswertesten Funktionen "
+"von Klipper erforderten Monate an Diskussion, Überarbeitung, Tests und "
+"Dokumentation, bevor sie in den master-Branch übernommen wurden."
 
 #: docs/CONTRIBUTING.md:block 13 (ordered list)
 msgid ""
@@ -571,6 +785,9 @@ msgid ""
 "understanding of the root cause of that defect, and the fix should target that"
 " root cause."
 msgstr ""
+"Beim Beheben eines Mangels im Code sollten Einreicher ein grundsätzliches "
+"Verständnis der Ursache dieses Mangels haben, und die Behebung sollte auf "
+"diese Ursache abzielen."
 
 #: docs/CONTRIBUTING.md:block 23 (table)
 msgid "James Hartley"
@@ -590,6 +807,9 @@ msgid ""
 "[active_translations](https://github.com/Klipper3d/klipper-"
 "translations/blob/translations/active_translations)"
 msgstr ""
+"im klipper-translations-Repository [active_translations](https://github.com/"
+"Klipper3d/klipper-translations/blob/translations/active_translations) "
+"aktualisieren"
 
 #~ msgid ""
 #~ "update klipper-tranlations repository "

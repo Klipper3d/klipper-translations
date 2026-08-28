@@ -234,7 +234,7 @@ msgid "Linux (RPi3)"
 msgstr "Linux (RPi3)"
 
 msgid "Command dispatch benchmark"
-msgstr ""
+msgstr "Benchmark zur Befehlsverteilung"
 
 msgid ""
 "When the test completes, determine the difference between the clocks reported "
@@ -374,6 +374,10 @@ msgid ""
 "below) and then the following is cut-and-paste into the console.py terminal "
 "window:"
 msgstr ""
+"Der Test wird mit dem Werkzeug console.py durchgeführt (beschrieben in "
+"<Debugging.md>). Der Mikrocontroller wird für die jeweilige "
+"Hardwareplattform konfiguriert (siehe unten), und anschließend wird "
+"Folgendes in das Terminalfenster von console.py kopiert:"
 
 #: docs/Benchmarks.md:block 86 (paragraph)
 msgid ""
@@ -383,6 +387,11 @@ msgid ""
 "<Debugging.md>). The following is cut-and-paste into the console.py terminal "
 "window:"
 msgstr ""
+"Der Benchmark zur Befehlsverteilung testet, wie viele „dummy\"-Befehle der "
+"Mikrocontroller verarbeiten kann. Er prüft in erster Linie den Hardware-"
+"Kommunikationsmechanismus. Der Test wird mit dem Werkzeug console.py "
+"durchgeführt (beschrieben in <Debugging.md>). Folgendes wird in das "
+"Terminalfenster von console.py kopiert:"
 
 #: docs/Benchmarks.md:block 92 (paragraph)
 msgid ""
@@ -391,6 +400,11 @@ msgid ""
 "done by choosing a large and complex G-Code file and timing how long it takes "
 "for the host software to process it. For example:"
 msgstr ""
+"Es ist möglich, Zeitmessungen an der Host-Software mit dem "
+"Verarbeitungsmechanismus „batch mode\" durchzuführen (beschrieben in "
+"<Debugging.md>). Dazu wählt man üblicherweise eine große und komplexe G-Code-"
+"Datei und misst, wie lange die Host-Software zu deren Verarbeitung benötigt. "
+"Zum Beispiel:"
 
 #: docs/Benchmarks.md:block 14 (paragraph)
 msgid ""
@@ -411,6 +425,13 @@ msgid ""
 " For other micro-controllers use a `step_pulse_duration` corresponding to "
 "100ns."
 msgstr ""
+"Die Benchmarks werden mit Parametern ausgeführt, die für TMC-Treiber "
+"geeignet sind. Für Mikrocontroller, die `STEPPER_BOTH_EDGE=1` unterstützen "
+"(wie in der Zeile `MCU config` beim Start von console.py gemeldet), "
+"verwenden Sie `step_pulse_duration=0` und `invert_step=-1`, um optimiertes "
+"Takten an beiden Flanken des Schrittimpulses zu aktivieren. Für andere "
+"Mikrocontroller verwenden Sie eine `step_pulse_duration`, die 100ns "
+"entspricht."
 
 #: docs/Benchmarks.md:block 21 (paragraph)
 msgid ""
@@ -419,6 +440,11 @@ msgid ""
 "an atmega644p (previous tests have confirmed simulavr results match tests on "
 "both a 16Mhz at90usb and a 16Mhz atmega2560)."
 msgstr ""
+"Der Test wurde zuletzt mit Commit `59314d99` und gcc-Version `avr-gcc (GCC) "
+"5.4.0` ausgeführt. Sowohl die 16-MHz- als auch die 20-MHz-Tests wurden mit "
+"simulavr durchgeführt, konfiguriert für einen atmega644p (frühere Tests "
+"haben bestätigt, dass die simulavr-Ergebnisse mit Tests auf einem 16-MHz-"
+"at90usb und einem 16-MHz-atmega2560 übereinstimmen)."
 
 #: docs/Benchmarks.md:block 22 (table)
 msgid "102"
@@ -433,6 +459,8 @@ msgid ""
 "The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc"
 " (Fedora 10.2.0-4.fc34) 10.2.0`."
 msgstr ""
+"Der Test wurde zuletzt mit Commit `59314d99` und gcc-Version `arm-none-eabi-"
+"gcc (Fedora 10.2.0-4.fc34) 10.2.0` ausgeführt."
 
 #: docs/Benchmarks.md:block 27 (table)
 msgid "257"
@@ -447,6 +475,9 @@ msgid ""
 "The test was last run on commit `59314d99` with gcc version `gcc version "
 "10.3.1 20210621 (release) (GNU Arm Embedded Toolchain 10.3-2021.07)`."
 msgstr ""
+"Der Test wurde zuletzt mit Commit `59314d99` und gcc-Version `gcc version "
+"10.3.1 20210621 (release) (GNU Arm Embedded Toolchain 10.3-2021.07)` "
+"ausgeführt."
 
 #: docs/Benchmarks.md:block 37 (table)
 msgid "48"
@@ -461,6 +492,8 @@ msgid ""
 "The test was last run on commit `59314d99` with gcc version `pru-gcc (GCC) "
 "8.0.0 20170530 (experimental)`."
 msgstr ""
+"Der Test wurde zuletzt mit Commit `59314d99` und gcc-Version `pru-gcc (GCC) "
+"8.0.0 20170530 (experimental)` ausgeführt."
 
 #: docs/Benchmarks.md:block 42 (table)
 msgid "231"
@@ -492,6 +525,10 @@ msgid ""
 " (Fedora 10.2.0-4.fc34) 10.2.0`. The STM32F407 results were obtained by "
 "running an STM32F407 binary on an STM32F446 (and thus using a 168Mhz clock)."
 msgstr ""
+"Der Test wurde zuletzt mit Commit `59314d99` und gcc-Version `arm-none-eabi-"
+"gcc (Fedora 10.2.0-4.fc34) 10.2.0` ausgeführt. Die STM32F407-Ergebnisse "
+"wurden durch Ausführen eines STM32F407-Binaries auf einem STM32F446 erzielt "
+"(und somit mit einem 168-MHz-Takt)."
 
 #: docs/Benchmarks.md:block 57 (table)
 msgid "46"
@@ -507,6 +544,9 @@ msgid ""
 " (Fedora 10.2.0-4.fc34) 10.2.0`. The 120Mhz LPC1769 results were obtained by "
 "overclocking an LPC1768 to 120Mhz."
 msgstr ""
+"Der Test wurde zuletzt mit Commit `59314d99` und gcc-Version `arm-none-eabi-"
+"gcc (Fedora 10.2.0-4.fc34) 10.2.0` ausgeführt. Die 120-MHz-LPC1769-"
+"Ergebnisse wurden durch Übertakten eines LPC1768 auf 120 MHz erzielt."
 
 #: docs/Benchmarks.md:block 63 (table)
 msgid "222"
@@ -517,6 +557,9 @@ msgid ""
 "The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc"
 " (Fedora 10.2.0-4.fc34) 10.2.0` on a SAMD21G18 micro-controller."
 msgstr ""
+"Der Test wurde zuletzt mit Commit `59314d99` und gcc-Version `arm-none-eabi-"
+"gcc (Fedora 10.2.0-4.fc34) 10.2.0` auf einem SAMD21G18-Mikrocontroller "
+"ausgeführt."
 
 #: docs/Benchmarks.md:block 69 (table)
 msgid "306"
@@ -527,6 +570,9 @@ msgid ""
 "The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc"
 " (Fedora 10.2.0-4.fc34) 10.2.0` on a SAMD51J19A micro-controller."
 msgstr ""
+"Der Test wurde zuletzt mit Commit `59314d99` und gcc-Version `arm-none-eabi-"
+"gcc (Fedora 10.2.0-4.fc34) 10.2.0` auf einem SAMD51J19A-Mikrocontroller "
+"ausgeführt."
 
 #: docs/Benchmarks.md:block 74 (table)
 msgid "39"
@@ -546,6 +592,9 @@ msgid ""
 "8.3.0-6+rpi1) 8.3.0` on a Raspberry Pi 3 (revision a02082). It was difficult "
 "to get stable results in this benchmark."
 msgstr ""
+"Der Test wurde zuletzt mit Commit `59314d99` und gcc-Version `gcc (Raspbian "
+"8.3.0-6+rpi1) 8.3.0` auf einem Raspberry Pi 3 (Revision a02082) ausgeführt. "
+"Es war schwierig, in diesem Benchmark stabile Ergebnisse zu erhalten."
 
 #: docs/Benchmarks.md:block 84 (table)
 msgid "160"
@@ -563,20 +612,28 @@ msgid ""
 " parameter. The results are rounded to the nearest K. For example, with three "
 "active steppers:"
 msgstr ""
+"Um die im Dokument [Features](Features.md) aufgeführten Benchmarks zu "
+"erzeugen, wird die Gesamtzahl der Schritte pro Sekunde berechnet, indem die "
+"Anzahl der aktiven Schrittmotoren mit der nominalen MCU-Frequenz "
+"multipliziert und durch den finalen ticks-Parameter geteilt wird. Die "
+"Ergebnisse werden auf das nächste K gerundet. Zum Beispiel mit drei aktiven "
+"Schrittmotoren:"
 
 #: docs/Benchmarks.md:block 59 (header)
 msgid "STM32G0B1 step rate benchmark"
-msgstr ""
+msgstr "STM32G0B1-Schrittraten-Benchmark"
 
 #: docs/Benchmarks.md:block 60 (paragraph)
 msgid "The following configuration sequence is used on the STM32G0B1:"
-msgstr ""
+msgstr "Auf dem STM32G0B1 wird die folgende Konfigurationssequenz verwendet:"
 
 #: docs/Benchmarks.md:block 62 (paragraph)
 msgid ""
 "The test was last run on commit `247cd753` with gcc version `arm-none-eabi-gcc"
 " (Fedora 10.2.0-4.fc34) 10.2.0`."
 msgstr ""
+"Der Test wurde zuletzt mit Commit `247cd753` und gcc-Version `arm-none-eabi-"
+"gcc (Fedora 10.2.0-4.fc34) 10.2.0` ausgeführt."
 
 #: docs/Benchmarks.md:block 63 (table)
 msgid "58"
@@ -592,16 +649,18 @@ msgstr "stm32g0b1"
 
 #: docs/Benchmarks.md:block 59 (header)
 msgid "STM32H7 step rate benchmark"
-msgstr ""
+msgstr "STM32H7-Schrittraten-Benchmark"
 
 #: docs/Benchmarks.md:block 85 (header)
 msgid "AR100 step rate benchmark"
-msgstr ""
+msgstr "AR100-Schrittraten-Benchmark"
 
 #: docs/Benchmarks.md:block 86 (paragraph)
 msgid ""
 "The following configuration sequence is used on AR100 CPU (Allwinner A64):"
 msgstr ""
+"Auf der AR100-CPU (Allwinner A64) wird die folgende Konfigurationssequenz "
+"verwendet:"
 
 #: docs/Benchmarks.md:block 89 (table)
 msgid "AR100 R_PIO"
@@ -633,51 +692,57 @@ msgstr "or1k-linux-musl-gcc 9.3.0"
 
 #: docs/Benchmarks.md:block 85 (header)
 msgid "SAME70 step rate benchmark"
-msgstr ""
+msgstr "SAME70-Schrittraten-Benchmark"
 
 #: docs/Benchmarks.md:block 86 (paragraph)
 msgid "The following configuration sequence is used on the SAME70:"
-msgstr ""
+msgstr "Auf dem SAME70 wird die folgende Konfigurationssequenz verwendet:"
 
 #: docs/Benchmarks.md:block 88 (paragraph)
 msgid ""
 "The test was last run on commit `34e9ea55` with gcc version `arm-none-eabi-gcc"
 " (NixOS 10.3-2021.10) 10.3.1` on a SAME70Q20B micro-controller."
 msgstr ""
+"Der Test wurde zuletzt mit Commit `34e9ea55` und gcc-Version `arm-none-eabi-"
+"gcc (NixOS 10.3-2021.10) 10.3.1` auf einem SAME70Q20B-Mikrocontroller "
+"ausgeführt."
 
 #: docs/Benchmarks.md:block 89 (table)
 msgid "same70"
-msgstr ""
+msgstr "same70"
 
 #: docs/Benchmarks.md:block 89 (table)
 msgid "45"
-msgstr ""
+msgstr "45"
 
 #: docs/Benchmarks.md:block 89 (table)
 msgid "190"
-msgstr ""
+msgstr "190"
 
 #: docs/Benchmarks.md:block 93 (paragraph)
 msgid ""
 "The test was last run on commit `b7978d37` with gcc version `or1k-linux-musl-"
 "gcc (GCC) 9.2.0` on an Allwinner A64-H micro-controller."
 msgstr ""
+"Der Test wurde zuletzt mit Commit `b7978d37` und gcc-Version `or1k-linux-"
+"musl-gcc (GCC) 9.2.0` auf einem Allwinner-A64-H-Mikrocontroller ausgeführt."
 
 #: docs/Benchmarks.md:block 95 (header)
 msgid "RPxxxx step rate benchmark"
-msgstr ""
+msgstr "RPxxxx-Schrittraten-Benchmark"
 
 #: docs/Benchmarks.md:block 96 (paragraph)
 msgid "The following configuration sequence is used on the RP2040 and RP2350:"
 msgstr ""
+"Auf dem RP2040 und RP2350 wird die folgende Konfigurationssequenz verwendet:"
 
 #: docs/Benchmarks.md:block 99 (table)
 msgid "rp2040 (*)"
-msgstr ""
+msgstr "rp2040 (*)"
 
 #: docs/Benchmarks.md:block 100 (table)
 msgid "rp2350"
-msgstr ""
+msgstr "rp2350"
 
 #: docs/Benchmarks.md:block 100 (table)
 msgid "36"
@@ -685,43 +750,48 @@ msgstr "36"
 
 #: docs/Benchmarks.md:block 100 (table)
 msgid "169"
-msgstr ""
+msgstr "169"
 
 #: docs/Benchmarks.md:block 112 (table)
 msgid "885K"
-msgstr ""
+msgstr "885K"
 
 #: docs/Benchmarks.md:block 112 (table)
 msgid "f6718291"
-msgstr ""
+msgstr "f6718291"
 
 #: docs/Benchmarks.md:block 112 (table)
 msgid "arm-none-eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0"
-msgstr ""
+msgstr "arm-none-eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0"
 
 #: docs/Benchmarks.md:block 112 (table)
 msgid "rp2350 (USB)"
-msgstr ""
+msgstr "rp2350 (USB)"
 
 #: docs/Benchmarks.md:block 60 (paragraph)
 msgid "The following configuration sequence is used on STM32H723:"
-msgstr ""
+msgstr "Auf dem STM32H723 wird die folgende Konfigurationssequenz verwendet:"
 
 #: docs/Benchmarks.md:block 62 (paragraph)
 msgid ""
 "The test was last run on commit `554ae78d` with gcc version `arm-none-eabi-gcc"
 " (Fedora 14.1.0-1.fc40) 14.1.0`."
 msgstr ""
+"Der Test wurde zuletzt mit Commit `554ae78d` und gcc-Version `arm-none-eabi-"
+"gcc (Fedora 14.1.0-1.fc40) 14.1.0` ausgeführt."
 
 #: docs/Benchmarks.md:block 63 (table)
 msgid "stm32h723"
-msgstr ""
+msgstr "stm32h723"
 
 #: docs/Benchmarks.md:block 98 (paragraph)
 msgid ""
 "The test was last run on commit `14c105b8` with gcc version `arm-none-eabi-gcc"
 " (Fedora 14.1.0-1.fc40) 14.1.0` on Raspberry Pi Pico and Pico 2 boards."
 msgstr ""
+"Der Test wurde zuletzt mit Commit `14c105b8` und gcc-Version `arm-none-eabi-"
+"gcc (Fedora 14.1.0-1.fc40) 14.1.0` auf Raspberry Pi Pico- und Pico 2-Boards "
+"ausgeführt."
 
 #: docs/Benchmarks.md:block 99 (table)
 msgid "3"
@@ -729,33 +799,35 @@ msgstr "3"
 
 #: docs/Benchmarks.md:block 99 (table)
 msgid "14"
-msgstr ""
+msgstr "14"
 
 #: docs/Benchmarks.md:block 69 (header)
 msgid "STM32G4 step rate benchmark"
-msgstr ""
+msgstr "STM32G4-Schrittraten-Benchmark"
 
 #: docs/Benchmarks.md:block 70 (paragraph)
 msgid "The following configuration sequence is used on the STM32G431:"
-msgstr ""
+msgstr "Auf dem STM32G431 wird die folgende Konfigurationssequenz verwendet:"
 
 #: docs/Benchmarks.md:block 72 (paragraph)
 msgid ""
 "The test was last run on commit `cfa48fe3` with gcc version `arm-none-eabi-gcc"
 " (Fedora 14.1.0-1.fc40) 14.1.0`."
 msgstr ""
+"Der Test wurde zuletzt mit Commit `cfa48fe3` und gcc-Version `arm-none-eabi-"
+"gcc (Fedora 14.1.0-1.fc40) 14.1.0` ausgeführt."
 
 #: docs/Benchmarks.md:block 73 (table)
 msgid "stm32g431"
-msgstr ""
+msgstr "stm32g431"
 
 #: docs/Benchmarks.md:block 73 (table)
 msgid "47"
-msgstr ""
+msgstr "47"
 
 #: docs/Benchmarks.md:block 73 (table)
 msgid "208"
-msgstr ""
+msgstr "208"
 
 #: docs/Benchmarks.md:block 106 (paragraph)
 msgid ""
@@ -764,6 +836,10 @@ msgid ""
 "expected that 3 scheduling ticks corresponds to ~42 ARM core cycles and 14 "
 "scheduling ticks corresponds to ~225 ARM core cycles."
 msgstr ""
+"(*) Beachten Sie, dass sich die gemeldeten rp2040-Ticks auf einen 12-MHz-"
+"Scheduling-Timer beziehen und nicht der internen ARM-Verarbeitungsrate von "
+"200 MHz entsprechen. Es wird erwartet, dass 3 Scheduling-Ticks etwa 42 ARM-"
+"Kernzyklen und 14 Scheduling-Ticks etwa 225 ARM-Kernzyklen entsprechen."
 
 #: docs/Benchmarks.md:block 116 (paragraph)
 msgid ""
@@ -773,6 +849,12 @@ msgid ""
 "below are with console.py running on a desktop class machine with the device "
 "connected via a super-speed hub."
 msgstr ""
+"Die USB-Tests können die CPU-Kapazität eines Raspberry Pi übersteigen. Wenn "
+"Sie auf einem Raspberry Pi, Beaglebone oder einem ähnlichen Host-Rechner "
+"arbeiten, erhöhen Sie die Verzögerung (z. B. `DELAY {clock + 20*freq} "
+"get_uptime`). Soweit zutreffend, wurden die untenstehenden Benchmarks mit "
+"console.py auf einem Desktop-Rechner durchgeführt, wobei das Gerät über "
+"einen SuperSpeed-Hub angeschlossen war."
 
 #: docs/Benchmarks.md:block 117 (paragraph)
 msgid ""
@@ -781,18 +863,23 @@ msgid ""
 "CAN bus benchmarks below are with console.py running on a desktop class "
 "machine with a USB to CAN bus adapter connected via a super-speed USB hub."
 msgstr ""
+"Die CAN-Bus-Tests können den USB-Host-Controller eines Raspberry Pi "
+"auslasten (beim Testen über einen Standard-gs_usb-USB-zu-CAN-Bus-Adapter). "
+"Soweit zutreffend, wurden die untenstehenden CAN-Bus-Benchmarks mit "
+"console.py auf einem Desktop-Rechner durchgeführt, wobei ein USB-zu-CAN-Bus-"
+"Adapter über einen SuperSpeed-USB-Hub angeschlossen war."
 
 #: docs/Benchmarks.md:block 118 (table)
 msgid "rp2350 (CAN)"
-msgstr ""
+msgstr "rp2350 (CAN)"
 
 #: docs/Benchmarks.md:block 118 (table)
 msgid "59K"
-msgstr ""
+msgstr "59K"
 
 #: docs/Benchmarks.md:block 118 (table)
 msgid "17b8ce4c"
-msgstr ""
+msgstr "17b8ce4c"
 
 #~ msgid ""
 #~ "Note that this test may saturate the USB/CPU capacity of a Raspberry Pi. If "
