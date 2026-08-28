@@ -30,7 +30,7 @@ msgid "Configuration Reference"
 msgstr "Konfigurationsreferenz"
 
 msgid "Bed Level"
-msgstr "Bettnivelierung"
+msgstr "Bettnivellierung"
 
 msgid "Resonance Compensation"
 msgstr "Resonanz-Kompensation"

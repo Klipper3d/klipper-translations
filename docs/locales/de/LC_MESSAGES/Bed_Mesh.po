@@ -30,8 +30,8 @@ msgid ""
 "This example assumes a printer with a 250 mm x 220 mm rectangular bed and a "
 "probe with an x-offset of 24 mm and y-offset of 5 mm."
 msgstr ""
-"Dieses Beispiel geht von einem Drucker mit einem rechteckigen Bett von 250 mm "
-"x 220 mm und einem Taster mit einem x-Versatz von 24 mm und einem y-Versatz "
+"Dieses Beispiel geht von einem Drucker mit einem rechteckigen Bett von 250 "
+"mm x 220 mm und einer Sonde mit einem x-Offset von 24 mm und einem y-Offset "
 "von 5 mm aus."
 
 msgid ""
@@ -312,7 +312,7 @@ msgid "![bedmesh_interpolated](img/bedmesh_faulty_regions.svg)"
 msgstr "![bedmesh_interpolated](img/bedmesh_faulty_regions.svg)"
 
 msgid "Bed Mesh Gcodes"
-msgstr "Bett Netz Gcodes"
+msgstr "Bett-Mesh Gcodes"
 
 msgid "Calibration"
 msgstr "Kalibrierung"
@@ -410,7 +410,7 @@ msgstr "X/Y Offsets anwenden"
 
 #: docs/Bed_Mesh.md:block 1 (header)
 msgid "Bed Mesh"
-msgstr "Bettgitter"
+msgstr "Bett-Mesh"
 
 #: docs/Bed_Mesh.md:block 49 (paragraph)
 msgid "Initiates the probing procedure for Bed Mesh Calibration."

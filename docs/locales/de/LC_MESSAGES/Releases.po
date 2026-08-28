@@ -627,8 +627,8 @@ msgid ""
 "of Z probes on \"toolhead boards\"."
 msgstr ""
 "Unterstützung für \"Multi-MCU Homing\". Es ist jetzt möglich, einen "
-"Schrittmotor und seinen Endanschlag mit separaten Mikrocontrollern zu "
-"verdrahten. Dies vereinfacht die Verdrahtung von Z Proben auf sogenannten "
+"Schrittmotor und seinen Endschalter mit separaten Mikrocontrollern zu "
+"verdrahten. Dies vereinfacht die Verdrahtung von Z-Sonden auf sogenannten "
 "\"toolhead boards\"."
 
 #: docs/Releases.md:block 5 (unordered list)

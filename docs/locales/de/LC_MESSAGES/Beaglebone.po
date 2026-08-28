@@ -32,7 +32,7 @@ msgid "Then start the Octoprint service:"
 msgstr "Starten Sie dann den Octoprint-Dienst:"
 
 msgid "Then install this micro-controller code as well:"
-msgstr "Installieren Sie anschließend auch diesen Mikrokontroller Code:"
+msgstr "Installieren Sie anschließend auch diesen Mikrocontroller-Code:"
 
 msgid "Remaining configuration"
 msgstr "Restliche Konfiguration"

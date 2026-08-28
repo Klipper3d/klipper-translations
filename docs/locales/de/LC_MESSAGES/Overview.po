@@ -281,8 +281,8 @@ msgid ""
 "[Multi-MCU Homing](Multi_MCU_Homing.md): Homing and probing using multiple "
 "micro-controllers."
 msgstr ""
-"[Multi-MCU Homing](Multi_MCU_Homing.md): Homing und Probing mithilfe mehrerer "
-"Mikrocontroller."
+"[Multi-MCU Homing](Multi_MCU_Homing.md): Referenzfahrt und Sondieren "
+"mithilfe mehrerer Mikrocontroller."
 
 #: docs/Overview.md:block 6 (unordered list)
 msgid ""

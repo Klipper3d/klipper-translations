@@ -422,7 +422,7 @@ msgid "[skew_correction]"
 msgstr "[skew_correction]"
 
 msgid "Customized homing"
-msgstr "Benutzerdefiniertes Homing"
+msgstr "Benutzerdefinierte Referenzfahrt"
 
 msgid "[safe_z_home]"
 msgstr "[safe_z_home]"
@@ -2262,10 +2262,10 @@ msgid ""
 "gantry. See the [Axis Twist Compensation Guide](Axis_Twist_Compensation.md) "
 "for more detailed information regarding symptoms, configuration and setup."
 msgstr ""
-"Ein Werkzeug um ungenaue Probe Werte durch Verzug in der X und Y Achse zu "
-"kompensieren. Siehe [Axis Twist Kompensation Guide] "
+"Ein Werkzeug um ungenaue Messwerte der Sonde durch Verzug im X- oder Y-"
+"Portal zu kompensieren. Siehe [Axis Twist Kompensation Guide]"
 "(Axis_Twist_Compensation.md) für mehr detaillierte Informationen über "
-"symptome, konfiguration und setup."
+"Symptome, Konfiguration und Setup."
 
 #: docs/Config_Reference.md:block 391 (header)
 msgid "aip31068_spi display"

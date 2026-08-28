@@ -373,7 +373,7 @@ msgstr ""
 "verwenden:"
 
 msgid "Pressure advance"
-msgstr "Druckvorschub"
+msgstr "Pressure Advance"
 
 msgid ""
 "Experimentation has shown that it's possible to improve the modeling of the "

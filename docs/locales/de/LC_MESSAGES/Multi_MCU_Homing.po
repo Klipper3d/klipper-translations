@@ -15,7 +15,7 @@ msgstr ""
 
 #: docs/Multi_MCU_Homing.md:block 1 (header)
 msgid "Multiple Micro-controller Homing and Probing"
-msgstr "Homing und Probing mit mehreren Mikrocontrollern"
+msgstr "Referenzfahrt und Sondieren mit mehreren Mikrocontrollern"
 
 #: docs/Multi_MCU_Homing.md:block 2 (paragraph)
 msgid ""
@@ -39,9 +39,10 @@ msgid ""
 "probing operations."
 msgstr ""
 "Dieses Feature kann zur Vereinfachung der Verkabelung nützlich sein, da es "
-"einfacher sein könnte, einen Endstopp oder eine Sonde an einen näheren "
+"einfacher sein könnte, einen Endschalter oder eine Sonde an einen näheren "
 "Mikrocontroller anzuschließen. Dieses Feature kann allerdings zum "
-"\"overshoot\" der Steppermotoren beim Homing und Probing führen."
+"\"overshoot\" der Schrittmotoren während der Referenzfahrt und beim "
+"Sondieren führen."
 
 #: docs/Multi_MCU_Homing.md:block 4 (paragraph)
 msgid ""
