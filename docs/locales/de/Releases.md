@@ -4,40 +4,40 @@ Historie der Klipper-Versionen. Bitte lesen Sie [installation](Installation.md) 
 
 ## Klipper 0.13.0
 
-Available on 20250411. Major changes in this release:
+Verfügbar seit 11.04.2025. Wichtige Änderungen in dieser Version:
 
-* New "sweeping vibrations" resonance testing mechanism for input shaper.
-* Fans and GPIO pins can now be assigned a formula (via Jinja2 "templates").
-* The bed_mesh code now supports "adaptive bed mesh". The area probed can be adjusted for the size of the print.
-* A new `minimum_cruise_ratio` kinematic parameter has been added (it replaces the previous `max_accel_to_decel` parameter).
-* Several new sensors added:
-   * Support for ldc1612 "eddy" current sensors. This includes probing support, fast "scan" probing, and temperature calibration.
-   * New support for "load cell" measurements. Support for connecting these load cells to hx71x and ads1220 ADC sensors.
-   * Support for BMP180, BMP388, and SHT3x temperature sensors. Support for measuring temperature with ADS1x1x ADC chips.
-   * New lis3dh and icm20948 accelerometer support.
-   * Support for mt6816 and mt6826s "hall angle" sensors.
-* New micro-controller improvements:
-   * New support for rp2350 micro-controllers.
-   * Existing rp2040 chips now run at 200MHz (up from 125Mhz).
-   * The micro-controller code can now define many more commands (up to 16384 from 128).
-* Other modules added: aip31068_spi, canbus_stats, error_mcu, garbage_collection, pwm_cycle_time, pwm_tool, garbage_collection.
+* Neuer Resonanztest-Mechanismus "Sweeping Vibrations" für den Input Shaper.
+* Lüftern und GPIO-Pins kann jetzt eine Formel zugewiesen werden (über Jinja2-"Templates").
+* Der bed_mesh-Code unterstützt jetzt "Adaptive Bed Mesh". Der sondierte Bereich kann an die Größe des Drucks angepasst werden.
+* Ein neuer kinematischer Parameter `minimum_cruise_ratio` wurde hinzugefügt (er ersetzt den bisherigen Parameter `max_accel_to_decel`).
+* Mehrere neue Sensoren hinzugefügt:
+   * Unterstützung für ldc1612-"Eddy"-Stromsensoren. Dies umfasst Sondierungsunterstützung, schnelles "Scan"-Sondieren und Temperaturkalibrierung.
+   * Neue Unterstützung für "Load Cell"-Messungen. Unterstützung für den Anschluss dieser Load Cells an hx71x- und ads1220-ADC-Sensoren.
+   * Unterstützung für BMP180-, BMP388- und SHT3x-Temperatursensoren. Unterstützung für Temperaturmessung mit ADS1x1x-ADC-Chips.
+   * Neue Unterstützung für lis3dh- und icm20948-Beschleunigungssensoren.
+   * Unterstützung für mt6816- und mt6826s-"Hall-Winkel"-Sensoren.
+* Neue Mikrocontroller-Verbesserungen:
+   * Neue Unterstützung für rp2350-Mikrocontroller.
+   * Bestehende rp2040-Chips laufen jetzt mit 200 MHz (statt zuvor 125 MHz).
+   * Der Mikrocontroller-Code kann jetzt deutlich mehr Befehle definieren (bis zu 16384 statt zuvor 128).
+* Weitere hinzugefügte Module: aip31068_spi, canbus_stats, error_mcu, garbage_collection, pwm_cycle_time, pwm_tool, garbage_collection.
 * Mehrere Fehlerkorrekturen und Code-Bereinigungen.
 
 ## Klipper 0.12.0
 
-Available on 20231110. Major changes in this release:
+Verfügbar seit 10.11.2023. Wichtige Änderungen in dieser Version:
 
-* Support for COPY and MIRROR modes on IDEX printers.
-* Several micro-controller improvements:
-   * Support for new ar100 and hc32f460 architectures.
-   * Support for stm32f7, stm32g0b0, stm32g07x, stm32g4, stm32h723, n32g45x, samc21, and samd21j18 chip variants.
-   * Improved DFU and Katapult reboot handling.
-   * Improved performance on USB to CANbus bridge mode.
-   * Improved performance on "linux mcu".
-   * New support for software based i2c.
-* New hardware support for tmc2240 stepper motor drivers, lis2dw12 accelerometers, and aht10 temperature sensors.
-* New axis_twist_compensation and temperature_combined modules added.
-* New support for gcode arcs in XY, XZ, and YZ planes.
+* Unterstützung für die Modi COPY und MIRROR bei IDEX-Druckern.
+* Mehrere Mikrocontroller-Verbesserungen:
+   * Unterstützung für die neuen Architekturen ar100 und hc32f460.
+   * Unterstützung für die Chip-Varianten stm32f7, stm32g0b0, stm32g07x, stm32g4, stm32h723, n32g45x, samc21 und samd21j18.
+   * Verbesserte Behandlung von DFU- und Katapult-Neustarts.
+   * Verbesserte Leistung im USB-zu-CANbus-Brückenmodus.
+   * Verbesserte Leistung beim "Linux MCU".
+   * Neue Unterstützung für softwarebasiertes I2C.
+* Neue Hardware-Unterstützung für TMC2240-Schrittmotortreiber, LIS2DW12-Beschleunigungssensoren und AHT10-Temperatursensoren.
+* Neue Module axis_twist_compensation und temperature_combined hinzugefügt.
+* Neue Unterstützung für G-Code-Bögen (Arcs) in den XY-, XZ- und YZ-Ebenen.
 * Mehrere Fehlerkorrekturen und Code-Bereinigungen.
 
 ## Klipper 0.11.0

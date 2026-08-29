@@ -6,11 +6,11 @@ Klipper kann auf eine der folgenden Arten zum Neustart in einen [Bootloader](Boo
 
 ### Virtuell Seriell
 
-If a virtual (USB-ACM) serial port is in use, pulsing DTR while at 1200 baud will request the bootloader.
+Wird ein virtueller (USB-ACM) serieller Port verwendet, fordert das kurzzeitige Pulsen von DTR bei 1200 Baud den Bootloader an.
 
 #### Python (mit `flash_usb`)
 
-To enter the bootloader using python (using `flash_usb`):
+Um den Bootloader mit Python aufzurufen (über `flash_usb`):
 
 ```shell
 > cd klipper/scripts
@@ -18,9 +18,9 @@ To enter the bootloader using python (using `flash_usb`):
 Entering bootloader on <DEVICE>
 ```
 
-Where `<DEVICE>` is your serial device, such as `/dev/serial.by-id/usb-Klipper[...]` or `/dev/ttyACM0`
+Dabei ist `<DEVICE>` Ihr serielles Gerät, zum Beispiel `/dev/serial.by-id/usb-Klipper[...]` oder `/dev/ttyACM0`
 
-Note that if this fails, no output will be printed, success is indicated by printing `Entering bootloader on <DEVICE>`.
+Beachten Sie: Schlägt dies fehl, wird keine Ausgabe angezeigt; Erfolg wird durch die Ausgabe `Entering bootloader on <DEVICE>` angezeigt.
 
 #### Picocom
 
@@ -29,21 +29,21 @@ picocom -b 1200 <DEVICE>
 <Ctrl-A><Ctrl-P>
 ```
 
-Where `<DEVICE>` is your serial device, such as `/dev/serial.by-id/usb-Klipper[...]` or `/dev/ttyACM0`
+Dabei ist `<DEVICE>` Ihr serielles Gerät, zum Beispiel `/dev/serial.by-id/usb-Klipper[...]` oder `/dev/ttyACM0`
 
-`<Ctrl-A><Ctrl-P>` means holding `Ctrl`, pressing and releasing `a`, pressing and releasing `p`, then releasing `Ctrl`
+`<Strg-A><Strg-P>` bedeutet: `Strg` gedrückt halten, `a` drücken und loslassen, `p` drücken und loslassen, dann `Strg` loslassen
 
 ### Physisch Seriell
 
-If a physical serial port is being used on the MCU (even if a USB serial adapter is being used to connect to it), sending the string `<SPACE><FS><SPACE>Request Serial Bootloader!!<SPACE>~` requests the bootloader.
+Wird am MCU ein physischer serieller Port verwendet (auch wenn zur Verbindung ein USB-Serial-Adapter zum Einsatz kommt), fordert das Senden der Zeichenkette `<LEERZEICHEN><FS><LEERZEICHEN>Request Serial Bootloader!!<LEERZEICHEN>~` den Bootloader an.
 
-`<SPACE>` is an ASCII literal space, 0x20.
+`<LEERZEICHEN>` ist ein wörtliches ASCII-Leerzeichen, 0x20.
 
-`<FS>` is the ASCII File Separator, 0x1c.
+`<FS>` ist das ASCII-File-Separator-Zeichen, 0x1c.
 
-Note that this is not a valid message as per the [MCU Protocol](Protocol.md#micro-controller-interface), but sync characters(`~`) are still respected.
+Beachten Sie, dass dies gemäß dem [MCU-Protokoll](Protocol.md#micro-controller-interface) keine gültige Nachricht ist, Synchronisationszeichen (`~`) jedoch weiterhin beachtet werden.
 
-Because this message must be the only thing in the "block" it is received in, prefixing an extra sync character can increase reliability if other tools were previously accessing the serial port.
+Da diese Nachricht das Einzige sein muss, was in dem "Block" empfangen wird, in dem sie eintrifft, kann das Voranstellen eines zusätzlichen Synchronisationszeichens die Zuverlässigkeit erhöhen, falls zuvor andere Werkzeuge auf den seriellen Port zugegriffen haben.
 
 #### Shell
 
@@ -52,15 +52,15 @@ stty <BAUD> < /dev/<DEVICE>
 echo $'~ \x1c Request Serial Bootloader!! ~' >> /dev/<DEVICE>
 ```
 
-Where `<DEVICE>` is your serial port, such as `/dev/ttyS0`, or `/dev/serial/by-id/gpio-serial2`, and
+Dabei ist `<DEVICE>` Ihr serieller Port, zum Beispiel `/dev/ttyS0` oder `/dev/serial/by-id/gpio-serial2`, und
 
-`<BAUD>` is the baud rate of the serial port, such as `115200`.
+`<BAUD>` ist die Baudrate des seriellen Ports, zum Beispiel `115200`.
 
 ### CANBUS
 
-If CANBUS is in use, a special [admin message](CANBUS_protocol.md#admin-messages) will request the bootloader. This message will be respected even if the device already has a nodeid, and will also be processed if the mcu is shutdown.
+Wird CANBUS verwendet, fordert eine spezielle [Admin-Nachricht](CANBUS_protocol.md#admin-messages) den Bootloader an. Diese Nachricht wird auch dann beachtet, wenn das Gerät bereits eine Node-ID besitzt, und wird auch verarbeitet, wenn der MCU heruntergefahren ist.
 
-This method also applies to devices operating in [CANBridge](CANBUS.md#usb-to-can-bus-bridge-mode) mode.
+Diese Methode gilt auch für Geräte, die im Modus [CANBridge](CANBUS.md#usb-to-can-bus-bridge-mode) betrieben werden.
 
 #### Katapult's flashtool.py
 
@@ -68,26 +68,26 @@ This method also applies to devices operating in [CANBridge](CANBUS.md#usb-to-ca
 python3 ./katapult/scripts/flashtool.py -i <CAN_IFACE> -u <UUID> -r
 ```
 
-Where `<CAN_IFACE>` is the can interface to use. If using `can0`, both the `-i` and `<CAN_IFACE>` may be omitted.
+Dabei ist `<CAN_IFACE>` die zu verwendende CAN-Schnittstelle. Bei Verwendung von `can0` können sowohl `-i` als auch `<CAN_IFACE>` weggelassen werden.
 
-`<UUID>` is the UUID of your CAN device.
+`<UUID>` ist die UUID Ihres CAN-Geräts.
 
-See the [CANBUS Documentation](CANBUS.md#finding-the-canbus_uuid-for-new-micro-controllers) for information on finding the CAN UUID of your devices.
+Informationen zum Ermitteln der CAN-UUID Ihrer Geräte finden Sie in der [CANBUS-Dokumentation](CANBUS.md#finding-the-canbus_uuid-for-new-micro-controllers).
 
 ## Öffnen des Bootloaders
 
-When klipper receives one of the above bootloader requests:
+Empfängt Klipper eine der obigen Bootloader-Anfragen:
 
-If Katapult (formerly known as CANBoot) is available, klipper will request that Katapult stay active on the next boot, then reset the MCU (therefore entering Katapult).
+Ist Katapult (früher als CANBoot bekannt) verfügbar, fordert Klipper an, dass Katapult beim nächsten Start aktiv bleibt, und setzt anschließend den MCU zurück (wodurch Katapult aufgerufen wird).
 
-If Katapult is not available, klipper will then try to enter a platform-specific bootloader, such as STM32's DFU mode([see note](#stm32-dfu-warning)).
+Ist Katapult nicht verfügbar, versucht Klipper anschließend, einen plattformspezifischen Bootloader aufzurufen, etwa den DFU-Modus von STM32 ([siehe Hinweis](#stm32-dfu-warning)).
 
-In short, Klipper will reboot to Katapult if installed, then a hardware specific bootloader if available.
+Kurz gesagt: Klipper startet, falls installiert, in Katapult neu, andernfalls in einen hardwarespezifischen Bootloader, sofern verfügbar.
 
-For details about the specific bootloaders on various platforms see [Bootloaders](Bootloaders.md)
+Details zu den spezifischen Bootloadern der verschiedenen Plattformen finden Sie unter [Bootloaders](Bootloaders.md)
 
 ## Anmerkungen
 
 ### STM32 DFU Warnung
 
-Note that on some boards, like the Octopus Pro v1, entering DFU mode can cause undesired actions (such as powering the heater while in DFU mode). It is recommended to disconnect heaters, and otherwise prevent undesired operations when using DFU mode. Consult the documentation for your board for more details.
+Beachten Sie, dass bei manchen Platinen, wie dem Octopus Pro v1, das Aufrufen des DFU-Modus unerwünschte Aktionen auslösen kann (z. B. das Einschalten der Heizung im DFU-Modus). Es wird empfohlen, Heizungen zu trennen und andere unerwünschte Vorgänge zu verhindern, wenn der DFU-Modus verwendet wird. Weitere Details finden Sie in der Dokumentation Ihrer Platine.

@@ -1,12 +1,12 @@
 # Verwendung von PWM-Tools
 
-This document describes how to setup a PWM-controlled laser or spindle using `pwm_tool` and some macros.
+Dieses Dokument beschreibt, wie ein PWM-gesteuerter Laser oder eine PWM-gesteuerte Spindel mit `pwm_tool` und einigen Makros eingerichtet wird.
 
 ## Wie funktioniert das?
 
-With re-purposing the printhead's fan pwm output, you can control lasers or spindles. This is useful if you use switchable print heads, for example the E3D toolchanger or a DIY solution. Usually, cam-tools such as LaserWeb can be configured to use `M3-M5` commands, which stand for *spindle speed CW* (`M3 S[0-255]`), *spindle speed CCW* (`M4 S[0-255]`) and *spindle stop* (`M5`).
+Durch die Umwidmung des PWM-Ausgangs für den Druckkopflüfter können Sie Laser oder Spindeln ansteuern. Das ist nützlich, wenn Sie wechselbare Druckköpfe verwenden, zum Beispiel den E3D Toolchanger oder eine Eigenbaulösung. Üblicherweise lassen sich CAM-Werkzeuge wie LaserWeb so konfigurieren, dass sie die Befehle `M3-M5` verwenden, die für *Spindeldrehzahl im Uhrzeigersinn* (`M3 S[0-255]`), *Spindeldrehzahl gegen den Uhrzeigersinn* (`M4 S[0-255]`) und *Spindelstopp* (`M5`) stehen.
 
-**Warning:** When driving a laser, keep all security precautions that you can think of! Diode lasers are usually inverted. This means, that when the MCU restarts, the laser will be *fully on* for the time it takes the MCU to start up again. For good measure, it is recommended to *always* wear appropriate laser-goggles of the right wavelength if the laser is powered; and to disconnect the laser when it is not needed. Also, you should configure a safety timeout, so that when your host or MCU encounters an error, the tool will stop.
+**Warnung:** Beachten Sie beim Betrieb eines Lasers alle nur denkbaren Sicherheitsvorkehrungen! Diodenlaser sind üblicherweise invertiert. Das bedeutet, dass der Laser beim Neustart des MCU für die Dauer des Startvorgangs *voll eingeschaltet* ist. Es wird dringend empfohlen, bei eingeschaltetem Laser *immer* eine geeignete Laserschutzbrille für die passende Wellenlänge zu tragen und den Laser zu trennen, wenn er nicht benötigt wird. Außerdem sollten Sie eine Sicherheitszeitüberschreitung konfigurieren, damit das Werkzeug stoppt, wenn Host oder MCU einen Fehler feststellen.
 
 Für eine Beispielkonfiguration siehe [config/sample-pwm-tool.cfg](/config/sample-pwm-tool.cfg).
 

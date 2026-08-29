@@ -26,7 +26,7 @@ Stellen Sie sicher, dass alle Achsen des Druckers manuell frei bewegt werden kö
 
 Bewegen Sie manuell alle Druckerachsen, damit keine von ihnen mit einem Endstop in Kontakt stehen. Senden Sie über die Befehlskonsole ein ''QUERY_ENDSTOPS'' Befehl. Es sollte den aktuellen Zustand aller konfigurierten Endstops zurückgeben und sie sollten alle einen Zustand von "offen" melden. Führen Sie für jeden Endstop erneut den ''QUERY_ENDSTOPS'' Befehl aus, während Sie den Endstop manuell auslösen. Der QUERY_ENDSTOPS-Befehl sollte den Endstop als "AUSGELÖST" melden.
 
-If the endstop appears inverted (it reports "open" when triggered and vice-versa) then add a "!" to the pin definition (for example, "endstop_pin: ^!PA2"), or remove the "!" if there is already one present.
+Wenn der Endstop invertiert erscheint (er meldet "offen", wenn er ausgelöst wird, und umgekehrt), fügen Sie der Pin-Definition ein "!" hinzu (zum Beispiel "endstop_pin: ^!PA2"), oder entfernen Sie das "!", falls bereits eines vorhanden ist.
 
 Wenn sich der Endstop überhaupt nicht ändert, deutet dies im Allgemeinen darauf hin, dass der Endstop an einen anderen Pin angeschlossen ist. Es kann jedoch auch eine Änderung der Pullup-Einstellung des Pins erforderlich sein (das '^' am Anfang des endstop_pin-Namens - die meisten Drucker verwenden einen Pullup-Widerstand und das '^' sollte vorhanden sein).
 

@@ -6,67 +6,67 @@ Die Felder in diesem Dokument können sich ändern - wenn Sie ein Attribut verwe
 
 ## angle
 
-The following information is available in [angle some_name](Config_Reference.md#angle) objects:
+Die folgenden Informationen sind in den Objekten [angle some_name](Config_Reference.md#angle) verfügbar:
 
-- `temperature`: The last temperature reading (in Celsius) from a tle5012b magnetic hall sensor. This value is only available if the angle sensor is a tle5012b chip and if measurements are in progress (otherwise it reports `None`).
+- `temperature`: Der letzte Temperaturmesswert (in Grad Celsius) eines magnetischen tle5012b-Hallsensors. Dieser Wert ist nur verfügbar, wenn der Winkelsensor ein tle5012b-Chip ist und Messungen laufen (andernfalls wird `None` gemeldet).
 
 ## bed_mesh
 
-The following information is available in the [bed_mesh](Config_Reference.md#bed_mesh) object:
+Die folgenden Informationen sind im Objekt [bed_mesh](Config_Reference.md#bed_mesh) verfügbar:
 
-- `profile_name`, `mesh_min`, `mesh_max`, `probed_matrix`, `mesh_matrix`: Information on the currently active bed_mesh.
-- `profiles`: The set of currently defined profiles as setup using BED_MESH_PROFILE.
+- `profile_name`, `mesh_min`, `mesh_max`, `probed_matrix`, `mesh_matrix`: Informationen zum aktuell aktiven bed_mesh.
+- `profiles`: Die Menge der aktuell definierten Profile, wie sie mit BED_MESH_PROFILE eingerichtet wurden.
 
 ## bed_screws
 
-The following information is available in the [bed_screws](Config_Reference.md#bed_screws) object:
+Die folgenden Informationen sind im Objekt [bed_screws](Config_Reference.md#bed_screws) verfügbar:
 
-- `is_active`: Returns True if the bed screws adjustment tool is currently active.
-- `state`: The bed screws adjustment tool state. It is one of the following strings: "adjust", "fine".
-- `current_screw`: The index for the current screw being adjusted.
-- `accepted_screws`: The number of accepted screws.
+- `is_active`: Gibt True zurück, wenn das Werkzeug zur Justierung der Bettschrauben aktuell aktiv ist.
+- `state`: Der Zustand des Werkzeugs zur Justierung der Bettschrauben. Es ist eine der folgenden Zeichenketten: "adjust", "fine".
+- `current_screw`: Der Index der aktuell justierten Schraube.
+- `accepted_screws`: Die Anzahl der akzeptierten Schrauben.
 
 ## canbus_stats
 
-The following information is available in the `canbus_stats some_mcu_name` object (this object is automatically available if an mcu is configured to use canbus):
+Die folgenden Informationen sind im Objekt `canbus_stats some_mcu_name` verfügbar (dieses Objekt ist automatisch verfügbar, wenn ein Mikrocontroller für die Nutzung von CANbus konfiguriert ist):
 
-- `rx_error`: The number of receive errors detected by the micro-controller canbus hardware.
-- `tx_error`: The number of transmit errors detected by the micro-controller canbus hardware.
-- `tx_retries`: The number of transmit attempts that were retried due to bus contention or errors.
-- `bus_state`: The status of the interface (typically "active" for a bus in normal operation, "warn" for a bus with recent errors, "passive" for a bus that will no longer transmit canbus error frames, or "off" for a bus that will no longer transmit or receive messages).
+- `rx_error`: Die Anzahl der von der CANbus-Hardware des Mikrocontrollers erkannten Empfangsfehler.
+- `tx_error`: Die Anzahl der von der CANbus-Hardware des Mikrocontrollers erkannten Sendefehler.
+- `tx_retries`: Die Anzahl der Sendeversuche, die aufgrund von Buskonflikten oder Fehlern wiederholt wurden.
+- `bus_state`: Der Zustand der Schnittstelle (typischerweise "active" für einen Bus im Normalbetrieb, "warn" für einen Bus mit kürzlich aufgetretenen Fehlern, "passive" für einen Bus, der keine CANbus-Fehlerframes mehr sendet, oder "off" für einen Bus, der keine Nachrichten mehr sendet oder empfängt).
 
-Note that only the rp2XXX micro-controllers report a non-zero `tx_retries` field and the rp2XXX micro-controllers always report `tx_error` as zero and `bus_state` as "active".
+Beachten Sie, dass nur die rp2XXX-Mikrocontroller ein von null verschiedenes Feld `tx_retries` melden und dass die rp2XXX-Mikrocontroller `tx_error` immer als null und `bus_state` immer als "active" melden.
 
 ## Konfigurationsdatei
 
-The following information is available in the `configfile` object (this object is always available):
+Die folgenden Informationen sind im Objekt `configfile` verfügbar (dieses Objekt ist immer verfügbar):
 
-- `settings.<section>.<option>`: Returns the given config file setting (or default value) during the last software start or restart. (Any settings changed at run-time will not be reflected here.)
-- `config.<section>.<option>`: Returns the given raw config file setting as read by Klipper during the last software start or restart. (Any settings changed at run-time will not be reflected here.) All values are returned as strings.
-- `save_config_pending`: Returns true if there are updates that a `SAVE_CONFIG` command may persist to disk.
-- `save_config_pending_items`: Contains the sections and options that were changed and would be persisted by a `SAVE_CONFIG`.
-- `warnings`: A list of warnings about config options. Each entry in the list will be a dictionary containing a `type` and `message` field (both strings). Additional fields may be available depending on the type of warning.
+- `settings.<section>.<option>`: Gibt die angegebene Einstellung aus der Konfigurationsdatei (oder deren Standardwert) zum Zeitpunkt des letzten Starts bzw. Neustarts der Software zurück. (Zur Laufzeit geänderte Einstellungen werden hier nicht berücksichtigt.)
+- `config.<section>.<option>`: Gibt die angegebene Roh-Einstellung der Konfigurationsdatei zurück, wie sie von Klipper beim letzten Start bzw. Neustart der Software gelesen wurde. (Zur Laufzeit geänderte Einstellungen werden hier nicht berücksichtigt.) Alle Werte werden als Zeichenketten zurückgegeben.
+- `save_config_pending`: Gibt True zurück, wenn Änderungen vorliegen, die ein `SAVE_CONFIG`-Befehl auf die Festplatte schreiben kann.
+- `save_config_pending_items`: Enthält die Abschnitte und Optionen, die geändert wurden und durch ein `SAVE_CONFIG` dauerhaft gespeichert würden.
+- `warnings`: Eine Liste von Warnungen zu Konfigurationsoptionen. Jeder Eintrag der Liste ist ein Dictionary mit den Feldern `type` und `message` (beides Zeichenketten). Je nach Art der Warnung können weitere Felder verfügbar sein.
 
 ## display_status
 
-The following information is available in the `display_status` object (this object is automatically available if a [display](Config_Reference.md#display) config section is defined):
+Die folgenden Informationen sind im Objekt `display_status` verfügbar (dieses Objekt ist automatisch verfügbar, wenn ein [display](Config_Reference.md#display) Konfigurationsabschnitt definiert ist):
 
-- `progress`: The progress value of the last `M73` G-Code command (or `virtual_sdcard.progress` if no recent `M73` received).
-- `message`: The message contained in the last `M117` G-Code command.
+- `progress`: Der Fortschrittswert des letzten `M73` G-Code-Befehls (oder `virtual_sdcard.progress`, wenn kein `M73` kürzlich empfangen wurde).
+- `message`: Die im letzten `M117` G-Code-Befehl enthaltene Nachricht.
 
 ## endstop_phase
 
-The following information is available in the [endstop_phase](Config_Reference.md#endstop_phase) object:
+Die folgenden Informationen sind im Objekt [endstop_phase](Config_Reference.md#endstop_phase) verfügbar:
 
-- `last_home.<stepper name>.phase`: The phase of the stepper motor at the end of the last home attempt.
-- `last_home.<stepper name>.phases`: The total number of phases available on the stepper motor.
-- `last_home.<stepper name>.mcu_position`: The position (as tracked by the micro-controller) of the stepper motor at the end of the last home attempt. The position is the total number of steps taken in a forward direction minus the total number of steps taken in the reverse direction since the micro-controller was last restarted.
+- `last_home.<stepper name>.phase`: Die Phase des Schrittmotors am Ende des letzten Homing-Versuchs.
+- `last_home.<stepper name>.phases`: Die Gesamtzahl der am Schrittmotor verfügbaren Phasen.
+- `last_home.<stepper name>.mcu_position`: Die Position des Schrittmotors (wie vom Mikrocontroller verfolgt) am Ende des letzten Homing-Versuchs. Die Position ist die Gesamtzahl der Schritte in Vorwärtsrichtung abzüglich der Gesamtzahl der Schritte in Rückwärtsrichtung seit dem letzten Neustart des Mikrocontrollers.
 
 ## exclude_object
 
-The following information is available in the [exclude_object](Exclude_Object.md) object:
+Die folgenden Informationen sind im Objekt [exclude_object](Exclude_Object.md) verfügbar:
 
-- `objects`: An array of the known objects as provided by the `EXCLUDE_OBJECT_DEFINE` command. This is the same information provided by the `EXCLUDE_OBJECT VERBOSE=1` command. The `center` and `polygon` fields will only be present if provided in the original `EXCLUDE_OBJECT_DEFINE`
+- `objects`: Ein Array der bekannten Objekte, wie sie durch den Befehl `EXCLUDE_OBJECT_DEFINE` bereitgestellt wurden. Dies sind dieselben Informationen, die der Befehl `EXCLUDE_OBJECT VERBOSE=1` liefert. Die Felder `center` und `polygon` sind nur vorhanden, wenn sie im ursprünglichen `EXCLUDE_OBJECT_DEFINE` angegeben wurden
 
    Hier ist eine JSON Beispiel:
 
@@ -95,43 +95,43 @@ The following information is available in the [exclude_object](Exclude_Object.md
 ]
 ```
 
-- `excluded_objects`: An array of strings listing the names of excluded objects.
-- `current_object`: The name of the object currently being printed.
+- `excluded_objects`: Ein Array von Zeichenketten mit den Namen der ausgeschlossenen Objekte.
+- `current_object`: Der Name des aktuell gedruckten Objekts.
 
 ## extruder_stepper
 
-The following information is available for extruder_stepper objects (as well as [extruder](Config_Reference.md#extruder) objects):
+Die folgenden Informationen sind für extruder_stepper-Objekte (sowie für [extruder](Config_Reference.md#extruder)-Objekte) verfügbar:
 
 - `pressure_advance`: Der aktuelle [pressure advance](Pressure_Advance.md) Wert.
-- `smooth_time`: The current pressure advance smooth time.
-- `motion_queue`: The name of the extruder that this extruder stepper is currently synchronized to. This is reported as `None` if the extruder stepper is not currently associated with an extruder.
+- `smooth_time`: Die aktuelle Glättungszeit des Pressure Advance.
+- `motion_queue`: Der Name des Extruders, mit dem dieser extruder_stepper aktuell synchronisiert ist. Wird als `None` gemeldet, wenn der extruder_stepper derzeit keinem Extruder zugeordnet ist.
 
 ## fan
 
-The following information is available in [fan](Config_Reference.md#fan), [heater_fan some_name](Config_Reference.md#heater_fan) and [controller_fan some_name](Config_Reference.md#controller_fan) objects:
+Die folgenden Informationen sind in den Objekten [fan](Config_Reference.md#fan), [heater_fan some_name](Config_Reference.md#heater_fan) und [controller_fan some_name](Config_Reference.md#controller_fan) verfügbar:
 
-- `speed`: The fan speed as a float between 0.0 and 1.0.
-- `rpm`: The measured fan speed in rotations per minute if the fan has a tachometer_pin defined.
+- `speed`: Die Lüfterdrehzahl als Gleitkommazahl zwischen 0.0 und 1.0.
+- `rpm`: Die gemessene Lüfterdrehzahl in Umdrehungen pro Minute, sofern für den Lüfter ein tachometer_pin definiert ist.
 
 ## filament_switch_sensor
 
-The following information is available in [filament_switch_sensor some_name](Config_Reference.md#filament_switch_sensor) objects:
+Die folgenden Informationen sind in den Objekten [filament_switch_sensor some_name](Config_Reference.md#filament_switch_sensor) verfügbar:
 
-- `enabled`: Returns True if the switch sensor is currently enabled.
-- `filament_detected`: Returns True if the sensor is in a triggered state.
+- `enabled`: Gibt True zurück, wenn der Schaltsensor aktuell aktiviert ist.
+- `filament_detected`: Gibt True zurück, wenn sich der Sensor im ausgelösten Zustand befindet.
 
 ## filament_motion_sensor
 
-The following information is available in [filament_motion_sensor some_name](Config_Reference.md#filament_motion_sensor) objects:
+Die folgenden Informationen sind in den Objekten [filament_motion_sensor some_name](Config_Reference.md#filament_motion_sensor) verfügbar:
 
-- `enabled`: Returns True if the motion sensor is currently enabled.
-- `filament_detected`: Returns True if the sensor is in a triggered state.
+- `enabled`: Gibt True zurück, wenn der Bewegungssensor aktuell aktiviert ist.
+- `filament_detected`: Gibt True zurück, wenn sich der Sensor im ausgelösten Zustand befindet.
 
 ## firmware_retraction
 
-The following information is available in the [firmware_retraction](Config_Reference.md#firmware_retraction) object:
+Die folgenden Informationen sind im Objekt [firmware_retraction](Config_Reference.md#firmware_retraction) verfügbar:
 
-- `retract_length`, `retract_speed`, `unretract_extra_length`, `unretract_speed`: The current settings for the firmware_retraction module. These settings may differ from the config file if a `SET_RETRACTION` command alters them.
+- `retract_length`, `retract_speed`, `unretract_extra_length`, `unretract_speed`: Die aktuellen Einstellungen des firmware_retraction-Moduls. Diese Einstellungen können von der Konfigurationsdatei abweichen, wenn sie durch einen `SET_RETRACTION`-Befehl geändert wurden.
 
 ## gcode
 
@@ -141,74 +141,74 @@ The following information is available in the `gcode` object:
 
 ## gcode_button
 
-The following information is available in [gcode_button some_name](Config_Reference.md#gcode_button) objects:
+Die folgenden Informationen sind in den Objekten [gcode_button some_name](Config_Reference.md#gcode_button) verfügbar:
 
-- `state`: The current button state returned as "PRESSED" or "RELEASED"
+- `state`: Der aktuelle Zustand der Taste, zurückgegeben als "PRESSED" oder "RELEASED"
 
 ## gcode_macro
 
-The following information is available in [gcode_macro some_name](Config_Reference.md#gcode_macro) objects:
+Die folgenden Informationen sind in den Objekten [gcode_macro some_name](Config_Reference.md#gcode_macro) verfügbar:
 
 - `<variable>`: Der aktuelle Wert von [gcode_macro variable](Command_Templates.md#variables).
 
 ## gcode_move
 
-The following information is available in the `gcode_move` object (this object is always available):
+Die folgenden Informationen sind im Objekt `gcode_move` verfügbar (dieses Objekt ist immer verfügbar):
 
 - `gcode_position`: The current position of the toolhead relative to the current G-Code origin. That is, positions that one might directly send to a `G1` command. This value is encoded as a [coordinate](#accessing-coordinates).
 - `position`: The last commanded position of the toolhead using the coordinate system specified in the config file. This value is encoded as a [coordinate](#accessing-coordinates).
 - `homing_origin`: The origin of the gcode coordinate system (relative to the coordinate system specified in the config file) to use after a `G28` command. The `SET_GCODE_OFFSET` command can alter this position. This value is encoded as a [coordinate](#accessing-coordinates).
-- `speed`: The last speed set in a `G1` command (in mm/s).
-- `speed_factor`: The "speed factor override" as set by an `M220` command. This is a floating point value such that 1.0 means no override and, for example, 2.0 would double requested speed.
-- `extrude_factor`: The "extrude factor override" as set by an `M221` command. This is a floating point value such that 1.0 means no override and, for example, 2.0 would double requested extrusions.
-- `absolute_coordinates`: This returns True if in `G90` absolute coordinate mode or False if in `G91` relative mode.
-- `absolute_extrude`: This returns True if in `M82` absolute extrude mode or False if in `M83` relative mode.
+- `speed`: Die zuletzt in einem `G1`-Befehl gesetzte Geschwindigkeit (in mm/s).
+- `speed_factor`: Die durch einen `M220`-Befehl gesetzte "Geschwindigkeitsübersteuerung". Dies ist eine Gleitkommazahl, wobei 1.0 keine Übersteuerung bedeutet und beispielsweise 2.0 die angeforderte Geschwindigkeit verdoppeln würde.
+- `extrude_factor`: Die durch einen `M221`-Befehl gesetzte "Extrusionsübersteuerung". Dies ist eine Gleitkommazahl, wobei 1.0 keine Übersteuerung bedeutet und beispielsweise 2.0 die angeforderte Extrusion verdoppeln würde.
+- `absolute_coordinates`: Gibt True zurück, wenn der absolute Koordinatenmodus `G90` aktiv ist, oder False im relativen Modus `G91`.
+- `absolute_extrude`: Gibt True zurück, wenn der absolute Extrusionsmodus `M82` aktiv ist, oder False im relativen Modus `M83`.
 - `axis_map`: Provides a mechanism for finding the coordinate component for a given G-Code id that is used in `G1` commands. See the [Accessing Coordinates](#accessing-coordinates) section for details.
 
 ## hall_filament_width_sensor
 
-The following information is available in the [hall_filament_width_sensor](Config_Reference.md#hall_filament_width_sensor) object:
+Die folgenden Informationen sind im Objekt [hall_filament_width_sensor](Config_Reference.md#hall_filament_width_sensor) verfügbar:
 
-- all items from [filament_switch_sensor](Status_Reference.md#filament_switch_sensor)
-- `is_active`: Returns True if the sensor is currently active.
+- alle Einträge aus [filament_switch_sensor](Status_Reference.md#filament_switch_sensor)
+- `is_active`: Gibt True zurück, wenn der Sensor aktuell aktiv ist.
 - `flow_compensation_enabled`: Returns True if flow compensation is enabled.
 - `Diameter`: Returns the last width reading in mm if the sensor is active or the nominal filament diameter if it is not.
-- `Raw`: The last raw ADC reading from the sensor.
+- `Raw`: Der letzte ADC-Rohwert des Sensors.
 
 ## heater
 
-The following information is available for heater objects such as [extruder](Config_Reference.md#extruder), [heater_bed](Config_Reference.md#heater_bed), and [heater_generic](Config_Reference.md#heater_generic):
+Die folgenden Informationen sind für Heizungsobjekte wie [extruder](Config_Reference.md#extruder), [heater_bed](Config_Reference.md#heater_bed) und [heater_generic](Config_Reference.md#heater_generic) verfügbar:
 
-- `temperature`: The last reported temperature (in Celsius as a float) for the given heater.
-- `target`: The current target temperature (in Celsius as a float) for the given heater.
-- `power`: The last setting of the PWM pin (a value between 0.0 and 1.0) associated with the heater.
-- `can_extrude`: If extruder can extrude (defined by `min_extrude_temp`), available only for [extruder](Config_Reference.md#extruder)
+- `temperature`: Die zuletzt gemeldete Temperatur (als Gleitkommazahl in Grad Celsius) der jeweiligen Heizung.
+- `target`: Die aktuelle Zieltemperatur (als Gleitkommazahl in Grad Celsius) der jeweiligen Heizung.
+- `power`: Die letzte Einstellung des mit der Heizung verbundenen PWM-Pins (ein Wert zwischen 0.0 und 1.0).
+- `can_extrude`: Ob der Extruder extrudieren kann (festgelegt durch `min_extrude_temp`), nur verfügbar für [extruder](Config_Reference.md#extruder)
 
 ## heaters
 
-The following information is available in the `heaters` object (this object is available if any heater is defined):
+Die folgenden Informationen sind im Objekt `heaters` verfügbar (dieses Objekt ist verfügbar, wenn eine Heizung definiert ist):
 
-- `available_heaters`: Returns a list of all currently available heaters by their full config section names, e.g. `["extruder", "heater_bed", "heater_generic my_custom_heater"]`.
-- `available_sensors`: Returns a list of all currently available temperature sensors by their full config section names, e.g. `["extruder", "heater_bed", "heater_generic my_custom_heater", "temperature_sensor electronics_temp"]`.
-- `available_monitors`: Returns a list of all currently available temperature monitors by their full config section names, e.g. `["tmc2240 stepper_x"]`. While a temperature sensor is always available to read, a temperature monitor may not be available and will return null in such case.
+- `available_heaters`: Gibt eine Liste aller aktuell verfügbaren Heizungen anhand ihrer vollständigen Konfigurationsabschnittsnamen zurück, z. B. `["extruder", "heater_bed", "heater_generic my_custom_heater"]`.
+- `available_sensors`: Gibt eine Liste aller aktuell verfügbaren Temperatursensoren anhand ihrer vollständigen Konfigurationsabschnittsnamen zurück, z. B. `["extruder", "heater_bed", "heater_generic my_custom_heater", "temperature_sensor electronics_temp"]`.
+- `available_monitors`: Gibt eine Liste aller aktuell verfügbaren Temperaturmonitore anhand ihrer vollständigen Konfigurationsabschnittsnamen zurück, z. B. `["tmc2240 stepper_x"]`. Während ein Temperatursensor immer ausgelesen werden kann, ist ein Temperaturmonitor unter Umständen nicht verfügbar und gibt in diesem Fall null zurück.
 
 ## idle_timeout
 
-The following information is available in the [idle_timeout](Config_Reference.md#idle_timeout) object (this object is always available):
+Die folgenden Informationen sind im Objekt [idle_timeout](Config_Reference.md#idle_timeout) verfügbar (dieses Objekt ist immer verfügbar):
 
-- `state`: The current state of the printer as tracked by the idle_timeout module. It is one of the following strings: "Idle", "Printing", "Ready".
-- `printing_time`: The amount of time (in seconds) the printer has been in the "Printing" state (as tracked by the idle_timeout module).
+- `state`: Der aktuelle Zustand des Druckers, wie ihn das idle_timeout-Modul verfolgt. Es ist eine der folgenden Zeichenketten: "Idle", "Printing", "Ready".
+- `printing_time`: Die Zeitspanne (in Sekunden), die sich der Drucker im Zustand "Printing" befunden hat (wie vom idle_timeout-Modul verfolgt).
 - `idle_timeout`: The current 'timeout' (in seconds) to wait for the gcode to be triggered. (as set by [SET_IDLE_TIMEOUT](G-Codes.md#set_idle_timeout))
 
 ## led
 
-The following information is available for each `[led led_name]`, `[neopixel led_name]`, `[dotstar led_name]`, `[pca9533 led_name]`, and `[pca9632 led_name]` config section defined in printer.cfg:
+Die folgenden Informationen sind für jeden in printer.cfg definierten Konfigurationsabschnitt `[led led_name]`, `[neopixel led_name]`, `[dotstar led_name]`, `[pca9533 led_name]` und `[pca9632 led_name]` verfügbar:
 
 - `color_data`: A list of color lists containing the RGBW values for a led in the chain. Each value is represented as a float from 0.0 to 1.0. Each color list contains 4 items (red, green, blue, white) even if the underlying LED supports fewer color channels. For example, the blue value (3rd item in color list) of the second neopixel in a chain could be accessed at `printer["neopixel <config_name>"].color_data[1][2]`.
 
 ## load_cell
 
-The following information is available for each `[load_cell name]`:
+Die folgenden Informationen sind für jedes `[load_cell name]` verfügbar:
 
 - `is_calibrated`: True/False whether the load cell is calibrated.
 - `counts_per_gram`: The number of raw sensor counts that equals 1 gram of force.
@@ -223,10 +223,10 @@ The following information is available for each `[load_cell name]`:
 
 ## load_cell_probe
 
-The following information is available for `[load_cell_probe]`:
+Die folgenden Informationen sind für `[load_cell_probe]` verfügbar:
 
-- all items from [load_cell](Status_Reference.md#load_cell)
-- all items from [probe](Status_Reference.md#probe)
+- alle Einträge aus [load_cell](Status_Reference.md#load_cell)
+- alle Einträge aus [probe](Status_Reference.md#probe)
 - `endstop_tare_counts`: The load cell probe keeps a tare value independent of the load cell. This is re-set at the start of each probe.
 - `last_trigger_time`: Timestamp of the last homing trigger.
 - `last_z_result`: The Z position result of the last tap.
@@ -234,212 +234,212 @@ The following information is available for `[load_cell_probe]`:
 
 ## manual_probe
 
-The following information is available in the `manual_probe` object:
+Die folgenden Informationen sind im Objekt `manual_probe` verfügbar:
 
-- `is_active`: Returns True if a manual probing helper script is currently active.
-- `z_position`: The current height of the nozzle (as the printer currently understands it).
-- `z_position_lower`: Last probe attempt just lower than the current height.
-- `z_position_upper`: Last probe attempt just greater than the current height.
+- `is_active`: Gibt True zurück, wenn aktuell ein Hilfsskript zum manuellen Abtasten aktiv ist.
+- `z_position`: Die aktuelle Höhe der Düse (so wie der Drucker sie derzeit annimmt).
+- `z_position_lower`: Letzter Abtastversuch knapp unterhalb der aktuellen Höhe.
+- `z_position_upper`: Letzter Abtastversuch knapp oberhalb der aktuellen Höhe.
 
 ## mcu
 
-The following information is available in [mcu](Config_Reference.md#mcu) and [mcu some_name](Config_Reference.md#mcu-my_extra_mcu) objects:
+Die folgenden Informationen sind in den Objekten [mcu](Config_Reference.md#mcu) und [mcu some_name](Config_Reference.md#mcu-my_extra_mcu) verfügbar:
 
-- `mcu_version`: The Klipper code version reported by the micro-controller.
-- `mcu_build_versions`: Information on the build tools used to generate the micro-controller code (as reported by the micro-controller).
-- `mcu_constants.<constant_name>`: Compile time constants reported by the micro-controller. The available constants may differ between micro-controller architectures and with each code revision.
+- `mcu_version`: Die vom Mikrocontroller gemeldete Version des Klipper-Codes.
+- `mcu_build_versions`: Informationen über die Build-Werkzeuge, mit denen der Mikrocontroller-Code erzeugt wurde (wie vom Mikrocontroller gemeldet).
+- `mcu_constants.<constant_name>`: Vom Mikrocontroller gemeldete Kompilierzeit-Konstanten. Die verfügbaren Konstanten können sich zwischen Mikrocontroller-Architekturen und mit jeder Code-Revision unterscheiden.
 - `last_stats.<statistics_name>`: Statistikinformationen über die Mikrocontroller Verbindung.
 
 ## motion_report
 
-The following information is available in the `motion_report` object (this object is automatically available if any stepper config section is defined):
+Die folgenden Informationen sind im Objekt `motion_report` verfügbar (dieses Objekt ist automatisch verfügbar, wenn ein Schrittmotor-Konfigurationsabschnitt definiert ist):
 
 - `live_position`: The requested toolhead position interpolated to the current time. This value is encoded as a [coordinate](#accessing-coordinates).
-- `live_velocity`: The requested toolhead velocity (in mm/s) at the current time.
-- `live_extruder_velocity`: The requested extruder velocity (in mm/s) at the current time.
+- `live_velocity`: Die angefragte Geschwindigkeit des Druckkopfs (in mm/s) zum aktuellen Zeitpunkt.
+- `live_extruder_velocity`: Die angefragte Extrudergeschwindigkeit (in mm/s) zum aktuellen Zeitpunkt.
 
 ## output_pin
 
 The following information is available in [output_pin some_name](Config_Reference.md#output_pin) and [pwm_tool some_name](Config_Reference.md#pwm_tool) objects:
 
-- `value`: The "value" of the pin, as set by a `SET_PIN` command.
+- `value`: Der "Wert" des Pins, wie er durch einen `SET_PIN`-Befehl gesetzt wurde.
 
 ## palette2
 
-The following information is available in the [palette2](Config_Reference.md#palette2) object:
+Die folgenden Informationen sind im Objekt [palette2](Config_Reference.md#palette2) verfügbar:
 
-- `ping`: Amount of the last reported Palette 2 ping in percent.
-- `remaining_load_length`: When starting a Palette 2 print, this will be the amount of filament to load into the extruder.
-- `is_splicing`: True when the Palette 2 is splicing filament.
+- `ping`: Wert des zuletzt gemeldeten Palette-2-Pings in Prozent.
+- `remaining_load_length`: Beim Start eines Palette-2-Drucks ist dies die Menge an Filament, die in den Extruder geladen werden muss.
+- `is_splicing`: True, wenn die Palette 2 gerade Filament spleißt.
 
 ## pause_resume
 
-The following information is available in the [pause_resume](Config_Reference.md#pause_resume) object:
+Die folgenden Informationen sind im Objekt [pause_resume](Config_Reference.md#pause_resume) verfügbar:
 
-- `is_paused`: Returns true if a PAUSE command has been executed without a corresponding RESUME.
+- `is_paused`: Gibt True zurück, wenn ein PAUSE-Befehl ohne zugehörigen RESUME-Befehl ausgeführt wurde.
 
 ## print_stats
 
-The following information is available in the `print_stats` object (this object is automatically available if a [virtual_sdcard](Config_Reference.md#virtual_sdcard) config section is defined):
+Die folgenden Informationen sind im Objekt `print_stats` verfügbar (dieses Objekt ist automatisch verfügbar, wenn ein [virtual_sdcard](Config_Reference.md#virtual_sdcard) Konfigurationsabschnitt definiert ist):
 
-- `filename`, `total_duration`, `print_duration`, `filament_used`, `state`, `message`: Estimated information about the current print when a virtual_sdcard print is active.
-- `info.total_layer`: The total layer value of the last `SET_PRINT_STATS_INFO TOTAL_LAYER=<value>` G-Code command.
-- `info.current_layer`: The current layer value of the last `SET_PRINT_STATS_INFO CURRENT_LAYER=<value>` G-Code command.
+- `filename`, `total_duration`, `print_duration`, `filament_used`, `state`, `message`: Geschätzte Informationen zum aktuellen Druck, während ein virtual_sdcard-Druck aktiv ist.
+- `info.total_layer`: Der Wert für die Gesamtzahl der Schichten aus dem letzten `SET_PRINT_STATS_INFO TOTAL_LAYER=<value>` G-Code-Befehl.
+- `info.current_layer`: Der Wert für die aktuelle Schicht aus dem letzten `SET_PRINT_STATS_INFO CURRENT_LAYER=<value>` G-Code-Befehl.
 
 ## probe
 
-The following information is available in the [probe](Config_Reference.md#probe) object (this object is also available if a [bltouch](Config_Reference.md#bltouch) config section is defined):
+Die folgenden Informationen sind im Objekt [probe](Config_Reference.md#probe) verfügbar (dieses Objekt ist auch verfügbar, wenn ein [bltouch](Config_Reference.md#bltouch) Konfigurationsabschnitt definiert ist):
 
-- `name`: Returns the name of the probe in use.
-- `last_query`: Returns True if the probe was reported as "triggered" during the last QUERY_PROBE command. Note, if this is used in a macro, due to the order of template expansion, the QUERY_PROBE command must be run prior to the macro containing this reference.
+- `name`: Gibt den Namen der verwendeten Sonde zurück.
+- `last_query`: Gibt True zurück, wenn die Sonde während des letzten QUERY_PROBE-Befehls als "ausgelöst" gemeldet wurde. Hinweis: Wird dies in einem Makro verwendet, muss der QUERY_PROBE-Befehl aufgrund der Reihenfolge der Template-Expansion vor dem Makro ausgeführt werden, das diese Referenz enthält.
 - `last_probe_position`: The results of the last `PROBE` command. This value is encoded as a [coordinate](#accessing-coordinates). The probe hardware estimates that if one were to command the toolhead to XY position `last_probe_position.x`,`last_probe_position.y` and descend then the tip of the toolhead would first contact the bed at a Z height of `last_probe_position.z`. These coordinates are relative to the frame (that is, they use the coordinate system specified in the config file). Note, if this is used in a macro, due to the order of template expansion, the `PROBE` command must be run prior to the macro containing this reference.
 - `last_z_result`: This value is deprecated; it will be removed in the near future.
 
 ## pwm_cycle_time
 
-The following information is available in [pwm_cycle_time some_name](Config_Reference.md#pwm_cycle_time) objects:
+Die folgenden Informationen sind in den Objekten [pwm_cycle_time some_name](Config_Reference.md#pwm_cycle_time) verfügbar:
 
-- `value`: The "value" of the pin, as set by a `SET_PIN` command.
+- `value`: Der "Wert" des Pins, wie er durch einen `SET_PIN`-Befehl gesetzt wurde.
 
 ## quad_gantry_level
 
-The following information is available in the `quad_gantry_level` object (this object is available if quad_gantry_level is defined):
+Die folgenden Informationen sind im Objekt `quad_gantry_level` verfügbar (dieses Objekt ist verfügbar, wenn quad_gantry_level definiert ist):
 
-- `applied`: True if the gantry leveling process has been run and completed successfully.
+- `applied`: True, wenn der Nivelliervorgang des Portals ausgeführt und erfolgreich abgeschlossen wurde.
 
 ## query_endstops
 
-The following information is available in the `query_endstops` object (this object is available if any endstop is defined):
+Die folgenden Informationen sind im Objekt `query_endstops` verfügbar (dieses Objekt ist verfügbar, wenn ein Endschalter definiert ist):
 
-- `last_query["<endstop>"]`: Returns True if the given endstop was reported as "triggered" during the last QUERY_ENDSTOP command. Note, if this is used in a macro, due to the order of template expansion, the QUERY_ENDSTOP command must be run prior to the macro containing this reference.
+- `last_query["<endstop>"]`: Gibt True zurück, wenn der angegebene Endschalter während des letzten QUERY_ENDSTOP-Befehls als "ausgelöst" gemeldet wurde. Hinweis: Wird dies in einem Makro verwendet, muss der QUERY_ENDSTOP-Befehl aufgrund der Reihenfolge der Template-Expansion vor dem Makro ausgeführt werden, das diese Referenz enthält.
 
 ## screws_tilt_adjust
 
-The following information is available in the `screws_tilt_adjust` object:
+Die folgenden Informationen sind im Objekt `screws_tilt_adjust` verfügbar:
 
-- `error`: Returns True if the most recent `SCREWS_TILT_CALCULATE` command included the `MAX_DEVIATION` parameter and any of the probed screw points exceeded the specified `MAX_DEVIATION`.
-- `max_deviation`: Return the last `MAX_DEVIATION` value of the most recent `SCREWS_TILT_CALCULATE` command.
-- `results["<screw>"]`: A dictionary containing the following keys:
-   - `z`: The measured Z height of the screw location.
-   - `sign`: A string specifying the direction to turn to screw for the necessary adjustment. Either "CW" for clockwise or "CCW" for counterclockwise.
-   - `adjust`: The number of screw turns to adjust the screw, given in the format "HH:MM," where "HH" is the number of full screw turns and "MM" is the number of "minutes of a clock face" representing a partial screw turn. (E.g. "01:15" would mean to turn the screw one and a quarter revolutions.)
-   - `is_base`: Returns True if this is the base screw.
+- `error`: Gibt True zurück, wenn der letzte `SCREWS_TILT_CALCULATE`-Befehl den Parameter `MAX_DEVIATION` enthielt und einer der abgetasteten Schraubpunkte die angegebene `MAX_DEVIATION` überschritten hat.
+- `max_deviation`: Gibt den letzten `MAX_DEVIATION`-Wert des jüngsten `SCREWS_TILT_CALCULATE`-Befehls zurück.
+- `results["<screw>"]`: Ein Dictionary mit den folgenden Schlüsseln:
+   - `z`: Die gemessene Z-Höhe an der Schraubenposition.
+   - `sign`: Eine Zeichenkette, die die Drehrichtung für die notwendige Justierung angibt. Entweder "CW" für im Uhrzeigersinn oder "CCW" für gegen den Uhrzeigersinn.
+   - `adjust`: Die Anzahl der Schraubendrehungen zur Justierung der Schraube, angegeben im Format "HH:MM", wobei "HH" die Anzahl der vollen Schraubendrehungen und "MM" die "Minuten auf einem Zifferblatt" für eine Teildrehung angibt. (Zum Beispiel würde "01:15" bedeuten, die Schraube um eineinviertel Umdrehungen zu drehen.)
+   - `is_base`: Gibt True zurück, wenn dies die Basisschraube ist.
 
 ## servo
 
-The following information is available in [servo some_name](Config_Reference.md#servo) objects:
+Die folgenden Informationen sind in den Objekten [servo some_name](Config_Reference.md#servo) verfügbar:
 
-- `printer["servo <config_name>"].value`: The last setting of the PWM pin (a value between 0.0 and 1.0) associated with the servo.
+- `printer["servo <config_name>"].value`: Die letzte Einstellung des mit dem Servo verbundenen PWM-Pins (ein Wert zwischen 0.0 und 1.0).
 
 ## skew_correction.py
 
-The following information is available in the `skew_correction` object (this object is available if any skew_correction is defined):
+Die folgenden Informationen sind im Objekt `skew_correction` verfügbar (dieses Objekt ist verfügbar, wenn eine skew_correction definiert ist):
 
-- `current_profile_name`: Returns the name of the currently loaded SKEW_PROFILE.
+- `current_profile_name`: Gibt den Namen des aktuell geladenen SKEW_PROFILE zurück.
 
 ## stepper_enable
 
-The following information is available in the `stepper_enable` object (this object is available if any stepper is defined):
+Die folgenden Informationen sind im Objekt `stepper_enable` verfügbar (dieses Objekt ist verfügbar, wenn ein Schrittmotor definiert ist):
 
-- `steppers["<stepper>"]`: Returns True if the given stepper is enabled.
+- `steppers["<stepper>"]`: Gibt True zurück, wenn der angegebene Schrittmotor aktiviert ist.
 
 ## system_stats
 
-The following information is available in the `system_stats` object (this object is always available):
+Die folgenden Informationen sind im Objekt `system_stats` verfügbar (dieses Objekt ist immer verfügbar):
 
-- `sysload`, `cputime`, `memavail`: Information on the host operating system and process load.
+- `sysload`, `cputime`, `memavail`: Informationen zum Betriebssystem des Hosts und zur Prozesslast.
 
 ## Temperatur Sensoren
 
 Folgende Informationen sind verfügbar in
 
-[bme280 config_section_name](Config_Reference.md#bmp280bme280bme680-temperature-sensor), [htu21d config_section_name](Config_Reference.md#htu21d-sensor), [sht3x config_section_name](Config_Reference.md#sht31-sensor), [lm75 config_section_name](Config_Reference.md#lm75-temperature-sensor), [temperature_host config_section_name](Config_Reference.md#host-temperature-sensor) and [temperature_combined config_section_name](Config_Reference.md#combined-temperature-sensor) objects:
+[bme280 config_section_name](Config_Reference.md#bmp280bme280bme680-temperature-sensor), [htu21d config_section_name](Config_Reference.md#htu21d-sensor), [sht3x config_section_name](Config_Reference.md#sht31-sensor), [lm75 config_section_name](Config_Reference.md#lm75-temperature-sensor), [temperature_host config_section_name](Config_Reference.md#host-temperature-sensor) und [temperature_combined config_section_name](Config_Reference.md#combined-temperature-sensor) Objekte:
 
 - `temperature`: Die letzte vom Sensor gelesene Temperatur.
-- `humidity`, `pressure`, `gas`: The last read values from the sensor (only on bme280, htu21d, sht3x and lm75 sensors).
+- `humidity`, `pressure`, `gas`: Die zuletzt vom Sensor gelesenen Werte (nur bei bme280-, htu21d-, sht3x- und lm75-Sensoren).
 
 ## temperature_fan
 
-The following information is available in [temperature_fan some_name](Config_Reference.md#temperature_fan) objects:
+Die folgenden Informationen sind in den Objekten [temperature_fan some_name](Config_Reference.md#temperature_fan) verfügbar:
 
 - `temperature`: Die letzte vom Sensor gelesene Temperatur.
 - `target`: Die Zieltemperatur für den Lüfter.
 
 ## temperature_sensor
 
-The following information is available in [temperature_sensor some_name](Config_Reference.md#temperature_sensor) objects:
+Die folgenden Informationen sind in den Objekten [temperature_sensor some_name](Config_Reference.md#temperature_sensor) verfügbar:
 
 - `temperature`: Die letzte vom Sensor gelesene Temperatur.
-- `measured_min_temp`, `measured_max_temp`: The lowest and highest temperature seen by the sensor since the Klipper host software was last restarted.
+- `measured_min_temp`, `measured_max_temp`: Die niedrigste und die höchste vom Sensor gemessene Temperatur seit dem letzten Neustart der Klipper-Host-Software.
 
 ## tmc treiber
 
-The following information is available in [TMC stepper driver](Config_Reference.md#tmc-stepper-driver-configuration) objects (eg, `[tmc2208 stepper_x]`):
+Die folgenden Informationen sind in den Objekten der [TMC-Schrittmotortreiber](Config_Reference.md#tmc-stepper-driver-configuration) verfügbar (z. B. `[tmc2208 stepper_x]`):
 
-- `mcu_phase_offset`: The micro-controller stepper position corresponding with the driver's "zero" phase. This field may be null if the phase offset is not known.
-- `phase_offset_position`: The "commanded position" corresponding to the driver's "zero" phase. This field may be null if the phase offset is not known.
-- `drv_status`: The results of the last driver status query. (Only non-zero fields are reported.) This field will be null if the driver is not enabled (and thus is not periodically queried).
-- `temperature`: The internal temperature reported by the driver. This field will be null if the driver is not enabled or if the driver does not support temperature reporting.
+- `mcu_phase_offset`: Die Schrittmotorposition des Mikrocontrollers, die der "Null"-Phase des Treibers entspricht. Dieses Feld kann null sein, wenn der Phasenversatz nicht bekannt ist.
+- `phase_offset_position`: Die "angefragte Position", die der "Null"-Phase des Treibers entspricht. Dieses Feld kann null sein, wenn der Phasenversatz nicht bekannt ist.
+- `drv_status`: Die Ergebnisse der letzten Statusabfrage des Treibers. (Es werden nur Felder ungleich null gemeldet.) Dieses Feld ist null, wenn der Treiber nicht aktiviert ist (und daher nicht regelmäßig abgefragt wird).
+- `temperature`: Die vom Treiber gemeldete interne Temperatur. Dieses Feld ist null, wenn der Treiber nicht aktiviert ist oder wenn der Treiber keine Temperaturmeldung unterstützt.
 - `run_current`: Der aktuell eingestellte Betriebsstrom.
 - `hold_current`: Der aktuell eingestellte Haltestrom.
 
 ## toolhead
 
-The following information is available in the `toolhead` object (this object is always available):
+Die folgenden Informationen sind im Objekt `toolhead` verfügbar (dieses Objekt ist immer verfügbar):
 
 - `position`: The last commanded position of the toolhead relative to the coordinate system specified in the config file. This value is encoded as a [coordinate](#accessing-coordinates).
-- `extruder`: The name of the currently active extruder. For example, in a macro one could use `printer[printer.toolhead.extruder].target` to get the target temperature of the current extruder.
-- `homed_axes`: The current cartesian axes considered to be in a "homed" state. This is a string containing one or more of "x", "y", "z".
+- `extruder`: Der Name des aktuell aktiven Extruders. In einem Makro könnte man beispielsweise `printer[printer.toolhead.extruder].target` verwenden, um die Zieltemperatur des aktuellen Extruders zu erhalten.
+- `homed_axes`: Die kartesischen Achsen, die aktuell als "gehomt" gelten. Dies ist eine Zeichenkette, die eines oder mehrere der Zeichen "x", "y", "z" enthält.
 - `axis_minimum`, `axis_maximum`: The axis travel limits (mm) after homing. This value is encoded as a [coordinate](#accessing-coordinates).
-- For Delta printers the `cone_start_z` is the max z height at maximum radius (`printer.toolhead.cone_start_z`).
-- `max_velocity`, `max_accel`, `minimum_cruise_ratio`, `square_corner_velocity`: The current printing limits that are in effect. This may differ from the config file settings if a `SET_VELOCITY_LIMIT` (or `M204`) command alters them at run-time.
-- `stalls`: The total number of times (since the last restart) that the printer had to be paused because the toolhead moved faster than moves could be read from the G-Code input.
+- Bei Delta-Druckern ist `cone_start_z` die maximale Z-Höhe beim maximalen Radius (`printer.toolhead.cone_start_z`).
+- `max_velocity`, `max_accel`, `minimum_cruise_ratio`, `square_corner_velocity`: Die aktuell wirksamen Druckgrenzwerte. Diese können von den Einstellungen der Konfigurationsdatei abweichen, wenn ein `SET_VELOCITY_LIMIT`-Befehl (oder `M204`) sie zur Laufzeit ändert.
+- `stalls`: Die Gesamtzahl der Fälle (seit dem letzten Neustart), in denen der Drucker angehalten werden musste, weil sich der Druckkopf schneller bewegte, als Bewegungen aus der G-Code-Eingabe gelesen werden konnten.
 - `extra_axes`: Provides a mechanism for finding the coordinate component for extra axes available in standard `G1` type move commands. See the [Accessing Coordinates](#accessing-coordinates) section for details.
 
 ## dual_carriage
 
-The following information is available in [dual_carriage](Config_Reference.md#dual_carriage) on a cartesian, hybrid_corexy or hybrid_corexz robot
+Die folgenden Informationen sind in [dual_carriage](Config_Reference.md#dual_carriage) bei einem kartesischen, hybrid_corexy- oder hybrid_corexz-Drucker verfügbar
 
-- `carriage_0`: The mode of the carriage 0. Possible values are: "INACTIVE" and "PRIMARY".
-- `carriage_1`: The mode of the carriage 1. Possible values are: "INACTIVE", "PRIMARY", "COPY", and "MIRROR".
+- `carriage_0`: Der Modus von Schlitten 0. Mögliche Werte sind: "INACTIVE" und "PRIMARY".
+- `carriage_1`: Der Modus von Schlitten 1. Mögliche Werte sind: "INACTIVE", "PRIMARY", "COPY" und "MIRROR".
 
-On a `generic_cartesian` kinematic, the following information is available in `dual_carriage`:
+Bei einer `generic_cartesian`-Kinematik sind die folgenden Informationen in `dual_carriage` verfügbar:
 
-- `carriages["<carriage>"]`: The mode of the carriage `<carriage>`. Possible values are "INACTIVE" and "PRIMARY" for the primary carriage and "INACTIVE", "PRIMARY", "COPY", and "MIRROR" for the dual carriage.
+- `carriages["<carriage>"]`: Der Modus des Schlittens `<carriage>`. Mögliche Werte sind "INACTIVE" und "PRIMARY" für den primären Schlitten sowie "INACTIVE", "PRIMARY", "COPY" und "MIRROR" für den zweiten Schlitten.
 
 ## virtual_sdcard
 
-The following information is available in the [virtual_sdcard](Config_Reference.md#virtual_sdcard) object:
+Die folgenden Informationen sind im Objekt [virtual_sdcard](Config_Reference.md#virtual_sdcard) verfügbar:
 
-- `is_active`: Returns True if a print from file is currently active.
-- `progress`: An estimate of the current print progress (based of file size and file position).
-- `file_path`: A full path to the file of currently loaded file.
-- `file_position`: The current position (in bytes) of an active print.
-- `file_size`: The file size (in bytes) of currently loaded file.
+- `is_active`: Gibt True zurück, wenn aktuell ein Druck aus einer Datei aktiv ist.
+- `progress`: Eine Schätzung des aktuellen Druckfortschritts (basierend auf Dateigröße und Dateiposition).
+- `file_path`: Der vollständige Pfad zur aktuell geladenen Datei.
+- `file_position`: Die aktuelle Position (in Bytes) eines laufenden Drucks.
+- `file_size`: Die Dateigröße (in Bytes) der aktuell geladenen Datei.
 
 ## webhooks
 
-The following information is available in the `webhooks` object (this object is always available):
+Die folgenden Informationen sind im Objekt `webhooks` verfügbar (dieses Objekt ist immer verfügbar):
 
-- `state`: Returns a string indicating the current Klipper state. Possible values are: "ready", "startup", "shutdown", "error".
-- `state_message`: A human readable string giving additional context on the current Klipper state.
+- `state`: Gibt eine Zeichenkette zurück, die den aktuellen Klipper-Zustand angibt. Mögliche Werte sind: "ready", "startup", "shutdown", "error".
+- `state_message`: Eine für Menschen lesbare Zeichenkette mit zusätzlichem Kontext zum aktuellen Klipper-Zustand.
 
 ## z_thermal_adjust
 
-The following information is available in the `z_thermal_adjust` object (this object is available if [z_thermal_adjust](Config_Reference.md#z_thermal_adjust) is defined).
+Die folgenden Informationen sind im Objekt `z_thermal_adjust` verfügbar (dieses Objekt ist verfügbar, wenn [z_thermal_adjust](Config_Reference.md#z_thermal_adjust) definiert ist).
 
-- `enabled`: Returns True if adjustment is enabled.
-- `temperature`: Current (smoothed) temperature of the defined sensor. [degC]
+- `enabled`: Gibt True zurück, wenn die Anpassung aktiviert ist.
+- `temperature`: Aktuelle (geglättete) Temperatur des definierten Sensors. [degC]
 - `measured_min_temp`: Minimal gemessene Temperatur. [degC]
 - `measured_max_temp`: Maximal gemessene Temperatur. [degC]
-- `current_z_adjust`: Last computed Z adjustment [mm].
-- `z_adjust_ref_temperature`: Current reference temperature used for calculation of Z `current_z_adjust` [degC].
+- `current_z_adjust`: Zuletzt berechnete Z-Anpassung [mm].
+- `z_adjust_ref_temperature`: Aktuelle Referenztemperatur, die zur Berechnung von `current_z_adjust` verwendet wird [degC].
 
 ## z_tilt
 
-The following information is available in the `z_tilt` object (this object is available if z_tilt is defined):
+Die folgenden Informationen sind im Objekt `z_tilt` verfügbar (dieses Objekt ist verfügbar, wenn z_tilt definiert ist):
 
-- `applied`: True if the z-tilt leveling process has been run and completed successfully.
+- `applied`: True, wenn der Z-Tilt-Nivelliervorgang ausgeführt und erfolgreich abgeschlossen wurde.
 
 ## Accessing Coordinates
 

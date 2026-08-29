@@ -4,18 +4,18 @@ Dieses Dokument enthält Informationen zur Behebung von Kommunikationsproblemen 
 
 ## CAN-Bus-Verkabelung überprüfen
 
-The first step in troubleshooting communication issues is to verify the CAN bus wiring.
+Der erste Schritt bei der Fehlerbehebung von Kommunikationsproblemen besteht darin, die CAN-Bus-Verkabelung zu überprüfen.
 
 Be sure there are exactly two 120 Ohm [terminating
 resistors](CANBUS.md#terminating-resistors) on the CAN bus. If the resistors are not properly installed then messages may not be able to be sent at all or the connection may have sporadic instability.
 
-The CANH and CANL bus wiring should be twisted around each other. At a minimum, the wiring should have a twist every few centimeters. Avoid twisting the CANH and CANL wiring around power wires and ensure that power wires that travel parallel to the CANH and CANL wires do not have the same amount of twists.
+Die CANH- und CANL-Busverkabelung sollte umeinander verdrillt sein. Die Verkabelung sollte mindestens alle paar Zentimeter eine Verdrillung aufweisen. Vermeiden Sie es, CANH- und CANL-Leitungen um Stromkabel zu verdrillen, und stellen Sie sicher, dass parallel zu CANH und CANL verlaufende Stromkabel nicht dieselbe Anzahl an Verdrillungen aufweisen.
 
-Verify that all plugs and wire crimps on the CAN bus wiring are fully secured. Movement of the printer toolhead may jostle the CAN bus wiring causing a bad wire crimp or unsecured plug to result in intermittent communication errors.
+Stellen Sie sicher, dass alle Stecker und Aderendhülsen an der CAN-Bus-Verkabelung fest sitzen. Bewegungen des Druckerwerkzeugkopfs können die CAN-Bus-Verkabelung erschüttern, sodass eine schlechte Crimpverbindung oder ein lockerer Stecker zu sporadischen Kommunikationsfehlern führen kann.
 
-## Check for incrementing bytes_invalid counter
+## Auf steigenden bytes_invalid-Zähler prüfen
 
-The Klipper log file will report a `Stats` line once a second when the printer is active. These "Stats" lines will have a `bytes_invalid` counter for each micro-controller. This counter should not increment during normal printer operation (it is normal for the counter to be non-zero after a RESTART and it is not a concern if the counter increments once a month or so). If this counter increments on a CAN bus micro-controller during normal printing (it increments every few hours or more frequently) then it is an indication of a severe problem.
+Die Klipper-Logdatei meldet einmal pro Sekunde eine `Stats`-Zeile, wenn der Drucker aktiv ist. Diese "Stats"-Zeilen enthalten für jeden Mikrocontroller einen Zähler `bytes_invalid`. Dieser Zähler sollte sich während des normalen Druckerbetriebs nicht erhöhen (es ist normal, dass der Zähler nach einem RESTART ungleich null ist, und es ist unbedenklich, wenn sich der Zähler etwa einmal im Monat erhöht). Erhöht sich dieser Zähler bei einem CAN-Bus-Mikrocontroller während des normalen Druckens (mehrmals pro Stunde oder häufiger), deutet dies auf ein schwerwiegendes Problem hin.
 
 Incrementing `bytes_invalid` on a CAN bus connection is a symptom of reordered messages on the CAN bus. If seen, make sure to:
 
@@ -31,25 +31,25 @@ Older versions of candlelight firmware could reorder canbus packets, and the iss
 
 Older versions of Klipper's USB-to-CANBUS bridge code could incorrectly drop canbus messages. This is not as severe as reordering messages, but it should still be fixed. It is thought to be fixed with [Klipper PR #6175](https://github.com/Klipper3d/klipper/pull/6175).
 
-## Use an appropriate txqueuelen setting
+## Eine geeignete txqueuelen-Einstellung verwenden
 
-The Klipper code uses the Linux kernel to manage CAN bus traffic. By default, the kernel will only queue 10 CAN transmit packets. It is recommended to [configure the can0 device](CANBUS.md#host-hardware) with a `txqueuelen 128` to increase that size.
+Der Klipper-Code nutzt den Linux-Kernel, um den CAN-Bus-Verkehr zu verwalten. Standardmäßig puffert der Kernel nur 10 CAN-Sendepakete. Es wird empfohlen, das [can0-Gerät zu konfigurieren](CANBUS.md#host-hardware) mit `txqueuelen 128`, um diese Größe zu erhöhen.
 
-If Klipper transmits a packet and Linux has filled all of its transmit queue space then Linux will drop that packet and messages like the following will appear in the Klipper log:
+Sendet Klipper ein Paket und hat Linux seinen gesamten Sendepuffer bereits belegt, verwirft Linux dieses Paket, und im Klipper-Log erscheinen Meldungen wie die folgende:
 
 ```
 Got error -1 in can write: (105)No buffer space available
 ```
 
-Klipper will automatically retransmit the lost messages as part of its normal application level message retransmit system. Thus, this log message is a warning and it does not indicate an unrecoverable error.
+Klipper überträgt verlorene Nachrichten im Rahmen seines normalen Nachrichten-Wiederholungssystems auf Anwendungsebene automatisch erneut. Diese Log-Meldung ist daher eine Warnung und weist nicht auf einen nicht behebbaren Fehler hin.
 
-If a complete CAN bus failure occurs (such as a CAN wire break) then Linux will not be able to transmit any messages on the CAN bus and it is common to find the above message in the Klipper log. In this case, the log message is a symptom of a larger problem (the inability to transmit any messages) and is not directly related to Linux `txqueuelen`.
+Kommt es zu einem vollständigen CAN-Bus-Ausfall (etwa durch einen Kabelbruch), kann Linux keinerlei Nachrichten mehr über den CAN-Bus senden, und die obige Meldung erscheint dann häufig im Klipper-Log. In diesem Fall ist die Log-Meldung ein Symptom eines größeren Problems (die Unfähigkeit, überhaupt Nachrichten zu senden) und steht nicht direkt mit dem Linux-`txqueuelen` in Zusammenhang.
 
-One may check the current queue size by running the Linux command `ip link show can0`. It should report a bunch of text including the snippet `qlen 128`. If one sees something like `qlen 10` then it indicates the CAN device has not been properly configured.
+Die aktuelle Puffergröße kann mit dem Linux-Befehl `ip link show can0` überprüft werden. Er sollte unter anderem den Textausschnitt `qlen 128` ausgeben. Erscheint stattdessen etwa `qlen 10`, deutet dies darauf hin, dass das CAN-Gerät nicht korrekt konfiguriert wurde.
 
-It is not recommended to use a `txqueuelen` significantly larger than 128. A CAN bus running at a frequency of 1000000 will typically take around 120us to transmit a CAN packet. Thus a queue of 128 packets is likely to take around 15-20ms to drain. A substantially larger queue could cause excessive spikes in message round-trip-time which could lead to unrecoverable errors. Said another way, Klipper's application retransmit system is more robust if it does not have to wait for Linux to drain an excessively large queue of possibly stale data. This is analogous to the problem of [bufferbloat](https://en.wikipedia.org/wiki/Bufferbloat) on internet routers.
+Es wird nicht empfohlen, ein `txqueuelen` deutlich größer als 128 zu verwenden. Ein CAN-Bus mit einer Frequenz von 1000000 benötigt üblicherweise etwa 120 µs, um ein CAN-Paket zu übertragen. Eine Warteschlange mit 128 Paketen benötigt daher voraussichtlich etwa 15-20 ms, um geleert zu werden. Eine deutlich größere Warteschlange könnte zu übermäßigen Spitzen bei der Round-Trip-Zeit von Nachrichten führen, was wiederum zu nicht behebbaren Fehlern führen könnte. Anders ausgedrückt: Klippers Wiederholungssystem auf Anwendungsebene ist robuster, wenn es nicht darauf warten muss, dass Linux eine übermäßig große Warteschlange mit möglicherweise veralteten Daten leert. Dies ist vergleichbar mit dem Problem des [Bufferbloat](https://en.wikipedia.org/wiki/Bufferbloat) bei Internet-Routern.
 
-Under normal circumstances Klipper may utilize ~25 queue slots per MCU - typically only utilizing more slots during retransmits. (Specifically, the Klipper host may transmit up to 192 bytes to each Klipper MCU before receiving an acknowledgment from that MCU.) If a single CAN bus has 5 or more Klipper MCUs on it, then it might be necessary to increase the `txqueuelen` above the recommended value of 128. However, as above, care should be taken when selecting a new value to avoid excessive round-trip-time latency.
+Unter normalen Umständen nutzt Klipper pro MCU etwa 25 Warteschlangenplätze - üblicherweise werden nur bei erneuten Übertragungen mehr Plätze genutzt. (Genauer gesagt kann der Klipper-Host bis zu 192 Byte an jeden Klipper-MCU senden, bevor er von diesem MCU eine Bestätigung erhält.) Befinden sich 5 oder mehr Klipper-MCUs an einem einzelnen CAN-Bus, kann es notwendig sein, `txqueuelen` über den empfohlenen Wert von 128 zu erhöhen. Wie oben beschrieben sollte jedoch bei der Wahl eines neuen Werts darauf geachtet werden, eine übermäßige Round-Trip-Latenz zu vermeiden.
 
 ## Use `canbus_query.py` only to identify nodes never previously seen
 
@@ -61,25 +61,25 @@ It is not valid to use the tool to "ping" if a node is connected. Do not run the
 
 ## candump Protokolle Abrufen
 
-The CAN bus messages sent to and from the micro-controller are handled by the Linux kernel. It is possible to capture these messages from the kernel for debugging purposes. A log of these messages may be of use in diagnostics.
+Die an den Mikrocontroller gesendeten und von ihm empfangenen CAN-Bus-Nachrichten werden vom Linux-Kernel verwaltet. Es ist möglich, diese Nachrichten zu Diagnosezwecken vom Kernel aus zu erfassen. Ein Protokoll dieser Nachrichten kann für die Diagnose nützlich sein.
 
-The Linux [can-utils](https://github.com/linux-can/can-utils) tool provides the capture software. It is typically installed on a machine by running:
+Das Linux-Werkzeug [can-utils](https://github.com/linux-can/can-utils) stellt die Erfassungssoftware bereit. Es wird auf einem Rechner üblicherweise wie folgt installiert:
 
 ```
 sudo apt-get update && sudo apt-get install can-utils
 ```
 
-Once installed, one may obtain a capture of all CAN bus messages on an interface with the following command:
+Nach der Installation kann mit folgendem Befehl eine Aufzeichnung aller CAN-Bus-Nachrichten auf einer Schnittstelle erstellt werden:
 
 ```
 candump -tz -Ddex can0,#FFFFFFFF > mycanlog
 ```
 
-One can view the resulting log file (`mycanlog` in the example above) to see each raw CAN bus message that was sent and received by Klipper. Understanding the content of these messages will likely require low-level knowledge of Klipper's [CANBUS protocol](CANBUS_protocol.md) and Klipper's [MCU commands](MCU_Commands.md).
+Die resultierende Protokolldatei (im obigen Beispiel `mycanlog`) kann eingesehen werden, um jede von Klipper gesendete und empfangene rohe CAN-Bus-Nachricht zu sehen. Um den Inhalt dieser Nachrichten zu verstehen, sind in der Regel Low-Level-Kenntnisse von Klippers [CANBUS-Protokoll](CANBUS_protocol.md) und Klippers [MCU-Befehlen](MCU_Commands.md) erforderlich.
 
-### Parsing Klipper messages in a candump log
+### Klipper-Nachrichten in einem candump-Log parsen
 
-One may use the `parsecandump.py` tool to parse the low-level Klipper micro-controller messages contained in a candump log. Using this tool is an advanced topic that requires knowledge of Klipper [MCU commands](MCU_Commands.md). For example:
+Mit dem Werkzeug `parsecandump.py` lassen sich die in einem candump-Log enthaltenen Low-Level-Nachrichten des Klipper-Mikrocontrollers parsen. Die Verwendung dieses Werkzeugs ist ein fortgeschrittenes Thema, das Kenntnisse der Klipper-[MCU-Befehle](MCU_Commands.md) voraussetzt. Zum Beispiel:
 
 ```
 ./scripts/parsecandump.py mycanlog 108 ./out/klipper.dict
@@ -91,16 +91,16 @@ tool](Debugging.md#translating-gcode-files-to-micro-controller-commands). See th
 In the above example, `108` is the [CAN bus
 id](CANBUS_protocol.md#micro-controller-id-assignment). It is a hexadecimal number. The id `108` is assigned by Klipper to the first micro-controller. If the CAN bus has multiple micro-controllers on it, then the second micro-controller would be `10a`, the third would be `10c`, and so on.
 
-The candump log must be produced using the `-tz -Ddex` command-line arguments (for example: `candump -tz -Ddex can0,#FFFFFFFF`) in order to use the `parsecandump.py` tool.
+Das candump-Log muss mit den Kommandozeilenargumenten `-tz -Ddex` erzeugt werden (zum Beispiel: `candump -tz -Ddex can0,#FFFFFFFF`), um das Werkzeug `parsecandump.py` verwenden zu können.
 
-## Using a logic analyzer on the canbus wiring
+## Verwendung eines Logic-Analyzers an der CAN-Bus-Verkabelung
 
-The [Sigrok Pulseview](https://sigrok.org/wiki/PulseView) software along with a low-cost [logic analyzer](https://en.wikipedia.org/wiki/Logic_analyzer) can be useful for diagnosing CAN bus signaling. This is an advanced topic likely only of interest to experts.
+Die Software [Sigrok Pulseview](https://sigrok.org/wiki/PulseView) zusammen mit einem kostengünstigen [Logic-Analyzer](https://en.wikipedia.org/wiki/Logic_analyzer) kann bei der Diagnose der CAN-Bus-Signalisierung nützlich sein. Dies ist ein fortgeschrittenes Thema, das wahrscheinlich nur für Experten von Interesse ist.
 
-One can often find "USB logic analyzers" for under $15 (US pricing as of 2023). These devices are often listed as "Saleae logic clones" or as "24MHz 8 channel USB logic analyzers".
+Häufig lassen sich "USB-Logic-Analyzer" für unter 15 $ finden (Preise für die USA, Stand 2023). Diese Geräte werden oft als "Saleae-Logic-Klone" oder als "24-MHz-8-Kanal-USB-Logic-Analyzer" angeboten.
 
 ![pulseview-canbus](img/pulseview-canbus.png)
 
-The above picture was taken while using Pulseview with a "Saleae clone" logic analyzer. The Sigrok and Pulseview software was installed on a desktop machine (also install the "fx2lafw" firmware if that is packaged separately). The CH0 pin on the logic analyzer was routed to the CAN Rx line, the CH1 pin was wired to the CAN Tx pin, and GND was wired to GND. Pulseview was configured to only display the D0 and D1 lines (red "probe" icon center top toolbar). The number of samples was set to 5 million (top toolbar) and the sample rate was set to 24Mhz (top toolbar). The CAN decoder was added (yellow and green "bubble icon" right top toolbar). The D0 channel was labeled as RX and set to trigger on a falling edge (click on black D0 label at left). The D1 channel was labeled as TX (click on brown D1 label at left). The CAN decoder was configured for 1Mbit rate (click on green CAN label at left). The CAN decoder was moved to the top of the display (click and drag green CAN label). Finally, the capture was started (click "Run" at top left) and a packet was transmitted on the CAN bus (`cansend can0 123#121212121212`).
+Das obige Bild wurde mit Pulseview und einem "Saleae-Klon"-Logic-Analyzer aufgenommen. Die Software Sigrok und Pulseview wurde auf einem Desktop-Rechner installiert (installieren Sie auch die Firmware "fx2lafw", falls diese separat verpackt ist). Der Pin CH0 am Logic-Analyzer wurde mit der CAN-Rx-Leitung verbunden, der Pin CH1 mit dem CAN-Tx-Pin, und GND wurde mit GND verbunden. Pulseview wurde so konfiguriert, dass nur die Leitungen D0 und D1 angezeigt werden (rotes "Sonden"-Symbol mittig oben in der Werkzeugleiste). Die Anzahl der Abtastungen wurde auf 5 Millionen gesetzt (obere Werkzeugleiste), und die Abtastrate wurde auf 24 MHz gesetzt (obere Werkzeugleiste). Der CAN-Decoder wurde hinzugefügt (gelbes und grünes "Blasen-Symbol" rechts oben in der Werkzeugleiste). Der Kanal D0 wurde als RX beschriftet und so eingestellt, dass er bei einer fallenden Flanke auslöst (Klick auf das schwarze D0-Label links). Der Kanal D1 wurde als TX beschriftet (Klick auf das braune D1-Label links). Der CAN-Decoder wurde auf eine Rate von 1 MBit konfiguriert (Klick auf das grüne CAN-Label links). Der CAN-Decoder wurde an die Spitze der Anzeige verschoben (Klicken und Ziehen des grünen CAN-Labels). Abschließend wurde die Aufzeichnung gestartet (Klick auf "Run" oben links), und ein Paket wurde auf dem CAN-Bus gesendet (`cansend can0 123#121212121212`).
 
-The logic analyzer provides an independent tool for capturing packets and verifying bit timing.
+Der Logic-Analyzer bietet ein unabhängiges Werkzeug zur Paketerfassung und zur Überprüfung des Bit-Timings.

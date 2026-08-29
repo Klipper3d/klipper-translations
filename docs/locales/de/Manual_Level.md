@@ -1,4 +1,4 @@
-# Manual leveling
+# Manuelle Nivellierung
 
 Dieses Dokument beschreibt Werkzeuge zum Kalibrieren eines Z-Anschlags und zum Einstellen von Bettnivellierschrauben.
 
@@ -6,29 +6,29 @@ Dieses Dokument beschreibt Werkzeuge zum Kalibrieren eines Z-Anschlags und zum E
 
 Eine genaue Positionierung des Z-Endstops ist entscheidend, um hochwertige Drucke zu erzielen.
 
-Note, though, the accuracy of the Z endstop switch itself can be a limiting factor. If one is using Trinamic stepper motor drivers then consider enabling [endstop phase](Endstop_Phase.md) detection to improve the accuracy of the switch.
+Beachten Sie jedoch, dass die Genauigkeit des Z-Endstop-Schalters selbst ein limitierender Faktor sein kann. Verwenden Sie Trinamic-Schrittmotortreiber, sollten Sie erwägen, die [Endstop-Phasen](Endstop_Phase.md)-Erkennung zu aktivieren, um die Genauigkeit des Schalters zu verbessern.
 
-To perform a Z endstop calibration, home the printer, command the head to move to a Z position that is at least five millimeters above the bed (if it is not already), command the head to move to an XY position near the center of the bed, then navigate to the OctoPrint terminal tab and run:
+Um eine Z-Endstop-Kalibrierung durchzuführen, homen Sie den Drucker, fahren Sie den Kopf auf eine Z-Position mindestens fünf Millimeter über dem Bett (sofern noch nicht geschehen), fahren Sie den Kopf auf eine XY-Position nahe der Bettmitte, wechseln Sie dann zum OctoPrint-Terminal-Tab und führen Sie aus:
 
 ```
 Z_ENDSTOP_CALIBRATE
 ```
 
-Then follow the steps described at ["the paper test"](Bed_Level.md#the-paper-test) to determine the actual distance between the nozzle and bed at the given location. Once those steps are complete one can `ACCEPT` the position and save the results to the config file with:
+Folgen Sie anschließend den unter ["dem Papiertest"](Bed_Level.md#the-paper-test) beschriebenen Schritten, um den tatsächlichen Abstand zwischen Düse und Bett an der jeweiligen Stelle zu bestimmen. Sind diese Schritte abgeschlossen, kann die Position mit `ACCEPT` bestätigt und die Ergebnisse mit folgendem Befehl in der Konfigurationsdatei gespeichert werden:
 
 ```
 SAVE_CONFIG
 ```
 
-It's preferable to use a Z endstop switch on the opposite end of the Z axis from the bed. (Homing away from the bed is more robust as then it is generally always safe to home the Z.) However, if one must home towards the bed it is recommended to adjust the endstop so that it triggers a small distance (eg, .5mm) above the bed. Almost all endstop switches can safely be depressed a small distance beyond their trigger point. When this is done, one should find that the `Z_ENDSTOP_CALIBRATE` command reports a small positive value (eg, .5mm) for the Z position_endstop. Triggering the endstop while it is still some distance from the bed reduces the risk of inadvertent bed crashes.
+Es ist vorzuziehen, einen Z-Endstop-Schalter am der Bett gegenüberliegenden Ende der Z-Achse zu verwenden. (Vom Bett weg zu homen ist robuster, da es dann in der Regel immer sicher ist, Z zu homen.) Muss man jedoch in Richtung Bett homen, wird empfohlen, den Endstop so einzustellen, dass er in einem geringen Abstand (z. B. 0,5 mm) über dem Bett auslöst. Fast alle Endstop-Schalter können gefahrlos noch ein kleines Stück über ihren Auslösepunkt hinaus eingedrückt werden. Ist dies der Fall, sollte der Befehl `Z_ENDSTOP_CALIBRATE` für die Z-position_endstop einen kleinen positiven Wert (z. B. 0,5 mm) melden. Das Auslösen des Endstops, während er noch etwas Abstand zum Bett hat, verringert das Risiko einer versehentlichen Bett-Kollision.
 
-Some printers have the ability to manually adjust the location of the physical endstop switch. However, it's recommended to perform Z endstop positioning in software with Klipper - once the physical location of the endstop is in a convenient location, one can make any further adjustments by running Z_ENDSTOP_CALIBRATE or by manually updating the Z position_endstop in the configuration file.
+Manche Drucker ermöglichen es, die Position des physischen Endstop-Schalters manuell anzupassen. Es wird jedoch empfohlen, die Z-Endstop-Positionierung softwareseitig mit Klipper durchzuführen - sobald sich der physische Endstop an einer geeigneten Stelle befindet, können weitere Anpassungen durch Ausführen von Z_ENDSTOP_CALIBRATE oder manuelles Aktualisieren des Werts Z position_endstop in der Konfigurationsdatei vorgenommen werden.
 
 ## Nivellierschrauben des Druckbettes einstellen
 
-The secret to getting good bed leveling with bed leveling screws is to utilize the printer's high precision motion system during the bed leveling process itself. This is done by commanding the nozzle to a position near each bed screw and then adjusting that screw until the bed is a set distance from the nozzle. Klipper has a tool to assist with this. In order to use the tool it is necessary to specify each screw XY location.
+Das Geheimnis einer guten Bettnivellierung mit Nivellierschrauben besteht darin, das hochpräzise Bewegungssystem des Druckers während des Nivellierungsvorgangs selbst zu nutzen. Dazu wird die Düse an eine Position nahe jeder Bettschraube gefahren und diese Schraube dann angepasst, bis das Bett einen festgelegten Abstand zur Düse hat. Klipper verfügt über ein Werkzeug, das dabei unterstützt. Um dieses Werkzeug zu verwenden, müssen die XY-Position jeder Schraube angegeben werden.
 
-This is done by creating a `[bed_screws]` config section. For example, it might look something similar to:
+Dies geschieht durch Anlegen eines Konfigurationsabschnitts `[bed_screws]`. Er könnte zum Beispiel etwa so aussehen:
 
 ```
 [bed_screws]
@@ -37,31 +37,31 @@ screw2: 100, 150
 screw3: 150, 100
 ```
 
-If a bed screw is under the bed, then specify the XY position directly above the screw. If the screw is outside the bed then specify an XY position closest to the screw that is still within the range of the bed.
+Befindet sich eine Bettschraube unter dem Bett, geben Sie die XY-Position direkt über der Schraube an. Liegt die Schraube außerhalb des Betts, geben Sie die XY-Position an, die der Schraube am nächsten liegt, aber noch innerhalb des Bettbereichs ist.
 
-Once the config file is ready, run `RESTART` to load that config, and then one can start the tool by running:
+Sobald die Konfigurationsdatei bereit ist, führen Sie `RESTART` aus, um diese Konfiguration zu laden. Anschließend können Sie das Werkzeug starten, indem Sie ausführen:
 
 ```
 BED_SCREWS_ADJUST
 ```
 
-This tool will move the printer's nozzle to each screw XY location and then move the nozzle to a Z=0 height. At this point one can use the "paper test" to adjust the bed screw directly under the nozzle. See the information described in ["the paper test"](Bed_Level.md#the-paper-test), but adjust the bed screw instead of commanding the nozzle to different heights. Adjust the bed screw until there is a small amount of friction when pushing the paper back and forth.
+Dieses Werkzeug bewegt die Druckerdüse zu jeder Schrauben-XY-Position und fährt die Düse anschließend auf eine Höhe von Z=0. An diesem Punkt kann der "Papiertest" verwendet werden, um die Bettschraube direkt unter der Düse anzupassen. Weitere Informationen finden Sie unter ["dem Papiertest"](Bed_Level.md#the-paper-test); passen Sie jedoch statt der Düsenhöhe die Bettschraube an. Passen Sie die Bettschraube an, bis beim Hin- und Herbewegen des Papiers eine geringe Reibung spürbar ist.
 
-Once the screw is adjusted so that a small amount of friction is felt, run either the `ACCEPT` or `ADJUSTED` command. Use the `ADJUSTED` command if the bed screw needed an adjustment (typically anything more than about 1/8th of a turn of the screw). Use the `ACCEPT` command if no significant adjustment is necessary. Both commands will cause the tool to proceed to the next screw. (When an `ADJUSTED` command is used, the tool will schedule an additional cycle of bed screw adjustments; the tool completes successfully when all bed screws are verified to not require any significant adjustments.) One can use the `ABORT` command to exit the tool early.
+Sobald die Schraube so angepasst ist, dass eine geringe Reibung spürbar ist, führen Sie entweder den Befehl `ACCEPT` oder `ADJUSTED` aus. Verwenden Sie `ADJUSTED`, wenn die Bettschraube angepasst werden musste (typischerweise mehr als etwa 1/8 Umdrehung der Schraube). Verwenden Sie `ACCEPT`, wenn keine wesentliche Anpassung notwendig war. Beide Befehle lassen das Werkzeug zur nächsten Schraube fortfahren. (Wird `ADJUSTED` verwendet, plant das Werkzeug einen zusätzlichen Durchgang zur Anpassung der Bettschrauben ein; das Werkzeug wird erfolgreich abgeschlossen, sobald für alle Bettschrauben bestätigt ist, dass keine wesentliche Anpassung mehr erforderlich ist.) Mit dem Befehl `ABORT` kann das Werkzeug vorzeitig beendet werden.
 
-This system works best when the printer has a flat printing surface (such as glass) and has straight rails. Upon successful completion of the bed leveling tool the bed should be ready for printing.
+Dieses System funktioniert am besten, wenn der Drucker über eine ebene Druckoberfläche (z. B. Glas) und gerade Schienen verfügt. Nach erfolgreichem Abschluss des Bettnivellierungswerkzeugs sollte das Bett druckbereit sein.
 
 ### Fein abgestufte Einstellung der Druckbettschraube
 
-If the printer uses three bed screws and all three screws are under the bed, then it may be possible to perform a second "high precision" bed leveling step. This is done by commanding the nozzle to locations where the bed moves a larger distance with each bed screw adjustment.
+Verwendet der Drucker drei Bettschrauben, die alle unter dem Bett liegen, ist möglicherweise ein zweiter "hochpräziser" Bettnivellierungsschritt möglich. Dazu wird die Düse an Positionen gefahren, an denen sich das Bett bei jeder Schraubenanpassung um eine größere Strecke bewegt.
 
-For example, consider a bed with screws at locations A, B, and C:
+Betrachten Sie zum Beispiel ein Bett mit Schrauben an den Positionen A, B und C:
 
 ![bed_screws](img/bed_screws.svg.png)
 
-For each adjustment made to the bed screw at location C, the bed will swing along a pendulum defined by the remaining two bed screws (shown here as a green line). In this situation, each adjustment to the bed screw at C will move the bed at position D a further amount than directly at C. It is thus possible to make an improved C screw adjustment when the nozzle is at position D.
+Bei jeder Anpassung der Bettschraube an Position C schwingt das Bett entlang eines durch die beiden übrigen Bettschrauben definierten Pendels (hier als grüne Linie dargestellt). In dieser Situation bewegt jede Anpassung der Schraube an C das Bett an Position D stärker als direkt an C. Es ist somit möglich, eine feinere Anpassung der Schraube C vorzunehmen, wenn sich die Düse an Position D befindet.
 
-To enable this feature, one would determine the additional nozzle coordinates and add them to the config file. For example, it might look like:
+Um diese Funktion zu aktivieren, würde man die zusätzlichen Düsenkoordinaten bestimmen und sie zur Konfigurationsdatei hinzufügen. Sie könnte zum Beispiel so aussehen:
 
 ```
 [bed_screws]
@@ -73,13 +73,13 @@ screw3: 150, 100
 screw3_fine_adjust: 0, 100
 ```
 
-When this feature is enabled, the `BED_SCREWS_ADJUST` tool will first prompt for coarse adjustments directly above each screw position, and once those are accepted, it will prompt for fine adjustments at the additional locations. Continue to use `ACCEPT` and `ADJUSTED` at each position.
+Ist diese Funktion aktiviert, fordert das Werkzeug `BED_SCREWS_ADJUST` zunächst zu groben Anpassungen direkt über jeder Schraubenposition auf, und sobald diese bestätigt sind, zu feinen Anpassungen an den zusätzlichen Positionen. Verwenden Sie an jeder Position weiterhin `ACCEPT` und `ADJUSTED`.
 
-## Adjusting bed leveling screws using the bed probe
+## Bettnivellierungsschrauben mit der Bettsonde anpassen
 
-This is another way to calibrate the bed level using the bed probe. To use it you must have a Z probe (BL Touch, Inductive sensor, etc).
+Dies ist eine weitere Möglichkeit, die Bettnivellierung mit der Bettsonde zu kalibrieren. Dafür benötigen Sie eine Z-Sonde (BL Touch, induktiver Sensor usw.).
 
-To enable this feature, one would determine the nozzle coordinates such that the Z probe is above the screws, and then add them to the config file. For example, it might look like:
+Um diese Funktion zu aktivieren, würde man die Düsenkoordinaten so bestimmen, dass sich die Z-Sonde über den Schrauben befindet, und sie dann zur Konfigurationsdatei hinzufügen. Sie könnte zum Beispiel so aussehen:
 
 ```
 [screws_tilt_adjust]
@@ -96,7 +96,7 @@ speed: 50.
 screw_thread: CW-M3
 ```
 
-The screw1 is always the reference point for the others, so the system assumes that screw1 is at the correct height. Always run `G28` first and then run `SCREWS_TILT_CALCULATE` - it should produce output similar to:
+screw1 dient stets als Referenzpunkt für die anderen, das System geht also davon aus, dass sich screw1 auf der korrekten Höhe befindet. Führen Sie immer zuerst `G28` und dann `SCREWS_TILT_CALCULATE` aus - dies sollte eine Ausgabe ähnlich der folgenden erzeugen:
 
 ```
 Send: G28
@@ -117,12 +117,12 @@ Dies bedeutet, dass:
 - die hintere rechte Schraube muss 50 Minuten gegen den Uhrzeigersinn gedreht werden
 - die hintere linke Schraube muss 2 Minuten im Uhrzeigersinn gedreht werden
 
-Note that "minutes" refers to "minutes of a clock face". So, for example, 15 minutes is a quarter of a full turn.
+Beachten Sie, dass sich "Minuten" auf "Minuten eines Ziffernblatts" bezieht. So sind zum Beispiel 15 Minuten eine viertel vollständige Umdrehung.
 
-Repeat the process several times until you get a good level bed - normally when all adjustments are below 6 minutes.
+Wiederholen Sie den Vorgang mehrmals, bis Sie ein gut nivelliertes Bett erhalten - üblicherweise, wenn alle Anpassungen unter 6 Minuten liegen.
 
-If using a probe that is mounted on the side of the hotend (that is, it has an X or Y offset) then note that adjusting the bed tilt will invalidate any previous probe calibration that was performed with a tilted bed. Be sure to run [probe calibration](Probe_Calibrate.md) after the bed screws have been adjusted.
+Verwenden Sie eine seitlich am Hotend montierte Sonde (d. h. mit X- oder Y-Offset), beachten Sie, dass eine Anpassung der Bettneigung jede vorherige, mit geneigtem Bett durchgeführte Sondenkalibrierung ungültig macht. Führen Sie nach dem Anpassen der Bettschrauben unbedingt eine [Sondenkalibrierung](Probe_Calibrate.md) durch.
 
-The `MAX_DEVIATION` parameter is useful when a saved bed mesh is used, to ensure that the bed level has not drifted too far from where it was when the mesh was created. For example, `SCREWS_TILT_CALCULATE MAX_DEVIATION=0.01` can be added to the custom start gcode of the slicer before the mesh is loaded. It will abort the print if the configured limit is exceeded (0.01mm in this example), giving the user a chance to adjust the screws and restart the print.
+Der Parameter `MAX_DEVIATION` ist nützlich, wenn ein gespeichertes Bed Mesh verwendet wird, um sicherzustellen, dass die Bettnivellierung nicht zu weit von dem Zustand abgewichen ist, in dem das Mesh erstellt wurde. Zum Beispiel kann `SCREWS_TILT_CALCULATE MAX_DEVIATION=0.01` zum benutzerdefinierten Start-G-Code des Slicers hinzugefügt werden, bevor das Mesh geladen wird. Der Druck wird abgebrochen, wenn der konfigurierte Grenzwert überschritten wird (in diesem Beispiel 0,01 mm), sodass der Anwender die Möglichkeit hat, die Schrauben anzupassen und den Druck neu zu starten.
 
-The `DIRECTION` parameter is useful if you can turn your bed adjustment screws in one direction only. For example, you might have screws that start tightened in their lowest (or highest) possible position, which can only be turned in a single direction, to raise (or lower) the bed. If you can only turn the screws clockwise, run `SCREWS_TILT_CALCULATE DIRECTION=CW`. If you can only turn them counter-clockwise, run `SCREWS_TILT_CALCULATE DIRECTION=CCW`. A suitable reference point will be chosen such that the bed can be leveled by turning all the screws in the given direction.
+Der Parameter `DIRECTION` ist nützlich, wenn sich Ihre Bettanpassungsschrauben nur in eine Richtung drehen lassen. Sie könnten zum Beispiel Schrauben haben, die in ihrer niedrigsten (oder höchsten) möglichen Position beginnen fest angezogen zu sein und sich nur in eine Richtung drehen lassen, um das Bett anzuheben (oder abzusenken). Lassen sich die Schrauben nur im Uhrzeigersinn drehen, führen Sie `SCREWS_TILT_CALCULATE DIRECTION=CW` aus. Lassen sie sich nur gegen den Uhrzeigersinn drehen, führen Sie `SCREWS_TILT_CALCULATE DIRECTION=CCW` aus. Es wird ein geeigneter Referenzpunkt gewählt, sodass das Bett durch Drehen aller Schrauben in die angegebene Richtung nivelliert werden kann.

@@ -1,4 +1,4 @@
-# Packaging Klipper
+# Klipper paketieren
 
 Klipper ist so etwas wie eine Paketierungsanomalie unter den Python-Programmen, da es setuptools nicht zum Bauen und Installieren verwendet. Einige Hinweise, wie man es am besten verpackt, sind wie folgt:
 
@@ -8,12 +8,12 @@ Klipper verwendet ein C-Modul, um einige Kinematikberechnungen schneller zu hand
 
 ## Python Code kompilieren
 
-Many distributions have a policy of compiling all python code before packaging to improve startup time. You can do this by running `python2 -m compileall klippy`.
+Viele Distributionen verfolgen die Richtlinie, den gesamten Python-Code vor dem Packaging zu kompilieren, um die Startzeit zu verbessern. Dies lässt sich mit dem Befehl `python2 -m compileall klippy` erreichen.
 
-## Versioning
+## Versionierung
 
-If you are building a package of Klipper from git, it is usual practice not to ship a .git directory, so the versioning must be handled without git. To do this, use the script shipped in `scripts/make_version.py` which should be run as follows: `python2 scripts/make_version.py YOURDISTRONAME > klippy/.version`.
+Wenn Sie ein Paket von Klipper aus git erstellen, ist es übliche Praxis, kein .git-Verzeichnis auszuliefern - daher muss die Versionierung ohne git erfolgen. Verwenden Sie dazu das Skript `scripts/make_version.py`, das wie folgt ausgeführt werden sollte: `python2 scripts/make_version.py YOURDISTRONAME > klippy/.version`.
 
-## Sample packaging script
+## Beispiel-Packaging-Skript
 
-klipper-git is packaged for Arch Linux, and has a PKGBUILD (package build script) available at [Arch User Repository](https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper-git).
+klipper-git ist für Arch Linux paketiert und verfügt über ein PKGBUILD (Paket-Build-Skript), das im [Arch User Repository](https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper-git) verfügbar ist.
