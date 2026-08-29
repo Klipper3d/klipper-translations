@@ -14,53 +14,53 @@ Siehe das Dokument [mcu commands](MCU_Commands.md) für Informationen zu den ver
 
 Diese Seite enthält eine allgemeine Beschreibung des Klipper-Nachrichtenprotokolls selbst. Sie beschreibt, wie Nachrichten deklariert, im Binärformat kodiert (das "Kompressionsschema") und übertragen werden.
 
-The goal of the protocol is to enable an error-free communication channel between the host and micro-controller that is low-latency, low-bandwidth, and low-complexity for the micro-controller.
+Das Ziel des Protokolls ist es, einen fehlerfreien Kommunikationskanal zwischen Host und Mikrocontroller zu ermöglichen, der geringe Latenz, geringe Bandbreite und geringe Komplexität für den Mikrocontroller aufweist.
 
 ## Mikrocontroller Schnittstelle
 
-The Klipper transmission protocol can be thought of as a [RPC](https://en.wikipedia.org/wiki/Remote_procedure_call) mechanism between micro-controller and host. The micro-controller software declares the commands that the host may invoke along with the response messages that it can generate. The host uses that information to command the micro-controller to perform actions and to interpret the results.
+Das Klipper-Übertragungsprotokoll kann als [RPC](https://en.wikipedia.org/wiki/Remote_procedure_call)-Mechanismus zwischen Mikrocontroller und Host verstanden werden. Die Mikrocontroller-Software deklariert die Befehle, die der Host aufrufen kann, sowie die Antwortnachrichten, die sie erzeugen kann. Der Host nutzt diese Informationen, um den Mikrocontroller zu Aktionen zu veranlassen und die Ergebnisse zu interpretieren.
 
 ### Befehle festlegen
 
-The micro-controller software declares a "command" by using the DECL_COMMAND() macro in the C code. For example:
+Die Mikrocontroller-Software deklariert einen „command“ mit dem Makro DECL_COMMAND() im C-Code. Zum Beispiel:
 
 ```
 DECL_COMMAND(command_update_digital_out, "update_digital_out oid=%c value=%c");
 ```
 
-The above declares a command named "update_digital_out". This allows the host to "invoke" this command which would cause the command_update_digital_out() C function to be executed in the micro-controller. The above also indicates that the command takes two integer parameters. When the command_update_digital_out() C code is executed, it will be passed an array containing these two integers - the first corresponding to the 'oid' and the second corresponding to the 'value'.
+Das Obige deklariert einen Befehl namens „update_digital_out“. Damit kann der Host diesen Befehl „aufrufen“, was dazu führt, dass die C-Funktion command_update_digital_out() im Mikrocontroller ausgeführt wird. Das Obige zeigt außerdem, dass der Befehl zwei Ganzzahl-Parameter erwartet. Wenn der C-Code command_update_digital_out() ausgeführt wird, erhält er ein Array mit diesen beiden Ganzzahlen - die erste entspricht 'oid', die zweite 'value'.
 
-In general, the parameters are described with printf() style syntax (eg, "%u"). The formatting directly corresponds to the human-readable view of commands (eg, "update_digital_out oid=7 value=1"). In the above example, "value=" is a parameter name and "%c" indicates the parameter is an integer. Internally, the parameter name is only used as documentation. In this example, the "%c" is also used as documentation to indicate the expected integer is 1 byte in size (the declared integer size does not impact the parsing or encoding).
+Im Allgemeinen werden die Parameter in printf()-artiger Syntax beschrieben (z. B. „%u“). Die Formatierung entspricht direkt der menschenlesbaren Darstellung der Befehle (z. B. „update_digital_out oid=7 value=1“). Im obigen Beispiel ist „value=“ ein Parametername und „%c“ gibt an, dass der Parameter eine Ganzzahl ist. Intern dient der Parametername nur der Dokumentation. In diesem Beispiel dient auch „%c“ nur der Dokumentation und gibt an, dass die erwartete Ganzzahl 1 Byte groß ist (die deklarierte Ganzzahlgröße hat keinen Einfluss auf Parsing oder Kodierung).
 
-The micro-controller build will collect all commands declared with DECL_COMMAND(), determine their parameters, and arrange for them to be callable.
+Der Mikrocontroller-Build sammelt alle mit DECL_COMMAND() deklarierten Befehle, ermittelt deren Parameter und sorgt dafür, dass sie aufrufbar sind.
 
 ### Antworten deklarieren
 
-To send information from the micro-controller to the host a "response" is generated. These are both declared and transmitted using the sendf() C macro. For example:
+Um Informationen vom Mikrocontroller an den Host zu senden, wird eine „response“ erzeugt. Diese werden mit dem C-Makro sendf() sowohl deklariert als auch übertragen. Zum Beispiel:
 
 ```
 sendf("status clock=%u status=%c", sched_read_time(), sched_is_shutdown());
 ```
 
-The above transmits a "status" response message that contains two integer parameters ("clock" and "status"). The micro-controller build automatically finds all sendf() calls and generates encoders for them. The first parameter of the sendf() function describes the response and it is in the same format as command declarations.
+Das Obige überträgt eine „status“-Antwortnachricht, die zwei Ganzzahl-Parameter enthält („clock“ und „status“). Der Mikrocontroller-Build findet automatisch alle sendf()-Aufrufe und erzeugt dafür Kodierer. Der erste Parameter der Funktion sendf() beschreibt die Antwort und hat dasselbe Format wie Befehlsdeklarationen.
 
-The host can arrange to register a callback function for each response. So, in effect, commands allow the host to invoke C functions in the micro-controller and responses allow the micro-controller software to invoke code in the host.
+Der Host kann für jede Antwort eine Callback-Funktion registrieren. Im Ergebnis erlauben Befehle dem Host also, C-Funktionen im Mikrocontroller aufzurufen, und Antworten erlauben der Mikrocontroller-Software, Code auf dem Host aufzurufen.
 
-The sendf() macro should only be invoked from command or task handlers, and it should not be invoked from interrupts or timers. The code does not need to issue a sendf() in response to a received command, it is not limited in the number of times sendf() may be invoked, and it may invoke sendf() at any time from a task handler.
+Das Makro sendf() sollte nur aus Befehls- oder Task-Handlern heraus aufgerufen werden und nicht aus Interrupts oder Timern. Der Code muss nicht auf einen empfangenen Befehl mit einem sendf() antworten, die Anzahl der sendf()-Aufrufe ist nicht begrenzt, und sendf() darf jederzeit aus einem Task-Handler aufgerufen werden.
 
-#### Output responses
+#### Ausgabe-Antworten
 
-To simplify debugging, there is also an output() C function. For example:
+Zur Vereinfachung des Debuggens gibt es außerdem eine C-Funktion output(). Zum Beispiel:
 
 ```
 output("The value of %u is %s with size %u.", x, buf, buf_len);
 ```
 
-The output() function is similar in usage to printf() - it is intended to generate and format arbitrary messages for human consumption.
+Die Funktion output() wird ähnlich wie printf() verwendet - sie ist dazu gedacht, beliebige Nachrichten für menschliche Leser zu erzeugen und zu formatieren.
 
-### Declaring enumerations
+### Aufzählungen deklarieren
 
-Enumerations allow the host code to use string identifiers for parameters that the micro-controller handles as integers. They are declared in the micro-controller code - for example:
+Aufzählungen erlauben es dem Host-Code, Zeichenketten-Bezeichner für Parameter zu verwenden, die der Mikrocontroller als Ganzzahlen verarbeitet. Sie werden im Mikrocontroller-Code deklariert - zum Beispiel:
 
 ```
 DECL_ENUMERATION("spi_bus", "spi", 0);
@@ -68,19 +68,19 @@ DECL_ENUMERATION("spi_bus", "spi", 0);
 DECL_ENUMERATION_RANGE("pin", "PC0", 16, 8);
 ```
 
-If the first example, the DECL_ENUMERATION() macro defines an enumeration for any command/response message with a parameter name of "spi_bus" or parameter name with a suffix of "_spi_bus". For those parameters the string "spi" is a valid value and it will be transmitted with an integer value of zero.
+Im ersten Beispiel definiert das Makro DECL_ENUMERATION() eine Aufzählung für jede Befehls-/Antwortnachricht mit einem Parameternamen „spi_bus“ oder einem Parameternamen mit der Endung „_spi_bus“. Für diese Parameter ist die Zeichenkette „spi“ ein gültiger Wert und wird mit dem Ganzzahlwert null übertragen.
 
-It's also possible to declare an enumeration range. In the second example, a "pin" parameter (or any parameter with a suffix of "_pin") would accept PC0, PC1, PC2, ..., PC7 as valid values. The strings will be transmitted with integers 16, 17, 18, ..., 23.
+Es ist auch möglich, einen Aufzählungsbereich zu deklarieren. Im zweiten Beispiel würde ein Parameter „pin“ (oder ein beliebiger Parameter mit der Endung „_pin“) PC0, PC1, PC2, ..., PC7 als gültige Werte akzeptieren. Die Zeichenketten werden mit den Ganzzahlen 16, 17, 18, ..., 23 übertragen.
 
-### Declaring constants
+### Konstanten deklarieren
 
-Constants can also be exported. For example, the following:
+Auch Konstanten können exportiert werden. Zum Beispiel würde Folgendes:
 
 ```
 DECL_CONSTANT("SERIAL_BAUD", 250000);
 ```
 
-would export a constant named "SERIAL_BAUD" with a value of 250000 from the micro-controller to the host. It is also possible to declare a constant that is a string - for example:
+eine Konstante namens „SERIAL_BAUD“ mit dem Wert 250000 vom Mikrocontroller zum Host exportieren. Es ist auch möglich, eine Konstante zu deklarieren, die eine Zeichenkette ist - zum Beispiel:
 
 ```
 DECL_CONSTANT_STR("MCU", "pru");
@@ -88,25 +88,25 @@ DECL_CONSTANT_STR("MCU", "pru");
 
 ## Low-Level Nachrichtenkodierung
 
-To accomplish the above RPC mechanism, each command and response is encoded into a binary format for transmission. This section describes the transmission system.
+Um den oben beschriebenen RPC-Mechanismus umzusetzen, wird jeder Befehl und jede Antwort für die Übertragung in ein Binärformat kodiert. Dieser Abschnitt beschreibt das Übertragungssystem.
 
 ### Nachrichtenblöcke
 
-All data sent from host to micro-controller and vice-versa are contained in "message blocks". A message block has a two byte header and a three byte trailer. The format of a message block is:
+Alle Daten, die vom Host zum Mikrocontroller und umgekehrt gesendet werden, sind in „Nachrichtenblöcken“ enthalten. Ein Nachrichtenblock hat einen zwei Byte langen Header und einen drei Byte langen Trailer. Das Format eines Nachrichtenblocks ist:
 
 ```
 <1 byte length><1 byte sequence><n-byte content><2 byte crc><1 byte sync>
 ```
 
-The length byte contains the number of bytes in the message block including the header and trailer bytes (thus the minimum message length is 5 bytes). The maximum message block length is currently 64 bytes. The sequence byte contains a 4 bit sequence number in the low-order bits and the high-order bits always contain 0x10 (the high-order bits are reserved for future use). The content bytes contain arbitrary data and its format is described in the following section. The crc bytes contain a 16bit CCITT [CRC](https://en.wikipedia.org/wiki/Cyclic_redundancy_check) of the message block including the header bytes but excluding the trailer bytes. The sync byte is 0x7e.
+Das Längen-Byte enthält die Anzahl der Bytes im Nachrichtenblock einschließlich der Header- und Trailer-Bytes (die minimale Nachrichtenlänge beträgt somit 5 Bytes). Die maximale Länge eines Nachrichtenblocks beträgt derzeit 64 Bytes. Das Sequenz-Byte enthält in den niederwertigen Bits eine 4-Bit-Sequenznummer, die höherwertigen Bits enthalten stets 0x10 (die höherwertigen Bits sind für zukünftige Verwendung reserviert). Die Inhalts-Bytes enthalten beliebige Daten, deren Format im folgenden Abschnitt beschrieben wird. Die CRC-Bytes enthalten eine 16-Bit-CCITT-[CRC](https://en.wikipedia.org/wiki/Cyclic_redundancy_check) des Nachrichtenblocks einschließlich der Header-Bytes, aber ohne die Trailer-Bytes. Das Sync-Byte ist 0x7e.
 
-The format of the message block is inspired by [HDLC](https://en.wikipedia.org/wiki/High-Level_Data_Link_Control) message frames. Like in HDLC, the message block may optionally contain an additional sync character at the start of the block. Unlike in HDLC, a sync character is not exclusive to the framing and may be present in the message block content.
+Das Format des Nachrichtenblocks ist von [HDLC](https://en.wikipedia.org/wiki/High-Level_Data_Link_Control)-Nachrichtenrahmen inspiriert. Wie bei HDLC darf der Nachrichtenblock optional ein zusätzliches Sync-Zeichen am Blockanfang enthalten. Anders als bei HDLC ist ein Sync-Zeichen nicht ausschließlich dem Rahmen vorbehalten und kann auch im Inhalt des Nachrichtenblocks vorkommen.
 
 ### Inhalt des Nachrichtenblocks
 
-Each message block sent from host to micro-controller contains a series of zero or more message commands in its contents. Each command starts with a [Variable Length Quantity](#variable-length-quantities) (VLQ) encoded integer command-id followed by zero or more VLQ parameters for the given command.
+Jeder vom Host zum Mikrocontroller gesendete Nachrichtenblock enthält in seinem Inhalt eine Folge von null oder mehr Nachrichtenbefehlen. Jeder Befehl beginnt mit einer als [Variable Length Quantity](#variable-length-quantities) (VLQ) kodierten Ganzzahl-Befehls-ID, gefolgt von null oder mehr VLQ-Parametern für den jeweiligen Befehl.
 
-As an example, the following four commands might be placed in a single message block:
+Als Beispiel könnten die folgenden vier Befehle in einem einzigen Nachrichtenblock platziert werden:
 
 ```
 update_digital_out oid=6 value=1
@@ -115,21 +115,21 @@ get_config
 get_clock
 ```
 
-and encoded into the following eight VLQ integers:
+und in die folgenden acht VLQ-Ganzzahlen kodiert werden:
 
 ```
 <id_update_digital_out><6><1><id_update_digital_out><5><0><id_get_config><id_get_clock>
 ```
 
-In order to encode and parse the message contents, both the host and micro-controller must agree on the command ids and the number of parameters each command has. So, in the above example, both the host and micro-controller would know that "id_update_digital_out" is always followed by two parameters, and "id_get_config" and "id_get_clock" have zero parameters. The host and micro-controller share a "data dictionary" that maps the command descriptions (eg, "update_digital_out oid=%c value=%c") to their integer command-ids. When processing the data, the parser will know to expect a specific number of VLQ encoded parameters following a given command id.
+Um den Nachrichteninhalt zu kodieren und zu parsen, müssen sich Host und Mikrocontroller über die Befehls-IDs und die Anzahl der Parameter jedes Befehls einig sein. Im obigen Beispiel wüssten also sowohl Host als auch Mikrocontroller, dass auf „id_update_digital_out“ immer zwei Parameter folgen und dass „id_get_config“ und „id_get_clock“ keine Parameter haben. Host und Mikrocontroller teilen sich ein „Data Dictionary“, das die Befehlsbeschreibungen (z. B. „update_digital_out oid=%c value=%c“) ihren ganzzahligen Befehls-IDs zuordnet. Beim Verarbeiten der Daten weiß der Parser, dass nach einer bestimmten Befehls-ID eine bestimmte Anzahl VLQ-kodierter Parameter zu erwarten ist.
 
-The message contents for blocks sent from micro-controller to host follow the same format. The identifiers in these messages are "response ids", but they serve the same purpose and follow the same encoding rules. In practice, message blocks sent from the micro-controller to the host never contain more than one response in the message block contents.
+Der Nachrichteninhalt von Blöcken, die vom Mikrocontroller zum Host gesendet werden, folgt demselben Format. Die Bezeichner in diesen Nachrichten sind „Antwort-IDs“, aber sie erfüllen denselben Zweck und folgen denselben Kodierungsregeln. In der Praxis enthalten Nachrichtenblöcke, die vom Mikrocontroller zum Host gesendet werden, nie mehr als eine Antwort im Blockinhalt.
 
 #### Mengen mit variabler Länge
 
-See the [wikipedia article](https://en.wikipedia.org/wiki/Variable-length_quantity) for more information on the general format of VLQ encoded integers. Klipper uses an encoding scheme that supports both positive and negative integers. Integers close to zero use less bytes to encode and positive integers typically encode using less bytes than negative integers. The following table shows the number of bytes each integer takes to encode:
+Weitere Informationen zum allgemeinen Format VLQ-kodierter Ganzzahlen finden Sie im [Wikipedia-Artikel](https://en.wikipedia.org/wiki/Variable-length_quantity). Klipper verwendet ein Kodierungsschema, das sowohl positive als auch negative Ganzzahlen unterstützt. Ganzzahlen nahe null benötigen weniger Bytes, und positive Ganzzahlen werden typischerweise mit weniger Bytes kodiert als negative. Die folgende Tabelle zeigt, wie viele Bytes jede Ganzzahl zur Kodierung benötigt:
 
-| Integer | Encoded size |
+| Ganzzahl | Kodierte Größe |
 | --- | --- |
 | -32 .. 95 | 1 |
 | -4096 .. 12287 | 2 |
@@ -139,36 +139,36 @@ See the [wikipedia article](https://en.wikipedia.org/wiki/Variable-length_quanti
 
 #### Zeichenketten variabler Länge
 
-As an exception to the above encoding rules, if a parameter to a command or response is a dynamic string then the parameter is not encoded as a simple VLQ integer. Instead it is encoded by transmitting the length as a VLQ encoded integer followed by the contents itself:
+Als Ausnahme von den obigen Kodierungsregeln gilt: Ist ein Parameter eines Befehls oder einer Antwort eine dynamische Zeichenkette, so wird dieser Parameter nicht als einfache VLQ-Ganzzahl kodiert. Stattdessen wird er kodiert, indem die Länge als VLQ-kodierte Ganzzahl übertragen wird, gefolgt vom Inhalt selbst:
 
 ```
 <VLQ encoded length><n-byte contents>
 ```
 
-The command descriptions found in the data dictionary allow both the host and micro-controller to know which command parameters use simple VLQ encoding and which parameters use string encoding.
+Die im Data Dictionary enthaltenen Befehlsbeschreibungen erlauben es sowohl dem Host als auch dem Mikrocontroller zu wissen, welche Befehlsparameter einfache VLQ-Kodierung und welche Zeichenketten-Kodierung verwenden.
 
 ## Daten Wörterbuch
 
-In order for meaningful communications to be established between micro-controller and host, both sides must agree on a "data dictionary". This data dictionary contains the integer identifiers for commands and responses along with their descriptions.
+Damit eine sinnvolle Kommunikation zwischen Mikrocontroller und Host zustande kommt, müssen sich beide Seiten auf ein „Data Dictionary“ einigen. Dieses Data Dictionary enthält die ganzzahligen Bezeichner für Befehle und Antworten zusammen mit deren Beschreibungen.
 
-The micro-controller build uses the contents of DECL_COMMAND() and sendf() macros to generate the data dictionary. The build automatically assigns unique identifiers to each command and response. This system allows both the host and micro-controller code to seamlessly use descriptive human-readable names while still using minimal bandwidth.
+Der Mikrocontroller-Build verwendet den Inhalt der Makros DECL_COMMAND() und sendf(), um das Data Dictionary zu erzeugen. Der Build weist jedem Befehl und jeder Antwort automatisch eindeutige Bezeichner zu. Dieses System erlaubt es sowohl dem Host- als auch dem Mikrocontroller-Code, nahtlos beschreibende, menschenlesbare Namen zu verwenden und dennoch minimale Bandbreite zu nutzen.
 
-The host queries the data dictionary when it first connects to the micro-controller. Once the host downloads the data dictionary from the micro-controller, it uses that data dictionary to encode all commands and to parse all responses from the micro-controller. The host must therefore handle a dynamic data dictionary. However, to keep the micro-controller software simple, the micro-controller always uses its static (compiled in) data dictionary.
+Der Host fragt das Data Dictionary ab, wenn er sich erstmals mit dem Mikrocontroller verbindet. Sobald der Host das Data Dictionary vom Mikrocontroller heruntergeladen hat, verwendet er es, um alle Befehle zu kodieren und alle Antworten des Mikrocontrollers zu parsen. Der Host muss daher ein dynamisches Data Dictionary handhaben. Um die Mikrocontroller-Software einfach zu halten, verwendet der Mikrocontroller jedoch immer sein statisches (einkompiliertes) Data Dictionary.
 
-The data dictionary is queried by sending "identify" commands to the micro-controller. The micro-controller will respond to each identify command with an "identify_response" message. Since these two commands are needed prior to obtaining the data dictionary, their integer ids and parameter types are hard-coded in both the micro-controller and the host. The "identify_response" response id is 0, the "identify" command id is 1. Other than having hard-coded ids the identify command and its response are declared and transmitted the same way as other commands and responses. No other command or response is hard-coded.
+Das Data Dictionary wird abgefragt, indem „identify“-Befehle an den Mikrocontroller gesendet werden. Der Mikrocontroller antwortet auf jeden identify-Befehl mit einer „identify_response“-Nachricht. Da diese beiden Befehle vor dem Erhalt des Data Dictionary benötigt werden, sind ihre ganzzahligen IDs und Parametertypen sowohl im Mikrocontroller als auch im Host fest einkodiert. Die Antwort-ID von „identify_response“ ist 0, die Befehls-ID von „identify“ ist 1. Abgesehen von den fest einkodierten IDs werden der identify-Befehl und seine Antwort genauso deklariert und übertragen wie andere Befehle und Antworten. Kein anderer Befehl und keine andere Antwort ist fest einkodiert.
 
-The format of the transmitted data dictionary itself is a zlib compressed JSON string. The micro-controller build process generates the string, compresses it, and stores it in the text section of the micro-controller flash. The data dictionary can be much larger than the maximum message block size - the host downloads it by sending multiple identify commands requesting progressive chunks of the data dictionary. Once all chunks are obtained the host will assemble the chunks, uncompress the data, and parse the contents.
+Das Format des übertragenen Data Dictionary selbst ist eine zlib-komprimierte JSON-Zeichenkette. Der Build-Prozess des Mikrocontrollers erzeugt die Zeichenkette, komprimiert sie und legt sie im Text-Abschnitt des Mikrocontroller-Flash ab. Das Data Dictionary kann deutlich größer sein als die maximale Nachrichtenblockgröße - der Host lädt es herunter, indem er mehrere identify-Befehle sendet, die aufeinanderfolgende Teile des Data Dictionary anfordern. Sobald alle Teile vorliegen, setzt der Host sie zusammen, dekomprimiert die Daten und parst den Inhalt.
 
-In addition to information on the communication protocol, the data dictionary also contains the software version, enumerations (as defined by DECL_ENUMERATION), and constants (as defined by DECL_CONSTANT).
+Zusätzlich zu Informationen über das Kommunikationsprotokoll enthält das Data Dictionary auch die Softwareversion, Aufzählungen (wie durch DECL_ENUMERATION definiert) und Konstanten (wie durch DECL_CONSTANT definiert).
 
-## Message flow
+## Nachrichtenfluss
 
-Message commands sent from host to micro-controller are intended to be error-free. The micro-controller will check the CRC and sequence numbers in each message block to ensure the commands are accurate and in-order. The micro-controller always processes message blocks in-order - should it receive a block out-of-order it will discard it and any other out-of-order blocks until it receives blocks with the correct sequencing.
+Nachrichtenbefehle, die vom Host zum Mikrocontroller gesendet werden, sollen fehlerfrei sein. Der Mikrocontroller prüft CRC und Sequenznummern in jedem Nachrichtenblock, um sicherzustellen, dass die Befehle korrekt und in der richtigen Reihenfolge sind. Der Mikrocontroller verarbeitet Nachrichtenblöcke immer in der richtigen Reihenfolge - empfängt er einen Block außer der Reihe, verwirft er ihn und alle weiteren Blöcke außer der Reihe, bis er Blöcke mit der korrekten Reihenfolge empfängt.
 
-The low-level host code implements an automatic retransmission system for lost and corrupt message blocks sent to the micro-controller. To facilitate this, the micro-controller transmits an "ack message block" after each successfully received message block. The host schedules a timeout after sending each block and it will retransmit should the timeout expire without receiving a corresponding "ack". In addition, if the micro-controller detects a corrupt or out-of-order block it may transmit a "nak message block" to facilitate fast retransmission.
+Der Low-Level-Host-Code implementiert ein System zur automatischen Neuübertragung für verlorene und beschädigte Nachrichtenblöcke, die an den Mikrocontroller gesendet werden. Dazu überträgt der Mikrocontroller nach jedem erfolgreich empfangenen Nachrichtenblock einen „Ack-Nachrichtenblock“. Der Host setzt nach dem Senden jedes Blocks eine Zeitüberschreitung und überträgt erneut, falls diese abläuft, ohne dass ein entsprechendes „Ack“ empfangen wurde. Erkennt der Mikrocontroller zusätzlich einen beschädigten oder außer der Reihe empfangenen Block, kann er einen „Nak-Nachrichtenblock“ senden, um eine schnelle Neuübertragung zu ermöglichen.
 
-An "ack" is a message block with empty content (ie, a 5 byte message block) and a sequence number greater than the last received host sequence number. A "nak" is a message block with empty content and a sequence number less than the last received host sequence number.
+Ein „Ack“ ist ein Nachrichtenblock mit leerem Inhalt (also ein 5 Byte großer Nachrichtenblock) und einer Sequenznummer, die größer ist als die zuletzt empfangene Host-Sequenznummer. Ein „Nak“ ist ein Nachrichtenblock mit leerem Inhalt und einer Sequenznummer, die kleiner ist als die zuletzt empfangene Host-Sequenznummer.
 
-The protocol facilitates a "window" transmission system so that the host can have many outstanding message blocks in-flight at a time. (This is in addition to the many commands that may be present in a given message block.) This allows maximum bandwidth utilization even in the event of transmission latency. The timeout, retransmit, windowing, and ack mechanism are inspired by similar mechanisms in [TCP](https://en.wikipedia.org/wiki/Transmission_Control_Protocol).
+Das Protokoll ermöglicht ein „Fenster“-Übertragungssystem, sodass der Host viele Nachrichtenblöcke gleichzeitig unterwegs haben kann. (Dies gilt zusätzlich zu den vielen Befehlen, die in einem einzelnen Nachrichtenblock enthalten sein können.) Das erlaubt maximale Bandbreitenausnutzung selbst bei Übertragungslatenz. Die Mechanismen für Zeitüberschreitung, Neuübertragung, Fenster und Ack sind von ähnlichen Mechanismen in [TCP](https://en.wikipedia.org/wiki/Transmission_Control_Protocol) inspiriert.
 
-In the other direction, message blocks sent from micro-controller to host are designed to be error-free, but they do not have assured transmission. (Responses should not be corrupt, but they may go missing.) This is done to keep the implementation in the micro-controller simple. There is no automatic retransmission system for responses - the high-level code is expected to be capable of handling an occasional missing response (usually by re-requesting the content or setting up a recurring schedule of response transmission). The sequence number field in message blocks sent to the host is always one greater than the last received sequence number of message blocks received from the host. It is not used to track sequences of response message blocks.
+In der Gegenrichtung sind Nachrichtenblöcke, die vom Mikrocontroller zum Host gesendet werden, zwar fehlerfrei ausgelegt, ihre Übertragung ist aber nicht garantiert. (Antworten sollten nicht beschädigt sein, können aber verloren gehen.) Das dient dazu, die Implementierung im Mikrocontroller einfach zu halten. Es gibt kein System zur automatischen Neuübertragung von Antworten - vom High-Level-Code wird erwartet, dass er eine gelegentlich fehlende Antwort verkraftet (üblicherweise indem der Inhalt erneut angefordert oder ein wiederkehrender Zeitplan für die Antwortübertragung eingerichtet wird). Das Sequenznummernfeld in Nachrichtenblöcken, die an den Host gesendet werden, ist stets um eins größer als die zuletzt empfangene Sequenznummer der vom Host empfangenen Nachrichtenblöcke. Es wird nicht dazu verwendet, Sequenzen von Antwort-Nachrichtenblöcken nachzuverfolgen.

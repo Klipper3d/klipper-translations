@@ -17,19 +17,19 @@ make
 sudo service klipper start
 ```
 
-It is up to the user to determine the device location and board name. If a user needs to flash multiple boards, `flash-sdcard.sh` (or `make flash` if appropriate) should be run for each board prior to restarting the Klipper service.
+Es liegt beim Benutzer, den Geräteort und den Platinennamen zu bestimmen. Wenn Sie mehrere Platinen flashen müssen, sollte `flash-sdcard.sh` (oder gegebenenfalls `make flash`) für jede Platine ausgeführt werden, bevor der Klipper-Dienst neu gestartet wird.
 
-Supported boards can be listed with the following command:
+Unterstützte Platinen können mit dem folgenden Befehl aufgelistet werden:
 
 ```
 ./scripts/flash-sdcard.sh -l
 ```
 
-If you do not see your board listed it may be necessary to add a new board definition as [described below](#board-definitions).
+Wenn Ihre Platine nicht aufgeführt ist, kann es notwendig sein, eine neue Platinendefinition hinzuzufügen, wie [nachfolgend beschrieben](#board-definitions).
 
 ## Erweiterte Nutzung
 
-The above commands assume that your MCU connects at the default baud rate of 250000 and the firmware is located at `~/klipper/out/klipper.bin`. The `flash-sdcard.sh` script provides options for changing these defaults. All options can be viewed by the help screen:
+Die obigen Befehle setzen voraus, dass Ihr MCU sich mit der Standard-Baudrate von 250000 verbindet und sich die Firmware unter `~/klipper/out/klipper.bin` befindet. Das Skript `flash-sdcard.sh` bietet Optionen, um diese Standardwerte zu ändern. Alle Optionen können über die Hilfeanzeige eingesehen werden:
 
 ```
 ./scripts/flash-sdcard.sh -h
@@ -51,45 +51,45 @@ optional arguments:
   -f <firmware>   path to klipper.bin
 ```
 
-If your board is flashed with firmware that connects at a custom baud rate it is possible to upgrade by specifying the `-b` option:
+Wenn Ihre Platine mit einer Firmware geflasht ist, die sich mit einer benutzerdefinierten Baudrate verbindet, ist ein Upgrade durch Angabe der Option `-b` möglich:
 
 ```
 ./scripts/flash-sdcard.sh -b 115200 /dev/ttyAMA0 btt-skr-v1.3
 ```
 
-If you wish to flash a build of Klipper located somewhere other than the default location it can be done by specifying the `-f` option:
+Wenn Sie einen Klipper-Build flashen möchten, der sich nicht am Standardort befindet, ist dies durch Angabe der Option `-f` möglich:
 
 ```
 ./scripts/flash-sdcard.sh -f ~/downloads/klipper.bin /dev/ttyAMA0 btt-skr-v1.3
 ```
 
-Note that when upgrading a MKS Robin E3 it is not necessary to manually run `update_mks_robin.py` and supply the resulting binary to `flash-sdcard.sh`. This procedure is automated during the upload process.
+Beachten Sie, dass beim Upgrade eines MKS Robin E3 kein manueller Aufruf von `update_mks_robin.py` und keine Übergabe der resultierenden Binärdatei an `flash-sdcard.sh` nötig ist. Dieser Vorgang wird während des Uploads automatisiert.
 
-The `-c` option is used to perform a check or verify-only operation to test if the board is running the specified firmware correctly. This option is primarily intended for cases where a manual power-cycle is necessary to complete the flashing procedure, such as with bootloaders that use SDIO mode instead of SPI to access their SD Cards. (See Caveats below) But, it can also be used anytime to verify if the code flashed into the board matches the version in your build folder on any supported board.
+Die Option `-c` dient dazu, eine reine Prüf- bzw. Verifizierungsoperation durchzuführen, um zu testen, ob die Platine die angegebene Firmware korrekt ausführt. Diese Option ist in erster Linie für Fälle gedacht, in denen ein manuelles Aus- und Einschalten erforderlich ist, um den Flash-Vorgang abzuschließen, etwa bei Bootloadern, die für den Zugriff auf ihre SD-Karten den SDIO-Modus statt SPI verwenden. (Siehe die Einschränkungen weiter unten.) Sie kann jedoch auch jederzeit verwendet werden, um auf jeder unterstützten Platine zu überprüfen, ob der auf die Platine geflashte Code mit der Version in Ihrem Build-Verzeichnis übereinstimmt.
 
-## Failure to Initialize
+## Initialisierung fehlgeschlagen
 
-Some SD cards may fail to initialize at the default SPI speed of 400KHz. In this situation it is possible to use `-s` to drive the SPI peripheral at 4MHz. For example:
+Manche SD-Karten lassen sich bei der Standard-SPI-Geschwindigkeit von 400 kHz nicht initialisieren. In diesem Fall kann `-s` verwendet werden, um die SPI-Peripherie mit 4 MHz anzusteuern. Zum Beispiel:
 
 ```
 ./scripts/flash-sdcard.sh -s /dev/ttyACM0 btt-skr-v1.3
 ```
 
-If the device still fails to initialize then cause of the failure is unrelated to the speed and likely a result of one of the following conditions:
+Lässt sich das Gerät weiterhin nicht initialisieren, hängt die Ursache nicht mit der Geschwindigkeit zusammen und ist wahrscheinlich auf eine der folgenden Bedingungen zurückzuführen:
 
-- The SD card is improperly formatted. Must be `fat` or `fat32`.
-- Attempt to initialize a card using the SPI interface that has already been initialized over SDIO.
-- The SD card has failed or is corrupt.
+- Die SD-Karte ist nicht korrekt formatiert. Sie muss `fat` oder `fat32` sein.
+- Es wird versucht, eine Karte über die SPI-Schnittstelle zu initialisieren, die bereits über SDIO initialisiert wurde.
+- Die SD-Karte ist defekt oder beschädigt.
 
-## Caveats
+## Einschränkungen
 
-- As mentioned in the introduction, this method only works for upgrading firmware. The initial flashing procedure must be done manually per the instructions that apply to your controller board.
-- While it is possible to flash a build that changes the Serial Baud or connection interface (ie: from USB to UART), verification will always fail as the script will be unable to reconnect to the MCU to verify the current version.
-- Only boards that use SPI for SD Card communication are supported. Boards that use SDIO, such as the Flymaker Flyboard and MKS Robin Nano V1/V2, will not work in SDIO mode. However, it's usually possible to flash such boards using Software SPI mode instead. But if the board's bootloader only uses SDIO mode to access the SD Card, a power-cycle of the board and SD Card will be necessary so that the mode can switch from SPI back to SDIO to complete reflashing. Such boards should be defined with `skip_verify` enabled to skip the verify step immediately after flashing. Then after the manual power-cycle, you can rerun the exact same `./scripts/flash-sdcard.sh` command, but add the `-c` option to complete the check/verify operation. See [Flashing Boards that use SDIO](#flashing-boards-that-use-sdio) for examples.
+- Wie in der Einleitung erwähnt, funktioniert diese Methode nur zum Aktualisieren der Firmware. Der anfängliche Flash-Vorgang muss manuell gemäß der für Ihre Steuerplatine geltenden Anleitung durchgeführt werden.
+- Es ist zwar möglich, einen Build zu flashen, der die serielle Baudrate oder die Verbindungsschnittstelle ändert (z. B. von USB auf UART), die Überprüfung wird jedoch immer fehlschlagen, da das Skript sich nicht erneut mit dem Mikrocontroller verbinden kann, um die aktuelle Version zu verifizieren.
+- Es werden nur Platinen unterstützt, die SPI für die Kommunikation mit der SD-Karte verwenden. Platinen, die SDIO verwenden, wie das Flymaker Flyboard und MKS Robin Nano V1/V2, funktionieren im SDIO-Modus nicht. Meist ist es jedoch möglich, solche Platinen stattdessen im Software-SPI-Modus zu flashen. Wenn der Bootloader der Platine für den Zugriff auf die SD-Karte allerdings ausschließlich den SDIO-Modus verwendet, ist ein Aus- und Einschalten von Platine und SD-Karte notwendig, damit der Modus von SPI zurück auf SDIO wechseln kann, um das erneute Flashen abzuschließen. Solche Platinen sollten mit aktiviertem `skip_verify` definiert werden, um den Verifizierungsschritt unmittelbar nach dem Flashen zu überspringen. Nach dem manuellen Aus- und Einschalten können Sie dann genau denselben Befehl `./scripts/flash-sdcard.sh` erneut ausführen, dabei jedoch die Option `-c` ergänzen, um die Prüf- bzw. Verifizierungsoperation abzuschließen. Beispiele finden Sie unter [Flashen von Platinen, die SDIO verwenden](#flashing-boards-that-use-sdio).
 
-## Board Definitions
+## Platinendefinitionen
 
-Most common boards should be available, however it is possible to add a new board definition if necessary. Board definitions are located in `~/klipper/scripts/spi_flash/board_defs.py`. The definitions are stored in dictionary, for example:
+Die gängigsten Platinen sollten verfügbar sein, bei Bedarf kann jedoch eine neue Platinendefinition hinzugefügt werden. Platinendefinitionen befinden sich in `~/klipper/scripts/spi_flash/board_defs.py`. Die Definitionen werden in einem Wörterbuch gespeichert, zum Beispiel:
 
 ```python
 BOARD_DEFS = {
@@ -104,20 +104,20 @@ BOARD_DEFS = {
 
 Folgende Felder können angegeben werden:
 
-- `mcu`: The mcu type. This can be retrieved after configuring the build via `make menuconfig` by running `cat .config | grep CONFIG_MCU`. This field is required.
-- `spi_bus`: The SPI bus connected to the SD Card. This should be retrieved from the board's schematic. This field is required.
-- `cs_pin`: The Chip Select Pin connected to the SD Card. This should be retrieved from the board schematic. This field is required.
-- `firmware_path`: The path on the SD Card where firmware should be transferred. The default is `firmware.bin`.
-- `current_firmware_path`: The path on the SD Card where the renamed firmware file is located after a successful flash. The default is `firmware.cur`.
-- `skip_verify`: This defines a boolean value which tells the scripts to skip the firmware verification step during the flashing process. The default is `False`. It can be set to `True` for boards that require a manual power-cycle to complete flashing. To verify the firmware afterward, run the script again with the `-c` option to perform the verification step. [See caveats with SDIO cards](#caveats)
+- `mcu`: Der MCU-Typ. Dieser lässt sich nach der Konfiguration des Builds über `make menuconfig` mit dem Befehl `cat .config | grep CONFIG_MCU` ermitteln. Dieses Feld ist erforderlich.
+- `spi_bus`: Der mit der SD-Karte verbundene SPI-Bus. Dieser sollte dem Schaltplan der Platine entnommen werden. Dieses Feld ist erforderlich.
+- `cs_pin`: Der mit der SD-Karte verbundene Chip-Select-Pin. Dieser sollte dem Schaltplan der Platine entnommen werden. Dieses Feld ist erforderlich.
+- `firmware_path`: Der Pfad auf der SD-Karte, an den die Firmware übertragen werden soll. Der Standardwert ist `firmware.bin`.
+- `current_firmware_path`: Der Pfad auf der SD-Karte, an dem sich die umbenannte Firmware-Datei nach einem erfolgreichen Flash-Vorgang befindet. Der Standardwert ist `firmware.cur`.
+- `skip_verify`: Dies definiert einen booleschen Wert, der den Skripten mitteilt, den Firmware-Verifizierungsschritt während des Flash-Vorgangs zu überspringen. Der Standardwert ist `False`. Er kann für Platinen auf `True` gesetzt werden, die zum Abschluss des Flash-Vorgangs ein manuelles Aus- und Einschalten erfordern. Um die Firmware anschließend zu verifizieren, führen Sie das Skript erneut mit der Option `-c` aus, um den Verifizierungsschritt durchzuführen. [Siehe die Einschränkungen bei SDIO-Karten](#caveats)
 
-If software SPI is required, the `spi_bus` field should be set to `swspi` and the following additional field should be specified:
+Wenn Software-SPI erforderlich ist, sollte das Feld `spi_bus` auf `swspi` gesetzt und das folgende zusätzliche Feld angegeben werden:
 
-- `spi_pins`: This should be 3 comma separated pins that are connected to the SD Card in the format of `miso,mosi,sclk`.
+- `spi_pins`: Hier sollten 3 durch Komma getrennte Pins angegeben werden, die mit der SD-Karte verbunden sind, im Format `miso,mosi,sclk`.
 
-It should be exceedingly rare that Software SPI is necessary, typically only boards with design errors or boards that normally only support SDIO mode for their SD Card will require it. The `btt-skr-pro` board definition provides an example of the former, and the `btt-octopus-f446-v1` board definition provides an example of the latter.
+Es dürfte äußerst selten vorkommen, dass Software-SPI notwendig ist; typischerweise benötigen dies nur Platinen mit Designfehlern oder Platinen, die für ihre SD-Karte normalerweise nur den SDIO-Modus unterstützen. Die Platinendefinition `btt-skr-pro` ist ein Beispiel für Ersteres, die Platinendefinition `btt-octopus-f446-v1` ein Beispiel für Letzteres.
 
-Prior to creating a new board definition one should check to see if an existing board definition meets the criteria necessary for the new board. If this is the case, a `BOARD_ALIAS` may be specified. For example, the following alias may be added to specify `my-new-board` as an alias for `generic-lpc1768`:
+Bevor Sie eine neue Platinendefinition erstellen, sollten Sie prüfen, ob eine vorhandene Platinendefinition die für die neue Platine notwendigen Kriterien erfüllt. Ist dies der Fall, kann ein `BOARD_ALIAS` angegeben werden. Zum Beispiel kann der folgende Alias hinzugefügt werden, um `my-new-board` als Alias für `generic-lpc1768` festzulegen:
 
 ```python
 BOARD_ALIASES = {
@@ -126,17 +126,17 @@ BOARD_ALIASES = {
 }
 ```
 
-If you need a new board definition and you are uncomfortable with the procedure outlined above it is recommended that you request one in the [Klipper Discord](Contact.md).
+Benötigen Sie eine neue Platinendefinition und fühlen sich mit dem oben beschriebenen Vorgehen nicht wohl, wird empfohlen, diese im [Klipper-Discord](Contact.md) anzufragen.
 
 ## Flashen von Boards, die SDIO verwenden
 
-[As mentioned in the Caveats](#caveats), boards whose bootloader uses SDIO mode to access their SD Card require a power-cycle of the board, and specifically the SD Card itself, in order to switch from the SPI Mode used while writing the file to the SD Card back to SDIO mode for the bootloader to flash it into the board. These board definitions will use the `skip_verify` flag, which tells the flashing tool to stop after writing the firmware to the SD Card so that the board can be manually power-cycled and the verification step deferred until that's complete.
+[Wie unter den Einschränkungen erwähnt](#caveats), erfordern Platinen, deren Bootloader für den Zugriff auf die SD-Karte den SDIO-Modus verwendet, ein Aus- und Einschalten der Platine und insbesondere der SD-Karte selbst, um vom SPI-Modus, der beim Schreiben der Datei auf die SD-Karte verwendet wird, zurück in den SDIO-Modus zu wechseln, damit der Bootloader sie auf die Platine flashen kann. Diese Platinendefinitionen verwenden das Flag `skip_verify`, das dem Flash-Werkzeug mitteilt, nach dem Schreiben der Firmware auf die SD-Karte anzuhalten, damit die Platine manuell aus- und eingeschaltet werden kann und der Verifizierungsschritt bis zu dessen Abschluss aufgeschoben wird.
 
-There are two scenarios -- one with the RPi Host running on a separate power supply and the other when the RPi Host is running on the same power supply as the main board being flashed. The difference is whether or not it's necessary to also shutdown the RPi and then `ssh` again after the flashing is complete in order to do the verification step, or if the verification can be done immediately. Here's examples of the two scenarios:
+Es gibt zwei Szenarien - eines, bei dem der RPi-Host über eine separate Stromversorgung läuft, und eines, bei dem der RPi-Host über dieselbe Stromversorgung wie das geflashte Hauptboard läuft. Der Unterschied besteht darin, ob es notwendig ist, den RPi ebenfalls herunterzufahren und nach Abschluss des Flashens erneut per `ssh` zu verbinden, um den Verifizierungsschritt durchzuführen, oder ob die Verifizierung sofort erfolgen kann. Hier Beispiele für beide Szenarien:
 
 ### SDIO Programmierung mit RPi auf separatem Netzteil
 
-A typical session with the RPi on a Separate Power Supply looks like the following. You will, of course, need to use your proper device path and board name:
+Eine typische Sitzung mit dem RPi an einer separaten Stromversorgung sieht etwa wie folgt aus. Sie müssen dabei natürlich Ihren tatsächlichen Gerätepfad und Platinennamen verwenden:
 
 ```
 sudo service klipper stop
@@ -151,9 +151,9 @@ make
 sudo service klipper start
 ```
 
-### SDIO Programming with RPi on the Same Power Supply
+### SDIO-Programmierung mit RPi an derselben Stromversorgung
 
-A typical session with the RPi on the Same Power Supply looks like the following. You will, of course, need to use your proper device path and board name:
+Eine typische Sitzung mit dem RPi an derselben Stromversorgung sieht etwa wie folgt aus. Sie müssen dabei natürlich Ihren tatsächlichen Gerätepfad und Platinennamen verwenden:
 
 ```
 sudo service klipper stop
@@ -171,11 +171,11 @@ cd ~/klipper
 sudo service klipper start
 ```
 
-In this case, since the RPi Host is being restarted, which will restart the `klipper` service, it's necessary to stop `klipper` again before doing the verification step and restart it after verification is complete.
+In diesem Fall, da der RPi-Host neu gestartet wird, wodurch auch der `klipper`-Dienst neu gestartet wird, ist es notwendig, `klipper` vor dem Verifizierungsschritt erneut zu stoppen und nach Abschluss der Verifizierung wieder zu starten.
 
 ### SDIO zu SPI Pin Belegung
 
-If your board's schematic uses SDIO for its SD Card, you can map the pins as described in the chart below to determine the compatible Software SPI pins to assign in the `board_defs.py` file:
+Verwendet der Schaltplan Ihrer Platine SDIO für die SD-Karte, können Sie die Pins gemäß der folgenden Tabelle zuordnen, um die kompatiblen Software-SPI-Pins zu bestimmen, die in der Datei `board_defs.py` festgelegt werden:
 
 | SD Karten Pin | Mikro SD Karten Pin | SDIO Pin Name | SPI Pin Name |
 | :-: | :-: | :-: | :-: |
@@ -190,4 +190,4 @@ If your board's schematic uses SDIO for its SD Card, you can map the pins as des
 | N/A | 9 | Kartenerkennung (CD) | Kartenerkennung (CD) |
 | 6 | 10 | GND | GND |
 
-\* None (PU) indicates an unused pin with a pull-up resistor
+\* None (PU) kennzeichnet einen unbenutzten Pin mit Pull-up-Widerstand

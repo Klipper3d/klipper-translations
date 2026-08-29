@@ -8,65 +8,65 @@ Viele Slicer haben eine Option zur Konfiguration des "G-Code Flavor". Die Standa
 
 ## Klipper gcode_macro
 
-Slicers will often allow one to configure "Start G-Code" and "End G-Code" sequences. It is often convenient to define custom macros in the Klipper config file instead - such as: `[gcode_macro START_PRINT]` and `[gcode_macro END_PRINT]`. Then one can just run START_PRINT and END_PRINT in the slicer's configuration. Defining these actions in the Klipper configuration may make it easier to tweak the printer's start and end steps as changes do not require re-slicing.
+Slicer erlauben es oft, "Start-G-Code"- und "End-G-Code"-Sequenzen zu konfigurieren. Häufig ist es praktischer, stattdessen benutzerdefinierte Makros in der Klipper-Konfigurationsdatei zu definieren - etwa: `[gcode_macro START_PRINT]` und `[gcode_macro END_PRINT]`. Anschließend genügt es, START_PRINT und END_PRINT in der Slicer-Konfiguration aufzurufen. Das Definieren dieser Aktionen in der Klipper-Konfiguration kann das Anpassen der Start- und Endschritte des Druckers erleichtern, da Änderungen kein erneutes Slicen erfordern.
 
 Siehe [sample-macros.cfg](../config/sample-macros.cfg) z.B. START_PRINT und END_PRINT Makros.
 
-See the [config reference](Config_Reference.md#gcode_macro) for details on defining a gcode_macro.
+Details zur Definition eines gcode_macro finden Sie in der [Konfigurationsreferenz](Config_Reference.md#gcode_macro).
 
-## Large retraction settings may require tuning Klipper
+## Große Retraction-Einstellungen können eine Anpassung von Klipper erfordern
 
-The maximum speed and acceleration of retraction moves are controlled in Klipper by the `max_extrude_only_velocity` and `max_extrude_only_accel` config settings. These settings have a default value that should work well on many printers. However, if one has configured a large retraction in the slicer (eg, 5mm or greater) then one may find they limit the desired speed of retractions.
+Die maximale Geschwindigkeit und Beschleunigung von Retraction-Bewegungen wird in Klipper über die Konfigurationsparameter `max_extrude_only_velocity` und `max_extrude_only_accel` gesteuert. Diese Einstellungen haben einen Standardwert, der bei vielen Druckern gut funktionieren sollte. Wurde im Slicer jedoch eine große Retraction konfiguriert (z. B. 5 mm oder mehr), kann es sein, dass diese Werte die gewünschte Retraction-Geschwindigkeit begrenzen.
 
-If using a large retraction, consider tuning Klipper's [pressure advance](Pressure_Advance.md) instead. Otherwise, if one finds the toolhead seems to "pause" during retraction and priming, then consider explicitly defining `max_extrude_only_velocity` and `max_extrude_only_accel` in the Klipper config file.
+Bei Verwendung einer großen Retraction sollten Sie stattdessen erwägen, Klippers [Pressure Advance](Pressure_Advance.md) zu kalibrieren. Scheint der Werkzeugkopf während Retraction und Priming zu "pausieren", sollten Sie in Erwägung ziehen, `max_extrude_only_velocity` und `max_extrude_only_accel` explizit in der Klipper-Konfigurationsdatei zu definieren.
 
 ## "coasting" Nicht aktivieren
 
-The "coasting" feature is likely to result in poor quality prints with Klipper. Consider using Klipper's [pressure advance](Pressure_Advance.md) instead.
+Die "Coasting"-Funktion führt bei Klipper wahrscheinlich zu einer schlechten Druckqualität. Erwägen Sie stattdessen die Verwendung von Klippers [Pressure Advance](Pressure_Advance.md).
 
-Specifically, if the slicer dramatically changes the extrusion rate between moves then Klipper will perform deceleration and acceleration between moves. This is likely to make blobbing worse, not better.
+Ändert der Slicer die Extrusionsrate zwischen Bewegungen drastisch, führt Klipper zwischen den Bewegungen eine Verzögerung und Beschleunigung durch. Dies verschlimmert Wulstbildung (Blobbing) eher, als sie zu verbessern.
 
-In contrast, it is okay (and often helpful) to use a slicer's "retract" setting, "wipe" setting, and/or "wipe on retract" setting.
+Im Gegensatz dazu ist es unbedenklich (und oft hilfreich), die "Retract"-, "Wipe"- und/oder "Wipe on Retract"-Einstellung eines Slicers zu verwenden.
 
 ## Verwenden Sie in Simplify3d nicht die Option "extra restart distance"
 
-This setting can cause dramatic changes to extrusion rates which can trigger Klipper's maximum extrusion cross-section check. Consider using Klipper's [pressure advance](Pressure_Advance.md) or the regular Simplify3d retract setting instead.
+Diese Einstellung kann drastische Änderungen der Extrusionsrate verursachen, die Klippers Prüfung des maximalen Extrusionsquerschnitts auslösen können. Erwägen Sie stattdessen die Verwendung von Klippers [Pressure Advance](Pressure_Advance.md) oder der regulären Retraction-Einstellung von Simplify3d.
 
 ## "PreloadVE" im KISSlicer deaktivieren
 
-If using KISSlicer slicing software then set "PreloadVE" to zero. Consider using Klipper's [pressure advance](Pressure_Advance.md) instead.
+Verwenden Sie die Slicing-Software KISSlicer, setzen Sie "PreloadVE" auf null. Erwägen Sie stattdessen die Verwendung von Klippers [Pressure Advance](Pressure_Advance.md).
 
 ## Deaktivieren Sie alle "advanced extruder pressure" Einstellungen
 
-Some slicers advertise an "advanced extruder pressure" capability. It is recommended to keep these options disabled when using Klipper as they are likely to result in poor quality prints. Consider using Klipper's [pressure advance](Pressure_Advance.md) instead.
+Manche Slicer bewerben eine Funktion für "erweiterten Extruderdruck". Es wird empfohlen, diese Optionen bei Verwendung von Klipper deaktiviert zu lassen, da sie wahrscheinlich zu schlechter Druckqualität führen. Erwägen Sie stattdessen die Verwendung von Klippers [Pressure Advance](Pressure_Advance.md).
 
-Specifically, these slicer settings can instruct the firmware to make wild changes to the extrusion rate in the hope that the firmware will approximate those requests and the printer will roughly obtain a desirable extruder pressure. Klipper, however, utilizes precise kinematic calculations and timing. When Klipper is commanded to make significant changes to the extrusion rate it will plan out the corresponding changes to velocity, acceleration, and extruder movement - which is not the slicer's intent. The slicer may even command excessive extrusion rates to the point that it triggers Klipper's maximum extrusion cross-section check.
+Konkret können diese Slicer-Einstellungen die Firmware anweisen, drastische Änderungen an der Extrusionsrate vorzunehmen, in der Hoffnung, dass die Firmware diese Anfragen annähert und der Drucker näherungsweise den gewünschten Extruderdruck erreicht. Klipper nutzt jedoch präzise kinematische Berechnungen und Timing. Wird Klipper angewiesen, die Extrusionsrate erheblich zu ändern, plant es die entsprechenden Änderungen an Geschwindigkeit, Beschleunigung und Extruderbewegung - was nicht der Absicht des Slicers entspricht. Der Slicer kann sogar übermäßige Extrusionsraten anfordern, sodass Klippers Prüfung des maximalen Extrusionsquerschnitts ausgelöst wird.
 
-In contrast, it is okay (and often helpful) to use a slicer's "retract" setting, "wipe" setting, and/or "wipe on retract" setting.
+Im Gegensatz dazu ist es unbedenklich (und oft hilfreich), die "Retract"-, "Wipe"- und/oder "Wipe on Retract"-Einstellung eines Slicers zu verwenden.
 
 ## START_PRINT Makros
 
-When using a START_PRINT macro or similar, it is useful to sometimes pass through parameters from the slicer variables to the macro.
+Bei Verwendung eines START_PRINT-Makros oder Ähnlichem ist es manchmal nützlich, Slicer-Variablen als Parameter an das Makro weiterzugeben.
 
-In Cura, to pass through temperatures, the following start gcode would be used:
+In Cura würde für die Weitergabe von Temperaturen folgender Start-G-Code verwendet:
 
 ```
 START_PRINT BED_TEMP={material_bed_temperature_layer_0} EXTRUDER_TEMP={material_print_temperature_layer_0}
 ```
 
-In slic3r derivatives such as PrusaSlicer and SuperSlicer, the following would be used:
+Bei slic3r-Derivaten wie PrusaSlicer und SuperSlicer würde Folgendes verwendet:
 
 ```
 START_PRINT EXTRUDER_TEMP=[first_layer_temperature] BED_TEMP=[first_layer_bed_temperature]
 ```
 
-Also note that these slicers will insert their own heating codes when certain conditions are not met. In Cura, the existence of the `{material_bed_temperature_layer_0}` and `{material_print_temperature_layer_0}` variables is enough to mitigate this. In slic3r derivatives, you would use:
+Beachten Sie außerdem, dass diese Slicer eigene Heizbefehle einfügen, wenn bestimmte Bedingungen nicht erfüllt sind. In Cura genügt das Vorhandensein der Variablen `{material_bed_temperature_layer_0}` und `{material_print_temperature_layer_0}`, um dies zu vermeiden. Bei slic3r-Derivaten würde Folgendes verwendet:
 
 ```
 M140 S0
 M104 S0
 ```
 
-before the macro call. Also note that SuperSlicer has a "custom gcode only" button option, which achieves the same outcome.
+vor dem Makroaufruf. Beachten Sie außerdem, dass SuperSlicer über eine Option "nur benutzerdefinierter G-Code" verfügt, die dasselbe Ergebnis erzielt.
 
 An example of a START_PRINT macro using these parameters can be found in config/sample-macros.cfg

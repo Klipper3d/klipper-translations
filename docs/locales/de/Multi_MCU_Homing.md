@@ -6,12 +6,12 @@ Dieses Feature kann zur Vereinfachung der Verkabelung nützlich sein, da es einf
 
 Der "overshoot" wird ausgelöst durch die eventuelle Verzögerung der Nachrichtenübertragung zwischen dem überwachenden Mikrocontroller und dem Mikrocontroller, welcher die Steppermotoren antreibt. Der Klipper-Code ist so entworfen, dass diese Verzögerung auf maximal 25ms reduziert wird. (Wenn Multi-MCU Homing aktiviert ist, sendet der Mikrocontroller periodische Statusnachrichten und prüft, dass diese innerhalb von 25ms empfangen werden.)
 
-So, for example, if homing at 10mm/s then it is possible for an overshoot of up to 0.250mm (10mm/s * .025s == 0.250mm). Care should be taken when configuring multi-mcu homing to account for this type of overshoot. Using slower homing or probing speeds can reduce the overshoot.
+Wird beispielsweise mit 10 mm/s gehomt, ist ein Überschwingen von bis zu 0,250 mm möglich (10 mm/s * 0,025 s == 0,250 mm). Bei der Konfiguration von Multi-MCU-Homing sollte diese Art von Überschwingen berücksichtigt werden. Langsamere Homing- oder Sondiergeschwindigkeiten können das Überschwingen verringern.
 
-Stepper motor overshoot should not adversely impact the precision of the homing and probing procedure. The Klipper code will detect the overshoot and account for it in its calculations. However, it is important that the hardware design is capable of handling overshoot without causing damage to the machine.
+Ein Überschwingen des Schrittmotors sollte die Präzision des Homing- und Sondiervorgangs nicht beeinträchtigen. Der Klipper-Code erkennt das Überschwingen und berücksichtigt es in seinen Berechnungen. Es ist jedoch wichtig, dass das Hardware-Design in der Lage ist, ein Überschwingen zu bewältigen, ohne die Maschine zu beschädigen.
 
-In order to use this "multi-mcu homing" capability the hardware must have predictably low latency between the host computer and all of the micro-controllers. Typically the round-trip time must be consistently less than 10ms. High latency (even for short periods) is likely to result in homing failures.
+Um diese Funktion des "Multi-MCU-Homings" nutzen zu können, muss die Hardware eine verlässlich niedrige Latenz zwischen dem Host-Computer und allen Mikrocontrollern aufweisen. Üblicherweise muss die Round-Trip-Zeit durchgehend unter 10 ms liegen. Eine hohe Latenz (selbst für kurze Zeiträume) führt wahrscheinlich zu Homing-Fehlern.
 
 Sollte die hohe Latenzzeit zu einem Fehler führen (oder wenn ein anderes Kommunikationsproblem festgestellt wird), wird Klipper einen Fehler "Communication timeout during homing" melden.
 
-Note that an axis with multiple steppers (eg, `stepper_z` and `stepper_z1`) need to be on the same micro-controller in order to use multi-mcu homing. For example, if an endstop is on a separate micro-controller from `stepper_z` then `stepper_z1` must be on the same micro-controller as `stepper_z`.
+Beachten Sie, dass eine Achse mit mehreren Schrittmotoren (z. B. `stepper_z` und `stepper_z1`) sich auf demselben Mikrocontroller befinden muss, um Multi-MCU-Homing verwenden zu können. Befindet sich ein Endstop beispielsweise auf einem anderen Mikrocontroller als `stepper_z`, muss `stepper_z1` auf demselben Mikrocontroller wie `stepper_z` sein.

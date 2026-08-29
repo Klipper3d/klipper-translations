@@ -14,33 +14,33 @@ Als allgemeiner Tuning-Tipp sollten Sie höhere Stromwerte bevorzugen, solange d
 
 ## Vorzugsweise keinen Haltestrom angeben
 
-If one configures a `hold_current` then the TMC driver can reduce current to the stepper motor when it detects that the stepper is not moving. However, changing motor current may itself introduce motor movement. This may occur due to "detent forces" within the stepper motor (the permanent magnet in the rotor pulls towards the iron teeth in the stator) or due to external forces on the axis carriage.
+Wird `hold_current` konfiguriert, kann der TMC-Treiber den Strom zum Schrittmotor reduzieren, sobald er erkennt, dass sich der Schrittmotor nicht bewegt. Eine Änderung des Motorstroms kann jedoch selbst eine Motorbewegung auslösen. Dies kann durch "Rastmomente" (Detent Forces) im Schrittmotor geschehen (der Permanentmagnet im Rotor wird zu den Eisenzähnen im Stator gezogen) oder durch externe Kräfte auf den Achsschlitten.
 
-Most stepper motors will not obtain a significant benefit to reducing current during normal prints, because few printing moves will leave a stepper motor idle for sufficiently long to activate the `hold_current` feature. And, it is unlikely that one would want to introduce subtle print artifacts to the few printing moves that do leave a stepper idle sufficiently long.
+Bei den meisten Schrittmotoren bringt eine Stromreduzierung während normaler Drucke keinen nennenswerten Vorteil, da nur wenige Druckbewegungen einen Schrittmotor lange genug im Leerlauf lassen, um die `hold_current`-Funktion zu aktivieren. Zudem ist es unwahrscheinlich, dass man bei den wenigen Bewegungen, die einen Schrittmotor tatsächlich ausreichend lange im Leerlauf lassen, subtile Druckartefakte in Kauf nehmen möchte.
 
-If one wishes to reduce current to motors during print start routines, then consider issuing [SET_TMC_CURRENT](G-Codes.md#set_tmc_current) commands in a [START_PRINT macro](Slicers.md#klipper-gcode_macro) to adjust the current before and after normal printing moves.
+Möchten Sie den Motorstrom während der Druckstart-Routinen reduzieren, können Sie in einem [START_PRINT-Makro](Slicers.md#klipper-gcode_macro) [SET_TMC_CURRENT](G-Codes.md#set_tmc_current)-Befehle ausgeben, um den Strom vor und nach den normalen Druckbewegungen anzupassen.
 
-Some printers with dedicated Z motors that are idle during normal printing moves (no bed_mesh, no bed_tilt, no Z skew_correction, no "vase mode" prints, etc.) may find that Z motors do run cooler with a `hold_current`. If implementing this then be sure to take into account this type of uncommanded Z axis movement during bed leveling, bed probing, probe calibration, and similar. The `driver_TPOWERDOWN` and `driver_IHOLDDELAY` should also be calibrated accordingly. If unsure, prefer to not specify a `hold_current`.
+Bei manchen Druckern mit dedizierten Z-Motoren, die während normaler Druckbewegungen im Leerlauf sind (kein bed_mesh, kein bed_tilt, keine Z-skew_correction, keine Drucke im "Vasenmodus" usw.), kann `hold_current` dazu führen, dass die Z-Motoren kühler laufen. Wird dies implementiert, sollte diese Art unkommandierter Z-Achsenbewegung während Bettnivellierung, Bettsondierung, Sondenkalibrierung und Ähnlichem berücksichtigt werden. Auch `driver_TPOWERDOWN` und `driver_IHOLDDELAY` sollten entsprechend kalibriert werden. Im Zweifelsfall sollte auf die Angabe von `hold_current` verzichtet werden.
 
 ## Einstellung "spreadCycle" vs "stealthChop" Modus
 
 Standardmäßig setzt Klipper die TMC-Treiber in den "spreadCycle"-Modus. Wenn der Treiber "stealthChop" unterstützt, kann er durch Hinzufügen von `stealthchop_threshold: 999999`in den TMC-Konfigurationsabschnitt einfügt.
 
-In general, spreadCycle mode provides greater torque and greater positional accuracy than stealthChop mode. However, stealthChop mode may produce significantly lower audible noise on some printers.
+Im Allgemeinen bietet der spreadCycle-Modus ein höheres Drehmoment und eine höhere Positionsgenauigkeit als der stealthChop-Modus. Der stealthChop-Modus kann jedoch bei manchen Druckern zu einer deutlich geringeren Geräuschentwicklung führen.
 
-Tests comparing modes have shown an increased "positional lag" of around 75% of a full-step during constant velocity moves when using stealthChop mode (for example, on a printer with 40mm rotation_distance and 200 steps_per_rotation, position deviation of constant speed moves increased by ~0.150mm). However, this "delay in obtaining the requested position" may not manifest as a significant print defect and one may prefer the quieter behavior of stealthChop mode.
+Tests, die die Modi vergleichen, haben bei Bewegungen mit konstanter Geschwindigkeit im stealthChop-Modus einen erhöhten "Positionsverzug" von etwa 75% eines Vollschritts gezeigt (bei einem Drucker mit 40 mm rotation_distance und 200 steps_per_rotation erhöhte sich die Positionsabweichung bei Bewegungen mit konstanter Geschwindigkeit beispielsweise um ca. 0,150 mm). Diese "Verzögerung beim Erreichen der angeforderten Position" muss sich jedoch nicht als deutlicher Druckfehler bemerkbar machen, sodass das leisere Verhalten des stealthChop-Modus bevorzugt werden kann.
 
 Es wird empfohlen, immer den "spreadCycle"-Modus zu verwenden (indem `stealthchop_threshold` nicht angegeben wird) oder immer den "stealthChop"-Modus (indem `stealthchop_threshold` auf 999999 gesetzt wird). Leider liefern die Treiber oft schlechte und verwirrende Ergebnisse, wenn sich der Modus ändert, während der Motor eine Geschwindigkeit ungleich Null hat.
 
-Note that the `stealthchop_threshold` config option does not impact sensorless homing as Klipper automatically switches the TMC driver to an appropriate mode during sensorless homing operations.
+Beachten Sie, dass die Konfigurationsoption `stealthchop_threshold` das sensorlose Homing nicht beeinflusst, da Klipper den TMC-Treiber während sensorloser Homing-Vorgänge automatisch in einen geeigneten Modus versetzt.
 
 ## Die TMC interpolate einstellung führt zu geringen Positionsabweichungen
 
-The TMC driver `interpolate` setting may reduce the audible noise of printer movement at the cost of introducing a small systemic positional error. This systemic positional error results from the driver's delay in executing "steps" that Klipper sends it. During constant velocity moves, this delay results in a positional error of nearly half a configured microstep (more precisely, the error is half a microstep distance minus a 512th of a full step distance). For example, on an axis with a 40mm rotation_distance, 200 steps_per_rotation, and 16 microsteps, the systemic error introduced during constant velocity moves is ~0.006mm.
+Die `interpolate`-Einstellung des TMC-Treibers kann die Geräuschentwicklung der Druckerbewegung verringern, auf Kosten eines kleinen systematischen Positionsfehlers. Dieser systematische Positionsfehler entsteht durch die Verzögerung, mit der der Treiber die von Klipper gesendeten "Schritte" ausführt. Bei Bewegungen mit konstanter Geschwindigkeit führt diese Verzögerung zu einem Positionsfehler von nahezu einem halben konfigurierten Mikroschritt (genauer gesagt entspricht der Fehler einem halben Mikroschritt abzüglich eines 512tel eines Vollschritts). Bei einer Achse mit 40 mm rotation_distance, 200 steps_per_rotation und 16 Mikroschritten beträgt der bei Bewegungen mit konstanter Geschwindigkeit entstehende systematische Fehler beispielsweise ca. 0,006 mm.
 
-For best positional accuracy consider using spreadCycle mode and disable interpolation (set `interpolate: False` in the TMC driver config). When configured this way, one may increase the `microstep` setting to reduce audible noise during stepper movement. Typically, a microstep setting of `64` or `128` will have similar audible noise as interpolation, and do so without introducing a systemic positional error.
+Für die beste Positionsgenauigkeit sollten Sie den spreadCycle-Modus verwenden und die Interpolation deaktivieren (setzen Sie `interpolate: False` in der TMC-Treiberkonfiguration). Bei dieser Konfiguration kann die `microstep`-Einstellung erhöht werden, um die Geräuschentwicklung bei Schrittmotorbewegungen zu verringern. Üblicherweise erzeugt eine microstep-Einstellung von `64` oder `128` eine ähnlich geringe Geräuschentwicklung wie die Interpolation, jedoch ohne einen systematischen Positionsfehler zu verursachen.
 
-If using stealthChop mode then the positional inaccuracy from interpolation is small relative to the positional inaccuracy introduced from stealthChop mode. Therefore tuning interpolation is not considered useful when in stealthChop mode, and one can leave interpolation in its default state.
+Bei Verwendung des stealthChop-Modus ist die durch Interpolation verursachte Positionsungenauigkeit gering im Vergleich zur durch den stealthChop-Modus selbst verursachten Positionsungenauigkeit. Eine Anpassung der Interpolation gilt daher im stealthChop-Modus als nicht sinnvoll, und die Interpolation kann in ihrem Standardzustand belassen werden.
 
 ## Sensorloses Homing
 
@@ -154,7 +154,7 @@ Für tmc2130, tmc5160, und tmc2660:
 SET_TMC_FIELD STEPPER=stepper_x FIELD=sgt VALUE=-64
 ```
 
-Then issue a `G28 X0` command and verify the axis does not move at all or quickly stops moving. If the axis does not stop, then issue an `M112` to halt the printer - something is not correct with the diag/sg_tst pin wiring or configuration and it must be corrected before continuing.
+Geben Sie anschließend einen Befehl `G28 X0` aus und prüfen Sie, dass sich die Achse überhaupt nicht bewegt oder schnell zum Stillstand kommt. Stoppt die Achse nicht, geben Sie ein `M112` aus, um den Drucker anzuhalten - dann stimmt etwas mit der Verkabelung oder Konfiguration des diag/sg_tst-Pins nicht, und dies muss vor dem Fortfahren korrigiert werden.
 
 Verringern Sie dann kontinuierlich die Empfindlichkeit der `VALUE` Einstellung und führen Sie die `SET_TMC_FIELD` `G28 X0`-Befehle erneut aus, um die höchste Empfindlichkeit zu finden, die dazu führt, dass der Schlitten erfolgreich bis zum Endanschlag fährt und anhält. (Bei tmc2209-Treibern ist dies die Verringerung von SGTHRS, bei anderen Treibern die Erhöhung von sgt). Stellen Sie sicher, dass Sie jeden Versuch mit dem Wagen in der Nähe der Mitte der Schiene beginnen (geben Sie bei Bedarf `M84` aus und bewegen Sie den Wagen dann manuell in die Mitte). Es sollte möglich sein, die höchste Empfindlichkeit zu finden, die zuverlässig funktioniert (Einstellungen mit höherer Empfindlichkeit führen zu geringer oder keiner Bewegung). Notieren Sie den gefundenen Wert als *maximum_sensitivity*. (Wenn die kleinstmögliche Empfindlichkeit (SGTHRS=0 oder sgt=63) erreicht wird, ohne dass sich der Schlitten bewegt, stimmt etwas mit der Verdrahtung oder Konfiguration des diag/sg_tst-Pins nicht und muss korrigiert werden, bevor Sie fortfahren.)
 
@@ -186,7 +186,7 @@ Nach Abschluss der sensorlosen Referenzfahrt wird der Schlitten gegen das Ende d
 
 Es ist ratsam, dass das Makro vor dem Start der sensorlosen Referenzfahrt mindestens 2 Sekunden pausiert (oder auf andere Weise sicherstellt, dass der Stepper 2 Sekunden lang nicht bewegt wurde). Ohne eine Verzögerung ist es möglich, dass das interne "stall"-Flag des Treibers noch von einer vorherigen Bewegung gesetzt ist.
 
-It can also be useful to have that macro set the driver current before homing and set a new current after the carriage has moved away.
+Es kann außerdem nützlich sein, in diesem Makro den Treiberstrom vor dem Homing zu setzen und nach dem Wegfahren des Schlittens einen neuen Strom festzulegen.
 
 Ein Beispielmakro könnte so aussehen:
 
@@ -243,7 +243,7 @@ gcode:
 
 ## Abfrage und Diagnose der Treibereinstellungen
 
-The `[DUMP_TMC command](G-Codes.md#dump_tmc) is a useful tool when configuring and diagnosing the drivers. It will report all fields configured by Klipper as well as all fields that can be queried from the driver.
+Der Befehl [DUMP_TMC](G-Codes.md#dump_tmc) ist ein nützliches Werkzeug bei der Konfiguration und Diagnose der Treiber. Er meldet alle von Klipper konfigurierten Felder sowie alle Felder, die vom Treiber abgefragt werden können.
 
 Alle angegebenen Felder sind im Trinamic-Datenblatt für jeden Treiber definiert. Diese Datenblätter finden Sie auf der [Trinamic-Website](https://www.trinamic.com/). Besorgen Sie sich das Trinamic Datenblatt für den Treiber und prüfen Sie es, um die Ergebnisse von DUMP_TMC zu interpretieren.
 
@@ -251,7 +251,7 @@ Alle angegebenen Felder sind im Trinamic-Datenblatt für jeden Treiber definiert
 
 Klipper unterstützt die Konfiguration vieler Low-Level-Treiberfelder mit `driver_XXX` Einstellungen. Die [TMC driver config reference](Config_Reference.md#tmc-stepper-driver-configuration) enthält die vollständige Liste der Felder, die für jede Art von Treiber verfügbar sind.
 
-In addition, almost all fields can be modified at run-time using the [SET_TMC_FIELD command](G-Codes.md#set_tmc_field).
+Zudem lassen sich fast alle Felder zur Laufzeit mit dem Befehl [SET_TMC_FIELD](G-Codes.md#set_tmc_field) ändern.
 
 Jedes dieser Felder ist im Trinamic Datenblatt für jeden Treiber definiert. Diese Datenblätter finden Sie auf der [Trinamic website](https://www.trinamic.com/).
 

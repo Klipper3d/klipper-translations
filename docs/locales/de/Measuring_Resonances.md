@@ -1,12 +1,12 @@
 # Resonanzen messen
 
-Klipper has built-in support for the ADXL345, MPU-9250, LIS2DW and LIS3DH compatible accelerometers which can be used to measure resonance frequencies of the printer for different axes, and auto-tune [input shapers](Resonance_Compensation.md) to compensate for resonances. Note that using accelerometers requires some soldering and crimping. The ADXL345 can be connected to the SPI interface of a Raspberry Pi or MCU board (it needs to be reasonably fast). The MPU family can be connected to the I2C interface of a Raspberry Pi directly, or to an I2C interface of an MCU board that supports 400kbit/s *fast mode* in Klipper. The LIS2DW and LIS3DH can be connected to either SPI or I2C with the same considerations as above.
+Klipper bietet integrierte Unterstützung für die kompatiblen Beschleunigungssensoren ADXL345, MPU-9250, LIS2DW und LIS3DH, mit denen sich die Resonanzfrequenzen des Druckers für verschiedene Achsen messen und [Input Shaper](Resonance_Compensation.md) zur Kompensation von Resonanzen automatisch abstimmen lassen. Beachten Sie, dass die Verwendung von Beschleunigungssensoren etwas Löten und Crimpen erfordert. Der ADXL345 kann an die SPI-Schnittstelle eines Raspberry Pi oder einer MCU-Platine angeschlossen werden (diese muss ausreichend schnell sein). Die MPU-Familie kann direkt an die I2C-Schnittstelle eines Raspberry Pi angeschlossen werden, oder an eine I2C-Schnittstelle einer MCU-Platine, die den *Fast Mode* mit 400 kbit/s in Klipper unterstützt. Der LIS2DW und der LIS3DH können mit denselben Überlegungen wie oben entweder an SPI oder I2C angeschlossen werden.
 
-When sourcing accelerometers, be aware that there are a variety of different PCB board designs and different clones of them. If it is going to be connected to a 5V printer MCU ensure it has a voltage regulator and level shifters.
+Achten Sie bei der Beschaffung von Beschleunigungssensoren darauf, dass es eine Vielzahl unterschiedlicher Platinendesigns und Klone davon gibt. Soll der Sensor an einen 5V-Drucker-MCU angeschlossen werden, stellen Sie sicher, dass er über einen Spannungsregler und Pegelwandler verfügt.
 
-For ADXL345s, make sure that the board supports SPI mode (a small number of boards appear to be hard-configured for I2C by pulling SDO to GND).
+Stellen Sie bei ADXL345-Sensoren sicher, dass die Platine den SPI-Modus unterstützt (eine kleine Anzahl von Platinen scheint durch das Ziehen von SDO auf GND fest auf I2C konfiguriert zu sein).
 
-For MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500/ICM20948s and LIS2DW/LIS3DH there are also a variety of board designs and clones with different I2C pull-up resistors which will need supplementing.
+Auch für MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500/ICM20948 sowie LIS2DW/LIS3DH gibt es eine Vielzahl von Platinendesigns und Klonen mit unterschiedlichen I2C-Pull-up-Widerständen, die möglicherweise ergänzt werden müssen.
 
 ## MCUs mit Klipper I2C *fast-mode* Unterstützung
 
@@ -21,23 +21,23 @@ For MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500/ICM20948s and LIS2DW/LIS3DH the
 
 ### Verkabelung
 
-An ethernet cable with shielded twisted pairs (cat5e or better) is recommended for signal integrity over a long distance. If you still experience signal integrity issues (SPI/I2C errors):
+Für die Signalintegrität über eine längere Distanz wird ein Ethernet-Kabel mit geschirmten verdrillten Adernpaaren (Cat5e oder besser) empfohlen. Falls weiterhin Probleme mit der Signalintegrität auftreten (SPI-/I2C-Fehler):
 
-- Double check the wiring with a digital multimeter for:
+- Überprüfen Sie die Verkabelung sorgfältig mit einem digitalen Multimeter auf:
    - Korrekte Verbindungen im ausgeschalteten Zustand (Durchgang)
    - Korrekte Versorgungsspannung und Erdung
 - Nur I2C:
-   - Check the SCL and SDA lines' resistances to 3.3V are in the range of 900 ohms to 1.8K
-   - For full technical details consult [chapter 7 of the I2C-bus specification and user manual UM10204](https://www.pololu.com/file/0J435/UM10204.pdf) for *fast-mode*
+   - Prüfen Sie, dass die Widerstände der SCL- und SDA-Leitungen gegen 3,3V im Bereich von 900 Ohm bis 1,8K liegen
+   - Vollständige technische Details finden Sie in [Kapitel 7 der I2C-Bus-Spezifikation und des Benutzerhandbuchs UM10204](https://www.pololu.com/file/0J435/UM10204.pdf) für den *Fast-Mode*
 - Kürzen Sie das Kabel
 
-Connect ethernet cable shielding only to the MCU board/Pi ground.
+Verbinden Sie die Schirmung des Ethernet-Kabels nur mit der Masse der MCU-Platine/des Pi.
 
-***Double-check your wiring before powering up to prevent damaging your MCU/Raspberry Pi or the accelerometer.***
+***Überprüfen Sie Ihre Verkabelung sorgfältig, bevor Sie die Spannung einschalten, um eine Beschädigung Ihres MCU/Raspberry Pi oder des Beschleunigungssensors zu vermeiden.***
 
 ### SPI Beschleunigungsmesser
 
-Suggested twisted pair order for three twisted pairs:
+Empfohlene Reihenfolge der Aderpaare für drei verdrillte Adernpaare:
 
 ```
 GND+MISO
@@ -45,15 +45,15 @@ GND+MISO
 SCLK+CS
 ```
 
-Note that unlike a cable shield, GND must be connected at both ends.
+Beachten Sie, dass anders als bei einer Kabelschirmung GND an beiden Enden verbunden sein muss.
 
 #### ADXL345
 
 ##### Direkt zum Raspberry Pi
 
-**Note: Many MCUs will work with an ADXL345 in SPI mode (e.g. Pi Pico), wiring and configuration will vary according to your specific board and available pins.**
+**Hinweis: Viele MCUs funktionieren mit einem ADXL345 im SPI-Modus (z. B. Pi Pico); Verkabelung und Konfiguration hängen von Ihrer jeweiligen Platine und den verfügbaren Pins ab.**
 
-You need to connect ADXL345 to your Raspberry Pi via SPI. Note that the I2C connection, which is suggested by ADXL345 documentation, has too low throughput and **will not work**. The recommended connection scheme:
+Sie müssen den ADXL345 über SPI mit Ihrem Raspberry Pi verbinden. Beachten Sie, dass die I2C-Verbindung, die in der ADXL345-Dokumentation vorgeschlagen wird, einen zu geringen Durchsatz hat und **nicht funktionieren wird**. Das empfohlene Anschlussschema:
 
 | ADXL345 Pin | RPi Pin | RPi Pin Name |
 | :-: | :-: | :-: |
@@ -70,9 +70,9 @@ Anschlussbeispiele für diverse ADXL345 Boards (Bilder bereitgestellt von Fritzi
 
 ##### Verwendung Raspberry Pi Pico
 
-You may connect the ADXL345 to your Raspberry Pi Pico and then connect the Pico to your Raspberry Pi via USB. This makes it easy to reuse the accelerometer on other Klipper devices, as you can connect via USB instead of GPIO. The Pico does not have much processing power, so make sure it is only running the accelerometer and not performing any other duties.
+Sie können den ADXL345 an Ihren Raspberry Pi Pico anschließen und den Pico anschließend per USB mit Ihrem Raspberry Pi verbinden. Dadurch lässt sich der Beschleunigungssensor leicht an anderen Klipper-Geräten wiederverwenden, da die Verbindung per USB statt über GPIO erfolgt. Der Pico verfügt nicht über viel Rechenleistung, stellen Sie daher sicher, dass er ausschließlich für den Beschleunigungssensor genutzt wird und keine anderen Aufgaben übernimmt.
 
-In order to avoid damage to your RPi make sure to connect the ADXL345 to 3.3V only. Depending on the board's layout, a level shifter may be present, which makes 5V dangerous for your RPi.
+Um eine Beschädigung Ihres RPi zu vermeiden, verbinden Sie den ADXL345 ausschließlich mit 3,3V. Je nach Platinenlayout kann ein Pegelwandler vorhanden sein, wodurch 5V für Ihren RPi gefährlich werden.
 
 | ADXL345 Pin | Pico pin | Pico pin name |
 | :-: | :-: | :-: |
@@ -83,13 +83,13 @@ In order to avoid damage to your RPi make sure to connect the ADXL345 to 3.3V on
 | SDA | 5 | GP3 (SPI0_TX) |
 | SCl | 4 | GP2 (SPI0_SCK) |
 
-Wiring diagrams for some of the ADXL345 boards:
+Verkabelungsdiagramme für einige der ADXL345-Platinen:
 
 ![ADXL345-Pico](img/adxl345-pico.png)
 
 ### I2C Beschleunigungsmesser
 
-Suggested twisted pair order for three pairs (preferred):
+Empfohlene Reihenfolge der Aderpaare für drei Paare (bevorzugt):
 
 ```
 3.3V+GND
@@ -104,13 +104,13 @@ Oder für zwei Paare:
 GND+SCL
 ```
 
-Note that unlike a cable shield, any GND(s) should be connected at both ends.
+Beachten Sie, dass anders als bei einer Kabelschirmung alle GND-Leitungen an beiden Enden verbunden sein sollten.
 
 #### MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500/ICM20948
 
-These accelerometers have been tested to work over I2C on the RPi, RP2040 (Pico) and AVR at 400kbit/s (*fast mode*). Some MPU accelerometer modules include pull-ups, but some are too large at 10K and must be changed or supplemented by smaller parallel resistors.
+Diese Beschleunigungssensoren wurden getestet und funktionieren über I2C auf dem RPi, RP2040 (Pico) und AVR mit 400 kbit/s (*Fast Mode*). Einige MPU-Beschleunigungssensormodule enthalten bereits Pull-up-Widerstände, manche sind mit 10K jedoch zu groß und müssen ausgetauscht oder durch kleinere parallel geschaltete Widerstände ergänzt werden.
 
-Recommended connection scheme for I2C on the Raspberry Pi:
+Empfohlenes Anschlussschema für I2C am Raspberry Pi:
 
 | MPU-9250 pin | RPi Pin | RPi Pin Name |
 | :-: | :-: | :-: |
@@ -119,11 +119,11 @@ Recommended connection scheme for I2C on the Raspberry Pi:
 | SDA | 03 | GPIO02 (SDA1) |
 | SCl | 05 | GPIO03 (SCL1) |
 
-The RPi has built-in 1.8K pull-ups on both SCL and SDA.
+Der RPi verfügt über eingebaute 1,8K-Pull-up-Widerstände an SCL und SDA.
 
 ![MPU-9250 connected to Pi](img/mpu9250-PI-fritzing.png)
 
-Recommended connection scheme for I2C (i2c0a) on the RP2040:
+Empfohlenes Anschlussschema für I2C (i2c0a) am RP2040:
 
 | MPU-9250 pin | RP2040 pin | RP2040 Pin Name |
 | :-: | :-: | :-: |
@@ -132,11 +132,11 @@ Recommended connection scheme for I2C (i2c0a) on the RP2040:
 | SDA | 01 | GP0 (I2C0 SDA) |
 | SCl | 02 | GP1 (I2C0 SCL) |
 
-The Pico does not include any built-in I2C pull-up resistors.
+Der Pico verfügt über keine eingebauten I2C-Pull-up-Widerstände.
 
 ![MPU-9250 connected to Pico](img/mpu9250-PICO-fritzing.png)
 
-##### Recommended connection scheme for I2C(TWI) on the AVR ATmega328P Arduino Nano:
+##### Empfohlenes Anschlussschema für I2C (TWI) am AVR ATmega328P Arduino Nano:
 
 | MPU-9250 pin | Atmega328P TQFP32 pin | Atmega328P pin name | Arduino Nano pin |
 | :-: | :-: | :-: | :-: |
@@ -145,7 +145,7 @@ The Pico does not include any built-in I2C pull-up resistors.
 | SDA | 27 | SDA | A4 |
 | SCl | 28 | SCl | A5 |
 
-The Arduino Nano does not include any built-in pull-up resistors nor a 3.3V power pin.
+Der Arduino Nano verfügt weder über eingebaute Pull-up-Widerstände noch über einen 3,3V-Spannungspin.
 
 ### Befestigung des Beschleunigungssensors
 
@@ -161,36 +161,36 @@ Beachte das bei Cartesian Druckern (Bettschubser) zwei Befestigungen benötigt w
 
 ### Software Installation
 
-Note that resonance measurements and shaper auto-calibration require additional software dependencies not installed by default. First, run on your Raspberry Pi the following commands:
+Beachten Sie, dass Resonanzmessungen und die automatische Shaper-Kalibrierung zusätzliche Softwareabhängigkeiten benötigen, die nicht standardmäßig installiert sind. Führen Sie zunächst auf Ihrem Raspberry Pi die folgenden Befehle aus:
 
 ```
 sudo apt update
 sudo apt install python3-numpy python3-matplotlib libatlas-base-dev libopenblas-dev
 ```
 
-Next, in order to install NumPy in the Klipper environment, run the command:
+Um anschließend NumPy in der Klipper-Umgebung zu installieren, führen Sie den folgenden Befehl aus:
 
 ```
 ~/klippy-env/bin/pip install -v "numpy<1.26"
 ```
 
-Note that, depending on the performance of the CPU, it may take *a lot* of time, up to 10-20 minutes. Be patient and wait for the completion of the installation. On some occasions, if the board has too little RAM the installation may fail and you will need to enable swap. Also note the forced version, due to newer versions of NumPY having requirements that may not be satisfied in some klipper python environments.
+Beachten Sie, dass dies je nach Leistung der CPU *sehr* lange dauern kann, bis zu 10-20 Minuten. Haben Sie Geduld und warten Sie den Abschluss der Installation ab. In manchen Fällen kann die Installation fehlschlagen, wenn die Platine zu wenig RAM besitzt, sodass Sie Swap aktivieren müssen. Beachten Sie außerdem die erzwungene Version, da neuere NumPy-Versionen Anforderungen haben, die in manchen Klipper-Python-Umgebungen möglicherweise nicht erfüllt werden können.
 
-Once installed please check that no errors show from the command:
+Prüfen Sie nach der Installation, dass der folgende Befehl keine Fehler anzeigt:
 
 ```
 ~/klippy-env/bin/python -c 'import numpy;'
 ```
 
-The correct output should simply be a new line.
+Die korrekte Ausgabe sollte einfach eine neue Zeile sein.
 
 #### ADXL345 mit RPi konfigurieren
 
-First, check and follow the instructions in the [RPi Microcontroller document](RPi_microcontroller.md) to setup the "linux mcu" on the Raspberry Pi. This will configure a second Klipper instance that runs on your Pi.
+Prüfen und befolgen Sie zunächst die Anweisungen im [Dokument RPi-Mikrocontroller](RPi_microcontroller.md), um den "Linux MCU" auf dem Raspberry Pi einzurichten. Dadurch wird eine zweite Klipper-Instanz konfiguriert, die auf Ihrem Pi läuft.
 
 Vergewissern Sie sich, dass der Linux-SPI-Treiber aktiviert ist, indem Sie `sudo raspi-config` ausführen und SPI im Menü "Interfacing options" aktivieren.
 
-Add the following to the printer.cfg file:
+Fügen Sie Folgendes zur Datei printer.cfg hinzu:
 
 ```
 [mcu rpi]
@@ -205,13 +205,13 @@ probe_points:
     100, 100, 20  # an example
 ```
 
-It is advised to start with 1 probe point, in the middle of the print bed, slightly above it.
+Es empfiehlt sich, mit einem Messpunkt in der Mitte des Druckbetts, leicht darüber, zu beginnen.
 
 #### ADXL345 mit Pi Pico konfigurieren
 
 ##### Flashen der Pico Firmware
 
-On your Raspberry Pi, compile the firmware for the Pico.
+Kompilieren Sie auf Ihrem Raspberry Pi die Firmware für den Pico.
 
 ```
 cd ~/klipper
@@ -221,17 +221,17 @@ make menuconfig
 
 ![Pico menuconfig](img/klipper_pico_menuconfig.png)
 
-Now, while holding down the `BOOTSEL` button on the Pico, connect the Pico to the Raspberry Pi via USB. Compile and flash the firmware.
+Halten Sie nun die Taste `BOOTSEL` am Pico gedrückt und verbinden Sie den Pico per USB mit dem Raspberry Pi. Kompilieren und flashen Sie die Firmware.
 
 ```
 make flash FLASH_DEVICE=first
 ```
 
-If that fails, you will be told which `FLASH_DEVICE` to use. In this example, that's `make flash FLASH_DEVICE=2e8a:0003`. ![Determine flash device](img/flash_rp2040_FLASH_DEVICE.png)
+Falls dies fehlschlägt, wird Ihnen mitgeteilt, welches `FLASH_DEVICE` verwendet werden soll. In diesem Beispiel wäre das `make flash FLASH_DEVICE=2e8a:0003`. ![Flash-Gerät bestimmen](img/flash_rp2040_FLASH_DEVICE.png)
 
 ##### Konfigurieren Sie die Verbindung
 
-The Pico will now reboot with the new firmware and should show up as a serial device. Find the pico serial device with `ls /dev/serial/by-id/*`. You can now add an `adxl.cfg` file with the following settings:
+Der Pico startet nun mit der neuen Firmware neu und sollte als serielles Gerät erscheinen. Finden Sie das serielle Pico-Gerät mit `ls /dev/serial/by-id/*`. Sie können nun eine Datei `adxl.cfg` mit den folgenden Einstellungen anlegen:
 
 ```
 [mcu adxl]
@@ -254,7 +254,7 @@ probe_points:
 pin: adxl:gpio23
 ```
 
-If setting up the ADXL345 configuration in a separate file, as shown above, you'll also want to modify your `printer.cfg` file to include this:
+Wenn Sie die ADXL345-Konfiguration wie oben gezeigt in einer separaten Datei einrichten, müssen Sie auch Ihre Datei `printer.cfg` anpassen, um Folgendes einzubinden:
 
 ```
 [include adxl.cfg] # Comment this out when you disconnect the accelerometer
@@ -262,7 +262,7 @@ If setting up the ADXL345 configuration in a separate file, as shown above, you'
 
 Klipper über den `RESTART` Befehl neustarten.
 
-#### Configure LIS2DW series over SPI
+#### LIS2DW-Serie über SPI konfigurieren
 
 ```
 [mcu lis]
@@ -284,7 +284,7 @@ probe_points:
 
 #### Konfigurieren der MPU-6000/9000 Serie mit RPi
 
-Make sure the Linux I2C driver is enabled and the baud rate is set to 400000 (see [Enabling I2C](RPi_microcontroller.md#optional-enabling-i2c) section for more details). Then, add the following to the printer.cfg:
+Stellen Sie sicher, dass der Linux-I2C-Treiber aktiviert und die Baudrate auf 400000 eingestellt ist (weitere Details finden Sie im Abschnitt [I2C aktivieren](RPi_microcontroller.md#optional-enabling-i2c)). Fügen Sie dann Folgendes zur printer.cfg hinzu:
 
 ```
 [mcu rpi]
@@ -300,11 +300,11 @@ probe_points:
     100, 100, 20  # an example
 ```
 
-If you are using the ICM20948, replace instances of "mpu9250" with "icm20948".
+Wenn Sie das ICM20948 verwenden, ersetzen Sie alle Vorkommen von "mpu9250" durch "icm20948".
 
 #### Konfigurieren von MPU-9520 Kompatible mit Pico
 
-Pico I2C is set to 400000 on default. Simply add the following to the printer.cfg:
+Pico-I2C ist standardmäßig auf 400000 eingestellt. Fügen Sie einfach Folgendes zur printer.cfg hinzu:
 
 ```
 [mcu pico]
@@ -323,11 +323,11 @@ probe_points:
 pins: pico:gpio23
 ```
 
-If you are using the ICM20948, replace instances of "mpu9250" with "icm20948".
+Wenn Sie das ICM20948 verwenden, ersetzen Sie alle Vorkommen von "mpu9250" durch "icm20948".
 
 #### Konfigurieren von MPU-9520 Kompatible mit AVR
 
-AVR I2C will be set to 400000 by the mpu9250 option. Simply add the following to the printer.cfg:
+AVR-I2C wird durch die Option mpu9250 auf 400000 gesetzt. Fügen Sie einfach Folgendes zur printer.cfg hinzu:
 
 ```
 [mcu nano]
@@ -342,7 +342,7 @@ probe_points:
     100, 100, 20  # an example
 ```
 
-If you are using the ICM20948, replace instances of "mpu9250" with "icm20948".
+Wenn Sie das ICM20948 verwenden, ersetzen Sie alle Vorkommen von "mpu9250" durch "icm20948".
 
 Klipper über den `RESTART` Befehl neustarten.
 
@@ -352,32 +352,32 @@ Klipper über den `RESTART` Befehl neustarten.
 
 Jetzt können Sie eine Verbindung testen.
 
-- For "non bed-slingers" (e.g. one accelerometer), in Octoprint, enter `ACCELEROMETER_QUERY`
-- For "bed-slingers" (e.g. more than one accelerometer), enter `ACCELEROMETER_QUERY CHIP=<chip>` where `<chip>` is the name of the chip as-entered, e.g. `CHIP=bed` (see: [bed-slinger](#bed-slinger-printers)) for all installed accelerometer chips.
+- Geben Sie für "Non-Bed-Slinger" (d. h. ein Beschleunigungssensor) in Octoprint `ACCELEROMETER_QUERY` ein.
+- Geben Sie für "Bed-Slinger" (d. h. mehr als ein Beschleunigungssensor) `ACCELEROMETER_QUERY CHIP=<chip>` ein, wobei `<chip>` der Name des Chips ist, so wie er eingetragen wurde, z. B. `CHIP=bed` (siehe: [Bed-Slinger](#bed-slinger-printers)), und zwar für alle installierten Beschleunigungssensor-Chips.
 
-You should see the current measurements from the accelerometer, including the free-fall acceleration, e.g.
+Sie sollten die aktuellen Messwerte des Beschleunigungssensors sehen, einschließlich der Erdbeschleunigung, z. B.
 
 ```
 Recv: // adxl345 values (x, y, z): 470.719200, 941.438400, 9728.196800
 ```
 
-If you get an error like `Invalid adxl345 id (got xx vs e5)`, where `xx` is some other ID, immediately try again. There's an issue with SPI initialization. If you still get an error, it is indicative of the connection problem with ADXL345, or the faulty sensor. Double-check the power, the wiring (that it matches the schematics, no wire is broken or loose, etc.), and soldering quality.
+Wenn Sie eine Fehlermeldung wie `Invalid adxl345 id (got xx vs e5)` erhalten, wobei `xx` eine andere ID ist, versuchen Sie es sofort erneut. Es liegt ein Problem mit der SPI-Initialisierung vor. Erhalten Sie weiterhin einen Fehler, deutet dies auf ein Verbindungsproblem mit dem ADXL345 oder einen fehlerhaften Sensor hin. Überprüfen Sie sorgfältig die Stromversorgung, die Verkabelung (ob sie dem Schaltplan entspricht, kein Kabel gebrochen oder lose ist usw.) und die Lötqualität.
 
-**If you are using a MPU-9250 compatible accelerometer and it shows up as `mpu-unknown`, use with caution! They are probably refurbished chips!**
+**Wenn Sie einen MPU-9250-kompatiblen Beschleunigungssensor verwenden und dieser als `mpu-unknown` erscheint, gehen Sie vorsichtig vor! Es handelt sich dabei wahrscheinlich um überholte/generalüberholte Chips!**
 
-Next, try running `MEASURE_AXES_NOISE` in Octoprint, you should get some baseline numbers for the noise of accelerometer on the axes (should be somewhere in the range of ~1-100). Too high axes noise (e.g. 1000 and more) can be indicative of the sensor issues, problems with its power, or too noisy imbalanced fans on a 3D printer.
+Versuchen Sie als Nächstes, `MEASURE_AXES_NOISE` in Octoprint auszuführen. Sie sollten einige Basiswerte für das Rauschen des Beschleunigungssensors auf den Achsen erhalten (sie sollten etwa im Bereich von ~1-100 liegen). Ein zu hohes Achsrauschen (z. B. 1000 und mehr) kann auf Probleme mit dem Sensor, mit seiner Stromversorgung oder auf zu laute, unwuchtige Lüfter am 3D-Drucker hinweisen.
 
 ### Resonanzenmessen
 
-Now you can run some real-life tests. Run the following command:
+Nun können Sie einige praxisnahe Tests durchführen. Führen Sie den folgenden Befehl aus:
 
 ```
 TEST_RESONANCES AXIS=X
 ```
 
-Note that it will create vibrations on X axis. It will also disable input shaping if it was enabled previously, as it is not valid to run the resonance testing with the input shaper enabled.
+Beachten Sie, dass dadurch Vibrationen auf der X-Achse erzeugt werden. Außerdem wird das Input Shaping deaktiviert, falls es zuvor aktiviert war, da die Resonanzmessung bei aktiviertem Input Shaper nicht zulässig ist.
 
-**Attention!** Be sure to observe the printer for the first time, to make sure the vibrations do not become too violent (`M112` command can be used to abort the test in case of emergency; hopefully it will not come to this though). If the vibrations do get too strong, you can attempt to specify a lower than the default value for `accel_per_hz` parameter in `[resonance_tester]` section, e.g.
+**Achtung!** Beobachten Sie den Drucker beim ersten Mal unbedingt, um sicherzustellen, dass die Vibrationen nicht zu heftig werden (mit dem Befehl `M112` können Sie den Test im Notfall abbrechen; hoffentlich wird es aber nicht so weit kommen). Falls die Vibrationen doch zu stark werden, können Sie versuchen, für den Parameter `accel_per_hz` im Abschnitt `[resonance_tester]` einen niedrigeren als den Standardwert anzugeben, z. B.
 
 ```
 [resonance_tester]
@@ -386,20 +386,20 @@ accel_per_hz: 50  # default is 75
 probe_points: ...
 ```
 
-If it works for X axis, run for Y axis as well:
+Wenn es für die X-Achse funktioniert, führen Sie es auch für die Y-Achse aus:
 
 ```
 TEST_RESONANCES AXIS=Y
 ```
 
-This will generate 2 CSV files (`/tmp/resonances_x_*.csv` and `/tmp/resonances_y_*.csv`). These files can be processed with the stand-alone script on a Raspberry Pi. This script is intended to be run with a single CSV file for each axis measured, although it can be used with multiple CSV files if you desire to average the results. Averaging results can be useful, for example, if resonance tests were done at multiple test points. Delete the extra CSV files if you do not desire to average them.
+Dadurch werden 2 CSV-Dateien erzeugt (`/tmp/resonances_x_*.csv` und `/tmp/resonances_y_*.csv`). Diese Dateien können mit dem eigenständigen Skript auf einem Raspberry Pi verarbeitet werden. Dieses Skript ist dafür vorgesehen, mit jeweils einer CSV-Datei pro gemessener Achse ausgeführt zu werden, kann aber auch mit mehreren CSV-Dateien verwendet werden, wenn Sie die Ergebnisse mitteln möchten. Das Mitteln der Ergebnisse kann zum Beispiel sinnvoll sein, wenn Resonanztests an mehreren Testpunkten durchgeführt wurden. Löschen Sie die zusätzlichen CSV-Dateien, wenn Sie diese nicht mitteln möchten.
 
 ```
 ~/klipper/scripts/calibrate_shaper.py /tmp/resonances_x_*.csv -o /tmp/shaper_calibrate_x.png
 ~/klipper/scripts/calibrate_shaper.py /tmp/resonances_y_*.csv -o /tmp/shaper_calibrate_y.png
 ```
 
-This script will generate the charts `/tmp/shaper_calibrate_x.png` and `/tmp/shaper_calibrate_y.png` with frequency responses. You will also get the suggested frequencies for each input shaper, as well as which input shaper is recommended for your setup. For example:
+Dieses Skript erzeugt die Diagramme `/tmp/shaper_calibrate_x.png` und `/tmp/shaper_calibrate_y.png` mit den Frequenzgängen. Sie erhalten außerdem die vorgeschlagenen Frequenzen für jeden Input Shaper sowie die Angabe, welcher Input Shaper für Ihren Aufbau empfohlen wird. Zum Beispiel:
 
 ![Resonances](img/calibrate-y.png)
 
@@ -417,7 +417,7 @@ To avoid too much smoothing with '3hump_ei', suggested max_accel <= 2800 mm/sec^
 Recommended shaper is mzv @ 34.6 Hz
 ```
 
-The suggested configuration can be added to `[input_shaper]` section of `printer.cfg`, e.g.:
+Die vorgeschlagene Konfiguration kann in den Abschnitt `[input_shaper]` der `printer.cfg` eingefügt werden, z. B.:
 
 ```
 [input_shaper]
@@ -430,15 +430,15 @@ shaper_type_y: mzv
 max_accel: 3000  # should not exceed the estimated max_accel for X and Y axes
 ```
 
-or you can choose some other configuration yourself based on the generated charts: peaks in the power spectral density on the charts correspond to the resonance frequencies of the printer.
+oder Sie wählen anhand der erzeugten Diagramme selbst eine andere Konfiguration: Spitzen in der spektralen Leistungsdichte in den Diagrammen entsprechen den Resonanzfrequenzen des Druckers.
 
-Note that alternatively you can run the input shaper auto-calibration from Klipper [directly](#input-shaper-auto-calibration), which can be convenient, for example, for the input shaper [re-calibration](#input-shaper-re-calibration).
+Beachten Sie, dass Sie die automatische Kalibrierung des Input Shapers alternativ auch [direkt](#input-shaper-auto-calibration) aus Klipper heraus ausführen können, was zum Beispiel für die [Neukalibrierung](#input-shaper-re-calibration) des Input Shapers praktisch sein kann.
 
 ### Bed-slinger Drucker
 
-If your printer is a bed slinger printer, you will need to change the location of the accelerometer between the measurements for X and Y axes: measure the resonances of X axis with the accelerometer attached to the toolhead and the resonances of Y axis - to the bed (the usual bed slinger setup).
+Wenn Ihr Drucker ein Bed-Slinger ist, müssen Sie die Position des Beschleunigungssensors zwischen den Messungen für die X- und die Y-Achse ändern: Messen Sie die Resonanzen der X-Achse mit dem am Druckkopf befestigten Beschleunigungssensor und die Resonanzen der Y-Achse mit dem am Bett befestigten Sensor (der übliche Bed-Slinger-Aufbau).
 
-However, you can also connect two accelerometers simultaneously, though the ADXL345 must be connected to different boards (say, to an RPi and printer MCU board), or to two different physical SPI interfaces on the same board (rarely available). Then they can be configured in the following manner:
+Sie können jedoch auch zwei Beschleunigungssensoren gleichzeitig anschließen, wobei der ADXL345 an unterschiedliche Platinen angeschlossen werden muss (etwa an einen RPi und eine Drucker-MCU-Platine) oder an zwei unterschiedliche physische SPI-Schnittstellen auf derselben Platine (selten verfügbar). Sie können dann wie folgt konfiguriert werden:
 
 ```
 [adxl345 hotend]
@@ -456,7 +456,7 @@ accel_chip_y: adxl345 bed
 probe_points: ...
 ```
 
-Two MPUs can share one I2C bus, but they **cannot** measure simultaneously as the 400kbit/s I2C bus is not fast enough. One must have its AD0 pin pulled-down to 0V (address 104) and the other its AD0 pin pulled-up to 3.3V (address 105):
+Zwei MPUs können sich einen I2C-Bus teilen, können aber **nicht** gleichzeitig messen, da der I2C-Bus mit 400 kbit/s dafür nicht schnell genug ist. Bei einem muss der AD0-Pin auf 0V gezogen werden (Adresse 104) und beim anderen auf 3,3V (Adresse 105):
 
 ```
 [mpu9250 hotend]
@@ -476,15 +476,15 @@ accel_chip_y: mpu9250 bed
 probe_points: ...
 ```
 
-[Test with each MPU individually before connecting both to the bus for easy debugging.]
+[Testen Sie jede MPU einzeln, bevor Sie beide zur einfacheren Fehlersuche an den Bus anschließen.]
 
-Then the commands `TEST_RESONANCES AXIS=X` and `TEST_RESONANCES AXIS=Y` will use the correct accelerometer for each axis.
+Dann verwenden die Befehle `TEST_RESONANCES AXIS=X` und `TEST_RESONANCES AXIS=Y` den jeweils richtigen Beschleunigungssensor für jede Achse.
 
 ### Max smoothing
 
-Keep in mind that the input shaper can create some smoothing in parts. Automatic tuning of the input shaper performed by `calibrate_shaper.py` script or `SHAPER_CALIBRATE` command tries not to exacerbate the smoothing, but at the same time they try to minimize the resulting vibrations. Sometimes they can make a sub-optimal choice of the shaper frequency, or maybe you simply prefer to have less smoothing in parts at the expense of a larger remaining vibrations. In these cases, you can request to limit the maximum smoothing from the input shaper.
+Bedenken Sie, dass der Input Shaper eine gewisse Glättung an den Teilen erzeugen kann. Die automatische Abstimmung des Input Shapers durch das Skript `calibrate_shaper.py` oder den Befehl `SHAPER_CALIBRATE` versucht, die Glättung nicht zu verstärken, gleichzeitig aber die verbleibenden Vibrationen zu minimieren. Manchmal treffen sie eine suboptimale Wahl der Shaper-Frequenz, oder Sie bevorzugen einfach weniger Glättung an den Teilen zulasten größerer verbleibender Vibrationen. In diesen Fällen können Sie verlangen, die maximale Glättung des Input Shapers zu begrenzen.
 
-Let's consider the following results from the automatic tuning:
+Betrachten wir die folgenden Ergebnisse der automatischen Abstimmung:
 
 ![Resonances](img/calibrate-x.png)
 
@@ -502,15 +502,15 @@ To avoid too much smoothing with '3hump_ei', suggested max_accel <= 1500 mm/sec^
 Recommended shaper is 2hump_ei @ 45.2 Hz
 ```
 
-Note that the reported `smoothing` values are some abstract projected values. These values can be used to compare different configurations: the higher the value, the more smoothing a shaper will create. However, these smoothing scores do not represent any real measure of smoothing, because the actual smoothing depends on [`max_accel`](#selecting-max-accel) and `square_corner_velocity` parameters. Therefore, you should print some test prints to see how much smoothing exactly a chosen configuration creates.
+Beachten Sie, dass die angegebenen `smoothing`-Werte abstrakte, prognostizierte Werte sind. Diese Werte können zum Vergleich verschiedener Konfigurationen verwendet werden: Je höher der Wert, desto mehr Glättung erzeugt ein Shaper. Diese Glättungswerte stellen jedoch kein echtes Maß für die Glättung dar, da die tatsächliche Glättung von den Parametern [`max_accel`](#selecting-max-accel) und `square_corner_velocity` abhängt. Daher sollten Sie einige Testdrucke anfertigen, um zu sehen, wie viel Glättung eine gewählte Konfiguration tatsächlich erzeugt.
 
-In the example above the suggested shaper parameters are not bad, but what if you want to get less smoothing on the X axis? You can try to limit the maximum shaper smoothing using the following command:
+Im obigen Beispiel sind die vorgeschlagenen Shaper-Parameter nicht schlecht, aber was, wenn Sie weniger Glättung auf der X-Achse erhalten möchten? Sie können versuchen, die maximale Shaper-Glättung mit dem folgenden Befehl zu begrenzen:
 
 ```
 ~/klipper/scripts/calibrate_shaper.py /tmp/resonances_x_*.csv -o /tmp/shaper_calibrate_x.png --max_smoothing=0.2
 ```
 
-which limits the smoothing to 0.2 score. Now you can get the following result:
+was die Glättung auf einen Wert von 0,2 begrenzt. Nun können Sie das folgende Ergebnis erhalten:
 
 ![Resonances](img/calibrate-x-max-smoothing.png)
 
@@ -528,11 +528,11 @@ To avoid too much smoothing with '3hump_ei', suggested max_accel <= 3900 mm/sec^
 Recommended shaper is 3hump_ei @ 72.6 Hz
 ```
 
-If you compare to the previously suggested parameters, the vibrations are a bit larger, but the smoothing is significantly smaller than previously, allowing larger maximum acceleration.
+Im Vergleich zu den zuvor vorgeschlagenen Parametern sind die Vibrationen etwas größer, die Glättung ist jedoch deutlich geringer als zuvor, was eine höhere maximale Beschleunigung ermöglicht.
 
-When deciding which `max_smoothing` parameter to choose, you can use a trial-and-error approach. Try a few different values and see which results you get. Note that the actual smoothing produced by the input shaper depends, primarily, on the lowest resonance frequency of the printer: the higher the frequency of the lowest resonance - the smaller the smoothing. Therefore, if you request the script to find a configuration of the input shaper with the unrealistically small smoothing, it will be at the expense of increased ringing at the lowest resonance frequencies (which are, typically, also more prominently visible in prints). So, always double-check the projected remaining vibrations reported by the script and make sure they are not too high.
+Bei der Entscheidung, welchen `max_smoothing`-Parameter Sie wählen, können Sie nach dem Prinzip von Versuch und Irrtum vorgehen. Probieren Sie einige verschiedene Werte aus und sehen Sie, welche Ergebnisse Sie erhalten. Beachten Sie, dass die vom Input Shaper erzeugte tatsächliche Glättung in erster Linie von der niedrigsten Resonanzfrequenz des Druckers abhängt: Je höher die Frequenz der niedrigsten Resonanz, desto geringer die Glättung. Wenn Sie das Skript daher anweisen, eine Konfiguration des Input Shapers mit unrealistisch geringer Glättung zu finden, geht das zulasten eines verstärkten Ringings bei den niedrigsten Resonanzfrequenzen (die typischerweise auch in Drucken deutlicher sichtbar sind). Überprüfen Sie deshalb immer die vom Skript prognostizierten verbleibenden Vibrationen und stellen Sie sicher, dass sie nicht zu hoch sind.
 
-Note that if you chose a good `max_smoothing` value for both of your axes, you can store it in the `printer.cfg` as
+Beachten Sie: Wenn Sie für beide Achsen einen guten `max_smoothing`-Wert gewählt haben, können Sie ihn in der `printer.cfg` hinterlegen, und zwar als
 
 ```
 [resonance_tester]
@@ -541,38 +541,38 @@ probe_points: ...
 max_smoothing: 0.25  # an example
 ```
 
-Then, if you [rerun](#input-shaper-re-calibration) the input shaper auto-tuning using `SHAPER_CALIBRATE` Klipper command in the future, it will use the stored `max_smoothing` value as a reference.
+Wenn Sie die automatische Abstimmung des Input Shapers später mit dem Klipper-Befehl `SHAPER_CALIBRATE` [erneut ausführen](#input-shaper-re-calibration), wird der gespeicherte `max_smoothing`-Wert als Referenz verwendet.
 
 ### Auswahl von max_accel
 
-Since the input shaper can create some smoothing in parts, especially at high accelerations, you will still need to choose the `max_accel` value that does not create too much smoothing in the printed parts. A calibration script provides an estimate for `max_accel` parameter that should not create too much smoothing. Note that the `max_accel` as displayed by the calibration script is only a theoretical maximum at which the respective shaper is still able to work without producing too much smoothing. It is by no means a recommendation to set this acceleration for printing. The maximum acceleration your printer is able to sustain depends on its mechanical properties and the maximum torque of the used stepper motors. Therefore, it is suggested to set `max_accel` in `[printer]` section that does not exceed the estimated values for X and Y axes, likely with some conservative safety margin.
+Da der Input Shaper eine gewisse Glättung an den Teilen erzeugen kann, insbesondere bei hohen Beschleunigungen, müssen Sie dennoch einen `max_accel`-Wert wählen, der nicht zu viel Glättung an den gedruckten Teilen verursacht. Ein Kalibrierungsskript liefert eine Schätzung für den Parameter `max_accel`, bei der nicht zu viel Glättung entstehen sollte. Beachten Sie, dass der vom Kalibrierungsskript angezeigte `max_accel`-Wert nur ein theoretisches Maximum ist, bei dem der jeweilige Shaper noch arbeiten kann, ohne zu viel Glättung zu erzeugen. Er ist keinesfalls eine Empfehlung, diese Beschleunigung zum Drucken einzustellen. Die maximale Beschleunigung, die Ihr Drucker verkraften kann, hängt von seinen mechanischen Eigenschaften und vom maximalen Drehmoment der verwendeten Schrittmotoren ab. Daher wird empfohlen, `max_accel` im Abschnitt `[printer]` so zu setzen, dass die geschätzten Werte für die X- und Y-Achse nicht überschritten werden, wahrscheinlich mit einer konservativen Sicherheitsreserve.
 
-Alternatively, follow [this](Resonance_Compensation.md#selecting-max_accel) part of the input shaper tuning guide and print the test model to choose `max_accel` parameter experimentally.
+Alternativ können Sie [diesem](Resonance_Compensation.md#selecting-max_accel) Teil der Anleitung zur Input-Shaper-Abstimmung folgen und das Testmodell drucken, um den Parameter `max_accel` experimentell zu bestimmen.
 
-The same notice applies to the input shaper [auto-calibration](#input-shaper-auto-calibration) with `SHAPER_CALIBRATE` command: it is still necessary to choose the right `max_accel` value after the auto-calibration, and the suggested acceleration limits will not be applied automatically.
+Der gleiche Hinweis gilt für die [Autokalibrierung](#input-shaper-auto-calibration) des Input Shapers mit dem Befehl `SHAPER_CALIBRATE`: Es ist auch danach notwendig, den richtigen `max_accel`-Wert zu wählen, und die vorgeschlagenen Beschleunigungsgrenzen werden nicht automatisch übernommen.
 
-Keep in mind that the maximum acceleration without too much smoothing depends on the `square_corner_velocity`. The general recommendation is not to change it from its default value 5.0, and this is the value used by default by the `calibrate_shaper.py` script. If you did change it though, you should inform the script about it by passing `--square_corner_velocity=...` parameter, e.g.
+Beachten Sie, dass die maximale Beschleunigung ohne übermäßige Glättung von `square_corner_velocity` abhängt. Es wird generell empfohlen, den Standardwert von 5,0 nicht zu ändern, da dieser Wert auch standardmäßig vom Skript `calibrate_shaper.py` verwendet wird. Falls Sie ihn dennoch geändert haben, sollten Sie dies dem Skript über den Parameter `--square_corner_velocity=...` mitteilen, z. B.
 
 ```
 ~/klipper/scripts/calibrate_shaper.py /tmp/resonances_x_*.csv -o /tmp/shaper_calibrate_x.png --square_corner_velocity=10.0
 ```
 
-so that it can calculate the maximum acceleration recommendations correctly. Note that the `SHAPER_CALIBRATE` command already takes the configured `square_corner_velocity` parameter into account, and there is no need to specify it explicitly.
+damit die maximalen Beschleunigungsempfehlungen korrekt berechnet werden können. Beachten Sie, dass der Befehl `SHAPER_CALIBRATE` den konfigurierten Parameter `square_corner_velocity` bereits berücksichtigt und eine explizite Angabe nicht erforderlich ist.
 
-If you are doing a shaper re-calibration and the reported smoothing for the suggested shaper configuration is almost the same as what you got during the previous calibration, this step can be skipped.
+Wenn Sie eine erneute Shaper-Kalibrierung durchführen und die angegebene Glättung für die vorgeschlagene Shaper-Konfiguration nahezu dieselbe ist wie bei der vorherigen Kalibrierung, kann dieser Schritt übersprungen werden.
 
-### Measuring the resonances of Z axis
+### Messung der Resonanzen der Z-Achse
 
-Measuring the resonances of Z axis is similar in many aspects to measuring resonances of X and Y axes, with some subtle differences. Similarly to other axes measurements, you will need to have an accelerometer mounted on the moving parts of Z axis - either the bed itself (if the bed moves over Z axis), or the toolhead (if the toolhead/gantry moves over Z). You will need to add the appropriate chip configuration to `printer.cfg` and also add it to `[resonance_tester]` section, e.g.
+Die Messung der Resonanzen der Z-Achse ähnelt in vielen Aspekten der Messung der Resonanzen der X- und Y-Achse, mit einigen feinen Unterschieden. Wie bei den anderen Achsmessungen benötigen Sie einen Beschleunigungssensor, der an den beweglichen Teilen der Z-Achse montiert ist - entweder am Bett selbst (falls sich das Bett über die Z-Achse bewegt) oder am Werkzeugkopf (falls sich Werkzeugkopf/Portal über Z bewegt). Sie müssen die entsprechende Chip-Konfiguration zur `printer.cfg` hinzufügen und sie auch in den Abschnitt `[resonance_tester]` eintragen, z. B.
 
 ```
 [resonance_tester]
 accel_chip_z: <accelerometer full name>
 ```
 
-Also make sure that `probe_points` configured in `[resonance_tester]` allow sufficient clearance for Z axis movements (20 mm above bed surface should provide enough clearance with the default test parameters).
+Stellen Sie außerdem sicher, dass die in `[resonance_tester]` konfigurierten `probe_points` ausreichend Freiraum für Bewegungen der Z-Achse bieten (20 mm über der Bettoberfläche sollten mit den Standard-Testparametern ausreichend Freiraum bieten).
 
-The next consideration is that Z axis can typically reach lower maximum speeds and accelerations that X and Y axes. Default parameters of the test take that into consideration and are much less agressive, but it may still be necessary to increase `max_z_accel` and `max_z_velocity`. If you have them configured in `[printer]` section, make sure to set them to at least
+Der nächste zu beachtende Punkt ist, dass die Z-Achse in der Regel niedrigere maximale Geschwindigkeiten und Beschleunigungen erreicht als die X- und Y-Achse. Die Standardparameter des Tests berücksichtigen dies und sind deutlich weniger aggressiv, dennoch kann es nötig sein, `max_z_accel` und `max_z_velocity` zu erhöhen. Falls diese im Abschnitt `[printer]` konfiguriert sind, stellen Sie sicher, dass sie mindestens auf folgenden Wert gesetzt sind
 
 ```
 [printer]
@@ -580,25 +580,25 @@ max_z_velocity: 20
 max_z_accel: 1550
 ```
 
-but only for the duration of the test, afterwards you can revert them back to their original values if necessary. And if you use custom test parameters for Z axis, `TEST_RESONANCES` and `SHAPER_CALIBRATE` will provide the minimum required limits if necessary for your specific case.
+jedoch nur für die Dauer des Tests - anschließend können Sie sie bei Bedarf wieder auf ihre ursprünglichen Werte zurücksetzen. Und wenn Sie für die Z-Achse benutzerdefinierte Testparameter verwenden, liefern `TEST_RESONANCES` und `SHAPER_CALIBRATE` bei Bedarf die für Ihren konkreten Fall erforderlichen Mindestgrenzwerte.
 
-After all changes to `printer.cfg` have been made, restart Klipper and run either
+Nachdem alle Änderungen an der `printer.cfg` vorgenommen wurden, starten Sie Klipper neu und führen Sie entweder
 
 ```
 TEST_RESONANCES AXIS=Z
 ```
 
-or
+oder
 
 ```
 SHAPER_CALIBRATE AXIS=Z
 ```
 
-and proceed from there accordingly how you would for other axes. For example, after `TEST_RESONANCES` command you can run `calibrate_shaper.py` script and get shaper recommendations and the chart of resonance response:
+aus und gehen Sie von dort aus wie bei den anderen Achsen vor. Nach dem Befehl `TEST_RESONANCES` können Sie beispielsweise das Skript `calibrate_shaper.py` ausführen, um Shaper-Empfehlungen sowie das Diagramm der Resonanzantwort zu erhalten:
 
-![Resonances](img/calibrate-z.png)
+![Resonanzen](img/calibrate-z.png)
 
-After the calibration, the shaper parameters can be stored in the `printer.cfg`, e.g. from the example above:
+Nach der Kalibrierung können die Shaper-Parameter in der `printer.cfg` gespeichert werden, z. B. aus dem obigen Beispiel:
 
 ```
 [input_shaper]
@@ -607,7 +607,7 @@ shaper_type_z: mzv
 shaper_freq_z: 42.6
 ```
 
-Also, given the movements of Z axis are slow, you can easily consider more aggressive input shapers, e.g.
+Da sich die Z-Achse zudem nur langsam bewegt, können Sie ohne Weiteres auch aggressivere Input Shaper in Betracht ziehen, z. B.
 
 ```
 [input_shaper]
@@ -616,16 +616,16 @@ shaper_type_z: 2hump_ei
 shaper_freq_z: 63.0
 ```
 
-If the test produces bogus results, you may try to increase `accel_per_hz_z` parameter in `[resonance_tester]` from its default value 15 to a larger value in the range of 20-30, e.g.
+Liefert der Test fehlerhafte Ergebnisse, können Sie versuchen, den Parameter `accel_per_hz_z` in `[resonance_tester]` von seinem Standardwert 15 auf einen größeren Wert im Bereich von 20-30 zu erhöhen, z. B.
 
 ```
 [resonance_tester]
 accel_per_hz_z: 25
 ```
 
-and repeat the test. Increasing this value will likely require increasing `max_z_accel` and `max_z_velocity` parameters as well. You can run `TEST_RESONANCES AXIS=Z` command to get the required minimum values.
+und den Test wiederholen. Eine Erhöhung dieses Werts erfordert wahrscheinlich auch eine Erhöhung der Parameter `max_z_accel` und `max_z_velocity`. Mit dem Befehl `TEST_RESONANCES AXIS=Z` erhalten Sie die dafür erforderlichen Mindestwerte.
 
-However, if you are unable to measure the resonances of Z axis, you can consider just using
+Falls Sie jedoch nicht in der Lage sind, die Resonanzen der Z-Achse zu messen, können Sie einfach
 
 ```
 [input_shaper]
@@ -634,24 +634,24 @@ shaper_type_z: 3hump_ei
 shaper_freq_z: 65
 ```
 
-as an acceptable all-round choice, given that the smoothing of Z axis movements is not of particular concerns.
+als eine akzeptable Allround-Wahl in Betracht ziehen, da die Glättung der Z-Achsenbewegungen hier keine besondere Rolle spielt.
 
-### Unreliable measurements of resonance frequencies
+### Unzuverlässige Messungen der Resonanzfrequenzen
 
-Sometimes the resonance measurements can produce bogus results, leading to the incorrect suggestions for the input shapers. This can be caused by a variety of reasons, including running fans on the toolhead, incorrect position or non-rigid mounting of the accelerometer, or mechanical problems such as loose belts or binding or bumpy axis. Keep in mind that all fans should be disabled for resonance testing, especially the noisy ones, and that the accelerometer should be rigidly mounted on the corresponding moving part (e.g. on the bed itself for the bed slinger, or on the extruder of the printer itself and not the carriage, and some people get better results by mounting the accelerometer on the nozzle itself). As for mechanical problems, the user should inspect if there is any fault that can be fixed with a moving axis (e.g. linear guide rails cleaned up and lubricated and V-slot wheels tension adjusted correctly). If none of that helps, a user may try the other shapers from the produced list besides the one recommended by default.
+Manchmal können die Resonanzmessungen fehlerhafte Ergebnisse liefern, was zu falschen Vorschlägen für die Input Shaper führt. Dies kann verschiedene Ursachen haben, unter anderem laufende Lüfter am Werkzeugkopf, eine falsche Position oder nicht starre Montage des Beschleunigungssensors, oder mechanische Probleme wie lose Riemen oder eine klemmende oder unruhig laufende Achse. Beachten Sie, dass für die Resonanzmessung alle Lüfter deaktiviert sein sollten, insbesondere die lauten, und dass der Beschleunigungssensor starr auf dem entsprechenden beweglichen Teil montiert sein sollte (z. B. direkt auf dem Bett bei einem Bed Slinger oder am Extruder des Druckers selbst statt am Schlitten - manche Anwender erzielen bessere Ergebnisse, wenn der Sensor direkt an der Düse montiert wird). Bei mechanischen Problemen sollte der Anwender prüfen, ob es Mängel an einer bewegten Achse gibt, die behoben werden können (z. B. Linearführungsschienen reinigen und schmieren sowie die Spannung der V-Slot-Rollen korrekt einstellen). Hilft das alles nicht, kann ein Anwender einen der anderen in der Liste ausgegebenen Shaper anstelle des standardmäßig empfohlenen ausprobieren.
 
 ### Testen benutzerdefinierter Achsen
 
-`TEST_RESONANCES` command supports custom axes. While this is not really useful for input shaper calibration, it can be used to study printer resonances in-depth and to check, for example, belt tension.
+Der Befehl `TEST_RESONANCES` unterstützt benutzerdefinierte Achsen. Auch wenn das für die Kalibrierung des Input Shapers nicht wirklich nützlich ist, kann es verwendet werden, um die Druckerresonanzen eingehend zu untersuchen und zum Beispiel die Riemenspannung zu prüfen.
 
-To check the belt tension on CoreXY printers, execute
+Um die Riemenspannung an CoreXY-Druckern zu prüfen, führen Sie Folgendes aus
 
 ```
 TEST_RESONANCES AXIS=1,1 OUTPUT=raw_data
 TEST_RESONANCES AXIS=1,-1 OUTPUT=raw_data
 ```
 
-and use `graph_accelerometer.py` to process the generated files, e.g.
+und verwenden Sie `graph_accelerometer.py`, um die erzeugten Dateien zu verarbeiten, z. B.
 
 ```
 ~/klipper/scripts/graph_accelerometer.py -c /tmp/raw_data_axis*.csv -o /tmp/resonances.png
@@ -659,7 +659,7 @@ and use `graph_accelerometer.py` to process the generated files, e.g.
 
 wodurch die Datei `/tmp/resonances.png` erzeugt wird, in der die Resonanzen verglichen werden.
 
-For Delta printers with the default tower placement (tower A ~= 210 degrees, B ~= 330 degrees, and C ~= 90 degrees), execute
+Führen Sie bei Delta-Druckern mit der Standardanordnung der Türme (Turm A ~= 210 Grad, B ~= 330 Grad und C ~= 90 Grad) Folgendes aus
 
 ```
 TEST_RESONANCES AXIS=0,1 OUTPUT=raw_data
@@ -677,13 +677,13 @@ um die Datei `/tmp/resonances.png` zu erstellen, in der die Resonanzen vergliche
 
 ## Input Shaper Autokalibrierung
 
-Besides manually choosing the appropriate parameters for the input shaper feature, it is also possible to run the auto-tuning for the input shaper directly from Klipper. Run the following command via Octoprint terminal:
+Neben der manuellen Wahl der passenden Parameter für die Input-Shaper-Funktion ist es auch möglich, die automatische Abstimmung des Input Shapers direkt aus Klipper heraus auszuführen. Führen Sie den folgenden Befehl über das Octoprint-Terminal aus:
 
 ```
 SHAPER_CALIBRATE
 ```
 
-This will run the full test for both axes and generate the csv output (`/tmp/calibration_data_*.csv` by default) for the frequency response and the suggested input shapers. You will also get the suggested frequencies for each input shaper, as well as which input shaper is recommended for your setup, on Octoprint console. For example:
+Damit wird der vollständige Test für beide Achsen ausgeführt und eine CSV-Ausgabe (standardmäßig `/tmp/calibration_data_*.csv`) für den Frequenzgang und die vorgeschlagenen Input Shaper erzeugt. In der Octoprint-Konsole erhalten Sie außerdem die vorgeschlagenen Frequenzen für jeden Input Shaper sowie die Angabe, welcher Input Shaper für Ihren Aufbau empfohlen wird. Zum Beispiel:
 
 ```
 Calculating the best input shaper parameters for y axis
@@ -700,51 +700,51 @@ To avoid too much smoothing with '3hump_ei', suggested max_accel <= 2500 mm/sec^
 Recommended shaper_type_y = mzv, shaper_freq_y = 36.8 Hz
 ```
 
-If you agree with the suggested parameters, you can execute `SAVE_CONFIG` now to save them and restart the Klipper. Note that this will not update `max_accel` value in `[printer]` section. You should update it manually following the considerations in [Selecting max_accel](#selecting-max_accel) section.
+Wenn Sie mit den vorgeschlagenen Parametern einverstanden sind, können Sie nun `SAVE_CONFIG` ausführen, um sie zu speichern und Klipper neu zu starten. Beachten Sie, dass dabei der Wert `max_accel` im Abschnitt `[printer]` nicht aktualisiert wird. Sie sollten ihn manuell anpassen und dabei die Hinweise im Abschnitt [Auswahl von max_accel](#selecting-max_accel) beachten.
 
-If your printer is a bed slinger printer, you can specify which axis to test, so that you can change the accelerometer mounting point between the tests (by default the test is performed for both axes):
+Wenn Ihr Drucker ein Bed-Slinger ist, können Sie angeben, welche Achse getestet werden soll, damit Sie den Montagepunkt des Beschleunigungssensors zwischen den Tests wechseln können (standardmäßig wird der Test für beide Achsen durchgeführt):
 
 ```
 SHAPER_CALIBRATE AXIS=Y
 ```
 
-You can execute `SAVE_CONFIG` twice - after calibrating each axis.
+Sie können `SAVE_CONFIG` zweimal ausführen – jeweils nach der Kalibrierung einer Achse.
 
-However, if you connected two accelerometers simultaneously, you simply run `SHAPER_CALIBRATE` without specifying an axis to calibrate the input shaper for both axes in one go.
+Wenn Sie jedoch zwei Beschleunigungssensoren gleichzeitig angeschlossen haben, führen Sie einfach `SHAPER_CALIBRATE` ohne Angabe einer Achse aus, um den Input Shaper für beide Achsen in einem Durchgang zu kalibrieren.
 
 ### Input Shaper Rekalibrierung
 
-`SHAPER_CALIBRATE` command can be also used to re-calibrate the input shaper in the future, especially if some changes to the printer that can affect its kinematics are made. One can either re-run the full calibration using `SHAPER_CALIBRATE` command, or restrict the auto-calibration to a single axis by supplying `AXIS=` parameter, like
+Der Befehl `SHAPER_CALIBRATE` kann auch verwendet werden, um den Input Shaper zu einem späteren Zeitpunkt neu zu kalibrieren, insbesondere wenn Änderungen am Drucker vorgenommen wurden, die seine Kinematik beeinflussen können. Sie können entweder die vollständige Kalibrierung mit dem Befehl `SHAPER_CALIBRATE` erneut ausführen oder die Autokalibrierung mit dem Parameter `AXIS=` auf eine einzelne Achse beschränken, etwa so
 
 ```
 SHAPER_CALIBRATE AXIS=X
 ```
 
-**Warning!** It is not advisable to run the shaper auto-calibration very frequently (e.g. before every print, or every day). In order to determine resonance frequencies, auto-calibration creates intensive vibrations on each of the axes. Generally, 3D printers are not designed to withstand a prolonged exposure to vibrations near the resonance frequencies. Doing so may increase wear of the printer components and reduce their lifespan. There is also an increased risk of some parts unscrewing or becoming loose. Always check that all parts of the printer (including the ones that may normally not move) are securely fixed in place after each auto-tuning.
+**Warnung!** Es wird nicht empfohlen, die automatische Shaper-Kalibrierung sehr häufig auszuführen (z. B. vor jedem Druck oder täglich). Um die Resonanzfrequenzen zu bestimmen, erzeugt die automatische Kalibrierung intensive Vibrationen auf jeder der Achsen. 3D-Drucker sind im Allgemeinen nicht dafür ausgelegt, längere Vibrationen nahe den Resonanzfrequenzen auszuhalten. Dies kann den Verschleiß der Druckerkomponenten erhöhen und deren Lebensdauer verkürzen. Zudem besteht ein erhöhtes Risiko, dass sich Teile lösen oder lockern. Prüfen Sie nach jeder automatischen Kalibrierung stets, dass alle Teile des Druckers (auch solche, die sich normalerweise nicht bewegen) sicher befestigt sind.
 
-Also, due to some noise in measurements, it is possible that the tuning results will be slightly different from one calibration run to another one. Still, it is not expected that the noise will affect the print quality too much. However, it is still advised to double-check the suggested parameters, and print some test prints before using them to confirm they are good.
+Aufgrund von Rauschen in den Messungen ist es außerdem möglich, dass die Abstimmungsergebnisse von einem Kalibrierungsdurchlauf zum nächsten leicht abweichen. Dennoch ist nicht zu erwarten, dass das Rauschen die Druckqualität zu stark beeinflusst. Es wird jedoch weiterhin empfohlen, die vorgeschlagenen Parameter zu überprüfen und einige Testdrucke anzufertigen, bevor Sie sie verwenden, um sicherzustellen, dass sie gut sind.
 
 ## Offline Verarbeitung der Beschleunigungsmesser Daten
 
-It is possible to generate the raw accelerometer data and process it offline (e.g. on a host machine), for example to find resonances. In order to do so, run the following commands via Octoprint terminal:
+Es ist möglich, die Rohdaten des Beschleunigungssensors zu erzeugen und offline zu verarbeiten (z. B. auf einem Host-Rechner), etwa um Resonanzen zu finden. Führen Sie dazu die folgenden Befehle über das Octoprint-Terminal aus:
 
 ```
 SET_INPUT_SHAPER SHAPER_FREQ_X=0 SHAPER_FREQ_Y=0
 TEST_RESONANCES AXIS=X OUTPUT=raw_data
 ```
 
-ignoring any errors for `SET_INPUT_SHAPER` command. For `TEST_RESONANCES` command, specify the desired test axis. The raw data will be written into `/tmp` directory on the RPi.
+Etwaige Fehler des Befehls `SET_INPUT_SHAPER` können Sie dabei ignorieren. Geben Sie für den Befehl `TEST_RESONANCES` die gewünschte Testachse an. Die Rohdaten werden in das Verzeichnis `/tmp` auf dem RPi geschrieben.
 
-The raw data can also be obtained by running the command `ACCELEROMETER_MEASURE` command twice during some normal printer activity - first to start the measurements, and then to stop them and write the output file. Refer to [G-Codes](G-Codes.md#adxl345) for more details.
+Die Rohdaten können auch ermittelt werden, indem der Befehl `ACCELEROMETER_MEASURE` während einer normalen Druckeraktivität zweimal ausgeführt wird - einmal, um die Messung zu starten, und ein weiteres Mal, um sie zu beenden und die Ausgabedatei zu schreiben. Weitere Details finden Sie unter [G-Codes](G-Codes.md#adxl345).
 
-The data can be processed later by the following scripts: `scripts/graph_accelerometer.py` and `scripts/calibrate_shaper.py`. Both of them accept one or several raw csv files as the input depending on the mode. The graph_accelerometer.py script supports several modes of operation:
+Die Daten können später mit den folgenden Skripten verarbeitet werden: `scripts/graph_accelerometer.py` und `scripts/calibrate_shaper.py`. Beide akzeptieren je nach Modus eine oder mehrere Roh-CSV-Dateien als Eingabe. Das Skript graph_accelerometer.py unterstützt mehrere Betriebsmodi:
 
-* plotting raw accelerometer data (use `-r` parameter), only 1 input is supported;
-* plotting a frequency response (no extra parameters required), if multiple inputs are specified, the average frequency response is computed;
-* comparison of the frequency response between several inputs (use `-c` parameter); you can additionally specify which accelerometer axis to consider via `-a x`, `-a y` or `-a z` parameter (if none specified, the sum of vibrations for all axes is used);
-* plotting the spectrogram (use `-s` parameter), only 1 input is supported; you can additionally specify which accelerometer axis to consider via `-a x`, `-a y` or `-a z` parameter (if none specified, the sum of vibrations for all axes is used).
+* Darstellung der Rohdaten des Beschleunigungssensors (Parameter `-r` verwenden), es wird nur eine Eingabedatei unterstützt;
+* Darstellung eines Frequenzgangs (keine zusätzlichen Parameter erforderlich); werden mehrere Eingabedateien angegeben, wird der mittlere Frequenzgang berechnet;
+* Vergleich des Frequenzgangs zwischen mehreren Eingabedateien (Parameter `-c` verwenden); zusätzlich können Sie mit dem Parameter `-a x`, `-a y` oder `-a z` angeben, welche Achse des Beschleunigungssensors berücksichtigt werden soll (ohne Angabe wird die Summe der Vibrationen aller Achsen verwendet);
+* Darstellung des Spektrogramms (Parameter `-s` verwenden), es wird nur eine Eingabedatei unterstützt; zusätzlich können Sie mit dem Parameter `-a x`, `-a y` oder `-a z` angeben, welche Achse des Beschleunigungssensors berücksichtigt werden soll (ohne Angabe wird die Summe der Vibrationen aller Achsen verwendet).
 
-Note that graph_accelerometer.py script supports only the raw_data\*.csv files and not resonances\*.csv or calibration_data\*.csv files.
+Beachten Sie, dass das Skript graph_accelerometer.py nur die Dateien raw_data\*.csv unterstützt und nicht die Dateien resonances\*.csv oder calibration_data\*.csv.
 
 Zum Beispiel,
 
@@ -752,13 +752,13 @@ Zum Beispiel,
 ~/klipper/scripts/graph_accelerometer.py /tmp/raw_data_x_*.csv -o /tmp/resonances_x.png -c -a z
 ```
 
-will plot the comparison of several `/tmp/raw_data_x_*.csv` files for Z axis to `/tmp/resonances_x.png` file.
+zeichnet den Vergleich mehrerer `/tmp/raw_data_x_*.csv`-Dateien für die Z-Achse in die Datei `/tmp/resonances_x.png`.
 
-The shaper_calibrate.py script accepts 1 or several inputs and can run automatic tuning of the input shaper and suggest the best parameters that work well for all provided inputs. It prints the suggested parameters to the console, and can additionally generate the chart if `-o output.png` parameter is provided, or the CSV file if `-c output.csv` parameter is specified.
+Das Skript shaper_calibrate.py akzeptiert eine oder mehrere Eingabedateien, kann eine automatische Abstimmung des Input Shapers durchführen und die besten Parameter vorschlagen, die für alle bereitgestellten Eingaben gut funktionieren. Es gibt die vorgeschlagenen Parameter auf der Konsole aus und kann zusätzlich ein Diagramm erzeugen, wenn der Parameter `-o output.png` angegeben wird, oder eine CSV-Datei, wenn der Parameter `-c output.csv` angegeben wird.
 
-Providing several inputs to shaper_calibrate.py script can be useful if running some advanced tuning of the input shapers, for example:
+Mehrere Eingabedateien an das Skript shaper_calibrate.py zu übergeben, kann bei einer fortgeschrittenen Abstimmung der Input Shaper nützlich sein, zum Beispiel:
 
-* Running `TEST_RESONANCES AXIS=X OUTPUT=raw_data` (and `Y` axis) for a single axis twice on a bed slinger printer with the accelerometer attached to the toolhead the first time, and the accelerometer attached to the bed the second time in order to detect axes cross-resonances and attempt to cancel them with input shapers.
-* Running `TEST_RESONANCES AXIS=Y OUTPUT=raw_data` twice on a bed slinger with a glass bed and a magnetic surfaces (which is lighter) to find the input shaper parameters that work well for any print surface configuration.
+* `TEST_RESONANCES AXIS=X OUTPUT=raw_data` (und für die `Y`-Achse) für eine einzelne Achse zweimal an einem Bed-Slinger auszuführen – beim ersten Mal mit dem Beschleunigungssensor am Druckkopf, beim zweiten Mal mit dem Sensor am Bett –, um Kreuzresonanzen der Achsen zu erkennen und zu versuchen, sie mit Input Shapern zu unterdrücken.
+* `TEST_RESONANCES AXIS=Y OUTPUT=raw_data` zweimal an einem Bed-Slinger mit einem Glasbett und einer magnetischen Oberfläche (die leichter ist) auszuführen, um die Input-Shaper-Parameter zu finden, die für jede Druckoberflächen-Konfiguration gut funktionieren.
 * Zusammenführung der Resonanzdaten von mehreren Testpunkten.
-* Combining the resonance data from 2 axis (e.g. on a bed slinger printer to configure X-axis input_shaper from both X and Y axes resonances to cancel vibrations of the *bed* in case the nozzle 'catches' a print when moving in X axis direction).
+* Die Resonanzdaten von zwei Achsen zu kombinieren (z. B. an einem Bed-Slinger, um den `input_shaper` der X-Achse anhand der Resonanzen sowohl der X- als auch der Y-Achse zu konfigurieren und so Vibrationen des *Betts* zu unterdrücken, falls die Düse bei Bewegungen in X-Richtung an einem Druck "hängen bleibt").

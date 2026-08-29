@@ -59,7 +59,7 @@ Stellen Sie sicher, dass der Linux I2C-Treiber aktiviert ist, indem Sie `sudo ra
 
 ## Optional: Den richtigen Gpiochip identifizieren
 
-On Raspberry Pi and on many clones the pins exposed on the GPIO belong to the first gpiochip. They can therefore be used on klipper simply by referring them with the name `gpio0..n`. However, there are cases in which the exposed pins belong to gpiochips other than the first. For example in the case of some OrangePi models or if a Port Expander is used. In these cases it is useful to use the commands to access the *Linux GPIO character device* to verify the configuration.
+Auf dem Raspberry Pi und auf vielen Nachbauten gehören die am GPIO herausgeführten Pins zum ersten gpiochip. Sie können daher in Klipper einfach verwendet werden, indem man sie mit dem Namen `gpio0..n` anspricht. Es gibt jedoch Fälle, in denen die herausgeführten Pins zu anderen gpiochips als dem ersten gehören, zum Beispiel bei einigen OrangePi-Modellen oder wenn ein Port-Expander verwendet wird. In diesen Fällen ist es sinnvoll, die Befehle für den Zugriff auf das *Linux-GPIO-Zeichengerät* zu verwenden, um die Konfiguration zu überprüfen.
 
 Um das *Linux GPIO character device - binary* auf einer debian basierten Distribution wie octopi zu installieren, führen Sie aus:
 
@@ -175,7 +175,7 @@ dtoverlay=pwm-2chan,pin=12,func=4,pin2=13,func2=4
 
 In diesem Beispiel wird zusätzlich PWM1 aktiviert und an gpio13 geleitet.
 
-Das Overlay legt die pwm Zeile auf sysfs beim Booten nicht frei und muss durch Echo'ing der Nummer des pwm Kanals nach '/sys/class/pwm/pwmchip0/export' exportiert werden. Dadurch wird das Gerät '/sys/class/pwm/pwmchip0/pwm0' im Dateisystem erstellt. Der einfachste Weg dies zu tun ist, indem Folgendes, vor die Zeile 'exit 0' in der datei '/etc/rc.local' eingefügt wird:
+Das Overlay stellt die PWM-Leitung beim Booten nicht über sysfs bereit; sie muss durch Schreiben der Nummer des PWM-Kanals nach `/sys/class/pwm/pwmchip0/export` exportiert werden. Dadurch wird das Gerät `/sys/class/pwm/pwmchip0/pwm0` im Dateisystem angelegt. Am einfachsten geschieht dies, indem Folgendes in `/etc/rc.local` vor der Zeile `exit 0` eingefügt wird:
 
 ```
 # Aktivieren der pwmchip sysfs Schnittstelle
