@@ -4,7 +4,7 @@ Installation und Konfiguration
 
 Konfigurationsreferenz
 
-Bettnivelierung
+Bettnivellierung
 
 Resonanz-Kompensation
 
