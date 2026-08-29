@@ -1,19 +1,21 @@
 # pomowunk <accounts+gthb@felixir.de>, 2021, 2025.
 # Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024, 2025.
+# Extrutex <w1indt@outlook.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-07-07 01:37+0200\n"
-"PO-Revision-Date: 2025-07-22 08:12+0000\n"
-"Last-Translator: pomowunk <accounts+gthb@felixir.de>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/klipper/features/de/>\n"
+"PO-Revision-Date: 2026-08-28 18:51+0000\n"
+"Last-Translator: Extrutex <w1indt@outlook.com>\n"
+"Language-Team: German <https://hosted.weblate.org/projects/klipper/features/"
+"de/>\n"
 "Language: de\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 2026.9.dev0\n"
 
 msgid "Klipper has several compelling features:"
 msgstr "Klipper hat viele überzeugende Funktionen:"
@@ -134,6 +136,10 @@ msgid ""
 "height calibration as well as an enhanced X and Y dimension calibration. The "
 "calibration can be done with a Z height probe or via manual probing."
 msgstr ""
+"Unterstützung für die automatische Delta-Kalibrierung. Das Kalibrierwerkzeug "
+"kann sowohl eine grundlegende Höhenkalibrierung als auch eine erweiterte "
+"Kalibrierung der X- und Y-Dimension durchführen. Die Kalibrierung kann mit "
+"einer Z-Höhensonde oder durch manuelles Abtasten erfolgen."
 
 msgid "Basic thermal heater protection enabled by default."
 msgstr "Einfache Schutzfunktion für Heizelemente, standardmäßig aktiviert."
@@ -156,6 +162,13 @@ msgid ""
 "direction will be optimized to reduce print stalls and improve overall print "
 "time."
 msgstr ""
+"Unterstützung für konstante Beschleunigung und \"Look-ahead\". Alle "
+"Druckerbewegungen beschleunigen schrittweise aus dem Stillstand auf "
+"Reisegeschwindigkeit und bremsen anschließend wieder bis zum Stillstand ab. "
+"Der eingehende Strom von G-Code-Bewegungsbefehlen wird in eine Warteschlange "
+"eingereiht und analysiert - die Beschleunigung zwischen Bewegungen in "
+"ähnlicher Richtung wird optimiert, um Druckstockungen zu reduzieren und die "
+"Gesamtdruckzeit zu verbessern."
 
 msgid ""
 "Klipper implements a \"stepper phase endstop\" algorithm that can improve the "
@@ -236,6 +249,8 @@ msgid ""
 "Support for filament presence sensors, filament motion sensors, and filament "
 "width sensors."
 msgstr ""
+"Unterstützung für Filamentanwesenheitssensoren, Filamentbewegungssensoren "
+"und Filamentbreitensensoren."
 
 #: docs/Features.md:block 10 (table)
 msgid "1 stepper active"
@@ -441,6 +456,18 @@ msgid ""
 " physics of the machine kinematics. More precise stepper movement provides "
 "quieter and more stable printer operation."
 msgstr ""
+"Hochpräzise Schrittmotorbewegung. Klipper nutzt für die Berechnung der "
+"Druckerbewegungen einen Anwendungsprozessor (zum Beispiel einen "
+"kostengünstigen Raspberry Pi). Der Anwendungsprozessor bestimmt, wann jeder "
+"Schrittmotor einen Schritt ausführen soll, komprimiert diese Ereignisse, "
+"überträgt sie an den Mikrocontroller, und der Mikrocontroller führt "
+"anschließend jedes Ereignis zum angeforderten Zeitpunkt aus. Jedes "
+"Schrittereignis wird mit einer Genauigkeit von 25 Mikrosekunden oder besser "
+"eingeplant. Die Software verwendet keine kinematischen Schätzverfahren (wie "
+"den Bresenham-Algorithmus) - stattdessen berechnet sie exakte Schrittzeiten "
+"auf Basis der Physik der Beschleunigung und der Physik der "
+"Maschinenkinematik. Eine präzisere Schrittmotorbewegung ermöglicht einen "
+"leiseren und stabileren Druckerbetrieb."
 
 #: docs/Features.md:block 3 (unordered list)
 msgid ""
@@ -451,6 +478,13 @@ msgid ""
 " makes it easier to use available hardware, to upgrade to new hardware, and to"
 " have confidence in the hardware."
 msgstr ""
+"Klipper ist hardwareunabhängig. Man sollte unabhängig von der Low-Level-"
+"Elektronik dasselbe präzise Timing erhalten. Der Klipper-Mikrocontroller-"
+"Code ist so ausgelegt, dass er dem von der Klipper-Host-Software "
+"vorgegebenen Zeitplan getreu folgt (oder den Benutzer deutlich darauf "
+"hinweist, wenn ihm das nicht möglich ist). Das erleichtert die Nutzung "
+"vorhandener Hardware, die Aufrüstung auf neue Hardware und das Vertrauen in "
+"die Hardware."
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
@@ -476,6 +510,9 @@ msgid ""
 "Run-time \"exclude object\" support. When configured, this module may "
 "facilitate canceling of just one object in a multi-part print."
 msgstr ""
+"Unterstützung für \"exclude object\" zur Laufzeit. Nach entsprechender "
+"Konfiguration kann dieses Modul den Abbruch nur eines einzelnen Objekts "
+"innerhalb eines Mehrteiledrucks ermöglichen."
 
 #: docs/Features.md:block 3 (unordered list)
 msgid ""
@@ -486,6 +523,13 @@ msgid ""
 "higher print velocities. The stepper event timing remains precise even at high"
 " speeds which improves overall stability."
 msgstr ""
+"Erstklassige Leistung. Klipper erreicht sowohl auf neuen als auch auf "
+"älteren Mikrocontrollern hohe Schrittraten. Selbst alte 8-Bit-"
+"Mikrocontroller können Raten von über 175K Schritten pro Sekunde erreichen. "
+"Auf neueren Mikrocontrollern sind mehrere Millionen Schritte pro Sekunde "
+"möglich. Höhere Schrittraten ermöglichen höhere Druckgeschwindigkeiten. Das "
+"Timing der Schrittereignisse bleibt auch bei hohen Geschwindigkeiten "
+"präzise, was die Gesamtstabilität verbessert."
 
 #: docs/Features.md:block 10 (table)
 msgid "AR100"
@@ -501,27 +545,27 @@ msgstr "2507K"
 
 #: docs/Features.md:block 10 (table)
 msgid "RP2350"
-msgstr ""
+msgstr "RP2350"
 
 #: docs/Features.md:block 10 (table)
 msgid "4167K"
-msgstr ""
+msgstr "4167K"
 
 #: docs/Features.md:block 10 (table)
 msgid "2663K"
-msgstr ""
+msgstr "2663K"
 
 #: docs/Features.md:block 10 (table)
 msgid "SAME70"
-msgstr ""
+msgstr "SAME70"
 
 #: docs/Features.md:block 10 (table)
 msgid "6667K"
-msgstr ""
+msgstr "6667K"
 
 #: docs/Features.md:block 10 (table)
 msgid "4737K"
-msgstr ""
+msgstr "4737K"
 
 #: docs/Features.md:block 3 (unordered list)
 msgid ""
