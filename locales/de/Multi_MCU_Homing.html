@@ -170,6 +170,12 @@
                 </li>
                 
                 <li class="md-select__item">
+                  <a href="/de/" hreflang="de" class="md-select__link">
+                    Deutsch
+                  </a>
+                </li>
+                
+                <li class="md-select__item">
                   <a href="/it/" hreflang="it" class="md-select__link">
                     Italiano
                   </a>
@@ -1354,11 +1360,11 @@
 <p>Klipper unterstützt einen Mechanismus für das Homen mit einem Endstopp, welcher an einen Mikrocontroller angeschlossen ist, während die Steppermotoren an einen anderen Mikrocontroller angeschlossen sind. Diese Unterstützung wird "multi-mcu homing" genannt. Dieses Feature wird ebenfalls benutzt, wenn eine Z-Sonde an einem anderen Mikrocontroller angeschlossen ist, als die dazugehörigen Z-Steppermotoren.</p>
 <p>Dieses Feature kann zur Vereinfachung der Verkabelung nützlich sein, da es einfacher sein könnte, einen Endstopp oder eine Sonde an einen näheren Mikrocontroller anzuschließen. Dieses Feature kann allerdings zum "overshoot" der Steppermotoren beim Homing und Probing führen.</p>
 <p>Der "overshoot" wird ausgelöst durch die eventuelle Verzögerung der Nachrichtenübertragung zwischen dem überwachenden Mikrocontroller und dem Mikrocontroller, welcher die Steppermotoren antreibt. Der Klipper-Code ist so entworfen, dass diese Verzögerung auf maximal 25ms reduziert wird. (Wenn Multi-MCU Homing aktiviert ist, sendet der Mikrocontroller periodische Statusnachrichten und prüft, dass diese innerhalb von 25ms empfangen werden.)</p>
-<p>So, for example, if homing at 10mm/s then it is possible for an overshoot of up to 0.250mm (10mm/s * .025s == 0.250mm). Care should be taken when configuring multi-mcu homing to account for this type of overshoot. Using slower homing or probing speeds can reduce the overshoot.</p>
-<p>Stepper motor overshoot should not adversely impact the precision of the homing and probing procedure. The Klipper code will detect the overshoot and account for it in its calculations. However, it is important that the hardware design is capable of handling overshoot without causing damage to the machine.</p>
-<p>In order to use this "multi-mcu homing" capability the hardware must have predictably low latency between the host computer and all of the micro-controllers. Typically the round-trip time must be consistently less than 10ms. High latency (even for short periods) is likely to result in homing failures.</p>
+<p>Wird beispielsweise mit 10 mm/s gehomt, ist ein Überschwingen von bis zu 0,250 mm möglich (10 mm/s * 0,025 s == 0,250 mm). Bei der Konfiguration von Multi-MCU-Homing sollte diese Art von Überschwingen berücksichtigt werden. Langsamere Homing- oder Sondiergeschwindigkeiten können das Überschwingen verringern.</p>
+<p>Ein Überschwingen des Schrittmotors sollte die Präzision des Homing- und Sondiervorgangs nicht beeinträchtigen. Der Klipper-Code erkennt das Überschwingen und berücksichtigt es in seinen Berechnungen. Es ist jedoch wichtig, dass das Hardware-Design in der Lage ist, ein Überschwingen zu bewältigen, ohne die Maschine zu beschädigen.</p>
+<p>Um diese Funktion des "Multi-MCU-Homings" nutzen zu können, muss die Hardware eine verlässlich niedrige Latenz zwischen dem Host-Computer und allen Mikrocontrollern aufweisen. Üblicherweise muss die Round-Trip-Zeit durchgehend unter 10 ms liegen. Eine hohe Latenz (selbst für kurze Zeiträume) führt wahrscheinlich zu Homing-Fehlern.</p>
 <p>Sollte die hohe Latenzzeit zu einem Fehler führen (oder wenn ein anderes Kommunikationsproblem festgestellt wird), wird Klipper einen Fehler "Communication timeout during homing" melden.</p>
-<p>Note that an axis with multiple steppers (eg, <code>stepper_z</code> and <code>stepper_z1</code>) need to be on the same micro-controller in order to use multi-mcu homing. For example, if an endstop is on a separate micro-controller from <code>stepper_z</code> then <code>stepper_z1</code> must be on the same micro-controller as <code>stepper_z</code>.</p>
+<p>Beachten Sie, dass eine Achse mit mehreren Schrittmotoren (z. B. <code>stepper_z</code> und <code>stepper_z1</code>) sich auf demselben Mikrocontroller befinden muss, um Multi-MCU-Homing verwenden zu können. Befindet sich ein Endstop beispielsweise auf einem anderen Mikrocontroller als <code>stepper_z</code>, muss <code>stepper_z1</code> auf demselben Mikrocontroller wie <code>stepper_z</code> sein.</p>
 
               
             </article>

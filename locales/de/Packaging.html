@@ -13,7 +13,7 @@
     
     
       
-        <title>Packaging Klipper - Klipper documentation</title>
+        <title>Klipper paketieren - Klipper documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#packaging-klipper" class="md-skip">
+        <a href="#klipper-paketieren" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Packaging Klipper
+              Klipper paketieren
             
           </span>
         </div>
@@ -166,6 +166,12 @@
                 <li class="md-select__item">
                   <a href="/hu/" hreflang="hu" class="md-select__link">
                     Magyar
+                  </a>
+                </li>
+                
+                <li class="md-select__item">
+                  <a href="/de/" hreflang="de" class="md-select__link">
+                    Deutsch
                   </a>
                 </li>
                 
@@ -1356,15 +1362,15 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#versioning" class="md-nav__link">
-    Versioning
+  <a href="#versionierung" class="md-nav__link">
+    Versionierung
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#sample-packaging-script" class="md-nav__link">
-    Sample packaging script
+  <a href="#beispiel-packaging-skript" class="md-nav__link">
+    Beispiel-Packaging-Skript
   </a>
   
 </li>
@@ -1386,16 +1392,16 @@
 </a>
 
 
-<h1 id="packaging-klipper">Packaging Klipper<a class="headerlink" href="#packaging-klipper" title="Permanent link">&para;</a></h1>
+<h1 id="klipper-paketieren">Klipper paketieren<a class="headerlink" href="#klipper-paketieren" title="Permanent link">&para;</a></h1>
 <p>Klipper ist so etwas wie eine Paketierungsanomalie unter den Python-Programmen, da es setuptools nicht zum Bauen und Installieren verwendet. Einige Hinweise, wie man es am besten verpackt, sind wie folgt:</p>
 <h2 id="c-module">C-Module<a class="headerlink" href="#c-module" title="Permanent link">&para;</a></h2>
 <p>Klipper verwendet ein C-Modul, um einige Kinematikberechnungen schneller zu handhaben. Dieses Modul muss zur Vermeidung einer Laufzeitabhängigkeit zur Paketierungszeit kompiliert werden. Um das C-Modul zu kompilieren, führen Sie <code>python2 klippy/chelper/__init__.py</code> aus.</p>
 <h2 id="python-code-kompilieren">Python Code kompilieren<a class="headerlink" href="#python-code-kompilieren" title="Permanent link">&para;</a></h2>
-<p>Many distributions have a policy of compiling all python code before packaging to improve startup time. You can do this by running <code>python2 -m compileall klippy</code>.</p>
-<h2 id="versioning">Versioning<a class="headerlink" href="#versioning" title="Permanent link">&para;</a></h2>
-<p>If you are building a package of Klipper from git, it is usual practice not to ship a .git directory, so the versioning must be handled without git. To do this, use the script shipped in <code>scripts/make_version.py</code> which should be run as follows: <code>python2 scripts/make_version.py YOURDISTRONAME &gt; klippy/.version</code>.</p>
-<h2 id="sample-packaging-script">Sample packaging script<a class="headerlink" href="#sample-packaging-script" title="Permanent link">&para;</a></h2>
-<p>klipper-git is packaged for Arch Linux, and has a PKGBUILD (package build script) available at <a href="https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper-git">Arch User Repository</a>.</p>
+<p>Viele Distributionen verfolgen die Richtlinie, den gesamten Python-Code vor dem Packaging zu kompilieren, um die Startzeit zu verbessern. Dies lässt sich mit dem Befehl <code>python2 -m compileall klippy</code> erreichen.</p>
+<h2 id="versionierung">Versionierung<a class="headerlink" href="#versionierung" title="Permanent link">&para;</a></h2>
+<p>Wenn Sie ein Paket von Klipper aus git erstellen, ist es übliche Praxis, kein .git-Verzeichnis auszuliefern - daher muss die Versionierung ohne git erfolgen. Verwenden Sie dazu das Skript <code>scripts/make_version.py</code>, das wie folgt ausgeführt werden sollte: <code>python2 scripts/make_version.py YOURDISTRONAME &gt; klippy/.version</code>.</p>
+<h2 id="beispiel-packaging-skript">Beispiel-Packaging-Skript<a class="headerlink" href="#beispiel-packaging-skript" title="Permanent link">&para;</a></h2>
+<p>klipper-git ist für Arch Linux paketiert und verfügt über ein PKGBUILD (Paket-Build-Skript), das im <a href="https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper-git">Arch User Repository</a> verfügbar ist.</p>
 
               
             </article>

@@ -1,16 +1,18 @@
 # Stefan Dej <meteyou@gmail.com>, 2022, 2025.
 # Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024, 2025.
+# Extrutex <w1indt@outlook.com>, 2026.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-07-22 08:14+0000\n"
-"Last-Translator: Stefan Dej <meteyou@gmail.com>\n"
-"Language-Team: German <https://hosted.weblate.org/projects/klipper/index/de/>\n"
+"PO-Revision-Date: 2026-08-29 18:46+0000\n"
+"Last-Translator: Extrutex <w1indt@outlook.com>\n"
+"Language-Team: German <https://hosted.weblate.org/projects/klipper/index/de/>"
+"\n"
 "Language: de\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 2026.9.dev0\n"
 
 #: docs/index.md:block 1 (paragraph)
 msgid "hide:"
@@ -31,10 +33,15 @@ msgid ""
 "document](Features.md) for more information on why you should use the Klipper "
 "software."
 msgstr ""
+"Die Klipper-Firmware steuert 3D-Drucker. Sie kombiniert die "
+"Leistungsfähigkeit eines Allzweckcomputers mit einem oder mehreren "
+"Mikrocontrollern. Weitere Informationen dazu, warum Sie die Klipper-Software "
+"verwenden sollten, finden Sie im [Funktionsdokument](Features.md)."
 
 #: docs/index.md:block 5 (paragraph)
 msgid "Start by [installing Klipper software](Installation.md)."
 msgstr ""
+"Beginnen Sie mit der [Installation der Klipper-Software](Installation.md)."
 
 #: docs/index.md:block 6 (paragraph)
 msgid ""
@@ -43,6 +50,10 @@ msgid ""
 " the software. We depend on the generous support from our "
 "[sponsors](Sponsors.md)."
 msgstr ""
+"Die Klipper-Software ist Freie Software. Lesen Sie die [Dokumentation]"
+"(Overview.md), sehen Sie sich die [Lizenz](../COPYING) an oder [laden Sie]"
+"(https://github.com/Klipper3d/Klipper) die Software herunter. Wir sind auf "
+"die großzügige Unterstützung unserer [Sponsoren](Sponsors.md) angewiesen."
 
 #~ msgid ""
 #~ "Klipper is a 3d-Printer firmware. It combines the power of a general purpose "

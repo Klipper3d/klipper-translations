@@ -170,6 +170,12 @@
                 </li>
                 
                 <li class="md-select__item">
+                  <a href="/de/" hreflang="de" class="md-select__link">
+                    Deutsch
+                  </a>
+                </li>
+                
+                <li class="md-select__item">
                   <a href="/it/" hreflang="it" class="md-select__link">
                     Italiano
                   </a>
@@ -1364,8 +1370,8 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#minimum-cruise-ratio" class="md-nav__link">
-    Minimum cruise ratio
+  <a href="#mindestanteil-der-konstantfahrt" class="md-nav__link">
+    Mindestanteil der Konstantfahrt
   </a>
   
 </li>
@@ -1450,59 +1456,59 @@
 <h1 id="kinematik">Kinematik<a class="headerlink" href="#kinematik" title="Permanent link">&para;</a></h1>
 <p>Dieses Dokument gibt einen Überblick darüber, wie Klipper die Roboterbewegung implementiert (seine <a href="https://en.wikipedia.org/wiki/Kinematics">Kinematik</a>). Der Inhalt kann sowohl für Entwickler, die an der Klipper-Software arbeiten wollen, als auch für Benutzer, die jene Mechanik ihrer Maschinen besser verstehen wollen, von Interesse sein.</p>
 <h2 id="beschleunigung">Beschleunigung<a class="headerlink" href="#beschleunigung" title="Permanent link">&para;</a></h2>
-<p>Klipper implements a constant acceleration scheme whenever the print head changes velocity - the velocity is gradually changed to the new speed instead of suddenly jerking to it. Klipper always enforces acceleration between the tool head and the print. The filament leaving the extruder can be quite fragile - rapid jerks and/or extruder flow changes lead to poor quality and poor bed adhesion. Even when not extruding, if the print head is at the same level as the print then rapid jerking of the head can cause disruption of recently deposited filament. Limiting speed changes of the print head (relative to the print) reduces risks of disrupting the print.</p>
-<p>It is also important to limit acceleration so that the stepper motors do not skip or put excessive stress on the machine. Klipper limits the torque on each stepper by virtue of limiting the acceleration of the print head. Enforcing acceleration at the print head naturally also limits the torque of the steppers that move the print head (the inverse is not always true).</p>
-<p>Klipper implements constant acceleration. The key formula for constant acceleration is:</p>
+<p>Klipper setzt bei jeder Geschwindigkeitsänderung des Druckkopfes ein Schema mit konstanter Beschleunigung um - die Geschwindigkeit wird schrittweise auf den neuen Wert geändert, statt ruckartig darauf zu springen. Klipper erzwingt die Beschleunigungsbegrenzung stets zwischen Druckkopf und Druckteil. Das den Extruder verlassende Filament kann recht empfindlich sein - schnelle Rucke und/oder Änderungen des Extruderflusses führen zu schlechter Qualität und schlechter Bettadhäsion. Auch wenn nicht extrudiert wird, kann ruckartiges Bewegen des Kopfes bereits abgelegtes Filament stören, sofern sich der Druckkopf auf derselben Höhe wie das Druckteil befindet. Die Begrenzung der Geschwindigkeitsänderungen des Druckkopfes (relativ zum Druckteil) verringert das Risiko, den Druck zu stören.</p>
+<p>Ebenso wichtig ist die Begrenzung der Beschleunigung, damit die Schrittmotoren keine Schritte verlieren und die Maschine nicht übermäßig belastet wird. Klipper begrenzt das Drehmoment jedes Schrittmotors dadurch, dass es die Beschleunigung des Druckkopfes begrenzt. Eine am Druckkopf erzwungene Beschleunigungsbegrenzung begrenzt naturgemäß auch das Drehmoment der Schrittmotoren, die den Druckkopf bewegen (umgekehrt gilt das nicht immer).</p>
+<p>Klipper setzt konstante Beschleunigung um. Die zentrale Formel für konstante Beschleunigung lautet:</p>
 <div class="highlight"><pre><span></span><code>velocity(time) = start_velocity + accel*time
 </code></pre></div>
 
 <h2 id="trapezform-generator">Trapezform Generator<a class="headerlink" href="#trapezform-generator" title="Permanent link">&para;</a></h2>
-<p>Klipper uses a traditional "trapezoid generator" to model the motion of each move - each move has a start speed, it accelerates to a cruising speed at constant acceleration, it cruises at a constant speed, and then decelerates to the end speed using constant acceleration.</p>
+<p>Klipper verwendet einen klassischen "Trapezgenerator", um die Bewegung jeder Fahrbewegung zu modellieren - jede Bewegung hat eine Startgeschwindigkeit, beschleunigt mit konstanter Beschleunigung auf eine Reisegeschwindigkeit, fährt mit konstanter Geschwindigkeit und bremst dann mit konstanter Beschleunigung auf die Endgeschwindigkeit ab.</p>
 <p><img alt="trapezoid" src="img/trapezoid.svg.png" /></p>
-<p>It's called a "trapezoid generator" because a velocity diagram of the move looks like a trapezoid.</p>
-<p>The cruising speed is always greater than or equal to both the start speed and the end speed. The acceleration phase may be of zero duration (if the start speed is equal to the cruising speed), the cruising phase may be of zero duration (if the move immediately starts decelerating after acceleration), and/or the deceleration phase may be of zero duration (if the end speed is equal to the cruising speed).</p>
+<p>Er heißt "Trapezgenerator", weil das Geschwindigkeitsdiagramm der Bewegung wie ein Trapez aussieht.</p>
+<p>Die Reisegeschwindigkeit ist stets größer oder gleich der Start- und der Endgeschwindigkeit. Die Beschleunigungsphase kann die Dauer null haben (wenn die Startgeschwindigkeit gleich der Reisegeschwindigkeit ist), die Konstantfahrphase kann die Dauer null haben (wenn die Bewegung unmittelbar nach dem Beschleunigen abzubremsen beginnt) und/oder die Bremsphase kann die Dauer null haben (wenn die Endgeschwindigkeit gleich der Reisegeschwindigkeit ist).</p>
 <p><img alt="trapezoids" src="img/trapezoids.svg.png" /></p>
 <h2 id="look-ahead">Look-ahead<a class="headerlink" href="#look-ahead" title="Permanent link">&para;</a></h2>
-<p>The "look-ahead" system is used to determine cornering speeds between moves.</p>
-<p>Consider the following two moves contained on an XY plane:</p>
+<p>Das "Look-ahead"-System dient dazu, die Eckgeschwindigkeiten zwischen Bewegungen zu bestimmen.</p>
+<p>Betrachten Sie die folgenden zwei Bewegungen in einer XY-Ebene:</p>
 <p><img alt="corner" src="img/corner.svg.png" /></p>
-<p>In the above situation it is possible to fully decelerate after the first move and then fully accelerate at the start of the next move, but that is not ideal as all that acceleration and deceleration would greatly increase the print time and the frequent changes in extruder flow would result in poor print quality.</p>
-<p>To solve this, the "look-ahead" mechanism queues multiple incoming moves and analyzes the angles between moves to determine a reasonable speed that can be obtained during the "junction" between two moves. If the next move is nearly in the same direction then the head need only slow down a little (if at all).</p>
+<p>In der obigen Situation wäre es möglich, nach der ersten Bewegung vollständig abzubremsen und zu Beginn der nächsten Bewegung wieder vollständig zu beschleunigen; das ist jedoch nicht ideal, da all dieses Beschleunigen und Abbremsen die Druckzeit stark erhöhen würde und die häufigen Änderungen des Extruderflusses zu schlechter Druckqualität führen würden.</p>
+<p>Um dies zu lösen, reiht der "Look-ahead"-Mechanismus mehrere eingehende Bewegungen in eine Warteschlange ein und analysiert die Winkel zwischen den Bewegungen, um eine sinnvolle Geschwindigkeit für den Übergang zwischen zwei Bewegungen zu bestimmen. Verläuft die nächste Bewegung nahezu in derselben Richtung, muss der Kopf nur wenig (wenn überhaupt) abbremsen.</p>
 <p><img alt="lookahead" src="img/lookahead.svg.png" /></p>
-<p>However, if the next move forms an acute angle (the head is going to travel in nearly a reverse direction on the next move) then only a small junction speed is permitted.</p>
+<p>Bildet die nächste Bewegung jedoch einen spitzen Winkel (der Kopf fährt in der nächsten Bewegung nahezu in die Gegenrichtung), ist nur eine geringe Übergangsgeschwindigkeit zulässig.</p>
 <p><img alt="lookahead" src="img/lookahead-slow.svg.png" /></p>
-<p>The junction speeds are determined using "approximated centripetal acceleration". Best <a href="https://onehossshay.wordpress.com/2011/09/24/improving_grbl_cornering_algorithm/">described by the author</a>. However, in Klipper, junction speeds are configured by specifying the desired speed that a 90° corner should have (the "square corner velocity"), and the junction speeds for other angles are derived from that.</p>
+<p>Die Übergangsgeschwindigkeiten werden über eine "angenäherte Zentripetalbeschleunigung" bestimmt. Am besten <a href="https://onehossshay.wordpress.com/2011/09/24/improving_grbl_cornering_algorithm/">vom Autor beschrieben</a>. In Klipper werden die Übergangsgeschwindigkeiten jedoch konfiguriert, indem man die gewünschte Geschwindigkeit für eine 90°-Ecke angibt (die "square corner velocity"); die Übergangsgeschwindigkeiten für andere Winkel werden daraus abgeleitet.</p>
 <p>Schlüsselformel für Look-ahead:</p>
 <div class="highlight"><pre><span></span><code>end_velocity^2 = start_velocity^2 + 2*accel*move_distance
 </code></pre></div>
 
-<h3 id="minimum-cruise-ratio">Minimum cruise ratio<a class="headerlink" href="#minimum-cruise-ratio" title="Permanent link">&para;</a></h3>
-<p>Klipper also implements a mechanism for smoothing out the motions of short "zigzag" moves. Consider the following moves:</p>
+<h3 id="mindestanteil-der-konstantfahrt">Mindestanteil der Konstantfahrt<a class="headerlink" href="#mindestanteil-der-konstantfahrt" title="Permanent link">&para;</a></h3>
+<p>Klipper setzt außerdem einen Mechanismus um, der die Bewegungen kurzer "Zickzack"-Fahrbewegungen glättet. Betrachten Sie die folgenden Bewegungen:</p>
 <p><img alt="zigzag" src="img/zigzag.svg.png" /></p>
-<p>In the above, the frequent changes from acceleration to deceleration can cause the machine to vibrate which causes stress on the machine and increases the noise. Klipper implements a mechanism to ensure there is always some movement at a cruising speed between acceleration and deceleration. This is done by reducing the top speed of some moves (or sequence of moves) to ensure there is a minimum distance traveled at cruising speed relative to the distance traveled during acceleration and deceleration.</p>
-<p>Klipper implements this feature by tracking both a regular move acceleration as well as a virtual "acceleration to deceleration" rate:</p>
+<p>Im obigen Fall kann der häufige Wechsel zwischen Beschleunigen und Abbremsen die Maschine zum Schwingen bringen, was sie belastet und die Geräuschentwicklung erhöht. Klipper setzt einen Mechanismus um, der sicherstellt, dass zwischen Beschleunigung und Abbremsung stets ein gewisser Anteil an Fahrt mit Reisegeschwindigkeit liegt. Dazu wird die Höchstgeschwindigkeit einzelner Bewegungen (oder Bewegungsfolgen) so weit reduziert, dass eine Mindeststrecke mit Reisegeschwindigkeit zurückgelegt wird - im Verhältnis zur Strecke, die während Beschleunigung und Abbremsung zurückgelegt wird.</p>
+<p>Klipper setzt diese Funktion um, indem es sowohl eine reguläre Bewegungsbeschleunigung als auch eine virtuelle Rate für den "Übergang von Beschleunigung zu Abbremsung" führt:</p>
 <p><img alt="smoothed" src="img/smoothed.svg.png" /></p>
-<p>Specifically, the code calculates what the velocity of each move would be if it were limited to this virtual "acceleration to deceleration" rate. In the above picture the dashed gray lines represent this virtual acceleration rate for the first move. If a move can not reach its full cruising speed using this virtual acceleration rate then its top speed is reduced to the maximum speed it could obtain at this virtual acceleration rate.</p>
-<p>For most moves the limit will be at or above the move's existing limits and no change in behavior is induced. For short zigzag moves, however, this limit reduces the top speed. Note that it does not change the actual acceleration within the move - the move continues to use the normal acceleration scheme up to its adjusted top-speed.</p>
+<p>Konkret berechnet der Code, welche Geschwindigkeit jede Bewegung hätte, wenn sie auf diese virtuelle Rate für den Übergang von Beschleunigung zu Abbremsung begrenzt wäre. In der obigen Abbildung stellen die gestrichelten grauen Linien diese virtuelle Beschleunigungsrate für die erste Bewegung dar. Kann eine Bewegung mit dieser virtuellen Beschleunigungsrate ihre volle Reisegeschwindigkeit nicht erreichen, wird ihre Höchstgeschwindigkeit auf den Wert reduziert, den sie mit dieser virtuellen Beschleunigungsrate erreichen könnte.</p>
+<p>Bei den meisten Bewegungen liegt diese Grenze auf oder oberhalb der ohnehin bestehenden Grenzen der Bewegung, sodass sich das Verhalten nicht ändert. Bei kurzen Zickzack-Bewegungen verringert diese Grenze jedoch die Höchstgeschwindigkeit. Beachten Sie, dass sich die tatsächliche Beschleunigung innerhalb der Bewegung dadurch nicht ändert - die Bewegung nutzt weiterhin das normale Beschleunigungsschema bis zu ihrer angepassten Höchstgeschwindigkeit.</p>
 <h2 id="schritte-generieren">Schritte generieren<a class="headerlink" href="#schritte-generieren" title="Permanent link">&para;</a></h2>
-<p>Once the look-ahead process completes, the print head movement for the given move is fully known (time, start position, end position, velocity at each point) and it is possible to generate the step times for the move. This process is done within "kinematic classes" in the Klipper code. Outside of these kinematic classes, everything is tracked in millimeters, seconds, and in cartesian coordinate space. It's the task of the kinematic classes to convert from this generic coordinate system to the hardware specifics of the particular printer.</p>
-<p>Klipper uses an <a href="https://en.wikipedia.org/wiki/Root-finding_algorithm">iterative solver</a> to generate the step times for each stepper. The code contains the formulas to calculate the ideal cartesian coordinates of the head at each moment in time, and it has the kinematic formulas to calculate the ideal stepper positions based on those cartesian coordinates. With these formulas, Klipper can determine the ideal time that the stepper should be at each step position. The given steps are then scheduled at these calculated times.</p>
-<p>The key formula to determine how far a move should travel under constant acceleration is:</p>
+<p>Sobald der Look-ahead-Vorgang abgeschlossen ist, ist die Druckkopfbewegung für die betreffende Fahrbewegung vollständig bekannt (Zeit, Startposition, Endposition, Geschwindigkeit an jedem Punkt) und es können die Schrittzeitpunkte für die Bewegung erzeugt werden. Dieser Vorgang findet in den "Kinematikklassen" des Klipper-Codes statt. Außerhalb dieser Kinematikklassen wird alles in Millimetern, Sekunden und im kartesischen Koordinatenraum geführt. Aufgabe der Kinematikklassen ist es, aus diesem allgemeinen Koordinatensystem in die Hardwarebesonderheiten des jeweiligen Druckers umzurechnen.</p>
+<p>Klipper verwendet einen <a href="https://de.wikipedia.org/wiki/Nullstellenverfahren">iterativen Löser</a>, um die Schrittzeitpunkte für jeden Schrittmotor zu erzeugen. Der Code enthält die Formeln zur Berechnung der idealen kartesischen Koordinaten des Kopfes zu jedem Zeitpunkt sowie die kinematischen Formeln zur Berechnung der idealen Schrittmotorpositionen aus diesen kartesischen Koordinaten. Mit diesen Formeln kann Klipper den idealen Zeitpunkt bestimmen, zu dem sich der Schrittmotor an der jeweiligen Schrittposition befinden soll. Die betreffenden Schritte werden anschließend zu diesen berechneten Zeitpunkten eingeplant.</p>
+<p>Die zentrale Formel zur Bestimmung der bei konstanter Beschleunigung zurückgelegten Wegstrecke lautet:</p>
 <div class="highlight"><pre><span></span><code>move_distance = (start_velocity + .5 * accel * move_time) * move_time
 </code></pre></div>
 
-<p>and the key formula for movement with constant velocity is:</p>
+<p>und die zentrale Formel für eine Bewegung mit konstanter Geschwindigkeit lautet:</p>
 <div class="highlight"><pre><span></span><code>move_distance = cruise_velocity * move_time
 </code></pre></div>
 
-<p>The key formulas for determining the cartesian coordinate of a move given a move distance is:</p>
+<p>Die zentralen Formeln zur Bestimmung der kartesischen Koordinate einer Bewegung bei gegebener Wegstrecke lauten:</p>
 <div class="highlight"><pre><span></span><code>cartesian_x_position = start_x + move_distance * total_x_movement / total_movement
 cartesian_y_position = start_y + move_distance * total_y_movement / total_movement
 cartesian_z_position = start_z + move_distance * total_z_movement / total_movement
 </code></pre></div>
 
 <h3 id="kartesische-roboter">Kartesische Roboter<a class="headerlink" href="#kartesische-roboter" title="Permanent link">&para;</a></h3>
-<p>Generating steps for cartesian printers is the simplest case. The movement on each axis is directly related to the movement in cartesian space.</p>
+<p>Das Erzeugen von Schritten für kartesische Drucker ist der einfachste Fall. Die Bewegung auf jeder Achse steht in unmittelbarem Zusammenhang mit der Bewegung im kartesischen Raum.</p>
 <p>Schlüsselformeln:</p>
 <div class="highlight"><pre><span></span><code>stepper_x_position = cartesian_x_position
 stepper_y_position = cartesian_y_position
@@ -1510,14 +1516,14 @@ stepper_z_position = cartesian_z_position
 </code></pre></div>
 
 <h3 id="corexy-roboter">CoreXY Roboter<a class="headerlink" href="#corexy-roboter" title="Permanent link">&para;</a></h3>
-<p>Generating steps on a CoreXY machine is only a little more complex than basic cartesian robots. The key formulas are:</p>
+<p>Das Erzeugen von Schritten auf einer CoreXY-Maschine ist nur wenig komplexer als bei einfachen kartesischen Robotern. Die zentralen Formeln lauten:</p>
 <div class="highlight"><pre><span></span><code>stepper_a_position = cartesian_x_position + cartesian_y_position
 stepper_b_position = cartesian_x_position - cartesian_y_position
 stepper_z_position = cartesian_z_position
 </code></pre></div>
 
 <h3 id="delta-roboter">Delta Roboter<a class="headerlink" href="#delta-roboter" title="Permanent link">&para;</a></h3>
-<p>Step generation on a delta robot is based on Pythagoras's theorem:</p>
+<p>Die Schritterzeugung bei einem Delta-Roboter beruht auf dem Satz des Pythagoras:</p>
 <div class="highlight"><pre><span></span><code>stepper_position = (sqrt(arm_length^2
 
                          - (cartesian_x_position - tower_x_position)^2
@@ -1526,27 +1532,27 @@ stepper_z_position = cartesian_z_position
 </code></pre></div>
 
 <h3 id="schrittmotor-beschleunigungsgrenzwerte">Schrittmotor Beschleunigungsgrenzwerte<a class="headerlink" href="#schrittmotor-beschleunigungsgrenzwerte" title="Permanent link">&para;</a></h3>
-<p>With delta kinematics it is possible for a move that is accelerating in cartesian space to require an acceleration on a particular stepper motor greater than the move's acceleration. This can occur when a stepper arm is more horizontal than vertical and the line of movement passes near that stepper's tower. Although these moves could require a stepper motor acceleration greater than the printer's maximum configured move acceleration, the effective mass moved by that stepper would be smaller. Thus the higher stepper acceleration does not result in significantly higher stepper torque and it is therefore considered harmless.</p>
-<p>However, to avoid extreme cases, Klipper enforces a maximum ceiling on stepper acceleration of three times the printer's configured maximum move acceleration. (Similarly, the maximum velocity of the stepper is limited to three times the maximum move velocity.) In order to enforce this limit, moves at the extreme edge of the build envelope (where a stepper arm may be nearly horizontal) will have a lower maximum acceleration and velocity.</p>
+<p>Bei Delta-Kinematik kann eine Bewegung, die im kartesischen Raum beschleunigt, an einem einzelnen Schrittmotor eine Beschleunigung erfordern, die größer ist als die Beschleunigung der Bewegung. Das kann auftreten, wenn ein Schrittmotorarm eher waagerecht als senkrecht steht und die Bewegungslinie nahe am Turm dieses Schrittmotors vorbeiführt. Obwohl solche Bewegungen eine Schrittmotorbeschleunigung oberhalb der maximal konfigurierten Bewegungsbeschleunigung des Druckers erfordern können, ist die von diesem Schrittmotor bewegte effektive Masse kleiner. Die höhere Schrittmotorbeschleunigung führt daher nicht zu einem wesentlich höheren Drehmoment und gilt folglich als unbedenklich.</p>
+<p>Um Extremfälle zu vermeiden, erzwingt Klipper jedoch eine Obergrenze für die Schrittmotorbeschleunigung in Höhe des Dreifachen der konfigurierten maximalen Bewegungsbeschleunigung des Druckers. (Entsprechend ist die Höchstgeschwindigkeit des Schrittmotors auf das Dreifache der maximalen Bewegungsgeschwindigkeit begrenzt.) Um diese Grenze einzuhalten, haben Bewegungen am äußersten Rand des Bauraums (wo ein Schrittmotorarm nahezu waagerecht stehen kann) eine geringere maximale Beschleunigung und Geschwindigkeit.</p>
 <h3 id="extruder-kinematik">Extruder Kinematik<a class="headerlink" href="#extruder-kinematik" title="Permanent link">&para;</a></h3>
-<p>Klipper implements extruder motion in its own kinematic class. Since the timing and speed of each print head movement is fully known for each move, it's possible to calculate the step times for the extruder independently from the step time calculations of the print head movement.</p>
-<p>Basic extruder movement is simple to calculate. The step time generation uses the same formulas that cartesian robots use:</p>
+<p>Klipper setzt die Extruderbewegung in einer eigenen Kinematikklasse um. Da Timing und Geschwindigkeit jeder Druckkopfbewegung für jede Fahrbewegung vollständig bekannt sind, lassen sich die Schrittzeitpunkte für den Extruder unabhängig von der Berechnung der Schrittzeitpunkte der Druckkopfbewegung berechnen.</p>
+<p>Die grundlegende Extruderbewegung ist einfach zu berechnen. Die Erzeugung der Schrittzeitpunkte verwendet dieselben Formeln wie bei kartesischen Robotern:</p>
 <div class="highlight"><pre><span></span><code>stepper_position = requested_e_position
 </code></pre></div>
 
 <h3 id="druckvorschub">Druckvorschub<a class="headerlink" href="#druckvorschub" title="Permanent link">&para;</a></h3>
-<p>Experimentation has shown that it's possible to improve the modeling of the extruder beyond the basic extruder formula. In the ideal case, as an extrusion move progresses, the same volume of filament should be deposited at each point along the move and there should be no volume extruded after the move. Unfortunately, it's common to find that the basic extrusion formulas cause too little filament to exit the extruder at the start of extrusion moves and for excess filament to extrude after extrusion ends. This is often referred to as "ooze".</p>
+<p>Versuche haben gezeigt, dass sich die Modellierung des Extruders über die grundlegende Extruderformel hinaus verbessern lässt. Im Idealfall sollte im Verlauf einer Extrusionsbewegung an jedem Punkt der Bewegung dasselbe Filamentvolumen abgelegt werden und nach der Bewegung kein weiteres Volumen austreten. Leider stellt man häufig fest, dass die grundlegenden Extrusionsformeln dazu führen, dass zu Beginn von Extrusionsbewegungen zu wenig Filament aus dem Extruder austritt und nach Ende der Extrusion überschüssiges Filament nachläuft. Dies wird häufig als "Ooze" bezeichnet.</p>
 <p><img alt="ooze" src="img/ooze.svg.png" /></p>
-<p>The "pressure advance" system attempts to account for this by using a different model for the extruder. Instead of naively believing that each mm^3 of filament fed into the extruder will result in that amount of mm^3 immediately exiting the extruder, it uses a model based on pressure. Pressure increases when filament is pushed into the extruder (as in <a href="https://en.wikipedia.org/wiki/Hooke%27s_law">Hooke's law</a>) and the pressure necessary to extrude is dominated by the flow rate through the nozzle orifice (as in <a href="https://en.wikipedia.org/wiki/Poiseuille_law">Poiseuille's law</a>). The key idea is that the relationship between filament, pressure, and flow rate can be modeled using a linear coefficient:</p>
+<p>Das System "Pressure Advance" versucht, dies durch ein anderes Extrudermodell zu berücksichtigen. Statt naiv anzunehmen, dass jeder in den Extruder eingezogene mm^3 Filament unmittelbar zu genau diesem Volumen am Extruderausgang führt, verwendet es ein druckbasiertes Modell. Der Druck steigt, wenn Filament in den Extruder geschoben wird (wie beim <a href="https://de.wikipedia.org/wiki/Hookesches_Gesetz">Hookeschen Gesetz</a>), und der zum Extrudieren erforderliche Druck wird maßgeblich von der Durchflussrate durch die Düsenöffnung bestimmt (wie beim <a href="https://de.wikipedia.org/wiki/Gesetz_von_Hagen-Poiseuille">Gesetz von Hagen-Poiseuille</a>). Der zentrale Gedanke ist, dass sich der Zusammenhang zwischen Filament, Druck und Durchflussrate über einen linearen Koeffizienten modellieren lässt:</p>
 <div class="highlight"><pre><span></span><code>pa_position = nominal_position + pressure_advance_coefficient * nominal_velocity
 </code></pre></div>
 
-<p>See the <a href="Pressure_Advance.html">pressure advance</a> document for information on how to find this pressure advance coefficient.</p>
-<p>The basic pressure advance formula can cause the extruder motor to make sudden velocity changes. Klipper implements "smoothing" of the extruder movement to avoid this.</p>
+<p>Informationen dazu, wie sich dieser Pressure-Advance-Koeffizient ermitteln lässt, finden Sie im Dokument <a href="Pressure_Advance.html">Pressure Advance</a>.</p>
+<p>Die grundlegende Pressure-Advance-Formel kann dazu führen, dass der Extrudermotor plötzliche Geschwindigkeitsänderungen ausführt. Klipper setzt eine "Glättung" der Extruderbewegung um, um dies zu vermeiden.</p>
 <p><img alt="pressure-advance" src="img/pressure-velocity.png" /></p>
-<p>The above graph shows an example of two extrusion moves with a non-zero cornering velocity between them. Note that the pressure advance system causes additional filament to be pushed into the extruder during acceleration. The higher the desired filament flow rate, the more filament must be pushed in during acceleration to account for pressure. During head deceleration the extra filament is retracted (the extruder will have a negative velocity).</p>
-<p>The "smoothing" is implemented using a weighted average of the extruder position over a small time period (as specified by the <code>pressure_advance_smooth_time</code> config parameter). This averaging can span multiple g-code moves. Note how the extruder motor will start moving prior to the nominal start of the first extrusion move and will continue to move after the nominal end of the last extrusion move.</p>
-<p>Key formula for "smoothed pressure advance":</p>
+<p>Die obige Grafik zeigt ein Beispiel mit zwei Extrusionsbewegungen und einer Eckgeschwindigkeit ungleich null dazwischen. Beachten Sie, dass das Pressure-Advance-System während der Beschleunigung zusätzliches Filament in den Extruder schiebt. Je höher die gewünschte Filamentdurchflussrate, desto mehr Filament muss während der Beschleunigung zum Druckaufbau nachgeschoben werden. Während des Abbremsens des Kopfes wird das zusätzliche Filament zurückgezogen (der Extruder hat dann eine negative Geschwindigkeit).</p>
+<p>Die "Glättung" wird über einen gewichteten Mittelwert der Extruderposition über einen kurzen Zeitraum umgesetzt (festgelegt über den Konfigurationsparameter <code>pressure_advance_smooth_time</code>). Diese Mittelung kann sich über mehrere G-Code-Bewegungen erstrecken. Beachten Sie, dass sich der Extrudermotor bereits vor dem nominellen Beginn der ersten Extrusionsbewegung in Bewegung setzt und sich nach dem nominellen Ende der letzten Extrusionsbewegung weiterbewegt.</p>
+<p>Zentrale Formel für "geglättetes Pressure Advance":</p>
 <div class="highlight"><pre><span></span><code>smooth_pa_position(t) =
     ( definitive_integral(pa_position(x) * (smooth_time/2 - abs(t - x)) * dx,
                           from=t-smooth_time/2, to=t+smooth_time/2)

@@ -170,6 +170,12 @@
                 </li>
                 
                 <li class="md-select__item">
+                  <a href="/de/" hreflang="de" class="md-select__link">
+                    Deutsch
+                  </a>
+                </li>
+                
+                <li class="md-select__item">
                   <a href="/it/" hreflang="it" class="md-select__link">
                     Italiano
                   </a>
@@ -1370,8 +1376,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#use-as-a-runout-switch-only" class="md-nav__link">
-    Use as a runout switch only
+  <a href="#nur-als-runout-schalter-verwenden" class="md-nav__link">
+    Nur als Runout-Schalter verwenden
   </a>
   
 </li>
@@ -1401,11 +1407,11 @@
 
 
 <h1 id="filament-dicken-hallsensor">Filament-Dicken Hallsensor<a class="headerlink" href="#filament-dicken-hallsensor" title="Permanent link">&para;</a></h1>
-<p>This document describes Filament Width Sensor host module. Hardware used for developing this host module is based on two Hall linear sensors (ss49e for example). Sensors in the body are located on opposite sides. Principle of operation: two hall sensors work in differential mode, temperature drift same for sensor. Special temperature compensation not needed.</p>
-<p>You can find designs at <a href="https://www.thingiverse.com/thing:4138933">Thingiverse</a>, an assembly video is also available on <a href="https://www.youtube.com/watch?v=TDO9tME8vp4">Youtube</a></p>
-<p>To use Hall filament width sensor, read <a href="Config_Reference.html#hall_filament_width_sensor">Config Reference</a> and <a href="G-Codes.html#hall_filament_width_sensor">G-Code documentation</a>.</p>
+<p>Dieses Dokument beschreibt das Host-Modul für den Filamentbreitensensor. Die für die Entwicklung dieses Host-Moduls verwendete Hardware basiert auf zwei linearen Hall-Sensoren (zum Beispiel ss49e). Die Sensoren befinden sich auf gegenüberliegenden Seiten des Gehäuses. Funktionsprinzip: Beide Hall-Sensoren arbeiten im Differenzmodus, die Temperaturdrift ist bei beiden Sensoren identisch. Eine spezielle Temperaturkompensation ist daher nicht erforderlich.</p>
+<p>Entwürfe finden Sie auf <a href="https://www.thingiverse.com/thing:4138933">Thingiverse</a>; ein Montagevideo ist außerdem auf <a href="https://www.youtube.com/watch?v=TDO9tME8vp4">YouTube</a> verfügbar</p>
+<p>Um den Hall-Filamentbreitensensor zu verwenden, lesen Sie die <a href="Config_Reference.html#hall_filament_width_sensor">Konfigurationsreferenz</a> und die <a href="G-Codes.html#hall_filament_width_sensor">G-Code-Dokumentation</a>.</p>
 <h2 id="wie-funktioniert-das">Wie funktioniert das?<a class="headerlink" href="#wie-funktioniert-das" title="Permanent link">&para;</a></h2>
-<p>Sensor generates two analog output based on calculated filament width. Sum of output voltage always equals to detected filament width. Host module monitors voltage changes and adjusts extrusion multiplier. I use the aux2 connector on a ramps-like board with the analog11 and analog12 pins. You can use different pins and different boards.</p>
+<p>Der Sensor erzeugt zwei analoge Ausgänge basierend auf dem berechneten Filamentdurchmesser. Die Summe der Ausgangsspannungen entspricht stets dem erkannten Filamentdurchmesser. Das Host-Modul überwacht die Spannungsänderungen und passt den Extrusionsmultiplikator an. Verwendet wird beispielsweise der aux2-Anschluss auf einer RAMPS-ähnlichen Platine mit den Pins analog11 und analog12. Sie können auch andere Pins und andere Platinen verwenden.</p>
 <h2 id="vorlage-fur-menu-variablen">Vorlage für Menü Variablen<a class="headerlink" href="#vorlage-fur-menu-variablen" title="Permanent link">&para;</a></h2>
 <div class="highlight"><pre><span></span><code>[menu __main __filament __width_current]
 type: command
@@ -1421,26 +1427,26 @@ index: 1
 </code></pre></div>
 
 <h2 id="kalibrierungs-prozedur">Kalibrierungs Prozedur<a class="headerlink" href="#kalibrierungs-prozedur" title="Permanent link">&para;</a></h2>
-<p>To get raw sensor value you can use menu item or <strong>QUERY_RAW_FILAMENT_WIDTH</strong> command in terminal.</p>
+<p>Um den Rohsensorwert zu erhalten, können Sie den Menüpunkt oder den Befehl <strong>QUERY_RAW_FILAMENT_WIDTH</strong> im Terminal verwenden.</p>
 <ol>
-<li>Insert first calibration rod (1.5 mm size) get first raw sensor value</li>
-<li>Insert second calibration rod (2.0 mm size) get second raw sensor value</li>
-<li>Save raw sensor values in config parameter <code>Raw_dia1</code> and <code>Raw_dia2</code></li>
+<li>Ersten Kalibrierstab einführen (1,5 mm Größe), ersten Rohsensorwert ermitteln</li>
+<li>Zweiten Kalibrierstab einführen (2,0 mm Größe), zweiten Rohsensorwert ermitteln</li>
+<li>Rohsensorwerte in den Konfigurationsparametern <code>Raw_dia1</code> und <code>Raw_dia2</code> speichern</li>
 </ol>
 <h2 id="so-aktivieren-sie-den-sensor">So aktivieren Sie den Sensor<a class="headerlink" href="#so-aktivieren-sie-den-sensor" title="Permanent link">&para;</a></h2>
 <p>Standardmäßig ist der Sensor beim Einschalten deaktiviert.</p>
-<p>To enable the sensor, issue <strong>ENABLE_FILAMENT_WIDTH_SENSOR</strong> command or set the <code>enable</code> parameter to <code>true</code>.</p>
-<h2 id="use-as-a-runout-switch-only">Use as a runout switch only<a class="headerlink" href="#use-as-a-runout-switch-only" title="Permanent link">&para;</a></h2>
-<p>By default, the sensor measures filament diameter and adjusts the extrusion multiplier to compensate for variations.</p>
-<p>If you want to use the sensor as a runout switch only, set the <code>enable_flow_compensation</code> config parameter to <code>false</code>. In this mode, the sensor will only trigger runout events when filament is not detected, it will not modify the extrusion multiplier.</p>
-<p>This is useful for printers where the filament sensor is not accurate enough for flow compensation but can reliably detect filament runout, or when printing with flexible filaments which have unstable diameter characteristics.</p>
-<p>Issue <strong>ENABLE_FILAMENT_WIDTH_SENSOR FLOW_COMPENSATION=1</strong> to enable flow compensation or <strong>ENABLE_FILAMENT_WIDTH_SENSOR FLOW_COMPENSATION=0</strong> to disable it.</p>
-<p>Note that disabling filament width compensation automatically resets the extrusion multiplier to 100%.</p>
-<p><strong>QUERY_FILAMENT_WIDTH</strong> includes the current state of flow compensation in its output.</p>
+<p>Um den Sensor zu aktivieren, geben Sie den Befehl <strong>ENABLE_FILAMENT_WIDTH_SENSOR</strong> aus oder setzen Sie den Parameter <code>enable</code> auf <code>true</code>.</p>
+<h2 id="nur-als-runout-schalter-verwenden">Nur als Runout-Schalter verwenden<a class="headerlink" href="#nur-als-runout-schalter-verwenden" title="Permanent link">&para;</a></h2>
+<p>Standardmäßig misst der Sensor den Filamentdurchmesser und passt den Extrusionsmultiplikator an, um Schwankungen auszugleichen.</p>
+<p>Möchten Sie den Sensor ausschließlich als Runout-Schalter verwenden, setzen Sie den Konfigurationsparameter <code>enable_flow_compensation</code> auf <code>false</code>. In diesem Modus löst der Sensor nur dann Runout-Ereignisse aus, wenn kein Filament erkannt wird, verändert jedoch nicht den Extrusionsmultiplikator.</p>
+<p>Dies ist nützlich für Drucker, bei denen der Filamentsensor für eine Durchflusskompensation nicht genau genug ist, aber zuverlässig ein Filament-Runout erkennen kann, oder beim Drucken mit flexiblen Filamenten mit instabilen Durchmessereigenschaften.</p>
+<p>Geben Sie <strong>ENABLE_FILAMENT_WIDTH_SENSOR FLOW_COMPENSATION=1</strong> aus, um die Durchflusskompensation zu aktivieren, oder <strong>ENABLE_FILAMENT_WIDTH_SENSOR FLOW_COMPENSATION=0</strong>, um sie zu deaktivieren.</p>
+<p>Beachten Sie, dass das Deaktivieren der Filamentbreitenkompensation den Extrusionsmultiplikator automatisch auf 100% zurücksetzt.</p>
+<p><strong>QUERY_FILAMENT_WIDTH</strong> enthält in seiner Ausgabe auch den aktuellen Status der Durchflusskompensation.</p>
 <h2 id="protokollierung">Protokollierung<a class="headerlink" href="#protokollierung" title="Permanent link">&para;</a></h2>
 <p>Standardmäßig ist die Durchmesseraufzeichnung beim Einschalten deaktiviert.</p>
-<p>Issue <strong>ENABLE_FILAMENT_WIDTH_LOG</strong> command to start logging and issue <strong>DISABLE_FILAMENT_WIDTH_LOG</strong> command to stop logging. To enable logging at power-on, set the <code>logging</code> parameter to <code>true</code>.</p>
-<p>Filament diameter is logged on every measurement interval (10 mm by default).</p>
+<p>Geben Sie den Befehl <strong>ENABLE_FILAMENT_WIDTH_LOG</strong> aus, um die Protokollierung zu starten, und <strong>DISABLE_FILAMENT_WIDTH_LOG</strong>, um sie zu stoppen. Um die Protokollierung beim Einschalten zu aktivieren, setzen Sie den Parameter <code>logging</code> auf <code>true</code>.</p>
+<p>Der Filamentdurchmesser wird bei jedem Messintervall protokolliert (standardmäßig 10 mm).</p>
 
               
             </article>

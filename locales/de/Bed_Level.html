@@ -170,6 +170,12 @@
                 </li>
                 
                 <li class="md-select__item">
+                  <a href="/de/" hreflang="de" class="md-select__link">
+                    Deutsch
+                  </a>
+                </li>
+                
+                <li class="md-select__item">
                   <a href="/it/" hreflang="it" class="md-select__link">
                     Italiano
                   </a>
@@ -1391,13 +1397,13 @@
 <h2 id="der-papiertest">Der "Papiertest"<a class="headerlink" href="#der-papiertest" title="Permanent link">&para;</a></h2>
 <p>Der "Papiertest" ist der primäre Test zur Kalibrierung der Höhe des Druckbettes. Ein gewöhnliches "Kopierpapier" wird zwischen dem Druckbett und der Düse platziert und die Düse so lange entlang der Z-Achse bewegt bis beim Hin- und Herbewegen des Papiers Reibung zwischen dem Papier und der Düse festgestellt werden kann.</p>
 <p>Die Kenntis des "Papiertests" ist wichtig, selbst wenn der Drucker einen "automatischen Z Sonde" besitzt. Der Z Sonde selbst muss kalibriert werden um gute Ergebnisse zu erhalten. Diese Kalbirierung wird mithilfe des "Papiertests" durchgeführt.</p>
-<p>In order to perform the paper test, cut a small rectangular piece of paper using a pair of scissors (eg, 5x3 cm). The paper generally has a thickness of around 100 microns (0.100mm). (The exact thickness of the paper isn't crucial.)</p>
+<p>Um den Papiertest durchzuführen, schneiden Sie mit einer Schere ein kleines rechteckiges Stück Papier zu (z. B. 5x3 cm). Das Papier hat üblicherweise eine Dicke von etwa 100 Mikrometern (0,100 mm). (Die genaue Dicke des Papiers ist nicht entscheidend.)</p>
 <p>Der erste Schritt des Papiertests besteht in der Kontrolle der Düse und des Druckbetts des Druckers. Stellen sie sicher, dass keine Plastikreste oder andere Verschmutzungen an der Düse oder auf dem Bett vorhanden sind.</p>
 <p><strong>Kontrollieren sie die Düse und das Druckbett um sicherzustellen, dass keine Plastikreste vorhanden sind!</strong></p>
-<p>If one always prints on a particular tape or printing surface then one may perform the paper test with that tape/surface in place. However, note that tape itself has a thickness and different tapes (or any other printing surface) will impact Z measurements. Be sure to rerun the paper test to measure each type of surface that is in use.</p>
+<p>Drucken Sie stets auf einem bestimmten Klebeband oder einer bestimmten Druckoberfläche, können Sie den Papiertest mit diesem Klebeband/dieser Oberfläche durchführen. Beachten Sie jedoch, dass das Klebeband selbst eine Dicke besitzt und unterschiedliche Klebebänder (oder andere Druckoberflächen) die Z-Messungen beeinflussen. Führen Sie den Papiertest für jede verwendete Oberflächenart erneut durch.</p>
 <p>Falls Plastikreste an der Düse vorhanden sind, heizen sie die Düse auf und verwenden sie eine Metallpinzette, um Reste zu entfernen. Warten Sie, bis die Düse wieder vollständig auf Zimmertemperatur abgekühlt ist, bevor sie mit dem Papiertest fortfahren. Während die Düse abkühlt, verwenden sie die Metallpinzette um weitere Plastikreste, die evtl. auslaufen, zu entfernen.</p>
 <p><strong>Führen sie den Papiertest nur durch wenn sich Druckdüse und Druckbett auf Zimmertemperatur befinden!</strong></p>
-<p>When the nozzle is heated, its position (relative to the bed) changes due to thermal expansion. This thermal expansion is typically around a 100 microns, which is about the same thickness as a typical piece of printer paper. The exact amount of thermal expansion isn't crucial, just as the exact thickness of the paper isn't crucial. Start with the assumption that the two are equal (see below for a method of determining the difference between the two distances).</p>
+<p>Wenn die Düse aufgeheizt wird, ändert sich ihre Position (relativ zum Bett) aufgrund thermischer Ausdehnung. Diese thermische Ausdehnung beträgt typischerweise etwa 100 Mikrometer, was ungefähr der Dicke eines typischen Blatts Druckerpapier entspricht. Das genaue Ausmaß der thermischen Ausdehnung ist nicht entscheidend, ebenso wenig wie die exakte Dicke des Papiers. Gehen Sie zunächst von der Annahme aus, dass beide gleich groß sind (siehe unten für eine Methode, um den Unterschied zwischen beiden Werten zu bestimmen).</p>
 <p>Es mag komisch vorkommen, den Abstand bei Zimmertemperatur zu kalibrieren, obwohl das Ziel ein reproduzierbarer Abstand im aufgeheizten Zustand ist. Wird die Kalbrierung jedoch im aufgeheizten Zustand durchgeführt, können kleine Mengen an geschmolzenem Plastik auf dem Papier zurückbleiben, was die gefühlte Menge Reibung beeinflussen kann. Eine Kalbrierung mit aufgeheizter Düse und Druckbett erhöht außerdem das Risiko für Brandverletzungen. Die Wärmeausdehnung ist konstant, daher ist es sehr einfach sie später im Kalibrierungsprozess zu berücksichtigen.</p>
 <p><strong>Benutzen sie ein automatisiertes Werkzeug, um die genaue Z-Höhe festzustellen!</strong></p>
 <p>Klipper stellt einige Hilfe-Skripte zur Verfügung (z.b. MANUAL_PROBE, Z_ENDSTOP_CALIBRATE, PROBE_CALIBRATE, DELTA_CALIBRATE). Prüfen sie die <a href="#choose-the-appropriate-calibration-mechanism">obige</a> Dokumentation um das passende Skript auszuwählen.</p>
@@ -1419,21 +1425,21 @@ Recv: // Z position: ?????? --&gt; 5.000 &lt;-- ??????
 <div class="highlight"><pre><span></span><code>Recv: // Z position: 0.130 --&gt; 0.230 &lt;-- 0.280
 </code></pre></div>
 
-<p>Then a <code>TESTZ Z=-</code> would move the nozzle to a Z position of 0.180 (half way between 0.130 and 0.230). One can use this feature to help rapidly narrow down to a consistent friction. It is also possible to use <code>Z=++</code> and <code>Z=--</code> to return directly to a past measurement - for example, after the above prompt a <code>TESTZ Z=--</code> command would move the nozzle to a Z position of 0.130.</p>
-<p>After finding a small amount of friction run the ACCEPT command:</p>
+<p>Ein <code>TESTZ Z=-</code> würde die Düse dann auf eine Z-Position von 0,180 bewegen (auf halbem Weg zwischen 0,130 und 0,230). Mit dieser Funktion lässt sich schnell eine gleichbleibende Reibung eingrenzen. Es ist außerdem möglich, mit <code>Z=++</code> und <code>Z=--</code> direkt zu einer früheren Messung zurückzukehren - nach der obigen Aufforderung würde beispielsweise ein Befehl <code>TESTZ Z=--</code> die Düse auf eine Z-Position von 0,130 bewegen.</p>
+<p>Sobald Sie eine geringe Reibung feststellen, führen Sie den Befehl ACCEPT aus:</p>
 <div class="highlight"><pre><span></span><code>ACCEPT
 </code></pre></div>
 
-<p>This will accept the given Z height and proceed with the given calibration tool.</p>
-<p>The exact amount of friction felt isn't crucial, just as the amount of thermal expansion and exact width of the paper isn't crucial. Just try to obtain the same amount of friction each time one runs the test.</p>
-<p>If something goes wrong during the test, one can use the <code>ABORT</code> command to exit the calibration tool.</p>
+<p>Dadurch wird die angegebene Z-Höhe übernommen, und das jeweilige Kalibrierwerkzeug wird fortgesetzt.</p>
+<p>Die genaue Menge an spürbarer Reibung ist nicht entscheidend, ebenso wenig wie das genaue Ausmaß der thermischen Ausdehnung oder die exakte Dicke des Papiers. Versuchen Sie lediglich, bei jeder Durchführung des Tests dieselbe Reibung zu erzielen.</p>
+<p>Geht während des Tests etwas schief, kann der Befehl <code>ABORT</code> verwendet werden, um das Kalibrierwerkzeug zu beenden.</p>
 <h2 id="ermittlung-der-thermischen-ausdehnung">Ermittlung der thermischen Ausdehnung<a class="headerlink" href="#ermittlung-der-thermischen-ausdehnung" title="Permanent link">&para;</a></h2>
-<p>After successfully performing bed leveling, one may go on to calculate a more precise value for the combined impact of "thermal expansion", "thickness of the paper", and "amount of friction felt during the paper test".</p>
-<p>This type of calculation is generally not needed as most users find the simple "paper test" provides good results.</p>
-<p>The easiest way to make this calculation is to print a test object that has straight walls on all sides. The large hollow square found in <a href="prints/square.stl">docs/prints/square.stl</a> can be used for this. When slicing the object, make sure the slicer uses the same layer height and extrusion widths for the first level that it does for all subsequent layers. Use a coarse layer height (the layer height should be around 75% of the nozzle diameter) and do not use a brim or raft.</p>
-<p>Print the test object, wait for it to cool, and remove it from the bed. Inspect the lowest layer of the object. (It may also be useful to run a finger or nail along the bottom edge.) If one finds the bottom layer bulges out slightly along all sides of the object then it indicates the nozzle was slightly closer to the bed then it should be. One can issue a <code>SET_GCODE_OFFSET Z=+.010</code> command to increase the height. In subsequent prints one can inspect for this behavior and make further adjustment as needed. Adjustments of this type are typically in 10s of microns (.010mm).</p>
-<p>If the bottom layer consistently appears narrower than subsequent layers then one can use the SET_GCODE_OFFSET command to make a negative Z adjustment. If one is unsure, then one can decrease the Z adjustment until the bottom layer of prints exhibit a small bulge, and then back-off until it disappears.</p>
-<p>The easiest way to apply the desired Z adjustment is to create a START_PRINT g-code macro, arrange for the slicer to call that macro during the start of each print, and add a SET_GCODE_OFFSET command to that macro. See the <a href="Slicers.html">slicers</a> document for further details.</p>
+<p>Nach erfolgreicher Bettnivellierung kann anschließend ein genauerer Wert für den kombinierten Einfluss von "thermischer Ausdehnung", "Papierdicke" und "während des Papiertests spürbarer Reibung" berechnet werden.</p>
+<p>Diese Art der Berechnung ist im Allgemeinen nicht notwendig, da die meisten Anwender mit dem einfachen "Papiertest" gute Ergebnisse erzielen.</p>
+<p>Am einfachsten lässt sich diese Berechnung durchführen, indem ein Testobjekt mit geraden Wänden auf allen Seiten gedruckt wird. Dafür kann das große hohle Quadrat unter <a href="prints/square.stl">docs/prints/square.stl</a> verwendet werden. Stellen Sie beim Slicen sicher, dass der Slicer für die erste Ebene dieselbe Schichthöhe und Extrusionsbreite verwendet wie für alle folgenden Schichten. Verwenden Sie eine grobe Schichthöhe (die Schichthöhe sollte etwa 75% des Düsendurchmessers betragen) und verwenden Sie keinen Rand (Brim) oder Floß (Raft).</p>
+<p>Drucken Sie das Testobjekt, lassen Sie es abkühlen und entfernen Sie es vom Bett. Untersuchen Sie die unterste Schicht des Objekts. (Es kann außerdem hilfreich sein, mit einem Finger oder Fingernagel an der unteren Kante entlangzufahren.) Wölbt sich die unterste Schicht an allen Seiten des Objekts leicht nach außen, deutet dies darauf hin, dass die Düse etwas zu nah am Bett war. Sie können den Befehl <code>SET_GCODE_OFFSET Z=+.010</code> ausgeben, um die Höhe zu erhöhen. Bei nachfolgenden Drucken können Sie dieses Verhalten weiter beobachten und bei Bedarf nachjustieren. Anpassungen dieser Art liegen typischerweise im Bereich von einigen 10 Mikrometern (0,010 mm).</p>
+<p>Erscheint die unterste Schicht durchgehend schmaler als die folgenden Schichten, kann mit dem Befehl SET_GCODE_OFFSET eine negative Z-Anpassung vorgenommen werden. Im Zweifelsfall können Sie die Z-Anpassung verringern, bis die unterste Schicht der Drucke eine leichte Wölbung zeigt, und dann wieder zurücknehmen, bis diese verschwindet.</p>
+<p>Am einfachsten lässt sich die gewünschte Z-Anpassung anwenden, indem ein START_PRINT-G-Code-Makro erstellt wird, der Slicer so eingerichtet wird, dass er dieses Makro zu Beginn jedes Drucks aufruft, und diesem Makro ein SET_GCODE_OFFSET-Befehl hinzugefügt wird. Weitere Details finden Sie im Dokument <a href="Slicers.html">Slicer</a>.</p>
 
               
             </article>

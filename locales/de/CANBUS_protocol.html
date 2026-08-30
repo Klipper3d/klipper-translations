@@ -170,6 +170,12 @@
                 </li>
                 
                 <li class="md-select__item">
+                  <a href="/de/" hreflang="de" class="md-select__link">
+                    Deutsch
+                  </a>
+                </li>
+                
+                <li class="md-select__item">
                   <a href="/it/" hreflang="it" class="md-select__link">
                     Italiano
                   </a>
@@ -1407,24 +1413,24 @@
 
 
 <h1 id="canbus-protokoll">CANBUS Protokoll<a class="headerlink" href="#canbus-protokoll" title="Permanent link">&para;</a></h1>
-<p>This document describes the protocol Klipper uses to communicate over <a href="https://en.wikipedia.org/wiki/CAN_bus">CAN bus</a>. See <CANBUS.md> for information on configuring Klipper with CAN bus.</p>
+<p>Dieses Dokument beschreibt das Protokoll, das Klipper für die Kommunikation über den <a href="https://de.wikipedia.org/wiki/Controller_Area_Network">CAN-Bus</a> verwendet. Informationen zur Konfiguration von Klipper mit CAN-Bus finden Sie unter <CANBUS.md>.</p>
 <h2 id="mikrocontroller-id-zuweisung">Mikrocontroller-ID-Zuweisung<a class="headerlink" href="#mikrocontroller-id-zuweisung" title="Permanent link">&para;</a></h2>
 <p>Klipper verwendet nur CAN 2.0A Standard-CAN-Bus-Pakete, die auf 8 Datenbytes und einen 11-Bit-CAN-Bus-Identifier begrenzt sind. Um eine effiziente Kommunikation zu unterstützen, wird jedem Mikrocontroller während der Laufzeit eine eindeutige 1-Byte-CAN-Bus-Nodeid (<code>canbus_nodeid</code>) für den allgemeinen Klipper-Befehls- und Antwortverkehr zugewiesen. Klipper-Befehlsnachrichten, die vom Host zum Mikrocontroller gehen, verwenden die CAN-Bus-ID <code>canbus_nodeid * 2 + 256</code>, während Klipper-Antwortnachrichten vom Mikrocontroller zum Host <code>canbus_nodeid * 2 + 256 + 1</code> verwenden.</p>
 <p>Jeder Mikro-Kontroller hat eine vom Hersteller eindeutige Chipidentifizierung, die bei der Vergabe der Id genutzt wird. Diese Chipidentifizierung kann länger als ein CAN Packet sein, weshalb diese gehasht wird um eine 6 byte lange (<code>canbus_uuid</code>) aus der Chipid zu erhalten.</p>
 <h2 id="admin-nachrichten">Admin Nachrichten<a class="headerlink" href="#admin-nachrichten" title="Permanent link">&para;</a></h2>
-<p>Admin messages are used for id assignment. Admin messages sent from host to micro-controller use the CAN bus id <code>0x3f0</code> and messages sent from micro-controller to host use the CAN bus id <code>0x3f1</code>. All micro-controllers listen to messages on id <code>0x3f0</code>; that id can be thought of as a "broadcast address".</p>
+<p>Admin-Nachrichten dienen der ID-Zuweisung. Vom Host an den Mikrocontroller gesendete Admin-Nachrichten verwenden die CAN-Bus-ID <code>0x3f0</code>, vom Mikrocontroller an den Host gesendete Nachrichten die CAN-Bus-ID <code>0x3f1</code>. Alle Mikrocontroller hören auf Nachrichten mit der ID <code>0x3f0</code>; diese ID kann als "Broadcast-Adresse" verstanden werden.</p>
 <h3 id="cmd_query_unassigned-nachricht">CMD_QUERY_UNASSIGNED Nachricht<a class="headerlink" href="#cmd_query_unassigned-nachricht" title="Permanent link">&para;</a></h3>
-<p>This command queries all micro-controllers that have not yet been assigned a <code>canbus_nodeid</code>. Unassigned micro-controllers will respond with a RESP_NEED_NODEID response message.</p>
+<p>Dieser Befehl fragt alle Mikrocontroller ab, denen noch keine <code>canbus_nodeid</code> zugewiesen wurde. Nicht zugewiesene Mikrocontroller antworten mit einer Antwortnachricht RESP_NEED_NODEID.</p>
 <p>Das CMD_QUERY_UNASSIGNED Nachrichtenformat ist: <code>&lt;1-byte message_id = 0x00&gt;</code></p>
 <h3 id="cmd_set_klipper_nodeid-nachricht">CMD_SET_KLIPPER_NODEID Nachricht<a class="headerlink" href="#cmd_set_klipper_nodeid-nachricht" title="Permanent link">&para;</a></h3>
 <p>Dieser Befehl weist dem Mikrocontroller mit einer bestimmten <code>canbus_uuid</code> eine<code>canbus_nodeid</code> zu.</p>
-<p>The CMD_SET_KLIPPER_NODEID message format is: <code>&lt;1-byte message_id = 0x01&gt;&lt;6-byte canbus_uuid&gt;&lt;1-byte canbus_nodeid&gt;</code></p>
+<p>Das Nachrichtenformat von CMD_SET_KLIPPER_NODEID lautet: <code>&lt;1-byte message_id = 0x01&gt;&lt;6-byte canbus_uuid&gt;&lt;1-byte canbus_nodeid&gt;</code></p>
 <h3 id="resp_need_nodeid-nachricht">RESP_NEED_NODEID Nachricht<a class="headerlink" href="#resp_need_nodeid-nachricht" title="Permanent link">&para;</a></h3>
-<p>The RESP_NEED_NODEID message format is: <code>&lt;1-byte message_id = 0x20&gt;&lt;6-byte canbus_uuid&gt;&lt;1-byte set_klipper_nodeid = 0x01&gt;</code></p>
+<p>Das Nachrichtenformat von RESP_NEED_NODEID lautet: <code>&lt;1-byte message_id = 0x20&gt;&lt;6-byte canbus_uuid&gt;&lt;1-byte set_klipper_nodeid = 0x01&gt;</code></p>
 <h2 id="datenpakete">Datenpakete<a class="headerlink" href="#datenpakete" title="Permanent link">&para;</a></h2>
-<p>A micro-controller that has been assigned a nodeid via the CMD_SET_KLIPPER_NODEID command can send and receive data packets.</p>
-<p>The packet data in messages using the node's receive CAN bus id (<code>canbus_nodeid * 2 + 256</code>) are simply appended to a buffer, and when a complete <a href="Protocol.html">mcu protocol message</a> is found its contents are parsed and processed. The data is treated as a byte stream - there is no requirement for the start of a Klipper message block to align with the start of a CAN bus packet.</p>
-<p>Similarly, mcu protocol message responses are sent from micro-controller to host by copying the message data into one or more packets with the node's transmit CAN bus id (<code>canbus_nodeid * 2 + 256 + 1</code>).</p>
+<p>Ein Mikrocontroller, dem über den Befehl CMD_SET_KLIPPER_NODEID eine nodeid zugewiesen wurde, kann Datenpakete senden und empfangen.</p>
+<p>Die Paketdaten von Nachrichten, die die Empfangs-CAN-Bus-ID des Knotens (<code>canbus_nodeid * 2 + 256</code>) verwenden, werden schlicht an einen Puffer angehängt; sobald ein vollständiger <a href="Protocol.html">MCU-Protokollnachrichtenblock</a> gefunden ist, wird dessen Inhalt geparst und verarbeitet. Die Daten werden als Bytestrom behandelt - der Beginn eines Klipper-Nachrichtenblocks muss nicht mit dem Beginn eines CAN-Bus-Pakets zusammenfallen.</p>
+<p>Ebenso werden Antworten auf MCU-Protokollnachrichten vom Mikrocontroller an den Host gesendet, indem die Nachrichtendaten in ein oder mehrere Pakete mit der Sende-CAN-Bus-ID des Knotens (<code>canbus_nodeid * 2 + 256 + 1</code>) kopiert werden.</p>
 
               
             </article>

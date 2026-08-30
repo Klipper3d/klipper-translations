@@ -170,6 +170,12 @@
                 </li>
                 
                 <li class="md-select__item">
+                  <a href="/de/" hreflang="de" class="md-select__link">
+                    Deutsch
+                  </a>
+                </li>
+                
+                <li class="md-select__item">
                   <a href="/it/" hreflang="it" class="md-select__link">
                     Italiano
                   </a>
@@ -1469,55 +1475,55 @@
 <p>Klipper kann auf eine der folgenden Arten zum Neustart in einen <a href="Bootloaders.html">Bootloader</a> angewiesen werden:</p>
 <h2 id="den-bootloader-anfordern">Den Bootloader anfordern<a class="headerlink" href="#den-bootloader-anfordern" title="Permanent link">&para;</a></h2>
 <h3 id="virtuell-seriell">Virtuell Seriell<a class="headerlink" href="#virtuell-seriell" title="Permanent link">&para;</a></h3>
-<p>If a virtual (USB-ACM) serial port is in use, pulsing DTR while at 1200 baud will request the bootloader.</p>
+<p>Wird ein virtueller (USB-ACM) serieller Port verwendet, fordert das kurzzeitige Pulsen von DTR bei 1200 Baud den Bootloader an.</p>
 <h4 id="python-mit-flash_usb">Python (mit <code>flash_usb</code>)<a class="headerlink" href="#python-mit-flash_usb" title="Permanent link">&para;</a></h4>
-<p>To enter the bootloader using python (using <code>flash_usb</code>):</p>
+<p>Um den Bootloader mit Python aufzurufen (über <code>flash_usb</code>):</p>
 <div class="highlight"><pre><span></span><code>&gt;<span class="w"> </span><span class="nb">cd</span><span class="w"> </span>klipper/scripts
 &gt;<span class="w"> </span>python3<span class="w"> </span>-c<span class="w"> </span><span class="s1">&#39;import flash_usb as u; u.enter_bootloader(&quot;&lt;DEVICE&gt;&quot;)&#39;</span>
 Entering<span class="w"> </span>bootloader<span class="w"> </span>on<span class="w"> </span>&lt;DEVICE&gt;
 </code></pre></div>
 
-<p>Where <code>&lt;DEVICE&gt;</code> is your serial device, such as <code>/dev/serial.by-id/usb-Klipper[...]</code> or <code>/dev/ttyACM0</code></p>
-<p>Note that if this fails, no output will be printed, success is indicated by printing <code>Entering bootloader on &lt;DEVICE&gt;</code>.</p>
+<p>Dabei ist <code>&lt;DEVICE&gt;</code> Ihr serielles Gerät, zum Beispiel <code>/dev/serial.by-id/usb-Klipper[...]</code> oder <code>/dev/ttyACM0</code></p>
+<p>Beachten Sie: Schlägt dies fehl, wird keine Ausgabe angezeigt; Erfolg wird durch die Ausgabe <code>Entering bootloader on &lt;DEVICE&gt;</code> angezeigt.</p>
 <h4 id="picocom">Picocom<a class="headerlink" href="#picocom" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code>picocom<span class="w"> </span>-b<span class="w"> </span><span class="m">1200</span><span class="w"> </span>&lt;DEVICE&gt;
 &lt;Ctrl-A&gt;&lt;Ctrl-P&gt;
 </code></pre></div>
 
-<p>Where <code>&lt;DEVICE&gt;</code> is your serial device, such as <code>/dev/serial.by-id/usb-Klipper[...]</code> or <code>/dev/ttyACM0</code></p>
-<p><code>&lt;Ctrl-A&gt;&lt;Ctrl-P&gt;</code> means holding <code>Ctrl</code>, pressing and releasing <code>a</code>, pressing and releasing <code>p</code>, then releasing <code>Ctrl</code></p>
+<p>Dabei ist <code>&lt;DEVICE&gt;</code> Ihr serielles Gerät, zum Beispiel <code>/dev/serial.by-id/usb-Klipper[...]</code> oder <code>/dev/ttyACM0</code></p>
+<p><code>&lt;Strg-A&gt;&lt;Strg-P&gt;</code> bedeutet: <code>Strg</code> gedrückt halten, <code>a</code> drücken und loslassen, <code>p</code> drücken und loslassen, dann <code>Strg</code> loslassen</p>
 <h3 id="physisch-seriell">Physisch Seriell<a class="headerlink" href="#physisch-seriell" title="Permanent link">&para;</a></h3>
-<p>If a physical serial port is being used on the MCU (even if a USB serial adapter is being used to connect to it), sending the string <code>&lt;SPACE&gt;&lt;FS&gt;&lt;SPACE&gt;Request Serial Bootloader!!&lt;SPACE&gt;~</code> requests the bootloader.</p>
-<p><code>&lt;SPACE&gt;</code> is an ASCII literal space, 0x20.</p>
-<p><code>&lt;FS&gt;</code> is the ASCII File Separator, 0x1c.</p>
-<p>Note that this is not a valid message as per the <a href="Protocol.html#micro-controller-interface">MCU Protocol</a>, but sync characters(<code>~</code>) are still respected.</p>
-<p>Because this message must be the only thing in the "block" it is received in, prefixing an extra sync character can increase reliability if other tools were previously accessing the serial port.</p>
+<p>Wird am MCU ein physischer serieller Port verwendet (auch wenn zur Verbindung ein USB-Serial-Adapter zum Einsatz kommt), fordert das Senden der Zeichenkette <code>&lt;LEERZEICHEN&gt;&lt;FS&gt;&lt;LEERZEICHEN&gt;Request Serial Bootloader!!&lt;LEERZEICHEN&gt;~</code> den Bootloader an.</p>
+<p><code>&lt;LEERZEICHEN&gt;</code> ist ein wörtliches ASCII-Leerzeichen, 0x20.</p>
+<p><code>&lt;FS&gt;</code> ist das ASCII-File-Separator-Zeichen, 0x1c.</p>
+<p>Beachten Sie, dass dies gemäß dem <a href="Protocol.html#micro-controller-interface">MCU-Protokoll</a> keine gültige Nachricht ist, Synchronisationszeichen (<code>~</code>) jedoch weiterhin beachtet werden.</p>
+<p>Da diese Nachricht das Einzige sein muss, was in dem "Block" empfangen wird, in dem sie eintrifft, kann das Voranstellen eines zusätzlichen Synchronisationszeichens die Zuverlässigkeit erhöhen, falls zuvor andere Werkzeuge auf den seriellen Port zugegriffen haben.</p>
 <h4 id="shell">Shell<a class="headerlink" href="#shell" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code>stty<span class="w"> </span>&lt;BAUD&gt;<span class="w"> </span>&lt;<span class="w"> </span>/dev/&lt;DEVICE&gt;
 <span class="nb">echo</span><span class="w"> </span><span class="s1">$&#39;~ \x1c Request Serial Bootloader!! ~&#39;</span><span class="w"> </span>&gt;&gt;<span class="w"> </span>/dev/&lt;DEVICE&gt;
 </code></pre></div>
 
-<p>Where <code>&lt;DEVICE&gt;</code> is your serial port, such as <code>/dev/ttyS0</code>, or <code>/dev/serial/by-id/gpio-serial2</code>, and</p>
-<p><code>&lt;BAUD&gt;</code> is the baud rate of the serial port, such as <code>115200</code>.</p>
+<p>Dabei ist <code>&lt;DEVICE&gt;</code> Ihr serieller Port, zum Beispiel <code>/dev/ttyS0</code> oder <code>/dev/serial/by-id/gpio-serial2</code>, und</p>
+<p><code>&lt;BAUD&gt;</code> ist die Baudrate des seriellen Ports, zum Beispiel <code>115200</code>.</p>
 <h3 id="canbus">CANBUS<a class="headerlink" href="#canbus" title="Permanent link">&para;</a></h3>
-<p>If CANBUS is in use, a special <a href="CANBUS_protocol.html#admin-messages">admin message</a> will request the bootloader. This message will be respected even if the device already has a nodeid, and will also be processed if the mcu is shutdown.</p>
-<p>This method also applies to devices operating in <a href="CANBUS.html#usb-to-can-bus-bridge-mode">CANBridge</a> mode.</p>
+<p>Wird CANBUS verwendet, fordert eine spezielle <a href="CANBUS_protocol.html#admin-messages">Admin-Nachricht</a> den Bootloader an. Diese Nachricht wird auch dann beachtet, wenn das Gerät bereits eine Node-ID besitzt, und wird auch verarbeitet, wenn der MCU heruntergefahren ist.</p>
+<p>Diese Methode gilt auch für Geräte, die im Modus <a href="CANBUS.html#usb-to-can-bus-bridge-mode">CANBridge</a> betrieben werden.</p>
 <h4 id="katapults-flashtoolpy">Katapult's flashtool.py<a class="headerlink" href="#katapults-flashtoolpy" title="Permanent link">&para;</a></h4>
 <div class="highlight"><pre><span></span><code>python3<span class="w"> </span>./katapult/scripts/flashtool.py<span class="w"> </span>-i<span class="w"> </span>&lt;CAN_IFACE&gt;<span class="w"> </span>-u<span class="w"> </span>&lt;UUID&gt;<span class="w"> </span>-r
 </code></pre></div>
 
-<p>Where <code>&lt;CAN_IFACE&gt;</code> is the can interface to use. If using <code>can0</code>, both the <code>-i</code> and <code>&lt;CAN_IFACE&gt;</code> may be omitted.</p>
-<p><code>&lt;UUID&gt;</code> is the UUID of your CAN device.</p>
-<p>See the <a href="CANBUS.html#finding-the-canbus_uuid-for-new-micro-controllers">CANBUS Documentation</a> for information on finding the CAN UUID of your devices.</p>
+<p>Dabei ist <code>&lt;CAN_IFACE&gt;</code> die zu verwendende CAN-Schnittstelle. Bei Verwendung von <code>can0</code> können sowohl <code>-i</code> als auch <code>&lt;CAN_IFACE&gt;</code> weggelassen werden.</p>
+<p><code>&lt;UUID&gt;</code> ist die UUID Ihres CAN-Geräts.</p>
+<p>Informationen zum Ermitteln der CAN-UUID Ihrer Geräte finden Sie in der <a href="CANBUS.html#finding-the-canbus_uuid-for-new-micro-controllers">CANBUS-Dokumentation</a>.</p>
 <h2 id="offnen-des-bootloaders">Öffnen des Bootloaders<a class="headerlink" href="#offnen-des-bootloaders" title="Permanent link">&para;</a></h2>
-<p>When klipper receives one of the above bootloader requests:</p>
-<p>If Katapult (formerly known as CANBoot) is available, klipper will request that Katapult stay active on the next boot, then reset the MCU (therefore entering Katapult).</p>
-<p>If Katapult is not available, klipper will then try to enter a platform-specific bootloader, such as STM32's DFU mode(<a href="#stm32-dfu-warning">see note</a>).</p>
-<p>In short, Klipper will reboot to Katapult if installed, then a hardware specific bootloader if available.</p>
-<p>For details about the specific bootloaders on various platforms see <a href="Bootloaders.html">Bootloaders</a></p>
+<p>Empfängt Klipper eine der obigen Bootloader-Anfragen:</p>
+<p>Ist Katapult (früher als CANBoot bekannt) verfügbar, fordert Klipper an, dass Katapult beim nächsten Start aktiv bleibt, und setzt anschließend den MCU zurück (wodurch Katapult aufgerufen wird).</p>
+<p>Ist Katapult nicht verfügbar, versucht Klipper anschließend, einen plattformspezifischen Bootloader aufzurufen, etwa den DFU-Modus von STM32 (<a href="#stm32-dfu-warning">siehe Hinweis</a>).</p>
+<p>Kurz gesagt: Klipper startet, falls installiert, in Katapult neu, andernfalls in einen hardwarespezifischen Bootloader, sofern verfügbar.</p>
+<p>Details zu den spezifischen Bootloadern der verschiedenen Plattformen finden Sie unter <a href="Bootloaders.html">Bootloaders</a></p>
 <h2 id="anmerkungen">Anmerkungen<a class="headerlink" href="#anmerkungen" title="Permanent link">&para;</a></h2>
 <h3 id="stm32-dfu-warnung">STM32 DFU Warnung<a class="headerlink" href="#stm32-dfu-warnung" title="Permanent link">&para;</a></h3>
-<p>Note that on some boards, like the Octopus Pro v1, entering DFU mode can cause undesired actions (such as powering the heater while in DFU mode). It is recommended to disconnect heaters, and otherwise prevent undesired operations when using DFU mode. Consult the documentation for your board for more details.</p>
+<p>Beachten Sie, dass bei manchen Platinen, wie dem Octopus Pro v1, das Aufrufen des DFU-Modus unerwünschte Aktionen auslösen kann (z. B. das Einschalten der Heizung im DFU-Modus). Es wird empfohlen, Heizungen zu trennen und andere unerwünschte Vorgänge zu verhindern, wenn der DFU-Modus verwendet wird. Weitere Details finden Sie in der Dokumentation Ihrer Platine.</p>
 
               
             </article>

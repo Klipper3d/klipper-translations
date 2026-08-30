@@ -170,6 +170,12 @@
                 </li>
                 
                 <li class="md-select__item">
+                  <a href="/de/" hreflang="de" class="md-select__link">
+                    Deutsch
+                  </a>
+                </li>
+                
+                <li class="md-select__item">
                   <a href="/it/" hreflang="it" class="md-select__link">
                     Italiano
                   </a>
@@ -1468,8 +1474,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#generic-cartesian-kinematics" class="md-nav__link">
-    Generic Cartesian Kinematics
+  <a href="#generische-kartesische-kinematik" class="md-nav__link">
+    Generische kartesische Kinematik
   </a>
   
 </li>
@@ -2046,7 +2052,7 @@
         
           <li class="md-nav__item">
   <a href="#sht3x-sensor" class="md-nav__link">
-    SHT3X sensor
+    SHT3X-Sensor
   </a>
   
 </li>
@@ -2066,8 +2072,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#host-temperature-sensor" class="md-nav__link">
-    Host temperature sensor
+  <a href="#temperatursensor-des-hosts" class="md-nav__link">
+    Temperatursensor des Hosts
   </a>
   
 </li>
@@ -2688,10 +2694,10 @@
 <p>Die Beschreibungen in diesem Dokument sind so formatiert, dass es möglich ist, sie auszuschneiden und in eine Druckerkonfigurationsdatei einzufügen. Siehe das <a href="Installation.html">Installationsdokument</a> für Informationen über die Einrichtung von Klipper und die Auswahl einer ersten Konfigurationsdatei.</p>
 <h2 id="mikrocontroller-konfiguration">Mikrocontroller-Konfiguration<a class="headerlink" href="#mikrocontroller-konfiguration" title="Permanent link">&para;</a></h2>
 <h3 id="format-der-mikrocontroller-pin-namen">Format der Mikrocontroller Pin Namen<a class="headerlink" href="#format-der-mikrocontroller-pin-namen" title="Permanent link">&para;</a></h3>
-<p>Many config options require the name of a micro-controller pin. Klipper uses the hardware names for these pins - for example <code>PA4</code>.</p>
-<p>Pin names may be preceded by <code>!</code> to indicate that a reverse polarity should be used (eg, trigger on low instead of high).</p>
-<p>Input pins may be preceded by <code>^</code> to indicate that a hardware pull-up resistor should be enabled for the pin. If the micro-controller supports pull-down resistors then an input pin may alternatively be preceded by <code>~</code>.</p>
-<p>Note, some config sections may "create" additional pins. Where this occurs, the config section defining the pins must be listed in the config file before any sections using those pins.</p>
+<p>Viele Konfigurationsoptionen erfordern den Namen eines Mikrocontroller-Pins. Klipper verwendet für diese Pins die Hardwarenamen - zum Beispiel <code>PA4</code>.</p>
+<p>Pin-Namen kann ein <code>!</code> vorangestellt werden, um anzugeben, dass eine umgekehrte Polarität verwendet werden soll (z. B. Auslösen bei Low statt bei High).</p>
+<p>Eingangspins kann ein <code>^</code> vorangestellt werden, um anzugeben, dass für den Pin ein Hardware-Pull-up-Widerstand aktiviert werden soll. Wenn der Mikrocontroller Pull-down-Widerstände unterstützt, kann einem Eingangspin alternativ ein <code>~</code> vorangestellt werden.</p>
+<p>Beachten Sie, dass einige Konfigurationsabschnitte zusätzliche Pins "erzeugen" können. Wo dies der Fall ist, muss der Konfigurationsabschnitt, der die Pins definiert, in der Konfigurationsdatei vor allen Abschnitten stehen, die diese Pins verwenden.</p>
 <h3 id="mcu">[mcu]<a class="headerlink" href="#mcu" title="Permanent link">&para;</a></h3>
 <p>Konfiguration des primären Mikrocontrollers.</p>
 <div class="highlight"><pre><span></span><code>[mcu]
@@ -2730,7 +2736,7 @@ serial:
 
 <h2 id="gebrauchliche-kinematik-einstellungen">Gebräuchliche Kinematik Einstellungen<a class="headerlink" href="#gebrauchliche-kinematik-einstellungen" title="Permanent link">&para;</a></h2>
 <h3 id="printer">[printer]<a class="headerlink" href="#printer" title="Permanent link">&para;</a></h3>
-<p>The printer section controls high level printer settings.</p>
+<p>Der Abschnitt printer steuert übergeordnete Druckereinstellungen.</p>
 <div class="highlight"><pre><span></span><code>[printer]
 kinematics:
 #   The type of printer in use. This option may be one of: cartesian,
@@ -2779,8 +2785,8 @@ max_accel:
 </code></pre></div>
 
 <h3 id="stepper">[stepper]<a class="headerlink" href="#stepper" title="Permanent link">&para;</a></h3>
-<p>Stepper motor definitions. Different printer types (as specified by the "kinematics" option in the [printer] config section) require different names for the stepper (eg, <code>stepper_x</code> vs <code>stepper_a</code>). Below are common stepper definitions.</p>
-<p>See the <a href="Rotation_Distance.html">rotation distance document</a> for information on calculating the <code>rotation_distance</code> parameter. See the <a href="Multi_MCU_Homing.html">Multi-MCU homing</a> document for information on homing using multiple micro-controllers.</p>
+<p>Definitionen der Schrittmotoren. Unterschiedliche Druckertypen (festgelegt über die Option "kinematics" im Konfigurationsabschnitt [printer]) erfordern unterschiedliche Namen für die Schrittmotoren (z. B. <code>stepper_x</code> gegenüber <code>stepper_a</code>). Nachfolgend die gängigen Schrittmotordefinitionen.</p>
+<p>Informationen zur Berechnung des Parameters <code>rotation_distance</code> finden Sie im <a href="Rotation_Distance.html">Dokument zur Rotationsdistanz</a>. Informationen zum Homing mit mehreren Mikrocontrollern finden Sie im Dokument <a href="Multi_MCU_Homing.html">Multi-MCU-Homing</a>.</p>
 <div class="highlight"><pre><span></span><code>[stepper_x]
 step_pin:
 #   Step GPIO pin (triggered high). This parameter must be provided.
@@ -2855,8 +2861,8 @@ position_max:
 </code></pre></div>
 
 <h3 id="kartesische-kinematik">Kartesische Kinematik<a class="headerlink" href="#kartesische-kinematik" title="Permanent link">&para;</a></h3>
-<p>See <a href="https://github.com/Klipper3d/klipper/blob/master/config/example-cartesian.cfg">example-cartesian.cfg</a> for an example cartesian kinematics config file.</p>
-<p>Only parameters specific to cartesian printers are described here - see <a href="#common-kinematic-settings">common kinematic settings</a> for available parameters.</p>
+<p>Eine Beispiel-Konfigurationsdatei für kartesische Kinematik finden Sie unter <a href="https://github.com/Klipper3d/klipper/blob/master/config/example-cartesian.cfg">example-cartesian.cfg</a>.</p>
+<p>Hier werden nur die Parameter beschrieben, die für kartesische Drucker spezifisch sind - die verfügbaren Parameter finden Sie unter <a href="#common-kinematic-settings">gemeinsame Kinematikeinstellungen</a>.</p>
 <div class="highlight"><pre><span></span><code>[printer]
 kinematics: cartesian
 max_z_velocity:
@@ -2883,8 +2889,8 @@ max_z_accel:
 </code></pre></div>
 
 <h3 id="lineare-delta-kinematik">Lineare Delta Kinematik<a class="headerlink" href="#lineare-delta-kinematik" title="Permanent link">&para;</a></h3>
-<p>See <a href="https://github.com/Klipper3d/klipper/blob/master/config/example-delta.cfg">example-delta.cfg</a> for an example linear delta kinematics config file. See the <a href="Delta_Calibrate.html">delta calibrate guide</a> for information on calibration.</p>
-<p>Only parameters specific to linear delta printers are described here - see <a href="#common-kinematic-settings">common kinematic settings</a> for available parameters.</p>
+<p>Eine Beispiel-Konfigurationsdatei für lineare Delta-Kinematik finden Sie unter <a href="https://github.com/Klipper3d/klipper/blob/master/config/example-delta.cfg">example-delta.cfg</a>. Informationen zur Kalibrierung finden Sie in der <a href="Delta_Calibrate.html">Anleitung zur Delta-Kalibrierung</a>.</p>
+<p>Hier werden nur die Parameter beschrieben, die für lineare Delta-Drucker spezifisch sind - die verfügbaren Parameter finden Sie unter <a href="#common-kinematic-settings">gemeinsame Kinematikeinstellungen</a>.</p>
 <div class="highlight"><pre><span></span><code>[printer]
 kinematics: delta
 max_z_velocity:
@@ -2960,8 +2966,8 @@ radius:
 </code></pre></div>
 
 <h3 id="deltesische-kinematik">Deltesische Kinematik<a class="headerlink" href="#deltesische-kinematik" title="Permanent link">&para;</a></h3>
-<p>See <a href="https://github.com/Klipper3d/klipper/blob/master/config/example-deltesian.cfg">example-deltesian.cfg</a> for an example deltesian kinematics config file.</p>
-<p>Only parameters specific to deltesian printers are described here - see <a href="#common-kinematic-settings">common kinematic settings</a> for available parameters.</p>
+<p>Eine Beispiel-Konfigurationsdatei für Deltesian-Kinematik finden Sie unter <a href="https://github.com/Klipper3d/klipper/blob/master/config/example-deltesian.cfg">example-deltesian.cfg</a>.</p>
+<p>Hier werden nur die Parameter beschrieben, die für Deltesian-Drucker spezifisch sind - die verfügbaren Parameter finden Sie unter <a href="#common-kinematic-settings">gemeinsame Kinematikeinstellungen</a>.</p>
 <div class="highlight"><pre><span></span><code>[printer]
 kinematics: deltesian
 max_z_velocity:
@@ -3028,8 +3034,8 @@ arm_x_length:
 </code></pre></div>
 
 <h3 id="corexy-kinematik">CoreXY Kinematik<a class="headerlink" href="#corexy-kinematik" title="Permanent link">&para;</a></h3>
-<p>See <a href="https://github.com/Klipper3d/klipper/blob/master/config/example-corexy.cfg">example-corexy.cfg</a> for an example corexy (and h-bot) kinematics file.</p>
-<p>Only parameters specific to corexy printers are described here - see <a href="#common-kinematic-settings">common kinematic settings</a> for available parameters.</p>
+<p>Eine Beispieldatei für CoreXY-Kinematik (und H-Bot) finden Sie unter <a href="https://github.com/Klipper3d/klipper/blob/master/config/example-corexy.cfg">example-corexy.cfg</a>.</p>
+<p>Hier werden nur die Parameter beschrieben, die für CoreXY-Drucker spezifisch sind - die verfügbaren Parameter finden Sie unter <a href="#common-kinematic-settings">gemeinsame Kinematikeinstellungen</a>.</p>
 <div class="highlight"><pre><span></span><code>[printer]
 kinematics: corexy
 max_z_velocity:
@@ -3056,8 +3062,8 @@ max_z_accel:
 </code></pre></div>
 
 <h3 id="corexz-kinematik">CoreXZ Kinematik<a class="headerlink" href="#corexz-kinematik" title="Permanent link">&para;</a></h3>
-<p>See <a href="https://github.com/Klipper3d/klipper/blob/master/config/example-corexz.cfg">example-corexz.cfg</a> for an example corexz kinematics config file.</p>
-<p>Only parameters specific to corexz printers are described here - see <a href="#common-kinematic-settings">common kinematic settings</a> for available parameters.</p>
+<p>Eine Beispiel-Konfigurationsdatei für CoreXZ-Kinematik finden Sie unter <a href="https://github.com/Klipper3d/klipper/blob/master/config/example-corexz.cfg">example-corexz.cfg</a>.</p>
+<p>Hier werden nur die Parameter beschrieben, die für CoreXZ-Drucker spezifisch sind - die verfügbaren Parameter finden Sie unter <a href="#common-kinematic-settings">gemeinsame Kinematikeinstellungen</a>.</p>
 <div class="highlight"><pre><span></span><code>[printer]
 kinematics: corexz
 max_z_velocity:
@@ -3081,9 +3087,9 @@ max_z_accel:
 </code></pre></div>
 
 <h3 id="hybrid-corexy-kinematik">Hybrid-CoreXY Kinematik<a class="headerlink" href="#hybrid-corexy-kinematik" title="Permanent link">&para;</a></h3>
-<p>See <a href="https://github.com/Klipper3d/klipper/blob/master/config/example-hybrid-corexy.cfg">example-hybrid-corexy.cfg</a> for an example hybrid corexy kinematics config file.</p>
-<p>This kinematic is also known as Markforged kinematic.</p>
-<p>Only parameters specific to hybrid corexy printers are described here see <a href="#common-kinematic-settings">common kinematic settings</a> for available parameters.</p>
+<p>Eine Beispiel-Konfigurationsdatei für hybride CoreXY-Kinematik finden Sie unter <a href="https://github.com/Klipper3d/klipper/blob/master/config/example-hybrid-corexy.cfg">example-hybrid-corexy.cfg</a>.</p>
+<p>Diese Kinematik ist auch als Markforged-Kinematik bekannt.</p>
+<p>Hier werden nur die Parameter beschrieben, die für hybride CoreXY-Drucker spezifisch sind - die verfügbaren Parameter finden Sie unter <a href="#common-kinematic-settings">gemeinsame Kinematikeinstellungen</a>.</p>
 <div class="highlight"><pre><span></span><code>[printer]
 kinematics: hybrid_corexy
 max_z_velocity:
@@ -3107,9 +3113,9 @@ max_z_accel:
 </code></pre></div>
 
 <h3 id="hybrid-corexz-kinematik">Hybrid-CoreXZ Kinematik<a class="headerlink" href="#hybrid-corexz-kinematik" title="Permanent link">&para;</a></h3>
-<p>See <a href="https://github.com/Klipper3d/klipper/blob/master/config/example-hybrid-corexz.cfg">example-hybrid-corexz.cfg</a> for an example hybrid corexz kinematics config file.</p>
-<p>This kinematic is also known as Markforged kinematic.</p>
-<p>Only parameters specific to hybrid corexy printers are described here see <a href="#common-kinematic-settings">common kinematic settings</a> for available parameters.</p>
+<p>Eine Beispiel-Konfigurationsdatei für hybride CoreXZ-Kinematik finden Sie unter <a href="https://github.com/Klipper3d/klipper/blob/master/config/example-hybrid-corexz.cfg">example-hybrid-corexz.cfg</a>.</p>
+<p>Diese Kinematik ist auch als Markforged-Kinematik bekannt.</p>
+<p>Hier werden nur die Parameter beschrieben, die für hybride CoreXY-Drucker spezifisch sind - die verfügbaren Parameter finden Sie unter <a href="#common-kinematic-settings">gemeinsame Kinematikeinstellungen</a>.</p>
 <div class="highlight"><pre><span></span><code>[printer]
 kinematics: hybrid_corexz
 max_z_velocity:
@@ -3133,9 +3139,9 @@ max_z_accel:
 </code></pre></div>
 
 <h3 id="polar-kinematik">Polar Kinematik<a class="headerlink" href="#polar-kinematik" title="Permanent link">&para;</a></h3>
-<p>See <a href="https://github.com/Klipper3d/klipper/blob/master/config/example-polar.cfg">example-polar.cfg</a> for an example polar kinematics config file.</p>
-<p>Only parameters specific to polar printers are described here - see <a href="#common-kinematic-settings">common kinematic settings</a> for available parameters.</p>
-<p>POLAR KINEMATICS ARE A WORK IN PROGRESS. Moves around the 0, 0 position are known to not work properly.</p>
+<p>Eine Beispiel-Konfigurationsdatei für polare Kinematik finden Sie unter <a href="https://github.com/Klipper3d/klipper/blob/master/config/example-polar.cfg">example-polar.cfg</a>.</p>
+<p>Hier werden nur die Parameter beschrieben, die für polare Drucker spezifisch sind - die verfügbaren Parameter finden Sie unter <a href="#common-kinematic-settings">gemeinsame Kinematikeinstellungen</a>.</p>
+<p>DIE POLARE KINEMATIK BEFINDET SICH IN ARBEIT. Es ist bekannt, dass Bewegungen um die Position 0, 0 nicht korrekt funktionieren.</p>
 <div class="highlight"><pre><span></span><code>[printer]
 kinematics: polar
 max_z_velocity:
@@ -3172,9 +3178,9 @@ gear_ratio:
 </code></pre></div>
 
 <h3 id="rotierende-delta-kinematik">Rotierende Delta Kinematik<a class="headerlink" href="#rotierende-delta-kinematik" title="Permanent link">&para;</a></h3>
-<p>See <a href="https://github.com/Klipper3d/klipper/blob/master/config/example-rotary-delta.cfg">example-rotary-delta.cfg</a> for an example rotary delta kinematics config file.</p>
-<p>Only parameters specific to rotary delta printers are described here - see <a href="#common-kinematic-settings">common kinematic settings</a> for available parameters.</p>
-<p>ROTARY DELTA KINEMATICS ARE A WORK IN PROGRESS. Homing moves may timeout and some boundary checks are not implemented.</p>
+<p>Eine Beispiel-Konfigurationsdatei für Rotary-Delta-Kinematik finden Sie unter <a href="https://github.com/Klipper3d/klipper/blob/master/config/example-rotary-delta.cfg">example-rotary-delta.cfg</a>.</p>
+<p>Hier werden nur die Parameter beschrieben, die für Rotary-Delta-Drucker spezifisch sind - die verfügbaren Parameter finden Sie unter <a href="#common-kinematic-settings">gemeinsame Kinematikeinstellungen</a>.</p>
+<p>DIE ROTARY-DELTA-KINEMATIK BEFINDET SICH IN ARBEIT. Homing-Bewegungen können in eine Zeitüberschreitung laufen und einige Grenzwertprüfungen sind nicht implementiert.</p>
 <div class="highlight"><pre><span></span><code>[printer]
 kinematics: rotary_delta
 max_z_velocity:
@@ -3253,9 +3259,9 @@ radius:
 </code></pre></div>
 
 <h3 id="seilwinden-kinematik">Seilwinden Kinematik<a class="headerlink" href="#seilwinden-kinematik" title="Permanent link">&para;</a></h3>
-<p>See the <a href="https://github.com/Klipper3d/klipper/blob/master/config/example-winch.cfg">example-winch.cfg</a> for an example cable winch kinematics config file.</p>
-<p>Only parameters specific to cable winch printers are described here - see <a href="#common-kinematic-settings">common kinematic settings</a> for available parameters.</p>
-<p>CABLE WINCH SUPPORT IS EXPERIMENTAL. Homing is not implemented on cable winch kinematics. In order to home the printer, manually send movement commands until the toolhead is at 0, 0, 0 and then issue a <code>G28</code> command.</p>
+<p>Eine Beispiel-Konfigurationsdatei für die Kinematik von Seilwinden-Druckern finden Sie unter <a href="https://github.com/Klipper3d/klipper/blob/master/config/example-winch.cfg">example-winch.cfg</a>.</p>
+<p>Hier werden nur die Parameter beschrieben, die für Seilwinden-Drucker spezifisch sind - die verfügbaren Parameter finden Sie unter <a href="#common-kinematic-settings">gemeinsame Kinematikeinstellungen</a>.</p>
+<p>DIE UNTERSTÜTZUNG FÜR SEILWINDEN IST EXPERIMENTELL. Für die Seilwinden-Kinematik ist kein Homing implementiert. Um den Drucker zu homen, senden Sie manuell Bewegungsbefehle, bis der Druckkopf bei 0, 0, 0 steht, und setzen Sie anschließend einen <code>G28</code>-Befehl ab.</p>
 <div class="highlight"><pre><span></span><code>[printer]
 kinematics: winch
 
@@ -3274,10 +3280,10 @@ anchor_z:
 #   These parameters must be provided.
 </code></pre></div>
 
-<h3 id="generic-cartesian-kinematics">Generic Cartesian Kinematics<a class="headerlink" href="#generic-cartesian-kinematics" title="Permanent link">&para;</a></h3>
-<p>See <a href="https://github.com/Klipper3d/klipper/blob/master/config/example-generic-caretesian.cfg">example-generic-cartesian.cfg</a> for an example generic Cartesian kinematics config file.</p>
-<p>This printer kinematic class allows a user to define in a pretty flexible manner an arbitrary Cartesian-style kinematics. In principle, the regular cartesian, corexy, hybrid_corexy can be defined this way too. However, more importantly, various otherwise unsupported kinematics such as inverted hybrid_corexy or corexyuv can be defined using this kinematic.</p>
-<p>Notably, the definition of a generic Cartesian kinematic deviates significantly from the other kinematic types. It follows the following convention: a user defines a set of carriages with certain range of motion that can move independently from each other (they should move over the Cartesian axes X, Y, and Z, hence the name of the kinematic) and corresponding endstops that allow the firmware to determine the position of carriages during homing, as well as a set of steppers that move those carriages. The <code>[printer]</code> section must specify the kinematic and other printer-level settings same as the regular Cartesian kinematic:</p>
+<h3 id="generische-kartesische-kinematik">Generische kartesische Kinematik<a class="headerlink" href="#generische-kartesische-kinematik" title="Permanent link">&para;</a></h3>
+<p>Eine Beispiel-Konfigurationsdatei für generische kartesische Kinematik finden Sie unter <a href="https://github.com/Klipper3d/klipper/blob/master/config/example-generic-caretesian.cfg">example-generic-cartesian.cfg</a>.</p>
+<p>Diese Kinematikklasse erlaubt es, auf recht flexible Weise eine beliebige Kinematik kartesischer Bauart zu definieren. Grundsätzlich lassen sich damit auch die regulären Kinematiken cartesian, corexy und hybrid_corexy definieren. Wichtiger ist jedoch, dass sich mit dieser Kinematik verschiedene ansonsten nicht unterstützte Kinematiken definieren lassen, etwa invertiertes hybrid_corexy oder corexyuv.</p>
+<p>Bemerkenswert ist, dass die Definition einer generischen kartesischen Kinematik deutlich von den übrigen Kinematiktypen abweicht. Sie folgt dieser Konvention: Der Benutzer definiert eine Reihe von Schlitten mit einem bestimmten Bewegungsbereich, die sich unabhängig voneinander bewegen können (sie sollten sich entlang der kartesischen Achsen X, Y und Z bewegen, daher der Name der Kinematik), sowie zugehörige Endschalter, mit denen die Firmware die Position der Schlitten beim Homing bestimmen kann, und eine Reihe von Schrittmotoren, die diese Schlitten bewegen. Der Abschnitt <code>[printer]</code> muss die Kinematik und weitere druckerweite Einstellungen genauso angeben wie bei der regulären kartesischen Kinematik:</p>
 <div class="highlight"><pre><span></span><code>[printer]
 kinematics: generic_cartesian
 max_velocity:
@@ -3288,7 +3294,7 @@ max_accel:
 #max_z_accel:
 </code></pre></div>
 
-<p>Then a user must define three primary carriages for X, Y, and Z axes, e.g.:</p>
+<p>Anschließend muss der Benutzer drei primäre Schlitten für die X-, Y- und Z-Achse definieren, z. B.:</p>
 <div class="highlight"><pre><span></span><code>[carriage carriage_x]
 axis:
 #   Axis of a carriage, either x, y, or z. This parameter must be provided,
@@ -3327,7 +3333,7 @@ position_max:
 #   if near position_min.
 </code></pre></div>
 
-<p>Afterwards, a user specifies the stepper motors that move these carriages, for instance</p>
+<p>Danach gibt der Benutzer die Schrittmotoren an, die diese Schlitten bewegen, zum Beispiel</p>
 <div class="highlight"><pre><span></span><code>[stepper my_stepper]
 carriages:
 #   A string describing the carriages the stepper moves. All defined
@@ -3344,8 +3350,8 @@ microsteps:
 #step_pulse_duration:
 </code></pre></div>
 
-<p>See <a href="#stepper">stepper</a> section for more information on the regular stepper parameters. The <code>carriages</code> parameter defines how the stepper affects the motion of the carriages. For example, <code>carriage_x+carriage_y</code> indicates that the motion of the stepper in the positive direction by the distance <code>d</code> moves the carriages <code>carriage_x</code> and <code>carriage_y</code> by the same distance <code>d</code> in the positive direction, while <code>carriage_x-0.5*carriage_y</code> means the motion of the stepper in the positive direction by the distance <code>d</code> moves the carriage <code>carriage_x</code> by the distance <code>d</code> in the positive direction, but the carriage <code>carriage_y</code> will travel distance <code>d/2</code> in the negative direction.</p>
-<p>More than a single stepper motor can be defined to drive the same axis or belt. For example, on a CoreXY AWD setups two motors driving the same belt can be defined as</p>
+<p>Weitere Informationen zu den regulären Schrittmotorparametern finden Sie im Abschnitt <a href="#stepper">stepper</a>. Der Parameter <code>carriages</code> legt fest, wie der Schrittmotor die Bewegung der Schlitten beeinflusst. <code>carriage_x+carriage_y</code> bedeutet zum Beispiel, dass eine Bewegung des Schrittmotors in positiver Richtung um die Distanz <code>d</code> die Schlitten <code>carriage_x</code> und <code>carriage_y</code> um dieselbe Distanz <code>d</code> in positiver Richtung bewegt, während <code>carriage_x-0.5*carriage_y</code> bedeutet, dass eine Bewegung des Schrittmotors in positiver Richtung um die Distanz <code>d</code> den Schlitten <code>carriage_x</code> um die Distanz <code>d</code> in positiver Richtung bewegt, der Schlitten <code>carriage_y</code> jedoch die Distanz <code>d/2</code> in negativer Richtung zurücklegt.</p>
+<p>Es kann mehr als ein Schrittmotor definiert werden, um dieselbe Achse oder denselben Riemen anzutreiben. Bei CoreXY-AWD-Aufbauten lassen sich zum Beispiel zwei Motoren, die denselben Riemen antreiben, so definieren:</p>
 <div class="highlight"><pre><span></span><code>[carriage carriage_x]
 endstop_pin: ...
 ...
@@ -3371,8 +3377,8 @@ rotation_distance: ...
 ...
 </code></pre></div>
 
-<p>with <code>a0</code> and <code>a1</code> steppers having their own control pins, but sharing the same <code>carriages</code> and corresponding endstops.</p>
-<p>There are situations when a user wants to have more than one endstop per axis. Examples of such configurations include Y axis driven by two independent stepper motors with belts attached to both ends of the X gantry, with effectively two carriages on Y axis each having an independent endstop, and multi-stepper Z axis with each stepper having its own endstop (not to be confused with the configurations with multiple Z motors but only a single endstop). These configurations can be declared by specifying additional carriage(s) with their endstops:</p>
+<p>wobei die Schrittmotoren <code>a0</code> und <code>a1</code> eigene Steuerpins besitzen, sich aber dieselben <code>carriages</code> und die zugehörigen Endschalter teilen.</p>
+<p>Es gibt Situationen, in denen mehr als ein Endschalter pro Achse gewünscht ist. Beispiele für solche Konfigurationen sind eine Y-Achse, die von zwei unabhängigen Schrittmotoren angetrieben wird, deren Riemen an beiden Enden des X-Portals befestigt sind - wodurch es faktisch zwei Schlitten auf der Y-Achse mit jeweils eigenem Endschalter gibt -, sowie eine Z-Achse mit mehreren Schrittmotoren, bei der jeder Schrittmotor einen eigenen Endschalter besitzt (nicht zu verwechseln mit Konfigurationen mit mehreren Z-Motoren, aber nur einem einzigen Endschalter). Diese Konfigurationen lassen sich durch Angabe zusätzlicher Schlitten mit ihren Endschaltern deklarieren:</p>
 <div class="highlight"><pre><span></span><code>[extra_carriage my_carriage]
 primary_carriage:
 #   The name of the primary carriage this carriage corresponds to.
@@ -3382,7 +3388,7 @@ endstop_pin:
 #   Endstop switch detection pin. This parameter must be provided.
 </code></pre></div>
 
-<p>and the corresponding stepper motors, for example:</p>
+<p>und die zugehörigen Schrittmotoren, zum Beispiel:</p>
 <div class="highlight"><pre><span></span><code>[extra_carriage carriage_y1]
 primary_carriage: carriage_y
 endstop_pin: ...
@@ -3392,10 +3398,10 @@ carriages: carriage_y1
 ...
 </code></pre></div>
 
-<p>Notably, an <code>[extra_carriage]</code> does not define parameters such as <code>position_min</code>, <code>position_max</code>, and <code>position_endstop</code>, but instead inherits them from the specified <code>primary_carriage</code>, thus sharing the same range of motion with the primary carriage.</p>
-<p>For the references on how to configure IDEX setups, see the <a href="#dual-carriage">dual carriage</a> section.</p>
+<p>Bemerkenswert ist, dass ein <code>[extra_carriage]</code> keine Parameter wie <code>position_min</code>, <code>position_max</code> und <code>position_endstop</code> definiert, sondern sie vom angegebenen <code>primary_carriage</code> erbt und sich damit denselben Bewegungsbereich mit dem primären Schlitten teilt.</p>
+<p>Hinweise zur Konfiguration von IDEX-Aufbauten finden Sie im Abschnitt <a href="#dual-carriage">dual carriage</a>.</p>
 <h3 id="keine-kinematik">Keine Kinematik<a class="headerlink" href="#keine-kinematik" title="Permanent link">&para;</a></h3>
-<p>It is possible to define a special "none" kinematics to disable kinematic support in Klipper. This may be useful for controlling devices that are not typical 3d-printers or for debugging purposes.</p>
+<p>Es ist möglich, eine spezielle Kinematik "none" zu definieren, um die Kinematikunterstützung in Klipper zu deaktivieren. Das kann für die Ansteuerung von Geräten nützlich sein, die keine typischen 3D-Drucker sind, oder zu Debugging-Zwecken.</p>
 <div class="highlight"><pre><span></span><code>[printer]
 kinematics: none
 max_velocity: 1
@@ -3406,7 +3412,7 @@ max_accel: 1
 
 <h2 id="ubliche-extruder-und-heizbettunterstutzung">Übliche Extruder und Heizbettunterstützung<a class="headerlink" href="#ubliche-extruder-und-heizbettunterstutzung" title="Permanent link">&para;</a></h2>
 <h3 id="extruder">[extruder]<a class="headerlink" href="#extruder" title="Permanent link">&para;</a></h3>
-<p>The extruder section is used to describe the heater parameters for the nozzle hotend along with the stepper controlling the extruder. See the <a href="G-Codes.html#extruder">command reference</a> for additional information. See the <a href="Pressure_Advance.html">pressure advance guide</a> for information on tuning pressure advance.</p>
+<p>Der Abschnitt extruder beschreibt die Heizungsparameter des Hotends samt dem Schrittmotor, der den Extruder antreibt. Weitere Informationen finden Sie in der <a href="G-Codes.html#extruder">Befehlsreferenz</a>. Informationen zum Abstimmen von Pressure Advance finden Sie in der <a href="Pressure_Advance.html">Pressure-Advance-Anleitung</a>.</p>
 <div class="highlight"><pre><span></span><code>[extruder]
 step_pin:
 dir_pin:
@@ -3531,7 +3537,7 @@ max_temp:
 </code></pre></div>
 
 <h3 id="heater_bed">[heater_bed]<a class="headerlink" href="#heater_bed" title="Permanent link">&para;</a></h3>
-<p>The heater_bed section describes a heated bed. It uses the same heater settings described in the "extruder" section.</p>
+<p>Der Abschnitt heater_bed beschreibt ein beheiztes Bett. Er verwendet dieselben Heizungseinstellungen, die im Abschnitt "extruder" beschrieben sind.</p>
 <div class="highlight"><pre><span></span><code>[heater_bed]
 heater_pin:
 sensor_type:
@@ -3544,8 +3550,8 @@ max_temp:
 
 <h2 id="bett-nivelierung-unterstutzung">Bett Nivelierung Unterstützung<a class="headerlink" href="#bett-nivelierung-unterstutzung" title="Permanent link">&para;</a></h2>
 <h3 id="bed_mesh">[bed_mesh]<a class="headerlink" href="#bed_mesh" title="Permanent link">&para;</a></h3>
-<p>Mesh Bed Leveling. One may define a bed_mesh config section to enable move transformations that offset the z axis based on a mesh generated from probed points. When using a probe to home the z-axis, it is recommended to define a safe_z_home section in printer.cfg to home toward the center of the print area.</p>
-<p>See the <a href="Bed_Mesh.html">bed mesh guide</a> and <a href="G-Codes.html#bed_mesh">command reference</a> for additional information.</p>
+<p>Mesh Bed Leveling. Man kann einen Konfigurationsabschnitt bed_mesh definieren, um Bewegungstransformationen zu aktivieren, die die Z-Achse anhand eines aus Messpunkten erzeugten Meshes versetzen. Wenn eine Sonde für das Homing der Z-Achse verwendet wird, wird empfohlen, in der printer.cfg einen Abschnitt safe_z_home zu definieren, um in Richtung der Mitte des Druckbereichs zu homen.</p>
+<p>Weitere Informationen finden Sie in der <a href="Bed_Mesh.html">Bed-Mesh-Anleitung</a> und in der <a href="G-Codes.html#bed_mesh">Befehlsreferenz</a>.</p>
 <p>Visuelle Beispiele:</p>
 <div class="highlight"><pre><span></span><code> rectangular bed, probe_count = 3, 3:
              x---x---x (max_point)
@@ -3692,8 +3698,8 @@ max_temp:
 </code></pre></div>
 
 <h3 id="bed_screws">[bed_screws]<a class="headerlink" href="#bed_screws" title="Permanent link">&para;</a></h3>
-<p>Tool to help adjust bed leveling screws. One may define a [bed_screws] config section to enable a BED_SCREWS_ADJUST g-code command.</p>
-<p>See the <a href="Manual_Level.html#adjusting-bed-leveling-screws">leveling guide</a> and <a href="G-Codes.html#bed_screws">command reference</a> for additional information.</p>
+<p>Werkzeug zur Unterstützung beim Einstellen der Bettnivellierschrauben. Man kann einen Konfigurationsabschnitt [bed_screws] definieren, um den G-Code-Befehl BED_SCREWS_ADJUST zu aktivieren.</p>
+<p>Weitere Informationen finden Sie in der <a href="Manual_Level.html#adjusting-bed-leveling-screws">Nivellierungsanleitung</a> und in der <a href="G-Codes.html#bed_screws">Befehlsreferenz</a>.</p>
 <div class="highlight"><pre><span></span><code>[bed_screws]
 #screw1:
 #   The X, Y coordinate of the first bed leveling screw. This is a
@@ -3729,8 +3735,8 @@ max_temp:
 </code></pre></div>
 
 <h3 id="screws_tilt_adjust">[screws_tilt_adjust]<a class="headerlink" href="#screws_tilt_adjust" title="Permanent link">&para;</a></h3>
-<p>Tool to help adjust bed screws tilt using Z probe. One may define a screws_tilt_adjust config section to enable a SCREWS_TILT_CALCULATE g-code command.</p>
-<p>See the <a href="Manual_Level.html#adjusting-bed-leveling-screws-using-the-bed-probe">leveling guide</a> and <a href="G-Codes.html#screws_tilt_adjust">command reference</a> for additional information.</p>
+<p>Werkzeug zur Unterstützung beim Einstellen der Neigung über die Bettschrauben mithilfe der Z-Sonde. Man kann einen Konfigurationsabschnitt screws_tilt_adjust definieren, um den G-Code-Befehl SCREWS_TILT_CALCULATE zu aktivieren.</p>
+<p>Weitere Informationen finden Sie in der <a href="Manual_Level.html#adjusting-bed-leveling-screws-using-the-bed-probe">Nivellierungsanleitung</a> und in der <a href="G-Codes.html#screws_tilt_adjust">Befehlsreferenz</a>.</p>
 <div class="highlight"><pre><span></span><code>[screws_tilt_adjust]
 #screw1:
 #   The (X, Y) coordinate of the first bed leveling screw. This is a
@@ -3763,7 +3769,7 @@ max_temp:
 </code></pre></div>
 
 <h3 id="z_tilt">[z_tilt]<a class="headerlink" href="#z_tilt" title="Permanent link">&para;</a></h3>
-<p>Multiple Z stepper tilt adjustment. This feature enables independent adjustment of multiple z steppers (see the "stepper_z1" section) to adjust for tilt. If this section is present then a Z_TILT_ADJUST extended <a href="G-Codes.html#z_tilt">G-Code command</a> becomes available.</p>
+<p>Neigungsausgleich über mehrere Z-Schrittmotoren. Diese Funktion ermöglicht die unabhängige Anpassung mehrerer Z-Schrittmotoren (siehe Abschnitt "stepper_z1"), um eine Neigung auszugleichen. Ist dieser Abschnitt vorhanden, steht der erweiterte <a href="G-Codes.html#z_tilt">G-Code-Befehl</a> Z_TILT_ADJUST zur Verfügung.</p>
 <div class="highlight"><pre><span></span><code>[z_tilt]
 #z_positions:
 #   A list of X, Y coordinates (one per line; subsequent lines
@@ -3798,7 +3804,7 @@ max_temp:
 </code></pre></div>
 
 <h3 id="quad_gantry_level">[quad_gantry_level]<a class="headerlink" href="#quad_gantry_level" title="Permanent link">&para;</a></h3>
-<p>Moving gantry leveling using 4 independently controlled Z motors. Corrects hyperbolic parabola effects (potato chip) on moving gantry which is more flexible. WARNING: Using this on a moving bed may lead to undesirable results. If this section is present then a QUAD_GANTRY_LEVEL extended G-Code command becomes available. This routine assumes the following Z motor configuration:</p>
+<p>Nivellierung eines beweglichen Portals mit 4 unabhängig angesteuerten Z-Motoren. Korrigiert Effekte eines hyperbolischen Paraboloids (Kartoffelchip-Effekt) an beweglichen Portalen, die nachgiebiger sind. WARNUNG: Die Verwendung bei einem beweglichen Bett kann zu unerwünschten Ergebnissen führen. Ist dieser Abschnitt vorhanden, steht der erweiterte G-Code-Befehl QUAD_GANTRY_LEVEL zur Verfügung. Diese Routine setzt die folgende Anordnung der Z-Motoren voraus:</p>
 <div class="highlight"><pre><span></span><code> ----------------
  |Z1          Z2|
  |  ---------   |
@@ -3809,7 +3815,7 @@ max_temp:
  ----------------
 </code></pre></div>
 
-<p>Where x is the 0, 0 point on the bed</p>
+<p>Dabei ist x der Punkt 0, 0 auf dem Bett</p>
 <div class="highlight"><pre><span></span><code>[quad_gantry_level]
 #gantry_corners:
 #   A newline separated list of X, Y coordinates describing the two
@@ -3839,12 +3845,12 @@ max_temp:
 </code></pre></div>
 
 <h3 id="skew_correction">[skew_correction]<a class="headerlink" href="#skew_correction" title="Permanent link">&para;</a></h3>
-<p>Printer Skew Correction. It is possible to use software to correct printer skew across 3 planes, xy, xz, yz. This is done by printing a calibration model along a plane and measuring three lengths. Due to the nature of skew correction these lengths are set via gcode. See <a href="Skew_Correction.html">Skew Correction</a> and <a href="G-Codes.html#skew_correction">Command Reference</a> for details.</p>
+<p>Korrektur der Druckerschrägstellung. Es ist möglich, die Schrägstellung des Druckers softwareseitig in den drei Ebenen XY, XZ und YZ zu korrigieren. Dazu druckt man ein Kalibriermodell entlang einer Ebene und misst drei Längen. Aufgrund der Funktionsweise der Schrägkorrektur werden diese Längen per G-Code gesetzt. Einzelheiten finden Sie unter <a href="Skew_Correction.html">Skew Correction</a> und in der <a href="G-Codes.html#skew_correction">Befehlsreferenz</a>.</p>
 <div class="highlight"><pre><span></span><code>[skew_correction]
 </code></pre></div>
 
 <h3 id="z_thermal_adjust">[z_thermal_adjust]<a class="headerlink" href="#z_thermal_adjust" title="Permanent link">&para;</a></h3>
-<p>Temperature-dependant toolhead Z position adjustment. Compensate for vertical toolhead movement caused by thermal expansion of the printer's frame in real-time using a temperature sensor (typically coupled to a vertical section of frame).</p>
+<p>Temperaturabhängige Anpassung der Z-Position des Druckkopfes. Gleicht die durch Wärmeausdehnung des Druckerrahmens verursachte vertikale Bewegung des Druckkopfes in Echtzeit mithilfe eines Temperatursensors aus (der üblicherweise an einem vertikalen Rahmenabschnitt angebracht ist).</p>
 <p>Siehe auch: <a href="G-Codes.html#z_thermal_adjust">erweiterte g-Code-Befehle</a>.</p>
 <div class="highlight"><pre><span></span><code>[z_thermal_adjust]
 #temp_coeff:
@@ -3877,7 +3883,7 @@ max_temp:
 
 <h2 id="benutzerdefiniertes-homing">Benutzerdefiniertes Homing<a class="headerlink" href="#benutzerdefiniertes-homing" title="Permanent link">&para;</a></h2>
 <h3 id="safe_z_home">[safe_z_home]<a class="headerlink" href="#safe_z_home" title="Permanent link">&para;</a></h3>
-<p>Safe Z homing. One may use this mechanism to home the Z axis at a specific X, Y coordinate. This is useful if the toolhead, for example has to move to the center of the bed before Z can be homed.</p>
+<p>Sicheres Z-Homing. Über diesen Mechanismus kann die Z-Achse an einer bestimmten X-, Y-Koordinate gehomt werden. Das ist nützlich, wenn der Druckkopf zum Beispiel erst in die Bettmitte fahren muss, bevor Z gehomt werden kann.</p>
 <div class="highlight"><pre><span></span><code>[safe_z_home]
 home_xy_position:
 #   A X, Y coordinate (e.g. 100, 100) where the Z homing should be
@@ -3901,7 +3907,7 @@ home_xy_position:
 </code></pre></div>
 
 <h3 id="homing_override">[homing_override]<a class="headerlink" href="#homing_override" title="Permanent link">&para;</a></h3>
-<p>Homing override. One may use this mechanism to run a series of g-code commands in place of a G28 found in the normal g-code input. This may be useful on printers that require a specific procedure to home the machine.</p>
+<p>Homing-Überschreibung (homing override). Über diesen Mechanismus kann anstelle eines im normalen G-Code-Eingang enthaltenen G28 eine Reihe von G-Code-Befehlen ausgeführt werden. Das kann bei Druckern nützlich sein, die ein spezielles Verfahren für das Homing der Maschine erfordern.</p>
 <div class="highlight"><pre><span></span><code>[homing_override]
 gcode:
 #   A list of G-Code commands to execute in place of G28 commands
@@ -3927,8 +3933,8 @@ gcode:
 </code></pre></div>
 
 <h3 id="endstop_phase">[endstop_phase]<a class="headerlink" href="#endstop_phase" title="Permanent link">&para;</a></h3>
-<p>Stepper phase adjusted endstops. To use this feature, define a config section with an "endstop_phase" prefix followed by the name of the corresponding stepper config section (for example, "[endstop_phase stepper_z]"). This feature can improve the accuracy of endstop switches. Add a bare "[endstop_phase]" declaration to enable the ENDSTOP_PHASE_CALIBRATE command.</p>
-<p>See the <a href="Endstop_Phase.html">endstop phases guide</a> and <a href="G-Codes.html#endstop_phase">command reference</a> for additional information.</p>
+<p>Endschalter mit Schrittphasenanpassung. Um diese Funktion zu nutzen, definieren Sie einen Konfigurationsabschnitt mit dem Präfix "endstop_phase", gefolgt vom Namen des zugehörigen Schrittmotor-Konfigurationsabschnitts (zum Beispiel "[endstop_phase stepper_z]"). Diese Funktion kann die Genauigkeit von Endschaltern verbessern. Fügen Sie eine reine Deklaration "[endstop_phase]" hinzu, um den Befehl ENDSTOP_PHASE_CALIBRATE zu aktivieren.</p>
+<p>Weitere Informationen finden Sie in der <a href="Endstop_Phase.html">Anleitung zu Endschalterphasen</a> und in der <a href="G-Codes.html#endstop_phase">Befehlsreferenz</a>.</p>
 <div class="highlight"><pre><span></span><code>[endstop_phase stepper_z]
 #endstop_accuracy:
 #   Sets the expected accuracy (in mm) of the endstop. This represents
@@ -3954,7 +3960,7 @@ gcode:
 
 <h2 id="g-code-makros-und-ereignisse">G-Code Makros und Ereignisse<a class="headerlink" href="#g-code-makros-und-ereignisse" title="Permanent link">&para;</a></h2>
 <h3 id="gcode_macro">[gcode_macro]<a class="headerlink" href="#gcode_macro" title="Permanent link">&para;</a></h3>
-<p>G-Code macros (one may define any number of sections with a "gcode_macro" prefix). See the <a href="Command_Templates.html">command template guide</a> for more information.</p>
+<p>G-Code-Makros (man kann beliebig viele Abschnitte mit dem Präfix "gcode_macro" definieren). Weitere Informationen finden Sie in der <a href="Command_Templates.html">Anleitung zu Befehlsvorlagen</a>.</p>
 <div class="highlight"><pre><span></span><code>[gcode_macro my_cmd]
 #gcode:
 #   A list of G-Code commands to execute in place of &quot;my_cmd&quot;. See
@@ -3982,7 +3988,7 @@ gcode:
 </code></pre></div>
 
 <h3 id="delayed_gcode">[delayed_gcode]<a class="headerlink" href="#delayed_gcode" title="Permanent link">&para;</a></h3>
-<p>Execute a gcode on a set delay. See the <a href="Command_Templates.html#delayed-gcodes">command template guide</a> and <a href="G-Codes.html#delayed_gcode">command reference</a> for more information.</p>
+<p>Einen G-Code nach einer festgelegten Verzögerung ausführen. Weitere Informationen finden Sie in der <a href="Command_Templates.html#delayed-gcodes">Anleitung zu Befehlsvorlagen</a> und in der <a href="G-Codes.html#delayed_gcode">Befehlsreferenz</a>.</p>
 <div class="highlight"><pre><span></span><code>[delayed_gcode my_delayed_gcode]
 gcode:
 #   A list of G-Code commands to execute when the delay duration has
@@ -3998,7 +4004,7 @@ gcode:
 </code></pre></div>
 
 <h3 id="save_variables">[save_variables]<a class="headerlink" href="#save_variables" title="Permanent link">&para;</a></h3>
-<p>Support saving variables to disk so that they are retained across restarts. See <a href="Command_Templates.html#save-variables-to-disk">command templates</a> and <a href="G-Codes.html#save_variables">G-Code reference</a> for further information.</p>
+<p>Unterstützung für das Speichern von Variablen auf der Festplatte, sodass sie über Neustarts hinweg erhalten bleiben. Weitere Informationen finden Sie unter <a href="Command_Templates.html#save-variables-to-disk">Befehlsvorlagen</a> und in der <a href="G-Codes.html#save_variables">G-Code-Referenz</a>.</p>
 <div class="highlight"><pre><span></span><code>[save_variables]
 filename:
 #   Required - provide a filename that would be used to save the
@@ -4006,7 +4012,7 @@ filename:
 </code></pre></div>
 
 <h3 id="idle_timeout">[idle_timeout]<a class="headerlink" href="#idle_timeout" title="Permanent link">&para;</a></h3>
-<p>Idle timeout. An idle timeout is automatically enabled - add an explicit idle_timeout config section to change the default settings.</p>
+<p>Leerlauf-Zeitüberschreitung. Eine Leerlauf-Zeitüberschreitung ist automatisch aktiviert - fügen Sie einen expliziten Konfigurationsabschnitt idle_timeout hinzu, um die Standardeinstellungen zu ändern.</p>
 <div class="highlight"><pre><span></span><code>[idle_timeout]
 #gcode:
 #   A list of G-Code commands to execute on an idle timeout. See
@@ -4034,13 +4040,13 @@ path:
 </code></pre></div>
 
 <h3 id="sdcard_loop">[sdcard_loop]<a class="headerlink" href="#sdcard_loop" title="Permanent link">&para;</a></h3>
-<p>Some printers with stage-clearing features, such as a part ejector or a belt printer, can find use in looping sections of the sdcard file. (For example, to print the same part over and over, or repeat the a section of a part for a chain or other repeated pattern).</p>
-<p>See the <a href="G-Codes.html#sdcard_loop">command reference</a> for supported commands. See the <a href="https://github.com/Klipper3d/klipper/blob/master/config/sample-macros.cfg">sample-macros.cfg</a> file for a Marlin compatible M808 G-Code macro.</p>
+<p>Bei manchen Druckern mit Funktionen zum Freiräumen des Druckbereichs, etwa einem Bauteilauswerfer oder einem Banddrucker, kann es sinnvoll sein, Abschnitte der SD-Karten-Datei in einer Schleife auszuführen. (Zum Beispiel, um dasselbe Bauteil immer wieder zu drucken oder einen Abschnitt eines Bauteils für eine Kette oder ein anderes sich wiederholendes Muster zu wiederholen.)</p>
+<p>Die unterstützten Befehle finden Sie in der <a href="G-Codes.html#sdcard_loop">Befehlsreferenz</a>. Ein zu Marlin kompatibles M808-G-Code-Makro finden Sie in der Datei <a href="https://github.com/Klipper3d/klipper/blob/master/config/sample-macros.cfg">sample-macros.cfg</a>.</p>
 <div class="highlight"><pre><span></span><code>[sdcard_loop]
 </code></pre></div>
 
 <h3 id="force_move">[force_move]<a class="headerlink" href="#force_move" title="Permanent link">&para;</a></h3>
-<p>Support manually moving stepper motors for diagnostic purposes. Note, using this feature may place the printer in an invalid state - see the <a href="G-Codes.html#force_move">command reference</a> for important details.</p>
+<p>Unterstützung für das manuelle Bewegen von Schrittmotoren zu Diagnosezwecken. Beachten Sie, dass die Verwendung dieser Funktion den Drucker in einen ungültigen Zustand versetzen kann - wichtige Einzelheiten finden Sie in der <a href="G-Codes.html#force_move">Befehlsreferenz</a>.</p>
 <div class="highlight"><pre><span></span><code>[force_move]
 #enable_force_move: False
 #   Set to true to enable FORCE_MOVE and SET_KINEMATIC_POSITION
@@ -4048,7 +4054,7 @@ path:
 </code></pre></div>
 
 <h3 id="pause_resume">[pause_resume]<a class="headerlink" href="#pause_resume" title="Permanent link">&para;</a></h3>
-<p>Pause/Resume functionality with support of position capture and restore. See the <a href="G-Codes.html#pause_resume">command reference</a> for more information.</p>
+<p>Pause-/Fortsetzen-Funktionalität mit Unterstützung für das Erfassen und Wiederherstellen der Position. Weitere Informationen finden Sie in der <a href="G-Codes.html#pause_resume">Befehlsreferenz</a>.</p>
 <div class="highlight"><pre><span></span><code>[pause_resume]
 #recover_velocity: 50.
 #   When capture/restore is enabled, the speed at which to return to
@@ -4056,7 +4062,7 @@ path:
 </code></pre></div>
 
 <h3 id="firmware_retraction">[firmware_retraction]<a class="headerlink" href="#firmware_retraction" title="Permanent link">&para;</a></h3>
-<p>Firmware filament retraction. This enables G10 (retract) and G11 (unretract) GCODE commands issued by many slicers. The parameters below provide startup defaults, although the values can be adjusted via the SET_RETRACTION <a href="G-Codes.html#firmware_retraction">command</a>), allowing per-filament settings and runtime tuning.</p>
+<p>Firmwareseitiger Filamentrückzug. Damit werden die G-Code-Befehle G10 (Rückzug) und G11 (Rückzug zurücknehmen) aktiviert, die von vielen Slicern gesendet werden. Die nachfolgenden Parameter legen die Startwerte fest; die Werte lassen sich jedoch über den <a href="G-Codes.html#firmware_retraction">Befehl</a> SET_RETRACTION anpassen, was filamentspezifische Einstellungen und eine Abstimmung zur Laufzeit ermöglicht.</p>
 <div class="highlight"><pre><span></span><code>[firmware_retraction]
 #retract_length: 0
 #   The length of filament (in mm) to retract when G10 is activated,
@@ -4083,7 +4089,7 @@ path:
 </code></pre></div>
 
 <h3 id="respond">[respond]<a class="headerlink" href="#respond" title="Permanent link">&para;</a></h3>
-<p>Enable the "M118" and "RESPOND" extended <a href="G-Codes.html#respond">commands</a>.</p>
+<p>Aktiviert die erweiterten <a href="G-Codes.html#respond">Befehle</a> "M118" und "RESPOND".</p>
 <div class="highlight"><pre><span></span><code>[respond]
 #default_type: echo
 #   Sets the default prefix of the &quot;M118&quot; and &quot;RESPOND&quot; output to one
@@ -4097,8 +4103,8 @@ path:
 </code></pre></div>
 
 <h3 id="exclude_object">[exclude_object]<a class="headerlink" href="#exclude_object" title="Permanent link">&para;</a></h3>
-<p>Enables support to exclude or cancel individual objects during the printing process.</p>
-<p>See the <a href="Exclude_Object.html">exclude objects guide</a> and <a href="G-Codes.html#excludeobject">command reference</a> for additional information. See the <a href="https://github.com/Klipper3d/klipper/blob/master/config/sample-macros.cfg">sample-macros.cfg</a> file for a Marlin/RepRapFirmware compatible M486 G-Code macro.</p>
+<p>Aktiviert die Unterstützung dafür, einzelne Objekte während des Druckvorgangs auszuschließen oder abzubrechen.</p>
+<p>Weitere Informationen finden Sie in der <a href="Exclude_Object.html">Anleitung zum Ausschließen von Objekten</a> und in der <a href="G-Codes.html#excludeobject">Befehlsreferenz</a>. Ein zu Marlin/RepRapFirmware kompatibles M486-G-Code-Makro finden Sie in der Datei <a href="https://github.com/Klipper3d/klipper/blob/master/config/sample-macros.cfg">sample-macros.cfg</a>.</p>
 <div class="highlight"><pre><span></span><code>[exclude_object]
 </code></pre></div>
 
@@ -4144,12 +4150,12 @@ path:
 </code></pre></div>
 
 <h3 id="adxl345">[adxl345]<a class="headerlink" href="#adxl345" title="Permanent link">&para;</a></h3>
-<p>Support for ADXL345 accelerometers. This support allows one to query accelerometer measurements from the sensor. This enables an ACCELEROMETER_MEASURE command (see <a href="G-Codes.html#adxl345">G-Codes</a> for more information). The default chip name is "default", but one may specify an explicit name (eg, [adxl345 my_chip_name]).</p>
+<p>Unterstützung für ADXL345-Beschleunigungssensoren. Damit lassen sich Beschleunigungsmesswerte vom Sensor abfragen. Dies aktiviert den Befehl ACCELEROMETER_MEASURE (weitere Informationen siehe <a href="G-Codes.html#adxl345">G-Codes</a>). Der Standard-Chipname lautet "default", man kann jedoch einen expliziten Namen angeben (z. B. [adxl345 my_chip_name]).</p>
 <div class="highlight"><pre><span></span><code>Gängige SPI Einstellungen
 </code></pre></div>
 
 <h3 id="icm20948">[icm20948]<a class="headerlink" href="#icm20948" title="Permanent link">&para;</a></h3>
-<p>Support for icm20948 accelerometers.</p>
+<p>Unterstützung für icm20948-Beschleunigungssensoren.</p>
 <div class="highlight"><pre><span></span><code>[icm20948]
 #i2c_address:
 #   Default is 104 (0x68). If AD0 is high, it would be 0x69 instead.
@@ -4193,7 +4199,7 @@ path:
 </code></pre></div>
 
 <h3 id="lis3dh">[lis3dh]<a class="headerlink" href="#lis3dh" title="Permanent link">&para;</a></h3>
-<p>Support for LIS3DH accelerometers.</p>
+<p>Unterstützung für LIS3DH-Beschleunigungssensoren.</p>
 <div class="highlight"><pre><span></span><code>[lis3dh]
 #cs_pin:
 #   The SPI enable pin for the sensor. This parameter must be provided
@@ -4221,7 +4227,7 @@ path:
 </code></pre></div>
 
 <h3 id="bmi160">[bmi160]<a class="headerlink" href="#bmi160" title="Permanent link">&para;</a></h3>
-<p>BMI160 accelerometer. This sensor can be queried via I2C or SPI bus.</p>
+<p>BMI160-Beschleunigungssensor. Dieser Sensor kann über den I2C- oder den SPI-Bus abgefragt werden.</p>
 <div class="highlight"><pre><span></span><code>[bmi160]
 #i2c_address:
 #   Default is 105 (0x69). If SA0 is tied to GND, use 104 (0x68).
@@ -4243,16 +4249,16 @@ path:
 #   See the &quot;adxl345&quot; section for information on this parameter.
 </code></pre></div>
 
-<p><strong>Important:</strong> Many BMI160 modules use ambiguous pin labels. For SPI:</p>
+<p><strong>Wichtig:</strong> Viele BMI160-Module verwenden mehrdeutige Pin-Beschriftungen. Für SPI gilt:</p>
 <ul>
-<li>Use <strong>SCL</strong> for clock (not SCX)</li>
-<li>Use <strong>SDA</strong> for MOSI (not SDX)</li>
-<li>Use <strong>SA0</strong> for MISO</li>
-<li>Use <strong>CS</strong> for chip select</li>
+<li>Verwenden Sie <strong>SCL</strong> für den Takt (nicht SCX)</li>
+<li>Verwenden Sie <strong>SDA</strong> für MOSI (nicht SDX)</li>
+<li>Verwenden Sie <strong>SA0</strong> für MISO</li>
+<li>Verwenden Sie <strong>CS</strong> für Chip Select</li>
 </ul>
-<p>The pins labeled SCX/SDX are for the auxiliary magnetometer bus.</p>
+<p>Die mit SCX/SDX beschrifteten Pins sind für den zusätzlichen Magnetometer-Bus vorgesehen.</p>
 <h3 id="mpu9250">[mpu9250]<a class="headerlink" href="#mpu9250" title="Permanent link">&para;</a></h3>
-<p>Support for MPU-9250, MPU-9255, MPU-6515, MPU-6050, and MPU-6500 accelerometers (one may define any number of sections with an "mpu9250" prefix).</p>
+<p>Unterstützung für die Beschleunigungssensoren MPU-9250, MPU-9255, MPU-6515, MPU-6050 und MPU-6500 (man kann beliebig viele Abschnitte mit dem Präfix "mpu9250" definieren).</p>
 <div class="highlight"><pre><span></span><code>[mpu9250 my_accelerometer]
 #i2c_address:
 #   Default is 104 (0x68). If AD0 is high, it would be 0x69 instead.
@@ -4268,7 +4274,7 @@ path:
 </code></pre></div>
 
 <h3 id="resonance_tester">[resonance_tester]<a class="headerlink" href="#resonance_tester" title="Permanent link">&para;</a></h3>
-<p>Support for resonance testing and automatic input shaper calibration. In order to use most of the functionality of this module, additional software dependencies must be installed; refer to <a href="Measuring_Resonances.html">Measuring Resonances</a> and the <a href="G-Codes.html#resonance_tester">command reference</a> for more information. See the <a href="Measuring_Resonances.html#max-smoothing">Max smoothing</a> section of the measuring resonances guide for more information on <code>max_smoothing</code> parameter and its use.</p>
+<p>Unterstützung für Resonanztests und die automatische Kalibrierung des Input Shapers. Um den größten Teil der Funktionalität dieses Moduls zu nutzen, müssen zusätzliche Softwareabhängigkeiten installiert werden; weitere Informationen finden Sie unter <a href="Measuring_Resonances.html">Resonanzen messen</a> und in der <a href="G-Codes.html#resonance_tester">Befehlsreferenz</a>. Weitere Informationen zum Parameter <code>max_smoothing</code> und seiner Verwendung finden Sie im Abschnitt <a href="Measuring_Resonances.html#max-smoothing">Max smoothing</a> der Anleitung zum Messen von Resonanzen.</p>
 <div class="highlight"><pre><span></span><code>[resonance_tester]
 #probe_points:
 #   A list of X, Y, Z coordinates of points (one point per line) to test
@@ -4352,12 +4358,12 @@ aliases_&lt;name&gt;:
 </code></pre></div>
 
 <h3 id="include">[include]<a class="headerlink" href="#include" title="Permanent link">&para;</a></h3>
-<p>Include file support. One may include additional config file from the main printer config file. Wildcards may also be used (eg, "configs/*.cfg").</p>
+<p>Unterstützung für Include-Dateien. Man kann aus der Haupt-Konfigurationsdatei des Druckers weitere Konfigurationsdateien einbinden. Es können auch Platzhalter verwendet werden (z. B. "configs/*.cfg").</p>
 <div class="highlight"><pre><span></span><code>[include my_other_config.cfg]
 </code></pre></div>
 
 <h3 id="duplicate_pin_override">[duplicate_pin_override]<a class="headerlink" href="#duplicate_pin_override" title="Permanent link">&para;</a></h3>
-<p>This tool allows a single micro-controller pin to be defined multiple times in a config file without normal error checking. This is intended for diagnostic and debugging purposes. This section is not needed where Klipper supports using the same pin multiple times, and using this override may cause confusing and unexpected results.</p>
+<p>Dieses Werkzeug erlaubt es, einen einzelnen Mikrocontroller-Pin in einer Konfigurationsdatei mehrfach zu definieren, ohne die übliche Fehlerprüfung. Es ist für Diagnose- und Debugging-Zwecke gedacht. Dieser Abschnitt wird dort nicht benötigt, wo Klipper die mehrfache Verwendung desselben Pins ohnehin unterstützt; die Verwendung dieser Überschreibung kann zu verwirrenden und unerwarteten Ergebnissen führen.</p>
 <div class="highlight"><pre><span></span><code>[duplicate_pin_override]
 pins:
 #   A comma separated list of pins that may be used multiple times in
@@ -4367,7 +4373,7 @@ pins:
 
 <h2 id="bett-nivelierung-sensor">Bett Nivelierung Sensor<a class="headerlink" href="#bett-nivelierung-sensor" title="Permanent link">&para;</a></h2>
 <h3 id="probe">[probe]<a class="headerlink" href="#probe" title="Permanent link">&para;</a></h3>
-<p>Z height probe. One may define this section to enable Z height probing hardware. When this section is enabled, PROBE and QUERY_PROBE extended <a href="G-Codes.html#probe">g-code commands</a> become available. Also, see the <a href="Probe_Calibrate.html">probe calibrate guide</a>. The probe section also creates a virtual "probe:z_virtual_endstop" pin. One may set the stepper_z endstop_pin to this virtual pin on cartesian style printers that use the probe in place of a z endstop. If using "probe:z_virtual_endstop" then do not define a position_endstop in the stepper_z config section.</p>
+<p>Z-Höhensonde. Man kann diesen Abschnitt definieren, um die Hardware zur Z-Höhenmessung zu aktivieren. Wenn dieser Abschnitt aktiviert ist, stehen die erweiterten <a href="G-Codes.html#probe">G-Code-Befehle</a> PROBE und QUERY_PROBE zur Verfügung. Siehe auch die <a href="Probe_Calibrate.html">Anleitung zur Sondenkalibrierung</a>. Der Abschnitt probe erzeugt außerdem einen virtuellen Pin "probe:z_virtual_endstop". Bei kartesischen Druckern, die die Sonde anstelle eines Z-Endschalters verwenden, kann man den endstop_pin von stepper_z auf diesen virtuellen Pin setzen. Wenn "probe:z_virtual_endstop" verwendet wird, definieren Sie im Konfigurationsabschnitt stepper_z keinen position_endstop.</p>
 <div class="highlight"><pre><span></span><code>[probe]
 pin:
 #   Probe detection pin. If the pin is on a different microcontroller
@@ -4490,7 +4496,7 @@ control_pin:
 </code></pre></div>
 
 <h3 id="smart_effector">[smart_effector]<a class="headerlink" href="#smart_effector" title="Permanent link">&para;</a></h3>
-<p>The "Smart Effector" from Duet3d implements a Z probe using a force sensor. One may define this section instead of <code>[probe]</code> to enable the Smart Effector specific features. This also enables <a href="G-Codes.html#smart_effector">runtime commands</a> to adjust the parameters of the Smart Effector at run time.</p>
+<p>Der "Smart Effector" von Duet3d realisiert eine Z-Sonde mithilfe eines Kraftsensors. Man kann diesen Abschnitt anstelle von <code>[probe]</code> definieren, um die spezifischen Funktionen des Smart Effector zu aktivieren. Dadurch werden außerdem <a href="G-Codes.html#smart_effector">Laufzeitbefehle</a> aktiviert, mit denen sich die Parameter des Smart Effector zur Laufzeit anpassen lassen.</p>
 <div class="highlight"><pre><span></span><code>[smart_effector]
 pin:
 #   Pin connected to the Smart Effector Z Probe output pin (pin 5). Note that
@@ -4537,7 +4543,7 @@ z_offset:
 </code></pre></div>
 
 <h3 id="probe_eddy_current">[probe_eddy_current]<a class="headerlink" href="#probe_eddy_current" title="Permanent link">&para;</a></h3>
-<p>Support for eddy current inductive probes. One may define this section (instead of a probe section) to enable this probe. See the <a href="G-Codes.html#probe_eddy_current">command reference</a> for further information.</p>
+<p>Unterstützung für induktive Wirbelstromsonden. Man kann diesen Abschnitt (anstelle eines probe-Abschnitts) definieren, um diese Sonde zu aktivieren. Weitere Informationen finden Sie in der <a href="G-Codes.html#probe_eddy_current">Befehlsreferenz</a>.</p>
 <div class="highlight"><pre><span></span><code>[probe_eddy_current my_eddy_probe]
 sensor_type: ldc1612
 #   The sensor chip used to perform eddy current measurements. This
@@ -4639,7 +4645,7 @@ calibrate_x: ...
 
 <h2 id="zusatzliche-steppermotoren-und-extruder">Zusätzliche Steppermotoren und Extruder<a class="headerlink" href="#zusatzliche-steppermotoren-und-extruder" title="Permanent link">&para;</a></h2>
 <h3 id="stepper_z1">[stepper_z1]<a class="headerlink" href="#stepper_z1" title="Permanent link">&para;</a></h3>
-<p>Multi-stepper axes. On a cartesian style printer, the stepper controlling a given axis may have additional config blocks defining steppers that should be stepped in concert with the primary stepper. One may define any number of sections with a numeric suffix starting at 1 (for example, "stepper_z1", "stepper_z2", etc.).</p>
+<p>Achsen mit mehreren Schrittmotoren. Bei einem Drucker kartesischer Bauart kann der Schrittmotor, der eine bestimmte Achse steuert, zusätzliche Konfigurationsblöcke besitzen, die Schrittmotoren definieren, die im Gleichlauf mit dem primären Schrittmotor angesteuert werden sollen. Man kann beliebig viele Abschnitte mit einem numerischen Suffix ab 1 definieren (zum Beispiel "stepper_z1", "stepper_z2" usw.).</p>
 <div class="highlight"><pre><span></span><code>[stepper_z1]
 #step_pin:
 #dir_pin:
@@ -4655,7 +4661,7 @@ calibrate_x: ...
 </code></pre></div>
 
 <h3 id="extruder1">[extruder1]<a class="headerlink" href="#extruder1" title="Permanent link">&para;</a></h3>
-<p>In a multi-extruder printer add an additional extruder section for each additional extruder. The additional extruder sections should be named "extruder1", "extruder2", "extruder3", and so on. See the "extruder" section for a description of available parameters.</p>
+<p>Fügen Sie bei einem Drucker mit mehreren Extrudern für jeden zusätzlichen Extruder einen weiteren Abschnitt extruder hinzu. Die zusätzlichen Extruder-Abschnitte sollten "extruder1", "extruder2", "extruder3" usw. heißen. Eine Beschreibung der verfügbaren Parameter finden Sie im Abschnitt "extruder".</p>
 <p>Siehe <a href="./config/sample-multi-extruder.cfg">sample-multi-extruder.cfg</a> für eine Beispielkonfiguration.</p>
 <div class="highlight"><pre><span></span><code>[extruder1]
 #step_pin:
@@ -4668,9 +4674,9 @@ calibrate_x: ...
 </code></pre></div>
 
 <h3 id="dual_carriage">[dual_carriage]<a class="headerlink" href="#dual_carriage" title="Permanent link">&para;</a></h3>
-<p>Support for cartesian, generic_cartesian and hybrid_corexy/z printers with dual carriages on a single axis. The carriage mode can be set via the SET_DUAL_CARRIAGE extended g-code command. For example, "SET_DUAL_CARRIAGE CARRIAGE=1" command will activate the carriage defined in this section (CARRIAGE=0 will return activation to the primary carriage). Dual carriage support is typically combined with extra extruders - the SET_DUAL_CARRIAGE command is often called at the same time as the ACTIVATE_EXTRUDER command. Be sure to park the carriages during deactivation. Note that during G28 homing, typically the primary carriage is homed first followed by the carriage defined in the <code>[dual_carriage]</code> config section. However, the <code>[dual_carriage]</code> carriage will be homed first if both carriages home in a positive direction and the [dual_carriage] carriage has a <code>position_endstop</code> greater than the primary carriage, or if both carriages home in a negative direction and the <code>[dual_carriage]</code> carriage has a <code>position_endstop</code> less than the primary carriage.</p>
+<p>Unterstützung für Drucker der Bauarten cartesian, generic_cartesian und hybrid_corexy/z mit zwei Schlitten auf einer Achse. Der Schlittenmodus lässt sich über den erweiterten G-Code-Befehl SET_DUAL_CARRIAGE einstellen. Der Befehl "SET_DUAL_CARRIAGE CARRIAGE=1" aktiviert zum Beispiel den in diesem Abschnitt definierten Schlitten (CARRIAGE=0 gibt die Aktivierung an den primären Schlitten zurück). Die Unterstützung für zwei Schlitten wird typischerweise mit zusätzlichen Extrudern kombiniert - der Befehl SET_DUAL_CARRIAGE wird häufig gemeinsam mit dem Befehl ACTIVATE_EXTRUDER aufgerufen. Achten Sie darauf, die Schlitten beim Deaktivieren zu parken. Beachten Sie, dass beim Homing mit G28 üblicherweise zuerst der primäre Schlitten und anschließend der im Abschnitt <code>[dual_carriage]</code> definierte Schlitten gehomt wird. Der <code>[dual_carriage]</code>-Schlitten wird jedoch zuerst gehomt, wenn beide Schlitten in positiver Richtung homen und der [dual_carriage]-Schlitten einen größeren <code>position_endstop</code> als der primäre Schlitten hat, oder wenn beide Schlitten in negativer Richtung homen und der <code>[dual_carriage]</code>-Schlitten einen kleineren <code>position_endstop</code> als der primäre Schlitten hat.</p>
 <p>Zusätzlich könnte man die Befehle "SET_DUAL_CARRIAGE CARRIAGE=1 MODE=COPY" oder "SET_DUAL_CARRIAGE CARRIAGE=1 MODE=MIRROR" verwenden, um entweder den Kopier- oder Spiegelmodus des doppelten Fahrwerks zu aktivieren, in dem Fall wird es die Bewegung des Fahrwerks 0 entsprechend nachvollziehen. Diese Befehle können verwendet werden, um zwei Teile gleichzeitig zu drucken - entweder zwei identische Teile (im COPY-Modus) oder gespiegelte Teile (im MIRROR-Modus). Beachten Sie, dass die COPY- und MIRROR-Modi auch eine angemessene Konfiguration des Extruders auf dem doppelten Fahrwerk erfordern, die normalerweise mit "SYNC_EXTRUDER_MOTION MOTION_QUEUE=extruder EXTRUDER=<dual_carriage_extruder>" oder einem ähnlichen Befehl erreicht werden kann.</p>
-<p>See <a href="https://github.com/Klipper3d/klipper/blob/master/config/sample-idex.cfg">sample-idex.cfg</a> for an example configuration with a regular Cartesian kinematic.</p>
+<p>Ein Beispiel für eine Konfiguration mit regulärer kartesischer Kinematik finden Sie unter <a href="https://github.com/Klipper3d/klipper/blob/master/config/sample-idex.cfg">sample-idex.cfg</a>.</p>
 <div class="highlight"><pre><span></span><code>[dual_carriage]
 axis:
 #   The axis this extra carriage is on (either x or y). This parameter
@@ -4696,7 +4702,7 @@ axis:
 #   See the &quot;stepper&quot; section for the definition of the above parameters.
 </code></pre></div>
 
-<p>For an example of dual carriage configuration with <code>generic_cartesian</code> kinematic, see the following configuration <a href="https://github.com/Klipper3d/klipper/blob/master/config/example-generic-caretesian.cfg">sample</a>. Please note that in this case the <code>[dual_carriage]</code> configuration deviates from the configuration described above:</p>
+<p>Ein Beispiel für eine Dual-Carriage-Konfiguration mit <code>generic_cartesian</code>-Kinematik finden Sie in der folgenden <a href="https://github.com/Klipper3d/klipper/blob/master/config/example-generic-caretesian.cfg">Beispielkonfiguration</a>. Beachten Sie, dass die <code>[dual_carriage]</code>-Konfiguration in diesem Fall von der oben beschriebenen Konfiguration abweicht:</p>
 <div class="highlight"><pre><span></span><code>[dual_carriage my_dc_carriage]
 #primary_carriage:
 #   Defines the matching carriage on the same gantry as this dual carriage and
@@ -4730,8 +4736,8 @@ position_max:
 ...
 </code></pre></div>
 
-<p>Refer to <a href="#generic-cartesian">generic cartesian</a> section for more information on the regular <code>carriage</code> parameters.</p>
-<p>Then a user must define one or more stepper motors moving the dual carriage (and other carriages as appropriate), for instance</p>
+<p>Weitere Informationen zu den regulären <code>carriage</code>-Parametern finden Sie im Abschnitt <a href="#generic-cartesian">generic cartesian</a>.</p>
+<p>Anschließend muss der Benutzer einen oder mehrere Schrittmotoren definieren, die den Dual Carriage (und gegebenenfalls weitere Schlitten) bewegen, zum Beispiel</p>
 <div class="highlight"><pre><span></span><code>[carriage carriage_x]
 ...
 
@@ -4747,7 +4753,7 @@ carriages: carriage_u-carriage_y
 ...
 </code></pre></div>
 
-<p><code>[dual_carriage]</code> requires special configuration for the input shaper. In general, it is necessary to run input shaper calibration twice - for the <code>dual_carriage</code> and its <code>primary_carriage</code> for the axis they share. Then the input shaper can be configured as follows, assuming the example above:</p>
+<p><code>[dual_carriage]</code> erfordert eine besondere Konfiguration des Input Shapers. Im Allgemeinen ist es notwendig, die Input-Shaper-Kalibrierung zweimal durchzuführen - für den <code>dual_carriage</code> und für seinen <code>primary_carriage</code> bezogen auf die gemeinsam genutzte Achse. Anschließend kann der Input Shaper wie folgt konfiguriert werden, ausgehend vom obigen Beispiel:</p>
 <div class="highlight"><pre><span></span><code>[input_shaper]
 # Intentionally empty
 
@@ -4760,10 +4766,10 @@ gcode:
   SET_INPUT_SHAPER SHAPER_TYPE_X=&lt;carriage_x_shaper&gt; SHAPER_FREQ_X=&lt;carriage_x_freq&gt; SHAPER_TYPE_Y=&lt;carriage_y_shaper&gt; SHAPER_FREQ_Y=&lt;carriage_y_freq&gt;
 </code></pre></div>
 
-<p>Note that <code>SHAPER_TYPE_Y</code> and <code>SHAPER_FREQ_Y</code> must be the same in both commands in this case, since the same motors drive Y axis when either of the <code>carriage_x</code> and <code>carriage_u</code> carriages are active.</p>
-<p>It is worth noting that <code>generic_cartesian</code> kinematic can support two dual carriages for X and Y axes. For reference, see for instance a <a href="https://github.com/Klipper3d/klipper/blob/master/config/sample-corexyuv.cfg">sample</a> of CoreXYUV configuration.</p>
+<p>Beachten Sie, dass <code>SHAPER_TYPE_Y</code> und <code>SHAPER_FREQ_Y</code> in diesem Fall in beiden Befehlen identisch sein müssen, da dieselben Motoren die Y-Achse antreiben, gleich ob der Schlitten <code>carriage_x</code> oder <code>carriage_u</code> aktiv ist.</p>
+<p>Erwähnenswert ist, dass die <code>generic_cartesian</code>-Kinematik zwei Dual Carriages für die X- und die Y-Achse unterstützen kann. Als Referenz siehe zum Beispiel ein <a href="https://github.com/Klipper3d/klipper/blob/master/config/sample-corexyuv.cfg">Beispiel</a> für eine CoreXYUV-Konfiguration.</p>
 <h3 id="extruder_stepper">[extruder_stepper]<a class="headerlink" href="#extruder_stepper" title="Permanent link">&para;</a></h3>
-<p>Support for additional steppers synchronized to the movement of an extruder (one may define any number of sections with an "extruder_stepper" prefix).</p>
+<p>Unterstützung für zusätzliche Schrittmotoren, die mit der Bewegung eines Extruders synchronisiert sind (man kann beliebig viele Abschnitte mit dem Präfix "extruder_stepper" definieren).</p>
 <p>Siehe die <a href="G-Codes.html#extruder">Befehlsreferenz</a> für weitere Informationen.</p>
 <div class="highlight"><pre><span></span><code>[extruder_stepper my_extra_stepper]
 extruder:
@@ -4780,7 +4786,7 @@ extruder:
 </code></pre></div>
 
 <h3 id="manual_stepper">[manual_stepper]<a class="headerlink" href="#manual_stepper" title="Permanent link">&para;</a></h3>
-<p>Manual steppers (one may define any number of sections with a "manual_stepper" prefix). These are steppers that are controlled by the MANUAL_STEPPER g-code command. For example: "MANUAL_STEPPER STEPPER=my_stepper MOVE=10 SPEED=5". See <a href="G-Codes.html#manual_stepper">G-Codes</a> file for a description of the MANUAL_STEPPER command. The steppers are not connected to the normal printer kinematics.</p>
+<p>Manuelle Schrittmotoren (man kann beliebig viele Abschnitte mit dem Präfix "manual_stepper" definieren). Dabei handelt es sich um Schrittmotoren, die über den G-Code-Befehl MANUAL_STEPPER gesteuert werden. Zum Beispiel: "MANUAL_STEPPER STEPPER=my_stepper MOVE=10 SPEED=5". Eine Beschreibung des Befehls MANUAL_STEPPER finden Sie in der Datei <a href="G-Codes.html#manual_stepper">G-Codes</a>. Diese Schrittmotoren sind nicht mit der normalen Druckerkinematik verbunden.</p>
 <div class="highlight"><pre><span></span><code>[manual_stepper my_stepper]
 #step_pin:
 #dir_pin:
@@ -4812,7 +4818,7 @@ extruder:
 
 <h2 id="benutzerdefinierte-heizelemente-und-sensoren">Benutzerdefinierte Heizelemente und Sensoren<a class="headerlink" href="#benutzerdefinierte-heizelemente-und-sensoren" title="Permanent link">&para;</a></h2>
 <h3 id="verify_heater">[verify_heater]<a class="headerlink" href="#verify_heater" title="Permanent link">&para;</a></h3>
-<p>Heater and temperature sensor verification. Heater verification is automatically enabled for each heater that is configured on the printer. Use verify_heater sections to change the default settings.</p>
+<p>Überprüfung von Heizungen und Temperatursensoren. Die Heizungsüberprüfung ist für jede am Drucker konfigurierte Heizung automatisch aktiviert. Verwenden Sie verify_heater-Abschnitte, um die Standardeinstellungen zu ändern.</p>
 <div class="highlight"><pre><span></span><code>[verify_heater heater_config_name]
 #max_error: 120
 #   The maximum &quot;cumulative temperature error&quot; before raising an
@@ -4845,7 +4851,7 @@ extruder:
 </code></pre></div>
 
 <h3 id="homing_heaters">[homing_heaters]<a class="headerlink" href="#homing_heaters" title="Permanent link">&para;</a></h3>
-<p>Tool to disable heaters when homing or probing an axis.</p>
+<p>Werkzeug zum Deaktivieren von Heizungen beim Homing oder beim Abtasten einer Achse.</p>
 <div class="highlight"><pre><span></span><code>[homing_heaters]
 #steppers:
 #   A comma separated list of steppers that should cause heaters to be
@@ -4859,7 +4865,7 @@ extruder:
 </code></pre></div>
 
 <h3 id="thermistor">[thermistor]<a class="headerlink" href="#thermistor" title="Permanent link">&para;</a></h3>
-<p>Custom thermistors (one may define any number of sections with a "thermistor" prefix). A custom thermistor may be used in the sensor_type field of a heater config section. (For example, if one defines a "[thermistor my_thermistor]" section then one may use a "sensor_type: my_thermistor" when defining a heater.) Be sure to place the thermistor section in the config file above its first use in a heater section.</p>
+<p>Benutzerdefinierte Thermistoren (man kann beliebig viele Abschnitte mit dem Präfix "thermistor" definieren). Ein benutzerdefinierter Thermistor kann im Feld sensor_type eines Heizungs-Konfigurationsabschnitts verwendet werden. (Definiert man zum Beispiel einen Abschnitt "[thermistor my_thermistor]", kann man beim Definieren einer Heizung "sensor_type: my_thermistor" verwenden.) Achten Sie darauf, den Thermistor-Abschnitt in der Konfigurationsdatei oberhalb seiner ersten Verwendung in einem Heizungsabschnitt zu platzieren.</p>
 <div class="highlight"><pre><span></span><code>[thermistor my_thermistor]
 #temperature1:
 #resistance1:
@@ -4879,7 +4885,7 @@ extruder:
 </code></pre></div>
 
 <h3 id="adc_temperature">[adc_temperature]<a class="headerlink" href="#adc_temperature" title="Permanent link">&para;</a></h3>
-<p>Custom ADC temperature sensors (one may define any number of sections with an "adc_temperature" prefix). This allows one to define a custom temperature sensor that measures a voltage on an Analog to Digital Converter (ADC) pin and uses linear interpolation between a set of configured temperature/voltage (or temperature/resistance) measurements to determine the temperature. The resulting sensor can be used as a sensor_type in a heater section. (For example, if one defines a "[adc_temperature my_sensor]" section then one may use a "sensor_type: my_sensor" when defining a heater.) Be sure to place the sensor section in the config file above its first use in a heater section.</p>
+<p>Benutzerdefinierte ADC-Temperatursensoren (man kann beliebig viele Abschnitte mit dem Präfix "adc_temperature" definieren). Damit lässt sich ein benutzerdefinierter Temperatursensor definieren, der eine Spannung an einem Pin des Analog-Digital-Wandlers (ADC) misst und die Temperatur durch lineare Interpolation zwischen einer Reihe konfigurierter Temperatur-/Spannungs- (oder Temperatur-/Widerstands-)Messwerte bestimmt. Der resultierende Sensor kann als sensor_type in einem Heizungsabschnitt verwendet werden. (Definiert man zum Beispiel einen Abschnitt "[adc_temperature my_sensor]", kann man beim Definieren einer Heizung "sensor_type: my_sensor" verwenden.) Achten Sie darauf, den Sensorabschnitt in der Konfigurationsdatei oberhalb seiner ersten Verwendung in einem Heizungsabschnitt zu platzieren.</p>
 <div class="highlight"><pre><span></span><code>[adc_temperature my_sensor]
 #temperature1:
 #voltage1:
@@ -4904,7 +4910,7 @@ extruder:
 </code></pre></div>
 
 <h3 id="heater_generic">[heater_generic]<a class="headerlink" href="#heater_generic" title="Permanent link">&para;</a></h3>
-<p>Generic heaters (one may define any number of sections with a "heater_generic" prefix). These heaters behave similarly to standard heaters (extruders, heated beds). Use the SET_HEATER_TEMPERATURE command (see <a href="G-Codes.html#heaters">G-Codes</a> for details) to set the target temperature.</p>
+<p>Allgemeine Heizungen (man kann beliebig viele Abschnitte mit dem Präfix "heater_generic" definieren). Diese Heizungen verhalten sich ähnlich wie Standardheizungen (Extruder, Heizbetten). Verwenden Sie den Befehl SET_HEATER_TEMPERATURE (Einzelheiten siehe <a href="G-Codes.html#heaters">G-Codes</a>), um die Zieltemperatur festzulegen.</p>
 <div class="highlight"><pre><span></span><code>[heater_generic my_generic_heater]
 #gcode_id:
 #   The id to use when reporting the temperature in the M105 command.
@@ -4926,7 +4932,7 @@ extruder:
 </code></pre></div>
 
 <h3 id="temperature_sensor">[temperature_sensor]<a class="headerlink" href="#temperature_sensor" title="Permanent link">&para;</a></h3>
-<p>Generic temperature sensors. One can define any number of additional temperature sensors that are reported via the M105 command.</p>
+<p>Allgemeine Temperatursensoren. Man kann beliebig viele zusätzliche Temperatursensoren definieren, die über den Befehl M105 gemeldet werden.</p>
 <div class="highlight"><pre><span></span><code>[temperature_sensor my_sensor]
 #sensor_type:
 #sensor_pin:
@@ -4940,7 +4946,7 @@ extruder:
 </code></pre></div>
 
 <h3 id="temperature_probe">[temperature_probe]<a class="headerlink" href="#temperature_probe" title="Permanent link">&para;</a></h3>
-<p>Reports probe coil temperature. Includes optional thermal drift calibration for eddy current based probes. A <code>[temperature_probe]</code> section may be linked to a <code>[probe_eddy_current]</code> by using the same postfix for both sections.</p>
+<p>Meldet die Temperatur der Sondenspule. Enthält eine optionale Kalibrierung der thermischen Drift für Sonden auf Wirbelstrombasis. Ein Abschnitt <code>[temperature_probe]</code> kann mit einem <code>[probe_eddy_current]</code> verknüpft werden, indem für beide Abschnitte dasselbe Suffix verwendet wird.</p>
 <div class="highlight"><pre><span></span><code>[temperature_probe my_probe]
 #sensor_type:
 #sensor_pin:
@@ -4997,7 +5003,7 @@ extruder:
 </code></pre></div>
 
 <h2 id="temperatur-sensoren">Temperatur Sensoren<a class="headerlink" href="#temperatur-sensoren" title="Permanent link">&para;</a></h2>
-<p>Klipper includes definitions for many types of temperature sensors. These sensors may be used in any config section that requires a temperature sensor (such as an <code>[extruder]</code> or <code>[heater_bed]</code> section).</p>
+<p>Klipper enthält Definitionen für viele Arten von Temperatursensoren. Diese Sensoren können in jedem Konfigurationsabschnitt verwendet werden, der einen Temperatursensor erfordert (etwa in einem Abschnitt <code>[extruder]</code> oder <code>[heater_bed]</code>).</p>
 <h3 id="gebrauchlicher-thermo-widerstand">Gebräuchlicher Thermo-Widerstand<a class="headerlink" href="#gebrauchlicher-thermo-widerstand" title="Permanent link">&para;</a></h3>
 <p>Gemeinsame Thermistoren. Die folgenden Parameter sind in Heizungs Sektionen verfügbar, wenn einer der Sensoren genutzt wird.</p>
 <div class="highlight"><pre><span></span><code>sensor_type:
@@ -5032,7 +5038,7 @@ sensor_pin:
 </code></pre></div>
 
 <h3 id="direkt-angeschlossener-pt1000-sensor">Direkt angeschlossener PT1000 Sensor<a class="headerlink" href="#direkt-angeschlossener-pt1000-sensor" title="Permanent link">&para;</a></h3>
-<p>Directly connected PT1000 sensor. The following parameters are available in heater sections that use one of these sensors.</p>
+<p>Direkt angeschlossener PT1000-Sensor. In Heizungsabschnitten, die einen dieser Sensoren verwenden, stehen die folgenden Parameter zur Verfügung.</p>
 <div class="highlight"><pre><span></span><code>sensor_type: PT1000
 sensor_pin:
 #   Analog input pin connected to the sensor. This parameter must be
@@ -5043,7 +5049,7 @@ sensor_pin:
 </code></pre></div>
 
 <h3 id="maxxxxxx-temperatur-sensoren">MAXxxxxx Temperatur Sensoren<a class="headerlink" href="#maxxxxxx-temperatur-sensoren" title="Permanent link">&para;</a></h3>
-<p>MAXxxxxx serial peripheral interface (SPI) temperature based sensors. The following parameters are available in heater sections that use one of these sensor types.</p>
+<p>Temperatursensoren der MAXxxxxx-Reihe mit Serial Peripheral Interface (SPI). In Heizungsabschnitten, die einen dieser Sensortypen verwenden, stehen die folgenden Parameter zur Verfügung.</p>
 <div class="highlight"><pre><span></span><code>sensor_type:
 #   One of &quot;MAX6675&quot;, &quot;MAX31855&quot;, &quot;MAX31856&quot;, or &quot;MAX31865&quot;.
 sensor_pin:
@@ -5089,7 +5095,7 @@ sensor_pin:
 </code></pre></div>
 
 <h3 id="aht10aht20aht21-temperatursensor">AHT10/AHT20/AHT21 Temperatursensor<a class="headerlink" href="#aht10aht20aht21-temperatursensor" title="Permanent link">&para;</a></h3>
-<p>AHT10/AHT15/AHT20/AHT21/AHT30 two wire interface (I2C) environmental sensors. Note that these sensors are not intended for use with extruders and heater beds, but rather for monitoring ambient temperature (C) and relative humidity. See <a href="https://github.com/Klipper3d/klipper/blob/master/config/sample-macros.cfg">sample-macros.cfg</a> for a gcode_macro that may be used to report humidity in addition to temperature.</p>
+<p>Umgebungssensoren AHT10/AHT15/AHT20/AHT21/AHT30 mit Two Wire Interface (I2C). Beachten Sie, dass diese Sensoren nicht für den Einsatz an Extrudern und Heizbetten vorgesehen sind, sondern für die Überwachung von Umgebungstemperatur (C) und relativer Luftfeuchtigkeit. Siehe <a href="https://github.com/Klipper3d/klipper/blob/master/config/sample-macros.cfg">sample-macros.cfg</a> für ein gcode_macro, mit dem zusätzlich zur Temperatur auch die Luftfeuchtigkeit ausgegeben werden kann.</p>
 <div class="highlight"><pre><span></span><code>sensor_type: AHT1X
 #   Must be &quot;AHT1X&quot; , &quot;AHT2X&quot;, &quot;AHT3X&quot;
 #   Some AHT20 sensors can use &quot;AHT1X&quot;
@@ -5106,7 +5112,7 @@ sensor_pin:
 </code></pre></div>
 
 <h3 id="htu21d-sensor">HTU21D sensor<a class="headerlink" href="#htu21d-sensor" title="Permanent link">&para;</a></h3>
-<p>HTU21D family two wire interface (I2C) environmental sensor. Note that this sensor is not intended for use with extruders and heater beds, but rather for monitoring ambient temperature (C) and relative humidity. See <a href="https://github.com/Klipper3d/klipper/blob/master/config/sample-macros.cfg">sample-macros.cfg</a> for a gcode_macro that may be used to report humidity in addition to temperature.</p>
+<p>Umgebungssensor der HTU21D-Familie mit Two Wire Interface (I2C). Beachten Sie, dass dieser Sensor nicht für den Einsatz an Extrudern und Heizbetten vorgesehen ist, sondern für die Überwachung von Umgebungstemperatur (C) und relativer Luftfeuchtigkeit. Siehe <a href="https://github.com/Klipper3d/klipper/blob/master/config/sample-macros.cfg">sample-macros.cfg</a> für ein gcode_macro, mit dem zusätzlich zur Temperatur auch die Luftfeuchtigkeit ausgegeben werden kann.</p>
 <div class="highlight"><pre><span></span><code>sensor_type:
 #   Must be &quot;HTU21D&quot; , &quot;SI7013&quot;, &quot;SI7020&quot;, &quot;SI7021&quot; or &quot;SHT21&quot;
 #i2c_address:
@@ -5134,8 +5140,8 @@ sensor_pin:
 #   Interval in seconds between readings. Default is 30
 </code></pre></div>
 
-<h3 id="sht3x-sensor">SHT3X sensor<a class="headerlink" href="#sht3x-sensor" title="Permanent link">&para;</a></h3>
-<p>SHT3X family two wire interface (I2C) environmental sensor. These sensors have a range of -55~125 C, so are usable for e.g. chamber temperature monitoring. They can also function as simple fan/heater controllers.</p>
+<h3 id="sht3x-sensor">SHT3X-Sensor<a class="headerlink" href="#sht3x-sensor" title="Permanent link">&para;</a></h3>
+<p>Umgebungssensor der SHT3X-Familie mit Two Wire Interface (I2C). Diese Sensoren haben einen Messbereich von -55~125 C und eignen sich daher z. B. für die Überwachung der Kammertemperatur. Sie können auch als einfache Lüfter-/Heizungssteuerung dienen.</p>
 <div class="highlight"><pre><span></span><code>sensor_type: SHT3X
 #i2c_address:
 #   Default is 68 (0x44).
@@ -5149,7 +5155,7 @@ sensor_pin:
 </code></pre></div>
 
 <h3 id="lm75-temperatur-sensor">LM75 Temperatur Sensor<a class="headerlink" href="#lm75-temperatur-sensor" title="Permanent link">&para;</a></h3>
-<p>LM75/LM75A two wire (I2C) connected temperature sensors. These sensors have a range of -55~125 C, so are usable for e.g. chamber temperature monitoring. They can also function as simple fan/heater controllers.</p>
+<p>Über Two Wire Interface (I2C) angeschlossene Temperatursensoren LM75/LM75A. Diese Sensoren haben einen Messbereich von -55~125 C und eignen sich daher z. B. für die Überwachung der Kammertemperatur. Sie können auch als einfache Lüfter-/Heizungssteuerung dienen.</p>
 <div class="highlight"><pre><span></span><code>sensor_type: LM75
 #i2c_address:
 #   Default is 72 (0x48). Normal range is 72-79 (0x48-0x4F) and the 3
@@ -5168,7 +5174,7 @@ sensor_pin:
 </code></pre></div>
 
 <h3 id="integrierter-mikrocontroller-temperatursensor">Integrierter Mikrocontroller Temperatursensor<a class="headerlink" href="#integrierter-mikrocontroller-temperatursensor" title="Permanent link">&para;</a></h3>
-<p>The atsam, atsamd, stm32 and rp2040 micro-controllers contain an internal temperature sensor. One can use the "temperature_mcu" sensor to monitor these temperatures.</p>
+<p>Die Mikrocontroller atsam, atsamd, stm32 und rp2040 enthalten einen internen Temperatursensor. Mit dem Sensor "temperature_mcu" lassen sich diese Temperaturen überwachen.</p>
 <div class="highlight"><pre><span></span><code>sensor_type: temperature_mcu
 #sensor_mcu: mcu
 #   The micro-controller to read from. The default is &quot;mcu&quot;.
@@ -5196,8 +5202,8 @@ sensor_pin:
 #   micro-controller specification.
 </code></pre></div>
 
-<h3 id="host-temperature-sensor">Host temperature sensor<a class="headerlink" href="#host-temperature-sensor" title="Permanent link">&para;</a></h3>
-<p>Temperature from the machine (eg Raspberry Pi) running the host software.</p>
+<h3 id="temperatursensor-des-hosts">Temperatursensor des Hosts<a class="headerlink" href="#temperatursensor-des-hosts" title="Permanent link">&para;</a></h3>
+<p>Temperatur des Rechners (z. B. Raspberry Pi), auf dem die Host-Software läuft.</p>
 <div class="highlight"><pre><span></span><code>sensor_type: temperature_host
 #sensor_path:
 #   The path to temperature system file. The default is
@@ -5206,7 +5212,7 @@ sensor_pin:
 </code></pre></div>
 
 <h3 id="ds18b20-temperatur-sensor">DS18B20 Temperatur Sensor<a class="headerlink" href="#ds18b20-temperatur-sensor" title="Permanent link">&para;</a></h3>
-<p>DS18B20 is a 1-wire (w1) digital temperature sensor. Note that this sensor is not intended for use with extruders and heater beds, but rather for monitoring ambient temperature (C). These sensors have range up to 125 C, so are usable for e.g. chamber temperature monitoring. They can also function as simple fan/heater controllers. DS18B20 sensors are only supported on the "host mcu", e.g. the Raspberry Pi. The w1-gpio Linux kernel module must be installed.</p>
+<p>Der DS18B20 ist ein digitaler 1-Wire-Temperatursensor (w1). Beachten Sie, dass dieser Sensor nicht für den Einsatz an Extrudern und Heizbetten vorgesehen ist, sondern für die Überwachung der Umgebungstemperatur (C). Diese Sensoren haben einen Messbereich bis 125 C und eignen sich daher z. B. für die Überwachung der Kammertemperatur. Sie können auch als einfache Lüfter-/Heizungssteuerung dienen. DS18B20-Sensoren werden nur am "Host-MCU" unterstützt, z. B. am Raspberry Pi. Das Linux-Kernelmodul w1-gpio muss installiert sein.</p>
 <div class="highlight"><pre><span></span><code>sensor_type: DS18B20
 serial_no:
 #   Each 1-wire device has a unique serial number used to identify the device,
@@ -5304,7 +5310,7 @@ pin:
 </code></pre></div>
 
 <h3 id="heater_fan">[heater_fan]<a class="headerlink" href="#heater_fan" title="Permanent link">&para;</a></h3>
-<p>Heater cooling fans (one may define any number of sections with a "heater_fan" prefix). A "heater fan" is a fan that will be enabled whenever its associated heater is active. By default, a heater_fan has a shutdown_speed equal to max_power.</p>
+<p>Heizungskühllüfter (man kann beliebig viele Abschnitte mit dem Präfix "heater_fan" definieren). Ein "heater fan" ist ein Lüfter, der immer dann eingeschaltet wird, wenn die zugehörige Heizung aktiv ist. Standardmäßig hat ein heater_fan eine shutdown_speed in Höhe von max_power.</p>
 <div class="highlight"><pre><span></span><code>[heater_fan heatbreak_cooling_fan]
 #pin:
 #max_power:
@@ -5333,7 +5339,7 @@ pin:
 </code></pre></div>
 
 <h3 id="controller_fan">[controller_fan]<a class="headerlink" href="#controller_fan" title="Permanent link">&para;</a></h3>
-<p>Controller cooling fan (one may define any number of sections with a "controller_fan" prefix). A "controller fan" is a fan that will be enabled whenever its associated heater or its associated stepper driver is active. The fan will stop whenever an idle_timeout is reached to ensure no overheating will occur after deactivating a watched component.</p>
+<p>Lüfter zur Elektronikkühlung (man kann beliebig viele Abschnitte mit dem Präfix "controller_fan" definieren). Ein "controller fan" ist ein Lüfter, der immer dann eingeschaltet wird, wenn die zugehörige Heizung oder der zugehörige Schrittmotortreiber aktiv ist. Der Lüfter stoppt, sobald ein idle_timeout erreicht wird, um sicherzustellen, dass es nach dem Deaktivieren einer überwachten Komponente zu keiner Überhitzung kommt.</p>
 <div class="highlight"><pre><span></span><code>[controller_fan my_controller_fan]
 #pin:
 #max_power:
@@ -5369,7 +5375,7 @@ pin:
 </code></pre></div>
 
 <h3 id="temperature_fan">[temperature_fan]<a class="headerlink" href="#temperature_fan" title="Permanent link">&para;</a></h3>
-<p>Temperature-triggered cooling fans (one may define any number of sections with a "temperature_fan" prefix). A "temperature fan" is a fan that will be enabled whenever its associated sensor is above a set temperature. By default, a temperature_fan has a shutdown_speed equal to max_power.</p>
+<p>Temperaturgesteuerte Kühllüfter (man kann beliebig viele Abschnitte mit dem Präfix "temperature_fan" definieren). Ein "temperature fan" ist ein Lüfter, der immer dann eingeschaltet wird, wenn der zugehörige Sensor über einer festgelegten Temperatur liegt. Standardmäßig hat ein temperature_fan eine shutdown_speed in Höhe von max_power.</p>
 <p>Siehe die <a href="G-Codes.html#temperature_fan">Befehlsreferenz</a> für weitere Informationen.</p>
 <div class="highlight"><pre><span></span><code>[temperature_fan my_temp_fan]
 #pin:
@@ -5423,7 +5429,7 @@ pin:
 </code></pre></div>
 
 <h3 id="fan_generic">[fan_generic]<a class="headerlink" href="#fan_generic" title="Permanent link">&para;</a></h3>
-<p>Manually controlled fan (one may define any number of sections with a "fan_generic" prefix). The speed of a manually controlled fan is set with the SET_FAN_SPEED <a href="G-Codes.html#fan_generic">gcode command</a>.</p>
+<p>Manuell gesteuerter Lüfter (man kann beliebig viele Abschnitte mit dem Präfix "fan_generic" definieren). Die Drehzahl eines manuell gesteuerten Lüfters wird mit dem <a href="G-Codes.html#fan_generic">G-Code-Befehl</a> SET_FAN_SPEED festgelegt.</p>
 <div class="highlight"><pre><span></span><code>[fan_generic extruder_partfan]
 #pin:
 #max_power:
@@ -5441,7 +5447,7 @@ pin:
 
 <h2 id="leds">LEDs<a class="headerlink" href="#leds" title="Permanent link">&para;</a></h2>
 <h3 id="led">[led]<a class="headerlink" href="#led" title="Permanent link">&para;</a></h3>
-<p>Support for LEDs (and LED strips) controlled via micro-controller PWM pins (one may define any number of sections with an "led" prefix). See the <a href="G-Codes.html#led">command reference</a> for more information.</p>
+<p>Unterstützung für LEDs (und LED-Streifen), die über PWM-Pins des Mikrocontrollers angesteuert werden (man kann beliebig viele Abschnitte mit dem Präfix "led" definieren). Weitere Informationen finden Sie in der <a href="G-Codes.html#led">Befehlsreferenz</a>.</p>
 <div class="highlight"><pre><span></span><code>[led my_led]
 #red_pin:
 #green_pin:
@@ -5467,8 +5473,8 @@ pin:
 </code></pre></div>
 
 <h3 id="neopixel">[neopixel]<a class="headerlink" href="#neopixel" title="Permanent link">&para;</a></h3>
-<p>Neopixel (aka WS2812) LED support (one may define any number of sections with a "neopixel" prefix). See the <a href="G-Codes.html#led">command reference</a> for more information.</p>
-<p>Note that the <a href="RPi_microcontroller.html">linux mcu</a> implementation does not currently support directly connected neopixels. The current design using the Linux kernel interface does not allow this scenario because the kernel GPIO interface is not fast enough to provide the required pulse rates.</p>
+<p>Unterstützung für Neopixel-LEDs (auch WS2812) (man kann beliebig viele Abschnitte mit dem Präfix "neopixel" definieren). Weitere Informationen finden Sie in der <a href="G-Codes.html#led">Befehlsreferenz</a>.</p>
+<p>Beachten Sie, dass die Implementierung des <a href="RPi_microcontroller.html">Linux-MCU</a> derzeit keine direkt angeschlossenen Neopixel unterstützt. Der aktuelle Entwurf auf Basis der Linux-Kernel-Schnittstelle lässt dieses Szenario nicht zu, da die GPIO-Schnittstelle des Kernels nicht schnell genug ist, um die erforderlichen Pulsraten zu liefern.</p>
 <div class="highlight"><pre><span></span><code>[neopixel my_neopixel]
 pin:
 #   The pin connected to the neopixel. This parameter must be
@@ -5490,7 +5496,7 @@ pin:
 </code></pre></div>
 
 <h3 id="dotstar">[dotstar]<a class="headerlink" href="#dotstar" title="Permanent link">&para;</a></h3>
-<p>Dotstar (aka APA102) LED support (one may define any number of sections with a "dotstar" prefix). See the <a href="G-Codes.html#led">command reference</a> for more information.</p>
+<p>Unterstützung für Dotstar-LEDs (auch APA102) (man kann beliebig viele Abschnitte mit dem Präfix "dotstar" definieren). Weitere Informationen finden Sie in der <a href="G-Codes.html#led">Befehlsreferenz</a>.</p>
 <div class="highlight"><pre><span></span><code>[dotstar my_dotstar]
 data_pin:
 #   The pin connected to the data line of the dotstar. This parameter
@@ -5507,7 +5513,7 @@ clock_pin:
 </code></pre></div>
 
 <h3 id="pca9533">[pca9533]<a class="headerlink" href="#pca9533" title="Permanent link">&para;</a></h3>
-<p>PCA9533 LED support. The PCA9533 is used on the mightyboard.</p>
+<p>Unterstützung für PCA9533-LEDs. Der PCA9533 wird auf dem Mightyboard eingesetzt.</p>
 <div class="highlight"><pre><span></span><code>[pca9533 my_pca9533]
 #i2c_address: 98
 #   The i2c address that the chip is using on the i2c bus. Use 98 for
@@ -5527,7 +5533,7 @@ clock_pin:
 </code></pre></div>
 
 <h3 id="pca9632">[pca9632]<a class="headerlink" href="#pca9632" title="Permanent link">&para;</a></h3>
-<p>PCA9632 LED support. The PCA9632 is used on the FlashForge Dreamer.</p>
+<p>Unterstützung für PCA9632-LEDs. Der PCA9632 wird im FlashForge Dreamer eingesetzt.</p>
 <div class="highlight"><pre><span></span><code>[pca9632 my_pca9632]
 #i2c_address: 98
 #   The i2c address that the chip is using on the i2c bus. This may be
@@ -5551,7 +5557,7 @@ clock_pin:
 
 <h2 id="zusatzliche-servomotoren-schalter-und-andere-pins">Zusätzliche Servomotoren, Schalter und andere Pins<a class="headerlink" href="#zusatzliche-servomotoren-schalter-und-andere-pins" title="Permanent link">&para;</a></h2>
 <h3 id="servo">[servo]<a class="headerlink" href="#servo" title="Permanent link">&para;</a></h3>
-<p>Servos (one may define any number of sections with a "servo" prefix). The servos may be controlled using the SET_SERVO <a href="G-Codes.html#servo">g-code command</a>. For example: SET_SERVO SERVO=my_servo ANGLE=180</p>
+<p>Servos (man kann beliebig viele Abschnitte mit dem Präfix "servo" definieren). Die Servos können über den <a href="G-Codes.html#servo">G-Code-Befehl</a> SET_SERVO gesteuert werden. Zum Beispiel: SET_SERVO SERVO=my_servo ANGLE=180</p>
 <div class="highlight"><pre><span></span><code>[servo my_servo]
 pin:
 #   PWM output pin controlling the servo. This parameter must be
@@ -5576,7 +5582,7 @@ pin:
 </code></pre></div>
 
 <h3 id="gcode_button">[gcode_button]<a class="headerlink" href="#gcode_button" title="Permanent link">&para;</a></h3>
-<p>Execute gcode when a button is pressed or released (or when a pin changes state). You can check the state of the button by using <code>QUERY_BUTTON button=my_gcode_button</code>.</p>
+<p>G-Code ausführen, wenn eine Taste gedrückt oder losgelassen wird (oder wenn ein Pin seinen Zustand ändert). Den Zustand der Taste können Sie mit <code>QUERY_BUTTON button=my_gcode_button</code> abfragen.</p>
 <div class="highlight"><pre><span></span><code>[gcode_button my_gcode_button]
 pin:
 #   The pin on which the button is connected. This parameter must be
@@ -5603,7 +5609,7 @@ pin:
 </code></pre></div>
 
 <h3 id="output_pin">[output_pin]<a class="headerlink" href="#output_pin" title="Permanent link">&para;</a></h3>
-<p>Run-time configurable output pins (one may define any number of sections with an "output_pin" prefix). Pins configured here will be setup as output pins and one may modify them at run-time using "SET_PIN PIN=my_pin VALUE=.1" type extended <a href="G-Codes.html#output_pin">g-code commands</a>.</p>
+<p>Zur Laufzeit konfigurierbare Ausgangspins (man kann beliebig viele Abschnitte mit dem Präfix "output_pin" definieren). Hier konfigurierte Pins werden als Ausgangspins eingerichtet und lassen sich zur Laufzeit über erweiterte <a href="G-Codes.html#output_pin">G-Code-Befehle</a> der Art "SET_PIN PIN=my_pin VALUE=.1" verändern.</p>
 <div class="highlight"><pre><span></span><code>[output_pin my_pin]
 pin:
 #   The pin to configure as an output. This parameter must be
@@ -5644,7 +5650,7 @@ pin:
 </code></pre></div>
 
 <h3 id="static_pwm_clock">[static_pwm_clock]<a class="headerlink" href="#static_pwm_clock" title="Permanent link">&para;</a></h3>
-<p>Static configurable output pin (one may define any number of sections with an "static_pwm_clock" prefix). Pins configured here will be set up as clock output pins. Generally used to provide clock input to other hardware on the board.</p>
+<p>Statisch konfigurierbarer Ausgangspin (man kann beliebig viele Abschnitte mit dem Präfix "static_pwm_clock" definieren). Hier konfigurierte Pins werden als Taktausgänge eingerichtet. Sie werden im Allgemeinen verwendet, um anderer Hardware auf der Platine ein Taktsignal bereitzustellen.</p>
 <div class="highlight"><pre><span></span><code>[static_pwm_clock my_pin]
 pin:
 #   The pin to configure as an output. This parameter must be provided.
@@ -5653,7 +5659,7 @@ pin:
 </code></pre></div>
 
 <h3 id="pwm_tool">[pwm_tool]<a class="headerlink" href="#pwm_tool" title="Permanent link">&para;</a></h3>
-<p>Pulse width modulation digital output pins capable of high speed updates (one may define any number of sections with an "output_pin" prefix). Pins configured here will be setup as output pins and one may modify them at run-time using "SET_PIN PIN=my_pin VALUE=.1" type extended <a href="G-Codes.html#output_pin">g-code commands</a>.</p>
+<p>Digitale Ausgangspins mit Pulsweitenmodulation, die schnelle Aktualisierungen ermöglichen (man kann beliebig viele Abschnitte mit dem Präfix "output_pin" definieren). Hier konfigurierte Pins werden als Ausgangspins eingerichtet und lassen sich zur Laufzeit über erweiterte <a href="G-Codes.html#output_pin">G-Code-Befehle</a> der Art "SET_PIN PIN=my_pin VALUE=.1" verändern.</p>
 <div class="highlight"><pre><span></span><code>[pwm_tool my_tool]
 pin:
 #   The pin to configure as an output. This parameter must be provided.
@@ -5673,7 +5679,7 @@ pin:
 </code></pre></div>
 
 <h3 id="pwm_cycle_time">[pwm_cycle_time]<a class="headerlink" href="#pwm_cycle_time" title="Permanent link">&para;</a></h3>
-<p>Run-time configurable output pins with dynamic pwm cycle timing (one may define any number of sections with an "pwm_cycle_time" prefix). Pins configured here will be setup as output pins and one may modify them at run-time using "SET_PIN PIN=my_pin VALUE=.1 CYCLE_TIME=0.100" type extended <a href="G-Codes.html#pwm_cycle_time">g-code commands</a>.</p>
+<p>Zur Laufzeit konfigurierbare Ausgangspins mit dynamischer PWM-Zykluszeit (man kann beliebig viele Abschnitte mit dem Präfix "pwm_cycle_time" definieren). Hier konfigurierte Pins werden als Ausgangspins eingerichtet und lassen sich zur Laufzeit über erweiterte <a href="G-Codes.html#pwm_cycle_time">G-Code-Befehle</a> der Art "SET_PIN PIN=my_pin VALUE=.1 CYCLE_TIME=0.100" verändern.</p>
 <div class="highlight"><pre><span></span><code>[pwm_cycle_time my_pin]
 pin:
 #value:
@@ -5684,7 +5690,7 @@ pin:
 </code></pre></div>
 
 <h3 id="static_digital_output">[static_digital_output]<a class="headerlink" href="#static_digital_output" title="Permanent link">&para;</a></h3>
-<p>Statically configured digital output pins (one may define any number of sections with a "static_digital_output" prefix). Pins configured here will be setup as a GPIO output during MCU configuration. They can not be changed at run-time.</p>
+<p>Statisch konfigurierte digitale Ausgangspins (man kann beliebig viele Abschnitte mit dem Präfix "static_digital_output" definieren). Hier konfigurierte Pins werden während der MCU-Konfiguration als GPIO-Ausgang eingerichtet. Sie können zur Laufzeit nicht geändert werden.</p>
 <div class="highlight"><pre><span></span><code>[static_digital_output my_output_pins]
 pins:
 #   A comma separated list of pins to be set as GPIO output pins. The
@@ -5693,7 +5699,7 @@ pins:
 </code></pre></div>
 
 <h3 id="multi_pin">[multi_pin]<a class="headerlink" href="#multi_pin" title="Permanent link">&para;</a></h3>
-<p>Multiple pin outputs (one may define any number of sections with a "multi_pin" prefix). A multi_pin output creates an internal pin alias that can modify multiple output pins each time the alias pin is set. For example, one could define a "[multi_pin my_fan]" object containing two pins and then set "pin=multi_pin:my_fan" in the "[fan]" section - on each fan change both output pins would be updated. These aliases may not be used with stepper motor pins.</p>
+<p>Ausgänge mit mehreren Pins (man kann beliebig viele Abschnitte mit dem Präfix "multi_pin" definieren). Ein multi_pin-Ausgang erzeugt einen internen Pin-Alias, der bei jedem Setzen des Alias-Pins mehrere Ausgangspins ändern kann. So könnte man zum Beispiel ein Objekt "[multi_pin my_fan]" mit zwei Pins definieren und dann im Abschnitt "[fan]" "pin=multi_pin:my_fan" setzen - bei jeder Lüfteränderung würden dann beide Ausgangspins aktualisiert. Diese Aliase dürfen nicht mit Schrittmotor-Pins verwendet werden.</p>
 <div class="highlight"><pre><span></span><code>[multi_pin my_multi_pin]
 pins:
 #   A comma separated list of pins associated with this alias. This
@@ -5817,7 +5823,7 @@ run_current:
 </code></pre></div>
 
 <h3 id="tmc2208">[tmc2208]<a class="headerlink" href="#tmc2208" title="Permanent link">&para;</a></h3>
-<p>Configure a TMC2208 (or TMC2224) stepper motor driver via single wire UART. To use this feature, define a config section with a "tmc2208" prefix followed by the name of the corresponding stepper config section (for example, "[tmc2208 stepper_x]").</p>
+<p>Konfiguration eines TMC2208- (oder TMC2224-)Schrittmotortreibers über Einleiter-UART. Um diese Funktion zu nutzen, definieren Sie einen Konfigurationsabschnitt mit dem Präfix "tmc2208", gefolgt vom Namen des zugehörigen Schrittmotor-Konfigurationsabschnitts (zum Beispiel "[tmc2208 stepper_x]").</p>
 <div class="highlight"><pre><span></span><code>[tmc2208 stepper_x]
 uart_pin:
 #   The pin connected to the TMC2208 PDN_UART line. This parameter
@@ -5875,7 +5881,7 @@ run_current:
 </code></pre></div>
 
 <h3 id="tmc2209">[tmc2209]<a class="headerlink" href="#tmc2209" title="Permanent link">&para;</a></h3>
-<p>Configure a TMC2209 stepper motor driver via single wire UART. To use this feature, define a config section with a "tmc2209" prefix followed by the name of the corresponding stepper config section (for example, "[tmc2209 stepper_x]").</p>
+<p>Konfiguration eines TMC2209-Schrittmotortreibers über Einleiter-UART. Um diese Funktion zu nutzen, definieren Sie einen Konfigurationsabschnitt mit dem Präfix "tmc2209", gefolgt vom Namen des zugehörigen Schrittmotor-Konfigurationsabschnitts (zum Beispiel "[tmc2209 stepper_x]").</p>
 <div class="highlight"><pre><span></span><code>[tmc2209 stepper_x]
 uart_pin:
 #tx_pin:
@@ -5933,7 +5939,7 @@ run_current:
 </code></pre></div>
 
 <h3 id="tmc2660">[tmc2660]<a class="headerlink" href="#tmc2660" title="Permanent link">&para;</a></h3>
-<p>Configure a TMC2660 stepper motor driver via SPI bus. To use this feature, define a config section with a tmc2660 prefix followed by the name of the corresponding stepper config section (for example, "[tmc2660 stepper_x]").</p>
+<p>Konfiguration eines TMC2660-Schrittmotortreibers über den SPI-Bus. Um diese Funktion zu nutzen, definieren Sie einen Konfigurationsabschnitt mit dem Präfix tmc2660, gefolgt vom Namen des zugehörigen Schrittmotor-Konfigurationsabschnitts (zum Beispiel "[tmc2660 stepper_x]").</p>
 <div class="highlight"><pre><span></span><code>[tmc2660 stepper_x]
 cs_pin:
 #   The pin corresponding to the TMC2660 chip select line. This pin
@@ -5999,7 +6005,7 @@ run_current:
 </code></pre></div>
 
 <h3 id="tmc2240">[tmc2240]<a class="headerlink" href="#tmc2240" title="Permanent link">&para;</a></h3>
-<p>Configure a TMC2240 stepper motor driver via SPI bus or UART. To use this feature, define a config section with a "tmc2240" prefix followed by the name of the corresponding stepper config section (for example, "[tmc2240 stepper_x]").</p>
+<p>Konfiguration eines TMC2240-Schrittmotortreibers über den SPI-Bus oder UART. Um diese Funktion zu nutzen, definieren Sie einen Konfigurationsabschnitt mit dem Präfix "tmc2240", gefolgt vom Namen des zugehörigen Schrittmotor-Konfigurationsabschnitts (zum Beispiel "[tmc2240 stepper_x]").</p>
 <div class="highlight"><pre><span></span><code>[tmc2240 stepper_x]
 cs_pin:
 #   The pin corresponding to the TMC2240 chip select line. This pin
@@ -6132,7 +6138,7 @@ run_current:
 </code></pre></div>
 
 <h3 id="tmc5160">[tmc5160]<a class="headerlink" href="#tmc5160" title="Permanent link">&para;</a></h3>
-<p>Configure a TMC5160 stepper motor driver via SPI bus. To use this feature, define a config section with a "tmc5160" prefix followed by the name of the corresponding stepper config section (for example, "[tmc5160 stepper_x]").</p>
+<p>Konfiguration eines TMC5160-Schrittmotortreibers über den SPI-Bus. Um diese Funktion zu nutzen, definieren Sie einen Konfigurationsabschnitt mit dem Präfix "tmc5160", gefolgt vom Namen des zugehörigen Schrittmotor-Konfigurationsabschnitts (zum Beispiel "[tmc5160 stepper_x]").</p>
 <div class="highlight"><pre><span></span><code>[tmc5160 stepper_x]
 cs_pin:
 #   The pin corresponding to the TMC5160 chip select line. This pin
@@ -6258,12 +6264,12 @@ run_current:
 
 <h2 id="konfiguration-des-schrittmotorstroms-wahrend-der-betriebszeit">Konfiguration des Schrittmotorstroms während der Betriebszeit<a class="headerlink" href="#konfiguration-des-schrittmotorstroms-wahrend-der-betriebszeit" title="Permanent link">&para;</a></h2>
 <h3 id="ad5206">[ad5206]<a class="headerlink" href="#ad5206" title="Permanent link">&para;</a></h3>
-<p>Statically configured AD5206 digipots connected via SPI bus (one may define any number of sections with an "ad5206" prefix).</p>
+<p>Statisch konfigurierte, über den SPI-Bus angeschlossene AD5206-Digipots (man kann beliebig viele Abschnitte mit dem Präfix "ad5206" definieren).</p>
 <div class="highlight"><pre><span></span><code>gebräuchliche Spi Einstellungen
 </code></pre></div>
 
 <h3 id="mcp4451">[mcp4451]<a class="headerlink" href="#mcp4451" title="Permanent link">&para;</a></h3>
-<p>Statically configured MCP4451 digipot connected via I2C bus (one may define any number of sections with an "mcp4451" prefix).</p>
+<p>Statisch konfiguriertes, über den I2C-Bus angeschlossenes MCP4451-Digipot (man kann beliebig viele Abschnitte mit dem Präfix "mcp4451" definieren).</p>
 <div class="highlight"><pre><span></span><code>[mcp4451 my_digipot]
 i2c_address:
 #   The i2c address that the chip is using on the i2c bus. This
@@ -6296,7 +6302,7 @@ i2c_address:
 </code></pre></div>
 
 <h3 id="mcp4728">[mcp4728]<a class="headerlink" href="#mcp4728" title="Permanent link">&para;</a></h3>
-<p>Statically configured MCP4728 digital-to-analog converter connected via I2C bus (one may define any number of sections with an "mcp4728" prefix).</p>
+<p>Statisch konfigurierter, über den I2C-Bus angeschlossener Digital-Analog-Wandler MCP4728 (man kann beliebig viele Abschnitte mit dem Präfix "mcp4728" definieren).</p>
 <div class="highlight"><pre><span></span><code>[mcp4728 my_dac]
 #i2c_address: 96
 #   The i2c address that the chip is using on the i2c bus. The default
@@ -6330,7 +6336,7 @@ i2c_address:
 </code></pre></div>
 
 <h3 id="mcp4018">[mcp4018]<a class="headerlink" href="#mcp4018" title="Permanent link">&para;</a></h3>
-<p>Statically configured MCP4018 digipot connected via i2c (one may define any number of sections with an "mcp4018" prefix).</p>
+<p>Statisch konfiguriertes, über I2C angeschlossenes MCP4018-Digipot (man kann beliebig viele Abschnitte mit dem Präfix "mcp4018" definieren).</p>
 <div class="highlight"><pre><span></span><code>[mcp4018 my_digipot]
 #i2c_address: 47
 #   The i2c address that the chip is using on the i2c bus. The default
@@ -6361,7 +6367,7 @@ wiper:
 
 <h2 id="display-unterstutzung">Display Unterstützung<a class="headerlink" href="#display-unterstutzung" title="Permanent link">&para;</a></h2>
 <h3 id="display">[display]<a class="headerlink" href="#display" title="Permanent link">&para;</a></h3>
-<p>Support for a display attached to the micro-controller.</p>
+<p>Unterstützung für ein am Mikrocontroller angeschlossenes Display.</p>
 <div class="highlight"><pre><span></span><code>[display]
 lcd_type:
 #   The type of LCD chip in use. This may be &quot;hd44780&quot;, &quot;hd44780_spi&quot;,
@@ -6443,7 +6449,7 @@ lcd_type:
 </code></pre></div>
 
 <h4 id="hd44780-display">hd44780 display<a class="headerlink" href="#hd44780-display" title="Permanent link">&para;</a></h4>
-<p>Information on configuring hd44780 displays (which is used in "RepRapDiscount 2004 Smart Controller" type displays).</p>
+<p>Informationen zur Konfiguration von hd44780-Displays (die in Displays vom Typ "RepRapDiscount 2004 Smart Controller" verwendet werden).</p>
 <div class="highlight"><pre><span></span><code>[display]
 lcd_type: hd44780
 #   Set to &quot;hd44780&quot; for hd44780 displays.
@@ -6467,7 +6473,7 @@ d7_pin:
 </code></pre></div>
 
 <h4 id="hd44780_spi-display">hd44780_spi display<a class="headerlink" href="#hd44780_spi-display" title="Permanent link">&para;</a></h4>
-<p>Information on configuring an hd44780_spi display - a 20x04 display controlled via a hardware "shift register" (which is used in mightyboard based printers).</p>
+<p>Informationen zur Konfiguration eines hd44780_spi-Displays - ein 20x04-Display, das über ein Hardware-Schieberegister angesteuert wird (wird in Druckern auf Mightyboard-Basis verwendet).</p>
 <div class="highlight"><pre><span></span><code>[display]
 lcd_type: hd44780_spi
 #   Set to &quot;hd44780_spi&quot; for hd44780_spi displays.
@@ -6492,7 +6498,7 @@ spi_software_miso_pin:
 </code></pre></div>
 
 <h4 id="aip31068_spi-display">aip31068_spi Display<a class="headerlink" href="#aip31068_spi-display" title="Permanent link">&para;</a></h4>
-<p>Information on configuring an aip31068_spi display - a very similar to hd44780_spi a 20x04 (20 symbols by 4 lines) display with slightly different internal protocol.</p>
+<p>Informationen zur Konfiguration eines aip31068_spi-Displays - ein dem hd44780_spi sehr ähnliches 20x04-Display (20 Zeichen mal 4 Zeilen) mit leicht abweichendem internen Protokoll.</p>
 <div class="highlight"><pre><span></span><code>[display]
 lcd_type: aip31068_spi
 latch_pin:
@@ -6512,7 +6518,7 @@ spi_software_miso_pin:
 </code></pre></div>
 
 <h4 id="st7920-display">st7920 display<a class="headerlink" href="#st7920-display" title="Permanent link">&para;</a></h4>
-<p>Information on configuring st7920 displays (which is used in "RepRapDiscount 12864 Full Graphic Smart Controller" type displays).</p>
+<p>Informationen zur Konfiguration von st7920-Displays (die in Displays vom Typ "RepRapDiscount 12864 Full Graphic Smart Controller" verwendet werden).</p>
 <div class="highlight"><pre><span></span><code>[display]
 lcd_type: st7920
 #   Set to &quot;st7920&quot; for st7920 displays.
@@ -6525,7 +6531,7 @@ sid_pin:
 </code></pre></div>
 
 <h4 id="emulated_st7920-display">emulated_st7920 display<a class="headerlink" href="#emulated_st7920-display" title="Permanent link">&para;</a></h4>
-<p>Information on configuring an emulated st7920 display - found in some "2.4 inch touchscreen devices" and similar.</p>
+<p>Informationen zur Konfiguration eines emulierten st7920-Displays - zu finden in manchen "2,4-Zoll-Touchscreen-Geräten" und Ähnlichem.</p>
 <div class="highlight"><pre><span></span><code>[display]
 lcd_type: emulated_st7920
 #   Set to &quot;emulated_st7920&quot; for emulated_st7920 displays.
@@ -6544,7 +6550,7 @@ spi_software_miso_pin:
 </code></pre></div>
 
 <h4 id="uc1701-display">uc1701 display<a class="headerlink" href="#uc1701-display" title="Permanent link">&para;</a></h4>
-<p>Information on configuring uc1701 displays (which is used in "MKS Mini 12864" type displays).</p>
+<p>Informationen zur Konfiguration von uc1701-Displays (die in Displays vom Typ "MKS Mini 12864" verwendet werden).</p>
 <div class="highlight"><pre><span></span><code>[display]
 lcd_type: uc1701
 #   Set to &quot;uc1701&quot; for uc1701 displays.
@@ -6607,7 +6613,7 @@ lcd_type:
 </code></pre></div>
 
 <h3 id="display_data">[display_data]<a class="headerlink" href="#display_data" title="Permanent link">&para;</a></h3>
-<p>Support for displaying custom data on an lcd screen. One may create any number of display groups and any number of data items under those groups. The display will show all the data items for a given group if the display_group option in the [display] section is set to the given group name.</p>
+<p>Unterstützung für die Anzeige benutzerdefinierter Daten auf einem LCD-Bildschirm. Man kann beliebig viele Anzeigegruppen und darunter beliebig viele Datenelemente anlegen. Das Display zeigt alle Datenelemente einer bestimmten Gruppe an, wenn die Option display_group im Abschnitt [display] auf den Namen dieser Gruppe gesetzt ist.</p>
 <p>Ein <a href="https://github.com/Klipper3d/klipper/blob/master/klippy/extras/display/display.cfg">Standard-Set an Display-Gruppen</a> werden automatisch erstellt. Diese display_data-Objekte können überschrieben oder vergrößert werden, indem die Standardkonfiguration in der primären printer.cfg Konfigurationsdatei überschrieben wird.</p>
 <div class="highlight"><pre><span></span><code>[display_data my_group_name my_data_name]
 position:
@@ -6621,9 +6627,9 @@ text:
 </code></pre></div>
 
 <h3 id="display_template">[display_template]<a class="headerlink" href="#display_template" title="Permanent link">&para;</a></h3>
-<p>Display data text "macros" (one may define any number of sections with a display_template prefix). See the <a href="Command_Templates.html">command templates</a> document for information on template evaluation.</p>
-<p>This feature allows one to reduce repetitive definitions in display_data sections. One may use the builtin <code>render()</code> function in display_data sections to evaluate a template. For example, if one were to define <code>[display_template my_template]</code> then one could use <code>{ render('my_template') }</code> in a display_data section.</p>
-<p>This feature can also be used for continuous LED updates using the <a href="G-Codes.html#set_led_template">SET_LED_TEMPLATE</a> command.</p>
+<p>Text-"Makros" für Anzeigedaten (man kann beliebig viele Abschnitte mit dem Präfix display_template definieren). Informationen zur Auswertung von Vorlagen finden Sie im Dokument <a href="Command_Templates.html">Befehlsvorlagen</a>.</p>
+<p>Mit dieser Funktion lassen sich sich wiederholende Definitionen in display_data-Abschnitten reduzieren. In display_data-Abschnitten kann die eingebaute Funktion <code>render()</code> verwendet werden, um eine Vorlage auszuwerten. Definiert man zum Beispiel <code>[display_template my_template]</code>, so kann man in einem display_data-Abschnitt <code>{ render('my_template') }</code> verwenden.</p>
+<p>Diese Funktion kann mit dem Befehl <a href="G-Codes.html#set_led_template">SET_LED_TEMPLATE</a> auch für fortlaufende LED-Aktualisierungen genutzt werden.</p>
 <div class="highlight"><pre><span></span><code>[display_template my_template_name]
 #param_&lt;name&gt;:
 #   One may specify any number of options with a &quot;param_&quot; prefix. The
@@ -6641,7 +6647,7 @@ text:
 </code></pre></div>
 
 <h3 id="display_glyph">[display_glyph]<a class="headerlink" href="#display_glyph" title="Permanent link">&para;</a></h3>
-<p>Display a custom glyph on displays that support it. The given name will be assigned the given display data which can then be referenced in the display templates by their name surrounded by two "tilde" symbols i.e. <code>~my_display_glyph~</code></p>
+<p>Anzeige eines benutzerdefinierten Glyphs auf Displays, die dies unterstützen. Dem angegebenen Namen werden die angegebenen Anzeigedaten zugewiesen, die dann in den Anzeigevorlagen über ihren Namen umschlossen von zwei Tilde-Zeichen referenziert werden können, also <code>~my_display_glyph~</code></p>
 <p>See <a href="https://github.com/Klipper3d/klipper/blob/master/config/sample-glyphs.cfg">sample-glyphs.cfg</a> for some examples.</p>
 <div class="highlight"><pre><span></span><code>[display_glyph my_display_glyph]
 #data:
@@ -6663,7 +6669,7 @@ text:
 </code></pre></div>
 
 <h3 id="display-my_extra_display">[display my_extra_display]<a class="headerlink" href="#display-my_extra_display" title="Permanent link">&para;</a></h3>
-<p>If a primary [display] section has been defined in printer.cfg as shown above it is possible to define multiple auxiliary displays. Note that auxiliary displays do not currently support menu functionality, thus they do not support the "menu" options or button configuration.</p>
+<p>Wenn wie oben gezeigt ein primärer Abschnitt [display] in der printer.cfg definiert wurde, können mehrere zusätzliche Displays definiert werden. Beachten Sie, dass zusätzliche Displays derzeit keine Menüfunktionalität unterstützen und daher weder die Optionen "menu" noch eine Tastenkonfiguration unterstützen.</p>
 <div class="highlight"><pre><span></span><code>[display my_extra_display]
 # See the &quot;display&quot; section for available parameters.
 </code></pre></div>
@@ -6671,7 +6677,7 @@ text:
 <h3 id="menu">[menu]<a class="headerlink" href="#menu" title="Permanent link">&para;</a></h3>
 <p>Anpassbare LCD Anzeigen Menüs.</p>
 <p>Eine <a href="https://github.com/Klipper3d/klipper/blob/master/klippy/extras/Display/menu.cfg">Standart Menüstruktur</a> wird durch Klipper automatisch generiert. Ein Eintrag in der printer.cfg Datei, überschreibt den Standarteintrag und kann den vorhandenen Menüpunkt ersetzen oder erweitern.</p>
-<p>See the <a href="Command_Templates.html#menu-templates">command template document</a> for information on menu attributes available during template rendering.</p>
+<p>Informationen zu den während des Renderns von Vorlagen verfügbaren Menüattributen finden Sie im <a href="Command_Templates.html#menu-templates">Dokument zu Befehlsvorlagen</a>.</p>
 <div class="highlight"><pre><span></span><code># Common parameters available for all menu config sections.
 #[menu __some_list __some_name]
 #type: disabled
@@ -6741,7 +6747,7 @@ text:
 
 <h2 id="filament-sensoren">Filament Sensoren<a class="headerlink" href="#filament-sensoren" title="Permanent link">&para;</a></h2>
 <h3 id="filament_switch_sensor">[filament_switch_sensor]<a class="headerlink" href="#filament_switch_sensor" title="Permanent link">&para;</a></h3>
-<p>Filament Switch Sensor. Support for filament insert and runout detection using a switch sensor, such as an endstop switch.</p>
+<p>Filament-Schaltsensor. Unterstützung für die Erkennung von eingelegtem und ausgegangenem Filament mithilfe eines Schaltsensors, zum Beispiel eines Endschalters.</p>
 <p>Siehe die <a href="G-Codes.html#filament_switch_sensor">Befehlsreferenz</a> für weitere Informationen.</p>
 <div class="highlight"><pre><span></span><code>[filament_switch_sensor my_sensor]
 #pause_on_runout: True
@@ -6779,7 +6785,7 @@ text:
 </code></pre></div>
 
 <h3 id="filament_motion_sensor">[filament_motion_sensor]<a class="headerlink" href="#filament_motion_sensor" title="Permanent link">&para;</a></h3>
-<p>Filament Motion Sensor. Support for filament insert and runout detection using an encoder that toggles the output pin during filament movement through the sensor.</p>
+<p>Filament-Bewegungssensor. Unterstützung für die Erkennung von eingelegtem und ausgegangenem Filament mithilfe eines Encoders, der den Ausgangspin während der Filamentbewegung durch den Sensor umschaltet.</p>
 <p>Siehe die <a href="G-Codes.html#filament_switch_sensor">Befehlsreferenz</a> für weitere Informationen.</p>
 <div class="highlight"><pre><span></span><code>[filament_motion_sensor my_sensor]
 detection_length: 7.0
@@ -6800,7 +6806,7 @@ switch_pin:
 </code></pre></div>
 
 <h3 id="tsl1401cl_filament_width_sensor">[tsl1401cl_filament_width_sensor]<a class="headerlink" href="#tsl1401cl_filament_width_sensor" title="Permanent link">&para;</a></h3>
-<p>TSLl401CL Based Filament Width Sensor. See the <a href="TSL1401CL_Filament_Width_Sensor.html">guide</a> for more information.</p>
+<p>Filamentbreitensensor auf Basis des TSL1401CL. Weitere Informationen finden Sie in der <a href="TSL1401CL_Filament_Width_Sensor.html">Anleitung</a>.</p>
 <div class="highlight"><pre><span></span><code>[tsl1401cl_filament_width_sensor]
 #pin:
 #default_nominal_filament_diameter: 1.75 # (mm)
@@ -6811,7 +6817,7 @@ switch_pin:
 </code></pre></div>
 
 <h3 id="hall_filament_width_sensor">[hall_filament_width_sensor]<a class="headerlink" href="#hall_filament_width_sensor" title="Permanent link">&para;</a></h3>
-<p>Hall filament width sensor (see <a href="Hall_Filament_Width_Sensor.html">Hall Filament Width Sensor</a>).</p>
+<p>Hall-Filamentbreitensensor (siehe <a href="Hall_Filament_Width_Sensor.html">Hall Filament Width Sensor</a>).</p>
 <div class="highlight"><pre><span></span><code>[hall_filament_width_sensor]
 adc1:
 adc2:
@@ -6872,7 +6878,7 @@ adc2:
 
 <h2 id="zellen-laden">Zellen laden<a class="headerlink" href="#zellen-laden" title="Permanent link">&para;</a></h2>
 <h3 id="load_cell">[load_cell]<a class="headerlink" href="#load_cell" title="Permanent link">&para;</a></h3>
-<p>Load Cell. Uses an ADC sensor attached to a load cell to create a digital scale.</p>
+<p>Wägezelle. Verwendet einen an eine Wägezelle angeschlossenen ADC-Sensor, um eine digitale Waage zu realisieren.</p>
 <div class="highlight"><pre><span></span><code>[load_cell]
 sensor_type:
 #   This must be one of the supported sensor types, see below.
@@ -6889,7 +6895,7 @@ sensor_type:
 </code></pre></div>
 
 <h4 id="hx711">HX711<a class="headerlink" href="#hx711" title="Permanent link">&para;</a></h4>
-<p>This is a 24 bit low sample rate chip using "bit-bang" communications. It is suitable for filament scales.</p>
+<p>Dies ist ein 24-Bit-Chip mit niedriger Abtastrate, der "Bit-Banging"-Kommunikation verwendet. Er eignet sich für Filamentwaagen.</p>
 <div class="highlight"><pre><span></span><code>[load_cell]
 sensor_type: hx711
 sclk_pin:
@@ -6909,7 +6915,7 @@ dout_pin:
 </code></pre></div>
 
 <h4 id="hx717">HX717<a class="headerlink" href="#hx717" title="Permanent link">&para;</a></h4>
-<p>This is the 4x higher sample rate version of the HX711, suitable for probing.</p>
+<p>Dies ist die Variante des HX711 mit vierfach höherer Abtastrate, die sich zum Abtasten eignet.</p>
 <div class="highlight"><pre><span></span><code>[load_cell]
 sensor_type: hx717
 sclk_pin:
@@ -6929,7 +6935,7 @@ dout_pin:
 </code></pre></div>
 
 <h4 id="ads1220">ADS1220<a class="headerlink" href="#ads1220" title="Permanent link">&para;</a></h4>
-<p>The ADS1220 is a 24 bit ADC supporting up to a 2Khz sample rate configurable in software.</p>
+<p>Der ADS1220 ist ein 24-Bit-ADC, der eine softwareseitig konfigurierbare Abtastrate von bis zu 2 kHz unterstützt.</p>
 <div class="highlight"><pre><span></span><code>[load_cell]
 sensor_type: ads1220
 cs_pin:
@@ -6978,7 +6984,7 @@ data_ready_pin:
 </code></pre></div>
 
 <h4 id="ads131m0x">ADS131M0x<a class="headerlink" href="#ads131m0x" title="Permanent link">&para;</a></h4>
-<p>The ADS131M0x is a family of fast, 24-bit, delta-sigma ADCs. Two sensors are supported from this family: ADS131M02 with two simultaneously-sampling differential channels and ADS131M04 with four channels. They feature a programmable gain amplifier (PGA) with gains up to 128, configurable sampling rates up to 64000 samples per second, and require an external clock input (300 kHz to 8.4 MHz, 8.192 MHz nominal).</p>
+<p>Der ADS131M0x ist eine Familie schneller 24-Bit-Delta-Sigma-ADCs. Aus dieser Familie werden zwei Sensoren unterstützt: der ADS131M02 mit zwei gleichzeitig abtastenden Differenzkanälen und der ADS131M04 mit vier Kanälen. Sie verfügen über einen programmierbaren Verstärker (PGA) mit Verstärkungen bis 128 und konfigurierbaren Abtastraten bis 64000 Abtastungen pro Sekunde und benötigen ein externes Taktsignal (300 kHz bis 8,4 MHz, nominal 8,192 MHz).</p>
 <div class="highlight"><pre><span></span><code>[load_cell]
 sensor_type: ads131m02
 #   Select &#39;ads131m02&#39; for the 2-channel variant or &#39;ads131m04&#39; for the
@@ -7030,7 +7036,7 @@ data_ready_pin:
 </code></pre></div>
 
 <h3 id="load_cell_probe">[load_cell_probe]<a class="headerlink" href="#load_cell_probe" title="Permanent link">&para;</a></h3>
-<p>Load Cell Probe. This combines the functionality of a [probe] and a [load_cell].</p>
+<p>Wägezellen-Sonde. Sie vereint die Funktionalität von [probe] und [load_cell].</p>
 <div class="highlight"><pre><span></span><code>[load_cell_probe]
 sensor_type:
 #   This must be one of the supported bulk ADC sensor types and support
@@ -7105,7 +7111,7 @@ i2c_address:
 </code></pre></div>
 
 <h3 id="samd_sercom">[samd_sercom]<a class="headerlink" href="#samd_sercom" title="Permanent link">&para;</a></h3>
-<p>SAMD SERCOM configuration to specify which pins to use on a given SERCOM. One may define any number of sections with a "samd_sercom" prefix. Each SERCOM must be configured prior to using it as SPI or I2C peripheral. Place this config section above any other section that makes use of SPI or I2C buses.</p>
+<p>SAMD-SERCOM-Konfiguration zur Festlegung, welche Pins an einem bestimmten SERCOM verwendet werden. Man kann beliebig viele Abschnitte mit dem Präfix "samd_sercom" definieren. Jedes SERCOM muss konfiguriert werden, bevor es als SPI- oder I2C-Peripherie verwendet wird. Platzieren Sie diesen Konfigurationsabschnitt oberhalb aller anderen Abschnitte, die SPI- oder I2C-Busse nutzen.</p>
 <div class="highlight"><pre><span></span><code>[samd_sercom my_sercom]
 sercom:
 #   The name of the sercom bus to configure in the micro-controller.
@@ -7127,7 +7133,7 @@ clk_pin:
 </code></pre></div>
 
 <h3 id="adc_scaled">[adc_scaled]<a class="headerlink" href="#adc_scaled" title="Permanent link">&para;</a></h3>
-<p>Duet2 Maestro analog scaling by vref and vssa readings. Defining an adc_scaled section enables virtual adc pins (such as "my_name:PB0") that are automatically adjusted by the board's vref and vssa monitoring pins. Be sure to define this config section above any config sections that use one these virtual pins.</p>
+<p>Analoge Skalierung des Duet2 Maestro anhand der vref- und vssa-Messwerte. Das Definieren eines Abschnitts adc_scaled aktiviert virtuelle ADC-Pins (wie "my_name:PB0"), die automatisch über die vref- und vssa-Überwachungspins der Platine angepasst werden. Achten Sie darauf, diesen Konfigurationsabschnitt oberhalb aller Abschnitte zu platzieren, die einen dieser virtuellen Pins verwenden.</p>
 <p>Siehe die Datei <a href="https://github.com/Klipper3d/klipper/blob/master/config/generic-duet2-maestro.cfg">generic-duet2-maestro.cfg</a> für ein Beispiel.</p>
 <div class="highlight"><pre><span></span><code>[adc_scaled my_name]
 vref_pin:
@@ -7143,8 +7149,8 @@ vssa_pin:
 </code></pre></div>
 
 <h3 id="ads1x1x">[ads1x1x]<a class="headerlink" href="#ads1x1x" title="Permanent link">&para;</a></h3>
-<p>ADS1013, ADS1014, ADS1015, ADS1113, ADS1114 and ADS1115 are I2C based Analog to Digital Converters that can be used for temperature sensors. They provide 4 analog input pins either as single line or as differential input.</p>
-<p>Note: Use caution if using this sensor to control heaters. The heater min_temp and max_temp are only verified in the host and only if the host is running and operating normally. (ADC inputs directly connected to the micro-controller verify min_temp and max_temp within the micro-controller and do not require a working connection to the host.)</p>
+<p>ADS1013, ADS1014, ADS1015, ADS1113, ADS1114 und ADS1115 sind I2C-basierte Analog-Digital-Wandler, die für Temperatursensoren verwendet werden können. Sie stellen 4 analoge Eingangspins entweder als einzelne Leitung oder als Differenzeingang bereit.</p>
+<p>Hinweis: Seien Sie vorsichtig, wenn Sie diesen Sensor zur Steuerung von Heizungen verwenden. Die Werte min_temp und max_temp der Heizung werden nur im Host überprüft und nur dann, wenn der Host läuft und normal arbeitet. (Direkt am Mikrocontroller angeschlossene ADC-Eingänge prüfen min_temp und max_temp innerhalb des Mikrocontrollers und benötigen dafür keine funktionierende Verbindung zum Host.)</p>
 <div class="highlight"><pre><span></span><code>[ads1x1x my_ads1x1x]
 chip: ADS1115
 #pga: 4.096V
@@ -7162,7 +7168,7 @@ i2c_bus: i2c.1
 #   can be specified directly instead of using the address_pin.
 </code></pre></div>
 
-<p>The chip provides pins that can be used on other sensors.</p>
+<p>Der Chip stellt Pins bereit, die für andere Sensoren verwendet werden können.</p>
 <div class="highlight"><pre><span></span><code>sensor_type: ...
 #   Can be any thermistor or adc_temperature.
 sensor_pin: my_ads1x1x:AIN0
@@ -7175,7 +7181,7 @@ sensor_pin: my_ads1x1x:AIN0
 </code></pre></div>
 
 <h3 id="replicape">[replicape]<a class="headerlink" href="#replicape" title="Permanent link">&para;</a></h3>
-<p>Replicape support - see the <a href="Beaglebone.html">beaglebone guide</a> and the <a href="https://github.com/Klipper3d/klipper/blob/master/config/generic-replicape.cfg">generic-replicape.cfg</a> file for an example.</p>
+<p>Replicape-Unterstützung - siehe die <a href="Beaglebone.html">Beaglebone-Anleitung</a> und die Datei <a href="https://github.com/Klipper3d/klipper/blob/master/config/generic-replicape.cfg">generic-replicape.cfg</a> für ein Beispiel.</p>
 <div class="highlight"><pre><span></span><code># The &quot;replicape&quot; config section adds &quot;replicape:stepper_x_enable&quot;
 # virtual stepper enable pins (for steppers X, Y, Z, E, and H) and
 # &quot;replicape:power_x&quot; PWM output pins (for hotbed, e, h, fan0, fan1,
@@ -7237,10 +7243,10 @@ host_mcu:
 
 <h2 id="weitere-spezifische-module">Weitere spezifische Module<a class="headerlink" href="#weitere-spezifische-module" title="Permanent link">&para;</a></h2>
 <h3 id="palette2">[palette2]<a class="headerlink" href="#palette2" title="Permanent link">&para;</a></h3>
-<p>Palette 2 multimaterial support - provides a tighter integration supporting Palette 2 devices in connected mode.</p>
-<p>This modules also requires <code>[virtual_sdcard]</code> and <code>[pause_resume]</code> for full functionality.</p>
-<p>If you use this module, do not use the Palette 2 plugin for Octoprint as they will conflict, and 1 will fail to initialize properly likely aborting your print.</p>
-<p>If you use Octoprint and stream gcode over the serial port instead of printing from virtual_sd, then remove <strong>M1</strong> and <strong>M0</strong> from <em>Pausing commands</em> in <em>Settings &gt; Serial Connection &gt; Firmware &amp; protocol</em> will prevent the need to start print on the Palette 2 and unpausing in Octoprint for your print to begin.</p>
+<p>Unterstützung für Palette 2 Multimaterial - bietet eine engere Integration für Palette-2-Geräte im verbundenen Modus.</p>
+<p>Dieses Modul erfordert für den vollen Funktionsumfang außerdem <code>[virtual_sdcard]</code> und <code>[pause_resume]</code>.</p>
+<p>Wenn Sie dieses Modul verwenden, nutzen Sie nicht zusätzlich das Palette-2-Plugin für OctoPrint, da sich beide gegenseitig stören und eines von beiden nicht korrekt initialisiert wird, was Ihren Druck wahrscheinlich abbricht.</p>
+<p>Wenn Sie OctoPrint verwenden und G-Code über die serielle Schnittstelle streamen, anstatt von virtual_sd zu drucken, verhindert das Entfernen von <strong>M1</strong> und <strong>M0</strong> aus <em>Pausing commands</em> unter <em>Settings &gt; Serial Connection &gt; Firmware &amp; protocol</em>, dass Sie den Druck auf der Palette 2 starten und in OctoPrint die Pause aufheben müssen, damit Ihr Druck beginnt.</p>
 <div class="highlight"><pre><span></span><code>[palette2]
 serial:
 #   The serial port to connect to the Palette 2.
@@ -7257,7 +7263,7 @@ serial:
 </code></pre></div>
 
 <h3 id="angle">[angle]<a class="headerlink" href="#angle" title="Permanent link">&para;</a></h3>
-<p>Magnetic hall angle sensor support for reading stepper motor angle shaft measurements using a1333, as5047d, mt6816, mt6826s, or tle5012b SPI chips. The measurements are available via the <a href="API_Server.html">API Server</a> and <a href="Debugging.html#motion-analysis-and-data-logging">motion analysis tool</a>. See the <a href="G-Codes.html#angle">G-Code reference</a> for available commands.</p>
+<p>Unterstützung für magnetische Hall-Winkelsensoren zum Auslesen von Winkelmessungen an Schrittmotorwellen über die SPI-Chips a1333, as5047d, mt6816, mt6826s oder tle5012b. Die Messwerte stehen über den <a href="API_Server.html">API-Server</a> und das <a href="Debugging.html#motion-analysis-and-data-logging">Bewegungsanalyse-Werkzeug</a> zur Verfügung. Die verfügbaren Befehle finden Sie in der <a href="G-Codes.html#angle">G-Code-Referenz</a>.</p>
 <div class="highlight"><pre><span></span><code>[angle my_angle_sensor]
 sensor_type:
 #   The type of the magnetic hall sensor chip. Available choices are
@@ -7285,7 +7291,7 @@ cs_pin:
 
 <h2 id="allgemeine-bus-parameter">Allgemeine Bus Parameter<a class="headerlink" href="#allgemeine-bus-parameter" title="Permanent link">&para;</a></h2>
 <h3 id="gebrauchliche-spi-einstellungen">Gebräuchliche SPI Einstellungen<a class="headerlink" href="#gebrauchliche-spi-einstellungen" title="Permanent link">&para;</a></h3>
-<p>The following parameters are generally available for devices using an SPI bus.</p>
+<p>Die folgenden Parameter stehen allgemein für Geräte zur Verfügung, die einen SPI-Bus verwenden.</p>
 <div class="highlight"><pre><span></span><code>#spi_speed:
 #   The SPI speed (in hz) to use when communicating with the device.
 #   The default depends on the type of device.
@@ -7303,9 +7309,9 @@ cs_pin:
 </code></pre></div>
 
 <h3 id="gebrauchliche-i2c-einstellungen">Gebräuchliche I2C Einstellungen<a class="headerlink" href="#gebrauchliche-i2c-einstellungen" title="Permanent link">&para;</a></h3>
-<p>The following parameters are generally available for devices using an I2C bus.</p>
-<p>Note that Klipper's current micro-controller support for I2C is generally not tolerant to line noise. Unexpected errors on the I2C wires may result in Klipper raising a run-time error. Klipper's support for error recovery varies between each micro-controller type. It is generally recommended to only use I2C devices that are on the same printed circuit board as the micro-controller.</p>
-<p>Most Klipper micro-controller implementations only support an <code>i2c_speed</code> of 100000 (<em>standard mode</em>, 100kbit/s). The Klipper "Linux" micro-controller supports a 400000 speed (<em>fast mode</em>, 400kbit/s), but it must be <a href="RPi_microcontroller.html#optional-enabling-i2c">set in the operating system</a> and the <code>i2c_speed</code> parameter is otherwise ignored. The Klipper "RP2040" micro-controller and ATmega AVR family and some STM32 (F0, G0, G4, L4, F7, H7) support a rate of 400000 via the <code>i2c_speed</code> parameter. All other Klipper micro-controllers use a 100000 rate and ignore the <code>i2c_speed</code> parameter.</p>
+<p>Die folgenden Parameter stehen allgemein für Geräte zur Verfügung, die einen I2C-Bus verwenden.</p>
+<p>Beachten Sie, dass die aktuelle I2C-Unterstützung in Klippers Mikrocontroller-Code im Allgemeinen nicht störungstolerant gegenüber Leitungsrauschen ist. Unerwartete Fehler auf den I2C-Leitungen können dazu führen, dass Klipper einen Laufzeitfehler auslöst. Die Unterstützung für Fehlerbehebung ist je nach Mikrocontrollertyp unterschiedlich. Es wird generell empfohlen, nur I2C-Geräte zu verwenden, die sich auf derselben Leiterplatte wie der Mikrocontroller befinden.</p>
+<p>Die meisten Klipper-Mikrocontroller-Implementierungen unterstützen nur eine <code>i2c_speed</code> von 100000 (<em>Standard Mode</em>, 100 kbit/s). Der Klipper-Mikrocontroller "Linux" unterstützt eine Geschwindigkeit von 400000 (<em>Fast Mode</em>, 400 kbit/s), diese muss jedoch <a href="RPi_microcontroller.html#optional-enabling-i2c">im Betriebssystem eingestellt werden</a>; der Parameter <code>i2c_speed</code> wird andernfalls ignoriert. Der Klipper-Mikrocontroller "RP2040", die ATmega-AVR-Familie und einige STM32 (F0, G0, G4, L4, F7, H7) unterstützen über den Parameter <code>i2c_speed</code> eine Rate von 400000. Alle anderen Klipper-Mikrocontroller verwenden eine Rate von 100000 und ignorieren den Parameter <code>i2c_speed</code>.</p>
 <div class="highlight"><pre><span></span><code>#i2c_address:
 #   The i2c address of the device. This must specified as a decimal
 #   number (not in hex). The default depends on the type of device.

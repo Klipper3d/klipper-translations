@@ -170,6 +170,12 @@
                 </li>
                 
                 <li class="md-select__item">
+                  <a href="/de/" hreflang="de" class="md-select__link">
+                    Deutsch
+                  </a>
+                </li>
+                
+                <li class="md-select__item">
                   <a href="/it/" hreflang="it" class="md-select__link">
                     Italiano
                   </a>
@@ -1451,7 +1457,7 @@ sudo service klipper start
 <h2 id="optional-i2c-aktivieren">Optional: I2C aktivieren<a class="headerlink" href="#optional-i2c-aktivieren" title="Permanent link">&para;</a></h2>
 <p>Stellen Sie sicher, dass der Linux I2C-Treiber aktiviert ist, indem Sie <code>sudo raspi-config</code> ausführen und I2C im Menü "Interfacing options" aktivieren. Wenn Sie I2C für den MPU Beschleunigungsmesser verwenden möchten, müssen Sie auch die Baudrate auf 400000 einstellen, indem Sie <code>dtparam=i2c_arm=on,i2c_arm_baudrate=400000</code> in <code>/boot/config.txt</code> (oder <code>/boot/firmware/config.txt</code> in einigen Distributionen) hinzufügen/entfernen.</p>
 <h2 id="optional-den-richtigen-gpiochip-identifizieren">Optional: Den richtigen Gpiochip identifizieren<a class="headerlink" href="#optional-den-richtigen-gpiochip-identifizieren" title="Permanent link">&para;</a></h2>
-<p>On Raspberry Pi and on many clones the pins exposed on the GPIO belong to the first gpiochip. They can therefore be used on klipper simply by referring them with the name <code>gpio0..n</code>. However, there are cases in which the exposed pins belong to gpiochips other than the first. For example in the case of some OrangePi models or if a Port Expander is used. In these cases it is useful to use the commands to access the <em>Linux GPIO character device</em> to verify the configuration.</p>
+<p>Auf dem Raspberry Pi und auf vielen Nachbauten gehören die am GPIO herausgeführten Pins zum ersten gpiochip. Sie können daher in Klipper einfach verwendet werden, indem man sie mit dem Namen <code>gpio0..n</code> anspricht. Es gibt jedoch Fälle, in denen die herausgeführten Pins zu anderen gpiochips als dem ersten gehören, zum Beispiel bei einigen OrangePi-Modellen oder wenn ein Port-Expander verwendet wird. In diesen Fällen ist es sinnvoll, die Befehle für den Zugriff auf das <em>Linux-GPIO-Zeichengerät</em> zu verwenden, um die Konfiguration zu überprüfen.</p>
 <p>Um das <em>Linux GPIO character device - binary</em> auf einer debian basierten Distribution wie octopi zu installieren, führen Sie aus:</p>
 <div class="highlight"><pre><span></span><code>sudo apt-get install gpiod
 </code></pre></div>
@@ -1550,7 +1556,7 @@ dtoverlay=pwm-2chan,pin=12,func=4,pin2=13,func2=4
 </code></pre></div>
 
 <p>In diesem Beispiel wird zusätzlich PWM1 aktiviert und an gpio13 geleitet.</p>
-<p>Das Overlay legt die pwm Zeile auf sysfs beim Booten nicht frei und muss durch Echo'ing der Nummer des pwm Kanals nach '/sys/class/pwm/pwmchip0/export' exportiert werden. Dadurch wird das Gerät '/sys/class/pwm/pwmchip0/pwm0' im Dateisystem erstellt. Der einfachste Weg dies zu tun ist, indem Folgendes, vor die Zeile 'exit 0' in der datei '/etc/rc.local' eingefügt wird:</p>
+<p>Das Overlay stellt die PWM-Leitung beim Booten nicht über sysfs bereit; sie muss durch Schreiben der Nummer des PWM-Kanals nach <code>/sys/class/pwm/pwmchip0/export</code> exportiert werden. Dadurch wird das Gerät <code>/sys/class/pwm/pwmchip0/pwm0</code> im Dateisystem angelegt. Am einfachsten geschieht dies, indem Folgendes in <code>/etc/rc.local</code> vor der Zeile <code>exit 0</code> eingefügt wird:</p>
 <div class="highlight"><pre><span></span><code># Aktivieren der pwmchip sysfs Schnittstelle
 echo 0 &gt; /sys/class/pwm/pwmchip0/export
 </code></pre></div>

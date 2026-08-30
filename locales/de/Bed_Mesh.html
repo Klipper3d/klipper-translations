@@ -170,6 +170,12 @@
                 </li>
                 
                 <li class="md-select__item">
+                  <a href="/de/" hreflang="de" class="md-select__link">
+                    Deutsch
+                  </a>
+                </li>
+                
+                <li class="md-select__item">
                   <a href="/it/" hreflang="it" class="md-select__link">
                     Italiano
                   </a>
@@ -1384,8 +1390,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#move-splitting" class="md-nav__link">
-    Move Splitting
+  <a href="#aufteilung-von-bewegungen" class="md-nav__link">
+    Aufteilung von Bewegungen
   </a>
   
 </li>
@@ -1424,23 +1430,23 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#surface-scans" class="md-nav__link">
-    Surface Scans
+  <a href="#oberflachen-scans" class="md-nav__link">
+    Oberflächen-Scans
   </a>
   
-    <nav class="md-nav" aria-label="Surface Scans">
+    <nav class="md-nav" aria-label="Oberflächen-Scans">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#scan-height" class="md-nav__link">
-    Scan Height
+  <a href="#scan-hohe" class="md-nav__link">
+    Scan-Höhe
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#rapid-continuous-scanning" class="md-nav__link">
-    Rapid (Continuous) Scanning
+  <a href="#schnelles-kontinuierliches-scannen" class="md-nav__link">
+    Schnelles (kontinuierliches) Scannen
   </a>
   
 </li>
@@ -1493,8 +1499,8 @@
 </li>
         
           <li class="md-nav__item">
-  <a href="#clear-mesh-state" class="md-nav__link">
-    Clear Mesh State
+  <a href="#mesh-zustand-zurucksetzen" class="md-nav__link">
+    Mesh-Zustand zurücksetzen
   </a>
   
 </li>
@@ -1512,16 +1518,16 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#bed-mesh-webhooks-apis" class="md-nav__link">
-    Bed Mesh Webhooks APIs
+  <a href="#webhooks-apis-von-bed-mesh" class="md-nav__link">
+    Webhooks-APIs von Bed Mesh
   </a>
   
-    <nav class="md-nav" aria-label="Bed Mesh Webhooks APIs">
+    <nav class="md-nav" aria-label="Webhooks-APIs von Bed Mesh">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#dumping-mesh-data" class="md-nav__link">
-    Dumping mesh data
+  <a href="#mesh-daten-ausgeben" class="md-nav__link">
+    Mesh-Daten ausgeben
   </a>
   
 </li>
@@ -1532,37 +1538,37 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#visualization-and-analysis" class="md-nav__link">
-    Visualization and analysis
+  <a href="#visualisierung-und-analyse" class="md-nav__link">
+    Visualisierung und Analyse
   </a>
   
-    <nav class="md-nav" aria-label="Visualization and analysis">
+    <nav class="md-nav" aria-label="Visualisierung und Analyse">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#pre-requisites" class="md-nav__link">
-    Pre-requisites
+  <a href="#voraussetzungen" class="md-nav__link">
+    Voraussetzungen
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#plotting-mesh-data" class="md-nav__link">
-    Plotting Mesh data
+  <a href="#mesh-daten-grafisch-darstellen" class="md-nav__link">
+    Mesh-Daten grafisch darstellen
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#bed-mesh-analysis" class="md-nav__link">
-    Bed Mesh Analysis
+  <a href="#bed-mesh-analyse" class="md-nav__link">
+    Bed-Mesh-Analyse
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#save-mesh-data-to-a-file" class="md-nav__link">
-    Save mesh data to a file
+  <a href="#mesh-daten-in-eine-datei-speichern" class="md-nav__link">
+    Mesh-Daten in eine Datei speichern
   </a>
   
 </li>
@@ -1590,8 +1596,8 @@
 
 
 <h1 id="bettgitter">Bettgitter<a class="headerlink" href="#bettgitter" title="Permanent link">&para;</a></h1>
-<p>The Bed Mesh module may be used to compensate for bed surface irregularities to achieve a better first layer across the entire bed. It should be noted that software based correction will not achieve perfect results, it can only approximate the shape of the bed. Bed Mesh also cannot compensate for mechanical and electrical issues. If an axis is skewed or a probe is not accurate then the bed_mesh module will not receive accurate results from the probing process.</p>
-<p>Prior to Mesh Calibration you will need to be sure that your Probe's Z-Offset is calibrated. If using an endstop for Z homing it will need to be calibrated as well. See <a href="Probe_Calibrate.html">Probe Calibrate</a> and Z_ENDSTOP_CALIBRATE in <a href="Manual_Level.html">Manual Level</a> for more information.</p>
+<p>Das Bed-Mesh-Modul kann verwendet werden, um Unebenheiten der Bettoberfläche auszugleichen und so eine bessere erste Schicht über das gesamte Bett hinweg zu erreichen. Beachten Sie, dass eine softwarebasierte Korrektur keine perfekten Ergebnisse liefern kann, sie kann die Form des Bettes nur annähern. Bed Mesh kann außerdem keine mechanischen und elektrischen Probleme ausgleichen. Wenn eine Achse verzogen ist oder eine Sonde ungenau arbeitet, erhält das Modul bed_mesh keine genauen Ergebnisse aus dem Abtastvorgang.</p>
+<p>Vor der Mesh-Kalibrierung müssen Sie sicherstellen, dass der Z-Offset Ihrer Sonde kalibriert ist. Wenn Sie einen Endschalter für das Z-Homing verwenden, muss dieser ebenfalls kalibriert werden. Weitere Informationen finden Sie unter <a href="Probe_Calibrate.html">Probe Calibrate</a> und zu Z_ENDSTOP_CALIBRATE unter <a href="Manual_Level.html">Manual Level</a>.</p>
 <h2 id="grundlegende-konfiguration">Grundlegende Konfiguration<a class="headerlink" href="#grundlegende-konfiguration" title="Permanent link">&para;</a></h2>
 <h3 id="rechteckiges-druckbett">Rechteckiges Druckbett<a class="headerlink" href="#rechteckiges-druckbett" title="Permanent link">&para;</a></h3>
 <p>Dieses Beispiel geht von einem Drucker mit einem rechteckigen Bett von 250 mm x 220 mm und einem Taster mit einem x-Versatz von 24 mm und einem y-Versatz von 5 mm aus.</p>
@@ -1606,14 +1612,14 @@ probe_count: 5, 3
 <ul>
 <li><code>speed: 120</code> <em>Standardwert: 50</em> Die Geschwindigkeit, mit der sich der Druckkopf zwischen den Punkten bewegt.</li>
 <li><code>horizontal_move_z: 5</code> <em>Standardwert: 5</em> Die Z-Koordinate, auf die der Messtaster ansteigt, bevor er sich zwischen Punkten bewegt.</li>
-<li><code>mesh_min: 35, 6</code> <em>Required</em> The first probed coordinate, nearest to the origin. This coordinate is relative to the probe's location.</li>
-<li><code>mesh_max: 240, 198</code> <em>Required</em> The probed coordinate farthest from the origin. This is not necessarily the last point probed, as the probing process occurs in a zig-zag fashion. As with <code>mesh_min</code>, this coordinate is relative to the probe's location.</li>
-<li><code>probe_count: 5, 3</code> <em>Default Value: 3, 3</em> The number of points to probe on each axis, specified as X, Y integer values. In this example 5 points will be probed along the X axis, with 3 points along the Y axis, for a total of 15 probed points. Note that if you wanted a square grid, for example 3x3, this could be specified as a single integer value that is used for both axes, ie <code>probe_count: 3</code>. Note that a mesh requires a minimum probe_count of 3 along each axis.</li>
+<li><code>mesh_min: 35, 6</code> <em>Erforderlich</em> Die erste abgetastete Koordinate, dem Ursprung am nächsten. Diese Koordinate bezieht sich auf die Position der Sonde.</li>
+<li><code>mesh_max: 240, 198</code> <em>Erforderlich</em> Die vom Ursprung am weitesten entfernte abgetastete Koordinate. Dies ist nicht zwangsläufig der zuletzt abgetastete Punkt, da der Abtastvorgang im Zickzack erfolgt. Wie bei <code>mesh_min</code> bezieht sich diese Koordinate auf die Position der Sonde.</li>
+<li><code>probe_count: 5, 3</code> <em>Standardwert: 3, 3</em> Die Anzahl der abzutastenden Punkte je Achse, angegeben als ganzzahlige X- und Y-Werte. In diesem Beispiel werden 5 Punkte entlang der X-Achse und 3 Punkte entlang der Y-Achse abgetastet, also insgesamt 15 Messpunkte. Wenn Sie ein quadratisches Raster wünschen, zum Beispiel 3x3, kann dies als ein einzelner ganzzahliger Wert angegeben werden, der für beide Achsen gilt, also <code>probe_count: 3</code>. Beachten Sie, dass ein Mesh mindestens einen probe_count von 3 je Achse erfordert.</li>
 </ul>
-<p>The illustration below demonstrates how the <code>mesh_min</code>, <code>mesh_max</code>, and <code>probe_count</code> options are used to generate probe points. The arrows indicate the direction of the probing procedure, beginning at <code>mesh_min</code>. For reference, when the probe is at <code>mesh_min</code> the nozzle will be at (11, 1), and when the probe is at <code>mesh_max</code>, the nozzle will be at (206, 193).</p>
+<p>Die folgende Abbildung veranschaulicht, wie die Optionen <code>mesh_min</code>, <code>mesh_max</code> und <code>probe_count</code> zur Erzeugung der Messpunkte verwendet werden. Die Pfeile zeigen die Richtung des Abtastvorgangs an, beginnend bei <code>mesh_min</code>. Zur Orientierung: Wenn sich die Sonde bei <code>mesh_min</code> befindet, steht die Düse bei (11, 1), und wenn die Sonde bei <code>mesh_max</code> steht, befindet sich die Düse bei (206, 193).</p>
 <p><img alt="bedmesh_rect_basic" src="img/bedmesh_rect_basic.svg" /></p>
 <h3 id="runde-betten">Runde Betten<a class="headerlink" href="#runde-betten" title="Permanent link">&para;</a></h3>
-<p>This example assumes a printer equipped with a round bed radius of 100mm. We will use the same probe offsets as the rectangular example, 24 mm on X and 5 mm on Y.</p>
+<p>Dieses Beispiel geht von einem Drucker mit rundem Bett und einem Radius von 100 mm aus. Wir verwenden dieselben Sonden-Offsets wie im rechteckigen Beispiel: 24 mm auf X und 5 mm auf Y.</p>
 <div class="highlight"><pre><span></span><code>[bed_mesh]
 speed: 120
 horizontal_move_z: 5
@@ -1623,16 +1629,16 @@ round_probe_count: 5
 </code></pre></div>
 
 <ul>
-<li><code>mesh_radius: 75</code> <em>Required</em> The radius of the probed mesh in mm, relative to the <code>mesh_origin</code>. Note that the probe's offsets limit the size of the mesh radius. In this example, a radius larger than 76 would move the tool beyond the range of the printer.</li>
-<li><code>mesh_origin: 0, 0</code> <em>Default Value: 0, 0</em> The center point of the mesh. This coordinate is relative to the probe's location. While the default is 0, 0, it may be useful to adjust the origin in an effort to probe a larger portion of the bed. See the illustration below.</li>
-<li><code>round_probe_count: 5</code> <em>Default Value: 5</em> This is an integer value that defines the maximum number of probed points along the X and Y axes. By "maximum", we mean the number of points probed along the mesh origin. This value must be an odd number, as it is required that the center of the mesh is probed.</li>
+<li><code>mesh_radius: 75</code> <em>Erforderlich</em> Der Radius des abgetasteten Meshes in mm, relativ zum <code>mesh_origin</code>. Beachten Sie, dass die Offsets der Sonde die Größe des Mesh-Radius begrenzen. In diesem Beispiel würde ein Radius größer als 76 den Druckkopf über den Verfahrbereich des Druckers hinaus bewegen.</li>
+<li><code>mesh_origin: 0, 0</code> <em>Standardwert: 0, 0</em> Der Mittelpunkt des Meshes. Diese Koordinate bezieht sich auf die Position der Sonde. Der Standardwert ist zwar 0, 0, es kann jedoch sinnvoll sein, den Ursprung zu verschieben, um einen größeren Teil des Bettes abzutasten. Siehe die folgende Abbildung.</li>
+<li><code>round_probe_count: 5</code> <em>Standardwert: 5</em> Dies ist ein ganzzahliger Wert, der die maximale Anzahl der abgetasteten Punkte entlang der X- und Y-Achse festlegt. Mit "maximal" ist die Anzahl der Punkte gemeint, die entlang des Mesh-Ursprungs abgetastet werden. Dieser Wert muss ungerade sein, da der Mittelpunkt des Meshes zwingend abgetastet werden muss.</li>
 </ul>
-<p>The illustration below shows how the probed points are generated. As you can see, setting the <code>mesh_origin</code> to (-10, 0) allows us to specify a larger mesh radius of 85.</p>
+<p>Die folgende Abbildung zeigt, wie die Messpunkte erzeugt werden. Wie Sie sehen, ermöglicht es das Setzen von <code>mesh_origin</code> auf (-10, 0), einen größeren Mesh-Radius von 85 anzugeben.</p>
 <p><img alt="bedmesh_round_basic" src="img/bedmesh_round_basic.svg" /></p>
 <h2 id="erweiterte-konfiguration">Erweiterte Konfiguration<a class="headerlink" href="#erweiterte-konfiguration" title="Permanent link">&para;</a></h2>
-<p>Below the more advanced configuration options are explained in detail. Each example will build upon the basic rectangular bed configuration shown above. Each of the advanced options apply to round beds in the same manner.</p>
+<p>Nachfolgend werden die erweiterten Konfigurationsoptionen im Detail erläutert. Jedes Beispiel baut auf der oben gezeigten einfachen Konfiguration für rechteckige Betten auf. Alle erweiterten Optionen gelten in gleicher Weise für runde Betten.</p>
 <h3 id="netz-interpolierung">Netz Interpolierung<a class="headerlink" href="#netz-interpolierung" title="Permanent link">&para;</a></h3>
-<p>While its possible to sample the probed matrix directly using simple bi-linear interpolation to determine the Z-Values between probed points, it is often useful to interpolate extra points using more advanced interpolation algorithms to increase mesh density. These algorithms add curvature to the mesh, attempting to simulate the material properties of the bed. Bed Mesh offers lagrange and bicubic interpolation to accomplish this.</p>
+<p>Zwar lässt sich die abgetastete Matrix mit einfacher bilinearer Interpolation direkt abfragen, um die Z-Werte zwischen den Messpunkten zu bestimmen, oft ist es jedoch sinnvoll, mit fortgeschritteneren Interpolationsalgorithmen zusätzliche Punkte zu berechnen und so die Dichte des Meshes zu erhöhen. Diese Algorithmen fügen dem Mesh eine Krümmung hinzu und versuchen so, die Materialeigenschaften des Bettes nachzubilden. Bed Mesh bietet dafür die Lagrange- und die bikubische Interpolation an.</p>
 <div class="highlight"><pre><span></span><code>[bed_mesh]
 speed: 120
 horizontal_move_z: 5
@@ -1645,14 +1651,14 @@ bicubic_tension: 0.2
 </code></pre></div>
 
 <ul>
-<li><code>mesh_pps: 2, 3</code> <em>Default Value: 2, 2</em> The <code>mesh_pps</code> option is shorthand for Mesh Points Per Segment. This option specifies how many points to interpolate for each segment along the X and Y axes. Consider a 'segment' to be the space between each probed point. Like <code>probe_count</code>, <code>mesh_pps</code> is specified as an X, Y integer pair, and also may be specified a single integer that is applied to both axes. In this example there are 4 segments along the X axis and 2 segments along the Y axis. This evaluates to 8 interpolated points along X, 6 interpolated points along Y, which results in a 13x9 mesh. Note that if mesh_pps is set to 0 then mesh interpolation is disabled and the probed matrix will be sampled directly.</li>
-<li><code>algorithm: lagrange</code> <em>Default Value: lagrange</em> The algorithm used to interpolate the mesh. May be <code>lagrange</code> or <code>bicubic</code>. Lagrange interpolation is capped at 6 probed points as oscillation tends to occur with a larger number of samples. Bicubic interpolation requires a minimum of 4 probed points along each axis, if less than 4 points are specified then lagrange sampling is forced. If <code>mesh_pps</code> is set to 0 then this value is ignored as no mesh interpolation is done.</li>
-<li><code>bicubic_tension: 0.2</code> <em>Default Value: 0.2</em> If the <code>algorithm</code> option is set to bicubic it is possible to specify the tension value. The higher the tension the more slope is interpolated. Be careful when adjusting this, as higher values also create more overshoot, which will result in interpolated values higher or lower than your probed points.</li>
+<li><code>mesh_pps: 2, 3</code> <em>Standardwert: 2, 2</em> Die Option <code>mesh_pps</code> ist die Kurzform für "Mesh Points Per Segment" (Mesh-Punkte pro Segment). Diese Option legt fest, wie viele Punkte für jedes Segment entlang der X- und Y-Achse interpoliert werden. Als "Segment" gilt dabei der Raum zwischen zwei abgetasteten Punkten. Wie <code>probe_count</code> wird <code>mesh_pps</code> als ganzzahliges X,Y-Paar angegeben und kann ebenfalls als einzelner ganzer Wert angegeben werden, der für beide Achsen gilt. In diesem Beispiel gibt es 4 Segmente entlang der X-Achse und 2 Segmente entlang der Y-Achse. Daraus ergeben sich 8 interpolierte Punkte entlang X und 6 interpolierte Punkte entlang Y, was zu einem Mesh von 13x9 führt. Beachten Sie: Ist mesh_pps auf 0 gesetzt, wird die Mesh-Interpolation deaktiviert und die abgetastete Matrix direkt abgefragt.</li>
+<li><code>algorithm: lagrange</code> <em>Standardwert: lagrange</em> Der Algorithmus, der zur Interpolation des Meshes verwendet wird. Möglich sind <code>lagrange</code> oder <code>bicubic</code>. Die Lagrange-Interpolation ist auf 6 abgetastete Punkte begrenzt, da bei einer größeren Anzahl von Messpunkten Oszillationen auftreten. Die bikubische Interpolation erfordert mindestens 4 abgetastete Punkte je Achse; werden weniger als 4 Punkte angegeben, wird zwingend die Lagrange-Abtastung verwendet. Ist <code>mesh_pps</code> auf 0 gesetzt, wird dieser Wert ignoriert, da keine Mesh-Interpolation stattfindet.</li>
+<li><code>bicubic_tension: 0.2</code> <em>Standardwert: 0.2</em> Wenn die Option <code>algorithm</code> auf bicubic gesetzt ist, kann der Tension-Wert angegeben werden. Je höher die Tension, desto stärker wird die Steigung interpoliert. Seien Sie bei der Anpassung vorsichtig, da höhere Werte auch zu mehr Überschwingen führen, wodurch interpolierte Werte ober- oder unterhalb Ihrer abgetasteten Punkte entstehen.</li>
 </ul>
-<p>The illustration below shows how the options above are used to generate an interpolated mesh.</p>
+<p>Die folgende Abbildung zeigt, wie die oben genannten Optionen zur Erzeugung eines interpolierten Meshes verwendet werden.</p>
 <p><img alt="bedmesh_interpolated" src="img/bedmesh_interpolated.svg" /></p>
-<h3 id="move-splitting">Move Splitting<a class="headerlink" href="#move-splitting" title="Permanent link">&para;</a></h3>
-<p>Bed Mesh works by intercepting gcode move commands and applying a transform to their Z coordinate. Long moves must be split into smaller moves to correctly follow the shape of the bed. The options below control the splitting behavior.</p>
+<h3 id="aufteilung-von-bewegungen">Aufteilung von Bewegungen<a class="headerlink" href="#aufteilung-von-bewegungen" title="Permanent link">&para;</a></h3>
+<p>Bed Mesh funktioniert, indem es G-Code-Bewegungsbefehle abfängt und deren Z-Koordinate transformiert. Lange Bewegungen müssen in kleinere Bewegungen aufgeteilt werden, um der Form des Bettes korrekt zu folgen. Die folgenden Optionen steuern das Aufteilungsverhalten.</p>
 <div class="highlight"><pre><span></span><code>[bed_mesh]
 speed: 120
 horizontal_move_z: 5
@@ -1664,12 +1670,12 @@ split_delta_z: .025
 </code></pre></div>
 
 <ul>
-<li><code>move_check_distance: 5</code> <em>Default Value: 5</em> The minimum distance to check for the desired change in Z before performing a split. In this example, a move longer than 5mm will be traversed by the algorithm. Each 5mm a mesh Z lookup will occur, comparing it with the Z value of the previous move. If the delta meets the threshold set by <code>split_delta_z</code>, the move will be split and traversal will continue. This process repeats until the end of the move is reached, where a final adjustment will be applied. Moves shorter than the <code>move_check_distance</code> have the correct Z adjustment applied directly to the move without traversal or splitting.</li>
-<li><code>split_delta_z: .025</code> <em>Default Value: .025</em> As mentioned above, this is the minimum deviation required to trigger a move split. In this example, any Z value with a deviation +/- .025mm will trigger a split.</li>
+<li><code>move_check_distance: 5</code> <em>Standardwert: 5</em> Der Mindestabstand, in dem auf die gewünschte Z-Änderung geprüft wird, bevor eine Aufteilung erfolgt. In diesem Beispiel wird eine Bewegung, die länger als 5 mm ist, vom Algorithmus schrittweise durchlaufen. Alle 5 mm erfolgt eine Mesh-Z-Abfrage, die mit dem Z-Wert der vorherigen Bewegung verglichen wird. Erreicht die Differenz den durch <code>split_delta_z</code> festgelegten Schwellwert, wird die Bewegung aufgeteilt und der Durchlauf fortgesetzt. Dieser Vorgang wiederholt sich bis zum Ende der Bewegung, wo eine abschließende Korrektur angewendet wird. Bei Bewegungen, die kürzer als <code>move_check_distance</code> sind, wird die korrekte Z-Korrektur ohne Durchlauf oder Aufteilung direkt auf die Bewegung angewendet.</li>
+<li><code>split_delta_z: .025</code> <em>Standardwert: .025</em> Wie oben erwähnt, ist dies die minimale Abweichung, die eine Aufteilung der Bewegung auslöst. In diesem Beispiel löst jeder Z-Wert mit einer Abweichung von +/- 0,025 mm eine Aufteilung aus.</li>
 </ul>
-<p>Generally the default values for these options are sufficient, in fact the default value of 5mm for the <code>move_check_distance</code> may be overkill. However an advanced user may wish to experiment with these options in an effort to squeeze out the optimal first layer.</p>
+<p>Im Allgemeinen sind die Standardwerte dieser Optionen ausreichend, tatsächlich ist der Standardwert von 5 mm für <code>move_check_distance</code> womöglich sogar überdimensioniert. Fortgeschrittene Benutzer möchten jedoch vielleicht mit diesen Optionen experimentieren, um die optimale erste Schicht herauszuholen.</p>
 <h3 id="mesh-fade">Mesh Fade<a class="headerlink" href="#mesh-fade" title="Permanent link">&para;</a></h3>
-<p>When "fade" is enabled Z adjustment is phased out over a distance defined by the configuration. This is accomplished by applying small adjustments to the layer height, either increasing or decreasing depending on the shape of the bed. When fade has completed, Z adjustment is no longer applied, allowing the top of the print to be flat rather than mirror the shape of the bed. Fade also may have some undesirable traits, if you fade too quickly it can result in visible artifacts on the print. Also, if your bed is significantly warped, fade can shrink or stretch the Z height of the print. As such, fade is disabled by default.</p>
+<p>Wenn "Fade" aktiviert ist, wird die Z-Korrektur über eine in der Konfiguration festgelegte Distanz ausgeblendet. Dies geschieht durch geringfügige Anpassungen der Schichthöhe, die je nach Form des Bettes vergrößert oder verkleinert wird. Ist der Fade-Vorgang abgeschlossen, wird keine Z-Korrektur mehr angewendet, sodass die Oberseite des Drucks flach ist und nicht die Form des Bettes nachbildet. Fade kann jedoch auch unerwünschte Nebenwirkungen haben: Wird zu schnell ausgeblendet, können sichtbare Artefakte auf dem Druck entstehen. Außerdem kann Fade bei einem stark verzogenen Bett die Z-Höhe des Drucks stauchen oder strecken. Aus diesem Grund ist Fade standardmäßig deaktiviert.</p>
 <div class="highlight"><pre><span></span><code>[bed_mesh]
 speed: 120
 horizontal_move_z: 5
@@ -1682,12 +1688,12 @@ fade_target: 0
 </code></pre></div>
 
 <ul>
-<li><code>fade_start: 1</code> <em>Default Value: 1</em> The Z height in which to start phasing out adjustment. It is a good idea to get a few layers down before starting the fade process.</li>
-<li><code>fade_end: 10</code> <em>Default Value: 0</em> The Z height in which fade should complete. If this value is lower than <code>fade_start</code> then fade is disabled. This value may be adjusted depending on how warped the print surface is. A significantly warped surface should fade out over a longer distance. A near flat surface may be able to reduce this value to phase out more quickly. 10mm is a sane value to begin with if using the default value of 1 for <code>fade_start</code>.</li>
-<li><code>fade_target: 0</code> <em>Default Value: The average Z value of the mesh</em> The <code>fade_target</code> can be thought of as an additional Z offset applied to the entire bed after fade completes. Generally speaking we would like this value to be 0, however there are circumstances where it should not be. For example, lets assume your homing position on the bed is an outlier, its .2 mm lower than the average probed height of the bed. If the <code>fade_target</code> is 0, fade will shrink the print by an average of .2 mm across the bed. By setting the <code>fade_target</code> to .2, the homed area will expand by .2 mm, however, the rest of the bed will be accurately sized. Generally its a good idea to leave <code>fade_target</code> out of the configuration so the average height of the mesh is used, however it may be desirable to manually adjust the fade target if one wants to print on a specific portion of the bed.</li>
+<li><code>fade_start: 1</code> <em>Standardwert: 1</em> Die Z-Höhe, ab der die Korrektur ausgeblendet werden soll. Es ist sinnvoll, zunächst einige Schichten zu drucken, bevor der Fade-Vorgang beginnt.</li>
+<li><code>fade_end: 10</code> <em>Standardwert: 0</em> Die Z-Höhe, bei der der Fade-Vorgang abgeschlossen sein soll. Ist dieser Wert kleiner als <code>fade_start</code>, ist Fade deaktiviert. Dieser Wert kann abhängig davon angepasst werden, wie stark die Druckoberfläche verzogen ist. Eine deutlich verzogene Oberfläche sollte über eine längere Distanz ausgeblendet werden. Bei einer nahezu ebenen Oberfläche kann dieser Wert verringert werden, um schneller auszublenden. 10 mm ist ein sinnvoller Ausgangswert, wenn für <code>fade_start</code> der Standardwert 1 verwendet wird.</li>
+<li><code>fade_target: 0</code> <em>Standardwert: der durchschnittliche Z-Wert des Meshes</em> Der <code>fade_target</code> kann als zusätzlicher Z-Offset verstanden werden, der nach Abschluss des Fade-Vorgangs auf das gesamte Bett angewendet wird. Grundsätzlich sollte dieser Wert 0 betragen, es gibt jedoch Situationen, in denen das nicht sinnvoll ist. Nehmen wir zum Beispiel an, Ihre Homing-Position auf dem Bett ist ein Ausreißer und liegt 0,2 mm unter der durchschnittlichen abgetasteten Höhe des Bettes. Ist <code>fade_target</code> gleich 0, verkleinert Fade den Druck über das Bett hinweg um durchschnittlich 0,2 mm. Wird <code>fade_target</code> auf 0.2 gesetzt, dehnt sich der Bereich um die Homing-Position um 0,2 mm aus, der Rest des Bettes erhält jedoch die korrekten Maße. In der Regel ist es sinnvoll, <code>fade_target</code> in der Konfiguration wegzulassen, sodass die durchschnittliche Höhe des Meshes verwendet wird. Eine manuelle Anpassung des Fade-Ziels kann jedoch wünschenswert sein, wenn auf einem bestimmten Teil des Bettes gedruckt werden soll.</li>
 </ul>
 <h3 id="konfigurieren-der-nullpunktposition">Konfigurieren der Nullpunktposition<a class="headerlink" href="#konfigurieren-der-nullpunktposition" title="Permanent link">&para;</a></h3>
-<p>Many probes are susceptible to "drift", ie: inaccuracies in probing introduced by heat or interference. This can make calculating the probe's z-offset challenging, particularly at different bed temperatures. As such, some printers use an endstop for homing the Z axis and a probe for calibrating the mesh. In this configuration it is possible offset the mesh so that the (X, Y) <code>reference position</code> applies zero adjustment. The <code>reference position</code> should be the location on the bed where a <a href="Manual_Level.html#calibrating-a-z-endstop">Z_ENDSTOP_CALIBRATE</a> paper test is performed. The bed_mesh module provides the <code>zero_reference_position</code> option for specifying this coordinate:</p>
+<p>Viele Sonden neigen zur "Drift", also zu Messungenauigkeiten durch Wärme oder Störeinflüsse. Das kann die Bestimmung des Z-Offsets der Sonde erschweren, insbesondere bei unterschiedlichen Betttemperaturen. Aus diesem Grund verwenden manche Drucker einen Endschalter für das Homing der Z-Achse und eine Sonde zum Kalibrieren des Meshes. In dieser Konfiguration kann das Mesh so verschoben werden, dass an der (X, Y)-<code>reference position</code> keine Korrektur angewendet wird. Die <code>reference position</code> sollte die Stelle auf dem Bett sein, an der ein Papiertest gemäß <a href="Manual_Level.html#calibrating-a-z-endstop">Z_ENDSTOP_CALIBRATE</a> durchgeführt wird. Das Modul bed_mesh stellt zur Angabe dieser Koordinate die Option <code>zero_reference_position</code> bereit:</p>
 <div class="highlight"><pre><span></span><code>[bed_mesh]
 speed: 120
 horizontal_move_z: 5
@@ -1698,11 +1704,11 @@ probe_count: 5, 3
 </code></pre></div>
 
 <ul>
-<li><code>zero_reference_position:</code> <em>Default Value: None (disabled)</em> The <code>zero_reference_position</code> expects an (X, Y) coordinate matching that of the <code>reference position</code> described above. If the coordinate lies within the mesh then the mesh will be offset so the reference position applies zero adjustment. If the coordinate lies outside of the mesh then the coordinate will be probed after calibration, with the resulting z-value used as the z-offset. Note that this coordinate must NOT be in a location specified as a <code>faulty_region</code> if a probe is necessary.</li>
+<li><code>zero_reference_position:</code> <em>Standardwert: None (deaktiviert)</em> <code>zero_reference_position</code> erwartet eine (X, Y)-Koordinate, die der oben beschriebenen <code>reference position</code> entspricht. Liegt die Koordinate innerhalb des Meshes, wird das Mesh so verschoben, dass an der Referenzposition keine Korrektur angewendet wird. Liegt die Koordinate außerhalb des Meshes, wird sie nach der Kalibrierung abgetastet und der resultierende Z-Wert als Z-Offset verwendet. Beachten Sie, dass diese Koordinate NICHT in einem als <code>faulty_region</code> festgelegten Bereich liegen darf, falls eine Messung erforderlich ist.</li>
 </ul>
 <h3 id="fehlerhafte-regionen">Fehlerhafte Regionen<a class="headerlink" href="#fehlerhafte-regionen" title="Permanent link">&para;</a></h3>
-<p>It is possible for some areas of a bed to report inaccurate results when probing due to a "fault" at specific locations. The best example of this are beds with series of integrated magnets used to retain removable steel sheets. The magnetic field at and around these magnets may cause an inductive probe to trigger at a distance higher or lower than it would otherwise, resulting in a mesh that does not accurately represent the surface at these locations. <strong>Note: This should not be confused with probe location bias, which produces inaccurate results across the entire bed.</strong></p>
-<p>The <code>faulty_region</code> options may be configured to compensate for this affect. If a generated point lies within a faulty region bed mesh will attempt to probe up to 4 points at the boundaries of this region. These probed values will be averaged and inserted in the mesh as the Z value at the generated (X, Y) coordinate.</p>
+<p>Manche Bereiche eines Bettes können aufgrund eines "Fehlers" an bestimmten Stellen ungenaue Messergebnisse liefern. Das beste Beispiel hierfür sind Betten mit einer Reihe integrierter Magnete, die zum Halten abnehmbarer Stahlbleche dienen. Das Magnetfeld an und um diese Magnete kann dazu führen, dass eine induktive Sonde in einem größeren oder kleineren Abstand auslöst als sonst, wodurch ein Mesh entsteht, das die Oberfläche an diesen Stellen nicht korrekt abbildet. <strong>Hinweis: Dies ist nicht zu verwechseln mit einem systematischen Versatz der Sonde, der über das gesamte Bett hinweg ungenaue Ergebnisse erzeugt.</strong></p>
+<p>Die Optionen <code>faulty_region</code> können konfiguriert werden, um diesen Effekt auszugleichen. Liegt ein erzeugter Punkt innerhalb eines fehlerhaften Bereichs, versucht Bed Mesh, bis zu 4 Punkte an den Grenzen dieses Bereichs abzutasten. Aus diesen Messwerten wird der Mittelwert gebildet und als Z-Wert an der erzeugten (X, Y)-Koordinate in das Mesh eingefügt.</p>
 <div class="highlight"><pre><span></span><code>[bed_mesh]
 speed: 120
 horizontal_move_z: 5
@@ -1720,15 +1726,15 @@ faulty_region_4_max: 45.0, 210.0
 </code></pre></div>
 
 <ul>
-<li><code>faulty_region_{1...99}_min</code> <code>faulty_region_{1..99}_max</code> <em>Default Value: None (disabled)</em> Faulty Regions are defined in a way similar to that of mesh itself, where minimum and maximum (X, Y) coordinates must be specified for each region. A faulty region may extend outside of a mesh, however the alternate points generated will always be within the mesh boundary. No two regions may overlap.</li>
+<li><code>faulty_region_{1...99}_min</code> <code>faulty_region_{1..99}_max</code> <em>Standardwert: None (deaktiviert)</em> Fehlerhafte Bereiche werden ähnlich wie das Mesh selbst definiert, indem für jeden Bereich minimale und maximale (X, Y)-Koordinaten angegeben werden. Ein fehlerhafter Bereich darf über das Mesh hinausragen, die erzeugten Ersatzpunkte liegen jedoch immer innerhalb der Mesh-Grenzen. Zwei Bereiche dürfen sich nicht überlappen.</li>
 </ul>
-<p>The image below illustrates how replacement points are generated when a generated point lies within a faulty region. The regions shown match those in the sample config above. The replacement points and their coordinates are identified in green.</p>
+<p>Die folgende Abbildung veranschaulicht, wie Ersatzpunkte erzeugt werden, wenn ein erzeugter Punkt innerhalb eines fehlerhaften Bereichs liegt. Die dargestellten Bereiche entsprechen denen der obigen Beispielkonfiguration. Die Ersatzpunkte und ihre Koordinaten sind grün gekennzeichnet.</p>
 <p><img alt="bedmesh_interpolated" src="img/bedmesh_faulty_regions.svg" /></p>
 <h3 id="adaptive-netze">Adaptive Netze<a class="headerlink" href="#adaptive-netze" title="Permanent link">&para;</a></h3>
-<p>Adaptive bed meshing is a way to speed up the bed mesh generation by only probing the area of the bed used by the objects being printed. When used, the method will automatically adjust the mesh parameters based on the area occupied by the defined print objects.</p>
-<p>The adapted mesh area will be computed from the area defined by the boundaries of all the defined print objects so it covers every object, including any margins defined in the configuration. After the area is computed, the number of probe points will be scaled down based on the ratio of the default mesh area and the adapted mesh area. To illustrate this consider the following example:</p>
-<p>For a 150mmx150mm bed with <code>mesh_min</code> set to <code>25,25</code> and <code>mesh_max</code> set to <code>125,125</code>, the default mesh area is a 100mmx100mm square. An adapted mesh area of <code>50,50</code> means a ratio of <code>0.5x0.5</code> between the adapted area and default mesh area.</p>
-<p>If the <code>bed_mesh</code> configuration specified <code>probe_count</code> as <code>7x7</code>, the adapted bed mesh will use 4x4 probe points (7 * 0.5 rounded up).</p>
+<p>Adaptives Bed Meshing ist eine Möglichkeit, die Erzeugung des Bed Mesh zu beschleunigen, indem nur der Bereich des Bettes abgetastet wird, der von den zu druckenden Objekten genutzt wird. Bei dieser Methode werden die Mesh-Parameter automatisch anhand der von den definierten Druckobjekten belegten Fläche angepasst.</p>
+<p>Der angepasste Mesh-Bereich wird aus der Fläche berechnet, die durch die Grenzen aller definierten Druckobjekte aufgespannt wird, sodass er jedes Objekt einschließlich der in der Konfiguration festgelegten Ränder abdeckt. Nach der Berechnung des Bereichs wird die Anzahl der Messpunkte anhand des Verhältnisses zwischen dem Standard-Mesh-Bereich und dem angepassten Mesh-Bereich verringert. Zur Veranschaulichung betrachten Sie das folgende Beispiel:</p>
+<p>Bei einem 150 mm x 150 mm großen Bett mit <code>mesh_min</code> auf <code>25,25</code> und <code>mesh_max</code> auf <code>125,125</code> ist der Standard-Mesh-Bereich ein Quadrat von 100 mm x 100 mm. Ein angepasster Mesh-Bereich von <code>50,50</code> bedeutet ein Verhältnis von <code>0.5x0.5</code> zwischen dem angepassten und dem Standard-Mesh-Bereich.</p>
+<p>Wenn in der Konfiguration von <code>bed_mesh</code> der <code>probe_count</code> als <code>7x7</code> angegeben ist, verwendet das angepasste Bed Mesh 4x4 Messpunkte (7 * 0,5, aufgerundet).</p>
 <p><img alt="adaptive_bedmesh" src="img/adaptive_bed_mesh.svg" /></p>
 <div class="highlight"><pre><span></span><code>[bed_mesh]
 speed: 120
@@ -1741,22 +1747,22 @@ adaptive_margin: 5
 
 <ul>
 <li>
-<p><code>adaptive_margin</code>  <em>Default Value: 0</em>  Margin (in mm) to add around the area of the bed used by the defined objects. The diagram below shows the adapted bed mesh area with an <code>adaptive_margin</code> of 5mm. The adapted mesh area (area in green) is computed as the used bed area (area in blue) plus the defined margin.</p>
+<p><code>adaptive_margin</code> <em>Standardwert: 0</em> Rand (in mm), der um den von den definierten Objekten belegten Bereich des Bettes hinzugefügt wird. Die folgende Abbildung zeigt den angepassten Bed-Mesh-Bereich mit einem <code>adaptive_margin</code> von 5 mm. Der angepasste Mesh-Bereich (grüne Fläche) ergibt sich aus der genutzten Bettfläche (blaue Fläche) zuzüglich des festgelegten Randes.</p>
 <p><img alt="adaptive_bedmesh_margin" src="img/adaptive_bed_mesh_margin.svg" /></p>
 </li>
 </ul>
-<p>By nature, adaptive bed meshes use the objects defined by the Gcode file being printed. Therefore, it is expected that each Gcode file will generate a mesh that probes a different area of the print bed. Therefore, adapted bed meshes should not be re-used. The expectation is that a new mesh will be generated for each print if adaptive meshing is used.</p>
-<p>It is also important to consider that adaptive bed meshing is best used on machines that can normally probe the entire bed and achieve a maximum variance less than or equal to 1 layer height. Machines with mechanical issues that a full bed mesh normally compensates for may have undesirable results when attempting print moves <strong>outside</strong> of the probed area. If a full bed mesh has a variance greater than 1 layer height, caution must be taken when using adaptive bed meshes and attempting print moves outside of the meshed area.</p>
-<h2 id="surface-scans">Surface Scans<a class="headerlink" href="#surface-scans" title="Permanent link">&para;</a></h2>
-<p>Some probes, such as the <a href="Eddy_Probe.html">Eddy Current Probe</a>, are capable of "scanning" the surface of the bed. That is, these probes can sample a mesh without lifting the tool between samples. To activate scanning mode, the <code>METHOD=scan</code> or <code>METHOD=rapid_scan</code> probe parameter should be passed in the <code>BED_MESH_CALIBRATE</code> gcode command.</p>
-<h3 id="scan-height">Scan Height<a class="headerlink" href="#scan-height" title="Permanent link">&para;</a></h3>
-<p>The scan height is set by the <code>horizontal_move_z</code> option in <code>[bed_mesh]</code>. In addition it can be supplied with the <code>BED_MESH_CALIBRATE</code> gcode command via the <code>HORIZONTAL_MOVE_Z</code> parameter.</p>
-<p>The scan height must be sufficiently low to avoid scanning errors. Typically a height of 2mm (ie: <code>HORIZONTAL_MOVE_Z=2</code>) should work well, presuming that the probe is mounted correctly.</p>
-<p>It should be noted that if the probe is more than 4mm above the surface then the results will be invalid. Thus, scanning is not possible on beds with severe surface deviation or beds with extreme tilt that hasn't been corrected.</p>
-<h3 id="rapid-continuous-scanning">Rapid (Continuous) Scanning<a class="headerlink" href="#rapid-continuous-scanning" title="Permanent link">&para;</a></h3>
-<p>When performing a <code>rapid_scan</code> one should keep in mind that the results will have some amount of error. This error should be low enough to be useful on large print areas with reasonably thick layer heights. Some probes may be more prone to error than others.</p>
-<p>It is not recommended that rapid mode be used to scan a "dense" mesh. Some of the error introduced during a rapid scan may be gaussian noise from the sensor, and a dense mesh will reflect this noise (ie: there will be peaks and valleys).</p>
-<p>Bed Mesh will attempt to optimize the travel path to provide the best possible result based on the configuration. This includes avoiding faulty regions when collecting samples and "overshooting" the mesh when changing direction. This overshoot improves sampling at the edges of a mesh, however it requires that the mesh be configured in a way that allows the tool to travel outside of the mesh.</p>
+<p>Adaptive Bed Meshes basieren naturgemäß auf den Objekten, die in der gerade gedruckten G-Code-Datei definiert sind. Daher ist zu erwarten, dass jede G-Code-Datei ein Mesh erzeugt, das einen anderen Bereich des Druckbetts abtastet. Angepasste Bed Meshes sollten deshalb nicht wiederverwendet werden. Bei Verwendung des adaptiven Meshings wird davon ausgegangen, dass für jeden Druck ein neues Mesh erzeugt wird.</p>
+<p>Ebenso wichtig ist zu beachten, dass adaptives Bed Meshing am besten auf Maschinen eingesetzt wird, die normalerweise das gesamte Bett abtasten können und dabei eine maximale Abweichung von höchstens einer Schichthöhe erreichen. Bei Maschinen mit mechanischen Problemen, die ein vollständiges Bed Mesh normalerweise ausgleicht, kann es bei Druckbewegungen <strong>außerhalb</strong> des abgetasteten Bereichs zu unerwünschten Ergebnissen kommen. Weist ein vollständiges Bed Mesh eine Abweichung von mehr als einer Schichthöhe auf, ist bei der Verwendung adaptiver Bed Meshes und bei Druckbewegungen außerhalb des abgetasteten Bereichs Vorsicht geboten.</p>
+<h2 id="oberflachen-scans">Oberflächen-Scans<a class="headerlink" href="#oberflachen-scans" title="Permanent link">&para;</a></h2>
+<p>Einige Sonden, etwa die <a href="Eddy_Probe.html">Eddy Current Probe</a>, können die Oberfläche des Bettes "scannen". Das heißt, diese Sonden können ein Mesh abtasten, ohne den Druckkopf zwischen den Messungen anzuheben. Um den Scan-Modus zu aktivieren, sollte der Sonden-Parameter <code>METHOD=scan</code> oder <code>METHOD=rapid_scan</code> an den G-Code-Befehl <code>BED_MESH_CALIBRATE</code> übergeben werden.</p>
+<h3 id="scan-hohe">Scan-Höhe<a class="headerlink" href="#scan-hohe" title="Permanent link">&para;</a></h3>
+<p>Die Scan-Höhe wird über die Option <code>horizontal_move_z</code> in <code>[bed_mesh]</code> festgelegt. Zusätzlich kann sie dem G-Code-Befehl <code>BED_MESH_CALIBRATE</code> über den Parameter <code>HORIZONTAL_MOVE_Z</code> übergeben werden.</p>
+<p>Die Scan-Höhe muss ausreichend niedrig sein, um Scanfehler zu vermeiden. In der Regel funktioniert eine Höhe von 2 mm (also <code>HORIZONTAL_MOVE_Z=2</code>) gut, sofern die Sonde korrekt montiert ist.</p>
+<p>Beachten Sie, dass die Ergebnisse ungültig sind, wenn sich die Sonde mehr als 4 mm über der Oberfläche befindet. Ein Scan ist daher bei Betten mit starken Oberflächenabweichungen oder bei extrem geneigten, nicht korrigierten Betten nicht möglich.</p>
+<h3 id="schnelles-kontinuierliches-scannen">Schnelles (kontinuierliches) Scannen<a class="headerlink" href="#schnelles-kontinuierliches-scannen" title="Permanent link">&para;</a></h3>
+<p>Beim Durchführen eines <code>rapid_scan</code> sollten Sie bedenken, dass die Ergebnisse einen gewissen Fehler aufweisen. Dieser Fehler sollte gering genug sein, um bei großen Druckflächen mit ausreichend dicken Schichthöhen brauchbar zu sein. Manche Sonden sind fehleranfälliger als andere.</p>
+<p>Es wird nicht empfohlen, den Schnellmodus zum Abtasten eines "dichten" Meshes zu verwenden. Ein Teil des beim Schnellscan entstehenden Fehlers kann gaußsches Rauschen des Sensors sein, und ein dichtes Mesh gibt dieses Rauschen wieder (es entstehen also Erhebungen und Senken).</p>
+<p>Bed Mesh versucht, den Verfahrweg zu optimieren, um auf Basis der Konfiguration das bestmögliche Ergebnis zu erzielen. Dazu gehört, fehlerhafte Bereiche bei der Erfassung von Messwerten zu meiden und beim Richtungswechsel über das Mesh hinauszufahren. Dieses Überfahren verbessert die Abtastung an den Rändern eines Meshes, setzt jedoch voraus, dass das Mesh so konfiguriert ist, dass der Druckkopf über das Mesh hinausfahren kann.</p>
 <div class="highlight"><pre><span></span><code>[bed_mesh]
 speed: 120
 horizontal_move_z: 5
@@ -1767,22 +1773,22 @@ scan_overshoot: 8
 </code></pre></div>
 
 <ul>
-<li><code>scan_overshoot</code> <em>Default Value: 0 (disabled)</em> The maximum amount of travel (in mm) available outside of the mesh. For rectangular beds this applies to travel on the X axis, and for round beds it applies to the entire radius. The tool must be able to travel the amount specified outside of the mesh. This value is used to optimize the travel path when performing a "rapid scan". The minimum value that may be specified is 1. The default is no overshoot.</li>
+<li><code>scan_overshoot</code> <em>Standardwert: 0 (deaktiviert)</em> Der maximal verfügbare Verfahrweg (in mm) außerhalb des Meshes. Bei rechteckigen Betten gilt dies für den Verfahrweg auf der X-Achse, bei runden Betten für den gesamten Radius. Der Druckkopf muss den angegebenen Weg außerhalb des Meshes zurücklegen können. Dieser Wert dient der Optimierung des Verfahrwegs beim "Schnellscan". Der kleinste zulässige Wert ist 1. Standardmäßig wird nicht über das Mesh hinausgefahren.</li>
 </ul>
-<p>If no scan overshoot is configured then travel path optimization will not be applied to changes in direction.</p>
+<p>Ist kein Scan-Überfahrweg konfiguriert, wird bei Richtungswechseln keine Optimierung des Verfahrwegs angewendet.</p>
 <h2 id="bett-netz-gcodes">Bett Netz Gcodes<a class="headerlink" href="#bett-netz-gcodes" title="Permanent link">&para;</a></h2>
 <h3 id="kalibrierung">Kalibrierung<a class="headerlink" href="#kalibrierung" title="Permanent link">&para;</a></h3>
-<p><code>BED_MESH_CALIBRATE PROFILE=&lt;name&gt; METHOD=[manual | automatic | scan | rapid_scan] \ [&lt;probe_parameter&gt;=&lt;value&gt;] [&lt;mesh_parameter&gt;=&lt;value&gt;] [ADAPTIVE=[0|1] \ [ADAPTIVE_MARGIN=&lt;value&gt;]</code> <em>Default Profile: default</em> <em>Default Method: automatic if a probe is detected, otherwise manual</em>  <em>Default Adaptive: 0</em>  <em>Default Adaptive Margin: 0</em></p>
-<p>Initiates the probing procedure for Bed Mesh Calibration.</p>
-<p>The mesh will be immediately ready to use when the command completes and saved into a profile specified by the <code>PROFILE</code> parameter, or <code>default</code> if unspecified. The <code>METHOD</code> parameter takes one of the following values:</p>
+<p><code>BED_MESH_CALIBRATE PROFILE=&lt;name&gt; METHOD=[manual | automatic | scan | rapid_scan] \ [&lt;probe_parameter&gt;=&lt;value&gt;] [&lt;mesh_parameter&gt;=&lt;value&gt;] [ADAPTIVE=[0|1] \ [ADAPTIVE_MARGIN=&lt;value&gt;]</code> <em>Standardprofil: default</em> <em>Standardmethode: automatic, wenn eine Sonde erkannt wird, andernfalls manual</em> <em>Standardwert Adaptive: 0</em> <em>Standardwert Adaptive Margin: 0</em></p>
+<p>Startet den Abtastvorgang für die Bed-Mesh-Kalibrierung.</p>
+<p>Nach Abschluss des Befehls ist das Mesh sofort einsatzbereit und wird in dem über den Parameter <code>PROFILE</code> angegebenen Profil gespeichert, oder in <code>default</code>, wenn nichts angegeben wurde. Der Parameter <code>METHOD</code> nimmt einen der folgenden Werte an:</p>
 <ul>
-<li><code>METHOD=manual</code>: enables manual probing using the nozzle and the paper test</li>
-<li><code>METHOD=automatic</code>: Automatic (standard) probing. This is the default.</li>
-<li><code>METHOD=scan</code>: Enables surface scanning. The tool will pause over each position to collect a sample.</li>
-<li><code>METHOD=rapid_scan</code>: Enables continuous surface scanning.</li>
+<li><code>METHOD=manual</code>: Aktiviert das manuelle Abtasten mit der Düse und dem Papiertest</li>
+<li><code>METHOD=automatic</code>: Automatisches (übliches) Abtasten. Dies ist die Standardeinstellung.</li>
+<li><code>METHOD=scan</code>: Aktiviert das Scannen der Oberfläche. Der Druckkopf hält an jeder Position an, um einen Messwert zu erfassen.</li>
+<li><code>METHOD=rapid_scan</code>: Aktiviert das kontinuierliche Scannen der Oberfläche.</li>
 </ul>
-<p>XY positions are automatically adjusted to include the X and/or Y offsets when a probing method other than <code>manual</code> is selected.</p>
-<p>It is possible to specify mesh parameters to modify the probed area. The following parameters are available:</p>
+<p>Die XY-Positionen werden automatisch um die X- und/oder Y-Offsets korrigiert, wenn eine andere Abtastmethode als <code>manual</code> gewählt wird.</p>
+<p>Es ist möglich, Mesh-Parameter anzugeben, um den abgetasteten Bereich zu verändern. Die folgenden Parameter stehen zur Verfügung:</p>
 <ul>
 <li>Rechteckige Druckbette (cartesian):<ul>
 <li><code>MESH_MIN</code></li>
@@ -1804,18 +1810,18 @@ scan_overshoot: 8
 </ul>
 </li>
 </ul>
-<p>See the configuration documentation above for details on how each parameter applies to the mesh.</p>
+<p>Einzelheiten dazu, wie sich die einzelnen Parameter auf das Mesh auswirken, finden Sie in der Konfigurationsdokumentation oben.</p>
 <h3 id="profile">Profile<a class="headerlink" href="#profile" title="Permanent link">&para;</a></h3>
 <p><code>BED_MESH_PROFILE SAVE=&lt;name&gt; LOAD=&lt;name&gt; REMOVE=&lt;name&gt;</code></p>
-<p>After a BED_MESH_CALIBRATE has been performed, it is possible to save the current mesh state into a named profile. This makes it possible to load a mesh without re-probing the bed. After a profile has been saved using <code>BED_MESH_PROFILE SAVE=&lt;name&gt;</code> the <code>SAVE_CONFIG</code> gcode may be executed to write the profile to printer.cfg.</p>
+<p>Nachdem ein BED_MESH_CALIBRATE durchgeführt wurde, kann der aktuelle Mesh-Zustand in einem benannten Profil gespeichert werden. Dadurch lässt sich ein Mesh laden, ohne das Bett erneut abzutasten. Nachdem ein Profil mit <code>BED_MESH_PROFILE SAVE=&lt;name&gt;</code> gespeichert wurde, kann der G-Code-Befehl <code>SAVE_CONFIG</code> ausgeführt werden, um das Profil in die printer.cfg zu schreiben.</p>
 <p>Profile können durch Ausführen von <code>BED_MESH_PROFILE LOAD=&lt;name&gt;</code> geladen werden.</p>
-<p>It should be noted that each time a BED_MESH_CALIBRATE occurs, the current state is automatically saved to the <em>default</em> profile. The <em>default</em> profile can be removed as follows:</p>
+<p>Beachten Sie, dass bei jedem BED_MESH_CALIBRATE der aktuelle Zustand automatisch im Profil <em>default</em> gespeichert wird. Das Profil <em>default</em> kann wie folgt entfernt werden:</p>
 <p><code>BETT_MESH_PROFIL ENTFERNEN=standard</code></p>
-<p>Any other saved profile can be removed in the same fashion, replacing <em>default</em> with the named profile you wish to remove.</p>
+<p>Jedes andere gespeicherte Profil kann auf die gleiche Weise entfernt werden, indem <em>default</em> durch den Namen des zu entfernenden Profils ersetzt wird.</p>
 <h4 id="laden-des-standardprofils">Laden des Standardprofils<a class="headerlink" href="#laden-des-standardprofils" title="Permanent link">&para;</a></h4>
-<p>Previous versions of <code>bed_mesh</code> always loaded the profile named <em>default</em> on startup if it was present. This behavior has been removed in favor of allowing the user to determine when a profile is loaded. If a user wishes to load the <code>default</code> profile it is recommended to add <code>BED_MESH_PROFILE LOAD=default</code> to either their <code>START_PRINT</code> macro or their slicer's "Start G-Code" configuration, whichever is applicable.</p>
-<p>Note that this is not required if a new mesh is generated with <code>BED_MESH_CALIBRATE</code> in the <code>START_PRINT</code> macro or the slicer's "Start G-Code" and may produce unexpected results, especially with adaptive meshing.</p>
-<p>Alternatively the old behavior of loading a profile at startup can be restored with a <code>[delayed_gcode]</code>:</p>
+<p>Frühere Versionen von <code>bed_mesh</code> haben beim Start immer das Profil <em>default</em> geladen, sofern es vorhanden war. Dieses Verhalten wurde entfernt, damit der Benutzer selbst bestimmen kann, wann ein Profil geladen wird. Wenn Sie das Profil <code>default</code> laden möchten, empfiehlt es sich, <code>BED_MESH_PROFILE LOAD=default</code> entweder zum Makro <code>START_PRINT</code> oder zur "Start-G-Code"-Konfiguration Ihres Slicers hinzuzufügen, je nachdem, was zutrifft.</p>
+<p>Beachten Sie, dass dies nicht erforderlich ist, wenn im Makro <code>START_PRINT</code> oder im "Start-G-Code" des Slicers mit <code>BED_MESH_CALIBRATE</code> ein neues Mesh erzeugt wird; es kann dann zu unerwarteten Ergebnissen führen, insbesondere beim adaptiven Meshing.</p>
+<p>Alternativ lässt sich das alte Verhalten, ein Profil beim Start zu laden, mit einem <code>[delayed_gcode]</code> wiederherstellen:</p>
 <div class="highlight"><pre><span></span><code><span class="k">[delayed_gcode bed_mesh_init]</span>
 <span class="na">initial_duration</span><span class="o">:</span><span class="w"> </span><span class="s">.01</span>
 <span class="na">gcode</span><span class="o">:</span>
@@ -1824,8 +1830,8 @@ scan_overshoot: 8
 
 <h3 id="ausgabe">Ausgabe<a class="headerlink" href="#ausgabe" title="Permanent link">&para;</a></h3>
 <p><code>BED_MESH_OUTPUT PGP=[0 | 1]</code></p>
-<p>Outputs the current mesh state to the terminal. Note that the mesh itself is output</p>
-<p>The PGP parameter is shorthand for "Print Generated Points". If <code>PGP=1</code> is set, the generated probed points will be output to the terminal:</p>
+<p>Gibt den aktuellen Mesh-Zustand im Terminal aus. Beachten Sie, dass das Mesh selbst ausgegeben wird</p>
+<p>Der Parameter PGP ist die Kurzform für "Print Generated Points" (erzeugte Punkte ausgeben). Ist <code>PGP=1</code> gesetzt, werden die erzeugten Messpunkte im Terminal ausgegeben:</p>
 <div class="highlight"><pre><span></span><code>// bed_mesh: generated points
 // Index | Tool Adjusted | Probe
 // 0 | (11.0, 1.0) | (35.0, 6.0)
@@ -1845,21 +1851,21 @@ scan_overshoot: 8
 // 14 | (216.0, 193.0) | (240.0, 198.0)
 </code></pre></div>
 
-<p>The "Tool Adjusted" points refer to the nozzle location for each point, and the "Probe" points refer to the probe location. Note that when manually probing the "Probe" points will refer to both the tool and nozzle locations.</p>
-<h3 id="clear-mesh-state">Clear Mesh State<a class="headerlink" href="#clear-mesh-state" title="Permanent link">&para;</a></h3>
+<p>Die Punkte "Tool Adjusted" beziehen sich auf die Position der Düse für den jeweiligen Punkt, die Punkte "Probe" auf die Position der Sonde. Beachten Sie, dass sich die "Probe"-Punkte beim manuellen Abtasten sowohl auf die Position des Druckkopfs als auch auf die der Düse beziehen.</p>
+<h3 id="mesh-zustand-zurucksetzen">Mesh-Zustand zurücksetzen<a class="headerlink" href="#mesh-zustand-zurucksetzen" title="Permanent link">&para;</a></h3>
 <p><code>BED_MESH_CLEAR</code></p>
 <p>Dieser G-code kann verwendet werden, um den internen Mesh-Zustand zu löschen.</p>
 <h3 id="xy-offsets-anwenden">X/Y Offsets anwenden<a class="headerlink" href="#xy-offsets-anwenden" title="Permanent link">&para;</a></h3>
 <p><code>BED_MESH_OFFSET [X=&lt;value&gt;] [Y=&lt;value&gt;] [ZFADE=&lt;value&gt;]</code></p>
-<p>This is useful for printers with multiple independent extruders, as an offset is necessary to produce correct Z adjustment after a tool change. Offsets should be specified relative to the primary extruder. That is, a positive X offset should be specified if the secondary extruder is mounted to the right of the primary extruder, a positive Y offset should be specified if the secondary extruder is mounted "behind" the primary extruder, and a positive ZFADE offset should be specified if the secondary extruder's nozzle is above the primary extruder's.</p>
-<p>Note that a ZFADE offset does <em>NOT</em> directly apply additional adjustment. It is intended to compensate for a <code>gcode offset</code> when <a href="#mesh-fade">mesh fade</a> is enabled. For example, if a secondary extruder is higher than the primary and needs a negative gcode offset, ie: <code>SET_GCODE_OFFSET Z=-.2</code>, it can be accounted for in <code>bed_mesh</code> with <code>BED_MESH_OFFSET ZFADE=.2</code>.</p>
-<h2 id="bed-mesh-webhooks-apis">Bed Mesh Webhooks APIs<a class="headerlink" href="#bed-mesh-webhooks-apis" title="Permanent link">&para;</a></h2>
-<h3 id="dumping-mesh-data">Dumping mesh data<a class="headerlink" href="#dumping-mesh-data" title="Permanent link">&para;</a></h3>
+<p>Dies ist nützlich für Drucker mit mehreren unabhängigen Extrudern, da ein Offset erforderlich ist, um nach einem Werkzeugwechsel eine korrekte Z-Korrektur zu erhalten. Offsets sollten relativ zum primären Extruder angegeben werden. Das heißt: Ein positiver X-Offset ist anzugeben, wenn der sekundäre Extruder rechts vom primären Extruder montiert ist, ein positiver Y-Offset, wenn der sekundäre Extruder "hinter" dem primären montiert ist, und ein positiver ZFADE-Offset, wenn die Düse des sekundären Extruders höher liegt als die des primären.</p>
+<p>Beachten Sie, dass ein ZFADE-Offset <em>NICHT</em> direkt eine zusätzliche Korrektur bewirkt. Er dient dazu, einen <code>gcode offset</code> auszugleichen, wenn <a href="#mesh-fade">Mesh Fade</a> aktiviert ist. Wenn zum Beispiel ein sekundärer Extruder höher liegt als der primäre und einen negativen G-Code-Offset benötigt, also <code>SET_GCODE_OFFSET Z=-.2</code>, kann dies in <code>bed_mesh</code> mit <code>BED_MESH_OFFSET ZFADE=.2</code> berücksichtigt werden.</p>
+<h2 id="webhooks-apis-von-bed-mesh">Webhooks-APIs von Bed Mesh<a class="headerlink" href="#webhooks-apis-von-bed-mesh" title="Permanent link">&para;</a></h2>
+<h3 id="mesh-daten-ausgeben">Mesh-Daten ausgeben<a class="headerlink" href="#mesh-daten-ausgeben" title="Permanent link">&para;</a></h3>
 <p><code>{"id": 123, "method": "bed_mesh/dump_mesh"}</code></p>
-<p>Dumps the configuration and state for the current mesh and all saved profiles.</p>
-<p>The <code>dump_mesh</code> endpoint takes one optional parameter, <code>mesh_args</code>. This parameter must be an object, where the keys and values are parameters available to <a href="#bed_mesh_calibrate">BED_MESH_CALIBRATE</a>. This will update the mesh configuration and probe points using the supplied parameters prior to returning the result. It is recommended to omit mesh parameters unless it is desired to visualize the probe points and/or travel path before performing <code>BED_MESH_CALIBRATE</code>.</p>
-<h2 id="visualization-and-analysis">Visualization and analysis<a class="headerlink" href="#visualization-and-analysis" title="Permanent link">&para;</a></h2>
-<p>Most users will likely find that the visualizers included with applications such as Mainsail, Fluidd, and Octoprint are sufficient for basic analysis. However, Klipper's <code>scripts</code> folder contains the <code>graph_mesh.py</code> script that may be used to perform additional visualizations and more detailed analysis, particularly useful for debugging hardware or the results produced by <code>bed_mesh</code>:</p>
+<p>Gibt die Konfiguration und den Zustand des aktuellen Meshes sowie aller gespeicherten Profile aus.</p>
+<p>Der Endpunkt <code>dump_mesh</code> nimmt einen optionalen Parameter <code>mesh_args</code> entgegen. Dieser Parameter muss ein Objekt sein, dessen Schlüssel und Werte den für <a href="#bed_mesh_calibrate">BED_MESH_CALIBRATE</a> verfügbaren Parametern entsprechen. Damit werden die Mesh-Konfiguration und die Messpunkte anhand der übergebenen Parameter aktualisiert, bevor das Ergebnis zurückgegeben wird. Es empfiehlt sich, Mesh-Parameter wegzulassen, sofern Sie nicht die Messpunkte und/oder den Verfahrweg vor der Ausführung von <code>BED_MESH_CALIBRATE</code> sichtbar machen möchten.</p>
+<h2 id="visualisierung-und-analyse">Visualisierung und Analyse<a class="headerlink" href="#visualisierung-und-analyse" title="Permanent link">&para;</a></h2>
+<p>Die meisten Benutzer werden feststellen, dass die in Anwendungen wie Mainsail, Fluidd und Octoprint enthaltenen Visualisierungen für eine grundlegende Analyse ausreichen. Der Ordner <code>scripts</code> von Klipper enthält jedoch das Skript <code>graph_mesh.py</code>, mit dem sich weitere Visualisierungen und detailliertere Analysen durchführen lassen. Das ist besonders nützlich, um Hardware oder die von <code>bed_mesh</code> erzeugten Ergebnisse zu untersuchen:</p>
 <div class="highlight"><pre><span></span><code>usage: graph_mesh.py [-h] {list,plot,analyze,dump} ...
 
 Graph Bed Mesh Data
@@ -1875,10 +1881,10 @@ options:
   -h, --help            show this help message and exit
 </code></pre></div>
 
-<h3 id="pre-requisites">Pre-requisites<a class="headerlink" href="#pre-requisites" title="Permanent link">&para;</a></h3>
-<p>Like most graphing tools provided by Klipper, <code>graph_mesh.py</code> requires the <code>matplotlib</code> and <code>numpy</code> python dependencies. In addition, connecting to Klipper via Moonraker's websocket requires the <code>websockets</code> python dependency. While all visualizations can be output to an <code>svg</code> file, most of the visualizations offered by <code>graph_mesh.py</code> are better viewed in live preview mode on a desktop class PC. For example, the 3D visualizations may be rotated and zoomed in preview mode, and the path visualizations can optionally be animated in preview mode.</p>
-<h3 id="plotting-mesh-data">Plotting Mesh data<a class="headerlink" href="#plotting-mesh-data" title="Permanent link">&para;</a></h3>
-<p>The <code>graph_mesh.py</code> tool can plot several types of visualizations. Available types can be shown by running <code>graph_mesh.py list</code>:</p>
+<h3 id="voraussetzungen">Voraussetzungen<a class="headerlink" href="#voraussetzungen" title="Permanent link">&para;</a></h3>
+<p>Wie die meisten von Klipper bereitgestellten Diagrammwerkzeuge benötigt <code>graph_mesh.py</code> die Python-Abhängigkeiten <code>matplotlib</code> und <code>numpy</code>. Zusätzlich erfordert die Verbindung zu Klipper über den Websocket von Moonraker die Python-Abhängigkeit <code>websockets</code>. Alle Visualisierungen können zwar in eine <code>svg</code>-Datei ausgegeben werden, die meisten von <code>graph_mesh.py</code> angebotenen Darstellungen lassen sich jedoch besser in der Live-Vorschau auf einem Desktop-PC betrachten. So können die 3D-Visualisierungen im Vorschaumodus gedreht und gezoomt werden, und die Verfahrweg-Darstellungen lassen sich im Vorschaumodus optional animieren.</p>
+<h3 id="mesh-daten-grafisch-darstellen">Mesh-Daten grafisch darstellen<a class="headerlink" href="#mesh-daten-grafisch-darstellen" title="Permanent link">&para;</a></h3>
+<p>Das Werkzeug <code>graph_mesh.py</code> kann verschiedene Arten von Visualisierungen erzeugen. Die verfügbaren Typen lassen sich mit <code>graph_mesh.py list</code> anzeigen:</p>
 <div class="highlight"><pre><span></span><code>graph_mesh.py list
 points    Plot original generated points
 path      Plot probe travel path
@@ -1889,7 +1895,7 @@ overlay   Plots the current probed mesh overlaid with a profile
 delta     Plots the delta between current probed mesh and a profile
 </code></pre></div>
 
-<p>Several options are available when plotting visualizations:</p>
+<p>Beim Erstellen von Visualisierungen stehen mehrere Optionen zur Verfügung:</p>
 <div class="highlight"><pre><span></span><code>usage: graph_mesh.py plot [-h] [-a] [-s] [-p PROFILE_NAME] [-o OUTPUT] &lt;plot type&gt; &lt;input&gt;
 
 positional arguments:
@@ -1906,64 +1912,64 @@ options:
                         Output file path
 </code></pre></div>
 
-<p>Below is a description of each argument:</p>
+<p>Nachfolgend eine Beschreibung der einzelnen Argumente:</p>
 <ul>
-<li><code>plot type</code>: A required positional argument designating the type of visualization to generate. Must be one of the types output by the <code>graph_mesh.py list</code> command.</li>
-<li><code>input</code>: A required positional argument containing a path or url to the input source. This must be one of the following:<ul>
-<li>A path to Klipper's Unix Domain Socket</li>
-<li>A url to an instance of Moonraker</li>
-<li>A path to a json file produced by <code>graph_mesh.py dump &lt;input&gt;</code></li>
+<li><code>plot type</code>: Ein erforderliches Positionsargument, das die Art der zu erzeugenden Visualisierung angibt. Es muss einer der Typen sein, die der Befehl <code>graph_mesh.py list</code> ausgibt.</li>
+<li><code>input</code>: Ein erforderliches Positionsargument mit einem Pfad oder einer URL zur Eingabequelle. Dies muss eines der Folgenden sein:<ul>
+<li>Ein Pfad zum Unix Domain Socket von Klipper</li>
+<li>Eine URL zu einer Moonraker-Instanz</li>
+<li>Ein Pfad zu einer JSON-Datei, die von <code>graph_mesh.py dump &lt;input&gt;</code> erzeugt wurde</li>
 </ul>
 </li>
-<li><code>-a</code>: Optional animation for the <code>path</code> and <code>rapid</code> visualization types. Animations only apply to a live preview.</li>
-<li><code>-s</code>: Optionally scales a plot using the <code>axis_minimum</code> and <code>axis_maximum</code> values reported by Klipper's <code>toolhead</code> object when the dump file was generated.</li>
-<li><code>-p</code>: A profile name that may be specified when generating the <code>probedz</code> 3D mesh visualization. When generating an <code>overlay</code> or <code>delta</code> visualization this argument must be provided.</li>
-<li><code>-o</code>: An optional file path indicating that the script should save the visualization to this location rather than run in preview mode. Images are saved in <code>svg</code> format.</li>
+<li><code>-a</code>: Optionale Animation für die Visualisierungstypen <code>path</code> und <code>rapid</code>. Animationen gelten nur für die Live-Vorschau.</li>
+<li><code>-s</code>: Skaliert die Darstellung optional anhand der Werte <code>axis_minimum</code> und <code>axis_maximum</code>, die vom <code>toolhead</code>-Objekt von Klipper beim Erzeugen der Dump-Datei gemeldet wurden.</li>
+<li><code>-p</code>: Ein Profilname, der beim Erzeugen der 3D-Mesh-Visualisierung <code>probedz</code> angegeben werden kann. Beim Erzeugen einer <code>overlay</code>- oder <code>delta</code>-Visualisierung muss dieses Argument angegeben werden.</li>
+<li><code>-o</code>: Ein optionaler Dateipfad, der angibt, dass das Skript die Visualisierung an diesem Ort speichern soll, statt im Vorschaumodus zu laufen. Bilder werden im <code>svg</code>-Format gespeichert.</li>
 </ul>
-<p>For example, to plot an animated rapid path, connecting via Klipper's unix socket:</p>
+<p>Um beispielsweise einen animierten Schnellscan-Pfad darzustellen und sich dabei über den Unix-Socket von Klipper zu verbinden:</p>
 <div class="highlight"><pre><span></span><code>graph_mesh.py plot -a rapid ~/printer_data/comms/klippy.sock
 </code></pre></div>
 
-<p>Or to plot a 3d visualization of the mesh, connecting via Moonraker:</p>
+<p>Oder um eine 3D-Visualisierung des Meshes darzustellen und sich dabei über Moonraker zu verbinden:</p>
 <div class="highlight"><pre><span></span><code>graph_mesh.py plot meshz http://my-printer.local
 </code></pre></div>
 
-<h3 id="bed-mesh-analysis">Bed Mesh Analysis<a class="headerlink" href="#bed-mesh-analysis" title="Permanent link">&para;</a></h3>
-<p>The <code>graph_mesh.py</code> tool may also be used to perform an analysis on the data provided by the <a href="#dumping-mesh-data">bed_mesh/dump_mesh</a> API:</p>
+<h3 id="bed-mesh-analyse">Bed-Mesh-Analyse<a class="headerlink" href="#bed-mesh-analyse" title="Permanent link">&para;</a></h3>
+<p>Das Werkzeug <code>graph_mesh.py</code> kann außerdem verwendet werden, um eine Analyse der von der API <a href="#dumping-mesh-data">bed_mesh/dump_mesh</a> gelieferten Daten durchzuführen:</p>
 <div class="highlight"><pre><span></span><code>graph_mesh.py analyze &lt;input&gt;
 </code></pre></div>
 
-<p>As with the <code>plot</code> command, the <code>&lt;input&gt;</code> must be a path to Klipper's unix socket, a URL to an instance of Moonraker, or a path to a json file generated by the dump command.</p>
-<p>To begin, the analysis will perform various checks on the points and probe paths generated by <code>bed_mesh</code> at the time of the dump. This includes the following:</p>
+<p>Wie beim Befehl <code>plot</code> muss <code>&lt;input&gt;</code> ein Pfad zum Unix-Socket von Klipper, eine URL zu einer Moonraker-Instanz oder ein Pfad zu einer JSON-Datei sein, die mit dem Befehl dump erzeugt wurde.</p>
+<p>Zu Beginn führt die Analyse verschiedene Prüfungen der Punkte und Abtastwege durch, die <code>bed_mesh</code> zum Zeitpunkt des Dumps erzeugt hat. Dazu gehört Folgendes:</p>
 <ul>
-<li>The number of probe points generated, without any additions</li>
-<li>The number of probe points generated including any points generated as the result faulty regions and/or a configured zero reference position.</li>
-<li>The number of probe points generated when performing a rapid scan.</li>
-<li>The total number of moves generated for a rapid scan.</li>
-<li>A validation that the probe points generated for a rapid scan are identical to the probe points generated for a standard probing procedure.</li>
-<li>A "backtracking" check for both the standard probe path and a rapid scan path. Backtracking can be defined as moving to the same position more than once during the probing procedure. Backtracking should never occur during a standard probe. Faulty regions <em>can</em> result in backtracking during a rapid scan in an attempt to avoid entering a faulty region when approaching or leaving a probe location, however should never occur otherwise.</li>
+<li>Die Anzahl der erzeugten Messpunkte ohne jegliche Ergänzungen</li>
+<li>Die Anzahl der erzeugten Messpunkte einschließlich aller Punkte, die aufgrund fehlerhafter Bereiche und/oder einer konfigurierten Null-Referenzposition erzeugt wurden.</li>
+<li>Die Anzahl der Messpunkte, die bei einem Schnellscan erzeugt werden.</li>
+<li>Die Gesamtzahl der für einen Schnellscan erzeugten Bewegungen.</li>
+<li>Eine Prüfung, ob die für einen Schnellscan erzeugten Messpunkte mit den Messpunkten eines üblichen Abtastvorgangs übereinstimmen.</li>
+<li>Eine Prüfung auf "Backtracking" sowohl für den üblichen Abtastweg als auch für den Weg eines Schnellscans. Als Backtracking bezeichnet man das mehrfache Anfahren derselben Position während des Abtastvorgangs. Bei einem üblichen Abtastvorgang sollte niemals Backtracking auftreten. Fehlerhafte Bereiche <em>können</em> bei einem Schnellscan zu Backtracking führen, wenn versucht wird, beim Anfahren oder Verlassen einer Messposition nicht in einen fehlerhaften Bereich zu geraten; ansonsten sollte es jedoch nicht vorkommen.</li>
 </ul>
-<p>Next each probed mesh present in the dump will by analyzed, beginning with the mesh loaded at the time of the dump (if present) and followed by any saved profiles. The following data is extracted:</p>
+<p>Anschließend wird jedes im Dump enthaltene abgetastete Mesh analysiert, beginnend mit dem zum Zeitpunkt des Dumps geladenen Mesh (sofern vorhanden), gefolgt von allen gespeicherten Profilen. Dabei werden die folgenden Daten ermittelt:</p>
 <ul>
-<li>Mesh shape (Min X,Y, Max X,Y Probe Count)</li>
-<li>Mesh Z range, (Minimum Z, Maximum Z)</li>
-<li>Mean Z value in the mesh</li>
-<li>Standard Deviation of the Z values in the Mesh</li>
+<li>Form des Meshes (Min X,Y, Max X,Y, Anzahl der Messpunkte)</li>
+<li>Z-Bereich des Meshes (minimales Z, maximales Z)</li>
+<li>Mittlerer Z-Wert im Mesh</li>
+<li>Standardabweichung der Z-Werte im Mesh</li>
 </ul>
-<p>In addition to the above, a delta analysis is performed between meshes with the same shape, reporting the following:</p>
+<p>Zusätzlich zu den oben genannten Werten wird eine Differenzanalyse zwischen Meshes gleicher Form durchgeführt, die Folgendes ausgibt:</p>
 <ul>
-<li>The range of the delta between to meshes (Minimum and Maximum)</li>
-<li>The mean delta</li>
-<li>Standard Deviation of the delta</li>
-<li>The absolute maximum difference</li>
-<li>The absolute mean</li>
+<li>Der Wertebereich der Differenz zwischen zwei Meshes (Minimum und Maximum)</li>
+<li>Die mittlere Differenz</li>
+<li>Standardabweichung der Differenz</li>
+<li>Die absolute maximale Abweichung</li>
+<li>Der absolute Mittelwert</li>
 </ul>
-<h3 id="save-mesh-data-to-a-file">Save mesh data to a file<a class="headerlink" href="#save-mesh-data-to-a-file" title="Permanent link">&para;</a></h3>
-<p>The <code>dump</code> command may be used to save the response to a file which can be shared for analysis when troubleshooting:</p>
+<h3 id="mesh-daten-in-eine-datei-speichern">Mesh-Daten in eine Datei speichern<a class="headerlink" href="#mesh-daten-in-eine-datei-speichern" title="Permanent link">&para;</a></h3>
+<p>Mit dem Befehl <code>dump</code> kann die Antwort in einer Datei gespeichert werden, die sich bei der Fehlersuche zur Analyse weitergeben lässt:</p>
 <div class="highlight"><pre><span></span><code>graph_mesh.py dump -o &lt;output file name&gt; &lt;input&gt;
 </code></pre></div>
 
-<p>The <code>&lt;input&gt;</code> should be a path to Klipper's unix socket or a URL to an instance of Moonraker. The <code>-o</code> option may be used to specify the path to the output file. If omitted, the file will be saved in the working directory, with a file name in the following format:</p>
+<p><code>&lt;input&gt;</code> sollte ein Pfad zum Unix-Socket von Klipper oder eine URL zu einer Moonraker-Instanz sein. Mit der Option <code>-o</code> kann der Pfad zur Ausgabedatei angegeben werden. Wird sie weggelassen, wird die Datei im Arbeitsverzeichnis gespeichert, mit einem Dateinamen im folgenden Format:</p>
 <p><code>klipper-bedmesh-{year}{month}{day}{hour}{minute}{second}.json</code></p>
 
               

@@ -170,6 +170,12 @@
                 </li>
                 
                 <li class="md-select__item">
+                  <a href="/de/" hreflang="de" class="md-select__link">
+                    Deutsch
+                  </a>
+                </li>
+                
+                <li class="md-select__item">
                   <a href="/it/" hreflang="it" class="md-select__link">
                     Italiano
                   </a>
@@ -1435,7 +1441,7 @@
 <p>Stellen Sie sicher, dass alle Achsen des Druckers manuell frei bewegt werden können (die Schrittmotoren sind deaktiviert). Wenn nicht, geben Sie einen M84-Befehl heraus, um die Motoren zu deaktivieren. Falls eine der Achsen immer noch nicht frei bewegt werden kann, überprüfen Sie die Konfiguration des Schrittmotor-"enable_pin" für die betreffende Achse. Bei den meisten handelsüblichen Schrittmotortreibern ist der Motoraktivierungsstift "aktiviert niedrig", daher sollte der Aktivierungsstift ein "!" vor dem Stift haben (zum Beispiel "enable_pin: !PA1").</p>
 <h2 id="endstopps-uberprufen">Endstopps überprüfen<a class="headerlink" href="#endstopps-uberprufen" title="Permanent link">&para;</a></h2>
 <p>Bewegen Sie manuell alle Druckerachsen, damit keine von ihnen mit einem Endstop in Kontakt stehen. Senden Sie über die Befehlskonsole ein ''QUERY_ENDSTOPS'' Befehl. Es sollte den aktuellen Zustand aller konfigurierten Endstops zurückgeben und sie sollten alle einen Zustand von "offen" melden. Führen Sie für jeden Endstop erneut den ''QUERY_ENDSTOPS'' Befehl aus, während Sie den Endstop manuell auslösen. Der QUERY_ENDSTOPS-Befehl sollte den Endstop als "AUSGELÖST" melden.</p>
-<p>If the endstop appears inverted (it reports "open" when triggered and vice-versa) then add a "!" to the pin definition (for example, "endstop_pin: ^!PA2"), or remove the "!" if there is already one present.</p>
+<p>Wenn der Endstop invertiert erscheint (er meldet "offen", wenn er ausgelöst wird, und umgekehrt), fügen Sie der Pin-Definition ein "!" hinzu (zum Beispiel "endstop_pin: ^!PA2"), oder entfernen Sie das "!", falls bereits eines vorhanden ist.</p>
 <p>Wenn sich der Endstop überhaupt nicht ändert, deutet dies im Allgemeinen darauf hin, dass der Endstop an einen anderen Pin angeschlossen ist. Es kann jedoch auch eine Änderung der Pullup-Einstellung des Pins erforderlich sein (das '^' am Anfang des endstop_pin-Namens - die meisten Drucker verwenden einen Pullup-Widerstand und das '^' sollte vorhanden sein).</p>
 <h2 id="schrittmotoren-uberprufen">Schrittmotoren überprüfen<a class="headerlink" href="#schrittmotoren-uberprufen" title="Permanent link">&para;</a></h2>
 <p>Verwenden Sie das STEPPER_BUZZ-Befehl, um die Konnektivität jedes Schrittmotors zu überprüfen. Beginnen Sie damit, die gegebene Achse manuell auf einen Mittelpunkt zu positionieren, und führen Sie dann <code>STEPPER_BUZZ STEPPER=stepper_x</code> in der Befehlskonsole aus. Der STEPPER_BUZZ-Befehl lässt den angegebenen Schrittmotor einen Millimeter in positive Richtung bewegen, bevor er zu seiner Ausgangsposition zurückkehrt. (Wenn der Endanschlag bei position_endstop=0 definiert ist, bewegt sich der Schrittmotor zu Beginn jeder Bewegung weg vom Endanschlag.) Dies wird zehnmal ausgeführt.</p>

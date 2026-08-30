@@ -170,6 +170,12 @@
                 </li>
                 
                 <li class="md-select__item">
+                  <a href="/de/" hreflang="de" class="md-select__link">
+                    Deutsch
+                  </a>
+                </li>
+                
+                <li class="md-select__item">
                   <a href="/it/" hreflang="it" class="md-select__link">
                     Italiano
                   </a>
@@ -1370,8 +1376,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#caveats" class="md-nav__link">
-    Caveats
+  <a href="#einschrankungen" class="md-nav__link">
+    Einschränkungen
   </a>
   
 </li>
@@ -1396,48 +1402,48 @@
 <h1 id="schraglagenkorrektur">Schräglagenkorrektur<a class="headerlink" href="#schraglagenkorrektur" title="Permanent link">&para;</a></h1>
 <p>Die softwarebasierte Schräglagenkorrektur kann helfen, Maßungenauigkeiten zu beheben, die sich aus einem nicht perfekt rechtwinkligen zusammenbau ergeben. Beachten Sie, dass es bei einer erheblichen Schräglage Ihres Druckers dringend empfohlen wird, den Drucker zunächst mit mechanischen Mitteln so rechtwinklig wie möglich zu machen, bevor Sie die softwarebasierte Korrektur anwenden.</p>
 <h2 id="drucken-sie-ein-kalibrierungsobjekt">Drucken Sie ein Kalibrierungsobjekt<a class="headerlink" href="#drucken-sie-ein-kalibrierungsobjekt" title="Permanent link">&para;</a></h2>
-<p>The first step in correcting skew is to print a <a href="https://www.thingiverse.com/thing:2563185/files">calibration object</a> along the plane you want to correct. There is also a <a href="https://www.thingiverse.com/thing:2972743">calibration object</a> that includes all planes in one model. You want the object oriented so that corner A is toward the origin of the plane.</p>
-<p>Make sure that no skew correction is applied during this print. You may do this by either removing the <code>[skew_correction]</code> module from printer.cfg or by issuing a <code>SET_SKEW CLEAR=1</code> gcode.</p>
+<p>Der erste Schritt zur Korrektur von Achsverdrehung besteht darin, ein <a href="https://www.thingiverse.com/thing:2563185/files">Kalibrierobjekt</a> entlang der zu korrigierenden Ebene zu drucken. Es gibt außerdem ein <a href="https://www.thingiverse.com/thing:2972743">Kalibrierobjekt</a>, das alle Ebenen in einem Modell vereint. Das Objekt sollte so ausgerichtet sein, dass Ecke A zum Ursprung der Ebene zeigt.</p>
+<p>Stellen Sie sicher, dass während dieses Drucks keine Verzerrungskorrektur angewendet wird. Sie können dazu entweder das Modul <code>[skew_correction]</code> aus der printer.cfg entfernen oder einen G-Code <code>SET_SKEW CLEAR=1</code> ausgeben.</p>
 <h2 id="fuhren-sie-ihre-messungen-durch">Führen Sie Ihre Messungen durch<a class="headerlink" href="#fuhren-sie-ihre-messungen-durch" title="Permanent link">&para;</a></h2>
-<p>The <code>[skew_correction]</code> module requires 3 measurements for each plane you want to correct; the length from Corner A to Corner C, the length from Corner B to Corner D, and the length from Corner A to Corner D. When measuring length AD do not include the flats on the corners that some test objects provide.</p>
+<p>Das Modul <code>[skew_correction]</code> benötigt für jede zu korrigierende Ebene 3 Messwerte: die Länge von Ecke A zu Ecke C, die Länge von Ecke B zu Ecke D und die Länge von Ecke A zu Ecke D. Beziehen Sie beim Messen der Länge AD die abgeflachten Stellen an den Ecken, die manche Testobjekte aufweisen, nicht mit ein.</p>
 <p><img alt="skew_lengths" src="img/skew_lengths.png" /></p>
 <h2 id="konfigurieren-sie-ihre-schraglage">Konfigurieren Sie Ihre Schräglage<a class="headerlink" href="#konfigurieren-sie-ihre-schraglage" title="Permanent link">&para;</a></h2>
-<p>Make sure <code>[skew_correction]</code> is in printer.cfg. You may now use the <code>SET_SKEW</code> gcode to configure skew_correction. For example, if your measured lengths along XY are as follows:</p>
+<p>Stellen Sie sicher, dass <code>[skew_correction]</code> in der printer.cfg enthalten ist. Sie können nun den G-Code <code>SET_SKEW</code> verwenden, um skew_correction zu konfigurieren. Wenn zum Beispiel Ihre entlang XY gemessenen Längen wie folgt lauten:</p>
 <div class="highlight"><pre><span></span><code>Length AC = 140.4
 Length BD = 142.8
 Length AD = 99.8
 </code></pre></div>
 
-<p><code>SET_SKEW</code> can be used to configure skew correction for the XY plane.</p>
+<p>Mit <code>SET_SKEW</code> lässt sich die Verzerrungskorrektur für die XY-Ebene konfigurieren.</p>
 <div class="highlight"><pre><span></span><code>SET_SKEW XY=140.4,142.8,99.8
 </code></pre></div>
 
-<p>You may also add measurements for XZ and YZ to the gcode:</p>
+<p>Sie können dem G-Code auch Messwerte für XZ und YZ hinzufügen:</p>
 <div class="highlight"><pre><span></span><code>SET_SKEW XY=140.4,142.8,99.8 XZ=141.6,141.4,99.8 YZ=142.4,140.5,99.5
 </code></pre></div>
 
-<p>The <code>[skew_correction]</code> module also supports profile management in a manner similar to <code>[bed_mesh]</code>. After setting skew using the <code>SET_SKEW</code> gcode, you may use the <code>SKEW_PROFILE</code> gcode to save it:</p>
+<p>Das Modul <code>[skew_correction]</code> unterstützt außerdem eine Profilverwaltung ähnlich wie <code>[bed_mesh]</code>. Nachdem Sie die Verzerrung mit dem G-Code <code>SET_SKEW</code> festgelegt haben, können Sie sie mit dem G-Code <code>SKEW_PROFILE</code> speichern:</p>
 <div class="highlight"><pre><span></span><code>SKEW_PROFILE SAVE=my_skew_profile
 </code></pre></div>
 
-<p>After this command you will be prompted to issue a <code>SAVE_CONFIG</code> gcode to save the profile to persistent storage. If no profile is named <code>my_skew_profile</code> then a new profile will be created. If the named profile exists it will be overwritten.</p>
-<p>Once you have a saved profile, you may load it:</p>
+<p>Nach diesem Befehl werden Sie aufgefordert, einen <code>SAVE_CONFIG</code>-G-Code auszugeben, um das Profil dauerhaft zu speichern. Existiert kein Profil namens <code>my_skew_profile</code>, wird ein neues Profil erstellt. Existiert das benannte Profil bereits, wird es überschrieben.</p>
+<p>Sobald Sie ein gespeichertes Profil haben, können Sie es laden:</p>
 <div class="highlight"><pre><span></span><code>SKEW_PROFILE LOAD=my_skew_profile
 </code></pre></div>
 
-<p>It is also possible to remove an old or out of date profile:</p>
+<p>Es ist außerdem möglich, ein altes oder veraltetes Profil zu entfernen:</p>
 <div class="highlight"><pre><span></span><code>SKEW_PROFILE REMOVE=my_skew_profile
 </code></pre></div>
 
-<p>After removing a profile you will be prompted to issue a <code>SAVE_CONFIG</code> to make this change persist.</p>
+<p>Nach dem Entfernen eines Profils werden Sie aufgefordert, <code>SAVE_CONFIG</code> auszugeben, damit diese Änderung dauerhaft übernommen wird.</p>
 <h2 id="uberprufung-ihrer-korrektur">Überprüfung Ihrer Korrektur<a class="headerlink" href="#uberprufung-ihrer-korrektur" title="Permanent link">&para;</a></h2>
-<p>After skew_correction has been configured you may reprint the calibration part with correction enabled. Use the following gcode to check your skew on each plane. The results should be lower than those reported via <code>GET_CURRENT_SKEW</code>.</p>
+<p>Sobald skew_correction konfiguriert wurde, können Sie das Kalibrierteil mit aktivierter Korrektur erneut drucken. Verwenden Sie folgenden G-Code, um die Verzerrung auf jeder Ebene zu prüfen. Die Ergebnisse sollten niedriger ausfallen als die über <code>GET_CURRENT_SKEW</code> gemeldeten Werte.</p>
 <div class="highlight"><pre><span></span><code>CALC_MEASURED_SKEW AC=&lt;ac_length&gt; BD=&lt;bd_length&gt; AD=&lt;ad_length&gt;
 </code></pre></div>
 
-<h2 id="caveats">Caveats<a class="headerlink" href="#caveats" title="Permanent link">&para;</a></h2>
-<p>Due to the nature of skew correction it is recommended to configure skew in your start gcode, after homing and any kind of movement that travels near the edge of the print area such as a purge or nozzle wipe. You may use use the <code>SET_SKEW</code> or <code>SKEW_PROFILE</code> gcodes to accomplish this. It is also recommended to issue a <code>SET_SKEW CLEAR=1</code> in your end gcode.</p>
-<p>Keep in mind that it is possible for <code>[skew_correction]</code> to generate a correction that moves the tool beyond the printer's boundaries on the X and/or Y axes. It is recommended to arrange parts away from the edges when using <code>[skew_correction]</code>.</p>
+<h2 id="einschrankungen">Einschränkungen<a class="headerlink" href="#einschrankungen" title="Permanent link">&para;</a></h2>
+<p>Aufgrund der Funktionsweise der Verzerrungskorrektur wird empfohlen, die Verzerrung in Ihrem Start-G-Code zu konfigurieren, nach dem Homing und nach jeder Bewegung, die in die Nähe des Randes des Druckbereichs führt, etwa beim Purge oder Düsenwischen. Verwenden Sie dazu die G-Codes <code>SET_SKEW</code> oder <code>SKEW_PROFILE</code>. Es wird außerdem empfohlen, in Ihrem End-G-Code ein <code>SET_SKEW CLEAR=1</code> auszugeben.</p>
+<p>Beachten Sie, dass <code>[skew_correction]</code> möglicherweise eine Korrektur erzeugt, die das Werkzeug über die Grenzen des Druckers auf der X- und/oder Y-Achse hinausbewegt. Es wird empfohlen, Teile bei Verwendung von <code>[skew_correction]</code> mit Abstand zu den Rändern anzuordnen.</p>
 
               
             </article>
