@@ -1,18 +1,19 @@
-#
+# Oriol Tous Casadesús <otousc@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-07-22 08:54+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Catalan <https://hosted.weblate.org/projects/klipper/features/ca/>\n"
+"PO-Revision-Date: 2026-08-31 05:53+0000\n"
+"Last-Translator: Oriol Tous Casadesús <otousc@gmail.com>\n"
+"Language-Team: Catalan <https://hosted.weblate.org/projects/klipper/features/"
+"ca/>\n"
 "Language: ca\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 2026.9.dev0\n"
 
 msgid "Klipper has several compelling features:"
-msgstr ""
+msgstr "Klipper ofereix diverses prestacions destacades:"
 
 msgid ""
 "Klipper supports printers with multiple micro-controllers. For example, one "
@@ -58,6 +59,10 @@ msgid ""
 "algorithms, etc. are all written in Python. This makes it easier to develop "
 "new functionality."
 msgstr ""
+"Codi més senzill. Klipper utilitza un llenguatge de molt alt nivell (Python) "
+"per a la major part del codi. Els algoritmes de cinemàtica, l’anàlisi del G-"
+"code, els algoritmes d’escalfament i de termistors, etc., estan escrits en "
+"Python. Això facilita el desenvolupament de noves funcionalitats."
 
 msgid ""
 "Custom programmable macros. New G-Code commands can be defined in the printer "
@@ -118,11 +123,16 @@ msgid ""
 " vibration and noise. See the [kinematics](Kinematics.md) document for more "
 "information."
 msgstr ""
+"Suport per limitar la velocitat màxima dels moviments curts en «zig-zag» per "
+"reduir les vibracions i el soroll de la impressora. Consulta el document "
+"sobre [kinematics](Kinematics.md) per obtenir més informació."
 
 msgid ""
 "Sample configuration files are available for many common printers. Check the "
 "[config directory](../config/) for a list."
 msgstr ""
+"Hi ha fitxers de configuració d’exemple disponibles per a moltes impressores "
+"habituals. Consulta [config directory](../config/) per obtenir-ne un llistat."
 
 msgid ""
 "To get started with Klipper, read the [installation](Installation.md) guide."
@@ -368,6 +378,18 @@ msgid ""
 " physics of the machine kinematics. More precise stepper movement provides "
 "quieter and more stable printer operation."
 msgstr ""
+"Moviment dels motors pas a pas d’alta precisió. Klipper utilitza un "
+"processador d’aplicacions (com una Raspberry Pi de baix cost) per calcular "
+"els moviments de la impressora. El processador d’aplicacions determina quan "
+"s’ha d’activar cada motor pas a pas, compila aquests esdeveniments, els "
+"transmet al microcontrolador i, a continuació, el microcontrolador executa "
+"cada esdeveniment en el moment sol·licitat. Cada esdeveniment dels motors "
+"pas a pas es programa amb una precisió de 25 microsegons o superior. El "
+"programari no utilitza estimacions cinemàtiques (com l’algoritme de "
+"Bresenham), sinó que calcula els temps precisos dels passos basant-se en la "
+"física de l’acceleració i la cinemàtica de la màquina. Un moviment més "
+"precís dels motors pas a pas proporciona un funcionament de la impressora "
+"més silenciós i estable."
 
 #: docs/Features.md:block 3 (unordered list)
 msgid ""
@@ -378,6 +400,13 @@ msgid ""
 " makes it easier to use available hardware, to upgrade to new hardware, and to"
 " have confidence in the hardware."
 msgstr ""
+"Klipper és independent del maquinari. S’hauria d’obtenir la mateixa "
+"temporització precisa independentment del maquinari electrònic de baix "
+"nivell. El codi de microcontrolador de Klipper està dissenyat per seguir "
+"fidelment la planificació proporcionada pel programari amfitrió de Klipper "
+"(o avisar clarament l’usuari si no és capaç de fer-ho). Això facilita l’ús "
+"del maquinari disponible, l’actualització a maquinari nou i la confiança en "
+"el maquinari."
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
@@ -385,18 +414,27 @@ msgid ""
 "others. This allows the printer to be controlled using a regular web-browser. "
 "The same Raspberry Pi that runs Klipper can also run the web interface."
 msgstr ""
+"Diverses interfícies web disponibles. Funciona amb Mainsail, Fluidd, "
+"OctoPrint i altres. Això permet controlar la impressora mitjançant un "
+"navegador web convencional. La mateixa Raspberry Pi que executa Klipper "
+"també pot executar la interfície web."
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
 "Support for cartesian, delta, corexy, corexz, hybrid-corexy, hybrid-corexz, "
 "deltesian, rotary delta, polar, and cable winch style printers."
 msgstr ""
+"Suport per a impressores de tipus cartesiana, delta, CoreXY, CoreXZ, Hybrid-"
+"CoreXY, Hybrid-CoreXZ, Deltesian, delta rotativa, polar i cabrestant de "
+"cables."
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
 "Run-time \"exclude object\" support. When configured, this module may "
 "facilitate canceling of just one object in a multi-part print."
 msgstr ""
+"Suport d'exclusió d'objectes durant la impressió. Quan es configura, aquest "
+"mòdul permet cancel·lar només un objecte en una impressió amb diverses peces."
 
 #: docs/Features.md:block 3 (unordered list)
 msgid ""
@@ -407,42 +445,50 @@ msgid ""
 "higher print velocities. The stepper event timing remains precise even at high"
 " speeds which improves overall stability."
 msgstr ""
+"Rendiment líder de la seva categoria. Klipper és capaç d’assolir freqüències "
+"de passos elevades tant en microcontroladors nous com antics. Fins i tot els "
+"microcontroladors antics de 8 bits poden superar els 175.000 passos per "
+"segon. En els microcontroladors més recents, són possibles diversos milions "
+"de passos per segon. Les freqüències de passos més elevades permeten assolir "
+"velocitats d’impressió més altes. La temporització dels passos es manté "
+"precisa fins i tot a velocitats elevades, cosa que millora l’estabilitat "
+"general."
 
 #: docs/Features.md:block 10 (table)
 msgid "AR100"
-msgstr ""
+msgstr "AR100"
 
 #: docs/Features.md:block 10 (table)
 msgid "3529K"
-msgstr ""
+msgstr "3529K"
 
 #: docs/Features.md:block 10 (table)
 msgid "2507K"
-msgstr ""
+msgstr "2507K"
 
 #: docs/Features.md:block 10 (table)
 msgid "RP2350"
-msgstr ""
+msgstr "RP2350"
 
 #: docs/Features.md:block 10 (table)
 msgid "4167K"
-msgstr ""
+msgstr "4167K"
 
 #: docs/Features.md:block 10 (table)
 msgid "2663K"
-msgstr ""
+msgstr "2663K"
 
 #: docs/Features.md:block 10 (table)
 msgid "SAME70"
-msgstr ""
+msgstr "SAME70"
 
 #: docs/Features.md:block 10 (table)
 msgid "6667K"
-msgstr ""
+msgstr "6667K"
 
 #: docs/Features.md:block 10 (table)
 msgid "4737K"
-msgstr ""
+msgstr "4737K"
 
 #: docs/Features.md:block 3 (unordered list)
 msgid ""
@@ -451,6 +497,11 @@ msgid ""
 "modification - just add a Raspberry Pi. Klipper's internal code layout makes "
 "it easier to support other micro-controller architectures as well."
 msgstr ""
+"Codi portable. Klipper funciona en ARM, AVR, PRU i altres microcontroladors. "
+"Les impressores existents d’estil «reprap» poden executar Klipper sense "
+"modificacions de maquinari: només cal afegir una Raspberry Pi. L’estructura "
+"interna de Klipper també facilita la compatibilitat amb altres arquitectures "
+"de microcontroladors."
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
@@ -462,6 +513,16 @@ msgid ""
 "probes. Probes may be calibrated for axis twist compensation. If using an "
 "\"eddy current probe\" then one can utilize fast bed mesh scanning,"
 msgstr ""
+"Suport per a l’anivellament automàtic de la base d'impressió. Klipper es pot "
+"configurar per detectar una inclinació bàsica de la base o per fer un "
+"anivellament complet mitjançant una malla. La malla de la base es pot "
+"adaptar a la mida de la impressió (malla adaptativa). Si la base utilitza "
+"diversos motors pas a pas a l'eix Z, Klipper també pot anivellar-la ajustant "
+"els motors Z de manera independent. S’admeten la majoria de sondes d’alçada "
+"Z, incloses les sondes BL-Touch i les sondes accionades per servo. Les "
+"sondes es poden calibrar per compensar la torsió dels eixos. Si s’utilitza "
+"una «sonda de corrents de Foucault» (eddy current), es pot aprofitar "
+"l’escaneig ràpid de la malla de la base."
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
@@ -472,6 +533,12 @@ msgid ""
 "internal micro-controller temperature sensor and the internal temperature "
 "sensor of a Raspberry Pi."
 msgstr ""
+"Suport per als sensors de temperatura habituals (p. ex., termistors comuns, "
+"AD595, AD597, AD849x, PT100, PT1000, MAX6675, MAX31855, MAX31856, MAX31865, "
+"BME280, HTU21D, DS18B20, AHT1X, AHT2X, AHT3X, SHT3x i LM75). També es poden "
+"configurar termistors personalitzats i sensors de temperatura analògics "
+"personalitzats. Es pot supervisar el sensor de temperatura intern del "
+"microcontrolador i el sensor de temperatura intern d’una Raspberry Pi."
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
@@ -480,6 +547,11 @@ msgid ""
 " on fans that have a tachometer. One can assign a \"math formula\" to a fan "
 "for automatic fan speed updating."
 msgstr ""
+"Suport per a ventiladors estàndard, ventiladors del broquet i ventiladors "
+"controlats per temperatura. No cal mantenir els ventiladors en funcionament "
+"quan la impressora està inactiva. La velocitat dels ventiladors es pot "
+"supervisar en els que disposen de tacòmetre. Es pot assignar una «fórmula "
+"matemàtica» a un ventilador per actualitzar-ne automàticament la velocitat."
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
@@ -488,44 +560,51 @@ msgid ""
 " current control of traditional stepper drivers via AD5206, DAC084S085, "
 "MCP4451, MCP4728, MCP4018, and PWM pins."
 msgstr ""
+"Suport per a la configuració en temps d’execució dels controladors de motors "
+"pas a pas TMC2130, TMC2208/TMC2224, TMC2209, TMC2240, TMC2660 i TMC5160. "
+"També s’admet el control del corrent dels controladors de motors pas a pas "
+"tradicionals mitjançant AD5206, DAC084S085, MCP4451, MCP4728, MCP4018 i pins "
+"PWM."
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
 "Support for measuring and recording acceleration using adxl345, mpu9250, "
 "mpu6050, lis2dw12, lis3dh, and icm20948 accelerometers."
 msgstr ""
+"Suport per mesurar i registrar l’acceleració mitjançant els acceleròmetres "
+"ADXL345, MPU9250, MPU6050, LIS2DW12, LIS3DH i ICM20948."
 
 #: docs/Features.md:block 10 (table)
 msgid "STM32G431"
-msgstr ""
+msgstr "STM32G431"
 
 #: docs/Features.md:block 10 (table)
 msgid "3617K"
-msgstr ""
+msgstr "3617K"
 
 #: docs/Features.md:block 10 (table)
 msgid "2452K"
-msgstr ""
+msgstr "2452K"
 
 #: docs/Features.md:block 10 (table)
 msgid "4000K"
-msgstr ""
+msgstr "4000K"
 
 #: docs/Features.md:block 10 (table)
 msgid "2571K"
-msgstr ""
+msgstr "2571K"
 
 #: docs/Features.md:block 10 (table)
 msgid "STM32H723"
-msgstr ""
+msgstr "STM32H723"
 
 #: docs/Features.md:block 10 (table)
 msgid "7429K"
-msgstr ""
+msgstr "7429K"
 
 #: docs/Features.md:block 10 (table)
 msgid "8619K"
-msgstr ""
+msgstr "8619K"
 
 #~ msgid ""
 #~ "Portable code. Klipper works on ARM, AVR, and PRU based micro-controllers. "
