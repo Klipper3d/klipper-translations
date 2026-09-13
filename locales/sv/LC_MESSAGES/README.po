@@ -1,0 +1,14 @@
+# Daniel Nylander <yeagersthlm@gmail.com>, 2026.
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: sv\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+msgid ""
+"Welcome to the Klipper documentation. The [overview document](Overview.md) is "
+"a good starting point."
+msgstr ""

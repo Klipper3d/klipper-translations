@@ -1,0 +1,33 @@
+# Daniel Nylander <yeagersthlm@gmail.com>, 2026.
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Language: sv\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+
+msgid "Klipper documentation"
+msgstr ""
+
+msgid "Installation and Configuration"
+msgstr ""
+
+msgid "Configuration Reference"
+msgstr ""
+
+msgid "Bed Level"
+msgstr ""
+
+msgid "Resonance Compensation"
+msgstr ""
+
+msgid "Command templates"
+msgstr ""
+
+msgid "Developer Documentation"
+msgstr ""
+
+msgid "Device Specific Documents"
+msgstr ""

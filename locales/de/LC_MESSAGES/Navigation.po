@@ -6,14 +6,14 @@
 # Niklas Tecklenborg <niklas.tecklenborg@gmail.com>, 2024, 2025.
 # Mathis Mensing <github@matmen.dev>, 2025.
 # "Yifei Ding(Claude Code)" <bot-klipper-yifei-dingclaude-code@bots.noreply.weblate.org>, 2026.
+# Extrutex <w1indt@outlook.com>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2022-03-06 16:50+0200\n"
-"PO-Revision-Date: 2026-08-29 19:23+0000\n"
-"Last-Translator: \"Yifei Ding(Claude Code)\" <bot-klipper-yifei-dingclaude-"
-"code@bots.noreply.weblate.org>\n"
+"PO-Revision-Date: 2026-08-31 05:53+0000\n"
+"Last-Translator: Extrutex <w1indt@outlook.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/klipper/"
 "navigation/de/>\n"
 "Language: de\n"
@@ -36,7 +36,7 @@ msgid "Bed Level"
 msgstr "Bettnivellierung"
 
 msgid "Resonance Compensation"
-msgstr "Resonanz-Kompensation"
+msgstr "Resonanz Kompensation"
 
 msgid "Command templates"
 msgstr "Befehlsvorlagen"
