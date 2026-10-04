@@ -1,18 +1,18 @@
 # CANBUS
 
-This document describes Klipper's CAN bus support.
+Det här dokumentet beskriver Klippers stöd för CAN-buss.
 
-## Device Hardware
+## Enhetshårdvara
 
-Klipper currently supports CAN on stm32, SAME5x, and rp2040 chips. In addition, the micro-controller chip must be on a board that has a CAN transceiver.
+Klipper har för närvarande stöd för CAN på chipen stm32, SAME5x och rp2040. Mikrokontrollerchipet måste dessutom sitta på ett kort med en CAN-transceiver.
 
-To compile for CAN, run `make menuconfig` and select "CAN bus" as the communication interface. Finally, compile the micro-controller code and flash it to the target board.
+Kör `make menuconfig` och välj ”CAN-buss” som kommunikationsgränssnitt för att kompilera för CAN. Kompilera sedan mikrokontrollerkoden och skriv den till målkortet.
 
-## Host Hardware
+## Värddatorns maskinvara
 
-In order to use a CAN bus, it is necessary to have a host adapter. It is recommended to use a "USB to CAN adapter". There are many different USB to CAN adapters available from different manufacturers. When choosing one, we recommend verifying that the firmware can be updated on it. (Unfortunately, we've found some USB adapters run defective firmware and are locked down, so verify before purchasing.) Look for adapters that can run Klipper directly (in its "USB to CAN bridge mode") or that run the [candlelight firmware](https://github.com/candle-usb/candleLight_fw).
+För att använda en CAN-buss krävs en värdadapter. Vi rekommenderar en ”USB-till-CAN-adapter”. Det finns många sådana adaptrar från olika tillverkare. Kontrollera vid valet att dess inbyggda programvara kan uppdateras. Vissa USB-adaptrar kör tyvärr felaktig inbyggd programvara och är låsta, så kontrollera detta före köp. Leta efter adaptrar som kan köra Klipper direkt i bryggläget ”USB till CAN-buss”, eller som kör [candlelight-programvaran](https://github.com/candle-usb/candleLight_fw).
 
-It is also necessary to configure the host operating system to use the adapter. This is typically done by creating a new file named `/etc/network/interfaces.d/can0` with the following contents:
+Det är också nödvändigt att konfigurera värdoperativsystemet för att använda adaptern. Det görs vanligen genom att skapa en ny fil med namnet `/etc/network/interfaces.d/can0` med följande innehåll:
 
 ```
 allow-hotplug can0
@@ -21,51 +21,51 @@ iface can0 can static
     up ip link set $IFACE txqueuelen 128
 ```
 
-## Terminating Resistors
+## Termineringsmotstånd
 
-A CAN bus should have two 120 ohm resistors between the CANH and CANL wires. Ideally, one resistor located at each the end of the bus.
+En CAN-buss ska ha två motstånd på 120 ohm mellan CANH- och CANL-ledningarna. Helst ska ett motstånd sitta i vardera änden av bussen.
 
-Note that some devices have a builtin 120 ohm resistor that can not be easily removed. Some devices do not include a resistor at all. Other devices have a mechanism to select the resistor (typically by connecting a "pin jumper"). Be sure to check the schematics of all devices on the CAN bus to verify that there are two and only two 120 Ohm resistors on the bus.
+Observera att vissa enheter har ett inbyggt motstånd på 120 ohm som inte är lätt att ta bort. Vissa enheter har inget motstånd alls. Andra enheter har en mekanism för att välja motstånd, vanligtvis genom att ansluta en bygel. Kontrollera kopplingsschemat för alla enheter på CAN-bussen så att bussen har exakt två motstånd på 120 ohm.
 
-To test that the resistors are correct, one can remove power to the printer and use a multi-meter to check the resistance between the CANH and CANL wires - it should report ~60 ohms on a correctly wired CAN bus.
+För att kontrollera att motstånden är korrekta kan du koppla bort strömmen till skrivaren och mäta resistansen mellan CANH- och CANL-ledningarna med en multimeter. En korrekt kopplad CAN-buss ska visa ungefär 60 ohm.
 
-## Finding the canbus_uuid for new micro-controllers
+## Hitta canbus_uuid för nya mikrokontroller
 
-Each micro-controller on the CAN bus is assigned a unique id based on the factory chip identifier encoded into each micro-controller. To find each micro-controller device id, make sure the hardware is powered and wired correctly, and then run:
+Varje mikrokontroller på CAN-bussen tilldelas ett unikt ID baserat på den fabriksidentifierare för chipet som är inbyggd i varje mikrokontroller. Kontrollera att maskinvaran är strömsatt och korrekt ansluten och kör sedan följande kommando för att hitta varje mikrokontrollers enhets-ID:
 
 ```
 ~/klippy-env/bin/python ~/klipper/scripts/canbus_query.py can0
 ```
 
-If uninitialized CAN devices are detected the above command will report lines like the following:
+Om oinitierade CAN-enheter identifieras visar kommandot ovan rader som följande:
 
 ```
 Found canbus_uuid=11aa22bb33cc, Application: Klipper
 ```
 
-Each device will have a unique identifier. In the above example, `11aa22bb33cc` is the micro-controller's "canbus_uuid".
+Varje enhet har en unik identifierare. I exemplet ovan är `11aa22bb33cc` mikrokontrollerns ”canbus_uuid”.
 
-Note that the `canbus_query.py` tool will only report uninitialized devices - if Klipper (or a similar tool) configures the device then it will no longer appear in the list.
+Observera att verktyget `canbus_query.py` endast visar oinitierade enheter. Om Klipper eller ett liknande verktyg konfigurerar enheten visas den inte längre i listan.
 
-## Configuring Klipper
+## Konfigurera Klipper
 
-Update the Klipper [mcu configuration](Config_Reference.md#mcu) to use the CAN bus to communicate with the device - for example:
+Uppdatera Klippers [MCU-konfiguration](Config_Reference.md#mcu) så att CAN-bussen används för kommunikationen med enheten, till exempel:
 
 ```
 [mcu my_can_mcu]
 canbus_uuid: 11aa22bb33cc
 ```
 
-## USB to CAN bus bridge mode
+## Bryggläge för USB till CAN-buss
 
-Some micro-controllers support selecting "USB to CAN bus bridge" mode during Klipper's "make menuconfig". This mode may allow one to use a micro-controller as both a "USB to CAN bus adapter" and as a Klipper node.
+Vissa mikrokontroller kan välja läget ”USB-till-CAN-bussbrygga” i Klippers `make menuconfig`. I detta läge kan en mikrokontroller användas både som USB-till-CAN-bussadapter och som Klipper-nod.
 
-When Klipper uses this mode the micro-controller appears as a "USB CAN bus adapter" under Linux. The "Klipper bridge mcu" itself will appear as if it was on this CAN bus - it can be identified via `canbus_query.py` and it must be configured like other CAN bus Klipper nodes.
+När Klipper använder detta läge visas mikrokontrollern som en ”USB-CAN-bussadapter” i Linux. Själva Klipper-brygg-MCU:n visas som om den fanns på CAN-bussen. Den kan identifieras med `canbus_query.py` och måste konfigureras som andra Klipper-noder på CAN-bussen.
 
-Some important notes when using this mode:
+Några viktiga saker att tänka på när du använder detta läge:
 
-* It is necessary to configure the `can0` (or similar) interface in Linux in order to communicate with the bus. However, Linux CAN bus speed and CAN bus bit-timing options are ignored by Klipper. Currently, the CAN bus frequency is specified during "make menuconfig" and the bus speed specified in Linux is ignored.
-* Whenever the "bridge mcu" is reset, Linux will disable the corresponding `can0` interface. To ensure proper handling of FIRMWARE_RESTART and RESTART commands, it is recommended to use `allow-hotplug` in the `/etc/network/interfaces.d/can0` file. For example:
+* Det är nödvändigt att konfigurera gränssnittet `can0` eller liknande i Linux för att kommunicera med bussen. Klipper ignorerar dock för närvarande Linux inställningar för CAN-bussens hastighet och bittid. CAN-bussens frekvens anges i `make menuconfig` och den busshastighet som anges i Linux ignoreras.
+* Varje gång brygg-MCU:n återställs inaktiverar Linux motsvarande `can0`-gränssnitt. För att säkerställa korrekt hantering av kommandona FIRMWARE_RESTART och RESTART rekommenderas `allow-hotplug` i filen `/etc/network/interfaces.d/can0`, till exempel:
 
 ```
 allow-hotplug can0
@@ -74,11 +74,11 @@ iface can0 can static
     up ip link set $IFACE txqueuelen 128
 ```
 
-* The "bridge mcu" is not actually on the CAN bus. Messages to and from the bridge mcu will not be seen by other adapters that may be on the CAN bus.
-* The available bandwidth to both the "bridge mcu" itself and all devices on the CAN bus is effectively limited by the CAN bus frequency. As a result, it is recommended to use a CAN bus frequency of 1000000 when using "USB to CAN bus bridge mode".
-* It is only valid to use USB to CAN bridge mode if there is a functioning CAN bus with at least one other node available (in addition to the bridge node itself). Use a standard USB configuration if the goal is to communicate only with the single USB device. Using USB to CAN bridge mode without a fully functioning CAN bus (including terminating resistors and an additional node) may result in sporadic errors even when communicating with the bridge node.
-* A USB to CAN bridge board will not appear as a USB serial device, it will not show up when running `ls /dev/serial/by-id`, and it can not be configured in Klipper's printer.cfg file with a `serial:` parameter. The bridge board appears as a "USB CAN adapter" and it is configured in the printer.cfg as a [CAN node](#configuring-klipper).
+* Brygg-MCU:n finns inte faktiskt på CAN-bussen. Meddelanden till och från brygg-MCU:n kan inte ses av andra adaptrar som kan finnas på CAN-bussen.
+* Den tillgängliga bandbredden för både brygg-MCU:n och alla enheter på CAN-bussen begränsas i praktiken av CAN-bussens frekvens. Därför rekommenderas en CAN-bussfrekvens på 1000000 vid användning av bryggläget USB till CAN-buss.
+* Det är endast giltigt att använda bryggläget USB till CAN-buss om det finns en fungerande CAN-buss med minst en annan tillgänglig nod, utöver själva bryggnoden. Använd en vanlig USB-konfiguration om avsikten endast är att kommunicera med den enda USB-enheten. Att använda bryggläget USB till CAN-buss utan en fullt fungerande CAN-buss, inklusive termineringsmotstånd och en ytterligare nod, kan orsaka sporadiska fel även vid kommunikation med bryggnoden.
+* Ett USB-till-CAN-bryggkort visas inte som en seriell USB-enhet, det syns inte när `ls /dev/serial/by-id` körs och det kan inte konfigureras i Klippers printer.cfg-fil med parametern `serial:`. Bryggkortet visas som en ”USB-CAN-adapter” och konfigureras i printer.cfg som en [CAN-nod](#configuring-klipper).
 
-## Tips for troubleshooting
+## Tips för felsökning
 
-See the [CAN bus troubleshooting](CANBUS_Troubleshooting.md) document.
+Se dokumentet om [felsökning av CAN-buss](CANBUS_Troubleshooting.md).

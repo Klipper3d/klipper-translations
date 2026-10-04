@@ -1,63 +1,63 @@
-# Configuration checks
+# Konfigurationskontroller
 
-This document provides a list of steps to help confirm the pin settings in the Klipper printer.cfg file. It is a good idea to run through these steps after following the steps in the [installation document](Installation.md).
+Detta dokument innehåller en lista med steg som hjälper dig att bekräfta PIN-inställningarna i Klipper-filen printer.cfg. Det är lämpligt att gå igenom dessa steg efter stegen i [installationsdokumentet](Installation.md).
 
-During this guide, it may be necessary to make changes to the Klipper config file. Be sure to issue a RESTART command after every change to the config file to ensure that the change takes effect (type "restart" in the Octoprint terminal tab and then click "Send"). It's also a good idea to issue a STATUS command after every RESTART to verify that the config file is successfully loaded.
+Under den här guiden kan du behöva ändra Klipper-konfigurationsfilen. Kör alltid kommandot RESTART efter varje ändring så att den träder i kraft (skriv "restart" på OctoPrints terminalflik och klicka sedan på "Send"). Det är också bra att köra STATUS efter varje RESTART för att kontrollera att konfigurationsfilen har lästs in korrekt.
 
-## Verify temperature
+## Kontrollera temperaturen
 
-Start by verifying that temperatures are being properly reported. Navigate to the temperature graph section in the user interface. Verify that the temperature of the nozzle and bed (if applicable) are present and not increasing. If it is increasing, remove power from the printer. If the temperatures are not accurate, review the "sensor_type" and "sensor_pin" settings for the nozzle and/or bed.
+Börja med att kontrollera att temperaturerna rapporteras korrekt. Gå till avsnittet med temperaturdiagram i användargränssnittet. Kontrollera att munstyckets och byggplattans temperaturer visas, om de används, och att de inte stiger. Bryt strömmen till skrivaren om temperaturerna stiger. Om temperaturerna inte är korrekta granskar du inställningarna "sensor_type" och "sensor_pin" för munstycket och/eller byggplattan.
 
-## Verify M112
+## Kontrollera M112
 
-Navigate to the command console and issue an M112 command in the terminal box. This command requests Klipper to go into a "shutdown" state. It will cause an error to show, which can be cleared with a FIRMWARE_RESTART command in the command console. Octoprint will also require a reconnect. Then navigate to the temperature graph section and verify that temperatures continue to update and the temperatures are not increasing. If temperatures are increasing, remove power from the printer.
+Gå till kommandokonsolen och kör kommandot M112 i terminalfältet. Kommandot begär att Klipper ska övergå till tillståndet "shutdown". Ett fel visas och kan rensas med kommandot FIRMWARE_RESTART i kommandokonsolen. OctoPrint behöver också återanslutas. Gå sedan till avsnittet med temperaturdiagram och kontrollera att temperaturerna fortsätter att uppdateras och inte stiger. Bryt strömmen till skrivaren om temperaturerna stiger.
 
-## Verify heaters
+## Kontrollera värmarna
 
-Navigate to the temperature graph section and type in 50 followed by enter in the extruder/tool temperature box. The extruder temperature in the graph should start to increase (within about 30 seconds or so). Then go to the extruder temperature drop-down box and select "Off". After several minutes the temperature should start to return to its initial room temperature value. If the temperature does not increase then verify the "heater_pin" setting in the config.
+Gå till avsnittet med temperaturdiagram och skriv 50 följt av Retur i fältet för extruder-/verktygstemperatur. Extrudertemperaturen i diagrammet ska börja stiga inom ungefär 30 sekunder. Gå sedan till listrutan för extruder-temperatur och välj "Off". Efter några minuter ska temperaturen börja återgå till det ursprungliga rumstemperaturvärdet. Om temperaturen inte stiger kontrollerar du inställningen "heater_pin" i konfigurationen.
 
-If the printer has a heated bed then perform the above test again with the bed.
+Om skrivaren har en uppvärmd byggplatta ska du utföra testet ovan igen med byggplattan.
 
-## Verify stepper motor enable pin
+## Kontrollera stegmotorns aktiverings-PIN
 
-Verify that all of the printer axes can manually move freely (the stepper motors are disabled). If not, issue an M84 command to disable the motors. If any of the axes still can not move freely, then verify the stepper "enable_pin" configuration for the given axis. On most commodity stepper motor drivers, the motor enable pin is "active low" and therefore the enable pin should have a "!" before the pin (for example, "enable_pin: !PA1").
+Kontrollera att skrivarens alla axlar kan flyttas fritt för hand (stegmotorerna är avaktiverade). Om inte kör du kommandot M84 för att avaktivera motorerna. Om någon axel fortfarande inte kan flyttas fritt kontrollerar du konfigurationen av stegmotorns "enable_pin" för den axeln. På de flesta vanliga stegmotordrivrutiner är motorns aktiverings-PIN "active low" och därför ska ett "!" stå före PIN:en (till exempel "enable_pin: !PA1").
 
-## Verify endstops
+## Kontrollera ändlägena
 
-Manually move all the printer axes so that none of them are in contact with an endstop. Send a QUERY_ENDSTOPS command via the command console. It should respond with the current state of all of the configured endstops and they should all report a state of "open". For each of the endstops, rerun the QUERY_ENDSTOPS command while manually triggering the endstop. The QUERY_ENDSTOPS command should report the endstop as "TRIGGERED".
+Flytta alla skrivaraxlar manuellt så att ingen av dem har kontakt med ett ändläge. Skicka kommandot QUERY_ENDSTOPS via kommandokonsolen. Svaret ska visa aktuellt tillstånd för alla konfigurerade ändlägen och samtliga ska rapportera tillståndet "open". Kör QUERY_ENDSTOPS igen för varje ändläge medan du manuellt aktiverar ändläget. QUERY_ENDSTOPS ska då rapportera ändläget som "TRIGGERED".
 
-If the endstop appears inverted (it reports "open" when triggered and vice-versa) then add a "!" to the pin definition (for example, "endstop_pin: ^!PA2"), or remove the "!" if there is already one present.
+Om ändläget verkar vara inverterat (det rapporterar "open" när det aktiveras och tvärtom) lägger du till "!" i PIN-definitionen (till exempel "endstop_pin: ^!PA2"), eller tar bort "!" om det redan finns där.
 
-If the endstop does not change at all then it generally indicates that the endstop is connected to a different pin. However, it may also require a change to the pullup setting of the pin (the '^' at the start of the endstop_pin name - most printers will use a pullup resistor and the '^' should be present).
+Om ändläget inte ändras alls betyder det vanligen att ändläget är anslutet till en annan PIN. Det kan dock också krävas att pullup-inställningen för PIN:en ändras (tecknet '^' i början av endstop_pin-namnet – de flesta skrivare använder ett pullup-motstånd och '^' ska då finnas med).
 
-## Verify stepper motors
+## Kontrollera stegmotorerna
 
-Use the STEPPER_BUZZ command to verify the connectivity of each stepper motor. Start by manually positioning the given axis to a midway point and then run `STEPPER_BUZZ STEPPER=stepper_x` in the command console. The STEPPER_BUZZ command will cause the given stepper to move one millimeter in a positive direction and then it will return to its starting position. (If the endstop is defined at position_endstop=0 then at the start of each movement the stepper will move away from the endstop.) It will perform this oscillation ten times.
+Använd kommandot STEPPER_BUZZ för att kontrollera anslutningen till varje stegmotor. Placera först den aktuella axeln manuellt ungefär mitt i dess rörelseområde och kör sedan `STEPPER_BUZZ STEPPER=stepper_x` i kommandokonsolen. STEPPER_BUZZ får stegmotorn att flytta en millimeter i positiv riktning och sedan återgå till startläget. (Om ändläget är definierat med position_endstop=0 flyttas stegmotorn bort från ändläget i början av varje rörelse.) Den upprepar denna rörelse tio gånger.
 
-If the stepper does not move at all, then verify the "enable_pin" and "step_pin" settings for the stepper. If the stepper motor moves but does not return to its original position then verify the "dir_pin" setting. If the stepper motor oscillates in an incorrect direction, then it generally indicates that the "dir_pin" for the axis needs to be inverted. This is done by adding a '!' to the "dir_pin" in the printer config file (or removing it if one is already there). If the motor moves significantly more or significantly less than one millimeter then verify the "rotation_distance" setting.
+Om stegmotorn inte rör sig alls kontrollerar du inställningarna "enable_pin" och "step_pin" för den. Om stegmotorn rör sig men inte återgår till sitt ursprungliga läge kontrollerar du inställningen "dir_pin". Om stegmotorn oscillerar i fel riktning betyder det vanligen att axelns "dir_pin" måste inverteras. Det gör du genom att lägga till ett '!' i "dir_pin" i skrivarens konfigurationsfil (eller ta bort det om det redan finns där). Om motorn rör sig avsevärt mer eller mindre än en millimeter kontrollerar du inställningen "rotation_distance".
 
-Run the above test for each stepper motor defined in the config file. (Set the STEPPER parameter of the STEPPER_BUZZ command to the name of the config section that is to be tested.) If there is no filament in the extruder then one can use STEPPER_BUZZ to verify the extruder motor connectivity (use STEPPER=extruder). Otherwise, it's best to test the extruder motor separately (see the next section).
+Kör testet ovan för varje stegmotor som anges i konfigurationsfilen. (Sätt parametern STEPPER för kommandot STEPPER_BUZZ till namnet på den konfigurationssektion som ska testas.) Om det inte finns något filament i extrudern kan du använda STEPPER_BUZZ för att kontrollera extrudermotorns anslutning (använd STEPPER=extruder). I annat fall är det bäst att testa extrudermotorn separat (se nästa avsnitt).
 
-After verifying all endstops and verifying all stepper motors the homing mechanism should be tested. Issue a G28 command to home all axes. Remove power from the printer if it does not home properly. Rerun the endstop and stepper motor verification steps if necessary.
+När alla ändlägen och stegmotorer har kontrollerats ska referenskörningen testas. Kör kommandot G28 för att referensköra alla axlar. Bryt strömmen till skrivaren om referenskörningen inte fungerar korrekt. Upprepa vid behov kontrollen av ändlägen och stegmotorer.
 
-## Verify extruder motor
+## Kontrollera extrudermotorn
 
-To test the extruder motor it will be necessary to heat the extruder to a printing temperature. Navigate to the temperature graph section and select a target temperature from the temperature drop-down box (or manually enter an appropriate temperature). Wait for the printer to reach the desired temperature. Then navigate to the command console and click the "Extrude" button. Verify that the extruder motor turns in the correct direction. If it does not, see the troubleshooting tips in the previous section to confirm the "enable_pin", "step_pin", and "dir_pin" settings for the extruder.
+För att testa extrudermotorn måste extrudern värmas till utskriftstemperatur. Gå till avsnittet med temperaturdiagram och välj en måltemperatur i listrutan för temperatur, eller ange en lämplig temperatur manuellt. Vänta tills skrivaren har nått önskad temperatur. Gå sedan till kommandokonsolen och klicka på knappen "Extrude". Kontrollera att extrudermotorn roterar åt rätt håll. Om den inte gör det läser du felsökningstipsen i föregående avsnitt och kontrollerar extruderns inställningar "enable_pin", "step_pin" och "dir_pin".
 
-## Calibrate PID settings
+## Kalibrera PID-inställningarna
 
-Klipper supports [PID control](https://en.wikipedia.org/wiki/PID_controller) for the extruder and bed heaters. In order to use this control mechanism, it is necessary to calibrate the PID settings on each printer (PID settings found in other firmwares or in the example configuration files often work poorly).
+Klipper stöder [PID-styrning](https://en.wikipedia.org/wiki/PID_controller) för extruderns och byggplattans värmare. För att använda denna styrmetod måste PID-inställningarna kalibreras på varje skrivare (PID-inställningar från annan firmware eller från exempelkonfigurationsfiler fungerar ofta dåligt).
 
-To calibrate the extruder, navigate to the command console and run the PID_CALIBRATE command. For example: `PID_CALIBRATE HEATER=extruder TARGET=170`
+För att kalibrera extrudern går du till kommandokonsolen och kör kommandot PID_CALIBRATE. Till exempel: `PID_CALIBRATE HEATER=extruder TARGET=170`
 
-At the completion of the tuning test run `SAVE_CONFIG` to update the printer.cfg file the new PID settings.
+Kör `SAVE_CONFIG` när inställningstestet är klart för att uppdatera printer.cfg-filen med de nya PID-inställningarna.
 
-If the printer has a heated bed and it supports being driven by PWM (Pulse Width Modulation) then it is recommended to use PID control for the bed. (When the bed heater is controlled using the PID algorithm it may turn on and off ten times a second, which may not be suitable for heaters using a mechanical switch.) A typical bed PID calibration command is: `PID_CALIBRATE HEATER=heater_bed TARGET=60`
+Om skrivaren har en uppvärmd byggplatta som kan styras med PWM (pulsbredds-modulering) rekommenderas PID-styrning för byggplattan. (När byggplattans värmare styrs med PID-algoritmen kan den slås på och av tio gånger per sekund, vilket kanske inte passar värmare med en mekanisk brytare.) Ett typiskt kommando för PID-kalibrering av byggplattan är: `PID_CALIBRATE HEATER=heater_bed TARGET=60`
 
-## Next steps
+## Nästa steg
 
-This guide is intended to help with basic verification of pin settings in the Klipper configuration file. Be sure to read the [bed leveling](Bed_Level.md) guide. Also see the [Slicers](Slicers.md) document for information on configuring a slicer with Klipper.
+Den här guiden är avsedd att hjälpa till med grundläggande kontroll av PIN-inställningarna i Klippers konfigurationsfil. Läs även guiden för [bäddnivellering](Bed_Level.md). I dokumentet [Slicers](Slicers.md) finns information om hur du konfigurerar en slicer för Klipper.
 
-After one has verified that basic printing works, it is a good idea to consider calibrating [pressure advance](Pressure_Advance.md).
+När du har bekräftat att grundläggande utskrift fungerar är det lämpligt att överväga att kalibrera [tryckutjämning](Pressure_Advance.md).
 
-It may be necessary to perform other types of detailed printer calibration - a number of guides are available online to help with this (for example, do a web search for "3d printer calibration"). As an example, if you experience the effect called ringing, you may try following [resonance compensation](Resonance_Compensation.md) tuning guide.
+Det kan vara nödvändigt att utföra andra typer av detaljerad skrivarkalibrering. Det finns flera guider på nätet som kan hjälpa till med detta (sök till exempel på "3d printer calibration"). Om du till exempel upplever ringing kan du följa guiden för justering av [resonanskompensering](Resonance_Compensation.md).

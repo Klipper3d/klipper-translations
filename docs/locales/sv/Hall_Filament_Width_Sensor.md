@@ -1,16 +1,16 @@
-# Hall filament width sensor
+# Hall-sensor för filamentbredd
 
-This document describes Filament Width Sensor host module. Hardware used for developing this host module is based on two Hall linear sensors (ss49e for example). Sensors in the body are located on opposite sides. Principle of operation: two hall sensors work in differential mode, temperature drift same for sensor. Special temperature compensation not needed.
+Detta dokument beskriver värdmodulen för en sensor för filamentbredd. Maskinvaran som användes för att utveckla värdmodulen bygger på två linjära Hall-sensorer (till exempel ss49e). Sensorerna sitter på motsatta sidor i höljet. Funktionsprincip: två Hall-sensorer arbetar i differentiellt läge, och temperaturdriften är densamma för båda sensorerna. Särskild temperaturkompensering behövs inte.
 
-You can find designs at [Thingiverse](https://www.thingiverse.com/thing:4138933), an assembly video is also available on [Youtube](https://www.youtube.com/watch?v=TDO9tME8vp4)
+Konstruktioner finns på [Thingiverse](https://www.thingiverse.com/thing:4138933); en monteringsvideo finns också på [Youtube](https://www.youtube.com/watch?v=TDO9tME8vp4).
 
-To use Hall filament width sensor, read [Config Reference](Config_Reference.md#hall_filament_width_sensor) and [G-Code documentation](G-Codes.md#hall_filament_width_sensor).
+Läs [konfigurationsreferensen](Config_Reference.md#hall_filament_width_sensor) och [G-kodsdokumentationen](G-Codes.md#hall_filament_width_sensor) för att använda Hall-sensorn för filamentbredd.
 
-## How does it work?
+## Så fungerar den
 
-Sensor generates two analog output based on calculated filament width. Sum of output voltage always equals to detected filament width. Host module monitors voltage changes and adjusts extrusion multiplier. I use the aux2 connector on a ramps-like board with the analog11 and analog12 pins. You can use different pins and different boards.
+Sensorn genererar två analoga utgångar baserade på den beräknade filamentbredden. Summan av utspänningarna motsvarar alltid den uppmätta filamentbredden. Värdmodulen övervakar spänningsförändringar och justerar extruderingsmultiplikatorn. aux2-kontakten på ett RAMPS-liknande kort med stiften analog11 och analog12 används. Andra stift och kort kan användas.
 
-## Template for menu variables
+## Mall för menyvariabler
 
 ```
 [menu __main __filament __width_current]
@@ -26,38 +26,38 @@ name: Raw: {'%4.0F' % printer.hall_filament_width_sensor.Raw}
 index: 1
 ```
 
-## Calibration procedure
+## Kalibreringsförfarande
 
-To get raw sensor value you can use menu item or **QUERY_RAW_FILAMENT_WIDTH** command in terminal.
+Du kan använda menyalternativet eller kommandot **QUERY_RAW_FILAMENT_WIDTH** i terminalen för att hämta det råa sensorvärdet.
 
-1. Insert first calibration rod (1.5 mm size) get first raw sensor value
-1. Insert second calibration rod (2.0 mm size) get second raw sensor value
-1. Save raw sensor values in config parameter `Raw_dia1` and `Raw_dia2`
+1. Sätt in den första kalibreringsstaven (1,5 mm) och hämta det första råa sensorvärdet
+1. Sätt in den andra kalibreringsstaven (2,0 mm) och hämta det andra råa sensorvärdet
+1. Spara de råa sensorvärdena i konfigurationsparametrarna `Raw_dia1` och `Raw_dia2`
 
-## How to enable sensor
+## Så aktiveras sensorn
 
-By default, the sensor is disabled at power-on.
+Sensorn är som standard inaktiverad vid start.
 
-To enable the sensor, issue **ENABLE_FILAMENT_WIDTH_SENSOR** command or set the `enable` parameter to `true`.
+Aktivera sensorn genom att köra kommandot **ENABLE_FILAMENT_WIDTH_SENSOR** eller ange parametern `enable` till `true`.
 
-## Use as a runout switch only
+## Använd endast som filamentslutssensor
 
-By default, the sensor measures filament diameter and adjusts the extrusion multiplier to compensate for variations.
+Sensorn mäter som standard filamentdiametern och justerar extruderingsmultiplikatorn för att kompensera för variationer.
 
-If you want to use the sensor as a runout switch only, set the `enable_flow_compensation` config parameter to `false`. In this mode, the sensor will only trigger runout events when filament is not detected, it will not modify the extrusion multiplier.
+Om du endast vill använda sensorn som filamentslutssensor anger du konfigurationsparametern `enable_flow_compensation` till `false`. I det läget utlöser sensorn bara händelser om slut på filament när filament inte upptäcks och ändrar inte extruderingsmultiplikatorn.
 
-This is useful for printers where the filament sensor is not accurate enough for flow compensation but can reliably detect filament runout, or when printing with flexible filaments which have unstable diameter characteristics.
+Detta är användbart för skrivare där filamentsensorn inte är tillräckligt exakt för flödeskompensering men pålitligt kan upptäcka att filamentet tar slut, eller vid utskrift med flexibla filament vars diameter varierar.
 
-Issue **ENABLE_FILAMENT_WIDTH_SENSOR FLOW_COMPENSATION=1** to enable flow compensation or **ENABLE_FILAMENT_WIDTH_SENSOR FLOW_COMPENSATION=0** to disable it.
+Kör **ENABLE_FILAMENT_WIDTH_SENSOR FLOW_COMPENSATION=1** för att aktivera flödeskompensering eller **ENABLE_FILAMENT_WIDTH_SENSOR FLOW_COMPENSATION=0** för att inaktivera den.
 
-Note that disabling filament width compensation automatically resets the extrusion multiplier to 100%.
+Observera att inaktivering av kompensation för filamentbredd automatiskt återställer extruderingsmultiplikatorn till 100 %.
 
-**QUERY_FILAMENT_WIDTH** includes the current state of flow compensation in its output.
+**QUERY_FILAMENT_WIDTH** inkluderar flödeskompenseringens aktuella tillstånd i utdata.
 
-## Logging
+## Loggning
 
-By default, diameter logging is disabled at power-on.
+Loggning av diameter är som standard inaktiverad vid start.
 
-Issue **ENABLE_FILAMENT_WIDTH_LOG** command to start logging and issue **DISABLE_FILAMENT_WIDTH_LOG** command to stop logging. To enable logging at power-on, set the `logging` parameter to `true`.
+Kör kommandot **ENABLE_FILAMENT_WIDTH_LOG** för att starta loggning och **DISABLE_FILAMENT_WIDTH_LOG** för att stoppa den. Aktivera loggning vid start genom att ange parametern `logging` till `true`.
 
-Filament diameter is logged on every measurement interval (10 mm by default).
+Filamentdiametern loggas vid varje mätintervall (10 mm som standard).

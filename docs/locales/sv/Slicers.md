@@ -1,72 +1,72 @@
-# Slicers
+# Skivningsprogram
 
-This document provides some tips for configuring a "slicer" application for use with Klipper. Common slicers used with Klipper are Slic3r, Cura, Simplify3D, etc.
+Detta dokument ger några tips om hur ett skivningsprogram konfigureras för användning med Klipper. Vanliga skivningsprogram med Klipper är Slic3r, Cura, Simplify3D med flera.
 
-## Set the G-Code flavor to Marlin
+## Ställ in G-Code-variant på Marlin
 
-Many slicers have an option to configure the "G-Code flavor". The default is frequently "Marlin" and that works well with Klipper. The "Smoothieware" setting also works well with Klipper.
+Många skivningsprogram har ett alternativ för att ställa in G-Code-variant. Standardvärdet är ofta Marlin, och det fungerar bra med Klipper. Inställningen Smoothieware fungerar också bra med Klipper.
 
 ## Klipper gcode_macro
 
-Slicers will often allow one to configure "Start G-Code" and "End G-Code" sequences. It is often convenient to define custom macros in the Klipper config file instead - such as: `[gcode_macro START_PRINT]` and `[gcode_macro END_PRINT]`. Then one can just run START_PRINT and END_PRINT in the slicer's configuration. Defining these actions in the Klipper configuration may make it easier to tweak the printer's start and end steps as changes do not require re-slicing.
+Skivningsprogram låter ofta användaren ställa in sekvenserna Start G-Code och End G-Code. Det är ofta praktiskt att i stället definiera egna makron i Klippers konfigurationsfil, till exempel `[gcode_macro START_PRINT]` och `[gcode_macro END_PRINT]`. Då kan START_PRINT och END_PRINT köras i skivningsprogrammets konfiguration. När åtgärderna definieras i Klippers konfiguration blir det enklare att justera skrivarens start- och slutsteg eftersom ändringar inte kräver ny skivning.
 
-See [sample-macros.cfg](../config/sample-macros.cfg) for example START_PRINT and END_PRINT macros.
+Se [sample-macros.cfg](../config/sample-macros.cfg) för exempel på makron för START_PRINT och END_PRINT.
 
-See the [config reference](Config_Reference.md#gcode_macro) for details on defining a gcode_macro.
+Se [konfigurationsreferensen](Config_Reference.md#gcode_macro) för information om hur en gcode_macro definieras.
 
-## Large retraction settings may require tuning Klipper
+## Stora inställningar för indragning kan kräva justering av Klipper
 
-The maximum speed and acceleration of retraction moves are controlled in Klipper by the `max_extrude_only_velocity` and `max_extrude_only_accel` config settings. These settings have a default value that should work well on many printers. However, if one has configured a large retraction in the slicer (eg, 5mm or greater) then one may find they limit the desired speed of retractions.
+Maxhastighet och maxacceleration för indragningsrörelser styrs i Klipper av konfigurationsinställningarna `max_extrude_only_velocity` och `max_extrude_only_accel`. Inställningarna har standardvärden som bör fungera bra på många skrivare. Om en stor indragning har ställts in i skivningsprogrammet, till exempel 5 mm eller mer, kan de dock begränsa önskad indragningshastighet.
 
-If using a large retraction, consider tuning Klipper's [pressure advance](Pressure_Advance.md) instead. Otherwise, if one finds the toolhead seems to "pause" during retraction and priming, then consider explicitly defining `max_extrude_only_velocity` and `max_extrude_only_accel` in the Klipper config file.
+Om en stor indragning används bör Klippers [tryckutjämning](Pressure_Advance.md) justeras i stället. Om skrivhuvudet verkar pausa under indragning och återmatning kan `max_extrude_only_velocity` och `max_extrude_only_accel` också uttryckligen definieras i Klippers konfigurationsfil.
 
-## Do not enable "coasting"
+## Aktivera inte coasting
 
-The "coasting" feature is likely to result in poor quality prints with Klipper. Consider using Klipper's [pressure advance](Pressure_Advance.md) instead.
+Funktionen coasting ger sannolikt utskrifter av dålig kvalitet med Klipper. Överväg att använda Klippers [tryckutjämning](Pressure_Advance.md) i stället.
 
-Specifically, if the slicer dramatically changes the extrusion rate between moves then Klipper will perform deceleration and acceleration between moves. This is likely to make blobbing worse, not better.
+Om skivningsprogrammet ändrar extruderingshastigheten drastiskt mellan rörelser bromsar och accelererar Klipper mellan rörelserna. Detta gör sannolikt klumpbildning värre, inte bättre.
 
-In contrast, it is okay (and often helpful) to use a slicer's "retract" setting, "wipe" setting, and/or "wipe on retract" setting.
+Däremot går det bra, och är ofta hjälpsamt, att använda skivningsprogrammets inställning retract, wipe och/eller wipe on retract.
 
-## Do not use "extra restart distance" on Simplify3d
+## Använd inte extra restart distance i Simplify3D
 
-This setting can cause dramatic changes to extrusion rates which can trigger Klipper's maximum extrusion cross-section check. Consider using Klipper's [pressure advance](Pressure_Advance.md) or the regular Simplify3d retract setting instead.
+Inställningen kan orsaka kraftiga ändringar av extruderingshastigheten, vilket kan utlösa Klippers kontroll av maximal extruderingstvärsnittsyta. Överväg att använda Klippers [tryckutjämning](Pressure_Advance.md) eller Simplify3D:s vanliga inställning för indragning i stället.
 
-## Disable "PreloadVE" on KISSlicer
+## Inaktivera PreloadVE i KISSlicer
 
-If using KISSlicer slicing software then set "PreloadVE" to zero. Consider using Klipper's [pressure advance](Pressure_Advance.md) instead.
+Om skivningsprogrammet KISSlicer används ska PreloadVE ställas in på noll. Överväg att använda Klippers [tryckutjämning](Pressure_Advance.md) i stället.
 
-## Disable any "advanced extruder pressure" settings
+## Inaktivera alla inställningar för avancerat extrudertryck
 
-Some slicers advertise an "advanced extruder pressure" capability. It is recommended to keep these options disabled when using Klipper as they are likely to result in poor quality prints. Consider using Klipper's [pressure advance](Pressure_Advance.md) instead.
+Vissa skivningsprogram erbjuder en funktion för avancerat extrudertryck. Dessa alternativ bör hållas inaktiverade med Klipper eftersom de sannolikt ger utskrifter av dålig kvalitet. Överväg att använda Klippers [tryckutjämning](Pressure_Advance.md) i stället.
 
-Specifically, these slicer settings can instruct the firmware to make wild changes to the extrusion rate in the hope that the firmware will approximate those requests and the printer will roughly obtain a desirable extruder pressure. Klipper, however, utilizes precise kinematic calculations and timing. When Klipper is commanded to make significant changes to the extrusion rate it will plan out the corresponding changes to velocity, acceleration, and extruder movement - which is not the slicer's intent. The slicer may even command excessive extrusion rates to the point that it triggers Klipper's maximum extrusion cross-section check.
+Dessa inställningar i skivningsprogrammet kan särskilt instruera den fasta programvaran att göra kraftiga ändringar av extruderingshastigheten i hopp om att den ska approximera begäran och skrivaren ungefär ska få önskat extrudertryck. Klipper använder däremot exakta kinematiska beräkningar och tidssättning. När Klipper får ett kommando om betydande ändringar av extruderingshastigheten planerar det motsvarande ändringar av hastighet, acceleration och extruderrörelse, vilket inte är skivningsprogrammets avsikt. Skivningsprogrammet kan till och med beordra så höga extruderingshastigheter att Klippers kontroll av maximal extruderingstvärsnittsyta utlöses.
 
-In contrast, it is okay (and often helpful) to use a slicer's "retract" setting, "wipe" setting, and/or "wipe on retract" setting.
+Däremot går det bra, och är ofta hjälpsamt, att använda skivningsprogrammets inställning retract, wipe och/eller wipe on retract.
 
-## START_PRINT macros
+## Makron för START_PRINT
 
-When using a START_PRINT macro or similar, it is useful to sometimes pass through parameters from the slicer variables to the macro.
+Vid användning av ett START_PRINT-makro eller liknande är det ibland praktiskt att föra vidare parametrar från skivningsprogrammets variabler till makrot.
 
-In Cura, to pass through temperatures, the following start gcode would be used:
+I Cura används följande start-gcode för att föra vidare temperaturer:
 
 ```
 START_PRINT BED_TEMP={material_bed_temperature_layer_0} EXTRUDER_TEMP={material_print_temperature_layer_0}
 ```
 
-In slic3r derivatives such as PrusaSlicer and SuperSlicer, the following would be used:
+I Slic3r-derivat som PrusaSlicer och SuperSlicer används följande:
 
 ```
 START_PRINT EXTRUDER_TEMP=[first_layer_temperature] BED_TEMP=[first_layer_bed_temperature]
 ```
 
-Also note that these slicers will insert their own heating codes when certain conditions are not met. In Cura, the existence of the `{material_bed_temperature_layer_0}` and `{material_print_temperature_layer_0}` variables is enough to mitigate this. In slic3r derivatives, you would use:
+Observera även att dessa skivningsprogram lägger in egna värmekoder när vissa villkor inte är uppfyllda. I Cura räcker förekomsten av variablerna `{material_bed_temperature_layer_0}` och `{material_print_temperature_layer_0}` för att motverka detta. I Slic3r-derivat används följande:
 
 ```
 M140 S0
 M104 S0
 ```
 
-before the macro call. Also note that SuperSlicer has a "custom gcode only" button option, which achieves the same outcome.
+före makroanropet. Observera även att SuperSlicer har ett knappläge för custom gcode only, vilket ger samma resultat.
 
-An example of a START_PRINT macro using these parameters can be found in config/sample-macros.cfg
+Ett exempel på ett START_PRINT-makro som använder parametrarna finns i config/sample-macros.cfg

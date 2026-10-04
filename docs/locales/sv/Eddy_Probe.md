@@ -1,108 +1,108 @@
-# Eddy Current Inductive probe
+# Induktiv Eddy-strömsprob
 
-This document describes the support for [eddy current](https://en.wikipedia.org/wiki/Eddy_current) inductive probes in Klipper.
+Det här dokumentet beskriver Klippers stöd för induktiva [Eddy-strömsprober](https://en.wikipedia.org/wiki/Eddy_current).
 
-These probes detect the bed by measuring the [resonant frequency](https://en.wikipedia.org/wiki/Resonance) of a coil within the sensor. The closer that coil is to a metal bed the higher the coil's resonant frequency. The frequency measurements can thus be used to estimate the distance between sensor and bed.
+Proberna detekterar bädden genom att mäta den [resonanta frekvensen](https://en.wikipedia.org/wiki/Resonance) hos en spole i sensorn. Ju närmare spolen är en metallbädd, desto högre blir spolens resonanta frekvens. Frekvensmätningarna kan därför användas för att uppskatta avståndet mellan sensor och bädd.
 
-## Probing mechanisms
+## Sonderingsmetoder
 
-Unlike traditional bed probes an eddy current sensor supports four different methods of probing: default, "scan", "rapid_scan", and "tap". The different probing methods are activated by passing a `METHOD=xxx` parameter to probe commands (for example, `PROBE METHOD=tap`). Each probing method has advantages and disadvantages as described below.
+Till skillnad från traditionella bäddprober stöder en Eddy-strömssensor fyra olika sonderingsmetoder: standard, "scan", "rapid_scan" och "tap". Metoderna aktiveras genom att skicka parametern `METHOD=xxx` till sonderingskommandon (till exempel `PROBE METHOD=tap`). Varje metod har de fördelar och nackdelar som beskrivs nedan.
 
-### Default probing method
+### Standardmetod för sondering
 
-The default probing method behaves most like a traditional bed probe. The toolhead descends toward the bed until the sensor detects that it is near the bed and then several sensor measurements are taken at the halted position to estimate the distance between sensor and bed. This probing mechanism is activated by not specifying a `METHOD` parameter on probe type commands (eg, a bare `PROBE` command).
+Standardmetoden för sondering fungerar mest som en traditionell bäddprob. Verktygshuvudet sänks mot bädden tills sensorn upptäcker att den är nära bädden. Därefter tas flera sensormätningar i det stoppade läget för att uppskatta avståndet mellan sensor och bädd. Mekanismen aktiveras genom att inte ange parametern `METHOD` i sonderingskommandon (till exempel ett ensamt `PROBE`-kommando).
 
-Advantages:
+Fördelar:
 
-* It is the most general purpose probing method. It provides good precision with good flexibility.
-* Can be used in many starting toolhead positions. It is necessary to ensure that the toolhead XY position places the sensor over the metal bed, but otherwise there is flexibility in the exact starting height.
+* Detta är den mest allmänna sonderingsmetoden. Den ger god precision och god flexibilitet.
+* Den kan användas från många startpositioner för verktygshuvudet. Kontrollera att verktygshuvudets XY-position placerar sensorn över metallbädden, men i övrigt kan den exakta starthöjden väljas fritt.
 
-Disadvantages:
+Nackdelar:
 
-* The probe results are subject to thermal drift. Distances reported by the probe correlate to distances measured during initial calibration (via `PROBE_EDDY_CURRENT_CALIBRATE`) and the results may be impacted if probing is run at a different temperature. Changes to the temperature of the bed, sensor coil, sensor electronics, or any metal near the sensor can all impact the results. The impact is small (think microns), but the acceptable precision for a bed probe is also small (again think microns). For best results, it is recommended to run the calibration and subsequent probes at a consistent temperature.
+* Probresultaten påverkas av termisk drift. Avstånden som proben rapporterar motsvarar avstånd som mättes under den första kalibreringen (med `PROBE_EDDY_CURRENT_CALIBRATE`) och resultatet kan påverkas om sonderingen görs vid en annan temperatur. Förändringar i temperaturen hos bädden, sensorns spole, sensorelektroniken eller metall nära sensorn kan alla påverka resultatet. Effekten är liten (mikrometer), men den godtagbara precisionen för en bäddprob är också liten (återigen mikrometer). För bästa resultat bör kalibreringen och efterföljande sonderingar göras vid en jämn temperatur.
 
-When to use:
+När den bör användas:
 
-This is the default probing method, and it is recommended for most probing actions. In particular, it is the recommended probe type for bed alignment tools such as `QUAD_GANTRY_LEVEL`, `Z_TILT_ADJUST`, `SCREWS_TILT_CALCULATE`, `DELTA_CALIBRATE`, and similar.
+Detta är standardmetoden för sondering och rekommenderas för de flesta sonderingsåtgärder. Den rekommenderas särskilt för bäddjusteringsverktyg som `QUAD_GANTRY_LEVEL`, `Z_TILT_ADJUST`, `SCREWS_TILT_CALCULATE`, `DELTA_CALIBRATE` och liknande.
 
-### "scan" probing method
+### Sonderingsmetoden "scan"
 
-The "scan" probing method is similar to the default method, except the probe does not descend towards the bed. Instead, the probe gathers sensor measurements at the current Z position to estimate the distance between sensor and bed. It is useful for `BED_MESH_CALIBRATE` as the entire bed can be scanned with only horizontal movements.
+Sonderingsmetoden "scan" liknar standardmetoden, men proben sänks inte mot bädden. I stället samlar proben sensormätningar vid den aktuella Z-positionen för att uppskatta avståndet mellan sensor och bädd. Den är användbar för `BED_MESH_CALIBRATE`, eftersom hela bädden kan avsökas med enbart horisontella rörelser.
 
-Advantages:
+Fördelar:
 
-* The Z position does not change during probing and there is less chance for Z stepper backlash (and similar) to impact measurements. This can be particularly useful when only relative Z height measurements are desired (eg, when using `zero_reference_position` with `BED_MESH_CALIBRATE`).
-* A full bed scan may take less time than the default method.
+* Z-positionen ändras inte under sonderingen, och risken är mindre att glapp i Z-stegmotorn (och liknande) påverkar mätningarna. Detta kan vara särskilt användbart när endast relativa Z-höjdmätningar önskas (till exempel med `zero_reference_position` tillsammans med `BED_MESH_CALIBRATE`).
+* En fullständig bäddavsökning kan gå snabbare än standardmetoden.
 
-Disadvantages:
+Nackdelar:
 
-* The bed must be nearly parallel to the printer XY rails and there must not be any large deviations in bed height. For acceptable results the bed scanning must be run with a low `HORIZONTAL_MOVE_Z` so that the sensor remains close to the bed during the entire bed scan. (The smaller the distance the more accurate the results.) In practice, this requires that the distance between nozzle and bed be no more than about a millimeter, and at these distances any notable bed deviations could result in a nozzle/bed collision during horizontal movement.
-* The "scan" method has the same thermal drift disadvantages described for the default method. For best results, it is recommended to run the calibration and subsequent probes at a consistent temperature.
+* Bädden måste vara nästan parallell med skrivarens XY-skenor och det får inte finnas några stora avvikelser i bäddhöjden. För godtagbara resultat måste bäddavsökningen köras med lågt `HORIZONTAL_MOVE_Z`, så att sensorn förblir nära bädden under hela avsökningen. (Ju mindre avstånd, desto noggrannare resultat.) I praktiken får avståndet mellan munstycke och bädd inte vara mer än ungefär en millimeter. Vid dessa avstånd kan märkbara bäddavvikelser orsaka en kollision mellan munstycke och bädd under horisontell rörelse.
+* Metoden "scan" har samma nackdelar med termisk drift som beskrivs för standardmetoden. För bästa resultat bör kalibreringen och efterföljande sonderingar göras vid en jämn temperatur.
 
-When to use:
+När den bör användas:
 
-The "scan" method is typically used during bed mesh calibration. It is recommended to always verify the bed is parallel to the printer XY rails prior to performing a bed scan. Depending on the printer hardware, one may use an automated tool utilizing the default probing method to verify the bed is parallel - for example: `QUAD_GANTRY_LEVEL RETRY_TOLERANCE=0.250`, `Z_TILT_ADJUST RETRY_TOLERANCE=0.250`, or `SCREWS_TILT_CALCULATION MAX_TOLERANCE=0.250`.
+Metoden "scan" används vanligtvis vid kalibrering av bäddnät. Kontrollera alltid att bädden är parallell med skrivarens XY-skenor före en bäddavsökning. Beroende på skrivarens maskinvara kan ett automatiserat verktyg som använder standardmetoden kontrollera parallelliteten, till exempel: `QUAD_GANTRY_LEVEL RETRY_TOLERANCE=0.250`, `Z_TILT_ADJUST RETRY_TOLERANCE=0.250` eller `SCREWS_TILT_CALCULATION MAX_TOLERANCE=0.250`.
 
-A bed mesh can then be run with something similar to `BED_MESH_CALIBRATE METHOD=scan HORIZONTAL_MOVE_Z=1`.
+Ett bäddnät kan sedan köras med exempelvis `BED_MESH_CALIBRATE METHOD=scan HORIZONTAL_MOVE_Z=1`.
 
-### "rapid_scan" probing method
+### Sonderingsmetoden "rapid_scan"
 
-The "rapid_scan" probing method is very similar to the "scan" method, except the probe does not pause at each point to be measured. Instead, measurements taken during horizontal movement near each probing point are used to estimate the distance between sensor and bed.
+Sonderingsmetoden "rapid_scan" liknar metoden "scan", men proben stannar inte vid varje mätpunkt. I stället används mätningar under den horisontella rörelsen nära varje sonderingspunkt för att uppskatta avståndet mellan sensor och bädd.
 
-Advantages:
+Fördelar:
 
-* A "rapid_scan" full bed scan may be slightly faster than the "scan" method.
-* Otherwise, it has the same advantages as the "scan" method.
+* En fullständig bäddavsökning med "rapid_scan" kan vara något snabbare än metoden "scan".
+* I övrigt har den samma fördelar som metoden "scan".
 
-Disadvantages:
+Nackdelar:
 
-* The results of a "rapid_scan" may be less accurate than the "scan" method.
-* Same disadvantages as "scan" probes (bed must be parallel and thermal drift).
+* Resultaten från "rapid_scan" kan vara mindre exakta än från metoden "scan".
+* Samma nackdelar som prober med "scan" (bädden måste vara parallell och termisk drift förekommer).
 
-When to use:
+När den bör användas:
 
-A "rapid_scan" may be useful when performing a large detailed bed mesh scan for diagnostic purposes. In this situation, the reduced scanning time may outweigh the possible loss of accuracy.
+"rapid_scan" kan vara användbar vid en stor, detaljerad bäddnätsavsökning för diagnostik. I den situationen kan den kortare avsökningstiden väga upp den möjliga försämringen av noggrannheten.
 
-For normal printing, a bed mesh using the regular "scan" method is generally preferred for best accuracy and minimal additional probing time.
+För normal utskrift föredras i allmänhet ett bäddnät med den vanliga metoden "scan", för bästa noggrannhet och kortast extra sonderingstid.
 
-Once the bed is verified to be parallel to the XY rails then one can run a rapid bed mesh scan with something similar to `BED_MESH_CALIBRATE METHOD=rapid_scan HORIZONTAL_MOVE_Z=1`.
+När bädden har kontrollerats vara parallell med XY-skenorna kan en snabb bäddnätsavsökning köras med exempelvis `BED_MESH_CALIBRATE METHOD=rapid_scan HORIZONTAL_MOVE_Z=1`.
 
-### "tap" probing method
+### Sonderingsmetoden "tap"
 
-During "tap" probing, the toolhead descends until the nozzle makes contact with the bed, the nozzle is then lifted away from the bed, and sensor measurements during the lifting movement are analyzed to determine the location where the nozzle breaks contact with the bed.
+Vid "tap"-sondering sänks verktygshuvudet tills munstycket får kontakt med bädden. Munstycket lyfts sedan från bädden och sensormätningar under lyftrörelsen analyseras för att bestämma den punkt där munstycket lämnar kontakten med bädden.
 
-Advantages:
+Fördelar:
 
-* The probe results are determined by the actual point of contact between nozzle and bed instead of indirect measurements between sensor and bed. This can be particularly useful if one changes nozzles frequently, as the results will take into account the geometry of the current nozzle.
-* A "tap" probe does not have the thermal drift issues associated with the other probing methods. The main probe calibration is not utilized during tap probes, and thus one does not need to track temperatures between initial calibration and subsequent probing.
-* Axis "twist" inaccuracies are less of an issue during tap probes as there is no XY probe offset to compensate for. However, one must still ensure the toolhead XY position places both the nozzle and sensor above the bed prior to tap probing.
+* Probresultaten bestäms av den faktiska kontaktpunkten mellan munstycke och bädd, i stället för indirekta mätningar mellan sensor och bädd. Det kan vara särskilt användbart om munstycken byts ofta, eftersom resultatet då tar hänsyn till det aktuella munstyckets geometri.
+* En "tap"-prob har inte problemen med termisk drift som hör till de andra sonderingsmetoderna. Huvudkalibreringen används inte vid tap-sondering, och temperaturer behöver därför inte följas mellan första kalibreringen och efterföljande sondering.
+* Axelns "twist"-fel är mindre problematiska vid tap-sondering, eftersom ingen XY-förskjutning för proben behöver kompenseras. Kontrollera ändå att verktygshuvudets XY-position placerar både munstycket och sensorn över bädden före tap-sondering.
 
-Disadvantages:
+Nackdelar:
 
-* One must ensure both the nozzle and bed are clean prior to tap probing. Any filament on the nozzle or debris on the bed may significantly skew the probe results.
-* One must ensure that the nozzle is around 3-20mm away from the bed prior to starting each "tap" probe attempt. If the nozzle starts too close to the bed then contact may not be detected which could result in an uncontrolled nozzle/bed crash. If the nozzle starts very far from the bed then sensor measurements are not accurate and a tap attempt may fail or provide inaccurate results.
-* The printer hardware must allow the nozzle to fully make contact with the bed. There must not be any limit switches or carriage stops that make contact prior to the nozzle contacting the bed.
-* One must ensure that the nozzle temperature is not too high for the bed. A too high temperature could melt the PEI coatings on some beds, for example.
+* Kontrollera att både munstycket och bädden är rena före tap-sondering. Filament på munstycket eller smuts på bädden kan kraftigt snedvrida probresultaten.
+* Kontrollera att munstycket är ungefär 3–20 mm från bädden innan varje "tap"-sonderingsförsök. Om munstycket börjar för nära bädden kan kontakt missas, vilket kan orsaka en okontrollerad krasch mellan munstycke och bädd. Om munstycket börjar mycket långt från bädden blir sensormätningarna inte exakta och försöket kan misslyckas eller ge felaktigt resultat.
+* Skrivarens maskinvara måste låta munstycket få full kontakt med bädden. Det får inte finnas ändlägesbrytare eller vagnstopp som får kontakt innan munstycket når bädden.
+* Kontrollera att munstyckets temperatur inte är för hög för bädden. En för hög temperatur kan till exempel smälta PEI-beläggningen på vissa bäddar.
 
-When to use:
+När den bör användas:
 
-A "tap" probe is often used as one step during a multi-step homing/leveling process to account for the current nozzle geometry and to reduce errors associated with thermal drift. For example, one might deploy a macro that homes, calls `Z_TILT_ADJUST` with default probe method, heats the printer to an intermediate temperature, cleans the nozzle by repeatedly wiping it over a brush, performs a "tap" probe, uses `SET_KINEMATIC_POSITION` with the tap results, runs `BED_MESH_CALIBRATE` while utilizing a `zero_reference_position`, and then brings the printer to normal printing temperature. The actual steps to utilize a "tap" probe depend heavily on the specific printer hardware.
+En "tap"-prob används ofta som ett steg i en flerstegsprocess för hemställning/nivellering, för att ta hänsyn till munstyckets aktuella geometri och minska fel från termisk drift. En makro kan exempelvis hemställa, köra `Z_TILT_ADJUST` med standardsondering, värma skrivaren till en mellanliggande temperatur, rengöra munstycket genom att upprepade gånger torka av det mot en borste, utföra en "tap"-sondering, använda `SET_KINEMATIC_POSITION` med resultatet, köra `BED_MESH_CALIBRATE` med `zero_reference_position` och därefter värma skrivaren till normal utskriftstemperatur. De faktiska stegen beror i hög grad på den specifika skrivarens maskinvara.
 
-A "tap" probe may be initiated with something like `PROBE METHOD=tap`.
+En "tap"-sondering kan startas med exempelvis `PROBE METHOD=tap`.
 
-## Configuration
+## Konfiguration
 
-To configure an eddy current probe, start by declaring a [probe_eddy_current config section](Config_Reference.md#probe_eddy_current) in the printer.cfg file. It is recommended to set `descend_z` to 0.5mm. It is typical for the sensor to require an `x_offset` and `y_offset`. If these values are not known, one should estimate the values during initial calibration.
+För att konfigurera en Eddy-strömsprob börjar du med att ange ett [konfigurationsavsnitt för probe_eddy_current](Config_Reference.md#probe_eddy_current) i filen printer.cfg. Vi rekommenderar `descend_z` satt till 0,5 mm. Sensorn behöver vanligtvis `x_offset` och `y_offset`. Om värdena inte är kända bör de uppskattas under den första kalibreringen.
 
-Then restart the printer and proceed to the following calibration steps.
+Starta sedan om skrivaren och fortsätt med följande kalibreringssteg.
 
-### Calibrating drive current
+### Kalibrering av drivström
 
-The first step in calibration is to determine the appropriate DRIVE_CURRENT for the sensor. Home the printer and navigate the toolhead so that the sensor is near the center of the bed and is about 20mm above the bed. Then issue an `LDC_CALIBRATE_DRIVE_CURRENT CHIP=<config_name>` command. For example, if the config section was named `[probe_eddy_current my_eddy_probe]` then one would run `LDC_CALIBRATE_DRIVE_CURRENT CHIP=my_eddy_probe`. This command should complete in a few seconds. After it completes, issue a `SAVE_CONFIG` command to save the results to the printer.cfg and restart.
+Det första steget i kalibreringen är att fastställa lämpligt DRIVE_CURRENT för sensorn. Hemställ skrivaren och flytta verktygshuvudet så att sensorn är nära bäddens mitt och ungefär 20 mm ovanför bädden. Kör sedan kommandot `LDC_CALIBRATE_DRIVE_CURRENT CHIP=<config_name>`. Om konfigurationsavsnittet till exempel heter `[probe_eddy_current my_eddy_probe]` kör du `LDC_CALIBRATE_DRIVE_CURRENT CHIP=my_eddy_probe`. Kommandot bör bli klart inom några sekunder. Kör därefter `SAVE_CONFIG` för att spara resultatet i printer.cfg och starta om.
 
-### Calibrating Z heights
+### Kalibrering av Z-höjder
 
-The second step in calibration is to correlate the sensor readings to the corresponding Z heights. Home the printer and navigate the toolhead so that the nozzle is near the center of the bed. Then run a `PROBE_EDDY_CURRENT_CALIBRATE CHIP=my_eddy_probe` command. Once the tool starts, follow the steps described at ["the paper test"](Bed_Level.md#the-paper-test) to determine the actual distance between the nozzle and bed at the given location. Once those steps are complete one can `ACCEPT` the position. The tool will then move the toolhead so that the sensor is above the point where the nozzle used to be and run a series of movements to correlate the sensor to Z positions. This will take a couple of minutes. After the tool completes it will output the sensor performance data:
+Det andra kalibreringssteget är att koppla ihop sensoravläsningarna med motsvarande Z-höjder. Hemställ skrivaren och flytta verktygshuvudet så att munstycket är nära bäddens mitt. Kör sedan kommandot `PROBE_EDDY_CURRENT_CALIBRATE CHIP=my_eddy_probe`. När verktyget startar följer du stegen i ["papperstestet"](Bed_Level.md#the-paper-test) för att bestämma det faktiska avståndet mellan munstycke och bädd på platsen. När stegen är klara kan positionen godtas med `ACCEPT`. Verktyget flyttar sedan verktygshuvudet så att sensorn hamnar ovanför punkten där munstycket stod och kör en serie rörelser för att koppla sensorn till Z-positioner. Detta tar några minuter. När verktyget är klart skrivs data om sensorns prestanda ut:
 
 ```
 probe_eddy_current: noise 0.000642mm, MAD_Hz=11.314 in 2525 queries
@@ -114,54 +114,54 @@ z: 2.010 # noise 0.000600mm, MAD_Hz=12.000
 z: 3.010 # noise 0.000700mm, MAD_Hz=9.000
 ```
 
-issue a `SAVE_CONFIG` command to save the results to the printer.cfg and restart.
+Kör `SAVE_CONFIG` för att spara resultatet i printer.cfg och starta om.
 
-After initial calibration it is a good idea to verify that the `x_offset` and `y_offset` are accurate. Follow the steps to [calibrate probe x and y offsets](Probe_Calibrate.md#calibrating-probe-x-and-y-offsets). If either the `x_offset` or `y_offset` is modified then be sure to run the `PROBE_EDDY_CURRENT_CALIBRATE` command (as described above) after making the change.
+Efter den första kalibreringen är det lämpligt att kontrollera att `x_offset` och `y_offset` är korrekta. Följ anvisningarna för att [kalibrera probens X- och Y-förskjutningar](Probe_Calibrate.md#calibrating-probe-x-and-y-offsets). Om `x_offset` eller `y_offset` ändras måste du köra kommandot `PROBE_EDDY_CURRENT_CALIBRATE` (enligt beskrivningen ovan) efter ändringen.
 
-Note that eddy current sensors are susceptible to "thermal drift". That is, changes in temperature can result in changes in reported Z height. Changes in either the bed surface temperature or sensor hardware temperature can alter the results. Therefore, for best results the calibration done here and the subsequent probing that utilizes that calibration should be done at the same temperature.
+Observera att Eddy-strömssensorer är känsliga för "termisk drift". Temperaturförändringar kan alltså ändra den rapporterade Z-höjden. Ändringar i temperaturen på antingen bäddytan eller sensorns maskinvara kan ändra resultatet. För bästa resultat ska kalibreringen här och den efterföljande sonderingen som använder kalibreringen göras vid samma temperatur.
 
-### Tap calibration
+### Tap-kalibrering
 
-In order to utilize "tap" probing it is necessary to configure some parameters.
+För att använda "tap"-sondering måste vissa parametrar konfigureras.
 
-It must be possible to command the toolhead below the nominal plane of the bed. This is typically done by setting `position_min: -1` in the `[stepper_z]` config section of the printer.cfg (or similar setting, such as `minimum_z_position`, depending on the kinematics). This is necessary to ensure the nozzle can be commanded to firmly contact the bed. This is also to ensure the nozzle makes contact with the bed before it would otherwise be commanded to start deceleration.
+Det måste gå att kommendera verktygshuvudet under bäddens nominella plan. Det görs normalt genom att ange `position_min: -1` i konfigurationsavsnittet `[stepper_z]` i printer.cfg (eller en liknande inställning, exempelvis `minimum_z_position`, beroende på kinematiken). Detta krävs för att munstycket ska kunna kommenderas att få fast kontakt med bädden och för att munstycket ska nå bädden innan rörelsen annars skulle börja bromsa.
 
-It is also necessary to configure a `tap_threshold` parameter. This parameter determines when downward toolhead movement during a "tap" probe should be halted. A value too large could result in a nozzle/bed contact not detected, which could result in the nozzle crashing uncontrollably into the bed. A value too small could result in a "tap" probe attempt halting before making contact with the bed, which could result in probing errors or inaccurate probe results.
+Parametern `tap_threshold` måste också konfigureras. Den avgör när nedåtgående rörelse av verktygshuvudet under en "tap"-sondering ska stoppas. Ett för stort värde kan göra att kontakt mellan munstycke och bädd inte upptäcks, vilket kan få munstycket att okontrollerat krascha in i bädden. Ett för litet värde kan i stället stoppa försöket innan munstycket rör bädden och ge sonderingsfel eller felaktiga resultat.
 
-The `PROBE_EDDY_CURRENT_TAP_CALIBRATE` command can be used to configure an appropriate `tap_threshold` value. This tool may be run after completing the main `PROBE_EDDY_CURRENT_CALIBRATE` calibration. Follow these steps to calibrate `tap_threshold`:
+Kommandot `PROBE_EDDY_CURRENT_TAP_CALIBRATE` kan användas för att konfigurera ett lämpligt värde för `tap_threshold`. Verktyget kan köras efter huvudkalibreringen `PROBE_EDDY_CURRENT_CALIBRATE`. Följ dessa steg för att kalibrera `tap_threshold`:
 
-1. Verify that both the nozzle and bed are clean. Enable the printer, home the printer, move the toolhead to a position near the center of the bed, and make sure the nozzle is between 3 - 10 millimeters from the bed.
-1. The next step involves commanding the nozzle to make contact with the bed. This process always has some risks, so be prepared to issue an emergency halt (`M112`) if the probing descent does not stop after contacting the bed. When ready issue the following command: `PROBE_EDDY_CURRENT_TAP_CALIBRATE TAP=guess` This command analyzes the data found during the main probe calibration to make an initial coarse guess for the tap_threshold value and it then performs the corresponding "tap" probe. Ideally the above command will cause the probe to descend until it hits the bed, lift away from the bed, and then report a valid probe result. If not, see the paragraphs at the end of this section to troubleshoot. If the attempt was successful then continue to the next step.
-1. The next step is to run another tap probe with a "refined" threshold setting. The tool utilizes information gathered during a previous successful tap probe to determine this improved threshold. Make sure that the nozzle is near the center of the bed, that it is between 3 - 10mm above the bed, be ready to issue an emergency halt, and then run the following command: `PROBE_EDDY_CURRENT_TAP_CALIBRATE TAP=refine` Ideally this command will also succeed; if not, see the paragraphs at the end of this section to troubleshoot. If the attempt was successful then continue to the next step.
-1. If probing with the refined threshold is successful then the next test is to verify that it is stable over multiple probe attempts. Make sure that the nozzle is near the center of the bed, that it is between 3 - 10mm above the bed, be ready to issue an emergency halt, and then run the following command: `PROBE_EDDY_CURRENT_TAP_CALIBRATE TAP=verify` This command will probe the bed five times in a row. Ideally the above command will also succeed; if not, see the paragraphs at the end of this section to troubleshoot. If the attempt was successful then continue to the next step.
-1. If all of the above steps are successful then one can issue a `SAVE_CONFIG` command to save the "tap_threshold" parameter to the printer.cfg file. Calibration should now be complete.
+1. Kontrollera att både munstycket och bädden är rena. Aktivera och hemställ skrivaren, flytta verktygshuvudet till en position nära bäddens mitt och kontrollera att munstycket är 3–10 millimeter från bädden.
+1. Nästa steg innebär att munstycket kommenderas att få kontakt med bädden. Processen innebär alltid viss risk, så var beredd att göra ett nödstopp (`M112`) om nedstigningen inte stannar efter kontakt med bädden. Kör när du är redo: `PROBE_EDDY_CURRENT_TAP_CALIBRATE TAP=guess`. Kommandot analyserar data från huvudkalibreringen för att göra en första grov uppskattning av `tap_threshold` och utför sedan motsvarande "tap"-sondering. Helst sänks proben tills den träffar bädden, lyfts från bädden och rapporterar ett giltigt sonderingsresultat. Se styckena i slutet av avsnittet om felsökning om detta inte lyckas. Om försöket lyckas fortsätter du till nästa steg.
+1. Nästa steg är att köra ytterligare en tap-sondering med ett "förfinat" tröskelvärde. Verktyget använder information från en tidigare lyckad tap-sondering för att fastställa det förbättrade värdet. Kontrollera att munstycket är nära bäddens mitt och 3–10 mm ovanför bädden, var beredd att göra ett nödstopp och kör sedan `PROBE_EDDY_CURRENT_TAP_CALIBRATE TAP=refine`. Även detta kommando bör lyckas; se styckena i slutet av avsnittet om felsökning om det inte gör det. Fortsätt annars till nästa steg.
+1. Om sonderingen med förfinat tröskelvärde lyckas ska nästa test kontrollera att det är stabilt vid flera sonderingsförsök. Kontrollera att munstycket är nära bäddens mitt och 3–10 mm ovanför bädden, var beredd att göra ett nödstopp och kör sedan `PROBE_EDDY_CURRENT_TAP_CALIBRATE TAP=verify`. Kommandot sonderar bädden fem gånger i följd. Kommandot bör lyckas; se styckena i slutet av avsnittet om felsökning om det inte gör det. Fortsätt annars till nästa steg.
+1. Om samtliga steg ovan lyckas kan `SAVE_CONFIG` köras för att spara parametern "tap_threshold" i printer.cfg. Kalibreringen bör nu vara klar.
 
-If any of the steps above did not succeed then it may be necessary to troubleshoot and manually determine an appropriate `tap_threshold`. This is done by running commands of the form: `PROBE METHOD=tap TAP_THRESHOLD=<value>` Where `<value>` is a threshold to test.
+Om något av stegen ovan inte lyckades kan det vara nödvändigt att felsöka och fastställa ett lämpligt `tap_threshold` manuellt. Det görs genom att köra kommandon av formen `PROBE METHOD=tap TAP_THRESHOLD=<value>`, där `<value>` är ett tröskelvärde som ska testas.
 
-In general, if a probe attempt halts before making contact with the bed, then this indicates that the provided `TAP_THRESHOLD` parameter is too low. Try increasing it by about 10% and retry. Similarly, if a probe attempt does not halt after making contact with the bed then it indicates that `TAP_THRESHOLD` is too high. Consider decreasing the attempted value in half.
+Om ett sonderingsförsök i allmänhet stannar innan kontakt med bädden betyder det att angivna `TAP_THRESHOLD` är för låg. Öka den med ungefär 10 % och försök igen. Om försöket däremot inte stannar efter kontakt med bädden är `TAP_THRESHOLD` för hög. Överväg att halvera värdet.
 
-If the automated calibration tool failed during the initial "guess" stage, then one can use the tap_threshold value reported by the tool as a starting point for manual attempts. Once a successful probe attempt is completed then one can return to the main steps described above starting at the "refine" stage.
+Om det automatiska kalibreringsverktyget misslyckades i det första steget "guess" kan det `tap_threshold`-värde som verktyget rapporterar användas som startpunkt för manuella försök. När ett sonderingsförsök har lyckats kan huvudstegen ovan återupptas vid steget "refine".
 
-### Performing initial calibration when homing with probe
+### Utföra första kalibrering vid hemställning med prob
 
-It is possible to use an eddy current probe to home a Z axis. To use this process, set the `[stepper_z]` config section `endstop_pin` to `probe:z_virtual_endstop`.
+Det går att använda en Eddy-strömsprob för att hemställa en Z-axel. För att använda detta anger du `endstop_pin` i konfigurationsavsnittet `[stepper_z]` som `probe:z_virtual_endstop`.
 
-In order to home with an eddy probe it is necessary to first calibrate the probe via the `PROBE_EDDY_CURRENT_CALIBRATE` command. However, that command requires that the printer be homed first.
+För att hemställa med en Eddy-prob måste proben först kalibreras med kommandot `PROBE_EDDY_CURRENT_CALIBRATE`. Det kommandot kräver dock att skrivaren först har hemställts.
 
-The following steps may be used to avoid this circular dependency for the very first calibration:
+Följande steg kan användas för att undvika detta cirkelberoende vid den första kalibreringen:
 
-1. Define a `[probe_eddy_current]` config section in the printer.cfg file as described in the [configuration section](#configuration).
-1. Make sure a [force move](Config_Reference.md#force_move) section is defined and ensure its `enable_force_move` option is present and set to true.
-1. Manually adjust the carriages so that the toolhead is near the center of the bed and roughly 20mm away from the bed. Issue `LDC_CALIBRATE_DRIVE_CURRENT CHIP=<config_name>` and `SAVE_CONFIG` commands as described in the [calibrating drive current section](#calibrating-drive-current).
-1. Manually move the toolhead so that it is roughly 20mm away from the bed and home the printer's X and Y axes. This is typically done with a `G28 X0 Y0` command. Command the toolhead X and Y position so that the toolhead is roughly over the center of the bed. This is typically done with a command like `G1 X50 Y50` (using appropriate XY values for the printer).
-1. Manually adjust the bed so that it is mostly flat relative to the toolhead XY carriages (if necessary). Manually adjust the Z carriage so that the nozzle is roughly 20mm from the bed and issue a `SET_STEPPER_ENABLE STEPPER=stepper_z` command. Issue a `SET_KINEMATIC_POSITION Z=25` command followed by a `PROBE_EDDY_CURRENT_CALIBRATE CHIP=my_eddy_probe` command. Important - after issuing these commands the printer will be able to move in the Z direction, but it does not know the actual Z position. Care must be taken to avoid movement requests that may cause the toolhead to descend into the bed.
-1. Complete the eddy probe calibration as described in the [calibrating z heights section](#calibrating-z-heights). Issue a `SAVE_CONFIG` command upon completion.
+1. Definiera ett konfigurationsavsnitt `[probe_eddy_current]` i printer.cfg enligt [konfigurationsavsnittet](#configuration).
+1. Kontrollera att ett avsnitt för [tvingad rörelse](Config_Reference.md#force_move) är definierat och att alternativet `enable_force_move` finns och är satt till true.
+1. Justera manuellt vagnarna så att verktygshuvudet är nära bäddens mitt och ungefär 20 mm från bädden. Kör kommandona `LDC_CALIBRATE_DRIVE_CURRENT CHIP=<config_name>` och `SAVE_CONFIG` enligt [avsnittet om kalibrering av drivström](#calibrating-drive-current).
+1. Flytta manuellt verktygshuvudet till ungefär 20 mm från bädden och hemställ skrivarens X- och Y-axel. Det görs normalt med `G28 X0 Y0`. Kommendera sedan verktygshuvudets X- och Y-position så att det hamnar ungefär över bäddens mitt, vanligen med ett kommando som `G1 X50 Y50` (med XY-värden som passar skrivaren).
+1. Justera manuellt bädden så att den är i huvudsak plan i förhållande till verktygshuvudets XY-vagnar (vid behov). Justera Z-vagnen manuellt så att munstycket är ungefär 20 mm från bädden och kör `SET_STEPPER_ENABLE STEPPER=stepper_z`. Kör sedan `SET_KINEMATIC_POSITION Z=25`, följt av `PROBE_EDDY_CURRENT_CALIBRATE CHIP=my_eddy_probe`. Viktigt: efter dessa kommandon kan skrivaren röra sig i Z-led, men den känner inte till den faktiska Z-positionen. Undvik rörelsekommandon som kan få verktygshuvudet att sänkas ned i bädden.
+1. Slutför Eddy-probkalibreringen enligt [avsnittet om kalibrering av Z-höjder](#calibrating-z-heights). Kör `SAVE_CONFIG` när den är klar.
 
-These steps are only needed to obtain an initial configuration. If one needs to rerun `PROBE_EDDY_CURRENT_CALIBRATE` in the future then the normal mechanism should be possible once this initial configuration is available.
+Dessa steg behövs endast för den första konfigurationen. Om `PROBE_EDDY_CURRENT_CALIBRATE` behöver köras på nytt i framtiden bör den vanliga mekanismen fungera när den första konfigurationen finns på plats.
 
-## Thermal Drift Calibration
+## Kalibrering av termisk drift
 
-As with all inductive probes, eddy current probes are subject to significant thermal drift. If the eddy probe has a temperature sensor on the coil it is possible to configure a `[temperature_probe]` to report coil temperature and enable software drift compensation. To link a temperature probe to an eddy current probe the `[temperature_probe]` section must share a name with the `[probe_eddy_current]` section. For example:
+Precis som alla induktiva prober påverkas Eddy-strömsprober av betydande termisk drift. Om Eddy-proben har en temperatursensor på spolen går det att konfigurera en `[temperature_probe]` som rapporterar spolens temperatur och aktiverar programvarukompensation för drift. För att koppla en temperaturprob till en Eddy-strömsprob måste avsnittet `[temperature_probe]` ha samma namn som avsnittet `[probe_eddy_current]`. Till exempel:
 
 ```
 [probe_eddy_current my_probe]
@@ -171,64 +171,64 @@ As with all inductive probes, eddy current probes are subject to significant the
 # temperature probe configuration...
 ```
 
-See the [configuration reference](Config_Reference.md#temperature_probe) for further details on how to configure a `temperature_probe`. It is advised to configure the `calibration_position`, `calibration_extruder_temp`, `extruder_heating_z`, and `calibration_bed_temp` options, as doing so will automate some of the steps outlined below. If the printer to be calibrated is enclosed, it is strongly recommended to set the `max_validation_temp` option to a value between 100 and 120.
+Mer information om hur `temperature_probe` konfigureras finns i [konfigurationsreferensen](Config_Reference.md#temperature_probe). Det rekommenderas att konfigurera alternativen `calibration_position`, `calibration_extruder_temp`, `extruder_heating_z` och `calibration_bed_temp`, eftersom detta automatiserar några av stegen nedan. Om skrivaren som ska kalibreras är inbyggd rekommenderas starkt att ange `max_validation_temp` till ett värde mellan 100 och 120.
 
-Eddy probe manufacturers may offer a stock drift calibration that can be manually added to `drift_calibration` option of the `[probe_eddy_current]` section. If they do not, or if the stock calibration does not perform well on your system, the `temperature_probe` module offers a manual calibration procedure via the `TEMPERATURE_PROBE_CALIBRATE` gcode command.
+Tillverkare av Eddy-prober kan erbjuda en standardkalibrering för drift som kan läggas till manuellt i alternativet `drift_calibration` i avsnittet `[probe_eddy_current]`. Om de inte gör det, eller om standardkalibreringen inte fungerar bra i systemet, erbjuder modulen `temperature_probe` en manuell kalibreringsprocedur via G-code-kommandot `TEMPERATURE_PROBE_CALIBRATE`.
 
-Prior to performing calibration the user should have an idea of what the maximum attainable temperature probe coil temperature is. This temperature should be used to set the `TARGET` parameter of the `TEMPERATURE_PROBE_CALIBRATE` command. The goal is to calibrate across the widest temperature range possible, thus its desirable to start with the printer cold and finish with the coil at the maximum temperature it can reach.
+Innan kalibreringen görs bör användaren känna till den högsta temperatur som temperaturprobens spole kan uppnå. Denna temperatur ska användas för att ange parametern `TARGET` i kommandot `TEMPERATURE_PROBE_CALIBRATE`. Målet är att kalibrera över ett så brett temperaturintervall som möjligt; börja därför med kall skrivare och avsluta med spolen vid högsta möjliga temperatur.
 
-Once a `[temperature_probe]` is configured, the following steps may be taken to perform thermal drift calibration:
+När en `[temperature_probe]` har konfigurerats kan följande steg användas för att kalibrera termisk drift:
 
-- The probe must be calibrated using `PROBE_EDDY_CURRENT_CALIBRATE` when a `[temperature_probe]` is configured and linked. This captures the temperature during calibration which is necessary to perform thermal drift compensation.
-- Make sure the nozzle is free of debris and filament.
-- The bed, nozzle, and probe coil should be cold prior to calibration.
-- The following steps are required if the `calibration_position`, `calibration_extruder_temp`, and `extruder_heating_z` options in `[temperature_probe]` are **NOT** configured:
-   - Move the tool to the center of the bed. Z should be 30mm+ above the bed.
-   - Heat the extruder to a temperature above the maximum safe bed temperature. 150-170C should be sufficient for most configurations. The purpose of heating the extruder is to avoid nozzle expansion during calibration.
-   - When the extruder temperature has settled, move the Z axis down to about 1mm above the bed.
-- Start drift calibration. If the probe's name is `my_probe` and the maximum probe temperature we can achieve is 80C, the appropriate gcode command is `TEMPERATURE_PROBE_CALIBRATE PROBE=my_probe TARGET=80`. If configured, the tool will move to the X,Y coordinate specified by the `calibration_position` and the Z value specified by `extruder_heating_z`. After heating the extruder to the specified temperature the tool will move to the Z value specified by the`calibration_position`.
-- The procedure will request a manual probe. Perform the manual probe with the paper test and `ACCEPT`. The calibration procedure will take the first set of samples with the probe then park the probe in the heating position.
-- If the `calibration_bed_temp` is **NOT** configured turn on the bed heat to the maximum safe temperature. Otherwise this step will be performed automatically.
-- By default the calibration procedure will request a manual probe every 2C between samples until the `TARGET` is reached. The temperature delta between samples can be customized by setting the `STEP` parameter in `TEMPERATURE_PROBE_CALIBRATE`. Care should be taken when setting a custom `STEP` value, a value too high may request too few samples resulting in a poor calibration.
-- The following additional gcode commands are available during drift calibration:
-   - `TEMPERATURE_PROBE_NEXT` may be used to force a new sample before the step delta has been reached.
-   - `TEMPERATURE_PROBE_COMPLETE` may be used to complete calibration before the `TARGET` has been reached.
-   - `ABORT` may be used to end calibration and discard results.
-- When calibration is finished use `SAVE_CONFIG` to store the drift calibration.
+- Proben måste kalibreras med `PROBE_EDDY_CURRENT_CALIBRATE` när en `[temperature_probe]` är konfigurerad och kopplad. Då registreras temperaturen under kalibreringen, vilket krävs för kompensation av termisk drift.
+- Kontrollera att munstycket är fritt från smuts och filament.
+- Bädden, munstycket och probspolen ska vara kalla före kalibreringen.
+- Följande steg krävs om alternativen `calibration_position`, `calibration_extruder_temp` och `extruder_heating_z` i `[temperature_probe]` **INTE** är konfigurerade:
+   - Flytta verktygshuvudet till bäddens mitt. Z ska vara minst 30 mm ovanför bädden.
+   - Värm extrudern till en temperatur över bäddens högsta säkra temperatur. 150–170 °C bör räcka för de flesta konfigurationer. Extrudern värms för att undvika att munstycket expanderar under kalibreringen.
+   - När extruderns temperatur har stabiliserats flyttar du ned Z-axeln till ungefär 1 mm ovanför bädden.
+- Starta driftkalibreringen. Om proben heter `my_probe` och den högsta uppnåeliga probtemperaturen är 80 °C är lämpligt G-code-kommando `TEMPERATURE_PROBE_CALIBRATE PROBE=my_probe TARGET=80`. Om den är konfigurerad flyttas verktygshuvudet till X,Y-koordinaten som anges av `calibration_position` och till Z-värdet som anges av `extruder_heating_z`. Efter att extrudern har värmts till den angivna temperaturen flyttas verktygshuvudet till Z-värdet som anges av `calibration_position`.
+- Proceduren begär en manuell sondering. Utför den manuella sonderingen med papperstestet och `ACCEPT`. Kalibreringsproceduren tar den första uppsättningen prover med proben och parkerar sedan proben i uppvärmningspositionen.
+- Om `calibration_bed_temp` **INTE** är konfigurerad ska bäddvärmen slås på till högsta säkra temperatur. Annars utförs steget automatiskt.
+- Som standard begär kalibreringsproceduren en manuell sondering för varje 2 °C mellan prover tills `TARGET` nås. Temperaturskillnaden mellan prover kan anpassas med parametern `STEP` i `TEMPERATURE_PROBE_CALIBRATE`. Var försiktig med ett eget `STEP`-värde: ett för högt värde kan ge för få prover och därmed en dålig kalibrering.
+- Följande ytterligare G-code-kommandon kan användas under driftkalibreringen:
+   - `TEMPERATURE_PROBE_NEXT` kan användas för att tvinga fram ett nytt prov innan stegskillnaden har nåtts.
+   - `TEMPERATURE_PROBE_COMPLETE` kan användas för att slutföra kalibreringen innan `TARGET` har nåtts.
+   - `ABORT` kan användas för att avbryta kalibreringen och förkasta resultatet.
+- När kalibreringen är klar använder du `SAVE_CONFIG` för att spara driftkalibreringen.
 
-As one may conclude, the calibration process outlined above is more challenging and time consuming than most other procedures. It may require practice and several attempts to achieve an optimal calibration.
+Som framgår är kalibreringsprocessen ovan svårare och mer tidskrävande än de flesta andra procedurer. Den kan kräva övning och flera försök för att uppnå optimal kalibrering.
 
-## Errors description
+## Felbeskrivning
 
-Possible homing errors and actionables:
+Möjliga hemställningsfel och åtgärder:
 
-- Sensor error
-   - Check logs for detailed error
-- Eddy I2C STATUS/DATA error.
-   - Check loose wiring.
-   - Try software I2C/decrease I2C rate
-- Invalid read data
-   - Same as I2C
+- Sensorfel
+   - Kontrollera loggarna för detaljerat fel
+- Eddy I2C STATUS/DATA-fel.
+   - Kontrollera lösa kablar.
+   - Prova programvaru-I2C/minska I2C-hastigheten
+- Ogiltiga läsdata
+   - Samma som för I2C
 
-Possible sensor errors and actionables:
+Möjliga sensorfel och åtgärder:
 
-- Frequency over valid hard range
-   - Check frequency configuration
-   - Hardware fault
-- Frequency over valid soft range
-   - Check frequency configuration
-- Conversion Watchdog timeout
-   - Hardware fault
+- Frekvens utanför giltigt hårt intervall
+   - Kontrollera frekvenskonfigurationen
+   - Maskinvarufel
+- Frekvens utanför giltigt mjukt intervall
+   - Kontrollera frekvenskonfigurationen
+- Tidsgräns för konverteringsvakthund
+   - Maskinvarufel
 
-Amplitude Low/High warning messages can mean:
+Varningsmeddelanden om låg/hög amplitud kan betyda:
 
-- Sensor close to the bed
-- Sensor far from the bed
-- Higher temperature than was at the current calibration
-- Capacitor missing
+- Sensorn är nära bädden
+- Sensorn är långt från bädden
+- Högre temperatur än vid den aktuella kalibreringen
+- Kondensator saknas
 
-On some sensors, it is not possible to completely avoid amplitude warning indicator.
+På vissa sensorer går det inte att helt undvika amplitudvarningsindikatorn.
 
-You can try to redo the `LDC_CALIBRATE_DRIVE_CURRENT` calibration at work temperature or increase `reg_drive_current` by 1-2 from the calibrated value.
+Du kan försöka göra om kalibreringen `LDC_CALIBRATE_DRIVE_CURRENT` vid drifttemperatur eller öka `reg_drive_current` med 1–2 från det kalibrerade värdet.
 
-Generally, it is like an engine check light. It may indicate an issue.
+I allmänhet fungerar den som en motorvarningslampa. Den kan indikera ett problem.

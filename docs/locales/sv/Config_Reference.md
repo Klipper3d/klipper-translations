@@ -1,24 +1,24 @@
-# Configuration reference
+# Konfigurationsreferens
 
-This document is a reference for options available in the Klipper config file.
+Detta dokument är en referens för alternativ som är tillgängliga i Klippers konfigurationsfil.
 
-The descriptions in this document are formatted so that it is possible to cut-and-paste them into a printer config file. See the [installation document](Installation.md) for information on setting up Klipper and choosing an initial config file.
+Beskrivningarna i dokumentet är formaterade så att de kan kopieras och klistras in i en skrivares konfigurationsfil. Se [installationsdokumentet](Installation.md) för information om hur Klipper ställs in och hur en ursprunglig konfigurationsfil väljs.
 
-## Micro-controller configuration
+## Mikrokontrollerkonfiguration
 
-### Format of micro-controller pin names
+### Format för mikrokontrollerstiftnamn
 
-Many config options require the name of a micro-controller pin. Klipper uses the hardware names for these pins - for example `PA4`.
+Många konfigurationsalternativ kräver namnet på ett mikrokontrollerstift. Klipper använder maskinvarunamnen för dessa stift, till exempel `PA4`.
 
-Pin names may be preceded by `!` to indicate that a reverse polarity should be used (eg, trigger on low instead of high).
+Stiftnamn kan föregås av `!` för att ange att omvänd polaritet ska användas (t.ex. utlösning vid låg nivå i stället för hög).
 
-Input pins may be preceded by `^` to indicate that a hardware pull-up resistor should be enabled for the pin. If the micro-controller supports pull-down resistors then an input pin may alternatively be preceded by `~`.
+Ingångsstift kan föregås av `^` för att ange att ett maskinvaru-pullupmotstånd ska aktiveras för stiftet. Om mikrokontrollern stöder pulldownmotstånd kan ett ingångsstift i stället föregås av `~`.
 
-Note, some config sections may "create" additional pins. Where this occurs, the config section defining the pins must be listed in the config file before any sections using those pins.
+Observera att vissa konfigurationsavsnitt kan ”skapa” ytterligare stift. När detta sker måste konfigurationsavsnittet som definierar stiften listas i konfigurationsfilen före avsnitt som använder dem.
 
 ### [mcu]
 
-Configuration of the primary micro-controller.
+Konfiguration av den primära mikrokontrollern.
 
 ```
 [mcu]
@@ -51,18 +51,18 @@ serial:
 
 ### [mcu my_extra_mcu]
 
-Additional micro-controllers (one may define any number of sections with an "mcu" prefix). Additional micro-controllers introduce additional pins that may be configured as heaters, steppers, fans, etc.. For example, if an "[mcu extra_mcu]" section is introduced, then pins such as "extra_mcu:ar9" may then be used elsewhere in the config (where "ar9" is a hardware pin name or alias name on the given mcu).
+Ytterligare mikrokontroller (valfritt antal avsnitt med prefixet ”mcu” kan definieras). Ytterligare mikrokontroller lägger till stift som kan konfigureras som värmare, stegmotorer, fläktar osv. Om exempelvis avsnittet ”[mcu extra_mcu]” läggs till kan stift som ”extra_mcu:ar9” användas på andra ställen i konfigurationen (där ”ar9” är ett maskinvarustift eller aliasnamn på den angivna mcu:n).
 
 ```
 [mcu my_extra_mcu]
 # See the "mcu" section for configuration parameters.
 ```
 
-## Common kinematic settings
+## Vanliga kinematiska inställningar
 
 ### [printer]
 
-The printer section controls high level printer settings.
+Skrivaravsnittet styr skrivarens övergripande inställningar.
 
 ```
 [printer]
@@ -114,9 +114,9 @@ max_accel:
 
 ### [stepper]
 
-Stepper motor definitions. Different printer types (as specified by the "kinematics" option in the [printer] config section) require different names for the stepper (eg, `stepper_x` vs `stepper_a`). Below are common stepper definitions.
+Definitioner av stegmotorer. Olika skrivartyper (enligt alternativet ”kinematics” i konfigurationsavsnittet [printer]) kräver olika namn för stegmotorn (t.ex. `stepper_x` jämfört med `stepper_a`). Nedan följer vanliga stegmotordefinitioner.
 
-See the [rotation distance document](Rotation_Distance.md) for information on calculating the `rotation_distance` parameter. See the [Multi-MCU homing](Multi_MCU_Homing.md) document for information on homing using multiple micro-controllers.
+Se [dokumentet om rotationsavstånd](Rotation_Distance.md) för information om hur parametern `rotation_distance` beräknas. Se dokumentet [referenskörning med flera MCU:er](Multi_MCU_Homing.md) för information om referenskörning med flera mikrokontroller.
 
 ```
 [stepper_x]
@@ -192,11 +192,11 @@ position_max:
 #   if near position_min.
 ```
 
-### Cartesian Kinematics
+### Kartesisk kinematik
 
-See [example-cartesian.cfg](../config/example-cartesian.cfg) for an example cartesian kinematics config file.
+Se [example-cartesian.cfg](../config/example-cartesian.cfg) för ett exempel på en konfigurationsfil för kartesisk kinematik.
 
-Only parameters specific to cartesian printers are described here - see [common kinematic settings](#common-kinematic-settings) for available parameters.
+Endast parametrar som är specifika för kartesiska skrivare beskrivs här. Se [vanliga kinematiska inställningar](#common-kinematic-settings) för tillgängliga parametrar.
 
 ```
 [printer]
@@ -224,11 +224,11 @@ max_z_accel:
 [stepper_z]
 ```
 
-### Linear Delta Kinematics
+### Linjär deltakinematik
 
-See [example-delta.cfg](../config/example-delta.cfg) for an example linear delta kinematics config file. See the [delta calibrate guide](Delta_Calibrate.md) for information on calibration.
+Se [example-delta.cfg](../config/example-delta.cfg) för ett exempel på en konfigurationsfil för linjär deltakinematik. Se [guiden för deltakalibrering](Delta_Calibrate.md) för information om kalibrering.
 
-Only parameters specific to linear delta printers are described here - see [common kinematic settings](#common-kinematic-settings) for available parameters.
+Endast parametrar som är specifika för skrivare med linjär deltakinematik beskrivs här. Se [vanliga kinematiska inställningar](#common-kinematic-settings) för tillgängliga parametrar.
 
 ```
 [printer]
@@ -305,11 +305,11 @@ radius:
 #   just prior to starting a probe operation. The default is 5.
 ```
 
-### Deltesian Kinematics
+### Deltesisk kinematik
 
-See [example-deltesian.cfg](../config/example-deltesian.cfg) for an example deltesian kinematics config file.
+Se [example-deltesian.cfg](../config/example-deltesian.cfg) för ett exempel på en konfigurationsfil för deltesisk kinematik.
 
-Only parameters specific to deltesian printers are described here - see [common kinematic settings](#common-kinematic-settings) for available parameters.
+Endast parametrar som är specifika för deltesiska skrivare beskrivs här. Se [vanliga kinematiska inställningar](#common-kinematic-settings) för tillgängliga parametrar.
 
 ```
 [printer]
@@ -377,11 +377,11 @@ arm_x_length:
 [stepper_y]
 ```
 
-### CoreXY Kinematics
+### CoreXY-kinematik
 
-See [example-corexy.cfg](../config/example-corexy.cfg) for an example corexy (and h-bot) kinematics file.
+Se [example-corexy.cfg](../config/example-corexy.cfg) för ett exempel på en konfigurationsfil för CoreXY-kinematik (och H-bot).
 
-Only parameters specific to corexy printers are described here - see [common kinematic settings](#common-kinematic-settings) for available parameters.
+Endast parametrar som är specifika för CoreXY-skrivare beskrivs här. Se [vanliga kinematiska inställningar](#common-kinematic-settings) för tillgängliga parametrar.
 
 ```
 [printer]
@@ -409,11 +409,11 @@ max_z_accel:
 [stepper_z]
 ```
 
-### CoreXZ Kinematics
+### CoreXZ-kinematik
 
-See [example-corexz.cfg](../config/example-corexz.cfg) for an example corexz kinematics config file.
+Se [example-corexz.cfg](../config/example-corexz.cfg) för ett exempel på en konfigurationsfil för CoreXZ-kinematik.
 
-Only parameters specific to corexz printers are described here - see [common kinematic settings](#common-kinematic-settings) for available parameters.
+Endast parametrar som är specifika för CoreXZ-skrivare beskrivs här. Se [vanliga kinematiska inställningar](#common-kinematic-settings) för tillgängliga parametrar.
 
 ```
 [printer]
@@ -438,13 +438,13 @@ max_z_accel:
 [stepper_z]
 ```
 
-### Hybrid-CoreXY Kinematics
+### Hybrid-CoreXY-kinematik
 
-See [example-hybrid-corexy.cfg](../config/example-hybrid-corexy.cfg) for an example hybrid corexy kinematics config file.
+Se [example-hybrid-corexy.cfg](../config/example-hybrid-corexy.cfg) för ett exempel på en konfigurationsfil för hybrid-CoreXY-kinematik.
 
-This kinematic is also known as Markforged kinematic.
+Denna kinematik kallas även Markforged-kinematik.
 
-Only parameters specific to hybrid corexy printers are described here see [common kinematic settings](#common-kinematic-settings) for available parameters.
+Endast parametrar som är specifika för hybrid-CoreXY-skrivare beskrivs här. Se [vanliga kinematiska inställningar](#common-kinematic-settings) för tillgängliga parametrar.
 
 ```
 [printer]
@@ -469,13 +469,13 @@ max_z_accel:
 [stepper_z]
 ```
 
-### Hybrid-CoreXZ Kinematics
+### Hybrid-CoreXZ-kinematik
 
-See [example-hybrid-corexz.cfg](../config/example-hybrid-corexz.cfg) for an example hybrid corexz kinematics config file.
+Se [example-hybrid-corexz.cfg](../config/example-hybrid-corexz.cfg) för ett exempel på en konfigurationsfil för hybrid-CoreXZ-kinematik.
 
-This kinematic is also known as Markforged kinematic.
+Denna kinematik kallas även Markforged-kinematik.
 
-Only parameters specific to hybrid corexy printers are described here see [common kinematic settings](#common-kinematic-settings) for available parameters.
+Endast parametrar som är specifika för hybrid-CoreXY-skrivare beskrivs här. Se [vanliga kinematiska inställningar](#common-kinematic-settings) för tillgängliga parametrar.
 
 ```
 [printer]
@@ -500,13 +500,13 @@ max_z_accel:
 [stepper_z]
 ```
 
-### Polar Kinematics
+### Polär kinematik
 
-See [example-polar.cfg](../config/example-polar.cfg) for an example polar kinematics config file.
+Se [example-polar.cfg](../config/example-polar.cfg) för ett exempel på en konfigurationsfil för polär kinematik.
 
-Only parameters specific to polar printers are described here - see [common kinematic settings](#common-kinematic-settings) for available parameters.
+Endast parametrar som är specifika för polära skrivare beskrivs här. Se [vanliga kinematiska inställningar](#common-kinematic-settings) för tillgängliga parametrar.
 
-POLAR KINEMATICS ARE A WORK IN PROGRESS. Moves around the 0, 0 position are known to not work properly.
+POLÄR KINEMATIK ÄR UNDER UTVECKLING. Förflyttningar runt positionen 0, 0 är kända för att inte fungera korrekt.
 
 ```
 [printer]
@@ -544,13 +544,13 @@ gear_ratio:
 [stepper_z]
 ```
 
-### Rotary delta Kinematics
+### Rotationsdeltakinematik
 
-See [example-rotary-delta.cfg](../config/example-rotary-delta.cfg) for an example rotary delta kinematics config file.
+Se [example-rotary-delta.cfg](../config/example-rotary-delta.cfg) för ett exempel på en konfigurationsfil för rotationsdeltakinematik.
 
-Only parameters specific to rotary delta printers are described here - see [common kinematic settings](#common-kinematic-settings) for available parameters.
+Endast parametrar som är specifika för skrivare med rotationsdeltakinematik beskrivs här. Se [vanliga kinematiska inställningar](#common-kinematic-settings) för tillgängliga parametrar.
 
-ROTARY DELTA KINEMATICS ARE A WORK IN PROGRESS. Homing moves may timeout and some boundary checks are not implemented.
+ROTATIONSDELTAKINEMATIK ÄR UNDER UTVECKLING. Referenskörningsförflyttningar kan få tidsgräns och vissa gränskontroller är inte implementerade.
 
 ```
 [printer]
@@ -630,13 +630,13 @@ radius:
 #   just prior to starting a probe operation. The default is 5.
 ```
 
-### Cable winch Kinematics
+### Kinematik med kabelvinsch
 
-See the [example-winch.cfg](../config/example-winch.cfg) for an example cable winch kinematics config file.
+Se [example-winch.cfg](../config/example-winch.cfg) för ett exempel på en konfigurationsfil för kinematik med kabelvinsch.
 
-Only parameters specific to cable winch printers are described here - see [common kinematic settings](#common-kinematic-settings) for available parameters.
+Endast parametrar som är specifika för skrivare med kabelvinsch beskrivs här. Se [vanliga kinematiska inställningar](#common-kinematic-settings) för tillgängliga parametrar.
 
-CABLE WINCH SUPPORT IS EXPERIMENTAL. Homing is not implemented on cable winch kinematics. In order to home the printer, manually send movement commands until the toolhead is at 0, 0, 0 and then issue a `G28` command.
+STÖD FÖR KABELVINSCH ÄR EXPERIMENTELLT. Referenskörning är inte implementerad för kabelvinschkinematik. För att referensköra skrivaren skickar du manuellt rörelsekommandon tills verktygshuvudet är vid 0, 0, 0 och kör sedan kommandot `G28`.
 
 ```
 [printer]
@@ -657,13 +657,13 @@ anchor_z:
 #   These parameters must be provided.
 ```
 
-### Generic Cartesian Kinematics
+### Generisk kartesisk kinematik
 
-See [example-generic-cartesian.cfg](../config/example-generic-caretesian.cfg) for an example generic Cartesian kinematics config file.
+Se [example-generic-cartesian.cfg](../config/example-generic-caretesian.cfg) för ett exempel på en konfigurationsfil för generisk kartesisk kinematik.
 
-This printer kinematic class allows a user to define in a pretty flexible manner an arbitrary Cartesian-style kinematics. In principle, the regular cartesian, corexy, hybrid_corexy can be defined this way too. However, more importantly, various otherwise unsupported kinematics such as inverted hybrid_corexy or corexyuv can be defined using this kinematic.
+Denna skrivarkinematikklass gör det möjligt att på ett flexibelt sätt definiera valfri kartesisk kinematik. I princip kan vanlig kartesisk kinematik, corexy och hybrid_corexy också definieras så här. Framför allt kan annars ej stödda kinematiker, som inverterad hybrid_corexy eller corexyuv, definieras med denna kinematik.
 
-Notably, the definition of a generic Cartesian kinematic deviates significantly from the other kinematic types. It follows the following convention: a user defines a set of carriages with certain range of motion that can move independently from each other (they should move over the Cartesian axes X, Y, and Z, hence the name of the kinematic) and corresponding endstops that allow the firmware to determine the position of carriages during homing, as well as a set of steppers that move those carriages. The `[printer]` section must specify the kinematic and other printer-level settings same as the regular Cartesian kinematic:
+Definitionen av generisk kartesisk kinematik skiljer sig väsentligt från andra kinematiktyper. Den följer följande regel: användaren definierar en uppsättning vagnar med ett visst rörelseområde som kan röra sig oberoende av varandra (över de kartesiska axlarna X, Y och Z, därav namnet) och motsvarande ändstopp som gör att firmware kan fastställa vagnarnas positioner vid referenskörning, samt en uppsättning stegmotorer som flyttar vagnarna. Avsnittet `[printer]` måste ange kinematiken och andra skrivarinställningar på samma sätt som vanlig kartesisk kinematik:
 
 ```
 [printer]
@@ -676,7 +676,7 @@ max_accel:
 #max_z_accel:
 ```
 
-Then a user must define three primary carriages for X, Y, and Z axes, e.g.:
+Därefter måste användaren definiera tre primära vagnar för X-, Y- och Z-axeln, t.ex.:
 
 ```
 [carriage carriage_x]
@@ -717,7 +717,7 @@ position_max:
 #   if near position_min.
 ```
 
-Afterwards, a user specifies the stepper motors that move these carriages, for instance
+Därefter anger användaren stegmotorerna som flyttar vagnarna, till exempel
 
 ```
 [stepper my_stepper]
@@ -736,9 +736,9 @@ microsteps:
 #step_pulse_duration:
 ```
 
-See [stepper](#stepper) section for more information on the regular stepper parameters. The `carriages` parameter defines how the stepper affects the motion of the carriages. For example, `carriage_x+carriage_y` indicates that the motion of the stepper in the positive direction by the distance `d` moves the carriages `carriage_x` and `carriage_y` by the same distance `d` in the positive direction, while `carriage_x-0.5*carriage_y` means the motion of the stepper in the positive direction by the distance `d` moves the carriage `carriage_x` by the distance `d` in the positive direction, but the carriage `carriage_y` will travel distance `d/2` in the negative direction.
+Se avsnittet [stepper](#stepper) för mer information om vanliga stegmotorparametrar. Parametern `carriages` definierar hur stegmotorn påverkar vagnarnas rörelse. `carriage_x+carriage_y` innebär exempelvis att stegmotorns rörelse i positiv riktning sträckan `d` flyttar vagnarna `carriage_x` och `carriage_y` samma sträcka `d` i positiv riktning, medan `carriage_x-0.5*carriage_y` innebär att stegmotorns rörelse i positiv riktning sträckan `d` flyttar `carriage_x` sträckan `d` i positiv riktning, men `carriage_y` sträckan `d/2` i negativ riktning.
 
-More than a single stepper motor can be defined to drive the same axis or belt. For example, on a CoreXY AWD setups two motors driving the same belt can be defined as
+Fler än en stegmotor kan definieras för att driva samma axel eller rem. I en CoreXY AWD-konfiguration kan exempelvis två motorer som driver samma rem definieras som
 
 ```
 [carriage carriage_x]
@@ -766,9 +766,9 @@ rotation_distance: ...
 ...
 ```
 
-with `a0` and `a1` steppers having their own control pins, but sharing the same `carriages` and corresponding endstops.
+med stegmotorerna `a0` och `a1` som har egna styrstift men delar samma `carriages` och motsvarande ändstopp.
 
-There are situations when a user wants to have more than one endstop per axis. Examples of such configurations include Y axis driven by two independent stepper motors with belts attached to both ends of the X gantry, with effectively two carriages on Y axis each having an independent endstop, and multi-stepper Z axis with each stepper having its own endstop (not to be confused with the configurations with multiple Z motors but only a single endstop). These configurations can be declared by specifying additional carriage(s) with their endstops:
+I vissa situationer vill användaren ha fler än ett ändstopp per axel. Exempel är en Y-axel som drivs av två oberoende stegmotorer med remmar fästa i båda ändar av X-portalen, vilket i praktiken ger två vagnar på Y-axeln med var sitt oberoende ändstopp, samt en Z-axel med flera stegmotorer där varje stegmotor har ett eget ändstopp (inte att förväxla med konfigurationer med flera Z-motorer men bara ett ändstopp). Dessa konfigurationer kan deklareras genom att ange ytterligare vagn(ar) med sina ändstopp:
 
 ```
 [extra_carriage my_carriage]
@@ -780,7 +780,7 @@ endstop_pin:
 #   Endstop switch detection pin. This parameter must be provided.
 ```
 
-and the corresponding stepper motors, for example:
+och motsvarande stegmotorer, till exempel:
 
 ```
 [extra_carriage carriage_y1]
@@ -792,13 +792,13 @@ carriages: carriage_y1
 ...
 ```
 
-Notably, an `[extra_carriage]` does not define parameters such as `position_min`, `position_max`, and `position_endstop`, but instead inherits them from the specified `primary_carriage`, thus sharing the same range of motion with the primary carriage.
+Observera att `[extra_carriage]` inte definierar parametrar som `position_min`, `position_max` och `position_endstop`, utan ärver dem från angiven `primary_carriage` och delar därmed samma rörelseområde som den primära vagnen.
 
-For the references on how to configure IDEX setups, see the [dual carriage](#dual-carriage) section.
+För information om hur IDEX-konfigurationer ställs in, se avsnittet [dubbla vagnar](#dual-carriage).
 
-### None Kinematics
+### Ingen kinematik
 
-It is possible to define a special "none" kinematics to disable kinematic support in Klipper. This may be useful for controlling devices that are not typical 3d-printers or for debugging purposes.
+Det går att definiera en särskild ”none”-kinematik för att inaktivera kinematikstöd i Klipper. Det kan vara användbart för att styra enheter som inte är vanliga 3D-skrivare eller vid felsökning.
 
 ```
 [printer]
@@ -809,11 +809,11 @@ max_accel: 1
 #   values are not used for "none" kinematics.
 ```
 
-## Common extruder and heated bed support
+## Gemensamt stöd för extruder och uppvärmd bädd
 
 ### [extruder]
 
-The extruder section is used to describe the heater parameters for the nozzle hotend along with the stepper controlling the extruder. See the [command reference](G-Codes.md#extruder) for additional information. See the [pressure advance guide](Pressure_Advance.md) for information on tuning pressure advance.
+Extruderavsnittet används för att beskriva värmarparametrarna för munstyckets hotend samt stegmotorn som styr extrudern. Se [kommandoreferensen](G-Codes.md#extruder) för mer information. Se [guiden för tryckutjämning](Pressure_Advance.md) för information om hur tryckutjämning justeras.
 
 ```
 [extruder]
@@ -941,7 +941,7 @@ max_temp:
 
 ### [heater_bed]
 
-The heater_bed section describes a heated bed. It uses the same heater settings described in the "extruder" section.
+Avsnittet heater_bed beskriver en uppvärmd bädd. Det använder samma värmarinställningar som beskrivs i avsnittet ”extruder”.
 
 ```
 [heater_bed]
@@ -954,15 +954,15 @@ max_temp:
 #   See the "extruder" section for a description of the above parameters.
 ```
 
-## Bed level support
+## Stöd för bäddnivellering
 
 ### [bed_mesh]
 
-Mesh Bed Leveling. One may define a bed_mesh config section to enable move transformations that offset the z axis based on a mesh generated from probed points. When using a probe to home the z-axis, it is recommended to define a safe_z_home section in printer.cfg to home toward the center of the print area.
+Nivellering med bäddnät. Ett konfigurationsavsnitt för bed_mesh kan definieras för att aktivera rörelseomvandlingar som förskjuter Z-axeln utifrån ett nät som genererats från uppmätta punkter. När en sond används för att referensköra Z-axeln rekommenderas att ett avsnitt safe_z_home definieras i printer.cfg för att referensköra mot utskriftsytans mitt.
 
-See the [bed mesh guide](Bed_Mesh.md) and [command reference](G-Codes.md#bed_mesh) for additional information.
+Se [guiden för bäddnät](Bed_Mesh.md) och [kommandoreferensen](G-Codes.md#bed_mesh) för mer information.
 
-Visual Examples:
+Visuella exempel:
 
 ```
  rectangular bed, probe_count = 3, 3:
@@ -1082,9 +1082,9 @@ Visual Examples:
 
 ### [bed_tilt]
 
-Bed tilt compensation. One may define a bed_tilt config section to enable move transformations that account for a tilted bed. Note that bed_mesh and bed_tilt are incompatible; both cannot be defined.
+Kompensation för bäddlutning. Ett konfigurationsavsnitt för bed_tilt kan definieras för att aktivera rörelseomvandlingar som kompenserar för en lutande bädd. Observera att bed_mesh och bed_tilt inte är kompatibla; båda kan inte definieras.
 
-See the [command reference](G-Codes.md#bed_tilt) for additional information.
+Se [kommandoreferensen](G-Codes.md#bed_tilt) för mer information.
 
 ```
 [bed_tilt]
@@ -1116,9 +1116,9 @@ See the [command reference](G-Codes.md#bed_tilt) for additional information.
 
 ### [bed_screws]
 
-Tool to help adjust bed leveling screws. One may define a [bed_screws] config section to enable a BED_SCREWS_ADJUST g-code command.
+Verktyg som hjälper till att justera bäddnivelleringsskruvar. Ett konfigurationsavsnitt [bed_screws] kan definieras för att aktivera G-kodskommandot BED_SCREWS_ADJUST.
 
-See the [leveling guide](Manual_Level.md#adjusting-bed-leveling-screws) and [command reference](G-Codes.md#bed_screws) for additional information.
+Se [nivelleringsguiden](Manual_Level.md#adjusting-bed-leveling-screws) och [kommandoreferensen](G-Codes.md#bed_screws) för mer information.
 
 ```
 [bed_screws]
@@ -1157,9 +1157,9 @@ See the [leveling guide](Manual_Level.md#adjusting-bed-leveling-screws) and [com
 
 ### [screws_tilt_adjust]
 
-Tool to help adjust bed screws tilt using Z probe. One may define a screws_tilt_adjust config section to enable a SCREWS_TILT_CALCULATE g-code command.
+Verktyg som hjälper till att justera bäddskruvarnas lutning med en Z-sond. Ett konfigurationsavsnitt screws_tilt_adjust kan definieras för att aktivera G-kodskommandot SCREWS_TILT_CALCULATE.
 
-See the [leveling guide](Manual_Level.md#adjusting-bed-leveling-screws-using-the-bed-probe) and [command reference](G-Codes.md#screws_tilt_adjust) for additional information.
+Se [nivelleringsguiden](Manual_Level.md#adjusting-bed-leveling-screws-using-the-bed-probe) och [kommandoreferensen](G-Codes.md#screws_tilt_adjust) för mer information.
 
 ```
 [screws_tilt_adjust]
@@ -1195,7 +1195,7 @@ See the [leveling guide](Manual_Level.md#adjusting-bed-leveling-screws-using-the
 
 ### [z_tilt]
 
-Multiple Z stepper tilt adjustment. This feature enables independent adjustment of multiple z steppers (see the "stepper_z1" section) to adjust for tilt. If this section is present then a Z_TILT_ADJUST extended [G-Code command](G-Codes.md#z_tilt) becomes available.
+Lutningsjustering med flera Z-stegmotorer. Funktionen möjliggör oberoende justering av flera Z-stegmotorer (se avsnittet ”stepper_z1”) för att kompensera för lutning. Om detta avsnitt finns blir det utökade [G-kodskommandot](G-Codes.md#z_tilt) Z_TILT_ADJUST tillgängligt.
 
 ```
 [z_tilt]
@@ -1233,7 +1233,7 @@ Multiple Z stepper tilt adjustment. This feature enables independent adjustment 
 
 ### [quad_gantry_level]
 
-Moving gantry leveling using 4 independently controlled Z motors. Corrects hyperbolic parabola effects (potato chip) on moving gantry which is more flexible. WARNING: Using this on a moving bed may lead to undesirable results. If this section is present then a QUAD_GANTRY_LEVEL extended G-Code command becomes available. This routine assumes the following Z motor configuration:
+Nivellering av rörlig portal med fyra oberoende styrda Z-motorer. Korrigerar effekten av hyperbolisk paraboloid (”potatischips”) på en mer flexibel rörlig portal. VARNING: Användning på en rörlig bädd kan ge oönskade resultat. Om detta avsnitt finns blir det utökade G-kodskommandot QUAD_GANTRY_LEVEL tillgängligt. Rutinen förutsätter följande konfiguration av Z-motorer:
 
 ```
  ----------------
@@ -1246,7 +1246,7 @@ Moving gantry leveling using 4 independently controlled Z motors. Corrects hyper
  ----------------
 ```
 
-Where x is the 0, 0 point on the bed
+Där x är punkten 0, 0 på bädden
 
 ```
 [quad_gantry_level]
@@ -1279,7 +1279,7 @@ Where x is the 0, 0 point on the bed
 
 ### [skew_correction]
 
-Printer Skew Correction. It is possible to use software to correct printer skew across 3 planes, xy, xz, yz. This is done by printing a calibration model along a plane and measuring three lengths. Due to the nature of skew correction these lengths are set via gcode. See [Skew Correction](Skew_Correction.md) and [Command Reference](G-Codes.md#skew_correction) for details.
+Korrigering av skrivarskevhet. Programvara kan användas för att korrigera skrivarskevhet i tre plan: XY, XZ och YZ. Det görs genom att skriva ut en kalibreringsmodell längs ett plan och mäta tre längder. På grund av skjuvkorrigeringens natur anges längderna via G-kod. Se [Skew Correction](Skew_Correction.md) och [Command Reference](G-Codes.md#skew_correction) för mer information.
 
 ```
 [skew_correction]
@@ -1287,9 +1287,9 @@ Printer Skew Correction. It is possible to use software to correct printer skew 
 
 ### [z_thermal_adjust]
 
-Temperature-dependant toolhead Z position adjustment. Compensate for vertical toolhead movement caused by thermal expansion of the printer's frame in real-time using a temperature sensor (typically coupled to a vertical section of frame).
+Temperaturberoende justering av verktygshuvudets Z-position. Kompenserar i realtid för verktygshuvudets vertikala rörelse som orsakas av värmeutvidgning i skrivarens ram med en temperatursensor (vanligen kopplad till en vertikal del av ramen).
 
-See also: [extended g-code commands](G-Codes.md#z_thermal_adjust).
+Se även: [utökade G-kodskommandon](G-Codes.md#z_thermal_adjust).
 
 ```
 [z_thermal_adjust]
@@ -1321,11 +1321,11 @@ See also: [extended g-code commands](G-Codes.md#z_thermal_adjust).
 #   parameter.
 ```
 
-## Customized homing
+## Anpassad referenskörning
 
 ### [safe_z_home]
 
-Safe Z homing. One may use this mechanism to home the Z axis at a specific X, Y coordinate. This is useful if the toolhead, for example has to move to the center of the bed before Z can be homed.
+Säker Z-referenskörning. Mekanismen kan användas för att referensköra Z-axeln vid en viss X-, Y-koordinat. Det är användbart om verktygshuvudet exempelvis måste flyttas till bäddens mitt innan Z kan referensköras.
 
 ```
 [safe_z_home]
@@ -1352,7 +1352,7 @@ home_xy_position:
 
 ### [homing_override]
 
-Homing override. One may use this mechanism to run a series of g-code commands in place of a G28 found in the normal g-code input. This may be useful on printers that require a specific procedure to home the machine.
+Åsidosättning av referenskörning. Mekanismen kan användas för att köra en följd av G-kodskommandon i stället för ett G28 i den vanliga G-kodsinmatningen. Det kan vara användbart för skrivare som kräver en särskild procedur för att referensköra maskinen.
 
 ```
 [homing_override]
@@ -1381,9 +1381,9 @@ gcode:
 
 ### [endstop_phase]
 
-Stepper phase adjusted endstops. To use this feature, define a config section with an "endstop_phase" prefix followed by the name of the corresponding stepper config section (for example, "[endstop_phase stepper_z]"). This feature can improve the accuracy of endstop switches. Add a bare "[endstop_phase]" declaration to enable the ENDSTOP_PHASE_CALIBRATE command.
+Ändstopp med justerad stegfas. För att använda funktionen definierar du ett konfigurationsavsnitt med prefixet ”endstop_phase”, följt av namnet på motsvarande stegmotors konfigurationsavsnitt (exempelvis ”[endstop_phase stepper_z]”). Funktionen kan förbättra precisionen för ändstoppsbrytare. Lägg till en ensam deklaration ”[endstop_phase]” för att aktivera kommandot ENDSTOP_PHASE_CALIBRATE.
 
-See the [endstop phases guide](Endstop_Phase.md) and [command reference](G-Codes.md#endstop_phase) for additional information.
+Se [guiden för ändstoppsfaser](Endstop_Phase.md) och [kommandoreferensen](G-Codes.md#endstop_phase) för mer information.
 
 ```
 [endstop_phase stepper_z]
@@ -1409,11 +1409,11 @@ See the [endstop phases guide](Endstop_Phase.md) and [command reference](G-Codes
 #   layer will occur on a full step.) The default is False.
 ```
 
-## G-Code macros and events
+## G-kodsmakron och händelser
 
 ### [gcode_macro]
 
-G-Code macros (one may define any number of sections with a "gcode_macro" prefix). See the [command template guide](Command_Templates.md) for more information.
+G-kodsmakron (valfritt antal avsnitt med prefixet ”gcode_macro” kan definieras). Se [guiden för kommandomallar](Command_Templates.md) för mer information.
 
 ```
 [gcode_macro my_cmd]
@@ -1444,7 +1444,7 @@ G-Code macros (one may define any number of sections with a "gcode_macro" prefix
 
 ### [delayed_gcode]
 
-Execute a gcode on a set delay. See the [command template guide](Command_Templates.md#delayed-gcodes) and [command reference](G-Codes.md#delayed_gcode) for more information.
+Kör G-kod efter en angiven fördröjning. Se [guiden för kommandomallar](Command_Templates.md#delayed-gcodes) och [kommandoreferensen](G-Codes.md#delayed_gcode) för mer information.
 
 ```
 [delayed_gcode my_delayed_gcode]
@@ -1463,7 +1463,7 @@ gcode:
 
 ### [save_variables]
 
-Support saving variables to disk so that they are retained across restarts. See [command templates](Command_Templates.md#save-variables-to-disk) and [G-Code reference](G-Codes.md#save_variables) for further information.
+Stöd för att spara variabler på disk så att de behålls efter omstarter. Se [kommandomallar](Command_Templates.md#save-variables-to-disk) och [G-kodsreferensen](G-Codes.md#save_variables) för mer information.
 
 ```
 [save_variables]
@@ -1474,7 +1474,7 @@ filename:
 
 ### [idle_timeout]
 
-Idle timeout. An idle timeout is automatically enabled - add an explicit idle_timeout config section to change the default settings.
+Tidsgräns för inaktivitet. En tidsgräns för inaktivitet aktiveras automatiskt; lägg till ett explicit konfigurationsavsnitt för idle_timeout för att ändra standardinställningarna.
 
 ```
 [idle_timeout]
@@ -1487,11 +1487,11 @@ Idle timeout. An idle timeout is automatically enabled - add an explicit idle_ti
 #   commands. The default is 600 seconds.
 ```
 
-## Optional G-Code features
+## Valfria G-kodsfunktioner
 
 ### [virtual_sdcard]
 
-A virtual sdcard may be useful if the host machine is not fast enough to run OctoPrint well. It allows the Klipper host software to directly print gcode files stored in a directory on the host using standard sdcard G-Code commands (eg, M24).
+Ett virtuellt sdcard kan vara användbart om värddatorn inte är tillräckligt snabb för att köra OctoPrint bra. Det låter Klippers värdprogramvara direkt skriva ut G-kodsfiler som lagras i en katalog på värden med vanliga sdcard-G-kodskommandon (t.ex. M24).
 
 ```
 [virtual_sdcard]
@@ -1509,9 +1509,9 @@ path:
 
 ### [sdcard_loop]
 
-Some printers with stage-clearing features, such as a part ejector or a belt printer, can find use in looping sections of the sdcard file. (For example, to print the same part over and over, or repeat the a section of a part for a chain or other repeated pattern).
+Vissa skrivare med funktioner för att rensa utskriftsytan, som en detaljutkastare eller en bandskrivare, kan använda slingor i sdcard-filen. Det går exempelvis att skriva ut samma del upprepade gånger eller upprepa en del av en detalj för en kedja eller annat återkommande mönster.
 
-See the [command reference](G-Codes.md#sdcard_loop) for supported commands. See the [sample-macros.cfg](../config/sample-macros.cfg) file for a Marlin compatible M808 G-Code macro.
+Se [kommandoreferensen](G-Codes.md#sdcard_loop) för kommandon som stöds. Se filen [sample-macros.cfg](../config/sample-macros.cfg) för ett Marlin-kompatibelt M808-G-kodsmakro.
 
 ```
 [sdcard_loop]
@@ -1519,7 +1519,7 @@ See the [command reference](G-Codes.md#sdcard_loop) for supported commands. See 
 
 ### [force_move]
 
-Support manually moving stepper motors for diagnostic purposes. Note, using this feature may place the printer in an invalid state - see the [command reference](G-Codes.md#force_move) for important details.
+Stöd för att manuellt flytta stegmotorer i diagnostiksyfte. Observera att användning av funktionen kan försätta skrivaren i ett ogiltigt tillstånd. Se [kommandoreferensen](G-Codes.md#force_move) för viktig information.
 
 ```
 [force_move]
@@ -1530,7 +1530,7 @@ Support manually moving stepper motors for diagnostic purposes. Note, using this
 
 ### [pause_resume]
 
-Pause/Resume functionality with support of position capture and restore. See the [command reference](G-Codes.md#pause_resume) for more information.
+Paus-/återupptagningsfunktion med stöd för att spara och återställa position. Se [kommandoreferensen](G-Codes.md#pause_resume) för mer information.
 
 ```
 [pause_resume]
@@ -1541,7 +1541,7 @@ Pause/Resume functionality with support of position capture and restore. See the
 
 ### [firmware_retraction]
 
-Firmware filament retraction. This enables G10 (retract) and G11 (unretract) GCODE commands issued by many slicers. The parameters below provide startup defaults, although the values can be adjusted via the SET_RETRACTION [command](G-Codes.md#firmware_retraction)), allowing per-filament settings and runtime tuning.
+Filamentindragning i firmware. Funktionen aktiverar GCODE-kommandona G10 (indragning) och G11 (återindragning) som används av många skivningsprogram. Parametrarna nedan ger startstandardvärden, men värdena kan justeras med kommandot [SET_RETRACTION](G-Codes.md#firmware_retraction)), vilket möjliggör inställningar per filament och justering under körning.
 
 ```
 [firmware_retraction]
@@ -1560,7 +1560,7 @@ Firmware filament retraction. This enables G10 (retract) and G11 (unretract) GCO
 
 ### [gcode_arcs]
 
-Support for gcode arc (G2/G3) commands.
+Stöd för G-kodsbågkommandon (G2/G3).
 
 ```
 [gcode_arcs]
@@ -1574,7 +1574,7 @@ Support for gcode arc (G2/G3) commands.
 
 ### [respond]
 
-Enable the "M118" and "RESPOND" extended [commands](G-Codes.md#respond).
+Aktiverar de utökade [kommandona](G-Codes.md#respond) ”M118” och ”RESPOND”.
 
 ```
 [respond]
@@ -1591,19 +1591,19 @@ Enable the "M118" and "RESPOND" extended [commands](G-Codes.md#respond).
 
 ### [exclude_object]
 
-Enables support to exclude or cancel individual objects during the printing process.
+Aktiverar stöd för att utesluta eller avbryta enskilda objekt under utskriftsprocessen.
 
-See the [exclude objects guide](Exclude_Object.md) and [command reference](G-Codes.md#excludeobject) for additional information. See the [sample-macros.cfg](../config/sample-macros.cfg) file for a Marlin/RepRapFirmware compatible M486 G-Code macro.
+Se [guiden för att utesluta objekt](Exclude_Object.md) och [kommandoreferensen](G-Codes.md#excludeobject) för mer information. Se filen [sample-macros.cfg](../config/sample-macros.cfg) för ett M486-G-kodsmakro kompatibelt med Marlin/RepRapFirmware.
 
 ```
 [exclude_object]
 ```
 
-## Resonance compensation
+## Resonanskompensering
 
 ### [input_shaper]
 
-Enables [resonance compensation](Resonance_Compensation.md). Also see the [command reference](G-Codes.md#input_shaper).
+Aktiverar [resonanskompensering](Resonance_Compensation.md). Se även [kommandoreferensen](G-Codes.md#input_shaper).
 
 ```
 [input_shaper]
@@ -1646,7 +1646,7 @@ Enables [resonance compensation](Resonance_Compensation.md). Also see the [comma
 
 ### [adxl345]
 
-Support for ADXL345 accelerometers. This support allows one to query accelerometer measurements from the sensor. This enables an ACCELEROMETER_MEASURE command (see [G-Codes](G-Codes.md#adxl345) for more information). The default chip name is "default", but one may specify an explicit name (eg, [adxl345 my_chip_name]).
+Stöd för ADXL345-accelerometrar. Stödet gör det möjligt att fråga efter accelerometermätningar från sensorn. Detta aktiverar kommandot ACCELEROMETER_MEASURE (se [G-Codes](G-Codes.md#adxl345) för mer information). Standardnamnet på kretsen är ”default”, men ett explicit namn kan anges (t.ex. [adxl345 my_chip_name]).
 
 ```
 [adxl345]
@@ -1678,7 +1678,7 @@ cs_pin:
 
 ### [icm20948]
 
-Support for icm20948 accelerometers.
+Stöd för ICM20948-accelerometrar.
 
 ```
 [icm20948]
@@ -1697,7 +1697,7 @@ Support for icm20948 accelerometers.
 
 ### [lis2dw]
 
-Support for LIS2DW accelerometers.
+Stöd för LIS2DW-accelerometrar.
 
 ```
 [lis2dw]
@@ -1728,7 +1728,7 @@ Support for LIS2DW accelerometers.
 
 ### [lis3dh]
 
-Support for LIS3DH accelerometers.
+Stöd för LIS3DH-accelerometrar.
 
 ```
 [lis3dh]
@@ -1759,7 +1759,7 @@ Support for LIS3DH accelerometers.
 
 ### [bmi160]
 
-BMI160 accelerometer. This sensor can be queried via I2C or SPI bus.
+BMI160-accelerometer. Sensorn kan frågas via I2C- eller SPI-buss.
 
 ```
 [bmi160]
@@ -1783,18 +1783,18 @@ BMI160 accelerometer. This sensor can be queried via I2C or SPI bus.
 #   See the "adxl345" section for information on this parameter.
 ```
 
-**Important:** Many BMI160 modules use ambiguous pin labels. For SPI:
+**Viktigt:** Många BMI160-moduler använder tvetydiga stiftetiketter. För SPI:
 
-- Use **SCL** for clock (not SCX)
-- Use **SDA** for MOSI (not SDX)
-- Use **SA0** for MISO
-- Use **CS** for chip select
+- Använd **SCL** för klocka (inte SCX)
+- Använd **SDA** för MOSI (inte SDX)
+- Använd **SA0** för MISO
+- Använd **CS** för kretsval
 
-The pins labeled SCX/SDX are for the auxiliary magnetometer bus.
+Stiften med etiketterna SCX/SDX är avsedda för den extra magnetometerbussen.
 
 ### [mpu9250]
 
-Support for MPU-9250, MPU-9255, MPU-6515, MPU-6050, and MPU-6500 accelerometers (one may define any number of sections with an "mpu9250" prefix).
+Stöd för accelerometrarna MPU-9250, MPU-9255, MPU-6515, MPU-6050 och MPU-6500 (valfritt antal avsnitt med prefixet ”mpu9250” kan definieras).
 
 ```
 [mpu9250 my_accelerometer]
@@ -1813,7 +1813,7 @@ Support for MPU-9250, MPU-9255, MPU-6515, MPU-6050, and MPU-6500 accelerometers 
 
 ### [resonance_tester]
 
-Support for resonance testing and automatic input shaper calibration. In order to use most of the functionality of this module, additional software dependencies must be installed; refer to [Measuring Resonances](Measuring_Resonances.md) and the [command reference](G-Codes.md#resonance_tester) for more information. See the [Max smoothing](Measuring_Resonances.md#max-smoothing) section of the measuring resonances guide for more information on `max_smoothing` parameter and its use.
+Stöd för resonanstestning och automatisk kalibrering av input shaper. För att kunna använda större delen av modulens funktionalitet måste ytterligare programvaruberoenden installeras. Se [Measuring Resonances](Measuring_Resonances.md) och [kommandoreferensen](G-Codes.md#resonance_tester) för mer information. Se avsnittet [Max smoothing](Measuring_Resonances.md#max-smoothing) i guiden för resonansmätning för mer information om parametern `max_smoothing` och dess användning.
 
 ```
 [resonance_tester]
@@ -1881,11 +1881,11 @@ Support for resonance testing and automatic input shaper calibration. In order t
 #   The default is 1.2 sec which is a good all-round choice.
 ```
 
-## Config file helpers
+## Hjälpfunktioner för konfigurationsfiler
 
 ### [board_pins]
 
-Board pin aliases (one may define any number of sections with a "board_pins" prefix). Use this to define aliases for the pins on a micro-controller.
+Alias för kortstift (valfritt antal avsnitt med prefixet ”board_pins” kan definieras). Använd detta för att definiera alias för stiften på en mikrokontroller.
 
 ```
 [board_pins my_aliases]
@@ -1904,7 +1904,7 @@ aliases_<name>:
 
 ### [include]
 
-Include file support. One may include additional config file from the main printer config file. Wildcards may also be used (eg, "configs/*.cfg").
+Stöd för att inkludera filer. Ytterligare konfigurationsfiler kan inkluderas från skrivarens huvudsakliga konfigurationsfil. Jokertecken kan också användas (t.ex. ”configs/*.cfg”).
 
 ```
 [include my_other_config.cfg]
@@ -1912,7 +1912,7 @@ Include file support. One may include additional config file from the main print
 
 ### [duplicate_pin_override]
 
-This tool allows a single micro-controller pin to be defined multiple times in a config file without normal error checking. This is intended for diagnostic and debugging purposes. This section is not needed where Klipper supports using the same pin multiple times, and using this override may cause confusing and unexpected results.
+Verktyget gör det möjligt att definiera ett enda mikrokontrollerstift flera gånger i en konfigurationsfil utan de vanliga felkontrollerna. Det är avsett för diagnostik och felsökning. Avsnittet behövs inte när Klipper stöder användning av samma stift flera gånger, och användning av åsidosättningen kan ge förvirrande och oväntade resultat.
 
 ```
 [duplicate_pin_override]
@@ -1922,11 +1922,11 @@ pins:
 #   provided.
 ```
 
-## Bed probing hardware
+## Maskinvara för bäddmätning
 
 ### [probe]
 
-Z height probe. One may define this section to enable Z height probing hardware. When this section is enabled, PROBE and QUERY_PROBE extended [g-code commands](G-Codes.md#probe) become available. Also, see the [probe calibrate guide](Probe_Calibrate.md). The probe section also creates a virtual "probe:z_virtual_endstop" pin. One may set the stepper_z endstop_pin to this virtual pin on cartesian style printers that use the probe in place of a z endstop. If using "probe:z_virtual_endstop" then do not define a position_endstop in the stepper_z config section.
+Z-höjdsond. Det här avsnittet kan definieras för att aktivera maskinvara för mätning av Z-höjd. När avsnittet är aktiverat blir de utökade [G-kodskommandona](G-Codes.md#probe) PROBE och QUERY_PROBE tillgängliga. Se även [guiden för sondkalibrering](Probe_Calibrate.md). Sondavsnittet skapar också det virtuella stiftet ”probe:z_virtual_endstop”. På kartesiska skrivare som använder sonden i stället för ett Z-ändstopp kan stepper_z endstop_pin sättas till detta virtuella stift. Om ”probe:z_virtual_endstop” används ska position_endstop inte definieras i konfigurationsavsnittet stepper_z.
 
 ```
 [probe]
@@ -2001,7 +2001,7 @@ z_offset:
 
 ### [bltouch]
 
-BLTouch probe. One may define this section (instead of a probe section) to enable a BLTouch probe. See [BL-Touch guide](BLTouch.md) and [command reference](G-Codes.md#bltouch) for further information. A virtual "probe:z_virtual_endstop" pin is also created (see the "probe" section for the details).
+BLTouch-sond. Det här avsnittet kan definieras (i stället för ett sondavsnitt) för att aktivera en BLTouch-sond. Se [BL-Touch-guiden](BLTouch.md) och [kommandoreferensen](G-Codes.md#bltouch) för mer information. Ett virtuellt stift ”probe:z_virtual_endstop” skapas också (se avsnittet ”probe” för detaljer).
 
 ```
 [bltouch]
@@ -2055,7 +2055,7 @@ control_pin:
 
 ### [smart_effector]
 
-The "Smart Effector" from Duet3d implements a Z probe using a force sensor. One may define this section instead of `[probe]` to enable the Smart Effector specific features. This also enables [runtime commands](G-Codes.md#smart_effector) to adjust the parameters of the Smart Effector at run time.
+”Smart Effector” från Duet3d implementerar en Z-sond med en kraftsensor. Det här avsnittet kan definieras i stället för `[probe]` för att aktivera Smart Effector-specifika funktioner. Det aktiverar även [kommandon under körning](G-Codes.md#smart_effector) för att justera Smart Effector-parametrarna under körning.
 
 ```
 [smart_effector]
@@ -2105,7 +2105,7 @@ z_offset:
 
 ### [probe_eddy_current]
 
-Support for eddy current inductive probes. One may define this section (instead of a probe section) to enable this probe. See the [command reference](G-Codes.md#probe_eddy_current) for further information.
+Stöd för induktiva virvelströmssonder. Det här avsnittet kan definieras (i stället för ett sondavsnitt) för att aktivera sonden. Se [kommandoreferensen](G-Codes.md#probe_eddy_current) för mer information.
 
 ```
 [probe_eddy_current my_eddy_probe]
@@ -2168,7 +2168,7 @@ sensor_type: ldc1612
 
 ### [axis_twist_compensation]
 
-A tool to compensate for inaccurate probe readings due to twist in X or Y gantry. See the [Axis Twist Compensation Guide](Axis_Twist_Compensation.md) for more detailed information regarding symptoms, configuration and setup.
+Ett verktyg för att kompensera för felaktiga sondavläsningar på grund av vridning i X- eller Y-portalen. Se [Axis Twist Compensation Guide](Axis_Twist_Compensation.md) för mer information om symtom, konfiguration och installation.
 
 ```
 [axis_twist_compensation]
@@ -2210,11 +2210,11 @@ calibrate_x: ...
 #   provided and is recommended to be near the center of the bed.
 ```
 
-## Additional stepper motors and extruders
+## Ytterligare stegmotorer och extrudrar
 
 ### [stepper_z1]
 
-Multi-stepper axes. On a cartesian style printer, the stepper controlling a given axis may have additional config blocks defining steppers that should be stepped in concert with the primary stepper. One may define any number of sections with a numeric suffix starting at 1 (for example, "stepper_z1", "stepper_z2", etc.).
+Axlar med flera stegmotorer. På en kartesisk skrivare kan stegmotorn som styr en viss axel ha ytterligare konfigurationsblock som definierar stegmotorer som ska stegas samtidigt med den primära stegmotorn. Valfritt antal avsnitt med ett numeriskt suffix som börjar vid 1 kan definieras (t.ex. ”stepper_z1”, ”stepper_z2” osv.).
 
 ```
 [stepper_z1]
@@ -2233,9 +2233,9 @@ Multi-stepper axes. On a cartesian style printer, the stepper controlling a give
 
 ### [extruder1]
 
-In a multi-extruder printer add an additional extruder section for each additional extruder. The additional extruder sections should be named "extruder1", "extruder2", "extruder3", and so on. See the "extruder" section for a description of available parameters.
+I en skrivare med flera extrudrar lägger du till ett ytterligare extruderavsnitt för varje extruder. De ytterligare extruderavsnitten ska heta ”extruder1”, ”extruder2”, ”extruder3” osv. Se avsnittet ”extruder” för en beskrivning av tillgängliga parametrar.
 
-See [sample-multi-extruder.cfg](../config/sample-multi-extruder.cfg) for an example configuration.
+Se [sample-multi-extruder.cfg](../config/sample-multi-extruder.cfg) för en exempelkonfiguration.
 
 ```
 [extruder1]
@@ -2250,11 +2250,11 @@ See [sample-multi-extruder.cfg](../config/sample-multi-extruder.cfg) for an exam
 
 ### [dual_carriage]
 
-Support for cartesian, generic_cartesian and hybrid_corexy/z printers with dual carriages on a single axis. The carriage mode can be set via the SET_DUAL_CARRIAGE extended g-code command. For example, "SET_DUAL_CARRIAGE CARRIAGE=1" command will activate the carriage defined in this section (CARRIAGE=0 will return activation to the primary carriage). Dual carriage support is typically combined with extra extruders - the SET_DUAL_CARRIAGE command is often called at the same time as the ACTIVATE_EXTRUDER command. Be sure to park the carriages during deactivation. Note that during G28 homing, typically the primary carriage is homed first followed by the carriage defined in the `[dual_carriage]` config section. However, the `[dual_carriage]` carriage will be homed first if both carriages home in a positive direction and the [dual_carriage] carriage has a `position_endstop` greater than the primary carriage, or if both carriages home in a negative direction and the `[dual_carriage]` carriage has a `position_endstop` less than the primary carriage.
+Stöd för skrivare med kartesisk, generic_cartesian- och hybrid_corexy/z-kinematik och dubbla vagnar på en axel. Vagnläget kan anges med det utökade G-kodskommandot SET_DUAL_CARRIAGE. Kommandot ”SET_DUAL_CARRIAGE CARRIAGE=1” aktiverar exempelvis vagnen som definieras i detta avsnitt (CARRIAGE=0 återgår till den primära vagnen). Stöd för dubbla vagnar kombineras vanligen med extra extrudrar. SET_DUAL_CARRIAGE körs ofta samtidigt som ACTIVATE_EXTRUDER. Parkera vagnarna vid inaktivering. Vid G28-referenskörning referenskörs vanligen den primära vagnen först och sedan vagnen som definieras i konfigurationsavsnittet [dual_carriage]. Vagnen `[dual_carriage]` referenskörs dock först om båda vagnarna referenskör i positiv riktning och `[dual_carriage]` har en `position_endstop` som är större än den primära vagnens, eller om båda vagnarna referenskör i negativ riktning och `[dual_carriage]` har en `position_endstop` som är mindre än den primära vagnens.
 
-Additionally, one could use "SET_DUAL_CARRIAGE CARRIAGE=1 MODE=COPY" or "SET_DUAL_CARRIAGE CARRIAGE=1 MODE=MIRROR" commands to activate either copying or mirroring mode of the dual carriage, in which case it will follow the motion of the carriage 0 accordingly. These commands can be used to print two parts simultaneously - either two identical parts (in COPY mode) or mirrored parts (in MIRROR mode). Note that COPY and MIRROR modes also require appropriate configuration of the extruder on the dual carriage, which can typically be achieved with "SYNC_EXTRUDER_MOTION MOTION_QUEUE=extruder EXTRUDER=<dual_carriage_extruder>" or a similar command.
+Dessutom kan kommandona ”SET_DUAL_CARRIAGE CARRIAGE=1 MODE=COPY” eller ”SET_DUAL_CARRIAGE CARRIAGE=1 MODE=MIRROR” användas för att aktivera kopierings- respektive speglingsläge för den dubbla vagnen. Vagnen följer då rörelsen hos vagn 0. Kommandona kan användas för att skriva ut två delar samtidigt: två identiska delar (i COPY-läge) eller speglade delar (i MIRROR-läge). Observera att COPY- och MIRROR-lägen också kräver lämplig konfiguration av extrudern på den dubbla vagnen, vilket normalt kan uppnås med ”SYNC_EXTRUDER_MOTION MOTION_QUEUE=extruder EXTRUDER=<dual_carriage_extruder>” eller ett liknande kommando.
 
-See [sample-idex.cfg](../config/sample-idex.cfg) for an example configuration with a regular Cartesian kinematic.
+Se [sample-idex.cfg](../config/sample-idex.cfg) för en exempelkonfiguration med vanlig kartesisk kinematik.
 
 ```
 [dual_carriage]
@@ -2282,7 +2282,7 @@ axis:
 #   See the "stepper" section for the definition of the above parameters.
 ```
 
-For an example of dual carriage configuration with `generic_cartesian` kinematic, see the following configuration [sample](../config/example-generic-caretesian.cfg). Please note that in this case the `[dual_carriage]` configuration deviates from the configuration described above:
+För ett exempel på konfiguration av dubbla vagnar med kinematiken `generic_cartesian`, se följande konfigurations[exempel](../config/example-generic-caretesian.cfg). Observera att konfigurationen `[dual_carriage]` i detta fall avviker från konfigurationen ovan:
 
 ```
 [dual_carriage my_dc_carriage]
@@ -2318,9 +2318,9 @@ position_max:
 ...
 ```
 
-Refer to [generic cartesian](#generic-cartesian) section for more information on the regular `carriage` parameters.
+Se avsnittet [generisk kartesisk](#generic-cartesian) för mer information om vanliga parametrar för `carriage`.
 
-Then a user must define one or more stepper motors moving the dual carriage (and other carriages as appropriate), for instance
+Därefter måste användaren definiera en eller flera stegmotorer som flyttar den dubbla vagnen (och andra vagnar vid behov), till exempel
 
 ```
 [carriage carriage_x]
@@ -2338,7 +2338,7 @@ carriages: carriage_u-carriage_y
 ...
 ```
 
-`[dual_carriage]` requires special configuration for the input shaper. In general, it is necessary to run input shaper calibration twice - for the `dual_carriage` and its `primary_carriage` for the axis they share. Then the input shaper can be configured as follows, assuming the example above:
+`[dual_carriage]` kräver särskild konfiguration för input shaper. I allmänhet är det nödvändigt att köra input shaper-kalibrering två gånger: för `dual_carriage` och dess `primary_carriage` på den axel de delar. Input shaper kan sedan konfigureras enligt följande, förutsatt exemplet ovan:
 
 ```
 [input_shaper]
@@ -2353,15 +2353,15 @@ gcode:
   SET_INPUT_SHAPER SHAPER_TYPE_X=<carriage_x_shaper> SHAPER_FREQ_X=<carriage_x_freq> SHAPER_TYPE_Y=<carriage_y_shaper> SHAPER_FREQ_Y=<carriage_y_freq>
 ```
 
-Note that `SHAPER_TYPE_Y` and `SHAPER_FREQ_Y` must be the same in both commands in this case, since the same motors drive Y axis when either of the `carriage_x` and `carriage_u` carriages are active.
+Observera att `SHAPER_TYPE_Y` och `SHAPER_FREQ_Y` i detta fall måste vara samma i båda kommandona, eftersom samma motorer driver Y-axeln när antingen `carriage_x` eller `carriage_u` är aktiv.
 
-It is worth noting that `generic_cartesian` kinematic can support two dual carriages for X and Y axes. For reference, see for instance a [sample](../config/sample-corexyuv.cfg) of CoreXYUV configuration.
+Observera att kinematiken `generic_cartesian` kan stödja två dubbla vagnar för X- och Y-axlarna. Se till exempel [exemplet](../config/sample-corexyuv.cfg) på en CoreXYUV-konfiguration.
 
 ### [extruder_stepper]
 
-Support for additional steppers synchronized to the movement of an extruder (one may define any number of sections with an "extruder_stepper" prefix).
+Stöd för ytterligare stegmotorer som synkroniseras med en extruders rörelse (valfritt antal avsnitt med prefixet ”extruder_stepper” kan definieras).
 
-See the [command reference](G-Codes.md#extruder) for more information.
+Se [kommandoreferensen](G-Codes.md#extruder) för mer information.
 
 ```
 [extruder_stepper my_extra_stepper]
@@ -2380,7 +2380,7 @@ extruder:
 
 ### [manual_stepper]
 
-Manual steppers (one may define any number of sections with a "manual_stepper" prefix). These are steppers that are controlled by the MANUAL_STEPPER g-code command. For example: "MANUAL_STEPPER STEPPER=my_stepper MOVE=10 SPEED=5". See [G-Codes](G-Codes.md#manual_stepper) file for a description of the MANUAL_STEPPER command. The steppers are not connected to the normal printer kinematics.
+Manuella stegmotorer (valfritt antal avsnitt med prefixet ”manual_stepper” kan definieras). Dessa stegmotorer styrs av G-kodskommandot MANUAL_STEPPER. Exempel: ”MANUAL_STEPPER STEPPER=my_stepper MOVE=10 SPEED=5”. Se [G-Codes](G-Codes.md#manual_stepper) för en beskrivning av kommandot MANUAL_STEPPER. Stegmotorerna är inte anslutna till skrivarens vanliga kinematik.
 
 ```
 [manual_stepper my_stepper]
@@ -2412,11 +2412,11 @@ Manual steppers (one may define any number of sections with a "manual_stepper" p
 #   SET_POSITION=x` command. The default is to not enforce a limit.
 ```
 
-## Custom heaters and sensors
+## Anpassade värmare och sensorer
 
 ### [verify_heater]
 
-Heater and temperature sensor verification. Heater verification is automatically enabled for each heater that is configured on the printer. Use verify_heater sections to change the default settings.
+Verifiering av värmare och temperatursensorer. Värmarverifiering aktiveras automatiskt för varje värmare som har konfigurerats på skrivaren. Använd avsnitt för verify_heater för att ändra standardinställningarna.
 
 ```
 [verify_heater heater_config_name]
@@ -2452,7 +2452,7 @@ Heater and temperature sensor verification. Heater verification is automatically
 
 ### [homing_heaters]
 
-Tool to disable heaters when homing or probing an axis.
+Verktyg för att stänga av värmare vid referenskörning eller mätning av en axel.
 
 ```
 [homing_heaters]
@@ -2469,7 +2469,7 @@ Tool to disable heaters when homing or probing an axis.
 
 ### [thermistor]
 
-Custom thermistors (one may define any number of sections with a "thermistor" prefix). A custom thermistor may be used in the sensor_type field of a heater config section. (For example, if one defines a "[thermistor my_thermistor]" section then one may use a "sensor_type: my_thermistor" when defining a heater.) Be sure to place the thermistor section in the config file above its first use in a heater section.
+Anpassade termistorer (valfritt antal avsnitt med prefixet ”thermistor” kan definieras). En anpassad termistor kan användas i fältet sensor_type i en värmares konfigurationsavsnitt. Om exempelvis avsnittet ”[thermistor my_thermistor]” definieras kan ”sensor_type: my_thermistor” användas när en värmare definieras. Placera termistoravsnittet i konfigurationsfilen ovanför dess första användning i ett värmaravsnitt.
 
 ```
 [thermistor my_thermistor]
@@ -2492,7 +2492,7 @@ Custom thermistors (one may define any number of sections with a "thermistor" pr
 
 ### [adc_temperature]
 
-Custom ADC temperature sensors (one may define any number of sections with an "adc_temperature" prefix). This allows one to define a custom temperature sensor that measures a voltage on an Analog to Digital Converter (ADC) pin and uses linear interpolation between a set of configured temperature/voltage (or temperature/resistance) measurements to determine the temperature. The resulting sensor can be used as a sensor_type in a heater section. (For example, if one defines a "[adc_temperature my_sensor]" section then one may use a "sensor_type: my_sensor" when defining a heater.) Be sure to place the sensor section in the config file above its first use in a heater section.
+Anpassade ADC-temperatursensorer (valfritt antal avsnitt med prefixet ”adc_temperature” kan definieras). Detta gör det möjligt att definiera en anpassad temperatursensor som mäter en spänning på ett stift för analog-till-digital-omvandlare (ADC) och använder linjär interpolation mellan en uppsättning konfigurerade temperatur-/spänningsmätningar (eller temperatur-/resistansmätningar) för att fastställa temperaturen. Den resulterande sensorn kan användas som sensor_type i ett värmaravsnitt. Om exempelvis avsnittet ”[adc_temperature my_sensor]” definieras kan ”sensor_type: my_sensor” användas när en värmare definieras. Placera sensoravsnittet i konfigurationsfilen ovanför dess första användning i ett värmaravsnitt.
 
 ```
 [adc_temperature my_sensor]
@@ -2521,7 +2521,7 @@ Custom ADC temperature sensors (one may define any number of sections with an "a
 
 ### [heater_generic]
 
-Generic heaters (one may define any number of sections with a "heater_generic" prefix). These heaters behave similarly to standard heaters (extruders, heated beds). Use the SET_HEATER_TEMPERATURE command (see [G-Codes](G-Codes.md#heaters) for details) to set the target temperature.
+Generiska värmare (valfritt antal avsnitt med prefixet ”heater_generic” kan definieras). Dessa värmare fungerar på samma sätt som standardvärmare (extrudrar, uppvärmda bäddar). Använd kommandot SET_HEATER_TEMPERATURE (se [G-Codes](G-Codes.md#heaters) för detaljer) för att ange måltemperaturen.
 
 ```
 [heater_generic my_generic_heater]
@@ -2546,7 +2546,7 @@ Generic heaters (one may define any number of sections with a "heater_generic" p
 
 ### [temperature_sensor]
 
-Generic temperature sensors. One can define any number of additional temperature sensors that are reported via the M105 command.
+Generiska temperatursensorer. Valfritt antal ytterligare temperatursensorer kan definieras och rapporteras via kommandot M105.
 
 ```
 [temperature_sensor my_sensor]
@@ -2563,7 +2563,7 @@ Generic temperature sensors. One can define any number of additional temperature
 
 ### [temperature_probe]
 
-Reports probe coil temperature. Includes optional thermal drift calibration for eddy current based probes. A `[temperature_probe]` section may be linked to a `[probe_eddy_current]` by using the same postfix for both sections.
+Rapporterar sondspolens temperatur. Innehåller valfri kalibrering av termisk drift för virvelströmsbaserade sonder. Avsnittet `[temperature_probe]` kan länkas till `[probe_eddy_current]` genom att samma postfix används för båda avsnitten.
 
 ```
 [temperature_probe my_probe]
@@ -2621,13 +2621,13 @@ Reports probe coil temperature. Includes optional thermal drift calibration for 
 #   printers.  The default is 60.
 ```
 
-## Temperature sensors
+## Temperatursensorer
 
-Klipper includes definitions for many types of temperature sensors. These sensors may be used in any config section that requires a temperature sensor (such as an `[extruder]` or `[heater_bed]` section).
+Klipper innehåller definitioner för många typer av temperatursensorer. Sensorerna kan användas i alla konfigurationsavsnitt som kräver en temperatursensor (som avsnittet `[extruder]` eller `[heater_bed]`).
 
-### Common thermistors
+### Vanliga termistorer
 
-Common thermistors. The following parameters are available in heater sections that use one of these sensors.
+Vanliga termistorer. Följande parametrar är tillgängliga i värmaravsnitt som använder någon av dessa sensorer.
 
 ```
 sensor_type:
@@ -2647,9 +2647,9 @@ sensor_pin:
 #   The default is 0 ohms.
 ```
 
-### Common temperature amplifiers
+### Vanliga temperaturförstärkare
 
-Common temperature amplifiers. The following parameters are available in heater sections that use one of these sensors.
+Vanliga temperaturförstärkare. Följande parametrar är tillgängliga i värmaravsnitt som använder någon av dessa sensorer.
 
 ```
 sensor_type:
@@ -2664,9 +2664,9 @@ sensor_pin:
 #   The ADC voltage offset (in Volts). The default is 0.
 ```
 
-### Directly connected PT1000 sensor
+### Direktansluten PT1000-sensor
 
-Directly connected PT1000 sensor. The following parameters are available in heater sections that use one of these sensors.
+Direktansluten PT1000-sensor. Följande parametrar är tillgängliga i värmaravsnitt som använder någon av dessa sensorer.
 
 ```
 sensor_type: PT1000
@@ -2678,9 +2678,9 @@ sensor_pin:
 #   default is 4700 ohms.
 ```
 
-### MAXxxxxx temperature sensors
+### Temperatursensorer av typen MAXxxxxx
 
-MAXxxxxx serial peripheral interface (SPI) temperature based sensors. The following parameters are available in heater sections that use one of these sensor types.
+Temperaturbaserade sensorer av typen MAXxxxxx med seriellt perifert gränssnitt (SPI). Följande parametrar är tillgängliga i värmaravsnitt som använder någon av dessa sensortyper.
 
 ```
 sensor_type:
@@ -2712,9 +2712,9 @@ sensor_pin:
 #   name in the above list.
 ```
 
-### BMP180/BMP280/BME280/BMP388/BME680 temperature sensor
+### Temperatursensor av typen BMP180/BMP280/BME280/BMP388/BME680
 
-BMP180/BMP280/BME280/BMP388/BME680 two wire interface (I2C) environmental sensors. Note that these sensors are not intended for use with extruders and heater beds, but rather for monitoring ambient temperature (C), pressure (hPa), relative humidity and in case of the BME680 gas level. See [sample-macros.cfg](../config/sample-macros.cfg) for a gcode_macro that may be used to report pressure and humidity in addition to temperature.
+Miljösensorer av typen BMP180/BMP280/BME280/BMP388/BME680 med tvåtrådsgränssnitt (I2C). Observera att sensorerna inte är avsedda för extrudrar och värmebäddar, utan för övervakning av omgivningstemperatur (C), tryck (hPa), relativ luftfuktighet och, för BME680, gasnivå. Se [sample-macros.cfg](../config/sample-macros.cfg) för ett gcode_macro som kan användas för att rapportera tryck och luftfuktighet utöver temperatur.
 
 ```
 sensor_type: BME280
@@ -2730,9 +2730,9 @@ sensor_type: BME280
 #   above parameters.
 ```
 
-### AHT10/AHT20/AHT21 temperature sensor
+### Temperatursensor av typen AHT10/AHT20/AHT21
 
-AHT10/AHT15/AHT20/AHT21/AHT30 two wire interface (I2C) environmental sensors. Note that these sensors are not intended for use with extruders and heater beds, but rather for monitoring ambient temperature (C) and relative humidity. See [sample-macros.cfg](../config/sample-macros.cfg) for a gcode_macro that may be used to report humidity in addition to temperature.
+Miljösensorer av typen AHT10/AHT15/AHT20/AHT21/AHT30 med tvåtrådsgränssnitt (I2C). Observera att sensorerna inte är avsedda för extrudrar och värmebäddar, utan för övervakning av omgivningstemperatur (C) och relativ luftfuktighet. Se [sample-macros.cfg](../config/sample-macros.cfg) för ett gcode_macro som kan användas för att rapportera luftfuktighet utöver temperatur.
 
 ```
 sensor_type: AHT1X
@@ -2750,9 +2750,9 @@ sensor_type: AHT1X
 #   Interval in seconds between readings. Default is 30, minimum is 5
 ```
 
-### HTU21D sensor
+### HTU21D-sensor
 
-HTU21D family two wire interface (I2C) environmental sensor. Note that this sensor is not intended for use with extruders and heater beds, but rather for monitoring ambient temperature (C) and relative humidity. See [sample-macros.cfg](../config/sample-macros.cfg) for a gcode_macro that may be used to report humidity in addition to temperature.
+Miljösensor i HTU21D-familjen med tvåtrådsgränssnitt (I2C). Observera att sensorn inte är avsedd för extrudrar och värmebäddar, utan för övervakning av omgivningstemperatur (C) och relativ luftfuktighet. Se [sample-macros.cfg](../config/sample-macros.cfg) för ett gcode_macro som kan användas för att rapportera luftfuktighet utöver temperatur.
 
 ```
 sensor_type:
@@ -2782,9 +2782,9 @@ sensor_type:
 #   Interval in seconds between readings. Default is 30
 ```
 
-### SHT3X sensor
+### SHT3X-sensor
 
-SHT3X family two wire interface (I2C) environmental sensor. These sensors have a range of -55~125 C, so are usable for e.g. chamber temperature monitoring. They can also function as simple fan/heater controllers.
+Miljösensor i SHT3X-familjen med tvåtrådsgränssnitt (I2C). Sensorerna har ett mätområde på -55–125 C och kan därför användas för exempelvis övervakning av kammartemperatur. De kan även fungera som enkla fläkt-/värmarstyrenheter.
 
 ```
 sensor_type: SHT3X
@@ -2799,9 +2799,9 @@ sensor_type: SHT3X
 #   above parameters.
 ```
 
-### LM75 temperature sensor
+### Temperatursensor av typen LM75
 
-LM75/LM75A two wire (I2C) connected temperature sensors. These sensors have a range of -55~125 C, so are usable for e.g. chamber temperature monitoring. They can also function as simple fan/heater controllers.
+Temperatursensorer av typen LM75/LM75A anslutna med två trådar (I2C). Sensorerna har ett mätområde på -55–125 C och kan därför användas för exempelvis övervakning av kammartemperatur. De kan även fungera som enkla fläkt-/värmarstyrenheter.
 
 ```
 sensor_type: LM75
@@ -2821,9 +2821,9 @@ sensor_type: LM75
 #   0.5.
 ```
 
-### Builtin micro-controller temperature sensor
+### Inbyggd mikrokontrollertemperatursensor
 
-The atsam, atsamd, stm32 and rp2040 micro-controllers contain an internal temperature sensor. One can use the "temperature_mcu" sensor to monitor these temperatures.
+Mikrokontrollerna atsam, atsamd, stm32 och rp2040 innehåller en intern temperatursensor. Sensorn ”temperature_mcu” kan användas för att övervaka dessa temperaturer.
 
 ```
 sensor_type: temperature_mcu
@@ -2853,9 +2853,9 @@ sensor_type: temperature_mcu
 #   micro-controller specification.
 ```
 
-### Host temperature sensor
+### Värddatorns temperatursensor
 
-Temperature from the machine (eg Raspberry Pi) running the host software.
+Temperatur från maskinen (t.ex. en Raspberry Pi) som kör värdprogramvaran.
 
 ```
 sensor_type: temperature_host
@@ -2865,9 +2865,9 @@ sensor_type: temperature_host
 #   system file on a Raspberry Pi computer.
 ```
 
-### DS18B20 temperature sensor
+### Temperatursensor av typen DS18B20
 
-DS18B20 is a 1-wire (w1) digital temperature sensor. Note that this sensor is not intended for use with extruders and heater beds, but rather for monitoring ambient temperature (C). These sensors have range up to 125 C, so are usable for e.g. chamber temperature monitoring. They can also function as simple fan/heater controllers. DS18B20 sensors are only supported on the "host mcu", e.g. the Raspberry Pi. The w1-gpio Linux kernel module must be installed.
+DS18B20 är en digital temperatursensor med 1-trådsgränssnitt (w1). Observera att sensorn inte är avsedd för extrudrar och värmebäddar, utan för övervakning av omgivningstemperatur (C). Sensorerna har ett mätområde upp till 125 C och kan därför användas för exempelvis övervakning av kammartemperatur. De kan även fungera som enkla fläkt-/värmarstyrenheter. DS18B20-sensorer stöds endast på ”host mcu”, t.ex. Raspberry Pi. Linux-kärnmodulen w1-gpio måste vara installerad.
 
 ```
 sensor_type: DS18B20
@@ -2882,9 +2882,9 @@ serial_no:
 #   The micro-controller to read from. Must be the host_mcu
 ```
 
-### Combined temperature sensor
+### Kombinerad temperatursensor
 
-Combined temperature sensor is a virtual temperature sensor based on several other sensors. This sensor can be used with extruders, heater_generic and heater beds.
+En kombinerad temperatursensor är en virtuell temperatursensor baserad på flera andra sensorer. Sensorn kan användas med extrudrar, heater_generic och värmebäddar.
 
 ```
 sensor_type: temperature_combined
@@ -2900,11 +2900,11 @@ sensor_type: temperature_combined
 #   to combine (e.g. 5 degrees). To disable it, use a large value (e.g. 999.9)
 ```
 
-## Fans
+## Fläktar
 
 ### [fan]
 
-Print cooling fan.
+Kylfläkt för utskrift.
 
 ```
 [fan]
@@ -2975,7 +2975,7 @@ pin:
 
 ### [heater_fan]
 
-Heater cooling fans (one may define any number of sections with a "heater_fan" prefix). A "heater fan" is a fan that will be enabled whenever its associated heater is active. By default, a heater_fan has a shutdown_speed equal to max_power.
+Kylfläktar för värmare (valfritt antal avsnitt med prefixet ”heater_fan” kan definieras). En ”heater fan” är en fläkt som aktiveras när dess associerade värmare är aktiv. Som standard har en heater_fan ett shutdown_speed som är lika med max_power.
 
 ```
 [heater_fan heatbreak_cooling_fan]
@@ -3007,7 +3007,7 @@ Heater cooling fans (one may define any number of sections with a "heater_fan" p
 
 ### [controller_fan]
 
-Controller cooling fan (one may define any number of sections with a "controller_fan" prefix). A "controller fan" is a fan that will be enabled whenever its associated heater or its associated stepper driver is active. The fan will stop whenever an idle_timeout is reached to ensure no overheating will occur after deactivating a watched component.
+Styrenhetskylfläkt (valfritt antal avsnitt med prefixet ”controller_fan” kan definieras). En ”controller fan” är en fläkt som aktiveras när den associerade värmaren eller den associerade stegmotordrivrutinen är aktiv. Fläkten stoppas när idle_timeout uppnås för att undvika överhettning efter att en övervakad komponent har inaktiverats.
 
 ```
 [controller_fan my_controller_fan]
@@ -3046,9 +3046,9 @@ Controller cooling fan (one may define any number of sections with a "controller
 
 ### [temperature_fan]
 
-Temperature-triggered cooling fans (one may define any number of sections with a "temperature_fan" prefix). A "temperature fan" is a fan that will be enabled whenever its associated sensor is above a set temperature. By default, a temperature_fan has a shutdown_speed equal to max_power.
+Temperaturstyrda kylfläktar (valfritt antal avsnitt med prefixet ”temperature_fan” kan definieras). En ”temperature fan” är en fläkt som aktiveras när den associerade sensorn överskrider en angiven temperatur. Som standard har en temperature_fan ett shutdown_speed som är lika med max_power.
 
-See the [command reference](G-Codes.md#temperature_fan) for additional information.
+Se [kommandoreferensen](G-Codes.md#temperature_fan) för mer information.
 
 ```
 [temperature_fan my_temp_fan]
@@ -3104,7 +3104,7 @@ See the [command reference](G-Codes.md#temperature_fan) for additional informati
 
 ### [fan_generic]
 
-Manually controlled fan (one may define any number of sections with a "fan_generic" prefix). The speed of a manually controlled fan is set with the SET_FAN_SPEED [gcode command](G-Codes.md#fan_generic).
+Manuellt styrd fläkt (valfritt antal avsnitt med prefixet ”fan_generic” kan definieras). Hastigheten för en manuellt styrd fläkt anges med G-kodskommandot [SET_FAN_SPEED](G-Codes.md#fan_generic).
 
 ```
 [fan_generic extruder_partfan]
@@ -3122,11 +3122,11 @@ Manually controlled fan (one may define any number of sections with a "fan_gener
 #   See the "fan" section for a description of the above parameters.
 ```
 
-## LEDs
+## Lysdioder
 
 ### [led]
 
-Support for LEDs (and LED strips) controlled via micro-controller PWM pins (one may define any number of sections with an "led" prefix). See the [command reference](G-Codes.md#led) for more information.
+Stöd för lysdioder (och LED-remsor) som styrs via mikrokontrollerns PWM-stift (valfritt antal avsnitt med prefixet ”led” kan definieras). Se [kommandoreferensen](G-Codes.md#led) för mer information.
 
 ```
 [led my_led]
@@ -3155,9 +3155,9 @@ Support for LEDs (and LED strips) controlled via micro-controller PWM pins (one 
 
 ### [neopixel]
 
-Neopixel (aka WS2812) LED support (one may define any number of sections with a "neopixel" prefix). See the [command reference](G-Codes.md#led) for more information.
+Stöd för Neopixel-lysdioder (även kallade WS2812) (valfritt antal avsnitt med prefixet ”neopixel” kan definieras). Se [kommandoreferensen](G-Codes.md#led) för mer information.
 
-Note that the [linux mcu](RPi_microcontroller.md) implementation does not currently support directly connected neopixels. The current design using the Linux kernel interface does not allow this scenario because the kernel GPIO interface is not fast enough to provide the required pulse rates.
+Observera att implementationen [linux mcu](RPi_microcontroller.md) för närvarande inte stöder direktanslutna neopixlar. Den nuvarande utformningen med Linux-kärnans gränssnitt tillåter inte detta, eftersom kärnans GPIO-gränssnitt inte är tillräckligt snabbt för att ge de pulsintervall som krävs.
 
 ```
 [neopixel my_neopixel]
@@ -3182,7 +3182,7 @@ pin:
 
 ### [dotstar]
 
-Dotstar (aka APA102) LED support (one may define any number of sections with a "dotstar" prefix). See the [command reference](G-Codes.md#led) for more information.
+Stöd för Dotstar-lysdioder (även kallade APA102) (valfritt antal avsnitt med prefixet ”dotstar” kan definieras). Se [kommandoreferensen](G-Codes.md#led) för mer information.
 
 ```
 [dotstar my_dotstar]
@@ -3202,7 +3202,7 @@ clock_pin:
 
 ### [pca9533]
 
-PCA9533 LED support. The PCA9533 is used on the mightyboard.
+Stöd för PCA9533-lysdioder. PCA9533 används på mightyboard.
 
 ```
 [pca9533 my_pca9533]
@@ -3225,7 +3225,7 @@ PCA9533 LED support. The PCA9533 is used on the mightyboard.
 
 ### [pca9632]
 
-PCA9632 LED support. The PCA9632 is used on the FlashForge Dreamer.
+Stöd för PCA9632-lysdioder. PCA9632 används på FlashForge Dreamer.
 
 ```
 [pca9632 my_pca9632]
@@ -3249,11 +3249,11 @@ PCA9632 LED support. The PCA9632 is used on the FlashForge Dreamer.
 #   See the "led" section for information on these parameters.
 ```
 
-## Additional servos, buttons, and other pins
+## Ytterligare servon, knappar och andra stift
 
 ### [servo]
 
-Servos (one may define any number of sections with a "servo" prefix). The servos may be controlled using the SET_SERVO [g-code command](G-Codes.md#servo). For example: SET_SERVO SERVO=my_servo ANGLE=180
+Servon (valfritt antal avsnitt med prefixet ”servo” kan definieras). Servona kan styras med G-kodskommandot [SET_SERVO](G-Codes.md#servo). Exempel: SET_SERVO SERVO=my_servo ANGLE=180
 
 ```
 [servo my_servo]
@@ -3281,7 +3281,7 @@ pin:
 
 ### [gcode_button]
 
-Execute gcode when a button is pressed or released (or when a pin changes state). You can check the state of the button by using `QUERY_BUTTON button=my_gcode_button`.
+Kör G-kod när en knapp trycks ned eller släpps upp (eller när ett stift ändrar tillstånd). Knappens tillstånd kan kontrolleras med `QUERY_BUTTON button=my_gcode_button`.
 
 ```
 [gcode_button my_gcode_button]
@@ -3311,7 +3311,7 @@ pin:
 
 ### [output_pin]
 
-Run-time configurable output pins (one may define any number of sections with an "output_pin" prefix). Pins configured here will be setup as output pins and one may modify them at run-time using "SET_PIN PIN=my_pin VALUE=.1" type extended [g-code commands](G-Codes.md#output_pin).
+Utmatningsstift som kan konfigureras under körning (valfritt antal avsnitt med prefixet ”output_pin” kan definieras). Stift som konfigureras här ställs in som utmatningsstift och kan ändras under körning med utökade [G-kodskommandon](G-Codes.md#output_pin) av typen ”SET_PIN PIN=my_pin VALUE=.1”.
 
 ```
 [output_pin my_pin]
@@ -3355,7 +3355,7 @@ pin:
 
 ### [static_pwm_clock]
 
-Static configurable output pin (one may define any number of sections with an "static_pwm_clock" prefix). Pins configured here will be set up as clock output pins. Generally used to provide clock input to other hardware on the board.
+Statiskt konfigurerbart utmatningsstift (valfritt antal avsnitt med prefixet ”static_pwm_clock” kan definieras). Stift som konfigureras här ställs in som klockutmatningsstift. Används normalt för att ge klockingång till annan maskinvara på kortet.
 
 ```
 [static_pwm_clock my_pin]
@@ -3367,7 +3367,7 @@ pin:
 
 ### [pwm_tool]
 
-Pulse width modulation digital output pins capable of high speed updates (one may define any number of sections with an "output_pin" prefix). Pins configured here will be setup as output pins and one may modify them at run-time using "SET_PIN PIN=my_pin VALUE=.1" type extended [g-code commands](G-Codes.md#output_pin).
+Digitala utmatningsstift med pulsbreddsmodulering som klarar höghastighetsuppdateringar (valfritt antal avsnitt med prefixet ”output_pin” kan definieras). Stift som konfigureras här ställs in som utmatningsstift och kan ändras under körning med utökade [G-kodskommandon](G-Codes.md#output_pin) av typen ”SET_PIN PIN=my_pin VALUE=.1”.
 
 ```
 [pwm_tool my_tool]
@@ -3390,7 +3390,7 @@ pin:
 
 ### [pwm_cycle_time]
 
-Run-time configurable output pins with dynamic pwm cycle timing (one may define any number of sections with an "pwm_cycle_time" prefix). Pins configured here will be setup as output pins and one may modify them at run-time using "SET_PIN PIN=my_pin VALUE=.1 CYCLE_TIME=0.100" type extended [g-code commands](G-Codes.md#pwm_cycle_time).
+Utmatningsstift som kan konfigureras under körning med dynamisk PWM-cykeltid (valfritt antal avsnitt med prefixet ”pwm_cycle_time” kan definieras). Stift som konfigureras här ställs in som utmatningsstift och kan ändras under körning med utökade [G-kodskommandon](G-Codes.md#pwm_cycle_time) av typen ”SET_PIN PIN=my_pin VALUE=.1 CYCLE_TIME=0.100”.
 
 ```
 [pwm_cycle_time my_pin]
@@ -3404,7 +3404,7 @@ pin:
 
 ### [static_digital_output]
 
-Statically configured digital output pins (one may define any number of sections with a "static_digital_output" prefix). Pins configured here will be setup as a GPIO output during MCU configuration. They can not be changed at run-time.
+Statiskt konfigurerade digitala utmatningsstift (valfritt antal avsnitt med prefixet ”static_digital_output” kan definieras). Stift som konfigureras här ställs in som GPIO-utmatning under MCU-konfigurationen. De kan inte ändras under körning.
 
 ```
 [static_digital_output my_output_pins]
@@ -3416,7 +3416,7 @@ pins:
 
 ### [multi_pin]
 
-Multiple pin outputs (one may define any number of sections with a "multi_pin" prefix). A multi_pin output creates an internal pin alias that can modify multiple output pins each time the alias pin is set. For example, one could define a "[multi_pin my_fan]" object containing two pins and then set "pin=multi_pin:my_fan" in the "[fan]" section - on each fan change both output pins would be updated. These aliases may not be used with stepper motor pins.
+Utmatning till flera stift (valfritt antal avsnitt med prefixet ”multi_pin” kan definieras). En multi_pin-utmatning skapar ett internt stiftalias som kan ändra flera utmatningsstift när aliasstiftet anges. Det går exempelvis att definiera objektet ”[multi_pin my_fan]” med två stift och sedan ange ”pin=multi_pin:my_fan” i avsnittet ”[fan]”. Vid varje fläktändring uppdateras då båda utmatningsstiften. Dessa alias får inte användas med stegmotorstift.
 
 ```
 [multi_pin my_multi_pin]
@@ -3425,13 +3425,13 @@ pins:
 #   parameter must be provided.
 ```
 
-## TMC stepper driver configuration
+## Konfiguration av TMC-stegmotordrivrutin
 
-Configuration of Trinamic stepper motor drivers in UART/SPI mode. Additional information is in the [TMC Drivers guide](TMC_Drivers.md) and in the [command reference](G-Codes.md#tmcxxxx).
+Konfiguration av Trinamic-stegmotordrivrutiner i UART-/SPI-läge. Ytterligare information finns i [guiden för TMC-drivrutiner](TMC_Drivers.md) och i [kommandoreferensen](G-Codes.md#tmcxxxx).
 
 ### [tmc2130]
 
-Configure a TMC2130 stepper motor driver via SPI bus. To use this feature, define a config section with a "tmc2130" prefix followed by the name of the corresponding stepper config section (for example, "[tmc2130 stepper_x]").
+Konfigurera en TMC2130-stegmotordrivrutin via SPI-buss. För att använda funktionen definierar du ett konfigurationsavsnitt med prefixet ”tmc2130”, följt av namnet på motsvarande stegmotors konfigurationsavsnitt (exempelvis ”[tmc2130 stepper_x]”).
 
 ```
 [tmc2130 stepper_x]
@@ -3548,7 +3548,7 @@ run_current:
 
 ### [tmc2208]
 
-Configure a TMC2208 (or TMC2224) stepper motor driver via single wire UART. To use this feature, define a config section with a "tmc2208" prefix followed by the name of the corresponding stepper config section (for example, "[tmc2208 stepper_x]").
+Konfigurera en TMC2208- (eller TMC2224-) stegmotordrivrutin via enkeltråds-UART. För att använda funktionen definierar du ett konfigurationsavsnitt med prefixet ”tmc2208”, följt av namnet på motsvarande stegmotors konfigurationsavsnitt (exempelvis ”[tmc2208 stepper_x]”).
 
 ```
 [tmc2208 stepper_x]
@@ -3609,7 +3609,7 @@ run_current:
 
 ### [tmc2209]
 
-Configure a TMC2209 stepper motor driver via single wire UART. To use this feature, define a config section with a "tmc2209" prefix followed by the name of the corresponding stepper config section (for example, "[tmc2209 stepper_x]").
+Konfigurera en TMC2209-stegmotordrivrutin via enkeltråds-UART. För att använda funktionen definierar du ett konfigurationsavsnitt med prefixet ”tmc2209”, följt av namnet på motsvarande stegmotors konfigurationsavsnitt (exempelvis ”[tmc2209 stepper_x]”).
 
 ```
 [tmc2209 stepper_x]
@@ -3670,7 +3670,7 @@ run_current:
 
 ### [tmc2660]
 
-Configure a TMC2660 stepper motor driver via SPI bus. To use this feature, define a config section with a tmc2660 prefix followed by the name of the corresponding stepper config section (for example, "[tmc2660 stepper_x]").
+Konfigurera en TMC2660-stegmotordrivrutin via SPI-buss. För att använda funktionen definierar du ett konfigurationsavsnitt med prefixet tmc2660, följt av namnet på motsvarande stegmotors konfigurationsavsnitt (exempelvis ”[tmc2660 stepper_x]”).
 
 ```
 [tmc2660 stepper_x]
@@ -3739,7 +3739,7 @@ run_current:
 
 ### [tmc2240]
 
-Configure a TMC2240 stepper motor driver via SPI bus or UART. To use this feature, define a config section with a "tmc2240" prefix followed by the name of the corresponding stepper config section (for example, "[tmc2240 stepper_x]").
+Konfigurera en TMC2240-stegmotordrivrutin via SPI-buss eller UART. För att använda funktionen definierar du ett konfigurationsavsnitt med prefixet ”tmc2240”, följt av namnet på motsvarande stegmotors konfigurationsavsnitt (exempelvis ”[tmc2240 stepper_x]”).
 
 ```
 [tmc2240 stepper_x]
@@ -3875,7 +3875,7 @@ run_current:
 
 ### [tmc5160]
 
-Configure a TMC5160 stepper motor driver via SPI bus. To use this feature, define a config section with a "tmc5160" prefix followed by the name of the corresponding stepper config section (for example, "[tmc5160 stepper_x]").
+Konfigurera en TMC5160-stegmotordrivrutin via SPI-buss. För att använda funktionen definierar du ett konfigurationsavsnitt med prefixet ”tmc5160”, följt av namnet på motsvarande stegmotors konfigurationsavsnitt (exempelvis ”[tmc5160 stepper_x]”).
 
 ```
 [tmc5160 stepper_x]
@@ -4001,11 +4001,11 @@ run_current:
 #   sensorless homing.
 ```
 
-## Run-time stepper motor current configuration
+## Konfiguration av stegmotorström under körning
 
 ### [ad5206]
 
-Statically configured AD5206 digipots connected via SPI bus (one may define any number of sections with an "ad5206" prefix).
+Statiskt konfigurerade AD5206-digipotentiometrar anslutna via SPI-buss (valfritt antal avsnitt med prefixet ”ad5206” kan definieras).
 
 ```
 [ad5206 my_digipot]
@@ -4044,7 +4044,7 @@ enable_pin:
 
 ### [mcp4451]
 
-Statically configured MCP4451 digipot connected via I2C bus (one may define any number of sections with an "mcp4451" prefix).
+Statiskt konfigurerad MCP4451-digipotentiometer ansluten via I2C-buss (valfritt antal avsnitt med prefixet ”mcp4451” kan definieras).
 
 ```
 [mcp4451 my_digipot]
@@ -4080,7 +4080,7 @@ i2c_address:
 
 ### [mcp4728]
 
-Statically configured MCP4728 digital-to-analog converter connected via I2C bus (one may define any number of sections with an "mcp4728" prefix).
+Statiskt konfigurerad MCP4728 digital-till-analog-omvandlare ansluten via I2C-buss (valfritt antal avsnitt med prefixet ”mcp4728” kan definieras).
 
 ```
 [mcp4728 my_dac]
@@ -4117,7 +4117,7 @@ Statically configured MCP4728 digital-to-analog converter connected via I2C bus 
 
 ### [mcp4018]
 
-Statically configured MCP4018 digipot connected via i2c (one may define any number of sections with an "mcp4018" prefix).
+Statiskt konfigurerad MCP4018-digipotentiometer ansluten via I2C (valfritt antal avsnitt med prefixet ”mcp4018” kan definieras).
 
 ```
 [mcp4018 my_digipot]
@@ -4148,11 +4148,11 @@ wiper:
 #   scale the 'wiper' parameter.
 ```
 
-## Display support
+## Bildskärmsstöd
 
 ### [display]
 
-Support for a display attached to the micro-controller.
+Stöd för en bildskärm som är ansluten till mikrokontrollern.
 
 ```
 [display]
@@ -4235,9 +4235,9 @@ lcd_type:
 #   button.
 ```
 
-#### hd44780 display
+#### HD44780-bildskärm
 
-Information on configuring hd44780 displays (which is used in "RepRapDiscount 2004 Smart Controller" type displays).
+Information om hur HD44780-bildskärmar konfigureras (används i bildskärmar av typen ”RepRapDiscount 2004 Smart Controller”).
 
 ```
 [display]
@@ -4262,9 +4262,9 @@ d7_pin:
 ...
 ```
 
-#### hd44780_spi display
+#### HD44780_SPI-bildskärm
 
-Information on configuring an hd44780_spi display - a 20x04 display controlled via a hardware "shift register" (which is used in mightyboard based printers).
+Information om hur en HD44780_SPI-bildskärm konfigureras – en 20×04-bildskärm som styrs via ett maskinvaru-”skiftregister” (används i skrivare baserade på mightyboard).
 
 ```
 [display]
@@ -4290,9 +4290,9 @@ spi_software_miso_pin:
 ...
 ```
 
-#### aip31068_spi display
+#### AIP31068_SPI-bildskärm
 
-Information on configuring an aip31068_spi display - a very similar to hd44780_spi a 20x04 (20 symbols by 4 lines) display with slightly different internal protocol.
+Information om hur en AIP31068_SPI-bildskärm konfigureras – en 20×04-bildskärm (20 tecken × 4 rader) som liknar HD44780_SPI men har ett något annorlunda internt protokoll.
 
 ```
 [display]
@@ -4313,9 +4313,9 @@ spi_software_miso_pin:
 ...
 ```
 
-#### st7920 display
+#### ST7920-bildskärm
 
-Information on configuring st7920 displays (which is used in "RepRapDiscount 12864 Full Graphic Smart Controller" type displays).
+Information om hur ST7920-bildskärmar konfigureras (används i bildskärmar av typen ”RepRapDiscount 12864 Full Graphic Smart Controller”).
 
 ```
 [display]
@@ -4329,9 +4329,9 @@ sid_pin:
 ...
 ```
 
-#### emulated_st7920 display
+#### Emulerad ST7920-bildskärm
 
-Information on configuring an emulated st7920 display - found in some "2.4 inch touchscreen devices" and similar.
+Information om hur en emulerad ST7920-bildskärm konfigureras – den finns i vissa ”2,4-tumspekskärmsenheter” och liknande.
 
 ```
 [display]
@@ -4351,9 +4351,9 @@ spi_software_miso_pin:
 ...
 ```
 
-#### uc1701 display
+#### UC1701-bildskärm
 
-Information on configuring uc1701 displays (which is used in "MKS Mini 12864" type displays).
+Information om hur UC1701-bildskärmar konfigureras (används i bildskärmar av typen ”MKS Mini 12864”).
 
 ```
 [display]
@@ -4373,9 +4373,9 @@ a0_pin:
 ...
 ```
 
-#### ssd1306 and sh1106 displays
+#### SSD1306- och SH1106-bildskärmar
 
-Information on configuring ssd1306 and sh1106 displays.
+Information om hur SSD1306- och SH1106-bildskärmar konfigureras.
 
 ```
 [display]
@@ -4422,9 +4422,9 @@ lcd_type:
 
 ### [display_data]
 
-Support for displaying custom data on an lcd screen. One may create any number of display groups and any number of data items under those groups. The display will show all the data items for a given group if the display_group option in the [display] section is set to the given group name.
+Stöd för att visa anpassade data på en LCD-skärm. Valfritt antal bildskärmsgrupper och dataobjekt under grupperna kan skapas. Bildskärmen visar alla dataobjekt för en viss grupp om alternativet display_group i avsnittet [display] är inställt på gruppens namn.
 
-A [default set of display groups](../klippy/extras/display/display.cfg) are automatically created. One can replace or extend these display_data items by overriding the defaults in the main printer.cfg config file.
+En [standarduppsättning av bildskärmsgrupper](../klippy/extras/display/display.cfg) skapas automatiskt. Du kan ersätta eller utöka dessa display_data-objekt genom att åsidosätta standardvärdena i konfigurationsfilen printer.cfg.
 
 ```
 [display_data my_group_name my_data_name]
@@ -4440,11 +4440,11 @@ text:
 
 ### [display_template]
 
-Display data text "macros" (one may define any number of sections with a display_template prefix). See the [command templates](Command_Templates.md) document for information on template evaluation.
+”Makron” för bildskärmsdatatext (valfritt antal avsnitt med prefixet display_template kan definieras). Se dokumentet [kommandomallar](Command_Templates.md) för information om mallutvärdering.
 
-This feature allows one to reduce repetitive definitions in display_data sections. One may use the builtin `render()` function in display_data sections to evaluate a template. For example, if one were to define `[display_template my_template]` then one could use `{ render('my_template') }` in a display_data section.
+Funktionen gör det möjligt att minska upprepade definitioner i avsnitt för display_data. Den inbyggda funktionen `render()` kan användas i display_data-avsnitt för att utvärdera en mall. Om exempelvis `[display_template my_template]` definieras kan `{ render('my_template') }` användas i ett display_data-avsnitt.
 
-This feature can also be used for continuous LED updates using the [SET_LED_TEMPLATE](G-Codes.md#set_led_template) command.
+Funktionen kan även användas för kontinuerliga LED-uppdateringar med kommandot [SET_LED_TEMPLATE](G-Codes.md#set_led_template).
 
 ```
 [display_template my_template_name]
@@ -4465,9 +4465,9 @@ text:
 
 ### [display_glyph]
 
-Display a custom glyph on displays that support it. The given name will be assigned the given display data which can then be referenced in the display templates by their name surrounded by two "tilde" symbols i.e. `~my_display_glyph~`
+Visa en anpassad glyf på bildskärmar som stöder det. Det angivna namnet tilldelas angivna bildskärmsdata och kan sedan refereras i bildskärmsmallarna med namnet omgivet av två tilde-symboler, dvs. `~my_display_glyph~`.
 
-See [sample-glyphs.cfg](../config/sample-glyphs.cfg) for some examples.
+Se [sample-glyphs.cfg](../config/sample-glyphs.cfg) för några exempel.
 
 ```
 [display_glyph my_display_glyph]
@@ -4491,7 +4491,7 @@ See [sample-glyphs.cfg](../config/sample-glyphs.cfg) for some examples.
 
 ### [display my_extra_display]
 
-If a primary [display] section has been defined in printer.cfg as shown above it is possible to define multiple auxiliary displays. Note that auxiliary displays do not currently support menu functionality, thus they do not support the "menu" options or button configuration.
+Om ett primärt avsnitt [display] har definierats i printer.cfg enligt ovan går det att definiera flera extra bildskärmar. Observera att extra bildskärmar för närvarande inte stöder menyfunktioner och alltså inte stöder alternativen ”menu” eller knappkonfiguration.
 
 ```
 [display my_extra_display]
@@ -4500,11 +4500,11 @@ If a primary [display] section has been defined in printer.cfg as shown above it
 
 ### [menu]
 
-Customizable lcd display menus.
+Anpassningsbara LCD-bildskärmsmenyer.
 
-A [default set of menus](../klippy/extras/display/menu.cfg) are automatically created. One can replace or extend the menu by overriding the defaults in the main printer.cfg config file.
+En [standarduppsättning menyer](../klippy/extras/display/menu.cfg) skapas automatiskt. Du kan ersätta eller utöka menyn genom att åsidosätta standardvärdena i konfigurationsfilen printer.cfg.
 
-See the [command template document](Command_Templates.md#menu-templates) for information on menu attributes available during template rendering.
+Se [dokumentet om kommandomallar](Command_Templates.md#menu-templates) för information om menyattribut som är tillgängliga vid mallrendering.
 
 ```
 # Common parameters available for all menu config sections.
@@ -4574,13 +4574,13 @@ See the [command template document](Command_Templates.md#menu-templates) for inf
 #   mode start or end.
 ```
 
-## Filament sensors
+## Filamentsensorer
 
 ### [filament_switch_sensor]
 
-Filament Switch Sensor. Support for filament insert and runout detection using a switch sensor, such as an endstop switch.
+Filamentbrytarsensor. Stöd för detektering av filamentmatning och filamentslut med en brytarsensor, till exempel en ändstoppsbrytare.
 
-See the [command reference](G-Codes.md#filament_switch_sensor) for more information.
+Se [kommandoreferensen](G-Codes.md#filament_switch_sensor) för mer information.
 
 ```
 [filament_switch_sensor my_sensor]
@@ -4620,9 +4620,9 @@ See the [command reference](G-Codes.md#filament_switch_sensor) for more informat
 
 ### [filament_motion_sensor]
 
-Filament Motion Sensor. Support for filament insert and runout detection using an encoder that toggles the output pin during filament movement through the sensor.
+Filamentrörelsesensor. Stöd för detektering av filamentmatning och filamentslut med en kodare som växlar utmatningsstiftet medan filamentet rör sig genom sensorn.
 
-See the [command reference](G-Codes.md#filament_switch_sensor) for more information.
+Se [kommandoreferensen](G-Codes.md#filament_switch_sensor) för mer information.
 
 ```
 [filament_motion_sensor my_sensor]
@@ -4645,7 +4645,7 @@ switch_pin:
 
 ### [tsl1401cl_filament_width_sensor]
 
-TSLl401CL Based Filament Width Sensor. See the [guide](TSL1401CL_Filament_Width_Sensor.md) for more information.
+Filamentbreddssensor baserad på TSL1401CL. Se [guiden](TSL1401CL_Filament_Width_Sensor.md) för mer information.
 
 ```
 [tsl1401cl_filament_width_sensor]
@@ -4659,7 +4659,7 @@ TSLl401CL Based Filament Width Sensor. See the [guide](TSL1401CL_Filament_Width_
 
 ### [hall_filament_width_sensor]
 
-Hall filament width sensor (see [Hall Filament Width Sensor](Hall_Filament_Width_Sensor.md)).
+Hall-sensor för filamentbredd (se [Hall Filament Width Sensor](Hall_Filament_Width_Sensor.md)).
 
 ```
 [hall_filament_width_sensor]
@@ -4720,11 +4720,11 @@ adc2:
 #   above parameters.
 ```
 
-## Load Cells
+## Lastceller
 
 ### [load_cell]
 
-Load Cell. Uses an ADC sensor attached to a load cell to create a digital scale.
+Lastcell. Använder en ADC-sensor ansluten till en lastcell för att skapa en digital våg.
 
 ```
 [load_cell]
@@ -4744,7 +4744,7 @@ sensor_type:
 
 #### HX711
 
-This is a 24 bit low sample rate chip using "bit-bang" communications. It is suitable for filament scales.
+Detta är en 24-bitarskrets med låg samplingsfrekvens som använder ”bit-bang”-kommunikation. Den passar för filamentvågar.
 
 ```
 [load_cell]
@@ -4767,7 +4767,7 @@ dout_pin:
 
 #### HX717
 
-This is the 4x higher sample rate version of the HX711, suitable for probing.
+Detta är versionen av HX711 med fyra gånger högre samplingsfrekvens och lämpar sig för mätning.
 
 ```
 [load_cell]
@@ -4790,7 +4790,7 @@ dout_pin:
 
 #### ADS1220
 
-The ADS1220 is a 24 bit ADC supporting up to a 2Khz sample rate configurable in software.
+ADS1220 är en 24-bitars ADC som stöder en samplingsfrekvens på upp till 2 kHz och kan konfigureras i programvara.
 
 ```
 [load_cell]
@@ -4842,7 +4842,7 @@ data_ready_pin:
 
 #### ADS131M0x
 
-The ADS131M0x is a family of fast, 24-bit, delta-sigma ADCs. Two sensors are supported from this family: ADS131M02 with two simultaneously-sampling differential channels and ADS131M04 with four channels. They feature a programmable gain amplifier (PGA) with gains up to 128, configurable sampling rates up to 64000 samples per second, and require an external clock input (300 kHz to 8.4 MHz, 8.192 MHz nominal).
+ADS131M0x är en familj av snabba 24-bitars delta-sigma-ADC:er. Två sensorer i familjen stöds: ADS131M02 med två differentiella kanaler som samplas samtidigt och ADS131M04 med fyra kanaler. De har en programmerbar förstärkare (PGA) med förstärkning upp till 128, konfigurerbara samplingsfrekvenser upp till 64 000 sampel per sekund och kräver en extern klockingång (300 kHz till 8,4 MHz, nominellt 8,192 MHz).
 
 ```
 [load_cell]
@@ -4897,7 +4897,7 @@ data_ready_pin:
 
 ### [load_cell_probe]
 
-Load Cell Probe. This combines the functionality of a [probe] and a [load_cell].
+Lastcellssond. Kombinerar funktionerna hos en [probe] och en [load_cell].
 
 ```
 [load_cell_probe]
@@ -4955,13 +4955,13 @@ sensor_type:
 #   See the "[probe]" section for a description of the above parameters.
 ```
 
-## Board specific hardware support
+## Kortspecifikt maskinvarustöd
 
 ### [sx1509]
 
-Configure an SX1509 I2C to GPIO expander. Due to the delay incurred by I2C communication you should NOT use SX1509 pins as stepper enable, step or dir pins or any other pin that requires fast bit-banging. They are best used as static or gcode controlled digital outputs or hardware-pwm pins for e.g. fans. One may define any number of sections with an "sx1509" prefix. Each expander provides a set of 16 pins (sx1509_my_sx1509:PIN_0 to sx1509_my_sx1509:PIN_15) which can be used in the printer configuration.
+Konfigurera en SX1509-utökare från I2C till GPIO. På grund av fördröjningen från I2C-kommunikationen ska SX1509-stift INTE användas som stegmotoraktiverings-, steg- eller riktningsstift, eller som andra stift som kräver snabb bit-banging. De används bäst som statiska eller G-kodsstyrda digitala utmatningar eller maskinvaru-PWM-stift, till exempel för fläktar. Valfritt antal avsnitt med prefixet ”sx1509” kan definieras. Varje utökare tillhandahåller 16 stift (sx1509_my_sx1509:PIN_0 till sx1509_my_sx1509:PIN_15) som kan användas i skrivarkonfigurationen.
 
-See the [generic-duet2-duex.cfg](../config/generic-duet2-duex.cfg) file for an example.
+Se filen [generic-duet2-duex.cfg](../config/generic-duet2-duex.cfg) för ett exempel.
 
 ```
 [sx1509 my_sx1509]
@@ -4980,7 +4980,7 @@ i2c_address:
 
 ### [samd_sercom]
 
-SAMD SERCOM configuration to specify which pins to use on a given SERCOM. One may define any number of sections with a "samd_sercom" prefix. Each SERCOM must be configured prior to using it as SPI or I2C peripheral. Place this config section above any other section that makes use of SPI or I2C buses.
+SAMD SERCOM-konfiguration för att ange vilka stift som ska användas för en viss SERCOM. Valfritt antal avsnitt med prefixet ”samd_sercom” kan definieras. Varje SERCOM måste konfigureras innan den används som SPI- eller I2C-kringutrustning. Placera detta konfigurationsavsnitt ovanför andra avsnitt som använder SPI- eller I2C-bussar.
 
 ```
 [samd_sercom my_sercom]
@@ -5005,9 +5005,9 @@ clk_pin:
 
 ### [adc_scaled]
 
-Duet2 Maestro analog scaling by vref and vssa readings. Defining an adc_scaled section enables virtual adc pins (such as "my_name:PB0") that are automatically adjusted by the board's vref and vssa monitoring pins. Be sure to define this config section above any config sections that use one these virtual pins.
+Analog skalning för Duet2 Maestro med vref- och vssa-avläsningar. Ett avsnitt för adc_scaled aktiverar virtuella ADC-stift (som ”my_name:PB0”) som automatiskt justeras av kortets övervakningsstift för vref och vssa. Definiera detta konfigurationsavsnitt ovanför alla konfigurationsavsnitt som använder dessa virtuella stift.
 
-See the [generic-duet2-maestro.cfg](../config/generic-duet2-maestro.cfg) file for an example.
+Se filen [generic-duet2-maestro.cfg](../config/generic-duet2-maestro.cfg) för ett exempel.
 
 ```
 [adc_scaled my_name]
@@ -5025,9 +5025,9 @@ vssa_pin:
 
 ### [ads1x1x]
 
-ADS1013, ADS1014, ADS1015, ADS1113, ADS1114 and ADS1115 are I2C based Analog to Digital Converters that can be used for temperature sensors. They provide 4 analog input pins either as single line or as differential input.
+ADS1013, ADS1014, ADS1015, ADS1113, ADS1114 och ADS1115 är I2C-baserade analog-till-digital-omvandlare som kan användas för temperatursensorer. De har fyra analoga ingångsstift, antingen som enkelledare eller differentialingång.
 
-Note: Use caution if using this sensor to control heaters. The heater min_temp and max_temp are only verified in the host and only if the host is running and operating normally. (ADC inputs directly connected to the micro-controller verify min_temp and max_temp within the micro-controller and do not require a working connection to the host.)
+Obs: Var försiktig om sensorn används för att styra värmare. Värmarens min_temp och max_temp verifieras bara på värddatorn och endast om värden körs och fungerar normalt. ADC-ingångar som är direkt anslutna till mikrokontrollern verifierar min_temp och max_temp i mikrokontrollern och kräver ingen fungerande anslutning till värden.
 
 ```
 [ads1x1x my_ads1x1x]
@@ -5047,7 +5047,7 @@ i2c_bus: i2c.1
 #   can be specified directly instead of using the address_pin.
 ```
 
-The chip provides pins that can be used on other sensors.
+Kretsen har stift som kan användas med andra sensorer.
 
 ```
 sensor_type: ...
@@ -5063,7 +5063,7 @@ sensor_pin: my_ads1x1x:AIN0
 
 ### [replicape]
 
-Replicape support - see the [beaglebone guide](Beaglebone.md) and the [generic-replicape.cfg](../config/generic-replicape.cfg) file for an example.
+Stöd för Replicape – se [Beaglebone-guiden](Beaglebone.md) och filen [generic-replicape.cfg](../config/generic-replicape.cfg) för ett exempel.
 
 ```
 # The "replicape" config section adds "replicape:stepper_x_enable"
@@ -5125,17 +5125,17 @@ host_mcu:
 #   (True sets CFG5 high, False sets it low). The default is True.
 ```
 
-## Other Custom Modules
+## Andra anpassade moduler
 
 ### [palette2]
 
-Palette 2 multimaterial support - provides a tighter integration supporting Palette 2 devices in connected mode.
+Stöd för Palette 2 med flera material – ger tätare integrering med stöd för Palette 2-enheter i anslutet läge.
 
-This modules also requires `[virtual_sdcard]` and `[pause_resume]` for full functionality.
+Modulen kräver även `[virtual_sdcard]` och `[pause_resume]` för full funktion.
 
-If you use this module, do not use the Palette 2 plugin for Octoprint as they will conflict, and 1 will fail to initialize properly likely aborting your print.
+Om du använder modulen ska du inte använda Palette 2-insticksmodulen för OctoPrint, eftersom de står i konflikt och en av dem sannolikt inte kan initieras, vilket avbryter utskriften.
 
-If you use Octoprint and stream gcode over the serial port instead of printing from virtual_sd, then remove **M1** and **M0** from *Pausing commands* in *Settings > Serial Connection > Firmware & protocol* will prevent the need to start print on the Palette 2 and unpausing in Octoprint for your print to begin.
+Om du använder OctoPrint och strömmar G-kod över serieporten i stället för att skriva ut från virtual_sd, förhindrar borttagning av **M1** och **M0** från *Pausing commands* i *Settings > Serial Connection > Firmware & protocol* att utskriften måste startas på Palette 2 och återupptas i OctoPrint innan den kan börja.
 
 ```
 [palette2]
@@ -5155,7 +5155,7 @@ serial:
 
 ### [angle]
 
-Magnetic hall angle sensor support for reading stepper motor angle shaft measurements using a1333, as5047d, mt6816, mt6826s, or tle5012b SPI chips. The measurements are available via the [API Server](API_Server.md) and [motion analysis tool](Debugging.md#motion-analysis-and-data-logging). See the [G-Code reference](G-Codes.md#angle) for available commands.
+Stöd för magnetiska Hall-vinkelsensorer för avläsning av stegmotoraxelns vinkel med SPI-kretsarna a1333, as5047d, mt6816, mt6826s eller tle5012b. Mätningarna är tillgängliga via [API-servern](API_Server.md) och [verktyget för rörelseanalys](Debugging.md#motion-analysis-and-data-logging). Se [G-kodsreferensen](G-Codes.md#angle) för tillgängliga kommandon.
 
 ```
 [angle my_angle_sensor]
@@ -5183,11 +5183,11 @@ cs_pin:
 #   above parameters.
 ```
 
-## Common bus parameters
+## Vanliga bussparametrar
 
-### Common SPI settings
+### Vanliga SPI-inställningar
 
-The following parameters are generally available for devices using an SPI bus.
+Följande parametrar är i allmänhet tillgängliga för enheter som använder en SPI-buss.
 
 ```
 #spi_speed:
@@ -5206,13 +5206,13 @@ The following parameters are generally available for devices using an SPI bus.
 #   "software spi".
 ```
 
-### Common I2C settings
+### Vanliga I2C-inställningar
 
-The following parameters are generally available for devices using an I2C bus.
+Följande parametrar är i allmänhet tillgängliga för enheter som använder en I2C-buss.
 
-Note that Klipper's current micro-controller support for I2C is generally not tolerant to line noise. Unexpected errors on the I2C wires may result in Klipper raising a run-time error. Klipper's support for error recovery varies between each micro-controller type. It is generally recommended to only use I2C devices that are on the same printed circuit board as the micro-controller.
+Observera att Klippers nuvarande mikrokontrollerstöd för I2C normalt inte tål störningar på ledningarna. Oväntade fel på I2C-ledningarna kan leda till att Klipper utlöser ett fel under körning. Klippers stöd för felåterställning varierar mellan olika mikrokontrollertyper. Det rekommenderas normalt att endast använda I2C-enheter som sitter på samma kretskort som mikrokontrollern.
 
-Most Klipper micro-controller implementations only support an `i2c_speed` of 100000 (*standard mode*, 100kbit/s). The Klipper "Linux" micro-controller supports a 400000 speed (*fast mode*, 400kbit/s), but it must be [set in the operating system](RPi_microcontroller.md#optional-enabling-i2c) and the `i2c_speed` parameter is otherwise ignored. The Klipper "RP2040" micro-controller and ATmega AVR family and some STM32 (F0, G0, G4, L4, F7, H7) support a rate of 400000 via the `i2c_speed` parameter. All other Klipper micro-controllers use a 100000 rate and ignore the `i2c_speed` parameter.
+De flesta av Klippers mikrokontrollerimplementationer stöder endast en `i2c_speed` på 100000 (*standardläge*, 100 kbit/s). Klippers ”Linux”-mikrokontroller stöder 400000 (*snabbläge*, 400 kbit/s), men den måste [ställas in i operativsystemet](RPi_microcontroller.md#optional-enabling-i2c) och parametern `i2c_speed` ignoreras annars. Klippers ”RP2040”-mikrokontroller, ATmega AVR-familjen och vissa STM32-varianter (F0, G0, G4, L4, F7, H7) stöder 400000 via parametern `i2c_speed`. Alla andra Klipper-mikrokontroller använder 100000 och ignorerar parametern `i2c_speed`.
 
 ```
 #i2c_address:

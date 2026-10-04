@@ -1,26 +1,26 @@
-# Bootloaders
+# Uppstartsprogram
 
-This document provides information on common bootloaders found on micro-controllers that Klipper supports.
+Detta dokument innehåller information om vanliga uppstartsprogram på mikrokontroller som Klipper stöder.
 
-The bootloader is 3rd-party software that runs on the micro-controller when it is first powered on. It is typically used to flash a new application (eg, Klipper) to the micro-controller without requiring specialized hardware. Unfortunately, there is no industry wide standard for flashing a micro-controller, nor is there a standard bootloader that works across all micro-controllers. Worse, it is common for each bootloader to require a different set of steps to flash an application.
+Ett uppstartsprogram är programvara från tredje part som körs på mikrokontrollern när den först får ström. Den används normalt för att flasha ett nytt program, exempelvis Klipper, utan särskild maskinvara. Det finns tyvärr ingen branschstandard för flashning av mikrokontroller och inte heller något standardiserat uppstartsprogram för alla mikrokontroller. Dessutom kräver varje uppstartsprogram ofta olika steg för att flasha ett program.
 
-If one can flash a bootloader to a micro-controller then one can generally also use that mechanism to flash an application, but care should be taken when doing this as one may inadvertently remove the bootloader. In contrast, a bootloader will generally only permit a user to flash an application. It is therefore recommended to use a bootloader to flash an application where possible.
+Om ett uppstartsprogram kan flashas till en mikrokontroller går det vanligtvis också att använda samma mekanism för att flasha ett program, men var försiktig eftersom uppstartsprogrammet kan tas bort oavsiktligt. Ett uppstartsprogram tillåter däremot normalt bara att ett program flashas. Använd därför ett uppstartsprogram för att flasha program när det är möjligt.
 
-This document attempts to describe common bootloaders, the steps needed to flash a bootloader, and the steps needed to flash an application. This document is not an authoritative reference; it is intended as a collection of useful information that the Klipper developers have accumulated.
+Dokumentet beskriver vanliga uppstartsprogram, stegen för att flasha dem och stegen för att flasha program. Det är ingen auktoritativ referens utan en samling användbar information från Klippers utvecklare.
 
-## AVR micro-controllers
+## AVR-mikrokontroller
 
-In general, the Arduino project is a good reference for bootloaders and flashing procedures on the 8-bit Atmel Atmega micro-controllers. In particular, the "boards.txt" file: <https://github.com/arduino/Arduino/blob/1.8.5/hardware/arduino/avr/boards.txt> is a useful reference.
+Arduino-projektet är i allmänhet en bra referens för uppstartsprogram och flashningsförfaranden för 8-bitars Atmel Atmega-mikrokontroller. Särskilt filen "boards.txt": <https://github.com/arduino/Arduino/blob/1.8.5/hardware/arduino/avr/boards.txt> är användbar.
 
-To flash a bootloader itself, the AVR chips require an external hardware flashing tool (which communicates with the chip using SPI). This tool can be purchased (for example, do a web search for "avr isp", "arduino isp", or "usb tiny isp"). It is also possible to use another Arduino or Raspberry Pi to flash an AVR bootloader (for example, do a web search for "program an avr using raspberry pi"). The examples below are written assuming an "AVR ISP Mk2" type device is in use.
+För att flasha själva uppstartsprogrammet kräver AVR-kretsar ett externt maskinvaruverktyg för flashning, som kommunicerar med kretsen via SPI. Verktyget kan köpas (sök exempelvis på "avr isp", "arduino isp" eller "usb tiny isp"). Det går även att använda en annan Arduino eller Raspberry Pi för att flasha ett AVR-uppstartsprogram (sök exempelvis på "program an avr using raspberry pi"). Exemplen nedan förutsätter en enhet av typen "AVR ISP Mk2".
 
-The "avrdude" program is the most common tool used to flash atmega chips (both bootloader flashing and application flashing).
+Programmet "avrdude" är det vanligaste verktyget för att flasha Atmega-kretsar, både uppstartsprogram och program.
 
 ### Atmega2560
 
-This chip is typically found in the "Arduino Mega" and is very common in 3d printer boards.
+Kretsen finns normalt i "Arduino Mega" och är mycket vanlig på kort för 3D-skrivare.
 
-To flash the bootloader itself use something like:
+Använd något i stil med följande för att flasha själva uppstartsprogrammet:
 
 ```
 wget 'https://github.com/arduino/Arduino/raw/1.8.5/hardware/arduino/avr/bootloaders/stk500v2/stk500boot_v2_mega2560.hex'
@@ -30,7 +30,7 @@ avrdude -cavrispv2 -patmega2560 -P/dev/ttyACM0 -b115200 -U flash:w:stk500boot_v2
 avrdude -cavrispv2 -patmega2560 -P/dev/ttyACM0 -b115200 -U lock:w:0x0F:m
 ```
 
-To flash an application use something like:
+Använd något i stil med följande för att flasha ett program:
 
 ```
 avrdude -cwiring -patmega2560 -P/dev/ttyACM0 -b115200 -D -Uflash:w:out/klipper.elf.hex:i
@@ -38,9 +38,9 @@ avrdude -cwiring -patmega2560 -P/dev/ttyACM0 -b115200 -D -Uflash:w:out/klipper.e
 
 ### Atmega1280
 
-This chip is typically found in earlier versions of the "Arduino Mega".
+Kretsen finns normalt i äldre versioner av "Arduino Mega".
 
-To flash the bootloader itself use something like:
+Använd något i stil med följande för att flasha själva uppstartsprogrammet:
 
 ```
 wget 'https://github.com/arduino/Arduino/raw/1.8.5/hardware/arduino/avr/bootloaders/atmega/ATmegaBOOT_168_atmega1280.hex'
@@ -50,7 +50,7 @@ avrdude -cavrispv2 -patmega1280 -P/dev/ttyACM0 -b115200 -U flash:w:ATmegaBOOT_16
 avrdude -cavrispv2 -patmega1280 -P/dev/ttyACM0 -b115200 -U lock:w:0x0F:m
 ```
 
-To flash an application use something like:
+Använd något i stil med följande för att flasha ett program:
 
 ```
 avrdude -carduino -patmega1280 -P/dev/ttyACM0 -b57600 -D -Uflash:w:out/klipper.elf.hex:i
@@ -58,9 +58,9 @@ avrdude -carduino -patmega1280 -P/dev/ttyACM0 -b57600 -D -Uflash:w:out/klipper.e
 
 ### Atmega1284p
 
-This chip is commonly found in "Melzi" style 3d printer boards.
+Kretsen finns ofta på kort för 3D-skrivare av typen "Melzi".
 
-To flash the bootloader itself use something like:
+Använd något i stil med följande för att flasha själva uppstartsprogrammet:
 
 ```
 wget 'https://github.com/Lauszus/Sanguino/raw/1.0.2/bootloaders/optiboot/optiboot_atmega1284p.hex'
@@ -70,13 +70,13 @@ avrdude -cavrispv2 -patmega1284p -P/dev/ttyACM0 -b115200 -U flash:w:optiboot_atm
 avrdude -cavrispv2 -patmega1284p -P/dev/ttyACM0 -b115200 -U lock:w:0x0F:m
 ```
 
-To flash an application use something like:
+Använd något i stil med följande för att flasha ett program:
 
 ```
 avrdude -carduino -patmega1284p -P/dev/ttyACM0 -b115200 -D -Uflash:w:out/klipper.elf.hex:i
 ```
 
-Note that a number of "Melzi" style boards come preloaded with a bootloader that uses a baud rate of 57600. In this case, to flash an application use something like this instead:
+Observera att flera kort av typen "Melzi" levereras med ett uppstartsprogram som använder överföringshastigheten 57600. Använd i så fall något i stil med följande för att flasha ett program:
 
 ```
 avrdude -carduino -patmega1284p -P/dev/ttyACM0 -b57600 -D -Uflash:w:out/klipper.elf.hex:i
@@ -84,9 +84,9 @@ avrdude -carduino -patmega1284p -P/dev/ttyACM0 -b57600 -D -Uflash:w:out/klipper.
 
 ### At90usb1286
 
-This document does not cover the method to flash a bootloader to the At90usb1286 nor does it cover general application flashing to this device.
+Detta dokument beskriver inte hur ett uppstartsprogram flashas till At90usb1286 och inte heller allmän flashning av program till enheten.
 
-The Teensy++ device from pjrc.com comes with a proprietary bootloader. It requires a custom flashing tool from <https://github.com/PaulStoffregen/teensy_loader_cli>. One can flash an application with it using something like:
+Teensy++-enheten från pjrc.com levereras med ett proprietärt uppstartsprogram. Den kräver ett särskilt flashningsverktyg från <https://github.com/PaulStoffregen/teensy_loader_cli>. Ett program kan flashas med något i stil med:
 
 ```
 teensy_loader_cli --mcu=at90usb1286 out/klipper.elf.hex -v
@@ -94,7 +94,7 @@ teensy_loader_cli --mcu=at90usb1286 out/klipper.elf.hex -v
 
 ### Atmega168
 
-The atmega168 has limited flash space. If using a bootloader, it is recommended to use the Optiboot bootloader. To flash that bootloader use something like:
+Atmega168 har begränsat flashminne. Om ett uppstartsprogram används rekommenderas Optiboot. Använd något i stil med följande för att flasha det:
 
 ```
 wget 'https://github.com/arduino/Arduino/raw/1.8.5/hardware/arduino/avr/bootloaders/optiboot/optiboot_atmega168.hex'
@@ -104,46 +104,46 @@ avrdude -cavrispv2 -patmega168 -P/dev/ttyACM0 -b115200 -U flash:w:optiboot_atmeg
 avrdude -cavrispv2 -patmega168 -P/dev/ttyACM0 -b115200 -U lock:w:0x0F:m
 ```
 
-To flash an application via the Optiboot bootloader use something like:
+Använd något i stil med följande för att flasha ett program via Optiboot:
 
 ```
 avrdude -carduino -patmega168 -P/dev/ttyACM0 -b115200 -D -Uflash:w:out/klipper.elf.hex:i
 ```
 
-## SAM3 micro-controllers (Arduino Due)
+## SAM3-mikrokontroller (Arduino Due)
 
-It is not common to use a bootloader with the SAM3 mcu. The chip itself has a ROM that allows the flash to be programmed from 3.3V serial port or from USB.
+Det är ovanligt att använda uppstartsprogram med SAM3-MCU:n. Kretsen har själv ett ROM som gör att flashminnet kan programmeras från en seriell 3,3 V-port eller USB.
 
-To enable the ROM, the "erase" pin is held high during a reset, which erases the flash contents, and causes the ROM to run. On an Arduino Due, this sequence can be accomplished by setting a baud rate of 1200 on the "programming usb port" (the USB port closest to the power supply).
+För att aktivera ROM hålls stiftet "erase" högt under en återställning. Det raderar flashinnehållet och startar ROM. På en Arduino Due kan detta göras genom att ställa in överföringshastigheten 1200 på "programming usb port" (USB-porten närmast strömförsörjningen).
 
-The code at <https://github.com/shumatech/BOSSA> can be used to program the SAM3. It is recommended to use version 1.9 or later.
+Koden på <https://github.com/shumatech/BOSSA> kan användas för att programmera SAM3. Version 1.9 eller senare rekommenderas.
 
-To flash an application use something like:
+Använd något i stil med följande för att flasha ett program:
 
 ```
 bossac -U -p /dev/ttyACM0 -a -e -w out/klipper.bin -v -b
 bossac -U -p /dev/ttyACM0 -R
 ```
 
-## SAM4 micro-controllers (Duet Wifi)
+## SAM4-mikrokontroller (Duet Wifi)
 
-It is not common to use a bootloader with the SAM4 mcu. The chip itself has a ROM that allows the flash to be programmed from 3.3V serial port or from USB.
+Det är ovanligt att använda uppstartsprogram med SAM4-MCU:n. Kretsen har själv ett ROM som gör att flashminnet kan programmeras från en seriell 3,3 V-port eller USB.
 
-To enable the ROM, the "erase" pin is held high during a reset, which erases the flash contents, and causes the ROM to run.
+För att aktivera ROM hålls stiftet "erase" högt under en återställning. Det raderar flashinnehållet och startar ROM.
 
-The code at <https://github.com/shumatech/BOSSA> can be used to program the SAM4. It is necessary to use version `1.8.0` or higher.
+Koden på <https://github.com/shumatech/BOSSA> kan användas för att programmera SAM4. Version `1.8.0` eller senare krävs.
 
-To flash an application use something like:
+Använd något i stil med följande för att flasha ett program:
 
 ```
 bossac --port=/dev/ttyACM0 -b -U -e -w -v -R out/klipper.bin
 ```
 
-## SAMDC21 micro-controllers (Duet3D Toolboard 1LC)
+## SAMDC21-mikrokontroller (Duet3D Toolboard 1LC)
 
-The SAMC21 is flashed via the ARM Serial Wire Debug (SWD) interface. This is commonly done with a dedicated SWD hardware dongle. Alternatively, one can use a [Raspberry Pi with OpenOCD](#running-openocd-on-the-raspberry-pi).
+SAMC21 flashas via ARM Serial Wire Debug-gränssnittet (SWD). Det görs vanligen med en särskild SWD-dongel, men en [Raspberry Pi med OpenOCD](#running-openocd-on-the-raspberry-pi) kan också användas.
 
-When using OpenOCD with the SAMC21, extra steps must be taken to first put the chip into Cold Plugging mode if the board makes use of the SWD pins for other purposes. If using OpenOCD on a Raspberry Pi, this can be done by running the following commands before invoking OpenOCD.
+När OpenOCD används med SAMC21 krävs extra steg för att först sätta kretsen i läget Cold Plugging om kortet använder SWD-stiften till annat. Med OpenOCD på Raspberry Pi görs detta genom att köra följande kommandon före OpenOCD.
 
 ```
 SWCLK=25
@@ -166,13 +166,13 @@ echo $SWCLK > /sys/class/gpio/unexport
 echo $SRST > /sys/class/gpio/unexport
 ```
 
-To flash a program with OpenOCD use the following chip config:
+Använd följande kretskonfiguration för att flasha ett program med OpenOCD:
 
 ```
 source [find target/at91samdXX.cfg]
 ```
 
-Obtain a program; for instance, klipper can be built for this chip. Flash with OpenOCD commands similar to:
+Hämta ett program; Klipper kan exempelvis byggas för denna krets. Flasha med OpenOCD-kommandon i stil med:
 
 ```
 at91samd chip-erase
@@ -180,56 +180,56 @@ at91samd bootloader 0
 program out/klipper.elf verify
 ```
 
-## SAMD21 micro-controllers (Arduino Zero)
+## SAMD21-mikrokontroller (Arduino Zero)
 
-The SAMD21 bootloader is flashed via the ARM Serial Wire Debug (SWD) interface. This is commonly done with a dedicated SWD hardware dongle. Alternatively, one can use a [Raspberry Pi with OpenOCD](#running-openocd-on-the-raspberry-pi).
+SAMD21-uppstartsprogrammet flashas via ARM Serial Wire Debug-gränssnittet (SWD). Det görs vanligen med en särskild SWD-dongel, men du kan även använda en [Raspberry Pi med OpenOCD](#running-openocd-on-the-raspberry-pi).
 
-To flash a bootloader with OpenOCD use the following chip config:
+Använd följande kretskonfiguration för att flasha ett uppstartsprogram med OpenOCD:
 
 ```
 source [find target/at91samdXX.cfg]
 ```
 
-Obtain a bootloader - for example:
+Hämta ett uppstartsprogram, exempelvis:
 
 ```
 wget 'https://github.com/arduino/ArduinoCore-samd/raw/1.8.3/bootloaders/zero/samd21_sam_ba.bin'
 ```
 
-Flash with OpenOCD commands similar to:
+Flasha med OpenOCD-kommandon i stil med:
 
 ```
 at91samd bootloader 0
 program samd21_sam_ba.bin verify
 ```
 
-The most common bootloader on the SAMD21 is the one found on the "Arduino Zero". It uses an 8KiB bootloader (the application must be compiled with a start address of 8KiB). One can enter this bootloader by double clicking the reset button. To flash an application use something like:
+Det vanligaste uppstartsprogrammet för SAMD21 är det som finns på "Arduino Zero". Det använder 8 KiB (programmet måste kompileras med startadressen 8 KiB). Du öppnar uppstartsprogrammet genom att dubbelklicka på återställningsknappen. Flasha ett program med något i stil med:
 
 ```
 bossac -U -p /dev/ttyACM0 --offset=0x2000 -w out/klipper.bin -v -b -R
 ```
 
-In contrast, the "Arduino M0" uses a 16KiB bootloader (the application must be compiled with a start address of 16KiB). To flash an application on this bootloader, reset the micro-controller and run the flash command within the first few seconds of boot - something like:
+"Arduino M0" använder däremot ett uppstartsprogram på 16 KiB (programmet måste kompileras med startadressen 16 KiB). Återställ mikrokontrollern och kör flashkommandot under de första sekunderna efter uppstart för att flasha ett program till detta uppstartsprogram, exempelvis:
 
 ```
 avrdude -c stk500v2 -p atmega2560 -P /dev/ttyACM0 -u -Uflash:w:out/klipper.elf.hex:i
 ```
 
-## SAMD51 micro-controllers (Adafruit Metro-M4 and similar)
+## SAMD51-mikrokontroller (Adafruit Metro-M4 och liknande)
 
-Like the SAMD21, the SAMD51 bootloader is flashed via the ARM Serial Wire Debug (SWD) interface. To flash a bootloader with [OpenOCD on a Raspberry Pi](#running-openocd-on-the-raspberry-pi) use the following chip config:
+Precis som SAMD21 flashas SAMD51-uppstartsprogrammet via ARM Serial Wire Debug-gränssnittet (SWD). Använd följande kretskonfiguration för att flasha ett uppstartsprogram med [OpenOCD på en Raspberry Pi](#running-openocd-on-the-raspberry-pi):
 
 ```
 source [find target/atsame5x.cfg]
 ```
 
-Obtain a bootloader - several bootloaders are available from <https://github.com/adafruit/uf2-samdx1/releases/latest>. For example:
+Hämta ett uppstartsprogram – flera finns på <https://github.com/adafruit/uf2-samdx1/releases/latest>. Exempelvis:
 
 ```
 wget 'https://github.com/adafruit/uf2-samdx1/releases/download/v3.7.0/bootloader-itsybitsy_m4-v3.7.0.bin'
 ```
 
-Flash with OpenOCD commands similar to:
+Flasha med OpenOCD-kommandon i stil med:
 
 ```
 at91samd bootloader 0
@@ -237,29 +237,29 @@ program bootloader-itsybitsy_m4-v3.7.0.bin verify
 at91samd bootloader 16384
 ```
 
-The SAMD51 uses a 16KiB bootloader (the application must be compiled with a start address of 16KiB). To flash an application use something like:
+SAMD51 använder ett uppstartsprogram på 16 KiB (programmet måste kompileras med startadressen 16 KiB). Flasha ett program med något i stil med:
 
 ```
 bossac -U -p /dev/ttyACM0 --offset=0x4000 -w out/klipper.bin -v -b -R
 ```
 
-## STM32F103 micro-controllers (Blue Pill devices)
+## STM32F103-mikrokontroller (Blue Pill-enheter)
 
-The STM32F103 devices have a ROM that can flash a bootloader or application via 3.3V serial. Typically one would wire the PA10 (MCU Rx) and PA9 (MCU Tx) pins to a 3.3V UART adapter. To access the ROM, one should connect the "boot 0" pin to high and "boot 1" pin to low, and then reset the device. The "stm32flash" package can then be used to flash the device using something like:
+STM32F103-enheter har ett ROM som kan flasha ett uppstartsprogram eller program via seriell 3,3 V-anslutning. Anslut normalt PA10 (MCU Rx) och PA9 (MCU Tx) till en 3,3 V-UART-adapter. För att komma åt ROM ansluts "boot 0" högt och "boot 1" lågt och enheten återställs. Paketet "stm32flash" kan sedan användas för flashning, exempelvis:
 
 ```
 stm32flash -w out/klipper.bin -v -g 0 /dev/ttyAMA0
 ```
 
-Note that if one is using a Raspberry Pi for the 3.3V serial, the stm32flash protocol uses a serial parity mode which the Raspberry Pi's "mini UART" does not support. See <https://www.raspberrypi.com/documentation/computers/configuration.html#configuring-uarts> for details on enabling the full uart on the Raspberry Pi GPIO pins.
+Om Raspberry Pi används för seriell 3,3 V-anslutning använder stm32flash ett paritetsläge som Raspberry Pi:s "mini UART" inte stöder. Se <https://www.raspberrypi.com/documentation/computers/configuration.html#configuring-uarts> för hur fullständig UART aktiveras på Raspberry Pi:s GPIO-stift.
 
-After flashing, set both "boot 0" and "boot 1" back to low so that future resets boot from flash.
+Sätt både "boot 0" och "boot 1" till låg nivå efter flashningen, så att framtida återställningar startar från flashminnet.
 
-### STM32F103 with stm32duino bootloader
+### STM32F103 med stm32duino-uppstartsprogram
 
-The "stm32duino" project has a USB capable bootloader - see: <https://github.com/rogerclarkmelbourne/STM32duino-bootloader>
+Projektet "stm32duino" har ett USB-kompatibelt uppstartsprogram, se <https://github.com/rogerclarkmelbourne/STM32duino-bootloader>.
 
-This bootloader can be flashed via 3.3V serial with something like:
+Detta uppstartsprogram kan flashas via seriell 3,3 V-anslutning med något i stil med:
 
 ```
 wget 'https://github.com/rogerclarkmelbourne/STM32duino-bootloader/raw/master/binaries/generic_boot20_pc13.bin'
@@ -267,43 +267,43 @@ wget 'https://github.com/rogerclarkmelbourne/STM32duino-bootloader/raw/master/bi
 stm32flash -w generic_boot20_pc13.bin -v -g 0 /dev/ttyAMA0
 ```
 
-This bootloader uses 8KiB of flash space (the application must be compiled with a start address of 8KiB). Flash an application with something like:
+Uppstartsprogrammet använder 8 KiB flashminne (programmet måste kompileras med startadressen 8 KiB). Flasha ett program med något i stil med:
 
 ```
 dfu-util -d 1eaf:0003 -a 2 -R -D out/klipper.bin
 ```
 
-The bootloader typically runs for only a short period after boot. It may be necessary to time the above command so that it runs while the bootloader is still active (the bootloader will flash a board led while it is running). Alternatively, set the "boot 0" pin to low and "boot 1" pin to high to stay in the bootloader after a reset.
+Uppstartsprogrammet körs normalt bara en kort tid efter uppstart. Du kan behöva tidsanpassa kommandot ovan så att det körs medan uppstartsprogrammet fortfarande är aktivt (kortets lysdiod blinkar då). Alternativt kan du sätta "boot 0" lågt och "boot 1" högt för att stanna i uppstartsprogrammet efter en återställning.
 
-### STM32F103 with HID bootloader
+### STM32F103 med HID-uppstartsprogram
 
-The [HID bootloader](https://github.com/Serasidis/STM32_HID_Bootloader) is a compact, driverless bootloader capable of flashing over USB. Also available is a [fork with builds specific to the SKR Mini E3 1.2](https://github.com/Arksine/STM32_HID_Bootloader/releases/latest).
+[HID-uppstartsprogrammet](https://github.com/Serasidis/STM32_HID_Bootloader) är kompakt, drivrutinsfritt och kan flasha via USB. Det finns även en [gren med byggen för SKR Mini E3 1.2](https://github.com/Arksine/STM32_HID_Bootloader/releases/latest).
 
-For generic STM32F103 boards such as the blue pill it is possible to flash the bootloader via 3.3V serial using stm32flash as noted in the stm32duino section above, substituting the file name for the desired hid bootloader binary (ie: hid_generic_pc13.bin for the blue pill).
+För vanliga STM32F103-kort som Blue Pill kan uppstartsprogrammet flashas via seriell 3,3 V-anslutning med stm32flash enligt stm32duino-avsnittet ovan. Ersätt filnamnet med önskad binärfil för HID-uppstartsprogrammet, exempelvis hid_generic_pc13.bin för Blue Pill.
 
-It is not possible to use stm32flash for the SKR Mini E3 as the boot0 pin is tied directly to ground and not broken out via header pins. It is recommended to use a STLink V2 with STM32Cubeprogrammer to flash the bootloader. If you don't have access to a STLink it is also possible to use a [Raspberry Pi and OpenOCD](#running-openocd-on-the-raspberry-pi) with the following chip config:
+Det går inte att använda stm32flash för SKR Mini E3, eftersom boot0-stiftet är kopplat direkt till jord och inte finns på någon stiftlist. Använd helst en STLink V2 med STM32CubeProgrammer för att flasha uppstartsprogrammet. Om du saknar STLink kan en [Raspberry Pi med OpenOCD](#running-openocd-on-the-raspberry-pi) användas med följande kretskonfiguration:
 
 ```
 source [find target/stm32f1x.cfg]
 ```
 
-If you wish you can make a backup of the current flash with the following command. Note that it may take some time to complete:
+Om du vill kan du säkerhetskopiera det nuvarande flashminnet med följande kommando. Det kan ta en stund att slutföra:
 
 ```
 flash read_bank 0 btt_skr_mini_e3_backup.bin
 ```
 
-finally, you can flash with commands similar to:
+slutligen kan du flasha med kommandon i stil med:
 
 ```
 stm32f1x mass_erase 0
 program hid_btt_skr_mini_e3.bin verify 0x08000000
 ```
 
-NOTES:
+ANMÄRKNINGAR:
 
-- The example above erases the chip then programs the bootloader. Regardless of the method chosen to flash it is recommended to erase the chip prior to flashing.
-- Prior flashing the SKR Mini E3 with this bootloader you should be aware that you will no longer be able to update firmware via the sdcard.
+- Exemplet ovan raderar kretsen och programmerar sedan uppstartsprogrammet. Oavsett flashningsmetod rekommenderas att kretsen raderas före flashningen.
+- Innan du flashar SKR Mini E3 med detta uppstartsprogram ska du känna till att firmware inte längre kan uppdateras via SD-kortet.
 - You may need to hold down the reset button on the board while launching OpenOCD. It should display something like:
    ```
    Open On-Chip Debugger 0.10.0+dev-01204-gc60252ac-dirty (2020-04-27-16:00)
@@ -322,9 +322,9 @@ Info : Listening on port 3333 for gdb connections
    ```
 After which you can release the reset button.
 
-This bootloader requires 2KiB of flash space (the application must be compiled with a start address of 2KiB).
+Detta uppstartsprogram kräver 2 KiB flashminne (programmet måste kompileras med startadressen 2 KiB).
 
-The hid-flash program is used to upload a binary to the bootloader. You can install this software with the following commands:
+Programmet hid-flash används för att överföra en binärfil till uppstartsprogrammet. Du kan installera programmet med följande kommandon:
 
 ```
 sudo apt install libusb-1.0
@@ -332,73 +332,73 @@ cd ~/klipper/lib/hidflash
 make
 ```
 
-If the bootloader is running you can flash with something like:
+Om uppstartsprogrammet körs kan du flasha med något i stil med:
 
 ```
 ~/klipper/lib/hidflash/hid-flash ~/klipper/out/klipper.bin
 ```
 
-alternatively, you can use `make flash` to flash klipper directly:
+du kan även använda `make flash` för att flasha Klipper direkt:
 
 ```
 make flash FLASH_DEVICE=1209:BEBA
 ```
 
-OR if klipper has been previously flashed:
+ELLER om Klipper har flashats tidigare:
 
 ```
 make flash FLASH_DEVICE=/dev/ttyACM0
 ```
 
-It may be necessary to manually enter the bootloader, this can be done by setting "boot 0" low and "boot 1" high. On the SKR Mini E3 "Boot 1" is not available, so it may be done by setting pin PA2 low if you flashed "hid_btt_skr_mini_e3.bin". This pin is labeled "TX0" on the TFT header in the SKR Mini E3's "PIN" document. There is a ground pin next to PA2 which you can use to pull PA2 low.
+Du kan behöva gå in i uppstartsprogrammet manuellt genom att sätta "boot 0" lågt och "boot 1" högt. SKR Mini E3 saknar "Boot 1"; om "hid_btt_skr_mini_e3.bin" har flashats kan stift PA2 i stället sättas lågt. Stiftet är märkt "TX0" på TFT-stiftlisten i SKR Mini E3-dokumentet "PIN". Jordstiftet bredvid PA2 kan användas för att dra PA2 lågt.
 
-### STM32F103/STM32F072 with MSC bootloader
+### STM32F103/STM32F072 med MSC-uppstartsprogram
 
-The [MSC bootloader](https://github.com/Telekatz/MSC-stm32f103-bootloader) is a driverless bootloader capable of flashing over USB.
+[MSC-uppstartsprogrammet](https://github.com/Telekatz/MSC-stm32f103-bootloader) är drivrutinsfritt och kan flasha via USB.
 
-It is possible to flash the bootloader via 3.3V serial using stm32flash as noted in the stm32duino section above, substituting the file name for the desired MSC bootloader binary (ie: MSCboot-Bluepill.bin for the blue pill).
+Uppstartsprogrammet kan flashas via seriell 3,3 V-anslutning med stm32flash enligt stm32duino-avsnittet ovan. Ersätt filnamnet med önskad binärfil för MSC-uppstartsprogrammet, exempelvis MSCboot-Bluepill.bin för Blue Pill.
 
-For STM32F072 boards it is also possible to flash the bootloader over USB (via DFU) with something like:
+För STM32F072-kort går det även att flasha uppstartsprogrammet via USB (DFU) med något i stil med:
 
 ```
  dfu-util -d 0483:df11 -a 0 -R -D  MSCboot-STM32F072.bin -s0x08000000:leave
 ```
 
-This bootloader uses 8KiB or 16KiB of flash space, see description of the bootloader (the application must be compiled with with the corresponding starting address).
+Detta uppstartsprogram använder 8 KiB eller 16 KiB flashminne; se dess beskrivning. Programmet måste kompileras med motsvarande startadress.
 
-The bootloader can be activated by pressing the reset button of the board twice. As soon as the bootloader is activated, the board appears as a USB flash drive onto which the klipper.bin file can be copied.
+Uppstartsprogrammet kan aktiveras genom att trycka på kortets återställningsknapp två gånger. När det är aktivt visas kortet som en USB-flashenhet där filen klipper.bin kan kopieras.
 
-### STM32F103/STM32F0x2 with CanBoot bootloader
+### STM32F103/STM32F0x2 med CanBoot-uppstartsprogram
 
-The [CanBoot](https://github.com/Arksine/CanBoot) bootloader provides an option for uploading Klipper firmware over the CANBUS. The bootloader itself is derived from Klipper's source code. Currently CanBoot supports the STM32F103, STM32F042, and STM32F072 models.
+[CanBoot](https://github.com/Arksine/CanBoot) gör det möjligt att överföra Klipper-firmware via CAN-buss. Uppstartsprogrammet bygger på Klippers källkod och stöder för närvarande STM32F103, STM32F042 och STM32F072.
 
-It is recommended to use a ST-Link Programmer to flash CanBoot, however it should be possible to flash using `stm32flash` on STM32F103 devices, and `dfu-util` on STM32F042/STM32F072 devices. See the previous sections in this document for instructions on these flashing methods, substituting `canboot.bin` for the file name where appropriate. The CanBoot repository linked above provides instructions for building the bootloader.
+ST-Link Programmer rekommenderas för att flasha CanBoot. Det bör dock gå att använda `stm32flash` på STM32F103-enheter och `dfu-util` på STM32F042/STM32F072-enheter. Se tidigare avsnitt för metoderna och ersätt vid behov filnamnet med `canboot.bin`. CanBoot-förrådet ovan innehåller instruktioner för att bygga uppstartsprogrammet.
 
-The first time CanBoot has been flashed it should detect that no application is present and enter the bootloader. If this doesn't occur it is possible to enter the bootloader by pressing the reset button twice in succession.
+Första gången CanBoot har flashats bör det upptäcka att inget program finns och gå in i uppstartsprogrammet. Om det inte sker kan du trycka på återställningsknappen två gånger i följd.
 
-The `flashtool.py` utility supplied in the `lib/katapult` folder may be used to upload Klipper firmware. The device UUID is necessary to flash. If you do not have a UUID it is possible to query nodes currently running the bootloader:
+Verktyget `flashtool.py` i mappen `lib/katapult` kan användas för att överföra Klipper-firmware. Enhetens UUID krävs för flashning. Om du saknar en UUID kan du fråga vilka noder som kör uppstartsprogrammet:
 
 ```
 python3 flash_can.py -q
 ```
 
-This will return UUIDs for all connected nodes not currently assigned a UUID. This should include all nodes currently in the bootloader.
+Detta returnerar UUID:er för alla anslutna noder som inte redan har tilldelats en UUID. Det bör inkludera alla noder som för närvarande är i uppstartsprogrammet.
 
-Once you have a UUID, you may upload firmware with following command:
+När du har en UUID kan firmware överföras med följande kommando:
 
 ```
 python3 flash_can.py -i can0 -f ~/klipper/out/klipper.bin -u aabbccddeeff
 ```
 
-Where `aabbccddeeff` is replaced by your UUID. Note that the `-i` and `-f` options may be omitted, they default to `can0` and `~/klipper/out/klipper.bin` respectively.
+Ersätt `aabbccddeeff` med din UUID. Alternativen `-i` och `-f` kan utelämnas; de är som standard `can0` respektive `~/klipper/out/klipper.bin`.
 
-When building Klipper for use with CanBoot, select the 8 KiB Bootloader option.
+Välj alternativet 8 KiB Bootloader när Klipper byggs för CanBoot.
 
-## STM32F4 micro-controllers (SKR Pro 1.1)
+## STM32F4-mikrokontroller (SKR Pro 1.1)
 
-STM32F4 micro-controllers come equipped with a built-in system bootloader capable of flashing over USB (via DFU), 3.3V Serial, and various other methods (see STM Document AN2606 for more information). Some STM32F4 boards, such as the SKR Pro 1.1, are not able to enter the DFU bootloader. The HID bootloader is available for STM32F405/407 based boards should the user prefer flashing over USB over using the sdcard. Note that you may need to configure and build a version specific to your board, a [build for the SKR Pro 1.1 is available here](https://github.com/Arksine/STM32_HID_Bootloader/releases/latest).
+STM32F4-mikrokontroller har ett inbyggt systemuppstartsprogram som kan flasha via USB (DFU), seriell 3,3 V-anslutning och andra metoder (se STM-dokument AN2606). Vissa STM32F4-kort, som SKR Pro 1.1, kan inte gå in i DFU-läget. HID-uppstartsprogrammet finns för STM32F405/407-baserade kort om USB-flashning föredras framför SD-kort. Du kan behöva konfigurera och bygga en variant för ditt kort; ett [bygge för SKR Pro 1.1 finns här](https://github.com/Arksine/STM32_HID_Bootloader/releases/latest).
 
-Unless your board is DFU capable the most accessible flashing method is likely via 3.3V serial, which follows the same procedure as [flashing the STM32F103 using stm32flash](#stm32f103-micro-controllers-blue-pill-devices). For example:
+Om kortet saknar DFU är seriell 3,3 V-anslutning troligen den mest tillgängliga flashningsmetoden. Den följer samma förfarande som [flashning av STM32F103 med stm32flash](#stm32f103-micro-controllers-blue-pill-devices), exempelvis:
 
 ```
 wget https://github.com/Arksine/STM32_HID_Bootloader/releases/download/v0.5-beta/hid_bootloader_SKR_PRO.bin
@@ -406,25 +406,25 @@ wget https://github.com/Arksine/STM32_HID_Bootloader/releases/download/v0.5-beta
 stm32flash -w hid_bootloader_SKR_PRO.bin -v -g 0 /dev/ttyAMA0
 ```
 
-This bootloader requires 16Kib of flash space on the STM32F4 (the application must be compiled with a start address of 16KiB).
+Detta uppstartsprogram kräver 16 KiB flashminne på STM32F4 (programmet måste kompileras med startadressen 16 KiB).
 
-As with the STM32F1, the STM32F4 uses the hid-flash tool to upload binaries to the MCU. See the instructions above for details on how to build and use hid-flash.
+Precis som STM32F1 använder STM32F4 verktyget hid-flash för att överföra binärfiler till MCU:n. Se instruktionerna ovan för hur hid-flash byggs och används.
 
-It may be necessary to manually enter the bootloader, this can be done by setting "boot 0" low, "boot 1" high and plugging in the device. After programming is complete unplug the device and set "boot 1" back to low so the application will be loaded.
+Du kan behöva gå in i uppstartsprogrammet manuellt: sätt "boot 0" lågt, "boot 1" högt och anslut enheten. Koppla från enheten när programmeringen är klar och sätt "boot 1" lågt igen så att programmet läses in.
 
-## LPC176x micro-controllers (Smoothieboards)
+## LPC176x-mikrokontroller (Smoothieboards)
 
-This document does not describe the method to flash a bootloader itself - see: <http://smoothieware.org/flashing-the-bootloader> for further information on that topic.
+Detta dokument beskriver inte hur själva uppstartsprogrammet flashas. Mer information finns på <http://smoothieware.org/flashing-the-bootloader>.
 
-It is common for Smoothieboards to come with a bootloader from: <https://github.com/triffid/LPC17xx-DFU-Bootloader>. When using this bootloader the application must be compiled with a start address of 16KiB. The easiest way to flash an application with this bootloader is to copy the application file (eg, `out/klipper.bin`) to a file named `firmware.bin` on an SD card, and then to reboot the micro-controller with that SD card.
+Smoothieboards levereras ofta med ett uppstartsprogram från <https://github.com/triffid/LPC17xx-DFU-Bootloader>. När det används måste programmet kompileras med startadressen 16 KiB. Det enklaste sättet att flasha ett program är att kopiera programfilen, exempelvis `out/klipper.bin`, som `firmware.bin` till ett SD-kort och sedan starta om mikrokontrollern med kortet.
 
-## Running OpenOCD on the Raspberry PI
+## Köra OpenOCD på Raspberry Pi
 
-OpenOCD is a software package that can perform low-level chip flashing and debugging. It can use the GPIO pins on a Raspberry Pi to communicate with a variety of ARM chips.
+OpenOCD är ett programpaket för flashning och felsökning på låg nivå. Det kan använda GPIO-stiften på en Raspberry Pi för att kommunicera med flera ARM-kretsar.
 
-This section describes how one can install and launch OpenOCD. It is derived from the instructions at: <https://learn.adafruit.com/programming-microcontrollers-using-openocd-on-raspberry-pi>
+Avsnittet beskriver hur OpenOCD installeras och startas. Det bygger på instruktionerna på <https://learn.adafruit.com/programming-microcontrollers-using-openocd-on-raspberry-pi>.
 
-Begin by downloading and compiling the software (each step may take several minutes and the "make" step may take 30+ minutes):
+Börja med att hämta och kompilera programvaran (varje steg kan ta flera minuter och steget "make" kan ta över 30 minuter):
 
 ```
 sudo apt-get update
@@ -439,15 +439,15 @@ make
 make install
 ```
 
-### Configure OpenOCD
+### Konfigurera OpenOCD
 
-Create an OpenOCD config file:
+Skapa en OpenOCD-konfigurationsfil:
 
 ```
 nano ~/openocd/openocd.cfg
 ```
 
-Use a config similar to the following:
+Använd en konfiguration i stil med följande:
 
 ```
 # Uses RPi pins: GPIO25 for SWDCLK, GPIO24 for SWDIO, GPIO18 for nRST
@@ -473,55 +473,55 @@ targets
 reset halt
 ```
 
-### Wire the Raspberry Pi to the target chip
+### Anslut Raspberry Pi till målkretsen
 
-Poweroff both the the Raspberry Pi and the target chip before wiring! Verify the target chip uses 3.3V prior to connecting to a Raspberry Pi!
+Stäng av både Raspberry Pi och målkretsen före inkoppling! Kontrollera att målkretsen använder 3,3 V innan den ansluts till en Raspberry Pi!
 
-Connect GND, SWDCLK, SWDIO, and RST on the target chip to GND, GPIO25, GPIO24, and GPIO18 respectively on the Raspberry Pi.
+Anslut GND, SWDCLK, SWDIO och RST på målkretsen till GND, GPIO25, GPIO24 respektive GPIO18 på Raspberry Pi.
 
-Then power up the Raspberry Pi and provide power to the target chip.
+Starta sedan Raspberry Pi och ge målkretsen ström.
 
-### Run OpenOCD
+### Kör OpenOCD
 
-Run OpenOCD:
+Kör OpenOCD:
 
 ```
 cd ~/openocd/
 sudo ~/openocd/install/bin/openocd -f ~/openocd/openocd.cfg
 ```
 
-The above should cause OpenOCD to emit some text messages and then wait (it should not immediately return to the Unix shell prompt). If OpenOCD exits on its own or if it continues to emit text messages then double check the wiring.
+Ovanstående ska få OpenOCD att skriva ut meddelanden och sedan vänta (det ska inte omedelbart återgå till Unix-skalets prompt). Om OpenOCD avslutas självt eller fortsätter skriva ut meddelanden ska inkopplingen dubbelkontrolleras.
 
-Once OpenOCD is running and is stable, one can send it commands via telnet. Open another ssh session and run the following:
+När OpenOCD kör stabilt kan du skicka kommandon via telnet. Öppna en annan SSH-session och kör följande:
 
 ```
 telnet 127.0.0.1 4444
 ```
 
-(One can exit telnet by pressing ctrl+] and then running the "quit" command.)
+(Avsluta telnet genom att trycka ctrl+] och sedan köra kommandot "quit".)
 
-### OpenOCD and gdb
+### OpenOCD och gdb
 
-It is possible to use OpenOCD with gdb to debug Klipper. The following commands assume one is running gdb on a desktop class machine.
+OpenOCD kan användas med gdb för att felsöka Klipper. Följande kommandon förutsätter att gdb körs på en stationär dator.
 
-Add the following to the OpenOCD config file:
+Lägg till följande i OpenOCD-konfigurationsfilen:
 
 ```
 bindto 0.0.0.0
 gdb_port 44444
 ```
 
-Restart OpenOCD on the Raspberry Pi and then run the following Unix command on the desktop machine:
+Starta om OpenOCD på Raspberry Pi och kör sedan följande Unix-kommando på den stationära datorn:
 
 ```
 cd /path/to/klipper/
 gdb out/klipper.elf
 ```
 
-Within gdb run:
+Kör följande i gdb:
 
 ```
 target remote octopi:44444
 ```
 
-(Replace "octopi" with the host name of the Raspberry Pi.) Once gdb is running it is possible to set breakpoints and to inspect registers.
+(Ersätt "octopi" med Raspberry Pi:ns värdnamn.) När gdb körs kan du ange brytpunkter och inspektera register.

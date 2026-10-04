@@ -1,61 +1,61 @@
-# Pressure advance
+# Tryckutjämning
 
-This document provides information on tuning the "pressure advance" configuration variable for a particular nozzle and filament. The pressure advance feature can be helpful in reducing ooze. For more information on how pressure advance is implemented see the [kinematics](Kinematics.md) document.
+Detta dokument innehåller information om hur konfigurationsvariabeln "pressure advance" justeras för ett visst munstycke och filament. Funktionen för tryckutjämning kan bidra till att minska trådning. Mer information om hur tryckutjämning är implementerad finns i dokumentet [kinematik](Kinematics.md).
 
-## Tuning pressure advance
+## Justera tryckutjämning
 
-Pressure advance does two useful things - it reduces ooze during non-extrude moves and it reduces blobbing during cornering. This guide uses the second feature (reducing blobbing during cornering) as a mechanism for tuning.
+Tryckutjämning har två användbara funktioner: den minskar trådning under förflyttningar utan extrudering och minskar ansamlingar i hörn. Den här guiden använder den andra funktionen (att minska ansamlingar i hörn) för justeringen.
 
-In order to calibrate pressure advance the printer must be configured and operational as the tuning test involves printing and inspecting a test object. It is a good idea to read this document in full prior to running the test.
+För att kalibrera tryckutjämning måste skrivaren vara konfigurerad och i drift, eftersom justeringstestet omfattar utskrift och granskning av ett testobjekt. Läs gärna hela dokumentet innan testet körs.
 
-Use a slicer to generate g-code for the large hollow square found in [docs/prints/square_tower.stl](prints/square_tower.stl). Use a high speed (eg, 100mm/s), zero infill, and a coarse layer height (the layer height should be around 75% of the nozzle diameter). Make sure any "dynamic acceleration control" and "scarf joint" seams are disabled in the slicer.
+Använd en skivare för att skapa G-kod för den stora ihåliga fyrkanten i [docs/prints/square_tower.stl](prints/square_tower.stl). Använd hög hastighet (t.ex. 100 mm/s), noll utfyllnad och grov lagerhöjd (lagerhöjden bör vara cirka 75 % av munstyckets diameter). Kontrollera att all "dynamisk accelerationsstyrning" och sömmar av typen "scarf joint" är inaktiverade i skivaren.
 
-Prepare for the test by issuing the following G-Code command:
+Förbered testet genom att köra följande G-kod-kommando:
 
 ```
 SET_VELOCITY_LIMIT SQUARE_CORNER_VELOCITY=1 ACCEL=500
 ```
 
-This command makes the nozzle travel slower through corners to emphasize the effects of extruder pressure. Then for printers with a direct drive extruder run the command:
+Kommandot får munstycket att färdas långsammare genom hörn för att betona effekterna av extrudertrycket. Kör sedan följande kommando för skrivare med direktdriven extruder:
 
 ```
 TUNING_TOWER COMMAND=SET_PRESSURE_ADVANCE PARAMETER=ADVANCE START=0 FACTOR=.005
 ```
 
-For long bowden extruders use:
+Använd följande för långa Bowden-extrudrar:
 
 ```
 TUNING_TOWER COMMAND=SET_PRESSURE_ADVANCE PARAMETER=ADVANCE START=0 FACTOR=.020
 ```
 
-Then print the object. When fully printed the test print looks like:
+Skriv sedan ut objektet. När testutskriften är klar ser den ut så här:
 
 ![tuning_tower](img/tuning_tower.jpg)
 
-The above TUNING_TOWER command instructs Klipper to alter the pressure_advance setting on each layer of the print. Higher layers in the print will have a larger pressure advance value set. Layers below the ideal pressure_advance setting will have blobbing at the corners, and layers above the ideal setting can lead to rounded corners and poor extrusion leading up to the corner.
+Kommandot TUNING_TOWER ovan instruerar Klipper att ändra inställningen pressure_advance för varje utskriftslager. Högre lager i utskriften får ett större värde för pressure advance. Lager under det ideala värdet för pressure_advance får ansamlingar i hörnen, och lager över det ideala värdet kan ge rundade hörn och dålig extrudering före hörnet.
 
-One can cancel the print early if one observes that the corners are no longer printing well (and thus one can avoid printing layers that are known to be above the ideal pressure_advance value).
+Utskriften kan avbrytas i förtid om hörnen inte längre skrivs ut väl; då undviker man att skriva ut lager som bevisligen ligger över det ideala värdet för pressure_advance.
 
-Inspect the print and then use a digital calipers to find the height that has the best quality corners. When in doubt, prefer a lower height.
+Granska utskriften och använd sedan ett digitalt skjutmått för att hitta den höjd som ger hörn med bäst kvalitet. Välj vid tvekan en lägre höjd.
 
 ![tune_pa](img/tune_pa.jpg)
 
-The pressure_advance value can then be calculated as `pressure_advance = <start> + <measured_height> * <factor>`. (For example, `0 + 12.90 * .020` would be `.258`.)
+Värdet för pressure_advance kan sedan beräknas som `pressure_advance = <start> + <measured_height> * <factor>`. (Till exempel ger `0 + 12.90 * .020` värdet `.258`.)
 
-It is possible to choose custom settings for START and FACTOR if that helps identify the best pressure advance setting. When doing this, be sure to issue the TUNING_TOWER command at the start of each test print.
+Det går att välja egna inställningar för START och FACTOR om det underlättar att hitta det bästa värdet för pressure advance. Kör då kommandot TUNING_TOWER i början av varje testutskrift.
 
-Typical pressure advance values are between 0.050 and 1.000 (the high end usually only with bowden extruders). If there is no significant improvement with a pressure advance up to 1.000, then pressure advance is unlikely to improve the quality of prints. Return to a default configuration with pressure advance disabled.
+Typiska värden för pressure advance ligger mellan 0.050 och 1.000 (den övre delen vanligen endast för Bowden-extrudrar). Om tryckutjämning upp till 1.000 inte ger någon betydande förbättring är det osannolikt att funktionen förbättrar utskriftskvaliteten. Återgå då till en standardkonfiguration med tryckutjämning inaktiverad.
 
-Although this tuning exercise directly improves the quality of corners, it's worth remembering that a good pressure advance configuration also reduces ooze throughout the print.
+Även om den här justeringen direkt förbättrar hörnens kvalitet är det värt att komma ihåg att en väl inställd tryckutjämning också minskar trådning i hela utskriften.
 
-At the completion of this test, set `pressure_advance = <calculated_value>` in the `[extruder]` section of the configuration file and issue a RESTART command. The RESTART command will clear the test state and return the acceleration and cornering speeds to their normal values.
+När testet är klart anger du `pressure_advance = <calculated_value>` i avsnittet `[extruder]` i konfigurationsfilen och kör kommandot RESTART. RESTART rensar testtillståndet och återställer accelerations- och hörnhastigheterna till sina normala värden.
 
-## Important Notes
+## Viktiga anmärkningar
 
-* The pressure advance value is dependent on the extruder, the nozzle, and the filament. It is common for filament from different manufactures or with different pigments to require significantly different pressure advance values. Therefore, one should calibrate pressure advance on each printer and with each spool of filament.
-* Printing temperature and extrusion rates can impact pressure advance. Be sure to tune the [extruder rotation_distance](Rotation_Distance.md#calibrating-rotation_distance-on-extruders) and [nozzle temperature](http://reprap.org/wiki/Triffid_Hunter%27s_Calibration_Guide#Nozzle_Temperature) prior to tuning pressure advance.
-* The test print is designed to run with a high extruder flow rate, but otherwise "normal" slicer settings. A high flow rate is obtained by using a high printing speed (eg, 100mm/s) and a coarse layer height (typically around 75% of the nozzle diameter). Other slicer settings should be similar to their defaults (eg, perimeters of 2 or 3 lines, normal retraction amount). It can be useful to set the external perimeter speed to be the same speed as the rest of the print, but it is not a requirement.
-* It is common for the test print to show different behavior on each corner. Often the slicer will arrange to change layers at one corner which can result in that corner being significantly different from the remaining three corners. If this occurs, then ignore that corner and tune pressure advance using the other three corners. It is also common for the remaining corners to vary slightly. (This can occur due to small differences in how the printer's frame reacts to cornering in certain directions.) Try to choose a value that works well for all the remaining corners. If in doubt, prefer a lower pressure advance value.
-* If a high pressure advance value (eg, over 0.200) is used then one may find that the extruder skips when returning to the printer's normal acceleration. The pressure advance system accounts for pressure by pushing in extra filament during acceleration and retracting that filament during deceleration. With a high acceleration and high pressure advance the extruder may not have enough torque to push the required filament. If this occurs, either use a lower acceleration value or disable pressure advance.
-* Once pressure advance is tuned in Klipper, it may still be useful to configure a small retract value in the slicer (eg, 0.75mm) and to utilize the slicer's "wipe on retract option" if available. These slicer settings may help counteract ooze caused by filament cohesion (filament pulled out of the nozzle due to the stickiness of the plastic). It is recommended to disable the slicer's "z-lift on retract" option.
-* The pressure advance system does not change the timing or path of the toolhead. A print with pressure advance enabled will take the same amount of time as a print without pressure advance. Pressure advance also does not change the total amount of filament extruded during a print. Pressure advance results in extra extruder movement during move acceleration and deceleration. A very high pressure advance setting will result in a very large amount of extruder movement during acceleration and deceleration, and no configuration setting places a limit on the amount of that movement.
+* Värdet för pressure advance beror på extrudern, munstycket och filamentet. Filament från olika tillverkare eller med olika pigment kräver ofta avsevärt olika värden. Kalibrera därför tryckutjämning för varje skrivare och varje filamentrulle.
+* Utskriftstemperatur och extruderingshastighet kan påverka pressure advance. Justera [extruderns rotation_distance](Rotation_Distance.md#calibrating-rotation_distance-on-extruders) och [munstyckstemperaturen](http://reprap.org/wiki/Triffid_Hunter%27s_Calibration_Guide#Nozzle_Temperature) innan tryckutjämning justeras.
+* Testutskriften är utformad för hög extruderingshastighet men i övrigt "normala" skivarinställningar. En hög flödeshastighet erhålls med hög utskriftshastighet (t.ex. 100 mm/s) och grov lagerhöjd (vanligen cirka 75 % av munstyckets diameter). Övriga skivarinställningar bör ligga nära standardvärdena (t.ex. 2 eller 3 perimeterrader och normalt återdragningsavstånd). Det kan vara användbart att ge den yttre perimetern samma hastighet som resten av utskriften, men det är inget krav.
+* Det är vanligt att testutskriften beter sig olika i varje hörn. Ofta lägger skivaren lagerbytet i ett av hörnen, vilket kan göra det hörnet avsevärt annorlunda än de övriga tre. Om det händer, ignorera det hörnet och justera pressure advance med de övriga tre hörnen. Även de återstående hörnen varierar ofta något. (Det kan bero på små skillnader i hur skrivarens ram reagerar på hörntagning i vissa riktningar.) Försök välja ett värde som fungerar väl för alla återstående hörn. Välj vid tvekan ett lägre värde för pressure advance.
+* Om ett högt värde för pressure advance används (t.ex. över 0.200) kan extrudern börja hoppa när skrivaren återgår till normal acceleration. Systemet kompenserar för trycket genom att mata fram extra filament under accelerationen och dra tillbaka filamentet under inbromsningen. Vid hög acceleration och högt pressure advance-värde kanske extrudern inte har tillräckligt vridmoment för att mata den mängd filament som krävs. Använd då antingen lägre acceleration eller inaktivera tryckutjämning.
+* När tryckutjämning har justerats i Klipper kan det ändå vara användbart att ange ett litet återdragningsvärde i skivaren (t.ex. 0.75 mm) och använda skivarens alternativ "torka vid återdragning", om det finns. Inställningarna kan bidra till att motverka trådning som orsakas av filamentets kohesion (filament som dras ut ur munstycket på grund av plastens vidhäftning). Vi rekommenderar att skivarens alternativ "Z-lyft vid återdragning" inaktiveras.
+* Systemet för tryckutjämning ändrar inte verktygshuvudets tidsstyrning eller bana. En utskrift med tryckutjämning aktiverad tar lika lång tid som en utan. Tryckutjämning ändrar inte heller den totala mängd filament som extruderas under en utskrift. Funktionen ger extra extruderrörelser vid rörelsens acceleration och inbromsning. Ett mycket högt pressure advance-värde ger mycket stora extruderrörelser vid acceleration och inbromsning, och ingen konfigurationsinställning begränsar mängden sådana rörelser.
