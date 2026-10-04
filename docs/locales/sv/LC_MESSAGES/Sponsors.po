@@ -4,23 +4,29 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: sv\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"Last-Translator: Daniel Nylander <yeagersthlm@gmail.com>\n"
+"Language-Team: Swedish <https://hosted.weblate.org/projects/klipper/sponsors/"
+"sv/>\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2026-09-17 13:28+0000\n"
+"X-Generator: Weblate 2026.10.dev0\n"
 
 #: docs/Sponsors.md:block 1 (header)
 msgid "Sponsors"
-msgstr ""
+msgstr "Sponsorer"
 
 #: docs/Sponsors.md:block 2 (paragraph)
 msgid ""
 "Klipper is Free Software. We depend on the generous support from sponsors. "
 "Please consider sponsoring Klipper or supporting our sponsors."
 msgstr ""
+"Klipper är fri programvara. Vi är beroende av generöst stöd från sponsorer. "
+"Överväg att sponsra Klipper eller stödja våra sponsorer."
 
 #: docs/Sponsors.md:block 3 (header)
 msgid "BIGTREETECH"
-msgstr ""
+msgstr "BIGTREETECH"
 
 #: docs/Sponsors.md:block 5 (paragraph)
 msgid ""
@@ -30,66 +36,79 @@ msgid ""
 "[Facebook](https://www.facebook.com/BIGTREETECH) or "
 "[Twitter](https://twitter.com/BigTreeTech)."
 msgstr ""
+"BIGTREETECH är Klippers officiella sponsor av huvudkort. BIGTREETECH "
+"utvecklar innovativa och konkurrenskraftiga produkter för 3D-"
+"utskriftsgemenskapen. Följ dem på [Facebook](https://www.facebook.com/"
+"BIGTREETECH) eller [Twitter](https://twitter.com/BigTreeTech)."
 
 #: docs/Sponsors.md:block 6 (header)
 msgid "Klipper Developers"
-msgstr ""
+msgstr "Klipper-utvecklare"
 
 #: docs/Sponsors.md:block 7 (header)
 msgid "Kevin O'Connor"
-msgstr ""
+msgstr "Kevin O'Connor"
 
 #: docs/Sponsors.md:block 9 (header)
 msgid "Eric Callahan"
-msgstr ""
+msgstr "Eric Callahan"
 
 #: docs/Sponsors.md:block 10 (paragraph)
 msgid ""
 "Eric is the author of bed_mesh, spi_flash, and several other Klipper modules. "
 "Eric has a donations page at: <https://ko-fi.com/arksine>"
 msgstr ""
+"Eric är upphovsperson till bed_mesh, spi_flash och flera andra Klipper-"
+"moduler. Erics donationssida finns på: <https://ko-fi.com/arksine>"
 
 #: docs/Sponsors.md:block 11 (header)
 msgid "Related Klipper Projects"
-msgstr ""
+msgstr "Relaterade Klipper-projekt"
 
 #: docs/Sponsors.md:block 12 (paragraph)
 msgid ""
 "Klipper is frequently used with other Free Software. Consider using or "
 "supporting these projects."
 msgstr ""
+"Klipper används ofta tillsammans med annan fri programvara. Överväg att "
+"använda eller stödja dessa projekt."
 
 #: docs/Sponsors.md:block 13 (unordered list)
 msgid "[Moonraker](https://github.com/Arksine/moonraker)"
-msgstr ""
+msgstr "[Moonraker](https://github.com/Arksine/moonraker)"
 
 #: docs/Sponsors.md:block 13 (unordered list)
 msgid "[Mainsail](https://github.com/mainsail-crew/mainsail)"
-msgstr ""
+msgstr "[Mainsail](https://github.com/mainsail-crew/mainsail)"
 
 #: docs/Sponsors.md:block 13 (unordered list)
 msgid "[Fluidd](https://github.com/fluidd-core/fluidd)"
-msgstr ""
+msgstr "[Fluidd](https://github.com/fluidd-core/fluidd)"
 
 #: docs/Sponsors.md:block 13 (unordered list)
 msgid "[OctoPrint](https://octoprint.org/)"
-msgstr ""
+msgstr "[OctoPrint](https://octoprint.org/)"
 
 #: docs/Sponsors.md:block 13 (unordered list)
 msgid "[KlipperScreen](https://github.com/jordanruthe/KlipperScreen)"
-msgstr ""
+msgstr "[KlipperScreen](https://github.com/jordanruthe/KlipperScreen)"
 
 #: docs/Sponsors.md:block 8 (paragraph)
 msgid ""
 "Kevin is the original author and current maintainer of Klipper. Donate at: "
 "<https://ko-fi.com/koconnor> or <https://www.patreon.com/koconnor>"
 msgstr ""
+"Kevin är Klippers ursprungliga upphovsperson och nuvarande underhållare. "
+"Donera på: <https://ko-fi.com/koconnor> eller <https://www.patreon.com/"
+"koconnor>"
 
 #: docs/Sponsors.md:block 4 (paragraph)
 msgid ""
 "[<img src=\"./img/sponsors/BTT_BTT.png\" width=\"200\" "
 "style=\"margin:25px\"/>](https://bigtree-tech.com/collections/all-products)"
 msgstr ""
+"[<img src=\"./img/sponsors/BTT_BTT.png\" width=\"200\" "
+"style=\"margin:25px\"/>](https://bigtree-tech.com/collections/all-products)"
 
 #: docs/Sponsors.md:block 7 (paragraph)
 msgid ""
@@ -97,6 +116,9 @@ msgid ""
 "style=\"margin:25px\" "
 "/>](https://obico.io/klipper.html?source=klipper_sponsor)"
 msgstr ""
+"[<img src=\"./img/sponsors/obico-light-horizontal.png\" width=\"200\" "
+"style=\"margin:25px\" />](https://obico.io/"
+"klipper.html?source=klipper_sponsor)"
 
 #~ msgid ""
 #~ "[<img src=\"./img/sponsors/obico-light-horizontal.png\" width=\"200\" "

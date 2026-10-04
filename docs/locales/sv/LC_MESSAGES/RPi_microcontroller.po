@@ -4,17 +4,23 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: sv\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"Last-Translator: Daniel Nylander <yeagersthlm@gmail.com>\n"
+"Language-Team: Swedish <https://hosted.weblate.org/projects/klipper/"
+"rpi_microcontroller/sv/>\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2026-09-17 13:28+0000\n"
+"X-Generator: Weblate 2026.10.dev0\n"
 
 msgid ""
 "This document describes the process of running Klipper on a RPi and use the "
 "same RPi as secondary mcu."
 msgstr ""
+"Det här dokumentet beskriver hur Klipper körs på en RPi och hur samma RPi "
+"används som sekundär MCU."
 
 msgid "Why use RPi as a secondary MCU?"
-msgstr ""
+msgstr "Varför använda RPi som sekundär MCU?"
 
 msgid ""
 "Often the MCUs dedicated to controlling 3D printers have a limited and pre-"
@@ -25,80 +31,107 @@ msgid ""
 "plugins (if used) or external programs giving the ability to control "
 "everything within the print GCODE."
 msgstr ""
+"MCU:er som styr 3D-skrivare har ofta ett begränsat och förkonfigurerat antal "
+"exponerade stift för huvudfunktionerna, som termistorer, extrudrar och "
+"stegmotorer. Genom att använda den RPi där Klipper är installerat som "
+"sekundär MCU kan Klipper använda RPi:ns GPIO och bussar (I2C, SPI) direkt, "
+"utan OctoPrint-insticksmoduler eller externa program, och styra allt från "
+"utskriftens G-kod."
 
 msgid ""
 "**Warning**: If your platform is a *Beaglebone* and you have correctly "
 "followed the installation steps, the linux mcu is already installed and "
 "configured for your system."
 msgstr ""
+"**Varning:** Om plattformen är en *Beaglebone* och installationsstegen har "
+"följts korrekt är Linux-MCU:n redan installerad och konfigurerad för "
+"systemet."
 
 msgid "Install the rc script"
-msgstr ""
+msgstr "Installera rc-skriptet"
 
 msgid ""
 "If you want to use the host as a secondary MCU the klipper_mcu process must "
 "run before the klippy process."
 msgstr ""
+"Om värden ska användas som sekundär MCU måste processen `klipper_mcu` köras "
+"före processen `klippy`."
 
 msgid "After installing Klipper, install the script. run:"
-msgstr ""
+msgstr "Installera skriptet efter att Klipper har installerats. Kör:"
 
 msgid "Building the micro-controller code"
-msgstr ""
+msgstr "Bygga mikrokontrollerkoden"
 
 msgid ""
 "To compile the Klipper micro-controller code, start by configuring it for the "
 "\"Linux process\":"
 msgstr ""
+"Konfigurera först Klippers mikrokontrollerkod för \"Linux process\" för att "
+"kompilera den:"
 
 msgid ""
 "In the menu, set \"Microcontroller Architecture\" to \"Linux process,\" then "
 "save and exit."
 msgstr ""
+"Ställ in \"Microcontroller Architecture\" på \"Linux process\", spara och "
+"avsluta."
 
 msgid "To build and install the new micro-controller code, run:"
-msgstr ""
+msgstr "Kör följande för att bygga och installera den nya mikrokontrollerkoden:"
 
 msgid ""
 "If klippy.log reports a \"Permission denied\" error when attempting to connect"
 " to `/tmp/klipper_host_mcu` then you need to add your user to the tty group. "
 "The following command will add the \"pi\" user to the tty group:"
 msgstr ""
+"Om klippy.log rapporterar felet \"Permission denied\" när den ansluter till "
+"`/tmp/klipper_host_mcu` måste användaren läggas till i gruppen tty. Följande "
+"kommando lägger till användaren \"pi\" i gruppen tty:"
 
 msgid "Remaining configuration"
-msgstr ""
+msgstr "Återstående konfiguration"
 
 msgid ""
 "Complete the installation by configuring Klipper secondary MCU following the "
 "instructions in [RaspberryPi sample config](../config/sample-raspberry-pi.cfg)"
 " and [Multi MCU sample config](../config/sample-multi-mcu.cfg)."
 msgstr ""
+"Slutför installationen genom att konfigurera Klippers sekundära MCU enligt "
+"[exempelkonfigurationen för Raspberry Pi](../config/sample-raspberry-pi.cfg) "
+"och [exempelkonfigurationen för flera MCU:er](../config/sample-multi-mcu.cfg)"
+"."
 
 msgid "Optional: Identify the correct gpiochip"
-msgstr ""
+msgstr "Valfritt: Identifiera rätt gpiochip"
 
 msgid ""
 "To install the *Linux GPIO character device - binary* on a debian based distro"
 " like octopi run:"
 msgstr ""
+"Kör följande för att installera *Linux GPIO character device - binary* på en "
+"Debian-baserad distribution som OctoPi:"
 
 msgid "To check available gpiochip run:"
-msgstr ""
+msgstr "Kör följande för att kontrollera tillgängliga gpiochip:"
 
 msgid "To check the pin number and the pin availability tun:"
 msgstr ""
+"Kör följande för att kontrollera stiftnummer och stiftets tillgänglighet:"
 
 msgid ""
 "***Warning:*** only gpio marked as `unused` can be used. It is not possible "
 "for a *line* to be used by multiple processes simultaneously."
 msgstr ""
+"***Varning:*** Endast GPIO som är markerade som `unused` kan användas. En "
+"*line* kan inte användas av flera processer samtidigt."
 
 msgid "For example on a RPi 3B+ where klipper use the GPIO20 for a switch:"
-msgstr ""
+msgstr "Exempel på en RPi 3B+ där Klipper använder GPIO20 för en brytare:"
 
 #: docs/RPi_microcontroller.md:block 31 (header)
 msgid "Optional: Hardware PWM"
-msgstr ""
+msgstr "Valfritt: Maskinvaru-PWM"
 
 #: docs/RPi_microcontroller.md:block 32 (paragraph)
 msgid ""
@@ -108,76 +141,85 @@ msgid ""
 "hosts. The pwm sysfs interface is not exposed by default on a Raspberry and "
 "can be activated by adding a line to `/boot/config.txt`:"
 msgstr ""
+"Raspberry Pi har två PWM-kanaler, PWM0 och PWM1, som är exponerade på "
+"stifthuvudet eller kan ledas till befintliga GPIO-stift. Linux-MCU-demonen "
+"använder pwmchip-sysfs-gränssnittet för att styra maskinvaru-PWM på Linux-"
+"värdar. PWM-sysfs-gränssnittet är inte exponerat som standard på Raspberry "
+"Pi men kan aktiveras genom att lägga till en rad i `/boot/config.txt`:"
 
 #: docs/RPi_microcontroller.md:block 38 (paragraph)
 msgid ""
 "With the sysfs in place, you can now use either the pwm channel(s) by adding "
 "the following piece of configuration to your `printer.cfg`:"
 msgstr ""
+"När sysfs finns på plats kan du använda PWM-kanalerna genom att lägga till "
+"följande konfiguration i `printer.cfg`:"
 
 #: docs/RPi_microcontroller.md:block 1 (header)
 msgid "RPi microcontroller"
-msgstr ""
+msgstr "RPi-mikrokontroller"
 
 #: docs/RPi_microcontroller.md:block 44 (paragraph)
 msgid ""
 "PWM0 can be routed to gpio12 and gpio18, PWM1 can be routed to gpio13 and "
 "gpio19:"
-msgstr ""
+msgstr "PWM0 kan ledas till gpio12 och gpio18, och PWM1 till gpio13 och gpio19:"
 
 #: docs/RPi_microcontroller.md:block 45 (table)
 msgid "PWM"
-msgstr ""
+msgstr "PWM"
 
 #: docs/RPi_microcontroller.md:block 45 (table)
 msgid "gpio PIN"
-msgstr ""
+msgstr "GPIO-stift"
 
 #: docs/RPi_microcontroller.md:block 45 (table)
 msgid "Func"
-msgstr ""
+msgstr "Funktion"
 
 #: docs/RPi_microcontroller.md:block 45 (table)
 msgid "0"
-msgstr ""
+msgstr "0"
 
 #: docs/RPi_microcontroller.md:block 45 (table)
 msgid "12"
-msgstr ""
+msgstr "12"
 
 #: docs/RPi_microcontroller.md:block 45 (table)
 msgid "4"
-msgstr ""
+msgstr "4"
 
 #: docs/RPi_microcontroller.md:block 45 (table)
 msgid "18"
-msgstr ""
+msgstr "18"
 
 #: docs/RPi_microcontroller.md:block 45 (table)
 msgid "2"
-msgstr ""
+msgstr "2"
 
 #: docs/RPi_microcontroller.md:block 45 (table)
 msgid "1"
-msgstr ""
+msgstr "1"
 
 #: docs/RPi_microcontroller.md:block 45 (table)
 msgid "13"
-msgstr ""
+msgstr "13"
 
 #: docs/RPi_microcontroller.md:block 45 (table)
 msgid "19"
-msgstr ""
+msgstr "19"
 
 #: docs/RPi_microcontroller.md:block 20 (header)
 msgid "Optional: Enabling SPI"
-msgstr ""
+msgstr "Valfritt: Aktivera SPI"
 
 #: docs/RPi_microcontroller.md:block 21 (paragraph)
 msgid ""
 "Make sure the Linux SPI driver is enabled by running `sudo raspi-config` and "
 "enabling SPI under the \"Interfacing options\" menu."
 msgstr ""
+"Kontrollera att Linux SPI-drivrutinen är aktiverad genom att köra `sudo "
+"raspi-config` och aktivera SPI i menyn \"Interfacing options\"."
 
 #: docs/RPi_microcontroller.md:block 23 (paragraph)
 msgid ""
@@ -189,10 +231,15 @@ msgid ""
 "use the commands to access the *Linux GPIO character device* to verify the "
 "configuration."
 msgstr ""
+"På Raspberry Pi och många kloner tillhör GPIO-stiften normalt det första "
+"gpiochipet. De kan därför användas i Klipper som `gpio0..n`. I vissa fall "
+"tillhör stiften andra gpiochip, exempelvis på vissa OrangePi-modeller eller "
+"vid användning av en portexpander. Använd då kommandona för *Linux GPIO "
+"character device* för att kontrollera konfigurationen."
 
 #: docs/RPi_microcontroller.md:block 22 (header)
 msgid "Optional: Enabling I2C"
-msgstr ""
+msgstr "Valfritt: Aktivera I2C"
 
 #: docs/RPi_microcontroller.md:block 23 (paragraph)
 msgid ""
@@ -202,16 +249,24 @@ msgid ""
 "by: adding/uncommenting `dtparam=i2c_arm=on,i2c_arm_baudrate=400000` in "
 "`/boot/config.txt` (or `/boot/firmware/config.txt` in some distros)."
 msgstr ""
+"Kontrollera att Linux I2C-drivrutinen är aktiverad genom att köra `sudo "
+"raspi-config` och aktivera I2C i menyn \"Interfacing options\". Om I2C ska "
+"användas för MPU-accelerometern måste även överföringshastigheten ställas in "
+"på 400000 genom att lägga till eller avkommentera "
+"`dtparam=i2c_arm=on,i2c_arm_baudrate=400000` i `/boot/config.txt` (eller `/"
+"boot/firmware/config.txt` i vissa distributioner)."
 
 #: docs/RPi_microcontroller.md:block 39 (paragraph)
 msgid ""
 "This example enables only PWM0 and routes it to gpio12. If both PWM channels "
 "need to be enabled you can use `pwm-2chan`:"
 msgstr ""
+"Det här exemplet aktiverar endast PWM0 och leder den till gpio12. Om båda "
+"PWM-kanalerna behöver aktiveras kan `pwm-2chan` användas:"
 
 #: docs/RPi_microcontroller.md:block 41 (paragraph)
 msgid "This example additionally enables PWM1 and routes it to gpio13."
-msgstr ""
+msgstr "Det här exemplet aktiverar även PWM1 och leder den till gpio13."
 
 #: docs/RPi_microcontroller.md:block 42 (paragraph)
 msgid ""
@@ -221,18 +276,28 @@ msgid ""
 "`/sys/class/pwm/pwmchip0/pwm0` in the filesystem. The easiest way to do this "
 "is by adding this to `/etc/rc.local` before the `exit 0` line:"
 msgstr ""
+"Överlägget exponerar inte PWM-raden i sysfs vid uppstart utan den måste "
+"exporteras genom att PWM-kanalens nummer skickas med echo till `/sys/class/"
+"pwm/pwmchip0/export`. Då skapas enheten `/sys/class/pwm/pwmchip0/pwm0` i "
+"filsystemet. Det enklaste är att lägga till följande i `/etc/rc.local` före "
+"raden `exit 0`:"
 
 #: docs/RPi_microcontroller.md:block 44 (paragraph)
 msgid ""
 "When using both PWM channels, the number of the second channel needs to be "
 "echo'd as well:"
 msgstr ""
+"När båda PWM-kanalerna används måste även numret på den andra kanalen "
+"skickas med echo:"
 
 #: docs/RPi_microcontroller.md:block 48 (paragraph)
 msgid ""
 "This will add hardware pwm control to gpio12 and gpio13 on the Pi (because the"
 " overlay was configured to route pwm0 to pin=12 and pwm1 to pin=13)."
 msgstr ""
+"Det här lägger till maskinvaru-PWM-styrning för gpio12 och gpio13 på Pi, "
+"eftersom överlägget konfigurerades för att leda pwm0 till pin=12 och pwm1 "
+"till pin=13."
 
 #: docs/RPi_microcontroller.md:block 32 (paragraph)
 msgid ""
@@ -241,6 +306,9 @@ msgid ""
 "`gpiodetect` command and **o** is the line number seen by the`gpioinfo` "
 "command."
 msgstr ""
+"Det valda stiftet kan sedan användas i konfigurationen som `gpiochip<n>/"
+"gpio<o>`, där **n** är chipnumret som visas av `gpiodetect` och **o** är "
+"radnumret som visas av `gpioinfo`."
 
 #~ msgid ""
 #~ "The chosen pin can thus be used within the configuration as "

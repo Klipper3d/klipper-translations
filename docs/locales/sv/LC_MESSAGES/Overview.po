@@ -4,252 +4,326 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: sv\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"Last-Translator: Daniel Nylander <yeagersthlm@gmail.com>\n"
+"Language-Team: Swedish <https://hosted.weblate.org/projects/klipper/overview/"
+"sv/>\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2026-09-17 01:44+0000\n"
+"X-Generator: Weblate 2026.10.dev0\n"
 
 msgid ""
 "Welcome to the Klipper documentation. If new to Klipper, start with the "
 "[features](Features.md) and [installation](Installation.md) documents."
 msgstr ""
+"Välkommen till Klippers dokumentation. Om du är ny med Klipper börjar du med "
+"dokumenten [funktioner](Features.md) och [installation](Installation.md)."
 
 msgid "Overview information"
-msgstr ""
+msgstr "Översiktsinformation"
 
 msgid "[Features](Features.md): A high-level list of features in Klipper."
 msgstr ""
+"[Funktioner](Features.md): En övergripande lista över funktionerna i Klipper."
 
 msgid "[FAQ](FAQ.md): Frequently asked questions."
-msgstr ""
+msgstr "[Vanliga frågor](FAQ.md): Vanliga frågor och svar."
 
 msgid "[Releases](Releases.md): The history of Klipper releases."
-msgstr ""
+msgstr "[Utgåvor](Releases.md): Klippers utgåvehistorik."
 
 msgid ""
 "[Config changes](Config_Changes.md): Recent software changes that may require "
 "users to update their printer config file."
 msgstr ""
+"[Konfigurationsändringar](Config_Changes.md): Nyliga programändringar som "
+"kan kräva att användaren uppdaterar skrivarens konfigurationsfil."
 
 msgid ""
 "[Contact](Contact.md): Information on bug reporting and general communication "
 "with the Klipper developers."
 msgstr ""
+"[Kontakt](Contact.md): Information om felrapportering och allmän "
+"kommunikation med Klippers utvecklare."
 
 msgid "[Installation](Installation.md): Guide to installing Klipper."
-msgstr ""
+msgstr "[Installation](Installation.md): Guide till installation av Klipper."
 
 msgid ""
 "[Config Reference](Config_Reference.md): Description of config parameters."
 msgstr ""
+"[Konfigurationsreferens](Config_Reference.md): Beskrivning av "
+"konfigurationsparametrar."
 
 msgid ""
 "[Rotation Distance](Rotation_Distance.md): Calculating the rotation_distance "
 "stepper parameter."
 msgstr ""
+"[Rotationsavstånd](Rotation_Distance.md): Beräkning av stegmotorparametern "
+"rotation_distance."
 
 msgid ""
 "[Config checks](Config_checks.md): Verify basic pin settings in the config "
 "file."
 msgstr ""
+"[Konfigurationskontroller](Config_checks.md): Kontrollera grundläggande "
+"stiftinställningar i konfigurationsfilen."
 
 msgid "[Bed level](Bed_Level.md): Information on \"bed leveling\" in Klipper."
 msgstr ""
+"[Bäddnivellering](Bed_Level.md): Information om bäddnivellering i Klipper."
 
 msgid "[Delta calibrate](Delta_Calibrate.md): Calibration of delta kinematics."
-msgstr ""
+msgstr "[Deltakalibrering](Delta_Calibrate.md): Kalibrering av delta-kinematik."
 
 msgid ""
 "[Probe calibrate](Probe_Calibrate.md): Calibration of automatic Z probes."
 msgstr ""
+"[Sondkalibrering](Probe_Calibrate.md): Kalibrering av automatiska Z-sonder."
 
 msgid "[BL-Touch](BLTouch.md): Configure a \"BL-Touch\" Z probe."
-msgstr ""
+msgstr "[BL-Touch](BLTouch.md): Konfigurera en BL-Touch-Z-sond."
 
 msgid ""
 "[Manual level](Manual_Level.md): Calibration of Z endstops (and similar)."
 msgstr ""
+"[Manuell nivåjustering](Manual_Level.md): Kalibrering av Z-ändstopp och "
+"liknande."
 
 msgid "[Bed Mesh](Bed_Mesh.md): Bed height correction based on XY locations."
 msgstr ""
+"[Bäddrutnät](Bed_Mesh.md): Korrigering av bäddhöjden utifrån XY-positioner."
 
 msgid ""
 "[Endstop phase](Endstop_Phase.md): Stepper assisted Z endstop positioning."
 msgstr ""
+"[Ändstoppsfas](Endstop_Phase.md): Stegmotorassisterad positionering av Z-"
+"ändstopp."
 
 msgid ""
 "[Resonance compensation](Resonance_Compensation.md): A tool to reduce ringing "
 "in prints."
 msgstr ""
+"[Resonanskompensering](Resonance_Compensation.md): Ett verktyg för att "
+"minska ringningar i utskrifter."
 
 msgid ""
 "[Measuring resonances](Measuring_Resonances.md): Information on using adxl345 "
 "accelerometer hardware to measure resonance."
 msgstr ""
+"[Mäta resonanser](Measuring_Resonances.md): Information om att använda "
+"accelerometerhårdvara av typen ADXL345 för att mäta resonans."
 
 msgid "[Pressure advance](Pressure_Advance.md): Calibrate extruder pressure."
-msgstr ""
+msgstr "[Tryckutjämning](Pressure_Advance.md): Kalibrera extruderns tryck."
 
 msgid "[Slicers](Slicers.md): Configure \"slicer\" software for Klipper."
 msgstr ""
+"[Skivningsprogram](Slicers.md): Konfigurera skivningsprogram för Klipper."
 
 msgid ""
 "[Command Templates](Command_Templates.md): G-Code macros and conditional "
 "evaluation."
 msgstr ""
+"[Kommandomallar](Command_Templates.md): G-kodsmakron och villkorsutvärdering."
 
 msgid ""
 "[Status Reference](Status_Reference.md): Information available to macros (and "
 "similar)."
 msgstr ""
+"[Statusreferens](Status_Reference.md): Information som är tillgänglig för "
+"makron och liknande."
 
 msgid ""
 "[TMC Drivers](TMC_Drivers.md): Using Trinamic stepper motor drivers with "
 "Klipper."
 msgstr ""
+"[TMC-drivrutiner](TMC_Drivers.md): Använda Trinamics stegmotordrivrutiner "
+"med Klipper."
 
 msgid ""
 "[PWM tools](Using_PWM_Tools.md): Guide on how to use PWM controlled tools such"
 " as lasers or spindles."
 msgstr ""
+"[PWM-verktyg](Using_PWM_Tools.md): Guide för användning av PWM-styrda "
+"verktyg, till exempel lasrar eller spindlar."
 
 msgid "[G-Codes](G-Codes.md): Information on commands supported by Klipper."
-msgstr ""
+msgstr "[G-koder](G-Codes.md): Information om kommandon som stöds av Klipper."
 
 msgid "Developer Documentation"
-msgstr ""
+msgstr "Utvecklardokumentation"
 
 msgid "[Code overview](Code_Overview.md): Developers should read this first."
-msgstr ""
+msgstr "[Kodöversikt](Code_Overview.md): Utvecklare bör läsa detta först."
 
 msgid ""
 "[Kinematics](Kinematics.md): Technical details on how Klipper implements "
 "motion."
 msgstr ""
+"[Kinematik](Kinematics.md): Tekniska detaljer om hur Klipper implementerar "
+"rörelse."
 
 msgid ""
 "[Protocol](Protocol.md): Information on the low-level messaging protocol "
 "between host and micro-controller."
 msgstr ""
+"[Protokoll](Protocol.md): Information om lågnivåprotokollet för meddelanden "
+"mellan värddator och mikrostyrenhet."
 
 msgid ""
 "[API Server](API_Server.md): Information on Klipper's command and control API."
 msgstr ""
+"[API-server](API_Server.md): Information om Klippers API för kommandon och "
+"styrning."
 
 msgid ""
 "[MCU commands](MCU_Commands.md): A description of low-level commands "
 "implemented in the micro-controller software."
 msgstr ""
+"[MCU-kommandon](MCU_Commands.md): En beskrivning av lågnivåkommandon som "
+"implementeras i mikrostyrenhetens programvara."
 
 msgid "[CAN bus protocol](CANBUS_protocol.md): Klipper CAN bus message format."
 msgstr ""
+"[CAN-bussprotokoll](CANBUS_protocol.md): Klippers meddelandeformat för CAN-"
+"buss."
 
 msgid "[Debugging](Debugging.md): Information on how to test and debug Klipper."
 msgstr ""
+"[Felsökning](Debugging.md): Information om hur du testar och felsöker "
+"Klipper."
 
 msgid ""
 "[Benchmarks](Benchmarks.md): Information on the Klipper benchmark method."
 msgstr ""
+"[Prestandatester](Benchmarks.md): Information om Klippers metod för "
+"prestandatester."
 
 msgid ""
 "[Contributing](CONTRIBUTING.md): Information on how to submit improvements to "
 "Klipper."
 msgstr ""
+"[Bidra](CONTRIBUTING.md): Information om hur du skickar in förbättringar "
+"till Klipper."
 
 msgid "[Packaging](Packaging.md): Information on building OS packages."
 msgstr ""
+"[Paketering](Packaging.md): Information om att bygga operativsystemspaket."
 
 msgid "Device Specific Documents"
-msgstr ""
+msgstr "Enhetsspecifika dokument"
 
 msgid ""
 "[Example configs](Example_Configs.md): Information on adding an example config"
 " file to Klipper."
 msgstr ""
+"[Exempelkonfigurationer](Example_Configs.md): Information om att lägga till "
+"en exempelkonfigurationsfil i Klipper."
 
 msgid ""
 "[SDCard Updates](SDCard_Updates.md): Flash a micro-controller by copying a "
 "binary to an sdcard in the micro-controller."
 msgstr ""
+"[SD-kortsuppdateringar](SDCard_Updates.md): Flasha en mikrostyrenhet genom "
+"att kopiera en binärfil till ett SD-kort i mikrostyrenheten."
 
 msgid ""
 "[Raspberry Pi as Micro-controller](RPi_microcontroller.md): Details for "
 "controlling devices wired to the GPIO pins of a Raspberry Pi."
 msgstr ""
+"[Raspberry Pi som mikrostyrenhet](RPi_microcontroller.md): Detaljer om att "
+"styra enheter som är anslutna till GPIO-stiften på en Raspberry Pi."
 
 msgid ""
 "[Bootloaders](Bootloaders.md): Developer information on micro-controller "
 "flashing."
 msgstr ""
+"[Starthanterare](Bootloaders.md): Utvecklarinformation om flashning av "
+"mikrostyrenheter."
 
 msgid "[CAN bus](CANBUS.md): Information on using CAN bus with Klipper."
-msgstr ""
+msgstr "[CAN-buss](CANBUS.md): Information om att använda CAN-buss med Klipper."
 
 msgid "[TSL1401CL filament width sensor](TSL1401CL_Filament_Width_Sensor.md)"
-msgstr ""
+msgstr "[TSL1401CL-filamentbreddssensor](TSL1401CL_Filament_Width_Sensor.md)"
 
 #: docs/Overview.md:block 1 (header)
 msgid "Overview"
-msgstr ""
+msgstr "Översikt"
 
 #: docs/Overview.md:block 5 (header)
 msgid "Installation and Configuration"
-msgstr ""
+msgstr "Installation och konfiguration"
 
 #: docs/Overview.md:block 6 (unordered list)
 msgid ""
 "[Multi-MCU Homing](Multi_MCU_Homing.md): Homing and probing using multiple "
 "micro-controllers."
 msgstr ""
+"[Ändlägeskörning med flera MCU:er](Multi_MCU_Homing.md): Ändlägeskörning och "
+"sondering med flera mikrostyrenheter."
 
 #: docs/Overview.md:block 6 (unordered list)
 msgid ""
 "[Skew correction](Skew_Correction.md): Adjustments for axes not perfectly "
 "square."
 msgstr ""
+"[Skevhetskorrigering](Skew_Correction.md): Justeringar för axlar som inte är "
+"helt vinkelräta."
 
 #: docs/Overview.md:block 10 (unordered list)
 msgid ""
 "[Beaglebone](Beaglebone.md): Details for running Klipper on the Beaglebone "
 "PRU."
 msgstr ""
+"[BeagleBone](Beaglebone.md): Detaljer om att köra Klipper på BeagleBone-"
+"PRU:n."
 
 #: docs/Overview.md:block 10 (unordered list)
 msgid "[Hall filament width sensor](Hall_Filament_Width_Sensor.md)"
-msgstr ""
+msgstr "[Hall-sensor för filamentbredd](Hall_Filament_Width_Sensor.md)"
 
 #: docs/Overview.md:block 6 (unordered list)
 msgid ""
 "[Exclude Object](Exclude_Object.md): The guide to the Exclude Objects "
 "implementation."
 msgstr ""
+"[Uteslut objekt](Exclude_Object.md): Guide till implementeringen av "
+"uteslutning av objekt."
 
 #: docs/Overview.md:block 6 (unordered list)
 msgid ""
 "[Axis Twist Compensation](Axis_Twist_Compensation.md): A tool to compensate "
 "for inaccurate probe readings due to twist in X gantry."
 msgstr ""
+"[Kompensering för axelvridning](Axis_Twist_Compensation.md): Ett verktyg för "
+"att kompensera felaktiga sondavläsningar på grund av vridning i X-bryggan."
 
 #: docs/Overview.md:block 10 (unordered list)
 msgid "[Bootloader Entry](Bootloader_Entry.md): Requesting the bootloader."
-msgstr ""
+msgstr "[Start av starthanteraren](Bootloader_Entry.md): Begär starthanteraren."
 
 #: docs/Overview.md:block 10 (unordered list)
 msgid ""
 "[CAN bus troubleshooting](CANBUS_Troubleshooting.md): Tips for troubleshooting"
 " CAN bus."
 msgstr ""
+"[CAN-bussfelsökning](CANBUS_Troubleshooting.md): Tips för felsökning av CAN-"
+"buss."
 
 #: docs/Overview.md:block 6 (unordered list)
 msgid "[Octoprint](OctoPrint.md): Guide to installing Octoprint with Klipper."
 msgstr ""
+"[OctoPrint](OctoPrint.md): Guide till installation av OctoPrint med Klipper."
 
 #: docs/Overview.md:block 10 (unordered list)
 msgid "[Eddy Current Inductive probe](Eddy_Probe.md)"
-msgstr ""
+msgstr "[Induktiv virvelströmssond](Eddy_Probe.md)"
 
 #: docs/Overview.md:block 10 (unordered list)
 msgid "[Load Cells](Load_Cell.md)"
-msgstr ""
+msgstr "[Lastceller](Load_Cell.md)"
 
 #~ msgid ""
 #~ "[Exclude Object](Exclude_Object.md): The guide to the Exclude Objecs "

@@ -4,13 +4,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: sv\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"Last-Translator: Daniel Nylander <yeagersthlm@gmail.com>\n"
+"Language-Team: Swedish <https://hosted.weblate.org/projects/klipper/"
+"skew_correction/sv/>\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2026-09-16 18:29+0000\n"
+"X-Generator: Weblate 2026.10.dev0\n"
 
 #: docs/Skew_Correction.md:block 1 (header)
 msgid "Skew correction"
-msgstr ""
+msgstr "Skevhetskorrigering"
 
 #: docs/Skew_Correction.md:block 2 (paragraph)
 msgid ""
@@ -20,10 +24,15 @@ msgid ""
 "mechanical means to get your printer as square as possible prior to applying "
 "software based correction."
 msgstr ""
+"Programvarubaserad skevhetskorrigering kan hjälpa till att lösa "
+"dimensionsfel som beror på att skrivaren inte är helt vinkelrät. Om "
+"skrivaren är kraftigt skev rekommenderas starkt att du först justerar den "
+"mekaniskt så att den blir så vinkelrät som möjligt innan programvarubaserad "
+"korrigering används."
 
 #: docs/Skew_Correction.md:block 3 (header)
 msgid "Print a Calibration Object"
-msgstr ""
+msgstr "Skriv ut ett kalibreringsobjekt"
 
 #: docs/Skew_Correction.md:block 4 (paragraph)
 msgid ""
@@ -34,6 +43,11 @@ msgid ""
 " one model. You want the object oriented so that corner A is toward the origin"
 " of the plane."
 msgstr ""
+"Det första steget för att korrigera skevhet är att skriva ut ett "
+"[kalibreringsobjekt](https://www.thingiverse.com/thing:2563185/files) längs "
+"det plan som ska korrigeras. Det finns också ett [kalibreringsobjekt]"
+"(https://www.thingiverse.com/thing:2972743) som innehåller alla plan i en "
+"modell. Vänd objektet så att hörn A vetter mot planets origo."
 
 #: docs/Skew_Correction.md:block 5 (paragraph)
 msgid ""
@@ -41,26 +55,31 @@ msgid ""
 "this by either removing the `[skew_correction]` module from printer.cfg or by "
 "issuing a `SET_SKEW CLEAR=1` gcode."
 msgstr ""
+"Kontrollera att ingen skevhetskorrigering används under utskriften. Du kan "
+"antingen ta bort modulen `[skew_correction]` från printer.cfg eller skicka G-"
+"koden `SET_SKEW CLEAR=1`."
 
 #: docs/Skew_Correction.md:block 6 (header)
 msgid "Take your measurements"
-msgstr ""
+msgstr "Gör dina mätningar"
 
 #: docs/Skew_Correction.md:block 8 (paragraph)
 msgid "![skew_lengths](img/skew_lengths.png)"
-msgstr ""
+msgstr "![skew_lengths](img/skew_lengths.png)"
 
 #: docs/Skew_Correction.md:block 9 (header)
 msgid "Configure your skew"
-msgstr ""
+msgstr "Konfigurera skevhetskorrigeringen"
 
 #: docs/Skew_Correction.md:block 12 (paragraph)
 msgid "`SET_SKEW` can be used to configure skew correction for the XY plane."
 msgstr ""
+"`SET_SKEW` kan användas för att konfigurera skevhetskorrigering för XY-"
+"planet."
 
 #: docs/Skew_Correction.md:block 14 (paragraph)
 msgid "You may also add measurements for XZ and YZ to the gcode:"
-msgstr ""
+msgstr "Du kan också lägga till mätningar för XZ och YZ i G-koden:"
 
 #: docs/Skew_Correction.md:block 16 (paragraph)
 msgid ""
@@ -68,6 +87,9 @@ msgid ""
 "similar to `[bed_mesh]`. After setting skew using the `SET_SKEW` gcode, you "
 "may use the `SKEW_PROFILE` gcode to save it:"
 msgstr ""
+"Modulen `[skew_correction]` har även stöd för profilhantering på samma sätt "
+"som `[bed_mesh]`. När du har angett skevheten med G-koden `SET_SKEW` kan du "
+"spara den med G-koden `SKEW_PROFILE`:"
 
 #: docs/Skew_Correction.md:block 18 (paragraph)
 msgid ""
@@ -76,24 +98,30 @@ msgid ""
 "then a new profile will be created. If the named profile exists it will be "
 "overwritten."
 msgstr ""
+"Efter kommandot uppmanas du att skicka G-koden `SAVE_CONFIG` för att spara "
+"profilen permanent. Om det inte finns någon profil med namnet "
+"`my_skew_profile` skapas en ny profil. Finns den angivna profilen skrivs den "
+"över."
 
 #: docs/Skew_Correction.md:block 19 (paragraph)
 msgid "Once you have a saved profile, you may load it:"
-msgstr ""
+msgstr "När du har sparat en profil kan du läsa in den:"
 
 #: docs/Skew_Correction.md:block 21 (paragraph)
 msgid "It is also possible to remove an old or out of date profile:"
-msgstr ""
+msgstr "Du kan också ta bort en gammal eller inaktuell profil:"
 
 #: docs/Skew_Correction.md:block 23 (paragraph)
 msgid ""
 "After removing a profile you will be prompted to issue a `SAVE_CONFIG` to make"
 " this change persist."
 msgstr ""
+"När en profil har tagits bort uppmanas du att skicka `SAVE_CONFIG` så att "
+"ändringen sparas permanent."
 
 #: docs/Skew_Correction.md:block 24 (header)
 msgid "Verifying your correction"
-msgstr ""
+msgstr "Verifiera korrigeringen"
 
 #: docs/Skew_Correction.md:block 25 (paragraph)
 msgid ""
@@ -101,10 +129,14 @@ msgid ""
 " with correction enabled. Use the following gcode to check your skew on each "
 "plane. The results should be lower than those reported via `GET_CURRENT_SKEW`."
 msgstr ""
+"När skew_correction har konfigurerats kan du skriva ut kalibreringsdelen "
+"igen med korrigering aktiverad. Använd följande G-kod för att kontrollera "
+"skevheten i varje plan. Resultaten bör vara lägre än de som rapporteras av "
+"`GET_CURRENT_SKEW`."
 
 #: docs/Skew_Correction.md:block 27 (header)
 msgid "Caveats"
-msgstr ""
+msgstr "Begränsningar"
 
 #: docs/Skew_Correction.md:block 28 (paragraph)
 msgid ""
@@ -114,6 +146,11 @@ msgid ""
 "`SET_SKEW` or `SKEW_PROFILE` gcodes to accomplish this. It is also recommended"
 " to issue a `SET_SKEW CLEAR=1` in your end gcode."
 msgstr ""
+"På grund av hur skevhetskorrigering fungerar rekommenderas att den "
+"konfigureras i G-koden för start, efter ändlägeskörning och rörelser nära "
+"utskriftsområdets kant, till exempel rensning eller munstycksavtorkning. "
+"Använd G-koderna `SET_SKEW` eller `SKEW_PROFILE`. Det rekommenderas också "
+"att skicka `SET_SKEW CLEAR=1` i G-koden för slut."
 
 #: docs/Skew_Correction.md:block 29 (paragraph)
 msgid ""
@@ -122,6 +159,9 @@ msgid ""
 " Y axes. It is recommended to arrange parts away from the edges when using "
 "`[skew_correction]`."
 msgstr ""
+"Tänk på att `[skew_correction]` kan skapa en korrigering som flyttar "
+"verktyget utanför skrivarens gränser på X- och/eller Y-axeln. Placera delar "
+"en bit från kanterna när `[skew_correction]` används."
 
 #: docs/Skew_Correction.md:block 7 (paragraph)
 msgid ""
@@ -130,6 +170,10 @@ msgid ""
 " Corner D, and the length from Corner A to Corner D. When measuring length AD "
 "do not include the flats on the corners that some test objects provide."
 msgstr ""
+"Modulen `[skew_correction]` kräver tre mätningar för varje plan som ska "
+"korrigeras: längden från hörn A till hörn C, längden från hörn B till hörn D "
+"och längden från hörn A till hörn D. Ta inte med de plana ytorna vid hörnen "
+"som vissa testobjekt har när du mäter längden AD."
 
 #: docs/Skew_Correction.md:block 10 (paragraph)
 msgid ""
@@ -137,6 +181,9 @@ msgid ""
 "`SET_SKEW` gcode to configure skew_correction. For example, if your measured "
 "lengths along XY are as follows:"
 msgstr ""
+"Kontrollera att `[skew_correction]` finns i printer.cfg. Du kan nu använda G-"
+"koden `SET_SKEW` för att konfigurera skew_correction. Om dina uppmätta "
+"längder längs XY till exempel är följande:"
 
 #~ msgid ""
 #~ "Make sure `[skew_correction]` is in printer.cfg. You may now use the "

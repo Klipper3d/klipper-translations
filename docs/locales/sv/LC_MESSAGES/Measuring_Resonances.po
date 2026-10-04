@@ -4,96 +4,103 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: sv\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"Last-Translator: Daniel Nylander <yeagersthlm@gmail.com>\n"
+"Language-Team: Swedish <https://hosted.weblate.org/projects/klipper/"
+"measuring_resonances/sv/>\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2026-09-17 16:51+0000\n"
+"X-Generator: Weblate 2026.10.dev0\n"
 
 msgid "Measuring Resonances"
-msgstr ""
+msgstr "Mäta resonanser"
 
 msgid "Installation instructions"
-msgstr ""
+msgstr "Installationsanvisningar"
 
 msgid "Wiring"
-msgstr ""
+msgstr "Koppling"
 
 msgid ""
 "You need to connect ADXL345 to your Raspberry Pi via SPI. Note that the I2C "
 "connection, which is suggested by ADXL345 documentation, has too low "
 "throughput and **will not work**. The recommended connection scheme:"
 msgstr ""
+"Du måste ansluta ADXL345 till din Raspberry Pi via SPI. Observera att I2C-"
+"anslutningen, som föreslås i ADXL345-dokumentationen, har för låg "
+"genomströmning och **fungerar inte**. Rekommenderad koppling:"
 
 msgid "ADXL345 pin"
-msgstr ""
+msgstr "ADXL345-stift"
 
 msgid "RPi pin"
-msgstr ""
+msgstr "RPi-stift"
 
 msgid "RPi pin name"
-msgstr ""
+msgstr "RPi-stiftnamn"
 
 msgid "3V3 (or VCC)"
-msgstr ""
+msgstr "3V3 (eller VCC)"
 
 msgid "01"
-msgstr ""
+msgstr "01"
 
 msgid "3.3v DC power"
-msgstr ""
+msgstr "3,3 V DC-ström"
 
 msgid "GND"
-msgstr ""
+msgstr "GND"
 
 msgid "06"
-msgstr ""
+msgstr "06"
 
 msgid "Ground"
-msgstr ""
+msgstr "Jord"
 
 msgid "CS"
-msgstr ""
+msgstr "CS"
 
 msgid "24"
-msgstr ""
+msgstr "24"
 
 msgid "GPIO08 (SPI0_CE0_N)"
-msgstr ""
+msgstr "GPIO08 (SPI0_CE0_N)"
 
 msgid "SDO"
-msgstr ""
+msgstr "SDO"
 
 msgid "21"
-msgstr ""
+msgstr "21"
 
 msgid "GPIO09 (SPI0_MISO)"
-msgstr ""
+msgstr "GPIO09 (SPI0_MISO)"
 
 msgid "SDA"
-msgstr ""
+msgstr "SDA"
 
 msgid "19"
-msgstr ""
+msgstr "19"
 
 msgid "GPIO10 (SPI0_MOSI)"
-msgstr ""
+msgstr "GPIO10 (SPI0_MOSI)"
 
 msgid "SCL"
-msgstr ""
+msgstr "SCL"
 
 msgid "23"
-msgstr ""
+msgstr "23"
 
 msgid "GPIO11 (SPI0_SCLK)"
-msgstr ""
+msgstr "GPIO11 (SPI0_SCLK)"
 
 msgid "Fritzing wiring diagrams for some of the ADXL345 boards:"
-msgstr ""
+msgstr "Fritzing-kopplingsscheman för några ADXL345-kort:"
 
 msgid "![ADXL345-Rpi](img/adxl345-fritzing.png)"
-msgstr ""
+msgstr "![ADXL345-Rpi](img/adxl345-fritzing.png)"
 
 msgid "Mounting the accelerometer"
-msgstr ""
+msgstr "Montera accelerometern"
 
 msgid ""
 "The accelerometer must be attached to the toolhead. One needs to design a "
@@ -103,18 +110,26 @@ msgid ""
 "forth - it should be fine even if Z axis of accelerometer is X axis of the "
 "printer, etc.)."
 msgstr ""
+"Accelerometern måste fästas på verktygshuvudet. Ett lämpligt fäste som "
+"passar den egna 3D-skrivaren behöver konstrueras. Det är bäst att rikta "
+"accelerometerns axlar efter skrivarens axlar, men axlarna kan bytas om det "
+"är enklare. X-axeln behöver alltså inte riktas mot X och så vidare; det "
+"fungerar även om accelerometerns Z-axel är skrivarens X-axel."
 
 msgid "An example of mounting ADXL345 on the SmartEffector:"
-msgstr ""
+msgstr "Ett exempel på montering av ADXL345 på SmartEffector:"
 
 msgid "![ADXL345 on SmartEffector](img/adxl345-mount.jpg)"
-msgstr ""
+msgstr "![ADXL345 on SmartEffector](img/adxl345-mount.jpg)"
 
 msgid ""
 "Note that on a bed slinger printer one must design 2 mounts: one for the "
 "toolhead and one for the bed, and run the measurements twice. See the "
 "corresponding [section](#bed-slinger-printers) for more details."
 msgstr ""
+"Observera att en skrivare med rörlig bädd kräver två fästen, ett för "
+"verktygshuvudet och ett för bädden, och att mätningarna måste köras två "
+"gånger. Se motsvarande [avsnitt](#bed-slinger-printers) för mer information."
 
 msgid ""
 "**Attention:** make sure the accelerometer and any screws that hold it in "
@@ -123,36 +138,46 @@ msgid ""
 "from the printer frame. Failing to ensure that can create a ground loop in the"
 " system that may damage the electronics."
 msgstr ""
+"**Varning:** kontrollera att accelerometern och alla skruvar som håller den "
+"på plats inte rör några metalldelar på skrivaren. Fästet måste säkerställa "
+"elektrisk isolering mellan accelerometern och skrivarens ram. Annars kan en "
+"jordslinga uppstå och skada elektroniken."
 
 msgid "Software installation"
-msgstr ""
+msgstr "Programvaruinstallation"
 
 msgid ""
 "Make sure the Linux SPI driver is enabled by running `sudo raspi-config` and "
 "enabling SPI under the \"Interfacing options\" menu."
 msgstr ""
+"Kontrollera att Linux SPI-drivrutinen är aktiverad genom att köra `sudo "
+"raspi-config` och aktivera SPI i menyn \"Interfacing options\"."
 
 msgid ""
 "It is advised to start with 1 probe point, in the middle of the print bed, "
 "slightly above it."
 msgstr ""
+"Börja gärna med en sonderingspunkt mitt på utskriftsbädden, strax ovanför "
+"den."
 
 msgid "Restart Klipper via the `RESTART` command."
-msgstr ""
+msgstr "Starta om Klipper med kommandot `RESTART`."
 
 msgid "Measuring the resonances"
-msgstr ""
+msgstr "Mäta resonanserna"
 
 msgid "Checking the setup"
-msgstr ""
+msgstr "Kontrollera inställningen"
 
 msgid "Now you can test a connection."
-msgstr ""
+msgstr "Nu kan du testa anslutningen."
 
 msgid ""
 "For \"non bed-slingers\" (e.g. one accelerometer), in Octoprint, enter "
 "`ACCELEROMETER_QUERY`"
 msgstr ""
+"För skrivare utan rörlig bädd, till exempel med en accelerometer, anger du "
+"`ACCELEROMETER_QUERY` i OctoPrint."
 
 msgid ""
 "For \"bed-slingers\" (e.g. more than one accelerometer), enter "
@@ -160,11 +185,17 @@ msgid ""
 "entered, e.g. `CHIP=bed` (see: [bed-slinger](#bed-slinger-printers)) for all "
 "installed accelerometer chips."
 msgstr ""
+"För skrivare med rörlig bädd, till exempel med fler än en accelerometer, "
+"anger du `ACCELEROMETER_QUERY CHIP=<chip>`, där `<chip>` är namnet på "
+"kretsen som det angavs, till exempel `CHIP=bed`. Se [skrivare med rörlig "
+"bädd](#bed-slinger-printers) för alla installerade accelerometerkretsar."
 
 msgid ""
 "You should see the current measurements from the accelerometer, including the "
 "free-fall acceleration, e.g."
 msgstr ""
+"Du bör se accelerometerns aktuella mätvärden, inklusive fritt falls "
+"acceleration, till exempel:"
 
 msgid ""
 "Next, try running `MEASURE_AXES_NOISE` in Octoprint, you should get some "
@@ -173,15 +204,23 @@ msgid ""
 "can be indicative of the sensor issues, problems with its power, or too noisy "
 "imbalanced fans on a 3D printer."
 msgstr ""
+"Kör sedan `MEASURE_AXES_NOISE` i OctoPrint. Du bör få några basvärden för "
+"accelerometerns brus på axlarna, vanligen ungefär 1–100. Mycket högt brus på "
+"axlarna, till exempel 1000 eller mer, kan tyda på sensorproblem, problem med "
+"strömförsörjningen eller för brusiga och obalanserade fläktar på 3D-"
+"skrivaren."
 
 msgid "Now you can run some real-life tests. Run the following command:"
-msgstr ""
+msgstr "Nu kan du köra praktiska tester. Kör följande kommando:"
 
 msgid ""
 "Note that it will create vibrations on X axis. It will also disable input "
 "shaping if it was enabled previously, as it is not valid to run the resonance "
 "testing with the input shaper enabled."
 msgstr ""
+"Observera att detta skapar vibrationer på X-axeln. Det inaktiverar också "
+"input shaping om funktionen tidigare var aktiverad, eftersom "
+"resonanstestning inte kan köras med input shaping aktiverat."
 
 msgid ""
 "**Attention!** Be sure to observe the printer for the first time, to make sure"
@@ -191,9 +230,14 @@ msgid ""
 " default value for `accel_per_hz` parameter in `[resonance_tester]` section, "
 "e.g."
 msgstr ""
+"**Varning!** Övervaka skrivaren första gången för att kontrollera att "
+"vibrationerna inte blir för kraftiga. Kommandot `M112` kan användas för att "
+"avbryta testet vid en nödsituation. Om vibrationerna blir för kraftiga kan "
+"du försöka ange ett lägre värde än standard för parametern `accel_per_hz` i "
+"avsnittet `[resonance_tester]`, till exempel:"
 
 msgid "If it works for X axis, run for Y axis as well:"
-msgstr ""
+msgstr "Om det fungerar för X-axeln kör du även för Y-axeln:"
 
 msgid ""
 "This script will generate the charts `/tmp/shaper_calibrate_x.png` and "
@@ -201,23 +245,32 @@ msgid ""
 "suggested frequencies for each input shaper, as well as which input shaper is "
 "recommended for your setup. For example:"
 msgstr ""
+"Skriptet skapar diagrammen `/tmp/shaper_calibrate_x.png` och `/tmp/"
+"shaper_calibrate_y.png` med frekvenssvar. Du får också föreslagna frekvenser "
+"för varje input shaper och vilken input shaper som rekommenderas för din "
+"konfiguration. Till exempel:"
 
 msgid "![Resonances](img/calibrate-y.png)"
-msgstr ""
+msgstr "![Resonances](img/calibrate-y.png)"
 
 msgid ""
 "The suggested configuration can be added to `[input_shaper]` section of "
 "`printer.cfg`, e.g.:"
 msgstr ""
+"Den föreslagna konfigurationen kan läggas till i avsnittet `[input_shaper]` "
+"i `printer.cfg`, till exempel:"
 
 msgid ""
 "or you can choose some other configuration yourself based on the generated "
 "charts: peaks in the power spectral density on the charts correspond to the "
 "resonance frequencies of the printer."
 msgstr ""
+"Du kan också själv välja en annan konfiguration baserat på de genererade "
+"diagrammen: toppar i diagrammens spektrala effekttäthet motsvarar skrivarens "
+"resonansfrekvenser."
 
 msgid "Bed-slinger printers"
-msgstr ""
+msgstr "Skrivare med rörlig bädd"
 
 msgid ""
 "If your printer is a bed slinger printer, you will need to change the location"
@@ -225,14 +278,20 @@ msgid ""
 "resonances of X axis with the accelerometer attached to the toolhead and the "
 "resonances of Y axis - to the bed (the usual bed slinger setup)."
 msgstr ""
+"Om skrivaren har rörlig bädd måste accelerometerns placering ändras mellan "
+"mätningarna av X- och Y-axlarna: mät X-axelns resonanser med accelerometern "
+"fäst vid verktygshuvudet och Y-axelns resonanser med accelerometern fäst vid "
+"bädden, vilket är den vanliga konfigurationen."
 
 msgid ""
 "Then the commands `TEST_RESONANCES AXIS=X` and `TEST_RESONANCES AXIS=Y` will "
 "use the correct accelerometer for each axis."
 msgstr ""
+"Kommandona `TEST_RESONANCES AXIS=X` och `TEST_RESONANCES AXIS=Y` använder då "
+"rätt accelerometer för respektive axel."
 
 msgid "Max smoothing"
-msgstr ""
+msgstr "Maximal utjämning"
 
 msgid ""
 "Keep in mind that the input shaper can create some smoothing in parts. "
@@ -244,12 +303,19 @@ msgid ""
 "vibrations. In these cases, you can request to limit the maximum smoothing "
 "from the input shaper."
 msgstr ""
+"Tänk på att input shaper kan ge viss utjämning i utskrivna delar. Den "
+"automatiska trimningen med skriptet `calibrate_shaper.py` eller kommandot "
+"`SHAPER_CALIBRATE` försöker begränsa utjämningen och samtidigt minimera "
+"kvarvarande vibrationer. Ibland väljer den en mindre optimal shaper-"
+"frekvens, eller så föredrar du mindre utjämning på bekostnad av större "
+"kvarvarande vibrationer. Då kan du begränsa den maximala utjämningen från "
+"input shaper."
 
 msgid "Let's consider the following results from the automatic tuning:"
-msgstr ""
+msgstr "Betrakta följande resultat från den automatiska trimningen:"
 
 msgid "![Resonances](img/calibrate-x.png)"
-msgstr ""
+msgstr "![Resonanser](img/calibrate-x.png)"
 
 msgid ""
 "Note that the reported `smoothing` values are some abstract projected values. "
@@ -260,25 +326,39 @@ msgid ""
 "`square_corner_velocity` parameters. Therefore, you should print some test "
 "prints to see how much smoothing exactly a chosen configuration creates."
 msgstr ""
+"Observera att rapporterade `smoothing`-värden är abstrakta, projicerade "
+"värden. De kan användas för att jämföra olika konfigurationer: ju högre "
+"värde, desto mer utjämning skapar en shaper. Värdena motsvarar dock inget "
+"verkligt mått på utjämning eftersom den faktiska utjämningen beror på "
+"parametrarna [`max_accel`](#selecting-max-accel) och "
+"`square_corner_velocity`. Skriv därför ut testutskrifter för att se hur "
+"mycket utjämning en vald konfiguration faktiskt ger."
 
 msgid ""
 "In the example above the suggested shaper parameters are not bad, but what if "
 "you want to get less smoothing on the X axis? You can try to limit the maximum"
 " shaper smoothing using the following command:"
 msgstr ""
+"I exemplet ovan är de föreslagna shaper-parametrarna inte dåliga, men om du "
+"vill få mindre utjämning på X-axeln kan du begränsa maximal shaper-utjämning "
+"med följande kommando:"
 
 msgid ""
 "which limits the smoothing to 0.2 score. Now you can get the following result:"
 msgstr ""
+"Det begränsar utjämningen till värdet 0.2. Då kan du få följande resultat:"
 
 msgid "![Resonances](img/calibrate-x-max-smoothing.png)"
-msgstr ""
+msgstr "![Resonanser](img/calibrate-x-max-smoothing.png)"
 
 msgid ""
 "If you compare to the previously suggested parameters, the vibrations are a "
 "bit larger, but the smoothing is significantly smaller than previously, "
 "allowing larger maximum acceleration."
 msgstr ""
+"Jämfört med de tidigare föreslagna parametrarna är vibrationerna något "
+"större, men utjämningen betydligt mindre, vilket tillåter högre maximal "
+"acceleration."
 
 msgid ""
 "When deciding which `max_smoothing` parameter to choose, you can use a trial-"
@@ -293,20 +373,33 @@ msgid ""
 "remaining vibrations reported by the script and make sure they are not too "
 "high."
 msgstr ""
+"När du väljer parametern `max_smoothing` kan du använda försök och misstag. "
+"Prova några olika värden och se vilka resultat du får. Den faktiska "
+"utjämningen från input shaper beror främst på skrivarens lägsta "
+"resonansfrekvens: ju högre frekvens, desto mindre utjämning. En orealistiskt "
+"låg begärd utjämning ger därför mer ringing vid de lägsta "
+"resonansfrekvenserna, som vanligen syns tydligast i utskrifter. Kontrollera "
+"alltid att de projicerade kvarvarande vibrationerna som skriptet rapporterar "
+"inte är för höga."
 
 msgid ""
 "Note that if you chose a good `max_smoothing` value for both of your axes, you"
 " can store it in the `printer.cfg` as"
 msgstr ""
+"Om du har valt ett bra `max_smoothing`-värde för båda axlarna kan det sparas "
+"i `printer.cfg` enligt följande:"
 
 msgid ""
 "Then, if you [rerun](#input-shaper-re-calibration) the input shaper auto-"
 "tuning using `SHAPER_CALIBRATE` Klipper command in the future, it will use the"
 " stored `max_smoothing` value as a reference."
 msgstr ""
+"Om du i framtiden [kör om](#input-shaper-re-calibration) den automatiska "
+"input shaper-trimningen med kommandot `SHAPER_CALIBRATE` använder Klipper "
+"det sparade värdet `max_smoothing` som referens."
 
 msgid "Selecting max_accel"
-msgstr ""
+msgstr "Välja max_accel"
 
 msgid ""
 "Since the input shaper can create some smoothing in parts, especially at high "
@@ -322,12 +415,26 @@ msgid ""
 "`[printer]` section that does not exceed the estimated values for X and Y "
 "axes, likely with some conservative safety margin."
 msgstr ""
+"Eftersom input shaper kan ge viss utjämning i utskrivna delar, särskilt vid "
+"höga accelerationer, måste du ändå välja ett `max_accel`-värde som inte ger "
+"för mycket utjämning. Kalibreringsskriptet uppskattar ett `max_accel`-värde "
+"som inte bör ge för mycket utjämning. Observera att `max_accel` som visas av "
+"kalibreringsskriptet endast är ett teoretiskt maximum där respektive shaper "
+"fortfarande kan fungera utan att skapa för mycket utjämning. Det är inte en "
+"rekommendation att använda denna acceleration för utskrift. Den högsta "
+"acceleration skrivaren klarar beror på dess mekaniska egenskaper och de "
+"använda stegmotorernas maximala vridmoment. Vi rekommenderar därför att "
+"`max_accel` i avsnittet `[printer]` inte överstiger de beräknade värdena för "
+"X- och Y-axeln, sannolikt med en försiktig säkerhetsmarginal."
 
 msgid ""
 "Alternatively, follow [this](Resonance_Compensation.md#selecting-max_accel) "
 "part of the input shaper tuning guide and print the test model to choose "
 "`max_accel` parameter experimentally."
 msgstr ""
+"Du kan också följa [den här](Resonance_Compensation.md#selecting-max_accel) "
+"delen av guiden för input shaper-trimning och skriva ut testmodellen för att "
+"välja parametern `max_accel` experimentellt."
 
 msgid ""
 "The same notice applies to the input shaper [auto-calibration](#input-shaper-"
@@ -335,21 +442,31 @@ msgid ""
 "choose the right `max_accel` value after the auto-calibration, and the "
 "suggested acceleration limits will not be applied automatically."
 msgstr ""
+"Samma anmärkning gäller [automatisk kalibrering](#input-shaper-auto-"
+"calibration) av input shaper med kommandot `SHAPER_CALIBRATE`: även efter "
+"den automatiska kalibreringen måste du välja rätt `max_accel`-värde, och de "
+"föreslagna accelerationsgränserna tillämpas inte automatiskt."
 
 msgid ""
 "If you are doing a shaper re-calibration and the reported smoothing for the "
 "suggested shaper configuration is almost the same as what you got during the "
 "previous calibration, this step can be skipped."
 msgstr ""
+"Om du kalibrerar shaper på nytt och den rapporterade utjämningen för den "
+"föreslagna shaper-konfigurationen är nästan densamma som vid föregående "
+"kalibrering, kan du hoppa över det här steget."
 
 msgid "Input Shaper auto-calibration"
-msgstr ""
+msgstr "Automatisk kalibrering av Input Shaper"
 
 msgid ""
 "Besides manually choosing the appropriate parameters for the input shaper "
 "feature, it is also possible to run the auto-tuning for the input shaper "
 "directly from Klipper. Run the following command via Octoprint terminal:"
 msgstr ""
+"Förutom att välja lämpliga parametrar för funktionen input shaper manuellt "
+"går det att köra automatisk trimning av input shaper direkt från Klipper. "
+"Kör följande kommando i OctoPrint-terminalen:"
 
 msgid ""
 "This will run the full test for both axes and generate the csv output "
@@ -358,6 +475,11 @@ msgid ""
 "input shaper, as well as which input shaper is recommended for your setup, on "
 "Octoprint console. For example:"
 msgstr ""
+"Det kör hela testet för båda axlarna och skapar CSV-utdata (`/tmp/"
+"calibration_data_*.csv` som standard) för frekvensresponsen och de "
+"föreslagna input shaper-konfigurationerna. I OctoPrint-konsolen visas också "
+"de föreslagna frekvenserna för varje input shaper samt vilken input shaper "
+"som rekommenderas för din konfiguration. Exempel:"
 
 msgid ""
 "If you agree with the suggested parameters, you can execute `SAVE_CONFIG` now "
@@ -366,24 +488,36 @@ msgid ""
 "following the considerations in [Selecting max_accel](#selecting-max_accel) "
 "section."
 msgstr ""
+"Om du godtar de föreslagna parametrarna kan du nu köra `SAVE_CONFIG` för att "
+"spara dem och starta om Klipper. Observera att detta inte uppdaterar värdet "
+"`max_accel` i avsnittet `[printer]`. Du bör uppdatera det manuellt enligt "
+"övervägandena i avsnittet [Välja max_accel](#selecting-max_accel)."
 
 msgid ""
 "If your printer is a bed slinger printer, you can specify which axis to test, "
 "so that you can change the accelerometer mounting point between the tests (by "
 "default the test is performed for both axes):"
 msgstr ""
+"Om skrivaren har en rörlig bädd kan du ange vilken axel som ska testas, så "
+"att du kan flytta accelerometerns monteringspunkt mellan testerna (som "
+"standard utförs testet för båda axlarna):"
 
 msgid "You can execute `SAVE_CONFIG` twice - after calibrating each axis."
 msgstr ""
+"Du kan köra `SAVE_CONFIG` två gånger – efter kalibreringen av respektive "
+"axel."
 
 msgid ""
 "However, if you connected two accelerometers simultaneously, you simply run "
 "`SHAPER_CALIBRATE` without specifying an axis to calibrate the input shaper "
 "for both axes in one go."
 msgstr ""
+"Om du däremot har anslutit två accelerometrar samtidigt kör du bara "
+"`SHAPER_CALIBRATE` utan att ange axel, för att kalibrera input shaper för "
+"båda axlarna i ett steg."
 
 msgid "Input Shaper re-calibration"
-msgstr ""
+msgstr "Omkalibrering av Input Shaper"
 
 msgid ""
 "`SHAPER_CALIBRATE` command can be also used to re-calibrate the input shaper "
@@ -392,6 +526,11 @@ msgid ""
 "`SHAPER_CALIBRATE` command, or restrict the auto-calibration to a single axis "
 "by supplying `AXIS=` parameter, like"
 msgstr ""
+"Kommandot `SHAPER_CALIBRATE` kan även användas för att omkalibrera input "
+"shaper senare, särskilt om skrivaren har ändrats på ett sätt som kan påverka "
+"kinematiken. Du kan antingen köra om hela kalibreringen med "
+"`SHAPER_CALIBRATE` eller begränsa den automatiska kalibreringen till en enda "
+"axel genom att ange parametern `AXIS=`, till exempel"
 
 msgid ""
 "Also, due to some noise in measurements, it is possible that the tuning "
@@ -400,21 +539,32 @@ msgid ""
 "much. However, it is still advised to double-check the suggested parameters, "
 "and print some test prints before using them to confirm they are good."
 msgstr ""
+"På grund av visst mätbrus kan trimningsresultaten också skilja sig något "
+"mellan kalibreringskörningar. Bruset förväntas dock inte påverka "
+"utskriftskvaliteten särskilt mycket. Det rekommenderas ändå att du "
+"dubbelkontrollerar de föreslagna parametrarna och skriver ut några "
+"testutskrifter innan du använder dem för att bekräfta att de fungerar bra."
 
 msgid "Offline processing of the accelerometer data"
-msgstr ""
+msgstr "Offlinebearbetning av accelerometerdata"
 
 msgid ""
 "It is possible to generate the raw accelerometer data and process it offline "
 "(e.g. on a host machine), for example to find resonances. In order to do so, "
 "run the following commands via Octoprint terminal:"
 msgstr ""
+"Det går att skapa rådata från accelerometern och bearbeta dem offline (till "
+"exempel på en värddator), exempelvis för att hitta resonanser. Kör följande "
+"kommandon i OctoPrint-terminalen:"
 
 msgid ""
 "ignoring any errors for `SET_INPUT_SHAPER` command. For `TEST_RESONANCES` "
 "command, specify the desired test axis. The raw data will be written into "
 "`/tmp` directory on the RPi."
 msgstr ""
+"och ignorera eventuella fel för kommandot `SET_INPUT_SHAPER`. Ange önskad "
+"testaxel för kommandot `TEST_RESONANCES`. Rådata skrivs till katalogen `/"
+"tmp` på RPi:n."
 
 msgid ""
 "The data can be processed later by the following scripts: "
@@ -422,16 +572,24 @@ msgid ""
 "them accept one or several raw csv files as the input depending on the mode. "
 "The graph_accelerometer.py script supports several modes of operation:"
 msgstr ""
+"Data kan sedan bearbetas med följande skript: `scripts/"
+"graph_accelerometer.py` och `scripts/calibrate_shaper.py`. Båda tar emot en "
+"eller flera råa CSV-filer som indata, beroende på läge. Skriptet "
+"graph_accelerometer.py har flera driftslägen:"
 
 msgid ""
 "plotting raw accelerometer data (use `-r` parameter), only 1 input is "
 "supported;"
 msgstr ""
+"rita råa accelerometerdata (använd parametern `-r`), endast 1 indatafil "
+"stöds;"
 
 msgid ""
 "plotting a frequency response (no extra parameters required), if multiple "
 "inputs are specified, the average frequency response is computed;"
 msgstr ""
+"rita en frekvensrespons (inga extra parametrar krävs); om flera indatafiler "
+"anges beräknas den genomsnittliga frekvensresponsen;"
 
 msgid ""
 "comparison of the frequency response between several inputs (use `-c` "
@@ -439,6 +597,10 @@ msgid ""
 "via `-a x`, `-a y` or `-a z` parameter (if none specified, the sum of "
 "vibrations for all axes is used);"
 msgstr ""
+"jämföra frekvensresponsen mellan flera indatafiler (använd parametern `-c`); "
+"du kan dessutom ange vilken accelerometeraxel som ska användas med "
+"parametern `-a x`, `-a y` eller `-a z` (om ingen anges används summan av "
+"vibrationerna för alla axlar);"
 
 msgid ""
 "plotting the spectrogram (use `-s` parameter), only 1 input is supported; you "
@@ -446,19 +608,28 @@ msgid ""
 "y` or `-a z` parameter (if none specified, the sum of vibrations for all axes "
 "is used)."
 msgstr ""
+"rita spektrogrammet (använd parametern `-s`), endast 1 indatafil stöds; du "
+"kan dessutom ange vilken accelerometeraxel som ska användas med parametern `-"
+"a x`, `-a y` eller `-a z` (om ingen anges används summan av vibrationerna "
+"för alla axlar)."
 
 msgid ""
 "Note that graph_accelerometer.py script supports only the raw_data\\*.csv "
 "files and not resonances\\*.csv or calibration_data\\*.csv files."
 msgstr ""
+"Observera att skriptet graph_accelerometer.py endast stöder filerna "
+"raw_data\\*.csv, inte filerna resonances\\*.csv eller calibration_data\\"
+"*.csv."
 
 msgid "For example,"
-msgstr ""
+msgstr "Exempel:"
 
 msgid ""
 "will plot the comparison of several `/tmp/raw_data_x_*.csv` files for Z axis "
 "to `/tmp/resonances_x.png` file."
 msgstr ""
+"ritar jämförelsen av flera `/tmp/raw_data_x_*.csv`-filer för Z-axeln till "
+"filen `/tmp/resonances_x.png`."
 
 msgid ""
 "The shaper_calibrate.py script accepts 1 or several inputs and can run "
@@ -467,11 +638,18 @@ msgid ""
 "console, and can additionally generate the chart if `-o output.png` parameter "
 "is provided, or the CSV file if `-c output.csv` parameter is specified."
 msgstr ""
+"Skriptet shaper_calibrate.py accepterar 1 eller flera indatafiler och kan "
+"automatiskt trimma input shaper och föreslå de bästa parametrarna som "
+"fungerar väl för alla angivna indatafiler. Det skriver de föreslagna "
+"parametrarna till konsolen och kan dessutom skapa diagrammet om parametern `-"
+"o output.png` anges, eller CSV-filen om parametern `-c output.csv` anges."
 
 msgid ""
 "Providing several inputs to shaper_calibrate.py script can be useful if "
 "running some advanced tuning of the input shapers, for example:"
 msgstr ""
+"Flera indatafiler till skriptet shaper_calibrate.py kan vara användbara vid "
+"avancerad trimning av input shaper, till exempel:"
 
 msgid ""
 "Running `TEST_RESONANCES AXIS=X OUTPUT=raw_data` (and `Y` axis) for a single "
@@ -480,15 +658,24 @@ msgid ""
 "time in order to detect axes cross-resonances and attempt to cancel them with "
 "input shapers."
 msgstr ""
+"Kör `TEST_RESONANCES AXIS=X OUTPUT=raw_data` (och för `Y`-axeln) två gånger "
+"för en enskild axel på en skrivare med rörlig bädd: första gången med "
+"accelerometern fäst vid verktygshuvudet och andra gången med accelerometern "
+"fäst vid bädden, för att upptäcka korsresonanser mellan axlarna och försöka "
+"kompensera för dem med input shaper."
 
 msgid ""
 "Running `TEST_RESONANCES AXIS=Y OUTPUT=raw_data` twice on a bed slinger with a"
 " glass bed and a magnetic surfaces (which is lighter) to find the input shaper"
 " parameters that work well for any print surface configuration."
 msgstr ""
+"Kör `TEST_RESONANCES AXIS=Y OUTPUT=raw_data` två gånger på en skrivare med "
+"rörlig bädd, en gång med en glasbädd och en gång med en magnetisk yta (som "
+"är lättare), för att hitta input shaper-parametrar som fungerar väl för alla "
+"konfigurationer av utskriftsytan."
 
 msgid "Combining the resonance data from multiple test points."
-msgstr ""
+msgstr "Kombinera resonansdata från flera testpunkter."
 
 msgid ""
 "Combining the resonance data from 2 axis (e.g. on a bed slinger printer to "
@@ -496,10 +683,14 @@ msgid ""
 "vibrations of the *bed* in case the nozzle 'catches' a print when moving in X "
 "axis direction)."
 msgstr ""
+"Kombinera resonansdata från två axlar (till exempel på en skrivare med "
+"rörlig bädd för att konfigurera X-axelns input_shaper från både X- och Y-"
+"axlarnas resonanser så att vibrationer från *bädden* kompenseras om "
+"munstycket \"fastnar\" i en utskrift när det rör sig i X-axelns riktning)."
 
 #: docs/Measuring_Resonances.md:block 80 (header)
 msgid "Testing custom axes"
-msgstr ""
+msgstr "Testa anpassade axlar"
 
 #: docs/Measuring_Resonances.md:block 81 (paragraph)
 msgid ""
@@ -507,26 +698,31 @@ msgid ""
 "useful for input shaper calibration, it can be used to study printer "
 "resonances in-depth and to check, for example, belt tension."
 msgstr ""
+"Kommandot `TEST_RESONANCES` stöder anpassade axlar. Det är inte särskilt "
+"användbart för kalibrering av input shaper, men kan användas för att studera "
+"skrivarens resonanser på djupet och exempelvis kontrollera remspänningen."
 
 #: docs/Measuring_Resonances.md:block 82 (paragraph)
 msgid "To check the belt tension on CoreXY printers, execute"
-msgstr ""
+msgstr "Kör följande för att kontrollera remspänningen på CoreXY-skrivare:"
 
 #: docs/Measuring_Resonances.md:block 84 (paragraph)
 msgid "and use `graph_accelerometer.py` to process the generated files, e.g."
 msgstr ""
+"och använd `graph_accelerometer.py` för att bearbeta de skapade filerna, "
+"till exempel"
 
 #: docs/Measuring_Resonances.md:block 86 (paragraph)
 msgid "which will generate `/tmp/resonances.png` comparing the resonances."
-msgstr ""
+msgstr "som skapar `/tmp/resonances.png` med en jämförelse av resonanserna."
 
 #: docs/Measuring_Resonances.md:block 89 (paragraph)
 msgid "and then use the same command"
-msgstr ""
+msgstr "och använd sedan samma kommando"
 
 #: docs/Measuring_Resonances.md:block 91 (paragraph)
 msgid "to generate `/tmp/resonances.png` comparing the resonances."
-msgstr ""
+msgstr "för att skapa `/tmp/resonances.png` med en jämförelse av resonanserna."
 
 #: docs/Measuring_Resonances.md:block 111 (paragraph)
 msgid ""
@@ -535,30 +731,34 @@ msgid ""
 "first to start the measurements, and then to stop them and write the output "
 "file. Refer to [G-Codes](G-Codes.md#adxl345) for more details."
 msgstr ""
+"Rådata kan också hämtas genom att köra kommandot `ACCELEROMETER_MEASURE` två "
+"gånger under normal skrivaraktivitet – först för att starta mätningarna och "
+"sedan för att stoppa dem och skriva utdatafilen. Mer information finns i [G-"
+"koder](G-Codes.md#adxl345)."
 
 #: docs/Measuring_Resonances.md:block 9 (table)
 msgid "MPU-9250 pin"
-msgstr ""
+msgstr "MPU-9250-stift"
 
 #: docs/Measuring_Resonances.md:block 9 (table)
 msgid "09"
-msgstr ""
+msgstr "09"
 
 #: docs/Measuring_Resonances.md:block 9 (table)
 msgid "03"
-msgstr ""
+msgstr "03"
 
 #: docs/Measuring_Resonances.md:block 9 (table)
 msgid "GPIO02 (SDA1)"
-msgstr ""
+msgstr "GPIO02 (SDA1)"
 
 #: docs/Measuring_Resonances.md:block 9 (table)
 msgid "05"
-msgstr ""
+msgstr "05"
 
 #: docs/Measuring_Resonances.md:block 9 (table)
 msgid "GPIO03 (SCL1)"
-msgstr ""
+msgstr "GPIO03 (SCL1)"
 
 #: docs/Measuring_Resonances.md:block 20 (paragraph)
 msgid ""
@@ -566,77 +766,82 @@ msgid ""
 "additional software dependencies not installed by default. First, run on your "
 "Raspberry Pi the following commands:"
 msgstr ""
+"Observera att resonansmätningar och automatisk shaper-kalibrering kräver "
+"ytterligare programvaruberoenden som inte installeras som standard. Kör "
+"först följande kommandon på Raspberry Pi:"
 
 #: docs/Measuring_Resonances.md:block 22 (paragraph)
 msgid ""
 "Next, in order to install NumPy in the Klipper environment, run the command:"
-msgstr ""
+msgstr "Kör sedan följande kommando för att installera NumPy i Klipper-miljön:"
 
 #: docs/Measuring_Resonances.md:block 8 (paragraph)
 msgid ""
 "***Double-check your wiring before powering up to prevent damaging your "
 "MCU/Raspberry Pi or the accelerometer.***"
 msgstr ""
+"***Kontrollera kabeldragningen en gång till innan du slår på strömmen, så "
+"att MCU:n/Raspberry Pi:n eller accelerometern inte skadas.***"
 
 #: docs/Measuring_Resonances.md:block 9 (header)
 msgid "SPI Accelerometers"
-msgstr ""
+msgstr "SPI-accelerometrar"
 
 #: docs/Measuring_Resonances.md:block 12 (header)
 msgid "ADXL345"
-msgstr ""
+msgstr "ADXL345"
 
 #: docs/Measuring_Resonances.md:block 18 (header)
 msgid "I2C Accelerometers"
-msgstr ""
+msgstr "I2C-accelerometrar"
 
 #: docs/Measuring_Resonances.md:block 23 (paragraph)
 msgid "Recommended connection scheme for I2C on the Raspberry Pi:"
-msgstr ""
+msgstr "Rekommenderat anslutningsschema för I2C på Raspberry Pi:"
 
 #: docs/Measuring_Resonances.md:block 24 (table)
 msgid "VCC"
-msgstr ""
+msgstr "VCC"
 
 #: docs/Measuring_Resonances.md:block 27 (table)
 msgid "RP2040 pin"
-msgstr ""
+msgstr "RP2040-stift"
 
 #: docs/Measuring_Resonances.md:block 27 (table)
 msgid "39"
-msgstr ""
+msgstr "39"
 
 #: docs/Measuring_Resonances.md:block 27 (table)
 msgid "3v3"
-msgstr ""
+msgstr "3v3"
 
 #: docs/Measuring_Resonances.md:block 27 (table)
 msgid "38"
-msgstr ""
+msgstr "38"
 
 #: docs/Measuring_Resonances.md:block 27 (table)
 msgid "GP0 (I2C0 SDA)"
-msgstr ""
+msgstr "GP0 (I2C0 SDA)"
 
 #: docs/Measuring_Resonances.md:block 27 (table)
 msgid "02"
-msgstr ""
+msgstr "02"
 
 #: docs/Measuring_Resonances.md:block 27 (table)
 msgid "GP1 (I2C0 SCL)"
-msgstr ""
+msgstr "GP1 (I2C0 SCL)"
 
 #: docs/Measuring_Resonances.md:block 42 (header)
 msgid "Configure ADXL345 With RPi"
-msgstr ""
+msgstr "Konfigurera ADXL345 med RPi"
 
 #: docs/Measuring_Resonances.md:block 44 (paragraph)
 msgid "Add the following to the printer.cfg file:"
-msgstr ""
+msgstr "Lägg till följande i filen printer.cfg:"
 
 #: docs/Measuring_Resonances.md:block 47 (header)
 msgid "Configure MPU-6000/9000 series With RPi"
-msgstr ""
+msgstr "Konfigurera MPU-6000/9000-serien med RPi"
 
 #: docs/Measuring_Resonances.md:block 48 (paragraph)
 msgid ""
@@ -644,18 +849,22 @@ msgid ""
 "(see [Enabling I2C](RPi_microcontroller.md#optional-enabling-i2c) section for "
 "more details). Then, add the following to the printer.cfg:"
 msgstr ""
+"Kontrollera att Linux I2C-drivrutinen är aktiverad och att "
+"överföringshastigheten är 400000 (mer information finns i avsnittet "
+"[Aktivera I2C](RPi_microcontroller.md#optional-enabling-i2c)). Lägg sedan "
+"till följande i printer.cfg:"
 
 #: docs/Measuring_Resonances.md:block 13 (header)
 msgid "Direct to Raspberry Pi"
-msgstr ""
+msgstr "Direkt till Raspberry Pi"
 
 #: docs/Measuring_Resonances.md:block 16 (table)
 msgid "3.3V DC power"
-msgstr ""
+msgstr "3,3 V likström"
 
 #: docs/Measuring_Resonances.md:block 19 (header)
 msgid "Using Raspberry Pi Pico"
-msgstr ""
+msgstr "Använda Raspberry Pi Pico"
 
 #: docs/Measuring_Resonances.md:block 20 (paragraph)
 msgid ""
@@ -665,6 +874,11 @@ msgid ""
 "GPIO. The Pico does not have much processing power, so make sure it is only "
 "running the accelerometer and not performing any other duties."
 msgstr ""
+"Du kan ansluta ADXL345 till Raspberry Pi Pico och sedan ansluta Pico till "
+"Raspberry Pi via USB. Det gör det enkelt att återanvända accelerometern på "
+"andra Klipper-enheter eftersom du kan ansluta via USB i stället för GPIO. "
+"Pico har inte särskilt mycket beräkningskraft, så se till att den endast kör "
+"accelerometern och inte utför andra uppgifter."
 
 #: docs/Measuring_Resonances.md:block 21 (paragraph)
 msgid ""
@@ -672,80 +886,85 @@ msgid ""
 "only. Depending on the board's layout, a level shifter may be present, which "
 "makes 5V dangerous for your RPi."
 msgstr ""
+"För att undvika skador på RPi:n ska ADXL345 endast anslutas till 3,3 V. "
+"Beroende på kortets utformning kan en nivåomvandlare finnas, vilket gör 5 V "
+"farligt för RPi:n."
 
 #: docs/Measuring_Resonances.md:block 22 (table)
 msgid "Pico pin"
-msgstr ""
+msgstr "Pico-stift"
 
 #: docs/Measuring_Resonances.md:block 22 (table)
 msgid "Pico pin name"
-msgstr ""
+msgstr "Pico-stiftnamn"
 
 #: docs/Measuring_Resonances.md:block 22 (table)
 msgid "36"
-msgstr ""
+msgstr "36"
 
 #: docs/Measuring_Resonances.md:block 22 (table)
 msgid "2"
-msgstr ""
+msgstr "2"
 
 #: docs/Measuring_Resonances.md:block 22 (table)
 msgid "GP1 (SPI0_CSn)"
-msgstr ""
+msgstr "GP1 (SPI0_CSn)"
 
 #: docs/Measuring_Resonances.md:block 22 (table)
 msgid "1"
-msgstr ""
+msgstr "1"
 
 #: docs/Measuring_Resonances.md:block 22 (table)
 msgid "GP0 (SPI0_RX)"
-msgstr ""
+msgstr "GP0 (SPI0_RX)"
 
 #: docs/Measuring_Resonances.md:block 22 (table)
 msgid "5"
-msgstr ""
+msgstr "5"
 
 #: docs/Measuring_Resonances.md:block 22 (table)
 msgid "GP3 (SPI0_TX)"
-msgstr ""
+msgstr "GP3 (SPI0_TX)"
 
 #: docs/Measuring_Resonances.md:block 22 (table)
 msgid "4"
-msgstr ""
+msgstr "4"
 
 #: docs/Measuring_Resonances.md:block 22 (table)
 msgid "GP2 (SPI0_SCK)"
-msgstr ""
+msgstr "GP2 (SPI0_SCK)"
 
 #: docs/Measuring_Resonances.md:block 23 (paragraph)
 msgid "Wiring diagrams for some of the ADXL345 boards:"
-msgstr ""
+msgstr "Kopplingsscheman för några av ADXL345-korten:"
 
 #: docs/Measuring_Resonances.md:block 24 (paragraph)
 msgid "![ADXL345-Pico](img/adxl345-pico.png)"
-msgstr ""
+msgstr "![ADXL345-Pico](img/adxl345-pico.png)"
 
 #: docs/Measuring_Resonances.md:block 54 (header)
 msgid "Configure ADXL345 With Pi Pico"
-msgstr ""
+msgstr "Konfigurera ADXL345 med Pi Pico"
 
 #: docs/Measuring_Resonances.md:block 55 (header)
 msgid "Flash the Pico Firmware"
-msgstr ""
+msgstr "Flasha Pico-firmware"
 
 #: docs/Measuring_Resonances.md:block 56 (paragraph)
 msgid "On your Raspberry Pi, compile the firmware for the Pico."
-msgstr ""
+msgstr "Kompilera firmwaren för Pico på Raspberry Pi."
 
 #: docs/Measuring_Resonances.md:block 58 (paragraph)
 msgid "![Pico menuconfig](img/klipper_pico_menuconfig.png)"
-msgstr ""
+msgstr "![Pico menuconfig](img/klipper_pico_menuconfig.png)"
 
 #: docs/Measuring_Resonances.md:block 59 (paragraph)
 msgid ""
 "Now, while holding down the `BOOTSEL` button on the Pico, connect the Pico to "
 "the Raspberry Pi via USB. Compile and flash the firmware."
 msgstr ""
+"Håll ned `BOOTSEL`-knappen på Pico och anslut sedan Pico till Raspberry Pi "
+"via USB. Kompilera och flasha firmwaren."
 
 #: docs/Measuring_Resonances.md:block 61 (paragraph)
 msgid ""
@@ -753,10 +972,13 @@ msgid ""
 "that's `make flash FLASH_DEVICE=2e8a:0003`. ![Determine flash "
 "device](img/flash_rp2040_FLASH_DEVICE.png)"
 msgstr ""
+"Om det misslyckas får du information om vilken `FLASH_DEVICE` som ska "
+"användas. I det här exemplet är det `make flash FLASH_DEVICE=2e8a:0003`. "
+"![Bestäm flash-enhet](img/flash_rp2040_FLASH_DEVICE.png)"
 
 #: docs/Measuring_Resonances.md:block 62 (header)
 msgid "Configure the Connection"
-msgstr ""
+msgstr "Konfigurera anslutningen"
 
 #: docs/Measuring_Resonances.md:block 63 (paragraph)
 msgid ""
@@ -764,12 +986,17 @@ msgid ""
 "device. Find the pico serial device with `ls /dev/serial/by-id/*`. You can now"
 " add an `adxl.cfg` file with the following settings:"
 msgstr ""
+"Pico startar nu om med den nya firmwaren och bör visas som en seriell enhet. "
+"Hitta Picos seriella enhet med `ls /dev/serial/by-id/*`. Du kan nu lägga "
+"till en fil `adxl.cfg` med följande inställningar:"
 
 #: docs/Measuring_Resonances.md:block 65 (paragraph)
 msgid ""
 "If setting up the ADXL345 configuration in a separate file, as shown above, "
 "you'll also want to modify your `printer.cfg` file to include this:"
 msgstr ""
+"Om du konfigurerar ADXL345 i en separat fil enligt ovan bör du också ändra "
+"filen `printer.cfg` så att den innehåller följande:"
 
 #: docs/Measuring_Resonances.md:block 81 (paragraph)
 msgid ""
@@ -780,6 +1007,12 @@ msgid ""
 " (that it matches the schematics, no wire is broken or loose, etc.), and "
 "soldering quality."
 msgstr ""
+"Om du får ett fel som `Invalid adxl345 id (got xx vs e5)`, där `xx` är ett "
+"annat ID, försök omedelbart igen. Det finns ett problem med SPI-"
+"initieringen. Om felet kvarstår tyder det på ett anslutningsproblem med "
+"ADXL345 eller en trasig sensor. Kontrollera strömförsörjningen, "
+"kabeldragningen (att den överensstämmer med schemat, att ingen kabel är av "
+"eller glappar osv.) och lödkvaliteten en gång till."
 
 #: docs/Measuring_Resonances.md:block 100 (paragraph)
 msgid ""
@@ -788,6 +1021,10 @@ msgid ""
 "for example, for the input shaper [re-calibration](#input-shaper-re-"
 "calibration)."
 msgstr ""
+"Observera att du även kan köra automatisk kalibrering av input shaper från "
+"Klipper [direkt](#input-shaper-auto-calibration), vilket kan vara praktiskt, "
+"till exempel för [omkalibrering](#input-shaper-re-calibration) av input "
+"shaper."
 
 #: docs/Measuring_Resonances.md:block 152 (paragraph)
 msgid ""
@@ -801,6 +1038,15 @@ msgid ""
 "all parts of the printer (including the ones that may normally not move) are "
 "securely fixed in place after each auto-tuning."
 msgstr ""
+"**Varning!** Det är inte lämpligt att köra automatisk shaper-kalibrering "
+"mycket ofta (till exempel före varje utskrift eller varje dag). För att "
+"bestämma resonansfrekvenser skapar den automatiska kalibreringen kraftiga "
+"vibrationer på varje axel. 3D-skrivare är generellt inte konstruerade för "
+"långvarig exponering för vibrationer nära resonansfrekvenserna. Det kan öka "
+"slitaget på skrivarens komponenter och förkorta deras livslängd. Risken ökar "
+"också för att delar skruvas loss eller lossnar. Kontrollera alltid efter "
+"varje automatisk trimning att alla delar av skrivaren (även sådana som "
+"normalt inte rör sig) sitter ordentligt fast."
 
 #: docs/Measuring_Resonances.md:block 3 (paragraph)
 msgid ""
@@ -808,60 +1054,65 @@ msgid ""
 "PCB board designs and different clones of them. If it is going to be connected"
 " to a 5V printer MCU ensure it has a voltage regulator and level shifters."
 msgstr ""
+"Tänk på att det finns många olika mönsterkortskonstruktioner och kloner när "
+"du köper accelerometrar. Om accelerometern ska anslutas till en 5 V-skrivar-"
+"MCU måste den ha en spänningsregulator och nivåomvandlare."
 
 #: docs/Measuring_Resonances.md:block 6 (header)
 msgid "MCUs with Klipper I2C *fast-mode* Support"
-msgstr ""
+msgstr "MCU:er med stöd för Klipper I2C i *fast mode*"
 
 #: docs/Measuring_Resonances.md:block 7 (table)
 msgid "MCU Family"
-msgstr ""
+msgstr "MCU-familj"
 
 #: docs/Measuring_Resonances.md:block 7 (table)
 msgid "MCU(s) Tested"
-msgstr ""
+msgstr "Testade MCU:er"
 
 #: docs/Measuring_Resonances.md:block 7 (table)
 msgid "MCU(s) with Support"
-msgstr ""
+msgstr "MCU:er med stöd"
 
 #: docs/Measuring_Resonances.md:block 7 (table)
 msgid "Raspberry Pi"
-msgstr ""
+msgstr "Raspberry Pi"
 
 #: docs/Measuring_Resonances.md:block 7 (table)
 msgid "3B+, Pico"
-msgstr ""
+msgstr "3B+, Pico"
 
 #: docs/Measuring_Resonances.md:block 7 (table)
 msgid "3A, 3A+, 3B, 4"
-msgstr ""
+msgstr "3A, 3A+, 3B, 4"
 
 #: docs/Measuring_Resonances.md:block 7 (table)
 msgid "AVR ATmega"
-msgstr ""
+msgstr "AVR ATmega"
 
 #: docs/Measuring_Resonances.md:block 7 (table)
 msgid "ATmega328p"
-msgstr ""
+msgstr "ATmega328p"
 
 #: docs/Measuring_Resonances.md:block 7 (table)
 msgid ""
 "ATmega32u4, ATmega128, ATmega168, ATmega328, ATmega644p, ATmega1280, "
 "ATmega1284, ATmega2560"
 msgstr ""
+"ATmega32u4, ATmega128, ATmega168, ATmega328, ATmega644p, ATmega1280, "
+"ATmega1284, ATmega2560"
 
 #: docs/Measuring_Resonances.md:block 7 (table)
 msgid "AVR AT90"
-msgstr ""
+msgstr "AVR AT90"
 
 #: docs/Measuring_Resonances.md:block 7 (table)
 msgid "-"
-msgstr ""
+msgstr "-"
 
 #: docs/Measuring_Resonances.md:block 7 (table)
 msgid "AT90usb646, AT90usb1286"
-msgstr ""
+msgstr "AT90usb646, AT90usb1286"
 
 #: docs/Measuring_Resonances.md:block 10 (paragraph)
 msgid ""
@@ -869,28 +1120,33 @@ msgid ""
 " for signal integrity over a long distance. If you still experience signal "
 "integrity issues (SPI/I2C errors):"
 msgstr ""
+"En Ethernet-kabel med skärmade tvinnade par (Cat5e eller bättre) "
+"rekommenderas för signalintegriteten över längre avstånd. Om du ändå får "
+"problem med signalintegriteten (SPI-/I2C-fel):"
 
 #: docs/Measuring_Resonances.md:block 11 (unordered list)
 msgid "Double check the wiring with a digital multimeter for:"
-msgstr ""
+msgstr "Kontrollera kabeldragningen med en digital multimeter med avseende på:"
 
 #: docs/Measuring_Resonances.md:block 11 (unordered list)
 msgid "Correct connections when turned off (continuity)"
-msgstr ""
+msgstr "korrekta anslutningar när enheten är avstängd (kontinuitet),"
 
 #: docs/Measuring_Resonances.md:block 11 (unordered list)
 msgid "Correct power and ground voltages"
-msgstr ""
+msgstr "korrekta spänningsnivåer för ström och jord."
 
 #: docs/Measuring_Resonances.md:block 11 (unordered list)
 msgid "I2C only:"
-msgstr ""
+msgstr "Endast I2C:"
 
 #: docs/Measuring_Resonances.md:block 11 (unordered list)
 msgid ""
 "Check the SCL and SDA lines' resistances to 3.3V are in the range of 900 ohms "
 "to 1.8K"
 msgstr ""
+"Kontrollera att SCL- och SDA-ledningarnas resistans till 3,3 V ligger mellan "
+"900 ohm och 1,8 kΩ."
 
 #: docs/Measuring_Resonances.md:block 11 (unordered list)
 msgid ""
@@ -898,22 +1154,27 @@ msgid ""
 " user manual UM10204](https://www.pololu.com/file/0J435/UM10204.pdf) for "
 "*fast-mode*"
 msgstr ""
+"Fullständiga tekniska detaljer finns i [kapitel 7 i I2C-busspecifikationen "
+"och användarhandboken UM10204](https://www.pololu.com/file/0J435/"
+"UM10204.pdf) för *fast mode*."
 
 #: docs/Measuring_Resonances.md:block 11 (unordered list)
 msgid "Shorten the cable"
-msgstr ""
+msgstr "Förkorta kabeln."
 
 #: docs/Measuring_Resonances.md:block 12 (paragraph)
 msgid "Connect ethernet cable shielding only to the MCU board/Pi ground."
-msgstr ""
+msgstr "Anslut Ethernet-kabelns skärm endast till jord på MCU-kortet/Pi:n."
 
 #: docs/Measuring_Resonances.md:block 15 (paragraph)
 msgid "Suggested twisted pair order for three twisted pairs:"
-msgstr ""
+msgstr "Föreslagen ordning för tvinnade par för tre tvinnade par:"
 
 #: docs/Measuring_Resonances.md:block 17 (paragraph)
 msgid "Note that unlike a cable shield, GND must be connected at both ends."
 msgstr ""
+"Observera att GND, till skillnad från kabelskärmen, måste anslutas i båda "
+"ändar."
 
 #: docs/Measuring_Resonances.md:block 20 (paragraph)
 msgid ""
@@ -921,19 +1182,24 @@ msgid ""
 " and configuration will vary according to your specific board and available "
 "pins.**"
 msgstr ""
+"**Observera: Många MCU:er fungerar med en ADXL345 i SPI-läge (till exempel "
+"Pi Pico); kabeldragning och konfiguration varierar beroende på just ditt "
+"kort och tillgängliga stift.**"
 
 #: docs/Measuring_Resonances.md:block 32 (paragraph)
 msgid "Suggested twisted pair order for three pairs (preferred):"
-msgstr ""
+msgstr "Föreslagen ordning för tvinnade par för tre par (föredras):"
 
 #: docs/Measuring_Resonances.md:block 34 (paragraph)
 msgid "or for two pairs:"
-msgstr ""
+msgstr "eller för två par:"
 
 #: docs/Measuring_Resonances.md:block 36 (paragraph)
 msgid ""
 "Note that unlike a cable shield, any GND(s) should be connected at both ends."
 msgstr ""
+"Observera att eventuell GND, till skillnad från kabelskärmen, ska anslutas i "
+"båda ändar."
 
 #: docs/Measuring_Resonances.md:block 38 (paragraph)
 msgid ""
@@ -942,65 +1208,72 @@ msgid ""
 "include pull-ups, but some are too large at 10K and must be changed or "
 "supplemented by smaller parallel resistors."
 msgstr ""
+"Dessa accelerometrar har testats med I2C på RPi, RP2040 (Pico) och AVR med "
+"400 kbit/s (*fast mode*). Vissa MPU-accelerometermoduler har pull-up-"
+"motstånd, men en del är för stora, 10 kΩ, och måste bytas eller kompletteras "
+"med mindre parallellkopplade motstånd."
 
 #: docs/Measuring_Resonances.md:block 42 (paragraph)
 msgid "![MPU-9250 connected to Pi](img/mpu9250-PI-fritzing.png)"
-msgstr ""
+msgstr "![MPU-9250 ansluten till Pi](img/mpu9250-PI-fritzing.png)"
 
 #: docs/Measuring_Resonances.md:block 43 (paragraph)
 msgid "Recommended connection scheme for I2C (i2c0a) on the RP2040:"
-msgstr ""
+msgstr "Rekommenderat anslutningsschema för I2C (i2c0a) på RP2040:"
 
 #: docs/Measuring_Resonances.md:block 44 (table)
 msgid "RP2040 pin name"
-msgstr ""
+msgstr "RP2040-stiftnamn"
 
 #: docs/Measuring_Resonances.md:block 45 (paragraph)
 msgid "The Pico does not include any built-in I2C pull-up resistors."
-msgstr ""
+msgstr "Pico har inga inbyggda pull-up-motstånd för I2C."
 
 #: docs/Measuring_Resonances.md:block 46 (paragraph)
 msgid "![MPU-9250 connected to Pico](img/mpu9250-PICO-fritzing.png)"
-msgstr ""
+msgstr "![MPU-9250 ansluten till Pico](img/mpu9250-PICO-fritzing.png)"
 
 #: docs/Measuring_Resonances.md:block 47 (header)
 msgid ""
 "Recommended connection scheme for I2C(TWI) on the AVR ATmega328P Arduino Nano:"
 msgstr ""
+"Rekommenderat anslutningsschema för I2C (TWI) på AVR ATmega328P Arduino Nano:"
 
 #: docs/Measuring_Resonances.md:block 48 (table)
 msgid "Atmega328P TQFP32 pin"
-msgstr ""
+msgstr "Atmega328P TQFP32-stift"
 
 #: docs/Measuring_Resonances.md:block 48 (table)
 msgid "Atmega328P pin name"
-msgstr ""
+msgstr "Atmega328P-stiftnamn"
 
 #: docs/Measuring_Resonances.md:block 48 (table)
 msgid "Arduino Nano pin"
-msgstr ""
+msgstr "Arduino Nano-stift"
 
 #: docs/Measuring_Resonances.md:block 48 (table)
 msgid "27"
-msgstr ""
+msgstr "27"
 
 #: docs/Measuring_Resonances.md:block 48 (table)
 msgid "A4"
-msgstr ""
+msgstr "A4"
 
 #: docs/Measuring_Resonances.md:block 48 (table)
 msgid "28"
-msgstr ""
+msgstr "28"
 
 #: docs/Measuring_Resonances.md:block 48 (table)
 msgid "A5"
-msgstr ""
+msgstr "A5"
 
 #: docs/Measuring_Resonances.md:block 49 (paragraph)
 msgid ""
 "The Arduino Nano does not include any built-in pull-up resistors nor a 3.3V "
 "power pin."
 msgstr ""
+"Arduino Nano har varken inbyggda pull-up-motstånd eller en 3,3 V-"
+"strömanslutning."
 
 #: docs/Measuring_Resonances.md:block 63 (paragraph)
 msgid ""
@@ -1008,32 +1281,41 @@ msgid ""
 "document](RPi_microcontroller.md) to setup the \"linux mcu\" on the Raspberry "
 "Pi. This will configure a second Klipper instance that runs on your Pi."
 msgstr ""
+"Kontrollera först och följ anvisningarna i [dokumentet om RPi-"
+"mikrokontrollern](RPi_microcontroller.md) för att ställa in \"linux mcu\" på "
+"Raspberry Pi. Det konfigurerar en andra Klipper-instans som körs på Pi:n."
 
 #: docs/Measuring_Resonances.md:block 87 (header)
 msgid "Configure MPU-9520 Compatibles With Pico"
-msgstr ""
+msgstr "Konfigurera MPU-9520-kompatibla enheter med Pico"
 
 #: docs/Measuring_Resonances.md:block 88 (paragraph)
 msgid ""
 "Pico I2C is set to 400000 on default. Simply add the following to the "
 "printer.cfg:"
 msgstr ""
+"Pico I2C är som standard inställt på 400000. Lägg bara till följande i "
+"printer.cfg:"
 
 #: docs/Measuring_Resonances.md:block 90 (header)
 msgid "Configure MPU-9520 Compatibles with AVR"
-msgstr ""
+msgstr "Konfigurera MPU-9520-kompatibla enheter med AVR"
 
 #: docs/Measuring_Resonances.md:block 91 (paragraph)
 msgid ""
 "AVR I2C will be set to 400000 by the mpu9250 option. Simply add the following "
 "to the printer.cfg:"
 msgstr ""
+"AVR I2C ställs in på 400000 av alternativet mpu9250. Lägg bara till följande "
+"i printer.cfg:"
 
 #: docs/Measuring_Resonances.md:block 101 (paragraph)
 msgid ""
 "**If you are using a MPU-9250 compatible accelerometer and it shows up as "
 "`mpu-unknown`, use with caution! They are probably refurbished chips!**"
 msgstr ""
+"**Om du använder en MPU-9250-kompatibel accelerometer och den visas som `mpu-"
+"unknown` ska du vara försiktig! Det är troligen renoverade chip!**"
 
 #: docs/Measuring_Resonances.md:block 122 (paragraph)
 msgid ""
@@ -1042,6 +1324,10 @@ msgid ""
 "board), or to two different physical SPI interfaces on the same board (rarely "
 "available). Then they can be configured in the following manner:"
 msgstr ""
+"Du kan dock också ansluta två accelerometrar samtidigt, men ADXL345 måste "
+"anslutas till olika kort (exempelvis till ett RPi- och ett skrivar-MCU-kort) "
+"eller till två olika fysiska SPI-gränssnitt på samma kort (som sällan finns)"
+". De kan då konfigureras på följande sätt:"
 
 #: docs/Measuring_Resonances.md:block 124 (paragraph)
 msgid ""
@@ -1050,12 +1336,18 @@ msgid ""
 "down to 0V (address 104) and the other its AD0 pin pulled-up to 3.3V (address "
 "105):"
 msgstr ""
+"Två MPU:er kan dela en I2C-buss, men de **kan inte** mäta samtidigt eftersom "
+"I2C-bussen på 400 kbit/s inte är tillräckligt snabb. Den ena måste ha sitt "
+"AD0-stift neddraget till 0 V (adress 104) och den andra sitt AD0-stift "
+"uppdraget till 3,3 V (adress 105):"
 
 #: docs/Measuring_Resonances.md:block 126 (paragraph)
 msgid ""
 "[Test with each MPU individually before connecting both to the bus for easy "
 "debugging.]"
 msgstr ""
+"[Testa varje MPU för sig innan båda ansluts till bussen, så blir "
+"felsökningen enklare.]"
 
 #: docs/Measuring_Resonances.md:block 148 (paragraph)
 msgid ""
@@ -1065,6 +1357,11 @@ msgid ""
 "`calibrate_shaper.py` script. If you did change it though, you should inform "
 "the script about it by passing `--square_corner_velocity=...` parameter, e.g."
 msgstr ""
+"Tänk på att den högsta accelerationen utan alltför mycket utjämning beror på "
+"`square_corner_velocity`. Den allmänna rekommendationen är att inte ändra "
+"standardvärdet 5.0, och det är det värde som används som standard av "
+"skriptet `calibrate_shaper.py`. Om du har ändrat värdet bör du ange det för "
+"skriptet med parametern `--square_corner_velocity=...`, till exempel"
 
 #: docs/Measuring_Resonances.md:block 150 (paragraph)
 msgid ""
@@ -1073,6 +1370,10 @@ msgid ""
 "`square_corner_velocity` parameter into account, and there is no need to "
 "specify it explicitly."
 msgstr ""
+"så att rekommendationerna för högsta acceleration kan beräknas korrekt. "
+"Observera att kommandot `SHAPER_CALIBRATE` redan tar hänsyn till den "
+"konfigurerade parametern `square_corner_velocity`, så den behöver inte anges "
+"uttryckligen."
 
 #: docs/Measuring_Resonances.md:block 111 (paragraph)
 msgid ""
@@ -1084,6 +1385,13 @@ msgid ""
 "example, if resonance tests were done at multiple test points. Delete the "
 "extra CSV files if you do not desire to average them."
 msgstr ""
+"Detta skapar två CSV-filer (`/tmp/resonances_x_*.csv` och `/tmp/"
+"resonances_y_*.csv`). Filerna kan bearbetas med det fristående skriptet på "
+"Raspberry Pi. Skriptet är avsett att köras med en CSV-fil för varje uppmätt "
+"axel, men kan användas med flera CSV-filer om du vill beräkna ett medelvärde "
+"av resultaten. Medelvärdesberäkning kan till exempel vara användbar om "
+"resonanstester gjordes vid flera testpunkter. Ta bort extra CSV-filer om du "
+"inte vill beräkna ett medelvärde."
 
 #: docs/Measuring_Resonances.md:block 2 (paragraph)
 msgid ""
@@ -1098,26 +1406,41 @@ msgid ""
 "400kbit/s *fast mode* in Klipper. The LIS2DW and LIS3DH can be connected to "
 "either SPI or I2C with the same considerations as above."
 msgstr ""
+"Klipper har inbyggt stöd för ADXL345- samt MPU-9250-, LIS2DW- och LIS3DH-"
+"kompatibla accelerometrar, som kan användas för att mäta skrivarens "
+"resonansfrekvenser för olika axlar och automatiskt trimma [input shaper]"
+"(Resonance_Compensation.md) för att kompensera för resonanser. Observera att "
+"accelerometrar kräver en del lödning och krimpning. ADXL345 kan anslutas "
+"till SPI-gränssnittet på ett Raspberry Pi- eller MCU-kort (det behöver vara "
+"någorlunda snabbt). MPU-familjen kan anslutas direkt till I2C-gränssnittet "
+"på Raspberry Pi eller till ett I2C-gränssnitt på ett MCU-kort som har stöd "
+"för Klippers *fast mode* på 400 kbit/s. LIS2DW och LIS3DH kan anslutas via "
+"antingen SPI eller I2C med samma överväganden som ovan."
 
 #: docs/Measuring_Resonances.md:block 4 (paragraph)
 msgid ""
 "For ADXL345s, make sure that the board supports SPI mode (a small number of "
 "boards appear to be hard-configured for I2C by pulling SDO to GND)."
 msgstr ""
+"För ADXL345 ska du se till att kortet har stöd för SPI-läge (ett litet antal "
+"kort verkar vara fast konfigurerade för I2C genom att SDO är draget till GND)"
+"."
 
 #: docs/Measuring_Resonances.md:block 7 (table)
 msgid "SAMD"
-msgstr ""
+msgstr "SAMD"
 
 #: docs/Measuring_Resonances.md:block 7 (table)
 msgid "SAMC21G18"
-msgstr ""
+msgstr "SAMC21G18"
 
 #: docs/Measuring_Resonances.md:block 7 (table)
 msgid ""
 "SAMC21G18, SAMD21G18, SAMD21E18, SAMD21J18, SAMD21E15, SAMD51G19, SAMD51J19, "
 "SAMD51N19, SAMD51P20, SAME51J19, SAME51N19, SAME54P20"
 msgstr ""
+"SAMC21G18, SAMD21G18, SAMD21E18, SAMD21J18, SAMD21E15, SAMD51G19, SAMD51J19, "
+"SAMD51N19, SAMD51P20, SAME51J19, SAME51N19, SAME54P20"
 
 #: docs/Measuring_Resonances.md:block 61 (paragraph)
 msgid ""
@@ -1128,22 +1451,28 @@ msgid ""
 "version, due to newer versions of NumPY having requirements that may not be "
 "satisfied in some klipper python environments."
 msgstr ""
+"Beroende på processorns prestanda kan detta ta *mycket* lång tid, upp till 10"
+"–20 minuter. Ha tålamod och vänta tills installationen är klar. Ibland kan "
+"installationen misslyckas om kortet har för lite RAM, och då måste swap "
+"aktiveras. Observera också den tvingade versionen eftersom nyare versioner "
+"av NumPy kan ha krav som inte uppfylls i vissa Klipper Python-miljöer."
 
 #: docs/Measuring_Resonances.md:block 62 (paragraph)
 msgid "Once installed please check that no errors show from the command:"
 msgstr ""
+"När det har installerats kontrollerar du att kommandot inte visar några fel:"
 
 #: docs/Measuring_Resonances.md:block 64 (paragraph)
 msgid "The correct output should simply be a new line."
-msgstr ""
+msgstr "Korrekt utdata ska endast vara en ny rad."
 
 #: docs/Measuring_Resonances.md:block 85 (header)
 msgid "Configure LIS2DW series over SPI"
-msgstr ""
+msgstr "Konfigurera LIS2DW-serien via SPI"
 
 #: docs/Measuring_Resonances.md:block 155 (header)
 msgid "Unreliable measurements of resonance frequencies"
-msgstr ""
+msgstr "Otillförlitliga mätningar av resonansfrekvenser"
 
 #: docs/Measuring_Resonances.md:block 156 (paragraph)
 msgid ""
@@ -1162,6 +1491,20 @@ msgid ""
 " If none of that helps, a user may try the other shapers from the produced "
 "list besides the one recommended by default."
 msgstr ""
+"Resonansmätningarna kan ibland ge felaktiga resultat, vilket leder till "
+"felaktiga förslag för input shaper. Det kan bero på många saker, bland annat "
+"fläktar som körs på verktygshuvudet, fel placering eller icke-styv montering "
+"av accelerometern samt mekaniska problem som lösa remmar eller en kärvande "
+"eller ojämn axel. Tänk på att alla fläktar bör vara avstängda under "
+"resonanstestet, särskilt bullriga fläktar, och att accelerometern ska vara "
+"styvt monterad på motsvarande rörliga del (till exempel på själva bädden på "
+"en skrivare med rörlig bädd eller på skrivarens extruder, inte vagnen; vissa "
+"får bättre resultat genom att montera accelerometern på själva munstycket). "
+"Vad gäller mekaniska problem bör du undersöka om det finns fel som kan "
+"åtgärdas på en rörlig axel (till exempel rengöra och smörja linjärstyrningar "
+"och justera spänningen för V-spårhjulen korrekt). Om inget av detta hjälper "
+"kan du prova andra shaper från den skapade listan än den som rekommenderas "
+"som standard."
 
 #: docs/Measuring_Resonances.md:block 5 (paragraph)
 msgid ""
@@ -1169,24 +1512,29 @@ msgid ""
 "there are also a variety of board designs and clones with different I2C pull-"
 "up resistors which will need supplementing."
 msgstr ""
+"För MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500/ICM20948 och LIS2DW/LIS3DH "
+"finns också många olika kortkonstruktioner och kloner med olika I2C-pull-up-"
+"motstånd som kan behöva kompletteras."
 
 #: docs/Measuring_Resonances.md:block 37 (header)
 msgid "MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500/ICM20948"
-msgstr ""
+msgstr "MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500/ICM20948"
 
 #: docs/Measuring_Resonances.md:block 90 (paragraph)
 msgid ""
 "If you are using the ICM20948, replace instances of \"mpu9250\" with "
 "\"icm20948\"."
 msgstr ""
+"Om du använder ICM20948 ersätter du förekomster av \"mpu9250\" med "
+"\"icm20948\"."
 
 #: docs/Measuring_Resonances.md:block 41 (paragraph)
 msgid "The RPi has built-in 1.8K pull-ups on both SCL and SDA."
-msgstr ""
+msgstr "RPi har inbyggda pull-up-motstånd på 1,8 kΩ på både SCL och SDA."
 
 #: docs/Measuring_Resonances.md:block 158 (header)
 msgid "Measuring the resonances of Z axis"
-msgstr ""
+msgstr "Mäta resonanserna för Z-axeln"
 
 #: docs/Measuring_Resonances.md:block 159 (paragraph)
 msgid ""
@@ -1198,6 +1546,13 @@ msgid ""
 "the appropriate chip configuration to `printer.cfg` and also add it to "
 "`[resonance_tester]` section, e.g."
 msgstr ""
+"Att mäta resonanserna för Z-axeln liknar på många sätt mätning av "
+"resonanserna för X- och Y-axeln, men det finns några subtila skillnader. "
+"Precis som vid mätning av andra axlar måste en accelerometer vara monterad "
+"på Z-axelns rörliga delar – antingen på själva bädden (om bädden rör sig "
+"längs Z-axeln) eller på verktygshuvudet (om verktygshuvudet/gantryt rör sig "
+"längs Z). Du behöver lägga till lämplig chipkonfiguration i `printer.cfg` "
+"och även lägga till den i avsnittet `[resonance_tester]`, till exempel"
 
 #: docs/Measuring_Resonances.md:block 161 (paragraph)
 msgid ""
@@ -1205,6 +1560,10 @@ msgid ""
 "sufficient clearance for Z axis movements (20 mm above bed surface should "
 "provide enough clearance with the default test parameters)."
 msgstr ""
+"Kontrollera också att `probe_points` som konfigurerats i "
+"`[resonance_tester]` ger tillräckligt fritt utrymme för Z-axelns rörelser "
+"(20 mm ovanför bäddytan bör ge tillräckligt spelrum med standardparametrarna "
+"för testet)."
 
 #: docs/Measuring_Resonances.md:block 162 (paragraph)
 msgid ""
@@ -1214,6 +1573,11 @@ msgid ""
 " to increase `max_z_accel` and `max_z_velocity`. If you have them configured "
 "in `[printer]` section, make sure to set them to at least"
 msgstr ""
+"Nästa övervägande är att Z-axeln vanligtvis når lägre högsta hastigheter och "
+"accelerationer än X- och Y-axeln. Testets standardparametrar tar hänsyn till "
+"detta och är betydligt mindre aggressiva, men det kan ändå vara nödvändigt "
+"att öka `max_z_accel` och `max_z_velocity`. Om de är konfigurerade i "
+"avsnittet `[printer]` ska du kontrollera att de är minst"
 
 #: docs/Measuring_Resonances.md:block 164 (paragraph)
 msgid ""
@@ -1222,16 +1586,22 @@ msgid ""
 "Z axis, `TEST_RESONANCES` and `SHAPER_CALIBRATE` will provide the minimum "
 "required limits if necessary for your specific case."
 msgstr ""
+"men bara under testet; sedan kan du vid behov återställa deras ursprungliga "
+"värden. Om du använder egna testparametrar för Z-axeln anger "
+"`TEST_RESONANCES` och `SHAPER_CALIBRATE` vid behov de lägsta nödvändiga "
+"gränserna för just ditt fall."
 
 #: docs/Measuring_Resonances.md:block 165 (paragraph)
 msgid ""
 "After all changes to `printer.cfg` have been made, restart Klipper and run "
 "either"
 msgstr ""
+"När alla ändringar i `printer.cfg` är gjorda startar du om Klipper och kör "
+"antingen"
 
 #: docs/Measuring_Resonances.md:block 167 (paragraph)
 msgid "or"
-msgstr ""
+msgstr "eller"
 
 #: docs/Measuring_Resonances.md:block 169 (paragraph)
 msgid ""
@@ -1239,22 +1609,30 @@ msgid ""
 "after `TEST_RESONANCES` command you can run `calibrate_shaper.py` script and "
 "get shaper recommendations and the chart of resonance response:"
 msgstr ""
+"och fortsätter sedan på motsvarande sätt som för de andra axlarna. Efter "
+"kommandot `TEST_RESONANCES` kan du till exempel köra skriptet "
+"`calibrate_shaper.py` och få shaper-rekommendationer och ett diagram över "
+"resonansresponsen:"
 
 #: docs/Measuring_Resonances.md:block 170 (paragraph)
 msgid "![Resonances](img/calibrate-z.png)"
-msgstr ""
+msgstr "![Resonanser](img/calibrate-z.png)"
 
 #: docs/Measuring_Resonances.md:block 171 (paragraph)
 msgid ""
 "After the calibration, the shaper parameters can be stored in the "
 "`printer.cfg`, e.g. from the example above:"
 msgstr ""
+"Efter kalibreringen kan shaper-parametrarna sparas i `printer.cfg`, till "
+"exempel från exemplet ovan:"
 
 #: docs/Measuring_Resonances.md:block 173 (paragraph)
 msgid ""
 "Also, given the movements of Z axis are slow, you can easily consider more "
 "aggressive input shapers, e.g."
 msgstr ""
+"Eftersom Z-axelns rörelser är långsamma kan du också överväga mer aggressiva "
+"input shaper, till exempel"
 
 #: docs/Measuring_Resonances.md:block 175 (paragraph)
 msgid ""
@@ -1262,6 +1640,9 @@ msgid ""
 "parameter in `[resonance_tester]` from its default value 15 to a larger value "
 "in the range of 20-30, e.g."
 msgstr ""
+"Om testet ger felaktiga resultat kan du försöka öka parametern "
+"`accel_per_hz_z` i `[resonance_tester]` från standardvärdet 15 till ett "
+"större värde mellan 20 och 30, till exempel"
 
 #: docs/Measuring_Resonances.md:block 177 (paragraph)
 msgid ""
@@ -1269,24 +1650,33 @@ msgid ""
 "`max_z_accel` and `max_z_velocity` parameters as well. You can run "
 "`TEST_RESONANCES AXIS=Z` command to get the required minimum values."
 msgstr ""
+"och upprepa testet. En ökning av värdet kräver sannolikt även att "
+"parametrarna `max_z_accel` och `max_z_velocity` ökas. Du kan köra kommandot "
+"`TEST_RESONANCES AXIS=Z` för att få de lägsta nödvändiga värdena."
 
 #: docs/Measuring_Resonances.md:block 178 (paragraph)
 msgid ""
 "However, if you are unable to measure the resonances of Z axis, you can "
 "consider just using"
 msgstr ""
+"Om du däremot inte kan mäta resonanserna för Z-axeln kan du överväga att "
+"bara använda"
 
 #: docs/Measuring_Resonances.md:block 180 (paragraph)
 msgid ""
 "as an acceptable all-round choice, given that the smoothing of Z axis "
 "movements is not of particular concerns."
 msgstr ""
+"som ett acceptabelt, allsidigt val, eftersom utjämning av Z-axelns rörelser "
+"inte är särskilt viktig."
 
 #: docs/Measuring_Resonances.md:block 190 (paragraph)
 msgid ""
 "For Delta printers with the default tower placement (tower A ~= 210 degrees, B"
 " ~= 330 degrees, and C ~= 90 degrees), execute"
 msgstr ""
+"Kör följande för Delta-skrivare med standardplaceringen av tornen (torn A ~= "
+"210 grader, B ~= 330 grader och C ~= 90 grader):"
 
 #~ msgid ""
 #~ "For Delta printers with the default tower placement (tower A ~~= 210 degrees, "

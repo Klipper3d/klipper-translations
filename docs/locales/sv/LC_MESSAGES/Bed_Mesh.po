@@ -4,30 +4,40 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: sv\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"Last-Translator: Daniel Nylander <yeagersthlm@gmail.com>\n"
+"Language-Team: Swedish <https://hosted.weblate.org/projects/klipper/bed_mesh/"
+"sv/>\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2026-09-17 13:27+0000\n"
+"X-Generator: Weblate 2026.10.dev0\n"
 
 msgid "Basic Configuration"
-msgstr ""
+msgstr "Grundläggande konfiguration"
 
 msgid "Rectangular Beds"
-msgstr ""
+msgstr "Rektangulära bäddar"
 
 msgid ""
 "This example assumes a printer with a 250 mm x 220 mm rectangular bed and a "
 "probe with an x-offset of 24 mm and y-offset of 5 mm."
 msgstr ""
+"Det här exemplet förutsätter en skrivare med en rektangulär bädd på 250 mm × "
+"220 mm och en sond med X-förskjutningen 24 mm och Y-förskjutningen 5 mm."
 
 msgid ""
 "`speed: 120` *Default Value: 50* The speed in which the tool moves between "
 "points."
 msgstr ""
+"`speed: 120` *Standardvärde: 50* Hastigheten som verktyget rör sig med "
+"mellan punkterna."
 
 msgid ""
 "`horizontal_move_z: 5` *Default Value: 5* The Z coordinate the probe rises to "
 "prior to traveling between points."
 msgstr ""
+"`horizontal_move_z: 5` *Standardvärde: 5* Z-koordinaten som sonden höjs till "
+"innan den förflyttas mellan punkter."
 
 msgid ""
 "The illustration below demonstrates how the `mesh_min`, `mesh_max`, and "
@@ -36,18 +46,26 @@ msgid ""
 "reference, when the probe is at `mesh_min` the nozzle will be at (11, 1), and "
 "when the probe is at `mesh_max`, the nozzle will be at (206, 193)."
 msgstr ""
+"Illustrationen nedan visar hur alternativen `mesh_min`, `mesh_max` och "
+"`probe_count` används för att skapa sondpunkter. Pilarna visar sonderingens "
+"riktning, med början vid `mesh_min`. När sonden är vid `mesh_min` är "
+"munstycket vid (11, 1), och när sonden är vid `mesh_max` är munstycket vid "
+"(206, 193)."
 
 msgid "![bedmesh_rect_basic](img/bedmesh_rect_basic.svg)"
-msgstr ""
+msgstr "![bedmesh_rect_basic](img/bedmesh_rect_basic.svg)"
 
 msgid "Round beds"
-msgstr ""
+msgstr "Runda bäddar"
 
 msgid ""
 "This example assumes a printer equipped with a round bed radius of 100mm. We "
 "will use the same probe offsets as the rectangular example, 24 mm on X and 5 "
 "mm on Y."
 msgstr ""
+"Det här exemplet förutsätter en skrivare med en rund bäddradie på 100 mm. Vi "
+"använder samma sondförskjutningar som i det rektangulära exemplet, 24 mm i X "
+"och 5 mm i Y."
 
 msgid ""
 "`mesh_radius: 75` *Required* The radius of the probed mesh in mm, relative to "
@@ -55,6 +73,10 @@ msgid ""
 "radius. In this example, a radius larger than 76 would move the tool beyond "
 "the range of the printer."
 msgstr ""
+"`mesh_radius: 75` *Krävs* Radien i mm för det sonderade nätet, relativt "
+"`mesh_origin`. Observera att sondens förskjutningar begränsar nätets radie. "
+"I det här exemplet skulle en radie över 76 föra verktyget utanför skrivarens "
+"rörelseområde."
 
 msgid ""
 "`round_probe_count: 5` *Default Value: 5* This is an integer value that "
@@ -63,21 +85,28 @@ msgid ""
 "value must be an odd number, as it is required that the center of the mesh is "
 "probed."
 msgstr ""
+"`round_probe_count: 5` *Standardvärde: 5* Ett heltalsvärde som anger högsta "
+"antalet sonderade punkter längs X- och Y-axlarna. Med \"högsta\" avses "
+"antalet punkter som sonderas längs nätets origo. Värdet måste vara udda "
+"eftersom nätets mittpunkt måste sonderas."
 
 msgid "![bedmesh_round_basic](img/bedmesh_round_basic.svg)"
-msgstr ""
+msgstr "![bedmesh_round_basic](img/bedmesh_round_basic.svg)"
 
 msgid "Advanced Configuration"
-msgstr ""
+msgstr "Avancerad konfiguration"
 
 msgid ""
 "Below the more advanced configuration options are explained in detail. Each "
 "example will build upon the basic rectangular bed configuration shown above. "
 "Each of the advanced options apply to round beds in the same manner."
 msgstr ""
+"Nedan förklaras de mer avancerade konfigurationsalternativen i detalj. Varje "
+"exempel bygger på den grundläggande konfigurationen för rektangulär bädd "
+"ovan. De avancerade alternativen fungerar på samma sätt för runda bäddar."
 
 msgid "Mesh Interpolation"
-msgstr ""
+msgstr "Nätinterpolering"
 
 msgid ""
 "`algorithm: lagrange` *Default Value: lagrange* The algorithm used to "
@@ -88,6 +117,13 @@ msgid ""
 "is forced. If `mesh_pps` is set to 0 then this value is ignored as no mesh "
 "interpolation is done."
 msgstr ""
+"`algorithm: lagrange` *Standardvärde: lagrange* Algoritmen som används för "
+"att interpolera nätet. Kan vara `lagrange` eller `bicubic`. "
+"Lagrangeinterpolering begränsas till 6 sonderade punkter eftersom fler "
+"provpunkter tenderar att ge svängningar. Bikubisk interpolering kräver minst "
+"4 sonderade punkter längs varje axel. Om färre än 4 punkter anges tvingas "
+"lagrange-provtagning. Om `mesh_pps` sätts till 0 ignoreras värdet eftersom "
+"ingen nätinterpolering görs."
 
 msgid ""
 "`bicubic_tension: 0.2` *Default Value: 0.2* If the `algorithm` option is set "
@@ -96,17 +132,24 @@ msgid ""
 "values also create more overshoot, which will result in interpolated values "
 "higher or lower than your probed points."
 msgstr ""
+"`bicubic_tension: 0.2` *Standardvärde: 0.2* Om alternativet `algorithm` är "
+"inställt på bicubic kan spänningsvärdet anges. Ju högre spänning, desto mer "
+"lutning interpoleras. Var försiktig vid justering eftersom högre värden "
+"också ger större översvängning, vilket kan ge interpolerade värden över "
+"eller under dina sonderade punkter."
 
 msgid ""
 "The illustration below shows how the options above are used to generate an "
 "interpolated mesh."
 msgstr ""
+"Illustrationen nedan visar hur alternativen ovan används för att skapa ett "
+"interpolerat nät."
 
 msgid "![bedmesh_interpolated](img/bedmesh_interpolated.svg)"
-msgstr ""
+msgstr "![bedmesh_interpolated](img/bedmesh_interpolated.svg)"
 
 msgid "Move Splitting"
-msgstr ""
+msgstr "Uppdelning av rörelser"
 
 msgid ""
 "`move_check_distance: 5` *Default Value: 5* The minimum distance to check for "
@@ -119,15 +162,27 @@ msgid ""
 "`move_check_distance` have the correct Z adjustment applied directly to the "
 "move without traversal or splitting."
 msgstr ""
+"`move_check_distance: 5` *Standardvärde: 5* Minsta avstånd som kontrolleras "
+"för önskad förändring i Z innan en rörelse delas upp. I det här exemplet "
+"behandlas rörelser längre än 5 mm av algoritmen. Var femte mm görs en "
+"uppslagning av nätets Z-värde och jämförs med Z-värdet för föregående "
+"rörelse. Om skillnaden når tröskeln som anges av `split_delta_z` delas "
+"rörelsen upp och behandlingen fortsätter. Processen upprepas till rörelsens "
+"slut, där en slutlig justering tillämpas. För rörelser kortare än "
+"`move_check_distance` tillämpas korrekt Z-justering direkt utan behandling "
+"eller uppdelning."
 
 msgid ""
 "`split_delta_z: .025` *Default Value: .025* As mentioned above, this is the "
 "minimum deviation required to trigger a move split. In this example, any Z "
 "value with a deviation +/- .025mm will trigger a split."
 msgstr ""
+"`split_delta_z: .025` *Standardvärde: .025* Som nämnts ovan är detta den "
+"minsta avvikelse som krävs för att dela upp en rörelse. I det här exemplet "
+"utlöser varje Z-värde med avvikelsen +/- .025 mm en uppdelning."
 
 msgid "Mesh Fade"
-msgstr ""
+msgstr "Utfasning av nät"
 
 msgid ""
 "When \"fade\" is enabled Z adjustment is phased out over a distance defined by"
@@ -140,12 +195,22 @@ msgid ""
 "fade can shrink or stretch the Z height of the print. As such, fade is "
 "disabled by default."
 msgstr ""
+"När \"fade\" är aktiverat fasas Z-justeringen ut över ett avstånd som anges "
+"i konfigurationen. Det görs genom små ändringar av lagerhöjden, som ökas "
+"eller minskas beroende på bäddens form. När utfasningen är klar tillämpas "
+"inte längre Z-justering, så att utskriftens ovansida blir plan i stället för "
+"att följa bäddens form. Utfasning kan också ha oönskade effekter: om den "
+"sker för snabbt kan synliga artefakter uppstå på utskriften. Om bädden är "
+"kraftigt skev kan utfasningen dessutom krympa eller sträcka utskriftens Z-"
+"höjd. Den är därför avstängd som standard."
 
 msgid ""
 "`fade_start: 1` *Default Value: 1* The Z height in which to start phasing out "
 "adjustment. It is a good idea to get a few layers down before starting the "
 "fade process."
 msgstr ""
+"`fade_start: 1` *Standardvärde: 1* Z-höjden där utfasning av justeringen ska "
+"börja. Det är klokt att skriva ut några lager innan utfasningen startar."
 
 msgid ""
 "`fade_end: 10` *Default Value: 0* The Z height in which fade should complete. "
@@ -155,9 +220,15 @@ msgid ""
 " be able to reduce this value to phase out more quickly. 10mm is a sane value "
 "to begin with if using the default value of 1 for `fade_start`."
 msgstr ""
+"`fade_end: 10` *Standardvärde: 0* Z-höjden där utfasningen ska vara klar. Om "
+"värdet är lägre än `fade_start` inaktiveras utfasningen. Värdet kan justeras "
+"beroende på hur skev utskriftsytan är. En kraftigt skev yta bör fasas ut "
+"över en längre sträcka, medan en nästan plan yta kan använda ett lägre värde "
+"för snabbare utfasning. 10 mm är ett rimligt startvärde när standardvärdet 1 "
+"används för `fade_start`."
 
 msgid "Faulty Regions"
-msgstr ""
+msgstr "Felaktiga områden"
 
 msgid ""
 "It is possible for some areas of a bed to report inaccurate results when "
@@ -169,6 +240,13 @@ msgid ""
 "**Note: This should not be confused with probe location bias, which produces "
 "inaccurate results across the entire bed.**"
 msgstr ""
+"Vissa områden på en bädd kan ge felaktiga resultat vid sondering på grund av "
+"ett \"fel\" på specifika platser. Ett vanligt exempel är bäddar med serier "
+"av inbyggda magneter som håller löstagbara stålplåtar på plats. Magnetfältet "
+"vid och omkring magneterna kan göra att en induktiv sond löser ut på ett "
+"högre eller lägre avstånd än annars, vilket ger ett nät som inte korrekt "
+"återger ytan på dessa platser. **Observera: detta får inte förväxlas med "
+"positionsbias för sonden, som ger felaktiga resultat över hela bädden.**"
 
 msgid ""
 "The `faulty_region` options may be configured to compensate for this affect. "
@@ -177,6 +255,11 @@ msgid ""
 "will be averaged and inserted in the mesh as the Z value at the generated (X, "
 "Y) coordinate."
 msgstr ""
+"Alternativen `faulty_region` kan konfigureras för att kompensera för denna "
+"effekt. Om en skapad punkt ligger i ett felaktigt område försöker Bed Mesh "
+"sondera upp till fyra punkter vid områdets gränser. De sonderade värdena "
+"beräknas som medelvärde och läggs in i nätet som Z-värde vid den skapade (X, "
+"Y)-koordinaten."
 
 msgid ""
 "`faulty_region_{1...99}_min` `faulty_region_{1..99}_max` *Default Value: None "
@@ -186,6 +269,12 @@ msgid ""
 "alternate points generated will always be within the mesh boundary. No two "
 "regions may overlap."
 msgstr ""
+"`faulty_region_{1...99}_min` `faulty_region_{1..99}_max` *Standardvärde: "
+"None (inaktiverat)* Felaktiga områden definieras på samma sätt som nätet: "
+"minsta och största (X, Y)-koordinat ska anges för varje område. Ett "
+"felaktigt område kan sträcka sig utanför ett nät, men de alternativa punkter "
+"som skapas ligger alltid inom nätets gräns. Två områden får inte överlappa "
+"varandra."
 
 msgid ""
 "The image below illustrates how replacement points are generated when a "
@@ -193,100 +282,115 @@ msgid ""
 "the sample config above. The replacement points and their coordinates are "
 "identified in green."
 msgstr ""
+"Bilden nedan visar hur ersättningspunkter skapas när en skapad punkt ligger "
+"inom ett felaktigt område. De visade områdena motsvarar dem i "
+"exempelkonfigurationen ovan. Ersättningspunkterna och deras koordinater är "
+"markerade med grönt."
 
 msgid "![bedmesh_interpolated](img/bedmesh_faulty_regions.svg)"
-msgstr ""
+msgstr "![bedmesh_interpolated](img/bedmesh_faulty_regions.svg)"
 
 msgid "Bed Mesh Gcodes"
-msgstr ""
+msgstr "Bed Mesh-G-koder"
 
 msgid "Calibration"
-msgstr ""
+msgstr "Kalibrering"
 
 msgid ""
 "It is possible to specify mesh parameters to modify the probed area. The "
 "following parameters are available:"
 msgstr ""
+"Nätparametrar kan anges för att ändra det sonderade området. Följande "
+"parametrar är tillgängliga:"
 
 msgid "Rectangular beds (cartesian):"
-msgstr ""
+msgstr "Rektangulära bäddar (kartesiska):"
 
 msgid "`MESH_MIN`"
-msgstr ""
+msgstr "`MESH_MIN`"
 
 msgid "`MESH_MAX`"
-msgstr ""
+msgstr "`MESH_MAX`"
 
 msgid "`PROBE_COUNT`"
-msgstr ""
+msgstr "`PROBE_COUNT`"
 
 msgid "Round beds (delta):"
-msgstr ""
+msgstr "Runda bäddar (delta):"
 
 msgid "`MESH_RADIUS`"
-msgstr ""
+msgstr "`MESH_RADIUS`"
 
 msgid "`MESH_ORIGIN`"
-msgstr ""
+msgstr "`MESH_ORIGIN`"
 
 msgid "`ROUND_PROBE_COUNT`"
-msgstr ""
+msgstr "`ROUND_PROBE_COUNT`"
 
 msgid "All beds:"
-msgstr ""
+msgstr "Alla bäddar:"
 
 msgid "Profiles"
-msgstr ""
+msgstr "Profiler"
 
 msgid "`BED_MESH_PROFILE REMOVE=default`"
-msgstr ""
+msgstr "`BED_MESH_PROFILE REMOVE=default`"
 
 msgid ""
 "Any other saved profile can be removed in the same fashion, replacing "
 "*default* with the named profile you wish to remove."
 msgstr ""
+"Alla andra sparade profiler kan tas bort på samma sätt genom att ersätta "
+"*default* med namnet på profilen som ska tas bort."
 
 msgid "Output"
-msgstr ""
+msgstr "Utdata"
 
 msgid "`BED_MESH_OUTPUT PGP=[0 | 1]`"
-msgstr ""
+msgstr "`BED_MESH_OUTPUT PGP=[0 | 1]`"
 
 msgid ""
 "Outputs the current mesh state to the terminal. Note that the mesh itself is "
 "output"
 msgstr ""
+"Skriver ut nätets aktuella tillstånd i terminalen. Observera att själva "
+"nätet skrivs ut"
 
 msgid ""
 "The PGP parameter is shorthand for \"Print Generated Points\". If `PGP=1` is "
 "set, the generated probed points will be output to the terminal:"
 msgstr ""
+"Parametern PGP är en förkortning av \"Print Generated Points\". Om `PGP=1` "
+"anges skrivs de skapade sonderingspunkterna ut i terminalen:"
 
 msgid ""
 "The \"Tool Adjusted\" points refer to the nozzle location for each point, and "
 "the \"Probe\" points refer to the probe location. Note that when manually "
 "probing the \"Probe\" points will refer to both the tool and nozzle locations."
 msgstr ""
+"Punkterna \"Tool Adjusted\" avser munstyckets position för varje punkt och "
+"punkterna \"Probe\" avser sondens position. Observera att vid manuell "
+"sondering avser \"Probe\" både verktygets och munstyckets position."
 
 msgid "Clear Mesh State"
-msgstr ""
+msgstr "Rensa nätets tillstånd"
 
 msgid "`BED_MESH_CLEAR`"
-msgstr ""
+msgstr "`BED_MESH_CLEAR`"
 
 msgid "This gcode may be used to clear the internal mesh state."
-msgstr ""
+msgstr "Den här G-koden kan användas för att rensa nätets interna tillstånd."
 
 msgid "Apply X/Y offsets"
-msgstr ""
+msgstr "Tillämpa X/Y-förskjutningar"
 
 #: docs/Bed_Mesh.md:block 1 (header)
 msgid "Bed Mesh"
-msgstr ""
+msgstr "Bäddnät"
 
 #: docs/Bed_Mesh.md:block 49 (paragraph)
 msgid "Initiates the probing procedure for Bed Mesh Calibration."
-msgstr ""
+msgstr "Startar sonderingsproceduren för Bed Mesh-kalibrering."
 
 #: docs/Bed_Mesh.md:block 26 (paragraph)
 msgid ""
@@ -294,6 +398,10 @@ msgid ""
 " their Z coordinate. Long moves must be split into smaller moves to correctly "
 "follow the shape of the bed. The options below control the splitting behavior."
 msgstr ""
+"Bed Mesh fungerar genom att fånga upp G-kodens rörelsekommandon och tillämpa "
+"en transformering på deras Z-koordinat. Långa rörelser måste delas upp i "
+"mindre rörelser för att korrekt följa bäddens form. Alternativen nedan styr "
+"hur uppdelningen fungerar."
 
 #: docs/Bed_Mesh.md:block 3 (paragraph)
 msgid ""
@@ -302,20 +410,26 @@ msgid ""
 "as well. See [Probe Calibrate](Probe_Calibrate.md) and Z_ENDSTOP_CALIBRATE in "
 "[Manual Level](Manual_Level.md) for more information."
 msgstr ""
+"Innan nätkalibrering måste sondens Z-förskjutning vara kalibrerad. Om ett "
+"ändläge används för Z-homing måste även det kalibreras. Mer information "
+"finns i [Sondkalibrering](Probe_Calibrate.md) och Z_ENDSTOP_CALIBRATE i "
+"[Manuell nivåjustering](Manual_Level.md)."
 
 #: docs/Bed_Mesh.md:block 52 (unordered list)
 msgid "`ALGORITHM`"
-msgstr ""
+msgstr "`ALGORITHM`"
 
 #: docs/Bed_Mesh.md:block 53 (paragraph)
 msgid ""
 "See the configuration documentation above for details on how each parameter "
 "applies to the mesh."
 msgstr ""
+"Se konfigurationsdokumentationen ovan för information om hur varje parameter "
+"tillämpas på nätet."
 
 #: docs/Bed_Mesh.md:block 55 (paragraph)
 msgid "`BED_MESH_PROFILE SAVE=<name> LOAD=<name> REMOVE=<name>`"
-msgstr ""
+msgstr "`BED_MESH_PROFILE SAVE=<name> LOAD=<name> REMOVE=<name>`"
 
 #: docs/Bed_Mesh.md:block 56 (paragraph)
 msgid ""
@@ -325,16 +439,22 @@ msgid ""
 "`BED_MESH_PROFILE SAVE=<name>` the `SAVE_CONFIG` gcode may be executed to "
 "write the profile to printer.cfg."
 msgstr ""
+"När BED_MESH_CALIBRATE har körts kan nätets aktuella tillstånd sparas i en "
+"namngiven profil. Då kan nätet läsas in utan att bädden sonderas igen. Efter "
+"att en profil sparats med `BED_MESH_PROFILE SAVE=<name>` kan G-koden "
+"`SAVE_CONFIG` köras för att skriva profilen till printer.cfg."
 
 #: docs/Bed_Mesh.md:block 57 (paragraph)
 msgid "Profiles can be loaded by executing `BED_MESH_PROFILE LOAD=<name>`."
-msgstr ""
+msgstr "Profiler kan läsas in genom att köra `BED_MESH_PROFILE LOAD=<name>`."
 
 #: docs/Bed_Mesh.md:block 8 (unordered list)
 msgid ""
 "`mesh_min: 35, 6` *Required* The first probed coordinate, nearest to the "
 "origin. This coordinate is relative to the probe's location."
 msgstr ""
+"`mesh_min: 35, 6` *Krävs* Den första sonderade koordinaten, närmast origo. "
+"Koordinaten är relativ till sondens placering."
 
 #: docs/Bed_Mesh.md:block 8 (unordered list)
 msgid ""
@@ -346,6 +466,12 @@ msgid ""
 "`probe_count: 3`. Note that a mesh requires a minimum probe_count of 3 along "
 "each axis."
 msgstr ""
+"`probe_count: 5, 3` *Standardvärde: 3, 3* Antalet punkter som ska sonderas "
+"på varje axel, angivet som heltalsvärdena X, Y. I detta exempel sonderas 5 "
+"punkter längs X-axeln och 3 längs Y-axeln, totalt 15 punkter. Om ett "
+"kvadratiskt rutnät önskas, exempelvis 3x3, kan ett enda heltalsvärde som "
+"används för båda axlarna anges: `probe_count: 3`. Ett nät kräver minst "
+"probe_count 3 längs varje axel."
 
 #: docs/Bed_Mesh.md:block 14 (unordered list)
 msgid ""
@@ -354,10 +480,14 @@ msgid ""
 "may be useful to adjust the origin in an effort to probe a larger portion of "
 "the bed. See the illustration below."
 msgstr ""
+"`mesh_origin: 0, 0` *Standardvärde: 0, 0* Nätets mittpunkt. Koordinaten är "
+"relativ till sondens placering. Även om standardvärdet är 0, 0 kan det vara "
+"användbart att justera origo för att sondera en större del av bädden. Se "
+"illustrationen nedan."
 
 #: docs/Bed_Mesh.md:block 61 (header)
 msgid "Loading the default profile"
-msgstr ""
+msgstr "Läser in standardprofilen"
 
 #: docs/Bed_Mesh.md:block 62 (paragraph)
 msgid ""
@@ -368,12 +498,20 @@ msgid ""
 "either their `START_PRINT` macro or their slicer's \"Start G-Code\" "
 "configuration, whichever is applicable."
 msgstr ""
+"Tidigare versioner av `bed_mesh` läste alltid in profilen *default* vid "
+"start, om den fanns. Detta beteende har tagits bort så att användaren kan "
+"avgöra när en profil läses in. Om profilen `default` ska läsas in, "
+"rekommenderas att lägga till `BED_MESH_PROFILE LOAD=default` i antingen "
+"makrot `START_PRINT` eller skivningsprogrammets konfiguration för \"Start G-"
+"Code\", beroende på vad som är tillämpligt."
 
 #: docs/Bed_Mesh.md:block 63 (paragraph)
 msgid ""
 "Alternatively the old behavior of loading a profile at startup can be restored"
 " with a `[delayed_gcode]`:"
 msgstr ""
+"Alternativt kan det gamla beteendet, att läsa in en profil vid start, "
+"återställas med en `[delayed_gcode]`:"
 
 #: docs/Bed_Mesh.md:block 2 (paragraph)
 msgid ""
@@ -385,6 +523,12 @@ msgid ""
 "accurate then the bed_mesh module will not receive accurate results from the "
 "probing process."
 msgstr ""
+"Modulen Bed Mesh kan användas för att kompensera för ojämnheter i bäddens "
+"yta och ge ett bättre första lager över hela bädden. Programvarubaserad "
+"korrigering ger inte perfekta resultat, utan kan bara approximera bäddens "
+"form. Bed Mesh kan inte heller kompensera för mekaniska eller elektriska "
+"fel. Om en axel är sned eller sonden är inexakt får modulen bed_mesh inte "
+"korrekta resultat från sonderingen."
 
 #: docs/Bed_Mesh.md:block 15 (paragraph)
 msgid ""
@@ -392,6 +536,8 @@ msgid ""
 "see, setting the `mesh_origin` to (-10, 0) allows us to specify a larger mesh "
 "radius of 85."
 msgstr ""
+"Illustrationen nedan visar hur de sonderade punkterna genereras. Som synes "
+"kan vi med `mesh_origin` satt till (-10, 0) ange en större nätradie på 85."
 
 #: docs/Bed_Mesh.md:block 20 (paragraph)
 msgid ""
@@ -402,6 +548,12 @@ msgid ""
 "mesh, attempting to simulate the material properties of the bed. Bed Mesh "
 "offers lagrange and bicubic interpolation to accomplish this."
 msgstr ""
+"Det går att sampla den sonderade matrisen direkt med enkel bilinjär "
+"interpolation för att fastställa Z-värdena mellan de sonderade punkterna. "
+"Ofta är det dock användbart att interpolera ytterligare punkter med mer "
+"avancerade interpoleringsalgoritmer för att öka nätets täthet. Dessa "
+"algoritmer ger nätet krökning i ett försök att simulera bäddens "
+"materialegenskaper. Bed Mesh erbjuder Lagrange- och bikubisk interpolation."
 
 #: docs/Bed_Mesh.md:block 29 (paragraph)
 msgid ""
@@ -410,6 +562,10 @@ msgid ""
 " advanced user may wish to experiment with these options in an effort to "
 "squeeze out the optimal first layer."
 msgstr ""
+"I allmänhet räcker standardvärdena för dessa alternativ; standardvärdet 5 mm "
+"för `move_check_distance` kan till och med vara mer än nödvändigt. En "
+"avancerad användare kan dock vilja experimentera med alternativen för att "
+"uppnå ett optimalt första lager."
 
 #: docs/Bed_Mesh.md:block 33 (unordered list)
 msgid ""
@@ -426,6 +582,17 @@ msgid ""
 "used, however it may be desirable to manually adjust the fade target if one "
 "wants to print on a specific portion of the bed."
 msgstr ""
+"`fade_target: 0` *Standardvärde: nätets genomsnittliga Z-värde* "
+"`fade_target` kan ses som en ytterligare Z-förskjutning som tillämpas på "
+"hela bädden när utfasningen är klar. Vanligtvis bör värdet vara 0, men "
+"ibland bör det inte vara det. Anta till exempel att homing-positionen på "
+"bädden avviker och ligger 0,2 mm lägre än bäddens genomsnittligt sonderade "
+"höjd. Om `fade_target` är 0 krymper utfasningen utskriften med i genomsnitt "
+"0,2 mm över bädden. Om `fade_target` sätts till 0,2 expanderar det hemkörda "
+"området med 0,2 mm, medan resten av bädden får rätt mått. Det är vanligen "
+"bäst att utelämna `fade_target` ur konfigurationen så att nätets "
+"genomsnittliga höjd används, men utfasningsmålet kan justeras manuellt om "
+"utskrift ska ske på en viss del av bädden."
 
 #: docs/Bed_Mesh.md:block 58 (paragraph)
 msgid ""
@@ -433,10 +600,13 @@ msgid ""
 "state is automatically saved to the *default* profile. The *default* profile "
 "can be removed as follows:"
 msgstr ""
+"Observera att det aktuella tillståndet automatiskt sparas i profilen "
+"*default* varje gång BED_MESH_CALIBRATE körs. Profilen *default* kan tas "
+"bort så här:"
 
 #: docs/Bed_Mesh.md:block 34 (header)
 msgid "Configuring the zero reference position"
-msgstr ""
+msgstr "Konfigurera nollreferenspositionen"
 
 #: docs/Bed_Mesh.md:block 37 (unordered list)
 msgid ""
@@ -449,10 +619,17 @@ msgid ""
 "z-offset. Note that this coordinate must NOT be in a location specified as a "
 "`faulty_region` if a probe is necessary."
 msgstr ""
+"`zero_reference_position: ` *Standardvärde: None (inaktiverad)* "
+"`zero_reference_position` förväntar sig en koordinat (X, Y) som motsvarar "
+"den `referensposition` som beskrivs ovan. Om koordinaten ligger inom nätet "
+"förskjuts nätet så att referenspositionen inte justeras. Om koordinaten "
+"ligger utanför nätet sonderas den efter kalibreringen och det resulterande Z-"
+"värdet används som Z-förskjutning. Koordinaten får inte ligga på en plats "
+"som angetts som `faulty_region` om en sond behövs."
 
 #: docs/Bed_Mesh.md:block 50 (header)
 msgid "Adaptive Meshes"
-msgstr ""
+msgstr "Adaptiva nät"
 
 #: docs/Bed_Mesh.md:block 51 (paragraph)
 msgid ""
@@ -461,6 +638,10 @@ msgid ""
 "method will automatically adjust the mesh parameters based on the area "
 "occupied by the defined print objects."
 msgstr ""
+"Adaptiv bäddnätsmätning snabbar upp skapandet av bäddnät genom att endast "
+"sondera det bäddområde som används av de objekt som skrivs ut. Metoden "
+"justerar automatiskt nätparametrarna utifrån det område som de definierade "
+"utskriftsobjekten upptar."
 
 #: docs/Bed_Mesh.md:block 52 (paragraph)
 msgid ""
@@ -471,6 +652,11 @@ msgid ""
 "area and the adapted mesh area. To illustrate this consider the following "
 "example:"
 msgstr ""
+"Det anpassade nätområdet beräknas utifrån området som avgränsas av alla "
+"definierade utskriftsobjekt, så att det täcker varje objekt och eventuella "
+"marginaler i konfigurationen. När området beräknats skalas antalet "
+"sondpunkter ned enligt förhållandet mellan standardnätets område och det "
+"anpassade nätområdet. Följande exempel illustrerar detta:"
 
 #: docs/Bed_Mesh.md:block 53 (paragraph)
 msgid ""
@@ -479,16 +665,22 @@ msgid ""
 " of `50,50` means a ratio of `0.5x0.5` between the adapted area and default "
 "mesh area."
 msgstr ""
+"För en bädd på 150 mm × 150 mm med `mesh_min` satt till `25,25` och "
+"`mesh_max` satt till `125,125` är standardnätets område en kvadrat på 100 mm "
+"× 100 mm. Ett anpassat nätområde på `50,50` innebär förhållandet `0,5 × 0,5` "
+"mellan det anpassade området och standardnätets område."
 
 #: docs/Bed_Mesh.md:block 54 (paragraph)
 msgid ""
 "If the `bed_mesh` configuration specified `probe_count` as `7x7`, the adapted "
 "bed mesh will use 4x4 probe points (7 * 0.5 rounded up)."
 msgstr ""
+"Om konfigurationen `bed_mesh` anger `probe_count` som `7x7`, använder det "
+"anpassade bäddnätet 4x4 sonderingspunkter (7 × 0,5 avrundat uppåt)."
 
 #: docs/Bed_Mesh.md:block 55 (paragraph)
 msgid "![adaptive_bedmesh](img/adaptive_bed_mesh.svg)"
-msgstr ""
+msgstr "![adaptivt_baddnat](img/adaptive_bed_mesh.svg)"
 
 #: docs/Bed_Mesh.md:block 57 (unordered list)
 msgid ""
@@ -498,10 +690,15 @@ msgid ""
 " green) is computed as the used bed area (area in blue) plus the defined "
 "margin."
 msgstr ""
+"`adaptive_margin` *Standardvärde: 0* Marginalen (i mm) som läggs till runt "
+"det bäddområde som används av de definierade objekten. Diagrammet nedan "
+"visar det anpassade bäddnätområdet med `adaptive_margin` på 5 mm. Det "
+"anpassade nätområdet (grönt) beräknas som det använda bäddområdet (blått) "
+"plus den angivna marginalen."
 
 #: docs/Bed_Mesh.md:block 57 (unordered list)
 msgid "![adaptive_bedmesh_margin](img/adaptive_bed_mesh_margin.svg)"
-msgstr ""
+msgstr "![marginal_for_adaptivt_baddnat](img/adaptive_bed_mesh_margin.svg)"
 
 #: docs/Bed_Mesh.md:block 58 (paragraph)
 msgid ""
@@ -511,6 +708,11 @@ msgid ""
 "should not be re-used. The expectation is that a new mesh will be generated "
 "for each print if adaptive meshing is used."
 msgstr ""
+"Adaptiva bäddnät använder av naturen objekten som definieras av den G-kodfil "
+"som skrivs ut. Därför förväntas varje G-kodfil skapa ett nät som sonderar "
+"ett annat område av skrivarbädden. Adaptiva bäddnät bör därför inte "
+"återanvändas. Ett nytt nät ska genereras för varje utskrift när adaptiv "
+"mätning används."
 
 #: docs/Bed_Mesh.md:block 59 (paragraph)
 msgid ""
@@ -522,18 +724,25 @@ msgid ""
 "a variance greater than 1 layer height, caution must be taken when using "
 "adaptive bed meshes and attempting print moves outside of the meshed area."
 msgstr ""
+"Det är också viktigt att tänka på att adaptiv bäddnätsmätning fungerar bäst "
+"på maskiner som normalt kan sondera hela bädden och uppnå en maximal "
+"avvikelse som är högst en lagerhöjd. Maskiner med mekaniska problem som ett "
+"helt bäddnät normalt kompenserar för kan ge oönskade resultat när "
+"utskriftsrörelser utförs **utanför** det sonderade området. Om ett helt "
+"bäddnät har en avvikelse som är större än en lagerhöjd måste adaptiva "
+"bäddnät användas försiktigt när utskriften rör sig utanför nätområdet."
 
 #: docs/Bed_Mesh.md:block 66 (unordered list)
 msgid "`ADAPTIVE`"
-msgstr ""
+msgstr "`ADAPTIVE`"
 
 #: docs/Bed_Mesh.md:block 66 (unordered list)
 msgid "`ADAPTIVE_MARGIN`"
-msgstr ""
+msgstr "`ADAPTIVE_MARGIN`"
 
 #: docs/Bed_Mesh.md:block 89 (paragraph)
 msgid "`BED_MESH_OFFSET [X=<value>] [Y=<value>] [ZFADE=<value>]`"
-msgstr ""
+msgstr "`BED_MESH_OFFSET [X=<value>] [Y=<value>] [ZFADE=<value>]`"
 
 #: docs/Bed_Mesh.md:block 90 (paragraph)
 msgid ""
@@ -546,6 +755,14 @@ msgid ""
 "ZFADE offset should be specified if the secondary extruder's nozzle is above "
 "the primary extruder's."
 msgstr ""
+"Detta är användbart för skrivare med flera oberoende extrudrar, eftersom en "
+"förskjutning behövs för korrekt Z-justering efter ett verktygsbyte. "
+"Förskjutningar ska anges i förhållande till den primära extrudern. En "
+"positiv X-förskjutning ska alltså anges om den sekundära extrudern är "
+"monterad till höger om den primära, en positiv Y-förskjutning om den "
+"sekundära extrudern är monterad \"bakom\" den primära och en positiv ZFADE-"
+"förskjutning om den sekundära extruderns munstycke ligger över den primära "
+"extruderns."
 
 #: docs/Bed_Mesh.md:block 91 (paragraph)
 msgid ""
@@ -555,6 +772,12 @@ msgid ""
 "needs a negative gcode offset, ie: `SET_GCODE_OFFSET Z=-.2`, it can be "
 "accounted for in `bed_mesh` with `BED_MESH_OFFSET ZFADE=.2`."
 msgstr ""
+"Observera att en ZFADE-förskjutning *INTE* tillämpar ytterligare justering "
+"direkt. Den är avsedd att kompensera för en `gcode offset` när [nätutfasning]"
+"(#mesh-fade) är aktiverad. Om en sekundär extruder till exempel är högre än "
+"den primära och behöver en negativ G-kodförskjutning, exempelvis "
+"`SET_GCODE_OFFSET Z=-.2`, kan detta tas med i `bed_mesh` med "
+"`BED_MESH_OFFSET ZFADE=.2`."
 
 #: docs/Bed_Mesh.md:block 8 (unordered list)
 msgid ""
@@ -563,10 +786,14 @@ msgid ""
 "occurs in a zig-zag fashion. As with `mesh_min`, this coordinate is relative "
 "to the probe's location."
 msgstr ""
+"`mesh_max: 240, 198` *Krävs* Den sonderade koordinat som ligger längst från "
+"origo. Det behöver inte vara den sista punkt som sonderas, eftersom "
+"sonderingen sker sicksackvis. Precis som `mesh_min` är koordinaten relativ "
+"till sondens placering."
 
 #: docs/Bed_Mesh.md:block 60 (header)
 msgid "Surface Scans"
-msgstr ""
+msgstr "Ytskanningar"
 
 #: docs/Bed_Mesh.md:block 61 (paragraph)
 msgid ""
@@ -576,10 +803,15 @@ msgid ""
 "`METHOD=scan` or `METHOD=rapid_scan` probe parameter should be passed in the "
 "`BED_MESH_CALIBRATE` gcode command."
 msgstr ""
+"Vissa sonder, exempelvis [virvelströmssonden](./Eddy_Probe.md), kan "
+"\"skanna\" bäddens yta. Det vill säga, sonderna kan sampla ett nät utan att "
+"verktyget lyfts mellan provtagningarna. För att aktivera skanningsläge ska "
+"sondparametern `METHOD=scan` eller `METHOD=rapid_scan` skickas i G-"
+"kodkommandot `BED_MESH_CALIBRATE`."
 
 #: docs/Bed_Mesh.md:block 62 (header)
 msgid "Scan Height"
-msgstr ""
+msgstr "Skanningshöjd"
 
 #: docs/Bed_Mesh.md:block 63 (paragraph)
 msgid ""
@@ -587,6 +819,9 @@ msgid ""
 "addition it can be supplied with the `BED_MESH_CALIBRATE` gcode command via "
 "the `HORIZONTAL_MOVE_Z` parameter."
 msgstr ""
+"Skanningshöjden anges med alternativet `horizontal_move_z` i `[bed_mesh]`. "
+"Den kan också anges i G-kodkommandot `BED_MESH_CALIBRATE` med parametern "
+"`HORIZONTAL_MOVE_Z`."
 
 #: docs/Bed_Mesh.md:block 64 (paragraph)
 msgid ""
@@ -594,6 +829,9 @@ msgid ""
 " height of 2mm (ie: `HORIZONTAL_MOVE_Z=2`) should work well, presuming that "
 "the probe is mounted correctly."
 msgstr ""
+"Skanningshöjden måste vara tillräckligt låg för att undvika skanningsfel. "
+"Vanligtvis fungerar en höjd på 2 mm (det vill säga `HORIZONTAL_MOVE_Z=2`) "
+"bra, förutsatt att sonden är korrekt monterad."
 
 #: docs/Bed_Mesh.md:block 65 (paragraph)
 msgid ""
@@ -601,10 +839,13 @@ msgid ""
 "the results will be invalid. Thus, scanning is not possible on beds with "
 "severe surface deviation or beds with extreme tilt that hasn't been corrected."
 msgstr ""
+"Observera att resultaten blir ogiltiga om sonden befinner sig mer än 4 mm "
+"över ytan. Skanning är alltså inte möjlig på bäddar med stora ytavvikelser "
+"eller med extrem lutning som inte har korrigerats."
 
 #: docs/Bed_Mesh.md:block 66 (header)
 msgid "Rapid (Continuous) Scanning"
-msgstr ""
+msgstr "Snabb skanning (kontinuerlig)"
 
 #: docs/Bed_Mesh.md:block 67 (paragraph)
 msgid ""
@@ -613,6 +854,10 @@ msgid ""
 "large print areas with reasonably thick layer heights. Some probes may be more"
 " prone to error than others."
 msgstr ""
+"Vid `rapid_scan` bör man tänka på att resultaten innehåller en viss mängd "
+"fel. Felet bör vara tillräckligt litet för att vara användbart på stora "
+"utskriftsområden med rimligt tjocka lagerhöjder. Vissa sonder kan vara mer "
+"felbenägna än andra."
 
 #: docs/Bed_Mesh.md:block 68 (paragraph)
 msgid ""
@@ -621,6 +866,9 @@ msgid ""
 "sensor, and a dense mesh will reflect this noise (ie: there will be peaks and "
 "valleys)."
 msgstr ""
+"Snabbläge rekommenderas inte för att skanna ett \"tätt\" nät. En del av de "
+"fel som uppstår vid en snabbsökning kan vara gaussiskt brus från sensorn, "
+"och ett tätt nät återger detta brus (det vill säga toppar och dalar)."
 
 #: docs/Bed_Mesh.md:block 69 (paragraph)
 msgid ""
@@ -631,6 +879,11 @@ msgid ""
 "that the mesh be configured in a way that allows the tool to travel outside of"
 " the mesh."
 msgstr ""
+"Bed Mesh försöker optimera förflyttningsvägen för bästa möjliga resultat "
+"utifrån konfigurationen. Det omfattar att undvika felaktiga områden vid "
+"provtagning och att \"köra förbi\" nätet vid riktningsändringar. Denna "
+"överkörning förbättrar provtagningen vid nätets kanter, men kräver att nätet "
+"är konfigurerat så att verktyget kan röra sig utanför nätet."
 
 #: docs/Bed_Mesh.md:block 71 (unordered list)
 msgid ""
@@ -641,12 +894,20 @@ msgid ""
 "value is used to optimize the travel path when performing a \"rapid scan\". "
 "The minimum value that may be specified is 1. The default is no overshoot."
 msgstr ""
+"`scan_overshoot` *Standardvärde: 0 (inaktiverat)* Den maximala rörelsen (i "
+"mm) som är tillgänglig utanför nätet. För rektangulära bäddar gäller detta "
+"rörelse längs X-axeln och för runda bäddar gäller det hela radien. Verktyget "
+"måste kunna röra sig den angivna sträckan utanför nätet. Värdet används för "
+"att optimera förflyttningsvägen vid en \"rapid scan\". Det minsta tillåtna "
+"värdet är 1. Standardvärdet är ingen överkörning."
 
 #: docs/Bed_Mesh.md:block 72 (paragraph)
 msgid ""
 "If no scan overshoot is configured then travel path optimization will not be "
 "applied to changes in direction."
 msgstr ""
+"Om ingen överkörning för skanning har konfigurerats tillämpas inte "
+"optimering av förflyttningsvägen vid riktningsändringar."
 
 #: docs/Bed_Mesh.md:block 75 (paragraph)
 msgid ""
@@ -656,52 +917,64 @@ msgid ""
 "*Default Method: automatic if a probe is detected, otherwise manual*  *Default"
 " Adaptive: 0*  *Default Adaptive Margin: 0*"
 msgstr ""
+"`BED_MESH_CALIBRATE PROFILE=<name> METHOD=[manual | automatic | scan | "
+"rapid_scan] \\ [<probe_parameter>=<value>] [<mesh_parameter>=<value>] "
+"[ADAPTIVE=[0|1] \\ [ADAPTIVE_MARGIN=<value>]` *Standardprofil: default* "
+"*Standardmetod: automatic om en sond upptäcks, annars manual* *Adaptiv "
+"standardinställning: 0* *Standardmarginal för adaptiv mätning: 0*"
 
 #: docs/Bed_Mesh.md:block 78 (unordered list)
 msgid ""
 "`METHOD=manual`: enables manual probing using the nozzle and the paper test"
 msgstr ""
+"`METHOD=manual`: aktiverar manuell sondering med munstycket och papperstestet"
 
 #: docs/Bed_Mesh.md:block 78 (unordered list)
 msgid "`METHOD=automatic`: Automatic (standard) probing. This is the default."
-msgstr ""
+msgstr "`METHOD=automatic`: Automatisk (standard) sondering. Detta är standard."
 
 #: docs/Bed_Mesh.md:block 78 (unordered list)
 msgid ""
 "`METHOD=scan`: Enables surface scanning. The tool will pause over each "
 "position to collect a sample."
 msgstr ""
+"`METHOD=scan`: Aktiverar ytskanning. Verktyget pausar över varje position "
+"för att samla in ett prov."
 
 #: docs/Bed_Mesh.md:block 78 (unordered list)
 msgid "`METHOD=rapid_scan`: Enables continuous surface scanning."
-msgstr ""
+msgstr "`METHOD=rapid_scan`: Aktiverar kontinuerlig ytskanning."
 
 #: docs/Bed_Mesh.md:block 79 (paragraph)
 msgid ""
 "XY positions are automatically adjusted to include the X and/or Y offsets when"
 " a probing method other than `manual` is selected."
 msgstr ""
+"XY-positioner justeras automatiskt för att inkludera X- och/eller Y-"
+"förskjutningarna när en annan sonderingsmetod än `manual` väljs."
 
 #: docs/Bed_Mesh.md:block 81 (unordered list)
 msgid "`MESH_PPS`"
-msgstr ""
+msgstr "`MESH_PPS`"
 
 #: docs/Bed_Mesh.md:block 107 (header)
 msgid "Bed Mesh Webhooks APIs"
-msgstr ""
+msgstr "Webhook-API:er för Bed Mesh"
 
 #: docs/Bed_Mesh.md:block 108 (header)
 msgid "Dumping mesh data"
-msgstr ""
+msgstr "Dumpar nätdata"
 
 #: docs/Bed_Mesh.md:block 109 (paragraph)
 msgid "`{\"id\": 123, \"method\": \"bed_mesh/dump_mesh\"}`"
-msgstr ""
+msgstr "`{\"id\": 123, \"method\": \"bed_mesh/dump_mesh\"}`"
 
 #: docs/Bed_Mesh.md:block 110 (paragraph)
 msgid ""
 "Dumps the configuration and state for the current mesh and all saved profiles."
 msgstr ""
+"Dumpa konfigurationen och tillståndet för den aktuella nätmodellen och alla "
+"sparade profiler."
 
 #: docs/Bed_Mesh.md:block 111 (paragraph)
 msgid ""
@@ -713,10 +986,17 @@ msgid ""
 "desired to visualize the probe points and/or travel path before performing "
 "`BED_MESH_CALIBRATE`."
 msgstr ""
+"Endpointen `dump_mesh` tar en valfri parameter, `mesh_args`. Parametern "
+"måste vara ett objekt vars nycklar och värden är parametrar som är "
+"tillgängliga för [BED_MESH_CALIBRATE](#bed_mesh_calibrate). Detta uppdaterar "
+"nätmodellens konfiguration och avsökningspunkterna med de angivna "
+"parametrarna innan resultatet returneras. Nätmodellens parametrar bör "
+"utelämnas om du inte vill visualisera avsökningspunkterna och/eller "
+"förflyttningsvägen före `BED_MESH_CALIBRATE`."
 
 #: docs/Bed_Mesh.md:block 112 (header)
 msgid "Visualization and analysis"
-msgstr ""
+msgstr "Visualisering och analys"
 
 #: docs/Bed_Mesh.md:block 113 (paragraph)
 msgid ""
@@ -727,10 +1007,15 @@ msgid ""
 "particularly useful for debugging hardware or the results produced by "
 "`bed_mesh`:"
 msgstr ""
+"De flesta användare finner sannolikt att visualiseringarna i program som "
+"Mainsail, Fluidd och Octoprint räcker för grundläggande analys. Klippers "
+"mapp `scripts` innehåller dock skriptet `graph_mesh.py`, som kan användas "
+"för ytterligare visualiseringar och mer detaljerad analys. Det är särskilt "
+"användbart för felsökning av maskinvara eller resultat från `bed_mesh`:"
 
 #: docs/Bed_Mesh.md:block 115 (header)
 msgid "Pre-requisites"
-msgstr ""
+msgstr "Förutsättningar"
 
 #: docs/Bed_Mesh.md:block 116 (paragraph)
 msgid ""
@@ -743,24 +1028,34 @@ msgid ""
 "and zoomed in preview mode, and the path visualizations can optionally be "
 "animated in preview mode."
 msgstr ""
+"Precis som de flesta diagramverktyg som Klipper tillhandahåller kräver "
+"`graph_mesh.py` Python-beroendena `matplotlib` och `numpy`. Anslutning till "
+"Klipper via Moonrakers WebSocket kräver dessutom Python-beroendet "
+"`websockets`. Alla visualiseringar kan skrivas till en `svg`-fil, men de "
+"flesta visualiseringar som `graph_mesh.py` erbjuder visas bäst i läget för "
+"direkt förhandsvisning på en stationär dator. Exempelvis kan 3D-"
+"visualiseringarna roteras och zoomas i förhandsvisningsläget, och "
+"vägvisualiseringarna kan valfritt animeras där."
 
 #: docs/Bed_Mesh.md:block 117 (header)
 msgid "Plotting Mesh data"
-msgstr ""
+msgstr "Ritar nätdata"
 
 #: docs/Bed_Mesh.md:block 118 (paragraph)
 msgid ""
 "The `graph_mesh.py` tool can plot several types of visualizations. Available "
 "types can be shown by running `graph_mesh.py list`:"
 msgstr ""
+"Verktyget `graph_mesh.py` kan rita flera typer av visualiseringar. "
+"Tillgängliga typer visas med `graph_mesh.py list`:"
 
 #: docs/Bed_Mesh.md:block 120 (paragraph)
 msgid "Several options are available when plotting visualizations:"
-msgstr ""
+msgstr "Flera alternativ är tillgängliga när visualiseringar ritas:"
 
 #: docs/Bed_Mesh.md:block 122 (paragraph)
 msgid "Below is a description of each argument:"
-msgstr ""
+msgstr "Nedan följer en beskrivning av varje argument:"
 
 #: docs/Bed_Mesh.md:block 123 (unordered list)
 msgid ""
@@ -768,30 +1063,37 @@ msgid ""
 "visualization to generate. Must be one of the types output by the "
 "`graph_mesh.py list` command."
 msgstr ""
+"`plot type`: Ett obligatoriskt positionsargument som anger vilken typ av "
+"visualisering som ska genereras. Måste vara en av de typer som kommandot "
+"`graph_mesh.py list` visar."
 
 #: docs/Bed_Mesh.md:block 123 (unordered list)
 msgid ""
 "`input`: A required positional argument containing a path or url to the input "
 "source. This must be one of the following:"
 msgstr ""
+"`input`: Ett obligatoriskt positionsargument med en sökväg eller URL till "
+"indatakällan. Det måste vara ett av följande:"
 
 #: docs/Bed_Mesh.md:block 123 (unordered list)
 msgid "A path to Klipper's Unix Domain Socket"
-msgstr ""
+msgstr "En sökväg till Klippers Unix-domänsocket"
 
 #: docs/Bed_Mesh.md:block 123 (unordered list)
 msgid "A url to an instance of Moonraker"
-msgstr ""
+msgstr "En URL till en Moonraker-instans"
 
 #: docs/Bed_Mesh.md:block 123 (unordered list)
 msgid "A path to a json file produced by `graph_mesh.py dump <input>`"
-msgstr ""
+msgstr "En sökväg till en JSON-fil som skapats med `graph_mesh.py dump <input>`"
 
 #: docs/Bed_Mesh.md:block 123 (unordered list)
 msgid ""
 "`-a`: Optional animation for the `path` and `rapid` visualization types. "
 "Animations only apply to a live preview."
 msgstr ""
+"`-a`: Valfri animering för visualiseringstyperna `path` och `rapid`. "
+"Animeringar gäller bara i en direkt förhandsvisning."
 
 #: docs/Bed_Mesh.md:block 123 (unordered list)
 msgid ""
@@ -799,6 +1101,9 @@ msgid ""
 "values reported by Klipper's `toolhead` object when the dump file was "
 "generated."
 msgstr ""
+"`-s`: Skalar valfritt ett diagram med värdena `axis_minimum` och "
+"`axis_maximum` som Klippers objekt `toolhead` rapporterade när dumpfilen "
+"skapades."
 
 #: docs/Bed_Mesh.md:block 123 (unordered list)
 msgid ""
@@ -806,6 +1111,9 @@ msgid ""
 "mesh visualization. When generating an `overlay` or `delta` visualization this"
 " argument must be provided."
 msgstr ""
+"`-p`: Ett profilnamn som kan anges när 3D-nätvisualiseringen `probedz` "
+"genereras. Vid generering av visualiseringen `overlay` eller `delta` måste "
+"detta argument anges."
 
 #: docs/Bed_Mesh.md:block 123 (unordered list)
 msgid ""
@@ -813,26 +1121,33 @@ msgid ""
 "visualization to this location rather than run in preview mode. Images are "
 "saved in `svg` format."
 msgstr ""
+"`-o`: En valfri filsökväg som anger att skriptet ska spara visualiseringen "
+"där i stället för att köras i förhandsvisningsläge. Bilder sparas i formatet "
+"`svg`."
 
 #: docs/Bed_Mesh.md:block 124 (paragraph)
 msgid ""
 "For example, to plot an animated rapid path, connecting via Klipper's unix "
 "socket:"
 msgstr ""
+"För att till exempel rita en animerad snabb väg, med anslutning via Klippers "
+"Unix-socket:"
 
 #: docs/Bed_Mesh.md:block 126 (paragraph)
 msgid "Or to plot a 3d visualization of the mesh, connecting via Moonraker:"
-msgstr ""
+msgstr "Eller för att rita en 3D-visualisering av nätet via Moonraker:"
 
 #: docs/Bed_Mesh.md:block 128 (header)
 msgid "Bed Mesh Analysis"
-msgstr ""
+msgstr "Bed Mesh-analys"
 
 #: docs/Bed_Mesh.md:block 129 (paragraph)
 msgid ""
 "The `graph_mesh.py` tool may also be used to perform an analysis on the data "
 "provided by the [bed_mesh/dump_mesh](#dumping-mesh-data) API:"
 msgstr ""
+"Verktyget `graph_mesh.py` kan också användas för att analysera data från "
+"API:t [bed_mesh/dump_mesh](#dumping-mesh-data):"
 
 #: docs/Bed_Mesh.md:block 131 (paragraph)
 msgid ""
@@ -840,6 +1155,9 @@ msgid ""
 "socket, a URL to an instance of Moonraker, or a path to a json file generated "
 "by the dump command."
 msgstr ""
+"Precis som för kommandot `plot` måste `<input>` vara en sökväg till Klippers "
+"Unix-socket, en URL till en Moonraker-instans eller en sökväg till en JSON-"
+"fil som skapats med dumpkommandot."
 
 #: docs/Bed_Mesh.md:block 132 (paragraph)
 msgid ""
@@ -847,30 +1165,36 @@ msgid ""
 "paths generated by `bed_mesh` at the time of the dump. This includes the "
 "following:"
 msgstr ""
+"Först utför analysen olika kontroller av de punkter och sonderingsvägar som "
+"`bed_mesh` genererade vid dumpningen. Detta omfattar följande:"
 
 #: docs/Bed_Mesh.md:block 133 (unordered list)
 msgid "The number of probe points generated, without any additions"
-msgstr ""
+msgstr "Antalet genererade sonderingspunkter, utan tillägg"
 
 #: docs/Bed_Mesh.md:block 133 (unordered list)
 msgid ""
 "The number of probe points generated including any points generated as the "
 "result faulty regions and/or a configured zero reference position."
 msgstr ""
+"Antalet genererade sonderingspunkter, inklusive punkter som genererats på "
+"grund av felaktiga områden och/eller en konfigurerad nollreferensposition."
 
 #: docs/Bed_Mesh.md:block 133 (unordered list)
 msgid "The number of probe points generated when performing a rapid scan."
-msgstr ""
+msgstr "Antalet sonderingspunkter som genereras vid en snabb skanning."
 
 #: docs/Bed_Mesh.md:block 133 (unordered list)
 msgid "The total number of moves generated for a rapid scan."
-msgstr ""
+msgstr "Det totala antalet rörelser som genereras för en snabb skanning."
 
 #: docs/Bed_Mesh.md:block 133 (unordered list)
 msgid ""
 "A validation that the probe points generated for a rapid scan are identical to"
 " the probe points generated for a standard probing procedure."
 msgstr ""
+"En kontroll att sonderingspunkterna från en snabb skanning är identiska med "
+"de sonderingspunkter som genereras av ett vanligt sonderingsförfarande."
 
 #: docs/Bed_Mesh.md:block 133 (unordered list)
 msgid ""
@@ -881,6 +1205,12 @@ msgid ""
 "scan in an attempt to avoid entering a faulty region when approaching or "
 "leaving a probe location, however should never occur otherwise."
 msgstr ""
+"En kontroll av \"återgång\" för både den vanliga sonderingsvägen och en "
+"snabbskanningsväg. Återgång innebär att samma position besöks mer än en gång "
+"under sonderingen. Återgång får aldrig ske under en vanlig sondering. "
+"Felaktiga områden *kan* orsaka återgång under en snabb skanning för att "
+"undvika att ett felaktigt område passeras på väg till eller från en "
+"sondposition, men ska annars aldrig förekomma."
 
 #: docs/Bed_Mesh.md:block 134 (paragraph)
 msgid ""
@@ -888,58 +1218,65 @@ msgid ""
 " mesh loaded at the time of the dump (if present) and followed by any saved "
 "profiles. The following data is extracted:"
 msgstr ""
+"Därefter analyseras varje sonderat nät i dumpen, med början i nätet som var "
+"inläst vid dumpningen (om det finns) och sedan alla sparade profiler. "
+"Följande data extraheras:"
 
 #: docs/Bed_Mesh.md:block 135 (unordered list)
 msgid "Mesh shape (Min X,Y, Max X,Y Probe Count)"
-msgstr ""
+msgstr "Nätets form (min. X,Y, max. X,Y, antal sonderingspunkter)"
 
 #: docs/Bed_Mesh.md:block 135 (unordered list)
 msgid "Mesh Z range, (Minimum Z, Maximum Z)"
-msgstr ""
+msgstr "Nätets Z-intervall (minsta Z, största Z)"
 
 #: docs/Bed_Mesh.md:block 135 (unordered list)
 msgid "Mean Z value in the mesh"
-msgstr ""
+msgstr "Genomsnittligt Z-värde i nätet"
 
 #: docs/Bed_Mesh.md:block 135 (unordered list)
 msgid "Standard Deviation of the Z values in the Mesh"
-msgstr ""
+msgstr "Standardavvikelse för Z-värdena i nätet"
 
 #: docs/Bed_Mesh.md:block 136 (paragraph)
 msgid ""
 "In addition to the above, a delta analysis is performed between meshes with "
 "the same shape, reporting the following:"
 msgstr ""
+"Utöver ovanstående utförs en deltaanalys mellan nät med samma form, som "
+"rapporterar följande:"
 
 #: docs/Bed_Mesh.md:block 137 (unordered list)
 msgid "The range of the delta between to meshes (Minimum and Maximum)"
-msgstr ""
+msgstr "Deltats intervall mellan två nät (minimum och maximum)"
 
 #: docs/Bed_Mesh.md:block 137 (unordered list)
 msgid "The mean delta"
-msgstr ""
+msgstr "Medelvärdet för delta"
 
 #: docs/Bed_Mesh.md:block 137 (unordered list)
 msgid "Standard Deviation of the delta"
-msgstr ""
+msgstr "Deltats standardavvikelse"
 
 #: docs/Bed_Mesh.md:block 137 (unordered list)
 msgid "The absolute maximum difference"
-msgstr ""
+msgstr "Den absoluta största skillnaden"
 
 #: docs/Bed_Mesh.md:block 137 (unordered list)
 msgid "The absolute mean"
-msgstr ""
+msgstr "Det absoluta medelvärdet"
 
 #: docs/Bed_Mesh.md:block 138 (header)
 msgid "Save mesh data to a file"
-msgstr ""
+msgstr "Spara nätdata till en fil"
 
 #: docs/Bed_Mesh.md:block 139 (paragraph)
 msgid ""
 "The `dump` command may be used to save the response to a file which can be "
 "shared for analysis when troubleshooting:"
 msgstr ""
+"Kommandot `dump` kan användas för att spara svaret i en fil som kan delas "
+"för analys vid felsökning:"
 
 #: docs/Bed_Mesh.md:block 141 (paragraph)
 msgid ""
@@ -948,10 +1285,14 @@ msgid ""
 "output file. If omitted, the file will be saved in the working directory, with"
 " a file name in the following format:"
 msgstr ""
+"`<input>` ska vara en sökväg till Klippers Unix-socket eller en URL till en "
+"Moonraker-instans. Alternativet `-o` kan användas för att ange sökvägen till "
+"utdatafilen. Om det utelämnas sparas filen i arbetskatalogen med ett filnamn "
+"i följande format:"
 
 #: docs/Bed_Mesh.md:block 142 (paragraph)
 msgid "`klipper-bedmesh-{year}{month}{day}{hour}{minute}{second}.json`"
-msgstr ""
+msgstr "`klipper-bedmesh-{year}{month}{day}{hour}{minute}{second}.json`"
 
 #: docs/Bed_Mesh.md:block 77 (paragraph)
 msgid ""
@@ -959,6 +1300,9 @@ msgid ""
 " into a profile specified by the `PROFILE` parameter, or `default` if "
 "unspecified. The `METHOD` parameter takes one of the following values:"
 msgstr ""
+"Nätet är genast klart att använda när kommandot slutförs och sparas i den "
+"profil som anges med parametern `PROFILE`, eller i `default` om ingen anges. "
+"Parametern `METHOD` kan ha ett av följande värden:"
 
 #: docs/Bed_Mesh.md:block 92 (paragraph)
 msgid ""
@@ -966,6 +1310,10 @@ msgid ""
 "`BED_MESH_CALIBRATE` in the `START_PRINT` macro or the slicer's \"Start "
 "G-Code\" and may produce unexpected results, especially with adaptive meshing."
 msgstr ""
+"Observera att detta inte krävs om ett nytt nät genereras med "
+"`BED_MESH_CALIBRATE` i makrot `START_PRINT` eller skivningsprogrammets "
+"\"Start G-Code\", och det kan ge oväntade resultat, särskilt vid adaptiv "
+"nätmätning."
 
 #: docs/Bed_Mesh.md:block 22 (unordered list)
 msgid ""
@@ -980,6 +1328,16 @@ msgid ""
 "mesh_pps is set to 0 then mesh interpolation is disabled and the probed matrix"
 " will be sampled directly."
 msgstr ""
+"`mesh_pps: 2, 3` *Standardvärde: 2, 2* Alternativet `mesh_pps` är en "
+"förkortning för Mesh Points Per Segment. Alternativet anger hur många "
+"punkter som ska interpoleras för varje segment längs X- och Y-axeln. Ett "
+"\"segment\" är avståndet mellan varje sonderad punkt. Precis som "
+"`probe_count` anges `mesh_pps` som ett heltalspar X, Y, men kan också anges "
+"som ett enda heltal som tillämpas på båda axlarna. I detta exempel finns 4 "
+"segment längs X-axeln och 2 längs Y-axeln. Det ger 8 interpolerade punkter "
+"längs X och 6 längs Y, vilket resulterar i ett nät på 13x9. Om mesh_pps "
+"sätts till 0 inaktiveras nätinterpolering och den sonderade matrisen samplas "
+"direkt."
 
 #: docs/Bed_Mesh.md:block 35 (paragraph)
 msgid ""
@@ -994,6 +1352,16 @@ msgid ""
 " performed. The bed_mesh module provides the `zero_reference_position` option "
 "for specifying this coordinate:"
 msgstr ""
+"Många sonder är känsliga för \"drift\", det vill säga felaktigheter vid "
+"sondering som orsakas av värme eller störningar. Det kan göra det svårt att "
+"beräkna sondens Z-förskjutning, särskilt vid olika bäddtemperaturer. Därför "
+"använder vissa skrivare ett ändläge för homing av Z-axeln och en sond för "
+"att kalibrera nätet. I denna konfiguration kan nätet förskjutas så att "
+"`referenspositionen` (X, Y) inte justeras. `Referenspositionen` ska vara den "
+"plats på bädden där ett papperstest med [Z_ENDSTOP_CALIBRATE](./"
+"Manual_Level.md#calibrating-a-z-endstop) utförs. Modulen bed_mesh "
+"tillhandahåller alternativet `zero_reference_position` för att ange denna "
+"koordinat:"
 
 #~ msgid ""
 #~ "`mesh_pps: 2, 3` *Default Value: 2, 2* The `mesh_pps` option is shorthand for "

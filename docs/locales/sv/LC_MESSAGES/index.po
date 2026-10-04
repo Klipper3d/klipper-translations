@@ -4,21 +4,25 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: sv\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"Last-Translator: Daniel Nylander <yeagersthlm@gmail.com>\n"
+"Language-Team: Swedish <https://hosted.weblate.org/projects/klipper/index/"
+"sv/>\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2026-09-16 15:16+0000\n"
+"X-Generator: Weblate 2026.10.dev0\n"
 
 #: docs/index.md:block 1 (paragraph)
 msgid "hide:"
-msgstr ""
+msgstr "hide:"
 
 #: docs/index.md:block 2 (unordered list)
 msgid "toc title: Welcome"
-msgstr ""
+msgstr "toc title: Välkommen"
 
 #: docs/index.md:block 3 (paragraph)
 msgid "![](img/klipper-logo.png){ .center-image }"
-msgstr ""
+msgstr "![](img/klipper-logo.png){ .center-image }"
 
 #: docs/index.md:block 4 (paragraph)
 msgid ""
@@ -27,10 +31,14 @@ msgid ""
 "document](Features.md) for more information on why you should use the Klipper "
 "software."
 msgstr ""
+"Klipper-firmware styr 3D-skrivare. Den kombinerar kraften hos en dator för "
+"allmänna ändamål med en eller flera mikrokontroller. Se [funktionsdokumentet]"
+"(Features.md) för mer information om varför du bör använda Klipper-"
+"programvaran."
 
 #: docs/index.md:block 5 (paragraph)
 msgid "Start by [installing Klipper software](Installation.md)."
-msgstr ""
+msgstr "Börja med att [installera Klipper-programvaran](Installation.md)."
 
 #: docs/index.md:block 6 (paragraph)
 msgid ""
@@ -39,6 +47,10 @@ msgid ""
 " the software. We depend on the generous support from our "
 "[sponsors](Sponsors.md)."
 msgstr ""
+"Klipper-programvaran är fri programvara. Läs [dokumentationen](Overview.md), "
+"se [licensen](../COPYING) eller [hämta](https://github.com/Klipper3d/"
+"Klipper) programvaran. Vi är beroende av generöst stöd från våra [sponsorer]"
+"(Sponsors.md)."
 
 #~ msgid ""
 #~ "The Klipper firmware controls 3d-Printers. It combines the power of a general "

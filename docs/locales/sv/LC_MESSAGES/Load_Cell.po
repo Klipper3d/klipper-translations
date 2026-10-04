@@ -4,13 +4,17 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: sv\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"Last-Translator: Daniel Nylander <yeagersthlm@gmail.com>\n"
+"Language-Team: Swedish <https://hosted.weblate.org/projects/klipper/"
+"load_cell/sv/>\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2026-09-17 13:28+0000\n"
+"X-Generator: Weblate 2026.10.dev0\n"
 
 #: docs/Load_Cell.md:block 1 (header)
 msgid "Load Cells"
-msgstr ""
+msgstr "Lastceller"
 
 #: docs/Load_Cell.md:block 2 (paragraph)
 msgid ""
@@ -19,26 +23,29 @@ msgid ""
 "filament. A calibrated force sensor is an important part of a load cell based "
 "probe."
 msgstr ""
+"Det här dokumentet beskriver Klippers stöd för lastceller. Grundläggande "
+"lastcellsfunktioner kan läsa kraftdata och väga exempelvis filament. En "
+"kalibrerad kraftsensor är en viktig del av en lastcellsbaserad prob."
 
 #: docs/Load_Cell.md:block 3 (header)
 msgid "Related Documentation"
-msgstr ""
+msgstr "Relaterad dokumentation"
 
 #: docs/Load_Cell.md:block 4 (unordered list)
 msgid "[load_cell Config Reference](Config_Reference.md#load_cell)"
-msgstr ""
+msgstr "[Konfigurationsreferens för load_cell](Config_Reference.md#load_cell)"
 
 #: docs/Load_Cell.md:block 4 (unordered list)
 msgid "[load_cell G-Code Commands](G-Codes.md#load_cell)"
-msgstr ""
+msgstr "[G-kodkommandon för load_cell](G-Codes.md#load_cell)"
 
 #: docs/Load_Cell.md:block 4 (unordered list)
 msgid "[load_cell Status Reference](Status_Reference.md#load_cell)"
-msgstr ""
+msgstr "[Statusreferens för load_cell](Status_Reference.md#load_cell)"
 
 #: docs/Load_Cell.md:block 5 (header)
 msgid "Using `LOAD_CELL_DIAGNOSTIC`"
-msgstr ""
+msgstr "Använda `LOAD_CELL_DIAGNOSTIC`"
 
 #: docs/Load_Cell.md:block 6 (paragraph)
 msgid ""
@@ -46,10 +53,13 @@ msgid ""
 "running `LOAD_CELL_DIAGNOSTIC`. This tool collects 10 seconds of data from the"
 " load cell and resport statistics:"
 msgstr ""
+"När du ansluter en lastcell första gången bör du kontrollera problem genom "
+"att köra `LOAD_CELL_DIAGNOSTIC`. Verktyget samlar data från lastcellen under "
+"10 sekunder och rapporterar statistik:"
 
 #: docs/Load_Cell.md:block 8 (paragraph)
 msgid "Things you can check with this data:"
-msgstr ""
+msgstr "Saker du kan kontrollera med dessa data:"
 
 #: docs/Load_Cell.md:block 9 (unordered list)
 msgid ""
@@ -57,34 +67,45 @@ msgid ""
 "samples per second' value. If it is not you may have a configuration or wiring"
 " issue."
 msgstr ""
+"Sensorns konfigurerade samplingsfrekvens bör ligga nära värdet \"Measured "
+"samples per second\". Om den inte gör det kan det finnas ett konfigurations- "
+"eller kabelproblem."
 
 #: docs/Load_Cell.md:block 9 (unordered list)
 msgid ""
 "'Saturated samples' should be 0. If you have saturated samples it means the "
 "load sell is seeing more force than it can measure."
 msgstr ""
+"\"Saturated samples\" ska vara 0. Mättade sampel innebär att lastcellen "
+"utsätts för mer kraft än den kan mäta."
 
 #: docs/Load_Cell.md:block 9 (unordered list)
 msgid ""
 "'Unique values' should be a large percentage of the 'Samples Collected' value."
 " If 'Unique values' is 1 it is very likely a wiring issue."
 msgstr ""
+"\"Unique values\" bör vara en stor andel av \"Samples Collected\". Om "
+"\"Unique values\" är 1 är det mycket sannolikt ett kabelproblem."
 
 #: docs/Load_Cell.md:block 10 (header)
 msgid "Calibrating a Load Cell"
-msgstr ""
+msgstr "Kalibrera en lastcell"
 
 #: docs/Load_Cell.md:block 11 (paragraph)
 msgid ""
 "Load cells are calibrated using the `LOAD_CELL_CALIBRATE` command. This is an "
 "interactive calibration utility that walks you though a 3 step process:"
 msgstr ""
+"Lastceller kalibreras med kommandot `LOAD_CELL_CALIBRATE`. Det är ett "
+"interaktivt kalibreringsverktyg som leder dig genom tre steg:"
 
 #: docs/Load_Cell.md:block 12 (ordered list)
 msgid ""
 "First use the `TARE` command to establish the zero force value. This is the "
 "`reference_tare_counts` config value."
 msgstr ""
+"Använd först kommandot `TARE` för att fastställa nollkraftsvärdet. Det är "
+"konfigurationsvärdet `reference_tare_counts`."
 
 #: docs/Load_Cell.md:block 12 (ordered list)
 msgid ""
@@ -93,18 +114,21 @@ msgid ""
 "[the next section](#applying-a-known-force-or-load) for some suggestions on "
 "how to do this."
 msgstr ""
+"Applicera sedan en känd belastning eller kraft på lastcellen och kör "
+"`CALIBRATE GRAMS=nnn`. Då beräknas värdet `counts_per_gram`. Se [nästa "
+"avsnitt](#applying-a-known-force-or-load) för förslag på hur detta görs."
 
 #: docs/Load_Cell.md:block 12 (ordered list)
 msgid "Finally, use the `ACCEPT` command to save the results."
-msgstr ""
+msgstr "Använd slutligen kommandot `ACCEPT` för att spara resultaten."
 
 #: docs/Load_Cell.md:block 13 (paragraph)
 msgid "You can cancel the calibration process at any time with `ABORT`."
-msgstr ""
+msgstr "Du kan när som helst avbryta kalibreringen med `ABORT`."
 
 #: docs/Load_Cell.md:block 14 (header)
 msgid "Applying a Known Force or Load"
-msgstr ""
+msgstr "Applicera en känd kraft eller belastning"
 
 #: docs/Load_Cell.md:block 15 (paragraph)
 msgid ""
@@ -113,6 +137,10 @@ msgid ""
 "easiest to put a known mass on the platform. E.g. you could use a couple of "
 "1KG filament spools."
 msgstr ""
+"Steget `CALIBRATE GRAMS=nnn` kan utföras på flera sätt. Om lastcellen sitter "
+"under en plattform, till exempel bädden eller en filamenthållare, är det "
+"ofta enklast att lägga en känd massa på plattformen, exempelvis ett par "
+"filamentrullar på 1 kg."
 
 #: docs/Load_Cell.md:block 16 (paragraph)
 msgid ""
@@ -123,6 +151,11 @@ msgid ""
 "to manually moving the z axis with the motors off until the toolhead presses "
 "on the scale."
 msgstr ""
+"Om lastcellen sitter i skrivarens verktygshuvud är en annan metod enklare. "
+"Placera en digitalvåg på skrivarens bädd och sänk verktygshuvudet försiktigt "
+"mot vågen, eller höj bädden mot verktygshuvudet om bädden rör sig. Du kan "
+"möjligen använda `FORCE_MOVE`, men oftast måste Z-axeln flyttas manuellt med "
+"motorerna avstängda tills verktygshuvudet trycker mot vågen."
 
 #: docs/Load_Cell.md:block 17 (paragraph)
 msgid ""
@@ -133,10 +166,16 @@ msgid ""
 "that your printer bed or toolhead can tolerate without damage. Do try to use "
 "at least 1Kg of force, most printers should tolerate this without issue."
 msgstr ""
+"En bra kalibreringskraft är helst en stor andel av lastcellens nominella "
+"kapacitet. En lastcell på 5 kg kalibreras idealiskt med en massa på 5 kg. "
+"Det kan fungera väl för sensorer under bädden som måste bära mycket vikt. "
+"För prober i verktygshuvudet kan den belastningen skada bädden eller "
+"verktygshuvudet. Försök använda minst 1 kg kraft; de flesta skrivare bör "
+"tåla det utan problem."
 
 #: docs/Load_Cell.md:block 18 (paragraph)
 msgid "When calibrating make careful note of the values reported:"
-msgstr ""
+msgstr "Notera värdena som rapporteras vid kalibrering noggrant:"
 
 #: docs/Load_Cell.md:block 20 (paragraph)
 msgid ""
@@ -146,30 +185,39 @@ msgid ""
 "as critical for 32bit and 24bit sensors but is much more critical for low bit "
 "width sensors."
 msgstr ""
+"`Total capacity` ska ligga nära lastcellens teoretiska kapacitet utifrån "
+"sensorns kapacitet. Om värdet är mycket större kan en högre förstärkning ha "
+"använts i sensorn eller en känsligare lastcell behövas. Detta är mindre "
+"kritiskt för 32- och 24-bitars sensorer men betydligt viktigare för sensorer "
+"med låg bitbredd."
 
 #: docs/Load_Cell.md:block 21 (header)
 msgid "Reading Force Data"
-msgstr ""
+msgstr "Läsa kraftdata"
 
 #: docs/Load_Cell.md:block 22 (paragraph)
 msgid "Force data can be read with a GCode command:"
-msgstr ""
+msgstr "Kraftdata kan läsas med ett G-kodkommando:"
 
 #: docs/Load_Cell.md:block 24 (paragraph)
 msgid ""
 "Data is also continuously read and can be consumed from the load_cell printer "
 "object in a macro:"
 msgstr ""
+"Data läses också kontinuerligt och kan hämtas från skrivarobjektet "
+"`load_cell` i ett makro:"
 
 #: docs/Load_Cell.md:block 26 (paragraph)
 msgid ""
 "This provides an average force over the last 1 second, similar to how "
 "temperature sensors work."
 msgstr ""
+"Detta ger en genomsnittlig kraft under den senaste sekunden, på samma sätt "
+"som temperatursensorer fungerar."
 
 #: docs/Load_Cell.md:block 27 (header)
 msgid "Taring a Load Cell"
-msgstr ""
+msgstr "Tarera en lastcell"
 
 #: docs/Load_Cell.md:block 28 (paragraph)
 msgid ""
@@ -179,32 +227,42 @@ msgid ""
 "Then as filament is printed the load_cell will report the weight of the "
 "filament used."
 msgstr ""
+"Tarering, ibland kallad nollställning, ställer in den aktuella vikt som "
+"rapporteras av load_cell till 0. Det är användbart för mätning i förhållande "
+"till en känd vikt. Vid mätning av en filamentrulle ställer `LOAD_CELL_TARE` "
+"exempelvis vikten till 0. När filament sedan skrivs ut rapporterar load_cell "
+"vikten av det använda filamentet."
 
 #: docs/Load_Cell.md:block 30 (paragraph)
 msgid ""
 "The current tare value is reported in the printers status and can be read in a"
 " macro:"
 msgstr ""
+"Det aktuella tareringsvärdet rapporteras i skrivarens status och kan läsas i "
+"ett makro:"
 
 #: docs/Load_Cell.md:block 32 (header)
 msgid "Load Cell Probes"
-msgstr ""
+msgstr "Lastcellsprober"
 
 #: docs/Load_Cell.md:block 34 (unordered list)
 msgid "[load_cell_probe Config Reference](Config_Reference.md#load_cell_probe)"
 msgstr ""
+"[Konfigurationsreferens för load_cell_probe]"
+"(Config_Reference.md#load_cell_probe)"
 
 #: docs/Load_Cell.md:block 34 (unordered list)
 msgid "[load_cell_probe G-Code Commands](G-Codes.md#load_cell_probe)"
-msgstr ""
+msgstr "[G-kodkommandon för load_cell_probe](G-Codes.md#load_cell_probe)"
 
 #: docs/Load_Cell.md:block 34 (unordered list)
 msgid "[load_cell_probe Statuc Reference](Status_Reference.md#load_cell_probe)"
 msgstr ""
+"[Statusreferens för load_cell_probe](Status_Reference.md#load_cell_probe)"
 
 #: docs/Load_Cell.md:block 35 (header)
 msgid "Load Cell Probe Safety"
-msgstr ""
+msgstr "Säkerhet för lastcellsprob"
 
 #: docs/Load_Cell.md:block 36 (paragraph)
 msgid ""
@@ -215,10 +273,15 @@ msgid ""
 "and how they work as you can defeat most of them with poorly chosen config "
 "values."
 msgstr ""
+"Eftersom lastceller är prober med direktkontakt med munstycket riskerar "
+"skrivaren att skadas om för stor kraft används. Lastcellsprobens system har "
+"flera säkerhetskontroller som försöker skydda maskinen från överdriven kraft "
+"på verktygshuvudet. Det är viktigt att förstå dem, eftersom dåligt valda "
+"konfigurationsvärden kan kringgå de flesta."
 
 #: docs/Load_Cell.md:block 37 (header)
 msgid "Calibration Check"
-msgstr ""
+msgstr "Kalibreringskontroll"
 
 #: docs/Load_Cell.md:block 38 (paragraph)
 msgid ""
@@ -226,10 +289,13 @@ msgid ""
 "calibrated. If not it will stop the move with an error: `!! Load Cell not "
 "calibrated`."
 msgstr ""
+"Vid varje start av en nollställningsrörelse kontrollerar load_cell_probe att "
+"lastcellen är kalibrerad. Annars stoppas rörelsen med felet `!! Load Cell "
+"not calibrated`."
 
 #: docs/Load_Cell.md:block 39 (header)
 msgid "`counts_per_gram`"
-msgstr ""
+msgstr "`counts_per_gram`"
 
 #: docs/Load_Cell.md:block 40 (paragraph)
 msgid ""
@@ -239,10 +305,15 @@ msgid ""
 "You should never guess this value. Use `LOAD_CELL_CALIBRATE` to find your load"
 " cells actual `counts_per_gram`."
 msgstr ""
+"Den här inställningen omvandlar råa sensorräkningar till gram. Alla "
+"säkerhetsgränser anges i gram. Om `counts_per_gram` inte är korrekt kan den "
+"säkra kraften på verktygshuvudet lätt överskridas. Gissa aldrig detta värde; "
+"använd `LOAD_CELL_CALIBRATE` för att fastställa lastcellens faktiska "
+"`counts_per_gram`."
 
 #: docs/Load_Cell.md:block 41 (header)
 msgid "`trigger_force`"
-msgstr ""
+msgstr "`trigger_force`"
 
 #: docs/Load_Cell.md:block 42 (paragraph)
 msgid ""
@@ -254,10 +325,18 @@ msgid ""
 "before the toolhead stops. This overshoot will increase with faster probing "
 "`speed`, a low ADC sample rate or [multi MCU homing](Multi_MCU_Homing.md)."
 msgstr ""
+"Detta är kraften i gram som får ändstoppet att stoppa "
+"nollställningsrörelsen. När rörelsen startar tarerar ändstoppet sig självt "
+"med lastcellens aktuella avläsning. `trigger_force` mäts från detta "
+"tareringsvärde. Värdet överskrids alltid något när proben kolliderar med "
+"bädden, så var försiktig. En inställning på 100 g kan exempelvis ge en "
+"toppkraft på 350 g innan verktygshuvudet stannar. Överskridandet ökar vid "
+"högre `speed`, låg ADC-samplingsfrekvens eller [nollställning med flera "
+"MCU:er](Multi_MCU_Homing.md)."
 
 #: docs/Load_Cell.md:block 43 (header)
 msgid "`reference_tare_counts`"
-msgstr ""
+msgstr "`reference_tare_counts`"
 
 #: docs/Load_Cell.md:block 44 (paragraph)
 msgid ""
@@ -265,10 +344,13 @@ msgid ""
 "value works with `force_safety_limit` to limit the maximum force on the "
 "toolhead."
 msgstr ""
+"Detta är grundvärdet för tarering som sätts av `LOAD_CELL_CALIBRATE`. Värdet "
+"samverkar med `force_safety_limit` för att begränsa den högsta kraften på "
+"verktygshuvudet."
 
 #: docs/Load_Cell.md:block 45 (header)
 msgid "`force_safety_limit`"
-msgstr ""
+msgstr "`force_safety_limit`"
 
 #: docs/Load_Cell.md:block 46 (paragraph)
 msgid ""
@@ -277,6 +359,10 @@ msgid ""
 "exceeded it will shut down the printer with the error `!! Load cell endstop: "
 "too much force!`. There are a number of ways this can be triggered:"
 msgstr ""
+"Detta är den största absoluta kraft, relativt `reference_tare_counts`, som "
+"proben tillåter vid nollställning eller sondering. Om MCU:n ser att kraften "
+"överskrids stängs skrivaren av med felet `!! Load cell endstop: too much "
+"force!`. Det finns flera sätt detta kan utlösas på:"
 
 #: docs/Load_Cell.md:block 47 (paragraph)
 msgid ""
@@ -285,6 +371,10 @@ msgid ""
 " a probe event and continue the homing move. If this happens the "
 "`force_safety_limit` acts as a backup protection."
 msgstr ""
+"Den första risken som detta skyddar mot är att välja ett för stort värde för "
+"`drift_filter_cutoff_frequency`. Då kan driftfiltret filtrera bort en "
+"sondhändelse och låta nollställningsrörelsen fortsätta. I så fall fungerar "
+"`force_safety_limit` som ett reservskydd."
 
 #: docs/Load_Cell.md:block 48 (paragraph)
 msgid ""
@@ -297,6 +387,13 @@ msgid ""
 " this will result in ever-increasing force on the toolhead. "
 "`force_safety_limit` stops this cycle from running out of control."
 msgstr ""
+"Det andra problemet är att sondera upprepade gånger på samma plats. Klipper "
+"drar inte tillbaka proben vid ett enstaka `PROBE`-kommando. Det kan lämna "
+"kraft på verktygshuvudet efter sonderingscykeln. Eftersom externa krafter "
+"kan variera kraftigt mellan platser tarerar `load_cell_probe` före varje "
+"sondning. Om du upprepar `PROBE` tareras ändstoppet vid den aktuella "
+"kraften. Flera cykler ökar kraften på verktygshuvudet; `force_safety_limit` "
+"hindrar cykeln från att löpa okontrollerat."
 
 #: docs/Load_Cell.md:block 50 (paragraph)
 msgid ""
@@ -305,10 +402,14 @@ msgid ""
 "at ambient temperature vs operating temperature. In this case you may need to "
 "increase the `force_safety_limit` to allow for thermal changes."
 msgstr ""
+"Den sista utlösningsorsaken är temperaturförändringar. Om töjningsgivarna "
+"värms upp kan `reference_tare_counts` skilja sig mycket mellan omgivnings- "
+"och driftstemperatur. Då kan `force_safety_limit` behöva höjas för att ta "
+"hänsyn till termiska förändringar."
 
 #: docs/Load_Cell.md:block 51 (header)
 msgid "Load Cell Endstop Watchdog Task"
-msgstr ""
+msgstr "Lastcellsändstoppets övervakningsuppgift"
 
 #: docs/Load_Cell.md:block 52 (paragraph)
 msgid ""
@@ -317,6 +418,10 @@ msgid ""
 "measurements for 2 sample periods the watchdog will shut down the printer with"
 " an error `!! LoadCell Endstop timed out waiting on ADC data`."
 msgstr ""
+"Vid nollställning startar load_cell_endstop en uppgift på MCU:n som följer "
+"mätningar från sensorn. Om sensorn inte skickar mätningar under två "
+"samplingsperioder stänger övervakaren av skrivaren med felet `!! LoadCell "
+"Endstop timed out waiting on ADC data`."
 
 #: docs/Load_Cell.md:block 53 (paragraph)
 msgid ""
@@ -327,18 +432,23 @@ msgid ""
 "electricity well. You might need to sand the area where the grounding wire is "
 "attached to make good electrical contact."
 msgstr ""
+"Om detta händer är den troligaste orsaken ett fel från ADC:n. Otillräcklig "
+"jordning kan vara grundorsaken. Ramen, nätaggregatets hölje och skrivarens "
+"bädd ska vara anslutna till jord. Ramen kan behöva jordas på flera platser. "
+"Anodiserade aluminiumprofiler leder inte elektricitet väl; området där "
+"jordledaren fästs kan behöva slipas för god elektrisk kontakt."
 
 #: docs/Load_Cell.md:block 54 (header)
 msgid "Load Cell Probe Setup"
-msgstr ""
+msgstr "Konfigurera lastcellsproben"
 
 #: docs/Load_Cell.md:block 55 (paragraph)
 msgid "This section covers the process for commissioning a load cell probe."
-msgstr ""
+msgstr "Det här avsnittet beskriver hur en lastcellsprob tas i drift."
 
 #: docs/Load_Cell.md:block 56 (header)
 msgid "Verify the Load Cell First"
-msgstr ""
+msgstr "Kontrollera lastcellen först"
 
 #: docs/Load_Cell.md:block 57 (paragraph)
 msgid ""
@@ -348,10 +458,15 @@ msgid ""
 "cell](Load_Cell.md#calibrating-a-load-cell) with `CALIBRATE_LOAD_CELL` and "
 "checking its operation with `LOAD_CELL_DIAGNOSTIC`."
 msgstr ""
+"En `[load_cell_probe]` är också en `[load_cell]`, och G-kodkommandon för "
+"`[load_cell]` fungerar med `[load_cell_probe]`. Innan du använder en "
+"lastcellsprob ska du följa anvisningarna för [kalibrering av lastcellen]"
+"(Load_Cell.md#calibrating-a-load-cell) med `CALIBRATE_LOAD_CELL` och "
+"kontrollera funktionen med `LOAD_CELL_DIAGNOSTIC`."
 
 #: docs/Load_Cell.md:block 58 (header)
 msgid "Verify Probe Operation With LOAD_CELL_TEST_TAP"
-msgstr ""
+msgstr "Kontrollera probfunktionen med LOAD_CELL_TEST_TAP"
 
 #: docs/Load_Cell.md:block 59 (paragraph)
 msgid ""
@@ -361,22 +476,31 @@ msgid ""
 "listens for 3 taps before ending the test. You have 30 seconds to do each tap,"
 " if no taps are detected the command will time out."
 msgstr ""
+"Använd `LOAD_CELL_TEST_TAP` för att testa lastcellsproben innan du faktiskt "
+"sonderar med den. Kommandot upptäcker knackningar, precis som PROBE, men rör "
+"inte Z-axeln. Som standard lyssnar det efter tre knackningar före testets "
+"slut. Du har 30 sekunder för varje knackning; om inga upptäcks går kommandot "
+"ut."
 
 #: docs/Load_Cell.md:block 60 (paragraph)
 msgid ""
 "If this test fails, check your configuration and `LOAD_CELL_DIAGNOSTIC` "
 "carefully to look for issues."
 msgstr ""
+"Om testet misslyckas ska du noggrant kontrollera konfigurationen och "
+"`LOAD_CELL_DIAGNOSTIC` efter problem."
 
 #: docs/Load_Cell.md:block 61 (paragraph)
 msgid ""
 "Load cell probes don't support the `QUERY_ENDSTOPS` or `QUERY_PROBE` commands."
 " Use `LOAD_CELL_TEST_TAP` for testing functionality before probing."
 msgstr ""
+"Lastcellsprober stöder inte `QUERY_ENDSTOPS` eller `QUERY_PROBE`. Använd "
+"`LOAD_CELL_TEST_TAP` för att testa funktionen före sondering."
 
 #: docs/Load_Cell.md:block 67 (header)
 msgid "Suggested Probing Temperature"
-msgstr ""
+msgstr "Rekommenderad sonderingstemperatur"
 
 #: docs/Load_Cell.md:block 68 (paragraph)
 msgid ""
@@ -384,6 +508,10 @@ msgid ""
 "causes the filament to ooze while homing and probing. 140C is a good starting "
 "point. This temperature is also low enough not to scar PEI build surfaces."
 msgstr ""
+"Vi rekommenderar för närvarande att munstyckstemperaturen hålls under den "
+"nivå där filament börjar sippra ut vid nollställning och sondering. 140 °C "
+"är en bra utgångspunkt och temperaturen är också tillräckligt låg för att "
+"inte märka PEI-byggytor."
 
 #: docs/Load_Cell.md:block 69 (paragraph)
 msgid ""
@@ -393,6 +521,11 @@ msgid ""
 "code may decide that a tap is valid when it is of poor quality. Classifying "
 "these poor quality taps is an area of active research."
 msgstr ""
+"Smuts på munstycke och bädd från utsipprande filament är den främsta källan "
+"till sonderingsfel med lastcellsproben. Klipper saknar ännu ett universellt "
+"sätt att upptäcka knackningar av låg kvalitet orsakade av filamentspill. Den "
+"befintliga koden kan bedöma en knackning som giltig trots låg kvalitet. "
+"Klassificering av sådana knackningar är ett aktivt forskningsområde."
 
 #: docs/Load_Cell.md:block 70 (paragraph)
 msgid ""
@@ -400,15 +533,21 @@ msgid ""
 "become fouled by filament ooze. Modules like `quad_gantry_level` will "
 "repeatedly probe the same coordinates even if a probe previously failed there."
 msgstr ""
+"Klipper saknar också stöd för att flytta en sondpunkt om platsen har "
+"smutsats ned av utsipprande filament. Moduler som `quad_gantry_level` "
+"sonderar samma koordinater upprepade gånger även om en sondering tidigare "
+"misslyckades där."
 
 #: docs/Load_Cell.md:block 71 (paragraph)
 msgid ""
 "Give the above it is strongly suggested not to probe at printing temperatures."
 msgstr ""
+"Med tanke på ovanstående rekommenderas det starkt att inte sondera vid "
+"utskriftstemperaturer."
 
 #: docs/Load_Cell.md:block 72 (header)
 msgid "Hot Nozzle Protection"
-msgstr ""
+msgstr "Skydd mot varmt munstycke"
 
 #: docs/Load_Cell.md:block 73 (paragraph)
 msgid ""
@@ -417,14 +556,18 @@ msgid ""
 "`activate_gcode`](https://github.com/VoronDesign/Voron-"
 "Tap/blob/main/config/tap_klipper_instructions.md)"
 msgstr ""
+"Voron-projektet har ett bra makro som skyddar utskriftsytan från det varma "
+"munstycket. Se [Voron Taps `activate_gcode`](https://github.com/VoronDesign/"
+"Voron-Tap/blob/main/config/tap_klipper_instructions.md)"
 
 #: docs/Load_Cell.md:block 74 (paragraph)
 msgid "It is highly suggested to add something like this to your config."
 msgstr ""
+"Det rekommenderas starkt att lägga till något liknande i din konfiguration."
 
 #: docs/Load_Cell.md:block 75 (header)
 msgid "Nozzle Cleaning"
-msgstr ""
+msgstr "Rengöring av munstycket"
 
 #: docs/Load_Cell.md:block 76 (paragraph)
 msgid ""
@@ -432,30 +575,35 @@ msgid ""
 "every print. You can also implement a nozzle scrubber and automate the "
 "process. Here is a suggested sequence:"
 msgstr ""
+"Munstycket ska vara rent före sondering. Det kan göras manuellt före varje "
+"utskrift eller automatiseras med en munstycksskrubb. Här är en rekommenderad "
+"följd:"
 
 #: docs/Load_Cell.md:block 77 (ordered list)
 msgid "Wait for the nozzle to heat up to probing temp (e.g. `M109 S140`)"
 msgstr ""
+"Vänta tills munstycket har värmts till sonderingstemperatur, till exempel "
+"`M109 S140`"
 
 #: docs/Load_Cell.md:block 77 (ordered list)
 msgid "Home the machine (`G28`)"
-msgstr ""
+msgstr "Nollställ maskinen (`G28`)"
 
 #: docs/Load_Cell.md:block 77 (ordered list)
 msgid "Scrub the nozzle on a brush"
-msgstr ""
+msgstr "Skrubba munstycket mot en borste"
 
 #: docs/Load_Cell.md:block 77 (ordered list)
 msgid "Heat soak the print bed"
-msgstr ""
+msgstr "Värm upp bädden till termisk jämvikt"
 
 #: docs/Load_Cell.md:block 77 (ordered list)
 msgid "Perform probing tasks: QGL, bed mesh etc."
-msgstr ""
+msgstr "Utför sonderingsuppgifter: QGL, bäddnät osv."
 
 #: docs/Load_Cell.md:block 78 (header)
 msgid "Temperature Compensation for Nozzle Growth"
-msgstr ""
+msgstr "Temperaturkompensation för munstyckets utvidgning"
 
 #: docs/Load_Cell.md:block 79 (paragraph)
 msgid ""
@@ -465,10 +613,15 @@ msgid ""
 "[[z_thermal_adjust]](Config_Reference.md#z_thermal_adjust). This adjustment "
 "will work across a range of printing temperatures from PLA to PC."
 msgstr ""
+"Om du sonderar vid en säker temperatur utvidgas munstycket efter uppvärmning "
+"till utskriftstemperatur. Munstycket blir längre och kommer närmare "
+"utskriftsytan. Detta kan kompenseras med [[z_thermal_adjust]]"
+"(Config_Reference.md#z_thermal_adjust). Justeringen fungerar för "
+"utskriftstemperaturer från PLA till PC."
 
 #: docs/Load_Cell.md:block 80 (header)
 msgid "Calculating the `temp_coeff` for `[z_thermal_adjust]`"
-msgstr ""
+msgstr "Beräkna `temp_coeff` för `[z_thermal_adjust]`"
 
 #: docs/Load_Cell.md:block 81 (paragraph)
 msgid ""
@@ -477,12 +630,18 @@ msgid ""
 "E.g. 180C and 290C. You can perform a `PROBE_ACCURACY` at both temperatures "
 "and then calculate the difference of the `average z` at both."
 msgstr ""
+"Det enklaste sättet är att mäta vid två olika temperaturer, helst den övre "
+"och undre gränsen för utskriftstemperaturintervallet, till exempel 180 °C "
+"och 290 °C. Kör `PROBE_ACCURACY` vid båda temperaturerna och beräkna sedan "
+"skillnaden mellan `average z`."
 
 #: docs/Load_Cell.md:block 82 (paragraph)
 msgid ""
 "The adjustment value is the change in nozzle length divided by the change in "
 "temperature. e.g."
 msgstr ""
+"Justeringsvärdet är ändringen i munstyckslängd dividerad med "
+"temperaturändringen, till exempel:"
 
 #: docs/Load_Cell.md:block 84 (paragraph)
 msgid ""
@@ -490,20 +649,26 @@ msgid ""
 "move the nozzle closer to the bed and negative values move it further away. "
 "Expect to have to move the nozzle further away as it gets longer when hot."
 msgstr ""
+"Det förväntade resultatet är ett negativt tal. Positiva `temp_coeff`-värden "
+"flyttar munstycket närmare bädden och negativa värden flyttar det längre "
+"bort. Munstycket behöver normalt flyttas längre bort när det blir längre av "
+"värmen."
 
 #: docs/Load_Cell.md:block 85 (header)
 msgid "Configure `[z_thermal_adjust]`"
-msgstr ""
+msgstr "Konfigurera `[z_thermal_adjust]`"
 
 #: docs/Load_Cell.md:block 86 (paragraph)
 msgid ""
 "Set up z_thermal_adjust to reference the `extruder` as the source of "
 "temperature data. E.g.:"
 msgstr ""
+"Ställ in z_thermal_adjust så att `extruder` används som källa för "
+"temperaturdata, till exempel:"
 
 #: docs/Load_Cell.md:block 88 (header)
 msgid "Continuous Tare Filters for Toolhead Load Cells"
-msgstr ""
+msgstr "Kontinuerliga tareringsfilter för lastceller i verktygshuvudet"
 
 #: docs/Load_Cell.md:block 89 (paragraph)
 msgid ""
@@ -513,10 +678,16 @@ msgid ""
 "changes. This is aimed at toolhead sensors and moving beds that experience "
 "lots of external forces that change while probing."
 msgstr ""
+"Klipper implementerar ett konfigurerbart IIR-filter på MCU:n för "
+"kontinuerlig tarering av lastcellen under sondering. Kontinuerlig tarering "
+"innebär att nollvärdet följer drift som orsakas av externa faktorer som "
+"bowdenslangar och temperaturförändringar. Det är avsett för sensorer i "
+"verktygshuvudet och rörliga bäddar som påverkas av många yttre krafter under "
+"sondering."
 
 #: docs/Load_Cell.md:block 90 (header)
 msgid "Installing SciPy"
-msgstr ""
+msgstr "Installera SciPy"
 
 #: docs/Load_Cell.md:block 91 (paragraph)
 msgid ""
@@ -524,6 +695,8 @@ msgid ""
 "compute the filter coefficients based on the values your enter into the "
 "config."
 msgstr ""
+"Filterkoden använder biblioteket [SciPy](https://scipy.org/) för att beräkna "
+"filterkoefficienterna utifrån värdena i konfigurationen."
 
 #: docs/Load_Cell.md:block 92 (paragraph)
 msgid ""
@@ -532,10 +705,14 @@ msgid ""
 "your installation experience. It does work with Python 2 but installation can "
 "take 30+ minutes and require installing additional tools."
 msgstr ""
+"Förkompilerade SciPy-versioner finns för Python 3 på 32-bitars Raspberry Pi-"
+"system. 32 bitar med Python 3 rekommenderas starkt eftersom installationen "
+"blir enklare. Det fungerar med Python 2, men installationen kan ta mer än 30 "
+"minuter och kräva ytterligare verktyg."
 
 #: docs/Load_Cell.md:block 94 (header)
 msgid "Filter Workbench"
-msgstr ""
+msgstr "Filterarbetsbänk"
 
 #: docs/Load_Cell.md:block 95 (paragraph)
 msgid ""
@@ -544,14 +721,19 @@ msgid ""
 "[filter_workbench.ipynb](../scripts/filter_workbench.ipynb), to perform a "
 "detailed investigation with real captured data and FFTs."
 msgstr ""
+"Filterparametrarna bör väljas utifrån den drift som syns på skrivaren vid "
+"normal drift. En Jupyter-anteckningsbok, [filter_workbench.ipynb](../scripts/"
+"filter_workbench.ipynb), finns i scripts för detaljerad analys med verkliga "
+"insamlade data och FFT:er."
 
 #: docs/Load_Cell.md:block 96 (header)
 msgid "Filtering Suggestions"
-msgstr ""
+msgstr "Filterförslag"
 
 #: docs/Load_Cell.md:block 97 (paragraph)
 msgid "For those just trying to get a filter working follow these suggestions:"
 msgstr ""
+"För dig som bara försöker få ett filter att fungera följer här några förslag:"
 
 #: docs/Load_Cell.md:block 98 (unordered list)
 msgid ""
@@ -562,12 +744,20 @@ msgid ""
 "eliminated. Setting this value too high will result in slow triggering and "
 "excess force going through the toolhead."
 msgstr ""
+"Det enda nödvändiga alternativet är `drift_filter_cutoff_frequency`. Ett "
+"försiktigt startvärde är `0.5` Hz. Prusa levererade MK4 med `0.8` Hz och XL "
+"med `11.2` Hz, vilket sannolikt är ett säkert intervall att experimentera "
+"inom. Höj bara värdet tills normal drift från bowdenslangens kraft "
+"elimineras. Ett för högt värde ger långsam utlösning och överdriven kraft "
+"genom verktygshuvudet."
 
 #: docs/Load_Cell.md:block 98 (unordered list)
 msgid ""
 "Keep `trigger_force` low. The default is `75`g. The drift filter keeps the "
 "internal grams value very close to 0 so a large trigger force is not needed."
 msgstr ""
+"Håll `trigger_force` låg. Standardvärdet är `75` g. Driftfiltret håller det "
+"interna gramvärdet nära 0, så en hög utlösningskraft behövs inte."
 
 #: docs/Load_Cell.md:block 98 (unordered list)
 msgid ""
@@ -575,32 +765,37 @@ msgid ""
 "and should keep your toolhead safe while experimenting. If you hit this limit "
 "the `drift_filter_cutoff_frequency` value may be too high."
 msgstr ""
+"Håll `force_safety_limit` på ett försiktigt värde. Standardvärdet är 2 kg "
+"och bör skydda verktygshuvudet under experiment. Om gränsen nås kan "
+"`drift_filter_cutoff_frequency` vara för hög."
 
 #: docs/Load_Cell.md:block 99 (header)
 msgid "Suggestions for Load Cell Tool Boards"
-msgstr ""
+msgstr "Förslag för verktygskort med lastcell"
 
 #: docs/Load_Cell.md:block 100 (paragraph)
 msgid ""
 "This section covers suggestions for those developing toolhead boards that want"
 " to support [load_cell_probe]"
 msgstr ""
+"Det här avsnittet innehåller förslag för dem som utvecklar verktygshuvudkort "
+"med stöd för [load_cell_probe]."
 
 #: docs/Load_Cell.md:block 101 (header)
 msgid "ADC Sensor Selection & Board Development Hints"
-msgstr ""
+msgstr "Val av ADC-sensor och råd för kortutveckling"
 
 #: docs/Load_Cell.md:block 102 (paragraph)
 msgid "Ideally a sensor would meet these criteria:"
-msgstr ""
+msgstr "Idealt sett uppfyller en sensor dessa kriterier:"
 
 #: docs/Load_Cell.md:block 103 (unordered list)
 msgid "At least 24 bits wide"
-msgstr ""
+msgstr "Minst 24 bitar bred"
 
 #: docs/Load_Cell.md:block 103 (unordered list)
 msgid "Use SPI communications"
-msgstr ""
+msgstr "Använd SPI-kommunikation"
 
 #: docs/Load_Cell.md:block 103 (unordered list)
 msgid ""
@@ -608,12 +803,17 @@ msgid ""
 "This is often called the \"data ready\" or \"DRDY\" pin. Checking a pin is "
 "much faster than running an SPI query."
 msgstr ""
+"Har ett stift som kan indikera att ett sampel är klart utan SPI-"
+"kommunikation. Det kallas ofta stiftet \"data ready\" eller \"DRDY\". Att "
+"kontrollera ett stift är mycket snabbare än en SPI-fråga."
 
 #: docs/Load_Cell.md:block 103 (unordered list)
 msgid ""
 "Has a programmable gain amplifier gain setting of 128. This should eliminate "
 "the need for a separate amplifier."
 msgstr ""
+"Har en programmerbar förstärkningsinställning på 128 för förstärkaren. Detta "
+"bör eliminera behovet av en separat förstärkare."
 
 #: docs/Load_Cell.md:block 103 (unordered list)
 msgid ""
@@ -621,6 +821,9 @@ msgid ""
 " errors in homing and using noisy data at startup. It can also help users "
 "track down wiring and grounding issues."
 msgstr ""
+"Indikerar via SPI om sensorn har återställts. Att upptäcka återställningar "
+"undviker tidsfel vid nollställning och brusiga data vid uppstart. Det kan "
+"också hjälpa användare att hitta kabel- och jordningsproblem."
 
 #: docs/Load_Cell.md:block 103 (unordered list)
 msgid ""
@@ -631,6 +834,12 @@ msgid ""
 "between measurements. E.g. a 500Hz sensor moving at 5mm/s has the same safety "
 "factor as a 100Hz sensor moving at only 1mm/s."
 msgstr ""
+"En valbar samplingsfrekvens mellan 350 Hz och 2 kHz. Mycket höga "
+"samplingsfrekvenser är inte fördelaktiga i 3D-skrivare eftersom de ger "
+"mycket brus vid snabba rörelser. Frekvenser under 250 Hz kräver långsammare "
+"sondering och ökar kraften på verktygshuvudet genom längre fördröjning "
+"mellan mätningar. En sensor på 500 Hz som rör sig med 5 mm/s har exempelvis "
+"samma säkerhetsfaktor som en sensor på 100 Hz som rör sig med endast 1 mm/s."
 
 #: docs/Load_Cell.md:block 103 (unordered list)
 msgid ""
@@ -639,16 +848,22 @@ msgid ""
 "ADCs that require switching channels have a settling of several samples after "
 "each channel switch making them unsuitable for probing applications."
 msgstr ""
+"Vid konstruktion för tillämpningar under bädden, där flera lastceller ska "
+"mätas, använd en krets som kan sampla alla ingångar samtidigt. Multiplexade "
+"ADC:er som kräver kanalbyte behöver flera sampel för stabilisering efter "
+"varje byte och passar därför inte för sondering."
 
 #: docs/Load_Cell.md:block 104 (paragraph)
 msgid ""
 "Implementing support for a new sensor chip is not particularly difficult with "
 "Klipper's `bulk_sensor` and `load_cell_endstop` infrastructure."
 msgstr ""
+"Att implementera stöd för ett nytt sensorkrets är inte särskilt svårt med "
+"Klippers infrastruktur `bulk_sensor` och `load_cell_endstop`."
 
 #: docs/Load_Cell.md:block 105 (header)
 msgid "5V Power Filtering"
-msgstr ""
+msgstr "Filtrering av 5 V-matning"
 
 #: docs/Load_Cell.md:block 106 (paragraph)
 msgid ""
@@ -658,6 +873,11 @@ msgid ""
 " generally assume a quiet power supply. Treat their suggested capacitor values"
 " as minimums."
 msgstr ""
+"Det rekommenderas starkt att använda större kondensatorer än ADC-"
+"kretstillverkaren anger. ADC-kretsar är normalt avsedda för miljöer med lågt "
+"brus, som batteridrivna enheter. Sensortillverkarnas tillämpningsanvisningar "
+"förutsätter oftast en tyst matning; betrakta deras kondensatorvärden som "
+"minimivärden."
 
 #: docs/Load_Cell.md:block 107 (paragraph)
 msgid ""
@@ -666,10 +886,14 @@ msgid ""
 "power supply and active stepper drivers before deciding on smoothing capacitor"
 " sizes."
 msgstr ""
+"3D-skrivare ger mycket brus på 5 V-bussen, vilket kan förstöra sensorns "
+"noggrannhet. Testa sensorn på kortet med ett typiskt 3D-skrivarnätaggregat "
+"och aktiva stegmotordrivare innan du väljer storlek på "
+"utjämningskondensatorer."
 
 #: docs/Load_Cell.md:block 108 (header)
 msgid "Grounding & Ground Planes"
-msgstr ""
+msgstr "Jordning och jordplan"
 
 #: docs/Load_Cell.md:block 109 (paragraph)
 msgid ""
@@ -678,16 +902,22 @@ msgid ""
 "noise. Keep the chip away from power sections and DC to DC converters. The "
 "board should have proper grounding back to the DC supply."
 msgstr ""
+"Analoga ADC-kretsar innehåller komponenter som är mycket känsliga för brus "
+"och ESD. Ett stort jordplan på kortets första lager under kretsen kan hjälpa "
+"mot brus. Håll kretsen borta från kraftdelar och DC/DC-omvandlare. Kortet "
+"ska ha korrekt jordning tillbaka till likspänningsmatningen."
 
 #: docs/Load_Cell.md:block 110 (header)
 msgid "HX711 and HX717 Notes"
-msgstr ""
+msgstr "Anmärkningar om HX711 och HX717"
 
 #: docs/Load_Cell.md:block 111 (paragraph)
 msgid ""
 "This sensor is popular because of its low cost and availability in the supply "
 "chain. However, this is a sensor with some drawbacks:"
 msgstr ""
+"Sensorn är populär på grund av låg kostnad och god tillgänglighet i "
+"leveranskedjan. Den har dock vissa nackdelar:"
 
 #: docs/Load_Cell.md:block 112 (unordered list)
 msgid ""
@@ -695,6 +925,8 @@ msgid ""
 "MCU. Using a sensor that communicates via SPI would save resources on the tool"
 " board's CPU."
 msgstr ""
+"HX71x-sensorerna använder bit-bang-kommunikation som belastar MCU:n mycket. "
+"En sensor med SPI-kommunikation skulle spara resurser på verktygskortets CPU."
 
 #: docs/Load_Cell.md:block 112 (unordered list)
 msgid ""
@@ -702,6 +934,9 @@ msgid ""
 "resets with a timing heuristic but this is not ideal. Resets indicate a "
 "problem with wiring or grounding."
 msgstr ""
+"HX71x saknar ett sätt att kommunicera återställningshändelser till MCU:n. "
+"Klipper upptäcker återställningar med en tidsheuristik, men det är inte "
+"idealiskt. Återställningar tyder på problem med kablage eller jordning."
 
 #: docs/Load_Cell.md:block 112 (unordered list)
 msgid ""
@@ -709,6 +944,9 @@ msgid ""
 "its higher sample rate (320 vs 80). Probing speed on the HX711 should be "
 "limited to less than 2mm/s."
 msgstr ""
+"För sonderingsanvändning rekommenderas HX717 starkt på grund av högre "
+"samplingsfrekvens, 320 jämfört med 80. Sonderingshastigheten för HX711 bör "
+"begränsas till mindre än 2 mm/s."
 
 #: docs/Load_Cell.md:block 112 (unordered list)
 msgid ""
@@ -716,12 +954,17 @@ msgid ""
 "the 10SPS version of the sensor (which is widely distributed) it needs to be "
 "physically re-wired to run at 80SPS."
 msgstr ""
+"Samplingsfrekvensen för HX71x kan inte ställas in i Klippers konfiguration. "
+"Om du har sensorns 10 SPS-version, som är vanligt spridd, måste den kopplas "
+"om fysiskt för att köras vid 80 SPS."
 
 #: docs/Load_Cell.md:block 9 (unordered list)
 msgid ""
 "Tap or push on the sensor while `LOAD_CELL_DIAGNOSTIC` runs. If things are "
 "working correctly this should increase the 'Sample range'."
 msgstr ""
+"Knacka på eller tryck på sensorn medan `LOAD_CELL_DIAGNOSTIC` körs. Om allt "
+"fungerar korrekt ska \"Sample range\" öka."
 
 #: docs/Load_Cell.md:block 49 (paragraph)
 msgid ""
@@ -731,10 +974,15 @@ msgid ""
 "more likely to be violated. You want to be notified if this is happening "
 "because your hardware has been permanently damaged."
 msgstr ""
+"Ett annat sätt som den okontrollerade rörelsen kan uppstå är skada på en "
+"töjningsgivare. Om metalldelen böjs permanent ändras enhetens "
+"`reference_tare_counts`. Det för startvärdet närmare gränsen och gör "
+"överskridande mer sannolikt. Du bör få en varning om detta eftersom "
+"maskinvaran har skadats permanent."
 
 #: docs/Load_Cell.md:block 54 (header)
 msgid "Interpolation"
-msgstr ""
+msgstr "Interpolering"
 
 #: docs/Load_Cell.md:block 55 (paragraph)
 msgid ""
@@ -748,6 +996,13 @@ msgid ""
 "squared. This enables a resolution finer than the distance between the "
 "sampling points and will also be less sensitive to noise."
 msgstr ""
+"För att öka sonderingsresultatets precision kan positionen för första "
+"kontakten mellan munstycke och bädd uppskattas genom att anpassa en styckvis "
+"funktion till mätdata. Ovanför bädden är kraften konstant vid "
+"tareringsvärdet; vid kontakt ökar kraften linjärt när Z-positionen minskar. "
+"Delningspunktens optimala Z-position fås genom att minimera kvadratfelet. "
+"Det ger en upplösning finare än avståndet mellan samplingspunkterna och "
+"mindre känslighet för brus."
 
 #: docs/Load_Cell.md:block 56 (paragraph)
 msgid ""
@@ -758,6 +1013,11 @@ msgid ""
 "data must contain enough samples for the fit: at least 3 samples each below "
 "and above the contact point are required."
 msgstr ""
+"Av fysiska och tekniska skäl använder interpoleringen data från en extra "
+"uppåtgående rörelse efter den inledande nedåtgående rörelsen. De första 300 "
+"ms av data från uppåtrörelsen används för anpassningen, vilket minimerar "
+"påverkan av tareringsdrift. Det krävs minst tre sampel både under och över "
+"kontaktpunkten."
 
 #: docs/Load_Cell.md:block 57 (paragraph)
 msgid ""
@@ -767,12 +1027,19 @@ msgid ""
 "the `lift_speed` is too small, there will be too few samples above the contact"
 " point due to the 300ms window."
 msgstr ""
+"En relativt hög utlösningskraft rekommenderas för att proben ska få en "
+"tillräckligt stark signal. Om det finns för få sampel under kontaktpunkten "
+"kan `trigger_force` höjas eller `lift_speed` sänkas. Om `lift_speed` är för "
+"låg blir det dock för få sampel ovanför kontaktpunkten på grund av fönstret "
+"på 300 ms."
 
 #: docs/Load_Cell.md:block 58 (paragraph)
 msgid ""
 "The distance of the ascending move can be configured through the "
 "`sample_retract_dist` parameter."
 msgstr ""
+"Avståndet för den uppåtgående rörelsen kan konfigureras med parametern "
+"`sample_retract_dist`."
 
 #~ msgid ""
 #~ "Tap or push on the sensor while `LOAD_CELL_DIAGNOSTIC` runs. If things are "

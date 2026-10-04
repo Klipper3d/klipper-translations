@@ -4,53 +4,63 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: sv\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"Last-Translator: Daniel Nylander <yeagersthlm@gmail.com>\n"
+"Language-Team: Swedish <https://hosted.weblate.org/projects/klipper/"
+"hall_filament_width_sensor/sv/>\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2026-09-16 18:47+0000\n"
+"X-Generator: Weblate 2026.10.dev0\n"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 1 (header)
 msgid "Hall filament width sensor"
-msgstr ""
+msgstr "Hall-sensor för filamentbredd"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 4 (header)
 msgid "How does it work?"
-msgstr ""
+msgstr "Så fungerar den"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 20 (header)
 msgid "Template for menu variables"
-msgstr ""
+msgstr "Mall för menyvariabler"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 22 (header)
 msgid "Calibration procedure"
-msgstr ""
+msgstr "Kalibreringsförfarande"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 24 (ordered list)
 msgid "Insert first calibration rod (1.5 mm size) get first raw sensor value"
 msgstr ""
+"Sätt in den första kalibreringsstaven (1,5 mm) och hämta det första råa "
+"sensorvärdet"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 24 (ordered list)
 msgid "Insert second calibration rod (2.0 mm size) get second raw sensor value"
 msgstr ""
+"Sätt in den andra kalibreringsstaven (2,0 mm) och hämta det andra råa "
+"sensorvärdet"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 24 (ordered list)
 msgid "Save raw sensor values in config parameter `Raw_dia1` and `Raw_dia2`"
 msgstr ""
+"Spara de råa sensorvärdena i konfigurationsparametrarna `Raw_dia1` och "
+"`Raw_dia2`"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 25 (header)
 msgid "How to enable sensor"
-msgstr ""
+msgstr "Så aktiveras sensorn"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 26 (paragraph)
 msgid "By default, the sensor is disabled at power-on."
-msgstr ""
+msgstr "Sensorn är som standard inaktiverad vid start."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 28 (header)
 msgid "Logging"
-msgstr ""
+msgstr "Loggning"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 29 (paragraph)
 msgid "By default, diameter logging is disabled at power-on."
-msgstr ""
+msgstr "Loggning av diameter är som standard inaktiverad vid start."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 30 (paragraph)
 msgid ""
@@ -58,11 +68,14 @@ msgid ""
 "**DISABLE_FILAMENT_WIDTH_LOG** command to stop logging. To enable logging at "
 "power-on, set the `logging` parameter to `true`."
 msgstr ""
+"Kör kommandot **ENABLE_FILAMENT_WIDTH_LOG** för att starta loggning och "
+"**DISABLE_FILAMENT_WIDTH_LOG** för att stoppa den. Aktivera loggning vid "
+"start genom att ange parametern `logging` till `true`."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 31 (paragraph)
 msgid ""
 "Filament diameter is logged on every measurement interval (10 mm by default)."
-msgstr ""
+msgstr "Filamentdiametern loggas vid varje mätintervall (10 mm som standard)."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 3 (paragraph)
 msgid ""
@@ -70,12 +83,17 @@ msgid ""
 "[Thingiverse](https://www.thingiverse.com/thing:4138933), an assembly video is"
 " also available on [Youtube](https://www.youtube.com/watch?v=TDO9tME8vp4)"
 msgstr ""
+"Konstruktioner finns på [Thingiverse](https://www.thingiverse.com/"
+"thing:4138933); en monteringsvideo finns också på [Youtube](https://"
+"www.youtube.com/watch?v=TDO9tME8vp4)."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 10 (paragraph)
 msgid ""
 "To get raw sensor value you can use menu item or **QUERY_RAW_FILAMENT_WIDTH** "
 "command in terminal."
 msgstr ""
+"Du kan använda menyalternativet eller kommandot **QUERY_RAW_FILAMENT_WIDTH** "
+"i terminalen för att hämta det råa sensorvärdet."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 4 (paragraph)
 msgid ""
@@ -83,12 +101,18 @@ msgid ""
 "Reference](Config_Reference.md#hall_filament_width_sensor) and [G-Code "
 "documentation](G-Codes.md#hall_filament_width_sensor)."
 msgstr ""
+"Läs [konfigurationsreferensen]"
+"(Config_Reference.md#hall_filament_width_sensor) och [G-kodsdokumentationen]"
+"(G-Codes.md#hall_filament_width_sensor) för att använda Hall-sensorn för "
+"filamentbredd."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 14 (paragraph)
 msgid ""
 "To enable the sensor, issue **ENABLE_FILAMENT_WIDTH_SENSOR** command or set "
 "the `enable` parameter to `true`."
 msgstr ""
+"Aktivera sensorn genom att köra kommandot **ENABLE_FILAMENT_WIDTH_SENSOR** "
+"eller ange parametern `enable` till `true`."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 2 (paragraph)
 msgid ""
@@ -98,6 +122,12 @@ msgid ""
 "operation: two hall sensors work in differential mode, temperature drift same "
 "for sensor. Special temperature compensation not needed."
 msgstr ""
+"Detta dokument beskriver värdmodulen för en sensor för filamentbredd. "
+"Maskinvaran som användes för att utveckla värdmodulen bygger på två linjära "
+"Hall-sensorer (till exempel ss49e). Sensorerna sitter på motsatta sidor i "
+"höljet. Funktionsprincip: två Hall-sensorer arbetar i differentiellt läge, "
+"och temperaturdriften är densamma för båda sensorerna. Särskild "
+"temperaturkompensering behövs inte."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 6 (paragraph)
 msgid ""
@@ -107,16 +137,23 @@ msgid ""
 "a ramps-like board with the analog11 and analog12 pins. You can use different "
 "pins and different boards."
 msgstr ""
+"Sensorn genererar två analoga utgångar baserade på den beräknade "
+"filamentbredden. Summan av utspänningarna motsvarar alltid den uppmätta "
+"filamentbredden. Värdmodulen övervakar spänningsförändringar och justerar "
+"extruderingsmultiplikatorn. aux2-kontakten på ett RAMPS-liknande kort med "
+"stiften analog11 och analog12 används. Andra stift och kort kan användas."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 15 (header)
 msgid "Use as a runout switch only"
-msgstr ""
+msgstr "Använd endast som filamentslutssensor"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 16 (paragraph)
 msgid ""
 "By default, the sensor measures filament diameter and adjusts the extrusion "
 "multiplier to compensate for variations."
 msgstr ""
+"Sensorn mäter som standard filamentdiametern och justerar "
+"extruderingsmultiplikatorn för att kompensera för variationer."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 17 (paragraph)
 msgid ""
@@ -125,6 +162,10 @@ msgid ""
 "sensor will only trigger runout events when filament is not detected, it will "
 "not modify the extrusion multiplier."
 msgstr ""
+"Om du endast vill använda sensorn som filamentslutssensor anger du "
+"konfigurationsparametern `enable_flow_compensation` till `false`. I det "
+"läget utlöser sensorn bara händelser om slut på filament när filament inte "
+"upptäcks och ändrar inte extruderingsmultiplikatorn."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 18 (paragraph)
 msgid ""
@@ -132,6 +173,9 @@ msgid ""
 "for flow compensation but can reliably detect filament runout, or when "
 "printing with flexible filaments which have unstable diameter characteristics."
 msgstr ""
+"Detta är användbart för skrivare där filamentsensorn inte är tillräckligt "
+"exakt för flödeskompensering men pålitligt kan upptäcka att filamentet tar "
+"slut, eller vid utskrift med flexibla filament vars diameter varierar."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 19 (paragraph)
 msgid ""
@@ -139,18 +183,25 @@ msgid ""
 "compensation or **ENABLE_FILAMENT_WIDTH_SENSOR FLOW_COMPENSATION=0** to "
 "disable it."
 msgstr ""
+"Kör **ENABLE_FILAMENT_WIDTH_SENSOR FLOW_COMPENSATION=1** för att aktivera "
+"flödeskompensering eller **ENABLE_FILAMENT_WIDTH_SENSOR "
+"FLOW_COMPENSATION=0** för att inaktivera den."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 20 (paragraph)
 msgid ""
 "Note that disabling filament width compensation automatically resets the "
 "extrusion multiplier to 100%."
 msgstr ""
+"Observera att inaktivering av kompensation för filamentbredd automatiskt "
+"återställer extruderingsmultiplikatorn till 100 %."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 21 (paragraph)
 msgid ""
 "**QUERY_FILAMENT_WIDTH** includes the current state of flow compensation in "
 "its output."
 msgstr ""
+"**QUERY_FILAMENT_WIDTH** inkluderar flödeskompenseringens aktuella tillstånd "
+"i utdata."
 
 #~ msgid ""
 #~ "[menu __main __filament __width_current]\n"

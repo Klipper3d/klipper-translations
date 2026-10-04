@@ -4,12 +4,16 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: sv\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"Last-Translator: Daniel Nylander <yeagersthlm@gmail.com>\n"
+"Language-Team: Swedish <https://hosted.weblate.org/projects/klipper/features/"
+"sv/>\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2026-09-17 13:27+0000\n"
+"X-Generator: Weblate 2026.10.dev0\n"
 
 msgid "Klipper has several compelling features:"
-msgstr ""
+msgstr "Klipper har flera viktiga funktioner:"
 
 msgid ""
 "Klipper supports printers with multiple micro-controllers. For example, one "
@@ -19,6 +23,12 @@ msgid ""
 "drift between micro-controllers. No special code is needed to enable multiple "
 "micro-controllers - it just requires a few extra lines in the config file."
 msgstr ""
+"Klipper stöder skrivare med flera mikrokontroller. En mikrokontroller kan "
+"till exempel styra en extruder, en annan skrivarens värmare och en tredje "
+"resten av skrivaren. Klippers värdprogramvara har klocksynkronisering för "
+"att kompensera för klockdrift mellan mikrokontroller. Ingen särskild kod "
+"behövs för att aktivera flera mikrokontroller; det kräver bara några extra "
+"rader i konfigurationsfilen."
 
 msgid ""
 "Configuration via simple config file. There's no need to reflash the micro-"
@@ -26,6 +36,10 @@ msgid ""
 "standard config file which can be easily edited. This makes it easier to setup"
 " and maintain the hardware."
 msgstr ""
+"Konfiguration via en enkel konfigurationsfil. Mikrokontrollern behöver inte "
+"programmeras om för att ändra en inställning. Hela Klippers konfiguration "
+"lagras i en standardiserad konfigurationsfil som enkelt kan redigeras. Det "
+"förenklar installation och underhåll av maskinvaran."
 
 msgid ""
 "Klipper supports \"Smooth Pressure Advance\" - a mechanism to account for the "
@@ -34,6 +48,11 @@ msgid ""
 "introduce instantaneous extruder speed changes, which improves overall "
 "stability and robustness."
 msgstr ""
+"Klipper stöder \"Smooth Pressure Advance\", en mekanism som kompenserar för "
+"tryckets effekter i en extruder. Det minskar extruderns \"efterflöde\" och "
+"förbättrar kvaliteten på utskriftens hörn. Klippers implementation inför "
+"inte omedelbara hastighetsändringar för extrudern, vilket förbättrar "
+"stabilitet och robusthet."
 
 msgid ""
 "Klipper supports \"Input Shaping\" to reduce the impact of vibrations on print"
@@ -41,6 +60,10 @@ msgid ""
 "\"ghosting\", \"echoing\", or \"rippling\") in prints. It may also allow one "
 "to obtain faster printing speeds while still maintaining high print quality."
 msgstr ""
+"Klipper stöder \"Input Shaping\" för att minska vibrationers inverkan på "
+"utskriftskvaliteten. Det kan minska eller eliminera \"ringing\" (även kallat "
+"\"ghosting\", \"echoing\" eller \"rippling\") i utskrifter. Det kan även ge "
+"högre utskriftshastighet utan att försämra utskriftskvaliteten."
 
 msgid ""
 "Klipper uses an \"iterative solver\" to calculate precise step times from "
@@ -48,6 +71,10 @@ msgid ""
 "easier and it keeps timing precise even with complex kinematics (no \"line "
 "segmentation\" is needed)."
 msgstr ""
+"Klipper använder en \"iterativ lösningsmetod\" för att beräkna exakta "
+"stegtider från enkla kinematiska ekvationer. Det förenklar portering av "
+"Klipper till nya typer av robotar och håller tidsberäkningen exakt även vid "
+"komplex kinematik (ingen \"linjesegmentering\" behövs)."
 
 msgid ""
 "Simpler code. Klipper uses a very high level language (Python) for most code. "
@@ -55,6 +82,10 @@ msgid ""
 "algorithms, etc. are all written in Python. This makes it easier to develop "
 "new functionality."
 msgstr ""
+"Enklare kod. Klipper använder ett mycket högnivåspråk (Python) för merparten "
+"av koden. Algoritmerna för kinematik, tolkning av G-kod, uppvärmning och "
+"termistorer med mera är alla skrivna i Python. Det gör det enklare att "
+"utveckla nya funktioner."
 
 msgid ""
 "Custom programmable macros. New G-Code commands can be defined in the printer "
@@ -62,38 +93,53 @@ msgid ""
 " allowing them to produce different actions depending on the state of the "
 "printer."
 msgstr ""
+"Anpassade programmerbara makron. Nya G-kodkommandon kan definieras i "
+"skrivarens konfigurationsfil (inga kodändringar behövs). Kommandona är "
+"programmerbara och kan utföra olika åtgärder beroende på skrivarens "
+"tillstånd."
 
 msgid ""
 "Builtin API server. In addition to the standard G-Code interface, Klipper "
 "supports a rich JSON based application interface. This enables programmers to "
 "build external applications with detailed control of the printer."
 msgstr ""
+"Inbyggd API-server. Utöver standardgränssnittet för G-kod stöder Klipper ett "
+"omfattande JSON-baserat programgränssnitt. Det gör det möjligt för "
+"utvecklare att bygga externa program med detaljerad styrning av skrivaren."
 
 msgid "Additional features"
-msgstr ""
+msgstr "Ytterligare funktioner"
 
 msgid "Klipper supports many standard 3d printer features:"
-msgstr ""
+msgstr "Klipper stöder många vanliga funktioner för 3D-skrivare:"
 
 msgid ""
 "Support for multiple extruders. Extruders with shared heaters and extruders on"
 " independent carriages (IDEX) are also supported."
 msgstr ""
+"Stöd för flera extrudrar. Extrudrar med delade värmare och extrudrar på "
+"oberoende vagnar (IDEX) stöds också."
 
 msgid ""
 "Automatic delta calibration support. The calibration tool can perform basic "
 "height calibration as well as an enhanced X and Y dimension calibration. The "
 "calibration can be done with a Z height probe or via manual probing."
 msgstr ""
+"Stöd för automatisk delta-kalibrering. Kalibreringsverktyget kan utföra "
+"enkel höjdkalibrering samt förbättrad kalibrering av X- och Y-dimensioner. "
+"Kalibreringen kan göras med en Z-höjdsond eller manuellt."
 
 msgid "Basic thermal heater protection enabled by default."
-msgstr ""
+msgstr "Grundläggande skydd mot värmarfel är aktiverat som standard."
 
 msgid ""
 "Support for common LCD displays attached directly to the printer. A default "
 "menu is also available. The contents of the display and menu can be fully "
 "customized via the config file."
 msgstr ""
+"Stöd för vanliga LCD-skärmar som ansluts direkt till skrivaren. En "
+"standardmeny finns också. Skärmens och menyns innehåll kan anpassas helt via "
+"konfigurationsfilen."
 
 msgid ""
 "Constant acceleration and \"look-ahead\" support. All printer moves will "
@@ -103,247 +149,269 @@ msgid ""
 "direction will be optimized to reduce print stalls and improve overall print "
 "time."
 msgstr ""
+"Stöd för konstant acceleration och \"framåtblick\". Alla skrivarrörelser "
+"accelererar gradvis från stillastående till normal hastighet och bromsar "
+"sedan gradvis in igen. Den inkommande strömmen av G-kodkommandon för rörelse "
+"köas och analyseras; accelerationen mellan rörelser i liknande riktning "
+"optimeras för att minska utskriftsstopp och förbättra den totala "
+"utskriftstiden."
 
 msgid ""
 "Klipper implements a \"stepper phase endstop\" algorithm that can improve the "
 "accuracy of typical endstop switches. When properly tuned it can improve a "
 "print's first layer bed adhesion."
 msgstr ""
+"Klipper implementerar en algoritm för \"stegmotorfas-ändstopp\" som kan "
+"förbättra noggrannheten hos vanliga ändstoppsbrytare. När den är rätt "
+"inställd kan den förbättra första lagrets vidhäftning mot byggplattan."
 
 msgid ""
 "Support for limiting the top speed of short \"zigzag\" moves to reduce printer"
 " vibration and noise. See the [kinematics](Kinematics.md) document for more "
 "information."
 msgstr ""
+"Stöd för att begränsa topphastigheten för korta \"sicksackrörelser\" och "
+"minska skrivarens vibrationer och ljud. Se dokumentet [kinematik]"
+"(Kinematics.md) för mer information."
 
 msgid ""
 "Sample configuration files are available for many common printers. Check the "
 "[config directory](../config/) for a list."
 msgstr ""
+"Exempelkonfigurationsfiler finns för många vanliga skrivare. Se "
+"[konfigurationskatalogen](../config/) för en lista."
 
 msgid ""
 "To get started with Klipper, read the [installation](Installation.md) guide."
 msgstr ""
+"Läs guiden [installation](Installation.md) för att komma igång med Klipper."
 
 msgid "Step Benchmarks"
-msgstr ""
+msgstr "Prestandamätningar för steg"
 
 msgid ""
 "Below are the results of stepper performance tests. The numbers shown "
 "represent total number of steps per second on the micro-controller."
 msgstr ""
+"Nedan visas resultaten från prestandatester för stegmotorer. Siffrorna anger "
+"totalt antal steg per sekund på mikrokontrollern."
 
 msgid "Micro-controller"
-msgstr ""
+msgstr "Mikrokontroller"
 
 msgid "3 steppers active"
-msgstr ""
+msgstr "3 stegmotorer aktiva"
 
 msgid "16Mhz AVR"
-msgstr ""
+msgstr "16Mhz AVR"
 
 msgid "20Mhz AVR"
-msgstr ""
+msgstr "20Mhz AVR"
 
 msgid "Beaglebone PRU"
-msgstr ""
+msgstr "Beaglebone PRU"
 
 msgid "686K"
-msgstr ""
+msgstr "686K"
 
 #: docs/Features.md:block 1 (header)
 msgid "Features"
-msgstr ""
+msgstr "Funktioner"
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
 "Standard G-Code support. Common g-code commands that are produced by typical "
 "\"slicers\" (SuperSlicer, Cura, PrusaSlicer, etc.) are supported."
 msgstr ""
+"Standardstöd för G-kod. Vanliga G-kodkommandon som skapas av typiska "
+"\"skivningsprogram\" (SuperSlicer, Cura, PrusaSlicer osv.) stöds."
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
 "Support for filament presence sensors, filament motion sensors, and filament "
 "width sensors."
 msgstr ""
+"Stöd för sensorer för filamentnärvaro, filamentrörelse och filamentbredd."
 
 #: docs/Features.md:block 10 (table)
 msgid "1 stepper active"
-msgstr ""
+msgstr "1 stegmotor aktiv"
 
 #: docs/Features.md:block 10 (table)
 msgid "157K"
-msgstr ""
+msgstr "157K"
 
 #: docs/Features.md:block 10 (table)
 msgid "99K"
-msgstr ""
+msgstr "99K"
 
 #: docs/Features.md:block 10 (table)
 msgid "196K"
-msgstr ""
+msgstr "196K"
 
 #: docs/Features.md:block 10 (table)
 msgid "123K"
-msgstr ""
+msgstr "123K"
 
 #: docs/Features.md:block 10 (table)
 msgid "471K"
-msgstr ""
+msgstr "471K"
 
 #: docs/Features.md:block 10 (table)
 msgid "STM32F042"
-msgstr ""
+msgstr "STM32F042"
 
 #: docs/Features.md:block 10 (table)
 msgid "814K"
-msgstr ""
+msgstr "814K"
 
 #: docs/Features.md:block 10 (table)
 msgid "578K"
-msgstr ""
+msgstr "578K"
 
 #: docs/Features.md:block 10 (table)
 msgid "866K"
-msgstr ""
+msgstr "866K"
 
 #: docs/Features.md:block 10 (table)
 msgid "708K"
-msgstr ""
+msgstr "708K"
 
 #: docs/Features.md:block 10 (table)
 msgid "1180K"
-msgstr ""
+msgstr "1180K"
 
 #: docs/Features.md:block 10 (table)
 msgid "818K"
-msgstr ""
+msgstr "818K"
 
 #: docs/Features.md:block 10 (table)
 msgid "1273K"
-msgstr ""
+msgstr "1273K"
 
 #: docs/Features.md:block 10 (table)
 msgid "981K"
-msgstr ""
+msgstr "981K"
 
 #: docs/Features.md:block 10 (table)
 msgid "1690K"
-msgstr ""
+msgstr "1690K"
 
 #: docs/Features.md:block 10 (table)
 msgid "1385K"
-msgstr ""
+msgstr "1385K"
 
 #: docs/Features.md:block 10 (table)
 msgid "1923K"
-msgstr ""
+msgstr "1923K"
 
 #: docs/Features.md:block 10 (table)
 msgid "1351K"
-msgstr ""
+msgstr "1351K"
 
 #: docs/Features.md:block 10 (table)
 msgid "2353K"
-msgstr ""
+msgstr "2353K"
 
 #: docs/Features.md:block 10 (table)
 msgid "1622K"
-msgstr ""
+msgstr "1622K"
 
 #: docs/Features.md:block 10 (table)
 msgid "2500K"
-msgstr ""
+msgstr "2500K"
 
 #: docs/Features.md:block 10 (table)
 msgid "1674K"
-msgstr ""
+msgstr "1674K"
 
 #: docs/Features.md:block 10 (table)
 msgid "3077K"
-msgstr ""
+msgstr "3077K"
 
 #: docs/Features.md:block 10 (table)
 msgid "1885K"
-msgstr ""
+msgstr "1885K"
 
 #: docs/Features.md:block 10 (table)
 msgid "3652K"
-msgstr ""
+msgstr "3652K"
 
 #: docs/Features.md:block 10 (table)
 msgid "2459K"
-msgstr ""
+msgstr "2459K"
 
 #: docs/Features.md:block 10 (table)
 msgid "3913K"
-msgstr ""
+msgstr "3913K"
 
 #: docs/Features.md:block 10 (table)
 msgid "2634K"
-msgstr ""
+msgstr "2634K"
 
 #: docs/Features.md:block 11 (paragraph)
 msgid ""
 "Further details on the benchmarks are available in the [Benchmarks "
 "document](Benchmarks.md)."
 msgstr ""
+"Mer information om prestandamätningarna finns i dokumentet "
+"[prestandamätningar](Benchmarks.md)."
 
 #: docs/Features.md:block 10 (table)
 msgid "STM32G0B1"
-msgstr ""
+msgstr "STM32G0B1"
 
 #: docs/Features.md:block 10 (table)
 msgid "1103K"
-msgstr ""
+msgstr "1103K"
 
 #: docs/Features.md:block 10 (table)
 msgid "790K"
-msgstr ""
+msgstr "790K"
 
 #: docs/Features.md:block 10 (table)
 msgid "SAMD21"
-msgstr ""
+msgstr "SAMD21"
 
 #: docs/Features.md:block 10 (table)
 msgid "STM32F103"
-msgstr ""
+msgstr "STM32F103"
 
 #: docs/Features.md:block 10 (table)
 msgid "SAM3X8E"
-msgstr ""
+msgstr "SAM3X8E"
 
 #: docs/Features.md:block 10 (table)
 msgid "SAM4S8C"
-msgstr ""
+msgstr "SAM4S8C"
 
 #: docs/Features.md:block 10 (table)
 msgid "LPC1768"
-msgstr ""
+msgstr "LPC1768"
 
 #: docs/Features.md:block 10 (table)
 msgid "LPC1769"
-msgstr ""
+msgstr "LPC1769"
 
 #: docs/Features.md:block 10 (table)
 msgid "RP2040"
-msgstr ""
+msgstr "RP2040"
 
 #: docs/Features.md:block 10 (table)
 msgid "SAM4E8E"
-msgstr ""
+msgstr "SAM4E8E"
 
 #: docs/Features.md:block 10 (table)
 msgid "SAMD51"
-msgstr ""
+msgstr "SAMD51"
 
 #: docs/Features.md:block 10 (table)
 msgid "STM32F407"
-msgstr ""
+msgstr "STM32F407"
 
 #: docs/Features.md:block 10 (table)
 msgid "STM32F446"
-msgstr ""
+msgstr "STM32F446"
 
 #: docs/Features.md:block 11 (paragraph)
 msgid ""
@@ -351,6 +419,9 @@ msgid ""
 "[config file](../config/), and look for the micro-controller name in the "
 "comments at the top of that file."
 msgstr ""
+"Om du är osäker på vilken mikrokontroller ett visst kort har, leta upp "
+"lämplig [konfigurationsfil](../config/) och sök efter mikrokontrollerns namn "
+"i kommentarerna högst upp i filen."
 
 #: docs/Features.md:block 3 (unordered list)
 msgid ""
@@ -365,6 +436,16 @@ msgid ""
 " physics of the machine kinematics. More precise stepper movement provides "
 "quieter and more stable printer operation."
 msgstr ""
+"Stegmotorrörelser med hög precision. Klipper använder en "
+"applikationsprocessor (till exempel en billig Raspberry Pi) för att beräkna "
+"skrivarens rörelser. Applikationsprocessorn bestämmer när varje stegmotor "
+"ska stega, komprimerar händelserna, överför dem till mikrokontrollern och "
+"mikrokontrollern utför varje händelse vid den begärda tidpunkten. Varje "
+"stegmotorhändelse schemaläggs med en precision på 25 mikrosekunder eller "
+"bättre. Programvaran använder inte kinematiska uppskattningar (som "
+"Bresenhams algoritm), utan beräknar exakta stegtider utifrån "
+"accelerationsfysik och maskinens kinematik. Exaktare stegmotorrörelser ger "
+"tystare och stabilare skrivardrift."
 
 #: docs/Features.md:block 3 (unordered list)
 msgid ""
@@ -375,6 +456,12 @@ msgid ""
 " makes it easier to use available hardware, to upgrade to new hardware, and to"
 " have confidence in the hardware."
 msgstr ""
+"Klipper är maskinvaruoberoende. Man bör få samma exakta tidsstyrning "
+"oberoende av den underliggande elektroniska maskinvaran. Klippers "
+"mikrokontrollerkod är utformad för att troget följa schemat från Klippers "
+"värdprogramvara (eller tydligt varna användaren om den inte kan göra det). "
+"Detta gör det enklare att använda tillgänglig maskinvara, uppgradera till ny "
+"maskinvara och känna förtroende för maskinvaran."
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
@@ -382,18 +469,27 @@ msgid ""
 "others. This allows the printer to be controlled using a regular web-browser. "
 "The same Raspberry Pi that runs Klipper can also run the web interface."
 msgstr ""
+"Flera webbgränssnitt finns tillgängliga. Fungerar med Mainsail, Fluidd, "
+"OctoPrint och andra. Detta gör att skrivaren kan styras med en vanlig "
+"webbläsare. Samma Raspberry Pi som kör Klipper kan också köra "
+"webbgränssnittet."
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
 "Support for cartesian, delta, corexy, corexz, hybrid-corexy, hybrid-corexz, "
 "deltesian, rotary delta, polar, and cable winch style printers."
 msgstr ""
+"Stöd för skrivare av typen kartesisk, delta, CoreXY, CoreXZ, hybrid-CoreXY, "
+"hybrid-CoreXZ, deltesian, roterande delta, polär och kabelvinsch."
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
 "Run-time \"exclude object\" support. When configured, this module may "
 "facilitate canceling of just one object in a multi-part print."
 msgstr ""
+"Stöd för att \"utesluta objekt\" under körning. När modulen är konfigurerad "
+"kan den underlätta att avbryta endast ett objekt i en utskrift med flera "
+"delar."
 
 #: docs/Features.md:block 3 (unordered list)
 msgid ""
@@ -404,42 +500,48 @@ msgid ""
 "higher print velocities. The stepper event timing remains precise even at high"
 " speeds which improves overall stability."
 msgstr ""
+"Marknadsledande prestanda. Klipper kan uppnå höga steghastigheter på både "
+"nya och äldre mikrokontroller. Även äldre 8-bitars mikrokontroller kan nå "
+"över 175 000 steg per sekund. På modernare mikrokontroller är flera miljoner "
+"steg per sekund möjliga. Högre steghastigheter möjliggör högre "
+"utskriftshastigheter. Tidpunkten för stegmotorhändelser förblir exakt även "
+"vid höga hastigheter, vilket förbättrar den övergripande stabiliteten."
 
 #: docs/Features.md:block 10 (table)
 msgid "AR100"
-msgstr ""
+msgstr "AR100"
 
 #: docs/Features.md:block 10 (table)
 msgid "3529K"
-msgstr ""
+msgstr "3529K"
 
 #: docs/Features.md:block 10 (table)
 msgid "2507K"
-msgstr ""
+msgstr "2507K"
 
 #: docs/Features.md:block 10 (table)
 msgid "RP2350"
-msgstr ""
+msgstr "RP2350"
 
 #: docs/Features.md:block 10 (table)
 msgid "4167K"
-msgstr ""
+msgstr "4167K"
 
 #: docs/Features.md:block 10 (table)
 msgid "2663K"
-msgstr ""
+msgstr "2663K"
 
 #: docs/Features.md:block 10 (table)
 msgid "SAME70"
-msgstr ""
+msgstr "SAME70"
 
 #: docs/Features.md:block 10 (table)
 msgid "6667K"
-msgstr ""
+msgstr "6667K"
 
 #: docs/Features.md:block 10 (table)
 msgid "4737K"
-msgstr ""
+msgstr "4737K"
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
@@ -451,6 +553,14 @@ msgid ""
 "probes. Probes may be calibrated for axis twist compensation. If using an "
 "\"eddy current probe\" then one can utilize fast bed mesh scanning,"
 msgstr ""
+"Stöd för automatisk bäddnivellering. Klipper kan konfigureras för enkel "
+"avkänning av bäddlutning eller fullständig nätbaserad bäddnivellering. "
+"Bäddnätet kan anpassas till utskriftsstorleken (adaptivt bäddnät). Om bädden "
+"använder flera Z-stegmotorer kan Klipper också nivellera den genom att styra "
+"Z-stegmotorerna oberoende av varandra. De flesta Z-höjdsonder stöds, "
+"inklusive BLTouch-sonder och servoaktiverade sonder. Sonder kan kalibreras "
+"för kompensation av axelvridning. Med en \"virvelströmssond\" kan man "
+"använda snabb avsökning av bäddnätet."
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
@@ -459,44 +569,51 @@ msgid ""
 " on fans that have a tachometer. One can assign a \"math formula\" to a fan "
 "for automatic fan speed updating."
 msgstr ""
+"Stöd för vanliga fläktar, munstycksfläktar och temperaturstyrda fläktar. "
+"Fläktarna behöver inte vara igång när skrivaren är overksam. "
+"Fläkthastigheten kan övervakas för fläktar med varvräknare. En \"matematisk "
+"formel\" kan tilldelas en fläkt för automatisk uppdatering av "
+"fläkthastigheten."
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
 "Support for measuring and recording acceleration using adxl345, mpu9250, "
 "mpu6050, lis2dw12, lis3dh, and icm20948 accelerometers."
 msgstr ""
+"Stöd för att mäta och registrera acceleration med accelerometrarna adxl345, "
+"mpu9250, mpu6050, lis2dw12, lis3dh och icm20948."
 
 #: docs/Features.md:block 10 (table)
 msgid "4000K"
-msgstr ""
+msgstr "4000K"
 
 #: docs/Features.md:block 10 (table)
 msgid "2571K"
-msgstr ""
+msgstr "2571K"
 
 #: docs/Features.md:block 10 (table)
 msgid "STM32H723"
-msgstr ""
+msgstr "STM32H723"
 
 #: docs/Features.md:block 10 (table)
 msgid "7429K"
-msgstr ""
+msgstr "7429K"
 
 #: docs/Features.md:block 10 (table)
 msgid "8619K"
-msgstr ""
+msgstr "8619K"
 
 #: docs/Features.md:block 10 (table)
 msgid "STM32G431"
-msgstr ""
+msgstr "STM32G431"
 
 #: docs/Features.md:block 10 (table)
 msgid "3617K"
-msgstr ""
+msgstr "3617K"
 
 #: docs/Features.md:block 10 (table)
 msgid "2452K"
-msgstr ""
+msgstr "2452K"
 
 #: docs/Features.md:block 3 (unordered list)
 msgid ""
@@ -505,6 +622,11 @@ msgid ""
 "modification - just add a Raspberry Pi. Klipper's internal code layout makes "
 "it easier to support other micro-controller architectures as well."
 msgstr ""
+"Portabel kod. Klipper fungerar på ARM, AVR, PRU och andra mikrokontroller. "
+"Befintliga skrivare av typen \"reprap\" kan köra Klipper utan att "
+"maskinvaran ändras – lägg bara till en Raspberry Pi. Klippers interna "
+"kodstruktur gör det också enklare att stödja andra "
+"mikrokontrollerarkitekturer."
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
@@ -515,6 +637,12 @@ msgid ""
 "internal micro-controller temperature sensor and the internal temperature "
 "sensor of a Raspberry Pi."
 msgstr ""
+"Stöd för vanliga temperatursensorer (till exempel vanliga termistorer, "
+"AD595, AD597, AD849x, PT100, PT1000, MAX6675, MAX31855, MAX31856, MAX31865, "
+"BME280, HTU21D, DS18B20, AHT1X, AHT2X, AHT3X, SHT3x och LM75). Anpassade "
+"termistorer och analoga temperatursensorer kan också konfigureras. Man kan "
+"övervaka den interna temperatursensorn i mikrokontrollern och den interna "
+"temperatursensorn i en Raspberry Pi."
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
@@ -523,6 +651,10 @@ msgid ""
 " current control of traditional stepper drivers via AD5206, DAC084S085, "
 "MCP4451, MCP4728, MCP4018, and PWM pins."
 msgstr ""
+"Stöd för konfiguration under körning av stegmotordrivarna TMC2130, TMC2208/"
+"TMC2224, TMC2209, TMC2240, TMC2660 och TMC5160. Det finns också stöd för "
+"strömstyrning av traditionella stegdrivare via AD5206, DAC084S085, MCP4451, "
+"MCP4728, MCP4018 och PWM-stift."
 
 #~ msgid ""
 #~ "Portable code. Klipper works on ARM, AVR, and PRU based micro-controllers. "
