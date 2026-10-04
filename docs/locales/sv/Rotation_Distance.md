@@ -1,91 +1,91 @@
-# Rotation distance
+# Rotationsavstånd
 
-Stepper motor drivers on Klipper require a `rotation_distance` parameter in each [stepper config section](Config_Reference.md#stepper). The `rotation_distance` is the amount of distance that the axis moves with one full revolution of the stepper motor. This document describes how one can configure this value.
+Stegmotordrivare i Klipper kräver parametern `rotation_distance` i varje [konfigurationssektion för stegmotorer](Config_Reference.md#stepper). `rotation_distance` är den sträcka som axeln förflyttas vid ett helt varv av stegmotorn. Det här dokumentet beskriver hur värdet konfigureras.
 
-## Obtaining rotation_distance from steps_per_mm (or step_distance)
+## Ta fram rotation_distance från steps_per_mm (eller step_distance)
 
-The designers of your 3d printer originally calculated `steps_per_mm` from a rotation distance. If you know the steps_per_mm then it is possible to use this general formula to obtain that original rotation distance:
+Konstruktörerna av din 3D-skrivare beräknade ursprungligen `steps_per_mm` utifrån ett rotationsavstånd. Om du känner till steps_per_mm kan du använda denna allmänna formel för att ta fram det ursprungliga rotationsavståndet:
 
 ```
 rotation_distance = <full_steps_per_rotation> * <microsteps> / <steps_per_mm>
 ```
 
-Or, if you have an older Klipper configuration and know the `step_distance` parameter you can use this formula:
+Eller, om du har en äldre Klipper-konfiguration och känner till parametern `step_distance`, kan du använda denna formel:
 
 ```
 rotation_distance = <full_steps_per_rotation> * <microsteps> * <step_distance>
 ```
 
-The `<full_steps_per_rotation>` setting is determined from the type of stepper motor. Most stepper motors are "1.8 degree steppers" and therefore have 200 full steps per rotation (360 divided by 1.8 is 200). Some stepper motors are "0.9 degree steppers" and thus have 400 full steps per rotation. Other stepper motors are rare. If unsure, do not set full_steps_per_rotation in the config file and use 200 in the formula above.
+Inställningen `<full_steps_per_rotation>` bestäms av stegmotortypen. De flesta stegmotorer är "1,8-gradersstegmotorer" och har därför 200 hela steg per varv (360 delat med 1,8 är 200). Vissa stegmotorer är "0,9-gradersstegmotorer" och har därmed 400 hela steg per varv. Andra stegmotorer är ovanliga. Om du är osäker ska du inte ange full_steps_per_rotation i konfigurationsfilen utan använda 200 i formeln ovan.
 
-The `<microsteps>` setting is determined by the stepper motor driver. Most drivers use 16 microsteps. If unsure, set `microsteps: 16` in the config and use 16 in the formula above.
+Inställningen `<microsteps>` bestäms av stegmotordrivaren. De flesta drivrutiner använder 16 mikrosteg. Om du är osäker anger du `microsteps: 16` i konfigurationen och använder 16 i formeln ovan.
 
-Almost all printers should have a whole number for `rotation_distance` on X, Y, and Z type axes. If the above formula results in a rotation_distance that is within .01 of a whole number then round the final value to that whole_number.
+Nästan alla skrivare bör ha ett heltalsvärde för `rotation_distance` på axlar av typen X, Y och Z. Om formeln ovan ger ett rotation_distance som ligger inom 0,01 från ett heltal avrundar du slutvärdet till det heltalet.
 
-## Calibrating rotation_distance on extruders
+## Kalibrera rotation_distance för extrudrar
 
-On an extruder, the `rotation_distance` is the amount of distance the filament travels for one full rotation of the stepper motor. The best way to get an accurate value for this setting is to use a "measure and trim" procedure.
+För en extruder är `rotation_distance` den sträcka som filamentet rör sig vid ett helt varv av stegmotorn. Det bästa sättet att få ett exakt värde är att använda metoden "mät och trimma".
 
-First start with an initial guess for the rotation distance. This may be obtained from [steps_per_mm](#obtaining-rotation_distance-from-steps_per_mm-or-step_distance) or by [inspecting the hardware](#extruder).
+Börja med en första uppskattning av rotationsavståndet. Den kan tas fram från [steps_per_mm](#obtaining-rotation_distance-from-steps_per_mm-or-step_distance) eller genom att [inspektera maskinvaran](#extruder).
 
-Then use the following procedure to "measure and trim":
+Använd sedan följande metod för att "mäta och trimma":
 
-1. Make sure the extruder has filament in it, the hotend is heated to an appropriate temperature, and the printer is ready to extrude.
-1. Use a marker to place a mark on the filament around 70mm from the intake of the extruder body. Then use a digital calipers to measure the actual distance of that mark as precisely as one can. Note this as `<initial_mark_distance>`.
-1. Extrude 50mm of filament with the following command sequence: `G91` followed by `G1 E50 F60`. Note 50mm as `<requested_extrude_distance>`. Wait for the extruder to finish the move (it will take about 50 seconds). It is important to use the slow extrusion rate for this test as a faster rate can cause high pressure in the extruder which will skew the results. (Do not use the "extrude button" on graphical front-ends for this test as they extrude at a fast rate.)
-1. Use the digital calipers to measure the new distance between the extruder body and the mark on the filament. Note this as `<subsequent_mark_distance>`. Then calculate: `actual_extrude_distance = <initial_mark_distance> - <subsequent_mark_distance>`
-1. Calculate rotation_distance as: `rotation_distance = <previous_rotation_distance> * <actual_extrude_distance> / <requested_extrude_distance>` Round the new rotation_distance to three decimal places.
+1. Kontrollera att extrudern har filament, att hotend-enheten är uppvärmd till en lämplig temperatur och att skrivaren är redo att extrudera.
+1. Markera filamentet med en penna ungefär 70 mm från extruderkroppens inmatning. Mät sedan det faktiska avståndet till markeringen så noggrant som möjligt med ett digitalt skjutmått. Anteckna det som `<initial_mark_distance>`.
+1. Extrudera 50 mm filament med följande kommandosekvens: `G91` följt av `G1 E50 F60`. Anteckna 50 mm som `<requested_extrude_distance>`. Vänta tills extrudern har avslutat rörelsen (det tar ungefär 50 sekunder). Det är viktigt att använda den långsamma extruderingshastigheten i testet, eftersom en snabbare hastighet kan orsaka högt tryck i extrudern och snedvrida resultatet. (Använd inte "extruderingsknappen" i grafiska gränssnitt för testet eftersom de extruderar snabbt.)
+1. Mät med det digitala skjutmåttet det nya avståndet mellan extruderkroppen och markeringen på filamentet. Anteckna det som `<subsequent_mark_distance>`. Beräkna sedan: `actual_extrude_distance = <initial_mark_distance> - <subsequent_mark_distance>`
+1. Beräkna rotation_distance så här: `rotation_distance = <previous_rotation_distance> * <actual_extrude_distance> / <requested_extrude_distance>`. Avrunda det nya rotation_distance till tre decimaler.
 
-If the actual_extrude_distance differs from requested_extrude_distance by more than about 2mm then it is a good idea to perform the steps above a second time.
+Om actual_extrude_distance skiljer sig från requested_extrude_distance med mer än ungefär 2 mm är det lämpligt att utföra stegen ovan en andra gång.
 
-Note: Do *not* use a "measure and trim" type of method to calibrate x, y, or z type axes. The "measure and trim" method is not accurate enough for those axes and will likely lead to a worse configuration. Instead, if needed, those axes can be determined by [measuring the belts, pulleys, and lead screw hardware](#obtaining-rotation_distance-by-inspecting-the-hardware).
+Obs! Använd *inte* en metod av typen "mät och trimma" för att kalibrera axlar av typen X, Y eller Z. Metoden är inte tillräckligt exakt för dessa axlar och leder sannolikt till en sämre konfiguration. Vid behov kan dessa axlar i stället bestämmas genom att [mäta remmar, remskivor och gängstångsmaskinvara](#obtaining-rotation_distance-by-inspecting-the-hardware).
 
-## Obtaining rotation_distance by inspecting the hardware
+## Ta fram rotation_distance genom att inspektera maskinvaran
 
-It's possible to calculate rotation_distance with knowledge of the stepper motors and printer kinematics. This may be useful if the steps_per_mm is not known or if designing a new printer.
+Det går att beräkna rotation_distance om du känner till stegmotorerna och skrivarens kinematik. Det kan vara användbart om steps_per_mm är okänt eller när du konstruerar en ny skrivare.
 
-### Belt driven axes
+### Remdrivna axlar
 
-It is easy to calculate rotation_distance for a linear axis that uses a belt and pulley.
+Det är enkelt att beräkna rotation_distance för en linjär axel som använder rem och remskiva.
 
-First determine the type of belt. Most printers use a 2mm belt pitch (that is, each tooth on the belt is 2mm apart). Then count the number of teeth on the stepper motor pulley. The rotation_distance is then calculated as:
+Fastställ först remtypen. De flesta skrivare använder en remdelning på 2 mm (det vill säga att varje tand på remmen ligger 2 mm från nästa). Räkna sedan antalet tänder på stegmotorns remskiva. rotation_distance beräknas därefter så här:
 
 ```
 rotation_distance = <belt_pitch> * <number_of_teeth_on_pulley>
 ```
 
-For example, if a printer has a 2mm belt and uses a pulley with 20 teeth, then the rotation distance is 40.
+Om en skrivare till exempel har en 2 mm-rem och använder en remskiva med 20 tänder är rotationsavståndet 40.
 
-### Axes with a lead screw
+### Axlar med gängstång
 
-It is easy to calculate the rotation_distance for common lead screws using the following formula:
+Det är enkelt att beräkna rotation_distance för vanliga gängstänger med följande formel:
 
 ```
 rotation_distance = <screw_pitch> * <number_of_separate_threads>
 ```
 
-For example, the common "T8 leadscrew" has a rotation distance of 8 (it has a pitch of 2mm and has 4 separate threads).
+Den vanliga "T8-gängstången" har till exempel ett rotationsavstånd på 8 (den har en stigning på 2 mm och 4 separata gängor).
 
-Older printers with "threaded rods" have only one "thread" on the lead screw and thus the rotation distance is the pitch of the screw. (The screw pitch is the distance between each groove on the screw.) So, for example, an M6 metric rod has a rotation distance of 1 and an M8 rod has a rotation distance of 1.25.
+Äldre skrivare med "gängade stänger" har bara en "gänga" på gängstången och därmed är rotationsavståndet skruvens stigning. (Skruvens stigning är avståndet mellan varje spår på skruven.) En metrisk M6-stång har till exempel rotationsavståndet 1 och en M8-stång rotationsavståndet 1,25.
 
 ### Extruder
 
-It's possible to obtain an initial rotation distance for extruders by measuring the diameter of the "hobbed bolt" that pushes the filament and using the following formula: `rotation_distance = <diameter> * 3.14`
+Ett första rotationsavstånd för extrudrar kan tas fram genom att mäta diametern på den räfflade drivbulten som matar filamentet och använda följande formel: `rotation_distance = <diameter> * 3.14`
 
-If the extruder uses gears then it will also be necessary to [determine and set the gear_ratio](#using-a-gear_ratio) for the extruder.
+Om extrudern använder kugghjul behöver du också [fastställa och ange gear_ratio](#using-a-gear_ratio) för extrudern.
 
-The actual rotation distance on an extruder will vary from printer to printer, because the grip of the "hobbed bolt" that engages the filament can vary. It can even vary between filament spools. After obtaining an initial rotation_distance, use the [measure and trim procedure](#calibrating-rotation_distance-on-extruders) to obtain a more accurate setting.
+Det faktiska rotationsavståndet hos en extruder varierar mellan skrivare eftersom greppet från den räfflade drivbulten som greppar filamentet kan variera. Det kan till och med variera mellan filamentrullar. När ett första rotation_distance har tagits fram använder du [metoden mät och trimma](#calibrating-rotation_distance-on-extruders) för att få en mer exakt inställning.
 
-## Using a gear_ratio
+## Använda gear_ratio
 
-Setting a `gear_ratio` can make it easier to configure the `rotation_distance` on steppers that have a gear box (or similar) attached to it. Most steppers do not have a gear box - if unsure then do not set `gear_ratio` in the config.
+Att ange `gear_ratio` kan göra det enklare att konfigurera `rotation_distance` för stegmotorer med en växellåda (eller liknande) ansluten. De flesta stegmotorer har ingen växellåda – om du är osäker ska du inte ange `gear_ratio` i konfigurationen.
 
-When `gear_ratio` is set, the `rotation_distance` represents the distance the axis moves with one full rotation of the final gear on the gear box. If, for example, one is using a gearbox with a "5:1" ratio, then one could calculate the rotation_distance with [knowledge of the hardware](#obtaining-rotation_distance-by-inspecting-the-hardware) and then add `gear_ratio: 5:1` to the config.
+När `gear_ratio` anges motsvarar `rotation_distance` den sträcka som axeln förflyttas vid ett helt varv av växellådans sista kugghjul. Om du exempelvis använder en växellåda med utväxlingen "5:1" kan du beräkna rotation_distance med [kunskap om maskinvaran](#obtaining-rotation_distance-by-inspecting-the-hardware) och sedan lägga till `gear_ratio: 5:1` i konfigurationen.
 
-For gearing implemented with belts and pulleys, it is possible to determine the gear_ratio by counting the teeth on the pulleys. For example, if a stepper with a 16 toothed pulley drives the next pulley with 80 teeth then one would use `gear_ratio: 80:16`. Indeed, one could open a common off the shelf "gear box" and count the teeth in it to confirm its gear ratio.
+För utväxling som genomförs med remmar och remskivor kan gear_ratio fastställas genom att räkna tänderna på remskivorna. Om en stegmotor med en 16-tandad remskiva driver nästa remskiva med 80 tänder använder du till exempel `gear_ratio: 80:16`. Du kan även öppna en vanlig växellåda från hyllan och räkna kugghjulen i den för att bekräfta utväxlingen.
 
-Note that sometimes a gearbox will have a slightly different gear ratio than what it is advertised as. The common BMG extruder motor gears are an example of this - they are advertised as "3:1" but actually use "50:17" gearing. (Using teeth numbers without a common denominator may improve overall gear wear as the teeth don't always mesh the same way with each revolution.) The common "5.18:1 planetary gearbox", is more accurately configured with `gear_ratio: 57:11`.
+Observera att en växellåda ibland kan ha en något annorlunda utväxling än den som anges i reklamen. De vanliga BMG-kugghjulen för extrudermotorer är ett exempel: de marknadsförs som "3:1" men använder i själva verket utväxlingen "50:17". (Att använda tandtal utan gemensam nämnare kan förbättra kugghjulens totala slitage eftersom tänderna inte alltid griper in på samma sätt vid varje varv.) Den vanliga "planetväxellådan 5,18:1" konfigureras mer exakt med `gear_ratio: 57:11`.
 
-If several gears are used on an axis then it is possible to provide a comma separated list to gear_ratio. For example, a "5:1" gear box driving a 16 toothed to 80 toothed pulley could use `gear_ratio: 5:1, 80:16`.
+Om flera kugghjul används på en axel kan en kommaseparerad lista anges för gear_ratio. En växellåda med "5:1" som driver en 16-tandad till en 80-tandad remskiva kan till exempel använda `gear_ratio: 5:1, 80:16`.
 
-In most cases, gear_ratio should be defined with whole numbers as common gears and pulleys have a whole number of teeth on them. However, in cases where a belt drives a pulley using friction instead of teeth, it may make sense to use a floating point number in the gear ratio (eg, `gear_ratio: 107.237:16`).
+I de flesta fall bör gear_ratio anges med heltal eftersom vanliga kugghjul och remskivor har ett helt antal tänder. När en rem driver en remskiva med friktion i stället för tänder kan det dock vara rimligt att använda ett flyttal i utväxlingen (t.ex. `gear_ratio: 107.237:16`).

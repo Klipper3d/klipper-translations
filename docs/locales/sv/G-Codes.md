@@ -1,89 +1,89 @@
-# G-Codes
+# G-koder
 
-This document describes the commands that Klipper supports. These are commands that one may enter into the OctoPrint terminal tab.
+Detta dokument beskriver de kommandon som Klipper har stöd för. Dessa kommandon kan anges på terminalfliken i OctoPrint.
 
-## G-Code commands
+## G-kodskommandon
 
-Klipper supports the following standard G-Code commands:
+Klipper har stöd för följande vanliga G-kodskommandon:
 
-- Move (G0 or G1): `G1 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>]`
-- Dwell: `G4 P<milliseconds>`
-- Move to origin: `G28 [X] [Y] [Z]`
-- Turn off motors: `M18` or `M84`
-- Wait for current moves to finish: `M400`
-- Use absolute/relative distances for extrusion: `M82`, `M83`
-- Use absolute/relative coordinates: `G90`, `G91`
-- Set position: `G92 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>]`
-- Set speed factor override percentage: `M220 S<percent>`
-- Set extrude factor override percentage: `M221 S<percent>`
-- Set acceleration: `M204 S<value>` OR `M204 P<value> T<value>`
-   - Note: If S is not specified and both P and T are specified, then the acceleration is set to the minimum of P and T. If only one of P or T is specified, the command has no effect.
-- Get extruder temperature: `M105`
-- Set extruder temperature: `M104 [T<index>] [S<temperature>]`
-- Set extruder temperature and wait: `M109 [T<index>] S<temperature>`
-   - Note: M109 always waits for temperature to settle at requested value
-- Set bed temperature: `M140 [S<temperature>]`
-- Set bed temperature and wait: `M190 S<temperature>`
-   - Note: M190 always waits for temperature to settle at requested value
-- Set fan speed: `M106 S<value>`
-- Turn fan off: `M107`
-- Emergency stop: `M112`
-- Get current position: `M114`
-- Get firmware version: `M115`
+- Förflyttning (G0 eller G1): `G1 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>]`
+- Dröjsmål: `G4 P<milliseconds>`
+- Flytta till origo: `G28 [X] [Y] [Z]`
+- Stäng av motorer: `M18` eller `M84`
+- Vänta tills aktuella förflyttningar är klara: `M400`
+- Använd absoluta/relativa avstånd för extrudering: `M82`, `M83`
+- Använd absoluta/relativa koordinater: `G90`, `G91`
+- Ange position: `G92 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>]`
+- Ange åsidosättningsprocent för hastighetsfaktor: `M220 S<percent>`
+- Ange åsidosättningsprocent för extruderingsfaktor: `M221 S<percent>`
+- Ange acceleration: `M204 S<value>` ELLER `M204 P<value> T<value>`
+   - Obs: Om S inte anges och både P och T anges, ställs accelerationen in på det minsta av P och T. Om endast P eller T anges har kommandot ingen verkan.
+- Hämta extrudertemperatur: `M105`
+- Ange extrudertemperatur: `M104 [T<index>] [S<temperature>]`
+- Ange extrudertemperatur och vänta: `M109 [T<index>] S<temperature>`
+   - Obs: M109 väntar alltid på att temperaturen stabiliseras vid det begärda värdet
+- Ange bäddtemperatur: `M140 [S<temperature>]`
+- Ange bäddtemperatur och vänta: `M190 S<temperature>`
+   - Obs: M190 väntar alltid på att temperaturen stabiliseras vid det begärda värdet
+- Ange fläkthastighet: `M106 S<value>`
+- Stäng av fläkten: `M107`
+- Nödstopp: `M112`
+- Hämta aktuell position: `M114`
+- Hämta firmwareversion: `M115`
 
-For further details on the above commands see the [RepRap G-Code documentation](http://reprap.org/wiki/G-code).
+Mer information om ovanstående kommandon finns i [RepRap G-Code-dokumentationen](http://reprap.org/wiki/G-code).
 
-Klipper's goal is to support the G-Code commands produced by common 3rd party software (eg, OctoPrint, Printrun, Slic3r, Cura, etc.) in their standard configurations. It is not a goal to support every possible G-Code command. Instead, Klipper prefers human readable ["extended G-Code commands"](#additional-commands). Similarly, the G-Code terminal output is only intended to be human readable - see the [API Server document](API_Server.md) if controlling Klipper from external software.
+Klippers mål är att stödja G-kodskommandon som skapas av vanliga program från tredje part (t.ex. OctoPrint, Printrun, Slic3r och Cura) i deras standardkonfigurationer. Målet är inte att stödja alla möjliga G-kodskommandon. I stället föredrar Klipper läsbara [”utökade G-kodskommandon”](#additional-commands). På samma sätt är G-kodsutdata i terminalen endast avsedd att vara läsbar för människor – se [API Server-dokumentet](API_Server.md) om Klipper ska styras från extern programvara.
 
-If one requires a less common G-Code command then it may be possible to implement it with a custom [gcode_macro config section](Config_Reference.md#gcode_macro). For example, one might use this to implement: `G12`, `G29`, `G30`, `G31`, `M42`, `M80`, `M81`, `T1`, etc.
+Om ett mindre vanligt G-kodskommando behövs kan det vara möjligt att implementera det med ett anpassat [gcode_macro-konfigurationsavsnitt](Config_Reference.md#gcode_macro). Det kan till exempel användas för att implementera: `G12`, `G29`, `G30`, `G31`, `M42`, `M80`, `M81`, `T1` osv.
 
-## Additional Commands
+## Ytterligare kommandon
 
-Klipper uses "extended" G-Code commands for general configuration and status. These extended commands all follow a similar format - they start with a command name and may be followed by one or more parameters. For example: `SET_SERVO SERVO=myservo ANGLE=5.3`. In this document, the commands and parameters are shown in uppercase, however they are not case sensitive. (So, "SET_SERVO" and "set_servo" both run the same command.)
+Klipper använder ”utökade” G-kodskommandon för allmän konfiguration och status. Dessa utökade kommandon följer alla ett liknande format – de börjar med ett kommandonamn och kan följas av en eller flera parametrar. Till exempel: `SET_SERVO SERVO=myservo ANGLE=5.3`. I detta dokument visas kommandon och parametrar med versaler, men de är inte skiftlägeskänsliga. (Alltså kör ”SET_SERVO” och ”set_servo” samma kommando.)
 
-This section is organized by Klipper module name, which generally follows the section names specified in the [printer configuration file](Config_Reference.md). Note that some modules are automatically loaded.
+Detta avsnitt är organiserat efter Klipper-modulnamn, som vanligen följer avsnittsnamnen i [skrivarkonfigurationsfilen](Config_Reference.md). Observera att vissa moduler läses in automatiskt.
 
 ### [adxl345]
 
-The following commands are available when an [adxl345 config section](Config_Reference.md#adxl345) is enabled.
+Följande kommandon är tillgängliga när ett [adxl345-konfigurationsavsnitt](Config_Reference.md#adxl345) är aktiverat.
 
 #### ACCELEROMETER_MEASURE
 
-`ACCELEROMETER_MEASURE [CHIP=<config_name>] [NAME=<value>]`: Starts accelerometer measurements at the requested number of samples per second. If CHIP is not specified it defaults to "adxl345". The command works in a start-stop mode: when executed for the first time, it starts the measurements, next execution stops them. The results of measurements are written to a file named `/tmp/adxl345-<chip>-<name>.csv` where `<chip>` is the name of the accelerometer chip (`my_chip_name` from `[adxl345 my_chip_name]`) and `<name>` is the optional NAME parameter. If NAME is not specified it defaults to the current time in "YYYYMMDD_HHMMSS" format. If the accelerometer does not have a name in its config section (simply `[adxl345]`) then `<chip>` part of the name is not generated.
+`ACCELEROMETER_MEASURE [CHIP=<config_name>] [NAME=<value>]`: Startar accelerometermätningar med begärt antal prover per sekund. Om CHIP inte anges används ”adxl345” som standard. Kommandot fungerar i start-/stoppläge: första körningen startar mätningarna och nästa körning stoppar dem. Mätresultaten skrivs till filen `/tmp/adxl345-<chip>-<name>.csv`, där `<chip>` är namnet på accelerometerkretsen (`my_chip_name` från `[adxl345 my_chip_name]`) och `<name>` är den valfria NAME-parametern. Om NAME inte anges används aktuell tid i formatet ”YYYYMMDD_HHMMSS”. Om accelerometern saknar namn i sitt konfigurationsavsnitt (endast `[adxl345]`) skapas inte delen `<chip>` av filnamnet.
 
 #### ACCELEROMETER_QUERY
 
-`ACCELEROMETER_QUERY [CHIP=<config_name>] [RATE=<value>]`: queries accelerometer for the current value. If CHIP is not specified it defaults to "adxl345". If RATE is not specified, the default value is used. This command is useful to test the connection to the ADXL345 accelerometer: one of the returned values should be a free-fall acceleration (+/- some noise of the chip).
+`ACCELEROMETER_QUERY [CHIP=<config_name>] [RATE=<value>]`: Hämtar aktuellt värde från accelerometern. Om CHIP inte anges används ”adxl345” som standard. Om RATE inte anges används standardvärdet. Kommandot är användbart för att testa anslutningen till ADXL345-accelerometern: ett av de returnerade värdena bör vara en fritt fall-acceleration (± visst brus från kretsen).
 
 #### ACCELEROMETER_DEBUG_READ
 
-`ACCELEROMETER_DEBUG_READ [CHIP=<config_name>] REG=<register>`: queries ADXL345 register "register" (e.g. 44 or 0x2C). Can be useful for debugging purposes.
+`ACCELEROMETER_DEBUG_READ [CHIP=<config_name>] REG=<register>`: Hämtar ADXL345-registret ”register” (t.ex. 44 eller 0x2C). Kan vara användbart för felsökning.
 
 #### ACCELEROMETER_DEBUG_WRITE
 
-`ACCELEROMETER_DEBUG_WRITE [CHIP=<config_name>] REG=<register> VAL=<value>`: Writes raw "value" into a register "register". Both "value" and "register" can be a decimal or a hexadecimal integer. Use with care, and refer to ADXL345 data sheet for the reference.
+`ACCELEROMETER_DEBUG_WRITE [CHIP=<config_name>] REG=<register> VAL=<value>`: Skriver rått ”value” till registret ”register”. Både ”value” och ”register” kan vara heltal i decimal- eller hexadecimalform. Använd med försiktighet och se databladet för ADXL345 som referens.
 
 ### [angle]
 
-The following commands are available when an [angle config section](Config_Reference.md#angle) is enabled.
+Följande kommandon är tillgängliga när ett [angle-konfigurationsavsnitt](Config_Reference.md#angle) är aktiverat.
 
 #### ANGLE_CALIBRATE
 
-`ANGLE_CALIBRATE CHIP=<chip_name>`: Perform angle calibration on the given sensor (there must be an `[angle chip_name]` config section that has specified a `stepper` parameter). IMPORTANT - this tool will command the stepper motor to move without checking the normal kinematic boundary limits. Ideally the motor should be disconnected from any printer carriage before performing calibration. If the stepper can not be disconnected from the printer, make sure the carriage is near the center of its rail before starting calibration. (The stepper motor may move forwards or backwards two full rotations during this test.) After completing this test use the `SAVE_CONFIG` command to save the calibration data to the config file. In order to use this tool the Python "numpy" package must be installed (see the [measuring resonance document](Measuring_Resonances.md#software-installation) for more information).
+`ANGLE_CALIBRATE CHIP=<chip_name>`: Utför vinkelkalibrering på den angivna sensorn (det måste finnas ett `[angle chip_name]`-konfigurationsavsnitt med en angiven `stepper`-parameter). VIKTIGT – verktyget beordrar stegmotorn att flytta utan att kontrollera normala kinematiska gränser. Helst ska motorn kopplas loss från skrivarens vagn före kalibrering. Om stegmotorn inte kan kopplas loss från skrivaren ska du kontrollera att vagnen befinner sig nära mitten av sin skena innan kalibreringen startas. (Stegmotorn kan rotera två hela varv framåt eller bakåt under testet.) Kör `SAVE_CONFIG` efter testet för att spara kalibreringsdata i konfigurationsfilen. För att använda verktyget måste Python-paketet ”numpy” vara installerat (se [dokumentet om resonansmätning](Measuring_Resonances.md#software-installation) för mer information).
 
 #### ANGLE_CHIP_CALIBRATE
 
-`ANGLE_CHIP_CALIBRATE CHIP=<chip_name>`: Perform internal sensor calibration, if implemented (MT6826S/MT6835).
+`ANGLE_CHIP_CALIBRATE CHIP=<chip_name>`: Utför intern sensorkalibrering, om den är implementerad (MT6826S/MT6835).
 
-- **MT68XX**: The motor should be disconnected from any printer carriage before performing calibration. After calibration, the sensor should be reset by disconnecting the power.
+- **MT68XX**: Motorn ska kopplas bort från alla skrivarvagnar före kalibreringen. Efter kalibreringen ska sensorn återställas genom att strömmen kopplas bort.
 
 #### ANGLE_DEBUG_READ
 
-`ANGLE_DEBUG_READ CHIP=<config_name> REG=<register>`: Queries sensor register "register" (e.g. 44 or 0x2C). Can be useful for debugging purposes. This is only available for tle5012b chips.
+`ANGLE_DEBUG_READ CHIP=<config_name> REG=<register>`: Hämtar sensorregistret ”register” (t.ex. 44 eller 0x2C). Kan vara användbart för felsökning. Finns endast för tle5012b-kretsar.
 
 #### ANGLE_DEBUG_WRITE
 
-`ANGLE_DEBUG_WRITE CHIP=<config_name> REG=<register> VAL=<value>`: Writes raw "value" into register "register". Both "value" and "register" can be a decimal or a hexadecimal integer. Use with care, and refer to sensor data sheet for the reference. This is only available for tle5012b chips.
+`ANGLE_DEBUG_WRITE CHIP=<config_name> REG=<register> VAL=<value>`: Skriver rått ”value” till registret ”register”. Både ”value” och ”register” kan vara heltal i decimal- eller hexadecimalform. Använd med försiktighet och se sensorns datablad som referens. Finns endast för tle5012b-kretsar.
 
 ### [axis_twist_compensation]
 
@@ -94,430 +94,430 @@ section](Config_Reference.md#axis_twist_compensation) is enabled.
 
 `AXIS_TWIST_COMPENSATION_CALIBRATE [AXIS=<X|Y>] [SAMPLE_COUNT=<value>]`
 
-Calibrates axis twist compensation by specifying the target axis or enabling automatic calibration.
+Kalibrerar kompensation för axelvridning genom att ange målaxeln eller aktivera automatisk kalibrering.
 
-- **AXIS:** Define the axis (`X` or `Y`) for which the twist compensation will be calibrated. If not specified, the axis defaults to `'X'`.
+- **AXIS:** Ange axeln (`X` eller `Y`) vars vridningskompensation ska kalibreras. Om den inte anges används `'X'` som standard.
 
 ### [bed_mesh]
 
-The following commands are available when the [bed_mesh config section](Config_Reference.md#bed_mesh) is enabled (also see the [bed mesh guide](Bed_Mesh.md)).
+Följande kommandon är tillgängliga när ett [bed_mesh-konfigurationsavsnitt](Config_Reference.md#bed_mesh) är aktiverat (se även [guiden för bäddnät](Bed_Mesh.md)).
 
 #### BED_MESH_CALIBRATE
 
-`BED_MESH_CALIBRATE [PROFILE=<name>] [METHOD=manual] [HORIZONTAL_MOVE_Z=<value>] [<probe_parameter>=<value>] [<mesh_parameter>=<value>] [ADAPTIVE=1] [ADAPTIVE_MARGIN=<value>]`: This command probes the bed using generated points specified by the parameters in the config. After probing, a mesh is generated and z-movement is adjusted according to the mesh. The mesh is immediately active after successful completion of `BED_MESH_CALIBRATE`. The mesh will be saved into a profile specified by the `PROFILE` parameter, or `default` if unspecified. If ADAPTIVE=1 is specified then the profile name will begin with `adaptive-` and should not be saved for reuse. See the PROBE command for details on the optional probe parameters. If METHOD=manual is specified then the manual probing tool is activated - see the MANUAL_PROBE command above for details on the additional commands available while this tool is active. The optional `HORIZONTAL_MOVE_Z` value overrides the `horizontal_move_z` option specified in the config file. If ADAPTIVE=1 is specified then the objects defined by the Gcode file being printed will be used to define the probed area. The optional `ADAPTIVE_MARGIN` value overrides the `adaptive_margin` option specified in the config file.
+`BED_MESH_CALIBRATE [PROFILE=<name>] [METHOD=manual] [HORIZONTAL_MOVE_Z=<value>] [<probe_parameter>=<value>] [<mesh_parameter>=<value>] [ADAPTIVE=1] [ADAPTIVE_MARGIN=<value>]`: Kommandot mäter bädden med genererade punkter enligt parametrarna i konfigurationen. Därefter genereras ett nät och Z-rörelsen justeras enligt nätet. Nätet aktiveras direkt när `BED_MESH_CALIBRATE` har slutförts och sparas i profilen som anges av `PROFILE`, eller i `default` om den inte anges. Om ADAPTIVE=1 anges börjar profilnamnet med `adaptive-` och bör inte sparas för återanvändning. Se PROBE för information om valfria mätparametrar. Om METHOD=manual anges aktiveras verktyget för manuell mätning. Det valfria värdet `HORIZONTAL_MOVE_Z` åsidosätter `horizontal_move_z` i konfigurationsfilen. Om ADAPTIVE=1 anges används objekten i G-kodsfilen som skrivs ut för att avgränsa mätområdet. Det valfria värdet `ADAPTIVE_MARGIN` åsidosätter `adaptive_margin` i konfigurationsfilen.
 
 #### BED_MESH_OUTPUT
 
-`BED_MESH_OUTPUT PGP=[<0:1>]`: This command outputs the current probed z values and current mesh values to the terminal. If PGP=1 is specified the X, Y coordinates generated by bed_mesh, along with their associated indices, will be output to the terminal.
+`BED_MESH_OUTPUT PGP=[<0:1>]`: Detta kommando skriver ut aktuella Z-värden från sonderingen och aktuella nätvärden till terminalen. Om PGP=1 anges skrivs de X- och Y-koordinater som skapas av bed_mesh, tillsammans med motsvarande index, ut till terminalen.
 
 #### BED_MESH_MAP
 
-`BED_MESH_MAP`: Like to BED_MESH_OUTPUT, this command prints the current state of the mesh to the terminal. Instead of printing the values in a human readable format, the state is serialized in json format. This allows octoprint plugins to easily capture the data and generate height maps approximating the bed's surface.
+`BED_MESH_MAP`: I likhet med BED_MESH_OUTPUT skriver detta kommando ut nätets aktuella tillstånd till terminalen. I stället för att skriva ut värdena i läsbar form serialiseras tillståndet i JSON-format. Det gör det möjligt för OctoPrint-insticksmoduler att enkelt fånga data och skapa höjdkartor som motsvarar bäddens yta.
 
 #### BED_MESH_CLEAR
 
-`BED_MESH_CLEAR`: This command clears the mesh and removes all z adjustment. It is recommended to put this in your end-gcode.
+`BED_MESH_CLEAR`: Detta kommando rensar nätet och tar bort alla Z-justeringar. Det rekommenderas att lägga till detta i slut-G-koden.
 
 #### BED_MESH_PROFILE
 
-`BED_MESH_PROFILE LOAD=<name> SAVE=<name> REMOVE=<name>`: This command provides profile management for mesh state. LOAD will restore the mesh state from the profile matching the supplied name. SAVE will save the current mesh state to a profile matching the supplied name. Remove will delete the profile matching the supplied name from persistent memory. Note that after SAVE or REMOVE operations have been run the SAVE_CONFIG gcode must be run to make the changes to persistent memory permanent.
+`BED_MESH_PROFILE LOAD=<name> SAVE=<name> REMOVE=<name>`: Detta kommando tillhandahåller profilhantering för nättillståndet. LOAD återställer nättillståndet från profilen som matchar angivet namn. SAVE sparar aktuellt nättillstånd i en profil som matchar angivet namn. REMOVE tar bort profilen som matchar angivet namn från beständigt minne. Observera att G-koden SAVE_CONFIG måste köras efter SAVE- eller REMOVE-operationer för att göra ändringarna i beständigt minne permanenta.
 
 #### BED_MESH_OFFSET
 
-`BED_MESH_OFFSET [X=<value>] [Y=<value>] [ZFADE=<value]`: Applies X, Y, and/or ZFADE offsets to the mesh lookup. This is useful for printers with independent extruders, as an offset is necessary to produce correct Z adjustment after a tool change. Note that a ZFADE offset does not apply additional z-adjustment directly, it is used to correct the `fade` calculation when a `gcode offset` has been applied to the Z axis.
+`BED_MESH_OFFSET [X=<value>] [Y=<value>] [ZFADE=<value]`: Tillämpar X-, Y- och/eller ZFADE-förskjutningar vid uppslag i bäddnätet. Det är användbart för skrivare med oberoende extrudrar, eftersom en förskjutning behövs för korrekt Z-justering efter verktygsbyte. Observera att en ZFADE-förskjutning inte direkt tillämpar ytterligare Z-justering, utan används för att korrigera beräkningen av `fade` när en `gcode offset` har tillämpats på Z-axeln.
 
 ### [bed_screws]
 
-The following commands are available when the [bed_screws config section](Config_Reference.md#bed_screws) is enabled (also see the [manual level guide](Manual_Level.md#adjusting-bed-leveling-screws)).
+Följande kommandon är tillgängliga när ett [bed_screws-konfigurationsavsnitt](Config_Reference.md#bed_screws) är aktiverat (se även [guiden för manuell nivåjustering](Manual_Level.md#adjusting-bed-leveling-screws)).
 
 #### BED_SCREWS_ADJUST
 
-`BED_SCREWS_ADJUST`: This command will invoke the bed screws adjustment tool. It will command the nozzle to different locations (as defined in the config file) and allow one to make adjustments to the bed screws so that the bed is a constant distance from the nozzle.
+`BED_SCREWS_ADJUST`: Detta kommando startar verktyget för justering av bäddskruvar. Munstycket flyttas till olika platser (enligt konfigurationsfilen), så att du kan justera bäddskruvarna så att bädden har ett konstant avstånd från munstycket.
 
 ### [bed_tilt]
 
-The following commands are available when the [bed_tilt config section](Config_Reference.md#bed_tilt) is enabled.
+Följande kommandon är tillgängliga när ett [bed_tilt-konfigurationsavsnitt](Config_Reference.md#bed_tilt) är aktiverat.
 
 #### BED_TILT_CALIBRATE
 
-`BED_TILT_CALIBRATE [METHOD=manual] [HORIZONTAL_MOVE_Z=<value>] [<probe_parameter>=<value>]`: This command will probe the points specified in the config and then recommend updated x and y tilt adjustments. See the PROBE command for details on the optional probe parameters. If METHOD=manual is specified then the manual probing tool is activated - see the MANUAL_PROBE command above for details on the additional commands available while this tool is active. The optional `HORIZONTAL_MOVE_Z` value overrides the `horizontal_move_z` option specified in the config file.
+`BED_TILT_CALIBRATE [METHOD=manual] [HORIZONTAL_MOVE_Z=<value>] [<probe_parameter>=<value>]`: Kommandot mäter punkterna som anges i konfigurationen och rekommenderar sedan uppdaterade X- och Y-justeringar för bäddens lutning. Se kommandot PROBE för information om de valfria mätparametrarna. Om METHOD=manual anges aktiveras verktyget för manuell mätning. Se kommandot MANUAL_PROBE ovan för ytterligare kommandon som är tillgängliga när verktyget är aktivt. Det valfria värdet `HORIZONTAL_MOVE_Z` åsidosätter alternativet `horizontal_move_z` i konfigurationsfilen.
 
 ### [bltouch]
 
-The following command is available when a [bltouch config section](Config_Reference.md#bltouch) is enabled (also see the [BL-Touch guide](BLTouch.md)).
+Följande kommando är tillgängligt när ett [bltouch-konfigurationsavsnitt](Config_Reference.md#bltouch) är aktiverat (se även [BL-Touch-guiden](BLTouch.md)).
 
 #### BLTOUCH_DEBUG
 
-`BLTOUCH_DEBUG COMMAND=<command>`: This sends a command to the BLTouch. It may be useful for debugging. Available commands are: `pin_down`, `touch_mode`, `pin_up`, `self_test`, `reset`. A BL-Touch V3.0 or V3.1 may also support `set_5V_output_mode`, `set_OD_output_mode`, `output_mode_store` commands.
+`BLTOUCH_DEBUG COMMAND=<command>`: Skickar ett kommando till BLTouch. Det kan vara användbart för felsökning. Tillgängliga kommandon är: `pin_down`, `touch_mode`, `pin_up`, `self_test`, `reset`. En BL-Touch V3.0 eller V3.1 kan också ha stöd för kommandona `set_5V_output_mode`, `set_OD_output_mode`, `output_mode_store`.
 
 #### BLTOUCH_STORE
 
-`BLTOUCH_STORE MODE=<output_mode>`: This stores an output mode in the EEPROM of a BLTouch V3.1 Available output_modes are: `5V`, `OD`
+`BLTOUCH_STORE MODE=<output_mode>`: Lagrar ett utgångsläge i EEPROM på en BLTouch V3.1. Tillgängliga output_modes är: `5V`, `OD`
 
 ### [configfile]
 
-The configfile module is automatically loaded.
+Modulen configfile läses in automatiskt.
 
 #### SAVE_CONFIG
 
-`SAVE_CONFIG`: This command will overwrite the main printer config file and restart the host software. This command is used in conjunction with other calibration commands to store the results of calibration tests.
+`SAVE_CONFIG`: Detta kommando skriver över huvudfilen för skrivarkonfigurationen och startar om värdprogrammet. Det används tillsammans med andra kalibreringskommandon för att lagra resultaten från kalibreringstester.
 
 ### [delayed_gcode]
 
-The following command is enabled if a [delayed_gcode config section](Config_Reference.md#delayed_gcode) has been enabled (also see the [template guide](Command_Templates.md#delayed-gcodes)).
+Följande kommando aktiveras om ett [delayed_gcode-konfigurationsavsnitt](Config_Reference.md#delayed_gcode) har aktiverats (se även [mallguiden](Command_Templates.md#delayed-gcodes)).
 
 #### UPDATE_DELAYED_GCODE
 
-`UPDATE_DELAYED_GCODE [ID=<name>] [DURATION=<seconds>]`: Updates the delay duration for the identified [delayed_gcode] and starts the timer for gcode execution. A value of 0 will cancel a pending delayed gcode from executing.
+`UPDATE_DELAYED_GCODE [ID=<name>] [DURATION=<seconds>]`: Uppdaterar fördröjningstiden för den identifierade [delayed_gcode] och startar timern för G-kodskörning. Värdet 0 avbryter en väntande fördröjd G-kod innan den körs.
 
 ### [delta_calibrate]
 
-The following commands are available when the [delta_calibrate config section](Config_Reference.md#linear-delta-kinematics) is enabled (also see the [delta calibrate guide](Delta_Calibrate.md)).
+Följande kommandon är tillgängliga när ett [delta_calibrate-konfigurationsavsnitt](Config_Reference.md#linear-delta-kinematics) är aktiverat (se även [guiden för delta-kalibrering](Delta_Calibrate.md)).
 
 #### DELTA_CALIBRATE
 
-`DELTA_CALIBRATE [METHOD=manual] [HORIZONTAL_MOVE_Z=<value>] [<probe_parameter>=<value>]`: This command will probe seven points on the bed and recommend updated endstop positions, tower angles, and radius. See the PROBE command for details on the optional probe parameters. If METHOD=manual is specified then the manual probing tool is activated - see the MANUAL_PROBE command above for details on the additional commands available while this tool is active. The optional `HORIZONTAL_MOVE_Z` value overrides the `horizontal_move_z` option specified in the config file.
+`DELTA_CALIBRATE [METHOD=manual] [HORIZONTAL_MOVE_Z=<value>] [<probe_parameter>=<value>]`: Kommandot mäter sju punkter på bädden och rekommenderar sedan uppdaterade ändstoppspositioner, tornvinklar och radie. Se kommandot PROBE för information om de valfria mätparametrarna. Om METHOD=manual anges aktiveras verktyget för manuell mätning. Se kommandot MANUAL_PROBE ovan för ytterligare kommandon som är tillgängliga när verktyget är aktivt. Det valfria värdet `HORIZONTAL_MOVE_Z` åsidosätter alternativet `horizontal_move_z` i konfigurationsfilen.
 
 #### DELTA_ANALYZE
 
-`DELTA_ANALYZE`: This command is used during enhanced delta calibration. See [Delta Calibrate](Delta_Calibrate.md) for details.
+`DELTA_ANALYZE`: Detta kommando används vid utökad delta-kalibrering. Se [Delta Calibrate](Delta_Calibrate.md) för mer information.
 
 ### [display]
 
-The following command is available when a [display config section](Config_Reference.md#gcode_macro) is enabled.
+Följande kommando är tillgängligt när ett [display-konfigurationsavsnitt](Config_Reference.md#gcode_macro) är aktiverat.
 
 #### SET_DISPLAY_GROUP
 
-`SET_DISPLAY_GROUP [DISPLAY=<display>] GROUP=<group>`: Set the active display group of an lcd display. This allows to define multiple display data groups in the config, e.g. `[display_data <group> <elementname>]` and switch between them using this extended gcode command. If DISPLAY is not specified it defaults to "display" (the primary display).
+`SET_DISPLAY_GROUP [DISPLAY=<display>] GROUP=<group>`: Ange den aktiva visningsgruppen för en LCD-skärm. Det gör det möjligt att definiera flera grupper av visningsdata i konfigurationen, t.ex. `[display_data <group> <elementname>]`, och växla mellan dem med detta utökade G-kodskommando. Om DISPLAY inte anges används ”display” (den primära skärmen) som standard.
 
 ### [display_status]
 
-The display_status module is automatically loaded if a [display config section](Config_Reference.md#display) is enabled. It provides the following standard G-Code commands:
+Modulen display_status läses in automatiskt om ett [display-konfigurationsavsnitt](Config_Reference.md#display) är aktiverat. Den tillhandahåller följande vanliga G-kodskommandon:
 
-- Display Message: `M117 <message>`
-- Set build percentage: `M73 P<percent>`
+- Visa meddelande: `M117 <message>`
+- Ange byggprocent: `M73 P<percent>`
 
-Also provided is the following extended G-Code command:
+Följande utökade G-kodskommando tillhandahålls också:
 
-- `SET_DISPLAY_TEXT MSG=<message>`: Performs the equivalent of M117, setting the supplied `MSG` as the current display message. If `MSG` is omitted the display will be cleared.
+- `SET_DISPLAY_TEXT MSG=<message>`: Utför motsvarigheten till M117 och anger `MSG` som aktuellt visningsmeddelande. Om `MSG` utelämnas rensas visningen.
 
 ### [dual_carriage]
 
-The following command is available when the [dual_carriage config section](Config_Reference.md#dual_carriage) is enabled.
+Följande kommando är tillgängligt när ett [dual_carriage-konfigurationsavsnitt](Config_Reference.md#dual_carriage) är aktiverat.
 
 #### SET_DUAL_CARRIAGE
 
-`SET_DUAL_CARRIAGE CARRIAGE=<carriage> [MODE=[PRIMARY|COPY|MIRROR|INACTIVE]]`: This command will change the mode of the specified carriage. If no `MODE` is provided it defaults to `PRIMARY`. `<carriage>` must reference a defined primary or dual carriage for `generic_cartesian` kinematics or be 0 (for primary carriage) or 1 (for dual carriage) for all other kinematics supporting IDEX. Setting the mode to `PRIMARY` deactivates all other carriages on the same axis and makes the specified carriage execute subsequent G-Code movement commands as-is. Before activating `COPY` or `MIRROR` mode for a carriage, a different one must be activated as `PRIMARY` on the same axis. When set to either of these two modes, the carriage will track the subsequent G-Code moves and either copy relative movements (in `COPY` mode) or execute them in the opposite (mirror) direction (in `MIRROR` mode). Setting the mode to `INACTIVE` deactivates the carriage and makes it ignore further G-Code moves. Note that deactivating the primary carriage on the axis does not disable other carriages working in `COPY` or `MIRROR` mode, which can be used to disable printing a failed part by any of the tools and park that tool to prevent collisions with an unfinished part, see this [sample configuration](../config/sample-corexyuv.cfg) for macros examples.
+`SET_DUAL_CARRIAGE CARRIAGE=<carriage> [MODE=[PRIMARY|COPY|MIRROR|INACTIVE]]`: Ändrar läget för den angivna vagnen. Om `MODE` inte anges används `PRIMARY`. `<carriage>` måste referera till en definierad primär eller dubbel vagn för kinematiken `generic_cartesian` eller vara 0 (primär vagn) eller 1 (dubbel vagn) för övrig IDEX-kompatibel kinematik. Läget `PRIMARY` inaktiverar alla andra vagnar på samma axel och gör att den angivna vagnen utför följande G-kodsförflyttningar oförändrat. Innan `COPY` eller `MIRROR` aktiveras för en vagn måste en annan vagn vara aktiverad som `PRIMARY` på samma axel. I dessa lägen följer vagnen efterföljande G-kodsförflyttningar och kopierar relativa förflyttningar (`COPY`) eller utför dem i motsatt spegelriktning (`MIRROR`). `INACTIVE` inaktiverar vagnen och gör att den ignorerar fortsatta G-kodsförflyttningar. Observera att avaktivering av den primära vagnen på axeln inte inaktiverar andra vagnar i `COPY`- eller `MIRROR`-läge. Det kan användas för att stoppa utskrift av en misslyckad del med ett verktyg och parkera verktyget för att undvika kollisioner med en ofärdig del. Se denna [exempelkonfiguration](../config/sample-corexyuv.cfg) för makroexempel.
 
 #### SAVE_DUAL_CARRIAGE_STATE
 
-`SAVE_DUAL_CARRIAGE_STATE [NAME=<state_name>]`: Save the current positions of the dual carriages and their modes. Saving and restoring DUAL_CARRIAGE state can be useful in scripts and macros, as well as in homing routine overrides. If NAME is provided it allows one to name the saved state to the given string. If NAME is not provided it defaults to "default".
+`SAVE_DUAL_CARRIAGE_STATE [NAME=<state_name>]`: Sparar de dubbla vagnarnas aktuella positioner och lägen. Att spara och återställa DUAL_CARRIAGE-tillståndet kan vara användbart i skript och makron samt i åsidosättningar av referenskörningsrutiner. Om NAME anges kan det sparade tillståndet få ett namn. Om NAME inte anges används "default".
 
 #### RESTORE_DUAL_CARRIAGE_STATE
 
-`RESTORE_DUAL_CARRIAGE_STATE [NAME=<state_name>] [MOVE=[0|1] [MOVE_SPEED=<speed>]]`: Restore the previously saved states of all dual and their primary carriages. This command restores the modes of the carriages and moves them to their previously saved positions, unless "MOVE=0" is specified. If positions are being restored and "MOVE_SPEED" is specified, then the carriages will move with at most the provided speed (in mm/s); otherwise the homing speeds of the corresponding carriages will be used as a reference. Note that the carriages restore their positions only over their own axes, which may be necessary to correctly restore COPY and MIRROR mode of the dual carriage. In addition, this command updates the Klipper toolhead position for each axis that has some dual carriages: it is set to match the actual position of the activated primary carriage of an axis or, if an axis does not have a saved primary carriage, to the axis position when `SAVE_DUAL_CARRIAGE_STATE` command was called.
+`RESTORE_DUAL_CARRIAGE_STATE [NAME=<state_name>] [MOVE=[0|1] [MOVE_SPEED=<speed>]]`: Återställer tidigare sparade tillstånd för alla dubbla vagnar och deras primära vagnar. Kommandot återställer vagnarnas lägen och flyttar dem till de tidigare sparade positionerna, om inte "MOVE=0" anges. Om positioner återställs och "MOVE_SPEED" anges flyttas vagnarna högst med den angivna hastigheten (i mm/s); annars används referenskörningshastigheten för respektive vagn som referens. Observera att vagnarna återställer sina positioner endast längs sina egna axlar, vilket kan krävas för att korrekt återställa COPY- och MIRROR-läge för den dubbla vagnen. Kommandot uppdaterar dessutom Klippers verktygshuvudposition för varje axel med dubbla vagnar: den sätts så att den motsvarar den faktiska positionen för axelns aktiva primära vagn eller, om axeln saknar sparad primär vagn, till axelpositionen när `SAVE_DUAL_CARRIAGE_STATE` kördes.
 
 ### [endstop_phase]
 
-The following commands are available when an [endstop_phase config section](Config_Reference.md#endstop_phase) is enabled (also see the [endstop phase guide](Endstop_Phase.md)).
+Följande kommandon är tillgängliga när ett [endstop_phase-konfigurationsavsnitt](Config_Reference.md#endstop_phase) är aktiverat (se även [guiden för ändlägesfas](Endstop_Phase.md)).
 
 #### ENDSTOP_PHASE_CALIBRATE
 
-`ENDSTOP_PHASE_CALIBRATE [STEPPER=<config_name>]`: If no STEPPER parameter is provided then this command will reports statistics on endstop stepper phases during past homing operations. When a STEPPER parameter is provided it arranges for the given endstop phase setting to be written to the config file (in conjunction with the SAVE_CONFIG command).
+`ENDSTOP_PHASE_CALIBRATE [STEPPER=<config_name>]`: Om ingen STEPPER-parameter anges rapporterar kommandot statistik om ändlägesstegmotorfaser vid tidigare referenskörningar. När en STEPPER-parameter anges ordnar kommandot så att den angivna fasinställningen för ändläget skrivs till konfigurationsfilen (tillsammans med kommandot SAVE_CONFIG).
 
 ### [exclude_object]
 
-The following commands are available when an [exclude_object config section](Config_Reference.md#exclude_object) is enabled (also see the [exclude object guide](Exclude_Object.md)):
+Följande kommandon är tillgängliga när ett [exclude_object-konfigurationsavsnitt](Config_Reference.md#exclude_object) är aktiverat (se även [guiden för att utesluta objekt](Exclude_Object.md)):
 
 #### `EXCLUDE_OBJECT`
 
-`EXCLUDE_OBJECT [NAME=object_name] [CURRENT=1] [RESET=1]`: With no parameters, this will return a list of all currently excluded objects.
+`EXCLUDE_OBJECT [NAME=object_name] [CURRENT=1] [RESET=1]`: Utan parametrar returneras en lista över alla objekt som för närvarande är uteslutna.
 
-When the `NAME` parameter is given, the named object will be excluded from printing.
+När parametern `NAME` anges utesluts det namngivna objektet från utskriften.
 
-When the `CURRENT` parameter is given, the current object will be excluded from printing.
+När parametern `CURRENT` anges utesluts aktuellt objekt från utskriften.
 
-When the `RESET` parameter is given, the list of excluded objects will be cleared. Additionally including `NAME` will only reset the named object. This **can** cause print failures, if layers were already skipped.
+När parametern `RESET` anges rensas listan över uteslutna objekt. Om `NAME` också anges återställs endast det namngivna objektet. Detta **kan** orsaka utskriftsfel om lager redan har hoppats över.
 
 #### `EXCLUDE_OBJECT_DEFINE`
 
-`EXCLUDE_OBJECT_DEFINE [NAME=object_name [CENTER=X,Y] [POLYGON=[[x,y],...]] [RESET=1] [JSON=1]`: Provides a summary of an object in the file.
+`EXCLUDE_OBJECT_DEFINE [NAME=object_name [CENTER=X,Y] [POLYGON=[[x,y],...]] [RESET=1] [JSON=1]`: Tillhandahåller en sammanfattning av ett objekt i filen.
 
-With no parameters provided, this will list the defined objects known to Klipper. Returns a list of strings, unless the `JSON` parameter is given, when it will return object details in json format.
+Utan angivna parametrar listas de definierade objekt som Klipper känner till. Returnerar en lista med strängar, om inte parametern `JSON` anges; då returneras objektdetaljer i JSON-format.
 
-When the `NAME` parameter is included, this defines an object to be excluded.
+När parametern `NAME` inkluderas definieras ett objekt som ska uteslutas.
 
-- `NAME`: This parameter is required. It is the identifier used by other commands in this module.
-- `CENTER`: An X,Y coordinate for the object.
-- `POLYGON`: An array of X,Y coordinates that provide an outline for the object.
+- `NAME`: Denna parameter krävs. Den är identifieraren som används av andra kommandon i modulen.
+- `CENTER`: En X,Y-koordinat för objektet.
+- `POLYGON`: En matris med X,Y-koordinater som utgör objektets kontur.
 
-When the `RESET` parameter is provided, all defined objects will be cleared, and the `[exclude_object]` module will be reset.
+När parametern `RESET` anges rensas alla definierade objekt och modulen `[exclude_object]` återställs.
 
 #### `EXCLUDE_OBJECT_START`
 
-`EXCLUDE_OBJECT_START NAME=object_name`: This command takes a `NAME` parameter and denotes the start of the gcode for an object on the current layer.
+`EXCLUDE_OBJECT_START NAME=object_name`: Kommandot tar parametern `NAME` och markerar starten på G-koden för ett objekt i aktuellt lager.
 
 #### `EXCLUDE_OBJECT_END`
 
-`EXCLUDE_OBJECT_END [NAME=object_name]`: Denotes the end of the object's gcode for the layer. It is paired with `EXCLUDE_OBJECT_START`. A `NAME` parameter is optional, and will only warn when the provided name does not match the current object.
+`EXCLUDE_OBJECT_END [NAME=object_name]`: Markerar slutet på objektets G-kod för lagret. Det paras med `EXCLUDE_OBJECT_START`. Parametern `NAME` är valfri och varnar endast när angivet namn inte matchar aktuellt objekt.
 
 ### [extruder]
 
-The following commands are available if an [extruder config section](Config_Reference.md#extruder) is enabled:
+Följande kommandon är tillgängliga om ett [extruder-konfigurationsavsnitt](Config_Reference.md#extruder) är aktiverat:
 
 #### ACTIVATE_EXTRUDER
 
-`ACTIVATE_EXTRUDER EXTRUDER=<config_name>`: In a printer with multiple [extruder](Config_Reference.md#extruder) config sections, this command changes the active hotend.
+`ACTIVATE_EXTRUDER EXTRUDER=<config_name>`: I en skrivare med flera [extruder-konfigurationsavsnitt](Config_Reference.md#extruder) ändrar detta kommando aktiv hotend.
 
 #### SET_PRESSURE_ADVANCE
 
-`SET_PRESSURE_ADVANCE [EXTRUDER=<config_name>] [ADVANCE=<pressure_advance>] [SMOOTH_TIME=<pressure_advance_smooth_time>]`: Set pressure advance parameters of an extruder stepper (as defined in an [extruder](Config_Reference.md#extruder) or [extruder_stepper](Config_Reference.md#extruder_stepper) config section). If EXTRUDER is not specified, it defaults to the stepper defined in the active hotend.
+`SET_PRESSURE_ADVANCE [EXTRUDER=<config_name>] [ADVANCE=<pressure_advance>] [SMOOTH_TIME=<pressure_advance_smooth_time>]`: Ange parametrar för tryckutjämning för en extruderstegmotor (enligt definition i ett [extruder-](Config_Reference.md#extruder) eller [extruder_stepper-konfigurationsavsnitt](Config_Reference.md#extruder_stepper)). Om EXTRUDER inte anges används stegmotorn som definieras i den aktiva hotend som standard.
 
 #### SET_EXTRUDER_ROTATION_DISTANCE
 
-`SET_EXTRUDER_ROTATION_DISTANCE EXTRUDER=<config_name> [DISTANCE=<distance>]`: Set a new value for the provided extruder stepper's "rotation distance" (as defined in an [extruder](Config_Reference.md#extruder) or [extruder_stepper](Config_Reference.md#extruder_stepper) config section). If the rotation distance is a negative number then the stepper motion will be inverted (relative to the stepper direction specified in the config file). Changed settings are not retained on Klipper reset. Use with caution as small changes can result in excessive pressure between extruder and hotend. Do proper calibration with filament before use. If 'DISTANCE' value is not provided then this command will return the current rotation distance.
+`SET_EXTRUDER_ROTATION_DISTANCE EXTRUDER=<config_name> [DISTANCE=<distance>]`: Ange ett nytt värde för den angivna extruderstegmotorns ”rotationsavstånd” (enligt definition i ett [extruder-](Config_Reference.md#extruder) eller [extruder_stepper-konfigurationsavsnitt](Config_Reference.md#extruder_stepper)). Om rotationsavståndet är negativt inverteras stegmotorns rörelse (i förhållande till stegmotorriktningen som anges i konfigurationsfilen). Ändrade inställningar behålls inte vid återställning av Klipper. Använd med försiktighet: små ändringar kan ge för högt tryck mellan extruder och hotend. Utför korrekt kalibrering med filament före användning. Om värdet DISTANCE inte anges returnerar kommandot aktuellt rotationsavstånd.
 
 #### SYNC_EXTRUDER_MOTION
 
-`SYNC_EXTRUDER_MOTION EXTRUDER=<name> MOTION_QUEUE=<name>`: This command will cause the stepper specified by EXTRUDER (as defined in an [extruder](Config_Reference.md#extruder) or [extruder_stepper](Config_Reference.md#extruder_stepper) config section) to become synchronized to the movement of an extruder specified by MOTION_QUEUE (as defined in an [extruder](Config_Reference.md#extruder) config section). If MOTION_QUEUE is an empty string then the stepper will be desynchronized from all extruder movement.
+`SYNC_EXTRUDER_MOTION EXTRUDER=<name> MOTION_QUEUE=<name>`: Kommandot gör att stegmotorn som anges av EXTRUDER (enligt definition i ett [extruder-](Config_Reference.md#extruder) eller [extruder_stepper-konfigurationsavsnitt](Config_Reference.md#extruder_stepper)) synkroniseras med rörelsen för en extruder som anges av MOTION_QUEUE (enligt definition i ett [extruder-konfigurationsavsnitt](Config_Reference.md#extruder)). Om MOTION_QUEUE är en tom sträng synkroniseras stegmotorn bort från alla extruderrörelser.
 
 ### [fan_generic]
 
-The following command is available when a [fan_generic config section](Config_Reference.md#fan_generic) is enabled.
+Följande kommando är tillgängligt när ett [fan_generic-konfigurationsavsnitt](Config_Reference.md#fan_generic) är aktiverat.
 
 #### SET_FAN_SPEED
 
-`SET_FAN_SPEED FAN=config_name SPEED=<speed>` This command sets the speed of a fan. "speed" must be between 0.0 and 1.0.
+`SET_FAN_SPEED FAN=config_name SPEED=<speed>`: Detta kommando anger fläktens hastighet. ”speed” måste vara mellan 0,0 och 1,0.
 
-`SET_FAN_SPEED FAN=config_name TEMPLATE=<template_name> [<param_x>=<literal>]`: If `TEMPLATE` is specified then it assigns a [display_template](Config_Reference.md#display_template) to the given fan. For example, if one defined a `[display_template my_fan_template]` config section then one could assign `TEMPLATE=my_fan_template` here. The display_template should produce a string containing a floating point number with the desired value. The template will be continuously evaluated and the fan will be automatically set to the resulting speed. One may set display_template parameters to use during template evaluation (parameters will be parsed as Python literals). If TEMPLATE is an empty string then this command will clear any previous template assigned to the pin (one can then use `SET_FAN_SPEED` commands to manage the values directly).
+`SET_FAN_SPEED FAN=config_name TEMPLATE=<template_name> [<param_x>=<literal>]`: Om `TEMPLATE` anges tilldelas en [display_template](Config_Reference.md#display_template) till den angivna fläkten. Om exempelvis konfigurationsavsnittet `[display_template my_fan_template]` har definierats kan `TEMPLATE=my_fan_template` tilldelas här. display_template ska skapa en sträng som innehåller ett flyttal med önskat värde. Mallen utvärderas fortlöpande och fläkten ställs automatiskt in på den resulterande hastigheten. Parametrar för display_template kan anges för användning vid mallutvärderingen (parametrar tolkas som Python-litteraler). Om TEMPLATE är en tom sträng rensar kommandot en tidigare mall som tilldelats stiftet (därefter kan `SET_FAN_SPEED` användas för att hantera värdena direkt).
 
 ### [filament_switch_sensor]
 
-The following command is available when a [filament_switch_sensor](Config_Reference.md#filament_switch_sensor) or [filament_motion_sensor](Config_Reference.md#filament_motion_sensor) config section is enabled.
+Följande kommando är tillgängligt när ett [filament_switch_sensor](Config_Reference.md#filament_switch_sensor)- eller [filament_motion_sensor](Config_Reference.md#filament_motion_sensor)-konfigurationsavsnitt är aktiverat.
 
 #### QUERY_FILAMENT_SENSOR
 
-`QUERY_FILAMENT_SENSOR SENSOR=<sensor_name>`: Queries the current status of the filament sensor. The data displayed on the terminal will depend on the sensor type defined in the configuration.
+`QUERY_FILAMENT_SENSOR SENSOR=<sensor_name>`: Hämtar filamentsensorns aktuella status. De data som visas i terminalen beror på sensortypen som definierats i konfigurationen.
 
 #### SET_FILAMENT_SENSOR
 
-`SET_FILAMENT_SENSOR SENSOR=<sensor_name> ENABLE=[0|1]`: Sets the filament sensor on/off. If ENABLE is set to 0, the filament sensor will be disabled, if set to 1 it is enabled.
+`SET_FILAMENT_SENSOR SENSOR=<sensor_name> ENABLE=[0|1]`: Slår på eller av filamentsensorn. Om ENABLE sätts till 0 inaktiveras filamentsensorn, och om den sätts till 1 aktiveras den.
 
 ### [firmware_retraction]
 
-The following standard G-Code commands are available when the [firmware_retraction config section](Config_Reference.md#firmware_retraction) is enabled. These commands allow you to utilize the firmware retraction feature available in many slicers, to reduce stringing during non-extrusion moves from one part of the print to another. Appropriately configuring pressure advance reduces the length of retraction required.
+Följande vanliga G-kodskommandon är tillgängliga när ett [firmware_retraction-konfigurationsavsnitt](Config_Reference.md#firmware_retraction) är aktiverat. Kommandona gör det möjligt att använda firmwareindragning som finns i många skivningsprogram för att minska trådbildning vid förflyttningar utan extrudering från en del av utskriften till en annan. Korrekt konfigurerad tryckutjämning minskar längden på den indragning som krävs.
 
-- `G10`: Retracts the extruder using the currently configured parameters.
-- `G11`: Unretracts the extruder using the currently configured parameters.
+- `G10`: Drar in extrudern med aktuellt konfigurerade parametrar.
+- `G11`: Matar ut extrudern igen med aktuellt konfigurerade parametrar.
 
-The following additional commands are also available.
+Följande ytterligare kommandon är också tillgängliga.
 
 #### SET_RETRACTION
 
-`SET_RETRACTION [RETRACT_LENGTH=<mm>] [RETRACT_SPEED=<mm/s>] [UNRETRACT_EXTRA_LENGTH=<mm>] [UNRETRACT_SPEED=<mm/s>]`: Adjust the parameters used by firmware retraction. RETRACT_LENGTH determines the length of filament to retract and unretract. The speed of retraction is adjusted via RETRACT_SPEED, and is typically set relatively high. The speed of unretraction is adjusted via UNRETRACT_SPEED, and is not particularly critical, although often lower than RETRACT_SPEED. In some cases it is useful to add a small amount of additional length on unretraction, and this is set via UNRETRACT_EXTRA_LENGTH. SET_RETRACTION is commonly set as part of slicer per-filament configuration, as different filaments require different parameter settings.
+`SET_RETRACTION [RETRACT_LENGTH=<mm>] [RETRACT_SPEED=<mm/s>] [UNRETRACT_EXTRA_LENGTH=<mm>] [UNRETRACT_SPEED=<mm/s>]`: Justera parametrarna för firmwareindragning. RETRACT_LENGTH bestämmer hur mycket filament som ska dras in och matas ut igen. Indragningshastigheten justeras via RETRACT_SPEED och sätts vanligen relativt högt. Hastigheten för utmatning efter indragning justeras via UNRETRACT_SPEED och är inte särskilt kritisk, men ofta lägre än RETRACT_SPEED. I vissa fall är det användbart att lägga till en liten extra längd vid utmatning efter indragning; detta anges med UNRETRACT_EXTRA_LENGTH. SET_RETRACTION anges vanligen som del av skivningsprogrammets konfiguration per filament, eftersom olika filament kräver olika parameterinställningar.
 
 #### GET_RETRACTION
 
-`GET_RETRACTION`: Queries the current parameters used by firmware retraction and displays them on the terminal.
+`GET_RETRACTION`: Hämtar aktuella parametrar för firmwareindragning och visar dem i terminalen.
 
 ### [force_move]
 
-The force_move module is automatically loaded, however some commands require setting `enable_force_move` in the [printer config](Config_Reference.md#force_move).
+Modulen force_move läses in automatiskt, men vissa kommandon kräver att `enable_force_move` anges i [skrivarkonfigurationen](Config_Reference.md#force_move).
 
 #### STEPPER_BUZZ
 
-`STEPPER_BUZZ STEPPER=<config_name>`: Move the given stepper forward one mm and then backward one mm, repeated 10 times. This is a diagnostic tool to help verify stepper connectivity.
+`STEPPER_BUZZ STEPPER=<config_name>`: Flytta den angivna stegmotorn en mm framåt och sedan en mm bakåt, upprepat 10 gånger. Detta är ett diagnostikverktyg som hjälper till att verifiera stegmotorns anslutning.
 
 #### FORCE_MOVE
 
-`FORCE_MOVE STEPPER=<config_name> DISTANCE=<value> VELOCITY=<value> [ACCEL=<value>]`: This command will forcibly move the given stepper the given distance (in mm) at the given constant velocity (in mm/s). If ACCEL is specified and is greater than zero, then the given acceleration (in mm/s^2) will be used; otherwise no acceleration is performed. No boundary checks are performed; no kinematic updates are made; other parallel steppers on an axis will not be moved. Use caution as an incorrect command could cause damage! Using this command will almost certainly place the low-level kinematics in an incorrect state; issue a G28 afterwards to reset the kinematics. This command is intended for low-level diagnostics and debugging.
+`FORCE_MOVE STEPPER=<config_name> DISTANCE=<value> VELOCITY=<value> [ACCEL=<value>]`: Detta kommando flyttar med tvång den angivna stegmotorn det angivna avståndet (i mm) med den angivna konstanta hastigheten (i mm/s). Om ACCEL anges och är större än noll används den angivna accelerationen (i mm/s^2); annars utförs ingen acceleration. Inga gränskontroller eller kinematiska uppdateringar görs och andra parallella stegmotorer på en axel flyttas inte. Var försiktig: ett felaktigt kommando kan orsaka skador! Kommandot placerar nästan säkert kinematiken på låg nivå i ett felaktigt tillstånd; kör G28 efteråt för att återställa kinematiken. Kommandot är avsett för diagnostik och felsökning på låg nivå.
 
 #### SET_KINEMATIC_POSITION
 
-`SET_KINEMATIC_POSITION [X=<value>] [Y=<value>] [Z=<value>] [SET_HOMED=<[X][Y][Z]>] [CLEAR_HOMED=<[X][Y][Z]>]`: Force the low-level kinematic code to believe the toolhead is at the given cartesian position and set/clear homed status. This is a diagnostic and debugging command; use SET_GCODE_OFFSET and/or G92 for regular axis transformations. Setting an incorrect or invalid position may lead to internal software errors.
+`SET_KINEMATIC_POSITION [X=<value>] [Y=<value>] [Z=<value>] [SET_HOMED=<[X][Y][Z]>] [CLEAR_HOMED=<[X][Y][Z]>]`: Tvingar den underliggande kinematikkoden att betrakta verktygshuvudet som placerat på den angivna kartesiska positionen och att ange eller rensa referenskörningsstatus. Detta är ett kommando för diagnostik och felsökning; använd SET_GCODE_OFFSET och/eller G92 för vanliga axelomvandlingar. En felaktig eller ogiltig position kan leda till interna programvarufel.
 
-The `X`, `Y`, and `Z` parameters are used to alter the low-level kinematic position tracking. If any of these parameters are not set then the position is not changed - for example `SET_KINEMATIC_POSITION Z=10` would set all axes as homed, set the internal Z position to 10, and leave the X and Y positions unchanged. Changing the internal position tracking is not dependent on the internal homing state - one may alter the position for both homed and not homed axes, and similarly one may set or clear the homing state of an axis without altering its internal position.
+Parametrarna `X`, `Y` och `Z` används för att ändra positionsspårningen på låg kinematiknivå. Om någon av parametrarna inte anges ändras inte positionen. Exempelvis innebär `SET_KINEMATIC_POSITION Z=10` att alla axlar sätts som referenskörda, den interna Z-positionen sätts till 10 och X- och Y-positionerna lämnas oförändrade. Ändring av den interna positionsspårningen beror inte på den interna referenskörningsstatusen: positionen kan ändras både för referenskörda och icke referenskörda axlar, och på samma sätt kan en axels referenskörningsstatus anges eller rensas utan att dess interna position ändras.
 
-The `SET_HOMED` parameter defaults to `XYZ` which instructs the kinematics to consider all axes as homed. A bare `SET_KINEMATIC_POSITION` command will result in all axes being considered homed (and not change its current position). If it is not desired to change the state of homed axes then assign `SET_HOMED` to an empty string - for example: `SET_KINEMATIC_POSITION SET_HOMED= X=10`. It is also possible to request an individual axis be considered homed (eg, `SET_HOMED=X`), but note that non-cartesian style kinematics (such as delta kinematics) may not support setting an individual axis as homed.
+Parametern `SET_HOMED` är som standard `XYZ`, vilket instruerar kinematiken att betrakta alla axlar som referenskörda. Ett ensamt kommando `SET_KINEMATIC_POSITION` gör att alla axlar betraktas som referenskörda utan att deras aktuella position ändras. Om referenskörda axlars status inte ska ändras tilldelas `SET_HOMED` en tom sträng, exempelvis: `SET_KINEMATIC_POSITION SET_HOMED= X=10`. Det går också att begära att en enskild axel betraktas som referenskörd (t.ex. `SET_HOMED=X`), men observera att icke-kartesisk kinematik (som deltakinematik) kanske inte stöder att enskilda axlar anges som referenskörda.
 
-The `CLEAR_HOMED` parameter instructs the kinematics to consider the given axes as not homed. For example, `CLEAR_HOMED=XYZ` would request all axes to be considered not homed (and thus require homing prior to movement on those axes). The default is `SET_HOMED=XYZ` even if `CLEAR_HOMED` is present, so the command `SET_KINEMATIC_POSITION CLEAR_HOMED=Z` will set X and Y as homed and clear the homing state for Z. Use `SET_KINEMATIC_POSITION SET_HOMED= CLEAR_HOMED=Z` if the goal is to clear only the Z homing state. If an axis is specified in neither `SET_HOMED` nor `CLEAR_HOMED` then its homing state is not changed and if it is specified in both then `CLEAR_HOMED` has precedence. It is possible to request clearing of an individual axis, but on non-cartesian style kinematics (such as delta kinematics) doing so may result in clearing the homing state of additional axes. Note the `CLEAR` parameter is currently an alias for the `CLEAR_HOMED` parameter, but this alias will be removed in the future.
+Parametern `CLEAR_HOMED` instruerar kinematiken att betrakta de angivna axlarna som icke referenskörda. `CLEAR_HOMED=XYZ` innebär exempelvis att alla axlar betraktas som icke referenskörda och därför måste referensköras före förflyttning. Standardvärdet är `SET_HOMED=XYZ` även om `CLEAR_HOMED` används, så kommandot `SET_KINEMATIC_POSITION CLEAR_HOMED=Z` gör X och Y referenskörda och rensar referenskörningsstatusen för Z. Använd `SET_KINEMATIC_POSITION SET_HOMED= CLEAR_HOMED=Z` om endast Z:s referenskörningsstatus ska rensas. Om en axel inte anges i vare sig `SET_HOMED` eller `CLEAR_HOMED` ändras inte dess referenskörningsstatus, och om den anges i båda har `CLEAR_HOMED` företräde. Det går att begära att en enskild axel rensas, men med icke-kartesisk kinematik (som deltakinematik) kan det medföra att även andra axlars referenskörningsstatus rensas. Observera att parametern `CLEAR` för närvarande är ett alias för `CLEAR_HOMED`, men aliaset kommer att tas bort i framtiden.
 
 ### [gcode]
 
-The gcode module is automatically loaded.
+Modulen gcode läses in automatiskt.
 
 #### RESTART
 
-`RESTART`: This will cause the host software to reload its config and perform an internal reset. This command will not clear error state from the micro-controller (see FIRMWARE_RESTART) nor will it load new software (see [the FAQ](FAQ.md#how-do-i-upgrade-to-the-latest-software)).
+`RESTART`: Gör att värdprogrammet läser in sin konfiguration på nytt och utför en intern återställning. Kommandot rensar inte feltillstånd i mikrokontrollern (se FIRMWARE_RESTART) och läser inte heller in ny programvara (se [FAQ](FAQ.md#how-do-i-upgrade-to-the-latest-software)).
 
 #### FIRMWARE_RESTART
 
-`FIRMWARE_RESTART`: This is similar to a RESTART command, but it also clears any error state from the micro-controller.
+`FIRMWARE_RESTART`: Liknar kommandot RESTART, men rensar också alla feltillstånd i mikrokontrollern.
 
 #### STATUS
 
-`STATUS`: Report the Klipper host software status.
+`STATUS`: Rapportera status för Klippers värdprogram.
 
 #### HELP
 
-`HELP`: Report the list of available extended G-Code commands.
+`HELP`: Rapportera listan över tillgängliga utökade G-kodskommandon.
 
 ### [gcode_arcs]
 
-The following standard G-Code commands are available if a [gcode_arcs config section](Config_Reference.md#gcode_arcs) is enabled:
+Följande vanliga G-kodskommandon är tillgängliga om ett [gcode_arcs-konfigurationsavsnitt](Config_Reference.md#gcode_arcs) är aktiverat:
 
-- Arc Move Clockwise (G2), Arc Move Counter-clockwise (G3): `G2|G3 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>] I<value> J<value>|I<value> K<value>|J<value> K<value>`
-- Arc Plane Select: G17 (XY plane), G18 (XZ plane), G19 (YZ plane)
+- Bågrörelse medurs (G2), bågrörelse moturs (G3): `G2|G3 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>] I<value> J<value>|I<value> K<value>|J<value> K<value>`
+- Val av bågplan: G17 (XY-plan), G18 (XZ-plan), G19 (YZ-plan)
 
 ### [gcode_macro]
 
-The following command is available when a [gcode_macro config section](Config_Reference.md#gcode_macro) is enabled (also see the [command templates guide](Command_Templates.md)).
+Följande kommando är tillgängligt när ett [gcode_macro-konfigurationsavsnitt](Config_Reference.md#gcode_macro) är aktiverat (se även [guiden för kommandomallar](Command_Templates.md)).
 
 #### SET_GCODE_VARIABLE
 
-`SET_GCODE_VARIABLE MACRO=<macro_name> VARIABLE=<name> VALUE=<value>`: This command allows one to change the value of a gcode_macro variable at run-time. The provided VALUE is parsed as a Python literal.
+`SET_GCODE_VARIABLE MACRO=<macro_name> VARIABLE=<name> VALUE=<value>`: Kommandot gör det möjligt att ändra värdet för en gcode_macro-variabel under körning. Det angivna VALUE tolkas som en Python-literal.
 
 ### [gcode_move]
 
-The gcode_move module is automatically loaded.
+Modulen gcode_move läses in automatiskt.
 
 #### GET_POSITION
 
-`GET_POSITION`: Return information on the current location of the toolhead. See the developer documentation of [GET_POSITION output](Code_Overview.md#coordinate-systems) for more information.
+`GET_POSITION`: Returnera information om verktygshuvudets aktuella plats. Se utvecklardokumentationen för [GET_POSITION-utdata](Code_Overview.md#coordinate-systems) för mer information.
 
 #### SET_GCODE_OFFSET
 
-`SET_GCODE_OFFSET [X=<pos>|X_ADJUST=<adjust>] [Y=<pos>|Y_ADJUST=<adjust>] [Z=<pos>|Z_ADJUST=<adjust>] [MOVE=1 [MOVE_SPEED=<speed>]]`: Set a positional offset to apply to future G-Code commands. This is commonly used to virtually change the Z bed offset or to set nozzle XY offsets when switching extruders. For example, if "SET_GCODE_OFFSET Z=0.2" is sent, then future G-Code moves will have 0.2mm added to their Z height. If the X_ADJUST style parameters are used, then the adjustment will be added to any existing offset (eg, "SET_GCODE_OFFSET Z=-0.2" followed by "SET_GCODE_OFFSET Z_ADJUST=0.3" would result in a total Z offset of 0.1). If "MOVE=1" is specified then a toolhead move will be issued to apply the given offset (otherwise the offset will take effect on the next absolute G-Code move that specifies the given axis). If "MOVE_SPEED" is specified then the toolhead move will be performed with the given speed (in mm/s); otherwise the toolhead move will use the last specified G-Code speed.
+`SET_GCODE_OFFSET [X=<pos>|X_ADJUST=<adjust>] [Y=<pos>|Y_ADJUST=<adjust>] [Z=<pos>|Z_ADJUST=<adjust>] [MOVE=1 [MOVE_SPEED=<speed>]]`: Ange en positionsförskjutning som ska tillämpas på framtida G-kodskommandon. Detta används ofta för att virtuellt ändra bäddens Z-förskjutning eller för att ange XY-förskjutningar för munstycket vid byte av extruder. Om till exempel ”SET_GCODE_OFFSET Z=0.2” skickas, läggs 0,2 mm till Z-höjden för framtida G-kodsförflyttningar. Om parametrar av typen X_ADJUST används läggs justeringen till en befintlig förskjutning (t.ex. ger ”SET_GCODE_OFFSET Z=-0.2” följt av ”SET_GCODE_OFFSET Z_ADJUST=0.3” en total Z-förskjutning på 0,1). Om ”MOVE=1” anges utförs en förflyttning av verktygshuvudet för att tillämpa förskjutningen (annars får förskjutningen verkan vid nästa absoluta G-kodsförflyttning som anger den aktuella axeln). Om ”MOVE_SPEED” anges utförs förflyttningen av verktygshuvudet med den angivna hastigheten (i mm/s); annars används senast angivna G-kodshastighet.
 
 #### SAVE_GCODE_STATE
 
-`SAVE_GCODE_STATE [NAME=<state_name>]`: Save the current g-code coordinate parsing state. Saving and restoring the g-code state is useful in scripts and macros. This command saves the current g-code absolute coordinate mode (G90/G91), absolute extrude mode (M82/M83), origin (G92), offset (SET_GCODE_OFFSET), speed override (M220), extruder override (M221), move speed, current XYZ position, and relative extruder "E" position. If NAME is provided it allows one to name the saved state to the given string. If NAME is not provided it defaults to "default".
+`SAVE_GCODE_STATE [NAME=<state_name>]`: Spara aktuellt tillstånd för tolkningen av G-kodkoordinater. Att spara och återställa G-kodstillståndet är användbart i skript och makron. Kommandot sparar aktuellt absolut koordinatläge för G-kod (G90/G91), absolut extruderläge (M82/M83), origo (G92), förskjutning (SET_GCODE_OFFSET), hastighetsåsidosättning (M220), extruderåsidosättning (M221), förflyttningshastighet, aktuell XYZ-position och relativ E-position för extrudern. Om NAME anges kan det sparade tillståndet ges det angivna namnet. Om NAME inte anges används ”default”.
 
 #### RESTORE_GCODE_STATE
 
-`RESTORE_GCODE_STATE [NAME=<state_name>] [MOVE=1 [MOVE_SPEED=<speed>]]`: Restore a state previously saved via SAVE_GCODE_STATE. If "MOVE=1" is specified then a toolhead move will be issued to move back to the previous XYZ position. If "MOVE_SPEED" is specified then the toolhead move will be performed with the given speed (in mm/s); otherwise the toolhead move will use the restored g-code speed.
+`RESTORE_GCODE_STATE [NAME=<state_name>] [MOVE=1 [MOVE_SPEED=<speed>]]`: Återställ ett tillstånd som tidigare sparats med SAVE_GCODE_STATE. Om ”MOVE=1” anges utförs en förflyttning av verktygshuvudet tillbaka till föregående XYZ-position. Om ”MOVE_SPEED” anges utförs förflyttningen av verktygshuvudet med den angivna hastigheten (i mm/s); annars används den återställda G-kodshastigheten.
 
 ### [generic_cartesian]
 
-The commands in this section become automatically available when `kinematics: generic_cartesian` is specified as the printer kinematics.
+Kommandona i detta avsnitt blir automatiskt tillgängliga när `kinematics: generic_cartesian` anges som skrivarens kinematik.
 
 #### SET_STEPPER_CARRIAGES
 
-`SET_STEPPER_CARRIAGES STEPPER=<stepper_name> CARRIAGES=<carriages> [DISABLE_CHECKS=[0|1]]`: Set or update the stepper carriages. `<stepper_name>` must reference an existing stepper defined in `printer.cfg`, and `<carriages>` describes the carriages the stepper moves. See [Generic Cartesian Kinematics](Config_Reference.md#generic-cartesian-kinematics) for a more detailed overview of the `carriages` parameter in the stepper configuration section. Note that it is only possible to change the coefficients or signs of the carriages with this command, but a user cannot add or remove the carriages that the stepper controls.
+`SET_STEPPER_CARRIAGES STEPPER=<stepper_name> CARRIAGES=<carriages> [DISABLE_CHECKS=[0|1]]`: Anger eller uppdaterar stegmotorvagnarna. `<stepper_name>` måste referera till en befintlig stegmotor i `printer.cfg`, och `<carriages>` beskriver vagnarna som stegmotorn flyttar. Se [Generic Cartesian Kinematics](Config_Reference.md#generic-cartesian-kinematics) för en mer detaljerad beskrivning av parametern `carriages` i stegmotorns konfigurationsavsnitt. Observera att kommandot endast kan ändra vagnarnas koefficienter eller tecken; användaren kan inte lägga till eller ta bort vagnar som stegmotorn styr.
 
-`SET_STEPPER_CARRIAGES` is an advanced tool, and the user is advised to exercise an extreme caution using it, since specifying incorrect configuration may physically damage the printer.
+`SET_STEPPER_CARRIAGES` är ett avancerat verktyg och bör användas med yttersta försiktighet, eftersom felaktig konfiguration kan skada skrivaren fysiskt.
 
-Note that `SET_STEPPER_CARRIAGES` performs certain internal validations of the new printer kinematics after the change. Keep in mind that if it detects an issue, it may leave printer kinematics in an invalid state. This means that if `SET_STEPPER_CARRIAGES` reports an error, it is unsafe to issue other GCode commands, and the user must inspect the error message and either fix the problem, or manually restore the previous stepper(s) configuration.
+Observera att `SET_STEPPER_CARRIAGES` utför vissa interna valideringar av den nya skrivarkinematiken efter ändringen. Om ett problem upptäcks kan skrivarkinematiken lämnas i ett ogiltigt tillstånd. Om `SET_STEPPER_CARRIAGES` rapporterar ett fel är det därför osäkert att köra andra G-kodskommandon. Inspektera felmeddelandet och åtgärda problemet eller återställ manuellt den tidigare stegmotorkonfigurationen.
 
-Since `SET_STEPPER_CARRIAGES` can update a configuration of a single stepper at a time, some sequences of changes can lead to invalid intermediate kinematic configurations, even if the final configuration is valid. In such cases a user can pass `DISABLE_CHECKS=1` parameters to all but the last command to disable intermediate checks. For example, if `stepper a` and `stepper b` initially have `carriage_x-carriage_y` and `carriage_x+carriage_y` carriages correspondingly, then the following sequence of commands will let a user effectively swap the carriage controls: `SET_STEPPER_CARRIAGES STEPPER=a CARRIAGES=carriage_x+carriage_y DISABLE_CHECKS=1` and `SET_STEPPER_CARRIAGES STEPPER=b CARRIAGES=carriage_x-carriage_y`, while still validating the final kinematics state.
+Eftersom `SET_STEPPER_CARRIAGES` bara kan uppdatera konfigurationen för en stegmotor åt gången kan vissa ändringsföljder ge ogiltiga mellanliggande kinematikkonfigurationer, även om slutkonfigurationen är giltig. I sådana fall kan användaren skicka parametern `DISABLE_CHECKS=1` till alla kommandon utom det sista för att inaktivera mellanliggande kontroller. Om exempelvis `stepper a` och `stepper b` från början har vagnarna `carriage_x-carriage_y` respektive `carriage_x+carriage_y` gör följande kommandoordning det möjligt att i praktiken byta vagnstyrning: `SET_STEPPER_CARRIAGES STEPPER=a CARRIAGES=carriage_x+carriage_y DISABLE_CHECKS=1` och `SET_STEPPER_CARRIAGES STEPPER=b CARRIAGES=carriage_x-carriage_y`, medan det slutliga kinematiktillståndet fortfarande valideras.
 
 ### [hall_filament_width_sensor]
 
-The following commands are available when the [tsl1401cl filament width sensor config section](Config_Reference.md#tsl1401cl_filament_width_sensor) or [hall filament width sensor config section](Config_Reference.md#hall_filament_width_sensor) is enabled (also see [TSLl401CL Filament Width Sensor](TSL1401CL_Filament_Width_Sensor.md) and [Hall Filament Width Sensor](Hall_Filament_Width_Sensor.md)):
+Följande kommandon är tillgängliga när ett [tsl1401cl-konfigurationsavsnitt för filamentbreddssensor](Config_Reference.md#tsl1401cl_filament_width_sensor) eller ett [hall-filamentbreddssensorkonfigurationsavsnitt](Config_Reference.md#hall_filament_width_sensor) är aktiverat (se även [TSLl401CL-filamentbreddssensor](TSL1401CL_Filament_Width_Sensor.md) och [Hall-filamentbreddssensor](Hall_Filament_Width_Sensor.md)):
 
 #### QUERY_FILAMENT_WIDTH
 
-`QUERY_FILAMENT_WIDTH`: Return the current measured filament width, the state of the width sensor, the state of the filament sensor and the state of flow compensation.
+`QUERY_FILAMENT_WIDTH`: Returnerar den aktuella uppmätta filamentbredden, tillståndet för breddsensorn, tillståndet för filamentsensorn och tillståndet för flödeskompenseringen.
 
 #### RESET_FILAMENT_WIDTH_SENSOR
 
-`RESET_FILAMENT_WIDTH_SENSOR`: Clear all sensor readings. Helpful after filament change. Resets flow rate to 100%.
+`RESET_FILAMENT_WIDTH_SENSOR`: Rensar alla sensoravläsningar. Användbart efter filamentbyte. Återställer flödeshastigheten till 100 %.
 
 #### DISABLE_FILAMENT_WIDTH_SENSOR
 
-`DISABLE_FILAMENT_WIDTH_SENSOR`: Turn off the filament width sensor and stop using it for flow compensation. Resets flow rate to 100%.
+`DISABLE_FILAMENT_WIDTH_SENSOR`: Stänger av filamentbreddsensorn och slutar använda den för flödeskompensering. Återställer flödeshastigheten till 100 %.
 
 #### ENABLE_FILAMENT_WIDTH_SENSOR
 
-`ENABLE_FILAMENT_WIDTH_SENSOR [FLOW_COMPENSATION=[0|1]`: Turn on the filament width sensor and enable or disable flow compensation. If `FLOW_COMPENSATION` is not specified, the current flow compensation state is preserved.
+`ENABLE_FILAMENT_WIDTH_SENSOR [FLOW_COMPENSATION=[0|1]`: Slår på filamentbreddsensorn och aktiverar eller inaktiverar flödeskompensering. Om `FLOW_COMPENSATION` inte anges behålls det aktuella tillståndet för flödeskompensering.
 
 #### QUERY_RAW_FILAMENT_WIDTH
 
-`QUERY_RAW_FILAMENT_WIDTH`: Return the current ADC channel readings and RAW sensor value for calibration points.
+`QUERY_RAW_FILAMENT_WIDTH`: Returnera aktuella avläsningar från ADC-kanalen och rått sensorvärde för kalibreringspunkter.
 
 #### ENABLE_FILAMENT_WIDTH_LOG
 
-`ENABLE_FILAMENT_WIDTH_LOG`: Turn on diameter logging.
+`ENABLE_FILAMENT_WIDTH_LOG`: Aktivera loggning av diameter.
 
 #### DISABLE_FILAMENT_WIDTH_LOG
 
-`DISABLE_FILAMENT_WIDTH_LOG`: Turn off diameter logging.
+`DISABLE_FILAMENT_WIDTH_LOG`: Inaktivera loggning av diameter.
 
 ### [heaters]
 
-The heaters module is automatically loaded if a heater is defined in the config file.
+Modulen heaters läses in automatiskt om en värmare är definierad i konfigurationsfilen.
 
 #### TURN_OFF_HEATERS
 
-`TURN_OFF_HEATERS`: Turn off all heaters.
+`TURN_OFF_HEATERS`: Stäng av alla värmare.
 
 #### TEMPERATURE_WAIT
 
-`TEMPERATURE_WAIT SENSOR=<config_name> [MINIMUM=<target>] [MAXIMUM=<target>]`: Wait until the given temperature sensor is at or above the supplied MINIMUM and/or at or below the supplied MAXIMUM.
+`TEMPERATURE_WAIT SENSOR=<config_name> [MINIMUM=<target>] [MAXIMUM=<target>]`: Vänta tills den angivna temperatursensorn är vid eller över angivet MINIMUM och/eller vid eller under angivet MAXIMUM.
 
 #### SET_HEATER_TEMPERATURE
 
-`SET_HEATER_TEMPERATURE HEATER=<heater_name> [TARGET=<target_temperature>]`: Sets the target temperature for a heater. If a target temperature is not supplied, the target is 0.
+`SET_HEATER_TEMPERATURE HEATER=<heater_name> [TARGET=<target_temperature>]`: Anger måltemperaturen för en värmare. Om ingen måltemperatur anges är målet 0.
 
 ### [idle_timeout]
 
-The idle_timeout module is automatically loaded.
+Modulen idle_timeout läses in automatiskt.
 
 #### SET_IDLE_TIMEOUT
 
-`SET_IDLE_TIMEOUT [TIMEOUT=<timeout>]`: Allows the user to set the idle timeout (in seconds).
+`SET_IDLE_TIMEOUT [TIMEOUT=<timeout>]`: Gör det möjligt för användaren att ange tidsgränsen för inaktivitet (i sekunder).
 
 ### [input_shaper]
 
-The following command is enabled if an [input_shaper config section](Config_Reference.md#input_shaper) has been enabled (also see the [resonance compensation guide](Resonance_Compensation.md)).
+Följande kommando aktiveras om ett [input_shaper-konfigurationsavsnitt](Config_Reference.md#input_shaper) har aktiverats (se även [guiden för resonanskompensering](Resonance_Compensation.md)).
 
 #### SET_INPUT_SHAPER
 
-`SET_INPUT_SHAPER [SHAPER_FREQ_X=<shaper_freq_x>] [SHAPER_FREQ_Y=<shaper_freq_y>] [SHAPER_FREQ_Y=<shaper_freq_z>] [DAMPING_RATIO_X=<damping_ratio_x>] [DAMPING_RATIO_Y=<damping_ratio_y>] [DAMPING_RATIO_Z=<damping_ratio_z>] [SHAPER_TYPE=<shaper>] [SHAPER_TYPE_X=<shaper_type_x>] [SHAPER_TYPE_Y=<shaper_type_y>] [SHAPER_TYPE_Z=<shaper_type_z>]`: Modify input shaper parameters. Note that SHAPER_TYPE parameter resets input shaper for all axes even if different shaper types have been configured in [input_shaper] section. SHAPER_TYPE cannot be used together with any of SHAPER_TYPE_X, SHAPER_TYPE_Y, and SHAPER_TYPE_Z parameters. See [config reference](Config_Reference.md#input_shaper) for more details on each of these parameters.
+`SET_INPUT_SHAPER [SHAPER_FREQ_X=<shaper_freq_x>] [SHAPER_FREQ_Y=<shaper_freq_y>] [SHAPER_FREQ_Y=<shaper_freq_z>] [DAMPING_RATIO_X=<damping_ratio_x>] [DAMPING_RATIO_Y=<damping_ratio_y>] [DAMPING_RATIO_Z=<damping_ratio_z>] [SHAPER_TYPE=<shaper>] [SHAPER_TYPE_X=<shaper_type_x>] [SHAPER_TYPE_Y=<shaper_type_y>] [SHAPER_TYPE_Z=<shaper_type_z>]`: Ändrar parametrar för input shaper. Observera att parametern SHAPER_TYPE återställer input shaper för alla axlar även om olika shaper-typer har konfigurerats i avsnittet [input_shaper]. SHAPER_TYPE kan inte användas tillsammans med parametrarna SHAPER_TYPE_X, SHAPER_TYPE_Y och SHAPER_TYPE_Z. Se [konfigurationsreferensen](Config_Reference.md#input_shaper) för mer information om varje parameter.
 
 ### [led]
 
-The following command is available when any of the [led config sections](Config_Reference.md#leds) are enabled.
+Följande kommando är tillgängligt när något av [led-konfigurationsavsnitten](Config_Reference.md#leds) är aktiverat.
 
 #### SET_LED
 
-`SET_LED LED=<config_name> RED=<value> GREEN=<value> BLUE=<value> WHITE=<value> [INDEX=<index>] [TRANSMIT=0] [SYNC=1]`: This sets the LED output. Each color `<value>` must be between 0.0 and 1.0. The WHITE option is only valid on RGBW LEDs. If the LED supports multiple chips in a daisy-chain then one may specify INDEX to alter the color of just the given chip (1 for the first chip, 2 for the second, etc.). If INDEX is not provided then all LEDs in the daisy-chain will be set to the provided color. If TRANSMIT=0 is specified then the color change will only be made on the next SET_LED command that does not specify TRANSMIT=0; this may be useful in combination with the INDEX parameter to batch multiple updates in a daisy-chain. By default, the SET_LED command will sync it's changes with other ongoing gcode commands. This can lead to undesirable behavior if LEDs are being set while the printer is not printing as it will reset the idle timeout. If careful timing is not needed, the optional SYNC=0 parameter can be specified to apply the changes without resetting the idle timeout.
+`SET_LED LED=<config_name> RED=<value> GREEN=<value> BLUE=<value> WHITE=<value> [INDEX=<index>] [TRANSMIT=0] [SYNC=1]`: Anger LED-utmatningen. Varje färg-`<value>` måste vara mellan 0,0 och 1,0. Alternativet WHITE är endast giltigt för RGBW-lysdioder. Om lysdioden stöder flera kretsar i en kedja kan INDEX anges för att ändra färgen för endast den angivna kretsen (1 för den första, 2 för den andra osv.). Om INDEX inte anges ställs alla lysdioder i kedjan in på den angivna färgen. Om TRANSMIT=0 anges verkställs färgändringen först vid nästa SET_LED-kommando som inte anger TRANSMIT=0; det kan vara användbart tillsammans med INDEX för att samla flera uppdateringar i en kedja. Som standard synkroniserar SET_LED sina ändringar med andra pågående G-kodskommandon. Det kan ge oönskat beteende om lysdioder ställs in när skrivaren inte skriver ut, eftersom tidsgränsen för inaktivitet då återställs. Om noggrann tidsinställning inte behövs kan SYNC=0 anges för att tillämpa ändringarna utan att återställa tidsgränsen för inaktivitet.
 
 #### SET_LED_TEMPLATE
 
-`SET_LED_TEMPLATE LED=<led_name> TEMPLATE=<template_name> [<param_x>=<literal>] [INDEX=<index>]`: Assign a [display_template](Config_Reference.md#display_template) to a given [LED](Config_Reference.md#leds). For example, if one defined a `[display_template my_led_template]` config section then one could assign `TEMPLATE=my_led_template` here. The display_template should produce a comma separated string containing four floating point numbers corresponding to red, green, blue, and white color settings. The template will be continuously evaluated and the LED will be automatically set to the resulting colors. One may set display_template parameters to use during template evaluation (parameters will be parsed as Python literals). If INDEX is not specified then all chips in the LED's daisy-chain will be set to the template, otherwise only the chip with the given index will be updated. If TEMPLATE is an empty string then this command will clear any previous template assigned to the LED (one can then use `SET_LED` commands to manage the LED's color settings).
+`SET_LED_TEMPLATE LED=<led_name> TEMPLATE=<template_name> [<param_x>=<literal>] [INDEX=<index>]`: Tilldelar en [display_template](Config_Reference.md#display_template) till en angiven [LED](Config_Reference.md#leds). Om exempelvis konfigurationsavsnittet `[display_template my_led_template]` har definierats kan `TEMPLATE=my_led_template` tilldelas här. display_template ska skapa en kommaseparerad sträng med fyra flyttal som motsvarar inställningar för röd, grön, blå och vit färg. Mallen utvärderas fortlöpande och lysdioden ställs automatiskt in på de resulterande färgerna. Parametrar för display_template kan anges för användning vid mallutvärderingen (parametrar tolkas som Python-litteraler). Om INDEX inte anges tilldelas mallen till alla kretsar i LED-kedjan, annars uppdateras endast kretsen med angivet index. Om TEMPLATE är en tom sträng rensar kommandot en tidigare mall som tilldelats LED:en (därefter kan `SET_LED` användas för att hantera färginställningarna direkt).
 
 ### [load_cell]
 
-The following commands are enabled if a [load_cell config section](Config_Reference.md#load_cell) has been enabled.
+Följande kommandon är aktiverade om ett [load_cell-konfigurationsavsnitt](Config_Reference.md#load_cell) har aktiverats.
 
 ### LOAD_CELL_DIAGNOSTIC
 
-`LOAD_CELL_DIAGNOSTIC [LOAD_CELL=<config_name>]`: This command collects 10 seconds of load cell data and reports statistics that can help you verify proper operation of the load cell. This command can be run on both calibrated and uncalibrated load cells.
+`LOAD_CELL_DIAGNOSTIC [LOAD_CELL=<config_name>]`: Kommandot samlar in lastcellsdata under 10 sekunder och rapporterar statistik som kan hjälpa dig att kontrollera att lastcellen fungerar korrekt. Kommandot kan köras med både kalibrerade och okalibrerade lastceller.
 
 ### LOAD_CELL_CALIBRATE
 
-`LOAD_CELL_CALIBRATE [LOAD_CELL=<config_name>]`: Start the guided calibration utility. Calibration is a 3 step process:
+`LOAD_CELL_CALIBRATE [LOAD_CELL=<config_name>]`: Startar det vägledda kalibreringsverktyget. Kalibreringen består av tre steg:
 
-1. First you remove all load from the load cell and run the `TARE` command
-1. Next you apply a known load to the load cell and run the `CALIBRATE GRAMS=nnn` command
-1. Finally use the `ACCEPT` command to save the results
+1. Först tar du bort all belastning från lastcellen och kör kommandot `TARE`
+1. Därefter lägger du en känd belastning på lastcellen och kör kommandot `CALIBRATE GRAMS=nnn`
+1. Använd slutligen kommandot `ACCEPT` för att spara resultaten
 
-You can cancel the calibration process at any time with `ABORT`.
+Du kan när som helst avbryta kalibreringen med `ABORT`.
 
 ### LOAD_CELL_TARE
 
-`LOAD_CELL_TARE [LOAD_CELL=<config_name>]`: This works just like the tare button on digital scale. It sets the current raw reading of the load cell to be the zero point reference value. The response is the percentage of the sensors range that was read and the raw value in counts. If the load cell is calibrated a force in grams is also reported.
+`LOAD_CELL_TARE [LOAD_CELL=<config_name>]`: Fungerar precis som taraknappen på en digital våg. Den aktuella råavläsningen från lastcellen sätts som nollpunktsreferens. Svaret är procentandelen av sensorns mätområde som lästes av och råvärdet i antal. Om lastcellen är kalibrerad rapporteras också kraften i gram.
 
 ### LOAD_CELL_READ load_cell="name"
 
-`LOAD_CELL_READ [LOAD_CELL=<config_name>]`: This command takes a reading from the load cell. The response is the percentage of the sensors range that was read and the raw value in counts. If the load cell is calibrated a force in grams is also reported.
+`LOAD_CELL_READ [LOAD_CELL=<config_name>]`: Kommandot läser av lastcellen. Svaret är procentandelen av sensorns mätområde som lästes av och råvärdet i antal. Om lastcellen är kalibrerad rapporteras också kraften i gram.
 
 ### [load_cell_probe]
 
-The commands below are enabled if a [load_cell config section](Config_Reference.md#load_cell_probe) has been enabled.
+Kommandona nedan är aktiverade om ett [load_cell-konfigurationsavsnitt](Config_Reference.md#load_cell_probe) har aktiverats.
 
-In addition, commands that perform probes, such as [`PROBE`](#probe), [`PROBE_ACCURACY`](#probe_accuracy), [`BED_MESH_CALIBRATE`](#bed_mesh_calibrate) etc. will accept additional parameters if a `[load_cell_probe]` is defined. The parameters override the corresponding settings from the [`[load_cell_probe]`](./Config_Reference.md#load_cell_probe) configuration:
+Dessutom accepterar kommandon som utför mätningar, såsom [`PROBE`](#probe), [`PROBE_ACCURACY`](#probe_accuracy) och [`BED_MESH_CALIBRATE`](#bed_mesh_calibrate), ytterligare parametrar om `[load_cell_probe]` är definierad. Parametrarna åsidosätter motsvarande inställningar i konfigurationen [`[load_cell_probe]`](./Config_Reference.md#load_cell_probe):
 
 - `FORCE_SAFETY_LIMIT=<grams>`
 - `TRIGGER_FORCE=<grams>`
@@ -531,437 +531,437 @@ In addition, commands that perform probes, such as [`PROBE`](#probe), [`PROBE_AC
 
 ### LOAD_CELL_TEST_TAP
 
-`LOAD_CELL_TEST_TAP [TAPS=<taps>] [TIMEOUT=<timeout>]`: Run a testing routine that reports taps on the load cell. The toolhead will not move but the load cell probe will sense taps just as if it was probing. This can be used as a sanity check to make sure that the probe works. This tool replaces QUERY_ENDSTOPS and QUERY_PROBE for load cell probes.
+`LOAD_CELL_TEST_TAP [TAPS=<taps>] [TIMEOUT=<timeout>]`: Kör en testrutin som rapporterar knackningar på lastcellen. Verktygshuvudet flyttas inte, men lastcellssonden känner av knackningar som vid mätning. Det kan användas som en rimlighetskontroll av att sonden fungerar. Verktyget ersätter QUERY_ENDSTOPS och QUERY_PROBE för lastcellssonder.
 
-- `TAPS`: the number of taps the tool expects
-- `TIMEOOUT`: the time, in seconds, that the tool waits for each tab before aborting.
+- `TAPS`: antalet knackningar som verktyget förväntar sig
+- `TIMEOOUT`: tiden i sekunder som verktyget väntar på varje knackning innan det avbryter.
 
 ### [manual_probe]
 
-The manual_probe module is automatically loaded.
+Modulen manual_probe läses in automatiskt.
 
 #### MANUAL_PROBE
 
-`MANUAL_PROBE [SPEED=<speed>]`: Run a helper script useful for measuring the height of the nozzle at a given location. If SPEED is specified, it sets the speed of TESTZ commands (the default is 5mm/s). During a manual probe, the following additional commands are available:
+`MANUAL_PROBE [SPEED=<speed>]`: Kör ett hjälpskript som är användbart för att mäta munstyckets höjd på en viss plats. Om SPEED anges bestämmer det hastigheten för TESTZ-kommandon (standardvärdet är 5 mm/s). Under en manuell sondering finns följande ytterligare kommandon:
 
-- `ACCEPT`: This command accepts the current Z position and concludes the manual probing tool.
-- `ABORT`: This command terminates the manual probing tool.
-- `TESTZ Z=<value>`: This command moves the nozzle up or down by the amount specified in "value". For example, `TESTZ Z=-.1` would move the nozzle down .1mm while `TESTZ Z=.1` would move the nozzle up .1mm. The value may also be `+`, `-`, `++`, or `--` to move the nozzle up or down an amount relative to previous attempts.
+- `ACCEPT`: Detta kommando accepterar den aktuella Z-positionen och avslutar det manuella sonderingsverktyget.
+- `ABORT`: Detta kommando avslutar det manuella sonderingsverktyget.
+- `TESTZ Z=<value>`: Detta kommando flyttar munstycket uppåt eller nedåt med värdet som anges i ”value”. Till exempel flyttar `TESTZ Z=-.1` munstycket 0,1 mm nedåt, medan `TESTZ Z=.1` flyttar munstycket 0,1 mm uppåt. Värdet kan också vara `+`, `-`, `++` eller `--` för att flytta munstycket uppåt eller nedåt ett belopp i förhållande till tidigare försök.
 
 #### Z_ENDSTOP_CALIBRATE
 
-`Z_ENDSTOP_CALIBRATE [SPEED=<speed>]`: Run a helper script useful for calibrating a Z position_endstop config setting. See the MANUAL_PROBE command for details on the parameters and the additional commands available while the tool is active.
+`Z_ENDSTOP_CALIBRATE [SPEED=<speed>]`: Kör ett hjälpskript som är användbart för att kalibrera en inställning för Z position_endstop. Se kommandot MANUAL_PROBE för information om parametrarna och ytterligare kommandon som är tillgängliga medan verktyget är aktivt.
 
 #### Z_OFFSET_APPLY_ENDSTOP
 
-`Z_OFFSET_APPLY_ENDSTOP`: Take the current Z Gcode offset (aka, babystepping), and subtract it from the stepper_z endstop_position. This acts to take a frequently used babystepping value, and "make it permanent". Requires a `SAVE_CONFIG` to take effect.
+`Z_OFFSET_APPLY_ENDSTOP`: Ta aktuell Z-förskjutning för G-kod (dvs. mikrostegning) och subtrahera den från stepper_z endstop_position. Detta gör ett ofta använt värde för mikrostegning permanent. Kräver `SAVE_CONFIG` för att börja gälla.
 
 ### [manual_stepper]
 
-The following command is available when a [manual_stepper config section](Config_Reference.md#manual_stepper) is enabled.
+Följande kommando är tillgängligt när ett [manual_stepper-konfigurationsavsnitt](Config_Reference.md#manual_stepper) är aktiverat.
 
 #### MANUAL_STEPPER
 
-`MANUAL_STEPPER STEPPER=config_name [ENABLE=[0|1]] [SET_POSITION=<pos>] [SPEED=<speed>] [ACCEL=<accel>] [MOVE=<pos>] [SYNC=0]]`: This command will alter the state of the stepper. Use the ENABLE parameter to enable/disable the stepper. Use the SET_POSITION parameter to force the stepper to think it is at the given position. Use the MOVE parameter to request a movement to the given position. If SPEED and/or ACCEL is specified then the given values will be used instead of the defaults specified in the config file. If an ACCEL of zero is specified then no acceleration will be performed. Normally future G-Code commands will be scheduled to run after the stepper move completes, however if a manual stepper move uses SYNC=0 then future G-Code movement commands may run in parallel with the stepper movement.
+`MANUAL_STEPPER STEPPER=config_name [ENABLE=[0|1]] [SET_POSITION=<pos>] [SPEED=<speed>] [ACCEL=<accel>] [MOVE=<pos>] [SYNC=0]]`: Ändrar stegmotorns tillstånd. Använd parametern ENABLE för att aktivera eller inaktivera stegmotorn. Använd SET_POSITION för att tvinga stegmotorn att anta att den befinner sig på den angivna positionen. Använd MOVE för att begära en förflyttning till den angivna positionen. Om SPEED och/eller ACCEL anges används de angivna värdena i stället för standardvärdena i konfigurationsfilen. Om ACCEL är noll utförs ingen acceleration. Normalt schemaläggs framtida G-kodskommandon efter att stegmotorförflyttningen är klar, men om en manuell stegmotorförflyttning använder SYNC=0 kan framtida G-kodsrörelsekommandon köras parallellt med stegmotorförflyttningen.
 
-`MANUAL_STEPPER STEPPER=config_name [SPEED=<speed>] [ACCEL=<accel>] MOVE=<pos> STOP_ON_ENDSTOP=<check_type>`: If STOP_ON_ENDSTOP is specified then the move will end early if an endstop event occurs. The `STOP_ON_ENDSTOP` parameter may be set to one of the following values:
+`MANUAL_STEPPER STEPPER=config_name [SPEED=<speed>] [ACCEL=<accel>] MOVE=<pos> STOP_ON_ENDSTOP=<check_type>`: Om STOP_ON_ENDSTOP anges avslutas förflyttningen tidigt om en ändstoppshändelse inträffar. Parametern `STOP_ON_ENDSTOP` kan sättas till något av följande värden:
 
-* `probe`: The movement will stop when the endstop reports triggered.
-* `home`: The movement will stop when the endstop reports triggered and the final position of the manual_stepper will be set such that the trigger position matches the position specified in the `MOVE` parameter.
-* `inverted_probe`, `inverted_home`: As above, however, the movement will stop when the endstop reports it is in a non-triggered state.
-* `try_probe`, `try_inverted_probe`, `try_home`, `try_inverted_home`: As above, but no error will be reported if the movement fully completes without an endstop event stopping the move early.
+* `probe`: Förflyttningen stoppas när ändstoppet rapporterar utlöst.
+* `home`: Förflyttningen stoppas när ändstoppet rapporterar utlöst och manual_stepper:s slutposition sätts så att utlösningspositionen motsvarar positionen som anges i parametern `MOVE`.
+* `inverted_probe`, `inverted_home`: Som ovan, men förflyttningen stoppas när ändstoppet rapporterar att det inte är utlöst.
+* `try_probe`, `try_inverted_probe`, `try_home`, `try_inverted_home`: Som ovan, men inget fel rapporteras om förflyttningen slutförs utan att en ändstoppshändelse avbryter den i förtid.
 
-`MANUAL_STEPPER STEPPER=config_name GCODE_AXIS=[A-Z] [LIMIT_VELOCITY=<velocity>] [LIMIT_ACCEL=<accel>] [INSTANTANEOUS_CORNER_VELOCITY=<velocity>]`: If the `GCODE_AXIS` parameter is specified then it configures the stepper motor as an extra axis on `G1` move commands. For example, if one were to issue a `MANUAL_STEPPER ... GCODE_AXIS=R` command then one could issue commands like `G1 X10 Y20 R30` to move the stepper motor. The resulting moves will occur synchronously with the associated toolhead xyz movements. If the motor is associated with a `GCODE_AXIS` then one may no longer issue movements using the above `MANUAL_STEPPER` command - one may unregister the stepper with a `MANUAL_STEPPER ... GCODE_AXIS=` command to resume manual control of the motor. The `LIMIT_VELOCITY` and `LIMIT_ACCEL` parameters allow one to reduce the speed of `G1` moves if those moves would result in a velocity or acceleration above the specified limits. The `INSTANTANEOUS_CORNER_VELOCITY` specifies the maximum instantaneous velocity change (in mm/s) of the motor during the junction of two moves (the default is 1mm/s).
+`MANUAL_STEPPER STEPPER=config_name GCODE_AXIS=[A-Z] [LIMIT_VELOCITY=<velocity>] [LIMIT_ACCEL=<accel>] [INSTANTANEOUS_CORNER_VELOCITY=<velocity>]`: Om parametern `GCODE_AXIS` anges konfigureras stegmotorn som en extra axel för `G1`-förflyttningar. Om exempelvis `MANUAL_STEPPER ... GCODE_AXIS=R` körs kan kommandon som `G1 X10 Y20 R30` användas för att flytta stegmotorn. Förflyttningarna sker synkront med verktygshuvudets XYZ-förflyttningar. När motorn associeras med en `GCODE_AXIS` går det inte längre att begära förflyttning med ovanstående `MANUAL_STEPPER`-kommando. Stegmotorn kan avregistreras med `MANUAL_STEPPER ... GCODE_AXIS=` för att återgå till manuell styrning. Parametrarna `LIMIT_VELOCITY` och `LIMIT_ACCEL` kan begränsa hastigheten för `G1`-förflyttningar som annars skulle överskrida angivna hastighets- eller accelerationsgränser. `INSTANTANEOUS_CORNER_VELOCITY` anger motorns högsta momentana hastighetsändring (mm/s) i korsningen mellan två förflyttningar (standard är 1 mm/s).
 
 ### [mcp4018]
 
-The following command is available when a [mcp4018 config section](Config_Reference.md#mcp4018) is enabled.
+Följande kommando är tillgängligt när ett [mcp4018-konfigurationsavsnitt](Config_Reference.md#mcp4018) är aktiverat.
 
 #### SET_DIGIPOT
 
-`SET_DIGIPOT DIGIPOT=config_name WIPER=<value>`: This command will change the current value of the digipot. This value should typically be between 0.0 and 1.0, unless a 'scale' is defined in the config. When 'scale' is defined, then this value should be between 0.0 and 'scale'.
+`SET_DIGIPOT DIGIPOT=config_name WIPER=<value>`: Detta kommando ändrar digipotens aktuella värde. Värdet bör vanligen vara mellan 0,0 och 1,0, om inte en ”scale” har definierats i konfigurationen. När ”scale” har definierats bör värdet vara mellan 0,0 och ”scale”.
 
 ### [output_pin]
 
-The following command is available when an [output_pin config section](Config_Reference.md#output_pin) or [pwm_tool config section](Config_Reference.md#pwm_tool) is enabled.
+Följande kommando är tillgängligt när ett [output_pin-konfigurationsavsnitt](Config_Reference.md#output_pin) eller [pwm_tool-konfigurationsavsnitt](Config_Reference.md#pwm_tool) är aktiverat.
 
 #### SET_PIN
 
-`SET_PIN PIN=config_name VALUE=<value>`: Set the pin to the given output `VALUE`. VALUE should be 0 or 1 for "digital" output pins. For PWM pins, set to a value between 0.0 and 1.0, or between 0.0 and `scale` if a scale is configured in the output_pin config section.
+`SET_PIN PIN=config_name VALUE=<value>`: Anger stiftet till det angivna utmatningsvärdet `VALUE`. VALUE ska vara 0 eller 1 för ”digitala” utmatningsstift. För PWM-stift ska ett värde mellan 0,0 och 1,0 anges, eller mellan 0,0 och `scale` om en skala har konfigurerats i konfigurationsavsnittet output_pin.
 
-`SET_PIN PIN=config_name TEMPLATE=<template_name> [<param_x>=<literal>]`: If `TEMPLATE` is specified then it assigns a [display_template](Config_Reference.md#display_template) to the given pin. For example, if one defined a `[display_template my_pin_template]` config section then one could assign `TEMPLATE=my_pin_template` here. The display_template should produce a string containing a floating point number with the desired value. The template will be continuously evaluated and the pin will be automatically set to the resulting value. One may set display_template parameters to use during template evaluation (parameters will be parsed as Python literals). If TEMPLATE is an empty string then this command will clear any previous template assigned to the pin (one can then use `SET_PIN` commands to manage the values directly).
+`SET_PIN PIN=config_name TEMPLATE=<template_name> [<param_x>=<literal>]`: Om `TEMPLATE` anges tilldelas en [display_template](Config_Reference.md#display_template) till det angivna stiftet. Om exempelvis konfigurationsavsnittet `[display_template my_pin_template]` har definierats kan `TEMPLATE=my_pin_template` tilldelas här. display_template ska skapa en sträng som innehåller ett flyttal med önskat värde. Mallen utvärderas fortlöpande och stiftet ställs automatiskt in på det resulterande värdet. Parametrar för display_template kan anges för användning vid mallutvärderingen (parametrar tolkas som Python-litteraler). Om TEMPLATE är en tom sträng rensar kommandot en tidigare mall som tilldelats stiftet (därefter kan `SET_PIN` användas för att hantera värdena direkt).
 
 ### [palette2]
 
-The following commands are available when the [palette2 config section](Config_Reference.md#palette2) is enabled.
+Följande kommandon är tillgängliga när ett [palette2-konfigurationsavsnitt](Config_Reference.md#palette2) är aktiverat.
 
-Palette prints work by embedding special OCodes (Omega Codes) in the GCode file:
+Palette-utskrifter fungerar genom att bädda in särskilda OCodes (Omega Codes) i G-kodsfilen:
 
-- `O1`...`O32`: These codes are read from the GCode stream and processed by this module and passed to the Palette 2 device.
+- `O1`…`O32`: Dessa koder läses från G-kodsströmmen, behandlas av denna modul och skickas till Palette 2-enheten.
 
-The following additional commands are also available.
+Följande ytterligare kommandon är också tillgängliga.
 
 #### PALETTE_CONNECT
 
-`PALETTE_CONNECT`: This command initializes the connection with the Palette 2.
+`PALETTE_CONNECT`: Detta kommando initierar anslutningen till Palette 2.
 
 #### PALETTE_DISCONNECT
 
-`PALETTE_DISCONNECT`: This command disconnects from the Palette 2.
+`PALETTE_DISCONNECT`: Detta kommando kopplar från Palette 2.
 
 #### PALETTE_CLEAR
 
-`PALETTE_CLEAR`: This command instructs the Palette 2 to clear all of the input and output paths of filament.
+`PALETTE_CLEAR`: Detta kommando instruerar Palette 2 att rensa alla in- och utmatningsbanor från filament.
 
 #### PALETTE_CUT
 
-`PALETTE_CUT`: This command instructs the Palette 2 to cut the filament currently loaded in the splice core.
+`PALETTE_CUT`: Detta kommando instruerar Palette 2 att skära av filamentet som för närvarande är laddat i skarvkärnan.
 
 #### PALETTE_SMART_LOAD
 
-`PALETTE_SMART_LOAD`: This command start the smart load sequence on the Palette 2. Filament is loaded automatically by extruding it the distance calibrated on the device for the printer, and instructs the Palette 2 once the loading has been completed. This command is the same as pressing **Smart Load** directly on the Palette 2 screen after the filament load is complete.
+`PALETTE_SMART_LOAD`: Detta kommando startar Smart Load-sekvensen på Palette 2. Filament laddas automatiskt genom att extruderas det avstånd som kalibrerats på enheten för skrivaren, och Palette 2 meddelas när laddningen är klar. Kommandot motsvarar att trycka på **Smart Load** direkt på Palette 2-skärmen efter att filamentet har laddats.
 
 ### [pause_resume]
 
-The following commands are available when the [pause_resume config section](Config_Reference.md#pause_resume) is enabled:
+Följande kommandon är tillgängliga när [pause_resume-konfigurationsavsnittet](Config_Reference.md#pause_resume) är aktiverat:
 
 #### PAUSE
 
-`PAUSE`: Pauses the current print. The current position is captured for restoration upon resume.
+`PAUSE`: Pausar den aktuella utskriften. Den aktuella positionen sparas för återställning vid återupptagning.
 
 #### RESUME
 
-`RESUME [VELOCITY=<value>]`: Resumes the print from a pause, first restoring the previously captured position. The VELOCITY parameter determines the speed at which the tool should return to the original captured position.
+`RESUME [VELOCITY=<value>]`: Återupptar utskriften efter en paus och återställer först den tidigare sparade positionen. Parametern VELOCITY bestämmer hastigheten som verktyget ska återgå till den ursprungliga sparade positionen med.
 
 #### CLEAR_PAUSE
 
-`CLEAR_PAUSE`: Clears the current paused state without resuming the print. This is useful if one decides to cancel a print after a PAUSE. It is recommended to add this to your start gcode to make sure the paused state is fresh for each print.
+`CLEAR_PAUSE`: Rensar aktuellt pausat tillstånd utan att återuppta utskriften. Detta är användbart om du bestämmer dig för att avbryta en utskrift efter PAUSE. Det rekommenderas att lägga till detta i start-G-koden så att paustillståndet är nytt för varje utskrift.
 
 #### CANCEL_PRINT
 
-`CANCEL_PRINT`: Cancels the current print.
+`CANCEL_PRINT`: Avbryter den aktuella utskriften.
 
 ### [pid_calibrate]
 
-The pid_calibrate module is automatically loaded if a heater is defined in the config file.
+Modulen pid_calibrate läses in automatiskt om en värmare är definierad i konfigurationsfilen.
 
 #### PID_CALIBRATE
 
-`PID_CALIBRATE HEATER=<config_name> TARGET=<temperature> [WRITE_FILE=1]`: Perform a PID calibration test. The specified heater will be enabled until the specified target temperature is reached, and then the heater will be turned off and on for several cycles. If the WRITE_FILE parameter is enabled, then the file /tmp/heattest.txt will be created with a log of all temperature samples taken during the test.
+`PID_CALIBRATE HEATER=<config_name> TARGET=<temperature> [WRITE_FILE=1]`: Utför ett PID-kalibreringstest. Den angivna värmaren aktiveras tills den angivna måltemperaturen uppnås och stängs sedan av och på under flera cykler. Om parametern WRITE_FILE är aktiverad skapas filen /tmp/heattest.txt med en logg över alla temperaturprover från testet.
 
 ### [print_stats]
 
-The print_stats module is automatically loaded.
+Modulen print_stats läses in automatiskt.
 
 #### SET_PRINT_STATS_INFO
 
-`SET_PRINT_STATS_INFO [TOTAL_LAYER=<total_layer_count>] [CURRENT_LAYER= <current_layer>]`: Pass slicer info like layer act and total to Klipper. Add `SET_PRINT_STATS_INFO [TOTAL_LAYER=<total_layer_count>]` to your slicer start gcode section and `SET_PRINT_STATS_INFO [CURRENT_LAYER= <current_layer>]` at the layer change gcode section to pass layer information from your slicer to Klipper.
+`SET_PRINT_STATS_INFO [TOTAL_LAYER=<total_layer_count>] [CURRENT_LAYER= <current_layer>]`: Skicka information från skivningsprogrammet, såsom aktuellt och totalt lager, till Klipper. Lägg till `SET_PRINT_STATS_INFO [TOTAL_LAYER=<total_layer_count>]` i skivningsprogrammets start-G-kod och `SET_PRINT_STATS_INFO [CURRENT_LAYER= <current_layer>]` i G-kodsavsnittet för lagerbyte för att skicka lagerinformation till Klipper.
 
 ### [probe]
 
-The following commands are available when a [probe config section](Config_Reference.md#probe) or [bltouch config section](Config_Reference.md#bltouch) is enabled (also see the [probe calibrate guide](Probe_Calibrate.md)).
+Följande kommandon är tillgängliga när ett [probe-konfigurationsavsnitt](Config_Reference.md#probe) eller ett [bltouch-konfigurationsavsnitt](Config_Reference.md#bltouch) är aktiverat (se även [guiden för sondkalibrering](Probe_Calibrate.md)).
 
 #### PROBE
 
-`PROBE [PROBE_SPEED=<mm/s>] [LIFT_SPEED=<mm/s>] [SAMPLES=<count>] [SAMPLE_RETRACT_DIST=<mm>] [SAMPLES_TOLERANCE=<mm>] [SAMPLES_TOLERANCE_RETRIES=<count>] [SAMPLES_RESULT=median|average]`: Move the nozzle downwards until the probe triggers. If any of the optional parameters are provided they override their equivalent setting in the [probe config section](Config_Reference.md#probe).
+`PROBE [PROBE_SPEED=<mm/s>] [LIFT_SPEED=<mm/s>] [SAMPLES=<count>] [SAMPLE_RETRACT_DIST=<mm>] [SAMPLES_TOLERANCE=<mm>] [SAMPLES_TOLERANCE_RETRIES=<count>] [SAMPLES_RESULT=median|average]`: Flytta munstycket nedåt tills sonden utlöses. Om någon av de valfria parametrarna anges åsidosätter de motsvarande inställning i [sondkonfigurationsavsnittet](Config_Reference.md#probe).
 
 #### QUERY_PROBE
 
-`QUERY_PROBE`: Report the current status of the probe ("triggered" or "open").
+`QUERY_PROBE`: Rapportera sondens aktuella status (”utlöst” eller ”öppen”).
 
 #### PROBE_ACCURACY
 
-`PROBE_ACCURACY [PROBE_SPEED=<mm/s>] [SAMPLES=<count>] [SAMPLE_RETRACT_DIST=<mm>]`: Calculate the maximum, minimum, average, median, and standard deviation of multiple probe samples. By default, 10 SAMPLES are taken. Otherwise the optional parameters default to their equivalent setting in the probe config section.
+`PROBE_ACCURACY [PROBE_SPEED=<mm/s>] [SAMPLES=<count>] [SAMPLE_RETRACT_DIST=<mm>]`: Beräkna högsta, lägsta, medelvärde, median och standardavvikelse för flera sondprover. Som standard tas 10 SAMPLES. I övrigt använder de valfria parametrarna motsvarande inställning i sondkonfigurationsavsnittet som standard.
 
 #### PROBE_CALIBRATE
 
-`PROBE_CALIBRATE [SPEED=<speed>] [<probe_parameter>=<value>]`: Run a helper script useful for calibrating the probe's z_offset. See the PROBE command for details on the optional probe parameters. See the MANUAL_PROBE command for details on the SPEED parameter and the additional commands available while the tool is active. Please note, the PROBE_CALIBRATE command uses the speed variable to move in XY direction as well as Z.
+`PROBE_CALIBRATE [SPEED=<speed>] [<probe_parameter>=<value>]`: Kör ett hjälpskript som är användbart för att kalibrera sondens z_offset. Se kommandot PROBE för information om valfria sondparametrar. Se MANUAL_PROBE för information om parametern SPEED och ytterligare kommandon som är tillgängliga medan verktyget är aktivt. Observera att PROBE_CALIBRATE använder hastighetsvariabeln för att flytta i både XY- och Z-riktning.
 
 #### Z_OFFSET_APPLY_PROBE
 
-`Z_OFFSET_APPLY_PROBE`: Take the current Z Gcode offset (aka, babystepping), and subtract if from the probe's z_offset. This acts to take a frequently used babystepping value, and "make it permanent". Requires a `SAVE_CONFIG` to take effect.
+`Z_OFFSET_APPLY_PROBE`: Ta aktuell Z-förskjutning för G-kod (dvs. mikrostegning) och subtrahera den från sondens z_offset. Detta gör ett ofta använt värde för mikrostegning permanent. Kräver `SAVE_CONFIG` för att börja gälla.
 
 ### [probe_eddy_current]
 
-The commands below are available when a [probe_eddy_current config section](Config_Reference.md#probe_eddy_current) is enabled.
+Kommandona nedan är tillgängliga när ett [probe_eddy_current-konfigurationsavsnitt](Config_Reference.md#probe_eddy_current) är aktiverat.
 
-In addition, commands that perform probes, such as [`PROBE`](#probe), [`PROBE_ACCURACY`](#probe_accuracy), [`BED_MESH_CALIBRATE`](#bed_mesh_calibrate) etc. will accept additional parameters if a `[probe_eddy_current]` section is defined:
+Dessutom accepterar kommandon som utför mätningar, såsom [`PROBE`](#probe), [`PROBE_ACCURACY`](#probe_accuracy) och [`BED_MESH_CALIBRATE`](#bed_mesh_calibrate), ytterligare parametrar om avsnittet `[probe_eddy_current]` är definierat:
 
-- `METHOD=<scan|rapid_scan|tap>`: This alters the probing mechanism:
-   - `METHOD=scan`: The toolhead does not descend. Instead the toolhead will pause briefly above each target location and return the measured height at that position.
-   - `METHOD=rapid_scan`: The toolhead does not descend and does not pause at each target location. The value returned is the measured height around the time that the toolhead was near each target position.
-   - `METHOD=tap`: The toolhead will descend until the nozzle makes contact with the bed. This method is only available if `tap_threshold` is specified in the `[probe_eddy_current]` config section.
-   - default: If no `METHOD` parameter is specified then the default behavior is for the toolhead to descend until the sensor detects that the distance to the bed is at or below the `z_offset` parameter specified in the `[probe_eddy_current]` config section.
-- `SAMPLE_TIME=<time>`: When using `METHOD=scan` probing, this specifies the time (in seconds) to pause at each target point. When using `METHOD=rapid_scan` this specifies the measurement time window at each target. If not specified, the default is 0.100 (which is 100ms).
-- `TAP_THRESHOLD=<value>`: This overrides the `tap_threshold` specified in the `[probe_eddy_current]` config section when probing using `METHOD=tap`.
+- `METHOD=<scan|rapid_scan|tap>`: Ändrar mätmekanismen:
+   - `METHOD=scan`: Verktygshuvudet sänks inte. I stället pausar det kort ovanför varje målplats och returnerar den uppmätta höjden där.
+   - `METHOD=rapid_scan`: Verktygshuvudet sänks inte och pausar inte vid varje målplats. Det returnerade värdet är den uppmätta höjden ungefär när verktygshuvudet befann sig nära varje målposition.
+   - `METHOD=tap`: Verktygshuvudet sänks tills munstycket får kontakt med bädden. Metoden är endast tillgänglig om `tap_threshold` anges i konfigurationsavsnittet `[probe_eddy_current]`.
+   - standard: Om ingen `METHOD`-parameter anges sänks verktygshuvudet som standard tills sensorn upptäcker att avståndet till bädden är lika med eller mindre än parametern `z_offset` i konfigurationsavsnittet `[probe_eddy_current]`.
+- `SAMPLE_TIME=<time>`: Vid mätning med `METHOD=scan` anger detta tiden (i sekunder) att pausa vid varje målpunkt. Med `METHOD=rapid_scan` anger det mättidsfönstret vid varje mål. Om det inte anges är standardvärdet 0,100 (100 ms).
+- `TAP_THRESHOLD=<value>`: Åsidosätter `tap_threshold` i konfigurationsavsnittet `[probe_eddy_current]` vid mätning med `METHOD=tap`.
 
-The `Z_OFFSET_APPLY_PROBE` command is also extended to support a `METHOD=tap` parameter. When no METHOD parameter is provided, the `Z_OFFSET_APPLY_PROBE` command alters the probe calibration to apply the current Z G-Code offset to future `scan`, `rapid_scan`, and default probes. If `METHOD=tap` is specified then the command instead applies the change to `tap_z_offset` so that future `tap` probes are updated to use the current Z G-Code offset.
+Kommandot `Z_OFFSET_APPLY_PROBE` utökas också för att stödja parametern `METHOD=tap`. När ingen METHOD-parameter anges ändrar kommandot `Z_OFFSET_APPLY_PROBE` sondkalibreringen så att den aktuella Z G-kodsförskjutningen tillämpas på framtida `scan`-, `rapid_scan`- och standardmätningar. Om `METHOD=tap` anges tillämpas ändringen i stället på `tap_z_offset`, så att framtida `tap`-mätningar uppdateras med den aktuella Z G-kodsförskjutningen.
 
 #### PROBE_EDDY_CURRENT_CALIBRATE
 
-`PROBE_EDDY_CURRENT_CALIBRATE CHIP=<config_name>`: This starts a tool that calibrates the sensor resonance frequencies to corresponding Z heights. The tool will take a couple of minutes to complete. After completion, use the SAVE_CONFIG command to store the results in the printer.cfg file.
+`PROBE_EDDY_CURRENT_CALIBRATE CHIP=<config_name>`: Startar ett verktyg som kalibrerar sensorns resonansfrekvenser mot motsvarande Z-höjder. Verktyget tar några minuter att slutföra. Använd SAVE_CONFIG efteråt för att lagra resultatet i filen printer.cfg.
 
 #### PROBE_EDDY_CURRENT_TAP_CALIBRATE
 
-`PROBE_EDDY_CURRENT_TAP_CALIBRATE [TAP=guess|refine|verify]`: This starts a tool that can calibrate the probe's "tap_threshold" parameter. See the [eddy probe documentation](Eddy_Probe.md#tap-calibration) for details.
+`PROBE_EDDY_CURRENT_TAP_CALIBRATE [TAP=guess|refine|verify]`: Startar ett verktyg som kan kalibrera sondens parameter ”tap_threshold”. Se [dokumentationen om virvelströmssonden](Eddy_Probe.md#tap-calibration) för mer information.
 
 #### LDC_CALIBRATE_DRIVE_CURRENT
 
-`LDC_CALIBRATE_DRIVE_CURRENT CHIP=<config_name>` This tool will calibrate the ldc1612 DRIVE_CURRENT0 register. Prior to using this tool, move the sensor so that it is near the center of the bed and about 20mm above the bed surface. Run this command to determine an appropriate DRIVE_CURRENT for the sensor. After running this command use the SAVE_CONFIG command to store that new setting in the printer.cfg config file.
+`LDC_CALIBRATE_DRIVE_CURRENT CHIP=<config_name>`: Verktyget kalibrerar registret DRIVE_CURRENT0 för ldc1612. Innan verktyget används ska sensorn flyttas så att den är nära bäddens mitt och ungefär 20 mm ovanför bäddytan. Kör kommandot för att fastställa ett lämpligt DRIVE_CURRENT för sensorn. Använd sedan SAVE_CONFIG för att lagra den nya inställningen i konfigurationsfilen printer.cfg.
 
 ### [pwm_cycle_time]
 
-The following command is available when a [pwm_cycle_time config section](Config_Reference.md#pwm_cycle_time) is enabled.
+Följande kommando är tillgängligt när ett [pwm_cycle_time-konfigurationsavsnitt](Config_Reference.md#pwm_cycle_time) är aktiverat.
 
 #### SET_PIN
 
-`SET_PIN PIN=config_name VALUE=<value> [CYCLE_TIME=<cycle_time>]`: This command works similarly to [output_pin](#output_pin) SET_PIN commands. The command here supports setting an explicit cycle time using the CYCLE_TIME parameter (specified in seconds). Note that the CYCLE_TIME parameter is not stored between SET_PIN commands (any SET_PIN command without an explicit CYCLE_TIME parameter will use the `cycle_time` specified in the pwm_cycle_time config section).
+`SET_PIN PIN=config_name VALUE=<value> [CYCLE_TIME=<cycle_time>]`: Kommandot fungerar på samma sätt som SET_PIN-kommandon för [output_pin](#output_pin). Här går det att ange en explicit cykeltid med parametern CYCLE_TIME (i sekunder). Observera att parametern CYCLE_TIME inte sparas mellan SET_PIN-kommandon (ett SET_PIN-kommando utan explicit CYCLE_TIME använder `cycle_time` som anges i konfigurationsavsnittet pwm_cycle_time).
 
 ### [quad_gantry_level]
 
-The following commands are available when the [quad_gantry_level config section](Config_Reference.md#quad_gantry_level) is enabled.
+Följande kommandon är tillgängliga när ett [quad_gantry_level-konfigurationsavsnitt](Config_Reference.md#quad_gantry_level) är aktiverat.
 
 #### QUAD_GANTRY_LEVEL
 
-`QUAD_GANTRY_LEVEL [RETRIES=<value>] [RETRY_TOLERANCE=<value>] [HORIZONTAL_MOVE_Z=<value>] [<probe_parameter>=<value>]`: This command will probe the points specified in the config and then make independent adjustments to each Z stepper to compensate for tilt. See the PROBE command for details on the optional probe parameters. The optional `RETRIES`, `RETRY_TOLERANCE`, and `HORIZONTAL_MOVE_Z` values override those options specified in the config file.
+`QUAD_GANTRY_LEVEL [RETRIES=<value>] [RETRY_TOLERANCE=<value>] [HORIZONTAL_MOVE_Z=<value>] [<probe_parameter>=<value>]`: Kommandot mäter punkterna som anges i konfigurationen och utför sedan oberoende justeringar för varje Z-stegmotor för att kompensera för lutning. Se kommandot PROBE för information om de valfria mätparametrarna. De valfria värdena `RETRIES`, `RETRY_TOLERANCE` och `HORIZONTAL_MOVE_Z` åsidosätter motsvarande alternativ i konfigurationsfilen.
 
 ### [query_adc]
 
-The query_adc module is automatically loaded.
+Modulen query_adc läses in automatiskt.
 
 #### QUERY_ADC
 
-`QUERY_ADC [NAME=<config_name>] [PULLUP=<value>]`: Report the last analog value received for a configured analog pin. If NAME is not provided, the list of available adc names are reported. If PULLUP is provided (as a value in Ohms), the raw analog value along with the equivalent resistance given that pullup is reported.
+`QUERY_ADC [NAME=<config_name>] [PULLUP=<value>]`: Rapportera det senaste analoga värdet som togs emot för ett konfigurerat analogt stift. Om NAME inte anges rapporteras en lista över tillgängliga ADC-namn. Om PULLUP anges (som ett värde i ohm) rapporteras det råa analoga värdet tillsammans med motsvarande resistans givet denna pullup.
 
 ### [query_endstops]
 
-The query_endstops module is automatically loaded. The following standard G-Code commands are currently available, but using them is not recommended:
+Modulen query_endstops läses in automatiskt. Följande vanliga G-kodskommandon är tillgängliga, men de rekommenderas inte:
 
-- Get Endstop Status: `M119` (Use QUERY_ENDSTOPS instead.)
+- Hämta ändlägesstatus: `M119` (använd QUERY_ENDSTOPS i stället.)
 
 #### QUERY_ENDSTOPS
 
-`QUERY_ENDSTOPS`: Probe the axis endstops and report if they are "triggered" or in an "open" state. This command is typically used to verify that an endstop is working correctly.
+`QUERY_ENDSTOPS`: Avsök axlarnas ändlägen och rapportera om de är ”utlösta” eller ”öppna”. Kommandot används vanligen för att kontrollera att ett ändläge fungerar korrekt.
 
 ### [resonance_tester]
 
-The following commands are available when a [resonance_tester config section](Config_Reference.md#resonance_tester) is enabled (also see the [measuring resonances guide](Measuring_Resonances.md)).
+Följande kommandon är tillgängliga när ett [resonance_tester-konfigurationsavsnitt](Config_Reference.md#resonance_tester) är aktiverat (se även [guiden för resonansmätning](Measuring_Resonances.md)).
 
 #### MEASURE_AXES_NOISE
 
-`MEASURE_AXES_NOISE`: Measures and outputs the noise for all axes of all enabled accelerometer chips.
+`MEASURE_AXES_NOISE`: Mäter och matar ut brus för samtliga axlar på alla aktiverade accelerometerkretsar.
 
 #### TEST_RESONANCES
 
-`TEST_RESONANCES AXIS=<axis> [OUTPUT=<resonances,raw_data>] [NAME=<name>] [FREQ_START=<min_freq>] [FREQ_END=<max_freq>] [ACCEL_PER_HZ=<accel_per_hz>] [HZ_PER_SEC=<hz_per_sec>] [CHIPS=<chip_name>] [POINT=x,y,z] [INPUT_SHAPING=<0:1>]`: Runs the resonance test in all configured probe points for the requested "axis" and measures the acceleration using the accelerometer chips configured for the respective axis. "axis" can either be X, Y or Z, or specify an arbitrary direction as `AXIS=dx,dy[,dz]`, where dx, dy, dz are floating point numbers defining a direction vector (e.g. `AXIS=X`, `AXIS=Y`, or `AXIS=1,-1` to define a diagonal direction in XY plane, or `AXIS=0,1,1` to define a direction in YZ plane). Note that `AXIS=dx,dy` and `AXIS=-dx,-dy` is equivalent. `chip_name` can be one or more configured accel chips, delimited with comma, for example `CHIPS="adxl345, adxl345 rpi"`. If POINT is specified it will override the point(s) configured in `[resonance_tester]`. If `INPUT_SHAPING=0` or not set(default), disables input shaping for the resonance testing, because it is not valid to run the resonance testing with the input shaper enabled. `OUTPUT` parameter is a comma-separated list of which outputs will be written. If `raw_data` is requested, then the raw accelerometer data is written into a file or a series of files `/tmp/raw_data_<axis>_[<chip_name>_][<point>_]<name>.csv` with (`<point>_` part of the name generated only if more than 1 probe point is configured or POINT is specified). If `resonances` is specified, the frequency response is calculated (across all probe points) and written into `/tmp/resonances_<axis>_<name>.csv` file. If unset, OUTPUT defaults to `resonances`, and NAME defaults to the current time in "YYYYMMDD_HHMMSS" format.
+`TEST_RESONANCES AXIS=<axis> [OUTPUT=<resonances,raw_data>] [NAME=<name>] [FREQ_START=<min_freq>] [FREQ_END=<max_freq>] [ACCEL_PER_HZ=<accel_per_hz>] [HZ_PER_SEC=<hz_per_sec>] [CHIPS=<chip_name>] [POINT=x,y,z] [INPUT_SHAPING=<0:1>]`: Kör resonanstestet vid alla konfigurerade mätpunkter för den begärda ”axis” och mäter accelerationen med accelerometerkretsarna som konfigurerats för respektive axel. ”axis” kan vara X, Y eller Z eller ange en valfri riktning som `AXIS=dx,dy[,dz]`, där dx, dy och dz är flyttal som definierar en riktningsvektor (t.ex. `AXIS=X`, `AXIS=Y` eller `AXIS=1,-1` för diagonal riktning i XY-planet eller `AXIS=0,1,1` för en riktning i YZ-planet). Observera att `AXIS=dx,dy` och `AXIS=-dx,-dy` är likvärdiga. `chip_name` kan vara en eller flera konfigurerade accelerometerkretsar, avgränsade med kommatecken, exempelvis `CHIPS="adxl345, adxl345 rpi"`. Om POINT anges åsidosätts mätpunkterna som konfigurerats i `[resonance_tester]`. Om `INPUT_SHAPING=0` anges eller inte anges (standard) inaktiveras input shaping för resonanstestet, eftersom ett resonanstest inte får köras med input shaper aktiverad. Parametern `OUTPUT` är en kommaseparerad lista över utmatningar som skrivs. Om `raw_data` begärs skrivs rå accelerometerdata till en eller flera filer `/tmp/raw_data_<axis>_[<chip_name>_][<point>_]<name>.csv` (delen `<point>_` skapas bara om fler än en mätpunkt är konfigurerad eller POINT anges). Om `resonances` anges beräknas frekvenssvaret över alla mätpunkter och skrivs till filen `/tmp/resonances_<axis>_<name>.csv`. Om OUTPUT inte anges används `resonances` som standard, och NAME får den aktuella tiden i formatet "YYYYMMDD_HHMMSS".
 
 #### SHAPER_CALIBRATE
 
-`SHAPER_CALIBRATE [AXIS=<axis>] [NAME=<name>] [FREQ_START=<min_freq>] [FREQ_END=<max_freq>] [ACCEL_PER_HZ=<accel_per_hz>][HZ_PER_SEC=<hz_per_sec>] [CHIPS=<chip_name>] [MAX_SMOOTHING=<max_smoothing>] [INPUT_SHAPING=<0:1>]`: Similarly to `TEST_RESONANCES`, runs the resonance test as configured, and tries to find the optimal parameters for the input shaper for the requested axis (or both X and Y axes if `AXIS` parameter is unset). If `MAX_SMOOTHING` is unset, its value is taken from `[resonance_tester]` section, with the default being unset. See the [Max smoothing](Measuring_Resonances.md#max-smoothing) of the measuring resonances guide for more information on the use of this feature. The results of the tuning are printed to the console, and the frequency responses and the different input shapers values are written to a CSV file(s) `/tmp/calibration_data_<axis>_<name>.csv`. Unless specified, NAME defaults to the current time in "YYYYMMDD_HHMMSS" format. Note that the suggested input shaper parameters can be persisted in the config by issuing `SAVE_CONFIG` command, and if `[input_shaper]` was already enabled previously, these parameters take effect immediately.
+`SHAPER_CALIBRATE [AXIS=<axis>] [NAME=<name>] [FREQ_START=<min_freq>] [FREQ_END=<max_freq>] [ACCEL_PER_HZ=<accel_per_hz>][HZ_PER_SEC=<hz_per_sec>] [CHIPS=<chip_name>] [MAX_SMOOTHING=<max_smoothing>] [INPUT_SHAPING=<0:1>]`: Kör, på samma sätt som `TEST_RESONANCES`, det konfigurerade resonanstestet och försöker hitta optimala parametrar för input shaper på den begärda axeln (eller både X- och Y-axeln om parametern `AXIS` inte anges). Om `MAX_SMOOTHING` inte anges hämtas värdet från avsnittet `[resonance_tester]`; standardvärdet är odefinierat. Mer information om funktionen finns i avsnittet [Max smoothing](Measuring_Resonances.md#max-smoothing) i guiden för resonansmätning. Resultaten från justeringen skrivs ut till konsolen, och frekvenssvaren samt värdena för de olika input shaper-varianterna skrivs till CSV-filerna `/tmp/calibration_data_<axis>_<name>.csv`. Om NAME inte anges används den aktuella tiden i formatet "YYYYMMDD_HHMMSS". Observera att de föreslagna input shaper-parametrarna kan sparas i konfigurationen med kommandot `SAVE_CONFIG`, och om `[input_shaper]` redan aktiverats börjar parametrarna gälla omedelbart.
 
 ### [respond]
 
-The following standard G-Code commands are available when the [respond config section](Config_Reference.md#respond) is enabled:
+Följande vanliga G-kodskommandon är tillgängliga när ett [respond-konfigurationsavsnitt](Config_Reference.md#respond) är aktiverat:
 
-- `M118 <message>`: echo the message prepended with the configured default prefix (or `echo: ` if no prefix is configured).
+- `M118 <message>`: Ekar meddelandet med det konfigurerade standardprefixet (eller `echo: ` om inget prefix är konfigurerat).
 
-The following additional commands are also available.
+Följande ytterligare kommandon är också tillgängliga.
 
 #### RESPOND
 
-- `RESPOND MSG="<message>"`: echo the message prepended with the configured default prefix (or `echo: ` if no prefix is configured).
-- `RESPOND TYPE=echo MSG="<message>"`: echo the message prepended with `echo: `.
-- `RESPOND TYPE=echo_no_space MSG="<message>"`: echo the message prepended with `echo:` without a space between prefix and message, helpful for compatibility with some octoprint plugins that expect very specific formatting.
-- `RESPOND TYPE=command MSG="<message>"`: echo the message prepended with `// `. OctoPrint can be configured to respond to these messages (e.g. `RESPOND TYPE=command MSG=action:pause`).
-- `RESPOND TYPE=error MSG="<message>"`: echo the message prepended with `!! `.
-- `RESPOND PREFIX=<prefix> MSG="<message>"`: echo the message prepended with `<prefix>`. (The `PREFIX` parameter will take priority over the `TYPE` parameter)
+- `RESPOND MSG="<message>"`: Ekar meddelandet med det konfigurerade standardprefixet (eller `echo: ` om inget prefix är konfigurerat).
+- `RESPOND TYPE=echo MSG="<message>"`: Ekar meddelandet med prefixet `echo: `.
+- `RESPOND TYPE=echo_no_space MSG="<message>"`: Ekar meddelandet med `echo:` utan blanksteg mellan prefix och meddelande, vilket är användbart för kompatibilitet med vissa OctoPrint-insticksmoduler som förväntar sig mycket specifik formatering.
+- `RESPOND TYPE=command MSG="<message>"`: Ekar meddelandet med prefixet `// `. OctoPrint kan konfigureras för att svara på dessa meddelanden (t.ex. `RESPOND TYPE=command MSG=action:pause`).
+- `RESPOND TYPE=error MSG="<message>"`: Ekar meddelandet med prefixet `!! `.
+- `RESPOND PREFIX=<prefix> MSG="<message>"`: Ekar meddelandet med prefixet `<prefix>`. (Parametern `PREFIX` har företräde framför parametern `TYPE`.)
 
 ### [save_variables]
 
-The following command is enabled if a [save_variables config section](Config_Reference.md#save_variables) has been enabled.
+Följande kommando aktiveras om ett [save_variables-konfigurationsavsnitt](Config_Reference.md#save_variables) har aktiverats.
 
 #### SAVE_VARIABLE
 
-`SAVE_VARIABLE VARIABLE=<name> VALUE=<value>`: Saves the variable to disk so that it can be used across restarts. The VARIABLE must be lowercase. All stored variables are loaded into the `printer.save_variables.variables` dict at startup and can be used in gcode macros. The provided VALUE is parsed as a Python literal.
+`SAVE_VARIABLE VARIABLE=<name> VALUE=<value>`: Sparar variabeln på disk så att den kan användas efter omstarter. VARIABLE måste skrivas med små bokstäver. Alla lagrade variabler läses in i dict-objektet `printer.save_variables.variables` vid start och kan användas i G-kodsmakron. VALUE tolkas som en Python-litteral.
 
 ### [screws_tilt_adjust]
 
-The following commands are available when the [screws_tilt_adjust config section](Config_Reference.md#screws_tilt_adjust) is enabled (also see the [manual level guide](Manual_Level.md#adjusting-bed-leveling-screws-using-the-bed-probe)).
+Följande kommandon är tillgängliga när ett [screws_tilt_adjust-konfigurationsavsnitt](Config_Reference.md#screws_tilt_adjust) är aktiverat (se även [guiden för manuell nivåjustering](Manual_Level.md#adjusting-bed-leveling-screws-using-the-bed-probe)).
 
 #### SCREWS_TILT_CALCULATE
 
-`SCREWS_TILT_CALCULATE [DIRECTION=CW|CCW] [MAX_DEVIATION=<value>] [HORIZONTAL_MOVE_Z=<value>] [<probe_parameter>=<value>]`: This command will invoke the bed screws adjustment tool. It will command the nozzle to different locations (as defined in the config file) probing the z height and calculate the number of knob turns to adjust the bed level. If DIRECTION is specified, the knob turns will all be in the same direction, clockwise (CW) or counterclockwise (CCW). See the PROBE command for details on the optional probe parameters. IMPORTANT: You MUST always do a G28 before using this command. If MAX_DEVIATION is specified, the command will raise a gcode error if any difference in the screw height relative to the base screw height is greater than the value provided. The optional `HORIZONTAL_MOVE_Z` value overrides the `horizontal_move_z` option specified in the config file.
+`SCREWS_TILT_CALCULATE [DIRECTION=CW|CCW] [MAX_DEVIATION=<value>] [HORIZONTAL_MOVE_Z=<value>] [<probe_parameter>=<value>]`: Kommandot startar verktyget för justering av bäddskruvar. Det flyttar munstycket till olika platser (enligt konfigurationsfilen), mäter Z-höjden och beräknar hur många rattvarv som krävs för att justera bäddnivån. Om DIRECTION anges utförs alla rattvarv i samma riktning: medurs (CW) eller moturs (CCW). Se kommandot PROBE för information om de valfria mätparametrarna. VIKTIGT: Du MÅSTE alltid köra G28 innan du använder detta kommando. Om MAX_DEVIATION anges ger kommandot ett G-kodsfel om skillnaden mellan en skruvhöjd och bashöjden är större än det angivna värdet. Det valfria värdet `HORIZONTAL_MOVE_Z` åsidosätter alternativet `horizontal_move_z` i konfigurationsfilen.
 
 ### [sdcard_loop]
 
-When the [sdcard_loop config section](Config_Reference.md#sdcard_loop) is enabled, the following extended commands are available.
+När ett [sdcard_loop-konfigurationsavsnitt](Config_Reference.md#sdcard_loop) är aktiverat finns följande utökade kommandon tillgängliga.
 
 #### SDCARD_LOOP_BEGIN
 
-`SDCARD_LOOP_BEGIN COUNT=<count>`: Begin a looped section in the SD print. A count of 0 indicates that the section should be looped indefinitely.
+`SDCARD_LOOP_BEGIN COUNT=<count>`: Starta en upprepad sektion i SD-utskriften. Antalet 0 anger att sektionen ska upprepas obegränsat.
 
 #### SDCARD_LOOP_END
 
-`SDCARD_LOOP_END`: End a looped section in the SD print.
+`SDCARD_LOOP_END`: Avsluta en upprepad sektion i SD-utskriften.
 
 #### SDCARD_LOOP_DESIST
 
-`SDCARD_LOOP_DESIST`: Complete existing loops without further iterations.
+`SDCARD_LOOP_DESIST`: Slutför befintliga slingor utan fler iterationer.
 
 ### [servo]
 
-The following commands are available when a [servo config section](Config_Reference.md#servo) is enabled.
+Följande kommandon är tillgängliga när ett [servo-konfigurationsavsnitt](Config_Reference.md#servo) är aktiverat.
 
 #### SET_SERVO
 
-`SET_SERVO SERVO=config_name [ANGLE=<degrees> | WIDTH=<seconds>]`: Set the servo position to the given angle (in degrees) or pulse width (in seconds). Use `WIDTH=0` to disable the servo output.
+`SET_SERVO SERVO=config_name [ANGLE=<degrees> | WIDTH=<seconds>]`: Ange servopositionen till den angivna vinkeln (i grader) eller pulsbredden (i sekunder). Använd `WIDTH=0` för att inaktivera servoutdata.
 
 ### [skew_correction]
 
-The following commands are available when the [skew_correction config section](Config_Reference.md#skew_correction) is enabled (also see the [Skew Correction](Skew_Correction.md) guide).
+Följande kommandon är tillgängliga när ett [skew_correction-konfigurationsavsnitt](Config_Reference.md#skew_correction) är aktiverat (se även guiden [Skew Correction](Skew_Correction.md)).
 
 #### SET_SKEW
 
-`SET_SKEW [XY=<ac_length,bd_length,ad_length>] [XZ=<ac,bd,ad>] [YZ=<ac,bd,ad>] [CLEAR=<0|1>]`: Configures the [skew_correction] module with measurements (in mm) taken from a calibration print. One may enter measurements for any combination of planes, planes not entered will retain their current value. If `CLEAR=1` is entered then all skew correction will be disabled.
+`SET_SKEW [XY=<ac_length,bd_length,ad_length>] [XZ=<ac,bd,ad>] [YZ=<ac,bd,ad>] [CLEAR=<0|1>]`: Konfigurerar modulen [skew_correction] med mätningar (i mm) från en kalibreringsutskrift. Mätningar kan anges för valfri kombination av plan; plan som inte anges behåller sina aktuella värden. Om `CLEAR=1` anges inaktiveras all skevhetskorrigering.
 
 #### GET_CURRENT_SKEW
 
-`GET_CURRENT_SKEW`: Reports the current printer skew for each plane in both radians and degrees. The skew is calculated based on parameters provided via the `SET_SKEW` gcode.
+`GET_CURRENT_SKEW`: Rapporterar skrivarens aktuella skevhet för varje plan, både i radianer och grader. Skevheten beräknas från parametrar som anges via G-koden `SET_SKEW`.
 
 #### CALC_MEASURED_SKEW
 
-`CALC_MEASURED_SKEW [AC=<ac_length>] [BD=<bd_length>] [AD=<ad_length>]`: Calculates and reports the skew (in radians and degrees) based on a measured print. This can be useful for determining the printer's current skew after correction has been applied. It may also be useful before correction is applied to determine if skew correction is necessary. See [Skew Correction](Skew_Correction.md) for details on skew calibration objects and measurements.
+`CALC_MEASURED_SKEW [AC=<ac_length>] [BD=<bd_length>] [AD=<ad_length>]`: Beräknar och rapporterar skevheten (i radianer och grader) utifrån en uppmätt utskrift. Detta kan vara användbart för att bestämma skrivarens aktuella skevhet efter att korrigering har tillämpats. Det kan också vara användbart före korrigering för att avgöra om skevhetskorrigering behövs. Se [Skew Correction](Skew_Correction.md) för information om kalibreringsobjekt och mätningar för skevhet.
 
 #### SKEW_PROFILE
 
-`SKEW_PROFILE [LOAD=<name>] [SAVE=<name>] [REMOVE=<name>]`: Profile management for skew_correction. LOAD will restore skew state from the profile matching the supplied name. SAVE will save the current skew state to a profile matching the supplied name. Remove will delete the profile matching the supplied name from persistent memory. Note that after SAVE or REMOVE operations have been run the SAVE_CONFIG gcode must be run to make the changes to persistent memory permanent.
+`SKEW_PROFILE [LOAD=<name>] [SAVE=<name>] [REMOVE=<name>]`: Profilhantering för skew_correction. LOAD återställer skevhetstillståndet från profilen som matchar angivet namn. SAVE sparar aktuellt skevhetstillstånd i en profil som matchar angivet namn. REMOVE tar bort profilen som matchar angivet namn från beständigt minne. Observera att G-koden SAVE_CONFIG måste köras efter SAVE- eller REMOVE-operationer för att göra ändringarna i beständigt minne permanenta.
 
 ### [smart_effector]
 
-Several commands are available when a [smart_effector config section](Config_Reference.md#smart_effector) is enabled. Be sure to check the official documentation for the Smart Effector on the [Duet3D Wiki](https://duet3d.dozuki.com/Wiki/Smart_effector_and_carriage_adapters_for_delta_printer) before changing the Smart Effector parameters. Also check the [probe calibration guide](Probe_Calibrate.md).
+Flera kommandon är tillgängliga när ett [smart_effector-konfigurationsavsnitt](Config_Reference.md#smart_effector) är aktiverat. Läs den officiella dokumentationen för Smart Effector på [Duet3D Wiki](https://duet3d.dozuki.com/Wiki/Smart_effector_and_carriage_adapters_for_delta_printer) innan Smart Effector-parametrarna ändras. Se också [guiden för sondkalibrering](Probe_Calibrate.md).
 
 #### SET_SMART_EFFECTOR
 
-`SET_SMART_EFFECTOR [SENSITIVITY=<sensitivity>] [ACCEL=<accel>] [RECOVERY_TIME=<time>]`: Set the Smart Effector parameters. When `SENSITIVITY` is specified, the respective value is written to the SmartEffector EEPROM (requires `control_pin` to be provided). Acceptable `<sensitivity>` values are 0..255, the default is 50. Lower values require less nozzle contact force to trigger (but there is a higher risk of false triggering due to vibrations during probing), and higher values reduce false triggering (but require larger contact force to trigger). Since the sensitivity is written to EEPROM, it is preserved after the shutdown, and so it does not need to be configured on every printer startup. `ACCEL` and `RECOVERY_TIME` allow to override the corresponding parameters at run-time, see the [config section](Config_Reference.md#smart_effector) of Smart Effector for more info on those parameters.
+`SET_SMART_EFFECTOR [SENSITIVITY=<sensitivity>] [ACCEL=<accel>] [RECOVERY_TIME=<time>]`: Ange parametrarna för Smart Effector. När `SENSITIVITY` anges skrivs motsvarande värde till SmartEffector-EEPROM (kräver att `control_pin` anges). Godtagbara värden för `<sensitivity>` är 0–255 och standardvärdet är 50. Lägre värden kräver mindre kontaktkraft från munstycket för utlösning (men ger högre risk för felaktig utlösning på grund av vibrationer under sondering), medan högre värden minskar felaktiga utlösningar (men kräver större kontaktkraft). Eftersom känsligheten skrivs till EEPROM bevaras den efter avstängning och behöver därför inte konfigureras vid varje uppstart av skrivaren. `ACCEL` och `RECOVERY_TIME` gör det möjligt att åsidosätta motsvarande parametrar under körning; se [konfigurationsavsnittet](Config_Reference.md#smart_effector) för Smart Effector för mer information.
 
 #### RESET_SMART_EFFECTOR
 
-`RESET_SMART_EFFECTOR`: Resets Smart Effector sensitivity to its factory settings. Requires `control_pin` to be provided in the config section.
+`RESET_SMART_EFFECTOR`: Återställer Smart Effector-känsligheten till fabriksinställningarna. Kräver att `control_pin` anges i konfigurationsavsnittet.
 
 ### [stepper_enable]
 
-The stepper_enable module is automatically loaded.
+Modulen stepper_enable läses in automatiskt.
 
 #### SET_STEPPER_ENABLE
 
-`SET_STEPPER_ENABLE STEPPER=<config_name> ENABLE=[0|1]`: Enable or disable only the given stepper. This is a diagnostic and debugging tool and must be used with care. Disabling an axis motor does not reset the homing information. Manually moving a disabled stepper may cause the machine to operate the motor outside of safe limits. This can lead to damage to axis components, hot ends, and print surface.
+`SET_STEPPER_ENABLE STEPPER=<config_name> ENABLE=[0|1]`: Aktivera eller inaktivera endast den angivna stegmotorn. Detta är ett diagnostik- och felsökningsverktyg och måste användas med försiktighet. Att inaktivera en axelmotor återställer inte referenskörningsinformationen. Att manuellt flytta en inaktiverad stegmotor kan göra att maskinen kör motorn utanför säkra gränser. Detta kan skada axelkomponenter, hot ends och utskriftsytan.
 
 ### [temperature_fan]
 
-The following command is available when a [temperature_fan config section](Config_Reference.md#temperature_fan) is enabled.
+Följande kommando är tillgängligt när ett [temperature_fan-konfigurationsavsnitt](Config_Reference.md#temperature_fan) är aktiverat.
 
 #### SET_TEMPERATURE_FAN_TARGET
 
-`SET_TEMPERATURE_FAN_TARGET temperature_fan=<temperature_fan_name> [target=<target_temperature>] [min_speed=<min_speed>] [max_speed=<max_speed>]`: Sets the target temperature for a temperature_fan. If a target is not supplied, it is set to the specified temperature in the config file. If speeds are not supplied, no change is applied.
+`SET_TEMPERATURE_FAN_TARGET temperature_fan=<temperature_fan_name> [target=<target_temperature>] [min_speed=<min_speed>] [max_speed=<max_speed>]`: Anger måltemperaturen för en temperature_fan. Om inget mål anges används temperaturen som anges i konfigurationsfilen. Om hastigheter inte anges görs ingen ändring.
 
 ### [temperature_probe]
 
-The following commands are available when a [temperature_probe config section](Config_Reference.md#temperature_probe) is enabled.
+Följande kommandon är tillgängliga när ett [temperature_probe-konfigurationsavsnitt](Config_Reference.md#temperature_probe) är aktiverat.
 
 #### TEMPERATURE_PROBE_CALIBRATE
 
-`TEMPERATURE_PROBE_CALIBRATE [PROBE=<probe name>] [TARGET=<value>] [STEP=<value>] [METHOD=<method>]`: Initiates probe drift calibration for eddy current based probes. The `TARGET` is a target temperature for the last sample. When the temperature recorded during a sample exceeds the `TARGET` calibration will complete. The `STEP` parameter sets temperature delta (in C) between samples. After a sample has been taken, this delta is used to schedule a call to `TEMPERATURE_PROBE_NEXT`. The default `STEP` is 2. The `METHOD` only supports `tap` as an option, if specified, probing will be automated.
+`TEMPERATURE_PROBE_CALIBRATE [PROBE=<probe name>] [TARGET=<value>] [STEP=<value>] [METHOD=<method>]`: Startar kalibrering av temperaturdrift för virvelströmsbaserade sonder. `TARGET` är måltemperaturen för det sista provet. När temperaturen som registreras under ett prov överskrider `TARGET` slutförs kalibreringen. Parametern `STEP` anger temperaturskillnaden (i C) mellan prover. När ett prov har tagits används denna skillnad för att schemalägga ett anrop till `TEMPERATURE_PROBE_NEXT`. Standardvärdet för `STEP` är 2. `METHOD` stöder endast `tap`; om den anges automatiseras mätningen.
 
 #### TEMPERATURE_PROBE_NEXT
 
-`TEMPERATURE_PROBE_NEXT`: After calibration has started this command is run to take the next sample. It is automatically scheduled to run when the delta specified by `STEP` has been reached, however its also possible to manually run this command to force a new sample. This command is only available during calibration.
+`TEMPERATURE_PROBE_NEXT`: När kalibreringen har startat körs kommandot för att ta nästa prov. Det schemaläggs automatiskt när differensen som anges av `STEP` har nåtts, men kan också köras manuellt för att tvinga fram ett nytt prov. Kommandot är endast tillgängligt under kalibrering.
 
 #### TEMPERATURE_PROBE_COMPLETE:
 
-`TEMPERATURE_PROBE_COMPLETE`: Can be used to end calibration and save the current result before the `TARGET` temperature is reached. This command is only available during calibration.
+`TEMPERATURE_PROBE_COMPLETE`: Kan användas för att avsluta kalibreringen och spara aktuellt resultat innan temperaturen `TARGET` har nåtts. Kommandot är endast tillgängligt under kalibrering.
 
 #### ABORT
 
-`ABORT`: Aborts the calibration process, discarding the current results. This command is only available during drift calibration.
+`ABORT`: Avbryter kalibreringsprocessen och förkastar aktuella resultat. Kommandot är endast tillgängligt under driftkalibrering.
 
 ### TEMPERATURE_PROBE_ENABLE
 
-`TEMPERATURE_PROBE_ENABLE ENABLE=[0|1]`: Sets temperature drift compensation on or off. If ENABLE is set to 0, drift compensation will be disabled, if set to 1 it is enabled.
+`TEMPERATURE_PROBE_ENABLE ENABLE=[0|1]`: Aktiverar eller inaktiverar kompensation för temperaturdrift. Om ENABLE sätts till 0 inaktiveras driftkompensation, och om det sätts till 1 aktiveras den.
 
 ### [tmcXXXX]
 
-The following commands are available when any of the [tmcXXXX config sections](Config_Reference.md#tmc-stepper-driver-configuration) are enabled.
+Följande kommandon är tillgängliga när något av [tmcXXXX-konfigurationsavsnitten](Config_Reference.md#tmc-stepper-driver-configuration) är aktiverat.
 
 #### DUMP_TMC
 
-`DUMP_TMC STEPPER=<name> [REGISTER=<name>]`: This command will read all TMC driver registers and report their values. If a REGISTER is provided, only the specified register will be dumped.
+`DUMP_TMC STEPPER=<name> [REGISTER=<name>]`: Kommandot läser alla TMC-drivrutinsregister och rapporterar deras värden. Om REGISTER anges dumpas endast det angivna registret.
 
 #### INIT_TMC
 
-`INIT_TMC STEPPER=<name>`: This command will initialize the TMC registers. Needed to re-enable the driver if power to the chip is turned off then back on.
+`INIT_TMC STEPPER=<name>`: Detta kommando initierar TMC-registren. Krävs för att återaktivera drivrutinen om kretsens ström stängs av och sedan slås på igen.
 
 #### SET_TMC_CURRENT
 
-`SET_TMC_CURRENT STEPPER=<name> CURRENT=<amps> HOLDCURRENT=<amps>`: This will adjust the run and hold currents of the TMC driver. `HOLDCURRENT` is not applicable to tmc2660 drivers. When used on a driver which has the `globalscaler` field (tmc5160 and tmc2240), if StealthChop2 is used, the stepper must be held at standstill for >130ms so that the driver executes the AT#1 calibration.
+`SET_TMC_CURRENT STEPPER=<name> CURRENT=<amps> HOLDCURRENT=<amps>`: Justerar TMC-drivrutinens kör- och hållströmmar. `HOLDCURRENT` gäller inte tmc2660-drivrutiner. När kommandot används med en drivrutin som har fältet `globalscaler` (tmc5160 och tmc2240) och StealthChop2 används, måste stegmotorn hållas stilla i mer än 130 ms så att drivrutinen utför AT#1-kalibreringen.
 
 #### SET_TMC_FIELD
 
-`SET_TMC_FIELD STEPPER=<name> FIELD=<field> VALUE=<value> VELOCITY=<value>`: This will alter the value of the specified register field of the TMC driver. This command is intended for low-level diagnostics and debugging only because changing the fields during run-time can lead to undesired and potentially dangerous behavior of your printer. Permanent changes should be made using the printer configuration file instead. No sanity checks are performed for the given values. A VELOCITY can also be specified instead of a VALUE. This velocity is converted to the 20bit TSTEP based value representation. Only use the VELOCITY argument for fields that represent velocities.
+`SET_TMC_FIELD STEPPER=<name> FIELD=<field> VALUE=<value> VELOCITY=<value>`: Ändrar värdet för det angivna registerfältet i TMC-drivrutinen. Kommandot är endast avsett för diagnostik och felsökning på låg nivå, eftersom fältändringar under körning kan leda till oönskat och potentiellt farligt skrivarbeteende. Beständiga ändringar ska i stället göras i skrivarens konfigurationsfil. Inga rimlighetskontroller utförs för de angivna värdena. VELOCITY kan också anges i stället för VALUE. Denna hastighet omvandlas till 20-bitarsvärdet för TSTEP. Använd endast argumentet VELOCITY för fält som representerar hastigheter.
 
 ### [toolhead]
 
-The toolhead module is automatically loaded.
+Modulen toolhead läses in automatiskt.
 
 #### SET_VELOCITY_LIMIT
 
-`SET_VELOCITY_LIMIT [VELOCITY=<value>] [ACCEL=<value>] [MINIMUM_CRUISE_RATIO=<value>] [SQUARE_CORNER_VELOCITY=<value>]`: This command can alter the velocity limits that were specified in the printer config file. See the [printer config section](Config_Reference.md#printer) for a description of each parameter.
+`SET_VELOCITY_LIMIT [VELOCITY=<value>] [ACCEL=<value>] [MINIMUM_CRUISE_RATIO=<value>] [SQUARE_CORNER_VELOCITY=<value>]`: Kommandot kan ändra hastighetsgränserna som anges i skrivarens konfigurationsfil. Se [skrivarkonfigurationsavsnittet](Config_Reference.md#printer) för en beskrivning av varje parameter.
 
 ### [tuning_tower]
 
-The tuning_tower module is automatically loaded.
+Modulen tuning_tower läses in automatiskt.
 
 #### TUNING_TOWER
 
-`TUNING_TOWER COMMAND=<command> PARAMETER=<name> START=<value> [SKIP=<value>] [FACTOR=<value> [BAND=<value>]] | [STEP_DELTA=<value> STEP_HEIGHT=<value>]`: A tool for tuning a parameter on each Z height during a print. The tool will run the given `COMMAND` with the given `PARAMETER` assigned to a value that varies with `Z` according to a formula. Use `FACTOR` if you will use a ruler or calipers to measure the Z height of the optimum value, or `STEP_DELTA` and `STEP_HEIGHT` if the tuning tower model has bands of discrete values as is common with temperature towers. If `SKIP=<value>` is specified, the tuning process doesn't begin until Z height `<value>` is reached, and below that the value will be set to `START`; in this case, the `z_height` used in the formulas below is actually `max(z - skip, 0)`. There are three possible combinations of options:
+`TUNING_TOWER COMMAND=<command> PARAMETER=<name> START=<value> [SKIP=<value>] [FACTOR=<value> [BAND=<value>]] | [STEP_DELTA=<value> STEP_HEIGHT=<value>]`: Ett verktyg för att justera en parameter vid varje Z-höjd under en utskrift. Verktyget kör angivet `COMMAND` med angivet `PARAMETER` tilldelat ett värde som varierar med `Z` enligt en formel. Använd `FACTOR` om du ska använda en linjal eller skjutmått för att mäta Z-höjden för det optimala värdet, eller `STEP_DELTA` och `STEP_HEIGHT` om modellen för justeringstornet har band med diskreta värden, vilket är vanligt för temperaturtorn. Om `SKIP=<value>` anges börjar justeringsprocessen först när Z-höjden `<value>` nås, och under den höjden sätts värdet till `START`; i detta fall är `z_height` i formlerna nedan egentligen `max(z - skip, 0)`. Det finns tre möjliga kombinationer av alternativ:
 
-- `FACTOR`: The value changes at a rate of `factor` per millimeter. The formula used is: `value = start + factor * z_height`. You can plug the optimum Z height directly into the formula to determine the optimum parameter value.
-- `FACTOR` and `BAND`: The value changes at an average rate of `factor` per millimeter, but in discrete bands where the adjustment will only be made every `BAND` millimeters of Z height. The formula used is: `value = start + factor * ((floor(z_height / band) + .5) * band)`.
-- `STEP_DELTA` and `STEP_HEIGHT`: The value changes by `STEP_DELTA` every `STEP_HEIGHT` millimeters. The formula used is: `value = start + step_delta * floor(z_height / step_height)`. You can simply count bands or read tuning tower labels to determine the optimum value.
+- `FACTOR`: Värdet ändras med hastigheten `factor` per millimeter. Formeln som används är: `value = start + factor * z_height`. Du kan ange den optimala Z-höjden direkt i formeln för att fastställa det optimala parametervärdet.
+- `FACTOR` och `BAND`: Värdet ändras med en genomsnittlig hastighet på `factor` per millimeter, men i diskreta band där justeringen endast görs för varje `BAND` millimeter Z-höjd. Formeln som används är: `value = start + factor * ((floor(z_height / band) + .5) * band)`.
+- `STEP_DELTA` och `STEP_HEIGHT`: Värdet ändras med `STEP_DELTA` för varje `STEP_HEIGHT` millimeter. Formeln som används är: `value = start + step_delta * floor(z_height / step_height)`. Du kan helt enkelt räkna band eller läsa etiketterna på justeringstornet för att fastställa det optimala värdet.
 
 ### [virtual_sdcard]
 
-Klipper supports the following standard G-Code commands if the [virtual_sdcard config section](Config_Reference.md#virtual_sdcard) is enabled:
+Klipper har stöd för följande vanliga G-kodskommandon om ett [virtual_sdcard-konfigurationsavsnitt](Config_Reference.md#virtual_sdcard) är aktiverat:
 
-- List SD card: `M20`
-- Initialize SD card: `M21`
-- Select SD file: `M23 <filename>`
-- Start/resume SD print: `M24`
-- Pause SD print: `M25`
-- Set SD position: `M26 S<offset>`
-- Report SD print status: `M27`
+- Lista SD-kort: `M20`
+- Initiera SD-kort: `M21`
+- Välj SD-fil: `M23 <filename>`
+- Starta/återuppta SD-utskrift: `M24`
+- Pausa SD-utskrift: `M25`
+- Ange SD-position: `M26 S<offset>`
+- Rapportera status för SD-utskrift: `M27`
 
-In addition, the following extended commands are available when the "virtual_sdcard" config section is enabled.
+Dessutom finns följande utökade kommandon när konfigurationsavsnittet ”virtual_sdcard” är aktiverat.
 
 #### SDCARD_PRINT_FILE
 
-`SDCARD_PRINT_FILE FILENAME=<filename>`: Load a file and start SD print.
+`SDCARD_PRINT_FILE FILENAME=<filename>`: Läs in en fil och starta SD-utskrift.
 
 #### SDCARD_RESET_FILE
 
-`SDCARD_RESET_FILE`: Unload file and clear SD state.
+`SDCARD_RESET_FILE`: Ta bort filen och rensa SD-tillståndet.
 
 ### [z_thermal_adjust]
 
-The following commands are available when the [z_thermal_adjust config section](Config_Reference.md#z_thermal_adjust) is enabled.
+Följande kommandon är tillgängliga när ett [z_thermal_adjust-konfigurationsavsnitt](Config_Reference.md#z_thermal_adjust) är aktiverat.
 
 #### SET_Z_THERMAL_ADJUST
 
-`SET_Z_THERMAL_ADJUST [ENABLE=<0:1>] [TEMP_COEFF=<value>] [REF_TEMP=<value>]`: Enable or disable the Z thermal adjustment with `ENABLE`. Disabling does not remove any adjustment already applied, but will freeze the current adjustment value - this prevents potentially unsafe downward Z movement. Re-enabling can potentially cause upward tool movement as the adjustment is updated and applied. `TEMP_COEFF` allows run-time tuning of the adjustment temperature coefficient (i.e. the `TEMP_COEFF` config parameter). `TEMP_COEFF` values are not saved to the config. `REF_TEMP` manually overrides the reference temperature typically set during homing (for use in e.g. non-standard homing routines) - will be reset automatically upon homing.
+`SET_Z_THERMAL_ADJUST [ENABLE=<0:1>] [TEMP_COEFF=<value>] [REF_TEMP=<value>]`: Aktivera eller inaktivera termisk Z-justering med `ENABLE`. Inaktivering tar inte bort en justering som redan har tillämpats, utan fryser det aktuella justeringsvärdet – vilket förhindrar en potentiellt osäker Z-rörelse nedåt. Återaktivering kan orsaka en rörelse av verktyget uppåt när justeringen uppdateras och tillämpas. `TEMP_COEFF` tillåter justering under körning av temperaturkoefficienten (dvs. konfigurationsparametern `TEMP_COEFF`). Värden för `TEMP_COEFF` sparas inte i konfigurationen. `REF_TEMP` åsidosätter manuellt referenstemperaturen som vanligtvis anges vid referenskörning (t.ex. vid icke-standardiserade referenskörningsrutiner) och återställs automatiskt vid referenskörning.
 
 ### [z_tilt]
 
-The following commands are available when the [z_tilt config section](Config_Reference.md#z_tilt) is enabled.
+Följande kommandon är tillgängliga när ett [z_tilt-konfigurationsavsnitt](Config_Reference.md#z_tilt) är aktiverat.
 
 #### Z_TILT_ADJUST
 
-`Z_TILT_ADJUST [RETRIES=<value>] [RETRY_TOLERANCE=<value>] [HORIZONTAL_MOVE_Z=<value>] [<probe_parameter>=<value>]`: This command will probe the points specified in the config and then make independent adjustments to each Z stepper to compensate for tilt. See the PROBE command for details on the optional probe parameters. The optional `RETRIES`, `RETRY_TOLERANCE`, and `HORIZONTAL_MOVE_Z` values override those options specified in the config file.
+`Z_TILT_ADJUST [RETRIES=<value>] [RETRY_TOLERANCE=<value>] [HORIZONTAL_MOVE_Z=<value>] [<probe_parameter>=<value>]`: Kommandot mäter punkterna som anges i konfigurationen och utför sedan oberoende justeringar för varje Z-stegmotor för att kompensera för lutning. Se kommandot PROBE för information om de valfria mätparametrarna. De valfria värdena `RETRIES`, `RETRY_TOLERANCE` och `HORIZONTAL_MOVE_Z` åsidosätter motsvarande alternativ i konfigurationsfilen.

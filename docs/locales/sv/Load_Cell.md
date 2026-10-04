@@ -1,16 +1,16 @@
-# Load Cells
+# Lastceller
 
-This document describes Klipper's support for load cells. Basic load cell functionality can be used to read force data and to weigh things like filament. A calibrated force sensor is an important part of a load cell based probe.
+Det här dokumentet beskriver Klippers stöd för lastceller. Grundläggande lastcellsfunktioner kan läsa kraftdata och väga exempelvis filament. En kalibrerad kraftsensor är en viktig del av en lastcellsbaserad prob.
 
-## Related Documentation
+## Relaterad dokumentation
 
-* [load_cell Config Reference](Config_Reference.md#load_cell)
-* [load_cell G-Code Commands](G-Codes.md#load_cell)
-* [load_cell Status Reference](Status_Reference.md#load_cell)
+* [Konfigurationsreferens för load_cell](Config_Reference.md#load_cell)
+* [G-kodkommandon för load_cell](G-Codes.md#load_cell)
+* [Statusreferens för load_cell](Status_Reference.md#load_cell)
 
-## Using `LOAD_CELL_DIAGNOSTIC`
+## Använda `LOAD_CELL_DIAGNOSTIC`
 
-When you first connect a load cell its good practice to check for issues by running `LOAD_CELL_DIAGNOSTIC`. This tool collects 10 seconds of data from the load cell and resport statistics:
+När du ansluter en lastcell första gången bör du kontrollera problem genom att köra `LOAD_CELL_DIAGNOSTIC`. Verktyget samlar data från lastcellen under 10 sekunder och rapporterar statistik:
 
 ```
 $ LOAD_CELL_DIAGNOSTIC
@@ -22,32 +22,32 @@ $ LOAD_CELL_DIAGNOSTIC
 // Sample range / sensor capacity: 0.00524%
 ```
 
-Things you can check with this data:
+Saker du kan kontrollera med dessa data:
 
-* The configured sample rate of the sensor should be close to the 'Measured samples per second' value. If it is not you may have a configuration or wiring issue.
-* 'Saturated samples' should be 0. If you have saturated samples it means the load sell is seeing more force than it can measure.
-* 'Unique values' should be a large percentage of the 'Samples Collected' value. If 'Unique values' is 1 it is very likely a wiring issue.
-* Tap or push on the sensor while `LOAD_CELL_DIAGNOSTIC` runs. If things are working correctly this should increase the 'Sample range'.
+* Sensorns konfigurerade samplingsfrekvens bör ligga nära värdet "Measured samples per second". Om den inte gör det kan det finnas ett konfigurations- eller kabelproblem.
+* "Saturated samples" ska vara 0. Mättade sampel innebär att lastcellen utsätts för mer kraft än den kan mäta.
+* "Unique values" bör vara en stor andel av "Samples Collected". Om "Unique values" är 1 är det mycket sannolikt ett kabelproblem.
+* Knacka på eller tryck på sensorn medan `LOAD_CELL_DIAGNOSTIC` körs. Om allt fungerar korrekt ska "Sample range" öka.
 
-## Calibrating a Load Cell
+## Kalibrera en lastcell
 
-Load cells are calibrated using the `LOAD_CELL_CALIBRATE` command. This is an interactive calibration utility that walks you though a 3 step process:
+Lastceller kalibreras med kommandot `LOAD_CELL_CALIBRATE`. Det är ett interaktivt kalibreringsverktyg som leder dig genom tre steg:
 
-1. First use the `TARE` command to establish the zero force value. This is the `reference_tare_counts` config value.
-1. Next you apply a known load or force to the load cell and run the `CALIBRATE GRAMS=nnn` command. From this the `counts_per_gram` value is calculated. See [the next section](#applying-a-known-force-or-load) for some suggestions on how to do this.
-1. Finally, use the `ACCEPT` command to save the results.
+1. Använd först kommandot `TARE` för att fastställa nollkraftsvärdet. Det är konfigurationsvärdet `reference_tare_counts`.
+1. Applicera sedan en känd belastning eller kraft på lastcellen och kör `CALIBRATE GRAMS=nnn`. Då beräknas värdet `counts_per_gram`. Se [nästa avsnitt](#applying-a-known-force-or-load) för förslag på hur detta görs.
+1. Använd slutligen kommandot `ACCEPT` för att spara resultaten.
 
-You can cancel the calibration process at any time with `ABORT`.
+Du kan när som helst avbryta kalibreringen med `ABORT`.
 
-### Applying a Known Force or Load
+### Applicera en känd kraft eller belastning
 
-The `CALIBRATE GRAMS=nnn` step can be accomplished in a number of ways. If your load cell is under a platform like a bed or filament holder it might be easiest to put a known mass on the platform. E.g. you could use a couple of 1KG filament spools.
+Steget `CALIBRATE GRAMS=nnn` kan utföras på flera sätt. Om lastcellen sitter under en plattform, till exempel bädden eller en filamenthållare, är det ofta enklast att lägga en känd massa på plattformen, exempelvis ett par filamentrullar på 1 kg.
 
-If your load cell is in the printer's toolhead a different approach is easier. Put a digital scale on the printers bed and gently lower the toolhead onto the scale (or raise the bed into the toolhead if your bed moves). You may be able to do this using the `FORCE_MOVE` command. But more likely you will have to manually moving the z axis with the motors off until the toolhead presses on the scale.
+Om lastcellen sitter i skrivarens verktygshuvud är en annan metod enklare. Placera en digitalvåg på skrivarens bädd och sänk verktygshuvudet försiktigt mot vågen, eller höj bädden mot verktygshuvudet om bädden rör sig. Du kan möjligen använda `FORCE_MOVE`, men oftast måste Z-axeln flyttas manuellt med motorerna avstängda tills verktygshuvudet trycker mot vågen.
 
-A good calibration force would ideally be a large percentage of the load cell's rated capacity. E.g. if you have a 5Kg load cell you would ideally calibrate it with a 5kg mass. This might work well with under-bed sensors that have to support a lot of weight. For toolhead probes this may not be a load that your printer bed or toolhead can tolerate without damage. Do try to use at least 1Kg of force, most printers should tolerate this without issue.
+En bra kalibreringskraft är helst en stor andel av lastcellens nominella kapacitet. En lastcell på 5 kg kalibreras idealiskt med en massa på 5 kg. Det kan fungera väl för sensorer under bädden som måste bära mycket vikt. För prober i verktygshuvudet kan den belastningen skada bädden eller verktygshuvudet. Försök använda minst 1 kg kraft; de flesta skrivare bör tåla det utan problem.
 
-When calibrating make careful note of the values reported:
+Notera värdena som rapporteras vid kalibrering noggrant:
 
 ```
 $ CALIBRATE GRAMS=555
@@ -55,158 +55,158 @@ $ CALIBRATE GRAMS=555
 Total capacity: +/- 29.14Kg
 ```
 
-The `Total capacity` should be close to the theoretical rating of the load cell based on the sensor's capacity. If it is much larger you could have used a higher gain setting in the sensor or a more sensitive load cell. This isn't as critical for 32bit and 24bit sensors but is much more critical for low bit width sensors.
+`Total capacity` ska ligga nära lastcellens teoretiska kapacitet utifrån sensorns kapacitet. Om värdet är mycket större kan en högre förstärkning ha använts i sensorn eller en känsligare lastcell behövas. Detta är mindre kritiskt för 32- och 24-bitars sensorer men betydligt viktigare för sensorer med låg bitbredd.
 
-## Reading Force Data
+## Läsa kraftdata
 
-Force data can be read with a GCode command:
+Kraftdata kan läsas med ett G-kodkommando:
 
 ```
 LOAD_CELL_READ
 // 10.6g (1.94%)
 ```
 
-Data is also continuously read and can be consumed from the load_cell printer object in a macro:
+Data läses också kontinuerligt och kan hämtas från skrivarobjektet `load_cell` i ett makro:
 
 ```
 {% set grams = printer.load_cell.force_g %}
 ```
 
-This provides an average force over the last 1 second, similar to how temperature sensors work.
+Detta ger en genomsnittlig kraft under den senaste sekunden, på samma sätt som temperatursensorer fungerar.
 
-## Taring a Load Cell
+## Tarera en lastcell
 
-Taring, sometimes called zeroing, sets the current weight reported by the load_cell to 0. This is useful for measuring relative to a known weight. e.g. when measuring a filament spool, using `LOAD_CELL_TARE` sets the weight to 0. Then as filament is printed the load_cell will report the weight of the filament used.
+Tarering, ibland kallad nollställning, ställer in den aktuella vikt som rapporteras av load_cell till 0. Det är användbart för mätning i förhållande till en känd vikt. Vid mätning av en filamentrulle ställer `LOAD_CELL_TARE` exempelvis vikten till 0. När filament sedan skrivs ut rapporterar load_cell vikten av det använda filamentet.
 
 ```
 LOAD_CELL_TARE
 // Load cell tare value: 5.32% (445903)
 ```
 
-The current tare value is reported in the printers status and can be read in a macro:
+Det aktuella tareringsvärdet rapporteras i skrivarens status och kan läsas i ett makro:
 
 ```
 {% set tare_counts = printer.load_cell.tare_counts %}
 ```
 
-# Load Cell Probes
+# Lastcellsprober
 
-## Related Documentation
+## Relaterad dokumentation
 
-* [load_cell_probe Config Reference](Config_Reference.md#load_cell_probe)
-* [load_cell_probe G-Code Commands](G-Codes.md#load_cell_probe)
-* [load_cell_probe Statuc Reference](Status_Reference.md#load_cell_probe)
+* [Konfigurationsreferens för load_cell_probe](Config_Reference.md#load_cell_probe)
+* [G-kodkommandon för load_cell_probe](G-Codes.md#load_cell_probe)
+* [Statusreferens för load_cell_probe](Status_Reference.md#load_cell_probe)
 
-## Load Cell Probe Safety
+## Säkerhet för lastcellsprob
 
-Because load cells are a direct nozzle contact probe there is a risk of damage to your printer if too much force is used. The load cell probing system includes a number of safety checks that try to keep your machine safe from excessive force to the toolhead. It's important to understand what they are and how they work as you can defeat most of them with poorly chosen config values.
+Eftersom lastceller är prober med direktkontakt med munstycket riskerar skrivaren att skadas om för stor kraft används. Lastcellsprobens system har flera säkerhetskontroller som försöker skydda maskinen från överdriven kraft på verktygshuvudet. Det är viktigt att förstå dem, eftersom dåligt valda konfigurationsvärden kan kringgå de flesta.
 
-#### Calibration Check
+#### Kalibreringskontroll
 
-Every time a homing move starts, load_cell_probe checks that the load_cell is calibrated. If not it will stop the move with an error: `!! Load Cell not calibrated`.
+Vid varje start av en nollställningsrörelse kontrollerar load_cell_probe att lastcellen är kalibrerad. Annars stoppas rörelsen med felet `!! Load Cell not calibrated`.
 
 #### `counts_per_gram`
 
-This setting is used to convert raw sensor counts into grams. All the safety limits are in gram units for your convenience. If the `counts_per_gram` setting is not accurate you can easily exceed the safe force on the toolhead. You should never guess this value. Use `LOAD_CELL_CALIBRATE` to find your load cells actual `counts_per_gram`.
+Den här inställningen omvandlar råa sensorräkningar till gram. Alla säkerhetsgränser anges i gram. Om `counts_per_gram` inte är korrekt kan den säkra kraften på verktygshuvudet lätt överskridas. Gissa aldrig detta värde; använd `LOAD_CELL_CALIBRATE` för att fastställa lastcellens faktiska `counts_per_gram`.
 
 #### `trigger_force`
 
-This is the force in grams that triggers the endstop to halt the homing move. When a homing move starts the endstop tares itself with the current reading from the load cell. `trigger_force` is measured from that tare value. There is always some overshoot of this value when the probe collides with the bed, so be conservative. e.g. a setting of 100g could result in 350g of peak force before the toolhead stops. This overshoot will increase with faster probing `speed`, a low ADC sample rate or [multi MCU homing](Multi_MCU_Homing.md).
+Detta är kraften i gram som får ändstoppet att stoppa nollställningsrörelsen. När rörelsen startar tarerar ändstoppet sig självt med lastcellens aktuella avläsning. `trigger_force` mäts från detta tareringsvärde. Värdet överskrids alltid något när proben kolliderar med bädden, så var försiktig. En inställning på 100 g kan exempelvis ge en toppkraft på 350 g innan verktygshuvudet stannar. Överskridandet ökar vid högre `speed`, låg ADC-samplingsfrekvens eller [nollställning med flera MCU:er](Multi_MCU_Homing.md).
 
 #### `reference_tare_counts`
 
-This is the baseline tare value that is set by `LOAD_CELL_CALIBRATE`. This value works with `force_safety_limit` to limit the maximum force on the toolhead.
+Detta är grundvärdet för tarering som sätts av `LOAD_CELL_CALIBRATE`. Värdet samverkar med `force_safety_limit` för att begränsa den högsta kraften på verktygshuvudet.
 
 #### `force_safety_limit`
 
-This is the maximum absolute force, relative to `reference_tare_counts`, that the probe will allow while homing or probing. If the MCU sees this force exceeded it will shut down the printer with the error `!! Load cell endstop: too much force!`. There are a number of ways this can be triggered:
+Detta är den största absoluta kraft, relativt `reference_tare_counts`, som proben tillåter vid nollställning eller sondering. Om MCU:n ser att kraften överskrids stängs skrivaren av med felet `!! Load cell endstop: too much force!`. Det finns flera sätt detta kan utlösas på:
 
-The first risk this protects against is picking too large of a value for `drift_filter_cutoff_frequency`. This can cause the drift filter to filter out a probe event and continue the homing move. If this happens the `force_safety_limit` acts as a backup protection.
+Den första risken som detta skyddar mot är att välja ett för stort värde för `drift_filter_cutoff_frequency`. Då kan driftfiltret filtrera bort en sondhändelse och låta nollställningsrörelsen fortsätta. I så fall fungerar `force_safety_limit` som ett reservskydd.
 
-The second problem is probing repeatedly in one place. Klipper does not retract the probe when doing a single `PROBE` command. This can result in force applied to the toolhead at the end of a probing cycle. Because external forces can vary greatly between probing locations, `load_cell_probe` performs a tare before beginning each probe. If you repeat the `PROBE` command, load_cell_probe will tare the endstop at the current force. Multiple cycles of this will result in ever-increasing force on the toolhead. `force_safety_limit` stops this cycle from running out of control.
+Det andra problemet är att sondera upprepade gånger på samma plats. Klipper drar inte tillbaka proben vid ett enstaka `PROBE`-kommando. Det kan lämna kraft på verktygshuvudet efter sonderingscykeln. Eftersom externa krafter kan variera kraftigt mellan platser tarerar `load_cell_probe` före varje sondning. Om du upprepar `PROBE` tareras ändstoppet vid den aktuella kraften. Flera cykler ökar kraften på verktygshuvudet; `force_safety_limit` hindrar cykeln från att löpa okontrollerat.
 
-Another way this run-away can happen is damage to a strain gauge. If the metal part is permanently bent it will change the `reference_tare_counts` of the device. This puts the starting tare value much closer to the limit making it more likely to be violated. You want to be notified if this is happening because your hardware has been permanently damaged.
+Ett annat sätt som den okontrollerade rörelsen kan uppstå är skada på en töjningsgivare. Om metalldelen böjs permanent ändras enhetens `reference_tare_counts`. Det för startvärdet närmare gränsen och gör överskridande mer sannolikt. Du bör få en varning om detta eftersom maskinvaran har skadats permanent.
 
-The final way this can be triggered is due to temperature changes. If your strain gauges are heated their `reference_tare_counts` may be very different at ambient temperature vs operating temperature. In this case you may need to increase the `force_safety_limit` to allow for thermal changes.
+Den sista utlösningsorsaken är temperaturförändringar. Om töjningsgivarna värms upp kan `reference_tare_counts` skilja sig mycket mellan omgivnings- och driftstemperatur. Då kan `force_safety_limit` behöva höjas för att ta hänsyn till termiska förändringar.
 
-#### Load Cell Endstop Watchdog Task
+#### Lastcellsändstoppets övervakningsuppgift
 
-When homing the load_cell_endstop starts a task on the MCU to trac measurements arriving from the sensor. If the sensor fails to send measurements for 2 sample periods the watchdog will shut down the printer with an error `!! LoadCell Endstop timed out waiting on ADC data`.
+Vid nollställning startar load_cell_endstop en uppgift på MCU:n som följer mätningar från sensorn. Om sensorn inte skickar mätningar under två samplingsperioder stänger övervakaren av skrivaren med felet `!! LoadCell Endstop timed out waiting on ADC data`.
 
-If this happens, the most likely cause is a fault from the ADC. Inadequate grounding of your printer can be the root cause. The frame, power supply case and pint bed should all be connected to ground. You may need to ground the frame in multiple places. Anodized aluminum extrusions do not conduct electricity well. You might need to sand the area where the grounding wire is attached to make good electrical contact.
+Om detta händer är den troligaste orsaken ett fel från ADC:n. Otillräcklig jordning kan vara grundorsaken. Ramen, nätaggregatets hölje och skrivarens bädd ska vara anslutna till jord. Ramen kan behöva jordas på flera platser. Anodiserade aluminiumprofiler leder inte elektricitet väl; området där jordledaren fästs kan behöva slipas för god elektrisk kontakt.
 
-#### Interpolation
+#### Interpolering
 
-To increase the precision of the probing result, the position of the first contact between nozzle and bed can be estimated by fitting a piecewise function to the measured data. The data will consist of two regions: while the nozzle is above the bed, the force will be constant (at the tare value). When the nozzle is in contact with the bed, the force will increase linearly with decreasing z position. A piecewise function is fitted to the data and the optimal z position of the split point is found by minimising the error squared. This enables a resolution finer than the distance between the sampling points and will also be less sensitive to noise.
+För att öka sonderingsresultatets precision kan positionen för första kontakten mellan munstycke och bädd uppskattas genom att anpassa en styckvis funktion till mätdata. Ovanför bädden är kraften konstant vid tareringsvärdet; vid kontakt ökar kraften linjärt när Z-positionen minskar. Delningspunktens optimala Z-position fås genom att minimera kvadratfelet. Det ger en upplösning finare än avståndet mellan samplingspunkterna och mindre känslighet för brus.
 
-Due to both physical and technical reasons, the interpolation uses data collected during an additional ascending movement after the initial descending move. The first 300ms of data collected during the ascending move will be used for the fit (this minimises the influence of tare drifts). The collected data must contain enough samples for the fit: at least 3 samples each below and above the contact point are required.
+Av fysiska och tekniska skäl använder interpoleringen data från en extra uppåtgående rörelse efter den inledande nedåtgående rörelsen. De första 300 ms av data från uppåtrörelsen används för anpassningen, vilket minimerar påverkan av tareringsdrift. Det krävs minst tre sampel både under och över kontaktpunkten.
 
-It is recommended to use a relatively high trigger force for the probe to have a strong enough signal. If you have too few samples below the contact point, try increasing the `trigger_force` or reducing the `lift_speed`. However, if the `lift_speed` is too small, there will be too few samples above the contact point due to the 300ms window.
+En relativt hög utlösningskraft rekommenderas för att proben ska få en tillräckligt stark signal. Om det finns för få sampel under kontaktpunkten kan `trigger_force` höjas eller `lift_speed` sänkas. Om `lift_speed` är för låg blir det dock för få sampel ovanför kontaktpunkten på grund av fönstret på 300 ms.
 
-The distance of the ascending move can be configured through the `sample_retract_dist` parameter.
+Avståndet för den uppåtgående rörelsen kan konfigureras med parametern `sample_retract_dist`.
 
-## Load Cell Probe Setup
+## Konfigurera lastcellsproben
 
-This section covers the process for commissioning a load cell probe.
+Det här avsnittet beskriver hur en lastcellsprob tas i drift.
 
-### Verify the Load Cell First
+### Kontrollera lastcellen först
 
-A `[load_cell_probe]` is also a `[load_cell]` and G-code commands related to `[load_cell]` work with `[load_cell_probe]`. Before attempting to use a load cell probe, follow the directions for [calibrating the load cell](Load_Cell.md#calibrating-a-load-cell) with `CALIBRATE_LOAD_CELL` and checking its operation with `LOAD_CELL_DIAGNOSTIC`.
+En `[load_cell_probe]` är också en `[load_cell]`, och G-kodkommandon för `[load_cell]` fungerar med `[load_cell_probe]`. Innan du använder en lastcellsprob ska du följa anvisningarna för [kalibrering av lastcellen](Load_Cell.md#calibrating-a-load-cell) med `CALIBRATE_LOAD_CELL` och kontrollera funktionen med `LOAD_CELL_DIAGNOSTIC`.
 
-### Verify Probe Operation With LOAD_CELL_TEST_TAP
+### Kontrollera probfunktionen med LOAD_CELL_TEST_TAP
 
-Use the command `LOAD_CELL_TEST_TAP` to test the operation of the load cell probe before actually trying to probe with it. This command detects taps, just like the PROBE command, but it does not move the z axis. By default, it listens for 3 taps before ending the test. You have 30 seconds to do each tap, if no taps are detected the command will time out.
+Använd `LOAD_CELL_TEST_TAP` för att testa lastcellsproben innan du faktiskt sonderar med den. Kommandot upptäcker knackningar, precis som PROBE, men rör inte Z-axeln. Som standard lyssnar det efter tre knackningar före testets slut. Du har 30 sekunder för varje knackning; om inga upptäcks går kommandot ut.
 
-If this test fails, check your configuration and `LOAD_CELL_DIAGNOSTIC` carefully to look for issues.
+Om testet misslyckas ska du noggrant kontrollera konfigurationen och `LOAD_CELL_DIAGNOSTIC` efter problem.
 
-Load cell probes don't support the `QUERY_ENDSTOPS` or `QUERY_PROBE` commands. Use `LOAD_CELL_TEST_TAP` for testing functionality before probing.
+Lastcellsprober stöder inte `QUERY_ENDSTOPS` eller `QUERY_PROBE`. Använd `LOAD_CELL_TEST_TAP` för att testa funktionen före sondering.
 
-### Suggested Probing Temperature
+### Rekommenderad sonderingstemperatur
 
-Currently, we suggest keeping the nozzle temperature below the level that causes the filament to ooze while homing and probing. 140C is a good starting point. This temperature is also low enough not to scar PEI build surfaces.
+Vi rekommenderar för närvarande att munstyckstemperaturen hålls under den nivå där filament börjar sippra ut vid nollställning och sondering. 140 °C är en bra utgångspunkt och temperaturen är också tillräckligt låg för att inte märka PEI-byggytor.
 
-Fouling of the nozzle and the print bed due to oozing filament is the #1 source of probing error with the load cell probe. Klipper does not yet have a universal way to detect poor quality taps due to filament ooze. The existing code may decide that a tap is valid when it is of poor quality. Classifying these poor quality taps is an area of active research.
+Smuts på munstycke och bädd från utsipprande filament är den främsta källan till sonderingsfel med lastcellsproben. Klipper saknar ännu ett universellt sätt att upptäcka knackningar av låg kvalitet orsakade av filamentspill. Den befintliga koden kan bedöma en knackning som giltig trots låg kvalitet. Klassificering av sådana knackningar är ett aktivt forskningsområde.
 
-Klipper also lacks support for re-locating a probe point if the location has become fouled by filament ooze. Modules like `quad_gantry_level` will repeatedly probe the same coordinates even if a probe previously failed there.
+Klipper saknar också stöd för att flytta en sondpunkt om platsen har smutsats ned av utsipprande filament. Moduler som `quad_gantry_level` sonderar samma koordinater upprepade gånger även om en sondering tidigare misslyckades där.
 
-Give the above it is strongly suggested not to probe at printing temperatures.
+Med tanke på ovanstående rekommenderas det starkt att inte sondera vid utskriftstemperaturer.
 
-### Hot Nozzle Protection
+### Skydd mot varmt munstycke
 
 The Voron project has a great macro for protecting your print surface from the hot nozzle. See [Voron Tap's
 `activate_gcode`](https://github.com/VoronDesign/Voron-Tap/blob/main/config/tap_klipper_instructions.md)
 
-It is highly suggested to add something like this to your config.
+Det rekommenderas starkt att lägga till något liknande i din konfiguration.
 
-### Nozzle Cleaning
+### Rengöring av munstycket
 
-Before probing the nozzle should be clean. You could do this manually before every print. You can also implement a nozzle scrubber and automate the process. Here is a suggested sequence:
+Munstycket ska vara rent före sondering. Det kan göras manuellt före varje utskrift eller automatiseras med en munstycksskrubb. Här är en rekommenderad följd:
 
-1. Wait for the nozzle to heat up to probing temp (e.g. `M109 S140`)
-1. Home the machine (`G28`)
-1. Scrub the nozzle on a brush
-1. Heat soak the print bed
-1. Perform probing tasks: QGL, bed mesh etc.
+1. Vänta tills munstycket har värmts till sonderingstemperatur, till exempel `M109 S140`
+1. Nollställ maskinen (`G28`)
+1. Skrubba munstycket mot en borste
+1. Värm upp bädden till termisk jämvikt
+1. Utför sonderingsuppgifter: QGL, bäddnät osv.
 
-### Temperature Compensation for Nozzle Growth
+### Temperaturkompensation för munstyckets utvidgning
 
-If you are probing at a safe temperature, the nozzle will expand after heating to printing temperatures. This will cause the nozzle to get longer and closer to the print surface. You can compensate for this with [[z_thermal_adjust]](Config_Reference.md#z_thermal_adjust). This adjustment will work across a range of printing temperatures from PLA to PC.
+Om du sonderar vid en säker temperatur utvidgas munstycket efter uppvärmning till utskriftstemperatur. Munstycket blir längre och kommer närmare utskriftsytan. Detta kan kompenseras med [[z_thermal_adjust]](Config_Reference.md#z_thermal_adjust). Justeringen fungerar för utskriftstemperaturer från PLA till PC.
 
-#### Calculating the `temp_coeff` for `[z_thermal_adjust]`
+#### Beräkna `temp_coeff` för `[z_thermal_adjust]`
 
-The easiest way to do this is to measure at 2 different temperatures. Ideally these should be the upper and lower limits of the printing temperature range. E.g. 180C and 290C. You can perform a `PROBE_ACCURACY` at both temperatures and then calculate the difference of the `average z` at both.
+Det enklaste sättet är att mäta vid två olika temperaturer, helst den övre och undre gränsen för utskriftstemperaturintervallet, till exempel 180 °C och 290 °C. Kör `PROBE_ACCURACY` vid båda temperaturerna och beräkna sedan skillnaden mellan `average z`.
 
-The adjustment value is the change in nozzle length divided by the change in temperature. e.g.
+Justeringsvärdet är ändringen i munstyckslängd dividerad med temperaturändringen, till exempel:
 
 ```
 temp_coeff = -0.05 / (290 - 180) = -0.00045455
 ```
 
-The expected result is a negative number. Positive values for `temp_coeff` move the nozzle closer to the bed and negative values move it further away. Expect to have to move the nozzle further away as it gets longer when hot.
+Det förväntade resultatet är ett negativt tal. Positiva `temp_coeff`-värden flyttar munstycket närmare bädden och negativa värden flyttar det längre bort. Munstycket behöver normalt flyttas längre bort när det blir längre av värmen.
 
-#### Configure `[z_thermal_adjust]`
+#### Konfigurera `[z_thermal_adjust]`
 
-Set up z_thermal_adjust to reference the `extruder` as the source of temperature data. E.g.:
+Ställ in z_thermal_adjust så att `extruder` används som källa för temperaturdata, till exempel:
 
 ```
 [z_thermal_adjust]
@@ -220,65 +220,65 @@ max_temp: 400
 max_z_adjustment: 0.1
 ```
 
-## Continuous Tare Filters for Toolhead Load Cells
+## Kontinuerliga tareringsfilter för lastceller i verktygshuvudet
 
-Klipper implements a configurable IIR filter on the MCU to provide continuous tareing of the load cell while probing. Continuous taring means the 0 value moves with drift caused by external factors like bowden tubes and thermal changes. This is aimed at toolhead sensors and moving beds that experience lots of external forces that change while probing.
+Klipper implementerar ett konfigurerbart IIR-filter på MCU:n för kontinuerlig tarering av lastcellen under sondering. Kontinuerlig tarering innebär att nollvärdet följer drift som orsakas av externa faktorer som bowdenslangar och temperaturförändringar. Det är avsett för sensorer i verktygshuvudet och rörliga bäddar som påverkas av många yttre krafter under sondering.
 
-### Installing SciPy
+### Installera SciPy
 
-The filtering code uses the excellent [SciPy](https://scipy.org/) library to compute the filter coefficients based on the values your enter into the config.
+Filterkoden använder biblioteket [SciPy](https://scipy.org/) för att beräkna filterkoefficienterna utifrån värdena i konfigurationen.
 
-Pre-compiled SciPi builds are available for Python 3 on 32 bit Raspberry Pi systems. 32 bit + Python 3 is strongly recommended because it will streamline your installation experience. It does work with Python 2 but installation can take 30+ minutes and require installing additional tools.
+Förkompilerade SciPy-versioner finns för Python 3 på 32-bitars Raspberry Pi-system. 32 bitar med Python 3 rekommenderas starkt eftersom installationen blir enklare. Det fungerar med Python 2, men installationen kan ta mer än 30 minuter och kräva ytterligare verktyg.
 
 ```bash
 ~/klippy-env/bin/pip install scipy
 ```
 
-### Filter Workbench
+### Filterarbetsbänk
 
-The filter parameters should be selected based on drift seen on the printer during normal operation. A Jupyter notebook is provided in scripts, [filter_workbench.ipynb](../scripts/filter_workbench.ipynb), to perform a detailed investigation with real captured data and FFTs.
+Filterparametrarna bör väljas utifrån den drift som syns på skrivaren vid normal drift. En Jupyter-anteckningsbok, [filter_workbench.ipynb](../scripts/filter_workbench.ipynb), finns i scripts för detaljerad analys med verkliga insamlade data och FFT:er.
 
-### Filtering Suggestions
+### Filterförslag
 
-For those just trying to get a filter working follow these suggestions:
+För dig som bara försöker få ett filter att fungera följer här några förslag:
 
-* The only essential option is `drift_filter_cutoff_frequency`. A conservative starting value is `0.5`Hz. Prusa shipped the MK4 with a setting of `0.8`Hz and the XL with `11.2`Hz. This is probably a safe range to experiment with. This value should be increased only until normal drift due to bowden tube force is eliminated. Setting this value too high will result in slow triggering and excess force going through the toolhead.
-* Keep `trigger_force` low. The default is `75`g. The drift filter keeps the internal grams value very close to 0 so a large trigger force is not needed.
-* Keep `force_safety_limit` to a conservative value. The default value is 2Kg and should keep your toolhead safe while experimenting. If you hit this limit the `drift_filter_cutoff_frequency` value may be too high.
+* Det enda nödvändiga alternativet är `drift_filter_cutoff_frequency`. Ett försiktigt startvärde är `0.5` Hz. Prusa levererade MK4 med `0.8` Hz och XL med `11.2` Hz, vilket sannolikt är ett säkert intervall att experimentera inom. Höj bara värdet tills normal drift från bowdenslangens kraft elimineras. Ett för högt värde ger långsam utlösning och överdriven kraft genom verktygshuvudet.
+* Håll `trigger_force` låg. Standardvärdet är `75` g. Driftfiltret håller det interna gramvärdet nära 0, så en hög utlösningskraft behövs inte.
+* Håll `force_safety_limit` på ett försiktigt värde. Standardvärdet är 2 kg och bör skydda verktygshuvudet under experiment. Om gränsen nås kan `drift_filter_cutoff_frequency` vara för hög.
 
-## Suggestions for Load Cell Tool Boards
+## Förslag för verktygskort med lastcell
 
-This section covers suggestions for those developing toolhead boards that want to support [load_cell_probe]
+Det här avsnittet innehåller förslag för dem som utvecklar verktygshuvudkort med stöd för [load_cell_probe].
 
-### ADC Sensor Selection & Board Development Hints
+### Val av ADC-sensor och råd för kortutveckling
 
-Ideally a sensor would meet these criteria:
+Idealt sett uppfyller en sensor dessa kriterier:
 
-* At least 24 bits wide
-* Use SPI communications
-* Has a pin can be used to indicate sample ready without SPI communications. This is often called the "data ready" or "DRDY" pin. Checking a pin is much faster than running an SPI query.
-* Has a programmable gain amplifier gain setting of 128. This should eliminate the need for a separate amplifier.
-* Indicates via SPI if the sensor has been reset. Detecting resets avoids timing errors in homing and using noisy data at startup. It can also help users track down wiring and grounding issues.
-* A selectable sample rate between 350Hz and 2Khz. Very high sample rates don't turn out to be beneficial in our 3D printers because they produce so much noise when moving fast. Sample rates below 250Hz will require slower probing speeds. They also increase the force on the toolhead due to longer delays between measurements. E.g. a 500Hz sensor moving at 5mm/s has the same safety factor as a 100Hz sensor moving at only 1mm/s.
-* If designing for under-bed applications, and you want to sense multiple load cells, use a chip that can sample all of its inputs simultaneously. Multiplex ADCs that require switching channels have a settling of several samples after each channel switch making them unsuitable for probing applications.
+* Minst 24 bitar bred
+* Använd SPI-kommunikation
+* Har ett stift som kan indikera att ett sampel är klart utan SPI-kommunikation. Det kallas ofta stiftet "data ready" eller "DRDY". Att kontrollera ett stift är mycket snabbare än en SPI-fråga.
+* Har en programmerbar förstärkningsinställning på 128 för förstärkaren. Detta bör eliminera behovet av en separat förstärkare.
+* Indikerar via SPI om sensorn har återställts. Att upptäcka återställningar undviker tidsfel vid nollställning och brusiga data vid uppstart. Det kan också hjälpa användare att hitta kabel- och jordningsproblem.
+* En valbar samplingsfrekvens mellan 350 Hz och 2 kHz. Mycket höga samplingsfrekvenser är inte fördelaktiga i 3D-skrivare eftersom de ger mycket brus vid snabba rörelser. Frekvenser under 250 Hz kräver långsammare sondering och ökar kraften på verktygshuvudet genom längre fördröjning mellan mätningar. En sensor på 500 Hz som rör sig med 5 mm/s har exempelvis samma säkerhetsfaktor som en sensor på 100 Hz som rör sig med endast 1 mm/s.
+* Vid konstruktion för tillämpningar under bädden, där flera lastceller ska mätas, använd en krets som kan sampla alla ingångar samtidigt. Multiplexade ADC:er som kräver kanalbyte behöver flera sampel för stabilisering efter varje byte och passar därför inte för sondering.
 
-Implementing support for a new sensor chip is not particularly difficult with Klipper's `bulk_sensor` and `load_cell_endstop` infrastructure.
+Att implementera stöd för ett nytt sensorkrets är inte särskilt svårt med Klippers infrastruktur `bulk_sensor` och `load_cell_endstop`.
 
-### 5V Power Filtering
+### Filtrering av 5 V-matning
 
-It is strongly suggested to use larger capacitors than specified by the ADC chip manufacturer. ADC chips are usually targeted at low noise environments, like battery powered devices. Sensor manufacturers suggested application notes generally assume a quiet power supply. Treat their suggested capacitor values as minimums.
+Det rekommenderas starkt att använda större kondensatorer än ADC-kretstillverkaren anger. ADC-kretsar är normalt avsedda för miljöer med lågt brus, som batteridrivna enheter. Sensortillverkarnas tillämpningsanvisningar förutsätter oftast en tyst matning; betrakta deras kondensatorvärden som minimivärden.
 
-3D printers put huge amounts of noise onto the 5V bus and this can ruin the sensor's accuracy. Test the sensor on the board with a typical 3D printer power supply and active stepper drivers before deciding on smoothing capacitor sizes.
+3D-skrivare ger mycket brus på 5 V-bussen, vilket kan förstöra sensorns noggrannhet. Testa sensorn på kortet med ett typiskt 3D-skrivarnätaggregat och aktiva stegmotordrivare innan du väljer storlek på utjämningskondensatorer.
 
-### Grounding & Ground Planes
+### Jordning och jordplan
 
-Analog ADC chips contain components that are very vulnerable to noise and ESD. A large ground plane on the first board layer under the chip can help with noise. Keep the chip away from power sections and DC to DC converters. The board should have proper grounding back to the DC supply.
+Analoga ADC-kretsar innehåller komponenter som är mycket känsliga för brus och ESD. Ett stort jordplan på kortets första lager under kretsen kan hjälpa mot brus. Håll kretsen borta från kraftdelar och DC/DC-omvandlare. Kortet ska ha korrekt jordning tillbaka till likspänningsmatningen.
 
-### HX711 and HX717 Notes
+### Anmärkningar om HX711 och HX717
 
-This sensor is popular because of its low cost and availability in the supply chain. However, this is a sensor with some drawbacks:
+Sensorn är populär på grund av låg kostnad och god tillgänglighet i leveranskedjan. Den har dock vissa nackdelar:
 
-* The HX71x sensors use bit-bang communication which has a high overhead on the MCU. Using a sensor that communicates via SPI would save resources on the tool board's CPU.
-* The HX71x lacks a way to communicate reset events to the MCU. Klipper detects resets with a timing heuristic but this is not ideal. Resets indicate a problem with wiring or grounding.
-* For probing applications the HX717 version is strongly preferred because of its higher sample rate (320 vs 80). Probing speed on the HX711 should be limited to less than 2mm/s.
-* The sample rate on the HX71x cannot be set from klipper's config. If you have the 10SPS version of the sensor (which is widely distributed) it needs to be physically re-wired to run at 80SPS.
+* HX71x-sensorerna använder bit-bang-kommunikation som belastar MCU:n mycket. En sensor med SPI-kommunikation skulle spara resurser på verktygskortets CPU.
+* HX71x saknar ett sätt att kommunicera återställningshändelser till MCU:n. Klipper upptäcker återställningar med en tidsheuristik, men det är inte idealiskt. Återställningar tyder på problem med kablage eller jordning.
+* För sonderingsanvändning rekommenderas HX717 starkt på grund av högre samplingsfrekvens, 320 jämfört med 80. Sonderingshastigheten för HX711 bör begränsas till mindre än 2 mm/s.
+* Samplingsfrekvensen för HX71x kan inte ställas in i Klippers konfiguration. Om du har sensorns 10 SPS-version, som är vanligt spridd, måste den kopplas om fysiskt för att köras vid 80 SPS.

@@ -1,15 +1,15 @@
-Klipper documentation
+Klipper-dokumentation
 
-Installation and Configuration
+Installation och konfiguration
 
-Configuration Reference
+Konfigurationsreferens
 
-Bed Level
+Bäddnivå
 
-Resonance Compensation
+Resonanskompensering
 
-Command templates
+Kommandomallar
 
-Developer Documentation
+Utvecklardokumentation
 
-Device Specific Documents
+Enhetsspecifika dokument

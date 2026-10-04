@@ -1,143 +1,143 @@
-# Delta calibration
+# Deltakalibrering
 
-This document describes Klipper's automatic calibration system for "delta" style printers.
+Detta dokument beskriver Klippers automatiska kalibreringssystem för skrivare av "delta"-typ.
 
-Delta calibration involves finding the tower endstop positions, tower angles, delta radius, and delta arm lengths. These settings control printer motion on a delta printer. Each one of these parameters has a non-obvious and non-linear impact and it is difficult to calibrate them manually. In contrast, the software calibration code can provide excellent results with just a few minutes of time. No special probing hardware is necessary.
+Deltakalibrering innebär att fastställa tornens ändstoppspositioner och vinklar, deltaradien och deltarmarnas längder. Dessa inställningar styr skrivarens rörelser på en deltaskrivare. Var och en av parametrarna har en svåröverblickbar och icke-linjär påverkan, och de är svåra att kalibrera manuellt. Kalibreringskoden i programvaran kan däremot ge utmärkta resultat på bara några minuter. Ingen särskild probningsmaskinvara krävs.
 
-Ultimately, the delta calibration is dependent on the precision of the tower endstop switches. If one is using Trinamic stepper motor drivers then consider enabling [endstop phase](Endstop_Phase.md) detection to improve the accuracy of those switches.
+I slutänden beror deltakalibreringen på precisionen hos tornens ändstoppsbrytare. Om Trinamic-drivrutiner för stegmotorer används bör du överväga att aktivera detektering av [ändstoppsfas](Endstop_Phase.md) för att förbättra brytarnas precision.
 
-## Automatic vs manual probing
+## Automatisk eller manuell probning
 
-Klipper supports calibrating the delta parameters via a manual probing method or via an automatic Z probe.
+Klipper stöder kalibrering av deltaparametrarna med en manuell probningsmetod eller en automatisk Z-sond.
 
-A number of delta printer kits come with automatic Z probes that are not sufficiently accurate (specifically, small differences in arm length can cause effector tilt which can skew an automatic probe). If using an automatic probe then first [calibrate the probe](Probe_Calibrate.md) and then check for a [probe location bias](Probe_Calibrate.md#location-bias-check). If the automatic probe has a bias of more than 25 microns (.025mm) then use manual probing instead. Manual probing only takes a few minutes and it eliminates error introduced by the probe.
+Flera deltaskrivarsatser levereras med automatiska Z-sonder som inte är tillräckligt noggranna (särskilt eftersom små skillnader i armlängd kan få effektorn att luta, vilket kan förvränga en automatisk sond). Om du använder en automatisk sond ska du först [kalibrera sonden](Probe_Calibrate.md) och sedan kontrollera om den har en [positionsförskjutning](Probe_Calibrate.md#location-bias-check). Om den automatiska sonden har en förskjutning på mer än 25 mikrometer (0,025 mm) ska du i stället använda manuell probning. Manuell probning tar bara några minuter och eliminerar de fel som sonden inför.
 
-If using a probe that is mounted on the side of the hotend (that is, it has an X or Y offset) then note that performing delta calibration will invalidate the results of probe calibration. These types of probes are rarely suitable for use on a delta (because minor effector tilt will result in a probe location bias). If using the probe anyway, then be sure to rerun probe calibration after any delta calibration.
+Om du använder en sond som är monterad på sidan av hotenden (det vill säga har en X- eller Y-förskjutning) ska du tänka på att deltakalibrering gör resultatet av sondkalibreringen ogiltigt. Den här typen av sonder lämpar sig sällan för en deltaskrivare, eftersom även en liten lutning av effektorn orsakar en positionsförskjutning. Om du ändå använder sonden måste sondkalibreringen köras igen efter varje deltakalibrering.
 
-## Basic delta calibration
+## Grundläggande deltakalibrering
 
-Klipper has a DELTA_CALIBRATE command that can perform basic delta calibration. This command probes seven different points on the bed and calculates new values for the tower angles, tower endstops, and delta radius.
+Klipper har kommandot DELTA_CALIBRATE, som kan utföra grundläggande deltakalibrering. Kommandot provar sju olika punkter på bädden och beräknar nya värden för tornens vinklar, tornens ändstopp och deltaradien.
 
-In order to perform this calibration the initial delta parameters (arm lengths, radius, and endstop positions) must be provided and they should have an accuracy to within a few millimeters. Most delta printer kits will provide these parameters - configure the printer with these initial defaults and then go on to run the DELTA_CALIBRATE command as described below. If no defaults are available then search online for a delta calibration guide that can provide a basic starting point.
+För att utföra denna kalibrering måste de ursprungliga deltaparametrarna – armlängder, radie och ändstoppspositioner – anges, och de bör vara korrekta inom några millimeter. De flesta deltaskrivarsatser tillhandahåller dessa parametrar. Konfigurera skrivaren med dessa initiala standardvärden och kör sedan kommandot DELTA_CALIBRATE enligt beskrivningen nedan. Om standardvärden saknas kan du söka efter en guide för deltakalibrering på nätet som ger en grundläggande utgångspunkt.
 
-During the delta calibration process it may be necessary for the printer to probe below what would otherwise be considered the plane of the bed. It is typical to permit this during calibration by updating the config so that the printer's `minimum_z_position=-5`. (Once calibration completes, one can remove this setting from the config.)
+Under deltakalibreringen kan skrivaren behöva prova under det som annars skulle betraktas som bäddens plan. Det är normalt att tillåta detta under kalibreringen genom att uppdatera konfigurationen så att skrivaren har `minimum_z_position=-5`. (När kalibreringen är klar kan inställningen tas bort ur konfigurationen.)
 
-There are two ways to perform the probing - manual probing (`DELTA_CALIBRATE METHOD=manual`) and automatic probing (`DELTA_CALIBRATE`). The manual probing method will move the head near the bed and then wait for the user to follow the steps described at ["the paper test"](Bed_Level.md#the-paper-test) to determine the actual distance between the nozzle and bed at the given location.
+Det finns två sätt att utföra probningen: manuell probning (`DELTA_CALIBRATE METHOD=manual`) och automatisk probning (`DELTA_CALIBRATE`). Vid manuell probning flyttas huvudet nära bädden, varefter användaren följer stegen i ["papperstestet"](Bed_Level.md#the-paper-test) för att fastställa det faktiska avståndet mellan munstycket och bädden på den angivna platsen.
 
-To perform the basic probe, make sure the config has a [delta_calibrate] section defined and then run the tool:
+För att utföra den grundläggande probningen ska du kontrollera att konfigurationen innehåller avsnittet [delta_calibrate] och sedan köra verktyget:
 
 ```
 G28
 DELTA_CALIBRATE METHOD=manual
 ```
 
-After probing the seven points new delta parameters will be calculated. Save and apply these parameters by running:
+Efter probningen av de sju punkterna beräknas nya deltaparametrar. Spara och tillämpa parametrarna genom att köra:
 
 ```
 SAVE_CONFIG
 ```
 
-The basic calibration should provide delta parameters that are accurate enough for basic printing. If this is a new printer, this is a good time to print some basic objects and verify general functionality.
+Den grundläggande kalibreringen bör ge deltaparametrar som är tillräckligt korrekta för grundläggande utskrift. Om detta är en ny skrivare är det ett bra tillfälle att skriva ut några enkla objekt och kontrollera den allmänna funktionen.
 
-## Enhanced delta calibration
+## Utökad deltakalibrering
 
-The basic delta calibration generally does a good job of calculating delta parameters such that the nozzle is the correct distance from the bed. However, it does not attempt to calibrate X and Y dimensional accuracy. It's a good idea to perform an enhanced delta calibration to verify dimensional accuracy.
+Den grundläggande deltakalibreringen beräknar normalt deltaparametrar väl, så att munstycket har rätt avstånd till bädden. Den försöker dock inte kalibrera dimensionsnoggrannheten i X- och Y-led. Det är därför klokt att utföra en utökad deltakalibrering för att kontrollera dimensionsnoggrannheten.
 
-This calibration procedure requires printing a test object and measuring parts of that test object with digital calipers.
+Denna kalibreringsprocedur kräver att ett testobjekt skrivs ut och att delar av objektet mäts med ett digitalt skjutmått.
 
-Prior to running an enhanced delta calibration one must run the basic delta calibration (via the DELTA_CALIBRATE command) and save the results (via the SAVE_CONFIG command). Make sure there hasn't been any notable change to the printer configuration nor hardware since last performing a basic delta calibration (if unsure, rerun the [basic delta calibration](#basic-delta-calibration), including SAVE_CONFIG, just prior to printing the test object described below.)
+Innan en utökad deltakalibrering körs måste den grundläggande deltakalibreringen utföras med kommandot DELTA_CALIBRATE och resultatet sparas med kommandot SAVE_CONFIG. Kontrollera att skrivarens konfiguration och maskinvara inte har ändrats märkbart sedan den senaste grundläggande deltakalibreringen. (Om du är osäker ska du köra [den grundläggande deltakalibreringen](#basic-delta-calibration) igen, inklusive SAVE_CONFIG, strax innan testobjektet nedan skrivs ut.)
 
-Use a slicer to generate G-Code from the [docs/prints/calibrate_size.stl](prints/calibrate_size.stl) file. Slice the object using a slow speed (eg, 40mm/s). If possible, use a stiff plastic (such as PLA) for the object. The object has a diameter of 140mm. If this is too large for the printer then one can scale it down (but be sure to uniformly scale both the X and Y axes). If the printer supports significantly larger prints then this object can also be increased in size. A larger size can improve the measurement accuracy, but good print adhesion is more important than a larger print size.
+Använd en slicer för att skapa G-kod från filen [docs/prints/calibrate_size.stl](prints/calibrate_size.stl). Skiva objektet med låg hastighet (till exempel 40 mm/s). Använd om möjligt en styv plast, exempelvis PLA, till objektet. Objektets diameter är 140 mm. Om det är för stort för skrivaren kan det skalas ned, men se till att skala både X- och Y-axeln lika mycket. Om skrivaren stöder betydligt större utskrifter kan objektet också förstoras. En större storlek kan förbättra mätnoggrannheten, men god vidhäftning mot bädden är viktigare än större utskriftsstorlek.
 
-Print the test object and wait for it to fully cool. The commands described below must be run with the same printer settings used to print the calibration object (don't run DELTA_CALIBRATE between printing and measuring, or do something that would otherwise change the printer configuration).
+Skriv ut testobjektet och vänta tills det har svalnat helt. Kommandona nedan måste köras med samma skrivarinställningar som användes för att skriva ut kalibreringsobjektet. Kör inte DELTA_CALIBRATE mellan utskrift och mätning och gör inte heller något som annars skulle ändra skrivarens konfiguration.
 
-If possible, perform the measurements described below while the object is still attached to the print bed, but don't worry if the part detaches from the bed - just try to avoid bending the object when performing the measurements.
+Utför om möjligt mätningarna nedan medan objektet fortfarande sitter fast på utskriftsbädden. Oroa dig dock inte om delen lossnar från bädden – försök bara att undvika att böja objektet när mätningarna utförs.
 
-Start by measuring the distance between the center pillar and the pillar next to the "A" label (which should also be pointing towards the "A" tower).
+Börja med att mäta avståndet mellan mittpelaren och pelaren bredvid märkningen "A" (som också ska peka mot "A"-tornet).
 
 ![delta-a-distance](img/delta-a-distance.jpg)
 
-Then go counterclockwise and measure the distances between the center pillar and the other pillars (distance from center to pillar across from C label, distance from center to pillar with B label, etc.).
+Gå sedan motsols och mät avstånden mellan mittpelaren och de andra pelarna: avståndet från mitten till pelaren mittemot C-märkningen, avståndet från mitten till pelaren med B-märkningen och så vidare.
 
 ![delta_cal_e_step1](img/delta_cal_e_step1.png)
 
-Enter these parameters into Klipper with a comma separated list of floating point numbers:
+Ange dessa parametrar i Klipper som en kommaavgränsad lista med flyttal:
 
 ```
 DELTA_ANALYZE CENTER_DISTS=<a_dist>,<far_c_dist>,<b_dist>,<far_a_dist>,<c_dist>,<far_b_dist>
 ```
 
-Provide the values without spaces between them.
+Ange värdena utan mellanslag mellan dem.
 
-Then measure the distance between the A pillar and the pillar across from the C label.
+Mät sedan avståndet mellan A-pelaren och pelaren mittemot C-märkningen.
 
 ![delta-ab-distance](img/delta-outer-distance.jpg)
 
-Then go counterclockwise and measure the distance between the pillar across from C to the B pillar, the distance between the B pillar and the pillar across from A, and so on.
+Gå sedan motsols och mät avståndet mellan pelaren mittemot C och B-pelaren, avståndet mellan B-pelaren och pelaren mittemot A och så vidare.
 
 ![delta_cal_e_step2](img/delta_cal_e_step2.png)
 
-Enter these parameters into Klipper:
+Ange dessa parametrar i Klipper:
 
 ```
 DELTA_ANALYZE OUTER_DISTS=<a_to_far_c>,<far_c_to_b>,<b_to_far_a>,<far_a_to_c>,<c_to_far_b>,<far_b_to_a>
 ```
 
-At this point it is okay to remove the object from the bed. The final measurements are of the pillars themselves. Measure the size of the center pillar along the A spoke, then the B spoke, and then the C spoke.
+Nu kan objektet tas bort från bädden. De sista mätningarna gäller själva pelarna. Mät mittpelarens storlek längs A-ekern, sedan längs B-ekern och därefter längs C-ekern.
 
 ![delta-a-pillar](img/delta-a-pillar.jpg)
 
 ![delta_cal_e_step3](img/delta_cal_e_step3.png)
 
-Enter them into Klipper:
+Ange dem i Klipper:
 
 ```
 DELTA_ANALYZE CENTER_PILLAR_WIDTHS=<a>,<b>,<c>
 ```
 
-The final measurements are of the outer pillars. Start by measuring the distance of the A pillar along the line from A to the pillar across from C.
+De sista mätningarna gäller de yttre pelarna. Börja med att mäta A-pelarens längd längs linjen från A till pelaren mittemot C.
 
 ![delta-ab-pillar](img/delta-outer-pillar.jpg)
 
-Then go counterclockwise and measure the remaining outer pillars (pillar across from C along the line to B, B pillar along the line to pillar across from A, etc.).
+Gå sedan motsols och mät de återstående yttre pelarna: pelaren mittemot C längs linjen till B, B-pelaren längs linjen till pelaren mittemot A och så vidare.
 
 ![delta_cal_e_step4](img/delta_cal_e_step4.png)
 
-And enter them into Klipper:
+Ange dem sedan i Klipper:
 
 ```
 DELTA_ANALYZE OUTER_PILLAR_WIDTHS=<a>,<far_c>,<b>,<far_a>,<c>,<far_b>
 ```
 
-If the object was scaled to a smaller or larger size then provide the scale factor that was used when slicing the object:
+Om objektet skalades till en mindre eller större storlek ska du ange den skalfaktor som användes när objektet skivades:
 
 ```
 DELTA_ANALYZE SCALE=1.0
 ```
 
-(A scale value of 2.0 would mean the object is twice its original size, 0.5 would be half its original size.)
+(Ett skalvärde på 2,0 innebär att objektet är dubbelt så stort som ursprungligen, medan 0,5 innebär att det är hälften så stort.)
 
-Finally, perform the enhanced delta calibration by running:
+Utför slutligen den utökade deltakalibreringen genom att köra:
 
 ```
 DELTA_ANALYZE CALIBRATE=extended
 ```
 
-This command can take several minutes to complete. After completion it will calculate updated delta parameters (delta radius, tower angles, endstop positions, and arm lengths). Use the SAVE_CONFIG command to save and apply the settings:
+Detta kommando kan ta flera minuter att slutföra. När det är klart beräknas uppdaterade deltaparametrar – deltaradie, tornvinklar, ändstoppspositioner och armlängder. Använd kommandot SAVE_CONFIG för att spara och tillämpa inställningarna:
 
 ```
 SAVE_CONFIG
 ```
 
-The SAVE_CONFIG command will save both the updated delta parameters and information from the distance measurements. Future DELTA_CALIBRATE commands will also utilize this distance information. Do not attempt to reenter the raw distance measurements after running SAVE_CONFIG, as this command changes the printer configuration and the raw measurements no longer apply.
+Kommandot SAVE_CONFIG sparar både de uppdaterade deltaparametrarna och informationen från avståndsmätningarna. Framtida DELTA_CALIBRATE-kommandon använder också denna avståndsinformation. Försök inte ange de råa avståndsmätningarna på nytt efter att SAVE_CONFIG har körts, eftersom kommandot ändrar skrivarens konfiguration och de råa mätningarna då inte längre gäller.
 
-### Additional notes
+### Ytterligare anmärkningar
 
-* If the delta printer has good dimensional accuracy then the distance between any two pillars should be around 74mm and the width of every pillar should be around 9mm. (Specifically, the goal is for the distance between any two pillars minus the width of one of the pillars to be exactly 65mm.) Should there be a dimensional inaccuracy in the part then the DELTA_ANALYZE routine will calculate new delta parameters using both the distance measurements and the previous height measurements from the last DELTA_CALIBRATE command.
-* DELTA_ANALYZE may produce delta parameters that are surprising. For example, it may suggest arm lengths that do not match the printer's actual arm lengths. Despite this, testing has shown that DELTA_ANALYZE often produces superior results. It is believed that the calculated delta parameters are able to account for slight errors elsewhere in the hardware. For example, small differences in arm length may result in a tilt to the effector and some of that tilt may be accounted for by adjusting the arm length parameters.
+* Om deltaskrivaren har god dimensionsnoggrannhet bör avståndet mellan två valfria pelare vara omkring 74 mm och bredden på varje pelare omkring 9 mm. Målet är närmare bestämt att avståndet mellan två pelare minus bredden på en av pelarna ska vara exakt 65 mm. Om delen har ett dimensionsfel beräknar rutinen DELTA_ANALYZE nya deltaparametrar med både avståndsmätningarna och de tidigare höjdmätningarna från det senaste kommandot DELTA_CALIBRATE.
+* DELTA_ANALYZE kan ge oväntade deltaparametrar. Den kan till exempel föreslå armlängder som inte stämmer med skrivarens faktiska armlängder. Trots det har tester visat att DELTA_ANALYZE ofta ger bättre resultat. De beräknade deltaparametrarna tros kunna kompensera för små fel på andra håll i maskinvaran. Små skillnader i armlängd kan exempelvis göra att effektorn lutar, och en del av den lutningen kan kompenseras genom att justera armlängdsparametrarna.
 
-## Using Bed Mesh on a Delta
+## Använda bäddnät på en deltaskrivare
 
-It is possible to use [bed mesh](Bed_Mesh.md) on a delta. However, it is important to obtain good delta calibration prior to enabling a bed mesh. Running bed mesh with poor delta calibration will result in confusing and poor results.
+Det går att använda [bäddnät](Bed_Mesh.md) på en deltaskrivare. Det är dock viktigt att få till en god deltakalibrering innan ett bäddnät aktiveras. Ett bäddnät med dålig deltakalibrering ger förvirrande och bristfälliga resultat.
 
-Note that performing delta calibration will invalidate any previously obtained bed mesh. After performing a new delta calibration be sure to rerun BED_MESH_CALIBRATE.
+Observera att deltakalibrering gör ett tidigare framtaget bäddnät ogiltigt. Kör därför BED_MESH_CALIBRATE igen efter en ny deltakalibrering.

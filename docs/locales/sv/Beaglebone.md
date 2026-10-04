@@ -1,53 +1,53 @@
 # Beaglebone
 
-This document describes the process of running Klipper on a Beaglebone PRU.
+Detta dokument beskriver hur Klipper körs på en BeagleBone PRU.
 
-## Building an OS image
+## Bygga en operativsystemsavbildning
 
-Start by installing the [Debian 11.7 2023-09-02 4GB microSD IoT](https://beagleboard.org/latest-images) image. One may run the image from either a micro-SD card or from builtin eMMC. If using the eMMC, install it to eMMC now by following the instructions from the above link.
+Börja med att installera avbildningen [Debian 11.7 2023-09-02 4GB microSD IoT](https://beagleboard.org/latest-images). Avbildningen kan köras från ett microSD-kort eller inbyggt eMMC-minne. Om eMMC används ska den installeras till eMMC nu enligt instruktionerna i länken ovan.
 
-Then ssh into the Beaglebone machine (`ssh debian@beaglebone` -- password is `temppwd`).
+Anslut sedan med SSH till BeagleBone-maskinen (`ssh debian@beaglebone` – lösenordet är `temppwd`).
 
-Before start installing Klipper you need to free-up additional space. there are 3 options to do that:
+Innan Klipper installeras måste mer diskutrymme frigöras. Det finns tre sätt att göra det:
 
-1. remove some BeagleBone "Demo" resources
-1. if you did boot from SD-Card, and it's bigger than 4Gb - you can expand current filesystem to take whole card space
-1. do option #1 and #2 together.
+1. ta bort vissa BeagleBone-"demo"-resurser
+1. om systemet startades från SD-kort och kortet är större än 4 GB kan filsystemet utökas till hela kortets utrymme
+1. gör alternativ 1 och 2 tillsammans.
 
-To remove some BeagleBone "Demo" resources execute these commands
+Kör följande kommandon för att ta bort vissa BeagleBone-"demo"-resurser
 
 ```
 sudo apt remove bb-node-red-installer
 sudo apt remove bb-code-server
 ```
 
-To expand filesystem to full size of your SD-Card execute this command, reboot is not required.
+Kör följande kommando för att utöka filsystemet till hela SD-kortets storlek; omstart krävs inte.
 
 ```
 sudo growpart /dev/mmcblk0 1
 sudo resize2fs /dev/mmcblk0p1
 ```
 
-Install Klipper by running the following commands:
+Installera Klipper genom att köra följande kommandon:
 
 ```
 git clone https://github.com/Klipper3d/klipper.git
 ./klipper/scripts/install-beaglebone.sh
 ```
 
-After installing Klipper you need to decide what kind of deployment do you need, but take a note that BeagleBone is 3.3v based hardware and in most cases you can't directly connect pins to 5v or 12v based hardware without conversion boards.
+Efter installationen av Klipper måste du avgöra vilken typ av driftsättning som behövs. Observera att BeagleBone är maskinvara för 3,3 V och att stift i de flesta fall inte kan anslutas direkt till maskinvara för 5 V eller 12 V utan nivåomvandlingskort.
 
-As Klipper have multimodule architecture on BeagleBone you can achieve many different use cases, but general ones are following:
+Eftersom Klipper har en flermodulsarkitektur på BeagleBone kan många olika användningsfall hanteras. De vanligaste är följande:
 
-Use case 1: Use BeagleBone only as a host system to run Klipper and additional software like OctoPrint/Fluidd + Moonraker/... and this configuration will be driving external micro-controllers via serial/usb/canbus connections.
+Användningsfall 1: Använd BeagleBone enbart som värdsystem för Klipper och ytterligare programvara som OctoPrint/Fluidd + Moonraker. Den här konfigurationen styr externa mikrokontroller via seriella anslutningar, USB eller CAN-buss.
 
-Use case 2: Use BeagleBone with extension board (cape) like CRAMPS board. in this configuration BeagleBone will host Klipper + additional software, and it will drive extension board with BeagleBone PRU cores (2 additional cores 200Mh, 32Bit).
+Användningsfall 2: Använd BeagleBone med ett expansionskort (cape), exempelvis CRAMPS. I denna konfiguration är BeagleBone värd för Klipper och ytterligare programvara, och styr expansionskortet med BeagleBone PRU-kärnor – två ytterligare 200 MHz/32-bitarskärnor.
 
-Use case 3: It's same as "Use case 1" but additionally you want to drive BeagleBone GPIOs with high speed by utilizing PRU cores to offload main CPU.
+Användningsfall 3: Samma som användningsfall 1, men med behov av att styra BeagleBone-GPIO med hög hastighet genom att använda PRU-kärnorna för att avlasta huvudprocessorn.
 
-## Installing Octoprint
+## Installera OctoPrint
 
-One may then install Octoprint or fully skip this section if desired other software:
+Du kan därefter installera OctoPrint, eller hoppa över detta avsnitt helt om annan programvara önskas:
 
 ```
 git clone https://github.com/foosel/OctoPrint.git
@@ -56,7 +56,7 @@ virtualenv venv
 ./venv/bin/python setup.py install
 ```
 
-And setup OctoPrint to start at bootup:
+Konfigurera sedan OctoPrint för att starta vid uppstart:
 
 ```
 sudo cp ~/OctoPrint/scripts/octoprint.init /etc/init.d/octoprint
@@ -65,31 +65,31 @@ sudo cp ~/OctoPrint/scripts/octoprint.default /etc/default/octoprint
 sudo update-rc.d octoprint defaults
 ```
 
-It is necessary to modify OctoPrint's **/etc/default/octoprint** configuration file. One must change the `OCTOPRINT_USER` user to `debian`, change `NICELEVEL` to `0`, uncomment the `BASEDIR`, `CONFIGFILE`, and `DAEMON` settings and change the references from `/home/pi/` to `/home/debian/`:
+OctoPrints konfigurationsfil **/etc/default/octoprint** måste ändras. Ändra användaren `OCTOPRINT_USER` till `debian`, ändra `NICELEVEL` till `0`, avkommentera inställningarna `BASEDIR`, `CONFIGFILE` och `DAEMON` och ändra referenserna från `/home/pi/` till `/home/debian/`:
 
 ```
 sudo nano /etc/default/octoprint
 ```
 
-Then start the Octoprint service:
+Starta sedan tjänsten OctoPrint:
 
 ```
 sudo systemctl start octoprint
 ```
 
-Wait 1-2 minutes and make sure the OctoPrint web server is accessible - it should be at: <http://beaglebone:5000/>
+Vänta 1–2 minuter och kontrollera att OctoPrints webbserver är åtkomlig – den ska finnas på <http://beaglebone:5000/>.
 
-## Building the BeagleBone PRU micro-controller code (PRU firmware)
+## Bygga BeagleBone PRU-mikrokontrollerkoden (PRU-firmware)
 
-This section is required for "Use case 2" and "Use case 3" mentioned above, you should skip it for "Use case 1".
+Detta avsnitt krävs för "användningsfall 2" och "användningsfall 3" ovan, men ska hoppas över för "användningsfall 1".
 
-Check that required devices are present
+Kontrollera att nödvändiga enheter finns
 
 ```
 sudo beagle-version
 ```
 
-You should check that output contains successful "remoteproc" drivers loading and presence of PRU cores, in Kernel 5.10 they should be "remoteproc1" and "remoteproc2" (4a334000.pru, 4a338000.pru) Also check that many GPIOs are loaded they will look like "Allocated GPIO id=0 name='P8_03'" Usually everything is fine and no hardware configuration is required. If something is missing - try to play with "uboot overlays" options or with cape-overlays Just for reference some output of working BeagleBone Black configuration with CRAMPS board:
+Kontrollera att utdata visar att drivrutinerna `remoteproc` har lästs in och att PRU-kärnorna finns. I kärna 5.10 ska de vara `remoteproc1` och `remoteproc2` (4a334000.pru, 4a338000.pru). Kontrollera också att många GPIO:er har lästs in; de ser ut som `Allocated GPIO id=0 name='P8_03'`. Vanligen fungerar allt utan maskinvarukonfiguration. Om något saknas kan du prova alternativen för `uboot overlays` eller `cape-overlays`. Följande är endast ett exempel på utdata från en fungerande BeagleBone Black-konfiguration med CRAMPS-kort:
 
 ```
 model:[TI_AM335x_BeagleBone_Black]
@@ -111,14 +111,14 @@ pkg:[bb-wl18xx-firmware]:[1.20230414.0-0~bullseye+20230414]
 .............
 ```
 
-To compile the Klipper micro-controller code, start by configuring it for the "Beaglebone PRU", for "BeagleBone Black" additionally disable options "Support GPIO Bit-banging devices" and disable "Support LCD devices" inside the "Optional features" because they will not fit in 8Kb PRU firmware memory, then exit and save config:
+För att kompilera Klippers mikrokontrollerkod ska den först konfigureras för "Beaglebone PRU". För "BeagleBone Black" ska alternativen "Support GPIO Bit-banging devices" och "Support LCD devices" dessutom inaktiveras under "Optional features", eftersom de inte ryms i PRU-firmwareminnets 8 kB. Avsluta sedan och spara konfigurationen:
 
 ```
 cd ~/klipper/
 make menuconfig
 ```
 
-To build and install the new PRU micro-controller code, run:
+Kör följande för att bygga och installera den nya PRU-mikrokontrollerkoden:
 
 ```
 sudo service klipper stop
@@ -126,13 +126,13 @@ make flash
 sudo service klipper start
 ```
 
-After previous commands was executed your PRU firmware should be ready and started to check if everything was fine you can execute following command
+När kommandona ovan har körts bör PRU-firmwaren vara klar och startad. Kör följande kommando för att kontrollera att allt gick bra:
 
 ```
 dmesg
 ```
 
-and compare last messages with sample one which indicate that everything started properly:
+och jämför de sista meddelandena med exemplet som visar att allt startade korrekt:
 
 ```
 [   71.105499] remoteproc remoteproc1: 4a334000.pru is available
@@ -152,19 +152,19 @@ and compare last messages with sample one which indicate that everything started
 [   73.540993] rpmsg_pru virtio0.rpmsg-pru.-1.30: new rpmsg_pru device: /dev/rpmsg_pru30
 ```
 
-take a note about "/dev/rpmsg_pru30" - it's your future serial device for main mcu configuration this device is required to be present, if it's absent - your PRU cores did not start properly.
+Observera "/dev/rpmsg_pru30" – den blir den seriella enheten för huvud-MCU:ns konfiguration. Enheten måste finnas; saknas den startade inte PRU-kärnorna korrekt.
 
-## Building and installing Linux host micro-controller code
+## Bygga och installera mikrokontrollerkod för Linux-värd
 
-This section is required for "Use case 2" and optional for "Use case 3" mentioned above
+Det här avsnittet krävs för "Användningsfall 2" och är valfritt för "Användningsfall 3" ovan.
 
-It is also necessary to compile and install the micro-controller code for a Linux host process. Configure it a second time for a "Linux process":
+Mikrokontrollerkoden för en Linux-värdprocess måste också kompileras och installeras. Konfigurera den en andra gång för en "Linux-process":
 
 ```
 make menuconfig
 ```
 
-Then install this micro-controller code as well:
+Installera sedan även denna mikrokontrollerkod:
 
 ```
 sudo service klipper stop
@@ -172,86 +172,86 @@ make flash
 sudo service klipper start
 ```
 
-take a note about "/tmp/klipper_host_mcu" - it will be your future serial device for "mcu host" if that file don't exist - refer to "scripts/klipper-mcu.service" file, it was installed by previous commands, and it's responsible for it.
+Observera "/tmp/klipper_host_mcu" – den blir den seriella enheten för "mcu host". Om filen saknas, se "scripts/klipper-mcu.service"; den installerades av tidigare kommandon och ansvarar för den.
 
-Take a note for "Use case 2" about following: when you will define printer configuration you should always use temperature sensors from "mcu host" because ADCs not present in default "mcu" (PRU cores). Sample configuration of "sensor_pin" for extruder and heated bed are available in "generic-cramps.cfg" You can use any other GPIO directly from "mcu host" by referencing them this way "host:gpiochip1/gpio17" but that should be avoided because it will be creating additional load on main CPU and most probably you can't use them for stepper control.
+För "Användningsfall 2": använd alltid temperatursensorer från "mcu host" när skrivarens konfiguration anges, eftersom standard-"mcu" (PRU-kärnorna) saknar ADC:er. Exempel på "sensor_pin" för extrudern och värmebädden finns i "generic-cramps.cfg". Andra GPIO:er kan refereras direkt från "mcu host", exempelvis "host:gpiochip1/gpio17", men undvik det eftersom det belastar huvudprocessorn extra och sannolikt inte kan användas för stegmotorstyrning.
 
-## Remaining configuration
+## Återstående konfiguration
 
-Complete the installation by configuring Klipper following the instructions in the main [Installation](Installation.md#configuring-octoprint-to-use-klipper) document.
+Slutför installationen genom att konfigurera Klipper enligt instruktionerna i huvuddokumentet [Installation](Installation.md#configuring-octoprint-to-use-klipper).
 
-## Printing on the Beaglebone
+## Skriva ut med BeagleBone
 
-Unfortunately, the Beaglebone processor can sometimes struggle to run OctoPrint well. Print stalls have been known to occur on complex prints (the printer may move faster than OctoPrint can send movement commands). If this occurs, consider using the "virtual_sdcard" feature (see [Config Reference](Config_Reference.md#virtual_sdcard) for details) to print directly from Klipper and disable any DEBUG or VERBOSE logging options if you did enable them.
+BeagleBone-processorn kan tyvärr ibland ha svårt att köra OctoPrint väl. Vid komplexa utskrifter kan utskriften stanna (skrivaren kan röra sig snabbare än OctoPrint hinner skicka rörelsekommandon). Om det händer kan du överväga funktionen "virtual_sdcard" (se [Konfigurationsreferens](Config_Reference.md#virtual_sdcard) för detaljer) för att skriva ut direkt från Klipper och inaktivera alla DEBUG- eller VERBOSE-loggningsalternativ som du har aktiverat.
 
-## AVR micro-controller code build
+## Bygga AVR-mikrokontrollerkod
 
-This environment have everything to build necessary micro-controller code except AVR, AVR packages was removed because of conflict with PRU packages. if you still want to build AVR micro-controller code in this environment you need to remove PRU packages and install AVR packages by executing following commands
+Den här miljön innehåller allt som behövs för att bygga nödvändig mikrokontrollerkod utom AVR. AVR-paketen togs bort eftersom de står i konflikt med PRU-paketen. Om du ändå vill bygga AVR-mikrokontrollerkod i denna miljö måste du ta bort PRU-paketen och installera AVR-paketen med följande kommandon.
 
 ```
 sudo apt-get remove gcc-pru
 sudo apt-get install avrdude gcc-avr binutils-avr avr-libc
 ```
 
-if you need to restore PRU packages - then remove ARV packages before that
+Om du behöver återställa PRU-paketen ska du först ta bort AVR-paketen.
 
 ```
 sudo apt-get remove avrdude gcc-avr binutils-avr avr-libc
 sudo apt-get install gcc-pru
 ```
 
-## Hardware Pin designation
+## Maskinvarustiftens tilldelning
 
-BeagleBone is very flexible in terms of pin designation, same pin can be configured for different function but always single function for single pin, same function can be present on different pins. So you can't have multiple functions on single pin or have same function on multiple pins. Example: P9_20 - i2c2_sda/can0_tx/spi1_cs0/gpio0_12/uart1_ctsn P9_19 - i2c2_scl/can0_rx/spi1_cs1/gpio0_13/uart1_rtsn P9_24 - i2c1_scl/can1_rx/gpio0_15/uart1_tx P9_26 - i2c1_sda/can1_tx/gpio0_14/uart1_rx
+BeagleBone är mycket flexibel när det gäller stifttilldelning. Samma stift kan konfigureras för olika funktioner, men varje stift kan bara ha en funktion och samma funktion kan inte finnas på flera stift. Exempel: P9_20 - i2c2_sda/can0_tx/spi1_cs0/gpio0_12/uart1_ctsn P9_19 - i2c2_scl/can0_rx/spi1_cs1/gpio0_13/uart1_rtsn P9_24 - i2c1_scl/can1_rx/gpio0_15/uart1_tx P9_26 - i2c1_sda/can1_tx/gpio0_14/uart1_rx
 
-Pin designation is defined by using special "overlays" which will be loaded during linux boot they are configured by editing file /boot/uEnv.txt with elevated permissions
+Stifttilldelningen anges med särskilda "overlays" som läses in vid Linux-start. De konfigureras genom att redigera filen /boot/uEnv.txt med utökade behörigheter.
 
 ```
 sudo editor /boot/uEnv.txt
 ```
 
-and defining which functionality to load, for example to enable CAN1 you need to define overlay for it
+och ange vilken funktion som ska läsas in. För att exempelvis aktivera CAN1 måste du ange dess overlay.
 
 ```
 uboot_overlay_addr4=/lib/firmware/BB-CAN1-00A0.dtbo
 ```
 
-This overlay BB-CAN1-00A0.dtbo will reconfigure all required pins for CAN1 and create CAN device in Linux. Any change in overlays will require system reboot to be applied. If you need to understand which pins are involved in some overlay - you can analyze source files in this location: /opt/sources/bb.org-overlays/src/arm/ or search info in BeagleBone forums.
+Denna overlay, BB-CAN1-00A0.dtbo, konfigurerar om alla stift som krävs för CAN1 och skapar en CAN-enhet i Linux. Alla ändringar av overlays kräver omstart för att tillämpas. Om du behöver veta vilka stift som ingår i en overlay kan du analysera källfilerna i /opt/sources/bb.org-overlays/src/arm/ eller söka information i BeagleBone-forum.
 
-## Enabling hardware SPI
+## Aktivera maskinvaru-SPI
 
-BeagleBone usually have multiple hardware SPI buses, for example BeagleBone Black can have 2 of them, they can work up to 48Mhz, but usually they are limited to 16Mhz by Kernel Device-tree. By default, in BeagleBone Black some of SPI1 pins are configured for HDMI-Audio output, to fully enable 4-wire SPI1 you need to disable HDMI Audio and enable SPI1 To do that edit file /boot/uEnv.txt with elevated permissions
+BeagleBone har vanligen flera SPI-bussar i maskinvara; BeagleBone Black kan exempelvis ha två. De kan arbeta upp till 48 MHz, men begränsas normalt till 16 MHz av kärnans enhetsträd. På BeagleBone Black är vissa SPI1-stift som standard konfigurerade för HDMI-ljudutgång. För att aktivera fyrtråds-SPI1 helt måste du inaktivera HDMI-ljud och aktivera SPI1. Redigera /boot/uEnv.txt med utökade behörigheter.
 
 ```
 sudo editor /boot/uEnv.txt
 ```
 
-uncomment variable
+avkommentera variabeln
 
 ```
 disable_uboot_overlay_audio=1
 ```
 
-next uncomment variable and define it this way
+avkommentera sedan följande variabel och ange den så här
 
 ```
 uboot_overlay_addr4=/lib/firmware/BB-SPIDEV1-00A0.dtbo
 ```
 
-Save changes in /boot/uEnv.txt and reboot the board. Now you have SPI1 Enabled, to verify its presence execute command
+Spara ändringarna i /boot/uEnv.txt och starta om kortet. SPI1 är nu aktiverat; kör följande kommando för att bekräfta att det finns.
 
 ```
 ls /dev/spidev1.*
 ```
 
-Take a note that BeagleBone usually is 3.3v based hardware and to use 5V SPI devices you need to add Level-Shifting chip, for example SN74CBTD3861, SN74LVC1G34 or similar. If you are using CRAMPS board - it already contains Level-Shifting chip and SPI1 pins will become available on P503 port, and they can accept 5v hardware, check CRAMPS board Schematics for pin references.
+Observera att BeagleBone vanligtvis använder 3,3 V-logik. För SPI-enheter med 5 V krävs en nivåomvandlare, exempelvis SN74CBTD3861, SN74LVC1G34 eller motsvarande. CRAMPS-kortet innehåller redan en nivåomvandlare; SPI1-stiften blir då tillgängliga på port P503 och kan användas med 5 V-maskinvara. Se CRAMPS-kortets kopplingsschema för stiftreferenser.
 
-## Enabling hardware I2C
+## Aktivera maskinvaru-I2C
 
-BeagleBone usually have multiple hardware I2C buses, for example BeagleBone Black can have 3 of them, they support speed up-to 400Kbit Fast mode. By default, in BeagleBone Black there are two of them (i2c-1 and i2c-2) usually both are already configured and present on P9, third ic2-0 usually reserved for internal use. If you are using CRAMPS board then i2c-2 is present on P303 port with 3.3v level, If you want to obtain I2c-1 in CRAMPS board - you can get them on Extruder1.Step, Extruder1.Dir pins, they also are 3.3v based, check CRAMPS board Schematics for pin references. Related overlays, for [Hardware Pin designation](#hardware-pin-designation): I2C1(100Kbit): BB-I2C1-00A0.dtbo I2C1(400Kbit): BB-I2C1-FAST-00A0.dtbo I2C2(100Kbit): BB-I2C2-00A0.dtbo I2C2(400Kbit): BB-I2C2-FAST-00A0.dtbo
+BeagleBone har vanligtvis flera I2C-bussar i maskinvara; BeagleBone Black kan exempelvis ha tre. De stöder upp till 400 kbit/s i Fast mode. Två bussar (i2c-1 och i2c-2) är normalt redan konfigurerade och tillgängliga på P9; den tredje, i2c-0, är vanligen reserverad för internt bruk. Med CRAMPS-kortet finns i2c-2 på port P303 med 3,3 V-nivå. I2c-1 på CRAMPS kan nås via stiften Extruder1.Step och Extruder1.Dir, också med 3,3 V-nivå. Se CRAMPS-kortets kopplingsschema för stiftreferenser. Relaterade overlays, se [Maskinvarustiftens tilldelning](#hardware-pin-designation): I2C1 (100 kbit): BB-I2C1-00A0.dtbo; I2C1 (400 kbit): BB-I2C1-FAST-00A0.dtbo; I2C2 (100 kbit): BB-I2C2-00A0.dtbo; I2C2 (400 kbit): BB-I2C2-FAST-00A0.dtbo.
 
-## Enabling hardware UART(Serial)/CAN
+## Aktivera maskinvaru-UART (seriell)/CAN
 
-BeagleBone have up to 6 hardware UART(Serial) buses (up to 3Mbit) and up to 2 hardware CAN(1Mbit) buses. UART1(RX,TX) and CAN1(TX,RX) and I2C2(SDA,SCL) are using same pins - so you need to chose what to use UART1(CTSN,RTSN) and CAN0(TX,RX) and I2C1(SDA,SCL) are using same pins - so you need to chose what to use All UART/CAN related pins are 3.3v based, so you will need to use Transceiver chips/boards like SN74LVC2G241DCUR (for UART), SN65HVD230 (for CAN), TTL-RS485 (for RS-485) or something similar which can convert 3.3v signals to appropriate levels.
+BeagleBone har upp till sex UART-bussar (seriella, upp till 3 Mbit) och upp till två CAN-bussar (1 Mbit) i maskinvara. UART1 (RX, TX), CAN1 (TX, RX) och I2C2 (SDA, SCL) använder samma stift, så du måste välja vad de ska användas för. UART1 (CTSN, RTSN), CAN0 (TX, RX) och I2C1 (SDA, SCL) använder också samma stift. Alla UART/CAN-stift använder 3,3 V-logik, så du behöver sändar/mottagarkretsar eller kort som SN74LVC2G241DCUR (UART), SN65HVD230 (CAN), TTL-RS485 (RS-485) eller motsvarande för att omvandla 3,3 V-signaler till lämpliga nivåer.
 
-Related overlays, for [Hardware Pin designation](#hardware-pin-designation) CAN0: BB-CAN0-00A0.dtbo CAN1: BB-CAN1-00A0.dtbo UART0: - used for Console UART1(RX,TX): BB-UART1-00A0.dtbo UART1(RTS,CTS): BB-UART1-RTSCTS-00A0.dtbo UART2(RX,TX): BB-UART2-00A0.dtbo UART3(RX,TX): BB-UART3-00A0.dtbo UART4(RS-485): BB-UART4-RS485-00A0.dtbo UART5(RX,TX): BB-UART5-00A0.dtbo
+Relaterade overlays, se [Maskinvarustiftens tilldelning](#hardware-pin-designation): CAN0: BB-CAN0-00A0.dtbo; CAN1: BB-CAN1-00A0.dtbo; UART0: används för konsolen; UART1 (RX, TX): BB-UART1-00A0.dtbo; UART1 (RTS, CTS): BB-UART1-RTSCTS-00A0.dtbo; UART2 (RX, TX): BB-UART2-00A0.dtbo; UART3 (RX, TX): BB-UART3-00A0.dtbo; UART4 (RS-485): BB-UART4-RS485-00A0.dtbo; UART5 (RX, TX): BB-UART5-00A0.dtbo.

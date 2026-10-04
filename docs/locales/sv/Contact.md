@@ -1,68 +1,68 @@
-# Contact
+# Kontakt
 
-This document provides contact information for Klipper.
+Det här dokumentet innehåller kontaktinformation för Klipper.
 
-## Discourse Forum
+## Discourse-forum
 
-There is a [Klipper Community Discourse server](https://community.klipper3d.org) for "forum" style discussions on Klipper. Note that Discourse is not Discord.
+Det finns en [Klipper Community Discourse-server](https://community.klipper3d.org) för diskussioner om Klipper i forumformat. Observera att Discourse inte är Discord.
 
-## Discord Chat
+## Discord-chatt
 
-There is a Discord server dedicated to Klipper at: <https://discord.klipper3d.org>. Note that Discord is not Discourse.
+Det finns en Discord-server för Klipper på: <https://discord.klipper3d.org>. Observera att Discord inte är Discourse.
 
-This server is run by a community of Klipper enthusiasts dedicated to discussions on Klipper. It allows users to chat with other users in real-time.
+Servern drivs av en grupp Klipper-entusiaster för diskussioner om Klipper. Där kan användare chatta med andra användare i realtid.
 
-## I have a question about Klipper
+## Jag har en fråga om Klipper
 
-Many questions we receive are already answered in the [Klipper documentation](Overview.md). Please be sure to to read the documentation and follow the directions provided there.
+Många frågor vi får besvaras redan i [Klipper-dokumentationen](Overview.md). Läs dokumentationen och följ anvisningarna där.
 
-It is also possible to search for similar questions in the [Klipper Discourse Forum](#discourse-forum).
+Du kan även söka efter liknande frågor i [Klippers Discourse-forum](#discourse-forum).
 
-If you are interested in sharing your knowledge and experience with other Klipper users then you can join the [Klipper Discourse Forum](#discourse-forum) or [Klipper Discord Chat](#discord-chat). Both are communities where Klipper users can discuss Klipper with other users.
+Vill du dela dina kunskaper och erfarenheter med andra Klipper-användare kan du gå med i [Klippers Discourse-forum](#discourse-forum) eller [Klippers Discord-chatt](#discord-chat). I båda grupperna kan Klipper-användare diskutera Klipper med varandra.
 
-If you have a general question or are experiencing general printing problems, then also consider a general 3d-printing forum or a forum dedicated to the printer hardware.
+Har du en allmän fråga eller allmänna utskriftsproblem kan du även överväga ett allmänt forum om 3D-utskrift eller ett forum som är inriktat på skrivarens maskinvara.
 
-## I have a feature request
+## Jag har ett önskemål om en funktion
 
-All new features require someone interested and able to implement that feature. If you are interested in helping to implement or test a new feature, you can search for ongoing developments in the [Klipper Discourse Forum](#discourse-forum). There is also [Klipper Discord Chat](#discord-chat) for discussions between collaborators.
+Alla nya funktioner kräver någon som är intresserad av och kan implementera funktionen. Vill du hjälpa till att implementera eller testa en funktion kan du söka efter pågående utveckling i [Klippers Discourse-forum](#discourse-forum). Det finns även [Klippers Discord-chatt](#discord-chat) för diskussioner mellan medarbetare.
 
-## Help! It doesn't work!
+## Hjälp! Det fungerar inte!
 
-If you are experiencing problems we recommend you carefully read the [Klipper documentation](Overview.md) and double check that all steps were followed.
+Om du har problem rekommenderar vi att du läser [Klipper-dokumentationen](Overview.md) noggrant och kontrollerar att alla steg har följts.
 
-If you are experiencing a printing problem, then we recommend carefully inspecting the printer hardware (all joints, wires, screws, etc.) and verify nothing is abnormal. We find most printing problems are not related to the Klipper software. If you do find a problem with the printer hardware then consider searching general 3d-printing forums or forums dedicated to the printer hardware.
+Om du har utskriftsproblem rekommenderar vi att du noggrant granskar skrivarens maskinvara, inklusive alla fogar, kablar och skruvar, och kontrollerar att inget är onormalt. De flesta utskriftsproblem beror inte på Klipper. Om du hittar ett maskinvaruproblem bör du söka i allmänna forum om 3D-utskrift eller forum som är inriktade på skrivarens maskinvara.
 
-It is also possible to search for similar issues in the [Klipper Discourse Forum](#discourse-forum).
+Du kan även söka efter liknande problem i [Klippers Discourse-forum](#discourse-forum).
 
-If you are interested in sharing your knowledge and experience with other Klipper users then you can join the [Klipper Discourse Forum](#discourse-forum) or [Klipper Discord Chat](#discord-chat). Both are communities where Klipper users can discuss Klipper with other users.
+Vill du dela dina kunskaper och erfarenheter med andra Klipper-användare kan du gå med i [Klippers Discourse-forum](#discourse-forum) eller [Klippers Discord-chatt](#discord-chat). I båda grupperna kan Klipper-användare diskutera Klipper med varandra.
 
-## I found a bug in the Klipper software
+## Jag hittade ett fel i Klipper-programvaran
 
-Klipper is an open-source project and we appreciate when collaborators diagnose errors in the software.
+Klipper är ett projekt med öppen källkod och vi uppskattar när medarbetare hjälper till att diagnostisera fel i programvaran.
 
-Problems should be reported in the [Klipper Discourse Forum](#discourse-forum).
+Problem ska rapporteras i [Klippers Discourse-forum](#discourse-forum).
 
-There is important information that will be needed in order to fix a bug. Please follow these steps:
+Det behövs viktig information för att åtgärda ett fel. Följ dessa steg:
 
-1. Make sure you are running unmodified code from <https://github.com/Klipper3d/klipper>. If the code has been modified or is obtained from another source, then you should reproduce the problem on the unmodified code from <https://github.com/Klipper3d/klipper> prior to reporting.
-1. If possible, run an `M112` command immediately after the undesirable event occurs. This causes Klipper to go into a "shutdown state" and it will cause additional debugging information to be written to the log file.
-1. Obtain the Klipper log file from the event. The log file has been engineered to answer common questions the Klipper developers have about the software and its environment (software version, hardware type, configuration, event timing, and hundreds of other questions).
-   1. Dedicated Klipper web interfaces have the ability to directly obtain the Klipper log file. It's the easiest way to obtain the log when using one of these interfaces. Otherwise, an "scp" or "sftp" utility is needed to copy the log file to your desktop computer. The "scp" utility comes standard with Linux and MacOS desktops. There are freely available scp utilities for other desktops (eg, WinSCP). The log file may be located in the `~/printer_data/logs/klippy.log` file (if using a graphical scp utility, look for the "printer_data" folder, then the "logs" folder under that, then the `klippy.log` file). The log file may alternatively be located in the `/tmp/klippy.log` file (if using a graphical scp utility that can not directly copy `/tmp/klippy.log` then repeatedly click on `..` or "parent folder" until reaching the root directory, click on the `tmp` folder, and then select the `klippy.log` file).
-   1. Copy the log file to your desktop so that it can be attached to an issue report.
-   1. Do not modify the log file in any way; do not provide a snippet of the log. Only the full unmodified log file provides the necessary information.
-   1. It is a good idea to compress the log file with zip or gzip.
-1. Open a new topic on the [Klipper Discourse Forum](#discourse-forum) and provide a clear description of the problem. Other Klipper contributors will need to understand what steps were taken, what the desired outcome was, and what outcome actually occurred. The compressed Klipper log file should be attached to that topic.
+1. Kontrollera att du kör oförändrad kod från <https://github.com/Klipper3d/klipper>. Om koden har ändrats eller kommer från en annan källa ska problemet återskapas med den oförändrade koden från <https://github.com/Klipper3d/klipper> innan det rapporteras.
+1. Kör om möjligt `M112` direkt efter den oönskade händelsen. Då går Klipper till läget "shutdown state" och ytterligare felsökningsinformation skrivs till loggfilen.
+1. Hämta Klippers loggfil från händelsen. Loggfilen är utformad för att besvara vanliga frågor från Klipper-utvecklarna om programvaran och dess miljö, som programvaruversion, maskinvarutyp, konfiguration, händelsetidpunkt och hundratals andra frågor.
+   1. Särskilda Klipper-webbgränssnitt kan hämta Klippers loggfil direkt, vilket är enklast. Annars behövs verktyget "scp" eller "sftp" för att kopiera loggfilen till datorns skrivbord. "scp" ingår normalt i Linux- och MacOS-skrivbord. Det finns fria scp-verktyg för andra system, till exempel WinSCP. Loggfilen kan finnas i `~/printer_data/logs/klippy.log`. I ett grafiskt scp-verktyg letar du efter mappen "printer_data", sedan "logs" och därefter `klippy.log`. Den kan alternativt ligga i `/tmp/klippy.log`; om verktyget inte kan kopiera den direkt klickar du upprepade gånger på `..` eller "parent folder" tills du når rotkatalogen, öppnar mappen `tmp` och väljer `klippy.log`.
+   1. Kopiera loggfilen till skrivbordet så att den kan bifogas i en felrapport.
+   1. Ändra inte loggfilen på något sätt och skicka inte bara ett utdrag. Endast den fullständiga, oförändrade loggfilen innehåller nödvändig information.
+   1. Det är en bra idé att komprimera loggfilen med zip eller gzip.
+1. Öppna ett nytt ämne i [Klippers Discourse-forum](#discourse-forum) och beskriv problemet tydligt. Andra Klipper-bidragsgivare behöver förstå vilka steg som togs, vilket resultat som förväntades och vad som faktiskt hände. Bifoga den komprimerade Klipper-loggfilen till ämnet.
 
-## I am making changes that I'd like to include in Klipper
+## Jag gör ändringar som jag vill inkludera i Klipper
 
-Klipper is open-source software and we appreciate new contributions.
+Klipper är programvara med öppen källkod och vi uppskattar nya bidrag.
 
-See the [CONTRIBUTING document](CONTRIBUTING.md) for information.
+Se [CONTRIBUTING-dokumentet](CONTRIBUTING.md) för information.
 
-There are several [documents for developers](Overview.md#developer-documentation). If you have questions on the code then you can also ask in the [Klipper Discourse Forum](#discourse-forum) or on the [Klipper Discord Chat](#discord-chat).
+Det finns flera [dokument för utvecklare](Overview.md#developer-documentation). Har du frågor om koden kan du även fråga i [Klippers Discourse-forum](#discourse-forum) eller i [Klippers Discord-chatt](#discord-chat).
 
-## Professional Services
+## Professionella tjänster
 
 ![](img/klipper-logo-small.png)
 
-Custom software development, software support, and solutions: <https://ko-fi.com/koconnor>
+Anpassad programvaruutveckling, programvarusupport och lösningar: <https://ko-fi.com/koconnor>

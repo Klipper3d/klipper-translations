@@ -1,74 +1,74 @@
-# Status reference
+# Statusreferens
 
-This document is a reference of printer status information available in Klipper [macros](Command_Templates.md), [display fields](Config_Reference.md#display), and via the [API Server](API_Server.md).
+Det här dokumentet är en referens för skrivarstatusinformation som är tillgänglig i Klippers [makron](Command_Templates.md), [visningsfält](Config_Reference.md#display) och via [API-servern](API_Server.md).
 
-The fields in this document are subject to change - if using an attribute be sure to review the [Config Changes document](Config_Changes.md) when upgrading the Klipper software.
+Fälten i det här dokumentet kan ändras. Om ett attribut används bör [dokumentet om konfigurationsändringar](Config_Changes.md) granskas vid uppgradering av Klipper.
 
 ## angle
 
-The following information is available in [angle some_name](Config_Reference.md#angle) objects:
+Följande information finns tillgänglig i objekten [angle some_name](Config_Reference.md#angle):
 
-- `temperature`: The last temperature reading (in Celsius) from a tle5012b magnetic hall sensor. This value is only available if the angle sensor is a tle5012b chip and if measurements are in progress (otherwise it reports `None`).
+- `temperature`: Den senaste temperaturavläsningen i Celsius från en magnetisk tle5012b-Hall-sensor. Värdet är endast tillgängligt om vinkelsensorn är ett tle5012b-chip och mätningar pågår; annars rapporteras `None`.
 
 ## bed_mesh
 
-The following information is available in the [bed_mesh](Config_Reference.md#bed_mesh) object:
+Följande information finns tillgänglig i objektet [bed_mesh](Config_Reference.md#bed_mesh):
 
-- `profile_name`, `mesh_min`, `mesh_max`, `probed_matrix`, `mesh_matrix`: Information on the currently active bed_mesh.
-- `profiles`: The set of currently defined profiles as setup using BED_MESH_PROFILE.
+- `profile_name`, `mesh_min`, `mesh_max`, `probed_matrix`, `mesh_matrix`: Information om den aktiva bed_mesh-konfigurationen.
+- `profiles`: Mängden av för närvarande definierade profiler, konfigurerade med BED_MESH_PROFILE.
 
 ## bed_screws
 
-The following information is available in the [bed_screws](Config_Reference.md#bed_screws) object:
+Följande information finns tillgänglig i objektet [bed_screws](Config_Reference.md#bed_screws):
 
-- `is_active`: Returns True if the bed screws adjustment tool is currently active.
-- `state`: The bed screws adjustment tool state. It is one of the following strings: "adjust", "fine".
-- `current_screw`: The index for the current screw being adjusted.
-- `accepted_screws`: The number of accepted screws.
+- `is_active`: Returnerar True om verktyget för justering av bäddskruvar är aktivt.
+- `state`: Tillståndet för verktyget för justering av bäddskruvar. Det är en av följande strängar: ”adjust”, ”fine”.
+- `current_screw`: Indexet för den skruv som justeras.
+- `accepted_screws`: Antalet godkända skruvar.
 
 ## canbus_stats
 
-The following information is available in the `canbus_stats some_mcu_name` object (this object is automatically available if an mcu is configured to use canbus):
+Följande information finns tillgänglig i objektet `canbus_stats some_mcu_name` (objektet är automatiskt tillgängligt om en mcu har konfigurerats att använda canbus):
 
-- `rx_error`: The number of receive errors detected by the micro-controller canbus hardware.
-- `tx_error`: The number of transmit errors detected by the micro-controller canbus hardware.
-- `tx_retries`: The number of transmit attempts that were retried due to bus contention or errors.
-- `bus_state`: The status of the interface (typically "active" for a bus in normal operation, "warn" for a bus with recent errors, "passive" for a bus that will no longer transmit canbus error frames, or "off" for a bus that will no longer transmit or receive messages).
+- `rx_error`: Antalet mottagningsfel som upptäckts av mikrokontrollerns canbus-maskinvara.
+- `tx_error`: Antalet sändningsfel som upptäckts av mikrokontrollerns canbus-maskinvara.
+- `tx_retries`: Antalet sändningsförsök som gjordes om på grund av konkurrens om bussen eller fel.
+- `bus_state`: Gränssnittets status, vanligen ”active” för en buss i normal drift, ”warn” för en buss med nyliga fel, ”passive” för en buss som inte längre sänder canbus-felramar eller ”off” för en buss som inte längre sänder eller tar emot meddelanden.
 
-Note that only the rp2XXX micro-controllers report a non-zero `tx_retries` field and the rp2XXX micro-controllers always report `tx_error` as zero and `bus_state` as "active".
+Observera att endast rp2XXX-mikrokontroller rapporterar ett `tx_retries`-fält som inte är noll, och att rp2XXX-mikrokontroller alltid rapporterar `tx_error` som noll och `bus_state` som ”active”.
 
 ## configfile
 
-The following information is available in the `configfile` object (this object is always available):
+Följande information finns tillgänglig i objektet `configfile` (objektet är alltid tillgängligt):
 
-- `settings.<section>.<option>`: Returns the given config file setting (or default value) during the last software start or restart. (Any settings changed at run-time will not be reflected here.)
-- `config.<section>.<option>`: Returns the given raw config file setting as read by Klipper during the last software start or restart. (Any settings changed at run-time will not be reflected here.) All values are returned as strings.
-- `save_config_pending`: Returns true if there are updates that a `SAVE_CONFIG` command may persist to disk.
-- `save_config_pending_items`: Contains the sections and options that were changed and would be persisted by a `SAVE_CONFIG`.
-- `warnings`: A list of warnings about config options. Each entry in the list will be a dictionary containing a `type` and `message` field (both strings). Additional fields may be available depending on the type of warning.
+- `settings.<section>.<option>`: Returnerar den angivna inställningen i konfigurationsfilen, eller standardvärdet, vid senaste programstart eller omstart. Inställningar som har ändrats under körning återspeglas inte här
+- `config.<section>.<option>`: Returnerar den angivna råa inställningen i konfigurationsfilen, sådan som Klipper läste den vid senaste programstart eller omstart. Inställningar som har ändrats under körning återspeglas inte här. Alla värden returneras som strängar.
+- `save_config_pending`: Returnerar true om det finns uppdateringar som kommandot `SAVE_CONFIG` kan spara på disk.
+- `save_config_pending_items`: Innehåller de avsnitt och alternativ som har ändrats och som skulle sparas av `SAVE_CONFIG`.
+- `warnings`: En lista över varningar om konfigurationsalternativ. Varje post i listan är en ordbok med fälten `type` och `message`, båda strängar. Ytterligare fält kan vara tillgängliga beroende på varningstypen.
 
 ## display_status
 
-The following information is available in the `display_status` object (this object is automatically available if a [display](Config_Reference.md#display) config section is defined):
+Följande information finns tillgänglig i objektet `display_status` (objektet är automatiskt tillgängligt om ett [display-konfigurationsavsnitt](Config_Reference.md#display) har definierats):
 
-- `progress`: The progress value of the last `M73` G-Code command (or `virtual_sdcard.progress` if no recent `M73` received).
-- `message`: The message contained in the last `M117` G-Code command.
+- `progress`: Förloppsvärdet från det senaste G-Code-kommandot `M73`, eller `virtual_sdcard.progress` om inget `M73` har tagits emot nyligen.
+- `message`: Meddelandet i det senaste G-Code-kommandot `M117`.
 
 ## endstop_phase
 
-The following information is available in the [endstop_phase](Config_Reference.md#endstop_phase) object:
+Följande information finns tillgänglig i objektet [endstop_phase](Config_Reference.md#endstop_phase):
 
-- `last_home.<stepper name>.phase`: The phase of the stepper motor at the end of the last home attempt.
-- `last_home.<stepper name>.phases`: The total number of phases available on the stepper motor.
-- `last_home.<stepper name>.mcu_position`: The position (as tracked by the micro-controller) of the stepper motor at the end of the last home attempt. The position is the total number of steps taken in a forward direction minus the total number of steps taken in the reverse direction since the micro-controller was last restarted.
+- `last_home.<stepper name>.phase`: Stegmotorns fas vid slutet av det senaste referenskörningsförsöket.
+- `last_home.<stepper name>.phases`: Totala antalet tillgängliga faser i stegmotorn.
+- `last_home.<stepper name>.mcu_position`: Stegmotorns position vid slutet av det senaste referenskörningsförsöket, så som den spåras av mikrokontrollern. Positionen är det totala antalet steg i framåtriktning minus det totala antalet steg i bakåtriktning sedan mikrokontrollern senast startades om.
 
 ## exclude_object
 
-The following information is available in the [exclude_object](Exclude_Object.md) object:
+Följande information finns tillgänglig i objektet [exclude_object](Exclude_Object.md):
 
-- `objects`: An array of the known objects as provided by the `EXCLUDE_OBJECT_DEFINE` command. This is the same information provided by the `EXCLUDE_OBJECT VERBOSE=1` command. The `center` and `polygon` fields will only be present if provided in the original `EXCLUDE_OBJECT_DEFINE`
+- `objects`: En array med kända objekt som tillhandahålls av kommandot `EXCLUDE_OBJECT_DEFINE`. Det är samma information som tillhandahålls av kommandot `EXCLUDE_OBJECT VERBOSE=1`. Fälten `center` och `polygon` finns bara om de angavs i ursprungliga `EXCLUDE_OBJECT_DEFINE`
 
-   Here is a JSON sample:
+   Här är ett JSON-exempel:
 
 ```
 [
@@ -95,358 +95,358 @@ The following information is available in the [exclude_object](Exclude_Object.md
 ]
 ```
 
-- `excluded_objects`: An array of strings listing the names of excluded objects.
-- `current_object`: The name of the object currently being printed.
+- `excluded_objects`: En array med strängar som listar namnen på uteslutna objekt.
+- `current_object`: Namnet på objektet som skrivs ut för närvarande.
 
 ## extruder_stepper
 
-The following information is available for extruder_stepper objects (as well as [extruder](Config_Reference.md#extruder) objects):
+Följande information finns tillgänglig för extruder_stepper-objekt, liksom för [extruder](Config_Reference.md#extruder)-objekt:
 
-- `pressure_advance`: The current [pressure advance](Pressure_Advance.md) value.
-- `smooth_time`: The current pressure advance smooth time.
-- `motion_queue`: The name of the extruder that this extruder stepper is currently synchronized to. This is reported as `None` if the extruder stepper is not currently associated with an extruder.
+- `pressure_advance`: Det aktuella värdet för [tryckutjämning](Pressure_Advance.md).
+- `smooth_time`: Den aktuella utjämningstiden för tryckutjämning.
+- `motion_queue`: Namnet på den extruder som denna extruderstegmotor för närvarande är synkroniserad med. Detta rapporteras som `None` om extruderstegmotorn inte är kopplad till en extruder.
 
 ## fan
 
-The following information is available in [fan](Config_Reference.md#fan), [heater_fan some_name](Config_Reference.md#heater_fan) and [controller_fan some_name](Config_Reference.md#controller_fan) objects:
+Följande information finns tillgänglig i objekten [fan](Config_Reference.md#fan), [heater_fan some_name](Config_Reference.md#heater_fan) och [controller_fan some_name](Config_Reference.md#controller_fan):
 
-- `speed`: The fan speed as a float between 0.0 and 1.0.
-- `rpm`: The measured fan speed in rotations per minute if the fan has a tachometer_pin defined.
+- `speed`: Fläkthastigheten som ett flyttal mellan 0.0 och 1.0.
+- `rpm`: Uppmätt fläkthastighet i varv per minut om ett tachometer_pin har definierats för fläkten.
 
 ## filament_switch_sensor
 
-The following information is available in [filament_switch_sensor some_name](Config_Reference.md#filament_switch_sensor) objects:
+Följande information finns tillgänglig i objekten [filament_switch_sensor some_name](Config_Reference.md#filament_switch_sensor):
 
-- `enabled`: Returns True if the switch sensor is currently enabled.
-- `filament_detected`: Returns True if the sensor is in a triggered state.
+- `enabled`: Returnerar True om brytarsensorn är aktiverad.
+- `filament_detected`: Returnerar True om sensorn är i utlöst tillstånd.
 
 ## filament_motion_sensor
 
-The following information is available in [filament_motion_sensor some_name](Config_Reference.md#filament_motion_sensor) objects:
+Följande information finns tillgänglig i objekten [filament_motion_sensor some_name](Config_Reference.md#filament_motion_sensor):
 
-- `enabled`: Returns True if the motion sensor is currently enabled.
-- `filament_detected`: Returns True if the sensor is in a triggered state.
+- `enabled`: Returnerar True om rörelsesensorn är aktiverad.
+- `filament_detected`: Returnerar True om sensorn är i utlöst tillstånd.
 
 ## firmware_retraction
 
-The following information is available in the [firmware_retraction](Config_Reference.md#firmware_retraction) object:
+Följande information finns tillgänglig i objektet [firmware_retraction](Config_Reference.md#firmware_retraction):
 
-- `retract_length`, `retract_speed`, `unretract_extra_length`, `unretract_speed`: The current settings for the firmware_retraction module. These settings may differ from the config file if a `SET_RETRACTION` command alters them.
+- `retract_length`, `retract_speed`, `unretract_extra_length`, `unretract_speed`: Aktuella inställningar för modulen firmware_retraction. Inställningarna kan skilja sig från konfigurationsfilen om ett `SET_RETRACTION`-kommando ändrar dem.
 
 ## gcode
 
-The following information is available in the `gcode` object:
+Följande information finns tillgänglig i objektet `gcode`:
 
-- `commands`: Returns a list of all currently available commands. For each command, if a help string is defined it will also be provided.
+- `commands`: Returnerar en lista över alla kommandon som för närvarande är tillgängliga. För varje kommando anges också en hjälpsträng om en sådan har definierats.
 
 ## gcode_button
 
-The following information is available in [gcode_button some_name](Config_Reference.md#gcode_button) objects:
+Följande information finns tillgänglig i objekten [gcode_button some_name](Config_Reference.md#gcode_button):
 
-- `state`: The current button state returned as "PRESSED" or "RELEASED"
+- `state`: Knappens aktuella tillstånd, returnerat som ”PRESSED” eller ”RELEASED”
 
 ## gcode_macro
 
-The following information is available in [gcode_macro some_name](Config_Reference.md#gcode_macro) objects:
+Följande information finns tillgänglig i objekten [gcode_macro some_name](Config_Reference.md#gcode_macro):
 
-- `<variable>`: The current value of a [gcode_macro variable](Command_Templates.md#variables).
+- `<variable>`: Det aktuella värdet för en [gcode_macro-variabel](Command_Templates.md#variables).
 
 ## gcode_move
 
-The following information is available in the `gcode_move` object (this object is always available):
+Följande information finns tillgänglig i objektet `gcode_move` (objektet är alltid tillgängligt):
 
-- `gcode_position`: The current position of the toolhead relative to the current G-Code origin. That is, positions that one might directly send to a `G1` command. This value is encoded as a [coordinate](#accessing-coordinates).
-- `position`: The last commanded position of the toolhead using the coordinate system specified in the config file. This value is encoded as a [coordinate](#accessing-coordinates).
-- `homing_origin`: The origin of the gcode coordinate system (relative to the coordinate system specified in the config file) to use after a `G28` command. The `SET_GCODE_OFFSET` command can alter this position. This value is encoded as a [coordinate](#accessing-coordinates).
-- `speed`: The last speed set in a `G1` command (in mm/s).
-- `speed_factor`: The "speed factor override" as set by an `M220` command. This is a floating point value such that 1.0 means no override and, for example, 2.0 would double requested speed.
-- `extrude_factor`: The "extrude factor override" as set by an `M221` command. This is a floating point value such that 1.0 means no override and, for example, 2.0 would double requested extrusions.
-- `absolute_coordinates`: This returns True if in `G90` absolute coordinate mode or False if in `G91` relative mode.
-- `absolute_extrude`: This returns True if in `M82` absolute extrude mode or False if in `M83` relative mode.
-- `axis_map`: Provides a mechanism for finding the coordinate component for a given G-Code id that is used in `G1` commands. See the [Accessing Coordinates](#accessing-coordinates) section for details.
+- `gcode_position`: Verktygshuvudets aktuella position relativt det aktuella G-Code-ursprunget. Det vill säga positioner som kan skickas direkt till ett `G1`-kommando. Värdet är kodat som en [koordinat](#accessing-coordinates).
+- `position`: Verktygshuvudets senast kommenderade position med det koordinatsystem som anges i konfigurationsfilen. Värdet är kodat som en [koordinat](#accessing-coordinates).
+- `homing_origin`: Ursprunget för gcode-koordinatsystemet, relativt koordinatsystemet som anges i konfigurationsfilen, som ska användas efter ett `G28`-kommando. Kommandot `SET_GCODE_OFFSET` kan ändra positionen. Värdet är kodat som en [koordinat](#accessing-coordinates).
+- `speed`: Den senaste hastigheten som angavs i ett `G1`-kommando, i mm/s.
+- `speed_factor`: ”Åsidosättningsfaktor för hastighet”, som anges med ett `M220`-kommando. Det är ett flyttal där 1.0 betyder att ingen åsidosättning görs och där till exempel 2.0 fördubblar den begärda hastigheten.
+- `extrude_factor`: ”Åsidosättningsfaktor för extrudering”, som anges med ett `M221`-kommando. Det är ett flyttal där 1.0 betyder att ingen åsidosättning görs och där till exempel 2.0 fördubblar de begärda extruderingarna.
+- `absolute_coordinates`: Returnerar True i absolut koordinatläge `G90`, annars False i relativt läge `G91`.
+- `absolute_extrude`: Returnerar True i absolut extruderläge `M82`, annars False i relativt läge `M83`.
+- `axis_map`: Tillhandahåller ett sätt att hitta koordinatkomponenten för ett visst G-Code-id som används i `G1`-kommandon. Se avsnittet [Åtkomst till koordinater](#accessing-coordinates) för mer information.
 
 ## hall_filament_width_sensor
 
-The following information is available in the [hall_filament_width_sensor](Config_Reference.md#hall_filament_width_sensor) object:
+Följande information finns tillgänglig i objektet [hall_filament_width_sensor](Config_Reference.md#hall_filament_width_sensor):
 
-- all items from [filament_switch_sensor](Status_Reference.md#filament_switch_sensor)
-- `is_active`: Returns True if the sensor is currently active.
-- `flow_compensation_enabled`: Returns True if flow compensation is enabled.
-- `Diameter`: Returns the last width reading in mm if the sensor is active or the nominal filament diameter if it is not.
-- `Raw`: The last raw ADC reading from the sensor.
+- alla poster från [filament_switch_sensor](Status_Reference.md#filament_switch_sensor)
+- `is_active`: Returnerar True om sensorn är aktiv.
+- `flow_compensation_enabled`: Returnerar True om flödeskompensering är aktiverad.
+- `Diameter`: Returnerar den senaste breddavläsningen i mm om sensorn är aktiv, annars den nominella filamentdiametern.
+- `Raw`: Sensorns senaste råa ADC-avläsning.
 
 ## heater
 
-The following information is available for heater objects such as [extruder](Config_Reference.md#extruder), [heater_bed](Config_Reference.md#heater_bed), and [heater_generic](Config_Reference.md#heater_generic):
+Följande information finns tillgänglig för värmarobjekt, exempelvis [extruder](Config_Reference.md#extruder), [heater_bed](Config_Reference.md#heater_bed) och [heater_generic](Config_Reference.md#heater_generic):
 
-- `temperature`: The last reported temperature (in Celsius as a float) for the given heater.
-- `target`: The current target temperature (in Celsius as a float) for the given heater.
-- `power`: The last setting of the PWM pin (a value between 0.0 and 1.0) associated with the heater.
-- `can_extrude`: If extruder can extrude (defined by `min_extrude_temp`), available only for [extruder](Config_Reference.md#extruder)
+- `temperature`: Den senast rapporterade temperaturen i Celsius, som ett flyttal, för den angivna värmaren.
+- `target`: Den aktuella måltemperaturen i Celsius, som ett flyttal, för den angivna värmaren.
+- `power`: Den senaste inställningen av PWM-stiftet, ett värde mellan 0.0 och 1.0, som är kopplat till värmaren.
+- `can_extrude`: Om extrudern kan extrudera, vilket definieras av `min_extrude_temp`; endast tillgängligt för [extruder](Config_Reference.md#extruder)
 
 ## heaters
 
-The following information is available in the `heaters` object (this object is available if any heater is defined):
+Följande information finns tillgänglig i objektet `heaters` (objektet är tillgängligt om någon värmare har definierats):
 
-- `available_heaters`: Returns a list of all currently available heaters by their full config section names, e.g. `["extruder", "heater_bed", "heater_generic my_custom_heater"]`.
-- `available_sensors`: Returns a list of all currently available temperature sensors by their full config section names, e.g. `["extruder", "heater_bed", "heater_generic my_custom_heater", "temperature_sensor electronics_temp"]`.
-- `available_monitors`: Returns a list of all currently available temperature monitors by their full config section names, e.g. `["tmc2240 stepper_x"]`. While a temperature sensor is always available to read, a temperature monitor may not be available and will return null in such case.
+- `available_heaters`: Returnerar en lista över alla tillgängliga värmare med deras fullständiga namn på konfigurationsavsnitt, till exempel `["extruder", "heater_bed", "heater_generic my_custom_heater"]`.
+- `available_sensors`: Returnerar en lista över alla tillgängliga temperatursensorer med deras fullständiga namn på konfigurationsavsnitt, till exempel `["extruder", "heater_bed", "heater_generic my_custom_heater", "temperature_sensor electronics_temp"]`.
+- `available_monitors`: Returnerar en lista över alla tillgängliga temperaturövervakare med deras fullständiga namn på konfigurationsavsnitt, till exempel `["tmc2240 stepper_x"]`. En temperatursensor är alltid tillgänglig för avläsning, men en temperaturövervakare kan saknas och returnerar då null.
 
 ## idle_timeout
 
-The following information is available in the [idle_timeout](Config_Reference.md#idle_timeout) object (this object is always available):
+Följande information finns tillgänglig i objektet [idle_timeout](Config_Reference.md#idle_timeout) (objektet är alltid tillgängligt):
 
-- `state`: The current state of the printer as tracked by the idle_timeout module. It is one of the following strings: "Idle", "Printing", "Ready".
-- `printing_time`: The amount of time (in seconds) the printer has been in the "Printing" state (as tracked by the idle_timeout module).
-- `idle_timeout`: The current 'timeout' (in seconds) to wait for the gcode to be triggered. (as set by [SET_IDLE_TIMEOUT](G-Codes.md#set_idle_timeout))
+- `state`: Skrivarens aktuella tillstånd, enligt modulen idle_timeout. Det är en av följande strängar: ”Idle”, ”Printing”, ”Ready”.
+- `printing_time`: Tiden i sekunder som skrivaren har varit i tillståndet ”Printing”, enligt modulen idle_timeout.
+- `idle_timeout`: Den aktuella tidsgränsen i sekunder för att vänta på att gcode ska utlösas, enligt [SET_IDLE_TIMEOUT](G-Codes.md#set_idle_timeout)
 
 ## led
 
-The following information is available for each `[led led_name]`, `[neopixel led_name]`, `[dotstar led_name]`, `[pca9533 led_name]`, and `[pca9632 led_name]` config section defined in printer.cfg:
+Följande information finns tillgänglig för varje konfigurationsavsnitt `[led led_name]`, `[neopixel led_name]`, `[dotstar led_name]`, `[pca9533 led_name]` och `[pca9632 led_name]` som definierats i printer.cfg:
 
-- `color_data`: A list of color lists containing the RGBW values for a led in the chain. Each value is represented as a float from 0.0 to 1.0. Each color list contains 4 items (red, green, blue, white) even if the underlying LED supports fewer color channels. For example, the blue value (3rd item in color list) of the second neopixel in a chain could be accessed at `printer["neopixel <config_name>"].color_data[1][2]`.
+- `color_data`: En lista över färglistor som innehåller RGBW-värdena för en lysdiod i kedjan. Varje värde representeras som ett flyttal från 0,0 till 1,0. Varje färglista innehåller fyra poster, röd, grön, blå och vit, även om den underliggande lysdioden har färre färgkanaler. Det blå värdet, tredje posten i färglistan, för den andra neopixel-enheten i en kedja kan till exempel nås med `printer["neopixel <config_name>"].color_data[1][2]`.
 
 ## load_cell
 
-The following information is available for each `[load_cell name]`:
+Följande information finns tillgänglig för varje `[load_cell name]`:
 
-- `is_calibrated`: True/False whether the load cell is calibrated.
-- `counts_per_gram`: The number of raw sensor counts that equals 1 gram of force.
-- `reference_tare_counts`: The reference number of raw sensor counts for 0 force.
-- `tare_counts`: The current number of raw sensor counts for 0 force.
-- `force_g`: The force in grams, averaged over the last polling period.
-- `min_force_g`: The minimum force in grams, over the last polling period.
-- `max_force_g`: The maximum force in grams, over the last polling period.
-- `errors`: The number of sensor errors detected since the last start of measurements.
-- `overflows`: The number of data buffer overflows detected since the last start of measurements.
-- `sample_rate`: The sensor's sample rate in samples per second.
+- `is_calibrated`: True/False beroende på om lastcellen är kalibrerad.
+- `counts_per_gram`: Antalet råa sensorräkningar som motsvarar 1 grams kraft.
+- `reference_tare_counts`: Referensantalet råa sensorräkningar för kraften 0.
+- `tare_counts`: Aktuellt antal råa sensorräkningar för kraften 0.
+- `force_g`: Kraften i gram, beräknad som medelvärde över senaste avfrågningsperioden.
+- `min_force_g`: Minsta kraften i gram under senaste avfrågningsperioden.
+- `max_force_g`: Största kraften i gram under senaste avfrågningsperioden.
+- `errors`: Antalet sensorfel som upptäckts sedan mätningarna senast startades.
+- `overflows`: Antalet översvämningar i databufferten som upptäckts sedan mätningarna senast startades.
+- `sample_rate`: Sensorns samplingsfrekvens i prov per sekund.
 
 ## load_cell_probe
 
-The following information is available for `[load_cell_probe]`:
+Följande information finns tillgänglig för `[load_cell_probe]`:
 
-- all items from [load_cell](Status_Reference.md#load_cell)
-- all items from [probe](Status_Reference.md#probe)
-- `endstop_tare_counts`: The load cell probe keeps a tare value independent of the load cell. This is re-set at the start of each probe.
-- `last_trigger_time`: Timestamp of the last homing trigger.
-- `last_z_result`: The Z position result of the last tap.
-- `is_last_tap_valid`: True if the last tap result is valid.
+- alla poster från [load_cell](Status_Reference.md#load_cell)
+- alla poster från [probe](Status_Reference.md#probe)
+- `endstop_tare_counts`: Lastcellssonden behåller ett taravärde oberoende av lastcellen. Det återställs i början av varje sondering.
+- `last_trigger_time`: Tidsstämpel för den senaste referenskörningsutlösningen.
+- `last_z_result`: Z-positionen från den senaste kontakten.
+- `is_last_tap_valid`: True om resultatet från senaste kontakten är giltigt.
 
 ## manual_probe
 
-The following information is available in the `manual_probe` object:
+Följande information finns tillgänglig i objektet `manual_probe`:
 
-- `is_active`: Returns True if a manual probing helper script is currently active.
-- `z_position`: The current height of the nozzle (as the printer currently understands it).
-- `z_position_lower`: Last probe attempt just lower than the current height.
-- `z_position_upper`: Last probe attempt just greater than the current height.
+- `is_active`: Returnerar True om ett hjälpskript för manuell sondering är aktivt.
+- `z_position`: Munstyckets aktuella höjd, så som skrivaren för närvarande uppfattar den.
+- `z_position_lower`: Senaste sonderingsförsöket precis under den aktuella höjden.
+- `z_position_upper`: Senaste sonderingsförsöket precis över den aktuella höjden.
 
 ## mcu
 
-The following information is available in [mcu](Config_Reference.md#mcu) and [mcu some_name](Config_Reference.md#mcu-my_extra_mcu) objects:
+Följande information finns tillgänglig i objekten [mcu](Config_Reference.md#mcu) och [mcu some_name](Config_Reference.md#mcu-my_extra_mcu):
 
-- `mcu_version`: The Klipper code version reported by the micro-controller.
-- `mcu_build_versions`: Information on the build tools used to generate the micro-controller code (as reported by the micro-controller).
-- `mcu_constants.<constant_name>`: Compile time constants reported by the micro-controller. The available constants may differ between micro-controller architectures and with each code revision.
-- `last_stats.<statistics_name>`: Statistics information on the micro-controller connection.
+- `mcu_version`: Klipper-kodversionen som rapporteras av mikrokontrollern.
+- `mcu_build_versions`: Information om byggverktygen som användes för att skapa mikrokontrollerkoden, enligt mikrokontrollern.
+- `mcu_constants.<constant_name>`: Konstantvärden från kompileringstiden som rapporteras av mikrokontrollern. Tillgängliga konstantvärden kan skilja sig mellan mikrokontrollerarkitekturer och mellan kodversioner.
+- `last_stats.<statistics_name>`: Statistik om anslutningen till mikrokontrollern.
 
 ## motion_report
 
-The following information is available in the `motion_report` object (this object is automatically available if any stepper config section is defined):
+Följande information finns tillgänglig i objektet `motion_report` (objektet är automatiskt tillgängligt om något stegmotorkonfigurationsavsnitt har definierats):
 
-- `live_position`: The requested toolhead position interpolated to the current time. This value is encoded as a [coordinate](#accessing-coordinates).
-- `live_velocity`: The requested toolhead velocity (in mm/s) at the current time.
-- `live_extruder_velocity`: The requested extruder velocity (in mm/s) at the current time.
+- `live_position`: Verktygshuvudets begärda position interpolerad till aktuell tidpunkt. Värdet är kodat som en [koordinat](#accessing-coordinates).
+- `live_velocity`: Den begärda hastigheten för verktygshuvudet vid aktuell tidpunkt, i mm/s.
+- `live_extruder_velocity`: Den begärda extruderhastigheten vid aktuell tidpunkt, i mm/s.
 
 ## output_pin
 
-The following information is available in [output_pin some_name](Config_Reference.md#output_pin) and [pwm_tool some_name](Config_Reference.md#pwm_tool) objects:
+Följande information finns tillgänglig i objekten [output_pin some_name](Config_Reference.md#output_pin) och [pwm_tool some_name](Config_Reference.md#pwm_tool):
 
-- `value`: The "value" of the pin, as set by a `SET_PIN` command.
+- `value`: Stiftets ”värde”, som anges med kommandot `SET_PIN`.
 
 ## palette2
 
-The following information is available in the [palette2](Config_Reference.md#palette2) object:
+Följande information finns tillgänglig i objektet [palette2](Config_Reference.md#palette2):
 
-- `ping`: Amount of the last reported Palette 2 ping in percent.
-- `remaining_load_length`: When starting a Palette 2 print, this will be the amount of filament to load into the extruder.
-- `is_splicing`: True when the Palette 2 is splicing filament.
+- `ping`: Den senast rapporterade Palette 2-pingen i procent.
+- `remaining_load_length`: Vid start av en Palette 2-utskrift är detta mängden filament som ska matas in i extrudern.
+- `is_splicing`: True när Palette 2 skarvar filament.
 
 ## pause_resume
 
-The following information is available in the [pause_resume](Config_Reference.md#pause_resume) object:
+Följande information finns tillgänglig i objektet [pause_resume](Config_Reference.md#pause_resume):
 
-- `is_paused`: Returns true if a PAUSE command has been executed without a corresponding RESUME.
+- `is_paused`: Returnerar true om ett PAUSE-kommando har körts utan motsvarande RESUME.
 
 ## print_stats
 
-The following information is available in the `print_stats` object (this object is automatically available if a [virtual_sdcard](Config_Reference.md#virtual_sdcard) config section is defined):
+Följande information finns tillgänglig i objektet `print_stats` (objektet är automatiskt tillgängligt om ett [virtual_sdcard-konfigurationsavsnitt](Config_Reference.md#virtual_sdcard) har definierats):
 
-- `filename`, `total_duration`, `print_duration`, `filament_used`, `state`, `message`: Estimated information about the current print when a virtual_sdcard print is active.
-- `info.total_layer`: The total layer value of the last `SET_PRINT_STATS_INFO TOTAL_LAYER=<value>` G-Code command.
-- `info.current_layer`: The current layer value of the last `SET_PRINT_STATS_INFO CURRENT_LAYER=<value>` G-Code command.
+- `filename`, `total_duration`, `print_duration`, `filament_used`, `state`, `message`: Uppskattad information om den aktuella utskriften när en virtual_sdcard-utskrift är aktiv.
+- `info.total_layer`: Det totala lagervärdet från det senaste G-Code-kommandot `SET_PRINT_STATS_INFO TOTAL_LAYER=<value>`.
+- `info.current_layer`: Det aktuella lagervärdet från det senaste G-Code-kommandot `SET_PRINT_STATS_INFO CURRENT_LAYER=<value>`.
 
 ## probe
 
-The following information is available in the [probe](Config_Reference.md#probe) object (this object is also available if a [bltouch](Config_Reference.md#bltouch) config section is defined):
+Följande information finns tillgänglig i objektet [probe](Config_Reference.md#probe) (objektet är också tillgängligt om ett [bltouch-konfigurationsavsnitt](Config_Reference.md#bltouch) har definierats):
 
-- `name`: Returns the name of the probe in use.
-- `last_query`: Returns True if the probe was reported as "triggered" during the last QUERY_PROBE command. Note, if this is used in a macro, due to the order of template expansion, the QUERY_PROBE command must be run prior to the macro containing this reference.
-- `last_probe_position`: The results of the last `PROBE` command. This value is encoded as a [coordinate](#accessing-coordinates). The probe hardware estimates that if one were to command the toolhead to XY position `last_probe_position.x`,`last_probe_position.y` and descend then the tip of the toolhead would first contact the bed at a Z height of `last_probe_position.z`. These coordinates are relative to the frame (that is, they use the coordinate system specified in the config file). Note, if this is used in a macro, due to the order of template expansion, the `PROBE` command must be run prior to the macro containing this reference.
-- `last_z_result`: This value is deprecated; it will be removed in the near future.
+- `name`: Returnerar namnet på den sond som används.
+- `last_query`: Returnerar True om sonden rapporterades som ”triggered” under det senaste QUERY_PROBE-kommandot. Om detta används i ett makro måste QUERY_PROBE, på grund av ordningen för mallexpansion, köras före makrot som innehåller denna referens.
+- `last_probe_position`: Resultatet från det senaste kommandot `PROBE`. Värdet är kodat som en [koordinat](#accessing-coordinates). Sondmaskinvaran uppskattar att om verktygshuvudet kommenderas till XY-positionen `last_probe_position.x`,`last_probe_position.y` och sänks, skulle verktygshuvudets spets först komma i kontakt med bädden vid Z-höjden `last_probe_position.z`. Koordinaterna är relativa till ramen, det vill säga de använder koordinatsystemet som anges i konfigurationsfilen. Om detta används i ett makro måste kommandot `PROBE`, på grund av ordningen för mallexpansion, köras före makrot som innehåller denna referens.
+- `last_z_result`: Det här värdet är föråldrat; det kommer att tas bort inom kort.
 
 ## pwm_cycle_time
 
-The following information is available in [pwm_cycle_time some_name](Config_Reference.md#pwm_cycle_time) objects:
+Följande information finns tillgänglig i objekten [pwm_cycle_time some_name](Config_Reference.md#pwm_cycle_time):
 
-- `value`: The "value" of the pin, as set by a `SET_PIN` command.
+- `value`: Stiftets ”värde”, som anges med kommandot `SET_PIN`.
 
 ## quad_gantry_level
 
-The following information is available in the `quad_gantry_level` object (this object is available if quad_gantry_level is defined):
+Följande information finns tillgänglig i objektet `quad_gantry_level` (objektet är tillgängligt om quad_gantry_level har definierats):
 
-- `applied`: True if the gantry leveling process has been run and completed successfully.
+- `applied`: True om portalnivelleringsprocessen har körts och slutförts.
 
 ## query_endstops
 
-The following information is available in the `query_endstops` object (this object is available if any endstop is defined):
+Följande information finns tillgänglig i objektet `query_endstops` (objektet är tillgängligt om något ändstopp har definierats):
 
-- `last_query["<endstop>"]`: Returns True if the given endstop was reported as "triggered" during the last QUERY_ENDSTOP command. Note, if this is used in a macro, due to the order of template expansion, the QUERY_ENDSTOP command must be run prior to the macro containing this reference.
+- `last_query["<endstop>"]`: Returnerar True om det angivna ändstoppet rapporterades som ”triggered” under det senaste QUERY_ENDSTOP-kommandot. Om detta används i ett makro måste QUERY_ENDSTOP, på grund av ordningen för mallexpansion, köras före makrot som innehåller denna referens.
 
 ## screws_tilt_adjust
 
-The following information is available in the `screws_tilt_adjust` object:
+Följande information finns tillgänglig i objektet `screws_tilt_adjust`:
 
-- `error`: Returns True if the most recent `SCREWS_TILT_CALCULATE` command included the `MAX_DEVIATION` parameter and any of the probed screw points exceeded the specified `MAX_DEVIATION`.
-- `max_deviation`: Return the last `MAX_DEVIATION` value of the most recent `SCREWS_TILT_CALCULATE` command.
-- `results["<screw>"]`: A dictionary containing the following keys:
-   - `z`: The measured Z height of the screw location.
-   - `sign`: A string specifying the direction to turn to screw for the necessary adjustment. Either "CW" for clockwise or "CCW" for counterclockwise.
-   - `adjust`: The number of screw turns to adjust the screw, given in the format "HH:MM," where "HH" is the number of full screw turns and "MM" is the number of "minutes of a clock face" representing a partial screw turn. (E.g. "01:15" would mean to turn the screw one and a quarter revolutions.)
-   - `is_base`: Returns True if this is the base screw.
+- `error`: Returnerar True om det senaste kommandot `SCREWS_TILT_CALCULATE` innehöll parametern `MAX_DEVIATION` och någon av de sonderade skruvpunkterna överskred angivet `MAX_DEVIATION`.
+- `max_deviation`: Returnerar det senaste `MAX_DEVIATION`-värdet från det senaste kommandot `SCREWS_TILT_CALCULATE`.
+- `results["<screw>"]`: En ordbok som innehåller följande nycklar:
+   - `z`: Den uppmätta Z-höjden för skruvpositionen.
+   - `sign`: En sträng som anger åt vilket håll skruven ska vridas för nödvändig justering: ”CW” för medurs eller ”CCW” för moturs.
+   - `adjust`: Antalet skruvvarv för att justera skruven, angivet i formatet ”HH:MM”, där ”HH” är antalet hela skruvvarv och ”MM” antalet ”minuter på en urtavla” som motsvarar ett delvarv. Till exempel betyder ”01:15” att skruven ska vridas ett och ett kvarts varv.
+   - `is_base`: Returnerar True om detta är basskruven.
 
 ## servo
 
-The following information is available in [servo some_name](Config_Reference.md#servo) objects:
+Följande information finns tillgänglig i objekten [servo some_name](Config_Reference.md#servo):
 
-- `printer["servo <config_name>"].value`: The last setting of the PWM pin (a value between 0.0 and 1.0) associated with the servo.
+- `printer["servo <config_name>"].value`: Den senaste inställningen av PWM-stiftet, ett värde mellan 0.0 och 1.0, som är kopplat till servot.
 
 ## skew_correction.py
 
-The following information is available in the `skew_correction` object (this object is available if any skew_correction is defined):
+Följande information finns tillgänglig i objektet `skew_correction` (objektet är tillgängligt om någon skew_correction har definierats):
 
-- `current_profile_name`: Returns the name of the currently loaded SKEW_PROFILE.
+- `current_profile_name`: Returnerar namnet på den aktuellt inlästa SKEW_PROFILE.
 
 ## stepper_enable
 
-The following information is available in the `stepper_enable` object (this object is available if any stepper is defined):
+Följande information finns tillgänglig i objektet `stepper_enable` (objektet är tillgängligt om någon stegmotor har definierats):
 
-- `steppers["<stepper>"]`: Returns True if the given stepper is enabled.
+- `steppers["<stepper>"]`: Returnerar True om den angivna stegmotorn är aktiverad.
 
 ## system_stats
 
-The following information is available in the `system_stats` object (this object is always available):
+Följande information finns tillgänglig i objektet `system_stats` (objektet är alltid tillgängligt):
 
-- `sysload`, `cputime`, `memavail`: Information on the host operating system and process load.
+- `sysload`, `cputime`, `memavail`: Information om värdoperativsystemet och processbelastningen.
 
-## temperature sensors
+## temperatursensorer
 
-The following information is available in
+Följande information finns tillgänglig i
 
-[bme280 config_section_name](Config_Reference.md#bmp280bme280bme680-temperature-sensor), [htu21d config_section_name](Config_Reference.md#htu21d-sensor), [sht3x config_section_name](Config_Reference.md#sht31-sensor), [lm75 config_section_name](Config_Reference.md#lm75-temperature-sensor), [temperature_host config_section_name](Config_Reference.md#host-temperature-sensor) and [temperature_combined config_section_name](Config_Reference.md#combined-temperature-sensor) objects:
+Objekten [bme280 config_section_name](Config_Reference.md#bmp280bme280bme680-temperature-sensor), [htu21d config_section_name](Config_Reference.md#htu21d-sensor), [sht3x config_section_name](Config_Reference.md#sht31-sensor), [lm75 config_section_name](Config_Reference.md#lm75-temperature-sensor), [temperature_host config_section_name](Config_Reference.md#host-temperature-sensor) och [temperature_combined config_section_name](Config_Reference.md#combined-temperature-sensor):
 
-- `temperature`: The last read temperature from the sensor.
-- `humidity`, `pressure`, `gas`: The last read values from the sensor (only on bme280, htu21d, sht3x and lm75 sensors).
+- `temperature`: Den senast avlästa temperaturen från sensorn.
+- `humidity`, `pressure`, `gas`: De senast avlästa värdena från sensorn, endast på sensorerna bme280, htu21d, sht3x och lm75.
 
 ## temperature_fan
 
-The following information is available in [temperature_fan some_name](Config_Reference.md#temperature_fan) objects:
+Följande information finns tillgänglig i objekten [temperature_fan some_name](Config_Reference.md#temperature_fan):
 
-- `temperature`: The last read temperature from the sensor.
-- `target`: The target temperature for the fan.
+- `temperature`: Den senast avlästa temperaturen från sensorn.
+- `target`: Fläktens måltemperatur.
 
 ## temperature_sensor
 
-The following information is available in [temperature_sensor some_name](Config_Reference.md#temperature_sensor) objects:
+Följande information finns tillgänglig i objekten [temperature_sensor some_name](Config_Reference.md#temperature_sensor):
 
-- `temperature`: The last read temperature from the sensor.
-- `measured_min_temp`, `measured_max_temp`: The lowest and highest temperature seen by the sensor since the Klipper host software was last restarted.
+- `temperature`: Den senast avlästa temperaturen från sensorn.
+- `measured_min_temp`, `measured_max_temp`: Den lägsta respektive högsta temperatur som sensorn har uppmätt sedan Klippers värdprogram senast startades om.
 
-## tmc drivers
+## TMC-drivrutiner
 
-The following information is available in [TMC stepper driver](Config_Reference.md#tmc-stepper-driver-configuration) objects (eg, `[tmc2208 stepper_x]`):
+Följande information finns tillgänglig i objekt för [TMC-stegmotordrivrutiner](Config_Reference.md#tmc-stepper-driver-configuration), till exempel `[tmc2208 stepper_x]`:
 
-- `mcu_phase_offset`: The micro-controller stepper position corresponding with the driver's "zero" phase. This field may be null if the phase offset is not known.
-- `phase_offset_position`: The "commanded position" corresponding to the driver's "zero" phase. This field may be null if the phase offset is not known.
-- `drv_status`: The results of the last driver status query. (Only non-zero fields are reported.) This field will be null if the driver is not enabled (and thus is not periodically queried).
-- `temperature`: The internal temperature reported by the driver. This field will be null if the driver is not enabled or if the driver does not support temperature reporting.
-- `run_current`: The currently set run current.
-- `hold_current`: The currently set hold current.
+- `mcu_phase_offset`: Mikrokontrollerns stegmotorposition som motsvarar drivrutinens ”nollfas”. Fältet kan vara null om fasförskjutningen inte är känd.
+- `phase_offset_position`: Den ”kommenderade position” som motsvarar drivrutinens ”nollfas”. Fältet kan vara null om fasförskjutningen inte är känd.
+- `drv_status`: Resultatet av den senaste frågan om drivrutinens status. Endast fält som inte är noll rapporteras. Fältet är null om drivrutinen inte är aktiverad och därför inte frågas ut periodiskt.
+- `temperature`: Den interna temperatur som drivrutinen rapporterar. Fältet är null om drivrutinen inte är aktiverad eller inte stöder temperaturrapportering.
+- `run_current`: Den aktuellt inställda körströmmen.
+- `hold_current`: Den aktuellt inställda hållströmmen.
 
 ## toolhead
 
-The following information is available in the `toolhead` object (this object is always available):
+Följande information finns tillgänglig i objektet `toolhead` (objektet är alltid tillgängligt):
 
-- `position`: The last commanded position of the toolhead relative to the coordinate system specified in the config file. This value is encoded as a [coordinate](#accessing-coordinates).
-- `extruder`: The name of the currently active extruder. For example, in a macro one could use `printer[printer.toolhead.extruder].target` to get the target temperature of the current extruder.
-- `homed_axes`: The current cartesian axes considered to be in a "homed" state. This is a string containing one or more of "x", "y", "z".
-- `axis_minimum`, `axis_maximum`: The axis travel limits (mm) after homing. This value is encoded as a [coordinate](#accessing-coordinates).
-- For Delta printers the `cone_start_z` is the max z height at maximum radius (`printer.toolhead.cone_start_z`).
-- `max_velocity`, `max_accel`, `minimum_cruise_ratio`, `square_corner_velocity`: The current printing limits that are in effect. This may differ from the config file settings if a `SET_VELOCITY_LIMIT` (or `M204`) command alters them at run-time.
-- `stalls`: The total number of times (since the last restart) that the printer had to be paused because the toolhead moved faster than moves could be read from the G-Code input.
-- `extra_axes`: Provides a mechanism for finding the coordinate component for extra axes available in standard `G1` type move commands. See the [Accessing Coordinates](#accessing-coordinates) section for details.
+- `position`: Verktygshuvudets senast kommenderade position relativt koordinatsystemet som anges i konfigurationsfilen. Värdet är kodat som en [koordinat](#accessing-coordinates).
+- `extruder`: Namnet på den extruder som är aktiv. I ett makro kan till exempel `printer[printer.toolhead.extruder].target` användas för att hämta måltemperaturen för den aktuella extrudern.
+- `homed_axes`: De aktuella kartesiska axlar som anses vara i läget ”homed”. Det är en sträng som innehåller en eller flera av ”x”, ”y”, ”z”.
+- `axis_minimum`, `axis_maximum`: Axelns rörelsegränser i mm efter referenskörning. Värdet är kodat som en [koordinat](#accessing-coordinates).
+- För delta-skrivare är `cone_start_z` den maximala Z-höjden vid maximal radie (`printer.toolhead.cone_start_z`).
+- `max_velocity`, `max_accel`, `minimum_cruise_ratio`, `square_corner_velocity`: De aktuella begränsningarna för utskrift som gäller. De kan skilja sig från konfigurationsfilens inställningar om ett `SET_VELOCITY_LIMIT`- eller `M204`-kommando ändrar dem under körning.
+- `stalls`: Totala antalet gånger, sedan senaste omstarten, som skrivaren behövde pausas eftersom verktygshuvudet rörde sig snabbare än rörelser kunde läsas från G-Code-indatan.
+- `extra_axes`: Tillhandahåller ett sätt att hitta koordinatkomponenten för extra axlar som är tillgängliga i vanliga rörelsekommandon av typen `G1`. Se avsnittet [Åtkomst till koordinater](#accessing-coordinates) för mer information.
 
 ## dual_carriage
 
-The following information is available in [dual_carriage](Config_Reference.md#dual_carriage) on a cartesian, hybrid_corexy or hybrid_corexz robot
+Följande information finns tillgänglig i [dual_carriage](Config_Reference.md#dual_carriage) på en kartesisk, hybrid_corexy- eller hybrid_corexz-robot
 
-- `carriage_0`: The mode of the carriage 0. Possible values are: "INACTIVE" and "PRIMARY".
-- `carriage_1`: The mode of the carriage 1. Possible values are: "INACTIVE", "PRIMARY", "COPY", and "MIRROR".
+- `carriage_0`: Läget för vagn 0. Möjliga värden är: ”INACTIVE” och ”PRIMARY”.
+- `carriage_1`: Läget för vagn 1. Möjliga värden är: ”INACTIVE”, ”PRIMARY”, ”COPY” och ”MIRROR”.
 
-On a `generic_cartesian` kinematic, the following information is available in `dual_carriage`:
+I en `generic_cartesian`-kinematik finns följande information tillgänglig i `dual_carriage`:
 
-- `carriages["<carriage>"]`: The mode of the carriage `<carriage>`. Possible values are "INACTIVE" and "PRIMARY" for the primary carriage and "INACTIVE", "PRIMARY", "COPY", and "MIRROR" for the dual carriage.
+- `carriages["<carriage>"]`: Läget för vagnen `<carriage>`. Möjliga värden är ”INACTIVE” och ”PRIMARY” för den primära vagnen samt ”INACTIVE”, ”PRIMARY”, ”COPY” och ”MIRROR” för den dubbla vagnen.
 
 ## virtual_sdcard
 
-The following information is available in the [virtual_sdcard](Config_Reference.md#virtual_sdcard) object:
+Följande information finns tillgänglig i objektet [virtual_sdcard](Config_Reference.md#virtual_sdcard):
 
-- `is_active`: Returns True if a print from file is currently active.
-- `progress`: An estimate of the current print progress (based of file size and file position).
-- `file_path`: A full path to the file of currently loaded file.
-- `file_position`: The current position (in bytes) of an active print.
-- `file_size`: The file size (in bytes) of currently loaded file.
+- `is_active`: Returnerar True om en utskrift från fil för närvarande är aktiv.
+- `progress`: En uppskattning av den aktuella utskriftens förlopp, baserad på filstorlek och filposition.
+- `file_path`: En fullständig sökväg till den inlästa filen.
+- `file_position`: Den aktuella positionen i byte för en aktiv utskrift.
+- `file_size`: Filstorleken i byte för den inlästa filen.
 
 ## webhooks
 
-The following information is available in the `webhooks` object (this object is always available):
+Följande information finns tillgänglig i objektet `webhooks` (objektet är alltid tillgängligt):
 
-- `state`: Returns a string indicating the current Klipper state. Possible values are: "ready", "startup", "shutdown", "error".
-- `state_message`: A human readable string giving additional context on the current Klipper state.
+- `state`: Returnerar en sträng som anger Klippers aktuella tillstånd. Möjliga värden är: ”ready”, ”startup”, ”shutdown”, ”error”.
+- `state_message`: En läsbar sträng med ytterligare kontext om Klippers aktuella tillstånd.
 
 ## z_thermal_adjust
 
-The following information is available in the `z_thermal_adjust` object (this object is available if [z_thermal_adjust](Config_Reference.md#z_thermal_adjust) is defined).
+Följande information finns tillgänglig i objektet `z_thermal_adjust` (objektet är tillgängligt om [z_thermal_adjust](Config_Reference.md#z_thermal_adjust) har definierats).
 
-- `enabled`: Returns True if adjustment is enabled.
-- `temperature`: Current (smoothed) temperature of the defined sensor. [degC]
-- `measured_min_temp`: Minimum measured temperature. [degC]
-- `measured_max_temp`: Maximum measured temperature. [degC]
-- `current_z_adjust`: Last computed Z adjustment [mm].
-- `z_adjust_ref_temperature`: Current reference temperature used for calculation of Z `current_z_adjust` [degC].
+- `enabled`: Returnerar True om justering är aktiverad.
+- `temperature`: Aktuell utjämnad temperatur för den definierade sensorn. [degC]
+- `measured_min_temp`: Lägsta uppmätta temperatur. [degC]
+- `measured_max_temp`: Högsta uppmätta temperatur. [degC]
+- `current_z_adjust`: Senast beräknade Z-justering [mm].
+- `z_adjust_ref_temperature`: Aktuell referenstemperatur som används för beräkning av Z `current_z_adjust` [degC].
 
 ## z_tilt
 
-The following information is available in the `z_tilt` object (this object is available if z_tilt is defined):
+Följande information finns tillgänglig i objektet `z_tilt` (objektet är tillgängligt om z_tilt har definierats):
 
-- `applied`: True if the z-tilt leveling process has been run and completed successfully.
+- `applied`: True om Z-lutningsnivelleringen har körts och slutförts.
 
-## Accessing Coordinates
+## Åtkomst till koordinater
 
-Some status fields provide a "coordinate". For macro users these fields may be accessed by component name (eg,`{printer.toolhead.position.x}`), where the component name may be "x", "y", or "z".
+Vissa statusfält tillhandahåller en ”koordinat”. För makroanvändare kan dessa fält nås med komponentnamn, till exempel `{printer.toolhead.position.x}`, där komponentnamnet kan vara ”x”, ”y” eller ”z”.
 
-For developers using the Klipper API Server these fields are transmitted as a list - for example: `{"toolhead": {"position": [1.0, 2.0, 3.0, 7.3, 19.2]}}` . The first three components of the list correspond with the x, y, and z axes.
+För utvecklare som använder Klippers API-server överförs dessa fält som en lista, till exempel: `{"toolhead": {"position": [1.0, 2.0, 3.0, 7.3, 19.2]}}`. Listans tre första komponenter motsvarar axlarna x, y och z.
 
-A coordinate will typically have at least 3 components (x, y, and z), however there may also be additional components. Care should be taken when accessing any of these additional components as the ordering and number of components may change at run-time.
+En koordinat har vanligtvis minst 3 komponenter, x, y och z, men kan även ha ytterligare komponenter. Var försiktig vid åtkomst till ytterligare komponenter eftersom komponenternas ordning och antal kan ändras under körning.
 
-One may use `{printer.gcode_move.axis_map}` and/or `{printer.toolhead.extra_axes}` to determine the number of components and the ordering of components. For example, to access the "E" component one could use `{printer.toolhead.position[printer.gcode_move.axis_map.E]}`. Or, if one wanted to find the component associated with the "extruder" object, one could use `{printer.toolhead.position[printer.toolhead.extra_axes.extruder]}`.
+Man kan använda `{printer.gcode_move.axis_map}` och/eller `{printer.toolhead.extra_axes}` för att fastställa antalet komponenter och deras ordning. För att till exempel komma åt komponenten ”E” kan `{printer.toolhead.position[printer.gcode_move.axis_map.E]}` användas. Om komponenten som hör till objektet ”extruder” ska hittas kan `{printer.toolhead.position[printer.toolhead.extra_axes.extruder]}` användas.
