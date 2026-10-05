@@ -4,9 +4,13 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: sv\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"Last-Translator: Daniel Nylander <yeagersthlm@gmail.com>\n"
+"Language-Team: Swedish <https://hosted.weblate.org/projects/klipper/"
+"sdcard_updates/sv/>\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2026-09-17 01:44+0000\n"
+"X-Generator: Weblate 2026.10.dev0\n"
 
 msgid ""
 "Many of today's popular controller boards ship with a bootloader capable of "
@@ -17,9 +21,17 @@ msgid ""
 "initially flashed to a controller it is possible to transfer new firmware to "
 "the SD Card and initiate the flashing procedure via ssh."
 msgstr ""
+"Många populära styrkort levereras i dag med en starthanterare som kan "
+"uppdatera fast programvara via SD-kort. Det är praktiskt i många "
+"situationer, men dessa starthanterare erbjuder vanligen inget annat sätt att "
+"uppdatera den fasta programvaran. Det kan vara besvärligt om kortet är "
+"monterat på en svåråtkomlig plats eller om den fasta programvaran måste "
+"uppdateras ofta. När Klipper först har flashats till en styrenhet kan ny "
+"fast programvara överföras till SD-kortet och flashningsproceduren startas "
+"via SSH."
 
 msgid "Typical Upgrade Procedure"
-msgstr ""
+msgstr "Typisk uppdateringsprocedur"
 
 msgid ""
 "The procedure for updating MCU firmware using the SD Card is similar to that "
@@ -27,6 +39,10 @@ msgid ""
 "helper script, `flash-sdcard.sh`. Updating a BigTreeTech SKR 1.3 might look "
 "like the following:"
 msgstr ""
+"Proceduren för att uppdatera MCU:ns fasta programvara med SD-kort liknar "
+"andra metoder. I stället för `make flash` måste hjälpskriptet `flash-"
+"sdcard.sh` köras. Uppdatering av en BigTreeTech SKR 1.3 kan exempelvis se ut "
+"så här:"
 
 msgid ""
 "It is up to the user to determine the device location and board name. If a "
@@ -34,17 +50,22 @@ msgid ""
 "appropriate) should be run for each board prior to restarting the Klipper "
 "service."
 msgstr ""
+"Det är användarens ansvar att fastställa enhetens sökväg och kortets namn. "
+"Om flera kort måste flashas ska `flash-sdcard.sh`, eller `make flash` när "
+"det är lämpligt, köras för varje kort innan Klipper-tjänsten startas om."
 
 msgid "Supported boards can be listed with the following command:"
-msgstr ""
+msgstr "Kort som stöds kan listas med följande kommando:"
 
 msgid ""
 "If you do not see your board listed it may be necessary to add a new board "
 "definition as [described below](#board-definitions)."
 msgstr ""
+"Om kortet inte visas i listan kan en ny kortdefinition behöva läggas till "
+"enligt [beskrivningen nedan](#board-definitions)."
 
 msgid "Advanced Usage"
-msgstr ""
+msgstr "Avancerad användning"
 
 msgid ""
 "The above commands assume that your MCU connects at the default baud rate of "
@@ -52,31 +73,45 @@ msgid ""
 "sdcard.sh` script provides options for changing these defaults. All options "
 "can be viewed by the help screen:"
 msgstr ""
+"Kommandona ovan förutsätter att MCU:n ansluter med standardhastigheten "
+"250000 baud och att den fasta programvaran finns i `~/klipper/out/"
+"klipper.bin`. Skriptet `flash-sdcard.sh` har alternativ för att ändra dessa "
+"standardvärden. Alla alternativ visas på hjälpskärmen:"
 
 msgid ""
 "If your board is flashed with firmware that connects at a custom baud rate it "
 "is possible to upgrade by specifying the `-b` option:"
 msgstr ""
+"Om kortet är flashat med fast programvara som ansluter med en anpassad "
+"baudhastighet kan den uppdateras genom att ange alternativet `-b`:"
 
 msgid ""
 "If you wish to flash a build of Klipper located somewhere other than the "
 "default location it can be done by specifying the `-f` option:"
 msgstr ""
+"Om en Klipper-byggning som finns på en annan plats än standardplatsen ska "
+"flashas kan det göras genom att ange alternativet `-f`:"
 
 msgid ""
 "Note that when upgrading a MKS Robin E3 it is not necessary to manually run "
 "`update_mks_robin.py` and supply the resulting binary to `flash-sdcard.sh`. "
 "This procedure is automated during the upload process."
 msgstr ""
+"Vid uppdatering av en MKS Robin E3 behöver `update_mks_robin.py` inte köras "
+"manuellt och den resulterande binärfilen inte heller anges till `flash-"
+"sdcard.sh`. Proceduren automatiseras under uppladdningen."
 
 msgid "Caveats"
-msgstr ""
+msgstr "Begränsningar"
 
 msgid ""
 "As mentioned in the introduction, this method only works for upgrading "
 "firmware. The initial flashing procedure must be done manually per the "
 "instructions that apply to your controller board."
 msgstr ""
+"Som nämnts i inledningen fungerar denna metod endast för uppdatering av fast "
+"programvara. Den första flashningen måste göras manuellt enligt "
+"instruktionerna för ditt styrkort."
 
 msgid ""
 "While it is possible to flash a build that changes the Serial Baud or "
@@ -84,9 +119,13 @@ msgid ""
 "the script will be unable to reconnect to the MCU to verify the current "
 "version."
 msgstr ""
+"Det går att flasha en byggning som ändrar seriell baudhastighet eller "
+"anslutningsgränssnitt, till exempel från USB till UART, men verifieringen "
+"misslyckas alltid eftersom skriptet inte kan återansluta till MCU:n för att "
+"kontrollera den aktuella versionen."
 
 msgid "Board Definitions"
-msgstr ""
+msgstr "Kortdefinitioner"
 
 msgid ""
 "Most common boards should be available, however it is possible to add a new "
@@ -94,19 +133,27 @@ msgid ""
 "`~/klipper/scripts/spi_flash/board_defs.py`. The definitions are stored in "
 "dictionary, for example:"
 msgstr ""
+"De vanligaste korten bör redan finnas tillgängliga, men vid behov går det "
+"att lägga till en ny kortdefinition. Kortdefinitionerna finns i `~/klipper/"
+"scripts/spi_flash/board_defs.py`. Definitionerna lagras i en ordbok, till "
+"exempel:"
 
 msgid "The following fields may be specified:"
-msgstr ""
+msgstr "Följande fält kan anges:"
 
 msgid ""
 "`firmware_path`: The path on the SD Card where firmware should be transferred."
 " The default is `firmware.bin`."
 msgstr ""
+"`firmware_path`: Sökvägen på SD-kortet dit den fasta programvaran ska "
+"överföras. Standardvärdet är `firmware.bin`."
 
 msgid ""
 "`spi_pins`: This should be 3 comma separated pins that are connected to the SD"
 " Card in the format of `miso,mosi,sclk`."
 msgstr ""
+"`spi_pins`: Tre kommaavgränsade stift som är anslutna till SD-kortet, i "
+"formatet `miso,mosi,sclk`."
 
 msgid ""
 "Prior to creating a new board definition one should check to see if an "
@@ -115,10 +162,14 @@ msgid ""
 " alias may be added to specify `my-new-board` as an alias for `generic-"
 "lpc1768`:"
 msgstr ""
+"Innan en ny kortdefinition skapas bör du kontrollera om en befintlig "
+"definition uppfyller kraven för det nya kortet. I så fall kan `BOARD_ALIAS` "
+"anges. Följande alias kan till exempel läggas till för att ange `my-new-"
+"board` som alias för `generic-lpc1768`:"
 
 #: docs/SDCard_Updates.md:block 1 (header)
 msgid "SDCard updates"
-msgstr ""
+msgstr "SD-kortsuppdateringar"
 
 #: docs/SDCard_Updates.md:block 18 (paragraph)
 msgid ""
@@ -130,6 +181,13 @@ msgid ""
 "be used anytime to verify if the code flashed into the board matches the "
 "version in your build folder on any supported board."
 msgstr ""
+"Alternativet `-c` används för att utföra en kontroll eller enbart "
+"verifiering, för att testa om kortet kör den angivna fasta programvaran "
+"korrekt. Det är främst avsett för fall där en manuell strömcykel krävs för "
+"att slutföra flashningen, exempelvis när starthanteraren använder SDIO-läge "
+"i stället för SPI för att komma åt SD-kortet. Se varningarna nedan. Det kan "
+"också användas när som helst för att kontrollera om koden som flashats till "
+"kortet stämmer med versionen i byggmappen på ett kort som stöds."
 
 #: docs/SDCard_Updates.md:block 20 (unordered list)
 msgid ""
@@ -145,12 +203,26 @@ msgid ""
 " `-c` option to complete the check/verify operation. See [Flashing Boards that"
 " use SDIO](#flashing-boards-that-use-sdio) for examples."
 msgstr ""
+"Endast kort som använder SPI för kommunikation med SD-kortet stöds. Kort som "
+"använder SDIO, exempelvis Flymaker Flyboard och MKS Robin Nano V1/V2, "
+"fungerar inte i SDIO-läge. Sådana kort kan dock vanligen flashas med SPI-"
+"läget i programvara. Om kortets starthanterare endast använder SDIO-läge för "
+"att komma åt SD-kortet krävs en strömcykel för både kortet och SD-kortet, så "
+"att läget kan växla från SPI tillbaka till SDIO för att slutföra "
+"flashningen. Sådana kort ska definieras med `skip_verify` aktiverat så att "
+"verifieringssteget hoppas över direkt efter flashningen. Efter den manuella "
+"strömcykeln kan exakt samma kommando `./scripts/flash-sdcard.sh` köras igen "
+"med alternativet `-c` för att slutföra kontrollen eller verifieringen. Se "
+"[Flasha kort som använder SDIO](#flashing-boards-that-use-sdio) för exempel."
 
 #: docs/SDCard_Updates.md:block 25 (unordered list)
 msgid ""
 "`current_firmware_path`: The path on the SD Card where the renamed firmware "
 "file is located after a successful flash. The default is `firmware.cur`."
 msgstr ""
+"`current_firmware_path`: Sökvägen på SD-kortet där den omdöpta fasta "
+"programvarufilen finns efter lyckad flashning. Standardvärdet är "
+"`firmware.cur`."
 
 #: docs/SDCard_Updates.md:block 25 (unordered list)
 msgid ""
@@ -161,12 +233,20 @@ msgid ""
 "with the `-c` option to perform the verification step. [See caveats with SDIO "
 "cards](#caveats)"
 msgstr ""
+"`skip_verify`: Anger ett booleskt värde som talar om för skripten att hoppa "
+"över steget för verifiering av fast programvara under flashningen. "
+"Standardvärdet är `False`. Det kan sättas till `True` för kort som kräver en "
+"manuell strömcykel för att slutföra flashningen. För att verifiera den fasta "
+"programvaran efteråt kör du skriptet igen med alternativet `-c`. [Se "
+"varningar för SDIO-kort](#caveats)"
 
 #: docs/SDCard_Updates.md:block 26 (paragraph)
 msgid ""
 "If software SPI is required, the `spi_bus` field should be set to `swspi` and "
 "the following additional field should be specified:"
 msgstr ""
+"Om SPI i programvara krävs ska fältet `spi_bus` sättas till `swspi` och "
+"följande ytterligare fält anges:"
 
 #: docs/SDCard_Updates.md:block 28 (paragraph)
 msgid ""
@@ -176,10 +256,14 @@ msgid ""
 "example of the former, and the `btt-octopus-f446-v1` board definition provides"
 " an example of the latter."
 msgstr ""
+"Det bör vara mycket ovanligt att SPI i programvara behövs. Normalt krävs det "
+"bara av kort med konstruktionsfel eller kort som vanligen endast stöder SDIO-"
+"läge för SD-kortet. Kortdefinitionen `btt-skr-pro` visar det förstnämnda och "
+"`btt-octopus-f446-v1` det sistnämnda."
 
 #: docs/SDCard_Updates.md:block 32 (header)
 msgid "Flashing Boards that use SDIO"
-msgstr ""
+msgstr "Flasha kort som använder SDIO"
 
 #: docs/SDCard_Updates.md:block 33 (paragraph)
 msgid ""
@@ -192,6 +276,14 @@ msgid ""
 "SD Card so that the board can be manually power-cycled and the verification "
 "step deferred until that's complete."
 msgstr ""
+"Som [nämnts i varningarna](#caveats) kräver kort vars starthanterare "
+"använder SDIO-läge för att komma åt SD-kortet en strömcykel för kortet och "
+"särskilt för själva SD-kortet. Det behövs för att växla från SPI-läget, som "
+"används när filen skrivs till SD-kortet, tillbaka till SDIO-läge så att "
+"starthanteraren kan flasha in den på kortet. Dessa kortdefinitioner använder "
+"flaggan `skip_verify`, som gör att flashningsverktyget stannar efter att den "
+"fasta programvaran skrivits till SD-kortet så att kortet kan strömcyklas "
+"manuellt och verifieringssteget skjuts upp tills det är klart."
 
 #: docs/SDCard_Updates.md:block 34 (paragraph)
 msgid ""
@@ -202,10 +294,15 @@ msgid ""
 "in order to do the verification step, or if the verification can be done "
 "immediately. Here's examples of the two scenarios:"
 msgstr ""
+"Det finns två scenarier: ett där RPi-värden körs med en separat "
+"strömförsörjning och ett där RPi-värden körs med samma strömförsörjning som "
+"huvudkortet som flashas. Skillnaden är om RPi också måste stängas av och "
+"sedan anslutas med `ssh` igen efter flashningen för att verifiera, eller om "
+"verifieringen kan göras direkt. Här är exempel på de två scenarierna:"
 
 #: docs/SDCard_Updates.md:block 35 (header)
 msgid "SDIO Programming with RPi on Separate Power Supply"
-msgstr ""
+msgstr "SDIO-programmering med RPi på separat strömförsörjning"
 
 #: docs/SDCard_Updates.md:block 36 (paragraph)
 msgid ""
@@ -213,10 +310,12 @@ msgid ""
 "following. You will, of course, need to use your proper device path and board "
 "name:"
 msgstr ""
+"En typisk session med RPi på separat strömförsörjning ser ut så här. Du "
+"måste naturligtvis använda rätt enhetssökväg och kortnamn:"
 
 #: docs/SDCard_Updates.md:block 38 (header)
 msgid "SDIO Programming with RPi on the Same Power Supply"
-msgstr ""
+msgstr "SDIO-programmering med RPi på samma strömförsörjning"
 
 #: docs/SDCard_Updates.md:block 39 (paragraph)
 msgid ""
@@ -224,6 +323,8 @@ msgid ""
 "following. You will, of course, need to use your proper device path and board "
 "name:"
 msgstr ""
+"En typisk session med RPi på samma strömförsörjning ser ut så här. Du måste "
+"naturligtvis använda rätt enhetssökväg och kortnamn:"
 
 #: docs/SDCard_Updates.md:block 41 (paragraph)
 msgid ""
@@ -231,10 +332,13 @@ msgid ""
 "`klipper` service, it's necessary to stop `klipper` again before doing the "
 "verification step and restart it after verification is complete."
 msgstr ""
+"I detta fall startas RPi-värden om, vilket även startar om tjänsten "
+"`klipper`. Därför måste `klipper` stoppas igen före verifieringssteget och "
+"startas om när verifieringen är klar."
 
 #: docs/SDCard_Updates.md:block 42 (header)
 msgid "SDIO to SPI Pin Mapping"
-msgstr ""
+msgstr "Mappning från SDIO- till SPI-stift"
 
 #: docs/SDCard_Updates.md:block 43 (paragraph)
 msgid ""
@@ -242,130 +346,133 @@ msgid ""
 "described in the chart below to determine the compatible Software SPI pins to "
 "assign in the `board_defs.py` file:"
 msgstr ""
+"Om kortets schema använder SDIO för SD-kortet kan stiften mappas enligt "
+"tabellen nedan för att fastställa kompatibla SPI-stift i programvara, som "
+"ska anges i filen `board_defs.py`:"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "SD Card Pin"
-msgstr ""
+msgstr "SD-kortsstift"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "Micro SD Card Pin"
-msgstr ""
+msgstr "MicroSD-kortsstift"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "SDIO Pin Name"
-msgstr ""
+msgstr "SDIO-stiftnamn"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "SPI Pin Name"
-msgstr ""
+msgstr "SPI-stiftnamn"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "9"
-msgstr ""
+msgstr "9"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "1"
-msgstr ""
+msgstr "1"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "DATA2"
-msgstr ""
+msgstr "DATA2"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "None (PU)*"
-msgstr ""
+msgstr "Ingen (PU)*"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "2"
-msgstr ""
+msgstr "2"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "CD/DATA3"
-msgstr ""
+msgstr "CD/DATA3"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "CS"
-msgstr ""
+msgstr "CS"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "3"
-msgstr ""
+msgstr "3"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "CMD"
-msgstr ""
+msgstr "CMD"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "MOSI"
-msgstr ""
+msgstr "MOSI"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "4"
-msgstr ""
+msgstr "4"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "+3.3V (VDD)"
-msgstr ""
+msgstr "+3,3 V (VDD)"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "5"
-msgstr ""
+msgstr "5"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "CLK"
-msgstr ""
+msgstr "CLK"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "SCLK"
-msgstr ""
+msgstr "SCLK"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "6"
-msgstr ""
+msgstr "6"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "GND (VSS)"
-msgstr ""
+msgstr "GND (VSS)"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "7"
-msgstr ""
+msgstr "7"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "DATA0"
-msgstr ""
+msgstr "DATA0"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "MISO"
-msgstr ""
+msgstr "MISO"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "8"
-msgstr ""
+msgstr "8"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "DATA1"
-msgstr ""
+msgstr "DATA1"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "N/A"
-msgstr ""
+msgstr "Ej tillämpligt"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "Card Detect (CD)"
-msgstr ""
+msgstr "Kortavkänning (CD)"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "10"
-msgstr ""
+msgstr "10"
 
 #: docs/SDCard_Updates.md:block 44 (table)
 msgid "GND"
-msgstr ""
+msgstr "GND"
 
 #: docs/SDCard_Updates.md:block 45 (paragraph)
 msgid "\\* None (PU) indicates an unused pin with a pull-up resistor"
-msgstr ""
+msgstr "\\* Ingen (PU) anger ett oanvänt stift med pullup-motstånd"
 
 #: docs/SDCard_Updates.md:block 25 (unordered list)
 msgid ""
@@ -373,22 +480,29 @@ msgid ""
 "`make menuconfig` by running `cat .config | grep CONFIG_MCU`. This field is "
 "required."
 msgstr ""
+"`mcu`: MCU-typen. Den kan hämtas efter att byggningen har konfigurerats via "
+"`make menuconfig` genom att köra `cat .config | grep CONFIG_MCU`. Fältet "
+"krävs."
 
 #: docs/SDCard_Updates.md:block 25 (unordered list)
 msgid ""
 "`spi_bus`: The SPI bus connected to the SD Card. This should be retrieved from"
 " the board's schematic. This field is required."
 msgstr ""
+"`spi_bus`: SPI-bussen som är ansluten till SD-kortet. Den ska hämtas från "
+"kortets schema. Fältet krävs."
 
 #: docs/SDCard_Updates.md:block 25 (unordered list)
 msgid ""
 "`cs_pin`: The Chip Select Pin connected to the SD Card. This should be "
 "retrieved from the board schematic. This field is required."
 msgstr ""
+"`cs_pin`: Chip Select-stiftet som är anslutet till SD-kortet. Det ska hämtas "
+"från kortets schema. Fältet krävs."
 
 #: docs/SDCard_Updates.md:block 19 (header)
 msgid "Failure to Initialize"
-msgstr ""
+msgstr "Misslyckad initiering"
 
 #: docs/SDCard_Updates.md:block 20 (paragraph)
 msgid ""
@@ -396,26 +510,33 @@ msgid ""
 "this situation it is possible to use `-s` to drive the SPI peripheral at 4MHz."
 " For example:"
 msgstr ""
+"Vissa SD-kort kan misslyckas med initiering vid SPI-standardhastigheten 400 "
+"kHz. I den situationen går det att använda `-s` för att driva SPI-"
+"kringutrustningen med 4 MHz. Till exempel:"
 
 #: docs/SDCard_Updates.md:block 22 (paragraph)
 msgid ""
 "If the device still fails to initialize then cause of the failure is unrelated"
 " to the speed and likely a result of one of the following conditions:"
 msgstr ""
+"Om enheten fortfarande inte kan initieras beror felet inte på hastigheten, "
+"utan sannolikt på ett av följande förhållanden:"
 
 #: docs/SDCard_Updates.md:block 23 (unordered list)
 msgid "The SD card is improperly formatted. Must be `fat` or `fat32`."
-msgstr ""
+msgstr "SD-kortet är felaktigt formaterat. Det måste vara `fat` eller `fat32`."
 
 #: docs/SDCard_Updates.md:block 23 (unordered list)
 msgid ""
 "Attempt to initialize a card using the SPI interface that has already been "
 "initialized over SDIO."
 msgstr ""
+"Försök att initiera ett kort med SPI-gränssnittet som redan har initierats "
+"över SDIO."
 
 #: docs/SDCard_Updates.md:block 23 (unordered list)
 msgid "The SD card has failed or is corrupt."
-msgstr ""
+msgstr "SD-kortet har gått sönder eller är skadat."
 
 #: docs/SDCard_Updates.md:block 36 (paragraph)
 msgid ""
@@ -423,6 +544,8 @@ msgid ""
 "procedure outlined above it is recommended that you request one in the "
 "[Klipper Discord](Contact.md)."
 msgstr ""
+"Om du behöver en ny kortdefinition och inte är bekväm med proceduren ovan "
+"rekommenderas att du begär en i [Klipper Discord](Contact.md)."
 
 #~ msgid ""
 #~ "If you need a new board definition and you are uncomfortable with the "

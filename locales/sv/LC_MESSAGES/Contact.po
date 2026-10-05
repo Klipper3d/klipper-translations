@@ -4,50 +4,62 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: sv\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"Last-Translator: Daniel Nylander <yeagersthlm@gmail.com>\n"
+"Language-Team: Swedish <https://hosted.weblate.org/projects/klipper/contact/"
+"sv/>\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2026-09-17 13:27+0000\n"
+"X-Generator: Weblate 2026.10.dev0\n"
 
 msgid "This document provides contact information for Klipper."
-msgstr ""
+msgstr "Det här dokumentet innehåller kontaktinformation för Klipper."
 
 msgid "Discord Chat"
-msgstr ""
+msgstr "Discord-chatt"
 
 msgid ""
 "This server is run by a community of Klipper enthusiasts dedicated to "
 "discussions on Klipper. It allows users to chat with other users in real-time."
 msgstr ""
+"Servern drivs av en grupp Klipper-entusiaster för diskussioner om Klipper. "
+"Där kan användare chatta med andra användare i realtid."
 
 msgid "I have a question about Klipper"
-msgstr ""
+msgstr "Jag har en fråga om Klipper"
 
 msgid ""
 "Many questions we receive are already answered in the [Klipper "
 "documentation](Overview.md). Please be sure to to read the documentation and "
 "follow the directions provided there."
 msgstr ""
+"Många frågor vi får besvaras redan i [Klipper-dokumentationen](Overview.md). "
+"Läs dokumentationen och följ anvisningarna där."
 
 msgid "I have a feature request"
-msgstr ""
+msgstr "Jag har ett önskemål om en funktion"
 
 msgid "Help! It doesn't work!"
-msgstr ""
+msgstr "Hjälp! Det fungerar inte!"
 
 msgid ""
 "If you are experiencing problems we recommend you carefully read the [Klipper "
 "documentation](Overview.md) and double check that all steps were followed."
 msgstr ""
+"Om du har problem rekommenderar vi att du läser [Klipper-dokumentationen]"
+"(Overview.md) noggrant och kontrollerar att alla steg har följts."
 
 msgid ""
 "Klipper is an open-source project and we appreciate when collaborators "
 "diagnose errors in the software."
 msgstr ""
+"Klipper är ett projekt med öppen källkod och vi uppskattar när medarbetare "
+"hjälper till att diagnostisera fel i programvaran."
 
 msgid ""
 "There is important information that will be needed in order to fix a bug. "
 "Please follow these steps:"
-msgstr ""
+msgstr "Det behövs viktig information för att åtgärda ett fel. Följ dessa steg:"
 
 msgid ""
 "Obtain the Klipper log file from the event. The log file has been engineered "
@@ -55,30 +67,37 @@ msgid ""
 "its environment (software version, hardware type, configuration, event timing,"
 " and hundreds of other questions)."
 msgstr ""
+"Hämta Klippers loggfil från händelsen. Loggfilen är utformad för att besvara "
+"vanliga frågor från Klipper-utvecklarna om programvaran och dess miljö, som "
+"programvaruversion, maskinvarutyp, konfiguration, händelsetidpunkt och "
+"hundratals andra frågor."
 
 msgid ""
 "Copy the log file to your desktop so that it can be attached to an issue "
 "report."
 msgstr ""
+"Kopiera loggfilen till skrivbordet så att den kan bifogas i en felrapport."
 
 msgid ""
 "Do not modify the log file in any way; do not provide a snippet of the log. "
 "Only the full unmodified log file provides the necessary information."
 msgstr ""
+"Ändra inte loggfilen på något sätt och skicka inte bara ett utdrag. Endast "
+"den fullständiga, oförändrade loggfilen innehåller nödvändig information."
 
 msgid "I am making changes that I'd like to include in Klipper"
-msgstr ""
+msgstr "Jag gör ändringar som jag vill inkludera i Klipper"
 
 msgid "Klipper is open-source software and we appreciate new contributions."
-msgstr ""
+msgstr "Klipper är programvara med öppen källkod och vi uppskattar nya bidrag."
 
 #: docs/Contact.md:block 1 (header)
 msgid "Contact"
-msgstr ""
+msgstr "Kontakt"
 
 #: docs/Contact.md:block 23 (header)
 msgid "I found a bug in the Klipper software"
-msgstr ""
+msgstr "Jag hittade ett fel i Klipper-programvaran"
 
 #: docs/Contact.md:block 27 (ordered list)
 msgid ""
@@ -88,6 +107,10 @@ msgid ""
 "unmodified code from <https://github.com/Klipper3d/klipper> prior to "
 "reporting."
 msgstr ""
+"Kontrollera att du kör oförändrad kod från <https://github.com/Klipper3d/"
+"klipper>. Om koden har ändrats eller kommer från en annan källa ska "
+"problemet återskapas med den oförändrade koden från <https://github.com/"
+"Klipper3d/klipper> innan det rapporteras."
 
 #: docs/Contact.md:block 27 (ordered list)
 msgid ""
@@ -95,10 +118,13 @@ msgid ""
 "occurs. This causes Klipper to go into a \"shutdown state\" and it will cause "
 "additional debugging information to be written to the log file."
 msgstr ""
+"Kör om möjligt `M112` direkt efter den oönskade händelsen. Då går Klipper "
+"till läget \"shutdown state\" och ytterligare felsökningsinformation skrivs "
+"till loggfilen."
 
 #: docs/Contact.md:block 27 (ordered list)
 msgid "It is a good idea to compress the log file with zip or gzip."
-msgstr ""
+msgstr "Det är en bra idé att komprimera loggfilen med zip eller gzip."
 
 #: docs/Contact.md:block 31 (paragraph)
 msgid ""
@@ -107,24 +133,30 @@ msgid ""
 " [Klipper Discourse Forum](#discourse-forum) or on the [Klipper Discord "
 "Chat](#discord-chat)."
 msgstr ""
+"Det finns flera [dokument för utvecklare](Overview.md#developer-"
+"documentation). Har du frågor om koden kan du även fråga i [Klippers "
+"Discourse-forum](#discourse-forum) eller i [Klippers Discord-chatt](#discord-"
+"chat)."
 
 #: docs/Contact.md:block 32 (header)
 msgid "Professional Services"
-msgstr ""
+msgstr "Professionella tjänster"
 
 #: docs/Contact.md:block 33 (paragraph)
 msgid "![](img/klipper-logo-small.png)"
-msgstr ""
+msgstr "![](img/klipper-logo-small.png)"
 
 #: docs/Contact.md:block 34 (paragraph)
 msgid ""
 "Custom software development, software support, and solutions: <https://ko-"
 "fi.com/koconnor>"
 msgstr ""
+"Anpassad programvaruutveckling, programvarusupport och lösningar: <https://"
+"ko-fi.com/koconnor>"
 
 #: docs/Contact.md:block 3 (header)
 msgid "Discourse Forum"
-msgstr ""
+msgstr "Discourse-forum"
 
 #: docs/Contact.md:block 4 (paragraph)
 msgid ""
@@ -132,18 +164,25 @@ msgid ""
 "server](https://community.klipper3d.org) for \"forum\" style discussions on "
 "Klipper. Note that Discourse is not Discord."
 msgstr ""
+"Det finns en [Klipper Community Discourse-server](https://"
+"community.klipper3d.org) för diskussioner om Klipper i forumformat. "
+"Observera att Discourse inte är Discord."
 
 #: docs/Contact.md:block 6 (paragraph)
 msgid ""
 "There is a Discord server dedicated to Klipper at: "
 "<https://discord.klipper3d.org>. Note that Discord is not Discourse."
 msgstr ""
+"Det finns en Discord-server för Klipper på: <https://discord.klipper3d.org>. "
+"Observera att Discord inte är Discourse."
 
 #: docs/Contact.md:block 10 (paragraph)
 msgid ""
 "It is also possible to search for similar questions in the [Klipper Discourse "
 "Forum](#discourse-forum)."
 msgstr ""
+"Du kan även söka efter liknande frågor i [Klippers Discourse-forum]"
+"(#discourse-forum)."
 
 #: docs/Contact.md:block 11 (paragraph)
 msgid ""
@@ -152,6 +191,10 @@ msgid ""
 "forum) or [Klipper Discord Chat](#discord-chat). Both are communities where "
 "Klipper users can discuss Klipper with other users."
 msgstr ""
+"Vill du dela dina kunskaper och erfarenheter med andra Klipper-användare kan "
+"du gå med i [Klippers Discourse-forum](#discourse-forum) eller [Klippers "
+"Discord-chatt](#discord-chat). I båda grupperna kan Klipper-användare "
+"diskutera Klipper med varandra."
 
 #: docs/Contact.md:block 12 (paragraph)
 msgid ""
@@ -159,6 +202,9 @@ msgid ""
 "then also consider a general 3d-printing forum or a forum dedicated to the "
 "printer hardware."
 msgstr ""
+"Har du en allmän fråga eller allmänna utskriftsproblem kan du även överväga "
+"ett allmänt forum om 3D-utskrift eller ett forum som är inriktat på "
+"skrivarens maskinvara."
 
 #: docs/Contact.md:block 14 (paragraph)
 msgid ""
@@ -168,6 +214,11 @@ msgid ""
 "Forum](#discourse-forum). There is also [Klipper Discord Chat](#discord-chat) "
 "for discussions between collaborators."
 msgstr ""
+"Alla nya funktioner kräver någon som är intresserad av och kan implementera "
+"funktionen. Vill du hjälpa till att implementera eller testa en funktion kan "
+"du söka efter pågående utveckling i [Klippers Discourse-forum](#discourse-"
+"forum). Det finns även [Klippers Discord-chatt](#discord-chat) för "
+"diskussioner mellan medarbetare."
 
 #: docs/Contact.md:block 17 (paragraph)
 msgid ""
@@ -178,18 +229,25 @@ msgid ""
 "consider searching general 3d-printing forums or forums dedicated to the "
 "printer hardware."
 msgstr ""
+"Om du har utskriftsproblem rekommenderar vi att du noggrant granskar "
+"skrivarens maskinvara, inklusive alla fogar, kablar och skruvar, och "
+"kontrollerar att inget är onormalt. De flesta utskriftsproblem beror inte på "
+"Klipper. Om du hittar ett maskinvaruproblem bör du söka i allmänna forum om "
+"3D-utskrift eller forum som är inriktade på skrivarens maskinvara."
 
 #: docs/Contact.md:block 18 (paragraph)
 msgid ""
 "It is also possible to search for similar issues in the [Klipper Discourse "
 "Forum](#discourse-forum)."
 msgstr ""
+"Du kan även söka efter liknande problem i [Klippers Discourse-forum]"
+"(#discourse-forum)."
 
 #: docs/Contact.md:block 22 (paragraph)
 msgid ""
 "Problems should be reported in the [Klipper Discourse Forum](#discourse-"
 "forum)."
-msgstr ""
+msgstr "Problem ska rapporteras i [Klippers Discourse-forum](#discourse-forum)."
 
 #: docs/Contact.md:block 24 (ordered list)
 msgid ""
@@ -207,6 +265,16 @@ msgid ""
 "until reaching the root directory, click on the `tmp` folder, and then select "
 "the `klippy.log` file)."
 msgstr ""
+"Särskilda Klipper-webbgränssnitt kan hämta Klippers loggfil direkt, vilket "
+"är enklast. Annars behövs verktyget \"scp\" eller \"sftp\" för att kopiera "
+"loggfilen till datorns skrivbord. \"scp\" ingår normalt i Linux- och MacOS-"
+"skrivbord. Det finns fria scp-verktyg för andra system, till exempel WinSCP. "
+"Loggfilen kan finnas i `~/printer_data/logs/klippy.log`. I ett grafiskt scp-"
+"verktyg letar du efter mappen \"printer_data\", sedan \"logs\" och därefter "
+"`klippy.log`. Den kan alternativt ligga i `/tmp/klippy.log`; om verktyget "
+"inte kan kopiera den direkt klickar du upprepade gånger på `..` eller "
+"\"parent folder\" tills du når rotkatalogen, öppnar mappen `tmp` och väljer "
+"`klippy.log`."
 
 #: docs/Contact.md:block 24 (ordered list)
 msgid ""
@@ -216,10 +284,14 @@ msgid ""
 "what outcome actually occurred. The compressed Klipper log file should be "
 "attached to that topic."
 msgstr ""
+"Öppna ett nytt ämne i [Klippers Discourse-forum](#discourse-forum) och "
+"beskriv problemet tydligt. Andra Klipper-bidragsgivare behöver förstå vilka "
+"steg som togs, vilket resultat som förväntades och vad som faktiskt hände. "
+"Bifoga den komprimerade Klipper-loggfilen till ämnet."
 
 #: docs/Contact.md:block 27 (paragraph)
 msgid "See the [CONTRIBUTING document](CONTRIBUTING.md) for information."
-msgstr ""
+msgstr "Se [CONTRIBUTING-dokumentet](CONTRIBUTING.md) för information."
 
 #~ msgid "[Community Forum](#community-forum)"
 #~ msgstr ""

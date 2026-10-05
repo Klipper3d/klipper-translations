@@ -4,29 +4,37 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: sv\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"Last-Translator: Daniel Nylander <yeagersthlm@gmail.com>\n"
+"Language-Team: Swedish <https://hosted.weblate.org/projects/klipper/"
+"canbus_troubleshooting/sv/>\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2026-09-16 14:49+0000\n"
+"X-Generator: Weblate 2026.10.dev0\n"
 
 #: docs/CANBUS_Troubleshooting.md:block 1 (header)
 msgid "CANBUS Troubleshooting"
-msgstr ""
+msgstr "Felsökning av CAN-bus"
 
 #: docs/CANBUS_Troubleshooting.md:block 2 (paragraph)
 msgid ""
 "This document provides information on troubleshooting communication issues "
 "when using [Klipper with CAN bus](CANBUS.md)."
 msgstr ""
+"Detta dokument innehåller information om felsökning av kommunikationsproblem "
+"vid användning av [Klipper med CAN-bus](CANBUS.md)."
 
 #: docs/CANBUS_Troubleshooting.md:block 3 (header)
 msgid "Verify CAN bus wiring"
-msgstr ""
+msgstr "Kontrollera CAN-buskablage"
 
 #: docs/CANBUS_Troubleshooting.md:block 4 (paragraph)
 msgid ""
 "The first step in troubleshooting communication issues is to verify the CAN "
 "bus wiring."
 msgstr ""
+"Det första steget vid felsökning av kommunikationsproblem är att kontrollera "
+"CAN-buskablaget."
 
 #: docs/CANBUS_Troubleshooting.md:block 5 (paragraph)
 msgid ""
@@ -35,6 +43,10 @@ msgid ""
 "are not properly installed then messages may not be able to be sent at all or "
 "the connection may have sporadic instability."
 msgstr ""
+"Kontrollera att det finns exakt två [termineringsmotstånd]"
+"(CANBUS.md#terminating-resistors) på 120 ohm på CAN-bussen. Om motstånden "
+"inte är korrekt installerade kanske meddelanden inte kan skickas alls, eller "
+"så kan anslutningen bli sporadiskt instabil."
 
 #: docs/CANBUS_Troubleshooting.md:block 6 (paragraph)
 msgid ""
@@ -44,6 +56,10 @@ msgid ""
 "travel parallel to the CANH and CANL wires do not have the same amount of "
 "twists."
 msgstr ""
+"CANH- och CANL-ledarna ska vara tvinnade runt varandra. Kablaget bör minst "
+"ha en tvinning varannan eller var tredje centimeter. Undvik att tvinna CANH- "
+"och CANL-ledarna runt strömledningar, och se till att parallella "
+"strömledningar inte har lika många tvinningar."
 
 #: docs/CANBUS_Troubleshooting.md:block 7 (paragraph)
 msgid ""
@@ -51,10 +67,14 @@ msgid ""
 " Movement of the printer toolhead may jostle the CAN bus wiring causing a bad "
 "wire crimp or unsecured plug to result in intermittent communication errors."
 msgstr ""
+"Kontrollera att alla kontakter och kabelpressningar i CAN-buskablaget sitter "
+"ordentligt. Skrivarens verktygshuvud kan rycka i CAN-buskablaget, så en "
+"dålig kabelpressning eller lös kontakt kan orsaka intermittenta "
+"kommunikationsfel."
 
 #: docs/CANBUS_Troubleshooting.md:block 8 (header)
 msgid "Check for incrementing bytes_invalid counter"
-msgstr ""
+msgstr "Kontrollera om räknaren bytes_invalid ökar"
 
 #: docs/CANBUS_Troubleshooting.md:block 9 (paragraph)
 msgid ""
@@ -67,10 +87,17 @@ msgid ""
 "increments every few hours or more frequently) then it is an indication of a "
 "severe problem."
 msgstr ""
+"Klippers loggfil rapporterar en `Stats`-rad en gång per sekund när skrivaren "
+"är aktiv. Dessa \"Stats\"-rader har en `bytes_invalid`-räknare för varje "
+"mikrokontroller. Räknaren ska inte öka vid normal skrivardrift (det är "
+"normalt att räknaren inte är noll efter RESTART, och det är inget problem om "
+"den ökar ungefär en gång i månaden). Om räknaren ökar för en CAN-"
+"busmikrokontroller under normal utskrift, var några timme eller oftare, "
+"tyder det på ett allvarligt problem."
 
 #: docs/CANBUS_Troubleshooting.md:block 13 (header)
 msgid "Obtaining candump logs"
-msgstr ""
+msgstr "Hämta candump-loggar"
 
 #: docs/CANBUS_Troubleshooting.md:block 14 (paragraph)
 msgid ""
@@ -78,18 +105,26 @@ msgid ""
 "Linux kernel. It is possible to capture these messages from the kernel for "
 "debugging purposes. A log of these messages may be of use in diagnostics."
 msgstr ""
+"CAN-busmeddelanden till och från mikrokontrollern hanteras av Linux-kärnan. "
+"Du kan fånga dessa meddelanden från kärnan för felsökning. En logg över "
+"meddelandena kan vara användbar vid diagnostik."
 
 #: docs/CANBUS_Troubleshooting.md:block 15 (paragraph)
 msgid ""
 "The Linux [can-utils](https://github.com/linux-can/can-utils) tool provides "
 "the capture software. It is typically installed on a machine by running:"
 msgstr ""
+"Linux-verktyget [can-utils](https://github.com/linux-can/can-utils) "
+"innehåller programvaran för insamling. Det installeras vanligen på datorn "
+"genom att köra:"
 
 #: docs/CANBUS_Troubleshooting.md:block 17 (paragraph)
 msgid ""
 "Once installed, one may obtain a capture of all CAN bus messages on an "
 "interface with the following command:"
 msgstr ""
+"När det är installerat kan du fånga alla CAN-busmeddelanden på ett "
+"gränssnitt med följande kommando:"
 
 #: docs/CANBUS_Troubleshooting.md:block 19 (paragraph)
 msgid ""
@@ -99,10 +134,14 @@ msgid ""
 "Klipper's [CANBUS protocol](CANBUS_protocol.md) and Klipper's [MCU "
 "commands](MCU_Commands.md)."
 msgstr ""
+"Du kan visa den resulterande loggfilen (`mycanlog` i exemplet ovan) för att "
+"se varje rått CAN-busmeddelande som Klipper skickade och tog emot. För att "
+"förstå innehållet krävs sannolikt kunskap på låg nivå om Klippers [CAN-"
+"busprotokoll](CANBUS_protocol.md) och [MCU-kommandon](MCU_Commands.md)."
 
 #: docs/CANBUS_Troubleshooting.md:block 20 (header)
 msgid "Parsing Klipper messages in a candump log"
-msgstr ""
+msgstr "Tolka Klipper-meddelanden i en candump-logg"
 
 #: docs/CANBUS_Troubleshooting.md:block 21 (paragraph)
 msgid ""
@@ -111,6 +150,10 @@ msgid ""
 " topic that requires knowledge of Klipper [MCU commands](MCU_Commands.md). For"
 " example:"
 msgstr ""
+"Du kan använda verktyget `parsecandump.py` för att tolka Klippers "
+"mikrokontrollermeddelanden på låg nivå i en candump-logg. Verktyget är för "
+"avancerade användare och kräver kunskap om Klippers [MCU-kommandon]"
+"(MCU_Commands.md). Exempel:"
 
 #: docs/CANBUS_Troubleshooting.md:block 23 (paragraph)
 msgid ""
@@ -119,6 +162,10 @@ msgid ""
 "the documentation for that tool for information on generating the Klipper "
 "micro-controller data dictionary."
 msgstr ""
+"Verktyget ger utdata som liknar [parsedump-verktygets]"
+"(Debugging.md#translating-gcode-files-to-micro-controller-commands). I dess "
+"dokumentation finns information om hur Klippers mikrokontrollers dataordbok "
+"skapas."
 
 #: docs/CANBUS_Troubleshooting.md:block 24 (paragraph)
 msgid ""
@@ -128,6 +175,10 @@ msgid ""
 " micro-controllers on it, then the second micro-controller would be `10a`, the"
 " third would be `10c`, and so on."
 msgstr ""
+"I exemplet ovan är `108` [CAN-bussens id](CANBUS_protocol.md#micro-"
+"controller-id-assignment). Det är ett hexadecimalt tal. Klipper tilldelar "
+"id:t `108` till den första mikrokontrollern. Om CAN-bussen har flera "
+"mikrokontrollers får den andra `10a`, den tredje `10c` och så vidare."
 
 #: docs/CANBUS_Troubleshooting.md:block 25 (paragraph)
 msgid ""
@@ -135,10 +186,13 @@ msgid ""
 "(for example: `candump -tz -Ddex can0,#FFFFFFFF`) in order to use the "
 "`parsecandump.py` tool."
 msgstr ""
+"Candump-loggen måste skapas med kommandoradsargumenten `-tz -Ddex` (till "
+"exempel `candump -tz -Ddex can0,#FFFFFFFF`) för att kunna användas med "
+"`parsecandump.py`."
 
 #: docs/CANBUS_Troubleshooting.md:block 26 (header)
 msgid "Using a logic analyzer on the canbus wiring"
-msgstr ""
+msgstr "Använda en logikanalysator på CAN-buskablaget"
 
 #: docs/CANBUS_Troubleshooting.md:block 27 (paragraph)
 msgid ""
@@ -147,6 +201,10 @@ msgid ""
 "be useful for diagnosing CAN bus signaling. This is an advanced topic likely "
 "only of interest to experts."
 msgstr ""
+"[Sigrok Pulseview](https://sigrok.org/wiki/PulseView) tillsammans med en "
+"billig [logikanalysator](https://en.wikipedia.org/wiki/Logic_analyzer) kan "
+"användas för att diagnostisera CAN-bussignaler. Detta är ett avancerat ämne "
+"som främst är relevant för experter."
 
 #: docs/CANBUS_Troubleshooting.md:block 28 (paragraph)
 msgid ""
@@ -154,10 +212,13 @@ msgid ""
 "2023). These devices are often listed as \"Saleae logic clones\" or as \"24MHz"
 " 8 channel USB logic analyzers\"."
 msgstr ""
+"Det går ofta att hitta \"USB-logikanalysatorer\" för mindre än 15 USD "
+"(amerikanskt pris 2023). De säljs ofta som \"Saleae logic clones\" eller "
+"\"24 MHz 8 channel USB logic analyzers\"."
 
 #: docs/CANBUS_Troubleshooting.md:block 29 (paragraph)
 msgid "![pulseview-canbus](img/pulseview-canbus.png)"
-msgstr ""
+msgstr "![pulseview-canbus](img/pulseview-canbus.png)"
 
 #: docs/CANBUS_Troubleshooting.md:block 30 (paragraph)
 msgid ""
@@ -177,16 +238,35 @@ msgid ""
 "label). Finally, the capture was started (click \"Run\" at top left) and a "
 "packet was transmitted on the CAN bus (`cansend can0 123#121212121212`)."
 msgstr ""
+"Bilden ovan togs när Pulseview användes med en logikanalysator av typen "
+"\"Saleae clone\". Sigrok och Pulseview installerades på en stationär dator "
+"(installera även firmwaret \"fx2lafw\" om det paketeras separat). "
+"Logikanalysatorns CH0-stift anslöts till CAN Rx-ledningen, CH1 till CAN Tx-"
+"ledningen och GND till GND. Pulseview konfigurerades för att endast visa D0- "
+"och D1-ledningarna (den röda ikonen \"probe\" mitt på det övre "
+"verktygsfältet). Antalet samplingar sattes till 5 miljoner och "
+"samplingshastigheten till 24 MHz, båda i det övre verktygsfältet. CAN-"
+"avkodaren lades till via den gula och gröna ikonen \"bubble icon\" högst upp "
+"till höger. D0-kanalen märktes RX och ställdes in för utlösning vid fallande "
+"flank (klicka på den svarta D0-etiketten till vänster). D1-kanalen märktes "
+"TX (klicka på den bruna D1-etiketten till vänster). CAN-avkodaren "
+"konfigurerades för 1 Mbit (klicka på den gröna CAN-etiketten till vänster) "
+"och flyttades högst upp i vyn genom att dra den gröna CAN-etiketten. "
+"Slutligen startades insamlingen genom att klicka på \"Run\" längst upp till "
+"vänster och ett paket sändes på CAN-bussen med `cansend can0 "
+"123#121212121212`."
 
 #: docs/CANBUS_Troubleshooting.md:block 31 (paragraph)
 msgid ""
 "The logic analyzer provides an independent tool for capturing packets and "
 "verifying bit timing."
 msgstr ""
+"Logikanalysatorn är ett oberoende verktyg för att fånga paket och "
+"kontrollera bittimingen."
 
 #: docs/CANBUS_Troubleshooting.md:block 13 (header)
 msgid "Use an appropriate txqueuelen setting"
-msgstr ""
+msgstr "Använd en lämplig txqueuelen-inställning"
 
 #: docs/CANBUS_Troubleshooting.md:block 14 (paragraph)
 msgid ""
@@ -195,6 +275,10 @@ msgid ""
 "[configure the can0 device](CANBUS.md#host-hardware) with a `txqueuelen 128` "
 "to increase that size."
 msgstr ""
+"Klipper använder Linux-kärnan för att hantera CAN-busstrafik. Som standard "
+"köar kärnan endast tio CAN-sändpaket. Vi rekommenderar att du [konfigurerar "
+"can0-enheten](CANBUS.md#host-hardware) med `txqueuelen 128` för att öka köns "
+"storlek."
 
 #: docs/CANBUS_Troubleshooting.md:block 15 (paragraph)
 msgid ""
@@ -202,6 +286,8 @@ msgid ""
 "space then Linux will drop that packet and messages like the following will "
 "appear in the Klipper log:"
 msgstr ""
+"Om Klipper sänder ett paket när Linux sändkö är full kastar Linux paketet "
+"och följande typ av meddelande visas i Klippers logg:"
 
 #: docs/CANBUS_Troubleshooting.md:block 17 (paragraph)
 msgid ""
@@ -209,6 +295,9 @@ msgid ""
 "application level message retransmit system. Thus, this log message is a "
 "warning and it does not indicate an unrecoverable error."
 msgstr ""
+"Klipper sänder automatiskt om förlorade meddelanden som en del av sitt "
+"normala omsändningssystem på programnivå. Loggmeddelandet är alltså en "
+"varning och anger inte ett fel som inte kan återställas."
 
 #: docs/CANBUS_Troubleshooting.md:block 18 (paragraph)
 msgid ""
@@ -218,6 +307,10 @@ msgid ""
 "symptom of a larger problem (the inability to transmit any messages) and is "
 "not directly related to Linux `txqueuelen`."
 msgstr ""
+"Vid ett totalt CAN-bussfel, exempelvis ett kabelbrott, kan Linux inte sända "
+"några meddelanden på CAN-bussen och meddelandet ovan syns ofta i Klippers "
+"logg. Då är loggmeddelandet ett symptom på ett större problem – att inga "
+"meddelanden kan sändas – och inte direkt kopplat till Linux `txqueuelen`."
 
 #: docs/CANBUS_Troubleshooting.md:block 19 (paragraph)
 msgid ""
@@ -226,6 +319,9 @@ msgid ""
 " If one sees something like `qlen 10` then it indicates the CAN device has not"
 " been properly configured."
 msgstr ""
+"Du kan kontrollera den aktuella köstorleken med Linux-kommandot `ip link "
+"show can0`. Utdata ska bland annat innehålla `qlen 128`. Om den i stället "
+"visar något som `qlen 10` har CAN-enheten inte konfigurerats korrekt."
 
 #: docs/CANBUS_Troubleshooting.md:block 20 (paragraph)
 msgid ""
@@ -239,6 +335,15 @@ msgid ""
 "stale data. This is analogous to the problem of "
 "[bufferbloat](https://en.wikipedia.org/wiki/Bufferbloat) on internet routers."
 msgstr ""
+"Det rekommenderas inte att använda `txqueuelen` som är mycket större än 128. "
+"En CAN-buss med frekvensen 1 000 000 behöver normalt omkring 120 us för att "
+"sända ett CAN-paket. En kö med 128 paket töms därför på cirka 15–20 ms. En "
+"betydligt större kö kan ge kraftiga toppar i meddelandens tur-och-retur-tid, "
+"vilket kan leda till fel som inte kan återställas. Klippers "
+"omsändningssystem är mer robust när det inte behöver vänta på att Linux ska "
+"tömma en alltför stor kö med eventuellt inaktuella data. Detta motsvarar "
+"problemet med [bufferbloat](https://en.wikipedia.org/wiki/Bufferbloat) i "
+"internetroutrar."
 
 #: docs/CANBUS_Troubleshooting.md:block 21 (paragraph)
 msgid ""
@@ -250,28 +355,40 @@ msgid ""
 "recommended value of 128. However, as above, care should be taken when "
 "selecting a new value to avoid excessive round-trip-time latency."
 msgstr ""
+"Under normala förhållanden använder Klipper omkring 25 köplatser per MCU och "
+"använder vanligtvis fler endast vid omsändningar. Klipper-värden kan "
+"särskilt sända upp till 192 byte till varje Klipper-MCU innan den får ett "
+"kvitto. Om en CAN-buss har fem eller fler Klipper-MCU:er kan `txqueuelen` "
+"behöva ökas över det rekommenderade värdet 128. Välj dock värdet varsamt för "
+"att undvika hög latens för tur-och-retur-tid."
 
 #: docs/CANBUS_Troubleshooting.md:block 10 (paragraph)
 msgid ""
 "Incrementing `bytes_invalid` on a CAN bus connection is a symptom of reordered"
 " messages on the CAN bus. If seen, make sure to:"
 msgstr ""
+"En ökande `bytes_invalid` på en CAN-bussanslutning tyder på omordnade "
+"meddelanden på CAN-bussen. Om det inträffar, kontrollera följande:"
 
 #: docs/CANBUS_Troubleshooting.md:block 11 (unordered list)
 msgid "Use a Linux kernel version 6.6.0 or later."
-msgstr ""
+msgstr "Använd Linux-kärnan version 6.6.0 eller senare."
 
 #: docs/CANBUS_Troubleshooting.md:block 11 (unordered list)
 msgid ""
 "If using a USB-to-CANBUS adapter running candlelight firmware, use v2.0 or "
 "later of candleLight_fw."
 msgstr ""
+"Om du använder en USB-till-CANBUS-adapter med candlelight-firmware ska du "
+"använda candleLight_fw v2.0 eller senare."
 
 #: docs/CANBUS_Troubleshooting.md:block 11 (unordered list)
 msgid ""
 "If using Klipper's USB-to-CANBUS bridge mode, make sure the bridge node is "
 "flashed with Klipper v0.12.0 or later."
 msgstr ""
+"Om du använder Klippers bryggläge USB-till-CANBUS ska bryggnoden vara "
+"flashad med Klipper v0.12.0 eller senare."
 
 #: docs/CANBUS_Troubleshooting.md:block 12 (paragraph)
 msgid ""
@@ -280,6 +397,11 @@ msgid ""
 "incrementing `bytes_invalid` is not caused by wiring or similar hardware "
 "issues and can only be fixed by identifying and updating the faulty software."
 msgstr ""
+"Omordnade meddelanden är ett allvarligt problem som måste åtgärdas. Det gör "
+"beteendet instabilt och kan orsaka svårtolkade fel var som helst under en "
+"utskrift. En ökande `bytes_invalid` beror inte på kablaget eller liknande "
+"maskinvarufel utan kan endast åtgärdas genom att identifiera och uppdatera "
+"den felaktiga programvaran."
 
 #: docs/CANBUS_Troubleshooting.md:block 13 (paragraph)
 msgid ""
@@ -291,6 +413,13 @@ msgid ""
 "show the problem (due to how hardware interrupts are configured), however if "
 "problems are seen the recommended solution is to upgrade to a newer kernel."
 msgstr ""
+"Äldre Linux-kärnor hade ett fel i CAN-busdrivrutinen gs_usb som kunde orsaka "
+"omordnade CAN-buspaket. Felet anses vara åtgärdat i [Linux-commit 24bc41b4]"
+"(https://github.com/torvalds/linux/commit/"
+"24bc41b4558347672a3db61009c339b1f5692169), som släpptes i v6.6.0. Äldre "
+"Linux-versioner kan i vissa fall dölja problemet beroende på hur "
+"maskinvaruavbrott är konfigurerade, men om problem uppstår är den "
+"rekommenderade lösningen att uppgradera kärnan."
 
 #: docs/CANBUS_Troubleshooting.md:block 14 (paragraph)
 msgid ""
@@ -299,6 +428,9 @@ msgid ""
 "8b3a7b45](https://github.com/candle-"
 "usb/candleLight_fw/commit/8b3a7b4565a3c9521b762b154c94c72c5acb2bcf)."
 msgstr ""
+"Äldre versioner av candlelight-firmware kunde ordna om CAN-buspaket. Felet "
+"anses vara åtgärdat i [candlelight_fw-commit 8b3a7b45](https://github.com/"
+"candle-usb/candleLight_fw/commit/8b3a7b4565a3c9521b762b154c94c72c5acb2bcf)."
 
 #: docs/CANBUS_Troubleshooting.md:block 15 (paragraph)
 msgid ""
@@ -307,10 +439,15 @@ msgid ""
 "still be fixed. It is thought to be fixed with [Klipper PR "
 "#6175](https://github.com/Klipper3d/klipper/pull/6175)."
 msgstr ""
+"Äldre versioner av Klippers bryggkod för USB-till-CANBUS kunde felaktigt "
+"släppa CAN-busmeddelanden. Det är inte lika allvarligt som omordnade "
+"meddelanden, men bör ändå åtgärdas. Felet anses vara åtgärdat i [Klipper-PR "
+"#6175](https://github.com/Klipper3d/klipper/pull/6175)."
 
 #: docs/CANBUS_Troubleshooting.md:block 25 (header)
 msgid "Use `canbus_query.py` only to identify nodes never previously seen"
 msgstr ""
+"Använd endast `canbus_query.py` för att identifiera tidigare okända noder"
 
 #: docs/CANBUS_Troubleshooting.md:block 26 (paragraph)
 msgid ""
@@ -320,6 +457,11 @@ msgid ""
 "record the resulting uuids in the printer.cfg, and avoid running the tool "
 "unnecessarily."
 msgstr ""
+"Det är endast giltigt att använda [verktyget `canbus_query.py`]"
+"(CANBUS.md#finding-the-canbus_uuid-for-new-micro-controllers) för att "
+"identifiera mikrokontrollers som inte tidigare har identifierats. När alla "
+"noder på en buss är identifierade ska de resulterande uuid:erna sparas i "
+"printer.cfg; undvik sedan att köra verktyget i onödan."
 
 #: docs/CANBUS_Troubleshooting.md:block 27 (paragraph)
 msgid ""
@@ -328,12 +470,17 @@ msgid ""
 "communication interruptions and may result is some nodes disconnecting from "
 "the bus."
 msgstr ""
+"Verktyget använder en mekanism på låg nivå som kan få noder att internt "
+"observera bussfel. Felen kan ge kommunikationsavbrott och leda till att "
+"vissa noder kopplas från bussen."
 
 #: docs/CANBUS_Troubleshooting.md:block 28 (paragraph)
 msgid ""
 "It is not valid to use the tool to \"ping\" if a node is connected. Do not run"
 " the tool during an active print."
 msgstr ""
+"Det är inte giltigt att använda verktyget för att \"pinga\" en ansluten nod. "
+"Kör inte verktyget under en pågående utskrift."
 
 #~ msgid ""
 #~ "Incrementing `bytes_invalid` on a CAN bus connection is a symptom of reordered"

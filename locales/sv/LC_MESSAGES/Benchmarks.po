@@ -4,20 +4,26 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: sv\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"Last-Translator: Daniel Nylander <yeagersthlm@gmail.com>\n"
+"Language-Team: Swedish <https://hosted.weblate.org/projects/klipper/"
+"benchmarks/sv/>\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2026-09-17 16:52+0000\n"
+"X-Generator: Weblate 2026.10.dev0\n"
 
 msgid "This document describes Klipper benchmarks."
-msgstr ""
+msgstr "Det här dokumentet beskriver prestandamätningar för Klipper."
 
 msgid "Micro-controller Benchmarks"
-msgstr ""
+msgstr "Prestandamätningar för mikrokontroller"
 
 msgid ""
 "This section describes the mechanism used to generate the Klipper micro-"
 "controller step rate benchmarks."
 msgstr ""
+"Det här avsnittet beskriver mekanismen som används för att skapa "
+"prestandamätningar av Klippers steghastighet för mikrokontroller."
 
 msgid ""
 "The primary goal of the benchmarks is to provide a consistent mechanism for "
@@ -25,6 +31,10 @@ msgid ""
 "is to provide high-level metrics for comparing the performance between chips "
 "and between software platforms."
 msgstr ""
+"Det främsta syftet med prestandamätningarna är att tillhandahålla ett "
+"konsekvent sätt att mäta hur kodändringar påverkar programvaran. Ett "
+"sekundärt syfte är att tillhandahålla övergripande mått för att jämföra "
+"prestanda mellan chip och programvaruplattformar."
 
 msgid ""
 "The step rate benchmark is designed to find the maximum stepping rate that the"
@@ -33,6 +43,11 @@ msgid ""
 "mcu/host communication, temperature reading, endstop checking) in any real-"
 "world usage."
 msgstr ""
+"Prestandamätningen av steghastighet är utformad för att hitta den högsta "
+"steghastighet som maskin- och programvaran kan uppnå. Denna steghastighet "
+"går inte att använda till vardags eftersom Klipper vid verklig användning "
+"måste utföra andra uppgifter (till exempel kommunikation mellan MCU och "
+"värd, temperaturavläsning och kontroll av ändlägen)."
 
 msgid ""
 "In general, the pins for the benchmark tests are chosen to flash LEDs or other"
@@ -40,9 +55,14 @@ msgid ""
 "prior to running a benchmark.** It is not recommended to drive an actual "
 "stepper during a benchmark."
 msgstr ""
+"I allmänhet väljs stiften för prestandamätningarna så att lysdioder eller "
+"andra ofarliga stift växlas. **Kontrollera alltid att det är säkert att "
+"styra de konfigurerade stiften innan du kör en prestandamätning.** Vi "
+"rekommenderar inte att du styr en faktisk stegmotor under en "
+"prestandamätning."
 
 msgid "Step rate benchmark test"
-msgstr ""
+msgstr "Test av steghastighet"
 
 msgid ""
 "The above tests three steppers simultaneously stepping. If running the above "
@@ -53,282 +73,293 @@ msgid ""
 " It should be possible to bisect the ticks parameter until a stable value is "
 "found."
 msgstr ""
+"Ovanstående testar tre stegmotorer som stegar samtidigt. Om körning av "
+"ovanstående ger felet \"Rescheduled timer in the past\" eller \"Stepper too "
+"far in past\" är parametern `ticks` för låg (vilket ger en för hög "
+"steghastighet). Målet är att hitta den lägsta inställningen av parametern "
+"ticks som tillförlitligt leder till att testet slutförs. Det bör gå att "
+"halvera sökområdet för parametern ticks tills ett stabilt värde hittas."
 
 msgid ""
 "On a failure, one can copy-and-paste the following to clear the error in "
 "preparation for the next test:"
 msgstr ""
+"Vid fel kan du kopiera och klistra in följande för att rensa felet inför "
+"nästa test:"
 
 msgid "AVR step rate benchmark"
-msgstr ""
+msgstr "Prestandamätning av steghastighet för AVR"
 
 msgid "The following configuration sequence is used on AVR chips:"
-msgstr ""
+msgstr "Följande konfigurationssekvens används på AVR-chip:"
 
 msgid "avr"
-msgstr ""
+msgstr "avr"
 
 msgid "ticks"
-msgstr ""
+msgstr "ticks"
 
 msgid "1 stepper"
-msgstr ""
+msgstr "1 stegmotor"
 
 msgid "3 stepper"
-msgstr ""
+msgstr "3 stegmotorer"
 
 msgid "Arduino Due step rate benchmark"
-msgstr ""
+msgstr "Prestandamätning av steghastighet för Arduino Due"
 
 msgid "The following configuration sequence is used on the Due:"
-msgstr ""
+msgstr "Följande konfigurationssekvens används på Due:"
 
 msgid "sam3x8e"
-msgstr ""
+msgstr "sam3x8e"
 
 msgid "Duet Maestro step rate benchmark"
-msgstr ""
+msgstr "Prestandamätning av steghastighet för Duet Maestro"
 
 msgid "The following configuration sequence is used on the Duet Maestro:"
-msgstr ""
+msgstr "Följande konfigurationssekvens används på Duet Maestro:"
 
 msgid "sam4s8c"
-msgstr ""
+msgstr "sam4s8c"
 
 msgid "70"
-msgstr ""
+msgstr "70"
 
 msgid "Duet Wifi step rate benchmark"
-msgstr ""
+msgstr "Prestandamätning av steghastighet för Duet WiFi"
 
 msgid "The following configuration sequence is used on the Duet Wifi:"
-msgstr ""
+msgstr "Följande konfigurationssekvens används på Duet WiFi:"
 
 msgid "sam4e8e"
-msgstr ""
+msgstr "sam4e8e"
 
 msgid "Beaglebone PRU step rate benchmark"
-msgstr ""
+msgstr "Prestandamätning av steghastighet för Beaglebone PRU"
 
 msgid "The following configuration sequence is used on the PRU:"
-msgstr ""
+msgstr "Följande konfigurationssekvens används på PRU:"
 
 msgid "pru"
-msgstr ""
+msgstr "pru"
 
 msgid "STM32F042 step rate benchmark"
-msgstr ""
+msgstr "Prestandamätning av steghastighet för STM32F042"
 
 msgid "The following configuration sequence is used on the STM32F042:"
-msgstr ""
+msgstr "Följande konfigurationssekvens används på STM32F042:"
 
 msgid "stm32f042"
-msgstr ""
+msgstr "stm32f042"
 
 msgid "STM32F103 step rate benchmark"
-msgstr ""
+msgstr "Prestandamätning av steghastighet för STM32F103"
 
 msgid "The following configuration sequence is used on the STM32F103:"
-msgstr ""
+msgstr "Följande konfigurationssekvens används på STM32F103:"
 
 msgid "stm32f103"
-msgstr ""
+msgstr "stm32f103"
 
 msgid "71"
-msgstr ""
+msgstr "71"
 
 msgid "STM32F4 step rate benchmark"
-msgstr ""
+msgstr "Prestandamätning av steghastighet för STM32F4"
 
 msgid "The following configuration sequence is used on the STM32F4:"
-msgstr ""
+msgstr "Följande konfigurationssekvens används på STM32F4:"
 
 msgid "stm32f446"
-msgstr ""
+msgstr "stm32f446"
 
 msgid "51"
-msgstr ""
+msgstr "51"
 
 msgid "stm32f407"
-msgstr ""
+msgstr "stm32f407"
 
 msgid "52"
-msgstr ""
+msgstr "52"
 
 msgid "LPC176x step rate benchmark"
-msgstr ""
+msgstr "Prestandamätning av steghastighet för LPC176x"
 
 msgid "The following configuration sequence is used on the LPC176x:"
-msgstr ""
+msgstr "Följande konfigurationssekvens används på LPC176x:"
 
 msgid "lpc1768"
-msgstr ""
+msgstr "lpc1768"
 
 msgid "lpc1769"
-msgstr ""
+msgstr "lpc1769"
 
 msgid "SAMD21 step rate benchmark"
-msgstr ""
+msgstr "Prestandamätning av steghastighet för SAMD21"
 
 msgid "The following configuration sequence is used on the SAMD21:"
-msgstr ""
+msgstr "Följande konfigurationssekvens används på SAMD21:"
 
 msgid "samd21"
-msgstr ""
+msgstr "samd21"
 
 msgid "SAMD51 step rate benchmark"
-msgstr ""
+msgstr "Prestandamätning av steghastighet för SAMD51"
 
 msgid "The following configuration sequence is used on the SAMD51:"
-msgstr ""
+msgstr "Följande konfigurationssekvens används på SAMD51:"
 
 msgid "samd51"
-msgstr ""
+msgstr "samd51"
 
 msgid "1 stepper (200Mhz)"
-msgstr ""
+msgstr "1 stegmotor (200 MHz)"
 
 msgid "3 stepper (200Mhz)"
-msgstr ""
+msgstr "3 stegmotorer (200 MHz)"
 
 msgid "Linux MCU step rate benchmark"
-msgstr ""
+msgstr "Prestandamätning av steghastighet för Linux MCU"
 
 msgid "The following configuration sequence is used on a Raspberry Pi:"
-msgstr ""
+msgstr "Följande konfigurationssekvens används på Raspberry Pi:"
 
 msgid "Linux (RPi3)"
-msgstr ""
+msgstr "Linux (RPi3)"
 
 msgid "Command dispatch benchmark"
-msgstr ""
+msgstr "Prestandamätning av kommandohantering"
 
 msgid ""
 "When the test completes, determine the difference between the clocks reported "
 "in the two \"uptime\" response messages. The total number of commands per "
 "second is then `100000 * mcu_frequency / clock_diff`."
 msgstr ""
+"När testet är klart beräknar du skillnaden mellan klockvärdena som "
+"rapporteras i de två \"uptime\"-svarsmeddelandena. Det totala antalet "
+"kommandon per sekund är då `100000 * mcu_frequency / clock_diff`."
 
 msgid "MCU"
-msgstr ""
+msgstr "MCU"
 
 msgid "Rate"
-msgstr ""
+msgstr "Hastighet"
 
 msgid "Build"
-msgstr ""
+msgstr "Bygge"
 
 msgid "Build compiler"
-msgstr ""
+msgstr "Byggkompilator"
 
 msgid "atmega2560 (serial)"
-msgstr ""
+msgstr "atmega2560 (seriell)"
 
 msgid "23K"
-msgstr ""
+msgstr "23 K"
 
 msgid "b161a69e"
-msgstr ""
+msgstr "b161a69e"
 
 msgid "avr-gcc (GCC) 4.8.1"
-msgstr ""
+msgstr "avr-gcc (GCC) 4.8.1"
 
 msgid "sam3x8e (serial)"
-msgstr ""
+msgstr "sam3x8e (seriell)"
 
 msgid "arm-none-eabi-gcc (Fedora 7.1.0-5.fc27) 7.1.0"
-msgstr ""
+msgstr "arm-none-eabi-gcc (Fedora 7.1.0-5.fc27) 7.1.0"
 
 msgid "at90usb1286 (USB)"
-msgstr ""
+msgstr "at90usb1286 (USB)"
 
 msgid "75K"
-msgstr ""
+msgstr "75 K"
 
 msgid "01d2183f"
-msgstr ""
+msgstr "01d2183f"
 
 msgid "avr-gcc (GCC) 5.4.0"
-msgstr ""
+msgstr "avr-gcc (GCC) 5.4.0"
 
 msgid "samd21 (USB)"
-msgstr ""
+msgstr "samd21 (USB)"
 
 msgid "223K"
-msgstr ""
+msgstr "223 K"
 
 msgid "arm-none-eabi-gcc (Fedora 7.4.0-1.fc30) 7.4.0"
-msgstr ""
+msgstr "arm-none-eabi-gcc (Fedora 7.4.0-1.fc30) 7.4.0"
 
 msgid "pru (shared memory)"
-msgstr ""
+msgstr "pru (delat minne)"
 
 msgid "260K"
-msgstr ""
+msgstr "260 K"
 
 msgid "c5968a08"
-msgstr ""
+msgstr "c5968a08"
 
 msgid "pru-gcc (GCC) 8.0.0 20170530 (experimental)"
-msgstr ""
+msgstr "pru-gcc (GCC) 8.0.0 20170530 (experimentell)"
 
 msgid "stm32f103 (USB)"
-msgstr ""
+msgstr "stm32f103 (USB)"
 
 msgid "355K"
-msgstr ""
+msgstr "355 K"
 
 msgid "sam3x8e (USB)"
-msgstr ""
+msgstr "sam3x8e (USB)"
 
 msgid "418K"
-msgstr ""
+msgstr "418 K"
 
 msgid "lpc1768 (USB)"
-msgstr ""
+msgstr "lpc1768 (USB)"
 
 msgid "534K"
-msgstr ""
+msgstr "534 K"
 
 msgid "lpc1769 (USB)"
-msgstr ""
+msgstr "lpc1769 (USB)"
 
 msgid "628K"
-msgstr ""
+msgstr "628 K"
 
 msgid "sam4s8c (USB)"
-msgstr ""
+msgstr "sam4s8c (USB)"
 
 msgid "650K"
-msgstr ""
+msgstr "650 K"
 
 msgid "8d4a5c16"
-msgstr ""
+msgstr "8d4a5c16"
 
 msgid "samd51 (USB)"
-msgstr ""
+msgstr "samd51 (USB)"
 
 msgid "864K"
-msgstr ""
+msgstr "864 K"
 
 msgid "stm32f446 (USB)"
-msgstr ""
+msgstr "stm32f446 (USB)"
 
 msgid "870K"
-msgstr ""
+msgstr "870 K"
 
 msgid "Host Benchmarks"
-msgstr ""
+msgstr "Prestandamätningar för värden"
 
 msgid "66"
-msgstr ""
+msgstr "66"
 
 msgid "rp2040 (USB)"
-msgstr ""
+msgstr "rp2040 (USB)"
 
 #: docs/Benchmarks.md:block 1 (header)
 msgid "Benchmarks"
-msgstr ""
+msgstr "Prestandamätningar"
 
 #: docs/Benchmarks.md:block 9 (paragraph)
 msgid ""
@@ -337,6 +368,9 @@ msgid ""
 "below) and then the following is cut-and-paste into the console.py terminal "
 "window:"
 msgstr ""
+"Testet utförs med verktyget console.py (beskrivet i <Debugging.md>). "
+"Mikrokontrollern konfigureras för den aktuella maskinvaruplattformen (se "
+"nedan) och sedan klistras följande in i terminalfönstret för console.py:"
 
 #: docs/Benchmarks.md:block 86 (paragraph)
 msgid ""
@@ -346,6 +380,11 @@ msgid ""
 "<Debugging.md>). The following is cut-and-paste into the console.py terminal "
 "window:"
 msgstr ""
+"Prestandamätningen av kommandohantering testar hur många \"dummy\"-kommandon "
+"mikrokontrollern kan bearbeta. Det är i första hand ett test av "
+"maskinvarukommunikationsmekanismen. Testet körs med verktyget console.py "
+"(beskrivet i <Debugging.md>). Följande klistras in i terminalfönstret för "
+"console.py:"
 
 #: docs/Benchmarks.md:block 92 (paragraph)
 msgid ""
@@ -354,6 +393,10 @@ msgid ""
 "done by choosing a large and complex G-Code file and timing how long it takes "
 "for the host software to process it. For example:"
 msgstr ""
+"Det går att köra tidstester på värdprogramvaran med bearbetningsmekanismen "
+"\"batch mode\" (beskriven i <Debugging.md>). Vanligtvis görs detta genom att "
+"välja en stor och komplex G-kodfil och mäta hur lång tid värdprogramvaran "
+"behöver för att bearbeta den. Exempel:"
 
 #: docs/Benchmarks.md:block 14 (paragraph)
 msgid ""
@@ -361,6 +404,9 @@ msgid ""
 "used, but only the first block of the above test is cut-and-paste into the "
 "console.py window."
 msgstr ""
+"För att få prestandamätningarna för en stegmotor används samma "
+"konfigurationssekvens, men bara det första blocket i testet ovan klistras in "
+"i console.py-fönstret."
 
 #: docs/Benchmarks.md:block 17 (paragraph)
 msgid ""
@@ -371,6 +417,12 @@ msgid ""
 " For other micro-controllers use a `step_pulse_duration` corresponding to "
 "100ns."
 msgstr ""
+"Prestandamätningarna körs med parametrar som passar TMC-drivrutiner. För "
+"mikrokontroller som har stöd för `STEPPER_BOTH_EDGE=1` (som rapporteras på "
+"raden `MCU config` när console.py startas första gången) använder du "
+"`step_pulse_duration=0` och `invert_step=-1` för att aktivera optimerad "
+"stegräkning på båda kanter av stegpulsen. För andra mikrokontroller använder "
+"du `step_pulse_duration` som motsvarar 100 ns."
 
 #: docs/Benchmarks.md:block 21 (paragraph)
 msgid ""
@@ -379,72 +431,83 @@ msgid ""
 "an atmega644p (previous tests have confirmed simulavr results match tests on "
 "both a 16Mhz at90usb and a 16Mhz atmega2560)."
 msgstr ""
+"Testet kördes senast på incheckningen `59314d99` med GCC-versionen `avr-gcc "
+"(GCC) 5.4.0`. Både testerna på 16 MHz och 20 MHz kördes med simulavr "
+"konfigurerad för atmega644p (tidigare tester har bekräftat att resultat från "
+"simulavr överensstämmer med tester på både 16 MHz at90usb och 16 MHz "
+"atmega2560)."
 
 #: docs/Benchmarks.md:block 22 (table)
 msgid "102"
-msgstr ""
+msgstr "102"
 
 #: docs/Benchmarks.md:block 22 (table)
 msgid "486"
-msgstr ""
+msgstr "486"
 
 #: docs/Benchmarks.md:block 26 (paragraph)
 msgid ""
 "The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc"
 " (Fedora 10.2.0-4.fc34) 10.2.0`."
 msgstr ""
+"Testet kördes senast på incheckningen `59314d99` med GCC-versionen `arm-none-"
+"eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`."
 
 #: docs/Benchmarks.md:block 27 (table)
 msgid "257"
-msgstr ""
+msgstr "257"
 
 #: docs/Benchmarks.md:block 32 (table)
 msgid "260"
-msgstr ""
+msgstr "260"
 
 #: docs/Benchmarks.md:block 36 (paragraph)
 msgid ""
 "The test was last run on commit `59314d99` with gcc version `gcc version "
 "10.3.1 20210621 (release) (GNU Arm Embedded Toolchain 10.3-2021.07)`."
 msgstr ""
+"Testet kördes senast på incheckningen `59314d99` med GCC-versionen `gcc "
+"version 10.3.1 20210621 (release) (GNU Arm Embedded Toolchain 10.3-2021.07)`."
 
 #: docs/Benchmarks.md:block 37 (table)
 msgid "48"
-msgstr ""
+msgstr "48"
 
 #: docs/Benchmarks.md:block 37 (table)
 msgid "215"
-msgstr ""
+msgstr "215"
 
 #: docs/Benchmarks.md:block 41 (paragraph)
 msgid ""
 "The test was last run on commit `59314d99` with gcc version `pru-gcc (GCC) "
 "8.0.0 20170530 (experimental)`."
 msgstr ""
+"Testet kördes senast på incheckningen `59314d99` med GCC-versionen `pru-gcc "
+"(GCC) 8.0.0 20170530 (experimental)`."
 
 #: docs/Benchmarks.md:block 42 (table)
 msgid "231"
-msgstr ""
+msgstr "231"
 
 #: docs/Benchmarks.md:block 42 (table)
 msgid "847"
-msgstr ""
+msgstr "847"
 
 #: docs/Benchmarks.md:block 47 (table)
 msgid "59"
-msgstr ""
+msgstr "59"
 
 #: docs/Benchmarks.md:block 47 (table)
 msgid "249"
-msgstr ""
+msgstr "249"
 
 #: docs/Benchmarks.md:block 52 (table)
 msgid "61"
-msgstr ""
+msgstr "61"
 
 #: docs/Benchmarks.md:block 52 (table)
 msgid "264"
-msgstr ""
+msgstr "264"
 
 #: docs/Benchmarks.md:block 56 (paragraph)
 msgid ""
@@ -452,14 +515,18 @@ msgid ""
 " (Fedora 10.2.0-4.fc34) 10.2.0`. The STM32F407 results were obtained by "
 "running an STM32F407 binary on an STM32F446 (and thus using a 168Mhz clock)."
 msgstr ""
+"Testet kördes senast på incheckningen `59314d99` med GCC-versionen `arm-none-"
+"eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`. Resultaten för STM32F407 erhölls "
+"genom att köra en STM32F407-binärfil på en STM32F446 (och därmed använda en "
+"klocka på 168 MHz)."
 
 #: docs/Benchmarks.md:block 57 (table)
 msgid "46"
-msgstr ""
+msgstr "46"
 
 #: docs/Benchmarks.md:block 57 (table)
 msgid "205"
-msgstr ""
+msgstr "205"
 
 #: docs/Benchmarks.md:block 62 (paragraph)
 msgid ""
@@ -467,38 +534,45 @@ msgid ""
 " (Fedora 10.2.0-4.fc34) 10.2.0`. The 120Mhz LPC1769 results were obtained by "
 "overclocking an LPC1768 to 120Mhz."
 msgstr ""
+"Testet kördes senast på incheckningen `59314d99` med GCC-versionen `arm-none-"
+"eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`. Resultaten för LPC1769 vid 120 MHz "
+"erhölls genom att överklocka en LPC1768 till 120 MHz."
 
 #: docs/Benchmarks.md:block 63 (table)
 msgid "222"
-msgstr ""
+msgstr "222"
 
 #: docs/Benchmarks.md:block 68 (paragraph)
 msgid ""
 "The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc"
 " (Fedora 10.2.0-4.fc34) 10.2.0` on a SAMD21G18 micro-controller."
 msgstr ""
+"Testet kördes senast på incheckningen `59314d99` med GCC-versionen `arm-none-"
+"eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0` på en SAMD21G18-mikrokontroller."
 
 #: docs/Benchmarks.md:block 69 (table)
 msgid "306"
-msgstr ""
+msgstr "306"
 
 #: docs/Benchmarks.md:block 73 (paragraph)
 msgid ""
 "The test was last run on commit `59314d99` with gcc version `arm-none-eabi-gcc"
 " (Fedora 10.2.0-4.fc34) 10.2.0` on a SAMD51J19A micro-controller."
 msgstr ""
+"Testet kördes senast på incheckningen `59314d99` med GCC-versionen `arm-none-"
+"eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0` på en SAMD51J19A-mikrokontroller."
 
 #: docs/Benchmarks.md:block 74 (table)
 msgid "39"
-msgstr ""
+msgstr "39"
 
 #: docs/Benchmarks.md:block 74 (table)
 msgid "191"
-msgstr ""
+msgstr "191"
 
 #: docs/Benchmarks.md:block 74 (table)
 msgid "181"
-msgstr ""
+msgstr "181"
 
 #: docs/Benchmarks.md:block 83 (paragraph)
 msgid ""
@@ -506,14 +580,17 @@ msgid ""
 "8.3.0-6+rpi1) 8.3.0` on a Raspberry Pi 3 (revision a02082). It was difficult "
 "to get stable results in this benchmark."
 msgstr ""
+"Testet kördes senast på incheckningen `59314d99` med GCC-versionen `gcc "
+"(Raspbian 8.3.0-6+rpi1) 8.3.0` på en Raspberry Pi 3 (revision a02082). Det "
+"var svårt att få stabila resultat i den här prestandamätningen."
 
 #: docs/Benchmarks.md:block 84 (table)
 msgid "160"
-msgstr ""
+msgstr "160"
 
 #: docs/Benchmarks.md:block 84 (table)
 msgid "380"
-msgstr ""
+msgstr "380"
 
 #: docs/Benchmarks.md:block 15 (paragraph)
 msgid ""
@@ -523,199 +600,218 @@ msgid ""
 " parameter. The results are rounded to the nearest K. For example, with three "
 "active steppers:"
 msgstr ""
+"För att skapa prestandamätningarna i dokumentet [Funktioner](Features.md) "
+"beräknas det totala antalet steg per sekund genom att antalet aktiva "
+"stegmotorer multipliceras med den nominella MCU-frekvensen och delas med den "
+"slutliga ticks-parametern. Resultaten avrundas till närmaste K. Till exempel "
+"med tre aktiva stegmotorer:"
 
 #: docs/Benchmarks.md:block 59 (header)
 msgid "STM32G0B1 step rate benchmark"
-msgstr ""
+msgstr "Prestandamätning av steghastighet för STM32G0B1"
 
 #: docs/Benchmarks.md:block 60 (paragraph)
 msgid "The following configuration sequence is used on the STM32G0B1:"
-msgstr ""
+msgstr "Följande konfigurationssekvens används på STM32G0B1:"
 
 #: docs/Benchmarks.md:block 62 (paragraph)
 msgid ""
 "The test was last run on commit `247cd753` with gcc version `arm-none-eabi-gcc"
 " (Fedora 10.2.0-4.fc34) 10.2.0`."
 msgstr ""
+"Testet kördes senast på incheckningen `247cd753` med GCC-versionen `arm-none-"
+"eabi-gcc (Fedora 10.2.0-4.fc34) 10.2.0`."
 
 #: docs/Benchmarks.md:block 63 (table)
 msgid "58"
-msgstr ""
+msgstr "58"
 
 #: docs/Benchmarks.md:block 63 (table)
 msgid "243"
-msgstr ""
+msgstr "243"
 
 #: docs/Benchmarks.md:block 63 (table)
 msgid "stm32g0b1"
-msgstr ""
+msgstr "stm32g0b1"
 
 #: docs/Benchmarks.md:block 59 (header)
 msgid "STM32H7 step rate benchmark"
-msgstr ""
+msgstr "Prestandamätning av steghastighet för STM32H7"
 
 #: docs/Benchmarks.md:block 85 (header)
 msgid "AR100 step rate benchmark"
-msgstr ""
+msgstr "Prestandamätning av steghastighet för AR100"
 
 #: docs/Benchmarks.md:block 86 (paragraph)
 msgid ""
 "The following configuration sequence is used on AR100 CPU (Allwinner A64):"
 msgstr ""
+"Följande konfigurationssekvens används på AR100-processorn (Allwinner A64):"
 
 #: docs/Benchmarks.md:block 89 (table)
 msgid "AR100 R_PIO"
-msgstr ""
+msgstr "AR100 R_PIO"
 
 #: docs/Benchmarks.md:block 89 (table)
 msgid "85"
-msgstr ""
+msgstr "85"
 
 #: docs/Benchmarks.md:block 89 (table)
 msgid "359"
-msgstr ""
+msgstr "359"
 
 #: docs/Benchmarks.md:block 105 (table)
 msgid "ar100 (serial)"
-msgstr ""
+msgstr "ar100 (seriell)"
 
 #: docs/Benchmarks.md:block 105 (table)
 msgid "138K"
-msgstr ""
+msgstr "138 K"
 
 #: docs/Benchmarks.md:block 105 (table)
 msgid "08d037c6"
-msgstr ""
+msgstr "08d037c6"
 
 #: docs/Benchmarks.md:block 105 (table)
 msgid "or1k-linux-musl-gcc 9.3.0"
-msgstr ""
+msgstr "or1k-linux-musl-gcc 9.3.0"
 
 #: docs/Benchmarks.md:block 85 (header)
 msgid "SAME70 step rate benchmark"
-msgstr ""
+msgstr "Prestandamätning av steghastighet för SAME70"
 
 #: docs/Benchmarks.md:block 86 (paragraph)
 msgid "The following configuration sequence is used on the SAME70:"
-msgstr ""
+msgstr "Följande konfigurationssekvens används på SAME70:"
 
 #: docs/Benchmarks.md:block 88 (paragraph)
 msgid ""
 "The test was last run on commit `34e9ea55` with gcc version `arm-none-eabi-gcc"
 " (NixOS 10.3-2021.10) 10.3.1` on a SAME70Q20B micro-controller."
 msgstr ""
+"Testet kördes senast på incheckningen `34e9ea55` med GCC-versionen `arm-none-"
+"eabi-gcc (NixOS 10.3-2021.10) 10.3.1` på en SAME70Q20B-mikrokontroller."
 
 #: docs/Benchmarks.md:block 89 (table)
 msgid "same70"
-msgstr ""
+msgstr "same70"
 
 #: docs/Benchmarks.md:block 89 (table)
 msgid "45"
-msgstr ""
+msgstr "45"
 
 #: docs/Benchmarks.md:block 89 (table)
 msgid "190"
-msgstr ""
+msgstr "190"
 
 #: docs/Benchmarks.md:block 93 (paragraph)
 msgid ""
 "The test was last run on commit `b7978d37` with gcc version `or1k-linux-musl-"
 "gcc (GCC) 9.2.0` on an Allwinner A64-H micro-controller."
 msgstr ""
+"Testet kördes senast på incheckningen `b7978d37` med GCC-versionen `or1k-"
+"linux-musl-gcc (GCC) 9.2.0` på en Allwinner A64-H-mikrokontroller."
 
 #: docs/Benchmarks.md:block 95 (header)
 msgid "RPxxxx step rate benchmark"
-msgstr ""
+msgstr "Prestandamätning av steghastighet för RPxxxx"
 
 #: docs/Benchmarks.md:block 96 (paragraph)
 msgid "The following configuration sequence is used on the RP2040 and RP2350:"
-msgstr ""
+msgstr "Följande konfigurationssekvens används på RP2040 och RP2350:"
 
 #: docs/Benchmarks.md:block 99 (table)
 msgid "rp2040 (*)"
-msgstr ""
+msgstr "rp2040 (*)"
 
 #: docs/Benchmarks.md:block 100 (table)
 msgid "rp2350"
-msgstr ""
+msgstr "rp2350"
 
 #: docs/Benchmarks.md:block 100 (table)
 msgid "36"
-msgstr ""
+msgstr "36"
 
 #: docs/Benchmarks.md:block 100 (table)
 msgid "169"
-msgstr ""
+msgstr "169"
 
 #: docs/Benchmarks.md:block 112 (table)
 msgid "885K"
-msgstr ""
+msgstr "885 K"
 
 #: docs/Benchmarks.md:block 112 (table)
 msgid "f6718291"
-msgstr ""
+msgstr "f6718291"
 
 #: docs/Benchmarks.md:block 112 (table)
 msgid "arm-none-eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0"
-msgstr ""
+msgstr "arm-none-eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0"
 
 #: docs/Benchmarks.md:block 112 (table)
 msgid "rp2350 (USB)"
-msgstr ""
+msgstr "rp2350 (USB)"
 
 #: docs/Benchmarks.md:block 60 (paragraph)
 msgid "The following configuration sequence is used on STM32H723:"
-msgstr ""
+msgstr "Följande konfigurationssekvens används på STM32H723:"
 
 #: docs/Benchmarks.md:block 62 (paragraph)
 msgid ""
 "The test was last run on commit `554ae78d` with gcc version `arm-none-eabi-gcc"
 " (Fedora 14.1.0-1.fc40) 14.1.0`."
 msgstr ""
+"Testet kördes senast på incheckningen `554ae78d` med GCC-versionen `arm-none-"
+"eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0`."
 
 #: docs/Benchmarks.md:block 63 (table)
 msgid "stm32h723"
-msgstr ""
+msgstr "stm32h723"
 
 #: docs/Benchmarks.md:block 98 (paragraph)
 msgid ""
 "The test was last run on commit `14c105b8` with gcc version `arm-none-eabi-gcc"
 " (Fedora 14.1.0-1.fc40) 14.1.0` on Raspberry Pi Pico and Pico 2 boards."
 msgstr ""
+"Testet kördes senast på incheckningen `14c105b8` med GCC-versionen `arm-none-"
+"eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0` på Raspberry Pi Pico- och Pico 2-"
+"kort."
 
 #: docs/Benchmarks.md:block 99 (table)
 msgid "3"
-msgstr ""
+msgstr "3"
 
 #: docs/Benchmarks.md:block 99 (table)
 msgid "14"
-msgstr ""
+msgstr "14"
 
 #: docs/Benchmarks.md:block 69 (header)
 msgid "STM32G4 step rate benchmark"
-msgstr ""
+msgstr "Prestandamätning av steghastighet för STM32G4"
 
 #: docs/Benchmarks.md:block 70 (paragraph)
 msgid "The following configuration sequence is used on the STM32G431:"
-msgstr ""
+msgstr "Följande konfigurationssekvens används på STM32G431:"
 
 #: docs/Benchmarks.md:block 72 (paragraph)
 msgid ""
 "The test was last run on commit `cfa48fe3` with gcc version `arm-none-eabi-gcc"
 " (Fedora 14.1.0-1.fc40) 14.1.0`."
 msgstr ""
+"Testet kördes senast på incheckningen `cfa48fe3` med GCC-versionen `arm-none-"
+"eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0`."
 
 #: docs/Benchmarks.md:block 73 (table)
 msgid "stm32g431"
-msgstr ""
+msgstr "stm32g431"
 
 #: docs/Benchmarks.md:block 73 (table)
 msgid "47"
-msgstr ""
+msgstr "47"
 
 #: docs/Benchmarks.md:block 73 (table)
 msgid "208"
-msgstr ""
+msgstr "208"
 
 #: docs/Benchmarks.md:block 106 (paragraph)
 msgid ""
@@ -724,6 +820,11 @@ msgid ""
 "expected that 3 scheduling ticks corresponds to ~42 ARM core cycles and 14 "
 "scheduling ticks corresponds to ~225 ARM core cycles."
 msgstr ""
+"(*) Observera att de rapporterade rp2040-ticken är relativa till en "
+"schemaläggningstimer på 12 MHz och inte motsvarar den interna ARM-"
+"bearbetningshastigheten på 200 MHz. Tre schemaläggningstick förväntas "
+"motsvara cirka 42 ARM-kärncykler och 14 schemaläggningstick cirka 225 ARM-"
+"kärncykler."
 
 #: docs/Benchmarks.md:block 116 (paragraph)
 msgid ""
@@ -733,6 +834,11 @@ msgid ""
 "below are with console.py running on a desktop class machine with the device "
 "connected via a super-speed hub."
 msgstr ""
+"USB-testerna kan överskrida CPU-kapaciteten på en Raspberry Pi. Om testet "
+"körs på en Raspberry Pi, Beaglebone eller liknande värddator ökar du "
+"fördröjningen (till exempel `DELAY {clock + 20*freq} get_uptime`). Där så är "
+"tillämpligt körs nedanstående prestandamätningar med console.py på en dator "
+"av skrivbordsklass och enheten ansluten via en supersnabb hubb."
 
 #: docs/Benchmarks.md:block 117 (paragraph)
 msgid ""
@@ -741,18 +847,23 @@ msgid ""
 "CAN bus benchmarks below are with console.py running on a desktop class "
 "machine with a USB to CAN bus adapter connected via a super-speed USB hub."
 msgstr ""
+"CAN-busstesterna kan mätta USB-värdstyrenheten på en Raspberry Pi (vid "
+"testning via en vanlig gs_usb USB-till-CAN-bussadapter). Där så är "
+"tillämpligt körs nedanstående CAN-bussprestandamätningar med console.py på "
+"en dator av skrivbordsklass och en USB-till-CAN-bussadapter ansluten via en "
+"supersnabb USB-hubb."
 
 #: docs/Benchmarks.md:block 118 (table)
 msgid "rp2350 (CAN)"
-msgstr ""
+msgstr "rp2350 (CAN)"
 
 #: docs/Benchmarks.md:block 118 (table)
 msgid "59K"
-msgstr ""
+msgstr "59 K"
 
 #: docs/Benchmarks.md:block 118 (table)
 msgid "17b8ce4c"
-msgstr ""
+msgstr "17b8ce4c"
 
 #~ msgid ""
 #~ "Note that this test may saturate the USB/CPU capacity of a Raspberry Pi. If "

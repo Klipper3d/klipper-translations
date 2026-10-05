@@ -1,103 +1,120 @@
 # Languages add-on <noreply-addon-languages@weblate.org>, 2026.
+# Daniel Nylander <yeagersthlm@gmail.com>, 2026.
 msgid ""
 msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: sv\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"Last-Translator: Daniel Nylander <yeagersthlm@gmail.com>\n"
+"Language-Team: Swedish <https://hosted.weblate.org/projects/klipper/g-codes/"
+"sv/>\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2026-09-17 16:53+0000\n"
+"X-Generator: Weblate 2026.10.dev0\n"
 
 msgid ""
 "This document describes the commands that Klipper supports. These are commands"
 " that one may enter into the OctoPrint terminal tab."
 msgstr ""
+"Detta dokument beskriver de kommandon som Klipper har stöd för. Dessa "
+"kommandon kan anges på terminalfliken i OctoPrint."
 
 msgid "G-Code commands"
-msgstr ""
+msgstr "G-kodskommandon"
 
 msgid "Klipper supports the following standard G-Code commands:"
-msgstr ""
+msgstr "Klipper har stöd för följande vanliga G-kodskommandon:"
 
 msgid "Move (G0 or G1): `G1 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>]`"
 msgstr ""
+"Förflyttning (G0 eller G1): `G1 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>"
+"]`"
 
 msgid "Dwell: `G4 P<milliseconds>`"
-msgstr ""
+msgstr "Dröjsmål: `G4 P<milliseconds>`"
 
 msgid "Move to origin: `G28 [X] [Y] [Z]`"
-msgstr ""
+msgstr "Flytta till origo: `G28 [X] [Y] [Z]`"
 
 msgid "Turn off motors: `M18` or `M84`"
-msgstr ""
+msgstr "Stäng av motorer: `M18` eller `M84`"
 
 msgid "Wait for current moves to finish: `M400`"
-msgstr ""
+msgstr "Vänta tills aktuella förflyttningar är klara: `M400`"
 
 msgid "Use absolute/relative distances for extrusion: `M82`, `M83`"
-msgstr ""
+msgstr "Använd absoluta/relativa avstånd för extrudering: `M82`, `M83`"
 
 msgid "Use absolute/relative coordinates: `G90`, `G91`"
-msgstr ""
+msgstr "Använd absoluta/relativa koordinater: `G90`, `G91`"
 
 msgid "Set position: `G92 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>]`"
-msgstr ""
+msgstr "Ange position: `G92 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>]`"
 
 msgid "Set speed factor override percentage: `M220 S<percent>`"
-msgstr ""
+msgstr "Ange åsidosättningsprocent för hastighetsfaktor: `M220 S<percent>`"
 
 msgid "Set extrude factor override percentage: `M221 S<percent>`"
-msgstr ""
+msgstr "Ange åsidosättningsprocent för extruderingsfaktor: `M221 S<percent>`"
 
 msgid "Set acceleration: `M204 S<value>` OR `M204 P<value> T<value>`"
-msgstr ""
+msgstr "Ange acceleration: `M204 S<value>` ELLER `M204 P<value> T<value>`"
 
 msgid ""
 "Note: If S is not specified and both P and T are specified, then the "
 "acceleration is set to the minimum of P and T. If only one of P or T is "
 "specified, the command has no effect."
 msgstr ""
+"Obs: Om S inte anges och både P och T anges, ställs accelerationen in på det "
+"minsta av P och T. Om endast P eller T anges har kommandot ingen verkan."
 
 msgid "Get extruder temperature: `M105`"
-msgstr ""
+msgstr "Hämta extrudertemperatur: `M105`"
 
 msgid "Set extruder temperature: `M104 [T<index>] [S<temperature>]`"
-msgstr ""
+msgstr "Ange extrudertemperatur: `M104 [T<index>] [S<temperature>]`"
 
 msgid "Set extruder temperature and wait: `M109 [T<index>] S<temperature>`"
-msgstr ""
+msgstr "Ange extrudertemperatur och vänta: `M109 [T<index>] S<temperature>`"
 
 msgid "Note: M109 always waits for temperature to settle at requested value"
 msgstr ""
+"Obs: M109 väntar alltid på att temperaturen stabiliseras vid det begärda "
+"värdet"
 
 msgid "Set bed temperature: `M140 [S<temperature>]`"
-msgstr ""
+msgstr "Ange bäddtemperatur: `M140 [S<temperature>]`"
 
 msgid "Set bed temperature and wait: `M190 S<temperature>`"
-msgstr ""
+msgstr "Ange bäddtemperatur och vänta: `M190 S<temperature>`"
 
 msgid "Note: M190 always waits for temperature to settle at requested value"
 msgstr ""
+"Obs: M190 väntar alltid på att temperaturen stabiliseras vid det begärda "
+"värdet"
 
 msgid "Set fan speed: `M106 S<value>`"
-msgstr ""
+msgstr "Ange fläkthastighet: `M106 S<value>`"
 
 msgid "Turn fan off: `M107`"
-msgstr ""
+msgstr "Stäng av fläkten: `M107`"
 
 msgid "Emergency stop: `M112`"
-msgstr ""
+msgstr "Nödstopp: `M112`"
 
 msgid "Get current position: `M114`"
-msgstr ""
+msgstr "Hämta aktuell position: `M114`"
 
 msgid "Get firmware version: `M115`"
-msgstr ""
+msgstr "Hämta firmwareversion: `M115`"
 
 msgid ""
 "For further details on the above commands see the [RepRap G-Code "
 "documentation](http://reprap.org/wiki/G-code)."
 msgstr ""
+"Mer information om ovanstående kommandon finns i [RepRap G-Code-"
+"dokumentationen](http://reprap.org/wiki/G-code)."
 
 msgid ""
 "If one requires a less common G-Code command then it may be possible to "
@@ -105,41 +122,47 @@ msgid ""
 "section](Config_Reference.md#gcode_macro). For example, one might use this to "
 "implement: `G12`, `G29`, `G30`, `G31`, `M42`, `M80`, `M81`, `T1`, etc."
 msgstr ""
+"Om ett mindre vanligt G-kodskommando behövs kan det vara möjligt att "
+"implementera det med ett anpassat [gcode_macro-konfigurationsavsnitt]"
+"(Config_Reference.md#gcode_macro). Det kan till exempel användas för att "
+"implementera: `G12`, `G29`, `G30`, `G31`, `M42`, `M80`, `M81`, `T1` osv."
 
 msgid "List SD card: `M20`"
-msgstr ""
+msgstr "Lista SD-kort: `M20`"
 
 msgid "Initialize SD card: `M21`"
-msgstr ""
+msgstr "Initiera SD-kort: `M21`"
 
 msgid "Select SD file: `M23 <filename>`"
-msgstr ""
+msgstr "Välj SD-fil: `M23 <filename>`"
 
 msgid "Start/resume SD print: `M24`"
-msgstr ""
+msgstr "Starta/återuppta SD-utskrift: `M24`"
 
 msgid "Pause SD print: `M25`"
-msgstr ""
+msgstr "Pausa SD-utskrift: `M25`"
 
 msgid "Set SD position: `M26 S<offset>`"
-msgstr ""
+msgstr "Ange SD-position: `M26 S<offset>`"
 
 msgid "Report SD print status: `M27`"
-msgstr ""
+msgstr "Rapportera status för SD-utskrift: `M27`"
 
 msgid ""
 "The following standard G-Code commands are available if a [gcode_arcs config "
 "section](Config_Reference.md#gcode_arcs) is enabled:"
 msgstr ""
+"Följande vanliga G-kodskommandon är tillgängliga om ett [gcode_arcs-"
+"konfigurationsavsnitt](Config_Reference.md#gcode_arcs) är aktiverat:"
 
 msgid "Display Message: `M117 <message>`"
-msgstr ""
+msgstr "Visa meddelande: `M117 <message>`"
 
 msgid "Set build percentage: `M73 P<percent>`"
-msgstr ""
+msgstr "Ange byggprocent: `M73 P<percent>`"
 
 msgid "Get Endstop Status: `M119` (Use QUERY_ENDSTOPS instead.)"
-msgstr ""
+msgstr "Hämta ändlägesstatus: `M119` (använd QUERY_ENDSTOPS i stället.)"
 
 msgid ""
 "Klipper uses \"extended\" G-Code commands for general configuration and "
@@ -149,12 +172,21 @@ msgid ""
 "parameters are shown in uppercase, however they are not case sensitive. (So, "
 "\"SET_SERVO\" and \"set_servo\" both run the same command.)"
 msgstr ""
+"Klipper använder ”utökade” G-kodskommandon för allmän konfiguration och "
+"status. Dessa utökade kommandon följer alla ett liknande format – de börjar "
+"med ett kommandonamn och kan följas av en eller flera parametrar. Till "
+"exempel: `SET_SERVO SERVO=myservo ANGLE=5.3`. I detta dokument visas "
+"kommandon och parametrar med versaler, men de är inte skiftlägeskänsliga. "
+"(Alltså kör ”SET_SERVO” och ”set_servo” samma kommando.)"
 
 msgid ""
 "`QUERY_ENDSTOPS`: Probe the axis endstops and report if they are \"triggered\""
 " or in an \"open\" state. This command is typically used to verify that an "
 "endstop is working correctly."
 msgstr ""
+"`QUERY_ENDSTOPS`: Avsök axlarnas ändlägen och rapportera om de är ”utlösta” "
+"eller ”öppna”. Kommandot används vanligen för att kontrollera att ett "
+"ändläge fungerar korrekt."
 
 msgid ""
 "`QUERY_ADC [NAME=<config_name>] [PULLUP=<value>]`: Report the last analog "
@@ -163,6 +195,11 @@ msgid ""
 "Ohms), the raw analog value along with the equivalent resistance given that "
 "pullup is reported."
 msgstr ""
+"`QUERY_ADC [NAME=<config_name>] [PULLUP=<value>]`: Rapportera det senaste "
+"analoga värdet som togs emot för ett konfigurerat analogt stift. Om NAME "
+"inte anges rapporteras en lista över tillgängliga ADC-namn. Om PULLUP anges "
+"(som ett värde i ohm) rapporteras det råa analoga värdet tillsammans med "
+"motsvarande resistans givet denna pullup."
 
 msgid ""
 "`SET_GCODE_OFFSET [X=<pos>|X_ADJUST=<adjust>] [Y=<pos>|Y_ADJUST=<adjust>] "
@@ -180,6 +217,20 @@ msgid ""
 " with the given speed (in mm/s); otherwise the toolhead move will use the last"
 " specified G-Code speed."
 msgstr ""
+"`SET_GCODE_OFFSET [X=<pos>|X_ADJUST=<adjust>] [Y=<pos>|Y_ADJUST=<adjust>] "
+"[Z=<pos>|Z_ADJUST=<adjust>] [MOVE=1 [MOVE_SPEED=<speed>]]`: Ange en "
+"positionsförskjutning som ska tillämpas på framtida G-kodskommandon. Detta "
+"används ofta för att virtuellt ändra bäddens Z-förskjutning eller för att "
+"ange XY-förskjutningar för munstycket vid byte av extruder. Om till exempel ”"
+"SET_GCODE_OFFSET Z=0.2” skickas, läggs 0,2 mm till Z-höjden för framtida G-"
+"kodsförflyttningar. Om parametrar av typen X_ADJUST används läggs "
+"justeringen till en befintlig förskjutning (t.ex. ger ”SET_GCODE_OFFSET Z=-"
+"0.2” följt av ”SET_GCODE_OFFSET Z_ADJUST=0.3” en total Z-förskjutning på 0,1)"
+". Om ”MOVE=1” anges utförs en förflyttning av verktygshuvudet för att "
+"tillämpa förskjutningen (annars får förskjutningen verkan vid nästa absoluta "
+"G-kodsförflyttning som anger den aktuella axeln). Om ”MOVE_SPEED” anges "
+"utförs förflyttningen av verktygshuvudet med den angivna hastigheten (i mm/s)"
+"; annars används senast angivna G-kodshastighet."
 
 msgid ""
 "`SAVE_GCODE_STATE [NAME=<state_name>]`: Save the current g-code coordinate "
@@ -191,6 +242,14 @@ msgid ""
 "provided it allows one to name the saved state to the given string. If NAME is"
 " not provided it defaults to \"default\"."
 msgstr ""
+"`SAVE_GCODE_STATE [NAME=<state_name>]`: Spara aktuellt tillstånd för "
+"tolkningen av G-kodkoordinater. Att spara och återställa G-kodstillståndet "
+"är användbart i skript och makron. Kommandot sparar aktuellt absolut "
+"koordinatläge för G-kod (G90/G91), absolut extruderläge (M82/M83), origo "
+"(G92), förskjutning (SET_GCODE_OFFSET), hastighetsåsidosättning (M220), "
+"extruderåsidosättning (M221), förflyttningshastighet, aktuell XYZ-position "
+"och relativ E-position för extrudern. Om NAME anges kan det sparade "
+"tillståndet ges det angivna namnet. Om NAME inte anges används ”default”."
 
 msgid ""
 "`RESTORE_GCODE_STATE [NAME=<state_name>] [MOVE=1 [MOVE_SPEED=<speed>]]`: "
@@ -200,6 +259,12 @@ msgid ""
 "performed with the given speed (in mm/s); otherwise the toolhead move will use"
 " the restored g-code speed."
 msgstr ""
+"`RESTORE_GCODE_STATE [NAME=<state_name>] [MOVE=1 [MOVE_SPEED=<speed>]]`: "
+"Återställ ett tillstånd som tidigare sparats med SAVE_GCODE_STATE. Om ”MOVE=1"
+"” anges utförs en förflyttning av verktygshuvudet tillbaka till föregående "
+"XYZ-position. Om ”MOVE_SPEED” anges utförs förflyttningen av verktygshuvudet "
+"med den angivna hastigheten (i mm/s); annars används den återställda G-"
+"kodshastigheten."
 
 msgid ""
 "`PID_CALIBRATE HEATER=<config_name> TARGET=<temperature> [WRITE_FILE=1]`: "
@@ -209,21 +274,32 @@ msgid ""
 "the file /tmp/heattest.txt will be created with a log of all temperature "
 "samples taken during the test."
 msgstr ""
+"`PID_CALIBRATE HEATER=<config_name> TARGET=<temperature> [WRITE_FILE=1]`: "
+"Utför ett PID-kalibreringstest. Den angivna värmaren aktiveras tills den "
+"angivna måltemperaturen uppnås och stängs sedan av och på under flera "
+"cykler. Om parametern WRITE_FILE är aktiverad skapas filen /tmp/heattest.txt "
+"med en logg över alla temperaturprover från testet."
 
 msgid "`TURN_OFF_HEATERS`: Turn off all heaters."
-msgstr ""
+msgstr "`TURN_OFF_HEATERS`: Stäng av alla värmare."
 
 msgid ""
 "`TEMPERATURE_WAIT SENSOR=<config_name> [MINIMUM=<target>] [MAXIMUM=<target>]`:"
 " Wait until the given temperature sensor is at or above the supplied MINIMUM "
 "and/or at or below the supplied MAXIMUM."
 msgstr ""
+"`TEMPERATURE_WAIT SENSOR=<config_name> [MINIMUM=<target>] [MAXIMUM=<target>"
+"]`: Vänta tills den angivna temperatursensorn är vid eller över angivet "
+"MINIMUM och/eller vid eller under angivet MAXIMUM."
 
 msgid ""
 "`SET_HEATER_TEMPERATURE HEATER=<heater_name> [TARGET=<target_temperature>]`: "
 "Sets the target temperature for a heater. If a target temperature is not "
 "supplied, the target is 0."
 msgstr ""
+"`SET_HEATER_TEMPERATURE HEATER=<heater_name> [TARGET=<target_temperature>]`: "
+"Anger måltemperaturen för en värmare. Om ingen måltemperatur anges är målet "
+"0."
 
 msgid ""
 "`SET_STEPPER_ENABLE STEPPER=<config_name> ENABLE=[0|1]`: Enable or disable "
@@ -233,12 +309,21 @@ msgid ""
 " outside of safe limits. This can lead to damage to axis components, hot ends,"
 " and print surface."
 msgstr ""
+"`SET_STEPPER_ENABLE STEPPER=<config_name> ENABLE=[0|1]`: Aktivera eller "
+"inaktivera endast den angivna stegmotorn. Detta är ett diagnostik- och "
+"felsökningsverktyg och måste användas med försiktighet. Att inaktivera en "
+"axelmotor återställer inte referenskörningsinformationen. Att manuellt "
+"flytta en inaktiverad stegmotor kan göra att maskinen kör motorn utanför "
+"säkra gränser. Detta kan skada axelkomponenter, hot ends och utskriftsytan."
 
 msgid ""
 "`STEPPER_BUZZ STEPPER=<config_name>`: Move the given stepper forward one mm "
 "and then backward one mm, repeated 10 times. This is a diagnostic tool to help"
 " verify stepper connectivity."
 msgstr ""
+"`STEPPER_BUZZ STEPPER=<config_name>`: Flytta den angivna stegmotorn en mm "
+"framåt och sedan en mm bakåt, upprepat 10 gånger. Detta är ett "
+"diagnostikverktyg som hjälper till att verifiera stegmotorns anslutning."
 
 msgid ""
 "`MANUAL_PROBE [SPEED=<speed>]`: Run a helper script useful for measuring the "
@@ -246,14 +331,20 @@ msgid ""
 "speed of TESTZ commands (the default is 5mm/s). During a manual probe, the "
 "following additional commands are available:"
 msgstr ""
+"`MANUAL_PROBE [SPEED=<speed>]`: Kör ett hjälpskript som är användbart för "
+"att mäta munstyckets höjd på en viss plats. Om SPEED anges bestämmer det "
+"hastigheten för TESTZ-kommandon (standardvärdet är 5 mm/s). Under en manuell "
+"sondering finns följande ytterligare kommandon:"
 
 msgid ""
 "`ACCEPT`: This command accepts the current Z position and concludes the manual"
 " probing tool."
 msgstr ""
+"`ACCEPT`: Detta kommando accepterar den aktuella Z-positionen och avslutar "
+"det manuella sonderingsverktyget."
 
 msgid "`ABORT`: This command terminates the manual probing tool."
-msgstr ""
+msgstr "`ABORT`: Detta kommando avslutar det manuella sonderingsverktyget."
 
 msgid ""
 "`TESTZ Z=<value>`: This command moves the nozzle up or down by the amount "
@@ -262,6 +353,11 @@ msgid ""
 "`+`, `-`, `++`, or `--` to move the nozzle up or down an amount relative to "
 "previous attempts."
 msgstr ""
+"`TESTZ Z=<value>`: Detta kommando flyttar munstycket uppåt eller nedåt med "
+"värdet som anges i ”value”. Till exempel flyttar `TESTZ Z=-.1` munstycket "
+"0,1 mm nedåt, medan `TESTZ Z=.1` flyttar munstycket 0,1 mm uppåt. Värdet kan "
+"också vara `+`, `-`, `++` eller `--` för att flytta munstycket uppåt eller "
+"nedåt ett belopp i förhållande till tidigare försök."
 
 msgid ""
 "`Z_ENDSTOP_CALIBRATE [SPEED=<speed>]`: Run a helper script useful for "
@@ -269,6 +365,10 @@ msgid ""
 "for details on the parameters and the additional commands available while the "
 "tool is active."
 msgstr ""
+"`Z_ENDSTOP_CALIBRATE [SPEED=<speed>]`: Kör ett hjälpskript som är användbart "
+"för att kalibrera en inställning för Z position_endstop. Se kommandot "
+"MANUAL_PROBE för information om parametrarna och ytterligare kommandon som "
+"är tillgängliga medan verktyget är aktivt."
 
 msgid ""
 "`SET_DISPLAY_GROUP [DISPLAY=<display>] GROUP=<group>`: Set the active display "
@@ -277,11 +377,18 @@ msgid ""
 "them using this extended gcode command. If DISPLAY is not specified it "
 "defaults to \"display\" (the primary display)."
 msgstr ""
+"`SET_DISPLAY_GROUP [DISPLAY=<display>] GROUP=<group>`: Ange den aktiva "
+"visningsgruppen för en LCD-skärm. Det gör det möjligt att definiera flera "
+"grupper av visningsdata i konfigurationen, t.ex. `[display_data <group> "
+"<elementname>]`, och växla mellan dem med detta utökade G-kodskommando. Om "
+"DISPLAY inte anges används ”display” (den primära skärmen) som standard."
 
 msgid ""
 "`SET_IDLE_TIMEOUT [TIMEOUT=<timeout>]`: Allows the user to set the idle "
 "timeout (in seconds)."
 msgstr ""
+"`SET_IDLE_TIMEOUT [TIMEOUT=<timeout>]`: Gör det möjligt för användaren att "
+"ange tidsgränsen för inaktivitet (i sekunder)."
 
 msgid ""
 "`RESTART`: This will cause the host software to reload its config and perform "
@@ -289,35 +396,51 @@ msgid ""
 "controller (see FIRMWARE_RESTART) nor will it load new software (see [the "
 "FAQ](FAQ.md#how-do-i-upgrade-to-the-latest-software))."
 msgstr ""
+"`RESTART`: Gör att värdprogrammet läser in sin konfiguration på nytt och "
+"utför en intern återställning. Kommandot rensar inte feltillstånd i "
+"mikrokontrollern (se FIRMWARE_RESTART) och läser inte heller in ny "
+"programvara (se [FAQ](FAQ.md#how-do-i-upgrade-to-the-latest-software))."
 
 msgid ""
 "`FIRMWARE_RESTART`: This is similar to a RESTART command, but it also clears "
 "any error state from the micro-controller."
 msgstr ""
+"`FIRMWARE_RESTART`: Liknar kommandot RESTART, men rensar också alla "
+"feltillstånd i mikrokontrollern."
 
 msgid ""
 "`SAVE_CONFIG`: This command will overwrite the main printer config file and "
 "restart the host software. This command is used in conjunction with other "
 "calibration commands to store the results of calibration tests."
 msgstr ""
+"`SAVE_CONFIG`: Detta kommando skriver över huvudfilen för "
+"skrivarkonfigurationen och startar om värdprogrammet. Det används "
+"tillsammans med andra kalibreringskommandon för att lagra resultaten från "
+"kalibreringstester."
 
 msgid "`STATUS`: Report the Klipper host software status."
-msgstr ""
+msgstr "`STATUS`: Rapportera status för Klippers värdprogram."
 
 msgid "`HELP`: Report the list of available extended G-Code commands."
-msgstr ""
+msgstr "`HELP`: Rapportera listan över tillgängliga utökade G-kodskommandon."
 
 msgid ""
 "`SET_GCODE_VARIABLE MACRO=<macro_name> VARIABLE=<name> VALUE=<value>`: This "
 "command allows one to change the value of a gcode_macro variable at run-time. "
 "The provided VALUE is parsed as a Python literal."
 msgstr ""
+"`SET_GCODE_VARIABLE MACRO=<macro_name> VARIABLE=<name> VALUE=<value>`: "
+"Kommandot gör det möjligt att ändra värdet för en gcode_macro-variabel under "
+"körning. Det angivna VALUE tolkas som en Python-literal."
 
 msgid ""
 "`SET_SERVO SERVO=config_name [ANGLE=<degrees> | WIDTH=<seconds>]`: Set the "
 "servo position to the given angle (in degrees) or pulse width (in seconds). "
 "Use `WIDTH=0` to disable the servo output."
 msgstr ""
+"`SET_SERVO SERVO=config_name [ANGLE=<degrees> | WIDTH=<seconds>]`: Ange "
+"servopositionen till den angivna vinkeln (i grader) eller pulsbredden (i "
+"sekunder). Använd `WIDTH=0` för att inaktivera servoutdata."
 
 msgid ""
 "`PROBE [PROBE_SPEED=<mm/s>] [LIFT_SPEED=<mm/s>] [SAMPLES=<count>] "
@@ -327,11 +450,18 @@ msgid ""
 "are provided they override their equivalent setting in the [probe config "
 "section](Config_Reference.md#probe)."
 msgstr ""
+"`PROBE [PROBE_SPEED=<mm/s>] [LIFT_SPEED=<mm/s>] [SAMPLES=<count>] "
+"[SAMPLE_RETRACT_DIST=<mm>] [SAMPLES_TOLERANCE=<mm>] "
+"[SAMPLES_TOLERANCE_RETRIES=<count>] [SAMPLES_RESULT=median|average]`: Flytta "
+"munstycket nedåt tills sonden utlöses. Om någon av de valfria parametrarna "
+"anges åsidosätter de motsvarande inställning i [sondkonfigurationsavsnittet]"
+"(Config_Reference.md#probe)."
 
 msgid ""
 "`QUERY_PROBE`: Report the current status of the probe (\"triggered\" or "
 "\"open\")."
 msgstr ""
+"`QUERY_PROBE`: Rapportera sondens aktuella status (”utlöst” eller ”öppen”)."
 
 msgid ""
 "`PROBE_ACCURACY [PROBE_SPEED=<mm/s>] [SAMPLES=<count>] "
@@ -340,6 +470,11 @@ msgid ""
 "taken. Otherwise the optional parameters default to their equivalent setting "
 "in the probe config section."
 msgstr ""
+"`PROBE_ACCURACY [PROBE_SPEED=<mm/s>] [SAMPLES=<count>] "
+"[SAMPLE_RETRACT_DIST=<mm>]`: Beräkna högsta, lägsta, medelvärde, median och "
+"standardavvikelse för flera sondprover. Som standard tas 10 SAMPLES. I "
+"övrigt använder de valfria parametrarna motsvarande inställning i "
+"sondkonfigurationsavsnittet som standard."
 
 msgid ""
 "`PROBE_CALIBRATE [SPEED=<speed>] [<probe_parameter>=<value>]`: Run a helper "
@@ -349,16 +484,26 @@ msgid ""
 " tool is active. Please note, the PROBE_CALIBRATE command uses the speed "
 "variable to move in XY direction as well as Z."
 msgstr ""
+"`PROBE_CALIBRATE [SPEED=<speed>] [<probe_parameter>=<value>]`: Kör ett "
+"hjälpskript som är användbart för att kalibrera sondens z_offset. Se "
+"kommandot PROBE för information om valfria sondparametrar. Se MANUAL_PROBE "
+"för information om parametern SPEED och ytterligare kommandon som är "
+"tillgängliga medan verktyget är aktivt. Observera att PROBE_CALIBRATE "
+"använder hastighetsvariabeln för att flytta i både XY- och Z-riktning."
 
 msgid ""
 "`BLTOUCH_STORE MODE=<output_mode>`: This stores an output mode in the EEPROM "
 "of a BLTouch V3.1 Available output_modes are: `5V`, `OD`"
 msgstr ""
+"`BLTOUCH_STORE MODE=<output_mode>`: Lagrar ett utgångsläge i EEPROM på en "
+"BLTouch V3.1. Tillgängliga output_modes är: `5V`, `OD`"
 
 msgid ""
 "`DELTA_ANALYZE`: This command is used during enhanced delta calibration. See "
 "[Delta Calibrate](Delta_Calibrate.md) for details."
 msgstr ""
+"`DELTA_ANALYZE`: Detta kommando används vid utökad delta-kalibrering. Se "
+"[Delta Calibrate](Delta_Calibrate.md) för mer information."
 
 msgid ""
 "`BED_MESH_MAP`: Like to BED_MESH_OUTPUT, this command prints the current state"
@@ -367,11 +512,18 @@ msgid ""
 " plugins to easily capture the data and generate height maps approximating the"
 " bed's surface."
 msgstr ""
+"`BED_MESH_MAP`: I likhet med BED_MESH_OUTPUT skriver detta kommando ut "
+"nätets aktuella tillstånd till terminalen. I stället för att skriva ut "
+"värdena i läsbar form serialiseras tillståndet i JSON-format. Det gör det "
+"möjligt för OctoPrint-insticksmoduler att enkelt fånga data och skapa "
+"höjdkartor som motsvarar bäddens yta."
 
 msgid ""
 "`BED_MESH_CLEAR`: This command clears the mesh and removes all z adjustment. "
 "It is recommended to put this in your end-gcode."
 msgstr ""
+"`BED_MESH_CLEAR`: Detta kommando rensar nätet och tar bort alla Z-"
+"justeringar. Det rekommenderas att lägga till detta i slut-G-koden."
 
 msgid ""
 "`BED_SCREWS_ADJUST`: This command will invoke the bed screws adjustment tool. "
@@ -379,6 +531,10 @@ msgid ""
 "file) and allow one to make adjustments to the bed screws so that the bed is a"
 " constant distance from the nozzle."
 msgstr ""
+"`BED_SCREWS_ADJUST`: Detta kommando startar verktyget för justering av "
+"bäddskruvar. Munstycket flyttas till olika platser (enligt "
+"konfigurationsfilen), så att du kan justera bäddskruvarna så att bädden har "
+"ett konstant avstånd från munstycket."
 
 msgid ""
 "`ENDSTOP_PHASE_CALIBRATE [STEPPER=<config_name>]`: If no STEPPER parameter is "
@@ -387,6 +543,11 @@ msgid ""
 "arranges for the given endstop phase setting to be written to the config file "
 "(in conjunction with the SAVE_CONFIG command)."
 msgstr ""
+"`ENDSTOP_PHASE_CALIBRATE [STEPPER=<config_name>]`: Om ingen STEPPER-"
+"parameter anges rapporterar kommandot statistik om ändlägesstegmotorfaser "
+"vid tidigare referenskörningar. När en STEPPER-parameter anges ordnar "
+"kommandot så att den angivna fasinställningen för ändläget skrivs till "
+"konfigurationsfilen (tillsammans med kommandot SAVE_CONFIG)."
 
 msgid ""
 "`FORCE_MOVE STEPPER=<config_name> DISTANCE=<value> VELOCITY=<value> "
@@ -400,54 +561,81 @@ msgid ""
 "incorrect state; issue a G28 afterwards to reset the kinematics. This command "
 "is intended for low-level diagnostics and debugging."
 msgstr ""
+"`FORCE_MOVE STEPPER=<config_name> DISTANCE=<value> VELOCITY=<value> "
+"[ACCEL=<value>]`: Detta kommando flyttar med tvång den angivna stegmotorn "
+"det angivna avståndet (i mm) med den angivna konstanta hastigheten (i mm/s). "
+"Om ACCEL anges och är större än noll används den angivna accelerationen (i "
+"mm/s^2); annars utförs ingen acceleration. Inga gränskontroller eller "
+"kinematiska uppdateringar görs och andra parallella stegmotorer på en axel "
+"flyttas inte. Var försiktig: ett felaktigt kommando kan orsaka skador! "
+"Kommandot placerar nästan säkert kinematiken på låg nivå i ett felaktigt "
+"tillstånd; kör G28 efteråt för att återställa kinematiken. Kommandot är "
+"avsett för diagnostik och felsökning på låg nivå."
 
 msgid "`SDCARD_LOOP_END`: End a looped section in the SD print."
-msgstr ""
+msgstr "`SDCARD_LOOP_END`: Avsluta en upprepad sektion i SD-utskriften."
 
 msgid ""
 "`SDCARD_LOOP_DESIST`: Complete existing loops without further iterations."
-msgstr ""
+msgstr "`SDCARD_LOOP_DESIST`: Slutför befintliga slingor utan fler iterationer."
 
 msgid ""
 "`M118 <message>`: echo the message prepended with the configured default "
 "prefix (or `echo: ` if no prefix is configured)."
 msgstr ""
+"`M118 <message>`: Ekar meddelandet med det konfigurerade standardprefixet "
+"(eller `echo: ` om inget prefix är konfigurerat)."
 
 msgid ""
 "`RESPOND MSG=\"<message>\"`: echo the message prepended with the configured "
 "default prefix (or `echo: ` if no prefix is configured)."
 msgstr ""
+"`RESPOND MSG=\"<message>\"`: Ekar meddelandet med det konfigurerade "
+"standardprefixet (eller `echo: ` om inget prefix är konfigurerat)."
 
 msgid ""
 "`RESPOND TYPE=echo MSG=\"<message>\"`: echo the message prepended with `echo: "
 "`."
 msgstr ""
+"`RESPOND TYPE=echo MSG=\"<message>\"`: Ekar meddelandet med prefixet `echo: "
+"`."
 
 msgid ""
 "`RESPOND TYPE=error MSG=\"<message>\"`: echo the message prepended with `!! `."
 msgstr ""
+"`RESPOND TYPE=error MSG=\"<message>\"`: Ekar meddelandet med prefixet `!! `."
 
 msgid ""
 "`RESPOND PREFIX=<prefix> MSG=\"<message>\"`: echo the message prepended with "
 "`<prefix>`. (The `PREFIX` parameter will take priority over the `TYPE` "
 "parameter)"
 msgstr ""
+"`RESPOND PREFIX=<prefix> MSG=\"<message>\"`: Ekar meddelandet med prefixet "
+"`<prefix>`. (Parametern `PREFIX` har företräde framför parametern `TYPE`.)"
 
 msgid ""
 "The following commands are available when the [pause_resume config "
 "section](Config_Reference.md#pause_resume) is enabled:"
 msgstr ""
+"Följande kommandon är tillgängliga när [pause_resume-konfigurationsavsnittet]"
+"(Config_Reference.md#pause_resume) är aktiverat:"
 
 msgid ""
 "`PAUSE`: Pauses the current print. The current position is captured for "
 "restoration upon resume."
 msgstr ""
+"`PAUSE`: Pausar den aktuella utskriften. Den aktuella positionen sparas för "
+"återställning vid återupptagning."
 
 msgid ""
 "`RESUME [VELOCITY=<value>]`: Resumes the print from a pause, first restoring "
 "the previously captured position. The VELOCITY parameter determines the speed "
 "at which the tool should return to the original captured position."
 msgstr ""
+"`RESUME [VELOCITY=<value>]`: Återupptar utskriften efter en paus och "
+"återställer först den tidigare sparade positionen. Parametern VELOCITY "
+"bestämmer hastigheten som verktyget ska återgå till den ursprungliga sparade "
+"positionen med."
 
 msgid ""
 "`CLEAR_PAUSE`: Clears the current paused state without resuming the print. "
@@ -455,15 +643,22 @@ msgid ""
 "recommended to add this to your start gcode to make sure the paused state is "
 "fresh for each print."
 msgstr ""
+"`CLEAR_PAUSE`: Rensar aktuellt pausat tillstånd utan att återuppta "
+"utskriften. Detta är användbart om du bestämmer dig för att avbryta en "
+"utskrift efter PAUSE. Det rekommenderas att lägga till detta i start-G-koden "
+"så att paustillståndet är nytt för varje utskrift."
 
 msgid "`CANCEL_PRINT`: Cancels the current print."
-msgstr ""
+msgstr "`CANCEL_PRINT`: Avbryter den aktuella utskriften."
 
 msgid ""
 "`SET_FILAMENT_SENSOR SENSOR=<sensor_name> ENABLE=[0|1]`: Sets the filament "
 "sensor on/off. If ENABLE is set to 0, the filament sensor will be disabled, if"
 " set to 1 it is enabled."
 msgstr ""
+"`SET_FILAMENT_SENSOR SENSOR=<sensor_name> ENABLE=[0|1]`: Slår på eller av "
+"filamentsensorn. Om ENABLE sätts till 0 inaktiveras filamentsensorn, och om "
+"den sätts till 1 aktiveras den."
 
 msgid ""
 "`SET_RETRACTION [RETRACT_LENGTH=<mm>] [RETRACT_SPEED=<mm/s>] "
@@ -478,18 +673,31 @@ msgid ""
 "filament configuration, as different filaments require different parameter "
 "settings."
 msgstr ""
+"`SET_RETRACTION [RETRACT_LENGTH=<mm>] [RETRACT_SPEED=<mm/s>] "
+"[UNRETRACT_EXTRA_LENGTH=<mm>] [UNRETRACT_SPEED=<mm/s>]`: Justera "
+"parametrarna för firmwareindragning. RETRACT_LENGTH bestämmer hur mycket "
+"filament som ska dras in och matas ut igen. Indragningshastigheten justeras "
+"via RETRACT_SPEED och sätts vanligen relativt högt. Hastigheten för "
+"utmatning efter indragning justeras via UNRETRACT_SPEED och är inte särskilt "
+"kritisk, men ofta lägre än RETRACT_SPEED. I vissa fall är det användbart att "
+"lägga till en liten extra längd vid utmatning efter indragning; detta anges "
+"med UNRETRACT_EXTRA_LENGTH. SET_RETRACTION anges vanligen som del av "
+"skivningsprogrammets konfiguration per filament, eftersom olika filament "
+"kräver olika parameterinställningar."
 
 msgid ""
 "`GET_RETRACTION`: Queries the current parameters used by firmware retraction "
 "and displays them on the terminal."
 msgstr ""
+"`GET_RETRACTION`: Hämtar aktuella parametrar för firmwareindragning och "
+"visar dem i terminalen."
 
 msgid "`G10`: Retracts the extruder using the currently configured parameters."
-msgstr ""
+msgstr "`G10`: Drar in extrudern med aktuellt konfigurerade parametrar."
 
 msgid ""
 "`G11`: Unretracts the extruder using the currently configured parameters."
-msgstr ""
+msgstr "`G11`: Matar ut extrudern igen med aktuellt konfigurerade parametrar."
 
 msgid ""
 "`SET_SKEW [XY=<ac_length,bd_length,ad_length>] [XZ=<ac,bd,ad>] [YZ=<ac,bd,ad>]"
@@ -498,40 +706,59 @@ msgid ""
 "combination of planes, planes not entered will retain their current value. If "
 "`CLEAR=1` is entered then all skew correction will be disabled."
 msgstr ""
+"`SET_SKEW [XY=<ac_length,bd_length,ad_length>] [XZ=<ac,bd,ad>] [YZ=<ac,bd,ad>"
+"] [CLEAR=<0|1>]`: Konfigurerar modulen [skew_correction] med mätningar (i "
+"mm) från en kalibreringsutskrift. Mätningar kan anges för valfri kombination "
+"av plan; plan som inte anges behåller sina aktuella värden. Om `CLEAR=1` "
+"anges inaktiveras all skevhetskorrigering."
 
 msgid ""
 "`GET_CURRENT_SKEW`: Reports the current printer skew for each plane in both "
 "radians and degrees. The skew is calculated based on parameters provided via "
 "the `SET_SKEW` gcode."
 msgstr ""
+"`GET_CURRENT_SKEW`: Rapporterar skrivarens aktuella skevhet för varje plan, "
+"både i radianer och grader. Skevheten beräknas från parametrar som anges via "
+"G-koden `SET_SKEW`."
 
 msgid ""
 "`UPDATE_DELAYED_GCODE [ID=<name>] [DURATION=<seconds>]`: Updates the delay "
 "duration for the identified [delayed_gcode] and starts the timer for gcode "
 "execution. A value of 0 will cancel a pending delayed gcode from executing."
 msgstr ""
+"`UPDATE_DELAYED_GCODE [ID=<name>] [DURATION=<seconds>]`: Uppdaterar "
+"fördröjningstiden för den identifierade [delayed_gcode] och startar timern "
+"för G-kodskörning. Värdet 0 avbryter en väntande fördröjd G-kod innan den "
+"körs."
 
 msgid ""
 "`MEASURE_AXES_NOISE`: Measures and outputs the noise for all axes of all "
 "enabled accelerometer chips."
 msgstr ""
+"`MEASURE_AXES_NOISE`: Mäter och matar ut brus för samtliga axlar på alla "
+"aktiverade accelerometerkretsar."
 
 msgid ""
 "`PALETTE_CONNECT`: This command initializes the connection with the Palette 2."
 msgstr ""
+"`PALETTE_CONNECT`: Detta kommando initierar anslutningen till Palette 2."
 
 msgid "`PALETTE_DISCONNECT`: This command disconnects from the Palette 2."
-msgstr ""
+msgstr "`PALETTE_DISCONNECT`: Detta kommando kopplar från Palette 2."
 
 msgid ""
 "`PALETTE_CLEAR`: This command instructs the Palette 2 to clear all of the "
 "input and output paths of filament."
 msgstr ""
+"`PALETTE_CLEAR`: Detta kommando instruerar Palette 2 att rensa alla in- och "
+"utmatningsbanor från filament."
 
 msgid ""
 "`PALETTE_CUT`: This command instructs the Palette 2 to cut the filament "
 "currently loaded in the splice core."
 msgstr ""
+"`PALETTE_CUT`: Detta kommando instruerar Palette 2 att skära av filamentet "
+"som för närvarande är laddat i skarvkärnan."
 
 msgid ""
 "`PALETTE_SMART_LOAD`: This command start the smart load sequence on the "
@@ -540,20 +767,29 @@ msgid ""
 " loading has been completed. This command is the same as pressing **Smart "
 "Load** directly on the Palette 2 screen after the filament load is complete."
 msgstr ""
+"`PALETTE_SMART_LOAD`: Detta kommando startar Smart Load-sekvensen på Palette "
+"2. Filament laddas automatiskt genom att extruderas det avstånd som "
+"kalibrerats på enheten för skrivaren, och Palette 2 meddelas när laddningen "
+"är klar. Kommandot motsvarar att trycka på **Smart Load** direkt på Palette "
+"2-skärmen efter att filamentet har laddats."
 
 msgid ""
 "Palette prints work by embedding special OCodes (Omega Codes) in the GCode "
 "file:"
 msgstr ""
+"Palette-utskrifter fungerar genom att bädda in särskilda OCodes (Omega "
+"Codes) i G-kodsfilen:"
 
 msgid ""
 "`O1`...`O32`: These codes are read from the GCode stream and processed by this"
 " module and passed to the Palette 2 device."
 msgstr ""
+"`O1`…`O32`: Dessa koder läses från G-kodsströmmen, behandlas av denna modul "
+"och skickas till Palette 2-enheten."
 
 #: docs/G-Codes.md:block 1 (header)
 msgid "G-Codes"
-msgstr ""
+msgstr "G-koder"
 
 #: docs/G-Codes.md:block 29 (unordered list)
 msgid ""
@@ -562,6 +798,10 @@ msgid ""
 "frequently used babystepping value, and \"make it permanent\". Requires a "
 "`SAVE_CONFIG` to take effect."
 msgstr ""
+"`Z_OFFSET_APPLY_ENDSTOP`: Ta aktuell Z-förskjutning för G-kod (dvs. "
+"mikrostegning) och subtrahera den från stepper_z endstop_position. Detta gör "
+"ett ofta använt värde för mikrostegning permanent. Kräver `SAVE_CONFIG` för "
+"att börja gälla."
 
 #: docs/G-Codes.md:block 54 (unordered list)
 msgid ""
@@ -570,6 +810,10 @@ msgid ""
 " babystepping value, and \"make it permanent\". Requires a `SAVE_CONFIG` to "
 "take effect."
 msgstr ""
+"`Z_OFFSET_APPLY_PROBE`: Ta aktuell Z-förskjutning för G-kod (dvs. "
+"mikrostegning) och subtrahera den från sondens z_offset. Detta gör ett ofta "
+"använt värde för mikrostegning permanent. Kräver `SAVE_CONFIG` för att börja "
+"gälla."
 
 #: docs/G-Codes.md:block 29 (unordered list)
 msgid ""
@@ -586,6 +830,18 @@ msgid ""
 "formulas below is actually `max(z - skip, 0)`. There are three possible "
 "combinations of options:"
 msgstr ""
+"`TUNING_TOWER COMMAND=<command> PARAMETER=<name> START=<value> [SKIP=<value>"
+"] [FACTOR=<value> [BAND=<value>]] | [STEP_DELTA=<value> STEP_HEIGHT=<value>"
+"]`: Ett verktyg för att justera en parameter vid varje Z-höjd under en "
+"utskrift. Verktyget kör angivet `COMMAND` med angivet `PARAMETER` tilldelat "
+"ett värde som varierar med `Z` enligt en formel. Använd `FACTOR` om du ska "
+"använda en linjal eller skjutmått för att mäta Z-höjden för det optimala "
+"värdet, eller `STEP_DELTA` och `STEP_HEIGHT` om modellen för "
+"justeringstornet har band med diskreta värden, vilket är vanligt för "
+"temperaturtorn. Om `SKIP=<value>` anges börjar justeringsprocessen först när "
+"Z-höjden `<value>` nås, och under den höjden sätts värdet till `START`; i "
+"detta fall är `z_height` i formlerna nedan egentligen `max(z - skip, 0)`. "
+"Det finns tre möjliga kombinationer av alternativ:"
 
 #: docs/G-Codes.md:block 120 (unordered list)
 msgid ""
@@ -601,6 +857,16 @@ msgid ""
 " a name in its config section (simply `[adxl345]`) then `<chip>` part of the "
 "name is not generated."
 msgstr ""
+"`ACCELEROMETER_MEASURE [CHIP=<config_name>] [NAME=<value>]`: Startar "
+"accelerometermätningar med begärt antal prover per sekund. Om CHIP inte "
+"anges används ”adxl345” som standard. Kommandot fungerar i start-/stoppläge: "
+"första körningen startar mätningarna och nästa körning stoppar dem. "
+"Mätresultaten skrivs till filen `/tmp/adxl345-<chip>-<name>.csv`, där `<chip>"
+"` är namnet på accelerometerkretsen (`my_chip_name` från `[adxl345 "
+"my_chip_name]`) och `<name>` är den valfria NAME-parametern. Om NAME inte "
+"anges används aktuell tid i formatet ”YYYYMMDD_HHMMSS”. Om accelerometern "
+"saknar namn i sitt konfigurationsavsnitt (endast `[adxl345]`) skapas inte "
+"delen `<chip>` av filnamnet."
 
 #: docs/G-Codes.md:block 120 (unordered list)
 msgid ""
@@ -611,6 +877,12 @@ msgid ""
 "returned values should be a free-fall acceleration (+/- some noise of the "
 "chip)."
 msgstr ""
+"`ACCELEROMETER_QUERY [CHIP=<config_name>] [RATE=<value>]`: Hämtar aktuellt "
+"värde från accelerometern. Om CHIP inte anges används ”adxl345” som "
+"standard. Om RATE inte anges används standardvärdet. Kommandot är användbart "
+"för att testa anslutningen till ADXL345-accelerometern: ett av de "
+"returnerade värdena bör vara en fritt fall-acceleration (± visst brus från "
+"kretsen)."
 
 #: docs/G-Codes.md:block 105 (unordered list)
 msgid ""
@@ -622,6 +894,13 @@ msgid ""
 "Correction](Skew_Correction.md) for details on skew calibration objects and "
 "measurements."
 msgstr ""
+"`CALC_MEASURED_SKEW [AC=<ac_length>] [BD=<bd_length>] [AD=<ad_length>]`: "
+"Beräknar och rapporterar skevheten (i radianer och grader) utifrån en "
+"uppmätt utskrift. Detta kan vara användbart för att bestämma skrivarens "
+"aktuella skevhet efter att korrigering har tillämpats. Det kan också vara "
+"användbart före korrigering för att avgöra om skevhetskorrigering behövs. Se "
+"[Skew Correction](Skew_Correction.md) för information om kalibreringsobjekt "
+"och mätningar för skevhet."
 
 #: docs/G-Codes.md:block 63 (unordered list)
 msgid ""
@@ -630,10 +909,14 @@ msgid ""
 " coordinates generated by bed_mesh, along with their associated indices, will "
 "be output to the terminal."
 msgstr ""
+"`BED_MESH_OUTPUT PGP=[<0:1>]`: Detta kommando skriver ut aktuella Z-värden "
+"från sonderingen och aktuella nätvärden till terminalen. Om PGP=1 anges "
+"skrivs de X- och Y-koordinater som skapas av bed_mesh, tillsammans med "
+"motsvarande index, ut till terminalen."
 
 #: docs/G-Codes.md:block 9 (header)
 msgid "Additional Commands"
-msgstr ""
+msgstr "Ytterligare kommandon"
 
 #: docs/G-Codes.md:block 12 (header)
 msgid "[adxl345]"
@@ -644,6 +927,8 @@ msgid ""
 "The following commands are available when an [adxl345 config "
 "section](Config_Reference.md#adxl345) is enabled."
 msgstr ""
+"Följande kommandon är tillgängliga när ett [adxl345-konfigurationsavsnitt]"
+"(Config_Reference.md#adxl345) är aktiverat."
 
 #: docs/G-Codes.md:block 14 (header)
 msgid "ACCELEROMETER_MEASURE"
@@ -651,7 +936,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 16 (header)
 msgid "ACCELEROMETER_QUERY"
-msgstr ""
+msgstr "ACCELEROMETER_QUERY"
 
 #: docs/G-Codes.md:block 18 (header)
 msgid "ACCELEROMETER_DEBUG_READ"
@@ -663,10 +948,13 @@ msgid ""
 "ADXL345 register \"register\" (e.g. 44 or 0x2C). Can be useful for debugging "
 "purposes."
 msgstr ""
+"`ACCELEROMETER_DEBUG_READ [CHIP=<config_name>] REG=<register>`: Hämtar "
+"ADXL345-registret ”register” (t.ex. 44 eller 0x2C). Kan vara användbart för "
+"felsökning."
 
 #: docs/G-Codes.md:block 20 (header)
 msgid "ACCELEROMETER_DEBUG_WRITE"
-msgstr ""
+msgstr "ACCELEROMETER_DEBUG_WRITE"
 
 #: docs/G-Codes.md:block 21 (paragraph)
 msgid ""
@@ -675,10 +963,14 @@ msgid ""
 "\"register\" can be a decimal or a hexadecimal integer. Use with care, and "
 "refer to ADXL345 data sheet for the reference."
 msgstr ""
+"`ACCELEROMETER_DEBUG_WRITE [CHIP=<config_name>] REG=<register> VAL=<value>`: "
+"Skriver rått ”value” till registret ”register”. Både ”value” och ”register” "
+"kan vara heltal i decimal- eller hexadecimalform. Använd med försiktighet "
+"och se databladet för ADXL345 som referens."
 
 #: docs/G-Codes.md:block 22 (header)
 msgid "[bed_mesh]"
-msgstr ""
+msgstr "[bed_mesh]"
 
 #: docs/G-Codes.md:block 23 (paragraph)
 msgid ""
@@ -686,6 +978,9 @@ msgid ""
 "section](Config_Reference.md#bed_mesh) is enabled (also see the [bed mesh "
 "guide](Bed_Mesh.md))."
 msgstr ""
+"Följande kommandon är tillgängliga när ett [bed_mesh-konfigurationsavsnitt]"
+"(Config_Reference.md#bed_mesh) är aktiverat (se även [guiden för bäddnät]"
+"(Bed_Mesh.md))."
 
 #: docs/G-Codes.md:block 24 (header)
 msgid "BED_MESH_CALIBRATE"
@@ -717,6 +1012,13 @@ msgid ""
 "REMOVE operations have been run the SAVE_CONFIG gcode must be run to make the "
 "changes to persistent memory permanent."
 msgstr ""
+"`BED_MESH_PROFILE LOAD=<name> SAVE=<name> REMOVE=<name>`: Detta kommando "
+"tillhandahåller profilhantering för nättillståndet. LOAD återställer "
+"nättillståndet från profilen som matchar angivet namn. SAVE sparar aktuellt "
+"nättillstånd i en profil som matchar angivet namn. REMOVE tar bort profilen "
+"som matchar angivet namn från beständigt minne. Observera att G-koden "
+"SAVE_CONFIG måste köras efter SAVE- eller REMOVE-operationer för att göra "
+"ändringarna i beständigt minne permanenta."
 
 #: docs/G-Codes.md:block 34 (header)
 msgid "BED_MESH_OFFSET"
@@ -732,6 +1034,9 @@ msgid ""
 "section](Config_Reference.md#bed_screws) is enabled (also see the [manual "
 "level guide](Manual_Level.md#adjusting-bed-leveling-screws))."
 msgstr ""
+"Följande kommandon är tillgängliga när ett [bed_screws-konfigurationsavsnitt]"
+"(Config_Reference.md#bed_screws) är aktiverat (se även [guiden för manuell "
+"nivåjustering](Manual_Level.md#adjusting-bed-leveling-screws))."
 
 #: docs/G-Codes.md:block 38 (header)
 msgid "BED_SCREWS_ADJUST"
@@ -746,6 +1051,8 @@ msgid ""
 "The following commands are available when the [bed_tilt config "
 "section](Config_Reference.md#bed_tilt) is enabled."
 msgstr ""
+"Följande kommandon är tillgängliga när ett [bed_tilt-konfigurationsavsnitt]"
+"(Config_Reference.md#bed_tilt) är aktiverat."
 
 #: docs/G-Codes.md:block 42 (header)
 msgid "BED_TILT_CALIBRATE"
@@ -761,6 +1068,9 @@ msgid ""
 "section](Config_Reference.md#bltouch) is enabled (also see the [BL-Touch "
 "guide](BLTouch.md))."
 msgstr ""
+"Följande kommando är tillgängligt när ett [bltouch-konfigurationsavsnitt]"
+"(Config_Reference.md#bltouch) är aktiverat (se även [BL-Touch-guiden]"
+"(BLTouch.md))."
 
 #: docs/G-Codes.md:block 46 (header)
 msgid "BLTOUCH_DEBUG"
@@ -773,6 +1083,11 @@ msgid ""
 "`pin_up`, `self_test`, `reset`. A BL-Touch V3.0 or V3.1 may also support "
 "`set_5V_output_mode`, `set_OD_output_mode`, `output_mode_store` commands."
 msgstr ""
+"`BLTOUCH_DEBUG COMMAND=<command>`: Skickar ett kommando till BLTouch. Det "
+"kan vara användbart för felsökning. Tillgängliga kommandon är: `pin_down`, "
+"`touch_mode`, `pin_up`, `self_test`, `reset`. En BL-Touch V3.0 eller V3.1 "
+"kan också ha stöd för kommandona `set_5V_output_mode`, `set_OD_output_mode`, "
+"`output_mode_store`."
 
 #: docs/G-Codes.md:block 48 (header)
 msgid "BLTOUCH_STORE"
@@ -784,7 +1099,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 51 (paragraph)
 msgid "The configfile module is automatically loaded."
-msgstr ""
+msgstr "Modulen configfile läses in automatiskt."
 
 #: docs/G-Codes.md:block 52 (header)
 msgid "SAVE_CONFIG"
@@ -800,6 +1115,9 @@ msgid ""
 "section](Config_Reference.md#delayed_gcode) has been enabled (also see the "
 "[template guide](Command_Templates.md#delayed-gcodes))."
 msgstr ""
+"Följande kommando aktiveras om ett [delayed_gcode-konfigurationsavsnitt]"
+"(Config_Reference.md#delayed_gcode) har aktiverats (se även [mallguiden]"
+"(Command_Templates.md#delayed-gcodes))."
 
 #: docs/G-Codes.md:block 56 (header)
 msgid "UPDATE_DELAYED_GCODE"
@@ -815,6 +1133,9 @@ msgid ""
 "section](Config_Reference.md#linear-delta-kinematics) is enabled (also see the"
 " [delta calibrate guide](Delta_Calibrate.md))."
 msgstr ""
+"Följande kommandon är tillgängliga när ett [delta_calibrate-"
+"konfigurationsavsnitt](Config_Reference.md#linear-delta-kinematics) är "
+"aktiverat (se även [guiden för delta-kalibrering](Delta_Calibrate.md))."
 
 #: docs/G-Codes.md:block 60 (header)
 msgid "DELTA_CALIBRATE"
@@ -833,6 +1154,8 @@ msgid ""
 "The following command is available when a [display config "
 "section](Config_Reference.md#gcode_macro) is enabled."
 msgstr ""
+"Följande kommando är tillgängligt när ett [display-konfigurationsavsnitt]"
+"(Config_Reference.md#gcode_macro) är aktiverat."
 
 #: docs/G-Codes.md:block 66 (header)
 msgid "SET_DISPLAY_GROUP"
@@ -848,16 +1171,21 @@ msgid ""
 "section](Config_Reference.md#display) is enabled. It provides the following "
 "standard G-Code commands:"
 msgstr ""
+"Modulen display_status läses in automatiskt om ett [display-"
+"konfigurationsavsnitt](Config_Reference.md#display) är aktiverat. Den "
+"tillhandahåller följande vanliga G-kodskommandon:"
 
 #: docs/G-Codes.md:block 71 (header)
 msgid "[dual_carriage]"
-msgstr ""
+msgstr "[dual_carriage]"
 
 #: docs/G-Codes.md:block 72 (paragraph)
 msgid ""
 "The following command is available when the [dual_carriage config "
 "section](Config_Reference.md#dual_carriage) is enabled."
 msgstr ""
+"Följande kommando är tillgängligt när ett [dual_carriage-"
+"konfigurationsavsnitt](Config_Reference.md#dual_carriage) är aktiverat."
 
 #: docs/G-Codes.md:block 73 (header)
 msgid "SET_DUAL_CARRIAGE"
@@ -865,7 +1193,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 75 (header)
 msgid "[endstop_phase]"
-msgstr ""
+msgstr "[endstop_phase]"
 
 #: docs/G-Codes.md:block 76 (paragraph)
 msgid ""
@@ -873,6 +1201,9 @@ msgid ""
 "section](Config_Reference.md#endstop_phase) is enabled (also see the [endstop "
 "phase guide](Endstop_Phase.md))."
 msgstr ""
+"Följande kommandon är tillgängliga när ett [endstop_phase-"
+"konfigurationsavsnitt](Config_Reference.md#endstop_phase) är aktiverat (se "
+"även [guiden för ändlägesfas](Endstop_Phase.md))."
 
 #: docs/G-Codes.md:block 77 (header)
 msgid "ENDSTOP_PHASE_CALIBRATE"
@@ -887,46 +1218,52 @@ msgid ""
 "The following commands are available if an [extruder config "
 "section](Config_Reference.md#extruder) is enabled:"
 msgstr ""
+"Följande kommandon är tillgängliga om ett [extruder-konfigurationsavsnitt]"
+"(Config_Reference.md#extruder) är aktiverat:"
 
 #: docs/G-Codes.md:block 81 (header)
 msgid "ACTIVATE_EXTRUDER"
-msgstr ""
+msgstr "ACTIVATE_EXTRUDER"
 
 #: docs/G-Codes.md:block 83 (header)
 msgid "SET_PRESSURE_ADVANCE"
-msgstr ""
+msgstr "SET_PRESSURE_ADVANCE"
 
 #: docs/G-Codes.md:block 85 (header)
 msgid "SET_EXTRUDER_ROTATION_DISTANCE"
-msgstr ""
+msgstr "SET_EXTRUDER_ROTATION_DISTANCE"
 
 #: docs/G-Codes.md:block 87 (header)
 msgid "SYNC_EXTRUDER_MOTION"
-msgstr ""
+msgstr "SYNC_EXTRUDER_MOTION"
 
 #: docs/G-Codes.md:block 93 (header)
 msgid "[fan_generic]"
-msgstr ""
+msgstr "[fan_generic]"
 
 #: docs/G-Codes.md:block 94 (paragraph)
 msgid ""
 "The following command is available when a [fan_generic config "
 "section](Config_Reference.md#fan_generic) is enabled."
 msgstr ""
+"Följande kommando är tillgängligt när ett [fan_generic-konfigurationsavsnitt]"
+"(Config_Reference.md#fan_generic) är aktiverat."
 
 #: docs/G-Codes.md:block 95 (header)
 msgid "SET_FAN_SPEED"
-msgstr ""
+msgstr "SET_FAN_SPEED"
 
 #: docs/G-Codes.md:block 96 (paragraph)
 msgid ""
 "`SET_FAN_SPEED FAN=config_name SPEED=<speed>` This command sets the speed of a"
 " fan. \"speed\" must be between 0.0 and 1.0."
 msgstr ""
+"`SET_FAN_SPEED FAN=config_name SPEED=<speed>`: Detta kommando anger fläktens "
+"hastighet. ”speed” måste vara mellan 0,0 och 1,0."
 
 #: docs/G-Codes.md:block 97 (header)
 msgid "[firmware_retraction]"
-msgstr ""
+msgstr "[firmware_retraction]"
 
 #: docs/G-Codes.md:block 98 (paragraph)
 msgid ""
@@ -937,22 +1274,29 @@ msgid ""
 "moves from one part of the print to another. Appropriately configuring "
 "pressure advance reduces the length of retraction required."
 msgstr ""
+"Följande vanliga G-kodskommandon är tillgängliga när ett "
+"[firmware_retraction-konfigurationsavsnitt]"
+"(Config_Reference.md#firmware_retraction) är aktiverat. Kommandona gör det "
+"möjligt att använda firmwareindragning som finns i många skivningsprogram "
+"för att minska trådbildning vid förflyttningar utan extrudering från en del "
+"av utskriften till en annan. Korrekt konfigurerad tryckutjämning minskar "
+"längden på den indragning som krävs."
 
 #: docs/G-Codes.md:block 100 (paragraph)
 msgid "The following additional commands are also available."
-msgstr ""
+msgstr "Följande ytterligare kommandon är också tillgängliga."
 
 #: docs/G-Codes.md:block 101 (header)
 msgid "SET_RETRACTION"
-msgstr ""
+msgstr "SET_RETRACTION"
 
 #: docs/G-Codes.md:block 103 (header)
 msgid "GET_RETRACTION"
-msgstr ""
+msgstr "GET_RETRACTION"
 
 #: docs/G-Codes.md:block 105 (header)
 msgid "[filament_switch_sensor]"
-msgstr ""
+msgstr "[filament_switch_sensor]"
 
 #: docs/G-Codes.md:block 106 (paragraph)
 msgid ""
@@ -961,10 +1305,14 @@ msgid ""
 "[filament_motion_sensor](Config_Reference.md#filament_motion_sensor) config "
 "section is enabled."
 msgstr ""
+"Följande kommando är tillgängligt när ett [filament_switch_sensor]"
+"(Config_Reference.md#filament_switch_sensor)- eller [filament_motion_sensor]"
+"(Config_Reference.md#filament_motion_sensor)-konfigurationsavsnitt är "
+"aktiverat."
 
 #: docs/G-Codes.md:block 107 (header)
 msgid "QUERY_FILAMENT_SENSOR"
-msgstr ""
+msgstr "QUERY_FILAMENT_SENSOR"
 
 #: docs/G-Codes.md:block 108 (paragraph)
 msgid ""
@@ -972,58 +1320,61 @@ msgid ""
 "the filament sensor. The data displayed on the terminal will depend on the "
 "sensor type defined in the configuration."
 msgstr ""
+"`QUERY_FILAMENT_SENSOR SENSOR=<sensor_name>`: Hämtar filamentsensorns "
+"aktuella status. De data som visas i terminalen beror på sensortypen som "
+"definierats i konfigurationen."
 
 #: docs/G-Codes.md:block 109 (header)
 msgid "SET_FILAMENT_SENSOR"
-msgstr ""
+msgstr "SET_FILAMENT_SENSOR"
 
 #: docs/G-Codes.md:block 114 (header)
 msgid "[force_move]"
-msgstr ""
+msgstr "[force_move]"
 
 #: docs/G-Codes.md:block 116 (header)
 msgid "STEPPER_BUZZ"
-msgstr ""
+msgstr "STEPPER_BUZZ"
 
 #: docs/G-Codes.md:block 118 (header)
 msgid "FORCE_MOVE"
-msgstr ""
+msgstr "FORCE_MOVE"
 
 #: docs/G-Codes.md:block 120 (header)
 msgid "SET_KINEMATIC_POSITION"
-msgstr ""
+msgstr "SET_KINEMATIC_POSITION"
 
 #: docs/G-Codes.md:block 122 (header)
 msgid "[gcode]"
-msgstr ""
+msgstr "[gcode]"
 
 #: docs/G-Codes.md:block 123 (paragraph)
 msgid "The gcode module is automatically loaded."
-msgstr ""
+msgstr "Modulen gcode läses in automatiskt."
 
 #: docs/G-Codes.md:block 124 (header)
 msgid "RESTART"
-msgstr ""
+msgstr "RESTART"
 
 #: docs/G-Codes.md:block 126 (header)
 msgid "FIRMWARE_RESTART"
-msgstr ""
+msgstr "FIRMWARE_RESTART"
 
 #: docs/G-Codes.md:block 128 (header)
 msgid "STATUS"
-msgstr ""
+msgstr "STATUS"
 
 #: docs/G-Codes.md:block 130 (header)
 msgid "HELP"
-msgstr ""
+msgstr "HELP"
 
 #: docs/G-Codes.md:block 132 (header)
 msgid "[gcode_arcs]"
-msgstr ""
+msgstr "[gcode_arcs]"
 
 #: docs/G-Codes.md:block 135 (header)
 msgid "[gcode_macro]"
-msgstr ""
+msgstr "[gcode_macro]"
 
 #: docs/G-Codes.md:block 136 (paragraph)
 msgid ""
@@ -1031,38 +1382,41 @@ msgid ""
 "section](Config_Reference.md#gcode_macro) is enabled (also see the [command "
 "templates guide](Command_Templates.md))."
 msgstr ""
+"Följande kommando är tillgängligt när ett [gcode_macro-konfigurationsavsnitt]"
+"(Config_Reference.md#gcode_macro) är aktiverat (se även [guiden för "
+"kommandomallar](Command_Templates.md))."
 
 #: docs/G-Codes.md:block 137 (header)
 msgid "SET_GCODE_VARIABLE"
-msgstr ""
+msgstr "SET_GCODE_VARIABLE"
 
 #: docs/G-Codes.md:block 139 (header)
 msgid "[gcode_move]"
-msgstr ""
+msgstr "[gcode_move]"
 
 #: docs/G-Codes.md:block 140 (paragraph)
 msgid "The gcode_move module is automatically loaded."
-msgstr ""
+msgstr "Modulen gcode_move läses in automatiskt."
 
 #: docs/G-Codes.md:block 141 (header)
 msgid "GET_POSITION"
-msgstr ""
+msgstr "GET_POSITION"
 
 #: docs/G-Codes.md:block 143 (header)
 msgid "SET_GCODE_OFFSET"
-msgstr ""
+msgstr "SET_GCODE_OFFSET"
 
 #: docs/G-Codes.md:block 145 (header)
 msgid "SAVE_GCODE_STATE"
-msgstr ""
+msgstr "SAVE_GCODE_STATE"
 
 #: docs/G-Codes.md:block 147 (header)
 msgid "RESTORE_GCODE_STATE"
-msgstr ""
+msgstr "RESTORE_GCODE_STATE"
 
 #: docs/G-Codes.md:block 149 (header)
 msgid "[hall_filament_width_sensor]"
-msgstr ""
+msgstr "[hall_filament_width_sensor]"
 
 #: docs/G-Codes.md:block 150 (paragraph)
 msgid ""
@@ -1073,86 +1427,97 @@ msgid ""
 "[TSLl401CL Filament Width Sensor](TSL1401CL_Filament_Width_Sensor.md) and "
 "[Hall Filament Width Sensor](Hall_Filament_Width_Sensor.md)):"
 msgstr ""
+"Följande kommandon är tillgängliga när ett [tsl1401cl-konfigurationsavsnitt "
+"för filamentbreddssensor]"
+"(Config_Reference.md#tsl1401cl_filament_width_sensor) eller ett [hall-"
+"filamentbreddssensorkonfigurationsavsnitt]"
+"(Config_Reference.md#hall_filament_width_sensor) är aktiverat (se även "
+"[TSLl401CL-filamentbreddssensor](TSL1401CL_Filament_Width_Sensor.md) och "
+"[Hall-filamentbreddssensor](Hall_Filament_Width_Sensor.md)):"
 
 #: docs/G-Codes.md:block 151 (header)
 msgid "QUERY_FILAMENT_WIDTH"
-msgstr ""
+msgstr "QUERY_FILAMENT_WIDTH"
 
 #: docs/G-Codes.md:block 153 (header)
 msgid "RESET_FILAMENT_WIDTH_SENSOR"
-msgstr ""
+msgstr "RESET_FILAMENT_WIDTH_SENSOR"
 
 #: docs/G-Codes.md:block 155 (header)
 msgid "DISABLE_FILAMENT_WIDTH_SENSOR"
-msgstr ""
+msgstr "DISABLE_FILAMENT_WIDTH_SENSOR"
 
 #: docs/G-Codes.md:block 157 (header)
 msgid "ENABLE_FILAMENT_WIDTH_SENSOR"
-msgstr ""
+msgstr "ENABLE_FILAMENT_WIDTH_SENSOR"
 
 #: docs/G-Codes.md:block 159 (header)
 msgid "QUERY_RAW_FILAMENT_WIDTH"
-msgstr ""
+msgstr "QUERY_RAW_FILAMENT_WIDTH"
 
 #: docs/G-Codes.md:block 160 (paragraph)
 msgid ""
 "`QUERY_RAW_FILAMENT_WIDTH`: Return the current ADC channel readings and RAW "
 "sensor value for calibration points."
 msgstr ""
+"`QUERY_RAW_FILAMENT_WIDTH`: Returnera aktuella avläsningar från ADC-kanalen "
+"och rått sensorvärde för kalibreringspunkter."
 
 #: docs/G-Codes.md:block 161 (header)
 msgid "ENABLE_FILAMENT_WIDTH_LOG"
-msgstr ""
+msgstr "ENABLE_FILAMENT_WIDTH_LOG"
 
 #: docs/G-Codes.md:block 162 (paragraph)
 msgid "`ENABLE_FILAMENT_WIDTH_LOG`: Turn on diameter logging."
-msgstr ""
+msgstr "`ENABLE_FILAMENT_WIDTH_LOG`: Aktivera loggning av diameter."
 
 #: docs/G-Codes.md:block 163 (header)
 msgid "DISABLE_FILAMENT_WIDTH_LOG"
-msgstr ""
+msgstr "DISABLE_FILAMENT_WIDTH_LOG"
 
 #: docs/G-Codes.md:block 164 (paragraph)
 msgid "`DISABLE_FILAMENT_WIDTH_LOG`: Turn off diameter logging."
-msgstr ""
+msgstr "`DISABLE_FILAMENT_WIDTH_LOG`: Inaktivera loggning av diameter."
 
 #: docs/G-Codes.md:block 165 (header)
 msgid "[heaters]"
-msgstr ""
+msgstr "[heaters]"
 
 #: docs/G-Codes.md:block 166 (paragraph)
 msgid ""
 "The heaters module is automatically loaded if a heater is defined in the "
 "config file."
 msgstr ""
+"Modulen heaters läses in automatiskt om en värmare är definierad i "
+"konfigurationsfilen."
 
 #: docs/G-Codes.md:block 167 (header)
 msgid "TURN_OFF_HEATERS"
-msgstr ""
+msgstr "TURN_OFF_HEATERS"
 
 #: docs/G-Codes.md:block 169 (header)
 msgid "TEMPERATURE_WAIT"
-msgstr ""
+msgstr "TEMPERATURE_WAIT"
 
 #: docs/G-Codes.md:block 171 (header)
 msgid "SET_HEATER_TEMPERATURE"
-msgstr ""
+msgstr "SET_HEATER_TEMPERATURE"
 
 #: docs/G-Codes.md:block 173 (header)
 msgid "[idle_timeout]"
-msgstr ""
+msgstr "[idle_timeout]"
 
 #: docs/G-Codes.md:block 174 (paragraph)
 msgid "The idle_timeout module is automatically loaded."
-msgstr ""
+msgstr "Modulen idle_timeout läses in automatiskt."
 
 #: docs/G-Codes.md:block 175 (header)
 msgid "SET_IDLE_TIMEOUT"
-msgstr ""
+msgstr "SET_IDLE_TIMEOUT"
 
 #: docs/G-Codes.md:block 177 (header)
 msgid "[input_shaper]"
-msgstr ""
+msgstr "[input_shaper]"
 
 #: docs/G-Codes.md:block 178 (paragraph)
 msgid ""
@@ -1160,124 +1525,133 @@ msgid ""
 "section](Config_Reference.md#input_shaper) has been enabled (also see the "
 "[resonance compensation guide](Resonance_Compensation.md))."
 msgstr ""
+"Följande kommando aktiveras om ett [input_shaper-konfigurationsavsnitt]"
+"(Config_Reference.md#input_shaper) har aktiverats (se även [guiden för "
+"resonanskompensering](Resonance_Compensation.md))."
 
 #: docs/G-Codes.md:block 179 (header)
 msgid "SET_INPUT_SHAPER"
-msgstr ""
+msgstr "SET_INPUT_SHAPER"
 
 #: docs/G-Codes.md:block 181 (header)
 msgid "[manual_probe]"
-msgstr ""
+msgstr "[manual_probe]"
 
 #: docs/G-Codes.md:block 182 (paragraph)
 msgid "The manual_probe module is automatically loaded."
-msgstr ""
+msgstr "Modulen manual_probe läses in automatiskt."
 
 #: docs/G-Codes.md:block 183 (header)
 msgid "MANUAL_PROBE"
-msgstr ""
+msgstr "MANUAL_PROBE"
 
 #: docs/G-Codes.md:block 186 (header)
 msgid "Z_ENDSTOP_CALIBRATE"
-msgstr ""
+msgstr "Z_ENDSTOP_CALIBRATE"
 
 #: docs/G-Codes.md:block 188 (header)
 msgid "Z_OFFSET_APPLY_ENDSTOP"
-msgstr ""
+msgstr "Z_OFFSET_APPLY_ENDSTOP"
 
 #: docs/G-Codes.md:block 190 (header)
 msgid "[manual_stepper]"
-msgstr ""
+msgstr "[manual_stepper]"
 
 #: docs/G-Codes.md:block 191 (paragraph)
 msgid ""
 "The following command is available when a [manual_stepper config "
 "section](Config_Reference.md#manual_stepper) is enabled."
 msgstr ""
+"Följande kommando är tillgängligt när ett [manual_stepper-"
+"konfigurationsavsnitt](Config_Reference.md#manual_stepper) är aktiverat."
 
 #: docs/G-Codes.md:block 192 (header)
 msgid "MANUAL_STEPPER"
-msgstr ""
+msgstr "MANUAL_STEPPER"
 
 #: docs/G-Codes.md:block 196 (header)
 msgid "SET_LED"
-msgstr ""
+msgstr "SET_LED"
 
 #: docs/G-Codes.md:block 198 (header)
 msgid "[output_pin]"
-msgstr ""
+msgstr "[output_pin]"
 
 #: docs/G-Codes.md:block 200 (header)
 msgid "SET_PIN"
-msgstr ""
+msgstr "SET_PIN"
 
 #: docs/G-Codes.md:block 202 (header)
 msgid "[palette2]"
-msgstr ""
+msgstr "[palette2]"
 
 #: docs/G-Codes.md:block 203 (paragraph)
 msgid ""
 "The following commands are available when the [palette2 config "
 "section](Config_Reference.md#palette2) is enabled."
 msgstr ""
+"Följande kommandon är tillgängliga när ett [palette2-konfigurationsavsnitt]"
+"(Config_Reference.md#palette2) är aktiverat."
 
 #: docs/G-Codes.md:block 207 (header)
 msgid "PALETTE_CONNECT"
-msgstr ""
+msgstr "PALETTE_CONNECT"
 
 #: docs/G-Codes.md:block 209 (header)
 msgid "PALETTE_DISCONNECT"
-msgstr ""
+msgstr "PALETTE_DISCONNECT"
 
 #: docs/G-Codes.md:block 211 (header)
 msgid "PALETTE_CLEAR"
-msgstr ""
+msgstr "PALETTE_CLEAR"
 
 #: docs/G-Codes.md:block 213 (header)
 msgid "PALETTE_CUT"
-msgstr ""
+msgstr "PALETTE_CUT"
 
 #: docs/G-Codes.md:block 215 (header)
 msgid "PALETTE_SMART_LOAD"
-msgstr ""
+msgstr "PALETTE_SMART_LOAD"
 
 #: docs/G-Codes.md:block 217 (header)
 msgid "[pid_calibrate]"
-msgstr ""
+msgstr "[pid_calibrate]"
 
 #: docs/G-Codes.md:block 218 (paragraph)
 msgid ""
 "The pid_calibrate module is automatically loaded if a heater is defined in the"
 " config file."
 msgstr ""
+"Modulen pid_calibrate läses in automatiskt om en värmare är definierad i "
+"konfigurationsfilen."
 
 #: docs/G-Codes.md:block 219 (header)
 msgid "PID_CALIBRATE"
-msgstr ""
+msgstr "PID_CALIBRATE"
 
 #: docs/G-Codes.md:block 221 (header)
 msgid "[pause_resume]"
-msgstr ""
+msgstr "[pause_resume]"
 
 #: docs/G-Codes.md:block 223 (header)
 msgid "PAUSE"
-msgstr ""
+msgstr "PAUSE"
 
 #: docs/G-Codes.md:block 225 (header)
 msgid "RESUME"
-msgstr ""
+msgstr "RESUME"
 
 #: docs/G-Codes.md:block 227 (header)
 msgid "CLEAR_PAUSE"
-msgstr ""
+msgstr "CLEAR_PAUSE"
 
 #: docs/G-Codes.md:block 229 (header)
 msgid "CANCEL_PRINT"
-msgstr ""
+msgstr "CANCEL_PRINT"
 
 #: docs/G-Codes.md:block 231 (header)
 msgid "[probe]"
-msgstr ""
+msgstr "[probe]"
 
 #: docs/G-Codes.md:block 232 (paragraph)
 msgid ""
@@ -1286,52 +1660,58 @@ msgid ""
 "section](Config_Reference.md#bltouch) is enabled (also see the [probe "
 "calibrate guide](Probe_Calibrate.md))."
 msgstr ""
+"Följande kommandon är tillgängliga när ett [probe-konfigurationsavsnitt]"
+"(Config_Reference.md#probe) eller ett [bltouch-konfigurationsavsnitt]"
+"(Config_Reference.md#bltouch) är aktiverat (se även [guiden för "
+"sondkalibrering](Probe_Calibrate.md))."
 
 #: docs/G-Codes.md:block 233 (header)
 msgid "PROBE"
-msgstr ""
+msgstr "PROBE"
 
 #: docs/G-Codes.md:block 235 (header)
 msgid "QUERY_PROBE"
-msgstr ""
+msgstr "QUERY_PROBE"
 
 #: docs/G-Codes.md:block 237 (header)
 msgid "PROBE_ACCURACY"
-msgstr ""
+msgstr "PROBE_ACCURACY"
 
 #: docs/G-Codes.md:block 239 (header)
 msgid "PROBE_CALIBRATE"
-msgstr ""
+msgstr "PROBE_CALIBRATE"
 
 #: docs/G-Codes.md:block 241 (header)
 msgid "Z_OFFSET_APPLY_PROBE"
-msgstr ""
+msgstr "Z_OFFSET_APPLY_PROBE"
 
 #: docs/G-Codes.md:block 243 (header)
 msgid "[query_adc]"
-msgstr ""
+msgstr "[query_adc]"
 
 #: docs/G-Codes.md:block 245 (header)
 msgid "QUERY_ADC"
-msgstr ""
+msgstr "QUERY_ADC"
 
 #: docs/G-Codes.md:block 247 (header)
 msgid "[query_endstops]"
-msgstr ""
+msgstr "[query_endstops]"
 
 #: docs/G-Codes.md:block 248 (paragraph)
 msgid ""
 "The query_endstops module is automatically loaded. The following standard "
 "G-Code commands are currently available, but using them is not recommended:"
 msgstr ""
+"Modulen query_endstops läses in automatiskt. Följande vanliga G-"
+"kodskommandon är tillgängliga, men de rekommenderas inte:"
 
 #: docs/G-Codes.md:block 250 (header)
 msgid "QUERY_ENDSTOPS"
-msgstr ""
+msgstr "QUERY_ENDSTOPS"
 
 #: docs/G-Codes.md:block 252 (header)
 msgid "[resonance_tester]"
-msgstr ""
+msgstr "[resonance_tester]"
 
 #: docs/G-Codes.md:block 253 (paragraph)
 msgid ""
@@ -1339,32 +1719,37 @@ msgid ""
 "section](Config_Reference.md#resonance_tester) is enabled (also see the "
 "[measuring resonances guide](Measuring_Resonances.md))."
 msgstr ""
+"Följande kommandon är tillgängliga när ett [resonance_tester-"
+"konfigurationsavsnitt](Config_Reference.md#resonance_tester) är aktiverat "
+"(se även [guiden för resonansmätning](Measuring_Resonances.md))."
 
 #: docs/G-Codes.md:block 254 (header)
 msgid "MEASURE_AXES_NOISE"
-msgstr ""
+msgstr "MEASURE_AXES_NOISE"
 
 #: docs/G-Codes.md:block 256 (header)
 msgid "TEST_RESONANCES"
-msgstr ""
+msgstr "TEST_RESONANCES"
 
 #: docs/G-Codes.md:block 258 (header)
 msgid "SHAPER_CALIBRATE"
-msgstr ""
+msgstr "SHAPER_CALIBRATE"
 
 #: docs/G-Codes.md:block 260 (header)
 msgid "[respond]"
-msgstr ""
+msgstr "[respond]"
 
 #: docs/G-Codes.md:block 261 (paragraph)
 msgid ""
 "The following standard G-Code commands are available when the [respond config "
 "section](Config_Reference.md#respond) is enabled:"
 msgstr ""
+"Följande vanliga G-kodskommandon är tillgängliga när ett [respond-"
+"konfigurationsavsnitt](Config_Reference.md#respond) är aktiverat:"
 
 #: docs/G-Codes.md:block 264 (header)
 msgid "RESPOND"
-msgstr ""
+msgstr "RESPOND"
 
 #: docs/G-Codes.md:block 265 (unordered list)
 msgid ""
@@ -1372,24 +1757,29 @@ msgid ""
 "`. OctoPrint can be configured to respond to these messages (e.g. `RESPOND "
 "TYPE=command MSG=action:pause`)."
 msgstr ""
+"`RESPOND TYPE=command MSG=\"<message>\"`: Ekar meddelandet med prefixet `// "
+"`. OctoPrint kan konfigureras för att svara på dessa meddelanden (t.ex. "
+"`RESPOND TYPE=command MSG=action:pause`)."
 
 #: docs/G-Codes.md:block 266 (header)
 msgid "[save_variables]"
-msgstr ""
+msgstr "[save_variables]"
 
 #: docs/G-Codes.md:block 267 (paragraph)
 msgid ""
 "The following command is enabled if a [save_variables config "
 "section](Config_Reference.md#save_variables) has been enabled."
 msgstr ""
+"Följande kommando aktiveras om ett [save_variables-konfigurationsavsnitt]"
+"(Config_Reference.md#save_variables) har aktiverats."
 
 #: docs/G-Codes.md:block 268 (header)
 msgid "SAVE_VARIABLE"
-msgstr ""
+msgstr "SAVE_VARIABLE"
 
 #: docs/G-Codes.md:block 270 (header)
 msgid "[screws_tilt_adjust]"
-msgstr ""
+msgstr "[screws_tilt_adjust]"
 
 #: docs/G-Codes.md:block 271 (paragraph)
 msgid ""
@@ -1398,56 +1788,66 @@ msgid ""
 "[manual level guide](Manual_Level.md#adjusting-bed-leveling-screws-using-the-"
 "bed-probe))."
 msgstr ""
+"Följande kommandon är tillgängliga när ett [screws_tilt_adjust-"
+"konfigurationsavsnitt](Config_Reference.md#screws_tilt_adjust) är aktiverat "
+"(se även [guiden för manuell nivåjustering](Manual_Level.md#adjusting-bed-"
+"leveling-screws-using-the-bed-probe))."
 
 #: docs/G-Codes.md:block 272 (header)
 msgid "SCREWS_TILT_CALCULATE"
-msgstr ""
+msgstr "SCREWS_TILT_CALCULATE"
 
 #: docs/G-Codes.md:block 274 (header)
 msgid "[sdcard_loop]"
-msgstr ""
+msgstr "[sdcard_loop]"
 
 #: docs/G-Codes.md:block 275 (paragraph)
 msgid ""
 "When the [sdcard_loop config section](Config_Reference.md#sdcard_loop) is "
 "enabled, the following extended commands are available."
 msgstr ""
+"När ett [sdcard_loop-konfigurationsavsnitt](Config_Reference.md#sdcard_loop) "
+"är aktiverat finns följande utökade kommandon tillgängliga."
 
 #: docs/G-Codes.md:block 276 (header)
 msgid "SDCARD_LOOP_BEGIN"
-msgstr ""
+msgstr "SDCARD_LOOP_BEGIN"
 
 #: docs/G-Codes.md:block 277 (paragraph)
 msgid ""
 "`SDCARD_LOOP_BEGIN COUNT=<count>`: Begin a looped section in the SD print. A "
 "count of 0 indicates that the section should be looped indefinitely."
 msgstr ""
+"`SDCARD_LOOP_BEGIN COUNT=<count>`: Starta en upprepad sektion i SD-"
+"utskriften. Antalet 0 anger att sektionen ska upprepas obegränsat."
 
 #: docs/G-Codes.md:block 278 (header)
 msgid "SDCARD_LOOP_END"
-msgstr ""
+msgstr "SDCARD_LOOP_END"
 
 #: docs/G-Codes.md:block 280 (header)
 msgid "SDCARD_LOOP_DESIST"
-msgstr ""
+msgstr "SDCARD_LOOP_DESIST"
 
 #: docs/G-Codes.md:block 282 (header)
 msgid "[servo]"
-msgstr ""
+msgstr "[servo]"
 
 #: docs/G-Codes.md:block 283 (paragraph)
 msgid ""
 "The following commands are available when a [servo config "
 "section](Config_Reference.md#servo) is enabled."
 msgstr ""
+"Följande kommandon är tillgängliga när ett [servo-konfigurationsavsnitt]"
+"(Config_Reference.md#servo) är aktiverat."
 
 #: docs/G-Codes.md:block 284 (header)
 msgid "SET_SERVO"
-msgstr ""
+msgstr "SET_SERVO"
 
 #: docs/G-Codes.md:block 286 (header)
 msgid "[skew_correction]"
-msgstr ""
+msgstr "[skew_correction]"
 
 #: docs/G-Codes.md:block 287 (paragraph)
 msgid ""
@@ -1455,22 +1855,25 @@ msgid ""
 "section](Config_Reference.md#skew_correction) is enabled (also see the [Skew "
 "Correction](Skew_Correction.md) guide)."
 msgstr ""
+"Följande kommandon är tillgängliga när ett [skew_correction-"
+"konfigurationsavsnitt](Config_Reference.md#skew_correction) är aktiverat (se "
+"även guiden [Skew Correction](Skew_Correction.md))."
 
 #: docs/G-Codes.md:block 288 (header)
 msgid "SET_SKEW"
-msgstr ""
+msgstr "SET_SKEW"
 
 #: docs/G-Codes.md:block 290 (header)
 msgid "GET_CURRENT_SKEW"
-msgstr ""
+msgstr "GET_CURRENT_SKEW"
 
 #: docs/G-Codes.md:block 292 (header)
 msgid "CALC_MEASURED_SKEW"
-msgstr ""
+msgstr "CALC_MEASURED_SKEW"
 
 #: docs/G-Codes.md:block 294 (header)
 msgid "SKEW_PROFILE"
-msgstr ""
+msgstr "SKEW_PROFILE"
 
 #: docs/G-Codes.md:block 295 (paragraph)
 msgid ""
@@ -1482,32 +1885,41 @@ msgid ""
 "run the SAVE_CONFIG gcode must be run to make the changes to persistent memory"
 " permanent."
 msgstr ""
+"`SKEW_PROFILE [LOAD=<name>] [SAVE=<name>] [REMOVE=<name>]`: Profilhantering "
+"för skew_correction. LOAD återställer skevhetstillståndet från profilen som "
+"matchar angivet namn. SAVE sparar aktuellt skevhetstillstånd i en profil som "
+"matchar angivet namn. REMOVE tar bort profilen som matchar angivet namn från "
+"beständigt minne. Observera att G-koden SAVE_CONFIG måste köras efter SAVE- "
+"eller REMOVE-operationer för att göra ändringarna i beständigt minne "
+"permanenta."
 
 #: docs/G-Codes.md:block 296 (header)
 msgid "[stepper_enable]"
-msgstr ""
+msgstr "[stepper_enable]"
 
 #: docs/G-Codes.md:block 297 (paragraph)
 msgid "The stepper_enable module is automatically loaded."
-msgstr ""
+msgstr "Modulen stepper_enable läses in automatiskt."
 
 #: docs/G-Codes.md:block 298 (header)
 msgid "SET_STEPPER_ENABLE"
-msgstr ""
+msgstr "SET_STEPPER_ENABLE"
 
 #: docs/G-Codes.md:block 300 (header)
 msgid "[temperature_fan]"
-msgstr ""
+msgstr "[temperature_fan]"
 
 #: docs/G-Codes.md:block 301 (paragraph)
 msgid ""
 "The following command is available when a [temperature_fan config "
 "section](Config_Reference.md#temperature_fan) is enabled."
 msgstr ""
+"Följande kommando är tillgängligt när ett [temperature_fan-"
+"konfigurationsavsnitt](Config_Reference.md#temperature_fan) är aktiverat."
 
 #: docs/G-Codes.md:block 302 (header)
 msgid "SET_TEMPERATURE_FAN_TARGET"
-msgstr ""
+msgstr "SET_TEMPERATURE_FAN_TARGET"
 
 #: docs/G-Codes.md:block 303 (paragraph)
 msgid ""
@@ -1517,24 +1929,32 @@ msgid ""
 "If a target is not supplied, it is set to the specified temperature in the "
 "config file. If speeds are not supplied, no change is applied."
 msgstr ""
+"`SET_TEMPERATURE_FAN_TARGET temperature_fan=<temperature_fan_name> "
+"[target=<target_temperature>] [min_speed=<min_speed>] [max_speed=<max_speed>"
+"]`: Anger måltemperaturen för en temperature_fan. Om inget mål anges används "
+"temperaturen som anges i konfigurationsfilen. Om hastigheter inte anges görs "
+"ingen ändring."
 
 #: docs/G-Codes.md:block 304 (header)
 msgid "[tmcXXXX]"
-msgstr ""
+msgstr "[tmcXXXX]"
 
 #: docs/G-Codes.md:block 305 (paragraph)
 msgid ""
 "The following commands are available when any of the [tmcXXXX config "
 "sections](Config_Reference.md#tmc-stepper-driver-configuration) are enabled."
 msgstr ""
+"Följande kommandon är tillgängliga när något av [tmcXXXX-"
+"konfigurationsavsnitten](Config_Reference.md#tmc-stepper-driver-"
+"configuration) är aktiverat."
 
 #: docs/G-Codes.md:block 306 (header)
 msgid "DUMP_TMC"
-msgstr ""
+msgstr "DUMP_TMC"
 
 #: docs/G-Codes.md:block 308 (header)
 msgid "INIT_TMC"
-msgstr ""
+msgstr "INIT_TMC"
 
 #: docs/G-Codes.md:block 309 (paragraph)
 msgid ""
@@ -1542,38 +1962,41 @@ msgid ""
 "Needed to re-enable the driver if power to the chip is turned off then back "
 "on."
 msgstr ""
+"`INIT_TMC STEPPER=<name>`: Detta kommando initierar TMC-registren. Krävs för "
+"att återaktivera drivrutinen om kretsens ström stängs av och sedan slås på "
+"igen."
 
 #: docs/G-Codes.md:block 310 (header)
 msgid "SET_TMC_CURRENT"
-msgstr ""
+msgstr "SET_TMC_CURRENT"
 
 #: docs/G-Codes.md:block 312 (header)
 msgid "SET_TMC_FIELD"
-msgstr ""
+msgstr "SET_TMC_FIELD"
 
 #: docs/G-Codes.md:block 314 (header)
 msgid "[toolhead]"
-msgstr ""
+msgstr "[toolhead]"
 
 #: docs/G-Codes.md:block 315 (paragraph)
 msgid "The toolhead module is automatically loaded."
-msgstr ""
+msgstr "Modulen toolhead läses in automatiskt."
 
 #: docs/G-Codes.md:block 316 (header)
 msgid "SET_VELOCITY_LIMIT"
-msgstr ""
+msgstr "SET_VELOCITY_LIMIT"
 
 #: docs/G-Codes.md:block 318 (header)
 msgid "[tuning_tower]"
-msgstr ""
+msgstr "[tuning_tower]"
 
 #: docs/G-Codes.md:block 319 (paragraph)
 msgid "The tuning_tower module is automatically loaded."
-msgstr ""
+msgstr "Modulen tuning_tower läses in automatiskt."
 
 #: docs/G-Codes.md:block 320 (header)
 msgid "TUNING_TOWER"
-msgstr ""
+msgstr "TUNING_TOWER"
 
 #: docs/G-Codes.md:block 322 (unordered list)
 msgid ""
@@ -1581,6 +2004,9 @@ msgid ""
 "used is: `value = start + factor * z_height`. You can plug the optimum Z "
 "height directly into the formula to determine the optimum parameter value."
 msgstr ""
+"`FACTOR`: Värdet ändras med hastigheten `factor` per millimeter. Formeln som "
+"används är: `value = start + factor * z_height`. Du kan ange den optimala Z-"
+"höjden direkt i formeln för att fastställa det optimala parametervärdet."
 
 #: docs/G-Codes.md:block 322 (unordered list)
 msgid ""
@@ -1589,6 +2015,10 @@ msgid ""
 " `BAND` millimeters of Z height. The formula used is: `value = start + factor "
 "* ((floor(z_height / band) + .5) * band)`."
 msgstr ""
+"`FACTOR` och `BAND`: Värdet ändras med en genomsnittlig hastighet på "
+"`factor` per millimeter, men i diskreta band där justeringen endast görs för "
+"varje `BAND` millimeter Z-höjd. Formeln som används är: `value = start + "
+"factor * ((floor(z_height / band) + .5) * band)`."
 
 #: docs/G-Codes.md:block 322 (unordered list)
 msgid ""
@@ -1597,52 +2027,65 @@ msgid ""
 "floor(z_height / step_height)`. You can simply count bands or read tuning "
 "tower labels to determine the optimum value."
 msgstr ""
+"`STEP_DELTA` och `STEP_HEIGHT`: Värdet ändras med `STEP_DELTA` för varje "
+"`STEP_HEIGHT` millimeter. Formeln som används är: `value = start + "
+"step_delta * floor(z_height / step_height)`. Du kan helt enkelt räkna band "
+"eller läsa etiketterna på justeringstornet för att fastställa det optimala "
+"värdet."
 
 #: docs/G-Codes.md:block 323 (header)
 msgid "[virtual_sdcard]"
-msgstr ""
+msgstr "[virtual_sdcard]"
 
 #: docs/G-Codes.md:block 324 (paragraph)
 msgid ""
 "Klipper supports the following standard G-Code commands if the [virtual_sdcard"
 " config section](Config_Reference.md#virtual_sdcard) is enabled:"
 msgstr ""
+"Klipper har stöd för följande vanliga G-kodskommandon om ett [virtual_sdcard-"
+"konfigurationsavsnitt](Config_Reference.md#virtual_sdcard) är aktiverat:"
 
 #: docs/G-Codes.md:block 326 (paragraph)
 msgid ""
 "In addition, the following extended commands are available when the "
 "\"virtual_sdcard\" config section is enabled."
 msgstr ""
+"Dessutom finns följande utökade kommandon när konfigurationsavsnittet ”"
+"virtual_sdcard” är aktiverat."
 
 #: docs/G-Codes.md:block 327 (header)
 msgid "SDCARD_PRINT_FILE"
-msgstr ""
+msgstr "SDCARD_PRINT_FILE"
 
 #: docs/G-Codes.md:block 328 (paragraph)
 msgid "`SDCARD_PRINT_FILE FILENAME=<filename>`: Load a file and start SD print."
 msgstr ""
+"`SDCARD_PRINT_FILE FILENAME=<filename>`: Läs in en fil och starta SD-"
+"utskrift."
 
 #: docs/G-Codes.md:block 329 (header)
 msgid "SDCARD_RESET_FILE"
-msgstr ""
+msgstr "SDCARD_RESET_FILE"
 
 #: docs/G-Codes.md:block 330 (paragraph)
 msgid "`SDCARD_RESET_FILE`: Unload file and clear SD state."
-msgstr ""
+msgstr "`SDCARD_RESET_FILE`: Ta bort filen och rensa SD-tillståndet."
 
 #: docs/G-Codes.md:block 331 (header)
 msgid "[z_tilt]"
-msgstr ""
+msgstr "[z_tilt]"
 
 #: docs/G-Codes.md:block 332 (paragraph)
 msgid ""
 "The following commands are available when the [z_tilt config "
 "section](Config_Reference.md#z_tilt) is enabled."
 msgstr ""
+"Följande kommandon är tillgängliga när ett [z_tilt-konfigurationsavsnitt]"
+"(Config_Reference.md#z_tilt) är aktiverat."
 
 #: docs/G-Codes.md:block 333 (header)
 msgid "Z_TILT_ADJUST"
-msgstr ""
+msgstr "Z_TILT_ADJUST"
 
 #: docs/G-Codes.md:block 7 (paragraph)
 msgid ""
@@ -1654,6 +2097,13 @@ msgid ""
 "only intended to be human readable - see the [API Server "
 "document](API_Server.md) if controlling Klipper from external software."
 msgstr ""
+"Klippers mål är att stödja G-kodskommandon som skapas av vanliga program "
+"från tredje part (t.ex. OctoPrint, Printrun, Slic3r och Cura) i deras "
+"standardkonfigurationer. Målet är inte att stödja alla möjliga G-"
+"kodskommandon. I stället föredrar Klipper läsbara [”utökade G-kodskommandon”]"
+"(#additional-commands). På samma sätt är G-kodsutdata i terminalen endast "
+"avsedd att vara läsbar för människor – se [API Server-dokumentet]"
+"(API_Server.md) om Klipper ska styras från extern programvara."
 
 #: docs/G-Codes.md:block 139 (paragraph)
 msgid ""
@@ -1661,6 +2111,9 @@ msgid ""
 "See the developer documentation of [GET_POSITION "
 "output](Code_Overview.md#coordinate-systems) for more information."
 msgstr ""
+"`GET_POSITION`: Returnera information om verktygshuvudets aktuella plats. Se "
+"utvecklardokumentationen för [GET_POSITION-utdata]"
+"(Code_Overview.md#coordinate-systems) för mer information."
 
 #: docs/G-Codes.md:block 82 (paragraph)
 msgid ""
@@ -1668,20 +2121,25 @@ msgid ""
 "[extruder](Config_Reference.md#extruder) config sections, this command changes"
 " the active hotend."
 msgstr ""
+"`ACTIVATE_EXTRUDER EXTRUDER=<config_name>`: I en skrivare med flera "
+"[extruder-konfigurationsavsnitt](Config_Reference.md#extruder) ändrar detta "
+"kommando aktiv hotend."
 
 #: docs/G-Codes.md:block 22 (header)
 msgid "[angle]"
-msgstr ""
+msgstr "[angle]"
 
 #: docs/G-Codes.md:block 23 (paragraph)
 msgid ""
 "The following commands are available when an [angle config "
 "section](Config_Reference.md#angle) is enabled."
 msgstr ""
+"Följande kommandon är tillgängliga när ett [angle-konfigurationsavsnitt]"
+"(Config_Reference.md#angle) är aktiverat."
 
 #: docs/G-Codes.md:block 24 (header)
 msgid "ANGLE_CALIBRATE"
-msgstr ""
+msgstr "ANGLE_CALIBRATE"
 
 #: docs/G-Codes.md:block 25 (paragraph)
 msgid ""
@@ -1699,10 +2157,22 @@ msgid ""
 "document](Measuring_Resonances.md#software-installation) for more "
 "information)."
 msgstr ""
+"`ANGLE_CALIBRATE CHIP=<chip_name>`: Utför vinkelkalibrering på den angivna "
+"sensorn (det måste finnas ett `[angle chip_name]`-konfigurationsavsnitt med "
+"en angiven `stepper`-parameter). VIKTIGT – verktyget beordrar stegmotorn att "
+"flytta utan att kontrollera normala kinematiska gränser. Helst ska motorn "
+"kopplas loss från skrivarens vagn före kalibrering. Om stegmotorn inte kan "
+"kopplas loss från skrivaren ska du kontrollera att vagnen befinner sig nära "
+"mitten av sin skena innan kalibreringen startas. (Stegmotorn kan rotera två "
+"hela varv framåt eller bakåt under testet.) Kör `SAVE_CONFIG` efter testet "
+"för att spara kalibreringsdata i konfigurationsfilen. För att använda "
+"verktyget måste Python-paketet ”numpy” vara installerat (se [dokumentet om "
+"resonansmätning](Measuring_Resonances.md#software-installation) för mer "
+"information)."
 
 #: docs/G-Codes.md:block 26 (header)
 msgid "ANGLE_DEBUG_READ"
-msgstr ""
+msgstr "ANGLE_DEBUG_READ"
 
 #: docs/G-Codes.md:block 27 (paragraph)
 msgid ""
@@ -1710,10 +2180,13 @@ msgid ""
 "\"register\" (e.g. 44 or 0x2C). Can be useful for debugging purposes. This is "
 "only available for tle5012b chips."
 msgstr ""
+"`ANGLE_DEBUG_READ CHIP=<config_name> REG=<register>`: Hämtar sensorregistret "
+"”register” (t.ex. 44 eller 0x2C). Kan vara användbart för felsökning. Finns "
+"endast för tle5012b-kretsar."
 
 #: docs/G-Codes.md:block 28 (header)
 msgid "ANGLE_DEBUG_WRITE"
-msgstr ""
+msgstr "ANGLE_DEBUG_WRITE"
 
 #: docs/G-Codes.md:block 29 (paragraph)
 msgid ""
@@ -1722,16 +2195,22 @@ msgid ""
 " decimal or a hexadecimal integer. Use with care, and refer to sensor data "
 "sheet for the reference. This is only available for tle5012b chips."
 msgstr ""
+"`ANGLE_DEBUG_WRITE CHIP=<config_name> REG=<register> VAL=<value>`: Skriver "
+"rått ”value” till registret ”register”. Både ”value” och ”register” kan vara "
+"heltal i decimal- eller hexadecimalform. Använd med försiktighet och se "
+"sensorns datablad som referens. Finns endast för tle5012b-kretsar."
 
 #: docs/G-Codes.md:block 199 (header)
 msgid "[led]"
-msgstr ""
+msgstr "[led]"
 
 #: docs/G-Codes.md:block 200 (paragraph)
 msgid ""
 "The following command is available when any of the [led config "
 "sections](Config_Reference.md#leds) are enabled."
 msgstr ""
+"Följande kommando är tillgängligt när något av [led-konfigurationsavsnitten]"
+"(Config_Reference.md#leds) är aktiverat."
 
 #: docs/G-Codes.md:block 202 (paragraph)
 msgid ""
@@ -1751,10 +2230,25 @@ msgid ""
 "needed, the optional SYNC=0 parameter can be specified to apply the changes "
 "without resetting the idle timeout."
 msgstr ""
+"`SET_LED LED=<config_name> RED=<value> GREEN=<value> BLUE=<value> "
+"WHITE=<value> [INDEX=<index>] [TRANSMIT=0] [SYNC=1]`: Anger LED-utmatningen. "
+"Varje färg-`<value>` måste vara mellan 0,0 och 1,0. Alternativet WHITE är "
+"endast giltigt för RGBW-lysdioder. Om lysdioden stöder flera kretsar i en "
+"kedja kan INDEX anges för att ändra färgen för endast den angivna kretsen (1 "
+"för den första, 2 för den andra osv.). Om INDEX inte anges ställs alla "
+"lysdioder i kedjan in på den angivna färgen. Om TRANSMIT=0 anges verkställs "
+"färgändringen först vid nästa SET_LED-kommando som inte anger TRANSMIT=0; "
+"det kan vara användbart tillsammans med INDEX för att samla flera "
+"uppdateringar i en kedja. Som standard synkroniserar SET_LED sina ändringar "
+"med andra pågående G-kodskommandon. Det kan ge oönskat beteende om lysdioder "
+"ställs in när skrivaren inte skriver ut, eftersom tidsgränsen för "
+"inaktivitet då återställs. Om noggrann tidsinställning inte behövs kan "
+"SYNC=0 anges för att tillämpa ändringarna utan att återställa tidsgränsen "
+"för inaktivitet."
 
 #: docs/G-Codes.md:block 203 (header)
 msgid "SET_LED_TEMPLATE"
-msgstr ""
+msgstr "SET_LED_TEMPLATE"
 
 #: docs/G-Codes.md:block 204 (paragraph)
 msgid ""
@@ -1774,14 +2268,28 @@ msgid ""
 "string then this command will clear any previous template assigned to the LED "
 "(one can then use `SET_LED` commands to manage the LED's color settings)."
 msgstr ""
+"`SET_LED_TEMPLATE LED=<led_name> TEMPLATE=<template_name> [<param_x>"
+"=<literal>] [INDEX=<index>]`: Tilldelar en [display_template]"
+"(Config_Reference.md#display_template) till en angiven [LED]"
+"(Config_Reference.md#leds). Om exempelvis konfigurationsavsnittet "
+"`[display_template my_led_template]` har definierats kan "
+"`TEMPLATE=my_led_template` tilldelas här. display_template ska skapa en "
+"kommaseparerad sträng med fyra flyttal som motsvarar inställningar för röd, "
+"grön, blå och vit färg. Mallen utvärderas fortlöpande och lysdioden ställs "
+"automatiskt in på de resulterande färgerna. Parametrar för display_template "
+"kan anges för användning vid mallutvärderingen (parametrar tolkas som Python-"
+"litteraler). Om INDEX inte anges tilldelas mallen till alla kretsar i LED-"
+"kedjan, annars uppdateras endast kretsen med angivet index. Om TEMPLATE är "
+"en tom sträng rensar kommandot en tidigare mall som tilldelats LED:en "
+"(därefter kan `SET_LED` användas för att hantera färginställningarna direkt)."
 
 #: docs/G-Codes.md:block 251 (paragraph)
 msgid "The query_adc module is automatically loaded."
-msgstr ""
+msgstr "Modulen query_adc läses in automatiskt."
 
 #: docs/G-Codes.md:block 303 (header)
 msgid "[smart_effector]"
-msgstr ""
+msgstr "[smart_effector]"
 
 #: docs/G-Codes.md:block 304 (paragraph)
 msgid ""
@@ -1792,10 +2300,17 @@ msgid ""
 " before changing the Smart Effector parameters. Also check the [probe "
 "calibration guide](Probe_Calibrate.md)."
 msgstr ""
+"Flera kommandon är tillgängliga när ett [smart_effector-"
+"konfigurationsavsnitt](Config_Reference.md#smart_effector) är aktiverat. Läs "
+"den officiella dokumentationen för Smart Effector på [Duet3D Wiki](https://"
+"duet3d.dozuki.com/Wiki/"
+"Smart_effector_and_carriage_adapters_for_delta_printer) innan Smart Effector-"
+"parametrarna ändras. Se också [guiden för sondkalibrering]"
+"(Probe_Calibrate.md)."
 
 #: docs/G-Codes.md:block 305 (header)
 msgid "SET_SMART_EFFECTOR"
-msgstr ""
+msgstr "SET_SMART_EFFECTOR"
 
 #: docs/G-Codes.md:block 306 (paragraph)
 msgid ""
@@ -1813,16 +2328,32 @@ msgid ""
 "section](Config_Reference.md#smart_effector) of Smart Effector for more info "
 "on those parameters."
 msgstr ""
+"`SET_SMART_EFFECTOR [SENSITIVITY=<sensitivity>] [ACCEL=<accel>] "
+"[RECOVERY_TIME=<time>]`: Ange parametrarna för Smart Effector. När "
+"`SENSITIVITY` anges skrivs motsvarande värde till SmartEffector-EEPROM "
+"(kräver att `control_pin` anges). Godtagbara värden för `<sensitivity>` är 0–"
+"255 och standardvärdet är 50. Lägre värden kräver mindre kontaktkraft från "
+"munstycket för utlösning (men ger högre risk för felaktig utlösning på grund "
+"av vibrationer under sondering), medan högre värden minskar felaktiga "
+"utlösningar (men kräver större kontaktkraft). Eftersom känsligheten skrivs "
+"till EEPROM bevaras den efter avstängning och behöver därför inte "
+"konfigureras vid varje uppstart av skrivaren. `ACCEL` och `RECOVERY_TIME` "
+"gör det möjligt att åsidosätta motsvarande parametrar under körning; se "
+"[konfigurationsavsnittet](Config_Reference.md#smart_effector) för Smart "
+"Effector för mer information."
 
 #: docs/G-Codes.md:block 307 (header)
 msgid "RESET_SMART_EFFECTOR"
-msgstr ""
+msgstr "RESET_SMART_EFFECTOR"
 
 #: docs/G-Codes.md:block 308 (paragraph)
 msgid ""
 "`RESET_SMART_EFFECTOR`: Resets Smart Effector sensitivity to its factory "
 "settings. Requires `control_pin` to be provided in the config section."
 msgstr ""
+"`RESET_SMART_EFFECTOR`: Återställer Smart Effector-känsligheten till "
+"fabriksinställningarna. Kräver att `control_pin` anges i "
+"konfigurationsavsnittet."
 
 #: docs/G-Codes.md:block 11 (paragraph)
 msgid ""
@@ -1830,10 +2361,13 @@ msgid ""
 "section names specified in the [printer configuration "
 "file](Config_Reference.md). Note that some modules are automatically loaded."
 msgstr ""
+"Detta avsnitt är organiserat efter Klipper-modulnamn, som vanligen följer "
+"avsnittsnamnen i [skrivarkonfigurationsfilen](Config_Reference.md). "
+"Observera att vissa moduler läses in automatiskt."
 
 #: docs/G-Codes.md:block 87 (header)
 msgid "[exclude_object]"
-msgstr ""
+msgstr "[exclude_object]"
 
 #: docs/G-Codes.md:block 88 (paragraph)
 msgid ""
@@ -1841,28 +2375,35 @@ msgid ""
 "section](Config_Reference.md#exclude_object) is enabled (also see the [exclude"
 " object guide](Exclude_Object.md)):"
 msgstr ""
+"Följande kommandon är tillgängliga när ett [exclude_object-"
+"konfigurationsavsnitt](Config_Reference.md#exclude_object) är aktiverat (se "
+"även [guiden för att utesluta objekt](Exclude_Object.md)):"
 
 #: docs/G-Codes.md:block 89 (header)
 msgid "`EXCLUDE_OBJECT`"
-msgstr ""
+msgstr "`EXCLUDE_OBJECT`"
 
 #: docs/G-Codes.md:block 90 (paragraph)
 msgid ""
 "`EXCLUDE_OBJECT [NAME=object_name] [CURRENT=1] [RESET=1]`: With no parameters,"
 " this will return a list of all currently excluded objects."
 msgstr ""
+"`EXCLUDE_OBJECT [NAME=object_name] [CURRENT=1] [RESET=1]`: Utan parametrar "
+"returneras en lista över alla objekt som för närvarande är uteslutna."
 
 #: docs/G-Codes.md:block 91 (paragraph)
 msgid ""
 "When the `NAME` parameter is given, the named object will be excluded from "
 "printing."
 msgstr ""
+"När parametern `NAME` anges utesluts det namngivna objektet från utskriften."
 
 #: docs/G-Codes.md:block 92 (paragraph)
 msgid ""
 "When the `CURRENT` parameter is given, the current object will be excluded "
 "from printing."
 msgstr ""
+"När parametern `CURRENT` anges utesluts aktuellt objekt från utskriften."
 
 #: docs/G-Codes.md:block 93 (paragraph)
 msgid ""
@@ -1870,16 +2411,21 @@ msgid ""
 "cleared. Additionally including `NAME` will only reset the named object. This "
 "**can** cause print failures, if layers were already skipped."
 msgstr ""
+"När parametern `RESET` anges rensas listan över uteslutna objekt. Om `NAME` "
+"också anges återställs endast det namngivna objektet. Detta **kan** orsaka "
+"utskriftsfel om lager redan har hoppats över."
 
 #: docs/G-Codes.md:block 94 (header)
 msgid "`EXCLUDE_OBJECT_DEFINE`"
-msgstr ""
+msgstr "`EXCLUDE_OBJECT_DEFINE`"
 
 #: docs/G-Codes.md:block 95 (paragraph)
 msgid ""
 "`EXCLUDE_OBJECT_DEFINE [NAME=object_name [CENTER=X,Y] [POLYGON=[[x,y],...]] "
 "[RESET=1] [JSON=1]`: Provides a summary of an object in the file."
 msgstr ""
+"`EXCLUDE_OBJECT_DEFINE [NAME=object_name [CENTER=X,Y] [POLYGON=[[x,y],...]] "
+"[RESET=1] [JSON=1]`: Tillhandahåller en sammanfattning av ett objekt i filen."
 
 #: docs/G-Codes.md:block 96 (paragraph)
 msgid ""
@@ -1887,46 +2433,56 @@ msgid ""
 "Klipper. Returns a list of strings, unless the `JSON` parameter is given, when"
 " it will return object details in json format."
 msgstr ""
+"Utan angivna parametrar listas de definierade objekt som Klipper känner "
+"till. Returnerar en lista med strängar, om inte parametern `JSON` anges; då "
+"returneras objektdetaljer i JSON-format."
 
 #: docs/G-Codes.md:block 97 (paragraph)
 msgid ""
 "When the `NAME` parameter is included, this defines an object to be excluded."
 msgstr ""
+"När parametern `NAME` inkluderas definieras ett objekt som ska uteslutas."
 
 #: docs/G-Codes.md:block 98 (unordered list)
 msgid ""
 "`NAME`: This parameter is required. It is the identifier used by other "
 "commands in this module."
 msgstr ""
+"`NAME`: Denna parameter krävs. Den är identifieraren som används av andra "
+"kommandon i modulen."
 
 #: docs/G-Codes.md:block 98 (unordered list)
 msgid "`CENTER`: An X,Y coordinate for the object."
-msgstr ""
+msgstr "`CENTER`: En X,Y-koordinat för objektet."
 
 #: docs/G-Codes.md:block 98 (unordered list)
 msgid ""
 "`POLYGON`: An array of X,Y coordinates that provide an outline for the object."
-msgstr ""
+msgstr "`POLYGON`: En matris med X,Y-koordinater som utgör objektets kontur."
 
 #: docs/G-Codes.md:block 99 (paragraph)
 msgid ""
 "When the `RESET` parameter is provided, all defined objects will be cleared, "
 "and the `[exclude_object]` module will be reset."
 msgstr ""
+"När parametern `RESET` anges rensas alla definierade objekt och modulen "
+"`[exclude_object]` återställs."
 
 #: docs/G-Codes.md:block 100 (header)
 msgid "`EXCLUDE_OBJECT_START`"
-msgstr ""
+msgstr "`EXCLUDE_OBJECT_START`"
 
 #: docs/G-Codes.md:block 101 (paragraph)
 msgid ""
 "`EXCLUDE_OBJECT_START NAME=object_name`: This command takes a `NAME` parameter"
 " and denotes the start of the gcode for an object on the current layer."
 msgstr ""
+"`EXCLUDE_OBJECT_START NAME=object_name`: Kommandot tar parametern `NAME` och "
+"markerar starten på G-koden för ett objekt i aktuellt lager."
 
 #: docs/G-Codes.md:block 102 (header)
 msgid "`EXCLUDE_OBJECT_END`"
-msgstr ""
+msgstr "`EXCLUDE_OBJECT_END`"
 
 #: docs/G-Codes.md:block 103 (paragraph)
 msgid ""
@@ -1935,6 +2491,9 @@ msgid ""
 "is optional, and will only warn when the provided name does not match the "
 "current object."
 msgstr ""
+"`EXCLUDE_OBJECT_END [NAME=object_name]`: Markerar slutet på objektets G-kod "
+"för lagret. Det paras med `EXCLUDE_OBJECT_START`. Parametern `NAME` är "
+"valfri och varnar endast när angivet namn inte matchar aktuellt objekt."
 
 #: docs/G-Codes.md:block 109 (paragraph)
 msgid ""
@@ -1946,6 +2505,12 @@ msgid ""
 "EXTRUDER is not specified, it defaults to the stepper defined in the active "
 "hotend."
 msgstr ""
+"`SET_PRESSURE_ADVANCE [EXTRUDER=<config_name>] [ADVANCE=<pressure_advance>] "
+"[SMOOTH_TIME=<pressure_advance_smooth_time>]`: Ange parametrar för "
+"tryckutjämning för en extruderstegmotor (enligt definition i ett [extruder-]"
+"(Config_Reference.md#extruder) eller [extruder_stepper-konfigurationsavsnitt]"
+"(Config_Reference.md#extruder_stepper)). Om EXTRUDER inte anges används "
+"stegmotorn som definieras i den aktiva hotend som standard."
 
 #: docs/G-Codes.md:block 111 (paragraph)
 msgid ""
@@ -1960,6 +2525,17 @@ msgid ""
 "proper calibration with filament before use. If 'DISTANCE' value is not "
 "provided then this command will return the current rotation distance."
 msgstr ""
+"`SET_EXTRUDER_ROTATION_DISTANCE EXTRUDER=<config_name> [DISTANCE=<distance>"
+"]`: Ange ett nytt värde för den angivna extruderstegmotorns ”rotationsavstånd"
+"” (enligt definition i ett [extruder-](Config_Reference.md#extruder) eller "
+"[extruder_stepper-konfigurationsavsnitt]"
+"(Config_Reference.md#extruder_stepper)). Om rotationsavståndet är negativt "
+"inverteras stegmotorns rörelse (i förhållande till stegmotorriktningen som "
+"anges i konfigurationsfilen). Ändrade inställningar behålls inte vid "
+"återställning av Klipper. Använd med försiktighet: små ändringar kan ge för "
+"högt tryck mellan extruder och hotend. Utför korrekt kalibrering med "
+"filament före användning. Om värdet DISTANCE inte anges returnerar kommandot "
+"aktuellt rotationsavstånd."
 
 #: docs/G-Codes.md:block 113 (paragraph)
 msgid ""
@@ -1972,6 +2548,13 @@ msgid ""
 " MOTION_QUEUE is an empty string then the stepper will be desynchronized from "
 "all extruder movement."
 msgstr ""
+"`SYNC_EXTRUDER_MOTION EXTRUDER=<name> MOTION_QUEUE=<name>`: Kommandot gör "
+"att stegmotorn som anges av EXTRUDER (enligt definition i ett [extruder-]"
+"(Config_Reference.md#extruder) eller [extruder_stepper-konfigurationsavsnitt]"
+"(Config_Reference.md#extruder_stepper)) synkroniseras med rörelsen för en "
+"extruder som anges av MOTION_QUEUE (enligt definition i ett [extruder-"
+"konfigurationsavsnitt](Config_Reference.md#extruder)). Om MOTION_QUEUE är en "
+"tom sträng synkroniseras stegmotorn bort från alla extruderrörelser."
 
 #: docs/G-Codes.md:block 137 (paragraph)
 msgid ""
@@ -1979,10 +2562,13 @@ msgid ""
 "setting `enable_force_move` in the [printer "
 "config](Config_Reference.md#force_move)."
 msgstr ""
+"Modulen force_move läses in automatiskt, men vissa kommandon kräver att "
+"`enable_force_move` anges i [skrivarkonfigurationen]"
+"(Config_Reference.md#force_move)."
 
 #: docs/G-Codes.md:block 79 (paragraph)
 msgid "Also provided is the following extended G-Code command:"
-msgstr ""
+msgstr "Följande utökade G-kodskommando tillhandahålls också:"
 
 #: docs/G-Codes.md:block 80 (unordered list)
 msgid ""
@@ -1990,6 +2576,8 @@ msgid ""
 " supplied `MSG` as the current display message. If `MSG` is omitted the "
 "display will be cleared."
 msgstr ""
+"`SET_DISPLAY_TEXT MSG=<message>`: Utför motsvarigheten till M117 och anger "
+"`MSG` som aktuellt visningsmeddelande. Om `MSG` utelämnas rensas visningen."
 
 #: docs/G-Codes.md:block 291 (unordered list)
 msgid ""
@@ -1998,20 +2586,26 @@ msgid ""
 "compatibility with some octoprint plugins that expect very specific "
 "formatting."
 msgstr ""
+"`RESPOND TYPE=echo_no_space MSG=\"<message>\"`: Ekar meddelandet med `echo:` "
+"utan blanksteg mellan prefix och meddelande, vilket är användbart för "
+"kompatibilitet med vissa OctoPrint-insticksmoduler som förväntar sig mycket "
+"specifik formatering."
 
 #: docs/G-Codes.md:block 218 (header)
 msgid "[mcp4018]"
-msgstr ""
+msgstr "[mcp4018]"
 
 #: docs/G-Codes.md:block 219 (paragraph)
 msgid ""
 "The following command is available when a [mcp4018 config "
 "section](Config_Reference.md#mcp4018) is enabled."
 msgstr ""
+"Följande kommando är tillgängligt när ett [mcp4018-konfigurationsavsnitt]"
+"(Config_Reference.md#mcp4018) är aktiverat."
 
 #: docs/G-Codes.md:block 220 (header)
 msgid "SET_DIGIPOT"
-msgstr ""
+msgstr "SET_DIGIPOT"
 
 #: docs/G-Codes.md:block 221 (paragraph)
 msgid ""
@@ -2020,18 +2614,22 @@ msgid ""
 "1.0, unless a 'scale' is defined in the config. When 'scale' is defined, then "
 "this value should be between 0.0 and 'scale'."
 msgstr ""
+"`SET_DIGIPOT DIGIPOT=config_name WIPER=<value>`: Detta kommando ändrar "
+"digipotens aktuella värde. Värdet bör vanligen vara mellan 0,0 och 1,0, om "
+"inte en ”scale” har definierats i konfigurationen. När ”scale” har "
+"definierats bör värdet vara mellan 0,0 och ”scale”."
 
 #: docs/G-Codes.md:block 261 (header)
 msgid "[print_stats]"
-msgstr ""
+msgstr "[print_stats]"
 
 #: docs/G-Codes.md:block 262 (paragraph)
 msgid "The print_stats module is automatically loaded."
-msgstr ""
+msgstr "Modulen print_stats läses in automatiskt."
 
 #: docs/G-Codes.md:block 263 (header)
 msgid "SET_PRINT_STATS_INFO"
-msgstr ""
+msgstr "SET_PRINT_STATS_INFO"
 
 #: docs/G-Codes.md:block 264 (paragraph)
 msgid ""
@@ -2042,20 +2640,28 @@ msgid ""
 "the layer change gcode section to pass layer information from your slicer to "
 "Klipper."
 msgstr ""
+"`SET_PRINT_STATS_INFO [TOTAL_LAYER=<total_layer_count>] [CURRENT_LAYER= "
+"<current_layer>]`: Skicka information från skivningsprogrammet, såsom "
+"aktuellt och totalt lager, till Klipper. Lägg till `SET_PRINT_STATS_INFO "
+"[TOTAL_LAYER=<total_layer_count>]` i skivningsprogrammets start-G-kod och "
+"`SET_PRINT_STATS_INFO [CURRENT_LAYER= <current_layer>]` i G-kodsavsnittet "
+"för lagerbyte för att skicka lagerinformation till Klipper."
 
 #: docs/G-Codes.md:block 371 (header)
 msgid "[z_thermal_adjust]"
-msgstr ""
+msgstr "[z_thermal_adjust]"
 
 #: docs/G-Codes.md:block 372 (paragraph)
 msgid ""
 "The following commands are available when the [z_thermal_adjust config "
 "section](Config_Reference.md#z_thermal_adjust) is enabled."
 msgstr ""
+"Följande kommandon är tillgängliga när ett [z_thermal_adjust-"
+"konfigurationsavsnitt](Config_Reference.md#z_thermal_adjust) är aktiverat."
 
 #: docs/G-Codes.md:block 373 (header)
 msgid "SET_Z_THERMAL_ADJUST"
-msgstr ""
+msgstr "SET_Z_THERMAL_ADJUST"
 
 #: docs/G-Codes.md:block 374 (paragraph)
 msgid ""
@@ -2070,6 +2676,17 @@ msgid ""
 "temperature typically set during homing (for use in e.g. non-standard homing "
 "routines) - will be reset automatically upon homing."
 msgstr ""
+"`SET_Z_THERMAL_ADJUST [ENABLE=<0:1>] [TEMP_COEFF=<value>] [REF_TEMP=<value>"
+"]`: Aktivera eller inaktivera termisk Z-justering med `ENABLE`. Inaktivering "
+"tar inte bort en justering som redan har tillämpats, utan fryser det "
+"aktuella justeringsvärdet – vilket förhindrar en potentiellt osäker Z-"
+"rörelse nedåt. Återaktivering kan orsaka en rörelse av verktyget uppåt när "
+"justeringen uppdateras och tillämpas. `TEMP_COEFF` tillåter justering under "
+"körning av temperaturkoefficienten (dvs. konfigurationsparametern "
+"`TEMP_COEFF`). Värden för `TEMP_COEFF` sparas inte i konfigurationen. "
+"`REF_TEMP` åsidosätter manuellt referenstemperaturen som vanligtvis anges "
+"vid referenskörning (t.ex. vid icke-standardiserade referenskörningsrutiner) "
+"och återställs automatiskt vid referenskörning."
 
 #: docs/G-Codes.md:block 158 (unordered list)
 msgid ""
@@ -2077,10 +2694,13 @@ msgid ""
 "[Y<pos>] [Z<pos>] [E<pos>] [F<speed>] I<value> J<value>|I<value> "
 "K<value>|J<value> K<value>`"
 msgstr ""
+"Bågrörelse medurs (G2), bågrörelse moturs (G3): `G2|G3 [X<pos>] [Y<pos>] "
+"[Z<pos>] [E<pos>] [F<speed>] I<value> J<value>|I<value> K<value>|J<value> "
+"K<value>`"
 
 #: docs/G-Codes.md:block 158 (unordered list)
 msgid "Arc Plane Select: G17 (XY plane), G18 (XZ plane), G19 (YZ plane)"
-msgstr ""
+msgstr "Val av bågplan: G17 (XY-plan), G18 (XZ-plan), G19 (YZ-plan)"
 
 #: docs/G-Codes.md:block 51 (paragraph)
 msgid ""
@@ -2093,6 +2713,14 @@ msgid ""
 " is active. The optional `HORIZONTAL_MOVE_Z` value overrides the "
 "`horizontal_move_z` option specified in the config file."
 msgstr ""
+"`BED_TILT_CALIBRATE [METHOD=manual] [HORIZONTAL_MOVE_Z=<value>] "
+"[<probe_parameter>=<value>]`: Kommandot mäter punkterna som anges i "
+"konfigurationen och rekommenderar sedan uppdaterade X- och Y-justeringar för "
+"bäddens lutning. Se kommandot PROBE för information om de valfria "
+"mätparametrarna. Om METHOD=manual anges aktiveras verktyget för manuell "
+"mätning. Se kommandot MANUAL_PROBE ovan för ytterligare kommandon som är "
+"tillgängliga när verktyget är aktivt. Det valfria värdet `HORIZONTAL_MOVE_Z` "
+"åsidosätter alternativet `horizontal_move_z` i konfigurationsfilen."
 
 #: docs/G-Codes.md:block 69 (paragraph)
 msgid ""
@@ -2105,6 +2733,14 @@ msgid ""
 " is active. The optional `HORIZONTAL_MOVE_Z` value overrides the "
 "`horizontal_move_z` option specified in the config file."
 msgstr ""
+"`DELTA_CALIBRATE [METHOD=manual] [HORIZONTAL_MOVE_Z=<value>] "
+"[<probe_parameter>=<value>]`: Kommandot mäter sju punkter på bädden och "
+"rekommenderar sedan uppdaterade ändstoppspositioner, tornvinklar och radie. "
+"Se kommandot PROBE för information om de valfria mätparametrarna. Om "
+"METHOD=manual anges aktiveras verktyget för manuell mätning. Se kommandot "
+"MANUAL_PROBE ovan för ytterligare kommandon som är tillgängliga när "
+"verktyget är aktivt. Det valfria värdet `HORIZONTAL_MOVE_Z` åsidosätter "
+"alternativet `horizontal_move_z` i konfigurationsfilen."
 
 #: docs/G-Codes.md:block 308 (paragraph)
 msgid ""
@@ -2121,6 +2757,17 @@ msgid ""
 "greater than the value provided. The optional `HORIZONTAL_MOVE_Z` value "
 "overrides the `horizontal_move_z` option specified in the config file."
 msgstr ""
+"`SCREWS_TILT_CALCULATE [DIRECTION=CW|CCW] [MAX_DEVIATION=<value>] "
+"[HORIZONTAL_MOVE_Z=<value>] [<probe_parameter>=<value>]`: Kommandot startar "
+"verktyget för justering av bäddskruvar. Det flyttar munstycket till olika "
+"platser (enligt konfigurationsfilen), mäter Z-höjden och beräknar hur många "
+"rattvarv som krävs för att justera bäddnivån. Om DIRECTION anges utförs alla "
+"rattvarv i samma riktning: medurs (CW) eller moturs (CCW). Se kommandot "
+"PROBE för information om de valfria mätparametrarna. VIKTIGT: Du MÅSTE "
+"alltid köra G28 innan du använder detta kommando. Om MAX_DEVIATION anges ger "
+"kommandot ett G-kodsfel om skillnaden mellan en skruvhöjd och bashöjden är "
+"större än det angivna värdet. Det valfria värdet `HORIZONTAL_MOVE_Z` "
+"åsidosätter alternativet `horizontal_move_z` i konfigurationsfilen."
 
 #: docs/G-Codes.md:block 348 (paragraph)
 msgid ""
@@ -2128,6 +2775,9 @@ msgid ""
 "driver registers and report their values. If a REGISTER is provided, only the "
 "specified register will be dumped."
 msgstr ""
+"`DUMP_TMC STEPPER=<name> [REGISTER=<name>]`: Kommandot läser alla TMC-"
+"drivrutinsregister och rapporterar deras värden. Om REGISTER anges dumpas "
+"endast det angivna registret."
 
 #: docs/G-Codes.md:block 352 (paragraph)
 msgid ""
@@ -2138,6 +2788,12 @@ msgid ""
 "stepper must be held at standstill for >130ms so that the driver executes the "
 "AT#1 calibration."
 msgstr ""
+"`SET_TMC_CURRENT STEPPER=<name> CURRENT=<amps> HOLDCURRENT=<amps>`: Justerar "
+"TMC-drivrutinens kör- och hållströmmar. `HOLDCURRENT` gäller inte tmc2660-"
+"drivrutiner. När kommandot används med en drivrutin som har fältet "
+"`globalscaler` (tmc5160 och tmc2240) och StealthChop2 används, måste "
+"stegmotorn hållas stilla i mer än 130 ms så att drivrutinen utför AT#1-"
+"kalibreringen."
 
 #: docs/G-Codes.md:block 354 (paragraph)
 msgid ""
@@ -2151,10 +2807,19 @@ msgid ""
 "velocity is converted to the 20bit TSTEP based value representation. Only use "
 "the VELOCITY argument for fields that represent velocities."
 msgstr ""
+"`SET_TMC_FIELD STEPPER=<name> FIELD=<field> VALUE=<value> VELOCITY=<value>`: "
+"Ändrar värdet för det angivna registerfältet i TMC-drivrutinen. Kommandot är "
+"endast avsett för diagnostik och felsökning på låg nivå, eftersom "
+"fältändringar under körning kan leda till oönskat och potentiellt farligt "
+"skrivarbeteende. Beständiga ändringar ska i stället göras i skrivarens "
+"konfigurationsfil. Inga rimlighetskontroller utförs för de angivna värdena. "
+"VELOCITY kan också anges i stället för VALUE. Denna hastighet omvandlas till "
+"20-bitarsvärdet för TSTEP. Använd endast argumentet VELOCITY för fält som "
+"representerar hastigheter."
 
 #: docs/G-Codes.md:block 85 (header)
 msgid "SAVE_DUAL_CARRIAGE_STATE"
-msgstr ""
+msgstr "SAVE_DUAL_CARRIAGE_STATE"
 
 #: docs/G-Codes.md:block 86 (paragraph)
 msgid ""
@@ -2164,10 +2829,15 @@ msgid ""
 "If NAME is provided it allows one to name the saved state to the given string."
 " If NAME is not provided it defaults to \"default\"."
 msgstr ""
+"`SAVE_DUAL_CARRIAGE_STATE [NAME=<state_name>]`: Sparar de dubbla vagnarnas "
+"aktuella positioner och lägen. Att spara och återställa DUAL_CARRIAGE-"
+"tillståndet kan vara användbart i skript och makron samt i åsidosättningar "
+"av referenskörningsrutiner. Om NAME anges kan det sparade tillståndet få ett "
+"namn. Om NAME inte anges används \"default\"."
 
 #: docs/G-Codes.md:block 87 (header)
 msgid "RESTORE_DUAL_CARRIAGE_STATE"
-msgstr ""
+msgstr "RESTORE_DUAL_CARRIAGE_STATE"
 
 #: docs/G-Codes.md:block 376 (header)
 msgid "[axis_twist_compensation]"
@@ -2178,10 +2848,13 @@ msgid ""
 "The following commands are available when the [axis_twist_compensation config "
 "section](Config_Reference.md#axis_twist_compensation) is enabled."
 msgstr ""
+"Följande kommandon är tillgängliga när ett [axis_twist_compensation-"
+"konfigurationsavsnitt](Config_Reference.md#axis_twist_compensation) är "
+"aktiverat."
 
 #: docs/G-Codes.md:block 378 (header)
 msgid "AXIS_TWIST_COMPENSATION_CALIBRATE"
-msgstr ""
+msgstr "AXIS_TWIST_COMPENSATION_CALIBRATE"
 
 #: docs/G-Codes.md:block 47 (paragraph)
 msgid ""
@@ -2192,6 +2865,13 @@ msgid ""
 "additional z-adjustment directly, it is used to correct the `fade` calculation"
 " when a `gcode offset` has been applied to the Z axis."
 msgstr ""
+"`BED_MESH_OFFSET [X=<value>] [Y=<value>] [ZFADE=<value]`: Tillämpar X-, Y- "
+"och/eller ZFADE-förskjutningar vid uppslag i bäddnätet. Det är användbart "
+"för skrivare med oberoende extrudrar, eftersom en förskjutning behövs för "
+"korrekt Z-justering efter verktygsbyte. Observera att en ZFADE-förskjutning "
+"inte direkt tillämpar ytterligare Z-justering, utan används för att "
+"korrigera beräkningen av `fade` när en `gcode offset` har tillämpats på Z-"
+"axeln."
 
 #: docs/G-Codes.md:block 235 (paragraph)
 msgid ""
@@ -2200,16 +2880,23 @@ msgid ""
 " to a value between 0.0 and 1.0, or between 0.0 and `scale` if a scale is "
 "configured in the output_pin config section."
 msgstr ""
+"`SET_PIN PIN=config_name VALUE=<value>`: Anger stiftet till det angivna "
+"utmatningsvärdet `VALUE`. VALUE ska vara 0 eller 1 för ”digitala” "
+"utmatningsstift. För PWM-stift ska ett värde mellan 0,0 och 1,0 anges, eller "
+"mellan 0,0 och `scale` om en skala har konfigurerats i "
+"konfigurationsavsnittet output_pin."
 
 #: docs/G-Codes.md:block 281 (header)
 msgid "[pwm_cycle_time]"
-msgstr ""
+msgstr "[pwm_cycle_time]"
 
 #: docs/G-Codes.md:block 282 (paragraph)
 msgid ""
 "The following command is available when a [pwm_cycle_time config "
 "section](Config_Reference.md#pwm_cycle_time) is enabled."
 msgstr ""
+"Följande kommando är tillgängligt när ett [pwm_cycle_time-"
+"konfigurationsavsnitt](Config_Reference.md#pwm_cycle_time) är aktiverat."
 
 #: docs/G-Codes.md:block 284 (paragraph)
 msgid ""
@@ -2221,6 +2908,12 @@ msgid ""
 "CYCLE_TIME parameter will use the `cycle_time` specified in the pwm_cycle_time"
 " config section)."
 msgstr ""
+"`SET_PIN PIN=config_name VALUE=<value> [CYCLE_TIME=<cycle_time>]`: Kommandot "
+"fungerar på samma sätt som SET_PIN-kommandon för [output_pin](#output_pin). "
+"Här går det att ange en explicit cykeltid med parametern CYCLE_TIME (i "
+"sekunder). Observera att parametern CYCLE_TIME inte sparas mellan SET_PIN-"
+"kommandon (ett SET_PIN-kommando utan explicit CYCLE_TIME använder "
+"`cycle_time` som anges i konfigurationsavsnittet pwm_cycle_time)."
 
 #: docs/G-Codes.md:block 365 (paragraph)
 msgid ""
@@ -2230,14 +2923,19 @@ msgid ""
 " See the [printer config section](Config_Reference.md#printer) for a "
 "description of each parameter."
 msgstr ""
+"`SET_VELOCITY_LIMIT [VELOCITY=<value>] [ACCEL=<value>] "
+"[MINIMUM_CRUISE_RATIO=<value>] [SQUARE_CORNER_VELOCITY=<value>]`: Kommandot "
+"kan ändra hastighetsgränserna som anges i skrivarens konfigurationsfil. Se "
+"[skrivarkonfigurationsavsnittet](Config_Reference.md#printer) för en "
+"beskrivning av varje parameter."
 
 #: docs/G-Codes.md:block 281 (header)
 msgid "[probe_eddy_current]"
-msgstr ""
+msgstr "[probe_eddy_current]"
 
 #: docs/G-Codes.md:block 283 (header)
 msgid "PROBE_EDDY_CURRENT_CALIBRATE"
-msgstr ""
+msgstr "PROBE_EDDY_CURRENT_CALIBRATE"
 
 #: docs/G-Codes.md:block 284 (paragraph)
 msgid ""
@@ -2246,10 +2944,14 @@ msgid ""
 "tool will take a couple of minutes to complete. After completion, use the "
 "SAVE_CONFIG command to store the results in the printer.cfg file."
 msgstr ""
+"`PROBE_EDDY_CURRENT_CALIBRATE CHIP=<config_name>`: Startar ett verktyg som "
+"kalibrerar sensorns resonansfrekvenser mot motsvarande Z-höjder. Verktyget "
+"tar några minuter att slutföra. Använd SAVE_CONFIG efteråt för att lagra "
+"resultatet i filen printer.cfg."
 
 #: docs/G-Codes.md:block 285 (header)
 msgid "LDC_CALIBRATE_DRIVE_CURRENT"
-msgstr ""
+msgstr "LDC_CALIBRATE_DRIVE_CURRENT"
 
 #: docs/G-Codes.md:block 286 (paragraph)
 msgid ""
@@ -2260,24 +2962,32 @@ msgid ""
 "After running this command use the SAVE_CONFIG command to store that new "
 "setting in the printer.cfg config file."
 msgstr ""
+"`LDC_CALIBRATE_DRIVE_CURRENT CHIP=<config_name>`: Verktyget kalibrerar "
+"registret DRIVE_CURRENT0 för ldc1612. Innan verktyget används ska sensorn "
+"flyttas så att den är nära bäddens mitt och ungefär 20 mm ovanför bäddytan. "
+"Kör kommandot för att fastställa ett lämpligt DRIVE_CURRENT för sensorn. "
+"Använd sedan SAVE_CONFIG för att lagra den nya inställningen i "
+"konfigurationsfilen printer.cfg."
 
 #: docs/G-Codes.md:block 393 (header)
 msgid "[temperature_probe]"
-msgstr ""
+msgstr "[temperature_probe]"
 
 #: docs/G-Codes.md:block 394 (paragraph)
 msgid ""
 "The following commands are available when a [temperature_probe config "
 "section](Config_Reference.md#temperature_probe) is enabled."
 msgstr ""
+"Följande kommandon är tillgängliga när ett [temperature_probe-"
+"konfigurationsavsnitt](Config_Reference.md#temperature_probe) är aktiverat."
 
 #: docs/G-Codes.md:block 395 (header)
 msgid "TEMPERATURE_PROBE_CALIBRATE"
-msgstr ""
+msgstr "TEMPERATURE_PROBE_CALIBRATE"
 
 #: docs/G-Codes.md:block 397 (header)
 msgid "TEMPERATURE_PROBE_NEXT"
-msgstr ""
+msgstr "TEMPERATURE_PROBE_NEXT"
 
 #: docs/G-Codes.md:block 398 (paragraph)
 msgid ""
@@ -2287,10 +2997,14 @@ msgid ""
 "run this command to force a new sample. This command is only available during "
 "calibration."
 msgstr ""
+"`TEMPERATURE_PROBE_NEXT`: När kalibreringen har startat körs kommandot för "
+"att ta nästa prov. Det schemaläggs automatiskt när differensen som anges av "
+"`STEP` har nåtts, men kan också köras manuellt för att tvinga fram ett nytt "
+"prov. Kommandot är endast tillgängligt under kalibrering."
 
 #: docs/G-Codes.md:block 399 (header)
 msgid "TEMPERATURE_PROBE_COMPLETE:"
-msgstr ""
+msgstr "TEMPERATURE_PROBE_COMPLETE:"
 
 #: docs/G-Codes.md:block 400 (paragraph)
 msgid ""
@@ -2298,20 +3012,25 @@ msgid ""
 "current result before the `TARGET` temperature is reached. This command is "
 "only available during calibration."
 msgstr ""
+"`TEMPERATURE_PROBE_COMPLETE`: Kan användas för att avsluta kalibreringen och "
+"spara aktuellt resultat innan temperaturen `TARGET` har nåtts. Kommandot är "
+"endast tillgängligt under kalibrering."
 
 #: docs/G-Codes.md:block 401 (header)
 msgid "ABORT"
-msgstr ""
+msgstr "ABORT"
 
 #: docs/G-Codes.md:block 402 (paragraph)
 msgid ""
 "`ABORT`: Aborts the calibration process, discarding the current results. This "
 "command is only available during drift calibration."
 msgstr ""
+"`ABORT`: Avbryter kalibreringsprocessen och förkastar aktuella resultat. "
+"Kommandot är endast tillgängligt under driftkalibrering."
 
 #: docs/G-Codes.md:block 403 (header)
 msgid "TEMPERATURE_PROBE_ENABLE"
-msgstr ""
+msgstr "TEMPERATURE_PROBE_ENABLE"
 
 #: docs/G-Codes.md:block 404 (paragraph)
 msgid ""
@@ -2319,16 +3038,21 @@ msgid ""
 "on or off. If ENABLE is set to 0, drift compensation will be disabled, if set "
 "to 1 it is enabled."
 msgstr ""
+"`TEMPERATURE_PROBE_ENABLE ENABLE=[0|1]`: Aktiverar eller inaktiverar "
+"kompensation för temperaturdrift. Om ENABLE sätts till 0 inaktiveras "
+"driftkompensation, och om det sätts till 1 aktiveras den."
 
 #: docs/G-Codes.md:block 26 (header)
 msgid "ANGLE_CHIP_CALIBRATE"
-msgstr ""
+msgstr "ANGLE_CHIP_CALIBRATE"
 
 #: docs/G-Codes.md:block 27 (paragraph)
 msgid ""
 "`ANGLE_CHIP_CALIBRATE CHIP=<chip_name>`: Perform internal sensor calibration, "
 "if implemented (MT6826S/MT6835)."
 msgstr ""
+"`ANGLE_CHIP_CALIBRATE CHIP=<chip_name>`: Utför intern sensorkalibrering, om "
+"den är implementerad (MT6826S/MT6835)."
 
 #: docs/G-Codes.md:block 28 (unordered list)
 msgid ""
@@ -2336,18 +3060,25 @@ msgid ""
 "performing calibration. After calibration, the sensor should be reset by "
 "disconnecting the power."
 msgstr ""
+"**MT68XX**: Motorn ska kopplas bort från alla skrivarvagnar före "
+"kalibreringen. Efter kalibreringen ska sensorn återställas genom att "
+"strömmen kopplas bort."
 
 #: docs/G-Codes.md:block 37 (paragraph)
 msgid ""
 "Calibrates axis twist compensation by specifying the target axis or enabling "
 "automatic calibration."
 msgstr ""
+"Kalibrerar kompensation för axelvridning genom att ange målaxeln eller "
+"aktivera automatisk kalibrering."
 
 #: docs/G-Codes.md:block 38 (unordered list)
 msgid ""
 "**AXIS:** Define the axis (`X` or `Y`) for which the twist compensation will "
 "be calibrated. If not specified, the axis defaults to `'X'`."
 msgstr ""
+"**AXIS:** Ange axeln (`X` eller `Y`) vars vridningskompensation ska "
+"kalibreras. Om den inte anges används `'X'` som standard."
 
 #: docs/G-Codes.md:block 242 (paragraph)
 msgid ""
@@ -2364,20 +3095,33 @@ msgid ""
 "any previous template assigned to the pin (one can then use `SET_PIN` commands"
 " to manage the values directly)."
 msgstr ""
+"`SET_PIN PIN=config_name TEMPLATE=<template_name> [<param_x>=<literal>]`: Om "
+"`TEMPLATE` anges tilldelas en [display_template]"
+"(Config_Reference.md#display_template) till det angivna stiftet. Om "
+"exempelvis konfigurationsavsnittet `[display_template my_pin_template]` har "
+"definierats kan `TEMPLATE=my_pin_template` tilldelas här. display_template "
+"ska skapa en sträng som innehåller ett flyttal med önskat värde. Mallen "
+"utvärderas fortlöpande och stiftet ställs automatiskt in på det resulterande "
+"värdet. Parametrar för display_template kan anges för användning vid "
+"mallutvärderingen (parametrar tolkas som Python-litteraler). Om TEMPLATE är "
+"en tom sträng rensar kommandot en tidigare mall som tilldelats stiftet "
+"(därefter kan `SET_PIN` användas för att hantera värdena direkt)."
 
 #: docs/G-Codes.md:block 298 (header)
 msgid "[quad_gantry_level]"
-msgstr ""
+msgstr "[quad_gantry_level]"
 
 #: docs/G-Codes.md:block 299 (paragraph)
 msgid ""
 "The following commands are available when the [quad_gantry_level config "
 "section](Config_Reference.md#quad_gantry_level) is enabled."
 msgstr ""
+"Följande kommandon är tillgängliga när ett [quad_gantry_level-"
+"konfigurationsavsnitt](Config_Reference.md#quad_gantry_level) är aktiverat."
 
 #: docs/G-Codes.md:block 300 (header)
 msgid "QUAD_GANTRY_LEVEL"
-msgstr ""
+msgstr "QUAD_GANTRY_LEVEL"
 
 #: docs/G-Codes.md:block 301 (paragraph)
 msgid ""
@@ -2389,6 +3133,13 @@ msgid ""
 "and `HORIZONTAL_MOVE_Z` values override those options specified in the config "
 "file."
 msgstr ""
+"`QUAD_GANTRY_LEVEL [RETRIES=<value>] [RETRY_TOLERANCE=<value>] "
+"[HORIZONTAL_MOVE_Z=<value>] [<probe_parameter>=<value>]`: Kommandot mäter "
+"punkterna som anges i konfigurationen och utför sedan oberoende justeringar "
+"för varje Z-stegmotor för att kompensera för lutning. Se kommandot PROBE för "
+"information om de valfria mätparametrarna. De valfria värdena `RETRIES`, "
+"`RETRY_TOLERANCE` och `HORIZONTAL_MOVE_Z` åsidosätter motsvarande alternativ "
+"i konfigurationsfilen."
 
 #: docs/G-Codes.md:block 318 (paragraph)
 msgid ""
@@ -2409,6 +3160,22 @@ msgid ""
 "`SAVE_CONFIG` command, and if `[input_shaper]` was already enabled previously,"
 " these parameters take effect immediately."
 msgstr ""
+"`SHAPER_CALIBRATE [AXIS=<axis>] [NAME=<name>] [FREQ_START=<min_freq>] "
+"[FREQ_END=<max_freq>] [ACCEL_PER_HZ=<accel_per_hz>][HZ_PER_SEC=<hz_per_sec>] "
+"[CHIPS=<chip_name>] [MAX_SMOOTHING=<max_smoothing>] [INPUT_SHAPING=<0:1>]`: "
+"Kör, på samma sätt som `TEST_RESONANCES`, det konfigurerade resonanstestet "
+"och försöker hitta optimala parametrar för input shaper på den begärda axeln "
+"(eller både X- och Y-axeln om parametern `AXIS` inte anges). Om "
+"`MAX_SMOOTHING` inte anges hämtas värdet från avsnittet "
+"`[resonance_tester]`; standardvärdet är odefinierat. Mer information om "
+"funktionen finns i avsnittet [Max smoothing](Measuring_Resonances.md#max-"
+"smoothing) i guiden för resonansmätning. Resultaten från justeringen skrivs "
+"ut till konsolen, och frekvenssvaren samt värdena för de olika input shaper-"
+"varianterna skrivs till CSV-filerna `/tmp/calibration_data_<axis>_<name>"
+".csv`. Om NAME inte anges används den aktuella tiden i formatet "
+"\"YYYYMMDD_HHMMSS\". Observera att de föreslagna input shaper-parametrarna "
+"kan sparas i konfigurationen med kommandot `SAVE_CONFIG`, och om "
+"`[input_shaper]` redan aktiverats börjar parametrarna gälla omedelbart."
 
 #: docs/G-Codes.md:block 403 (paragraph)
 msgid ""
@@ -2420,10 +3187,17 @@ msgid ""
 "and `HORIZONTAL_MOVE_Z` values override those options specified in the config "
 "file."
 msgstr ""
+"`Z_TILT_ADJUST [RETRIES=<value>] [RETRY_TOLERANCE=<value>] "
+"[HORIZONTAL_MOVE_Z=<value>] [<probe_parameter>=<value>]`: Kommandot mäter "
+"punkterna som anges i konfigurationen och utför sedan oberoende justeringar "
+"för varje Z-stegmotor för att kompensera för lutning. Se kommandot PROBE för "
+"information om de valfria mätparametrarna. De valfria värdena `RETRIES`, "
+"`RETRY_TOLERANCE` och `HORIZONTAL_MOVE_Z` åsidosätter motsvarande alternativ "
+"i konfigurationsfilen."
 
 #: docs/G-Codes.md:block 36 (paragraph)
 msgid "`AXIS_TWIST_COMPENSATION_CALIBRATE [AXIS=<X|Y>] [SAMPLE_COUNT=<value>]`"
-msgstr ""
+msgstr "`AXIS_TWIST_COMPENSATION_CALIBRATE [AXIS=<X|Y>] [SAMPLE_COUNT=<value>]`"
 
 #: docs/G-Codes.md:block 155 (paragraph)
 msgid ""
@@ -2434,6 +3208,13 @@ msgid ""
 "SET_GCODE_OFFSET and/or G92 for regular axis transformations. Setting an "
 "incorrect or invalid position may lead to internal software errors."
 msgstr ""
+"`SET_KINEMATIC_POSITION [X=<value>] [Y=<value>] [Z=<value>] "
+"[SET_HOMED=<[X][Y][Z]>] [CLEAR_HOMED=<[X][Y][Z]>]`: Tvingar den "
+"underliggande kinematikkoden att betrakta verktygshuvudet som placerat på "
+"den angivna kartesiska positionen och att ange eller rensa "
+"referenskörningsstatus. Detta är ett kommando för diagnostik och felsökning; "
+"använd SET_GCODE_OFFSET och/eller G92 för vanliga axelomvandlingar. En "
+"felaktig eller ogiltig position kan leda till interna programvarufel."
 
 #: docs/G-Codes.md:block 156 (paragraph)
 msgid ""
@@ -2446,6 +3227,15 @@ msgid ""
 "homed axes, and similarly one may set or clear the homing state of an axis "
 "without altering its internal position."
 msgstr ""
+"Parametrarna `X`, `Y` och `Z` används för att ändra positionsspårningen på "
+"låg kinematiknivå. Om någon av parametrarna inte anges ändras inte "
+"positionen. Exempelvis innebär `SET_KINEMATIC_POSITION Z=10` att alla axlar "
+"sätts som referenskörda, den interna Z-positionen sätts till 10 och X- och Y-"
+"positionerna lämnas oförändrade. Ändring av den interna positionsspårningen "
+"beror inte på den interna referenskörningsstatusen: positionen kan ändras "
+"både för referenskörda och icke referenskörda axlar, och på samma sätt kan "
+"en axels referenskörningsstatus anges eller rensas utan att dess interna "
+"position ändras."
 
 #: docs/G-Codes.md:block 157 (paragraph)
 msgid ""
@@ -2459,6 +3249,15 @@ msgid ""
 "kinematics (such as delta kinematics) may not support setting an individual "
 "axis as homed."
 msgstr ""
+"Parametern `SET_HOMED` är som standard `XYZ`, vilket instruerar kinematiken "
+"att betrakta alla axlar som referenskörda. Ett ensamt kommando "
+"`SET_KINEMATIC_POSITION` gör att alla axlar betraktas som referenskörda utan "
+"att deras aktuella position ändras. Om referenskörda axlars status inte ska "
+"ändras tilldelas `SET_HOMED` en tom sträng, exempelvis: "
+"`SET_KINEMATIC_POSITION SET_HOMED= X=10`. Det går också att begära att en "
+"enskild axel betraktas som referenskörd (t.ex. `SET_HOMED=X`), men observera "
+"att icke-kartesisk kinematik (som deltakinematik) kanske inte stöder att "
+"enskilda axlar anges som referenskörda."
 
 #: docs/G-Codes.md:block 158 (paragraph)
 msgid ""
@@ -2477,20 +3276,36 @@ msgid ""
 "an alias for the `CLEAR_HOMED` parameter, but this alias will be removed in "
 "the future."
 msgstr ""
+"Parametern `CLEAR_HOMED` instruerar kinematiken att betrakta de angivna "
+"axlarna som icke referenskörda. `CLEAR_HOMED=XYZ` innebär exempelvis att "
+"alla axlar betraktas som icke referenskörda och därför måste referensköras "
+"före förflyttning. Standardvärdet är `SET_HOMED=XYZ` även om `CLEAR_HOMED` "
+"används, så kommandot `SET_KINEMATIC_POSITION CLEAR_HOMED=Z` gör X och Y "
+"referenskörda och rensar referenskörningsstatusen för Z. Använd "
+"`SET_KINEMATIC_POSITION SET_HOMED= CLEAR_HOMED=Z` om endast Z:s "
+"referenskörningsstatus ska rensas. Om en axel inte anges i vare sig "
+"`SET_HOMED` eller `CLEAR_HOMED` ändras inte dess referenskörningsstatus, och "
+"om den anges i båda har `CLEAR_HOMED` företräde. Det går att begära att en "
+"enskild axel rensas, men med icke-kartesisk kinematik (som deltakinematik) "
+"kan det medföra att även andra axlars referenskörningsstatus rensas. "
+"Observera att parametern `CLEAR` för närvarande är ett alias för "
+"`CLEAR_HOMED`, men aliaset kommer att tas bort i framtiden."
 
 #: docs/G-Codes.md:block 224 (header)
 msgid "[load_cell]"
-msgstr ""
+msgstr "[load_cell]"
 
 #: docs/G-Codes.md:block 225 (paragraph)
 msgid ""
 "The following commands are enabled if a [load_cell config "
 "section](Config_Reference.md#load_cell) has been enabled."
 msgstr ""
+"Följande kommandon är aktiverade om ett [load_cell-konfigurationsavsnitt]"
+"(Config_Reference.md#load_cell) har aktiverats."
 
 #: docs/G-Codes.md:block 226 (header)
 msgid "LOAD_CELL_DIAGNOSTIC"
-msgstr ""
+msgstr "LOAD_CELL_DIAGNOSTIC"
 
 #: docs/G-Codes.md:block 227 (paragraph)
 msgid ""
@@ -2499,42 +3314,51 @@ msgid ""
 "proper operation of the load cell. This command can be run on both calibrated "
 "and uncalibrated load cells."
 msgstr ""
+"`LOAD_CELL_DIAGNOSTIC [LOAD_CELL=<config_name>]`: Kommandot samlar in "
+"lastcellsdata under 10 sekunder och rapporterar statistik som kan hjälpa dig "
+"att kontrollera att lastcellen fungerar korrekt. Kommandot kan köras med "
+"både kalibrerade och okalibrerade lastceller."
 
 #: docs/G-Codes.md:block 228 (header)
 msgid "LOAD_CELL_CALIBRATE"
-msgstr ""
+msgstr "LOAD_CELL_CALIBRATE"
 
 #: docs/G-Codes.md:block 229 (paragraph)
 msgid ""
 "`LOAD_CELL_CALIBRATE [LOAD_CELL=<config_name>]`: Start the guided calibration "
 "utility. Calibration is a 3 step process:"
 msgstr ""
+"`LOAD_CELL_CALIBRATE [LOAD_CELL=<config_name>]`: Startar det vägledda "
+"kalibreringsverktyget. Kalibreringen består av tre steg:"
 
 #: docs/G-Codes.md:block 230 (ordered list)
 msgid "First you remove all load from the load cell and run the `TARE` command"
 msgstr ""
+"Först tar du bort all belastning från lastcellen och kör kommandot `TARE`"
 
 #: docs/G-Codes.md:block 230 (ordered list)
 msgid ""
 "Next you apply a known load to the load cell and run the `CALIBRATE GRAMS=nnn`"
 " command"
 msgstr ""
+"Därefter lägger du en känd belastning på lastcellen och kör kommandot "
+"`CALIBRATE GRAMS=nnn`"
 
 #: docs/G-Codes.md:block 230 (ordered list)
 msgid "Finally use the `ACCEPT` command to save the results"
-msgstr ""
+msgstr "Använd slutligen kommandot `ACCEPT` för att spara resultaten"
 
 #: docs/G-Codes.md:block 231 (paragraph)
 msgid "You can cancel the calibration process at any time with `ABORT`."
-msgstr ""
+msgstr "Du kan när som helst avbryta kalibreringen med `ABORT`."
 
 #: docs/G-Codes.md:block 232 (header)
 msgid "LOAD_CELL_TARE"
-msgstr ""
+msgstr "LOAD_CELL_TARE"
 
 #: docs/G-Codes.md:block 234 (header)
 msgid "LOAD_CELL_READ load_cell=\"name\""
-msgstr ""
+msgstr "LOAD_CELL_READ load_cell=\"name\""
 
 #: docs/G-Codes.md:block 235 (paragraph)
 msgid ""
@@ -2543,6 +3367,9 @@ msgid ""
 "read and the raw value in counts. If the load cell is calibrated a force in "
 "grams is also reported."
 msgstr ""
+"`LOAD_CELL_READ [LOAD_CELL=<config_name>]`: Kommandot läser av lastcellen. "
+"Svaret är procentandelen av sensorns mätområde som lästes av och råvärdet i "
+"antal. Om lastcellen är kalibrerad rapporteras också kraften i gram."
 
 #: docs/G-Codes.md:block 343 (paragraph)
 msgid ""
@@ -2552,6 +3379,11 @@ msgid ""
 "at startup and can be used in gcode macros. The provided VALUE is parsed as a "
 "Python literal."
 msgstr ""
+"`SAVE_VARIABLE VARIABLE=<name> VALUE=<value>`: Sparar variabeln på disk så "
+"att den kan användas efter omstarter. VARIABLE måste skrivas med små "
+"bokstäver. Alla lagrade variabler läses in i dict-objektet "
+"`printer.save_variables.variables` vid start och kan användas i G-"
+"kodsmakron. VALUE tolkas som en Python-litteral."
 
 #: docs/G-Codes.md:block 42 (paragraph)
 msgid ""
@@ -2574,20 +3406,36 @@ msgid ""
 " `ADAPTIVE_MARGIN` value overrides the `adaptive_margin` option specified in "
 "the config file."
 msgstr ""
+"`BED_MESH_CALIBRATE [PROFILE=<name>] [METHOD=manual] "
+"[HORIZONTAL_MOVE_Z=<value>] [<probe_parameter>=<value>] [<mesh_parameter>"
+"=<value>] [ADAPTIVE=1] [ADAPTIVE_MARGIN=<value>]`: Kommandot mäter bädden "
+"med genererade punkter enligt parametrarna i konfigurationen. Därefter "
+"genereras ett nät och Z-rörelsen justeras enligt nätet. Nätet aktiveras "
+"direkt när `BED_MESH_CALIBRATE` har slutförts och sparas i profilen som "
+"anges av `PROFILE`, eller i `default` om den inte anges. Om ADAPTIVE=1 anges "
+"börjar profilnamnet med `adaptive-` och bör inte sparas för återanvändning. "
+"Se PROBE för information om valfria mätparametrar. Om METHOD=manual anges "
+"aktiveras verktyget för manuell mätning. Det valfria värdet "
+"`HORIZONTAL_MOVE_Z` åsidosätter `horizontal_move_z` i konfigurationsfilen. "
+"Om ADAPTIVE=1 anges används objekten i G-kodsfilen som skrivs ut för att "
+"avgränsa mätområdet. Det valfria värdet `ADAPTIVE_MARGIN` åsidosätter "
+"`adaptive_margin` i konfigurationsfilen."
 
 #: docs/G-Codes.md:block 186 (header)
 msgid "[generic_cartesian]"
-msgstr ""
+msgstr "[generic_cartesian]"
 
 #: docs/G-Codes.md:block 187 (paragraph)
 msgid ""
 "The commands in this section become automatically available when `kinematics: "
 "generic_cartesian` is specified as the printer kinematics."
 msgstr ""
+"Kommandona i detta avsnitt blir automatiskt tillgängliga när `kinematics: "
+"generic_cartesian` anges som skrivarens kinematik."
 
 #: docs/G-Codes.md:block 188 (header)
 msgid "SET_STEPPER_CARRIAGES"
-msgstr ""
+msgstr "SET_STEPPER_CARRIAGES"
 
 #: docs/G-Codes.md:block 189 (paragraph)
 msgid ""
@@ -2601,6 +3449,15 @@ msgid ""
 "coefficients or signs of the carriages with this command, but a user cannot "
 "add or remove the carriages that the stepper controls."
 msgstr ""
+"`SET_STEPPER_CARRIAGES STEPPER=<stepper_name> CARRIAGES=<carriages> "
+"[DISABLE_CHECKS=[0|1]]`: Anger eller uppdaterar stegmotorvagnarna. "
+"`<stepper_name>` måste referera till en befintlig stegmotor i `printer.cfg`, "
+"och `<carriages>` beskriver vagnarna som stegmotorn flyttar. Se [Generic "
+"Cartesian Kinematics](Config_Reference.md#generic-cartesian-kinematics) för "
+"en mer detaljerad beskrivning av parametern `carriages` i stegmotorns "
+"konfigurationsavsnitt. Observera att kommandot endast kan ändra vagnarnas "
+"koefficienter eller tecken; användaren kan inte lägga till eller ta bort "
+"vagnar som stegmotorn styr."
 
 #: docs/G-Codes.md:block 190 (paragraph)
 msgid ""
@@ -2608,6 +3465,9 @@ msgid ""
 "exercise an extreme caution using it, since specifying incorrect configuration"
 " may physically damage the printer."
 msgstr ""
+"`SET_STEPPER_CARRIAGES` är ett avancerat verktyg och bör användas med "
+"yttersta försiktighet, eftersom felaktig konfiguration kan skada skrivaren "
+"fysiskt."
 
 #: docs/G-Codes.md:block 191 (paragraph)
 msgid ""
@@ -2618,6 +3478,12 @@ msgid ""
 "commands, and the user must inspect the error message and either fix the "
 "problem, or manually restore the previous stepper(s) configuration."
 msgstr ""
+"Observera att `SET_STEPPER_CARRIAGES` utför vissa interna valideringar av "
+"den nya skrivarkinematiken efter ändringen. Om ett problem upptäcks kan "
+"skrivarkinematiken lämnas i ett ogiltigt tillstånd. Om "
+"`SET_STEPPER_CARRIAGES` rapporterar ett fel är det därför osäkert att köra "
+"andra G-kodskommandon. Inspektera felmeddelandet och åtgärda problemet eller "
+"återställ manuellt den tidigare stegmotorkonfigurationen."
 
 #: docs/G-Codes.md:block 240 (paragraph)
 msgid ""
@@ -2627,14 +3493,19 @@ msgid ""
 "sensors range that was read and the raw value in counts. If the load cell is "
 "calibrated a force in grams is also reported."
 msgstr ""
+"`LOAD_CELL_TARE [LOAD_CELL=<config_name>]`: Fungerar precis som taraknappen "
+"på en digital våg. Den aktuella råavläsningen från lastcellen sätts som "
+"nollpunktsreferens. Svaret är procentandelen av sensorns mätområde som "
+"lästes av och råvärdet i antal. Om lastcellen är kalibrerad rapporteras "
+"också kraften i gram."
 
 #: docs/G-Codes.md:block 243 (header)
 msgid "[load_cell_probe]"
-msgstr ""
+msgstr "[load_cell_probe]"
 
 #: docs/G-Codes.md:block 245 (header)
 msgid "LOAD_CELL_TEST_TAP"
-msgstr ""
+msgstr "LOAD_CELL_TEST_TAP"
 
 #: docs/G-Codes.md:block 246 (paragraph)
 msgid ""
@@ -2644,52 +3515,59 @@ msgid ""
 "sanity check to make sure that the probe works. This tool replaces "
 "QUERY_ENDSTOPS and QUERY_PROBE for load cell probes."
 msgstr ""
+"`LOAD_CELL_TEST_TAP [TAPS=<taps>] [TIMEOUT=<timeout>]`: Kör en testrutin som "
+"rapporterar knackningar på lastcellen. Verktygshuvudet flyttas inte, men "
+"lastcellssonden känner av knackningar som vid mätning. Det kan användas som "
+"en rimlighetskontroll av att sonden fungerar. Verktyget ersätter "
+"QUERY_ENDSTOPS och QUERY_PROBE för lastcellssonder."
 
 #: docs/G-Codes.md:block 247 (unordered list)
 msgid "`TAPS`: the number of taps the tool expects"
-msgstr ""
+msgstr "`TAPS`: antalet knackningar som verktyget förväntar sig"
 
 #: docs/G-Codes.md:block 247 (unordered list)
 msgid ""
 "`TIMEOOUT`: the time, in seconds, that the tool waits for each tab before "
 "aborting."
 msgstr ""
+"`TIMEOOUT`: tiden i sekunder som verktyget väntar på varje knackning innan "
+"det avbryter."
 
 #: docs/G-Codes.md:block 250 (unordered list)
 msgid "`FORCE_SAFETY_LIMIT=<grams>`"
-msgstr ""
+msgstr "`FORCE_SAFETY_LIMIT=<grams>`"
 
 #: docs/G-Codes.md:block 250 (unordered list)
 msgid "`TRIGGER_FORCE=<grams>`"
-msgstr ""
+msgstr "`TRIGGER_FORCE=<grams>`"
 
 #: docs/G-Codes.md:block 250 (unordered list)
 msgid "`DRIFT_FILTER_CUTOFF_FREQUENCY=<frequency_hz>`"
-msgstr ""
+msgstr "`DRIFT_FILTER_CUTOFF_FREQUENCY=<frequency_hz>`"
 
 #: docs/G-Codes.md:block 250 (unordered list)
 msgid "`DRIFT_FILTER_DELAY=<1|2>`"
-msgstr ""
+msgstr "`DRIFT_FILTER_DELAY=<1|2>`"
 
 #: docs/G-Codes.md:block 250 (unordered list)
 msgid "`BUZZ_FILTER_CUTOFF_FREQUENCY=<frequency_hz>`"
-msgstr ""
+msgstr "`BUZZ_FILTER_CUTOFF_FREQUENCY=<frequency_hz>`"
 
 #: docs/G-Codes.md:block 250 (unordered list)
 msgid "`BUZZ_FILTER_DELAY=<1|2>`"
-msgstr ""
+msgstr "`BUZZ_FILTER_DELAY=<1|2>`"
 
 #: docs/G-Codes.md:block 250 (unordered list)
 msgid "`NOTCH_FILTER_FREQUENCIES=<list of frequency_hz>`"
-msgstr ""
+msgstr "`NOTCH_FILTER_FREQUENCIES=<list of frequency_hz>`"
 
 #: docs/G-Codes.md:block 250 (unordered list)
 msgid "`NOTCH_FILTER_QUALITY=<quality>`"
-msgstr ""
+msgstr "`NOTCH_FILTER_QUALITY=<quality>`"
 
 #: docs/G-Codes.md:block 250 (unordered list)
 msgid "`TARE_TIME=<seconds>`"
-msgstr ""
+msgstr "`TARE_TIME=<seconds>`"
 
 #: docs/G-Codes.md:block 264 (paragraph)
 msgid ""
@@ -2710,6 +3588,21 @@ msgid ""
 "specifies the maximum instantaneous velocity change (in mm/s) of the motor "
 "during the junction of two moves (the default is 1mm/s)."
 msgstr ""
+"`MANUAL_STEPPER STEPPER=config_name GCODE_AXIS=[A-Z] "
+"[LIMIT_VELOCITY=<velocity>] [LIMIT_ACCEL=<accel>] "
+"[INSTANTANEOUS_CORNER_VELOCITY=<velocity>]`: Om parametern `GCODE_AXIS` "
+"anges konfigureras stegmotorn som en extra axel för `G1`-förflyttningar. Om "
+"exempelvis `MANUAL_STEPPER ... GCODE_AXIS=R` körs kan kommandon som `G1 X10 "
+"Y20 R30` användas för att flytta stegmotorn. Förflyttningarna sker synkront "
+"med verktygshuvudets XYZ-förflyttningar. När motorn associeras med en "
+"`GCODE_AXIS` går det inte längre att begära förflyttning med ovanstående "
+"`MANUAL_STEPPER`-kommando. Stegmotorn kan avregistreras med `MANUAL_STEPPER "
+"... GCODE_AXIS=` för att återgå till manuell styrning. Parametrarna "
+"`LIMIT_VELOCITY` och `LIMIT_ACCEL` kan begränsa hastigheten för `G1`-"
+"förflyttningar som annars skulle överskrida angivna hastighets- eller "
+"accelerationsgränser. `INSTANTANEOUS_CORNER_VELOCITY` anger motorns högsta "
+"momentana hastighetsändring (mm/s) i korsningen mellan två förflyttningar "
+"(standard är 1 mm/s)."
 
 #: docs/G-Codes.md:block 93 (paragraph)
 msgid ""
@@ -2732,6 +3625,23 @@ msgid ""
 "an unfinished part, see this [sample configuration](../config/sample-"
 "corexyuv.cfg) for macros examples."
 msgstr ""
+"`SET_DUAL_CARRIAGE CARRIAGE=<carriage> "
+"[MODE=[PRIMARY|COPY|MIRROR|INACTIVE]]`: Ändrar läget för den angivna vagnen. "
+"Om `MODE` inte anges används `PRIMARY`. `<carriage>` måste referera till en "
+"definierad primär eller dubbel vagn för kinematiken `generic_cartesian` "
+"eller vara 0 (primär vagn) eller 1 (dubbel vagn) för övrig IDEX-kompatibel "
+"kinematik. Läget `PRIMARY` inaktiverar alla andra vagnar på samma axel och "
+"gör att den angivna vagnen utför följande G-kodsförflyttningar oförändrat. "
+"Innan `COPY` eller `MIRROR` aktiveras för en vagn måste en annan vagn vara "
+"aktiverad som `PRIMARY` på samma axel. I dessa lägen följer vagnen "
+"efterföljande G-kodsförflyttningar och kopierar relativa förflyttningar "
+"(`COPY`) eller utför dem i motsatt spegelriktning (`MIRROR`). `INACTIVE` "
+"inaktiverar vagnen och gör att den ignorerar fortsatta G-kodsförflyttningar. "
+"Observera att avaktivering av den primära vagnen på axeln inte inaktiverar "
+"andra vagnar i `COPY`- eller `MIRROR`-läge. Det kan användas för att stoppa "
+"utskrift av en misslyckad del med ett verktyg och parkera verktyget för att "
+"undvika kollisioner med en ofärdig del. Se denna [exempelkonfiguration](../"
+"config/sample-corexyuv.cfg) för makroexempel."
 
 #: docs/G-Codes.md:block 97 (paragraph)
 msgid ""
@@ -2750,6 +3660,19 @@ msgid ""
 "does not have a saved primary carriage, to the axis position when "
 "`SAVE_DUAL_CARRIAGE_STATE` command was called."
 msgstr ""
+"`RESTORE_DUAL_CARRIAGE_STATE [NAME=<state_name>] [MOVE=[0|1] "
+"[MOVE_SPEED=<speed>]]`: Återställer tidigare sparade tillstånd för alla "
+"dubbla vagnar och deras primära vagnar. Kommandot återställer vagnarnas "
+"lägen och flyttar dem till de tidigare sparade positionerna, om inte "
+"\"MOVE=0\" anges. Om positioner återställs och \"MOVE_SPEED\" anges flyttas "
+"vagnarna högst med den angivna hastigheten (i mm/s); annars används "
+"referenskörningshastigheten för respektive vagn som referens. Observera att "
+"vagnarna återställer sina positioner endast längs sina egna axlar, vilket "
+"kan krävas för att korrekt återställa COPY- och MIRROR-läge för den dubbla "
+"vagnen. Kommandot uppdaterar dessutom Klippers verktygshuvudposition för "
+"varje axel med dubbla vagnar: den sätts så att den motsvarar den faktiska "
+"positionen för axelns aktiva primära vagn eller, om axeln saknar sparad "
+"primär vagn, till axelpositionen när `SAVE_DUAL_CARRIAGE_STATE` kördes."
 
 #: docs/G-Codes.md:block 133 (paragraph)
 msgid ""
@@ -2766,6 +3689,17 @@ msgid ""
 "any previous template assigned to the pin (one can then use `SET_FAN_SPEED` "
 "commands to manage the values directly)."
 msgstr ""
+"`SET_FAN_SPEED FAN=config_name TEMPLATE=<template_name> [<param_x>=<literal>"
+"]`: Om `TEMPLATE` anges tilldelas en [display_template]"
+"(Config_Reference.md#display_template) till den angivna fläkten. Om "
+"exempelvis konfigurationsavsnittet `[display_template my_fan_template]` har "
+"definierats kan `TEMPLATE=my_fan_template` tilldelas här. display_template "
+"ska skapa en sträng som innehåller ett flyttal med önskat värde. Mallen "
+"utvärderas fortlöpande och fläkten ställs automatiskt in på den resulterande "
+"hastigheten. Parametrar för display_template kan anges för användning vid "
+"mallutvärderingen (parametrar tolkas som Python-litteraler). Om TEMPLATE är "
+"en tom sträng rensar kommandot en tidigare mall som tilldelats stiftet "
+"(därefter kan `SET_FAN_SPEED` användas för att hantera värdena direkt)."
 
 #: docs/G-Codes.md:block 192 (paragraph)
 msgid ""
@@ -2781,6 +3715,17 @@ msgid ""
 "STEPPER=b CARRIAGES=carriage_x-carriage_y`, while still validating the final "
 "kinematics state."
 msgstr ""
+"Eftersom `SET_STEPPER_CARRIAGES` bara kan uppdatera konfigurationen för en "
+"stegmotor åt gången kan vissa ändringsföljder ge ogiltiga mellanliggande "
+"kinematikkonfigurationer, även om slutkonfigurationen är giltig. I sådana "
+"fall kan användaren skicka parametern `DISABLE_CHECKS=1` till alla kommandon "
+"utom det sista för att inaktivera mellanliggande kontroller. Om exempelvis "
+"`stepper a` och `stepper b` från början har vagnarna `carriage_x-carriage_y` "
+"respektive `carriage_x+carriage_y` gör följande kommandoordning det möjligt "
+"att i praktiken byta vagnstyrning: `SET_STEPPER_CARRIAGES STEPPER=a "
+"CARRIAGES=carriage_x+carriage_y DISABLE_CHECKS=1` och `SET_STEPPER_CARRIAGES "
+"STEPPER=b CARRIAGES=carriage_x-carriage_y`, medan det slutliga "
+"kinematiktillståndet fortfarande valideras."
 
 #: docs/G-Codes.md:block 196 (paragraph)
 msgid ""
@@ -2788,18 +3733,25 @@ msgid ""
 "of the width sensor, the state of the filament sensor and the state of flow "
 "compensation."
 msgstr ""
+"`QUERY_FILAMENT_WIDTH`: Returnerar den aktuella uppmätta filamentbredden, "
+"tillståndet för breddsensorn, tillståndet för filamentsensorn och "
+"tillståndet för flödeskompenseringen."
 
 #: docs/G-Codes.md:block 198 (paragraph)
 msgid ""
 "`RESET_FILAMENT_WIDTH_SENSOR`: Clear all sensor readings. Helpful after "
 "filament change. Resets flow rate to 100%."
 msgstr ""
+"`RESET_FILAMENT_WIDTH_SENSOR`: Rensar alla sensoravläsningar. Användbart "
+"efter filamentbyte. Återställer flödeshastigheten till 100 %."
 
 #: docs/G-Codes.md:block 200 (paragraph)
 msgid ""
 "`DISABLE_FILAMENT_WIDTH_SENSOR`: Turn off the filament width sensor and stop "
 "using it for flow compensation. Resets flow rate to 100%."
 msgstr ""
+"`DISABLE_FILAMENT_WIDTH_SENSOR`: Stänger av filamentbreddsensorn och slutar "
+"använda den för flödeskompensering. Återställer flödeshastigheten till 100 %."
 
 #: docs/G-Codes.md:block 202 (paragraph)
 msgid ""
@@ -2807,6 +3759,10 @@ msgid ""
 "width sensor and enable or disable flow compensation. If `FLOW_COMPENSATION` "
 "is not specified, the current flow compensation state is preserved."
 msgstr ""
+"`ENABLE_FILAMENT_WIDTH_SENSOR [FLOW_COMPENSATION=[0|1]`: Slår på "
+"filamentbreddsensorn och aktiverar eller inaktiverar flödeskompensering. Om "
+"`FLOW_COMPENSATION` inte anges behålls det aktuella tillståndet för "
+"flödeskompensering."
 
 #: docs/G-Codes.md:block 224 (paragraph)
 msgid ""
@@ -2823,12 +3779,25 @@ msgid ""
 "reference](Config_Reference.md#input_shaper) for more details on each of these"
 " parameters."
 msgstr ""
+"`SET_INPUT_SHAPER [SHAPER_FREQ_X=<shaper_freq_x>] "
+"[SHAPER_FREQ_Y=<shaper_freq_y>] [SHAPER_FREQ_Y=<shaper_freq_z>] "
+"[DAMPING_RATIO_X=<damping_ratio_x>] [DAMPING_RATIO_Y=<damping_ratio_y>] "
+"[DAMPING_RATIO_Z=<damping_ratio_z>] [SHAPER_TYPE=<shaper>] "
+"[SHAPER_TYPE_X=<shaper_type_x>] [SHAPER_TYPE_Y=<shaper_type_y>] "
+"[SHAPER_TYPE_Z=<shaper_type_z>]`: Ändrar parametrar för input shaper. "
+"Observera att parametern SHAPER_TYPE återställer input shaper för alla axlar "
+"även om olika shaper-typer har konfigurerats i avsnittet [input_shaper]. "
+"SHAPER_TYPE kan inte användas tillsammans med parametrarna SHAPER_TYPE_X, "
+"SHAPER_TYPE_Y och SHAPER_TYPE_Z. Se [konfigurationsreferensen]"
+"(Config_Reference.md#input_shaper) för mer information om varje parameter."
 
 #: docs/G-Codes.md:block 244 (paragraph)
 msgid ""
 "The commands below are enabled if a [load_cell config "
 "section](Config_Reference.md#load_cell_probe) has been enabled."
 msgstr ""
+"Kommandona nedan är aktiverade om ett [load_cell-konfigurationsavsnitt]"
+"(Config_Reference.md#load_cell_probe) har aktiverats."
 
 #: docs/G-Codes.md:block 245 (paragraph)
 msgid ""
@@ -2839,6 +3808,11 @@ msgid ""
 "corresponding settings from the "
 "[`[load_cell_probe]`](./Config_Reference.md#load_cell_probe) configuration:"
 msgstr ""
+"Dessutom accepterar kommandon som utför mätningar, såsom [`PROBE`](#probe), "
+"[`PROBE_ACCURACY`](#probe_accuracy) och [`BED_MESH_CALIBRATE`]"
+"(#bed_mesh_calibrate), ytterligare parametrar om `[load_cell_probe]` är "
+"definierad. Parametrarna åsidosätter motsvarande inställningar i "
+"konfigurationen [`[load_cell_probe]`](./Config_Reference.md#load_cell_probe):"
 
 #: docs/G-Codes.md:block 262 (paragraph)
 msgid ""
@@ -2854,6 +3828,17 @@ msgid ""
 "however if a manual stepper move uses SYNC=0 then future G-Code movement "
 "commands may run in parallel with the stepper movement."
 msgstr ""
+"`MANUAL_STEPPER STEPPER=config_name [ENABLE=[0|1]] [SET_POSITION=<pos>] "
+"[SPEED=<speed>] [ACCEL=<accel>] [MOVE=<pos>] [SYNC=0]]`: Ändrar stegmotorns "
+"tillstånd. Använd parametern ENABLE för att aktivera eller inaktivera "
+"stegmotorn. Använd SET_POSITION för att tvinga stegmotorn att anta att den "
+"befinner sig på den angivna positionen. Använd MOVE för att begära en "
+"förflyttning till den angivna positionen. Om SPEED och/eller ACCEL anges "
+"används de angivna värdena i stället för standardvärdena i "
+"konfigurationsfilen. Om ACCEL är noll utförs ingen acceleration. Normalt "
+"schemaläggs framtida G-kodskommandon efter att stegmotorförflyttningen är "
+"klar, men om en manuell stegmotorförflyttning använder SYNC=0 kan framtida G-"
+"kodsrörelsekommandon köras parallellt med stegmotorförflyttningen."
 
 #: docs/G-Codes.md:block 263 (paragraph)
 msgid ""
@@ -2862,10 +3847,14 @@ msgid ""
 "will end early if an endstop event occurs. The `STOP_ON_ENDSTOP` parameter may"
 " be set to one of the following values:"
 msgstr ""
+"`MANUAL_STEPPER STEPPER=config_name [SPEED=<speed>] [ACCEL=<accel>] "
+"MOVE=<pos> STOP_ON_ENDSTOP=<check_type>`: Om STOP_ON_ENDSTOP anges avslutas "
+"förflyttningen tidigt om en ändstoppshändelse inträffar. Parametern "
+"`STOP_ON_ENDSTOP` kan sättas till något av följande värden:"
 
 #: docs/G-Codes.md:block 264 (unordered list)
 msgid "`probe`: The movement will stop when the endstop reports triggered."
-msgstr ""
+msgstr "`probe`: Förflyttningen stoppas när ändstoppet rapporterar utlöst."
 
 #: docs/G-Codes.md:block 264 (unordered list)
 msgid ""
@@ -2873,12 +3862,17 @@ msgid ""
 "final position of the manual_stepper will be set such that the trigger "
 "position matches the position specified in the `MOVE` parameter."
 msgstr ""
+"`home`: Förflyttningen stoppas när ändstoppet rapporterar utlöst och "
+"manual_stepper:s slutposition sätts så att utlösningspositionen motsvarar "
+"positionen som anges i parametern `MOVE`."
 
 #: docs/G-Codes.md:block 264 (unordered list)
 msgid ""
 "`inverted_probe`, `inverted_home`: As above, however, the movement will stop "
 "when the endstop reports it is in a non-triggered state."
 msgstr ""
+"`inverted_probe`, `inverted_home`: Som ovan, men förflyttningen stoppas när "
+"ändstoppet rapporterar att det inte är utlöst."
 
 #: docs/G-Codes.md:block 264 (unordered list)
 msgid ""
@@ -2886,6 +3880,9 @@ msgid ""
 "but no error will be reported if the movement fully completes without an "
 "endstop event stopping the move early."
 msgstr ""
+"`try_probe`, `try_inverted_probe`, `try_home`, `try_inverted_home`: Som "
+"ovan, men inget fel rapporteras om förflyttningen slutförs utan att en "
+"ändstoppshändelse avbryter den i förtid."
 
 #: docs/G-Codes.md:block 271 (paragraph)
 msgid ""
@@ -2893,12 +3890,17 @@ msgid ""
 "section](Config_Reference.md#output_pin) or [pwm_tool config "
 "section](Config_Reference.md#pwm_tool) is enabled."
 msgstr ""
+"Följande kommando är tillgängligt när ett [output_pin-konfigurationsavsnitt]"
+"(Config_Reference.md#output_pin) eller [pwm_tool-konfigurationsavsnitt]"
+"(Config_Reference.md#pwm_tool) är aktiverat."
 
 #: docs/G-Codes.md:block 321 (paragraph)
 msgid ""
 "The commands below are available when a [probe_eddy_current config "
 "section](Config_Reference.md#probe_eddy_current) is enabled."
 msgstr ""
+"Kommandona nedan är tillgängliga när ett [probe_eddy_current-"
+"konfigurationsavsnitt](Config_Reference.md#probe_eddy_current) är aktiverat."
 
 #: docs/G-Codes.md:block 322 (paragraph)
 msgid ""
@@ -2907,10 +3909,14 @@ msgid ""
 "[`BED_MESH_CALIBRATE`](#bed_mesh_calibrate) etc. will accept additional "
 "parameters if a `[probe_eddy_current]` section is defined:"
 msgstr ""
+"Dessutom accepterar kommandon som utför mätningar, såsom [`PROBE`](#probe), "
+"[`PROBE_ACCURACY`](#probe_accuracy) och [`BED_MESH_CALIBRATE`]"
+"(#bed_mesh_calibrate), ytterligare parametrar om avsnittet "
+"`[probe_eddy_current]` är definierat:"
 
 #: docs/G-Codes.md:block 323 (unordered list)
 msgid "`METHOD=<scan|rapid_scan|tap>`: This alters the probing mechanism:"
-msgstr ""
+msgstr "`METHOD=<scan|rapid_scan|tap>`: Ändrar mätmekanismen:"
 
 #: docs/G-Codes.md:block 323 (unordered list)
 msgid ""
@@ -2918,6 +3924,8 @@ msgid ""
 "briefly above each target location and return the measured height at that "
 "position."
 msgstr ""
+"`METHOD=scan`: Verktygshuvudet sänks inte. I stället pausar det kort ovanför "
+"varje målplats och returnerar den uppmätta höjden där."
 
 #: docs/G-Codes.md:block 323 (unordered list)
 msgid ""
@@ -2925,6 +3933,9 @@ msgid ""
 "target location. The value returned is the measured height around the time "
 "that the toolhead was near each target position."
 msgstr ""
+"`METHOD=rapid_scan`: Verktygshuvudet sänks inte och pausar inte vid varje "
+"målplats. Det returnerade värdet är den uppmätta höjden ungefär när "
+"verktygshuvudet befann sig nära varje målposition."
 
 #: docs/G-Codes.md:block 323 (unordered list)
 msgid ""
@@ -2932,6 +3943,9 @@ msgid ""
 "the bed. This method is only available if `tap_threshold` is specified in the "
 "`[probe_eddy_current]` config section."
 msgstr ""
+"`METHOD=tap`: Verktygshuvudet sänks tills munstycket får kontakt med bädden. "
+"Metoden är endast tillgänglig om `tap_threshold` anges i "
+"konfigurationsavsnittet `[probe_eddy_current]`."
 
 #: docs/G-Codes.md:block 323 (unordered list)
 msgid ""
@@ -2940,6 +3954,10 @@ msgid ""
 "bed is at or below the `z_offset` parameter specified in the "
 "`[probe_eddy_current]` config section."
 msgstr ""
+"standard: Om ingen `METHOD`-parameter anges sänks verktygshuvudet som "
+"standard tills sensorn upptäcker att avståndet till bädden är lika med eller "
+"mindre än parametern `z_offset` i konfigurationsavsnittet "
+"`[probe_eddy_current]`."
 
 #: docs/G-Codes.md:block 323 (unordered list)
 msgid ""
@@ -2948,12 +3966,18 @@ msgid ""
 "`METHOD=rapid_scan` this specifies the measurement time window at each target."
 " If not specified, the default is 0.100 (which is 100ms)."
 msgstr ""
+"`SAMPLE_TIME=<time>`: Vid mätning med `METHOD=scan` anger detta tiden (i "
+"sekunder) att pausa vid varje målpunkt. Med `METHOD=rapid_scan` anger det "
+"mättidsfönstret vid varje mål. Om det inte anges är standardvärdet 0,100 "
+"(100 ms)."
 
 #: docs/G-Codes.md:block 323 (unordered list)
 msgid ""
 "`TAP_THRESHOLD=<value>`: This overrides the `tap_threshold` specified in the "
 "`[probe_eddy_current]` config section when probing using `METHOD=tap`."
 msgstr ""
+"`TAP_THRESHOLD=<value>`: Åsidosätter `tap_threshold` i "
+"konfigurationsavsnittet `[probe_eddy_current]` vid mätning med `METHOD=tap`."
 
 #: docs/G-Codes.md:block 324 (paragraph)
 msgid ""
@@ -2964,10 +3988,17 @@ msgid ""
 "then the command instead applies the change to `tap_z_offset` so that future "
 "`tap` probes are updated to use the current Z G-Code offset."
 msgstr ""
+"Kommandot `Z_OFFSET_APPLY_PROBE` utökas också för att stödja parametern "
+"`METHOD=tap`. När ingen METHOD-parameter anges ändrar kommandot "
+"`Z_OFFSET_APPLY_PROBE` sondkalibreringen så att den aktuella Z G-"
+"kodsförskjutningen tillämpas på framtida `scan`-, `rapid_scan`- och "
+"standardmätningar. Om `METHOD=tap` anges tillämpas ändringen i stället på "
+"`tap_z_offset`, så att framtida `tap`-mätningar uppdateras med den aktuella "
+"Z G-kodsförskjutningen."
 
 #: docs/G-Codes.md:block 327 (header)
 msgid "PROBE_EDDY_CURRENT_TAP_CALIBRATE"
-msgstr ""
+msgstr "PROBE_EDDY_CURRENT_TAP_CALIBRATE"
 
 #: docs/G-Codes.md:block 328 (paragraph)
 msgid ""
@@ -2975,6 +4006,10 @@ msgid ""
 "tool that can calibrate the probe's \"tap_threshold\" parameter. See the [eddy"
 " probe documentation](Eddy_Probe.md#tap-calibration) for details."
 msgstr ""
+"`PROBE_EDDY_CURRENT_TAP_CALIBRATE [TAP=guess|refine|verify]`: Startar ett "
+"verktyg som kan kalibrera sondens parameter ”tap_threshold”. Se "
+"[dokumentationen om virvelströmssonden](Eddy_Probe.md#tap-calibration) för "
+"mer information."
 
 #: docs/G-Codes.md:block 353 (paragraph)
 msgid ""
@@ -3004,6 +4039,29 @@ msgid ""
 "`resonances`, and NAME defaults to the current time in \"YYYYMMDD_HHMMSS\" "
 "format."
 msgstr ""
+"`TEST_RESONANCES AXIS=<axis> [OUTPUT=<resonances,raw_data>] [NAME=<name>] "
+"[FREQ_START=<min_freq>] [FREQ_END=<max_freq>] [ACCEL_PER_HZ=<accel_per_hz>] "
+"[HZ_PER_SEC=<hz_per_sec>] [CHIPS=<chip_name>] [POINT=x,y,z] "
+"[INPUT_SHAPING=<0:1>]`: Kör resonanstestet vid alla konfigurerade mätpunkter "
+"för den begärda ”axis” och mäter accelerationen med accelerometerkretsarna "
+"som konfigurerats för respektive axel. ”axis” kan vara X, Y eller Z eller "
+"ange en valfri riktning som `AXIS=dx,dy[,dz]`, där dx, dy och dz är flyttal "
+"som definierar en riktningsvektor (t.ex. `AXIS=X`, `AXIS=Y` eller `AXIS=1,-"
+"1` för diagonal riktning i XY-planet eller `AXIS=0,1,1` för en riktning i YZ-"
+"planet). Observera att `AXIS=dx,dy` och `AXIS=-dx,-dy` är likvärdiga. "
+"`chip_name` kan vara en eller flera konfigurerade accelerometerkretsar, "
+"avgränsade med kommatecken, exempelvis `CHIPS=\"adxl345, adxl345 rpi\"`. Om "
+"POINT anges åsidosätts mätpunkterna som konfigurerats i "
+"`[resonance_tester]`. Om `INPUT_SHAPING=0` anges eller inte anges (standard) "
+"inaktiveras input shaping för resonanstestet, eftersom ett resonanstest inte "
+"får köras med input shaper aktiverad. Parametern `OUTPUT` är en "
+"kommaseparerad lista över utmatningar som skrivs. Om `raw_data` begärs "
+"skrivs rå accelerometerdata till en eller flera filer `/tmp/raw_data_<axis>"
+"_[<chip_name>_][<point>_]<name>.csv` (delen `<point>_` skapas bara om fler "
+"än en mätpunkt är konfigurerad eller POINT anges). Om `resonances` anges "
+"beräknas frekvenssvaret över alla mätpunkter och skrivs till filen `/tmp/"
+"resonances_<axis>_<name>.csv`. Om OUTPUT inte anges används `resonances` som "
+"standard, och NAME får den aktuella tiden i formatet \"YYYYMMDD_HHMMSS\"."
 
 #: docs/G-Codes.md:block 409 (paragraph)
 msgid ""
@@ -3016,6 +4074,15 @@ msgid ""
 " a call to `TEMPERATURE_PROBE_NEXT`. The default `STEP` is 2. The `METHOD` "
 "only supports `tap` as an option, if specified, probing will be automated."
 msgstr ""
+"`TEMPERATURE_PROBE_CALIBRATE [PROBE=<probe name>] [TARGET=<value>] "
+"[STEP=<value>] [METHOD=<method>]`: Startar kalibrering av temperaturdrift "
+"för virvelströmsbaserade sonder. `TARGET` är måltemperaturen för det sista "
+"provet. När temperaturen som registreras under ett prov överskrider `TARGET` "
+"slutförs kalibreringen. Parametern `STEP` anger temperaturskillnaden (i C) "
+"mellan prover. När ett prov har tagits används denna skillnad för att "
+"schemalägga ett anrop till `TEMPERATURE_PROBE_NEXT`. Standardvärdet för "
+"`STEP` är 2. `METHOD` stöder endast `tap`; om den anges automatiseras "
+"mätningen."
 
 #~ msgid ""
 #~ "`MANUAL_STEPPER STEPPER=config_name [ENABLE=[0|1]] [SET_POSITION=<pos>] "

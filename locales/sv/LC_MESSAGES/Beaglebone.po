@@ -4,26 +4,30 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Language: sv\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"Last-Translator: Daniel Nylander <yeagersthlm@gmail.com>\n"
+"Language-Team: Swedish <https://hosted.weblate.org/projects/klipper/"
+"beaglebone/sv/>\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2026-09-17 16:51+0000\n"
+"X-Generator: Weblate 2026.10.dev0\n"
 
 #: docs/Beaglebone.md:block 1 (header)
 msgid "Beaglebone"
-msgstr ""
+msgstr "Beaglebone"
 
 #: docs/Beaglebone.md:block 2 (paragraph)
 msgid ""
 "This document describes the process of running Klipper on a Beaglebone PRU."
-msgstr ""
+msgstr "Detta dokument beskriver hur Klipper körs på en BeagleBone PRU."
 
 #: docs/Beaglebone.md:block 3 (header)
 msgid "Building an OS image"
-msgstr ""
+msgstr "Bygga en operativsystemsavbildning"
 
 #: docs/Beaglebone.md:block 10 (paragraph)
 msgid "And setup OctoPrint to start at bootup:"
-msgstr ""
+msgstr "Konfigurera sedan OctoPrint för att starta vid uppstart:"
 
 #: docs/Beaglebone.md:block 12 (paragraph)
 msgid ""
@@ -32,28 +36,34 @@ msgid ""
 "`NICELEVEL` to `0`, uncomment the `BASEDIR`, `CONFIGFILE`, and `DAEMON` "
 "settings and change the references from `/home/pi/` to `/home/debian/`:"
 msgstr ""
+"OctoPrints konfigurationsfil **/etc/default/octoprint** måste ändras. Ändra "
+"användaren `OCTOPRINT_USER` till `debian`, ändra `NICELEVEL` till `0`, "
+"avkommentera inställningarna `BASEDIR`, `CONFIGFILE` och `DAEMON` och ändra "
+"referenserna från `/home/pi/` till `/home/debian/`:"
 
 #: docs/Beaglebone.md:block 14 (paragraph)
 msgid "Then start the Octoprint service:"
-msgstr ""
+msgstr "Starta sedan tjänsten OctoPrint:"
 
 #: docs/Beaglebone.md:block 22 (paragraph)
 msgid ""
 "It is also necessary to compile and install the micro-controller code for a "
 "Linux host process. Configure it a second time for a \"Linux process\":"
 msgstr ""
+"Mikrokontrollerkoden för en Linux-värdprocess måste också kompileras och "
+"installeras. Konfigurera den en andra gång för en \"Linux-process\":"
 
 #: docs/Beaglebone.md:block 24 (paragraph)
 msgid "Then install this micro-controller code as well:"
-msgstr ""
+msgstr "Installera sedan även denna mikrokontrollerkod:"
 
 #: docs/Beaglebone.md:block 26 (header)
 msgid "Remaining configuration"
-msgstr ""
+msgstr "Återstående konfiguration"
 
 #: docs/Beaglebone.md:block 28 (header)
 msgid "Printing on the Beaglebone"
-msgstr ""
+msgstr "Skriva ut med BeagleBone"
 
 #: docs/Beaglebone.md:block 4 (paragraph)
 msgid ""
@@ -62,46 +72,59 @@ msgid ""
 "either a micro-SD card or from builtin eMMC. If using the eMMC, install it to "
 "eMMC now by following the instructions from the above link."
 msgstr ""
+"Börja med att installera avbildningen [Debian 11.7 2023-09-02 4GB microSD "
+"IoT](https://beagleboard.org/latest-images). Avbildningen kan köras från ett "
+"microSD-kort eller inbyggt eMMC-minne. Om eMMC används ska den installeras "
+"till eMMC nu enligt instruktionerna i länken ovan."
 
 #: docs/Beaglebone.md:block 5 (paragraph)
 msgid ""
 "Then ssh into the Beaglebone machine (`ssh debian@beaglebone` -- password is "
 "`temppwd`)."
 msgstr ""
+"Anslut sedan med SSH till BeagleBone-maskinen (`ssh debian@beaglebone` – "
+"lösenordet är `temppwd`)."
 
 #: docs/Beaglebone.md:block 6 (paragraph)
 msgid ""
 "Before start installing Klipper you need to free-up additional space. there "
 "are 3 options to do that:"
 msgstr ""
+"Innan Klipper installeras måste mer diskutrymme frigöras. Det finns tre sätt "
+"att göra det:"
 
 #: docs/Beaglebone.md:block 7 (ordered list)
 msgid "remove some BeagleBone \"Demo\" resources"
-msgstr ""
+msgstr "ta bort vissa BeagleBone-\"demo\"-resurser"
 
 #: docs/Beaglebone.md:block 7 (ordered list)
 msgid ""
 "if you did boot from SD-Card, and it's bigger than 4Gb - you can expand "
 "current filesystem to take whole card space"
 msgstr ""
+"om systemet startades från SD-kort och kortet är större än 4 GB kan "
+"filsystemet utökas till hela kortets utrymme"
 
 #: docs/Beaglebone.md:block 7 (ordered list)
 msgid "do option #1 and #2 together."
-msgstr ""
+msgstr "gör alternativ 1 och 2 tillsammans."
 
 #: docs/Beaglebone.md:block 8 (paragraph)
 msgid "To remove some BeagleBone \"Demo\" resources execute these commands"
 msgstr ""
+"Kör följande kommandon för att ta bort vissa BeagleBone-\"demo\"-resurser"
 
 #: docs/Beaglebone.md:block 10 (paragraph)
 msgid ""
 "To expand filesystem to full size of your SD-Card execute this command, reboot"
 " is not required."
 msgstr ""
+"Kör följande kommando för att utöka filsystemet till hela SD-kortets "
+"storlek; omstart krävs inte."
 
 #: docs/Beaglebone.md:block 12 (paragraph)
 msgid "Install Klipper by running the following commands:"
-msgstr ""
+msgstr "Installera Klipper genom att köra följande kommandon:"
 
 #: docs/Beaglebone.md:block 14 (paragraph)
 msgid ""
@@ -110,12 +133,18 @@ msgid ""
 " you can't directly connect pins to 5v or 12v based hardware without "
 "conversion boards."
 msgstr ""
+"Efter installationen av Klipper måste du avgöra vilken typ av driftsättning "
+"som behövs. Observera att BeagleBone är maskinvara för 3,3 V och att stift i "
+"de flesta fall inte kan anslutas direkt till maskinvara för 5 V eller 12 V "
+"utan nivåomvandlingskort."
 
 #: docs/Beaglebone.md:block 15 (paragraph)
 msgid ""
 "As Klipper have multimodule architecture on BeagleBone you can achieve many "
 "different use cases, but general ones are following:"
 msgstr ""
+"Eftersom Klipper har en flermodulsarkitektur på BeagleBone kan många olika "
+"användningsfall hanteras. De vanligaste är följande:"
 
 #: docs/Beaglebone.md:block 16 (paragraph)
 msgid ""
@@ -123,6 +152,10 @@ msgid ""
 " software like OctoPrint/Fluidd + Moonraker/... and this configuration will be"
 " driving external micro-controllers via serial/usb/canbus connections."
 msgstr ""
+"Användningsfall 1: Använd BeagleBone enbart som värdsystem för Klipper och "
+"ytterligare programvara som OctoPrint/Fluidd + Moonraker. Den här "
+"konfigurationen styr externa mikrokontroller via seriella anslutningar, USB "
+"eller CAN-buss."
 
 #: docs/Beaglebone.md:block 17 (paragraph)
 msgid ""
@@ -131,42 +164,55 @@ msgid ""
 "will drive extension board with BeagleBone PRU cores (2 additional cores "
 "200Mh, 32Bit)."
 msgstr ""
+"Användningsfall 2: Använd BeagleBone med ett expansionskort (cape), "
+"exempelvis CRAMPS. I denna konfiguration är BeagleBone värd för Klipper och "
+"ytterligare programvara, och styr expansionskortet med BeagleBone PRU-kärnor "
+"– två ytterligare 200 MHz/32-bitarskärnor."
 
 #: docs/Beaglebone.md:block 18 (paragraph)
 msgid ""
 "Use case 3: It's same as \"Use case 1\" but additionally you want to drive "
 "BeagleBone GPIOs with high speed by utilizing PRU cores to offload main CPU."
 msgstr ""
+"Användningsfall 3: Samma som användningsfall 1, men med behov av att styra "
+"BeagleBone-GPIO med hög hastighet genom att använda PRU-kärnorna för att "
+"avlasta huvudprocessorn."
 
 #: docs/Beaglebone.md:block 19 (header)
 msgid "Installing Octoprint"
-msgstr ""
+msgstr "Installera OctoPrint"
 
 #: docs/Beaglebone.md:block 20 (paragraph)
 msgid ""
 "One may then install Octoprint or fully skip this section if desired other "
 "software:"
 msgstr ""
+"Du kan därefter installera OctoPrint, eller hoppa över detta avsnitt helt om "
+"annan programvara önskas:"
 
 #: docs/Beaglebone.md:block 28 (paragraph)
 msgid ""
 "Wait 1-2 minutes and make sure the OctoPrint web server is accessible - it "
 "should be at: <http://beaglebone:5000/>"
 msgstr ""
+"Vänta 1–2 minuter och kontrollera att OctoPrints webbserver är åtkomlig – "
+"den ska finnas på <http://beaglebone:5000/>."
 
 #: docs/Beaglebone.md:block 29 (header)
 msgid "Building the BeagleBone PRU micro-controller code (PRU firmware)"
-msgstr ""
+msgstr "Bygga BeagleBone PRU-mikrokontrollerkoden (PRU-firmware)"
 
 #: docs/Beaglebone.md:block 30 (paragraph)
 msgid ""
 "This section is required for \"Use case 2\" and \"Use case 3\" mentioned "
 "above, you should skip it for \"Use case 1\"."
 msgstr ""
+"Detta avsnitt krävs för \"användningsfall 2\" och \"användningsfall 3\" "
+"ovan, men ska hoppas över för \"användningsfall 1\"."
 
 #: docs/Beaglebone.md:block 31 (paragraph)
 msgid "Check that required devices are present"
-msgstr ""
+msgstr "Kontrollera att nödvändiga enheter finns"
 
 #: docs/Beaglebone.md:block 33 (paragraph)
 msgid ""
@@ -179,6 +225,14 @@ msgid ""
 "options or with cape-overlays Just for reference some output of working "
 "BeagleBone Black configuration with CRAMPS board:"
 msgstr ""
+"Kontrollera att utdata visar att drivrutinerna `remoteproc` har lästs in och "
+"att PRU-kärnorna finns. I kärna 5.10 ska de vara `remoteproc1` och "
+"`remoteproc2` (4a334000.pru, 4a338000.pru). Kontrollera också att många "
+"GPIO:er har lästs in; de ser ut som `Allocated GPIO id=0 name='P8_03'`. "
+"Vanligen fungerar allt utan maskinvarukonfiguration. Om något saknas kan du "
+"prova alternativen för `uboot overlays` eller `cape-overlays`. Följande är "
+"endast ett exempel på utdata från en fungerande BeagleBone Black-"
+"konfiguration med CRAMPS-kort:"
 
 #: docs/Beaglebone.md:block 35 (paragraph)
 msgid ""
@@ -188,22 +242,32 @@ msgid ""
 "inside the \"Optional features\" because they will not fit in 8Kb PRU firmware"
 " memory, then exit and save config:"
 msgstr ""
+"För att kompilera Klippers mikrokontrollerkod ska den först konfigureras för "
+"\"Beaglebone PRU\". För \"BeagleBone Black\" ska alternativen \"Support GPIO "
+"Bit-banging devices\" och \"Support LCD devices\" dessutom inaktiveras under "
+"\"Optional features\", eftersom de inte ryms i PRU-firmwareminnets 8 kB. "
+"Avsluta sedan och spara konfigurationen:"
 
 #: docs/Beaglebone.md:block 37 (paragraph)
 msgid "To build and install the new PRU micro-controller code, run:"
 msgstr ""
+"Kör följande för att bygga och installera den nya PRU-mikrokontrollerkoden:"
 
 #: docs/Beaglebone.md:block 39 (paragraph)
 msgid ""
 "After previous commands was executed your PRU firmware should be ready and "
 "started to check if everything was fine you can execute following command"
 msgstr ""
+"När kommandona ovan har körts bör PRU-firmwaren vara klar och startad. Kör "
+"följande kommando för att kontrollera att allt gick bra:"
 
 #: docs/Beaglebone.md:block 41 (paragraph)
 msgid ""
 "and compare last messages with sample one which indicate that everything "
 "started properly:"
 msgstr ""
+"och jämför de sista meddelandena med exemplet som visar att allt startade "
+"korrekt:"
 
 #: docs/Beaglebone.md:block 43 (paragraph)
 msgid ""
@@ -211,16 +275,21 @@ msgid ""
 "main mcu configuration this device is required to be present, if it's absent -"
 " your PRU cores did not start properly."
 msgstr ""
+"Observera \"/dev/rpmsg_pru30\" – den blir den seriella enheten för huvud-"
+"MCU:ns konfiguration. Enheten måste finnas; saknas den startade inte PRU-"
+"kärnorna korrekt."
 
 #: docs/Beaglebone.md:block 44 (header)
 msgid "Building and installing Linux host micro-controller code"
-msgstr ""
+msgstr "Bygga och installera mikrokontrollerkod för Linux-värd"
 
 #: docs/Beaglebone.md:block 45 (paragraph)
 msgid ""
 "This section is required for \"Use case 2\" and optional for \"Use case 3\" "
 "mentioned above"
 msgstr ""
+"Det här avsnittet krävs för \"Användningsfall 2\" och är valfritt för "
+"\"Användningsfall 3\" ovan."
 
 #: docs/Beaglebone.md:block 50 (paragraph)
 msgid ""
@@ -229,6 +298,9 @@ msgid ""
 "mcu.service\" file, it was installed by previous commands, and it's "
 "responsible for it."
 msgstr ""
+"Observera \"/tmp/klipper_host_mcu\" – den blir den seriella enheten för "
+"\"mcu host\". Om filen saknas, se \"scripts/klipper-mcu.service\"; den "
+"installerades av tidigare kommandon och ansvarar för den."
 
 #: docs/Beaglebone.md:block 51 (paragraph)
 msgid ""
@@ -241,6 +313,13 @@ msgid ""
 " because it will be creating additional load on main CPU and most probably you"
 " can't use them for stepper control."
 msgstr ""
+"För \"Användningsfall 2\": använd alltid temperatursensorer från \"mcu "
+"host\" när skrivarens konfiguration anges, eftersom standard-\"mcu\" (PRU-"
+"kärnorna) saknar ADC:er. Exempel på \"sensor_pin\" för extrudern och "
+"värmebädden finns i \"generic-cramps.cfg\". Andra GPIO:er kan refereras "
+"direkt från \"mcu host\", exempelvis \"host:gpiochip1/gpio17\", men undvik "
+"det eftersom det belastar huvudprocessorn extra och sannolikt inte kan "
+"användas för stegmotorstyrning."
 
 #: docs/Beaglebone.md:block 53 (paragraph)
 msgid ""
@@ -248,6 +327,9 @@ msgid ""
 " the main [Installation](Installation.md#configuring-octoprint-to-use-klipper)"
 " document."
 msgstr ""
+"Slutför installationen genom att konfigurera Klipper enligt instruktionerna "
+"i huvuddokumentet [Installation](Installation.md#configuring-octoprint-to-"
+"use-klipper)."
 
 #: docs/Beaglebone.md:block 55 (paragraph)
 msgid ""
@@ -259,10 +341,17 @@ msgid ""
 "from Klipper and disable any DEBUG or VERBOSE logging options if you did "
 "enable them."
 msgstr ""
+"BeagleBone-processorn kan tyvärr ibland ha svårt att köra OctoPrint väl. Vid "
+"komplexa utskrifter kan utskriften stanna (skrivaren kan röra sig snabbare "
+"än OctoPrint hinner skicka rörelsekommandon). Om det händer kan du överväga "
+"funktionen \"virtual_sdcard\" (se [Konfigurationsreferens]"
+"(Config_Reference.md#virtual_sdcard) för detaljer) för att skriva ut direkt "
+"från Klipper och inaktivera alla DEBUG- eller VERBOSE-loggningsalternativ "
+"som du har aktiverat."
 
 #: docs/Beaglebone.md:block 56 (header)
 msgid "AVR micro-controller code build"
-msgstr ""
+msgstr "Bygga AVR-mikrokontrollerkod"
 
 #: docs/Beaglebone.md:block 57 (paragraph)
 msgid ""
@@ -272,15 +361,20 @@ msgid ""
 "need to remove PRU packages and install AVR packages by executing following "
 "commands"
 msgstr ""
+"Den här miljön innehåller allt som behövs för att bygga nödvändig "
+"mikrokontrollerkod utom AVR. AVR-paketen togs bort eftersom de står i "
+"konflikt med PRU-paketen. Om du ändå vill bygga AVR-mikrokontrollerkod i "
+"denna miljö måste du ta bort PRU-paketen och installera AVR-paketen med "
+"följande kommandon."
 
 #: docs/Beaglebone.md:block 59 (paragraph)
 msgid ""
 "if you need to restore PRU packages - then remove ARV packages before that"
-msgstr ""
+msgstr "Om du behöver återställa PRU-paketen ska du först ta bort AVR-paketen."
 
 #: docs/Beaglebone.md:block 61 (header)
 msgid "Hardware Pin designation"
-msgstr ""
+msgstr "Maskinvarustiftens tilldelning"
 
 #: docs/Beaglebone.md:block 62 (paragraph)
 msgid ""
@@ -292,6 +386,12 @@ msgid ""
 "i2c2_scl/can0_rx/spi1_cs1/gpio0_13/uart1_rtsn P9_24 - "
 "i2c1_scl/can1_rx/gpio0_15/uart1_tx P9_26 - i2c1_sda/can1_tx/gpio0_14/uart1_rx"
 msgstr ""
+"BeagleBone är mycket flexibel när det gäller stifttilldelning. Samma stift "
+"kan konfigureras för olika funktioner, men varje stift kan bara ha en "
+"funktion och samma funktion kan inte finnas på flera stift. Exempel: P9_20 - "
+"i2c2_sda/can0_tx/spi1_cs0/gpio0_12/uart1_ctsn P9_19 - i2c2_scl/can0_rx/"
+"spi1_cs1/gpio0_13/uart1_rtsn P9_24 - i2c1_scl/can1_rx/gpio0_15/uart1_tx "
+"P9_26 - i2c1_sda/can1_tx/gpio0_14/uart1_rx"
 
 #: docs/Beaglebone.md:block 63 (paragraph)
 msgid ""
@@ -299,12 +399,17 @@ msgid ""
 "during linux boot they are configured by editing file /boot/uEnv.txt with "
 "elevated permissions"
 msgstr ""
+"Stifttilldelningen anges med särskilda \"overlays\" som läses in vid Linux-"
+"start. De konfigureras genom att redigera filen /boot/uEnv.txt med utökade "
+"behörigheter."
 
 #: docs/Beaglebone.md:block 65 (paragraph)
 msgid ""
 "and defining which functionality to load, for example to enable CAN1 you need "
 "to define overlay for it"
 msgstr ""
+"och ange vilken funktion som ska läsas in. För att exempelvis aktivera CAN1 "
+"måste du ange dess overlay."
 
 #: docs/Beaglebone.md:block 67 (paragraph)
 msgid ""
@@ -314,10 +419,15 @@ msgid ""
 "overlay - you can analyze source files in this location: /opt/sources/bb.org-"
 "overlays/src/arm/ or search info in BeagleBone forums."
 msgstr ""
+"Denna overlay, BB-CAN1-00A0.dtbo, konfigurerar om alla stift som krävs för "
+"CAN1 och skapar en CAN-enhet i Linux. Alla ändringar av overlays kräver "
+"omstart för att tillämpas. Om du behöver veta vilka stift som ingår i en "
+"overlay kan du analysera källfilerna i /opt/sources/bb.org-overlays/src/arm/ "
+"eller söka information i BeagleBone-forum."
 
 #: docs/Beaglebone.md:block 68 (header)
 msgid "Enabling hardware SPI"
-msgstr ""
+msgstr "Aktivera maskinvaru-SPI"
 
 #: docs/Beaglebone.md:block 69 (paragraph)
 msgid ""
@@ -328,20 +438,28 @@ msgid ""
 " you need to disable HDMI Audio and enable SPI1 To do that edit file "
 "/boot/uEnv.txt with elevated permissions"
 msgstr ""
+"BeagleBone har vanligen flera SPI-bussar i maskinvara; BeagleBone Black kan "
+"exempelvis ha två. De kan arbeta upp till 48 MHz, men begränsas normalt till "
+"16 MHz av kärnans enhetsträd. På BeagleBone Black är vissa SPI1-stift som "
+"standard konfigurerade för HDMI-ljudutgång. För att aktivera fyrtråds-SPI1 "
+"helt måste du inaktivera HDMI-ljud och aktivera SPI1. Redigera /boot/"
+"uEnv.txt med utökade behörigheter."
 
 #: docs/Beaglebone.md:block 71 (paragraph)
 msgid "uncomment variable"
-msgstr ""
+msgstr "avkommentera variabeln"
 
 #: docs/Beaglebone.md:block 73 (paragraph)
 msgid "next uncomment variable and define it this way"
-msgstr ""
+msgstr "avkommentera sedan följande variabel och ange den så här"
 
 #: docs/Beaglebone.md:block 75 (paragraph)
 msgid ""
 "Save changes in /boot/uEnv.txt and reboot the board. Now you have SPI1 "
 "Enabled, to verify its presence execute command"
 msgstr ""
+"Spara ändringarna i /boot/uEnv.txt och starta om kortet. SPI1 är nu "
+"aktiverat; kör följande kommando för att bekräfta att det finns."
 
 #: docs/Beaglebone.md:block 77 (paragraph)
 msgid ""
@@ -351,10 +469,15 @@ msgid ""
 "Level-Shifting chip and SPI1 pins will become available on P503 port, and they"
 " can accept 5v hardware, check CRAMPS board Schematics for pin references."
 msgstr ""
+"Observera att BeagleBone vanligtvis använder 3,3 V-logik. För SPI-enheter "
+"med 5 V krävs en nivåomvandlare, exempelvis SN74CBTD3861, SN74LVC1G34 eller "
+"motsvarande. CRAMPS-kortet innehåller redan en nivåomvandlare; SPI1-stiften "
+"blir då tillgängliga på port P503 och kan användas med 5 V-maskinvara. Se "
+"CRAMPS-kortets kopplingsschema för stiftreferenser."
 
 #: docs/Beaglebone.md:block 78 (header)
 msgid "Enabling hardware I2C"
-msgstr ""
+msgstr "Aktivera maskinvaru-I2C"
 
 #: docs/Beaglebone.md:block 79 (paragraph)
 msgid ""
@@ -370,10 +493,20 @@ msgid ""
 "BB-I2C1-00A0.dtbo I2C1(400Kbit): BB-I2C1-FAST-00A0.dtbo I2C2(100Kbit): "
 "BB-I2C2-00A0.dtbo I2C2(400Kbit): BB-I2C2-FAST-00A0.dtbo"
 msgstr ""
+"BeagleBone har vanligtvis flera I2C-bussar i maskinvara; BeagleBone Black "
+"kan exempelvis ha tre. De stöder upp till 400 kbit/s i Fast mode. Två bussar "
+"(i2c-1 och i2c-2) är normalt redan konfigurerade och tillgängliga på P9; den "
+"tredje, i2c-0, är vanligen reserverad för internt bruk. Med CRAMPS-kortet "
+"finns i2c-2 på port P303 med 3,3 V-nivå. I2c-1 på CRAMPS kan nås via stiften "
+"Extruder1.Step och Extruder1.Dir, också med 3,3 V-nivå. Se CRAMPS-kortets "
+"kopplingsschema för stiftreferenser. Relaterade overlays, se "
+"[Maskinvarustiftens tilldelning](#hardware-pin-designation): I2C1 (100 kbit)"
+": BB-I2C1-00A0.dtbo; I2C1 (400 kbit): BB-I2C1-FAST-00A0.dtbo; I2C2 (100 kbit)"
+": BB-I2C2-00A0.dtbo; I2C2 (400 kbit): BB-I2C2-FAST-00A0.dtbo."
 
 #: docs/Beaglebone.md:block 80 (header)
 msgid "Enabling hardware UART(Serial)/CAN"
-msgstr ""
+msgstr "Aktivera maskinvaru-UART (seriell)/CAN"
 
 #: docs/Beaglebone.md:block 81 (paragraph)
 msgid ""
@@ -386,6 +519,14 @@ msgid ""
 "CAN), TTL-RS485 (for RS-485) or something similar which can convert 3.3v "
 "signals to appropriate levels."
 msgstr ""
+"BeagleBone har upp till sex UART-bussar (seriella, upp till 3 Mbit) och upp "
+"till två CAN-bussar (1 Mbit) i maskinvara. UART1 (RX, TX), CAN1 (TX, RX) och "
+"I2C2 (SDA, SCL) använder samma stift, så du måste välja vad de ska användas "
+"för. UART1 (CTSN, RTSN), CAN0 (TX, RX) och I2C1 (SDA, SCL) använder också "
+"samma stift. Alla UART/CAN-stift använder 3,3 V-logik, så du behöver sändar/"
+"mottagarkretsar eller kort som SN74LVC2G241DCUR (UART), SN65HVD230 (CAN), "
+"TTL-RS485 (RS-485) eller motsvarande för att omvandla 3,3 V-signaler till "
+"lämpliga nivåer."
 
 #: docs/Beaglebone.md:block 82 (paragraph)
 msgid ""
@@ -395,6 +536,12 @@ msgid ""
 "UART2(RX,TX): BB-UART2-00A0.dtbo UART3(RX,TX): BB-UART3-00A0.dtbo "
 "UART4(RS-485): BB-UART4-RS485-00A0.dtbo UART5(RX,TX): BB-UART5-00A0.dtbo"
 msgstr ""
+"Relaterade overlays, se [Maskinvarustiftens tilldelning](#hardware-pin-"
+"designation): CAN0: BB-CAN0-00A0.dtbo; CAN1: BB-CAN1-00A0.dtbo; UART0: "
+"används för konsolen; UART1 (RX, TX): BB-UART1-00A0.dtbo; UART1 (RTS, CTS): "
+"BB-UART1-RTSCTS-00A0.dtbo; UART2 (RX, TX): BB-UART2-00A0.dtbo; UART3 (RX, TX)"
+": BB-UART3-00A0.dtbo; UART4 (RS-485): BB-UART4-RS485-00A0.dtbo; UART5 (RX, "
+"TX): BB-UART5-00A0.dtbo."
 
 #~ msgid ""
 #~ "git clone https://github.com/foosel/OctoPrint.git\n"
