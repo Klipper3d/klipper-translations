@@ -1,19 +1,19 @@
-# Packaging Klipper
+# Paketera Klipper
 
-Klipper is somewhat of a packaging anomaly among python programs, as it doesn't use setuptools to build and install. Some notes regarding how best to package it are as follows:
+Klipper är något av en paketeringsavvikelse bland Python-program eftersom det inte använder setuptools för bygge och installation. Några anmärkningar om hur programmet bäst paketeras följer här:
 
-## C modules
+## C-moduler
 
-Klipper uses a C module to handle some kinematics calculations more quickly. This module needs to be compiled at packaging time to avoid introducing a runtime dependency on a compiler. To compile the C module, run `python2 klippy/chelper/__init__.py`.
+Klipper använder en C-modul för att snabbare utföra vissa kinematikberäkningar. Modulen måste kompileras vid paketeringen för att undvika ett körtidsberoende av en kompilator. Kör `python2 klippy/chelper/__init__.py` för att kompilera C-modulen.
 
-## Compiling python code
+## Kompilera Python-kod
 
-Many distributions have a policy of compiling all python code before packaging to improve startup time. You can do this by running `python2 -m compileall klippy`.
+Många distributioner har en policy att kompilera all Python-kod före paketering för att förbättra starttiden. Det gör du genom att köra `python2 -m compileall klippy`.
 
-## Versioning
+## Versionshantering
 
-If you are building a package of Klipper from git, it is usual practice not to ship a .git directory, so the versioning must be handled without git. To do this, use the script shipped in `scripts/make_version.py` which should be run as follows: `python2 scripts/make_version.py YOURDISTRONAME > klippy/.version`.
+När du bygger ett Klipper-paket från git är det vanligt att inte leverera en .git-katalog. Versionshanteringen måste därför ske utan git. Använd skriptet `scripts/make_version.py`, som följer med, enligt följande: `python2 scripts/make_version.py DIN_DISTRIBUTION > klippy/.version`.
 
-## Sample packaging script
+## Exempel på paketeringsskript
 
-klipper-git is packaged for Arch Linux, and has a PKGBUILD (package build script) available at [Arch User Repository](https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper-git).
+klipper-git är paketerat för Arch Linux och har en PKGBUILD-fil, ett paketeringsskript, i [Arch User Repository](https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper-git).

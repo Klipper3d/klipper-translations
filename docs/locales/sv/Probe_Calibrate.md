@@ -1,62 +1,62 @@
-# Probe calibration
+# Sondkalibrering
 
-This document describes the method for calibrating the X, Y, and Z offsets of an "automatic z probe" in Klipper. This is useful for users that have a `[probe]` or `[bltouch]` section in their config file.
+Detta dokument beskriver metoden för att kalibrera X-, Y- och Z-förskjutningarna för en automatisk Z-sond i Klipper. Det är användbart för användare som har avsnittet `[probe]` eller `[bltouch]` i konfigurationsfilen.
 
-## Calibrating probe X and Y offsets
+## Kalibrera sondens X- och Y-förskjutningar
 
-To calibrate the X and Y offset, navigate to the OctoPrint "Control" tab, home the printer, and then use the OctoPrint jogging buttons to move the head to a position near the center of the bed.
+För att kalibrera X- och Y-förskjutningen går du till fliken Control i OctoPrint, hemkör skrivaren och använder sedan OctoPrints knappar för stegvis förflyttning för att flytta huvudet till en plats nära bäddens mitt.
 
-Place a piece of blue painters tape (or similar) on the bed underneath the probe. Navigate to the OctoPrint "Terminal" tab and issue a PROBE command:
+Placera en bit blå maskeringstejp eller liknande på bädden under sonden. Gå till fliken Terminal i OctoPrint och utfärda kommandot PROBE:
 
 ```
 PROBE
 ```
 
-Place a mark on the tape directly under where the probe is (or use a similar method to note the location on the bed).
+Markera tejpen direkt under sonden, eller använd en liknande metod för att notera platsen på bädden.
 
-Issue a `GET_POSITION` command and record the toolhead XY location reported by that command. For example if one sees:
+Utfärda kommandot `GET_POSITION` och anteckna verktygshuvudets XY-position som kommandot rapporterar. Om följande visas:
 
 ```
 Recv: // toolhead: X:46.500000 Y:27.000000 Z:15.000000 E:0.000000
 ```
 
-then one would record a probe X position of 46.5 and probe Y position of 27.
+antecknas alltså sondens X-position som 46,5 och Y-position som 27.
 
-After recording the probe position, issue a series of G1 commands until the nozzle is directly above the mark on the bed. For example, one might issue:
+När sondpositionen har antecknats utfärdar du en serie G1-kommandon tills munstycket befinner sig direkt ovanför markeringen på bädden. Du kan till exempel utfärda:
 
 ```
 G1 F300 X57 Y30 Z15
 ```
 
-to move the nozzle to an X position of 57 and Y of 30. Once one finds the position directly above the mark, use the `GET_POSITION` command to report that position. This is the nozzle position.
+för att flytta munstycket till X-position 57 och Y-position 30. När en position direkt ovanför markeringen har hittats använder du kommandot `GET_POSITION` för att rapportera den positionen. Detta är munstyckets position.
 
-The x_offset is then the `nozzle_x_position - probe_x_position` and y_offset is similarly the `nozzle_y_position - probe_y_position`. Update the printer.cfg file with the given values, remove the tape/marks from the bed, and then issue a `RESTART` command so that the new values take effect.
+x_offset är då `nozzle_x_position - probe_x_position`, och y_offset är på motsvarande sätt `nozzle_y_position - probe_y_position`. Uppdatera filen printer.cfg med värdena, ta bort tejpen/markeringarna från bädden och utfärda sedan kommandot `RESTART` så att de nya värdena börjar gälla.
 
-## Calibrating probe Z offset
+## Kalibrera sondens Z-förskjutning
 
-Providing an accurate probe z_offset is critical to obtaining high quality prints. The z_offset is the distance between the nozzle and bed when the probe triggers. The Klipper `PROBE_CALIBRATE` tool can be used to obtain this value - it will run an automatic probe to measure the probe's Z trigger position and then start a manual probe to obtain the nozzle Z height. The probe z_offset will then be calculated from these measurements.
+Ett korrekt z_offset för sonden är avgörande för utskrifter av hög kvalitet. z_offset är avståndet mellan munstycket och bädden när sonden löser ut. Verktyget `PROBE_CALIBRATE` i Klipper kan användas för att få fram värdet: det utför en automatisk sondering för att mäta sondens Z-utlösningsposition och startar sedan manuell sondering för att få munstyckets Z-höjd. Sondens z_offset beräknas sedan från mätningarna.
 
-Start by homing the printer and then move the head to a position near the center of the bed. Navigate to the OctoPrint terminal tab and run the `PROBE_CALIBRATE` command to start the tool.
+Börja med att hemköra skrivaren och flytta sedan huvudet till en plats nära bäddens mitt. Gå till terminalfliken i OctoPrint och kör kommandot `PROBE_CALIBRATE` för att starta verktyget.
 
-This tool will perform an automatic probe, then lift the head, move the nozzle over the location of the probe point, and start the manual probe tool. If the nozzle does not move to a position above the automatic probe point, then `ABORT` the manual probe tool and perform the XY probe offset calibration described above.
+Verktyget utför automatisk sondering, lyfter sedan huvudet, flyttar munstycket över sondpunktens plats och startar verktyget för manuell sondering. Om munstycket inte flyttas till en position ovanför den automatiska sondpunkten ska verktyget för manuell sondering avbrytas med `ABORT`; utför sedan kalibreringen av XY-förskjutningen som beskrivs ovan.
 
-Once the manual probe tool starts, follow the steps described at ["the paper test"](Bed_Level.md#the-paper-test) to determine the actual distance between the nozzle and bed at the given location. Once those steps are complete one can `ACCEPT` the position and save the results to the config file with:
+När verktyget för manuell sondering startar följer du stegen i [papperstestet](Bed_Level.md#the-paper-test) för att fastställa det verkliga avståndet mellan munstycke och bädd på den aktuella platsen. När stegen är klara kan positionen godtas med `ACCEPT` och resultaten sparas i konfigurationsfilen med:
 
 ```
 SAVE_CONFIG
 ```
 
-Note that if a change is made to the printer's motion system, hotend position, or probe location then it will invalidate the results of PROBE_CALIBRATE.
+Observera att en ändring av skrivarens rörelsesystem, hotend-position eller sondplats gör resultatet från PROBE_CALIBRATE ogiltigt.
 
-If the probe has an X or Y offset and the bed tilt is changed (eg, by adjusting bed screws, running DELTA_CALIBRATE, running Z_TILT_ADJUST, running QUAD_GANTRY_LEVEL, or similar) then it will invalidate the results of PROBE_CALIBRATE. After making any of the above adjustments it will be necessary to run PROBE_CALIBRATE again.
+Om sonden har X- eller Y-förskjutning och bäddens lutning ändras, till exempel genom justering av bäddskruvar, körning av DELTA_CALIBRATE, Z_TILT_ADJUST eller QUAD_GANTRY_LEVEL, blir resultatet från PROBE_CALIBRATE ogiltigt. Efter en sådan justering måste PROBE_CALIBRATE köras igen.
 
-If the results of PROBE_CALIBRATE are invalidated, then any previous [bed mesh](Bed_Mesh.md) results that were obtained using the probe are also invalidated - it will be necessary to rerun BED_MESH_CALIBRATE after recalibrating the probe.
+Om resultaten från PROBE_CALIBRATE blir ogiltiga blir även tidigare resultat för [bäddrutnät](Bed_Mesh.md) som erhållits med sonden ogiltiga. Kör därför BED_MESH_CALIBRATE igen efter omkalibrering av sonden.
 
-## Repeatability check
+## Kontroll av repeterbarhet
 
-After calibrating the probe X, Y, and Z offsets it is a good idea to verify that the probe provides repeatable results. Start by homing the printer and then move the head to a position near the center of the bed. Navigate to the OctoPrint terminal tab and run the `PROBE_ACCURACY` command.
+Efter kalibrering av sondens X-, Y- och Z-förskjutningar är det lämpligt att kontrollera att sonden ger repeterbara resultat. Börja med att hemköra skrivaren och flytta huvudet till en plats nära bäddens mitt. Gå till terminalfliken i OctoPrint och kör kommandot `PROBE_ACCURACY`.
 
-This command will run the probe ten times and produce output similar to the following:
+Kommandot kör sonden tio gånger och ger utdata som liknar följande:
 
 ```
 Recv: // probe accuracy: at X:0.000 Y:0.000 Z:10.000
@@ -74,30 +74,30 @@ Recv: // probe at -0.003,0.005 is z=2.506948
 Recv: // probe accuracy results: maximum 2.519448, minimum 2.506948, range 0.012500, average 2.513198, median 2.513198, standard deviation 0.006250
 ```
 
-Ideally the tool will report an identical maximum and minimum value. (That is, ideally the probe obtains an identical result on all ten probes.) However, it's normal for the minimum and maximum values to differ by one Z "step distance" or up to 5 microns (.005mm). A "step distance" is `rotation_distance/(full_steps_per_rotation*microsteps)`. The distance between the minimum and the maximum value is called the range. So, in the above example, since the printer uses a Z step distance of .0125, a range of 0.012500 would be considered normal.
+Helst rapporterar verktyget identiska maximi- och minimivärden, alltså samma resultat för alla tio sonderingar. Det är dock normalt att minimi- och maximivärdena skiljer sig med ett Z-stegavstånd eller upp till 5 mikrometer (0,005 mm). Ett stegavstånd är `rotation_distance/(full_steps_per_rotation*microsteps)`. Avståndet mellan minimi- och maximivärdet kallas spann. I exemplet ovan, där skrivaren använder Z-stegavståndet 0,0125, betraktas ett spann på 0,012500 som normalt.
 
-If the results of the test show a range value that is greater than 25 microns (.025mm) then the probe does not have sufficient accuracy for typical bed leveling procedures. It may be possible to tune the probe speed and/or probe start height to improve the repeatability of the probe. The `PROBE_ACCURACY` command allows one to run tests with different parameters to see their impact - see the [G-Codes document](G-Codes.md#probe_accuracy) for further details. If the probe generally obtains repeatable results but has an occasional outlier, then it may be possible to account for that by using multiple samples on each probe - read the description of the probe `samples` config parameters in the [config reference](Config_Reference.md#probe) for more details.
+Om testresultaten visar ett spann större än 25 mikrometer (0,025 mm) har sonden inte tillräcklig noggrannhet för vanliga rutiner för bäddnivellering. Sondhastighet och/eller starthöjd kan kanske justeras för bättre repeterbarhet. Med `PROBE_ACCURACY` kan tester köras med olika parametrar; se [G-Code-dokumentet](G-Codes.md#probe_accuracy). Om resultaten normalt är repeterbara men ibland har ett avvikande värde kan flera prover per sondering hjälpa; läs om konfigurationsparametern `samples` i [konfigurationsreferensen](Config_Reference.md#probe).
 
-If new probe speed, samples count, or other settings are needed, then update the printer.cfg file and issue a `RESTART` command. If so, it is a good idea to [calibrate the z_offset](#calibrating-probe-z-offset) again. If repeatable results can not be obtained then don't use the probe for bed leveling. Klipper has several manual probing tools that can be used instead - see the [Bed Level document](Bed_Level.md) for further details.
+Om en ny sondhastighet, ett nytt antal prover eller andra inställningar behövs uppdaterar du printer.cfg och utfärdar kommandot `RESTART`. Därefter är det lämpligt att [kalibrera z_offset](#calibrating-probe-z-offset) igen. Om repeterbara resultat inte kan fås ska sonden inte användas för bäddnivellering. Klipper har flera verktyg för manuell sondering; se [Bäddnivellering](Bed_Level.md).
 
-## Location Bias Check
+## Kontroll av platsberoende avvikelse
 
-Some probes can have a systemic bias that corrupts the results of the probe at certain toolhead locations. For example, if the probe mount tilts slightly when moving along the Y axis then it could result in the probe reporting biased results at different Y positions.
+Vissa sonder kan ha en systematisk avvikelse som förvanskar resultaten vid vissa verktygshuvudslägen. Om sondfästet till exempel lutar lite vid rörelse längs Y-axeln kan sonden rapportera skeva resultat vid olika Y-positioner.
 
-This is a common issue with probes on delta printers, however it can occur on all printers.
+Problemet är vanligt för sonder på deltaskrivare, men kan förekomma på alla skrivare.
 
-One can check for a location bias by using the `PROBE_CALIBRATE` command to measuring the probe z_offset at various X and Y locations. Ideally, the probe z_offset would be a constant value at every printer location.
+Kontrollera en platsberoende avvikelse genom att använda `PROBE_CALIBRATE` för att mäta sondens z_offset på olika X- och Y-positioner. Helst ska z_offset vara konstant överallt på skrivaren.
 
-For delta printers, try measuring the z_offset at a position near the A tower, at a position near the B tower, and at a position near the C tower. For cartesian, corexy, and similar printers, try measuring the z_offset at positions near the four corners of the bed.
+På deltaskrivare bör z_offset mätas nära A-, B- och C-tornen. På kartesiska, CoreXY och liknande skrivare mäts den nära bäddens fyra hörn.
 
-Before starting this test, first calibrate the probe X, Y, and Z offsets as described at the beginning of this document. Then home the printer and navigate to the first XY position. Follow the steps at [calibrating probe Z offset](#calibrating-probe-z-offset) to run the `PROBE_CALIBRATE` command, `TESTZ` commands, and `ACCEPT` command, but do not run `SAVE_CONFIG`. Note the reported z_offset found. Then navigate to the other XY positions, repeat these `PROBE_CALIBRATE` steps, and note the reported z_offset.
+Före testet kalibrerar du först sondens X-, Y- och Z-förskjutningar enligt början av dokumentet. Hemkör sedan skrivaren och gå till den första XY-positionen. Följ stegen i [kalibrera sondens Z-förskjutning](#calibrating-probe-z-offset): kör `PROBE_CALIBRATE`, `TESTZ` och `ACCEPT`, men kör inte `SAVE_CONFIG`. Anteckna det rapporterade z_offset. Gå sedan till övriga XY-positioner, upprepa stegen och anteckna z_offset.
 
-If the difference between the minimum reported z_offset and the maximum reported z_offset is greater than 25 microns (.025mm) then the probe is not suitable for typical bed leveling procedures. See the [Bed Level document](Bed_Level.md) for manual probe alternatives.
+Om skillnaden mellan minsta och största rapporterade z_offset är större än 25 mikrometer (0,025 mm) är sonden inte lämplig för vanliga rutiner för bäddnivellering. Se [Bäddnivellering](Bed_Level.md) för manuella alternativ.
 
-## Temperature Bias
+## Temperaturberoende avvikelse
 
-Many probes have a systemic bias when probing at different temperatures. For example, the probe may consistently trigger at a lower height when the probe is at a higher temperature.
+Många sonder har en systematisk avvikelse vid olika temperaturer. Sonden kan exempelvis konsekvent lösa ut på lägre höjd vid högre temperatur.
 
-It is recommended to run the bed leveling tools at a consistent temperature to account for this bias. For example, either always run the tools when the printer is at room temperature, or always run the tools after the printer has obtained a consistent print temperature. In either case, it is a good idea to wait several minutes after the desired temperature is reached, so that the printer apparatus is consistently at the desired temperature.
+Kör verktygen för bäddnivellering vid en jämn temperatur för att ta hänsyn till avvikelsen. Kör dem exempelvis alltid när skrivaren har rumstemperatur eller alltid när den har nått en jämn utskriftstemperatur. Vänta i båda fallen några minuter efter att önskad temperatur nåtts, så att skrivarens mekanik hinner få jämn temperatur.
 
-To check for a temperature bias, start with the printer at room temperature and then home the printer, move the head to a position near the center of the bed, and run the `PROBE_ACCURACY` command. Note the results. Then, without homing or disabling the stepper motors, heat the printer nozzle and bed to printing temperature, and run the `PROBE_ACCURACY` command again. Ideally, the command will report identical results. As above, if the probe does have a temperature bias then be careful to always use the probe at a consistent temperature.
+För att kontrollera en temperaturberoende avvikelse börjar du med skrivaren vid rumstemperatur, hemkör den, flyttar huvudet nära bäddens mitt och kör `PROBE_ACCURACY`. Anteckna resultatet. Utan att hemköra eller inaktivera stegmotorerna värmer du sedan munstycke och bädd till utskriftstemperatur och kör `PROBE_ACCURACY` igen. Helst är resultaten identiska. Om sonden har temperaturberoende avvikelse måste den alltid användas vid en jämn temperatur.

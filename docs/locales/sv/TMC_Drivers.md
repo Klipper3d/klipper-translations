@@ -1,88 +1,88 @@
-# TMC drivers
+# TMC-drivrutiner
 
-This document provides information on using Trinamic stepper motor drivers in SPI/UART mode on Klipper.
+Detta dokument innehåller information om hur Trinamic-stegmotordrivrutiner används i SPI-/UART-läge med Klipper.
 
-Klipper can also use Trinamic drivers in their "standalone mode". However, when the drivers are in this mode, no special Klipper configuration is needed and the advanced Klipper features discussed in this document are not available.
+Klipper kan även använda Trinamic-drivrutiner i deras ”fristående läge”. När drivrutinerna är i detta läge krävs dock ingen särskild Klipper-konfiguration och de avancerade Klipper-funktioner som beskrivs i dokumentet är inte tillgängliga.
 
-In addition to this document, be sure to review the [TMC driver config reference](Config_Reference.md#tmc-stepper-driver-configuration).
+Utöver detta dokument bör du läsa [konfigurationsreferensen för TMC-drivrutiner](Config_Reference.md#tmc-stepper-driver-configuration).
 
-## Tuning motor current
+## Trimning av motorström
 
-A higher driver current increases positional accuracy and torque. However, a higher current also increases the heat produced by the stepper motor and the stepper motor driver. If the stepper motor driver gets too hot it will disable itself and Klipper will report an error. If the stepper motor gets too hot, it loses torque and positional accuracy. (If it gets very hot it may also melt plastic parts attached to it or near it.)
+Högre drivström ger bättre positionsnoggrannhet och vridmoment. Högre ström ökar dock även värmen som alstras av stegmotorn och stegmotordrivern. Om stegmotordrivern blir för varm stänger den av sig själv och Klipper rapporterar ett fel. Om stegmotorn blir för varm förlorar den vridmoment och positionsnoggrannhet. Om den blir mycket varm kan den också smälta plastdelar som sitter på eller nära den
 
-As a general tuning tip, prefer higher current values as long as the stepper motor does not get too hot and the stepper motor driver does not report warnings or errors. In general, it is okay for the stepper motor to feel warm, but it should not become so hot that it is painful to touch.
+Som allmänt trimningstips bör högre strömvärden föredras så länge stegmotorn inte blir för varm och stegmotordrivern inte rapporterar varningar eller fel. Det är i allmänhet okej att stegmotorn känns varm, men den ska inte bli så varm att det gör ont att röra vid den.
 
-## Prefer to not specify a hold_current
+## Undvik helst att ange hold_current
 
-If one configures a `hold_current` then the TMC driver can reduce current to the stepper motor when it detects that the stepper is not moving. However, changing motor current may itself introduce motor movement. This may occur due to "detent forces" within the stepper motor (the permanent magnet in the rotor pulls towards the iron teeth in the stator) or due to external forces on the axis carriage.
+Om `hold_current` konfigureras kan TMC-drivrutinen minska strömmen till stegmotorn när den upptäcker att motorn inte rör sig. En ändring av motorströmmen kan dock i sig orsaka en motorrörelse. Det kan inträffa på grund av ”kuggkrafter” inuti stegmotorn, där rotorns permanentmagnet dras mot statorns järntänder, eller på grund av yttre krafter på axelvagnen.
 
-Most stepper motors will not obtain a significant benefit to reducing current during normal prints, because few printing moves will leave a stepper motor idle for sufficiently long to activate the `hold_current` feature. And, it is unlikely that one would want to introduce subtle print artifacts to the few printing moves that do leave a stepper idle sufficiently long.
+De flesta stegmotorer får ingen betydande nytta av minskad ström under vanliga utskrifter, eftersom få utskriftsrörelser lämnar en stegmotor stilla tillräckligt länge för att funktionen `hold_current` ska aktiveras. Det är också osannolikt att man vill riskera diskreta utskriftsartefakter i de få rörelser som lämnar en stegmotor stilla tillräckligt länge.
 
-If one wishes to reduce current to motors during print start routines, then consider issuing [SET_TMC_CURRENT](G-Codes.md#set_tmc_current) commands in a [START_PRINT macro](Slicers.md#klipper-gcode_macro) to adjust the current before and after normal printing moves.
+Om motorernas ström ska minskas under skrivarens startrutiner kan du överväga att köra kommandon av typen [SET_TMC_CURRENT](G-Codes.md#set_tmc_current) i ett [START_PRINT-makro](Slicers.md#klipper-gcode_macro) för att justera strömmen före och efter vanliga utskriftsrörelser.
 
-Some printers with dedicated Z motors that are idle during normal printing moves (no bed_mesh, no bed_tilt, no Z skew_correction, no "vase mode" prints, etc.) may find that Z motors do run cooler with a `hold_current`. If implementing this then be sure to take into account this type of uncommanded Z axis movement during bed leveling, bed probing, probe calibration, and similar. The `driver_TPOWERDOWN` and `driver_IHOLDDELAY` should also be calibrated accordingly. If unsure, prefer to not specify a `hold_current`.
+Vissa skrivare med separata Z-motorer som är stilla under vanliga utskriftsrörelser, utan bed_mesh, bed_tilt, Z skew_correction, ”vasläge” och så vidare, kan få svalare Z-motorer med `hold_current`. Om detta används måste den här typen av oavsiktlig Z-axelrörelse beaktas vid bäddnivellering, bäddsondering, sondkalibrering och liknande. `driver_TPOWERDOWN` och `driver_IHOLDDELAY` ska också kalibreras efter detta. Om du är osäker ska `hold_current` inte anges.
 
-## Setting "spreadCycle" vs "stealthChop" Mode
+## Ställa in läget ”spreadCycle” respektive ”stealthChop”
 
-By default, Klipper places the TMC drivers in "spreadCycle" mode. If the driver supports "stealthChop" then it can be enabled by adding `stealthchop_threshold: 999999` to the TMC config section.
+Som standard använder Klipper läget ”spreadCycle” för TMC-drivrutiner. Om drivrutinen har stöd för ”stealthChop” kan det aktiveras genom att lägga till `stealthchop_threshold: 999999` i TMC-konfigurationsavsnittet.
 
-In general, spreadCycle mode provides greater torque and greater positional accuracy than stealthChop mode. However, stealthChop mode may produce significantly lower audible noise on some printers.
+I allmänhet ger läget spreadCycle större vridmoment och bättre positionsnoggrannhet än läget stealthChop. Läget stealthChop kan dock ge avsevärt lägre hörbart ljud på vissa skrivare.
 
-Tests comparing modes have shown an increased "positional lag" of around 75% of a full-step during constant velocity moves when using stealthChop mode (for example, on a printer with 40mm rotation_distance and 200 steps_per_rotation, position deviation of constant speed moves increased by ~0.150mm). However, this "delay in obtaining the requested position" may not manifest as a significant print defect and one may prefer the quieter behavior of stealthChop mode.
+Tester som jämför lägena har visat en ökad ”positionsfördröjning” på ungefär 75 % av ett helt steg under rörelser med konstant hastighet vid läget stealthChop. På en skrivare med 40 mm rotation_distance och 200 steps_per_rotation ökade till exempel positionsavvikelsen vid rörelser med konstant hastighet med ungefär 0,150 mm. Denna ”fördröjning innan den begärda positionen nås” behöver dock inte ge ett betydande utskriftsfel, och det tystare beteendet hos stealthChop kan vara att föredra.
 
-It is recommended to always use "spreadCycle" mode (by not specifying `stealthchop_threshold`) or to always use "stealthChop" mode (by setting `stealthchop_threshold` to 999999). Unfortunately, the drivers often produce poor and confusing results if the mode changes while the motor is at a non-zero velocity.
+Vi rekommenderar att alltid använda antingen ”spreadCycle”, genom att inte ange `stealthchop_threshold`, eller ”stealthChop”, genom att ange `stealthchop_threshold` till 999999. Drivrutinerna ger tyvärr ofta dåliga och svårtolkade resultat om läget växlar medan motorns hastighet inte är noll.
 
-Note that the `stealthchop_threshold` config option does not impact sensorless homing as Klipper automatically switches the TMC driver to an appropriate mode during sensorless homing operations.
+Observera att konfigurationsalternativet `stealthchop_threshold` inte påverkar sensorlös referenskörning, eftersom Klipper automatiskt växlar TMC-drivrutinen till ett lämpligt läge under sensorlösa referenskörningar.
 
-## TMC interpolate setting introduces small position deviation
+## TMC-inställningen interpolate ger en liten positionsavvikelse
 
-The TMC driver `interpolate` setting may reduce the audible noise of printer movement at the cost of introducing a small systemic positional error. This systemic positional error results from the driver's delay in executing "steps" that Klipper sends it. During constant velocity moves, this delay results in a positional error of nearly half a configured microstep (more precisely, the error is half a microstep distance minus a 512th of a full step distance). For example, on an axis with a 40mm rotation_distance, 200 steps_per_rotation, and 16 microsteps, the systemic error introduced during constant velocity moves is ~0.006mm.
+TMC-drivrutinens inställning `interpolate` kan minska ljudet från skrivarens rörelser, men medför ett litet systematiskt positionsfel. Felet beror på drivrutinens fördröjning när den utför de ”steg” som Klipper skickar. Vid rörelser med konstant hastighet ger fördröjningen ett positionsfel på nära en halv konfigurerad mikrostegring, närmare bestämt en halv mikrostegrings sträcka minus en 512-del av ett helt stegs sträcka. På en axel med 40 mm rotation_distance, 200 steps_per_rotation och 16 microsteps är det systematiska felet vid rörelser med konstant hastighet till exempel ungefär 0,006 mm.
 
-For best positional accuracy consider using spreadCycle mode and disable interpolation (set `interpolate: False` in the TMC driver config). When configured this way, one may increase the `microstep` setting to reduce audible noise during stepper movement. Typically, a microstep setting of `64` or `128` will have similar audible noise as interpolation, and do so without introducing a systemic positional error.
+För bästa positionsnoggrannhet bör du överväga läget spreadCycle och inaktivera interpolering, med `interpolate: False` i TMC-drivrutinens konfiguration. I den konfigurationen kan inställningen `microstep` höjas för att minska ljudet från stegmotorns rörelser. Vanligen ger `64` eller `128` mikrostegringar ungefär samma ljudnivå som interpolering, men utan att införa ett systematiskt positionsfel.
 
-If using stealthChop mode then the positional inaccuracy from interpolation is small relative to the positional inaccuracy introduced from stealthChop mode. Therefore tuning interpolation is not considered useful when in stealthChop mode, and one can leave interpolation in its default state.
+Vid läget stealthChop är interpoleringens positionsfel litet jämfört med positionsfelet som stealthChop medför. Det anses därför inte meningsfullt att trimma interpolering i läget stealthChop, utan interpolering kan behållas i sitt standardläge.
 
-## Sensorless Homing
+## Sensorlös referenskörning
 
-Sensorless homing allows to home an axis without the need for a physical limit switch. Instead, the carriage on the axis is moved into the mechanical limit making the stepper motor lose steps. The stepper driver senses the lost steps and indicates this to the controlling MCU (Klipper) by toggling a pin. This information can be used by Klipper as end stop for the axis.
+Sensorlös referenskörning gör det möjligt att referensköra en axel utan en fysisk ändstoppsbrytare. I stället flyttas vagnens axel mot den mekaniska gränsen så att stegmotorn förlorar steg. Stegmotordrivrutinen känner av stegförlusten och signalerar den till den styrande MCU:n (Klipper) genom att växla ett stift. Informationen kan användas av Klipper som ändstopp för axeln.
 
-This guide covers the setup of sensorless homing for the X axis of your (cartesian) printer. However, it works the same with all other axes (that require an end stop). You should configure and tune it for one axis at a time.
+Guiden beskriver hur sensorlös referenskörning ställs in för den kartesiska skrivarens X-axel. Den fungerar på samma sätt för alla andra axlar som kräver ett ändstopp. Konfigurera och justera en axel i taget.
 
-### Limitations
+### Begränsningar
 
-Be sure that your mechanical components are able to handle the load of the carriage bumping into the limit of the axis repeatedly. Especially leadscrews might generate a lot of force. Homing a Z axis by bumping the nozzle into the printing surface might not be a good idea. For best results, verify that the axis carriage will make a firm contact with the axis limit.
+Kontrollera att de mekaniska komponenterna tål belastningen när vagnen upprepade gånger kör in i axelns gräns. Särskilt kulskruvar kan generera mycket kraft. Det är kanske inte lämpligt att referensköra en Z-axel genom att köra munstycket mot utskriftsytan. Bäst resultat fås om axelvagnen får fast kontakt med axelns gräns.
 
-Further, sensorless homing might not be accurate enough for your printer. While homing X and Y axes on a cartesian machine can work well, homing the Z axis is generally not accurate enough and may result in an inconsistent first layer height. Homing a delta printer sensorless is not advisable due to missing accuracy.
+Sensorlös referenskörning kanske inte heller är tillräckligt noggrann för skrivaren. Referenskörning av X- och Y-axlar på en kartesisk maskin kan fungera väl, men Z-axeln blir vanligtvis inte tillräckligt exakt och kan ge inkonsekvent höjd för första lagret. Det rekommenderas inte att referensköra en deltaskrivare sensorlöst på grund av bristande noggrannhet.
 
-Further, the stall detection of the stepper driver is dependent on the mechanical load on the motor, the motor current and the motor temperature (coil resistance).
+Stegmotordrivrutinens stallavkänning beror dessutom på motorns mekaniska belastning, motorströmmen och motortemperaturen (spolresistansen).
 
-Sensorless homing works best at medium motor speeds. For very slow speeds (less than 10 RPM) the motor does not generate significant back EMF and the TMC cannot reliably detect motor stalls. Further, at very high speeds, the back EMF of the motor approaches the supply voltage of the motor, so the TMC cannot detect stalls anymore. It is advised to have a look in the datasheet of your specific TMCs. There you can also find more details on limitations of this setup.
+Sensorlös referenskörning fungerar bäst vid medelhöga motorhastigheter. Vid mycket låga hastigheter (under 10 varv/min) genererar motorn inte tillräcklig mot-EMK och TMC:n kan inte pålitligt upptäcka motorstopp. Vid mycket höga hastigheter närmar sig motorns mot-EMK motorns matningsspänning, och TMC:n kan då inte längre upptäcka stopp. Läs databladet för din specifika TMC. Där finns ytterligare information om begränsningarna.
 
-### Prerequisites
+### Förutsättningar
 
-A few prerequisites are needed to use sensorless homing:
+Några förutsättningar krävs för att använda sensorlös referenskörning:
 
-1. A stallGuard capable TMC stepper driver (tmc2130, tmc2209, tmc2660, or tmc5160).
-1. SPI / UART interface of the TMC driver wired to micro-controller (stand-alone mode does not work).
-1. The appropriate "DIAG" or "SG_TST" pin of TMC driver connected to the micro-controller.
-1. The steps in the [config checks](Config_checks.md) document must be run to confirm the stepper motors are configured and working properly.
+1. En TMC-stegmotordrivrutin med stöd för stallGuard, tmc2130, tmc2209, tmc2660 eller tmc5160.
+1. TMC-drivrutinens SPI-/UART-gränssnitt är anslutet till mikrokontrollern (fristående läge fungerar inte).
+1. Lämpligt ”DIAG”- eller ”SG_TST”-stift på TMC-drivrutinen är anslutet till mikrokontrollern.
+1. Stegen i dokumentet [konfigurationskontroller](Config_checks.md) måste köras för att bekräfta att stegmotorerna är konfigurerade och fungerar korrekt.
 
-### Tuning
+### Justering
 
-The procedure described here has six major steps:
+Proceduren som beskrivs här har sex huvudsteg:
 
-1. Choose a homing speed.
-1. Configure the `printer.cfg` file to enable sensorless homing.
-1. Find the stallguard setting with highest sensitivity that successfully homes.
-1. Find the stallguard setting with lowest sensitivity that successfully homes with a single touch.
-1. Update the `printer.cfg` with the desired stallguard setting.
-1. Create or update `printer.cfg` macros to home consistently.
+1. Välj en referenskörningshastighet.
+1. Konfigurera filen `printer.cfg` för att aktivera sensorlös referenskörning.
+1. Hitta den stallguard-inställning med högst känslighet som referenskör korrekt.
+1. Hitta den stallguard-inställning med lägst känslighet som referenskör korrekt med en enda kontakt.
+1. Uppdatera `printer.cfg` med önskad stallguard-inställning.
+1. Skapa eller uppdatera makron i `printer.cfg` för konsekvent referenskörning.
 
-#### Choose homing speed
+#### Välj referenskörningshastighet
 
-The homing speed is an important choice when performing sensorless homing. It's desirable to use a slow homing speed so that the carriage does not exert excessive force on the frame when making contact with the end of the rail. However, the TMC drivers can't reliably detect a stall at very slow speeds.
+Referenskörningshastigheten är ett viktigt val vid sensorlös referenskörning. En långsam referenskörningshastighet är önskvärd så att vagnen inte utövar alltför stor kraft på ramen när den når rälsens ände. TMC-drivrutinerna kan dock inte pålitligt upptäcka ett stopp vid mycket låga hastigheter.
 
-A good starting point for the homing speed is for the stepper motor to make a full rotation every two seconds. For many axes this will be the `rotation_distance` divided by two. For example:
+En bra utgångspunkt är att stegmotorn gör ett helt varv varannan sekund. För många axlar blir detta `rotation_distance` delat med två. Exempel:
 
 ```
 [stepper_x]
@@ -91,13 +91,13 @@ homing_speed: 20
 ...
 ```
 
-#### Configure printer.cfg for sensorless homing
+#### Konfigurera printer.cfg för sensorlös referenskörning
 
-The `homing_retract_dist` setting must be set to zero in the `stepper_x` config section to disable the second homing move. The second homing attempt does not add value when using sensorless homing, it will not work reliably, and it will confuse the tuning process.
+Inställningen `homing_retract_dist` måste sättas till noll i konfigurationsavsnittet `stepper_x` för att inaktivera den andra referenskörningen. Det andra referenskörningsförsöket tillför inget vid sensorlös referenskörning, fungerar inte tillförlitligt och förvirrar justeringsprocessen.
 
-Be sure that a `hold_current` setting is not specified in the TMC driver section of the config. (If a hold_current is set then after contact is made, the motor stops while the carriage is pressed against the end of the rail, and reducing the current while in that position may cause the carriage to move - that results in poor performance and will confuse the tuning process.)
+Kontrollera att inställningen `hold_current` inte anges i konfigurationsavsnittet för TMC-drivrutinen. (Om hold_current anges stannar motorn efter kontakt medan vagnen pressas mot rälsens ände. Minskad ström i detta läge kan få vagnen att röra sig, vilket ger dålig prestanda och förvirrar justeringsprocessen.)
 
-It is necessary to configure the sensorless homing pins and to configure initial "stallguard" settings. A tmc2209 example configuration for an X axis might look like:
+Det är nödvändigt att konfigurera stiften för sensorlös referenskörning och initiala ”stallguard”-inställningar. En exempelkonfiguration av tmc2209 för en X-axel kan se ut så här:
 
 ```
 [tmc2209 stepper_x]
@@ -111,7 +111,7 @@ homing_retract_dist: 0
 ...
 ```
 
-An example tmc2130 or tmc5160 config might look like:
+En exempelkonfiguration av tmc2130 eller tmc5160 kan se ut så här:
 
 ```
 [tmc2130 stepper_x]
@@ -125,7 +125,7 @@ homing_retract_dist: 0
 ...
 ```
 
-An example tmc2660 config might look like:
+En exempelkonfiguration av tmc2660 kan se ut så här:
 
 ```
 [tmc2660 stepper_x]
@@ -138,57 +138,57 @@ homing_retract_dist: 0
 ...
 ```
 
-The examples above only show settings specific to sensorless homing. See the [config reference](Config_Reference.md#tmc-stepper-driver-configuration) for all the available options.
+Exemplen ovan visar bara inställningar som är specifika för sensorlös referenskörning. Se [konfigurationsreferensen](Config_Reference.md#tmc-stepper-driver-configuration) för alla tillgängliga alternativ.
 
-#### Find highest sensitivity that successfully homes
+#### Hitta högsta känslighet som referenskör korrekt
 
-Place the carriage near the center of the rail. Use the SET_TMC_FIELD command to set the highest sensitivity. For tmc2209:
+Placera vagnen nära rälsens mitt. Använd kommandot SET_TMC_FIELD för att ange högsta känslighet. För tmc2209:
 
 ```
 SET_TMC_FIELD STEPPER=stepper_x FIELD=SGTHRS VALUE=255
 ```
 
-For tmc2130, tmc5160, and tmc2660:
+För tmc2130, tmc5160 och tmc2660:
 
 ```
 SET_TMC_FIELD STEPPER=stepper_x FIELD=sgt VALUE=-64
 ```
 
-Then issue a `G28 X0` command and verify the axis does not move at all or quickly stops moving. If the axis does not stop, then issue an `M112` to halt the printer - something is not correct with the diag/sg_tst pin wiring or configuration and it must be corrected before continuing.
+Kör sedan kommandot `G28 X0` och kontrollera att axeln inte rör sig alls eller snabbt slutar röra sig. Om axeln inte stannar kör du `M112` för att stoppa skrivaren. Något är då fel med kabeldragningen eller konfigurationen för diag/sg_tst-stiftet och måste rättas innan du fortsätter.
 
-Next, continually decrease the sensitivity of the `VALUE` setting and run the `SET_TMC_FIELD` `G28 X0` commands again to find the highest sensitivity that results in the carriage successfully moving all the way to the endstop and halting. (For tmc2209 drivers this will be decreasing SGTHRS, for other drivers it will be increasing sgt.) Be sure to start each attempt with the carriage near the center of the rail (if needed issue `M84` and then manually move the carriage to the center). It should be possible to find the highest sensitivity that homes reliably (settings with higher sensitivity result in small or no movement). Note the found value as *maximum_sensitivity*. (If the minimum possible sensitivity (SGTHRS=0 or sgt=63) is obtained without any carriage movement then something is not correct with the diag/sg_tst pin wiring or configuration and it must be corrected before continuing.)
+Minska sedan fortlöpande känsligheten för inställningen `VALUE` och kör kommandona `SET_TMC_FIELD` och `G28 X0` igen för att hitta den högsta känslighet som gör att vagnen kan köra hela vägen till ändstoppet och stanna. (För tmc2209-drivrutiner innebär det att SGTHRS minskas; för andra drivrutiner ökas sgt.) Börja varje försök med vagnen nära rälsens mitt (kör vid behov `M84` och flytta sedan vagnen manuellt till mitten). Det ska vara möjligt att hitta den högsta känslighet som referenskör tillförlitligt (inställningar med högre känslighet ger liten eller ingen rörelse). Anteckna värdet som *maximum_sensitivity*. (Om minsta möjliga känslighet, SGTHRS=0 eller sgt=63, nås utan någon vagnrörelse är något fel med DIAG-/SG_TST-stiftets kabeldragning eller konfiguration. Det måste rättas innan du fortsätter.)
 
-When searching for maximum_sensitivity, it may be convenient to jump to different VALUE settings (so as to bisect the VALUE parameter). If doing this then be prepared to issue an `M112` command to halt the printer, as a setting with a very low sensitivity may cause the axis to repeatedly "bang" into the end of the rail.
+När maximum_sensitivity söks kan det vara praktiskt att hoppa mellan olika VALUE-inställningar för att halvera sökrymden för VALUE-parametern. Om du gör det ska du vara beredd att köra kommandot `M112` för att stoppa skrivaren, eftersom en inställning med mycket låg känslighet kan få axeln att upprepade gånger ”slå” i rälsens ände.
 
-Be sure to wait a couple of seconds between each homing attempt. After the TMC driver detects a stall it may take a little time for it to clear its internal indicator and be capable of detecting another stall.
+Vänta några sekunder mellan varje referenskörningsförsök. När TMC-drivrutinen har upptäckt ett stopp kan det ta en stund innan den rensar sin interna indikator och kan upptäcka nästa stopp.
 
-During these tuning tests, if a `G28 X0` command does not move all the way to the axis limit, then be careful with issuing any regular movement commands (eg, `G1`). Klipper will not have a correct understanding of the carriage position and a move command may cause undesirable and confusing results.
+Om kommandot `G28 X0` under dessa justeringstester inte flyttar hela vägen till axelns gräns ska du vara försiktig med att köra vanliga rörelsekommandon (t.ex. `G1`). Klipper har då inte korrekt information om vagnens position, och ett rörelsekommando kan ge oönskade och förvirrande resultat.
 
-#### Find lowest sensitivity that homes with one touch
+#### Hitta lägsta känslighet som referenskör med en kontakt
 
-When homing with the found *maximum_sensitivity* value, the axis should move to the end of the rail and stop with a "single touch" - that is, there should not be a "clicking" or "banging" sound. (If there is a banging or clicking sound at maximum_sensitivity then the homing_speed may be too low, the driver current may be too low, or sensorless homing may not be a good choice for the axis.)
+När referenskörning görs med det funna värdet *maximum_sensitivity* ska axeln röra sig till rälsens ände och stanna med en ”enda kontakt”, utan klickande eller slagande ljud. (Om det hörs slagande eller klickande ljud vid maximum_sensitivity kan homing_speed vara för låg, drivrutinsströmmen för låg eller sensorlös referenskörning vara olämplig för axeln.)
 
-The next step is to again continually move the carriage to a position near the center of the rail, decrease the sensitivity, and run the `SET_TMC_FIELD` `G28 X0` commands - the goal is now to find the lowest sensitivity that still results in the carriage successfully homing with a "single touch". That is, it does not "bang" or "click" when contacting the end of the rail. Note the found value as *minimum_sensitivity*.
+Nästa steg är att åter flytta vagnen nära rälsens mitt, minska känsligheten och köra `SET_TMC_FIELD` och `G28 X0`. Målet är nu att hitta den lägsta känslighet som fortfarande gör att vagnen referenskör korrekt med en ”enda kontakt”, utan att slå eller klicka vid kontakt med rälsens ände. Anteckna värdet som *minimum_sensitivity*.
 
-#### Update printer.cfg with sensitivity value
+#### Uppdatera printer.cfg med känslighetsvärde
 
-After finding *maximum_sensitivity* and *minimum_sensitivity*, use a calculator to obtain the recommend sensitivity as *minimum_sensitivity + (maximum_sensitivity - minimum_sensitivity)/3*. The recommended sensitivity should be in the range between the minimum and maximum, but slightly closer to the minimum. Round the final value to the nearest integer value.
+När *maximum_sensitivity* och *minimum_sensitivity* har hittats använder du en kalkylator för att få den rekommenderade känsligheten: *minimum_sensitivity + (maximum_sensitivity - minimum_sensitivity)/3*. Den rekommenderade känsligheten ska ligga mellan minimi- och maximivärdet, men något närmare minimivärdet. Avrunda slutvärdet till närmaste heltal.
 
-For tmc2209 set this in the config as `driver_SGTHRS`, for other TMC drivers set this in the config as `driver_SGT`.
+För tmc2209 anger du detta som `driver_SGTHRS` i konfigurationen. För övriga TMC-drivrutiner använder du `driver_SGT`.
 
-If the range between *maximum_sensitivity* and *minimum_sensitivity* is small (eg, less than 5) then it may result in unstable homing. A faster homing speed may increase the range and make the operation more stable.
+Om intervallet mellan *maximum_sensitivity* och *minimum_sensitivity* är litet (t.ex. mindre än 5) kan referenskörningen bli instabil. En högre referenskörningshastighet kan öka intervallet och göra funktionen stabilare.
 
-Note that if any change is made to driver current, homing speed, or a notable change is made to the printer hardware, then it will be necessary to run the tuning process again.
+Observera att justeringsprocessen måste köras igen om drivrutinsströmmen, referenskörningshastigheten eller skrivarens maskinvara ändras väsentligt.
 
-#### Using Macros when Homing
+#### Använda makron vid referenskörning
 
-After sensorless homing completes the carriage will be pressed against the end of the rail and the stepper will exert a force on the frame until the carriage is moved away. It is a good idea to create a macro to home the axis and immediately move the carriage away from the end of the rail.
+Efter att sensorlös referenskörning är klar trycks vagnen mot rälsens ände och stegmotorn belastar ramen tills vagnen flyttas därifrån. Det är lämpligt att skapa ett makro som referenskör axeln och omedelbart flyttar vagnen bort från rälsens ände.
 
-It is a good idea for the macro to pause at least 2 seconds prior to starting sensorless homing (or otherwise ensure that there has been no movement on the stepper for 2 seconds). Without a delay it is possible for the driver's internal stall flag to still be set from a previous move.
+Det är lämpligt att makrot väntar minst 2 sekunder innan sensorlös referenskörning inleds (eller på annat sätt säkerställer att stegmotorn inte har rört sig på 2 sekunder). Utan fördröjning kan drivrutinens interna blockeringsflagga fortfarande vara satt från en tidigare rörelse.
 
-It can also be useful to have that macro set the driver current before homing and set a new current after the carriage has moved away.
+Det kan också vara användbart att låta makrot ställa in drivrutinens ström före referenskörning och ange en ny ström efter att vagnen har flyttats bort.
 
-An example macro might look something like:
+Ett exempel på ett makro kan se ut så här:
 
 ```
 [gcode_macro SENSORLESS_HOME_X]
@@ -209,21 +209,21 @@ gcode:
     SET_TMC_CURRENT STEPPER=stepper_x CURRENT={RUN_CUR}
 ```
 
-The resulting macro can be called from a [homing_override config section](Config_Reference.md#homing_override) or from a [START_PRINT macro](Slicers.md#klipper-gcode_macro).
+Det färdiga makrot kan anropas från ett [konfigurationsavsnitt för homing_override](Config_Reference.md#homing_override) eller från ett [START_PRINT-makro](Slicers.md#klipper-gcode_macro).
 
-Note that if the driver current during homing is changed, then the tuning process should be run again.
+Observera att trimningsprocessen bör köras igen om drivrutinens ström ändras under referenskörningen.
 
-### Tips for sensorless homing on CoreXY
+### Tips för sensorlös referenskörning på CoreXY
 
-It is possible to use sensorless homing on the X and Y carriages of a CoreXY printer. Klipper uses the `[stepper_x]` stepper to detect stalls when homing the X carriage and uses the `[stepper_y]` stepper to detect stalls when homing the Y carriage.
+Sensorlös referenskörning kan användas för X- och Y-vagnarna på en CoreXY-skrivare. Klipper använder stegmotorn `[stepper_x]` för att upptäcka blockeringar när X-vagnen referenskörs och `[stepper_y]` när Y-vagnen referenskörs.
 
-Use the tuning guide described above to find the appropriate "stall sensitivity" for each carriage, but be aware of the following restrictions:
+Använd trimningsguiden ovan för att hitta lämplig ”blockeringskänslighet” för varje vagn, men beakta följande begränsningar:
 
-1. When using sensorless homing on CoreXY, make sure there is no `hold_current` configured for either stepper.
-1. While tuning, make sure both the X and Y carriages are near the center of their rails before each home attempt.
-1. After tuning is complete, when homing both X and Y, use macros to ensure that one axis is homed first, then move that carriage away from the axis limit, pause for at least 2 seconds, and then start the homing of the other carriage. The move away from the axis avoids homing one axis while the other is pressed against the axis limit (which may skew the stall detection). The pause is necessary to ensure the driver's stall flag is cleared prior to homing again.
+1. Vid sensorlös referenskörning på CoreXY ska du kontrollera att `hold_current` inte är konfigurerat för någon av stegmotorerna.
+1. Kontrollera under trimningen att både X- och Y-vagnen befinner sig nära mitten av sina skenor före varje referenskörningsförsök.
+1. När trimningen är klar ska makron användas vid referenskörning av både X och Y för att först referensköra en axel, sedan flytta vagnen bort från axelgränsen, vänta minst 2 sekunder och därefter starta referenskörning av den andra axeln. Förflyttningen från axelgränsen förhindrar att en axel referenskörs medan den andra trycks mot sin axelgräns, vilket kan ge felaktig blockeringsdetektering. Pausen krävs för att säkerställa att drivrutinens blockeringsflagga rensas före nästa referenskörning.
 
-An example CoreXY homing macro might look like:
+Ett exempel på ett CoreXY-makro för referenskörning kan se ut så här:
 
 ```
 [gcode_macro HOME]
@@ -241,76 +241,76 @@ gcode:
     G1 X5 F1200
 ```
 
-## Querying and diagnosing driver settings
+## Fråga efter och felsök drivrutinsinställningar
 
-The `[DUMP_TMC command](G-Codes.md#dump_tmc) is a useful tool when configuring and diagnosing the drivers. It will report all fields configured by Klipper as well as all fields that can be queried from the driver.
+Kommandot [DUMP_TMC](G-Codes.md#dump_tmc) är ett användbart verktyg vid konfigurering och felsökning av drivrutiner. Det rapporterar alla fält som Klipper har konfigurerat och alla fält som kan frågas ut från drivrutinen.
 
-All of the reported fields are defined in the Trinamic datasheet for each driver. These datasheets can be found on the [Trinamic website](https://www.trinamic.com/). Obtain and review the Trinamic datasheet for the driver to interpret the results of DUMP_TMC.
+Alla rapporterade fält definieras i Trinamics datablad för respektive drivrutin. Databladen finns på [Trinamics webbplats](https://www.trinamic.com/). Hämta och granska Trinamics datablad för drivrutinen för att tolka resultatet från DUMP_TMC.
 
-## Configuring driver_XXX settings
+## Konfigurera driver_XXX-inställningar
 
-Klipper supports configuring many low-level driver fields using `driver_XXX` settings. The [TMC driver config reference](Config_Reference.md#tmc-stepper-driver-configuration) has the full list of fields available for each type of driver.
+Klipper har stöd för att konfigurera många lågnivåfält i drivrutinen med inställningar av typen `driver_XXX`. [Konfigurationsreferensen för TMC-drivrutiner](Config_Reference.md#tmc-stepper-driver-configuration) innehåller en fullständig lista över fälten som är tillgängliga för varje drivrutinstyp.
 
-In addition, almost all fields can be modified at run-time using the [SET_TMC_FIELD command](G-Codes.md#set_tmc_field).
+Dessutom kan nästan alla fält ändras under körning med kommandot [SET_TMC_FIELD](G-Codes.md#set_tmc_field).
 
-Each of these fields is defined in the Trinamic datasheet for each driver. These datasheets can be found on the [Trinamic website](https://www.trinamic.com/).
+Alla dessa fält definieras i Trinamics datablad för respektive drivrutin. Databladen finns på [Trinamics webbplats](https://www.trinamic.com/).
 
-Note that the Trinamic datasheets sometime use wording that can confuse a high-level setting (such as "hysteresis end") with a low-level field value (eg, "HEND"). In Klipper, `driver_XXX` and SET_TMC_FIELD always set the low-level field value that is actually written to the driver. So, for example, if the Trinamic datasheet states that a value of 3 must be written to the HEND field to obtain a "hysteresis end" of 0, then set `driver_HEND=3` to obtain the high-level value of 0.
+Observera att Trinamics datablad ibland använder formuleringar som kan förväxla en inställning på hög nivå, exempelvis ”hysteresis end”, med ett fältvärde på låg nivå, exempelvis ”HEND”. I Klipper anger `driver_XXX` och SET_TMC_FIELD alltid lågnivåfältets värde, det vill säga värdet som faktiskt skrivs till drivrutinen. Om Trinamics datablad till exempel anger att värdet 3 ska skrivas till HEND-fältet för att få ”hysteresis end” 0, ska `driver_HEND=3` anges för att få värdet 0 på hög nivå.
 
-## Common Questions
+## Vanliga frågor
 
-### Can I use stealthChop mode on an extruder with pressure advance?
+### Kan jag använda läget stealthChop på en extruder med pressure advance?
 
-Many people successfully use "stealthChop" mode with Klipper's pressure advance. Klipper implements [smooth pressure advance](Kinematics.md#pressure-advance) which does not introduce any instantaneous velocity changes.
+Många använder framgångsrikt läget ”stealthChop” tillsammans med Klippers pressure advance. Klipper implementerar [mjuk pressure advance](Kinematics.md#pressure-advance), som inte orsakar några momentana hastighetsändringar.
 
-However, "stealthChop" mode may produce lower motor torque and/or produce higher motor heat. It may or may not be an adequate mode for your particular printer.
+Läget ”stealthChop” kan dock ge lägre motorvridmoment och/eller mer värme i motorn. Det kan vara ett lämpligt läge för just din skrivare, men behöver inte vara det.
 
-### I keep getting "Unable to read tmc uart 'stepper_x' register IFCNT" errors?
+### Jag får ständigt felet ”Unable to read tmc uart 'stepper_x' register IFCNT”?
 
-This occurs when Klipper is unable to communicate with a tmc2208 or tmc2209 driver.
+Detta inträffar när Klipper inte kan kommunicera med en tmc2208- eller tmc2209-drivrutin.
 
-Make sure that the motor power is enabled, as the stepper motor driver generally needs motor power before it can communicate with the micro-controller.
+Kontrollera att motorströmmen är aktiverad, eftersom stegmotordrivern normalt behöver motorström för att kunna kommunicera med mikrokontrollern.
 
-If this error occurs after flashing Klipper for the first time, then the stepper driver may have been previously programmed in a state that is not compatible with Klipper. To reset the state, remove all power from the printer for several seconds (physically unplug both USB and power plugs).
+Om felet inträffar efter att Klipper har flashats för första gången kan stegmotordrivern tidigare ha programmerats till ett tillstånd som inte är kompatibelt med Klipper. Återställ tillståndet genom att koppla bort all ström från skrivaren i några sekunder, både USB- och strömkabeln.
 
-Otherwise, this error is typically the result of incorrect UART pin wiring or an incorrect Klipper configuration of the UART pin settings.
+I annat fall beror felet vanligen på felkopplade UART-stift eller felaktiga inställningar för UART-stiften i Klipper.
 
-### I keep getting "Unable to write tmc spi 'stepper_x' register ..." errors?
+### Jag får ständigt felet ”Unable to write tmc spi 'stepper_x' register ...”?
 
-This occurs when Klipper is unable to communicate with a tmc2130 or tmc5160 driver.
+Detta inträffar när Klipper inte kan kommunicera med en tmc2130- eller tmc5160-drivrutin.
 
-Make sure that the motor power is enabled, as the stepper motor driver generally needs motor power before it can communicate with the micro-controller.
+Kontrollera att motorströmmen är aktiverad, eftersom stegmotordrivern normalt behöver motorström för att kunna kommunicera med mikrokontrollern.
 
-Otherwise, this error is typically the result of incorrect SPI wiring, an incorrect Klipper configuration of the SPI settings, or an incomplete configuration of devices on an SPI bus.
+I annat fall beror felet vanligen på felkopplad SPI, felaktiga SPI-inställningar i Klipper eller en ofullständig konfiguration av enheter på en SPI-buss.
 
-Note that if the driver is on a shared SPI bus with multiple devices then be sure to fully configure every device on that shared SPI bus in Klipper. If a device on a shared SPI bus is not configured, then it may incorrectly respond to commands not intended for it and corrupt the communication to the intended device. If there is a device on a shared SPI bus that can not be configured in Klipper, then use a [static_digital_output config section](Config_Reference.md#static_digital_output) to set the CS pin of the unused device high (so that it will not attempt to use the SPI bus). The board's schematic is often a useful reference for finding which devices are on an SPI bus and their associated pins.
+Observera att om drivrutinen delar SPI-buss med flera enheter måste varje enhet på den delade SPI-bussen konfigureras fullständigt i Klipper. Om en enhet på en delad SPI-buss inte är konfigurerad kan den felaktigt svara på kommandon som inte är avsedda för den och störa kommunikationen med den avsedda enheten. Om en enhet på den delade SPI-bussen inte kan konfigureras i Klipper använder du ett [konfigurationsavsnitt för static_digital_output](Config_Reference.md#static_digital_output) för att sätta den oanvända enhetens CS-stift högt, så att den inte försöker använda SPI-bussen. Kortets kretsschema är ofta användbart för att hitta enheterna på en SPI-buss och deras tillhörande stift.
 
-### Why did I get a "TMC reports error: ..." error?
+### Varför fick jag felet ”TMC reports error: ...”?
 
-This type of error indicates the TMC driver detected a problem and has disabled itself. That is, the driver stopped holding its position and ignored movement commands. If Klipper detects that an active driver has disabled itself, it will transition the printer into a "shutdown" state.
+Den här typen av fel innebär att TMC-drivrutinen har upptäckt ett problem och stängt av sig själv. Drivrutinen slutar alltså hålla sin position och ignorerar rörelsekommandon. Om Klipper upptäcker att en aktiv drivrutin har stängt av sig själv försätts skrivaren i läget ”shutdown”.
 
-It's also possible that a **TMC reports error** shutdown occurs due to SPI errors that prevent communication with the driver (on tmc2130, tmc5160, or tmc2660). If this occurs, it's common for the reported driver status to show `00000000` or `ffffffff` - for example: `TMC reports error: DRV_STATUS: ffffffff ...` OR `TMC reports error: READRSP@RDSEL2: 00000000 ...`. Such a failure may be due to an SPI wiring problem or may be due to a self-reset or failure of the TMC driver.
+En avstängning med **TMC reports error** kan också uppstå på grund av SPI-fel som förhindrar kommunikation med drivrutinen, på tmc2130, tmc5160 eller tmc2660. När detta inträffar visar den rapporterade drivrutinsstatusen ofta `00000000` eller `ffffffff`, till exempel: `TMC reports error: DRV_STATUS: ffffffff ...` ELLER `TMC reports error: READRSP@RDSEL2: 00000000 ...`. Felet kan bero på ett SPI-kopplingsproblem eller på att TMC-drivrutinen har återställts eller gått sönder.
 
-Some common errors and tips for diagnosing them:
+Några vanliga fel och tips för att felsöka dem:
 
 #### TMC reports error: `... ot=1(OvertempError!)`
 
-This indicates the motor driver disabled itself because it became too hot. Typical solutions are to decrease the stepper motor current, increase cooling on the stepper motor driver, and/or increase cooling on the stepper motor.
+Detta innebär att motordrivern stängde av sig själv eftersom den blev för varm. Vanliga åtgärder är att minska stegmotorströmmen, förbättra kylningen av stegmotordrivern och/eller förbättra kylningen av stegmotorn.
 
-#### TMC reports error: `... ShortToGND` OR `ShortToSupply`
+#### TMC reports error: `... ShortToGND` ELLER `ShortToSupply`
 
-This indicates the driver has disabled itself because it detected very high current passing through the driver. This may indicate a loose or shorted wire to the stepper motor or within the stepper motor itself.
+Detta innebär att drivrutinen stängde av sig själv eftersom den upptäckte mycket hög ström genom drivrutinen. Det kan tyda på en lös eller kortsluten ledning till stegmotorn eller inne i själva stegmotorn.
 
-This error may also occur if using stealthChop mode and the TMC driver is not able to accurately predict the mechanical load of the motor. (If the driver makes a poor prediction then it may send too much current through the motor and trigger its own over-current detection.) To test this, disable stealthChop mode and check if the errors continue to occur.
+Felet kan även inträffa i läget stealthChop om TMC-drivrutinen inte kan förutsäga motorns mekaniska belastning tillräckligt noggrant. Om drivrutinen gör en dålig förutsägelse kan den skicka för hög ström genom motorn och utlösa sin egen överströmsdetektering. Testa detta genom att inaktivera läget stealthChop och kontrollera om felen kvarstår.
 
-#### TMC reports error: `... reset=1(Reset)` OR `CS_ACTUAL=0(Reset?)` OR `SE=0(Reset?)`
+#### TMC reports error: `... reset=1(Reset)` ELLER `CS_ACTUAL=0(Reset?)` ELLER `SE=0(Reset?)`
 
-This indicates that the driver has reset itself mid-print. This may be due to voltage or wiring issues.
+Detta innebär att drivrutinen återställde sig själv mitt under en utskrift. Det kan bero på problem med spänning eller kablage.
 
 #### TMC reports error: `... uv_cp=1(Undervoltage!)`
 
-This indicates the driver has detected a low-voltage event and has disabled itself. This may be due to wiring or power supply issues.
+Detta innebär att drivrutinen upptäckte en händelse med låg spänning och stängde av sig själv. Det kan bero på problem med kablage eller strömförsörjning.
 
-### How do I tune spreadCycle/coolStep/etc. mode on my drivers?
+### Hur trimmar jag läget spreadCycle/coolStep/osv. för mina drivrutiner?
 
-The [Trinamic website](https://www.trinamic.com/) has guides on configuring the drivers. These guides are often technical, low-level, and may require specialized hardware. Regardless, they are the best source of information.
+[Trinamics webbplats](https://www.trinamic.com/) innehåller guider för konfigurering av drivrutinerna. Guiderna är ofta tekniska, på låg nivå och kan kräva specialiserad maskinvara. De är ändå den bästa informationskällan.

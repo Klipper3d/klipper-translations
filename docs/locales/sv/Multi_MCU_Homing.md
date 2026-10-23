@@ -1,17 +1,17 @@
-# Multiple Micro-controller Homing and Probing
+# Ändlägeskörning och sondering med flera mikrokontroller
 
-Klipper supports a mechanism for homing with an endstop attached to one micro-controller while its stepper motors are on a different micro-controller. This support is referred to as "multi-mcu homing". This feature is also used when a Z probe is on a different micro-controller than the Z stepper motors.
+Klipper har stöd för ändlägeskörning där ändlägesbrytaren är ansluten till en mikrokontroller medan stegmotorerna finns på en annan. Funktionen kallas ”ändlägeskörning med flera MCU:er”. Den används också när en Z-sond finns på en annan mikrokontroller än Z-stegmotorerna.
 
-This feature can be useful to simplify wiring, as it may be more convenient to attach an endstop or probe to a closer micro-controller. However, using this feature may result in "overshoot" of the stepper motors during homing and probing operations.
+Funktionen kan förenkla kabeldragningen eftersom det kan vara lämpligare att ansluta en ändlägesbrytare eller sond till en närmare mikrokontroller. Den kan dock leda till att stegmotorerna går för långt vid ändlägeskörning och sondering.
 
-The overshoot occurs due to possible message transmission delays between the micro-controller monitoring the endstop and the micro-controllers moving the stepper motors. The Klipper code is designed to limit this delay to no more than 25ms. (When multi-mcu homing is activated, the micro-controllers send periodic status messages and check that corresponding status messages are received within 25ms.)
+Överskridningen uppstår på grund av möjliga fördröjningar i meddelandeöverföringen mellan mikrokontrollern som övervakar ändlägesbrytaren och mikrokontrollerna som driver stegmotorerna. Klippers kod är utformad för att begränsa fördröjningen till högst 25 ms. När ändlägeskörning med flera MCU:er är aktiverad skickar mikrokontrollerna periodiska statusmeddelanden och kontrollerar att motsvarande statusmeddelanden tas emot inom 25 ms.
 
-So, for example, if homing at 10mm/s then it is possible for an overshoot of up to 0.250mm (10mm/s * .025s == 0.250mm). Care should be taken when configuring multi-mcu homing to account for this type of overshoot. Using slower homing or probing speeds can reduce the overshoot.
+Vid ändlägeskörning med 10 mm/s kan överskridningen till exempel bli upp till 0,250 mm (10 mm/s * 0,025 s = 0,250 mm). Ta hänsyn till denna typ av överskridning när du konfigurerar ändlägeskörning med flera MCU:er. Långsammare hastigheter för ändlägeskörning eller sondering kan minska överskridningen.
 
-Stepper motor overshoot should not adversely impact the precision of the homing and probing procedure. The Klipper code will detect the overshoot and account for it in its calculations. However, it is important that the hardware design is capable of handling overshoot without causing damage to the machine.
+Överskridning av stegmotorer bör inte påverka precisionen vid ändlägeskörning och sondering negativt. Klippers kod identifierar överskridningen och tar hänsyn till den i sina beräkningar. Maskinvaran måste dock vara utformad för att klara överskridningen utan att maskinen skadas.
 
-In order to use this "multi-mcu homing" capability the hardware must have predictably low latency between the host computer and all of the micro-controllers. Typically the round-trip time must be consistently less than 10ms. High latency (even for short periods) is likely to result in homing failures.
+För att använda ändlägeskörning med flera MCU:er måste maskinvaran ha förutsägbart låg latens mellan värddatorn och alla mikrokontroller. Tur- och returtiden måste vanligen konsekvent vara kortare än 10 ms. Hög latens, även under korta perioder, leder sannolikt till fel vid ändlägeskörning.
 
-Should high latency result in a failure (or if some other communication issue is detected) then Klipper will raise a "Communication timeout during homing" error.
+Om hög latens leder till ett fel, eller om ett annat kommunikationsproblem identifieras, visas felet ”Kommunikationens tidsgräns överskreds under ändlägeskörning” i Klipper.
 
-Note that an axis with multiple steppers (eg, `stepper_z` and `stepper_z1`) need to be on the same micro-controller in order to use multi-mcu homing. For example, if an endstop is on a separate micro-controller from `stepper_z` then `stepper_z1` must be on the same micro-controller as `stepper_z`.
+Observera att en axel med flera stegmotorer, till exempel `stepper_z` och `stepper_z1`, måste finnas på samma mikrokontroller för att ändlägeskörning med flera MCU:er ska kunna användas. Om en ändlägesbrytare till exempel finns på en annan mikrokontroller än `stepper_z` måste `stepper_z1` finnas på samma mikrokontroller som `stepper_z`.

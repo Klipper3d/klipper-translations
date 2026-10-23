@@ -1,98 +1,98 @@
-# API server
+# API-server
 
-This document describes Klipper's Application Programmer Interface (API). This interface enables external applications to query and control the Klipper host software.
+Dokumentet beskriver Klippers programmeringsgränssnitt (API). Gränssnittet gör det möjligt för externa program att fråga och styra Klippers värdprogramvara.
 
-## Enabling the API socket
+## Aktivera API-socketen
 
-In order to use the API server, the klippy.py host software must be started with the `-a` parameter. For example:
+För att använda API-servern måste värdprogramvaran klippy.py startas med parametern `-a`. Exempelvis:
 
 ```
 ~/klippy-env/bin/python ~/klipper/klippy/klippy.py ~/printer.cfg -a /tmp/klippy_uds -l /tmp/klippy.log
 ```
 
-This causes the host software to create a Unix Domain Socket. A client can then open a connection on that socket and send commands to Klipper.
+Då skapar värdprogramvaran en Unix-domänsocket. En klient kan sedan öppna en anslutning till socketen och skicka kommandon till Klipper.
 
-See the [Moonraker](https://github.com/Arksine/moonraker) project for a popular tool that can forward HTTP requests to Klipper's API Server Unix Domain Socket.
+Se projektet [Moonraker](https://github.com/Arksine/moonraker) för ett populärt verktyg som kan vidarebefordra HTTP-begäranden till Klippers Unix-domänsocket för API-servern.
 
-## Request format
+## Begärandeformat
 
-Messages sent and received on the socket are JSON encoded strings terminated by an ASCII 0x03 character:
+Meddelanden som skickas och tas emot via socketen är JSON-kodade strängar som avslutas med ASCII-tecknet 0x03:
 
 ```
 <json_object_1><0x03><json_object_2><0x03>...
 ```
 
-Klipper contains a `scripts/whconsole.py` tool that can perform the above message framing. For example:
+Klipper innehåller verktyget `scripts/whconsole.py`, som kan utföra ovanstående meddelandeinramning. Exempelvis:
 
 ```
 ~/klipper/scripts/whconsole.py /tmp/klippy_uds
 ```
 
-This tool can read a series of JSON commands from stdin, send them to Klipper, and report the results. The tool expects each JSON command to be on a single line, and it will automatically append the 0x03 terminator when transmitting a request. (The Klipper API server does not have a newline requirement.)
+Verktyget kan läsa en serie JSON-kommandon från stdin, skicka dem till Klipper och rapportera resultaten. Det förväntar sig att varje JSON-kommando står på en enda rad och lägger automatiskt till avgränsaren 0x03 när en begäran skickas. (Klippers API-server kräver inte radbrytningar.)
 
-## API Protocol
+## API-protokoll
 
-The command protocol used on the communication socket is inspired by [json-rpc](https://www.jsonrpc.org/).
+Kommandoprotokollet som används på kommunikationssocketen är inspirerat av [json-rpc](https://www.jsonrpc.org/).
 
-A request might look like:
+En begäran kan se ut så här:
 
 `{"id": 123, "method": "info", "params": {}}`
 
-and a response might look like:
+och ett svar kan se ut så här:
 
 `{"id": 123, "result": {"state_message": "Printer is ready", "klipper_path": "/home/pi/klipper", "config_file": "/home/pi/printer.cfg", "software_version": "v0.8.0-823-g883b1cb6", "hostname": "octopi", "cpu_info": "4 core ARMv7 Processor rev 4 (v7l)", "state": "ready", "python_path": "/home/pi/klippy-env/bin/python", "log_file": "/tmp/klippy.log"}}`
 
-Each request must be a JSON dictionary. (This document uses the Python term "dictionary" to describe a "JSON object" - a mapping of key/value pairs contained within `{}`.)
+Varje begäran måste vara ett JSON-objekt. (I det här dokumentet används Pythons term "dictionary" för att beskriva ett "JSON-objekt" – en mappning av nyckel/värde-par inom `{}`.)
 
-The request dictionary must contain a "method" parameter that is the string name of an available Klipper "endpoint".
+Begärans objekt måste innehålla parametern "method", som är strängnamnet på en tillgänglig Klipper-"endpoint".
 
-The request dictionary may contain a "params" parameter which must be of a dictionary type. The "params" provide additional parameter information to the Klipper "endpoint" handling the request. Its content is specific to the "endpoint".
+Begärans objekt kan innehålla parametern "params", som måste vara av objekttyp. "params" ger ytterligare parameterinformation till Klipper-"endpointen" som hanterar begäran. Dess innehåll är specifikt för "endpointen".
 
-The request dictionary may contain an "id" parameter which may be of any JSON type. If "id" is present then Klipper will respond to the request with a response message containing that "id". If "id" is omitted (or set to a JSON "null" value) then Klipper will not provide any response to the request. A response message is a JSON dictionary containing "id" and "result". The "result" is always a dictionary - its contents are specific to the "endpoint" handling the request.
+Begärans objekt kan innehålla parametern "id", som kan vara av valfri JSON-typ. Om "id" finns svarar Klipper på begäran med ett svarsmeddelande som innehåller detta "id". Om "id" utelämnas (eller sätts till JSON-värdet "null") ger Klipper inget svar på begäran. Ett svarsmeddelande är ett JSON-objekt som innehåller "id" och "result". "result" är alltid ett objekt – dess innehåll är specifikt för "endpointen" som hanterar begäran.
 
-If the processing of a request results in an error, then the response message will contain an "error" field instead of a "result" field. For example, the request: `{"id": 123, "method": "gcode/script", "params": {"script": "G1 X200"}}` might result in an error response such as: `{"id": 123, "error": {"message": "Must home axis first: 200.000 0.000 0.000 [0.000]", "error": "WebRequestError"}}`
+Om behandlingen av en begäran resulterar i ett fel innehåller svarsmeddelandet fältet "error" i stället för fältet "result". Till exempel kan begäran: `{"id": 123, "method": "gcode/script", "params": {"script": "G1 X200"}}` resultera i ett felsvar som: `{"id": 123, "error": {"message": "Must home axis first: 200.000 0.000 0.000 [0.000]", "error": "WebRequestError"}}`
 
-Klipper will always start processing requests in the order that they are received. However, some request may not complete immediately, which could cause the associated response to be sent out of order with respect to responses from other requests. A JSON request will never pause the processing of future JSON requests.
+Klipper börjar alltid behandla begäranden i den ordning de tas emot. Vissa begäranden kan dock dröja med att slutföras, vilket kan göra att deras svar skickas i en annan ordning än svaren på andra begäranden. En JSON-begäran pausar aldrig behandlingen av framtida JSON-begäranden.
 
-## Subscriptions
+## Prenumerationer
 
-Some Klipper "endpoint" requests allow one to "subscribe" to future asynchronous update messages.
+Vissa Klipper-begäranden till "endpoints" gör det möjligt att "prenumerera" på framtida asynkrona uppdateringsmeddelanden.
 
-For example:
+Exempelvis:
 
 `{"id": 123, "method": "gcode/subscribe_output", "params": {"response_template":{"key": 345}}}`
 
-may initially respond with:
+kan först svara med:
 
 `{"id": 123, "result": {}}`
 
-and cause Klipper to send future messages similar to:
+och få Klipper att skicka framtida meddelanden som liknar:
 
 `{"params": {"response": "ok B:22.8 /0.0 T0:22.4 /0.0"}, "key": 345}`
 
-A subscription request accepts a "response_template" dictionary in the "params" field of the request. That "response_template" dictionary is used as a template for future asynchronous messages - it may contain arbitrary key/value pairs. When sending these future asynchronous messages, Klipper will add a "params" field containing a dictionary with "endpoint" specific contents to the response template and then send that template. If a "response_template" field is not provided then it defaults to an empty dictionary (`{}`).
+En prenumerationsbegäran accepterar ett "response_template"-objekt i begärans "params"-fält. Objektet "response_template" används som mall för framtida asynkrona meddelanden och kan innehålla godtyckliga nyckel/värde-par. När dessa framtida asynkrona meddelanden skickas lägger Klipper till fältet "params", med ett objekt vars innehåll är specifikt för "endpointen", i svarsmallen och skickar sedan mallen. Om fältet "response_template" inte anges används som standard ett tomt objekt (`{}`).
 
-## Available "endpoints"
+## Tillgängliga "endpoints"
 
-By convention, Klipper "endpoints" are of the form `<module_name>/<some_name>`. When making a request to an "endpoint", the full name must be set in the "method" parameter of the request dictionary (eg, `{"method"="gcode/restart"}`).
+Enligt konvention har Klipper-"endpoints" formen `<module_name>/<some_name>`. När en begäran görs till en "endpoint" måste det fullständiga namnet anges i parametern "method" i begärans objekt (t.ex. `{"method"="gcode/restart"}`).
 
 ### info
 
-The "info" endpoint is used to obtain system and version information from Klipper. It is also used to provide the client's version information to Klipper. For example: `{"id": 123, "method": "info", "params": { "client_info": { "version": "v1"}}}`
+"info"-endpointen används för att hämta system- och versionsinformation från Klipper. Den används också för att ge Klipper klientens versionsinformation. Exempelvis: `{"id": 123, "method": "info", "params": { "client_info": { "version": "v1"}}}`
 
-If present, the "client_info" parameter must be a dictionary, but that dictionary may have arbitrary contents. Clients are encouraged to provide the name of the client and its software version when first connecting to the Klipper API server.
+Om parametern "client_info" finns måste den vara ett objekt, men objektet kan ha godtyckligt innehåll. Klienter rekommenderas att ange klientens namn och programvaruversion när de först ansluter till Klippers API-server.
 
 ### emergency_stop
 
-The "emergency_stop" endpoint is used to instruct Klipper to transition to a "shutdown" state. It behaves similarly to the G-Code `M112` command. For example: `{"id": 123, "method": "emergency_stop"}`
+"emergency_stop"-endpointen används för att instruera Klipper att övergå till läget "shutdown". Den fungerar på liknande sätt som G-kodkommandot `M112`. Exempelvis: `{"id": 123, "method": "emergency_stop"}`
 
 ### register_remote_method
 
-This endpoint allows clients to register methods that can be called from klipper. It will return an empty object upon success.
+Den här endpointen låter klienter registrera metoder som kan anropas från Klipper. Vid lyckat resultat returneras ett tomt objekt.
 
-For example: `{"id": 123, "method": "register_remote_method", "params": {"response_template": {"action": "run_paneldue_beep"}, "remote_method": "paneldue_beep"}}` will return: `{"id": 123, "result": {}}`
+Exempelvis returnerar `{"id": 123, "method": "register_remote_method", "params": {"response_template": {"action": "run_paneldue_beep"}, "remote_method": "paneldue_beep"}}` följande: `{"id": 123, "result": {}}`
 
-The remote method `paneldue_beep` may now be called from Klipper. Note that if the method takes parameters they should be provided as keyword arguments. Below is an example of how it may called from a gcode_macro:
+Fjärrmetoden `paneldue_beep` kan nu anropas från Klipper. Observera att om metoden tar parametrar ska de anges som nyckelordsargument. Nedan följer ett exempel på hur den kan anropas från en gcode_macro:
 
 ```
 [gcode_macro PANELDUE_BEEP]
@@ -100,101 +100,101 @@ gcode:
   {action_call_remote_method("paneldue_beep", frequency=300, duration=1.0)}
 ```
 
-When the PANELDUE_BEEP gcode macro is executed, Klipper would send something like the following over the socket: `{"action": "run_paneldue_beep", "params": {"frequency": 300, "duration": 1.0}}`
+När gcode-makrot PANELDUE_BEEP körs skickar Klipper något i stil med följande via socketen: `{"action": "run_paneldue_beep", "params": {"frequency": 300, "duration": 1.0}}`
 
 ### objects/list
 
-This endpoint queries the list of available printer "objects" that one may query (via the "objects/query" endpoint). For example: `{"id": 123, "method": "objects/list"}` might return: `{"id": 123, "result": {"objects": ["webhooks", "configfile", "heaters", "gcode_move", "query_endstops", "idle_timeout", "toolhead", "extruder"]}}`
+Den här endpointen frågar efter listan över tillgängliga skrivarobjekt som kan frågas efter (via endpointen "objects/query"). Exempelvis kan `{"id": 123, "method": "objects/list"}` returnera: `{"id": 123, "result": {"objects": ["webhooks", "configfile", "heaters", "gcode_move", "query_endstops", "idle_timeout", "toolhead", "extruder"]}}`
 
 ### objects/query
 
-This endpoint allows one to query information from printer objects. For example: `{"id": 123, "method": "objects/query", "params": {"objects": {"toolhead": ["position"], "webhooks": null}}}` might return: `{"id": 123, "result": {"status": {"webhooks": {"state": "ready", "state_message": "Printer is ready"}, "toolhead": {"position": [0.0, 0.0, 0.0, 0.0]}}, "eventtime": 3051555.377933684}}`
+Den här endpointen gör det möjligt att fråga efter information från skrivarobjekt. Exempelvis kan `{"id": 123, "method": "objects/query", "params": {"objects": {"toolhead": ["position"], "webhooks": null}}}` returnera: `{"id": 123, "result": {"status": {"webhooks": {"state": "ready", "state_message": "Printer is ready"}, "toolhead": {"position": [0.0, 0.0, 0.0, 0.0]}}, "eventtime": 3051555.377933684}}`
 
-The "objects" parameter in the request must be a dictionary containing the printer objects that are to be queried - the key contains the printer object name and the value is either "null" (to query all fields) or a list of field names.
+Parametern "objects" i begäran måste vara ett objekt som innehåller de skrivarobjekt som ska frågas efter. Nyckeln innehåller skrivarobjektets namn och värdet är antingen "null" (för att fråga efter alla fält) eller en lista med fältnamn.
 
-The response message will contain a "status" field containing a dictionary with the queried information - the key contains the printer object name and the value is a dictionary containing its fields. The response message will also contain an "eventtime" field containing the timestamp from when the query was taken.
+Svarsmeddelandet innehåller fältet "status" med ett objekt som innehåller den efterfrågade informationen. Nyckeln innehåller skrivarobjektets namn och värdet är ett objekt med dess fält. Svarsmeddelandet innehåller även fältet "eventtime" med tidsstämpeln för när frågan gjordes.
 
-Available fields are documented in the [Status Reference](Status_Reference.md) document.
+Tillgängliga fält dokumenteras i [statusreferensen](Status_Reference.md).
 
 ### objects/subscribe
 
-This endpoint allows one to query and then subscribe to information from printer objects. The endpoint request and response is identical to the "objects/query" endpoint. For example: `{"id": 123, "method": "objects/subscribe", "params": {"objects":{"toolhead": ["position"], "webhooks": ["state"]}, "response_template":{}}}` might return: `{"id": 123, "result": {"status": {"webhooks": {"state": "ready"}, "toolhead": {"position": [0.0, 0.0, 0.0, 0.0]}}, "eventtime": 3052153.382083195}}` and result in subsequent asynchronous messages such as: `{"params": {"status": {"webhooks": {"state": "shutdown"}}, "eventtime": 3052165.418815847}}`
+Den här endpointen gör det möjligt att först fråga efter och sedan prenumerera på information från skrivarobjekt. Endpointens begäran och svar är identiska med "objects/query". Exempelvis kan `{"id": 123, "method": "objects/subscribe", "params": {"objects":{"toolhead": ["position"], "webhooks": ["state"]}, "response_template":{}}}` returnera: `{"id": 123, "result": {"status": {"webhooks": {"state": "ready"}, "toolhead": {"position": [0.0, 0.0, 0.0, 0.0]}}, "eventtime": 3052153.382083195}}` och resultera i efterföljande asynkrona meddelanden som: `{"params": {"status": {"webhooks": {"state": "shutdown"}}, "eventtime": 3052165.418815847}}`
 
 ### gcode/help
 
-This endpoint allows one to query available G-Code commands that have a help string defined. For example: `{"id": 123, "method": "gcode/help"}` might return: `{"id": 123, "result": {"RESTORE_GCODE_STATE": "Restore a previously saved G-Code state", "PID_CALIBRATE": "Run PID calibration test", "QUERY_ADC": "Report the last value of an analog pin", ...}}`
+Den här endpointen gör det möjligt att fråga efter tillgängliga G-kodkommandon som har en definierad hjälptext. Exempelvis kan `{"id": 123, "method": "gcode/help"}` returnera: `{"id": 123, "result": {"RESTORE_GCODE_STATE": "Restore a previously saved G-Code state", "PID_CALIBRATE": "Run PID calibration test", "QUERY_ADC": "Report the last value of an analog pin", ...}}`
 
 ### gcode/script
 
-This endpoint allows one to run a series of G-Code commands. For example: `{"id": 123, "method": "gcode/script", "params": {"script": "G90"}}`
+Den här endpointen gör det möjligt att köra en serie G-kodkommandon. Exempelvis: `{"id": 123, "method": "gcode/script", "params": {"script": "G90"}}`
 
-If the provided G-Code script raises an error, then an error response is generated. However, if the G-Code command produces terminal output, that terminal output is not provided in the response. (Use the "gcode/subscribe_output" endpoint to obtain G-Code terminal output.)
+Om det angivna G-kodskriptet ger upphov till ett fel genereras ett felsvar. Om G-kodkommandot däremot ger terminalutdata inkluderas dessa inte i svaret. (Använd endpointen "gcode/subscribe_output" för att hämta G-kodens terminalutdata.)
 
-If there is a G-Code command being processed when this request is received, then the provided script will be queued. This delay could be significant (eg, if a G-Code wait for temperature command is running). The JSON response message is sent when the processing of the script fully completes.
+Om ett G-kodkommando behandlas när den här begäran tas emot köas det angivna skriptet. Fördröjningen kan bli betydande (t.ex. om ett G-kodkommando som väntar på temperatur körs). JSON-svarsmeddelandet skickas när behandlingen av skriptet är helt klar.
 
 ### gcode/restart
 
-This endpoint allows one to request a restart - it is similar to running the G-Code "RESTART" command. For example: `{"id": 123, "method": "gcode/restart"}`
+Den här endpointen gör det möjligt att begära en omstart. Den motsvarar ungefär G-kodkommandot "RESTART". Exempelvis: `{"id": 123, "method": "gcode/restart"}`
 
-As with the "gcode/script" endpoint, this endpoint only completes after any pending G-Code commands complete.
+Precis som endpointen "gcode/script" slutförs den här endpointen först när alla väntande G-kodkommandon har slutförts.
 
 ### gcode/firmware_restart
 
-This is similar to the "gcode/restart" endpoint - it implements the G-Code "FIRMWARE_RESTART" command. For example: `{"id": 123, "method": "gcode/firmware_restart"}`
+Detta liknar endpointen "gcode/restart" och implementerar G-kodkommandot "FIRMWARE_RESTART". Exempelvis: `{"id": 123, "method": "gcode/firmware_restart"}`
 
-As with the "gcode/script" endpoint, this endpoint only completes after any pending G-Code commands complete.
+Precis som endpointen "gcode/script" slutförs den här endpointen först när alla väntande G-kodkommandon har slutförts.
 
 ### gcode/subscribe_output
 
-This endpoint is used to subscribe to G-Code terminal messages that are generated by Klipper. For example: `{"id": 123, "method": "gcode/subscribe_output", "params": {"response_template":{}}}` might later produce asynchronous messages such as: `{"params": {"response": "// Klipper state: Shutdown"}}`
+Den här endpointen används för att prenumerera på G-kodens terminalmeddelanden som Klipper genererar. Exempelvis kan `{"id": 123, "method": "gcode/subscribe_output", "params": {"response_template":{}}}` senare generera asynkrona meddelanden som: `{"params": {"response": "// Klipper state: Shutdown"}}`
 
-This endpoint is intended to support human interaction via a "terminal window" interface. Parsing content from the G-Code terminal output is discouraged. Use the "objects/subscribe" endpoint to obtain updates on Klipper's state.
+Den här endpointen är avsedd att stödja mänsklig interaktion via ett gränssnitt med "terminalfönster". Det avråds från att tolka innehåll i G-kodens terminalutdata. Använd endpointen "objects/subscribe" för att få uppdateringar om Klippers tillstånd.
 
 ### motion_report/dump_stepper
 
-This endpoint is used to subscribe to Klipper's internal stepper queue_step command stream for a stepper. Obtaining these low-level motion updates may be useful for diagnostic and debugging purposes. Using this endpoint may increase Klipper's system load.
+Den här endpointen används för att prenumerera på Klippers interna kommandoflöde queue_step för en stegmotor. Dessa rörelseuppdateringar på låg nivå kan vara användbara för diagnostik och felsökning. Användning av endpointen kan öka Klippers systembelastning.
 
-A request may look like: `{"id": 123, "method":"motion_report/dump_stepper", "params": {"name": "stepper_x", "response_template": {}}}` and might return: `{"id": 123, "result": {"header": ["interval", "count", "add"]}}` and might later produce asynchronous messages such as: `{"params": {"first_clock": 179601081, "first_time": 8.98, "first_position": 0, "last_clock": 219686097, "last_time": 10.984, "data": [[179601081, 1, 0], [29573, 2, -8685], [16230, 4, -1525], [10559, 6, -160], [10000, 976, 0], [10000, 1000, 0], [10000, 1000, 0], [10000, 1000, 0], [9855, 5, 187], [11632, 4, 1534], [20756, 2, 9442]]}}`
+En begäran kan se ut så här: `{"id": 123, "method":"motion_report/dump_stepper", "params": {"name": "stepper_x", "response_template": {}}}` och kan returnera: `{"id": 123, "result": {"header": ["interval", "count", "add"]}}`. Den kan senare generera asynkrona meddelanden som: `{"params": {"first_clock": 179601081, "first_time": 8.98, "first_position": 0, "last_clock": 219686097, "last_time": 10.984, "data": [[179601081, 1, 0], [29573, 2, -8685], [16230, 4, -1525], [10559, 6, -160], [10000, 976, 0], [10000, 1000, 0], [10000, 1000, 0], [10000, 1000, 0], [9855, 5, 187], [11632, 4, 1534], [20756, 2, 9442]]}}`
 
-The "header" field in the initial query response is used to describe the fields found in later "data" responses.
+Fältet "header" i svaret på den första frågan används för att beskriva fälten i senare "data"-svar.
 
 ### motion_report/dump_trapq
 
-This endpoint is used to subscribe to Klipper's internal "trapezoid motion queue". Obtaining these low-level motion updates may be useful for diagnostic and debugging purposes. Using this endpoint may increase Klipper's system load.
+Den här endpointen används för att prenumerera på Klippers interna "trapezoidal motion queue". Dessa rörelseuppdateringar på låg nivå kan vara användbara för diagnostik och felsökning. Användning av endpointen kan öka Klippers systembelastning.
 
-A request may look like: `{"id": 123, "method": "motion_report/dump_trapq", "params": {"name": "toolhead", "response_template":{}}}` and might return: `{"id": 1, "result": {"header": ["time", "duration", "start_velocity", "acceleration", "start_position", "direction"]}}` and might later produce asynchronous messages such as: `{"params": {"data": [[4.05, 1.0, 0.0, 0.0, [300.0, 0.0, 0.0], [0.0, 0.0, 0.0]], [5.054, 0.001, 0.0, 3000.0, [300.0, 0.0, 0.0], [-1.0, 0.0, 0.0]]]}}`
+En begäran kan se ut så här: `{"id": 123, "method": "motion_report/dump_trapq", "params": {"name": "toolhead", "response_template":{}}}` och kan returnera: `{"id": 1, "result": {"header": ["time", "duration", "start_velocity", "acceleration", "start_position", "direction"]}}`. Den kan senare generera asynkrona meddelanden som: `{"params": {"data": [[4.05, 1.0, 0.0, 0.0, [300.0, 0.0, 0.0], [0.0, 0.0, 0.0]], [5.054, 0.001, 0.0, 3000.0, [300.0, 0.0, 0.0], [-1.0, 0.0, 0.0]]]}}`
 
-The "header" field in the initial query response is used to describe the fields found in later "data" responses.
+Fältet "header" i svaret på den första frågan används för att beskriva fälten i senare "data"-svar.
 
 ### adxl345/dump_adxl345
 
-This endpoint is used to subscribe to ADXL345 accelerometer data. Obtaining these low-level motion updates may be useful for diagnostic and debugging purposes. Using this endpoint may increase Klipper's system load.
+Den här endpointen används för att prenumerera på accelerometerdata från ADXL345. Dessa rörelseuppdateringar på låg nivå kan vara användbara för diagnostik och felsökning. Användning av endpointen kan öka Klippers systembelastning.
 
-A request may look like: `{"id": 123, "method":"adxl345/dump_adxl345", "params": {"sensor": "adxl345", "response_template": {}}}` and might return: `{"id": 123,"result":{"header":["time","x_acceleration","y_acceleration", "z_acceleration"]}}` and might later produce asynchronous messages such as: `{"params":{"overflows":0,"data":[[3292.432935,-535.44309,-1529.8374,9561.4], [3292.433256,-382.45935,-1606.32927,9561.48375]]}}`
+En begäran kan se ut så här: `{"id": 123, "method":"adxl345/dump_adxl345", "params": {"sensor": "adxl345", "response_template": {}}}` och kan returnera: `{"id": 123,"result":{"header":["time","x_acceleration","y_acceleration", "z_acceleration"]}}`. Den kan senare generera asynkrona meddelanden som: `{"params":{"overflows":0,"data":[[3292.432935,-535.44309,-1529.8374,9561.4], [3292.433256,-382.45935,-1606.32927,9561.48375]]}}`
 
-The "header" field in the initial query response is used to describe the fields found in later "data" responses.
+Fältet "header" i svaret på den första frågan används för att beskriva fälten i senare "data"-svar.
 
 ### angle/dump_angle
 
-This endpoint is used to subscribe to [angle sensor data](Config_Reference.md#angle). Obtaining these low-level motion updates may be useful for diagnostic and debugging purposes. Using this endpoint may increase Klipper's system load.
+Den här endpointen används för att prenumerera på [vinkelgivardata](Config_Reference.md#angle). Dessa rörelseuppdateringar på låg nivå kan vara användbara för diagnostik och felsökning. Användning av endpointen kan öka Klippers systembelastning.
 
-A request may look like: `{"id": 123, "method":"angle/dump_angle", "params": {"sensor": "my_angle_sensor", "response_template": {}}}` and might return: `{"id": 123,"result":{"header":["time","angle"]}}` and might later produce asynchronous messages such as: `{"params":{"position_offset":3.151562,"errors":0, "data":[[1290.951905,-5063],[1290.952321,-5065]]}}`
+En begäran kan se ut så här: `{"id": 123, "method":"angle/dump_angle", "params": {"sensor": "my_angle_sensor", "response_template": {}}}` och kan returnera: `{"id": 123,"result":{"header":["time","angle"]}}`. Den kan senare generera asynkrona meddelanden som: `{"params":{"position_offset":3.151562,"errors":0, "data":[[1290.951905,-5063],[1290.952321,-5065]]}}`
 
-The "header" field in the initial query response is used to describe the fields found in later "data" responses.
+Fältet "header" i svaret på den första frågan används för att beskriva fälten i senare "data"-svar.
 
 ### load_cell/dump_force
 
-This endpoint is used to subscribe to force data produced by a load_cell. Using this endpoint may increase Klipper's system load.
+Den här endpointen används för att prenumerera på kraftdata som produceras av en lastcell. Användning av endpointen kan öka Klippers systembelastning.
 
-A request may look like: `{"id": 123, "method":"load_cell/dump_force", "params": {"sensor": "load_cell", "response_template": {}}}` and might return: `{"id": 123,"result":{"header":["time", "force (g)", "counts", "tare_counts"]}}` and might later produce asynchronous messages such as: `{"params":{"data":[[3292.432935, 40.65, 562534, -234467]]}}`
+En begäran kan se ut så här: `{"id": 123, "method":"load_cell/dump_force", "params": {"sensor": "load_cell", "response_template": {}}}` och kan returnera: `{"id": 123,"result":{"header":["time", "force (g)", "counts", "tare_counts"]}}`. Den kan senare generera asynkrona meddelanden som: `{"params":{"data":[[3292.432935, 40.65, 562534, -234467]]}}`
 
-The "header" field in the initial query response is used to describe the fields found in later "data" responses.
+Fältet "header" i svaret på den första frågan används för att beskriva fälten i senare "data"-svar.
 
 ### load_cell_probe/dump_taps
 
-This endpoint is used to subscribe to details of probing "tap" events. Using this endpoint may increase Klipper's system load.
+Den här endpointen används för att prenumerera på detaljer om avsökningshändelser av typen "tap". Användning av endpointen kan öka Klippers systembelastning.
 
-A request may look like: `{"id": 123, "method":"load_cell/dump_force", "params": {"sensor": "load_cell", "response_template": {}}}` and might return: `{"id": 123,"result":{"header":["probe_tap_event"]}}` and might later produce asynchronous messages such as:
+En begäran kan se ut så här: `{"id": 123, "method":"load_cell/dump_force", "params": {"sensor": "load_cell", "response_template": {}}}` och kan returnera: `{"id": 123,"result":{"header":["probe_tap_event"]}}`. Den kan senare generera asynkrona meddelanden som:
 
 ```
 {"params":{"tap":'{
@@ -203,41 +203,41 @@ A request may look like: `{"id": 123, "method":"load_cell/dump_force", "params":
 }}}
 ```
 
-This data can be used to render:
+Dessa data kan användas för att rita:
 
-* The time/force graph
+* Tids-/kraftdiagrammet
 
 ### pause_resume/cancel
 
-This endpoint is similar to running the "PRINT_CANCEL" G-Code command. For example: `{"id": 123, "method": "pause_resume/cancel"}`
+Den här endpointen liknar körning av G-kodkommandot "PRINT_CANCEL". Exempelvis: `{"id": 123, "method": "pause_resume/cancel"}`
 
-As with the "gcode/script" endpoint, this endpoint only completes after any pending G-Code commands complete.
+Precis som endpointen "gcode/script" slutförs den här endpointen först när alla väntande G-kodkommandon har slutförts.
 
 ### pause_resume/pause
 
-This endpoint is similar to running the "PAUSE" G-Code command. For example: `{"id": 123, "method": "pause_resume/pause"}`
+Den här endpointen liknar körning av G-kodkommandot "PAUSE". Exempelvis: `{"id": 123, "method": "pause_resume/pause"}`
 
-As with the "gcode/script" endpoint, this endpoint only completes after any pending G-Code commands complete.
+Precis som endpointen "gcode/script" slutförs den här endpointen först när alla väntande G-kodkommandon har slutförts.
 
 ### pause_resume/resume
 
-This endpoint is similar to running the "RESUME" G-Code command. For example: `{"id": 123, "method": "pause_resume/resume"}`
+Den här endpointen liknar körning av G-kodkommandot "RESUME". Exempelvis: `{"id": 123, "method": "pause_resume/resume"}`
 
-As with the "gcode/script" endpoint, this endpoint only completes after any pending G-Code commands complete.
+Precis som endpointen "gcode/script" slutförs den här endpointen först när alla väntande G-kodkommandon har slutförts.
 
 ### query_endstops/status
 
-This endpoint will query the active endpoints and return their status. For example: `{"id": 123, "method": "query_endstops/status"}` might return: `{"id": 123, "result": {"y": "open", "x": "open", "z": "TRIGGERED"}}`
+Den här endpointen frågar efter aktiva ändlägesendpoints och returnerar deras status. Exempelvis kan `{"id": 123, "method": "query_endstops/status"}` returnera: `{"id": 123, "result": {"y": "open", "x": "open", "z": "TRIGGERED"}}`
 
-As with the "gcode/script" endpoint, this endpoint only completes after any pending G-Code commands complete.
+Precis som endpointen "gcode/script" slutförs den här endpointen först när alla väntande G-kodkommandon har slutförts.
 
 ### bed_mesh/dump_mesh
 
-Dumps the configuration and state for the current mesh and all saved profiles.
+Dumpa konfigurationen och tillståndet för den aktuella nätmodellen och alla sparade profiler.
 
-For example: `{"id": 123, "method": "bed_mesh/dump_mesh"}`
+Exempelvis: `{"id": 123, "method": "bed_mesh/dump_mesh"}`
 
-might return:
+kan returnera:
 
 ```
 {
@@ -348,4 +348,4 @@ might return:
 }
 ```
 
-The `dump_mesh` endpoint takes one optional parameter, `mesh_args`. This parameter must be an object, where the keys and values are parameters available to [BED_MESH_CALIBRATE](#bed_mesh_calibrate). This will update the mesh configuration and probe points using the supplied parameters prior to returning the result. It is recommended to omit mesh parameters unless it is desired to visualize the probe points and/or travel path before performing `BED_MESH_CALIBRATE`.
+Endpointen `dump_mesh` tar en valfri parameter, `mesh_args`. Parametern måste vara ett objekt vars nycklar och värden är parametrar som är tillgängliga för [BED_MESH_CALIBRATE](#bed_mesh_calibrate). Detta uppdaterar nätmodellens konfiguration och avsökningspunkterna med de angivna parametrarna innan resultatet returneras. Nätmodellens parametrar bör utelämnas om du inte vill visualisera avsökningspunkterna och/eller förflyttningsvägen före `BED_MESH_CALIBRATE`.

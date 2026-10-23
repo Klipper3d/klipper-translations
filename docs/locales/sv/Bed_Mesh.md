@@ -1,14 +1,14 @@
-# Bed Mesh
+# Bäddnät
 
-The Bed Mesh module may be used to compensate for bed surface irregularities to achieve a better first layer across the entire bed. It should be noted that software based correction will not achieve perfect results, it can only approximate the shape of the bed. Bed Mesh also cannot compensate for mechanical and electrical issues. If an axis is skewed or a probe is not accurate then the bed_mesh module will not receive accurate results from the probing process.
+Modulen Bed Mesh kan användas för att kompensera för ojämnheter i bäddens yta och ge ett bättre första lager över hela bädden. Programvarubaserad korrigering ger inte perfekta resultat, utan kan bara approximera bäddens form. Bed Mesh kan inte heller kompensera för mekaniska eller elektriska fel. Om en axel är sned eller sonden är inexakt får modulen bed_mesh inte korrekta resultat från sonderingen.
 
-Prior to Mesh Calibration you will need to be sure that your Probe's Z-Offset is calibrated. If using an endstop for Z homing it will need to be calibrated as well. See [Probe Calibrate](Probe_Calibrate.md) and Z_ENDSTOP_CALIBRATE in [Manual Level](Manual_Level.md) for more information.
+Innan nätkalibrering måste sondens Z-förskjutning vara kalibrerad. Om ett ändläge används för Z-homing måste även det kalibreras. Mer information finns i [Sondkalibrering](Probe_Calibrate.md) och Z_ENDSTOP_CALIBRATE i [Manuell nivåjustering](Manual_Level.md).
 
-## Basic Configuration
+## Grundläggande konfiguration
 
-### Rectangular Beds
+### Rektangulära bäddar
 
-This example assumes a printer with a 250 mm x 220 mm rectangular bed and a probe with an x-offset of 24 mm and y-offset of 5 mm.
+Det här exemplet förutsätter en skrivare med en rektangulär bädd på 250 mm × 220 mm och en sond med X-förskjutningen 24 mm och Y-förskjutningen 5 mm.
 
 ```
 [bed_mesh]
@@ -19,19 +19,19 @@ mesh_max: 240, 198
 probe_count: 5, 3
 ```
 
-- `speed: 120` *Default Value: 50* The speed in which the tool moves between points.
-- `horizontal_move_z: 5` *Default Value: 5* The Z coordinate the probe rises to prior to traveling between points.
-- `mesh_min: 35, 6` *Required* The first probed coordinate, nearest to the origin. This coordinate is relative to the probe's location.
-- `mesh_max: 240, 198` *Required* The probed coordinate farthest from the origin. This is not necessarily the last point probed, as the probing process occurs in a zig-zag fashion. As with `mesh_min`, this coordinate is relative to the probe's location.
-- `probe_count: 5, 3` *Default Value: 3, 3* The number of points to probe on each axis, specified as X, Y integer values. In this example 5 points will be probed along the X axis, with 3 points along the Y axis, for a total of 15 probed points. Note that if you wanted a square grid, for example 3x3, this could be specified as a single integer value that is used for both axes, ie `probe_count: 3`. Note that a mesh requires a minimum probe_count of 3 along each axis.
+- `speed: 120` *Standardvärde: 50* Hastigheten som verktyget rör sig med mellan punkterna.
+- `horizontal_move_z: 5` *Standardvärde: 5* Z-koordinaten som sonden höjs till innan den förflyttas mellan punkter.
+- `mesh_min: 35, 6` *Krävs* Den första sonderade koordinaten, närmast origo. Koordinaten är relativ till sondens placering.
+- `mesh_max: 240, 198` *Krävs* Den sonderade koordinat som ligger längst från origo. Det behöver inte vara den sista punkt som sonderas, eftersom sonderingen sker sicksackvis. Precis som `mesh_min` är koordinaten relativ till sondens placering.
+- `probe_count: 5, 3` *Standardvärde: 3, 3* Antalet punkter som ska sonderas på varje axel, angivet som heltalsvärdena X, Y. I detta exempel sonderas 5 punkter längs X-axeln och 3 längs Y-axeln, totalt 15 punkter. Om ett kvadratiskt rutnät önskas, exempelvis 3x3, kan ett enda heltalsvärde som används för båda axlarna anges: `probe_count: 3`. Ett nät kräver minst probe_count 3 längs varje axel.
 
-The illustration below demonstrates how the `mesh_min`, `mesh_max`, and `probe_count` options are used to generate probe points. The arrows indicate the direction of the probing procedure, beginning at `mesh_min`. For reference, when the probe is at `mesh_min` the nozzle will be at (11, 1), and when the probe is at `mesh_max`, the nozzle will be at (206, 193).
+Illustrationen nedan visar hur alternativen `mesh_min`, `mesh_max` och `probe_count` används för att skapa sondpunkter. Pilarna visar sonderingens riktning, med början vid `mesh_min`. När sonden är vid `mesh_min` är munstycket vid (11, 1), och när sonden är vid `mesh_max` är munstycket vid (206, 193).
 
 ![bedmesh_rect_basic](img/bedmesh_rect_basic.svg)
 
-### Round beds
+### Runda bäddar
 
-This example assumes a printer equipped with a round bed radius of 100mm. We will use the same probe offsets as the rectangular example, 24 mm on X and 5 mm on Y.
+Det här exemplet förutsätter en skrivare med en rund bäddradie på 100 mm. Vi använder samma sondförskjutningar som i det rektangulära exemplet, 24 mm i X och 5 mm i Y.
 
 ```
 [bed_mesh]
@@ -42,21 +42,21 @@ mesh_origin: 0, 0
 round_probe_count: 5
 ```
 
-- `mesh_radius: 75` *Required* The radius of the probed mesh in mm, relative to the `mesh_origin`. Note that the probe's offsets limit the size of the mesh radius. In this example, a radius larger than 76 would move the tool beyond the range of the printer.
-- `mesh_origin: 0, 0` *Default Value: 0, 0* The center point of the mesh. This coordinate is relative to the probe's location. While the default is 0, 0, it may be useful to adjust the origin in an effort to probe a larger portion of the bed. See the illustration below.
-- `round_probe_count: 5` *Default Value: 5* This is an integer value that defines the maximum number of probed points along the X and Y axes. By "maximum", we mean the number of points probed along the mesh origin. This value must be an odd number, as it is required that the center of the mesh is probed.
+- `mesh_radius: 75` *Krävs* Radien i mm för det sonderade nätet, relativt `mesh_origin`. Observera att sondens förskjutningar begränsar nätets radie. I det här exemplet skulle en radie över 76 föra verktyget utanför skrivarens rörelseområde.
+- `mesh_origin: 0, 0` *Standardvärde: 0, 0* Nätets mittpunkt. Koordinaten är relativ till sondens placering. Även om standardvärdet är 0, 0 kan det vara användbart att justera origo för att sondera en större del av bädden. Se illustrationen nedan.
+- `round_probe_count: 5` *Standardvärde: 5* Ett heltalsvärde som anger högsta antalet sonderade punkter längs X- och Y-axlarna. Med "högsta" avses antalet punkter som sonderas längs nätets origo. Värdet måste vara udda eftersom nätets mittpunkt måste sonderas.
 
-The illustration below shows how the probed points are generated. As you can see, setting the `mesh_origin` to (-10, 0) allows us to specify a larger mesh radius of 85.
+Illustrationen nedan visar hur de sonderade punkterna genereras. Som synes kan vi med `mesh_origin` satt till (-10, 0) ange en större nätradie på 85.
 
 ![bedmesh_round_basic](img/bedmesh_round_basic.svg)
 
-## Advanced Configuration
+## Avancerad konfiguration
 
-Below the more advanced configuration options are explained in detail. Each example will build upon the basic rectangular bed configuration shown above. Each of the advanced options apply to round beds in the same manner.
+Nedan förklaras de mer avancerade konfigurationsalternativen i detalj. Varje exempel bygger på den grundläggande konfigurationen för rektangulär bädd ovan. De avancerade alternativen fungerar på samma sätt för runda bäddar.
 
-### Mesh Interpolation
+### Nätinterpolering
 
-While its possible to sample the probed matrix directly using simple bi-linear interpolation to determine the Z-Values between probed points, it is often useful to interpolate extra points using more advanced interpolation algorithms to increase mesh density. These algorithms add curvature to the mesh, attempting to simulate the material properties of the bed. Bed Mesh offers lagrange and bicubic interpolation to accomplish this.
+Det går att sampla den sonderade matrisen direkt med enkel bilinjär interpolation för att fastställa Z-värdena mellan de sonderade punkterna. Ofta är det dock användbart att interpolera ytterligare punkter med mer avancerade interpoleringsalgoritmer för att öka nätets täthet. Dessa algoritmer ger nätet krökning i ett försök att simulera bäddens materialegenskaper. Bed Mesh erbjuder Lagrange- och bikubisk interpolation.
 
 ```
 [bed_mesh]
@@ -70,17 +70,17 @@ algorithm: bicubic
 bicubic_tension: 0.2
 ```
 
-- `mesh_pps: 2, 3` *Default Value: 2, 2* The `mesh_pps` option is shorthand for Mesh Points Per Segment. This option specifies how many points to interpolate for each segment along the X and Y axes. Consider a 'segment' to be the space between each probed point. Like `probe_count`, `mesh_pps` is specified as an X, Y integer pair, and also may be specified a single integer that is applied to both axes. In this example there are 4 segments along the X axis and 2 segments along the Y axis. This evaluates to 8 interpolated points along X, 6 interpolated points along Y, which results in a 13x9 mesh. Note that if mesh_pps is set to 0 then mesh interpolation is disabled and the probed matrix will be sampled directly.
-- `algorithm: lagrange` *Default Value: lagrange* The algorithm used to interpolate the mesh. May be `lagrange` or `bicubic`. Lagrange interpolation is capped at 6 probed points as oscillation tends to occur with a larger number of samples. Bicubic interpolation requires a minimum of 4 probed points along each axis, if less than 4 points are specified then lagrange sampling is forced. If `mesh_pps` is set to 0 then this value is ignored as no mesh interpolation is done.
-- `bicubic_tension: 0.2` *Default Value: 0.2* If the `algorithm` option is set to bicubic it is possible to specify the tension value. The higher the tension the more slope is interpolated. Be careful when adjusting this, as higher values also create more overshoot, which will result in interpolated values higher or lower than your probed points.
+- `mesh_pps: 2, 3` *Standardvärde: 2, 2* Alternativet `mesh_pps` är en förkortning för Mesh Points Per Segment. Alternativet anger hur många punkter som ska interpoleras för varje segment längs X- och Y-axeln. Ett "segment" är avståndet mellan varje sonderad punkt. Precis som `probe_count` anges `mesh_pps` som ett heltalspar X, Y, men kan också anges som ett enda heltal som tillämpas på båda axlarna. I detta exempel finns 4 segment längs X-axeln och 2 längs Y-axeln. Det ger 8 interpolerade punkter längs X och 6 längs Y, vilket resulterar i ett nät på 13x9. Om mesh_pps sätts till 0 inaktiveras nätinterpolering och den sonderade matrisen samplas direkt.
+- `algorithm: lagrange` *Standardvärde: lagrange* Algoritmen som används för att interpolera nätet. Kan vara `lagrange` eller `bicubic`. Lagrangeinterpolering begränsas till 6 sonderade punkter eftersom fler provpunkter tenderar att ge svängningar. Bikubisk interpolering kräver minst 4 sonderade punkter längs varje axel. Om färre än 4 punkter anges tvingas lagrange-provtagning. Om `mesh_pps` sätts till 0 ignoreras värdet eftersom ingen nätinterpolering görs.
+- `bicubic_tension: 0.2` *Standardvärde: 0.2* Om alternativet `algorithm` är inställt på bicubic kan spänningsvärdet anges. Ju högre spänning, desto mer lutning interpoleras. Var försiktig vid justering eftersom högre värden också ger större översvängning, vilket kan ge interpolerade värden över eller under dina sonderade punkter.
 
-The illustration below shows how the options above are used to generate an interpolated mesh.
+Illustrationen nedan visar hur alternativen ovan används för att skapa ett interpolerat nät.
 
 ![bedmesh_interpolated](img/bedmesh_interpolated.svg)
 
-### Move Splitting
+### Uppdelning av rörelser
 
-Bed Mesh works by intercepting gcode move commands and applying a transform to their Z coordinate. Long moves must be split into smaller moves to correctly follow the shape of the bed. The options below control the splitting behavior.
+Bed Mesh fungerar genom att fånga upp G-kodens rörelsekommandon och tillämpa en transformering på deras Z-koordinat. Långa rörelser måste delas upp i mindre rörelser för att korrekt följa bäddens form. Alternativen nedan styr hur uppdelningen fungerar.
 
 ```
 [bed_mesh]
@@ -93,14 +93,14 @@ move_check_distance: 5
 split_delta_z: .025
 ```
 
-- `move_check_distance: 5` *Default Value: 5* The minimum distance to check for the desired change in Z before performing a split. In this example, a move longer than 5mm will be traversed by the algorithm. Each 5mm a mesh Z lookup will occur, comparing it with the Z value of the previous move. If the delta meets the threshold set by `split_delta_z`, the move will be split and traversal will continue. This process repeats until the end of the move is reached, where a final adjustment will be applied. Moves shorter than the `move_check_distance` have the correct Z adjustment applied directly to the move without traversal or splitting.
-- `split_delta_z: .025` *Default Value: .025* As mentioned above, this is the minimum deviation required to trigger a move split. In this example, any Z value with a deviation +/- .025mm will trigger a split.
+- `move_check_distance: 5` *Standardvärde: 5* Minsta avstånd som kontrolleras för önskad förändring i Z innan en rörelse delas upp. I det här exemplet behandlas rörelser längre än 5 mm av algoritmen. Var femte mm görs en uppslagning av nätets Z-värde och jämförs med Z-värdet för föregående rörelse. Om skillnaden når tröskeln som anges av `split_delta_z` delas rörelsen upp och behandlingen fortsätter. Processen upprepas till rörelsens slut, där en slutlig justering tillämpas. För rörelser kortare än `move_check_distance` tillämpas korrekt Z-justering direkt utan behandling eller uppdelning.
+- `split_delta_z: .025` *Standardvärde: .025* Som nämnts ovan är detta den minsta avvikelse som krävs för att dela upp en rörelse. I det här exemplet utlöser varje Z-värde med avvikelsen +/- .025 mm en uppdelning.
 
-Generally the default values for these options are sufficient, in fact the default value of 5mm for the `move_check_distance` may be overkill. However an advanced user may wish to experiment with these options in an effort to squeeze out the optimal first layer.
+I allmänhet räcker standardvärdena för dessa alternativ; standardvärdet 5 mm för `move_check_distance` kan till och med vara mer än nödvändigt. En avancerad användare kan dock vilja experimentera med alternativen för att uppnå ett optimalt första lager.
 
-### Mesh Fade
+### Utfasning av nät
 
-When "fade" is enabled Z adjustment is phased out over a distance defined by the configuration. This is accomplished by applying small adjustments to the layer height, either increasing or decreasing depending on the shape of the bed. When fade has completed, Z adjustment is no longer applied, allowing the top of the print to be flat rather than mirror the shape of the bed. Fade also may have some undesirable traits, if you fade too quickly it can result in visible artifacts on the print. Also, if your bed is significantly warped, fade can shrink or stretch the Z height of the print. As such, fade is disabled by default.
+När "fade" är aktiverat fasas Z-justeringen ut över ett avstånd som anges i konfigurationen. Det görs genom små ändringar av lagerhöjden, som ökas eller minskas beroende på bäddens form. När utfasningen är klar tillämpas inte längre Z-justering, så att utskriftens ovansida blir plan i stället för att följa bäddens form. Utfasning kan också ha oönskade effekter: om den sker för snabbt kan synliga artefakter uppstå på utskriften. Om bädden är kraftigt skev kan utfasningen dessutom krympa eller sträcka utskriftens Z-höjd. Den är därför avstängd som standard.
 
 ```
 [bed_mesh]
@@ -114,13 +114,13 @@ fade_end: 10
 fade_target: 0
 ```
 
-- `fade_start: 1` *Default Value: 1* The Z height in which to start phasing out adjustment. It is a good idea to get a few layers down before starting the fade process.
-- `fade_end: 10` *Default Value: 0* The Z height in which fade should complete. If this value is lower than `fade_start` then fade is disabled. This value may be adjusted depending on how warped the print surface is. A significantly warped surface should fade out over a longer distance. A near flat surface may be able to reduce this value to phase out more quickly. 10mm is a sane value to begin with if using the default value of 1 for `fade_start`.
-- `fade_target: 0` *Default Value: The average Z value of the mesh* The `fade_target` can be thought of as an additional Z offset applied to the entire bed after fade completes. Generally speaking we would like this value to be 0, however there are circumstances where it should not be. For example, lets assume your homing position on the bed is an outlier, its .2 mm lower than the average probed height of the bed. If the `fade_target` is 0, fade will shrink the print by an average of .2 mm across the bed. By setting the `fade_target` to .2, the homed area will expand by .2 mm, however, the rest of the bed will be accurately sized. Generally its a good idea to leave `fade_target` out of the configuration so the average height of the mesh is used, however it may be desirable to manually adjust the fade target if one wants to print on a specific portion of the bed.
+- `fade_start: 1` *Standardvärde: 1* Z-höjden där utfasning av justeringen ska börja. Det är klokt att skriva ut några lager innan utfasningen startar.
+- `fade_end: 10` *Standardvärde: 0* Z-höjden där utfasningen ska vara klar. Om värdet är lägre än `fade_start` inaktiveras utfasningen. Värdet kan justeras beroende på hur skev utskriftsytan är. En kraftigt skev yta bör fasas ut över en längre sträcka, medan en nästan plan yta kan använda ett lägre värde för snabbare utfasning. 10 mm är ett rimligt startvärde när standardvärdet 1 används för `fade_start`.
+- `fade_target: 0` *Standardvärde: nätets genomsnittliga Z-värde* `fade_target` kan ses som en ytterligare Z-förskjutning som tillämpas på hela bädden när utfasningen är klar. Vanligtvis bör värdet vara 0, men ibland bör det inte vara det. Anta till exempel att homing-positionen på bädden avviker och ligger 0,2 mm lägre än bäddens genomsnittligt sonderade höjd. Om `fade_target` är 0 krymper utfasningen utskriften med i genomsnitt 0,2 mm över bädden. Om `fade_target` sätts till 0,2 expanderar det hemkörda området med 0,2 mm, medan resten av bädden får rätt mått. Det är vanligen bäst att utelämna `fade_target` ur konfigurationen så att nätets genomsnittliga höjd används, men utfasningsmålet kan justeras manuellt om utskrift ska ske på en viss del av bädden.
 
-### Configuring the zero reference position
+### Konfigurera nollreferenspositionen
 
-Many probes are susceptible to "drift", ie: inaccuracies in probing introduced by heat or interference. This can make calculating the probe's z-offset challenging, particularly at different bed temperatures. As such, some printers use an endstop for homing the Z axis and a probe for calibrating the mesh. In this configuration it is possible offset the mesh so that the (X, Y) `reference position` applies zero adjustment. The `reference position` should be the location on the bed where a [Z_ENDSTOP_CALIBRATE](./Manual_Level.md#calibrating-a-z-endstop) paper test is performed. The bed_mesh module provides the `zero_reference_position` option for specifying this coordinate:
+Många sonder är känsliga för "drift", det vill säga felaktigheter vid sondering som orsakas av värme eller störningar. Det kan göra det svårt att beräkna sondens Z-förskjutning, särskilt vid olika bäddtemperaturer. Därför använder vissa skrivare ett ändläge för homing av Z-axeln och en sond för att kalibrera nätet. I denna konfiguration kan nätet förskjutas så att `referenspositionen` (X, Y) inte justeras. `Referenspositionen` ska vara den plats på bädden där ett papperstest med [Z_ENDSTOP_CALIBRATE](./Manual_Level.md#calibrating-a-z-endstop) utförs. Modulen bed_mesh tillhandahåller alternativet `zero_reference_position` för att ange denna koordinat:
 
 ```
 [bed_mesh]
@@ -132,13 +132,13 @@ zero_reference_position: 125, 110
 probe_count: 5, 3
 ```
 
-- `zero_reference_position: ` *Default Value: None (disabled)* The `zero_reference_position` expects an (X, Y) coordinate matching that of the `reference position` described above. If the coordinate lies within the mesh then the mesh will be offset so the reference position applies zero adjustment. If the coordinate lies outside of the mesh then the coordinate will be probed after calibration, with the resulting z-value used as the z-offset. Note that this coordinate must NOT be in a location specified as a `faulty_region` if a probe is necessary.
+- `zero_reference_position: ` *Standardvärde: None (inaktiverad)* `zero_reference_position` förväntar sig en koordinat (X, Y) som motsvarar den `referensposition` som beskrivs ovan. Om koordinaten ligger inom nätet förskjuts nätet så att referenspositionen inte justeras. Om koordinaten ligger utanför nätet sonderas den efter kalibreringen och det resulterande Z-värdet används som Z-förskjutning. Koordinaten får inte ligga på en plats som angetts som `faulty_region` om en sond behövs.
 
-### Faulty Regions
+### Felaktiga områden
 
-It is possible for some areas of a bed to report inaccurate results when probing due to a "fault" at specific locations. The best example of this are beds with series of integrated magnets used to retain removable steel sheets. The magnetic field at and around these magnets may cause an inductive probe to trigger at a distance higher or lower than it would otherwise, resulting in a mesh that does not accurately represent the surface at these locations. **Note: This should not be confused with probe location bias, which produces inaccurate results across the entire bed.**
+Vissa områden på en bädd kan ge felaktiga resultat vid sondering på grund av ett "fel" på specifika platser. Ett vanligt exempel är bäddar med serier av inbyggda magneter som håller löstagbara stålplåtar på plats. Magnetfältet vid och omkring magneterna kan göra att en induktiv sond löser ut på ett högre eller lägre avstånd än annars, vilket ger ett nät som inte korrekt återger ytan på dessa platser. **Observera: detta får inte förväxlas med positionsbias för sonden, som ger felaktiga resultat över hela bädden.**
 
-The `faulty_region` options may be configured to compensate for this affect. If a generated point lies within a faulty region bed mesh will attempt to probe up to 4 points at the boundaries of this region. These probed values will be averaged and inserted in the mesh as the Z value at the generated (X, Y) coordinate.
+Alternativen `faulty_region` kan konfigureras för att kompensera för denna effekt. Om en skapad punkt ligger i ett felaktigt område försöker Bed Mesh sondera upp till fyra punkter vid områdets gränser. De sonderade värdena beräknas som medelvärde och läggs in i nätet som Z-värde vid den skapade (X, Y)-koordinaten.
 
 ```
 [bed_mesh]
@@ -157,23 +157,23 @@ faulty_region_4_min: 30.0, 170.0
 faulty_region_4_max: 45.0, 210.0
 ```
 
-- `faulty_region_{1...99}_min` `faulty_region_{1..99}_max` *Default Value: None (disabled)* Faulty Regions are defined in a way similar to that of mesh itself, where minimum and maximum (X, Y) coordinates must be specified for each region. A faulty region may extend outside of a mesh, however the alternate points generated will always be within the mesh boundary. No two regions may overlap.
+- `faulty_region_{1...99}_min` `faulty_region_{1..99}_max` *Standardvärde: None (inaktiverat)* Felaktiga områden definieras på samma sätt som nätet: minsta och största (X, Y)-koordinat ska anges för varje område. Ett felaktigt område kan sträcka sig utanför ett nät, men de alternativa punkter som skapas ligger alltid inom nätets gräns. Två områden får inte överlappa varandra.
 
-The image below illustrates how replacement points are generated when a generated point lies within a faulty region. The regions shown match those in the sample config above. The replacement points and their coordinates are identified in green.
+Bilden nedan visar hur ersättningspunkter skapas när en skapad punkt ligger inom ett felaktigt område. De visade områdena motsvarar dem i exempelkonfigurationen ovan. Ersättningspunkterna och deras koordinater är markerade med grönt.
 
 ![bedmesh_interpolated](img/bedmesh_faulty_regions.svg)
 
-### Adaptive Meshes
+### Adaptiva nät
 
-Adaptive bed meshing is a way to speed up the bed mesh generation by only probing the area of the bed used by the objects being printed. When used, the method will automatically adjust the mesh parameters based on the area occupied by the defined print objects.
+Adaptiv bäddnätsmätning snabbar upp skapandet av bäddnät genom att endast sondera det bäddområde som används av de objekt som skrivs ut. Metoden justerar automatiskt nätparametrarna utifrån det område som de definierade utskriftsobjekten upptar.
 
-The adapted mesh area will be computed from the area defined by the boundaries of all the defined print objects so it covers every object, including any margins defined in the configuration. After the area is computed, the number of probe points will be scaled down based on the ratio of the default mesh area and the adapted mesh area. To illustrate this consider the following example:
+Det anpassade nätområdet beräknas utifrån området som avgränsas av alla definierade utskriftsobjekt, så att det täcker varje objekt och eventuella marginaler i konfigurationen. När området beräknats skalas antalet sondpunkter ned enligt förhållandet mellan standardnätets område och det anpassade nätområdet. Följande exempel illustrerar detta:
 
-For a 150mmx150mm bed with `mesh_min` set to `25,25` and `mesh_max` set to `125,125`, the default mesh area is a 100mmx100mm square. An adapted mesh area of `50,50` means a ratio of `0.5x0.5` between the adapted area and default mesh area.
+För en bädd på 150 mm × 150 mm med `mesh_min` satt till `25,25` och `mesh_max` satt till `125,125` är standardnätets område en kvadrat på 100 mm × 100 mm. Ett anpassat nätområde på `50,50` innebär förhållandet `0,5 × 0,5` mellan det anpassade området och standardnätets område.
 
-If the `bed_mesh` configuration specified `probe_count` as `7x7`, the adapted bed mesh will use 4x4 probe points (7 * 0.5 rounded up).
+Om konfigurationen `bed_mesh` anger `probe_count` som `7x7`, använder det anpassade bäddnätet 4x4 sonderingspunkter (7 × 0,5 avrundat uppåt).
 
-![adaptive_bedmesh](img/adaptive_bed_mesh.svg)
+![adaptivt_baddnat](img/adaptive_bed_mesh.svg)
 
 ```
 [bed_mesh]
@@ -185,33 +185,33 @@ probe_count: 5, 3
 adaptive_margin: 5
 ```
 
-- `adaptive_margin`  *Default Value: 0*  Margin (in mm) to add around the area of the bed used by the defined objects. The diagram below shows the adapted bed mesh area with an `adaptive_margin` of 5mm. The adapted mesh area (area in green) is computed as the used bed area (area in blue) plus the defined margin.
+- `adaptive_margin` *Standardvärde: 0* Marginalen (i mm) som läggs till runt det bäddområde som används av de definierade objekten. Diagrammet nedan visar det anpassade bäddnätområdet med `adaptive_margin` på 5 mm. Det anpassade nätområdet (grönt) beräknas som det använda bäddområdet (blått) plus den angivna marginalen.
 
-   ![adaptive_bedmesh_margin](img/adaptive_bed_mesh_margin.svg)
+   ![marginal_for_adaptivt_baddnat](img/adaptive_bed_mesh_margin.svg)
 
-By nature, adaptive bed meshes use the objects defined by the Gcode file being printed. Therefore, it is expected that each Gcode file will generate a mesh that probes a different area of the print bed. Therefore, adapted bed meshes should not be re-used. The expectation is that a new mesh will be generated for each print if adaptive meshing is used.
+Adaptiva bäddnät använder av naturen objekten som definieras av den G-kodfil som skrivs ut. Därför förväntas varje G-kodfil skapa ett nät som sonderar ett annat område av skrivarbädden. Adaptiva bäddnät bör därför inte återanvändas. Ett nytt nät ska genereras för varje utskrift när adaptiv mätning används.
 
-It is also important to consider that adaptive bed meshing is best used on machines that can normally probe the entire bed and achieve a maximum variance less than or equal to 1 layer height. Machines with mechanical issues that a full bed mesh normally compensates for may have undesirable results when attempting print moves **outside** of the probed area. If a full bed mesh has a variance greater than 1 layer height, caution must be taken when using adaptive bed meshes and attempting print moves outside of the meshed area.
+Det är också viktigt att tänka på att adaptiv bäddnätsmätning fungerar bäst på maskiner som normalt kan sondera hela bädden och uppnå en maximal avvikelse som är högst en lagerhöjd. Maskiner med mekaniska problem som ett helt bäddnät normalt kompenserar för kan ge oönskade resultat när utskriftsrörelser utförs **utanför** det sonderade området. Om ett helt bäddnät har en avvikelse som är större än en lagerhöjd måste adaptiva bäddnät användas försiktigt när utskriften rör sig utanför nätområdet.
 
-## Surface Scans
+## Ytskanningar
 
-Some probes, such as the [Eddy Current Probe](./Eddy_Probe.md), are capable of "scanning" the surface of the bed. That is, these probes can sample a mesh without lifting the tool between samples. To activate scanning mode, the `METHOD=scan` or `METHOD=rapid_scan` probe parameter should be passed in the `BED_MESH_CALIBRATE` gcode command.
+Vissa sonder, exempelvis [virvelströmssonden](./Eddy_Probe.md), kan "skanna" bäddens yta. Det vill säga, sonderna kan sampla ett nät utan att verktyget lyfts mellan provtagningarna. För att aktivera skanningsläge ska sondparametern `METHOD=scan` eller `METHOD=rapid_scan` skickas i G-kodkommandot `BED_MESH_CALIBRATE`.
 
-### Scan Height
+### Skanningshöjd
 
-The scan height is set by the `horizontal_move_z` option in `[bed_mesh]`. In addition it can be supplied with the `BED_MESH_CALIBRATE` gcode command via the `HORIZONTAL_MOVE_Z` parameter.
+Skanningshöjden anges med alternativet `horizontal_move_z` i `[bed_mesh]`. Den kan också anges i G-kodkommandot `BED_MESH_CALIBRATE` med parametern `HORIZONTAL_MOVE_Z`.
 
-The scan height must be sufficiently low to avoid scanning errors. Typically a height of 2mm (ie: `HORIZONTAL_MOVE_Z=2`) should work well, presuming that the probe is mounted correctly.
+Skanningshöjden måste vara tillräckligt låg för att undvika skanningsfel. Vanligtvis fungerar en höjd på 2 mm (det vill säga `HORIZONTAL_MOVE_Z=2`) bra, förutsatt att sonden är korrekt monterad.
 
-It should be noted that if the probe is more than 4mm above the surface then the results will be invalid. Thus, scanning is not possible on beds with severe surface deviation or beds with extreme tilt that hasn't been corrected.
+Observera att resultaten blir ogiltiga om sonden befinner sig mer än 4 mm över ytan. Skanning är alltså inte möjlig på bäddar med stora ytavvikelser eller med extrem lutning som inte har korrigerats.
 
-### Rapid (Continuous) Scanning
+### Snabb skanning (kontinuerlig)
 
-When performing a `rapid_scan` one should keep in mind that the results will have some amount of error. This error should be low enough to be useful on large print areas with reasonably thick layer heights. Some probes may be more prone to error than others.
+Vid `rapid_scan` bör man tänka på att resultaten innehåller en viss mängd fel. Felet bör vara tillräckligt litet för att vara användbart på stora utskriftsområden med rimligt tjocka lagerhöjder. Vissa sonder kan vara mer felbenägna än andra.
 
-It is not recommended that rapid mode be used to scan a "dense" mesh. Some of the error introduced during a rapid scan may be gaussian noise from the sensor, and a dense mesh will reflect this noise (ie: there will be peaks and valleys).
+Snabbläge rekommenderas inte för att skanna ett "tätt" nät. En del av de fel som uppstår vid en snabbsökning kan vara gaussiskt brus från sensorn, och ett tätt nät återger detta brus (det vill säga toppar och dalar).
 
-Bed Mesh will attempt to optimize the travel path to provide the best possible result based on the configuration. This includes avoiding faulty regions when collecting samples and "overshooting" the mesh when changing direction. This overshoot improves sampling at the edges of a mesh, however it requires that the mesh be configured in a way that allows the tool to travel outside of the mesh.
+Bed Mesh försöker optimera förflyttningsvägen för bästa möjliga resultat utifrån konfigurationen. Det omfattar att undvika felaktiga områden vid provtagning och att "köra förbi" nätet vid riktningsändringar. Denna överkörning förbättrar provtagningen vid nätets kanter, men kräver att nätet är konfigurerat så att verktyget kan röra sig utanför nätet.
 
 ```
 [bed_mesh]
@@ -223,66 +223,66 @@ probe_count: 5
 scan_overshoot: 8
 ```
 
-- `scan_overshoot` *Default Value: 0 (disabled)* The maximum amount of travel (in mm) available outside of the mesh. For rectangular beds this applies to travel on the X axis, and for round beds it applies to the entire radius. The tool must be able to travel the amount specified outside of the mesh. This value is used to optimize the travel path when performing a "rapid scan". The minimum value that may be specified is 1. The default is no overshoot.
+- `scan_overshoot` *Standardvärde: 0 (inaktiverat)* Den maximala rörelsen (i mm) som är tillgänglig utanför nätet. För rektangulära bäddar gäller detta rörelse längs X-axeln och för runda bäddar gäller det hela radien. Verktyget måste kunna röra sig den angivna sträckan utanför nätet. Värdet används för att optimera förflyttningsvägen vid en "rapid scan". Det minsta tillåtna värdet är 1. Standardvärdet är ingen överkörning.
 
-If no scan overshoot is configured then travel path optimization will not be applied to changes in direction.
+Om ingen överkörning för skanning har konfigurerats tillämpas inte optimering av förflyttningsvägen vid riktningsändringar.
 
-## Bed Mesh Gcodes
+## Bed Mesh-G-koder
 
-### Calibration
+### Kalibrering
 
-`BED_MESH_CALIBRATE PROFILE=<name> METHOD=[manual | automatic | scan | rapid_scan] \ [<probe_parameter>=<value>] [<mesh_parameter>=<value>] [ADAPTIVE=[0|1] \ [ADAPTIVE_MARGIN=<value>]` *Default Profile: default* *Default Method: automatic if a probe is detected, otherwise manual*  *Default Adaptive: 0*  *Default Adaptive Margin: 0*
+`BED_MESH_CALIBRATE PROFILE=<name> METHOD=[manual | automatic | scan | rapid_scan] \ [<probe_parameter>=<value>] [<mesh_parameter>=<value>] [ADAPTIVE=[0|1] \ [ADAPTIVE_MARGIN=<value>]` *Standardprofil: default* *Standardmetod: automatic om en sond upptäcks, annars manual* *Adaptiv standardinställning: 0* *Standardmarginal för adaptiv mätning: 0*
 
-Initiates the probing procedure for Bed Mesh Calibration.
+Startar sonderingsproceduren för Bed Mesh-kalibrering.
 
-The mesh will be immediately ready to use when the command completes and saved into a profile specified by the `PROFILE` parameter, or `default` if unspecified. The `METHOD` parameter takes one of the following values:
+Nätet är genast klart att använda när kommandot slutförs och sparas i den profil som anges med parametern `PROFILE`, eller i `default` om ingen anges. Parametern `METHOD` kan ha ett av följande värden:
 
-- `METHOD=manual`: enables manual probing using the nozzle and the paper test
-- `METHOD=automatic`: Automatic (standard) probing. This is the default.
-- `METHOD=scan`: Enables surface scanning. The tool will pause over each position to collect a sample.
-- `METHOD=rapid_scan`: Enables continuous surface scanning.
+- `METHOD=manual`: aktiverar manuell sondering med munstycket och papperstestet
+- `METHOD=automatic`: Automatisk (standard) sondering. Detta är standard.
+- `METHOD=scan`: Aktiverar ytskanning. Verktyget pausar över varje position för att samla in ett prov.
+- `METHOD=rapid_scan`: Aktiverar kontinuerlig ytskanning.
 
-XY positions are automatically adjusted to include the X and/or Y offsets when a probing method other than `manual` is selected.
+XY-positioner justeras automatiskt för att inkludera X- och/eller Y-förskjutningarna när en annan sonderingsmetod än `manual` väljs.
 
-It is possible to specify mesh parameters to modify the probed area. The following parameters are available:
+Nätparametrar kan anges för att ändra det sonderade området. Följande parametrar är tillgängliga:
 
-- Rectangular beds (cartesian):
+- Rektangulära bäddar (kartesiska):
    - `MESH_MIN`
    - `MESH_MAX`
    - `PROBE_COUNT`
-- Round beds (delta):
+- Runda bäddar (delta):
    - `MESH_RADIUS`
    - `MESH_ORIGIN`
    - `ROUND_PROBE_COUNT`
-- All beds:
+- Alla bäddar:
    - `MESH_PPS`
    - `ALGORITHM`
    - `ADAPTIVE`
    - `ADAPTIVE_MARGIN`
 
-See the configuration documentation above for details on how each parameter applies to the mesh.
+Se konfigurationsdokumentationen ovan för information om hur varje parameter tillämpas på nätet.
 
-### Profiles
+### Profiler
 
 `BED_MESH_PROFILE SAVE=<name> LOAD=<name> REMOVE=<name>`
 
-After a BED_MESH_CALIBRATE has been performed, it is possible to save the current mesh state into a named profile. This makes it possible to load a mesh without re-probing the bed. After a profile has been saved using `BED_MESH_PROFILE SAVE=<name>` the `SAVE_CONFIG` gcode may be executed to write the profile to printer.cfg.
+När BED_MESH_CALIBRATE har körts kan nätets aktuella tillstånd sparas i en namngiven profil. Då kan nätet läsas in utan att bädden sonderas igen. Efter att en profil sparats med `BED_MESH_PROFILE SAVE=<name>` kan G-koden `SAVE_CONFIG` köras för att skriva profilen till printer.cfg.
 
-Profiles can be loaded by executing `BED_MESH_PROFILE LOAD=<name>`.
+Profiler kan läsas in genom att köra `BED_MESH_PROFILE LOAD=<name>`.
 
-It should be noted that each time a BED_MESH_CALIBRATE occurs, the current state is automatically saved to the *default* profile. The *default* profile can be removed as follows:
+Observera att det aktuella tillståndet automatiskt sparas i profilen *default* varje gång BED_MESH_CALIBRATE körs. Profilen *default* kan tas bort så här:
 
 `BED_MESH_PROFILE REMOVE=default`
 
-Any other saved profile can be removed in the same fashion, replacing *default* with the named profile you wish to remove.
+Alla andra sparade profiler kan tas bort på samma sätt genom att ersätta *default* med namnet på profilen som ska tas bort.
 
-#### Loading the default profile
+#### Läser in standardprofilen
 
-Previous versions of `bed_mesh` always loaded the profile named *default* on startup if it was present. This behavior has been removed in favor of allowing the user to determine when a profile is loaded. If a user wishes to load the `default` profile it is recommended to add `BED_MESH_PROFILE LOAD=default` to either their `START_PRINT` macro or their slicer's "Start G-Code" configuration, whichever is applicable.
+Tidigare versioner av `bed_mesh` läste alltid in profilen *default* vid start, om den fanns. Detta beteende har tagits bort så att användaren kan avgöra när en profil läses in. Om profilen `default` ska läsas in, rekommenderas att lägga till `BED_MESH_PROFILE LOAD=default` i antingen makrot `START_PRINT` eller skivningsprogrammets konfiguration för "Start G-Code", beroende på vad som är tillämpligt.
 
-Note that this is not required if a new mesh is generated with `BED_MESH_CALIBRATE` in the `START_PRINT` macro or the slicer's "Start G-Code" and may produce unexpected results, especially with adaptive meshing.
+Observera att detta inte krävs om ett nytt nät genereras med `BED_MESH_CALIBRATE` i makrot `START_PRINT` eller skivningsprogrammets "Start G-Code", och det kan ge oväntade resultat, särskilt vid adaptiv nätmätning.
 
-Alternatively the old behavior of loading a profile at startup can be restored with a `[delayed_gcode]`:
+Alternativt kan det gamla beteendet, att läsa in en profil vid start, återställas med en `[delayed_gcode]`:
 
 ```ini
 [delayed_gcode bed_mesh_init]
@@ -291,13 +291,13 @@ gcode:
   BED_MESH_PROFILE LOAD=default
 ```
 
-### Output
+### Utdata
 
 `BED_MESH_OUTPUT PGP=[0 | 1]`
 
-Outputs the current mesh state to the terminal. Note that the mesh itself is output
+Skriver ut nätets aktuella tillstånd i terminalen. Observera att själva nätet skrivs ut
 
-The PGP parameter is shorthand for "Print Generated Points". If `PGP=1` is set, the generated probed points will be output to the terminal:
+Parametern PGP är en förkortning av "Print Generated Points". Om `PGP=1` anges skrivs de skapade sonderingspunkterna ut i terminalen:
 
 ```
 // bed_mesh: generated points
@@ -319,35 +319,35 @@ The PGP parameter is shorthand for "Print Generated Points". If `PGP=1` is set, 
 // 14 | (216.0, 193.0) | (240.0, 198.0)
 ```
 
-The "Tool Adjusted" points refer to the nozzle location for each point, and the "Probe" points refer to the probe location. Note that when manually probing the "Probe" points will refer to both the tool and nozzle locations.
+Punkterna "Tool Adjusted" avser munstyckets position för varje punkt och punkterna "Probe" avser sondens position. Observera att vid manuell sondering avser "Probe" både verktygets och munstyckets position.
 
-### Clear Mesh State
+### Rensa nätets tillstånd
 
 `BED_MESH_CLEAR`
 
-This gcode may be used to clear the internal mesh state.
+Den här G-koden kan användas för att rensa nätets interna tillstånd.
 
-### Apply X/Y offsets
+### Tillämpa X/Y-förskjutningar
 
 `BED_MESH_OFFSET [X=<value>] [Y=<value>] [ZFADE=<value>]`
 
-This is useful for printers with multiple independent extruders, as an offset is necessary to produce correct Z adjustment after a tool change. Offsets should be specified relative to the primary extruder. That is, a positive X offset should be specified if the secondary extruder is mounted to the right of the primary extruder, a positive Y offset should be specified if the secondary extruder is mounted "behind" the primary extruder, and a positive ZFADE offset should be specified if the secondary extruder's nozzle is above the primary extruder's.
+Detta är användbart för skrivare med flera oberoende extrudrar, eftersom en förskjutning behövs för korrekt Z-justering efter ett verktygsbyte. Förskjutningar ska anges i förhållande till den primära extrudern. En positiv X-förskjutning ska alltså anges om den sekundära extrudern är monterad till höger om den primära, en positiv Y-förskjutning om den sekundära extrudern är monterad "bakom" den primära och en positiv ZFADE-förskjutning om den sekundära extruderns munstycke ligger över den primära extruderns.
 
-Note that a ZFADE offset does *NOT* directly apply additional adjustment. It is intended to compensate for a `gcode offset` when [mesh fade](#mesh-fade) is enabled. For example, if a secondary extruder is higher than the primary and needs a negative gcode offset, ie: `SET_GCODE_OFFSET Z=-.2`, it can be accounted for in `bed_mesh` with `BED_MESH_OFFSET ZFADE=.2`.
+Observera att en ZFADE-förskjutning *INTE* tillämpar ytterligare justering direkt. Den är avsedd att kompensera för en `gcode offset` när [nätutfasning](#mesh-fade) är aktiverad. Om en sekundär extruder till exempel är högre än den primära och behöver en negativ G-kodförskjutning, exempelvis `SET_GCODE_OFFSET Z=-.2`, kan detta tas med i `bed_mesh` med `BED_MESH_OFFSET ZFADE=.2`.
 
-## Bed Mesh Webhooks APIs
+## Webhook-API:er för Bed Mesh
 
-### Dumping mesh data
+### Dumpar nätdata
 
 `{"id": 123, "method": "bed_mesh/dump_mesh"}`
 
-Dumps the configuration and state for the current mesh and all saved profiles.
+Dumpa konfigurationen och tillståndet för den aktuella nätmodellen och alla sparade profiler.
 
-The `dump_mesh` endpoint takes one optional parameter, `mesh_args`. This parameter must be an object, where the keys and values are parameters available to [BED_MESH_CALIBRATE](#bed_mesh_calibrate). This will update the mesh configuration and probe points using the supplied parameters prior to returning the result. It is recommended to omit mesh parameters unless it is desired to visualize the probe points and/or travel path before performing `BED_MESH_CALIBRATE`.
+Endpointen `dump_mesh` tar en valfri parameter, `mesh_args`. Parametern måste vara ett objekt vars nycklar och värden är parametrar som är tillgängliga för [BED_MESH_CALIBRATE](#bed_mesh_calibrate). Detta uppdaterar nätmodellens konfiguration och avsökningspunkterna med de angivna parametrarna innan resultatet returneras. Nätmodellens parametrar bör utelämnas om du inte vill visualisera avsökningspunkterna och/eller förflyttningsvägen före `BED_MESH_CALIBRATE`.
 
-## Visualization and analysis
+## Visualisering och analys
 
-Most users will likely find that the visualizers included with applications such as Mainsail, Fluidd, and Octoprint are sufficient for basic analysis. However, Klipper's `scripts` folder contains the `graph_mesh.py` script that may be used to perform additional visualizations and more detailed analysis, particularly useful for debugging hardware or the results produced by `bed_mesh`:
+De flesta användare finner sannolikt att visualiseringarna i program som Mainsail, Fluidd och Octoprint räcker för grundläggande analys. Klippers mapp `scripts` innehåller dock skriptet `graph_mesh.py`, som kan användas för ytterligare visualiseringar och mer detaljerad analys. Det är särskilt användbart för felsökning av maskinvara eller resultat från `bed_mesh`:
 
 ```
 usage: graph_mesh.py [-h] {list,plot,analyze,dump} ...
@@ -365,13 +365,13 @@ options:
   -h, --help            show this help message and exit
 ```
 
-### Pre-requisites
+### Förutsättningar
 
-Like most graphing tools provided by Klipper, `graph_mesh.py` requires the `matplotlib` and `numpy` python dependencies. In addition, connecting to Klipper via Moonraker's websocket requires the `websockets` python dependency. While all visualizations can be output to an `svg` file, most of the visualizations offered by `graph_mesh.py` are better viewed in live preview mode on a desktop class PC. For example, the 3D visualizations may be rotated and zoomed in preview mode, and the path visualizations can optionally be animated in preview mode.
+Precis som de flesta diagramverktyg som Klipper tillhandahåller kräver `graph_mesh.py` Python-beroendena `matplotlib` och `numpy`. Anslutning till Klipper via Moonrakers WebSocket kräver dessutom Python-beroendet `websockets`. Alla visualiseringar kan skrivas till en `svg`-fil, men de flesta visualiseringar som `graph_mesh.py` erbjuder visas bäst i läget för direkt förhandsvisning på en stationär dator. Exempelvis kan 3D-visualiseringarna roteras och zoomas i förhandsvisningsläget, och vägvisualiseringarna kan valfritt animeras där.
 
-### Plotting Mesh data
+### Ritar nätdata
 
-The `graph_mesh.py` tool can plot several types of visualizations. Available types can be shown by running `graph_mesh.py list`:
+Verktyget `graph_mesh.py` kan rita flera typer av visualiseringar. Tillgängliga typer visas med `graph_mesh.py list`:
 
 ```
 graph_mesh.py list
@@ -384,7 +384,7 @@ overlay   Plots the current probed mesh overlaid with a profile
 delta     Plots the delta between current probed mesh and a profile
 ```
 
-Several options are available when plotting visualizations:
+Flera alternativ är tillgängliga när visualiseringar ritas:
 
 ```
 usage: graph_mesh.py plot [-h] [-a] [-s] [-p PROFILE_NAME] [-o OUTPUT] <plot type> <input>
@@ -403,72 +403,72 @@ options:
                         Output file path
 ```
 
-Below is a description of each argument:
+Nedan följer en beskrivning av varje argument:
 
-- `plot type`: A required positional argument designating the type of visualization to generate. Must be one of the types output by the `graph_mesh.py list` command.
-- `input`: A required positional argument containing a path or url to the input source. This must be one of the following:
-   - A path to Klipper's Unix Domain Socket
-   - A url to an instance of Moonraker
-   - A path to a json file produced by `graph_mesh.py dump <input>`
-- `-a`: Optional animation for the `path` and `rapid` visualization types. Animations only apply to a live preview.
-- `-s`: Optionally scales a plot using the `axis_minimum` and `axis_maximum` values reported by Klipper's `toolhead` object when the dump file was generated.
-- `-p`: A profile name that may be specified when generating the `probedz` 3D mesh visualization. When generating an `overlay` or `delta` visualization this argument must be provided.
-- `-o`: An optional file path indicating that the script should save the visualization to this location rather than run in preview mode. Images are saved in `svg` format.
+- `plot type`: Ett obligatoriskt positionsargument som anger vilken typ av visualisering som ska genereras. Måste vara en av de typer som kommandot `graph_mesh.py list` visar.
+- `input`: Ett obligatoriskt positionsargument med en sökväg eller URL till indatakällan. Det måste vara ett av följande:
+   - En sökväg till Klippers Unix-domänsocket
+   - En URL till en Moonraker-instans
+   - En sökväg till en JSON-fil som skapats med `graph_mesh.py dump <input>`
+- `-a`: Valfri animering för visualiseringstyperna `path` och `rapid`. Animeringar gäller bara i en direkt förhandsvisning.
+- `-s`: Skalar valfritt ett diagram med värdena `axis_minimum` och `axis_maximum` som Klippers objekt `toolhead` rapporterade när dumpfilen skapades.
+- `-p`: Ett profilnamn som kan anges när 3D-nätvisualiseringen `probedz` genereras. Vid generering av visualiseringen `overlay` eller `delta` måste detta argument anges.
+- `-o`: En valfri filsökväg som anger att skriptet ska spara visualiseringen där i stället för att köras i förhandsvisningsläge. Bilder sparas i formatet `svg`.
 
-For example, to plot an animated rapid path, connecting via Klipper's unix socket:
+För att till exempel rita en animerad snabb väg, med anslutning via Klippers Unix-socket:
 
 ```
 graph_mesh.py plot -a rapid ~/printer_data/comms/klippy.sock
 ```
 
-Or to plot a 3d visualization of the mesh, connecting via Moonraker:
+Eller för att rita en 3D-visualisering av nätet via Moonraker:
 
 ```
 graph_mesh.py plot meshz http://my-printer.local
 ```
 
-### Bed Mesh Analysis
+### Bed Mesh-analys
 
-The `graph_mesh.py` tool may also be used to perform an analysis on the data provided by the [bed_mesh/dump_mesh](#dumping-mesh-data) API:
+Verktyget `graph_mesh.py` kan också användas för att analysera data från API:t [bed_mesh/dump_mesh](#dumping-mesh-data):
 
 ```
 graph_mesh.py analyze <input>
 ```
 
-As with the `plot` command, the `<input>` must be a path to Klipper's unix socket, a URL to an instance of Moonraker, or a path to a json file generated by the dump command.
+Precis som för kommandot `plot` måste `<input>` vara en sökväg till Klippers Unix-socket, en URL till en Moonraker-instans eller en sökväg till en JSON-fil som skapats med dumpkommandot.
 
-To begin, the analysis will perform various checks on the points and probe paths generated by `bed_mesh` at the time of the dump. This includes the following:
+Först utför analysen olika kontroller av de punkter och sonderingsvägar som `bed_mesh` genererade vid dumpningen. Detta omfattar följande:
 
-- The number of probe points generated, without any additions
-- The number of probe points generated including any points generated as the result faulty regions and/or a configured zero reference position.
-- The number of probe points generated when performing a rapid scan.
-- The total number of moves generated for a rapid scan.
-- A validation that the probe points generated for a rapid scan are identical to the probe points generated for a standard probing procedure.
-- A "backtracking" check for both the standard probe path and a rapid scan path. Backtracking can be defined as moving to the same position more than once during the probing procedure. Backtracking should never occur during a standard probe. Faulty regions *can* result in backtracking during a rapid scan in an attempt to avoid entering a faulty region when approaching or leaving a probe location, however should never occur otherwise.
+- Antalet genererade sonderingspunkter, utan tillägg
+- Antalet genererade sonderingspunkter, inklusive punkter som genererats på grund av felaktiga områden och/eller en konfigurerad nollreferensposition.
+- Antalet sonderingspunkter som genereras vid en snabb skanning.
+- Det totala antalet rörelser som genereras för en snabb skanning.
+- En kontroll att sonderingspunkterna från en snabb skanning är identiska med de sonderingspunkter som genereras av ett vanligt sonderingsförfarande.
+- En kontroll av "återgång" för både den vanliga sonderingsvägen och en snabbskanningsväg. Återgång innebär att samma position besöks mer än en gång under sonderingen. Återgång får aldrig ske under en vanlig sondering. Felaktiga områden *kan* orsaka återgång under en snabb skanning för att undvika att ett felaktigt område passeras på väg till eller från en sondposition, men ska annars aldrig förekomma.
 
-Next each probed mesh present in the dump will by analyzed, beginning with the mesh loaded at the time of the dump (if present) and followed by any saved profiles. The following data is extracted:
+Därefter analyseras varje sonderat nät i dumpen, med början i nätet som var inläst vid dumpningen (om det finns) och sedan alla sparade profiler. Följande data extraheras:
 
-- Mesh shape (Min X,Y, Max X,Y Probe Count)
-- Mesh Z range, (Minimum Z, Maximum Z)
-- Mean Z value in the mesh
-- Standard Deviation of the Z values in the Mesh
+- Nätets form (min. X,Y, max. X,Y, antal sonderingspunkter)
+- Nätets Z-intervall (minsta Z, största Z)
+- Genomsnittligt Z-värde i nätet
+- Standardavvikelse för Z-värdena i nätet
 
-In addition to the above, a delta analysis is performed between meshes with the same shape, reporting the following:
+Utöver ovanstående utförs en deltaanalys mellan nät med samma form, som rapporterar följande:
 
-- The range of the delta between to meshes (Minimum and Maximum)
-- The mean delta
-- Standard Deviation of the delta
-- The absolute maximum difference
-- The absolute mean
+- Deltats intervall mellan två nät (minimum och maximum)
+- Medelvärdet för delta
+- Deltats standardavvikelse
+- Den absoluta största skillnaden
+- Det absoluta medelvärdet
 
-### Save mesh data to a file
+### Spara nätdata till en fil
 
-The `dump` command may be used to save the response to a file which can be shared for analysis when troubleshooting:
+Kommandot `dump` kan användas för att spara svaret i en fil som kan delas för analys vid felsökning:
 
 ```
 graph_mesh.py dump -o <output file name> <input>
 ```
 
-The `<input>` should be a path to Klipper's unix socket or a URL to an instance of Moonraker. The `-o` option may be used to specify the path to the output file. If omitted, the file will be saved in the working directory, with a file name in the following format:
+`<input>` ska vara en sökväg till Klippers Unix-socket eller en URL till en Moonraker-instans. Alternativet `-o` kan användas för att ange sökvägen till utdatafilen. Om det utelämnas sparas filen i arbetskatalogen med ett filnamn i följande format:
 
 `klipper-bedmesh-{year}{month}{day}{hour}{minute}{second}.json`

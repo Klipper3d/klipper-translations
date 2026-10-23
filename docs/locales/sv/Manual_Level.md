@@ -1,34 +1,34 @@
-# Manual leveling
+# Manuell nivellering
 
-This document describes tools for calibrating a Z endstop and for performing adjustments to bed leveling screws.
+Det här dokumentet beskriver verktyg för att kalibrera ett Z-ändstopp och justera bäddens nivelleringsskruvar.
 
-## Calibrating a Z endstop
+## Kalibrera ett Z-ändstopp
 
-An accurate Z endstop position is critical to obtaining high quality prints.
+En exakt position för Z-ändstoppet är avgörande för utskrifter av hög kvalitet.
 
-Note, though, the accuracy of the Z endstop switch itself can be a limiting factor. If one is using Trinamic stepper motor drivers then consider enabling [endstop phase](Endstop_Phase.md) detection to improve the accuracy of the switch.
+Observera dock att själva Z-ändstoppsbrytarens precision kan vara en begränsande faktor. Om du använder stegmotordrivare från Trinamic kan du överväga att aktivera identifiering av [ändstoppsfas](Endstop_Phase.md) för att förbättra brytarens precision.
 
-To perform a Z endstop calibration, home the printer, command the head to move to a Z position that is at least five millimeters above the bed (if it is not already), command the head to move to an XY position near the center of the bed, then navigate to the OctoPrint terminal tab and run:
+Kalibrera Z-ändstoppet genom att referensköra skrivaren, beordra huvudet att flytta till en Z-position minst fem millimeter över bädden (om det inte redan är där), beordra huvudet till en XY-position nära bäddens mitt och gå sedan till terminalfliken i OctoPrint och kör:
 
 ```
 Z_ENDSTOP_CALIBRATE
 ```
 
-Then follow the steps described at ["the paper test"](Bed_Level.md#the-paper-test) to determine the actual distance between the nozzle and bed at the given location. Once those steps are complete one can `ACCEPT` the position and save the results to the config file with:
+Följ sedan stegen i ["papperstestet"](Bed_Level.md#the-paper-test) för att fastställa det faktiska avståndet mellan munstycke och bädd på den aktuella platsen. När stegen är klara kan du `ACCEPT`-godkänna positionen och spara resultatet i konfigurationsfilen med:
 
 ```
 SAVE_CONFIG
 ```
 
-It's preferable to use a Z endstop switch on the opposite end of the Z axis from the bed. (Homing away from the bed is more robust as then it is generally always safe to home the Z.) However, if one must home towards the bed it is recommended to adjust the endstop so that it triggers a small distance (eg, .5mm) above the bed. Almost all endstop switches can safely be depressed a small distance beyond their trigger point. When this is done, one should find that the `Z_ENDSTOP_CALIBRATE` command reports a small positive value (eg, .5mm) for the Z position_endstop. Triggering the endstop while it is still some distance from the bed reduces the risk of inadvertent bed crashes.
+Det är bäst att använda en Z-ändstoppsbrytare i motsatt ände av Z-axeln från bädden. (Referenskörning bort från bädden är robustare, eftersom det då normalt alltid är säkert att referensköra Z.) Om du däremot måste referensköra mot bädden rekommenderas att ändstoppet justeras så att det aktiveras en liten bit (t.ex. 0,5 mm) ovanför bädden. Nästan alla ändstoppsbrytare kan tryckas in en liten sträcka förbi aktiveringspunkten utan risk. Då bör kommandot `Z_ENDSTOP_CALIBRATE` rapportera ett litet positivt värde (t.ex. 0,5 mm) för Z `position_endstop`. Om ändstoppet aktiveras medan det fortfarande finns ett avstånd till bädden minskar risken för oavsiktliga kollisioner med bädden.
 
-Some printers have the ability to manually adjust the location of the physical endstop switch. However, it's recommended to perform Z endstop positioning in software with Klipper - once the physical location of the endstop is in a convenient location, one can make any further adjustments by running Z_ENDSTOP_CALIBRATE or by manually updating the Z position_endstop in the configuration file.
+På vissa skrivare går det att justera den fysiska ändstoppsbrytarens läge manuellt. Det rekommenderas dock att Z-ändstoppets positionering görs i programvara med Klipper: när ändstoppet sitter på en lämplig fysisk plats kan ytterligare justeringar göras genom att köra `Z_ENDSTOP_CALIBRATE` eller genom att uppdatera Z `position_endstop` manuellt i konfigurationsfilen.
 
-## Adjusting bed leveling screws
+## Justera bäddens nivelleringsskruvar
 
-The secret to getting good bed leveling with bed leveling screws is to utilize the printer's high precision motion system during the bed leveling process itself. This is done by commanding the nozzle to a position near each bed screw and then adjusting that screw until the bed is a set distance from the nozzle. Klipper has a tool to assist with this. In order to use the tool it is necessary to specify each screw XY location.
+Nyckeln till god bäddnivellering med nivelleringsskruvar är att utnyttja skrivarens högprecisa rörelsesystem under själva nivelleringsprocessen. Det görs genom att flytta munstycket till en position nära varje bäddskruv och sedan justera skruven tills bädden har ett angivet avstånd från munstycket. Klipper har ett verktyg som hjälper till med detta. För att använda verktyget måste XY-positionen för varje skruv anges.
 
-This is done by creating a `[bed_screws]` config section. For example, it might look something similar to:
+Det görs genom att skapa en `[bed_screws]`-sektion i konfigurationen. Den kan exempelvis se ut så här:
 
 ```
 [bed_screws]
@@ -37,31 +37,31 @@ screw2: 100, 150
 screw3: 150, 100
 ```
 
-If a bed screw is under the bed, then specify the XY position directly above the screw. If the screw is outside the bed then specify an XY position closest to the screw that is still within the range of the bed.
+Om en bäddskruv sitter under bädden anger du XY-positionen direkt ovanför skruven. Om skruven sitter utanför bädden anger du den XY-position som är närmast skruven men fortfarande inom bäddens område.
 
-Once the config file is ready, run `RESTART` to load that config, and then one can start the tool by running:
+När konfigurationsfilen är klar kör du `RESTART` för att läsa in den och startar sedan verktyget med:
 
 ```
 BED_SCREWS_ADJUST
 ```
 
-This tool will move the printer's nozzle to each screw XY location and then move the nozzle to a Z=0 height. At this point one can use the "paper test" to adjust the bed screw directly under the nozzle. See the information described in ["the paper test"](Bed_Level.md#the-paper-test), but adjust the bed screw instead of commanding the nozzle to different heights. Adjust the bed screw until there is a small amount of friction when pushing the paper back and forth.
+Verktyget flyttar skrivarens munstycke till varje skruvs XY-position och flyttar sedan munstycket till höjden Z=0. Där kan du använda papperstestet för att justera bäddskruven direkt under munstycket. Se informationen i ["papperstestet"](Bed_Level.md#the-paper-test), men justera bäddskruven i stället för att flytta munstycket till olika höjder. Justera skruven tills det känns ett litet motstånd när du för papperet fram och tillbaka.
 
-Once the screw is adjusted so that a small amount of friction is felt, run either the `ACCEPT` or `ADJUSTED` command. Use the `ADJUSTED` command if the bed screw needed an adjustment (typically anything more than about 1/8th of a turn of the screw). Use the `ACCEPT` command if no significant adjustment is necessary. Both commands will cause the tool to proceed to the next screw. (When an `ADJUSTED` command is used, the tool will schedule an additional cycle of bed screw adjustments; the tool completes successfully when all bed screws are verified to not require any significant adjustments.) One can use the `ABORT` command to exit the tool early.
+När skruven är justerad så att ett litet motstånd känns kör du antingen `ACCEPT` eller `ADJUSTED`. Använd `ADJUSTED` om bäddskruven behövde justeras (vanligen mer än ungefär en åttondels varv). Använd `ACCEPT` om ingen betydande justering behövs. Båda kommandona gör att verktyget går vidare till nästa skruv. (När `ADJUSTED` används schemalägger verktyget ytterligare en omgång med justeringar; verktyget är klart när alla bäddskruvar har kontrollerats och inte behöver någon betydande justering.) Med `ABORT` kan du avsluta verktyget i förtid.
 
-This system works best when the printer has a flat printing surface (such as glass) and has straight rails. Upon successful completion of the bed leveling tool the bed should be ready for printing.
+Systemet fungerar bäst när skrivaren har en plan utskriftsyta (till exempel glas) och raka skenor. När bäddnivelleringsverktyget är klart bör bädden vara redo för utskrift.
 
-### Fine grained bed screw adjustments
+### Finjustering av bäddskruvar
 
-If the printer uses three bed screws and all three screws are under the bed, then it may be possible to perform a second "high precision" bed leveling step. This is done by commanding the nozzle to locations where the bed moves a larger distance with each bed screw adjustment.
+Om skrivaren använder tre bäddskruvar och samtliga sitter under bädden kan det gå att utföra ett andra, högprecist nivelleringssteg. Det görs genom att flytta munstycket till platser där bädden rör sig längre vid varje justering av en bäddskruv.
 
-For example, consider a bed with screws at locations A, B, and C:
+Anta till exempel att bädden har skruvar vid positionerna A, B och C:
 
 ![bed_screws](img/bed_screws.svg.png)
 
-For each adjustment made to the bed screw at location C, the bed will swing along a pendulum defined by the remaining two bed screws (shown here as a green line). In this situation, each adjustment to the bed screw at C will move the bed at position D a further amount than directly at C. It is thus possible to make an improved C screw adjustment when the nozzle is at position D.
+För varje justering av bäddskruven vid position C svänger bädden längs en hävarm som definieras av de två återstående bäddskruvarna (visas här som en grön linje). I denna situation flyttar varje justering av skruven vid C bädden vid position D mer än direkt vid C. Det går därför att förbättra justeringen av C-skruven när munstycket står vid position D.
 
-To enable this feature, one would determine the additional nozzle coordinates and add them to the config file. For example, it might look like:
+För att aktivera funktionen fastställer du de extra munstyckskoordinaterna och lägger till dem i konfigurationsfilen. Den kan exempelvis se ut så här:
 
 ```
 [bed_screws]
@@ -73,13 +73,13 @@ screw3: 150, 100
 screw3_fine_adjust: 0, 100
 ```
 
-When this feature is enabled, the `BED_SCREWS_ADJUST` tool will first prompt for coarse adjustments directly above each screw position, and once those are accepted, it will prompt for fine adjustments at the additional locations. Continue to use `ACCEPT` and `ADJUSTED` at each position.
+När funktionen är aktiverad ber verktyget `BED_SCREWS_ADJUST` först om grova justeringar direkt över varje skruvposition och, när de har godkänts, om finjusteringar på de extra platserna. Fortsätt att använda `ACCEPT` och `ADJUSTED` vid varje position.
 
-## Adjusting bed leveling screws using the bed probe
+## Justera bäddens nivelleringsskruvar med bäddsonden
 
-This is another way to calibrate the bed level using the bed probe. To use it you must have a Z probe (BL Touch, Inductive sensor, etc).
+Detta är ett annat sätt att kalibrera bäddnivån med en bäddsond. För att använda det måste du ha en Z-sond (BLTouch, induktiv givare osv.).
 
-To enable this feature, one would determine the nozzle coordinates such that the Z probe is above the screws, and then add them to the config file. For example, it might look like:
+För att aktivera funktionen fastställer du munstyckskoordinaterna så att Z-sonden befinner sig över skruvarna och lägger sedan till dem i konfigurationsfilen. Den kan exempelvis se ut så här:
 
 ```
 [screws_tilt_adjust]
@@ -96,7 +96,7 @@ speed: 50.
 screw_thread: CW-M3
 ```
 
-The screw1 is always the reference point for the others, so the system assumes that screw1 is at the correct height. Always run `G28` first and then run `SCREWS_TILT_CALCULATE` - it should produce output similar to:
+Skruv 1 är alltid referenspunkten för de andra, så systemet förutsätter att skruv 1 har rätt höjd. Kör alltid först `G28` och sedan `SCREWS_TILT_CALCULATE` – resultatet bör likna följande:
 
 ```
 Send: G28
@@ -110,19 +110,19 @@ Recv: // read left screw : x=-5.0, y=190.0, z=2.47250 : adjust CW 00:02
 Recv: ok
 ```
 
-This means that:
+Detta innebär att:
 
-- front left screw is the reference point you must not change it.
-- front right screw must be turned clockwise 1 full turn and a quarter turn
-- rear right screw must be turned counter-clockwise 50 minutes
-- rear left screw must be turned clockwise 2 minutes (not need it's ok)
+- den främre vänstra skruven är referenspunkten och får inte ändras.
+- den främre högra skruven ska vridas ett helt varv och en fjärdedels varv medurs
+- den bakre högra skruven ska vridas 50 minuter moturs
+- den bakre vänstra skruven ska vridas 2 minuter medurs (ingen justering behövs, det är okej)
 
-Note that "minutes" refers to "minutes of a clock face". So, for example, 15 minutes is a quarter of a full turn.
+Observera att "minuter" avser minuter på en urtavla. Exempelvis är 15 minuter en fjärdedels varv.
 
-Repeat the process several times until you get a good level bed - normally when all adjustments are below 6 minutes.
+Upprepa processen flera gånger tills bädden är väl nivellerad – normalt när alla justeringar är under 6 minuter.
 
-If using a probe that is mounted on the side of the hotend (that is, it has an X or Y offset) then note that adjusting the bed tilt will invalidate any previous probe calibration that was performed with a tilted bed. Be sure to run [probe calibration](Probe_Calibrate.md) after the bed screws have been adjusted.
+Om du använder en sond som är monterad vid sidan av hotend-enheten (alltså har en X- eller Y-offset) ska du tänka på att justering av bäddens lutning gör tidigare sondkalibrering som gjorts med en lutande bädd ogiltig. Kör [sondkalibrering](Probe_Calibrate.md) efter att bäddskruvarna har justerats.
 
-The `MAX_DEVIATION` parameter is useful when a saved bed mesh is used, to ensure that the bed level has not drifted too far from where it was when the mesh was created. For example, `SCREWS_TILT_CALCULATE MAX_DEVIATION=0.01` can be added to the custom start gcode of the slicer before the mesh is loaded. It will abort the print if the configured limit is exceeded (0.01mm in this example), giving the user a chance to adjust the screws and restart the print.
+Parametern `MAX_DEVIATION` är användbar när ett sparat bäddnät används, för att säkerställa att bäddnivån inte har förändrats för mycket sedan nätet skapades. Exempelvis kan `SCREWS_TILT_CALCULATE MAX_DEVIATION=0.01` läggas till i skivningsprogrammets anpassade start-G-Code innan nätet läses in. Utskriften avbryts om den angivna gränsen överskrids (0,01 mm i detta exempel), så att användaren kan justera skruvarna och starta om utskriften.
 
-The `DIRECTION` parameter is useful if you can turn your bed adjustment screws in one direction only. For example, you might have screws that start tightened in their lowest (or highest) possible position, which can only be turned in a single direction, to raise (or lower) the bed. If you can only turn the screws clockwise, run `SCREWS_TILT_CALCULATE DIRECTION=CW`. If you can only turn them counter-clockwise, run `SCREWS_TILT_CALCULATE DIRECTION=CCW`. A suitable reference point will be chosen such that the bed can be leveled by turning all the screws in the given direction.
+Parametern `DIRECTION` är användbar om bäddens justerskruvar endast kan vridas åt ett håll. Du kan till exempel ha skruvar som börjar åtdragna i sitt lägsta (eller högsta) möjliga läge och bara kan vridas åt ett håll för att höja (eller sänka) bädden. Om skruvarna bara kan vridas medurs kör du `SCREWS_TILT_CALCULATE DIRECTION=CW`. Om de bara kan vridas moturs kör du `SCREWS_TILT_CALCULATE DIRECTION=CCW`. En lämplig referenspunkt väljs så att bädden kan nivelleras genom att alla skruvar vrids åt det angivna hållet.

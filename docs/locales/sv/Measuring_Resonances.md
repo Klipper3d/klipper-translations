@@ -1,43 +1,43 @@
-# Measuring Resonances
+# Mäta resonanser
 
-Klipper has built-in support for the ADXL345, MPU-9250, LIS2DW and LIS3DH compatible accelerometers which can be used to measure resonance frequencies of the printer for different axes, and auto-tune [input shapers](Resonance_Compensation.md) to compensate for resonances. Note that using accelerometers requires some soldering and crimping. The ADXL345 can be connected to the SPI interface of a Raspberry Pi or MCU board (it needs to be reasonably fast). The MPU family can be connected to the I2C interface of a Raspberry Pi directly, or to an I2C interface of an MCU board that supports 400kbit/s *fast mode* in Klipper. The LIS2DW and LIS3DH can be connected to either SPI or I2C with the same considerations as above.
+Klipper har inbyggt stöd för ADXL345- samt MPU-9250-, LIS2DW- och LIS3DH-kompatibla accelerometrar, som kan användas för att mäta skrivarens resonansfrekvenser för olika axlar och automatiskt trimma [input shaper](Resonance_Compensation.md) för att kompensera för resonanser. Observera att accelerometrar kräver en del lödning och krimpning. ADXL345 kan anslutas till SPI-gränssnittet på ett Raspberry Pi- eller MCU-kort (det behöver vara någorlunda snabbt). MPU-familjen kan anslutas direkt till I2C-gränssnittet på Raspberry Pi eller till ett I2C-gränssnitt på ett MCU-kort som har stöd för Klippers *fast mode* på 400 kbit/s. LIS2DW och LIS3DH kan anslutas via antingen SPI eller I2C med samma överväganden som ovan.
 
-When sourcing accelerometers, be aware that there are a variety of different PCB board designs and different clones of them. If it is going to be connected to a 5V printer MCU ensure it has a voltage regulator and level shifters.
+Tänk på att det finns många olika mönsterkortskonstruktioner och kloner när du köper accelerometrar. Om accelerometern ska anslutas till en 5 V-skrivar-MCU måste den ha en spänningsregulator och nivåomvandlare.
 
-For ADXL345s, make sure that the board supports SPI mode (a small number of boards appear to be hard-configured for I2C by pulling SDO to GND).
+För ADXL345 ska du se till att kortet har stöd för SPI-läge (ett litet antal kort verkar vara fast konfigurerade för I2C genom att SDO är draget till GND).
 
-For MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500/ICM20948s and LIS2DW/LIS3DH there are also a variety of board designs and clones with different I2C pull-up resistors which will need supplementing.
+För MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500/ICM20948 och LIS2DW/LIS3DH finns också många olika kortkonstruktioner och kloner med olika I2C-pull-up-motstånd som kan behöva kompletteras.
 
-## MCUs with Klipper I2C *fast-mode* Support
+## MCU:er med stöd för Klipper I2C i *fast mode*
 
-| MCU Family | MCU(s) Tested | MCU(s) with Support |
+| MCU-familj | Testade MCU:er | MCU:er med stöd |
 | :-: | :-- | :-- |
 | Raspberry Pi | 3B+, Pico | 3A, 3A+, 3B, 4 |
 | AVR ATmega | ATmega328p | ATmega32u4, ATmega128, ATmega168, ATmega328, ATmega644p, ATmega1280, ATmega1284, ATmega2560 |
 | AVR AT90 | - | AT90usb646, AT90usb1286 |
 | SAMD | SAMC21G18 | SAMC21G18, SAMD21G18, SAMD21E18, SAMD21J18, SAMD21E15, SAMD51G19, SAMD51J19, SAMD51N19, SAMD51P20, SAME51J19, SAME51N19, SAME54P20 |
 
-## Installation instructions
+## Installationsanvisningar
 
-### Wiring
+### Koppling
 
-An ethernet cable with shielded twisted pairs (cat5e or better) is recommended for signal integrity over a long distance. If you still experience signal integrity issues (SPI/I2C errors):
+En Ethernet-kabel med skärmade tvinnade par (Cat5e eller bättre) rekommenderas för signalintegriteten över längre avstånd. Om du ändå får problem med signalintegriteten (SPI-/I2C-fel):
 
-- Double check the wiring with a digital multimeter for:
-   - Correct connections when turned off (continuity)
-   - Correct power and ground voltages
-- I2C only:
-   - Check the SCL and SDA lines' resistances to 3.3V are in the range of 900 ohms to 1.8K
-   - For full technical details consult [chapter 7 of the I2C-bus specification and user manual UM10204](https://www.pololu.com/file/0J435/UM10204.pdf) for *fast-mode*
-- Shorten the cable
+- Kontrollera kabeldragningen med en digital multimeter med avseende på:
+   - korrekta anslutningar när enheten är avstängd (kontinuitet),
+   - korrekta spänningsnivåer för ström och jord.
+- Endast I2C:
+   - Kontrollera att SCL- och SDA-ledningarnas resistans till 3,3 V ligger mellan 900 ohm och 1,8 kΩ.
+   - Fullständiga tekniska detaljer finns i [kapitel 7 i I2C-busspecifikationen och användarhandboken UM10204](https://www.pololu.com/file/0J435/UM10204.pdf) för *fast mode*.
+- Förkorta kabeln.
 
-Connect ethernet cable shielding only to the MCU board/Pi ground.
+Anslut Ethernet-kabelns skärm endast till jord på MCU-kortet/Pi:n.
 
-***Double-check your wiring before powering up to prevent damaging your MCU/Raspberry Pi or the accelerometer.***
+***Kontrollera kabeldragningen en gång till innan du slår på strömmen, så att MCU:n/Raspberry Pi:n eller accelerometern inte skadas.***
 
-### SPI Accelerometers
+### SPI-accelerometrar
 
-Suggested twisted pair order for three twisted pairs:
+Föreslagen ordning för tvinnade par för tre tvinnade par:
 
 ```
 GND+MISO
@@ -45,51 +45,51 @@ GND+MISO
 SCLK+CS
 ```
 
-Note that unlike a cable shield, GND must be connected at both ends.
+Observera att GND, till skillnad från kabelskärmen, måste anslutas i båda ändar.
 
 #### ADXL345
 
-##### Direct to Raspberry Pi
+##### Direkt till Raspberry Pi
 
-**Note: Many MCUs will work with an ADXL345 in SPI mode (e.g. Pi Pico), wiring and configuration will vary according to your specific board and available pins.**
+**Observera: Många MCU:er fungerar med en ADXL345 i SPI-läge (till exempel Pi Pico); kabeldragning och konfiguration varierar beroende på just ditt kort och tillgängliga stift.**
 
-You need to connect ADXL345 to your Raspberry Pi via SPI. Note that the I2C connection, which is suggested by ADXL345 documentation, has too low throughput and **will not work**. The recommended connection scheme:
+Du måste ansluta ADXL345 till din Raspberry Pi via SPI. Observera att I2C-anslutningen, som föreslås i ADXL345-dokumentationen, har för låg genomströmning och **fungerar inte**. Rekommenderad koppling:
 
-| ADXL345 pin | RPi pin | RPi pin name |
+| ADXL345-stift | RPi-stift | RPi-stiftnamn |
 | :-: | :-: | :-: |
-| 3V3 (or VCC) | 01 | 3.3V DC power |
-| GND | 06 | Ground |
+| 3V3 (eller VCC) | 01 | 3,3 V likström |
+| GND | 06 | Jord |
 | CS | 24 | GPIO08 (SPI0_CE0_N) |
 | SDO | 21 | GPIO09 (SPI0_MISO) |
 | SDA | 19 | GPIO10 (SPI0_MOSI) |
 | SCL | 23 | GPIO11 (SPI0_SCLK) |
 
-Fritzing wiring diagrams for some of the ADXL345 boards:
+Fritzing-kopplingsscheman för några ADXL345-kort:
 
 ![ADXL345-Rpi](img/adxl345-fritzing.png)
 
-##### Using Raspberry Pi Pico
+##### Använda Raspberry Pi Pico
 
-You may connect the ADXL345 to your Raspberry Pi Pico and then connect the Pico to your Raspberry Pi via USB. This makes it easy to reuse the accelerometer on other Klipper devices, as you can connect via USB instead of GPIO. The Pico does not have much processing power, so make sure it is only running the accelerometer and not performing any other duties.
+Du kan ansluta ADXL345 till Raspberry Pi Pico och sedan ansluta Pico till Raspberry Pi via USB. Det gör det enkelt att återanvända accelerometern på andra Klipper-enheter eftersom du kan ansluta via USB i stället för GPIO. Pico har inte särskilt mycket beräkningskraft, så se till att den endast kör accelerometern och inte utför andra uppgifter.
 
-In order to avoid damage to your RPi make sure to connect the ADXL345 to 3.3V only. Depending on the board's layout, a level shifter may be present, which makes 5V dangerous for your RPi.
+För att undvika skador på RPi:n ska ADXL345 endast anslutas till 3,3 V. Beroende på kortets utformning kan en nivåomvandlare finnas, vilket gör 5 V farligt för RPi:n.
 
-| ADXL345 pin | Pico pin | Pico pin name |
+| ADXL345-stift | Pico-stift | Pico-stiftnamn |
 | :-: | :-: | :-: |
-| 3V3 (or VCC) | 36 | 3.3V DC power |
-| GND | 38 | Ground |
+| 3V3 (eller VCC) | 36 | 3,3 V likström |
+| GND | 38 | Jord |
 | CS | 2 | GP1 (SPI0_CSn) |
 | SDO | 1 | GP0 (SPI0_RX) |
 | SDA | 5 | GP3 (SPI0_TX) |
 | SCL | 4 | GP2 (SPI0_SCK) |
 
-Wiring diagrams for some of the ADXL345 boards:
+Kopplingsscheman för några av ADXL345-korten:
 
 ![ADXL345-Pico](img/adxl345-pico.png)
 
-### I2C Accelerometers
+### I2C-accelerometrar
 
-Suggested twisted pair order for three pairs (preferred):
+Föreslagen ordning för tvinnade par för tre par (föredras):
 
 ```
 3.3V+GND
@@ -97,100 +97,100 @@ SDA+GND
 SCL+GND
 ```
 
-or for two pairs:
+eller för två par:
 
 ```
 3.3V+SDA
 GND+SCL
 ```
 
-Note that unlike a cable shield, any GND(s) should be connected at both ends.
+Observera att eventuell GND, till skillnad från kabelskärmen, ska anslutas i båda ändar.
 
 #### MPU-9250/MPU-9255/MPU-6515/MPU-6050/MPU-6500/ICM20948
 
-These accelerometers have been tested to work over I2C on the RPi, RP2040 (Pico) and AVR at 400kbit/s (*fast mode*). Some MPU accelerometer modules include pull-ups, but some are too large at 10K and must be changed or supplemented by smaller parallel resistors.
+Dessa accelerometrar har testats med I2C på RPi, RP2040 (Pico) och AVR med 400 kbit/s (*fast mode*). Vissa MPU-accelerometermoduler har pull-up-motstånd, men en del är för stora, 10 kΩ, och måste bytas eller kompletteras med mindre parallellkopplade motstånd.
 
-Recommended connection scheme for I2C on the Raspberry Pi:
+Rekommenderat anslutningsschema för I2C på Raspberry Pi:
 
-| MPU-9250 pin | RPi pin | RPi pin name |
+| MPU-9250-stift | RPi-stift | RPi-stiftnamn |
 | :-: | :-: | :-: |
-| VCC | 01 | 3.3v DC power |
-| GND | 09 | Ground |
+| VCC | 01 | 3,3 V DC-ström |
+| GND | 09 | Jord |
 | SDA | 03 | GPIO02 (SDA1) |
 | SCL | 05 | GPIO03 (SCL1) |
 
-The RPi has built-in 1.8K pull-ups on both SCL and SDA.
+RPi har inbyggda pull-up-motstånd på 1,8 kΩ på både SCL och SDA.
 
-![MPU-9250 connected to Pi](img/mpu9250-PI-fritzing.png)
+![MPU-9250 ansluten till Pi](img/mpu9250-PI-fritzing.png)
 
-Recommended connection scheme for I2C (i2c0a) on the RP2040:
+Rekommenderat anslutningsschema för I2C (i2c0a) på RP2040:
 
-| MPU-9250 pin | RP2040 pin | RP2040 pin name |
+| MPU-9250-stift | RP2040-stift | RP2040-stiftnamn |
 | :-: | :-: | :-: |
 | VCC | 36 | 3v3 |
-| GND | 38 | Ground |
+| GND | 38 | Jord |
 | SDA | 01 | GP0 (I2C0 SDA) |
 | SCL | 02 | GP1 (I2C0 SCL) |
 
-The Pico does not include any built-in I2C pull-up resistors.
+Pico har inga inbyggda pull-up-motstånd för I2C.
 
-![MPU-9250 connected to Pico](img/mpu9250-PICO-fritzing.png)
+![MPU-9250 ansluten till Pico](img/mpu9250-PICO-fritzing.png)
 
-##### Recommended connection scheme for I2C(TWI) on the AVR ATmega328P Arduino Nano:
+##### Rekommenderat anslutningsschema för I2C (TWI) på AVR ATmega328P Arduino Nano:
 
-| MPU-9250 pin | Atmega328P TQFP32 pin | Atmega328P pin name | Arduino Nano pin |
+| MPU-9250-stift | Atmega328P TQFP32-stift | Atmega328P-stiftnamn | Arduino Nano-stift |
 | :-: | :-: | :-: | :-: |
 | VCC | 39 | - | - |
-| GND | 38 | Ground | GND |
+| GND | 38 | Jord | GND |
 | SDA | 27 | SDA | A4 |
 | SCL | 28 | SCL | A5 |
 
-The Arduino Nano does not include any built-in pull-up resistors nor a 3.3V power pin.
+Arduino Nano har varken inbyggda pull-up-motstånd eller en 3,3 V-strömanslutning.
 
-### Mounting the accelerometer
+### Montera accelerometern
 
-The accelerometer must be attached to the toolhead. One needs to design a proper mount that fits their own 3D printer. It is better to align the axes of the accelerometer with the printer's axes (but if it makes it more convenient, axes can be swapped - i.e. no need to align X axis with X and so forth - it should be fine even if Z axis of accelerometer is X axis of the printer, etc.).
+Accelerometern måste fästas på verktygshuvudet. Ett lämpligt fäste som passar den egna 3D-skrivaren behöver konstrueras. Det är bäst att rikta accelerometerns axlar efter skrivarens axlar, men axlarna kan bytas om det är enklare. X-axeln behöver alltså inte riktas mot X och så vidare; det fungerar även om accelerometerns Z-axel är skrivarens X-axel.
 
-An example of mounting ADXL345 on the SmartEffector:
+Ett exempel på montering av ADXL345 på SmartEffector:
 
 ![ADXL345 on SmartEffector](img/adxl345-mount.jpg)
 
-Note that on a bed slinger printer one must design 2 mounts: one for the toolhead and one for the bed, and run the measurements twice. See the corresponding [section](#bed-slinger-printers) for more details.
+Observera att en skrivare med rörlig bädd kräver två fästen, ett för verktygshuvudet och ett för bädden, och att mätningarna måste köras två gånger. Se motsvarande [avsnitt](#bed-slinger-printers) för mer information.
 
-**Attention:** make sure the accelerometer and any screws that hold it in place do not touch any metal parts of the printer. Basically, the mount must be designed such as to ensure the electrical isolation of the accelerometer from the printer frame. Failing to ensure that can create a ground loop in the system that may damage the electronics.
+**Varning:** kontrollera att accelerometern och alla skruvar som håller den på plats inte rör några metalldelar på skrivaren. Fästet måste säkerställa elektrisk isolering mellan accelerometern och skrivarens ram. Annars kan en jordslinga uppstå och skada elektroniken.
 
-### Software installation
+### Programvaruinstallation
 
-Note that resonance measurements and shaper auto-calibration require additional software dependencies not installed by default. First, run on your Raspberry Pi the following commands:
+Observera att resonansmätningar och automatisk shaper-kalibrering kräver ytterligare programvaruberoenden som inte installeras som standard. Kör först följande kommandon på Raspberry Pi:
 
 ```
 sudo apt update
 sudo apt install python3-numpy python3-matplotlib libatlas-base-dev libopenblas-dev
 ```
 
-Next, in order to install NumPy in the Klipper environment, run the command:
+Kör sedan följande kommando för att installera NumPy i Klipper-miljön:
 
 ```
 ~/klippy-env/bin/pip install -v "numpy<1.26"
 ```
 
-Note that, depending on the performance of the CPU, it may take *a lot* of time, up to 10-20 minutes. Be patient and wait for the completion of the installation. On some occasions, if the board has too little RAM the installation may fail and you will need to enable swap. Also note the forced version, due to newer versions of NumPY having requirements that may not be satisfied in some klipper python environments.
+Beroende på processorns prestanda kan detta ta *mycket* lång tid, upp till 10–20 minuter. Ha tålamod och vänta tills installationen är klar. Ibland kan installationen misslyckas om kortet har för lite RAM, och då måste swap aktiveras. Observera också den tvingade versionen eftersom nyare versioner av NumPy kan ha krav som inte uppfylls i vissa Klipper Python-miljöer.
 
-Once installed please check that no errors show from the command:
+När det har installerats kontrollerar du att kommandot inte visar några fel:
 
 ```
 ~/klippy-env/bin/python -c 'import numpy;'
 ```
 
-The correct output should simply be a new line.
+Korrekt utdata ska endast vara en ny rad.
 
-#### Configure ADXL345 With RPi
+#### Konfigurera ADXL345 med RPi
 
-First, check and follow the instructions in the [RPi Microcontroller document](RPi_microcontroller.md) to setup the "linux mcu" on the Raspberry Pi. This will configure a second Klipper instance that runs on your Pi.
+Kontrollera först och följ anvisningarna i [dokumentet om RPi-mikrokontrollern](RPi_microcontroller.md) för att ställa in "linux mcu" på Raspberry Pi. Det konfigurerar en andra Klipper-instans som körs på Pi:n.
 
-Make sure the Linux SPI driver is enabled by running `sudo raspi-config` and enabling SPI under the "Interfacing options" menu.
+Kontrollera att Linux SPI-drivrutinen är aktiverad genom att köra `sudo raspi-config` och aktivera SPI i menyn "Interfacing options".
 
-Add the following to the printer.cfg file:
+Lägg till följande i filen printer.cfg:
 
 ```
 [mcu rpi]
@@ -205,13 +205,13 @@ probe_points:
     100, 100, 20  # an example
 ```
 
-It is advised to start with 1 probe point, in the middle of the print bed, slightly above it.
+Börja gärna med en sonderingspunkt mitt på utskriftsbädden, strax ovanför den.
 
-#### Configure ADXL345 With Pi Pico
+#### Konfigurera ADXL345 med Pi Pico
 
-##### Flash the Pico Firmware
+##### Flasha Pico-firmware
 
-On your Raspberry Pi, compile the firmware for the Pico.
+Kompilera firmwaren för Pico på Raspberry Pi.
 
 ```
 cd ~/klipper
@@ -221,17 +221,17 @@ make menuconfig
 
 ![Pico menuconfig](img/klipper_pico_menuconfig.png)
 
-Now, while holding down the `BOOTSEL` button on the Pico, connect the Pico to the Raspberry Pi via USB. Compile and flash the firmware.
+Håll ned `BOOTSEL`-knappen på Pico och anslut sedan Pico till Raspberry Pi via USB. Kompilera och flasha firmwaren.
 
 ```
 make flash FLASH_DEVICE=first
 ```
 
-If that fails, you will be told which `FLASH_DEVICE` to use. In this example, that's `make flash FLASH_DEVICE=2e8a:0003`. ![Determine flash device](img/flash_rp2040_FLASH_DEVICE.png)
+Om det misslyckas får du information om vilken `FLASH_DEVICE` som ska användas. I det här exemplet är det `make flash FLASH_DEVICE=2e8a:0003`. ![Bestäm flash-enhet](img/flash_rp2040_FLASH_DEVICE.png)
 
-##### Configure the Connection
+##### Konfigurera anslutningen
 
-The Pico will now reboot with the new firmware and should show up as a serial device. Find the pico serial device with `ls /dev/serial/by-id/*`. You can now add an `adxl.cfg` file with the following settings:
+Pico startar nu om med den nya firmwaren och bör visas som en seriell enhet. Hitta Picos seriella enhet med `ls /dev/serial/by-id/*`. Du kan nu lägga till en fil `adxl.cfg` med följande inställningar:
 
 ```
 [mcu adxl]
@@ -254,15 +254,15 @@ probe_points:
 pin: adxl:gpio23
 ```
 
-If setting up the ADXL345 configuration in a separate file, as shown above, you'll also want to modify your `printer.cfg` file to include this:
+Om du konfigurerar ADXL345 i en separat fil enligt ovan bör du också ändra filen `printer.cfg` så att den innehåller följande:
 
 ```
 [include adxl.cfg] # Comment this out when you disconnect the accelerometer
 ```
 
-Restart Klipper via the `RESTART` command.
+Starta om Klipper med kommandot `RESTART`.
 
-#### Configure LIS2DW series over SPI
+#### Konfigurera LIS2DW-serien via SPI
 
 ```
 [mcu lis]
@@ -282,9 +282,9 @@ probe_points:
     147,154, 20
 ```
 
-#### Configure MPU-6000/9000 series With RPi
+#### Konfigurera MPU-6000/9000-serien med RPi
 
-Make sure the Linux I2C driver is enabled and the baud rate is set to 400000 (see [Enabling I2C](RPi_microcontroller.md#optional-enabling-i2c) section for more details). Then, add the following to the printer.cfg:
+Kontrollera att Linux I2C-drivrutinen är aktiverad och att överföringshastigheten är 400000 (mer information finns i avsnittet [Aktivera I2C](RPi_microcontroller.md#optional-enabling-i2c)). Lägg sedan till följande i printer.cfg:
 
 ```
 [mcu rpi]
@@ -300,11 +300,11 @@ probe_points:
     100, 100, 20  # an example
 ```
 
-If you are using the ICM20948, replace instances of "mpu9250" with "icm20948".
+Om du använder ICM20948 ersätter du förekomster av "mpu9250" med "icm20948".
 
-#### Configure MPU-9520 Compatibles With Pico
+#### Konfigurera MPU-9520-kompatibla enheter med Pico
 
-Pico I2C is set to 400000 on default. Simply add the following to the printer.cfg:
+Pico I2C är som standard inställt på 400000. Lägg bara till följande i printer.cfg:
 
 ```
 [mcu pico]
@@ -323,11 +323,11 @@ probe_points:
 pins: pico:gpio23
 ```
 
-If you are using the ICM20948, replace instances of "mpu9250" with "icm20948".
+Om du använder ICM20948 ersätter du förekomster av "mpu9250" med "icm20948".
 
-#### Configure MPU-9520 Compatibles with AVR
+#### Konfigurera MPU-9520-kompatibla enheter med AVR
 
-AVR I2C will be set to 400000 by the mpu9250 option. Simply add the following to the printer.cfg:
+AVR I2C ställs in på 400000 av alternativet mpu9250. Lägg bara till följande i printer.cfg:
 
 ```
 [mcu nano]
@@ -342,42 +342,42 @@ probe_points:
     100, 100, 20  # an example
 ```
 
-If you are using the ICM20948, replace instances of "mpu9250" with "icm20948".
+Om du använder ICM20948 ersätter du förekomster av "mpu9250" med "icm20948".
 
-Restart Klipper via the `RESTART` command.
+Starta om Klipper med kommandot `RESTART`.
 
-## Measuring the resonances
+## Mäta resonanserna
 
-### Checking the setup
+### Kontrollera inställningen
 
-Now you can test a connection.
+Nu kan du testa anslutningen.
 
-- For "non bed-slingers" (e.g. one accelerometer), in Octoprint, enter `ACCELEROMETER_QUERY`
-- For "bed-slingers" (e.g. more than one accelerometer), enter `ACCELEROMETER_QUERY CHIP=<chip>` where `<chip>` is the name of the chip as-entered, e.g. `CHIP=bed` (see: [bed-slinger](#bed-slinger-printers)) for all installed accelerometer chips.
+- För skrivare utan rörlig bädd, till exempel med en accelerometer, anger du `ACCELEROMETER_QUERY` i OctoPrint.
+- För skrivare med rörlig bädd, till exempel med fler än en accelerometer, anger du `ACCELEROMETER_QUERY CHIP=<chip>`, där `<chip>` är namnet på kretsen som det angavs, till exempel `CHIP=bed`. Se [skrivare med rörlig bädd](#bed-slinger-printers) för alla installerade accelerometerkretsar.
 
-You should see the current measurements from the accelerometer, including the free-fall acceleration, e.g.
+Du bör se accelerometerns aktuella mätvärden, inklusive fritt falls acceleration, till exempel:
 
 ```
 Recv: // adxl345 values (x, y, z): 470.719200, 941.438400, 9728.196800
 ```
 
-If you get an error like `Invalid adxl345 id (got xx vs e5)`, where `xx` is some other ID, immediately try again. There's an issue with SPI initialization. If you still get an error, it is indicative of the connection problem with ADXL345, or the faulty sensor. Double-check the power, the wiring (that it matches the schematics, no wire is broken or loose, etc.), and soldering quality.
+Om du får ett fel som `Invalid adxl345 id (got xx vs e5)`, där `xx` är ett annat ID, försök omedelbart igen. Det finns ett problem med SPI-initieringen. Om felet kvarstår tyder det på ett anslutningsproblem med ADXL345 eller en trasig sensor. Kontrollera strömförsörjningen, kabeldragningen (att den överensstämmer med schemat, att ingen kabel är av eller glappar osv.) och lödkvaliteten en gång till.
 
-**If you are using a MPU-9250 compatible accelerometer and it shows up as `mpu-unknown`, use with caution! They are probably refurbished chips!**
+**Om du använder en MPU-9250-kompatibel accelerometer och den visas som `mpu-unknown` ska du vara försiktig! Det är troligen renoverade chip!**
 
-Next, try running `MEASURE_AXES_NOISE` in Octoprint, you should get some baseline numbers for the noise of accelerometer on the axes (should be somewhere in the range of ~1-100). Too high axes noise (e.g. 1000 and more) can be indicative of the sensor issues, problems with its power, or too noisy imbalanced fans on a 3D printer.
+Kör sedan `MEASURE_AXES_NOISE` i OctoPrint. Du bör få några basvärden för accelerometerns brus på axlarna, vanligen ungefär 1–100. Mycket högt brus på axlarna, till exempel 1000 eller mer, kan tyda på sensorproblem, problem med strömförsörjningen eller för brusiga och obalanserade fläktar på 3D-skrivaren.
 
-### Measuring the resonances
+### Mäta resonanserna
 
-Now you can run some real-life tests. Run the following command:
+Nu kan du köra praktiska tester. Kör följande kommando:
 
 ```
 TEST_RESONANCES AXIS=X
 ```
 
-Note that it will create vibrations on X axis. It will also disable input shaping if it was enabled previously, as it is not valid to run the resonance testing with the input shaper enabled.
+Observera att detta skapar vibrationer på X-axeln. Det inaktiverar också input shaping om funktionen tidigare var aktiverad, eftersom resonanstestning inte kan köras med input shaping aktiverat.
 
-**Attention!** Be sure to observe the printer for the first time, to make sure the vibrations do not become too violent (`M112` command can be used to abort the test in case of emergency; hopefully it will not come to this though). If the vibrations do get too strong, you can attempt to specify a lower than the default value for `accel_per_hz` parameter in `[resonance_tester]` section, e.g.
+**Varning!** Övervaka skrivaren första gången för att kontrollera att vibrationerna inte blir för kraftiga. Kommandot `M112` kan användas för att avbryta testet vid en nödsituation. Om vibrationerna blir för kraftiga kan du försöka ange ett lägre värde än standard för parametern `accel_per_hz` i avsnittet `[resonance_tester]`, till exempel:
 
 ```
 [resonance_tester]
@@ -386,20 +386,20 @@ accel_per_hz: 50  # default is 75
 probe_points: ...
 ```
 
-If it works for X axis, run for Y axis as well:
+Om det fungerar för X-axeln kör du även för Y-axeln:
 
 ```
 TEST_RESONANCES AXIS=Y
 ```
 
-This will generate 2 CSV files (`/tmp/resonances_x_*.csv` and `/tmp/resonances_y_*.csv`). These files can be processed with the stand-alone script on a Raspberry Pi. This script is intended to be run with a single CSV file for each axis measured, although it can be used with multiple CSV files if you desire to average the results. Averaging results can be useful, for example, if resonance tests were done at multiple test points. Delete the extra CSV files if you do not desire to average them.
+Detta skapar två CSV-filer (`/tmp/resonances_x_*.csv` och `/tmp/resonances_y_*.csv`). Filerna kan bearbetas med det fristående skriptet på Raspberry Pi. Skriptet är avsett att köras med en CSV-fil för varje uppmätt axel, men kan användas med flera CSV-filer om du vill beräkna ett medelvärde av resultaten. Medelvärdesberäkning kan till exempel vara användbar om resonanstester gjordes vid flera testpunkter. Ta bort extra CSV-filer om du inte vill beräkna ett medelvärde.
 
 ```
 ~/klipper/scripts/calibrate_shaper.py /tmp/resonances_x_*.csv -o /tmp/shaper_calibrate_x.png
 ~/klipper/scripts/calibrate_shaper.py /tmp/resonances_y_*.csv -o /tmp/shaper_calibrate_y.png
 ```
 
-This script will generate the charts `/tmp/shaper_calibrate_x.png` and `/tmp/shaper_calibrate_y.png` with frequency responses. You will also get the suggested frequencies for each input shaper, as well as which input shaper is recommended for your setup. For example:
+Skriptet skapar diagrammen `/tmp/shaper_calibrate_x.png` och `/tmp/shaper_calibrate_y.png` med frekvenssvar. Du får också föreslagna frekvenser för varje input shaper och vilken input shaper som rekommenderas för din konfiguration. Till exempel:
 
 ![Resonances](img/calibrate-y.png)
 
@@ -417,7 +417,7 @@ To avoid too much smoothing with '3hump_ei', suggested max_accel <= 2800 mm/sec^
 Recommended shaper is mzv @ 34.6 Hz
 ```
 
-The suggested configuration can be added to `[input_shaper]` section of `printer.cfg`, e.g.:
+Den föreslagna konfigurationen kan läggas till i avsnittet `[input_shaper]` i `printer.cfg`, till exempel:
 
 ```
 [input_shaper]
@@ -430,15 +430,15 @@ shaper_type_y: mzv
 max_accel: 3000  # should not exceed the estimated max_accel for X and Y axes
 ```
 
-or you can choose some other configuration yourself based on the generated charts: peaks in the power spectral density on the charts correspond to the resonance frequencies of the printer.
+Du kan också själv välja en annan konfiguration baserat på de genererade diagrammen: toppar i diagrammens spektrala effekttäthet motsvarar skrivarens resonansfrekvenser.
 
-Note that alternatively you can run the input shaper auto-calibration from Klipper [directly](#input-shaper-auto-calibration), which can be convenient, for example, for the input shaper [re-calibration](#input-shaper-re-calibration).
+Observera att du även kan köra automatisk kalibrering av input shaper från Klipper [direkt](#input-shaper-auto-calibration), vilket kan vara praktiskt, till exempel för [omkalibrering](#input-shaper-re-calibration) av input shaper.
 
-### Bed-slinger printers
+### Skrivare med rörlig bädd
 
-If your printer is a bed slinger printer, you will need to change the location of the accelerometer between the measurements for X and Y axes: measure the resonances of X axis with the accelerometer attached to the toolhead and the resonances of Y axis - to the bed (the usual bed slinger setup).
+Om skrivaren har rörlig bädd måste accelerometerns placering ändras mellan mätningarna av X- och Y-axlarna: mät X-axelns resonanser med accelerometern fäst vid verktygshuvudet och Y-axelns resonanser med accelerometern fäst vid bädden, vilket är den vanliga konfigurationen.
 
-However, you can also connect two accelerometers simultaneously, though the ADXL345 must be connected to different boards (say, to an RPi and printer MCU board), or to two different physical SPI interfaces on the same board (rarely available). Then they can be configured in the following manner:
+Du kan dock också ansluta två accelerometrar samtidigt, men ADXL345 måste anslutas till olika kort (exempelvis till ett RPi- och ett skrivar-MCU-kort) eller till två olika fysiska SPI-gränssnitt på samma kort (som sällan finns). De kan då konfigureras på följande sätt:
 
 ```
 [adxl345 hotend]
@@ -456,7 +456,7 @@ accel_chip_y: adxl345 bed
 probe_points: ...
 ```
 
-Two MPUs can share one I2C bus, but they **cannot** measure simultaneously as the 400kbit/s I2C bus is not fast enough. One must have its AD0 pin pulled-down to 0V (address 104) and the other its AD0 pin pulled-up to 3.3V (address 105):
+Två MPU:er kan dela en I2C-buss, men de **kan inte** mäta samtidigt eftersom I2C-bussen på 400 kbit/s inte är tillräckligt snabb. Den ena måste ha sitt AD0-stift neddraget till 0 V (adress 104) och den andra sitt AD0-stift uppdraget till 3,3 V (adress 105):
 
 ```
 [mpu9250 hotend]
@@ -476,17 +476,17 @@ accel_chip_y: mpu9250 bed
 probe_points: ...
 ```
 
-[Test with each MPU individually before connecting both to the bus for easy debugging.]
+[Testa varje MPU för sig innan båda ansluts till bussen, så blir felsökningen enklare.]
 
-Then the commands `TEST_RESONANCES AXIS=X` and `TEST_RESONANCES AXIS=Y` will use the correct accelerometer for each axis.
+Kommandona `TEST_RESONANCES AXIS=X` och `TEST_RESONANCES AXIS=Y` använder då rätt accelerometer för respektive axel.
 
-### Max smoothing
+### Maximal utjämning
 
-Keep in mind that the input shaper can create some smoothing in parts. Automatic tuning of the input shaper performed by `calibrate_shaper.py` script or `SHAPER_CALIBRATE` command tries not to exacerbate the smoothing, but at the same time they try to minimize the resulting vibrations. Sometimes they can make a sub-optimal choice of the shaper frequency, or maybe you simply prefer to have less smoothing in parts at the expense of a larger remaining vibrations. In these cases, you can request to limit the maximum smoothing from the input shaper.
+Tänk på att input shaper kan ge viss utjämning i utskrivna delar. Den automatiska trimningen med skriptet `calibrate_shaper.py` eller kommandot `SHAPER_CALIBRATE` försöker begränsa utjämningen och samtidigt minimera kvarvarande vibrationer. Ibland väljer den en mindre optimal shaper-frekvens, eller så föredrar du mindre utjämning på bekostnad av större kvarvarande vibrationer. Då kan du begränsa den maximala utjämningen från input shaper.
 
-Let's consider the following results from the automatic tuning:
+Betrakta följande resultat från den automatiska trimningen:
 
-![Resonances](img/calibrate-x.png)
+![Resonanser](img/calibrate-x.png)
 
 ```
 Fitted shaper 'zv' frequency = 57.8 Hz (vibrations = 20.3%, smoothing ~= 0.053)
@@ -502,17 +502,17 @@ To avoid too much smoothing with '3hump_ei', suggested max_accel <= 1500 mm/sec^
 Recommended shaper is 2hump_ei @ 45.2 Hz
 ```
 
-Note that the reported `smoothing` values are some abstract projected values. These values can be used to compare different configurations: the higher the value, the more smoothing a shaper will create. However, these smoothing scores do not represent any real measure of smoothing, because the actual smoothing depends on [`max_accel`](#selecting-max-accel) and `square_corner_velocity` parameters. Therefore, you should print some test prints to see how much smoothing exactly a chosen configuration creates.
+Observera att rapporterade `smoothing`-värden är abstrakta, projicerade värden. De kan användas för att jämföra olika konfigurationer: ju högre värde, desto mer utjämning skapar en shaper. Värdena motsvarar dock inget verkligt mått på utjämning eftersom den faktiska utjämningen beror på parametrarna [`max_accel`](#selecting-max-accel) och `square_corner_velocity`. Skriv därför ut testutskrifter för att se hur mycket utjämning en vald konfiguration faktiskt ger.
 
-In the example above the suggested shaper parameters are not bad, but what if you want to get less smoothing on the X axis? You can try to limit the maximum shaper smoothing using the following command:
+I exemplet ovan är de föreslagna shaper-parametrarna inte dåliga, men om du vill få mindre utjämning på X-axeln kan du begränsa maximal shaper-utjämning med följande kommando:
 
 ```
 ~/klipper/scripts/calibrate_shaper.py /tmp/resonances_x_*.csv -o /tmp/shaper_calibrate_x.png --max_smoothing=0.2
 ```
 
-which limits the smoothing to 0.2 score. Now you can get the following result:
+Det begränsar utjämningen till värdet 0.2. Då kan du få följande resultat:
 
-![Resonances](img/calibrate-x-max-smoothing.png)
+![Resonanser](img/calibrate-x-max-smoothing.png)
 
 ```
 Fitted shaper 'zv' frequency = 55.4 Hz (vibrations = 19.7%, smoothing ~= 0.057)
@@ -528,11 +528,11 @@ To avoid too much smoothing with '3hump_ei', suggested max_accel <= 3900 mm/sec^
 Recommended shaper is 3hump_ei @ 72.6 Hz
 ```
 
-If you compare to the previously suggested parameters, the vibrations are a bit larger, but the smoothing is significantly smaller than previously, allowing larger maximum acceleration.
+Jämfört med de tidigare föreslagna parametrarna är vibrationerna något större, men utjämningen betydligt mindre, vilket tillåter högre maximal acceleration.
 
-When deciding which `max_smoothing` parameter to choose, you can use a trial-and-error approach. Try a few different values and see which results you get. Note that the actual smoothing produced by the input shaper depends, primarily, on the lowest resonance frequency of the printer: the higher the frequency of the lowest resonance - the smaller the smoothing. Therefore, if you request the script to find a configuration of the input shaper with the unrealistically small smoothing, it will be at the expense of increased ringing at the lowest resonance frequencies (which are, typically, also more prominently visible in prints). So, always double-check the projected remaining vibrations reported by the script and make sure they are not too high.
+När du väljer parametern `max_smoothing` kan du använda försök och misstag. Prova några olika värden och se vilka resultat du får. Den faktiska utjämningen från input shaper beror främst på skrivarens lägsta resonansfrekvens: ju högre frekvens, desto mindre utjämning. En orealistiskt låg begärd utjämning ger därför mer ringing vid de lägsta resonansfrekvenserna, som vanligen syns tydligast i utskrifter. Kontrollera alltid att de projicerade kvarvarande vibrationerna som skriptet rapporterar inte är för höga.
 
-Note that if you chose a good `max_smoothing` value for both of your axes, you can store it in the `printer.cfg` as
+Om du har valt ett bra `max_smoothing`-värde för båda axlarna kan det sparas i `printer.cfg` enligt följande:
 
 ```
 [resonance_tester]
@@ -541,38 +541,38 @@ probe_points: ...
 max_smoothing: 0.25  # an example
 ```
 
-Then, if you [rerun](#input-shaper-re-calibration) the input shaper auto-tuning using `SHAPER_CALIBRATE` Klipper command in the future, it will use the stored `max_smoothing` value as a reference.
+Om du i framtiden [kör om](#input-shaper-re-calibration) den automatiska input shaper-trimningen med kommandot `SHAPER_CALIBRATE` använder Klipper det sparade värdet `max_smoothing` som referens.
 
-### Selecting max_accel
+### Välja max_accel
 
-Since the input shaper can create some smoothing in parts, especially at high accelerations, you will still need to choose the `max_accel` value that does not create too much smoothing in the printed parts. A calibration script provides an estimate for `max_accel` parameter that should not create too much smoothing. Note that the `max_accel` as displayed by the calibration script is only a theoretical maximum at which the respective shaper is still able to work without producing too much smoothing. It is by no means a recommendation to set this acceleration for printing. The maximum acceleration your printer is able to sustain depends on its mechanical properties and the maximum torque of the used stepper motors. Therefore, it is suggested to set `max_accel` in `[printer]` section that does not exceed the estimated values for X and Y axes, likely with some conservative safety margin.
+Eftersom input shaper kan ge viss utjämning i utskrivna delar, särskilt vid höga accelerationer, måste du ändå välja ett `max_accel`-värde som inte ger för mycket utjämning. Kalibreringsskriptet uppskattar ett `max_accel`-värde som inte bör ge för mycket utjämning. Observera att `max_accel` som visas av kalibreringsskriptet endast är ett teoretiskt maximum där respektive shaper fortfarande kan fungera utan att skapa för mycket utjämning. Det är inte en rekommendation att använda denna acceleration för utskrift. Den högsta acceleration skrivaren klarar beror på dess mekaniska egenskaper och de använda stegmotorernas maximala vridmoment. Vi rekommenderar därför att `max_accel` i avsnittet `[printer]` inte överstiger de beräknade värdena för X- och Y-axeln, sannolikt med en försiktig säkerhetsmarginal.
 
-Alternatively, follow [this](Resonance_Compensation.md#selecting-max_accel) part of the input shaper tuning guide and print the test model to choose `max_accel` parameter experimentally.
+Du kan också följa [den här](Resonance_Compensation.md#selecting-max_accel) delen av guiden för input shaper-trimning och skriva ut testmodellen för att välja parametern `max_accel` experimentellt.
 
-The same notice applies to the input shaper [auto-calibration](#input-shaper-auto-calibration) with `SHAPER_CALIBRATE` command: it is still necessary to choose the right `max_accel` value after the auto-calibration, and the suggested acceleration limits will not be applied automatically.
+Samma anmärkning gäller [automatisk kalibrering](#input-shaper-auto-calibration) av input shaper med kommandot `SHAPER_CALIBRATE`: även efter den automatiska kalibreringen måste du välja rätt `max_accel`-värde, och de föreslagna accelerationsgränserna tillämpas inte automatiskt.
 
-Keep in mind that the maximum acceleration without too much smoothing depends on the `square_corner_velocity`. The general recommendation is not to change it from its default value 5.0, and this is the value used by default by the `calibrate_shaper.py` script. If you did change it though, you should inform the script about it by passing `--square_corner_velocity=...` parameter, e.g.
+Tänk på att den högsta accelerationen utan alltför mycket utjämning beror på `square_corner_velocity`. Den allmänna rekommendationen är att inte ändra standardvärdet 5.0, och det är det värde som används som standard av skriptet `calibrate_shaper.py`. Om du har ändrat värdet bör du ange det för skriptet med parametern `--square_corner_velocity=...`, till exempel
 
 ```
 ~/klipper/scripts/calibrate_shaper.py /tmp/resonances_x_*.csv -o /tmp/shaper_calibrate_x.png --square_corner_velocity=10.0
 ```
 
-so that it can calculate the maximum acceleration recommendations correctly. Note that the `SHAPER_CALIBRATE` command already takes the configured `square_corner_velocity` parameter into account, and there is no need to specify it explicitly.
+så att rekommendationerna för högsta acceleration kan beräknas korrekt. Observera att kommandot `SHAPER_CALIBRATE` redan tar hänsyn till den konfigurerade parametern `square_corner_velocity`, så den behöver inte anges uttryckligen.
 
-If you are doing a shaper re-calibration and the reported smoothing for the suggested shaper configuration is almost the same as what you got during the previous calibration, this step can be skipped.
+Om du kalibrerar shaper på nytt och den rapporterade utjämningen för den föreslagna shaper-konfigurationen är nästan densamma som vid föregående kalibrering, kan du hoppa över det här steget.
 
-### Measuring the resonances of Z axis
+### Mäta resonanserna för Z-axeln
 
-Measuring the resonances of Z axis is similar in many aspects to measuring resonances of X and Y axes, with some subtle differences. Similarly to other axes measurements, you will need to have an accelerometer mounted on the moving parts of Z axis - either the bed itself (if the bed moves over Z axis), or the toolhead (if the toolhead/gantry moves over Z). You will need to add the appropriate chip configuration to `printer.cfg` and also add it to `[resonance_tester]` section, e.g.
+Att mäta resonanserna för Z-axeln liknar på många sätt mätning av resonanserna för X- och Y-axeln, men det finns några subtila skillnader. Precis som vid mätning av andra axlar måste en accelerometer vara monterad på Z-axelns rörliga delar – antingen på själva bädden (om bädden rör sig längs Z-axeln) eller på verktygshuvudet (om verktygshuvudet/gantryt rör sig längs Z). Du behöver lägga till lämplig chipkonfiguration i `printer.cfg` och även lägga till den i avsnittet `[resonance_tester]`, till exempel
 
 ```
 [resonance_tester]
 accel_chip_z: <accelerometer full name>
 ```
 
-Also make sure that `probe_points` configured in `[resonance_tester]` allow sufficient clearance for Z axis movements (20 mm above bed surface should provide enough clearance with the default test parameters).
+Kontrollera också att `probe_points` som konfigurerats i `[resonance_tester]` ger tillräckligt fritt utrymme för Z-axelns rörelser (20 mm ovanför bäddytan bör ge tillräckligt spelrum med standardparametrarna för testet).
 
-The next consideration is that Z axis can typically reach lower maximum speeds and accelerations that X and Y axes. Default parameters of the test take that into consideration and are much less agressive, but it may still be necessary to increase `max_z_accel` and `max_z_velocity`. If you have them configured in `[printer]` section, make sure to set them to at least
+Nästa övervägande är att Z-axeln vanligtvis når lägre högsta hastigheter och accelerationer än X- och Y-axeln. Testets standardparametrar tar hänsyn till detta och är betydligt mindre aggressiva, men det kan ändå vara nödvändigt att öka `max_z_accel` och `max_z_velocity`. Om de är konfigurerade i avsnittet `[printer]` ska du kontrollera att de är minst
 
 ```
 [printer]
@@ -580,25 +580,25 @@ max_z_velocity: 20
 max_z_accel: 1550
 ```
 
-but only for the duration of the test, afterwards you can revert them back to their original values if necessary. And if you use custom test parameters for Z axis, `TEST_RESONANCES` and `SHAPER_CALIBRATE` will provide the minimum required limits if necessary for your specific case.
+men bara under testet; sedan kan du vid behov återställa deras ursprungliga värden. Om du använder egna testparametrar för Z-axeln anger `TEST_RESONANCES` och `SHAPER_CALIBRATE` vid behov de lägsta nödvändiga gränserna för just ditt fall.
 
-After all changes to `printer.cfg` have been made, restart Klipper and run either
+När alla ändringar i `printer.cfg` är gjorda startar du om Klipper och kör antingen
 
 ```
 TEST_RESONANCES AXIS=Z
 ```
 
-or
+eller
 
 ```
 SHAPER_CALIBRATE AXIS=Z
 ```
 
-and proceed from there accordingly how you would for other axes. For example, after `TEST_RESONANCES` command you can run `calibrate_shaper.py` script and get shaper recommendations and the chart of resonance response:
+och fortsätter sedan på motsvarande sätt som för de andra axlarna. Efter kommandot `TEST_RESONANCES` kan du till exempel köra skriptet `calibrate_shaper.py` och få shaper-rekommendationer och ett diagram över resonansresponsen:
 
-![Resonances](img/calibrate-z.png)
+![Resonanser](img/calibrate-z.png)
 
-After the calibration, the shaper parameters can be stored in the `printer.cfg`, e.g. from the example above:
+Efter kalibreringen kan shaper-parametrarna sparas i `printer.cfg`, till exempel från exemplet ovan:
 
 ```
 [input_shaper]
@@ -607,7 +607,7 @@ shaper_type_z: mzv
 shaper_freq_z: 42.6
 ```
 
-Also, given the movements of Z axis are slow, you can easily consider more aggressive input shapers, e.g.
+Eftersom Z-axelns rörelser är långsamma kan du också överväga mer aggressiva input shaper, till exempel
 
 ```
 [input_shaper]
@@ -616,16 +616,16 @@ shaper_type_z: 2hump_ei
 shaper_freq_z: 63.0
 ```
 
-If the test produces bogus results, you may try to increase `accel_per_hz_z` parameter in `[resonance_tester]` from its default value 15 to a larger value in the range of 20-30, e.g.
+Om testet ger felaktiga resultat kan du försöka öka parametern `accel_per_hz_z` i `[resonance_tester]` från standardvärdet 15 till ett större värde mellan 20 och 30, till exempel
 
 ```
 [resonance_tester]
 accel_per_hz_z: 25
 ```
 
-and repeat the test. Increasing this value will likely require increasing `max_z_accel` and `max_z_velocity` parameters as well. You can run `TEST_RESONANCES AXIS=Z` command to get the required minimum values.
+och upprepa testet. En ökning av värdet kräver sannolikt även att parametrarna `max_z_accel` och `max_z_velocity` ökas. Du kan köra kommandot `TEST_RESONANCES AXIS=Z` för att få de lägsta nödvändiga värdena.
 
-However, if you are unable to measure the resonances of Z axis, you can consider just using
+Om du däremot inte kan mäta resonanserna för Z-axeln kan du överväga att bara använda
 
 ```
 [input_shaper]
@@ -634,32 +634,32 @@ shaper_type_z: 3hump_ei
 shaper_freq_z: 65
 ```
 
-as an acceptable all-round choice, given that the smoothing of Z axis movements is not of particular concerns.
+som ett acceptabelt, allsidigt val, eftersom utjämning av Z-axelns rörelser inte är särskilt viktig.
 
-### Unreliable measurements of resonance frequencies
+### Otillförlitliga mätningar av resonansfrekvenser
 
-Sometimes the resonance measurements can produce bogus results, leading to the incorrect suggestions for the input shapers. This can be caused by a variety of reasons, including running fans on the toolhead, incorrect position or non-rigid mounting of the accelerometer, or mechanical problems such as loose belts or binding or bumpy axis. Keep in mind that all fans should be disabled for resonance testing, especially the noisy ones, and that the accelerometer should be rigidly mounted on the corresponding moving part (e.g. on the bed itself for the bed slinger, or on the extruder of the printer itself and not the carriage, and some people get better results by mounting the accelerometer on the nozzle itself). As for mechanical problems, the user should inspect if there is any fault that can be fixed with a moving axis (e.g. linear guide rails cleaned up and lubricated and V-slot wheels tension adjusted correctly). If none of that helps, a user may try the other shapers from the produced list besides the one recommended by default.
+Resonansmätningarna kan ibland ge felaktiga resultat, vilket leder till felaktiga förslag för input shaper. Det kan bero på många saker, bland annat fläktar som körs på verktygshuvudet, fel placering eller icke-styv montering av accelerometern samt mekaniska problem som lösa remmar eller en kärvande eller ojämn axel. Tänk på att alla fläktar bör vara avstängda under resonanstestet, särskilt bullriga fläktar, och att accelerometern ska vara styvt monterad på motsvarande rörliga del (till exempel på själva bädden på en skrivare med rörlig bädd eller på skrivarens extruder, inte vagnen; vissa får bättre resultat genom att montera accelerometern på själva munstycket). Vad gäller mekaniska problem bör du undersöka om det finns fel som kan åtgärdas på en rörlig axel (till exempel rengöra och smörja linjärstyrningar och justera spänningen för V-spårhjulen korrekt). Om inget av detta hjälper kan du prova andra shaper från den skapade listan än den som rekommenderas som standard.
 
-### Testing custom axes
+### Testa anpassade axlar
 
-`TEST_RESONANCES` command supports custom axes. While this is not really useful for input shaper calibration, it can be used to study printer resonances in-depth and to check, for example, belt tension.
+Kommandot `TEST_RESONANCES` stöder anpassade axlar. Det är inte särskilt användbart för kalibrering av input shaper, men kan användas för att studera skrivarens resonanser på djupet och exempelvis kontrollera remspänningen.
 
-To check the belt tension on CoreXY printers, execute
+Kör följande för att kontrollera remspänningen på CoreXY-skrivare:
 
 ```
 TEST_RESONANCES AXIS=1,1 OUTPUT=raw_data
 TEST_RESONANCES AXIS=1,-1 OUTPUT=raw_data
 ```
 
-and use `graph_accelerometer.py` to process the generated files, e.g.
+och använd `graph_accelerometer.py` för att bearbeta de skapade filerna, till exempel
 
 ```
 ~/klipper/scripts/graph_accelerometer.py -c /tmp/raw_data_axis*.csv -o /tmp/resonances.png
 ```
 
-which will generate `/tmp/resonances.png` comparing the resonances.
+som skapar `/tmp/resonances.png` med en jämförelse av resonanserna.
 
-For Delta printers with the default tower placement (tower A ~= 210 degrees, B ~= 330 degrees, and C ~= 90 degrees), execute
+Kör följande för Delta-skrivare med standardplaceringen av tornen (torn A ~= 210 grader, B ~= 330 grader och C ~= 90 grader):
 
 ```
 TEST_RESONANCES AXIS=0,1 OUTPUT=raw_data
@@ -667,23 +667,23 @@ TEST_RESONANCES AXIS=-0.866025404,-0.5 OUTPUT=raw_data
 TEST_RESONANCES AXIS=0.866025404,-0.5 OUTPUT=raw_data
 ```
 
-and then use the same command
+och använd sedan samma kommando
 
 ```
 ~/klipper/scripts/graph_accelerometer.py -c /tmp/raw_data_axis*.csv -o /tmp/resonances.png
 ```
 
-to generate `/tmp/resonances.png` comparing the resonances.
+för att skapa `/tmp/resonances.png` med en jämförelse av resonanserna.
 
-## Input Shaper auto-calibration
+## Automatisk kalibrering av Input Shaper
 
-Besides manually choosing the appropriate parameters for the input shaper feature, it is also possible to run the auto-tuning for the input shaper directly from Klipper. Run the following command via Octoprint terminal:
+Förutom att välja lämpliga parametrar för funktionen input shaper manuellt går det att köra automatisk trimning av input shaper direkt från Klipper. Kör följande kommando i OctoPrint-terminalen:
 
 ```
 SHAPER_CALIBRATE
 ```
 
-This will run the full test for both axes and generate the csv output (`/tmp/calibration_data_*.csv` by default) for the frequency response and the suggested input shapers. You will also get the suggested frequencies for each input shaper, as well as which input shaper is recommended for your setup, on Octoprint console. For example:
+Det kör hela testet för båda axlarna och skapar CSV-utdata (`/tmp/calibration_data_*.csv` som standard) för frekvensresponsen och de föreslagna input shaper-konfigurationerna. I OctoPrint-konsolen visas också de föreslagna frekvenserna för varje input shaper samt vilken input shaper som rekommenderas för din konfiguration. Exempel:
 
 ```
 Calculating the best input shaper parameters for y axis
@@ -700,65 +700,65 @@ To avoid too much smoothing with '3hump_ei', suggested max_accel <= 2500 mm/sec^
 Recommended shaper_type_y = mzv, shaper_freq_y = 36.8 Hz
 ```
 
-If you agree with the suggested parameters, you can execute `SAVE_CONFIG` now to save them and restart the Klipper. Note that this will not update `max_accel` value in `[printer]` section. You should update it manually following the considerations in [Selecting max_accel](#selecting-max_accel) section.
+Om du godtar de föreslagna parametrarna kan du nu köra `SAVE_CONFIG` för att spara dem och starta om Klipper. Observera att detta inte uppdaterar värdet `max_accel` i avsnittet `[printer]`. Du bör uppdatera det manuellt enligt övervägandena i avsnittet [Välja max_accel](#selecting-max_accel).
 
-If your printer is a bed slinger printer, you can specify which axis to test, so that you can change the accelerometer mounting point between the tests (by default the test is performed for both axes):
+Om skrivaren har en rörlig bädd kan du ange vilken axel som ska testas, så att du kan flytta accelerometerns monteringspunkt mellan testerna (som standard utförs testet för båda axlarna):
 
 ```
 SHAPER_CALIBRATE AXIS=Y
 ```
 
-You can execute `SAVE_CONFIG` twice - after calibrating each axis.
+Du kan köra `SAVE_CONFIG` två gånger – efter kalibreringen av respektive axel.
 
-However, if you connected two accelerometers simultaneously, you simply run `SHAPER_CALIBRATE` without specifying an axis to calibrate the input shaper for both axes in one go.
+Om du däremot har anslutit två accelerometrar samtidigt kör du bara `SHAPER_CALIBRATE` utan att ange axel, för att kalibrera input shaper för båda axlarna i ett steg.
 
-### Input Shaper re-calibration
+### Omkalibrering av Input Shaper
 
-`SHAPER_CALIBRATE` command can be also used to re-calibrate the input shaper in the future, especially if some changes to the printer that can affect its kinematics are made. One can either re-run the full calibration using `SHAPER_CALIBRATE` command, or restrict the auto-calibration to a single axis by supplying `AXIS=` parameter, like
+Kommandot `SHAPER_CALIBRATE` kan även användas för att omkalibrera input shaper senare, särskilt om skrivaren har ändrats på ett sätt som kan påverka kinematiken. Du kan antingen köra om hela kalibreringen med `SHAPER_CALIBRATE` eller begränsa den automatiska kalibreringen till en enda axel genom att ange parametern `AXIS=`, till exempel
 
 ```
 SHAPER_CALIBRATE AXIS=X
 ```
 
-**Warning!** It is not advisable to run the shaper auto-calibration very frequently (e.g. before every print, or every day). In order to determine resonance frequencies, auto-calibration creates intensive vibrations on each of the axes. Generally, 3D printers are not designed to withstand a prolonged exposure to vibrations near the resonance frequencies. Doing so may increase wear of the printer components and reduce their lifespan. There is also an increased risk of some parts unscrewing or becoming loose. Always check that all parts of the printer (including the ones that may normally not move) are securely fixed in place after each auto-tuning.
+**Varning!** Det är inte lämpligt att köra automatisk shaper-kalibrering mycket ofta (till exempel före varje utskrift eller varje dag). För att bestämma resonansfrekvenser skapar den automatiska kalibreringen kraftiga vibrationer på varje axel. 3D-skrivare är generellt inte konstruerade för långvarig exponering för vibrationer nära resonansfrekvenserna. Det kan öka slitaget på skrivarens komponenter och förkorta deras livslängd. Risken ökar också för att delar skruvas loss eller lossnar. Kontrollera alltid efter varje automatisk trimning att alla delar av skrivaren (även sådana som normalt inte rör sig) sitter ordentligt fast.
 
-Also, due to some noise in measurements, it is possible that the tuning results will be slightly different from one calibration run to another one. Still, it is not expected that the noise will affect the print quality too much. However, it is still advised to double-check the suggested parameters, and print some test prints before using them to confirm they are good.
+På grund av visst mätbrus kan trimningsresultaten också skilja sig något mellan kalibreringskörningar. Bruset förväntas dock inte påverka utskriftskvaliteten särskilt mycket. Det rekommenderas ändå att du dubbelkontrollerar de föreslagna parametrarna och skriver ut några testutskrifter innan du använder dem för att bekräfta att de fungerar bra.
 
-## Offline processing of the accelerometer data
+## Offlinebearbetning av accelerometerdata
 
-It is possible to generate the raw accelerometer data and process it offline (e.g. on a host machine), for example to find resonances. In order to do so, run the following commands via Octoprint terminal:
+Det går att skapa rådata från accelerometern och bearbeta dem offline (till exempel på en värddator), exempelvis för att hitta resonanser. Kör följande kommandon i OctoPrint-terminalen:
 
 ```
 SET_INPUT_SHAPER SHAPER_FREQ_X=0 SHAPER_FREQ_Y=0
 TEST_RESONANCES AXIS=X OUTPUT=raw_data
 ```
 
-ignoring any errors for `SET_INPUT_SHAPER` command. For `TEST_RESONANCES` command, specify the desired test axis. The raw data will be written into `/tmp` directory on the RPi.
+och ignorera eventuella fel för kommandot `SET_INPUT_SHAPER`. Ange önskad testaxel för kommandot `TEST_RESONANCES`. Rådata skrivs till katalogen `/tmp` på RPi:n.
 
-The raw data can also be obtained by running the command `ACCELEROMETER_MEASURE` command twice during some normal printer activity - first to start the measurements, and then to stop them and write the output file. Refer to [G-Codes](G-Codes.md#adxl345) for more details.
+Rådata kan också hämtas genom att köra kommandot `ACCELEROMETER_MEASURE` två gånger under normal skrivaraktivitet – först för att starta mätningarna och sedan för att stoppa dem och skriva utdatafilen. Mer information finns i [G-koder](G-Codes.md#adxl345).
 
-The data can be processed later by the following scripts: `scripts/graph_accelerometer.py` and `scripts/calibrate_shaper.py`. Both of them accept one or several raw csv files as the input depending on the mode. The graph_accelerometer.py script supports several modes of operation:
+Data kan sedan bearbetas med följande skript: `scripts/graph_accelerometer.py` och `scripts/calibrate_shaper.py`. Båda tar emot en eller flera råa CSV-filer som indata, beroende på läge. Skriptet graph_accelerometer.py har flera driftslägen:
 
-* plotting raw accelerometer data (use `-r` parameter), only 1 input is supported;
-* plotting a frequency response (no extra parameters required), if multiple inputs are specified, the average frequency response is computed;
-* comparison of the frequency response between several inputs (use `-c` parameter); you can additionally specify which accelerometer axis to consider via `-a x`, `-a y` or `-a z` parameter (if none specified, the sum of vibrations for all axes is used);
-* plotting the spectrogram (use `-s` parameter), only 1 input is supported; you can additionally specify which accelerometer axis to consider via `-a x`, `-a y` or `-a z` parameter (if none specified, the sum of vibrations for all axes is used).
+* rita råa accelerometerdata (använd parametern `-r`), endast 1 indatafil stöds;
+* rita en frekvensrespons (inga extra parametrar krävs); om flera indatafiler anges beräknas den genomsnittliga frekvensresponsen;
+* jämföra frekvensresponsen mellan flera indatafiler (använd parametern `-c`); du kan dessutom ange vilken accelerometeraxel som ska användas med parametern `-a x`, `-a y` eller `-a z` (om ingen anges används summan av vibrationerna för alla axlar);
+* rita spektrogrammet (använd parametern `-s`), endast 1 indatafil stöds; du kan dessutom ange vilken accelerometeraxel som ska användas med parametern `-a x`, `-a y` eller `-a z` (om ingen anges används summan av vibrationerna för alla axlar).
 
-Note that graph_accelerometer.py script supports only the raw_data\*.csv files and not resonances\*.csv or calibration_data\*.csv files.
+Observera att skriptet graph_accelerometer.py endast stöder filerna raw_data\*.csv, inte filerna resonances\*.csv eller calibration_data\*.csv.
 
-For example,
+Exempel:
 
 ```
 ~/klipper/scripts/graph_accelerometer.py /tmp/raw_data_x_*.csv -o /tmp/resonances_x.png -c -a z
 ```
 
-will plot the comparison of several `/tmp/raw_data_x_*.csv` files for Z axis to `/tmp/resonances_x.png` file.
+ritar jämförelsen av flera `/tmp/raw_data_x_*.csv`-filer för Z-axeln till filen `/tmp/resonances_x.png`.
 
-The shaper_calibrate.py script accepts 1 or several inputs and can run automatic tuning of the input shaper and suggest the best parameters that work well for all provided inputs. It prints the suggested parameters to the console, and can additionally generate the chart if `-o output.png` parameter is provided, or the CSV file if `-c output.csv` parameter is specified.
+Skriptet shaper_calibrate.py accepterar 1 eller flera indatafiler och kan automatiskt trimma input shaper och föreslå de bästa parametrarna som fungerar väl för alla angivna indatafiler. Det skriver de föreslagna parametrarna till konsolen och kan dessutom skapa diagrammet om parametern `-o output.png` anges, eller CSV-filen om parametern `-c output.csv` anges.
 
-Providing several inputs to shaper_calibrate.py script can be useful if running some advanced tuning of the input shapers, for example:
+Flera indatafiler till skriptet shaper_calibrate.py kan vara användbara vid avancerad trimning av input shaper, till exempel:
 
-* Running `TEST_RESONANCES AXIS=X OUTPUT=raw_data` (and `Y` axis) for a single axis twice on a bed slinger printer with the accelerometer attached to the toolhead the first time, and the accelerometer attached to the bed the second time in order to detect axes cross-resonances and attempt to cancel them with input shapers.
-* Running `TEST_RESONANCES AXIS=Y OUTPUT=raw_data` twice on a bed slinger with a glass bed and a magnetic surfaces (which is lighter) to find the input shaper parameters that work well for any print surface configuration.
-* Combining the resonance data from multiple test points.
-* Combining the resonance data from 2 axis (e.g. on a bed slinger printer to configure X-axis input_shaper from both X and Y axes resonances to cancel vibrations of the *bed* in case the nozzle 'catches' a print when moving in X axis direction).
+* Kör `TEST_RESONANCES AXIS=X OUTPUT=raw_data` (och för `Y`-axeln) två gånger för en enskild axel på en skrivare med rörlig bädd: första gången med accelerometern fäst vid verktygshuvudet och andra gången med accelerometern fäst vid bädden, för att upptäcka korsresonanser mellan axlarna och försöka kompensera för dem med input shaper.
+* Kör `TEST_RESONANCES AXIS=Y OUTPUT=raw_data` två gånger på en skrivare med rörlig bädd, en gång med en glasbädd och en gång med en magnetisk yta (som är lättare), för att hitta input shaper-parametrar som fungerar väl för alla konfigurationer av utskriftsytan.
+* Kombinera resonansdata från flera testpunkter.
+* Kombinera resonansdata från två axlar (till exempel på en skrivare med rörlig bädd för att konfigurera X-axelns input_shaper från både X- och Y-axlarnas resonanser så att vibrationer från *bädden* kompenseras om munstycket "fastnar" i en utskrift när det rör sig i X-axelns riktning).

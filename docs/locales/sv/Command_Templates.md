@@ -1,14 +1,14 @@
-# Commands templates
+# Kommandomallar
 
-This document provides information on implementing G-Code command sequences in gcode_macro (and similar) config sections.
+Dokumentet innehåller information om att implementera G-kodkommandosekvenser i konfigurationsavsnittet gcode_macro och liknande avsnitt.
 
-## G-Code Macro Naming
+## Namngivning av G-kodmakron
 
-Case is not important for the G-Code macro name - MY_MACRO and my_macro will evaluate the same and may be called in either upper or lower case. If any numbers are used in the macro name then they must all be at the end of the name (eg, TEST_MACRO25 is valid, but MACRO25_TEST3 is not).
+Skiftläge saknar betydelse för G-kodmakrons namn: MY_MACRO och my_macro tolkas lika och kan anropas med versaler eller gemener. Om namn innehåller siffror måste alla stå sist i namnet (TEST_MACRO25 är giltigt, men MACRO25_TEST3 är det inte).
 
-## Formatting of G-Code in the config
+## Formatering av G-kod i konfigurationen
 
-Indentation is important when defining a macro in the config file. To specify a multi-line G-Code sequence it is important for each line to have proper indentation. For example:
+Indrag är viktigt när ett makro definieras i konfigurationsfilen. För en G-kodsekvens på flera rader måste varje rad ha korrekt indrag. Exempelvis:
 
 ```
 [gcode_macro blink_led]
@@ -18,11 +18,11 @@ gcode:
   SET_PIN PIN=my_led VALUE=0
 ```
 
-Note how the `gcode:` config option always starts at the beginning of the line and subsequent lines in the G-Code macro never start at the beginning.
+Observera att konfigurationsalternativet `gcode:` alltid börjar i radens början och att efterföljande rader i G-kodmakrot aldrig börjar där.
 
-## Add a description to your macro
+## Lägg till en beskrivning av makrot
 
-To help identify the functionality a short description can be added. Add `description:` with a short text to describe the functionality. Default is "G-Code macro" if not specified. For example:
+En kort beskrivning kan läggas till för att identifiera funktionen. Lägg till `description:` med en kort funktionstext. Standardvärdet är "G-kodmakro" om inget anges. Exempelvis:
 
 ```
 [gcode_macro blink_led]
@@ -33,13 +33,13 @@ gcode:
   SET_PIN PIN=my_led VALUE=0
 ```
 
-The terminal will display the description when you use the `HELP` command or the autocomplete function.
+Terminalen visar beskrivningen när du använder kommandot `HELP` eller funktionen för automatisk komplettering.
 
-## Save/Restore state for G-Code moves
+## Spara/återställ tillstånd för G-kodrörelser
 
-Unfortunately, the G-Code command language can be challenging to use. The standard mechanism to move the toolhead is via the `G1` command (the `G0` command is an alias for `G1` and it can be used interchangeably with it). However, this command relies on the "G-Code parsing state" setup by `M82`, `M83`, `G90`, `G91`, `G92`, and previous `G1` commands. When creating a G-Code macro it is a good idea to always explicitly set the G-Code parsing state prior to issuing a `G1` command. (Otherwise, there is a risk the `G1` command will make an undesirable request.)
+G-kodens kommandospråk kan tyvärr vara svårt att använda. Standardmekanismen för att flytta verktygshuvudet är kommandot `G1` (`G0` är ett alias för `G1`). Kommandot beror dock på "G-kodtolkningstillståndet" som anges av `M82`, `M83`, `G90`, `G91`, `G92` och tidigare `G1`-kommandon. Ange därför alltid G-kodtolkningstillståndet uttryckligen innan ett `G1`-kommando utfärdas i ett G-kodmakro, annars kan `G1` begära en oönskad rörelse.
 
-A common way to accomplish that is to wrap the `G1` moves in `SAVE_GCODE_STATE`, `G91`, and `RESTORE_GCODE_STATE`. For example:
+Ett vanligt sätt är att omsluta `G1`-rörelser med `SAVE_GCODE_STATE`, `G91` och `RESTORE_GCODE_STATE`. Exempelvis:
 
 ```
 [gcode_macro MOVE_UP]
@@ -50,13 +50,13 @@ gcode:
   RESTORE_GCODE_STATE NAME=my_move_up_state
 ```
 
-The `G91` command places the G-Code parsing state into "relative move mode" and the `RESTORE_GCODE_STATE` command restores the state to what it was prior to entering the macro. Be sure to specify an explicit speed (via the `F` parameter) on the first `G1` command.
+Kommandot `G91` sätter G-kodtolkningstillståndet i "läge för relativ rörelse" och `RESTORE_GCODE_STATE` återställer tillståndet från före makrot. Ange alltid en uttrycklig hastighet med parametern `F` vid första `G1`-kommandot.
 
-## Template expansion
+## Mallexpansion
 
-The gcode_macro `gcode:` config section is evaluated using the Jinja2 template language. One can evaluate expressions at run-time by wrapping them in `{ }` characters or use conditional statements wrapped in `{% %}`. See the [Jinja2 documentation](http://jinja.pocoo.org/docs/2.10/templates/) for further information on the syntax.
+Konfigurationsavsnittet gcode_macro `gcode:` tolkas med mallspråket Jinja2. Uttryck kan utvärderas vid körning genom att omslutas med `{ }`, och villkorssatser med `{% %}`. Se [Jinja2-dokumentationen](http://jinja.pocoo.org/docs/2.10/templates/) för syntaxen.
 
-An example of a complex macro:
+Ett exempel på ett komplext makro:
 
 ```
 [gcode_macro clean_nozzle]
@@ -73,9 +73,9 @@ gcode:
   RESTORE_GCODE_STATE NAME=clean_nozzle_state
 ```
 
-### Macro parameters
+### Makroparametrar
 
-It is often useful to inspect parameters passed to the macro when it is called. These parameters are available via the `params` pseudo-variable. For example, if the macro:
+Det är ofta användbart att inspektera parametrar som skickas till ett makro vid anrop. De finns via pseudovariabeln `params`. Om makrot exempelvis:
 
 ```
 [gcode_macro SET_PERCENT]
@@ -83,9 +83,9 @@ gcode:
   M117 Now at { params.VALUE|float * 100 }%
 ```
 
-were invoked as `SET_PERCENT VALUE=.2` it would evaluate to `M117 Now at 20%`. Note that parameter names are always in upper-case when evaluated in the macro and are always passed as strings. If performing math then they must be explicitly converted to integers or floats.
+anropas som `SET_PERCENT VALUE=.2` tolkas det som `M117 Now at 20%`. Parameternamn är alltid versaler när de tolkas i makrot och skickas alltid som strängar. Vid beräkningar måste de uttryckligen omvandlas till heltal eller flyttal.
 
-It's common to use the Jinja2 `set` directive to use a default parameter and assign the result to a local name. For example:
+Det är vanligt att använda Jinja2-direktivet `set` för att använda en standardparameter och tilldela resultatet ett lokalt namn. Exempelvis:
 
 ```
 [gcode_macro SET_BED_TEMPERATURE]
@@ -94,17 +94,17 @@ gcode:
   M140 S{bed_temp}
 ```
 
-### The "rawparams" variable
+### Variabeln "rawparams"
 
-The full unparsed parameters for the running macro can be access via the `rawparams` pseudo-variable.
+De fullständiga otolkade parametrarna för makrot som körs nås via pseudovariabeln `rawparams`.
 
-Note that this will include any comments that were part of the original command.
+Observera att detta inkluderar kommentarer som var del av det ursprungliga kommandot.
 
-See the [sample-macros.cfg](../config/sample-macros.cfg) file for an example showing how to override the `M117` command using `rawparams`.
+Se filen [sample-macros.cfg](../config/sample-macros.cfg) för ett exempel på hur kommandot `M117` åsidosätts med `rawparams`.
 
-### The "printer" Variable
+### Variabeln "printer"
 
-It is possible to inspect (and alter) the current state of the printer via the `printer` pseudo-variable. For example:
+Skrivarens aktuella tillstånd kan inspekteras och ändras via pseudovariabeln `printer`. Exempelvis:
 
 ```
 [gcode_macro slow_fan]
@@ -112,13 +112,13 @@ gcode:
   M106 S{ printer.fan.speed * 0.9 * 255}
 ```
 
-Available fields are defined in the [Status Reference](Status_Reference.md) document.
+Tillgängliga fält definieras i dokumentet [Statusreferens](Status_Reference.md).
 
-Important! Macros are first evaluated in entirety and only then are the resulting commands executed. If a macro issues a command that alters the state of the printer, the results of that state change will not be visible during the evaluation of the macro. This can also result in subtle behavior when a macro generates commands that call other macros, as the called macro is evaluated when it is invoked (which is after the entire evaluation of the calling macro).
+Viktigt! Makron utvärderas först helt och därefter körs de resulterande kommandona. Om ett makro skickar ett kommando som ändrar skrivarens tillstånd syns inte resultatet av ändringen medan makrot utvärderas. Detta kan också ge subtilt beteende när ett makro genererar kommandon som anropar andra makron, eftersom det anropade makrot utvärderas när det anropas, alltså efter att det anropande makrot har utvärderats helt.
 
-By convention, the name immediately following `printer` is the name of a config section. So, for example, `printer.fan` refers to the fan object created by the `[fan]` config section. There are some exceptions to this rule - notably the `gcode_move` and `toolhead` objects. If the config section contains spaces in it, then one can access it via the `[ ]` accessor - for example: `printer["generic_heater my_chamber_heater"].temperature`.
+Enligt konvention är namnet direkt efter `printer` namnet på ett konfigurationsavsnitt. `printer.fan` avser exempelvis fläktobjektet som skapas av avsnittet `[fan]`. Undantag är bland annat objekten `gcode_move` och `toolhead`. Om avsnittet innehåller blanksteg nås det med accessor-operatorn `[ ]`, exempelvis `printer["generic_heater my_chamber_heater"].temperature`.
 
-Note that the Jinja2 `set` directive can assign a local name to an object in the `printer` hierarchy. This can make macros more readable and reduce typing. For example:
+Observera att Jinja2-direktivet `set` kan ge ett objekt i `printer`-hierarkin ett lokalt namn. Det kan göra makron mer lättlästa och minska skrivandet. Exempelvis:
 
 ```
 [gcode_macro QUERY_HTU21D]
@@ -127,20 +127,20 @@ gcode:
     M117 Temp:{sensor.temperature} Humidity:{sensor.humidity}
 ```
 
-## Actions
+## Åtgärder
 
-There are some commands available that can alter the state of the printer. For example, `{ action_emergency_stop() }` would cause the printer to go into a shutdown state. Note that these actions are taken at the time that the macro is evaluated, which may be a significant amount of time before the generated g-code commands are executed.
+Det finns kommandon som kan ändra skrivarens tillstånd. `{ action_emergency_stop() }` försätter exempelvis skrivaren i avstängt läge. Åtgärderna utförs när makrot utvärderas, vilket kan vara långt innan de genererade G-kodkommandona körs.
 
-Available "action" commands:
+Tillgängliga "action"-kommandon:
 
-- `action_respond_info(msg)`: Write the given `msg` to the /tmp/printer pseudo-terminal. Each line of `msg` will be sent with a "// " prefix.
-- `action_raise_error(msg)`: Abort the current macro (and any calling macros) and write the given `msg` to the /tmp/printer pseudo-terminal. The first line of `msg` will be sent with a "!! " prefix and subsequent lines will have a "// " prefix.
-- `action_emergency_stop(msg)`: Transition the printer to a shutdown state. The `msg` parameter is optional, it may be useful to describe the reason for the shutdown.
-- `action_call_remote_method(method_name)`: Calls a method registered by a remote client. If the method takes parameters they should be provided via keyword arguments, ie: `action_call_remote_method("print_stuff", my_arg="hello_world")`
+- `action_respond_info(msg)`: Skriv angivet `msg` till pseudoterminalen /tmp/printer. Varje rad i `msg` skickas med prefixet "// ".
+- `action_raise_error(msg)`: Avbryt det aktuella makrot, inklusive anropande makron, och skriv `msg` till pseudoterminalen /tmp/printer. Första raden skickas med prefixet "!! " och efterföljande rader med "// ".
+- `action_emergency_stop(msg)`: Försätt skrivaren i avstängt läge. Parametern `msg` är valfri och kan beskriva orsaken till avstängningen.
+- `action_call_remote_method(method_name)`: Anropar en metod som registrerats av en fjärrklient. Om metoden tar parametrar ska de anges som nyckelordsargument, exempelvis `action_call_remote_method("print_stuff", my_arg="hello_world")`.
 
-## Variables
+## Variabler
 
-The SET_GCODE_VARIABLE command may be useful for saving state between macro calls. Variable names may not contain any upper case characters. For example:
+Kommandot SET_GCODE_VARIABLE kan användas för att spara tillstånd mellan makroanrop. Variabelnamn får inte innehålla versaler. Exempelvis:
 
 ```
 [gcode_macro start_probe]
@@ -161,11 +161,11 @@ gcode:
   M140 S{printer["gcode_macro start_probe"].bed_temp}
 ```
 
-Be sure to take the timing of macro evaluation and command execution into account when using SET_GCODE_VARIABLE.
+Ta hänsyn till tidpunkterna för makroutvärdering och kommandoexekvering när SET_GCODE_VARIABLE används.
 
-## Delayed Gcodes
+## Fördröjd G-kod
 
-The [delayed_gcode] configuration option can be used to execute a delayed gcode sequence:
+Konfigurationsalternativet [delayed_gcode] kan användas för att köra en fördröjd G-kodsekvens:
 
 ```
 [delayed_gcode clear_display]
@@ -182,9 +182,9 @@ gcode:
  UPDATE_DELAYED_GCODE ID=clear_display DURATION=10
 ```
 
-When the `load_filament` macro above executes, it will display a "Load Complete!" message after the extrusion is finished. The last line of gcode enables the "clear_display" delayed_gcode, set to execute in 10 seconds.
+När makrot `load_filament` ovan körs visas meddelandet "Inläsning klar!" efter avslutad extrudering. Sista G-kodraden aktiverar delayed_gcode `clear_display`, som körs efter 10 sekunder.
 
-The `initial_duration` config option can be set to execute the delayed_gcode on printer startup. The countdown begins when the printer enters the "ready" state. For example, the below delayed_gcode will execute 5 seconds after the printer is ready, initializing the display with a "Welcome!" message:
+Konfigurationsalternativet `initial_duration` kan köra delayed_gcode vid skrivarstart. Nedräkningen börjar när skrivaren går in i läget "ready". Följande delayed_gcode körs exempelvis fem sekunder efter att skrivaren är klar och initierar displayen med "Välkommen!":
 
 ```
 [delayed_gcode welcome]
@@ -193,7 +193,7 @@ gcode:
   M117 Welcome!
 ```
 
-Its possible for a delayed gcode to repeat by updating itself in the gcode option:
+En fördröjd G-kod kan upprepa sig genom att uppdatera sig själv i alternativet gcode:
 
 ```
 [delayed_gcode report_temp]
@@ -203,40 +203,40 @@ gcode:
   UPDATE_DELAYED_GCODE ID=report_temp DURATION=2
 ```
 
-The above delayed_gcode will send "// Extruder Temp: [ex0_temp]" to Octoprint every 2 seconds. This can be canceled with the following gcode:
+Ovanstående delayed_gcode skickar "// Extruder Temp: [ex0_temp]" till OctoPrint varannan sekund. Det kan avbrytas med följande G-kod:
 
 ```
 UPDATE_DELAYED_GCODE ID=report_temp DURATION=0
 ```
 
-## Menu templates
+## Menymallar
 
-If a [display config section](Config_Reference.md#display) is enabled, then it is possible to customize the menu with [menu](Config_Reference.md#menu) config sections.
+Om ett [display-konfigurationsavsnitt](Config_Reference.md#display) är aktiverat kan menyn anpassas med [menu](Config_Reference.md#menu)-konfigurationsavsnitt.
 
-The following read-only attributes are available in menu templates:
+Följande skrivskyddade attribut finns i menymallar:
 
-* `menu.width` - element width (number of display columns)
-* `menu.ns` - element namespace
-* `menu.event` - name of the event that triggered the script
-* `menu.input` - input value, only available in input script context
+* `menu.width` – elementets bredd (antal displaykolumner)
+* `menu.ns` – elementets namnrymd
+* `menu.event` – namnet på händelsen som utlöste skriptet
+* `menu.input` – indatavärde, endast tillgängligt i indataskriptets kontext
 
-The following actions are available in menu templates:
+Följande åtgärder finns i menymallar:
 
-* `menu.back(force, update)`: will execute menu back command, optional boolean parameters `<force>` and `<update>`.
-   * When `<force>` is set True then it will also stop editing. Default value is False.
-   * When `<update>` is set False then parent container items are not updated. Default value is True.
-* `menu.exit(force)` - will execute menu exit command, optional boolean parameter `<force>` default value False.
-   * When `<force>` is set True then it will also stop editing. Default value is False.
+* `menu.back(force, update)`: kör kommandot för att gå tillbaka i menyn; de booleska parametrarna `<force>` och `<update>` är valfria.
+   * Om `<force>` är True avslutas även redigering. Standardvärdet är False.
+   * Om `<update>` är False uppdateras inte den överordnade behållarens objekt. Standardvärdet är True.
+* `menu.exit(force)` – kör kommandot för att avsluta menyn; den booleska parametern `<force>` är valfri och har standardvärdet False.
+   * Om `<force>` är True avslutas även redigering. Standardvärdet är False.
 
-## Save Variables to disk
+## Spara variabler på disk
 
-If a [save_variables config section](Config_Reference.md#save_variables) has been enabled, `SAVE_VARIABLE VARIABLE=<name> VALUE=<value>` can be used to save the variable to disk so that it can be used across restarts. All stored variables are loaded into the `printer.save_variables.variables` dict at startup and can be used in gcode macros. to avoid overly long lines you can add the following at the top of the macro:
+Om ett [save_variables-konfigurationsavsnitt](Config_Reference.md#save_variables) är aktiverat kan `SAVE_VARIABLE VARIABLE=<name> VALUE=<value>` spara variabeln på disk så att den bevaras vid omstarter. Alla sparade variabler läses in i uppslagsstrukturen `printer.save_variables.variables` vid uppstart och kan användas i G-kodmakron. För att undvika alltför långa rader kan följande läggas överst i makrot:
 
 ```
 {% set svv = printer.save_variables.variables %}
 ```
 
-As an example, it could be used to save the state of 2-in-1-out hotend and when starting a print ensure that the active extruder is used, instead of T0:
+Det kan exempelvis användas för att spara tillståndet för en 2-in-1-out-värmdel och vid utskriftsstart säkerställa att den aktiva extrudern används i stället för T0:
 
 ```
 [gcode_macro T1]

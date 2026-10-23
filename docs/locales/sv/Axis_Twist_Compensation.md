@@ -1,56 +1,56 @@
-# Axis Twist Compensation
+# Kompensation för axelvridning
 
-This document describes the `[axis_twist_compensation]` module.
+Detta dokument beskriver modulen `[axis_twist_compensation]`.
 
 Some printers may have a small twist in their X rail which can skew the results of a probe attached to the X carriage. This is common in printers with designs like the Prusa MK3, Sovol SV06 etc and is further described under [probe location
 bias](Probe_Calibrate.md#location-bias-check). It may result in probe operations such as [Bed Mesh](Bed_Mesh.md), [Screws Tilt Adjust](G-Codes.md#screws_tilt_adjust), [Z Tilt Adjust](G-Codes.md#z_tilt_adjust) etc returning inaccurate representations of the bed.
 
-This module uses manual measurements by the user to correct the probe's results. Note that if your axis is significantly twisted it is strongly recommended to first use mechanical means to fix it prior to applying software corrections.
+Modulen använder manuella mätningar från användaren för att korrigera sondens resultat. Observera att om axeln är kraftigt vriden rekommenderas det starkt att först åtgärda den mekaniskt innan programvarukorrigering används.
 
-**Warning**: This module is not compatible with dockable probes yet and will try to probe the bed without attaching the probe if you use it.
+**Varning:** Modulen är ännu inte kompatibel med dockningsbara sonder och försöker sonda bädden utan att fästa sonden om den används.
 
-## Overview of compensation usage
+## Översikt över användning av kompensering
 
-> **Tip:** Make sure the [probe X and Y offsets](Config_Reference.md#probe) are correctly set as they greatly influence calibration.
+> **Tips:** Kontrollera att [sondens X- och Y-förskjutningar](Config_Reference.md#probe) är korrekt inställda eftersom de påverkar kalibreringen mycket.
 
-### Basic Usage: X-Axis Calibration
+### Grundläggande användning: kalibrering av X-axeln
 
-1. After setting up the `[axis_twist_compensation]` module, run:
+1. Kör följande efter att modulen `[axis_twist_compensation]` har ställts in:
 
 ```
 AXIS_TWIST_COMPENSATION_CALIBRATE
 ```
 
-This command will calibrate the X-axis by default.
+Kommandot kalibrerar X-axeln som standard.
 
-- The calibration wizard will prompt you to measure the probe Z offset at several points along the bed.
-- By default, the calibration uses 3 points, but you can specify a different number with the option: `SAMPLE_COUNT=<value>`
+- Kalibreringsguiden ber dig mäta sondens Z-förskjutning vid flera punkter längs bädden.
+- Kalibreringen använder som standard 3 punkter, men du kan ange ett annat antal med alternativet `SAMPLE_COUNT=<value>`.
 
-1. **Adjust Your Z Offset:** After completing the calibration, be sure to [adjust your Z offset](Probe_Calibrate.md#calibrating-probe-z-offset).
-1. **Perform Bed Leveling Operations:** Use probe-based operations as needed, such as:
+1. **Justera Z-förskjutningen:** Justera [Z-förskjutningen](Probe_Calibrate.md#calibrating-probe-z-offset) när kalibreringen har slutförts.
+1. **Utför bäddnivelleringsåtgärder:** Använd vid behov sondbaserade åtgärder, till exempel:
 
-- [Screws Tilt Adjust](G-Codes.md#screws_tilt_adjust)
-- [Z Tilt Adjust](G-Codes.md#z_tilt_adjust)
+- [Justering av skruvars lutning](G-Codes.md#screws_tilt_adjust)
+- [Justering av Z-lutning](G-Codes.md#z_tilt_adjust)
 
-1. **Finalize the Setup:**
+1. **Slutför inställningen:**
 
-- Home all axes, and perform a [Bed Mesh](Bed_Mesh.md) if necessary.
-- Run a test print, followed by any [fine-tuning](Axis_Twist_Compensation.md#fine-tuning) if needed.
+- Hemkör alla axlar och utför vid behov ett [bäddnät](Bed_Mesh.md).
+- Kör en testutskrift och finjustera sedan vid behov enligt [finjusteringen](Axis_Twist_Compensation.md#fine-tuning).
 
-### For Y-Axis Calibration
+### För kalibrering av Y-axeln
 
-The calibration process for the Y-axis is similar to the X-axis. To calibrate the Y-axis, use:
+Kalibreringsprocessen för Y-axeln liknar den för X-axeln. Använd följande för att kalibrera Y-axeln:
 
 ```
 AXIS_TWIST_COMPENSATION_CALIBRATE AXIS=Y
 ```
 
-This will guide you through the same measuring process as for the X-axis.
+Detta leder dig genom samma mätprocess som för X-axeln.
 
-> **Tip:** Bed temperature and nozzle temperature and size do not seem to have an influence to the calibration process.
+> **Tips:** Bäddtemperaturen samt munstyckets temperatur och storlek tycks inte påverka kalibreringsprocessen.
 
-## [axis_twist_compensation] setup and commands
+## Inställning och kommandon för [axis_twist_compensation]
 
-Configuration options for `[axis_twist_compensation]` can be found in the [Configuration Reference](Config_Reference.md#axis_twist_compensation).
+Konfigurationsalternativ för `[axis_twist_compensation]` finns i [konfigurationsreferensen](Config_Reference.md#axis_twist_compensation).
 
-Commands for `[axis_twist_compensation]` can be found in the [G-Codes Reference](G-Codes.md#axis_twist_compensation)
+Kommandon för `[axis_twist_compensation]` finns i [referensen för G-koder](G-Codes.md#axis_twist_compensation).

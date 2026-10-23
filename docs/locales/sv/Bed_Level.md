@@ -1,48 +1,48 @@
-# Bed leveling
+# Bäddnivellering
 
-Bed leveling (sometimes also referred to as "bed tramming") is critical to getting high quality prints. If a bed is not properly "leveled" it can lead to poor bed adhesion, "warping", and subtle problems throughout the print. This document serves as a guide to performing bed leveling in Klipper.
+Bäddnivellering (kallas ibland även "bäddtramming") är avgörande för utskrifter av hög kvalitet. Om bädden inte är korrekt nivellerad kan det leda till dålig vidhäftning mot bädden, "skevning" och svårupptäckta problem genom hela utskriften. Det här dokumentet är en vägledning till bäddnivellering i Klipper.
 
-It's important to understand the goal of bed leveling. If the printer is commanded to a position `X0 Y0 Z10` during a print, then the goal is for the printer's nozzle to be exactly 10mm from the printer's bed. Further, should the printer then be commanded to a position of `X50 Z10` the goal is for the nozzle to maintain an exact distance of 10mm from the bed during that entire horizontal move.
+Det är viktigt att förstå målet med bäddnivellering. Om skrivaren under en utskrift beordras till positionen `X0 Y0 Z10` är målet att skrivarens munstycke ska befinna sig exakt 10 mm från bädden. Om skrivaren sedan beordras till positionen `X50 Z10` är målet dessutom att munstycket behåller exakt 10 mm avstånd från bädden under hela den horisontella rörelsen.
 
-In order to get good quality prints the printer should be calibrated so that Z distances are accurate to within about 25 microns (.025mm). This is a small distance - significantly smaller than the width of a typical human hair. This scale can not be measured "by eye". Subtle effects (such as heat expansion) impact measurements at this scale. The secret to getting high accuracy is to use a repeatable process and to use a leveling method that leverages the high accuracy of the printer's own motion system.
+För utskrifter av god kvalitet ska skrivaren kalibreras så att Z-avstånd är exakta inom ungefär 25 mikrometer (0,025 mm). Det är ett litet avstånd – avsevärt mindre än bredden på ett vanligt människohår. Den här skalan kan inte mätas "med ögat". Små effekter, såsom värmeutvidgning, påverkar mätningar i den här skalan. Hemligheten bakom hög precision är att använda en repeterbar process och en nivelleringsmetod som utnyttjar skrivarens eget rörelsesystems höga precision.
 
-## Choose the appropriate calibration mechanism
+## Välj lämplig kalibreringsmetod
 
-Different types of printers use different methods for performing bed leveling. All of them ultimately depend on the "paper test" (described below). However, the actual process for a particular type of printer is described in other documents.
+Olika skrivartyper använder olika metoder för bäddnivellering. Alla bygger i slutänden på "papperstestet" (som beskrivs nedan). Den faktiska processen för en viss skrivartyp beskrivs dock i andra dokument.
 
-Prior to running any of these calibration tools, be sure to run the checks described in the [config check document](Config_checks.md). It is necessary to verify basic printer motion before performing bed leveling.
+Innan något av dessa kalibreringsverktyg körs ska du utföra kontrollerna i dokumentet om [konfigurationskontroller](Config_checks.md). Skrivarens grundläggande rörelser måste verifieras före bäddnivellering.
 
-For printers with an "automatic Z probe" be sure to calibrate the probe following the directions in the [Probe Calibrate](Probe_Calibrate.md) document. For delta printers, see the [Delta Calibrate](Delta_Calibrate.md) document. For printers with bed screws and traditional Z endstops, see the [Manual Level](Manual_Level.md) document.
+För skrivare med en "automatisk Z-sond" ska sonden kalibreras enligt anvisningarna i dokumentet [Sondkalibrering](Probe_Calibrate.md). För deltaskrivare, se dokumentet [Deltakalibrering](Delta_Calibrate.md). För skrivare med bäddskruvar och traditionella Z-ändstopp, se dokumentet [Manuell nivellering](Manual_Level.md).
 
-During calibration it may be necessary to set the printer's Z `position_min` to a negative number (eg, `position_min = -2`). The printer enforces boundary checks even during calibration routines. Setting a negative number allows the printer to move below the nominal position of the bed, which may help when trying to determine the actual bed position.
+Under kalibreringen kan skrivarens Z `position_min` behöva anges till ett negativt tal (t.ex. `position_min = -2`). Skrivaren tillämpar gränskontroller även under kalibreringsrutiner. Ett negativt tal gör att skrivaren kan flytta sig under bäddens nominella position, vilket kan hjälpa när den faktiska bäddpositionen ska fastställas.
 
-## The "paper test"
+## Papperstestet
 
-The primary bed calibration mechanism is the "paper test". It involves placing a regular piece of "copy machine paper" between the printer's bed and nozzle, and then commanding the nozzle to different Z heights until one feels a small amount of friction when pushing the paper back and forth.
+Den främsta metoden för bäddkalibrering är "papperstestet". Det innebär att ett vanligt kopieringspapper placeras mellan skrivarens bädd och munstycke och att munstycket sedan flyttas till olika Z-höjder tills du känner ett litet motstånd när papperet förs fram och tillbaka.
 
-It is important to understand the "paper test" even if one has an "automatic Z probe". The probe itself often needs to be calibrated to get good results. That probe calibration is done using this "paper test".
+Det är viktigt att förstå "papperstestet" även om du har en "automatisk Z-sond". Sonden behöver ofta kalibreras för att ge bra resultat. Den kalibreringen görs med detta "papperstest".
 
-In order to perform the paper test, cut a small rectangular piece of paper using a pair of scissors (eg, 5x3 cm). The paper generally has a thickness of around 100 microns (0.100mm). (The exact thickness of the paper isn't crucial.)
+Klipp till en liten rektangulär pappersbit med en sax (t.ex. 5 × 3 cm) för att utföra papperstestet. Papperet har normalt en tjocklek på omkring 100 mikrometer (0,100 mm). (Papperets exakta tjocklek är inte avgörande.)
 
-The first step of the paper test is to inspect the printer's nozzle and bed. Make sure there is no plastic (or other debris) on the nozzle or bed.
+Det första steget i papperstestet är att kontrollera skrivarens munstycke och bädd. Kontrollera att det inte finns plast eller annat skräp på munstycket eller bädden.
 
-**Inspect the nozzle and bed to ensure no plastic is present!**
+**Kontrollera munstycket och bädden så att ingen plast finns kvar!**
 
-If one always prints on a particular tape or printing surface then one may perform the paper test with that tape/surface in place. However, note that tape itself has a thickness and different tapes (or any other printing surface) will impact Z measurements. Be sure to rerun the paper test to measure each type of surface that is in use.
+Om du alltid skriver ut på en viss tejp eller utskriftsyta kan papperstestet utföras med tejpen eller ytan på plats. Observera dock att tejpen har en egen tjocklek och att olika tejper (eller andra utskriftsytor) påverkar Z-mätningarna. Kör papperstestet på nytt för att mäta varje yttyp som används.
 
-If there is plastic on the nozzle then heat up the extruder and use a metal tweezers to remove that plastic. Wait for the extruder to fully cool to room temperature before continuing with the paper test. While the nozzle is cooling, use the metal tweezers to remove any plastic that may ooze out.
+Om det finns plast på munstycket värmer du extrudern och använder en metallpincett för att ta bort plasten. Vänta tills extrudern har svalnat helt till rumstemperatur innan du fortsätter med papperstestet. Medan munstycket svalnar använder du metallpincetten för att ta bort eventuell plast som sipprar ut.
 
-**Always perform the paper test when both nozzle and bed are at room temperature!**
+**Utför alltid papperstestet när både munstycke och bädd har rumstemperatur!**
 
-When the nozzle is heated, its position (relative to the bed) changes due to thermal expansion. This thermal expansion is typically around a 100 microns, which is about the same thickness as a typical piece of printer paper. The exact amount of thermal expansion isn't crucial, just as the exact thickness of the paper isn't crucial. Start with the assumption that the two are equal (see below for a method of determining the difference between the two distances).
+När munstycket värms upp ändras dess position i förhållande till bädden på grund av värmeutvidgning. Denna värmeutvidgning är vanligen omkring 100 mikrometer, ungefär samma tjocklek som ett vanligt skrivarpapper. Den exakta värmeutvidgningen är inte avgörande, precis som papperets exakta tjocklek inte är avgörande. Utgå från att de två är lika stora (se nedan en metod för att fastställa skillnaden mellan avstånden).
 
-It may seem odd to calibrate the distance at room temperature when the goal is to have a consistent distance when heated. However, if one calibrates when the nozzle is heated, it tends to impart small amounts of molten plastic on to the paper, which changes the amount of friction felt. That makes it harder to get a good calibration. Calibrating while the bed/nozzle is hot also greatly increases the risk of burning oneself. The amount of thermal expansion is stable, so it is easily accounted for later in the calibration process.
+Det kan verka märkligt att kalibrera avståndet vid rumstemperatur när målet är ett jämnt avstånd vid uppvärmning. Men om du kalibrerar med upphettat munstycke fastnar ofta små mängder smält plast på papperet, vilket ändrar det upplevda motståndet. Det gör det svårare att få en bra kalibrering. Kalibrering när bädden eller munstycket är varmt ökar också risken för brännskador betydligt. Värmeutvidgningen är stabil och kan därför enkelt tas med senare i kalibreringsprocessen.
 
-**Use an automated tool to determine precise Z heights!**
+**Använd ett automatiserat verktyg för att fastställa exakta Z-höjder!**
 
-Klipper has several helper scripts available (eg, MANUAL_PROBE, Z_ENDSTOP_CALIBRATE, PROBE_CALIBRATE, DELTA_CALIBRATE). See the documents [described above](#choose-the-appropriate-calibration-mechanism) to choose one of them.
+Klipper har flera hjälpskript (t.ex. MANUAL_PROBE, Z_ENDSTOP_CALIBRATE, PROBE_CALIBRATE och DELTA_CALIBRATE). Se [dokumenten ovan](#choose-the-appropriate-calibration-mechanism) för att välja ett av dem.
 
-Run the appropriate command in the OctoPrint terminal window. The script will prompt for user interaction in the OctoPrint terminal output. It will look something like:
+Kör lämpligt kommando i OctoPrints terminalfönster. Skriptet uppmanar dig till åtgärder i terminalutmatningen från OctoPrint. Det ser ungefär ut så här:
 
 ```
 Recv: // Starting manual Z probe. Use TESTZ to adjust position.
@@ -50,50 +50,50 @@ Recv: // Finish with ACCEPT or ABORT command.
 Recv: // Z position: ?????? --> 5.000 <-- ??????
 ```
 
-The current height of the nozzle (as the printer currently understands it) is shown between the "--> <--". The number to the right is the height of the last probe attempt just greater than the current height, and to the left is the last probe attempt less than the current height (or ?????? if no attempt has been made).
+Munstyckets aktuella höjd (så som skrivaren för närvarande uppfattar den) visas mellan "--> <--". Siffran till höger är höjden från det senaste sondförsöket som var större än den aktuella höjden, och siffran till vänster är det senaste sondförsöket som var mindre än den aktuella höjden (eller ?????? om inget försök har gjorts).
 
-Place the paper between the nozzle and bed. It can be useful to fold a corner of the paper so that it is easier to grab. (Try not to push down on the bed when moving the paper back and forth.)
+Placera papperet mellan munstycket och bädden. Det kan vara praktiskt att vika ett hörn av papperet så att det blir lättare att hålla i. (Försök att inte trycka ned bädden när papperet förs fram och tillbaka.)
 
 ![paper-test](img/paper-test.jpg)
 
-Use the TESTZ command to request the nozzle to move closer to the paper. For example:
+Använd kommandot TESTZ för att be munstycket flytta närmare papperet. Till exempel:
 
 ```
 TESTZ Z=-.1
 ```
 
-The TESTZ command will move the nozzle a relative distance from the nozzle's current position. (So, `Z=-.1` requests the nozzle to move closer to the bed by .1mm.) After the nozzle stops moving, push the paper back and forth to check if the nozzle is in contact with the paper and to feel the amount of friction. Continue issuing TESTZ commands until one feels a small amount of friction when testing with the paper.
+Kommandot TESTZ flyttar munstycket ett relativt avstånd från dess aktuella position. (`Z=-.1` ber alltså munstycket flytta 0,1 mm närmare bädden.) När munstycket har stannat för du papperet fram och tillbaka för att kontrollera om munstycket har kontakt med papperet och känna motståndet. Fortsätt att utfärda TESTZ-kommandon tills du känner ett litet motstånd med papperet.
 
-If too much friction is found then one can use a positive Z value to move the nozzle up. It is also possible to use `TESTZ Z=+` or `TESTZ Z=-` to "bisect" the last position - that is to move to a position half way between two positions. For example, if one received the following prompt from a TESTZ command:
+Om motståndet är för stort kan du använda ett positivt Z-värde för att flytta upp munstycket. Du kan även använda `TESTZ Z=+` eller `TESTZ Z=-` för att "halvera" den senaste positionen, det vill säga flytta till en position mitt emellan två positioner. Om du till exempel fick följande uppmaning från ett TESTZ-kommando:
 
 ```
 Recv: // Z position: 0.130 --> 0.230 <-- 0.280
 ```
 
-Then a `TESTZ Z=-` would move the nozzle to a Z position of 0.180 (half way between 0.130 and 0.230). One can use this feature to help rapidly narrow down to a consistent friction. It is also possible to use `Z=++` and `Z=--` to return directly to a past measurement - for example, after the above prompt a `TESTZ Z=--` command would move the nozzle to a Z position of 0.130.
+Då flyttar `TESTZ Z=-` munstycket till Z-positionen 0.180 (mitt emellan 0.130 och 0.230). Funktionen kan användas för att snabbt begränsa sökningen till ett konsekvent motstånd. Du kan även använda `Z=++` och `Z=--` för att gå direkt tillbaka till en tidigare mätning – efter uppmaningen ovan flyttar till exempel `TESTZ Z=--` munstycket till Z-positionen 0.130.
 
-After finding a small amount of friction run the ACCEPT command:
+När du har hittat ett litet motstånd kör du kommandot ACCEPT:
 
 ```
 ACCEPT
 ```
 
-This will accept the given Z height and proceed with the given calibration tool.
+Det godkänner den angivna Z-höjden och fortsätter med det aktuella kalibreringsverktyget.
 
-The exact amount of friction felt isn't crucial, just as the amount of thermal expansion and exact width of the paper isn't crucial. Just try to obtain the same amount of friction each time one runs the test.
+Den exakta mängden motstånd är inte avgörande, precis som varken värmeutvidgningen eller papperets exakta tjocklek är avgörande. Försök bara att få samma mängd motstånd varje gång testet körs.
 
-If something goes wrong during the test, one can use the `ABORT` command to exit the calibration tool.
+Om något går fel under testet kan du använda kommandot `ABORT` för att avsluta kalibreringsverktyget.
 
-## Determining Thermal Expansion
+## Fastställa värmeutvidgning
 
-After successfully performing bed leveling, one may go on to calculate a more precise value for the combined impact of "thermal expansion", "thickness of the paper", and "amount of friction felt during the paper test".
+När bäddnivelleringen har utförts kan du beräkna ett mer exakt värde för den samlade effekten av "värmeutvidgning", "papperets tjocklek" och "motståndet som känns under papperstestet".
 
-This type of calculation is generally not needed as most users find the simple "paper test" provides good results.
+Den här beräkningen behövs normalt inte eftersom de flesta användare får bra resultat med det enkla "papperstestet".
 
-The easiest way to make this calculation is to print a test object that has straight walls on all sides. The large hollow square found in [docs/prints/square.stl](prints/square.stl) can be used for this. When slicing the object, make sure the slicer uses the same layer height and extrusion widths for the first level that it does for all subsequent layers. Use a coarse layer height (the layer height should be around 75% of the nozzle diameter) and do not use a brim or raft.
+Det enklaste sättet att göra beräkningen är att skriva ut ett testobjekt med raka väggar på alla sidor. Den stora ihåliga kvadraten i [docs/prints/square.stl](prints/square.stl) kan användas för detta. När objektet skivas ska skivningsprogrammet använda samma lagerhöjd och extruderingsbredder för första lagret som för alla efterföljande lager. Använd en grov lagerhöjd (lagerhöjden bör vara omkring 75 % av munstyckets diameter) och använd inte brim eller raft.
 
-Print the test object, wait for it to cool, and remove it from the bed. Inspect the lowest layer of the object. (It may also be useful to run a finger or nail along the bottom edge.) If one finds the bottom layer bulges out slightly along all sides of the object then it indicates the nozzle was slightly closer to the bed then it should be. One can issue a `SET_GCODE_OFFSET Z=+.010` command to increase the height. In subsequent prints one can inspect for this behavior and make further adjustment as needed. Adjustments of this type are typically in 10s of microns (.010mm).
+Skriv ut testobjektet, vänta tills det har svalnat och ta bort det från bädden. Granska objektets nedersta lager. (Det kan också vara användbart att dra ett finger eller en nagel längs underkanten.) Om det nedersta lagret buktar ut något längs alla objektets sidor tyder det på att munstycket var något närmare bädden än det borde ha varit. Du kan då använda `SET_GCODE_OFFSET Z=+.010` för att öka höjden. Vid efterföljande utskrifter kan du kontrollera detta beteende och justera ytterligare vid behov. Justeringar av denna typ ligger vanligen på tiotals mikrometer (0,010 mm).
 
-If the bottom layer consistently appears narrower than subsequent layers then one can use the SET_GCODE_OFFSET command to make a negative Z adjustment. If one is unsure, then one can decrease the Z adjustment until the bottom layer of prints exhibit a small bulge, and then back-off until it disappears.
+Om det nedersta lagret konsekvent ser smalare ut än efterföljande lager kan du använda kommandot SET_GCODE_OFFSET för att göra en negativ Z-justering. Om du är osäker kan du minska Z-justeringen tills utskrifternas nedersta lager får en liten utbuktning och sedan backa tills den försvinner.
 
-The easiest way to apply the desired Z adjustment is to create a START_PRINT g-code macro, arrange for the slicer to call that macro during the start of each print, and add a SET_GCODE_OFFSET command to that macro. See the [slicers](Slicers.md) document for further details.
+Det enklaste sättet att tillämpa önskad Z-justering är att skapa ett START_PRINT-G-code-makro, låta skivningsprogrammet anropa makrot vid starten av varje utskrift och lägga till ett SET_GCODE_OFFSET-kommando i makrot. Mer information finns i dokumentet [skivningsprogram](Slicers.md).

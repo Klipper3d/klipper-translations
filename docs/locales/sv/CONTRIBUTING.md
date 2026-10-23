@@ -1,129 +1,129 @@
-# Contributing to Klipper
+# Bidra till Klipper
 
-Thank you for contributing to Klipper! This document describes the process for contributing changes to Klipper.
+Tack för att du bidrar till Klipper! Detta dokument beskriver processen för att bidra med ändringar till Klipper.
 
-Please see the [contact page](Contact.md) for information on reporting an issue or for details on contacting the developers.
+Se [kontaktsidan](Contact.md) för information om felrapportering eller uppgifter om hur du kontaktar utvecklarna.
 
-## Overview of Contribution Process
+## Översikt över bidragsprocessen
 
-Contributions to Klipper generally follow a high-level process:
+Bidrag till Klipper följer i allmänhet denna övergripande process:
 
-1. A submitter starts by creating a [GitHub Pull Request](https://github.com/Klipper3d/klipper/pulls) when a submission is ready for widespread deployment.
-1. When a [reviewer](#reviewers) is available to [review](#what-to-expect-in-a-review) the submission, they will assign themselves to the Pull Request on GitHub. The goal of the review is to look for defects and to check that the submission follows documented guidelines.
-1. After a successful review, the reviewer will "approve the review" on GitHub and a [maintainer](#reviewers) will commit the change to the Klipper master branch.
+1. En bidragsgivare börjar med att skapa en [GitHub-pull request](https://github.com/Klipper3d/klipper/pulls) när bidraget är redo för bred användning.
+1. När en [granskare](#reviewers) kan [granska](#what-to-expect-in-a-review) bidraget tilldelar hen sig själv pull requesten på GitHub. Målet med granskningen är att hitta fel och kontrollera att bidraget följer dokumenterade riktlinjer.
+1. Efter en lyckad granskning "godkänner" granskaren den på GitHub och en [underhållare](#reviewers) checkar in ändringen i Klippers master-gren.
 
-When working on enhancements, consider starting (or contributing to) a topic on [Klipper Discourse](Contact.md). An ongoing discussion on the forum can improve visibility of development work and may attract others interested in testing new work.
+När du arbetar med förbättringar kan du överväga att starta, eller bidra till, ett ämne på [Klipper Discourse](Contact.md). En pågående diskussion på forumet kan öka synligheten för utvecklingsarbetet och locka andra som är intresserade av att testa nytt arbete.
 
-## What to expect in a review
+## Vad du kan förvänta dig vid en granskning
 
-Contributions to Klipper are reviewed before merging. The primary goal of the review process is to check for defects and to check that the submission follows guidelines specified in the Klipper documentation.
+Bidrag till Klipper granskas före sammanfogning. Granskningsprocessens huvudsakliga mål är att kontrollera fel och att bidraget följer riktlinjerna i Klipper-dokumentationen.
 
-It is understood that there are many ways to accomplish a task; it is not the intent of the review to discuss the "best" implementation. Where possible, review discussions focused on facts and measurements are preferable.
+Det finns många sätt att utföra en uppgift, och granskningens avsikt är inte att diskutera den "bästa" implementeringen. När det är möjligt är granskningsdiskussioner som bygger på fakta och mätningar att föredra.
 
-The majority of submissions will result in feedback from a review. Be prepared to obtain feedback, provide further details, and to update the submission if needed.
+De flesta bidrag leder till återkoppling från en granskning. Var beredd på att ta emot återkoppling, lämna ytterligare uppgifter och uppdatera bidraget vid behov.
 
-Common things a reviewer will look for:
+Vanliga saker som en granskare tittar efter:
 
-1. Is the submission free of defects and is it ready to be widely deployed?
+1. Är bidraget fritt från fel och redo för bred användning?
 
-   Submitters are expected to test their changes prior to submission. The reviewers look for errors, but they don't, in general, test submissions. An accepted submission is often deployed to thousands of printers within a few weeks of acceptance. Quality of submissions is therefore considered a priority.
+   Bidragsgivare förväntas testa sina ändringar före insändning. Granskarna letar efter fel men testar i allmänhet inte bidrag. Ett godtaget bidrag distribueras ofta till tusentals skrivare inom några veckor efter godkännande. Bidragens kvalitet är därför en prioritet.
 
-   The main [Klipper3d/klipper](https://github.com/Klipper3d/klipper) GitHub repository does not accept experimental work. Submitters should perform experimentation, debugging, and testing in their own repositories. The [Klipper Discourse](Contact.md) server is a good place to raise awareness of new work and to find users interested in providing real-world feedback.
+   Huvudförrådet [Klipper3d/klipper](https://github.com/Klipper3d/klipper) på GitHub tar inte emot experimentellt arbete. Bidragsgivare bör utföra experiment, felsökning och tester i egna förråd. [Klipper Discourse](Contact.md) är en bra plats för att uppmärksamma nytt arbete och hitta användare som vill ge återkoppling från verklig användning.
 
-   Submissions must pass all [regression test cases](Debugging.md).
+   Bidrag måste klara alla [regressionstestfall](Debugging.md).
 
-   When fixing a defect in the code, submitters should have a general understanding of the root cause of that defect, and the fix should target that root cause.
+   När ett fel i koden rättas bör bidragsgivaren ha en allmän förståelse av felets grundorsak, och rättningen bör riktas mot den grundorsaken.
 
-   Code submissions should not contain excessive debugging code, debugging options, nor run-time debug logging.
+   Kodbidrag bör inte innehålla överdriven felsökningskod, felsökningsalternativ eller felsökningsloggning vid körning.
 
-   Comments in code submissions should focus on enhancing code maintenance. Submissions should not contain "commented out code" nor excessive comments describing past implementations. There should not be excessive "todo" comments.
+   Kommentarer i kodbidrag bör fokusera på att underlätta kodunderhåll. Bidrag bör inte innehålla utkommenterad kod eller överdrivna kommentarer som beskriver tidigare implementationer. Det bör inte heller finnas överdrivet många "todo"-kommentarer.
 
-   Updates to documentation should not declare that they are a "work in progress".
-1. Does the submission provide a "high impact" benefit to real-world users performing real-world tasks?
+   Dokumentationsuppdateringar bör inte ange att de är "pågående arbete".
+1. Ger bidraget en "stor påverkan" för verkliga användare som utför verkliga uppgifter?
 
-   Reviewers need to identify, at least in their own minds, roughly "who the target audience is", a rough scale of "the size of that audience", the "benefit" they will obtain, how the "benefit is measured", and the "results of those measurement tests". In most cases this will be obvious to both the submitter and the reviewer, and it is not explicitly stated during a review.
+   Granskare behöver åtminstone för egen del identifiera ungefär "vem målgruppen är", "hur stor målgruppen är", vilken "nytta" den får, hur nyttan mäts och "resultaten av dessa mätningar". I de flesta fall är detta uppenbart för både bidragsgivaren och granskaren och uttalas inte uttryckligen under en granskning.
 
-   Submissions to the master Klipper branch are expected to have a noteworthy target audience. As a general "rule of thumb", submissions should target a user base of at least a 100 real-world users.
+   Bidrag till Klippers master-gren förväntas ha en betydande målgrupp. Som en allmän tumregel bör bidrag rikta sig till minst 100 verkliga användare.
 
-   If a reviewer asks for details on the "benefit" of a submission, please don't consider it criticism. Being able to understand the real-world benefits of a change is a natural part of a review.
+   Om en granskare frågar om detaljer kring bidragets "nytta", se det inte som kritik. Att kunna förstå en ändrings nytta i verklig användning är en naturlig del av granskningen.
 
-   When discussing benefits it is preferable to discuss "facts and measurements". In general, reviewers are not looking for responses of the form "someone may find option X useful", nor are they looking for responses of the form "this submission adds a feature that firmware X implements". Instead, it is generally preferable to discuss details on how the quality improvement was measured and what were the results of those measurements - for example, "tests on Acme X1000 printers show improved corners as seen in picture ...", or for example "print time of real-world object X on a Foomatic X900 printer went from 4 hours to 3.5 hours". It is understood that testing of this type can take significant time and effort. Some of Klipper's most notable features took months of discussion, rework, testing, and documentation prior to being merged into the master branch.
+   När nytta diskuteras är det bättre att tala om "fakta och mätningar". Granskare söker i allmänhet inte svar som "någon kan ha nytta av alternativ X" eller "bidraget lägger till en funktion som firmware X implementerar". I stället är det bättre att beskriva hur kvalitetsförbättringen mättes och vilka resultaten blev. Till exempel: "tester på Acme X1000-skrivare visar förbättrade hörn enligt bild …", eller "utskriftstiden för verkligt objekt X på en Foomatic X900-skrivare minskade från 4 till 3,5 timmar". Tester av denna typ kan kräva avsevärd tid och ansträngning. Några av Klippers mest anmärkningsvärda funktioner krävde månader av diskussion, omarbetning, testning och dokumentation innan de sammanfogades med master-grenen.
 
-   All new modules, config options, commands, command parameters, and documents should have "high impact". We do not want to burden users with options that they can not reasonably configure nor do we want to burden them with options that don't provide a notable benefit.
+   Alla nya moduler, konfigurationsalternativ, kommandon, kommandoparametrar och dokument bör ha "stor påverkan". Vi vill inte belasta användarna med alternativ som de rimligen inte kan konfigurera eller som inte ger någon betydande nytta.
 
-   A reviewer may ask for clarification on how a user is to configure an option - an ideal response will contain details on the process - for example, "users of the MegaX500 are expected to set option X to 99.3 while users of the Elite100Y are expected to calibrate option X using procedure ...".
+   En granskare kan be om ett förtydligande kring hur en användare ska konfigurera ett alternativ. Ett idealiskt svar innehåller uppgifter om processen, till exempel: "användare av MegaX500 förväntas sätta alternativ X till 99,3 medan användare av Elite100Y förväntas kalibrera alternativ X med proceduren …".
 
-   If the goal of an option is to make the code more modular then prefer using code constants instead of user facing config options.
+   Om syftet med ett alternativ är att göra koden mer modulär bör kodkonstanter användas i stället för användarvända konfigurationsalternativ.
 
-   New modules, new options, and new parameters should not provide similar functionality to existing modules - if the differences are arbitrary than it's preferable to utilize the existing system or refactor the existing code.
-1. Is the copyright of the submission clear, non-gratuitous, and compatible?
+   Nya moduler, alternativ och parametrar bör inte ha funktionalitet som liknar befintliga modulers. Om skillnaderna är godtyckliga är det bättre att använda det befintliga systemet eller refaktorera den befintliga koden.
+1. Är bidragets upphovsrätt tydlig, relevant och kompatibel?
 
-   New C files and Python files should have an unambiguous copyright statement. See the existing files for the preferred format. Declaring a copyright on an existing file when making minor changes to that file is discouraged.
+   Nya C- och Python-filer bör ha en otvetydig upphovsrättsnotis. Se befintliga filer för önskat format. Det avråds från att ange upphovsrätt i en befintlig fil vid små ändringar av den filen.
 
-   Code taken from 3rd party sources must be compatible with the Klipper license (GNU GPLv3). Large 3rd party code additions should be added to the `lib/` directory (and follow the format described in [lib/README](../lib/README)).
+   Kod från tredjepartskällor måste vara kompatibel med Klipper-licensen GNU GPLv3. Stora tillägg av tredjepartskod bör läggas i katalogen `lib/` och följa formatet i [lib/README](../lib/README).
 
-   Submitters must provide a [Signed-off-by line](#format-of-commit-messages) using their full real name. It indicates the submitter agrees with the [developer certificate of origin](developer-certificate-of-origin).
-1. Does the submission follow guidelines specified in the Klipper documentation?
+   Bidragsgivare måste ange en [Signed-off-by-rad](#format-of-commit-messages) med sitt fullständiga verkliga namn. Den visar att bidragsgivaren godkänner [utvecklarens ursprungscertifikat](developer-certificate-of-origin).
+1. Följer bidraget riktlinjerna i Klipper-dokumentationen?
 
-   In particular, code should follow the guidelines in <Code_Overview.md> and config files should follow the guidelines in <Example_Configs.md>.
-1. Is the Klipper documentation updated to reflect new changes?
+   I synnerhet bör koden följa riktlinjerna i <Code_Overview.md> och konfigurationsfiler riktlinjerna i <Example_Configs.md>.
+1. Är Klipper-dokumentationen uppdaterad för att spegla nya ändringar?
 
-   At a minimum, the reference documentation must be updated with corresponding changes to the code:
+   Som ett minimum måste referensdokumentationen uppdateras med motsvarande kodändringar:
 
-   * All commands and command parameters must be documented in <G-Codes.md>.
-   * All user facing modules and their config parameters must be documented in <Config_Reference.md>.
-   * All exported "status variables" must be documented in <Status_Reference.md>.
-   * All new "webhooks" and their parameters must be documented in <API_Server.md>.
-   * Any change that makes a non-backwards compatible change to a command or config file setting must be documented in <Config_Changes.md>.
+   * Alla kommandon och kommandoparametrar måste dokumenteras i <G-Codes.md>.
+   * Alla användarvända moduler och deras konfigurationsparametrar måste dokumenteras i <Config_Reference.md>.
+   * Alla exporterade "statusvariabler" måste dokumenteras i <Status_Reference.md>.
+   * Alla nya "webhooks" och deras parametrar måste dokumenteras i <API_Server.md>.
+   * Varje ändring som inte är bakåtkompatibel för ett kommando eller en konfigurationsinställning måste dokumenteras i <Config_Changes.md>.
 
-New documents should be added to <Overview.md> and be added to the website index [docs/_klipper3d/mkdocs.yml](../docs/_klipper3d/mkdocs.yml).
+Nya dokument bör läggas till i <Overview.md> och i webbplatsindexet [docs/_klipper3d/mkdocs.yml](../docs/_klipper3d/mkdocs.yml).
 
-1. Are commits well formed, address a single topic per commit, and independent?
+1. Är commitarna välformade, behandlar ett ämne var och är oberoende?
 
-   Commit messages should follow the [preferred format](#format-of-commit-messages).
+   Commitmeddelanden bör följa det [föredragna formatet](#format-of-commit-messages).
 
-   Commits must not have a merge conflict. New additions to the Klipper master branch are always done via a "rebase" or "squash and rebase". It is generally not necessary for submitters to re-merge their submission on every update to the Klipper master repository. However, if there is a merge conflict, then submitters are recommended to use `git rebase` to address the conflict.
+   Commitar får inte ha någon sammanslagningskonflikt. Nya tillägg till Klippers master-gren görs alltid via "rebase" eller "squash and rebase". Det är vanligen inte nödvändigt att sammanfoga om bidraget vid varje uppdatering av Klippers master-förråd. Vid en sammanslagningskonflikt rekommenderas dock att bidragsgivaren använder `git rebase` för att lösa den.
 
-   Each commit should address a single high-level change. Large changes should be broken up into multiple independent commits. Each commit should "stand on its own" so that tools like `git bisect` and `git revert` work reliably.
+   Varje commit bör behandla en enda ändring på hög nivå. Stora ändringar bör delas upp i flera oberoende commitar. Varje commit bör "stå för sig själv" så att verktyg som `git bisect` och `git revert` fungerar tillförlitligt.
 
-   Whitespace changes should not be mixed with functional changes. In general, gratuitous whitespace changes are not accepted unless they are from the established "owner" of the code being modified.
+   Ändringar av blanktecken bör inte blandas med funktionella ändringar. I allmänhet godtas inte onödiga blankteckenändringar, om de inte kommer från den etablerade "ägaren" till koden som ändras.
 
-Klipper does not implement a strict "coding style guide", but modifications to existing code should follow the high-level code flow, code indentation style, and format of that existing code. Submissions of new modules and systems have more flexibility in coding style, but it is preferable for that new code to follow an internally consistent style and to generally follow industry wide coding norms.
+Klipper har ingen strikt "guide för kodstil", men ändringar av befintlig kod bör följa den övergripande kodstrukturen, indenteringsstilen och formatet för den befintliga koden. Bidrag med nya moduler och system har större frihet i kodstil, men den nya koden bör ha en internt konsekvent stil och i allmänhet följa branschens kodnormer.
 
-It is not a goal of a review to discuss "better implementations". However, if a reviewer struggles to understand the implementation of a submission, then they may ask for changes to make the implementation more transparent. In particular, if reviewers can not convince themselves that a submission is free of defects then changes may be necessary.
+Det är inte en gransknings mål att diskutera "bättre implementationer". Om en granskare har svårt att förstå implementeringen av ett bidrag kan hen dock begära ändringar för att göra den tydligare. I synnerhet kan ändringar krävas om granskarna inte kan övertyga sig om att bidraget är fritt från fel.
 
-As part of a review, a reviewer may create an alternate Pull Request for a topic. This may be done to avoid excessive "back and forth" on minor procedural items and thus streamline the submission process. It may also be done because the discussion inspires a reviewer to build an alternative implementation. Both situations are a normal result of a review and should not be considered criticism of the original submission.
+Som en del av en granskning kan en granskare skapa en alternativ pull request för ett ämne. Det kan göras för att undvika alltför mycket fram och tillbaka om mindre processfrågor och därmed effektivisera bidragsprocessen. Det kan också göras eftersom diskussionen inspirerar granskaren att bygga en alternativ implementation. Båda situationerna är normala resultat av en granskning och bör inte ses som kritik av det ursprungliga bidraget.
 
-### Helping with reviews
+### Hjälpa till med granskningar
 
-We appreciate help with reviews! It is not necessary to be a [listed reviewer](#reviewers) to perform a review. Submitters of GitHub Pull Requests are also encouraged to review their own submissions.
+Vi uppskattar hjälp med granskningar! Du behöver inte vara en [uppräknad granskare](#reviewers) för att granska. Bidragsgivare med GitHub-pull requests uppmuntras också att granska sina egna bidrag.
 
-To help with a review, follow the steps outlined in [what to expect in a review](#what-to-expect-in-a-review) to verify the submission. After completing the review, add a comment to the GitHub Pull Request with your findings. If the submission passes the review then please state that explicitly in the comment - for example something like "I reviewed this change according to the steps in the CONTRIBUTING document and everything looks good to me". If unable to complete some steps in the review then please explicitly state which steps were reviewed and which steps were not reviewed - for example something like "I didn't check the code for defects, but I reviewed everything else in the CONTRIBUTING document and it looks good".
+För att hjälpa till med en granskning följer du stegen i [vad du kan förvänta dig vid en granskning](#what-to-expect-in-a-review) för att kontrollera bidraget. När granskningen är klar lägger du till en kommentar med dina resultat i GitHub-pull requesten. Om bidraget klarar granskningen ska det anges uttryckligen i kommentaren, exempelvis: "Jag granskade ändringen enligt stegen i CONTRIBUTING-dokumentet och allt ser bra ut för mig". Om vissa steg inte kunde utföras ska det uttryckligen anges vilka steg som granskades och vilka som inte granskades, exempelvis: "Jag kontrollerade inte koden för fel, men granskade allt annat i CONTRIBUTING-dokumentet och det ser bra ut".
 
-We also appreciate testing of submissions. If the code was tested then please add a comment to the GitHub Pull Request with the results of your test - success or failure. Please explicitly state that the code was tested and the results - for example something like "I tested this code on my Acme900Z printer with a vase print and the results were good".
+Vi uppskattar också testning av bidrag. Om koden har testats, lägg till en kommentar i GitHub-pull requesten med testresultatet, oavsett om det lyckades eller misslyckades. Ange uttryckligen att koden testades och resultatet, till exempel: "Jag testade denna kod på min Acme900Z-skrivare med en vasutskrift och resultatet var bra".
 
-### Reviewers
+### Granskare
 
-The Klipper "reviewers" are:
+Klippers "granskare" är:
 
-| Name | GitHub Id | Areas of interest |
+| Namn | GitHub-id | Intresseområden |
 | --- | --- | --- |
-| Dmitry Butyugin | @dmbutyugin | Input shaping, resonance testing, kinematics |
-| Eric Callahan | @Arksine | Bed leveling, MCU flashing |
-| James Hartley | @JamesH1978 | Configuration files |
-| Kevin O'Connor | @KevinOConnor | Core motion system, Micro-controller code |
+| Dmitry Butyugin | @dmbutyugin | Input Shaping, resonanstestning, kinematik |
+| Eric Callahan | @Arksine | Bäddnivellering, flashning av MCU |
+| James Hartley | @JamesH1978 | Konfigurationsfiler |
+| Kevin O'Connor | @KevinOConnor | Kärnrörelsesystem, mikrokontrollerkod |
 
-Please do not "ping" any of the reviewers and please do not direct submissions at them. All of the reviewers monitor the forums and PRs, and will take on reviews when they have time to.
+"Pinga" inte någon av granskarna och rikta inte bidrag till dem. Alla granskare följer forumen och pull requestarna och tar sig an granskningar när de har tid.
 
-The Klipper "maintainers" are:
+Klippers "underhållare" är:
 
-| Name | GitHub name |
+| Namn | GitHub-namn |
 | --- | --- |
 | Kevin O'Connor | @KevinOConnor |
 
-## Format of commit messages
+## Format för commitmeddelanden
 
-Each commit should have a commit message formatted similar to the following:
+Varje commit bör ha ett commitmeddelande med ungefär följande format:
 
 ```
 module: Capitalized, short (50 chars or less) summary
@@ -140,28 +140,28 @@ Further paragraphs come after blank lines..
 Signed-off-by: My Name <myemail@example.org>
 ```
 
-In the above example, `module` should be the name of a file or directory in the repository (without a file extension). For example, `clocksync: Fix typo in pause() call at connect time`. The purpose of specifying a module name in the commit message is to help provide context for the commit comments.
+I exemplet ovan bör `module` vara namnet på en fil eller katalog i förrådet, utan filändelse. Till exempel `clocksync: Fix typo in pause() call at connect time`. Syftet med att ange ett modulnamn i commitmeddelandet är att ge sammanhang åt commitkommentarerna.
 
-It is important to have a "Signed-off-by" line on each commit - it certifies that you agree to the [developer certificate of origin](developer-certificate-of-origin). It must contain your real name (sorry, no pseudonyms or anonymous contributions) and contain a current email address.
+Det är viktigt att varje commit har en rad "Signed-off-by". Den intygar att du godkänner [utvecklarens ursprungscertifikat](developer-certificate-of-origin). Raden måste innehålla ditt verkliga namn, alltså inga pseudonymer eller anonyma bidrag, och en aktuell e-postadress.
 
-## Contributing to Klipper Translations
+## Bidra till Klipper-översättningar
 
-[Klipper-translations Project](https://github.com/Klipper3d/klipper-translations) is a project dedicated to translating Klipper to different languages. [Weblate](https://hosted.weblate.org/projects/klipper/) hosts all the Gettext strings for translating and reviewing. Locales can be displayed on [klipper3d.org](https://www.klipper3d.org) once they satisfy the following requirements:
+[Projektet Klipper-translations](https://github.com/Klipper3d/klipper-translations) är avsett för att översätta Klipper till olika språk. [Weblate](https://hosted.weblate.org/projects/klipper/) är värd för alla Gettext-strängar för översättning och granskning. Språkversioner kan visas på [klipper3d.org](https://www.klipper3d.org) när de uppfyller följande krav:
 
-- [ ] 75% Total coverage
-- [ ] All titles (H1) are translated
-- [ ] An updated navigation hierarchy PR in klipper-translations.
+- [ ] 75 % total täckning
+- [ ] Alla rubriker (H1) är översatta
+- [ ] En uppdaterad PR för navigeringshierarkin i klipper-translations.
 
-To reduce the frustration of translating domain-specific terms and gain awareness of the ongoing translations, you can submit a PR modifying the [Klipper-translations Project](https://github.com/Klipper3d/klipper-translations) `readme.md`. Once a translation is ready, the corresponding modification to the Klipper project can be made.
+För att minska frustrationen med domänspecifika termer och få kännedom om pågående översättningar kan du skicka en PR som ändrar `readme.md` i [projektet Klipper-translations](https://github.com/Klipper3d/klipper-translations). När en översättning är klar kan motsvarande ändring göras i Klipper-projektet.
 
-If a translation already exists in the Klipper repository and no longer meets the checklist above, it will be marked out-of-date after a month without updates.
+Om en översättning redan finns i Klipper-förrådet och inte längre uppfyller kontrollistan ovan markeras den som inaktuell efter en månad utan uppdatering.
 
-Once the requirements are met, you need to:
+När kraven är uppfyllda behöver du:
 
-1. update klipper-translations repository [active_translations](https://github.com/Klipper3d/klipper-translations/blob/translations/active_translations)
-1. Optional: add a manual-index.md file in klipper-translations repository's `docs\locals\<lang>` folder to replace the language specific index.md (generated index.md does not render correctly).
+1. uppdatera [active_translations](https://github.com/Klipper3d/klipper-translations/blob/translations/active_translations) i förrådet klipper-translations
+1. Valfritt: lägg till filen manual-index.md i mappen `docs\locals\<lang>` i klipper-translations-förrådet för att ersätta den språkspecifika index.md. Den genererade index.md renderas inte korrekt.
 
-Known Issues:
+Kända problem:
 
-1. Currently, there isn't a method for correctly translating pictures in the documentation
-1. It is impossible to translate titles in mkdocs.yml.
+1. Det finns för närvarande inget sätt att översätta bilder i dokumentationen korrekt
+1. Det går inte att översätta rubriker i mkdocs.yml.

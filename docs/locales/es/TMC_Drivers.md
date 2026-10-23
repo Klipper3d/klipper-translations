@@ -32,7 +32,7 @@ Las pruebas que comparan los modos han mostrado un aumento del "retraso posicion
 
 Se recomienda utilizar siempre el modo "spreadCycle" (al no especificar `stealthchop_threshold`) o utilizar siempre el modo "stealthChop" (ajustando `stealthchop_threshold` a 999999). Desafortunadamente, los controladores a menudo producen resultados pobres y confusos si el modo cambia mientras el motor está a una velocidad distinta de cero.
 
-Note that the `stealthchop_threshold` config option does not impact sensorless homing as Klipper automatically switches the TMC driver to an appropriate mode during sensorless homing operations.
+Ten en cuenta que la opción de configuración stealthchop_threshold no afecta al «homing» sin sensor, ya que Klipper cambia automáticamente el controlador TMC al modo adecuado durante dichas operaciones.
 
 ## El ajuste interpolación del controlador TMC introduce una pequeña desviación de posición
 
