@@ -178,7 +178,7 @@ A "2. felhasználási eset" esetében jegyezd meg a következőket: amikor a nyo
 
 ## Hátralevő konfiguráció
 
-Fejezd be a telepítést a Klipper konfigurálásával a [Telepítés](Installation.md#configuring-octoprint-to-use-klipper) fődokumentumban található utasítások szerint.
+Complete the installation by configuring Klipper following the instructions in the main [Installation](Installation.md#configuring-klipper) document.
 
 ## Nyomtatás a Beaglebone-on
 

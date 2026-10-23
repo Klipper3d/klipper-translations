@@ -178,7 +178,7 @@ Take a note for "Use case 2" about following: when you will define printer confi
 
 ## 剩余的配置
 
-Complete the installation by configuring Klipper following the instructions in the main [Installation](Installation.md#configuring-octoprint-to-use-klipper) document.
+Complete the installation by configuring Klipper following the instructions in the main [Installation](Installation.md#configuring-klipper) document.
 
 ## 在 Beaglebone 上打印
 

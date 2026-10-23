@@ -10,7 +10,7 @@ Dieses Dokument beschreibt die Unterstützung von Wägezellen in Klipper. Grundl
 
 ## Verwendung von `LOAD_CELL_DIAGNOSTIC`
 
-Wenn Sie eine Wägezelle zum ersten Mal anschließen, ist es empfehlenswert, mit `LOAD_CELL_DIAGNOSTIC` nach Problemen zu suchen. Dieses Werkzeug sammelt 10 Sekunden lang Daten von der Wägezelle und gibt eine Statistik aus:
+When you first connect a load cell its good practice to check for issues by running `LOAD_CELL_DIAGNOSTIC`. This tool collects 10 seconds of data from the load cell and reports statistics:
 
 ```
 $ LOAD_CELL_DIAGNOSTIC
@@ -121,11 +121,11 @@ Dies ist der Basis-Tara-Wert, der von `LOAD_CELL_CALIBRATE` gesetzt wird. Zusamm
 
 Dies ist die maximale absolute Kraft relativ zu `reference_tare_counts`, die die Sonde beim Referenzieren oder Abtasten zulässt. Stellt der Mikrocontroller eine Überschreitung dieser Kraft fest, schaltet er den Drucker mit der Fehlermeldung `!! Load cell endstop: too much force!` ab. Dies kann auf verschiedene Weise ausgelöst werden:
 
-Das erste Risiko, gegen das dies schützt, ist die Wahl eines zu großen Wertes für `drift_filter_cutoff_frequency`. Dadurch kann der Driftfilter ein Sondenereignis herausfiltern und die Referenzfahrt fortsetzen. In diesem Fall dient `force_safety_limit` als Rückfallschutz.
+The first risk this protects against is picking too large of a value for `drift_filter_cutoff_frequency`. This can cause the drift filter to filter out a probe event and continue the homing move. If this happens, the `force_safety_limit` acts as a backup protection.
 
 Das zweite Problem ist wiederholtes Abtasten an derselben Stelle. Klipper zieht die Sonde bei einem einzelnen `PROBE`-Befehl nicht zurück. Dadurch kann am Ende eines Abtastzyklus Kraft auf den Druckkopf wirken. Da externe Kräfte zwischen den Abtastpositionen stark schwanken können, führt `load_cell_probe` vor jedem Abtastvorgang ein Tarieren durch. Wiederholen Sie den `PROBE`-Befehl, tariert load_cell_probe den Endschalter bei der aktuell anliegenden Kraft. Mehrere solcher Zyklen führen zu einer immer weiter steigenden Kraft auf den Druckkopf. `force_safety_limit` verhindert, dass dieser Kreislauf außer Kontrolle gerät.
 
-Ein weiterer Weg, wie dieses Durchgehen (Run-away) auftreten kann, ist eine Beschädigung eines Dehnungsmessstreifens. Ist das Metallteil dauerhaft verbogen, ändert sich dadurch der `reference_tare_counts`-Wert des Geräts. Dies bringt den Start-Tara-Wert deutlich näher an die Grenze heran, wodurch eine Überschreitung wahrscheinlicher wird. Sie sollten benachrichtigt werden, wenn dies geschieht, da Ihre Hardware dann dauerhaft beschädigt wurde.
+Another way this runaway can happen is damage to a strain gauge. If the metal part is permanently bent it will change the `reference_tare_counts` of the device. This puts the starting tare value much closer to the limit making it more likely to be violated. You want to be notified if this is happening because your hardware has been permanently damaged.
 
 Der letzte Weg, wie dies ausgelöst werden kann, sind Temperaturänderungen. Wenn Ihre Dehnungsmessstreifen erwärmt werden, können ihre `reference_tare_counts` bei Umgebungstemperatur stark von denen bei Betriebstemperatur abweichen. In diesem Fall müssen Sie möglicherweise `force_safety_limit` erhöhen, um thermische Änderungen zu berücksichtigen.
 
@@ -133,7 +133,7 @@ Der letzte Weg, wie dies ausgelöst werden kann, sind Temperaturänderungen. Wen
 
 Beim Homing startet der load_cell_endstop eine Task auf dem MCU, um die vom Sensor eintreffenden Messungen zu verfolgen. Sendet der Sensor über 2 Abtastperioden keine Messungen, fährt der Watchdog den Drucker mit dem Fehler `!! LoadCell Endstop timed out waiting on ADC data` herunter.
 
-Tritt dies auf, ist die wahrscheinlichste Ursache ein Fehler des ADC. Eine unzureichende Erdung Ihres Druckers kann die Grundursache sein. Rahmen, Netzteilgehäuse und Druckbett sollten alle mit der Erde verbunden sein. Möglicherweise müssen Sie den Rahmen an mehreren Stellen erden. Eloxierte Aluminiumprofile leiten Strom nur schlecht. Eventuell müssen Sie die Stelle, an der das Erdungskabel befestigt wird, anschleifen, um einen guten elektrischen Kontakt herzustellen.
+If this happens, the most likely cause is a fault from the ADC. Inadequate grounding of your printer can be the root cause. The frame, power supply case and print bed should all be connected to ground. You may need to ground the frame in multiple places. Anodized aluminum extrusions do not conduct electricity well. You might need to sand the area where the grounding wire is attached to make good electrical contact.
 
 #### Interpolation
 
@@ -163,13 +163,13 @@ Load-Cell-Sonden unterstützen die Befehle `QUERY_ENDSTOPS` oder `QUERY_PROBE` n
 
 ### Empfohlene Sondierungstemperatur
 
-Aktuell wird empfohlen, die Düsentemperatur unterhalb des Niveaus zu halten, bei dem Filament beim Homing und Sondieren austritt (Oozing). 140°C ist ein guter Ausgangswert. Diese Temperatur ist außerdem niedrig genug, um PEI-Druckoberflächen nicht zu beschädigen.
+Currently, we suggest keeping the nozzle temperature below the level that causes the filament to ooze while homing and probing. 140°C is a good starting point. This temperature is also low enough not to scar PEI build surfaces.
 
 Verschmutzung von Düse und Druckbett durch austretendes Filament ist die häufigste Fehlerursache bei der Load-Cell-Sonde. Klipper verfügt noch nicht über eine universelle Methode, um Tipp-Ereignisse schlechter Qualität durch Filament-Oozing zu erkennen. Der bestehende Code kann ein Tipp-Ereignis fälschlich als gültig einstufen, obwohl es von schlechter Qualität ist. Die Klassifizierung solcher minderwertigen Tipp-Ereignisse ist Gegenstand aktiver Forschung.
 
 Klipper unterstützt außerdem nicht das erneute Verschieben eines Sondierungspunkts, falls die Stelle durch Filament-Oozing verunreinigt wurde. Module wie `quad_gantry_level` sondieren wiederholt dieselben Koordinaten, selbst wenn eine Sondierung dort zuvor fehlgeschlagen ist.
 
-Angesichts dessen wird dringend empfohlen, nicht bei Drucktemperaturen zu sondieren.
+Given the above it is strongly suggested not to probe at printing temperatures.
 
 ### Schutz vor der heißen Düse
 
@@ -194,7 +194,7 @@ Wenn Sie bei einer sicheren Temperatur sondieren, dehnt sich die Düse nach dem 
 
 #### Berechnung von `temp_coeff` für `[z_thermal_adjust]`
 
-Am einfachsten messen Sie dies bei 2 unterschiedlichen Temperaturen. Idealerweise sollten dies die Ober- und Untergrenze des Drucktemperaturbereichs sein, z. B. 180°C und 290°C. Sie können bei beiden Temperaturen eine `PROBE_ACCURACY` durchführen und anschließend die Differenz des `average z`-Werts beider Messungen berechnen.
+The easiest way to do this is to measure at 2 different temperatures. Ideally these should be the upper and lower limits of the printing temperature range. E.g. 180°C and 290°C. You can perform a `PROBE_ACCURACY` at both temperatures and then calculate the difference of the `average z` at both.
 
 Der Anpassungswert ist die Änderung der Düsenlänge geteilt durch die Temperaturänderung, z. B.
 
@@ -226,9 +226,9 @@ Klipper implementiert einen konfigurierbaren IIR-Filter auf dem MCU, um während
 
 ### SciPy installieren
 
-Der Filtercode verwendet die ausgezeichnete Bibliothek [SciPy](https://scipy.org/), um die Filterkoeffizienten anhand der in die Konfiguration eingetragenen Werte zu berechnen.
+The filtering code uses the excellent [SciPy](https://scipy.org/) library to compute the filter coefficients based on the values you enter into the config.
 
-Vorkompilierte SciPy-Builds sind für Python 3 auf 32-Bit-Raspberry-Pi-Systemen verfügbar. 32 Bit + Python 3 wird dringend empfohlen, da dies die Installation deutlich vereinfacht. Es funktioniert auch mit Python 2, die Installation kann dann jedoch über 30 Minuten dauern und die Installation zusätzlicher Werkzeuge erfordern.
+Pre-compiled SciPi builds are available for Python 3 on 32-bit and 64-bit Raspberry Pi systems. 32-bit/64-bit + Python 3 is strongly recommended because it will streamline your installation experience. It does work with Python 2 but installation can take 30+ minutes and requires installing additional tools.
 
 ```bash
 ~/klippy-env/bin/pip install scipy

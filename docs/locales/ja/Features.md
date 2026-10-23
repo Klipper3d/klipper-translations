@@ -29,7 +29,7 @@ Klipperは多くの標準的な3dプリンター機能をサポートしてい�
 * Support for common temperature sensors (eg, common thermistors, AD595, AD597, AD849x, PT100, PT1000, MAX6675, MAX31855, MAX31856, MAX31865, BME280, HTU21D, DS18B20, AHT1X, AHT2X, AHT3X, SHT3x, and LM75). Custom thermistors and custom analog temperature sensors can also be configured. One can monitor the internal micro-controller temperature sensor and the internal temperature sensor of a Raspberry Pi.
 * 基本的なサーマルヒーター保護はデフォルトで有効。
 * Support for standard fans, nozzle fans, and temperature controlled fans. No need to keep fans running when the printer is idle. Fan speed can be monitored on fans that have a tachometer. One can assign a "math formula" to a fan for automatic fan speed updating.
-* Support for run-time configuration of TMC2130, TMC2208/TMC2224, TMC2209, TMC2240, TMC2660, and TMC5160 stepper motor drivers. There is also support for current control of traditional stepper drivers via AD5206, DAC084S085, MCP4451, MCP4728, MCP4018, and PWM pins.
+* Support for run-time configuration of TMC2130, TMC2208/TMC2224, TMC2209, TMC2240, TMC2660, TMC5160, and TMC5262 stepper motor drivers. There is also support for current control of traditional stepper drivers via AD5206, DAC084S085, MCP4451, MCP4728, MCP4018, and PWM pins.
 * プリンタに直接取り付けられた一般的なLCDディスプレイをサポート。デフォルトメニューも用意されています。ディスプレイとメニューの内容は、Configファイルで完全にカスタマイズできます。
 * 定加速と "look-ahead" (先読み) サポート。すべてのプリンター動作は、停止状態から巡航速度まで徐々に加速し、その後減速して停止状態に戻ります。入力されるGコード移動コマンドのストリームはキューに入れられ、分析されます。同じ方向の移動間の加速は、印刷ストールを減らし、全体的な印刷時間を改善するために最適化されます。
 * Klipper は、一般的なエンドストップスイッチの精度を向上させる "stepper phase endstop" アルゴリズムを実装しています。適切に調整された場合、印刷の1層目のベッド密着性を向上させることができます。

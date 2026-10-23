@@ -162,7 +162,7 @@ The following information is available in the `gcode` object:
 - `speed_фактор`: "швидкий фактор перенареченості" в комплекті команди `M220`. Це плаваючою точкою значення, таким чином, 1,0 означає, що не перейди і, наприклад, 2.0 буде подвійний запитаний швидкість.
 - `extrude_фактор`: "надійний фактор перенареченого" як набір `M221` команди. Це плаваючою точкою значення, наприклад, 1,0 означає, що не перенаречена і, наприклад, 2.0 буде подвійний запитаний екструзії.
 - `absolute_координати`: Це повертає Правда, якщо в `G90` абсолютний координатний режим або False, якщо в `G91` відносний режим.
-- `absolute_extrude`: Це повертає Правда, якщо в `M82` абсолютний вихідний режим або False, якщо в `M83` відносний режим.
+- `absolute_extrude`: Returns True if absolute extrusions are permitted. An `M83` force relative extrusion mode command causes this value to return False. An `M82` command returns this value to True.
 - `axis_map`: Provides a mechanism for finding the coordinate component for a given G-Code id that is used in `G1` commands. See the [Accessing Coordinates](#accessing-coordinates) section for details.
 
 ## href="http://realtor.if.ua/" title="агентство нерухомості ріелтор"
@@ -248,6 +248,7 @@ The following information is available for `[load_cell_probe]`:
 - `mcu_version`: Версія коду Klipper, що повідомляється мікроконтролером.
 - `mcu_build_versions`: Відомості про інструменти побудови, які використовуються для створення мікроконтролерного коду (як повідомляється мікроконтролером).
 - `mcu_constants.<constant_name>`: Спірні часові константи, що повідомляються мікроконтролером. Доступні константи можуть відрізнятися між архітектурами мікроконтролерів і з кожним кодом.
+- `mcu_kconfig`: The minimal build configuration (`savedefconfig` output) that the micro-controller firmware was compiled from, as reported by the micro-controller. `None` if the firmware predates this feature or does not provide it.
 - `last_stats.<statistics_name>`: Статистика інформації про підключення мікроконтролера.
 
 ## транспорт
@@ -353,7 +354,7 @@ The following information is available in the `skew_correction` object (this obj
 
 Інформація доступна в
 
-[bme280 config_section_name](Config_Reference.md#bmp280bme280bme680-temperature-sensor), [htu21d config_section_name](Config_Reference.md#htu21d-sensor), [sht3x config_section_name](Config_Reference.md#sht31-sensor), [lm75 con fig_section_name](Config_Reference .md#lm75-temperature-sensor), [temperature_host config_section_name](Config_Reference.md#host-temperature-sensor) і [temperature_combined config_section_name](Config_Reference.md#combined-temperature-sensor) об’єкти:
+[bme280 config_section_name](Config_Reference.md#bmp180bmp280bme280bmp388bme680-temperature-sensor), [htu21d config_section_name](Config_Reference.md#htu21d-sensor), [sht3x config_section_name](Config_Reference.md#sht3x-sensor), [lm75 config_section_name](Config_Reference.md#lm75-temperature-sensor), [temperature_host config_section_name](Config_Reference.md#host-temperature-sensor) and [temperature_combined config_section_name](Config_Reference.md#combined-temperature-sensor) objects:
 
 - `температура`: Остання температура читання від датчика.
 - `humidity`, `pressure`, `гас`: Останні значення читання від датчика (тільки на bme280, htu21d, sht3x і lm75 сенсорів).

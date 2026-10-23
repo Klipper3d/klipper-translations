@@ -70,19 +70,24 @@ msgstr "நீங்கள் லேசர்வெப்பைப் பயன�
 msgid "Using PWM tools"
 msgstr "PWM கருவிகளைப் பயன்படுத்துதல்"
 
-#: docs/Using_PWM_Tools.md:block 6 (paragraph)
-msgid ""
-"For an example configuration, see [config/sample-pwm-tool.cfg](/config/sample-"
-"pwm-tool.cfg)."
-msgstr ""
-"எடுத்துக்காட்டு உள்ளமைவுக்கு, [CONFIG/மாதிரி-PWM-TOOL.CFG](/config/sample-pwm-"
-"tool.cfg)ஐப் பார்க்கவும்."
-
 #: docs/Using_PWM_Tools.md:block 2 (paragraph)
 msgid ""
 "This document describes how to setup a PWM-controlled laser or spindle using "
 "`pwm_tool` and some macros."
 msgstr ""
+
+#: docs/Using_PWM_Tools.md:block 6 (paragraph)
+msgid ""
+"For an example configuration, see [config/sample-pwm-"
+"tool.cfg](../config/sample-pwm-tool.cfg)."
+msgstr ""
+
+#~ msgid ""
+#~ "For an example configuration, see [config/sample-pwm-tool.cfg](/config/sample-"
+#~ "pwm-tool.cfg)."
+#~ msgstr ""
+#~ "எடுத்துக்காட்டு உள்ளமைவுக்கு, [CONFIG/மாதிரி-PWM-TOOL.CFG](/config/sample-pwm-"
+#~ "tool.cfg)ஐப் பார்க்கவும்."
 
 #~ msgid ""
 #~ "This document describes how to setup a PWM-controlled laser or spindle using "

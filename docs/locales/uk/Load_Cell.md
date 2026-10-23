@@ -10,7 +10,7 @@
 
 ## Використання `LOAD_CELL_DIAGNOSTIC`
 
-Під час першого підключення тензодатчика рекомендується перевірити наявність проблем, запустивши команду `LOAD_CELL_DIAGNOSTIC`. Цей інструмент збирає дані з тензодатчика протягом 10 секунд та звітує про статистику:
+When you first connect a load cell its good practice to check for issues by running `LOAD_CELL_DIAGNOSTIC`. This tool collects 10 seconds of data from the load cell and reports statistics:
 
 ```
 $ LOAD_CELL_DIAGNOSTIC
@@ -121,11 +121,11 @@ LOAD_CELL_TARE
 
 Це максимальна абсолютна сила, відносно `reference_tare_counts`, яку зонд допускає під час повернення в початкове положення або зондування. Якщо мікроконтролер виявить перевищення цієї сили, він вимкне принтер з помилкою `!! Load cell endstop: too much force!`. Це може бути викликано кількома причинами:
 
-Перший ризик, від якого це захищає, — це вибір занадто великого значення для `drift_filter_cutoff_frequency`. Це може призвести до того, що фільтр дрейфу відфільтрує подію зонда і продовжить рух додому. Якщо це трапиться, `force_safety_limit` діє як резервний захист.
+The first risk this protects against is picking too large of a value for `drift_filter_cutoff_frequency`. This can cause the drift filter to filter out a probe event and continue the homing move. If this happens, the `force_safety_limit` acts as a backup protection.
 
 Друга проблема полягає в багаторазовому зондуванні в одному місці. Klipper не втягує зонд при виконанні однієї команди `PROBE`. Це може призвести до прикладання сили до інструментальної головки в кінці циклу зондування. Оскільки зовнішні сили можуть сильно відрізнятися між місцями зондування, `load_cell_probe` виконує тарування перед початком кожного зондування. Якщо ви повторите команду `PROBE`, load_cell_probe виконає тарування кінцевого вимикача при поточній силі. Кілька циклів цього призведуть до постійного збільшення сили на інструментальній головці. `force_safety_limit` зупиняє цей цикл, щоб він не вийшов з-під контролю.
 
-Another way this run-away can happen is damage to a strain gauge. If the metal part is permanently bent it will change the `reference_tare_counts` of the device. This puts the starting tare value much closer to the limit making it more likely to be violated. You want to be notified if this is happening because your hardware has been permanently damaged.
+Another way this runaway can happen is damage to a strain gauge. If the metal part is permanently bent it will change the `reference_tare_counts` of the device. This puts the starting tare value much closer to the limit making it more likely to be violated. You want to be notified if this is happening because your hardware has been permanently damaged.
 
 Останній спосіб, яким це може бути викликано, пов'язаний зі змінами температури. Якщо ваші тензометричні датчики нагріваються, їхні значення `reference_tare_counts` можуть сильно відрізнятися при температурі навколишнього середовища та робочій температурі. У цьому випадку може знадобитися збільшити значення `force_safety_limit`, щоб врахувати термічні зміни.
 
@@ -133,7 +133,7 @@ Another way this run-away can happen is damage to a strain gauge. If the metal p
 
 При поверненні в початкове положення load_cell_endstop запускає завдання на мікроконтролері для відстеження вимірювань, що надходять від датчика. Якщо датчик не надсилає вимірювання протягом 2 періодів вибірки, сторожовий таймер вимкне принтер з помилкою `!! LoadCell Endstop timed out waiting on ADC data` (Закінчився час очікування даних ADC від LoadCell Endstop).
 
-Якщо це відбувається, найімовірнішою причиною є несправність АЦП. Основною причиною може бути неналежне заземлення принтера. Рама, корпус блоку живлення та платформа для друку повинні бути підключені до заземлення. Можливо, доведеться заземлити раму в декількох місцях. Екструдований анодований алюміній погано проводить електрику. Можливо, доведеться відшліфувати ділянку, де прикріплений заземлювальний провід, щоб забезпечити хороший електричний контакт.
+If this happens, the most likely cause is a fault from the ADC. Inadequate grounding of your printer can be the root cause. The frame, power supply case and print bed should all be connected to ground. You may need to ground the frame in multiple places. Anodized aluminum extrusions do not conduct electricity well. You might need to sand the area where the grounding wire is attached to make good electrical contact.
 
 #### Interpolation
 
@@ -163,13 +163,13 @@ The distance of the ascending move can be configured through the `sample_retract
 
 ### Рекомендована температура зондування
 
-Наразі ми рекомендуємо підтримувати температуру сопла нижче рівня, який спричиняє витікання філаменту під час повернення в початкове положення та зондування. 140 °C — це хороший початковий показник. Ця температура також є достатньо низькою, щоб не пошкодити поверхні PEI.
+Currently, we suggest keeping the nozzle temperature below the level that causes the filament to ooze while homing and probing. 140°C is a good starting point. This temperature is also low enough not to scar PEI build surfaces.
 
 Забруднення сопла та друкарської платформи внаслідок витікання нитки є основною причиною помилок зондування зондом тензодатчика. Klipper ще не має універсального способу виявлення неякісних натискань, спричинених витіканням нитки. Існуючий код може визнати натискання дійсним, навіть якщо воно є неякісним. Класифікація таких неякісних натискань є предметом активних досліджень.
 
 Klipper також не підтримує перенесення точки зондування, якщо місце розташування забруднилося витіканням філаменту. Модулі, такі як `quad_gantry_level`, будуть повторно зондувати ті самі координати, навіть якщо попереднє зондування там не вдалося.
 
-З огляду на вищезазначене, наполегливо не рекомендується проводити вимірювання за температури друку.
+Given the above it is strongly suggested not to probe at printing temperatures.
 
 ### Захист від гарячого сопла
 
@@ -194,7 +194,7 @@ The Voron project has a great macro for protecting your print surface from the h
 
 #### Обчислення `temp_coeff` для `[z_thermal_adjust]`
 
-Найпростіший спосіб зробити це — виміряти при 2 різних температурах. В ідеалі це повинні бути верхня і нижня межі діапазону температур друку. Наприклад, 180 °C і 290 °C. Ви можете виконати `PROBE_ACCURACY` при обох температурах, а потім обчислити різницю `середнього z` при обох.
+The easiest way to do this is to measure at 2 different temperatures. Ideally these should be the upper and lower limits of the printing temperature range. E.g. 180°C and 290°C. You can perform a `PROBE_ACCURACY` at both temperatures and then calculate the difference of the `average z` at both.
 
 Значення коригування – це зміна довжини сопла, поділена на зміну температури. Наприклад.
 
@@ -226,9 +226,9 @@ Klipper реалізує настроюваний фільтр IIR на мікр
 
 ### Встановлення SciPy
 
-Код фільтрації використовує чудову бібліотеку [SciPy](https://scipy.org/) для обчислення коефіцієнтів фільтра на основі значень, які ви вводите в конфігурацію.
+The filtering code uses the excellent [SciPy](https://scipy.org/) library to compute the filter coefficients based on the values you enter into the config.
 
-Попередньо скомпільовані збірки SciPi доступні для Python 3 на 32-бітних системах Raspberry Pi. Настійно рекомендується використовувати 32-бітну версію + Python 3, оскільки це спростить процес інсталяції. Програма працює і з Python 2, але інсталяція може зайняти понад 30 хвилин і вимагати встановлення додаткових інструментів.
+Pre-compiled SciPi builds are available for Python 3 on 32-bit and 64-bit Raspberry Pi systems. 32-bit/64-bit + Python 3 is strongly recommended because it will streamline your installation experience. It does work with Python 2 but installation can take 30+ minutes and requires installing additional tools.
 
 ```bash
 ~/klippy-env/bin/pip install scipy

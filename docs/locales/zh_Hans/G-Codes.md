@@ -11,8 +11,9 @@ Klipper支持以下标准的G-Code命令：
 - 返回原点：`G28 [X] [Y] [Z]`
 - 关闭步进电机：`M18`或`M84`
 - 等待当前移动完成： `M400`
-- 使用绝对/相对挤出距离：`M82`， `M83`
 - 使用绝对/相对坐标：`G90`, `G91`
+- Force relative distances for extrusion: `M83`, `M82`
+   - Note: `M83` forces extrusions to use relative coordinates even if `G90` absolute mode is selected. `M82` disables that forced mode (it does not force the extruder to use absolute coordinates).
 - 设置坐标：`G92 [X<坐标>] [Y<坐标>] [Z<坐标>] [E<坐标>]`
 - 设置速度因子覆写百分比：`M220 S<百分比>`
 - 设置挤压因子覆盖百分比：`M221 S<percent>`
@@ -92,7 +93,7 @@ section](Config_Reference.md#axis_twist_compensation) is enabled.
 
 #### AXIS_TWIST_COMPENSATION_CALIBRATE
 
-`AXIS_TWIST_COMPENSATION_CALIBRATE [AXIS=<X|Y>] [SAMPLE_COUNT=<value>]`
+`AXIS_TWIST_COMPENSATION_CALIBRATE [AXIS=<X|Y>] [SAMPLE_COUNT=<value>] [MANUAL_METHOD=manual]`
 
 Calibrates axis twist compensation by specifying the target axis or enabling automatic calibration.
 
@@ -391,7 +392,7 @@ The gcode_move module is automatically loaded.
 
 #### SAVE_GCODE_STATE
 
-`SAVE_GCODE_STATE [NAME=<state_name>]`：保存当前的g-code坐标解析状态。保存和恢复g-code状态在脚本和宏中很有用。该命令保存当前g-code绝对坐标模式（G90/G91）绝对挤出模式（M82/M83）原点（G92）偏移量（SET_GCODE_OFFSET）速度覆盖（M220）挤出机覆盖（M221）移动速度。当前XYZ位置和相对挤出机 "E "位置。如果提供NAME，它可以将保存的状态命名为给定的字符串。如果没有提供NAME，则默认为 "default"
+`SAVE_GCODE_STATE [NAME=<state_name>]`: Save the current g-code coordinate parsing state. Saving and restoring the g-code state is useful in scripts and macros. This command saves the current g-code absolute coordinate mode (G90/G91), force relative extrude mode (M83/M82), origin (G92), offset (SET_GCODE_OFFSET), speed override (M220), extruder override (M221), move speed, current XYZ position, and relative extruder "E" position. If NAME is provided it allows one to name the saved state to the given string. If NAME is not provided it defaults to "default".
 
 #### RESTORE_GCODE_STATE
 
@@ -699,7 +700,7 @@ The `Z_OFFSET_APPLY_PROBE` command is also extended to support a `METHOD=tap` pa
 
 #### PROBE_EDDY_CURRENT_CALIBRATE
 
-`PROBE_EDDY_CURRENT_CALIBRATE CHIP=<config_name>`: This starts a tool that calibrates the sensor resonance frequencies to corresponding Z heights. The tool will take a couple of minutes to complete. After completion, use the SAVE_CONFIG command to store the results in the printer.cfg file.
+`PROBE_EDDY_CURRENT_CALIBRATE CHIP=<config_name> [MANUAL_METHOD=manual]`: This starts a tool that calibrates the sensor resonance frequencies to corresponding Z heights. The tool will take a couple of minutes to complete. After completion, use the SAVE_CONFIG command to store the results in the printer.cfg file.
 
 #### PROBE_EDDY_CURRENT_TAP_CALIBRATE
 
@@ -870,7 +871,7 @@ The following commands are available when a [temperature_probe config section](C
 
 #### TEMPERATURE_PROBE_CALIBRATE
 
-`TEMPERATURE_PROBE_CALIBRATE [PROBE=<probe name>] [TARGET=<value>] [STEP=<value>] [METHOD=<method>]`: Initiates probe drift calibration for eddy current based probes. The `TARGET` is a target temperature for the last sample. When the temperature recorded during a sample exceeds the `TARGET` calibration will complete. The `STEP` parameter sets temperature delta (in C) between samples. After a sample has been taken, this delta is used to schedule a call to `TEMPERATURE_PROBE_NEXT`. The default `STEP` is 2. The `METHOD` only supports `tap` as an option, if specified, probing will be automated.
+`TEMPERATURE_PROBE_CALIBRATE [PROBE=<probe name>] [TARGET=<value>] [STEP=<value>] [MANUAL_METHOD=<method>]`: Initiates probe drift calibration for eddy current based probes. The `TARGET` is a target temperature for the last sample. When the temperature recorded during a sample exceeds the `TARGET` calibration will complete. The `STEP` parameter sets temperature delta (in C) between samples. After a sample has been taken, this delta is used to schedule a call to `TEMPERATURE_PROBE_NEXT`. The default `STEP` is 2. The `METHOD` only supports `tap` as an option, if specified, probing will be automated.
 
 #### TEMPERATURE_PROBE_NEXT
 

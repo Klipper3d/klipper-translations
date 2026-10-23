@@ -10,7 +10,7 @@ Det här dokumentet beskriver Klippers stöd för lastceller. Grundläggande las
 
 ## Använda `LOAD_CELL_DIAGNOSTIC`
 
-När du ansluter en lastcell första gången bör du kontrollera problem genom att köra `LOAD_CELL_DIAGNOSTIC`. Verktyget samlar data från lastcellen under 10 sekunder och rapporterar statistik:
+When you first connect a load cell its good practice to check for issues by running `LOAD_CELL_DIAGNOSTIC`. This tool collects 10 seconds of data from the load cell and reports statistics:
 
 ```
 $ LOAD_CELL_DIAGNOSTIC
@@ -121,11 +121,11 @@ Detta är grundvärdet för tarering som sätts av `LOAD_CELL_CALIBRATE`. Värde
 
 Detta är den största absoluta kraft, relativt `reference_tare_counts`, som proben tillåter vid nollställning eller sondering. Om MCU:n ser att kraften överskrids stängs skrivaren av med felet `!! Load cell endstop: too much force!`. Det finns flera sätt detta kan utlösas på:
 
-Den första risken som detta skyddar mot är att välja ett för stort värde för `drift_filter_cutoff_frequency`. Då kan driftfiltret filtrera bort en sondhändelse och låta nollställningsrörelsen fortsätta. I så fall fungerar `force_safety_limit` som ett reservskydd.
+The first risk this protects against is picking too large of a value for `drift_filter_cutoff_frequency`. This can cause the drift filter to filter out a probe event and continue the homing move. If this happens, the `force_safety_limit` acts as a backup protection.
 
 Det andra problemet är att sondera upprepade gånger på samma plats. Klipper drar inte tillbaka proben vid ett enstaka `PROBE`-kommando. Det kan lämna kraft på verktygshuvudet efter sonderingscykeln. Eftersom externa krafter kan variera kraftigt mellan platser tarerar `load_cell_probe` före varje sondning. Om du upprepar `PROBE` tareras ändstoppet vid den aktuella kraften. Flera cykler ökar kraften på verktygshuvudet; `force_safety_limit` hindrar cykeln från att löpa okontrollerat.
 
-Ett annat sätt som den okontrollerade rörelsen kan uppstå är skada på en töjningsgivare. Om metalldelen böjs permanent ändras enhetens `reference_tare_counts`. Det för startvärdet närmare gränsen och gör överskridande mer sannolikt. Du bör få en varning om detta eftersom maskinvaran har skadats permanent.
+Another way this runaway can happen is damage to a strain gauge. If the metal part is permanently bent it will change the `reference_tare_counts` of the device. This puts the starting tare value much closer to the limit making it more likely to be violated. You want to be notified if this is happening because your hardware has been permanently damaged.
 
 Den sista utlösningsorsaken är temperaturförändringar. Om töjningsgivarna värms upp kan `reference_tare_counts` skilja sig mycket mellan omgivnings- och driftstemperatur. Då kan `force_safety_limit` behöva höjas för att ta hänsyn till termiska förändringar.
 
@@ -133,7 +133,7 @@ Den sista utlösningsorsaken är temperaturförändringar. Om töjningsgivarna v
 
 Vid nollställning startar load_cell_endstop en uppgift på MCU:n som följer mätningar från sensorn. Om sensorn inte skickar mätningar under två samplingsperioder stänger övervakaren av skrivaren med felet `!! LoadCell Endstop timed out waiting on ADC data`.
 
-Om detta händer är den troligaste orsaken ett fel från ADC:n. Otillräcklig jordning kan vara grundorsaken. Ramen, nätaggregatets hölje och skrivarens bädd ska vara anslutna till jord. Ramen kan behöva jordas på flera platser. Anodiserade aluminiumprofiler leder inte elektricitet väl; området där jordledaren fästs kan behöva slipas för god elektrisk kontakt.
+If this happens, the most likely cause is a fault from the ADC. Inadequate grounding of your printer can be the root cause. The frame, power supply case and print bed should all be connected to ground. You may need to ground the frame in multiple places. Anodized aluminum extrusions do not conduct electricity well. You might need to sand the area where the grounding wire is attached to make good electrical contact.
 
 #### Interpolering
 
@@ -163,13 +163,13 @@ Lastcellsprober stöder inte `QUERY_ENDSTOPS` eller `QUERY_PROBE`. Använd `LOAD
 
 ### Rekommenderad sonderingstemperatur
 
-Vi rekommenderar för närvarande att munstyckstemperaturen hålls under den nivå där filament börjar sippra ut vid nollställning och sondering. 140 °C är en bra utgångspunkt och temperaturen är också tillräckligt låg för att inte märka PEI-byggytor.
+Currently, we suggest keeping the nozzle temperature below the level that causes the filament to ooze while homing and probing. 140°C is a good starting point. This temperature is also low enough not to scar PEI build surfaces.
 
 Smuts på munstycke och bädd från utsipprande filament är den främsta källan till sonderingsfel med lastcellsproben. Klipper saknar ännu ett universellt sätt att upptäcka knackningar av låg kvalitet orsakade av filamentspill. Den befintliga koden kan bedöma en knackning som giltig trots låg kvalitet. Klassificering av sådana knackningar är ett aktivt forskningsområde.
 
 Klipper saknar också stöd för att flytta en sondpunkt om platsen har smutsats ned av utsipprande filament. Moduler som `quad_gantry_level` sonderar samma koordinater upprepade gånger även om en sondering tidigare misslyckades där.
 
-Med tanke på ovanstående rekommenderas det starkt att inte sondera vid utskriftstemperaturer.
+Given the above it is strongly suggested not to probe at printing temperatures.
 
 ### Skydd mot varmt munstycke
 
@@ -194,7 +194,7 @@ Om du sonderar vid en säker temperatur utvidgas munstycket efter uppvärmning t
 
 #### Beräkna `temp_coeff` för `[z_thermal_adjust]`
 
-Det enklaste sättet är att mäta vid två olika temperaturer, helst den övre och undre gränsen för utskriftstemperaturintervallet, till exempel 180 °C och 290 °C. Kör `PROBE_ACCURACY` vid båda temperaturerna och beräkna sedan skillnaden mellan `average z`.
+The easiest way to do this is to measure at 2 different temperatures. Ideally these should be the upper and lower limits of the printing temperature range. E.g. 180°C and 290°C. You can perform a `PROBE_ACCURACY` at both temperatures and then calculate the difference of the `average z` at both.
 
 Justeringsvärdet är ändringen i munstyckslängd dividerad med temperaturändringen, till exempel:
 
@@ -226,9 +226,9 @@ Klipper implementerar ett konfigurerbart IIR-filter på MCU:n för kontinuerlig 
 
 ### Installera SciPy
 
-Filterkoden använder biblioteket [SciPy](https://scipy.org/) för att beräkna filterkoefficienterna utifrån värdena i konfigurationen.
+The filtering code uses the excellent [SciPy](https://scipy.org/) library to compute the filter coefficients based on the values you enter into the config.
 
-Förkompilerade SciPy-versioner finns för Python 3 på 32-bitars Raspberry Pi-system. 32 bitar med Python 3 rekommenderas starkt eftersom installationen blir enklare. Det fungerar med Python 2, men installationen kan ta mer än 30 minuter och kräva ytterligare verktyg.
+Pre-compiled SciPi builds are available for Python 3 on 32-bit and 64-bit Raspberry Pi systems. 32-bit/64-bit + Python 3 is strongly recommended because it will streamline your installation experience. It does work with Python 2 but installation can take 30+ minutes and requires installing additional tools.
 
 ```bash
 ~/klippy-env/bin/pip install scipy

@@ -162,7 +162,7 @@ The following information is available in [gcode_button some_name](Config_Refere
 - `speed_factor`: `M220` 명령으로 설정한 "speed factor override"입니다. 1.0은 재정의가 없음을 의미하고 예를 들어 2.0은 요청된 속도의 두 배인 부동 소수점 값입니다.
 - `extrude_factor`: `M221` 명령으로 설정한 "extrude factor override"입니다. 1.0은 재정의가 없음을 의미하고 예를 들어 2.0은 요청된 돌출을 두 배로 만드는 부동 소수점 값입니다.
 - `absolute_coordinates`: 이것은 `G90` 절대 좌표 모드에 있으면 True를 반환하고 `G91` 상대 모드에 있으면 False를 반환합니다.
-- `absolute_extrude`: 이것은 `M82` 절대 돌출 모드인 경우 True를 반환하고 `M83` 상대 모드인 경우 False를 반환합니다.
+- `absolute_extrude`: Returns True if absolute extrusions are permitted. An `M83` force relative extrusion mode command causes this value to return False. An `M82` command returns this value to True.
 - `axis_map`: Provides a mechanism for finding the coordinate component for a given G-Code id that is used in `G1` commands. See the [Accessing Coordinates](#accessing-coordinates) section for details.
 
 ## hall_filament_width_sensor
@@ -248,6 +248,7 @@ The following information is available in the `manual_probe` object:
 - `mcu_version`: 마이크로 컨트롤러에서 보고한 Klipper 코드 버전입니다.
 - `mcu_build_versions`: 마이크로 컨트롤러 코드를 생성하는 데 사용되는 빌드 도구에 대한 정보(마이크로 컨트롤러가 보고한 대로).
 - `mcu_constants.<constant_name>`: 마이크로 컨트롤러에서 보고한 컴파일 시간 상수. 사용 가능한 상수는 마이크로 컨트롤러 아키텍처와 각 코드 개정판에 따라 다를 수 있습니다.
+- `mcu_kconfig`: The minimal build configuration (`savedefconfig` output) that the micro-controller firmware was compiled from, as reported by the micro-controller. `None` if the firmware predates this feature or does not provide it.
 - `last_stats.<statistics_name>`: 마이크로 컨트롤러 연결에 대한 통계 정보입니다.
 
 ## motion_report
@@ -353,7 +354,7 @@ The following information is available in the `stepper_enable` object (this obje
 
 다음 정보 사용할 수 있습니다
 
-[bme280 config_section_name](Config_Reference.md#bmp280bme280bme680-temperature-sensor), [htu21d config_section_name](Config_Reference.md#htu21d-sensor), [sht3x config_section_name](Config_Reference.md#sht31-sensor), [lm75 config_section_name](Config_Reference.md#lm75-temperature-sensor), [temperature_host config_section_name](Config_Reference.md#host-temperature-sensor) and [temperature_combined config_section_name](Config_Reference.md#combined-temperature-sensor) objects:
+[bme280 config_section_name](Config_Reference.md#bmp180bmp280bme280bmp388bme680-temperature-sensor), [htu21d config_section_name](Config_Reference.md#htu21d-sensor), [sht3x config_section_name](Config_Reference.md#sht3x-sensor), [lm75 config_section_name](Config_Reference.md#lm75-temperature-sensor), [temperature_host config_section_name](Config_Reference.md#host-temperature-sensor) and [temperature_combined config_section_name](Config_Reference.md#combined-temperature-sensor) objects:
 
 - `temperature`: 센서에서 마지막으로 읽은 온도입니다.
 - `humidity`, `pressure`, `gas`: The last read values from the sensor (only on bme280, htu21d, sht3x and lm75 sensors).

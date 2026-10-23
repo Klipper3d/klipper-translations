@@ -66,7 +66,7 @@ Die Baudrate des Klipper-Mikrocontrollers hat nichts mit der Baudrate des Bootlo
 
 Empfohlen werden ein Raspberry Pi Zero 2 W, ein Raspberry Pi 3, ein Raspberry Pi 4 oder ein Raspberry Pi 5. Klipper läuft, wie nachfolgend beschrieben, auch auf anderen SBC-Geräten sowie auf x86-Hardware.
 
-Klipper läuft auf einem Raspberry Pi 1, 2 und auf dem Raspberry Pi Zero 1, doch diese Platinen haben nicht genügend Rechenleistung, um Klipper gut zu betreiben. Auf diesen langsameren Maschinen kommt es beim Drucken häufig zu Stockungen (der Drucker bewegt sich unter Umständen schneller, als Klipper Bewegungsbefehle senden kann). Der Betrieb von Klipper auf diesen älteren Maschinen wird nicht empfohlen.
+Klipper will run on a Raspberry Pi 1, 2 and on the Raspberry Pi Zero1, but these boards don't have enough processing power to run Klipper well. It is common for print stalls to occur on these slower machines when printing (The printer may move faster than Klipper can send movement commands.) It is not recommended to run Klipper on these older machines.
 
 Für den Betrieb auf dem Beaglebone siehe die [Beaglebone-spezifische Installationsanleitung](Beaglebone.md).
 
@@ -108,7 +108,7 @@ Wenn Sie den Kopf nach dem Abbrechen eines Drucks über OctoPrint bewegen möcht
 
 Wenn Sie den Kopf nach Abschluss eines Drucks bewegen möchten, fügen Sie die gewünschte Bewegung am besten dem Abschnitt "custom g-code" Ihres Slicers hinzu.
 
-Wenn der Drucker im Rahmen des Homing-Vorgangs selbst eine zusätzliche Bewegung benötigt (oder grundsätzlich über keinen Homing-Vorgang verfügt), verwenden Sie am besten einen Abschnitt safe_z_home oder homing_override in der Konfigurationsdatei. Wenn Sie einen Schrittmotor zu Diagnose- oder Debugging-Zwecken bewegen müssen, fügen Sie der Konfigurationsdatei am besten einen Abschnitt force_move hinzu. Weitere Einzelheiten zu diesen Optionen finden Sie in der [Konfigurationsreferenz](Config_Reference.md#customized_homing).
+If the printer requires some additional movement as part of the homing process itself (or fundamentally does not have a homing process) then consider using a safe_z_home or homing_override section in the config file. If you need to move a stepper for diagnostic or debugging purposes then consider adding a force_move section to the config file. See [config reference](Config_Reference.md#customized-homing) for further details on these options.
 
 ## Warum ist der Z-position_endstop in den Standardkonfigurationen auf 0.5 gesetzt?
 

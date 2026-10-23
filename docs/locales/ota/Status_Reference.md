@@ -162,7 +162,7 @@ The following information is available in the `gcode_move` object (this object i
 - `speed_factor`: The "speed factor override" as set by an `M220` command. This is a floating point value such that 1.0 means no override and, for example, 2.0 would double requested speed.
 - `extrude_factor`: The "extrude factor override" as set by an `M221` command. This is a floating point value such that 1.0 means no override and, for example, 2.0 would double requested extrusions.
 - `absolute_coordinates`: This returns True if in `G90` absolute coordinate mode or False if in `G91` relative mode.
-- `absolute_extrude`: This returns True if in `M82` absolute extrude mode or False if in `M83` relative mode.
+- `absolute_extrude`: Returns True if absolute extrusions are permitted. An `M83` force relative extrusion mode command causes this value to return False. An `M82` command returns this value to True.
 - `axis_map`: Provides a mechanism for finding the coordinate component for a given G-Code id that is used in `G1` commands. See the [Accessing Coordinates](#accessing-coordinates) section for details.
 
 ## hall_filament_width_sensor
@@ -248,6 +248,7 @@ The following information is available in [mcu](Config_Reference.md#mcu) and [mc
 - `mcu_version`: The Klipper code version reported by the micro-controller.
 - `mcu_build_versions`: Information on the build tools used to generate the micro-controller code (as reported by the micro-controller).
 - `mcu_constants.<constant_name>`: Compile time constants reported by the micro-controller. The available constants may differ between micro-controller architectures and with each code revision.
+- `mcu_kconfig`: The minimal build configuration (`savedefconfig` output) that the micro-controller firmware was compiled from, as reported by the micro-controller. `None` if the firmware predates this feature or does not provide it.
 - `last_stats.<statistics_name>`: Statistics information on the micro-controller connection.
 
 ## motion_report
@@ -353,7 +354,7 @@ The following information is available in the `system_stats` object (this object
 
 The following information is available in
 
-[bme280 config_section_name](Config_Reference.md#bmp280bme280bme680-temperature-sensor), [htu21d config_section_name](Config_Reference.md#htu21d-sensor), [sht3x config_section_name](Config_Reference.md#sht31-sensor), [lm75 config_section_name](Config_Reference.md#lm75-temperature-sensor), [temperature_host config_section_name](Config_Reference.md#host-temperature-sensor) and [temperature_combined config_section_name](Config_Reference.md#combined-temperature-sensor) objects:
+[bme280 config_section_name](Config_Reference.md#bmp180bmp280bme280bmp388bme680-temperature-sensor), [htu21d config_section_name](Config_Reference.md#htu21d-sensor), [sht3x config_section_name](Config_Reference.md#sht3x-sensor), [lm75 config_section_name](Config_Reference.md#lm75-temperature-sensor), [temperature_host config_section_name](Config_Reference.md#host-temperature-sensor) and [temperature_combined config_section_name](Config_Reference.md#combined-temperature-sensor) objects:
 
 - `temperature`: The last read temperature from the sensor.
 - `humidity`, `pressure`, `gas`: The last read values from the sensor (only on bme280, htu21d, sht3x and lm75 sensors).

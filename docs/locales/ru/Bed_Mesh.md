@@ -343,7 +343,7 @@ gcode:
 
 Сбрасывает конфигурацию и состояние для текущей сетки и всех сохраненных профилей.
 
-Конечная точка `dump_mesh` принимает один необязательный параметр, `mesh_args`. Этот параметр должен быть объектом, где ключами и значениями являются параметры, доступные для [BED_MESH_CALIBRATE](#bed_mesh_calibrate). Перед возвратом результата будет обновлена конфигурация сетки и точки зондирования с использованием предоставленных параметров. Рекомендуется опустить параметры сетки, если не требуется визуализировать точки зондирования и/или траекторию движения перед выполнением `BED_MESH_CALIBRATE`.
+The `dump_mesh` endpoint takes one optional parameter, `mesh_args`. This parameter must be an object, where the keys and values are parameters available to [BED_MESH_CALIBRATE](G-Codes.md#bed_mesh_calibrate). This will update the mesh configuration and probe points using the supplied parameters prior to returning the result. It is recommended to omit mesh parameters unless it is desired to visualize the probe points and/or travel path before performing `BED_MESH_CALIBRATE`.
 
 ## Визуализация и анализ
 

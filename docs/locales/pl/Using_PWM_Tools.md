@@ -8,7 +8,7 @@ Wykorzystując wyjście pwm wentylatora głowicy drukującej, można sterować l
 
 **Uwaga:** Podczas używania lasera należy zachować wszelkie środki ostrożności, jakie tylko przychodzą na myśl! Lasery diodowe są zwykle odwrócone. Oznacza to, że po ponownym uruchomieniu MCU laser będzie *w pełni włączony* przez cały czas potrzebny do ponownego uruchomienia MCU. Dla pewności zaleca się *zawsze* noszenie odpowiednich okularów ochronnych dostosowanych do długości fal jeżeli laser jest uruchomiony, oraz do odłączania lasera, gdy nie jest on potrzebny. Powinieneś także skonfigurować limit czasu bezpieczeństwa, aby narzędzie zatrzymało się, gdy host lub MCU napotka błąd.
 
-For an example configuration, see [config/sample-pwm-tool.cfg](/config/sample-pwm-tool.cfg).
+For an example configuration, see [config/sample-pwm-tool.cfg](../config/sample-pwm-tool.cfg).
 
 ## Commands
 

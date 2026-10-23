@@ -343,7 +343,7 @@ Observera att en ZFADE-förskjutning *INTE* tillämpar ytterligare justering dir
 
 Dumpa konfigurationen och tillståndet för den aktuella nätmodellen och alla sparade profiler.
 
-Endpointen `dump_mesh` tar en valfri parameter, `mesh_args`. Parametern måste vara ett objekt vars nycklar och värden är parametrar som är tillgängliga för [BED_MESH_CALIBRATE](#bed_mesh_calibrate). Detta uppdaterar nätmodellens konfiguration och avsökningspunkterna med de angivna parametrarna innan resultatet returneras. Nätmodellens parametrar bör utelämnas om du inte vill visualisera avsökningspunkterna och/eller förflyttningsvägen före `BED_MESH_CALIBRATE`.
+The `dump_mesh` endpoint takes one optional parameter, `mesh_args`. This parameter must be an object, where the keys and values are parameters available to [BED_MESH_CALIBRATE](G-Codes.md#bed_mesh_calibrate). This will update the mesh configuration and probe points using the supplied parameters prior to returning the result. It is recommended to omit mesh parameters unless it is desired to visualize the probe points and/or travel path before performing `BED_MESH_CALIBRATE`.
 
 ## Visualisering och analys
 

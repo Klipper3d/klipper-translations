@@ -8,7 +8,7 @@ Riutilizzando l'output pwm della ventola della testina di stampa, è possibile c
 
 **Attenzione:** Quando utilizzi un laser, mantieni tutte le precauzioni di sicurezza che ti vengono in mente! I laser a diodi sono generalmente invertiti. Ciò significa che quando l'MCU si riavvia, il laser sarà *completamente acceso* per il tempo necessario al riavvio dell'MCU. Per buona misura, si raccomanda di indossare *sempre* occhiali laser appropriati della giusta lunghezza d'onda se il laser è alimentato e per disconnettere il laser quando non è necessario. Inoltre, dovresti configurare un timeout di sicurezza, in modo che quando l'host o l'MCU riscontrano un errore, lo strumento si arresti.
 
-Per un esempio di configurazione, vedere [config/sample-pwm-tool.cfg](/config/sample-pwm-tool.cfg).
+For an example configuration, see [config/sample-pwm-tool.cfg](../config/sample-pwm-tool.cfg).
 
 ## Comandi
 

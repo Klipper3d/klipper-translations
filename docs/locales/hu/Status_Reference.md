@@ -162,7 +162,7 @@ A következő információk a `gcode_move` objektumban érhetők el (ez az objek
 - `speed_factor`: Az `M220` parancs által beállított "sebességtényező felülbírálása". Ez egy lebegőpontos érték, így 1.0 azt jelenti, hogy nincs felülbírálat, és például a 2.0 megduplázza a kért sebességet.
 - `extrude_factor`: Az `M221` parancs által beállított "extrude factor override". Ez egy lebegőpontos érték, így 1.0 azt jelenti, hogy nincs felülbírálat, és például a 2.0 megduplázza a kért extrudálásokat.
 - `absolute_coordinates`: True értéket ad, ha a `G90` abszolút koordináta módban van, vagy False értéket, ha a `G91` relatív módban van.
-- `absolute_extrude`: True értéket ad, ha az `M82` abszolút extrude módban van, vagy False értéket, ha az `M83` relatív módban van.
+- `absolute_extrude`: Returns True if absolute extrusions are permitted. An `M83` force relative extrusion mode command causes this value to return False. An `M82` command returns this value to True.
 - `axis_map`: Provides a mechanism for finding the coordinate component for a given G-Code id that is used in `G1` commands. See the [Accessing Coordinates](#accessing-coordinates) section for details.
 
 ## hall_filament_width_sensor
@@ -248,6 +248,7 @@ A következő információk az [mcu](Config_Reference.md#mcu) és [mcu some_name
 - `mcu_version`: A mikrokontroller által jelentett Klipper kód verziója.
 - `mcu_build_versions`: A mikrokontroller kódjának generálásához használt építőeszközökre vonatkozó információk (a mikrokontroller által jelentett módon).
 - `mcu_constants.<constant_name>`: A mikrokontroller által jelentett fordítási idejű konstansok. A rendelkezésre álló konstansok mikrokontroller architektúránként és kódrevíziónként eltérőek lehetnek.
+- `mcu_kconfig`: The minimal build configuration (`savedefconfig` output) that the micro-controller firmware was compiled from, as reported by the micro-controller. `None` if the firmware predates this feature or does not provide it.
 - `last_stats.<statistics_name>`: Statisztikai információk a mikrokontroller kapcsolatról.
 
 ## motion_report
@@ -353,7 +354,7 @@ A következő információk a `system_stats` objektumban érhetők el (ez az obj
 
 A következő információk a következő dokumentumban találhatók
 
-[bme280 config_section_name](Config_Reference.md#bmp280bme280bme680-temperature-sensor), [htu21d config_section_name](Config_Reference.md#htu21d-sensor), [sht3x config_section_name](Config_Reference.md#sht31-sensor), [lm75 config_section_name](Config_Reference.md#lm75-temperature-sensor), [temperature_host config_section_name](Config_Reference.md#host-temperature-sensor) és [temperature_combined config_section_name](Config_Reference.md#combined-temperature-sensor) tárgyak:
+[bme280 config_section_name](Config_Reference.md#bmp180bmp280bme280bmp388bme680-temperature-sensor), [htu21d config_section_name](Config_Reference.md#htu21d-sensor), [sht3x config_section_name](Config_Reference.md#sht3x-sensor), [lm75 config_section_name](Config_Reference.md#lm75-temperature-sensor), [temperature_host config_section_name](Config_Reference.md#host-temperature-sensor) and [temperature_combined config_section_name](Config_Reference.md#combined-temperature-sensor) objects:
 
 - `temperature`: Az érzékelőtől utoljára kapott hőmérséklet.
 - `páratartalom`, `légnyomás`, `gáz`: Az érzékelőből utoljára leolvasott értékek (csak a bme280, htu21d, sht3x és lm75 érzékelők esetében).

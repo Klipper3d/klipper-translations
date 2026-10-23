@@ -66,7 +66,7 @@ serial: /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 
 The recommended hardware is a Raspberry Pi Zero2w, Raspberry Pi 3, Raspberry Pi 4 or Raspberry Pi 5. Klipper will also run on other SBC devices as well as x86 hardware, as described below.
 
-Klipper will run on a Raspberry Pi 1, 2 and on the Raspberry Pi Zero1, but these boards don't have enough processing power to run Klipper well. It is common for print stalls to occur on these slower machines when printing (The printer may move faster than Klipper can send movement commands.) It is not reccomended to run Klipper on these older machines.
+Klipper will run on a Raspberry Pi 1, 2 and on the Raspberry Pi Zero1, but these boards don't have enough processing power to run Klipper well. It is common for print stalls to occur on these slower machines when printing (The printer may move faster than Klipper can send movement commands.) It is not recommended to run Klipper on these older machines.
 
 Для запуска на Beaglebone см. инструкцию по установке [Beaglebone specific installation instructions](Beaglebone.md).
 
@@ -108,7 +108,7 @@ Klipper создает "виртуальный последовательный 
 
 Если вы хотите перемещать головку после завершения печати, добавьте нужное движение в раздел "пользовательский g-код" вашего слайсера.
 
-Если принтер требует дополнительного перемещения в рамках процесса самонаведения (или в принципе не имеет процесса самонаведения), рассмотрите возможность использования секции safe_z_home или homing_override в файле конфигурации. Если вам необходимо перемещать шаговый механизм в целях диагностики или отладки, подумайте о добавлении секции force_move в файл конфигурации. Дополнительные сведения об этих опциях смотрите в [ ссылка на конфигурацию ](Config_Reference.md#customized_homing).
+If the printer requires some additional movement as part of the homing process itself (or fundamentally does not have a homing process) then consider using a safe_z_home or homing_override section in the config file. If you need to move a stepper for diagnostic or debugging purposes then consider adding a force_move section to the config file. See [config reference](Config_Reference.md#customized-homing) for further details on these options.
 
 ## Почему в конфигурации по умолчанию для параметра Z position_endstop установлено значение 0,5?
 

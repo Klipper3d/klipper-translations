@@ -53,7 +53,7 @@ Kommentarerna överst i [skrivarens konfigurationsfil](#obtain-a-klipper-configu
 make
 ```
 
-Om kommentarerna högst upp i [skrivarens konfigurationsfil](#obtain-a-klipper-configuration-file) beskriver särskilda steg för att "flasha" den färdiga avbildningen till skrivarkortet följer du dem och fortsätter sedan till [konfigurera OctoPrint](#configuring-octoprint-to-use-klipper).
+If the comments at the top of the [printer configuration file](#obtain-a-klipper-configuration-file) describe custom steps for "flashing" the final image to the printer control board, then follow those steps and then proceed to [configuring OctoPrint](OctoPrint.md#configuring-octoprint-to-use-klipper).
 
 I annat fall används ofta följande steg för att "flasha" skrivarkortet. Bestäm först vilken seriell port som är ansluten till mikrokontrollern. Kör:
 

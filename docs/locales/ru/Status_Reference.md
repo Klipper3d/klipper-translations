@@ -162,7 +162,7 @@ The following information is available in the `gcode` object:
 - `speed_factor`: "Переопределение коэффициента скорости", установленное командой `M220`. Это значение с плавающей точкой: 1.0 означает отсутствие переопределения, а, например, 2.0 удваивает запрашиваемую скорость.
 - `extrude_factor`: "Переопределение коэффициента выдавливания", задаваемое командой `M221`. Это значение с плавающей точкой: 1.0 означает отсутствие переопределения, а, например, 2.0 удваивает требуемые экструзии.
 - `абсолютные_координаты`: Возвращает True, если в режиме абсолютных координат `G90`, или False, если в режиме относительных координат `G91`.
-- `absolute_extrude`: Возвращает True, если используется режим абсолютного выдавливания `M82`, или False, если используется режим относительного выдавливания `M83`.
+- `absolute_extrude`: Returns True if absolute extrusions are permitted. An `M83` force relative extrusion mode command causes this value to return False. An `M82` command returns this value to True.
 - `axis_map`: Provides a mechanism for finding the coordinate component for a given G-Code id that is used in `G1` commands. See the [Accessing Coordinates](#accessing-coordinates) section for details.
 
 ## hall_filament_width_sensor
@@ -248,6 +248,7 @@ The following information is available in the `gcode` object:
 - `mcu_version`: Версия кода Klipper, сообщенная микроконтроллером.
 - `mcu_build_versions`: Информация о средствах сборки, использованных для генерации кода микроконтроллера (по данным микроконтроллера).
 - `mcu_constants.<constant_name>`: Константы времени компиляции, сообщаемые микроконтроллером. Доступные константы могут отличаться в разных архитектурах микроконтроллеров и в каждой ревизии кода.
+- `mcu_kconfig`: The minimal build configuration (`savedefconfig` output) that the micro-controller firmware was compiled from, as reported by the micro-controller. `None` if the firmware predates this feature or does not provide it.
 - `last_stats.<statistics_name>`: Статистическая информация о подключении микроконтроллера.
 
 ## motion_report
@@ -353,7 +354,7 @@ The following information is available in [output_pin some_name](Config_Referenc
 
 Следующая информация доступна в
 
-[bme280 config_section_name](Config_Reference.md#bmp280bme280bme680-temperature-sensor), [htu21d config_section_name](Config_Reference.md#htu21d-sensor), [sht3x config_section_name](Config_Reference.md# sht31-sensor), [lm75 config_section_name](Config_Reference.md#lm75-temperature-sensor), [temperature_host config_section_name](Config_Reference.md#host-temperature-sensor) и [temperature_combined config_section_name](Config_Reference.md#combined-temperature-sensor):
+[bme280 config_section_name](Config_Reference.md#bmp180bmp280bme280bmp388bme680-temperature-sensor), [htu21d config_section_name](Config_Reference.md#htu21d-sensor), [sht3x config_section_name](Config_Reference.md#sht3x-sensor), [lm75 config_section_name](Config_Reference.md#lm75-temperature-sensor), [temperature_host config_section_name](Config_Reference.md#host-temperature-sensor) and [temperature_combined config_section_name](Config_Reference.md#combined-temperature-sensor) objects:
 
 - `температура`: Последнее значение температуры, считанное с датчика.
 - `влажность`, `давление`, `газ`: Последние считанные значения с датчика (только для датчиков bme280, htu21d, sht3x и lm75).

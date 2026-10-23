@@ -2,7 +2,7 @@
 
 The `[exclude_object]` module allows Klipper to exclude objects while a print is in progress. To enable this feature include an [exclude_object config
 section](Config_Reference.md#exclude_object) (also see the [command
-reference](G-Codes.md#exclude-object) and [sample-macros.cfg](../config/sample-macros.cfg) file for a Marlin/RepRapFirmware compatible M486 G-Code macro.)
+reference](G-Codes.md#exclude_object) and [sample-macros.cfg](../config/sample-macros.cfg) file for a Marlin/RepRapFirmware compatible M486 G-Code macro.)
 
 மற்ற 3D அச்சுப்பொறி ஃபார்ம்வேர் விருப்பங்களைப் போலன்றி, கிளிப்பர் இயங்கும் அச்சுப்பொறி கூறுகளின் தொகுப்பைப் பயன்படுத்துகிறது மற்றும் பயனர்களுக்கு தேர்வு செய்ய பல விருப்பங்கள் உள்ளன. ஆகையால், ஒரு நிலையான பயனர் அனுபவத்தை வழங்குவதற்காக, `[விலக்கு_ஆப்செக்ட்]` தொகுதி ஒரு ஒப்பந்தம் அல்லது பநிஇ ஆகியவற்றை நிறுவும். ஒப்பந்தம் GCODE கோப்பின் உள்ளடக்கங்கள், தொகுதியின் உள் நிலை எவ்வாறு கட்டுப்படுத்தப்படுகிறது, வாடிக்கையாளர்களுக்கு அந்த நிலை எவ்வாறு வழங்கப்படுகிறது என்பதை உள்ளடக்கியது.
 
@@ -32,7 +32,7 @@ reference](G-Codes.md#exclude-object) and [sample-macros.cfg](../config/sample-m
 `விலக்கு_OBJECT_DEFINE பெயர் = அளவுத்திருத்தம்_பைராமிட் நடுவண் = 50,50 பலகோணம் = [[40,40], [50,60], [60,40]]`
 
 All available G-Code commands are documented in the [G-Code
-Reference](./G-Codes.md#excludeobject)
+Reference](./G-Codes.md#exclude_object)
 
 ## நிலை செய்தி
 

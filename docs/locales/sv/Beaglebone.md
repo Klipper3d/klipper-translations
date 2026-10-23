@@ -178,7 +178,7 @@ För "Användningsfall 2": använd alltid temperatursensorer från "mcu host" n�
 
 ## Återstående konfiguration
 
-Slutför installationen genom att konfigurera Klipper enligt instruktionerna i huvuddokumentet [Installation](Installation.md#configuring-octoprint-to-use-klipper).
+Complete the installation by configuring Klipper following the instructions in the main [Installation](Installation.md#configuring-klipper) document.
 
 ## Skriva ut med BeagleBone
 

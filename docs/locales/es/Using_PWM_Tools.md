@@ -8,7 +8,7 @@ Al reutilizar la salida pwm del ventilador del cabezal de impresión, se pueden 
 
 **Advertencia:** Cuando utilice un láser, tome todas las precauciones de seguridad que se le ocurran. Los láseres de diodo suelen estar invertidos. Esto significa que, cuando la MCU se reinicie, el láser estará *totalmente encendido* durante el tiempo que tarde la MCU en volver a arrancar. Por precaución, se recomienda llevar *siempre* gafas protectoras adecuadas para la longitud de onda correcta cuando el láser esté encendido, y desconectarlo cuando no se necesite. Además, debe configurar un tiempo de espera de seguridad para que, cuando el host o la MCU detecten un error, la herramienta se detenga.
 
-For an example configuration, see [config/sample-pwm-tool.cfg](/config/sample-pwm-tool.cfg).
+For an example configuration, see [config/sample-pwm-tool.cfg](../config/sample-pwm-tool.cfg).
 
 ## Comandos
 

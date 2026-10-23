@@ -162,7 +162,7 @@ Les informations suivantes sont disponibles dans l'objet `gcode_move` (cet objet
 - `speed_factor` : Le « remplacement du facteur de vitesse » tel que défini par une commande `M220`. Il s'agit d'une valeur à virgule flottante. 1,0 signifie qu'il n'y a pas de dépassement et, par exemple, 2,0 double la vitesse demandée.
 - `extrude_factor` : le "remplacement du facteur d'extrusion" tel que défini par une commande `M221`. Il s'agit d'une valeur à virgule flottante. 1,0 signifie qu'il n'y a pas de remplacement et, par exemple, 2,0 double le volume d'extrusion demandé.
 - `absolute_coordinates` : Cela renvoie True si l'on est en mode de coordonnées absolues `G90` ou False si l'on est en mode relatif `G91`.
-- `absolute_extrude` : Ceci renvoie True si l'on est en mode d'extrusion absolue `M82` ou False si l'on est en mode relatif `M83`.
+- `absolute_extrude`: Returns True if absolute extrusions are permitted. An `M83` force relative extrusion mode command causes this value to return False. An `M82` command returns this value to True.
 - `axis_map`: Provides a mechanism for finding the coordinate component for a given G-Code id that is used in `G1` commands. See the [Accessing Coordinates](#accessing-coordinates) section for details.
 
 ## hall_filament_width_sensor
@@ -248,6 +248,7 @@ Les informations suivantes sont disponibles dans les objets [mcu](Config_Referen
 - `mcu_version` : la version du code Klipper remontée par le microcontrôleur.
 - `mcu_build_versions` : informations sur les outils de construction utilisés pour générer le code du microcontrôleur (tel que remonté par le microcontrôleur).
 - `mcu_constants.<constant_name>` : Compile les constantes de temps rapportées par le microcontrôleur. Les constantes disponibles peuvent différer entre les architectures de microcontrôleur et à chaque révision de code.
+- `mcu_kconfig`: The minimal build configuration (`savedefconfig` output) that the micro-controller firmware was compiled from, as reported by the micro-controller. `None` if the firmware predates this feature or does not provide it.
 - `last_stats.<statistics_name>` : informations statistiques sur la connexion du microcontrôleur.
 
 ## motion_report
@@ -353,7 +354,7 @@ Les informations suivantes sont disponibles dans l'objet `system_stats` (cet obj
 
 Les informations suivantes sont disponibles dans
 
-[bme280 config_section_name](Config_Reference.md#bmp280bme280bme680-temperature-sensor), [htu21d config_section_name](Config_Reference.md#htu21d-sensor), [sht3x config_section_name](Config_Reference.md#sht31-sensor), [lm75 config_section_name](Config_Reference.md#lm75-temperature-sensor), [temperature_host config_section_name](Config_Reference.md#host-temperature-sensor) and [temperature_combined config_section_name](Config_Reference.md#combined-temperature-sensor) objects:
+[bme280 config_section_name](Config_Reference.md#bmp180bmp280bme280bmp388bme680-temperature-sensor), [htu21d config_section_name](Config_Reference.md#htu21d-sensor), [sht3x config_section_name](Config_Reference.md#sht3x-sensor), [lm75 config_section_name](Config_Reference.md#lm75-temperature-sensor), [temperature_host config_section_name](Config_Reference.md#host-temperature-sensor) and [temperature_combined config_section_name](Config_Reference.md#combined-temperature-sensor) objects:
 
 - `temperature` : La dernière température lue par le capteur.
 - `humidity`, `pressure`, `gas`: The last read values from the sensor (only on bme280, htu21d, sht3x and lm75 sensors).

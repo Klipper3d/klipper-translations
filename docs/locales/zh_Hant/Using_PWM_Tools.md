@@ -8,7 +8,7 @@ This document describes how to setup a PWM-controlled laser or spindle using `pw
 
 **警告：** 在驅動鐳射器時，應採用一切可能的預防措施。二極管鐳射一般是使用反訊號的，即當微控制器重啟時，鐳射將會*全功率輸出*，直至微處理器恢復正常運作。 慎重而言，建議在鐳射器上電期間*始終*佩戴合適波長的護目鏡；並在不使用鐳射時對鐳射器斷電。同時，應該為鐳射器設定安全定時，保證在上位機和微控制器發生錯誤時，鐳射器能自動停止。
 
-有關示例配置，請參閱 [config/sample-pwm-tool.cfg](/config/sample-pwm-tool.cfg)。
+For an example configuration, see [config/sample-pwm-tool.cfg](../config/sample-pwm-tool.cfg).
 
 ## 命令
 

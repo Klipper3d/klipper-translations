@@ -53,7 +53,7 @@ make menuconfig
 make
 ```
 
-If the comments at the top of the [printer configuration file](#obtain-a-klipper-configuration-file) describe custom steps for "flashing" the final image to the printer control board, then follow those steps and then proceed to [configuring OctoPrint](#configuring-octoprint-to-use-klipper).
+If the comments at the top of the [printer configuration file](#obtain-a-klipper-configuration-file) describe custom steps for "flashing" the final image to the printer control board, then follow those steps and then proceed to [configuring OctoPrint](OctoPrint.md#configuring-octoprint-to-use-klipper).
 
 В противен случай често се използват следните стъпки за "флашване" на контролната платка на принтера. Първо е необходимо да се определи серийният порт, свързан с микроконтролера. Изпълнете следното:
 

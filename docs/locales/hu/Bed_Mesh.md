@@ -343,7 +343,7 @@ Vedd figyelembe, hogy a ZFADE eltolás *NEM* alkalmaz közvetlenül további be�
 
 Kitölti az aktuális háló és az összes mentett profil konfigurációját és állapotát.
 
-A `dump_mesh` végpontnak egy opcionális paramétere van, a `mesh_args`. Ennek a paraméternek egy objektumnak kell lennie, ahol a kulcsok és az értékek a [BED_MESH_CALIBRATE](#bed_mesh_calibrate) számára elérhető paraméterek. Ez frissíti a háló konfigurációját és a mérési pontokat a megadott paraméterek segítségével, mielőtt visszaküldi az eredményt. A hálóparaméterek elhagyása ajánlott, kivéve, ha a `BED_MESH_CALIBRATE` végrehajtása előtt a mérési pontokat és/vagy a haladási útvonalat kívánod megjeleníteni.
+The `dump_mesh` endpoint takes one optional parameter, `mesh_args`. This parameter must be an object, where the keys and values are parameters available to [BED_MESH_CALIBRATE](G-Codes.md#bed_mesh_calibrate). This will update the mesh configuration and probe points using the supplied parameters prior to returning the result. It is recommended to omit mesh parameters unless it is desired to visualize the probe points and/or travel path before performing `BED_MESH_CALIBRATE`.
 
 ## Vizualizáció és elemzés
 

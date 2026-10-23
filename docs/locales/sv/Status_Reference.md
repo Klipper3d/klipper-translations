@@ -162,7 +162,7 @@ Följande information finns tillgänglig i objektet `gcode_move` (objektet är a
 - `speed_factor`: ”Åsidosättningsfaktor för hastighet”, som anges med ett `M220`-kommando. Det är ett flyttal där 1.0 betyder att ingen åsidosättning görs och där till exempel 2.0 fördubblar den begärda hastigheten.
 - `extrude_factor`: ”Åsidosättningsfaktor för extrudering”, som anges med ett `M221`-kommando. Det är ett flyttal där 1.0 betyder att ingen åsidosättning görs och där till exempel 2.0 fördubblar de begärda extruderingarna.
 - `absolute_coordinates`: Returnerar True i absolut koordinatläge `G90`, annars False i relativt läge `G91`.
-- `absolute_extrude`: Returnerar True i absolut extruderläge `M82`, annars False i relativt läge `M83`.
+- `absolute_extrude`: Returns True if absolute extrusions are permitted. An `M83` force relative extrusion mode command causes this value to return False. An `M82` command returns this value to True.
 - `axis_map`: Tillhandahåller ett sätt att hitta koordinatkomponenten för ett visst G-Code-id som används i `G1`-kommandon. Se avsnittet [Åtkomst till koordinater](#accessing-coordinates) för mer information.
 
 ## hall_filament_width_sensor
@@ -248,6 +248,7 @@ Följande information finns tillgänglig i objekten [mcu](Config_Reference.md#mc
 - `mcu_version`: Klipper-kodversionen som rapporteras av mikrokontrollern.
 - `mcu_build_versions`: Information om byggverktygen som användes för att skapa mikrokontrollerkoden, enligt mikrokontrollern.
 - `mcu_constants.<constant_name>`: Konstantvärden från kompileringstiden som rapporteras av mikrokontrollern. Tillgängliga konstantvärden kan skilja sig mellan mikrokontrollerarkitekturer och mellan kodversioner.
+- `mcu_kconfig`: The minimal build configuration (`savedefconfig` output) that the micro-controller firmware was compiled from, as reported by the micro-controller. `None` if the firmware predates this feature or does not provide it.
 - `last_stats.<statistics_name>`: Statistik om anslutningen till mikrokontrollern.
 
 ## motion_report
@@ -353,7 +354,7 @@ Följande information finns tillgänglig i objektet `system_stats` (objektet är
 
 Följande information finns tillgänglig i
 
-Objekten [bme280 config_section_name](Config_Reference.md#bmp280bme280bme680-temperature-sensor), [htu21d config_section_name](Config_Reference.md#htu21d-sensor), [sht3x config_section_name](Config_Reference.md#sht31-sensor), [lm75 config_section_name](Config_Reference.md#lm75-temperature-sensor), [temperature_host config_section_name](Config_Reference.md#host-temperature-sensor) och [temperature_combined config_section_name](Config_Reference.md#combined-temperature-sensor):
+[bme280 config_section_name](Config_Reference.md#bmp180bmp280bme280bmp388bme680-temperature-sensor), [htu21d config_section_name](Config_Reference.md#htu21d-sensor), [sht3x config_section_name](Config_Reference.md#sht3x-sensor), [lm75 config_section_name](Config_Reference.md#lm75-temperature-sensor), [temperature_host config_section_name](Config_Reference.md#host-temperature-sensor) and [temperature_combined config_section_name](Config_Reference.md#combined-temperature-sensor) objects:
 
 - `temperature`: Den senast avlästa temperaturen från sensorn.
 - `humidity`, `pressure`, `gas`: De senast avlästa värdena från sensorn, endast på sensorerna bme280, htu21d, sht3x och lm75.

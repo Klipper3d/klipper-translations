@@ -8,7 +8,7 @@ This document describes how to setup a PWM-controlled laser or spindle using `pw
 
 **Uyarı:** Lazer kullanırken aklınıza gelebilecek tüm güvenlik önlemlerini alınız! Diyot lazerler genellikle ters bağlantılıdır. Bu, MCU yeniden başlatıldığında, MCU'nun yeniden başlaması için gereken süre boyunca lazerin *tamamen açık* olacağı anlamına gelir. İyi bir ölçüm için, lazere güç veriliyorsa gerekmedikçe lazerin bağlantısını kesmemeniz ve *her zaman* kullandığınız lazerin dalga boyuna uygun lazer gözlüğü takmanız önerilir. Ayrıca, ana makineniz veya MCU'nuz bir hatayla karşılaştığında aracın durması için bir güvenlik zaman aşımı süresi yapılandırmanız gerekmektedir.
 
-Örnek ayarlar için, [config/sample-pwm-tool.cfg](/config/sample-pwm-tool.cfg)'u ziyaret ediniz.
+For an example configuration, see [config/sample-pwm-tool.cfg](../config/sample-pwm-tool.cfg).
 
 ## Komutlar
 

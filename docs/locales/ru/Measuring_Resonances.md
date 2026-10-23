@@ -502,7 +502,7 @@ probe_points: ...
 Рекомендуемый шейпер - 2hump_ei @ 45,2 Гц
 ```
 
-Обратите внимание, что указанные значения `сглаживания` - это некие абстрактные прогнозируемые значения. Эти значения можно использовать для сравнения различных конфигураций: чем выше значение, тем больше сглаживания создаст шейпер. Однако эти показатели сглаживания не являются реальной мерой сглаживания, поскольку фактическое сглаживание зависит от параметров [`max_accel`](#selecting-max-accel) и `square_corner_velocity`. Поэтому вам следует напечатать несколько тестовых отпечатков, чтобы узнать, сколько сглаживания создает выбранная конфигурация.
+Note that the reported `smoothing` values are some abstract projected values. These values can be used to compare different configurations: the higher the value, the more smoothing a shaper will create. However, these smoothing scores do not represent any real measure of smoothing, because the actual smoothing depends on [`max_accel`](#selecting-max_accel) and `square_corner_velocity` parameters. Therefore, you should print some test prints to see how much smoothing exactly a chosen configuration creates.
 
 В приведенном примере предложенные параметры шейпера неплохи, но что, если вы хотите получить меньшее сглаживание по оси X? Вы можете попробовать ограничить максимальное сглаживание шейпера с помощью следующей команды:
 

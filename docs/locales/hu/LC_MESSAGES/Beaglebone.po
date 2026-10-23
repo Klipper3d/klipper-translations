@@ -331,16 +331,6 @@ msgstr ""
 "\"host:gpiochip1/gpio17\", de ezt kerülni kell, mert ez további terhelést "
 "jelent a fő CPU-ra, és valószínűleg nem tudja használni a léptető vezérlésére."
 
-#: docs/Beaglebone.md:block 53 (paragraph)
-msgid ""
-"Complete the installation by configuring Klipper following the instructions in"
-" the main [Installation](Installation.md#configuring-octoprint-to-use-klipper)"
-" document."
-msgstr ""
-"Fejezd be a telepítést a Klipper konfigurálásával a "
-"[Telepítés](Installation.md#configuring-octoprint-to-use-klipper) "
-"fődokumentumban található utasítások szerint."
-
 #: docs/Beaglebone.md:block 55 (paragraph)
 msgid ""
 "Unfortunately, the Beaglebone processor can sometimes struggle to run "
@@ -562,6 +552,21 @@ msgstr ""
 "esetén CAN0: BB-CAN0-00A0.dtbo CAN1: BB-CAN1-00A0.dtbo UART0: - a konzol "
 "számára UART1(RX,TX): BB-UART3-00A0.dtbo UART4(RS-485): BB-"
 "UART4-RS485-00A0.dtbo UART5(RX,TX): BB-UART5-00A0.dtbo"
+
+#: docs/Beaglebone.md:block 53 (paragraph)
+msgid ""
+"Complete the installation by configuring Klipper following the instructions in"
+" the main [Installation](Installation.md#configuring-klipper) document."
+msgstr ""
+
+#~ msgid ""
+#~ "Complete the installation by configuring Klipper following the instructions in"
+#~ " the main [Installation](Installation.md#configuring-octoprint-to-use-klipper)"
+#~ " document."
+#~ msgstr ""
+#~ "Fejezd be a telepítést a Klipper konfigurálásával a "
+#~ "[Telepítés](Installation.md#configuring-octoprint-to-use-klipper) "
+#~ "fődokumentumban található utasítások szerint."
 
 #~ msgid ""
 #~ "git clone https://github.com/foosel/OctoPrint.git\n"

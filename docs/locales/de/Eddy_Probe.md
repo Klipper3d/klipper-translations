@@ -200,7 +200,7 @@ Wie man erkennen kann, ist das oben beschriebene Kalibrierverfahren anspruchsvol
 
 ## Fehlerbeschreibung
 
-Mögliche Homing-Fehler und Maßnahmen:
+### Mögliche Homing-Fehler und Maßnahmen:
 
 - Sensorfehler
    - Für detaillierte Fehlerinformationen die Logs prüfen
@@ -232,3 +232,24 @@ Bei manchen Sensoren lässt sich der Amplitudenwarnhinweis nicht vollständig ve
 Sie können versuchen, die `LDC_CALIBRATE_DRIVE_CURRENT`-Kalibrierung bei Betriebstemperatur zu wiederholen oder `reg_drive_current` um 1-2 gegenüber dem kalibrierten Wert zu erhöhen.
 
 Im Allgemeinen ist dies vergleichbar mit einer Motorkontrollleuchte. Es kann auf ein Problem hindeuten.
+
+### Possible TAP errors and actionables:
+
+- insufficient lift (A vs B) - too small Z window received by the code
+   - LIFT_SPEED/printer.max_z_velocity too low - must be at least 2.5 Recommended >0.5 RPS. For motor cogging reasons.
+   - printer.max_z_accel too low - must be larger 35 mm/s^2. Recommended 300 mm/s^2.
+   - SAMPLE_RETRACT_DIST too low Recommended >2 mm.
+- no contact found at z=Z (slope delta A vs B) - retraction analysis outputs not expected data. Often toolhead has stopped in mid-air because of the measurement noise.
+   - Too high printer.max_z_accel - Z resonances, consider Z input shaper
+   - Mechanical vibrations - ex. toolhead fan
+   - Sensor noise (elevated chamber/bed temperature)
+   - Increase of tap_threshold normally allows to alleviate symptoms
+- invalid depress distance (Z vs A:B)
+   - if Z < A
+      - tap_threshold too low
+      - PROBE_SPEED too low
+      - printer.max_z_accel too low
+   - if Z > B
+      - Large toolhead tilt (mechanical/installation issue)
+      - PROBE_SPEED too high
+      - tap_threshold too high

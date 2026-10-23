@@ -53,7 +53,7 @@ Os comentários no topo do ficheiro de configuração da impressora (printer.cfg
 make
 ```
 
-Se os comentários no topo do [printer configuration file](#obtain-a-klipper-configuration-file) mostrarem passos especificos para gravar a imagem final na placa da impressora, então segue esses passos e depois procede para [configuring OctoPrint](#configuring-octoprint-to-use-klipper).
+If the comments at the top of the [printer configuration file](#obtain-a-klipper-configuration-file) describe custom steps for "flashing" the final image to the printer control board, then follow those steps and then proceed to [configuring OctoPrint](OctoPrint.md#configuring-octoprint-to-use-klipper).
 
 Caso contrário, os seguintes passos são usados frequentemente para gravar na placa controladora da impressora. Primeiro, é necessário descobrir a porta serial conectada ao micro-controlador. Executa o seguinte:
 

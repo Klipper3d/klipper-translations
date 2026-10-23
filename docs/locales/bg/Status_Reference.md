@@ -162,7 +162,7 @@ The following information is available in the `gcode` object:
 - `speed_factor`: "Коефициент на скоростта", зададен с команда `M220`. Това е стойност с плаваща запетая, като 1,0 означава, че няма превишаване, а например 2,0 ще удвои заявената скорост.
 - `extrude_factor`: "Коефициент на екструдиране", зададен с команда `M221`. Това е стойност с плаваща запетая, така че 1,0 означава, че няма промяна, а например 2,0 ще удвои исканите екструзии.
 - `absolute_coordinates`: Връща True, ако е в режим на абсолютни координати `G90`, или False, ако е в режим на относителни координати `G91`.
-- `absolute_extrude`: Връща True, ако е в режим `M82` на абсолютно екструдиране, или False, ако е в режим `M83` на относително екструдиране.
+- `absolute_extrude`: Returns True if absolute extrusions are permitted. An `M83` force relative extrusion mode command causes this value to return False. An `M82` command returns this value to True.
 - `axis_map`: Provides a mechanism for finding the coordinate component for a given G-Code id that is used in `G1` commands. See the [Accessing Coordinates](#accessing-coordinates) section for details.
 
 ## hall_filament_width_sensor
@@ -248,6 +248,7 @@ The following information is available for `[load_cell_probe]`:
 - `mcu_version`: Версията на кода на Klipper, съобщена от микроконтролера.
 - `mcu_build_versions`: Информация за инструментите за изграждане, използвани за генериране на кода на микроконтролера (както се съобщава от микроконтролера).
 - `mcu_constants.<constant_name>`: Константи по време на компилация, докладвани от микроконтролера. Наличните константи могат да се различават при различните архитектури на микроконтролера и при всяка ревизия на кода.
+- `mcu_kconfig`: The minimal build configuration (`savedefconfig` output) that the micro-controller firmware was compiled from, as reported by the micro-controller. `None` if the firmware predates this feature or does not provide it.
 - ```last_stats.<statistics_name>`: Статистическа информация за връзката с микроконтролера.
 
 ## motion_report
@@ -353,7 +354,7 @@ The following information is available in the `skew_correction` object (this obj
 
 Следната информация е налична в
 
-[bme280 config_section_name](Config_Reference.md#bmp280bme280bme680-temperature-sensor), [htu21d config_section_name](Config_Reference.md#htu21d-sensor), [sht3x config_section_name](Config_Reference.md#sht31-sensor), [lm75 config_section_name](Config_Reference.md#lm75-temperature-sensor), [temperature_host config_section_name](Config_Reference.md#host-temperature-sensor) and [temperature_combined config_section_name](Config_Reference.md#combined-temperature-sensor) objects:
+[bme280 config_section_name](Config_Reference.md#bmp180bmp280bme280bmp388bme680-temperature-sensor), [htu21d config_section_name](Config_Reference.md#htu21d-sensor), [sht3x config_section_name](Config_Reference.md#sht3x-sensor), [lm75 config_section_name](Config_Reference.md#lm75-temperature-sensor), [temperature_host config_section_name](Config_Reference.md#host-temperature-sensor) and [temperature_combined config_section_name](Config_Reference.md#combined-temperature-sensor) objects:
 
 - `температура`: Последната отчетена температура от сензора.
 - `влажност`, `налягане`, `газ`: Последните прочетени стойности от сензора (само за сензорите bme280, htu21d, sht3x и lm75).

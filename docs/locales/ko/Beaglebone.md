@@ -178,7 +178,7 @@ Take a note for "Use case 2" about following: when you will define printer confi
 
 ## 나머지 설정
 
-Complete the installation by configuring Klipper following the instructions in the main [Installation](Installation.md#configuring-octoprint-to-use-klipper) document.
+Complete the installation by configuring Klipper following the instructions in the main [Installation](Installation.md#configuring-klipper) document.
 
 ## 비글본으로 출력해보기
 

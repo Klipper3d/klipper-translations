@@ -10,7 +10,7 @@
 
 ## `Load_cell_diagnostic` ஐப் பயன்படுத்துதல்
 
-`Load_cell_diagnostic` ஐ இயக்குவதன் மூலம் சிக்கல்களைச் சரிபார்க்க அதன் நல்ல நடைமுறையை நீங்கள் முதலில் இணைக்கும்போது. இந்த கருவி சுமை கலத்திலிருந்து 10 விநாடிகள் தரவைச் சேகரித்து புள்ளிவிவரங்களைத் தூண்டுகிறது:
+When you first connect a load cell its good practice to check for issues by running `LOAD_CELL_DIAGNOSTIC`. This tool collects 10 seconds of data from the load cell and reports statistics:
 
 ```
 $ LOAD_CELL_DIAGNOSTIC
@@ -121,11 +121,11 @@ LOAD_CELL_TARE
 
 இது `குறிப்பு_டேர்_கவுண்ட்ச்` உடன் ஒப்பிடும்போது, அதிகபட்ச முழுமையான சக்தியாகும், இது ஆய்வு அல்லது ஆய்வு செய்யும் போது ஆய்வு அனுமதிக்கும். MCU இந்த சக்தியை தாண்டிவிட்டால், அது பிழையுடன் அச்சுப்பொறியை மூடிவிடும் `!! செல் எண்ட்ச்டாப்பை ஏற்றவும்: அதிக சக்தி! `. இதைத் தூண்டக்கூடிய பல வழிகள் உள்ளன:
 
-இது பாதுகாக்கும் முதல் இடர் `STRIFT_FILTER_CUTOFF_FREQUENCY` க்கான மதிப்பை மிகப் பெரியதாக எடுப்பதாகும். இது சறுக்கல் வடிகட்டி ஒரு ஆய்வு நிகழ்வை வடிகட்டவும், ஓமிங் நகர்வைத் தொடரவும் காரணமாகிறது. இது நடந்தால் `force_safety_limit` காப்புப்பிரதி பாதுகாப்பாக செயல்படுகிறது.
+The first risk this protects against is picking too large of a value for `drift_filter_cutoff_frequency`. This can cause the drift filter to filter out a probe event and continue the homing move. If this happens, the `force_safety_limit` acts as a backup protection.
 
 இரண்டாவது சிக்கல் ஒரே இடத்தில் மறுநிகழ்வு ஆராய்கிறது. ஒற்றை `ஆய்வு` கட்டளையைச் செய்யும்போது கிளிப்பர் விசாரணையைத் திரும்பப் பெறுவதில்லை. இது ஒரு ஆய்வு சுழற்சியின் முடிவில் கருவிக்குத் தலையில் பயன்படுத்தப்படும். வெளிப்புற சக்திகள் இருப்பிடங்களுக்கு இடையில் பெரிதும் மாறுபடும் என்பதால், ஒவ்வொரு ஆய்வையும் தொடங்குவதற்கு முன்பு `load_cell_probe 'ஒரு செயல்களைச் செய்கிறது. நீங்கள் `ஆய்வு` கட்டளையை மீண்டும் செய்தால், load_cell_probe தற்போதைய சக்தியில் எண்ட்ச்டாப்பைக் கவரும். இதன் பல சுழற்சிகள் கருவி தலையில் தொடர்ந்து அதிகரித்து வரும் சக்தியை ஏற்படுத்தும். `force_safety_limit` இந்த சுழற்சியை கட்டுப்பாட்டை மீறி நிறுத்துகிறது.
 
-Another way this run-away can happen is damage to a strain gauge. If the metal part is permanently bent it will change the `reference_tare_counts` of the device. This puts the starting tare value much closer to the limit making it more likely to be violated. You want to be notified if this is happening because your hardware has been permanently damaged.
+Another way this runaway can happen is damage to a strain gauge. If the metal part is permanently bent it will change the `reference_tare_counts` of the device. This puts the starting tare value much closer to the limit making it more likely to be violated. You want to be notified if this is happening because your hardware has been permanently damaged.
 
 இதைத் தூண்டக்கூடிய இறுதி வழி வெப்பநிலை மாற்றங்கள் காரணமாகும். உங்கள் திரிபு அளவீடுகள் சூடேற்றப்பட்டால், அவற்றின் `குறிப்பு_டேர்_கவுண்ட்ச்` சுற்றுப்புற வெப்பநிலைக்கு எதிராக இயக்க வெப்பநிலையில் மிகவும் வித்தியாசமாக இருக்கலாம். இந்த விசயத்தில் நீங்கள் வெப்ப மாற்றங்களை அனுமதிக்க `force_safety_limit` ஐ அதிகரிக்க வேண்டியிருக்கலாம்.
 
@@ -133,7 +133,7 @@ Another way this run-away can happen is damage to a strain gauge. If the metal p
 
 சுமை_செல்_இண்ட்ச்டாப் சென்சாரிலிருந்து வரும் டி.ஆர்.ஏ.சி அளவீடுகளுக்கு எம்.சி.யுவில் ஒரு பணியைத் தொடங்குகிறது. சென்சார் 2 மாதிரிக் காலங்களுக்கு அளவீடுகளை அனுப்பத் தவறினால், வாட்ச் டாக் ஒரு பிழையுடன் அச்சுப்பொறியை மூடிவிடும் `!! லோட்செல் எண்ட்ச்டாப் ஏடிசி தரவைக்` காத்திருந்தது.
 
-இது நடந்தால், பெரும்பாலும் காரணம் ADC இன் தவறு. உங்கள் அச்சுப்பொறியின் போதிய அடித்தளம் மூல காரணமாக இருக்கலாம். சட்டகம், மின்சாரம் வழங்கல் வழக்கு மற்றும் பைண்ட் படுக்கை அனைத்தும் தரையில் இணைக்கப்பட வேண்டும். நீங்கள் பல இடங்களில் சட்டகத்தை தரையிறக்க வேண்டியிருக்கலாம். அனோடைச் அலுமினிய வெளியேற்றங்கள் மின்சாரத்தை நன்கு நடத்துவதில்லை. நல்ல மின் தொடர்பு கொள்ள தரையிறக்கும் கம்பி இணைக்கப்பட்டுள்ள பகுதியை நீங்கள் மணல் அள்ள வேண்டும்.
+If this happens, the most likely cause is a fault from the ADC. Inadequate grounding of your printer can be the root cause. The frame, power supply case and print bed should all be connected to ground. You may need to ground the frame in multiple places. Anodized aluminum extrusions do not conduct electricity well. You might need to sand the area where the grounding wire is attached to make good electrical contact.
 
 #### Interpolation
 
@@ -163,13 +163,13 @@ The distance of the ascending move can be configured through the `sample_retract
 
 ### பரிந்துரைக்கப்பட்ட வெப்பநிலை
 
-தற்போது, முனை வெப்பநிலையை அளவிற்கு கீழே வைத்திருக்க பரிந்துரைக்கிறோம், இது இழை மற்றும் ஆய்வு செய்யும் போது இழைகளைத் தூண்டுகிறது. 140 சி ஒரு நல்ல தொடக்க புள்ளி. இந்த வெப்பநிலை பெய் உருவாக்க மேற்பரப்புகளை வடிக்காத அளவுக்கு குறைவாக உள்ளது.
+Currently, we suggest keeping the nozzle temperature below the level that causes the filament to ooze while homing and probing. 140°C is a good starting point. This temperature is also low enough not to scar PEI build surfaces.
 
 சுமை செல் ஆய்வுடன் பிழையை ஆராய்வதற்கான #1 மூலமாக முனை மற்றும் அச்சு படுக்கை ஆகியவற்றைக் கறைபடுத்துவது. ஃபிலிமென்ட் ஓச் காரணமாக மோசமான தரமான குழாய்களைக் கண்டறிய கிளிப்பருக்கு இன்னும் உலகளாவிய வழி இல்லை. ஒரு குழாய் தரமற்றதாக இருக்கும்போது அது செல்லுபடியாகும் என்று தற்போதுள்ள குறியீடு தீர்மானிக்கலாம். இந்த மோசமான தரமான குழாய்களை வகைப்படுத்துவது செயலில் உள்ள ஆராய்ச்சியின் ஒரு பகுதியாகும்.
 
 ஃபிலிமென்ட் ஓச் மூலம் இருப்பிடம் கறைபட்டுள்ளிருந்தால், ஒரு ஆய்வு புள்ளியை மீண்டும் வைப்பதற்கான ஆதரவும் கிளிப்பருக்கு இல்லை. `Quat_gantry_level` போன்ற தொகுதிகள் முன்னர் ஒரு ஆய்வு தோல்வியுற்றாலும் அதே ஆயங்களை மறுநிகழ்வு ஆராயும்.
 
-மேலே கொடுங்கள், அச்சிடும் வெப்பநிலையை ஆராய வேண்டாம் என்று வலுவாக பரிந்துரைக்கப்படுகிறது.
+Given the above it is strongly suggested not to probe at printing temperatures.
 
 ### சூடான முனை பாதுகாப்பு
 
@@ -194,7 +194,7 @@ The Voron project has a great macro for protecting your print surface from the h
 
 #### `[Z_thermal_adjust]` `temp_coeff` ஐக் கணக்கிடுகிறது
 
-இதைச் செய்வதற்கான எளிதான வழி 2 வெவ்வேறு வெப்பநிலையை அளவிடுவதாகும். வெறுமனே இவை அச்சிடும் வெப்பநிலை வரம்பின் மேல் மற்றும் கீழ் வரம்புகளாக இருக்க வேண்டும். எ.கா. 180 சி மற்றும் 290 சி. இரண்டு வெப்பநிலையிலும் நீங்கள் ஒரு `ஆய்வு_அக்யூரசி` செய்ய முடியும், பின்னர் இரண்டிலும்` சராசரி Z` இன் வேறுபாட்டைக் கணக்கிடலாம்.
+The easiest way to do this is to measure at 2 different temperatures. Ideally these should be the upper and lower limits of the printing temperature range. E.g. 180°C and 290°C. You can perform a `PROBE_ACCURACY` at both temperatures and then calculate the difference of the `average z` at both.
 
 சரிசெய்தல் மதிப்பு என்பது வெப்பநிலையின் மாற்றத்தால் வகுக்கப்பட்ட முனை நீளத்தின் மாற்றம். எ.கா.
 
@@ -226,9 +226,9 @@ max_z_adjustment: 0.1
 
 ### SCIPY ஐ நிறுவுதல்
 
-வடிகட்டுதல் குறியீடு நீங்கள் உள்ளமைவில் உள்ளிடுவதற்கு மதிப்புகளின் அடிப்படையில் வடிகட்டிக் குணகங்களை கணக்கிட சிறந்த [SCIPY](https://scipy.org/) நூலகத்தைப் பயன்படுத்துகிறது.
+The filtering code uses the excellent [SciPy](https://scipy.org/) library to compute the filter coefficients based on the values you enter into the config.
 
-32 பிட் ராச்பெர்ரி பை அமைப்புகளில் பைதான் 3 க்கு முன் தொகுக்கப்பட்ட SCIPI கட்டடங்கள் கிடைக்கின்றன. 32 பிட் + பைதான் 3 கடுமையாக பரிந்துரைக்கப்படுகிறது, ஏனெனில் இது உங்கள் நிறுவல் அனுபவத்தை நெறிப்படுத்தும். இது பைதான் 2 உடன் வேலை செய்கிறது, ஆனால் நிறுவல் 30+ நிமிடங்கள் ஆகலாம் மற்றும் கூடுதல் கருவிகளை நிறுவ வேண்டும்.
+Pre-compiled SciPi builds are available for Python 3 on 32-bit and 64-bit Raspberry Pi systems. 32-bit/64-bit + Python 3 is strongly recommended because it will streamline your installation experience. It does work with Python 2 but installation can take 30+ minutes and requires installing additional tools.
 
 ```bash
 ~/klippy-env/bin/pip install scipy

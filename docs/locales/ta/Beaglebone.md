@@ -178,7 +178,7 @@ sudo systemctl தொடக்க ஆக்டோபிரிண்ட்
 
 ## மீதமுள்ள உள்ளமைவு
 
-முதன்மையான [நிறுவல்](Installation.md#configuring-octoprint-to-use-klipper) ஆவணத்தில் உள்ள வழிமுறைகளைப் பின்பற்றிக் கிளிப்பரை உள்ளமைப்பதன் மூலம் நிறுவலை முடிக்கவும்.
+Complete the installation by configuring Klipper following the instructions in the main [Installation](Installation.md#configuring-klipper) document.
 
 ## பீகிள் பாயில் அச்சிடுதல்
 

@@ -8,7 +8,7 @@ Genom att återanvända skrivhuvudets PWM-utgång för fläkten kan du styra las
 
 **Varning:** Vid drift av laser ska du vidta alla säkerhetsåtgärder du kan komma på. Diodlasrar är vanligen inverterade. Det innebär att lasern är *helt påslagen* under den tid som MCU:n behöver för att starta om. Använd alltid lämpliga laserskyddsglasögon för rätt våglängd när lasern är strömsatt och koppla från lasern när den inte behövs. Konfigurera också en säkerhetstimeout så att verktyget stannar om värden eller MCU:n får ett fel.
 
-Exempel på konfiguration finns i [config/sample-pwm-tool.cfg](/config/sample-pwm-tool.cfg).
+For an example configuration, see [config/sample-pwm-tool.cfg](../config/sample-pwm-tool.cfg).
 
 ## Kommandon
 

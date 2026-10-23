@@ -178,7 +178,7 @@ sudo service klipper start
 
 ## Оставшаяся конфигурация
 
-Завершите установку, настроив Klipper в соответствии с инструкциями в основном документе [Установка](Installation.md#configuring-octoprint-to-use-klipper).
+Complete the installation by configuring Klipper following the instructions in the main [Installation](Installation.md#configuring-klipper) document.
 
 ## Печать на Beaglebone
 

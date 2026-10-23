@@ -200,7 +200,7 @@ Som framgår är kalibreringsprocessen ovan svårare och mer tidskrävande än d
 
 ## Felbeskrivning
 
-Möjliga hemställningsfel och åtgärder:
+### Möjliga hemställningsfel och åtgärder:
 
 - Sensorfel
    - Kontrollera loggarna för detaljerat fel
@@ -232,3 +232,24 @@ På vissa sensorer går det inte att helt undvika amplitudvarningsindikatorn.
 Du kan försöka göra om kalibreringen `LDC_CALIBRATE_DRIVE_CURRENT` vid drifttemperatur eller öka `reg_drive_current` med 1–2 från det kalibrerade värdet.
 
 I allmänhet fungerar den som en motorvarningslampa. Den kan indikera ett problem.
+
+### Possible TAP errors and actionables:
+
+- insufficient lift (A vs B) - too small Z window received by the code
+   - LIFT_SPEED/printer.max_z_velocity too low - must be at least 2.5 Recommended >0.5 RPS. For motor cogging reasons.
+   - printer.max_z_accel too low - must be larger 35 mm/s^2. Recommended 300 mm/s^2.
+   - SAMPLE_RETRACT_DIST too low Recommended >2 mm.
+- no contact found at z=Z (slope delta A vs B) - retraction analysis outputs not expected data. Often toolhead has stopped in mid-air because of the measurement noise.
+   - Too high printer.max_z_accel - Z resonances, consider Z input shaper
+   - Mechanical vibrations - ex. toolhead fan
+   - Sensor noise (elevated chamber/bed temperature)
+   - Increase of tap_threshold normally allows to alleviate symptoms
+- invalid depress distance (Z vs A:B)
+   - if Z < A
+      - tap_threshold too low
+      - PROBE_SPEED too low
+      - printer.max_z_accel too low
+   - if Z > B
+      - Large toolhead tilt (mechanical/installation issue)
+      - PROBE_SPEED too high
+      - tap_threshold too high

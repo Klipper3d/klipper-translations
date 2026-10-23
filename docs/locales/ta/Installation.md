@@ -53,7 +53,7 @@ make menuconfig
 உருவாக்கு
 ```
 
-If the comments at the top of the [printer configuration file](#obtain-a-klipper-configuration-file) describe custom steps for "flashing" the final image to the printer control board, then follow those steps and then proceed to [configuring OctoPrint](#configuring-octoprint-to-use-klipper).
+If the comments at the top of the [printer configuration file](#obtain-a-klipper-configuration-file) describe custom steps for "flashing" the final image to the printer control board, then follow those steps and then proceed to [configuring OctoPrint](OctoPrint.md#configuring-octoprint-to-use-klipper).
 
 இல்லையெனில், அச்சுப்பொறி கட்டுப்பாட்டு பலகையை "ஃபிளாச்" செய்ய பின்வரும் படிகள் பெரும்பாலும் பயன்படுத்தப்படுகின்றன. முதலாவதாக, மைக்ரோ-கன்ட்ரோலருடன் இணைக்கப்பட்ட தொடர் துறைமுகத்தை தீர்மானிக்க வேண்டியது தேவை. பின்வருவனவற்றை இயக்கவும்:
 

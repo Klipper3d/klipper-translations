@@ -66,7 +66,7 @@
 
 The recommended hardware is a Raspberry Pi Zero2w, Raspberry Pi 3, Raspberry Pi 4 or Raspberry Pi 5. Klipper will also run on other SBC devices as well as x86 hardware, as described below.
 
-Klipper will run on a Raspberry Pi 1, 2 and on the Raspberry Pi Zero1, but these boards don't have enough processing power to run Klipper well. It is common for print stalls to occur on these slower machines when printing (The printer may move faster than Klipper can send movement commands.) It is not reccomended to run Klipper on these older machines.
+Klipper will run on a Raspberry Pi 1, 2 and on the Raspberry Pi Zero1, but these boards don't have enough processing power to run Klipper well. It is common for print stalls to occur on these slower machines when printing (The printer may move faster than Klipper can send movement commands.) It is not recommended to run Klipper on these older machines.
 
 பீகல்போனில் இயங்குவதற்கு, [பீகல்போன் குறிப்பிட்ட நிறுவல் வழிமுறைகள்] (BeagleBone.md) ஐப் பார்க்கவும்.
 
@@ -108,7 +108,7 @@ Klipper will run on a Raspberry Pi 1, 2 and on the Raspberry Pi Zero1, but these
 
 அச்சு முடிந்தபின் நீங்கள் தலையை நகர்த்த விரும்பினால், உங்கள் ச்லைசரின் "தனிப்பயன் சி-குறியீடு" பிரிவில் விரும்பிய இயக்கத்தை சேர்ப்பதைக் கவனியுங்கள்.
 
-ஓமிங் செயல்முறையின் ஒரு பகுதியாக அச்சுப்பொறிக்கு சில கூடுதல் இயக்கம் தேவைப்பட்டால் (அல்லது அடிப்படையில் ஒரு ஓமிங் செயல்முறை இல்லை) பின்னர் கட்டமைப்பு கோப்பில் பாதுகாப்பான_இசட்_ஓம் அல்லது ஓமிங்_ஓவர்ரைடு பிரிவைப் பயன்படுத்துவதைக் கவனியுங்கள். கண்டறியும் அல்லது பிழைத்திருத்த நோக்கங்களுக்காக நீங்கள் ஒரு ச்டெப்பரை நகர்த்த வேண்டும் என்றால், கட்டமைப்பு கோப்பில் ஒரு ஃபோர்ச்_மோவ் பகுதியைச் சேர்ப்பதைக் கவனியுங்கள். இந்த விருப்பங்கள் குறித்த கூடுதல் விவரங்களுக்கு [கட்டமைப்பு குறிப்பு] (config_reference.md#தனிப்பயனாக்கப்பட்ட_ஓமிங்) ஐப் பார்க்கவும்.
+If the printer requires some additional movement as part of the homing process itself (or fundamentally does not have a homing process) then consider using a safe_z_home or homing_override section in the config file. If you need to move a stepper for diagnostic or debugging purposes then consider adding a force_move section to the config file. See [config reference](Config_Reference.md#customized-homing) for further details on these options.
 
 ## இயல்புநிலை உள்ளமைவுகளில் சட் pasition_endstop 0.5 ஆக ஏன் அமைக்கப்படுகிறது?
 

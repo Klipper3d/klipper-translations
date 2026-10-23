@@ -66,7 +66,7 @@ Klippers överföringshastighet för mikrokontrollern har inget samband med mikr
 
 Rekommenderad maskinvara är Raspberry Pi Zero2w, Raspberry Pi 3, Raspberry Pi 4 eller Raspberry Pi 5. Klipper fungerar även på andra SBC-enheter och x86-maskinvara, enligt beskrivningen nedan.
 
-Klipper fungerar på Raspberry Pi 1 och 2 samt Raspberry Pi Zero1, men dessa kort har inte tillräcklig beräkningskapacitet för att köra Klipper väl. Vid utskrift uppstår ofta stopp, eftersom skrivaren kan röra sig snabbare än Klipper hinner skicka rörelsekommandon. Det rekommenderas inte att köra Klipper på dessa äldre maskiner.
+Klipper will run on a Raspberry Pi 1, 2 and on the Raspberry Pi Zero1, but these boards don't have enough processing power to run Klipper well. It is common for print stalls to occur on these slower machines when printing (The printer may move faster than Klipper can send movement commands.) It is not recommended to run Klipper on these older machines.
 
 Se [de särskilda installationsanvisningarna för Beaglebone](Beaglebone.md) för att köra på Beaglebone.
 
@@ -108,7 +108,7 @@ Om du vill flytta huvudet efter att en utskrift avbrutits via OctoPrint kan du �
 
 Om du vill flytta huvudet efter avslutad utskrift kan du lägga till önskad rörelse i avsnittet "custom g-code" i skivningsprogrammet.
 
-Om skrivaren kräver ytterligare rörelse som del av själva hemställningen (eller saknar hemställning) kan du använda ett avsnitt `safe_z_home` eller `homing_override` i konfigurationsfilen. Om en stegmotor behöver flyttas för diagnostik eller felsökning kan ett avsnitt `force_move` läggas till. Mer information finns i [konfigurationsreferensen](Config_Reference.md#customized_homing).
+If the printer requires some additional movement as part of the homing process itself (or fundamentally does not have a homing process) then consider using a safe_z_home or homing_override section in the config file. If you need to move a stepper for diagnostic or debugging purposes then consider adding a force_move section to the config file. See [config reference](Config_Reference.md#customized-homing) for further details on these options.
 
 ## Varför är Z position_endstop satt till 0,5 i standardkonfigurationerna?
 

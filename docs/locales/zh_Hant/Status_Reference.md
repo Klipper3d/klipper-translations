@@ -162,7 +162,7 @@ The following information is available in [gcode_button some_name](Config_Refere
 - `speed_factor`：通過 `M220` 命令設定的"速度因子覆蓋"。這是一個浮點值，1.0 意味著沒有覆蓋，例如，2.0 將請求的速度翻倍。
 - `extrude_factor`：由`M221`命令設定的"擠出倍率覆蓋" 。這是一個浮點值，1.0意味著沒有覆蓋，例如，2.0將使要求的擠出量翻倍。
 - `absolute_coordinates`：如果在 `G90` 絕對座標模式下，則返回 True；如果在 `G91` 相對模式下，則返回 False。
-- `absolute_extrude`：如果在`M82`絕對擠出模式，則返回True；如果在`M83`相對模式，則返回False。
+- `absolute_extrude`: Returns True if absolute extrusions are permitted. An `M83` force relative extrusion mode command causes this value to return False. An `M82` command returns this value to True.
 - `axis_map`: Provides a mechanism for finding the coordinate component for a given G-Code id that is used in `G1` commands. See the [Accessing Coordinates](#accessing-coordinates) section for details.
 
 ## hall_filament_width_sensor
@@ -248,6 +248,7 @@ The following information is available in the `manual_probe` object:
 - `mcu_version`：由微控制器報告的 Klipper 程式碼版本。
 - `mcu_build_versions`：有關用於產生微控制器程式碼的構建工具的資訊（由微控制器報告）。
 - `mcu_constants.<常量名>`：由微控制器報告編譯時使用的常量。可用的常量在不同的微控制器架構和每個程式碼修訂版中可能有所不同。
+- `mcu_kconfig`: The minimal build configuration (`savedefconfig` output) that the micro-controller firmware was compiled from, as reported by the micro-controller. `None` if the firmware predates this feature or does not provide it.
 - `last_stats.<統計資訊名>`：關於微控制器連線的統計資訊。
 
 ## motion_report
@@ -353,7 +354,7 @@ The following information is available in the `stepper_enable` object (this obje
 
 以下資訊可在
 
-[bme280 config_section_name](Config_Reference.md#bmp280bme280bme680-temperature-sensor), [htu21d config_section_name](Config_Reference.md#htu21d-sensor), [sht3x config_section_name](Config_Reference.md#sht31-sensor), [lm75 config_section_name](Config_Reference.md#lm75-temperature-sensor), [temperature_host config_section_name](Config_Reference.md#host-temperature-sensor) and [temperature_combined config_section_name](Config_Reference.md#combined-temperature-sensor) objects:
+[bme280 config_section_name](Config_Reference.md#bmp180bmp280bme280bmp388bme680-temperature-sensor), [htu21d config_section_name](Config_Reference.md#htu21d-sensor), [sht3x config_section_name](Config_Reference.md#sht3x-sensor), [lm75 config_section_name](Config_Reference.md#lm75-temperature-sensor), [temperature_host config_section_name](Config_Reference.md#host-temperature-sensor) and [temperature_combined config_section_name](Config_Reference.md#combined-temperature-sensor) objects:
 
 - `temperature`：上一次從感測器讀取的溫度。
 - `humidity`, `pressure`, `gas`: The last read values from the sensor (only on bme280, htu21d, sht3x and lm75 sensors).

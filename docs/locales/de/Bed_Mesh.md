@@ -343,7 +343,7 @@ Beachten Sie, dass ein ZFADE-Offset *NICHT* direkt eine zusätzliche Korrektur b
 
 Gibt die Konfiguration und den Zustand des aktuellen Meshes sowie aller gespeicherten Profile aus.
 
-Der Endpunkt `dump_mesh` nimmt einen optionalen Parameter `mesh_args` entgegen. Dieser Parameter muss ein Objekt sein, dessen Schlüssel und Werte den für [BED_MESH_CALIBRATE](#bed_mesh_calibrate) verfügbaren Parametern entsprechen. Damit werden die Mesh-Konfiguration und die Messpunkte anhand der übergebenen Parameter aktualisiert, bevor das Ergebnis zurückgegeben wird. Es empfiehlt sich, Mesh-Parameter wegzulassen, sofern Sie nicht die Messpunkte und/oder den Verfahrweg vor der Ausführung von `BED_MESH_CALIBRATE` sichtbar machen möchten.
+The `dump_mesh` endpoint takes one optional parameter, `mesh_args`. This parameter must be an object, where the keys and values are parameters available to [BED_MESH_CALIBRATE](G-Codes.md#bed_mesh_calibrate). This will update the mesh configuration and probe points using the supplied parameters prior to returning the result. It is recommended to omit mesh parameters unless it is desired to visualize the probe points and/or travel path before performing `BED_MESH_CALIBRATE`.
 
 ## Visualisierung und Analyse
 

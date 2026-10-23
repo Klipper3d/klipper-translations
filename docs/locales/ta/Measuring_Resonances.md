@@ -502,7 +502,7 @@ Test_resonances அச்சு = ஒய்
  பரிந்துரைக்கப்பட்ட சேப்பர் 2hump_ei @ 45.2 எர்ட்ச்
 ```
 
-அறிக்கையிடப்பட்ட `மென்மையான` மதிப்புகள் சில சுருக்கமான திட்டமிடப்பட்ட மதிப்புகள் என்பதை நினைவில் கொள்க. வெவ்வேறு உள்ளமைவுகளை ஒப்பிட்டுப் பார்க்க இந்த மதிப்புகள் பயன்படுத்தப்படலாம்: அதிக மதிப்பு, ஒரு சேப்பரை மிகவும் மென்மையாக்கும். இருப்பினும், இந்த மென்மையான மதிப்பெண்கள் எந்தவொரு உண்மையான அளவையும் குறிக்கவில்லை, ஏனெனில் உண்மையான மென்மையானது [`Max_accel`](#selecting-max-accel) மற்றும்` ச்கொயர்_கார்னர்_வெலோசிட்டி` அளவுருக்களைப் பொறுத்தது. ஆகையால், தேர்ந்தெடுக்கப்பட்ட உள்ளமைவு எவ்வளவு மென்மையாக்குகிறது என்பதைக் காண சில சோதனை அச்சிட்டுகளை அச்சிட வேண்டும்.
+Note that the reported `smoothing` values are some abstract projected values. These values can be used to compare different configurations: the higher the value, the more smoothing a shaper will create. However, these smoothing scores do not represent any real measure of smoothing, because the actual smoothing depends on [`max_accel`](#selecting-max_accel) and `square_corner_velocity` parameters. Therefore, you should print some test prints to see how much smoothing exactly a chosen configuration creates.
 
 பரிந்துரைக்கப்பட்ட சேப்பர் அளவுருக்கள் மோசமானவை அல்ல, ஆனால் ஃச் அச்சில் குறைவாக மென்மையாக்க விரும்பினால் என்ன செய்வது? பின்வரும் கட்டளையைப் பயன்படுத்தி அதிகபட்ச சேப்பர் மென்மையாக்கலை கட்டுப்படுத்த முயற்சி செய்யலாம்:
 

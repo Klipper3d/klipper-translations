@@ -178,7 +178,7 @@ sudo service klipper stop
 
 ## Конфігурація, що залишилася
 
-Завершіть інсталяцію, налаштувавши Klipper, дотримуючись інструкцій в основному документі [Installation](Installation.md#configuring-octoprint-to-use-klipper).
+Complete the installation by configuring Klipper following the instructions in the main [Installation](Installation.md#configuring-klipper) document.
 
 ## Друк на бігльбоні
 

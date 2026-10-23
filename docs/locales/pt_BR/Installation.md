@@ -53,7 +53,7 @@ Os comentários no topo de [printer configuration file](#obtain-a-klipper-config
 make
 ```
 
-If the comments at the top of the [printer configuration file](#obtain-a-klipper-configuration-file) describe custom steps for "flashing" the final image to the printer control board, then follow those steps and then proceed to [configuring OctoPrint](#configuring-octoprint-to-use-klipper).
+If the comments at the top of the [printer configuration file](#obtain-a-klipper-configuration-file) describe custom steps for "flashing" the final image to the printer control board, then follow those steps and then proceed to [configuring OctoPrint](OctoPrint.md#configuring-octoprint-to-use-klipper).
 
 Caso contrário, as etapas a seguir são frequentemente usadas para atualizar (flash) a placa controladora. Primeiro, é necessário determinar a porta serial conectada ao microcontrolador. Execute o seguinte:
 

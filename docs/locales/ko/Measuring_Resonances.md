@@ -502,7 +502,7 @@ To avoid too much smoothing with '3hump_ei', suggested max_accel <= 1500 mm/sec^
 Recommended shaper is 2hump_ei @ 45.2 Hz
 ```
 
-보고된 `smoothing` 값은 일부 추상적으로 투영 값입니다. 이 값은 다양한 구성을 비교하는 데 사용할 수 있습니다. 값이 높을수록 셰이퍼가 더 부드럽게 만듭니다. 그러나 이러한 smoothing 점수는 smoothing 의 실제 측정을 나타내지 않습니다. 실제 smoothing 은 [`max_accel`](#selecting-max-accel) 및 `square_corner_velocity` 매개변수에 의존하기 때문입니다. 따라서 선택한 구성이 정확히 얼마나 스무딩을 생성하는지 확인하려면 몇 가지 테스트 인쇄를 인쇄해야 합니다.
+Note that the reported `smoothing` values are some abstract projected values. These values can be used to compare different configurations: the higher the value, the more smoothing a shaper will create. However, these smoothing scores do not represent any real measure of smoothing, because the actual smoothing depends on [`max_accel`](#selecting-max_accel) and `square_corner_velocity` parameters. Therefore, you should print some test prints to see how much smoothing exactly a chosen configuration creates.
 
 위의 예에서 제안된 셰이퍼 매개변수는 나쁘지 않지만 만약 X축에서 스무딩을 줄이고 싶다면? 다음 명령을 사용하여 최대 셰이퍼 smoothing 을 제한할 수 있습니다:
 

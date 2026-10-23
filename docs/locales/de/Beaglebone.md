@@ -178,7 +178,7 @@ Für "Anwendungsfall 2" beachten Sie Folgendes: Bei der Definition der Druckerko
 
 ## Restliche Konfiguration
 
-Schließen Sie die Installation ab, indem Sie Klipper gemäß den Anweisungen im Hauptdokument [Installation](Installation.md#configuring-octoprint-to-use-klipper) konfigurieren.
+Complete the installation by configuring Klipper following the instructions in the main [Installation](Installation.md#configuring-klipper) document.
 
 ## Drucken auf einem Beaglebone
 

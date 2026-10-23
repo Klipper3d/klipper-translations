@@ -66,7 +66,7 @@ La velocità in baud del microcontrollore Klipper non è correlata alla velocit�
 
 The recommended hardware is a Raspberry Pi Zero2w, Raspberry Pi 3, Raspberry Pi 4 or Raspberry Pi 5. Klipper will also run on other SBC devices as well as x86 hardware, as described below.
 
-Klipper will run on a Raspberry Pi 1, 2 and on the Raspberry Pi Zero1, but these boards don't have enough processing power to run Klipper well. It is common for print stalls to occur on these slower machines when printing (The printer may move faster than Klipper can send movement commands.) It is not reccomended to run Klipper on these older machines.
+Klipper will run on a Raspberry Pi 1, 2 and on the Raspberry Pi Zero1, but these boards don't have enough processing power to run Klipper well. It is common for print stalls to occur on these slower machines when printing (The printer may move faster than Klipper can send movement commands.) It is not recommended to run Klipper on these older machines.
 
 Per l'esecuzione su Beaglebone, vedere le [Istruzioni di installazione specifiche di Beaglebone](Beaglebone.md).
 
@@ -108,7 +108,7 @@ Se desideri spostare la testina dopo aver annullato una stampa tramite OctoPrint
 
 Se desideri spostare la testina al termine di una stampa, considera di aggiungere il movimento desiderato alla sezione "G-code personalizzato" del tuo slicer.
 
-Se la stampante richiede un movimento aggiuntivo come parte del processo stesso di homing (o fondamentalmente non ha un processo di homing), considera l'utilizzo di una sezione safe_z_home o homing_override nel file di configurazione. Se è necessario spostare uno stepper per scopi diagnostici o di debug, considerare l'aggiunta di una sezione force_move al file di configurazione. Vedere [config reference](Config_Reference.md#customized_homing) per ulteriori dettagli su queste opzioni.
+If the printer requires some additional movement as part of the homing process itself (or fundamentally does not have a homing process) then consider using a safe_z_home or homing_override section in the config file. If you need to move a stepper for diagnostic or debugging purposes then consider adding a force_move section to the config file. See [config reference](Config_Reference.md#customized-homing) for further details on these options.
 
 ## Perché Z position_endstop è impostato su 0.5 nelle configurazioni predefinite?
 

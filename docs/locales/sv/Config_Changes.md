@@ -6,6 +6,10 @@ Alla datum i det här dokumentet är ungefärliga.
 
 ## Ändringar
 
+20261018: An error in the `PID_CALIBRATE` calculations has been corrected. Previously, the code would recommend PID values that were twice their desired values (relative to the standard "Astrom-Hagglund method"). The new `PID_CALIBRATE` code corrects this error and it may produce PID values that result in fewer heating oscillations. If you are happy with your current heater performance then no changes are necessary. If you are experiencing persistent heating osculations then you may wish to rerun `PID_CALIBRATE` and apply the updated PID recommendations.
+
+20260915: Support for the `TEMPERATURE_PROBE_CALIBRATE` `METHOD=tap` parameter has been removed. Use `TEMPERATURE_PROBE_CALIBRATE MANUAL_METHOD=tap` instead.
+
 20260525: Den interna implementationen av `probe:z_virtual_endstop` har ändrats. De flesta användare märker ingen beteendeförändring. Tidigare var det tekniskt möjligt att blanda `probe:z_virtual_endstop` med andra typer av Z-ändstopp, men detta är inte längre giltigt.
 
 20260501: Hanteringen av konfigurationsalternativet `tap_threshold` för `[probe_eddy_current]` och den tillhörande G-kodparametern `TAP_THRESHOLD` har ändrats. Värdet måste kalibreras om. Se [dokumentationen för Eddy-sonden](Eddy_Probe.md) för kalibreringsanvisningar.

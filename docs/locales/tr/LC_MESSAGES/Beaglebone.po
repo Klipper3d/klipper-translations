@@ -240,13 +240,6 @@ msgid ""
 " can't use them for stepper control."
 msgstr ""
 
-#: docs/Beaglebone.md:block 53 (paragraph)
-msgid ""
-"Complete the installation by configuring Klipper following the instructions in"
-" the main [Installation](Installation.md#configuring-octoprint-to-use-klipper)"
-" document."
-msgstr ""
-
 #: docs/Beaglebone.md:block 55 (paragraph)
 msgid ""
 "Unfortunately, the Beaglebone processor can sometimes struggle to run "
@@ -393,6 +386,18 @@ msgid ""
 "UART2(RX,TX): BB-UART2-00A0.dtbo UART3(RX,TX): BB-UART3-00A0.dtbo "
 "UART4(RS-485): BB-UART4-RS485-00A0.dtbo UART5(RX,TX): BB-UART5-00A0.dtbo"
 msgstr ""
+
+#: docs/Beaglebone.md:block 53 (paragraph)
+msgid ""
+"Complete the installation by configuring Klipper following the instructions in"
+" the main [Installation](Installation.md#configuring-klipper) document."
+msgstr ""
+
+#~ msgid ""
+#~ "Complete the installation by configuring Klipper following the instructions in"
+#~ " the main [Installation](Installation.md#configuring-octoprint-to-use-klipper)"
+#~ " document."
+#~ msgstr ""
 
 #~ msgid ""
 #~ "git clone https://github.com/foosel/OctoPrint.git\n"

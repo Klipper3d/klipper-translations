@@ -10,7 +10,7 @@
 
 ## 使用 `LOAD_CELL_DIAGNOSTIC`
 
-当你第一次连接好压力传感器的时候，最好使用`LOAD_CELL_DIAGNOSTIC`来检测压力传感器的状态。这个工具会收集压力传感器10秒钟内的数据并且报告状态。
+When you first connect a load cell its good practice to check for issues by running `LOAD_CELL_DIAGNOSTIC`. This tool collects 10 seconds of data from the load cell and reports statistics:
 
 ```
 $ LOAD_CELL_DIAGNOSTIC
@@ -121,11 +121,11 @@ LOAD_CELL_TARE
 
 这是在探测过程中允许的，相对于`reference_tare_counts`的最大绝对受力。如果MCU发现这个受力大于这个值，打印机会被停止并报错`!! Load cell endstop: too much force!`。由多种方式可以出发这个保护措施：
 
-第一个风险是选择过大的 `drift_filter_cutoff_frequency`值。这可能会导致偏移过滤器错误的过滤掉一个探针事件并继续归位移动。在这种情况下，`force_safety_limit`将会作为最后保护措施。
+The first risk this protects against is picking too large of a value for `drift_filter_cutoff_frequency`. This can cause the drift filter to filter out a probe event and continue the homing move. If this happens, the `force_safety_limit` acts as a backup protection.
 
 第二种情况是在一个位置重复探测。Klipper不会在单独的`PROBE`命令中收回探针。这可能导致探测结束时对工具头的受力。由于外部力在探测过程中可以非常大，`load_cell_probe`对象会在每次探测时归零受力值。如果您重复`PROBE`指令，load_cell_probe对象会将限位触发的力归零。多次循环这个过程会导致工具头上不断增加的力。 `force_safety_limit`会在这种情况不受控制时停止循环。
 
-Another way this run-away can happen is damage to a strain gauge. If the metal part is permanently bent it will change the `reference_tare_counts` of the device. This puts the starting tare value much closer to the limit making it more likely to be violated. You want to be notified if this is happening because your hardware has been permanently damaged.
+Another way this runaway can happen is damage to a strain gauge. If the metal part is permanently bent it will change the `reference_tare_counts` of the device. This puts the starting tare value much closer to the limit making it more likely to be violated. You want to be notified if this is happening because your hardware has been permanently damaged.
 
 最后一种触发方式是温度变化。如果你的应变片被加热，它们的`reference_tare_counts`可能与室温下不同。这种情况下，适度增加`force_safety_limit`以允许温度变化。
 
@@ -133,7 +133,7 @@ Another way this run-away can happen is damage to a strain gauge. If the metal p
 
 当归位时，load_cell_endstop对象会在MCU上启动一个看门狗任务以监控传感器的读数。如果传感器在两个连续的采样周期中都没有发送数据，看门狗将会停止打印机并报错`!! LoadCell Endstop timed out waiting on ADC data`。
 
-如果这发生了，很有可能ADC有问题。不可靠的打印机接地可能会导致问题。框架，电源外壳，以及打印机热床都应可靠地接地。你可能需要在框架的不同部位接地。阳极氧化的铝型材导电性能不佳，你可能需要打磨一个区域来连接地线以获得良好的电气接触。
+If this happens, the most likely cause is a fault from the ADC. Inadequate grounding of your printer can be the root cause. The frame, power supply case and print bed should all be connected to ground. You may need to ground the frame in multiple places. Anodized aluminum extrusions do not conduct electricity well. You might need to sand the area where the grounding wire is attached to make good electrical contact.
 
 #### Interpolation
 
@@ -163,13 +163,13 @@ The distance of the ascending move can be configured through the `sample_retract
 
 ### 建议探测温度
 
-目前，我们推荐在归位和探测时将喷嘴温度保持在耗材会溢料的温度下。140摄氏度是一个不错的起始点。这个温度同时也不会伤害PEI构件表面。
+Currently, we suggest keeping the nozzle temperature below the level that causes the filament to ooze while homing and probing. 140°C is a good starting point. This temperature is also low enough not to scar PEI build surfaces.
 
 溢料导致的喷嘴及热床污染是压力传感器探测错误的头号原因。Klipper目前没有检测低质量结果的通用解决方案。现有的代码会将低质量的探测结果作为有效的探测点。识别这些低质量结果是目前的研究方向。
 
 目前，由于溢料污染，自动更换探测位置的功能还没有被Klipper支持。类似于`quad_gantry_level`的模块会反复在同一个坐标探测，即使前一次探测失败。
 
-由于以上这些原因，极度不推荐在打印温度探测。
+Given the above it is strongly suggested not to probe at printing temperatures.
 
 ### 高温喷嘴保护
 
@@ -194,7 +194,7 @@ The Voron project has a great macro for protecting your print surface from the h
 
 #### 计算 `[z_thermal_adjust]`的`temp_coeff`
 
-最简单的方法是在两个不同的温度测量。理想情况下，这应该涵盖打印温度的下限和上限（比如，180C和290C）。你可以在两个温度分别执行`PROBE_ACCURACY`并计算 `average z`的差值。
+The easiest way to do this is to measure at 2 different temperatures. Ideally these should be the upper and lower limits of the printing temperature range. E.g. 180°C and 290°C. You can perform a `PROBE_ACCURACY` at both temperatures and then calculate the difference of the `average z` at both.
 
 调整值即是喷嘴长度除以温度变化。比如。
 
@@ -226,9 +226,9 @@ Klipper在MCU上实现了一个可配置的IIR过滤器来预防在探测时连�
 
 ### 安装SciPy
 
-过滤器的代码使用绝佳的[SciPy](https://scipy.org/)库基于配置值来计算过滤器的参数。
+The filtering code uses the excellent [SciPy](https://scipy.org/) library to compute the filter coefficients based on the values you enter into the config.
 
-预编译的SciPi构建在32位Raspberry Pi上的Python 3可用。极度推荐32位+Python 3的组合，因为这可以流水线化你的安装流程。可以使用Python 2，但是安装过程将话费30+分钟，并且需要安装额外工具。
+Pre-compiled SciPi builds are available for Python 3 on 32-bit and 64-bit Raspberry Pi systems. 32-bit/64-bit + Python 3 is strongly recommended because it will streamline your installation experience. It does work with Python 2 but installation can take 30+ minutes and requires installing additional tools.
 
 ```bash
 ~/klippy-env/bin/pip install scipy

@@ -502,7 +502,7 @@ To avoid too much smoothing with '3hump_ei', suggested max_accel <= 1500 mm/sec^
 Recommended shaper is 2hump_ei @ 45.2 Hz
 ```
 
-Observera att rapporterade `smoothing`-värden är abstrakta, projicerade värden. De kan användas för att jämföra olika konfigurationer: ju högre värde, desto mer utjämning skapar en shaper. Värdena motsvarar dock inget verkligt mått på utjämning eftersom den faktiska utjämningen beror på parametrarna [`max_accel`](#selecting-max-accel) och `square_corner_velocity`. Skriv därför ut testutskrifter för att se hur mycket utjämning en vald konfiguration faktiskt ger.
+Note that the reported `smoothing` values are some abstract projected values. These values can be used to compare different configurations: the higher the value, the more smoothing a shaper will create. However, these smoothing scores do not represent any real measure of smoothing, because the actual smoothing depends on [`max_accel`](#selecting-max_accel) and `square_corner_velocity` parameters. Therefore, you should print some test prints to see how much smoothing exactly a chosen configuration creates.
 
 I exemplet ovan är de föreslagna shaper-parametrarna inte dåliga, men om du vill få mindre utjämning på X-axeln kan du begränsa maximal shaper-utjämning med följande kommando:
 

@@ -502,7 +502,7 @@ To avoid too much smoothing with '3hump_ei', suggested max_accel <= 1500 mm/sec^
 Recommended shaper is 2hump_ei @ 45.2 Hz
 ```
 
-Обърнете внимание, че отчетените стойности за "изглаждане" са абстрактни прогнозни стойности. Тези стойности могат да се използват за сравняване на различни конфигурации: колкото по-висока е стойността, толкова по-голямо изглаждане ще създаде даден шейпър. Тези оценки за изглаждане обаче не представляват реална мярка за изглаждане, тъй като действителното изглаждане зависи от параметрите [`max_accel`](#selecting-max-accel) и `square_corner_velocity`. Затова трябва да отпечатате няколко тестови разпечатки, за да видите колко точно изглаждане създава избраната конфигурация.
+Note that the reported `smoothing` values are some abstract projected values. These values can be used to compare different configurations: the higher the value, the more smoothing a shaper will create. However, these smoothing scores do not represent any real measure of smoothing, because the actual smoothing depends on [`max_accel`](#selecting-max_accel) and `square_corner_velocity` parameters. Therefore, you should print some test prints to see how much smoothing exactly a chosen configuration creates.
 
 В примера по-горе предложените параметри на формирователя не са лоши, но какво ще стане, ако искате да получите по-малко изглаждане по оста Х? Можете да опитате да ограничите максималното изглаждане на формирователя, като използвате следната команда:
 

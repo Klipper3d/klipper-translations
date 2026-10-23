@@ -348,4 +348,4 @@ This data can be used to render:
  }
 ```
 
-`டம்ப்_மேச்` எண்ட்பாயிண்ட் ஒரு விருப்ப அளவுருவை எடுக்கும்,` Mesh_args`. இந்த அளவுரு ஒரு பொருளாக இருக்க வேண்டும், அங்கு விசைகள் மற்றும் மதிப்புகள் [bed_mesh_calibrate](#bed_mesh_calibrate) க்கு கிடைக்கும் அளவுருக்கள். இது முடிவைத் திருப்புவதற்கு முன் வழங்கப்பட்ட அளவுருக்களைப் பயன்படுத்தி கண்ணி உள்ளமைவு மற்றும் ஆய்வு புள்ளிகளைப் புதுப்பிக்கும். `BED_MESH_CALIBRATE` நிகழ்த்துவதற்கு முன் ஆய்வுப் புள்ளிகள் மற்றும்/அல்லது பயண பாதையைக் காட்சிப்படுத்த விரும்பினால் தவிர, கண்ணி அளவுருக்களைத் தவிர்க்கப் பரிந்துரைக்கப்படுகிறது.
+The `dump_mesh` endpoint takes one optional parameter, `mesh_args`. This parameter must be an object, where the keys and values are parameters available to [BED_MESH_CALIBRATE](G-Codes.md#bed_mesh_calibrate). This will update the mesh configuration and probe points using the supplied parameters prior to returning the result. It is recommended to omit mesh parameters unless it is desired to visualize the probe points and/or travel path before performing `BED_MESH_CALIBRATE`.

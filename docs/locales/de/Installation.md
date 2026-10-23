@@ -53,7 +53,7 @@ Die Kommentare am Anfang der [Druckerkonfigurationsdatei](#obtain-a-klipper-conf
 make
 ```
 
-Beschreiben die Kommentare am Anfang der [Drucker-Konfigurationsdatei](#obtain-a-klipper-configuration-file) benutzerdefinierte Schritte zum "Flashen" des finalen Images auf die Druckersteuerplatine, folgen Sie diesen Schritten und fahren Sie anschließend mit [Konfiguration von OctoPrint](#configuring-octoprint-to-use-klipper) fort.
+If the comments at the top of the [printer configuration file](#obtain-a-klipper-configuration-file) describe custom steps for "flashing" the final image to the printer control board, then follow those steps and then proceed to [configuring OctoPrint](OctoPrint.md#configuring-octoprint-to-use-klipper).
 
 Andernfalls werden die folgenden Schritte häufig zum "Flashen" der Druckersteuerplatine verwendet. Zunächst muss die an den Mikrocontroller angeschlossene serielle Schnittstelle ermittelt werden. Führen Sie die folgenden Schritte aus:
 

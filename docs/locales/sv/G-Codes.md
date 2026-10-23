@@ -11,8 +11,9 @@ Klipper har stöd för följande vanliga G-kodskommandon:
 - Flytta till origo: `G28 [X] [Y] [Z]`
 - Stäng av motorer: `M18` eller `M84`
 - Vänta tills aktuella förflyttningar är klara: `M400`
-- Använd absoluta/relativa avstånd för extrudering: `M82`, `M83`
 - Använd absoluta/relativa koordinater: `G90`, `G91`
+- Force relative distances for extrusion: `M83`, `M82`
+   - Note: `M83` forces extrusions to use relative coordinates even if `G90` absolute mode is selected. `M82` disables that forced mode (it does not force the extruder to use absolute coordinates).
 - Ange position: `G92 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>]`
 - Ange åsidosättningsprocent för hastighetsfaktor: `M220 S<percent>`
 - Ange åsidosättningsprocent för extruderingsfaktor: `M221 S<percent>`
@@ -92,7 +93,7 @@ section](Config_Reference.md#axis_twist_compensation) is enabled.
 
 #### AXIS_TWIST_COMPENSATION_CALIBRATE
 
-`AXIS_TWIST_COMPENSATION_CALIBRATE [AXIS=<X|Y>] [SAMPLE_COUNT=<value>]`
+`AXIS_TWIST_COMPENSATION_CALIBRATE [AXIS=<X|Y>] [SAMPLE_COUNT=<value>] [MANUAL_METHOD=manual]`
 
 Kalibrerar kompensation för axelvridning genom att ange målaxeln eller aktivera automatisk kalibrering.
 
@@ -391,7 +392,7 @@ Modulen gcode_move läses in automatiskt.
 
 #### SAVE_GCODE_STATE
 
-`SAVE_GCODE_STATE [NAME=<state_name>]`: Spara aktuellt tillstånd för tolkningen av G-kodkoordinater. Att spara och återställa G-kodstillståndet är användbart i skript och makron. Kommandot sparar aktuellt absolut koordinatläge för G-kod (G90/G91), absolut extruderläge (M82/M83), origo (G92), förskjutning (SET_GCODE_OFFSET), hastighetsåsidosättning (M220), extruderåsidosättning (M221), förflyttningshastighet, aktuell XYZ-position och relativ E-position för extrudern. Om NAME anges kan det sparade tillståndet ges det angivna namnet. Om NAME inte anges används ”default”.
+`SAVE_GCODE_STATE [NAME=<state_name>]`: Save the current g-code coordinate parsing state. Saving and restoring the g-code state is useful in scripts and macros. This command saves the current g-code absolute coordinate mode (G90/G91), force relative extrude mode (M83/M82), origin (G92), offset (SET_GCODE_OFFSET), speed override (M220), extruder override (M221), move speed, current XYZ position, and relative extruder "E" position. If NAME is provided it allows one to name the saved state to the given string. If NAME is not provided it defaults to "default".
 
 #### RESTORE_GCODE_STATE
 
@@ -699,7 +700,7 @@ Kommandot `Z_OFFSET_APPLY_PROBE` utökas också för att stödja parametern `MET
 
 #### PROBE_EDDY_CURRENT_CALIBRATE
 
-`PROBE_EDDY_CURRENT_CALIBRATE CHIP=<config_name>`: Startar ett verktyg som kalibrerar sensorns resonansfrekvenser mot motsvarande Z-höjder. Verktyget tar några minuter att slutföra. Använd SAVE_CONFIG efteråt för att lagra resultatet i filen printer.cfg.
+`PROBE_EDDY_CURRENT_CALIBRATE CHIP=<config_name> [MANUAL_METHOD=manual]`: This starts a tool that calibrates the sensor resonance frequencies to corresponding Z heights. The tool will take a couple of minutes to complete. After completion, use the SAVE_CONFIG command to store the results in the printer.cfg file.
 
 #### PROBE_EDDY_CURRENT_TAP_CALIBRATE
 
@@ -870,7 +871,7 @@ Följande kommandon är tillgängliga när ett [temperature_probe-konfigurations
 
 #### TEMPERATURE_PROBE_CALIBRATE
 
-`TEMPERATURE_PROBE_CALIBRATE [PROBE=<probe name>] [TARGET=<value>] [STEP=<value>] [METHOD=<method>]`: Startar kalibrering av temperaturdrift för virvelströmsbaserade sonder. `TARGET` är måltemperaturen för det sista provet. När temperaturen som registreras under ett prov överskrider `TARGET` slutförs kalibreringen. Parametern `STEP` anger temperaturskillnaden (i C) mellan prover. När ett prov har tagits används denna skillnad för att schemalägga ett anrop till `TEMPERATURE_PROBE_NEXT`. Standardvärdet för `STEP` är 2. `METHOD` stöder endast `tap`; om den anges automatiseras mätningen.
+`TEMPERATURE_PROBE_CALIBRATE [PROBE=<probe name>] [TARGET=<value>] [STEP=<value>] [MANUAL_METHOD=<method>]`: Initiates probe drift calibration for eddy current based probes. The `TARGET` is a target temperature for the last sample. When the temperature recorded during a sample exceeds the `TARGET` calibration will complete. The `STEP` parameter sets temperature delta (in C) between samples. After a sample has been taken, this delta is used to schedule a call to `TEMPERATURE_PROBE_NEXT`. The default `STEP` is 2. The `METHOD` only supports `tap` as an option, if specified, probing will be automated.
 
 #### TEMPERATURE_PROBE_NEXT
 

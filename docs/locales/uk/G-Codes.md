@@ -11,8 +11,9 @@ Klipper підтримує такі стандартні команди G-код
 - Перейти до початку: `G28 [X] [Y] [Z]`
 - Вимкніть двигуни: `M18` або `M84`
 - Зачекайте, поки завершаться поточні ходи: `M400`
-- Використовуйте абсолютні/відносні відстані для екструзії: `M82`, `M83`
 - Використовуйте абсолютні/відносні координати: `G90`, `G91`
+- Force relative distances for extrusion: `M83`, `M82`
+   - Note: `M83` forces extrusions to use relative coordinates even if `G90` absolute mode is selected. `M82` disables that forced mode (it does not force the extruder to use absolute coordinates).
 - Установити позицію: `G92 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>]`
 - Установіть відсоток перевизначення коефіцієнта швидкості: `M220 S<percent>`
 - Установіть відсоток перевизначення коефіцієнта екструдування: `M221 S<percent>`
@@ -92,7 +93,7 @@ section](Config_Reference.md#axis_twist_compensation) is enabled.
 
 #### AXIS_TWIST_COMPENSATION_CALIBRATE
 
-`AXIS_TWIST_COMPENSATION_CALIBRATE [AXIS=<X|Y>] [SAMPLE_COUNT=<value>]`
+`AXIS_TWIST_COMPENSATION_CALIBRATE [AXIS=<X|Y>] [SAMPLE_COUNT=<value>] [MANUAL_METHOD=manual]`
 
 Калібрує компенсацію скручування осі, вказуючи цільову вісь або вмикаючи автоматичне калібрування.
 
@@ -391,7 +392,7 @@ The `CLEAR_HOMED` parameter instructs the kinematics to consider the given axes 
 
 #### SAVE_GCODE_STATE
 
-`SAVE_GCODE_STATE [NAME=<state_name>]`: зберегти поточний стан аналізу координат g-коду. Збереження та відновлення стану g-коду корисно в сценаріях і макросах. Ця команда зберігає поточний режим абсолютних координат g-коду (G90/G91), абсолютний режим екструдування (M82/M83), початок (G92), зміщення (SET_GCODE_OFFSET), перевизначення швидкості (M220), перевизначення екструдера (M221), швидкість переміщення , поточне положення XYZ і відносне положення екструдера "E". Якщо вказано NAME, це дозволяє назвати збережений стан у заданому рядку. Якщо NAME не вказано, за замовчуванням використовується значення "default".
+`SAVE_GCODE_STATE [NAME=<state_name>]`: Save the current g-code coordinate parsing state. Saving and restoring the g-code state is useful in scripts and macros. This command saves the current g-code absolute coordinate mode (G90/G91), force relative extrude mode (M83/M82), origin (G92), offset (SET_GCODE_OFFSET), speed override (M220), extruder override (M221), move speed, current XYZ position, and relative extruder "E" position. If NAME is provided it allows one to name the saved state to the given string. If NAME is not provided it defaults to "default".
 
 #### RESTORE_GCODE_STATE
 
@@ -699,7 +700,7 @@ The `Z_OFFSET_APPLY_PROBE` command is also extended to support a `METHOD=tap` pa
 
 #### PROBE_EDDY_CURRENT_CALIBRATE
 
-`PROBE_EDDY_CURRENT_CALIBRATE CHIP=<config_name>`: це запускає інструмент, який калібрує резонансні частоти датчика відповідно до висот Z. Інструменту знадобиться кілька хвилин, щоб завершити роботу. Після завершення скористайтеся командою SAVE_CONFIG, щоб зберегти результати у файлі printer.cfg.
+`PROBE_EDDY_CURRENT_CALIBRATE CHIP=<config_name> [MANUAL_METHOD=manual]`: This starts a tool that calibrates the sensor resonance frequencies to corresponding Z heights. The tool will take a couple of minutes to complete. After completion, use the SAVE_CONFIG command to store the results in the printer.cfg file.
 
 #### PROBE_EDDY_CURRENT_TAP_CALIBRATE
 
@@ -870,7 +871,7 @@ The `Z_OFFSET_APPLY_PROBE` command is also extended to support a `METHOD=tap` pa
 
 #### TEMPERATURE_PROBE_CALIBRATE
 
-`TEMPERATURE_PROBE_CALIBRATE [PROBE=<probe name>] [TARGET=<value>] [STEP=<value>] [METHOD=<method>]`: Initiates probe drift calibration for eddy current based probes. The `TARGET` is a target temperature for the last sample. When the temperature recorded during a sample exceeds the `TARGET` calibration will complete. The `STEP` parameter sets temperature delta (in C) between samples. After a sample has been taken, this delta is used to schedule a call to `TEMPERATURE_PROBE_NEXT`. The default `STEP` is 2. The `METHOD` only supports `tap` as an option, if specified, probing will be automated.
+`TEMPERATURE_PROBE_CALIBRATE [PROBE=<probe name>] [TARGET=<value>] [STEP=<value>] [MANUAL_METHOD=<method>]`: Initiates probe drift calibration for eddy current based probes. The `TARGET` is a target temperature for the last sample. When the temperature recorded during a sample exceeds the `TARGET` calibration will complete. The `STEP` parameter sets temperature delta (in C) between samples. After a sample has been taken, this delta is used to schedule a call to `TEMPERATURE_PROBE_NEXT`. The default `STEP` is 2. The `METHOD` only supports `tap` as an option, if specified, probing will be automated.
 
 #### TEMPERATURE_PROBE_NEXT
 

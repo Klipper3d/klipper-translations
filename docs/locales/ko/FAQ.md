@@ -66,7 +66,7 @@ Klipper micro-controller baud rate는 micro-controller의 bootloader의 보드�
 
 The recommended hardware is a Raspberry Pi Zero2w, Raspberry Pi 3, Raspberry Pi 4 or Raspberry Pi 5. Klipper will also run on other SBC devices as well as x86 hardware, as described below.
 
-Klipper will run on a Raspberry Pi 1, 2 and on the Raspberry Pi Zero1, but these boards don't have enough processing power to run Klipper well. It is common for print stalls to occur on these slower machines when printing (The printer may move faster than Klipper can send movement commands.) It is not reccomended to run Klipper on these older machines.
+Klipper will run on a Raspberry Pi 1, 2 and on the Raspberry Pi Zero1, but these boards don't have enough processing power to run Klipper well. It is common for print stalls to occur on these slower machines when printing (The printer may move faster than Klipper can send movement commands.) It is not recommended to run Klipper on these older machines.
 
 Beaglebone에서 실행하려면 [Beaglebone 특정 설치 지침](Beaglebone.md)을 참조하십시오.
 
@@ -108,7 +108,7 @@ OctoPrint를 통해 인쇄를 취소 한 후 머리를 저쪽으로 이동하려
 
 인쇄 공습 후 머리를 이동하려면 슬라이서의 "custom g-code"섹션에 원하는 움직임을 추가해야합니다.
 
-프린터가 귀환 프로세스 자체의 일부로 추가 이동이 필요하면 (또는 기본적으로 homing 프로세스가 없습니다) 다음 config 파일에서 safe_z_home 또는 homing_override 섹션을 사용하여 고려하십시오. 진단 또는 디버깅 목적으로 당신의 머리를 디버거로 이동해야 하는 경우, config 파일에 force_move 섹션을 추가해야 합니다. 이 옵션에 대한 자세한 내용은 [config reference](Config_Reference.md#customized_homing)를 참조하십시오.
+If the printer requires some additional movement as part of the homing process itself (or fundamentally does not have a homing process) then consider using a safe_z_home or homing_override section in the config file. If you need to move a stepper for diagnostic or debugging purposes then consider adding a force_move section to the config file. See [config reference](Config_Reference.md#customized-homing) for further details on these options.
 
 ## 왜 Z position_endstop은 기본 설정에서 0.5로 설정되십니까?
 

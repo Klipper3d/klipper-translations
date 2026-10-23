@@ -8,7 +8,7 @@ Durch die Umwidmung des PWM-Ausgangs für den Druckkopflüfter können Sie Laser
 
 **Warnung:** Beachten Sie beim Betrieb eines Lasers alle nur denkbaren Sicherheitsvorkehrungen! Diodenlaser sind üblicherweise invertiert. Das bedeutet, dass der Laser beim Neustart des MCU für die Dauer des Startvorgangs *voll eingeschaltet* ist. Es wird dringend empfohlen, bei eingeschaltetem Laser *immer* eine geeignete Laserschutzbrille für die passende Wellenlänge zu tragen und den Laser zu trennen, wenn er nicht benötigt wird. Außerdem sollten Sie eine Sicherheitszeitüberschreitung konfigurieren, damit das Werkzeug stoppt, wenn Host oder MCU einen Fehler feststellen.
 
-Für eine Beispielkonfiguration siehe [config/sample-pwm-tool.cfg](/config/sample-pwm-tool.cfg).
+For an example configuration, see [config/sample-pwm-tool.cfg](../config/sample-pwm-tool.cfg).
 
 ## Befehle
 

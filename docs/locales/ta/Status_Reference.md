@@ -162,7 +162,7 @@ The following information is available in the `gcode` object:
 - `SPEED_FACTOR`:` M220` கட்டளையால் அமைக்கப்பட்டுள்ள "வேக காரணி மேலெழுதல்". இது ஒரு மிதக்கும் புள்ளி மதிப்பாகும், அதாவது 1.0 என்பது மேலெழுதும் இல்லை, எடுத்துக்காட்டாக, 2.0 கோரப்பட்ட வேகத்தை இருமுறை செய்யும்.
 - `எக்ச்ட்ரூட்_ஃபாக்டர்`:` எம் 221` கட்டளையால் அமைக்கப்பட்டுள்ளபடி "எக்ச்ட்ரூட் காரணி மேலெழுதல்". இது ஒரு மிதக்கும் புள்ளி மதிப்பாகும், அதாவது 1.0 என்பது மேலெழுதும் இல்லை, எடுத்துக்காட்டாக, 2.0 கோரப்பட்ட வெளியேற்றங்களை இருமுறை செய்யும்.
 - `முழுமையான_கோர்டேட்ச்`:` G90` முழுமையான ஒருங்கிணைப்பு பயன்முறையில் இருந்தால் அல்லது `G91` உறவினர் பயன்முறையில் இருந்தால் இது உண்மையாக இருந்தால் இது உண்மை.
-- `முழுமையான எக்ச்ட்ரூட்`:` M82` முழுமையான எக்ச்ட்ரூட் பயன்முறையில் இருந்தால் அல்லது `M83` உறவினர் பயன்முறையில் இருந்தால் இது உண்மையாக இருந்தால் இது உண்மை.
+- `absolute_extrude`: Returns True if absolute extrusions are permitted. An `M83` force relative extrusion mode command causes this value to return False. An `M82` command returns this value to True.
 - `axis_map`: Provides a mechanism for finding the coordinate component for a given G-Code id that is used in `G1` commands. See the [Accessing Coordinates](#accessing-coordinates) section for details.
 
 ## ஆல்_பிலமென்ட்_விட்_சென்சர்
@@ -248,6 +248,7 @@ The following information is available for `[load_cell_probe]`:
 - `MCU_VERSION`: மைக்ரோ-கன்ட்ரோலரால் அறிவிக்கப்பட்ட கிளிப்பர் குறியீடு பதிப்பு.
 - `mcu_build_versions`: மைக்ரோ-கன்ட்ரோலர் குறியீட்டை உருவாக்க பயன்படுத்தப்படும் உருவாக்க கருவிகள் பற்றிய தகவல்கள் (மைக்ரோ-கன்ட்ரோலரால் அறிவிக்கப்பட்டபடி).
 - `MCU_Constants. <nountth_name>`: மைக்ரோ-கன்ட்ரோலரால் அறிவிக்கப்பட்ட நேர மாறிலிகளை தொகுக்கவும். கிடைக்கக்கூடிய மாறிலிகள் மைக்ரோ-கட்டுப்பாட்டு கட்டமைப்புகளுக்கும் ஒவ்வொரு குறியீடு திருத்தத்திற்கும் இடையில் வேறுபடலாம்.
+- `mcu_kconfig`: The minimal build configuration (`savedefconfig` output) that the micro-controller firmware was compiled from, as reported by the micro-controller. `None` if the firmware predates this feature or does not provide it.
 - `கடைசி புள்ளிவிவரங்கள். <புள்ளிவிவர பெயர்>`: மைக்ரோகண்ட்ரோலர் இணைப்பு குறித்த புள்ளிவிவர செய்தி.
 
 ## இயக்கம்_ அறிக்கை
@@ -353,7 +354,7 @@ The following information is available in the `skew_correction` object (this obj
 
 பின்வரும் தகவல்கள் கிடைக்கின்றன
 
-. lm75 config_section_name] (config_reference .md#lm75-வெப்பநிலை-சென்சார்), [வெப்பநிலை_ஓச்ட் config_section_name] (config_reference.md#ஓச்ட்-டெம்பரேச்சர்-சென்சார்) மற்றும் [வெப்பநிலை_கம்ப் செய்யப்பட்ட config_section_name] (config_reference.md#ஒருங்கிணைந்த-செம்பரேச்சர்-சென்சார்) பொருள்கள்:
+[bme280 config_section_name](Config_Reference.md#bmp180bmp280bme280bmp388bme680-temperature-sensor), [htu21d config_section_name](Config_Reference.md#htu21d-sensor), [sht3x config_section_name](Config_Reference.md#sht3x-sensor), [lm75 config_section_name](Config_Reference.md#lm75-temperature-sensor), [temperature_host config_section_name](Config_Reference.md#host-temperature-sensor) and [temperature_combined config_section_name](Config_Reference.md#combined-temperature-sensor) objects:
 
 - `வெப்பநிலை`: சென்சாரிலிருந்து கடைசி வாசிப்பு வெப்பநிலை.
 - `ஈரப்பதம்`,` அழுத்தம்`, `வாயு`: சென்சாரிலிருந்து கடைசி வாசிப்பு மதிப்புகள் (BME280, HTU21D, SHT3X மற்றும் LM75 சென்சார்களில் மட்டுமே).

@@ -10,7 +10,7 @@
 
 ## Использование `LOAD_CELL_DIAGNOSTIC `
 
-Когда вы впервые подключаете загрузочный элемент, его хорошая практика для проверки проблем путем запуска `LOAD_CELL_DIAGNOSTIC`. Этот инструмент собирает 10 секунд данных из загрузочной ячейки и статистики экспорта:
+When you first connect a load cell its good practice to check for issues by running `LOAD_CELL_DIAGNOSTIC`. This tool collects 10 seconds of data from the load cell and reports statistics:
 
 ```
 $ LOAD_CELL_DIAGNOSTIC
@@ -121,11 +121,11 @@ LOAD_CELL_TARE
 
 Это максимальная абсолютная сила, по сравнению с `reference_tare_counts `, что зонд позволит во время оттаивания или пробирования. Если MCU увидит, что эта сила превышена, он выключит принтер с ошибкой `! Загрузить сотовую остановку: слишком много силы! `. Существует ряд способов, которыми это может быть вызвано:
 
-Первый риск, от которого это защищает, - это сбор слишком большого значения для `drift_filter_cutoff_ frequency`. Это может привести к тому, что дрейф-фильтр отфильтрует событие зонда и продолжит движение хромирования. Если это происходит, то `force_safety_limit ` действует как резервная защита.
+The first risk this protects against is picking too large of a value for `drift_filter_cutoff_frequency`. This can cause the drift filter to filter out a probe event and continue the homing move. If this happens, the `force_safety_limit` acts as a backup protection.
 
 Вторая проблема состоит в том, чтобы многократно просачиваться в одном месте. Klipper не втягивает зонд при выполнении одной команды `PROBE`. Это может привести к вступлению в силу, применяемую к плацдарму в конце испытательного цикла. Поскольку внешние силы могут сильно различаться между поиском местоположения, `load_cell_probe ` выполняет тару перед началом каждого зонда. Если вы повторите команду `PROBE`, то загрузка_cell_probe привлечет конечную остановку при нынешней силе. Множественные циклы этого приведут к постоянно возрастающей силе на головке инструмента. `force_safety_limit ` останавливает этот цикл от выхода из-под контроля.
 
-Another way this run-away can happen is damage to a strain gauge. If the metal part is permanently bent it will change the `reference_tare_counts` of the device. This puts the starting tare value much closer to the limit making it more likely to be violated. You want to be notified if this is happening because your hardware has been permanently damaged.
+Another way this runaway can happen is damage to a strain gauge. If the metal part is permanently bent it will change the `reference_tare_counts` of the device. This puts the starting tare value much closer to the limit making it more likely to be violated. You want to be notified if this is happening because your hardware has been permanently damaged.
 
 Последний способ, которым это может быть спровоцировано, связан с изменениями температуры. Если ваши датчики напряжения нагреваются, их `reference_tare_counts ` могут быть очень разными при температуре окружающей среды по сравнению с рабочей температурой. В этом случае вам может понадобиться увеличить `force_safety_limit `, чтобы обеспечить термические изменения.
 
@@ -133,7 +133,7 @@ Another way this run-away can happen is damage to a strain gauge. If the metal p
 
 При оттачивании загрузки_cell_endstop начинается задача на MCU для измерения скорости, поступающей от датчика. Если датчик не может отправлять измерения в течение 2 периодов отбора проб, сторожевой щит закроет принтер с ошибкой `! LoadCell Endstop таймировал ожидание данных ADC `.
 
-Если это происходит, наиболее вероятной причиной является ошибка от ADC. Неадекватное заземление вашего принтера может быть основной причиной. Рамка, корпус питания и пинта-кровать должны быть подключены к земле. Возможно, вам придется заземлять раму в нескольких местах. Анодированные алюминиевые экструзии не хорошо проводят электричество. Вам, возможно, придется застегнуть область, где заземляющий провод прикреплен, чтобы сделать хороший электрический контакт.
+If this happens, the most likely cause is a fault from the ADC. Inadequate grounding of your printer can be the root cause. The frame, power supply case and print bed should all be connected to ground. You may need to ground the frame in multiple places. Anodized aluminum extrusions do not conduct electricity well. You might need to sand the area where the grounding wire is attached to make good electrical contact.
 
 #### Interpolation
 
@@ -163,13 +163,13 @@ The distance of the ascending move can be configured through the `sample_retract
 
 ### Предлагаемая температура
 
-В настоящее время мы предлагаем сохранить температуру сопла ниже уровня, который заставляет нить накала во время рытья и просачивать. 140C - хорошая отправная точка. Эта температура также достаточно низкая, чтобы не рубить поверхности PEI.
+Currently, we suggest keeping the nozzle temperature below the level that causes the filament to ooze while homing and probing. 140°C is a good starting point. This temperature is also low enough not to scar PEI build surfaces.
 
 Разрушение сопла и печатной кровати из-за обесцвечивания нити накала является источником #1 ошибки при испытании пробоотборника. Klipper пока не имеет универсального способа обнаружения некачественных кранов из-за огни нити накала. Существующий код может решить, что кран действителен, когда он низкого качества. Классификация этих низкокачественных кранов является областью активных исследований.
 
 Klipper также не имеет поддержки для повторного размещения точки зонда, если местоположение стало загрязнено нитью накала. Модули, такие как `quad_gantry_level`, будут неоднократно исследовать те же координаты, даже если зонд ранее потерпел неудачу.
 
-Дайте вышесказанное настоятельно рекомендуется не исследовать при температурах печати.
+Given the above it is strongly suggested not to probe at printing temperatures.
 
 ### Горячая защита сопла
 
@@ -194,7 +194,7 @@ The Voron project has a great macro for protecting your print surface from the h
 
 #### Расчет `temp_coeff ` для `[z_thermal_adjust]`
 
-Самый простой способ сделать это - измерить при 2 различных температурах. В идеале это должны быть верхние и нижние пределы диапазона температуры печати. E.g. 180C и 290C. Вы можете выполнить `PROBE_ACCURACY ` при обеих температурах, а затем вычислить разницу `среднего z ` в обоих случаях.
+The easiest way to do this is to measure at 2 different temperatures. Ideally these should be the upper and lower limits of the printing temperature range. E.g. 180°C and 290°C. You can perform a `PROBE_ACCURACY` at both temperatures and then calculate the difference of the `average z` at both.
 
 Значением регулировки является изменение длины сопла, разделенное на изменение температуры. Например.
 
@@ -226,9 +226,9 @@ Klipper реализует настраиваемый IIR-фильтр на ми
 
 ### Установка SciPy
 
-Код фильтрации использует отличную библиотеку [SciPy](https://scipy.org/) для вычисления коэффициентов фильтра на основе значений, которые вы вводите в конфигурацию.
+The filtering code uses the excellent [SciPy](https://scipy.org/) library to compute the filter coefficients based on the values you enter into the config.
 
-Предварительно скомпилированные сборки SciPi доступны для Python 3 на 32-разрядных системах Raspberry Pi. Настоятельно рекомендуется использовать 32-разрядную версию + Python 3, так как это упростит процесс установки. Программа работает и с Python 2, но установка может занять более 30 минут и потребовать установки дополнительных инструментов.
+Pre-compiled SciPi builds are available for Python 3 on 32-bit and 64-bit Raspberry Pi systems. 32-bit/64-bit + Python 3 is strongly recommended because it will streamline your installation experience. It does work with Python 2 but installation can take 30+ minutes and requires installing additional tools.
 
 ```bash
 ~/klippy-env/bin/pip install scipy

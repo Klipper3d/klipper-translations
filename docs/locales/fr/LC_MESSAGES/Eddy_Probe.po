@@ -831,6 +831,89 @@ msgstr ""
 msgid "Generally, it is like an engine check light. It may indicate an issue."
 msgstr ""
 
+#: docs/Eddy_Probe.md:block 87 (header)
+msgid "Possible TAP errors and actionables:"
+msgstr ""
+
+#: docs/Eddy_Probe.md:block 88 (unordered list)
+msgid "insufficient lift (A vs B) - too small Z window received by the code"
+msgstr ""
+
+#: docs/Eddy_Probe.md:block 88 (unordered list)
+msgid ""
+"LIFT_SPEED/printer.max_z_velocity too low - must be at least 2.5 Recommended "
+">0.5 RPS. For motor cogging reasons."
+msgstr ""
+
+#: docs/Eddy_Probe.md:block 88 (unordered list)
+msgid ""
+"printer.max_z_accel too low - must be larger 35 mm/s^2. Recommended 300 "
+"mm/s^2."
+msgstr ""
+
+#: docs/Eddy_Probe.md:block 88 (unordered list)
+msgid "SAMPLE_RETRACT_DIST too low Recommended >2 mm."
+msgstr ""
+
+#: docs/Eddy_Probe.md:block 88 (unordered list)
+msgid ""
+"no contact found at z=Z (slope delta A vs B) - retraction analysis outputs not"
+" expected data. Often toolhead has stopped in mid-air because of the "
+"measurement noise."
+msgstr ""
+
+#: docs/Eddy_Probe.md:block 88 (unordered list)
+msgid "Too high printer.max_z_accel - Z resonances, consider Z input shaper"
+msgstr ""
+
+#: docs/Eddy_Probe.md:block 88 (unordered list)
+msgid "Mechanical vibrations - ex. toolhead fan"
+msgstr ""
+
+#: docs/Eddy_Probe.md:block 88 (unordered list)
+msgid "Sensor noise (elevated chamber/bed temperature)"
+msgstr ""
+
+#: docs/Eddy_Probe.md:block 88 (unordered list)
+msgid "Increase of tap_threshold normally allows to alleviate symptoms"
+msgstr ""
+
+#: docs/Eddy_Probe.md:block 88 (unordered list)
+msgid "invalid depress distance (Z vs A:B)"
+msgstr ""
+
+#: docs/Eddy_Probe.md:block 88 (unordered list)
+msgid "if Z < A"
+msgstr ""
+
+#: docs/Eddy_Probe.md:block 88 (unordered list)
+msgid "tap_threshold too low"
+msgstr ""
+
+#: docs/Eddy_Probe.md:block 88 (unordered list)
+msgid "PROBE_SPEED too low"
+msgstr ""
+
+#: docs/Eddy_Probe.md:block 88 (unordered list)
+msgid "printer.max_z_accel too low"
+msgstr ""
+
+#: docs/Eddy_Probe.md:block 88 (unordered list)
+msgid "if Z > B"
+msgstr ""
+
+#: docs/Eddy_Probe.md:block 88 (unordered list)
+msgid "Large toolhead tilt (mechanical/installation issue)"
+msgstr ""
+
+#: docs/Eddy_Probe.md:block 88 (unordered list)
+msgid "PROBE_SPEED too high"
+msgstr ""
+
+#: docs/Eddy_Probe.md:block 88 (unordered list)
+msgid "tap_threshold too high"
+msgstr ""
+
 #~ msgid ""
 #~ "This document describes how to use an [eddy "
 #~ "current](https://en.wikipedia.org/wiki/Eddy_current) inductive probe in "

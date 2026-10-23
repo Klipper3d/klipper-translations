@@ -502,7 +502,7 @@ max_accel: 3000 # не повинен перевищувати оцінений 
 Рекомендований форматор 2hump_ei @ 45.2 ХХз
 ```
 
-Зверніть увагу, що повідомлені значення «згладжування» є деякими абстрактними прогнозованими значеннями. Ці значення можна використовувати для порівняння різних конфігурацій: чим вище значення, тим більше згладжування створить шейпер. Однак ці показники згладжування не представляють реальної міри згладжування, оскільки фактичне згладжування залежить від параметрів [`max_accel`](#selecting-max-accel) і `square_corner_velocity`. Тому вам слід надрукувати кілька пробних відбитків, щоб побачити, наскільки згладжування створює саме вибрана конфігурація.
+Note that the reported `smoothing` values are some abstract projected values. These values can be used to compare different configurations: the higher the value, the more smoothing a shaper will create. However, these smoothing scores do not represent any real measure of smoothing, because the actual smoothing depends on [`max_accel`](#selecting-max_accel) and `square_corner_velocity` parameters. Therefore, you should print some test prints to see how much smoothing exactly a chosen configuration creates.
 
 На прикладі вище запропоновані параметри формера не погані, але що якщо ви хочете отримати менше розгладжування на осі X? Ви можете намагатися обмежити максимальне вирівнювання фігури за допомогою наступної команди:
 

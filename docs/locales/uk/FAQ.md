@@ -66,7 +66,7 @@ sudo сервіс klipper старт
 
 The recommended hardware is a Raspberry Pi Zero2w, Raspberry Pi 3, Raspberry Pi 4 or Raspberry Pi 5. Klipper will also run on other SBC devices as well as x86 hardware, as described below.
 
-Klipper will run on a Raspberry Pi 1, 2 and on the Raspberry Pi Zero1, but these boards don't have enough processing power to run Klipper well. It is common for print stalls to occur on these slower machines when printing (The printer may move faster than Klipper can send movement commands.) It is not reccomended to run Klipper on these older machines.
+Klipper will run on a Raspberry Pi 1, 2 and on the Raspberry Pi Zero1, but these boards don't have enough processing power to run Klipper well. It is common for print stalls to occur on these slower machines when printing (The printer may move faster than Klipper can send movement commands.) It is not recommended to run Klipper on these older machines.
 
 Для запуску на Beaglebone див. в розділі [Налаштування конкретної інсталяції](Beaglebone.md).
 
@@ -108,7 +108,7 @@ Klipper створює "віртуальний серійний порт" чер
 
 Якщо ви хочете перемістити голову після обробки друку, врахуйте, додавши бажаний рух до розділу "кутом g-коду".
 
-Якщо принтер вимагає певного додаткового руху в складі самого процесу хмінгу (або принципово не має процесу хмінгу) то розглянемо за допомогою безпечного_z_home або homing_override в розділі налаштування. Якщо вам необхідно перемістити кроковий інструмент для діагностики або видалення цілей, після чого слід додати в файл config_move. Див. [Налаштування посилання](Config_Reference.md#customized_homing) для подальших деталей на цих параметрах.
+If the printer requires some additional movement as part of the homing process itself (or fundamentally does not have a homing process) then consider using a safe_z_home or homing_override section in the config file. If you need to move a stepper for diagnostic or debugging purposes then consider adding a force_move section to the config file. See [config reference](Config_Reference.md#customized-homing) for further details on these options.
 
 ## Чому Z позиції_endstop встановити на 0.5 в налаштуваннях за замовчуванням?
 

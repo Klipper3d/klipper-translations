@@ -2,7 +2,7 @@
 
 The `[exclude_object]` module allows Klipper to exclude objects while a print is in progress. To enable this feature include an [exclude_object config
 section](Config_Reference.md#exclude_object) (also see the [command
-reference](G-Codes.md#exclude-object) and [sample-macros.cfg](../config/sample-macros.cfg) file for a Marlin/RepRapFirmware compatible M486 G-Code macro.)
+reference](G-Codes.md#exclude_object) and [sample-macros.cfg](../config/sample-macros.cfg) file for a Marlin/RepRapFirmware compatible M486 G-Code macro.)
 
 Diferente de outras opções de firmware de impressora 3D, uma impressora que executa o Klipper utiliza um conjunto de componentes e os usuários têm muitas opções para escolher. Portanto, para fornecer uma experiência de usuário consistente, o módulo `[exclude_object]` estabelecerá um contrato ou API de algum tipo. O contrato abrange o conteúdo do arquivo gcode, como o estado interno do módulo é controlado e como esse estado é fornecido aos clientes.
 
@@ -32,7 +32,7 @@ As definições de objeto são nomeadas, para permitir que os usuários selecion
 `EXCLUDE_OBJECT_DEFINE NAME=calibration_pyramid CENTER=50,50 POLYGON=[[40,40],[50,60],[60,40]]`
 
 All available G-Code commands are documented in the [G-Code
-Reference](./G-Codes.md#excludeobject)
+Reference](./G-Codes.md#exclude_object)
 
 ## Informações de status
 

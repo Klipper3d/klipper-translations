@@ -8,7 +8,7 @@ Ao reutilizar a saída pwm da ventoinha da cabeça de impressão, pode controlar
 
 **Aviso:** Ao acionar um laser, tome todas as precauções de segurança de que se possa lembrar! Os lasers de díodo são normalmente invertidos. Isto significa que, quando a MCU reinicia, o laser estará *completamente ligado* durante o tempo que a MCU demora a arrancar novamente. Para uma boa medida, recomenda-se *sempre* usar óculos de proteção contra laser adequados com o comprimento de onda correto se o laser estiver ligado; e desligar o laser quando não for necessário. Além disso, deve configurar um tempo limite de segurança, para que, quando o anfitrião ou a MCU encontrar um erro, a ferramenta pare.
 
-Para um exemplo de configuração, consulte [config/sample-pwm-tool.cfg](/config/sample-pwm-tool.cfg).
+For an example configuration, see [config/sample-pwm-tool.cfg](../config/sample-pwm-tool.cfg).
 
 ## Comandos
 

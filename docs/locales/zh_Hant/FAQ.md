@@ -66,7 +66,7 @@ Klipper 微控制器的波特率與微控制器啟動載入程式的波特率無
 
 The recommended hardware is a Raspberry Pi Zero2w, Raspberry Pi 3, Raspberry Pi 4 or Raspberry Pi 5. Klipper will also run on other SBC devices as well as x86 hardware, as described below.
 
-Klipper will run on a Raspberry Pi 1, 2 and on the Raspberry Pi Zero1, but these boards don't have enough processing power to run Klipper well. It is common for print stalls to occur on these slower machines when printing (The printer may move faster than Klipper can send movement commands.) It is not reccomended to run Klipper on these older machines.
+Klipper will run on a Raspberry Pi 1, 2 and on the Raspberry Pi Zero1, but these boards don't have enough processing power to run Klipper well. It is common for print stalls to occur on these slower machines when printing (The printer may move faster than Klipper can send movement commands.) It is not recommended to run Klipper on these older machines.
 
 要在Beaglebone上執行，請參閱[Beaglebone特別安裝說明](Beaglebone.md)。
 
@@ -108,7 +108,7 @@ Klipper 通過 「/tmp/printer」 檔案建立了一個「虛擬串列埠」，�
 
 如果您想在列印完成後移動頭部，請考慮將所需的移動新增到切片機的「自定義 g 程式碼」部分。
 
-如果印表機歸位過程中需要一些額外的移動（或者根本上沒有歸位運動），那麼可以在配置檔案中定義safe_z_home或 homing_override分段。如果你需要為診斷或除錯目的移動一個步進，可以在配置檔案中新增一個 force_move 分段。參見[配置參考](Config_Reference.md#customized_homing)以瞭解關於這些選項的詳情。
+If the printer requires some additional movement as part of the homing process itself (or fundamentally does not have a homing process) then consider using a safe_z_home or homing_override section in the config file. If you need to move a stepper for diagnostic or debugging purposes then consider adding a force_move section to the config file. See [config reference](Config_Reference.md#customized-homing) for further details on these options.
 
 ## 為什麼 Z position_endstop 在預設配置中設定為 0.5？
 
