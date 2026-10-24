@@ -1,15 +1,17 @@
-#
+# Oriol Tous Casadesús <1ri@users.noreply.hosted.weblate.org>, 2026.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-07-22 08:53+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Catalan <https://hosted.weblate.org/projects/klipper/g-codes/ca/>\n"
+"PO-Revision-Date: 2026-10-24 10:51+0000\n"
+"Last-Translator: Oriol Tous Casadesús <1ri@users.noreply.hosted.weblate.org>"
+"\n"
+"Language-Team: Catalan <https://hosted.weblate.org/projects/klipper/g-codes/"
+"ca/>\n"
 "Language: ca\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 msgid ""
 "This document describes the commands that Klipper supports. These are commands"
@@ -38,7 +40,7 @@ msgid "Wait for current moves to finish: `M400`"
 msgstr ""
 
 msgid "Use absolute/relative coordinates: `G90`, `G91`"
-msgstr ""
+msgstr "Utilitza coordenades absolutes/relatives: `G90`, `G91`"
 
 msgid "Set position: `G92 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>]`"
 msgstr ""
@@ -59,7 +61,7 @@ msgid ""
 msgstr ""
 
 msgid "Get extruder temperature: `M105`"
-msgstr ""
+msgstr "Obtenir la temperatura de l'extrusor: `M105`"
 
 msgid "Set extruder temperature: `M104 [T<index>] [S<temperature>]`"
 msgstr ""
@@ -131,6 +133,8 @@ msgid ""
 "The following standard G-Code commands are available if a [gcode_arcs config "
 "section](Config_Reference.md#gcode_arcs) is enabled:"
 msgstr ""
+"Les següents ordres estàndard de codi G estan disponibles si s'habilita una "
+"secció de configuració [gcode_arcs](Config_Reference.md#gcode_arcs):"
 
 msgid "Display Message: `M117 <message>`"
 msgstr ""
@@ -278,6 +282,11 @@ msgid ""
 "controller (see FIRMWARE_RESTART) nor will it load new software (see [the "
 "FAQ](FAQ.md#how-do-i-upgrade-to-the-latest-software))."
 msgstr ""
+"`RESTART`: Això farà que el programari amfitrió torni a carregar la seva "
+"configuració i dugui a terme un reinici intern. Aquesta ordre no esborrarà "
+"l'estat d'error del microcontrolador (vegeu `FIRMWARE_RESTART`) ni carregarà "
+"programari nou (vegeu la secció FAQ[preguntes freqüents](FAQ.md#how-do-i-"
+"upgrade-to-the-latest-software))."
 
 msgid ""
 "`FIRMWARE_RESTART`: This is similar to a RESTART command, but it also clears "
@@ -406,6 +415,8 @@ msgid ""
 "`RESPOND MSG=\"<message>\"`: echo the message prepended with the configured "
 "default prefix (or `echo: ` if no prefix is configured)."
 msgstr ""
+"`RESPOND MSG=\"<missatge>\"`: mostra el missatge amb el prefix per defecte "
+"configurat al principi (o `echo: ` si no hi ha cap prefix configurat)."
 
 msgid ""
 "`RESPOND TYPE=echo MSG=\"<message>\"`: echo the message prepended with `echo: "
@@ -487,6 +498,12 @@ msgid ""
 "combination of planes, planes not entered will retain their current value. If "
 "`CLEAR=1` is entered then all skew correction will be disabled."
 msgstr ""
+"`SET_SKEW [XY=<ac_length,bd_length,ad_length>] [XZ=<ac,bd,ad>] [YZ=<ac,bd,ad>"
+"] [CLEAR=<0|1>]`: Configura el mòdul [skew_correction] amb mesures (en mm) "
+"obtingudes d'una impressió de calibratge. Es poden introduir mesures per a "
+"qualsevol combinació de plans; els plans per als quals no s'especifiquin "
+"valors mantindran els valors actuals. Si s'estableix `CLEAR=1`, es "
+"desactivarà tota correcció de la distorsió (skew)."
 
 msgid ""
 "`GET_CURRENT_SKEW`: Reports the current printer skew for each plane in both "
@@ -508,19 +525,24 @@ msgstr ""
 msgid ""
 "`PALETTE_CONNECT`: This command initializes the connection with the Palette 2."
 msgstr ""
+"`PALETTE_CONNECT`: Aquesta ordre inicialitza la connexió amb la Palette 2."
 
 msgid "`PALETTE_DISCONNECT`: This command disconnects from the Palette 2."
-msgstr ""
+msgstr "`PALETTE_DISCONNECT`: Aquesta ordre desconnecta la Palette 2."
 
 msgid ""
 "`PALETTE_CLEAR`: This command instructs the Palette 2 to clear all of the "
 "input and output paths of filament."
 msgstr ""
+"`PALETTE_CLEAR`: Aquesta ordre indica a la Palette 2 que buidi de filament "
+"tots els camins d'entrada i de sortida."
 
 msgid ""
 "`PALETTE_CUT`: This command instructs the Palette 2 to cut the filament "
 "currently loaded in the splice core."
 msgstr ""
+"`PALETTE_CUT`: Aquesta ordre indica a la Palette 2 que talli el filament que "
+"hi ha carregat actualment al nucli d'unió (splice Core)."
 
 msgid ""
 "`PALETTE_SMART_LOAD`: This command start the smart load sequence on the "
@@ -534,11 +556,15 @@ msgid ""
 "Palette prints work by embedding special OCodes (Omega Codes) in the GCode "
 "file:"
 msgstr ""
+"Les impressions amb Palette funcionen incrustant uns codis especials, "
+"anomenats OCodes (Omega Codes), al fitxer GCode:"
 
 msgid ""
 "`O1`...`O32`: These codes are read from the GCode stream and processed by this"
 " module and passed to the Palette 2 device."
 msgstr ""
+"`O1`...`O32`: Aquests codis es llegeixen del flux de G-code, són processats "
+"per aquest mòdul i es transmeten al dispositiu Palette 2."
 
 #: docs/G-Codes.md:block 1 (header)
 msgid "G-Codes"
@@ -600,6 +626,12 @@ msgid ""
 "returned values should be a free-fall acceleration (+/- some noise of the "
 "chip)."
 msgstr ""
+"`ACCELEROMETER_QUERY [CHIP=<config_name>] [RATE=<value>]`: consulta "
+"l'acceleròmetre per obtenir el valor actual. Si no s'especifica CHIP, el "
+"valor predeterminat és \"adxl345\". Si no s'especifica RATE, s'utilitza el "
+"valor predeterminat. Aquest comandament és útil per provar la connexió amb "
+"l'aceleròmetre ADXL345: un dels valors retornats ha de ser una acceleració "
+"en caiguda lliure (+/- soroll o interferències del xip)."
 
 #: docs/G-Codes.md:block 105 (unordered list)
 msgid ""
@@ -652,6 +684,9 @@ msgid ""
 "ADXL345 register \"register\" (e.g. 44 or 0x2C). Can be useful for debugging "
 "purposes."
 msgstr ""
+"`ACCELEROMETER_DEBUG_READ [CHIP=<config_name>] REG=<register>`: consulta el "
+"registre «register» de l'ADXL345 (p. ex., 44 o 0x2C). Pot ser útil per a "
+"tasques de depuració."
 
 #: docs/G-Codes.md:block 20 (header)
 msgid "ACCELEROMETER_DEBUG_WRITE"
@@ -933,7 +968,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 101 (header)
 msgid "SET_RETRACTION"
-msgstr ""
+msgstr "SET_RETRACTION"
 
 #: docs/G-Codes.md:block 103 (header)
 msgid "GET_RETRACTION"
@@ -941,7 +976,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 105 (header)
 msgid "[filament_switch_sensor]"
-msgstr ""
+msgstr "[filament_switch_sensor]"
 
 #: docs/G-Codes.md:block 106 (paragraph)
 msgid ""
@@ -950,6 +985,9 @@ msgid ""
 "[filament_motion_sensor](Config_Reference.md#filament_motion_sensor) config "
 "section is enabled."
 msgstr ""
+"L'ordre següent està disponible quan s'habilita una secció de configuració "
+"[filament_switch_sensor](Config_Reference.md#filament_switch_sensor) o "
+"[filament_motion_sensor](Config_Reference.md#filament_motion_sensor)."
 
 #: docs/G-Codes.md:block 107 (header)
 msgid "QUERY_FILAMENT_SENSOR"
@@ -1000,7 +1038,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 128 (header)
 msgid "STATUS"
-msgstr ""
+msgstr "STATUS"
 
 #: docs/G-Codes.md:block 130 (header)
 msgid "HELP"
@@ -1008,7 +1046,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 132 (header)
 msgid "[gcode_arcs]"
-msgstr ""
+msgstr "[gcode_arcs]"
 
 #: docs/G-Codes.md:block 135 (header)
 msgid "[gcode_macro]"
@@ -1047,7 +1085,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 147 (header)
 msgid "RESTORE_GCODE_STATE"
-msgstr ""
+msgstr "RESTORE_GCODE_STATE"
 
 #: docs/G-Codes.md:block 149 (header)
 msgid "[hall_filament_width_sensor]"
@@ -1194,7 +1232,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 198 (header)
 msgid "[output_pin]"
-msgstr ""
+msgstr "[output_pin]"
 
 #: docs/G-Codes.md:block 200 (header)
 msgid "SET_PIN"
@@ -1202,7 +1240,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 202 (header)
 msgid "[palette2]"
-msgstr ""
+msgstr "[palette2]"
 
 #: docs/G-Codes.md:block 203 (paragraph)
 msgid ""
@@ -1212,23 +1250,23 @@ msgstr ""
 
 #: docs/G-Codes.md:block 207 (header)
 msgid "PALETTE_CONNECT"
-msgstr ""
+msgstr "PALETTE_CONNECT"
 
 #: docs/G-Codes.md:block 209 (header)
 msgid "PALETTE_DISCONNECT"
-msgstr ""
+msgstr "PALETTE_DISCONNECT"
 
 #: docs/G-Codes.md:block 211 (header)
 msgid "PALETTE_CLEAR"
-msgstr ""
+msgstr "PALETTE_CLEAR"
 
 #: docs/G-Codes.md:block 213 (header)
 msgid "PALETTE_CUT"
-msgstr ""
+msgstr "PALETTE_CUT"
 
 #: docs/G-Codes.md:block 215 (header)
 msgid "PALETTE_SMART_LOAD"
-msgstr ""
+msgstr "PALETTE_SMART_LOAD"
 
 #: docs/G-Codes.md:block 217 (header)
 msgid "[pid_calibrate]"
@@ -1239,10 +1277,12 @@ msgid ""
 "The pid_calibrate module is automatically loaded if a heater is defined in the"
 " config file."
 msgstr ""
+"El mòdul pid_calibrate es carrega automàticament si hi ha un element "
+"escalfador definit al fitxer de configuració."
 
 #: docs/G-Codes.md:block 219 (header)
 msgid "PID_CALIBRATE"
-msgstr ""
+msgstr "PID_CALIBRATE"
 
 #: docs/G-Codes.md:block 221 (header)
 msgid "[pause_resume]"
@@ -1343,7 +1383,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 260 (header)
 msgid "[respond]"
-msgstr ""
+msgstr "[respond]"
 
 #: docs/G-Codes.md:block 261 (paragraph)
 msgid ""
@@ -1411,6 +1451,9 @@ msgid ""
 "`SDCARD_LOOP_BEGIN COUNT=<count>`: Begin a looped section in the SD print. A "
 "count of 0 indicates that the section should be looped indefinitely."
 msgstr ""
+"`SDCARD_LOOP_BEGIN COUNT=<count>`: Inicia una secció en bucle en la "
+"impressió des de la targeta SD. Un valor de 0 indica que la secció s'ha de "
+"repetir indefinidament."
 
 #: docs/G-Codes.md:block 278 (header)
 msgid "SDCARD_LOOP_END"
@@ -1534,11 +1577,11 @@ msgstr ""
 
 #: docs/G-Codes.md:block 310 (header)
 msgid "SET_TMC_CURRENT"
-msgstr ""
+msgstr "SET_TMC_CURRENT"
 
 #: docs/G-Codes.md:block 312 (header)
 msgid "SET_TMC_FIELD"
-msgstr ""
+msgstr "SET_TMC_FIELD"
 
 #: docs/G-Codes.md:block 314 (header)
 msgid "[toolhead]"
@@ -1550,7 +1593,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 316 (header)
 msgid "SET_VELOCITY_LIMIT"
-msgstr ""
+msgstr "SET_VELOCITY_LIMIT"
 
 #: docs/G-Codes.md:block 318 (header)
 msgid "[tuning_tower]"
@@ -1670,7 +1713,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 24 (header)
 msgid "ANGLE_CALIBRATE"
-msgstr ""
+msgstr "ANGLE_CALIBRATE"
 
 #: docs/G-Codes.md:block 25 (paragraph)
 msgid ""
@@ -1740,10 +1783,27 @@ msgid ""
 "needed, the optional SYNC=0 parameter can be specified to apply the changes "
 "without resetting the idle timeout."
 msgstr ""
+"`SET_LED LED=<config_name> RED=<valor> GREEN=<valor> BLUE=<valor> "
+"WHITE=<valor> [INDEX=<index>] [TRANSMIT=0] [SYNC=1]`: Aquesta ordre "
+"configura la sortida LED. Cada `<valor>` de color ha de situar-se entre 0,0 "
+"i 1,0. L'opció WHITE només és vàlida en LED del tipus RGBW. Si el sistema "
+"LED admet diversos xips connectats en cadena (*daisy-chain*), es pot "
+"utilitzar el paràmetre INDEX per modificar el color d'un xip concret (1 per "
+"al primer xip, 2 per al segon, etc.). Si no s'especifica cap INDEX, tots els "
+"LED de la cadena s'establiran amb el color indicat. Si s'especifica "
+"TRANSMIT=0, el canvi de color no s'aplicarà fins a la següent ordre SET_LED "
+"que no inclogui TRANSMIT=0; això pot ser útil, juntament amb el paràmetre "
+"INDEX, per agrupar diverses actualitzacions en una cadena de LED. Per "
+"defecte, l'ordre SET_LED sincronitza els canvis amb altres ordres G-code en "
+"curs. Això pot provocar un comportament no desitjat si es modifiquen els LED "
+"mentre la impressora no està imprimint, ja que es reiniciarà el "
+"temporitzador d'inactivitat (*idle timeout*). Si no és necessària una "
+"sincronització temporal precisa, es pot utilitzar el paràmetre opcional "
+"SYNC=0 per aplicar els canvis sense reiniciar el temporitzador d'inactivitat."
 
 #: docs/G-Codes.md:block 203 (header)
 msgid "SET_LED_TEMPLATE"
-msgstr ""
+msgstr "SET_LED_TEMPLATE"
 
 #: docs/G-Codes.md:block 204 (paragraph)
 msgid ""
@@ -1766,7 +1826,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 251 (paragraph)
 msgid "The query_adc module is automatically loaded."
-msgstr ""
+msgstr "El mòdul query_adc es carrega automàticament."
 
 #: docs/G-Codes.md:block 303 (header)
 msgid "[smart_effector]"
@@ -1781,6 +1841,13 @@ msgid ""
 " before changing the Smart Effector parameters. Also check the [probe "
 "calibration guide](Probe_Calibrate.md)."
 msgstr ""
+"Hi ha diverses ordres disponibles quan s'habilita una secció de configuració "
+"[`smart_effector`](Config_Reference.md#smart_effector). Assegureu-vos de "
+"consultar la documentació oficial del Smart Effector a la [Wiki de Duet3D]"
+"(https://duet3d.dozuki.com/Wiki/"
+"Smart_effector_and_carriage_adapters_for_delta_printer) abans de modificar "
+"els paràmetres del Smart Effector. Consulteu també la [guia de calibratge de "
+"la sonda](Probe_Calibrate.md)."
 
 #: docs/G-Codes.md:block 305 (header)
 msgid "SET_SMART_EFFECTOR"
@@ -1846,6 +1913,8 @@ msgid ""
 "When the `NAME` parameter is given, the named object will be excluded from "
 "printing."
 msgstr ""
+"Quan s'especifica el paràmetre `NAME`, l'objecte indicat s'exclourà de la "
+"impressió."
 
 #: docs/G-Codes.md:block 92 (paragraph)
 msgid ""
@@ -2222,7 +2291,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 281 (header)
 msgid "[probe_eddy_current]"
-msgstr ""
+msgstr "[probe_eddy_current]"
 
 #: docs/G-Codes.md:block 283 (header)
 msgid "PROBE_EDDY_CURRENT_CALIBRATE"
@@ -2271,7 +2340,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 399 (header)
 msgid "TEMPERATURE_PROBE_COMPLETE:"
-msgstr ""
+msgstr "TEMPERATURE_PROBE_COMPLETE:"
 
 #: docs/G-Codes.md:block 400 (paragraph)
 msgid ""
@@ -2545,7 +2614,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 188 (header)
 msgid "SET_STEPPER_CARRIAGES"
-msgstr ""
+msgstr "SET_STEPPER_CARRIAGES"
 
 #: docs/G-Codes.md:block 189 (paragraph)
 msgid ""
@@ -2636,7 +2705,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 231 (header)
 msgid "[load_cell]"
-msgstr ""
+msgstr "[load_cell]"
 
 #: docs/G-Codes.md:block 232 (paragraph)
 msgid ""
@@ -2658,7 +2727,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 235 (header)
 msgid "LOAD_CELL_CALIBRATE"
-msgstr ""
+msgstr "LOAD_CELL_CALIBRATE"
 
 #: docs/G-Codes.md:block 236 (paragraph)
 msgid ""
@@ -2683,10 +2752,11 @@ msgstr ""
 #: docs/G-Codes.md:block 238 (paragraph)
 msgid "You can cancel the calibration process at any time with `ABORT`."
 msgstr ""
+"Podeu cancel·lar el procés de calibratge en qualsevol moment amb `ABORT`."
 
 #: docs/G-Codes.md:block 239 (header)
 msgid "LOAD_CELL_TARE"
-msgstr ""
+msgstr "LOAD_CELL_TARE"
 
 #: docs/G-Codes.md:block 240 (paragraph)
 msgid ""
@@ -2711,7 +2781,7 @@ msgstr ""
 
 #: docs/G-Codes.md:block 243 (header)
 msgid "[load_cell_probe]"
-msgstr ""
+msgstr "[load_cell_probe]"
 
 #: docs/G-Codes.md:block 244 (paragraph)
 msgid ""
@@ -2751,15 +2821,15 @@ msgstr ""
 
 #: docs/G-Codes.md:block 246 (unordered list)
 msgid "`BUZZ_FILTER_DELAY=<1|2>`"
-msgstr ""
+msgstr "`BUZZ_FILTER_DELAY=<1|2>`"
 
 #: docs/G-Codes.md:block 246 (unordered list)
 msgid "`NOTCH_FILTER_FREQUENCIES=<list of frequency_hz>`"
-msgstr ""
+msgstr "`NOTCH_FILTER_FREQUENCIES=<llista de freqüències_hz>`"
 
 #: docs/G-Codes.md:block 246 (unordered list)
 msgid "`NOTCH_FILTER_QUALITY=<quality>`"
-msgstr ""
+msgstr "`NOTCH_FILTER_QUALITY=<quality>`"
 
 #: docs/G-Codes.md:block 246 (unordered list)
 msgid "`TARE_TIME=<seconds>`"
@@ -2867,6 +2937,8 @@ msgid ""
 "The commands below are available when a [probe_eddy_current config "
 "section](Config_Reference.md#probe_eddy_current) is enabled."
 msgstr ""
+"Les ordres següents estan disponibles quan es defineix una secció de "
+"configuració [`probe_eddy_current`](Config_Reference.md#probe_eddy_current)."
 
 #: docs/G-Codes.md:block 322 (paragraph)
 msgid ""
@@ -2893,6 +2965,9 @@ msgid ""
 "target location. The value returned is the measured height around the time "
 "that the toolhead was near each target position."
 msgstr ""
+"`METHOD=rapid_scan`: El capçal no descendeix ni s'atura a cada ubicació "
+"objectiu. El valor retornat és l'alçada mesurada al voltant del moment en "
+"què el capçal es trobava a prop de cada posició objectiu."
 
 #: docs/G-Codes.md:block 323 (unordered list)
 msgid ""
@@ -2943,6 +3018,10 @@ msgid ""
 "tool that can calibrate the probe's \"tap_threshold\" parameter. See the [eddy"
 " probe documentation](Eddy_Probe.md#tap-calibration) for details."
 msgstr ""
+"`PROBE_EDDY_CURRENT_TAP_CALIBRATE [TAP=guess|refine|verify]`: Inicia una "
+"eina que permet calibrar el paràmetre «tap_threshold» de la sonda. Consulteu "
+"la [documentació de la sonda de corrents de Foucault](Eddy_Probe.md#tap-"
+"calibration) per a més detalls."
 
 #: docs/G-Codes.md:block 353 (paragraph)
 msgid ""
@@ -2992,6 +3071,9 @@ msgid ""
 "absolute mode is selected. `M82` disables that forced mode (it does not force "
 "the extruder to use absolute coordinates)."
 msgstr ""
+"Nota: `M83` força les extrusions a utilitzar coordenades relatives, fins i "
+"tot si està seleccionat el mode absolut `G90`. `M82` desactiva aquest mode "
+"forçat (no obliga l'extrusor a utilitzar coordenades absolutes)."
 
 #: docs/G-Codes.md:block 36 (paragraph)
 msgid ""
