@@ -51,3 +51,10 @@ merges were resolved in favour of the fork side and silently reverted
 upstream code; the drift in `docs/*.md` was worse still, because the
 `.pot` templates are generated from those files, so translators were
 working against English text that no longer matched klipper3d.org.
+
+Two upstream files carry small, intentional edits; keep them when merging
+unless upstream has made them unnecessary:
+
+    .github/workflows/build-test.yaml       firmware CI skipped outside Klipper3d/klipper
+    .github/workflows/klipper3d-deploy.yaml runs-on pinned to ubuntu-24.04, the
+                                            last image with a Python 3.8 build
