@@ -1,15 +1,18 @@
 # Dominik <dominik.sostar@gmail.com>, 2022, 2025.
+# jernejp21 <jernejp21@users.noreply.hosted.weblate.org>, 2026.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-07-22 08:45+0000\n"
-"Last-Translator: Dominik <dominik.sostar@gmail.com>\n"
-"Language-Team: Slovenian <https://hosted.weblate.org/projects/klipper/config_checks/sl/>\n"
+"PO-Revision-Date: 2026-10-24 10:51+0000\n"
+"Last-Translator: jernejp21 <jernejp21@users.noreply.hosted.weblate.org>\n"
+"Language-Team: Slovenian <https://hosted.weblate.org/projects/klipper/"
+"config_checks/sl/>\n"
 "Language: sl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 msgid ""
 "This document provides a list of steps to help confirm the pin settings in the"
@@ -29,8 +32,9 @@ msgstr ""
 msgid "Verify temperature"
 msgstr "Preveri temperaturo"
 
+#, fuzzy
 msgid "Verify M112"
-msgstr ""
+msgstr "Preveri M112"
 
 msgid "Verify heaters"
 msgstr ""
