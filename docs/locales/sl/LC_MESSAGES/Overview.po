@@ -1,258 +1,331 @@
-#
+# jernejp21 <jernejp21@users.noreply.hosted.weblate.org>, 2026.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-07-22 08:45+0000\n"
-"Last-Translator: Anonymous <noreply@weblate.org>\n"
-"Language-Team: Slovenian <https://hosted.weblate.org/projects/klipper/overview/sl/>\n"
+"PO-Revision-Date: 2026-10-24 12:52+0000\n"
+"Last-Translator: jernejp21 <jernejp21@users.noreply.hosted.weblate.org>\n"
+"Language-Team: Slovenian <https://hosted.weblate.org/projects/klipper/"
+"overview/sl/>\n"
 "Language: sl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || n%100==4 ? 2 : 3;\n"
-"X-Generator: Weblate 5.13-dev\n"
+"Plural-Forms: nplurals=4; plural=n%100==1 ? 0 : n%100==2 ? 1 : n%100==3 || "
+"n%100==4 ? 2 : 3;\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 msgid ""
 "Welcome to the Klipper documentation. If new to Klipper, start with the "
 "[features](Features.md) and [installation](Installation.md) documents."
 msgstr ""
+"Dobrodošli v dokumentaciji za Klipper. Če Klipper uporabljate prvič, začnite "
+"z dokumentoma o [funkcijah](Features.md) in [namestitvi](Installation.md)."
 
 msgid "Overview information"
-msgstr ""
+msgstr "Splošne informacije"
 
 msgid "[Features](Features.md): A high-level list of features in Klipper."
-msgstr ""
+msgstr "[Funkcije](Features.md): Pregleden seznam funkcij v Klipperju."
 
 msgid "[FAQ](FAQ.md): Frequently asked questions."
-msgstr ""
+msgstr "[Pogosta vprašanja](FAQ.md): Odgovori na pogosta vprašanja."
 
 msgid "[Releases](Releases.md): The history of Klipper releases."
-msgstr ""
+msgstr "[Izdaje](Releases.md): Zgodovina izdaj Klipperja."
 
 msgid ""
 "[Config changes](Config_Changes.md): Recent software changes that may require "
 "users to update their printer config file."
 msgstr ""
+"[Spremembe konfiguracije](Config_Changes.md): Nedavne spremembe programske "
+"opreme, ki lahko zahtevajo posodobitev konfiguracijske datoteke tiskalnika."
 
 msgid ""
 "[Contact](Contact.md): Information on bug reporting and general communication "
 "with the Klipper developers."
 msgstr ""
+"[Stik](Contact.md): Informacije o prijavi napak in splošni komunikaciji z "
+"razvijalci Klipperja."
 
 msgid "[Installation](Installation.md): Guide to installing Klipper."
-msgstr ""
+msgstr "[Namestitev](Installation.md): Navodila za namestitev Klipperja."
 
 msgid ""
 "[Config Reference](Config_Reference.md): Description of config parameters."
 msgstr ""
+"[Referenca konfiguracije](Config_Reference.md): Opis konfiguracijskih "
+"parametrov."
 
 msgid ""
 "[Rotation Distance](Rotation_Distance.md): Calculating the rotation_distance "
 "stepper parameter."
 msgstr ""
+"[Rotacijska razdalja](Rotation_Distance.md): Izračun parametra "
+"rotation_distance za koračne motorje."
 
 msgid ""
 "[Config checks](Config_checks.md): Verify basic pin settings in the config "
 "file."
 msgstr ""
+"[Preverjanje konfiguracije](Config_checks.md): Preverjanje osnovnih "
+"nastavitev pinov v konfiguracijski datoteki."
 
 msgid "[Bed level](Bed_Level.md): Information on \"bed leveling\" in Klipper."
 msgstr ""
+"[Poravnava mize](Bed_Level.md): Informacije o »poravnavi mize« v Klipperju."
 
 msgid "[Delta calibrate](Delta_Calibrate.md): Calibration of delta kinematics."
-msgstr ""
+msgstr "[Kalibracija delte](Delta_Calibrate.md): Kalibracija delta kinematike."
 
 msgid ""
 "[Probe calibrate](Probe_Calibrate.md): Calibration of automatic Z probes."
-msgstr ""
+msgstr "[Kalibracija sonde](Probe_Calibrate.md): Kalibracija samodejnih Z-sond."
 
 msgid "[BL-Touch](BLTouch.md): Configure a \"BL-Touch\" Z probe."
-msgstr ""
+msgstr "[BL-Touch](BLTouch.md): Konfiguracija Z-sonde »BL-Touch«."
 
 msgid ""
 "[Manual level](Manual_Level.md): Calibration of Z endstops (and similar)."
 msgstr ""
+"[Ročna poravnava](Manual_Level.md): Kalibracija končnih stikal Z (in podobno)"
+"."
 
 msgid "[Bed Mesh](Bed_Mesh.md): Bed height correction based on XY locations."
-msgstr ""
+msgstr "[Mreža mize](Bed_Mesh.md): Popravek višine mize na podlagi lokacij XY."
 
 msgid ""
 "[Endstop phase](Endstop_Phase.md): Stepper assisted Z endstop positioning."
 msgstr ""
+"[Faza končnega stikala](Endstop_Phase.md): Pozicioniranje končnega stikala Z "
+"s pomočjo koračnega motorja."
 
 msgid ""
 "[Resonance compensation](Resonance_Compensation.md): A tool to reduce ringing "
 "in prints."
 msgstr ""
+"[Kompenzacija resonanc](Resonance_Compensation.md): Orodje za zmanjšanje "
+"zvonjenja na tiskih."
 
 msgid ""
 "[Measuring resonances](Measuring_Resonances.md): Information on using adxl345 "
 "accelerometer hardware to measure resonance."
 msgstr ""
+"[Merjenje resonanc](Measuring_Resonances.md): Informacije o uporabi "
+"pospeškomera adxl345 za merjenje resonanc."
 
 msgid "[Pressure advance](Pressure_Advance.md): Calibrate extruder pressure."
-msgstr ""
+msgstr "[Predtisk tlaka](Pressure_Advance.md): Kalibracija tlaka v ekstruderju."
 
 msgid "[Slicers](Slicers.md): Configure \"slicer\" software for Klipper."
 msgstr ""
+"[Rezalniki](Slicers.md): Konfiguracija programske opreme za rezanje za "
+"Klipper."
 
 msgid ""
 "[Command Templates](Command_Templates.md): G-Code macros and conditional "
 "evaluation."
 msgstr ""
+"[Predloge ukazov](Command_Templates.md): Makroji G-kode in pogojno izvajanje."
 
 msgid ""
 "[Status Reference](Status_Reference.md): Information available to macros (and "
 "similar)."
 msgstr ""
+"[Referenca stanja](Status_Reference.md): Informacije, ki so na voljo "
+"makrojem (in podobno)."
 
 msgid ""
 "[TMC Drivers](TMC_Drivers.md): Using Trinamic stepper motor drivers with "
 "Klipper."
 msgstr ""
+"[Gonilniki TMC](TMC_Drivers.md): Uporaba gonilnikov koračnih motorjev "
+"Trinamic s Klipperjem."
 
 msgid ""
 "[PWM tools](Using_PWM_Tools.md): Guide on how to use PWM controlled tools such"
 " as lasers or spindles."
 msgstr ""
+"[Orodja PWM](Using_PWM_Tools.md): Navodila za uporabo orodij, krmiljenih s "
+"PWM, kot so laserji ali vretena."
 
 msgid "[G-Codes](G-Codes.md): Information on commands supported by Klipper."
-msgstr ""
+msgstr "[G-kode](G-Codes.md): Informacije o ukazih, ki jih podpira Klipper."
 
 msgid "Developer Documentation"
-msgstr ""
+msgstr "Dokumentacija za razvijalce"
 
 msgid "[Code overview](Code_Overview.md): Developers should read this first."
-msgstr ""
+msgstr "[Pregled kode](Code_Overview.md): Razvijalci najprej preberite to."
 
 msgid ""
 "[Kinematics](Kinematics.md): Technical details on how Klipper implements "
 "motion."
 msgstr ""
+"[Kinematika](Kinematics.md): Tehnične podrobnosti o tem, kako Klipper izvaja "
+"gibanje."
 
 msgid ""
 "[Protocol](Protocol.md): Information on the low-level messaging protocol "
 "between host and micro-controller."
 msgstr ""
+"[Protokol](Protocol.md): Informacije o nizkonivojskem protokolu za "
+"sporočanje med gostiteljem in mikrokrmilnikom."
 
 msgid ""
 "[API Server](API_Server.md): Information on Klipper's command and control API."
 msgstr ""
+"[API strežnik](API_Server.md): Informacije o Klipperjevem API-ju za ukaze in "
+"nadzor."
 
 msgid ""
 "[MCU commands](MCU_Commands.md): A description of low-level commands "
 "implemented in the micro-controller software."
 msgstr ""
+"[Ukazi MKE](MCU_Commands.md): Opis nizkonivojskih ukazov, implementiranih v "
+"programski opremi mikrokrmilnika."
 
 msgid "[CAN bus protocol](CANBUS_protocol.md): Klipper CAN bus message format."
 msgstr ""
+"[Protokol vodila CAN](CANBUS_protocol.md): Format sporočil vodila CAN v "
+"Klipperju."
 
 msgid "[Debugging](Debugging.md): Information on how to test and debug Klipper."
 msgstr ""
+"[Odpravljanje napak](Debugging.md): Informacije o testiranju in odpravljanju "
+"napak v Klipperju."
 
 msgid ""
 "[Benchmarks](Benchmarks.md): Information on the Klipper benchmark method."
 msgstr ""
+"[Primerjalni testi](Benchmarks.md): Informacije o metodi primerjalnih testov "
+"Klipper."
 
 msgid ""
 "[Contributing](CONTRIBUTING.md): Information on how to submit improvements to "
 "Klipper."
 msgstr ""
+"[Sodelovanje](CONTRIBUTING.md): Informacije o tem, kako oddati izboljšave za "
+"Klipper."
 
 msgid "[Packaging](Packaging.md): Information on building OS packages."
 msgstr ""
+"[Pakiranje](Packaging.md): Informacije o gradnji paketov za operacijske "
+"sisteme."
 
 msgid "Device Specific Documents"
-msgstr ""
+msgstr "Dokumenti za specifične naprave"
 
 msgid ""
 "[Example configs](Example_Configs.md): Information on adding an example config"
 " file to Klipper."
 msgstr ""
+"[Primeri konfiguracij](Example_Configs.md): Informacije o dodajanju primerov "
+"konfiguracijskih datotek v Klipper."
 
 msgid ""
 "[SDCard Updates](SDCard_Updates.md): Flash a micro-controller by copying a "
 "binary to an sdcard in the micro-controller."
 msgstr ""
+"[Posodobitve prek kartice SD](SDCard_Updates.md): Programiranje "
+"mikrokrmilnika s kopiranjem binarne datoteke na kartico SD v mikrokrmilniku."
 
 msgid ""
 "[Raspberry Pi as Micro-controller](RPi_microcontroller.md): Details for "
 "controlling devices wired to the GPIO pins of a Raspberry Pi."
 msgstr ""
+"[Raspberry Pi kot mikrokrmilnik](RPi_microcontroller.md): Podrobnosti o "
+"krmiljenju naprav, povezanih na pine GPIO na Raspberry Pi."
 
 msgid ""
 "[Bootloaders](Bootloaders.md): Developer information on micro-controller "
 "flashing."
 msgstr ""
+"[Zagonski nalagalniki](Bootloaders.md): Informacije za razvijalce o "
+"programiranju mikrokrmilnikov."
 
 msgid "[CAN bus](CANBUS.md): Information on using CAN bus with Klipper."
-msgstr ""
+msgstr "[Vodilo CAN](CANBUS.md): Informacije o uporabi vodila CAN s Klipperjem."
 
 msgid "[TSL1401CL filament width sensor](TSL1401CL_Filament_Width_Sensor.md)"
-msgstr ""
+msgstr "[Senzor širine filamenta TSL1401CL](TSL1401CL_Filament_Width_Sensor.md)"
 
 #: docs/Overview.md:block 1 (header)
 msgid "Overview"
-msgstr ""
+msgstr "Pregled"
 
 #: docs/Overview.md:block 5 (header)
 msgid "Installation and Configuration"
-msgstr ""
+msgstr "Namestitev in konfiguracija"
 
 #: docs/Overview.md:block 6 (unordered list)
 msgid ""
 "[Multi-MCU Homing](Multi_MCU_Homing.md): Homing and probing using multiple "
 "micro-controllers."
 msgstr ""
+"[Nuliranje z več MKE](Multi_MCU_Homing.md): Nuliranje in sondiranje z "
+"uporabo več mikrokrmilnikov."
 
 #: docs/Overview.md:block 6 (unordered list)
 msgid ""
 "[Skew correction](Skew_Correction.md): Adjustments for axes not perfectly "
 "square."
 msgstr ""
+"[Popravek poševnosti](Skew_Correction.md): Prilagoditve za osi, ki niso "
+"popolnoma pravokotne."
 
 #: docs/Overview.md:block 10 (unordered list)
 msgid ""
 "[Beaglebone](Beaglebone.md): Details for running Klipper on the Beaglebone "
 "PRU."
 msgstr ""
+"[Beaglebone](Beaglebone.md): Podrobnosti o poganjanju Klipperja na "
+"Beaglebone PRU."
 
 #: docs/Overview.md:block 10 (unordered list)
 msgid "[Hall filament width sensor](Hall_Filament_Width_Sensor.md)"
-msgstr ""
+msgstr "[Hallov senzor širine filamenta](Hall_Filament_Width_Sensor.md)"
 
 #: docs/Overview.md:block 6 (unordered list)
 msgid ""
 "[Exclude Object](Exclude_Object.md): The guide to the Exclude Objects "
 "implementation."
 msgstr ""
+"[Izključitev predmeta](Exclude_Object.md): Vodnik za implementacijo funkcije "
+"»Izključitev predmetov«."
 
 #: docs/Overview.md:block 6 (unordered list)
 msgid ""
 "[Axis Twist Compensation](Axis_Twist_Compensation.md): A tool to compensate "
 "for inaccurate probe readings due to twist in X gantry."
 msgstr ""
+"[Kompenzacija zasuka osi](Axis_Twist_Compensation.md): Orodje za "
+"kompenzacijo nenatančnih odčitkov sonde zaradi zasuka v X-mostu."
 
 #: docs/Overview.md:block 10 (unordered list)
 msgid "[Bootloader Entry](Bootloader_Entry.md): Requesting the bootloader."
 msgstr ""
+"[Vstop v zagonski nalagalnik](Bootloader_Entry.md): Zahteva za zagonski "
+"nalagalnik."
 
 #: docs/Overview.md:block 10 (unordered list)
 msgid ""
 "[CAN bus troubleshooting](CANBUS_Troubleshooting.md): Tips for troubleshooting"
 " CAN bus."
 msgstr ""
+"[Odpravljanje težav na vodilu CAN](CANBUS_Troubleshooting.md): Nasveti za "
+"odpravljanje težav z vodilom CAN."
 
 #: docs/Overview.md:block 6 (unordered list)
 msgid "[Octoprint](OctoPrint.md): Guide to installing Octoprint with Klipper."
 msgstr ""
+"[OctoPrint](OctoPrint.md): Vodnik za namestitev OctoPrinta s Klipperjem."
 
 #: docs/Overview.md:block 10 (unordered list)
 msgid "[Eddy Current Inductive probe](Eddy_Probe.md)"
-msgstr ""
+msgstr "[Induktivna sonda na vrtinčne tokove](Eddy_Probe.md)"
 
 #: docs/Overview.md:block 10 (unordered list)
 msgid "[Load Cells](Load_Cell.md)"
-msgstr ""
+msgstr "[Merilne celice](Load_Cell.md)"
 
 #~ msgid ""
 #~ "[Exclude Object](Exclude_Object.md): The guide to the Exclude Objecs "

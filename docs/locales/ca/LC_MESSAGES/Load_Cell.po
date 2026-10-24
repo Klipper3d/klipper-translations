@@ -1,6 +1,17 @@
-#
+# Oriol Tous Casadesús <1ri@users.noreply.hosted.weblate.org>, 2026.
 msgid ""
-msgstr "Content-Type: text/plain; charset=UTF-8\n"
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
+"PO-Revision-Date: 2026-10-24 10:51+0000\n"
+"Last-Translator: Oriol Tous Casadesús <1ri@users.noreply.hosted.weblate.org>"
+"\n"
+"Language-Team: Catalan <https://hosted.weblate.org/projects/klipper/"
+"load_cell/ca/>\n"
+"Language: ca\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2026.11.dev0\n"
+"Content-Transfer-Encoding: 8bit\n"
 
 #: docs/Load_Cell.md:block 1 (header)
 msgid "Load Cells"
@@ -88,6 +99,7 @@ msgstr ""
 #: docs/Load_Cell.md:block 13 (paragraph)
 msgid "You can cancel the calibration process at any time with `ABORT`."
 msgstr ""
+"Podeu cancel·lar el procés de calibratge en qualsevol moment amb `ABORT`."
 
 #: docs/Load_Cell.md:block 14 (header)
 msgid "Applying a Known Force or Load"
