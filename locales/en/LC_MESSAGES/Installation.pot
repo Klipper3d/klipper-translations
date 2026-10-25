@@ -248,14 +248,6 @@ msgid ""
 "found at https://github.com/dw-0/kiauh"
 msgstr ""
 
-#: docs/Installation.md:block 26 (paragraph)
-msgid ""
-"If the comments at the top of the [printer configuration file](#obtain-a-"
-"klipper-configuration-file) describe custom steps for \"flashing\" the final "
-"image to the printer control board, then follow those steps and then proceed "
-"to [configuring OctoPrint](#configuring-octoprint-to-use-klipper)."
-msgstr ""
-
 #: docs/Installation.md:block 32 (paragraph)
 msgid ""
 "For common micro-controllers with STM32 or clone chips, LPC chips and others, "
@@ -332,6 +324,21 @@ msgstr ""
 #: docs/Installation.md:block 39 (paragraph)
 msgid "Before flashing, make sure to check which behavior your board follows."
 msgstr ""
+
+#: docs/Installation.md:block 26 (paragraph)
+msgid ""
+"If the comments at the top of the [printer configuration file](#obtain-a-"
+"klipper-configuration-file) describe custom steps for \"flashing\" the final "
+"image to the printer control board, then follow those steps and then proceed "
+"to [configuring OctoPrint](OctoPrint.md#configuring-octoprint-to-use-klipper)."
+msgstr ""
+
+#~ msgid ""
+#~ "If the comments at the top of the [printer configuration file](#obtain-a-"
+#~ "klipper-configuration-file) describe custom steps for \"flashing\" the final "
+#~ "image to the printer control board, then follow those steps and then proceed "
+#~ "to [configuring OctoPrint](#configuring-octoprint-to-use-klipper)."
+#~ msgstr ""
 
 #~ msgid ""
 #~ "If the comments at the top of the [printer configuration file](#obtain-a-"

@@ -2187,7 +2187,7 @@ probe_points: ...
 Рекомендуемый шейпер - 2hump_ei @ 45,2 Гц
 </code></pre></div>
 
-<p>Обратите внимание, что указанные значения <code>сглаживания</code> - это некие абстрактные прогнозируемые значения. Эти значения можно использовать для сравнения различных конфигураций: чем выше значение, тем больше сглаживания создаст шейпер. Однако эти показатели сглаживания не являются реальной мерой сглаживания, поскольку фактическое сглаживание зависит от параметров <a href="#selecting-max-accel"><code>max_accel</code></a> и <code>square_corner_velocity</code>. Поэтому вам следует напечатать несколько тестовых отпечатков, чтобы узнать, сколько сглаживания создает выбранная конфигурация.</p>
+<p>Note that the reported <code>smoothing</code> values are some abstract projected values. These values can be used to compare different configurations: the higher the value, the more smoothing a shaper will create. However, these smoothing scores do not represent any real measure of smoothing, because the actual smoothing depends on <a href="#selecting-max_accel"><code>max_accel</code></a> and <code>square_corner_velocity</code> parameters. Therefore, you should print some test prints to see how much smoothing exactly a chosen configuration creates.</p>
 <p>В приведенном примере предложенные параметры шейпера неплохи, но что, если вы хотите получить меньшее сглаживание по оси X? Вы можете попробовать ограничить максимальное сглаживание шейпера с помощью следующей команды:</p>
 <div class="highlight"><pre><span></span><code>~/klipper/scripts/calibrate_shaper.py /tmp/resonances_x_*.csv -o /tmp/shaper_calibrate_x.png --max_smoothing=0.2
 </code></pre></div>

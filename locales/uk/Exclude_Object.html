@@ -1400,7 +1400,7 @@
 
 <h1 id="_1">Виключити Об'єкти<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>The <code>[exclude_object]</code> module allows Klipper to exclude objects while a print is in progress. To enable this feature include an <a href="Config_Reference.html#exclude_object">exclude_object config
-section</a> (also see the <a href="G-Codes.html#exclude-object">command
+section</a> (also see the <a href="G-Codes.html#exclude_object">command
 reference</a> and <a href="https://github.com/Klipper3d/klipper/blob/master/config/sample-macros.cfg">sample-macros.cfg</a> file for a Marlin/RepRapFirmware compatible M486 G-Code macro.)</p>
 <p>На відміну від інших варіантів мікропрограми 3D принтера, принтер, що працює Klipper, використовує люкс компонентів і користувачів, мають безліч варіантів, щоб вибрати з. Таким чином, для забезпечення послідовного досвіду користувача, модуль <code>[exclude_object]</code> дозволить встановити договір або API сортування. Договір охоплює зміст файлу gcode, як здійснюється контрольний внутрішній стан модуля, і як забезпечується стан клієнтів.</p>
 <h2 id="_2">Огляд робочого процесу<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
@@ -1421,7 +1421,7 @@ reference</a> and <a href="https://github.com/Klipper3d/klipper/blob/master/conf
 <p>Команда <code>EXCLUDE_OBJECT_DEFINE</code> використовується для надання резюме кожного об'єкта в файлі gcode, який буде надруковано. Забезпечує резюме об'єкта в файлі. Об'єкти не повинні бути визначені для того, щоб бути позначені іншими командами. Основне призначення цієї команди полягає в тому, щоб надати інформацію до UI без необхідності розпарювати весь файл gcode.</p>
 <p>Визначення об'єкта, щоб дозволити користувачам легко вибрати об'єкт, який повинен бути виключений, і додаткові метадані можуть бути надані, щоб дозволити відображення графічної скасування. В даний час визначені метадані є <code>ЦЕНТР</code> X,Y координат і <code>POLYGON</code> список X,Y точок, що представляють мінімальний контур об'єкта. Це може бути простою об'єднаною коробкою, або складним корпусом для відображення більш детальної візуалізації друкованих об'єктів. Особливо, коли файли gcode включають кілька частин з перекриттям межних регіонів, точки центру стають важко візуально відрізняти. <code>POLYGONS</code> повинен бути джесон-сумісний масив точки <code>[X,Y]</code> приколів без білого простору. Додаткові параметри будуть збережені як рядки у визначенні об'єкта і надані в оновленнях стану.</p>
 <p><code>EXCLUDE_OBJECT_DEFINE НАМ=Калібрація_пірамід Центр=50,50 ПОЛІГОН=[40,40],[50,60],[60,40]]</code></p>
-<p>All available G-Code commands are documented in the <a href="G-Codes.html#excludeobject">G-Code
+<p>All available G-Code commands are documented in the <a href="G-Codes.html#exclude_object">G-Code
 Reference</a></p>
 <h2 id="_4">Інформація про стан<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>The state of this module is provided to clients by the <a href="Status_Reference.html#exclude_object">exclude_object

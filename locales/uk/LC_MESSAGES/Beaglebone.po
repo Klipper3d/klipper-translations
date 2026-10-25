@@ -323,16 +323,6 @@ msgstr ""
 "уникати тому що це створить додаткове навантаження на головний процесор, і, "
 "швидше за все, ви не зможете використовувати їх для крокового керування."
 
-#: docs/Beaglebone.md:block 53 (paragraph)
-msgid ""
-"Complete the installation by configuring Klipper following the instructions in"
-" the main [Installation](Installation.md#configuring-octoprint-to-use-klipper)"
-" document."
-msgstr ""
-"Завершіть інсталяцію, налаштувавши Klipper, дотримуючись інструкцій в "
-"основному документі [Installation](Installation.md#configuring-octoprint-to-"
-"use-klipper)."
-
 #: docs/Beaglebone.md:block 55 (paragraph)
 msgid ""
 "Unfortunately, the Beaglebone processor can sometimes struggle to run "
@@ -551,6 +541,21 @@ msgstr ""
 "UART1-RTSCTS-00A0.dtbo UART2(RX,TX): BB-UART2-00A0.dtbo UART3(RX,TX): BB-"
 "UART3-00A0.dtbo UART4 (RS-485): BB-UART4-RS485-00A0.dtbo UART5(RX,TX): BB-"
 "UART5-00A0.dtbo"
+
+#: docs/Beaglebone.md:block 53 (paragraph)
+msgid ""
+"Complete the installation by configuring Klipper following the instructions in"
+" the main [Installation](Installation.md#configuring-klipper) document."
+msgstr ""
+
+#~ msgid ""
+#~ "Complete the installation by configuring Klipper following the instructions in"
+#~ " the main [Installation](Installation.md#configuring-octoprint-to-use-klipper)"
+#~ " document."
+#~ msgstr ""
+#~ "Завершіть інсталяцію, налаштувавши Klipper, дотримуючись інструкцій в "
+#~ "основному документі [Installation](Installation.md#configuring-octoprint-to-"
+#~ "use-klipper)."
 
 #~ msgid ""
 #~ "git clone https://github.com/foosel/OctoPrint.git\n"

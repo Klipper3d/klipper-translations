@@ -13,7 +13,7 @@
     
     
       
-        <title>Example configurations - Klipper documentation</title>
+        <title>Exempelkonfigurationer - Klipper documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#example-configurations" class="md-skip">
+        <a href="#exempelkonfigurationer" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Example configurations
+              Exempelkonfigurationer
             
           </span>
         </div>
@@ -1348,8 +1348,8 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#guidelines" class="md-nav__link">
-    Guidelines
+  <a href="#riktlinjer" class="md-nav__link">
+    Riktlinjer
   </a>
   
 </li>
@@ -1371,46 +1371,46 @@
 </a>
 
 
-<h1 id="example-configurations">Example configurations<a class="headerlink" href="#example-configurations" title="Permanent link">&para;</a></h1>
-<p>This document contains guidelines for contributing an example Klipper configuration to the Klipper github repository (located in the <a href="https://github.com/Klipper3d/klipper/blob/master/config/">config directory</a>).</p>
-<p>Note that the <a href="https://community.klipper3d.org">Klipper Community Discourse server</a> is also a useful resource for finding and sharing config files.</p>
-<h2 id="guidelines">Guidelines<a class="headerlink" href="#guidelines" title="Permanent link">&para;</a></h2>
+<h1 id="exempelkonfigurationer">Exempelkonfigurationer<a class="headerlink" href="#exempelkonfigurationer" title="Permanent link">&para;</a></h1>
+<p>Det här dokumentet innehåller riktlinjer för att bidra med en exempelkonfiguration för Klipper till Klippers GitHub-förråd, som finns i <a href="https://github.com/Klipper3d/klipper/blob/master/config/">konfigurationskatalogen</a>.</p>
+<p><a href="https://community.klipper3d.org">Klippers Community Discourse-server</a> är också en användbar resurs för att hitta och dela konfigurationsfiler.</p>
+<h2 id="riktlinjer">Riktlinjer<a class="headerlink" href="#riktlinjer" title="Permanent link">&para;</a></h2>
 <ol>
-<li>Select the appropriate config filename prefix:<ol>
-<li>The <code>printer</code> prefix is used for stock printers sold by a mainstream manufacturer.</li>
-<li>The <code>generic</code> prefix is used for a 3d printer board that may be used in many different types of printers.</li>
-<li>The <code>kit</code> prefix is for 3d printers that are assembled according to a widely used specification. These "kit" printers are generally distinct from normal "printers" in that they are not sold by a manufacturer.</li>
-<li>The <code>sample</code> prefix is used for config "snippets" that one may copy-and-paste into the main config file.</li>
-<li>The <code>example</code> prefix is used to describe printer kinematics. This type of config is typically only added along with code for a new type of printer kinematics.</li>
+<li>Välj lämpligt prefix för konfigurationsfilens namn:<ol>
+<li>Prefixet <code>printer</code> används för standardskrivare som säljs av en etablerad tillverkare.</li>
+<li>Prefixet <code>generic</code> används för 3D-skrivarkort som kan användas i många olika typer av skrivare.</li>
+<li>Prefixet <code>kit</code> används för 3D-skrivare som monteras enligt en välanvänd specifikation. Sådana "kit"-skrivare skiljer sig från vanliga "skrivare" genom att de inte säljs av en tillverkare.</li>
+<li>Prefixet <code>sample</code> används för konfigurations"utdrag" som kan kopieras och klistras in i huvudkonfigurationsfilen.</li>
+<li>Prefixet <code>example</code> används för att beskriva skrivarens kinematik. Den här typen av konfiguration läggs normalt bara till tillsammans med kod för en ny typ av skrivarkinematik.</li>
 </ol>
 </li>
-<li>All configuration files must end in a <code>.cfg</code> suffix. The <code>printer</code> config files must end in a year followed by <code>.cfg</code> (eg, <code>-2019.cfg</code>). In this case, the year is an approximate year the given printer was sold.</li>
-<li>Do not use spaces or special characters in the config filename. The filename should contain only characters <code>A-Z</code>, <code>a-z</code>, <code>0-9</code>, <code>-</code>, and <code>.</code>.</li>
-<li>Klipper must be able to start <code>printer</code>, <code>generic</code>, and <code>kit</code> example config file without error. These config files should be added to the <a href="https://github.com/Klipper3d/klipper/blob/master/test/klippy/printers.test">test/klippy/printers.test</a> regression test case. Add new config files to that test case in the appropriate section and in alphabetical order within that section.</li>
-<li>The example configuration should be for the "stock" configuration of the printer. (There are too many "customized" configurations to track in the main Klipper repository.) Similarly, we only add example config files for printers, kits, and boards that have mainstream popularity (eg, there should be at least a 100 of them in active use). Consider using the <a href="https://community.klipper3d.org">Klipper Community Discourse server</a> for other configs.</li>
+<li>Alla konfigurationsfiler måste sluta med <code>.cfg</code>. Konfigurationsfiler med <code>printer</code> måste sluta med ett årtal följt av <code>.cfg</code>, till exempel <code>-2019.cfg</code>. Årtalet är ungefär det år då skrivaren såldes.</li>
+<li>Använd inte blanksteg eller specialtecken i konfigurationsfilens namn. Filnamnet får endast innehålla <code>A-Z</code>, <code>a-z</code>, <code>0-9</code>, <code>-</code> och <code>.</code>.</li>
+<li>Klipper måste kunna starta exempelkonfigurationsfilerna <code>printer</code>, <code>generic</code> och <code>kit</code> utan fel. Lägg till dem i regressionstestet <a href="https://github.com/Klipper3d/klipper/blob/master/test/klippy/printers.test">test/klippy/printers.test</a>, i rätt avsnitt och i alfabetisk ordning.</li>
+<li>Exempelkonfigurationen ska motsvara skrivarens standardkonfiguration. Endast skrivare, kit och kort med etablerad användning läggs till; använd Discourse-servern för andra konfigurationer.</li>
 <li>Only specify those devices present on the given printer or board. Do not specify settings specific to your particular setup.<ol>
 <li>For <code>generic</code> config files, only those devices on the mainboard should be described. For example, it would not make sense to add a display config section to a "generic" config as there is no way to know if the board will be attached to that type of display. If the board has a specific hardware port to facilitate an optional peripheral (eg, a bltouch port) then one can add a "commented out" config section for the given device.</li>
-<li>Do not specify <code>pressure_advance</code> in an example config, as that value is specific to the filament, not the printer hardware. Similarly, do not specify <code>max_extrude_only_velocity</code> nor <code>max_extrude_only_accel</code> settings.</li>
-<li>Do not specify a config section containing a host path or host hardware. For example, do not specify <code>[virtual_sdcard]</code> nor <code>[temperature_host]</code> config sections.</li>
-<li>Only define macros that utilize functionality specific to the given printer or to define g-codes that are commonly emitted by slicers configured for the given printer.</li>
+<li>Ange inte <code>pressure_advance</code> i en exempelkonfiguration, eftersom värdet är specifikt för filamentet och inte skrivarens maskinvara. Ange inte heller <code>max_extrude_only_velocity</code> eller <code>max_extrude_only_accel</code>.</li>
+<li>Ange inte en konfigurationsdel som innehåller värdsökväg eller värdmaskinvara, till exempel <code>[virtual_sdcard]</code> eller <code>[temperature_host]</code>.</li>
+<li>Definiera endast makron som använder funktioner specifika för skrivaren eller G-kod som vanligtvis genereras av skivningsprogram konfigurerade för skrivaren.</li>
 </ol>
 </li>
 <li>Where possible, it is best to use the same wording, phrasing, indentation, and section ordering as the existing config files.<ol>
 <li>The top of each config file should list the type of micro-controller the user should select during "make menuconfig". It should also have a reference to "docs/Config_Reference.md".</li>
-<li>Do not copy the field documentation into the example config files. (Doing so creates a maintenance burden as an update to the documentation would then require changing it in many places.)</li>
-<li>Example config files should not contain a "SAVE_CONFIG" section. If necessary, copy the relevant fields from the SAVE_CONFIG section to the appropriate section in the main config area.</li>
-<li>Use <code>field: value</code> syntax instead of <code>field=value</code>.</li>
-<li>When adding an extruder <code>rotation_distance</code> it is preferable to specify a <code>gear_ratio</code> if the extruder has a gearing mechanism. We expect the rotation_distance in the example configs to correlate with the circumference of the hobbed gear in the extruder - it is normally in the range of 20 to 35mm. When specifying a <code>gear_ratio</code> it is preferable to specify the actual gears on the mechanism (eg, prefer <code>gear_ratio: 80:20</code> over <code>gear_ratio: 4:1</code>). See the <a href="Rotation_Distance.html#using-a-gear_ratio">rotation distance document</a> for more information.</li>
-<li>Avoid defining field values that are set to their default value. For example, one should not specify <code>min_extrude_temp: 170</code> as that is already the default value.</li>
-<li>Where possible, lines should not exceed 80 columns.</li>
-<li>Avoid adding attribution or revision messages to the config files. (For example, avoid adding lines like "this file was created by ...".) Place attribution and change history in the git commit message.</li>
+<li>Kopiera inte fältdokumentationen till exempelkonfigurationsfilerna. Det skapar ett underhållsarbete eftersom en dokumentationsuppdatering då måste göras på många platser.</li>
+<li>Exempelkonfigurationsfiler ska inte innehålla avsnittet "SAVE_CONFIG". Kopiera vid behov relevanta fält från SAVE_CONFIG till lämpligt avsnitt i huvudkonfigurationsområdet.</li>
+<li>Använd syntaxen <code>field: value</code> i stället för <code>field=value</code>.</li>
+<li>När en extruders <code>rotation_distance</code> läggs till är det bättre att ange en <code>gear_ratio</code> om extrudern har utväxling. I exempelkonfigurationerna förväntas rotation_distance motsvara omkretsen på extruderns räfflade drivhjul, normalt 20–35 mm. Ange de faktiska kugghjulen, exempelvis <code>gear_ratio: 80:20</code> hellre än <code>gear_ratio: 4:1</code>. Se <a href="Rotation_Distance.html#using-a-gear_ratio">dokumentet om rotationsavstånd</a>.</li>
+<li>Undvik att definiera fältvärden som redan har sitt standardvärde. Ange till exempel inte <code>min_extrude_temp: 170</code>, eftersom det redan är standardvärdet.</li>
+<li>Rader bör om möjligt inte överskrida 80 kolumner.</li>
+<li>Undvik att lägga till upphovs- eller revisionsmeddelanden i konfigurationsfilerna, till exempel "this file was created by ...". Lägg i stället upphovsuppgift och ändringshistorik i Git-commitmeddelandet.</li>
 </ol>
 </li>
-<li>Do not use any deprecated features in the example config file.</li>
-<li>Do not disable a default safety system in an example config file. For example, a config should not specify a custom <code>max_extrude_cross_section</code>. Do not enable debugging features. For example there should not be a <code>force_move</code> config section.</li>
-<li>All known boards that Klipper supports can use the default serial baud rate of 250000. Do not recommend a different baud rate in an example config file.</li>
+<li>Använd inte funktioner som är föråldrade i exempelkonfigurationsfilen.</li>
+<li>Inaktivera inte ett standardsäkerhetssystem i en exempelkonfigurationsfil. Ange till exempel inte ett eget <code>max_extrude_cross_section</code>. Aktivera inte felsökningsfunktioner; det ska exempelvis inte finnas något <code>force_move</code>-avsnitt.</li>
+<li>Alla kända kort som Klipper stöder kan använda den seriella standardhastigheten 250000 baud. Rekommendera inte en annan hastighet i en exempelkonfigurationsfil.</li>
 </ol>
-<p>Example config files are submitted by creating a github "pull request". Please also follow the directions in the <a href="CONTRIBUTING.html">contributing document</a>.</p>
+<p>Exempelkonfigurationsfiler skickas in genom att skapa en GitHub-"pull request". Följ även anvisningarna i <a href="CONTRIBUTING.html">bidragsdokumentet</a>.</p>
 
               
             </article>

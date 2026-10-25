@@ -2187,7 +2187,7 @@ max_accel: 3000 # не повинен перевищувати оцінений 
 Рекомендований форматор 2hump_ei @ 45.2 ХХз
 </code></pre></div>
 
-<p>Зверніть увагу, що повідомлені значення «згладжування» є деякими абстрактними прогнозованими значеннями. Ці значення можна використовувати для порівняння різних конфігурацій: чим вище значення, тим більше згладжування створить шейпер. Однак ці показники згладжування не представляють реальної міри згладжування, оскільки фактичне згладжування залежить від параметрів <a href="#selecting-max-accel"><code>max_accel</code></a> і <code>square_corner_velocity</code>. Тому вам слід надрукувати кілька пробних відбитків, щоб побачити, наскільки згладжування створює саме вибрана конфігурація.</p>
+<p>Note that the reported <code>smoothing</code> values are some abstract projected values. These values can be used to compare different configurations: the higher the value, the more smoothing a shaper will create. However, these smoothing scores do not represent any real measure of smoothing, because the actual smoothing depends on <a href="#selecting-max_accel"><code>max_accel</code></a> and <code>square_corner_velocity</code> parameters. Therefore, you should print some test prints to see how much smoothing exactly a chosen configuration creates.</p>
 <p>На прикладі вище запропоновані параметри формера не погані, але що якщо ви хочете отримати менше розгладжування на осі X? Ви можете намагатися обмежити максимальне вирівнювання фігури за допомогою наступної команди:</p>
 <div class="highlight"><pre><span></span><code>~/klipper/scripts/calibrate_shaper.py /tmp/resonances_x_*.csv -o /tmp/shaper_calibrate_x.png --max_smoothing=0,2
 </code></pre></div>

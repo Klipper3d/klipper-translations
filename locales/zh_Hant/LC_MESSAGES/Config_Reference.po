@@ -1562,14 +1562,6 @@ msgid ""
 "process."
 msgstr ""
 
-#: docs/Config_Reference.md:block 154 (paragraph)
-msgid ""
-"See the [exclude objects guide](Exclude_Object.md) and [command "
-"reference](G-Codes.md#excludeobject) for additional information. See the "
-"[sample-macros.cfg](../config/sample-macros.cfg) file for a "
-"Marlin/RepRapFirmware compatible M486 G-Code macro."
-msgstr ""
-
 #: docs/Config_Reference.md:block 163 (header)
 msgid "[mpu9250]"
 msgstr ""
@@ -1939,12 +1931,6 @@ msgid ""
 "motion with the primary carriage."
 msgstr ""
 
-#: docs/Config_Reference.md:block 87 (paragraph)
-msgid ""
-"For the references on how to configure IDEX setups, see the [dual "
-"carriage](#dual-carriage) section."
-msgstr ""
-
 #: docs/Config_Reference.md:block 190 (header)
 msgid "[icm20948]"
 msgstr ""
@@ -2016,12 +2002,6 @@ msgid ""
 "kinematic, see the following configuration [sample](../config/example-generic-"
 "caretesian.cfg). Please note that in this case the `[dual_carriage]` "
 "configuration deviates from the configuration described above:"
-msgstr ""
-
-#: docs/Config_Reference.md:block 252 (paragraph)
-msgid ""
-"Refer to [generic cartesian](#generic-cartesian) section for more information "
-"on the regular `carriage` parameters."
 msgstr ""
 
 #: docs/Config_Reference.md:block 253 (paragraph)
@@ -2142,6 +2122,72 @@ msgid ""
 "start print on the Palette 2 and unpausing in Octoprint for your print to "
 "begin."
 msgstr ""
+
+#: docs/Config_Reference.md:block 87 (paragraph)
+msgid ""
+"For the references on how to configure IDEX setups, see the [dual "
+"carriage](#dual_carriage) section."
+msgstr ""
+
+#: docs/Config_Reference.md:block 181 (paragraph)
+msgid ""
+"See the [exclude objects guide](Exclude_Object.md) and [command "
+"reference](G-Codes.md#exclude_object) for additional information. See the "
+"[sample-macros.cfg](../config/sample-macros.cfg) file for a "
+"Marlin/RepRapFirmware compatible M486 G-Code macro."
+msgstr ""
+
+#: docs/Config_Reference.md:block 252 (paragraph)
+msgid ""
+"Refer to [generic cartesian](#generic-cartesian-kinematics) section for more "
+"information on the regular `carriage` parameters."
+msgstr ""
+
+#: docs/Config_Reference.md:block 408 (header)
+msgid "[tmc5262]"
+msgstr ""
+
+#: docs/Config_Reference.md:block 409 (paragraph)
+msgid ""
+"Configure a TMC5262 stepper motor driver via SPI. Define a section with a "
+"\"tmc5262\" prefix followed by the name of the corresponding stepper (for "
+"example, \"[tmc5262 stepper_x]\")."
+msgstr ""
+
+#: docs/Config_Reference.md:block 410 (paragraph)
+msgid "This implementation supports SpreadCycle with a physical endstop."
+msgstr ""
+
+#: docs/Config_Reference.md:block 490 (header)
+msgid "CS1237"
+msgstr ""
+
+#: docs/Config_Reference.md:block 491 (paragraph)
+msgid ""
+"The CS1237 sensor backend supports both `[load_cell]` and `[load_cell_probe]`."
+msgstr ""
+
+#: docs/Config_Reference.md:block 493 (paragraph)
+msgid ""
+"Both pins must be on the same MCU. DOUT is bidirectional during configuration."
+msgstr ""
+
+#~ msgid ""
+#~ "See the [exclude objects guide](Exclude_Object.md) and [command "
+#~ "reference](G-Codes.md#excludeobject) for additional information. See the "
+#~ "[sample-macros.cfg](../config/sample-macros.cfg) file for a "
+#~ "Marlin/RepRapFirmware compatible M486 G-Code macro."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "For the references on how to configure IDEX setups, see the [dual "
+#~ "carriage](#dual-carriage) section."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "Refer to [generic cartesian](#generic-cartesian) section for more information "
+#~ "on the regular `carriage` parameters."
+#~ msgstr ""
 
 #~ msgid ""
 #~ "See [sample-idex.cfg](../config/sample-idex.cfg) for an example configuration."

@@ -13,7 +13,7 @@
     
     
       
-        <title>Commands templates - Klipper documentation</title>
+        <title>Kommandomallar - Klipper documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#commands-templates" class="md-skip">
+        <a href="#kommandomallar" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Commands templates
+              Kommandomallar
             
           </span>
         </div>
@@ -1348,58 +1348,58 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#g-code-macro-naming" class="md-nav__link">
-    G-Code Macro Naming
+  <a href="#namngivning-av-g-kodmakron" class="md-nav__link">
+    Namngivning av G-kodmakron
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#formatting-of-g-code-in-the-config" class="md-nav__link">
-    Formatting of G-Code in the config
+  <a href="#formatering-av-g-kod-i-konfigurationen" class="md-nav__link">
+    Formatering av G-kod i konfigurationen
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#add-a-description-to-your-macro" class="md-nav__link">
-    Add a description to your macro
+  <a href="#lagg-till-en-beskrivning-av-makrot" class="md-nav__link">
+    Lägg till en beskrivning av makrot
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#saverestore-state-for-g-code-moves" class="md-nav__link">
-    Save/Restore state for G-Code moves
+  <a href="#sparaaterstall-tillstand-for-g-kodrorelser" class="md-nav__link">
+    Spara/återställ tillstånd för G-kodrörelser
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#template-expansion" class="md-nav__link">
-    Template expansion
+  <a href="#mallexpansion" class="md-nav__link">
+    Mallexpansion
   </a>
   
-    <nav class="md-nav" aria-label="Template expansion">
+    <nav class="md-nav" aria-label="Mallexpansion">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#macro-parameters" class="md-nav__link">
-    Macro parameters
+  <a href="#makroparametrar" class="md-nav__link">
+    Makroparametrar
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#the-rawparams-variable" class="md-nav__link">
-    The "rawparams" variable
+  <a href="#variabeln-rawparams" class="md-nav__link">
+    Variabeln "rawparams"
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#the-printer-variable" class="md-nav__link">
-    The "printer" Variable
+  <a href="#variabeln-printer" class="md-nav__link">
+    Variabeln "printer"
   </a>
   
 </li>
@@ -1410,36 +1410,36 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#actions" class="md-nav__link">
-    Actions
+  <a href="#atgarder" class="md-nav__link">
+    Åtgärder
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#variables" class="md-nav__link">
-    Variables
+  <a href="#variabler" class="md-nav__link">
+    Variabler
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#delayed-gcodes" class="md-nav__link">
-    Delayed Gcodes
+  <a href="#fordrojd-g-kod" class="md-nav__link">
+    Fördröjd G-kod
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#menu-templates" class="md-nav__link">
-    Menu templates
+  <a href="#menymallar" class="md-nav__link">
+    Menymallar
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#save-variables-to-disk" class="md-nav__link">
-    Save Variables to disk
+  <a href="#spara-variabler-pa-disk" class="md-nav__link">
+    Spara variabler på disk
   </a>
   
 </li>
@@ -1461,12 +1461,12 @@
 </a>
 
 
-<h1 id="commands-templates">Commands templates<a class="headerlink" href="#commands-templates" title="Permanent link">&para;</a></h1>
-<p>This document provides information on implementing G-Code command sequences in gcode_macro (and similar) config sections.</p>
-<h2 id="g-code-macro-naming">G-Code Macro Naming<a class="headerlink" href="#g-code-macro-naming" title="Permanent link">&para;</a></h2>
-<p>Case is not important for the G-Code macro name - MY_MACRO and my_macro will evaluate the same and may be called in either upper or lower case. If any numbers are used in the macro name then they must all be at the end of the name (eg, TEST_MACRO25 is valid, but MACRO25_TEST3 is not).</p>
-<h2 id="formatting-of-g-code-in-the-config">Formatting of G-Code in the config<a class="headerlink" href="#formatting-of-g-code-in-the-config" title="Permanent link">&para;</a></h2>
-<p>Indentation is important when defining a macro in the config file. To specify a multi-line G-Code sequence it is important for each line to have proper indentation. For example:</p>
+<h1 id="kommandomallar">Kommandomallar<a class="headerlink" href="#kommandomallar" title="Permanent link">&para;</a></h1>
+<p>Dokumentet innehåller information om att implementera G-kodkommandosekvenser i konfigurationsavsnittet gcode_macro och liknande avsnitt.</p>
+<h2 id="namngivning-av-g-kodmakron">Namngivning av G-kodmakron<a class="headerlink" href="#namngivning-av-g-kodmakron" title="Permanent link">&para;</a></h2>
+<p>Skiftläge saknar betydelse för G-kodmakrons namn: MY_MACRO och my_macro tolkas lika och kan anropas med versaler eller gemener. Om namn innehåller siffror måste alla stå sist i namnet (TEST_MACRO25 är giltigt, men MACRO25_TEST3 är det inte).</p>
+<h2 id="formatering-av-g-kod-i-konfigurationen">Formatering av G-kod i konfigurationen<a class="headerlink" href="#formatering-av-g-kod-i-konfigurationen" title="Permanent link">&para;</a></h2>
+<p>Indrag är viktigt när ett makro definieras i konfigurationsfilen. För en G-kodsekvens på flera rader måste varje rad ha korrekt indrag. Exempelvis:</p>
 <div class="highlight"><pre><span></span><code>[gcode_macro blink_led]
 gcode:
   SET_PIN PIN=my_led VALUE=1
@@ -1474,9 +1474,9 @@ gcode:
   SET_PIN PIN=my_led VALUE=0
 </code></pre></div>
 
-<p>Note how the <code>gcode:</code> config option always starts at the beginning of the line and subsequent lines in the G-Code macro never start at the beginning.</p>
-<h2 id="add-a-description-to-your-macro">Add a description to your macro<a class="headerlink" href="#add-a-description-to-your-macro" title="Permanent link">&para;</a></h2>
-<p>To help identify the functionality a short description can be added. Add <code>description:</code> with a short text to describe the functionality. Default is "G-Code macro" if not specified. For example:</p>
+<p>Observera att konfigurationsalternativet <code>gcode:</code> alltid börjar i radens början och att efterföljande rader i G-kodmakrot aldrig börjar där.</p>
+<h2 id="lagg-till-en-beskrivning-av-makrot">Lägg till en beskrivning av makrot<a class="headerlink" href="#lagg-till-en-beskrivning-av-makrot" title="Permanent link">&para;</a></h2>
+<p>En kort beskrivning kan läggas till för att identifiera funktionen. Lägg till <code>description:</code> med en kort funktionstext. Standardvärdet är "G-kodmakro" om inget anges. Exempelvis:</p>
 <div class="highlight"><pre><span></span><code>[gcode_macro blink_led]
 description: Blink my_led one time
 gcode:
@@ -1485,10 +1485,10 @@ gcode:
   SET_PIN PIN=my_led VALUE=0
 </code></pre></div>
 
-<p>The terminal will display the description when you use the <code>HELP</code> command or the autocomplete function.</p>
-<h2 id="saverestore-state-for-g-code-moves">Save/Restore state for G-Code moves<a class="headerlink" href="#saverestore-state-for-g-code-moves" title="Permanent link">&para;</a></h2>
-<p>Unfortunately, the G-Code command language can be challenging to use. The standard mechanism to move the toolhead is via the <code>G1</code> command (the <code>G0</code> command is an alias for <code>G1</code> and it can be used interchangeably with it). However, this command relies on the "G-Code parsing state" setup by <code>M82</code>, <code>M83</code>, <code>G90</code>, <code>G91</code>, <code>G92</code>, and previous <code>G1</code> commands. When creating a G-Code macro it is a good idea to always explicitly set the G-Code parsing state prior to issuing a <code>G1</code> command. (Otherwise, there is a risk the <code>G1</code> command will make an undesirable request.)</p>
-<p>A common way to accomplish that is to wrap the <code>G1</code> moves in <code>SAVE_GCODE_STATE</code>, <code>G91</code>, and <code>RESTORE_GCODE_STATE</code>. For example:</p>
+<p>Terminalen visar beskrivningen när du använder kommandot <code>HELP</code> eller funktionen för automatisk komplettering.</p>
+<h2 id="sparaaterstall-tillstand-for-g-kodrorelser">Spara/återställ tillstånd för G-kodrörelser<a class="headerlink" href="#sparaaterstall-tillstand-for-g-kodrorelser" title="Permanent link">&para;</a></h2>
+<p>G-kodens kommandospråk kan tyvärr vara svårt att använda. Standardmekanismen för att flytta verktygshuvudet är kommandot <code>G1</code> (<code>G0</code> är ett alias för <code>G1</code>). Kommandot beror dock på "G-kodtolkningstillståndet" som anges av <code>M82</code>, <code>M83</code>, <code>G90</code>, <code>G91</code>, <code>G92</code> och tidigare <code>G1</code>-kommandon. Ange därför alltid G-kodtolkningstillståndet uttryckligen innan ett <code>G1</code>-kommando utfärdas i ett G-kodmakro, annars kan <code>G1</code> begära en oönskad rörelse.</p>
+<p>Ett vanligt sätt är att omsluta <code>G1</code>-rörelser med <code>SAVE_GCODE_STATE</code>, <code>G91</code> och <code>RESTORE_GCODE_STATE</code>. Exempelvis:</p>
 <div class="highlight"><pre><span></span><code>[gcode_macro MOVE_UP]
 gcode:
   SAVE_GCODE_STATE NAME=my_move_up_state
@@ -1497,10 +1497,10 @@ gcode:
   RESTORE_GCODE_STATE NAME=my_move_up_state
 </code></pre></div>
 
-<p>The <code>G91</code> command places the G-Code parsing state into "relative move mode" and the <code>RESTORE_GCODE_STATE</code> command restores the state to what it was prior to entering the macro. Be sure to specify an explicit speed (via the <code>F</code> parameter) on the first <code>G1</code> command.</p>
-<h2 id="template-expansion">Template expansion<a class="headerlink" href="#template-expansion" title="Permanent link">&para;</a></h2>
-<p>The gcode_macro <code>gcode:</code> config section is evaluated using the Jinja2 template language. One can evaluate expressions at run-time by wrapping them in <code>{ }</code> characters or use conditional statements wrapped in <code>{% %}</code>. See the <a href="http://jinja.pocoo.org/docs/2.10/templates/">Jinja2 documentation</a> for further information on the syntax.</p>
-<p>An example of a complex macro:</p>
+<p>Kommandot <code>G91</code> sätter G-kodtolkningstillståndet i "läge för relativ rörelse" och <code>RESTORE_GCODE_STATE</code> återställer tillståndet från före makrot. Ange alltid en uttrycklig hastighet med parametern <code>F</code> vid första <code>G1</code>-kommandot.</p>
+<h2 id="mallexpansion">Mallexpansion<a class="headerlink" href="#mallexpansion" title="Permanent link">&para;</a></h2>
+<p>Konfigurationsavsnittet gcode_macro <code>gcode:</code> tolkas med mallspråket Jinja2. Uttryck kan utvärderas vid körning genom att omslutas med <code>{ }</code>, och villkorssatser med <code>{% %}</code>. Se <a href="http://jinja.pocoo.org/docs/2.10/templates/">Jinja2-dokumentationen</a> för syntaxen.</p>
+<p>Ett exempel på ett komplext makro:</p>
 <div class="highlight"><pre><span></span><code>[gcode_macro clean_nozzle]
 gcode:
   {% set wipe_count = 8 %}
@@ -1515,53 +1515,53 @@ gcode:
   RESTORE_GCODE_STATE NAME=clean_nozzle_state
 </code></pre></div>
 
-<h3 id="macro-parameters">Macro parameters<a class="headerlink" href="#macro-parameters" title="Permanent link">&para;</a></h3>
-<p>It is often useful to inspect parameters passed to the macro when it is called. These parameters are available via the <code>params</code> pseudo-variable. For example, if the macro:</p>
+<h3 id="makroparametrar">Makroparametrar<a class="headerlink" href="#makroparametrar" title="Permanent link">&para;</a></h3>
+<p>Det är ofta användbart att inspektera parametrar som skickas till ett makro vid anrop. De finns via pseudovariabeln <code>params</code>. Om makrot exempelvis:</p>
 <div class="highlight"><pre><span></span><code>[gcode_macro SET_PERCENT]
 gcode:
   M117 Now at { params.VALUE|float * 100 }%
 </code></pre></div>
 
-<p>were invoked as <code>SET_PERCENT VALUE=.2</code> it would evaluate to <code>M117 Now at 20%</code>. Note that parameter names are always in upper-case when evaluated in the macro and are always passed as strings. If performing math then they must be explicitly converted to integers or floats.</p>
-<p>It's common to use the Jinja2 <code>set</code> directive to use a default parameter and assign the result to a local name. For example:</p>
+<p>anropas som <code>SET_PERCENT VALUE=.2</code> tolkas det som <code>M117 Now at 20%</code>. Parameternamn är alltid versaler när de tolkas i makrot och skickas alltid som strängar. Vid beräkningar måste de uttryckligen omvandlas till heltal eller flyttal.</p>
+<p>Det är vanligt att använda Jinja2-direktivet <code>set</code> för att använda en standardparameter och tilldela resultatet ett lokalt namn. Exempelvis:</p>
 <div class="highlight"><pre><span></span><code>[gcode_macro SET_BED_TEMPERATURE]
 gcode:
   {% set bed_temp = params.TEMPERATURE|default(40)|float %}
   M140 S{bed_temp}
 </code></pre></div>
 
-<h3 id="the-rawparams-variable">The "rawparams" variable<a class="headerlink" href="#the-rawparams-variable" title="Permanent link">&para;</a></h3>
-<p>The full unparsed parameters for the running macro can be access via the <code>rawparams</code> pseudo-variable.</p>
-<p>Note that this will include any comments that were part of the original command.</p>
-<p>See the <a href="https://github.com/Klipper3d/klipper/blob/master/config/sample-macros.cfg">sample-macros.cfg</a> file for an example showing how to override the <code>M117</code> command using <code>rawparams</code>.</p>
-<h3 id="the-printer-variable">The "printer" Variable<a class="headerlink" href="#the-printer-variable" title="Permanent link">&para;</a></h3>
-<p>It is possible to inspect (and alter) the current state of the printer via the <code>printer</code> pseudo-variable. For example:</p>
+<h3 id="variabeln-rawparams">Variabeln "rawparams"<a class="headerlink" href="#variabeln-rawparams" title="Permanent link">&para;</a></h3>
+<p>De fullständiga otolkade parametrarna för makrot som körs nås via pseudovariabeln <code>rawparams</code>.</p>
+<p>Observera att detta inkluderar kommentarer som var del av det ursprungliga kommandot.</p>
+<p>Se filen <a href="https://github.com/Klipper3d/klipper/blob/master/config/sample-macros.cfg">sample-macros.cfg</a> för ett exempel på hur kommandot <code>M117</code> åsidosätts med <code>rawparams</code>.</p>
+<h3 id="variabeln-printer">Variabeln "printer"<a class="headerlink" href="#variabeln-printer" title="Permanent link">&para;</a></h3>
+<p>Skrivarens aktuella tillstånd kan inspekteras och ändras via pseudovariabeln <code>printer</code>. Exempelvis:</p>
 <div class="highlight"><pre><span></span><code>[gcode_macro slow_fan]
 gcode:
   M106 S{ printer.fan.speed * 0.9 * 255}
 </code></pre></div>
 
-<p>Available fields are defined in the <a href="Status_Reference.html">Status Reference</a> document.</p>
-<p>Important! Macros are first evaluated in entirety and only then are the resulting commands executed. If a macro issues a command that alters the state of the printer, the results of that state change will not be visible during the evaluation of the macro. This can also result in subtle behavior when a macro generates commands that call other macros, as the called macro is evaluated when it is invoked (which is after the entire evaluation of the calling macro).</p>
-<p>By convention, the name immediately following <code>printer</code> is the name of a config section. So, for example, <code>printer.fan</code> refers to the fan object created by the <code>[fan]</code> config section. There are some exceptions to this rule - notably the <code>gcode_move</code> and <code>toolhead</code> objects. If the config section contains spaces in it, then one can access it via the <code>[ ]</code> accessor - for example: <code>printer["generic_heater my_chamber_heater"].temperature</code>.</p>
-<p>Note that the Jinja2 <code>set</code> directive can assign a local name to an object in the <code>printer</code> hierarchy. This can make macros more readable and reduce typing. For example:</p>
+<p>Tillgängliga fält definieras i dokumentet <a href="Status_Reference.html">Statusreferens</a>.</p>
+<p>Viktigt! Makron utvärderas först helt och därefter körs de resulterande kommandona. Om ett makro skickar ett kommando som ändrar skrivarens tillstånd syns inte resultatet av ändringen medan makrot utvärderas. Detta kan också ge subtilt beteende när ett makro genererar kommandon som anropar andra makron, eftersom det anropade makrot utvärderas när det anropas, alltså efter att det anropande makrot har utvärderats helt.</p>
+<p>Enligt konvention är namnet direkt efter <code>printer</code> namnet på ett konfigurationsavsnitt. <code>printer.fan</code> avser exempelvis fläktobjektet som skapas av avsnittet <code>[fan]</code>. Undantag är bland annat objekten <code>gcode_move</code> och <code>toolhead</code>. Om avsnittet innehåller blanksteg nås det med accessor-operatorn <code>[ ]</code>, exempelvis <code>printer["generic_heater my_chamber_heater"].temperature</code>.</p>
+<p>Observera att Jinja2-direktivet <code>set</code> kan ge ett objekt i <code>printer</code>-hierarkin ett lokalt namn. Det kan göra makron mer lättlästa och minska skrivandet. Exempelvis:</p>
 <div class="highlight"><pre><span></span><code>[gcode_macro QUERY_HTU21D]
 gcode:
     {% set sensor = printer[&quot;htu21d my_sensor&quot;] %}
     M117 Temp:{sensor.temperature} Humidity:{sensor.humidity}
 </code></pre></div>
 
-<h2 id="actions">Actions<a class="headerlink" href="#actions" title="Permanent link">&para;</a></h2>
-<p>There are some commands available that can alter the state of the printer. For example, <code>{ action_emergency_stop() }</code> would cause the printer to go into a shutdown state. Note that these actions are taken at the time that the macro is evaluated, which may be a significant amount of time before the generated g-code commands are executed.</p>
-<p>Available "action" commands:</p>
+<h2 id="atgarder">Åtgärder<a class="headerlink" href="#atgarder" title="Permanent link">&para;</a></h2>
+<p>Det finns kommandon som kan ändra skrivarens tillstånd. <code>{ action_emergency_stop() }</code> försätter exempelvis skrivaren i avstängt läge. Åtgärderna utförs när makrot utvärderas, vilket kan vara långt innan de genererade G-kodkommandona körs.</p>
+<p>Tillgängliga "action"-kommandon:</p>
 <ul>
-<li><code>action_respond_info(msg)</code>: Write the given <code>msg</code> to the /tmp/printer pseudo-terminal. Each line of <code>msg</code> will be sent with a "// " prefix.</li>
-<li><code>action_raise_error(msg)</code>: Abort the current macro (and any calling macros) and write the given <code>msg</code> to the /tmp/printer pseudo-terminal. The first line of <code>msg</code> will be sent with a "!! " prefix and subsequent lines will have a "// " prefix.</li>
-<li><code>action_emergency_stop(msg)</code>: Transition the printer to a shutdown state. The <code>msg</code> parameter is optional, it may be useful to describe the reason for the shutdown.</li>
-<li><code>action_call_remote_method(method_name)</code>: Calls a method registered by a remote client. If the method takes parameters they should be provided via keyword arguments, ie: <code>action_call_remote_method("print_stuff", my_arg="hello_world")</code></li>
+<li><code>action_respond_info(msg)</code>: Skriv angivet <code>msg</code> till pseudoterminalen /tmp/printer. Varje rad i <code>msg</code> skickas med prefixet "// ".</li>
+<li><code>action_raise_error(msg)</code>: Avbryt det aktuella makrot, inklusive anropande makron, och skriv <code>msg</code> till pseudoterminalen /tmp/printer. Första raden skickas med prefixet "!! " och efterföljande rader med "// ".</li>
+<li><code>action_emergency_stop(msg)</code>: Försätt skrivaren i avstängt läge. Parametern <code>msg</code> är valfri och kan beskriva orsaken till avstängningen.</li>
+<li><code>action_call_remote_method(method_name)</code>: Anropar en metod som registrerats av en fjärrklient. Om metoden tar parametrar ska de anges som nyckelordsargument, exempelvis <code>action_call_remote_method("print_stuff", my_arg="hello_world")</code>.</li>
 </ul>
-<h2 id="variables">Variables<a class="headerlink" href="#variables" title="Permanent link">&para;</a></h2>
-<p>The SET_GCODE_VARIABLE command may be useful for saving state between macro calls. Variable names may not contain any upper case characters. For example:</p>
+<h2 id="variabler">Variabler<a class="headerlink" href="#variabler" title="Permanent link">&para;</a></h2>
+<p>Kommandot SET_GCODE_VARIABLE kan användas för att spara tillstånd mellan makroanrop. Variabelnamn får inte innehålla versaler. Exempelvis:</p>
 <div class="highlight"><pre><span></span><code>[gcode_macro start_probe]
 variable_bed_temp: 0
 gcode:
@@ -1580,9 +1580,9 @@ gcode:
   M140 S{printer[&quot;gcode_macro start_probe&quot;].bed_temp}
 </code></pre></div>
 
-<p>Be sure to take the timing of macro evaluation and command execution into account when using SET_GCODE_VARIABLE.</p>
-<h2 id="delayed-gcodes">Delayed Gcodes<a class="headerlink" href="#delayed-gcodes" title="Permanent link">&para;</a></h2>
-<p>The [delayed_gcode] configuration option can be used to execute a delayed gcode sequence:</p>
+<p>Ta hänsyn till tidpunkterna för makroutvärdering och kommandoexekvering när SET_GCODE_VARIABLE används.</p>
+<h2 id="fordrojd-g-kod">Fördröjd G-kod<a class="headerlink" href="#fordrojd-g-kod" title="Permanent link">&para;</a></h2>
+<p>Konfigurationsalternativet [delayed_gcode] kan användas för att köra en fördröjd G-kodsekvens:</p>
 <div class="highlight"><pre><span></span><code>[delayed_gcode clear_display]
 gcode:
   M117
@@ -1597,15 +1597,15 @@ gcode:
  UPDATE_DELAYED_GCODE ID=clear_display DURATION=10
 </code></pre></div>
 
-<p>When the <code>load_filament</code> macro above executes, it will display a "Load Complete!" message after the extrusion is finished. The last line of gcode enables the "clear_display" delayed_gcode, set to execute in 10 seconds.</p>
-<p>The <code>initial_duration</code> config option can be set to execute the delayed_gcode on printer startup. The countdown begins when the printer enters the "ready" state. For example, the below delayed_gcode will execute 5 seconds after the printer is ready, initializing the display with a "Welcome!" message:</p>
+<p>När makrot <code>load_filament</code> ovan körs visas meddelandet "Inläsning klar!" efter avslutad extrudering. Sista G-kodraden aktiverar delayed_gcode <code>clear_display</code>, som körs efter 10 sekunder.</p>
+<p>Konfigurationsalternativet <code>initial_duration</code> kan köra delayed_gcode vid skrivarstart. Nedräkningen börjar när skrivaren går in i läget "ready". Följande delayed_gcode körs exempelvis fem sekunder efter att skrivaren är klar och initierar displayen med "Välkommen!":</p>
 <div class="highlight"><pre><span></span><code>[delayed_gcode welcome]
 initial_duration: 5.
 gcode:
   M117 Welcome!
 </code></pre></div>
 
-<p>Its possible for a delayed gcode to repeat by updating itself in the gcode option:</p>
+<p>En fördröjd G-kod kan upprepa sig genom att uppdatera sig själv i alternativet gcode:</p>
 <div class="highlight"><pre><span></span><code>[delayed_gcode report_temp]
 initial_duration: 2.
 gcode:
@@ -1613,37 +1613,37 @@ gcode:
   UPDATE_DELAYED_GCODE ID=report_temp DURATION=2
 </code></pre></div>
 
-<p>The above delayed_gcode will send "// Extruder Temp: [ex0_temp]" to Octoprint every 2 seconds. This can be canceled with the following gcode:</p>
+<p>Ovanstående delayed_gcode skickar "// Extruder Temp: [ex0_temp]" till OctoPrint varannan sekund. Det kan avbrytas med följande G-kod:</p>
 <div class="highlight"><pre><span></span><code>UPDATE_DELAYED_GCODE ID=report_temp DURATION=0
 </code></pre></div>
 
-<h2 id="menu-templates">Menu templates<a class="headerlink" href="#menu-templates" title="Permanent link">&para;</a></h2>
-<p>If a <a href="Config_Reference.html#display">display config section</a> is enabled, then it is possible to customize the menu with <a href="Config_Reference.html#menu">menu</a> config sections.</p>
-<p>The following read-only attributes are available in menu templates:</p>
+<h2 id="menymallar">Menymallar<a class="headerlink" href="#menymallar" title="Permanent link">&para;</a></h2>
+<p>Om ett <a href="Config_Reference.html#display">display-konfigurationsavsnitt</a> är aktiverat kan menyn anpassas med <a href="Config_Reference.html#menu">menu</a>-konfigurationsavsnitt.</p>
+<p>Följande skrivskyddade attribut finns i menymallar:</p>
 <ul>
-<li><code>menu.width</code> - element width (number of display columns)</li>
-<li><code>menu.ns</code> - element namespace</li>
-<li><code>menu.event</code> - name of the event that triggered the script</li>
-<li><code>menu.input</code> - input value, only available in input script context</li>
+<li><code>menu.width</code> – elementets bredd (antal displaykolumner)</li>
+<li><code>menu.ns</code> – elementets namnrymd</li>
+<li><code>menu.event</code> – namnet på händelsen som utlöste skriptet</li>
+<li><code>menu.input</code> – indatavärde, endast tillgängligt i indataskriptets kontext</li>
 </ul>
-<p>The following actions are available in menu templates:</p>
+<p>Följande åtgärder finns i menymallar:</p>
 <ul>
-<li><code>menu.back(force, update)</code>: will execute menu back command, optional boolean parameters <code>&lt;force&gt;</code> and <code>&lt;update&gt;</code>.<ul>
-<li>When <code>&lt;force&gt;</code> is set True then it will also stop editing. Default value is False.</li>
-<li>When <code>&lt;update&gt;</code> is set False then parent container items are not updated. Default value is True.</li>
+<li><code>menu.back(force, update)</code>: kör kommandot för att gå tillbaka i menyn; de booleska parametrarna <code>&lt;force&gt;</code> och <code>&lt;update&gt;</code> är valfria.<ul>
+<li>Om <code>&lt;force&gt;</code> är True avslutas även redigering. Standardvärdet är False.</li>
+<li>Om <code>&lt;update&gt;</code> är False uppdateras inte den överordnade behållarens objekt. Standardvärdet är True.</li>
 </ul>
 </li>
-<li><code>menu.exit(force)</code> - will execute menu exit command, optional boolean parameter <code>&lt;force&gt;</code> default value False.<ul>
-<li>When <code>&lt;force&gt;</code> is set True then it will also stop editing. Default value is False.</li>
+<li><code>menu.exit(force)</code> – kör kommandot för att avsluta menyn; den booleska parametern <code>&lt;force&gt;</code> är valfri och har standardvärdet False.<ul>
+<li>Om <code>&lt;force&gt;</code> är True avslutas även redigering. Standardvärdet är False.</li>
 </ul>
 </li>
 </ul>
-<h2 id="save-variables-to-disk">Save Variables to disk<a class="headerlink" href="#save-variables-to-disk" title="Permanent link">&para;</a></h2>
-<p>If a <a href="Config_Reference.html#save_variables">save_variables config section</a> has been enabled, <code>SAVE_VARIABLE VARIABLE=&lt;name&gt; VALUE=&lt;value&gt;</code> can be used to save the variable to disk so that it can be used across restarts. All stored variables are loaded into the <code>printer.save_variables.variables</code> dict at startup and can be used in gcode macros. to avoid overly long lines you can add the following at the top of the macro:</p>
+<h2 id="spara-variabler-pa-disk">Spara variabler på disk<a class="headerlink" href="#spara-variabler-pa-disk" title="Permanent link">&para;</a></h2>
+<p>Om ett <a href="Config_Reference.html#save_variables">save_variables-konfigurationsavsnitt</a> är aktiverat kan <code>SAVE_VARIABLE VARIABLE=&lt;name&gt; VALUE=&lt;value&gt;</code> spara variabeln på disk så att den bevaras vid omstarter. Alla sparade variabler läses in i uppslagsstrukturen <code>printer.save_variables.variables</code> vid uppstart och kan användas i G-kodmakron. För att undvika alltför långa rader kan följande läggas överst i makrot:</p>
 <div class="highlight"><pre><span></span><code>{% set svv = printer.save_variables.variables %}
 </code></pre></div>
 
-<p>As an example, it could be used to save the state of 2-in-1-out hotend and when starting a print ensure that the active extruder is used, instead of T0:</p>
+<p>Det kan exempelvis användas för att spara tillståndet för en 2-in-1-out-värmdel och vid utskriftsstart säkerställa att den aktiva extrudern används i stället för T0:</p>
 <div class="highlight"><pre><span></span><code>[gcode_macro T1]
 gcode:
   ACTIVATE_EXTRUDER extruder=extruder1

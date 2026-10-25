@@ -1400,7 +1400,7 @@
 
 <h1 id="_1">பொருட்களை விலக்கு<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>The <code>[exclude_object]</code> module allows Klipper to exclude objects while a print is in progress. To enable this feature include an <a href="Config_Reference.html#exclude_object">exclude_object config
-section</a> (also see the <a href="G-Codes.html#exclude-object">command
+section</a> (also see the <a href="G-Codes.html#exclude_object">command
 reference</a> and <a href="https://github.com/Klipper3d/klipper/blob/master/config/sample-macros.cfg">sample-macros.cfg</a> file for a Marlin/RepRapFirmware compatible M486 G-Code macro.)</p>
 <p>மற்ற 3D அச்சுப்பொறி ஃபார்ம்வேர் விருப்பங்களைப் போலன்றி, கிளிப்பர் இயங்கும் அச்சுப்பொறி கூறுகளின் தொகுப்பைப் பயன்படுத்துகிறது மற்றும் பயனர்களுக்கு தேர்வு செய்ய பல விருப்பங்கள் உள்ளன. ஆகையால், ஒரு நிலையான பயனர் அனுபவத்தை வழங்குவதற்காக, <code>[விலக்கு_ஆப்செக்ட்]</code> தொகுதி ஒரு ஒப்பந்தம் அல்லது பநிஇ ஆகியவற்றை நிறுவும். ஒப்பந்தம் GCODE கோப்பின் உள்ளடக்கங்கள், தொகுதியின் உள் நிலை எவ்வாறு கட்டுப்படுத்தப்படுகிறது, வாடிக்கையாளர்களுக்கு அந்த நிலை எவ்வாறு வழங்கப்படுகிறது என்பதை உள்ளடக்கியது.</p>
 <h2 id="_2">பணிப்பாய்வு கண்ணோட்டம்<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
@@ -1421,7 +1421,7 @@ reference</a> and <a href="https://github.com/Klipper3d/klipper/blob/master/conf
 <p>அச்சிடப்பட வேண்டிய GCODE கோப்பில் உள்ள ஒவ்வொரு பொருளின் சுருக்கத்தை வழங்க <code>விலக்கு_ஆப்செக்ட்_மின்</code> கட்டளை பயன்படுத்தப்படுகிறது. கோப்பில் ஒரு பொருளின் சுருக்கத்தை வழங்குகிறது. பிற கட்டளைகளால் குறிப்பிடப்படுவதற்கு பொருள்களை வரையறுக்க தேவையில்லை. இந்த கட்டளையின் முதன்மை நோக்கம் முழு GCODE கோப்பையும் அலசத் தேவையில்லாமல் இடைமுகம் க்கு தகவல்களை வழங்குவதாகும்.</p>
 <p>பயனர்கள் விலக்கப்பட வேண்டிய ஒரு பொருளை எளிதாகத் தேர்ந்தெடுக்க அனுமதிக்க, பொருள் வரையறைகள் பெயரிடப்பட்டுள்ளன, மேலும் வரைகலை ரத்து காட்சிகளை அனுமதிக்க கூடுதல் மேனிலை தரவு வழங்கப்படலாம். தற்போது வரையறுக்கப்பட்ட மெட்டாடேட்டாவில் <code>சென்டர்</code> ஃச், ஒய் ஒருங்கிணைப்பு, மற்றும் ஃச் இன்<code>பலகோண 'பட்டியல் ஆகியவை அடங்கும், பொருளின் குறைந்தபட்ச வெளிப்புறத்தைக் குறிக்கும் ஒய் புள்ளிகள். இது ஒரு எளிய எல்லை பெட்டியாக இருக்கலாம் அல்லது அச்சிடப்பட்ட பொருட்களின் விரிவான காட்சிப்படுத்தல்களைக் காண்பிப்பதற்கான சிக்கலான அல். குறிப்பாக GCODE கோப்புகளில் ஒன்றுடன் ஒன்று எல்லைகள் கொண்ட பல பகுதிகள் இருக்கும்போது, மைய புள்ளிகள் பார்வைக்கு வேறுபடுவது கடினம்.</code>பலகோணங்கள்<code>JSON- இணக்கமான புள்ளியாக இருக்க வேண்டும்</code> [x, y] `ஒயிட்ச்பேச் இல்லாமல் டூப்ச். கூடுதல் அளவுருக்கள் பொருள் வரையறையில் சரங்களாக சேமிக்கப்படும் மற்றும் நிலை புதுப்பிப்புகளில் வழங்கப்படும்.</p>
 <p><code>விலக்கு_OBJECT_DEFINE பெயர் = அளவுத்திருத்தம்_பைராமிட் நடுவண் = 50,50 பலகோணம் = [[40,40], [50,60], [60,40]]</code></p>
-<p>All available G-Code commands are documented in the <a href="G-Codes.html#excludeobject">G-Code
+<p>All available G-Code commands are documented in the <a href="G-Codes.html#exclude_object">G-Code
 Reference</a></p>
 <h2 id="_4">நிலை செய்தி<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>The state of this module is provided to clients by the <a href="Status_Reference.html#exclude_object">exclude_object

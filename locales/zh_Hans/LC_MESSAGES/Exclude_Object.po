@@ -15,20 +15,6 @@ msgstr ""
 msgid "Exclude Objects"
 msgstr "排除对象"
 
-#: docs/Exclude_Object.md:block 2 (paragraph)
-msgid ""
-"The `[exclude_object]` module allows Klipper to exclude objects while a print "
-"is in progress. To enable this feature include an [exclude_object config "
-"section](Config_Reference.md#exclude_object) (also see the [command "
-"reference](G-Codes.md#exclude-object) and [sample-"
-"macros.cfg](../config/sample-macros.cfg) file for a Marlin/RepRapFirmware "
-"compatible M486 G-Code macro.)"
-msgstr ""
-"`[exclude_object]`模块允许 Klipper 在打印过程中排除对象。要启用此功能，请包括一个 [exclude_object "
-"配置分段](Config_Reference.md#exclude_object)（有关用于 Marlin/RepRapFirmware 兼容的 M486 "
-"G代码宏， 另请参阅 [命令参考](G-Codes.md#exclude-object)和 [sample-"
-"macros.cfg](../config/sample-macros.cfg)文件。）"
-
 #: docs/Exclude_Object.md:block 3 (paragraph)
 msgid ""
 "Unlike other 3D printer firmware options, a printer running Klipper utilizes a"
@@ -163,12 +149,6 @@ msgstr ""
 "`EXCLUDE_OBJECT_DEFINE NAME=calibration_pyramid CENTER=50,50 "
 "POLYGON=[[40,40],[50,60],[60,40]]`"
 
-#: docs/Exclude_Object.md:block 13 (paragraph)
-msgid ""
-"All available G-Code commands are documented in the [G-Code "
-"Reference](./G-Codes.md#excludeobject)"
-msgstr "所有可用的G代码命令都在[G代码参考](./G-Codes.md#excludeobject)中有所记载"
-
 #: docs/Exclude_Object.md:block 14 (header)
 msgid "Status Information"
 msgstr "状态信息"
@@ -232,3 +212,37 @@ msgid ""
 msgstr ""
 "当`EXCLUDE_OBJECT` 命令被发出时，被排除的对象会被包含在在`exclude_object.excludes_objects` "
 "数组中。由于Klipper会提前处理即将执行的G代码，在命令发出和状态更新之间可能会有延迟。"
+
+#: docs/Exclude_Object.md:block 2 (paragraph)
+msgid ""
+"The `[exclude_object]` module allows Klipper to exclude objects while a print "
+"is in progress. To enable this feature include an [exclude_object config "
+"section](Config_Reference.md#exclude_object) (also see the [command "
+"reference](G-Codes.md#exclude_object) and [sample-"
+"macros.cfg](../config/sample-macros.cfg) file for a Marlin/RepRapFirmware "
+"compatible M486 G-Code macro.)"
+msgstr ""
+
+#: docs/Exclude_Object.md:block 13 (paragraph)
+msgid ""
+"All available G-Code commands are documented in the [G-Code "
+"Reference](./G-Codes.md#exclude_object)"
+msgstr ""
+
+#~ msgid ""
+#~ "The `[exclude_object]` module allows Klipper to exclude objects while a print "
+#~ "is in progress. To enable this feature include an [exclude_object config "
+#~ "section](Config_Reference.md#exclude_object) (also see the [command "
+#~ "reference](G-Codes.md#exclude-object) and [sample-"
+#~ "macros.cfg](../config/sample-macros.cfg) file for a Marlin/RepRapFirmware "
+#~ "compatible M486 G-Code macro.)"
+#~ msgstr ""
+#~ "`[exclude_object]`模块允许 Klipper 在打印过程中排除对象。要启用此功能，请包括一个 [exclude_object "
+#~ "配置分段](Config_Reference.md#exclude_object)（有关用于 Marlin/RepRapFirmware 兼容的 M486 "
+#~ "G代码宏， 另请参阅 [命令参考](G-Codes.md#exclude-object)和 [sample-"
+#~ "macros.cfg](../config/sample-macros.cfg)文件。）"
+
+#~ msgid ""
+#~ "All available G-Code commands are documented in the [G-Code "
+#~ "Reference](./G-Codes.md#excludeobject)"
+#~ msgstr "所有可用的G代码命令都在[G代码参考](./G-Codes.md#excludeobject)中有所记载"

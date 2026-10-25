@@ -13,7 +13,7 @@
     
     
       
-        <title>Axis Twist Compensation - Klipper documentation</title>
+        <title>Kompensation för axelvridning - Klipper documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#axis-twist-compensation" class="md-skip">
+        <a href="#kompensation-for-axelvridning" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Axis Twist Compensation
+              Kompensation för axelvridning
             
           </span>
         </div>
@@ -1348,23 +1348,23 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview-of-compensation-usage" class="md-nav__link">
-    Overview of compensation usage
+  <a href="#oversikt-over-anvandning-av-kompensering" class="md-nav__link">
+    Översikt över användning av kompensering
   </a>
   
-    <nav class="md-nav" aria-label="Overview of compensation usage">
+    <nav class="md-nav" aria-label="Översikt över användning av kompensering">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#basic-usage-x-axis-calibration" class="md-nav__link">
-    Basic Usage: X-Axis Calibration
+  <a href="#grundlaggande-anvandning-kalibrering-av-x-axeln" class="md-nav__link">
+    Grundläggande användning: kalibrering av X-axeln
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#for-y-axis-calibration" class="md-nav__link">
-    For Y-Axis Calibration
+  <a href="#for-kalibrering-av-y-axeln" class="md-nav__link">
+    För kalibrering av Y-axeln
   </a>
   
 </li>
@@ -1375,8 +1375,8 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#axis_twist_compensation-setup-and-commands" class="md-nav__link">
-    [axis_twist_compensation] setup and commands
+  <a href="#installning-och-kommandon-for-axis_twist_compensation" class="md-nav__link">
+    Inställning och kommandon för [axis_twist_compensation]
   </a>
   
 </li>
@@ -1398,55 +1398,55 @@
 </a>
 
 
-<h1 id="axis-twist-compensation">Axis Twist Compensation<a class="headerlink" href="#axis-twist-compensation" title="Permanent link">&para;</a></h1>
-<p>This document describes the <code>[axis_twist_compensation]</code> module.</p>
+<h1 id="kompensation-for-axelvridning">Kompensation för axelvridning<a class="headerlink" href="#kompensation-for-axelvridning" title="Permanent link">&para;</a></h1>
+<p>Detta dokument beskriver modulen <code>[axis_twist_compensation]</code>.</p>
 <p>Some printers may have a small twist in their X rail which can skew the results of a probe attached to the X carriage. This is common in printers with designs like the Prusa MK3, Sovol SV06 etc and is further described under <a href="Probe_Calibrate.html#location-bias-check">probe location
 bias</a>. It may result in probe operations such as <a href="Bed_Mesh.html">Bed Mesh</a>, <a href="G-Codes.html#screws_tilt_adjust">Screws Tilt Adjust</a>, <a href="G-Codes.html#z_tilt_adjust">Z Tilt Adjust</a> etc returning inaccurate representations of the bed.</p>
-<p>This module uses manual measurements by the user to correct the probe's results. Note that if your axis is significantly twisted it is strongly recommended to first use mechanical means to fix it prior to applying software corrections.</p>
-<p><strong>Warning</strong>: This module is not compatible with dockable probes yet and will try to probe the bed without attaching the probe if you use it.</p>
-<h2 id="overview-of-compensation-usage">Overview of compensation usage<a class="headerlink" href="#overview-of-compensation-usage" title="Permanent link">&para;</a></h2>
+<p>Modulen använder manuella mätningar från användaren för att korrigera sondens resultat. Observera att om axeln är kraftigt vriden rekommenderas det starkt att först åtgärda den mekaniskt innan programvarukorrigering används.</p>
+<p><strong>Varning:</strong> Modulen är ännu inte kompatibel med dockningsbara sonder och försöker sonda bädden utan att fästa sonden om den används.</p>
+<h2 id="oversikt-over-anvandning-av-kompensering">Översikt över användning av kompensering<a class="headerlink" href="#oversikt-over-anvandning-av-kompensering" title="Permanent link">&para;</a></h2>
 <blockquote>
-<p><strong>Tip:</strong> Make sure the <a href="Config_Reference.html#probe">probe X and Y offsets</a> are correctly set as they greatly influence calibration.</p>
+<p><strong>Tips:</strong> Kontrollera att <a href="Config_Reference.html#probe">sondens X- och Y-förskjutningar</a> är korrekt inställda eftersom de påverkar kalibreringen mycket.</p>
 </blockquote>
-<h3 id="basic-usage-x-axis-calibration">Basic Usage: X-Axis Calibration<a class="headerlink" href="#basic-usage-x-axis-calibration" title="Permanent link">&para;</a></h3>
+<h3 id="grundlaggande-anvandning-kalibrering-av-x-axeln">Grundläggande användning: kalibrering av X-axeln<a class="headerlink" href="#grundlaggande-anvandning-kalibrering-av-x-axeln" title="Permanent link">&para;</a></h3>
 <ol>
-<li>After setting up the <code>[axis_twist_compensation]</code> module, run:</li>
+<li>Kör följande efter att modulen <code>[axis_twist_compensation]</code> har ställts in:</li>
 </ol>
 <div class="highlight"><pre><span></span><code>AXIS_TWIST_COMPENSATION_CALIBRATE
 </code></pre></div>
 
-<p>This command will calibrate the X-axis by default.</p>
+<p>Kommandot kalibrerar X-axeln som standard.</p>
 <ul>
-<li>The calibration wizard will prompt you to measure the probe Z offset at several points along the bed.</li>
-<li>By default, the calibration uses 3 points, but you can specify a different number with the option: <code>SAMPLE_COUNT=&lt;value&gt;</code></li>
+<li>Kalibreringsguiden ber dig mäta sondens Z-förskjutning vid flera punkter längs bädden.</li>
+<li>Kalibreringen använder som standard 3 punkter, men du kan ange ett annat antal med alternativet <code>SAMPLE_COUNT=&lt;value&gt;</code>.</li>
 </ul>
 <ol>
-<li><strong>Adjust Your Z Offset:</strong> After completing the calibration, be sure to <a href="Probe_Calibrate.html#calibrating-probe-z-offset">adjust your Z offset</a>.</li>
-<li><strong>Perform Bed Leveling Operations:</strong> Use probe-based operations as needed, such as:</li>
+<li><strong>Justera Z-förskjutningen:</strong> Justera <a href="Probe_Calibrate.html#calibrating-probe-z-offset">Z-förskjutningen</a> när kalibreringen har slutförts.</li>
+<li><strong>Utför bäddnivelleringsåtgärder:</strong> Använd vid behov sondbaserade åtgärder, till exempel:</li>
 </ol>
 <ul>
-<li><a href="G-Codes.html#screws_tilt_adjust">Screws Tilt Adjust</a></li>
-<li><a href="G-Codes.html#z_tilt_adjust">Z Tilt Adjust</a></li>
+<li><a href="G-Codes.html#screws_tilt_adjust">Justering av skruvars lutning</a></li>
+<li><a href="G-Codes.html#z_tilt_adjust">Justering av Z-lutning</a></li>
 </ul>
 <ol>
-<li><strong>Finalize the Setup:</strong></li>
+<li><strong>Slutför inställningen:</strong></li>
 </ol>
 <ul>
-<li>Home all axes, and perform a <a href="Bed_Mesh.html">Bed Mesh</a> if necessary.</li>
-<li>Run a test print, followed by any <a href="Axis_Twist_Compensation.html#fine-tuning">fine-tuning</a> if needed.</li>
+<li>Hemkör alla axlar och utför vid behov ett <a href="Bed_Mesh.html">bäddnät</a>.</li>
+<li>Kör en testutskrift och finjustera sedan vid behov enligt <a href="Axis_Twist_Compensation.html#fine-tuning">finjusteringen</a>.</li>
 </ul>
-<h3 id="for-y-axis-calibration">For Y-Axis Calibration<a class="headerlink" href="#for-y-axis-calibration" title="Permanent link">&para;</a></h3>
-<p>The calibration process for the Y-axis is similar to the X-axis. To calibrate the Y-axis, use:</p>
+<h3 id="for-kalibrering-av-y-axeln">För kalibrering av Y-axeln<a class="headerlink" href="#for-kalibrering-av-y-axeln" title="Permanent link">&para;</a></h3>
+<p>Kalibreringsprocessen för Y-axeln liknar den för X-axeln. Använd följande för att kalibrera Y-axeln:</p>
 <div class="highlight"><pre><span></span><code>AXIS_TWIST_COMPENSATION_CALIBRATE AXIS=Y
 </code></pre></div>
 
-<p>This will guide you through the same measuring process as for the X-axis.</p>
+<p>Detta leder dig genom samma mätprocess som för X-axeln.</p>
 <blockquote>
-<p><strong>Tip:</strong> Bed temperature and nozzle temperature and size do not seem to have an influence to the calibration process.</p>
+<p><strong>Tips:</strong> Bäddtemperaturen samt munstyckets temperatur och storlek tycks inte påverka kalibreringsprocessen.</p>
 </blockquote>
-<h2 id="axis_twist_compensation-setup-and-commands">[axis_twist_compensation] setup and commands<a class="headerlink" href="#axis_twist_compensation-setup-and-commands" title="Permanent link">&para;</a></h2>
-<p>Configuration options for <code>[axis_twist_compensation]</code> can be found in the <a href="Config_Reference.html#axis_twist_compensation">Configuration Reference</a>.</p>
-<p>Commands for <code>[axis_twist_compensation]</code> can be found in the <a href="G-Codes.html#axis_twist_compensation">G-Codes Reference</a></p>
+<h2 id="installning-och-kommandon-for-axis_twist_compensation">Inställning och kommandon för [axis_twist_compensation]<a class="headerlink" href="#installning-och-kommandon-for-axis_twist_compensation" title="Permanent link">&para;</a></h2>
+<p>Konfigurationsalternativ för <code>[axis_twist_compensation]</code> finns i <a href="Config_Reference.html#axis_twist_compensation">konfigurationsreferensen</a>.</p>
+<p>Kommandon för <code>[axis_twist_compensation]</code> finns i <a href="G-Codes.html#axis_twist_compensation">referensen för G-koder</a>.</p>
 
               
             </article>

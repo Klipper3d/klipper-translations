@@ -13,7 +13,7 @@
     
     
       
-        <title>Skew correction - Klipper documentation</title>
+        <title>Skevhetskorrigering - Klipper documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#skew-correction" class="md-skip">
+        <a href="#skevhetskorrigering" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Skew correction
+              Skevhetskorrigering
             
           </span>
         </div>
@@ -1348,36 +1348,36 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#print-a-calibration-object" class="md-nav__link">
-    Print a Calibration Object
+  <a href="#skriv-ut-ett-kalibreringsobjekt" class="md-nav__link">
+    Skriv ut ett kalibreringsobjekt
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#take-your-measurements" class="md-nav__link">
-    Take your measurements
+  <a href="#gor-dina-matningar" class="md-nav__link">
+    Gör dina mätningar
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#configure-your-skew" class="md-nav__link">
-    Configure your skew
+  <a href="#konfigurera-skevhetskorrigeringen" class="md-nav__link">
+    Konfigurera skevhetskorrigeringen
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#verifying-your-correction" class="md-nav__link">
-    Verifying your correction
+  <a href="#verifiera-korrigeringen" class="md-nav__link">
+    Verifiera korrigeringen
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#caveats" class="md-nav__link">
-    Caveats
+  <a href="#begransningar" class="md-nav__link">
+    Begränsningar
   </a>
   
 </li>
@@ -1399,51 +1399,51 @@
 </a>
 
 
-<h1 id="skew-correction">Skew correction<a class="headerlink" href="#skew-correction" title="Permanent link">&para;</a></h1>
-<p>Software based skew correction can help resolve dimensional inaccuracies resulting from a printer assembly that is not perfectly square. Note that if your printer is significantly skewed it is strongly recommended to first use mechanical means to get your printer as square as possible prior to applying software based correction.</p>
-<h2 id="print-a-calibration-object">Print a Calibration Object<a class="headerlink" href="#print-a-calibration-object" title="Permanent link">&para;</a></h2>
-<p>The first step in correcting skew is to print a <a href="https://www.thingiverse.com/thing:2563185/files">calibration object</a> along the plane you want to correct. There is also a <a href="https://www.thingiverse.com/thing:2972743">calibration object</a> that includes all planes in one model. You want the object oriented so that corner A is toward the origin of the plane.</p>
-<p>Make sure that no skew correction is applied during this print. You may do this by either removing the <code>[skew_correction]</code> module from printer.cfg or by issuing a <code>SET_SKEW CLEAR=1</code> gcode.</p>
-<h2 id="take-your-measurements">Take your measurements<a class="headerlink" href="#take-your-measurements" title="Permanent link">&para;</a></h2>
-<p>The <code>[skew_correction]</code> module requires 3 measurements for each plane you want to correct; the length from Corner A to Corner C, the length from Corner B to Corner D, and the length from Corner A to Corner D. When measuring length AD do not include the flats on the corners that some test objects provide.</p>
+<h1 id="skevhetskorrigering">Skevhetskorrigering<a class="headerlink" href="#skevhetskorrigering" title="Permanent link">&para;</a></h1>
+<p>Programvarubaserad skevhetskorrigering kan hjälpa till att lösa dimensionsfel som beror på att skrivaren inte är helt vinkelrät. Om skrivaren är kraftigt skev rekommenderas starkt att du först justerar den mekaniskt så att den blir så vinkelrät som möjligt innan programvarubaserad korrigering används.</p>
+<h2 id="skriv-ut-ett-kalibreringsobjekt">Skriv ut ett kalibreringsobjekt<a class="headerlink" href="#skriv-ut-ett-kalibreringsobjekt" title="Permanent link">&para;</a></h2>
+<p>Det första steget för att korrigera skevhet är att skriva ut ett <a href="https://www.thingiverse.com/thing:2563185/files">kalibreringsobjekt</a> längs det plan som ska korrigeras. Det finns också ett <a href="https://www.thingiverse.com/thing:2972743">kalibreringsobjekt</a> som innehåller alla plan i en modell. Vänd objektet så att hörn A vetter mot planets origo.</p>
+<p>Kontrollera att ingen skevhetskorrigering används under utskriften. Du kan antingen ta bort modulen <code>[skew_correction]</code> från printer.cfg eller skicka G-koden <code>SET_SKEW CLEAR=1</code>.</p>
+<h2 id="gor-dina-matningar">Gör dina mätningar<a class="headerlink" href="#gor-dina-matningar" title="Permanent link">&para;</a></h2>
+<p>Modulen <code>[skew_correction]</code> kräver tre mätningar för varje plan som ska korrigeras: längden från hörn A till hörn C, längden från hörn B till hörn D och längden från hörn A till hörn D. Ta inte med de plana ytorna vid hörnen som vissa testobjekt har när du mäter längden AD.</p>
 <p><img alt="skew_lengths" src="img/skew_lengths.png" /></p>
-<h2 id="configure-your-skew">Configure your skew<a class="headerlink" href="#configure-your-skew" title="Permanent link">&para;</a></h2>
-<p>Make sure <code>[skew_correction]</code> is in printer.cfg. You may now use the <code>SET_SKEW</code> gcode to configure skew_correction. For example, if your measured lengths along XY are as follows:</p>
+<h2 id="konfigurera-skevhetskorrigeringen">Konfigurera skevhetskorrigeringen<a class="headerlink" href="#konfigurera-skevhetskorrigeringen" title="Permanent link">&para;</a></h2>
+<p>Kontrollera att <code>[skew_correction]</code> finns i printer.cfg. Du kan nu använda G-koden <code>SET_SKEW</code> för att konfigurera skew_correction. Om dina uppmätta längder längs XY till exempel är följande:</p>
 <div class="highlight"><pre><span></span><code>Length AC = 140.4
 Length BD = 142.8
 Length AD = 99.8
 </code></pre></div>
 
-<p><code>SET_SKEW</code> can be used to configure skew correction for the XY plane.</p>
+<p><code>SET_SKEW</code> kan användas för att konfigurera skevhetskorrigering för XY-planet.</p>
 <div class="highlight"><pre><span></span><code>SET_SKEW XY=140.4,142.8,99.8
 </code></pre></div>
 
-<p>You may also add measurements for XZ and YZ to the gcode:</p>
+<p>Du kan också lägga till mätningar för XZ och YZ i G-koden:</p>
 <div class="highlight"><pre><span></span><code>SET_SKEW XY=140.4,142.8,99.8 XZ=141.6,141.4,99.8 YZ=142.4,140.5,99.5
 </code></pre></div>
 
-<p>The <code>[skew_correction]</code> module also supports profile management in a manner similar to <code>[bed_mesh]</code>. After setting skew using the <code>SET_SKEW</code> gcode, you may use the <code>SKEW_PROFILE</code> gcode to save it:</p>
+<p>Modulen <code>[skew_correction]</code> har även stöd för profilhantering på samma sätt som <code>[bed_mesh]</code>. När du har angett skevheten med G-koden <code>SET_SKEW</code> kan du spara den med G-koden <code>SKEW_PROFILE</code>:</p>
 <div class="highlight"><pre><span></span><code>SKEW_PROFILE SAVE=my_skew_profile
 </code></pre></div>
 
-<p>After this command you will be prompted to issue a <code>SAVE_CONFIG</code> gcode to save the profile to persistent storage. If no profile is named <code>my_skew_profile</code> then a new profile will be created. If the named profile exists it will be overwritten.</p>
-<p>Once you have a saved profile, you may load it:</p>
+<p>Efter kommandot uppmanas du att skicka G-koden <code>SAVE_CONFIG</code> för att spara profilen permanent. Om det inte finns någon profil med namnet <code>my_skew_profile</code> skapas en ny profil. Finns den angivna profilen skrivs den över.</p>
+<p>När du har sparat en profil kan du läsa in den:</p>
 <div class="highlight"><pre><span></span><code>SKEW_PROFILE LOAD=my_skew_profile
 </code></pre></div>
 
-<p>It is also possible to remove an old or out of date profile:</p>
+<p>Du kan också ta bort en gammal eller inaktuell profil:</p>
 <div class="highlight"><pre><span></span><code>SKEW_PROFILE REMOVE=my_skew_profile
 </code></pre></div>
 
-<p>After removing a profile you will be prompted to issue a <code>SAVE_CONFIG</code> to make this change persist.</p>
-<h2 id="verifying-your-correction">Verifying your correction<a class="headerlink" href="#verifying-your-correction" title="Permanent link">&para;</a></h2>
-<p>After skew_correction has been configured you may reprint the calibration part with correction enabled. Use the following gcode to check your skew on each plane. The results should be lower than those reported via <code>GET_CURRENT_SKEW</code>.</p>
+<p>När en profil har tagits bort uppmanas du att skicka <code>SAVE_CONFIG</code> så att ändringen sparas permanent.</p>
+<h2 id="verifiera-korrigeringen">Verifiera korrigeringen<a class="headerlink" href="#verifiera-korrigeringen" title="Permanent link">&para;</a></h2>
+<p>När skew_correction har konfigurerats kan du skriva ut kalibreringsdelen igen med korrigering aktiverad. Använd följande G-kod för att kontrollera skevheten i varje plan. Resultaten bör vara lägre än de som rapporteras av <code>GET_CURRENT_SKEW</code>.</p>
 <div class="highlight"><pre><span></span><code>CALC_MEASURED_SKEW AC=&lt;ac_length&gt; BD=&lt;bd_length&gt; AD=&lt;ad_length&gt;
 </code></pre></div>
 
-<h2 id="caveats">Caveats<a class="headerlink" href="#caveats" title="Permanent link">&para;</a></h2>
-<p>Due to the nature of skew correction it is recommended to configure skew in your start gcode, after homing and any kind of movement that travels near the edge of the print area such as a purge or nozzle wipe. You may use use the <code>SET_SKEW</code> or <code>SKEW_PROFILE</code> gcodes to accomplish this. It is also recommended to issue a <code>SET_SKEW CLEAR=1</code> in your end gcode.</p>
-<p>Keep in mind that it is possible for <code>[skew_correction]</code> to generate a correction that moves the tool beyond the printer's boundaries on the X and/or Y axes. It is recommended to arrange parts away from the edges when using <code>[skew_correction]</code>.</p>
+<h2 id="begransningar">Begränsningar<a class="headerlink" href="#begransningar" title="Permanent link">&para;</a></h2>
+<p>På grund av hur skevhetskorrigering fungerar rekommenderas att den konfigureras i G-koden för start, efter ändlägeskörning och rörelser nära utskriftsområdets kant, till exempel rensning eller munstycksavtorkning. Använd G-koderna <code>SET_SKEW</code> eller <code>SKEW_PROFILE</code>. Det rekommenderas också att skicka <code>SET_SKEW CLEAR=1</code> i G-koden för slut.</p>
+<p>Tänk på att <code>[skew_correction]</code> kan skapa en korrigering som flyttar verktyget utanför skrivarens gränser på X- och/eller Y-axeln. Placera delar en bit från kanterna när <code>[skew_correction]</code> används.</p>
 
               
             </article>

@@ -1865,7 +1865,7 @@
 <li><code>speed_фактор</code>: "швидкий фактор перенареченості" в комплекті команди <code>M220</code>. Це плаваючою точкою значення, таким чином, 1,0 означає, що не перейди і, наприклад, 2.0 буде подвійний запитаний швидкість.</li>
 <li><code>extrude_фактор</code>: "надійний фактор перенареченого" як набір <code>M221</code> команди. Це плаваючою точкою значення, наприклад, 1,0 означає, що не перенаречена і, наприклад, 2.0 буде подвійний запитаний екструзії.</li>
 <li><code>absolute_координати</code>: Це повертає Правда, якщо в <code>G90</code> абсолютний координатний режим або False, якщо в <code>G91</code> відносний режим.</li>
-<li><code>absolute_extrude</code>: Це повертає Правда, якщо в <code>M82</code> абсолютний вихідний режим або False, якщо в <code>M83</code> відносний режим.</li>
+<li><code>absolute_extrude</code>: Returns True if absolute extrusions are permitted. An <code>M83</code> force relative extrusion mode command causes this value to return False. An <code>M82</code> command returns this value to True.</li>
 <li><code>axis_map</code>: Provides a mechanism for finding the coordinate component for a given G-Code id that is used in <code>G1</code> commands. See the <a href="#accessing-coordinates">Accessing Coordinates</a> section for details.</li>
 </ul>
 <h2 id="hrefhttprealtorifua-title">href="<a href="http://realtor.if.ua/">http://realtor.if.ua/</a>" title="агентство нерухомості ріелтор"<a class="headerlink" href="#hrefhttprealtorifua-title" title="Permanent link">&para;</a></h2>
@@ -1942,6 +1942,7 @@
 <li><code>mcu_version</code>: Версія коду Klipper, що повідомляється мікроконтролером.</li>
 <li><code>mcu_build_versions</code>: Відомості про інструменти побудови, які використовуються для створення мікроконтролерного коду (як повідомляється мікроконтролером).</li>
 <li><code>mcu_constants.&lt;constant_name&gt;</code>: Спірні часові константи, що повідомляються мікроконтролером. Доступні константи можуть відрізнятися між архітектурами мікроконтролерів і з кожним кодом.</li>
+<li><code>mcu_kconfig</code>: The minimal build configuration (<code>savedefconfig</code> output) that the micro-controller firmware was compiled from, as reported by the micro-controller. <code>None</code> if the firmware predates this feature or does not provide it.</li>
 <li><code>last_stats.&lt;statistics_name&gt;</code>: Статистика інформації про підключення мікроконтролера.</li>
 </ul>
 <h2 id="_11">транспорт<a class="headerlink" href="#_11" title="Permanent link">&para;</a></h2>
@@ -2033,7 +2034,7 @@
 </ul>
 <h2 id="_14">датчики температури<a class="headerlink" href="#_14" title="Permanent link">&para;</a></h2>
 <p>Інформація доступна в</p>
-<p><a href="Config_Reference.html#bmp280bme280bme680-temperature-sensor">bme280 config_section_name</a>, <a href="Config_Reference.html#htu21d-sensor">htu21d config_section_name</a>, <a href="Config_Reference.html#sht31-sensor">sht3x config_section_name</a>, <a href="Config_Reference .md#lm75-temperature-sensor">lm75 con fig_section_name</a>, <a href="Config_Reference.html#host-temperature-sensor">temperature_host config_section_name</a> і <a href="Config_Reference.html#combined-temperature-sensor">temperature_combined config_section_name</a> об’єкти:</p>
+<p><a href="Config_Reference.html#bmp180bmp280bme280bmp388bme680-temperature-sensor">bme280 config_section_name</a>, <a href="Config_Reference.html#htu21d-sensor">htu21d config_section_name</a>, <a href="Config_Reference.html#sht3x-sensor">sht3x config_section_name</a>, <a href="Config_Reference.html#lm75-temperature-sensor">lm75 config_section_name</a>, <a href="Config_Reference.html#host-temperature-sensor">temperature_host config_section_name</a> and <a href="Config_Reference.html#combined-temperature-sensor">temperature_combined config_section_name</a> objects:</p>
 <ul>
 <li><code>температура</code>: Остання температура читання від датчика.</li>
 <li><code>humidity</code>, <code>pressure</code>, <code>гас</code>: Останні значення читання від датчика (тільки на bme280, htu21d, sht3x і lm75 сенсорів).</li>

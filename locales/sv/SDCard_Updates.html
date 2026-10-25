@@ -13,7 +13,7 @@
     
     
       
-        <title>SDCard updates - Klipper documentation</title>
+        <title>SD-kortsuppdateringar - Klipper documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#sdcard-updates" class="md-skip">
+        <a href="#sd-kortsuppdateringar" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              SDCard updates
+              SD-kortsuppdateringar
             
           </span>
         </div>
@@ -1348,65 +1348,65 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#typical-upgrade-procedure" class="md-nav__link">
-    Typical Upgrade Procedure
+  <a href="#typisk-uppdateringsprocedur" class="md-nav__link">
+    Typisk uppdateringsprocedur
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#advanced-usage" class="md-nav__link">
-    Advanced Usage
+  <a href="#avancerad-anvandning" class="md-nav__link">
+    Avancerad användning
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#failure-to-initialize" class="md-nav__link">
-    Failure to Initialize
+  <a href="#misslyckad-initiering" class="md-nav__link">
+    Misslyckad initiering
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#caveats" class="md-nav__link">
-    Caveats
+  <a href="#begransningar" class="md-nav__link">
+    Begränsningar
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#board-definitions" class="md-nav__link">
-    Board Definitions
+  <a href="#kortdefinitioner" class="md-nav__link">
+    Kortdefinitioner
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#flashing-boards-that-use-sdio" class="md-nav__link">
-    Flashing Boards that use SDIO
+  <a href="#flasha-kort-som-anvander-sdio" class="md-nav__link">
+    Flasha kort som använder SDIO
   </a>
   
-    <nav class="md-nav" aria-label="Flashing Boards that use SDIO">
+    <nav class="md-nav" aria-label="Flasha kort som använder SDIO">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#sdio-programming-with-rpi-on-separate-power-supply" class="md-nav__link">
-    SDIO Programming with RPi on Separate Power Supply
+  <a href="#sdio-programmering-med-rpi-pa-separat-stromforsorjning" class="md-nav__link">
+    SDIO-programmering med RPi på separat strömförsörjning
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#sdio-programming-with-rpi-on-the-same-power-supply" class="md-nav__link">
-    SDIO Programming with RPi on the Same Power Supply
+  <a href="#sdio-programmering-med-rpi-pa-samma-stromforsorjning" class="md-nav__link">
+    SDIO-programmering med RPi på samma strömförsörjning
   </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#sdio-to-spi-pin-mapping" class="md-nav__link">
-    SDIO to SPI Pin Mapping
+  <a href="#mappning-fran-sdio-till-spi-stift" class="md-nav__link">
+    Mappning från SDIO- till SPI-stift
   </a>
   
 </li>
@@ -1433,10 +1433,10 @@
 </a>
 
 
-<h1 id="sdcard-updates">SDCard updates<a class="headerlink" href="#sdcard-updates" title="Permanent link">&para;</a></h1>
-<p>Many of today's popular controller boards ship with a bootloader capable of updating firmware via SD Card. While this is convenient in many circumstances, these bootloaders typically provide no other way to update firmware. This can be a nuisance if your board is mounted in a location that is difficult to access or if you need to update firmware often. After Klipper has been initially flashed to a controller it is possible to transfer new firmware to the SD Card and initiate the flashing procedure via ssh.</p>
-<h2 id="typical-upgrade-procedure">Typical Upgrade Procedure<a class="headerlink" href="#typical-upgrade-procedure" title="Permanent link">&para;</a></h2>
-<p>The procedure for updating MCU firmware using the SD Card is similar to that of other methods. Instead of using <code>make flash</code> it is necessary to run a helper script, <code>flash-sdcard.sh</code>. Updating a BigTreeTech SKR 1.3 might look like the following:</p>
+<h1 id="sd-kortsuppdateringar">SD-kortsuppdateringar<a class="headerlink" href="#sd-kortsuppdateringar" title="Permanent link">&para;</a></h1>
+<p>Många populära styrkort levereras i dag med en starthanterare som kan uppdatera fast programvara via SD-kort. Det är praktiskt i många situationer, men dessa starthanterare erbjuder vanligen inget annat sätt att uppdatera den fasta programvaran. Det kan vara besvärligt om kortet är monterat på en svåråtkomlig plats eller om den fasta programvaran måste uppdateras ofta. När Klipper först har flashats till en styrenhet kan ny fast programvara överföras till SD-kortet och flashningsproceduren startas via SSH.</p>
+<h2 id="typisk-uppdateringsprocedur">Typisk uppdateringsprocedur<a class="headerlink" href="#typisk-uppdateringsprocedur" title="Permanent link">&para;</a></h2>
+<p>Proceduren för att uppdatera MCU:ns fasta programvara med SD-kort liknar andra metoder. I stället för <code>make flash</code> måste hjälpskriptet <code>flash-sdcard.sh</code> köras. Uppdatering av en BigTreeTech SKR 1.3 kan exempelvis se ut så här:</p>
 <div class="highlight"><pre><span></span><code>sudo service klipper stop
 cd ~/klipper
 git pull
@@ -1447,14 +1447,14 @@ make
 sudo service klipper start
 </code></pre></div>
 
-<p>It is up to the user to determine the device location and board name. If a user needs to flash multiple boards, <code>flash-sdcard.sh</code> (or <code>make flash</code> if appropriate) should be run for each board prior to restarting the Klipper service.</p>
-<p>Supported boards can be listed with the following command:</p>
+<p>Det är användarens ansvar att fastställa enhetens sökväg och kortets namn. Om flera kort måste flashas ska <code>flash-sdcard.sh</code>, eller <code>make flash</code> när det är lämpligt, köras för varje kort innan Klipper-tjänsten startas om.</p>
+<p>Kort som stöds kan listas med följande kommando:</p>
 <div class="highlight"><pre><span></span><code>./scripts/flash-sdcard.sh -l
 </code></pre></div>
 
-<p>If you do not see your board listed it may be necessary to add a new board definition as <a href="#board-definitions">described below</a>.</p>
-<h2 id="advanced-usage">Advanced Usage<a class="headerlink" href="#advanced-usage" title="Permanent link">&para;</a></h2>
-<p>The above commands assume that your MCU connects at the default baud rate of 250000 and the firmware is located at <code>~/klipper/out/klipper.bin</code>. The <code>flash-sdcard.sh</code> script provides options for changing these defaults. All options can be viewed by the help screen:</p>
+<p>Om kortet inte visas i listan kan en ny kortdefinition behöva läggas till enligt <a href="#board-definitions">beskrivningen nedan</a>.</p>
+<h2 id="avancerad-anvandning">Avancerad användning<a class="headerlink" href="#avancerad-anvandning" title="Permanent link">&para;</a></h2>
+<p>Kommandona ovan förutsätter att MCU:n ansluter med standardhastigheten 250000 baud och att den fasta programvaran finns i <code>~/klipper/out/klipper.bin</code>. Skriptet <code>flash-sdcard.sh</code> har alternativ för att ändra dessa standardvärden. Alla alternativ visas på hjälpskärmen:</p>
 <div class="highlight"><pre><span></span><code>./scripts/flash-sdcard.sh -h
 SD Card upload utility for Klipper
 
@@ -1474,35 +1474,35 @@ optional arguments:
   -f &lt;firmware&gt;   path to klipper.bin
 </code></pre></div>
 
-<p>If your board is flashed with firmware that connects at a custom baud rate it is possible to upgrade by specifying the <code>-b</code> option:</p>
+<p>Om kortet är flashat med fast programvara som ansluter med en anpassad baudhastighet kan den uppdateras genom att ange alternativet <code>-b</code>:</p>
 <div class="highlight"><pre><span></span><code>./scripts/flash-sdcard.sh -b 115200 /dev/ttyAMA0 btt-skr-v1.3
 </code></pre></div>
 
-<p>If you wish to flash a build of Klipper located somewhere other than the default location it can be done by specifying the <code>-f</code> option:</p>
+<p>Om en Klipper-byggning som finns på en annan plats än standardplatsen ska flashas kan det göras genom att ange alternativet <code>-f</code>:</p>
 <div class="highlight"><pre><span></span><code>./scripts/flash-sdcard.sh -f ~/downloads/klipper.bin /dev/ttyAMA0 btt-skr-v1.3
 </code></pre></div>
 
-<p>Note that when upgrading a MKS Robin E3 it is not necessary to manually run <code>update_mks_robin.py</code> and supply the resulting binary to <code>flash-sdcard.sh</code>. This procedure is automated during the upload process.</p>
-<p>The <code>-c</code> option is used to perform a check or verify-only operation to test if the board is running the specified firmware correctly. This option is primarily intended for cases where a manual power-cycle is necessary to complete the flashing procedure, such as with bootloaders that use SDIO mode instead of SPI to access their SD Cards. (See Caveats below) But, it can also be used anytime to verify if the code flashed into the board matches the version in your build folder on any supported board.</p>
-<h2 id="failure-to-initialize">Failure to Initialize<a class="headerlink" href="#failure-to-initialize" title="Permanent link">&para;</a></h2>
-<p>Some SD cards may fail to initialize at the default SPI speed of 400KHz. In this situation it is possible to use <code>-s</code> to drive the SPI peripheral at 4MHz. For example:</p>
+<p>Vid uppdatering av en MKS Robin E3 behöver <code>update_mks_robin.py</code> inte köras manuellt och den resulterande binärfilen inte heller anges till <code>flash-sdcard.sh</code>. Proceduren automatiseras under uppladdningen.</p>
+<p>Alternativet <code>-c</code> används för att utföra en kontroll eller enbart verifiering, för att testa om kortet kör den angivna fasta programvaran korrekt. Det är främst avsett för fall där en manuell strömcykel krävs för att slutföra flashningen, exempelvis när starthanteraren använder SDIO-läge i stället för SPI för att komma åt SD-kortet. Se varningarna nedan. Det kan också användas när som helst för att kontrollera om koden som flashats till kortet stämmer med versionen i byggmappen på ett kort som stöds.</p>
+<h2 id="misslyckad-initiering">Misslyckad initiering<a class="headerlink" href="#misslyckad-initiering" title="Permanent link">&para;</a></h2>
+<p>Vissa SD-kort kan misslyckas med initiering vid SPI-standardhastigheten 400 kHz. I den situationen går det att använda <code>-s</code> för att driva SPI-kringutrustningen med 4 MHz. Till exempel:</p>
 <div class="highlight"><pre><span></span><code>./scripts/flash-sdcard.sh -s /dev/ttyACM0 btt-skr-v1.3
 </code></pre></div>
 
-<p>If the device still fails to initialize then cause of the failure is unrelated to the speed and likely a result of one of the following conditions:</p>
+<p>Om enheten fortfarande inte kan initieras beror felet inte på hastigheten, utan sannolikt på ett av följande förhållanden:</p>
 <ul>
-<li>The SD card is improperly formatted. Must be <code>fat</code> or <code>fat32</code>.</li>
-<li>Attempt to initialize a card using the SPI interface that has already been initialized over SDIO.</li>
-<li>The SD card has failed or is corrupt.</li>
+<li>SD-kortet är felaktigt formaterat. Det måste vara <code>fat</code> eller <code>fat32</code>.</li>
+<li>Försök att initiera ett kort med SPI-gränssnittet som redan har initierats över SDIO.</li>
+<li>SD-kortet har gått sönder eller är skadat.</li>
 </ul>
-<h2 id="caveats">Caveats<a class="headerlink" href="#caveats" title="Permanent link">&para;</a></h2>
+<h2 id="begransningar">Begränsningar<a class="headerlink" href="#begransningar" title="Permanent link">&para;</a></h2>
 <ul>
-<li>As mentioned in the introduction, this method only works for upgrading firmware. The initial flashing procedure must be done manually per the instructions that apply to your controller board.</li>
-<li>While it is possible to flash a build that changes the Serial Baud or connection interface (ie: from USB to UART), verification will always fail as the script will be unable to reconnect to the MCU to verify the current version.</li>
-<li>Only boards that use SPI for SD Card communication are supported. Boards that use SDIO, such as the Flymaker Flyboard and MKS Robin Nano V1/V2, will not work in SDIO mode. However, it's usually possible to flash such boards using Software SPI mode instead. But if the board's bootloader only uses SDIO mode to access the SD Card, a power-cycle of the board and SD Card will be necessary so that the mode can switch from SPI back to SDIO to complete reflashing. Such boards should be defined with <code>skip_verify</code> enabled to skip the verify step immediately after flashing. Then after the manual power-cycle, you can rerun the exact same <code>./scripts/flash-sdcard.sh</code> command, but add the <code>-c</code> option to complete the check/verify operation. See <a href="#flashing-boards-that-use-sdio">Flashing Boards that use SDIO</a> for examples.</li>
+<li>Som nämnts i inledningen fungerar denna metod endast för uppdatering av fast programvara. Den första flashningen måste göras manuellt enligt instruktionerna för ditt styrkort.</li>
+<li>Det går att flasha en byggning som ändrar seriell baudhastighet eller anslutningsgränssnitt, till exempel från USB till UART, men verifieringen misslyckas alltid eftersom skriptet inte kan återansluta till MCU:n för att kontrollera den aktuella versionen.</li>
+<li>Endast kort som använder SPI för kommunikation med SD-kortet stöds. Kort som använder SDIO, exempelvis Flymaker Flyboard och MKS Robin Nano V1/V2, fungerar inte i SDIO-läge. Sådana kort kan dock vanligen flashas med SPI-läget i programvara. Om kortets starthanterare endast använder SDIO-läge för att komma åt SD-kortet krävs en strömcykel för både kortet och SD-kortet, så att läget kan växla från SPI tillbaka till SDIO för att slutföra flashningen. Sådana kort ska definieras med <code>skip_verify</code> aktiverat så att verifieringssteget hoppas över direkt efter flashningen. Efter den manuella strömcykeln kan exakt samma kommando <code>./scripts/flash-sdcard.sh</code> köras igen med alternativet <code>-c</code> för att slutföra kontrollen eller verifieringen. Se <a href="#flashing-boards-that-use-sdio">Flasha kort som använder SDIO</a> för exempel.</li>
 </ul>
-<h2 id="board-definitions">Board Definitions<a class="headerlink" href="#board-definitions" title="Permanent link">&para;</a></h2>
-<p>Most common boards should be available, however it is possible to add a new board definition if necessary. Board definitions are located in <code>~/klipper/scripts/spi_flash/board_defs.py</code>. The definitions are stored in dictionary, for example:</p>
+<h2 id="kortdefinitioner">Kortdefinitioner<a class="headerlink" href="#kortdefinitioner" title="Permanent link">&para;</a></h2>
+<p>De vanligaste korten bör redan finnas tillgängliga, men vid behov går det att lägga till en ny kortdefinition. Kortdefinitionerna finns i <code>~/klipper/scripts/spi_flash/board_defs.py</code>. Definitionerna lagras i en ordbok, till exempel:</p>
 <div class="highlight"><pre><span></span><code><span class="n">BOARD_DEFS</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;generic-lpc1768&#39;</span><span class="p">:</span> <span class="p">{</span>
         <span class="s1">&#39;mcu&#39;</span><span class="p">:</span> <span class="s2">&quot;lpc1768&quot;</span><span class="p">,</span>
@@ -1513,33 +1513,33 @@ optional arguments:
 <span class="p">}</span>
 </code></pre></div>
 
-<p>The following fields may be specified:</p>
+<p>Följande fält kan anges:</p>
 <ul>
-<li><code>mcu</code>: The mcu type. This can be retrieved after configuring the build via <code>make menuconfig</code> by running <code>cat .config | grep CONFIG_MCU</code>. This field is required.</li>
-<li><code>spi_bus</code>: The SPI bus connected to the SD Card. This should be retrieved from the board's schematic. This field is required.</li>
-<li><code>cs_pin</code>: The Chip Select Pin connected to the SD Card. This should be retrieved from the board schematic. This field is required.</li>
-<li><code>firmware_path</code>: The path on the SD Card where firmware should be transferred. The default is <code>firmware.bin</code>.</li>
-<li><code>current_firmware_path</code>: The path on the SD Card where the renamed firmware file is located after a successful flash. The default is <code>firmware.cur</code>.</li>
-<li><code>skip_verify</code>: This defines a boolean value which tells the scripts to skip the firmware verification step during the flashing process. The default is <code>False</code>. It can be set to <code>True</code> for boards that require a manual power-cycle to complete flashing. To verify the firmware afterward, run the script again with the <code>-c</code> option to perform the verification step. <a href="#caveats">See caveats with SDIO cards</a></li>
+<li><code>mcu</code>: MCU-typen. Den kan hämtas efter att byggningen har konfigurerats via <code>make menuconfig</code> genom att köra <code>cat .config | grep CONFIG_MCU</code>. Fältet krävs.</li>
+<li><code>spi_bus</code>: SPI-bussen som är ansluten till SD-kortet. Den ska hämtas från kortets schema. Fältet krävs.</li>
+<li><code>cs_pin</code>: Chip Select-stiftet som är anslutet till SD-kortet. Det ska hämtas från kortets schema. Fältet krävs.</li>
+<li><code>firmware_path</code>: Sökvägen på SD-kortet dit den fasta programvaran ska överföras. Standardvärdet är <code>firmware.bin</code>.</li>
+<li><code>current_firmware_path</code>: Sökvägen på SD-kortet där den omdöpta fasta programvarufilen finns efter lyckad flashning. Standardvärdet är <code>firmware.cur</code>.</li>
+<li><code>skip_verify</code>: Anger ett booleskt värde som talar om för skripten att hoppa över steget för verifiering av fast programvara under flashningen. Standardvärdet är <code>False</code>. Det kan sättas till <code>True</code> för kort som kräver en manuell strömcykel för att slutföra flashningen. För att verifiera den fasta programvaran efteråt kör du skriptet igen med alternativet <code>-c</code>. <a href="#caveats">Se varningar för SDIO-kort</a></li>
 </ul>
-<p>If software SPI is required, the <code>spi_bus</code> field should be set to <code>swspi</code> and the following additional field should be specified:</p>
+<p>Om SPI i programvara krävs ska fältet <code>spi_bus</code> sättas till <code>swspi</code> och följande ytterligare fält anges:</p>
 <ul>
-<li><code>spi_pins</code>: This should be 3 comma separated pins that are connected to the SD Card in the format of <code>miso,mosi,sclk</code>.</li>
+<li><code>spi_pins</code>: Tre kommaavgränsade stift som är anslutna till SD-kortet, i formatet <code>miso,mosi,sclk</code>.</li>
 </ul>
-<p>It should be exceedingly rare that Software SPI is necessary, typically only boards with design errors or boards that normally only support SDIO mode for their SD Card will require it. The <code>btt-skr-pro</code> board definition provides an example of the former, and the <code>btt-octopus-f446-v1</code> board definition provides an example of the latter.</p>
-<p>Prior to creating a new board definition one should check to see if an existing board definition meets the criteria necessary for the new board. If this is the case, a <code>BOARD_ALIAS</code> may be specified. For example, the following alias may be added to specify <code>my-new-board</code> as an alias for <code>generic-lpc1768</code>:</p>
+<p>Det bör vara mycket ovanligt att SPI i programvara behövs. Normalt krävs det bara av kort med konstruktionsfel eller kort som vanligen endast stöder SDIO-läge för SD-kortet. Kortdefinitionen <code>btt-skr-pro</code> visar det förstnämnda och <code>btt-octopus-f446-v1</code> det sistnämnda.</p>
+<p>Innan en ny kortdefinition skapas bör du kontrollera om en befintlig definition uppfyller kraven för det nya kortet. I så fall kan <code>BOARD_ALIAS</code> anges. Följande alias kan till exempel läggas till för att ange <code>my-new-board</code> som alias för <code>generic-lpc1768</code>:</p>
 <div class="highlight"><pre><span></span><code><span class="n">BOARD_ALIASES</span> <span class="o">=</span> <span class="p">{</span>
     <span class="o">...&lt;</span><span class="n">previous</span> <span class="n">aliases</span><span class="o">&gt;</span><span class="p">,</span>
     <span class="s1">&#39;my-new-board&#39;</span><span class="p">:</span> <span class="n">BOARD_DEFS</span><span class="p">[</span><span class="s1">&#39;generic-lpc1768&#39;</span><span class="p">],</span>
 <span class="p">}</span>
 </code></pre></div>
 
-<p>If you need a new board definition and you are uncomfortable with the procedure outlined above it is recommended that you request one in the <a href="Contact.html">Klipper Discord</a>.</p>
-<h2 id="flashing-boards-that-use-sdio">Flashing Boards that use SDIO<a class="headerlink" href="#flashing-boards-that-use-sdio" title="Permanent link">&para;</a></h2>
-<p><a href="#caveats">As mentioned in the Caveats</a>, boards whose bootloader uses SDIO mode to access their SD Card require a power-cycle of the board, and specifically the SD Card itself, in order to switch from the SPI Mode used while writing the file to the SD Card back to SDIO mode for the bootloader to flash it into the board. These board definitions will use the <code>skip_verify</code> flag, which tells the flashing tool to stop after writing the firmware to the SD Card so that the board can be manually power-cycled and the verification step deferred until that's complete.</p>
-<p>There are two scenarios -- one with the RPi Host running on a separate power supply and the other when the RPi Host is running on the same power supply as the main board being flashed. The difference is whether or not it's necessary to also shutdown the RPi and then <code>ssh</code> again after the flashing is complete in order to do the verification step, or if the verification can be done immediately. Here's examples of the two scenarios:</p>
-<h3 id="sdio-programming-with-rpi-on-separate-power-supply">SDIO Programming with RPi on Separate Power Supply<a class="headerlink" href="#sdio-programming-with-rpi-on-separate-power-supply" title="Permanent link">&para;</a></h3>
-<p>A typical session with the RPi on a Separate Power Supply looks like the following. You will, of course, need to use your proper device path and board name:</p>
+<p>Om du behöver en ny kortdefinition och inte är bekväm med proceduren ovan rekommenderas att du begär en i <a href="Contact.html">Klipper Discord</a>.</p>
+<h2 id="flasha-kort-som-anvander-sdio">Flasha kort som använder SDIO<a class="headerlink" href="#flasha-kort-som-anvander-sdio" title="Permanent link">&para;</a></h2>
+<p>Som <a href="#caveats">nämnts i varningarna</a> kräver kort vars starthanterare använder SDIO-läge för att komma åt SD-kortet en strömcykel för kortet och särskilt för själva SD-kortet. Det behövs för att växla från SPI-läget, som används när filen skrivs till SD-kortet, tillbaka till SDIO-läge så att starthanteraren kan flasha in den på kortet. Dessa kortdefinitioner använder flaggan <code>skip_verify</code>, som gör att flashningsverktyget stannar efter att den fasta programvaran skrivits till SD-kortet så att kortet kan strömcyklas manuellt och verifieringssteget skjuts upp tills det är klart.</p>
+<p>Det finns två scenarier: ett där RPi-värden körs med en separat strömförsörjning och ett där RPi-värden körs med samma strömförsörjning som huvudkortet som flashas. Skillnaden är om RPi också måste stängas av och sedan anslutas med <code>ssh</code> igen efter flashningen för att verifiera, eller om verifieringen kan göras direkt. Här är exempel på de två scenarierna:</p>
+<h3 id="sdio-programmering-med-rpi-pa-separat-stromforsorjning">SDIO-programmering med RPi på separat strömförsörjning<a class="headerlink" href="#sdio-programmering-med-rpi-pa-separat-stromforsorjning" title="Permanent link">&para;</a></h3>
+<p>En typisk session med RPi på separat strömförsörjning ser ut så här. Du måste naturligtvis använda rätt enhetssökväg och kortnamn:</p>
 <div class="highlight"><pre><span></span><code>sudo service klipper stop
 cd ~/klipper
 git pull
@@ -1552,8 +1552,8 @@ make
 sudo service klipper start
 </code></pre></div>
 
-<h3 id="sdio-programming-with-rpi-on-the-same-power-supply">SDIO Programming with RPi on the Same Power Supply<a class="headerlink" href="#sdio-programming-with-rpi-on-the-same-power-supply" title="Permanent link">&para;</a></h3>
-<p>A typical session with the RPi on the Same Power Supply looks like the following. You will, of course, need to use your proper device path and board name:</p>
+<h3 id="sdio-programmering-med-rpi-pa-samma-stromforsorjning">SDIO-programmering med RPi på samma strömförsörjning<a class="headerlink" href="#sdio-programmering-med-rpi-pa-samma-stromforsorjning" title="Permanent link">&para;</a></h3>
+<p>En typisk session med RPi på samma strömförsörjning ser ut så här. Du måste naturligtvis använda rätt enhetssökväg och kortnamn:</p>
 <div class="highlight"><pre><span></span><code>sudo service klipper stop
 cd ~/klipper
 git pull
@@ -1569,16 +1569,16 @@ cd ~/klipper
 sudo service klipper start
 </code></pre></div>
 
-<p>In this case, since the RPi Host is being restarted, which will restart the <code>klipper</code> service, it's necessary to stop <code>klipper</code> again before doing the verification step and restart it after verification is complete.</p>
-<h3 id="sdio-to-spi-pin-mapping">SDIO to SPI Pin Mapping<a class="headerlink" href="#sdio-to-spi-pin-mapping" title="Permanent link">&para;</a></h3>
-<p>If your board's schematic uses SDIO for its SD Card, you can map the pins as described in the chart below to determine the compatible Software SPI pins to assign in the <code>board_defs.py</code> file:</p>
+<p>I detta fall startas RPi-värden om, vilket även startar om tjänsten <code>klipper</code>. Därför måste <code>klipper</code> stoppas igen före verifieringssteget och startas om när verifieringen är klar.</p>
+<h3 id="mappning-fran-sdio-till-spi-stift">Mappning från SDIO- till SPI-stift<a class="headerlink" href="#mappning-fran-sdio-till-spi-stift" title="Permanent link">&para;</a></h3>
+<p>Om kortets schema använder SDIO för SD-kortet kan stiften mappas enligt tabellen nedan för att fastställa kompatibla SPI-stift i programvara, som ska anges i filen <code>board_defs.py</code>:</p>
 <table>
 <thead>
 <tr>
-<th align="center">SD Card Pin</th>
-<th align="center">Micro SD Card Pin</th>
-<th align="center">SDIO Pin Name</th>
-<th align="center">SPI Pin Name</th>
+<th align="center">SD-kortsstift</th>
+<th align="center">MicroSD-kortsstift</th>
+<th align="center">SDIO-stiftnamn</th>
+<th align="center">SPI-stiftnamn</th>
 </tr>
 </thead>
 <tbody>
@@ -1586,7 +1586,7 @@ sudo service klipper start
 <td align="center">9</td>
 <td align="center">1</td>
 <td align="center">DATA2</td>
-<td align="center">None (PU)*</td>
+<td align="center">Ingen (PU)*</td>
 </tr>
 <tr>
 <td align="center">1</td>
@@ -1603,8 +1603,8 @@ sudo service klipper start
 <tr>
 <td align="center">4</td>
 <td align="center">4</td>
-<td align="center">+3.3V (VDD)</td>
-<td align="center">+3.3V (VDD)</td>
+<td align="center">+3,3 V (VDD)</td>
+<td align="center">+3,3 V (VDD)</td>
 </tr>
 <tr>
 <td align="center">5</td>
@@ -1628,13 +1628,13 @@ sudo service klipper start
 <td align="center">8</td>
 <td align="center">8</td>
 <td align="center">DATA1</td>
-<td align="center">None (PU)*</td>
+<td align="center">Ingen (PU)*</td>
 </tr>
 <tr>
-<td align="center">N/A</td>
+<td align="center">Ej tillämpligt</td>
 <td align="center">9</td>
-<td align="center">Card Detect (CD)</td>
-<td align="center">Card Detect (CD)</td>
+<td align="center">Kortavkänning (CD)</td>
+<td align="center">Kortavkänning (CD)</td>
 </tr>
 <tr>
 <td align="center">6</td>
@@ -1644,7 +1644,7 @@ sudo service klipper start
 </tr>
 </tbody>
 </table>
-<p>* None (PU) indicates an unused pin with a pull-up resistor</p>
+<p>* Ingen (PU) anger ett oanvänt stift med pullup-motstånd</p>
 
               
             </article>

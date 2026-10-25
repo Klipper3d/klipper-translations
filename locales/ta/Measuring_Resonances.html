@@ -2187,7 +2187,7 @@
  பரிந்துரைக்கப்பட்ட சேப்பர் 2hump_ei @ 45.2 எர்ட்ச்
 </code></pre></div>
 
-<p>அறிக்கையிடப்பட்ட <code>மென்மையான</code> மதிப்புகள் சில சுருக்கமான திட்டமிடப்பட்ட மதிப்புகள் என்பதை நினைவில் கொள்க. வெவ்வேறு உள்ளமைவுகளை ஒப்பிட்டுப் பார்க்க இந்த மதிப்புகள் பயன்படுத்தப்படலாம்: அதிக மதிப்பு, ஒரு சேப்பரை மிகவும் மென்மையாக்கும். இருப்பினும், இந்த மென்மையான மதிப்பெண்கள் எந்தவொரு உண்மையான அளவையும் குறிக்கவில்லை, ஏனெனில் உண்மையான மென்மையானது <a href="#selecting-max-accel"><code>Max_accel</code></a> மற்றும்<code>ச்கொயர்_கார்னர்_வெலோசிட்டி</code> அளவுருக்களைப் பொறுத்தது. ஆகையால், தேர்ந்தெடுக்கப்பட்ட உள்ளமைவு எவ்வளவு மென்மையாக்குகிறது என்பதைக் காண சில சோதனை அச்சிட்டுகளை அச்சிட வேண்டும்.</p>
+<p>Note that the reported <code>smoothing</code> values are some abstract projected values. These values can be used to compare different configurations: the higher the value, the more smoothing a shaper will create. However, these smoothing scores do not represent any real measure of smoothing, because the actual smoothing depends on <a href="#selecting-max_accel"><code>max_accel</code></a> and <code>square_corner_velocity</code> parameters. Therefore, you should print some test prints to see how much smoothing exactly a chosen configuration creates.</p>
 <p>பரிந்துரைக்கப்பட்ட சேப்பர் அளவுருக்கள் மோசமானவை அல்ல, ஆனால் ஃச் அச்சில் குறைவாக மென்மையாக்க விரும்பினால் என்ன செய்வது? பின்வரும் கட்டளையைப் பயன்படுத்தி அதிகபட்ச சேப்பர் மென்மையாக்கலை கட்டுப்படுத்த முயற்சி செய்யலாம்:</p>
 <div class="highlight"><pre><span></span><code>~/klipper/scripts/அளவீடுகள்_சேப்பர்
 </code></pre></div>

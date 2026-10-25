@@ -197,11 +197,6 @@ msgid ""
 " or False if in `G91` relative mode."
 msgstr ""
 
-msgid ""
-"`absolute_extrude`: This returns True if in `M82` absolute extrude mode or "
-"False if in `M83` relative mode."
-msgstr ""
-
 msgid "hall_filament_width_sensor"
 msgstr ""
 
@@ -976,18 +971,6 @@ msgid ""
 " at run-time."
 msgstr ""
 
-#: docs/Status_Reference.md:block 113 (paragraph)
-msgid ""
-"[bme280 "
-"config_section_name](Config_Reference.md#bmp280bme280bme680-temperature-"
-"sensor), [htu21d config_section_name](Config_Reference.md#htu21d-sensor), "
-"[sht3x config_section_name](Config_Reference.md#sht31-sensor), [lm75 "
-"config_section_name](Config_Reference.md#lm75-temperature-sensor), "
-"[temperature_host config_section_name](Config_Reference.md#host-temperature-"
-"sensor) and [temperature_combined "
-"config_section_name](Config_Reference.md#combined-temperature-sensor) objects:"
-msgstr ""
-
 #: docs/Status_Reference.md:block 114 (unordered list)
 msgid ""
 "`humidity`, `pressure`, `gas`: The last read values from the sensor (only on "
@@ -1326,6 +1309,49 @@ msgid ""
 "wanted to find the component associated with the \"extruder\" object, one "
 "could use `{printer.toolhead.position[printer.toolhead.extra_axes.extruder]}`."
 msgstr ""
+
+#: docs/Status_Reference.md:block 57 (unordered list)
+msgid ""
+"`absolute_extrude`: Returns True if absolute extrusions are permitted. An "
+"`M83` force relative extrusion mode command causes this value to return False."
+" An `M82` command returns this value to True."
+msgstr ""
+
+#: docs/Status_Reference.md:block 84 (unordered list)
+msgid ""
+"`mcu_kconfig`: The minimal build configuration (`savedefconfig` output) that "
+"the micro-controller firmware was compiled from, as reported by the micro-"
+"controller. `None` if the firmware predates this feature or does not provide "
+"it."
+msgstr ""
+
+#: docs/Status_Reference.md:block 129 (paragraph)
+msgid ""
+"[bme280 "
+"config_section_name](Config_Reference.md#bmp180bmp280bme280bmp388bme680-temperature-"
+"sensor), [htu21d config_section_name](Config_Reference.md#htu21d-sensor), "
+"[sht3x config_section_name](Config_Reference.md#sht3x-sensor), [lm75 "
+"config_section_name](Config_Reference.md#lm75-temperature-sensor), "
+"[temperature_host config_section_name](Config_Reference.md#host-temperature-"
+"sensor) and [temperature_combined "
+"config_section_name](Config_Reference.md#combined-temperature-sensor) objects:"
+msgstr ""
+
+#~ msgid ""
+#~ "`absolute_extrude`: This returns True if in `M82` absolute extrude mode or "
+#~ "False if in `M83` relative mode."
+#~ msgstr ""
+
+#~ msgid ""
+#~ "[bme280 "
+#~ "config_section_name](Config_Reference.md#bmp280bme280bme680-temperature-"
+#~ "sensor), [htu21d config_section_name](Config_Reference.md#htu21d-sensor), "
+#~ "[sht3x config_section_name](Config_Reference.md#sht31-sensor), [lm75 "
+#~ "config_section_name](Config_Reference.md#lm75-temperature-sensor), "
+#~ "[temperature_host config_section_name](Config_Reference.md#host-temperature-"
+#~ "sensor) and [temperature_combined "
+#~ "config_section_name](Config_Reference.md#combined-temperature-sensor) objects:"
+#~ msgstr ""
 
 #~ msgid ""
 #~ "`gcode_position`: The current position of the toolhead relative to the current"

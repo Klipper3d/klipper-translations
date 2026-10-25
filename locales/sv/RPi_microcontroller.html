@@ -13,7 +13,7 @@
     
     
       
-        <title>RPi microcontroller - Klipper documentation</title>
+        <title>RPi-mikrokontroller - Klipper documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#rpi-microcontroller" class="md-skip">
+        <a href="#rpi-mikrokontroller" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              RPi microcontroller
+              RPi-mikrokontroller
             
           </span>
         </div>
@@ -1348,57 +1348,57 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#why-use-rpi-as-a-secondary-mcu" class="md-nav__link">
-    Why use RPi as a secondary MCU?
+  <a href="#varfor-anvanda-rpi-som-sekundar-mcu" class="md-nav__link">
+    Varför använda RPi som sekundär MCU?
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#install-the-rc-script" class="md-nav__link">
-    Install the rc script
+  <a href="#installera-rc-skriptet" class="md-nav__link">
+    Installera rc-skriptet
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#building-the-micro-controller-code" class="md-nav__link">
-    Building the micro-controller code
+  <a href="#bygga-mikrokontrollerkoden" class="md-nav__link">
+    Bygga mikrokontrollerkoden
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#remaining-configuration" class="md-nav__link">
-    Remaining configuration
+  <a href="#aterstaende-konfiguration" class="md-nav__link">
+    Återstående konfiguration
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#optional-enabling-spi" class="md-nav__link">
-    Optional: Enabling SPI
+  <a href="#valfritt-aktivera-spi" class="md-nav__link">
+    Valfritt: Aktivera SPI
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#optional-enabling-i2c" class="md-nav__link">
-    Optional: Enabling I2C
+  <a href="#valfritt-aktivera-i2c" class="md-nav__link">
+    Valfritt: Aktivera I2C
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#optional-identify-the-correct-gpiochip" class="md-nav__link">
-    Optional: Identify the correct gpiochip
+  <a href="#valfritt-identifiera-ratt-gpiochip" class="md-nav__link">
+    Valfritt: Identifiera rätt gpiochip
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#optional-hardware-pwm" class="md-nav__link">
-    Optional: Hardware PWM
+  <a href="#valfritt-maskinvaru-pwm" class="md-nav__link">
+    Valfritt: Maskinvaru-PWM
   </a>
   
 </li>
@@ -1420,59 +1420,59 @@
 </a>
 
 
-<h1 id="rpi-microcontroller">RPi microcontroller<a class="headerlink" href="#rpi-microcontroller" title="Permanent link">&para;</a></h1>
-<p>This document describes the process of running Klipper on a RPi and use the same RPi as secondary mcu.</p>
-<h2 id="why-use-rpi-as-a-secondary-mcu">Why use RPi as a secondary MCU?<a class="headerlink" href="#why-use-rpi-as-a-secondary-mcu" title="Permanent link">&para;</a></h2>
-<p>Often the MCUs dedicated to controlling 3D printers have a limited and pre-configured number of exposed pins to manage the main printing functions (thermal resistors, extruders, steppers ...). Using the RPi where Klipper is installed as a secondary MCU gives the possibility to directly use the GPIOs and the buses (i2c, spi) of the RPi inside klipper without using Octoprint plugins (if used) or external programs giving the ability to control everything within the print GCODE.</p>
-<p><strong>Warning</strong>: If your platform is a <em>Beaglebone</em> and you have correctly followed the installation steps, the linux mcu is already installed and configured for your system.</p>
-<h2 id="install-the-rc-script">Install the rc script<a class="headerlink" href="#install-the-rc-script" title="Permanent link">&para;</a></h2>
-<p>If you want to use the host as a secondary MCU the klipper_mcu process must run before the klippy process.</p>
-<p>After installing Klipper, install the script. run:</p>
+<h1 id="rpi-mikrokontroller">RPi-mikrokontroller<a class="headerlink" href="#rpi-mikrokontroller" title="Permanent link">&para;</a></h1>
+<p>Det här dokumentet beskriver hur Klipper körs på en RPi och hur samma RPi används som sekundär MCU.</p>
+<h2 id="varfor-anvanda-rpi-som-sekundar-mcu">Varför använda RPi som sekundär MCU?<a class="headerlink" href="#varfor-anvanda-rpi-som-sekundar-mcu" title="Permanent link">&para;</a></h2>
+<p>MCU:er som styr 3D-skrivare har ofta ett begränsat och förkonfigurerat antal exponerade stift för huvudfunktionerna, som termistorer, extrudrar och stegmotorer. Genom att använda den RPi där Klipper är installerat som sekundär MCU kan Klipper använda RPi:ns GPIO och bussar (I2C, SPI) direkt, utan OctoPrint-insticksmoduler eller externa program, och styra allt från utskriftens G-kod.</p>
+<p><strong>Varning:</strong> Om plattformen är en <em>Beaglebone</em> och installationsstegen har följts korrekt är Linux-MCU:n redan installerad och konfigurerad för systemet.</p>
+<h2 id="installera-rc-skriptet">Installera rc-skriptet<a class="headerlink" href="#installera-rc-skriptet" title="Permanent link">&para;</a></h2>
+<p>Om värden ska användas som sekundär MCU måste processen <code>klipper_mcu</code> köras före processen <code>klippy</code>.</p>
+<p>Installera skriptet efter att Klipper har installerats. Kör:</p>
 <div class="highlight"><pre><span></span><code>cd ~/klipper/
 sudo cp ./scripts/klipper-mcu.service /etc/systemd/system/
 sudo systemctl enable klipper-mcu.service
 </code></pre></div>
 
-<h2 id="building-the-micro-controller-code">Building the micro-controller code<a class="headerlink" href="#building-the-micro-controller-code" title="Permanent link">&para;</a></h2>
-<p>To compile the Klipper micro-controller code, start by configuring it for the "Linux process":</p>
+<h2 id="bygga-mikrokontrollerkoden">Bygga mikrokontrollerkoden<a class="headerlink" href="#bygga-mikrokontrollerkoden" title="Permanent link">&para;</a></h2>
+<p>Konfigurera först Klippers mikrokontrollerkod för "Linux process" för att kompilera den:</p>
 <div class="highlight"><pre><span></span><code>cd ~/klipper/
 make menuconfig
 </code></pre></div>
 
-<p>In the menu, set "Microcontroller Architecture" to "Linux process," then save and exit.</p>
-<p>To build and install the new micro-controller code, run:</p>
+<p>Ställ in "Microcontroller Architecture" på "Linux process", spara och avsluta.</p>
+<p>Kör följande för att bygga och installera den nya mikrokontrollerkoden:</p>
 <div class="highlight"><pre><span></span><code>sudo service klipper stop
 make flash
 sudo service klipper start
 </code></pre></div>
 
-<p>If klippy.log reports a "Permission denied" error when attempting to connect to <code>/tmp/klipper_host_mcu</code> then you need to add your user to the tty group. The following command will add the "pi" user to the tty group:</p>
+<p>Om klippy.log rapporterar felet "Permission denied" när den ansluter till <code>/tmp/klipper_host_mcu</code> måste användaren läggas till i gruppen tty. Följande kommando lägger till användaren "pi" i gruppen tty:</p>
 <div class="highlight"><pre><span></span><code>sudo usermod -a -G tty pi
 </code></pre></div>
 
-<h2 id="remaining-configuration">Remaining configuration<a class="headerlink" href="#remaining-configuration" title="Permanent link">&para;</a></h2>
-<p>Complete the installation by configuring Klipper secondary MCU following the instructions in <a href="https://github.com/Klipper3d/klipper/blob/master/config/sample-raspberry-pi.cfg">RaspberryPi sample config</a> and <a href="https://github.com/Klipper3d/klipper/blob/master/config/sample-multi-mcu.cfg">Multi MCU sample config</a>.</p>
-<h2 id="optional-enabling-spi">Optional: Enabling SPI<a class="headerlink" href="#optional-enabling-spi" title="Permanent link">&para;</a></h2>
-<p>Make sure the Linux SPI driver is enabled by running <code>sudo raspi-config</code> and enabling SPI under the "Interfacing options" menu.</p>
-<h2 id="optional-enabling-i2c">Optional: Enabling I2C<a class="headerlink" href="#optional-enabling-i2c" title="Permanent link">&para;</a></h2>
-<p>Make sure the Linux I2C driver is enabled by running <code>sudo raspi-config</code> and enabling I2C under the "Interfacing options" menu. If planning to use I2C for the MPU accelerometer, it is also required to set the baud rate to 400000 by: adding/uncommenting <code>dtparam=i2c_arm=on,i2c_arm_baudrate=400000</code> in <code>/boot/config.txt</code> (or <code>/boot/firmware/config.txt</code> in some distros).</p>
-<h2 id="optional-identify-the-correct-gpiochip">Optional: Identify the correct gpiochip<a class="headerlink" href="#optional-identify-the-correct-gpiochip" title="Permanent link">&para;</a></h2>
-<p>On Raspberry Pi and on many clones the pins exposed on the GPIO belong to the first gpiochip. They can therefore be used on klipper simply by referring them with the name <code>gpio0..n</code>. However, there are cases in which the exposed pins belong to gpiochips other than the first. For example in the case of some OrangePi models or if a Port Expander is used. In these cases it is useful to use the commands to access the <em>Linux GPIO character device</em> to verify the configuration.</p>
-<p>To install the <em>Linux GPIO character device - binary</em> on a debian based distro like octopi run:</p>
+<h2 id="aterstaende-konfiguration">Återstående konfiguration<a class="headerlink" href="#aterstaende-konfiguration" title="Permanent link">&para;</a></h2>
+<p>Slutför installationen genom att konfigurera Klippers sekundära MCU enligt <a href="https://github.com/Klipper3d/klipper/blob/master/config/sample-raspberry-pi.cfg">exempelkonfigurationen för Raspberry Pi</a> och <a href="https://github.com/Klipper3d/klipper/blob/master/config/sample-multi-mcu.cfg">exempelkonfigurationen för flera MCU:er</a>.</p>
+<h2 id="valfritt-aktivera-spi">Valfritt: Aktivera SPI<a class="headerlink" href="#valfritt-aktivera-spi" title="Permanent link">&para;</a></h2>
+<p>Kontrollera att Linux SPI-drivrutinen är aktiverad genom att köra <code>sudo raspi-config</code> och aktivera SPI i menyn "Interfacing options".</p>
+<h2 id="valfritt-aktivera-i2c">Valfritt: Aktivera I2C<a class="headerlink" href="#valfritt-aktivera-i2c" title="Permanent link">&para;</a></h2>
+<p>Kontrollera att Linux I2C-drivrutinen är aktiverad genom att köra <code>sudo raspi-config</code> och aktivera I2C i menyn "Interfacing options". Om I2C ska användas för MPU-accelerometern måste även överföringshastigheten ställas in på 400000 genom att lägga till eller avkommentera <code>dtparam=i2c_arm=on,i2c_arm_baudrate=400000</code> i <code>/boot/config.txt</code> (eller <code>/boot/firmware/config.txt</code> i vissa distributioner).</p>
+<h2 id="valfritt-identifiera-ratt-gpiochip">Valfritt: Identifiera rätt gpiochip<a class="headerlink" href="#valfritt-identifiera-ratt-gpiochip" title="Permanent link">&para;</a></h2>
+<p>På Raspberry Pi och många kloner tillhör GPIO-stiften normalt det första gpiochipet. De kan därför användas i Klipper som <code>gpio0..n</code>. I vissa fall tillhör stiften andra gpiochip, exempelvis på vissa OrangePi-modeller eller vid användning av en portexpander. Använd då kommandona för <em>Linux GPIO character device</em> för att kontrollera konfigurationen.</p>
+<p>Kör följande för att installera <em>Linux GPIO character device - binary</em> på en Debian-baserad distribution som OctoPi:</p>
 <div class="highlight"><pre><span></span><code>sudo apt-get install gpiod
 </code></pre></div>
 
-<p>To check available gpiochip run:</p>
+<p>Kör följande för att kontrollera tillgängliga gpiochip:</p>
 <div class="highlight"><pre><span></span><code>gpiodetect
 </code></pre></div>
 
-<p>To check the pin number and the pin availability tun:</p>
+<p>Kör följande för att kontrollera stiftnummer och stiftets tillgänglighet:</p>
 <div class="highlight"><pre><span></span><code>gpioinfo
 </code></pre></div>
 
-<p>The chosen pin can thus be used within the configuration as <code>gpiochip&lt;n&gt;/gpio&lt;o&gt;</code> where <strong>n</strong> is the chip number as seen by the <code>gpiodetect</code> command and <strong>o</strong> is the line number seen by the<code>gpioinfo</code> command.</p>
-<p><strong><em>Warning:</em></strong> only gpio marked as <code>unused</code> can be used. It is not possible for a <em>line</em> to be used by multiple processes simultaneously.</p>
-<p>For example on a RPi 3B+ where klipper use the GPIO20 for a switch:</p>
+<p>Det valda stiftet kan sedan användas i konfigurationen som <code>gpiochip&lt;n&gt;/gpio&lt;o&gt;</code>, där <strong>n</strong> är chipnumret som visas av <code>gpiodetect</code> och <strong>o</strong> är radnumret som visas av <code>gpioinfo</code>.</p>
+<p><strong><em>Varning:</em></strong> Endast GPIO som är markerade som <code>unused</code> kan användas. En <em>line</em> kan inte användas av flera processer samtidigt.</p>
+<p>Exempel på en RPi 3B+ där Klipper använder GPIO20 för en brytare:</p>
 <div class="highlight"><pre><span></span><code>$ gpiodetect
 gpiochip0 [pinctrl-bcm2835] (54 lines)
 gpiochip1 [raspberrypi-exp-gpio] (8 lines)
@@ -1544,30 +1544,30 @@ gpiochip1 - 8 lines:
         line   7:      unnamed       unused   input  active-high
 </code></pre></div>
 
-<h2 id="optional-hardware-pwm">Optional: Hardware PWM<a class="headerlink" href="#optional-hardware-pwm" title="Permanent link">&para;</a></h2>
-<p>Raspberry Pi's have two PWM channels (PWM0 and PWM1) which are exposed on the header or if not, can be routed to existing gpio pins. The Linux mcu daemon uses the pwmchip sysfs interface to control hardware pwm devices on Linux hosts. The pwm sysfs interface is not exposed by default on a Raspberry and can be activated by adding a line to <code>/boot/config.txt</code>:</p>
+<h2 id="valfritt-maskinvaru-pwm">Valfritt: Maskinvaru-PWM<a class="headerlink" href="#valfritt-maskinvaru-pwm" title="Permanent link">&para;</a></h2>
+<p>Raspberry Pi har två PWM-kanaler, PWM0 och PWM1, som är exponerade på stifthuvudet eller kan ledas till befintliga GPIO-stift. Linux-MCU-demonen använder pwmchip-sysfs-gränssnittet för att styra maskinvaru-PWM på Linux-värdar. PWM-sysfs-gränssnittet är inte exponerat som standard på Raspberry Pi men kan aktiveras genom att lägga till en rad i <code>/boot/config.txt</code>:</p>
 <div class="highlight"><pre><span></span><code># Enable pwmchip sysfs interface
 dtoverlay=pwm,pin=12,func=4
 </code></pre></div>
 
-<p>This example enables only PWM0 and routes it to gpio12. If both PWM channels need to be enabled you can use <code>pwm-2chan</code>:</p>
+<p>Det här exemplet aktiverar endast PWM0 och leder den till gpio12. Om båda PWM-kanalerna behöver aktiveras kan <code>pwm-2chan</code> användas:</p>
 <div class="highlight"><pre><span></span><code># Enable pwmchip sysfs interface
 dtoverlay=pwm-2chan,pin=12,func=4,pin2=13,func2=4
 </code></pre></div>
 
-<p>This example additionally enables PWM1 and routes it to gpio13.</p>
-<p>The overlay does not expose the pwm line on sysfs on boot and needs to be exported by echo'ing the number of the pwm channel to <code>/sys/class/pwm/pwmchip0/export</code>. This will create device <code>/sys/class/pwm/pwmchip0/pwm0</code> in the filesystem. The easiest way to do this is by adding this to <code>/etc/rc.local</code> before the <code>exit 0</code> line:</p>
+<p>Det här exemplet aktiverar även PWM1 och leder den till gpio13.</p>
+<p>Överlägget exponerar inte PWM-raden i sysfs vid uppstart utan den måste exporteras genom att PWM-kanalens nummer skickas med echo till <code>/sys/class/pwm/pwmchip0/export</code>. Då skapas enheten <code>/sys/class/pwm/pwmchip0/pwm0</code> i filsystemet. Det enklaste är att lägga till följande i <code>/etc/rc.local</code> före raden <code>exit 0</code>:</p>
 <div class="highlight"><pre><span></span><code># Enable pwmchip sysfs interface
 echo 0 &gt; /sys/class/pwm/pwmchip0/export
 </code></pre></div>
 
-<p>When using both PWM channels, the number of the second channel needs to be echo'd as well:</p>
+<p>När båda PWM-kanalerna används måste även numret på den andra kanalen skickas med echo:</p>
 <div class="highlight"><pre><span></span><code># Enable pwmchip sysfs interface
 echo 0 &gt; /sys/class/pwm/pwmchip0/export
 echo 1 &gt; /sys/class/pwm/pwmchip0/export
 </code></pre></div>
 
-<p>With the sysfs in place, you can now use either the pwm channel(s) by adding the following piece of configuration to your <code>printer.cfg</code>:</p>
+<p>När sysfs finns på plats kan du använda PWM-kanalerna genom att lägga till följande konfiguration i <code>printer.cfg</code>:</p>
 <div class="highlight"><pre><span></span><code>[output_pin caselight]
 pin: host:pwmchip0/pwm0
 pwm: True
@@ -1583,14 +1583,14 @@ shutdown_value: 0
 cycle_time: 0.0005
 </code></pre></div>
 
-<p>This will add hardware pwm control to gpio12 and gpio13 on the Pi (because the overlay was configured to route pwm0 to pin=12 and pwm1 to pin=13).</p>
-<p>PWM0 can be routed to gpio12 and gpio18, PWM1 can be routed to gpio13 and gpio19:</p>
+<p>Det här lägger till maskinvaru-PWM-styrning för gpio12 och gpio13 på Pi, eftersom överlägget konfigurerades för att leda pwm0 till pin=12 och pwm1 till pin=13.</p>
+<p>PWM0 kan ledas till gpio12 och gpio18, och PWM1 till gpio13 och gpio19:</p>
 <table>
 <thead>
 <tr>
 <th>PWM</th>
-<th>gpio PIN</th>
-<th>Func</th>
+<th>GPIO-stift</th>
+<th>Funktion</th>
 </tr>
 </thead>
 <tbody>

@@ -1400,7 +1400,7 @@
 
 <h1 id="_1">Исключить Объекты<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
 <p>The <code>[exclude_object]</code> module allows Klipper to exclude objects while a print is in progress. To enable this feature include an <a href="Config_Reference.html#exclude_object">exclude_object config
-section</a> (also see the <a href="G-Codes.html#exclude-object">command
+section</a> (also see the <a href="G-Codes.html#exclude_object">command
 reference</a> and <a href="https://github.com/Klipper3d/klipper/blob/master/config/sample-macros.cfg">sample-macros.cfg</a> file for a Marlin/RepRapFirmware compatible M486 G-Code macro.)</p>
 <p>В отличие от других вариантов встроенного ПО для 3D-принтеров, принтер под управлением Klipper использует набор компонентов, и у пользователей есть множество вариантов на выбор. Следовательно, чтобы обеспечить согласованное взаимодействие с пользователем, модуль <code>[exclude_object]</code> установит своего рода контракт или API. Контракт охватывает содержимое файла gcode, то, как контролируется внутреннее состояние модуля и как это состояние предоставляется клиентам.</p>
 <h2 id="_2">Обзор рабочего процесса<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
@@ -1421,7 +1421,7 @@ reference</a> and <a href="https://github.com/Klipper3d/klipper/blob/master/conf
 <p>Команда <code>EXCLUDE_OBJECT_DEFINE</code> используется для предоставления сводной информации о каждом объекте в файле gcode для печати. Предоставляет сводную информацию об объекте в файле. Объекты не обязательно должны быть определены, чтобы на них могли ссылаться другие команды. Основная цель этой команды — предоставить информацию пользовательскому интерфейсу без необходимости анализа всего файла gcode.</p>
 <p>Определениям объектов присваиваются имена, чтобы пользователи могли легко выбрать объект для исключения, а также могут быть предоставлены дополнительные метаданные для графического отображения отмены. Определенные на данный момент метаданные включают в себя координаты <code>ЦЕНТР</code> X,Y и список точек <code>ПОЛИГОН</code> из точек X,Y, представляющих минимальный контур объекта. Это может быть простая ограничивающая рамка или сложная оболочка для более детальной визуализации напечатанных объектов. Особенно, когда файлы gcode состоят из нескольких частей с перекрывающимися ограничивающими областями, центральные точки становится трудно отличить визуально. <code>POLYGONS</code> должен быть json-совместимым массивом кортежей точек <code>[X,Y]</code> без пробелов. Дополнительные параметры будут сохранены в виде строк в определении объекта и предоставлены в обновлениях статуса.</p>
 <p><code>EXCLUDE_OBJECT_DEFINE NAME=калибровка_пирамиды CENTER=50,50 POLYGON=[[40,40],[50,60],[60,40]]</code></p>
-<p>All available G-Code commands are documented in the <a href="G-Codes.html#excludeobject">G-Code
+<p>All available G-Code commands are documented in the <a href="G-Codes.html#exclude_object">G-Code
 Reference</a></p>
 <h2 id="_4">Информация о статусе<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>The state of this module is provided to clients by the <a href="Status_Reference.html#exclude_object">exclude_object

@@ -46,14 +46,6 @@ msgstr "[load_cell状态参考](Status_Reference.md#load_cell)"
 msgid "Using `LOAD_CELL_DIAGNOSTIC`"
 msgstr "使用 `LOAD_CELL_DIAGNOSTIC`"
 
-#: docs/Load_Cell.md:block 6 (paragraph)
-msgid ""
-"When you first connect a load cell its good practice to check for issues by "
-"running `LOAD_CELL_DIAGNOSTIC`. This tool collects 10 seconds of data from the"
-" load cell and resport statistics:"
-msgstr ""
-"当你第一次连接好压力传感器的时候，最好使用`LOAD_CELL_DIAGNOSTIC`来检测压力传感器的状态。这个工具会收集压力传感器10秒钟内的数据并且报告状态。"
-
 #: docs/Load_Cell.md:block 8 (paragraph)
 msgid "Things you can check with this data:"
 msgstr "你可以检查这些数据："
@@ -308,16 +300,6 @@ msgstr ""
 "这是在探测过程中允许的，相对于`reference_tare_counts`的最大绝对受力。如果MCU发现这个受力大于这个值，打印机会被停止并报错`!! "
 "Load cell endstop: too much force!`。由多种方式可以出发这个保护措施："
 
-#: docs/Load_Cell.md:block 47 (paragraph)
-msgid ""
-"The first risk this protects against is picking too large of a value for "
-"`drift_filter_cutoff_frequency`. This can cause the drift filter to filter out"
-" a probe event and continue the homing move. If this happens the "
-"`force_safety_limit` acts as a backup protection."
-msgstr ""
-"第一个风险是选择过大的 "
-"`drift_filter_cutoff_frequency`值。这可能会导致偏移过滤器错误的过滤掉一个探针事件并继续归位移动。在这种情况下，`force_safety_limit`将会作为最后保护措施。"
-
 #: docs/Load_Cell.md:block 48 (paragraph)
 msgid ""
 "The second problem is probing repeatedly in one place. Klipper does not "
@@ -354,17 +336,6 @@ msgid ""
 msgstr ""
 "当归位时，load_cell_endstop对象会在MCU上启动一个看门狗任务以监控传感器的读数。如果传感器在两个连续的采样周期中都没有发送数据，看门狗将会停止打印机并报错`!!"
 " LoadCell Endstop timed out waiting on ADC data`。"
-
-#: docs/Load_Cell.md:block 53 (paragraph)
-msgid ""
-"If this happens, the most likely cause is a fault from the ADC. Inadequate "
-"grounding of your printer can be the root cause. The frame, power supply case "
-"and pint bed should all be connected to ground. You may need to ground the "
-"frame in multiple places. Anodized aluminum extrusions do not conduct "
-"electricity well. You might need to sand the area where the grounding wire is "
-"attached to make good electrical contact."
-msgstr ""
-"如果这发生了，很有可能ADC有问题。不可靠的打印机接地可能会导致问题。框架，电源外壳，以及打印机热床都应可靠地接地。你可能需要在框架的不同部位接地。阳极氧化的铝型材导电性能不佳，你可能需要打磨一个区域来连接地线以获得良好的电气接触。"
 
 #: docs/Load_Cell.md:block 54 (header)
 msgid "Load Cell Probe Setup"
@@ -422,13 +393,6 @@ msgstr ""
 msgid "Suggested Probing Temperature"
 msgstr "建议探测温度"
 
-#: docs/Load_Cell.md:block 68 (paragraph)
-msgid ""
-"Currently, we suggest keeping the nozzle temperature below the level that "
-"causes the filament to ooze while homing and probing. 140C is a good starting "
-"point. This temperature is also low enough not to scar PEI build surfaces."
-msgstr "目前，我们推荐在归位和探测时将喷嘴温度保持在耗材会溢料的温度下。140摄氏度是一个不错的起始点。这个温度同时也不会伤害PEI构件表面。"
-
 #: docs/Load_Cell.md:block 69 (paragraph)
 msgid ""
 "Fouling of the nozzle and the print bed due to oozing filament is the #1 "
@@ -446,11 +410,6 @@ msgid ""
 "repeatedly probe the same coordinates even if a probe previously failed there."
 msgstr ""
 "目前，由于溢料污染，自动更换探测位置的功能还没有被Klipper支持。类似于`quad_gantry_level`的模块会反复在同一个坐标探测，即使前一次探测失败。"
-
-#: docs/Load_Cell.md:block 71 (paragraph)
-msgid ""
-"Give the above it is strongly suggested not to probe at printing temperatures."
-msgstr "由于以上这些原因，极度不推荐在打印温度探测。"
 
 #: docs/Load_Cell.md:block 72 (header)
 msgid "Hot Nozzle Protection"
@@ -520,16 +479,6 @@ msgstr ""
 msgid "Calculating the `temp_coeff` for `[z_thermal_adjust]`"
 msgstr "计算 `[z_thermal_adjust]`的`temp_coeff`"
 
-#: docs/Load_Cell.md:block 81 (paragraph)
-msgid ""
-"The easiest way to do this is to measure at 2 different temperatures. Ideally "
-"these should be the upper and lower limits of the printing temperature range. "
-"E.g. 180C and 290C. You can perform a `PROBE_ACCURACY` at both temperatures "
-"and then calculate the difference of the `average z` at both."
-msgstr ""
-"最简单的方法是在两个不同的温度测量。理想情况下，这应该涵盖打印温度的下限和上限（比如，180C和290C）。你可以在两个温度分别执行`PROBE_ACCURACY`并计算"
-" `average z`的差值。"
-
 #: docs/Load_Cell.md:block 82 (paragraph)
 msgid ""
 "The adjustment value is the change in nozzle length divided by the change in "
@@ -570,23 +519,6 @@ msgstr ""
 #: docs/Load_Cell.md:block 90 (header)
 msgid "Installing SciPy"
 msgstr "安装SciPy"
-
-#: docs/Load_Cell.md:block 91 (paragraph)
-msgid ""
-"The filtering code uses the excellent [SciPy](https://scipy.org/) library to "
-"compute the filter coefficients based on the values your enter into the "
-"config."
-msgstr "过滤器的代码使用绝佳的[SciPy](https://scipy.org/)库基于配置值来计算过滤器的参数。"
-
-#: docs/Load_Cell.md:block 92 (paragraph)
-msgid ""
-"Pre-compiled SciPi builds are available for Python 3 on 32 bit Raspberry Pi "
-"systems. 32 bit + Python 3 is strongly recommended because it will streamline "
-"your installation experience. It does work with Python 2 but installation can "
-"take 30+ minutes and require installing additional tools."
-msgstr ""
-"预编译的SciPi构建在32位Raspberry Pi上的Python 3可用。极度推荐32位+Python "
-"3的组合，因为这可以流水线化你的安装流程。可以使用Python 2，但是安装过程将话费30+分钟，并且需要安装额外工具。"
 
 #: docs/Load_Cell.md:block 94 (header)
 msgid "Filter Workbench"
@@ -795,15 +727,6 @@ msgid ""
 "working correctly this should increase the 'Sample range'."
 msgstr ""
 
-#: docs/Load_Cell.md:block 49 (paragraph)
-msgid ""
-"Another way this run-away can happen is damage to a strain gauge. If the metal"
-" part is permanently bent it will change the `reference_tare_counts` of the "
-"device. This puts the starting tare value much closer to the limit making it "
-"more likely to be violated. You want to be notified if this is happening "
-"because your hardware has been permanently damaged."
-msgstr ""
-
 #: docs/Load_Cell.md:block 54 (header)
 msgid "Interpolation"
 msgstr ""
@@ -845,6 +768,144 @@ msgid ""
 "The distance of the ascending move can be configured through the "
 "`sample_retract_dist` parameter."
 msgstr ""
+
+#: docs/Load_Cell.md:block 6 (paragraph)
+msgid ""
+"When you first connect a load cell its good practice to check for issues by "
+"running `LOAD_CELL_DIAGNOSTIC`. This tool collects 10 seconds of data from the"
+" load cell and reports statistics:"
+msgstr ""
+
+#: docs/Load_Cell.md:block 47 (paragraph)
+msgid ""
+"The first risk this protects against is picking too large of a value for "
+"`drift_filter_cutoff_frequency`. This can cause the drift filter to filter out"
+" a probe event and continue the homing move. If this happens, the "
+"`force_safety_limit` acts as a backup protection."
+msgstr ""
+
+#: docs/Load_Cell.md:block 49 (paragraph)
+msgid ""
+"Another way this runaway can happen is damage to a strain gauge. If the metal "
+"part is permanently bent it will change the `reference_tare_counts` of the "
+"device. This puts the starting tare value much closer to the limit making it "
+"more likely to be violated. You want to be notified if this is happening "
+"because your hardware has been permanently damaged."
+msgstr ""
+
+#: docs/Load_Cell.md:block 53 (paragraph)
+msgid ""
+"If this happens, the most likely cause is a fault from the ADC. Inadequate "
+"grounding of your printer can be the root cause. The frame, power supply case "
+"and print bed should all be connected to ground. You may need to ground the "
+"frame in multiple places. Anodized aluminum extrusions do not conduct "
+"electricity well. You might need to sand the area where the grounding wire is "
+"attached to make good electrical contact."
+msgstr ""
+
+#: docs/Load_Cell.md:block 68 (paragraph)
+msgid ""
+"Currently, we suggest keeping the nozzle temperature below the level that "
+"causes the filament to ooze while homing and probing. 140°C is a good starting"
+" point. This temperature is also low enough not to scar PEI build surfaces."
+msgstr ""
+
+#: docs/Load_Cell.md:block 71 (paragraph)
+msgid ""
+"Given the above it is strongly suggested not to probe at printing "
+"temperatures."
+msgstr ""
+
+#: docs/Load_Cell.md:block 81 (paragraph)
+msgid ""
+"The easiest way to do this is to measure at 2 different temperatures. Ideally "
+"these should be the upper and lower limits of the printing temperature range. "
+"E.g. 180°C and 290°C. You can perform a `PROBE_ACCURACY` at both temperatures "
+"and then calculate the difference of the `average z` at both."
+msgstr ""
+
+#: docs/Load_Cell.md:block 91 (paragraph)
+msgid ""
+"The filtering code uses the excellent [SciPy](https://scipy.org/) library to "
+"compute the filter coefficients based on the values you enter into the config."
+msgstr ""
+
+#: docs/Load_Cell.md:block 92 (paragraph)
+msgid ""
+"Pre-compiled SciPi builds are available for Python 3 on 32-bit and 64-bit "
+"Raspberry Pi systems. 32-bit/64-bit + Python 3 is strongly recommended because"
+" it will streamline your installation experience. It does work with Python 2 "
+"but installation can take 30+ minutes and requires installing additional "
+"tools."
+msgstr ""
+
+#~ msgid ""
+#~ "When you first connect a load cell its good practice to check for issues by "
+#~ "running `LOAD_CELL_DIAGNOSTIC`. This tool collects 10 seconds of data from the"
+#~ " load cell and resport statistics:"
+#~ msgstr ""
+#~ "当你第一次连接好压力传感器的时候，最好使用`LOAD_CELL_DIAGNOSTIC`来检测压力传感器的状态。这个工具会收集压力传感器10秒钟内的数据并且报告状态。"
+
+#~ msgid ""
+#~ "The first risk this protects against is picking too large of a value for "
+#~ "`drift_filter_cutoff_frequency`. This can cause the drift filter to filter out"
+#~ " a probe event and continue the homing move. If this happens the "
+#~ "`force_safety_limit` acts as a backup protection."
+#~ msgstr ""
+#~ "第一个风险是选择过大的 "
+#~ "`drift_filter_cutoff_frequency`值。这可能会导致偏移过滤器错误的过滤掉一个探针事件并继续归位移动。在这种情况下，`force_safety_limit`将会作为最后保护措施。"
+
+#~ msgid ""
+#~ "If this happens, the most likely cause is a fault from the ADC. Inadequate "
+#~ "grounding of your printer can be the root cause. The frame, power supply case "
+#~ "and pint bed should all be connected to ground. You may need to ground the "
+#~ "frame in multiple places. Anodized aluminum extrusions do not conduct "
+#~ "electricity well. You might need to sand the area where the grounding wire is "
+#~ "attached to make good electrical contact."
+#~ msgstr ""
+#~ "如果这发生了，很有可能ADC有问题。不可靠的打印机接地可能会导致问题。框架，电源外壳，以及打印机热床都应可靠地接地。你可能需要在框架的不同部位接地。阳极氧化的铝型材导电性能不佳，你可能需要打磨一个区域来连接地线以获得良好的电气接触。"
+
+#~ msgid ""
+#~ "Currently, we suggest keeping the nozzle temperature below the level that "
+#~ "causes the filament to ooze while homing and probing. 140C is a good starting "
+#~ "point. This temperature is also low enough not to scar PEI build surfaces."
+#~ msgstr "目前，我们推荐在归位和探测时将喷嘴温度保持在耗材会溢料的温度下。140摄氏度是一个不错的起始点。这个温度同时也不会伤害PEI构件表面。"
+
+#~ msgid ""
+#~ "Give the above it is strongly suggested not to probe at printing temperatures."
+#~ msgstr "由于以上这些原因，极度不推荐在打印温度探测。"
+
+#~ msgid ""
+#~ "The easiest way to do this is to measure at 2 different temperatures. Ideally "
+#~ "these should be the upper and lower limits of the printing temperature range. "
+#~ "E.g. 180C and 290C. You can perform a `PROBE_ACCURACY` at both temperatures "
+#~ "and then calculate the difference of the `average z` at both."
+#~ msgstr ""
+#~ "最简单的方法是在两个不同的温度测量。理想情况下，这应该涵盖打印温度的下限和上限（比如，180C和290C）。你可以在两个温度分别执行`PROBE_ACCURACY`并计算"
+#~ " `average z`的差值。"
+
+#~ msgid ""
+#~ "The filtering code uses the excellent [SciPy](https://scipy.org/) library to "
+#~ "compute the filter coefficients based on the values your enter into the "
+#~ "config."
+#~ msgstr "过滤器的代码使用绝佳的[SciPy](https://scipy.org/)库基于配置值来计算过滤器的参数。"
+
+#~ msgid ""
+#~ "Pre-compiled SciPi builds are available for Python 3 on 32 bit Raspberry Pi "
+#~ "systems. 32 bit + Python 3 is strongly recommended because it will streamline "
+#~ "your installation experience. It does work with Python 2 but installation can "
+#~ "take 30+ minutes and require installing additional tools."
+#~ msgstr ""
+#~ "预编译的SciPi构建在32位Raspberry Pi上的Python 3可用。极度推荐32位+Python "
+#~ "3的组合，因为这可以流水线化你的安装流程。可以使用Python 2，但是安装过程将话费30+分钟，并且需要安装额外工具。"
+
+#~ msgid ""
+#~ "Another way this run-away can happen is damage to a strain gauge. If the metal"
+#~ " part is permanently bent it will change the `reference_tare_counts` of the "
+#~ "device. This puts the starting tare value much closer to the limit making it "
+#~ "more likely to be violated. You want to be notified if this is happening "
+#~ "because your hardware has been permanently damaged."
+#~ msgstr ""
 
 #~ msgid ""
 #~ "Tap or push on the sensor while `LOAD_CELL_DIAGNOSTIC` runs. If things are "

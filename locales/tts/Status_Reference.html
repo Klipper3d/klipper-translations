@@ -1865,7 +1865,7 @@
 <li><code>speed_factor</code>: The "speed factor override" as set by an <code>M220</code> command. This is a floating point value such that 1.0 means no override and, for example, 2.0 would double requested speed.</li>
 <li><code>extrude_factor</code>: The "extrude factor override" as set by an <code>M221</code> command. This is a floating point value such that 1.0 means no override and, for example, 2.0 would double requested extrusions.</li>
 <li><code>absolute_coordinates</code>: This returns True if in <code>G90</code> absolute coordinate mode or False if in <code>G91</code> relative mode.</li>
-<li><code>absolute_extrude</code>: This returns True if in <code>M82</code> absolute extrude mode or False if in <code>M83</code> relative mode.</li>
+<li><code>absolute_extrude</code>: Returns True if absolute extrusions are permitted. An <code>M83</code> force relative extrusion mode command causes this value to return False. An <code>M82</code> command returns this value to True.</li>
 <li><code>axis_map</code>: Provides a mechanism for finding the coordinate component for a given G-Code id that is used in <code>G1</code> commands. See the <a href="#accessing-coordinates">Accessing Coordinates</a> section for details.</li>
 </ul>
 <h2 id="hall_filament_width_sensor">hall_filament_width_sensor<a class="headerlink" href="#hall_filament_width_sensor" title="Permanent link">&para;</a></h2>
@@ -1942,6 +1942,7 @@
 <li><code>mcu_version</code>: The Klipper code version reported by the micro-controller.</li>
 <li><code>mcu_build_versions</code>: Information on the build tools used to generate the micro-controller code (as reported by the micro-controller).</li>
 <li><code>mcu_constants.&lt;constant_name&gt;</code>: Compile time constants reported by the micro-controller. The available constants may differ between micro-controller architectures and with each code revision.</li>
+<li><code>mcu_kconfig</code>: The minimal build configuration (<code>savedefconfig</code> output) that the micro-controller firmware was compiled from, as reported by the micro-controller. <code>None</code> if the firmware predates this feature or does not provide it.</li>
 <li><code>last_stats.&lt;statistics_name&gt;</code>: Statistics information on the micro-controller connection.</li>
 </ul>
 <h2 id="motion_report">motion_report<a class="headerlink" href="#motion_report" title="Permanent link">&para;</a></h2>
@@ -2033,7 +2034,7 @@
 </ul>
 <h2 id="temperature-sensors">temperature sensors<a class="headerlink" href="#temperature-sensors" title="Permanent link">&para;</a></h2>
 <p>The following information is available in</p>
-<p><a href="Config_Reference.html#bmp280bme280bme680-temperature-sensor">bme280 config_section_name</a>, <a href="Config_Reference.html#htu21d-sensor">htu21d config_section_name</a>, <a href="Config_Reference.html#sht31-sensor">sht3x config_section_name</a>, <a href="Config_Reference.html#lm75-temperature-sensor">lm75 config_section_name</a>, <a href="Config_Reference.html#host-temperature-sensor">temperature_host config_section_name</a> and <a href="Config_Reference.html#combined-temperature-sensor">temperature_combined config_section_name</a> objects:</p>
+<p><a href="Config_Reference.html#bmp180bmp280bme280bmp388bme680-temperature-sensor">bme280 config_section_name</a>, <a href="Config_Reference.html#htu21d-sensor">htu21d config_section_name</a>, <a href="Config_Reference.html#sht3x-sensor">sht3x config_section_name</a>, <a href="Config_Reference.html#lm75-temperature-sensor">lm75 config_section_name</a>, <a href="Config_Reference.html#host-temperature-sensor">temperature_host config_section_name</a> and <a href="Config_Reference.html#combined-temperature-sensor">temperature_combined config_section_name</a> objects:</p>
 <ul>
 <li><code>temperature</code>: The last read temperature from the sensor.</li>
 <li><code>humidity</code>, <code>pressure</code>, <code>gas</code>: The last read values from the sensor (only on bme280, htu21d, sht3x and lm75 sensors).</li>

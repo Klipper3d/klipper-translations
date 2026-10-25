@@ -67,19 +67,24 @@ msgstr "Eğer Laserweb kullanıyorsanız, ayarlarınız aşağıdaki gibi olmal�
 msgid "Using PWM tools"
 msgstr "PWM Araçlarını Kullanmak"
 
-#: docs/Using_PWM_Tools.md:block 6 (paragraph)
-msgid ""
-"For an example configuration, see [config/sample-pwm-tool.cfg](/config/sample-"
-"pwm-tool.cfg)."
-msgstr ""
-"Örnek ayarlar için, [config/sample-pwm-tool.cfg](/config/sample-pwm-"
-"tool.cfg)'u ziyaret ediniz."
-
 #: docs/Using_PWM_Tools.md:block 2 (paragraph)
 msgid ""
 "This document describes how to setup a PWM-controlled laser or spindle using "
 "`pwm_tool` and some macros."
 msgstr ""
+
+#: docs/Using_PWM_Tools.md:block 6 (paragraph)
+msgid ""
+"For an example configuration, see [config/sample-pwm-"
+"tool.cfg](../config/sample-pwm-tool.cfg)."
+msgstr ""
+
+#~ msgid ""
+#~ "For an example configuration, see [config/sample-pwm-tool.cfg](/config/sample-"
+#~ "pwm-tool.cfg)."
+#~ msgstr ""
+#~ "Örnek ayarlar için, [config/sample-pwm-tool.cfg](/config/sample-pwm-"
+#~ "tool.cfg)'u ziyaret ediniz."
 
 #~ msgid ""
 #~ "This document describes how to setup a PWM-controlled laser or spindle using "

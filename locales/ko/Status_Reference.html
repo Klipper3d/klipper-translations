@@ -1865,7 +1865,7 @@
 <li><code>speed_factor</code>: <code>M220</code> 명령으로 설정한 "speed factor override"입니다. 1.0은 재정의가 없음을 의미하고 예를 들어 2.0은 요청된 속도의 두 배인 부동 소수점 값입니다.</li>
 <li><code>extrude_factor</code>: <code>M221</code> 명령으로 설정한 "extrude factor override"입니다. 1.0은 재정의가 없음을 의미하고 예를 들어 2.0은 요청된 돌출을 두 배로 만드는 부동 소수점 값입니다.</li>
 <li><code>absolute_coordinates</code>: 이것은 <code>G90</code> 절대 좌표 모드에 있으면 True를 반환하고 <code>G91</code> 상대 모드에 있으면 False를 반환합니다.</li>
-<li><code>absolute_extrude</code>: 이것은 <code>M82</code> 절대 돌출 모드인 경우 True를 반환하고 <code>M83</code> 상대 모드인 경우 False를 반환합니다.</li>
+<li><code>absolute_extrude</code>: Returns True if absolute extrusions are permitted. An <code>M83</code> force relative extrusion mode command causes this value to return False. An <code>M82</code> command returns this value to True.</li>
 <li><code>axis_map</code>: Provides a mechanism for finding the coordinate component for a given G-Code id that is used in <code>G1</code> commands. See the <a href="#accessing-coordinates">Accessing Coordinates</a> section for details.</li>
 </ul>
 <h2 id="hall_filament_width_sensor">hall_filament_width_sensor<a class="headerlink" href="#hall_filament_width_sensor" title="Permanent link">&para;</a></h2>
@@ -1942,6 +1942,7 @@
 <li><code>mcu_version</code>: 마이크로 컨트롤러에서 보고한 Klipper 코드 버전입니다.</li>
 <li><code>mcu_build_versions</code>: 마이크로 컨트롤러 코드를 생성하는 데 사용되는 빌드 도구에 대한 정보(마이크로 컨트롤러가 보고한 대로).</li>
 <li><code>mcu_constants.&lt;constant_name&gt;</code>: 마이크로 컨트롤러에서 보고한 컴파일 시간 상수. 사용 가능한 상수는 마이크로 컨트롤러 아키텍처와 각 코드 개정판에 따라 다를 수 있습니다.</li>
+<li><code>mcu_kconfig</code>: The minimal build configuration (<code>savedefconfig</code> output) that the micro-controller firmware was compiled from, as reported by the micro-controller. <code>None</code> if the firmware predates this feature or does not provide it.</li>
 <li><code>last_stats.&lt;statistics_name&gt;</code>: 마이크로 컨트롤러 연결에 대한 통계 정보입니다.</li>
 </ul>
 <h2 id="motion_report">motion_report<a class="headerlink" href="#motion_report" title="Permanent link">&para;</a></h2>
@@ -2033,7 +2034,7 @@
 </ul>
 <h2 id="temperature-sensors">temperature sensors<a class="headerlink" href="#temperature-sensors" title="Permanent link">&para;</a></h2>
 <p>다음 정보 사용할 수 있습니다</p>
-<p><a href="Config_Reference.html#bmp280bme280bme680-temperature-sensor">bme280 config_section_name</a>, <a href="Config_Reference.html#htu21d-sensor">htu21d config_section_name</a>, <a href="Config_Reference.html#sht31-sensor">sht3x config_section_name</a>, <a href="Config_Reference.html#lm75-temperature-sensor">lm75 config_section_name</a>, <a href="Config_Reference.html#host-temperature-sensor">temperature_host config_section_name</a> and <a href="Config_Reference.html#combined-temperature-sensor">temperature_combined config_section_name</a> objects:</p>
+<p><a href="Config_Reference.html#bmp180bmp280bme280bmp388bme680-temperature-sensor">bme280 config_section_name</a>, <a href="Config_Reference.html#htu21d-sensor">htu21d config_section_name</a>, <a href="Config_Reference.html#sht3x-sensor">sht3x config_section_name</a>, <a href="Config_Reference.html#lm75-temperature-sensor">lm75 config_section_name</a>, <a href="Config_Reference.html#host-temperature-sensor">temperature_host config_section_name</a> and <a href="Config_Reference.html#combined-temperature-sensor">temperature_combined config_section_name</a> objects:</p>
 <ul>
 <li><code>temperature</code>: 센서에서 마지막으로 읽은 온도입니다.</li>
 <li><code>humidity</code>, <code>pressure</code>, <code>gas</code>: The last read values from the sensor (only on bme280, htu21d, sht3x and lm75 sensors).</li>

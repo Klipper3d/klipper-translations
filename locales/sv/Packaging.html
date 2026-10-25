@@ -13,7 +13,7 @@
     
     
       
-        <title>Packaging Klipper - Klipper documentation</title>
+        <title>Paketera Klipper - Klipper documentation</title>
       
     
     
@@ -74,7 +74,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#packaging-klipper" class="md-skip">
+        <a href="#paketera-klipper" class="md-skip">
           Skip to content
         </a>
       
@@ -106,7 +106,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Packaging Klipper
+              Paketera Klipper
             
           </span>
         </div>
@@ -1348,29 +1348,29 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#c-modules" class="md-nav__link">
-    C modules
+  <a href="#c-moduler" class="md-nav__link">
+    C-moduler
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#compiling-python-code" class="md-nav__link">
-    Compiling python code
+  <a href="#kompilera-python-kod" class="md-nav__link">
+    Kompilera Python-kod
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#versioning" class="md-nav__link">
-    Versioning
+  <a href="#versionshantering" class="md-nav__link">
+    Versionshantering
   </a>
   
 </li>
       
         <li class="md-nav__item">
-  <a href="#sample-packaging-script" class="md-nav__link">
-    Sample packaging script
+  <a href="#exempel-pa-paketeringsskript" class="md-nav__link">
+    Exempel på paketeringsskript
   </a>
   
 </li>
@@ -1392,16 +1392,16 @@
 </a>
 
 
-<h1 id="packaging-klipper">Packaging Klipper<a class="headerlink" href="#packaging-klipper" title="Permanent link">&para;</a></h1>
-<p>Klipper is somewhat of a packaging anomaly among python programs, as it doesn't use setuptools to build and install. Some notes regarding how best to package it are as follows:</p>
-<h2 id="c-modules">C modules<a class="headerlink" href="#c-modules" title="Permanent link">&para;</a></h2>
-<p>Klipper uses a C module to handle some kinematics calculations more quickly. This module needs to be compiled at packaging time to avoid introducing a runtime dependency on a compiler. To compile the C module, run <code>python2 klippy/chelper/__init__.py</code>.</p>
-<h2 id="compiling-python-code">Compiling python code<a class="headerlink" href="#compiling-python-code" title="Permanent link">&para;</a></h2>
-<p>Many distributions have a policy of compiling all python code before packaging to improve startup time. You can do this by running <code>python2 -m compileall klippy</code>.</p>
-<h2 id="versioning">Versioning<a class="headerlink" href="#versioning" title="Permanent link">&para;</a></h2>
-<p>If you are building a package of Klipper from git, it is usual practice not to ship a .git directory, so the versioning must be handled without git. To do this, use the script shipped in <code>scripts/make_version.py</code> which should be run as follows: <code>python2 scripts/make_version.py YOURDISTRONAME &gt; klippy/.version</code>.</p>
-<h2 id="sample-packaging-script">Sample packaging script<a class="headerlink" href="#sample-packaging-script" title="Permanent link">&para;</a></h2>
-<p>klipper-git is packaged for Arch Linux, and has a PKGBUILD (package build script) available at <a href="https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper-git">Arch User Repository</a>.</p>
+<h1 id="paketera-klipper">Paketera Klipper<a class="headerlink" href="#paketera-klipper" title="Permanent link">&para;</a></h1>
+<p>Klipper är något av en paketeringsavvikelse bland Python-program eftersom det inte använder setuptools för bygge och installation. Några anmärkningar om hur programmet bäst paketeras följer här:</p>
+<h2 id="c-moduler">C-moduler<a class="headerlink" href="#c-moduler" title="Permanent link">&para;</a></h2>
+<p>Klipper använder en C-modul för att snabbare utföra vissa kinematikberäkningar. Modulen måste kompileras vid paketeringen för att undvika ett körtidsberoende av en kompilator. Kör <code>python2 klippy/chelper/__init__.py</code> för att kompilera C-modulen.</p>
+<h2 id="kompilera-python-kod">Kompilera Python-kod<a class="headerlink" href="#kompilera-python-kod" title="Permanent link">&para;</a></h2>
+<p>Många distributioner har en policy att kompilera all Python-kod före paketering för att förbättra starttiden. Det gör du genom att köra <code>python2 -m compileall klippy</code>.</p>
+<h2 id="versionshantering">Versionshantering<a class="headerlink" href="#versionshantering" title="Permanent link">&para;</a></h2>
+<p>När du bygger ett Klipper-paket från git är det vanligt att inte leverera en .git-katalog. Versionshanteringen måste därför ske utan git. Använd skriptet <code>scripts/make_version.py</code>, som följer med, enligt följande: <code>python2 scripts/make_version.py DIN_DISTRIBUTION &gt; klippy/.version</code>.</p>
+<h2 id="exempel-pa-paketeringsskript">Exempel på paketeringsskript<a class="headerlink" href="#exempel-pa-paketeringsskript" title="Permanent link">&para;</a></h2>
+<p>klipper-git är paketerat för Arch Linux och har en PKGBUILD-fil, ett paketeringsskript, i <a href="https://aur.archlinux.org/cgit/aur.git/tree/PKGBUILD?h=klipper-git">Arch User Repository</a>.</p>
 
               
             </article>
