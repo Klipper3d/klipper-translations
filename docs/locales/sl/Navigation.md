@@ -1,6 +1,6 @@
-Klipper documentation
+Dokumentacija Klipper
 
-Installation and Configuration
+Namestitev in konfiguracija
 
 Configuration Reference
 
@@ -10,6 +10,6 @@ Resonance Compensation
 
 Command templates
 
-Developer Documentation
+Dokumentacija za razvijalce
 
-Device Specific Documents
+Dokumenti za specifične naprave

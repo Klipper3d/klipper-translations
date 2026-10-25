@@ -1,67 +1,67 @@
-# Overview
+# Pregled
 
-Welcome to the Klipper documentation. If new to Klipper, start with the [features](Features.md) and [installation](Installation.md) documents.
+Dobrodošli v dokumentaciji za Klipper. Če Klipper uporabljate prvič, začnite z dokumentoma o [funkcijah](Features.md) in [namestitvi](Installation.md).
 
-## Overview information
+## Splošne informacije
 
-- [Features](Features.md): A high-level list of features in Klipper.
-- [FAQ](FAQ.md): Frequently asked questions.
-- [Releases](Releases.md): The history of Klipper releases.
-- [Config changes](Config_Changes.md): Recent software changes that may require users to update their printer config file.
-- [Contact](Contact.md): Information on bug reporting and general communication with the Klipper developers.
+- [Funkcije](Features.md): Pregleden seznam funkcij v Klipperju.
+- [Pogosta vprašanja](FAQ.md): Odgovori na pogosta vprašanja.
+- [Izdaje](Releases.md): Zgodovina izdaj Klipperja.
+- [Spremembe konfiguracije](Config_Changes.md): Nedavne spremembe programske opreme, ki lahko zahtevajo posodobitev konfiguracijske datoteke tiskalnika.
+- [Stik](Contact.md): Informacije o prijavi napak in splošni komunikaciji z razvijalci Klipperja.
 
-## Installation and Configuration
+## Namestitev in konfiguracija
 
-- [Installation](Installation.md): Guide to installing Klipper.
-   - [Octoprint](OctoPrint.md): Guide to installing Octoprint with Klipper.
-- [Config Reference](Config_Reference.md): Description of config parameters.
-   - [Rotation Distance](Rotation_Distance.md): Calculating the rotation_distance stepper parameter.
-- [Config checks](Config_checks.md): Verify basic pin settings in the config file.
-- [Bed level](Bed_Level.md): Information on "bed leveling" in Klipper.
-   - [Delta calibrate](Delta_Calibrate.md): Calibration of delta kinematics.
-   - [Probe calibrate](Probe_Calibrate.md): Calibration of automatic Z probes.
-   - [BL-Touch](BLTouch.md): Configure a "BL-Touch" Z probe.
-   - [Manual level](Manual_Level.md): Calibration of Z endstops (and similar).
-   - [Bed Mesh](Bed_Mesh.md): Bed height correction based on XY locations.
-   - [Endstop phase](Endstop_Phase.md): Stepper assisted Z endstop positioning.
-   - [Axis Twist Compensation](Axis_Twist_Compensation.md): A tool to compensate for inaccurate probe readings due to twist in X gantry.
-- [Resonance compensation](Resonance_Compensation.md): A tool to reduce ringing in prints.
-   - [Measuring resonances](Measuring_Resonances.md): Information on using adxl345 accelerometer hardware to measure resonance.
-- [Pressure advance](Pressure_Advance.md): Calibrate extruder pressure.
-- [G-Codes](G-Codes.md): Information on commands supported by Klipper.
-- [Command Templates](Command_Templates.md): G-Code macros and conditional evaluation.
-   - [Status Reference](Status_Reference.md): Information available to macros (and similar).
-- [TMC Drivers](TMC_Drivers.md): Using Trinamic stepper motor drivers with Klipper.
-- [Multi-MCU Homing](Multi_MCU_Homing.md): Homing and probing using multiple micro-controllers.
-- [Slicers](Slicers.md): Configure "slicer" software for Klipper.
-- [Skew correction](Skew_Correction.md): Adjustments for axes not perfectly square.
-- [PWM tools](Using_PWM_Tools.md): Guide on how to use PWM controlled tools such as lasers or spindles.
-- [Exclude Object](Exclude_Object.md): The guide to the Exclude Objects implementation.
+- [Namestitev](Installation.md): Navodila za namestitev Klipperja.
+   - [OctoPrint](OctoPrint.md): Vodnik za namestitev OctoPrinta s Klipperjem.
+- [Referenca konfiguracije](Config_Reference.md): Opis konfiguracijskih parametrov.
+   - [Rotacijska razdalja](Rotation_Distance.md): Izračun parametra rotation_distance za koračne motorje.
+- [Preverjanje konfiguracije](Config_checks.md): Preverjanje osnovnih nastavitev pinov v konfiguracijski datoteki.
+- [Poravnava mize](Bed_Level.md): Informacije o »poravnavi mize« v Klipperju.
+   - [Kalibracija delte](Delta_Calibrate.md): Kalibracija delta kinematike.
+   - [Kalibracija sonde](Probe_Calibrate.md): Kalibracija samodejnih Z-sond.
+   - [BL-Touch](BLTouch.md): Konfiguracija Z-sonde »BL-Touch«.
+   - [Ročna poravnava](Manual_Level.md): Kalibracija končnih stikal Z (in podobno).
+   - [Mreža mize](Bed_Mesh.md): Popravek višine mize na podlagi lokacij XY.
+   - [Faza končnega stikala](Endstop_Phase.md): Pozicioniranje končnega stikala Z s pomočjo koračnega motorja.
+   - [Kompenzacija zasuka osi](Axis_Twist_Compensation.md): Orodje za kompenzacijo nenatančnih odčitkov sonde zaradi zasuka v X-mostu.
+- [Kompenzacija resonanc](Resonance_Compensation.md): Orodje za zmanjšanje zvonjenja na tiskih.
+   - [Merjenje resonanc](Measuring_Resonances.md): Informacije o uporabi pospeškomera adxl345 za merjenje resonanc.
+- [Predtisk tlaka](Pressure_Advance.md): Kalibracija tlaka v ekstruderju.
+- [G-kode](G-Codes.md): Informacije o ukazih, ki jih podpira Klipper.
+- [Predloge ukazov](Command_Templates.md): Makroji G-kode in pogojno izvajanje.
+   - [Referenca stanja](Status_Reference.md): Informacije, ki so na voljo makrojem (in podobno).
+- [Gonilniki TMC](TMC_Drivers.md): Uporaba gonilnikov koračnih motorjev Trinamic s Klipperjem.
+- [Nuliranje z več MKE](Multi_MCU_Homing.md): Nuliranje in sondiranje z uporabo več mikrokrmilnikov.
+- [Rezalniki](Slicers.md): Konfiguracija programske opreme za rezanje za Klipper.
+- [Popravek poševnosti](Skew_Correction.md): Prilagoditve za osi, ki niso popolnoma pravokotne.
+- [Orodja PWM](Using_PWM_Tools.md): Navodila za uporabo orodij, krmiljenih s PWM, kot so laserji ali vretena.
+- [Izključitev predmeta](Exclude_Object.md): Vodnik za implementacijo funkcije »Izključitev predmetov«.
 
-## Developer Documentation
+## Dokumentacija za razvijalce
 
-- [Code overview](Code_Overview.md): Developers should read this first.
-- [Kinematics](Kinematics.md): Technical details on how Klipper implements motion.
-- [Protocol](Protocol.md): Information on the low-level messaging protocol between host and micro-controller.
-- [API Server](API_Server.md): Information on Klipper's command and control API.
-- [MCU commands](MCU_Commands.md): A description of low-level commands implemented in the micro-controller software.
-- [CAN bus protocol](CANBUS_protocol.md): Klipper CAN bus message format.
-- [Debugging](Debugging.md): Information on how to test and debug Klipper.
-- [Benchmarks](Benchmarks.md): Information on the Klipper benchmark method.
-- [Contributing](CONTRIBUTING.md): Information on how to submit improvements to Klipper.
-- [Packaging](Packaging.md): Information on building OS packages.
+- [Pregled kode](Code_Overview.md): Razvijalci najprej preberite to.
+- [Kinematika](Kinematics.md): Tehnične podrobnosti o tem, kako Klipper izvaja gibanje.
+- [Protokol](Protocol.md): Informacije o nizkonivojskem protokolu za sporočanje med gostiteljem in mikrokrmilnikom.
+- [API strežnik](API_Server.md): Informacije o Klipperjevem API-ju za ukaze in nadzor.
+- [Ukazi MKE](MCU_Commands.md): Opis nizkonivojskih ukazov, implementiranih v programski opremi mikrokrmilnika.
+- [Protokol vodila CAN](CANBUS_protocol.md): Format sporočil vodila CAN v Klipperju.
+- [Odpravljanje napak](Debugging.md): Informacije o testiranju in odpravljanju napak v Klipperju.
+- [Primerjalni testi](Benchmarks.md): Informacije o metodi primerjalnih testov Klipper.
+- [Sodelovanje](CONTRIBUTING.md): Informacije o tem, kako oddati izboljšave za Klipper.
+- [Pakiranje](Packaging.md): Informacije o gradnji paketov za operacijske sisteme.
 
-## Device Specific Documents
+## Dokumenti za specifične naprave
 
-- [Example configs](Example_Configs.md): Information on adding an example config file to Klipper.
-- [SDCard Updates](SDCard_Updates.md): Flash a micro-controller by copying a binary to an sdcard in the micro-controller.
-- [Raspberry Pi as Micro-controller](RPi_microcontroller.md): Details for controlling devices wired to the GPIO pins of a Raspberry Pi.
-- [Beaglebone](Beaglebone.md): Details for running Klipper on the Beaglebone PRU.
-- [Bootloaders](Bootloaders.md): Developer information on micro-controller flashing.
-- [Bootloader Entry](Bootloader_Entry.md): Requesting the bootloader.
-- [CAN bus](CANBUS.md): Information on using CAN bus with Klipper.
-   - [CAN bus troubleshooting](CANBUS_Troubleshooting.md): Tips for troubleshooting CAN bus.
-- [TSL1401CL filament width sensor](TSL1401CL_Filament_Width_Sensor.md)
-- [Hall filament width sensor](Hall_Filament_Width_Sensor.md)
-- [Eddy Current Inductive probe](Eddy_Probe.md)
-- [Load Cells](Load_Cell.md)
+- [Primeri konfiguracij](Example_Configs.md): Informacije o dodajanju primerov konfiguracijskih datotek v Klipper.
+- [Posodobitve prek kartice SD](SDCard_Updates.md): Programiranje mikrokrmilnika s kopiranjem binarne datoteke na kartico SD v mikrokrmilniku.
+- [Raspberry Pi kot mikrokrmilnik](RPi_microcontroller.md): Podrobnosti o krmiljenju naprav, povezanih na pine GPIO na Raspberry Pi.
+- [Beaglebone](Beaglebone.md): Podrobnosti o poganjanju Klipperja na Beaglebone PRU.
+- [Zagonski nalagalniki](Bootloaders.md): Informacije za razvijalce o programiranju mikrokrmilnikov.
+- [Vstop v zagonski nalagalnik](Bootloader_Entry.md): Zahteva za zagonski nalagalnik.
+- [Vodilo CAN](CANBUS.md): Informacije o uporabi vodila CAN s Klipperjem.
+   - [Odpravljanje težav na vodilu CAN](CANBUS_Troubleshooting.md): Nasveti za odpravljanje težav z vodilom CAN.
+- [Senzor širine filamenta TSL1401CL](TSL1401CL_Filament_Width_Sensor.md)
+- [Hallov senzor širine filamenta](Hall_Filament_Width_Sensor.md)
+- [Induktivna sonda na vrtinčne tokove](Eddy_Probe.md)
+- [Merilne celice](Load_Cell.md)

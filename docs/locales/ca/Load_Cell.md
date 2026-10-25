@@ -37,7 +37,7 @@ Load cells are calibrated using the `LOAD_CELL_CALIBRATE` command. This is an in
 1. Next you apply a known load or force to the load cell and run the `CALIBRATE GRAMS=nnn` command. From this the `counts_per_gram` value is calculated. See [the next section](#applying-a-known-force-or-load) for some suggestions on how to do this.
 1. Finally, use the `ACCEPT` command to save the results.
 
-You can cancel the calibration process at any time with `ABORT`.
+Podeu cancel·lar el procés de calibratge en qualsevol moment amb `ABORT`.
 
 ### Applying a Known Force or Load
 

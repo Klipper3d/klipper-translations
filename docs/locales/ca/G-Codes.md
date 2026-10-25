@@ -11,15 +11,15 @@ Klipper supports the following standard G-Code commands:
 - Move to origin: `G28 [X] [Y] [Z]`
 - Turn off motors: `M18` or `M84`
 - Wait for current moves to finish: `M400`
-- Use absolute/relative coordinates: `G90`, `G91`
+- Utilitza coordenades absolutes/relatives: `G90`, `G91`
 - Force relative distances for extrusion: `M83`, `M82`
-   - Note: `M83` forces extrusions to use relative coordinates even if `G90` absolute mode is selected. `M82` disables that forced mode (it does not force the extruder to use absolute coordinates).
+   - Nota: `M83` força les extrusions a utilitzar coordenades relatives, fins i tot si està seleccionat el mode absolut `G90`. `M82` desactiva aquest mode forçat (no obliga l'extrusor a utilitzar coordenades absolutes).
 - Set position: `G92 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>]`
 - Set speed factor override percentage: `M220 S<percent>`
 - Set extrude factor override percentage: `M221 S<percent>`
 - Set acceleration: `M204 S<value>` OR `M204 P<value> T<value>`
    - Note: If S is not specified and both P and T are specified, then the acceleration is set to the minimum of P and T. If only one of P or T is specified, the command has no effect.
-- Get extruder temperature: `M105`
+- Obtenir la temperatura de l'extrusor: `M105`
 - Set extruder temperature: `M104 [T<index>] [S<temperature>]`
 - Set extruder temperature and wait: `M109 [T<index>] S<temperature>`
    - Note: M109 always waits for temperature to settle at requested value
@@ -54,11 +54,11 @@ The following commands are available when an [adxl345 config section](Config_Ref
 
 #### ACCELEROMETER_QUERY
 
-`ACCELEROMETER_QUERY [CHIP=<config_name>] [RATE=<value>]`: queries accelerometer for the current value. If CHIP is not specified it defaults to "adxl345". If RATE is not specified, the default value is used. This command is useful to test the connection to the ADXL345 accelerometer: one of the returned values should be a free-fall acceleration (+/- some noise of the chip).
+`ACCELEROMETER_QUERY [CHIP=<config_name>] [RATE=<value>]`: consulta l'acceleròmetre per obtenir el valor actual. Si no s'especifica CHIP, el valor predeterminat és "adxl345". Si no s'especifica RATE, s'utilitza el valor predeterminat. Aquest comandament és útil per provar la connexió amb l'aceleròmetre ADXL345: un dels valors retornats ha de ser una acceleració en caiguda lliure (+/- soroll o interferències del xip).
 
 #### ACCELEROMETER_DEBUG_READ
 
-`ACCELEROMETER_DEBUG_READ [CHIP=<config_name>] REG=<register>`: queries ADXL345 register "register" (e.g. 44 or 0x2C). Can be useful for debugging purposes.
+`ACCELEROMETER_DEBUG_READ [CHIP=<config_name>] REG=<register>`: consulta el registre «register» de l'ADXL345 (p. ex., 44 o 0x2C). Pot ser útil per a tasques de depuració.
 
 #### ACCELEROMETER_DEBUG_WRITE
 
@@ -234,7 +234,7 @@ The following commands are available when an [exclude_object config section](Con
 
 `EXCLUDE_OBJECT [NAME=object_name] [CURRENT=1] [RESET=1]`: With no parameters, this will return a list of all currently excluded objects.
 
-When the `NAME` parameter is given, the named object will be excluded from printing.
+Quan s'especifica el paràmetre `NAME`, l'objecte indicat s'exclourà de la impressió.
 
 When the `CURRENT` parameter is given, the current object will be excluded from printing.
 
@@ -294,7 +294,7 @@ The following command is available when a [fan_generic config section](Config_Re
 
 ### [filament_switch_sensor]
 
-The following command is available when a [filament_switch_sensor](Config_Reference.md#filament_switch_sensor) or [filament_motion_sensor](Config_Reference.md#filament_motion_sensor) config section is enabled.
+L'ordre següent està disponible quan s'habilita una secció de configuració [filament_switch_sensor](Config_Reference.md#filament_switch_sensor) o [filament_motion_sensor](Config_Reference.md#filament_motion_sensor).
 
 #### QUERY_FILAMENT_SENSOR
 
@@ -349,7 +349,7 @@ The gcode module is automatically loaded.
 
 #### RESTART
 
-`RESTART`: This will cause the host software to reload its config and perform an internal reset. This command will not clear error state from the micro-controller (see FIRMWARE_RESTART) nor will it load new software (see [the FAQ](FAQ.md#how-do-i-upgrade-to-the-latest-software)).
+`RESTART`: Això farà que el programari amfitrió torni a carregar la seva configuració i dugui a terme un reinici intern. Aquesta ordre no esborrarà l'estat d'error del microcontrolador (vegeu `FIRMWARE_RESTART`) ni carregarà programari nou (vegeu la secció FAQ[preguntes freqüents](FAQ.md#how-do-i-upgrade-to-the-latest-software)).
 
 #### FIRMWARE_RESTART
 
@@ -365,7 +365,7 @@ The gcode module is automatically loaded.
 
 ### [gcode_arcs]
 
-The following standard G-Code commands are available if a [gcode_arcs config section](Config_Reference.md#gcode_arcs) is enabled:
+Les següents ordres estàndard de codi G estan disponibles si s'habilita una secció de configuració [gcode_arcs](Config_Reference.md#gcode_arcs):
 
 - Arc Move Clockwise (G2), Arc Move Counter-clockwise (G3): `G2|G3 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>] [F<speed>] I<value> J<value>|I<value> K<value>|J<value> K<value>`
 - Arc Plane Select: G17 (XY plane), G18 (XZ plane), G19 (YZ plane)
@@ -482,7 +482,7 @@ The following command is available when any of the [led config sections](Config_
 
 #### SET_LED
 
-`SET_LED LED=<config_name> RED=<value> GREEN=<value> BLUE=<value> WHITE=<value> [INDEX=<index>] [TRANSMIT=0] [SYNC=1]`: This sets the LED output. Each color `<value>` must be between 0.0 and 1.0. The WHITE option is only valid on RGBW LEDs. If the LED supports multiple chips in a daisy-chain then one may specify INDEX to alter the color of just the given chip (1 for the first chip, 2 for the second, etc.). If INDEX is not provided then all LEDs in the daisy-chain will be set to the provided color. If TRANSMIT=0 is specified then the color change will only be made on the next SET_LED command that does not specify TRANSMIT=0; this may be useful in combination with the INDEX parameter to batch multiple updates in a daisy-chain. By default, the SET_LED command will sync it's changes with other ongoing gcode commands. This can lead to undesirable behavior if LEDs are being set while the printer is not printing as it will reset the idle timeout. If careful timing is not needed, the optional SYNC=0 parameter can be specified to apply the changes without resetting the idle timeout.
+`SET_LED LED=<config_name> RED=<valor> GREEN=<valor> BLUE=<valor> WHITE=<valor> [INDEX=<index>] [TRANSMIT=0] [SYNC=1]`: Aquesta ordre configura la sortida LED. Cada `<valor>` de color ha de situar-se entre 0,0 i 1,0. L'opció WHITE només és vàlida en LED del tipus RGBW. Si el sistema LED admet diversos xips connectats en cadena (*daisy-chain*), es pot utilitzar el paràmetre INDEX per modificar el color d'un xip concret (1 per al primer xip, 2 per al segon, etc.). Si no s'especifica cap INDEX, tots els LED de la cadena s'establiran amb el color indicat. Si s'especifica TRANSMIT=0, el canvi de color no s'aplicarà fins a la següent ordre SET_LED que no inclogui TRANSMIT=0; això pot ser útil, juntament amb el paràmetre INDEX, per agrupar diverses actualitzacions en una cadena de LED. Per defecte, l'ordre SET_LED sincronitza els canvis amb altres ordres G-code en curs. Això pot provocar un comportament no desitjat si es modifiquen els LED mentre la impressora no està imprimint, ja que es reiniciarà el temporitzador d'inactivitat (*idle timeout*). Si no és necessària una sincronització temporal precisa, es pot utilitzar el paràmetre opcional SYNC=0 per aplicar els canvis sense reiniciar el temporitzador d'inactivitat.
 
 #### SET_LED_TEMPLATE
 
@@ -504,7 +504,7 @@ The following commands are enabled if a [load_cell config section](Config_Refere
 1. Next you apply a known load to the load cell and run the `CALIBRATE GRAMS=nnn` command
 1. Finally use the `ACCEPT` command to save the results
 
-You can cancel the calibration process at any time with `ABORT`.
+Podeu cancel·lar el procés de calibratge en qualsevol moment amb `ABORT`.
 
 ### LOAD_CELL_TARE
 
@@ -526,7 +526,7 @@ In addition, commands that perform probes, such as [`PROBE`](#probe), [`PROBE_AC
 - `DRIFT_FILTER_DELAY=<1|2>`
 - `BUZZ_FILTER_CUTOFF_FREQUENCY=<frequency_hz>`
 - `BUZZ_FILTER_DELAY=<1|2>`
-- `NOTCH_FILTER_FREQUENCIES=<list of frequency_hz>`
+- `NOTCH_FILTER_FREQUENCIES=<llista de freqüències_hz>`
 - `NOTCH_FILTER_QUALITY=<quality>`
 - `TARE_TIME=<seconds>`
 
@@ -596,27 +596,27 @@ The following command is available when an [output_pin config section](Config_Re
 
 The following commands are available when the [palette2 config section](Config_Reference.md#palette2) is enabled.
 
-Palette prints work by embedding special OCodes (Omega Codes) in the GCode file:
+Les impressions amb Palette funcionen incrustant uns codis especials, anomenats OCodes (Omega Codes), al fitxer GCode:
 
-- `O1`...`O32`: These codes are read from the GCode stream and processed by this module and passed to the Palette 2 device.
+- `O1`...`O32`: Aquests codis es llegeixen del flux de G-code, són processats per aquest mòdul i es transmeten al dispositiu Palette 2.
 
 The following additional commands are also available.
 
 #### PALETTE_CONNECT
 
-`PALETTE_CONNECT`: This command initializes the connection with the Palette 2.
+`PALETTE_CONNECT`: Aquesta ordre inicialitza la connexió amb la Palette 2.
 
 #### PALETTE_DISCONNECT
 
-`PALETTE_DISCONNECT`: This command disconnects from the Palette 2.
+`PALETTE_DISCONNECT`: Aquesta ordre desconnecta la Palette 2.
 
 #### PALETTE_CLEAR
 
-`PALETTE_CLEAR`: This command instructs the Palette 2 to clear all of the input and output paths of filament.
+`PALETTE_CLEAR`: Aquesta ordre indica a la Palette 2 que buidi de filament tots els camins d'entrada i de sortida.
 
 #### PALETTE_CUT
 
-`PALETTE_CUT`: This command instructs the Palette 2 to cut the filament currently loaded in the splice core.
+`PALETTE_CUT`: Aquesta ordre indica a la Palette 2 que talli el filament que hi ha carregat actualment al nucli d'unió (splice Core).
 
 #### PALETTE_SMART_LOAD
 
@@ -644,7 +644,7 @@ The following commands are available when the [pause_resume config section](Conf
 
 ### [pid_calibrate]
 
-The pid_calibrate module is automatically loaded if a heater is defined in the config file.
+El mòdul pid_calibrate es carrega automàticament si hi ha un element escalfador definit al fitxer de configuració.
 
 #### PID_CALIBRATE
 
@@ -684,13 +684,13 @@ The following commands are available when a [probe config section](Config_Refere
 
 ### [probe_eddy_current]
 
-The commands below are available when a [probe_eddy_current config section](Config_Reference.md#probe_eddy_current) is enabled.
+Les ordres següents estan disponibles quan es defineix una secció de configuració [`probe_eddy_current`](Config_Reference.md#probe_eddy_current).
 
 In addition, commands that perform probes, such as [`PROBE`](#probe), [`PROBE_ACCURACY`](#probe_accuracy), [`BED_MESH_CALIBRATE`](#bed_mesh_calibrate) etc. will accept additional parameters if a `[probe_eddy_current]` section is defined:
 
 - `METHOD=<scan|rapid_scan|tap>`: This alters the probing mechanism:
    - `METHOD=scan`: The toolhead does not descend. Instead the toolhead will pause briefly above each target location and return the measured height at that position.
-   - `METHOD=rapid_scan`: The toolhead does not descend and does not pause at each target location. The value returned is the measured height around the time that the toolhead was near each target position.
+   - `METHOD=rapid_scan`: El capçal no descendeix ni s'atura a cada ubicació objectiu. El valor retornat és l'alçada mesurada al voltant del moment en què el capçal es trobava a prop de cada posició objectiu.
    - `METHOD=tap`: The toolhead will descend until the nozzle makes contact with the bed. This method is only available if `tap_threshold` is specified in the `[probe_eddy_current]` config section.
    - default: If no `METHOD` parameter is specified then the default behavior is for the toolhead to descend until the sensor detects that the distance to the bed is at or below the `z_offset` parameter specified in the `[probe_eddy_current]` config section.
 - `SAMPLE_TIME=<time>`: When using `METHOD=scan` probing, this specifies the time (in seconds) to pause at each target point. When using `METHOD=rapid_scan` this specifies the measurement time window at each target. If not specified, the default is 0.100 (which is 100ms).
@@ -704,7 +704,7 @@ The `Z_OFFSET_APPLY_PROBE` command is also extended to support a `METHOD=tap` pa
 
 #### PROBE_EDDY_CURRENT_TAP_CALIBRATE
 
-`PROBE_EDDY_CURRENT_TAP_CALIBRATE [TAP=guess|refine|verify]`: This starts a tool that can calibrate the probe's "tap_threshold" parameter. See the [eddy probe documentation](Eddy_Probe.md#tap-calibration) for details.
+`PROBE_EDDY_CURRENT_TAP_CALIBRATE [TAP=guess|refine|verify]`: Inicia una eina que permet calibrar el paràmetre «tap_threshold» de la sonda. Consulteu la [documentació de la sonda de corrents de Foucault](Eddy_Probe.md#tap-calibration) per a més detalls.
 
 #### LDC_CALIBRATE_DRIVE_CURRENT
 
@@ -728,7 +728,7 @@ The following commands are available when the [quad_gantry_level config section]
 
 ### [query_adc]
 
-The query_adc module is automatically loaded.
+El mòdul query_adc es carrega automàticament.
 
 #### QUERY_ADC
 
@@ -770,7 +770,7 @@ The following additional commands are also available.
 
 #### RESPOND
 
-- `RESPOND MSG="<message>"`: echo the message prepended with the configured default prefix (or `echo: ` if no prefix is configured).
+- `RESPOND MSG="<missatge>"`: mostra el missatge amb el prefix per defecte configurat al principi (o `echo: ` si no hi ha cap prefix configurat).
 - `RESPOND TYPE=echo MSG="<message>"`: echo the message prepended with `echo: `.
 - `RESPOND TYPE=echo_no_space MSG="<message>"`: echo the message prepended with `echo:` without a space between prefix and message, helpful for compatibility with some octoprint plugins that expect very specific formatting.
 - `RESPOND TYPE=command MSG="<message>"`: echo the message prepended with `// `. OctoPrint can be configured to respond to these messages (e.g. `RESPOND TYPE=command MSG=action:pause`).
@@ -799,7 +799,7 @@ When the [sdcard_loop config section](Config_Reference.md#sdcard_loop) is enable
 
 #### SDCARD_LOOP_BEGIN
 
-`SDCARD_LOOP_BEGIN COUNT=<count>`: Begin a looped section in the SD print. A count of 0 indicates that the section should be looped indefinitely.
+`SDCARD_LOOP_BEGIN COUNT=<count>`: Inicia una secció en bucle en la impressió des de la targeta SD. Un valor de 0 indica que la secció s'ha de repetir indefinidament.
 
 #### SDCARD_LOOP_END
 
@@ -823,7 +823,7 @@ The following commands are available when the [skew_correction config section](C
 
 #### SET_SKEW
 
-`SET_SKEW [XY=<ac_length,bd_length,ad_length>] [XZ=<ac,bd,ad>] [YZ=<ac,bd,ad>] [CLEAR=<0|1>]`: Configures the [skew_correction] module with measurements (in mm) taken from a calibration print. One may enter measurements for any combination of planes, planes not entered will retain their current value. If `CLEAR=1` is entered then all skew correction will be disabled.
+`SET_SKEW [XY=<ac_length,bd_length,ad_length>] [XZ=<ac,bd,ad>] [YZ=<ac,bd,ad>] [CLEAR=<0|1>]`: Configura el mòdul [skew_correction] amb mesures (en mm) obtingudes d'una impressió de calibratge. Es poden introduir mesures per a qualsevol combinació de plans; els plans per als quals no s'especifiquin valors mantindran els valors actuals. Si s'estableix `CLEAR=1`, es desactivarà tota correcció de la distorsió (skew).
 
 #### GET_CURRENT_SKEW
 
@@ -839,7 +839,7 @@ The following commands are available when the [skew_correction config section](C
 
 ### [smart_effector]
 
-Several commands are available when a [smart_effector config section](Config_Reference.md#smart_effector) is enabled. Be sure to check the official documentation for the Smart Effector on the [Duet3D Wiki](https://duet3d.dozuki.com/Wiki/Smart_effector_and_carriage_adapters_for_delta_printer) before changing the Smart Effector parameters. Also check the [probe calibration guide](Probe_Calibrate.md).
+Hi ha diverses ordres disponibles quan s'habilita una secció de configuració [`smart_effector`](Config_Reference.md#smart_effector). Assegureu-vos de consultar la documentació oficial del Smart Effector a la [Wiki de Duet3D](https://duet3d.dozuki.com/Wiki/Smart_effector_and_carriage_adapters_for_delta_printer) abans de modificar els paràmetres del Smart Effector. Consulteu també la [guia de calibratge de la sonda](Probe_Calibrate.md).
 
 #### SET_SMART_EFFECTOR
 
