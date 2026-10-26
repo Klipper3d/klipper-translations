@@ -3134,9 +3134,9 @@
 <li>Move to origin: <code>G28 [X] [Y] [Z]</code></li>
 <li>Turn off motors: <code>M18</code> or <code>M84</code></li>
 <li>Wait for current moves to finish: <code>M400</code></li>
-<li>Use absolute/relative coordinates: <code>G90</code>, <code>G91</code></li>
+<li>Utilitza coordenades absolutes/relatives: <code>G90</code>, <code>G91</code></li>
 <li>Force relative distances for extrusion: <code>M83</code>, <code>M82</code><ul>
-<li>Note: <code>M83</code> forces extrusions to use relative coordinates even if <code>G90</code> absolute mode is selected. <code>M82</code> disables that forced mode (it does not force the extruder to use absolute coordinates).</li>
+<li>Nota: <code>M83</code> força les extrusions a utilitzar coordenades relatives, fins i tot si està seleccionat el mode absolut <code>G90</code>. <code>M82</code> desactiva aquest mode forçat (no obliga l'extrusor a utilitzar coordenades absolutes).</li>
 </ul>
 </li>
 <li>Set position: <code>G92 [X&lt;pos&gt;] [Y&lt;pos&gt;] [Z&lt;pos&gt;] [E&lt;pos&gt;]</code></li>
@@ -3146,7 +3146,7 @@
 <li>Note: If S is not specified and both P and T are specified, then the acceleration is set to the minimum of P and T. If only one of P or T is specified, the command has no effect.</li>
 </ul>
 </li>
-<li>Get extruder temperature: <code>M105</code></li>
+<li>Obtenir la temperatura de l'extrusor: <code>M105</code></li>
 <li>Set extruder temperature: <code>M104 [T&lt;index&gt;] [S&lt;temperature&gt;]</code></li>
 <li>Set extruder temperature and wait: <code>M109 [T&lt;index&gt;] S&lt;temperature&gt;</code><ul>
 <li>Note: M109 always waits for temperature to settle at requested value</li>
@@ -3174,9 +3174,9 @@
 <h4 id="accelerometer_measure">ACCELEROMETER_MEASURE<a class="headerlink" href="#accelerometer_measure" title="Permanent link">&para;</a></h4>
 <p><code>ACCELEROMETER_MEASURE [CHIP=&lt;config_name&gt;] [NAME=&lt;value&gt;]</code>: Starts accelerometer measurements at the requested number of samples per second. If CHIP is not specified it defaults to "adxl345". The command works in a start-stop mode: when executed for the first time, it starts the measurements, next execution stops them. The results of measurements are written to a file named <code>/tmp/adxl345-&lt;chip&gt;-&lt;name&gt;.csv</code> where <code>&lt;chip&gt;</code> is the name of the accelerometer chip (<code>my_chip_name</code> from <code>[adxl345 my_chip_name]</code>) and <code>&lt;name&gt;</code> is the optional NAME parameter. If NAME is not specified it defaults to the current time in "YYYYMMDD_HHMMSS" format. If the accelerometer does not have a name in its config section (simply <code>[adxl345]</code>) then <code>&lt;chip&gt;</code> part of the name is not generated.</p>
 <h4 id="accelerometer_query">ACCELEROMETER_QUERY<a class="headerlink" href="#accelerometer_query" title="Permanent link">&para;</a></h4>
-<p><code>ACCELEROMETER_QUERY [CHIP=&lt;config_name&gt;] [RATE=&lt;value&gt;]</code>: queries accelerometer for the current value. If CHIP is not specified it defaults to "adxl345". If RATE is not specified, the default value is used. This command is useful to test the connection to the ADXL345 accelerometer: one of the returned values should be a free-fall acceleration (+/- some noise of the chip).</p>
+<p><code>ACCELEROMETER_QUERY [CHIP=&lt;config_name&gt;] [RATE=&lt;value&gt;]</code>: consulta l'acceleròmetre per obtenir el valor actual. Si no s'especifica CHIP, el valor predeterminat és "adxl345". Si no s'especifica RATE, s'utilitza el valor predeterminat. Aquest comandament és útil per provar la connexió amb l'aceleròmetre ADXL345: un dels valors retornats ha de ser una acceleració en caiguda lliure (+/- soroll o interferències del xip).</p>
 <h4 id="accelerometer_debug_read">ACCELEROMETER_DEBUG_READ<a class="headerlink" href="#accelerometer_debug_read" title="Permanent link">&para;</a></h4>
-<p><code>ACCELEROMETER_DEBUG_READ [CHIP=&lt;config_name&gt;] REG=&lt;register&gt;</code>: queries ADXL345 register "register" (e.g. 44 or 0x2C). Can be useful for debugging purposes.</p>
+<p><code>ACCELEROMETER_DEBUG_READ [CHIP=&lt;config_name&gt;] REG=&lt;register&gt;</code>: consulta el registre «register» de l'ADXL345 (p. ex., 44 o 0x2C). Pot ser útil per a tasques de depuració.</p>
 <h4 id="accelerometer_debug_write">ACCELEROMETER_DEBUG_WRITE<a class="headerlink" href="#accelerometer_debug_write" title="Permanent link">&para;</a></h4>
 <p><code>ACCELEROMETER_DEBUG_WRITE [CHIP=&lt;config_name&gt;] REG=&lt;register&gt; VAL=&lt;value&gt;</code>: Writes raw "value" into a register "register". Both "value" and "register" can be a decimal or a hexadecimal integer. Use with care, and refer to ADXL345 data sheet for the reference.</p>
 <h3 id="angle">[angle]<a class="headerlink" href="#angle" title="Permanent link">&para;</a></h3>
@@ -3273,7 +3273,7 @@ section</a> is enabled.</p>
 <p>The following commands are available when an <a href="Config_Reference.html#exclude_object">exclude_object config section</a> is enabled (also see the <a href="Exclude_Object.html">exclude object guide</a>):</p>
 <h4 id="exclude_object_1"><code>EXCLUDE_OBJECT</code><a class="headerlink" href="#exclude_object_1" title="Permanent link">&para;</a></h4>
 <p><code>EXCLUDE_OBJECT [NAME=object_name] [CURRENT=1] [RESET=1]</code>: With no parameters, this will return a list of all currently excluded objects.</p>
-<p>When the <code>NAME</code> parameter is given, the named object will be excluded from printing.</p>
+<p>Quan s'especifica el paràmetre <code>NAME</code>, l'objecte indicat s'exclourà de la impressió.</p>
 <p>When the <code>CURRENT</code> parameter is given, the current object will be excluded from printing.</p>
 <p>When the <code>RESET</code> parameter is given, the list of excluded objects will be cleared. Additionally including <code>NAME</code> will only reset the named object. This <strong>can</strong> cause print failures, if layers were already skipped.</p>
 <h4 id="exclude_object_define"><code>EXCLUDE_OBJECT_DEFINE</code><a class="headerlink" href="#exclude_object_define" title="Permanent link">&para;</a></h4>
@@ -3306,7 +3306,7 @@ section</a> is enabled.</p>
 <p><code>SET_FAN_SPEED FAN=config_name SPEED=&lt;speed&gt;</code> This command sets the speed of a fan. "speed" must be between 0.0 and 1.0.</p>
 <p><code>SET_FAN_SPEED FAN=config_name TEMPLATE=&lt;template_name&gt; [&lt;param_x&gt;=&lt;literal&gt;]</code>: If <code>TEMPLATE</code> is specified then it assigns a <a href="Config_Reference.html#display_template">display_template</a> to the given fan. For example, if one defined a <code>[display_template my_fan_template]</code> config section then one could assign <code>TEMPLATE=my_fan_template</code> here. The display_template should produce a string containing a floating point number with the desired value. The template will be continuously evaluated and the fan will be automatically set to the resulting speed. One may set display_template parameters to use during template evaluation (parameters will be parsed as Python literals). If TEMPLATE is an empty string then this command will clear any previous template assigned to the pin (one can then use <code>SET_FAN_SPEED</code> commands to manage the values directly).</p>
 <h3 id="filament_switch_sensor">[filament_switch_sensor]<a class="headerlink" href="#filament_switch_sensor" title="Permanent link">&para;</a></h3>
-<p>The following command is available when a <a href="Config_Reference.html#filament_switch_sensor">filament_switch_sensor</a> or <a href="Config_Reference.html#filament_motion_sensor">filament_motion_sensor</a> config section is enabled.</p>
+<p>L'ordre següent està disponible quan s'habilita una secció de configuració <a href="Config_Reference.html#filament_switch_sensor">filament_switch_sensor</a> o <a href="Config_Reference.html#filament_motion_sensor">filament_motion_sensor</a>.</p>
 <h4 id="query_filament_sensor">QUERY_FILAMENT_SENSOR<a class="headerlink" href="#query_filament_sensor" title="Permanent link">&para;</a></h4>
 <p><code>QUERY_FILAMENT_SENSOR SENSOR=&lt;sensor_name&gt;</code>: Queries the current status of the filament sensor. The data displayed on the terminal will depend on the sensor type defined in the configuration.</p>
 <h4 id="set_filament_sensor">SET_FILAMENT_SENSOR<a class="headerlink" href="#set_filament_sensor" title="Permanent link">&para;</a></h4>
@@ -3336,7 +3336,7 @@ section</a> is enabled.</p>
 <h3 id="gcode">[gcode]<a class="headerlink" href="#gcode" title="Permanent link">&para;</a></h3>
 <p>The gcode module is automatically loaded.</p>
 <h4 id="restart">RESTART<a class="headerlink" href="#restart" title="Permanent link">&para;</a></h4>
-<p><code>RESTART</code>: This will cause the host software to reload its config and perform an internal reset. This command will not clear error state from the micro-controller (see FIRMWARE_RESTART) nor will it load new software (see <a href="FAQ.html#how-do-i-upgrade-to-the-latest-software">the FAQ</a>).</p>
+<p><code>RESTART</code>: Això farà que el programari amfitrió torni a carregar la seva configuració i dugui a terme un reinici intern. Aquesta ordre no esborrarà l'estat d'error del microcontrolador (vegeu <code>FIRMWARE_RESTART</code>) ni carregarà programari nou (vegeu la secció FAQ<a href="FAQ.html#how-do-i-upgrade-to-the-latest-software">preguntes freqüents</a>).</p>
 <h4 id="firmware_restart">FIRMWARE_RESTART<a class="headerlink" href="#firmware_restart" title="Permanent link">&para;</a></h4>
 <p><code>FIRMWARE_RESTART</code>: This is similar to a RESTART command, but it also clears any error state from the micro-controller.</p>
 <h4 id="status">STATUS<a class="headerlink" href="#status" title="Permanent link">&para;</a></h4>
@@ -3344,7 +3344,7 @@ section</a> is enabled.</p>
 <h4 id="help">HELP<a class="headerlink" href="#help" title="Permanent link">&para;</a></h4>
 <p><code>HELP</code>: Report the list of available extended G-Code commands.</p>
 <h3 id="gcode_arcs">[gcode_arcs]<a class="headerlink" href="#gcode_arcs" title="Permanent link">&para;</a></h3>
-<p>The following standard G-Code commands are available if a <a href="Config_Reference.html#gcode_arcs">gcode_arcs config section</a> is enabled:</p>
+<p>Les següents ordres estàndard de codi G estan disponibles si s'habilita una secció de configuració <a href="Config_Reference.html#gcode_arcs">gcode_arcs</a>:</p>
 <ul>
 <li>Arc Move Clockwise (G2), Arc Move Counter-clockwise (G3): <code>G2|G3 [X&lt;pos&gt;] [Y&lt;pos&gt;] [Z&lt;pos&gt;] [E&lt;pos&gt;] [F&lt;speed&gt;] I&lt;value&gt; J&lt;value&gt;|I&lt;value&gt; K&lt;value&gt;|J&lt;value&gt; K&lt;value&gt;</code></li>
 <li>Arc Plane Select: G17 (XY plane), G18 (XZ plane), G19 (YZ plane)</li>
@@ -3405,7 +3405,7 @@ section</a> is enabled.</p>
 <h3 id="led">[led]<a class="headerlink" href="#led" title="Permanent link">&para;</a></h3>
 <p>The following command is available when any of the <a href="Config_Reference.html#leds">led config sections</a> are enabled.</p>
 <h4 id="set_led">SET_LED<a class="headerlink" href="#set_led" title="Permanent link">&para;</a></h4>
-<p><code>SET_LED LED=&lt;config_name&gt; RED=&lt;value&gt; GREEN=&lt;value&gt; BLUE=&lt;value&gt; WHITE=&lt;value&gt; [INDEX=&lt;index&gt;] [TRANSMIT=0] [SYNC=1]</code>: This sets the LED output. Each color <code>&lt;value&gt;</code> must be between 0.0 and 1.0. The WHITE option is only valid on RGBW LEDs. If the LED supports multiple chips in a daisy-chain then one may specify INDEX to alter the color of just the given chip (1 for the first chip, 2 for the second, etc.). If INDEX is not provided then all LEDs in the daisy-chain will be set to the provided color. If TRANSMIT=0 is specified then the color change will only be made on the next SET_LED command that does not specify TRANSMIT=0; this may be useful in combination with the INDEX parameter to batch multiple updates in a daisy-chain. By default, the SET_LED command will sync it's changes with other ongoing gcode commands. This can lead to undesirable behavior if LEDs are being set while the printer is not printing as it will reset the idle timeout. If careful timing is not needed, the optional SYNC=0 parameter can be specified to apply the changes without resetting the idle timeout.</p>
+<p><code>SET_LED LED=&lt;config_name&gt; RED=&lt;valor&gt; GREEN=&lt;valor&gt; BLUE=&lt;valor&gt; WHITE=&lt;valor&gt; [INDEX=&lt;index&gt;] [TRANSMIT=0] [SYNC=1]</code>: Aquesta ordre configura la sortida LED. Cada <code>&lt;valor&gt;</code> de color ha de situar-se entre 0,0 i 1,0. L'opció WHITE només és vàlida en LED del tipus RGBW. Si el sistema LED admet diversos xips connectats en cadena (<em>daisy-chain</em>), es pot utilitzar el paràmetre INDEX per modificar el color d'un xip concret (1 per al primer xip, 2 per al segon, etc.). Si no s'especifica cap INDEX, tots els LED de la cadena s'establiran amb el color indicat. Si s'especifica TRANSMIT=0, el canvi de color no s'aplicarà fins a la següent ordre SET_LED que no inclogui TRANSMIT=0; això pot ser útil, juntament amb el paràmetre INDEX, per agrupar diverses actualitzacions en una cadena de LED. Per defecte, l'ordre SET_LED sincronitza els canvis amb altres ordres G-code en curs. Això pot provocar un comportament no desitjat si es modifiquen els LED mentre la impressora no està imprimint, ja que es reiniciarà el temporitzador d'inactivitat (<em>idle timeout</em>). Si no és necessària una sincronització temporal precisa, es pot utilitzar el paràmetre opcional SYNC=0 per aplicar els canvis sense reiniciar el temporitzador d'inactivitat.</p>
 <h4 id="set_led_template">SET_LED_TEMPLATE<a class="headerlink" href="#set_led_template" title="Permanent link">&para;</a></h4>
 <p><code>SET_LED_TEMPLATE LED=&lt;led_name&gt; TEMPLATE=&lt;template_name&gt; [&lt;param_x&gt;=&lt;literal&gt;] [INDEX=&lt;index&gt;]</code>: Assign a <a href="Config_Reference.html#display_template">display_template</a> to a given <a href="Config_Reference.html#leds">LED</a>. For example, if one defined a <code>[display_template my_led_template]</code> config section then one could assign <code>TEMPLATE=my_led_template</code> here. The display_template should produce a comma separated string containing four floating point numbers corresponding to red, green, blue, and white color settings. The template will be continuously evaluated and the LED will be automatically set to the resulting colors. One may set display_template parameters to use during template evaluation (parameters will be parsed as Python literals). If INDEX is not specified then all chips in the LED's daisy-chain will be set to the template, otherwise only the chip with the given index will be updated. If TEMPLATE is an empty string then this command will clear any previous template assigned to the LED (one can then use <code>SET_LED</code> commands to manage the LED's color settings).</p>
 <h3 id="load_cell">[load_cell]<a class="headerlink" href="#load_cell" title="Permanent link">&para;</a></h3>
@@ -3419,7 +3419,7 @@ section</a> is enabled.</p>
 <li>Next you apply a known load to the load cell and run the <code>CALIBRATE GRAMS=nnn</code> command</li>
 <li>Finally use the <code>ACCEPT</code> command to save the results</li>
 </ol>
-<p>You can cancel the calibration process at any time with <code>ABORT</code>.</p>
+<p>Podeu cancel·lar el procés de calibratge en qualsevol moment amb <code>ABORT</code>.</p>
 <h3 id="load_cell_tare">LOAD_CELL_TARE<a class="headerlink" href="#load_cell_tare" title="Permanent link">&para;</a></h3>
 <p><code>LOAD_CELL_TARE [LOAD_CELL=&lt;config_name&gt;]</code>: This works just like the tare button on digital scale. It sets the current raw reading of the load cell to be the zero point reference value. The response is the percentage of the sensors range that was read and the raw value in counts. If the load cell is calibrated a force in grams is also reported.</p>
 <h3 id="load_cell_read-load_cellname">LOAD_CELL_READ load_cell="name"<a class="headerlink" href="#load_cell_read-load_cellname" title="Permanent link">&para;</a></h3>
@@ -3434,7 +3434,7 @@ section</a> is enabled.</p>
 <li><code>DRIFT_FILTER_DELAY=&lt;1|2&gt;</code></li>
 <li><code>BUZZ_FILTER_CUTOFF_FREQUENCY=&lt;frequency_hz&gt;</code></li>
 <li><code>BUZZ_FILTER_DELAY=&lt;1|2&gt;</code></li>
-<li><code>NOTCH_FILTER_FREQUENCIES=&lt;list of frequency_hz&gt;</code></li>
+<li><code>NOTCH_FILTER_FREQUENCIES=&lt;llista de freqüències_hz&gt;</code></li>
 <li><code>NOTCH_FILTER_QUALITY=&lt;quality&gt;</code></li>
 <li><code>TARE_TIME=&lt;seconds&gt;</code></li>
 </ul>
@@ -3480,19 +3480,19 @@ section</a> is enabled.</p>
 <p><code>SET_PIN PIN=config_name TEMPLATE=&lt;template_name&gt; [&lt;param_x&gt;=&lt;literal&gt;]</code>: If <code>TEMPLATE</code> is specified then it assigns a <a href="Config_Reference.html#display_template">display_template</a> to the given pin. For example, if one defined a <code>[display_template my_pin_template]</code> config section then one could assign <code>TEMPLATE=my_pin_template</code> here. The display_template should produce a string containing a floating point number with the desired value. The template will be continuously evaluated and the pin will be automatically set to the resulting value. One may set display_template parameters to use during template evaluation (parameters will be parsed as Python literals). If TEMPLATE is an empty string then this command will clear any previous template assigned to the pin (one can then use <code>SET_PIN</code> commands to manage the values directly).</p>
 <h3 id="palette2">[palette2]<a class="headerlink" href="#palette2" title="Permanent link">&para;</a></h3>
 <p>The following commands are available when the <a href="Config_Reference.html#palette2">palette2 config section</a> is enabled.</p>
-<p>Palette prints work by embedding special OCodes (Omega Codes) in the GCode file:</p>
+<p>Les impressions amb Palette funcionen incrustant uns codis especials, anomenats OCodes (Omega Codes), al fitxer GCode:</p>
 <ul>
-<li><code>O1</code>...<code>O32</code>: These codes are read from the GCode stream and processed by this module and passed to the Palette 2 device.</li>
+<li><code>O1</code>...<code>O32</code>: Aquests codis es llegeixen del flux de G-code, són processats per aquest mòdul i es transmeten al dispositiu Palette 2.</li>
 </ul>
 <p>The following additional commands are also available.</p>
 <h4 id="palette_connect">PALETTE_CONNECT<a class="headerlink" href="#palette_connect" title="Permanent link">&para;</a></h4>
-<p><code>PALETTE_CONNECT</code>: This command initializes the connection with the Palette 2.</p>
+<p><code>PALETTE_CONNECT</code>: Aquesta ordre inicialitza la connexió amb la Palette 2.</p>
 <h4 id="palette_disconnect">PALETTE_DISCONNECT<a class="headerlink" href="#palette_disconnect" title="Permanent link">&para;</a></h4>
-<p><code>PALETTE_DISCONNECT</code>: This command disconnects from the Palette 2.</p>
+<p><code>PALETTE_DISCONNECT</code>: Aquesta ordre desconnecta la Palette 2.</p>
 <h4 id="palette_clear">PALETTE_CLEAR<a class="headerlink" href="#palette_clear" title="Permanent link">&para;</a></h4>
-<p><code>PALETTE_CLEAR</code>: This command instructs the Palette 2 to clear all of the input and output paths of filament.</p>
+<p><code>PALETTE_CLEAR</code>: Aquesta ordre indica a la Palette 2 que buidi de filament tots els camins d'entrada i de sortida.</p>
 <h4 id="palette_cut">PALETTE_CUT<a class="headerlink" href="#palette_cut" title="Permanent link">&para;</a></h4>
-<p><code>PALETTE_CUT</code>: This command instructs the Palette 2 to cut the filament currently loaded in the splice core.</p>
+<p><code>PALETTE_CUT</code>: Aquesta ordre indica a la Palette 2 que talli el filament que hi ha carregat actualment al nucli d'unió (splice Core).</p>
 <h4 id="palette_smart_load">PALETTE_SMART_LOAD<a class="headerlink" href="#palette_smart_load" title="Permanent link">&para;</a></h4>
 <p><code>PALETTE_SMART_LOAD</code>: This command start the smart load sequence on the Palette 2. Filament is loaded automatically by extruding it the distance calibrated on the device for the printer, and instructs the Palette 2 once the loading has been completed. This command is the same as pressing <strong>Smart Load</strong> directly on the Palette 2 screen after the filament load is complete.</p>
 <h3 id="pause_resume">[pause_resume]<a class="headerlink" href="#pause_resume" title="Permanent link">&para;</a></h3>
@@ -3506,7 +3506,7 @@ section</a> is enabled.</p>
 <h4 id="cancel_print">CANCEL_PRINT<a class="headerlink" href="#cancel_print" title="Permanent link">&para;</a></h4>
 <p><code>CANCEL_PRINT</code>: Cancels the current print.</p>
 <h3 id="pid_calibrate">[pid_calibrate]<a class="headerlink" href="#pid_calibrate" title="Permanent link">&para;</a></h3>
-<p>The pid_calibrate module is automatically loaded if a heater is defined in the config file.</p>
+<p>El mòdul pid_calibrate es carrega automàticament si hi ha un element escalfador definit al fitxer de configuració.</p>
 <h4 id="pid_calibrate_1">PID_CALIBRATE<a class="headerlink" href="#pid_calibrate_1" title="Permanent link">&para;</a></h4>
 <p><code>PID_CALIBRATE HEATER=&lt;config_name&gt; TARGET=&lt;temperature&gt; [WRITE_FILE=1]</code>: Perform a PID calibration test. The specified heater will be enabled until the specified target temperature is reached, and then the heater will be turned off and on for several cycles. If the WRITE_FILE parameter is enabled, then the file /tmp/heattest.txt will be created with a log of all temperature samples taken during the test.</p>
 <h3 id="print_stats">[print_stats]<a class="headerlink" href="#print_stats" title="Permanent link">&para;</a></h3>
@@ -3526,12 +3526,12 @@ section</a> is enabled.</p>
 <h4 id="z_offset_apply_probe">Z_OFFSET_APPLY_PROBE<a class="headerlink" href="#z_offset_apply_probe" title="Permanent link">&para;</a></h4>
 <p><code>Z_OFFSET_APPLY_PROBE</code>: Take the current Z Gcode offset (aka, babystepping), and subtract if from the probe's z_offset. This acts to take a frequently used babystepping value, and "make it permanent". Requires a <code>SAVE_CONFIG</code> to take effect.</p>
 <h3 id="probe_eddy_current">[probe_eddy_current]<a class="headerlink" href="#probe_eddy_current" title="Permanent link">&para;</a></h3>
-<p>The commands below are available when a <a href="Config_Reference.html#probe_eddy_current">probe_eddy_current config section</a> is enabled.</p>
+<p>Les ordres següents estan disponibles quan es defineix una secció de configuració <a href="Config_Reference.html#probe_eddy_current"><code>probe_eddy_current</code></a>.</p>
 <p>In addition, commands that perform probes, such as <a href="#probe"><code>PROBE</code></a>, <a href="#probe_accuracy"><code>PROBE_ACCURACY</code></a>, <a href="#bed_mesh_calibrate"><code>BED_MESH_CALIBRATE</code></a> etc. will accept additional parameters if a <code>[probe_eddy_current]</code> section is defined:</p>
 <ul>
 <li><code>METHOD=&lt;scan|rapid_scan|tap&gt;</code>: This alters the probing mechanism:<ul>
 <li><code>METHOD=scan</code>: The toolhead does not descend. Instead the toolhead will pause briefly above each target location and return the measured height at that position.</li>
-<li><code>METHOD=rapid_scan</code>: The toolhead does not descend and does not pause at each target location. The value returned is the measured height around the time that the toolhead was near each target position.</li>
+<li><code>METHOD=rapid_scan</code>: El capçal no descendeix ni s'atura a cada ubicació objectiu. El valor retornat és l'alçada mesurada al voltant del moment en què el capçal es trobava a prop de cada posició objectiu.</li>
 <li><code>METHOD=tap</code>: The toolhead will descend until the nozzle makes contact with the bed. This method is only available if <code>tap_threshold</code> is specified in the <code>[probe_eddy_current]</code> config section.</li>
 <li>default: If no <code>METHOD</code> parameter is specified then the default behavior is for the toolhead to descend until the sensor detects that the distance to the bed is at or below the <code>z_offset</code> parameter specified in the <code>[probe_eddy_current]</code> config section.</li>
 </ul>
@@ -3543,7 +3543,7 @@ section</a> is enabled.</p>
 <h4 id="probe_eddy_current_calibrate">PROBE_EDDY_CURRENT_CALIBRATE<a class="headerlink" href="#probe_eddy_current_calibrate" title="Permanent link">&para;</a></h4>
 <p><code>PROBE_EDDY_CURRENT_CALIBRATE CHIP=&lt;config_name&gt; [MANUAL_METHOD=manual]</code>: This starts a tool that calibrates the sensor resonance frequencies to corresponding Z heights. The tool will take a couple of minutes to complete. After completion, use the SAVE_CONFIG command to store the results in the printer.cfg file.</p>
 <h4 id="probe_eddy_current_tap_calibrate">PROBE_EDDY_CURRENT_TAP_CALIBRATE<a class="headerlink" href="#probe_eddy_current_tap_calibrate" title="Permanent link">&para;</a></h4>
-<p><code>PROBE_EDDY_CURRENT_TAP_CALIBRATE [TAP=guess|refine|verify]</code>: This starts a tool that can calibrate the probe's "tap_threshold" parameter. See the <a href="Eddy_Probe.html#tap-calibration">eddy probe documentation</a> for details.</p>
+<p><code>PROBE_EDDY_CURRENT_TAP_CALIBRATE [TAP=guess|refine|verify]</code>: Inicia una eina que permet calibrar el paràmetre «tap_threshold» de la sonda. Consulteu la <a href="Eddy_Probe.html#tap-calibration">documentació de la sonda de corrents de Foucault</a> per a més detalls.</p>
 <h4 id="ldc_calibrate_drive_current">LDC_CALIBRATE_DRIVE_CURRENT<a class="headerlink" href="#ldc_calibrate_drive_current" title="Permanent link">&para;</a></h4>
 <p><code>LDC_CALIBRATE_DRIVE_CURRENT CHIP=&lt;config_name&gt;</code> This tool will calibrate the ldc1612 DRIVE_CURRENT0 register. Prior to using this tool, move the sensor so that it is near the center of the bed and about 20mm above the bed surface. Run this command to determine an appropriate DRIVE_CURRENT for the sensor. After running this command use the SAVE_CONFIG command to store that new setting in the printer.cfg config file.</p>
 <h3 id="pwm_cycle_time">[pwm_cycle_time]<a class="headerlink" href="#pwm_cycle_time" title="Permanent link">&para;</a></h3>
@@ -3555,7 +3555,7 @@ section</a> is enabled.</p>
 <h4 id="quad_gantry_level_1">QUAD_GANTRY_LEVEL<a class="headerlink" href="#quad_gantry_level_1" title="Permanent link">&para;</a></h4>
 <p><code>QUAD_GANTRY_LEVEL [RETRIES=&lt;value&gt;] [RETRY_TOLERANCE=&lt;value&gt;] [HORIZONTAL_MOVE_Z=&lt;value&gt;] [&lt;probe_parameter&gt;=&lt;value&gt;]</code>: This command will probe the points specified in the config and then make independent adjustments to each Z stepper to compensate for tilt. See the PROBE command for details on the optional probe parameters. The optional <code>RETRIES</code>, <code>RETRY_TOLERANCE</code>, and <code>HORIZONTAL_MOVE_Z</code> values override those options specified in the config file.</p>
 <h3 id="query_adc">[query_adc]<a class="headerlink" href="#query_adc" title="Permanent link">&para;</a></h3>
-<p>The query_adc module is automatically loaded.</p>
+<p>El mòdul query_adc es carrega automàticament.</p>
 <h4 id="query_adc_1">QUERY_ADC<a class="headerlink" href="#query_adc_1" title="Permanent link">&para;</a></h4>
 <p><code>QUERY_ADC [NAME=&lt;config_name&gt;] [PULLUP=&lt;value&gt;]</code>: Report the last analog value received for a configured analog pin. If NAME is not provided, the list of available adc names are reported. If PULLUP is provided (as a value in Ohms), the raw analog value along with the equivalent resistance given that pullup is reported.</p>
 <h3 id="query_endstops">[query_endstops]<a class="headerlink" href="#query_endstops" title="Permanent link">&para;</a></h3>
@@ -3581,7 +3581,7 @@ section</a> is enabled.</p>
 <p>The following additional commands are also available.</p>
 <h4 id="respond_1">RESPOND<a class="headerlink" href="#respond_1" title="Permanent link">&para;</a></h4>
 <ul>
-<li><code>RESPOND MSG="&lt;message&gt;"</code>: echo the message prepended with the configured default prefix (or <code>echo:</code> if no prefix is configured).</li>
+<li><code>RESPOND MSG="&lt;missatge&gt;"</code>: mostra el missatge amb el prefix per defecte configurat al principi (o <code>echo:</code> si no hi ha cap prefix configurat).</li>
 <li><code>RESPOND TYPE=echo MSG="&lt;message&gt;"</code>: echo the message prepended with <code>echo:</code>.</li>
 <li><code>RESPOND TYPE=echo_no_space MSG="&lt;message&gt;"</code>: echo the message prepended with <code>echo:</code> without a space between prefix and message, helpful for compatibility with some octoprint plugins that expect very specific formatting.</li>
 <li><code>RESPOND TYPE=command MSG="&lt;message&gt;"</code>: echo the message prepended with <code>//</code>. OctoPrint can be configured to respond to these messages (e.g. <code>RESPOND TYPE=command MSG=action:pause</code>).</li>
@@ -3599,7 +3599,7 @@ section</a> is enabled.</p>
 <h3 id="sdcard_loop">[sdcard_loop]<a class="headerlink" href="#sdcard_loop" title="Permanent link">&para;</a></h3>
 <p>When the <a href="Config_Reference.html#sdcard_loop">sdcard_loop config section</a> is enabled, the following extended commands are available.</p>
 <h4 id="sdcard_loop_begin">SDCARD_LOOP_BEGIN<a class="headerlink" href="#sdcard_loop_begin" title="Permanent link">&para;</a></h4>
-<p><code>SDCARD_LOOP_BEGIN COUNT=&lt;count&gt;</code>: Begin a looped section in the SD print. A count of 0 indicates that the section should be looped indefinitely.</p>
+<p><code>SDCARD_LOOP_BEGIN COUNT=&lt;count&gt;</code>: Inicia una secció en bucle en la impressió des de la targeta SD. Un valor de 0 indica que la secció s'ha de repetir indefinidament.</p>
 <h4 id="sdcard_loop_end">SDCARD_LOOP_END<a class="headerlink" href="#sdcard_loop_end" title="Permanent link">&para;</a></h4>
 <p><code>SDCARD_LOOP_END</code>: End a looped section in the SD print.</p>
 <h4 id="sdcard_loop_desist">SDCARD_LOOP_DESIST<a class="headerlink" href="#sdcard_loop_desist" title="Permanent link">&para;</a></h4>
@@ -3611,7 +3611,7 @@ section</a> is enabled.</p>
 <h3 id="skew_correction">[skew_correction]<a class="headerlink" href="#skew_correction" title="Permanent link">&para;</a></h3>
 <p>The following commands are available when the <a href="Config_Reference.html#skew_correction">skew_correction config section</a> is enabled (also see the <a href="Skew_Correction.html">Skew Correction</a> guide).</p>
 <h4 id="set_skew">SET_SKEW<a class="headerlink" href="#set_skew" title="Permanent link">&para;</a></h4>
-<p><code>SET_SKEW [XY=&lt;ac_length,bd_length,ad_length&gt;] [XZ=&lt;ac,bd,ad&gt;] [YZ=&lt;ac,bd,ad&gt;] [CLEAR=&lt;0|1&gt;]</code>: Configures the [skew_correction] module with measurements (in mm) taken from a calibration print. One may enter measurements for any combination of planes, planes not entered will retain their current value. If <code>CLEAR=1</code> is entered then all skew correction will be disabled.</p>
+<p><code>SET_SKEW [XY=&lt;ac_length,bd_length,ad_length&gt;] [XZ=&lt;ac,bd,ad&gt;] [YZ=&lt;ac,bd,ad&gt;] [CLEAR=&lt;0|1&gt;]</code>: Configura el mòdul [skew_correction] amb mesures (en mm) obtingudes d'una impressió de calibratge. Es poden introduir mesures per a qualsevol combinació de plans; els plans per als quals no s'especifiquin valors mantindran els valors actuals. Si s'estableix <code>CLEAR=1</code>, es desactivarà tota correcció de la distorsió (skew).</p>
 <h4 id="get_current_skew">GET_CURRENT_SKEW<a class="headerlink" href="#get_current_skew" title="Permanent link">&para;</a></h4>
 <p><code>GET_CURRENT_SKEW</code>: Reports the current printer skew for each plane in both radians and degrees. The skew is calculated based on parameters provided via the <code>SET_SKEW</code> gcode.</p>
 <h4 id="calc_measured_skew">CALC_MEASURED_SKEW<a class="headerlink" href="#calc_measured_skew" title="Permanent link">&para;</a></h4>
@@ -3619,7 +3619,7 @@ section</a> is enabled.</p>
 <h4 id="skew_profile">SKEW_PROFILE<a class="headerlink" href="#skew_profile" title="Permanent link">&para;</a></h4>
 <p><code>SKEW_PROFILE [LOAD=&lt;name&gt;] [SAVE=&lt;name&gt;] [REMOVE=&lt;name&gt;]</code>: Profile management for skew_correction. LOAD will restore skew state from the profile matching the supplied name. SAVE will save the current skew state to a profile matching the supplied name. Remove will delete the profile matching the supplied name from persistent memory. Note that after SAVE or REMOVE operations have been run the SAVE_CONFIG gcode must be run to make the changes to persistent memory permanent.</p>
 <h3 id="smart_effector">[smart_effector]<a class="headerlink" href="#smart_effector" title="Permanent link">&para;</a></h3>
-<p>Several commands are available when a <a href="Config_Reference.html#smart_effector">smart_effector config section</a> is enabled. Be sure to check the official documentation for the Smart Effector on the <a href="https://duet3d.dozuki.com/Wiki/Smart_effector_and_carriage_adapters_for_delta_printer">Duet3D Wiki</a> before changing the Smart Effector parameters. Also check the <a href="Probe_Calibrate.html">probe calibration guide</a>.</p>
+<p>Hi ha diverses ordres disponibles quan s'habilita una secció de configuració <a href="Config_Reference.html#smart_effector"><code>smart_effector</code></a>. Assegureu-vos de consultar la documentació oficial del Smart Effector a la <a href="https://duet3d.dozuki.com/Wiki/Smart_effector_and_carriage_adapters_for_delta_printer">Wiki de Duet3D</a> abans de modificar els paràmetres del Smart Effector. Consulteu també la <a href="Probe_Calibrate.html">guia de calibratge de la sonda</a>.</p>
 <h4 id="set_smart_effector">SET_SMART_EFFECTOR<a class="headerlink" href="#set_smart_effector" title="Permanent link">&para;</a></h4>
 <p><code>SET_SMART_EFFECTOR [SENSITIVITY=&lt;sensitivity&gt;] [ACCEL=&lt;accel&gt;] [RECOVERY_TIME=&lt;time&gt;]</code>: Set the Smart Effector parameters. When <code>SENSITIVITY</code> is specified, the respective value is written to the SmartEffector EEPROM (requires <code>control_pin</code> to be provided). Acceptable <code>&lt;sensitivity&gt;</code> values are 0..255, the default is 50. Lower values require less nozzle contact force to trigger (but there is a higher risk of false triggering due to vibrations during probing), and higher values reduce false triggering (but require larger contact force to trigger). Since the sensitivity is written to EEPROM, it is preserved after the shutdown, and so it does not need to be configured on every printer startup. <code>ACCEL</code> and <code>RECOVERY_TIME</code> allow to override the corresponding parameters at run-time, see the <a href="Config_Reference.html#smart_effector">config section</a> of Smart Effector for more info on those parameters.</p>
 <h4 id="reset_smart_effector">RESET_SMART_EFFECTOR<a class="headerlink" href="#reset_smart_effector" title="Permanent link">&para;</a></h4>
