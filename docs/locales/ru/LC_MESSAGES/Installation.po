@@ -5,17 +5,20 @@
 # xXx <xxx_xxx_xxxxxxxxx@mail.ru>, 2023, 2025.
 # gfbdrgng <hnaofegnp@hldrive.com>, 2024, 2025.
 # Evgeniy Khramov <65224669+thejenja@users.noreply.github.com>, 2025.
+# Andrei Stepanov <adem@users.noreply.hosted.weblate.org>, 2026.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-07-22 08:39+0000\n"
-"Last-Translator: WofWca <wofwca@protonmail.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/installation/ru/>\n"
+"PO-Revision-Date: 2026-10-25 10:42+0000\n"
+"Last-Translator: Andrei Stepanov <adem@users.noreply.hosted.weblate.org>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
+"installation/ru/>\n"
 "Language: ru\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.13-dev\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 msgid "Building and flashing the micro-controller"
 msgstr "Компиляция и прошивка микроконтроллера"
@@ -308,6 +311,12 @@ msgid ""
 "host machine (see the [FAQ](FAQ.md#can-i-run-klipper-on-something-other-than-"
 "a-raspberry-pi-3) for other options)."
 msgstr ""
+"Эти инструкции предполагают, что программное обеспечение будет работать на "
+"хосте под управлением Linux с совместимым с Klipper фронтендом. "
+"Рекомендуется использовать в качестве хоста одноплатный компьютер (SBC), "
+"такой как Raspberry Pi, или устройство на базе Debian Linux (другие варианты "
+"см. в [FAQ](FAQ.md#can-i-run-klipper-on-something-other-than-a-raspberry-pi-"
+"3))."
 
 #: docs/Installation.md:block 3 (paragraph)
 msgid ""
@@ -315,6 +324,9 @@ msgid ""
 "mcu relates to the printer board. SBC relates to the term Small Board Computer"
 " such as the Raspberry Pi."
 msgstr ""
+"В контексте этих инструкций «хост» относится к устройству под управлением "
+"Linux, а «mcu» — к плате принтера. SBC означает одноплатный компьютер, такой "
+"как Raspberry Pi."
 
 #: docs/Installation.md:block 14 (paragraph)
 msgid ""
@@ -322,6 +334,10 @@ msgid ""
 " on what front end you wish to use. Some manufacturers of these SBC boards "
 "also provide their own Klipper-centric images."
 msgstr ""
+"Есть много способов получить образ ОС для использования Klipper на SBC, "
+"большинство зависит от того, какой фронтенд вы хотите использовать. "
+"Некоторые производители таких плат SBC также предоставляют собственные "
+"образы, ориентированные на Klipper."
 
 #: docs/Installation.md:block 15 (paragraph)
 msgid ""
@@ -330,6 +346,10 @@ msgid ""
 " install image [\"MainsailOS\"](https://docs-os.mainsail.xyz/), this has the "
 "option for Raspberry Pi and some OrangePi variants."
 msgstr ""
+"Два основных фронтенда на основе Moonraker — [Fluidd](https://"
+"docs.fluidd.xyz/) и [Mainsail](https://docs.mainsail.xyz/); у последнего "
+"есть готовый установочный образ [«MainsailOS»](https://docs-os.mainsail.xyz/)"
+", который доступен для Raspberry Pi и некоторых вариантов OrangePi."
 
 #: docs/Installation.md:block 19 (paragraph)
 msgid ""
@@ -339,6 +359,11 @@ msgid ""
 "can stop some Klipper functions from working and even mask access to some "
 "printer boards."
 msgstr ""
+"Обычно начинают с базового образа для вашего SBC, например RPiOS Lite, или, "
+"в случае устройства x86 Linux, Ubuntu Server. Обратите внимание, что "
+"настольные варианты не рекомендуются из-за некоторых вспомогательных "
+"программ, которые могут нарушить работу ряда функций Klipper и даже "
+"заблокировать доступ к некоторым платам принтера."
 
 #: docs/Installation.md:block 20 (paragraph)
 msgid ""
@@ -346,12 +371,17 @@ msgid ""
 "of Linux-based systems that run a form of Debian. More information can be "
 "found at https://github.com/dw-0/kiauh"
 msgstr ""
+"KIAUH можно использовать для установки Klipper и связанных с ним программ в "
+"различных системах на базе Linux, использующих ту или иную форму Debian. "
+"Дополнительную информацию см. на https://github.com/dw-0/kiauh"
 
 #: docs/Installation.md:block 32 (paragraph)
 msgid ""
 "For common micro-controllers with STM32 or clone chips, LPC chips and others, "
 "it is usual that these need an initial Klipper flash via SD card."
 msgstr ""
+"Для распространённых микроконтроллеров с чипами STM32 или клонами, чипами "
+"LPC и другими обычно требуется начальная прошивка Klipper через SD-карту."
 
 #: docs/Installation.md:block 33 (paragraph)
 msgid ""
@@ -359,6 +389,9 @@ msgid ""
 "board is not connected with USB to the host, due to some boards being able to "
 "feed power back to the board and stopping a flash from occurring."
 msgstr ""
+"При прошивке этим методом важно убедиться, что плата принтера не подключена "
+"к хосту по USB, так как некоторые платы могут подавать питание обратно на "
+"плату и препятствовать прошивке."
 
 #: docs/Installation.md:block 34 (paragraph)
 msgid ""
@@ -366,10 +399,13 @@ msgid ""
 " some kind of flash loop protection for when the sd card is left in place. "
 "There are two common methods:"
 msgstr ""
+"Учтите, что большинство плат принтера, использующих SD-карты для прошивки, "
+"реализуют ту или иную защиту от повторной прошивки, когда SD-карта остаётся "
+"на месте. Есть два распространённых метода:"
 
 #: docs/Installation.md:block 35 (paragraph)
 msgid "Filename Change Required (usually \"stock\" print boards):"
-msgstr ""
+msgstr "Требуется смена имени файла (обычно у «штатных» плат принтера):"
 
 #: docs/Installation.md:block 36 (paragraph)
 msgid ""
@@ -377,10 +413,13 @@ msgid ""
 "flash (for example, firmware1.bin, firmware2.bin, etc.). If you reuse the same"
 " filename, the board may ignore it and not update."
 msgstr ""
+"Эти платы требуют, чтобы файл прошивки имел разное имя при каждой прошивке "
+"(например, firmware1.bin, firmware2.bin и т. д.). Если использовать одно и "
+"то же имя файла, плата может проигнорировать его и не обновиться."
 
 #: docs/Installation.md:block 37 (paragraph)
 msgid "Automatic File Renaming (usually aftermarket print boards:"
-msgstr ""
+msgstr "Автоматическое переименование файла (обычно у сторонних плат принтера):"
 
 #: docs/Installation.md:block 38 (paragraph)
 msgid ""
@@ -389,10 +428,16 @@ msgid ""
 "firmware was successfully flashed and prevents it from flashing again on the "
 "next startup."
 msgstr ""
+"Другие платы допускают использование одного и того же имени файла, обычно "
+"firmware.bin, но после прошивки плата переименовывает файл в firmware.cur. "
+"Это помогает показать, что прошивка была успешно записана, и предотвращает "
+"повторную прошивку при следующем запуске."
 
 #: docs/Installation.md:block 39 (paragraph)
 msgid "Before flashing, make sure to check which behavior your board follows."
 msgstr ""
+"Перед прошивкой обязательно проверьте, какое поведение соответствует вашей "
+"плате."
 
 #: docs/Installation.md:block 48 (paragraph)
 msgid ""
@@ -400,6 +445,9 @@ msgid ""
 "built-in editors in Mainsail or Fluidd. These will allow the user to open the "
 "configuration examples and save them to be printer.cfg."
 msgstr ""
+"Пожалуй, самый простой способ задать файл конфигурации Klipper — "
+"использовать встроенные редакторы в Mainsail или Fluidd. Они позволяют "
+"открыть примеры конфигурации и сохранить их как printer.cfg."
 
 #: docs/Installation.md:block 50 (paragraph)
 msgid ""
@@ -407,6 +455,9 @@ msgid ""
 "SSH. That may look something like the following (be sure to update the command"
 " to use the appropriate printer config filename):"
 msgstr ""
+"В качестве альтернативы можно скопировать и отредактировать файл "
+"непосредственно на хосте через SSH. Это может выглядеть примерно так (не "
+"забудьте заменить в команде имя файла конфигурации принтера на подходящее):"
 
 #: docs/Installation.md:block 58 (paragraph)
 msgid ""
@@ -416,6 +467,10 @@ msgid ""
 "successfully read and the micro-controller is successfully found and "
 "configured."
 msgstr ""
+"После создания и редактирования файла потребуется выполнить команду «restart"
+"» в консоли команд, чтобы загрузить конфигурацию. Команда «status» сообщит, "
+"что принтер готов, если файл конфигурации Klipper успешно прочитан, а "
+"микроконтроллер успешно найден и настроен."
 
 #: docs/Installation.md:block 60 (paragraph)
 msgid ""
@@ -423,6 +478,10 @@ msgid ""
 "and Mainsail. The \"status\" command can be used to re-report error messages. "
 "A log is available and usually located at `~/printer_data/logs/klippy.log`."
 msgstr ""
+"Klipper сообщает об ошибках через консоль команд и всплывающие окна в Fluidd "
+"и Mainsail. Команду «status» можно использовать, чтобы повторно вывести "
+"сообщения об ошибках. Ведётся журнал, обычно расположенный по пути `~/"
+"printer_data/logs/klippy.log`."
 
 #: docs/Installation.md:block 26 (paragraph)
 msgid ""
@@ -431,6 +490,10 @@ msgid ""
 "image to the printer control board, then follow those steps and then proceed "
 "to [configuring OctoPrint](OctoPrint.md#configuring-octoprint-to-use-klipper)."
 msgstr ""
+"Если комментарии в начале [файла конфигурации принтера](#obtain-a-klipper-"
+"configuration-file) описывают особые шаги для «прошивки» итогового образа на "
+"плату управления принтера, выполните эти шаги, а затем переходите к "
+"[настройке OctoPrint](OctoPrint.md#configuring-octoprint-to-use-klipper)."
 
 #~ msgid ""
 #~ "If the comments at the top of the [printer configuration file](#obtain-a-"
