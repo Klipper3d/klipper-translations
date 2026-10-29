@@ -3,7 +3,7 @@
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2026-10-24 10:51+0000\n"
+"PO-Revision-Date: 2026-10-29 12:41+0000\n"
 "Last-Translator: jernejp21 <jernejp21@users.noreply.hosted.weblate.org>\n"
 "Language-Team: Slovenian <https://hosted.weblate.org/projects/klipper/"
 "config_checks/sl/>\n"
@@ -32,7 +32,6 @@ msgstr ""
 msgid "Verify temperature"
 msgstr "Preveri temperaturo"
 
-#, fuzzy
 msgid "Verify M112"
 msgstr "Preveri M112"
 
