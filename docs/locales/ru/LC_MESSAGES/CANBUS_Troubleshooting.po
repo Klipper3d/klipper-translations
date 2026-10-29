@@ -1,17 +1,20 @@
 # Oleg Romanov <gensoloone@outlook.com>, 2023, 2025.
 # gfbdrgng <hnaofegnp@hldrive.com>, 2024, 2025.
 # gfbdrgn <erfvvgtyhbnjhyuu@wireconnected.com>, 2025.
+# Andrei Stepanov <adem@users.noreply.hosted.weblate.org>, 2026.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-09-09 04:02+0000\n"
-"Last-Translator: gfbdrgn <erfvvgtyhbnjhyuu@wireconnected.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/canbus_troubleshooting/ru/>\n"
+"PO-Revision-Date: 2026-10-25 13:09+0000\n"
+"Last-Translator: Andrei Stepanov <adem@users.noreply.hosted.weblate.org>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
+"canbus_troubleshooting/ru/>\n"
 "Language: ru\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.14-dev\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 #: docs/CANBUS_Troubleshooting.md:block 1 (header)
 msgid "CANBUS Troubleshooting"
@@ -381,22 +384,28 @@ msgid ""
 "Incrementing `bytes_invalid` on a CAN bus connection is a symptom of reordered"
 " messages on the CAN bus. If seen, make sure to:"
 msgstr ""
+"Рост значения `bytes_invalid` при подключении по шине CAN — признак "
+"переупорядочивания сообщений на шине CAN. Если это наблюдается, обязательно:"
 
 #: docs/CANBUS_Troubleshooting.md:block 11 (unordered list)
 msgid "Use a Linux kernel version 6.6.0 or later."
-msgstr ""
+msgstr "Используйте версию ядра Linux 6.6.0 или более позднюю."
 
 #: docs/CANBUS_Troubleshooting.md:block 11 (unordered list)
 msgid ""
 "If using a USB-to-CANBUS adapter running candlelight firmware, use v2.0 or "
 "later of candleLight_fw."
 msgstr ""
+"Если используется USB-CAN-адаптер с прошивкой candlelight, используйте "
+"candleLight_fw версии 2.0 или более поздней."
 
 #: docs/CANBUS_Troubleshooting.md:block 11 (unordered list)
 msgid ""
 "If using Klipper's USB-to-CANBUS bridge mode, make sure the bridge node is "
 "flashed with Klipper v0.12.0 or later."
 msgstr ""
+"Если используется режим моста USB-CAN шины в Klipper, убедитесь, что узел "
+"моста прошит Klipper v0.12.0 или более поздней версии."
 
 #: docs/CANBUS_Troubleshooting.md:block 12 (paragraph)
 msgid ""
@@ -405,6 +414,11 @@ msgid ""
 "incrementing `bytes_invalid` is not caused by wiring or similar hardware "
 "issues and can only be fixed by identifying and updating the faulty software."
 msgstr ""
+"Переупорядочивание сообщений — серьёзная проблема, которую необходимо "
+"устранить. Она приводит к нестабильному поведению и может вызывать "
+"запутанные ошибки на любом этапе печати. Рост `bytes_invalid` не вызывается "
+"проводкой или подобными аппаратными проблемами; его можно устранить только "
+"путём выявления и обновления неисправного программного обеспечения."
 
 #: docs/CANBUS_Troubleshooting.md:block 13 (paragraph)
 msgid ""
@@ -416,6 +430,13 @@ msgid ""
 "show the problem (due to how hardware interrupts are configured), however if "
 "problems are seen the recommended solution is to upgrade to a newer kernel."
 msgstr ""
+"В старых версиях ядра Linux была ошибка в коде драйвера canbus gs_usb, "
+"которая могла приводить к переупорядочиванию пакетов canbus. Считается, что "
+"проблема исправлена в [коммите Linux 24bc41b4](https://github.com/torvalds/"
+"linux/commit/24bc41b4558347672a3db61009c339b1f5692169), выпущенном в v6.6.0. "
+"В некоторых случаях старые версии Linux могут не проявлять проблему (из-за "
+"того, как настроены аппаратные прерывания), однако при обнаружении проблем "
+"рекомендуется обновить ядро до более новой версии."
 
 #: docs/CANBUS_Troubleshooting.md:block 14 (paragraph)
 msgid ""
@@ -424,6 +445,10 @@ msgid ""
 "8b3a7b45](https://github.com/candle-"
 "usb/candleLight_fw/commit/8b3a7b4565a3c9521b762b154c94c72c5acb2bcf)."
 msgstr ""
+"Старые версии прошивки candlelight могли переупорядочивать пакеты canbus; "
+"считается, что проблема исправлена в [коммите candlelight_fw 8b3a7b45]"
+"(https://github.com/candle-usb/candleLight_fw/commit/"
+"8b3a7b4565a3c9521b762b154c94c72c5acb2bcf)."
 
 #: docs/CANBUS_Troubleshooting.md:block 15 (paragraph)
 msgid ""
@@ -432,10 +457,16 @@ msgid ""
 "still be fixed. It is thought to be fixed with [Klipper PR "
 "#6175](https://github.com/Klipper3d/klipper/pull/6175)."
 msgstr ""
+"Старые версии кода моста USB-CAN шины в Klipper могли ошибочно отбрасывать "
+"сообщения canbus. Это не так серьёзно, как переупорядочивание сообщений, но "
+"всё равно должно быть исправлено. Считается, что это исправлено в [PR "
+"Klipper #6175](https://github.com/Klipper3d/klipper/pull/6175)."
 
 #: docs/CANBUS_Troubleshooting.md:block 25 (header)
 msgid "Use `canbus_query.py` only to identify nodes never previously seen"
 msgstr ""
+"Используйте `canbus_query.py` только для идентификации ранее не "
+"встречавшихся узлов"
 
 #: docs/CANBUS_Troubleshooting.md:block 26 (paragraph)
 msgid ""
@@ -445,6 +476,11 @@ msgid ""
 "record the resulting uuids in the printer.cfg, and avoid running the tool "
 "unnecessarily."
 msgstr ""
+"Использовать [инструмент `canbus_query.py`](CANBUS.md#finding-the-"
+"canbus_uuid-for-new-micro-controllers) допустимо только для идентификации "
+"микроконтроллеров, которые ранее никогда не идентифицировались. Как только "
+"все узлы на шине идентифицированы, запишите полученные uuid в printer.cfg и "
+"избегайте ненужного запуска этого инструмента."
 
 #: docs/CANBUS_Troubleshooting.md:block 27 (paragraph)
 msgid ""
@@ -453,12 +489,18 @@ msgid ""
 "communication interruptions and may result is some nodes disconnecting from "
 "the bus."
 msgstr ""
+"Инструмент реализован с использованием низкоуровневого механизма, который "
+"может вызывать внутреннее обнаружение ошибок шины узлами. Эти внутренние "
+"ошибки могут приводить к прерываниям связи и к отключению некоторых узлов от "
+"шины."
 
 #: docs/CANBUS_Troubleshooting.md:block 28 (paragraph)
 msgid ""
 "It is not valid to use the tool to \"ping\" if a node is connected. Do not run"
 " the tool during an active print."
 msgstr ""
+"Использовать инструмент для «пинга» подключённого узла недопустимо. Не "
+"запускайте инструмент во время активной печати."
 
 #~ msgid ""
 #~ "Incrementing `bytes_invalid` on a CAN bus connection is a symptom of reordered"
