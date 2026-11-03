@@ -10,7 +10,7 @@
 
 ## Использование `LOAD_CELL_DIAGNOSTIC `
 
-When you first connect a load cell its good practice to check for issues by running `LOAD_CELL_DIAGNOSTIC`. This tool collects 10 seconds of data from the load cell and reports statistics:
+При первом подключении тензодатчика хорошей практикой является проверка на наличие проблем с помощью `LOAD_CELL_DIAGNOSTIC`. Этот инструмент собирает данные с тензодатчика за 10 секунд и выводит статистику:
 
 ```
 $ LOAD_CELL_DIAGNOSTIC
@@ -27,7 +27,7 @@ $ LOAD_CELL_DIAGNOSTIC
 * Настраиваемая скорость выборки датчика должна быть близка к значению «Измеренных образцов в секунду». Если это не так, у вас может быть проблема настройки или проводки.
 * Если у вас есть насыщенные образцы, это означает, что продажа нагрузки видит больше силы, чем она может измерить.
 * «Уникальные значения» должны быть большим процентом от стоимости «Samples Collected». Если «уникальные ценности» - 1, это, скорее всего, проблема проводки.
-* Tap or push on the sensor while `LOAD_CELL_DIAGNOSTIC` runs. If things are working correctly this should increase the 'Sample range'.
+* Постучите по датчику или надавите на него во время работы `LOAD_CELL_DIAGNOSTIC`. Если всё работает правильно, это должно увеличить «Диапазон выборки».
 
 ## Калибровка грузового элемента
 
@@ -37,7 +37,7 @@ $ LOAD_CELL_DIAGNOSTIC
 1. Затем вы применяете известную нагрузку или силу к грузовому элементу и запускаете команду `CALIBRATE GRAMS=nnn`. Из этого рассчитывается значение `counts_per_gram`. См. [ следующий раздел](#applying-a-known-force-or-load) для некоторых предложений о том, как это сделать.
 1. Наконец, используйте команду `ACCEPT ` для сохранения результатов.
 
-Вы можете отменить процесс калибровки в любое время с `ABORT`.
+Вы можете отменить процесс калибровки в любой момент командой `ABORT`.
 
 ### Применение известной силы или нагрузки
 
@@ -121,11 +121,11 @@ LOAD_CELL_TARE
 
 Это максимальная абсолютная сила, по сравнению с `reference_tare_counts `, что зонд позволит во время оттаивания или пробирования. Если MCU увидит, что эта сила превышена, он выключит принтер с ошибкой `! Загрузить сотовую остановку: слишком много силы! `. Существует ряд способов, которыми это может быть вызвано:
 
-The first risk this protects against is picking too large of a value for `drift_filter_cutoff_frequency`. This can cause the drift filter to filter out a probe event and continue the homing move. If this happens, the `force_safety_limit` acts as a backup protection.
+Первый риск, от которого это защищает, — выбор слишком большого значения `drift_filter_cutoff_frequency`. Это может привести к тому, что фильтр дрейфа отфильтрует событие измерения и продолжится движение парковки. В этом случае `force_safety_limit` выступает в качестве резервной защиты.
 
 Вторая проблема состоит в том, чтобы многократно просачиваться в одном месте. Klipper не втягивает зонд при выполнении одной команды `PROBE`. Это может привести к вступлению в силу, применяемую к плацдарму в конце испытательного цикла. Поскольку внешние силы могут сильно различаться между поиском местоположения, `load_cell_probe ` выполняет тару перед началом каждого зонда. Если вы повторите команду `PROBE`, то загрузка_cell_probe привлечет конечную остановку при нынешней силе. Множественные циклы этого приведут к постоянно возрастающей силе на головке инструмента. `force_safety_limit ` останавливает этот цикл от выхода из-под контроля.
 
-Another way this runaway can happen is damage to a strain gauge. If the metal part is permanently bent it will change the `reference_tare_counts` of the device. This puts the starting tare value much closer to the limit making it more likely to be violated. You want to be notified if this is happening because your hardware has been permanently damaged.
+Другой способ возникновения такого неконтролируемого движения — повреждение тензорезистора. Если металлическая часть постоянно деформирована, это изменит `reference_tare_counts` устройства. Это приближает начальное значение тары к пределу, делая более вероятным его превышение. Вы хотите получать уведомления, если это происходит, потому что ваше оборудование было необратимо повреждено.
 
 Последний способ, которым это может быть спровоцировано, связан с изменениями температуры. Если ваши датчики напряжения нагреваются, их `reference_tare_counts ` могут быть очень разными при температуре окружающей среды по сравнению с рабочей температурой. В этом случае вам может понадобиться увеличить `force_safety_limit `, чтобы обеспечить термические изменения.
 
@@ -133,17 +133,17 @@ Another way this runaway can happen is damage to a strain gauge. If the metal pa
 
 При оттачивании загрузки_cell_endstop начинается задача на MCU для измерения скорости, поступающей от датчика. Если датчик не может отправлять измерения в течение 2 периодов отбора проб, сторожевой щит закроет принтер с ошибкой `! LoadCell Endstop таймировал ожидание данных ADC `.
 
-If this happens, the most likely cause is a fault from the ADC. Inadequate grounding of your printer can be the root cause. The frame, power supply case and print bed should all be connected to ground. You may need to ground the frame in multiple places. Anodized aluminum extrusions do not conduct electricity well. You might need to sand the area where the grounding wire is attached to make good electrical contact.
+Если это происходит, наиболее вероятная причина — неисправность АЦП. Недостаточное заземление принтера может быть корневой причиной. Станина, корпус блока питания и стол для печати должны быть соединены с землёй. Возможно, потребуется заземлить станину в нескольких местах. Анодированные алюминиевые профили плохо проводят электричество. Возможно, придётся зачистить наждачной бумагой место крепления заземляющего провода для обеспечения хорошего электрического контакта.
 
-#### Interpolation
+#### Интерполяция
 
-To increase the precision of the probing result, the position of the first contact between nozzle and bed can be estimated by fitting a piecewise function to the measured data. The data will consist of two regions: while the nozzle is above the bed, the force will be constant (at the tare value). When the nozzle is in contact with the bed, the force will increase linearly with decreasing z position. A piecewise function is fitted to the data and the optimal z position of the split point is found by minimising the error squared. This enables a resolution finer than the distance between the sampling points and will also be less sensitive to noise.
+Чтобы повысить точность результата измерения, положение первой точки контакта сопла со столом можно оценить путём аппроксимации кусочно-заданной функцией измеренных данных. Данные состоят из двух областей: пока сопло находится над столом, сила постоянна (равна значению тары). Когда сопло контактирует со столом, сила линейно возрастает с уменьшением позиции z. К данным аппроксимируется кусочно-заданная функция, и оптимальная z-позиция точки разрыва находится минимизацией суммы квадратов ошибок. Это обеспечивает разрешение мельче расстояния между точками выборки и также меньшую чувствительность к шуму.
 
-Due to both physical and technical reasons, the interpolation uses data collected during an additional ascending movement after the initial descending move. The first 300ms of data collected during the ascending move will be used for the fit (this minimises the influence of tare drifts). The collected data must contain enough samples for the fit: at least 3 samples each below and above the contact point are required.
+По физическим и техническим причинам интерполяция использует данные, собранные во время дополнительного движения вверх после первоначального движения вниз. Для аппроксимации используются первые 300 мс данных, собранных во время движения вверх (это минимизирует влияние дрейфа тары). Собранные данные должны содержать достаточно отсчётов для аппроксимации: требуется не менее 3 отсчётов ниже и выше точки контакта.
 
-It is recommended to use a relatively high trigger force for the probe to have a strong enough signal. If you have too few samples below the contact point, try increasing the `trigger_force` or reducing the `lift_speed`. However, if the `lift_speed` is too small, there will be too few samples above the contact point due to the 300ms window.
+Рекомендуется использовать относительно высокую силу срабатывания датчика, чтобы сигнал был достаточно сильным. Если отсчётов ниже точки контакта слишком мало, попробуйте увеличить `trigger_force` или уменьшить `lift_speed`. Однако если `lift_speed` слишком мала, из-за окна в 300 мс отсчётов выше точки контакта будет слишком мало.
 
-The distance of the ascending move can be configured through the `sample_retract_dist` parameter.
+Расстояние движения вверх можно задать параметром `sample_retract_dist`.
 
 ## Настройка пробы загрузки
 
@@ -163,13 +163,13 @@ The distance of the ascending move can be configured through the `sample_retract
 
 ### Предлагаемая температура
 
-Currently, we suggest keeping the nozzle temperature below the level that causes the filament to ooze while homing and probing. 140°C is a good starting point. This temperature is also low enough not to scar PEI build surfaces.
+В настоящее время мы рекомендуем поддерживать температуру сопла ниже уровня, при котором филамент начинает подтекать, во время парковки и измерения. 140 °C — хорошая отправная точка. Эта температура также достаточно низкая, чтобы не повредить PEI-поверхности для печати.
 
 Разрушение сопла и печатной кровати из-за обесцвечивания нити накала является источником #1 ошибки при испытании пробоотборника. Klipper пока не имеет универсального способа обнаружения некачественных кранов из-за огни нити накала. Существующий код может решить, что кран действителен, когда он низкого качества. Классификация этих низкокачественных кранов является областью активных исследований.
 
 Klipper также не имеет поддержки для повторного размещения точки зонда, если местоположение стало загрязнено нитью накала. Модули, такие как `quad_gantry_level`, будут неоднократно исследовать те же координаты, даже если зонд ранее потерпел неудачу.
 
-Given the above it is strongly suggested not to probe at printing temperatures.
+С учётом вышесказанного настоятельно рекомендуется не выполнять измерение при температурах печати.
 
 ### Горячая защита сопла
 
@@ -194,7 +194,7 @@ The Voron project has a great macro for protecting your print surface from the h
 
 #### Расчет `temp_coeff ` для `[z_thermal_adjust]`
 
-The easiest way to do this is to measure at 2 different temperatures. Ideally these should be the upper and lower limits of the printing temperature range. E.g. 180°C and 290°C. You can perform a `PROBE_ACCURACY` at both temperatures and then calculate the difference of the `average z` at both.
+Самый простой способ сделать это — измерить при 2 разных температурах. В идеале это должны быть верхний и нижний пределы диапазона температур печати. Например, 180 °C и 290 °C. Вы можете выполнить `PROBE_ACCURACY` при обеих температурах, а затем вычислить разницу `average z` для обеих.
 
 Значением регулировки является изменение длины сопла, разделенное на изменение температуры. Например.
 
@@ -226,9 +226,9 @@ Klipper реализует настраиваемый IIR-фильтр на ми
 
 ### Установка SciPy
 
-The filtering code uses the excellent [SciPy](https://scipy.org/) library to compute the filter coefficients based on the values you enter into the config.
+Код фильтрации использует превосходную библиотеку [SciPy](https://scipy.org/) для вычисления коэффициентов фильтра на основе значений, которые вы вводите в конфигурации.
 
-Pre-compiled SciPi builds are available for Python 3 on 32-bit and 64-bit Raspberry Pi systems. 32-bit/64-bit + Python 3 is strongly recommended because it will streamline your installation experience. It does work with Python 2 but installation can take 30+ minutes and requires installing additional tools.
+Предварительно скомпилированные сборки SciPy доступны для Python 3 в 32- и 64-битных системах Raspberry Pi. Настоятельно рекомендуется 32/64-битная система + Python 3, так как это упростит установку. Он работает и с Python 2, но установка может занять более 30 минут и требует установки дополнительных инструментов.
 
 ```bash
 ~/klippy-env/bin/pip install scipy

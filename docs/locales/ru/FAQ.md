@@ -64,9 +64,9 @@ serial: /dev/serial/by-id/usb-1a86_USB2.0-Serial-if00-port0
 
 ## Можно ли запустить Klipper на чем-то другом, кроме Raspberry Pi 3?
 
-The recommended hardware is a Raspberry Pi Zero2w, Raspberry Pi 3, Raspberry Pi 4 or Raspberry Pi 5. Klipper will also run on other SBC devices as well as x86 hardware, as described below.
+Рекомендуемое оборудование — Raspberry Pi Zero 2 W, Raspberry Pi 3, Raspberry Pi 4 или Raspberry Pi 5. Klipper также будет работать на других устройствах SBC и на оборудовании x86, как описано ниже.
 
-Klipper will run on a Raspberry Pi 1, 2 and on the Raspberry Pi Zero1, but these boards don't have enough processing power to run Klipper well. It is common for print stalls to occur on these slower machines when printing (The printer may move faster than Klipper can send movement commands.) It is not recommended to run Klipper on these older machines.
+Klipper будет работать на Raspberry Pi 1, 2 и Raspberry Pi Zero 1, но этим платам не хватает вычислительной мощности для хорошей работы Klipper. На этих более медленных машинах во время печати часто возникают остановки печати (принтер может двигаться быстрее, чем Klipper успевает отправлять команды перемещения). Не рекомендуется запускать Klipper на этих старых машинах.
 
 Для запуска на Beaglebone см. инструкцию по установке [Beaglebone specific installation instructions](Beaglebone.md).
 
@@ -108,7 +108,7 @@ Klipper создает "виртуальный последовательный 
 
 Если вы хотите перемещать головку после завершения печати, добавьте нужное движение в раздел "пользовательский g-код" вашего слайсера.
 
-If the printer requires some additional movement as part of the homing process itself (or fundamentally does not have a homing process) then consider using a safe_z_home or homing_override section in the config file. If you need to move a stepper for diagnostic or debugging purposes then consider adding a force_move section to the config file. See [config reference](Config_Reference.md#customized-homing) for further details on these options.
+Если принтеру требуется дополнительное перемещение как часть самого процесса парковки (или у него в принципе нет процесса парковки), рассмотрите использование раздела safe_z_home или homing_override в файле конфигурации. Если нужно переместить шаговый двигатель в диагностических или отладочных целях, рассмотрите добавление раздела force_move в файл конфигурации. Дополнительные сведения об этих опциях см. в [справочнике конфигурации](Config_Reference.md#customized-homing).
 
 ## Почему в конфигурации по умолчанию для параметра Z position_endstop установлено значение 0,5?
 
@@ -146,7 +146,7 @@ If the printer requires some additional movement as part of the homing process i
 
 ## Останутся ли обогреватели включенными, если Raspberry Pi сломается?
 
-The software has been designed to prevent that. Once the host enables a heater, the host software needs to confirm that enablement every 3 seconds. If the micro-controller does not receive a confirmation every 3 seconds it goes into a "shutdown" state which is designed to turn off all heaters and stepper motors.
+Программное обеспечение спроектировано так, чтобы этого не допустить. Как только хост включает нагреватель, программное обеспечение хоста должно подтверждать это включение каждые 3 секунды. Если микроконтроллер не получает подтверждение каждые 3 секунды, он переходит в состояние «shutdown», предназначенное для отключения всех нагревателей и шаговых двигателей.
 
 Дополнительные сведения смотрите в команде "config_digital_out" в документе [MCU commands](MCU_Commands.md).
 

@@ -37,7 +37,7 @@ picocom -b 1200 <Устройство>
 
 ### Физическая серия
 
-If a physical serial port is being used on the MCU (even if a USB serial adapter is being used to connect to it), sending the string `<SPACE><FS><SPACE>Request Serial Bootloader!!<SPACE>~` requests the bootloader.
+Если на MCU используется физический последовательный порт (даже если для подключения к нему применяется USB-адаптер последовательного порта), отправка строки `<SPACE><FS><SPACE>Request Serial Bootloader!!<SPACE>~` запрашивает загрузчик.
 
 `<SPACE>` - это буквенный пробел ASCII, 0x20.
 

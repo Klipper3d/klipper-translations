@@ -8,8 +8,8 @@
 
 ![](img/klipper-logo.png){ .center-image }
 
-The Klipper firmware controls 3d-Printers. It combines the power of a general purpose computer with one or more micro-controllers. See the [features document](Features.md) for more information on why you should use the Klipper software.
+Прошивка Klipper управляет 3D-принтерами. Она сочетает вычислительную мощь универсального компьютера с одним или несколькими микроконтроллерами. Дополнительную информацию о том, почему стоит использовать программное обеспечение Klipper, см. в [документе о возможностях](Features.md).
 
-Start by [installing Klipper software](Installation.md).
+Начните с [установки программного обеспечения Klipper](Installation.md).
 
-Klipper software is Free Software. Read the [documentation](Overview.md), see the [license](../COPYING), or [download](https://github.com/Klipper3d/Klipper) the software. We depend on the generous support from our [sponsors](Sponsors.md).
+Программное обеспечение Klipper является свободным. Прочтите [документацию](Overview.md), ознакомьтесь с [лицензией](../COPYING) или [скачайте](https://github.com/Klipper3d/Klipper) программное обеспечение. Мы зависим от щедрой поддержки наших [спонсоров](Sponsors.md).

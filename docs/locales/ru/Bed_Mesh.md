@@ -70,7 +70,7 @@ mesh_pps: 2, 3
 bicubic_tension: 0.2
 ```
 
-- `mesh_pps: 2, 3` *Default Value: 2, 2* The `mesh_pps` option is shorthand for Mesh Points Per Segment. This option specifies how many points to interpolate for each segment along the X and Y axes. Consider a 'segment' to be the space between each probed point. Like `probe_count`, `mesh_pps` is specified as an X, Y integer pair, and also may be specified a single integer that is applied to both axes. In this example there are 4 segments along the X axis and 2 segments along the Y axis. This evaluates to 8 interpolated points along X, 6 interpolated points along Y, which results in a 13x9 mesh. Note that if mesh_pps is set to 0 then mesh interpolation is disabled and the probed matrix will be sampled directly.
+- `mesh_pps: 2, 3` *Значение по умолчанию: 2, 2*. Опция `mesh_pps` — это сокращение от Mesh Points Per Segment (точек сетки на сегмент). Эта опция задаёт, сколько точек интерполировать для каждого сегмента вдоль осей X и Y. «Сегмент» — это пространство между каждой измеренной точкой. Как и `probe_count`, `mesh_pps` задаётся как пара целых чисел X, Y, а также может быть задано одним целым числом, применяемым к обеим осям. В этом примере по оси X 4 сегмента, а по оси Y — 2 сегмента. Это даёт 8 интерполированных точек по X и 6 интерполированных точек по Y, что в результате даёт сетку 13x9. Учтите, что если `mesh_pps` равно 0, то интерполяция сетки отключена, и измеренная матрица используется напрямую.
 - `алгоритм: lagrange` *Значение по умолчанию: lagrange* Алгоритм, используемый для интерполяции сетки. Может быть `lagrange` или `bicubic`. Интерполяция Лагранжа ограничена 6 точками зондирования, так как при большем количестве выборок возникают колебания. Бикубическая интерполяция требует минимум 4 точки вдоль каждой оси, если указано менее 4 точек, то выборка по Лагранжу будет принудительной. Если `mesh_pps` установлено в 0, то это значение игнорируется, так как интерполяция сетки не выполняется.
 - `bicubic_tension: 0.2` *Значение по умолчанию: 0.2* Если опция `алгоритм` установлена на bicubic, то можно указать значение натяжения. Чем выше натяжение, тем больше наклон интерполируется. Будьте осторожны при настройке этого параметра, так как более высокие значения также создают большую перегрузку, что приведет к тому, что интерполированные значения будут выше или ниже, чем ваши измеренные точки.
 
@@ -120,7 +120,7 @@ fade_target: 0
 
 ### Настройка нулевого опорного положения
 
-Many probes are susceptible to "drift", ie: inaccuracies in probing introduced by heat or interference. This can make calculating the probe's z-offset challenging, particularly at different bed temperatures. As such, some printers use an endstop for homing the Z axis and a probe for calibrating the mesh. In this configuration it is possible offset the mesh so that the (X, Y) `reference position` applies zero adjustment. The `reference position` should be the location on the bed where a [Z_ENDSTOP_CALIBRATE](./Manual_Level.md#calibrating-a-z-endstop) paper test is performed. The bed_mesh module provides the `zero_reference_position` option for specifying this coordinate:
+Многие датчики подвержены «дрейфу», то есть неточностям измерения, вызванным нагревом или помехами. Это может усложнить вычисление z-смещения датчика, особенно при разных температурах стола. Поэтому некоторые принтеры используют концевой выключатель для парковки оси Z и датчик для калибровки сетки. В этой конфигурации можно сместить сетку так, чтобы к (X, Y) `reference position` применялась нулевая поправка. `reference position` должна быть точкой на столе, где выполняется бумажный тест [Z_ENDSTOP_CALIBRATE](./Manual_Level.md#calibrating-a-z-endstop). Модуль bed_mesh предоставляет опцию `zero_reference_position` для задания этой координаты:
 
 ```
 [bed_mesh]
@@ -343,7 +343,7 @@ gcode:
 
 Сбрасывает конфигурацию и состояние для текущей сетки и всех сохраненных профилей.
 
-The `dump_mesh` endpoint takes one optional parameter, `mesh_args`. This parameter must be an object, where the keys and values are parameters available to [BED_MESH_CALIBRATE](G-Codes.md#bed_mesh_calibrate). This will update the mesh configuration and probe points using the supplied parameters prior to returning the result. It is recommended to omit mesh parameters unless it is desired to visualize the probe points and/or travel path before performing `BED_MESH_CALIBRATE`.
+Конечная точка `dump_mesh` принимает один необязательный параметр — `mesh_args`. Этот параметр должен быть объектом, где ключи и значения — это параметры, доступные для [BED_MESH_CALIBRATE](G-Codes.md#bed_mesh_calibrate). Это обновит конфигурацию сетки и точки измерения с использованием переданных параметров перед возвратом результата. Рекомендуется опускать параметры сетки, если только не требуется визуализировать точки измерения и/или траекторию перемещения перед выполнением `BED_MESH_CALIBRATE`.
 
 ## Визуализация и анализ
 

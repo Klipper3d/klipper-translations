@@ -178,7 +178,7 @@ sudo service klipper start
 
 ## Оставшаяся конфигурация
 
-Complete the installation by configuring Klipper following the instructions in the main [Installation](Installation.md#configuring-klipper) document.
+Завершите установку, настроив Klipper согласно инструкциям в основном документе [«Установка»](Installation.md#configuring-klipper).
 
 ## Печать на Beaglebone
 

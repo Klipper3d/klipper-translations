@@ -67,19 +67,19 @@ optional arguments:
 
 Опция `-c` используется для выполнения операции проверки или только для проверки корректности работы платы с указанной микропрограммой. Эта опция предназначена, в первую очередь, для случаев, когда для завершения процедуры прошивки требуется ручное отключение питания, например, для загрузчиков, использующих для доступа к SD картам режим SDIO вместо SPI. (См. раздел "Оговорки" ниже), но ее также можно использовать в любое время для проверки соответствия прошитого в плату кода версии, находящейся в папке сборки, на любой поддерживаемой плате.
 
-## Failure to Initialize
+## Ошибка инициализации
 
-Some SD cards may fail to initialize at the default SPI speed of 400KHz. In this situation it is possible to use `-s` to drive the SPI peripheral at 4MHz. For example:
+Некоторые SD-карты могут не инициализироваться на частоте SPI по умолчанию 400 кГц. В этом случае можно использовать `-s`, чтобы запустить периферию SPI на частоте 4 МГц. Например:
 
 ```
 ./scripts/flash-sdcard.sh -s /dev/ttyACM0 btt-skr-v1.3
 ```
 
-If the device still fails to initialize then cause of the failure is unrelated to the speed and likely a result of one of the following conditions:
+Если устройство всё ещё не инициализируется, причина сбоя не связана со скоростью и, вероятно, вызвана одним из следующих условий:
 
-- The SD card is improperly formatted. Must be `fat` or `fat32`.
-- Attempt to initialize a card using the SPI interface that has already been initialized over SDIO.
-- The SD card has failed or is corrupt.
+- SD-карта отформатирована неправильно. Должна быть `fat` или `fat32`.
+- Попытка инициализировать карту через интерфейс SPI, которая уже была инициализирована через SDIO.
+- SD-карта вышла из строя или повреждена.
 
 ## Оговорки
 
@@ -126,7 +126,7 @@ BOARD_ALIASES = {
 }
 ```
 
-If you need a new board definition and you are uncomfortable with the procedure outlined above it is recommended that you request one in the [Klipper Discord](Contact.md).
+Если вам нужна новая конфигурация платы, а описанная выше процедура вам не подходит, рекомендуется запросить её в [Discord Klipper](Contact.md).
 
 ## Прошивка плат, использующих SDIO
 

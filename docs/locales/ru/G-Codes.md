@@ -1,7 +1,7 @@
 # G-коды
 
 В этом документе описаны команды, поддерживаемые Klipper. 
-Это команды, которые можно ввести во вкладке терминала OctoPrint
+Это команды, которые можно ввести во вкладке терминала OctoPrint.
 
 ## Команды G-кода
 
@@ -13,8 +13,8 @@ Klipper поддерживает следующие стандартные ко�
 - Выключите моторы: `М18` или `М84`
 - Ожидание окончания всех перемещений в планировщике: `M400`
 - Использовать абсолютные/относительные координаты: `G90`, `G91`
-- Force relative distances for extrusion: `M83`, `M82`
-   - Note: `M83` forces extrusions to use relative coordinates even if `G90` absolute mode is selected. `M82` disables that forced mode (it does not force the extruder to use absolute coordinates).
+- Принудительные относительные расстояния для экструзии: `M83`, `M82`
+   - Примечание: `M83` заставляет экструзию использовать относительные координаты, даже если выбран абсолютный режим `G90`. `M82` отключает этот принудительный режим (он не заставляет экструдер использовать абсолютные координаты).
 - Установить указанное значение положения: `G92 [X<pos>] [Y<pos>] [Z<pos>] [E<pos>]`
 - Установите процентный коэффициент скорости: `M220 S<percent>`
 - Установите коэффициент потока: `M221 S<percent>`
@@ -106,7 +106,7 @@ section](Config_Reference.md#axis_twist_compensation) is enabled.
 
 #### BED_MESH_CALIBRATE
 
-`BED_MESH_CALIBRATE [PROFILE=<name>] [METHOD=manual] [HORIZONTAL_MOVE_Z=<value>] [<probe_parameter>=<value>] [<mesh_parameter>=<value>] [ADAPTIVE=1] [ADAPTIVE_MARGIN=<value>]`: This command probes the bed using generated points specified by the parameters in the config. After probing, a mesh is generated and z-movement is adjusted according to the mesh. The mesh is immediately active after successful completion of `BED_MESH_CALIBRATE`. The mesh will be saved into a profile specified by the `PROFILE` parameter, or `default` if unspecified. If ADAPTIVE=1 is specified then the profile name will begin with `adaptive-` and should not be saved for reuse. See the PROBE command for details on the optional probe parameters. If METHOD=manual is specified then the manual probing tool is activated - see the MANUAL_PROBE command above for details on the additional commands available while this tool is active. The optional `HORIZONTAL_MOVE_Z` value overrides the `horizontal_move_z` option specified in the config file. If ADAPTIVE=1 is specified then the objects defined by the Gcode file being printed will be used to define the probed area. The optional `ADAPTIVE_MARGIN` value overrides the `adaptive_margin` option specified in the config file.
+`BED_MESH_CALIBRATE [PROFILE=<name>] [METHOD=manual] [HORIZONTAL_MOVE_Z=<value>] [<probe_parameter>=<value>] [<mesh_parameter>=<value>] [ADAPTIVE=1] [ADAPTIVE_MARGIN=<value>]`: эта команда измеряет стол по сгенерированным точкам, заданным параметрами в конфигурации. После измерения создаётся сетка, и движение по Z корректируется в соответствии с сеткой. Сетка сразу активируется после успешного завершения `BED_MESH_CALIBRATE`. Сетка будет сохранена в профиль, указанный параметром `PROFILE`, или в `default`, если не указан. Если указано ADAPTIVE=1, то имя профиля будет начинаться с `adaptive-`, и его не следует сохранять для повторного использования. Подробности о необязательных параметрах измерения см. в команде PROBE. Если указано METHOD=manual, активируется инструмент ручного измерения — подробности о дополнительных командах, доступных при активном инструменте, см. в команде MANUAL_PROBE выше. Необязательное значение `HORIZONTAL_MOVE_Z` переопределяет опцию `horizontal_move_z`, заданную в файле конфигурации. Если указано ADAPTIVE=1, то объекты, определённые в печатаемом Gcode-файле, будут использоваться для определения области измерения. Необязательное значение `ADAPTIVE_MARGIN` переопределяет опцию `adaptive_margin`, заданную в файле конфигурации.
 
 #### BED_MESH_OUTPUT
 
@@ -209,7 +209,7 @@ section](Config_Reference.md#axis_twist_compensation) is enabled.
 
 #### SET_DUAL_CARRIAGE
 
-`SET_DUAL_CARRIAGE CARRIAGE=<carriage> [MODE=[PRIMARY|COPY|MIRROR|INACTIVE]]`: This command will change the mode of the specified carriage. If no `MODE` is provided it defaults to `PRIMARY`. `<carriage>` must reference a defined primary or dual carriage for `generic_cartesian` kinematics or be 0 (for primary carriage) or 1 (for dual carriage) for all other kinematics supporting IDEX. Setting the mode to `PRIMARY` deactivates all other carriages on the same axis and makes the specified carriage execute subsequent G-Code movement commands as-is. Before activating `COPY` or `MIRROR` mode for a carriage, a different one must be activated as `PRIMARY` on the same axis. When set to either of these two modes, the carriage will track the subsequent G-Code moves and either copy relative movements (in `COPY` mode) or execute them in the opposite (mirror) direction (in `MIRROR` mode). Setting the mode to `INACTIVE` deactivates the carriage and makes it ignore further G-Code moves. Note that deactivating the primary carriage on the axis does not disable other carriages working in `COPY` or `MIRROR` mode, which can be used to disable printing a failed part by any of the tools and park that tool to prevent collisions with an unfinished part, see this [sample configuration](../config/sample-corexyuv.cfg) for macros examples.
+`SET_DUAL_CARRIAGE CARRIAGE=<carriage> [MODE=[PRIMARY|COPY|MIRROR|INACTIVE]]`: эта команда изменяет режим указанной каретки. Если `MODE` не указан, по умолчанию используется `PRIMARY`. `<carriage>` должен ссылаться на определённую первичную или двойную каретку для кинематики `generic_cartesian` или быть 0 (для первичной каретки) либо 1 (для двойной каретки) для всех остальных кинематик, поддерживающих IDEX. Установка режима `PRIMARY` деактивирует все остальные каретки на той же оси и заставляет указанную каретку выполнять последующие команды перемещения G-кода как есть. Перед активацией режима `COPY` или `MIRROR` для каретки другая каретка должна быть активирована как `PRIMARY` на той же оси. В любом из этих двух режимов каретка будет отслеживать последующие перемещения G-кода и либо копировать относительные перемещения (в режиме `COPY`), либо выполнять их в противоположном (зеркальном) направлении (в режиме `MIRROR`). Установка режима `INACTIVE` деактивирует каретку и заставляет её игнорировать дальнейшие перемещения G-кода. Учтите, что деактивация первичной каретки на оси не отключает другие каретки, работающие в режиме `COPY` или `MIRROR`, что можно использовать для отключения печати неудачной детали любым из инструментов и парковки этого инструмента во избежание столкновения с незавершённой деталью; примеры макросов см. в этой [примерной конфигурации](../config/sample-corexyuv.cfg).
 
 #### SAVE_DUAL_CARRIAGE_STATE
 
@@ -217,7 +217,7 @@ section](Config_Reference.md#axis_twist_compensation) is enabled.
 
 #### RESTORE_DUAL_CARRIAGE_STATE
 
-`RESTORE_DUAL_CARRIAGE_STATE [NAME=<state_name>] [MOVE=[0|1] [MOVE_SPEED=<speed>]]`: Restore the previously saved states of all dual and their primary carriages. This command restores the modes of the carriages and moves them to their previously saved positions, unless "MOVE=0" is specified. If positions are being restored and "MOVE_SPEED" is specified, then the carriages will move with at most the provided speed (in mm/s); otherwise the homing speeds of the corresponding carriages will be used as a reference. Note that the carriages restore their positions only over their own axes, which may be necessary to correctly restore COPY and MIRROR mode of the dual carriage. In addition, this command updates the Klipper toolhead position for each axis that has some dual carriages: it is set to match the actual position of the activated primary carriage of an axis or, if an axis does not have a saved primary carriage, to the axis position when `SAVE_DUAL_CARRIAGE_STATE` command was called.
+`RESTORE_DUAL_CARRIAGE_STATE [NAME=<state_name>] [MOVE=[0|1] [MOVE_SPEED=<speed>]]`: восстанавливает ранее сохранённые состояния всех двойных и их первичных кареток. Эта команда восстанавливает режимы кареток и перемещает их в ранее сохранённые позиции, если не указано «MOVE=0». Если позиции восстанавливаются и указано «MOVE_SPEED», каретки будут двигаться со скоростью не более указанной (в мм/с); иначе в качестве ориентира будут использоваться скорости парковки соответствующих кареток. Учтите, что каретки восстанавливают свои позиции только по собственным осям, что может быть необходимо для корректного восстановления режима COPY и MIRROR двойной каретки. Кроме того, эта команда обновляет положение инструментальной головки Klipper для каждой оси, имеющей двойные каретки: оно устанавливается в соответствие с фактическим положением активированной первичной каретки оси или, если у оси нет сохранённой первичной каретки, в положение оси на момент вызова команды `SAVE_DUAL_CARRIAGE_STATE`.
 
 ### [endstop_phase]
 
@@ -291,7 +291,7 @@ section](Config_Reference.md#axis_twist_compensation) is enabled.
 
 `SET_FAN_SPEED FAN=config_name SPEED=<speed>` Эта команда устанавливает скорость вентилятора. Значение "speed" должно быть в диапазоне от 0,0 до 1,0.
 
-`SET_FAN_SPEED FAN=config_name TEMPLATE=<template_name> [<param_x>=<literal>]`: If `TEMPLATE` is specified then it assigns a [display_template](Config_Reference.md#display_template) to the given fan. For example, if one defined a `[display_template my_fan_template]` config section then one could assign `TEMPLATE=my_fan_template` here. The display_template should produce a string containing a floating point number with the desired value. The template will be continuously evaluated and the fan will be automatically set to the resulting speed. One may set display_template parameters to use during template evaluation (parameters will be parsed as Python literals). If TEMPLATE is an empty string then this command will clear any previous template assigned to the pin (one can then use `SET_FAN_SPEED` commands to manage the values directly).
+`SET_FAN_SPEED FAN=config_name TEMPLATE=<template_name> [<param_x>=<literal>]`: если указан `TEMPLATE`, назначает [display_template](Config_Reference.md#display_template) данному вентилятору. Например, если определён раздел конфигурации `[display_template my_fan_template]`, здесь можно указать `TEMPLATE=my_fan_template`. display_template должен выдавать строку, содержащую число с плавающей точкой с нужным значением. Шаблон будет непрерывно вычисляться, и вентилятор будет автоматически устанавливаться на полученную скорость. Можно задать параметры display_template для использования при вычислении шаблона (параметры будут разобраны как литералы Python). Если TEMPLATE — пустая строка, эта команда очистит любой ранее назначенный пину шаблон (затем можно управлять значениями напрямую командами `SET_FAN_SPEED`).
 
 ### [filament_switch_sensor]
 
@@ -336,13 +336,13 @@ section](Config_Reference.md#axis_twist_compensation) is enabled.
 
 #### SET_KINEMATIC_POSITION
 
-`SET_KINEMATIC_POSITION [X=<value>] [Y=<value>] [Z=<value>] [SET_HOMED=<[X][Y][Z]>] [CLEAR_HOMED=<[X][Y][Z]>]`: Force the low-level kinematic code to believe the toolhead is at the given cartesian position and set/clear homed status. This is a diagnostic and debugging command; use SET_GCODE_OFFSET and/or G92 for regular axis transformations. Setting an incorrect or invalid position may lead to internal software errors.
+`SET_KINEMATIC_POSITION [X=<value>] [Y=<value>] [Z=<value>] [SET_HOMED=<[X][Y][Z]>] [CLEAR_HOMED=<[X][Y][Z]>]`: заставляет низкоуровневый кинематический код считать, что инструментальная головка находится в заданной декартовой позиции, и устанавливает/сбрасывает статус парковки. Это диагностическая и отладочная команда; для обычных преобразований осей используйте SET_GCODE_OFFSET и/или G92. Установка неверной или недопустимой позиции может привести к внутренним программным ошибкам.
 
-The `X`, `Y`, and `Z` parameters are used to alter the low-level kinematic position tracking. If any of these parameters are not set then the position is not changed - for example `SET_KINEMATIC_POSITION Z=10` would set all axes as homed, set the internal Z position to 10, and leave the X and Y positions unchanged. Changing the internal position tracking is not dependent on the internal homing state - one may alter the position for both homed and not homed axes, and similarly one may set or clear the homing state of an axis without altering its internal position.
+Параметры `X`, `Y` и `Z` используются для изменения низкоуровневого отслеживания кинематической позиции. Если какой-либо из этих параметров не задан, позиция не изменяется — например, `SET_KINEMATIC_POSITION Z=10` установит все оси как запаркованные, установит внутреннюю позицию Z в 10 и оставит позиции X и Y без изменений. Изменение внутреннего отслеживания позиции не зависит от внутреннего состояния парковки — можно изменять позицию как для запаркованных, так и для незапаркованных осей, и аналогично можно устанавливать или сбрасывать состояние парковки оси, не изменяя её внутреннюю позицию.
 
-The `SET_HOMED` parameter defaults to `XYZ` which instructs the kinematics to consider all axes as homed. A bare `SET_KINEMATIC_POSITION` command will result in all axes being considered homed (and not change its current position). If it is not desired to change the state of homed axes then assign `SET_HOMED` to an empty string - for example: `SET_KINEMATIC_POSITION SET_HOMED= X=10`. It is also possible to request an individual axis be considered homed (eg, `SET_HOMED=X`), but note that non-cartesian style kinematics (such as delta kinematics) may not support setting an individual axis as homed.
+Параметр `SET_HOMED` по умолчанию равен `XYZ`, что указывает кинематике считать все оси запаркованными. Простая команда `SET_KINEMATIC_POSITION` приведёт к тому, что все оси будут считаться запаркованными (и не изменит текущую позицию). Если не нужно менять состояние запаркованных осей, присвойте `SET_HOMED` пустую строку — например: `SET_KINEMATIC_POSITION SET_HOMED= X=10`. Также можно запросить, чтобы отдельная ось считалась запаркованной (например, `SET_HOMED=X`), но учтите, что кинематики недекартова типа (например, дельта-кинематика) могут не поддерживать установку отдельной оси как запаркованной.
 
-The `CLEAR_HOMED` parameter instructs the kinematics to consider the given axes as not homed. For example, `CLEAR_HOMED=XYZ` would request all axes to be considered not homed (and thus require homing prior to movement on those axes). The default is `SET_HOMED=XYZ` even if `CLEAR_HOMED` is present, so the command `SET_KINEMATIC_POSITION CLEAR_HOMED=Z` will set X and Y as homed and clear the homing state for Z. Use `SET_KINEMATIC_POSITION SET_HOMED= CLEAR_HOMED=Z` if the goal is to clear only the Z homing state. If an axis is specified in neither `SET_HOMED` nor `CLEAR_HOMED` then its homing state is not changed and if it is specified in both then `CLEAR_HOMED` has precedence. It is possible to request clearing of an individual axis, but on non-cartesian style kinematics (such as delta kinematics) doing so may result in clearing the homing state of additional axes. Note the `CLEAR` parameter is currently an alias for the `CLEAR_HOMED` parameter, but this alias will be removed in the future.
+Параметр `CLEAR_HOMED` указывает кинематике считать заданные оси незапаркованными. Например, `CLEAR_HOMED=XYZ` потребует, чтобы все оси считались незапаркованными (и, следовательно, требовали парковки перед перемещением по этим осям). По умолчанию используется `SET_HOMED=XYZ` даже при наличии `CLEAR_HOMED`, поэтому команда `SET_KINEMATIC_POSITION CLEAR_HOMED=Z` установит X и Y как запаркованные и сбросит состояние парковки для Z. Используйте `SET_KINEMATIC_POSITION SET_HOMED= CLEAR_HOMED=Z`, если цель — сбросить только состояние парковки Z. Если ось не указана ни в `SET_HOMED`, ни в `CLEAR_HOMED`, её состояние парковки не изменяется, а если она указана в обоих, приоритет имеет `CLEAR_HOMED`. Можно запросить сброс отдельной оси, но на кинематиках недекартова типа (например, дельта-кинематике) это может привести к сбросу состояния парковки дополнительных осей. Учтите, что параметр `CLEAR` сейчас является псевдонимом параметра `CLEAR_HOMED`, но в будущем этот псевдоним будет удалён.
 
 ### [gcode]
 
@@ -393,7 +393,7 @@ The `CLEAR_HOMED` parameter instructs the kinematics to consider the given axes 
 
 #### SAVE_GCODE_STATE
 
-`SAVE_GCODE_STATE [NAME=<state_name>]`: Save the current g-code coordinate parsing state. Saving and restoring the g-code state is useful in scripts and macros. This command saves the current g-code absolute coordinate mode (G90/G91), force relative extrude mode (M83/M82), origin (G92), offset (SET_GCODE_OFFSET), speed override (M220), extruder override (M221), move speed, current XYZ position, and relative extruder "E" position. If NAME is provided it allows one to name the saved state to the given string. If NAME is not provided it defaults to "default".
+`SAVE_GCODE_STATE [NAME=<state_name>]`: сохраняет текущее состояние разбора координат g-кода. Сохранение и восстановление состояния g-кода полезно в скриптах и макросах. Эта команда сохраняет текущий режим абсолютных координат g-кода (G90/G91), режим принудительной относительной экструзии (M83/M82), начало координат (G92), смещение (SET_GCODE_OFFSET), переопределение скорости (M220), переопределение экструдера (M221), скорость перемещения, текущую позицию XYZ и относительную позицию «E» экструдера. Если указан NAME, можно присвоить сохранённому состоянию заданную строку. Если NAME не указан, по умолчанию используется «default».
 
 #### RESTORE_GCODE_STATE
 
@@ -401,17 +401,17 @@ The `CLEAR_HOMED` parameter instructs the kinematics to consider the given axes 
 
 ### [generic_cartesian]
 
-The commands in this section become automatically available when `kinematics: generic_cartesian` is specified as the printer kinematics.
+Команды в этом разделе становятся автоматически доступны, когда в качестве кинематики принтера указано `kinematics: generic_cartesian`.
 
 #### SET_STEPPER_CARRIAGES
 
-`SET_STEPPER_CARRIAGES STEPPER=<stepper_name> CARRIAGES=<carriages> [DISABLE_CHECKS=[0|1]]`: Set or update the stepper carriages. `<stepper_name>` must reference an existing stepper defined in `printer.cfg`, and `<carriages>` describes the carriages the stepper moves. See [Generic Cartesian Kinematics](Config_Reference.md#generic-cartesian-kinematics) for a more detailed overview of the `carriages` parameter in the stepper configuration section. Note that it is only possible to change the coefficients or signs of the carriages with this command, but a user cannot add or remove the carriages that the stepper controls.
+`SET_STEPPER_CARRIAGES STEPPER=<stepper_name> CARRIAGES=<carriages> [DISABLE_CHECKS=[0|1]]`: задаёт или обновляет каретки шагового двигателя. `<stepper_name>` должен ссылаться на существующий шаговый двигатель, определённый в `printer.cfg`, а `<carriages>` описывает каретки, которые перемещает шаговый двигатель. Более подробный обзор параметра `carriages` в разделе конфигурации шагового двигателя см. в [обобщённой декартовой кинематике](Config_Reference.md#generic-cartesian-kinematics). Учтите, что эта команда позволяет изменять только коэффициенты или знаки кареток, но пользователь не может добавлять или удалять каретки, которыми управляет шаговый двигатель.
 
-`SET_STEPPER_CARRIAGES` is an advanced tool, and the user is advised to exercise an extreme caution using it, since specifying incorrect configuration may physically damage the printer.
+`SET_STEPPER_CARRIAGES` — это продвинутый инструмент, и пользователю рекомендуется проявлять крайнюю осторожность при его использовании, так как неверная конфигурация может физически повредить принтер.
 
-Note that `SET_STEPPER_CARRIAGES` performs certain internal validations of the new printer kinematics after the change. Keep in mind that if it detects an issue, it may leave printer kinematics in an invalid state. This means that if `SET_STEPPER_CARRIAGES` reports an error, it is unsafe to issue other GCode commands, and the user must inspect the error message and either fix the problem, or manually restore the previous stepper(s) configuration.
+Учтите, что `SET_STEPPER_CARRIAGES` выполняет определённые внутренние проверки новой кинематики принтера после изменения. Имейте в виду, что при обнаружении проблемы она может оставить кинематику принтера в недопустимом состоянии. Это означает, что если `SET_STEPPER_CARRIAGES` сообщает об ошибке, небезопасно выполнять другие команды G-кода, и пользователь должен изучить сообщение об ошибке и либо устранить проблему, либо вручную восстановить предыдущую конфигурацию шагового(ых) двигателя(ей).
 
-Since `SET_STEPPER_CARRIAGES` can update a configuration of a single stepper at a time, some sequences of changes can lead to invalid intermediate kinematic configurations, even if the final configuration is valid. In such cases a user can pass `DISABLE_CHECKS=1` parameters to all but the last command to disable intermediate checks. For example, if `stepper a` and `stepper b` initially have `carriage_x-carriage_y` and `carriage_x+carriage_y` carriages correspondingly, then the following sequence of commands will let a user effectively swap the carriage controls: `SET_STEPPER_CARRIAGES STEPPER=a CARRIAGES=carriage_x+carriage_y DISABLE_CHECKS=1` and `SET_STEPPER_CARRIAGES STEPPER=b CARRIAGES=carriage_x-carriage_y`, while still validating the final kinematics state.
+Поскольку `SET_STEPPER_CARRIAGES` может обновлять конфигурацию только одного шагового двигателя за раз, некоторые последовательности изменений могут привести к недопустимым промежуточным конфигурациям кинематики, даже если конечная конфигурация допустима. В таких случаях пользователь может передать параметр `DISABLE_CHECKS=1` всем командам, кроме последней, чтобы отключить промежуточные проверки. Например, если `stepper a` и `stepper b` изначально имеют каретки `carriage_x-carriage_y` и `carriage_x+carriage_y` соответственно, то следующая последовательность команд позволит пользователю фактически поменять местами управление каретками: `SET_STEPPER_CARRIAGES STEPPER=a CARRIAGES=carriage_x+carriage_y DISABLE_CHECKS=1` и `SET_STEPPER_CARRIAGES STEPPER=b CARRIAGES=carriage_x-carriage_y`, при этом конечное состояние кинематики всё равно будет проверено.
 
 ### [hall_filament_width_sensor]
 
@@ -419,19 +419,19 @@ Since `SET_STEPPER_CARRIAGES` can update a configuration of a single stepper at 
 
 #### Запрос ширины филамента
 
-`QUERY_FILAMENT_WIDTH`: Return the current measured filament width, the state of the width sensor, the state of the filament sensor and the state of flow compensation.
+`QUERY_FILAMENT_WIDTH`: возвращает текущую измеренную ширину филамента, состояние датчика ширины, состояние датчика филамента и состояние компенсации потока.
 
 #### RESET_FILAMENT_WIDTH_SENSOR
 
-`RESET_FILAMENT_WIDTH_SENSOR`: Clear all sensor readings. Helpful after filament change. Resets flow rate to 100%.
+`RESET_FILAMENT_WIDTH_SENSOR`: сбрасывает все показания датчика. Полезно после смены филамента. Сбрасывает скорость потока до 100%.
 
 #### DISABLE_FILAMENT_WIDTH_SENSOR
 
-`DISABLE_FILAMENT_WIDTH_SENSOR`: Turn off the filament width sensor and stop using it for flow compensation. Resets flow rate to 100%.
+`DISABLE_FILAMENT_WIDTH_SENSOR`: отключает датчик ширины филамента и прекращает использовать его для компенсации потока. Сбрасывает скорость потока до 100%.
 
 #### ENABLE_FILAMENT_WIDTH_SENSOR
 
-`ENABLE_FILAMENT_WIDTH_SENSOR [FLOW_COMPENSATION=[0|1]`: Turn on the filament width sensor and enable or disable flow compensation. If `FLOW_COMPENSATION` is not specified, the current flow compensation state is preserved.
+`ENABLE_FILAMENT_WIDTH_SENSOR [FLOW_COMPENSATION=[0|1]`: включает датчик ширины филамента и включает или выключает компенсацию потока. Если `FLOW_COMPENSATION` не указан, текущее состояние компенсации потока сохраняется.
 
 #### QUERY_RAW_FILAMENT_WIDTH
 
@@ -475,7 +475,7 @@ Since `SET_STEPPER_CARRIAGES` can update a configuration of a single stepper at 
 
 #### SET_INPUT_SHAPER
 
-`SET_INPUT_SHAPER [SHAPER_FREQ_X=<shaper_freq_x>] [SHAPER_FREQ_Y=<shaper_freq_y>] [SHAPER_FREQ_Y=<shaper_freq_z>] [DAMPING_RATIO_X=<damping_ratio_x>] [DAMPING_RATIO_Y=<damping_ratio_y>] [DAMPING_RATIO_Z=<damping_ratio_z>] [SHAPER_TYPE=<shaper>] [SHAPER_TYPE_X=<shaper_type_x>] [SHAPER_TYPE_Y=<shaper_type_y>] [SHAPER_TYPE_Z=<shaper_type_z>]`: Modify input shaper parameters. Note that SHAPER_TYPE parameter resets input shaper for all axes even if different shaper types have been configured in [input_shaper] section. SHAPER_TYPE cannot be used together with any of SHAPER_TYPE_X, SHAPER_TYPE_Y, and SHAPER_TYPE_Z parameters. See [config reference](Config_Reference.md#input_shaper) for more details on each of these parameters.
+`SET_INPUT_SHAPER [SHAPER_FREQ_X=<shaper_freq_x>] [SHAPER_FREQ_Y=<shaper_freq_y>] [SHAPER_FREQ_Y=<shaper_freq_z>] [DAMPING_RATIO_X=<damping_ratio_x>] [DAMPING_RATIO_Y=<damping_ratio_y>] [DAMPING_RATIO_Z=<damping_ratio_z>] [SHAPER_TYPE=<shaper>] [SHAPER_TYPE_X=<shaper_type_x>] [SHAPER_TYPE_Y=<shaper_type_y>] [SHAPER_TYPE_Z=<shaper_type_z>]`: изменяет параметры input shaper. Учтите, что параметр SHAPER_TYPE сбрасывает input shaper для всех осей, даже если в разделе [input_shaper] настроены разные типы шейперов. SHAPER_TYPE нельзя использовать вместе с любым из параметров SHAPER_TYPE_X, SHAPER_TYPE_Y и SHAPER_TYPE_Z. Подробности о каждом из этих параметров см. в [справочнике конфигурации](Config_Reference.md#input_shaper).
 
 ### [led]
 
@@ -491,35 +491,35 @@ Since `SET_STEPPER_CARRIAGES` can update a configuration of a single stepper at 
 
 ### [load_cell]
 
-The following commands are enabled if a [load_cell config section](Config_Reference.md#load_cell) has been enabled.
+Следующие команды доступны, если включён [раздел конфигурации load_cell](Config_Reference.md#load_cell).
 
 ### LOAD_CELL_DIAGNOSTIC
 
-`LOAD_CELL_DIAGNOSTIC [LOAD_CELL=<config_name>]`: This command collects 10 seconds of load cell data and reports statistics that can help you verify proper operation of the load cell. This command can be run on both calibrated and uncalibrated load cells.
+`LOAD_CELL_DIAGNOSTIC [LOAD_CELL=<config_name>]`: эта команда собирает данные тензодатчика за 10 секунд и сообщает статистику, которая поможет убедиться в правильной работе тензодатчика. Эту команду можно выполнять как для калиброванных, так и для некалиброванных тензодатчиков.
 
 ### LOAD_CELL_CALIBRATE
 
-`LOAD_CELL_CALIBRATE [LOAD_CELL=<config_name>]`: Start the guided calibration utility. Calibration is a 3 step process:
+`LOAD_CELL_CALIBRATE [LOAD_CELL=<config_name>]`: запускает пошаговую утилиту калибровки. Калибровка состоит из 3 шагов:
 
-1. First you remove all load from the load cell and run the `TARE` command
-1. Next you apply a known load to the load cell and run the `CALIBRATE GRAMS=nnn` command
-1. Finally use the `ACCEPT` command to save the results
+1. Сначала снимите всю нагрузку с тензодатчика и выполните команду `TARE`
+1. Затем приложите к тензодатчику известную нагрузку и выполните команду `CALIBRATE GRAMS=nnn`
+1. Наконец, используйте команду `ACCEPT`, чтобы сохранить результаты
 
-You can cancel the calibration process at any time with `ABORT`.
+Вы можете отменить процесс калибровки в любой момент командой `ABORT`.
 
 ### LOAD_CELL_TARE
 
-`LOAD_CELL_TARE [LOAD_CELL=<config_name>]`: This works just like the tare button on digital scale. It sets the current raw reading of the load cell to be the zero point reference value. The response is the percentage of the sensors range that was read and the raw value in counts. If the load cell is calibrated a force in grams is also reported.
+`LOAD_CELL_TARE [LOAD_CELL=<config_name>]`: работает так же, как кнопка тарирования на цифровых весах. Устанавливает текущее необработанное показание тензодатчика в качестве опорного значения нулевой точки. В ответе указывается процент прочитанного диапазона датчика и необработанное значение в отсчётах. Если тензодатчик откалиброван, также сообщается сила в граммах.
 
 ### LOAD_CELL_READ load_cell="name"
 
-`LOAD_CELL_READ [LOAD_CELL=<config_name>]`: This command takes a reading from the load cell. The response is the percentage of the sensors range that was read and the raw value in counts. If the load cell is calibrated a force in grams is also reported.
+`LOAD_CELL_READ [LOAD_CELL=<config_name>]`: эта команда снимает показание с тензодатчика. В ответе указывается процент прочитанного диапазона датчика и необработанное значение в отсчётах. Если тензодатчик откалиброван, также сообщается сила в граммах.
 
 ### [load_cell_probe]
 
-The commands below are enabled if a [load_cell config section](Config_Reference.md#load_cell_probe) has been enabled.
+Следующие команды доступны, если включён [раздел конфигурации load_cell](Config_Reference.md#load_cell_probe).
 
-In addition, commands that perform probes, such as [`PROBE`](#probe), [`PROBE_ACCURACY`](#probe_accuracy), [`BED_MESH_CALIBRATE`](#bed_mesh_calibrate) etc. will accept additional parameters if a `[load_cell_probe]` is defined. The parameters override the corresponding settings from the [`[load_cell_probe]`](./Config_Reference.md#load_cell_probe) configuration:
+Кроме того, команды, выполняющие измерения, такие как [`PROBE`](#probe), [`PROBE_ACCURACY`](#probe_accuracy), [`BED_MESH_CALIBRATE`](#bed_mesh_calibrate) и т. п., будут принимать дополнительные параметры, если определён `[load_cell_probe]`. Эти параметры переопределяют соответствующие настройки из конфигурации [`[load_cell_probe]`](./Config_Reference.md#load_cell_probe):
 
 - `FORCE_SAFETY_LIMIT=<grams>`
 - `TRIGGER_FORCE=<grams>`
@@ -533,10 +533,10 @@ In addition, commands that perform probes, such as [`PROBE`](#probe), [`PROBE_AC
 
 ### LOAD_CELL_TEST_TAP
 
-`LOAD_CELL_TEST_TAP [TAPS=<taps>] [TIMEOUT=<timeout>]`: Run a testing routine that reports taps on the load cell. The toolhead will not move but the load cell probe will sense taps just as if it was probing. This can be used as a sanity check to make sure that the probe works. This tool replaces QUERY_ENDSTOPS and QUERY_PROBE for load cell probes.
+`LOAD_CELL_TEST_TAP [TAPS=<taps>] [TIMEOUT=<timeout>]`: запускает процедуру тестирования, которая сообщает о касаниях тензодатчика. Инструментальная головка не будет двигаться, но датчик на тензодатчике будет воспринимать касания так, как если бы выполнялось измерение. Это можно использовать как проверку работоспособности, чтобы убедиться, что датчик работает. Этот инструмент заменяет QUERY_ENDSTOPS и QUERY_PROBE для датчиков на тензодатчиках.
 
-- `TAPS`: the number of taps the tool expects
-- `TIMEOOUT`: the time, in seconds, that the tool waits for each tab before aborting.
+- `TAPS`: количество касаний, ожидаемых инструментом
+- `TIMEOOUT`: время в секундах, которое инструмент ждёт каждого касания перед прерыванием.
 
 ### [manual_probe]
 
@@ -564,16 +564,16 @@ In addition, commands that perform probes, such as [`PROBE`](#probe), [`PROBE_AC
 
 #### MANUAL_STEPPER
 
-`MANUAL_STEPPER STEPPER=config_name [ENABLE=[0|1]] [SET_POSITION=<pos>] [SPEED=<speed>] [ACCEL=<accel>] [MOVE=<pos>] [SYNC=0]]`: This command will alter the state of the stepper. Use the ENABLE parameter to enable/disable the stepper. Use the SET_POSITION parameter to force the stepper to think it is at the given position. Use the MOVE parameter to request a movement to the given position. If SPEED and/or ACCEL is specified then the given values will be used instead of the defaults specified in the config file. If an ACCEL of zero is specified then no acceleration will be performed. Normally future G-Code commands will be scheduled to run after the stepper move completes, however if a manual stepper move uses SYNC=0 then future G-Code movement commands may run in parallel with the stepper movement.
+`MANUAL_STEPPER STEPPER=config_name [ENABLE=[0|1]] [SET_POSITION=<pos>] [SPEED=<speed>] [ACCEL=<accel>] [MOVE=<pos>] [SYNC=0]]`: эта команда изменяет состояние шагового двигателя. Используйте параметр ENABLE для включения или отключения шагового двигателя. Используйте параметр SET_POSITION, чтобы заставить шаговый двигатель считать, что он находится в заданной позиции. Используйте параметр MOVE, чтобы запросить перемещение в заданную позицию. Если указаны SPEED и/или ACCEL, будут использоваться заданные значения вместо значений по умолчанию из файла конфигурации. Если указано ACCEL равное нулю, ускорение выполняться не будет. Обычно последующие команды G-кода планируются к выполнению после завершения перемещения шагового двигателя, однако если при ручном перемещении шагового двигателя указано SYNC=0, последующие команды перемещения G-кода могут выполняться параллельно с перемещением шагового двигателя.
 
-`MANUAL_STEPPER STEPPER=config_name [SPEED=<speed>] [ACCEL=<accel>] MOVE=<pos> STOP_ON_ENDSTOP=<check_type>`: If STOP_ON_ENDSTOP is specified then the move will end early if an endstop event occurs. The `STOP_ON_ENDSTOP` parameter may be set to one of the following values:
+`MANUAL_STEPPER STEPPER=config_name [SPEED=<speed>] [ACCEL=<accel>] MOVE=<pos> STOP_ON_ENDSTOP=<check_type>`: если указан STOP_ON_ENDSTOP, перемещение завершится досрочно при возникновении события концевого выключателя. Параметру `STOP_ON_ENDSTOP` можно присвоить одно из следующих значений:
 
-* `probe`: The movement will stop when the endstop reports triggered.
-* `home`: The movement will stop when the endstop reports triggered and the final position of the manual_stepper will be set such that the trigger position matches the position specified in the `MOVE` parameter.
-* `inverted_probe`, `inverted_home`: As above, however, the movement will stop when the endstop reports it is in a non-triggered state.
-* `try_probe`, `try_inverted_probe`, `try_home`, `try_inverted_home`: As above, but no error will be reported if the movement fully completes without an endstop event stopping the move early.
+* `probe`: перемещение остановится, когда концевой выключатель сообщит о срабатывании.
+* `home`: перемещение остановится, когда концевой выключатель сообщит о срабатывании, и конечная позиция manual_stepper будет установлена так, чтобы позиция срабатывания соответствовала позиции, указанной в параметре `MOVE`.
+* `inverted_probe`, `inverted_home`: как выше, но перемещение остановится, когда концевой выключатель сообщит о несработанном состоянии.
+* `try_probe`, `try_inverted_probe`, `try_home`, `try_inverted_home`: как выше, но ошибка не будет сообщаться, если перемещение полностью завершится без события концевого выключателя, остановившего его досрочно.
 
-`MANUAL_STEPPER STEPPER=config_name GCODE_AXIS=[A-Z] [LIMIT_VELOCITY=<velocity>] [LIMIT_ACCEL=<accel>] [INSTANTANEOUS_CORNER_VELOCITY=<velocity>]`: If the `GCODE_AXIS` parameter is specified then it configures the stepper motor as an extra axis on `G1` move commands. For example, if one were to issue a `MANUAL_STEPPER ... GCODE_AXIS=R` command then one could issue commands like `G1 X10 Y20 R30` to move the stepper motor. The resulting moves will occur synchronously with the associated toolhead xyz movements. If the motor is associated with a `GCODE_AXIS` then one may no longer issue movements using the above `MANUAL_STEPPER` command - one may unregister the stepper with a `MANUAL_STEPPER ... GCODE_AXIS=` command to resume manual control of the motor. The `LIMIT_VELOCITY` and `LIMIT_ACCEL` parameters allow one to reduce the speed of `G1` moves if those moves would result in a velocity or acceleration above the specified limits. The `INSTANTANEOUS_CORNER_VELOCITY` specifies the maximum instantaneous velocity change (in mm/s) of the motor during the junction of two moves (the default is 1mm/s).
+`MANUAL_STEPPER STEPPER=config_name GCODE_AXIS=[A-Z] [LIMIT_VELOCITY=<velocity>] [LIMIT_ACCEL=<accel>] [INSTANTANEOUS_CORNER_VELOCITY=<velocity>]`: если указан параметр `GCODE_AXIS`, шаговый двигатель настраивается как дополнительная ось для команд перемещения `G1`. Например, если выполнить команду `MANUAL_STEPPER ... GCODE_AXIS=R`, можно подавать команды вроде `G1 X10 Y20 R30` для перемещения шагового двигателя. Получающиеся перемещения будут выполняться синхронно с соответствующими перемещениями инструментальной головки по xyz. Если двигатель связан с `GCODE_AXIS`, больше нельзя выполнять перемещения вышеуказанной командой `MANUAL_STEPPER` — можно отменить регистрацию шагового двигателя командой `MANUAL_STEPPER ... GCODE_AXIS=`, чтобы возобновить ручное управление двигателем. Параметры `LIMIT_VELOCITY` и `LIMIT_ACCEL` позволяют снизить скорость перемещений `G1`, если эти перемещения привели бы к скорости или ускорению выше указанных пределов. `INSTANTANEOUS_CORNER_VELOCITY` задаёт максимальное мгновенное изменение скорости (в мм/с) двигателя в месте стыка двух перемещений (по умолчанию 1 мм/с).
 
 ### [mcp4018]
 
@@ -585,7 +585,7 @@ In addition, commands that perform probes, such as [`PROBE`](#probe), [`PROBE_AC
 
 ### [output_pin]
 
-The following command is available when an [output_pin config section](Config_Reference.md#output_pin) or [pwm_tool config section](Config_Reference.md#pwm_tool) is enabled.
+Следующая команда доступна, если включён [раздел конфигурации output_pin](Config_Reference.md#output_pin) или [раздел конфигурации pwm_tool](Config_Reference.md#pwm_tool).
 
 #### SET_PIN
 
@@ -685,27 +685,27 @@ The following command is available when an [output_pin config section](Config_Re
 
 ### [probe_eddy_current]
 
-The commands below are available when a [probe_eddy_current config section](Config_Reference.md#probe_eddy_current) is enabled.
+Следующие команды доступны, если включён [раздел конфигурации probe_eddy_current](Config_Reference.md#probe_eddy_current).
 
-In addition, commands that perform probes, such as [`PROBE`](#probe), [`PROBE_ACCURACY`](#probe_accuracy), [`BED_MESH_CALIBRATE`](#bed_mesh_calibrate) etc. will accept additional parameters if a `[probe_eddy_current]` section is defined:
+Кроме того, команды, выполняющие измерения, такие как [`PROBE`](#probe), [`PROBE_ACCURACY`](#probe_accuracy), [`BED_MESH_CALIBRATE`](#bed_mesh_calibrate) и т. п., будут принимать дополнительные параметры, если определён раздел `[probe_eddy_current]`:
 
-- `METHOD=<scan|rapid_scan|tap>`: This alters the probing mechanism:
-   - `METHOD=scan`: The toolhead does not descend. Instead the toolhead will pause briefly above each target location and return the measured height at that position.
-   - `METHOD=rapid_scan`: The toolhead does not descend and does not pause at each target location. The value returned is the measured height around the time that the toolhead was near each target position.
-   - `METHOD=tap`: The toolhead will descend until the nozzle makes contact with the bed. This method is only available if `tap_threshold` is specified in the `[probe_eddy_current]` config section.
-   - default: If no `METHOD` parameter is specified then the default behavior is for the toolhead to descend until the sensor detects that the distance to the bed is at or below the `z_offset` parameter specified in the `[probe_eddy_current]` config section.
-- `SAMPLE_TIME=<time>`: When using `METHOD=scan` probing, this specifies the time (in seconds) to pause at each target point. When using `METHOD=rapid_scan` this specifies the measurement time window at each target. If not specified, the default is 0.100 (which is 100ms).
-- `TAP_THRESHOLD=<value>`: This overrides the `tap_threshold` specified in the `[probe_eddy_current]` config section when probing using `METHOD=tap`.
+- `METHOD=<scan|rapid_scan|tap>`: изменяет механизм измерения:
+   - `METHOD=scan`: инструментальная головка не опускается. Вместо этого она ненадолго останавливается над каждой целевой точкой и возвращает измеренную высоту в этой позиции.
+   - `METHOD=rapid_scan`: инструментальная головка не опускается и не делает паузу в каждой целевой точке. Возвращаемое значение — измеренная высота в момент, когда инструментальная головка находилась рядом с каждой целевой позицией.
+   - `METHOD=tap`: инструментальная головка будет опускаться, пока сопло не коснётся стола. Этот метод доступен только при указании `tap_threshold` в разделе конфигурации `[probe_eddy_current]`.
+   - по умолчанию: если параметр `METHOD` не указан, поведение по умолчанию заключается в том, что инструментальная головка опускается, пока датчик не обнаружит, что расстояние до стола равно или меньше параметра `z_offset`, указанного в разделе конфигурации `[probe_eddy_current]`.
+- `SAMPLE_TIME=<time>`: при измерении с `METHOD=scan` задаёт время (в секундах) паузы в каждой целевой точке. При использовании `METHOD=rapid_scan` задаёт окно времени измерения в каждой цели. Если не указано, по умолчанию 0.100 (то есть 100 мс).
+- `TAP_THRESHOLD=<value>`: переопределяет `tap_threshold`, указанный в разделе конфигурации `[probe_eddy_current]`, при измерении с `METHOD=tap`.
 
-The `Z_OFFSET_APPLY_PROBE` command is also extended to support a `METHOD=tap` parameter. When no METHOD parameter is provided, the `Z_OFFSET_APPLY_PROBE` command alters the probe calibration to apply the current Z G-Code offset to future `scan`, `rapid_scan`, and default probes. If `METHOD=tap` is specified then the command instead applies the change to `tap_z_offset` so that future `tap` probes are updated to use the current Z G-Code offset.
+Команда `Z_OFFSET_APPLY_PROBE` также расширена для поддержки параметра `METHOD=tap`. Если параметр METHOD не указан, команда `Z_OFFSET_APPLY_PROBE` изменяет калибровку датчика, чтобы применить текущее смещение Z G-кода к будущим измерениям `scan`, `rapid_scan` и по умолчанию. Если указан `METHOD=tap`, команда вместо этого применяет изменение к `tap_z_offset`, чтобы будущие измерения `tap` использовали текущее смещение Z G-кода.
 
 #### PROBE_EDDY_CURRENT_CALIBRATE
 
-`PROBE_EDDY_CURRENT_CALIBRATE CHIP=<config_name> [MANUAL_METHOD=manual]`: This starts a tool that calibrates the sensor resonance frequencies to corresponding Z heights. The tool will take a couple of minutes to complete. After completion, use the SAVE_CONFIG command to store the results in the printer.cfg file.
+`PROBE_EDDY_CURRENT_CALIBRATE CHIP=<config_name> [MANUAL_METHOD=manual]`: запускает инструмент, который калибрует резонансные частоты датчика по соответствующим высотам Z. Выполнение инструмента займёт пару минут. После завершения используйте команду SAVE_CONFIG, чтобы сохранить результаты в файл printer.cfg.
 
 #### PROBE_EDDY_CURRENT_TAP_CALIBRATE
 
-`PROBE_EDDY_CURRENT_TAP_CALIBRATE [TAP=guess|refine|verify]`: This starts a tool that can calibrate the probe's "tap_threshold" parameter. See the [eddy probe documentation](Eddy_Probe.md#tap-calibration) for details.
+`PROBE_EDDY_CURRENT_TAP_CALIBRATE [TAP=guess|refine|verify]`: запускает инструмент, который может откалибровать параметр «tap_threshold» датчика. Подробности см. в [документации по датчику вихревых токов](Eddy_Probe.md#tap-calibration).
 
 #### LDC_CALIBRATE_DRIVE_CURRENT
 
@@ -755,7 +755,7 @@ The `Z_OFFSET_APPLY_PROBE` command is also extended to support a `METHOD=tap` pa
 
 #### TEST_RESONANCES
 
-`TEST_RESONANCES AXIS=<axis> [OUTPUT=<resonances,raw_data>] [NAME=<name>] [FREQ_START=<min_freq>] [FREQ_END=<max_freq>] [ACCEL_PER_HZ=<accel_per_hz>] [HZ_PER_SEC=<hz_per_sec>] [CHIPS=<chip_name>] [POINT=x,y,z] [INPUT_SHAPING=<0:1>]`: Runs the resonance test in all configured probe points for the requested "axis" and measures the acceleration using the accelerometer chips configured for the respective axis. "axis" can either be X, Y or Z, or specify an arbitrary direction as `AXIS=dx,dy[,dz]`, where dx, dy, dz are floating point numbers defining a direction vector (e.g. `AXIS=X`, `AXIS=Y`, or `AXIS=1,-1` to define a diagonal direction in XY plane, or `AXIS=0,1,1` to define a direction in YZ plane). Note that `AXIS=dx,dy` and `AXIS=-dx,-dy` is equivalent. `chip_name` can be one or more configured accel chips, delimited with comma, for example `CHIPS="adxl345, adxl345 rpi"`. If POINT is specified it will override the point(s) configured in `[resonance_tester]`. If `INPUT_SHAPING=0` or not set(default), disables input shaping for the resonance testing, because it is not valid to run the resonance testing with the input shaper enabled. `OUTPUT` parameter is a comma-separated list of which outputs will be written. If `raw_data` is requested, then the raw accelerometer data is written into a file or a series of files `/tmp/raw_data_<axis>_[<chip_name>_][<point>_]<name>.csv` with (`<point>_` part of the name generated only if more than 1 probe point is configured or POINT is specified). If `resonances` is specified, the frequency response is calculated (across all probe points) and written into `/tmp/resonances_<axis>_<name>.csv` file. If unset, OUTPUT defaults to `resonances`, and NAME defaults to the current time in "YYYYMMDD_HHMMSS" format.
+`TEST_RESONANCES AXIS=<axis> [OUTPUT=<resonances,raw_data>] [NAME=<name>] [FREQ_START=<min_freq>] [FREQ_END=<max_freq>] [ACCEL_PER_HZ=<accel_per_hz>] [HZ_PER_SEC=<hz_per_sec>] [CHIPS=<chip_name>] [POINT=x,y,z] [INPUT_SHAPING=<0:1>]`: выполняет тест резонансов во всех настроенных точках измерения для запрошенной «оси» и измеряет ускорение с помощью чипов акселерометра, настроенных для соответствующей оси. «axis» может быть X, Y или Z, либо задавать произвольное направление как `AXIS=dx,dy[,dz]`, где dx, dy, dz — числа с плавающей точкой, задающие вектор направления (например, `AXIS=X`, `AXIS=Y` или `AXIS=1,-1` для диагонального направления в плоскости XY, либо `AXIS=0,1,1` для направления в плоскости YZ). Учтите, что `AXIS=dx,dy` и `AXIS=-dx,-dy` эквивалентны. `chip_name` может быть одним или несколькими настроенными чипами акселерометра, разделёнными запятой, например `CHIPS="adxl345, adxl345 rpi"`. Если указан POINT, он переопределит точку(и), настроенные в `[resonance_tester]`. Если `INPUT_SHAPING=0` или не задано (по умолчанию), отключает input shaping для теста резонансов, так как некорректно выполнять тест резонансов при включённом input shaper. Параметр `OUTPUT` — список выходных данных через запятую, которые будут записаны. Если запрошено `raw_data`, сырые данные акселерометра записываются в файл или серию файлов `/tmp/raw_data_<axis>_[<chip_name>_][<point>_]<name>.csv` (часть `<point>_` в имени создаётся только если настроено более 1 точки измерения или указан POINT). Если указано `resonances`, вычисляется частотная характеристика (по всем точкам измерения) и записывается в файл `/tmp/resonances_<axis>_<name>.csv`. Если не задано, OUTPUT по умолчанию равен `resonances`, а NAME по умолчанию — текущее время в формате «YYYYMMDD_HHMMSS».
 
 #### SHAPER_CALIBRATE
 
@@ -784,7 +784,7 @@ The `Z_OFFSET_APPLY_PROBE` command is also extended to support a `METHOD=tap` pa
 
 #### SAVE_VARIABLE
 
-`SAVE_VARIABLE VARIABLE=<name> VALUE=<value>`: Saves the variable to disk so that it can be used across restarts. The VARIABLE must be lowercase. All stored variables are loaded into the `printer.save_variables.variables` dict at startup and can be used in gcode macros. The provided VALUE is parsed as a Python literal.
+`SAVE_VARIABLE VARIABLE=<name> VALUE=<value>`: сохраняет переменную на диск, чтобы её можно было использовать между перезапусками. VARIABLE должно быть в нижнем регистре. Все сохранённые переменные при запуске загружаются в словарь `printer.save_variables.variables` и могут использоваться в макросах gcode. Предоставленное VALUE разбирается как литерал Python.
 
 ### [screws_tilt_adjust]
 
@@ -872,7 +872,7 @@ The `Z_OFFSET_APPLY_PROBE` command is also extended to support a `METHOD=tap` pa
 
 #### TEMPERATURE_PROBE_CALIBRATE
 
-`TEMPERATURE_PROBE_CALIBRATE [PROBE=<probe name>] [TARGET=<value>] [STEP=<value>] [MANUAL_METHOD=<method>]`: Initiates probe drift calibration for eddy current based probes. The `TARGET` is a target temperature for the last sample. When the temperature recorded during a sample exceeds the `TARGET` calibration will complete. The `STEP` parameter sets temperature delta (in C) between samples. After a sample has been taken, this delta is used to schedule a call to `TEMPERATURE_PROBE_NEXT`. The default `STEP` is 2. The `METHOD` only supports `tap` as an option, if specified, probing will be automated.
+`TEMPERATURE_PROBE_CALIBRATE [PROBE=<probe name>] [TARGET=<value>] [STEP=<value>] [MANUAL_METHOD=<method>]`: запускает калибровку дрейфа датчика для датчиков на основе вихревых токов. `TARGET` — целевая температура для последнего образца. Когда температура, зафиксированная во время образца, превысит `TARGET`, калибровка завершится. Параметр `STEP` задаёт разницу температур (в °C) между образцами. После снятия образца эта разница используется для планирования вызова `TEMPERATURE_PROBE_NEXT`. Значение `STEP` по умолчанию — 2. `METHOD` поддерживает только вариант `tap`; если он указан, измерение будет автоматическим.
 
 #### TEMPERATURE_PROBE_NEXT
 

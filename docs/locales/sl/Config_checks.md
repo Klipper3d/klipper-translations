@@ -1,63 +1,63 @@
-# Configuration checks
+# Preverjanje konfiguracije
 
-This document provides a list of steps to help confirm the pin settings in the Klipper printer.cfg file. It is a good idea to run through these steps after following the steps in the [installation document](Installation.md).
+Ta dokument vsebuje seznam korakov za pomoč pri potrditvi nastavitev pinov v datoteki Klipper printer.cfg. Priporočljivo je, da te korake izvedete po tem, ko ste sledili navodilom v [dokumentu za namestitev](Installation.md).
 
-During this guide, it may be necessary to make changes to the Klipper config file. Be sure to issue a RESTART command after every change to the config file to ensure that the change takes effect (type "restart" in the Octoprint terminal tab and then click "Send"). It's also a good idea to issue a STATUS command after every RESTART to verify that the config file is successfully loaded.
+Med tem vodnikom bo morda treba spremeniti konfiguracijsko datoteko Klipper. Po vsaki spremembi konfiguracijske datoteke obvezno izvedite ukaz RESTART, da zagotovite uveljavitev sprememb (v zavihek terminala Octoprint vtipkajte "restart" in kliknite "Pošlji"). Prav tako je priporočljivo po vsakem ponovnem zagonu izvesti ukaz STATUS, da preverite, ali je bila konfiguracijska datoteka uspešno naložena.
 
 ## Preveri temperaturo
 
-Start by verifying that temperatures are being properly reported. Navigate to the temperature graph section in the user interface. Verify that the temperature of the nozzle and bed (if applicable) are present and not increasing. If it is increasing, remove power from the printer. If the temperatures are not accurate, review the "sensor_type" and "sensor_pin" settings for the nozzle and/or bed.
+Začnite s preverjanjem, ali se temperature pravilno javljajo. V uporabniškem vmesniku pojdite na razdelek z grafom temperature. Preverite, ali sta temperaturi šobe in mize (če je na voljo) prikazani in ali ne naraščata. Če temperatura narašča, tiskalnik izklopite iz električnega omrežja. Če temperature niso točne, preglejte nastavitvi "sensor_type" in "sensor_pin" za šobo ali mizo.
 
 ## Preveri M112
 
-Navigate to the command console and issue an M112 command in the terminal box. This command requests Klipper to go into a "shutdown" state. It will cause an error to show, which can be cleared with a FIRMWARE_RESTART command in the command console. Octoprint will also require a reconnect. Then navigate to the temperature graph section and verify that temperatures continue to update and the temperatures are not increasing. If temperatures are increasing, remove power from the printer.
+Pojdite v ukazno konzolo in v polje terminala vnesite ukaz M112. Ta ukaz zahteva, da Klipper preide v stanje "izklopa". To bo povzročilo prikaz napake, ki jo lahko počistite z ukazom FIRMWARE_RESTART v ukazni konzoli. Octoprint bo zahteval tudi ponovno povezavo. Nato pojdite na razdelek z grafom temperature in preverite, ali se temperature še naprej posodabljajo in ne naraščajo. Če temperature naraščajo, tiskalnik izklopite iz električnega omrežja.
 
-## Verify heaters
+## Preverjanje grelnikov
 
-Navigate to the temperature graph section and type in 50 followed by enter in the extruder/tool temperature box. The extruder temperature in the graph should start to increase (within about 30 seconds or so). Then go to the extruder temperature drop-down box and select "Off". After several minutes the temperature should start to return to its initial room temperature value. If the temperature does not increase then verify the "heater_pin" setting in the config.
+Pojdite na razdelek z grafom temperature in v polje za temperaturo ekstruderja/orodja vpišite 50 ter pritisnite enter. Temperatura ekstruderja na grafu bi morala začeti naraščati (v približno 30 sekundah). Nato v spustnem polju za temperaturo ekstruderja izberite "Izklop". Po nekaj minutah bi se morala temperatura začeti vračati na prvotno sobno vrednost. Če temperatura ne naraste, preverite nastavitev "heater_pin" v konfiguraciji.
 
-If the printer has a heated bed then perform the above test again with the bed.
+Če ima tiskalnik ogrevano mizo, ponovite zgornji preizkus še z mizo.
 
-## Verify stepper motor enable pin
+## Preverjanje pina za omogočanje koračnega motorja
 
-Verify that all of the printer axes can manually move freely (the stepper motors are disabled). If not, issue an M84 command to disable the motors. If any of the axes still can not move freely, then verify the stepper "enable_pin" configuration for the given axis. On most commodity stepper motor drivers, the motor enable pin is "active low" and therefore the enable pin should have a "!" before the pin (for example, "enable_pin: !PA1").
+Preverite, ali se vse osi tiskalnika lahko ročno prosto premikajo (koračni motorji so onemogočeni). Če ne, izvedite ukaz M84, da onemogočite motorje. Če se katera od osi še vedno ne more prosto premikati, preverite konfiguracijo "enable_pin" za to os. Pri večini običajnih gonilnikov koračnih motorjev, je pin za omogočanje motorja "aktivno nizek", zato mora imeti pin "!" pred pinom (na primer, "enable_pin: ! PA1").
 
-## Verify endstops
+## Preverjanje končnih stikal
 
-Manually move all the printer axes so that none of them are in contact with an endstop. Send a QUERY_ENDSTOPS command via the command console. It should respond with the current state of all of the configured endstops and they should all report a state of "open". For each of the endstops, rerun the QUERY_ENDSTOPS command while manually triggering the endstop. The QUERY_ENDSTOPS command should report the endstop as "TRIGGERED".
+Ročno premaknite vse osi tiskalnika tako, da nobena ni v stiku s končnim stikalom. Preko ukazne konzole pošljite ukaz QUERY_ENDSTOPS. Odziv bi moral prikazati trenutno stanje vseh konfiguriranih končnih stikal, vsa pa bi morala javiti stanje "open". Za vsako od končnih stikal ponovno zaženite ukaz QUERY_ENDSTOPS, medtem ko ročno sprožite stikalo. Ukaz QUERY_ENDSTOPS bi moral javiti, da je končno stikalo v stanju "TRIGGERED".
 
 If the endstop appears inverted (it reports "open" when triggered and vice-versa) then add a "!" to the pin definition (for example, "endstop_pin: ^!PA2"), or remove the "!" if there is already one present.
 
-If the endstop does not change at all then it generally indicates that the endstop is connected to a different pin. However, it may also require a change to the pullup setting of the pin (the '^' at the start of the endstop_pin name - most printers will use a pullup resistor and the '^' should be present).
+Če se stanje končnega stikala sploh ne spremeni, to običajno pomeni, da je končno stikalo povezano na drug pin. Vendar pa bo morda treba spremeniti tudi nastavitev upora, ki potegne gor, za pin (znak '^' na začetku imena endstop_pin – večina tiskalnikov uporablja upor, ki potegne gor, zato mora biti znak '^' prisoten).
 
-## Verify stepper motors
+## Preverjanje koračnih motorjev
 
-Use the STEPPER_BUZZ command to verify the connectivity of each stepper motor. Start by manually positioning the given axis to a midway point and then run `STEPPER_BUZZ STEPPER=stepper_x` in the command console. The STEPPER_BUZZ command will cause the given stepper to move one millimeter in a positive direction and then it will return to its starting position. (If the endstop is defined at position_endstop=0 then at the start of each movement the stepper will move away from the endstop.) It will perform this oscillation ten times.
+Z ukazom STEPPER_BUZZ preverite povezljivost vsakega koračnega motorja. Začnite tako, da določeno os ročno postavite na sredino, nato pa v ukazni konzoli zaženite `STEPPER_BUZZ STEPPER=stepper_x`. Ukaz STEPPER_BUZZ bo povzročil, da se bo določen koračni motor premaknil za en milimeter v pozitivno smer in se nato vrnil v začetni položaj. (Če je končno stikalo definirano pri position_endstop=0, se bo koračni motor na začetku vsakega giba odmaknil od končnega stikala.) To oscilacijo bo izvedel desetkrat.
 
-If the stepper does not move at all, then verify the "enable_pin" and "step_pin" settings for the stepper. If the stepper motor moves but does not return to its original position then verify the "dir_pin" setting. If the stepper motor oscillates in an incorrect direction, then it generally indicates that the "dir_pin" for the axis needs to be inverted. This is done by adding a '!' to the "dir_pin" in the printer config file (or removing it if one is already there). If the motor moves significantly more or significantly less than one millimeter then verify the "rotation_distance" setting.
+Če se koračni motor sploh ne premakne, preverite nastavitvi "enable_pin" in "step_pin" za ta motor. Če se koračni motor premakne, vendar se ne vrne v prvotni položaj, preverite nastavitev "dir_pin". Če se koračni motor vrti v napačno smer, to običajno pomeni, da je treba obrniti nastavitev "dir_pin" za to os. To storite tako, da dodate znak '! ' pred "dir_pin" v konfiguracijski datoteki tiskalnika (ali ga odstranite, če je že tam). Če se motor premakne znatno več ali manj kot en milimeter, preverite nastavitev "rotation_distance".
 
-Run the above test for each stepper motor defined in the config file. (Set the STEPPER parameter of the STEPPER_BUZZ command to the name of the config section that is to be tested.) If there is no filament in the extruder then one can use STEPPER_BUZZ to verify the extruder motor connectivity (use STEPPER=extruder). Otherwise, it's best to test the extruder motor separately (see the next section).
+Zgornji preizkus izvedite za vsak koračni motor, definiran v konfiguracijski datoteki. (Parameter STEPPER ukaza STEPPER_BUZZ nastavite na ime konfiguracijskega razdelka, ki ga želite preizkusiti.) Če v ekstruderju ni filamenta, lahko s STEPPER_BUZZ preverite povezljivost motorja ekstruderja (uporabite STEPPER=extruder). V nasprotnem primeru je najbolje motor ekstruderja preizkusiti ločeno (glejte naslednji razdelek).
 
-After verifying all endstops and verifying all stepper motors the homing mechanism should be tested. Issue a G28 command to home all axes. Remove power from the printer if it does not home properly. Rerun the endstop and stepper motor verification steps if necessary.
+Po preverjanju vseh končnih stikal in vseh koračnih motorjev, je treba preizkusiti mehanizem nuliranja. Izvedite ukaz G28, da postavite vse osi v izhodiščni položaj. Če se tiskalnik ne postavi pravilno v izhodišče, ga izklopite iz električnega omrežja. Po potrebi ponovite korake za preverjanje končnih stikal in koračnih motorjev.
 
-## Verify extruder motor
+## Preverjanje motorja ekstruderja
 
-To test the extruder motor it will be necessary to heat the extruder to a printing temperature. Navigate to the temperature graph section and select a target temperature from the temperature drop-down box (or manually enter an appropriate temperature). Wait for the printer to reach the desired temperature. Then navigate to the command console and click the "Extrude" button. Verify that the extruder motor turns in the correct direction. If it does not, see the troubleshooting tips in the previous section to confirm the "enable_pin", "step_pin", and "dir_pin" settings for the extruder.
+Za preizkus motorja ekstruderja bo treba ekstruder segreti na temperaturo tiskanja. Pojdite na razdelek z grafom temperature in v spustnem polju izberite ciljno temperaturo (ali ročno vnesite ustrezno temperaturo). Počakajte, da tiskalnik doseže želeno temperaturo. Nato pojdite v ukazno konzolo in kliknite gumb "Extrude". Preverite, ali se motor ekstruderja vrti v pravilno smer. Če se ne, si oglejte nasvete za odpravljanje težav v prejšnjem razdelku, da potrdite nastavitve "enable_pin", "step_pin" in "dir_pin" za ekstruder.
 
-## Calibrate PID settings
+## Kalibracija nastavitev PID
 
-Klipper supports [PID control](https://en.wikipedia.org/wiki/PID_controller) for the extruder and bed heaters. In order to use this control mechanism, it is necessary to calibrate the PID settings on each printer (PID settings found in other firmwares or in the example configuration files often work poorly).
+Klipper podpira [krmiljenje PID](https://en.wikipedia.org/wiki/PID_controller) za ekstruder in grelce mize. Za uporabo tega krmilnega mehanizma, je treba kalibrirati nastavitve PID na vsakem tiskalniku (nastavitve PID iz drugih strojnih programov ali iz vzorčnih konfiguracijskih datotek pogosto delujejo slabo).
 
-To calibrate the extruder, navigate to the command console and run the PID_CALIBRATE command. For example: `PID_CALIBRATE HEATER=extruder TARGET=170`
+Za kalibracijo ekstruderja pojdite v ukazno konzolo in zaženite ukaz PID_CALIBRATE. Na primer: `PID_CALIBRATE HEATER=extruder TARGET=170`
 
-At the completion of the tuning test run `SAVE_CONFIG` to update the printer.cfg file the new PID settings.
+Po končanem preizkusu nastavljanja zaženite `SAVE_CONFIG`, da posodobite datoteko printer.cfg z novimi nastavitvami PID.
 
-If the printer has a heated bed and it supports being driven by PWM (Pulse Width Modulation) then it is recommended to use PID control for the bed. (When the bed heater is controlled using the PID algorithm it may turn on and off ten times a second, which may not be suitable for heaters using a mechanical switch.) A typical bed PID calibration command is: `PID_CALIBRATE HEATER=heater_bed TARGET=60`
+Če ima tiskalnik ogrevano mizo in ta podpira krmiljenje s PWM (pulzno-širinska modulacija), je za mizo priporočljivo uporabiti krmiljenje PID. (Kadar se grelnik mize krmili z algoritmom PID, se lahko vklopi in izklopi desetkrat na sekundo, kar morda ni primerno za grelnike z mehanskim stikalom.) Tipičen ukaz za kalibracijo PID mize je: `PID_CALIBRATE HEATER=heater_bed TARGET=60`
 
-## Next steps
+## Naslednji koraki
 
-This guide is intended to help with basic verification of pin settings in the Klipper configuration file. Be sure to read the [bed leveling](Bed_Level.md) guide. Also see the [Slicers](Slicers.md) document for information on configuring a slicer with Klipper.
+Ta vodnik je namenjen pomoči pri osnovnem preverjanju nastavitev pinov v konfiguracijski datoteki Klipper. Obvezno preberite vodnik za [poravnavo mize](Bed_Level.md). Oglejte si tudi dokument [Rezalniki](Slicers.md) za informacije o konfiguraciji rezalnika za Klipper.
 
-After one has verified that basic printing works, it is a good idea to consider calibrating [pressure advance](Pressure_Advance.md).
+Ko potrdite, da osnovno tiskanje deluje, je priporočljivo razmisliti o kalibraciji [naprednega tlaka](Pressure_Advance.md).
 
-It may be necessary to perform other types of detailed printer calibration - a number of guides are available online to help with this (for example, do a web search for "3d printer calibration"). As an example, if you experience the effect called ringing, you may try following [resonance compensation](Resonance_Compensation.md) tuning guide.
+Morda bo treba izvesti tudi druge vrste podrobne kalibracije tiskalnika – na spletu je na voljo več vodnikov, ki vam pri tem lahko pomagajo (npr. v spletnem iskalniku poiščite "3d printer calibration"). Če se na primer srečujete s pojavom, imenovanim zvonjenje, lahko poskusite slediti vodniku za nastavitev [kompenzacije resonanc](Resonance_Compensation.md).
