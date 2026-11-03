@@ -4,17 +4,20 @@
 # gfbdrgng <hnaofegnp@hldrive.com>, 2024, 2025.
 # Evgeniy Khramov <65224669+thejenja@users.noreply.github.com>, 2025.
 # gfbdrgn <erfvvgtyhbnjhyuu@wireconnected.com>, 2025.
+# Andrei Stepanov <adem@users.noreply.hosted.weblate.org>, 2026.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-09-10 11:02+0000\n"
-"Last-Translator: gfbdrgn <erfvvgtyhbnjhyuu@wireconnected.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/features/ru/>\n"
+"PO-Revision-Date: 2026-10-25 10:42+0000\n"
+"Last-Translator: Andrei Stepanov <adem@users.noreply.hosted.weblate.org>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/features/"
+"ru/>\n"
 "Language: ru\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.14-dev\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 msgid "Klipper has several compelling features:"
 msgstr "Клиппер обладает несколькими привлекательными функциями:"
@@ -562,6 +565,11 @@ msgid ""
 "modification - just add a Raspberry Pi. Klipper's internal code layout makes "
 "it easier to support other micro-controller architectures as well."
 msgstr ""
+"Переносимый код. Klipper работает на ARM, AVR, PRU и других "
+"микроконтроллерах. Существующие принтеры в стиле «reprap» могут работать с "
+"Klipper без аппаратных модификаций — достаточно добавить Raspberry Pi. "
+"Внутренняя организация кода Klipper также упрощает поддержку других "
+"архитектур микроконтроллеров."
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
@@ -573,6 +581,15 @@ msgid ""
 "probes. Probes may be calibrated for axis twist compensation. If using an "
 "\"eddy current probe\" then one can utilize fast bed mesh scanning,"
 msgstr ""
+"Поддержка автоматического выравнивания стола. Klipper можно настроить для "
+"базового определения наклона стола или полного выравнивания стола по сетке. "
+"Сетку стола можно адаптировать под размер печати (адаптивная сетка стола). "
+"Если стол использует несколько шаговых двигателей Z, Klipper также может "
+"выполнять выравнивание путём независимого управления двигателями Z. "
+"Поддерживается большинство датчиков высоты Z, включая датчики BL-Touch и "
+"датчики с сервоприводом. Датчики можно калибровать для компенсации перекоса "
+"осей. При использовании «датчика вихревых токов» можно задействовать быстрое "
+"сканирование сетки стола,"
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
@@ -583,6 +600,12 @@ msgid ""
 "internal micro-controller temperature sensor and the internal temperature "
 "sensor of a Raspberry Pi."
 msgstr ""
+"Поддержка распространённых датчиков температуры (например, обычных "
+"термисторов, AD595, AD597, AD849x, PT100, PT1000, MAX6675, MAX31855, "
+"MAX31856, MAX31865, BME280, HTU21D, DS18B20, AHT1X, AHT2X, AHT3X, SHT3x и "
+"LM75). Также можно настроить собственные термисторы и собственные аналоговые "
+"датчики температуры. Можно контролировать внутренний датчик температуры "
+"микроконтроллера и внутренний датчик температуры Raspberry Pi."
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
@@ -591,44 +614,51 @@ msgid ""
 " on fans that have a tachometer. One can assign a \"math formula\" to a fan "
 "for automatic fan speed updating."
 msgstr ""
+"Поддержка стандартных вентиляторов, вентиляторов сопла и вентиляторов с "
+"управлением по температуре. Нет необходимости держать вентиляторы "
+"включёнными, когда принтер простаивает. Скорость вентиляторов с тахометром "
+"можно контролировать. Можно назначить вентилятору «математическую формулу» "
+"для автоматического обновления скорости."
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
 "Support for measuring and recording acceleration using adxl345, mpu9250, "
 "mpu6050, lis2dw12, lis3dh, and icm20948 accelerometers."
 msgstr ""
+"Поддержка измерения и записи ускорения с помощью акселерометров adxl345, "
+"mpu9250, mpu6050, lis2dw12, lis3dh и icm20948."
 
 #: docs/Features.md:block 10 (table)
 msgid "STM32G431"
-msgstr ""
+msgstr "STM32G431"
 
 #: docs/Features.md:block 10 (table)
 msgid "3617K"
-msgstr ""
+msgstr "3617K"
 
 #: docs/Features.md:block 10 (table)
 msgid "2452K"
-msgstr ""
+msgstr "2452K"
 
 #: docs/Features.md:block 10 (table)
 msgid "4000K"
-msgstr ""
+msgstr "4000K"
 
 #: docs/Features.md:block 10 (table)
 msgid "2571K"
-msgstr ""
+msgstr "2571K"
 
 #: docs/Features.md:block 10 (table)
 msgid "STM32H723"
-msgstr ""
+msgstr "STM32H723"
 
 #: docs/Features.md:block 10 (table)
 msgid "7429K"
-msgstr ""
+msgstr "7429K"
 
 #: docs/Features.md:block 10 (table)
 msgid "8619K"
-msgstr ""
+msgstr "8619K"
 
 #: docs/Features.md:block 6 (unordered list)
 msgid ""
@@ -637,6 +667,10 @@ msgid ""
 "support for current control of traditional stepper drivers via AD5206, "
 "DAC084S085, MCP4451, MCP4728, MCP4018, and PWM pins."
 msgstr ""
+"Поддержка настройки во время работы драйверов шаговых двигателей TMC2130, "
+"TMC2208/TMC2224, TMC2209, TMC2240, TMC2660, TMC5160 и TMC5262. Также "
+"поддерживается управление током традиционных драйверов шаговых двигателей "
+"через AD5206, DAC084S085, MCP4451, MCP4728, MCP4018 и ШИМ-пины."
 
 #~ msgid ""
 #~ "Support for run-time configuration of TMC2130, TMC2208/TMC2224, TMC2209, "

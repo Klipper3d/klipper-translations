@@ -1,17 +1,20 @@
 # Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>, 2022, 2025.
 # VICTOR <subfyn@gmail.com>, 2023, 2025.
 # xXx <xxx_xxx_xxxxxxxxx@mail.ru>, 2023, 2025.
+# Andrei Stepanov <adem@users.noreply.hosted.weblate.org>, 2026.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-07-22 08:40+0000\n"
-"Last-Translator: Дмитрий Васильевич Григорьевский <gr.dmitriy@gmail.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/exclude_object/ru/>\n"
+"PO-Revision-Date: 2026-10-25 13:09+0000\n"
+"Last-Translator: Andrei Stepanov <adem@users.noreply.hosted.weblate.org>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
+"exclude_object/ru/>\n"
 "Language: ru\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.13-dev\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 #: docs/Exclude_Object.md:block 1 (header)
 msgid "Exclude Objects"
@@ -276,12 +279,19 @@ msgid ""
 "macros.cfg](../config/sample-macros.cfg) file for a Marlin/RepRapFirmware "
 "compatible M486 G-Code macro.)"
 msgstr ""
+"Модуль `[exclude_object]` позволяет Klipper исключать объекты во время "
+"печати. Чтобы включить эту функцию, добавьте [раздел конфигурации "
+"exclude_object](Config_Reference.md#exclude_object) (также см. [справочник "
+"команд](G-Codes.md#exclude_object) и файл [sample-macros.cfg](../config/"
+"sample-macros.cfg) — совместимый с Marlin/RepRapFirmware макрос G-кода M486)."
 
 #: docs/Exclude_Object.md:block 13 (paragraph)
 msgid ""
 "All available G-Code commands are documented in the [G-Code "
 "Reference](./G-Codes.md#exclude_object)"
 msgstr ""
+"Все доступные команды G-кода описаны в [справочнике G-кодов](./G-"
+"Codes.md#exclude_object)"
 
 #~ msgid ""
 #~ "The `[exclude_object]` module allows Klipper to exclude objects while a print "

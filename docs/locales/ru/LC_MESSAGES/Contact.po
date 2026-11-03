@@ -3,17 +3,20 @@
 # xXx <xxx_xxx_xxxxxxxxx@mail.ru>, 2023, 2025.
 # Evgeniy Khramov <65224669+thejenja@users.noreply.github.com>, 2025.
 # gfbdrgn <erfvvgtyhbnjhyuu@wireconnected.com>, 2025.
+# Andrei Stepanov <adem@users.noreply.hosted.weblate.org>, 2026.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-09-10 09:02+0000\n"
-"Last-Translator: gfbdrgn <erfvvgtyhbnjhyuu@wireconnected.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/contact/ru/>\n"
+"PO-Revision-Date: 2026-10-25 10:42+0000\n"
+"Last-Translator: Andrei Stepanov <adem@users.noreply.hosted.weblate.org>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/contact/"
+"ru/>\n"
 "Language: ru\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.14-dev\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 msgid "This document provides contact information for Klipper."
 msgstr "В этом документе содержится контактная информация Klipper."
@@ -141,7 +144,7 @@ msgstr "Неплохо сжать файл журнала с помощью zip 
 
 #: docs/Contact.md:block 3 (header)
 msgid "Discourse Forum"
-msgstr ""
+msgstr "Форум Discourse"
 
 #: docs/Contact.md:block 4 (paragraph)
 msgid ""
@@ -149,18 +152,25 @@ msgid ""
 "server](https://community.klipper3d.org) for \"forum\" style discussions on "
 "Klipper. Note that Discourse is not Discord."
 msgstr ""
+"Существует [сервер Discourse сообщества Klipper](https://"
+"community.klipper3d.org) для обсуждений Klipper в стиле «форума». Учтите, "
+"что Discourse — это не Discord."
 
 #: docs/Contact.md:block 6 (paragraph)
 msgid ""
 "There is a Discord server dedicated to Klipper at: "
 "<https://discord.klipper3d.org>. Note that Discord is not Discourse."
 msgstr ""
+"Существует сервер Discord, посвящённый Klipper: <https://"
+"discord.klipper3d.org>. Учтите, что Discord — это не Discourse."
 
 #: docs/Contact.md:block 10 (paragraph)
 msgid ""
 "It is also possible to search for similar questions in the [Klipper Discourse "
 "Forum](#discourse-forum)."
 msgstr ""
+"Также можно поискать похожие вопросы на [форуме Discourse Klipper]"
+"(#discourse-forum)."
 
 #: docs/Contact.md:block 11 (paragraph)
 msgid ""
@@ -169,6 +179,11 @@ msgid ""
 "forum) or [Klipper Discord Chat](#discord-chat). Both are communities where "
 "Klipper users can discuss Klipper with other users."
 msgstr ""
+"Если вы хотите поделиться своими знаниями и опытом с другими пользователями "
+"Klipper, вы можете присоединиться к [форуму Discourse Klipper](#discourse-"
+"forum) или [чату Discord Klipper](#discord-chat). Оба сообщества "
+"предназначены для того, чтобы пользователи Klipper могли обсуждать Klipper с "
+"другими пользователями."
 
 #: docs/Contact.md:block 12 (paragraph)
 msgid ""
@@ -176,6 +191,9 @@ msgid ""
 "then also consider a general 3d-printing forum or a forum dedicated to the "
 "printer hardware."
 msgstr ""
+"Если у вас общий вопрос или вы столкнулись с общими проблемами печати, "
+"рассмотрите также общий форум по 3D-печати или форум, посвящённый "
+"аппаратному обеспечению принтера."
 
 #: docs/Contact.md:block 14 (paragraph)
 msgid ""
@@ -185,6 +203,11 @@ msgid ""
 "Forum](#discourse-forum). There is also [Klipper Discord Chat](#discord-chat) "
 "for discussions between collaborators."
 msgstr ""
+"Для любой новой функции нужен кто-то заинтересованный и способный её "
+"реализовать. Если вы хотите помочь реализовать или протестировать новую "
+"функцию, вы можете поискать текущие разработки на [форуме Discourse Klipper]"
+"(#discourse-forum). Также существует [чат Discord Klipper](#discord-chat) "
+"для обсуждений между участниками."
 
 #: docs/Contact.md:block 17 (paragraph)
 msgid ""
@@ -195,18 +218,28 @@ msgid ""
 "consider searching general 3d-printing forums or forums dedicated to the "
 "printer hardware."
 msgstr ""
+"Если вы столкнулись с проблемой печати, мы рекомендуем внимательно осмотреть "
+"аппаратное обеспечение принтера (все соединения, провода, винты и т. д.) и "
+"убедиться, что нет ничего необычного. По нашему опыту, большинство проблем "
+"печати не связаны с программным обеспечением Klipper. Если вы всё же "
+"обнаружили проблему с аппаратным обеспечением принтера, рассмотрите поиск на "
+"общих форумах по 3D-печати или форумах, посвящённых аппаратному обеспечению "
+"принтера."
 
 #: docs/Contact.md:block 18 (paragraph)
 msgid ""
 "It is also possible to search for similar issues in the [Klipper Discourse "
 "Forum](#discourse-forum)."
 msgstr ""
+"Также можно поискать похожие проблемы на [форуме Discourse Klipper]"
+"(#discourse-forum)."
 
 #: docs/Contact.md:block 22 (paragraph)
 msgid ""
 "Problems should be reported in the [Klipper Discourse Forum](#discourse-"
 "forum)."
 msgstr ""
+"О проблемах следует сообщать на [форуме Discourse Klipper](#discourse-forum)."
 
 #: docs/Contact.md:block 24 (ordered list)
 msgid ""
@@ -224,6 +257,20 @@ msgid ""
 "until reaching the root directory, click on the `tmp` folder, and then select "
 "the `klippy.log` file)."
 msgstr ""
+"Специализированные веб-интерфейсы Klipper позволяют напрямую получить файл "
+"журнала Klipper. Это самый простой способ получить журнал при использовании "
+"одного из таких интерфейсов. В противном случае для копирования файла "
+"журнала на настольный компьютер потребуется утилита «scp» или «sftp». "
+"Утилита «scp» входит в стандартную поставку настольных Linux и MacOS. Для "
+"других настольных систем есть свободно распространяемые утилиты scp "
+"(например, WinSCP). Файл журнала может находиться в `~/printer_data/logs/"
+"klippy.log` (при использовании графической утилиты scp ищите папку «"
+"printer_data», затем папку «logs» в ней, затем файл `klippy.log`). В "
+"качестве альтернативы файл журнала может находиться в `/tmp/klippy.log` "
+"(если используется графическая утилита scp, которая не может напрямую "
+"скопировать `/tmp/klippy.log`, многократно нажимайте на `..` или «"
+"родительская папка», пока не достигнете корневого каталога, нажмите на папку "
+"`tmp`, затем выберите файл `klippy.log`)."
 
 #: docs/Contact.md:block 24 (ordered list)
 msgid ""
@@ -233,10 +280,15 @@ msgid ""
 "what outcome actually occurred. The compressed Klipper log file should be "
 "attached to that topic."
 msgstr ""
+"Создайте новую тему на [форуме Discourse Klipper](#discourse-forum) и "
+"предоставьте чёткое описание проблемы. Другим участникам Klipper нужно будет "
+"понять, какие шаги были предприняты, какой результат ожидался и какой "
+"фактически получился. Сжатый файл журнала Klipper следует прикрепить к этой "
+"теме."
 
 #: docs/Contact.md:block 27 (paragraph)
 msgid "See the [CONTRIBUTING document](CONTRIBUTING.md) for information."
-msgstr ""
+msgstr "Информацию см. в [документе CONTRIBUTING](CONTRIBUTING.md)."
 
 #: docs/Contact.md:block 28 (paragraph)
 msgid ""
@@ -245,20 +297,26 @@ msgid ""
 " [Klipper Discourse Forum](#discourse-forum) or on the [Klipper Discord "
 "Chat](#discord-chat)."
 msgstr ""
+"Существует несколько [документов для разработчиков](Overview.md#developer-"
+"documentation). Если у вас есть вопросы по коду, вы также можете задать их "
+"на [форуме Discourse Klipper](#discourse-forum) или в [чате Discord Klipper]"
+"(#discord-chat)."
 
 #: docs/Contact.md:block 29 (header)
 msgid "Professional Services"
-msgstr ""
+msgstr "Профессиональные услуги"
 
 #: docs/Contact.md:block 30 (paragraph)
 msgid "![](img/klipper-logo-small.png)"
-msgstr ""
+msgstr "![](img/klipper-logo-small.png)"
 
 #: docs/Contact.md:block 31 (paragraph)
 msgid ""
 "Custom software development, software support, and solutions: <https://ko-"
 "fi.com/koconnor>"
 msgstr ""
+"Разработка программного обеспечения на заказ, поддержка программного "
+"обеспечения и решения: <https://ko-fi.com/koconnor>"
 
 #~ msgid "[Community Forum](#community-forum)"
 #~ msgstr "[Форум сообщества](#community-forum)"
