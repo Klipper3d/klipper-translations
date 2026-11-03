@@ -8,7 +8,7 @@
 
 Для калибровки опережения давления принтер должен быть сконфигурирован и работать, поскольку тест настройки включает в себя печать и проверку тестируемого объекта. Рекомендуется прочитать этот документ полностью перед запуском теста.
 
-Use a slicer to generate g-code for the large hollow square found in [docs/prints/square_tower.stl](prints/square_tower.stl). Use a high speed (eg, 100mm/s), zero infill, and a coarse layer height (the layer height should be around 75% of the nozzle diameter). Make sure any "dynamic acceleration control" and "scarf joint" seams are disabled in the slicer.
+Используйте слайсер, чтобы сгенерировать g-код для большой полой башни из [docs/prints/square_tower.stl](prints/square_tower.stl). Используйте высокую скорость (например, 100 мм/с), нулевое заполнение и грубую высоту слоя (высота слоя должна составлять около 75% диаметра сопла). Убедитесь, что в слайсере отключены «динамическое управление ускорением» и швы типа «scarf joint».
 
 Подготовьтесь к тестированию, выполнив следующую команду G-Code:
 

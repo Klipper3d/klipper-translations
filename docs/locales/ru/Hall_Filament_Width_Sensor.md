@@ -40,19 +40,19 @@ index: 1
 
 Чтобы включить датчик, выполните команду **ENABLE_FILAMENT_WIDTH_SENSOR** или установите параметр `enable` в значение `true`.
 
-## Use as a runout switch only
+## Использование только как датчика окончания филамента
 
-By default, the sensor measures filament diameter and adjusts the extrusion multiplier to compensate for variations.
+По умолчанию датчик измеряет диаметр филамента и корректирует множитель экструзии для компенсации отклонений.
 
-If you want to use the sensor as a runout switch only, set the `enable_flow_compensation` config parameter to `false`. In this mode, the sensor will only trigger runout events when filament is not detected, it will not modify the extrusion multiplier.
+Если вы хотите использовать датчик только как датчик окончания филамента, установите параметр конфигурации `enable_flow_compensation` в `false`. В этом режиме датчик будет выдавать события окончания филамента только при его отсутствии и не будет изменять множитель экструзии.
 
-This is useful for printers where the filament sensor is not accurate enough for flow compensation but can reliably detect filament runout, or when printing with flexible filaments which have unstable diameter characteristics.
+Это полезно для принтеров, где датчик филамента недостаточно точен для компенсации потока, но надёжно определяет окончание филамента, а также при печати гибкими филаментами с нестабильными характеристиками диаметра.
 
-Issue **ENABLE_FILAMENT_WIDTH_SENSOR FLOW_COMPENSATION=1** to enable flow compensation or **ENABLE_FILAMENT_WIDTH_SENSOR FLOW_COMPENSATION=0** to disable it.
+Выполните **ENABLE_FILAMENT_WIDTH_SENSOR FLOW_COMPENSATION=1**, чтобы включить компенсацию потока, или **ENABLE_FILAMENT_WIDTH_SENSOR FLOW_COMPENSATION=0**, чтобы её отключить.
 
-Note that disabling filament width compensation automatically resets the extrusion multiplier to 100%.
+Учтите, что отключение компенсации ширины филамента автоматически сбрасывает множитель экструзии до 100%.
 
-**QUERY_FILAMENT_WIDTH** includes the current state of flow compensation in its output.
+**QUERY_FILAMENT_WIDTH** включает текущее состояние компенсации потока в свой вывод.
 
 ## Журнал
 

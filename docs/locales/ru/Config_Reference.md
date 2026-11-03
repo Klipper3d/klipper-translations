@@ -1,6 +1,6 @@
 # Ссылка на конфигурацию
 
-Этот документ является справочником по для использования опций, доступных в файле конфигурации Klipper.
+Этот документ является справочником по опциям, доступным в файле конфигурации Klipper.
 
 Описания в этом документе отформатированы таким образом, чтобы их можно было вырезать и вставить в конфигурационный файл принтера. См. [installation document](Installation.md) для получения информации о настройке Klipper и выборе начального конфигурационного файла.
 
@@ -657,13 +657,13 @@ anchor_z:
 #    Эти параметры должны быть указаны.
 ```
 
-### Generic Cartesian Kinematics
+### Обобщённая декартова кинематика
 
-See [example-generic-cartesian.cfg](../config/example-generic-caretesian.cfg) for an example generic Cartesian kinematics config file.
+См. [example-generic-cartesian.cfg](../config/example-generic-caretesian.cfg) — пример файла конфигурации обобщённой декартовой кинематики.
 
-This printer kinematic class allows a user to define in a pretty flexible manner an arbitrary Cartesian-style kinematics. In principle, the regular cartesian, corexy, hybrid_corexy can be defined this way too. However, more importantly, various otherwise unsupported kinematics such as inverted hybrid_corexy or corexyuv can be defined using this kinematic.
+Этот класс кинематики принтера позволяет пользователю достаточно гибко задать произвольную кинематику декартова типа. В принципе, обычные cartesian, corexy и hybrid_corexy также можно определить этим способом. Однако, что важнее, с помощью этой кинематики можно определить различные иначе неподдерживаемые кинематики, такие как инвертированная hybrid_corexy или corexyuv.
 
-Notably, the definition of a generic Cartesian kinematic deviates significantly from the other kinematic types. It follows the following convention: a user defines a set of carriages with certain range of motion that can move independently from each other (they should move over the Cartesian axes X, Y, and Z, hence the name of the kinematic) and corresponding endstops that allow the firmware to determine the position of carriages during homing, as well as a set of steppers that move those carriages. The `[printer]` section must specify the kinematic and other printer-level settings same as the regular Cartesian kinematic:
+Примечательно, что определение обобщённой декартовой кинематики значительно отличается от других типов кинематики. Оно следует следующему соглашению: пользователь определяет набор кареток с определённым диапазоном движения, которые могут двигаться независимо друг от друга (они должны двигаться по декартовым осям X, Y и Z — отсюда и название кинематики), и соответствующие концевые выключатели, позволяющие прошивке определять положение кареток при парковке, а также набор шаговых двигателей, которые перемещают эти каретки. Раздел `[printer]` должен задавать кинематику и другие настройки уровня принтера так же, как и для обычной декартовой кинематики:
 
 ```
 [printer]
@@ -676,7 +676,7 @@ max_accel:
 #max_z_accel:
 ```
 
-Then a user must define three primary carriages for X, Y, and Z axes, e.g.:
+Затем пользователь должен определить три первичные каретки для осей X, Y и Z, например:
 
 ```
 [carriage carriage_x]
@@ -717,7 +717,7 @@ position_max:
 #   if near position_min.
 ```
 
-Afterwards, a user specifies the stepper motors that move these carriages, for instance
+После этого пользователь указывает шаговые двигатели, которые перемещают эти каретки, например
 
 ```
 [stepper my_stepper]
@@ -736,9 +736,9 @@ microsteps:
 #step_pulse_duration:
 ```
 
-See [stepper](#stepper) section for more information on the regular stepper parameters. The `carriages` parameter defines how the stepper affects the motion of the carriages. For example, `carriage_x+carriage_y` indicates that the motion of the stepper in the positive direction by the distance `d` moves the carriages `carriage_x` and `carriage_y` by the same distance `d` in the positive direction, while `carriage_x-0.5*carriage_y` means the motion of the stepper in the positive direction by the distance `d` moves the carriage `carriage_x` by the distance `d` in the positive direction, but the carriage `carriage_y` will travel distance `d/2` in the negative direction.
+См. раздел [stepper](#stepper) для получения дополнительной информации об обычных параметрах шагового двигателя. Параметр `carriages` определяет, как шаговый двигатель влияет на движение кареток. Например, `carriage_x+carriage_y` означает, что движение шагового двигателя в положительном направлении на расстояние `d` перемещает каретки `carriage_x` и `carriage_y` на то же расстояние `d` в положительном направлении, а `carriage_x-0.5*carriage_y` означает, что движение шагового двигателя в положительном направлении на расстояние `d` перемещает каретку `carriage_x` на расстояние `d` в положительном направлении, но каретка `carriage_y` пройдёт расстояние `d/2` в отрицательном направлении.
 
-More than a single stepper motor can be defined to drive the same axis or belt. For example, on a CoreXY AWD setups two motors driving the same belt can be defined as
+Можно определить более одного шагового двигателя для привода одной и той же оси или ремня. Например, в конфигурации CoreXY AWD два двигателя, приводящие один и тот же ремень, можно определить так:
 
 ```
 [carriage carriage_x]
@@ -766,9 +766,9 @@ rotation_distance: ...
 ...
 ```
 
-with `a0` and `a1` steppers having their own control pins, but sharing the same `carriages` and corresponding endstops.
+при этом шаговые двигатели `a0` и `a1` имеют собственные управляющие пины, но используют общие `carriages` и соответствующие концевые выключатели.
 
-There are situations when a user wants to have more than one endstop per axis. Examples of such configurations include Y axis driven by two independent stepper motors with belts attached to both ends of the X gantry, with effectively two carriages on Y axis each having an independent endstop, and multi-stepper Z axis with each stepper having its own endstop (not to be confused with the configurations with multiple Z motors but only a single endstop). These configurations can be declared by specifying additional carriage(s) with their endstops:
+Бывают ситуации, когда пользователь хочет иметь более одного концевого выключателя на ось. Примеры таких конфигураций включают ось Y, приводимую двумя независимыми шаговыми двигателями с ремнями, прикреплёнными к обоим концам портала X, фактически с двумя каретками на оси Y, каждая со своим независимым концевым выключателем, и ось Z с несколькими шаговыми двигателями, у каждого из которых свой концевой выключатель (не путать с конфигурациями с несколькими двигателями Z, но только одним концевым выключателем). Такие конфигурации можно объявить, указав дополнительные каретки с их концевыми выключателями:
 
 ```
 [extra_carriage my_carriage]
@@ -780,7 +780,7 @@ endstop_pin:
 #   Endstop switch detection pin. This parameter must be provided.
 ```
 
-and the corresponding stepper motors, for example:
+и соответствующие шаговые двигатели, например:
 
 ```
 [extra_carriage carriage_y1]
@@ -792,9 +792,9 @@ carriages: carriage_y1
 ...
 ```
 
-Notably, an `[extra_carriage]` does not define parameters such as `position_min`, `position_max`, and `position_endstop`, but instead inherits them from the specified `primary_carriage`, thus sharing the same range of motion with the primary carriage.
+Примечательно, что `[extra_carriage]` не задаёт такие параметры, как `position_min`, `position_max` и `position_endstop`, а наследует их от указанной `primary_carriage`, тем самым разделяя один и тот же диапазон движения с первичной кареткой.
 
-For the references on how to configure IDEX setups, see the [dual carriage](#dual_carriage) section.
+Справочную информацию о настройке конфигураций IDEX см. в разделе [двойная каретка](#dual_carriage).
 
 ### Отсутствует Кинематика
 
@@ -1593,7 +1593,7 @@ filename:
 
 Включает поддержку исключения или отмены отдельных объектов в процессе печати.
 
-See the [exclude objects guide](Exclude_Object.md) and [command reference](G-Codes.md#exclude_object) for additional information. See the [sample-macros.cfg](../config/sample-macros.cfg) file for a Marlin/RepRapFirmware compatible M486 G-Code macro.
+Дополнительную информацию см. в [руководстве по исключению объектов](Exclude_Object.md) и [справочнике команд](G-Codes.md#exclude_object). Совместимый с Marlin/RepRapFirmware макрос G-кода M486 см. в файле [sample-macros.cfg](../config/sample-macros.cfg).
 
 ```
 [exclude_object]
@@ -1678,7 +1678,7 @@ cs_pin:
 
 ### [icm20948]
 
-Support for icm20948 accelerometers.
+Поддержка акселерометров icm20948.
 
 ```
 [icm20948]
@@ -1759,7 +1759,7 @@ Support for icm20948 accelerometers.
 
 ### [bmi160]
 
-BMI160 accelerometer. This sensor can be queried via I2C or SPI bus.
+Акселерометр BMI160. Этот датчик можно опрашивать через шину I2C или SPI.
 
 ```
 [bmi160]
@@ -1783,14 +1783,14 @@ BMI160 accelerometer. This sensor can be queried via I2C or SPI bus.
 #   See the "adxl345" section for information on this parameter.
 ```
 
-**Important:** Many BMI160 modules use ambiguous pin labels. For SPI:
+**Важно:** Многие модули BMI160 используют неоднозначные обозначения контактов. Для SPI:
 
-- Use **SCL** for clock (not SCX)
-- Use **SDA** for MOSI (not SDX)
-- Use **SA0** for MISO
-- Use **CS** for chip select
+- Используйте **SCL** для тактирования (не SCX)
+- Используйте **SDA** для MOSI (не SDX)
+- Используйте **SA0** для MISO
+- Используйте **CS** для выбора чипа
 
-The pins labeled SCX/SDX are for the auxiliary magnetometer bus.
+Контакты с маркировкой SCX/SDX предназначены для вспомогательной шины магнитометра.
 
 ### [mpu9250]
 
@@ -2250,11 +2250,11 @@ calibrate_x: ...
 
 ### [dual_carriage]
 
-Support for cartesian, generic_cartesian and hybrid_corexy/z printers with dual carriages on a single axis. The carriage mode can be set via the SET_DUAL_CARRIAGE extended g-code command. For example, "SET_DUAL_CARRIAGE CARRIAGE=1" command will activate the carriage defined in this section (CARRIAGE=0 will return activation to the primary carriage). Dual carriage support is typically combined with extra extruders - the SET_DUAL_CARRIAGE command is often called at the same time as the ACTIVATE_EXTRUDER command. Be sure to park the carriages during deactivation. Note that during G28 homing, typically the primary carriage is homed first followed by the carriage defined in the `[dual_carriage]` config section. However, the `[dual_carriage]` carriage will be homed first if both carriages home in a positive direction and the [dual_carriage] carriage has a `position_endstop` greater than the primary carriage, or if both carriages home in a negative direction and the `[dual_carriage]` carriage has a `position_endstop` less than the primary carriage.
+Поддержка принтеров cartesian, generic_cartesian и hybrid_corexy/z с двумя каретками на одной оси. Режим каретки можно задать расширенной g-code-командой SET_DUAL_CARRIAGE. Например, команда "SET_DUAL_CARRIAGE CARRIAGE=1" активирует каретку, определённую в этом разделе (CARRIAGE=0 вернёт активацию первичной каретке). Поддержка двух кареток обычно сочетается с дополнительными экструдерами — команду SET_DUAL_CARRIAGE часто вызывают одновременно с командой ACTIVATE_EXTRUDER. Обязательно паркуйте каретки при деактивации. Учтите, что при парковке G28 обычно сначала паркуется первичная каретка, а затем каретка, определённая в разделе конфигурации `[dual_carriage]`. Однако каретка `[dual_carriage]` будет запаркована первой, если обе каретки паркуются в положительном направлении и у каретки `[dual_carriage]` значение `position_endstop` больше, чем у первичной каретки, или если обе каретки паркуются в отрицательном направлении и у каретки `[dual_carriage]` значение `position_endstop` меньше, чем у первичной каретки.
 
 Кроме того, можно использовать команды "SET_DUAL_CARRIAGE CARRIAGE=1 MODE=COPY" или "SET_DUAL_CARRIAGE CARRIAGE=1 MODE=MIRROR" для активации режима копирования или зеркального отображения двойной каретки, в этом случае она будет следовать за движением каретки 0 соответственно. Эти команды можно использовать для одновременной печати двух деталей - либо двух одинаковых деталей (в режиме COPY), либо зеркально отраженных (в режиме MIRROR). Обратите внимание, что режимы COPY и MIRROR также требуют соответствующей настройки экструдера на двойной каретке, что обычно достигается с помощью команды "SYNC_EXTRUDER_MOTION MOTION_QUEUE=extruder EXTRUDER=<dual_carriage_extruder>" или аналогичной команды.
 
-See [sample-idex.cfg](../config/sample-idex.cfg) for an example configuration with a regular Cartesian kinematic.
+См. [sample-idex.cfg](../config/sample-idex.cfg) — пример конфигурации с обычной декартовой кинематикой.
 
 ```
 [dual_carriage]
@@ -2282,7 +2282,7 @@ axis:
 #   See the "stepper" section for the definition of the above parameters.
 ```
 
-For an example of dual carriage configuration with `generic_cartesian` kinematic, see the following configuration [sample](../config/example-generic-caretesian.cfg). Please note that in this case the `[dual_carriage]` configuration deviates from the configuration described above:
+Пример конфигурации с двумя каретками для кинематики `generic_cartesian` см. в следующем [примере](../config/example-generic-caretesian.cfg). Обратите внимание, что в этом случае конфигурация `[dual_carriage]` отличается от описанной выше:
 
 ```
 [dual_carriage my_dc_carriage]
@@ -2318,9 +2318,9 @@ position_max:
 ...
 ```
 
-Refer to [generic cartesian](#generic-cartesian-kinematics) section for more information on the regular `carriage` parameters.
+Дополнительную информацию об обычных параметрах `carriage` см. в разделе [обобщённая декартова кинематика](#generic-cartesian-kinematics).
 
-Then a user must define one or more stepper motors moving the dual carriage (and other carriages as appropriate), for instance
+Затем пользователь должен определить один или несколько шаговых двигателей, перемещающих двойную каретку (и другие каретки, если нужно), например
 
 ```
 [carriage carriage_x]
@@ -2338,7 +2338,7 @@ carriages: carriage_u-carriage_y
 ...
 ```
 
-`[dual_carriage]` requires special configuration for the input shaper. In general, it is necessary to run input shaper calibration twice - for the `dual_carriage` and its `primary_carriage` for the axis they share. Then the input shaper can be configured as follows, assuming the example above:
+`[dual_carriage]` требует особой настройки для input shaper. Как правило, необходимо выполнить калибровку input shaper дважды — для `dual_carriage` и её `primary_carriage` по общей для них оси. Затем input shaper можно настроить следующим образом, исходя из приведённого выше примера:
 
 ```
 [input_shaper]
@@ -2353,9 +2353,9 @@ gcode:
   SET_INPUT_SHAPER SHAPER_TYPE_X=<carriage_x_shaper> SHAPER_FREQ_X=<carriage_x_freq> SHAPER_TYPE_Y=<carriage_y_shaper> SHAPER_FREQ_Y=<carriage_y_freq>
 ```
 
-Note that `SHAPER_TYPE_Y` and `SHAPER_FREQ_Y` must be the same in both commands in this case, since the same motors drive Y axis when either of the `carriage_x` and `carriage_u` carriages are active.
+Учтите, что в этом случае `SHAPER_TYPE_Y` и `SHAPER_FREQ_Y` должны быть одинаковыми в обеих командах, так как одни и те же двигатели приводят ось Y, когда активна любая из кареток `carriage_x` и `carriage_u`.
 
-It is worth noting that `generic_cartesian` kinematic can support two dual carriages for X and Y axes. For reference, see for instance a [sample](../config/sample-corexyuv.cfg) of CoreXYUV configuration.
+Стоит отметить, что кинематика `generic_cartesian` может поддерживать две двойные каретки для осей X и Y. Для справки см., например, [пример](../config/sample-corexyuv.cfg) конфигурации CoreXYUV.
 
 ### [extruder_stepper]
 
@@ -2732,7 +2732,7 @@ sensor_pin:
 
 ### Датчик температуры AHT10/AHT20/AHT21
 
-AHT10/AHT15/AHT20/AHT21/AHT30 two wire interface (I2C) environmental sensors. Note that these sensors are not intended for use with extruders and heater beds, but rather for monitoring ambient temperature (C) and relative humidity. See [sample-macros.cfg](../config/sample-macros.cfg) for a gcode_macro that may be used to report humidity in addition to temperature.
+Датчики окружающей среды AHT10/AHT15/AHT20/AHT21/AHT30 с интерфейсом двух проводов (I2C). Учтите, что эти датчики не предназначены для использования с экструдерами и столами с подогревом, а служат для контроля температуры окружающей среды (°C) и относительной влажности. См. [sample-macros.cfg](../config/sample-macros.cfg) — gcode_macro, который можно использовать для вывода влажности в дополнение к температуре.
 
 ```
 sensor_type: AHT1X
@@ -2823,7 +2823,7 @@ sensor_type: AHT1X
 
 ### Встроенный микроконтроллерный датчик температуры
 
-The atsam, atsamd, stm32 and rp2040 micro-controllers contain an internal temperature sensor. One can use the "temperature_mcu" sensor to monitor these temperatures.
+Микроконтроллеры atsam, atsamd, stm32 и rp2040 содержат внутренний датчик температуры. Для контроля этих температур можно использовать датчик "temperature_mcu".
 
 ```
 тип_датчика: temperature_mcu
@@ -3355,7 +3355,7 @@ pin:
 
 ### [static_pwm_clock]
 
-Static configurable output pin (one may define any number of sections with an "static_pwm_clock" prefix). Pins configured here will be set up as clock output pins. Generally used to provide clock input to other hardware on the board.
+Статически настраиваемый выходной пин (можно определить любое количество разделов с префиксом "static_pwm_clock"). Настроенные здесь пины будут настроены как выходные пины тактирования. Обычно используется для подачи тактового сигнала на другое оборудование на плате.
 
 ```
 [static_pwm_clock my_pin]
@@ -4003,9 +4003,9 @@ run_current:
 
 ### [tmc5262]
 
-Configure a TMC5262 stepper motor driver via SPI. Define a section with a "tmc5262" prefix followed by the name of the corresponding stepper (for example, "[tmc5262 stepper_x]").
+Настройка драйвера шагового двигателя TMC5262 через SPI. Определите раздел с префиксом "tmc5262", за которым следует имя соответствующего шагового двигателя (например, "[tmc5262 stepper_x]").
 
-This implementation supports SpreadCycle with a physical endstop.
+Эта реализация поддерживает режим SpreadCycle с физическим концевым выключателем.
 
 ```
 [tmc5262 stepper_x]
@@ -4190,7 +4190,7 @@ i2c_address:
 
 ### [mcp4018]
 
-Statically configured MCP4018 digipot connected via i2c (one may define any number of sections with an "mcp4018" prefix).
+Статически настроенный цифровой потенциометр MCP4018, подключённый через I2C (можно определить любое количество разделов с префиксом "mcp4018").
 
 ```
 [mcp4018 my_digipot]
@@ -4830,7 +4830,7 @@ sensor_type:
 
 #### CS1237
 
-The CS1237 sensor backend supports both `[load_cell]` and `[load_cell_probe]`.
+Серверная часть датчика CS1237 поддерживает и `[load_cell]`, и `[load_cell_probe]`.
 
 ```
 [load_cell my_cs1237]
@@ -4849,7 +4849,7 @@ dout_pin:
 #   Enable the CS1237 REFO reference output. The default is True.
 ```
 
-Both pins must be on the same MCU. DOUT is bidirectional during configuration.
+Оба пина должны находиться на одном и том же микроконтроллере. DOUT является двунаправленным во время настройки.
 
 #### HX711
 
@@ -4951,7 +4951,7 @@ data_ready_pin:
 
 #### ADS131M0x
 
-The ADS131M0x is a family of fast, 24-bit, delta-sigma ADCs. Two sensors are supported from this family: ADS131M02 with two simultaneously-sampling differential channels and ADS131M04 with four channels. They feature a programmable gain amplifier (PGA) with gains up to 128, configurable sampling rates up to 64000 samples per second, and require an external clock input (300 kHz to 8.4 MHz, 8.192 MHz nominal).
+ADS131M0x — семейство быстрых 24-битных сигма-дельта АЦП. Из этого семейства поддерживаются два датчика: ADS131M02 с двумя одновременно опрашиваемыми дифференциальными каналами и ADS131M04 с четырьмя каналами. Они имеют программируемый усилитель (PGA) с усилением до 128, настраиваемую частоту дискретизации до 64000 отсчётов в секунду и требуют внешнего тактового входа (от 300 кГц до 8,4 МГц, номинал 8,192 МГц).
 
 ```
 [load_cell]
@@ -5006,7 +5006,7 @@ data_ready_pin:
 
 ### [load_cell_probe]
 
-Load Cell Probe. This combines the functionality of a [probe] and a [load_cell].
+Датчик на тензодатчике. Объединяет функциональность [probe] и [load_cell].
 
 ```
 [load_cell_probe]
@@ -5134,9 +5134,9 @@ vssa_pin:
 
 ### [ads1x1x]
 
-ADS1013, ADS1014, ADS1015, ADS1113, ADS1114 and ADS1115 are I2C based Analog to Digital Converters that can be used for temperature sensors. They provide 4 analog input pins either as single line or as differential input.
+ADS1013, ADS1014, ADS1015, ADS1113, ADS1114 и ADS1115 — это аналого-цифровые преобразователи на основе I2C, которые можно использовать для датчиков температуры. Они предоставляют 4 аналоговых входных пина в виде однополярного или дифференциального входа.
 
-Note: Use caution if using this sensor to control heaters. The heater min_temp and max_temp are only verified in the host and only if the host is running and operating normally. (ADC inputs directly connected to the micro-controller verify min_temp and max_temp within the micro-controller and do not require a working connection to the host.)
+Примечание: будьте осторожны, если используете этот датчик для управления нагревателями. min_temp и max_temp нагревателя проверяются только на хосте и только если хост работает и функционирует нормально. (Входы АЦП, напрямую подключённые к микроконтроллеру, проверяют min_temp и max_temp внутри микроконтроллера и не требуют рабочего соединения с хостом.)
 
 ```
 [ads1x1x my_ads1x1x]
@@ -5156,7 +5156,7 @@ i2c_bus: i2c.1
 #   can be specified directly instead of using the address_pin.
 ```
 
-The chip provides pins that can be used on other sensors.
+Микросхема предоставляет пины, которые можно использовать для других датчиков.
 
 ```
 sensor_type: ...
@@ -5244,7 +5244,7 @@ host_mcu:
 
 Если вы используете этот модуль, не используйте плагин Palette 2 для Octoprint, так как они будут конфликтовать, и 1 не сможет инициализироваться должным образом, что приведет к прерыванию печати.
 
-If you use Octoprint and stream gcode over the serial port instead of printing from virtual_sd, then remove **M1** and **M0** from *Pausing commands* in *Settings > Serial Connection > Firmware & protocol* will prevent the need to start print on the Palette 2 and unpausing in Octoprint for your print to begin.
+Если вы используете Octoprint и передаёте gcode через последовательный порт вместо печати из virtual_sd, то удаление **M1** и **M0** из *Команд паузы* в *Настройки > Последовательное соединение > Прошивка и протокол* избавит от необходимости запускать печать на Palette 2 и снимать паузу в Octoprint, чтобы печать началась.
 
 ```
 [palette2]

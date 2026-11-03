@@ -184,17 +184,17 @@ gcode:
 
 ### load_cell/dump_force
 
-This endpoint is used to subscribe to force data produced by a load_cell. Using this endpoint may increase Klipper's system load.
+Эта конечная точка используется для подписки на данные о силе, создаваемые тензодатчиком. Использование этой конечной точки может увеличить нагрузку на систему Klipper.
 
-A request may look like: `{"id": 123, "method":"load_cell/dump_force", "params": {"sensor": "load_cell", "response_template": {}}}` and might return: `{"id": 123,"result":{"header":["time", "force (g)", "counts", "tare_counts"]}}` and might later produce asynchronous messages such as: `{"params":{"data":[[3292.432935, 40.65, 562534, -234467]]}}`
+Запрос может выглядеть так: `{"id": 123, "method":"load_cell/dump_force", "params": {"sensor": "load_cell", "response_template": {}}}` и может вернуть: `{"id": 123,"result":{"header":["time", "force (g)", "counts", "tare_counts"]}}`, а позже может породить асинхронные сообщения вроде: `{"params":{"data":[[3292.432935, 40.65, 562534, -234467]]}}`
 
 Поле "заголовок" в первоначальном ответе на запрос используется для описания полей, содержащихся в последующих ответах "данные".
 
 ### load_cell_probe/dump_taps
 
-This endpoint is used to subscribe to details of probing "tap" events. Using this endpoint may increase Klipper's system load.
+Эта конечная точка используется для подписки на подробности событий касания при измерении «tap». Использование этой конечной точки может увеличить нагрузку на систему Klipper.
 
-A request may look like: `{"id": 123, "method":"load_cell/dump_force", "params": {"sensor": "load_cell", "response_template": {}}}` and might return: `{"id": 123,"result":{"header":["probe_tap_event"]}}` and might later produce asynchronous messages such as:
+Запрос может выглядеть так: `{"id": 123, "method":"load_cell/dump_force", "params": {"sensor": "load_cell", "response_template": {}}}` и может вернуть: `{"id": 123,"result":{"header":["probe_tap_event"]}}`, а позже может породить асинхронные сообщения вроде:
 
 ```
 {"params":{"tap":'{
@@ -203,9 +203,9 @@ A request may look like: `{"id": 123, "method":"load_cell/dump_force", "params":
 }}}
 ```
 
-This data can be used to render:
+Эти данные можно использовать для построения:
 
-* The time/force graph
+* Графика зависимости силы от времени
 
 ### pause_resume/cancel
 
@@ -348,4 +348,4 @@ This data can be used to render:
 }
 ```
 
-The `dump_mesh` endpoint takes one optional parameter, `mesh_args`. This parameter must be an object, where the keys and values are parameters available to [BED_MESH_CALIBRATE](G-Codes.md#bed_mesh_calibrate). This will update the mesh configuration and probe points using the supplied parameters prior to returning the result. It is recommended to omit mesh parameters unless it is desired to visualize the probe points and/or travel path before performing `BED_MESH_CALIBRATE`.
+Конечная точка `dump_mesh` принимает один необязательный параметр — `mesh_args`. Этот параметр должен быть объектом, где ключи и значения — это параметры, доступные для [BED_MESH_CALIBRATE](G-Codes.md#bed_mesh_calibrate). Это обновит конфигурацию сетки и точки измерения с использованием переданных параметров перед возвратом результата. Рекомендуется опускать параметры сетки, если только не требуется визуализировать точки измерения и/или траекторию перемещения перед выполнением `BED_MESH_CALIBRATE`.

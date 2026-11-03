@@ -119,7 +119,7 @@ GND+SCL
 | SDA | 03 | GPIO02 (SDA1) |
 | SCL | 05 | GPIO03 (SCL1) |
 
-The RPi has built-in 1.8K pull-ups on both SCL and SDA.
+У RPi есть встроенные подтягивающие резисторы 1,8 кОм на линиях SCL и SDA.
 
 ![MPU-9250 подключен к Pi](img/mpu9250-PI-fritzing.png)
 
@@ -502,7 +502,7 @@ probe_points: ...
 Рекомендуемый шейпер - 2hump_ei @ 45,2 Гц
 ```
 
-Note that the reported `smoothing` values are some abstract projected values. These values can be used to compare different configurations: the higher the value, the more smoothing a shaper will create. However, these smoothing scores do not represent any real measure of smoothing, because the actual smoothing depends on [`max_accel`](#selecting-max_accel) and `square_corner_velocity` parameters. Therefore, you should print some test prints to see how much smoothing exactly a chosen configuration creates.
+Учтите, что сообщаемые значения `smoothing` — это некоторые абстрактные расчётные величины. Эти значения можно использовать для сравнения различных конфигураций: чем выше значение, тем больше сглаживания создаст шейпер. Однако эти показатели сглаживания не отражают какой-либо реальной меры сглаживания, поскольку фактическое сглаживание зависит от параметров [`max_accel`](#selecting-max_accel) и `square_corner_velocity`. Поэтому следует выполнить несколько тестовых печатей, чтобы увидеть, сколько сглаживания на самом деле создаёт выбранная конфигурация.
 
 В приведенном примере предложенные параметры шейпера неплохи, но что, если вы хотите получить меньшее сглаживание по оси X? Вы можете попробовать ограничить максимальное сглаживание шейпера с помощью следующей команды:
 
@@ -561,18 +561,18 @@ max_smoothing: 0.25 # пример
 
 Если вы выполняете повторную калибровку формирователя и полученное значение сглаживания для предложенной конфигурации формирователя почти такое же, как и при предыдущей калибровке, этот шаг можно пропустить.
 
-### Measuring the resonances of Z axis
+### Измерение резонансов оси Z
 
-Measuring the resonances of Z axis is similar in many aspects to measuring resonances of X and Y axes, with some subtle differences. Similarly to other axes measurements, you will need to have an accelerometer mounted on the moving parts of Z axis - either the bed itself (if the bed moves over Z axis), or the toolhead (if the toolhead/gantry moves over Z). You will need to add the appropriate chip configuration to `printer.cfg` and also add it to `[resonance_tester]` section, e.g.
+Измерение резонансов оси Z во многом похоже на измерение резонансов осей X и Y, но имеет некоторые тонкие отличия. Как и при измерениях других осей, вам потребуется закрепить акселерометр на движущихся частях оси Z — либо на самом столе (если стол движется по оси Z), либо на инструментальной головке (если инструментальная головка/портал движется по Z). Вам потребуется добавить соответствующую конфигурацию чипа в `printer.cfg`, а также добавить его в раздел `[resonance_tester]`, например:
 
 ```
 [resonance_tester]
 accel_chip_z: <accelerometer full name>
 ```
 
-Also make sure that `probe_points` configured in `[resonance_tester]` allow sufficient clearance for Z axis movements (20 mm above bed surface should provide enough clearance with the default test parameters).
+Также убедитесь, что `probe_points`, настроенные в `[resonance_tester]`, обеспечивают достаточный зазор для перемещений по оси Z (20 мм над поверхностью стола должны дать достаточный зазор при параметрах теста по умолчанию).
 
-The next consideration is that Z axis can typically reach lower maximum speeds and accelerations that X and Y axes. Default parameters of the test take that into consideration and are much less agressive, but it may still be necessary to increase `max_z_accel` and `max_z_velocity`. If you have them configured in `[printer]` section, make sure to set them to at least
+Следующее соображение: ось Z обычно может достигать меньших максимальных скоростей и ускорений, чем оси X и Y. Параметры теста по умолчанию учитывают это и гораздо менее агрессивны, но всё же может потребоваться увеличить `max_z_accel` и `max_z_velocity`. Если они настроены в разделе `[printer]`, обязательно установите их как минимум в
 
 ```
 [printer]
@@ -580,25 +580,25 @@ max_z_velocity: 20
 max_z_accel: 1550
 ```
 
-but only for the duration of the test, afterwards you can revert them back to their original values if necessary. And if you use custom test parameters for Z axis, `TEST_RESONANCES` and `SHAPER_CALIBRATE` will provide the minimum required limits if necessary for your specific case.
+но только на время теста; после этого при необходимости можно вернуть исходные значения. А если вы используете собственные параметры теста для оси Z, `TEST_RESONANCES` и `SHAPER_CALIBRATE` при необходимости сообщат минимально требуемые значения для вашего конкретного случая.
 
-After all changes to `printer.cfg` have been made, restart Klipper and run either
+После внесения всех изменений в `printer.cfg` перезапустите Klipper и выполните одну из команд:
 
 ```
 TEST_RESONANCES AXIS=Z
 ```
 
-or
+или
 
 ```
 SHAPER_CALIBRATE AXIS=Z
 ```
 
-and proceed from there accordingly how you would for other axes. For example, after `TEST_RESONANCES` command you can run `calibrate_shaper.py` script and get shaper recommendations and the chart of resonance response:
+и далее действуйте так же, как для других осей. Например, после команды `TEST_RESONANCES` можно запустить скрипт `calibrate_shaper.py` и получить рекомендации по шейперу и график амплитудно-частотной характеристики:
 
-![Resonances](img/calibrate-z.png)
+![Резонансы](img/calibrate-z.png)
 
-After the calibration, the shaper parameters can be stored in the `printer.cfg`, e.g. from the example above:
+После калибровки параметры шейпера можно сохранить в `printer.cfg`, например, из приведённого выше примера:
 
 ```
 [input_shaper]
@@ -607,7 +607,7 @@ shaper_type_z: mzv
 shaper_freq_z: 42.6
 ```
 
-Also, given the movements of Z axis are slow, you can easily consider more aggressive input shapers, e.g.
+Кроме того, учитывая, что перемещения по оси Z медленные, можно легко рассмотреть более агрессивные input shaper, например:
 
 ```
 [input_shaper]
@@ -616,16 +616,16 @@ shaper_type_z: 2hump_ei
 shaper_freq_z: 63.0
 ```
 
-If the test produces bogus results, you may try to increase `accel_per_hz_z` parameter in `[resonance_tester]` from its default value 15 to a larger value in the range of 20-30, e.g.
+Если тест даёт некорректные результаты, можно попробовать увеличить параметр `accel_per_hz_z` в `[resonance_tester]` с его значения по умолчанию 15 до большего значения в диапазоне 20–30, например:
 
 ```
 [resonance_tester]
 accel_per_hz_z: 25
 ```
 
-and repeat the test. Increasing this value will likely require increasing `max_z_accel` and `max_z_velocity` parameters as well. You can run `TEST_RESONANCES AXIS=Z` command to get the required minimum values.
+и повторить тест. Увеличение этого значения, вероятно, потребует также увеличения параметров `max_z_accel` и `max_z_velocity`. Вы можете выполнить команду `TEST_RESONANCES AXIS=Z`, чтобы получить требуемые минимальные значения.
 
-However, if you are unable to measure the resonances of Z axis, you can consider just using
+Однако если измерить резонансы оси Z не удаётся, можно рассмотреть просто использование
 
 ```
 [input_shaper]
@@ -634,7 +634,7 @@ shaper_type_z: 3hump_ei
 shaper_freq_z: 65
 ```
 
-as an acceptable all-round choice, given that the smoothing of Z axis movements is not of particular concerns.
+в качестве приемлемого универсального варианта, учитывая, что сглаживание перемещений по оси Z не вызывает особых опасений.
 
 ### Ненадежные измерения резонансных частот
 

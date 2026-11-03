@@ -216,7 +216,7 @@ finalize_config crc=0
 
 ### Эталонный образец частоты шагов STM32H7
 
-The following configuration sequence is used on STM32H723:
+На STM32H723 используется следующая последовательность конфигурации:
 
 ```
 allocate_oids count=3
@@ -226,7 +226,7 @@ config_stepper oid=2 step_pin=PB3 dir_pin=PB7 invert_step=-1 step_pulse_ticks=52
 finalize_config crc=0
 ```
 
-The test was last run on commit `554ae78d` with gcc version `arm-none-eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0`.
+Последний раз тест выполнялся на коммите `554ae78d` с версией gcc `arm-none-eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0`.
 
 | stm32h723 | клещи |
 | --- | --- |
@@ -252,9 +252,9 @@ finalize_config crc=0
 | 1 шаговый двигатель | 58 |
 | 3 шаговых двигателя | 243 |
 
-### STM32G4 step rate benchmark
+### Тест частоты шагов STM32G4
 
-The following configuration sequence is used on the STM32G431:
+На STM32G431 используется следующая последовательность конфигурации:
 
 ```
 allocate_oids count=3
@@ -264,7 +264,7 @@ config_stepper oid=2 step_pin=PB3 dir_pin=PB7 invert_step=-1 step_pulse_ticks=17
 finalize_config crc=0
 ```
 
-The test was last run on commit `cfa48fe3` with gcc version `arm-none-eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0`.
+Последний раз тест выполнялся на коммите `cfa48fe3` с версией gcc `arm-none-eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0`.
 
 | stm32g431 | клещи |
 | --- | --- |
@@ -385,7 +385,7 @@ config_stepper oid=2 step_pin=gpio27 dir_pin=gpio5 invert_step=-1 step_pulse_tic
 finalize_config crc=0
 ```
 
-The test was last run on commit `14c105b8` with gcc version `arm-none-eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0` on Raspberry Pi Pico and Pico 2 boards.
+Последний раз тест выполнялся на коммите `14c105b8` с версией gcc `arm-none-eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0` на платах Raspberry Pi Pico и Pico 2.
 
 | rp2040 (*) | клещи |
 | --- | --- |
@@ -397,7 +397,7 @@ The test was last run on commit `14c105b8` with gcc version `arm-none-eabi-gcc (
 | 1 шаговый двигатель | 36 |
 | 3 шаговых двигателя | 169 |
 
-(*) Note that the reported rp2040 ticks are relative to a 12Mhz scheduling timer and do not correspond to its 200Mhz internal ARM processing rate. It is expected that 3 scheduling ticks corresponds to ~42 ARM core cycles and 14 scheduling ticks corresponds to ~225 ARM core cycles.
+(*) Учтите, что сообщаемые тики rp2040 относятся к 12-МГц таймеру планирования и не соответствуют его внутренней тактовой частоте обработки ARM 200 МГц. Ожидается, что 3 тика планирования соответствуют ~42 тактам ядра ARM, а 14 тиков планирования — ~225 тактам ядра ARM.
 
 ### Эталонный образец частоты шагов для Linux MCU
 
@@ -430,9 +430,9 @@ get_uptime
 
 По завершении теста определите разницу между часами, указанными в двух ответных сообщениях "uptime". Общее количество команд в секунду равно `100000 * mcu_frequency / clock_diff`.
 
-The USB tests may exceed the CPU capacity of a Raspberry Pi. If running on a Raspberry Pi, Beaglebone, or similar host computer then increase the delay (eg, `DELAY {clock + 20*freq} get_uptime`). Where applicable, the benchmarks below are with console.py running on a desktop class machine with the device connected via a super-speed hub.
+USB-тесты могут превысить возможности процессора Raspberry Pi. Если тест выполняется на Raspberry Pi, Beaglebone или подобном хосте, увеличьте задержку (например, `DELAY {clock + 20*freq} get_uptime`). Там, где это применимо, приведённые ниже тесты выполнены с console.py на настольном компьютере, а устройство подключено через USB-концентратор SuperSpeed.
 
-The CAN bus tests may saturate the USB host controller of a Raspberry Pi (when testing via a standard gs_usb USB to CAN bus adapter). Where applicable, the CAN bus benchmarks below are with console.py running on a desktop class machine with a USB to CAN bus adapter connected via a super-speed USB hub.
+Тесты шины CAN могут насытить USB-контроллер Raspberry Pi (при тестировании через стандартный USB-CAN-адаптер gs_usb). Там, где это применимо, приведённые ниже тесты шины CAN выполнены с console.py на настольном компьютере, а USB-CAN-адаптер подключён через USB-концентратор SuperSpeed.
 
 | MCU | Тариф | Сборка | Сборка компилятора |
 | --- | --- | --- | --- |
