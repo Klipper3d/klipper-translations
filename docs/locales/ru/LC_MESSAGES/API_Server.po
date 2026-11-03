@@ -3,17 +3,20 @@
 # gfbdrgng <hnaofegnp@hldrive.com>, 2024, 2025.
 # gfbdrgn <erfvvgtyhbnjhyuu@wireconnected.com>, 2025.
 # Vugar Rasulov <rasuloffvgr@gmail.com>, 2025.
+# Andrei Stepanov <adem@users.noreply.hosted.weblate.org>, 2026.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-11-27 21:53+0000\n"
-"Last-Translator: Vugar Rasulov <rasuloffvgr@gmail.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/api_server/ru/>\n"
+"PO-Revision-Date: 2026-10-25 13:09+0000\n"
+"Last-Translator: Andrei Stepanov <adem@users.noreply.hosted.weblate.org>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
+"api_server/ru/>\n"
 "Language: ru\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.15-dev\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 msgid ""
 "This document describes Klipper's Application Programmer Interface (API). This"
@@ -750,13 +753,16 @@ msgstr "может вернуться:"
 
 #: docs/API_Server.md:block 88 (header)
 msgid "load_cell/dump_force"
-msgstr ""
+msgstr "load_cell/dump_force"
 
 #: docs/API_Server.md:block 89 (paragraph)
 msgid ""
 "This endpoint is used to subscribe to force data produced by a load_cell. "
 "Using this endpoint may increase Klipper's system load."
 msgstr ""
+"Эта конечная точка используется для подписки на данные о силе, создаваемые "
+"тензодатчиком. Использование этой конечной точки может увеличить нагрузку на "
+"систему Klipper."
 
 #: docs/API_Server.md:block 90 (paragraph)
 msgid ""
@@ -766,16 +772,25 @@ msgid ""
 "\"counts\", \"tare_counts\"]}}` and might later produce asynchronous messages "
 "such as: `{\"params\":{\"data\":[[3292.432935, 40.65, 562534, -234467]]}}`"
 msgstr ""
+"Запрос может выглядеть так: `{\"id\": 123, \"method\":\"load_cell/"
+"dump_force\", \"params\": {\"sensor\": \"load_cell\", \"response_template\": "
+"{}}}` и может вернуть: `{\"id\": 123,\"result\":{\"header\":[\"time\", "
+"\"force (g)\", \"counts\", \"tare_counts\"]}}`, а позже может породить "
+"асинхронные сообщения вроде: `{\"params\":{\"data\":[[3292.432935, 40.65, "
+"562534, -234467]]}}`"
 
 #: docs/API_Server.md:block 92 (header)
 msgid "load_cell_probe/dump_taps"
-msgstr ""
+msgstr "load_cell_probe/dump_taps"
 
 #: docs/API_Server.md:block 93 (paragraph)
 msgid ""
 "This endpoint is used to subscribe to details of probing \"tap\" events. Using"
 " this endpoint may increase Klipper's system load."
 msgstr ""
+"Эта конечная точка используется для подписки на подробности событий касания "
+"при измерении «tap». Использование этой конечной точки может увеличить "
+"нагрузку на систему Klipper."
 
 #: docs/API_Server.md:block 94 (paragraph)
 msgid ""
@@ -784,14 +799,19 @@ msgid ""
 " return: `{\"id\": 123,\"result\":{\"header\":[\"probe_tap_event\"]}}` and "
 "might later produce asynchronous messages such as:"
 msgstr ""
+"Запрос может выглядеть так: `{\"id\": 123, \"method\":\"load_cell/"
+"dump_force\", \"params\": {\"sensor\": \"load_cell\", \"response_template\": "
+"{}}}` и может вернуть: `{\"id\": 123,\"result\":"
+"{\"header\":[\"probe_tap_event\"]}}`, а позже может породить асинхронные "
+"сообщения вроде:"
 
 #: docs/API_Server.md:block 96 (paragraph)
 msgid "This data can be used to render:"
-msgstr ""
+msgstr "Эти данные можно использовать для построения:"
 
 #: docs/API_Server.md:block 97 (unordered list)
 msgid "The time/force graph"
-msgstr ""
+msgstr "Графика зависимости силы от времени"
 
 #: docs/API_Server.md:block 115 (paragraph)
 msgid ""
@@ -803,6 +823,13 @@ msgid ""
 "unless it is desired to visualize the probe points and/or travel path before "
 "performing `BED_MESH_CALIBRATE`."
 msgstr ""
+"Конечная точка `dump_mesh` принимает один необязательный параметр — "
+"`mesh_args`. Этот параметр должен быть объектом, где ключи и значения — это "
+"параметры, доступные для [BED_MESH_CALIBRATE](G-Codes.md#bed_mesh_calibrate)"
+". Это обновит конфигурацию сетки и точки измерения с использованием "
+"переданных параметров перед возвратом результата. Рекомендуется опускать "
+"параметры сетки, если только не требуется визуализировать точки измерения и/"
+"или траекторию перемещения перед выполнением `BED_MESH_CALIBRATE`."
 
 #~ msgid ""
 #~ "The `dump_mesh` endpoint takes one optional parameter, `mesh_args`. This "

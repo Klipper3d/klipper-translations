@@ -1,15 +1,18 @@
 # gfbdrgn <erfvvgtyhbnjhyuu@wireconnected.com>, 2025.
+# Andrei Stepanov <adem@users.noreply.hosted.weblate.org>, 2026.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-09-10 14:02+0000\n"
-"Last-Translator: gfbdrgn <erfvvgtyhbnjhyuu@wireconnected.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/load_cell/ru/>\n"
+"PO-Revision-Date: 2026-10-25 13:09+0000\n"
+"Last-Translator: Andrei Stepanov <adem@users.noreply.hosted.weblate.org>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
+"load_cell/ru/>\n"
 "Language: ru\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 5.14-dev\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 #: docs/Load_Cell.md:block 1 (header)
 msgid "Load Cells"
@@ -118,7 +121,7 @@ msgstr "Наконец, используйте команду `ACCEPT ` для �
 
 #: docs/Load_Cell.md:block 13 (paragraph)
 msgid "You can cancel the calibration process at any time with `ABORT`."
-msgstr "Вы можете отменить процесс калибровки в любое время с `ABORT`."
+msgstr "Вы можете отменить процесс калибровки в любой момент командой `ABORT`."
 
 #: docs/Load_Cell.md:block 14 (header)
 msgid "Applying a Known Force or Load"
@@ -900,10 +903,13 @@ msgid ""
 "Tap or push on the sensor while `LOAD_CELL_DIAGNOSTIC` runs. If things are "
 "working correctly this should increase the 'Sample range'."
 msgstr ""
+"Постучите по датчику или надавите на него во время работы "
+"`LOAD_CELL_DIAGNOSTIC`. Если всё работает правильно, это должно увеличить «"
+"Диапазон выборки»."
 
 #: docs/Load_Cell.md:block 54 (header)
 msgid "Interpolation"
-msgstr ""
+msgstr "Интерполяция"
 
 #: docs/Load_Cell.md:block 55 (paragraph)
 msgid ""
@@ -917,6 +923,15 @@ msgid ""
 "squared. This enables a resolution finer than the distance between the "
 "sampling points and will also be less sensitive to noise."
 msgstr ""
+"Чтобы повысить точность результата измерения, положение первой точки "
+"контакта сопла со столом можно оценить путём аппроксимации кусочно-заданной "
+"функцией измеренных данных. Данные состоят из двух областей: пока сопло "
+"находится над столом, сила постоянна (равна значению тары). Когда сопло "
+"контактирует со столом, сила линейно возрастает с уменьшением позиции z. К "
+"данным аппроксимируется кусочно-заданная функция, и оптимальная z-позиция "
+"точки разрыва находится минимизацией суммы квадратов ошибок. Это "
+"обеспечивает разрешение мельче расстояния между точками выборки и также "
+"меньшую чувствительность к шуму."
 
 #: docs/Load_Cell.md:block 56 (paragraph)
 msgid ""
@@ -927,6 +942,12 @@ msgid ""
 "data must contain enough samples for the fit: at least 3 samples each below "
 "and above the contact point are required."
 msgstr ""
+"По физическим и техническим причинам интерполяция использует данные, "
+"собранные во время дополнительного движения вверх после первоначального "
+"движения вниз. Для аппроксимации используются первые 300 мс данных, "
+"собранных во время движения вверх (это минимизирует влияние дрейфа тары). "
+"Собранные данные должны содержать достаточно отсчётов для аппроксимации: "
+"требуется не менее 3 отсчётов ниже и выше точки контакта."
 
 #: docs/Load_Cell.md:block 57 (paragraph)
 msgid ""
@@ -936,12 +957,18 @@ msgid ""
 "the `lift_speed` is too small, there will be too few samples above the contact"
 " point due to the 300ms window."
 msgstr ""
+"Рекомендуется использовать относительно высокую силу срабатывания датчика, "
+"чтобы сигнал был достаточно сильным. Если отсчётов ниже точки контакта "
+"слишком мало, попробуйте увеличить `trigger_force` или уменьшить "
+"`lift_speed`. Однако если `lift_speed` слишком мала, из-за окна в 300 мс "
+"отсчётов выше точки контакта будет слишком мало."
 
 #: docs/Load_Cell.md:block 58 (paragraph)
 msgid ""
 "The distance of the ascending move can be configured through the "
 "`sample_retract_dist` parameter."
 msgstr ""
+"Расстояние движения вверх можно задать параметром `sample_retract_dist`."
 
 #: docs/Load_Cell.md:block 6 (paragraph)
 msgid ""
@@ -949,6 +976,9 @@ msgid ""
 "running `LOAD_CELL_DIAGNOSTIC`. This tool collects 10 seconds of data from the"
 " load cell and reports statistics:"
 msgstr ""
+"При первом подключении тензодатчика хорошей практикой является проверка на "
+"наличие проблем с помощью `LOAD_CELL_DIAGNOSTIC`. Этот инструмент собирает "
+"данные с тензодатчика за 10 секунд и выводит статистику:"
 
 #: docs/Load_Cell.md:block 47 (paragraph)
 msgid ""
@@ -957,6 +987,10 @@ msgid ""
 " a probe event and continue the homing move. If this happens, the "
 "`force_safety_limit` acts as a backup protection."
 msgstr ""
+"Первый риск, от которого это защищает, — выбор слишком большого значения "
+"`drift_filter_cutoff_frequency`. Это может привести к тому, что фильтр "
+"дрейфа отфильтрует событие измерения и продолжится движение парковки. В этом "
+"случае `force_safety_limit` выступает в качестве резервной защиты."
 
 #: docs/Load_Cell.md:block 49 (paragraph)
 msgid ""
@@ -966,6 +1000,12 @@ msgid ""
 "more likely to be violated. You want to be notified if this is happening "
 "because your hardware has been permanently damaged."
 msgstr ""
+"Другой способ возникновения такого неконтролируемого движения — повреждение "
+"тензорезистора. Если металлическая часть постоянно деформирована, это "
+"изменит `reference_tare_counts` устройства. Это приближает начальное "
+"значение тары к пределу, делая более вероятным его превышение. Вы хотите "
+"получать уведомления, если это происходит, потому что ваше оборудование было "
+"необратимо повреждено."
 
 #: docs/Load_Cell.md:block 53 (paragraph)
 msgid ""
@@ -976,6 +1016,13 @@ msgid ""
 "electricity well. You might need to sand the area where the grounding wire is "
 "attached to make good electrical contact."
 msgstr ""
+"Если это происходит, наиболее вероятная причина — неисправность АЦП. "
+"Недостаточное заземление принтера может быть корневой причиной. Станина, "
+"корпус блока питания и стол для печати должны быть соединены с землёй. "
+"Возможно, потребуется заземлить станину в нескольких местах. Анодированные "
+"алюминиевые профили плохо проводят электричество. Возможно, придётся "
+"зачистить наждачной бумагой место крепления заземляющего провода для "
+"обеспечения хорошего электрического контакта."
 
 #: docs/Load_Cell.md:block 68 (paragraph)
 msgid ""
@@ -983,12 +1030,18 @@ msgid ""
 "causes the filament to ooze while homing and probing. 140°C is a good starting"
 " point. This temperature is also low enough not to scar PEI build surfaces."
 msgstr ""
+"В настоящее время мы рекомендуем поддерживать температуру сопла ниже уровня, "
+"при котором филамент начинает подтекать, во время парковки и измерения. 140 °"
+"C — хорошая отправная точка. Эта температура также достаточно низкая, чтобы "
+"не повредить PEI-поверхности для печати."
 
 #: docs/Load_Cell.md:block 71 (paragraph)
 msgid ""
 "Given the above it is strongly suggested not to probe at printing "
 "temperatures."
 msgstr ""
+"С учётом вышесказанного настоятельно рекомендуется не выполнять измерение "
+"при температурах печати."
 
 #: docs/Load_Cell.md:block 81 (paragraph)
 msgid ""
@@ -997,12 +1050,19 @@ msgid ""
 "E.g. 180°C and 290°C. You can perform a `PROBE_ACCURACY` at both temperatures "
 "and then calculate the difference of the `average z` at both."
 msgstr ""
+"Самый простой способ сделать это — измерить при 2 разных температурах. В "
+"идеале это должны быть верхний и нижний пределы диапазона температур печати. "
+"Например, 180 °C и 290 °C. Вы можете выполнить `PROBE_ACCURACY` при обеих "
+"температурах, а затем вычислить разницу `average z` для обеих."
 
 #: docs/Load_Cell.md:block 91 (paragraph)
 msgid ""
 "The filtering code uses the excellent [SciPy](https://scipy.org/) library to "
 "compute the filter coefficients based on the values you enter into the config."
 msgstr ""
+"Код фильтрации использует превосходную библиотеку [SciPy](https://"
+"scipy.org/) для вычисления коэффициентов фильтра на основе значений, которые "
+"вы вводите в конфигурации."
 
 #: docs/Load_Cell.md:block 92 (paragraph)
 msgid ""
@@ -1012,6 +1072,11 @@ msgid ""
 "but installation can take 30+ minutes and requires installing additional "
 "tools."
 msgstr ""
+"Предварительно скомпилированные сборки SciPy доступны для Python 3 в 32- и "
+"64-битных системах Raspberry Pi. Настоятельно рекомендуется 32/64-битная "
+"система + Python 3, так как это упростит установку. Он работает и с Python "
+"2, но установка может занять более 30 минут и требует установки "
+"дополнительных инструментов."
 
 #~ msgid ""
 #~ "When you first connect a load cell its good practice to check for issues by "

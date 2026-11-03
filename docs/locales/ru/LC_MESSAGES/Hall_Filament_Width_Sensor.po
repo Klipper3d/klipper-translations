@@ -4,17 +4,20 @@
 # Anatoliy <anatoliy.males@yandex.ru>, 2022, 2025.
 # VICTOR <subfyn@gmail.com>, 2023, 2025.
 # xXx <xxx_xxx_xxxxxxxxx@mail.ru>, 2023, 2025.
+# Andrei Stepanov <adem@users.noreply.hosted.weblate.org>, 2026.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-07-22 08:38+0000\n"
-"Last-Translator: VICTOR <subfyn@gmail.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/hall_filament_width_sensor/ru/>\n"
+"PO-Revision-Date: 2026-10-25 13:09+0000\n"
+"Last-Translator: Andrei Stepanov <adem@users.noreply.hosted.weblate.org>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
+"hall_filament_width_sensor/ru/>\n"
 "Language: ru\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.13-dev\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 1 (header)
 msgid "Hall filament width sensor"
@@ -151,13 +154,15 @@ msgstr ""
 
 #: docs/Hall_Filament_Width_Sensor.md:block 15 (header)
 msgid "Use as a runout switch only"
-msgstr ""
+msgstr "Использование только как датчика окончания филамента"
 
 #: docs/Hall_Filament_Width_Sensor.md:block 16 (paragraph)
 msgid ""
 "By default, the sensor measures filament diameter and adjusts the extrusion "
 "multiplier to compensate for variations."
 msgstr ""
+"По умолчанию датчик измеряет диаметр филамента и корректирует множитель "
+"экструзии для компенсации отклонений."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 17 (paragraph)
 msgid ""
@@ -166,6 +171,10 @@ msgid ""
 "sensor will only trigger runout events when filament is not detected, it will "
 "not modify the extrusion multiplier."
 msgstr ""
+"Если вы хотите использовать датчик только как датчик окончания филамента, "
+"установите параметр конфигурации `enable_flow_compensation` в `false`. В "
+"этом режиме датчик будет выдавать события окончания филамента только при его "
+"отсутствии и не будет изменять множитель экструзии."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 18 (paragraph)
 msgid ""
@@ -173,6 +182,9 @@ msgid ""
 "for flow compensation but can reliably detect filament runout, or when "
 "printing with flexible filaments which have unstable diameter characteristics."
 msgstr ""
+"Это полезно для принтеров, где датчик филамента недостаточно точен для "
+"компенсации потока, но надёжно определяет окончание филамента, а также при "
+"печати гибкими филаментами с нестабильными характеристиками диаметра."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 19 (paragraph)
 msgid ""
@@ -180,18 +192,25 @@ msgid ""
 "compensation or **ENABLE_FILAMENT_WIDTH_SENSOR FLOW_COMPENSATION=0** to "
 "disable it."
 msgstr ""
+"Выполните **ENABLE_FILAMENT_WIDTH_SENSOR FLOW_COMPENSATION=1**, чтобы "
+"включить компенсацию потока, или **ENABLE_FILAMENT_WIDTH_SENSOR "
+"FLOW_COMPENSATION=0**, чтобы её отключить."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 20 (paragraph)
 msgid ""
 "Note that disabling filament width compensation automatically resets the "
 "extrusion multiplier to 100%."
 msgstr ""
+"Учтите, что отключение компенсации ширины филамента автоматически сбрасывает "
+"множитель экструзии до 100%."
 
 #: docs/Hall_Filament_Width_Sensor.md:block 21 (paragraph)
 msgid ""
 "**QUERY_FILAMENT_WIDTH** includes the current state of flow compensation in "
 "its output."
 msgstr ""
+"**QUERY_FILAMENT_WIDTH** включает текущее состояние компенсации потока в "
+"свой вывод."
 
 #~ msgid ""
 #~ "[menu __main __filament __width_current]\n"
