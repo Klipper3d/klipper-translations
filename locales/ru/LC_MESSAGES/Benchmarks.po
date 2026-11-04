@@ -5,17 +5,20 @@
 # Evgeniy Khramov <65224669+thejenja@users.noreply.github.com>, 2025.
 # gfbdrgn <erfvvgtyhbnjhyuu@wireconnected.com>, 2025.
 # Vugar Rasulov <rasuloffvgr@gmail.com>, 2025.
+# Andrei Stepanov <adem@users.noreply.hosted.weblate.org>, 2026.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-11-27 01:35+0000\n"
-"Last-Translator: Vugar Rasulov <rasuloffvgr@gmail.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/benchmarks/ru/>\n"
+"PO-Revision-Date: 2026-10-25 10:42+0000\n"
+"Last-Translator: Andrei Stepanov <adem@users.noreply.hosted.weblate.org>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
+"benchmarks/ru/>\n"
 "Language: ru\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.15-dev\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 msgid "This document describes Klipper benchmarks."
 msgstr "В этом документе описываются эталонные тесты Klipper."
@@ -763,57 +766,63 @@ msgstr "rp2350 (USB)"
 
 #: docs/Benchmarks.md:block 60 (paragraph)
 msgid "The following configuration sequence is used on STM32H723:"
-msgstr ""
+msgstr "На STM32H723 используется следующая последовательность конфигурации:"
 
 #: docs/Benchmarks.md:block 62 (paragraph)
 msgid ""
 "The test was last run on commit `554ae78d` with gcc version `arm-none-eabi-gcc"
 " (Fedora 14.1.0-1.fc40) 14.1.0`."
 msgstr ""
+"Последний раз тест выполнялся на коммите `554ae78d` с версией gcc `arm-none-"
+"eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0`."
 
 #: docs/Benchmarks.md:block 63 (table)
 msgid "stm32h723"
-msgstr ""
+msgstr "stm32h723"
 
 #: docs/Benchmarks.md:block 69 (header)
 msgid "STM32G4 step rate benchmark"
-msgstr ""
+msgstr "Тест частоты шагов STM32G4"
 
 #: docs/Benchmarks.md:block 70 (paragraph)
 msgid "The following configuration sequence is used on the STM32G431:"
-msgstr ""
+msgstr "На STM32G431 используется следующая последовательность конфигурации:"
 
 #: docs/Benchmarks.md:block 72 (paragraph)
 msgid ""
 "The test was last run on commit `cfa48fe3` with gcc version `arm-none-eabi-gcc"
 " (Fedora 14.1.0-1.fc40) 14.1.0`."
 msgstr ""
+"Последний раз тест выполнялся на коммите `cfa48fe3` с версией gcc `arm-none-"
+"eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0`."
 
 #: docs/Benchmarks.md:block 73 (table)
 msgid "stm32g431"
-msgstr ""
+msgstr "stm32g431"
 
 #: docs/Benchmarks.md:block 73 (table)
 msgid "47"
-msgstr ""
+msgstr "47"
 
 #: docs/Benchmarks.md:block 73 (table)
 msgid "208"
-msgstr ""
+msgstr "208"
 
 #: docs/Benchmarks.md:block 103 (paragraph)
 msgid ""
 "The test was last run on commit `14c105b8` with gcc version `arm-none-eabi-gcc"
 " (Fedora 14.1.0-1.fc40) 14.1.0` on Raspberry Pi Pico and Pico 2 boards."
 msgstr ""
+"Последний раз тест выполнялся на коммите `14c105b8` с версией gcc `arm-none-"
+"eabi-gcc (Fedora 14.1.0-1.fc40) 14.1.0` на платах Raspberry Pi Pico и Pico 2."
 
 #: docs/Benchmarks.md:block 104 (table)
 msgid "3"
-msgstr ""
+msgstr "3"
 
 #: docs/Benchmarks.md:block 104 (table)
 msgid "14"
-msgstr ""
+msgstr "14"
 
 #: docs/Benchmarks.md:block 106 (paragraph)
 msgid ""
@@ -822,6 +831,10 @@ msgid ""
 "expected that 3 scheduling ticks corresponds to ~42 ARM core cycles and 14 "
 "scheduling ticks corresponds to ~225 ARM core cycles."
 msgstr ""
+"(*) Учтите, что сообщаемые тики rp2040 относятся к 12-МГц таймеру "
+"планирования и не соответствуют его внутренней тактовой частоте обработки "
+"ARM 200 МГц. Ожидается, что 3 тика планирования соответствуют ~42 тактам "
+"ядра ARM, а 14 тиков планирования — ~225 тактам ядра ARM."
 
 #: docs/Benchmarks.md:block 116 (paragraph)
 msgid ""
@@ -831,6 +844,11 @@ msgid ""
 "below are with console.py running on a desktop class machine with the device "
 "connected via a super-speed hub."
 msgstr ""
+"USB-тесты могут превысить возможности процессора Raspberry Pi. Если тест "
+"выполняется на Raspberry Pi, Beaglebone или подобном хосте, увеличьте "
+"задержку (например, `DELAY {clock + 20*freq} get_uptime`). Там, где это "
+"применимо, приведённые ниже тесты выполнены с console.py на настольном "
+"компьютере, а устройство подключено через USB-концентратор SuperSpeed."
 
 #: docs/Benchmarks.md:block 117 (paragraph)
 msgid ""
@@ -839,18 +857,22 @@ msgid ""
 "CAN bus benchmarks below are with console.py running on a desktop class "
 "machine with a USB to CAN bus adapter connected via a super-speed USB hub."
 msgstr ""
+"Тесты шины CAN могут насытить USB-контроллер Raspberry Pi (при тестировании "
+"через стандартный USB-CAN-адаптер gs_usb). Там, где это применимо, "
+"приведённые ниже тесты шины CAN выполнены с console.py на настольном "
+"компьютере, а USB-CAN-адаптер подключён через USB-концентратор SuperSpeed."
 
 #: docs/Benchmarks.md:block 118 (table)
 msgid "rp2350 (CAN)"
-msgstr ""
+msgstr "rp2350 (CAN)"
 
 #: docs/Benchmarks.md:block 118 (table)
 msgid "59K"
-msgstr ""
+msgstr "59K"
 
 #: docs/Benchmarks.md:block 118 (table)
 msgid "17b8ce4c"
-msgstr ""
+msgstr "17b8ce4c"
 
 #~ msgid ""
 #~ "Note that this test may saturate the USB/CPU capacity of a Raspberry Pi. If "

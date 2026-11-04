@@ -1,16 +1,19 @@
 # gfbdrgng <hnaofegnp@hldrive.com>, 2024, 2025.
 # gfbdrgn <erfvvgtyhbnjhyuu@wireconnected.com>, 2025.
+# Andrei Stepanov <adem@users.noreply.hosted.weblate.org>, 2026.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-09-09 04:02+0000\n"
-"Last-Translator: gfbdrgn <erfvvgtyhbnjhyuu@wireconnected.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/eddy_probe/ru/>\n"
+"PO-Revision-Date: 2026-10-25 10:42+0000\n"
+"Last-Translator: Andrei Stepanov <adem@users.noreply.hosted.weblate.org>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
+"eddy_probe/ru/>\n"
 "Language: ru\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.14-dev\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 #: docs/Eddy_Probe.md:block 1 (header)
 msgid "Eddy Current Inductive probe"
@@ -288,6 +291,8 @@ msgid ""
 "current](https://en.wikipedia.org/wiki/Eddy_current) inductive probes in "
 "Klipper."
 msgstr ""
+"В этом документе описана поддержка индуктивных датчиков [вихревых токов]"
+"(https://ru.wikipedia.org/wiki/Вихревые_токи) в Klipper."
 
 #: docs/Eddy_Probe.md:block 3 (paragraph)
 msgid ""
@@ -297,10 +302,15 @@ msgid ""
 "frequency. The frequency measurements can thus be used to estimate the "
 "distance between sensor and bed."
 msgstr ""
+"Эти датчики определяют стол, измеряя [резонансную частоту](https://"
+"ru.wikipedia.org/wiki/Резонанс) катушки внутри датчика. Чем ближе катушка к "
+"металлическому столу, тем выше резонансная частота катушки. Таким образом, "
+"измерения частоты можно использовать для оценки расстояния между датчиком и "
+"столом."
 
 #: docs/Eddy_Probe.md:block 4 (header)
 msgid "Probing mechanisms"
-msgstr ""
+msgstr "Механизмы измерения"
 
 #: docs/Eddy_Probe.md:block 5 (paragraph)
 msgid ""
@@ -310,10 +320,15 @@ msgid ""
 " probe commands (for example, `PROBE METHOD=tap`). Each probing method has "
 "advantages and disadvantages as described below."
 msgstr ""
+"В отличие от традиционных датчиков стола, датчик вихревых токов поддерживает "
+"четыре различных метода измерения: по умолчанию, «scan», «rapid_scan» и «tap"
+"». Различные методы измерения активируются передачей параметра `METHOD=xxx` "
+"командам измерения (например, `PROBE METHOD=tap`). У каждого метода "
+"измерения есть преимущества и недостатки, описанные ниже."
 
 #: docs/Eddy_Probe.md:block 6 (header)
 msgid "Default probing method"
-msgstr ""
+msgstr "Метод измерения по умолчанию"
 
 #: docs/Eddy_Probe.md:block 7 (paragraph)
 msgid ""
@@ -324,16 +339,25 @@ msgid ""
 "activated by not specifying a `METHOD` parameter on probe type commands (eg, a"
 " bare `PROBE` command)."
 msgstr ""
+"Метод измерения по умолчанию ведёт себя наиболее похоже на традиционный "
+"датчик стола. Инструментальная головка опускается к столу, пока датчик не "
+"обнаружит, что он находится рядом со столом, после чего в остановленном "
+"положении выполняется несколько измерений датчика для оценки расстояния "
+"между датчиком и столом. Этот механизм измерения активируется, если не "
+"указывать параметр `METHOD` в командах типа измерения (например, простая "
+"команда `PROBE`)."
 
 #: docs/Eddy_Probe.md:block 8 (paragraph)
 msgid "Advantages:"
-msgstr ""
+msgstr "Преимущества:"
 
 #: docs/Eddy_Probe.md:block 9 (unordered list)
 msgid ""
 "It is the most general purpose probing method. It provides good precision with"
 " good flexibility."
 msgstr ""
+"Это наиболее универсальный метод измерения. Он обеспечивает хорошую точность "
+"при хорошей гибкости."
 
 #: docs/Eddy_Probe.md:block 9 (unordered list)
 msgid ""
@@ -341,10 +365,14 @@ msgid ""
 "that the toolhead XY position places the sensor over the metal bed, but "
 "otherwise there is flexibility in the exact starting height."
 msgstr ""
+"Может использоваться во многих начальных положениях инструментальной "
+"головки. Необходимо убедиться, что положение XY инструментальной головки "
+"размещает датчик над металлическим столом, но в остальном есть гибкость в "
+"точной начальной высоте."
 
 #: docs/Eddy_Probe.md:block 10 (paragraph)
 msgid "Disadvantages:"
-msgstr ""
+msgstr "Недостатки:"
 
 #: docs/Eddy_Probe.md:block 11 (unordered list)
 msgid ""
@@ -358,10 +386,19 @@ msgid ""
 "recommended to run the calibration and subsequent probes at a consistent "
 "temperature."
 msgstr ""
+"Результаты измерения подвержены тепловому дрейфу. Расстояния, сообщаемые "
+"датчиком, соответствуют расстояниям, измеренным при начальной калибровке (с "
+"помощью `PROBE_EDDY_CURRENT_CALIBRATE`), и результаты могут быть затронуты, "
+"если измерение выполняется при другой температуре. Изменения температуры "
+"стола, катушки датчика, электроники датчика или любого металла рядом с "
+"датчиком могут повлиять на результаты. Влияние невелико (порядка микрон), но "
+"допустимая точность для датчика стола также невелика (снова порядка микрон). "
+"Для наилучших результатов рекомендуется выполнять калибровку и последующие "
+"измерения при постоянной температуре."
 
 #: docs/Eddy_Probe.md:block 12 (paragraph)
 msgid "When to use:"
-msgstr ""
+msgstr "Когда использовать:"
 
 #: docs/Eddy_Probe.md:block 13 (paragraph)
 msgid ""
@@ -370,10 +407,14 @@ msgid ""
 "tools such as `QUAD_GANTRY_LEVEL`, `Z_TILT_ADJUST`, `SCREWS_TILT_CALCULATE`, "
 "`DELTA_CALIBRATE`, and similar."
 msgstr ""
+"Это метод измерения по умолчанию, и он рекомендуется для большинства "
+"действий измерения. В частности, это рекомендуемый тип датчика для "
+"инструментов выравнивания стола, таких как `QUAD_GANTRY_LEVEL`, "
+"`Z_TILT_ADJUST`, `SCREWS_TILT_CALCULATE`, `DELTA_CALIBRATE` и подобных."
 
 #: docs/Eddy_Probe.md:block 14 (header)
 msgid "\"scan\" probing method"
-msgstr ""
+msgstr "Метод измерения «scan»"
 
 #: docs/Eddy_Probe.md:block 15 (paragraph)
 msgid ""
@@ -383,6 +424,11 @@ msgid ""
 " and bed. It is useful for `BED_MESH_CALIBRATE` as the entire bed can be "
 "scanned with only horizontal movements."
 msgstr ""
+"Метод измерения «scan» похож на метод по умолчанию, за исключением того, что "
+"датчик не опускается к столу. Вместо этого датчик собирает измерения на "
+"текущей позиции Z для оценки расстояния между датчиком и столом. Это полезно "
+"для `BED_MESH_CALIBRATE`, так как весь стол можно просканировать только "
+"горизонтальными перемещениями."
 
 #: docs/Eddy_Probe.md:block 17 (unordered list)
 msgid ""
@@ -391,10 +437,17 @@ msgid ""
 "particularly useful when only relative Z height measurements are desired (eg, "
 "when using `zero_reference_position` with `BED_MESH_CALIBRATE`)."
 msgstr ""
+"Позиция Z не меняется во время измерения, и меньше вероятность того, что "
+"люфт Z-шагового двигателя (и подобное) повлияет на измерения. Это может быть "
+"особенно полезно, когда требуются только относительные измерения высоты Z "
+"(например, при использовании `zero_reference_position` с "
+"`BED_MESH_CALIBRATE`)."
 
 #: docs/Eddy_Probe.md:block 17 (unordered list)
 msgid "A full bed scan may take less time than the default method."
 msgstr ""
+"Полное сканирование стола может занять меньше времени, чем метод по "
+"умолчанию."
 
 #: docs/Eddy_Probe.md:block 19 (unordered list)
 msgid ""
@@ -407,6 +460,14 @@ msgid ""
 "notable bed deviations could result in a nozzle/bed collision during "
 "horizontal movement."
 msgstr ""
+"Стол должен быть почти параллелен XY-рельсам принтера, и не должно быть "
+"больших отклонений высоты стола. Для приемлемых результатов сканирование "
+"стола должно выполняться с низким `HORIZONTAL_MOVE_Z`, чтобы датчик "
+"оставался близко к столу во время всего сканирования. (Чем меньше "
+"расстояние, тем точнее результаты.) На практике это требует, чтобы "
+"расстояние между соплом и столом было не более примерно миллиметра, и на "
+"таких расстояниях любые заметные отклонения стола могут привести к "
+"столкновению сопла со столом во время горизонтального перемещения."
 
 #: docs/Eddy_Probe.md:block 19 (unordered list)
 msgid ""
@@ -414,6 +475,9 @@ msgid ""
 " default method. For best results, it is recommended to run the calibration "
 "and subsequent probes at a consistent temperature."
 msgstr ""
+"Метод «scan» имеет те же недостатки теплового дрейфа, описанные для метода "
+"по умолчанию. Для наилучших результатов рекомендуется выполнять калибровку и "
+"последующие измерения при постоянной температуре."
 
 #: docs/Eddy_Probe.md:block 21 (paragraph)
 msgid ""
@@ -425,16 +489,25 @@ msgid ""
 "`Z_TILT_ADJUST RETRY_TOLERANCE=0.250`, or `SCREWS_TILT_CALCULATION "
 "MAX_TOLERANCE=0.250`."
 msgstr ""
+"Метод «scan» обычно используется при калибровке сетки стола. Рекомендуется "
+"всегда проверять, что стол параллелен XY-рельсам принтера, перед выполнением "
+"сканирования стола. В зависимости от аппаратного обеспечения принтера можно "
+"использовать автоматизированный инструмент, использующий метод измерения по "
+"умолчанию, чтобы проверить параллельность стола, например: "
+"`QUAD_GANTRY_LEVEL RETRY_TOLERANCE=0.250`, `Z_TILT_ADJUST "
+"RETRY_TOLERANCE=0.250` или `SCREWS_TILT_CALCULATION MAX_TOLERANCE=0.250`."
 
 #: docs/Eddy_Probe.md:block 22 (paragraph)
 msgid ""
 "A bed mesh can then be run with something similar to `BED_MESH_CALIBRATE "
 "METHOD=scan HORIZONTAL_MOVE_Z=1`."
 msgstr ""
+"Затем сетку стола можно построить чем-то вроде `BED_MESH_CALIBRATE "
+"METHOD=scan HORIZONTAL_MOVE_Z=1`."
 
 #: docs/Eddy_Probe.md:block 23 (header)
 msgid "\"rapid_scan\" probing method"
-msgstr ""
+msgstr "Метод измерения «rapid_scan»"
 
 #: docs/Eddy_Probe.md:block 24 (paragraph)
 msgid ""
@@ -443,24 +516,32 @@ msgid ""
 "measurements taken during horizontal movement near each probing point are used"
 " to estimate the distance between sensor and bed."
 msgstr ""
+"Метод измерения «rapid_scan» очень похож на метод «scan», за исключением "
+"того, что датчик не делает паузу в каждой точке измерения. Вместо этого "
+"измерения, сделанные во время горизонтального перемещения около каждой точки "
+"измерения, используются для оценки расстояния между датчиком и столом."
 
 #: docs/Eddy_Probe.md:block 26 (unordered list)
 msgid "A \"rapid_scan\" full bed scan may be slightly faster than the \"scan\" method."
 msgstr ""
+"Полное сканирование стола методом «rapid_scan» может быть немного быстрее, "
+"чем методом «scan»."
 
 #: docs/Eddy_Probe.md:block 26 (unordered list)
 msgid "Otherwise, it has the same advantages as the \"scan\" method."
-msgstr ""
+msgstr "В остальном у него те же преимущества, что и у метода «scan»."
 
 #: docs/Eddy_Probe.md:block 28 (unordered list)
 msgid "The results of a \"rapid_scan\" may be less accurate than the \"scan\" method."
-msgstr ""
+msgstr "Результаты «rapid_scan» могут быть менее точными, чем у метода «scan»."
 
 #: docs/Eddy_Probe.md:block 28 (unordered list)
 msgid ""
 "Same disadvantages as \"scan\" probes (bed must be parallel and thermal "
 "drift)."
 msgstr ""
+"Те же недостатки, что и у датчиков «scan» (стол должен быть параллелен, а "
+"также тепловой дрейф)."
 
 #: docs/Eddy_Probe.md:block 30 (paragraph)
 msgid ""
@@ -468,12 +549,18 @@ msgid ""
 "for diagnostic purposes. In this situation, the reduced scanning time may "
 "outweigh the possible loss of accuracy."
 msgstr ""
+"«rapid_scan» может быть полезен при выполнении большого подробного "
+"сканирования сетки стола в диагностических целях. В этой ситуации "
+"сокращённое время сканирования может перевесить возможную потерю точности."
 
 #: docs/Eddy_Probe.md:block 31 (paragraph)
 msgid ""
 "For normal printing, a bed mesh using the regular \"scan\" method is generally"
 " preferred for best accuracy and minimal additional probing time."
 msgstr ""
+"Для обычной печати сетка стола с использованием обычного метода «scan» "
+"обычно предпочтительна для наилучшей точности и минимального дополнительного "
+"времени измерения."
 
 #: docs/Eddy_Probe.md:block 32 (paragraph)
 msgid ""
@@ -481,10 +568,13 @@ msgid ""
 "rapid bed mesh scan with something similar to `BED_MESH_CALIBRATE "
 "METHOD=rapid_scan HORIZONTAL_MOVE_Z=1`."
 msgstr ""
+"Как только проверено, что стол параллелен XY-рельсам, можно выполнить "
+"быстрое сканирование сетки стола чем-то вроде `BED_MESH_CALIBRATE "
+"METHOD=rapid_scan HORIZONTAL_MOVE_Z=1`."
 
 #: docs/Eddy_Probe.md:block 33 (header)
 msgid "\"tap\" probing method"
-msgstr ""
+msgstr "Метод измерения «tap»"
 
 #: docs/Eddy_Probe.md:block 34 (paragraph)
 msgid ""
@@ -493,6 +583,10 @@ msgid ""
 "measurements during the lifting movement are analyzed to determine the "
 "location where the nozzle breaks contact with the bed."
 msgstr ""
+"При измерении «tap» инструментальная головка опускается, пока сопло не "
+"коснётся стола, затем сопло поднимается от стола, и измерения датчика во "
+"время движения подъёма анализируются для определения места, где сопло "
+"отрывается от стола."
 
 #: docs/Eddy_Probe.md:block 36 (unordered list)
 msgid ""
@@ -501,6 +595,10 @@ msgid ""
 "particularly useful if one changes nozzles frequently, as the results will "
 "take into account the geometry of the current nozzle."
 msgstr ""
+"Результаты измерения определяются фактической точкой контакта между соплом и "
+"столом, а не косвенными измерениями между датчиком и столом. Это может быть "
+"особенно полезно при частой смене сопел, так как результаты будут учитывать "
+"геометрию текущего сопла."
 
 #: docs/Eddy_Probe.md:block 36 (unordered list)
 msgid ""
@@ -509,6 +607,10 @@ msgid ""
 "probes, and thus one does not need to track temperatures between initial "
 "calibration and subsequent probing."
 msgstr ""
+"Датчик «tap» не имеет проблем теплового дрейфа, связанных с другими методами "
+"измерения. Основная калибровка датчика не используется при измерениях «tap», "
+"поэтому не нужно отслеживать температуру между начальной калибровкой и "
+"последующими измерениями."
 
 #: docs/Eddy_Probe.md:block 36 (unordered list)
 msgid ""
@@ -517,6 +619,10 @@ msgid ""
 "toolhead XY position places both the nozzle and sensor above the bed prior to "
 "tap probing."
 msgstr ""
+"Неточности «перекоса» осей меньше влияют при измерениях «tap», так как нет "
+"смещения датчика XY, которое нужно компенсировать. Однако всё равно "
+"необходимо убедиться, что положение XY инструментальной головки размещает и "
+"сопло, и датчик над столом перед измерением «tap»."
 
 #: docs/Eddy_Probe.md:block 38 (unordered list)
 msgid ""
@@ -524,6 +630,9 @@ msgid ""
 "filament on the nozzle or debris on the bed may significantly skew the probe "
 "results."
 msgstr ""
+"Перед измерением «tap» необходимо убедиться, что и сопло, и стол чистые. "
+"Любой филамент на сопле или мусор на столе может значительно исказить "
+"результаты измерения."
 
 #: docs/Eddy_Probe.md:block 38 (unordered list)
 msgid ""
@@ -534,6 +643,12 @@ msgid ""
 "measurements are not accurate and a tap attempt may fail or provide inaccurate"
 " results."
 msgstr ""
+"Перед началом каждой попытки измерения «tap» необходимо убедиться, что сопло "
+"находится на расстоянии около 3–20 мм от стола. Если сопло начинает слишком "
+"близко к столу, контакт может не быть обнаружен, что может привести к "
+"неконтролируемому столкновению сопла со столом. Если сопло начинает очень "
+"далеко от стола, измерения датчика неточны, и попытка «tap» может не удаться "
+"или дать неточные результаты."
 
 #: docs/Eddy_Probe.md:block 38 (unordered list)
 msgid ""
@@ -541,12 +656,18 @@ msgid ""
 " There must not be any limit switches or carriage stops that make contact "
 "prior to the nozzle contacting the bed."
 msgstr ""
+"Аппаратное обеспечение принтера должно позволять соплу полностью коснуться "
+"стола. Не должно быть никаких концевых выключателей или упоров каретки, "
+"которые контактируют раньше, чем сопло коснётся стола."
 
 #: docs/Eddy_Probe.md:block 38 (unordered list)
 msgid ""
 "One must ensure that the nozzle temperature is not too high for the bed. A too"
 " high temperature could melt the PEI coatings on some beds, for example."
 msgstr ""
+"Необходимо убедиться, что температура сопла не слишком высока для стола. "
+"Например, слишком высокая температура может расплавить PEI-покрытие на "
+"некоторых столах."
 
 #: docs/Eddy_Probe.md:block 40 (paragraph)
 msgid ""
@@ -561,14 +682,25 @@ msgid ""
 "temperature. The actual steps to utilize a \"tap\" probe depend heavily on the"
 " specific printer hardware."
 msgstr ""
+"Датчик «tap» часто используется как один из шагов в многошаговом процессе "
+"парковки/выравнивания, чтобы учесть текущую геометрию сопла и уменьшить "
+"ошибки, связанные с тепловым дрейфом. Например, можно применить макрос, "
+"который выполняет парковку, вызывает `Z_TILT_ADJUST` с методом измерения по "
+"умолчанию, нагревает принтер до промежуточной температуры, очищает сопло, "
+"многократно протирая его о щётку, выполняет измерение «tap», использует "
+"`SET_KINEMATIC_POSITION` с результатами «tap», запускает "
+"`BED_MESH_CALIBRATE` с использованием `zero_reference_position`, а затем "
+"доводит принтер до нормальной температуры печати. Фактические шаги "
+"использования датчика «tap» сильно зависят от конкретного аппаратного "
+"обеспечения принтера."
 
 #: docs/Eddy_Probe.md:block 41 (paragraph)
 msgid "A \"tap\" probe may be initiated with something like `PROBE METHOD=tap`."
-msgstr ""
+msgstr "Измерение «tap» можно запустить чем-то вроде `PROBE METHOD=tap`."
 
 #: docs/Eddy_Probe.md:block 42 (header)
 msgid "Configuration"
-msgstr ""
+msgstr "Настройка"
 
 #: docs/Eddy_Probe.md:block 43 (paragraph)
 msgid ""
@@ -578,18 +710,23 @@ msgid ""
 "sensor to require an `x_offset` and `y_offset`. If these values are not known,"
 " one should estimate the values during initial calibration."
 msgstr ""
+"Чтобы настроить датчик вихревых токов, начните с объявления [раздела "
+"конфигурации probe_eddy_current](Config_Reference.md#probe_eddy_current) в "
+"файле printer.cfg. Рекомендуется установить `descend_z` равным 0,5 мм. "
+"Обычно датчику требуются `x_offset` и `y_offset`. Если эти значения "
+"неизвестны, их следует оценить во время начальной калибровки."
 
 #: docs/Eddy_Probe.md:block 44 (paragraph)
 msgid "Then restart the printer and proceed to the following calibration steps."
-msgstr ""
+msgstr "Затем перезапустите принтер и перейдите к следующим шагам калибровки."
 
 #: docs/Eddy_Probe.md:block 45 (header)
 msgid "Calibrating drive current"
-msgstr ""
+msgstr "Калибровка тока возбуждения"
 
 #: docs/Eddy_Probe.md:block 47 (header)
 msgid "Calibrating Z heights"
-msgstr ""
+msgstr "Калибровка высот Z"
 
 #: docs/Eddy_Probe.md:block 48 (paragraph)
 msgid ""
@@ -605,12 +742,26 @@ msgid ""
 "sensor to Z positions. This will take a couple of minutes. After the tool "
 "completes it will output the sensor performance data:"
 msgstr ""
+"Второй шаг калибровки — сопоставить показания датчика с соответствующими "
+"высотами Z. Выполните парковку принтера и переместите инструментальную "
+"головку так, чтобы сопло находилось рядом с центром стола. Затем выполните "
+"команду `PROBE_EDDY_CURRENT_CALIBRATE CHIP=my_eddy_probe`. После запуска "
+"инструмента выполните шаги, описанные в разделе [«бумажный тест»]"
+"(Bed_Level.md#the-paper-test), чтобы определить фактическое расстояние между "
+"соплом и столом в заданном месте. После выполнения этих шагов можно "
+"выполнить `ACCEPT` для позиции. Затем инструмент переместит инструментальную "
+"головку так, чтобы датчик оказался над точкой, где раньше было сопло, и "
+"выполнит серию движений для сопоставления датчика с позициями Z. Это займёт "
+"пару минут. После завершения инструмент выведет данные о производительности "
+"датчика:"
 
 #: docs/Eddy_Probe.md:block 50 (paragraph)
 msgid ""
 "issue a `SAVE_CONFIG` command to save the results to the printer.cfg and "
 "restart."
 msgstr ""
+"выполните команду `SAVE_CONFIG`, чтобы сохранить результаты в printer.cfg, и "
+"перезапустите."
 
 #: docs/Eddy_Probe.md:block 52 (paragraph)
 msgid ""
@@ -621,16 +772,23 @@ msgid ""
 "subsequent probing that utilizes that calibration should be done at the same "
 "temperature."
 msgstr ""
+"Учтите, что датчики вихревых токов подвержены «тепловому дрейфу». То есть "
+"изменения температуры могут привести к изменениям сообщаемой высоты Z. "
+"Изменения температуры поверхности стола или температуры аппаратного "
+"обеспечения датчика могут изменить результаты. Поэтому для наилучших "
+"результатов калибровка, выполненная здесь, и последующие измерения, "
+"использующие эту калибровку, должны выполняться при одинаковой температуре."
 
 #: docs/Eddy_Probe.md:block 53 (header)
 msgid "Tap calibration"
-msgstr ""
+msgstr "Калибровка «tap»"
 
 #: docs/Eddy_Probe.md:block 54 (paragraph)
 msgid ""
 "In order to utilize \"tap\" probing it is necessary to configure some "
 "parameters."
 msgstr ""
+"Чтобы использовать измерение «tap», необходимо настроить некоторые параметры."
 
 #: docs/Eddy_Probe.md:block 55 (paragraph)
 msgid ""
@@ -642,6 +800,13 @@ msgid ""
 "ensure the nozzle makes contact with the bed before it would otherwise be "
 "commanded to start deceleration."
 msgstr ""
+"Должна быть возможность подать команду инструментальной головке ниже "
+"номинальной плоскости стола. Обычно это делается установкой `position_min: -"
+"1` в разделе конфигурации `[stepper_z]` файла printer.cfg (или аналогичной "
+"настройки, такой как `minimum_z_position`, в зависимости от кинематики). Это "
+"необходимо, чтобы сопло можно было подать командой для плотного контакта со "
+"столом. Это также нужно, чтобы сопло коснулось стола раньше, чем ему иначе "
+"было бы приказано начать замедление."
 
 #: docs/Eddy_Probe.md:block 56 (paragraph)
 msgid ""
@@ -653,6 +818,13 @@ msgid ""
 "contact with the bed, which could result in probing errors or inaccurate probe"
 " results."
 msgstr ""
+"Также необходимо настроить параметр `tap_threshold`. Этот параметр "
+"определяет, когда следует остановить движение инструментальной головки вниз "
+"во время измерения «tap». Слишком большое значение может привести к тому, "
+"что контакт сопла со столом не будет обнаружен, что может привести к "
+"неконтролируемому столкновению сопла со столом. Слишком маленькое значение "
+"может привести к остановке попытки измерения «tap» до контакта со столом, "
+"что может привести к ошибкам измерения или неточным результатам."
 
 #: docs/Eddy_Probe.md:block 57 (paragraph)
 msgid ""
@@ -661,6 +833,10 @@ msgid ""
 "main `PROBE_EDDY_CURRENT_CALIBRATE` calibration. Follow these steps to "
 "calibrate `tap_threshold`:"
 msgstr ""
+"Команду `PROBE_EDDY_CURRENT_TAP_CALIBRATE` можно использовать для настройки "
+"подходящего значения `tap_threshold`. Этот инструмент можно запустить после "
+"завершения основной калибровки `PROBE_EDDY_CURRENT_CALIBRATE`. Выполните "
+"следующие шаги для калибровки `tap_threshold`:"
 
 #: docs/Eddy_Probe.md:block 58 (ordered list)
 msgid ""
@@ -668,6 +844,9 @@ msgid ""
 "printer, move the toolhead to a position near the center of the bed, and make "
 "sure the nozzle is between 3 - 10 millimeters from the bed."
 msgstr ""
+"Убедитесь, что и сопло, и стол чистые. Включите принтер, выполните парковку, "
+"переместите инструментальную головку в положение рядом с центром стола и "
+"убедитесь, что сопло находится на расстоянии от 3 до 10 миллиметров от стола."
 
 #: docs/Eddy_Probe.md:block 58 (ordered list)
 msgid ""
@@ -683,6 +862,18 @@ msgid ""
 "this section to troubleshoot. If the attempt was successful then continue to "
 "the next step."
 msgstr ""
+"Следующий шаг включает подачу команды соплу для контакта со столом. Этот "
+"процесс всегда связан с некоторым риском, поэтому будьте готовы выполнить "
+"аварийную остановку (`M112`), если опускание при измерении не остановится "
+"после контакта со столом. Когда будете готовы, выполните следующую команду: "
+"`PROBE_EDDY_CURRENT_TAP_CALIBRATE TAP=guess`. Эта команда анализирует "
+"данные, найденные во время основной калибровки датчика, чтобы сделать "
+"начальную грубую оценку значения tap_threshold, а затем выполняет "
+"соответствующее измерение «tap». В идеале вышеуказанная команда заставит "
+"датчик опускаться, пока он не ударится о стол, подняться от стола и затем "
+"сообщить корректный результат измерения. Если нет, см. абзацы в конце этого "
+"раздела для устранения неполадок. Если попытка была успешной, переходите к "
+"следующему шагу."
 
 #: docs/Eddy_Probe.md:block 58 (ordered list)
 msgid ""
@@ -695,6 +886,15 @@ msgid ""
 "succeed; if not, see the paragraphs at the end of this section to "
 "troubleshoot. If the attempt was successful then continue to the next step."
 msgstr ""
+"Следующий шаг — выполнить ещё одно измерение «tap» с «уточнённой» настройкой "
+"порога. Инструмент использует информацию, собранную во время предыдущего "
+"успешного измерения «tap», для определения этого улучшенного порога. "
+"Убедитесь, что сопло находится рядом с центром стола и на расстоянии от 3 до "
+"10 мм над столом, будьте готовы выполнить аварийную остановку, затем "
+"выполните следующую команду: `PROBE_EDDY_CURRENT_TAP_CALIBRATE TAP=refine`. "
+"В идеале эта команда также должна успешно выполниться; если нет, см. абзацы "
+"в конце этого раздела для устранения неполадок. Если попытка была успешной, "
+"переходите к следующему шагу."
 
 #: docs/Eddy_Probe.md:block 58 (ordered list)
 msgid ""
@@ -707,6 +907,14 @@ msgid ""
 "the paragraphs at the end of this section to troubleshoot. If the attempt was "
 "successful then continue to the next step."
 msgstr ""
+"Если измерение с уточнённым порогом успешно, следующий тест — убедиться, что "
+"оно стабильно при нескольких попытках измерения. Убедитесь, что сопло "
+"находится рядом с центром стола и на расстоянии от 3 до 10 мм над столом, "
+"будьте готовы выполнить аварийную остановку, затем выполните следующую "
+"команду: `PROBE_EDDY_CURRENT_TAP_CALIBRATE TAP=verify`. Эта команда измерит "
+"стол пять раз подряд. В идеале вышеуказанная команда также должна успешно "
+"выполниться; если нет, см. абзацы в конце этого раздела для устранения "
+"неполадок. Если попытка была успешной, переходите к следующему шагу."
 
 #: docs/Eddy_Probe.md:block 58 (ordered list)
 msgid ""
@@ -714,6 +922,9 @@ msgid ""
 "command to save the \"tap_threshold\" parameter to the printer.cfg file. "
 "Calibration should now be complete."
 msgstr ""
+"Если все вышеуказанные шаги успешны, можно выполнить команду `SAVE_CONFIG`, "
+"чтобы сохранить параметр «tap_threshold» в файл printer.cfg. Калибровка на "
+"этом должна быть завершена."
 
 #: docs/Eddy_Probe.md:block 59 (paragraph)
 msgid ""
@@ -722,6 +933,10 @@ msgid ""
 "done by running commands of the form: `PROBE METHOD=tap TAP_THRESHOLD=<value>`"
 " Where `<value>` is a threshold to test."
 msgstr ""
+"Если какой-либо из вышеуказанных шагов не удался, может потребоваться "
+"устранение неполадок и ручное определение подходящего `tap_threshold`. Это "
+"делается выполнением команд вида: `PROBE METHOD=tap TAP_THRESHOLD=<value>`, "
+"где `<value>` — проверяемый порог."
 
 #: docs/Eddy_Probe.md:block 60 (paragraph)
 msgid ""
@@ -731,6 +946,12 @@ msgid ""
 "halt after making contact with the bed then it indicates that `TAP_THRESHOLD` "
 "is too high. Consider decreasing the attempted value in half."
 msgstr ""
+"В общем случае, если попытка измерения останавливается до контакта со "
+"столом, это указывает на то, что предоставленный параметр `TAP_THRESHOLD` "
+"слишком мал. Попробуйте увеличить его примерно на 10% и повторите. "
+"Аналогично, если попытка измерения не останавливается после контакта со "
+"столом, это указывает на то, что `TAP_THRESHOLD` слишком велик. Рассмотрите "
+"уменьшение пробного значения вдвое."
 
 #: docs/Eddy_Probe.md:block 61 (paragraph)
 msgid ""
@@ -740,10 +961,15 @@ msgid ""
 "one can return to the main steps described above starting at the \"refine\" "
 "stage."
 msgstr ""
+"Если автоматизированный инструмент калибровки не сработал на начальном этапе "
+"«guess», можно использовать значение tap_threshold, сообщённое инструментом, "
+"в качестве отправной точки для ручных попыток. Как только успешная попытка "
+"измерения завершена, можно вернуться к основным шагам, описанным выше, "
+"начиная с этапа «refine»."
 
 #: docs/Eddy_Probe.md:block 62 (header)
 msgid "Performing initial calibration when homing with probe"
-msgstr ""
+msgstr "Выполнение начальной калибровки при парковке с помощью датчика"
 
 #: docs/Eddy_Probe.md:block 63 (paragraph)
 msgid ""
@@ -751,6 +977,9 @@ msgid ""
 "process, set the `[stepper_z]` config section `endstop_pin` to "
 "`probe:z_virtual_endstop`."
 msgstr ""
+"Можно использовать датчик вихревых токов для парковки оси Z. Чтобы "
+"использовать этот процесс, установите `endstop_pin` в разделе конфигурации "
+"`[stepper_z]` в значение `probe:z_virtual_endstop`."
 
 #: docs/Eddy_Probe.md:block 64 (paragraph)
 msgid ""
@@ -758,24 +987,33 @@ msgid ""
 "probe via the `PROBE_EDDY_CURRENT_CALIBRATE` command. However, that command "
 "requires that the printer be homed first."
 msgstr ""
+"Чтобы выполнить парковку с помощью датчика вихревых токов, необходимо "
+"сначала откалибровать датчик командой `PROBE_EDDY_CURRENT_CALIBRATE`. Однако "
+"эта команда требует, чтобы принтер был предварительно запаркован."
 
 #: docs/Eddy_Probe.md:block 65 (paragraph)
 msgid ""
 "The following steps may be used to avoid this circular dependency for the very"
 " first calibration:"
 msgstr ""
+"Следующие шаги можно использовать, чтобы избежать этой циклической "
+"зависимости при самой первой калибровке:"
 
 #: docs/Eddy_Probe.md:block 66 (ordered list)
 msgid ""
 "Define a `[probe_eddy_current]` config section in the printer.cfg file as "
 "described in the [configuration section](#configuration)."
 msgstr ""
+"Определите раздел конфигурации `[probe_eddy_current]` в файле printer.cfg, "
+"как описано в [разделе настройки](#configuration)."
 
 #: docs/Eddy_Probe.md:block 66 (ordered list)
 msgid ""
 "Make sure a [force move](Config_Reference.md#force_move) section is defined "
 "and ensure its `enable_force_move` option is present and set to true."
 msgstr ""
+"Убедитесь, что определён раздел [force move](Config_Reference.md#force_move)"
+", и что его параметр `enable_force_move` присутствует и установлен в true."
 
 #: docs/Eddy_Probe.md:block 66 (ordered list)
 msgid ""
@@ -784,6 +1022,10 @@ msgid ""
 "CHIP=<config_name>` and `SAVE_CONFIG` commands as described in the "
 "[calibrating drive current section](#calibrating-drive-current)."
 msgstr ""
+"Вручную отрегулируйте каретки так, чтобы инструментальная головка находилась "
+"рядом с центром стола и примерно в 20 мм от стола. Выполните команды "
+"`LDC_CALIBRATE_DRIVE_CURRENT CHIP=<config_name>` и `SAVE_CONFIG`, как "
+"описано в [разделе калибровки тока возбуждения](#calibrating-drive-current)."
 
 #: docs/Eddy_Probe.md:block 66 (ordered list)
 msgid ""
@@ -793,6 +1035,12 @@ msgid ""
 " over the center of the bed. This is typically done with a command like `G1 "
 "X50 Y50` (using appropriate XY values for the printer)."
 msgstr ""
+"Вручную переместите инструментальную головку так, чтобы она находилась "
+"примерно в 20 мм от стола, и выполните парковку осей X и Y принтера. Обычно "
+"это делается командой `G28 X0 Y0`. Подайте команду на положение X и Y "
+"инструментальной головки так, чтобы она находилась примерно над центром "
+"стола. Обычно это делается командой вроде `G1 X50 Y50` (с использованием "
+"подходящих значений XY для принтера)."
 
 #: docs/Eddy_Probe.md:block 66 (ordered list)
 msgid ""
@@ -805,6 +1053,16 @@ msgid ""
 "but it does not know the actual Z position. Care must be taken to avoid "
 "movement requests that may cause the toolhead to descend into the bed."
 msgstr ""
+"Вручную отрегулируйте стол так, чтобы он был в основном плоским относительно "
+"XY-кареток инструментальной головки (при необходимости). Вручную "
+"отрегулируйте каретку Z так, чтобы сопло находилось примерно в 20 мм от "
+"стола, и выполните команду `SET_STEPPER_ENABLE STEPPER=stepper_z`. Выполните "
+"команду `SET_KINEMATIC_POSITION Z=25`, а затем команду "
+"`PROBE_EDDY_CURRENT_CALIBRATE CHIP=my_eddy_probe`. Важно: после выполнения "
+"этих команд принтер сможет двигаться в направлении Z, но он не знает "
+"фактического положения Z. Необходимо соблюдать осторожность, чтобы избежать "
+"запросов на перемещение, которые могут привести к опусканию инструментальной "
+"головки в стол."
 
 #: docs/Eddy_Probe.md:block 66 (ordered list)
 msgid ""
@@ -812,6 +1070,9 @@ msgid ""
 " section](#calibrating-z-heights). Issue a `SAVE_CONFIG` command upon "
 "completion."
 msgstr ""
+"Завершите калибровку датчика вихревых токов, как описано в [разделе "
+"калибровки высот Z](#calibrating-z-heights). По завершении выполните команду "
+"`SAVE_CONFIG`."
 
 #: docs/Eddy_Probe.md:block 67 (paragraph)
 msgid ""
@@ -819,126 +1080,141 @@ msgid ""
 "to rerun `PROBE_EDDY_CURRENT_CALIBRATE` in the future then the normal "
 "mechanism should be possible once this initial configuration is available."
 msgstr ""
+"Эти шаги нужны только для получения начальной конфигурации. Если в будущем "
+"потребуется повторно запустить `PROBE_EDDY_CURRENT_CALIBRATE`, то после "
+"получения этой начальной конфигурации должен быть возможен обычный механизм."
 
 #: docs/Eddy_Probe.md:block 77 (header)
 msgid "Errors description"
-msgstr ""
+msgstr "Описание ошибок"
 
 #: docs/Eddy_Probe.md:block 78 (paragraph)
 msgid "Possible homing errors and actionables:"
-msgstr ""
+msgstr "Возможные ошибки парковки и действия:"
 
 #: docs/Eddy_Probe.md:block 79 (unordered list)
 msgid "Sensor error"
-msgstr ""
+msgstr "Ошибка датчика"
 
 #: docs/Eddy_Probe.md:block 79 (unordered list)
 msgid "Check logs for detailed error"
-msgstr ""
+msgstr "Проверьте журналы для подробной информации об ошибке"
 
 #: docs/Eddy_Probe.md:block 79 (unordered list)
 msgid "Eddy I2C STATUS/DATA error."
-msgstr ""
+msgstr "Ошибка STATUS/DATA I2C датчика вихревых токов."
 
 #: docs/Eddy_Probe.md:block 79 (unordered list)
 msgid "Check loose wiring."
-msgstr ""
+msgstr "Проверьте плохое соединение проводов."
 
 #: docs/Eddy_Probe.md:block 79 (unordered list)
 msgid "Try software I2C/decrease I2C rate"
-msgstr ""
+msgstr "Попробуйте программный I2C или уменьшите скорость I2C"
 
 #: docs/Eddy_Probe.md:block 79 (unordered list)
 msgid "Invalid read data"
-msgstr ""
+msgstr "Недопустимые считанные данные"
 
 #: docs/Eddy_Probe.md:block 79 (unordered list)
 msgid "Same as I2C"
-msgstr ""
+msgstr "То же, что и для I2C"
 
 #: docs/Eddy_Probe.md:block 80 (paragraph)
 msgid "Possible sensor errors and actionables:"
-msgstr ""
+msgstr "Возможные ошибки датчика и действия:"
 
 #: docs/Eddy_Probe.md:block 81 (unordered list)
 msgid "Frequency over valid hard range"
-msgstr ""
+msgstr "Частота превышает допустимый жёсткий диапазон"
 
 #: docs/Eddy_Probe.md:block 81 (unordered list)
 msgid "Check frequency configuration"
-msgstr ""
+msgstr "Проверьте конфигурацию частоты"
 
 #: docs/Eddy_Probe.md:block 81 (unordered list)
 msgid "Hardware fault"
-msgstr ""
+msgstr "Аппаратная неисправность"
 
 #: docs/Eddy_Probe.md:block 81 (unordered list)
 msgid "Frequency over valid soft range"
-msgstr ""
+msgstr "Частота превышает допустимый мягкий диапазон"
 
 #: docs/Eddy_Probe.md:block 81 (unordered list)
 msgid "Conversion Watchdog timeout"
-msgstr ""
+msgstr "Тайм-аут сторожевого таймера преобразования"
 
 #: docs/Eddy_Probe.md:block 82 (paragraph)
 msgid "Amplitude Low/High warning messages can mean:"
-msgstr ""
+msgstr "Предупреждающие сообщения «Amplitude Low/High» могут означать:"
 
 #: docs/Eddy_Probe.md:block 83 (unordered list)
 msgid "Sensor close to the bed"
-msgstr ""
+msgstr "Датчик близко к столу"
 
 #: docs/Eddy_Probe.md:block 83 (unordered list)
 msgid "Sensor far from the bed"
-msgstr ""
+msgstr "Датчик далеко от стола"
 
 #: docs/Eddy_Probe.md:block 83 (unordered list)
 msgid "Higher temperature than was at the current calibration"
-msgstr ""
+msgstr "Температура выше, чем при текущей калибровке"
 
 #: docs/Eddy_Probe.md:block 83 (unordered list)
 msgid "Capacitor missing"
-msgstr ""
+msgstr "Отсутствует конденсатор"
 
 #: docs/Eddy_Probe.md:block 84 (paragraph)
 msgid ""
 "On some sensors, it is not possible to completely avoid amplitude warning "
 "indicator."
 msgstr ""
+"На некоторых датчиках невозможно полностью избежать индикатора "
+"предупреждения об амплитуде."
 
 #: docs/Eddy_Probe.md:block 85 (paragraph)
 msgid ""
 "You can try to redo the `LDC_CALIBRATE_DRIVE_CURRENT` calibration at work "
 "temperature or increase `reg_drive_current` by 1-2 from the calibrated value."
 msgstr ""
+"Можно попробовать повторить калибровку `LDC_CALIBRATE_DRIVE_CURRENT` при "
+"рабочей температуре или увеличить `reg_drive_current` на 1–2 от "
+"калиброванного значения."
 
 #: docs/Eddy_Probe.md:block 86 (paragraph)
 msgid "Generally, it is like an engine check light. It may indicate an issue."
 msgstr ""
+"В целом это похоже на индикатор проверки двигателя. Он может указывать на "
+"проблему."
 
 #: docs/Eddy_Probe.md:block 87 (header)
 msgid "Possible TAP errors and actionables:"
-msgstr ""
+msgstr "Возможные ошибки «tap» и действия:"
 
 #: docs/Eddy_Probe.md:block 88 (unordered list)
 msgid "insufficient lift (A vs B) - too small Z window received by the code"
 msgstr ""
+"недостаточный подъём (A против B) — слишком маленькое окно Z получено кодом"
 
 #: docs/Eddy_Probe.md:block 88 (unordered list)
 msgid ""
 "LIFT_SPEED/printer.max_z_velocity too low - must be at least 2.5 Recommended "
 ">0.5 RPS. For motor cogging reasons."
 msgstr ""
+"LIFT_SPEED/printer.max_z_velocity слишком низкие — должно быть не менее 2,5. "
+"Рекомендуется >0,5 об/с. Из-за залипания двигателя."
 
 #: docs/Eddy_Probe.md:block 88 (unordered list)
 msgid ""
 "printer.max_z_accel too low - must be larger 35 mm/s^2. Recommended 300 "
 "mm/s^2."
 msgstr ""
+"printer.max_z_accel слишком низкое — должно быть больше 35 мм/с^2. "
+"Рекомендуется 300 мм/с^2."
 
 #: docs/Eddy_Probe.md:block 88 (unordered list)
 msgid "SAMPLE_RETRACT_DIST too low Recommended >2 mm."
-msgstr ""
+msgstr "SAMPLE_RETRACT_DIST слишком низкое. Рекомендуется >2 мм."
 
 #: docs/Eddy_Probe.md:block 88 (unordered list)
 msgid ""
@@ -946,58 +1222,65 @@ msgid ""
 " expected data. Often toolhead has stopped in mid-air because of the "
 "measurement noise."
 msgstr ""
+"контакт не найден при z=Z (дельта наклона A против B) — анализ отвода выдаёт "
+"неожидаемые данные. Часто инструментальная головка остановилась в воздухе из-"
+"за шума измерений."
 
 #: docs/Eddy_Probe.md:block 88 (unordered list)
 msgid "Too high printer.max_z_accel - Z resonances, consider Z input shaper"
 msgstr ""
+"Слишком высокое printer.max_z_accel — резонансы Z, рассмотрите input shaper "
+"для Z"
 
 #: docs/Eddy_Probe.md:block 88 (unordered list)
 msgid "Mechanical vibrations - ex. toolhead fan"
-msgstr ""
+msgstr "Механические вибрации, например, вентилятор инструментальной головки"
 
 #: docs/Eddy_Probe.md:block 88 (unordered list)
 msgid "Sensor noise (elevated chamber/bed temperature)"
-msgstr ""
+msgstr "Шум датчика (повышенная температура камеры/стола)"
 
 #: docs/Eddy_Probe.md:block 88 (unordered list)
 msgid "Increase of tap_threshold normally allows to alleviate symptoms"
-msgstr ""
+msgstr "Увеличение tap_threshold обычно позволяет ослабить симптомы"
 
 #: docs/Eddy_Probe.md:block 88 (unordered list)
 msgid "invalid depress distance (Z vs A:B)"
-msgstr ""
+msgstr "недопустимое расстояние вдавливания (Z против A:B)"
 
 #: docs/Eddy_Probe.md:block 88 (unordered list)
 msgid "if Z < A"
-msgstr ""
+msgstr "если Z < A"
 
 #: docs/Eddy_Probe.md:block 88 (unordered list)
 msgid "tap_threshold too low"
-msgstr ""
+msgstr "tap_threshold слишком низкое"
 
 #: docs/Eddy_Probe.md:block 88 (unordered list)
 msgid "PROBE_SPEED too low"
-msgstr ""
+msgstr "PROBE_SPEED слишком низкая"
 
 #: docs/Eddy_Probe.md:block 88 (unordered list)
 msgid "printer.max_z_accel too low"
-msgstr ""
+msgstr "printer.max_z_accel слишком низкое"
 
 #: docs/Eddy_Probe.md:block 88 (unordered list)
 msgid "if Z > B"
-msgstr ""
+msgstr "если Z > B"
 
 #: docs/Eddy_Probe.md:block 88 (unordered list)
 msgid "Large toolhead tilt (mechanical/installation issue)"
 msgstr ""
+"Большой наклон инструментальной головки (механическая проблема или проблема "
+"установки)"
 
 #: docs/Eddy_Probe.md:block 88 (unordered list)
 msgid "PROBE_SPEED too high"
-msgstr ""
+msgstr "PROBE_SPEED слишком высокая"
 
 #: docs/Eddy_Probe.md:block 88 (unordered list)
 msgid "tap_threshold too high"
-msgstr ""
+msgstr "tap_threshold слишком высокое"
 
 #~ msgid ""
 #~ "This document describes how to use an [eddy "

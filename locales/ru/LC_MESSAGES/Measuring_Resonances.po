@@ -5,17 +5,20 @@
 # gfbdrgng <hnaofegnp@hldrive.com>, 2024, 2025.
 # Evgeniy Khramov <65224669+thejenja@users.noreply.github.com>, 2025.
 # gfbdrgn <erfvvgtyhbnjhyuu@wireconnected.com>, 2025.
+# Andrei Stepanov <adem@users.noreply.hosted.weblate.org>, 2026.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-09-11 15:02+0000\n"
-"Last-Translator: gfbdrgn <erfvvgtyhbnjhyuu@wireconnected.com>\n"
-"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/measuring_resonances/ru/>\n"
+"PO-Revision-Date: 2026-10-25 10:42+0000\n"
+"Last-Translator: Andrei Stepanov <adem@users.noreply.hosted.weblate.org>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/klipper/"
+"measuring_resonances/ru/>\n"
 "Language: ru\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
-"X-Generator: Weblate 5.14-dev\n"
+"Plural-Forms: nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
+"n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
+"X-Generator: Weblate 2026.11.dev0\n"
 
 msgid "Measuring Resonances"
 msgstr "Изменения Резонансов"
@@ -1548,10 +1551,11 @@ msgstr ""
 #: docs/Measuring_Resonances.md:block 41 (paragraph)
 msgid "The RPi has built-in 1.8K pull-ups on both SCL and SDA."
 msgstr ""
+"У RPi есть встроенные подтягивающие резисторы 1,8 кОм на линиях SCL и SDA."
 
 #: docs/Measuring_Resonances.md:block 158 (header)
 msgid "Measuring the resonances of Z axis"
-msgstr ""
+msgstr "Измерение резонансов оси Z"
 
 #: docs/Measuring_Resonances.md:block 159 (paragraph)
 msgid ""
@@ -1563,6 +1567,13 @@ msgid ""
 "the appropriate chip configuration to `printer.cfg` and also add it to "
 "`[resonance_tester]` section, e.g."
 msgstr ""
+"Измерение резонансов оси Z во многом похоже на измерение резонансов осей X и "
+"Y, но имеет некоторые тонкие отличия. Как и при измерениях других осей, вам "
+"потребуется закрепить акселерометр на движущихся частях оси Z — либо на "
+"самом столе (если стол движется по оси Z), либо на инструментальной головке "
+"(если инструментальная головка/портал движется по Z). Вам потребуется "
+"добавить соответствующую конфигурацию чипа в `printer.cfg`, а также добавить "
+"его в раздел `[resonance_tester]`, например:"
 
 #: docs/Measuring_Resonances.md:block 161 (paragraph)
 msgid ""
@@ -1570,6 +1581,10 @@ msgid ""
 "sufficient clearance for Z axis movements (20 mm above bed surface should "
 "provide enough clearance with the default test parameters)."
 msgstr ""
+"Также убедитесь, что `probe_points`, настроенные в `[resonance_tester]`, "
+"обеспечивают достаточный зазор для перемещений по оси Z (20 мм над "
+"поверхностью стола должны дать достаточный зазор при параметрах теста по "
+"умолчанию)."
 
 #: docs/Measuring_Resonances.md:block 162 (paragraph)
 msgid ""
@@ -1579,6 +1594,11 @@ msgid ""
 " to increase `max_z_accel` and `max_z_velocity`. If you have them configured "
 "in `[printer]` section, make sure to set them to at least"
 msgstr ""
+"Следующее соображение: ось Z обычно может достигать меньших максимальных "
+"скоростей и ускорений, чем оси X и Y. Параметры теста по умолчанию учитывают "
+"это и гораздо менее агрессивны, но всё же может потребоваться увеличить "
+"`max_z_accel` и `max_z_velocity`. Если они настроены в разделе `[printer]`, "
+"обязательно установите их как минимум в"
 
 #: docs/Measuring_Resonances.md:block 164 (paragraph)
 msgid ""
@@ -1587,16 +1607,22 @@ msgid ""
 "Z axis, `TEST_RESONANCES` and `SHAPER_CALIBRATE` will provide the minimum "
 "required limits if necessary for your specific case."
 msgstr ""
+"но только на время теста; после этого при необходимости можно вернуть "
+"исходные значения. А если вы используете собственные параметры теста для оси "
+"Z, `TEST_RESONANCES` и `SHAPER_CALIBRATE` при необходимости сообщат "
+"минимально требуемые значения для вашего конкретного случая."
 
 #: docs/Measuring_Resonances.md:block 165 (paragraph)
 msgid ""
 "After all changes to `printer.cfg` have been made, restart Klipper and run "
 "either"
 msgstr ""
+"После внесения всех изменений в `printer.cfg` перезапустите Klipper и "
+"выполните одну из команд:"
 
 #: docs/Measuring_Resonances.md:block 167 (paragraph)
 msgid "or"
-msgstr ""
+msgstr "или"
 
 #: docs/Measuring_Resonances.md:block 169 (paragraph)
 msgid ""
@@ -1604,22 +1630,29 @@ msgid ""
 "after `TEST_RESONANCES` command you can run `calibrate_shaper.py` script and "
 "get shaper recommendations and the chart of resonance response:"
 msgstr ""
+"и далее действуйте так же, как для других осей. Например, после команды "
+"`TEST_RESONANCES` можно запустить скрипт `calibrate_shaper.py` и получить "
+"рекомендации по шейперу и график амплитудно-частотной характеристики:"
 
 #: docs/Measuring_Resonances.md:block 170 (paragraph)
 msgid "![Resonances](img/calibrate-z.png)"
-msgstr ""
+msgstr "![Резонансы](img/calibrate-z.png)"
 
 #: docs/Measuring_Resonances.md:block 171 (paragraph)
 msgid ""
 "After the calibration, the shaper parameters can be stored in the "
 "`printer.cfg`, e.g. from the example above:"
 msgstr ""
+"После калибровки параметры шейпера можно сохранить в `printer.cfg`, "
+"например, из приведённого выше примера:"
 
 #: docs/Measuring_Resonances.md:block 173 (paragraph)
 msgid ""
 "Also, given the movements of Z axis are slow, you can easily consider more "
 "aggressive input shapers, e.g."
 msgstr ""
+"Кроме того, учитывая, что перемещения по оси Z медленные, можно легко "
+"рассмотреть более агрессивные input shaper, например:"
 
 #: docs/Measuring_Resonances.md:block 175 (paragraph)
 msgid ""
@@ -1627,6 +1660,9 @@ msgid ""
 "parameter in `[resonance_tester]` from its default value 15 to a larger value "
 "in the range of 20-30, e.g."
 msgstr ""
+"Если тест даёт некорректные результаты, можно попробовать увеличить параметр "
+"`accel_per_hz_z` в `[resonance_tester]` с его значения по умолчанию 15 до "
+"большего значения в диапазоне 20–30, например:"
 
 #: docs/Measuring_Resonances.md:block 177 (paragraph)
 msgid ""
@@ -1634,18 +1670,26 @@ msgid ""
 "`max_z_accel` and `max_z_velocity` parameters as well. You can run "
 "`TEST_RESONANCES AXIS=Z` command to get the required minimum values."
 msgstr ""
+"и повторить тест. Увеличение этого значения, вероятно, потребует также "
+"увеличения параметров `max_z_accel` и `max_z_velocity`. Вы можете выполнить "
+"команду `TEST_RESONANCES AXIS=Z`, чтобы получить требуемые минимальные "
+"значения."
 
 #: docs/Measuring_Resonances.md:block 178 (paragraph)
 msgid ""
 "However, if you are unable to measure the resonances of Z axis, you can "
 "consider just using"
 msgstr ""
+"Однако если измерить резонансы оси Z не удаётся, можно рассмотреть просто "
+"использование"
 
 #: docs/Measuring_Resonances.md:block 180 (paragraph)
 msgid ""
 "as an acceptable all-round choice, given that the smoothing of Z axis "
 "movements is not of particular concerns."
 msgstr ""
+"в качестве приемлемого универсального варианта, учитывая, что сглаживание "
+"перемещений по оси Z не вызывает особых опасений."
 
 #: docs/Measuring_Resonances.md:block 190 (paragraph)
 msgid ""
@@ -1665,6 +1709,14 @@ msgid ""
 "`square_corner_velocity` parameters. Therefore, you should print some test "
 "prints to see how much smoothing exactly a chosen configuration creates."
 msgstr ""
+"Учтите, что сообщаемые значения `smoothing` — это некоторые абстрактные "
+"расчётные величины. Эти значения можно использовать для сравнения различных "
+"конфигураций: чем выше значение, тем больше сглаживания создаст шейпер. "
+"Однако эти показатели сглаживания не отражают какой-либо реальной меры "
+"сглаживания, поскольку фактическое сглаживание зависит от параметров "
+"[`max_accel`](#selecting-max_accel) и `square_corner_velocity`. Поэтому "
+"следует выполнить несколько тестовых печатей, чтобы увидеть, сколько "
+"сглаживания на самом деле создаёт выбранная конфигурация."
 
 #~ msgid ""
 #~ "Note that the reported `smoothing` values are some abstract projected values. "
