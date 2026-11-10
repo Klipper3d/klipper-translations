@@ -1,16 +1,18 @@
 # "Neko.vecter" <Vecterfang@icloud.com>, 2024, 2025.
 # Eagle Jin <eaglejin0@gmail.com>, 2025.
+# prolet <prolet@users.noreply.hosted.weblate.org>, 2026.
 msgid ""
 msgstr ""
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
-"PO-Revision-Date: 2025-09-18 09:02+0000\n"
-"Last-Translator: Eagle Jin <eaglejin0@gmail.com>\n"
-"Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/projects/klipper/eddy_probe/zh_Hans/>\n"
+"PO-Revision-Date: 2026-11-10 21:09+0000\n"
+"Last-Translator: prolet <prolet@users.noreply.hosted.weblate.org>\n"
+"Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
+"projects/klipper/eddy_probe/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.14-dev\n"
+"X-Generator: Weblate 2026.11.2.dev0\n"
 
 #: docs/Eddy_Probe.md:block 1 (header)
 msgid "Eddy Current Inductive probe"
@@ -231,6 +233,8 @@ msgid ""
 "current](https://en.wikipedia.org/wiki/Eddy_current) inductive probes in "
 "Klipper."
 msgstr ""
+"这个文档描述了Klipper中对于[涡流](https://en.wikipedia.org/wiki/Eddy_current)"
+"感应探针的支持。"
 
 #: docs/Eddy_Probe.md:block 3 (paragraph)
 msgid ""
@@ -240,10 +244,13 @@ msgid ""
 "frequency. The frequency measurements can thus be used to estimate the "
 "distance between sensor and bed."
 msgstr ""
+"这种探针通过测量传感器上线圈的[谐振频率](https://en.wikipedia.org/wiki/"
+"Resonance)来检测打印床。线圈离金属打印床越近，线圈的谐振频率越高。测量频率值"
+"进而可以估计传感器到打印床的距离。"
 
 #: docs/Eddy_Probe.md:block 4 (header)
 msgid "Probing mechanisms"
-msgstr ""
+msgstr "探测机理"
 
 #: docs/Eddy_Probe.md:block 5 (paragraph)
 msgid ""
@@ -253,10 +260,14 @@ msgid ""
 " probe commands (for example, `PROBE METHOD=tap`). Each probing method has "
 "advantages and disadvantages as described below."
 msgstr ""
+"不像传统打印床探针，涡流传感器支持四种不同的探测方式：默认、扫描（\"scan\"）"
+"、快速扫描（\"rapid_scan\"）和点触（\"tap\"）。传递`METHOD=xxx`参数给probe命"
+"令（比如`PROBE METHOD=tap`）可以启动这四种不同的探测方式。下面描述每种探测方"
+"式的优劣。"
 
 #: docs/Eddy_Probe.md:block 6 (header)
 msgid "Default probing method"
-msgstr ""
+msgstr "默认探测方式"
 
 #: docs/Eddy_Probe.md:block 7 (paragraph)
 msgid ""
@@ -267,16 +278,20 @@ msgid ""
 "activated by not specifying a `METHOD` parameter on probe type commands (eg, a"
 " bare `PROBE` command)."
 msgstr ""
+"默认探测方式的行为最像传统的打印床探针。打印头下降（向打印床移动），直到传感"
+"器检测到它靠近打印床，然后在停止的位置执行几次传感器测量以估计传感器到打印床"
+"的距离。在probe有关的命令中不指定`METHOD`参数（例如最基本的`PROBE`命令）以启"
+"用这种探测方式。"
 
 #: docs/Eddy_Probe.md:block 8 (paragraph)
 msgid "Advantages:"
-msgstr ""
+msgstr "优势："
 
 #: docs/Eddy_Probe.md:block 9 (unordered list)
 msgid ""
 "It is the most general purpose probing method. It provides good precision with"
 " good flexibility."
-msgstr ""
+msgstr "这是最通用的探测方法，兼顾不错的精度和灵活性。"
 
 #: docs/Eddy_Probe.md:block 9 (unordered list)
 msgid ""
@@ -284,10 +299,12 @@ msgid ""
 "that the toolhead XY position places the sensor over the metal bed, but "
 "otherwise there is flexibility in the exact starting height."
 msgstr ""
+"可以在多数起始打印头位置使用。必须确保打印头的XY轴位置使得传感器位于金属打印"
+"床上方，但除此之外，起始高度的具体数值比较灵活。"
 
 #: docs/Eddy_Probe.md:block 10 (paragraph)
 msgid "Disadvantages:"
-msgstr ""
+msgstr "劣势："
 
 #: docs/Eddy_Probe.md:block 11 (unordered list)
 msgid ""
@@ -301,10 +318,16 @@ msgid ""
 "recommended to run the calibration and subsequent probes at a consistent "
 "temperature."
 msgstr ""
+"探针的测量结果会受到温度漂移影响。探针报告的距离与初始校准期间测得的距离（通"
+"过`PROBE_EDDY_CURRENT_CALIBRATE`）相关，如果在不同温度下探测，结果可能会受到"
+"影响。打印床、传感器线圈、传感器电子元件的温度变化和靠近传感器的任何金属都可"
+"以影响测量结果。这种影响虽然小（想来大概微米级），但打印床探头可接受的误差同"
+"样微小（大概也是微米级）。为了获得最佳结果，建议在校准及后续测量过程中保持温"
+"度恒定。"
 
 #: docs/Eddy_Probe.md:block 12 (paragraph)
 msgid "When to use:"
-msgstr ""
+msgstr "什么时候用："
 
 #: docs/Eddy_Probe.md:block 13 (paragraph)
 msgid ""
@@ -313,10 +336,14 @@ msgid ""
 "tools such as `QUAD_GANTRY_LEVEL`, `Z_TILT_ADJUST`, `SCREWS_TILT_CALCULATE`, "
 "`DELTA_CALIBRATE`, and similar."
 msgstr ""
+"这是默认的探测方法，推荐在大多数探测操作中使用，特别是对于打印床调平工具（"
+"如`QUAD_GANTRY_LEVEL`、 "
+"`Z_TILT_ADJUST`、`SCREWS_TILT_CALCULATE`、`DELTA_CALIBRATE`以及类似工具）而言"
+"。"
 
 #: docs/Eddy_Probe.md:block 14 (header)
 msgid "\"scan\" probing method"
-msgstr ""
+msgstr "扫描（\"scan\"）探测方式"
 
 #: docs/Eddy_Probe.md:block 15 (paragraph)
 msgid ""
@@ -326,6 +353,9 @@ msgid ""
 " and bed. It is useful for `BED_MESH_CALIBRATE` as the entire bed can be "
 "scanned with only horizontal movements."
 msgstr ""
+"\"scan\"探测方式与默认方式类似，不同之处在于探针不会向打印床下降。相反，探针"
+"会在当前Z轴位置采集传感器测量数据，以此估算传感器与打印床之间的距离。该方法对"
+"于 `BED_MESH_CALIBRATE` 非常有用，因为只需进行水平移动即可扫描整个工作台。"
 
 #: docs/Eddy_Probe.md:block 17 (unordered list)
 msgid ""
@@ -334,10 +364,13 @@ msgid ""
 "particularly useful when only relative Z height measurements are desired (eg, "
 "when using `zero_reference_position` with `BED_MESH_CALIBRATE`)."
 msgstr ""
+"在探测过程中，Z轴位置保持不变，因此Z轴步进电机背隙（及类似因素）影响测量的可"
+"能性较小。当仅需进行相对Z轴高度测量时（例如，在使用 "
+"`zero_reference_position` 配合 `BED_MESH_CALIBRATE` 时），此特性尤为有用。"
 
 #: docs/Eddy_Probe.md:block 17 (unordered list)
 msgid "A full bed scan may take less time than the default method."
-msgstr ""
+msgstr "执行一次全打印床扫描可能会比默认方式花的时间更少。"
 
 #: docs/Eddy_Probe.md:block 19 (unordered list)
 msgid ""
@@ -350,6 +383,11 @@ msgid ""
 "notable bed deviations could result in a nozzle/bed collision during "
 "horizontal movement."
 msgstr ""
+"打印床必须与打印机的 XY 导轨基本平行，且打印床高度不得有较大起伏。为了获得可"
+"接受的结果，进行打印床扫描时必须将 `HORIZONTAL_MOVE_Z` 设置为较低值，以便传感"
+"器在整个扫描过程中始终紧贴打印床。（距离越小，结果越准确。）实际上，这要求喷"
+"嘴与打印床之间的距离不超过约1毫米；在这样的距离下，任何明显的打印床起伏都可能"
+"导致喷嘴在水平移动过程中与打印床发生碰撞。"
 
 #: docs/Eddy_Probe.md:block 19 (unordered list)
 msgid ""
@@ -357,6 +395,8 @@ msgid ""
 " default method. For best results, it is recommended to run the calibration "
 "and subsequent probes at a consistent temperature."
 msgstr ""
+"\"scan\"方法存在与默认方法相同的温度漂移问题。为了获得最佳结果，建议在校准及"
+"后续探针测量过程中保持恒定温度。"
 
 #: docs/Eddy_Probe.md:block 21 (paragraph)
 msgid ""
@@ -368,12 +408,19 @@ msgid ""
 "`Z_TILT_ADJUST RETRY_TOLERANCE=0.250`, or `SCREWS_TILT_CALCULATION "
 "MAX_TOLERANCE=0.250`."
 msgstr ""
+"\"scan\"方法通常用于打印床网格校准。建议在执行打印床扫描之前，始终先验证打印"
+"床是否与打印机的 XY 导轨平行。根据打印机硬件的不同，可以使用采用默认探测方法"
+"的自动化工具来验证打印床是否平行——例如： `QUAD_GANTRY_LEVEL "
+"RETRY_TOLERANCE=0.250`、`Z_TILT_ADJUST RETRY_TOLERANCE=0.250` 或 "
+"`SCREWS_TILT_CALCULATION MAX_TOLERANCE=0.250`。"
 
 #: docs/Eddy_Probe.md:block 22 (paragraph)
 msgid ""
 "A bed mesh can then be run with something similar to `BED_MESH_CALIBRATE "
 "METHOD=scan HORIZONTAL_MOVE_Z=1`."
 msgstr ""
+"随后可以使用类似于 `BED_MESH_CALIBRATE METHOD=scan HORIZONTAL_MOVE_Z=1` 的命"
+"令运行床网计算。"
 
 #: docs/Eddy_Probe.md:block 23 (header)
 msgid "\"rapid_scan\" probing method"

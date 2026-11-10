@@ -10,20 +10,22 @@
 # Core Shot <shotcore4@gmail.com>, 2025.
 # LuckeyMouse <qq2429865423@163.com>, 2025.
 # Eagle Jin <eaglejin0@gmail.com>, 2025.
+# prolet <prolet@users.noreply.hosted.weblate.org>, 2026.
 msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: yifeiding@protonmail.com\n"
 "POT-Creation-Date: 2021-06-28 08:28+0200\n"
-"PO-Revision-Date: 2025-09-17 09:01+0000\n"
-"Last-Translator: Eagle Jin <eaglejin0@gmail.com>\n"
-"Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/projects/klipper/config_reference/zh_Hans/>\n"
+"PO-Revision-Date: 2026-11-10 21:09+0000\n"
+"Last-Translator: prolet <prolet@users.noreply.hosted.weblate.org>\n"
+"Language-Team: Chinese (Simplified Han script) <https://hosted.weblate.org/"
+"projects/klipper/config_reference/zh_Hans/>\n"
 "Language: zh_Hans\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 5.14-dev\n"
+"X-Generator: Weblate 2026.11.2.dev0\n"
 
 msgid ""
 "This document is a reference for options available in the Klipper config file."
@@ -308,6 +310,8 @@ msgid ""
 "Tool to help adjust bed leveling screws. One may define a [bed_screws] config "
 "section to enable a BED_SCREWS_ADJUST g-code command."
 msgstr ""
+"帮助调整打印床调平螺丝的工具。可以定义一个[bed_screws]配置字段来启用"
+"BED_SCREWS_ADJUST G-code命令。"
 
 msgid "[screws_tilt_adjust]"
 msgstr "[screws_tilt_adjust]"
@@ -317,6 +321,8 @@ msgid ""
 "screws_tilt_adjust config section to enable a SCREWS_TILT_CALCULATE g-code "
 "command."
 msgstr ""
+"使用Z轴探针来帮助调节打印床调平螺丝的工具。可以定义一个[screws_tilt_adjust]配"
+"置字段来启用SCREWS_TILT_CALCULATE G-code命令。"
 
 msgid "[z_tilt]"
 msgstr "[z_tilt]"
@@ -485,6 +491,12 @@ msgid ""
 "endstop. If using \"probe:z_virtual_endstop\" then do not define a "
 "position_endstop in the stepper_z config section."
 msgstr ""
+"Z轴高度探针。可以定义这个字段来启用探测Z轴高度的硬件。当这个字段被启用，将可"
+"以使用扩展[G-code 命令](G-Codes.md#probe) PROBE和QUERY_PROBE。更多信息也可"
+"见[探针校准指南](Probe_Calibrate.md)。probe字段还会创建一个虚拟的 "
+"\"probe:z_virtual_endstop\" 引脚。在使用探针代替Z轴限位开关的笛卡尔式打印机上"
+"，可以将stepper_z的endstop_pin设置成这个虚拟引脚。如果用了 "
+"\"probe:z_virtual_endstop\" 就不要在stepper_z配置字段里定义position_endstop。"
 
 msgid "[bltouch]"
 msgstr "[bltouch]"
@@ -550,7 +562,7 @@ msgid "Custom heaters and sensors"
 msgstr "自定义加热器和传感器"
 
 msgid "[verify_heater]"
-msgstr ""
+msgstr "[verify_heater]"
 
 msgid ""
 "Heater and temperature sensor verification. Heater verification is "
@@ -562,7 +574,7 @@ msgid "[homing_heaters]"
 msgstr "[homing_heaters]"
 
 msgid "Tool to disable heaters when homing or probing an axis."
-msgstr ""
+msgstr "用于在归位或探测某轴时禁用加热器的工具。"
 
 msgid "[thermistor]"
 msgstr "[thermistor]"
@@ -916,7 +928,7 @@ msgid ""
 msgstr "有关配置模拟 st7920 显示屏的信息 —它可以在一些\"2.4 寸触摸屏\"和其他类似设备中找到。"
 
 msgid "uc1701 display"
-msgstr ""
+msgstr "uc1701屏幕"
 
 msgid ""
 "Information on configuring uc1701 displays (which is used in \"MKS Mini "
@@ -1024,6 +1036,8 @@ msgid ""
 "TSLl401CL Based Filament Width Sensor. See the "
 "[guide](TSL1401CL_Filament_Width_Sensor.md) for more information."
 msgstr ""
+"基于TSLl401CL的耗材宽度传感器。参见[指引](TSL1401CL_Filament_Width_Sensor.md)"
+"以获取更多信息。"
 
 msgid "[hall_filament_width_sensor]"
 msgstr "[hall_filament_width_sensor]"
@@ -1594,7 +1608,7 @@ msgstr ""
 
 #: docs/Config_Reference.md:block 109 (header)
 msgid "[z_thermal_adjust]"
-msgstr ""
+msgstr "[z_thermal_adjust]"
 
 #: docs/Config_Reference.md:block 110 (paragraph)
 msgid ""
@@ -1639,7 +1653,7 @@ msgstr ""
 
 #: docs/Config_Reference.md:block 172 (paragraph)
 msgid "Support for LIS2DW accelerometers."
-msgstr ""
+msgstr "对LIS2DW加速度计的支持。"
 
 #: docs/Config_Reference.md:block 200 (header)
 msgid "[axis_twist_compensation]"
@@ -1664,7 +1678,7 @@ msgstr "AHT10/AHT20/AHT21 温度传感器"
 
 #: docs/Config_Reference.md:block 277 (header)
 msgid "Combined temperature sensor"
-msgstr ""
+msgstr "组合的温度传感器"
 
 #: docs/Config_Reference.md:block 278 (paragraph)
 msgid ""
@@ -1672,6 +1686,8 @@ msgid ""
 "other sensors. This sensor can be used with extruders, heater_generic and "
 "heater beds."
 msgstr ""
+"组合的温度传感器是基于几个其他传感器的虚拟温度传感器。这个传感器可以被用于挤"
+"出机、heater_generic和热床加热器。"
 
 #: docs/Config_Reference.md:block 345 (paragraph)
 msgid ""
@@ -1680,10 +1696,12 @@ msgid ""
 "name of the corresponding stepper config section (for example, \"[tmc2240 "
 "stepper_x]\")."
 msgstr ""
+"通过SPI总线或UART配置TMC2240步进电机驱动。要使用此功能，定义带有 \"tmc2240\" "
+"前缀、后面跟对应步进电机配置字段的配置字段（例如 \"[tmc2240 stepper_x]\" ）。"
 
 #: docs/Config_Reference.md:block 324 (header)
 msgid "[pwm_tool]"
-msgstr ""
+msgstr "[pwm_tool]"
 
 #: docs/Config_Reference.md:block 325 (paragraph)
 msgid ""
@@ -1709,7 +1727,7 @@ msgstr ""
 
 #: docs/Config_Reference.md:block 200 (header)
 msgid "[probe_eddy_current]"
-msgstr ""
+msgstr "[probe_eddy_current]"
 
 #: docs/Config_Reference.md:block 201 (paragraph)
 msgid ""
@@ -1717,6 +1735,8 @@ msgid ""
 "(instead of a probe section) to enable this probe. See the [command "
 "reference](G-Codes.md#probe_eddy_current) for further information."
 msgstr ""
+"对涡电流感应探针的支持。可以定义这个字段（代替probe字段）来启用探针。参见[命"
+"令参考](G-Codes.md#probe_eddy_current)以获得进一步信息。"
 
 #: docs/Config_Reference.md:block 245 (header)
 msgid "[temperature_probe]"
